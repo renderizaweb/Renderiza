@@ -62,7 +62,7 @@ direto no navegador.
 | [Óticas Laodiceia](demos/oticas-laodiceia) | Diadema | site | pronta · 29/09/2026 |
 | [Iadala Ótica e Visagismo](demos/iadala-otica) | São Caetano do Sul | site | pronta · 29/09/2026 |
 | [Amitié Centro Óptico](demos/amitie-centro-optico) | Mogi das Cruzes | site | pronta · 29/09/2026 |
-| [Ateliê Óptico Jabaquara](demos/atelie-optico-jabaquara) | Jabaquara, São Paulo | site | na fila · 6ª |
+| [Ateliê Óptico Jabaquara](demos/atelie-optico-jabaquara) | Praça da Árvore, São Paulo | site | pronta · 29/09/2026 |
 | [Ótica Líder](demos/otica-lider-guarulhos) | Guarulhos | site | na fila · 7ª |
 | [Mogi Ótica](demos/mogi-otica) | Mogi das Cruzes | site | na fila · 8ª |
 | [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | na fila · 9ª |
