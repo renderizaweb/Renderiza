@@ -36,7 +36,7 @@ Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md
 | # | Pasta | Nota da triagem | Resumo do que ele disse |
 |---|---|---|---|
 | 1 | `otica-sales` | 9,5 | Rostos bonitos, donos como modelos, muita foto real. Muita imagem = sucesso. |
-| 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. |
+| 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. **Em espera:** o zip pegou posts de 2018 (ver ficha). |
 | 3 | `oticas-laodiceia` | 8,5 | Muita arte misturada: garimpar só fotos reais de pessoas e donos. |
 | 4 | `iadala-otica` | 8 | Site deles caiu (resolver o problema). A senhora é vaidosa: dar destaque. Não pesar. |
 | 5 | `amitie-centro-optico` | 8 | Já tem site simples (Google): fazer um bem mais bonito, contando a história. |
@@ -66,6 +66,12 @@ As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao
   `git fetch origin referencias` e `git show origin/referencias:referencias/<arquivo>` (ou um
   `git worktree` do ramo). Foto bruta **nunca** entra na `main`: na demo vão só as escolhidas, dentro do
   `index.html`. (Antes, o lugar era `referencias-demos/` no `garimpo-brasuca`; confira lá também.)
+- Lote atual: `lotes-leads-1 - 28.09.26.zip` no Google Drive do Kaue (link compartilhado no chat, id
+  `1e7NrO_LcfQpwqFBb1aHOVngsGQCkSZ65`). Baixar com
+  `curl -sSL "https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t"`.
+  Cada pasta é uma página do Instagram salva: pegou só a janela de posts que estava carregada, às
+  vezes antiga (Sales 2024, Amitié 2026, Ateliê e Iadala 2023, Interativa 2020–23, Líder 2020–21,
+  Laodiceia 2021, Mogi 2019, D&R 2018). Conferir a data antes de usar uma foto.
 - **Avaliações do Google: o Claude pega sozinho** na hora de fazer a demo.
 - O Instagram bloqueia leitura automática a partir da nuvem (429 / pede login). Por isso as fotos vêm
   do zip do Kaue.
