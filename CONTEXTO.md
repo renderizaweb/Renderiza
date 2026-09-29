@@ -69,6 +69,8 @@ As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao
 
 ## Como pegar dados do Google Maps daqui
 
+- `ferramentas/achar-lugar.mjs` (id do lugar) e `ferramentas/avaliacoes-google.mjs` (endereço, telefone,
+  horário e depoimentos): o caminho usado a partir da Ótica Sales.
 - `ferramentas/maps-mob.mjs`: busca no Google Maps em modo celular e devolve nome, nota e nº de
   avaliações. Uso: `node maps-mob.mjs saida.json "Nome da ótica cidade"`. No modo desktop o painel
   não carrega sem tela; no modo celular funciona.
