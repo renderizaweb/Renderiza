@@ -1,6 +1,13 @@
 # Rascunhos (pesquisa, fotos brutas, versões intermediárias) nunca entram no repositório.
 rascunhos/
-# Gerada pela Vercel a cada publicação (ver vercel.json).
-publico/
 .DS_Store
 Thumbs.db
+# Gerada a cada publicação (npm run build / Vercel).
+publico/
+# Variáveis locais (URL e chave do Supabase, login da IA): nunca vão para o git.
+.env.local
+.env*.local
+.vercel
+node_modules
+# Exportações com dados reais ficam fora do git.
+supabase/importacao-*.sql

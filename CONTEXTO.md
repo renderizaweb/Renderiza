@@ -75,13 +75,20 @@ reais; **sem site próprio** (site quebrado é ótimo sinal); atende no WhatsApp
 Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
 post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha com os descartes.
 
-## Repositórios
+## Repositório e site
 
-- **Oficial: `renderizaweb/renderiza`, branch `main`.** As demos são feitas e enviadas aqui. Desde
-  29/09/2026 a sessão consegue ler e gravar.
-- A pasta `renderiza-demos/` do `kaue7almeida/garimpo-brasuca` (branch
-  `claude/optica-demo-personalizada-ssalu4`) foi a cópia provisória e parou de ser atualizada.
-- Os zips de referência (fotos brutas) continuam em `referencias-demos/` do garimpo-brasuca, na mesma
-  branch: material bruto não entra no repositório da Renderiza.
-- Painel da Renderiza (código): `painel-renderiza/` no garimpo-brasuca. Supabase ainda não
-  configurado; a versão publicada do painel continua a antiga até o Kaue aprovar.
+- **Oficial: `renderizaweb/renderiza`, branch `main`.** Painel e demos no mesmo repositório e no mesmo
+  site da Vercel: `/` é o painel (login, só o Kaue), `/demo/<ótica>` é a demo pública. As demos novas
+  são feitas e enviadas aqui.
+- **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
+  Em 29/09/2026 o Supabase **ainda não estava configurado**: sem as variáveis `SUPABASE_URL` e
+  `SUPABASE_ANON_KEY` na Vercel, o painel mostra "Banco não configurado". Faltam: criar o projeto,
+  rodar `supabase/schema.sql`, criar o usuário, desligar cadastros, importar os dados do painel antigo
+  e cadastrar as variáveis na Vercel.
+- O painel que o Kaue usa hoje ainda é o artifact do Claude (versão antiga):
+  https://claude.ai/artifact/6zFaGzyeMNADQMBVhpKu5b. A prévia da versão nova, com dados fictícios:
+  https://claude.ai/artifact/AMkVgpUfmFf1LkCEN7KunK. Dados reais só migram quando ele aprovar.
+- As pastas `renderiza-demos/` e `painel-renderiza/` do `kaue7almeida/garimpo-brasuca` foram cópias
+  provisórias e pararam de ser atualizadas.
+- Os zips de referência (fotos brutas) continuam em `referencias-demos/` do garimpo-brasuca, branch
+  `claude/optica-demo-personalizada-ssalu4`: material bruto não entra neste repositório.

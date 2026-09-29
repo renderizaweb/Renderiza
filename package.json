@@ -1,0 +1,14 @@
+{
+  "name": "renderiza",
+  "private": true,
+  "type": "module",
+  "description": "Renderiza: painel interno com login (Supabase) e demos públicas das óticas, num site só.",
+  "scripts": {
+    "build": "node scripts/montar-site.mjs",
+    "dev": "node scripts/servidor.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

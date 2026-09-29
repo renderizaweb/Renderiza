@@ -1,6 +1,23 @@
-# Demos da Renderiza
+# Renderiza
 
 > Sessão nova do Claude: leia primeiro o [`CONTEXTO.md`](CONTEXTO.md).
+
+Um site só, publicado na Vercel:
+
+| Endereço | O que abre | Quem vê |
+|---|---|---|
+| `/` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo), com login | só você |
+| `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`) | quem tiver o link |
+| `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
+
+- `painel/`: o painel. Como funciona e como ligar o Supabase e a Vercel: [`painel/README.md`](painel/README.md).
+- `demos/`: uma pasta por ótica (regras abaixo).
+- Só vai para o ar o que `scripts/montar-site.mjs` copia para `publico/`: o painel e os `.html` das demos.
+  Fichas, contexto, ferramentas, banco e scripts nunca são publicados.
+- Todo o site pede ao Google para não indexar, e o endereço principal não lista as demos.
+- Rodar no computador: `npm run dev` (painel em `http://localhost:5173`, demos em `/demo/<ótica>`).
+
+# Demos
 
 Uma pasta por ótica em `demos/`. Cada pasta é independente: criar ou mexer em uma não afeta as outras.
 
@@ -28,20 +45,13 @@ Uma pasta por ótica em `demos/`. Cada pasta é independente: criar ou mexer em 
 - **Avaliações do Google sempre**, com depoimentos reais. A nota aparece só se for 4,8 ou mais; abaixo
   disso, só os depoimentos.
 
-## Link online (Vercel)
+## Link da demo
 
-A Vercel publica **só os arquivos `.html` das demos** (configurado em `vercel.json`). Fichas, contexto e
-ferramentas ficam fora do ar. Cada demo ganha um link com o nome da pasta:
+A pasta vira o link: `demos/otica-sales/index.html` fica em `https://<site>/demo/otica-sales`. Toda vez
+que uma demo chega na `main`, a Vercel publica sozinha. Sem internet, dá para baixar o `.html` e abrir
+direto no navegador.
 
-- site: `https://<projeto>.vercel.app/otica-sales`
-- kit de artes: `https://<projeto>.vercel.app/oticas-f-dias/artes-instagram`
-
-A página inicial não lista nada, para ninguém ver as demos de outras óticas, e os links pedem ao Google
-para não indexar. Toda vez que uma demo nova chega na `main`, a Vercel publica sozinha.
-
-Sem internet, dá para baixar o `.html` e abrir direto no navegador.
-
-## Demos
+## Lista
 
 | Ótica | Onde | Entregável | Situação |
 |---|---|---|---|

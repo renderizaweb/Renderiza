@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "",
-  "buildCommand": "rm -rf publico && mkdir publico && cd demos && find . -name '*.html' -exec cp --parents {} ../publico/ \\;",
+  "buildCommand": "node scripts/montar-site.mjs",
   "outputDirectory": "publico",
   "cleanUrls": true,
   "trailingSlash": false,
