@@ -4,6 +4,7 @@
   "installCommand": "",
   "buildCommand": "node scripts/montar-site.mjs",
   "outputDirectory": "publico",
+  "git": { "deploymentEnabled": { "referencias": false } },
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [

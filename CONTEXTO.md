@@ -60,9 +60,12 @@ As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao
 
 ## Material de cada ótica
 
-- O Kaue separou fotos e referências de cada ótica e sobe como zip em `referencias-demos/` do
-  repositório `garimpo-brasuca` (branch `claude/optica-demo-personalizada-ssalu4`), um zip por ótica
-  com o nome da pasta (`otica-sales.zip`…). Esse material bruto não vai para o repositório da Renderiza.
+- O Kaue separou fotos e referências de cada ótica e sobe como zip na pasta `referencias/` do ramo
+  **`referencias`** deste repositório (ramo separado, sem histórico em comum com a `main` e não
+  publicado na Vercel), um zip por ótica com o nome da pasta (`otica-sales.zip`…). Para ler:
+  `git fetch origin referencias` e `git show origin/referencias:referencias/<arquivo>` (ou um
+  `git worktree` do ramo). Foto bruta **nunca** entra na `main`: na demo vão só as escolhidas, dentro do
+  `index.html`. (Antes, o lugar era `referencias-demos/` no `garimpo-brasuca`; confira lá também.)
 - **Avaliações do Google: o Claude pega sozinho** na hora de fazer a demo.
 - O Instagram bloqueia leitura automática a partir da nuvem (429 / pede login). Por isso as fotos vêm
   do zip do Kaue.
