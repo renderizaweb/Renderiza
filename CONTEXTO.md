@@ -89,13 +89,15 @@ post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha
   - Ambiente do Claude com `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `RENDERIZA_EMAIL` e
     `RENDERIZA_SENHA`, para o Claude gravar pelo `scripts/relato.mjs` (fluxo em
     `docs/atualizacao-por-ia.md`). Nunca pedir senha ou chave pelo chat; nunca usar a chave secreta.
-  - Próximos passos: (1) confirmar se os dados do painel antigo já foram importados (botão "Levar
-    dados para o Supabase" no artifact + SQL Editor); (2) rodar `node scripts/relato.mjs buscar "a"`,
-    que só lê, para testar o login; (3) primeira atualização pela IA devagar, simulando antes de
-    aplicar e conferindo com o Kaue.
-- O painel que o Kaue usa hoje ainda é o artifact do Claude (versão antiga):
-  https://claude.ai/artifact/6zFaGzyeMNADQMBVhpKu5b. A prévia da versão nova, com dados fictícios:
-  https://claude.ai/artifact/AMkVgpUfmFf1LkCEN7KunK. Dados reais só migram quando ele aprovar.
+  - Dados do painel antigo **importados em 29/09/2026** (3 leads, 4 conteúdos, portfólio e guia no
+    `arquivo_legado`). A partir daí o painel oficial é o da Vercel; o artifact do Claude ficou só como
+    histórico.
+  - O Kaue conectou o **conector do Supabase** (MCP) ao Claude: ele entra como administrador e pula o
+    RLS. Para gravar dados, usar a função `renderiza_aplicar_relato` com a identidade do Kaue
+    (`set_config('request.jwt.claims', …)`, ver `docs/atualizacao-por-ia.md`), simulando antes de
+    aplicar. Nunca mudar a estrutura do banco sem pedir.
+- Painel antigo (artifact do Claude, só histórico): https://claude.ai/artifact/6zFaGzyeMNADQMBVhpKu5b.
+  Prévia com dados fictícios: https://claude.ai/artifact/AMkVgpUfmFf1LkCEN7KunK.
 - As pastas `renderiza-demos/` e `painel-renderiza/` do `kaue7almeida/garimpo-brasuca` foram cópias
   provisórias e pararam de ser atualizadas.
 - Os zips de referência (fotos brutas) continuam em `referencias-demos/` do garimpo-brasuca, branch
