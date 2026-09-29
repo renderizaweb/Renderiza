@@ -65,7 +65,7 @@ direto no navegador.
 | [Ateliê Óptico Jabaquara](demos/atelie-optico-jabaquara) | Praça da Árvore, São Paulo | site | pronta · 29/09/2026 |
 | [Ótica Líder](demos/otica-lider-guarulhos) | Guarulhos | site | pronta · 29/09/2026 |
 | [Mogi Ótica](demos/mogi-otica) | Mogi das Cruzes | site | pronta · 29/09/2026 |
-| [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | na fila · 9ª |
+| [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | pronta · 29/09/2026 |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |
