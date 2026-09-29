@@ -1,0 +1,85 @@
+# Contexto para continuar (leia antes de qualquer coisa)
+
+Este arquivo existe para que qualquer sessão nova do Claude continue o trabalho das demos sem perder
+nada do que já foi combinado com o Kaue. Leia inteiro, depois o `README.md` e a `ficha.md` da ótica
+da vez.
+
+## Quem, o quê e como falar
+
+- A Renderiza faz **demos de site para óticas de bairro** e oferece o site pronto ao dono, com um vídeo
+  curto mostrando a demo.
+- Responder sempre em **português**, direto e curto.
+- **Não inventar nada.** O que não deu para confirmar vira "não confirmei". Citar a fonte.
+- Dono da ótica: só pelos dados públicos da empresa (quadro de sócios da Receita). Nada de CPF,
+  endereço ou telefone pessoal.
+- O andamento comercial (enviada, respondeu, fechou) fica no **painel da Renderiza**, não aqui.
+
+## Como tem que ser uma demo de site
+
+- **Carrossel com muitas imagens reais**: donos, equipe, clientes, crianças, produto, fachada.
+  Arte pronta e imagem de IA só em último caso. Muita imagem é o que vende.
+- **Rostos**: escolher as fotos em que cada pessoa aparece melhor. É o que agrada o dono.
+- **Vídeo vira foto**: usar a capa ou um quadro nítido e bem enquadrado. Vídeo no site só se for leve.
+- **Site leve**: nada de efeito demais nem muitos vídeos.
+- **História**: contar quando a ótica tem uma (anos de casa, família, trajetória). Se não tem, não
+  encher linguiça.
+- **Avaliações do Google sempre**, com depoimentos reais (nome + trecho). A nota aparece só se for
+  **4,8 ou mais**; abaixo disso, só os depoimentos.
+- Arquivo único `index.html` com as fotos dentro, que abre direto no navegador.
+- Referência de acabamento: as demos prontas em `demos/otica-catglass`, `demos/oticas-perez` e
+  `demos/franco-oticas` (as mais recentes).
+
+## Fila atual (aprovada pelo Kaue em 29/09/2026)
+
+Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md` da pasta.
+
+| # | Pasta | Nota da triagem | Resumo do que ele disse |
+|---|---|---|---|
+| 1 | `otica-sales` | 9,5 | Rostos bonitos, donos como modelos, muita foto real. Muita imagem = sucesso. |
+| 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. |
+| 3 | `oticas-laodiceia` | 8,5 | Muita arte misturada: garimpar só fotos reais de pessoas e donos. |
+| 4 | `iadala-otica` | 8 | Site deles caiu (resolver o problema). A senhora é vaidosa: dar destaque. Não pesar. |
+| 5 | `amitie-centro-optico` | 8 | Já tem site simples (Google): fazer um bem mais bonito, contando a história. |
+| 6 | `atelie-optico-jabaquara` | "muito bom" | Fora da curva, muito estilo: o site tem que ser uma arte em si. Desde 1951. |
+| 7 | `otica-lider-guarulhos` | 7 | Casal de donos, clientes, fachada, crianças. Muito vídeo: transformar em foto. |
+| 8 | `mogi-otica` | 6 a 7 | Pouca foto real, muita arte de IA. Garimpar. |
+| 9 | `otica-interativa` | 6 | O bom está nos vídeos: usar capas ou quadros. |
+
+Descartadas: Embu Ótica (já negociou, não quis), Estância, Suzan, Ótica e Relojoaria Santo Amaro.
+
+## Material de cada ótica
+
+- O Kaue separou fotos e referências de cada ótica e sobe como zip em `referencias-demos/` do
+  repositório `garimpo-brasuca` (branch `claude/optica-demo-personalizada-ssalu4`), um zip por ótica
+  com o nome da pasta (`otica-sales.zip`…). Esse material bruto não vai para o repositório da Renderiza.
+- **Avaliações do Google: o Claude pega sozinho** na hora de fazer a demo.
+- O Instagram bloqueia leitura automática a partir da nuvem (429 / pede login). Por isso as fotos vêm
+  do zip do Kaue.
+
+## Como pegar dados do Google Maps daqui
+
+- `ferramentas/maps-mob.mjs`: busca no Google Maps em modo celular e devolve nome, nota e nº de
+  avaliações. Uso: `node maps-mob.mjs saida.json "Nome da ótica cidade"`. No modo desktop o painel
+  não carrega sem tela; no modo celular funciona.
+- Depoimentos: abrir a página do lugar no Maps (URL com o id do lugar e `!9m1!1b1`, que abre a aba de
+  avaliações) com Playwright, clicar em "Mais" para expandir e ler os elementos `[data-review-id]`.
+  Ordenar por "Mais recentes" e "Maior nota" para ter variedade.
+- Playwright: Chromium em `/opt/pw-browsers/chromium`, com o proxy do ambiente
+  (`proxy: { server: process.env.HTTPS_PROXY }`).
+
+## Busca de novas óticas (quando pedir)
+
+Critérios: independente e pequena (nada de rede ou franquia); o dono aparece no Instagram com fotos
+reais; **sem site próprio** (site quebrado é ótimo sinal); atende no WhatsApp; ativa (postou nos
+últimos 30 dias, no máximo 3 meses); Google com nota 4,0 ou mais e pelo menos 8 avaliações.
+Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
+post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha com os descartes.
+
+## Repositórios
+
+- Destino final: `renderizaweb/renderiza` (repositório oficial da Renderiza). Em 29/09/2026 a
+  sessão conseguia ler mas não gravar (faltava o app do Claude na conta `renderizaweb`).
+- Cópia de trabalho até lá: pasta `renderiza-demos/` do `kaue7almeida/garimpo-brasuca`, branch
+  `claude/optica-demo-personalizada-ssalu4`. As duas devem ficar iguais.
+- Painel da Renderiza (código): `painel-renderiza/` no garimpo-brasuca. Supabase ainda não
+  configurado; a versão publicada do painel continua a antiga até o Kaue aprovar.

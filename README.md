@@ -1,5 +1,7 @@
 # Demos da Renderiza
 
+> Sessão nova do Claude: leia primeiro o [`CONTEXTO.md`](CONTEXTO.md).
+
 Uma pasta por ótica em `demos/`. Cada pasta é independente: criar ou mexer em uma não afeta as outras.
 
 ## Regras
