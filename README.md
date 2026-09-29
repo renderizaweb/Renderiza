@@ -57,7 +57,7 @@ direto no navegador.
 
 | Ótica | Onde | Entregável | Situação |
 |---|---|---|---|
-| [Ótica Sales](demos/otica-sales) | São Caetano do Sul | site | na fila · 1ª |
+| [Ótica Sales](demos/otica-sales) | São Caetano do Sul | site | pronta · 29/09/2026 |
 | [Ótica D&R](demos/otica-der) | São Bernardo do Campo | site | na fila · 2ª |
 | [Óticas Laodiceia](demos/oticas-laodiceia) | Diadema | site | na fila · 3ª |
 | [Iadala Ótica e Visagismo](demos/iadala-otica) | São Caetano do Sul | site | na fila · 4ª |
