@@ -48,7 +48,9 @@ Uma pasta por ótica em `demos/`. Cada pasta é independente: criar ou mexer em 
 ## Link da demo
 
 A pasta vira o link: `demos/otica-sales/index.html` fica em `https://<site>/demo/otica-sales`. Toda vez
-que uma demo chega na `main`, a Vercel publica sozinha. Sem internet, dá para baixar o `.html` e abrir
+que uma demo chega na `main`, a Vercel publica sozinha. No painel, o campo **Link da demo** do lead
+recebe só o caminho (`/demo/otica-sales`): aparece a etiqueta "demo ↗" na tabela e no kanban, e o
+botão "Copiar link da demo para enviar" monta o link completo para mandar à ótica. Sem internet, dá para baixar o `.html` e abrir
 direto no navegador.
 
 ## Lista

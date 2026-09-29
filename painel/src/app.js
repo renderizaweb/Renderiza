@@ -74,6 +74,7 @@ function urlHref(v) {
   const s = String(v || "").trim();
   if (!s) return "";
   if (/^https?:\/\//i.test(s)) return s;
+  if (/^\/[\w\-./]+$/.test(s)) return s; // página deste mesmo site, ex.: /demo/otica-sales
   if (/^@[\w.]+$/.test(s)) return "https://www.instagram.com/" + s.slice(1) + "/";
   if (/^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(s)) return "https://" + s;
   return "";
@@ -248,6 +249,7 @@ const planilhaLeads = criarPlanilha({
   ocultas: () => ui.ocultas.leads,
   aoOcultar: campo => { ui.ocultas.leads.add(campo); guardar(); render(); },
   marcas: l => [
+    urlHref(l.link_demo) ? { texto: "demo ↗", classe: "marca-demo", titulo: "Abrir a demo em outra aba", href: urlHref(l.link_demo) } : null,
     l.revisar ? { texto: "revisar", titulo: "Veio do painel antigo e precisa de revisão" } : null,
     l.nao_contatar ? { texto: "não contatar", classe: "marca-parar", titulo: "Pediu para não receber mais contato" } : null,
   ].filter(Boolean),
@@ -391,6 +393,8 @@ function renderKanban() {
         h("strong", { text: l.empresa || "Sem nome" }),
         detalhe ? h("small", { text: detalhe }) : null,
         h("span", { class: "kanban-chips" },
+          urlHref(l.link_demo) ? h("a", { class: "chip-demo", href: urlHref(l.link_demo), target: "_blank", rel: "noopener noreferrer", title: "Abrir a demo em outra aba", text: "demo ↗",
+            draggable: "false", onclick: e => e.stopPropagation(), onkeydown: e => e.stopPropagation() }) : null,
           l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: l.resultado === "ganho" ? "Ganho" : "Perda" }) : null,
           l.interesse && l.interesse !== "nao_avaliado" ? h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }) : null,
           l.nao_contatar ? h("span", { class: "chip-parar", text: "não contatar" }) : null));
@@ -480,6 +484,19 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
 }
 const secao = (titulo, ...filhos) => h("section", { class: "painel-secao" }, titulo ? h("h3", { class: "section-eyebrow", text: titulo }) : null, ...filhos);
 const grade = (...filhos) => h("div", { class: "campos" }, ...filhos);
+
+// Link completo da demo (com o endereço do site), pronto para mandar para a ótica.
+function botaoCopiarDemo() {
+  let link = "";
+  const botao = h("button", { class: "text-link copiar-demo", type: "button" }, icone("copiar", 14), "Copiar link da demo para enviar");
+  botao.addEventListener("click", () => {
+    if (!link) return;
+    const mostrar = () => aviso("Copie o link: " + link);
+    try { navigator.clipboard.writeText(link).then(() => aviso("Link da demo copiado."), mostrar); } catch (e) { mostrar(); }
+  });
+  vincular(l => { const u = urlHref(l.link_demo); link = u ? new URL(u, location.href).href : ""; botao.hidden = !link; });
+  return botao;
+}
 
 function caixaRevisar(tabela, id) {
   const motivo = h("span");
@@ -583,8 +600,9 @@ function corpoDoLead(id) {
       campo("leads", id, { campo: "cidade", rotulo: "Cidade", duplo: true }),
       campo("leads", id, { campo: "segmento", rotulo: "Segmento", placeholder: "Ex.: Ótica" }))),
     secao("Demo", h("div", { class: "campos campos-2" },
-      campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "https://…" }),
-      campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" }))),
+      campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
+      campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })),
+      botaoCopiarDemo()),
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, placeholder: "Livre, para quando quiser anotar algo." })),
     rodapePainel("leads", id),
   ];

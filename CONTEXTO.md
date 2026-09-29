@@ -47,6 +47,17 @@ Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md
 
 Descartadas: Embu Ótica (já negociou, não quis), Estância, Suzan, Ótica e Relojoaria Santo Amaro.
 
+As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
+(`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
+
+## Quando uma demo fica pronta
+
+1. `demos/<pasta>/index.html` na `main` deste repositório: a Vercel publica em `/demo/<pasta>`.
+2. No painel (Supabase), no lead da ótica: `link_demo = '/demo/<pasta>'` (caminho relativo, sem o
+   domínio), etapa `demo_criada` e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
+   tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
+3. Atualizar a `ficha.md` (situação `pronta · data`) e a tabela do `README.md`.
+
 ## Material de cada ótica
 
 - O Kaue separou fotos e referências de cada ótica e sobe como zip em `referencias-demos/` do
