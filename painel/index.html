@@ -243,11 +243,73 @@ td.money .inline-text{text-align:right}
 
 /* painel lateral */
 .painel-fundo{position:fixed;inset:0;z-index:40;background:#0f231c40}
-.painel{position:fixed;top:0;right:0;bottom:0;z-index:41;width:min(689px,100%);background:#fff;border-left:1px solid var(--border);box-shadow:-12px 0 32px -16px #0c351540;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);animation:deslizar .2s ease-out}
+.painel{position:fixed;top:0;right:0;bottom:0;z-index:41;width:min(689px,100%);background:#f3f7f5;border-left:1px solid var(--border);box-shadow:-12px 0 32px -16px #0c351540;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);animation:deslizar .2s ease-out}
 @keyframes deslizar{from{transform:translateX(24px);opacity:.6}}
-.painel-topo{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 4px 30px;border-bottom:1px solid transparent}
-.painel-topo span{font-size:.75rem;letter-spacing:1.5px;font-weight:600;color:#7c8e81}
-.painel-corpo{flex:1;overflow:auto;overscroll-behavior:contain;padding:8px 30px calc(32px + env(safe-area-inset-bottom,0px));display:grid;gap:20px;align-content:start;container-type:inline-size}
+.painel-topo{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 0 30px;background:#e7f3ec}
+.painel-topo span{font-size:.75rem;letter-spacing:1.5px;font-weight:600;color:#5f8a75}
+.painel-corpo{--pad:30px;flex:1;overflow:auto;overscroll-behavior:contain;padding:0 var(--pad) calc(32px + env(safe-area-inset-bottom,0px));display:grid;gap:16px;align-content:start;container-type:inline-size}
+
+/* painel lateral: cabeçalho da ótica */
+.lead-cabecalho{margin:0 calc(var(--pad) * -1);padding:10px var(--pad) 20px;background:linear-gradient(180deg,#e7f3ec 0%,#f3f7f5 100%);border-bottom:1px solid #dfeae4;display:grid;gap:14px}
+.lead-identidade{display:flex;align-items:center;gap:14px;min-width:0}
+.lead-avatar{flex:none;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-weight:700;font-size:1.05rem;letter-spacing:.5px;color:#fff;background:#24775c;box-shadow:0 8px 18px -10px #0c3515b3,inset 0 -2px 0 #00000014}
+.lead-avatar.cor-agua{background:#1f7a74}
+.lead-avatar.cor-azul{background:#3b6fb6}
+.lead-avatar.cor-roxo{background:#5b4fc4}
+.lead-avatar.cor-ambar{background:#b7832a}
+.lead-avatar.cor-rosa{background:#b0416a}
+.lead-nome{flex:1;min-width:0;display:grid;gap:2px}
+.lead-nome .campo{gap:0}
+.campo input.titulo-painel{background:transparent}
+.campo input.titulo-painel:focus{background:#fff}
+.lead-sub{display:flex;align-items:center;gap:6px;font-size:.8125rem;color:#56695f;min-width:0}
+.lead-sub span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lead-sub svg{color:#6f9a85}
+.lead-chips{display:flex;flex-wrap:wrap;gap:6px}
+.lead-chips:empty{display:none}
+.lead-chip{display:inline-flex;align-items:center;gap:5px;font-size:.6875rem;font-weight:600;padding:3px 9px;border-radius:999px;background:#eef2f0;color:#52645b;white-space:nowrap}
+.lead-chip.retorno-atrasado{background:#fbe6e3;color:#b3261e}
+.lead-chip.retorno-hoje{background:#fdf0d5;color:#8b5d12}
+.lead-chip.retorno-futuro{background:#e4edf9;color:#2f5b99}
+.lead-chip.resultado-ganho{background:#dff1e5;color:#1f6b41}
+.lead-chip.resultado-perda{background:#fbe6e3;color:#b3261e}
+.etapas{display:grid;gap:8px}
+.etapas-legenda{display:none;font-size:.75rem;font-weight:600;color:#3d5546}
+.etapas-trilha{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.etapa-passo{display:grid;gap:6px;min-width:0}
+.etapa-barra{height:6px;border-radius:999px;background:#d9e4de}
+.etapa-nome{font-size:.6875rem;font-weight:500;color:#8a978f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etapa-passo.feita .etapa-barra{background:#93c8ab}
+.etapa-passo.feita .etapa-nome{color:#52645b}
+.etapa-passo.atual .etapa-barra{background:var(--primary);box-shadow:0 0 0 3px #24775c29}
+.etapa-passo.atual .etapa-nome{color:#174e3d;font-weight:700}
+.etapa-passo.atual.perda .etapa-barra{background:#c2493d;box-shadow:0 0 0 3px #c2493d29}
+.etapa-passo.atual.perda .etapa-nome{color:#a33a2f}
+@container (max-width:520px){.etapas-legenda{display:block}.etapa-nome{display:none}}
+.lead-acoes{display:flex;flex-wrap:wrap;gap:8px}
+.acao-rapida{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px;border-radius:999px;background:#fff;border:1px solid #d3e2d9;font-size:.8125rem;font-weight:600;color:#2f4f43;box-shadow:0 1px 2px #0c35150d;transition:background-color .15s,border-color .15s;white-space:nowrap}
+.acao-rapida:hover{background:#f0f7f3;border-color:#b5d0c1}
+.acao-rapida.whatsapp{background:#1f9d57;border-color:#1f9d57;color:#fff}
+.acao-rapida.whatsapp:hover{background:#1a8a4c;border-color:#1a8a4c}
+.acao-rapida.demo{background:#5b4fc4;border-color:#5b4fc4;color:#fff}
+.acao-rapida.demo:hover{background:#4d42ad;border-color:#4d42ad}
+
+/* painel lateral: cada assunto num cartão */
+.cartao{background:#fff;border:1px solid #e1eae5;border-radius:14px;padding:16px 18px 18px;box-shadow:0 1px 2px #0c35150a;display:grid;gap:14px;min-width:0}
+.cartao-topo{display:flex;align-items:center;gap:10px;min-height:30px}
+.cartao-icone{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center}
+.cartao-titulo{font-size:.9375rem;font-weight:600;color:#22342f;letter-spacing:-.1px}
+.cartao-topo>:nth-child(3){margin-left:auto}
+.cor-verde .cartao-icone{background:#e2f1e7;color:#24775c}
+.cor-azul .cartao-icone{background:#e4edf9;color:#3b6fb6}
+.cor-roxo .cartao-icone{background:#ece9fb;color:#5b4fc4}
+.cor-ambar .cartao-icone{background:#f8ecd2;color:#9a6a17}
+.cor-agua .cartao-icone{background:#def1ef;color:#1f7a74}
+.cartao.cor-ambar{background:#fffcf4;border-color:#efe3c6}
+.cartao.cor-ambar textarea{background:#fffaf0;border-color:#ecdcb6;line-height:1.65;min-height:110px;resize:none;overflow:hidden}
+.cartao.cor-ambar textarea:focus{border-color:#c9a45a;box-shadow:0 0 0 2px #f6e9c9}
+.cartao-fechamento{border-color:#cfe5d7}
+.cartao .dica-cadencia{margin-top:0}
 .titulo-painel{width:100%;font-size:1.3rem!important;font-weight:600;letter-spacing:-.5px;border:1px solid transparent!important;border-radius:6px;padding:4px 6px!important;margin:0 -6px;background:none;height:auto!important;color:var(--foreground)}
 .titulo-painel:hover{border-color:#d6e4da!important}
 .titulo-painel:focus{border-color:#439069!important;outline:none;box-shadow:none!important}
@@ -315,7 +377,6 @@ td.money .inline-text{text-align:right}
 .chip-parar{background:#f7e9e7;color:#9a432d}
 .chip-demo{display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;background:#dceee1;color:#1f5a45;text-decoration:none}
 .chip-demo:hover{background:#cfe4d6}
-.copiar-demo{margin-top:8px}
 .select-trigger.interesse-interessado,.cell-select.interesse-interessado{color:#1f5f7a;font-weight:600}
 .select-trigger.interesse-perto_de_fechar,.cell-select.interesse-perto_de_fechar{color:#2d6a1f;font-weight:600}
 .cell-select.interesse-nao_avaliado{color:#849087}
@@ -465,8 +526,9 @@ td.money .inline-text{text-align:right}
   .planilhao .sticky-name{min-width:170px;width:170px}
   .planilhao tbody td.sticky-name{padding-left:52px}
   .open-row-button,.ir{opacity:1}
-  .painel-corpo{padding-inline:18px}
+  .painel-corpo{--pad:18px}
   .painel-topo{padding-left:18px}
+  .cartao{padding:14px 14px 16px}
   .tl-item{grid-template-columns:1fr;gap:2px}
   .placar{grid-template-columns:1fr}
   .fila-celulas{grid-template-columns:repeat(2,minmax(0,1fr))}

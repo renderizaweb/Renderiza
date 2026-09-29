@@ -450,7 +450,7 @@ $("#fechar-painel").addEventListener("click", fecharPainel);
 $("#painel-fundo").addEventListener("click", fecharPainel);
 
 /** Campo do painel: salva ao sair; se falhar, volta ao valor do banco. */
-function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo, duplo, placeholder, href, linhas: nLinhas, classe }) {
+function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo, duplo, placeholder, href, linhas: nLinhas, classe, crescer }) {
   let el;
   if (tipo === "area") el = h("textarea", { rows: String(nLinhas || 4), placeholder: placeholder || "" });
   else if (tipo === "select") el = h("select", {}, ...opcoes.map(([v, t]) => h("option", { value: v, text: t })));
@@ -473,6 +473,12 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
   });
   if (tipo !== "area") el.addEventListener("keydown", e => { if (e.key === "Enter" && el.tagName === "INPUT") { e.preventDefault(); el.blur(); } });
   vincular(linha => { mostrar(linha, false); el.disabled = !dados.podeEditar(); });
+  if (crescer) {
+    // Texto longo aparece inteiro, sem barra de rolagem dentro da caixa.
+    const ajustar = () => { el.style.height = "auto"; el.style.height = el.scrollHeight + 2 + "px"; };
+    el.addEventListener("input", ajustar);
+    vincular(() => requestAnimationFrame(ajustar));
+  }
   let controle = el;
   if (href) {
     const a = h("a", { class: "ir", target: "_blank", rel: "noopener noreferrer", "aria-label": "Abrir " + rotulo, title: "Abrir" }, icone("abrirLink", 14));
@@ -482,20 +488,110 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
   if (!rotulo) el.setAttribute("aria-label", nome === "observacoes" ? "Observações" : nome);
   return h("label", { class: "campo" + (largo ? " largo" : "") + (duplo ? " duplo" : "") }, rotulo ? h("span", { text: rotulo }) : null, controle);
 }
-const secao = (titulo, ...filhos) => h("section", { class: "painel-secao" }, titulo ? h("h3", { class: "section-eyebrow", text: titulo }) : null, ...filhos);
+// Cada seção do painel é um cartão com ícone e cor próprios, para separar os assuntos à primeira vista.
+const ESTILO_SECAO = {
+  Andamento: ["alvo", "verde"], Fechamento: ["trofeu", "verde"], Observações: ["nota", "ambar"],
+  Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], Contato: ["pessoa", "agua"],
+  Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"],
+};
+function cartao(titulo, { acao, classe = "" } = {}, ...filhos) {
+  const [nomeIcone, cor] = ESTILO_SECAO[titulo] || ["info", "verde"];
+  return h("section", { class: `painel-secao cartao cor-${cor} ${classe}`.trim() },
+    h("header", { class: "cartao-topo" }, h("span", { class: "cartao-icone" }, icone(nomeIcone, 16)), h("h3", { class: "cartao-titulo", text: titulo }), acao || null),
+    ...filhos);
+}
+const secao = (titulo, ...filhos) => cartao(titulo, {}, ...filhos);
 const grade = (...filhos) => h("div", { class: "campos" }, ...filhos);
 
-// Link completo da demo (com o endereço do site), pronto para mandar para a ótica.
-function botaoCopiarDemo() {
-  let link = "";
-  const botao = h("button", { class: "text-link copiar-demo", type: "button" }, icone("copiar", 14), "Copiar link da demo para enviar");
-  botao.addEventListener("click", () => {
-    if (!link) return;
-    const mostrar = () => aviso("Copie o link: " + link);
-    try { navigator.clipboard.writeText(link).then(() => aviso("Link da demo copiado."), mostrar); } catch (e) { mostrar(); }
+/* ---------- cabeçalho do painel: quem é a ótica, onde está no funil e o que dá para fazer já ---------- */
+const PALAVRAS_FRACAS = new Set(["otica", "oticas", "optica", "opticas", "otico", "optico", "centro", "e", "de", "da", "do", "das", "dos"]);
+const CORES_AVATAR = ["verde", "agua", "azul", "roxo", "ambar", "rosa"];
+const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+/** Iniciais e cor fixa por nome: "Ótica CatGlass" → CG, "Iadala Ótica e Visagismo" → IV. */
+function monograma(nome) {
+  const palavras = String(nome || "").split(/\s+/).map(p => p.replace(/[^\p{L}\p{N}]/gu, "")).filter(Boolean);
+  const fortes = palavras.filter(p => !PALAVRAS_FRACAS.has(semAcento(p)));
+  const base = fortes.length ? fortes : palavras;
+  const maiusculas = base.length === 1 ? base[0].replace(/[^\p{Lu}]/gu, "") : "";
+  const ini = base.length >= 2 ? base[0][0] + base[1][0] : maiusculas.length >= 2 ? maiusculas.slice(0, 2) : (base[0] || "?").slice(0, 2);
+  let soma = 0;
+  for (const c of semAcento(nome)) soma = (soma * 31 + c.charCodeAt(0)) >>> 0;
+  return [ini.toUpperCase(), CORES_AVATAR[soma % CORES_AVATAR.length]];
+}
+
+const ETAPA_CURTA = { a_trabalhar: "A trabalhar", demo_criada: "Demo criada", gravacao_realizada: "Gravação", demo_enviada: "Enviada", follow_up: "Follow-up", finalizado: "Finalizado" };
+function trilhaDeEtapas() {
+  const passos = ETAPAS.map(e => h("li", { class: "etapa-passo" }, h("span", { class: "etapa-barra" }), h("span", { class: "etapa-nome", text: ETAPA_CURTA[e.id] || e.nome })));
+  const legenda = h("p", { class: "etapas-legenda" });
+  vincular(l => {
+    const atual = ETAPAS.findIndex(e => e.id === l.etapa);
+    const final = l.etapa === "finalizado" && l.resultado ? (l.resultado === "ganho" ? "Ganho" : "Perda") : "Finalizado";
+    passos.forEach((li, i) => {
+      li.className = "etapa-passo" + (i < atual ? " feita" : i === atual ? " atual" : "") + (i === atual && l.etapa === "finalizado" && l.resultado ? " " + l.resultado : "");
+      if (i === atual) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current");
+      if (ETAPAS[i].id === "finalizado") li.lastChild.textContent = final;
+    });
+    legenda.textContent = `Etapa ${atual + 1} de ${ETAPAS.length} · ${l.etapa === "finalizado" ? final : ETAPAS[atual]?.nome || ""}`;
   });
-  vincular(l => { const u = urlHref(l.link_demo); link = u ? new URL(u, location.href).href : ""; botao.hidden = !link; });
-  return botao;
+  return h("div", { class: "etapas" }, legenda, h("ol", { class: "etapas-trilha", "aria-label": "Etapa do funil" }, ...passos));
+}
+
+function chipsDoLead() {
+  const el = h("div", { class: "lead-chips" });
+  vincular(l => {
+    const chips = [];
+    if (l.followup_em && l.etapa !== "finalizado" && !l.nao_contatar) {
+      const hoje = hojeLocal();
+      const estado = l.followup_em < hoje ? "atrasado" : l.followup_em === hoje ? "hoje" : "futuro";
+      const texto = estado === "atrasado" ? "Retorno atrasado · " + diaMes(l.followup_em) : estado === "hoje" ? "Retorno hoje" : "Retorno em " + diaMes(l.followup_em);
+      chips.push(h("span", { class: "lead-chip retorno-" + estado }, icone("relogio", 13), texto));
+    }
+    if (l.interesse && l.interesse !== "nao_avaliado") chips.push(h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }));
+    if (l.nao_contatar) chips.push(h("span", { class: "chip-parar", text: "não contatar" }));
+    if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: l.resultado === "ganho" ? "Ganho" + (l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") : "Perda" }));
+    el.replaceChildren(...chips);
+  });
+  return el;
+}
+
+/** WhatsApp, Instagram e demo a um toque, sem procurar os campos lá embaixo. */
+function acoesRapidas() {
+  const el = h("div", { class: "lead-acoes" });
+  let linkDemo = "";
+  const copiar = h("button", { type: "button", class: "acao-rapida copiar-demo", title: "Copia o link completo, pronto para mandar à ótica" }, icone("copiar", 15), "Copiar link da demo");
+  copiar.addEventListener("click", () => {
+    if (!linkDemo) return;
+    const mostrar = () => aviso("Copie o link: " + linkDemo);
+    try { navigator.clipboard.writeText(linkDemo).then(() => aviso("Link da demo copiado."), mostrar); } catch (e) { mostrar(); }
+  });
+  const link = (classe, href, nomeIcone, texto) => h("a", { class: "acao-rapida " + classe, href, target: "_blank", rel: "noopener noreferrer" }, icone(nomeIcone, 15), texto);
+  vincular(l => {
+    const wa = waHref(l.whatsapp), ig = urlHref(l.instagram), demo = urlHref(l.link_demo);
+    const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
+    linkDemo = demo ? new URL(demo, location.href).href : "";
+    const botoes = [
+      wa ? link("whatsapp", wa, "mensagem", "WhatsApp") : null,
+      ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
+      demo ? link("demo", demo, "monitor", "Ver demo") : null,
+      demo ? copiar : null,
+    ].filter(Boolean);
+    el.replaceChildren(...botoes);
+    el.hidden = !botoes.length;
+  });
+  return el;
+}
+
+function cabecalho(titulo, { subtitulo, extras = [] }) {
+  const avatar = h("span", { class: "lead-avatar", "aria-hidden": "true" });
+  const sub = h("p", { class: "lead-sub" });
+  vincular(l => {
+    const [ini, cor] = monograma(l.empresa ?? l.titulo);
+    avatar.textContent = ini; avatar.className = "lead-avatar cor-" + cor;
+    const [nomeIcone, texto] = subtitulo(l);
+    sub.replaceChildren(...(texto ? [icone(nomeIcone, 14), h("span", { text: texto })] : []));
+    sub.hidden = !texto;
+  });
+  return h("header", { class: "lead-cabecalho" }, h("div", { class: "lead-identidade" }, avatar, h("div", { class: "lead-nome" }, titulo, sub)), ...extras);
 }
 
 function caixaRevisar(tabela, id) {
@@ -564,7 +660,7 @@ function corpoDoLead(id) {
   vincular(l => { naoContatar.checked = !!l.nao_contatar; naoContatar.disabled = !dados.podeEditar(); });
 
   const motivo = campo("leads", id, { campo: "motivo_perda", rotulo: "Motivo da perda", largo: true, placeholder: "Opcional" });
-  const fechamento = secao("Fechamento", grade(
+  const fechamento = cartao("Fechamento", { classe: "cartao-fechamento" }, grade(
     campo("leads", id, { campo: "resultado", rotulo: "Resultado", tipo: "select", opcoes: RESULTADOS.map(r => [r.id, r.nome]) }),
     campo("leads", id, { campo: "data_fechamento", rotulo: "Data do fechamento", tipo: "data" }),
     campo("leads", id, { campo: "valor_fechado", rotulo: "Valor fechado", tipo: "valor", placeholder: "R$" }),
@@ -578,32 +674,33 @@ function corpoDoLead(id) {
   vincular(() => { registrar.disabled = !dados.podeEditar(); });
 
   return [
-    titulo,
+    cabecalho(titulo, {
+      subtitulo: l => ["local", [l.cidade, l.segmento].map(s => String(s || "").trim()).filter(Boolean).join(" · ")],
+      extras: [chipsDoLead(), trilhaDeEtapas(), acoesRapidas()],
+    }),
     caixaRevisar("leads", id),
-    grade(
-      h("div", { class: "campo" }, h("span", { text: "Etapa" }), etapa),
-      h("div", { class: "campo" }, h("span", { text: "Interesse" }), interesse),
-      campo("leads", id, { campo: "followup_em", rotulo: "Follow-up (plano)", tipo: "data" }),
-      campo("leads", id, { campo: "proxima_acao", rotulo: "Próxima ação", duplo: true, placeholder: "O que fazer no próximo contato" }),
-      campo("leads", id, { campo: "valor_potencial", rotulo: "Valor potencial", tipo: "valor", placeholder: "R$" }),
-      motivoInteresse),
-    cadencia,
-    h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos.")),
+    secao("Andamento",
+      grade(
+        h("div", { class: "campo" }, h("span", { text: "Etapa" }), etapa),
+        h("div", { class: "campo" }, h("span", { text: "Interesse" }), interesse),
+        campo("leads", id, { campo: "followup_em", rotulo: "Follow-up (plano)", tipo: "data" }),
+        campo("leads", id, { campo: "proxima_acao", rotulo: "Próxima ação", duplo: true, placeholder: "O que fazer no próximo contato" }),
+        campo("leads", id, { campo: "valor_potencial", rotulo: "Valor potencial", tipo: "valor", placeholder: "R$" }),
+        motivoInteresse),
+      cadencia,
+      h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos."))),
     fechamento,
-    h("section", { class: "painel-secao secao-interacoes" },
-      h("div", { class: "secao-topo" }, h("h3", { class: "section-eyebrow", text: "Interações" }), registrar),
-      linhaDoTempo.el),
+    secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
+    cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),
+    secao("Demo", h("div", { class: "campos campos-2" },
+      campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
+      campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" }))),
     secao("Contato", grade(
       campo("leads", id, { campo: "whatsapp", rotulo: "WhatsApp", href: waHref, placeholder: "(11) 9…" }),
       campo("leads", id, { campo: "instagram", rotulo: "Instagram ou site", href: urlHref, placeholder: "@perfil" }),
       campo("leads", id, { campo: "site_atual", rotulo: "Site atual", href: urlHref, placeholder: "https://…" }),
       campo("leads", id, { campo: "cidade", rotulo: "Cidade", duplo: true }),
       campo("leads", id, { campo: "segmento", rotulo: "Segmento", placeholder: "Ex.: Ótica" }))),
-    secao("Demo", h("div", { class: "campos campos-2" },
-      campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
-      campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })),
-      botaoCopiarDemo()),
-    secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, placeholder: "Livre, para quando quiser anotar algo." })),
     rodapePainel("leads", id),
   ];
 }
@@ -611,14 +708,15 @@ function corpoDoLead(id) {
 function corpoDoConteudo(id) {
   const titulo = campo("conteudos", id, { campo: "titulo", classe: "titulo-painel" });
   titulo.querySelector("input").setAttribute("aria-label", "Título ou ideia");
+  const nomeDe = (lista, v) => (lista.find(x => x.id === v) || {}).nome || "";
   return [
-    titulo,
+    cabecalho(titulo, { subtitulo: c => ["documento", [nomeDe(CANAIS, c.canal), nomeDe(STATUS_CONTEUDO, c.status)].filter(Boolean).join(" · ")] }),
     caixaRevisar("conteudos", id),
-    grade(
+    secao("Planejamento", grade(
       campo("conteudos", id, { campo: "canal", rotulo: "Canal", tipo: "select", opcoes: [["", "—"], ...CANAIS.map(c => [c.id, c.nome])] }),
       campo("conteudos", id, { campo: "status", rotulo: "Status", tipo: "select", opcoes: STATUS_CONTEUDO.map(s => [s.id, s.nome]) }),
       campo("conteudos", id, { campo: "data_planejada", rotulo: "Data planejada", tipo: "data" }),
-      campo("conteudos", id, { campo: "link_publicacao", rotulo: "Link da publicação", href: urlHref, placeholder: "https://…" })),
+      campo("conteudos", id, { campo: "link_publicacao", rotulo: "Link da publicação", href: urlHref, largo: true, placeholder: "https://…" }))),
     secao("Texto", grade(
       campo("conteudos", id, { campo: "gancho", rotulo: "Gancho", largo: true, placeholder: "A primeira frase ou a primeira imagem" }),
       campo("conteudos", id, { campo: "texto", rotulo: "Texto ou legenda", tipo: "area", linhas: 7, largo: true }),
@@ -626,7 +724,7 @@ function corpoDoConteudo(id) {
     secao("Arquivos", grade(
       campo("conteudos", id, { campo: "link_imagem", rotulo: "Link da imagem", href: urlHref, largo: true, placeholder: "https://…" }),
       campo("conteudos", id, { campo: "link_video", rotulo: "Link do vídeo", href: urlHref, largo: true, placeholder: "https://…" }))),
-    secao("Observações", campo("conteudos", id, { campo: "observacoes", tipo: "area", linhas: 4 })),
+    secao("Observações", campo("conteudos", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true })),
     rodapePainel("conteudos", id),
   ];
 }
