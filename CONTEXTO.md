@@ -81,10 +81,18 @@ post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha
   site da Vercel: `/` é o painel (login, só o Kaue), `/demo/<ótica>` é a demo pública. As demos novas
   são feitas e enviadas aqui.
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
-  Em 29/09/2026 o Supabase **ainda não estava configurado**: sem as variáveis `SUPABASE_URL` e
-  `SUPABASE_ANON_KEY` na Vercel, o painel mostra "Banco não configurado". Faltam: criar o projeto,
-  rodar `supabase/schema.sql`, criar o usuário, desligar cadastros, importar os dados do painel antigo
-  e cadastrar as variáveis na Vercel.
+  Situação em 29/09/2026:
+  - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
+    `schema.sql` rodado, usuário do Kaue criado, novos cadastros desligados.
+  - Vercel com `SUPABASE_URL` e `SUPABASE_ANON_KEY` (chave pública `sb_publishable_…`): o login
+    funciona no endereço principal.
+  - Ambiente do Claude com `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `RENDERIZA_EMAIL` e
+    `RENDERIZA_SENHA`, para o Claude gravar pelo `scripts/relato.mjs` (fluxo em
+    `docs/atualizacao-por-ia.md`). Nunca pedir senha ou chave pelo chat; nunca usar a chave secreta.
+  - Próximos passos: (1) confirmar se os dados do painel antigo já foram importados (botão "Levar
+    dados para o Supabase" no artifact + SQL Editor); (2) rodar `node scripts/relato.mjs buscar "a"`,
+    que só lê, para testar o login; (3) primeira atualização pela IA devagar, simulando antes de
+    aplicar e conferindo com o Kaue.
 - O painel que o Kaue usa hoje ainda é o artifact do Claude (versão antiga):
   https://claude.ai/artifact/6zFaGzyeMNADQMBVhpKu5b. A prévia da versão nova, com dados fictícios:
   https://claude.ai/artifact/AMkVgpUfmFf1LkCEN7KunK. Dados reais só migram quando ele aprovar.
