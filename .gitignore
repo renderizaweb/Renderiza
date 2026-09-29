@@ -1,0 +1,4 @@
+# Rascunhos (pesquisa, fotos brutas, versões intermediárias) nunca entram no repositório.
+rascunhos/
+.DS_Store
+Thumbs.db
