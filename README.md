@@ -65,6 +65,21 @@ direto no navegador.
 | [Ótica Líder](demos/otica-lider-guarulhos) | Guarulhos | site | pronta · 29/09/2026 |
 | [Mogi Ótica](demos/mogi-otica) | Mogi das Cruzes | site | pronta · 29/09/2026 |
 | [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | pronta · 29/09/2026 |
+| [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | na fila · lote 2 · 1ª |
+| [Ótica Boutique dos Óculos](demos/boutique-dos-oculos) | Aclimação, São Paulo | site | na fila · lote 2 · 2ª |
+| [Ótica Haramaki](demos/otica-haramaki) | Vila Perus, São Paulo | site | na fila · lote 2 · 3ª |
+| [Nova Ótica Bonsucesso](demos/nova-otica-bonsucesso) | Cidade Nova Bonsucesso, Guarulhos | site | na fila · lote 2 · 4ª |
+| [Ótica Vitória Mairiporã](demos/otica-vitoria-mairipora) | Centro, Mairiporã | site | na fila · lote 2 · 5ª |
+| [Ótica Martinez Ramos](demos/otica-martinez-ramos) | Planalto Paulista, São Paulo | site | na fila · lote 2 · 6ª |
+| [Ótica Wagner](demos/otica-wagner) | Centro, Poá | site | na fila · lote 2 · 7ª |
+| [Ótica e Relojoaria Dutra](demos/otica-dutra) | Cidade Dutra, São Paulo | site | na fila · lote 2 · 8ª |
+| [Ótica Ítalo Setti](demos/otica-italo-setti) | Baeta Neves, São Bernardo do Campo | site | na fila · lote 2 · 9ª |
+| [Cupecê Óticas](demos/cupece-oticas) | Jardim Prudência, São Paulo | site | na fila · lote 2 · 10ª |
+| [Ótica Perfil](demos/otica-perfil) | Tingidor, Embu das Artes | site | na fila · lote 2 · 11ª |
+| [Ótica Pocopetz](demos/otica-pocopetz) | Centro, Mairiporã | site | na fila · lote 2 · 12ª |
+| [Óticas RVN](demos/oticas-rvn) | Perus, São Paulo | site | na fila · lote 2 · 13ª |
+| [Ótica Studio7](demos/otica-studio7) | Centro, Mauá | site | na fila · lote 2 · 14ª |
+| [Lez Ótica](demos/lez-otica) | Jardim Albertina, Guarulhos | site | na fila · lote 2 · 15ª |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |

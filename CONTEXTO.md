@@ -29,9 +29,9 @@ da vez.
 - Referência de acabamento: as demos prontas em `demos/otica-catglass`, `demos/oticas-perez` e
   `demos/franco-oticas` (as mais recentes).
 
-## Fila atual (aprovada pelo Kaue em 29/09/2026)
+## Lote 1 (aprovado pelo Kaue em 29/09/2026): demos prontas
 
-Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md` da pasta.
+Feitas uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md` da pasta.
 
 | # | Pasta | Nota da triagem | Resumo do que ele disse |
 |---|---|---|---|
@@ -49,6 +49,35 @@ Removida: `iadala-otica` (4ª da fila): demo excluída a pedido da cliente em 29
 
 As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
 (`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
+
+## Lote 2 (aprovado pelo Kaue em 29/09/2026): na fila
+
+Saiu da varredura de 29/09/2026 (ver "Busca de novas óticas"). O Kaue vai mandar as fotos de cada uma
+num lote de imagens no Drive, como no lote 1. Direção e alertas na `ficha.md` de cada pasta.
+
+| # | Pasta | O que o Kaue disse |
+|---|---|---|
+| 1 | `otica-nina` | Aprovada, bom potencial. Muitas fotos e modelos da própria Nina que dá para usar, e as avaliações do Google para aproveitar. Aproveitar bem as imagens do Instagram, que o Kaue vai mandar no lote de imagens (Drive). |
+| 2 | `boutique-dos-oculos` | Uma das óticas mais incríveis em fotos reais: nada de propaganda de marca, só clientes reais usando os óculos, felizes, dezenas e dezenas. O Instagram é uma galeria de clientes. A demo tem que ser espetacular, fora da curva, pensada como uma galeria de imagens, sem pensar duas vezes. Somar avaliações e a história. |
+| 3 | `otica-haramaki` | Bom potencial, mas complexo: muito vídeo e pouca imagem (há algumas fotos de modelos para reaproveitar). Vai exigir expertise para aproveitar os vídeos. O dono parece ser o rapaz que está sempre nos vídeos; dá para trocar uma boa ideia. Grande possibilidade de fechamento; nota boa. |
+| 4 | `nova-otica-bonsucesso` | Muito boa. O casal de donos posa bastante com os óculos; a loja é bonita e bem fotografada. Dá para fazer uma boa demo. Aprovada. |
+| 5 | `otica-vitoria-mairipora` | Aprovada na triagem. |
+| 6 | `otica-martinez-ramos` | Aprovada na triagem. |
+| 7 | `otica-wagner` | Potencial bem bom; a paleta de cores é bonita, dá para fazer um site bem bacana. Cuidado: existe outro Instagram, @oticawagner, de outra cidade. Não confundir. |
+| 8 | `otica-dutra` | Aprovada na triagem. |
+| 9 | `otica-italo-setti` | Aprovada na triagem. |
+| 10 | `cupece-oticas` | Aprovada na triagem. |
+| 11 | `otica-perfil` | Aprovada na triagem. |
+| 12 | `otica-pocopetz` | Aprovada na triagem. |
+| 13 | `oticas-rvn` | Aprovada na triagem. |
+| 14 | `otica-studio7` | Aprovada na triagem. |
+| 15 | `lez-otica` | Aprovada na triagem. |
+
+As 15 estão no painel como **Leads a trabalhar**, com id igual ao nome da pasta, próxima ação
+"Criar demo (lote 2 · Nª)" e as observações do Kaue. Ficaram para uma próxima leva (boas, com
+ressalva): Evangélica, Yannis, Nomura, Vizzuti, Zóio, Judá, Alianza, Millennium Express, Spaziani,
+Dr. Ótica, Pontes, Ojota e Majestic. Recusadas na triagem: Studio do Óculos, Gold Vision, Renova,
+Ricoo, Queirooz, Imagem Ótica, MedÓtica e De Óculos.
 
 ## Quando uma demo fica pronta
 
@@ -96,6 +125,19 @@ reais; **sem site próprio** (site quebrado é ótimo sinal); atende no WhatsApp
 últimos 30 dias, no máximo 3 meses); Google com nota 4,0 ou mais e pelo menos 8 avaliações.
 Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
 post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha com os descartes.
+
+Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
+1. `maps-lista.mjs`: lista do Google Maps por bairro ("ótica em Tatuapé São Paulo"), 20 por busca.
+   Foram 112 bairros e cidades da Grande SP, 1.785 óticas diferentes.
+2. Filtro: fora redes, franquias e nomes com 3+ unidades; nota 4,7+; 20 a 1.200 avaliações.
+3. `maps-lugar.mjs`: site, telefone, endereço e redes de cada lugar. Fora quem tem site funcionando.
+4. `igembed.py`: lê o embed público do perfil (`/<usuario>/embed/`): seguidores, posts e os 6
+   últimos posts com data, legenda e foto. É o único jeito de ler o Instagram daqui sem login.
+   `achar-ig.py` tenta variações do nome quando o Google não aponta o @.
+5. Fora sem post em 90 dias e com menos de 800 seguidores; folha com os 6 posts de cada uma para
+   olhar se o dono aparece e se as fotos são reais.
+6. **Confirmar a cidade de todo @ achado pelo nome** (legenda com a rua ou busca na web): no lote 2,
+   vários eram de outra cidade (Soberana = Itajaí, Tradição = BH, Nostra = Argentina).
 
 ## Repositório e site
 
