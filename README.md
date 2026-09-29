@@ -60,7 +60,7 @@ direto no navegador.
 | [Ótica Sales](demos/otica-sales) | São Caetano do Sul | site | pronta · 29/09/2026 |
 | [Ótica D&R](demos/otica-der) | São Bernardo do Campo | site | em espera: fotos do zip são de 2018 |
 | [Óticas Laodiceia](demos/oticas-laodiceia) | Diadema | site | pronta · 29/09/2026 |
-| [Iadala Ótica e Visagismo](demos/iadala-otica) | São Caetano do Sul | site | na fila · 4ª |
+| [Iadala Ótica e Visagismo](demos/iadala-otica) | São Caetano do Sul | site | pronta · 29/09/2026 |
 | [Amitié Centro Óptico](demos/amitie-centro-optico) | Mogi das Cruzes | site | na fila · 5ª |
 | [Ateliê Óptico Jabaquara](demos/atelie-optico-jabaquara) | Jabaquara, São Paulo | site | na fila · 6ª |
 | [Ótica Líder](demos/otica-lider-guarulhos) | Guarulhos | site | na fila · 7ª |
