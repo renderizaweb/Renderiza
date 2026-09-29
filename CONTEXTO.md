@@ -77,9 +77,11 @@ post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha
 
 ## Repositórios
 
-- Destino final: `renderizaweb/renderiza` (repositório oficial da Renderiza). Em 29/09/2026 a
-  sessão conseguia ler mas não gravar (faltava o app do Claude na conta `renderizaweb`).
-- Cópia de trabalho até lá: pasta `renderiza-demos/` do `kaue7almeida/garimpo-brasuca`, branch
-  `claude/optica-demo-personalizada-ssalu4`. As duas devem ficar iguais.
+- **Oficial: `renderizaweb/renderiza`, branch `main`.** As demos são feitas e enviadas aqui. Desde
+  29/09/2026 a sessão consegue ler e gravar.
+- A pasta `renderiza-demos/` do `kaue7almeida/garimpo-brasuca` (branch
+  `claude/optica-demo-personalizada-ssalu4`) foi a cópia provisória e parou de ser atualizada.
+- Os zips de referência (fotos brutas) continuam em `referencias-demos/` do garimpo-brasuca, na mesma
+  branch: material bruto não entra no repositório da Renderiza.
 - Painel da Renderiza (código): `painel-renderiza/` no garimpo-brasuca. Supabase ainda não
   configurado; a versão publicada do painel continua a antiga até o Kaue aprovar.
