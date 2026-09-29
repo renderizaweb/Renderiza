@@ -28,7 +28,18 @@ Uma pasta por ótica em `demos/`. Cada pasta é independente: criar ou mexer em 
 - **Avaliações do Google sempre**, com depoimentos reais. A nota aparece só se for 4,8 ou mais; abaixo
   disso, só os depoimentos.
 
-Para ver uma demo, baixe o arquivo `.html` e abra no navegador (o GitHub não mostra HTML como página).
+## Link online (Vercel)
+
+A Vercel publica **só os arquivos `.html` das demos** (configurado em `vercel.json`). Fichas, contexto e
+ferramentas ficam fora do ar. Cada demo ganha um link com o nome da pasta:
+
+- site: `https://<projeto>.vercel.app/otica-sales`
+- kit de artes: `https://<projeto>.vercel.app/oticas-f-dias/artes-instagram`
+
+A página inicial não lista nada, para ninguém ver as demos de outras óticas, e os links pedem ao Google
+para não indexar. Toda vez que uma demo nova chega na `main`, a Vercel publica sozinha.
+
+Sem internet, dá para baixar o `.html` e abrir direto no navegador.
 
 ## Demos
 

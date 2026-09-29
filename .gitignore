@@ -1,4 +1,6 @@
 # Rascunhos (pesquisa, fotos brutas, versões intermediárias) nunca entram no repositório.
 rascunhos/
+# Gerada pela Vercel a cada publicação (ver vercel.json).
+publico/
 .DS_Store
 Thumbs.db
