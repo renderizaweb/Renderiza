@@ -36,7 +36,7 @@ Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md
 | # | Pasta | Nota da triagem | Resumo do que ele disse |
 |---|---|---|---|
 | 1 | `otica-sales` | 9,5 | Rostos bonitos, donos como modelos, muita foto real. Muita imagem = sucesso. |
-| 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. **Em espera:** o zip pegou posts de 2018 (ver ficha). |
+| 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. Demo feita com as fotos de 2018 do zip (ver ficha). |
 | 3 | `oticas-laodiceia` | 8,5 | Muita arte misturada: garimpar só fotos reais de pessoas e donos. |
 | 4 | `iadala-otica` | 8 | Site deles caiu (resolver o problema). A senhora é vaidosa: dar destaque. Não pesar. |
 | 5 | `amitie-centro-optico` | 8 | Já tem site simples (Google): fazer um bem mais bonito, contando a história. |
