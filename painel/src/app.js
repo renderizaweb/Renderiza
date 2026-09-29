@@ -507,7 +507,7 @@ const grade = (...filhos) => h("div", { class: "campos" }, ...filhos);
 const PALAVRAS_FRACAS = new Set(["otica", "oticas", "optica", "opticas", "otico", "optico", "centro", "e", "de", "da", "do", "das", "dos"]);
 const CORES_AVATAR = ["verde", "agua", "azul", "roxo", "ambar", "rosa"];
 const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-/** Iniciais e cor fixa por nome: "Ótica CatGlass" → CG, "Iadala Ótica e Visagismo" → IV. */
+/** Iniciais e cor fixa por nome: "Ótica CatGlass" → CG. */
 function monograma(nome) {
   const palavras = String(nome || "").split(/\s+/).map(p => p.replace(/[^\p{L}\p{N}]/gu, "")).filter(Boolean);
   const fortes = palavras.filter(p => !PALAVRAS_FRACAS.has(semAcento(p)));

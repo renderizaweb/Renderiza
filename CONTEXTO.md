@@ -38,7 +38,6 @@ Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md
 | 1 | `otica-sales` | 9,5 | Rostos bonitos, donos como modelos, muita foto real. Muita imagem = sucesso. |
 | 2 | `otica-der` | 9 | Uma das melhores: equipe, donos, produto, crianças, tudo recente e nítido. Demo feita com as fotos de 2018 do zip (ver ficha). |
 | 3 | `oticas-laodiceia` | 8,5 | Muita arte misturada: garimpar só fotos reais de pessoas e donos. |
-| 4 | `iadala-otica` | 8 | Site deles caiu (resolver o problema). A senhora é vaidosa: dar destaque. Não pesar. |
 | 5 | `amitie-centro-optico` | 8 | Já tem site simples (Google): fazer um bem mais bonito, contando a história. |
 | 6 | `atelie-optico-jabaquara` | "muito bom" | Fora da curva, muito estilo: o site tem que ser uma arte em si. Desde 1951. |
 | 7 | `otica-lider-guarulhos` | 7 | Casal de donos, clientes, fachada, crianças. Muito vídeo: transformar em foto. |
@@ -46,8 +45,9 @@ Uma por vez, nesta ordem. A direção específica de cada uma está na `ficha.md
 | 9 | `otica-interativa` | 6 | O bom está nos vídeos: usar capas ou quadros. |
 
 Descartadas: Embu Ótica (já negociou, não quis), Estância, Suzan, Ótica e Relojoaria Santo Amaro.
+Removida: `iadala-otica` (4ª da fila): demo excluída a pedido da cliente em 29/09/2026. Não refazer nem reenviar.
 
-As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
+As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
 (`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
 
 ## Quando uma demo fica pronta
@@ -70,7 +70,7 @@ As 9 já estão no painel (Supabase) como **Leads a trabalhar**, com id igual ao
   `1e7NrO_LcfQpwqFBb1aHOVngsGQCkSZ65`). Baixar com
   `curl -sSL "https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t"`.
   Cada pasta é uma página do Instagram salva: pegou só a janela de posts que estava carregada, às
-  vezes antiga (Sales 2024, Amitié 2026, Ateliê e Iadala 2023, Interativa 2020–23, Líder 2020–21,
+  vezes antiga (Sales 2024, Amitié 2026, Ateliê 2023, Interativa 2020–23, Líder 2020–21,
   Laodiceia 2021, Mogi 2019, D&R 2018). Conferir a data antes de usar uma foto.
 - **Avaliações do Google: o Claude pega sozinho** na hora de fazer a demo.
 - O Instagram bloqueia leitura automática a partir da nuvem (429 / pede login). Por isso as fotos vêm
