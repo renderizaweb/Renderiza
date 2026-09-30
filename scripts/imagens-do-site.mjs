@@ -44,7 +44,7 @@ async function gerarImagens() {
     .pe strong{color:#fff;font-weight:600}`;
   const og = `<style>${css}</style><div class="quadro">
     <div class="marca"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#c9f19b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${CAMADAS}</svg><b>renderiza<span>.</span></b></div>
-    <h1>Sites bonitos e leves para <em>pequenos negócios</em>.</h1>
+    <h1>Do site da loja ao <em>aplicativo com IA</em>.</h1>
     <div class="pe"><span><strong>${config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, fundador da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
   </div>`;
   const icone = tam => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:#123d32;display:grid;place-items:center}</style>

@@ -115,3 +115,10 @@ test("vercel.json: só a home pode ser indexada; painel, login, demos e api não
   for (const s of ["/demo/(.*)", "/painel", "/painel/(.*)", "/login", "/api/(.*)"]) assert.ok(semIndice.includes(s), s);
   assert.ok(!v.headers.some(h => h.source === "/(.*)"));
 });
+
+test("abertura: frase concreta e trabalho real (Move), sem a ilustração esquemática", () => {
+  const html = montarPagina(config);
+  assert.match(html, /<h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA<\/em>\.<\/h1>/);
+  assert.match(html, /<figure class="vitrine">[\s\S]*movexfit\.com\.br[\s\S]*\/imagens\/move-celular\.webp/);
+  assert.doesNotMatch(html, /Sites bonitos e leves|class="ilustracao"/);
+});

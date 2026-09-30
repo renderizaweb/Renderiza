@@ -54,6 +54,9 @@ export default {
       ],
       credito: "Um produto Move, desenvolvido pela Renderiza.",
       imagem: "/imagens/move.webp",
+      // Print do celular: aparece junto do print grande na abertura (desktop).
+      imagemCelular: "/imagens/move-celular.webp",
+      legenda: "aplicativo desenvolvido pela Renderiza",
       alt: "Página inicial do Move, com a tela de um treino em execução",
       link: "https://www.movexfit.com.br",
       linkTexto: "Conhecer o Move",

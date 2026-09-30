@@ -53,6 +53,8 @@ export function telefoneLegivel(numero) {
   return d;
 }
 
+const dominio = url => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
+
 const TIPOS_DE_TRABALHO = ["cliente", "demonstracao"];
 
 function linkDoTrabalho(t, texto) {
@@ -124,6 +126,8 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const destaques = trabalhos.filter(t => t.destaque);
   const demais = trabalhos.filter(t => !t.destaque);
   const temDemo = trabalhos.some(t => t.selo === "demonstracao");
+  // Abertura mostra trabalho real: o primeiro destaque com print.
+  const vitrine = destaques.find(t => t.imagem);
 
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
   const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
@@ -161,7 +165,7 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Renderiza: sites bonitos e leves para pequenos negócios">
+<meta property="og:image:alt" content="Renderiza: do site da loja ao aplicativo com IA">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -194,8 +198,8 @@ ${css.trim()}
     <div class="envoltorio abertura-grade">
       <div class="abertura-texto">
         <p class="assinatura"><span class="avatar">${avatar}</span><span><strong>${esc(nomeCompleto)}</strong><small>Fundador da Renderiza</small></span></p>
-        <h1 id="abertura-titulo">Sites bonitos e leves para <em>pequenos negócios</em>.</h1>
-        <p class="abertura-lide">Rápidos, pensados para o celular e com um caminho direto para o cliente falar com você no WhatsApp. Quando o projeto pede mais, desenvolvo aplicativos sob medida.</p>
+        <h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA</em>.</h1>
+        <p class="abertura-lide">Sites e aplicativos sob medida, feitos de ponta a ponta por um desenvolvedor com ${esc(pessoa.anosDeExperiencia)} anos de experiência em produto. Você fala direto com quem desenvolve.</p>
         <div class="acoes">
           <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Conversar no WhatsApp</a>
           <a class="botao botao-secundario botao-grande" href="#trabalhos">Ver trabalhos${icone("baixo", 18)}</a>
@@ -203,28 +207,21 @@ ${css.trim()}
         ${telefone ? `<p class="canal-oficial">${icone("selo", 16)}<span>WhatsApp oficial: <strong>${esc(telefone)}</strong></span></p>` : ""}
       </div>
 
-      <figure class="ilustracao" aria-labelledby="ilustracao-legenda">
-        <div class="celular" aria-hidden="true">
-          <div class="celular-tela">
-            <div class="mini-topo"><span class="mini-logo"></span><span class="mini-linha curta"></span></div>
-            <div class="mini-fotos"><span></span><span></span><span></span></div>
-            <p class="mini-rotulo">Fotos reais</p>
-            <div class="mini-bloco"><span class="mini-estrelas">★★★★★</span><span class="mini-linha"></span><span class="mini-linha media"></span></div>
-            <p class="mini-rotulo">Avaliações do Google</p>
-            <div class="mini-bloco mini-mapa"><span class="mini-pino"></span></div>
-            <p class="mini-rotulo">Horário, endereço e mapa</p>
-            <div class="mini-botao">${icone("whatsapp", 13)}Chamar no WhatsApp</div>
-          </div>
+${vitrine ? `<figure class="vitrine">
+        <div class="navegador">
+          <div class="navegador-barra" aria-hidden="true"><span></span><span></span><span></span><em>${esc(dominio(vitrine.link))}</em></div>
+          <img src="${esc(vitrine.imagem)}" alt="${esc(vitrine.alt || "Tela do " + vitrine.titulo)}" width="1200" height="672" loading="lazy" decoding="async">
         </div>
-        <figcaption id="ilustracao-legenda">Ilustração: o que um site pode reunir.</figcaption>
-      </figure>
+        ${vitrine.imagemCelular ? `<div class="vitrine-celular"><img src="${esc(vitrine.imagemCelular)}" alt="" width="360" height="779" loading="lazy" decoding="async"></div>` : ""}
+        <figcaption><a href="#trabalhos"><strong>${esc(vitrine.titulo)}</strong> · ${esc(vitrine.legenda || vitrine.tipo)}${icone("baixo", 14)}</a></figcaption>
+      </figure>` : ""}
     </div>
   </section>
 
   <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">O que eu faço</p>
-      <h2 id="servicos-titulo">Do site da loja ao aplicativo completo.</h2>
+      <h2 id="servicos-titulo">Do tamanho que o seu negócio precisa.</h2>
       <div class="servicos">
         <article class="servico servico-principal">
           <h3>Sites para pequenos negócios</h3>
