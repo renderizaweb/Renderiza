@@ -4,12 +4,13 @@
 
 export default {
   // Endereço público do site, sem barra no fim. Usado no link canônico e na imagem de compartilhamento
-  // (o WhatsApp só mostra a prévia com endereço completo). Trocar quando houver domínio próprio.
-  endereco: "https://renderiza-five.vercel.app",
+  // (o WhatsApp só mostra a prévia com endereço completo). renderizaweb.com.br redireciona para o www.
+  endereco: "https://www.renderizaweb.com.br",
 
   pessoa: {
-    nome: "Cauê",
-    // Foto real, quadrada ou vertical, em site/estatico/imagens/ (ex.: "/imagens/caue.webp"). PENDENTE.
+    nome: "Kaue",
+    nomeCompleto: "Kaue de Almeida Cunha",
+    // Foto real, quadrada ou vertical, em site/estatico/imagens/ (ex.: "/imagens/kaue.webp"). PENDENTE.
     foto: "",
     trabalhoAtual: "Warren Investimentos",
     // Desde quando cria soluções digitais para clientes.
@@ -17,13 +18,13 @@ export default {
   },
 
   contato: {
-    // Número do WhatsApp Business com DDI e DDD, só dígitos (ex.: "5511999999999"). PENDENTE.
-    whatsapp: "",
+    // Número do WhatsApp Business com DDI e DDD, só dígitos.
+    whatsapp: "5511988697165",
     // Mensagem que já vem escrita quando a pessoa abre a conversa.
-    mensagemWhatsapp: "Oi, Cauê! Vi o site da Renderiza e quero conversar sobre um projeto.",
-    // Perfil pessoal (ex.: "https://www.linkedin.com/in/seu-perfil"). PENDENTE.
-    linkedin: "",
-    // Só com perfil confirmado. Opcional: o site funciona sem.
+    mensagemWhatsapp: "Oi, Kaue! Vi o site da Renderiza e quero conversar sobre um projeto.",
+    // Perfil pessoal (sem os parâmetros de rastreio do link de compartilhar).
+    linkedin: "https://www.linkedin.com/in/kaue-de-almeida-cunha-300188193",
+    // Instagram da Renderiza: ainda não criado (30/09/2026). Opcional: o site funciona sem.
     instagram: "",
   },
 
@@ -63,11 +64,12 @@ export default {
       texto: "Sites de exemplo que preparo para óticas da Grande São Paulo, com fotos reais da loja, avaliações do Google, WhatsApp e mapa. Cada ótica recebe o próprio link, que não fica aberto ao público.",
       imagem: "",
       link: "",
-      publicar: true,
-      falta: "Nada obrigatório. Se alguma ótica autorizar, dá para trocar por um cartão com o nome e o print dela.",
+      // Kaue, 30/09/2026: nenhuma demo na home até ter aprovação de cliente.
+      publicar: false,
+      falta: "Aprovação de uma ótica para mostrar a demo dela.",
     },
     // Demos marcadas como "redesign conceitual" no portfólio do painel, ainda com "pode publicar: não".
-    // Usam fotos de clientes das óticas: só publicar com autorização de cada ótica.
+    // Usam fotos de clientes das óticas: só publicar com aprovação de cada ótica (nenhuma aprovou ainda).
     {
       id: "otica-catglass",
       titulo: "Ótica CatGlass",

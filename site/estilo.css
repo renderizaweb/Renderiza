@@ -141,6 +141,8 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .sobre-foto img{width:100%;height:100%;object-fit:cover}
 .sobre-texto p:not(.sobretitulo){margin-top:14px;color:var(--tinta-suave);font-size:1.0625rem;max-width:36em}
 .sobre-texto h2+p{margin-top:18px}
+.sobre-texto p.sobre-nome{margin-top:6px;font-size:.9375rem;font-weight:600;color:var(--verde)}
+.sobre-texto p.sobre-nome+p{margin-top:18px}
 .sobre-texto .botao{margin-top:24px}
 
 /* perguntas */
@@ -159,6 +161,8 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .acoes-convite{align-items:stretch;margin-top:30px}
 .convite :focus-visible,.rodape :focus-visible{outline-color:var(--lima)}
 .convite-pendente{font-size:.9375rem}
+.convite .convite-numero{margin-top:22px;font-size:.9375rem}
+.convite-numero a{color:#fff;font-weight:600;white-space:nowrap}
 
 /* rodapé */
 .rodape{background:var(--verde-noite);color:#bcd1c6;padding:44px 0 calc(28px + env(safe-area-inset-bottom));font-size:.9375rem}

@@ -6,7 +6,7 @@ Um site só, publicado na Vercel:
 
 | Endereço | O que abre | Quem vê |
 |---|---|---|
-| `/` | Site público da Renderiza: quem é o Cauê, o que faz, trabalhos e contato | todo mundo (é o único endereço que o Google pode indexar) |
+| `/` | Site público da Renderiza: quem é o Kaue, o que faz, trabalhos e contato | todo mundo (é o único endereço que o Google pode indexar) |
 | `/login` | Login do painel | só você |
 | `/painel` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo). Sem sessão, manda para `/login` | só você |
 | `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`) | quem tiver o link |

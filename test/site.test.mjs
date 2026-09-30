@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import config from "../site/config.mjs";
-import { montarPagina, pendencias, linkWhatsapp } from "../site/pagina.mjs";
+import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel } from "../site/pagina.mjs";
 import { arquivosPublicados } from "../scripts/montar-site.mjs";
 
 const comContatos = {
@@ -17,6 +17,20 @@ test("home não lista as demos nem trabalhos marcados para não publicar", () =>
   assert.doesNotMatch(html, /\/demo\//);
   for (const t of config.trabalhos.filter(t => !t.publicar)) assert.ok(!html.includes(t.titulo), t.titulo);
   for (const t of config.trabalhos.filter(t => t.publicar)) assert.ok(html.includes(t.titulo), t.titulo);
+});
+
+test("nenhuma demonstração de ótica na home enquanto não houver aprovação de cliente", () => {
+  assert.deepEqual(config.trabalhos.filter(t => t.publicar && t.selo === "demonstracao").map(t => t.id), []);
+  const html = montarPagina(config);
+  assert.match(html, /<h2 id="trabalhos-titulo">Projetos de clientes\.<\/h2>/);
+  assert.doesNotMatch(html, /Demonstração conceitual/);
+});
+
+test("WhatsApp da Renderiza aparece legível e com link", () => {
+  assert.equal(telefoneLegivel("5511988697165"), "(11) 98869-7165");
+  assert.equal(telefoneLegivel("1133334444"), "(11) 3333-4444");
+  const html = montarPagina(config);
+  assert.match(html, /WhatsApp da Renderiza: <a href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"[^>]*>\(11\) 98869-7165<\/a>/);
 });
 
 test("cada trabalho publicado diz se é projeto de cliente ou demonstração", () => {

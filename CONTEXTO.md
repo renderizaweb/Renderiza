@@ -142,11 +142,13 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 ## Repositório e site
 
 - **Oficial: `renderizaweb/renderiza`, branch `main`.** Site público, painel e demos no mesmo
-  repositório e no mesmo site da Vercel (`https://renderiza-five.vercel.app`; `renderiza.com` **não** é
-  da Renderiza, está à venda): `/` é o site público (`site/`, dados em `site/config.mjs`), `/painel` é o
+  repositório e no mesmo site da Vercel, no domínio **`https://www.renderizaweb.com.br`** (o
+  `renderizaweb.com.br` redireciona para o www; `renderiza-five.vercel.app` também abre; `renderiza.com`
+  **não** é da Renderiza): `/` é o site público (`site/`, dados em `site/config.mjs`), `/painel` é o
   painel com login em `/login` (só o Kaue), `/demo/<ótica>` é a demo por link. As demos novas são feitas
   e enviadas aqui. A home **não** lista demos; um trabalho só aparece nela com `publicar: true` no
-  `site/config.mjs`, e demo de ótica só com autorização da ótica (fotos de clientes).
+  `site/config.mjs`, e demo de ótica só com aprovação da ótica (fotos de clientes; em 30/09/2026 nenhuma aprovou, então
+  nenhuma demo aparece).
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
@@ -165,7 +167,8 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
     aplicar. Nunca mudar a estrutura do banco sem pedir.
 - Painel antigo (artifact do Claude, só histórico): https://claude.ai/artifact/6zFaGzyeMNADQMBVhpKu5b.
   Prévia com dados fictícios: https://claude.ai/artifact/AMkVgpUfmFf1LkCEN7KunK.
-- As pastas `renderiza-demos/` e `painel-renderiza/` do `kaue7almeida/garimpo-brasuca` foram cópias
-  provisórias e pararam de ser atualizadas.
+- **`kaue7almeida/garimpo-brasuca` é outro projeto, sem relação com a Renderiza: não trabalhar nele.**
+  Só por histórico: as pastas `renderiza-demos/` e `painel-renderiza/` de lá foram cópias provisórias e
+  pararam de ser atualizadas.
 - Os zips de referência (fotos brutas) continuam em `referencias-demos/` do garimpo-brasuca, branch
   `claude/optica-demo-personalizada-ssalu4`: material bruto não entra neste repositório.

@@ -37,6 +37,14 @@ export function linkWhatsapp(contato) {
   return `https://wa.me/${numero}` + (contato.mensagemWhatsapp ? "?text=" + encodeURIComponent(contato.mensagemWhatsapp) : "");
 }
 
+/** "5511988697165" → "(11) 98869-7165" (números do Brasil); outros ficam como vieram. */
+export function telefoneLegivel(numero) {
+  const d = String(numero || "").replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "");
+  if (d.length === 11) return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  if (d.length === 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return d;
+}
+
 const SELOS = { cliente: "Projeto de cliente", demonstracao: "Demonstração conceitual" };
 
 function cartaoTrabalho(t) {
@@ -64,6 +72,7 @@ function cartaoTrabalho(t) {
 
 export function montarPagina(config, { css = readFileSync(new URL("./estilo.css", import.meta.url), "utf8"), ano = new Date().getFullYear() } = {}) {
   const { pessoa, contato } = config;
+  const nomeCompleto = pessoa.nomeCompleto || pessoa.nome;
   const base = config.endereco.replace(/\/+$/, "");
   const wa = linkWhatsapp(contato);
   const temWa = Boolean(wa);
@@ -71,15 +80,17 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const hrefWa = temWa ? wa : "#contato";
   const attrsWa = temWa ? ' target="_blank" rel="noopener"' : "";
   const trabalhos = config.trabalhos.filter(t => t.publicar);
+  const temDemo = trabalhos.some(t => t.selo === "demonstracao");
+  const telefone = telefoneLegivel(contato.whatsapp);
 
   const titulo = "Renderiza · Sites para pequenos negócios";
-  const descricao = `Sites bonitos e leves para pequenos negócios, com fotos reais, informação clara e contato direto pelo WhatsApp. Feitos por ${pessoa.nome}, que também desenvolve aplicativos e outras soluções digitais.`;
+  const descricao = `Sites bonitos e leves para pequenos negócios, com fotos reais, informação clara e contato direto pelo WhatsApp. Feitos por ${nomeCompleto}, que também desenvolve aplicativos e outras soluções digitais.`;
 
   const avatar = pessoa.foto
     ? `<img src="${esc(pessoa.foto)}" alt="" width="40" height="40" decoding="async">`
     : `<span aria-hidden="true">${esc(pessoa.nome.charAt(0))}</span>`;
   const foto = pessoa.foto
-    ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(pessoa.nome)}" width="480" height="600" loading="lazy" decoding="async"></div>`
+    ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="480" height="600" loading="lazy" decoding="async"></div>`
     : "";
 
   const redes = [
@@ -208,8 +219,8 @@ ${css.trim()}
   <section class="secao" id="trabalhos" aria-labelledby="trabalhos-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Trabalhos selecionados</p>
-      <h2 id="trabalhos-titulo">Projetos de clientes e demonstrações.</h2>
-      <p class="secao-lide">Cada item diz o que é: projeto de cliente ou demonstração conceitual.</p>
+      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos de clientes."}</h2>
+      <p class="secao-lide">${temDemo ? "Cada item diz o que é: projeto de cliente ou demonstração conceitual." : "Além de sites, também desenvolvo aplicativos."}</p>
       <ul class="trabalhos">${trabalhos.map(cartaoTrabalho).join("")}
       </ul>
     </div>
@@ -221,6 +232,7 @@ ${css.trim()}
       <div class="sobre-texto">
         <p class="sobretitulo">Sobre mim</p>
         <h2 id="sobre-titulo">Oi, eu sou o ${esc(pessoa.nome)}.</h2>
+        <p class="sobre-nome">${esc(nomeCompleto)} · fundador da Renderiza</p>
         <p>Desde ${esc(pessoa.desde)} crio soluções digitais para clientes, como sites e aplicativos. A Renderiza é o nome que dei a esse trabalho, e agora estou organizando a marca.</p>
         <p>Trabalho em tempo integral na ${esc(pessoa.trabalhoAtual)}. A Renderiza é um projeto meu, paralelo e independente, sem vínculo com a empresa.</p>
         <p>Quando você fala com a Renderiza, fala comigo.</p>
@@ -259,6 +271,7 @@ ${css.trim()}
         ${contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
         ${!temWa && !contato.linkedin ? `<p class="convite-pendente">Os canais de contato estão sendo atualizados.</p>` : ""}
       </div>
+      ${telefone ? `<p class="convite-numero">WhatsApp da Renderiza: <a href="${esc(wa)}" target="_blank" rel="noopener">${esc(telefone)}</a></p>` : ""}
     </div>
   </section>
 </main>
@@ -267,7 +280,7 @@ ${css.trim()}
   <div class="envoltorio rodape-grade">
     <div>
       <a class="marca marca-rodape" href="#inicio" aria-label="Renderiza, voltar ao início">${icone("marca", 20)}<span>renderiza<span class="marca-ponto">.</span></span></a>
-      <p>Sites e soluções digitais para pequenos negócios.<br>Um projeto independente de ${esc(pessoa.nome)}.</p>
+      <p>Sites e soluções digitais para pequenos negócios.<br>Um projeto independente de ${esc(nomeCompleto)}.</p>
     </div>
     ${redes.length ? `<nav class="rodape-redes" aria-label="Contato">${redes.join("")}</nav>` : ""}
   </div>

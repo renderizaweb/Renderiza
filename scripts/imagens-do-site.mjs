@@ -5,7 +5,7 @@
 //       favicon-32.png e apple-touch-icon.png. Rodar de novo se mudar nome ou frase.
 //
 //   node scripts/imagens-do-site.mjs otimizar <foto.jpg> <site/estatico/imagens/nome.webp> [largura]
-//     → reduz e converte uma foto real para WebP (padrão: 960 px de largura), para a foto do Cauê
+//     → reduz e converte uma foto real para WebP (padrão: 960 px de largura), para a foto do Kaue
 //       ou os prints dos trabalhos.
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -45,7 +45,7 @@ async function gerarImagens() {
   const og = `<style>${css}</style><div class="quadro">
     <div class="marca"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#c9f19b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${CAMADAS}</svg><b>renderiza<span>.</span></b></div>
     <h1>Sites bonitos e leves para <em>pequenos negócios</em>.</h1>
-    <div class="pe"><span><strong>${config.pessoa.nome}</strong>, fundador da Renderiza</span><span>Sites · aplicativos · soluções digitais</span></div>
+    <div class="pe"><span><strong>${config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, fundador da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
   </div>`;
   const icone = tam => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:#123d32;display:grid;place-items:center}</style>
     <svg viewBox="0 0 24 24" width="${Math.round(tam * 0.66)}" height="${Math.round(tam * 0.66)}" fill="none" stroke="#c9f19b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${CAMADAS}</svg>`;
