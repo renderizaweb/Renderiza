@@ -94,6 +94,28 @@ h2{font-family:var(--serifa);font-weight:400;font-size:clamp(2.1rem,8vw,3.2rem);
 h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;color:var(--tinta)}
 .secao-lide{margin-top:14px;color:var(--tinta-suave);max-width:40em}
 
+/* por que ter um site: a dor do cliente novo e o remédio */
+.dor{background:var(--verde-escuro);color:#fff;padding:64px 0;scroll-margin-top:calc(var(--topo) + 8px)}
+.dor .sobretitulo{color:var(--lima)}
+.dor h2{color:#fff;max-width:15em}
+.dor h2 em{font-style:italic;color:var(--lima)}
+.dor-lide{margin-top:16px;max-width:38em;color:#cfe1d7;font-size:1.0625rem;line-height:1.65}
+.dores{display:grid;gap:14px;margin-top:32px}
+.dores li{display:flex;flex-direction:column;padding:22px 20px;border-radius:var(--raio);background:#ffffff0d;border:1px solid #ffffff1f}
+.dor-icone{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#c9f19b1f;color:var(--lima);margin-bottom:14px}
+.dores h3{color:#fff;font-size:1.125rem}
+.dores p{margin-top:10px;font-size:.9375rem;line-height:1.55}
+.dores p span{display:block;margin-bottom:2px;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.dor-hoje{color:#a9c2b6}
+.dor-hoje span{color:#86a597}
+.dor-remedio{color:#fff;padding-top:10px;border-top:1px dashed #ffffff26}
+.dores .dor-remedio{margin-top:auto}
+.dores .dor-hoje{margin-bottom:12px}
+.dor-remedio span{color:var(--lima)}
+.dor-fecho{margin-top:28px;font-family:var(--serifa);font-size:1.5rem;line-height:1.25;color:#e3eee7;max-width:24em}
+.dor-fecho em{color:var(--lima)}
+.dor :focus-visible{outline-color:var(--lima)}
+
 /* o que faço */
 .servicos{display:grid;gap:16px;margin-top:32px}
 .servico{background:var(--branco);border:1px solid var(--linha);border-radius:var(--raio);padding:24px 22px}
@@ -201,9 +223,10 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 /* tablet */
 @media (min-width:720px){
   :root{--lateral:32px;--topo:68px}
-  .secao,.convite{padding:88px 0}
+  .secao,.convite,.dor{padding:88px 0}
   .servicos{grid-template-columns:1.35fr 1fr;align-items:start}
   .trabalhos{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .dor-fecho{font-size:1.75rem;max-width:none}
   .destaque-corpo{padding:30px 32px 30px}
   .recursos{grid-template-columns:repeat(2,1fr);gap:12px}
   .sobre{grid-template-columns:260px 1fr;gap:48px;align-items:center}
@@ -221,6 +244,8 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
   .abertura-grade{grid-template-columns:1.02fr .98fr;align-items:center;gap:64px}
   .vitrine{display:block}
   .passos{grid-template-columns:repeat(4,1fr);gap:28px}
+  .dores{grid-template-columns:repeat(3,1fr);gap:16px}
+  .dores li{padding:26px 24px}
   .passos li{padding:56px 0 0}
   .passos li:not(:last-child)::after{left:50px;right:-22px;top:19px;bottom:auto;width:auto;height:1px}
   .destaque h3{font-size:2.6rem}

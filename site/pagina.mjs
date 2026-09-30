@@ -23,6 +23,9 @@ const ICONES = {
   camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
   painel: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
   sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
+  busca: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  estrela: '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
+  loja: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
@@ -215,6 +218,35 @@ ${vitrine ? `<figure class="vitrine">
         ${vitrine.imagemCelular ? `<div class="vitrine-celular"><img src="${esc(vitrine.imagemCelular)}" alt="" width="360" height="779" loading="lazy" decoding="async"></div>` : ""}
         <figcaption><a href="#trabalhos"><strong>${esc(vitrine.titulo)}</strong> · ${esc(vitrine.legenda || vitrine.tipo)}${icone("baixo", 14)}</a></figcaption>
       </figure>` : ""}
+    </div>
+  </section>
+
+  <section class="dor" id="por-que" aria-labelledby="dor-titulo">
+    <div class="envoltorio">
+      <p class="sobretitulo">Por que ter um site</p>
+      <h2 id="dor-titulo">Seus clientes te conhecem. <em>O cliente novo, não.</em></h2>
+      <p class="dor-lide">Quem foi indicado, passou na frente ou ouviu falar da sua loja pesquisa antes de ir. É nesse momento que ele decide, e quem não encontra resposta rápido não pergunta: vai para a próxima.</p>
+      <ul class="dores">
+        <li>
+          <span class="dor-icone">${icone("busca", 20)}</span>
+          <h3>Ele não acha o básico</h3>
+          <p class="dor-hoje"><span>Hoje</span>Endereço, horário e contato ficam perdidos entre posts, stories e destaques.</p>
+          <p class="dor-remedio"><span>Com um site</span>Tudo na primeira tela, com um botão para falar com você.</p>
+        </li>
+        <li>
+          <span class="dor-icone">${icone("estrela", 20)}</span>
+          <h3>Ele não vê o seu melhor</h3>
+          <p class="dor-hoje"><span>Hoje</span>Clientes satisfeitos, boas avaliações e a história da loja ficam espalhados pelo feed.</p>
+          <p class="dor-remedio"><span>Com um site</span>As melhores fotos e avaliações reunidas numa página só.</p>
+        </li>
+        <li>
+          <span class="dor-icone">${icone("loja", 20)}</span>
+          <h3>Ele compara você com as grandes redes</h3>
+          <p class="dor-hoje"><span>Hoje</span>A rede tem site e parece mais profissional, mesmo sem o seu atendimento.</p>
+          <p class="dor-remedio"><span>Com um site</span>Sua loja com cara de negócio sério, mostrando o que uma rede não tem.</p>
+        </li>
+      </ul>
+      <p class="dor-fecho">O Instagram continua sendo o seu dia a dia. <em>O site é a sua primeira impressão.</em></p>
     </div>
   </section>
 
