@@ -17,6 +17,7 @@ const ICONES = {
   mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
   mais: '<path d="M5 12h14"/><path d="M12 5v14"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
+  selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
 const icone = (nome, tam = 18) =>
   `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONES[nome]}</svg>`;
@@ -27,7 +28,7 @@ export function pendencias(config) {
   if (!config.contato.whatsapp) p.push("WhatsApp Business (contato.whatsapp)");
   if (!config.contato.linkedin) p.push("LinkedIn pessoal (contato.linkedin)");
   if (!config.pessoa.foto) p.push("foto real (pessoa.foto)");
-  for (const t of config.trabalhos) if (t.publicar && t.falta && !/^Nada/.test(t.falta)) p.push(`trabalho "${t.titulo}": ${t.falta}`);
+  for (const t of config.trabalhos) if (t.publicar && t.falta) p.push(`trabalho "${t.titulo}": ${t.falta}`);
   return p;
 }
 
@@ -45,27 +46,54 @@ export function telefoneLegivel(numero) {
   return d;
 }
 
-const SELOS = { cliente: "Projeto de cliente", demonstracao: "Demonstração conceitual" };
+const TIPOS_DE_TRABALHO = ["cliente", "demonstracao"];
+
+function linkDoTrabalho(t, texto) {
+  if (!t.link) return "";
+  const externo = /^https?:/.test(t.link);
+  return `<a class="trabalho-link" href="${esc(t.link)}"${externo ? ' target="_blank" rel="noopener"' : ""}>${esc(texto)}${icone("externo", 15)}${externo ? '<span class="sr-only"> (abre em outra aba)</span>' : ""}</a>`;
+}
+
+function validarTrabalho(t) {
+  if (!TIPOS_DE_TRABALHO.includes(t.selo)) throw new Error(`site/config.mjs: trabalho "${t.id}" com selo desconhecido (${t.selo}). Use "cliente" ou "demonstracao".`);
+}
+
+/** Trabalho em destaque: print grande, o que o produto faz e os recursos que a Renderiza desenvolveu. */
+function trabalhoDestaque(t) {
+  validarTrabalho(t);
+  const recursos = (t.recursos || []).map(r => `
+              <li><h4>${esc(r.titulo)}</h4><p>${esc(r.texto)}</p></li>`).join("");
+  return `
+      <article class="destaque">
+        ${t.imagem ? `<div class="destaque-imagem"><img src="${esc(t.imagem)}" alt="${esc(t.alt || "Tela do " + t.titulo)}" width="1200" height="672" loading="lazy" decoding="async"></div>` : ""}
+        <div class="destaque-corpo">
+          <p class="trabalho-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
+          <h3>${esc(t.titulo)}</h3>
+          <p class="destaque-texto">${esc(t.texto)}</p>
+          ${recursos ? `<ul class="recursos">${recursos}
+          </ul>` : ""}
+          <div class="destaque-rodape">
+            ${t.credito ? `<p class="credito">${esc(t.credito)}</p>` : ""}
+            ${linkDoTrabalho(t, t.linkTexto || "Ver o projeto")}
+          </div>
+        </div>
+      </article>`;
+}
 
 function cartaoTrabalho(t) {
-  const selo = SELOS[t.selo];
-  if (!selo) throw new Error(`site/config.mjs: trabalho "${t.id}" com selo desconhecido (${t.selo}). Use "cliente" ou "demonstracao".`);
+  validarTrabalho(t);
   // Sem print real, o cartão mostra só uma inicial (não finge ser imagem do trabalho).
   const visual = t.imagem
     ? `<div class="trabalho-imagem"><img src="${esc(t.imagem)}" alt="${esc(t.alt || "Tela do trabalho " + t.titulo)}" loading="lazy" decoding="async"></div>`
-    : `<span class="trabalho-monograma monograma-${esc(t.selo)}" aria-hidden="true">${esc(t.titulo.charAt(0).toUpperCase())}</span>`;
-  const externo = t.link && /^https?:/.test(t.link);
-  const link = t.link
-    ? `<a class="trabalho-link" href="${esc(t.link)}"${externo ? ' target="_blank" rel="noopener"' : ""}>Ver o trabalho${icone("externo", 15)}<span class="sr-only"> ${esc(t.titulo)}${externo ? " (abre em outra aba)" : ""}</span></a>`
-    : "";
+    : `<span class="trabalho-monograma monograma-${esc(t.selo)}" aria-hidden="true">${esc(t.titulo.replace(/^Óticas?\s+/i, "").charAt(0).toUpperCase())}</span>`;
   return `
         <li class="trabalho${t.imagem ? " com-imagem" : ""}">
           ${visual}
           <div class="trabalho-corpo">
-            <p class="trabalho-meta"><span class="selo selo-${esc(t.selo)}">${selo}</span><span>${esc(t.tipo)}</span></p>
+            <p class="trabalho-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
             <h3>${esc(t.titulo)}</h3>
             <p>${esc(t.texto)}</p>
-            ${link}
+            ${linkDoTrabalho(t, "Ver o trabalho")}
           </div>
         </li>`;
 }
@@ -79,22 +107,26 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   // Sem WhatsApp configurado, os botões levam ao bloco de contato (nada de link quebrado).
   const hrefWa = temWa ? wa : "#contato";
   const attrsWa = temWa ? ' target="_blank" rel="noopener"' : "";
-  const trabalhos = config.trabalhos.filter(t => t.publicar);
-  const temDemo = trabalhos.some(t => t.selo === "demonstracao");
   const telefone = telefoneLegivel(contato.whatsapp);
+  const trabalhos = config.trabalhos.filter(t => t.publicar);
+  const destaques = trabalhos.filter(t => t.destaque);
+  const demais = trabalhos.filter(t => !t.destaque);
+  const temDemo = trabalhos.some(t => t.selo === "demonstracao");
 
-  const titulo = "Renderiza · Sites para pequenos negócios";
-  const descricao = `Sites bonitos e leves para pequenos negócios, com fotos reais, informação clara e contato direto pelo WhatsApp. Feitos por ${nomeCompleto}, que também desenvolve aplicativos e outras soluções digitais.`;
+  const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
+  const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
 
-  const avatar = pessoa.foto
-    ? `<img src="${esc(pessoa.foto)}" alt="" width="40" height="40" decoding="async">`
+  const avatar = pessoa.avatar || pessoa.foto
+    ? `<img src="${esc(pessoa.avatar || pessoa.foto)}" alt="" width="44" height="44" decoding="async" fetchpriority="high">`
     : `<span aria-hidden="true">${esc(pessoa.nome.charAt(0))}</span>`;
   const foto = pessoa.foto
-    ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="480" height="600" loading="lazy" decoding="async"></div>`
+    ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="720" height="960" loading="lazy" decoding="async"></div>`
     : "";
+  const trajetoria = (pessoa.trajetoria || []).map(item => `
+          <div><dt>${esc(item.rotulo)}</dt><dd>${esc(item.texto)}</dd></div>`).join("");
 
   const redes = [
-    temWa && `<a href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 17)}WhatsApp</a>`,
+    temWa && `<a href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 17)}WhatsApp ${esc(telefone)}</a>`,
     contato.linkedin && `<a href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 17)}LinkedIn</a>`,
     contato.instagram && `<a href="${esc(contato.instagram)}" target="_blank" rel="noopener">${icone("instagram", 17)}Instagram</a>`,
   ].filter(Boolean);
@@ -139,9 +171,9 @@ ${css.trim()}
     <a class="marca" href="#inicio" aria-label="Renderiza, início">${icone("marca", 22)}<span>renderiza<span class="marca-ponto">.</span></span></a>
     <nav class="topo-nav" aria-label="Seções">
       <a href="#servicos">O que faço</a>
-      <a href="#como-funciona">Como funciona</a>
       <a href="#trabalhos">Trabalhos</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#sobre">Quem faz</a>
     </nav>
     <a class="botao botao-primario botao-topo" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 17)}<span>WhatsApp</span></a>
   </div>
@@ -151,14 +183,14 @@ ${css.trim()}
   <section class="abertura" id="inicio" aria-labelledby="abertura-titulo">
     <div class="envoltorio abertura-grade">
       <div class="abertura-texto">
-        <p class="assinatura"><span class="avatar">${avatar}</span><span>${esc(pessoa.nome)}, fundador da Renderiza</span></p>
+        <p class="assinatura"><span class="avatar">${avatar}</span><span><strong>${esc(nomeCompleto)}</strong><small>Fundador da Renderiza</small></span></p>
         <h1 id="abertura-titulo">Sites bonitos e leves para <em>pequenos negócios</em>.</h1>
-        <p class="abertura-lide">Eu crio o site do seu negócio com fotos reais, informação clara e um caminho direto para o cliente chamar você no WhatsApp. Para começar, é só uma conversa.</p>
+        <p class="abertura-lide">Rápidos, pensados para o celular e com um caminho direto para o cliente falar com você no WhatsApp. Quando o projeto pede mais, desenvolvo aplicativos sob medida.</p>
         <div class="acoes">
           <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Conversar no WhatsApp</a>
           <a class="botao botao-secundario botao-grande" href="#trabalhos">Ver trabalhos${icone("baixo", 18)}</a>
         </div>
-        <p class="recado">${icone("mensagem", 16)}<span>Recebeu uma mensagem minha? Sou eu mesmo. Aqui você conhece quem está do outro lado.</span></p>
+        ${telefone ? `<p class="canal-oficial">${icone("selo", 16)}<span>WhatsApp oficial: <strong>${esc(telefone)}</strong></span></p>` : ""}
       </div>
 
       <figure class="ilustracao" aria-labelledby="ilustracao-legenda">
@@ -182,47 +214,47 @@ ${css.trim()}
   <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">O que eu faço</p>
-      <h2 id="servicos-titulo">Um site que mostra o seu negócio como ele é.</h2>
+      <h2 id="servicos-titulo">Do site da loja ao aplicativo completo.</h2>
       <div class="servicos">
         <article class="servico servico-principal">
           <h3>Sites para pequenos negócios</h3>
-          <p>É o meu trabalho principal hoje: uma página rápida no celular, com o que o cliente precisa saber antes de entrar em contato.</p>
+          <p>Uma página rápida no celular, com o que o cliente precisa saber antes de entrar em contato.</p>
           <ul class="lista-check">
             <li>${icone("check", 17)}Fotos reais do seu negócio</li>
             <li>${icone("check", 17)}Avaliações do Google</li>
             <li>${icone("check", 17)}Horário, endereço e mapa</li>
             <li>${icone("check", 17)}Botão para falar no WhatsApp</li>
           </ul>
-          <p class="nota">Neste momento estou focado em óticas de bairro, mas o mesmo formato serve para outros negócios locais.</p>
         </article>
         <article class="servico">
-          <h3>Aplicativos e outras soluções digitais</h3>
-          <p>Também desenvolvo aplicativos e outras soluções digitais, quando o projeto pede mais do que um site.</p>
+          <h3>Aplicativos e sistemas sob medida</h3>
+          <p>Para projetos que pedem mais que um site: login, painel de gestão, integrações e recursos com inteligência artificial.</p>
+          ${destaques.length ? `<a class="trabalho-link" href="#trabalhos">Ver um exemplo${icone("baixo", 15)}</a>` : ""}
         </article>
       </div>
     </div>
   </section>
 
-  <section class="secao secao-clara" id="como-funciona" aria-labelledby="como-titulo">
+  <section class="secao secao-clara" id="trabalhos" aria-labelledby="trabalhos-titulo">
     <div class="envoltorio">
-      <p class="sobretitulo">Como é trabalhar comigo</p>
-      <h2 id="como-titulo">Direto, sem burocracia.</h2>
-      <ol class="passos">
-        <li><h3>Conversa</h3><p>Você me conta sobre o seu negócio. Eu entendo o que você faz, quem são seus clientes e o que vale mostrar.</p></li>
-        <li><h3>Proposta</h3><p>Sugiro o que faz sentido para você. Em alguns casos, já chego com uma demonstração feita com as fotos e informações do seu negócio.</p></li>
-        <li><h3>Combinado</h3><p>Antes de começar, a gente combina o que entra no projeto e o valor.</p></li>
-        <li><h3>Entrega</h3><p>Faço o que foi combinado e entrego o projeto pronto para usar.</p></li>
-      </ol>
+      <p class="sobretitulo">Trabalhos realizados</p>
+      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos no ar."}</h2>
+      ${destaques.map(trabalhoDestaque).join("")}
+      ${demais.length ? `<ul class="trabalhos">${demais.map(cartaoTrabalho).join("")}
+      </ul>` : ""}
     </div>
   </section>
 
-  <section class="secao" id="trabalhos" aria-labelledby="trabalhos-titulo">
+  <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envoltorio">
-      <p class="sobretitulo">Trabalhos selecionados</p>
-      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos de clientes."}</h2>
-      <p class="secao-lide">${temDemo ? "Cada item diz o que é: projeto de cliente ou demonstração conceitual." : "Além de sites, também desenvolvo aplicativos."}</p>
-      <ul class="trabalhos">${trabalhos.map(cartaoTrabalho).join("")}
-      </ul>
+      <p class="sobretitulo">Como funciona</p>
+      <h2 id="como-titulo">Direto, sem burocracia.</h2>
+      <ol class="passos">
+        <li><h3>Conversa</h3><p>Entendo o seu negócio, seus clientes e o que vale mostrar.</p></li>
+        <li><h3>Proposta</h3><p>Apresento a solução. Em alguns casos, já com uma prévia feita com as informações do seu negócio.</p></li>
+        <li><h3>Combinado</h3><p>Escopo e valor definidos antes de começar.</p></li>
+        <li><h3>Entrega</h3><p>Desenvolvo o que foi combinado e entrego pronto para usar.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -230,33 +262,36 @@ ${css.trim()}
     <div class="envoltorio sobre${pessoa.foto ? "" : " sem-foto"}">
       ${foto}
       <div class="sobre-texto">
-        <p class="sobretitulo">Sobre mim</p>
-        <h2 id="sobre-titulo">Oi, eu sou o ${esc(pessoa.nome)}.</h2>
-        <p class="sobre-nome">${esc(nomeCompleto)} · fundador da Renderiza</p>
-        <p>Desde ${esc(pessoa.desde)} crio soluções digitais para clientes, como sites e aplicativos. A Renderiza é o nome que dei a esse trabalho, e agora estou organizando a marca.</p>
-        <p>Trabalho em tempo integral na ${esc(pessoa.trabalhoAtual)}. A Renderiza é um projeto meu, paralelo e independente, sem vínculo com a empresa.</p>
-        <p>Quando você fala com a Renderiza, fala comigo.</p>
-        ${contato.linkedin ? `<a class="botao botao-secundario" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 17)}Ver meu perfil no LinkedIn</a>` : ""}
+        <p class="sobretitulo">Quem faz</p>
+        <h2 id="sobre-titulo">${esc(nomeCompleto)}</h2>
+        <p class="sobre-cargo">Desenvolvedor de software e fundador da Renderiza</p>
+        <p>Desenvolvo software há ${esc(pessoa.anosDeExperiencia)} anos, com passagem por grandes empresas. Na Renderiza, cada projeto é conduzido por mim, do primeiro contato à entrega.</p>
+        ${trajetoria ? `<dl class="trajetoria">${trajetoria}
+        </dl>` : ""}
+        <div class="sobre-acoes">
+          ${contato.linkedin ? `<a class="botao botao-secundario" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 17)}Ver perfil no LinkedIn</a>` : ""}
+        </div>
+        <p class="sobre-nota">A Renderiza é independente, sem vínculo com a ${esc(pessoa.trabalhoAtual)}.</p>
       </div>
     </div>
   </section>
 
   <section class="secao" id="perguntas" aria-labelledby="perguntas-titulo">
     <div class="envoltorio">
-      <p class="sobretitulo">Antes de conversar</p>
-      <h2 id="perguntas-titulo">Perguntas úteis.</h2>
+      <p class="sobretitulo">Perguntas frequentes</p>
+      <h2 id="perguntas-titulo">Antes de começar.</h2>
       <div class="perguntas">
         <details>
-          <summary>Como a gente começa?${icone("mais", 18)}</summary>
-          <p>Você me chama no WhatsApp e conta um pouco sobre o seu negócio. Eu faço algumas perguntas, entendo o que faz sentido e sugiro o próximo passo.</p>
+          <summary>Como começamos?${icone("mais", 18)}</summary>
+          <p>Pelo WhatsApp. Você conta sobre o seu negócio e eu indico o próximo passo.</p>
         </details>
         <details>
-          <summary>Recebi uma demonstração. O que é isso?${icone("mais", 18)}</summary>
-          <p>É uma versão de exemplo do site, feita por mim com as fotos e informações públicas do seu negócio, para você ver como ficaria antes de decidir qualquer coisa. O link é só seu e não aparece no Google. Se preferir que eu tire do ar, é só pedir.</p>
+          <summary>Recebi uma prévia do meu site. O que é?${icone("mais", 18)}</summary>
+          <p>Uma demonstração feita com informações públicas do seu negócio, para você avaliar antes de qualquer compromisso. O link é privado e sai do ar quando você pedir.</p>
         </details>
         <details>
           <summary>Quanto custa?${icone("mais", 18)}</summary>
-          <p>Depende do que o seu negócio precisa. O escopo e o valor são combinados caso a caso, antes de começar. Domínio (o endereço do site) e hospedagem podem ter custos próprios, e isso fica claro na conversa.</p>
+          <p>Depende do escopo, combinado caso a caso antes de começar. Domínio e hospedagem podem ter custos próprios.</p>
         </details>
       </div>
     </div>
@@ -264,14 +299,13 @@ ${css.trim()}
 
   <section class="convite" id="contato" aria-labelledby="contato-titulo">
     <div class="envoltorio envoltorio-estreito">
-      <h2 id="contato-titulo">Vamos conversar sobre o seu negócio?</h2>
-      <p>Me chame no WhatsApp e conte um pouco sobre o que você faz.</p>
+      <h2 id="contato-titulo">Vamos conversar sobre o seu projeto?</h2>
+      <p>Conte pelo WhatsApp o que você precisa.</p>
       <div class="acoes acoes-convite">
         ${temWa ? `<a class="botao botao-lima botao-grande" href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Conversar no WhatsApp</a>` : ""}
         ${contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
         ${!temWa && !contato.linkedin ? `<p class="convite-pendente">Os canais de contato estão sendo atualizados.</p>` : ""}
       </div>
-      ${telefone ? `<p class="convite-numero">WhatsApp da Renderiza: <a href="${esc(wa)}" target="_blank" rel="noopener">${esc(telefone)}</a></p>` : ""}
     </div>
   </section>
 </main>
@@ -280,7 +314,7 @@ ${css.trim()}
   <div class="envoltorio rodape-grade">
     <div>
       <a class="marca marca-rodape" href="#inicio" aria-label="Renderiza, voltar ao início">${icone("marca", 20)}<span>renderiza<span class="marca-ponto">.</span></span></a>
-      <p>Sites e soluções digitais para pequenos negócios.<br>Um projeto independente de ${esc(nomeCompleto)}.</p>
+      <p>Sites e aplicativos para negócios.<br>Um projeto independente de ${esc(nomeCompleto)}.</p>
     </div>
     ${redes.length ? `<nav class="rodape-redes" aria-label="Contato">${redes.join("")}</nav>` : ""}
   </div>

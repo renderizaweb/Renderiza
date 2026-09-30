@@ -22,7 +22,7 @@ test("home não lista as demos nem trabalhos marcados para não publicar", () =>
 test("nenhuma demonstração de ótica na home enquanto não houver aprovação de cliente", () => {
   assert.deepEqual(config.trabalhos.filter(t => t.publicar && t.selo === "demonstracao").map(t => t.id), []);
   const html = montarPagina(config);
-  assert.match(html, /<h2 id="trabalhos-titulo">Projetos de clientes\.<\/h2>/);
+  assert.match(html, /<h2 id="trabalhos-titulo">Projetos no ar\.<\/h2>/);
   assert.doesNotMatch(html, /Demonstração conceitual/);
 });
 
@@ -30,15 +30,34 @@ test("WhatsApp da Renderiza aparece legível e com link", () => {
   assert.equal(telefoneLegivel("5511988697165"), "(11) 98869-7165");
   assert.equal(telefoneLegivel("1133334444"), "(11) 3333-4444");
   const html = montarPagina(config);
-  assert.match(html, /WhatsApp da Renderiza: <a href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"[^>]*>\(11\) 98869-7165<\/a>/);
+  assert.match(html, /WhatsApp oficial: <strong>\(11\) 98869-7165<\/strong>/);
+  assert.match(html, /href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"/);
 });
 
-test("cada trabalho publicado diz se é projeto de cliente ou demonstração", () => {
+test("demonstração publicada sempre ganha a etiqueta; selo inválido é recusado", () => {
+  const demo = { ...config.trabalhos.find(t => t.selo === "demonstracao"), publicar: true };
+  const html = montarPagina({ ...config, trabalhos: [demo] });
+  assert.match(html, /Demonstração conceitual/);
+  assert.match(html, /Projetos de clientes e demonstrações\./);
+  assert.throws(() => montarPagina({ ...config, trabalhos: [{ ...demo, selo: "case" }] }), /selo desconhecido/);
+});
+
+test("Move em destaque: print, recursos, crédito ao cliente e link", () => {
   const html = montarPagina(config);
-  const publicados = config.trabalhos.filter(t => t.publicar);
-  const selos = (html.match(/class="selo selo-(cliente|demonstracao)"/g) || []).length;
-  assert.equal(selos, publicados.length);
-  assert.throws(() => montarPagina({ ...config, trabalhos: [{ ...publicados[0], selo: "case" }] }), /selo desconhecido/);
+  const move = config.trabalhos.find(t => t.id === "move");
+  assert.ok(move.publicar && move.destaque);
+  assert.match(html, /<article class="destaque">/);
+  for (const r of move.recursos) assert.ok(html.includes(r.titulo), r.titulo);
+  assert.ok(html.includes("Um produto Move, desenvolvido pela Renderiza."));
+  assert.match(html, /href="https:\/\/www\.movexfit\.com\.br" target="_blank" rel="noopener">Conhecer o Move/);
+});
+
+test("Quem faz: trajetória curta, sem data de início e sem sugerir vínculo com a Warren", () => {
+  const html = montarPagina(config);
+  assert.doesNotMatch(html, /abril de 2025/);
+  assert.match(html, /há 5 anos/);
+  assert.match(html, /sem vínculo com a Warren Investimentos/);
+  assert.doesNotMatch(html, /Recebeu uma mensagem minha|Sou eu mesmo|focado em óticas/);
 });
 
 test("sem WhatsApp configurado, nenhum link quebrado: os botões levam ao bloco de contato", () => {
@@ -62,7 +81,7 @@ test("com contatos preenchidos, aparecem WhatsApp (com mensagem), LinkedIn e fot
 test("metadados de compartilhamento são da home, com imagem em endereço completo", () => {
   const html = montarPagina(config);
   assert.match(html, /<html lang="pt-BR">/);
-  assert.match(html, /<title>Renderiza · Sites para pequenos negócios<\/title>/);
+  assert.match(html, /<title>Renderiza · Sites e aplicativos para o seu negócio<\/title>/);
   assert.match(html, /<meta property="og:image" content="https:\/\/[^"]+\/compartilhar\.jpg">/);
   assert.match(html, /<link rel="canonical" href="https:\/\/[^"]+\/">/);
   assert.doesNotMatch(html, /Painel Renderiza|noindex|supabase/i);

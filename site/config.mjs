@@ -10,11 +10,22 @@ export default {
   pessoa: {
     nome: "Kaue",
     nomeCompleto: "Kaue de Almeida Cunha",
-    // Foto real, quadrada ou vertical, em site/estatico/imagens/ (ex.: "/imagens/kaue.webp"). PENDENTE.
-    foto: "",
+    // Foto real em site/estatico/imagens/ (a grande no "Quem faz", o recorte do rosto na abertura).
+    foto: "/imagens/kaue.webp",
+    avatar: "/imagens/kaue-avatar.webp",
+    anosDeExperiencia: 5,
     trabalhoAtual: "Warren Investimentos",
-    // Desde quando cria soluções digitais para clientes.
-    desde: "abril de 2025",
+    // Trajetória curta no "Quem faz": o que dá confiança, sem virar currículo.
+    trajetoria: [
+      {
+        rotulo: "Hoje",
+        texto: "Na Warren Investimentos, desenvolvo uma plataforma para assessores de investimento, com boletagem de aplicações e resgates, integrações complexas, CRM e gestão de leads.",
+      },
+      {
+        rotulo: "Renderiza",
+        texto: "Projeto próprio e independente: sites para negócios locais e aplicativos sob medida, como o Move.",
+      },
+    ],
   },
 
   contato: {
@@ -28,33 +39,48 @@ export default {
     instagram: "",
   },
 
-  // Trabalhos selecionados. Só aparecem os que têm publicar: true.
-  //   selo: "cliente" (projeto de cliente) ou "demonstracao" (demonstração conceitual)
+  // Trabalhos realizados. Só aparecem os que têm publicar: true.
+  //   selo: "cliente" ou "demonstracao" (esta ganha a etiqueta "Demonstração conceitual")
+  //   destaque: true = cartão grande com print, recursos e crédito
   //   imagem: caminho em site/estatico/imagens/ (print real do trabalho); sem imagem, aparece um cartão só com texto
   //   link: endereço do trabalho no ar, quando existir
   //   falta: o que ainda precisa ser confirmado (só para você; não aparece no site)
   trabalhos: [
     {
-      id: "bulens",
-      titulo: "Bulens",
-      tipo: "Ótica",
+      id: "move",
+      titulo: "Move",
+      tipo: "Aplicativo · treinos e acompanhamento",
       selo: "cliente",
-      texto: "Ótica cliente da Renderiza, com projeto fechado.",
-      imagem: "",
-      link: "",
+      // destaque: cartão grande, com print e lista de recursos
+      destaque: true,
+      texto: "Plataforma para alunos e personal trainers: o personal monta e envia o treino, o aluno executa série por série e os dois acompanham a evolução.",
+      recursos: [
+        { titulo: "Treinos guiados", texto: "Execução série por série, com carga e descanso." },
+        { titulo: "MoveScan", texto: "Composição corporal estimada a partir de duas fotos." },
+        { titulo: "Chat com IA", texto: "Tira dúvidas na hora, com o contexto dos treinos do aluno." },
+        { titulo: "Diário alimentar", texto: "Refeições registradas, com contagem de calorias." },
+        { titulo: "Painel do personal", texto: "Cria treinos, convida alunos e acompanha a frequência." },
+        { titulo: "Notificações", texto: "Aviso de treino novo e de mensagem do personal." },
+      ],
+      credito: "Um produto Move, desenvolvido pela Renderiza.",
+      imagem: "/imagens/move.webp",
+      alt: "Página inicial do Move, com a tela de um treino em execução",
+      link: "https://www.movexfit.com.br",
+      linkTexto: "Conhecer o Move",
       publicar: true,
-      falta: "Grafia do nome (Bulens ou BlueLens), o que foi entregue, print do trabalho, link se estiver no ar e se a ótica autoriza aparecer aqui.",
+      falta: "",
     },
     {
-      id: "app-rafael",
-      titulo: "Aplicativo ligado à academia",
-      tipo: "Aplicativo",
+      id: "blue-lens",
+      titulo: "Ótica Blue Lens",
+      tipo: "Site · ótica",
       selo: "cliente",
-      texto: "Aplicativo que estou desenvolvendo para um cliente, o Rafael.",
+      texto: "Site da ótica, desenvolvido pela Renderiza.",
       imagem: "",
+      // Kaue lembrava de oticasbluelens01.com.br, mas esse domínio não existe (30/09/2026).
       link: "",
       publicar: true,
-      falta: "Nome do aplicativo, uma frase sobre o que ele faz, uma tela real e se o Rafael autoriza o nome dele aqui.",
+      falta: "Endereço do site no ar e um print; o que o site tem para descrever melhor.",
     },
     {
       id: "demos-oticas",
