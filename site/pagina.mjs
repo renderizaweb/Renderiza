@@ -27,6 +27,7 @@ const ICONES = {
   estrela: '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
   loja: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
   megafone: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+  fechar: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
@@ -74,11 +75,30 @@ function validarTrabalho(t) {
 /** Trabalho em destaque: print grande, o que o produto faz e os recursos que a Renderiza desenvolveu. */
 function trabalhoDestaque(t) {
   validarTrabalho(t);
+  const idDe = r => `recurso-${t.id}-${r.titulo.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
   const recursos = (t.recursos || []).map(r => `
               <li${r.ia ? ' class="com-ia"' : ""}>
                 <span class="recurso-icone">${icone(ICONES[r.icone] ? r.icone : "check", 20)}</span>
-                <div><h4>${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h4><p>${esc(r.texto)}</p></div>
+                <div><h4>${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h4><p>${esc(r.texto)}</p>
+                ${r.imagem ? `<button class="recurso-ver" type="button" data-abrir="${idDe(r)}" aria-haspopup="dialog">Ver tela${icone("seta", 14)}<span class="sr-only">: ${esc(r.titulo)}</span></button>` : ""}</div>
               </li>`).join("");
+  // Um <dialog> por recurso: tela real, texto e link para o produto. Fechado, a imagem não carrega.
+  const janelas = (t.recursos || []).filter(r => r.imagem).map(r => `
+      <dialog class="janela-recurso" id="${idDe(r)}" aria-labelledby="${idDe(r)}-titulo">
+        <div class="janela-grade">
+          <figure class="janela-tela">
+            <img src="${esc(r.imagem)}" alt="Tela ${esc(r.titulo)} do app ${esc(t.titulo)}" width="${r.largura || 540}" height="${r.altura || 1169}" loading="lazy" decoding="async">
+            <figcaption>Tela real do app, com dados de exemplo.</figcaption>
+          </figure>
+          <div class="janela-texto">
+            <p class="trabalho-meta"><span>${esc(t.titulo)}</span></p>
+            <h3 id="${idDe(r)}-titulo">${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h3>
+            <p>${esc(r.detalhe || r.texto)}</p>
+            ${r.link ? `<a class="botao botao-primario" href="${esc(r.link)}" target="_blank" rel="noopener">Ver no site ${t.titulo === "Move" ? "do" : "de"} ${esc(t.titulo)}${icone("externo", 16)}<span class="sr-only"> (abre em outra aba)</span></a>` : ""}
+          </div>
+        </div>
+        <form method="dialog"><button class="janela-fechar" type="submit" aria-label="Fechar">${icone("fechar", 20)}</button></form>
+      </dialog>`).join("");
   const comIa = (t.recursos || []).filter(r => r.ia).length;
   return `
       <article class="destaque">
@@ -94,7 +114,7 @@ function trabalhoDestaque(t) {
             ${t.credito ? `<p class="credito">${esc(t.credito)}</p>` : ""}
             ${linkDoTrabalho(t, t.linkTexto || "Ver o projeto")}
           </div>
-        </div>
+        </div>${janelas}
       </article>`;
 }
 
@@ -358,6 +378,7 @@ ${vitrine ? `<figure class="vitrine">
     <a class="rodape-entrar" href="/login">Entrar</a>
   </div>
 </footer>
+<script>/* "Ver tela": abre o pop-up do recurso; tocar fora ou Esc fecha */document.querySelectorAll("[data-abrir]").forEach(function(b){var d=document.getElementById(b.dataset.abrir);if(!d||!d.showModal)return;b.addEventListener("click",function(){d.showModal()});d.addEventListener("click",function(e){if(e.target===d)d.close()})})</script>
 </body>
 </html>
 `;

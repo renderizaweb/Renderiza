@@ -1,7 +1,7 @@
 // Site público (/) e o que vai para o ar.   npm test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import config from "../site/config.mjs";
 import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel } from "../site/pagina.mjs";
 import { arquivosPublicados } from "../scripts/montar-site.mjs";
@@ -48,7 +48,8 @@ test("Move em destaque: print, recursos, crédito ao cliente e link", () => {
   assert.ok(move.publicar && move.destaque);
   assert.match(html, /<article class="destaque">/);
   for (const r of move.recursos) assert.ok(html.includes(r.titulo), r.titulo);
-  assert.equal((html.match(/class="selo-ia"/g) || []).length, move.recursos.filter(r => r.ia).length);
+  // etiqueta IA no cartão e no pop-up de cada recurso com IA
+  assert.equal((html.match(/class="selo-ia"/g) || []).length, 2 * move.recursos.filter(r => r.ia).length);
   assert.match(html, /com 3 recursos de inteligência artificial/);
   assert.ok(html.includes("Um produto Move, desenvolvido pela Renderiza."));
   assert.match(html, /href="https:\/\/www\.movexfit\.com\.br" target="_blank" rel="noopener">Conhecer o Move/);
@@ -131,4 +132,20 @@ test("por que ter um site: centraliza, profissionaliza e fica pronto para anúnc
   assert.doesNotMatch(secao, /landing|tráfego|gatilho/i);
   assert.doesNotMatch(secao, /Google encontra|busca no Google|algoritmo|sem login|QR|manutenção|vender mais|%/i);
   assert.ok(html.indexOf('id="por-que"') < html.indexOf('id="servicos"'));
+});
+
+test("cada recurso da Move tem botão 'Ver tela' que abre um pop-up com tela real e link para o site da Move", () => {
+  const html = montarPagina(config);
+  const move = config.trabalhos.find(t => t.id === "move");
+  const botoes = [...html.matchAll(/data-abrir="([^"]+)"/g)].map(m => m[1]);
+  assert.equal(botoes.length, move.recursos.length);
+  for (const id of botoes) {
+    const janela = html.slice(html.indexOf(`<dialog class="janela-recurso" id="${id}"`), html.indexOf("</dialog>", html.indexOf(`id="${id}"`)));
+    assert.ok(janela.length > 0, id);
+    assert.match(janela, /<img src="\/imagens\/move\/[a-z-]+\.webp"[^>]*loading="lazy"/);
+    assert.match(janela, /href="https:\/\/www\.movexfit\.com\.br\/#[a-z-]+" target="_blank"/);
+    assert.match(janela, /Tela real do app, com dados de exemplo\./);
+    assert.match(janela, /<form method="dialog">/);
+  }
+  for (const r of move.recursos) assert.ok(existsSync(new URL(`../site/estatico${r.imagem}`, import.meta.url)), r.imagem);
 });

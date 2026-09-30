@@ -1,0 +1,17 @@
+import { abrir, B } from './base.mjs';
+import * as d from './dados.mjs';
+const mocks = { 'GET /api/v1/me': d.meAluno, 'GET /api/v1/notifications/unread-count': { unreadCount: 2 }, 'GET /api/v1/food-diary/today': d.diarioHoje, ...d.extras, ...d.extras2 };
+const { b, p } = await abrir({ log: true, mocks });
+await p.goto(B + '/app/diario', { waitUntil: 'networkidle', timeout: 120000 });
+await p.waitForTimeout(1200);
+await p.locator('button:has-text("Registrar"):visible').first().click(); await p.waitForTimeout(800);
+await p.locator('text=Descrever o que comi').first().click(); await p.waitForTimeout(800);
+await p.locator('textarea:visible').first().fill('Arroz, feijão, um filé de frango grelhado e salada de folhas');
+await p.locator('button:has-text("Estimar"):visible').first().click(); await p.waitForTimeout(2500);
+console.log((await p.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 700));
+await p.evaluate(() => { document.querySelectorAll('[role=dialog] *, [role=dialog]').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); });
+await p.waitForTimeout(500);
+const caixa = await p.locator('[role=dialog]').last().boundingBox(); console.log('caixa', JSON.stringify(caixa));
+await p.locator('[role=dialog]').last().screenshot({ path: 'final/diario-sheet.png' });
+await p.screenshot({ path: 'diario-ia.png' });
+await b.close();

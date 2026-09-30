@@ -44,13 +44,51 @@ export default {
       destaque: true,
       texto: "Plataforma para alunos e personal trainers: o personal monta e envia o treino, o aluno executa série por série e os dois acompanham a evolução.",
       // ia: true ganha a etiqueta "IA"; icone: haltere, escanear, camera, mensagem, painel, sino
+      // imagem: tela real do app (move-web rodando local com dados de exemplo; nada de usuário real)
+      // detalhe: texto do pop-up "Ver tela"; link: onde o botão do pop-up leva
       recursos: [
-        { titulo: "Diário alimentar", ia: true, icone: "camera", texto: "O aluno fotografa a refeição e a IA estima as calorias, que ficam registradas no diário." },
-        { titulo: "MoveScan", ia: true, icone: "escanear", texto: "Com duas fotos, a IA estima a composição corporal e mostra a evolução ao longo do tempo." },
-        { titulo: "Chat com IA", ia: true, icone: "mensagem", texto: "Um assistente que conhece o treino do aluno responde na hora, com o personal na mesma conversa." },
-        { titulo: "Treinos guiados", icone: "haltere", texto: "O treino do dia abre pronto e conduz a execução série por série, com carga e descanso." },
-        { titulo: "Painel do personal", icone: "painel", texto: "O personal monta treinos, convida alunos por link e vê quem treinou e quem precisa de atenção." },
-        { titulo: "Notificações", icone: "sino", texto: "Treino novo e mensagem do personal chegam na hora." },
+        {
+          titulo: "Diário alimentar", ia: true, icone: "camera",
+          texto: "O aluno fotografa ou descreve a refeição e a IA estima as calorias, que ficam registradas no diário.",
+          detalhe: "O aluno fotografa o prato ou descreve o que comeu, e a IA separa os alimentos e estima as gramas e as calorias de cada um. Ele revisa, ajusta se precisar, e o diário mostra se o dia está dentro da faixa do plano.",
+          imagem: "/imagens/move/diario-alimentar.webp", largura: 540, altura: 1146,
+          link: "https://www.movexfit.com.br/#recursos",
+        },
+        {
+          titulo: "MoveScan", ia: true, icone: "escanear",
+          texto: "Com duas fotos, a IA estima a composição corporal e mostra a evolução ao longo do tempo.",
+          detalhe: "Com duas fotos, de frente e de lado, a IA estima o percentual de gordura, a massa magra e o metabolismo basal, e compara com a análise anterior. É uma estimativa visual, não um exame clínico.",
+          imagem: "/imagens/move/movescan.webp", largura: 540, altura: 892,
+          link: "https://www.movexfit.com.br/#recursos",
+        },
+        {
+          titulo: "Chat com IA", ia: true, icone: "mensagem",
+          texto: "Um assistente que conhece o treino do aluno responde na hora, com o personal na mesma conversa.",
+          detalhe: "Uma IA que conhece o treino e o diário do aluno responde dúvidas na hora. O personal participa da mesma conversa e pode configurar como a IA orienta os alunos dele.",
+          imagem: "/imagens/move/chat-ia.webp", largura: 540, altura: 1169,
+          link: "https://www.movexfit.com.br/#recursos",
+        },
+        {
+          titulo: "Treinos guiados", icone: "haltere",
+          texto: "O treino do dia abre pronto e conduz a execução série por série, com carga e descanso.",
+          detalhe: "O personal monta o treino e o aluno recebe pronto: exercícios, séries, repetições e descanso. Na execução, o app conduz série por série e registra a carga e as repetições de cada uma.",
+          imagem: "/imagens/move/treinos-guiados.webp", largura: 540, altura: 1169,
+          link: "https://www.movexfit.com.br/#recursos",
+        },
+        {
+          titulo: "Painel do personal", icone: "painel",
+          texto: "O personal monta treinos, convida alunos por link e vê quem treinou e quem precisa de atenção.",
+          detalhe: "O personal cria treinos, convida alunos por link e acompanha quem treinou, quando e com que frequência, sem precisar perguntar a cada um.",
+          imagem: "/imagens/move/painel-personal.webp", largura: 540, altura: 1169,
+          link: "https://www.movexfit.com.br/#para-personal",
+        },
+        {
+          titulo: "Notificações", icone: "sino",
+          texto: "Treino novo e mensagem do personal chegam na hora.",
+          detalhe: "Treino novo aplicado ou mensagem do personal: o aluno fica sabendo na hora, direto no app, e um toque leva para o lugar certo.",
+          imagem: "/imagens/move/notificacoes.webp", largura: 540, altura: 1169,
+          link: "https://www.movexfit.com.br/#recursos",
+        },
       ],
       credito: "Um produto Move, desenvolvido pela Renderiza.",
       imagem: "/imagens/move.webp",

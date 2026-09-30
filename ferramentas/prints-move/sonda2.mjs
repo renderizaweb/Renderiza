@@ -1,0 +1,11 @@
+import { abrir, B } from './base.mjs';
+import * as d from './dados.mjs';
+const [,, rota, saida = 'x.png', larg = '390'] = process.argv;
+const mocks = { 'GET /api/v1/me': d.mePersonal, 'GET /api/v1/notifications/unread-count': { unreadCount: 3 }, ...(d.personal || {}) };
+const { b, p } = await abrir({ log: true, mocks, largura: +larg, altura: +larg < 600 ? 844 : 900 });
+await p.goto(B + rota, { waitUntil: 'networkidle', timeout: 120000 });
+await p.waitForTimeout(2500);
+console.log('URL', p.url());
+console.log((await p.evaluate(() => document.querySelector('main')?.innerText || document.body.innerText)).replace(/\s+/g, ' ').slice(0, 600));
+await p.screenshot({ path: saida });
+await b.close();
