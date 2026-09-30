@@ -28,6 +28,11 @@ const ICONES = {
   loja: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
   megafone: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
   fechar: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  grade: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>',
+  escudo: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  grafico: '<path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>',
+  pessoas: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  aspas: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
@@ -41,6 +46,7 @@ export function pendencias(config) {
   if (!config.contato.linkedin) p.push("LinkedIn pessoal (contato.linkedin)");
   if (!config.pessoa.foto) p.push("foto real (pessoa.foto)");
   for (const t of config.trabalhos) if (t.publicar && t.falta) p.push(`trabalho "${t.titulo}": ${t.falta}`);
+  for (const d of config.depoimentos || []) if (!d.texto || !d.publicar) p.push(`depoimento de ${d.nome || d.papel}: ${d.texto ? "aguardando aprovação (publicar: false)" : "texto ainda não recebido"}`);
   return p;
 }
 
@@ -84,7 +90,7 @@ function trabalhoDestaque(t) {
               </li>`).join("");
   // Um <dialog> por recurso: tela real, texto e link para o produto. Fechado, a imagem não carrega.
   const janelas = (t.recursos || []).filter(r => r.imagem).map(r => `
-      <dialog class="janela-recurso" id="${idDe(r)}" aria-labelledby="${idDe(r)}-titulo">
+      <dialog class="janela-recurso${r.formato === "paisagem" ? " janela-paisagem" : ""}" id="${idDe(r)}" aria-labelledby="${idDe(r)}-titulo">
         <div class="janela-grade">
           <figure class="janela-tela">
             <img src="${esc(r.imagem)}" alt="Tela ${esc(r.titulo)} do app ${esc(t.titulo)}" width="${r.largura || 540}" height="${r.altura || 1169}" loading="lazy" decoding="async">
@@ -152,6 +158,7 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const temDemo = trabalhos.some(t => t.selo === "demonstracao");
   // Abertura mostra trabalho real: o primeiro destaque com print.
   const vitrine = destaques.find(t => t.imagem);
+  const depoimentos = (config.depoimentos || []).filter(d => d.publicar && d.texto && d.texto.trim());
 
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
   const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
@@ -295,14 +302,33 @@ ${vitrine ? `<figure class="vitrine">
   <section class="secao secao-clara" id="trabalhos" aria-labelledby="trabalhos-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Trabalhos realizados</p>
-      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos no ar."}</h2>
+      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos de clientes."}</h2>
       ${destaques.map(trabalhoDestaque).join("")}
       ${demais.length ? `<ul class="trabalhos">${demais.map(cartaoTrabalho).join("")}
       </ul>` : ""}
     </div>
   </section>
 
-  <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
+${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledby="depoimentos-titulo">
+    <div class="envoltorio">
+      <p class="sobretitulo">Depoimentos</p>
+      <h2 id="depoimentos-titulo">Quem já trabalhou comigo.</h2>
+      <ul class="depoimentos">${depoimentos.map(d => `
+        <li>
+          <figure>
+            <span class="depoimento-aspas">${icone("aspas", 22)}</span>
+            <blockquote><p>${esc(d.texto)}</p></blockquote>
+            <figcaption>
+              ${d.foto ? `<img src="${esc(d.foto)}" alt="" width="44" height="44" loading="lazy" decoding="async">` : `<span class="depoimento-inicial" aria-hidden="true">${esc((d.nome || d.papel).charAt(0))}</span>`}
+              <span><strong>${esc(d.nome || d.papel)}</strong>${d.nome && d.papel ? `<small>${esc(d.papel)}</small>` : ""}</span>
+            </figcaption>
+          </figure>
+        </li>`).join("")}
+      </ul>
+    </div>
+  </section>
+
+` : ""}  <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Como funciona</p>
       <h2 id="como-titulo">Direto, sem burocracia.</h2>

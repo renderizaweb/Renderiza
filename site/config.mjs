@@ -28,6 +28,14 @@ export default {
     instagram: "",
   },
 
+  // Depoimentos. Só aparecem com texto e publicar: true (depois da aprovação de quem falou).
+  //   trabalho: id do trabalho a que se refere; foto: opcional, em site/estatico/imagens/
+  depoimentos: [
+    { id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", texto: "", foto: "", publicar: false },
+    { id: "rafael", nome: "Rafael", papel: "Personal trainer, criador do Move", trabalho: "move", texto: "", foto: "", publicar: false },
+    { id: "blue-lens", nome: "", papel: "Ótica Blue Lens", trabalho: "blue-lens", texto: "", foto: "", publicar: false },
+  ],
+
   // Trabalhos realizados. Só aparecem os que têm publicar: true.
   //   selo: "cliente" ou "demonstracao" (esta ganha a etiqueta "Demonstração conceitual")
   //   destaque: true = cartão grande com print, recursos e crédito
@@ -98,6 +106,51 @@ export default {
       alt: "Página inicial do Move, com a tela de um treino em execução",
       link: "https://www.movexfit.com.br",
       linkTexto: "Conhecer o Move",
+      publicar: true,
+      falta: "",
+    },
+    {
+      id: "compasso",
+      titulo: "Compasso",
+      tipo: "Aplicativo · finanças da família",
+      selo: "cliente",
+      destaque: true,
+      texto: "O planejamento financeiro da casa num lugar só: o casal vê se o mês fecha no azul, planeja os próximos e sabe por quanto tempo a reserva segura as contas essenciais.",
+      // prints: compasso-familiar rodando local com uma família fictícia (Ana e Bruno); sem dados reais
+      recursos: [
+        {
+          titulo: "Visão do mês", icone: "painel",
+          texto: "Quanto entra, quanto sai, quanto já foi separado e a sobra projetada do mês.",
+          detalhe: "Abre direto no mês atual: receitas previstas e recebidas, despesas pagas e pendentes, dinheiro guardado e a sobra projetada. Cada número leva às contas que o compõem, e o app explica como a sobra foi calculada.",
+          imagem: "/imagens/compasso/visao-do-mes.webp", largura: 540, altura: 1094,
+        },
+        {
+          titulo: "Planejamento em grade", icone: "grade",
+          texto: "As contas mês a mês, editáveis como numa planilha: clicar, digitar e marcar como pago.",
+          detalhe: "Receitas, despesas e reservas ficam lado a lado, mês a mês, como numa planilha: clica, digita e marca como pago. Dá para copiar um mês para o seguinte e detalhar as saídas diversas item por item.",
+          imagem: "/imagens/compasso/planejamento.webp", largura: 820, altura: 790, formato: "paisagem",
+        },
+        {
+          titulo: "Proteção da família", icone: "escudo",
+          texto: "Quantos meses a reserva de emergência cobre e quanto guardar por mês para chegar à meta.",
+          detalhe: "Cada despesa é marcada como essencial, ajustável ou temporária. Com isso o Compasso calcula quantos meses a reserva de emergência cobre, a meta de meses protegidos e o aporte mínimo de cada mês.",
+          imagem: "/imagens/compasso/protecao.webp", largura: 540, altura: 841,
+        },
+        {
+          titulo: "Para onde o dinheiro vai", icone: "grafico",
+          texto: "O que ainda falta pagar e os gastos agrupados por tag, com um teto para o mês.",
+          detalhe: "Lista o que ainda falta pagar no mês e mostra, por tag, para onde vai o orçamento: moradia, mercado, escola. Um teto de gastos mostra quanto da renda já está comprometido.",
+          imagem: "/imagens/compasso/onde-vai.webp", largura: 540, altura: 845,
+        },
+        {
+          titulo: "Uma conta para o casal", icone: "pessoas",
+          texto: "Cada um entra com o próprio login no mesmo planejamento, sem um apagar a alteração do outro.",
+        },
+      ],
+      credito: "Uma ideia da Milena, desenvolvida pela Renderiza.",
+      imagem: "/imagens/compasso/compasso.webp",
+      alt: "Visão do mês do Compasso, com receitas, despesas, dinheiro protegido e a sobra projetada",
+      link: "",
       publicar: true,
       falta: "",
     },

@@ -22,7 +22,7 @@ test("home não lista as demos nem trabalhos marcados para não publicar", () =>
 test("nenhuma demonstração de ótica na home enquanto não houver aprovação de cliente", () => {
   assert.deepEqual(config.trabalhos.filter(t => t.publicar && t.selo === "demonstracao").map(t => t.id), []);
   const html = montarPagina(config);
-  assert.match(html, /<h2 id="trabalhos-titulo">Projetos no ar\.<\/h2>/);
+  assert.match(html, /<h2 id="trabalhos-titulo">Projetos de clientes\.<\/h2>/);
   assert.doesNotMatch(html, /Demonstração conceitual/);
 });
 
@@ -137,7 +137,7 @@ test("por que ter um site: centraliza, profissionaliza e fica pronto para anúnc
 test("cada recurso da Move tem botão 'Ver tela' que abre um pop-up com tela real e link para o site da Move", () => {
   const html = montarPagina(config);
   const move = config.trabalhos.find(t => t.id === "move");
-  const botoes = [...html.matchAll(/data-abrir="([^"]+)"/g)].map(m => m[1]);
+  const botoes = [...html.matchAll(/data-abrir="(recurso-move-[^"]+)"/g)].map(m => m[1]);
   assert.equal(botoes.length, move.recursos.length);
   for (const id of botoes) {
     const janela = html.slice(html.indexOf(`<dialog class="janela-recurso" id="${id}"`), html.indexOf("</dialog>", html.indexOf(`id="${id}"`)));
@@ -148,4 +148,28 @@ test("cada recurso da Move tem botão 'Ver tela' que abre um pop-up com tela rea
     assert.match(janela, /<form method="dialog">/);
   }
   for (const r of move.recursos) assert.ok(existsSync(new URL(`../site/estatico${r.imagem}`, import.meta.url)), r.imagem);
+});
+
+test("Compasso em destaque: problema, recursos com tela real, crédito à Milena e nada da família de verdade", () => {
+  const html = montarPagina(config);
+  const compasso = config.trabalhos.find(t => t.id === "compasso");
+  assert.ok(compasso.publicar && compasso.destaque);
+  assert.ok(html.includes("Uma ideia da Milena, desenvolvida pela Renderiza."));
+  for (const r of compasso.recursos) assert.ok(html.includes(r.titulo), r.titulo);
+  const telas = compasso.recursos.filter(r => r.imagem);
+  assert.equal([...html.matchAll(/data-abrir="recurso-compasso-/g)].length, telas.length);
+  for (const r of telas) assert.ok(existsSync(new URL(`../site/estatico${r.imagem}`, import.meta.url)), r.imagem);
+  assert.match(html, /class="janela-recurso janela-paisagem" id="recurso-compasso-planejamento-em-grade"/);
+  assert.doesNotMatch(html, /Kaleb|Raphael|KAUE & MILENA/);
+  assert.ok(html.indexOf('recurso-move-') < html.indexOf('recurso-compasso-'), "Move vem antes");
+});
+
+test("depoimentos: seção só aparece com depoimento aprovado", () => {
+  assert.doesNotMatch(montarPagina(config), /id="depoimentos"/);
+  const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Ainda não", publicar: false }] };
+  const html = montarPagina(aprovado);
+  assert.match(html, /id="depoimentos"/);
+  assert.ok(html.includes("Texto &lt;aprovado&gt;."));
+  assert.doesNotMatch(html, /Ainda não/);
+  assert.ok(pendencias(config).some(p => /depoimento de Rafael/.test(p)));
 });

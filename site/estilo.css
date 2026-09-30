@@ -186,6 +186,25 @@ html:has(dialog[open]){overflow:hidden}
 .janela-fechar:hover{background:#fff}
 @media (prefers-reduced-motion:no-preference){.janela-recurso[open]{animation:janela-entra .18s ease-out}@keyframes janela-entra{from{opacity:0;transform:translateY(12px)}}}
 
+.janela-paisagem{width:min(960px,calc(100% - 24px))}
+.janela-paisagem .janela-grade{grid-template-columns:1fr!important}
+.janela-paisagem .janela-tela{padding:20px 20px 12px}
+.janela-paisagem .janela-tela img{max-height:48vh}
+.janela-paisagem .janela-texto{padding:22px 24px 26px}
+.destaque+.destaque{margin-top:20px}
+
+/* depoimentos */
+.depoimentos{display:grid;gap:16px;margin-top:32px}
+.depoimentos figure{height:100%;margin:0;display:flex;flex-direction:column;gap:14px;padding:24px 22px;background:var(--branco);border:1px solid var(--linha);border-radius:var(--raio)}
+.depoimento-aspas{color:var(--verde-vivo)}
+.depoimentos blockquote{margin:0;flex:1}
+.depoimentos blockquote p{font-family:var(--serifa);font-size:1.4rem;line-height:1.3;color:var(--verde-noite)}
+.depoimentos figcaption{display:flex;align-items:center;gap:12px}
+.depoimentos figcaption img,.depoimento-inicial{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
+.depoimento-inicial{display:grid;place-items:center;background:var(--verde-escuro);color:var(--lima);font-family:var(--serifa);font-size:1.3rem}
+.depoimentos strong{display:block;font-weight:650}
+.depoimentos small{display:block;font-size:.8125rem;color:var(--tinta-suave)}
+
 /* sobre */
 .sobre{display:grid;gap:28px}
 .sobre-foto{width:176px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#e1e7de}
@@ -260,6 +279,9 @@ html:has(dialog[open]){overflow:hidden}
   .dores{grid-template-columns:repeat(3,1fr);gap:16px}
   .dores li{padding:26px 24px}
   .janela-grade{grid-template-columns:320px 1fr;align-items:center}
+  .depoimentos{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .janela-paisagem .janela-tela img{max-height:min(560px,calc(100dvh - 300px))}
+  .janela-paisagem .janela-texto{padding:26px 36px 32px}
   .janela-tela{padding:28px 24px 18px;align-self:stretch;justify-content:center}
   .janela-tela img{max-height:min(620px,calc(100dvh - 120px))}
   .janela-texto{padding:40px 36px}
