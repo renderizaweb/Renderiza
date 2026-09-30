@@ -123,11 +123,12 @@ test("abertura: frase concreta e trabalho real (Move), sem a ilustração esquem
   assert.doesNotMatch(html, /Sites bonitos e leves|class="ilustracao"/);
 });
 
-test("por que ter um site: dor do cliente novo e remédio, sem promessa de Google nem serviço extra", () => {
+test("por que ter um site: centraliza, profissionaliza e fica pronto para anúncios, sem promessa de Google nem serviço extra", () => {
   const html = montarPagina(config);
   const secao = html.slice(html.indexOf('<section class="dor"'), html.indexOf('<section class="secao" id="servicos"'));
   assert.match(secao, /Seus clientes te conhecem\. <em>O cliente novo, não\.<\/em>/);
-  assert.equal((secao.match(/class="dor-remedio"/g) || []).length, 3);
+  for (const titulo of ["Tudo num lugar só", "Mais profissional", "Pronto para anunciar"]) assert.ok(secao.includes(titulo), titulo);
+  assert.doesNotMatch(secao, /landing|tráfego|gatilho/i);
   assert.doesNotMatch(secao, /Google encontra|busca no Google|algoritmo|sem login|QR|manutenção|vender mais|%/i);
   assert.ok(html.indexOf('id="por-que"') < html.indexOf('id="servicos"'));
 });

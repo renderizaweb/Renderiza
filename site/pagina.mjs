@@ -26,6 +26,7 @@ const ICONES = {
   busca: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
   estrela: '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
   loja: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
+  megafone: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
@@ -225,25 +226,22 @@ ${vitrine ? `<figure class="vitrine">
     <div class="envoltorio">
       <p class="sobretitulo">Por que ter um site</p>
       <h2 id="dor-titulo">Seus clientes te conhecem. <em>O cliente novo, não.</em></h2>
-      <p class="dor-lide">Quem foi indicado, passou na frente ou ouviu falar da sua loja pesquisa antes de ir. É nesse momento que ele decide, e quem não encontra resposta rápido não pergunta: vai para a próxima.</p>
+      <p class="dor-lide">Quem foi indicado ou ouviu falar da sua loja pesquisa antes de ir. O site é o que ele encontra: a melhor versão do seu negócio, a um toque do WhatsApp.</p>
       <ul class="dores">
         <li>
-          <span class="dor-icone">${icone("busca", 20)}</span>
-          <h3>Ele não acha o básico</h3>
-          <p class="dor-hoje"><span>Hoje</span>Endereço, horário e contato ficam perdidos entre posts, stories e destaques.</p>
-          <p class="dor-remedio"><span>Com um site</span>Tudo na primeira tela, com um botão para falar com você.</p>
-        </li>
-        <li>
-          <span class="dor-icone">${icone("estrela", 20)}</span>
-          <h3>Ele não vê o seu melhor</h3>
-          <p class="dor-hoje"><span>Hoje</span>Clientes satisfeitos, boas avaliações e a história da loja ficam espalhados pelo feed.</p>
-          <p class="dor-remedio"><span>Com um site</span>As melhores fotos e avaliações reunidas numa página só.</p>
+          <span class="dor-icone">${icone("painel", 20)}</span>
+          <h3>Tudo num lugar só</h3>
+          <p>Fotos, avaliações, endereço, horário, Instagram e WhatsApp numa página. Um link para mandar a qualquer cliente.</p>
         </li>
         <li>
           <span class="dor-icone">${icone("loja", 20)}</span>
-          <h3>Ele compara você com as grandes redes</h3>
-          <p class="dor-hoje"><span>Hoje</span>A rede tem site e parece mais profissional, mesmo sem o seu atendimento.</p>
-          <p class="dor-remedio"><span>Com um site</span>Sua loja com cara de negócio sério, mostrando o que uma rede não tem.</p>
+          <h3>Mais profissional</h3>
+          <p>Sua loja com cara de negócio estabelecido, lado a lado com as grandes redes, mostrando o que elas não têm: o seu atendimento.</p>
+        </li>
+        <li>
+          <span class="dor-icone">${icone("megafone", 20)}</span>
+          <h3>Pronto para anunciar</h3>
+          <p>Se um dia quiser investir em anúncios, eles já têm para onde levar: uma página feita para virar conversa no WhatsApp.</p>
         </li>
       </ul>
       <p class="dor-fecho">O Instagram continua sendo o seu dia a dia. <em>O site é a sua primeira impressão.</em></p>

@@ -94,7 +94,7 @@ h2{font-family:var(--serifa);font-weight:400;font-size:clamp(2.1rem,8vw,3.2rem);
 h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;color:var(--tinta)}
 .secao-lide{margin-top:14px;color:var(--tinta-suave);max-width:40em}
 
-/* por que ter um site: a dor do cliente novo e o remédio */
+/* por que ter um site: o cliente novo pesquisa antes de ir */
 .dor{background:var(--verde-escuro);color:#fff;padding:64px 0;scroll-margin-top:calc(var(--topo) + 8px)}
 .dor .sobretitulo{color:var(--lima)}
 .dor h2{color:#fff;max-width:15em}
@@ -104,14 +104,7 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .dores li{display:flex;flex-direction:column;padding:22px 20px;border-radius:var(--raio);background:#ffffff0d;border:1px solid #ffffff1f}
 .dor-icone{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#c9f19b1f;color:var(--lima);margin-bottom:14px}
 .dores h3{color:#fff;font-size:1.125rem}
-.dores p{margin-top:10px;font-size:.9375rem;line-height:1.55}
-.dores p span{display:block;margin-bottom:2px;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.dor-hoje{color:#a9c2b6}
-.dor-hoje span{color:#86a597}
-.dor-remedio{color:#fff;padding-top:10px;border-top:1px dashed #ffffff26}
-.dores .dor-remedio{margin-top:auto}
-.dores .dor-hoje{margin-bottom:12px}
-.dor-remedio span{color:var(--lima)}
+.dores p{margin-top:8px;font-size:.9687rem;line-height:1.6;color:#cfe1d7}
 .dor-fecho{margin-top:28px;font-family:var(--serifa);font-size:1.5rem;line-height:1.25;color:#e3eee7;max-width:24em}
 .dor-fecho em{color:var(--lima)}
 .dor :focus-visible{outline-color:var(--lima)}
