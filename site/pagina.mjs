@@ -17,6 +17,13 @@ const ICONES = {
   mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
   mais: '<path d="M5 12h14"/><path d="M12 5v14"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
+  // Ícones dos recursos (Lucide).
+  haltere: '<path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/>',
+  escanear: '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/>',
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  painel: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
+  sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
+  brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
 const icone = (nome, tam = 18) =>
@@ -62,7 +69,11 @@ function validarTrabalho(t) {
 function trabalhoDestaque(t) {
   validarTrabalho(t);
   const recursos = (t.recursos || []).map(r => `
-              <li><h4>${esc(r.titulo)}</h4><p>${esc(r.texto)}</p></li>`).join("");
+              <li${r.ia ? ' class="com-ia"' : ""}>
+                <span class="recurso-icone">${icone(ICONES[r.icone] ? r.icone : "check", 20)}</span>
+                <div><h4>${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h4><p>${esc(r.texto)}</p></div>
+              </li>`).join("");
+  const comIa = (t.recursos || []).filter(r => r.ia).length;
   return `
       <article class="destaque">
         ${t.imagem ? `<div class="destaque-imagem"><img src="${esc(t.imagem)}" alt="${esc(t.alt || "Tela do " + t.titulo)}" width="1200" height="672" loading="lazy" decoding="async"></div>` : ""}
@@ -70,7 +81,8 @@ function trabalhoDestaque(t) {
           <p class="trabalho-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
           <h3>${esc(t.titulo)}</h3>
           <p class="destaque-texto">${esc(t.texto)}</p>
-          ${recursos ? `<ul class="recursos">${recursos}
+          ${recursos ? `<p class="recursos-titulo">O que a Renderiza desenvolveu${comIa ? `, com ${comIa} recursos de inteligência artificial` : ""}</p>
+          <ul class="recursos">${recursos}
           </ul>` : ""}
           <div class="destaque-rodape">
             ${t.credito ? `<p class="credito">${esc(t.credito)}</p>` : ""}
@@ -122,8 +134,6 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const foto = pessoa.foto
     ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="720" height="960" loading="lazy" decoding="async"></div>`
     : "";
-  const trajetoria = (pessoa.trajetoria || []).map(item => `
-          <div><dt>${esc(item.rotulo)}</dt><dd>${esc(item.texto)}</dd></div>`).join("");
 
   const redes = [
     temWa && `<a href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 17)}WhatsApp ${esc(telefone)}</a>`,
@@ -265,13 +275,11 @@ ${css.trim()}
         <p class="sobretitulo">Quem faz</p>
         <h2 id="sobre-titulo">${esc(nomeCompleto)}</h2>
         <p class="sobre-cargo">Desenvolvedor de software e fundador da Renderiza</p>
-        <p>Desenvolvo software há ${esc(pessoa.anosDeExperiencia)} anos, com passagem por grandes empresas. Na Renderiza, cada projeto é conduzido por mim, do primeiro contato à entrega.</p>
-        ${trajetoria ? `<dl class="trajetoria">${trajetoria}
-        </dl>` : ""}
+        <p>Sou desenvolvedor há ${esc(pessoa.anosDeExperiencia)} anos, com foco em produto: entender o problema de quem vai usar e entregar algo simples, bonito e que funciona.</p>
+        <p>Atuo em tempo integral na ${esc(pessoa.trabalhoAtual)} e, em paralelo, conduzo a Renderiza, meu projeto independente de sites e aplicativos. Aqui, cada projeto é feito por mim, do primeiro contato à entrega.</p>
         <div class="sobre-acoes">
           ${contato.linkedin ? `<a class="botao botao-secundario" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 17)}Ver perfil no LinkedIn</a>` : ""}
         </div>
-        <p class="sobre-nota">A Renderiza é independente, sem vínculo com a ${esc(pessoa.trabalhoAtual)}.</p>
       </div>
     </div>
   </section>

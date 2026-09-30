@@ -151,7 +151,8 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   nenhuma demo aparece).
   Trabalhos na home: **Move** (movexfit.com.br, app do cliente Rafael, em destaque com os recursos
   feitos pela Renderiza) e **Ótica Blue Lens** (link do site ainda não confirmado). Texto do "Quem faz":
-  5 anos de desenvolvimento e o trabalho atual na Warren, sem data de início da Renderiza.
+  5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
+  Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),

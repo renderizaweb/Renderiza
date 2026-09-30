@@ -48,15 +48,17 @@ test("Move em destaque: print, recursos, crédito ao cliente e link", () => {
   assert.ok(move.publicar && move.destaque);
   assert.match(html, /<article class="destaque">/);
   for (const r of move.recursos) assert.ok(html.includes(r.titulo), r.titulo);
+  assert.equal((html.match(/class="selo-ia"/g) || []).length, move.recursos.filter(r => r.ia).length);
+  assert.match(html, /com 3 recursos de inteligência artificial/);
   assert.ok(html.includes("Um produto Move, desenvolvido pela Renderiza."));
   assert.match(html, /href="https:\/\/www\.movexfit\.com\.br" target="_blank" rel="noopener">Conhecer o Move/);
 });
 
-test("Quem faz: trajetória curta, sem data de início e sem sugerir vínculo com a Warren", () => {
+test("Quem faz: foco em produto, Warren citada com leveza e Renderiza como projeto paralelo independente", () => {
   const html = montarPagina(config);
-  assert.doesNotMatch(html, /abril de 2025/);
-  assert.match(html, /há 5 anos/);
-  assert.match(html, /sem vínculo com a Warren Investimentos/);
+  assert.doesNotMatch(html, /abril de 2025|boletagem|CRM/);
+  assert.match(html, /desenvolvedor há 5 anos, com foco em produto/);
+  assert.match(html, /Atuo em tempo integral na Warren Investimentos e, em paralelo, conduzo a Renderiza, meu projeto independente/);
   assert.doesNotMatch(html, /Recebeu uma mensagem minha|Sou eu mesmo|focado em óticas/);
 });
 

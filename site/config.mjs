@@ -15,17 +15,6 @@ export default {
     avatar: "/imagens/kaue-avatar.webp",
     anosDeExperiencia: 5,
     trabalhoAtual: "Warren Investimentos",
-    // Trajetória curta no "Quem faz": o que dá confiança, sem virar currículo.
-    trajetoria: [
-      {
-        rotulo: "Hoje",
-        texto: "Na Warren Investimentos, desenvolvo uma plataforma para assessores de investimento, com boletagem de aplicações e resgates, integrações complexas, CRM e gestão de leads.",
-      },
-      {
-        rotulo: "Renderiza",
-        texto: "Projeto próprio e independente: sites para negócios locais e aplicativos sob medida, como o Move.",
-      },
-    ],
   },
 
   contato: {
@@ -54,13 +43,14 @@ export default {
       // destaque: cartão grande, com print e lista de recursos
       destaque: true,
       texto: "Plataforma para alunos e personal trainers: o personal monta e envia o treino, o aluno executa série por série e os dois acompanham a evolução.",
+      // ia: true ganha a etiqueta "IA"; icone: haltere, escanear, camera, mensagem, painel, sino
       recursos: [
-        { titulo: "Treinos guiados", texto: "Execução série por série, com carga e descanso." },
-        { titulo: "MoveScan", texto: "Composição corporal estimada a partir de duas fotos." },
-        { titulo: "Chat com IA", texto: "Tira dúvidas na hora, com o contexto dos treinos do aluno." },
-        { titulo: "Diário alimentar", texto: "Refeições registradas, com contagem de calorias." },
-        { titulo: "Painel do personal", texto: "Cria treinos, convida alunos e acompanha a frequência." },
-        { titulo: "Notificações", texto: "Aviso de treino novo e de mensagem do personal." },
+        { titulo: "Diário alimentar", ia: true, icone: "camera", texto: "O aluno fotografa a refeição e a IA estima as calorias, que ficam registradas no diário." },
+        { titulo: "MoveScan", ia: true, icone: "escanear", texto: "Com duas fotos, a IA estima a composição corporal e mostra a evolução ao longo do tempo." },
+        { titulo: "Chat com IA", ia: true, icone: "mensagem", texto: "Um assistente que conhece o treino do aluno responde na hora, com o personal na mesma conversa." },
+        { titulo: "Treinos guiados", icone: "haltere", texto: "O treino do dia abre pronto e conduz a execução série por série, com carga e descanso." },
+        { titulo: "Painel do personal", icone: "painel", texto: "O personal monta treinos, convida alunos por link e vê quem treinou e quem precisa de atenção." },
+        { titulo: "Notificações", icone: "sino", texto: "Treino novo e mensagem do personal chegam na hora." },
       ],
       credito: "Um produto Move, desenvolvido pela Renderiza.",
       imagem: "/imagens/move.webp",
