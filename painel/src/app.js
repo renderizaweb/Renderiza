@@ -826,8 +826,20 @@ function renderAcesso(estado) {
     catch (err) { erro.textContent = err.message; erro.hidden = false; }
     finally { botao.disabled = false; }
   });
-  tela.replaceChildren(h("div", { class: "login-card" }, marca, h("h1", { text: "Entrar no painel" }), h("p", { class: "login-intro", text: "Use o usuário criado no Supabase." }), form));
+  tela.replaceChildren(h("div", { class: "login-card" }, marca, h("h1", { text: "Entrar no painel" }), h("p", { class: "login-intro", text: "Use o usuário criado no Supabase." }), form),
+    h("a", { class: "login-voltar", href: "/", text: "← Voltar ao site da Renderiza" }));
   setTimeout(() => email.focus(), 0);
+}
+
+/* ---------- endereço: /login sem sessão, /painel com sessão ---------- */
+// A mesma página responde nos dois endereços. Só troca a barra de endereço (sem recarregar):
+// quem abre /painel sem sessão vê o login em /login; depois de entrar, volta para /painel#<aba>.
+function ajustarEndereco(estado) {
+  const aqui = location.pathname.replace(/\/+$/, "");
+  if (aqui !== "/login" && aqui !== "/painel") return;
+  const destino = estado === "login" ? "/login" : estado === "online" || estado === "offline" ? "/painel" : aqui;
+  if (destino !== aqui) history.replaceState(null, "", destino + (destino === "/painel" ? "#" + ui.aba : ""));
+  document.title = destino === "/login" ? "Entrar · Renderiza" : "Painel Renderiza";
 }
 
 /* ---------- desenho geral ---------- */
@@ -839,6 +851,7 @@ const TITULOS = {
 
 function render() {
   const c = dados.estadoDaConexao();
+  ajustarEndereco(c.estado);
   const comDados = c.estado === "online" || c.estado === "offline";
   $("#app").hidden = !comDados;
   $("#tela-acesso").hidden = comDados;

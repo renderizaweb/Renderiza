@@ -6,16 +6,22 @@ Um site só, publicado na Vercel:
 
 | Endereço | O que abre | Quem vê |
 |---|---|---|
-| `/` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo), com login | só você |
+| `/` | Site público da Renderiza: quem é o Cauê, o que faz, trabalhos e contato | todo mundo (é o único endereço que o Google pode indexar) |
+| `/login` | Login do painel | só você |
+| `/painel` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo). Sem sessão, manda para `/login` | só você |
 | `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`) | quem tiver o link |
 | `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
 
+- `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
+  como editar: [`site/README.md`](site/README.md).
 - `painel/`: o painel. Como funciona e como ligar o Supabase e a Vercel: [`painel/README.md`](painel/README.md).
 - `demos/`: uma pasta por ótica (regras abaixo).
-- Só vai para o ar o que `scripts/montar-site.mjs` copia para `publico/`: o painel e os `.html` das demos.
-  Fichas, contexto, ferramentas, banco e scripts nunca são publicados.
-- Todo o site pede ao Google para não indexar, e o endereço principal não lista as demos.
-- Rodar no computador: `npm run dev` (painel em `http://localhost:5173`, demos em `/demo/<ótica>`).
+- Só vai para o ar o que `scripts/montar-site.mjs` põe em `publico/`: a home (montada a partir de
+  `site/`), os arquivos de `site/estatico/`, o painel e os `.html` das demos. Fichas, contexto,
+  ferramentas, banco e scripts nunca são publicados.
+- Painel, login, demos e `/api` pedem ao Google para não indexar (`vercel.json`). A home não lista as demos.
+- Endereço antigo do painel com aba (`/#pipeline`) leva sozinho para `/painel#pipeline`.
+- Rodar no computador: `npm run dev` (site em `http://localhost:5173`, painel em `/painel`, demos em `/demo/<ótica>`).
 
 # Demos
 

@@ -38,7 +38,7 @@ function mudarConexao(estado, detalhe = "") {
 
 async function lerConfig() {
   try {
-    const r = await fetch("api/config", { cache: "no-store" });
+    const r = await fetch("/api/config", { cache: "no-store" });
     if (!r.ok) return null;
     const c = await r.json();
     return c && c.supabaseUrl && c.supabaseAnonKey ? c : null;

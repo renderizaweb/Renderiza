@@ -1,7 +1,9 @@
 # Painel Renderiza
 
-Fica no endereço principal do site (`/`), com login: só você entra. As demos das óticas ficam em
-`/demo/<ótica>` (veja o [README da raiz](../README.md)). Os caminhos abaixo são a partir da raiz do repositório.
+Fica em `/painel`, com login em `/login`: só você entra. O endereço principal (`/`) é o site público
+da Renderiza e as demos das óticas ficam em `/demo/<ótica>` (veja o [README da raiz](../README.md)).
+A mesma página responde em `/painel` e `/login`: sem sessão, a barra de endereço vai para `/login`;
+depois de entrar, volta para `/painel#<aba>`. Os caminhos abaixo são a partir da raiz do repositório.
 
 Planilha de operação da Renderiza: **Ritmo** (placar do processo), **Pipeline** (tabela ou kanban)
 e **Conteúdo**, no mesmo padrão visual e de uso do planilhão do Compasso (menu lateral verde,
@@ -127,7 +129,7 @@ variáveis de ambiente em tempo de execução. O único passo de build na Vercel
 
    Se usar a integração Supabase na Vercel, os nomes `NEXT_PUBLIC_SUPABASE_URL` e
    `NEXT_PUBLIC_SUPABASE_ANON_KEY` também funcionam.
-4. Depois de cadastrar as variáveis, faça um **Redeploy**, abra o endereço principal e entre com o
+4. Depois de cadastrar as variáveis, faça um **Redeploy**, abra `/login` e entre com o
    usuário criado no passo 1.3. Sem as variáveis, o painel mostra "Banco não configurado" e não
    mostra nem salva nada.
 
@@ -137,8 +139,8 @@ Na raiz do repositório:
 
 ```
 cp .env.example .env.local   # preencha URL e chave pública
-npm run dev                  # painel em http://localhost:5173, demos em /demo/<ótica>
-npm test                     # regras do placar
+npm run dev                  # site em http://localhost:5173, painel em /painel, demos em /demo/<ótica>
+npm test                     # regras do placar e do site público
 ```
 
 ## Tabelas

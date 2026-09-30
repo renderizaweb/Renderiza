@@ -141,15 +141,18 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 
 ## Repositório e site
 
-- **Oficial: `renderizaweb/renderiza`, branch `main`.** Painel e demos no mesmo repositório e no mesmo
-  site da Vercel: `/` é o painel (login, só o Kaue), `/demo/<ótica>` é a demo pública. As demos novas
-  são feitas e enviadas aqui.
+- **Oficial: `renderizaweb/renderiza`, branch `main`.** Site público, painel e demos no mesmo
+  repositório e no mesmo site da Vercel (`https://renderiza-five.vercel.app`; `renderiza.com` **não** é
+  da Renderiza, está à venda): `/` é o site público (`site/`, dados em `site/config.mjs`), `/painel` é o
+  painel com login em `/login` (só o Kaue), `/demo/<ótica>` é a demo por link. As demos novas são feitas
+  e enviadas aqui. A home **não** lista demos; um trabalho só aparece nela com `publicar: true` no
+  `site/config.mjs`, e demo de ótica só com autorização da ótica (fotos de clientes).
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
     `schema.sql` rodado, usuário do Kaue criado, novos cadastros desligados.
   - Vercel com `SUPABASE_URL` e `SUPABASE_ANON_KEY` (chave pública `sb_publishable_…`): o login
-    funciona no endereço principal.
+    funciona em `/login` (até 30/09/2026 ficava no endereço principal).
   - Ambiente do Claude com `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `RENDERIZA_EMAIL` e
     `RENDERIZA_SENHA`, para o Claude gravar pelo `scripts/relato.mjs` (fluxo em
     `docs/atualizacao-por-ia.md`). Nunca pedir senha ou chave pelo chat; nunca usar a chave secreta.

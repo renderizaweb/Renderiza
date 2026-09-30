@@ -1,5 +1,7 @@
-// Servidor local igual à Vercel: painel em /, demos em /demo/<ótica> e a função /api/config.
-// Serve direto dos arquivos de origem (a mesma lista do build), então é só recarregar a página.
+// Servidor local igual à Vercel: site público em /, painel em /painel (login em /login),
+// demos em /demo/<ótica> e a função /api/config.
+// Serve direto dos arquivos de origem (a mesma lista do build; a home é montada na hora),
+// então é só recarregar a página.
 // Lê as variáveis de .env.local.
 //   npm run dev   →   http://localhost:5173
 
@@ -21,20 +23,24 @@ if (existsSync(envLocal)) {
   }
 }
 
-const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon" };
+const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8" };
+// Mesmas regras do vercel.json: só o site público pode aparecer no Google.
+const PRIVADO = /^\/(demo|painel|login|api)(\/|$)/;
 const { default: config } = await import("../api/config.js");
 
 createServer(async (req, res) => {
   const caminho = decodeURIComponent(new URL(req.url, "http://x").pathname);
-  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  if (PRIVADO.test(caminho)) res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  if (/^\/(painel|login)\/?$/.test(caminho)) res.setHeader("X-Frame-Options", "DENY");
   if (caminho === "/api/config") return config(req, res);
-  // Mesmas URLs da Vercel com cleanUrls: /demo/x abre demo/x/index.html; /demo/x/artes-instagram abre o .html.
+  // Mesmas URLs da Vercel com cleanUrls: /painel abre painel/index.html; /demo/x/artes-instagram abre o .html.
   const rel = caminho.replace(/^\/+|\/+$/g, "");
   const candidatos = rel === "" ? ["index.html"] : [rel, rel + ".html", rel + "/index.html"];
   const publicados = new Map(arquivosPublicados().map(([destino, origem]) => [destino.split("\\").join("/"), origem]));
   const origem = candidatos.map(c => publicados.get(c)).find(Boolean);
   if (!origem) { res.statusCode = 404; return res.end("Não encontrado"); }
-  res.setHeader("Content-Type", TIPOS[extname(origem)] || "application/octet-stream");
+  const gerado = typeof origem === "function";
+  res.setHeader("Content-Type", gerado ? TIPOS[".html"] : TIPOS[extname(origem)] || "application/octet-stream");
   res.setHeader("Cache-Control", "no-store");
-  res.end(await readFile(origem));
-}).listen(PORTA, () => console.log(`Renderiza em http://localhost:${PORTA}  (painel em /, demos em /demo/<ótica>)`));
+  res.end(gerado ? await origem() : await readFile(origem));
+}).listen(PORTA, () => console.log(`Renderiza em http://localhost:${PORTA}  (site em /, painel em /painel, login em /login, demos em /demo/<ótica>)`));
