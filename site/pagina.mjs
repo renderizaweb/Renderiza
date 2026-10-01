@@ -33,6 +33,7 @@ const ICONES = {
   grafico: '<path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>',
   pessoas: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   aspas: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
+  voltar: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
@@ -310,11 +311,19 @@ ${vitrine ? `<figure class="vitrine">
   </section>
 
 ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledby="depoimentos-titulo">
-    <div class="envoltorio">
-      <p class="sobretitulo">Depoimentos</p>
-      <h2 id="depoimentos-titulo">Quem já trabalhou comigo.</h2>
-      <ul class="depoimentos">${depoimentos.map(d => `
-        <li>
+    <div class="envoltorio carrossel" data-carrossel>
+      <div class="carrossel-topo">
+        <div>
+          <p class="sobretitulo">Depoimentos</p>
+          <h2 id="depoimentos-titulo">Quem já trabalhou comigo.</h2>
+        </div>
+        <div class="carrossel-setas" hidden>
+          <button type="button" data-anterior aria-label="Depoimento anterior" aria-controls="depoimentos-lista">${icone("voltar", 20)}</button>
+          <button type="button" data-proximo aria-label="Próximo depoimento" aria-controls="depoimentos-lista">${icone("seta", 20)}</button>
+        </div>
+      </div>
+      <ul class="depoimentos" id="depoimentos-lista" tabindex="0" aria-label="Depoimentos (deslize para o lado)">${depoimentos.map((d, i) => `
+        <li aria-label="${i + 1} de ${depoimentos.length}">
           <figure>
             <span class="depoimento-aspas">${icone("aspas", 22)}</span>
             <blockquote><p>${esc(d.texto)}</p></blockquote>
@@ -325,6 +334,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
           </figure>
         </li>`).join("")}
       </ul>
+      <div class="carrossel-pontos" hidden>${depoimentos.map((d, i) => `<button type="button" data-ir="${i}" aria-label="Ver depoimento ${i + 1} de ${depoimentos.length}"></button>`).join("")}</div>
     </div>
   </section>
 
@@ -404,6 +414,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
     <a class="rodape-entrar" href="/login">Entrar</a>
   </div>
 </footer>
+<script>/* carrossel de depoimentos: setas e pontos sobre a rolagem nativa (sem JS, desliza do mesmo jeito) */document.querySelectorAll("[data-carrossel]").forEach(function(c){var t=c.querySelector(".depoimentos"),it=[].slice.call(t.children),a=c.querySelector("[data-anterior]"),p=c.querySelector("[data-proximo]"),ps=[].slice.call(c.querySelectorAll("[data-ir]"));if(it.length<2)return;c.querySelectorAll("[hidden]").forEach(function(e){e.hidden=false});var suave=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";function passo(){return it[1].offsetLeft-it[0].offsetLeft}function fim(){return t.scrollLeft>=t.scrollWidth-t.clientWidth-4}function ultimo(){return Math.max(0,Math.ceil((t.scrollWidth-t.clientWidth-4)/passo()))}function ir(i){t.scrollTo({left:Math.max(0,Math.min(i,ultimo()))*passo(),behavior:suave})}function atual(){return fim()?ultimo():Math.round(t.scrollLeft/passo())}function marcar(){var i=atual(),u=ultimo();a.disabled=t.scrollLeft<4;p.disabled=fim();ps.forEach(function(b,k){b.hidden=k>u;b.setAttribute("aria-current",k===i?"true":"false")});c.classList.toggle("tudo-visivel",t.scrollWidth<=t.clientWidth+4)}a.addEventListener("click",function(){ir(atual()-1)});p.addEventListener("click",function(){ir(atual()+1)});ps.forEach(function(b){b.addEventListener("click",function(){ir(+b.dataset.ir)})});var r;t.addEventListener("scroll",function(){cancelAnimationFrame(r);r=requestAnimationFrame(marcar)},{passive:true});addEventListener("resize",marcar);marcar()})</script>
 <script>/* "Ver tela": abre o pop-up do recurso; tocar fora ou Esc fecha */document.querySelectorAll("[data-abrir]").forEach(function(b){var d=document.getElementById(b.dataset.abrir);if(!d||!d.showModal)return;b.addEventListener("click",function(){d.showModal()});d.addEventListener("click",function(e){if(e.target===d)d.close()})})</script>
 </body>
 </html>

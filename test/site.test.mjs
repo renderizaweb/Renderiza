@@ -180,3 +180,12 @@ test("depoimentos: seção só aparece com depoimento aprovado", () => {
   assert.doesNotMatch(html, /Ainda não/);
   assert.ok(pendencias(config).some(p => /depoimento de Davi: aguardando aprovação/.test(p)));
 });
+
+test("depoimentos em carrossel: lista rolável com rótulo, setas e pontos (setas/pontos ligados pelo JS)", () => {
+  const html = montarPagina(config);
+  assert.match(html, /<div class="envoltorio carrossel" data-carrossel>/);
+  assert.match(html, /<ul class="depoimentos" id="depoimentos-lista" tabindex="0" aria-label="Depoimentos \(deslize para o lado\)">/);
+  assert.match(html, /<div class="carrossel-setas" hidden>/);
+  const publicados = config.depoimentos.filter(d => d.publicar && d.texto).length;
+  assert.equal((html.match(/data-ir="/g) || []).length, publicados);
+});
