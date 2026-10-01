@@ -149,8 +149,11 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   e enviadas aqui. A home **não** lista demos; um trabalho só aparece nela com `publicar: true` no
   `site/config.mjs`, e demo de ótica só com aprovação da ótica (fotos de clientes; em 30/09/2026 nenhuma aprovou, então
   nenhuma demo aparece).
-  Depoimentos: `site/config.mjs` → `depoimentos` (Milena, Rafael, Blue Lens), só aparecem com texto e
-  `publicar: true` depois da aprovação de quem falou.
+  Depoimentos: `site/config.mjs` → `depoimentos`, só aparecem com texto e `publicar: true`. Regra: só
+  palavras reais de quem falou (ajuste leve de pontuação, nunca texto inventado). Publicado: Raphael (Move).
+  Davi (Blue Lens) guardado até autorizar. Milena (esposa do Kaue) e Lu Elegante Modas (mãe do Kaue): não
+  publicar depoimento escrito por nós nem esconder o parentesco; a Lu entra como projeto quando o site
+  estiver no ar.
   Trabalhos na home: **Move** (movexfit.com.br, app do cliente Rafael, em destaque com os recursos
   feitos pela Renderiza; cada recurso tem "Ver tela" com print real do app, gerado com dados de
   exemplo por `ferramentas/prints-move/`) **Compasso** (finanças da família, ideia da Milena; prints com família

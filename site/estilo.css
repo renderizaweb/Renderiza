@@ -203,6 +203,7 @@ html:has(dialog[open]){overflow:hidden}
 .depoimentos figcaption img,.depoimento-inicial{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
 .depoimento-inicial{display:grid;place-items:center;background:var(--verde-escuro);color:var(--lima);font-family:var(--serifa);font-size:1.3rem}
 .depoimentos strong{display:block;font-weight:650}
+.depoimentos li:only-child{max-width:820px}
 .depoimentos small{display:block;font-size:.8125rem;color:var(--tinta-suave)}
 
 /* sobre */

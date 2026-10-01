@@ -31,9 +31,19 @@ export default {
   // Depoimentos. Só aparecem com texto e publicar: true (depois da aprovação de quem falou).
   //   trabalho: id do trabalho a que se refere; foto: opcional, em site/estatico/imagens/
   depoimentos: [
+    {
+      id: "raphael", nome: "Raphael", papel: "Criador do Move", trabalho: "move", foto: "", publicar: true,
+      // Mensagem do Raphael (30/09/2026), só com a pontuação ajustada.
+      texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
+    },
+    {
+      id: "blue-lens", nome: "Davi", papel: "Ótica Blue Lens", trabalho: "blue-lens", foto: "",
+      // Mensagem do Davi no fim do atendimento. AINDA NÃO AUTORIZOU publicar.
+      texto: "Muito obrigado, gostamos muito do seu trabalho. Com certeza vou sempre indicar.",
+      publicar: false,
+    },
+    // Milena: só com texto dela, nas palavras dela (ver CONTEXTO.md).
     { id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", texto: "", foto: "", publicar: false },
-    { id: "rafael", nome: "Rafael", papel: "Personal trainer, criador do Move", trabalho: "move", texto: "", foto: "", publicar: false },
-    { id: "blue-lens", nome: "", papel: "Ótica Blue Lens", trabalho: "blue-lens", texto: "", foto: "", publicar: false },
   ],
 
   // Trabalhos realizados. Só aparecem os que têm publicar: true.
@@ -165,6 +175,18 @@ export default {
       link: "",
       publicar: true,
       falta: "Endereço do site no ar e um print; o que o site tem para descrever melhor.",
+    },
+    {
+      id: "lu-elegante-modas",
+      titulo: "Lu Elegante Modas",
+      tipo: "Site · loja de roupas",
+      selo: "cliente",
+      texto: "Site da loja, desenvolvido pela Renderiza.",
+      imagem: "",
+      link: "",
+      // Site ainda em finalização (01/10/2026): publicar quando estiver no ar, com link e print.
+      publicar: false,
+      falta: "Site no ar, link e print.",
     },
     {
       id: "demos-oticas",

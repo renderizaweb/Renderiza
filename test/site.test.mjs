@@ -160,16 +160,20 @@ test("Compasso em destaque: problema, recursos com tela real, crédito à Milena
   assert.equal([...html.matchAll(/data-abrir="recurso-compasso-/g)].length, telas.length);
   for (const r of telas) assert.ok(existsSync(new URL(`../site/estatico${r.imagem}`, import.meta.url)), r.imagem);
   assert.match(html, /class="janela-recurso janela-paisagem" id="recurso-compasso-planejamento-em-grade"/);
-  assert.doesNotMatch(html, /Kaleb|Raphael|KAUE & MILENA/);
+  assert.doesNotMatch(html, /Kaleb|Babá|Fraldas|KAUE & MILENA/);
   assert.ok(html.indexOf('recurso-move-') < html.indexOf('recurso-compasso-'), "Move vem antes");
 });
 
 test("depoimentos: seção só aparece com depoimento aprovado", () => {
-  assert.doesNotMatch(montarPagina(config), /id="depoimentos"/);
+  assert.doesNotMatch(montarPagina({ ...config, depoimentos: config.depoimentos.map(d => ({ ...d, publicar: false })) }), /id="depoimentos"/);
+  const real = montarPagina(config);
+  assert.match(real, /id="depoimentos"/);
+  assert.ok(real.includes("Criador do Move"));
+  assert.doesNotMatch(real, /gostamos muito do seu trabalho/i, "Blue Lens ainda não autorizou");
   const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Ainda não", publicar: false }] };
   const html = montarPagina(aprovado);
   assert.match(html, /id="depoimentos"/);
   assert.ok(html.includes("Texto &lt;aprovado&gt;."));
   assert.doesNotMatch(html, /Ainda não/);
-  assert.ok(pendencias(config).some(p => /depoimento de Rafael/.test(p)));
+  assert.ok(pendencias(config).some(p => /depoimento de Davi: aguardando aprovação/.test(p)));
 });
