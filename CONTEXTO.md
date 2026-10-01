@@ -71,6 +71,8 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
 - `lu-elegante-modas` (01/10/2026): loja de roupas com salão da Luciene Eunice, na Vila São Pedro (SBC).
   Pedido direto do Kaue, sem triagem. Mesmo padrão das demos, com história da dona e seção de salão.
   Sem lead no painel até o Kaue pedir.
+- `ms-odontologia` (01/10/2026): Clínica MS Odontologia, Dr. Marcos Silva, Itapevi. Cliente de antes do
+  painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026.
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): na fila
 
