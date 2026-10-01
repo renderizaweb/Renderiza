@@ -50,6 +50,15 @@ Removida: `iadala-otica` (4ª da fila): demo excluída a pedido da cliente em 29
 As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
 (`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
 
+## Quando o cliente aprova (demo vira site)
+
+1. Na pasta da demo, criar `site.json` (domínio, nome, cor, dados da empresa para o Google). Modelo:
+   `demos/lu-elegante-modas/site.json`.
+2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
+   WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
+3. Essa pasta vira um repositório próprio (um por cliente), ligado à hospedagem e ao domínio do cliente.
+   A Vercel gratuita (Hobby) não aceita site comercial; ver a ficha da Lú para o caminho combinado.
+
 ## Fora das óticas
 
 - `lu-elegante-modas` (01/10/2026): loja de roupas com salão da Luciene Eunice, na Vila São Pedro (SBC).

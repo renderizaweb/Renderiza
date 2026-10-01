@@ -1,0 +1,40 @@
+{
+  "dominio": "luelegantemodas.com.br",
+  "nome": "Lú Elegante",
+  "corTema": "#c2185b",
+  "favicon": { "texto": "Lú", "cor": "#c2185b" },
+  "previaCentro": [0.5, 0.03],
+  "dadosEstruturados": [
+    {
+      "@context": "https://schema.org",
+      "@type": ["ClothingStore", "BeautySalon"],
+      "name": "Lú Elegante · Moda e Beleza",
+      "alternateName": "LM Modas e Beleza",
+      "telephone": "+55 11 95273-9113",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua João XXIII, 10",
+        "addressLocality": "São Bernardo do Campo",
+        "addressRegion": "SP",
+        "postalCode": "09784-410",
+        "addressCountry": "BR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -23.7206085, "longitude": -46.5246918 },
+      "sameAs": ["https://www.instagram.com/luelegantemodas/"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClothingStore",
+      "name": "Lú Elegante Modas · Av. Dom Pedro de Alcântara",
+      "telephone": "+55 11 95273-9113",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Dom Pedro de Alcântara, 396",
+        "addressLocality": "São Bernardo do Campo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "sameAs": ["https://www.instagram.com/luelegantemodas/"]
+    }
+  ]
+}
