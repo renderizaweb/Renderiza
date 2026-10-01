@@ -60,5 +60,7 @@ Fora da fila das óticas: loja de roupas com salão, pedido do Kaue em 01/10/202
   `luelegantemodas.com.br` no Registro.br. Nada fica na Renderiza.
 - Pacote gerado com `npm run site -- lu-elegante-modas` (fotos em arquivos, endereço oficial, prévia para
   WhatsApp, dados das duas lojas para o Google, robots e sitemap liberando o Google).
-- Falta: repositório dela com acesso temporário para o envio → Vercel → DNS no Registro.br. Depois que o
-  domínio estiver no ar, a demo `/demo/lu-elegante-modas` passa a redirecionar para ele.
+- Repositório: github.com/marciodonisetedacunha/luelegantemodas (conta criada no nome do Márcio). Site
+  enviado para a `main` em 01/10/2026 (commit 777cf1b). Kaue7almeida entrou como colaborador temporário.
+- Falta: importar na Vercel (preset Other, sem build), domínio no Registro.br com os DNS da Vercel, tirar o
+  acesso temporário e fazer a demo `/demo/lu-elegante-modas` redirecionar para o domínio.
