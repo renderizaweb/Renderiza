@@ -56,8 +56,15 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
    `demos/lu-elegante-modas/site.json`.
 2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
    WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
-3. Essa pasta vira um repositório próprio (um por cliente), ligado à hospedagem e ao domínio do cliente.
-   A Vercel gratuita (Hobby) não aceita site comercial; ver a ficha da Lú para o caminho combinado.
+3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no
+   Registro.br no CPF/CNPJ dele. A Renderiza só faz o site; nada do cliente fica hospedado ou guardado na
+   Renderiza. O Kaue entrega os acessos ao cliente, que pode passar a qualquer dev no futuro.
+4. Para eu enviar o site: o cliente cria o repositório vazio, convida o GitHub do Kaue como colaborador
+   e instala o app do Claude só nesse repositório (acesso temporário, removido depois). Plano B: o Kaue
+   sobe o .zip pela tela do GitHub (Add file > Upload files).
+5. Vercel: importar o repositório (preset Other, sem build), adicionar o domínio e criar no Registro.br os
+   DNS que a Vercel mostrar. Atenção: a Vercel gratuita (Hobby) proíbe uso comercial, mesmo na conta do
+   cliente; se der problema, o mesmo repositório publica no Cloudflare Pages sem mudar nada.
 
 ## Fora das óticas
 

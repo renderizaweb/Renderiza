@@ -9,7 +9,7 @@ Fora da fila das óticas: loja de roupas com salão, pedido do Kaue em 01/10/202
 | Google | ficha "LM Modas e Beleza", nota 5,0 (3 avaliações) · Rua João XXIII, 10 · conferido em 01/10/2026 |
 | WhatsApp | (11) 95273-9113 (confirmado pelo Kaue em 01/10/2026 como o que funciona; é o do Google e da plaquinha do salão) |
 | Entregável | demo de site (`index.html`) |
-| Situação | pronta · 01/10/2026 · `/demo/lu-elegante-modas` |
+| Situação | **aprovada pela cliente** (01/10/2026) · vira o site `luelegantemodas.com.br` |
 
 ## Direção da demo (do Kaue)
 - A dona é a Luciene Eunice (a "Lú"). Ela quer contar a história dela: trabalha com beleza desde 2012
@@ -54,3 +54,11 @@ Fora da fila das óticas: loja de roupas com salão, pedido do Kaue em 01/10/202
 - Texto das 3 avaliações do Google (um print basta) para entrar como depoimentos.
 - Os vídeos da loja (HTML de referência) ficaram fora para o site continuar leve; dá para colocar um se
   ela quiser.
+
+## Site de verdade (aprovado em 01/10/2026)
+- Tudo nas contas da cliente: Gmail dela, GitHub dela (repositório próprio), Vercel dela e domínio
+  `luelegantemodas.com.br` no Registro.br. Nada fica na Renderiza.
+- Pacote gerado com `npm run site -- lu-elegante-modas` (fotos em arquivos, endereço oficial, prévia para
+  WhatsApp, dados das duas lojas para o Google, robots e sitemap liberando o Google).
+- Falta: repositório dela com acesso temporário para o envio → Vercel → DNS no Registro.br. Depois que o
+  domínio estiver no ar, a demo `/demo/lu-elegante-modas` passa a redirecionar para ele.

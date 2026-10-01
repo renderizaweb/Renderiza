@@ -102,7 +102,42 @@ fs.writeFileSync(path.join(saida, 'vercel.json'), JSON.stringify({
     { source: '/img/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
   ],
 }, null, 2) + '\n');
-fs.writeFileSync(path.join(saida, 'README.md'), `# ${conf.nome}\n\nSite de ${conf.nome}, feito pela Renderiza: ${url}\n\nSite estático (HTML, imagens em \`img/\`), sem build. Publicado direto da raiz do repositório: a cada\nalteração na branch principal a hospedagem publica sozinha.\n\n- Gerado de \`demos/${pasta}\` do repositório da Renderiza com \`node scripts/virar-site.mjs ${pasta}\` em ${hoje}.\n- Para mudar texto ou foto: altere a demo na Renderiza, gere de novo e publique aqui (ou edite \`index.html\`).\n- \`_headers\` vale para Cloudflare Pages; \`vercel.json\` para a Vercel.\n`);
+const readme = `# ${conf.nome}
+
+Site oficial: ${url}
+
+Site estático: um \`index.html\` com o texto, o estilo e o código da página, e as fotos em \`img/\`.
+Não tem build, banco de dados nem dependências. Qualquer hospedagem de site estático serve.
+
+## Arquivos
+
+| Arquivo | Para que serve |
+|---|---|
+| \`index.html\` | a página inteira (textos, cores, botões de WhatsApp e Instagram, mapa) |
+| \`img/\` | fotos da página (o nome do arquivo descreve a foto) |
+| \`og.jpg\` | imagem que aparece quando o link é compartilhado no WhatsApp e nas redes |
+| \`favicon.svg\` | ícone da aba do navegador |
+| \`robots.txt\`, \`sitemap.xml\` | orientações para o Google |
+| \`vercel.json\` | configuração para a Vercel |
+| \`_headers\` | a mesma configuração para Cloudflare Pages ou Netlify, se um dia mudar de hospedagem |
+
+## Como alterar
+
+- Texto: edite direto no \`index.html\`.
+- WhatsApp, Instagram e endereços: no fim do \`index.html\`, no bloco \`window.DEMO_CLIENT\`.
+- Foto: troque o arquivo em \`img/\` (mesmo nome) ou aponte o \`<img src>\` para um arquivo novo.
+
+A cada alteração enviada para a branch principal, a hospedagem publica sozinha.
+
+## Publicação (Vercel)
+
+Importar este repositório na Vercel: preset **Other**, sem comando de build, pasta publicada = raiz.
+Domínio: em *Settings > Domains*, adicionar \`${conf.dominio}\` e \`www.${conf.dominio}\` e criar no
+Registro.br os registros DNS que a Vercel mostrar.
+
+Feito pela Renderiza em ${hoje}.
+`;
+fs.writeFileSync(path.join(saida, 'README.md'), readme);
 
 const tam = d => fs.readdirSync(d, { withFileTypes: true }).reduce((t, e) => t + (e.isDirectory() ? tam(path.join(d, e.name)) : fs.statSync(path.join(d, e.name)).size), 0);
 console.log(`${saida}\n  index.html: ${Math.round(fs.statSync(path.join(saida, 'index.html')).size / 1024)} KB · ${arquivos.size} fotos em img/ · total ${Math.round(tam(saida) / 1024)} KB · prévia: ${og}`);
