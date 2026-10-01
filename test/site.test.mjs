@@ -15,7 +15,10 @@ const comContatos = {
 test("home não lista as demos nem trabalhos marcados para não publicar", () => {
   const html = montarPagina(config);
   assert.doesNotMatch(html, /\/demo\//);
-  for (const t of config.trabalhos.filter(t => !t.publicar)) assert.ok(!html.includes(t.titulo), t.titulo);
+  // nome de projeto oculto só pode aparecer como a empresa de quem deu um depoimento publicado
+  const empresas = new Set((config.depoimentos || []).filter(d => d.publicar).map(d => d.papel));
+  for (const t of config.trabalhos.filter(t => !t.publicar && !empresas.has(t.titulo))) assert.ok(!html.includes(t.titulo), t.titulo);
+  assert.doesNotMatch(html, /<h3>Lu Elegante Modas<\/h3>/, "cartão do projeto segue oculto");
   for (const t of config.trabalhos.filter(t => t.publicar)) assert.ok(html.includes(t.titulo), t.titulo);
 });
 

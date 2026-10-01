@@ -37,14 +37,21 @@ export default {
       texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
     },
     {
+      id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", foto: "", publicar: true,
+      // Aprovado pela Milena em 01/10/2026.
+      texto: "Eu queria um jeito simples de organizar as finanças da casa, e o Kaue transformou essa ideia no Compasso. Hoje a gente vê o mês inteiro num lugar só e planeja os seguintes com tranquilidade. Ele ouviu cada detalhe que eu pedi até ficar do jeito que a gente precisava.",
+    },
+    {
+      id: "luciene", nome: "Luciene Eunice", papel: "Lu Elegante Modas", trabalho: "lu-elegante-modas", foto: "", publicar: true,
+      // Aprovado pela Luciene em 01/10/2026.
+      texto: "O Kaue teve muita paciência comigo em cada etapa do site da loja. Explicou tudo com calma, ouviu o que eu queria, e o site ficou melhor do que eu imaginava.",
+    },
+    {
       id: "blue-lens", nome: "Davi", papel: "Ótica BlueLens", trabalho: "blue-lens", foto: "",
       // Mensagem do Davi no fim do atendimento. AINDA NÃO AUTORIZOU publicar.
       texto: "Muito obrigado, gostamos muito do seu trabalho. Com certeza vou sempre indicar.",
       publicar: false,
     },
-    // Milena e Luciene: publicar com as palavras delas assim que chegarem (texto + publicar: true).
-    { id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", texto: "", foto: "", publicar: false },
-    { id: "luciene", nome: "Luciene Eunice", papel: "Lu Elegante Modas", trabalho: "lu-elegante-modas", texto: "", foto: "", publicar: false },
   ],
 
   // Trabalhos realizados. Só aparecem os que têm publicar: true.
