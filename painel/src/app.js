@@ -1,5 +1,6 @@
-// Interface do Painel Renderiza no padrão do Compasso: Ritmo (placar do processo), Pipeline
-// (planilhão ou kanban) e Conteúdo. Toda leitura e gravação passa por dados.js.
+// Interface do Painel Renderiza no padrão do Compasso: Tarefas (o que fazer), Clientes (todos, no
+// funil ou fora dele), Pipeline (planilhão ou kanban), Ritmo (placar do processo) e Conteúdo.
+// Toda leitura e gravação passa por dados.js.
 
 import * as dados from "./dados.js";
 import { criarPlanilha } from "./planilha.js";
@@ -15,20 +16,21 @@ import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar } from "./a
 import { hojeLocal, indexar, retornoPendente, retornoSugerido, ultimaInteracao, semanaDe, cicloVigente } from "./ritmo.js";
 import { abrirRegistro, criarLinhaDoTempo } from "./interacoes-ui.js";
 import { criarTelaRitmo } from "./tela-ritmo.js";
+import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
+import { criarTelaClientes } from "./tela-clientes.js";
 
 const $ = s => document.querySelector(s);
 
 /* ---------- preferências da tela (só neste navegador) ---------- */
 const ui = {
-  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "" }, etapa: "", statusConteudo: "",
+  aba: "tarefas", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, etapa: "", statusConteudo: "",
   // "Atualizado" e "Interesse" começam ocultas (voltam pelo menu Colunas). O interesse fica nos detalhes da ótica.
   ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse"]), conteudos: new Set() },
 };
-const ABAS = ["ritmo", "pipeline", "conteudo"];
+const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "conteudo"];
 const VERSAO_COLUNAS = 2; // 2: entraram "Última interação" (visível) e "Interesse" (oculta)
 try {
   const p = JSON.parse(localStorage.getItem("renderiza:planilhao") || "{}");
-  if (ABAS.includes(p.aba)) ui.aba = p.aba;
   if (p.visao === "kanban") ui.visao = "kanban";
   if (p.ordem) Object.assign(ui.ordem, p.ordem);
   if (p.ocultas) {
@@ -37,6 +39,7 @@ try {
     if ((p.versaoColunas || 1) < 2) ui.ocultas.leads.add("interesse");
   }
 } catch (e) { /* sem armazenamento local: usa o padrão */ }
+// Abre sempre em Tarefas (o que fazer hoje); outra tela só pelo endereço, ex.: /painel#pipeline.
 if (ABAS.includes(location.hash.slice(1))) ui.aba = location.hash.slice(1);
 function guardar() {
   try { localStorage.setItem("renderiza:planilhao", JSON.stringify({ aba: ui.aba, visao: ui.visao, ordem: ui.ordem, versaoColunas: VERSAO_COLUNAS, ocultas: { leads: [...ui.ocultas.leads], conteudos: [...ui.ocultas.conteudos] } })); } catch (e) { /* opcional */ }
@@ -200,6 +203,7 @@ const ordenacao = tabela => (ORDENS[tabela].find(o => o[0] === ui.ordem[tabela])
 function leadsVisiveis({ comEtapa = true } = {}) {
   const q = ui.busca.leads.trim().toLowerCase();
   return dados.listar("leads").filter(l => {
+    if (l.fora_do_funil) return false; // fora do funil: só na tela Clientes
     if (comEtapa && ui.etapa && !passaNoFiltro(l)) return false;
     return !q || [l.empresa, l.whatsapp, l.instagram, l.proxima_acao, l.cidade, l.segmento, l.observacoes].some(v => v && String(v).toLowerCase().includes(q));
   }).sort(ordenacao("leads")[2]);
@@ -424,7 +428,7 @@ const vincular = fn => painel.vinculos.push(fn);
 function abrirPainel(tabela, id, { registrar = false } = {}) {
   if (!dados.buscar(tabela, id)) return;
   painel.tabela = tabela; painel.id = id; painel.vinculos = [];
-  $("#painel-tipo").textContent = tabela === "leads" ? "LEAD" : "CONTEÚDO";
+  $("#painel-tipo").textContent = tabela === "leads" ? "CLIENTE" : "CONTEÚDO";
   const corpo = $("#painel-corpo");
   corpo.replaceChildren(...(tabela === "leads" ? corpoDoLead(id) : corpoDoConteudo(id)));
   corpo.scrollTop = 0;
@@ -492,7 +496,7 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
 const ESTILO_SECAO = {
   Andamento: ["alvo", "verde"], Fechamento: ["trofeu", "verde"], Observações: ["nota", "ambar"],
   Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], Contato: ["pessoa", "agua"],
-  Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"],
+  Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"], Tarefas: ["certo", "verde"],
 };
 function cartao(titulo, { acao, classe = "" } = {}, ...filhos) {
   const [nomeIcone, cor] = ESTILO_SECAO[titulo] || ["info", "verde"];
@@ -533,7 +537,9 @@ function trilhaDeEtapas() {
     });
     legenda.textContent = `Etapa ${atual + 1} de ${ETAPAS.length} · ${l.etapa === "finalizado" ? final : ETAPAS[atual]?.nome || ""}`;
   });
-  return h("div", { class: "etapas" }, legenda, h("ol", { class: "etapas-trilha", "aria-label": "Etapa do funil" }, ...passos));
+  const el = h("div", { class: "etapas" }, legenda, h("ol", { class: "etapas-trilha", "aria-label": "Etapa do funil" }, ...passos));
+  vincular(l => { el.hidden = !!l.fora_do_funil; });
+  return el;
 }
 
 function chipsDoLead() {
@@ -548,7 +554,8 @@ function chipsDoLead() {
     }
     if (l.interesse && l.interesse !== "nao_avaliado") chips.push(h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }));
     if (l.nao_contatar) chips.push(h("span", { class: "chip-parar", text: "não contatar" }));
-    if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: l.resultado === "ganho" ? "Ganho" + (l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") : "Perda" }));
+    if (l.fora_do_funil) chips.push(h("span", { class: "lead-chip", text: "Fora do funil" }));
+    else if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: l.resultado === "ganho" ? "Ganho" + (l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") : "Perda" }));
     el.replaceChildren(...chips);
   });
   return el;
@@ -659,6 +666,21 @@ function corpoDoLead(id) {
   });
   vincular(l => { naoContatar.checked = !!l.nao_contatar; naoContatar.disabled = !dados.podeEditar(); });
 
+  // Fora do funil: some do Pipeline (e do Ritmo) e fica só na tela Clientes. A etapa fica guardada.
+  const foraDoFunil = h("input", { type: "checkbox" });
+  foraDoFunil.addEventListener("change", async () => {
+    try { await salvar("leads", id, { fora_do_funil: foraDoFunil.checked }); aviso(foraDoFunil.checked ? "Fora do funil: agora só na tela Clientes." : "De volta ao funil, no Pipeline."); } catch (e) { /* aviso já mostrado */ }
+    const atual = dados.buscar("leads", id); if (atual) foraDoFunil.checked = !!atual.fora_do_funil;
+  });
+  vincular(l => { foraDoFunil.checked = !!l.fora_do_funil; foraDoFunil.disabled = !dados.podeEditar(); });
+  const campoEtapa = h("div", { class: "campo" }, h("span", { text: "Etapa" }), etapa);
+  vincular(l => { campoEtapa.hidden = !!l.fora_do_funil; });
+
+  const tarefas = tarefasDoCliente(id);
+  vincular(() => tarefas.atualizar());
+  const novaTarefa = h("button", { type: "button", class: "btn btn-outline btn-sm", onclick: () => abrirTarefa({ leadId: id }) }, icone("mais", 15), "Nova tarefa");
+  vincular(() => { novaTarefa.disabled = !dados.podeEditar(); });
+
   const motivo = campo("leads", id, { campo: "motivo_perda", rotulo: "Motivo da perda", largo: true, placeholder: "Opcional" });
   const fechamento = cartao("Fechamento", { classe: "cartao-fechamento" }, grade(
     campo("leads", id, { campo: "resultado", rotulo: "Resultado", tipo: "select", opcoes: RESULTADOS.map(r => [r.id, r.nome]) }),
@@ -679,16 +701,18 @@ function corpoDoLead(id) {
       extras: [chipsDoLead(), trilhaDeEtapas(), acoesRapidas()],
     }),
     caixaRevisar("leads", id),
+    cartao("Tarefas", { acao: novaTarefa }, tarefas.el),
     secao("Andamento",
       grade(
-        h("div", { class: "campo" }, h("span", { text: "Etapa" }), etapa),
+        campoEtapa,
         h("div", { class: "campo" }, h("span", { text: "Interesse" }), interesse),
         campo("leads", id, { campo: "followup_em", rotulo: "Follow-up (plano)", tipo: "data" }),
         campo("leads", id, { campo: "proxima_acao", rotulo: "Próxima ação", duplo: true, placeholder: "O que fazer no próximo contato" }),
         campo("leads", id, { campo: "valor_potencial", rotulo: "Valor potencial", tipo: "valor", placeholder: "R$" }),
         motivoInteresse),
       cadencia,
-      h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos."))),
+      h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos.")),
+      h("label", { class: "check-painel neutro" }, foraDoFunil, h("span", {}, h("strong", { text: "Fora do funil." }), " Fica só na tela Clientes, sem etapa no Pipeline. Bom para relacionamento com quem já foi cliente."))),
     fechamento,
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
     cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),
@@ -775,7 +799,7 @@ async function exportar() {
     abrirJanela({ titulo: "Levar os dados para o Supabase", descricao: "No Supabase, rode supabase/schema.sql, crie seu usuário em Authentication > Users e cole este SQL no SQL Editor. Pode rodar de novo sem duplicar nada.", larga: true, conteudo: [area, h("div", { class: "janela-acoes" }, copiar)] });
     return;
   }
-  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos") }, null, 2);
+  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), tarefas: dados.listar("tarefas"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos") }, null, 2);
   const a = document.createElement("a"), url = URL.createObjectURL(new Blob([conteudo], { type: "application/json" }));
   a.href = url; a.download = "renderiza-" + hojeIso() + ".json"; a.click(); URL.revokeObjectURL(url);
 }
@@ -844,6 +868,8 @@ function ajustarEndereco(estado) {
 
 /* ---------- desenho geral ---------- */
 const TITULOS = {
+  tarefas: ["Tarefas", "O que fazer hoje, amanhã e nos próximos dias. Com cliente ou sem."],
+  clientes: ["Clientes", "Todos os clientes, no funil ou fora dele. Clique para ver o histórico e as tarefas."],
   ritmo: ["Ritmo", "Prospecção e relacionamento: o que você fez, não o que vendeu."],
   pipeline: ["Pipeline", "Seus leads, da primeira conversa ao fechamento. É só clicar e editar."],
   conteudo: ["Conteúdo", "Ideias e publicações da Renderiza. É só clicar e editar."],
@@ -869,14 +895,20 @@ function render() {
   $("#titulo").textContent = TITULOS[ui.aba][0];
   $("#subtitulo").textContent = TITULOS[ui.aba][1];
   const busca = $("#busca");
-  if (document.activeElement !== busca) busca.value = ui.busca[ui.aba === "pipeline" ? "leads" : "conteudos"];
-  busca.placeholder = ui.aba === "pipeline" ? "Buscar empresa, contato…" : "Buscar ideia ou texto…";
-  $(".heading-controls").hidden = ui.aba === "ritmo";
+  if (document.activeElement !== busca) busca.value = ui.busca[chaveDaBusca()] || "";
+  busca.placeholder = ui.aba === "conteudo" ? "Buscar ideia ou texto…" : "Buscar empresa, contato…";
+  $(".heading-controls").hidden = ui.aba === "ritmo" || ui.aba === "tarefas";
 
+  $("#tela-tarefas").hidden = ui.aba !== "tarefas";
+  $("#tela-clientes").hidden = ui.aba !== "clientes";
   $("#tela-ritmo").hidden = ui.aba !== "ritmo";
   $("#tela-pipeline").hidden = ui.aba !== "pipeline";
   $("#tela-conteudo").hidden = ui.aba !== "conteudo";
-  if (ui.aba === "ritmo") {
+  if (ui.aba === "tarefas") {
+    telaTarefas.render();
+  } else if (ui.aba === "clientes") {
+    telaClientes.render();
+  } else if (ui.aba === "ritmo") {
     telaRitmo.render();
   } else if (ui.aba === "pipeline") {
     renderBarraPipeline();
@@ -889,6 +921,10 @@ function render() {
   }
   atualizarPainel();
 }
+
+const chaveDaBusca = () => (ui.aba === "pipeline" ? "leads" : ui.aba === "clientes" ? "clientes" : "conteudos");
+const telaTarefas = criarTelaTarefas({ host: $("#tela-tarefas"), abrirLead: id => abrirPainel("leads", id) });
+const telaClientes = criarTelaClientes({ host: $("#tela-clientes"), abrirLead: id => abrirPainel("leads", id), busca: () => ui.busca.clientes });
 
 const telaRitmo = criarTelaRitmo({
   host: $("#tela-ritmo"),
@@ -907,7 +943,7 @@ function irPara(aba) {
 }
 document.querySelectorAll(".nav-button").forEach(b => b.addEventListener("click", () => irPara(b.dataset.aba)));
 window.addEventListener("hashchange", () => { const aba = location.hash.slice(1); if (ABAS.includes(aba) && aba !== ui.aba) irPara(aba); });
-$("#busca").addEventListener("input", e => { ui.busca[ui.aba === "pipeline" ? "leads" : "conteudos"] = e.target.value; render(); });
+$("#busca").addEventListener("input", e => { ui.busca[chaveDaBusca()] = e.target.value; render(); });
 $("#sair").addEventListener("click", () => dados.sair());
 function fecharSidebar() { document.body.classList.remove("sidebar-aberta"); }
 $("#abrir-menu").addEventListener("click", () => document.body.classList.toggle("sidebar-aberta"));

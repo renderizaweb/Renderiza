@@ -65,7 +65,8 @@ export function criarTelaRitmo(ctx) {
 
   function render() {
     const hoje = hojeLocal();
-    const leads = dados.listar("leads"), interacoes = dados.listar("interacoes"), ciclos = ordenarCiclos();
+    // Clientes fora do funil (só relacionamento) não entram no placar de prospecção.
+    const leads = dados.listar("leads").filter(l => !l.fora_do_funil), interacoes = dados.listar("interacoes"), ciclos = ordenarCiclos();
     let ciclo = ciclos.find(c => c.id === estado.cicloId);
     if (!ciclo) { ciclo = cicloParaMostrar(ciclos, hoje); estado.cicloId = ciclo ? ciclo.id : null; }
     const porLead = indexar(leads, interacoes);

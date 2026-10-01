@@ -8,7 +8,7 @@
 
 import { criarAdaptadorClaude } from "./adaptadores/claude.js";
 
-export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos"];
+export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas"];
 
 const linhas = Object.fromEntries(TABELAS.map(t => [t, new Map()]));
 const ouvintes = new Set();
@@ -161,11 +161,16 @@ export function criar(tabela, dados) {
 export function excluir(tabela, id) {
   return naFila(tabela + "/" + id, () => gravar(async () => {
     const daOtica = tabela === "leads" ? listar("interacoes").filter(i => i.lead_id === id) : [];
-    // No Supabase as interações saem junto (on delete cascade). No banco do Claude, saem antes.
-    if (!adaptador.excluiEmCascata) for (const i of daOtica) { await adaptador.excluir("interacoes", i.id); linhas.interacoes.delete(i.id); }
+    const tarefas = tabela === "leads" ? listar("tarefas").filter(t => t.lead_id === id) : [];
+    // No Supabase as interações e as tarefas do cliente saem junto (on delete cascade). No banco do Claude, saem antes.
+    if (!adaptador.excluiEmCascata) {
+      for (const i of daOtica) { await adaptador.excluir("interacoes", i.id); linhas.interacoes.delete(i.id); }
+      for (const t of tarefas) { await adaptador.excluir("tarefas", t.id); linhas.tarefas.delete(t.id); }
+    }
     await adaptador.excluir(tabela, id);
     linhas[tabela].delete(id);
     daOtica.forEach(i => linhas.interacoes.delete(i.id));
+    tarefas.forEach(t => linhas.tarefas.delete(t.id));
     avisar("dados");
   }));
 }

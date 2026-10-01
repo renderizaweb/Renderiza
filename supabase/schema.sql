@@ -5,6 +5,7 @@
 --   leads           pipeline de vendas (tela Pipeline)
 --   interacoes      o que de fato aconteceu com cada ótica: primeiro contato, retorno feito,
 --                   resposta recebida, anotação. Datas planejadas NÃO vão aqui (vão em leads.followup_em).
+--   tarefas         o que fazer: dia e hora opcionais, cliente opcional, responsável opcional (tela Tarefas)
 --   ciclos          período, meta de novas óticas e cadência de retornos (tela Ritmo)
 --   conteudos       ideias e publicações (tela Conteúdo)
 --   arquivo_legado  portfólio, lançamentos, semanas e config do painel antigo, guardados como JSON
@@ -80,6 +81,8 @@ alter table public.conteudos add column if not exists posicao double precision;
 alter table public.leads     add column if not exists interesse text not null default 'nao_avaliado';
 alter table public.leads     add column if not exists interesse_motivo text;
 alter table public.leads     add column if not exists nao_contatar boolean not null default false;
+-- Cliente fora do funil: só na tela Clientes (relacionamento), sem aparecer no Pipeline nem no Ritmo.
+alter table public.leads     add column if not exists fora_do_funil boolean not null default false;
 
 do $$
 begin
@@ -167,6 +170,27 @@ drop trigger if exists interacoes_validar on public.interacoes;
 create trigger interacoes_validar before insert or update on public.interacoes
   for each row execute function public.interacoes_validar();
 
+-- ---------- tarefas ----------
+-- O que fazer. Sem dia = "sem data". Cliente e responsável são opcionais; responsável é só um
+-- rótulo para filtrar (Kaue, Milena), o login é o mesmo. feita_em preenchido = feita.
+-- Excluir o cliente exclui as tarefas dele.
+create table if not exists public.tarefas (
+  id            text primary key default gen_random_uuid()::text,
+  dono          uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  titulo        text not null check (btrim(titulo) <> ''),
+  dia           date,
+  hora          time,
+  lead_id       text,
+  responsavel   text,
+  feita_em      timestamptz,
+  criado_em     timestamptz not null default now(),
+  atualizado_em timestamptz not null default now(),
+  constraint tarefas_lead_do_dono foreign key (lead_id, dono) references public.leads (id, dono) on delete cascade
+);
+
+create index if not exists tarefas_dono_dia_idx on public.tarefas (dono, dia);
+create index if not exists tarefas_lead_idx on public.tarefas (lead_id);
+
 -- ---------- ciclos ----------
 -- Um ciclo de prospecção: início, fim, meta de novas óticas e a cadência de retornos
 -- (hipótese de trabalho, ajustável). Os números vêm da tela Ritmo; nada fica fixo no código.
@@ -221,6 +245,10 @@ drop trigger if exists interacoes_atualizado_em on public.interacoes;
 create trigger interacoes_atualizado_em before update on public.interacoes
   for each row execute function public.tocar_atualizado_em();
 
+drop trigger if exists tarefas_atualizado_em on public.tarefas;
+create trigger tarefas_atualizado_em before update on public.tarefas
+  for each row execute function public.tocar_atualizado_em();
+
 drop trigger if exists ciclos_atualizado_em on public.ciclos;
 create trigger ciclos_atualizado_em before update on public.ciclos
   for each row execute function public.tocar_atualizado_em();
@@ -230,11 +258,12 @@ alter table public.leads          enable row level security;
 alter table public.conteudos      enable row level security;
 alter table public.interacoes     enable row level security;
 alter table public.ciclos         enable row level security;
+alter table public.tarefas        enable row level security;
 alter table public.arquivo_legado enable row level security;
 
 -- O Supabase dá todos os privilégios por padrão; aqui fica só o necessário.
-revoke all on public.leads, public.conteudos, public.interacoes, public.ciclos, public.arquivo_legado from anon, authenticated;
-grant select, insert, update, delete on public.leads, public.conteudos, public.interacoes, public.ciclos to authenticated;
+revoke all on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas, public.arquivo_legado from anon, authenticated;
+grant select, insert, update, delete on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas to authenticated;
 grant select on public.arquivo_legado to authenticated;
 
 drop policy if exists "leads do dono" on public.leads;
@@ -257,6 +286,12 @@ create policy "interacoes do dono" on public.interacoes
 
 drop policy if exists "ciclos do dono" on public.ciclos;
 create policy "ciclos do dono" on public.ciclos
+  for all to authenticated
+  using (dono = (select auth.uid()))
+  with check (dono = (select auth.uid()));
+
+drop policy if exists "tarefas do dono" on public.tarefas;
+create policy "tarefas do dono" on public.tarefas
   for all to authenticated
   using (dono = (select auth.uid()))
   with check (dono = (select auth.uid()));
@@ -562,7 +597,7 @@ declare
   t text;
 begin
   if exists (select 1 from pg_publication where pubname = 'supabase_realtime') then
-    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos'] loop
+    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos', 'tarefas'] loop
       if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
         execute format('alter publication supabase_realtime add table public.%I', t);
       end if;

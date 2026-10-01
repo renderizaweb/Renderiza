@@ -159,7 +159,9 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   fictícia por `ferramentas/prints-compasso/`) e **Ótica BlueLens** (link do site ainda não confirmado). Texto do "Quem faz":
   5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
-- **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.
+- **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,
+  com Supabase. Abre em Tarefas. Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
+  opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
     `schema.sql` rodado, usuário do Kaue criado, novos cadastros desligados.

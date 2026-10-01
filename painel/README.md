@@ -5,9 +5,37 @@ da Renderiza e as demos das óticas ficam em `/demo/<ótica>` (veja o [README da
 A mesma página responde em `/painel` e `/login`: sem sessão, a barra de endereço vai para `/login`;
 depois de entrar, volta para `/painel#<aba>`. Os caminhos abaixo são a partir da raiz do repositório.
 
-Planilha de operação da Renderiza: **Ritmo** (placar do processo), **Pipeline** (tabela ou kanban)
-e **Conteúdo**, no mesmo padrão visual e de uso do planilhão do Compasso (menu lateral verde,
-cabeçalho verde-escuro, primeira coluna fixa, linhas zebradas e linha de totais).
+Planilha de operação da Renderiza: **Tarefas** (o que fazer), **Clientes** (todos, no funil ou fora
+dele), **Pipeline** (tabela ou kanban), **Ritmo** (placar do processo) e **Conteúdo**, no mesmo padrão
+visual e de uso do planilhão do Compasso (menu lateral verde, cabeçalho verde-escuro, primeira coluna
+fixa, linhas zebradas e linha de totais).
+
+## Tarefas: o que fazer
+
+O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
+
+- Uma tarefa tem: o que fazer, dia (ou sem data), hora opcional, cliente opcional e responsável
+  opcional (Kaue ou Milena; é só um rótulo para filtrar, o login é o mesmo).
+- Grupos: Atrasadas, Hoje, Amanhã, Próximos 7 dias, Mais adiante e Sem data. No mesmo dia, as com
+  hora vêm primeiro.
+- Filtro por responsável: Todos, Kaue, Milena ou Sem responsável.
+- O círculo marca como feita (e desmarca). As feitas nos últimos 7 dias ficam numa lista recolhida;
+  nos detalhes do cliente aparecem todas, como histórico.
+- **Próximas ações anotadas nos clientes**: o campo antigo "Próxima ação" de quem ainda não tem tarefa
+  aberta aparece como sugestão, com um botão para criar a tarefa. Nada é criado sozinho.
+- Na janela da tarefa dá para cadastrar um cliente novo sem sair dela.
+
+## Clientes: todos, no funil ou fora dele
+
+- Filtros com contagem: Em venda (no funil, em aberto), Ganhos (pós-venda), Perdas e Fora do funil.
+  A busca do topo procura por nome, WhatsApp, Instagram e cidade.
+- Cada linha mostra a situação e a próxima tarefa. Clicar abre os detalhes (tarefas, andamento,
+  interações e contato).
+- **Novo cliente**: nome, WhatsApp (opcional) e onde fica: fora do funil, no funil (entra em "Leads a
+  trabalhar") ou já é cliente (entra como ganho).
+- **Fora do funil** (`leads.fora_do_funil`): para relacionamento com quem não passou pelo funil, como
+  clientes antigos. Não aparece no Pipeline nem no Ritmo. Dá para pôr ou tirar nos detalhes do cliente
+  (Andamento); a etapa fica guardada.
 
 ## Ritmo: o placar do que você controla
 
@@ -79,6 +107,9 @@ HTML e JavaScript puro (módulos ES nativos), sem bundler. Os dados ficam no Sup
 ```
 painel/index.html                   página e estilos
 painel/src/app.js                   telas: Pipeline, Kanban, Conteúdo, painel lateral, finalizar
+painel/src/tela-tarefas.js          tela Tarefas, janela de tarefa e tarefas nos detalhes do cliente
+painel/src/tela-clientes.js         tela Clientes e cadastro rápido de cliente
+painel/src/tarefas.js               contas de tarefas e clientes (sem tela; com testes)
 painel/src/tela-ritmo.js            tela Ritmo (semana, mês, ciclo, turma do mês, fila de retornos, ciclo)
 painel/src/ritmo.js                 contas do placar, cadência e validação das interações (sem tela; com testes)
 painel/src/interacoes-ui.js         registrar/corrigir interação, linha do tempo, óticas já contatadas
@@ -165,6 +196,7 @@ npm test                     # regras do placar e do site público
 | `posicao` | double precision | ordem manual do planilhão (*Minha ordem*); vazia = ordem de criação |
 | `interesse`, `interesse_motivo` | text | `nao_avaliado` (padrão), `interessado`, `perto_de_fechar` e o porquê |
 | `nao_contatar` | boolean | pediu para não receber contato: sai da fila de retornos |
+| `fora_do_funil` | boolean | só na tela Clientes (relacionamento); fora do Pipeline e do Ritmo |
 | `criado_em`, `atualizado_em` | timestamptz | `atualizado_em` é atualizado por gatilho |
 
 **`conteudos`**: `id`, `dono`, `titulo`, `canal` (`instagram`, `linkedin`, `portfolio`, `outro`),
@@ -172,9 +204,14 @@ npm test                     # regras do placar e do site público
 `gancho`, `cta`, `link_imagem`, `link_video`, `observacoes`, `revisar`, `revisar_motivo`,
 `legado`, `posicao`, `criado_em`, `atualizado_em`.
 
+**`tarefas`**: `id`, `dono`, `titulo` (obrigatório), `dia` (vazio = sem data), `hora`, `lead_id`
+(cliente, opcional; excluir o cliente exclui as tarefas dele), `responsavel` (texto livre: `Kaue`,
+`Milena` ou vazio), `feita_em` (preenchido = feita), `criado_em`, `atualizado_em`. Mesma regra de
+acesso das outras tabelas: cada usuário só vê e altera as próprias linhas.
+
 Se o banco foi criado antes dessas colunas e tabelas, rode `supabase/schema.sql` de novo. Ele
-acrescenta o que falta (`posicao`, `interesse`, `nao_contatar`, `interacoes`, `ciclos`, as regras e as
-funções) sem mexer nos dados.
+acrescenta o que falta (`posicao`, `interesse`, `nao_contatar`, `fora_do_funil`, `interacoes`,
+`tarefas`, `ciclos`, as regras e as funções) sem mexer nos dados.
 
 **Placar começa do zero, de propósito.** Nenhum primeiro contato é deduzido de etapa, de demo criada,
 de data de atualização ou das datas do painel antigo. Óticas que parecem já contatadas aparecem na tela
