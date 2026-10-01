@@ -169,7 +169,7 @@ test("depoimentos: seção só aparece com depoimento aprovado", () => {
   const real = montarPagina(config);
   assert.match(real, /id="depoimentos"/);
   assert.ok(real.includes("Criador do Move"));
-  assert.doesNotMatch(real, /gostamos muito do seu trabalho/i, "Blue Lens ainda não autorizou");
+  assert.doesNotMatch(real, /gostamos muito do seu trabalho/i, "BlueLens ainda não autorizou");
   const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Ainda não", publicar: false }] };
   const html = montarPagina(aprovado);
   assert.match(html, /id="depoimentos"/);

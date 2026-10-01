@@ -151,13 +151,12 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   nenhuma demo aparece).
   Depoimentos: `site/config.mjs` → `depoimentos`, só aparecem com texto e `publicar: true`. Regra: só
   palavras reais de quem falou (ajuste leve de pontuação, nunca texto inventado). Publicado: Raphael (Move).
-  Davi (Blue Lens) guardado até autorizar. Milena (esposa do Kaue) e Lu Elegante Modas (mãe do Kaue): não
-  publicar depoimento escrito por nós nem esconder o parentesco; a Lu entra como projeto quando o site
-  estiver no ar.
+  Davi (BlueLens) guardado até autorizar. Milena (Compasso) e Luciene Eunice (Lu Elegante Modas): espaços
+  prontos; entram com as palavras delas, sem citar parentesco (decisão do Kaue, 01/10/2026).
   Trabalhos na home: **Move** (movexfit.com.br, app do cliente Rafael, em destaque com os recursos
   feitos pela Renderiza; cada recurso tem "Ver tela" com print real do app, gerado com dados de
   exemplo por `ferramentas/prints-move/`) **Compasso** (finanças da família, ideia da Milena; prints com família
-  fictícia por `ferramentas/prints-compasso/`) e **Ótica Blue Lens** (link do site ainda não confirmado). Texto do "Quem faz":
+  fictícia por `ferramentas/prints-compasso/`) e **Ótica BlueLens** (link do site ainda não confirmado). Texto do "Quem faz":
   5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Ritmo, Pipeline e Conteúdo, com Supabase.

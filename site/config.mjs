@@ -37,13 +37,14 @@ export default {
       texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
     },
     {
-      id: "blue-lens", nome: "Davi", papel: "Ótica Blue Lens", trabalho: "blue-lens", foto: "",
+      id: "blue-lens", nome: "Davi", papel: "Ótica BlueLens", trabalho: "blue-lens", foto: "",
       // Mensagem do Davi no fim do atendimento. AINDA NÃO AUTORIZOU publicar.
       texto: "Muito obrigado, gostamos muito do seu trabalho. Com certeza vou sempre indicar.",
       publicar: false,
     },
-    // Milena: só com texto dela, nas palavras dela (ver CONTEXTO.md).
+    // Milena e Luciene: publicar com as palavras delas assim que chegarem (texto + publicar: true).
     { id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", texto: "", foto: "", publicar: false },
+    { id: "luciene", nome: "Luciene Eunice", papel: "Lu Elegante Modas", trabalho: "lu-elegante-modas", texto: "", foto: "", publicar: false },
   ],
 
   // Trabalhos realizados. Só aparecem os que têm publicar: true.
@@ -166,7 +167,7 @@ export default {
     },
     {
       id: "blue-lens",
-      titulo: "Ótica Blue Lens",
+      titulo: "Ótica BlueLens",
       tipo: "Site · ótica",
       selo: "cliente",
       texto: "Site da ótica, desenvolvido pela Renderiza.",
