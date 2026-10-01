@@ -31,7 +31,7 @@
   "-23.6128488,-46.6381813" "0x94ce5a51ccf3158f:0x533567b2a6cf76f8" "/g/1twy_pbv"`.
 
 ## O que tem na demo
-- Preto, turquesa e roxo do logo, faixa em degradê colorido e títulos em Syne: tom de galeria de arte.
+- Preto, turquesa e roxo do logo, faixa em degradê colorido e títulos em Bricolage Grotesque (até 01/10/2026 era Syne 800, larga demais; trocada a pedido do Kaue): tom de galeria de arte.
 - Capa com a frase da bio ("Mais que necessidade, estilo") e aviso de aberto/fechado com o horário do Google.
 - História (loja de família desde 1951, galeria francesa, Silmo, laboratório), sem citar nomes.
 - Carrossel de 7 antes e depois de clientes e carrossel de 12 armações de autor.
