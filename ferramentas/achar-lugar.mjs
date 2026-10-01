@@ -1,8 +1,9 @@
 // Acha o id do lugar no Google Maps (modo celular). Uso: node achar-lugar.mjs "Nome da ótica cidade"
 // Devolve fids (0x…:0x…), coordenadas e ids /g/…, que o avaliacoes-google.mjs usa.
+import { spkiProxy } from './proxy.mjs';
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 const q = process.argv[2];
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=KnP1OnzHv/y42eRQmbGwoYTHcSJF448m6CU5mdngwKk='], proxy: { server: process.env.HTTPS_PROXY } });
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=' + spkiProxy()], proxy: { server: process.env.HTTPS_PROXY } });
 const ctx = await browser.newContext({ locale: 'pt-BR', viewport: { width: 430, height: 900 }, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1' });
 const page = await ctx.newPage();
 const corpos = [];

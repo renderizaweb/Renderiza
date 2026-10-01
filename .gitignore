@@ -11,3 +11,4 @@ publico/
 node_modules
 # Exportações com dados reais ficam fora do git.
 supabase/importacao-*.sql
+__pycache__/

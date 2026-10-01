@@ -50,6 +50,12 @@ Removida: `iadala-otica` (4ª da fila): demo excluída a pedido da cliente em 29
 As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
 (`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
 
+## Fora das óticas
+
+- `lu-elegante-modas` (01/10/2026): loja de roupas com salão da Luciene Eunice, na Vila São Pedro (SBC).
+  Pedido direto do Kaue, sem triagem. Mesmo padrão das demos, com história da dona e seção de salão.
+  Sem lead no painel até o Kaue pedir.
+
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): na fila
 
 Saiu da varredura de 29/09/2026 (ver "Busca de novas óticas"). O Kaue vai mandar as fotos de cada uma
