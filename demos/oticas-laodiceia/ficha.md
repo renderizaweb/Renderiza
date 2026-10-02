@@ -8,7 +8,7 @@
 | WhatsApp | (11) 95864-7777 (link da bio do Instagram) |
 | Telefone no Google | (11) 98796-4985 |
 | Entregável | demo de site (`index.html`) |
-| Situação | pronta · 29/09/2026 · `/demo/oticas-laodiceia` |
+| Situação | pronta · 29/09/2026 · fotos refeitas em 02/10/2026 · `/demo/oticas-laodiceia` |
 
 ## Direção da demo
 - Muita imagem de produto, equipe e donos, misturada com muita arte: garimpar só as fotos reais de pessoas e dos donos.
@@ -27,16 +27,32 @@
 
 ## O que tem na demo
 - Capa preta e amarela (cores da marca) com "Cuidando da saúde dos seus olhos." e aviso de aberto/fechado.
-- Sobre: fotos de quem atende, selo "Empresa de empreendedoras", nota e horário.
+- Sobre: fachada da loja, selo "Empresa de empreendedoras", nota e horário.
 - Carrossel de 12 armações da vitrine, cartões de grau e sol, teste do formato do rosto.
 - Passo a passo do exame ao óculos novo, 5 avaliações reais do Google com a nota 5,0 · 17.
 - Instagram, mapa com horário e endereço.
 - Fotos: pasta `oticas_laodiceia` do zip de referências (lotes-leads-1, 28/09/2026). O zip pegou
   posts de 2021; fotos com o cartão ou o endereço antigo ficaram de fora.
 
+## Fotos refeitas (02/10/2026)
+A primeira versão ficou ruim (Kaue): capa e "Sobre" com selfies de baixa resolução e quadros de vídeo de
+uma moça falando, vitrine em recortes de 480 px que cortavam as lentes. Trocado:
+- **Capa:** a moça de óculos tartaruga do post de 30/09/2026 (carrossel `Dd6hOrzFo5P`, 1080 px, ensaio
+  dentro da loja), recortada abaixo do logo que vinha escrito na foto.
+- **Sobre:** a fachada amarela com balões (foto do Google Maps, 960×1280); na polaroide, o balcão da loja.
+- **Exame de vista:** armações vermelhas na prateleira com o nome da loja na parede; na polaroide, a mesma
+  moça provando a armação (outra foto do carrossel).
+- **Instagram:** a vitrine decorada de azul (zip), recortada abaixo do texto "Sexta-feira" e do aviso
+  antigo de máscara.
+- **Grau / Solar:** armações na bandeja de pérolas com o cartão da loja; óculos de sol com clip-on.
+- **Vitrine:** as mesmas peças da loja, agora das fotos de 1080 px e em cartões 4:3 (o formato das fotos
+  dela), para nenhuma lente sair cortada.
+- Fora: selfies, quadros de vídeo e as artes de IA/banco de imagem que dominam o Instagram recente.
+- Fonte para editar: `laodiceia.v2.src.html` (scratchpad), montada com `demo_build.py`.
+
 ## Conferir antes de mandar
 - **Segunda unidade?** Um post antigo cita Rua Jerivá, 18 (Piraporinha) e o perfil tem destaque
   "Unidades". Não confirmei se ainda existem duas lojas; a demo mostra só a da Av. Dom João VI.
 - **Dois números:** WhatsApp da bio (95864-7777) e telefone do Google (98796-4985). A demo usa o da bio
   no WhatsApp e mostra o do Google como telefone. Confirmar qual é o atual.
-- Quem são as duas mulheres das fotos (donas?) antes de citar nomes.
+- Quem é a moça da capa (modelo do ensaio de 30/09/2026 ou alguém da loja?). A demo não cita nome.
