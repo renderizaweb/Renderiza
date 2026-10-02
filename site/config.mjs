@@ -16,6 +16,23 @@ export default {
     trabalhoAtual: "Warren Investimentos",
   },
 
+  // Quem está por trás da Renderiza: os dois cofundadores, lado a lado e com o mesmo destaque.
+  // foto: retrato 3:4 (720×960) em site/estatico/imagens/, com o rosto na mesma altura nos dois.
+  fundadores: [
+    {
+      id: "kaue", nome: "Kaue", papel: "Cofundador", area: "Tecnologia e desenvolvimento",
+      foto: "/imagens/kaue.webp",
+      texto: "Desenvolvedor há 5 anos, com foco em produto. Trabalha em tempo integral na Warren Investimentos e conduz a Renderiza em paralelo. Aqui, cuida da tecnologia: desenvolve os sites e aplicativos, do primeiro esboço até o ar.",
+      linkedin: "https://www.linkedin.com/in/kaue-de-almeida-cunha-300188193",
+    },
+    {
+      id: "milena", nome: "Milena", papel: "Cofundadora", area: "Relacionamento e operações",
+      foto: "/imagens/milena.webp",
+      texto: "Construiu a carreira no RH, perto das pessoas: atendimento, organização e processos mais simples e automatizados. Aqui, cuida do relacionamento com os clientes, do primeiro contato ao pós-venda, organiza os projetos e conduz a estratégia e a comunicação da marca.",
+      linkedin: "",
+    },
+  ],
+
   contato: {
     // Número do WhatsApp Business com DDI e DDD, só dígitos.
     whatsapp: "5511988697165",

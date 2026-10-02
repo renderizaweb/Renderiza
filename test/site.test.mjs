@@ -75,12 +75,22 @@ test("Move: recursos, crédito ao cliente e link dentro do pop-up do projeto", (
   assert.match(html, /href="https:\/\/www\.movexfit\.com\.br" target="_blank" rel="noopener">Conhecer o Move/);
 });
 
-test("Quem faz: foco em produto, Warren citada com leveza e Renderiza como projeto paralelo independente", () => {
+test("Quem está por trás: os dois cofundadores com o mesmo destaque, foto, papel e texto curto", () => {
   const html = montarPagina(config);
-  assert.doesNotMatch(html, /abril de 2025|boletagem|CRM/);
-  assert.match(html, /desenvolvedor há 5 anos, com foco em produto/);
-  assert.match(html, /Atuo em tempo integral na Warren Investimentos e, em paralelo, conduzo a Renderiza, meu projeto independente/);
-  assert.doesNotMatch(html, /Recebeu uma mensagem minha|Sou eu mesmo|focado em óticas/);
+  assert.match(html, /<p class="sobretitulo">Quem está por trás<\/p>/);
+  assert.match(html, /<h2 id="sobre-titulo">Somos Kaue e Milena\.<\/h2>/);
+  assert.equal((html.match(/<article class="fundador">/g) || []).length, 2);
+  for (const f of config.fundadores) {
+    assert.ok(f.foto && existsSync(new URL(`../site/estatico${f.foto}`, import.meta.url)), f.foto);
+    assert.ok(html.includes(`alt="Foto de ${f.nome}"`), f.nome);
+    assert.ok(f.texto.length <= 300, `${f.nome}: texto curto`);
+  }
+  assert.match(html, /Cofundador · Tecnologia e desenvolvimento/);
+  assert.match(html, /Cofundadora · Relacionamento e operações/);
+  // Warren citada com leveza; nada de detalhes do trabalho nem de empregadores anteriores da Milena
+  assert.match(html, /Desenvolvedor há 5 anos, com foco em produto\. Trabalha em tempo integral na Warren Investimentos/);
+  assert.doesNotMatch(html, /abril de 2025|boletagem|CRM|Cauê/);
+  assert.match(html, /<a href="#sobre">Quem somos<\/a>/);
 });
 
 test("sem WhatsApp configurado, nenhum link quebrado: os botões levam ao bloco de contato", () => {
@@ -96,7 +106,6 @@ test("com contatos preenchidos, aparecem WhatsApp (com mensagem), LinkedIn e fot
   assert.match(wa, /^https:\/\/wa\.me\/5511900000000\?text=Oi/);
   assert.ok(html.includes(wa.replace(/&/g, "&amp;")));
   assert.ok((html.match(/linkedin\.com\/in\/exemplo/g) || []).length >= 2);
-  assert.match(html, /<img src="\/imagens\/foto\.webp" alt="Foto de /);
   assert.doesNotMatch(html, /Os canais de contato estão sendo atualizados/);
   assert.ok(!pendencias(comContatos).some(p => /WhatsApp|LinkedIn|foto real/.test(p)));
 });

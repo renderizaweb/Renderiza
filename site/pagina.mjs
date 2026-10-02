@@ -176,9 +176,14 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
   const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
 
-  const foto = pessoa.foto
-    ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="720" height="960" loading="lazy" decoding="async"></div>`
-    : "";
+  const fundadores = (config.fundadores || []).map(f => `
+        <article class="fundador">
+          ${f.foto ? `<div class="fundador-foto"><img src="${esc(f.foto)}" alt="Foto de ${esc(f.nome)}" width="720" height="960" loading="lazy" decoding="async"></div>` : ""}
+          <h3>${esc(f.nome)}</h3>
+          <p class="fundador-papel">${esc(f.papel)}${f.area ? ` · ${esc(f.area)}` : ""}</p>
+          <p class="fundador-texto">${esc(f.texto)}</p>
+          ${f.linkedin ? `<a class="fundador-link" href="${esc(f.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 16)}LinkedIn<span class="sr-only"> de ${esc(f.nome)} (abre em outra aba)</span></a>` : ""}
+        </article>`).join("");
 
   const redes = [
     temWa && `<a href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 17)}WhatsApp ${esc(telefone)}</a>`,
@@ -227,7 +232,7 @@ ${css.trim()}
       <a href="#servicos">O que faço</a>
       <a href="#trabalhos">Trabalhos</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="#sobre">Quem faz</a>
+      <a href="#sobre">Quem somos</a>
     </nav>
     <a class="botao botao-primario botao-topo" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 17)}<span>WhatsApp</span></a>
   </div>
@@ -373,17 +378,13 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
   </section>
 
   <section class="secao secao-clara" id="sobre" aria-labelledby="sobre-titulo">
-    <div class="envoltorio sobre${pessoa.foto ? "" : " sem-foto"}">
-      ${foto}
-      <div class="sobre-texto">
-        <p class="sobretitulo">Quem faz</p>
-        <h2 id="sobre-titulo">${esc(nomeCompleto)}</h2>
-        <p class="sobre-cargo">Desenvolvedor de software e fundador da Renderiza</p>
-        <p>Sou desenvolvedor há ${esc(pessoa.anosDeExperiencia)} anos, com foco em produto: entender o problema de quem vai usar e entregar algo simples, bonito e que funciona.</p>
-        <p>Atuo em tempo integral na ${esc(pessoa.trabalhoAtual)} e, em paralelo, conduzo a Renderiza, meu projeto independente de sites e aplicativos. Aqui, cada projeto é feito por mim, do primeiro contato à entrega.</p>
-        <div class="sobre-acoes">
-          ${contato.linkedin ? `<a class="botao botao-secundario" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 17)}Ver perfil no LinkedIn</a>` : ""}
-        </div>
+    <div class="envoltorio sobre">
+      <div class="sobre-abertura">
+        <p class="sobretitulo">Quem está por trás</p>
+        <h2 id="sobre-titulo">Somos ${(config.fundadores || []).map(f => esc(f.nome)).join(" e ")}.</h2>
+        <p class="sobre-lide">Unimos tecnologia e organização para criar sites e aplicativos com a cara do seu negócio. Você fala com a gente, do primeiro contato ao pós-venda.</p>
+      </div>
+      <div class="fundadores">${fundadores}
       </div>
     </div>
   </section>

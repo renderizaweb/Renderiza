@@ -214,15 +214,23 @@ html:has(dialog[open]){overflow:hidden}
 .carrossel-pontos button::before{content:"";width:8px;height:8px;border-radius:999px;background:#d3d0ca;transition:width .2s,background-color .2s}
 .carrossel-pontos button[aria-current=true]::before{width:24px;background:var(--grafite)}
 
-/* sobre */
-.sobre{display:grid;gap:28px}
-.sobre-foto{width:176px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--papel-2)}
-.sobre-foto img{width:100%;height:100%;object-fit:cover}
-.sobre-texto p:not(.sobretitulo){margin-top:14px;color:var(--tinta-suave);font-size:1.0625rem;max-width:36em}
-.sobre-texto p.sobre-cargo{margin-top:6px;font-size:.9375rem;font-weight:600;color:var(--grafite)}
-.sobre-texto p.sobre-cargo+p{margin-top:18px}
-.sobre-acoes{margin-top:24px}
-.sobre-acoes:empty{display:none}
+/* quem está por trás: os dois cofundadores com o mesmo destaque */
+.sobre{display:grid;gap:32px}
+.sobre-lide{margin-top:14px;color:var(--tinta-suave);font-size:1.0625rem;max-width:30em}
+.fundadores{display:grid;gap:36px}
+/* celular: retrato menor ao lado do nome, texto logo abaixo (os dois blocos em sequência) */
+.fundador{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:18px;align-items:center}
+.fundador-foto{grid-row:1/3;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--linha)}
+.fundador h3{align-self:end}
+.fundador-papel{align-self:start}
+.fundador-texto,.fundador-link{grid-column:1/-1}
+.fundador-texto{margin-top:18px!important}
+.fundador-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.fundador h3{font-size:1.375rem;letter-spacing:-.03em}
+.fundador-papel{margin-top:2px;font-size:.9375rem;font-weight:500;color:var(--tinta-suave)}
+.fundador-texto{margin-top:12px;color:var(--tinta-suave);font-size:1rem;line-height:1.6}
+.fundador-link{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;min-height:44px;margin-top:6px;font-weight:600;font-size:.9375rem;color:var(--grafite);text-decoration:underline;text-decoration-color:#c9c6bf;text-underline-offset:4px}
+.fundador-link:hover{text-decoration-color:currentColor}
 
 /* perguntas */
 .perguntas{margin-top:28px;border-top:1px solid var(--linha);max-width:780px}
@@ -277,9 +285,11 @@ html:has(dialog[open]){overflow:hidden}
   .projeto-corpo h3{font-size:2rem}
   .recursos{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dor-fecho{font-size:1.375rem;max-width:none}
-  .sobre{grid-template-columns:260px 1fr;gap:48px;align-items:center}
-  .sobre.sem-foto{grid-template-columns:1fr}
-  .sobre-foto{width:100%}
+  .fundadores{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .fundador{display:flex;flex-direction:column;align-items:stretch}
+  .fundador-foto{border-radius:var(--raio);margin-bottom:18px}
+  .fundador h3,.fundador-papel{align-self:auto}
+  .fundador-texto{margin-top:12px!important}
   .rodape-grade{grid-template-columns:1fr auto;align-items:end}
 }
 
@@ -303,8 +313,9 @@ html:has(dialog[open]){overflow:hidden}
   .janela-texto{padding:40px 36px}
   .passos li{padding:56px 0 0}
   .passos li:not(:last-child)::after{left:50px;right:-22px;top:19px;bottom:auto;width:auto;height:1px}
-  .sobre{grid-template-columns:320px 1fr;gap:72px;align-items:start}
-  .sobre.sem-foto{grid-template-columns:1fr}
+  .sobre{grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:56px;align-items:start}
+  .sobre-abertura{position:sticky;top:calc(var(--topo) + 32px)}
+  .fundadores{gap:32px}
 }
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
