@@ -39,10 +39,13 @@
 
 ## O que tem na demo
 - Azul-marinho e rosa do logo, títulos em Fraunces, logo real (foto de perfil).
-- Capa "Um óculos pode mudar a sua imagem." (frase de um post dela) com a Antonina de óculos tartaruga.
+- Capa "Um óculos pode mudar a sua imagem." (frase de um post dela) com a Antonina de óculos vermelhos na
+  Expo Óptica (a foto real mais nítida; a de óculos tartaruga tinha filtro de beleza e ficava borrada).
+- Nitidez: as fotos do Facebook são as melhores; quadros de vídeo e fotos com filtro ficam borrados em
+  tamanho grande. Usar quadro de vídeo só em carrossel, nunca na capa.
 - "A Nina da Ótica Nina é a Antonina": foto com a placa do nome, polaroide na Expo Óptica e a história da
   arte "Quem sou eu?".
-- Vitrine com 15 fotos reais; carrossel "Quem prova primeiro é a Nina" com 9 retratos dela; exame de vista e
+- Vitrine com 15 fotos reais; carrossel "Quem prova primeiro é a Nina" com 8 retratos dela; exame de vista e
   visagismo (fotos reais); 5 avaliações com a nota 5,0 (29); Instagram; mapa. Sem aviso de aberto/fechado.
 
 ## Conferir antes de mandar
