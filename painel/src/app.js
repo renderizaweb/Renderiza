@@ -523,7 +523,7 @@ function monograma(nome) {
   return [ini.toUpperCase(), CORES_AVATAR[soma % CORES_AVATAR.length]];
 }
 
-const ETAPA_CURTA = { a_trabalhar: "A trabalhar", demo_criada: "Demo criada", gravacao_realizada: "Gravação", demo_enviada: "Enviada", follow_up: "Follow-up", finalizado: "Finalizado" };
+const ETAPA_CURTA = { a_trabalhar: "A trabalhar", demo_criada: "Demo criada", gravacao_realizada: "Gravação", demo_enviada: "Contato", follow_up: "Em conversa", finalizado: "Finalizado" };
 function trilhaDeEtapas() {
   const passos = ETAPAS.map(e => h("li", { class: "etapa-passo" }, h("span", { class: "etapa-barra" }), h("span", { class: "etapa-nome", text: ETAPA_CURTA[e.id] || e.nome })));
   const legenda = h("p", { class: "etapas-legenda" });

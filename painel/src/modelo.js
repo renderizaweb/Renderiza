@@ -1,12 +1,16 @@
 // Vocabulário do painel: etapas, resultados, canais e status.
 // Os ids batem com os valores aceitos pelas colunas no Supabase (supabase/schema.sql).
+// Os ids nunca mudam (são o que fica gravado no banco); o nome é só o que aparece na tela.
+// Em 02/10/2026 dois nomes mudaram, sem mexer nos dados:
+//   demo_enviada → "Contato iniciado" (mandei a primeira mensagem para a ótica, ainda sem o vídeo)
+//   follow_up    → "Em conversa" (já mandei tudo e estou esperando a decisão)
 
 export const ETAPAS = [
   { id: "a_trabalhar", nome: "Leads a trabalhar" },
   { id: "demo_criada", nome: "Demo criada" },
   { id: "gravacao_realizada", nome: "Gravação realizada" },
-  { id: "demo_enviada", nome: "Demo enviada" },
-  { id: "follow_up", nome: "Follow-up" },
+  { id: "demo_enviada", nome: "Contato iniciado" },
+  { id: "follow_up", nome: "Em conversa" },
   { id: "finalizado", nome: "Finalizado" },
 ];
 

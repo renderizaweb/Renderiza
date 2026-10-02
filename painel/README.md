@@ -183,7 +183,7 @@ npm test                     # regras do placar e do site público
 | `id` | text | chave (ids antigos preservados; novos são UUID) |
 | `dono` | uuid | usuário dono da linha (`auth.uid()` automático) |
 | `empresa` | text | nome |
-| `etapa` | text | `a_trabalhar`, `demo_criada`, `gravacao_realizada`, `demo_enviada`, `follow_up`, `finalizado` |
+| `etapa` | text | `a_trabalhar`, `demo_criada`, `gravacao_realizada`, `demo_enviada` (na tela: Contato iniciado), `follow_up` (na tela: Em conversa), `finalizado` |
 | `resultado` | text | `ganho` ou `perda` (obrigatório quando `etapa = finalizado`) |
 | `motivo_perda`, `valor_fechado`, `data_fechamento` | text, numeric, date | preenchidos ao finalizar |
 | `whatsapp`, `instagram` | text | contato; `instagram` aceita @perfil ou site |
@@ -241,8 +241,8 @@ Nada é apagado: o documento original vai inteiro para `legado`.
 | Lead | Leads a trabalhar |
 | Demo em produção | Demo criada se a demo estava pronta; senão Leads a trabalhar |
 | Pronto para enviar | Gravação realizada |
-| Enviado | Demo enviada |
-| Respondeu, Conversando, Proposta | Follow-up **e marcado para revisar** |
+| Enviado | Contato iniciado (`demo_enviada`) |
+| Respondeu, Conversando, Proposta | Em conversa (`follow_up`) **e marcado para revisar** |
 | Fechado | Finalizado · Ganho |
 | Perdido | Finalizado · Perda |
 

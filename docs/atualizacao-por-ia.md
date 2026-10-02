@@ -67,6 +67,11 @@ resumo como motivo (visível e corrigível no painel).
   follow-up é apagado e a ótica sai da fila.
 - Sem informação suficiente: não mexa em `followup_em`. Diga isso no resumo.
 
+Etapas do funil (id → nome na tela), nesta ordem: `a_trabalhar` Leads a trabalhar, `demo_criada` Demo
+criada, `gravacao_realizada` Gravação realizada, `demo_enviada` **Contato iniciado** (primeira mensagem
+mandada, ainda sem o vídeo), `follow_up` **Em conversa** (já mandou tudo e espera a decisão), `finalizado`
+(ganho ou perda).
+
 **Etapa não muda** por causa de contato ou de interesse. Só mude `etapa` (e `resultado` etc. ao
 finalizar) se você pedir explicitamente.
 
