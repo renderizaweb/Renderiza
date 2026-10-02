@@ -1,0 +1,625 @@
+{
+ "pasta": "boutique-dos-oculos",
+ "marca": "Boutique dos Óculos",
+ "marca_completa": "Ótica Boutique dos Óculos",
+ "logo_sub": "Aclimação · desde 1994",
+ "titulo": "Boutique dos Óculos | Aclimação, São Paulo",
+ "descricao": "Ótica Boutique dos Óculos, na Aclimação, em São Paulo: consultoria em óculos desde 1994, linha autoral, óculos de grau e de sol. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Boutique dos Óculos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@boutiquedosoculos96); nota, avaliações, endereço, telefone e horário do Perfil da Empresa no Google, verificados em 02/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#142c63",
+  "acento": "#ff7a85",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/boutique-dos-oculos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/boutique-dos-oculos.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/boutique-dos-oculos/perfil.jpg"
+ },
+ "topline": "Aclimação · São Paulo",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A Boutique"
+  ],
+  [
+   "#vips",
+   "VIPs"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Consultoria"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Agendar visita",
+ "hero": {
+  "eyebrow": "Boutique de óculos na Aclimação, desde 1994",
+  "h1": "Óculos bem orientados, <em>do jeito do seu rosto.</em>",
+  "intro": "Consultoria de verdade para escolher a armação certa: a gente olha o seu rosto, a sua receita e o seu estilo. O orçamento é na loja, com calma.",
+  "selo": "Desde 1994",
+  "link": "Ver os VIPs",
+  "foto": {
+   "id": 42,
+   "c": [
+    0.4,
+    0.5
+   ]
+  },
+  "alt": "Cliente sorrindo de óculos vermelhos na frente da parede de armações coloridas da Boutique"
+ },
+ "endereco": [
+  "Av. da Aclimação, 56 B",
+  "Aclimação · São Paulo"
+ ],
+ "marquee": [
+  "Consultoria em óculos",
+  "Linha autoral",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Multifocais",
+  "Lentes ocupacionais",
+  "Lentes de contato",
+  "Óculos infantis",
+  "Desde 1994"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Boutique",
+  "h2": "Mais de 30 anos de <em>óculos com orientação.</em>",
+  "p": [
+   "Desde 1994 na Av. da Aclimação, a Boutique dos Óculos faz óculos bem orientados, precisos e adequados ao rosto de cada cliente. Tem família que faz os óculos aqui há mais de uma década.",
+   "O atendimento é com tempo: a Débora e a Elaine olham o seu rosto, a sua receita e a sua rotina antes de indicar a armação. Além das marcas, a estrela da casa é a linha autoral, com armações que você não encontra em todo lugar."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "1994",
+    "desde então na Aclimação"
+   ],
+   [
+    "Autoral",
+    "linha própria de armações"
+   ]
+  ],
+  "foto": {
+   "id": 19
+  },
+  "alt": "Cliente de macacão verde e óculos de grau na frente da parede de armações coloridas",
+  "pol": {
+   "id": 56,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Cliente de cabelos brancos e óculos de aro fino",
+  "pol_cap": "Cliente de longa data"
+ },
+ "carrosseis": [
+  {
+   "id": "vips",
+   "eyebrow": "Nossos VIPs",
+   "h2": "Gente de verdade, <em>de óculos novos.</em>",
+   "p": "Na Boutique, cliente é VIP: depois da consultoria, cada um sai com os óculos que combinam com o rosto e com o jeito. Arraste para ver.",
+   "rotulo": "Clientes VIP da Boutique dos Óculos",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 18,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelo preto e óculos redondos pretos, sorrindo"
+    },
+    {
+     "foto": {
+      "id": 27,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelo ruivo e óculos retangulares pretos"
+    },
+    {
+     "foto": {
+      "id": 40,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de óculos de aro fino e colar de coração"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de óculos de armação transparente",
+     "cap": "Transparente"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente sorrindo de óculos de aro fino"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente loira de óculos vermelhos e suéter estampado",
+     "cap": "Vermelho"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de óculos vermelhos e blusa coral"
+    },
+    {
+     "foto": {
+      "id": 35,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelo longo e óculos finos"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelos brancos e óculos claros"
+    },
+    {
+     "foto": {
+      "id": 43,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente sorrindo de óculos de armação colorida"
+    },
+    {
+     "foto": {
+      "id": 47,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente loira de óculos transparentes"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de barba e óculos pretos"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de jaqueta jeans e óculos de grau"
+    },
+    {
+     "foto": {
+      "id": 60,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelo curto e óculos coloridos"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de cabelo longo e blazer preto"
+    },
+    {
+     "foto": {
+      "id": 41,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Menino de óculos claros fazendo joinha",
+     "cap": "Kids"
+    },
+    {
+     "foto": {
+      "id": 58,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Menino de óculos pretos e camiseta laranja",
+     "cap": "Kids"
+    }
+   ]
+  },
+  {
+   "id": "galeria",
+   "eyebrow": "Mais VIPs",
+   "h2": "Cada rosto, <em>uma armação.</em>",
+   "p": "De avós a netos: famílias inteiras fazem os óculos aqui. Cada um sai com a armação escolhida na consultoria.",
+   "rotulo": "Mais clientes da Boutique dos Óculos",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 15,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de bigode e óculos de armação escura"
+    },
+    {
+     "foto": {
+      "id": 16,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de barba branca e óculos pretos"
+    },
+    {
+     "foto": {
+      "id": 17,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos gatinho pretos"
+    },
+    {
+     "foto": {
+      "id": 22,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente loira sorrindo de óculos coloridos"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de braços cruzados e óculos claros"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de camiseta rosa e óculos tartaruga"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de cabelos grisalhos e óculos de aro fino"
+    },
+    {
+     "foto": {
+      "id": 36,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de barba e óculos transparentes"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos roxos e blusa laranja",
+     "cap": "Roxo"
+    },
+    {
+     "foto": {
+      "id": 45,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente sorrindo de óculos claros"
+    },
+    {
+     "foto": {
+      "id": 49,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos de duas cores, com a mão no rosto",
+     "cap": "Duas cores"
+    },
+    {
+     "foto": {
+      "id": 53,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente sorrindo de óculos de aro fino"
+    },
+    {
+     "foto": {
+      "id": 54,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de camisa marrom e óculos pretos"
+    },
+    {
+     "foto": {
+      "id": 55,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos claros e casaco de tricô"
+    },
+    {
+     "foto": {
+      "id": 59,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de batom vermelho e óculos pretos grandes"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menino sorrindo de óculos azul-marinho",
+     "cap": "Kids"
+    },
+    {
+     "foto": {
+      "id": 31,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menino de óculos de aro fino",
+     "cap": "Kids"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na loja: o orçamento é feito pessoalmente, com calma.",
+  "grau": {
+   "foto": {
+    "id": 29,
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "alt": "Cliente de óculos de grau vermelhos na frente da parede de armações",
+   "texto": "Multifocais, ocupacionais e antirreflexo, na armação certa."
+  },
+  "solar": {
+   "foto": {
+    "id": 50,
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "alt": "Cliente de cabelo cacheado com óculos de sol cor de mel",
+   "texto": "Armações exclusivas, diferentes de todo mundo."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Consultoria em óculos",
+  "h2": "A armação certa <em>começa na consultoria.</em>",
+  "passos": [
+   "Traga a sua receita",
+   "Consultoria: formato do rosto, estilo e rotina",
+   "Lentes certas, de multifocais a ocupacionais",
+   "Ajustes sempre que precisar"
+  ],
+  "botao": "Agendar uma visita",
+  "foto": {
+   "id": 44,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Cliente de óculos gatinho com detalhes coloridos, na frente da parede de armações",
+  "pol": {
+   "id": 12,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "pol_alt": "Cliente levantando os óculos de sol pretos",
+  "pol_cap": "Prova de solar",
+  "card": [
+   "Orçamento na loja",
+   "Venha provar com calma."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Cliente que <em>volta sempre.</em>"
+ },
+ "avaliacoes": [
+  {
+   "i": 0,
+   "tag": "15 anos de cliente"
+  },
+  {
+   "i": 1,
+   "tag": "Atendimento caloroso"
+  },
+  {
+   "i": 2,
+   "tag": "Cuidado com a receita"
+  },
+  {
+   "i": 3,
+   "tag": "Coleção moderna"
+  },
+  {
+   "i": 4,
+   "tag": "Fomos só olhar"
+  }
+ ],
+ "instagram": "boutiquedosoculos96",
+ "insta": {
+  "seguidores": "14 mil seguidores",
+  "p": "Os VIPs da semana, as coleções de cada estação e dicas de consultoria.",
+  "foto": {
+   "id": 51,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Cliente ajeitando os óculos de armação preta",
+  "chip": "Desde 1994"
+ },
+ "visita": {
+  "h2": "Te esperamos na <em>Aclimação.</em>",
+  "endereco": [
+   "Av. da Aclimação, 56 B · Aclimação",
+   "São Paulo, SP · CEP 01531-000"
+  ],
+  "telefone": "(11) 95940-2549",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Óculos bem orientados, do jeito do seu rosto.",
+ "mensagem": "Olá! Vim pelo site da Boutique dos Óculos e queria agendar uma visita.",
+ "whatsapp": "5511959402549",
+ "fone_link": "+5511959402549",
+ "google": {
+  "coords": "-23.5673969,-46.6336168",
+  "fid": "0x94ce599f8fc87253:0x9df4d46bbdd9edbd",
+  "gid": "/g/11c3w3tzb5"
+ },
+ "google_nome": "Ótica Boutique Dos Óculos",
+ "endereco_maps": "Av. da Aclimação, 56 - B - Aclimação, São Paulo - SP, 01531-000",
+ "google_nota": "5,0",
+ "google_total": "123",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "link da bio do Instagram (wa.me), igual ao telefone do Google",
+  "direcao": [
+   "Kaue: uma das óticas mais incríveis em fotos reais: nada de propaganda de marca, só clientes reais usando os óculos, felizes, dezenas e dezenas. A demo tem que ser espetacular, pensada como uma galeria de imagens. Somar avaliações e a história.",
+   "Bio: \"Desde 1994 fazendo óculos bem orientados, precisos e adequados ao seu rosto. ORÇAMENTO SOMENTE PRESENCIAL.\" Destaque \"DÉBORA ROSSI\"."
+  ],
+  "demo": [
+   "Azul de azulejo (o da loja) com coral, títulos em Playfair Display, logo real (foto de perfil).",
+   "Capa \"Óculos bem orientados, do jeito do seu rosto.\" (da bio) com uma cliente de óculos vermelhos na frente da parede de armações.",
+   "Dois carrosséis de clientes (17 + 17 fotos): \"Nossos VIPs\" e \"Mais VIPs\", como o Instagram dela.",
+   "História: desde 1994, Débora e Elaine (citadas nas avaliações), linha autoral (resumo das avaliações do Google), orçamento só na loja (bio).",
+   "5 avaliações reais do Google (5,0 · 123), horário do Google com aviso de aberto/fechado, mapa."
+  ],
+  "fotos": [
+   "Lote do Drive do Kaue (página do Instagram salva, 02/10/2026): 61 fotos úteis, quase todas clientes na frente da parede de armações. Escolha pela folha do `ferramentas/inventario-fotos.py`.",
+   "Fora: as artes \"A coleção da sua estação\", o post de boas-vindas e selfies pequenas."
+  ],
+  "conferir": [
+   "O Maps mostra outra \"Boutique dos Óculos\" (Av. Dom Pedro II, 1986; 5,0 · 132). Confirmar se é a mesma dona.",
+   "Os clientes das fotos aparecem no Instagram da loja, mas a demo não cita nomes de cliente."
+  ]
+ }
+}

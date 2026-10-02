@@ -1,0 +1,459 @@
+{
+ "pasta": "otica-haramaki",
+ "marca": "Ótica Haramaki",
+ "marca_completa": "Ótica Haramaki",
+ "logo_sub": "Vila Perus · São Paulo",
+ "titulo": "Ótica Haramaki | Vila Perus, São Paulo",
+ "descricao": "Ótica Haramaki, na Vila Perus, em São Paulo: óculos de grau e de sol, Ray-Ban e lentes de contato, com atendimento nota 5,0 no Google.",
+ "comentario": "Demo Ótica Haramaki: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaharamaki); nota, avaliações, endereço e telefone do Perfil da Empresa no Google, verificados em 02/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#17150f",
+  "acento": "#ffc400",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-haramaki/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-haramaki.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-haramaki/perfil.jpg"
+ },
+ "topline": "Vila Perus · São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A Haramaki"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#provando",
+   "Provando"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale com a gente",
+ "hero": {
+  "eyebrow": "Ótica em Perus · óculos de grau e solares",
+  "h1": "Estilo, cuidado e <em>o melhor preço.</em>",
+  "intro": "Óculos de grau e de sol para todo estilo, dos clássicos da Ray-Ban às armações do dia a dia, com o atendimento que dá à Haramaki nota 5,0 no Google.",
+  "selo": "Grau e solares",
+  "foto": {
+   "id": 24,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Moça sorrindo de óculos tartaruga na frente do letreiro Haramaki, na parede amarela da loja",
+  "nota": "<b>Atendimento no WhatsApp</b><span aria-hidden=\"true\">·</span><span>tire suas dúvidas antes de vir</span>"
+ },
+ "endereco": [
+  "R. Antônio Bartolomeu, 12A",
+  "Vila Perus · São Paulo"
+ ],
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Ray-Ban",
+  "Lentes de contato",
+  "Acetato",
+  "Tartaruga",
+  "Ajustes",
+  "Atendimento no WhatsApp"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Haramaki",
+  "h2": "A ótica amarela <em>da Vila Perus.</em>",
+  "p": [
+   "Na Rua Antônio Bartolomeu, a Haramaki tem a cara da marca: parede amarela, o letreiro no capricho e armação para todo estilo, de grau e de sol.",
+   "Nas avaliações do Google, os clientes falam do atendimento das meninas, da vendedora Karina, da paciência para testar lente de contato e do preço que cobre a concorrência."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "321",
+    "avaliações no Google"
+   ],
+   [
+    "16 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 1,
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "alt": "Cliente sorrindo com a sacola amarela da Ótica Haramaki dentro da loja",
+  "pol": {
+   "id": 3,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Cliente de óculos pretos tirando foto no espelho da loja",
+  "pol_cap": "A loja por dentro"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "A vitrine",
+   "h2": "Armação para <em>todo estilo.</em>",
+   "p": "Redondas, gatinho, tartaruga, transparentes e os clássicos da Ray-Ban. Arraste e peça a sua pelo WhatsApp.",
+   "rotulo": "Armações e óculos de sol da Ótica Haramaki",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Dezenas de armações de grau coloridas lado a lado"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Armações de grau sobre fundo amarelo e laranja"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Óculos de sol Ray-Ban redondo de lente escura",
+     "cap": "Ray-Ban"
+    },
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Armações de acetato preto e tartaruga"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Óculos de sol redondo dourado sobre o estojo Ray-Ban",
+     "cap": "Ray-Ban"
+    },
+    {
+     "foto": {
+      "id": 15
+     },
+     "alt": "Mãos segurando armações finas"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Armações pretas e transparentes sobre fundo azul"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Armações redondas de várias cores em fila"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Óculos de sol Clubmaster na caixa Ray-Ban",
+     "cap": "Ray-Ban"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Armação tartaruga sobre fundo amarelo"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Armação redonda preta sobre fundo amarelo"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Armações de acetato em fundo amarelo"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Óculos de sol aviador Ray-Ban na vitrine",
+     "cap": "Ray-Ban"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Armações em degradê de cores"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Armação vinho de acetato"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Óculos de sol redondos sobre fundo amarelo"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Armação preta sobre pedra"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Óculos de sol tartaruga e transparente"
+    },
+    {
+     "foto": {
+      "id": 33
+     },
+     "alt": "Armação transparente sobre fundo azul"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Óculos de sol sobre fundo amarelo"
+    }
+   ]
+  },
+  {
+   "id": "provando",
+   "eyebrow": "Provando na loja",
+   "h2": "Na frente do letreiro, <em>do jeito que fica.</em>",
+   "p": "Os modelos novos são provados na parede amarela da loja, para você ver como cada armação fica no rosto.",
+   "rotulo": "Armações provadas na Ótica Haramaki",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça de óculos dourados de aro fino na frente do letreiro Haramaki"
+    },
+    {
+     "foto": {
+      "id": 11,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça de óculos meio-aro na frente do letreiro"
+    },
+    {
+     "foto": {
+      "id": 14,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça sorrindo de óculos de aro fino"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça de óculos de aro dourado olhando de lado"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça de óculos rosé na frente da parede amarela"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Moça de óculos meio-aro preto"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Vila Perus ou peça pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 26,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armações de grau em degradê de cores, uma embaixo da outra",
+   "texto": "Lentes para o dia a dia, na armação do seu estilo."
+  },
+  "solar": {
+   "foto": {
+    "id": 12
+   },
+   "alt": "Óculos de sol Clubmaster sobre o estojo Ray-Ban",
+   "texto": "Ray-Ban e modelos para todo rosto."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Do jeito Haramaki",
+  "h2": "Atendimento que <em>a vizinhança aprova.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha até a loja",
+   "Escolha a armação com a ajuda da equipe",
+   "Lentes certas para a sua receita",
+   "Ajustes sempre que precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 4
+  },
+  "alt": "Dezenas de armações de grau coloridas organizadas lado a lado",
+  "pol": {
+   "id": 2,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "pol_alt": "Cliente de óculos azuis na frente da parede amarela",
+  "pol_cap": "Vem provar",
+  "card": [
+   "Lentes de contato",
+   "Teste com quem entende."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "As meninas <em>são um amor.</em>"
+ },
+ "avaliacoes": [
+  {
+   "i": 0,
+   "tag": "Atendimento nota mil"
+  },
+  {
+   "i": 1,
+   "tag": "Vendedora Karina"
+  },
+  {
+   "i": 2,
+   "tag": "Lentes de contato"
+  },
+  {
+   "i": 4,
+   "tag": "Preço"
+  },
+  {
+   "i": 5,
+   "tag": "Óculos lindo"
+  },
+  {
+   "i": 7,
+   "tag": "Deu certo"
+  }
+ ],
+ "instagram": "oticaharamaki",
+ "insta": {
+  "seguidores": "16,5 mil seguidores",
+  "p": "Lançamentos, Ray-Ban e os modelos provados na parede amarela.",
+  "foto": {
+   "id": 36,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Moça de óculos meio-aro na frente do letreiro Haramaki",
+  "chip": "Grau e solares"
+ },
+ "visita": {
+  "h2": "Te esperamos na <em>Vila Perus.</em>",
+  "endereco": [
+   "R. Antônio Bartolomeu, 12A · Vila Perus",
+   "São Paulo, SP · CEP 05204-200"
+  ],
+  "telefone": "(11) 97081-7977",
+  "rotulo_fone": "WhatsApp e telefone",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "slogan": "Estilo, cuidado e o melhor preço.",
+ "mensagem": "Olá! Vim pelo site da Ótica Haramaki.",
+ "whatsapp": "5511970817977",
+ "fone_link": "+5511970817977",
+ "google": {
+  "coords": "-23.4056452,-46.7537692",
+  "fid": "0x94cef9007df99a73:0xcdb260590e52c4c9",
+  "gid": "/g/11lznzl05t"
+ },
+ "google_nome": "Ótica Haramaki - Perus",
+ "endereco_maps": "R. Antônio Bartolomeu, 12A - Vila Perus, São Paulo - SP, 05204-200",
+ "google_nota": "5,0",
+ "google_total": "321",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "link da bio do Instagram (wa.me), igual ao telefone do Google",
+  "direcao": [
+   "Kaue: bom potencial, mas complexo: muito vídeo e pouca imagem. O dono parece ser o rapaz que está sempre nos vídeos; grande possibilidade de fechamento.",
+   "O lote do Drive trouxe 39 fotos boas em 1440 px: uma moça provando armações na frente do letreiro amarelo e produto em fundo amarelo. Deu para não depender de vídeo."
+  ],
+  "demo": [
+   "Amarelo e preto da marca, títulos em Outfit, logo real (foto de perfil).",
+   "Capa \"Estilo, cuidado e o melhor preço.\" (da bio: \"Estilo, cuidado e o melhor preço garantido!\").",
+   "Vitrine com 20 fotos de produto (Ray-Ban marcada) e carrossel \"Provando na loja\" com 6 fotos.",
+   "6 avaliações reais do Google (5,0 · 321): Karina, \"as meninas\", lente de contato, preço que cobre a concorrência."
+  ],
+  "fotos": [
+   "Lote do Drive do Kaue (Instagram salvo): 39 fotos úteis. O letreiro \"Haramaki\" nas fotos é o da parede da loja, não texto em cima da foto."
+  ],
+  "conferir": [
+   "Horário: o Google só mostrou sexta 9h–19h. A demo não mostra horário (pede para confirmar no WhatsApp).",
+   "Quem é o rapaz dos vídeos (dono?) e quem é a moça das fotos (equipe ou modelo?). A demo não cita nomes, só a Karina das avaliações.",
+   "Promoção \"2 óculos por 299,99\" ficou de fora (preço muda)."
+  ]
+ }
+}
