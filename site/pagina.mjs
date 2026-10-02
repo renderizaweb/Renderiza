@@ -71,78 +71,90 @@ const dominio = url => { try { return new URL(url).hostname.replace(/^www\./, ""
 
 const TIPOS_DE_TRABALHO = ["cliente", "demonstracao"];
 
-function linkDoTrabalho(t, texto) {
-  if (!t.link) return "";
-  const externo = /^https?:/.test(t.link);
-  return `<a class="trabalho-link" href="${esc(t.link)}"${externo ? ' target="_blank" rel="noopener"' : ""}>${esc(texto)}${icone("externo", 15)}${externo ? '<span class="sr-only"> (abre em outra aba)</span>' : ""}</a>`;
-}
 
 function validarTrabalho(t) {
   if (!TIPOS_DE_TRABALHO.includes(t.selo)) throw new Error(`site/config.mjs: trabalho "${t.id}" com selo desconhecido (${t.selo}). Use "cliente" ou "demonstracao".`);
 }
 
-/** Trabalho em destaque: print grande, o que o produto faz e os recursos que a Renderiza desenvolveu. */
-function trabalhoDestaque(t) {
-  validarTrabalho(t);
-  const idDe = r => `recurso-${t.id}-${r.titulo.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
-  const recursos = (t.recursos || []).map(r => `
-              <li${r.ia ? ' class="com-ia"' : ""}>
-                <span class="recurso-icone">${icone(ICONES[r.icone] ? r.icone : "check", 20)}</span>
-                <div><h4>${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h4><p>${esc(r.texto)}</p>
-                ${r.imagem ? `<button class="recurso-ver" type="button" data-abrir="${idDe(r)}" aria-haspopup="dialog">Ver tela${icone("seta", 14)}<span class="sr-only">: ${esc(r.titulo)}</span></button>` : ""}</div>
-              </li>`).join("");
-  // Um <dialog> por recurso: tela real, texto e link para o produto. Fechado, a imagem não carrega.
-  const janelas = (t.recursos || []).filter(r => r.imagem).map(r => `
-      <dialog class="janela-recurso${r.formato === "paisagem" ? " janela-paisagem" : ""}" id="${idDe(r)}" aria-labelledby="${idDe(r)}-titulo">
-        <div class="janela-grade">
-          <figure class="janela-tela">
-            <img src="${esc(r.imagem)}" alt="Tela ${esc(r.titulo)} do app ${esc(t.titulo)}" width="${r.largura || 540}" height="${r.altura || 1169}" loading="lazy" decoding="async">
-            <figcaption>Tela real do app, com dados de exemplo.</figcaption>
-          </figure>
-          <div class="janela-texto">
-            <p class="trabalho-meta"><span>${esc(t.titulo)}</span></p>
-            <h3 id="${idDe(r)}-titulo">${esc(r.titulo)}${r.ia ? `<span class="selo-ia">${icone("brilho", 12)}IA</span>` : ""}</h3>
-            <p>${esc(r.detalhe || r.texto)}</p>
-            ${r.link ? `<a class="botao botao-primario" href="${esc(r.link)}" target="_blank" rel="noopener">Ver no site ${t.titulo === "Move" ? "do" : "de"} ${esc(t.titulo)}${icone("externo", 16)}<span class="sr-only"> (abre em outra aba)</span></a>` : ""}
-          </div>
-        </div>
-        <form method="dialog"><button class="janela-fechar" type="submit" aria-label="Fechar">${icone("fechar", 20)}</button></form>
-      </dialog>`).join("");
-  const comIa = (t.recursos || []).filter(r => r.ia).length;
-  return `
-      <article class="destaque">
-        ${t.imagem ? `<div class="destaque-imagem"><img src="${esc(t.imagem)}" alt="${esc(t.alt || "Tela do " + t.titulo)}" width="1200" height="672" loading="lazy" decoding="async"></div>` : ""}
-        <div class="destaque-corpo">
-          <p class="trabalho-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
-          <h3>${esc(t.titulo)}</h3>
-          <p class="destaque-texto">${esc(t.texto)}</p>
-          ${recursos ? `<p class="recursos-titulo">O que a Renderiza desenvolveu${comIa ? `, com ${comIa} recursos de inteligência artificial` : ""}</p>
-          <ul class="recursos">${recursos}
-          </ul>` : ""}
-          <div class="destaque-rodape">
-            ${t.credito ? `<p class="credito">${esc(t.credito)}</p>` : ""}
-            ${linkDoTrabalho(t, t.linkTexto || "Ver o projeto")}
-          </div>
-        </div>${janelas}
-      </article>`;
-}
+const slug = texto => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const idDoRecurso = (t, r) => `recurso-${t.id}-${slug(r.titulo)}`;
+const seloIa = () => `<span class="selo-ia">${icone("brilho", 12)}IA</span>`;
+// Print do desktop: 1400 px no cartão, 2400 px no pop-up (o navegador escolhe pela tela).
+const srcsetDe = t => (t.imagemGrande ? `${esc(t.imagem)} 1400w, ${esc(t.imagemGrande)} 2400w` : "");
 
-function cartaoTrabalho(t) {
+/** Cartão do portfólio: print grande e uma frase. Clicar em qualquer parte abre o pop-up do projeto. */
+function cartaoProjeto(t) {
   validarTrabalho(t);
-  // Sem print real, o cartão mostra só uma inicial (não finge ser imagem do trabalho).
-  const visual = t.imagem
-    ? `<div class="trabalho-imagem"><img src="${esc(t.imagem)}" alt="${esc(t.alt || "Tela do trabalho " + t.titulo)}" loading="lazy" decoding="async"></div>`
-    : `<span class="trabalho-monograma monograma-${esc(t.selo)}" aria-hidden="true">${esc(t.titulo.replace(/^Óticas?\s+/i, "").charAt(0).toUpperCase())}</span>`;
+  const categoria = String(t.tipo || "").split("·")[0].trim();
+  const temIa = (t.recursos || []).some(r => r.ia);
+  const tela = t.imagem
+    ? `<img src="${esc(t.imagem)}"${t.imagemGrande ? ` srcset="${srcsetDe(t)}" sizes="(min-width:1120px) 520px, (min-width:720px) 46vw, 84vw"` : ""} alt="${esc(t.alt || "Tela do " + t.titulo)}" width="1400" height="875" loading="lazy" decoding="async">`
+    : `<span class="projeto-monograma" aria-hidden="true">${esc(t.titulo.replace(/^Óticas?\s+/i, "").charAt(0).toUpperCase())}</span>`;
   return `
-        <li class="trabalho${t.imagem ? " com-imagem" : ""}">
-          ${visual}
-          <div class="trabalho-corpo">
-            <p class="trabalho-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
-            <h3>${esc(t.titulo)}</h3>
-            <p>${esc(t.texto)}</p>
-            ${linkDoTrabalho(t, "Ver o trabalho")}
+        <li class="projeto">
+          <div class="projeto-tela">${tela}</div>
+          <div class="projeto-info">
+            <p class="projeto-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(categoria)}</span>${temIa ? seloIa() : ""}</p>
+            <h3><button class="projeto-abrir" type="button" data-abrir="projeto-${esc(t.id)}" aria-haspopup="dialog">${esc(t.titulo)}</button></h3>
+            <p class="projeto-resumo">${esc(t.resumo || t.texto)}</p>
+            <span class="projeto-ver" aria-hidden="true">Ver projeto${icone("seta", 16)}</span>
           </div>
         </li>`;
+}
+
+/** Pop-up do projeto: prints em alta, descrição, o que foi desenvolvido (com "Ver tela"), depoimento e link. */
+function janelaProjeto(t, depoimento) {
+  const id = `projeto-${esc(t.id)}`;
+  const comIa = (t.recursos || []).filter(r => r.ia).length;
+  const recursos = (t.recursos || []).map(r => `
+              <li>
+                <span class="recurso-icone">${icone(ICONES[r.icone] ? r.icone : "check", 18)}</span>
+                <div><h4>${esc(r.titulo)}${r.ia ? seloIa() : ""}</h4><p>${esc(r.texto)}</p>
+                ${r.imagem ? `<button class="recurso-ver" type="button" data-abrir="${idDoRecurso(t, r)}" aria-haspopup="dialog">Ver tela${icone("seta", 14)}<span class="sr-only">: ${esc(r.titulo)}</span></button>` : ""}</div>
+              </li>`).join("");
+  return `
+  <dialog class="janela-projeto" id="${id}" aria-labelledby="${id}-titulo">
+    <div class="janela-rolagem">
+      ${t.imagem ? `<div class="projeto-palco${t.imagemCelular ? " com-celular" : ""}">
+        <img class="palco-desktop" src="${esc(t.imagem)}"${t.imagemGrande ? ` srcset="${srcsetDe(t)}" sizes="(min-width:1040px) 760px, 92vw"` : ""} alt="${esc(t.alt || "Tela do " + t.titulo)}" width="1400" height="875" loading="lazy" decoding="async">
+        ${t.imagemCelular ? `<img class="palco-celular" src="${esc(t.imagemCelular)}" alt="${esc(t.titulo)} no celular" width="720" height="1440" loading="lazy" decoding="async">` : ""}
+      </div>` : ""}
+      <div class="projeto-corpo">
+        <p class="projeto-meta">${t.selo === "demonstracao" ? '<span class="selo selo-demonstracao">Demonstração conceitual</span>' : ""}<span>${esc(t.tipo)}</span></p>
+        <h3 id="${id}-titulo">${esc(t.titulo)}</h3>
+        <p class="projeto-texto">${esc(t.texto)}</p>
+        ${recursos ? `<p class="recursos-titulo">O que a Renderiza desenvolveu${comIa ? `, com ${comIa} recursos de inteligência artificial` : ""}</p>
+        <ul class="recursos">${recursos}
+        </ul>` : ""}
+        ${depoimento ? `<figure class="projeto-depoimento"><blockquote><p>${esc(depoimento.texto)}</p></blockquote><figcaption><strong>${esc(depoimento.nome || depoimento.papel)}</strong>${depoimento.nome && depoimento.papel ? `, ${esc(depoimento.papel)}` : ""}</figcaption></figure>` : ""}
+        <div class="projeto-rodape">
+          ${t.credito ? `<p class="credito">${esc(t.credito)}</p>` : ""}
+          ${t.link ? `<a class="botao botao-primario" href="${esc(t.link)}" target="_blank" rel="noopener">${esc(t.linkTexto || "Ver o projeto")}${icone("externo", 16)}<span class="sr-only"> (abre em outra aba)</span></a>` : ""}
+        </div>
+      </div>
+    </div>
+    <form method="dialog"><button class="janela-fechar" type="submit" aria-label="Fechar">${icone("fechar", 20)}</button></form>
+  </dialog>`;
+}
+
+/** Um pop-up por recurso com tela: abre por cima do pop-up do projeto. Fechado, a imagem não carrega. */
+function janelasDeRecursos(t) {
+  return (t.recursos || []).filter(r => r.imagem).map(r => `
+  <dialog class="janela-recurso${r.formato === "paisagem" ? " janela-paisagem" : ""}" id="${idDoRecurso(t, r)}" aria-labelledby="${idDoRecurso(t, r)}-titulo">
+    <div class="janela-grade">
+      <figure class="janela-tela">
+        <img src="${esc(r.imagem)}" alt="Tela ${esc(r.titulo)} do app ${esc(t.titulo)}" width="${r.largura || 540}" height="${r.altura || 1169}" loading="lazy" decoding="async">
+        <figcaption>Tela real do app, com dados de exemplo.</figcaption>
+      </figure>
+      <div class="janela-texto">
+        <p class="projeto-meta"><span>${esc(t.titulo)}</span></p>
+        <h3 id="${idDoRecurso(t, r)}-titulo">${esc(r.titulo)}${r.ia ? seloIa() : ""}</h3>
+        <p>${esc(r.detalhe || r.texto)}</p>
+        ${r.link ? `<a class="botao botao-primario" href="${esc(r.link)}" target="_blank" rel="noopener">Ver no site ${t.titulo === "Move" ? "do" : "de"} ${esc(t.titulo)}${icone("externo", 16)}<span class="sr-only"> (abre em outra aba)</span></a>` : ""}
+      </div>
+    </div>
+    <form method="dialog"><button class="janela-fechar" type="submit" aria-label="Fechar">${icone("fechar", 20)}</button></form>
+  </dialog>`).join("");
 }
 
 export function montarPagina(config, { css = readFileSync(new URL("./estilo.css", import.meta.url), "utf8"), ano = new Date().getFullYear() } = {}) {
@@ -156,11 +168,9 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const attrsWa = temWa ? ' target="_blank" rel="noopener"' : "";
   const telefone = telefoneLegivel(contato.whatsapp);
   const trabalhos = config.trabalhos.filter(t => t.publicar);
-  const destaques = trabalhos.filter(t => t.destaque);
-  const demais = trabalhos.filter(t => !t.destaque);
   const temDemo = trabalhos.some(t => t.selo === "demonstracao");
   // Abertura mostra trabalho real: o primeiro destaque com print.
-  const vitrine = destaques.find(t => t.imagem);
+  const vitrine = trabalhos.find(t => t.destaque && t.imagem);
   const depoimentos = (config.depoimentos || []).filter(d => d.publicar && d.texto && d.texto.trim());
 
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
@@ -201,8 +211,7 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/fontes/inter.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fontes/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
 <script>/* endereços antigos do painel (/#pipeline…) */if(/^#(ritmo|pipeline|conteudo)$/.test(location.hash))location.replace("/painel"+location.hash)</script>
 <style>
 ${css.trim()}
@@ -239,9 +248,9 @@ ${css.trim()}
 ${vitrine ? `<figure class="vitrine">
         <div class="navegador">
           <div class="navegador-barra" aria-hidden="true"><span></span><span></span><span></span><em>${esc(dominio(vitrine.link))}</em></div>
-          <img src="${esc(vitrine.imagem)}" alt="${esc(vitrine.alt || "Tela do " + vitrine.titulo)}" width="1200" height="672" loading="lazy" decoding="async">
+          <img src="${esc(vitrine.imagem)}"${vitrine.imagemGrande ? ` srcset="${srcsetDe(vitrine)}" sizes="540px"` : ""} alt="${esc(vitrine.alt || "Tela do " + vitrine.titulo)}" width="1400" height="875" loading="lazy" decoding="async">
         </div>
-        ${vitrine.imagemCelular ? `<div class="vitrine-celular"><img src="${esc(vitrine.imagemCelular)}" alt="" width="360" height="779" loading="lazy" decoding="async"></div>` : ""}
+        ${vitrine.imagemCelular ? `<div class="vitrine-celular"><img src="${esc(vitrine.imagemCelular)}" alt="" width="720" height="1440" loading="lazy" decoding="async"></div>` : ""}
         <figcaption><a href="#trabalhos"><strong>${esc(vitrine.titulo)}</strong> · ${esc(vitrine.legenda || vitrine.tipo)}${icone("baixo", 14)}</a></figcaption>
       </figure>` : ""}
     </div>
@@ -278,7 +287,7 @@ ${vitrine ? `<figure class="vitrine">
       <p class="sobretitulo">O que eu faço</p>
       <h2 id="servicos-titulo">Do tamanho que o seu negócio precisa.</h2>
       <div class="servicos">
-        <article class="servico servico-principal">
+        <article class="servico">
           <h3>Sites para pequenos negócios</h3>
           <p>Uma página rápida no celular, com o que o cliente precisa saber antes de entrar em contato.</p>
           <ul class="lista-check">
@@ -290,21 +299,36 @@ ${vitrine ? `<figure class="vitrine">
         </article>
         <article class="servico">
           <h3>Aplicativos e sistemas sob medida</h3>
-          <p>Para projetos que pedem mais que um site: login, painel de gestão, integrações e recursos com inteligência artificial.</p>
-          ${destaques.length ? `<a class="trabalho-link" href="#trabalhos">Ver um exemplo${icone("baixo", 15)}</a>` : ""}
+          <p>Para projetos que pedem mais que um site, feitos do zero para o seu processo.</p>
+          <ul class="lista-check">
+            <li>${icone("check", 17)}Login e área do cliente</li>
+            <li>${icone("check", 17)}Painel de gestão</li>
+            <li>${icone("check", 17)}Integrações com outros sistemas</li>
+            <li>${icone("check", 17)}Recursos com inteligência artificial</li>
+          </ul>
         </article>
       </div>
     </div>
   </section>
 
   <section class="secao secao-clara" id="trabalhos" aria-labelledby="trabalhos-titulo">
-    <div class="envoltorio">
-      <p class="sobretitulo">Trabalhos realizados</p>
-      <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos de clientes."}</h2>
-      ${destaques.map(trabalhoDestaque).join("")}
-      ${demais.length ? `<ul class="trabalhos">${demais.map(cartaoTrabalho).join("")}
-      </ul>` : ""}
+    <div class="envoltorio carrossel" data-carrossel>
+      <div class="carrossel-topo">
+        <div>
+          <p class="sobretitulo">Trabalhos realizados</p>
+          <h2 id="trabalhos-titulo">${temDemo ? "Projetos de clientes e demonstrações." : "Projetos de clientes."}</h2>
+        </div>
+        <div class="carrossel-setas" hidden>
+          <button type="button" data-anterior aria-label="Projeto anterior" aria-controls="projetos-lista">${icone("voltar", 20)}</button>
+          <button type="button" data-proximo aria-label="Próximo projeto" aria-controls="projetos-lista">${icone("seta", 20)}</button>
+        </div>
+      </div>
+      <ul class="projetos" id="projetos-lista" data-trilho tabindex="0" aria-label="Projetos (no celular, deslize para o lado)">${trabalhos.map(cartaoProjeto).join("")}
+      </ul>
+      <div class="carrossel-pontos" hidden>${trabalhos.map((t, i) => `<button type="button" data-ir="${i}" aria-label="Ver projeto ${i + 1} de ${trabalhos.length}"></button>`).join("")}</div>
     </div>
+${trabalhos.map(t => janelaProjeto(t, depoimentos.find(d => d.trabalho === t.id))).join("")}
+${trabalhos.map(janelasDeRecursos).join("")}
   </section>
 
 ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledby="depoimentos-titulo">
@@ -319,7 +343,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
           <button type="button" data-proximo aria-label="Próximo depoimento" aria-controls="depoimentos-lista">${icone("seta", 20)}</button>
         </div>
       </div>
-      <ul class="depoimentos" id="depoimentos-lista" tabindex="0" aria-label="Depoimentos (deslize para o lado)">${depoimentos.map((d, i) => `
+      <ul class="depoimentos" id="depoimentos-lista" data-trilho tabindex="0" aria-label="Depoimentos (deslize para o lado)">${depoimentos.map((d, i) => `
         <li aria-label="${i + 1} de ${depoimentos.length}">
           <figure>
             <span class="depoimento-aspas">${icone("aspas", 22)}</span>
@@ -411,8 +435,8 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
     <a class="rodape-entrar" href="/login">Entrar</a>
   </div>
 </footer>
-<script>/* carrossel de depoimentos: setas e pontos sobre a rolagem nativa (sem JS, desliza do mesmo jeito) */document.querySelectorAll("[data-carrossel]").forEach(function(c){var t=c.querySelector(".depoimentos"),it=[].slice.call(t.children),a=c.querySelector("[data-anterior]"),p=c.querySelector("[data-proximo]"),ps=[].slice.call(c.querySelectorAll("[data-ir]"));if(it.length<2)return;c.querySelectorAll("[hidden]").forEach(function(e){e.hidden=false});var suave=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";function passo(){return it[1].offsetLeft-it[0].offsetLeft}function fim(){return t.scrollLeft>=t.scrollWidth-t.clientWidth-4}function ultimo(){return Math.max(0,Math.ceil((t.scrollWidth-t.clientWidth-4)/passo()))}function ir(i){t.scrollTo({left:Math.max(0,Math.min(i,ultimo()))*passo(),behavior:suave})}function atual(){return fim()?ultimo():Math.round(t.scrollLeft/passo())}function marcar(){var i=atual(),u=ultimo();a.disabled=t.scrollLeft<4;p.disabled=fim();ps.forEach(function(b,k){b.hidden=k>u;b.setAttribute("aria-current",k===i?"true":"false")});c.classList.toggle("tudo-visivel",t.scrollWidth<=t.clientWidth+4)}a.addEventListener("click",function(){ir(atual()-1)});p.addEventListener("click",function(){ir(atual()+1)});ps.forEach(function(b){b.addEventListener("click",function(){ir(+b.dataset.ir)})});var r;t.addEventListener("scroll",function(){cancelAnimationFrame(r);r=requestAnimationFrame(marcar)},{passive:true});addEventListener("resize",marcar);marcar()})</script>
-<script>/* "Ver tela": abre o pop-up do recurso; tocar fora ou Esc fecha */document.querySelectorAll("[data-abrir]").forEach(function(b){var d=document.getElementById(b.dataset.abrir);if(!d||!d.showModal)return;b.addEventListener("click",function(){d.showModal()});d.addEventListener("click",function(e){if(e.target===d)d.close()})})</script>
+<script>/* carrosséis (projetos no celular e depoimentos): setas e pontos sobre a rolagem nativa (sem JS, desliza do mesmo jeito) */document.querySelectorAll("[data-carrossel]").forEach(function(c){var t=c.querySelector("[data-trilho]"),it=[].slice.call(t.children),a=c.querySelector("[data-anterior]"),p=c.querySelector("[data-proximo]"),ps=[].slice.call(c.querySelectorAll("[data-ir]"));if(it.length<2)return;c.querySelectorAll("[hidden]").forEach(function(e){e.hidden=false});var suave=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";function passo(){return it[1].offsetLeft-it[0].offsetLeft}function fim(){return t.scrollLeft>=t.scrollWidth-t.clientWidth-4}function ultimo(){return Math.max(0,Math.ceil((t.scrollWidth-t.clientWidth-4)/passo()))}function ir(i){t.scrollTo({left:Math.max(0,Math.min(i,ultimo()))*passo(),behavior:suave})}function atual(){return fim()?ultimo():Math.round(t.scrollLeft/passo())}function marcar(){var i=atual(),u=ultimo();a.disabled=t.scrollLeft<4;p.disabled=fim();ps.forEach(function(b,k){b.hidden=k>u;b.setAttribute("aria-current",k===i?"true":"false")});c.classList.toggle("tudo-visivel",t.scrollWidth<=t.clientWidth+4)}a.addEventListener("click",function(){ir(atual()-1)});p.addEventListener("click",function(){ir(atual()+1)});ps.forEach(function(b){b.addEventListener("click",function(){ir(+b.dataset.ir)})});var r;t.addEventListener("scroll",function(){cancelAnimationFrame(r);r=requestAnimationFrame(marcar)},{passive:true});addEventListener("resize",marcar);marcar()})</script>
+<script>/* pop-ups (projeto e "Ver tela" do recurso): tocar fora ou Esc fecha */document.querySelectorAll("[data-abrir]").forEach(function(b){var d=document.getElementById(b.dataset.abrir);if(!d||!d.showModal)return;b.addEventListener("click",function(){d.showModal()});d.addEventListener("click",function(e){if(e.target===d)d.close()})})</script>
 </body>
 </html>
 `;

@@ -188,6 +188,9 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   `site/estatico/simbolo.svg` (usado no topo, rodapé, favicon, ícone do iPhone e imagem de compartilhamento).
   Paleta do logo e nada além: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,
   sem brilhos nem sombras decorativas. Tokens em `site/estilo.css` (`:root`). O painel ainda usa o visual antigo.
+  Fonte: **Geist** (OFL, auto-hospedada em `site/estatico/fontes/`), no lugar da Inter + Instrument Serif;
+  títulos em duas cores (grafite + cinza) no lugar do itálico. Portfólio em cartões com print em alta
+  (2x) que abrem o pop-up do projeto (02/10/2026).
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,
   com Supabase. Abre em Tarefas. Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).

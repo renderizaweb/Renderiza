@@ -32,15 +32,13 @@ const GRAFITE = "#1e2528", GELO = "#f1eee9";
 async function gerarImagens() {
   const { default: config } = await import("../site/config.mjs");
   const css = `
-    @font-face{font-family:Inter;font-weight:400 700;src:url(${fonte("inter.woff2")})}
-    @font-face{font-family:IS;src:url(${fonte("instrument-serif.woff2")})}
-    @font-face{font-family:IS;font-style:italic;src:url(${fonte("instrument-serif-italico.woff2")})}
+    @font-face{font-family:Geist;font-weight:100 900;src:url(${fonte("geist.woff2")})}
     *{margin:0;box-sizing:border-box}
-    body{width:1200px;height:630px;overflow:hidden;background:${GRAFITE};color:${GELO};font-family:Inter}
+    body{width:1200px;height:630px;overflow:hidden;background:${GRAFITE};color:${GELO};font-family:Geist}
     .quadro{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
-    .marca{display:flex;align-items:center;gap:16px;font-weight:650;font-size:40px;letter-spacing:-1.2px}
-    h1{font-family:IS;font-weight:400;font-size:96px;line-height:.98;letter-spacing:-.5px;max-width:980px}
-    h1 em{color:#fff}
+    .marca{display:flex;align-items:center;gap:16px;font-weight:600;font-size:40px;letter-spacing:-1.6px}
+    h1{font-weight:600;font-size:84px;line-height:1.02;letter-spacing:-3.6px;max-width:1000px}
+    h1 em{font-style:normal;color:#8d9598}
     .pe{display:flex;justify-content:space-between;align-items:center;font-size:26px;color:#b9bfc1}
     .pe strong{color:${GELO};font-weight:600}`;
   const og = `<style>${css}</style><div class="quadro">

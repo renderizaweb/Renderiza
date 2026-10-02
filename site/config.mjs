@@ -66,10 +66,13 @@ export default {
     },
   ],
 
-  // Trabalhos realizados. Só aparecem os que têm publicar: true.
+  // Trabalhos realizados (portfólio). Só aparecem os que têm publicar: true, na ordem daqui.
+  //   Cada um vira um cartão (print + resumo) que abre um pop-up com o projeto inteiro.
   //   selo: "cliente" ou "demonstracao" (esta ganha a etiqueta "Demonstração conceitual")
-  //   destaque: true = cartão grande com print, recursos e crédito
-  //   imagem: caminho em site/estatico/imagens/ (print real do trabalho); sem imagem, aparece um cartão só com texto
+  //   destaque: true = pode aparecer na abertura do site (o primeiro com print de celular)
+  //   resumo: uma frase para o cartão; texto: a descrição completa do pop-up
+  //   imagem / imagemGrande / imagemCelular: prints em site/estatico/imagens/projetos/ (1400 px, 2400 px e
+  //     celular), todos tirados em alta resolução; sem imagem, o cartão mostra só a inicial
   //   link: endereço do trabalho no ar, quando existir
   //   falta: o que ainda precisa ser confirmado (só para você; não aparece no site)
   trabalhos: [
@@ -80,6 +83,7 @@ export default {
       selo: "cliente",
       // destaque: cartão grande, com print e lista de recursos
       destaque: true,
+      resumo: "App de treinos para alunos e personal trainers, com recursos de inteligência artificial.",
       texto: "Plataforma para alunos e personal trainers: o personal monta e envia o treino, o aluno executa série por série e os dois acompanham a evolução.",
       // ia: true ganha a etiqueta "IA"; icone: haltere, escanear, camera, mensagem, painel, sino
       // imagem: tela real do app (move-web rodando local com dados de exemplo; nada de usuário real)
@@ -129,9 +133,10 @@ export default {
         },
       ],
       credito: "Um produto Move, desenvolvido pela Renderiza.",
-      imagem: "/imagens/move.webp",
-      // Print do celular: aparece junto do print grande na abertura (desktop).
-      imagemCelular: "/imagens/move-celular.webp",
+      // Prints de movexfit.com.br (02/10/2026). O de celular também aparece na abertura do site.
+      imagem: "/imagens/projetos/move-1400.webp",
+      imagemGrande: "/imagens/projetos/move-2400.webp",
+      imagemCelular: "/imagens/projetos/move-celular.webp",
       legenda: "aplicativo desenvolvido pela Renderiza",
       alt: "Página inicial do Move, com a tela de um treino em execução",
       link: "https://www.movexfit.com.br",
@@ -145,6 +150,7 @@ export default {
       tipo: "Aplicativo · finanças da família",
       selo: "cliente",
       destaque: true,
+      resumo: "O planejamento financeiro da família num lugar só, do mês atual aos próximos.",
       texto: "O planejamento financeiro da casa num lugar só: o casal vê se o mês fecha no azul, planeja os próximos e sabe por quanto tempo a reserva segura as contas essenciais.",
       // prints: compasso-familiar rodando local com uma família fictícia (Ana e Bruno); sem dados reais
       recursos: [
@@ -178,7 +184,9 @@ export default {
         },
       ],
       credito: "Uma ideia da Milena, desenvolvida pela Renderiza.",
-      imagem: "/imagens/compasso/compasso.webp",
+      imagem: "/imagens/projetos/compasso-1400.webp",
+      imagemGrande: "/imagens/projetos/compasso-2400.webp",
+      imagemCelular: "/imagens/projetos/compasso-celular.webp",
       alt: "Visão do mês do Compasso, com receitas, despesas, dinheiro protegido e a sobra projetada",
       link: "",
       publicar: true,
@@ -189,11 +197,15 @@ export default {
       titulo: "Ótica Blulens",
       tipo: "Site · ótica",
       selo: "cliente",
+      resumo: "Site da ótica da família no Capão Redondo, em São Paulo.",
       texto: "Site da ótica da família no Capão Redondo, em São Paulo: modelos, atendimento, avaliações do Google e WhatsApp.",
-      // Print da página inicial (02/10/2026). A ótica autorizou mostrar o site no portfólio em 01/10/2026.
-      imagem: "/imagens/blulens.webp",
+      // Prints da página inicial (02/10/2026). A ótica autorizou mostrar o site no portfólio em 01/10/2026.
+      imagem: "/imagens/projetos/blulens-1400.webp",
+      imagemGrande: "/imagens/projetos/blulens-2400.webp",
+      imagemCelular: "/imagens/projetos/blulens-celular.webp",
       alt: "Página inicial do site da Ótica Blulens",
       link: "https://www.oticablulens01.com.br",
+      linkTexto: "Visitar o site",
       publicar: true,
       falta: "",
     },
@@ -202,11 +214,15 @@ export default {
       titulo: "Lú Elegante",
       tipo: "Site · moda e beleza",
       selo: "cliente",
+      resumo: "Site da loja de roupas e do salão, em São Bernardo do Campo.",
       texto: "Site da loja de roupas e do salão na Vila São Pedro, em São Bernardo do Campo: vitrine de peças, serviços do salão e WhatsApp.",
-      // Print da página inicial (02/10/2026), no ar em luelegantemodas.com.br.
-      imagem: "/imagens/lu-elegante.webp",
+      // Prints da página inicial (02/10/2026), no ar em luelegantemodas.com.br.
+      imagem: "/imagens/projetos/lu-elegante-1400.webp",
+      imagemGrande: "/imagens/projetos/lu-elegante-2400.webp",
+      imagemCelular: "/imagens/projetos/lu-elegante-celular.webp",
       alt: "Página inicial do site da Lú Elegante",
       link: "https://www.luelegantemodas.com.br",
+      linkTexto: "Visitar o site",
       publicar: true,
       falta: "",
     },

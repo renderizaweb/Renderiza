@@ -19,8 +19,11 @@ os botões levam ao bloco de contato (nenhum link quebrado).
 - **LinkedIn**: `contato.linkedin` com o endereço completo do perfil.
 - **Foto**: coloque a foto real em `estatico/imagens/` e aponte `pessoa.foto` para `/imagens/<arquivo>`.
   Para reduzir e converter: `node scripts/imagens-do-site.mjs otimizar foto.jpg site/estatico/imagens/kaue.webp`.
-- **Trabalhos**: cada item tem `selo` (`cliente` ou `demonstracao`), `imagem` (print real), `link` e
-  `publicar`. O campo `falta` é só uma anotação e não aparece no site.
+- **Trabalhos** (portfólio): cada projeto publicado vira um cartão (print + `resumo`) que abre um pop-up com
+  `texto`, `recursos` (cada um com "Ver tela"), o depoimento do cliente (se houver) e `link`. No celular os
+  cartões viram carrossel; a partir do tablet, grade de 2 colunas. Prints em `estatico/imagens/projetos/`:
+  `<id>-1400.webp` (cartão), `<id>-2400.webp` (pop-up) e `<id>-celular.webp`, tirados em 2x/3x. O campo
+  `falta` é só uma anotação e não aparece no site.
 - **Demos de óticas**: só com aprovação da ótica, porque usam fotos de clientes dela. Por enquanto
   nenhuma aparece (`publicar: false`).
 - **Domínio**: `endereco` é `https://www.renderizaweb.com.br`. Se mudar nome, frase ou domínio, rode

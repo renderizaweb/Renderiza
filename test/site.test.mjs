@@ -45,14 +45,31 @@ test("demonstração publicada sempre ganha a etiqueta; selo inválido é recusa
   assert.throws(() => montarPagina({ ...config, trabalhos: [{ ...demo, selo: "case" }] }), /selo desconhecido/);
 });
 
-test("Move em destaque: print, recursos, crédito ao cliente e link", () => {
+test("portfólio: um cartão por projeto publicado, com print em alta e pop-up do projeto", () => {
+  const html = montarPagina(config);
+  const publicados = config.trabalhos.filter(t => t.publicar);
+  assert.equal((html.match(/<li class="projeto">/g) || []).length, publicados.length);
+  for (const t of publicados) {
+    assert.match(html, new RegExp(`data-abrir="projeto-${t.id}"`), t.id);
+    assert.match(html, new RegExp(`<dialog class="janela-projeto" id="projeto-${t.id}"`), t.id);
+    for (const img of [t.imagem, t.imagemGrande, t.imagemCelular]) {
+      assert.ok(img, `${t.id}: falta print`);
+      assert.ok(existsSync(new URL(`../site/estatico${img}`, import.meta.url)), img);
+    }
+    assert.ok(t.resumo && t.resumo.length <= 100, `${t.id}: resumo curto para o cartão`);
+  }
+  // no celular vira carrossel: setas e pontos para os projetos
+  assert.match(html, /<ul class="projetos" id="projetos-lista" data-trilho/);
+  assert.equal((html.match(/aria-label="Ver projeto \d+ de/g) || []).length, publicados.length);
+});
+
+test("Move: recursos, crédito ao cliente e link dentro do pop-up do projeto", () => {
   const html = montarPagina(config);
   const move = config.trabalhos.find(t => t.id === "move");
   assert.ok(move.publicar && move.destaque);
-  assert.match(html, /<article class="destaque">/);
   for (const r of move.recursos) assert.ok(html.includes(r.titulo), r.titulo);
-  // etiqueta IA no cartão e no pop-up de cada recurso com IA
-  assert.equal((html.match(/class="selo-ia"/g) || []).length, 2 * move.recursos.filter(r => r.ia).length);
+  // etiqueta IA: uma no cartão e uma por recurso com IA no pop-up do projeto e no "Ver tela"
+  assert.equal((html.match(/class="selo-ia"/g) || []).length, 1 + 2 * move.recursos.filter(r => r.ia).length);
   assert.match(html, /com 3 recursos de inteligência artificial/);
   assert.ok(html.includes("Um produto Move, desenvolvido pela Renderiza."));
   assert.match(html, /href="https:\/\/www\.movexfit\.com\.br" target="_blank" rel="noopener">Conhecer o Move/);
@@ -101,7 +118,7 @@ test("textos do config são escapados", () => {
 
 test("vão para o ar: home, painel em /painel e /login, demos e arquivos do site; nada de fichas, config ou banco", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/"));
-  for (const d of ["index.html", "painel/index.html", "login/index.html", "painel/src/app.js", "compartilhar.jpg", "favicon.svg", "fontes/inter.woff2"]) assert.ok(destinos.includes(d), d);
+  for (const d of ["index.html", "painel/index.html", "login/index.html", "painel/src/app.js", "compartilhar.jpg", "favicon.svg", "fontes/geist.woff2"]) assert.ok(destinos.includes(d), d);
   assert.ok(destinos.some(d => /^demo\/[^/]+\/index\.html$/.test(d)));
   for (const d of destinos) assert.doesNotMatch(d, /\.(md|mjs|sql|py)$|^(site|supabase|ferramentas|scripts|src)\//, d);
 });
@@ -123,7 +140,7 @@ test("vercel.json: só a home pode ser indexada; painel, login, demos e api não
 test("abertura: frase concreta e trabalho real (Move), sem a ilustração esquemática", () => {
   const html = montarPagina(config);
   assert.match(html, /<h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA<\/em>\.<\/h1>/);
-  assert.match(html, /<figure class="vitrine">[\s\S]*movexfit\.com\.br[\s\S]*\/imagens\/move-celular\.webp/);
+  assert.match(html, /<figure class="vitrine">[\s\S]*movexfit\.com\.br[\s\S]*\/imagens\/projetos\/move-celular\.webp/);
   assert.doesNotMatch(html, /Sites bonitos e leves|class="ilustracao"/);
 });
 
@@ -185,8 +202,8 @@ test("depoimentos: seção só aparece com depoimento aprovado", () => {
 test("depoimentos em carrossel: lista rolável com rótulo, setas e pontos (setas/pontos ligados pelo JS)", () => {
   const html = montarPagina(config);
   assert.match(html, /<div class="envoltorio carrossel" data-carrossel>/);
-  assert.match(html, /<ul class="depoimentos" id="depoimentos-lista" tabindex="0" aria-label="Depoimentos \(deslize para o lado\)">/);
+  assert.match(html, /<ul class="depoimentos" id="depoimentos-lista" data-trilho tabindex="0" aria-label="Depoimentos \(deslize para o lado\)">/);
   assert.match(html, /<div class="carrossel-setas" hidden>/);
   const publicados = config.depoimentos.filter(d => d.publicar && d.texto).length;
-  assert.equal((html.match(/data-ir="/g) || []).length, publicados);
+  assert.equal((html.match(/aria-label="Ver depoimento \d+ de/g) || []).length, publicados);
 });
