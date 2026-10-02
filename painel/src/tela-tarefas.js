@@ -29,7 +29,12 @@ const nomeDoCliente = id => { const l = id && dados.buscar("leads", id); return 
 export function abrirTarefa({ tarefa = null, leadId = null, titulo: tituloInicial = "", dia: diaInicial } = {}) {
   const editando = !!tarefa;
   const hoje = hojeLocal();
-  const titulo = h("input", { type: "text", value: editando ? tarefa.titulo : tituloInicial, autocomplete: "off", maxlength: "200", placeholder: "Ex.: Ligar para a ótica e mandar o vídeo", required: true });
+  // Várias linhas: o campo cresce com o texto (sem rolagem própria); se passar da tela, quem rola é a janela.
+  const titulo = h("textarea", { rows: "3", maxlength: "2000", placeholder: "Ex.: Ligar para a ótica e mandar o vídeo", required: true });
+  titulo.value = editando ? tarefa.titulo : tituloInicial;
+  const ajustar = () => { titulo.style.height = "auto"; titulo.style.height = titulo.scrollHeight + 2 + "px"; };
+  titulo.addEventListener("input", ajustar);
+  titulo.addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); form.requestSubmit(); } });
   const dia = h("input", { type: "date", value: editando ? tarefa.dia || "" : diaInicial === undefined ? hoje : diaInicial || "", "aria-label": "Dia" });
   const horario = h("input", { type: "time", value: editando ? hora(tarefa) : "", "aria-label": "Hora" });
   const responsavel = h("select", { class: "select-trigger" },
@@ -65,7 +70,7 @@ export function abrirTarefa({ tarefa = null, leadId = null, titulo: tituloInicia
     } }, icone("lixo", 15), "Excluir"));
   }
   const form = h("form", { class: "dialog-form" },
-    h("label", {}, "O que fazer", titulo),
+    h("label", {}, "O que fazer", titulo, h("span", { class: "dica-campo", text: "Enter quebra a linha. Ctrl+Enter salva." })),
     h("div", { class: "linha-form" },
       h("label", {}, "Dia", dia, h("span", { class: "atalhos-dia" }, atalho("Hoje", hoje), atalho("Amanhã", somarDias(hoje, 1)), atalho("Sem data", ""))),
       h("label", {}, "Hora (opcional)", horario),
@@ -75,6 +80,7 @@ export function abrirTarefa({ tarefa = null, leadId = null, titulo: tituloInicia
     h("div", { class: "janela-acoes" + (editando ? " separadas" : "") }, acoes));
 
   const { fechar } = abrirJanela({ titulo: editando ? "Editar tarefa" : "Nova tarefa", conteudo: form });
+  requestAnimationFrame(ajustar); // tarefa já salva aparece inteira
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const texto = titulo.value.trim();
@@ -91,6 +97,8 @@ export function abrirTarefa({ tarefa = null, leadId = null, titulo: tituloInicia
 }
 
 /* ---------- uma linha de tarefa ---------- */
+
+const resumo = texto => { const t = String(texto || "").replace(/\s+/g, " ").trim(); return t.length > 90 ? t.slice(0, 89) + "…" : t; };
 
 async function alternarFeita(t) {
   try {
@@ -115,13 +123,13 @@ export function itemDeTarefa(t, { abrirLead, comDia = false, comCliente = true }
     ? h("button", { type: "button", class: "tarefa-cliente", onclick: e => { e.stopPropagation(); abrirLead(t.lead_id); } }, nome)
     : h("span", { text: nome }));
   if (t.responsavel) meta.push(h("span", { class: "chip-resp", "data-pessoa": t.responsavel, text: t.responsavel }));
-  const check = h("button", { type: "button", class: "tarefa-check", role: "checkbox", "aria-checked": String(feita), "aria-label": (feita ? "Reabrir: " : "Marcar como feita: ") + t.titulo,
+  const check = h("button", { type: "button", class: "tarefa-check", role: "checkbox", "aria-checked": String(feita), "aria-label": (feita ? "Reabrir: " : "Marcar como feita: ") + resumo(t.titulo),
     disabled: !dados.podeEditar() || null, onclick: () => alternarFeita(t) }, feita ? icone("certo", 14) : null);
   return h("li", { class: "tarefa" + (feita ? " feita" : "") },
     check,
     h("div", { class: "tarefa-corpo", role: "button", tabindex: "0", title: "Editar",
       onclick: () => abrirTarefa({ tarefa: t }), onkeydown: e => { if (e.key === "Enter" && e.target === e.currentTarget) abrirTarefa({ tarefa: t }); } },
-      h("span", { class: "tarefa-titulo", text: t.titulo }),
+      h("span", { class: "tarefa-titulo", text: String(t.titulo || "").replace(/\n\s*\n+/g, "\n") }), // na lista, sem linhas em branco
       meta.length ? h("span", { class: "tarefa-meta" }, meta) : null));
 }
 

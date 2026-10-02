@@ -409,7 +409,9 @@ td.money .inline-text{text-align:right}
 .dialog-form{display:grid;gap:19px}
 .dialog-form>label{font-size:.875rem;font-weight:500;display:flex;flex-direction:column;gap:9px}
 .dialog-form input{height:43px;padding:8px 12px;border-radius:6px;border:1px solid #dbe5dd;font-size:.9375rem;width:100%;font-weight:400}
-.dialog-form input:focus{border-color:#4e9167;box-shadow:0 0 0 2px #e2f0e6;outline:none}
+.dialog-form textarea{width:100%;min-height:86px;padding:10px 12px;border-radius:6px;border:1px solid #dbe5dd;font-size:.9375rem;line-height:1.55;resize:none;overflow:hidden;font-weight:400;background:#fff}
+.dialog-form input:focus,.dialog-form textarea:focus{border-color:#4e9167;box-shadow:0 0 0 2px #e2f0e6;outline:none}
+.dica-campo{font-size:.75rem;font-weight:400;color:#7d8b85;margin-top:-3px}
 .opcoes-resultado{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .opcao-resultado{display:flex;align-items:center;justify-content:center;gap:9px;height:48px;border:1px solid #dbe5dd;border-radius:8px;cursor:pointer;font-size:.9375rem;font-weight:500}
 .opcao-resultado input{accent-color:var(--primary);width:16px;height:16px;margin:0}
@@ -541,7 +543,7 @@ td.money .inline-text{text-align:right}
 .tarefa-check:hover:not(:disabled){border-color:var(--primary);background:#edf5ef}
 .tarefa.feita .tarefa-check{background:var(--primary);border-color:var(--primary)}
 .tarefa-corpo{flex:1;min-width:0;display:grid;gap:4px;cursor:pointer;border-radius:6px}
-.tarefa-titulo{font-size:.9375rem;line-height:1.4;color:#22342f;overflow-wrap:anywhere}
+.tarefa-titulo{font-size:.9375rem;line-height:1.4;color:#22342f;overflow-wrap:anywhere;white-space:pre-line;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
 .tarefa.feita .tarefa-titulo{text-decoration:line-through;color:#7d8b85}
 .tarefa-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:.8125rem;color:#6d7b77}
 .tarefa-meta .atrasada{color:#b3261e;font-weight:600}
