@@ -217,7 +217,6 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
-<script>/* endereços antigos do painel (/#pipeline…) */if(/^#(ritmo|pipeline|conteudo)$/.test(location.hash))location.replace("/painel"+location.hash)</script>
 <style>
 ${css.trim()}
 </style>
@@ -433,7 +432,6 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
   </div>
   <div class="envoltorio rodape-base">
     <span>© ${ano} Renderiza</span>
-    <a class="rodape-entrar" href="/login">Entrar</a>
   </div>
 </footer>
 <script>/* carrosséis (projetos no celular e depoimentos): setas e pontos sobre a rolagem nativa (sem JS, desliza do mesmo jeito) */document.querySelectorAll("[data-carrossel]").forEach(function(c){var t=c.querySelector("[data-trilho]"),it=[].slice.call(t.children),a=c.querySelector("[data-anterior]"),p=c.querySelector("[data-proximo]"),ps=[].slice.call(c.querySelectorAll("[data-ir]"));if(it.length<2)return;c.querySelectorAll("[hidden]").forEach(function(e){e.hidden=false});var suave=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";function passo(){return it[1].offsetLeft-it[0].offsetLeft}function fim(){return t.scrollLeft>=t.scrollWidth-t.clientWidth-4}function ultimo(){return Math.max(0,Math.ceil((t.scrollWidth-t.clientWidth-4)/passo()))}function ir(i){t.scrollTo({left:Math.max(0,Math.min(i,ultimo()))*passo(),behavior:suave})}function atual(){return fim()?ultimo():Math.round(t.scrollLeft/passo())}function marcar(){var i=atual(),u=ultimo();a.disabled=t.scrollLeft<4;p.disabled=fim();ps.forEach(function(b,k){b.hidden=k>u;b.setAttribute("aria-current",k===i?"true":"false")});c.classList.toggle("tudo-visivel",t.scrollWidth<=t.clientWidth+4)}a.addEventListener("click",function(){ir(atual()-1)});p.addEventListener("click",function(){ir(atual()+1)});ps.forEach(function(b){b.addEventListener("click",function(){ir(+b.dataset.ir)})});var r;t.addEventListener("scroll",function(){cancelAnimationFrame(r);r=requestAnimationFrame(marcar)},{passive:true});addEventListener("resize",marcar);marcar()})</script>

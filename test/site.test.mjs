@@ -125,6 +125,11 @@ test("textos do config são escapados", () => {
   assert.ok(html.includes("A &lt;b&gt;&amp;&lt;/b&gt;"));
 });
 
+test("o site não tem nenhum caminho para o painel: sem link de entrar nem menção a /painel ou /login", () => {
+  const html = montarPagina(config);
+  assert.doesNotMatch(html, /["'(]\/(login|painel)\b|>Entrar</);
+});
+
 test("vão para o ar: home, painel em /painel e /login, demos e arquivos do site; nada de fichas, config ou banco", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/"));
   for (const d of ["index.html", "painel/index.html", "login/index.html", "painel/src/app.js", "compartilhar.jpg", "favicon.svg", "fontes/geist.woff2"]) assert.ok(destinos.includes(d), d);

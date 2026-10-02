@@ -258,8 +258,6 @@ html:has(dialog[open]){overflow:hidden}
 .rodape-redes a:hover{color:#fff;text-decoration:underline}
 .rodape-base{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:30px;padding-top:18px;font-size:.8125rem;color:var(--tinta-clara)}
 .rodape-base::before{content:"";position:absolute;top:0;left:max(var(--lateral),env(safe-area-inset-left));right:max(var(--lateral),env(safe-area-inset-right));height:1px;background:#ffffff1f}
-.rodape-entrar{color:var(--tinta-clara);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
-.rodape-entrar:hover{color:#fff;text-decoration:underline}
 
 /* a partir de celulares grandes */
 @media (min-width:480px){
