@@ -50,6 +50,30 @@ Removida: `iadala-otica` (4ª da fila): demo excluída a pedido da cliente em 29
 As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id igual ao nome da pasta
 (`otica-sales`…), próxima ação "Criar demo (Nª da fila)" e as observações do Kaue.
 
+## Quando o cliente aprova (demo vira site)
+
+1. Na pasta da demo, criar `site.json` (domínio, nome, cor, dados da empresa para o Google). Modelo:
+   `demos/lu-elegante-modas/site.json`.
+2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
+   WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
+3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no
+   Registro.br no CPF/CNPJ dele. A Renderiza só faz o site; nada do cliente fica hospedado ou guardado na
+   Renderiza. O Kaue entrega os acessos ao cliente, que pode passar a qualquer dev no futuro.
+4. Para eu enviar o site: o cliente cria o repositório vazio, convida o GitHub do Kaue como colaborador
+   e instala o app do Claude só nesse repositório (acesso temporário, removido depois). Plano B: o Kaue
+   sobe o .zip pela tela do GitHub (Add file > Upload files).
+5. Vercel: importar o repositório (preset Other, sem build), adicionar o domínio e criar no Registro.br os
+   DNS que a Vercel mostrar. Atenção: a Vercel gratuita (Hobby) proíbe uso comercial, mesmo na conta do
+   cliente; se der problema, o mesmo repositório publica no Cloudflare Pages sem mudar nada.
+
+## Fora das óticas
+
+- `lu-elegante-modas` (01/10/2026): loja de roupas com salão da Luciene Eunice, na Vila São Pedro (SBC).
+  Pedido direto do Kaue, sem triagem. Mesmo padrão das demos, com história da dona e seção de salão.
+  Sem lead no painel até o Kaue pedir.
+- `ms-odontologia` (01/10/2026): Clínica MS Odontologia, Dr. Marcos Silva, Itapevi. Cliente de antes do
+  painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026.
+
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): na fila
 
 Saiu da varredura de 29/09/2026 (ver "Busca de novas óticas"). O Kaue vai mandar as fotos de cada uma

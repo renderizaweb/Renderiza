@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/montar-site.mjs",
     "dev": "node scripts/servidor.mjs",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "site": "node scripts/virar-site.mjs"
   },
   "engines": {
     "node": ">=18"

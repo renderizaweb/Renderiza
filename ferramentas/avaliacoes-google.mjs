@@ -1,6 +1,7 @@
 // Ficha e avaliações de um lugar no Google Maps (desktop, pela URL com o id do lugar).
 // Uso: node avaliacoes-google.mjs "Nome" "lat,lng" "0x…:0x…" "/g/…" saida.json
 // Sem login o Google mostra só uma parte das avaliações (costuma vir 8 a 20).
+import { spkiProxy } from './proxy.mjs';
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import fs from 'fs';
 const [, , nome, coords, fid, gid, saida] = process.argv;
@@ -8,7 +9,7 @@ const base = `https://www.google.com/maps/place/${encodeURIComponent(nome).repla
 const [lat, lng] = coords.split(',');
 const urlFicha = base + `!4m6!3m5!1s${fid}!8m2!3d${lat}!4d${lng}!16s${encodeURIComponent(gid)}?hl=pt-BR`;
 const urlAval = base + `!4m8!3m7!1s${fid}!8m2!3d${lat}!4d${lng}!9m1!1b1!16s${encodeURIComponent(gid)}?hl=pt-BR`;
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=KnP1OnzHv/y42eRQmbGwoYTHcSJF448m6CU5mdngwKk='], proxy: { server: process.env.HTTPS_PROXY } });
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=' + spkiProxy()], proxy: { server: process.env.HTTPS_PROXY } });
 const ctx = await browser.newContext({ locale: 'pt-BR', viewport: { width: 1366, height: 1000 }, userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' });
 const page = await ctx.newPage();
 await page.goto(urlFicha, { waitUntil: 'domcontentloaded', timeout: 60000 });

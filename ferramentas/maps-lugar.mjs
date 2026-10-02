@@ -1,10 +1,11 @@
 // Detalhes de lugares do Google Maps a partir dos links da lista: site, telefone, endereço, categoria.
 // Uso: node maps-lugar.mjs entrada.jsonl saida.jsonl   (entrada: uma linha JSON com {link, nome} por lugar)
+import { spkiProxy } from './proxy.mjs';
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import fs from 'fs';
 const [, , entrada, out] = process.argv;
 const lugares = fs.readFileSync(entrada, 'utf8').trim().split('\n').map(l => JSON.parse(l));
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=KnP1OnzHv/y42eRQmbGwoYTHcSJF448m6CU5mdngwKk='], proxy: { server: process.env.HTTPS_PROXY } });
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--ignore-certificate-errors-spki-list=' + spkiProxy()], proxy: { server: process.env.HTTPS_PROXY } });
 const ctx = await browser.newContext({ locale: 'pt-BR', viewport: { width: 1366, height: 1000 }, userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' });
 for (const l of lugares) {
   const page = await ctx.newPage();
