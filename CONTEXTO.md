@@ -191,6 +191,10 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   Fonte: **Geist** (OFL, auto-hospedada em `site/estatico/fontes/`), no lugar da Inter + Instrument Serif;
   títulos em duas cores (grafite + cinza) no lugar do itálico. Portfólio em cartões com print em alta
   (2x) que abrem o pop-up do projeto (02/10/2026).
+- **Quem está por trás (02/10/2026):** Kaue e Milena como cofundadores, com o mesmo destaque
+  (`fundadores` em `site/config.mjs`). Kaue: tecnologia e desenvolvimento. Milena: relacionamento e operações
+  (carreira em RH, sem citar empregador, cargo ou resultados). Em aberto: tirar o depoimento da Milena, o
+  Compasso como projeto dos fundadores, sobrenome/LinkedIn dela e passar o resto do site para "nós".
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,
   com Supabase. Abre em Tarefas. Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).
