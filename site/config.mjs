@@ -37,20 +37,33 @@ export default {
       texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
     },
     {
+      id: "blue-lens", nome: "Davi", papel: "Ótica Blulens", trabalho: "blue-lens", foto: "",
+      // Depoimento enviado em 01/10/2026, com autorização para publicar o site e o feedback no portfólio.
+      // Na home vai o 2º parágrafo, sem mudar uma palavra (o texto inteiro não cabe no cartão). Íntegra:
+      //   "Graças a Deus, estamos muito satisfeitos com o trabalho de vocês e principalmente com o resultado do site da
+      //   Ótica Blulens. / Desde o início, percebemos muito cuidado em entender a nossa empresa, nossa identidade e aquilo
+      //   que queríamos transmitir aos nossos clientes. O site ficou moderno, profissional, organizado e alinhado com o
+      //   posicionamento que estamos buscando para a Blulens. / Também gostamos bastante da experiência durante o
+      //   desenvolvimento, principalmente pela atenção aos detalhes, disponibilidade para ouvir nossas sugestões e pela
+      //   preocupação em entregar algo realmente personalizado para o nosso negócio. / Sentimos que o site hoje transmite
+      //   muito mais confiança e profissionalismo para quem conhece a Ótica Blulens pela internet, além de ser uma
+      //   ferramenta importante para nossos clientes encontrarem nossa empresa e conhecerem nossos produtos e serviços. /
+      //   Parabéns pelo trabalho e pelo profissionalismo! Com certeza ficamos muito felizes com o resultado e recomendamos
+      //   o trabalho de vocês para outros negócios que estejam buscando um site profissional e feito de forma
+      //   personalizada. / Podem incluir nosso site e esse feedback no portfólio de vocês. Será um prazer contribuir para
+      //   mostrar esse trabalho. / Obrigado pela parceria, Kaue!"
+      texto: "Desde o início, percebemos muito cuidado em entender a nossa empresa, nossa identidade e aquilo que queríamos transmitir aos nossos clientes. O site ficou moderno, profissional, organizado e alinhado com o posicionamento que estamos buscando para a Blulens.",
+      publicar: true,
+    },
+    {
       id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", foto: "", publicar: true,
       // Aprovado pela Milena em 01/10/2026.
       texto: "Eu queria um jeito simples de organizar as finanças da casa, e o Kaue transformou essa ideia no Compasso. Hoje a gente vê o mês inteiro num lugar só e planeja os seguintes com tranquilidade. Ele ouviu cada detalhe que eu pedi até ficar do jeito que a gente precisava.",
     },
     {
-      id: "luciene", nome: "Luciene Eunice", papel: "Lu Elegante Modas", trabalho: "lu-elegante-modas", foto: "", publicar: true,
+      id: "luciene", nome: "Luciene Eunice", papel: "Lú Elegante", trabalho: "lu-elegante-modas", foto: "", publicar: true,
       // Aprovado pela Luciene em 01/10/2026.
       texto: "O Kaue teve muita paciência comigo em cada etapa do site da loja. Explicou tudo com calma, ouviu o que eu queria, e o site ficou melhor do que eu imaginava.",
-    },
-    {
-      id: "blue-lens", nome: "Davi", papel: "Ótica BlueLens", trabalho: "blue-lens", foto: "",
-      // Mensagem do Davi no fim do atendimento. AINDA NÃO AUTORIZOU publicar.
-      texto: "Muito obrigado, gostamos muito do seu trabalho. Com certeza vou sempre indicar.",
-      publicar: false,
     },
   ],
 
@@ -174,27 +187,29 @@ export default {
     },
     {
       id: "blue-lens",
-      titulo: "Ótica BlueLens",
+      titulo: "Ótica Blulens",
       tipo: "Site · ótica",
       selo: "cliente",
-      texto: "Site da ótica, desenvolvido pela Renderiza.",
-      imagem: "",
-      // Kaue lembrava de oticasbluelens01.com.br, mas esse domínio não existe (30/09/2026).
-      link: "",
+      texto: "Site da ótica da família no Capão Redondo, em São Paulo: modelos, atendimento, avaliações do Google e WhatsApp.",
+      // Print da página inicial (02/10/2026). A ótica autorizou mostrar o site no portfólio em 01/10/2026.
+      imagem: "/imagens/blulens.webp",
+      alt: "Página inicial do site da Ótica Blulens",
+      link: "https://www.oticablulens01.com.br",
       publicar: true,
-      falta: "Endereço do site no ar e um print; o que o site tem para descrever melhor.",
+      falta: "",
     },
     {
       id: "lu-elegante-modas",
-      titulo: "Lu Elegante Modas",
-      tipo: "Site · loja de roupas",
+      titulo: "Lú Elegante",
+      tipo: "Site · moda e beleza",
       selo: "cliente",
-      texto: "Site da loja, desenvolvido pela Renderiza.",
-      imagem: "",
-      link: "",
-      // Site ainda em finalização (01/10/2026): publicar quando estiver no ar, com link e print.
-      publicar: false,
-      falta: "Site no ar, link e print.",
+      texto: "Site da loja de roupas e do salão na Vila São Pedro, em São Bernardo do Campo: vitrine de peças, serviços do salão e WhatsApp.",
+      // Print da página inicial (02/10/2026), no ar em luelegantemodas.com.br.
+      imagem: "/imagens/lu-elegante.webp",
+      alt: "Página inicial do site da Lú Elegante",
+      link: "https://www.luelegantemodas.com.br",
+      publicar: true,
+      falta: "",
     },
     {
       id: "demos-oticas",

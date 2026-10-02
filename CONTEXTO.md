@@ -150,13 +150,14 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   `site/config.mjs`, e demo de ótica só com aprovação da ótica (fotos de clientes; em 30/09/2026 nenhuma aprovou, então
   nenhuma demo aparece).
   Depoimentos: `site/config.mjs` → `depoimentos`, só aparecem com texto e `publicar: true`. Regra: só
-  palavras reais de quem falou (ajuste leve de pontuação, nunca texto inventado). Publicado: Raphael (Move).
-  Davi (BlueLens) guardado até autorizar. Milena (Compasso) e Luciene Eunice (Lu Elegante Modas): espaços
-  prontos; entram com as palavras delas, sem citar parentesco (decisão do Kaue, 01/10/2026).
+  palavras reais de quem falou (ajuste leve de pontuação, nunca texto inventado). Publicados: Raphael (Move),
+  Davi (Ótica Blulens: autorizou site e depoimento em 01/10/2026; na home vai um parágrafo, íntegra no
+  config), Milena (Compasso) e Luciene Eunice (Lú Elegante), sem citar parentesco (decisão do Kaue, 01/10/2026).
   Trabalhos na home: **Move** (movexfit.com.br, app do cliente Rafael, em destaque com os recursos
   feitos pela Renderiza; cada recurso tem "Ver tela" com print real do app, gerado com dados de
   exemplo por `ferramentas/prints-move/`) **Compasso** (finanças da família, ideia da Milena; prints com família
-  fictícia por `ferramentas/prints-compasso/`) e **Ótica BlueLens** (link do site ainda não confirmado). Texto do "Quem faz":
+  fictícia por `ferramentas/prints-compasso/`), **Ótica Blulens** (oticablulens01.com.br; escreve-se
+  "Blulens", sem "e") e **Lú Elegante** (luelegantemodas.com.br). Texto do "Quem faz":
   5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,

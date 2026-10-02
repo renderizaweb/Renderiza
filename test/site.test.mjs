@@ -18,7 +18,6 @@ test("home não lista as demos nem trabalhos marcados para não publicar", () =>
   // nome de projeto oculto só pode aparecer como a empresa de quem deu um depoimento publicado
   const empresas = new Set((config.depoimentos || []).filter(d => d.publicar).map(d => d.papel));
   for (const t of config.trabalhos.filter(t => !t.publicar && !empresas.has(t.titulo))) assert.ok(!html.includes(t.titulo), t.titulo);
-  assert.doesNotMatch(html, /<h3>Lu Elegante Modas<\/h3>/, "cartão do projeto segue oculto");
   for (const t of config.trabalhos.filter(t => t.publicar)) assert.ok(html.includes(t.titulo), t.titulo);
 });
 
@@ -172,13 +171,14 @@ test("depoimentos: seção só aparece com depoimento aprovado", () => {
   const real = montarPagina(config);
   assert.match(real, /id="depoimentos"/);
   assert.ok(real.includes("Criador do Move"));
-  assert.doesNotMatch(real, /gostamos muito do seu trabalho/i, "BlueLens ainda não autorizou");
+  assert.ok(real.includes("Ótica Blulens") && !/BlueLens/.test(real), "nome da ótica como ela escreve");
+  assert.doesNotMatch(real, /Graças a Deus/, "na home vai só o trecho do depoimento");
   const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Ainda não", publicar: false }] };
   const html = montarPagina(aprovado);
   assert.match(html, /id="depoimentos"/);
   assert.ok(html.includes("Texto &lt;aprovado&gt;."));
   assert.doesNotMatch(html, /Ainda não/);
-  assert.ok(pendencias(config).some(p => /depoimento de Davi: aguardando aprovação/.test(p)));
+  assert.ok(pendencias({ ...config, depoimentos: [{ nome: "Davi", texto: "Oi", publicar: false }] }).some(p => /depoimento de Davi: aguardando aprovação/.test(p)));
 });
 
 test("depoimentos em carrossel: lista rolável com rótulo, setas e pontos (setas/pontos ligados pelo JS)", () => {
