@@ -71,6 +71,13 @@ h1,h2,h3,p{margin:0}
 .nav-button[data-active=true]{background:#295747;color:#f2ffe9}
 .nav-active-mark{width:5px;height:5px;background:#d0edab;border-radius:100%;margin-left:auto;display:none}
 .nav-button[data-active=true] .nav-active-mark{display:block}
+.nav-contador{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#f2c14e;color:#3d2a00;font-size:.75rem;font-weight:700;line-height:20px;text-align:center}
+.nav-contador[hidden]{display:none}
+.nav-contador.atrasada{background:#f28b82;color:#4a0f0a}
+.nav-contador:not([hidden])+.nav-active-mark{margin-left:8px}
+.mobile-toggle{position:relative}
+.mobile-toggle.tem-tarefas::after{content:"";position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:#e8a317;box-shadow:0 0 0 2px #fff}
+.mobile-toggle.tem-tarefas.atrasada::after{background:#d93025}
 .sidebar-footer{margin-top:auto;display:flex;flex-direction:column;padding:8px}
 .sidebar-help{display:flex;align-items:center;gap:10px;padding:10px 9px;font-size:.8125rem;color:#b3cebd;text-align:left}
 .sidebar-help:hover{color:#fff}
@@ -380,6 +387,8 @@ td.money .inline-text{text-align:right}
 .chip-parar{background:#f7e9e7;color:#9a432d}
 .chip-demo{display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;background:#dceee1;color:#1f5a45;text-decoration:none}
 .chip-demo:hover{background:#cfe4d6}
+.chip-tarefas{display:inline-flex;align-items:center;gap:4px;font-size:.75rem;font-weight:700;padding:2px 8px 2px 7px;border-radius:999px;white-space:nowrap;background:#fde7b0;color:#7a4f00}
+.chip-tarefas.atrasada{background:#fbe9e7;color:#b3261e}
 .select-trigger.interesse-interessado,.cell-select.interesse-interessado{color:#1f5f7a;font-weight:600}
 .select-trigger.interesse-perto_de_fechar,.cell-select.interesse-perto_de_fechar{color:#2d6a1f;font-weight:600}
 .cell-select.interesse-nao_avaliado{color:#849087}
@@ -634,7 +643,7 @@ td.money .inline-text{text-align:right}
         <div class="family-label">PRODUÇÃO DIGITAL</div>
       </div>
       <nav class="sidebar-menu" aria-label="Telas">
-        <button class="nav-button" type="button" data-aba="tarefas"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg><span>Tarefas</span><span class="nav-active-mark"></span></button>
+        <button class="nav-button" type="button" data-aba="tarefas"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg><span>Tarefas</span><span class="nav-contador" id="contador-tarefas" hidden></span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="clientes"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Clientes</span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="pipeline"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg><span>Pipeline</span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="ritmo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg><span>Ritmo</span><span class="nav-active-mark"></span></button>

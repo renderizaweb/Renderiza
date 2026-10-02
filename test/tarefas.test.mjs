@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   grupoDaTarefa, agruparTarefas, passaNoResponsavel, feitasRecentes, proximaTarefa,
-  situacaoDoCliente, sugestoesDeTarefa, SEM_RESPONSAVEL,
+  situacaoDoCliente, sugestoesDeTarefa, SEM_RESPONSAVEL, abertasPorCliente, paraHoje,
 } from "../painel/src/tarefas.js";
 
 const HOJE = "2026-10-01";
@@ -76,4 +76,33 @@ test("sugestões: próxima ação anotada, sem tarefa aberta, nem finalizado nem
   ];
   const tarefas = [tarefa({ lead_id: "D" }), tarefa({ lead_id: "G", feita_em: "2026-09-30T10:00:00" })];
   assert.deepEqual(sugestoesDeTarefa(leads, tarefas).map(l => l.id), ["B", "A", "G"]);
+});
+
+test("selo do cartão: tarefas em aberto do cliente, com atrasadas e a próxima", () => {
+  const ts = [
+    tarefa({ lead_id: "A", dia: "2026-09-29" }),                                 // atrasada
+    tarefa({ lead_id: "A", dia: "2026-10-03", titulo: "Mandar o vídeo" }),
+    tarefa({ lead_id: "A" }),                                                    // sem data: conta no cartão
+    tarefa({ lead_id: "A", dia: "2026-10-01", feita_em: "2026-10-01T12:00:00Z" }), // feita: não conta
+    tarefa({ lead_id: "B", dia: "2026-10-05" }),
+    tarefa({ dia: "2026-10-01" }),                                               // sem cliente
+  ];
+  const m = abertasPorCliente(ts, HOJE);
+  assert.deepEqual([...m.keys()].sort(), ["A", "B"]);
+  assert.equal(m.get("A").total, 3);
+  assert.equal(m.get("A").atrasadas, 1);
+  assert.equal(m.get("A").proxima.dia, "2026-09-29");
+  assert.equal(m.get("B").atrasadas, 0);
+});
+
+test("contador do menu: hoje e atrasadas, em aberto, de qualquer cliente", () => {
+  const ts = [
+    tarefa({ dia: "2026-10-01" }), tarefa({ lead_id: "A", dia: "2026-10-01", hora: "09:00" }),
+    tarefa({ dia: "2026-09-30" }),                                               // atrasada: conta
+    tarefa({ dia: "2026-10-02" }),                                               // amanhã: não conta
+    tarefa({}),                                                                  // sem data: não conta
+    tarefa({ dia: "2026-10-01", feita_em: "2026-10-01T10:00:00Z" }),             // feita: não conta
+  ];
+  assert.deepEqual(paraHoje(ts, HOJE), { total: 3, atrasadas: 1 });
+  assert.deepEqual(paraHoje([], HOJE), { total: 0, atrasadas: 0 });
 });

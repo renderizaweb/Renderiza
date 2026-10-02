@@ -18,6 +18,7 @@ import { abrirRegistro, criarLinhaDoTempo } from "./interacoes-ui.js";
 import { criarTelaRitmo } from "./tela-ritmo.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
 import { criarTelaClientes } from "./tela-clientes.js";
+import { abertasPorCliente, paraHoje } from "./tarefas.js";
 
 const $ = s => document.querySelector(s);
 
@@ -403,6 +404,7 @@ function renderKanban() {
   const leads = leadsVisiveis({ comEtapa: false });
   const editavel = dados.podeEditar();
   inputKanban.disabled = !editavel;
+  const tarefasAbertas = abertasPorCliente(dados.listar("tarefas"), hojeLocal());
   $("#kanban").replaceChildren(...ETAPAS.map((etapa, i) => {
     const itens = leads.filter(l => l.etapa === etapa.id);
     const cartoes = h("div", { class: "kanban-cards" }, ...itens.map(l => {
@@ -412,6 +414,7 @@ function renderKanban() {
         h("strong", { text: l.empresa || "Sem nome" }),
         detalhe ? h("small", { text: detalhe }) : null,
         h("span", { class: "kanban-chips" },
+          seloDeTarefas(tarefasAbertas.get(l.id)),
           urlHref(l.link_demo) ? h("a", { class: "chip-demo", href: urlHref(l.link_demo), target: "_blank", rel: "noopener noreferrer", title: "Abrir a demo em outra aba", text: "demo ↗",
             draggable: "false", onclick: e => e.stopPropagation(), onkeydown: e => e.stopPropagation() }) : null,
           l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: l.resultado === "ganho" ? "Ganho" : "Perda" }) : null,
@@ -435,6 +438,33 @@ function renderKanban() {
     return coluna;
   }));
 }
+
+/** Selo do cartão: ícone de tarefas e quantas estão em aberto (vermelho se alguma atrasou). */
+function seloDeTarefas(c) {
+  if (!c) return null;
+  const p = c.proxima;
+  const titulo = `${c.total} ${c.total === 1 ? "tarefa em aberto" : "tarefas em aberto"}`
+    + (c.atrasadas ? ` (${c.atrasadas} ${c.atrasadas === 1 ? "atrasada" : "atrasadas"})` : "")
+    + (p ? ` · próxima: ${p.titulo || "sem título"}${p.dia ? " (" + diaMes(p.dia) + ")" : ""}` : "");
+  return h("span", { class: "chip-tarefas" + (c.atrasadas ? " atrasada" : ""), title: titulo, "aria-label": titulo }, icone("tarefas", 13), String(c.total));
+}
+
+/** Contador ao lado de "Tarefas" no menu: as de hoje mais as atrasadas, em aberto. */
+function atualizarContadorDoMenu() {
+  const el = $("#contador-tarefas");
+  if (!el) return;
+  const { total, atrasadas } = paraHoje(dados.listar("tarefas"), hojeLocal());
+  el.hidden = !total;
+  el.textContent = String(total);
+  el.classList.toggle("atrasada", atrasadas > 0);
+  el.title = total ? `${total} para hoje` + (atrasadas ? ` (${atrasadas} ${atrasadas === 1 ? "atrasada" : "atrasadas"})` : "") : "";
+  // No celular o menu fica fechado: um ponto no botão do menu avisa.
+  const menu = $("#abrir-menu");
+  menu.classList.toggle("tem-tarefas", total > 0);
+  menu.classList.toggle("atrasada", atrasadas > 0);
+  menu.setAttribute("aria-label", total ? `Abrir menu (${el.title})` : "Abrir menu");
+}
+setInterval(atualizarContadorDoMenu, 60000); // vira o dia com o painel aberto
 
 /* ---------- painel lateral ---------- */
 const painel = { tabela: null, id: null, vinculos: [] };
@@ -906,6 +936,7 @@ function render() {
   $("#sair").hidden = !(f && f.precisaLogin);
   $("#exportar").lastChild.textContent = f && f.exportarSql ? "Levar dados para o Supabase" : "Exportar meus dados";
   document.querySelectorAll(".nav-button").forEach(b => { const ativo = b.dataset.aba === ui.aba; b.dataset.active = String(ativo); b.setAttribute("aria-current", ativo ? "page" : "false"); });
+  atualizarContadorDoMenu();
   $("#migalha").textContent = TITULOS[ui.aba][0];
   $("#titulo").textContent = TITULOS[ui.aba][0];
   $("#subtitulo").textContent = TITULOS[ui.aba][1];

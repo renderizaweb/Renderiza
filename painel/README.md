@@ -24,6 +24,10 @@ O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
 - **Próximas ações anotadas nos clientes**: o campo antigo "Próxima ação" de quem ainda não tem tarefa
   aberta aparece como sugestão, com um botão para criar a tarefa. Nada é criado sozinho.
 - Na janela da tarefa dá para cadastrar um cliente novo sem sair dela.
+- **Contador no menu**: ao lado de "Tarefas", quantas estão em aberto para hoje, somando as atrasadas
+  (vermelho se houver atrasada; some quando zera). No celular, um ponto no botão do menu avisa.
+- **Selo no Kanban**: cartão de cliente com tarefas em aberto mostra o ícone de tarefas e a quantidade
+  (âmbar; vermelho se alguma atrasou). Passar o mouse mostra a próxima.
 
 ## Clientes: todos, no funil ou fora dele
 

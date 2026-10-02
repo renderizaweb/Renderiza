@@ -43,6 +43,31 @@ export function agruparTarefas(tarefas, hoje) {
   return GRUPOS.map(([id, nome]) => ({ id, nome, tarefas: grupos.get(id).sort(compararTarefas) })).filter(g => g.tarefas.length);
 }
 
+/** Tarefas em aberto por cliente, para o selo do cartão: total, quantas atrasadas e a próxima. */
+export function abertasPorCliente(tarefas, hoje) {
+  const mapa = new Map();
+  for (const t of tarefas) {
+    if (t.feita_em || !t.lead_id) continue;
+    const c = mapa.get(t.lead_id) || { total: 0, atrasadas: 0, proxima: null };
+    c.total++;
+    if (grupoDaTarefa(t, hoje) === "atrasadas") c.atrasadas++;
+    if (!c.proxima || compararTarefas(t, c.proxima) < 0) c.proxima = t;
+    mapa.set(t.lead_id, c);
+  }
+  return mapa;
+}
+
+/** Contador do menu: tarefas em aberto para hoje, contando as atrasadas (continuam sendo para fazer hoje). */
+export function paraHoje(tarefas, hoje) {
+  let total = 0, atrasadas = 0;
+  for (const t of tarefas) {
+    if (t.feita_em || !t.dia || t.dia > hoje) continue;
+    total++;
+    if (t.dia < hoje) atrasadas++;
+  }
+  return { total, atrasadas };
+}
+
 /** Dia (no fuso de quem usa) em que a tarefa foi marcada como feita. */
 export const diaDaConclusao = t => (t.feita_em ? hojeLocal(new Date(t.feita_em)) : null);
 
