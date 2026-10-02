@@ -6,7 +6,6 @@ import { readFileSync } from "node:fs";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
 const ICONES = {
-  marca: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
   // Logo do WhatsApp (Simple Icons, CC0): é preenchido, os outros são de traço (Lucide).
   whatsapp: '<path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>',
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
@@ -37,6 +36,10 @@ const ICONES = {
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
   selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
+// Símbolo da Renderiza (vetorizado do logo original em site/marca/logo-original.webp). Cor = currentColor.
+const SIMBOLO = readFileSync(new URL("./estatico/simbolo.svg", import.meta.url), "utf8");
+const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" aria-hidden="true" focusable="false" `);
+
 const icone = (nome, tam = 18) =>
   `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONES[nome]}</svg>`;
 
@@ -186,7 +189,7 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
 <meta name="description" content="${esc(descricao)}">
 <link rel="canonical" href="${esc(base)}/">
 <meta name="color-scheme" content="only light">
-<meta name="theme-color" content="#f6f5f0">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Renderiza">
@@ -214,7 +217,7 @@ ${css.trim()}
 
 <header class="topo">
   <div class="topo-dentro">
-    <a class="marca" href="#inicio" aria-label="Renderiza, início">${icone("marca", 22)}<span>renderiza<span class="marca-ponto">.</span></span></a>
+    <a class="marca" href="#inicio" aria-label="Renderiza, início">${simbolo(30)}<span>renderiza</span></a>
     <nav class="topo-nav" aria-label="Seções">
       <a href="#servicos">O que faço</a>
       <a href="#trabalhos">Trabalhos</a>
@@ -393,7 +396,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
       <h2 id="contato-titulo">Vamos conversar sobre o seu projeto?</h2>
       <p>Conte pelo WhatsApp o que você precisa.</p>
       <div class="acoes acoes-convite">
-        ${temWa ? `<a class="botao botao-lima botao-grande" href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Conversar no WhatsApp</a>` : ""}
+        ${temWa ? `<a class="botao botao-claro botao-grande" href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Conversar no WhatsApp</a>` : ""}
         ${contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
         ${!temWa && !contato.linkedin ? `<p class="convite-pendente">Os canais de contato estão sendo atualizados.</p>` : ""}
       </div>
@@ -404,7 +407,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
 <footer class="rodape">
   <div class="envoltorio rodape-grade">
     <div>
-      <a class="marca marca-rodape" href="#inicio" aria-label="Renderiza, voltar ao início">${icone("marca", 20)}<span>renderiza<span class="marca-ponto">.</span></span></a>
+      <a class="marca marca-rodape" href="#inicio" aria-label="Renderiza, voltar ao início">${simbolo(30)}<span>renderiza</span></a>
       <p>Sites e aplicativos para negócios.<br>Um projeto independente de ${esc(nomeCompleto)}.</p>
     </div>
     ${redes.length ? `<nav class="rodape-redes" aria-label="Contato">${redes.join("")}</nav>` : ""}

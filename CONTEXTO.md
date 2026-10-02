@@ -184,6 +184,10 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
   "Blulens", sem "e") e **Lú Elegante** (luelegantemodas.com.br). Texto do "Quem faz":
   5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
+- **Identidade visual (02/10/2026):** logo real em `site/marca/logo-original.webp`, vetorizado em
+  `site/estatico/simbolo.svg` (usado no topo, rodapé, favicon, ícone do iPhone e imagem de compartilhamento).
+  Paleta do logo e nada além: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,
+  sem brilhos nem sombras decorativas. Tokens em `site/estilo.css` (`:root`). O painel ainda usa o visual antigo.
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,
   com Supabase. Abre em Tarefas. Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).

@@ -24,7 +24,10 @@ async function abrirNavegador() {
 }
 
 const fonte = nome => "data:font/woff2;base64," + readFileSync(join(ESTATICO, "fontes", nome)).toString("base64");
-const CAMADAS = '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>';
+// Símbolo da Renderiza (site/estatico/simbolo.svg) e as cores do logo.
+const SIMBOLO = readFileSync(join(ESTATICO, "simbolo.svg"), "utf8");
+const simbolo = (tam, cor) => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" style="color:${cor}" `);
+const GRAFITE = "#1e2528", GELO = "#f1eee9";
 
 async function gerarImagens() {
   const { default: config } = await import("../site/config.mjs");
@@ -33,22 +36,20 @@ async function gerarImagens() {
     @font-face{font-family:IS;src:url(${fonte("instrument-serif.woff2")})}
     @font-face{font-family:IS;font-style:italic;src:url(${fonte("instrument-serif-italico.woff2")})}
     *{margin:0;box-sizing:border-box}
-    body{width:1200px;height:630px;overflow:hidden;background:#123d32;color:#fff;font-family:Inter}
-    .quadro{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between;
-      background:radial-gradient(circle at 88% 12%,#1f5a47 0,transparent 45%),radial-gradient(#ffffff12 1.2px,transparent 1.2px) 0 0/22px 22px}
-    .marca{display:flex;align-items:center;gap:14px;font-weight:700;font-size:40px;letter-spacing:-1.6px}
-    .marca b{font-weight:700}.marca span{color:#c9f19b}
+    body{width:1200px;height:630px;overflow:hidden;background:${GRAFITE};color:${GELO};font-family:Inter}
+    .quadro{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+    .marca{display:flex;align-items:center;gap:16px;font-weight:650;font-size:40px;letter-spacing:-1.2px}
     h1{font-family:IS;font-weight:400;font-size:96px;line-height:.98;letter-spacing:-.5px;max-width:980px}
-    h1 em{color:#c9f19b}
-    .pe{display:flex;justify-content:space-between;align-items:center;font-size:26px;color:#cfe1d7}
-    .pe strong{color:#fff;font-weight:600}`;
+    h1 em{color:#fff}
+    .pe{display:flex;justify-content:space-between;align-items:center;font-size:26px;color:#b9bfc1}
+    .pe strong{color:${GELO};font-weight:600}`;
   const og = `<style>${css}</style><div class="quadro">
-    <div class="marca"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#c9f19b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${CAMADAS}</svg><b>renderiza<span>.</span></b></div>
+    <div class="marca">${simbolo(56, GELO)}<b>renderiza</b></div>
     <h1>Do site da loja ao <em>aplicativo com IA</em>.</h1>
     <div class="pe"><span><strong>${config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, fundador da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
   </div>`;
-  const icone = tam => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:#123d32;display:grid;place-items:center}</style>
-    <svg viewBox="0 0 24 24" width="${Math.round(tam * 0.66)}" height="${Math.round(tam * 0.66)}" fill="none" stroke="#c9f19b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${CAMADAS}</svg>`;
+  const icone = (tam, escala = 0.72) => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:${GRAFITE};display:grid;place-items:center}</style>
+    ${simbolo(Math.round(tam * escala), GELO)}`;
 
   const navegador = await abrirNavegador();
   const foto = async (html, largura, altura, arquivo, tipo = "png") => {
@@ -61,7 +62,7 @@ async function gerarImagens() {
   };
   await foto(og, 1200, 630, "compartilhar.jpg", "jpeg");
   await foto(icone(180), 180, 180, "apple-touch-icon.png");
-  await foto(icone(32).replace("0.66", "0.72"), 32, 32, "favicon-32.png");
+  await foto(icone(32, 0.84), 32, 32, "favicon-32.png");
   await navegador.close();
 }
 
