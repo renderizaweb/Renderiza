@@ -32,7 +32,8 @@ test("WhatsApp da Renderiza aparece legível e com link", () => {
   assert.equal(telefoneLegivel("5511988697165"), "(11) 98869-7165");
   assert.equal(telefoneLegivel("1133334444"), "(11) 3333-4444");
   const html = montarPagina(config);
-  assert.match(html, /WhatsApp oficial: <strong>\(11\) 98869-7165<\/strong>/);
+  assert.match(html, /WhatsApp \(11\) 98869-7165<\/a>/, "número legível no rodapé, com link");
+  assert.doesNotMatch(html, /WhatsApp oficial|class="assinatura"/, "abertura sem selo nem assinatura");
   assert.match(html, /href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"/);
 });
 

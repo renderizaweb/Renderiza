@@ -12,7 +12,6 @@ export default {
     nomeCompleto: "Kaue de Almeida Cunha",
     // Foto real em site/estatico/imagens/ (a grande no "Quem faz", o recorte do rosto na abertura).
     foto: "/imagens/kaue.webp",
-    avatar: "/imagens/kaue-avatar.webp",
     anosDeExperiencia: 5,
     trabalhoAtual: "Warren Investimentos",
   },

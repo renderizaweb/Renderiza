@@ -34,7 +34,6 @@ const ICONES = {
   aspas: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
   voltar: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
   brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
-  selo: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
 };
 // Símbolo da Renderiza (vetorizado do logo original em site/marca/logo-original.webp). Cor = currentColor.
 const SIMBOLO = readFileSync(new URL("./estatico/simbolo.svg", import.meta.url), "utf8");
@@ -167,9 +166,6 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
   const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
 
-  const avatar = pessoa.avatar || pessoa.foto
-    ? `<img src="${esc(pessoa.avatar || pessoa.foto)}" alt="" width="44" height="44" decoding="async" fetchpriority="high">`
-    : `<span aria-hidden="true">${esc(pessoa.nome.charAt(0))}</span>`;
   const foto = pessoa.foto
     ? `<div class="sobre-foto"><img src="${esc(pessoa.foto)}" alt="Foto de ${esc(nomeCompleto)}" width="720" height="960" loading="lazy" decoding="async"></div>`
     : "";
@@ -232,14 +228,12 @@ ${css.trim()}
   <section class="abertura" id="inicio" aria-labelledby="abertura-titulo">
     <div class="envoltorio abertura-grade">
       <div class="abertura-texto">
-        <p class="assinatura"><span class="avatar">${avatar}</span><span><strong>${esc(nomeCompleto)}</strong><small>Fundador da Renderiza</small></span></p>
         <h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA</em>.</h1>
         <p class="abertura-lide">Sites e aplicativos sob medida, feitos de ponta a ponta por um desenvolvedor com ${esc(pessoa.anosDeExperiencia)} anos de experiência em produto. Você fala direto com quem desenvolve.</p>
         <div class="acoes">
           <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Conversar no WhatsApp</a>
           <a class="botao botao-secundario botao-grande" href="#trabalhos">Ver trabalhos${icone("baixo", 18)}</a>
         </div>
-        ${telefone ? `<p class="canal-oficial">${icone("selo", 16)}<span>WhatsApp oficial: <strong>${esc(telefone)}</strong></span></p>` : ""}
       </div>
 
 ${vitrine ? `<figure class="vitrine">
