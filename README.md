@@ -73,7 +73,7 @@ direto no navegador.
 | [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | pronta · 29/09/2026 |
 | [Lú Elegante (moda e beleza, fora das óticas)](demos/lu-elegante-modas) | Vila São Pedro, São Bernardo do Campo | site | pronta · 01/10/2026 |
 | [Clínica MS Odontologia (fora das óticas)](demos/ms-odontologia) | São Carlos, Itapevi | site | pronta · 01/10/2026 (versão 2, fotos novas) |
-| [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | na fila · lote 2 · 1ª |
+| [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | pronta · 02/10/2026 (lote 2 · 1ª) |
 | [Ótica Boutique dos Óculos](demos/boutique-dos-oculos) | Aclimação, São Paulo | site | na fila · lote 2 · 2ª |
 | [Ótica Haramaki](demos/otica-haramaki) | Vila Perus, São Paulo | site | na fila · lote 2 · 3ª |
 | [Nova Ótica Bonsucesso](demos/nova-otica-bonsucesso) | Cidade Nova Bonsucesso, Guarulhos | site | na fila · lote 2 · 4ª |

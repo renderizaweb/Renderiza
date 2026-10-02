@@ -126,8 +126,15 @@ Ricoo, Queirooz, Imagem Ótica, MedÓtica e De Óculos.
   vezes antiga (Sales 2024, Amitié 2026, Ateliê 2023, Interativa 2020–23, Líder 2020–21,
   Laodiceia 2021, Mogi 2019, D&R 2018). Conferir a data antes de usar uma foto.
 - **Avaliações do Google: o Claude pega sozinho** na hora de fazer a demo.
-- O Instagram bloqueia leitura automática a partir da nuvem (429 / pede login). Por isso as fotos vêm
-  do zip do Kaue.
+- **Fotos sem o zip (desde 02/10/2026, testado na Ótica Nina):** o Instagram bloqueia o perfil e a API
+  sem login, mas dá para pegar sozinho:
+  1. `ferramentas/igembed.py <@>`: os 6 posts mais recentes (embed público).
+  2. `ferramentas/ig-post.py <shortcode> <pasta>`: cada post em tamanho cheio, com todas as fotos do
+     carrossel e o vídeo (mp4). Vídeo vira foto: tirar quadros com o ffmpeg (`imageio-ffmpeg`).
+  3. `ferramentas/fb-fotos.mjs <pagina> <pasta>`: a página da ótica no Facebook costuma replicar os posts
+     do Instagram; a grade abre sem login e as fotos saem em 1024 px (a Nina deu 147).
+  4. Fotos da ficha do Google (fachada) quando faltar.
+  O zip do Kaue continua valendo quando a ótica não tem Facebook ou tem poucos posts.
 
 ## Como pegar dados do Google Maps daqui
 
