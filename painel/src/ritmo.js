@@ -2,7 +2,8 @@
 //
 // Regras (as mesmas do banco, em supabase/schema.sql):
 // - Ótica nova = PRIMEIRO CONTATO com data exata dentro do período. Um por ótica. Criar lead,
-//   criar demo, mudar etapa ou atualizar a linha não conta.
+//   criar demo ou atualizar a linha não conta. Mudar a etapa de antes do contato para "Contato
+//   iniciado" (ou depois) registra o primeiro contato do dia, se a ótica ainda não tiver (contatoPelaEtapa).
 // - Retorno feito = interação "retorno" (nova abordagem sua a uma ótica já contatada) no período.
 //   Resposta da ótica não conta; reagendar o follow-up não conta.
 // - Retorno previsto no período = retornos feitos que cumpriram um follow-up marcado para o período
@@ -71,6 +72,13 @@ export function ultimaInteracao(lista) {
   const comData = lista.filter(i => i.ocorreu_em);
   return comData.length ? comData[comData.length - 1] : lista[lista.length - 1] || null;
 }
+
+const ETAPAS_ANTES_DO_CONTATO = new Set(["a_trabalhar", "demo_criada", "gravacao_realizada"]);
+const ETAPAS_COM_CONTATO = new Set(["demo_enviada", "follow_up", "finalizado"]);
+/** Mudar a etapa de antes do contato para "Contato iniciado" (ou depois) registra o primeiro contato,
+ *  se a ótica ainda não tiver um. `lista` = interações da ótica. */
+export const contatoPelaEtapa = (de, para, lista) =>
+  ETAPAS_ANTES_DO_CONTATO.has(de) && ETAPAS_COM_CONTATO.has(para) && !primeiroContato(lista);
 
 /** Data do retorno ainda por fazer (ou null): ótica já contatada, com follow-up, sem pedido para parar,
  *  não finalizada, e nenhum retorno já cumpriu essa data. */

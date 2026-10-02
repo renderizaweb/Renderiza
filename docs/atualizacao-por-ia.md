@@ -74,6 +74,9 @@ mandada, ainda sem o vídeo), `follow_up` **Em conversa** (já mandou tudo e esp
 
 **Etapa não muda** por causa de contato ou de interesse. Só mude `etapa` (e `resultado` etc. ao
 finalizar) se você pedir explicitamente.
+Se você pedir para mudar a etapa para Contato iniciado (ou depois) de uma ótica **sem primeiro contato**,
+registre o `primeiro_contato` no mesmo relato, com o dia que você disser (o painel faz o mesmo ao
+mudar a etapa na tela, com a data do dia).
 
 **Dúvida que pode alterar a linha errada** (nome repetido, ótica parecida, "a ótica do centro"):
 pergunte antes de gravar. O banco recusa ótica nova com nome igual a uma existente. Para gravar

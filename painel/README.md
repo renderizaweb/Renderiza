@@ -43,8 +43,9 @@ A meta é de **processo**: prospectar óticas novas e cuidar das conversas come�
 aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domingo), **mês** e **ciclo**:
 
 - **Novas óticas prospectadas**: cada ótica conta uma vez, no dia do **primeiro contato**
-  personalizado que você fez (WhatsApp, telefone ou outro canal). Cadastrar lead, criar demo ou mudar
-  etapa não conta.
+  personalizado que você fez (WhatsApp, telefone ou outro canal). Cadastrar lead ou criar demo não
+  conta. Mudar a etapa para **Contato iniciado** (ou depois) registra sozinho o primeiro contato do dia,
+  se a ótica ainda não tiver um; se foi em outro dia, corrija a data na linha do tempo da ótica.
 - **Relacionamento**: retornos **feitos** no período (nova abordagem sua a uma ótica já contatada) e
   retornos **previstos** para o período (os que cumpriram um follow-up marcado para ele, mais os
   pendentes). Resposta da ótica não conta como retorno seu, e reagendar não conta como feito. Sem

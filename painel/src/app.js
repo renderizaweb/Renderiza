@@ -10,10 +10,10 @@ import { botaoMenu, abrirJanela, confirmar, aviso, janelaAberta, fecharJanelaDoT
 import {
   ETAPAS, RESULTADOS, CANAIS, STATUS_CONTEUDO, INTERESSES,
   rotuloEtapa, ordemDaEtapa, novoLead, novoConteudo, nomeDoInteresse,
-  linhaDeHistorico, lerValor, formatarValor,
+  linhaDeHistorico, lerValor, formatarValor, nomeDaEtapa,
 } from "./modelo.js";
 import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar } from "./acoes.js";
-import { hojeLocal, indexar, retornoPendente, retornoSugerido, ultimaInteracao, semanaDe, cicloVigente } from "./ritmo.js";
+import { hojeLocal, indexar, retornoPendente, retornoSugerido, ultimaInteracao, semanaDe, cicloVigente, contatoPelaEtapa } from "./ritmo.js";
 import { abrirRegistro, criarLinhaDoTempo } from "./interacoes-ui.js";
 import { criarTelaRitmo } from "./tela-ritmo.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
@@ -114,16 +114,30 @@ function nomeLivre(tabela, prefixo, campo) {
 /** Troca a etapa. Finalizado pede o resultado antes; cancelar não muda nada. */
 async function mudarEtapa(lead, nova) {
   if (!nova || nova === lead.etapa) return false;
+  const de = lead.etapa;
   const historico = Array.isArray(lead.historico) ? lead.historico : [];
   if (nova === "finalizado") {
     const fim = await pedirFinalizacao(lead);
     if (!fim) return false;
     await salvar("leads", lead.id, { etapa: "finalizado", ...fim, historico: [...historico, linhaDeHistorico(lead.etapa, "finalizado", fim.resultado)] });
     aviso(lead.empresa + ": finalizado como " + (fim.resultado === "ganho" ? "ganho." : "perda."));
+    await registrarContatoPelaEtapa(lead, de, nova);
     return true;
   }
   await salvar("leads", lead.id, { etapa: nova, historico: [...historico, linhaDeHistorico(lead.etapa, nova)] });
+  await registrarContatoPelaEtapa(lead, de, nova);
   return true;
+}
+
+/** Saiu de antes do contato para "Contato iniciado" (ou depois) sem primeiro contato: registra o de hoje,
+ *  para contar no Ritmo. Se falhar, a etapa já está salva e o aviso de erro aparece. */
+async function registrarContatoPelaEtapa(lead, de, para) {
+  if (!contatoPelaEtapa(de, para, dados.listar("interacoes").filter(i => i.lead_id === lead.id))) return;
+  try {
+    await criar("interacoes", { lead_id: lead.id, tipo: "primeiro_contato", precisao: "exata", ocorreu_em: hojeLocal(), canal: "whatsapp",
+      resumo: `Registrado ao mudar a etapa para "${nomeDaEtapa(para)}".`, origem: "painel" });
+    aviso(lead.empresa + ": 1º contato registrado hoje (conta no Ritmo).");
+  } catch (e) { /* aviso já mostrado */ }
 }
 
 async function excluir(tabela, linha) {
@@ -156,6 +170,7 @@ async function colar(tabela, mudancas) {
     }
     if (!Object.keys(final).length) continue;
     try { await salvar(tabela, linha.id, final); feitas += Object.keys(patch).length; } catch (e) { break; }
+    if (tabela === "leads" && "etapa" in final) await registrarContatoPelaEtapa(linha, linha.etapa, final.etapa);
   }
   if (feitas) aviso(`${feitas} ${feitas === 1 ? "célula atualizada" : "células atualizadas"}.`);
 }

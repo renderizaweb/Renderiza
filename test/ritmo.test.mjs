@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   semanaDe, mesDe, somarDias, placar, metaProporcional, ritmoNecessario, retornoSugerido, filaDeRetornos,
   turma, semPrimeiroContato, pistaDoPainelAntigo, chaveDoNome, indexar, cicloParaMostrar, cicloVigente, semanasDoCiclo,
+  contatoPelaEtapa,
 } from "../painel/src/ritmo.js";
 
 let seq = 0;
@@ -197,4 +198,14 @@ test("validação no painel repete as regras do banco", async () => {
   assert.equal(validarInteracao(int("V", "resposta", "2026-09-23"), [], hoje), null, "resposta sem primeiro contato é aceita (a ótica pode ter chamado)");
   assert.equal(validarInteracao({ ...pc, resumo: "corrigido" }, [pc], hoje), null, "editar o próprio primeiro contato");
   assert.equal(validarInteracao(int("W", "primeiro_contato", null, { precisao: "desconhecida" }), [], hoje), null);
+});
+
+test("mudar para Contato iniciado registra o primeiro contato só quando falta", () => {
+  assert.equal(contatoPelaEtapa("a_trabalhar", "demo_enviada", []), true);
+  assert.equal(contatoPelaEtapa("gravacao_realizada", "follow_up", []), true);
+  assert.equal(contatoPelaEtapa("demo_criada", "finalizado", []), true);
+  assert.equal(contatoPelaEtapa("a_trabalhar", "demo_enviada", [int("X", "primeiro_contato", "2026-08-01", { precisao: "aproximada" })]), false);
+  assert.equal(contatoPelaEtapa("follow_up", "finalizado", []), false);       // já estava depois do contato
+  assert.equal(contatoPelaEtapa("demo_criada", "gravacao_realizada", []), false); // ainda antes do contato
+  assert.equal(contatoPelaEtapa("demo_enviada", "a_trabalhar", []), false);
 });
