@@ -1,0 +1,450 @@
+{
+ "pasta": "lez-otica",
+ "marca": "Lez Ótica",
+ "marca_logo": "Lez Ótica",
+ "marca_completa": "Lez Ótica",
+ "logo_sub": "Jardim Albertina · Guarulhos",
+ "titulo": "Lez Ótica | Jardim Albertina, Guarulhos",
+ "descricao": "Lez Ótica, na Estrada Pres. Juscelino K. de Oliveira, 5077B, no Jardim Albertina, em Guarulhos: armações de acetato e metal, clip-on 2 em 1 e 3 em 1 e óculos de sol com o seu grau. Nota 5,0 no Google.",
+ "comentario": "Demo Lez Ótica: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@lezotica); nota, avaliações, endereço, telefone e horário do Google, verificados em 03/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1c1714",
+  "acento": "#d4845a",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/lez-otica/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/lez-otica.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/lez-otica/logo.png"
+ },
+ "topline": "Guarulhos · enviamos para todo o Brasil",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#colecao",
+   "Coleção"
+  ],
+  [
+   "#clientes",
+   "Você de Lez"
+  ],
+  [
+   "#atendimento",
+   "Clip-on"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Jardim Albertina · Guarulhos",
+  "h1": "Um lindo par <em>de óculos.</em>",
+  "intro": "Armações de acetato e metal, clip-on 2 em 1 e 3 em 1 e óculos de sol feitos com o seu grau. Compre na loja ou pelo WhatsApp, com envio para todo o Brasil.",
+  "selo": "Óculos de sol com o seu grau",
+  "link": "Ver a coleção",
+  "foto": {
+   "id": 2,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "A dona da Lez sorrindo com óculos de grau gatinho rosa"
+ },
+ "endereco": [
+  "Estr. Pres. Juscelino K. de Oliveira, 5077B",
+  "Jardim Albertina · Guarulhos"
+ ],
+ "marquee": [
+  "Clip-on 2 em 1",
+  "Clip-on 3 em 1",
+  "Solar com o seu grau",
+  "Coleção Água de Coco",
+  "Lentes com filtro de luz azul",
+  "Lentes intermediárias",
+  "Envio para todo o Brasil",
+  "Guarulhos"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Lez",
+  "h2": "Paz, amor e <em>um lindo par de óculos.</em>",
+  "p": [
+   "Na Estrada Presidente Juscelino, no Jardim Albertina, a Lez é uma ótica de empreendedora: a dona escolhe as coleções, posa com cada modelo novo no Instagram e atende de perto, com cafezinho.",
+   "As lentes são feitas com o seu grau, inclusive nos óculos de sol, e depois da entrega a equipe ainda pergunta como foi a adaptação. Dá para comprar na loja ou pelo WhatsApp, com envio para todo o Brasil."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "39",
+    "avaliações no Google"
+   ],
+   [
+    "2 em 1",
+    "e 3 em 1 com clip-on"
+   ]
+  ],
+  "foto": {
+   "id": 22,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Cliente sentada na Lez, diante da parede verde-água com a frase em dourado",
+  "pol": {
+   "id": 18,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Armação azul na mão, diante da frase \"Pra hoje eu só quero paz, amor e um lindo par de óculos\"",
+  "pol_cap": "A parede da Lez"
+ },
+ "carrosseis": [
+  {
+   "id": "colecao",
+   "eyebrow": "Coleção",
+   "h2": "Um modelo novo <em>para cada humor.</em>",
+   "p": "Acetato, metálicos gateados, animal print e a coleção Água de Coco. Peça o seu orçamento pelo WhatsApp.",
+   "rotulo": "Coleção da Lez Ótica",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau gatinho preto, ajustado com a mão"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol gatinho marrom"
+    },
+    {
+     "foto": {
+      "id": 9,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau de acetato rosado"
+    },
+    {
+     "foto": {
+      "id": 19,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau metálico gateado"
+    },
+    {
+     "foto": {
+      "id": 16,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol oversized com lentes degradê"
+    },
+    {
+     "foto": {
+      "id": 10,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau animal print"
+    },
+    {
+     "foto": {
+      "id": 3,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Clip-on 2 em 1: a frente de sol na mão"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol Maxi Nude, coleção Água de Coco"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Clip-on 2 em 1 com lentes escuras"
+    },
+    {
+     "foto": {
+      "id": 4,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau transparente rosa diante da porta florida"
+    },
+    {
+     "foto": {
+      "id": 7,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau gateado e blazer pink"
+    },
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol no passeio de barco"
+    }
+   ]
+  },
+  {
+   "id": "clientes",
+   "eyebrow": "Você de Lez",
+   "h2": "Clientes que <em>arrasaram na escolha.</em>",
+   "p": "Cada cliente sai com o modelo e a lente certos para o rosto e para o grau, até nos óculos de sol.",
+   "rotulo": "Clientes da Lez Ótica",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 0,
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Cliente de óculos de sol e vestido laranja ao ar livre"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente com o solar Água de Coco feito com grau"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos de grau metálico na loja"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente com óculos de sol gateado"
+    },
+    {
+     "foto": {
+      "id": 11,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente provando armação diante da parede verde-água"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Jardim Albertina ou peça fotos pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 20,
+    "box": [
+     0,
+     0.1,
+     1,
+     0.9
+    ]
+   },
+   "alt": "Armação de acetato tartaruga azul na mão",
+   "texto": "Acetato e metal, com lentes feitas com o seu grau."
+  },
+  "solar": {
+   "foto": {
+    "id": 14,
+    "box": [
+     0,
+     0.12,
+     1,
+     0.92
+    ]
+   },
+   "alt": "Óculos hexagonal metálico translúcido na mão",
+   "texto": "Solares com proteção UV 400, também com grau."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Clip-on 2 em 1 e 3 em 1",
+  "h2": "Um óculos de grau <em>que vira de sol.</em>",
+  "passos": [
+   "Escolha a armação na loja ou pelo WhatsApp",
+   "Lentes feitas com o seu grau, até para os óculos de sol",
+   "Clip-on 2 em 1 ou 3 em 1: um clique e vira solar",
+   "Acompanhamento da adaptação depois da entrega"
+  ],
+  "botao": "Pedir orçamento",
+  "foto": {
+   "id": 47,
+   "box": [
+    0,
+    0.12,
+    1,
+    0.68
+   ]
+  },
+  "alt": "A dona da Lez segurando o clip de sol de um óculos 3 em 1",
+  "pol": {
+   "id": 15,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Sacola da coleção Água de Coco com óculos de sol",
+  "pol_cap": "Coleção Água de Coco",
+  "card": [
+   "Envio para todo o Brasil",
+   "Compre pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Óculos lindos <em>para todos os gostos.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Kaique Tenório",
+   "tag": "Acompanhou a adaptação"
+  },
+  {
+   "nome": "Hyasmim Guerra",
+   "tag": "Preços acessíveis"
+  },
+  {
+   "nome": "Peterson Cabeças",
+   "tag": "Lentes intermediárias"
+  },
+  {
+   "nome": "Cristiana Gomes De moraes",
+   "tag": "Para todos os gostos"
+  }
+ ],
+ "instagram": "lezotica",
+ "insta": {
+  "seguidores": "2,5 mil seguidores",
+  "p": "Modelos novos toda semana, clientes de óculos novos e as reposições dos queridinhos.",
+  "foto": {
+   "id": 5,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Armação gatinho metálica na mão, com a cidade ao fundo",
+  "chip": "Solar com o seu grau"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Guarulhos.</em>",
+  "endereco": [
+   "Estr. Pres. Juscelino K. de Oliveira, 5077B",
+   "Jardim Albertina · Guarulhos, SP · CEP 07252-000"
+  ],
+  "telefone": "(11) 95132-7970",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Paz, amor e um lindo par de óculos.",
+ "mensagem": "Olá! Vim pelo site da Lez Ótica e queria um orçamento.",
+ "whatsapp": "5511951327970",
+ "fone_link": "+5511951327970",
+ "google": {
+  "coords": "-23.435323,-46.4057214",
+  "fid": "0x94ce638f19032035:0x3f59a111370083ce",
+  "gid": "/g/11ftvf33p3"
+ },
+ "google_nome": "Lez Ótica",
+ "endereco_maps": "Estr. Pres. Juscelino K. de Oliveira, 5077B - Jardim Albertina, Guarulhos - SP, 07252-000",
+ "google_nota": "5,0",
+ "google_total": "39",
+ "verificado": "2026-10-03",
+ "ficha": {
+  "whatsapp_fonte": "celular do Google, o mesmo das artes do Instagram",
+  "direcao": [
+   "Kaue: a dona posa com os óculos; abriu em 2019; o endereço bate com o Google."
+  ],
+  "demo": [
+   "Escuro quente e o cobre do logo, títulos em Playfair Display. Logo: as letras LEZ da foto de perfil, sobre fundo escuro.",
+   "Capa \"Um lindo par de óculos.\" (da frase da parede da loja) com a dona de óculos gatinho rosa.",
+   "Carrosséis \"Coleção\" (12 fotos) e \"Você de Lez\" (5 clientes, o nome do destaque do Instagram), estilos, clip-on 2 em 1 e 3 em 1 e 4 avaliações reais do Google (5,0 · 39), com horário e aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Lote do Drive (1440 px): a dona com os modelos, clientes na loja, a parede verde-água com a frase em dourado e a sacola da coleção Água de Coco. Ficaram de fora as artes com preço e os quadros de vídeo de 720 px."
+  ],
+  "conferir": [
+   "\"Dona\": a moça das fotos é tratada como dona (anotação do Kaue). Confirmar o nome antes de usar.",
+   "Uma das 5 avaliações de 5 estrelas ficou de fora porque o nome do avaliador é um e-mail.",
+   "\"Abriu em 2019\" (triagem) não foi confirmado aqui: a demo não cita o ano."
+  ]
+ }
+}

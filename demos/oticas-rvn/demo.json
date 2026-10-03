@@ -1,0 +1,234 @@
+{
+ "pasta": "oticas-rvn",
+ "marca": "Ótica RVN",
+ "marca_logo": "Ótica RVN",
+ "marca_completa": "Ótica RVN",
+ "logo_sub": "Perus · São Paulo",
+ "titulo": "Ótica RVN | Perus, São Paulo",
+ "descricao": "Ótica RVN, na R. Salles Gomes, 106A, em Perus, São Paulo: exame de vista gratuito, óculos de grau e de sol com preço justo e parcelas que cabem no bolso. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica RVN: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticarvn) e do Perfil da Empresa no Google; nota, avaliações, endereço, telefone e horário do Google, verificados em 03/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#0e2a52",
+  "acento": "#5ad6e6",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/oticas-rvn/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/oticas-rvn.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/oticas-rvn/perfil.jpg"
+ },
+ "topline": "Perus · São Paulo · exame de vista gratuito",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Exame de vista"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica em Perus · há mais de 11 anos",
+  "h1": "Proteção para <em>a sua visão.</em>",
+  "intro": "Exame de vista gratuito, óculos de grau e de sol para todos os bolsos e parcelas que cabem no orçamento, na R. Salles Gomes. Fale com a gente pelo WhatsApp.",
+  "selo": "Exame de vista gratuito",
+  "link": "Conhecer a loja",
+  "alvo": "sobre",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/oticas-rvn/perfil/oticarvn_04.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Cliente de óculos de grau gatinho tartaruga diante da parede de armações da RVN"
+ },
+ "endereco": [
+  "R. Salles Gomes, 106A",
+  "Perus · São Paulo"
+ ],
+ "marquee": [
+  "Exame de vista gratuito",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes de contato",
+  "Parcelas que cabem no bolso",
+  "Orçamento no WhatsApp",
+  "Mais de 11 anos em Perus",
+  "R. Salles Gomes, 106A"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ótica RVN",
+  "h2": "11 anos cuidando <em>da visão de Perus.</em>",
+  "p": [
+   "Na R. Salles Gomes, em Perus, a Ótica RVN completa 11 anos em 2026. A loja é da Angela, que atende com a equipe clientes de longa data e famílias inteiras do bairro.",
+   "O exame de vista é gratuito, as armações têm preço para todos os bolsos e o ambiente é limpo, organizado e aconchegante, com direito a cafezinho."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "64",
+    "avaliações no Google"
+   ],
+   [
+    "11 anos",
+    "em Perus"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/oticas-rvn/perfil/oticarvn_00.jpg",
+   "box": [
+    0,
+    0,
+    1,
+    0.703
+   ]
+  },
+  "alt": "Fachada azul da Ótica RVN decorada com balões para o aniversário de 11 anos",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/oticas-rvn/google/g01.jpg",
+   "box": [
+    0.05,
+    0.52,
+    0.85,
+    0.98
+   ]
+  },
+  "pol_alt": "Balcão da vitrine com o logo do olho da Ótica RVN e estampa de óculos",
+  "pol_cap": "Ótica RVN"
+ },
+ "carrosseis": [],
+ "estilos": {
+  "p": "Venha provar na loja ou peça o seu orçamento pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/oticas-rvn/perfil/oticarvn_02.jpg",
+    "box": [
+     0,
+     0.22,
+     1,
+     0.82
+    ]
+   },
+   "alt": "Atendente de óculos de grau no balcão, com a parede de armações ao fundo",
+   "texto": "Armações para todos os bolsos, com qualidade e garantia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Exame de vista gratuito",
+  "h2": "Do exame aos óculos <em>sem sair de Perus.</em>",
+  "passos": [
+   "Agende o exame de vista gratuito pelo WhatsApp",
+   "Escolha da armação com atendimento personalizado",
+   "Pagamento em parcelas que cabem no bolso",
+   "Óculos com qualidade e garantia"
+  ],
+  "botao": "Agendar exame",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/oticas-rvn/google/g00.jpg",
+   "box": [
+    0.12,
+    0.0,
+    0.88,
+    1.0
+   ]
+  },
+  "alt": "Porta de aço da Ótica RVN pintada de azul com desenhos de óculos",
+  "card": [
+   "Exame de vista",
+   "Gratuito. Agende pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "A melhor ótica <em>de Perus.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Renata Rodrigues",
+   "tag": "Clientes de longa data"
+  },
+  {
+   "nome": "Ranieri Fernandes Beltrame",
+   "tag": "Preço justo"
+  },
+  {
+   "nome": "Danielle Dani",
+   "tag": "Qualidade e garantia"
+  },
+  {
+   "nome": "Juliana Martins Bolos",
+   "tag": "Para todos os bolsos"
+  },
+  {
+   "nome": "Cristina molico",
+   "tag": "Atendimento personalizado"
+  }
+ ],
+ "instagram": "oticarvn",
+ "insta": {
+  "seguidores": "2 mil seguidores",
+  "p": "Novidades da loja, coleções novas e os vídeos bem-humorados da equipe."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Perus.</em>",
+  "endereco": [
+   "R. Salles Gomes, 106A · Perus",
+   "São Paulo, SP · CEP 05211-200"
+  ],
+  "telefone": "(11) 3915-5970",
+  "rotulo_fone": "Telefone fixo"
+ },
+ "slogan": "Proteção para a sua visão.",
+ "mensagem": "Olá! Vim pelo site da Ótica RVN e queria um orçamento.",
+ "whatsapp": "5511950869345",
+ "fone_link": "+551139155970",
+ "google": {
+  "coords": "-23.4067138,-46.7528097",
+  "fid": "0x94cefcaf4a635bf1:0x8cae351f241f5855",
+  "gid": "/g/11f1k4f6dw"
+ },
+ "google_nome": "Óticas RVN",
+ "endereco_maps": "R. Salles Gomes, 106A - Perus, São Paulo - SP, 05211-200",
+ "google_nota": "5,0",
+ "google_total": "64",
+ "verificado": "2026-10-03",
+ "ficha": {
+  "whatsapp_fonte": "o (11) 95086-9345 está em todas as artes do Instagram (2022–2023, com o ícone do WhatsApp); o Google só tem o fixo",
+  "direcao": [
+   "Kaue: 11 a 12 anos de loja, atendente Lorena aparece nos vídeos. Fixo 3915-5970."
+  ],
+  "demo": [
+   "Azul-marinho e o ciano do logo, títulos em Outfit. Logo: a foto de perfil (o olho e \"Ótica RVN\").",
+   "Capa \"Proteção para a sua visão.\" (o slogan da fachada) com a cliente de armação gatinho na loja.",
+   "Básico bem feito, sem carrossel: o Drive só tem artes de campanha com @ e telefone por cima. Ficaram a fachada dos 11 anos, o balcão com o logo, a atendente no balcão, a porta de aço pintada e as 5 avaliações de 5 estrelas que o Google mostrou (5,0 · 64), com horário e aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Posts recentes pelo embed do perfil (fachada dos 11 anos, cliente de armação gatinho, atendente no balcão) e 2 fotos do Google (porta de aço pintada e o balcão da vitrine). O lote do Drive (41 artes de 2022–2023) não entrou."
+  ],
+  "conferir": [
+   "WhatsApp (11) 95086-9345: tirado das artes antigas; a bio corta o texto antes do número. Confirmar.",
+   "Bio diz \"há 12 anos\"; o post de 21/09/2026 diz 11 anos (festa em 03/10). A demo fala em 11 anos.",
+   "Dona Angela: citada numa avaliação do Google. A moça da capa é cliente/influenciadora (post com cupom ADI10).",
+   "A foto do card de grau é um quadro de vídeo (720 px): trocar por foto da equipe quando tiver."
+  ]
+ }
+}

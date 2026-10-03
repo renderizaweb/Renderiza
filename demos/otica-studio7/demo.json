@@ -1,0 +1,329 @@
+{
+ "pasta": "otica-studio7",
+ "marca": "Ótica Studio 7",
+ "marca_logo": "Studio 7",
+ "marca_completa": "Ótica Studio 7 Mauá",
+ "logo_sub": "Ótica · Centro de Mauá",
+ "titulo": "Ótica Studio 7 | Centro de Mauá",
+ "descricao": "Ótica Studio 7, na R. Ver. Fernando Zanela, 11, no Centro de Mauá: óculos de grau e de sol, óculos 2 em 1, lentes Varilux e atendimento por vídeo chamada. Nota 4,9 no Google.",
+ "comentario": "Demo Ótica Studio 7 Mauá: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticastudio7) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 03/10/2026.",
+ "fonte": "Poppins",
+ "cores": {
+  "escuro": "#2f3239",
+  "acento": "#ff6a1f",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-studio7/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-studio7.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-studio7/perfil.jpg"
+ },
+ "topline": "Centro de Mauá · atendimento também por vídeo chamada",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#provador",
+   "Provador"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Mauá",
+  "h1": "Seu novo olhar <em>começa aqui.</em>",
+  "intro": "Óculos de grau e de sol, óculos 2 em 1 com clipe de sol e lentes Varilux, na R. Vereador Fernando Zanela. Escolha na loja ou por vídeo chamada, pelo WhatsApp.",
+  "selo": "Atendimento por vídeo chamada",
+  "link": "Ver o provador",
+  "foto": {
+   "id": 15,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Fachada laranja e grafite da Ótica Studio 7, com a loja cheia de clientes",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "endereco": [
+  "R. Ver. Fernando Zanela, 11",
+  "Centro · Mauá"
+ ],
+ "marquee": [
+  "Óculos 2 em 1",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes Varilux",
+  "Stellest para crianças",
+  "Vídeo chamada",
+  "Sabrina Sato Eyewear",
+  "Centro de Mauá"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Studio 7",
+  "h2": "Um novo conceito <em>em ótica.</em>",
+  "p": [
+   "No Centro de Mauá, na R. Vereador Fernando Zanela, a Studio 7 é uma ótica jovem, de fachada laranja e paredes cheias de armações, de coleções como Sabrina Sato, Débora Secco e Valentini Fiori.",
+   "Tem óculos 2 em 1 (o de grau que vira de sol com um clipe), consultores de lentes multifocais Varilux e atendimento por vídeo chamada para quem quer escolher sem sair de casa."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "303",
+    "avaliações no Google"
+   ],
+   [
+    "2 em 1",
+    "grau que vira sol"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-studio7/google2/g01.jpg",
+   "box": [
+    0.25,
+    0,
+    0.85,
+    1
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Parede de armações da Studio 7, com dezenas de modelos expostos",
+  "pol": {
+   "id": 17,
+   "box": [
+    0,
+    0.05,
+    1,
+    0.95
+   ]
+  },
+  "pol_alt": "Inauguração da Studio 7 com arco inflável laranja e balões na entrada",
+  "pol_cap": "Dia de inauguração"
+ },
+ "carrosseis": [
+  {
+   "id": "provador",
+   "eyebrow": "Provador",
+   "h2": "Coleção nova <em>toda semana.</em>",
+   "p": "Valentini Fiori, Sabrina Sato, Débora Secco e mais. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Armações provadas na Studio 7",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 9,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau gatinho metálico prata, visto de perfil"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau redondo dourado, visto de perfil"
+    },
+    {
+     "foto": {
+      "id": 14,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos 2 em 1 com o clipe de sol tartaruga na mão"
+    },
+    {
+     "foto": {
+      "id": 10,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau transparente rosado, visto de perfil"
+    },
+    {
+     "foto": {
+      "id": 16,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Óculos de grau preto com o clipe de sol ao lado"
+    },
+    {
+     "foto": {
+      "id": 55,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau marrom translúcido"
+    },
+    {
+     "foto": {
+      "id": 43,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de grau redondo roxo"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Centro de Mauá ou escolha por vídeo chamada.",
+  "grau": {
+   "foto": {
+    "id": 12,
+    "box": [
+     0,
+     0.15,
+     1,
+     1
+    ]
+   },
+   "alt": "Armação de grau tartaruga Sabrina Sato Eyewear sobre a caixa",
+   "texto": "Coleções de grife e lentes Varilux para multifocal."
+  },
+  "solar": {
+   "titulo": "Óculos 2 em 1",
+   "rotulo": "02 / 2 EM 1",
+   "foto": {
+    "id": 20,
+    "box": [
+     0,
+     0.08,
+     1,
+     0.9
+    ]
+   },
+   "alt": "Óculos de grau tartaruga com o clipe de sol encaixado na frente",
+   "texto": "O de grau que vira óculos de sol com um clipe."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Na loja ou por vídeo",
+  "h2": "Escolha os seus óculos <em>sem sair de casa.</em>",
+  "passos": [
+   "Chame no WhatsApp e marque a vídeo chamada",
+   "Veja as armações ao vivo, com um consultor",
+   "Lentes certas para você, inclusive multifocais Varilux",
+   "Retire na loja, no Centro de Mauá"
+  ],
+  "botao": "Marcar vídeo chamada",
+  "foto": {
+   "id": 18
+  },
+  "alt": "A Studio 7 por dentro: espelhos, balcões de armações e cadeiras de atendimento",
+  "card": [
+   "Vídeo chamada",
+   "Atendimento ao vivo pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Atendimento <em>nota 10.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Rosa Cosmo",
+   "tag": "Atenciosa e prestativa"
+  },
+  {
+   "nome": "vini x",
+   "tag": "Já sou cliente"
+  },
+  {
+   "nome": "Karem eduarda da silva ventura Ventura",
+   "tag": "Equipe simpática"
+  },
+  {
+   "nome": "Antônio Artur da Silva",
+   "tag": "Superou as expectativas"
+  }
+ ],
+ "instagram": "oticastudio7",
+ "insta": {
+  "seguidores": "1,4 mil seguidores",
+  "p": "Coleções novas, armações provadas de pertinho e as promoções da semana."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Centro de Mauá.</em>",
+  "endereco": [
+   "R. Ver. Fernando Zanela, 11 · Centro",
+   "Mauá, SP · CEP 09390-060"
+  ],
+  "telefone": "(11) 3458-4740",
+  "rotulo_fone": "WhatsApp",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "slogan": "Seu novo olhar começa aqui.",
+ "mensagem": "Olá! Vim pelo site da Studio 7 e queria um orçamento.",
+ "whatsapp": "551134584740",
+ "fone_link": "+551134584740",
+ "google": {
+  "coords": "-23.6662904,-46.4593183",
+  "fid": "0x94ce69be2bb47f99:0xdd7b55ce5f94f583",
+  "gid": "/g/11h92gccfl"
+ },
+ "google_nome": "Ótica Studio7 Mauá",
+ "endereco_maps": "R. Ver. Fernando Zanela, 11 - Centro, Mauá - SP, 09390-060",
+ "google_nota": "4,9",
+ "google_total": "303",
+ "verificado": "2026-10-03",
+ "ficha": {
+  "whatsapp_fonte": "o 📲 (11) 3458-4740 vem em todas as legendas de setembro de 2026; o Google não tem telefone",
+  "site": "",
+  "direcao": [
+   "Kaue: dono jovem. O Google não tem telefone: achar o WhatsApp."
+  ],
+  "demo": [
+   "Grafite e laranja da fachada, títulos em Poppins. Logo: a foto de perfil do Instagram.",
+   "Capa \"Seu novo olhar começa aqui.\" (a frase da bio) com a fachada laranja cheia de clientes.",
+   "Carrossel \"Provador\" (7 fotos em retrato), estilos com o card \"Óculos 2 em 1\", atendimento por vídeo chamada e as 4 avaliações de 5 estrelas que o Google mostrou (4,9 · 303). Sem horário no Google: \"confirme pelo WhatsApp\"."
+  ],
+  "fotos": [
+   "Lote do Drive (1440 px): fachada, inauguração, a loja por dentro, as armações provadas de perfil e a Sabrina Sato Eyewear. Google: a parede de armações. Ficaram de fora as campanhas (Varilux, Stellest, Sabrina Sato e Débora Secco com as próprias atrizes), as crianças e as selfies mais fechadas."
+  ],
+  "conferir": [
+   "WhatsApp (11) 3458-4740: das legendas. Confirmar que é WhatsApp (formato de fixo).",
+   "Horário: o Google mostra só \"fecha 18h, abre sábado 9h\". A demo não mostra horário.",
+   "Quem é a moça de cabelo cacheado das fotos (dona? atendente?) e as atendentes das avaliações (Aline, Fernanda, Janaína, Priscila).",
+   "Promoções (\"compre e ganhe outro\", \"óculos de cortesia\") não entraram: mudam toda semana."
+  ]
+ }
+}

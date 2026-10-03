@@ -9,8 +9,11 @@
 # Fotos: cada foto é {"id": n} (número da folha do inventario-fotos.py) ou {"arquivo": caminho}, com
 #   "box": [x0, y0, x1, y1] opcional (recorte em frações da foto, 0 a 1) e "c": [cx, cy] opcional
 #   (centro do enquadramento, 0 a 1). A foto é recortada no tamanho da vaga e embutida em base64.
-# Avaliações: {"i": n, "tag": "...", "texto": opcional} com n = posição na lista do google.json
-#   (rode com --avaliacoes para ver a lista numerada; só entram as de 5 estrelas).
+# Avaliações: {"nome": "...", "tag": "...", "texto": opcional} (ou {"i": n} = posição na lista do google.json;
+#   rode com --avaliacoes para ver a lista numerada; só entram as de 5 estrelas).
+# Básico bem feito (pouca foto boa): carrosseis = []; estilos sem "solar" (fica o card de grau + formato
+#   de rosto) e cada card aceita "titulo"/"rotulo" (ex.: "Óculos 2 em 1"); insta sem "foto" (só texto e
+#   botão); atendimento com "formato": "paisagem" para foto de grupo (equipe) sem cortar ninguém.
 import base64, colorsys, html, io, json, os, re, sys
 from PIL import Image, ImageFilter, ImageOps
 
