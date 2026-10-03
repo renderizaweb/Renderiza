@@ -166,27 +166,33 @@
  "avaliacoes": [
   {
    "nome": "Julia Souza",
-   "tag": "Primeiro óculos"
+   "tag": "Primeiro óculos",
+   "trecho": "Era a primeira vez que eu ia usar óculos, então estava bastante indecisa na escolha da armação e cheia de dúvidas. A Iara teve muita paciência comigo, me ajudou em cada detalhe"
   },
   {
    "nome": "Lilian Gomes",
-   "tag": "Multifocal"
+   "tag": "Multifocal",
+   "trecho": "A entrega foi muito rápida, e a experiência de um óculos multifocal está sendo maravilhosa. Estou muito feliz e recomendo a ótica, procurem pela Iara"
   },
   {
    "nome": "alexandra ferreira",
-   "tag": "Sem empurrar nada"
+   "tag": "Sem empurrar nada",
+   "trecho": "quero pontuar a qualidade na explicação sobre as lentes,eles vendem o que precisamos e a vendedora não tenta empurrar. Gostei da atenção do Optometrista pensando realmente na Visão."
   },
   {
    "nome": "Francisco Matoso",
-   "tag": "Preço justo"
+   "tag": "Preço justo",
+   "trecho": "Entre todas as óticas da região posso afirmar que vocês tem o menor preço. Ganharam um cliente e toda minha família."
   },
   {
    "nome": "Jorgiana Cassiano",
-   "tag": "Segunda compra"
+   "tag": "Segunda compra",
+   "trecho": "Já é a segunda vez que compro meus óculos nessa ótica e, mais uma vez, tive uma ótima experiência. Os óculos são lindos, de excelente qualidade, e o atendimento fez toda a diferença."
   },
   {
    "nome": "Katiane Cristina",
-   "tag": "Exame na loja"
+   "tag": "Exame na loja",
+   "trecho": "Minha receita era nova mas estava apagada na ótica refiz o exame e tiramos a duvida do grau mandei fazer meu óculos que chegou antes da data prevista . Ameiii o atendimento ."
   }
  ],
  "instagram": "cupeceoticas",

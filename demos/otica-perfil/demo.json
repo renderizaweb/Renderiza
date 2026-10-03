@@ -219,15 +219,18 @@
  "avaliacoes": [
   {
    "nome": "Adriano Leitao",
-   "tag": "Sem empurrar produtos"
+   "tag": "Sem empurrar produtos",
+   "trecho": "A equipe é extremamente atenciosa, explica tudo com clareza e realmente se preocupa em indicar a melhor opção para o cliente — sem pressa e sem empurrar produtos"
   },
   {
    "nome": "LucasFranco Reis",
-   "tag": "Exame para a família"
+   "tag": "Exame para a família",
+   "trecho": "Fomos todos da minha família fazer exames na Perfil e tivemos um excelente atendimento, minha filha e meu filho tiveram q usar óculos e na hora da escolha tiveram muita paciência"
   },
   {
    "nome": "Wellynton Damato",
-   "tag": "Explicou tudo"
+   "tag": "Explicou tudo",
+   "trecho": "com profissional Cláudio atencioso, paciente e muito educado. Ele explicou tudo com clareza e me ajudou a escolher a melhor opção de óculos para mim"
   },
   {
    "nome": "Rayane Marques",
@@ -235,7 +238,8 @@
   },
   {
    "nome": "Samanta Santos",
-   "tag": "Preço justo"
+   "tag": "Preço justo",
+   "trecho": "Os preços são justos e a qualidade dos óculos é excelente. Dá para perceber o cuidado em oferecer produtos bons por um preço que realmente vale a pena"
   },
   {
    "nome": "Karoline Viana",

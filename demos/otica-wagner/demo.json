@@ -327,15 +327,18 @@
  "avaliacoes": [
   {
    "nome": "Rita Borges Carvalho",
-   "tag": "As meninas"
+   "tag": "As meninas",
+   "trecho": "Com toda certeza melhor ótica,a começar com o atendimento das \"meninas\" que são super simpáticas e te orientam da melhor forma. Atendimento personalizado"
   },
   {
    "nome": "Bruno Rodrigues",
-   "tag": "Consulta com optometrista"
+   "tag": "Consulta com optometrista",
+   "trecho": "Experiência incrível! Fiz uma consulta com o optometrista da loja, o doutor resolveu meu problema e ja sai com um produto de qualidade por um preço que nem acreditei, recomendo."
   },
   {
    "nome": "Nicolas Biju",
-   "tag": "Uma nova visão"
+   "tag": "Uma nova visão",
+   "trecho": "descobri que uma ótica poderia ter um atendimento do qual nunca imaginaria. O doutor Diego de prontidão resolveu meu problemas, parece que nasci de novo. Uma nova visão."
   },
   {
    "nome": "Deivid Menezes",

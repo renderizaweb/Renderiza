@@ -66,6 +66,10 @@ def paleta(escuro, acento, tinta='escuro'):
         else: mapa[c] = de_hls(hT, l, min(s * 0.55, 0.35) * (1 if sT > 0.08 else 0.3))  # neutros e claros
     return mapa
 
+def mostrar_nota(cfg):
+    """A nota só aparece quando é 5,0; com 4,9 ou menos ficam as estrelas e o número de avaliações."""
+    return cfg.get('mostrar_nota', cfg['google_nota'].strip() in ('5,0', '5'))
+
 def tema(cfg):
     c = cfg['cores']; escuro = c['escuro'].lstrip('#'); acento = c['acento'].lstrip('#')
     # o acento vira texto no fundo escuro e fundo de texto escuro: precisa de contraste 4,5 com o escuro
@@ -89,9 +93,10 @@ def tema(cfg):
     # foto de grupo (equipe) na horizontal, sem cortar ninguém
     extra += '.experience-main.experience-main--paisagem{height:auto;aspect-ratio:4/3;border-radius:16px 64px 16px 16px}.experience-main--paisagem~.exam-card{top:auto;bottom:4px}'
     # no celular o número do destaque não pode passar por cima do texto ("Hoya e Zeiss", "5+ anos")
-    extra += '@media(max-width:620px){.stat{grid-template-columns:minmax(110px,auto) 1fr}}'
+    extra += '@media(max-width:620px){.stat{grid-template-columns:minmax(110px,auto) 1fr}}@media(min-width:621px){.stats--2{grid-template-columns:repeat(2,1fr)}}'
     extra += cfg.get('css_extra', '')
-    troca = {'{{comentario}}': cfg['comentario'], '{{descricao}}': esc(cfg['descricao']), '{{titulo}}': esc(cfg['titulo']),
+    descricao = cfg['descricao'] if mostrar_nota(cfg) else re.sub(r'\s*Nota \d,\d no Google\.?', f' {cfg["google_total"]} avaliações no Google.', cfg['descricao'])
+    troca = {'{{comentario}}': cfg['comentario'], '{{descricao}}': esc(descricao), '{{titulo}}': esc(cfg['titulo']),
              '{{fonte_link}}': link, '{{fonte_css}}': css, '{{css_extra}}': extra}
     for a, b in troca.items(): head = head.replace(a, b)
     return head
@@ -174,6 +179,28 @@ def avaliacoes(google):
         if texto: out.append({'nome': linhas[0].strip(), 'texto': texto, 'nota': (nota.group(1) if nota else '?')})
     return out
 
+LIMITE_DEPOIMENTO = 175  # caracteres: os cards de avaliação ficam da mesma altura
+
+def trecho(texto, escolhido=None, limite=LIMITE_DEPOIMENTO):
+    """Depoimento no tamanho padrão: o trecho escolhido (tem que estar no texto da avaliação) ou o começo,
+    cortado no fim de uma frase; "…" marca o que ficou de fora antes e depois."""
+    texto = re.sub(r'\s+', ' ', texto).strip()
+    if escolhido:
+        escolhido = re.sub(r'\s+', ' ', escolhido).strip()
+        i = texto.find(escolhido)
+        if i < 0: raise SystemExit(f'trecho não está na avaliação: {escolhido[:60]}')
+        if len(escolhido) > limite + 25: print(f'  trecho longo ({len(escolhido)}): {escolhido[:50]}…')
+        fim = i + len(escolhido) < len(texto)
+        return ('…' if i > 0 else '') + (escolhido.rstrip('.,;: ') + '…' if fim else escolhido)
+    if len(texto) <= limite: return texto
+    t = ''
+    for f in re.split(r'(?<=[.!?])\s+', texto):
+        if len(t) + len(f) + 1 > limite: break
+        t = (t + ' ' + f).strip()
+    if not t:  # a primeira frase já passa do limite: corta na última palavra inteira
+        t = texto[:limite].rsplit(' ', 1)[0].rstrip(',;:')
+    return t.rstrip('.,;: ') + '…'
+
 def iniciais(nome):
     p = [x for x in re.split(r'\s+', re.sub(r'\(.*?\)', '', nome)) if x and x[0].isalpha()]
     return (p[0][0] + (p[-1][0] if len(p) > 1 else '')).upper()
@@ -219,9 +246,13 @@ def corpo(cfg, fotos, google):
     s = cfg['sobre']
     pol_sobre = (f'<figure class="polaroid story-polaroid"><img src="{img("sobre_pol", s["pol"])}" width="420" height="479" loading="lazy" alt="{esc(s["pol_alt"])}"><figcaption>{esc(s["pol_cap"])}</figcaption></figure>'
                  if s.get('pol') else '')
-    stats = ''.join(f'<div class="stat"><strong{" data-rating" if v == "{nota}" else ""}>{esc(cfg["google_nota"] if v == "{nota}" else v)}</strong><span>{esc(t)}</span></div>' for v, t in s['stats'])
+    # nota abaixo de 5,0 (4,9, 4,8...) não aparece: ficam as estrelas e o número de avaliações
+    nota = mostrar_nota(cfg)
+    lista_stats = [(v, t) for v, t in s['stats'] if nota or v != '{nota}']
+    stats = ''.join(f'<div class="stat"><strong{" data-rating" if v == "{nota}" else ""}>{esc(cfg["google_nota"] if v == "{nota}" else v)}</strong><span>{esc(t)}</span></div>' for v, t in lista_stats)
+    total = esc(cfg['google_total'])
     out = [SIMBOLOS, '  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>',
-      f'  <div class="topline"><div class="container"><span>{esc(cfg["topline"])}</span><a class="topline-rating" href="#depoimentos"><span class="stars" aria-hidden="true">★★★★★</span> <span data-rating>{esc(cfg["google_nota"])}</span> no Google</a></div></div>',
+      f'  <div class="topline"><div class="container"><span>{esc(cfg["topline"])}</span><a class="topline-rating" href="#depoimentos"><span class="stars" aria-hidden="true">★★★★★</span> ' + (f'<span data-rating>{esc(cfg["google_nota"])}</span> no Google' if nota else f'{total} avaliações no Google') + '</a></div></div>',
       f'''  <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#inicio" aria-label="{esc(mc)}, início">{logo_mark}<span class="logo-text"><b>{esc(ml)}</b><small>{esc(sub)}</small></span></a>
@@ -243,7 +274,7 @@ def corpo(cfg, fotos, google):
             <a class="text-link text-link--light" href="#{h.get("alvo") or (cfg["carrosseis"][0]["id"] if cfg["carrosseis"] else "estilos")}">{esc(h.get("link", "Ver a vitrine"))} <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-proof">
-            <a class="proof-google" href="#depoimentos"><span class="hero-proof-score" data-rating>{esc(cfg["google_nota"])}</span><span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="proof-caption">{esc(cfg["google_total"])} avaliações no Google</span></span></a>
+            <a class="proof-google" href="#depoimentos">{f'<span class="hero-proof-score" data-rating>{esc(cfg["google_nota"])}</span>' if nota else ''}<span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="proof-caption">{esc(cfg["google_total"])} avaliações no Google</span></span></a>
             <a class="proof-badge" href="#sobre"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(h["selo"])}</a>
           </div>
         </div>
@@ -272,7 +303,7 @@ def corpo(cfg, fotos, google):
           <p class="eyebrow">{esc(s["eyebrow"])}</p>
           <h2 id="story-heading">{s["h2"]}</h2>
           {"".join(f"<p>{esc(p)}</p>" for p in s["p"])}
-          <div class="stats">{stats}</div>
+          <div class="stats{" stats--2" if len(lista_stats) == 2 else ""}">{stats}</div>
         </div>
       </div>
     </section>''']
@@ -313,14 +344,14 @@ def corpo(cfg, fotos, google):
       </div>
     </section>''')
     # estilos: card de grau e de sol (título e rótulo trocáveis); sem foto boa de sol, fica só o de grau + formato de rosto
-    e = cfg['estilos']
+    e = cfg.get('estilos') or {}  # sem foto boa de óculos: "estilos": null e a seção não entra
     cards = [(k, e[k], t, r) for k, t, r in (('grau', 'Óculos de grau', '01 / GRAU'), ('solar', 'Óculos de sol', '02 / SOLAR')) if e.get(k)]
     cards_html = ''.join(f'''
           <a class="style-card reveal" data-whatsapp href="#">
             <div class="style-image"><img src="{img(k, c["foto"])}" width="640" height="595" loading="lazy" alt="{esc(c["alt"])}"><span class="image-label">{esc(c.get("rotulo", r))}</span></div>
             <div class="style-description"><div><h3>{esc(c.get("titulo", t))}</h3><p>{esc(c["texto"])}</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
           </a>''' for k, c, t, r in cards)
-    out.append(f'''
+    if cards: out.append(f'''
     <section class="section styles-section" id="estilos" aria-labelledby="styles-heading">
       <div class="container">
         <div class="section-heading reveal">
@@ -361,7 +392,7 @@ def corpo(cfg, fotos, google):
       <div class="container">
         <div class="reviews-heading reveal">
           <div><p class="eyebrow">{esc(r.get("eyebrow", "Quem conhece, conta"))}</p><h2 id="reviews-heading">{r["h2"]}</h2></div>
-          <a class="google-score" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><strong data-rating>{esc(cfg["google_nota"])}</strong><span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span>{esc(cfg["google_total"])} avaliações no Google</span><small>Ler todas <span aria-hidden="true">↗</span></small></span></a>
+          <a class="google-score" data-reviews-link href="#" target="_blank" rel="noopener noreferrer">{f'<strong data-rating>{esc(cfg["google_nota"])}</strong>' if nota else ''}<span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span>{esc(cfg["google_total"])} avaliações no Google</span><small>Ler todas <span aria-hidden="true">↗</span></small></span></a>
         </div>
         <div class="carousel review-carousel" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes">
           <ul class="carousel-track reviews-track" id="reviews-track" tabindex="0" aria-label="Avaliações; use as setas para navegar" data-reviews></ul>
@@ -442,7 +473,8 @@ def cliente(cfg, google, horas):
         nome = x['nome'].strip()
         if nome == nome.lower():  # "alexandra ferreira" -> "Alexandra Ferreira"
             nome = ' '.join(p if p in ('de', 'da', 'do', 'dos', 'das', 'e') else p[:1].upper() + p[1:] for p in nome.split())
-        revs.append({'name': nome, 'initials': iniciais(nome), 'tag': a['tag'], 'quote': a.get('texto', x['texto'])})
+        revs.append({'name': nome, 'initials': iniciais(nome), 'tag': a['tag'],
+                     'quote': a['texto'] if 'texto' in a else trecho(x['texto'], a.get('trecho'))})
     js_horas = 'null' if not horas else '{ ' + ', '.join(f'{d}: {json.dumps(horas[d])}' for d in range(7)) + ' }'
     msg = cfg.get('mensagem', f'Olá! Vim pelo site da {cfg["marca"]}.')
     linhas = [

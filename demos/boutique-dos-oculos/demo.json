@@ -544,15 +544,18 @@
  "avaliacoes": [
   {
    "tag": "15 anos de cliente",
-   "nome": "Camilla Fazzini"
+   "nome": "Camilla Fazzini",
+   "trecho": "Frequento a ótica há 15 anos e indico demais! O atendimento personalizado da Débora e Elaine fazem a diferença na escolha do melhor óculos (ou melhores óculos rsss)."
   },
   {
    "tag": "Atendimento caloroso",
-   "nome": "Cristina Lucia Garcez dos santos"
+   "nome": "Cristina Lucia Garcez dos santos",
+   "trecho": "Foi incrível! Senti-me única, com um atendimento impecável, caloroso e cheio de cuidado e carinho. Fiquei encantada com o atendimento da Débora e com a excelente qualidade dos produtos."
   },
   {
    "tag": "Cuidado com a receita",
-   "nome": "Fabio Ortolano"
+   "nome": "Fabio Ortolano",
+   "trecho": "Atendimento de excelência. Débora muito gentil e atenciosa, até entrou em contato com meu oftalmo para editar a receita"
   },
   {
    "tag": "Coleção moderna",
@@ -560,7 +563,8 @@
   },
   {
    "tag": "Fomos só olhar",
-   "nome": "Dayana Kuhl Westphal"
+   "nome": "Dayana Kuhl Westphal",
+   "trecho": "Eu e meu marido passamos apenas pra ver modelos, porém, o atendimento foi tão bom que acabamos fazendo o óculos todo. So posso agradecer a Elaine uma profissional maravilhosa."
   }
  ],
  "instagram": "boutiquedosoculos96",

@@ -16,14 +16,14 @@
 
 ## O que tem na demo
 - Azul-marinho e azul-claro (as cores das artes dela), títulos em Sora.
-- Capa "Visão para o seu melhor amanhã." (slogan das artes) com a especialista de óculos, recortada abaixo do título do vídeo.
-- Básico bem feito, sem carrossel: fachada e loja por dentro (Google), estilos, "Especialista em multifocal" e 6 avaliações reais do Google (5,0 · 391), horário com aviso de aberto/fechado.
+- Capa "Visão para o seu melhor amanhã." (slogan das artes) com a fachada e a faixa da família na vitrine.
+- Básico bem feito, sem carrossel e sem seção de estilos: a loja por dentro, a sala de exame, "Especialista em multifocal" e 6 avaliações reais do Google (5,0 · 391), com horário e aviso de aberto/fechado.
 
 ## Fotos
-- Não estava no lote do Drive. Instagram: as 6 últimas pelo embed do perfil (capas de vídeo em 720 px, nítidas, recortadas abaixo dos títulos). Google: fachada, mesa de atendimento e a sala (recorte do panorama 360°).
+- Não estava no lote do Drive. Só fotos do Google: fachada com a faixa da família, mesa de atendimento e a sala (recorte do panorama 360°). Os vídeos da especialista ficaram de fora: todos têm o título escrito por cima da cabeça, e o recorte abaixo do texto cortava o rosto dela (03/10/2026).
 
 ## Conferir antes de mandar
-- Quem é a moça dos vídeos (dona? optometrista?): a demo diz "especialista", sem nome.
+- Quem é a moça dos vídeos (dona? optometrista?): ela não aparece mais na demo; se mandarem fotos sem texto, entram na capa e nos estilos.
 - "30 anos" da bio não foi confirmado aqui: a demo não cita o número.
 - O Instagram tem menos de 1 mil seguidores: a demo não mostra o número.
 
