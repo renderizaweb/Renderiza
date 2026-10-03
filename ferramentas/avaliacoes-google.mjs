@@ -26,8 +26,8 @@ const todas = {};
 const coletar = async () => {
   await page.evaluate(() => document.querySelectorAll('button').forEach(b => { if (/^(Mais|Ver mais)$/.test((b.innerText || '').trim()) || b.getAttribute('aria-label') === 'Ver mais') b.click(); }));
   await page.waitForTimeout(700);
-  const lista = await page.evaluate(() => [...document.querySelectorAll('[data-review-id]')].map(e => ({ id: e.getAttribute('data-review-id'), t: e.innerText })));
-  for (const r of lista) if (!todas[r.id] || todas[r.id].t.length < r.t.length) todas[r.id] = r;
+  const lista = await page.evaluate(() => [...document.querySelectorAll('[data-review-id]')].map(e => ({ id: e.getAttribute('data-review-id'), t: e.innerText, nota: e.querySelector('[role="img"][aria-label*="estrela"]')?.getAttribute('aria-label') || '' })));
+  for (const r of lista) if (!todas[r.id] || todas[r.id].t.length < r.t.length || (!todas[r.id].nota && r.nota)) todas[r.id] = r;
 };
 const rolar = async () => page.evaluate(() => {
   const r = document.querySelector('[data-review-id]'); if (!r) return;

@@ -1,0 +1,405 @@
+{
+ "pasta": "otica-wagner",
+ "marca": "Ótica Wagner",
+ "marca_completa": "Ótica Wagner",
+ "logo_sub": "Centro de Poá · desde 1970",
+ "titulo": "Ótica Wagner | Centro de Poá, desde 1970",
+ "descricao": "Ótica Wagner, no Centro de Poá: mais de 50 anos de ótica, exame de vista com optometrista, óculos de grau e de sol. Nota 4,9 no Google.",
+ "comentario": "Demo Ótica Wagner: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@otica_wagner); nota, avaliações, endereço, telefone e horário do Perfil da Empresa no Google, verificados em 02/10/2026.",
+ "fonte": "Archivo",
+ "cores": {
+  "escuro": "#141210",
+  "acento": "#ff7a1a",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-wagner/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-wagner.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-wagner/perfil.jpg"
+ },
+ "topline": "Centro · Poá",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "Nossa história"
+  ],
+  [
+   "#estilo",
+   "Estilo"
+  ],
+  [
+   "#equipe",
+   "A loja"
+  ],
+  [
+   "#atendimento",
+   "Exame de vista"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale com a gente",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Poá, desde 1970",
+  "h1": "Mais de 50 anos <em>cuidando da sua visão.</em>",
+  "intro": "Exame de vista com optometrista, armações para todos os estilos e o atendimento humanizado de quem está no ramo ótico há mais de 50 anos.",
+  "selo": "Tradição desde 1970",
+  "link": "Ver o estilo",
+  "foto": {
+   "id": 7,
+   "c": [
+    0.42,
+    0.5
+   ]
+  },
+  "alt": "Moça ajeitando óculos gatinho tartaruga dentro da loja laranja da Ótica Wagner"
+ },
+ "endereco": [
+  "Av. Cap. Francisco Inácio, 30",
+  "Centro · Poá"
+ ],
+ "marquee": [
+  "Exame de vista",
+  "Optometrista",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Mormaii",
+  "Colcci",
+  "Antirreflexo",
+  "Filtro de luz azul",
+  "Desde 1970"
+ ],
+ "sobre": {
+  "eyebrow": "Nossa história",
+  "h2": "Tradição <em>desde 1970.</em>",
+  "p": [
+   "A Ótica Wagner está no Centro de Poá há mais de 50 anos. As fotos antigas da loja, com o letreiro vermelho e a vitrine de armações, mostram como tudo começou.",
+   "Hoje a loja une a experiência de quem começou com uma equipe jovem e o optometrista da casa: exame de vista, armação certa e um atendimento que os clientes chamam de humanizado."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "1970",
+    "o começo"
+   ],
+   [
+    "50+",
+    "anos de ótica"
+   ]
+  ],
+  "foto": {
+   "id": 37,
+   "c": [
+    0.45,
+    0.5
+   ]
+  },
+  "alt": "Foto antiga da fachada da Ótica Wagner, com o letreiro vermelho e um carro antigo na porta",
+  "pol": {
+   "id": 38,
+   "c": [
+    0.45,
+    0.5
+   ]
+  },
+  "pol_alt": "Foto antiga em preto e branco do balcão da ótica",
+  "pol_cap": "Os primeiros anos"
+ },
+ "carrosseis": [
+  {
+   "id": "estilo",
+   "eyebrow": "Estilo Wagner",
+   "h2": "Óculos que <em>combinam com você.</em>",
+   "p": "Fotos da loja, com clientes e modelos novos. Arraste e peça o seu pelo WhatsApp.",
+   "rotulo": "Clientes e modelos da Ótica Wagner",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 10,
+      "c": [
+       0.5,
+       0.32
+      ]
+     },
+     "alt": "Rapaz de barba com óculos de grau pretos na loja"
+    },
+    {
+     "foto": {
+      "id": 11,
+      "c": [
+       0.5,
+       0.32
+      ]
+     },
+     "alt": "Moça de óculos de sol pretos dentro da loja",
+     "cap": "Solar"
+    },
+    {
+     "foto": {
+      "id": 18,
+      "c": [
+       0.5,
+       0.32
+      ]
+     },
+     "alt": "Moça sorrindo de óculos de grau na loja"
+    },
+    {
+     "foto": {
+      "id": 25,
+      "c": [
+       0.5,
+       0.32
+      ]
+     },
+     "alt": "Moça de óculos de grau pretos no balcão"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "c": [
+       0.5,
+       0.32
+      ]
+     },
+     "alt": "Cliente sorrindo de óculos claros"
+    }
+   ]
+  },
+  {
+   "id": "equipe",
+   "eyebrow": "A loja e a equipe",
+   "h2": "Gente que <em>atende de verdade.</em>",
+   "p": "Do balcão ao exame de vista: a equipe que faz a Ótica Wagner no dia a dia.",
+   "rotulo": "A equipe da Ótica Wagner",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Dois atendentes da Ótica Wagner abraçados na loja laranja"
+    },
+    {
+     "foto": {
+      "id": 3,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Equipe no balcão de armações"
+    },
+    {
+     "foto": {
+      "id": 19,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Dois atendentes sentados na loja"
+    },
+    {
+     "foto": {
+      "id": 16,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Senhor da Ótica Wagner no balcão com o anúncio de óculos completo"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Atendente ao telefone na mesa da loja"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Atendimento no balcão com cliente sentada"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Duas atendentes conversando na loja"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Centro de Poá ou peça pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 9,
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "alt": "Moça de óculos de grau e jaqueta azul",
+   "texto": "Lentes com antirreflexo e filtro de luz azul."
+  },
+  "solar": {
+   "foto": {
+    "id": 26,
+    "c": [
+     0.5,
+     0.32
+    ]
+   },
+   "alt": "Rapaz de óculos de sol com lente laranja espelhada",
+   "texto": "Mormaii, Colcci e modelos para todo estilo."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Exame de vista",
+  "h2": "Exame com <em>optometrista.</em>",
+  "passos": [
+   "Exame de vista com o optometrista da loja",
+   "Escolha da armação com quem entende",
+   "Lentes com antirreflexo e filtro de luz azul",
+   "Ajustes e manutenção sempre que precisar"
+  ],
+  "botao": "Agendar exame",
+  "foto": {
+   "id": 2,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Exame de vista no refrator, na Ótica Wagner",
+  "pol": {
+   "id": 22,
+   "box": [
+    0,
+    0,
+    1,
+    0.8
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Optometrista examinando o olho da cliente com o oftalmoscópio",
+  "pol_cap": "Exame completo",
+  "card": [
+   "Optometrista na loja",
+   "Exame e escolha no mesmo lugar."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Uma nova visão, <em>de verdade.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Rita Borges Carvalho",
+   "tag": "As meninas"
+  },
+  {
+   "nome": "Bruno Rodrigues",
+   "tag": "Consulta com optometrista"
+  },
+  {
+   "nome": "Nicolas Biju",
+   "tag": "Uma nova visão"
+  },
+  {
+   "nome": "Deivid Menezes",
+   "tag": "Atendimento premium"
+  }
+ ],
+ "instagram": "otica_wagner",
+ "insta": {
+  "seguidores": "1,6 mil seguidores",
+  "p": "Bastidores da loja, exame de vista e os modelos novos, com bom humor.",
+  "foto": {
+   "id": 36,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Senhor sorrindo no balcão de armações da Ótica Wagner",
+  "chip": "Desde 1970"
+ },
+ "visita": {
+  "h2": "Te esperamos no <em>Centro de Poá.</em>",
+  "endereco": [
+   "Av. Cap. Francisco Inácio, 30 · Centro",
+   "Poá, SP · CEP 08551-150"
+  ],
+  "telefone": "(11) 4638-2120",
+  "rotulo_fone": "Telefone"
+ },
+ "slogan": "Tradição desde 1970.",
+ "mensagem": "Olá! Vim pelo site da Ótica Wagner.",
+ "whatsapp": "5511976774339",
+ "fone_link": "+551146382120",
+ "google": {
+  "coords": "-23.5243355,-46.3442878",
+  "fid": "0x94ce7adfe9788761:0x56bc4a686c5f7563",
+  "gid": "/g/1q5gm_lxh"
+ },
+ "google_nome": "Wagner Ótica",
+ "endereco_maps": "Av. Cap. Francisco Inácio, 30 - Centro, Poá - SP, 08551-150",
+ "google_nota": "4,9",
+ "google_total": "31",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "bio do Instagram (\"📱 (11) 97677-4339\"); o telefone do Google é o fixo (11) 4638-2120, que a demo mostra como telefone",
+  "direcao": [
+   "Kaue: potencial bem bom; a paleta de cores é bonita, dá para fazer um site bem bacana. Cuidado: existe outro Instagram, @oticawagner, de outra cidade. Não confundir.",
+   "Bio: \"A mais de 50 anos no ramo ótico\"; logo \"Tradição desde 1970\"."
+  ],
+  "demo": [
+   "Laranja e preto da marca, títulos em Archivo, logo real (foto de perfil).",
+   "Capa \"Mais de 50 anos cuidando da sua visão.\" com a moça de óculos tartaruga dentro da loja laranja.",
+   "Nossa história com as fotos antigas da loja (o letreiro vermelho com um carro antigo, de 1983, e o balcão em preto e branco).",
+   "Carrosséis \"Estilo Wagner\" (5) e \"A loja e a equipe\" (7), exame de vista com optometrista (fotos do refrator e da oftalmoscopia).",
+   "4 avaliações reais do Google (4,9 · 31; a de 1 estrela ficou de fora), horário do Google com aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Lote do Drive do Kaue (Instagram salvo): 39 fotos úteis, ensaio profissional na loja laranja, equipe, exame e fotos antigas. Fora: artes de preço (\"39,90\"), de marca (Mormaii, Colcci) e as com texto por cima."
+  ],
+  "conferir": [
+   "Usar só @otica_wagner (Poá). O @oticawagner é de outra cidade.",
+   "Quem são o senhor das fotos (o Wagner, fundador?) e o rapaz ao lado dele: a demo não cita nomes.",
+   "Uma avaliação diz que o exame de vista é gratuito: a demo não promete isso. Confirmar.",
+   "O optometrista citado nas avaliações é o \"doutor Diego\"."
+  ]
+ }
+}

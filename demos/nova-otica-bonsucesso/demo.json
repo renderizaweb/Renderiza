@@ -1,0 +1,250 @@
+{
+ "pasta": "nova-otica-bonsucesso",
+ "marca": "Nova Ótica Bonsucesso",
+ "marca_completa": "Nova Ótica Bonsucesso",
+ "logo_sub": "Bonsucesso · Guarulhos",
+ "titulo": "Nova Ótica Bonsucesso | Cidade Nova Bonsucesso, Guarulhos",
+ "descricao": "Nova Ótica Bonsucesso, em Guarulhos: óculos de grau e de sol, Ray-Ban, Ana Hickmann e HB, lentes de qualidade e entrega no prazo. Nota 5,0 no Google.",
+ "comentario": "Demo Nova Ótica Bonsucesso: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@novaoticabonsucesso); nota, avaliações, endereço, telefone e horário do Perfil da Empresa no Google, verificados em 02/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#1f2a24",
+  "acento": "#d4ae63",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/nova-otica-bonsucesso/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/nova-otica-bonsucesso.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/nova-otica-bonsucesso/perfil.jpg"
+ },
+ "topline": "Cidade Nova Bonsucesso · Guarulhos",
+ "dias_curto": "ter a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale com a gente",
+ "hero": {
+  "eyebrow": "Ótica em Cidade Nova Bonsucesso, Guarulhos",
+  "h1": "Enxergar bem <em>é se sentir incrível.</em>",
+  "intro": "Armações atuais, lentes de qualidade e um atendimento que deixa você à vontade para escolher. Ray-Ban, Ana Hickmann, HB e muito mais.",
+  "selo": "Lentes de qualidade",
+  "link": "Ver os estilos",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Casal da Nova Ótica Bonsucesso, os dois de óculos de grau, dentro da loja"
+ },
+ "endereco": [
+  "R. Luminários, 93",
+  "Cidade Nova Bonsucesso · Guarulhos"
+ ],
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Ray-Ban",
+  "Ana Hickmann",
+  "HB",
+  "Lentes de qualidade",
+  "Entrega no prazo",
+  "Guarulhos"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Nova Ótica",
+  "h2": "Feita para você <em>se sentir em casa.</em>",
+  "p": [
+   "Na Rua Luminários, a Nova Ótica tem armações atuais à mostra, lentes de qualidade e um atendimento que explica cada detalhe da lente antes de você decidir.",
+   "É o que os clientes contam nas avaliações: entrega no prazo, preço acessível e gente educada e qualificada, que entende a necessidade de cada um."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "107",
+    "avaliações no Google"
+   ],
+   [
+    "Ter a sáb",
+    "de portas abertas"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_04.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Homem de óculos pretos e camisa vinho no balcão da loja",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_02.jpg"
+  },
+  "pol_alt": "Cartão escrito à mão: para meus clientes e amigos, obrigado por comprar, por indicar e por confiar",
+  "pol_cap": "Gratidão"
+ },
+ "carrosseis": [],
+ "estilos": {
+  "p": "Venha provar em Bonsucesso ou peça pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 4,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Mão segurando uma armação redonda na frente das letras douradas da loja",
+   "texto": "Lentes de alta qualidade, com explicação de cada detalhe."
+  },
+  "solar": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_05.jpg",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   "alt": "Óculos de sol com hastes de madeira e lentes degradê",
+   "texto": "Clássicos, marcantes ou ousados."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento",
+  "h2": "Tempo para escolher <em>com calma.</em>",
+  "passos": [
+   "Traga a sua receita",
+   "Escolha a armação à vontade, com quem entende",
+   "Entenda as lentes antes de fechar",
+   "Receba no prazo combinado"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_03.jpg",
+   "c": [
+    0.5,
+    0.62
+   ]
+  },
+  "alt": "Armação HB azul sobre o balcão da loja",
+  "pol": {
+   "id": 3,
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "pol_alt": "Boneco inflável escrito Ótica na calçada da loja",
+  "pol_cap": "Na porta da loja",
+  "card": [
+   "Entrega no prazo",
+   "Do jeito combinado."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Me senti <em>em casa.</em>"
+ },
+ "avaliacoes": [
+  {
+   "tag": "Armações atuais",
+   "nome": "Cleide Regina"
+  },
+  {
+   "tag": "Explicação das lentes",
+   "nome": "Elaine Soriano"
+  },
+  {
+   "tag": "No prazo",
+   "nome": "Nágila Paracampos"
+  },
+  {
+   "tag": "Bem recebida",
+   "nome": "Vanessa Lima"
+  },
+  {
+   "tag": "Preço acessível",
+   "nome": "Rafaela Pinheiro"
+  }
+ ],
+ "instagram": "novaoticabonsucesso",
+ "insta": {
+  "seguidores": "1,4 mil seguidores",
+  "p": "Armações novas, dicas e os bastidores da loja.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/nova-otica-bonsucesso/perfil/novaoticabonsucesso_00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Armações vermelha e preta na vitrine, com as marcas Ray-Ban e Ana Hickmann",
+  "chip": "Ray-Ban · Ana Hickmann"
+ },
+ "visita": {
+  "h2": "Te esperamos em <em>Bonsucesso.</em>",
+  "endereco": [
+   "R. Luminários, 93 · Cidade Nova Bonsucesso",
+   "Guarulhos, SP · CEP 07176-430"
+  ],
+  "telefone": "(11) 4307-5621",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Enxergar bem é se sentir incrível.",
+ "mensagem": "Olá! Vim pelo site da Nova Ótica Bonsucesso.",
+ "whatsapp": "551143075621",
+ "fone_link": "+551143075621",
+ "google": {
+  "coords": "-23.4054944,-46.3992397",
+  "fid": "0x94ce89827053fded:0x3144588845b77277",
+  "gid": "/g/11h542gysh"
+ },
+ "google_nome": "Nova Ótica Bonsucesso",
+ "endereco_maps": "R. Luminários, 93 - Cidade Nova Bonsucesso, Guarulhos - SP, 07176-430",
+ "google_nota": "5,0",
+ "google_total": "107",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "link da bio do Instagram (wa.me) para o fixo do Google: WhatsApp Business no fixo",
+  "direcao": [
+   "Kaue: muito boa. O casal de donos posa bastante com os óculos; a loja é bonita e bem fotografada. Dá para fazer uma boa demo."
+  ],
+  "demo": [
+   "Verde-escuro com dourado (as letras da loja), títulos em Fraunces, logo real (foto de perfil).",
+   "Capa \"Enxergar bem é se sentir incrível.\" (de uma legenda dela) com o casal dentro da loja.",
+   "Sem carrossel: com poucas fotos boas, ficou o básico bem feito (capa, sobre, estilos, atendimento, Instagram), sem repetir foto.",
+   "5 avaliações reais do Google (5,0 · 107), horário do Google com aviso de aberto/fechado (segunda fechado), mapa."
+  ],
+  "fotos": [
+   "Drive: só 7 capas de vídeo (640 px). Usadas 2: a armação na mão na frente das letras douradas e o boneco \"Ótica\" na calçada.",
+   "As outras são as 6 últimas do Instagram (embed do perfil, 1080 px). Os embeds de post não abriram em 02/10/2026."
+  ],
+  "conferir": [
+   "As fotos recentes do Instagram parecem tratadas com IA (casal, loja, óculos na praia). Confirmar se o casal da capa é o casal de donos.",
+   "As avaliações que vieram sem login são de 4 a 5 anos atrás."
+  ]
+ },
+ "marca_logo": "Nova Ótica"
+}

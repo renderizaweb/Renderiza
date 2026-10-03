@@ -1,0 +1,453 @@
+{
+ "pasta": "otica-pocopetz",
+ "marca": "Ótica Pocopetz",
+ "marca_logo": "Pocopetz",
+ "marca_completa": "Ótica e Beleza Pocopetz",
+ "logo_sub": "Ótica e Beleza · Mairiporã",
+ "titulo": "Ótica Pocopetz | Ótica e Beleza em Mairiporã",
+ "descricao": "Ótica Pocopetz, na Av. Tabelião Passarela, 271, no Centro de Mairiporã: mais de mil armações, consultoria de visagismo e óculos prontos em até 30 minutos. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Pocopetz (Mairiporã): arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticapocopetz) e do Perfil da Empresa no Google; nota, avaliações, endereço, telefone e horário do Google, verificados em 02/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#2b1f16",
+  "acento": "#d9a65a",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-pocopetz/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-pocopetz.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-pocopetz/perfil.jpg"
+ },
+ "topline": "Mairiporã · Centro · loja 02 da Pocopetz",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#editorial",
+   "Editorial"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#atendimento",
+   "Visagismo"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica e Beleza no Centro de Mairiporã",
+  "h1": "Uma experiência <em>além dos óculos.</em>",
+  "intro": "Mais de mil armações, consultoria de visagismo e óculos prontos em até 30 minutos, na Av. Tabelião Passarela. Venha provar ou chame no WhatsApp.",
+  "selo": "Óculos prontos em até 30 min",
+  "link": "Ver o editorial",
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Cliente sorrindo de óculos de sol gatinho na Pocopetz, com o letreiro em neon ao fundo"
+ },
+ "endereco": [
+  "Av. Tabelião Passarela, 271",
+  "Centro · Mairiporã"
+ ],
+ "marquee": [
+  "Consultoria em visagismo",
+  "+1.000 armações",
+  "Óculos em até 30 min",
+  "Gucci",
+  "Calvin Klein",
+  "Carrera",
+  "Marca própria Pocopetz",
+  "Mairiporã e Caieiras"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Pocopetz",
+  "h2": "Novo conceito <em>em ótica.</em>",
+  "p": [
+   "A Pocopetz nasceu em Caieiras e chegou ao Centro de Mairiporã com a loja 02, na Av. Tabelião Passarela: um espaço claro e acolhedor, com sofá, letreiro em neon e mais de mil armações para provar.",
+   "É ótica e beleza no mesmo endereço, com atendimento próximo do começo ao fim. Tem cliente que encontrou na sacola um bilhete escrito à mão e um bombom."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "297",
+    "avaliações no Google"
+   ],
+   [
+    "+1.000",
+    "armações para provar"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-pocopetz/google/g01.jpg",
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "A Pocopetz por dentro: expositores dourados em arco, poltronas claras e as armações nas prateleiras",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-pocopetz/google/g03.jpg",
+   "box": [
+    0.05,
+    0.04,
+    0.95,
+    0.68
+   ]
+  },
+  "pol_alt": "Sacola da Pocopetz com bilhete escrito à mão e um bombom",
+  "pol_cap": "Bilhete e bombom na sacola"
+ },
+ "carrosseis": [
+  {
+   "id": "editorial",
+   "eyebrow": "Na Pocopetz",
+   "h2": "Óculos que viram <em>parte do look.</em>",
+   "p": "Grau e sol de Gucci, Calvin Klein, Carrera, Hugo e da marca própria Pocopetz. Venha provar com calma.",
+   "rotulo": "Clientes e modelos com óculos da Pocopetz",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos de sol quadrado preto e brincos dourados"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "c": [
+       0.45,
+       0.35
+      ]
+     },
+     "alt": "Cliente de óculos de grau gatinho branco e preto e blazer branco"
+    },
+    {
+     "foto": {
+      "id": 18,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente ajustando óculos de sol tartaruga"
+    },
+    {
+     "foto": {
+      "id": 49,
+      "c": [
+       0.6,
+       0.5
+      ]
+     },
+     "alt": "Cliente de óculos de sol Hugo e barba"
+    },
+    {
+     "foto": {
+      "id": 15,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Perfil de cliente com óculos de sol Calvin Klein"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-pocopetz/perfil/oticapocopetz_00.jpg",
+      "box": [
+       0.1,
+       0,
+       0.9,
+       1
+      ]
+     },
+     "alt": "Cliente jovem de óculos de sol preto"
+    },
+    {
+     "foto": {
+      "id": 2,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Cliente de óculos de sol octogonal e blusa vermelha"
+    },
+    {
+     "foto": {
+      "id": 50,
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Cliente de óculos de sol e camiseta preta"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-pocopetz/perfil/oticapocopetz_04.jpg",
+      "box": [
+       0.1,
+       0,
+       0.9,
+       1
+      ]
+     },
+     "alt": "Cliente de óculos de sol falando ao telefone"
+    },
+    {
+     "foto": {
+      "id": 7,
+      "box": [
+       0.4,
+       0.08,
+       0.92,
+       0.6
+      ]
+     },
+     "alt": "Cliente de óculos de sol e blusa laranja diante do letreiro em neon da Pocopetz"
+    }
+   ]
+  },
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Grifes que você <em>encontra aqui.</em>",
+   "p": "Gucci, Calvin Klein, Carrera, Iodice, Ana Hickmann, Juliana Paes, Neymar e a marca própria Pocopetz.",
+   "rotulo": "Vitrine de óculos da Pocopetz",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 22,
+      "box": [
+       0,
+       0.1,
+       1,
+       0.9
+      ]
+     },
+     "alt": "Óculos de sol sobre uma revista de moda"
+    },
+    {
+     "foto": {
+      "id": 47
+     },
+     "alt": "Armação tartaruga entre folhas laranja de outono"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "box": [
+       0,
+       0.1,
+       0.9,
+       0.82
+      ]
+     },
+     "alt": "Óculos de sol Iodice sobre o estojo"
+    },
+    {
+     "foto": {
+      "id": 19,
+      "box": [
+       0,
+       0.1,
+       1,
+       0.9
+      ]
+     },
+     "alt": "Óculos de sol infantis da linha Pocopetz Kids"
+    },
+    {
+     "foto": {
+      "id": 9,
+      "box": [
+       0,
+       0.1,
+       0.9,
+       0.82
+      ]
+     },
+     "alt": "Armação de grau Calvin Klein tartaruga"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "box": [
+       0,
+       0.1,
+       0.9,
+       0.82
+      ]
+     },
+     "alt": "Armação de grau Carrera preta"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar em Mairiporã ou peça fotos e orçamento pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 54,
+    "box": [
+     0,
+     0.03,
+     1,
+     0.96
+    ]
+   },
+   "alt": "Cliente de óculos de grau redondo tartaruga",
+   "texto": "Mais de mil armações, com lentes orientadas no uso."
+  },
+  "solar": {
+   "foto": {
+    "id": 20,
+    "box": [
+     0,
+     0.12,
+     1,
+     0.85
+    ]
+   },
+   "alt": "Cliente de óculos de sol redondo tartaruga com detalhe dourado",
+   "texto": "Grifes e marca própria para todos os estilos."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Visagismo e entrega rápida",
+  "h2": "Óculos prontos <em>em até 30 minutos.</em>",
+  "passos": [
+   "Consultoria de visagismo para achar o formato ideal",
+   "Mais de mil armações para provar com calma",
+   "Lentes explicadas, com orientação de uso",
+   "Óculos prontos em até 30 minutos"
+  ],
+  "botao": "Agendar atendimento",
+  "foto": {
+   "id": 52
+  },
+  "alt": "Cliente de vestido de renda no sofá da Pocopetz, com o letreiro em neon",
+  "pol": {
+   "id": 51,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "pol_alt": "Cliente provando óculos de grau gatinho azul",
+  "pol_cap": "Visagismo",
+  "card": [
+   "Óculos em até 30 min",
+   "Chame no WhatsApp e agende."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Atendimento <em>nota mil.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Thamires CSilva",
+   "tag": "Variedade de armações"
+  },
+  {
+   "nome": "Maria Eduarda",
+   "tag": "Pronto em minutos"
+  },
+  {
+   "nome": "Andreia Queiroz",
+   "tag": "Pós-venda"
+  },
+  {
+   "nome": "RENATA FRANCHI Santos",
+   "tag": "Lentes explicadas"
+  },
+  {
+   "nome": "Syndel Wisniewski",
+   "tag": "Preço justo"
+  }
+ ],
+ "instagram": "oticapocopetz",
+ "insta": {
+  "seguidores": "3,4 mil seguidores",
+  "p": "Lançamentos das grifes, clientes de óculos novos e os bastidores das lojas de Mairiporã e Caieiras.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-pocopetz/perfil/oticapocopetz_01.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Cliente sorrindo de óculos de sol tartaruga na loja",
+  "chip": "Óculos em até 30 min"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Mairiporã.</em>",
+  "endereco": [
+   "Av. Tabelião Passarela, 271 · Centro",
+   "Mairiporã, SP · CEP 07600-027"
+  ],
+  "telefone": "(11) 4604-3587",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Uma experiência que vai além dos óculos.",
+ "mensagem": "Olá! Vim pelo site da Pocopetz Mairiporã e queria um orçamento.",
+ "whatsapp": "551146043587",
+ "fone_link": "+551146043587",
+ "google": {
+  "coords": "-23.3180065,-46.5844943",
+  "fid": "0x94ceed9387252a6f:0x18ec25b60c2eba1",
+  "gid": "/g/11y6hrny44"
+ },
+ "google_nome": "Ótica Pocopetz - Mairiporã",
+ "endereco_maps": "Av. Tab. Passarela, 271 - Centro, Mairiporã - SP, 07600-027",
+ "google_nota": "5,0",
+ "google_total": "297",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "link da bio do Instagram (api.whatsapp.com, fixo com WhatsApp), igual ao telefone do Google e ao da sacola (Unidade II)",
+  "direcao": [
+   "Kaue: clientes e equipe bem fotografados. Tem outra loja (Caieiras, a matriz)."
+  ],
+  "demo": [
+   "Café escuro e dourado do logo, títulos em Lora (serifa). Logo: o da foto de perfil (Pocopetz em letra cursiva dourada).",
+   "Capa \"Uma experiência além dos óculos.\" (a frase da bio) com a cliente sorrindo diante do neon da loja.",
+   "Carrossel \"Editorial\" (10 fotos em retrato, das sessões na loja e dos posts recentes), vitrine de grifes (6), estilos, visagismo e \"óculos em até 30 minutos\" e as 5 avaliações de 5 estrelas que o Google mostrou (5,0 · 297), com horário e aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Lote do Drive (1440 px, sessões no espaço com o neon \"Pocopetz\"), 3 posts recentes pelo embed do perfil e 2 fotos do Google: a loja por dentro e a sacola com bilhete e bombom. Ficaram de fora: artes com texto, quadros de vídeo, a foto com adesivo político e as de menores."
+  ],
+  "conferir": [
+   "Loja 01 em Caieiras: a sacola diz Rua Ambrosina do Carmo Buonaguide, 152 (WhatsApp (11) 4445-5823); a triagem anotou Av. 14 de Dezembro, 139. A demo não cita o endereço de Caieiras.",
+   "\"Óculos prontos em até 30 minutos\" (bio e post de 30/09/2026): conferir para quais lentes vale.",
+   "Quem são as modelos das sessões (equipe, clientes ou influenciadoras?): a demo diz \"cliente\" nas descrições das fotos.",
+   "A foto de blusa vermelha (#2) pode ser de campanha de marca: trocar se for."
+  ]
+ }
+}

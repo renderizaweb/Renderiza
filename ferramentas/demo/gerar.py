@@ -12,7 +12,7 @@
 # Avaliações: {"i": n, "tag": "...", "texto": opcional} com n = posição na lista do google.json
 #   (rode com --avaliacoes para ver a lista numerada; só entram as de 5 estrelas).
 import base64, colorsys, html, io, json, os, re, sys
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(AQUI))
@@ -29,7 +29,7 @@ FONTES = {
     'Lora': ('Lora:ital,wght@0,600;0,700;1,600', '"Lora",Georgia,serif', True),
 }
 VAGAS = {'hero': (800, 960), 'sobre': (576, 720), 'sobre_pol': (420, 479), 'grau': (640, 595), 'solar': (640, 595),
-         'atend': (640, 640), 'atend_pol': (420, 504), 'insta': (600, 750), 'logo': (200, 200)}
+         'atend': (640, 640), 'atend_paisagem': (720, 540), 'atend_pol': (420, 504), 'insta': (600, 750), 'logo': (200, 200)}
 FORMATOS = {'quadrado': (560, 560), 'retrato': (520, 650), 'paisagem': (680, 510)}
 DIAS = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado']
 DIAS_CURTOS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
@@ -77,8 +77,16 @@ def tema(cfg):
     link, css, serifa = FONTES[cfg.get('fonte', 'Archivo')]
     extra = '.logo-mark{background:#fff;border:1px solid var(--line)}.logo-mark img{width:100%;height:100%;object-fit:cover}'
     extra += '.gallery-track--quadrado .vitrine-card{aspect-ratio:1}.gallery-track--retrato .vitrine-card{aspect-ratio:4/5}.gallery-track--paisagem .vitrine-card{aspect-ratio:4/3}'
-    extra += '.vitrine-card figcaption{background:#fff;color:var(--ink)}'
+    extra += '.vitrine-card figcaption{background:#fff;color:var(--ink)}.vitrine-grade{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.vitrine-grade .vitrine-card{aspect-ratio:1}@media(max-width:620px){.vitrine-grade{grid-template-columns:1fr}}'
     if serifa: extra += 'h1,h2{font-weight:700;letter-spacing:-.02em}h1 em,h2 em{font-style:italic;font-weight:600}.logo-text b{font-weight:800;letter-spacing:-.01em}.hero-proof-score,.stat strong,.google-score>strong{font-weight:700}'
+    extra += '.logo,.logo-text{min-width:0}.logo-text b{overflow-wrap:anywhere}@media(max-width:620px){.logo-text b{font-size:1.05rem;line-height:1.15}}'
+    # variantes do "básico bem feito": um card de estilo + formato de rosto; Instagram só com texto
+    extra += '@media(min-width:621px){.styles-grid--dois{grid-template-columns:repeat(2,1fr)}.styles-grid--dois .style-card--tool{grid-column:auto}}'
+    extra += '.insta-grid--solo{grid-template-columns:1fr;justify-items:center;text-align:center}.insta-grid--solo .insta-copy>p:not(.eyebrow){margin-inline:auto}.insta-grid--solo .insta-actions{justify-content:center}'
+    # foto de grupo (equipe) na horizontal, sem cortar ninguém
+    extra += '.experience-main.experience-main--paisagem{height:auto;aspect-ratio:4/3;border-radius:16px 64px 16px 16px}.experience-main--paisagem~.exam-card{top:auto;bottom:4px}'
+    # no celular o número do destaque não pode passar por cima do texto ("Hoya e Zeiss", "5+ anos")
+    extra += '@media(max-width:620px){.stat{grid-template-columns:minmax(110px,auto) 1fr}}'
     extra += cfg.get('css_extra', '')
     troca = {'{{comentario}}': cfg['comentario'], '{{descricao}}': esc(cfg['descricao']), '{{titulo}}': esc(cfg['titulo']),
              '{{fonte_link}}': link, '{{fonte_css}}': css, '{{css_extra}}': extra}
@@ -99,6 +107,8 @@ class Fotos:
         escala = max(tam[0] / im.width, tam[1] / im.height)
         if escala > 1.25: self.avisos.append(f'{nome}: foto pequena para a vaga ({im.width}x{im.height} -> {tam[0]}x{tam[1]})')
         im = ImageOps.fit(im, tam, Image.LANCZOS, centering=tuple(spec.get('c', (0.5, 0.5))))
+        if escala > 1.0:  # foto ampliada: um pouco de nitidez para não parecer borrada
+            im = im.filter(ImageFilter.UnsharpMask(radius=1.4, percent=min(90, round(40 + 60 * (escala - 1))), threshold=2))
         buf = io.BytesIO(); im.save(buf, 'JPEG', quality=spec.get('q', 80), optimize=True, progressive=True)
         return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
 
@@ -139,17 +149,26 @@ def avaliacoes(google):
     out = []
     for a in google.get('avaliacoes', []):
         t = a['t']; linhas = t.split('\n')
-        estrelas = t.split('Gostei')[0].count('')
-        k = next((i for i, l in enumerate(linhas) if re.search(r'(atrás|há \d|semana|mês|ano|dia|hora)', l) and len(l) < 40), None)
+        # (as 5 estrelas aparecem no texto mesmo quando a nota é 1: a nota vem do campo "nota")
+        # linha da data ("5 meses atrás"); \b para não pegar nomes como "Adriano"
+        k = next((i for i, l in enumerate(linhas) if i > 0 and len(l) < 40 and 'avalia' not in l
+                  and re.search(r'\b(atrás|semanas?|m[eê]s|meses|anos?|dias?|horas?|minutos?)\b', l)), None)
         if k is None: continue
         corpo = []
         for l in linhas[k + 1:]:
-            if l.strip() in ('', 'NOVA', 'Novo') or (l and '\ue000' <= l[0] <= '\uf8ff'): continue
-            if l.startswith(('Gostei', 'Compartilhar', 'Resposta do proprietário', 'Visitado em')): break
+            if l and '\ue000' <= l[0] <= '\uf8ff':
+                if corpo: break  # \u00edcone de "Gostei" depois do texto: o que vem a seguir \u00e9 o contador de curtidas
+                continue
+            if l.strip() in ('', 'NOVA', 'Novo'): continue
+            if l.strip() in ('Gostei', 'Compartilhar') or l.startswith(('Resposta do proprietário', 'Visitado em')): break
             corpo.append(l.strip())
         texto = ' '.join(corpo).strip()
         texto = re.sub(r'^\d+ avalia\S*\s+(?:.*?\batrás\s+)?', '', texto)  # cabeçalho do avaliador que às vezes vem junto
-        if texto and estrelas in (0, 5): out.append({'nome': linhas[0].strip(), 'texto': texto, 'estrelas': estrelas})
+        texto = re.sub(r'\s*…\s*\d*$', '', texto)  # "… 1" do fim (contador de fotos da avaliação)
+        nota = re.match(r'(\d)', a.get('nota') or '')
+        if nota and nota.group(1) != '5': continue  # só 5 estrelas (a nota vem do aria-label "5 estrelas")
+        if re.search(r'p[ée]ssim|horr[íi]vel|n[ãa]o recomendo|decepcion|descaso|nunca mais|absurd|mal atendid|demora|reclama|ruim', texto, re.I): continue
+        if texto: out.append({'nome': linhas[0].strip(), 'texto': texto, 'nota': (nota.group(1) if nota else '?')})
     return out
 
 def iniciais(nome):
@@ -181,7 +200,7 @@ FACES = '''<div class="style-card style-card--tool reveal">
           </div>'''
 
 def corpo(cfg, fotos, google):
-    m = cfg['marca']; mc = cfg.get('marca_completa', m); sub = cfg['logo_sub']
+    m = cfg['marca']; mc = cfg.get('marca_completa', m); sub = cfg['logo_sub']; ml = cfg.get('marca_logo', m)
     img = lambda vaga, spec, nome=None: fotos.uri(spec, VAGAS[vaga], nome or vaga)
     logo = img('logo', cfg['logo']) if cfg.get('logo') else None
     logo_mark = (f'<span class="logo-mark" aria-hidden="true"><img src="{logo}" width="200" height="200" alt=""></span>' if logo
@@ -202,7 +221,7 @@ def corpo(cfg, fotos, google):
       f'  <div class="topline"><div class="container"><span>{esc(cfg["topline"])}</span><a class="topline-rating" href="#depoimentos"><span class="stars" aria-hidden="true">★★★★★</span> <span data-rating>{esc(cfg["google_nota"])}</span> no Google</a></div></div>',
       f'''  <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#inicio" aria-label="{esc(mc)}, início">{logo_mark}<span class="logo-text"><b>{esc(m)}</b><small>{esc(sub)}</small></span></a>
+      <a class="logo" href="#inicio" aria-label="{esc(mc)}, início">{logo_mark}<span class="logo-text"><b>{esc(ml)}</b><small>{esc(sub)}</small></span></a>
       <nav class="desktop-nav" aria-label="Navegação principal">{nav}</nav>
       <a class="button header-cta" data-whatsapp href="#">{esc(cfg.get("cta_topo", "Fale com a gente"))} <span aria-hidden="true">↗</span></a>
       <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -218,7 +237,7 @@ def corpo(cfg, fotos, google):
           <p class="hero-intro">{esc(h["intro"])}</p>
           <div class="hero-actions">
             <a class="button button--mustard" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
-            <a class="text-link text-link--light" href="#{cfg["carrosseis"][0]["id"]}">{esc(h.get("link", "Ver a vitrine"))} <span aria-hidden="true">↓</span></a>
+            <a class="text-link text-link--light" href="#{h.get("alvo") or (cfg["carrosseis"][0]["id"] if cfg["carrosseis"] else "estilos")}">{esc(h.get("link", "Ver a vitrine"))} <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-proof">
             <a class="proof-google" href="#depoimentos"><span class="hero-proof-score" data-rating>{esc(cfg["google_nota"])}</span><span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="proof-caption">{esc(cfg["google_total"])} avaliações no Google</span></span></a>
@@ -255,6 +274,22 @@ def corpo(cfg, fotos, google):
       </div>
     </section>''']
     for k, car in enumerate(cfg['carrosseis']):
+        if car.get('formato') == 'grade':
+            itens = ''.join(
+                f'<li><figure class="vitrine-card"><img src="{fotos.uri({"q": 76, **it["foto"]}, (560, 560), car["id"] + str(n))}" width="560" height="560" loading="lazy" alt="{esc(it["alt"])}">'
+                + (f'<figcaption>{esc(it["cap"])}</figcaption>' if it.get('cap') else '') + '</figure></li>'
+                for n, it in enumerate(car['itens'], 1))
+            out.append(f'''
+    <section class="section gallery-section" id="{car["id"]}" aria-labelledby="{car["id"]}-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow">{esc(car["eyebrow"])}</p><h2 id="{car["id"]}-heading">{car["h2"]}</h2></div>
+          <p>{esc(car["p"])}</p>
+        </div>
+        <ul class="vitrine-grade reveal" aria-label="{esc(car["rotulo"])}">{itens}</ul>
+      </div>
+    </section>''')
+            continue
         tam = FORMATOS[car.get('formato', 'quadrado')]
         itens = ''.join(
             f'<li><figure class="vitrine-card"><img src="{fotos.uri({"q": 70, **it["foto"]}, tam, car["id"] + str(n))}" width="{tam[0]}" height="{tam[1]}" loading="lazy" alt="{esc(it["alt"])}">'
@@ -274,7 +309,14 @@ def corpo(cfg, fotos, google):
         </div>
       </div>
     </section>''')
+    # estilos: card de grau e de sol (título e rótulo trocáveis); sem foto boa de sol, fica só o de grau + formato de rosto
     e = cfg['estilos']
+    cards = [(k, e[k], t, r) for k, t, r in (('grau', 'Óculos de grau', '01 / GRAU'), ('solar', 'Óculos de sol', '02 / SOLAR')) if e.get(k)]
+    cards_html = ''.join(f'''
+          <a class="style-card reveal" data-whatsapp href="#">
+            <div class="style-image"><img src="{img(k, c["foto"])}" width="640" height="595" loading="lazy" alt="{esc(c["alt"])}"><span class="image-label">{esc(c.get("rotulo", r))}</span></div>
+            <div class="style-description"><div><h3>{esc(c.get("titulo", t))}</h3><p>{esc(c["texto"])}</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
+          </a>''' for k, c, t, r in cards)
     out.append(f'''
     <section class="section styles-section" id="estilos" aria-labelledby="styles-heading">
       <div class="container">
@@ -282,16 +324,8 @@ def corpo(cfg, fotos, google):
           <div><p class="eyebrow">{esc(e.get("eyebrow", "Qual é a sua?"))}</p><h2 id="styles-heading">{e.get("h2", "Tem um estilo que é <em>a sua cara.</em>")}</h2></div>
           <p>{esc(e["p"])}</p>
         </div>
-        <div class="styles-grid">
-          <a class="style-card reveal" data-whatsapp href="#">
-            <div class="style-image"><img src="{img("grau", e["grau"]["foto"])}" width="640" height="595" loading="lazy" alt="{esc(e["grau"]["alt"])}"><span class="image-label">01 / GRAU</span></div>
-            <div class="style-description"><div><h3>Óculos de grau</h3><p>{esc(e["grau"]["texto"])}</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
-          </a>
-          <a class="style-card reveal" data-whatsapp href="#">
-            <div class="style-image"><img src="{img("solar", e["solar"]["foto"])}" width="640" height="595" loading="lazy" alt="{esc(e["solar"]["alt"])}"><span class="image-label">02 / SOLAR</span></div>
-            <div class="style-description"><div><h3>Óculos de sol</h3><p>{esc(e["solar"]["texto"])}</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
-          </a>
-          {FACES}
+        <div class="styles-grid{" styles-grid--dois" if len(cards) == 1 else ""}">{cards_html}
+          {FACES.replace("03 / SEU ROSTO", f"0{len(cards) + 1} / SEU ROSTO")}
         </div>
       </div>
     </section>''')
@@ -310,7 +344,9 @@ def corpo(cfg, fotos, google):
           <div class="experience-actions"><a class="button" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>{esc(a.get("botao", "Falar no WhatsApp"))}</a></div>
         </div>
         <div class="experience-photos reveal">
-          <figure class="experience-main"><img src="{img("atend", a["foto"])}" width="640" height="640" loading="lazy" alt="{esc(a["alt"])}"></figure>
+          {f'<figure class="experience-main experience-main--paisagem"><img src="{img("atend_paisagem", a["foto"])}" width="720" height="540" loading="lazy" alt="{esc(a["alt"])}"></figure>'
+           if a.get("formato") == "paisagem" else
+           f'<figure class="experience-main"><img src="{img("atend", a["foto"])}" width="640" height="640" loading="lazy" alt="{esc(a["alt"])}"></figure>'}
           {pol_at}
           {card}
         </div>
@@ -330,21 +366,23 @@ def corpo(cfg, fotos, google):
         </div>
       </div>
     </section>''')
+    # Instagram: sem foto boa, a seção fica só com o texto e os botões, centralizada
     i = cfg['insta']; ig = cfg['instagram']
+    midia = f'''
+        <div class="insta-media reveal">
+          <div class="insta-photo"><img src="{img("insta", i["foto"])}" width="600" height="750" loading="lazy" alt="{esc(i["alt"])}"></div>
+          <a class="insta-chip insta-chip--ig" data-instagram href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>@{esc(ig)}</a>
+          <a class="insta-chip insta-chip--ship" data-whatsapp href="#"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(i.get("chip", "Peça pelo WhatsApp"))}</a>
+        </div>''' if i.get('foto') else ''
     out.append(f'''
     <section class="section insta-section" id="instagram" aria-labelledby="insta-heading">
-      <div class="container insta-grid">
+      <div class="container insta-grid{"" if midia else " insta-grid--solo"}">
         <div class="insta-copy reveal">
           <p class="eyebrow">@{esc(ig)}{" · " + esc(i["seguidores"]) if i.get("seguidores") else ""}</p>
           <h2 id="insta-heading">Acompanhe no <em>Instagram.</em></h2>
           <p>{esc(i["p"])}</p>
           <div class="insta-actions"><a class="button" data-instagram href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>Seguir no Instagram</a><a class="text-link" data-whatsapp href="#">Tirar uma dúvida <span aria-hidden="true">↗</span></a></div>
-        </div>
-        <div class="insta-media reveal">
-          <div class="insta-photo"><img src="{img("insta", i["foto"])}" width="600" height="750" loading="lazy" alt="{esc(i["alt"])}"></div>
-          <a class="insta-chip insta-chip--ig" data-instagram href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>@{esc(ig)}</a>
-          <a class="insta-chip insta-chip--ship" data-whatsapp href="#"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(i.get("chip", "Peça pelo WhatsApp"))}</a>
-        </div>
+        </div>{midia}
       </div>
     </section>''')
     v = cfg['visita']
@@ -375,7 +413,7 @@ def corpo(cfg, fotos, google):
 
   <footer class="site-footer">
     <div class="container footer-top">
-      <a class="logo" href="#inicio" aria-label="{esc(mc)}, voltar ao início">{logo_mark}<span class="logo-text"><b>{esc(m)}</b><small>{esc(sub)}</small></span></a>
+      <a class="logo" href="#inicio" aria-label="{esc(mc)}, voltar ao início">{logo_mark}<span class="logo-text"><b>{esc(ml)}</b><small>{esc(sub)}</small></span></a>
       <p class="footer-slogan">{esc(cfg["slogan"])}</p>
       <nav class="footer-links" aria-label="Links da {esc(m)}"><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a><a data-reviews-link href="#" target="_blank" rel="noopener noreferrer">Avaliações</a><a data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar</a></nav>
     </div>
@@ -392,7 +430,16 @@ def cliente(cfg, google, horas):
     cid = int(g['fid'].split(':')[1], 16)
     lista = avaliacoes(google); revs = []
     for a in cfg['avaliacoes']:
-        x = lista[a['i']]; revs.append({'name': x['nome'], 'initials': iniciais(x['nome']), 'tag': a['tag'], 'quote': a.get('texto', x['texto'])})
+        if 'nome' in a:
+            achadas = [x for x in lista if x['nome'].strip().lower() == a['nome'].strip().lower()]
+            if not achadas: raise SystemExit(f'avaliação de {a["nome"]} não está entre as de 5 estrelas')
+            x = achadas[0]
+        else:
+            x = lista[a['i']]
+        nome = x['nome'].strip()
+        if nome == nome.lower():  # "alexandra ferreira" -> "Alexandra Ferreira"
+            nome = ' '.join(p if p in ('de', 'da', 'do', 'dos', 'das', 'e') else p[:1].upper() + p[1:] for p in nome.split())
+        revs.append({'name': nome, 'initials': iniciais(nome), 'tag': a['tag'], 'quote': a.get('texto', x['texto'])})
     js_horas = 'null' if not horas else '{ ' + ', '.join(f'{d}: {json.dumps(horas[d])}' for d in range(7)) + ' }'
     msg = cfg.get('mensagem', f'Olá! Vim pelo site da {cfg["marca"]}.')
     linhas = [
@@ -434,11 +481,12 @@ def gerar(caminho_cfg, saida=None):
     for a in fotos.avisos: print('  AVISO', a)
     if cfg.get('ficha'):
         caminho = os.path.join(os.path.dirname(saida), 'ficha.md')
-        open(caminho, 'w', encoding='utf-8').write(ficha(cfg, horas))
+        antiga = open(caminho, encoding='utf-8').read() if os.path.exists(caminho) else ''
+        open(caminho, 'w', encoding='utf-8').write(ficha(cfg, horas, antiga))
         print(caminho)
     return saida
 
-def ficha(cfg, horas):
+def ficha(cfg, horas, antiga=''):
     """ficha.md da ótica: dados conferidos, o que tem na demo, de onde vieram as fotos e o que conferir."""
     f = cfg['ficha']; dmy = lambda iso: '/'.join(reversed(iso.split('-')))
     fone = cfg['visita'].get('telefone', '')
@@ -449,15 +497,19 @@ def ficha(cfg, horas):
               f'| Google | nota {cfg["google_nota"]} · {cfg["google_total"]} avaliações · conferido em {dmy(cfg["verificado"])} |',
               f'| WhatsApp | ({cfg["whatsapp"][2:4]}) {cfg["whatsapp"][4:-4]}-{cfg["whatsapp"][-4:]} · {f.get("whatsapp_fonte", "")} |',
               '| Horário | ' + ('; '.join(f'{n} {t}' for n, t, _ in linhas_horario(horas)) if horas else 'não confirmado no Google (a demo pede para confirmar no WhatsApp)') + ' |',
+              f'| Site | {f.get("site", "não tem (o Google aponta o Instagram)")} |',
               '| Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar.py` |',
               f'| Situação | pronta · {dmy(cfg["verificado"])} · `/demo/{cfg["pasta"]}` |', '']
     for titulo, chave in (('Direção da demo', 'direcao'), ('O que tem na demo', 'demo'), ('Fotos', 'fotos'), ('Conferir antes de mandar', 'conferir')):
         if f.get(chave): linhas += [f'## {titulo}'] + [f'- {x}' for x in f[chave]] + ['']
+    # o que foi levantado na triagem (ficha antiga) continua valendo: fica no fim
+    m = re.search(r'^## Levantado.*?(?=^## |\Z)', antiga, flags=re.S | re.M)
+    if m and '## Levantado' not in '\n'.join(linhas): linhas += [m.group(0).strip(), '']
     return '\n'.join(linhas)
 
 if __name__ == '__main__':
     args = sys.argv[1:]
     if '--avaliacoes' in args:
-        for n, a in enumerate(avaliacoes(ler_google(args[0]))): print(f'[{n}] {a["nome"]}: {a["texto"][:240]}')
+        for n, a in enumerate(avaliacoes(ler_google(args[0]))): print(f'[{n}] ({a["nota"]}★) {a["nome"]}: {a["texto"][:240]}')
         sys.exit()
     gerar(args[0], args[args.index('--saida') + 1] if '--saida' in args else None)

@@ -1,0 +1,294 @@
+{
+ "pasta": "otica-perfil",
+ "marca": "Ótica Perfil",
+ "marca_logo": "Ótica Perfil",
+ "marca_completa": "Ótica Perfil",
+ "logo_sub": "Embu das Artes · SP",
+ "titulo": "Ótica Perfil | Dentro do Lopes Supermercados, Embu das Artes",
+ "descricao": "Ótica Perfil, dentro do Lopes Supermercados Jardim, na Av. Elias Yazbek, em Embu das Artes: exame de vista, óculos de grau e de sol, lentes Hoya e Zeiss. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Perfil: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaaperfil) e do Perfil da Empresa no Google; nota, avaliações, endereço, telefone e horário do Google, verificados em 02/10/2026.",
+ "fonte": "Bricolage Grotesque",
+ "cores": {
+  "escuro": "#151313",
+  "acento": "#e8333b",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-perfil/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-perfil.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-perfil/perfil.jpg"
+ },
+ "topline": "Embu das Artes · dentro do Lopes Supermercados",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Exame de vista"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica em Embu das Artes · dentro do Lopes",
+  "h1": "A visão perfeita <em>começa aqui.</em>",
+  "intro": "Exame de vista, óculos de grau e de sol e lentes Hoya e Zeiss, dentro do Lopes Supermercados, na Av. Elias Yazbek. Tire as suas dúvidas e peça o orçamento pelo WhatsApp.",
+  "selo": "Dentro do Lopes Supermercados",
+  "link": "Ver a vitrine",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-perfil/google/g00.jpg"
+  },
+  "alt": "Armação de grau tartaruga sobre a mesa, com uma tulipa branca e a caixa da grife"
+ },
+ "endereco": [
+  "Av. Elias Yazbek, 1204",
+  "Dentro do Lopes · Embu das Artes"
+ ],
+ "marquee": [
+  "Exame de vista",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes Hoya",
+  "Lentes Zeiss",
+  "Armações Keyper",
+  "Polaroid",
+  "Dentro do Lopes Supermercados"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ótica Perfil",
+  "h2": "No caminho das compras, <em>a sua ótica.</em>",
+  "p": [
+   "Dentro do Lopes Supermercados do Jardim, na Av. Elias Yazbek, em Embu das Artes, a Ótica Perfil fica no caminho de quem já vai às compras: exame de vista, armações de grau e de sol e lentes de marcas como Hoya e Zeiss.",
+   "São mais de 700 avaliações no Google, todas no mesmo tom: atendimento com paciência, explicação clara e óculos prontos no prazo. Tem família inteira que faz o exame aqui."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "730",
+    "avaliações no Google"
+   ],
+   [
+    "Hoya e Zeiss",
+    "lentes de confiança"
+   ]
+  ],
+  "foto": {
+   "id": 32,
+   "box": [
+    0.15,
+    0.05,
+    0.85,
+    0.92
+   ]
+  },
+  "alt": "Três armações de grau coloridas sobre papéis azul e amarelo"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Grau e sol <em>para todo estilo.</em>",
+   "p": "Keyper, Polaroid, Carmim, HB e outras marcas. Venha provar na loja ou peça o seu orçamento pelo WhatsApp.",
+   "rotulo": "Vitrine de óculos da Ótica Perfil",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 22,
+      "box": [
+       0,
+       0,
+       1,
+       0.88
+      ]
+     },
+     "alt": "Óculos de sol tartaruga com lentes espelhadas refletindo o deserto"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Óculos de sol redondo rosa, entre confetes"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Dois óculos de sol esportivos Polaroid à beira da piscina"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "box": [
+       0,
+       0,
+       1,
+       0.89
+      ]
+     },
+     "alt": "Óculos de sol redondo com café e grãos nas lentes"
+    },
+    {
+     "foto": {
+      "id": 3,
+      "box": [
+       0,
+       0,
+       1,
+       0.9
+      ]
+     },
+     "alt": "Três óculos de sol coloridos entre doces"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Dois óculos de sol aviador Polaroid, preto e tartaruga"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Lopes ou peça o seu orçamento pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 10,
+    "box": [
+     0,
+     0.04,
+     1,
+     0.97
+    ]
+   },
+   "alt": "Armação de grau hexagonal verde com detalhes dourados",
+   "texto": "Armações leves e modernas, com lentes Hoya e Zeiss."
+  },
+  "solar": {
+   "foto": {
+    "id": 33
+   },
+   "alt": "Óculos de sol redondo com lentes marrons sobre a pedra",
+   "texto": "Modelos para todos os rostos e estilos."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Exame de vista e lentes",
+  "h2": "Equipe treinada <em>para cuidar da sua visão.</em>",
+  "passos": [
+   "Agende o exame de vista pelo WhatsApp ou pelo telefone",
+   "Exame na loja, para toda a família",
+   "Escolha da armação com calma, sem empurrar nada",
+   "Óculos no prazo: tem cliente que recebeu na mesma semana"
+  ],
+  "botao": "Agendar exame",
+  "formato": "paisagem",
+  "foto": {
+   "id": 34
+  },
+  "alt": "Equipe da Ótica Perfil na loja, com os certificados do treinamento Zeiss",
+  "card": [
+   "Exame de vista",
+   "Agende pelo WhatsApp ou pelo telefone."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Nota 5,0 em <em>mais de 700 avaliações.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Adriano Leitao",
+   "tag": "Sem empurrar produtos"
+  },
+  {
+   "nome": "LucasFranco Reis",
+   "tag": "Exame para a família"
+  },
+  {
+   "nome": "Wellynton Damato",
+   "tag": "Explicou tudo"
+  },
+  {
+   "nome": "Rayane Marques",
+   "tag": "Pronto na mesma semana"
+  },
+  {
+   "nome": "Samanta Santos",
+   "tag": "Preço justo"
+  },
+  {
+   "nome": "Karoline Viana",
+   "tag": "Nota 10"
+  }
+ ],
+ "instagram": "oticaaperfil",
+ "insta": {
+  "seguidores": "3,1 mil seguidores",
+  "p": "Novidades da loja, parcerias aqui em Embu das Artes e dicas de saúde visual."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Lopes.</em>",
+  "endereco": [
+   "Dentro do Lopes Supermercados Jardim",
+   "Av. Elias Yazbek, 1204 · Tingidor",
+   "Embu das Artes, SP · CEP 06803-000"
+  ],
+  "telefone": "(11) 4704-0163",
+  "rotulo_fone": "Telefone fixo"
+ },
+ "slogan": "A visão perfeita começa aqui.",
+ "mensagem": "Olá! Vim pelo site da Ótica Perfil e queria um orçamento.",
+ "whatsapp": "5511973659399",
+ "fone_link": "+551147040163",
+ "google": {
+  "coords": "-23.652852,-46.850188",
+  "fid": "0x94cfab69b117a96f:0xe99ec7fa456288dd",
+  "gid": "/g/11f4qgc6hp"
+ },
+ "google_nome": "Ótica Perfil - Embu das Artes",
+ "endereco_maps": "Av. Elias Yazbek, 1204 - Tingidor, Embu das Artes - SP, 06803-000",
+ "google_nota": "5,0",
+ "google_total": "730",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "bio do Instagram (\"📞 (11) 97365-9399\") e post antigo \"Pelo WhatsApp: (11) 97365-9399\"; o Google só tem o fixo (11) 4704-0163",
+  "direcao": [
+   "Kaue: fica dentro do Lopes Supermercados. O dono (de barba grisalha) aparece nos vídeos."
+  ],
+  "demo": [
+   "Preto e vermelho do logo, títulos em Bricolage Grotesque. Logo: a foto de perfil do Instagram.",
+   "Capa \"A visão perfeita começa aqui.\" (o slogan da bio) com a foto de capa do Google (armação tartaruga e tulipa).",
+   "Vitrine com 6 fotos de produto que a ótica postou (Polaroid, Vogue e outras), estilos de grau e de sol, a equipe no treinamento Zeiss na seção de exame e 6 avaliações reais do Google (5,0 · 730), com horário e aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "O lote do Drive tem só posts de 2018 a 2020: campanhas de marca (celebridades da Colcci e da Bulget ficaram de fora) e fotos de produto das marcas, que viraram a vitrine (marca d'água ATOL recortada). Real da loja: a equipe no treinamento Zeiss (#34). Os posts recentes são selfies e vídeos do dono: ficaram de fora. Instagram sem foto na seção (só texto e botão)."
+  ],
+  "conferir": [
+   "As fotos da vitrine são de produto das marcas (postadas pela ótica em 2018–2020): trocar por fotos da loja se o dono mandar.",
+   "Marcas: Hoya (post de 22/08/2026), Zeiss (treinamento), Keyper, HB, Carmim, Next e Polaroid (destaques do Instagram). A Versace da capa é a foto de capa do Google.",
+   "A foto da equipe é antiga (treinamento Zeiss): conferir quem continua.",
+   "\"Empresa de empreendedoras\" no Google: a demo não cita quem são as donas."
+  ]
+ }
+}

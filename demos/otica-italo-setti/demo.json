@@ -1,0 +1,516 @@
+{
+ "pasta": "otica-italo-setti",
+ "marca": "Ótica Ítalo Setti",
+ "marca_logo": "Ítalo Setti",
+ "marca_completa": "Ótica Ítalo Setti",
+ "logo_sub": "Baeta Neves · desde 2005",
+ "titulo": "Ótica Ítalo Setti | Baeta Neves, São Bernardo do Campo",
+ "descricao": "Ótica Ítalo Setti, em Baeta Neves, São Bernardo do Campo: óculos de qualidade desde 2005, várias marcas, preço justo e envio para todo o Brasil. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Ítalo Setti: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticasitalosetti); nota, avaliações, endereço, telefone e horário do Perfil da Empresa no Google, verificados em 02/10/2026.",
+ "fonte": "Poppins",
+ "cores": {
+  "escuro": "#13214d",
+  "acento": "#f59a2c",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-italo-setti/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-italo-setti.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-italo-setti/perfil.jpg"
+ },
+ "topline": "Baeta Neves · São Bernardo do Campo",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale com a gente",
+ "hero": {
+  "eyebrow": "Ótica em Baeta Neves, São Bernardo, desde 2005",
+  "h1": "Transforme <em>o seu olhar.</em>",
+  "intro": "Óculos de qualidade, armações de várias marcas e um atendimento humanizado, com preço justo. Desde 2005 em São Bernardo, com envio para todo o Brasil.",
+  "selo": "Desde 2005",
+  "foto": {
+   "id": 42,
+   "box": [
+    0,
+    0,
+    1,
+    0.885
+   ],
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Armação vermelha pendurada num tronco de árvore com folhas"
+ },
+ "endereco": [
+  "Av. Armando Ítalo Setti, 194",
+  "Baeta Neves · São Bernardo"
+ ],
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes Hoya",
+  "Várias marcas",
+  "Preço justo",
+  "Envio para todo o Brasil",
+  "Desde 2005"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ítalo Setti",
+  "h2": "Desde 2005 <em>em São Bernardo.</em>",
+  "p": [
+   "Na Av. Armando Ítalo Setti, em Baeta Neves, a ótica atende famílias inteiras desde 2005: tem cliente que só faz os óculos dela e dos filhos aqui.",
+   "Nas avaliações, quem atende aparece pelo nome e pelos detalhes: a Kesia ajudando a achar a armação ideal para o rosto e até uma carona no carro da ótica até o oftalmologista."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "131",
+    "avaliações no Google"
+   ],
+   [
+    "2005",
+    "desde então"
+   ]
+  ],
+  "foto": {
+   "id": 1,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Atendente de óculos no balcão de armações da Ótica Ítalo Setti",
+  "pol": {
+   "id": 40,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Atendente sorrindo no balcão da loja",
+  "pol_cap": "Atendimento de perto"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "A vitrine",
+   "h2": "Armação bonita <em>em todo lugar.</em>",
+   "p": "As armações da loja fotografadas ao ar livre, como no Instagram. Arraste e peça a sua pelo WhatsApp.",
+   "rotulo": "Armações da Ótica Ítalo Setti",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 16,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações vermelha e azul num tronco de árvore"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação rosa clara num tronco com folhas"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação rosé entre folhas verdes"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Óculos de sol vermelhos num tronco"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações tartaruga sobre folhas"
+    },
+    {
+     "foto": {
+      "id": 50,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações coloridas entre folhas roxas"
+    },
+    {
+     "foto": {
+      "id": 52,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação marrom sobre um tronco caído"
+    },
+    {
+     "foto": {
+      "id": 55,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Óculos de sol entre folhas verdes"
+    },
+    {
+     "foto": {
+      "id": 19,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações e clip-ons sobre fundo amarelo e rosa"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações de acetato na mão"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações finas na mão"
+    },
+    {
+     "foto": {
+      "id": 47,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Óculos de grau sobre estojo de oncinha"
+    },
+    {
+     "foto": {
+      "id": 51,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação rosa sobre estojo colorido"
+    },
+    {
+     "foto": {
+      "id": 56,
+      "box": [
+       0,
+       0,
+       1,
+       0.885
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armações sobre estojo estampado"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar em Baeta Neves ou peça pelo WhatsApp: enviamos para todo o Brasil.",
+  "grau": {
+   "foto": {
+    "id": 53,
+    "box": [
+     0,
+     0,
+     1,
+     0.885
+    ],
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armações de grau sobre folhas verdes",
+   "texto": "Várias marcas e lentes de qualidade."
+  },
+  "solar": {
+   "foto": {
+    "id": 30,
+    "box": [
+     0,
+     0,
+     1,
+     0.885
+    ],
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Óculos de sol empilhados com corrente dourada",
+   "texto": "Modelos para todo estilo, com preço justo."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento humanizado",
+  "h2": "A armação ideal <em>para o seu rosto.</em>",
+  "passos": [
+   "Traga a sua receita",
+   "Ajuda para escolher a armação ideal para o rosto",
+   "Lentes de qualidade, com preço justo",
+   "Pós-venda de perto, sempre que precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 7,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Mão segurando uma armação vinho na calçada",
+  "pol": {
+   "id": 43,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Atendente mostrando uma armação no balcão",
+  "pol_cap": "Ajuda na escolha",
+  "card": [
+   "Envio para todo o Brasil",
+   "Compre pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Atendimento <em>humanizado.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Yasmim Sousa do Carmo",
+   "tag": "Armação ideal"
+  },
+  {
+   "nome": "Marcello Forte Marques",
+   "tag": "Resolveram o problema"
+  },
+  {
+   "nome": "Marlene Silva",
+   "tag": "A família toda"
+  },
+  {
+   "nome": "Thiago Peres",
+   "tag": "Além do esperado"
+  },
+  {
+   "nome": "Eduardo Rodrigues",
+   "tag": "Pequena e grandiosa"
+  }
+ ],
+ "instagram": "oticasitalosetti",
+ "insta": {
+  "seguidores": "2,6 mil seguidores",
+  "p": "Armações novas, dicas de cuidado com os óculos e os bastidores da loja.",
+  "foto": {
+   "id": 34,
+   "box": [
+    0,
+    0,
+    1,
+    0.885
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Óculos de sol entre flores roxas",
+  "chip": "Desde 2005"
+ },
+ "visita": {
+  "h2": "Te esperamos em <em>Baeta Neves.</em>",
+  "endereco": [
+   "Av. Armando Ítalo Setti, 194 · Baeta Neves",
+   "São Bernardo do Campo, SP · CEP 09760-280"
+  ],
+  "telefone": "(11) 4121-9088",
+  "rotulo_fone": "Telefone"
+ },
+ "slogan": "Transforme o seu olhar.",
+ "mensagem": "Olá! Vim pelo site da Ótica Ítalo Setti.",
+ "whatsapp": "5511991337642",
+ "fone_link": "+551141219088",
+ "google": {
+  "coords": "-23.6978865,-46.5491029",
+  "fid": "0x94ce42319731336d:0x2d2cd19136efc383",
+  "gid": "/g/11b6gbrdl5"
+ },
+ "google_nome": "Ótica Ítalo Setti",
+ "endereco_maps": "Av. Armando Ítalo Setti, 194 - Baeta Neves, São Bernardo do Campo - SP, 09760-280",
+ "google_nota": "5,0",
+ "google_total": "131",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "link da bio do Instagram (wa.me/5511991337642); o telefone do Google é o fixo (11) 4121-9088",
+  "direcao": [
+   "Kaue: clientes e equipe reais, com antes e depois.",
+   "Bio: \"Desde 2005 · Transforme o seu olhar · Óculos de qualidade · Enviamos para todo Brasil\"."
+  ],
+  "demo": [
+   "Azul-marinho do Instagram com o laranja dos óculos do logo, títulos em Poppins, logo real.",
+   "Capa \"Transforme o seu olhar.\" (da bio) com uma armação vermelha num tronco: as fotos de produto ao ar livre são a marca do Instagram dela.",
+   "Vitrine com 14 fotos (recortadas acima da faixa azul com o @), a atendente no balcão no Sobre, 6 avaliações reais do Google (5,0 · 131), horário com aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Lote do Drive: 57 fotos úteis, mas a página salva pegou posts de 2021 (artes de Dia das Mães, aviso de horário da pandemia). Usadas só as fotos de produto e da equipe.",
+   "A dona/atendente aparece em capas de vídeo (540 a 720 px): só em tamanho pequeno (polaroides e Instagram)."
+  ],
+  "conferir": [
+   "As fotos do lote são de 2021: confirmar se a equipe e as armações ainda são essas.",
+   "Quem é a moça das fotos (dona?). A Kesia é citada numa avaliação.",
+   "O \"antes e depois\" de clientes que o Kaue viu não veio no lote salvo."
+  ]
+ }
+}

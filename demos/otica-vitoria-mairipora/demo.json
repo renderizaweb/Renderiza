@@ -1,0 +1,272 @@
+{
+ "pasta": "otica-vitoria-mairipora",
+ "marca": "Ótica Vitória",
+ "marca_completa": "Ótica Vitória Mairiporã",
+ "logo_sub": "Centro · Mairiporã",
+ "titulo": "Ótica Vitória | Centro de Mairiporã",
+ "descricao": "Ótica Vitória, no Centro de Mairiporã: consultoria de imagem em óculos, exame de vista, óculos de grau e de sol de marca. Nota 4,9 no Google.",
+ "comentario": "Demo Ótica Vitória Mairiporã: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticavitoriamairipora) e a foto da fachada do Perfil da Empresa no Google; nota, avaliações, endereço e telefone do Google, verificados em 02/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#5a1823",
+  "acento": "#e6c27a",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-vitoria-mairipora/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-vitoria-mairipora.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/otica-vitoria-mairipora/perfil.jpg"
+ },
+ "topline": "Centro · Mairiporã",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Consultoria"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Fale com a gente",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Mairiporã",
+  "h1": "Sua autoestima <em>é importante.</em>",
+  "intro": "Consultoria de imagem especializada em óculos, exame de vista e as marcas que você procura: Ray-Ban, Tommy Hilfiger, Vogue, Ana Hickmann e Atitude.",
+  "selo": "20 anos de ótica",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-vitoria-mairipora/google/g00.jpg",
+   "box": [
+    0.43,
+    0,
+    0.86,
+    1
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada vinho da Ótica Vitória com as letras douradas e a loja iluminada por dentro",
+  "nota": "<b>Exame de vista</b><span aria-hidden=\"true\">·</span><span>agende pelo WhatsApp</span>"
+ },
+ "endereco": [
+  "R. XV de Novembro, 27",
+  "Centro · Mairiporã"
+ ],
+ "marquee": [
+  "Consultoria de imagem",
+  "Exame de vista",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes de contato",
+  "Ray-Ban",
+  "Tommy Hilfiger",
+  "Vogue",
+  "Ana Hickmann",
+  "Atitude"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ótica Vitória",
+  "h2": "20 anos cuidando <em>do seu olhar.</em>",
+  "p": [
+   "No Centro de Mairiporã, na Rua XV de Novembro, a Ótica Vitória está há 20 anos com a mesma família à frente. A dona atende na loja e grava vídeos no Instagram sobre visão, autoestima e o dia a dia da ótica.",
+   "A especialidade é a consultoria de imagem em óculos: ajudar você a escolher a armação que valoriza o rosto, com exame de vista e lentes de qualidade."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "243",
+    "avaliações no Google"
+   ],
+   [
+    "20 anos",
+    "à frente da loja"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-vitoria-mairipora/google/g00.jpg",
+   "box": [
+    0.02,
+    0,
+    0.47,
+    1
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Vitrine da Ótica Vitória sob as letras douradas da fachada vinho"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "formato": "grade",
+   "eyebrow": "Na vitrine",
+   "h2": "Óculos de sol <em>com assinatura.</em>",
+   "p": "Modelos da linha Ana Hickmann que passaram pela vitrine. Peça os seus pelo WhatsApp.",
+   "rotulo": "Óculos de sol da vitrine da Ótica Vitória",
+   "itens": [
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Óculos de sol Ana Hickmann de armação mesclada e lente degradê",
+     "cap": "Ana Hickmann"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Óculos de sol Ana Hickmann vinho com hastes de oncinha"
+    },
+    {
+     "foto": {
+      "id": 44
+     },
+     "alt": "Óculos de sol Ana Hickmann azul com hastes marrons"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Centro ou peça pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 47,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armação de grau sobre livros na loja",
+   "texto": "Exame de vista e lentes de qualidade."
+  },
+  "solar": {
+   "foto": {
+    "id": 36
+   },
+   "alt": "Óculos de sol gatinho preto com hastes douradas",
+   "texto": "Ray-Ban, Vogue, Tommy Hilfiger e Ana Hickmann."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Consultoria de imagem",
+  "h2": "A armação certa <em>valoriza você.</em>",
+  "passos": [
+   "Exame de vista",
+   "Consultoria: formato do rosto, estilo e cores",
+   "Lentes certas para a sua receita",
+   "Ajuste e acompanhamento"
+  ],
+  "botao": "Agendar pelo WhatsApp",
+  "foto": {
+   "id": 39
+  },
+  "alt": "Óculos de sol de armação mesclada, visto de lado",
+  "card": [
+   "Exame de vista",
+   "Agende pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Me senti <em>acolhida.</em>"
+ },
+ "avaliacoes": [
+  {
+   "tag": "Explicou as lentes",
+   "nome": "Luciana Nobrega"
+  },
+  {
+   "tag": "Loja bonita",
+   "nome": "ALCENIR GUIMARÃES"
+  },
+  {
+   "tag": "Dois óculos",
+   "nome": "Larissa Silva Cruz"
+  },
+  {
+   "tag": "Acolhida",
+   "nome": "eliane prado"
+  },
+  {
+   "tag": "Donos atenciosos",
+   "nome": "Danila Lira Reis"
+  }
+ ],
+ "instagram": "oticavitoriamairipora",
+ "insta": {
+  "seguidores": "1,9 mil seguidores",
+  "p": "Vídeos da dona sobre visão e autoestima, novidades da vitrine e o dia a dia da loja.",
+  "foto": {
+   "id": 34
+  },
+  "alt": "Óculos de sol Ana Hickmann preto",
+  "chip": "20 anos de ótica"
+ },
+ "visita": {
+  "h2": "Te esperamos no <em>Centro.</em>",
+  "endereco": [
+   "R. XV de Novembro, 27 · Centro",
+   "Mairiporã, SP · CEP 07600-057"
+  ],
+  "telefone": "(11) 99164-4165",
+  "rotulo_fone": "WhatsApp e telefone",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "slogan": "Sua autoestima é importante.",
+ "mensagem": "Olá! Vim pelo site da Ótica Vitória.",
+ "whatsapp": "5511991644165",
+ "fone_link": "+5511991644165",
+ "google": {
+  "coords": "-23.3192443,-46.5845674",
+  "fid": "0x94ceeddd27564ae7:0xe74ffcee0497a6b4",
+  "gid": "/g/1tmxgppz"
+ },
+ "google_nome": "Ótica Vitória Mairiporã",
+ "endereco_maps": "R. XV de Novembro, 27 - Centro, Mairiporã - SP, 07600-057",
+ "google_nota": "4,9",
+ "google_total": "243",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "bio do Instagram (\"Whats App 99164-4165\"), igual ao telefone do Google",
+  "direcao": [
+   "Kaue: a dona grava vídeos e diz estar \"20 anos à frente\" da ótica. Bio: \"Sua autoestima é importante · Enxergar melhor com qualidade de visão\". Pouca foto de produto; muito vídeo de reflexão e humor."
+  ],
+  "demo": [
+   "Vinho e dourado, as cores da fachada; títulos em Playfair Display; logo real (foto de perfil).",
+   "Capa \"Sua autoestima é importante.\" (da bio) com a fachada iluminada (foto do Google, 2000 px).",
+   "Básico bem feito: sem carrossel. Vitrine com 3 óculos de sol Ana Hickmann (fotos de catálogo que ela postou), estilos, consultoria e Instagram com produto.",
+   "5 avaliações reais do Google (4,9 · 243). Sem horário (o Google não mostrou a semana)."
+  ],
+  "fotos": [
+   "Drive: 49 imagens, quase todas capas de vídeo em 390 px e artes; fotos de campanha da Ana Hickmann (a celebridade) ficaram de fora para não parecer a loja.",
+   "Fachada: foto de capa do Perfil da Empresa no Google (2000 px), em dois recortes (capa e Sobre). As capas de vídeo da dona (640 px, falando) ficaram de fora: borradas."
+  ],
+  "conferir": [
+   "Horário da semana (o Google não mostrou).",
+   "As avaliações falam em \"os donos\": confirmar o nome da dona antes de citar.",
+   "Pedir 2 ou 3 fotos da dona e da equipe na loja: a demo melhora muito com elas."
+  ]
+ }
+}

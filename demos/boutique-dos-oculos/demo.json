@@ -543,24 +543,24 @@
  },
  "avaliacoes": [
   {
-   "i": 0,
-   "tag": "15 anos de cliente"
+   "tag": "15 anos de cliente",
+   "nome": "Camilla Fazzini"
   },
   {
-   "i": 1,
-   "tag": "Atendimento caloroso"
+   "tag": "Atendimento caloroso",
+   "nome": "Cristina Lucia Garcez dos santos"
   },
   {
-   "i": 2,
-   "tag": "Cuidado com a receita"
+   "tag": "Cuidado com a receita",
+   "nome": "Fabio Ortolano"
   },
   {
-   "i": 3,
-   "tag": "Coleção moderna"
+   "tag": "Coleção moderna",
+   "nome": "Celia Maria"
   },
   {
-   "i": 4,
-   "tag": "Fomos só olhar"
+   "tag": "Fomos só olhar",
+   "nome": "Dayana Kuhl Westphal"
   }
  ],
  "instagram": "boutiquedosoculos96",

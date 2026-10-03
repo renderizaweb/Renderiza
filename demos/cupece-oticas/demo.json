@@ -1,0 +1,242 @@
+{
+ "pasta": "cupece-oticas",
+ "marca": "Cupecê Óticas",
+ "marca_logo": "Cupecê Óticas",
+ "marca_completa": "Cupecê Óticas",
+ "logo_sub": "Visão para todos",
+ "titulo": "Cupecê Óticas | Av. Cupecê, Jardim Prudência, São Paulo",
+ "descricao": "Cupecê Óticas, na Av. Cupecê, 3190, no Jardim Prudência, em São Paulo: óculos de grau e de sol, lentes multifocais e exame de vista com optometrista. Nota 4,9 no Google.",
+ "comentario": "Demo Cupecê Óticas: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Perfil da Empresa no Google e do Instagram da loja (@cupeceoticas); nota, avaliações, endereço, telefone e horário do Google, verificados em 02/10/2026.",
+ "fonte": "Montserrat",
+ "cores": {
+  "escuro": "#0b4650",
+  "acento": "#f4a73b",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/cupece-oticas/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/cupece-oticas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/cupece-oticas/logo.png"
+ },
+ "topline": "Jardim Prudência · São Paulo",
+ "dias_curto": "seg a sáb",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Exame de vista"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica na Av. Cupecê · Jardim Prudência",
+  "h1": "Visão para <em>todos.</em>",
+  "intro": "Óculos de grau e de sol, lentes multifocais e exame de vista com optometrista, com uma equipe que explica tudo sem empurrar nada. Peça o seu orçamento pelo WhatsApp.",
+  "selo": "Há mais de 5 anos na Cupecê",
+  "link": "Conhecer a loja",
+  "alvo": "sobre",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/cupece-oticas/google2/g01.jpg",
+   "box": [
+    0.2,
+    0.03,
+    0.8,
+    1.0
+   ]
+  },
+  "alt": "Fachada turquesa da Cupecê Óticas, com o letreiro “visão para todos” e balões na entrada"
+ },
+ "endereco": [
+  "Av. Cupecê, 3190",
+  "Jardim Prudência · São Paulo"
+ ],
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Exame de vista",
+  "Lentes multifocais",
+  "Varilux e Zeiss",
+  "Orçamento no WhatsApp",
+  "Visão para todos",
+  "Av. Cupecê, 3190"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Cupecê Óticas",
+  "h2": "Ótica de bairro <em>que explica tudo.</em>",
+  "p": [
+   "Há mais de 5 anos na Av. Cupecê, no Jardim Prudência, a Cupecê Óticas nasceu da coragem de empreender: a dona largou a CLT para ter o próprio negócio e hoje cuida da loja de perto.",
+   "Aqui tem exame de vista com optometrista, lentes multifocais e armações para todos os bolsos, com uma equipe que explica as lentes com calma. Tem cliente que já voltou para a segunda compra e quem chega pedindo pela Iara."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "228",
+    "avaliações no Google"
+   ],
+   [
+    "5+ anos",
+    "na Av. Cupecê"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/cupece-oticas/google2/g01.jpg",
+   "box": [
+    0.41,
+    0.43,
+    0.67,
+    0.88
+   ]
+  },
+  "alt": "A loja por dentro: mesas de atendimento com cadeiras amarelas e as vitrines da Cupecê Óticas",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/inv/cupece-oticas/perfil.jpg",
+   "box": [
+    0.3,
+    0.16,
+    0.8,
+    0.7
+   ]
+  },
+  "pol_alt": "Casal da Cupecê Óticas na foto de perfil do Instagram da loja",
+  "pol_cap": "Equipe Cupecê"
+ },
+ "carrosseis": [],
+ "estilos": {
+  "p": "Venha provar na loja ou faça o seu pedido direto pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 36,
+    "box": [
+     0.05,
+     0.0,
+     0.95,
+     0.836
+    ]
+   },
+   "alt": "Duas armações de grau da coleção V.B na palma da mão, com balões ao fundo",
+   "texto": "Da coleção V.B às lentes Varilux e Zeiss."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Exame de vista",
+  "h2": "Exame, lente e armação <em>no mesmo lugar.</em>",
+  "passos": [
+   "Agende o exame de vista pelo WhatsApp",
+   "Exame com optometrista, aqui na loja",
+   "Escolha da armação com calma, sem pressão",
+   "Entrega rápida: tem cliente que recebeu antes do prazo"
+  ],
+  "botao": "Agendar exame",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/cupece-oticas/google2/g00.jpg",
+   "box": [
+    0,
+    0.03,
+    1,
+    0.78
+   ]
+  },
+  "alt": "Fachada da Cupecê Óticas com a porta de aço pintada: “Exame de Vista”",
+  "card": [
+   "Exame de vista",
+   "Agende o seu horário pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem compra <em>volta e indica.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Julia Souza",
+   "tag": "Primeiro óculos"
+  },
+  {
+   "nome": "Lilian Gomes",
+   "tag": "Multifocal"
+  },
+  {
+   "nome": "alexandra ferreira",
+   "tag": "Sem empurrar nada"
+  },
+  {
+   "nome": "Francisco Matoso",
+   "tag": "Preço justo"
+  },
+  {
+   "nome": "Jorgiana Cassiano",
+   "tag": "Segunda compra"
+  },
+  {
+   "nome": "Katiane Cristina",
+   "tag": "Exame na loja"
+  }
+ ],
+ "instagram": "cupeceoticas",
+ "insta": {
+  "seguidores": "3,6 mil seguidores",
+  "p": "Vídeos com bom humor, as verdades sobre óculos que ninguém conta e as novidades da loja."
+ },
+ "visita": {
+  "h2": "Te esperamos na <em>Av. Cupecê.</em>",
+  "endereco": [
+   "Av. Cupecê, 3190 · Jardim Prudência",
+   "São Paulo, SP · CEP 04365-001"
+  ],
+  "telefone": "(11) 99268-2210",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Visão para todos.",
+ "mensagem": "Olá! Vim pelo site da Cupecê Óticas e queria um orçamento.",
+ "whatsapp": "5511992682210",
+ "fone_link": "+5511992682210",
+ "google": {
+  "coords": "-23.6671561,-46.6546647",
+  "fid": "0x94ce5b107618f313:0xac7295d30a8652a2",
+  "gid": "/g/11s56zqvw7"
+ },
+ "google_nome": "CUPECÊ ÓTICAS",
+ "endereco_maps": "Av. Cupecê, 3190 - Jardim Prudência, São Paulo - SP, 04365-001",
+ "google_nota": "4,9",
+ "google_total": "228",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "wa.me da bio do Instagram, igual ao telefone do Google",
+  "direcao": [
+   "Kaue: a dona conta a história dela (\"larguei a CLT\") com humor nos reels."
+  ],
+  "demo": [
+   "Turquesa escuro e dourado (a fachada e as letras do letreiro), títulos em Montserrat. Logo: os óculos brancos do perfil sobre o turquesa da marca.",
+   "Capa \"Visão para todos.\" (o slogan do letreiro) com a fachada nova, de balões, foto do Google.",
+   "Básico bem feito, sem carrossel: as fotos antigas do Instagram têm a marca anterior (V.BRA) estampada ou são artes de promoção. Ficaram a loja por dentro, o casal do perfil, a coleção V.B na mão, a porta de aço pintada \"Exame de Vista\" e 6 avaliações reais do Google (4,9 · 228), com horário e aviso de aberto/fechado.",
+   "Estilos com um card só (grau) e o formato de rosto: não há foto boa de óculos de sol. A seção do Instagram fica só com texto e botão."
+  ],
+  "fotos": [
+   "Google: a fachada nova (2000 px), de onde saem a capa e a loja por dentro, e a fachada com a porta fechada. Instagram: foto de perfil (casal e logo) e a coleção V.B na mão (#36 do lote do Drive). O lote do Drive tem só posts antigos, quase todos artes com preço."
+  ],
+  "conferir": [
+   "A loja se chamava V.BRA Óticas Cupecê: a demo usa só o nome atual, Cupecê Óticas.",
+   "\"Há mais de 5 anos\" vem da capa do vídeo de 02/10/2026; a história de largar a CLT vem dos reels (tom de humor). Confirmar com a dona.",
+   "Quem é o casal da foto de perfil (os donos?): a legenda diz só \"Equipe Cupecê\".",
+   "Optometrista e exame na loja: citados nas avaliações e nos cartazes \"Agende aqui seu exame de vista\". Dias e horários do exame não confirmados (um post antigo dizia quarta e sábado, das 11h às 16h).",
+   "Cartaz da fachada: \"Armação V.B a partir de R$ 49,90\" (data da foto desconhecida). A demo não cita preço."
+  ]
+ }
+}

@@ -1,0 +1,268 @@
+{
+ "pasta": "otica-martinez-ramos",
+ "marca": "Ótica Martinez Ramos",
+ "marca_logo": "Martinez Ramos",
+ "marca_completa": "Ótica Martinez Ramos",
+ "logo_sub": "Planalto Paulista · São Paulo",
+ "titulo": "Ótica Martinez Ramos | Planalto Paulista, São Paulo",
+ "descricao": "Ótica Martinez Ramos, no Planalto Paulista, em São Paulo: especialista em lentes multifocais, óculos de grau e de sol, com explicação detalhada. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Martinez Ramos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticamartinezramos) e do Perfil da Empresa no Google; nota, avaliações, endereço, telefone e horário do Google, verificados em 02/10/2026.",
+ "fonte": "Sora",
+ "cores": {
+  "escuro": "#11305f",
+  "acento": "#8fd3f7",
+  "tinta": "escuro"
+ },
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/google/otica-martinez-ramos.json",
+ "topline": "Planalto Paulista · São Paulo",
+ "dias_curto": "seg a sex",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Multifocal"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Planalto Paulista · especialista em multifocal",
+  "h1": "Visão para o seu <em>melhor amanhã.</em>",
+  "intro": "Lentes multifocais, óculos de grau e de sol com quem explica cada detalhe: das medidas à adaptação. Tire as suas dúvidas e peça o orçamento pelo WhatsApp.",
+  "selo": "Especialista em multifocal",
+  "link": "Ver os estilos",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/perfil/oticamartinezramos_00.jpg",
+   "box": [
+    0,
+    0.2,
+    1,
+    1
+   ],
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Especialista da Ótica Martinez Ramos de óculos gatinho pretos e blazer azul"
+ },
+ "endereco": [
+  "Av. Moaci, 373",
+  "Planalto Paulista · São Paulo"
+ ],
+ "marquee": [
+  "Lentes multifocais",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes de contato",
+  "Medidas precisas",
+  "Pré e pós-venda",
+  "Orçamento no WhatsApp",
+  "Planalto Paulista"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Martinez Ramos",
+  "h2": "Seus olhos, <em>nossa prioridade.</em>",
+  "p": [
+   "Na Av. Moaci, no Planalto Paulista, a Ótica Martinez Ramos atende famílias há muitos anos: tem cliente que faz os óculos aqui desde criança e quem chega por indicação do irmão.",
+   "A especialidade são as lentes multifocais. Toda semana, no Instagram, a ótica explica a diferença de preço entre as lentes, como é a adaptação e os mitos sobre multifocal."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "391",
+    "avaliações no Google"
+   ],
+   [
+    "Multifocal",
+    "especialidade da casa"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/google/g03.jpg",
+   "box": [
+    0,
+    0.06,
+    1,
+    0.62
+   ]
+  },
+  "alt": "Fachada da Ótica Martinez Ramos, com a faixa da equipe na vitrine",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/google/g00.jpg"
+  },
+  "pol_alt": "Mesa de atendimento com cadeiras azuis e o painel de armações",
+  "pol_cap": "A loja por dentro"
+ },
+ "carrosseis": [],
+ "estilos": {
+  "p": "Venha provar no Planalto Paulista ou peça o orçamento pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/perfil/oticamartinezramos_02.jpg",
+    "box": [
+     0,
+     0.2,
+     1,
+     0.95
+    ],
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "alt": "Especialista de óculos de grau pretos e casaco vinho",
+   "texto": "Multifocais, ocupacionais e lentes para telas."
+  },
+  "solar": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/perfil/oticamartinezramos_04.jpg",
+    "box": [
+     0,
+     0.2,
+     1,
+     0.95
+    ],
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "alt": "Especialista de óculos de sol gatinho com lente escura",
+   "texto": "A cor da lente certa para cada uso."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Especialista em multifocal",
+  "h2": "Multifocal bem feito <em>começa na medida.</em>",
+  "passos": [
+   "Tire as dúvidas e peça o orçamento pelo WhatsApp",
+   "Medidas precisas na loja, com calma",
+   "Lentes certas para a sua rotina",
+   "Acompanhamento na adaptação e no pós-venda"
+  ],
+  "botao": "Pedir orçamento",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/google/g01.jpg",
+   "box": [
+    0.32,
+    0.12,
+    0.68,
+    0.88
+   ]
+  },
+  "alt": "Sala de atendimento clara, com a cadeira de exame e a tabela de leitura",
+  "card": [
+   "Pré e pós-venda",
+   "Do primeiro contato à adaptação."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Tudo explicado <em>com carinho.</em>"
+ },
+ "avaliacoes": [
+  {
+   "tag": "Cliente desde criança",
+   "nome": "Patrícia Oliveira"
+  },
+  {
+   "tag": "Proprietários competentes",
+   "nome": "Marina Rodrigues"
+  },
+  {
+   "tag": "Atendimento no WhatsApp",
+   "nome": "Juliana Rosa"
+  },
+  {
+   "tag": "Explicações detalhadas",
+   "nome": "Aparecida Gimenez Machado"
+  },
+  {
+   "tag": "Pré e pós-venda",
+   "nome": "Maercio"
+  },
+  {
+   "tag": "Consulta e escolha",
+   "nome": "Luiz Marcos Pedrosa de Souza"
+  }
+ ],
+ "instagram": "oticamartinezramos",
+ "insta": {
+  "seguidores": "dicas toda semana",
+  "p": "Toda semana, vídeos curtos sobre multifocal, cor das lentes de sol e cuidados com os olhos.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote2/extra/otica-martinez-ramos/perfil/oticamartinezramos_01.jpg",
+   "box": [
+    0,
+    0.24,
+    1,
+    1
+   ],
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Especialista da ótica explicando lentes multifocais em vídeo",
+  "chip": "Especialista em multifocal"
+ },
+ "visita": {
+  "h2": "Te esperamos no <em>Planalto Paulista.</em>",
+  "endereco": [
+   "Av. Moaci, 373 · Planalto Paulista",
+   "São Paulo, SP · CEP 04083-000"
+  ],
+  "telefone": "(11) 94512-7163",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Visão para o seu melhor amanhã.",
+ "mensagem": "Olá! Vim pelo site da Ótica Martinez Ramos e queria um orçamento.",
+ "whatsapp": "5511945127163",
+ "fone_link": "+5511945127163",
+ "google": {
+  "coords": "-23.6109611,-46.6642592",
+  "fid": "0x94ce5a0e601eab4d:0x5f873b7269235c0f",
+  "gid": "/g/1trrfb5x"
+ },
+ "google_nome": "Ótica Martinez Ramos",
+ "endereco_maps": "Av. Moaci, 373 - Planalto Paulista, São Paulo - SP, 04083-000",
+ "google_nota": "5,0",
+ "google_total": "391",
+ "verificado": "2026-10-02",
+ "ficha": {
+  "whatsapp_fonte": "telefone do Google (celular); a bio pede orçamento pelo WhatsApp",
+  "direcao": [
+   "Kaue: bio (pela busca na web): 30 anos, especialista em multifocal, orçamento pelo WhatsApp. Uma mulher (dona?) grava explicações sobre multifocal toda semana. Menos de 1 mil seguidores e pouca foto de cliente."
+  ],
+  "demo": [
+   "Azul-marinho e azul-claro (as cores das artes dela), títulos em Sora.",
+   "Capa \"Visão para o seu melhor amanhã.\" (slogan das artes) com a especialista de óculos, recortada abaixo do título do vídeo.",
+   "Básico bem feito, sem carrossel: fachada e loja por dentro (Google), estilos, \"Especialista em multifocal\" e 6 avaliações reais do Google (5,0 · 391), horário com aviso de aberto/fechado."
+  ],
+  "fotos": [
+   "Não estava no lote do Drive. Instagram: as 6 últimas pelo embed do perfil (capas de vídeo em 720 px, nítidas, recortadas abaixo dos títulos). Google: fachada, mesa de atendimento e a sala (recorte do panorama 360°)."
+  ],
+  "conferir": [
+   "Quem é a moça dos vídeos (dona? optometrista?): a demo diz \"especialista\", sem nome.",
+   "\"30 anos\" da bio não foi confirmado aqui: a demo não cita o número.",
+   "O Instagram tem menos de 1 mil seguidores: a demo não mostra o número."
+  ]
+ }
+}

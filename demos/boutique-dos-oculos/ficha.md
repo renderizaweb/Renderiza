@@ -7,6 +7,7 @@
 | Google | nota 5,0 · 123 avaliações · conferido em 02/10/2026 |
 | WhatsApp | (11) 95940-2549 · link da bio do Instagram (wa.me), igual ao telefone do Google |
 | Horário | Segunda a sexta 10h às 19h; Sábado 9h30 às 13h; Domingo Fechado |
+| Site | não tem (o Google aponta o Instagram) |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar.py` |
 | Situação | pronta · 02/10/2026 · `/demo/boutique-dos-oculos` |
 
@@ -28,3 +29,8 @@
 ## Conferir antes de mandar
 - O Maps mostra outra "Boutique dos Óculos" (Av. Dom Pedro II, 1986; 5,0 · 132). Confirmar se é a mesma dona.
 - Os clientes das fotos aparecem no Instagram da loja, mas a demo não cita nomes de cliente.
+
+## Levantado (29/09/2026)
+- Endereço: Av. da Aclimação, 56 B - Aclimação, São Paulo - SP, 01531-000.
+- Posts de transformação de clientes reais, com o nome de cada uma nas legendas.
+- Fotos: o Kaue vai mandar o lote de imagens (Drive), como no lote 1.

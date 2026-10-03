@@ -373,28 +373,24 @@
  },
  "avaliacoes": [
   {
-   "i": 0,
+   "nome": "Erika Macedo",
    "tag": "Atendimento nota mil"
   },
   {
-   "i": 1,
-   "tag": "Vendedora Karina"
-  },
-  {
-   "i": 2,
+   "nome": "Bianca Roza de Melo",
    "tag": "Lentes de contato"
   },
   {
-   "i": 4,
+   "nome": "Silvana Rosa",
+   "tag": "Vendedora Karina"
+  },
+  {
+   "nome": "Edmilson Salviano",
    "tag": "Preço"
   },
   {
-   "i": 5,
-   "tag": "Óculos lindo"
-  },
-  {
-   "i": 7,
-   "tag": "Deu certo"
+   "nome": "antoniel santos",
+   "tag": "Muito satisfeito"
   }
  ],
  "instagram": "oticaharamaki",
