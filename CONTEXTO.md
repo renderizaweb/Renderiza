@@ -24,7 +24,11 @@ da vez.
 - **História**: contar quando a ótica tem uma (anos de casa, família, trajetória). Se não tem, não
   encher linguiça.
 - **Avaliações do Google sempre**, com depoimentos reais (nome + trecho). A nota aparece só se for
-  **4,8 ou mais**; abaixo disso, só os depoimentos.
+  **5,0** (decisão do Kaue, 03/10/2026); com 4,9 ou menos, ficam as estrelas e o número de avaliações.
+- **Depoimentos do mesmo tamanho**: texto longo vira um trecho escolhido da avaliação (até ~175
+  caracteres, com "…" onde cortou), para os cards não ficarem com altura diferente nem espaço em branco.
+- **Nunca cortar rosto**: se o vídeo tem título por cima da cabeça, não usar o quadro (recortar abaixo
+  do texto corta a testa).
 - Arquivo único `index.html` com as fotos dentro, que abre direto no navegador.
 - Referência de acabamento: as demos prontas em `demos/otica-catglass`, `demos/oticas-perez` e
   `demos/franco-oticas` (as mais recentes).
