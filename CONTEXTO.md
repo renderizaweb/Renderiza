@@ -174,6 +174,10 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 6. **Confirmar a cidade de todo @ achado pelo nome** (legenda com a rua ou busca na web): no lote 2,
    vários eram de outra cidade (Soberana = Itajaí, Tradição = BH, Nostra = Argentina).
 
+Lote 3 (05/10/2026): mesma linha, com os scripts versionados em `ferramentas/prospeccao/` (passo a passo e o que
+ajustar para outro nicho no README de lá). Régua mais alta: nota 4,8+, 40+ avaliações, Instagram com post em 45 dias e
+1.000+ seguidores. 22 + 7 de reserva aguardando a validação do Kaue (lista no chat de 05/10/2026).
+
 ## Repositório e site
 
 - **Oficial: `renderizaweb/renderiza`, branch `main`.** Site público, painel e demos no mesmo
