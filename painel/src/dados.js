@@ -8,7 +8,11 @@
 
 import { criarAdaptadorClaude } from "./adaptadores/claude.js";
 
-export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas"];
+export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos"];
+// Tabela que pode ainda não existir no banco (veio depois): se a leitura falhar, o painel segue sem ela.
+const OPCIONAIS = new Set(["demos"]);
+const faltando = new Set();
+export const tabelaFaltando = tabela => faltando.has(tabela);
 
 const linhas = Object.fromEntries(TABELAS.map(t => [t, new Map()]));
 const ouvintes = new Set();
@@ -91,7 +95,9 @@ function limpar() { TABELAS.forEach(t => linhas[t].clear()); avisar("dados"); }
 let assinado = false;
 export async function carregar() {
   try {
-    const listas = await Promise.all(TABELAS.map(t => adaptador.listar(t)));
+    const listas = await Promise.all(TABELAS.map(t => adaptador.listar(t).then(
+      lista => { faltando.delete(t); return lista; },
+      e => { if (!OPCIONAIS.has(t) || e.rede || e.sessao) throw e; faltando.add(t); return []; })));
     TABELAS.forEach((t, i) => { linhas[t] = new Map(listas[i].map(l => [l.id, l])); });
     mudarConexao("online");
     avisar("dados");

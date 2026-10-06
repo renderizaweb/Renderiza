@@ -86,6 +86,14 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
+- **Prazo da demo** (tabela `demos`): toda demo fica no ar por 7 dias e depois sai sozinha. Na seção
+  **Demo** do detalhe aparece a situação (No ar até tal dia, Último dia, Expirada, Fora do ar) e os
+  controles: a chave **No ar** (desliga ou religa na hora; religar uma vencida já dá mais 7 dias),
+  **Vale até** (o último dia no ar, qualquer data), **Reabilitar por 7 dias** / **7 dias a partir de
+  hoje** e **No ar sem prazo**. Demo que ainda não tem prazo mostra **Pôr prazo de 7 dias**. Na tabela e
+  no kanban, a etiqueta vira "demo expirada" ou "demo fora do ar", e **Copiar link da demo** avisa quando
+  o link não está abrindo. Quem abre uma demo fora do prazo vê o aviso "Esta demonstração saiu do ar"
+  com um botão para pedir de novo pelo WhatsApp da Renderiza (`middleware.js`, na Vercel).
 
 ## Atualização pela IA
 
@@ -224,7 +232,8 @@ acesso das outras tabelas: cada usuário só vê e altera as próprias linhas.
 
 Se o banco foi criado antes dessas colunas e tabelas, rode `supabase/schema.sql` de novo. Ele
 acrescenta o que falta (`posicao`, `interesse`, `nao_contatar`, `fora_do_funil`, `interacoes`,
-`tarefas`, `ciclos`, as regras e as funções) sem mexer nos dados.
+`tarefas`, `ciclos`, `demos`, as regras e as funções) sem mexer nos dados. Sem a tabela `demos`, o
+painel funciona e a seção Demo avisa que o prazo está indisponível; as demos ficam no ar.
 
 **Placar começa do zero, de propósito.** Nenhum primeiro contato é deduzido de etapa, de demo criada,
 de data de atualização ou das datas do painel antigo. Óticas que parecem já contatadas aparecem na tela
@@ -238,6 +247,13 @@ esta interação justificou), `previsto_para` (o follow-up que um retorno cumpri
 contato; nada com data futura; data não exata só no primeiro contato.
 
 **`ciclos`**: `inicio`, `fim`, `meta_novas`, `dias_primeiro_retorno` (7), `dias_segundo_retorno` (21), `nome`.
+
+**`demos`**: o prazo de cada demo. `id` (o nome da pasta em `demos/`, o mesmo do link `/demo/<id>`),
+`dono`, `no_ar` (desligado = fora do ar), `vale_ate` (date: último dia no ar no horário de Brasília;
+vazio = sem prazo; padrão = hoje + 7), `criado_em`, `atualizado_em`. A linha nasce sozinha quando um lead
+recebe um `link_demo` com `/demo/<pasta>` (gatilho `leads_registrar_demo`). O site consulta
+`demo_liberada(pasta)`, a única coisa que a chave pública pode chamar: responde só sim ou não. Pasta
+sem linha fica no ar.
 
 **`arquivo_legado`**: `colecao`, `doc_id`, `dono`, `dados` (jsonb), `importado_em`. Guarda o
 portfólio, os lançamentos, as semanas e a configuração do painel antigo. Só leitura por enquanto.

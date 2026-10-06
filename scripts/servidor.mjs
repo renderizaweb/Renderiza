@@ -1,5 +1,5 @@
 // Servidor local igual à Vercel: site público em /, painel em /painel (login em /login),
-// demos em /demo/<ótica> e a função /api/config.
+// demos em /demo/<ótica> (com a mesma trava de prazo do middleware.js) e a função /api/config.
 // Serve direto dos arquivos de origem (a mesma lista do build; a home é montada na hora),
 // então é só recarregar a página.
 // Lê as variáveis de .env.local.
@@ -27,12 +27,17 @@ const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; ch
 // Mesmas regras do vercel.json: só o site público pode aparecer no Google.
 const PRIVADO = /^\/(demo|painel|login|api)(\/|$)/;
 const { default: config } = await import("../api/config.js");
+const { default: travaDasDemos } = await import("../middleware.js");
 
 createServer(async (req, res) => {
   const caminho = decodeURIComponent(new URL(req.url, "http://x").pathname);
   if (PRIVADO.test(caminho)) res.setHeader("X-Robots-Tag", "noindex, nofollow");
   if (/^\/(painel|login)\/?$/.test(caminho)) res.setHeader("X-Frame-Options", "DENY");
   if (caminho === "/api/config") return config(req, res);
+  if (caminho.startsWith("/demo/")) {
+    const fora = await travaDasDemos(new Request("http://localhost" + req.url, { method: req.method }));
+    if (fora) { res.statusCode = fora.status; fora.headers.forEach((v, k) => res.setHeader(k, v)); return res.end(await fora.text()); }
+  }
   // Mesmas URLs da Vercel com cleanUrls: /painel abre painel/index.html; /demo/x/artes-instagram abre o .html.
   const rel = caminho.replace(/^\/+|\/+$/g, "");
   const candidatos = rel === "" ? ["index.html"] : [rel, rel + ".html", rel + "/index.html"];

@@ -141,8 +141,32 @@ WhatsApp".
 2. No painel (Supabase), no lead da ótica: `link_demo = '/demo/<pasta>'` (caminho relativo, sem o
    domínio), etapa `demo_criada` e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
    tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
+   Ao gravar o `link_demo`, o banco cria sozinho o prazo da demo: **7 dias no ar** (tabela `demos`,
+   `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.
 3. Atualizar a `ficha.md` (situação `pronta · data`) e a tabela do `README.md`.
 4. **Flyer de Stories junto com a demo** (pedido do Kaue em 06/10/2026, vale para toda demo nova): ver abaixo.
+
+## Prazo das demos (7 dias)
+
+Pedido do Kaue em 06/10/2026: demo não fica no ar para sempre. Cada uma vale **7 dias a partir da
+criação** e depois sai do ar sozinha; para reabilitar, é no card do lead.
+
+- **Como funciona:** `middleware.js` (Routing Middleware da Vercel) roda antes de cada `/demo/<pasta>` e
+  pergunta ao Supabase `demo_liberada(pasta)` com a chave pública. No ar = `no_ar` ligado e `vale_ate`
+  (último dia, horário de Brasília) de hoje em diante, ou sem prazo. Fora disso, responde 410 com a
+  página "Esta demonstração saiu do ar" e um botão para a ótica pedir de novo pelo WhatsApp da Renderiza
+  (é uma deixa para retomar a conversa). Na dúvida (banco fora, sem configuração, pasta sem linha), a
+  demo **abre**: erro nunca derruba demo.
+- **No painel:** seção **Demo** do lead: situação, chave **No ar**, **Vale até**, **Reabilitar por 7 dias**
+  (ou **7 dias a partir de hoje**) e **No ar sem prazo**. Etiqueta "demo expirada" / "demo fora do ar" na
+  tabela e no kanban. Antes de mandar um link de novo, conferir que a demo está no ar.
+- **Demo nova:** nasce com 7 dias pelo gatilho do `link_demo` (passo 2 acima). Para dar mais tempo a quem
+  está em conversa, reabilitar no card.
+- **As que já existiam em 06/10/2026 (as 42 publicadas):** todas com `vale_ate = 13/10/2026`. Quatro não
+  têm lead com link (lu-elegante-modas, otica-smart, otica-vip-lapa, oticas-f-dias): o prazo delas só muda
+  pelo banco (`update public.demos set vale_ate = ... where id = '<pasta>'`) ou pondo o link num lead. A
+  `otica-dutra` não tem página publicada (parada); ganha o prazo quando entrar no lead.
+- **O flyer não tem prazo** (`/flyer/<id>.png` é presente para a ótica guardar).
 
 ## Flyer de Stories (cortesia para retomar o contato)
 

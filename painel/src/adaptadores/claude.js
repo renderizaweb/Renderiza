@@ -64,8 +64,9 @@ export function criarAdaptadorClaude(db) {
 
     async inserir(tabela, linha) {
       if (tabela === "interacoes") conferirInteracao(linha);
-      const ref = col(tabela).doc();
-      const doc = { ...linha, criado_em: agora(), atualizado_em: agora() };
+      const { id: idDado, ...resto } = linha; // demos: o id é o nome da pasta
+      const ref = idDado ? col(tabela).doc(idDado) : col(tabela).doc();
+      const doc = { ...resto, criado_em: agora(), atualizado_em: agora() };
       await tentar(() => ref.set(doc));
       bruto(tabela).set(ref.id, doc);
       return { ...doc, id: ref.id };

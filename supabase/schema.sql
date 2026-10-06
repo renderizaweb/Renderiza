@@ -8,6 +8,7 @@
 --   tarefas         o que fazer: dia e hora opcionais, cliente opcional, responsável opcional (tela Tarefas)
 --   ciclos          período, meta de novas óticas e cadência de retornos (tela Ritmo)
 --   conteudos       ideias e publicações (tela Conteúdo)
+--   demos           prazo de cada demo (/demo/<pasta>): no ar, fora do ar, vale até. O site consulta antes de abrir
 --   arquivo_legado  portfólio, lançamentos, semanas e config do painel antigo, guardados como JSON
 --
 -- Segurança: cada linha tem um dono (o usuário logado). As políticas de RLS só deixam
@@ -214,6 +215,21 @@ create table if not exists public.ciclos (
 
 create index if not exists ciclos_dono_inicio_idx on public.ciclos (dono, inicio);
 
+-- ---------- demos ----------
+-- Prazo de cada demo: uma linha por pasta em demos/ (id = pasta, link /demo/<id>). O site só abre a
+-- demo se no_ar e vale_ate >= hoje (Brasília); senão mostra "demo fora do ar" (middleware.js na Vercel).
+-- Demo nova nasce com 7 dias: a linha é criada sozinha quando um lead recebe o link (gatilho mais abaixo).
+create table if not exists public.demos (
+  id            text primary key check (id ~ '^[a-z0-9][a-z0-9-]{0,79}$'),
+  dono          uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  no_ar         boolean not null default true,          -- desligado = fora do ar, com ou sem prazo
+  vale_ate      date default ((now() at time zone 'America/Sao_Paulo')::date + 7), -- último dia no ar; vazio = sem prazo
+  criado_em     timestamptz not null default now(),
+  atualizado_em timestamptz not null default now()
+);
+
+create index if not exists demos_dono_idx on public.demos (dono);
+
 -- ---------- arquivo do painel antigo ----------
 create table if not exists public.arquivo_legado (
   colecao      text not null,   -- portfolio, lancamentos, semanas, config
@@ -256,17 +272,22 @@ drop trigger if exists ciclos_atualizado_em on public.ciclos;
 create trigger ciclos_atualizado_em before update on public.ciclos
   for each row execute function public.tocar_atualizado_em();
 
+drop trigger if exists demos_atualizado_em on public.demos;
+create trigger demos_atualizado_em before update on public.demos
+  for each row execute function public.tocar_atualizado_em();
+
 -- ---------- acesso ----------
 alter table public.leads          enable row level security;
 alter table public.conteudos      enable row level security;
 alter table public.interacoes     enable row level security;
 alter table public.ciclos         enable row level security;
 alter table public.tarefas        enable row level security;
+alter table public.demos          enable row level security;
 alter table public.arquivo_legado enable row level security;
 
 -- O Supabase dá todos os privilégios por padrão; aqui fica só o necessário.
-revoke all on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas, public.arquivo_legado from anon, authenticated;
-grant select, insert, update, delete on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas to authenticated;
+revoke all on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas, public.demos, public.arquivo_legado from anon, authenticated;
+grant select, insert, update, delete on public.leads, public.conteudos, public.interacoes, public.ciclos, public.tarefas, public.demos to authenticated;
 grant select on public.arquivo_legado to authenticated;
 
 drop policy if exists "leads do dono" on public.leads;
@@ -299,10 +320,64 @@ create policy "tarefas do dono" on public.tarefas
   using (dono = (select auth.uid()))
   with check (dono = (select auth.uid()));
 
+drop policy if exists "demos do dono" on public.demos;
+create policy "demos do dono" on public.demos
+  for all to authenticated
+  using (dono = (select auth.uid()))
+  with check (dono = (select auth.uid()));
+
 drop policy if exists "arquivo do dono" on public.arquivo_legado;
 create policy "arquivo do dono" on public.arquivo_legado
   for select to authenticated
   using (dono = (select auth.uid()));
+
+-- ---------- prazo das demos ----------
+-- Pasta da demo a partir do link do lead: "/demo/otica-sales" ou "https://…/demo/otica-sales/artes-instagram" -> "otica-sales".
+create or replace function public.renderiza_pasta_da_demo(link text)
+returns text
+language sql
+immutable
+set search_path = ''
+as $$
+  select lower(substring(coalesce(link, '') from '/demo/([A-Za-z0-9-]+)'))
+$$;
+
+-- O site (middleware.js) pergunta antes de abrir /demo/<pasta>, com a chave pública. Só responde sim ou
+-- não, sem mostrar nada da tabela. Pasta sem linha fica no ar.
+create or replace function public.demo_liberada(pasta text)
+returns boolean
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select coalesce(
+    (select d.no_ar and (d.vale_ate is null or d.vale_ate >= (now() at time zone 'America/Sao_Paulo')::date)
+       from public.demos d
+      where d.id = lower(pasta)),
+    true)
+$$;
+revoke all on function public.demo_liberada(text) from public;
+grant execute on function public.demo_liberada(text) to anon, authenticated;
+
+-- Demo nova nasce com 7 dias: quando um lead recebe um link /demo/<pasta> que ainda não tem linha.
+create or replace function public.leads_registrar_demo()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+declare
+  p text := public.renderiza_pasta_da_demo(new.link_demo);
+begin
+  if p ~ '^[a-z0-9][a-z0-9-]{0,79}$' then
+    insert into public.demos (id, dono) values (p, new.dono) on conflict (id) do nothing;
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists leads_registrar_demo on public.leads;
+create trigger leads_registrar_demo after insert or update of link_demo on public.leads
+  for each row execute function public.leads_registrar_demo();
 
 -- ---------- funções para a atualização pela IA (docs/atualizacao-por-ia.md) ----------
 -- Todas rodam com as permissões de quem chama (security invoker): valem as mesmas políticas
@@ -600,7 +675,7 @@ declare
   t text;
 begin
   if exists (select 1 from pg_publication where pubname = 'supabase_realtime') then
-    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos', 'tarefas'] loop
+    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos', 'tarefas', 'demos'] loop
       if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
         execute format('alter publication supabase_realtime add table public.%I', t);
       end if;

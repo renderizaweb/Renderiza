@@ -9,7 +9,7 @@ Um site só, publicado na Vercel:
 | `/` | Site público da Renderiza: quem é o Kaue, o que faz, trabalhos e contato | todo mundo (é o único endereço que o Google pode indexar) |
 | `/login` | Login do painel | só você |
 | `/painel` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo). Sem sessão, manda para `/login` | só você |
-| `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`) | quem tiver o link |
+| `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`), no ar por 7 dias | quem tiver o link, no prazo |
 | `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
 | `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
 
@@ -21,6 +21,8 @@ Um site só, publicado na Vercel:
   `site/`), os arquivos de `site/estatico/`, o painel e os `.html` das demos. Fichas, contexto,
   ferramentas, banco e scripts nunca são publicados.
 - Painel, login, demos e `/api` pedem ao Google para não indexar (`vercel.json`). A home não lista as demos.
+- `middleware.js` roda na Vercel antes de cada `/demo/...`: demo vencida ou desligada no painel mostra
+  "Esta demonstração saiu do ar" (ver "Prazo da demo" abaixo).
 - Endereço antigo do painel com aba (`/#pipeline`) leva sozinho para `/painel#pipeline`.
 - Rodar no computador: `npm run dev` (site em `http://localhost:5173`, painel em `/painel`, demos em `/demo/<ótica>`).
 
@@ -59,6 +61,15 @@ que uma demo chega na `main`, a Vercel publica sozinha. No painel, o campo **Lin
 recebe só o caminho (`/demo/otica-sales`): aparece a etiqueta "demo ↗" na tabela e no kanban, e o
 botão "Copiar link da demo para enviar" monta o link completo para mandar à ótica. Sem internet, dá para baixar o `.html` e abrir
 direto no navegador.
+
+## Prazo da demo
+
+Toda demo fica no ar por **7 dias** e sai sozinha depois. Quem abrir o link fora do prazo vê o aviso
+"Esta demonstração saiu do ar", com um botão para pedir de novo pelo WhatsApp da Renderiza. O prazo fica
+na tabela `demos` do Supabase (uma linha por pasta, criada sozinha quando o lead recebe o link da demo) e
+se muda no painel, na seção **Demo** do lead: ligar e desligar, escolher o último dia, reabilitar por mais
+7 dias ou deixar sem prazo. Se o banco não responder, a demo abre (nunca cai por erro). Regras:
+[`CONTEXTO.md`](CONTEXTO.md).
 
 ## Flyer de Stories
 

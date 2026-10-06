@@ -326,6 +326,29 @@ td.money .inline-text{text-align:right}
 .flyer-info strong{font-size:.875rem;color:#22342f}
 .flyer-info p,.flyer-vazio{font-size:.8125rem;color:#5d6d65;line-height:1.5;margin:0}
 .flyer-botoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+/* prazo da demo (o site só abre /demo/<pasta> no prazo) */
+.demo-prazo{display:grid;gap:12px;background:#f8f7fe;border:1px solid #e6e2f8;border-radius:10px;padding:12px 14px}
+.demo-prazo.estado-expirada,.demo-prazo.estado-fora{background:#fdf5f4;border-color:#f1d6d2}
+.demo-prazo.estado-ultimo_dia{background:#fffaf0;border-color:#efe1bf}
+.demo-situacao{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:.8125rem;color:#3d4a45;line-height:1.45}
+.demo-estado{font-size:.6875rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.3px;white-space:nowrap}
+.demo-estado.no_ar,.demo-estado.sem_prazo{background:#dff1e5;color:#1f6b41}
+.demo-estado.ultimo_dia{background:#fdf0d5;color:#8b5d12}
+.demo-estado.expirada,.demo-estado.fora{background:#fbe6e3;color:#b3261e}
+.demo-estado.sem_controle{background:#eef2f0;color:#52645b}
+.demo-controles{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 18px}
+.demo-chave{display:inline-flex;align-items:center;gap:9px;height:40px;font-size:.875rem;font-weight:600;color:#22342f;cursor:pointer}
+.demo-chave input{-webkit-appearance:none;appearance:none;flex:none;width:40px;height:24px;margin:0;border-radius:999px;background:#cbd5cf;position:relative;cursor:pointer;transition:background-color .15s}
+.demo-chave input::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px #00000033;transition:transform .15s}
+.demo-chave input:checked{background:var(--primary)}
+.demo-chave input:checked::after{transform:translateX(16px)}
+.demo-chave input:disabled{opacity:.5;cursor:default}
+.demo-vale{width:190px;flex:none}
+.demo-botoes{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;min-height:40px}
+.demo-prazo>.btn{justify-self:start}
+.demo-dica{font-size:.75rem;color:#6d7b77;line-height:1.5}
+.marca-revisar.marca-demo.fora,.chip-demo.fora{background:#f6e6e3;color:#9a432d}
+.marca-revisar.marca-demo.fora:hover,.chip-demo.fora:hover{background:#f0d8d3}
 .cartao.cor-ambar{background:#fffcf4;border-color:#efe3c6}
 .cartao.cor-ambar textarea{background:#fffaf0;border-color:#ecdcb6;line-height:1.65;min-height:110px;resize:none;overflow:hidden}
 .cartao.cor-ambar textarea:focus{border-color:#c9a45a;box-shadow:0 0 0 2px #f6e9c9}

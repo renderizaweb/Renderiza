@@ -19,6 +19,7 @@ import { criarTelaRitmo } from "./tela-ritmo.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
+import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
 
 const $ = s => document.querySelector(s);
 
@@ -269,7 +270,7 @@ const planilhaLeads = criarPlanilha({
   ocultas: () => ui.ocultas.leads,
   aoOcultar: campo => { ui.ocultas.leads.add(campo); guardar(); render(); },
   marcas: l => [
-    urlHref(l.link_demo) ? { texto: "demo ↗", classe: "marca-demo", titulo: "Abrir a demo em outra aba", href: urlHref(l.link_demo) } : null,
+    urlHref(l.link_demo) ? marcaDaDemo(l) : null,
     l.revisar ? { texto: "revisar", titulo: "Veio do painel antigo e precisa de revisão" } : null,
     l.nao_contatar ? { texto: "não contatar", classe: "marca-parar", titulo: "Pediu para não receber mais contato" } : null,
   ].filter(Boolean),
@@ -415,8 +416,7 @@ function renderKanban() {
         detalhe ? h("small", { text: detalhe }) : null,
         h("span", { class: "kanban-chips" },
           seloDeTarefas(tarefasAbertas.get(l.id)),
-          urlHref(l.link_demo) ? h("a", { class: "chip-demo", href: urlHref(l.link_demo), target: "_blank", rel: "noopener noreferrer", title: "Abrir a demo em outra aba", text: "demo ↗",
-            draggable: "false", onclick: e => e.stopPropagation(), onkeydown: e => e.stopPropagation() }) : null,
+          urlHref(l.link_demo) ? chipDaDemo(marcaDaDemo(l)) : null,
           l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: l.resultado === "ganho" ? "Ganho" : "Perda" }) : null,
           l.interesse && l.interesse !== "nao_avaliado" ? h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }) : null,
           l.nao_contatar ? h("span", { class: "chip-parar", text: "não contatar" }) : null));
@@ -438,6 +438,21 @@ function renderKanban() {
     return coluna;
   }));
 }
+
+/* ---------- prazo da demo: o site só abre /demo/<pasta> no prazo (middleware.js) ---------- */
+/** Situação da demo do lead, ou null quando o link não é uma demo deste site. */
+function situacaoDoLead(l) {
+  const pasta = pastaDaDemo(l.link_demo);
+  return pasta ? { pasta, ...situacaoDaDemo(dados.buscar("demos", pasta), hojeEmBrasilia()) } : null;
+}
+/** Etiqueta "demo ↗" da tabela e do kanban; vira "demo expirada" ou "demo fora do ar" quando o link não abre. */
+function marcaDaDemo(l) {
+  const s = situacaoDoLead(l), href = urlHref(l.link_demo);
+  if (s && !s.noAr) return { texto: s.estado === "expirada" ? "demo expirada" : "demo fora do ar", classe: "marca-demo fora", titulo: s.texto + " Reabilite na seção Demo, nos detalhes da ótica.", href };
+  return { texto: "demo ↗", classe: "marca-demo", titulo: s && s.estado !== "sem_controle" ? s.texto : "Abrir a demo em outra aba", href };
+}
+const chipDaDemo = m => h("a", { class: "chip-demo" + (/\bfora\b/.test(m.classe) ? " fora" : ""), href: m.href, target: "_blank", rel: "noopener noreferrer", title: m.titulo, text: m.texto,
+  draggable: "false", onclick: e => e.stopPropagation(), onkeydown: e => e.stopPropagation() });
 
 /** Selo do cartão: ícone de tarefas e quantas estão em aberto (vermelho se alguma atrasou). */
 function seloDeTarefas(c) {
@@ -609,12 +624,14 @@ function chipsDoLead() {
 /** WhatsApp, Instagram e demo a um toque, sem procurar os campos lá embaixo. */
 function acoesRapidas() {
   const el = h("div", { class: "lead-acoes" });
-  let linkDemo = "";
+  let linkDemo = "", demoFora = "";
   const copiar = h("button", { type: "button", class: "acao-rapida copiar-demo", title: "Copia o link completo, pronto para mandar à ótica" }, icone("copiar", 15), "Copiar link da demo");
   copiar.addEventListener("click", () => {
     if (!linkDemo) return;
     const mostrar = () => aviso("Copie o link: " + linkDemo);
-    try { navigator.clipboard.writeText(linkDemo).then(() => aviso("Link da demo copiado."), mostrar); } catch (e) { mostrar(); }
+    // Link copiado de demo vencida abre o aviso de fora do ar: lembra de reabilitar antes de mandar.
+    const ok = () => aviso(demoFora ? "Link copiado, mas a demo não abre agora (" + demoFora + "). Reabilite na seção Demo antes de mandar." : "Link da demo copiado.", demoFora ? "erro" : undefined);
+    try { navigator.clipboard.writeText(linkDemo).then(ok, mostrar); } catch (e) { mostrar(); }
   });
   let linkFlyer = "", empresa = "";
   const flyer = h("button", { type: "button", class: "acao-rapida flyer", title: "Baixa o PNG de Stories para mandar à ótica" }, icone("baixar", 15), "Baixar flyer");
@@ -625,6 +642,8 @@ function acoesRapidas() {
     linkFlyer = urlHref(l.link_flyer); empresa = l.empresa;
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
     linkDemo = demo ? new URL(demo, location.href).href : "";
+    const s = situacaoDoLead(l);
+    demoFora = s && !s.noAr ? (s.estado === "expirada" ? "expirada" : "fora do ar") : "";
     const botoes = [
       wa ? link("whatsapp", wa, "mensagem", "WhatsApp") : null,
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
@@ -683,6 +702,86 @@ function secaoFlyer(id) {
   });
   return cartao("Flyer para Stories", { classe: "secao-flyer" }, cheio, vazio,
     campo("leads", id, { campo: "link_flyer", rotulo: "Link do flyer", href: urlHref, largo: true, placeholder: "/flyer/nome-da-otica.png" }));
+}
+
+/* ---------- seção Demo: link, gravação e o prazo no ar ---------- */
+const ESTADO_DEMO = { no_ar: "No ar", ultimo_dia: "Último dia", sem_prazo: "No ar", expirada: "Expirada", fora: "Fora do ar", sem_controle: "Sem prazo" };
+function secaoDemo(id) {
+  const situacao = h("p", { class: "demo-situacao" });
+  const chave = h("input", { type: "checkbox", role: "switch", "aria-label": "Demo no ar" });
+  const vale = h("input", { type: "date" });
+  const prazo = h("button", { type: "button", class: "btn btn-sm" });
+  const semPrazo = h("button", { type: "button", class: "text-link", text: "No ar sem prazo" });
+  const porPrazo = h("button", { type: "button", class: "btn btn-primary btn-sm" }, icone("relogio", 15), `Pôr prazo de ${DIAS_DE_PRAZO} dias`);
+  const controles = h("div", { class: "demo-controles" },
+    h("label", { class: "demo-chave" }, chave, h("span", { text: "No ar" })),
+    h("label", { class: "campo demo-vale" }, h("span", { text: "Vale até (último dia no ar)" }), vale),
+    h("div", { class: "demo-botoes" }, prazo, semPrazo));
+  const dica = h("p", { class: "demo-dica", text: "Vencida ou fora do ar, quem abrir o link vê o aviso \"Esta demonstração saiu do ar\" e um botão para pedir de novo pelo WhatsApp." });
+  const caixa = h("div", { class: "demo-prazo" }, situacao, controles, porPrazo, dica);
+  let pasta = "", demo = null;
+
+  const desenhar = l => {
+    const editavel = dados.podeEditar();
+    pasta = pastaDaDemo(l.link_demo);
+    demo = pasta ? dados.buscar("demos", pasta) : null;
+    caixa.hidden = !String(l.link_demo || "").trim();
+    if (!pasta) {
+      situacao.replaceChildren(h("span", { text: "O prazo vale só para as demos deste site (/demo/nome-da-otica)." }));
+      controles.hidden = porPrazo.hidden = dica.hidden = true;
+      return;
+    }
+    if (dados.tabelaFaltando("demos")) {
+      situacao.replaceChildren(h("span", { text: "Prazo indisponível: a tabela demos ainda não existe no banco (supabase/schema.sql)." }));
+      controles.hidden = porPrazo.hidden = dica.hidden = true;
+      return;
+    }
+    const s = situacaoDaDemo(demo, hojeEmBrasilia());
+    caixa.className = "demo-prazo estado-" + s.estado;
+    situacao.replaceChildren(h("span", { class: "demo-estado " + s.estado, text: ESTADO_DEMO[s.estado] }), h("span", { text: s.texto }));
+    controles.hidden = !demo; porPrazo.hidden = !!demo; dica.hidden = false;
+    if (demo) {
+      chave.checked = !!demo.no_ar && s.estado !== "expirada";
+      if (document.activeElement !== vale) vale.value = demo.vale_ate || "";
+      prazo.className = "btn btn-sm " + (s.noAr ? "btn-outline" : "btn-primary");
+      prazo.replaceChildren(icone("relogio", 15), s.noAr ? `${DIAS_DE_PRAZO} dias a partir de hoje` : `Reabilitar por ${DIAS_DE_PRAZO} dias`);
+      semPrazo.hidden = s.estado === "sem_prazo";
+    }
+    [chave, vale, prazo, semPrazo, porPrazo].forEach(el => { el.disabled = !editavel; });
+  };
+  vincular(desenhar);
+  const redesenhar = () => { const l = dados.buscar("leads", id); if (l) desenhar(l); };
+  async function gravar(patch, mensagem) {
+    try { await salvar("demos", pasta, patch); aviso(mensagem); } catch (e) { /* aviso já mostrado */ }
+    redesenhar();
+  }
+
+  chave.addEventListener("change", () => {
+    if (!demo) return;
+    if (!chave.checked) return gravar({ no_ar: false }, "Demo fora do ar: quem abrir o link vê o aviso.");
+    // Ligar uma demo vencida sem mexer no prazo não adianta: já volta com mais 7 dias.
+    const vencida = demo.vale_ate && demo.vale_ate < hojeEmBrasilia();
+    const patch = vencida ? reabilitar(hojeEmBrasilia()) : { no_ar: true };
+    const fim = patch.vale_ate || demo.vale_ate;
+    gravar(patch, "Demo no ar de novo, " + (fim ? "até " + diaMes(fim) : "sem prazo") + ".");
+  });
+  vale.addEventListener("change", () => {
+    if (!demo) return;
+    const v = vale.value || null;
+    if (v === (demo.vale_ate || null)) return;
+    gravar({ vale_ate: v }, !v ? "Demo sem prazo." : v < hojeEmBrasilia() ? "Prazo salvo, mas essa data já passou: a demo está fora do ar." : "Prazo salvo: no ar até " + diaMes(v) + (demo.no_ar ? "." : " quando ligar a chave."));
+  });
+  prazo.addEventListener("click", () => { const p = reabilitar(hojeEmBrasilia()); gravar(p, "Demo no ar até " + diaMes(p.vale_ate) + "."); });
+  semPrazo.addEventListener("click", () => gravar({ no_ar: true, vale_ate: null }, "Demo no ar, sem prazo."));
+  porPrazo.addEventListener("click", async () => {
+    const p = reabilitar(hojeEmBrasilia());
+    try { await criar("demos", { id: pasta, ...p }); aviso("Prazo posto: demo no ar até " + diaMes(p.vale_ate) + "."); } catch (e) { /* aviso já mostrado */ }
+    redesenhar();
+  });
+
+  return cartao("Demo", { classe: "secao-demo" }, caixa, h("div", { class: "campos campos-2" },
+    campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
+    campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
 }
 
 function cabecalho(titulo, { subtitulo, extras = [] }) {
@@ -813,9 +912,7 @@ function corpoDoLead(id) {
     fechamento,
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
     cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),
-    secao("Demo", h("div", { class: "campos campos-2" },
-      campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
-      campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" }))),
+    secaoDemo(id),
     secaoFlyer(id),
     secao("Contato", grade(
       campo("leads", id, { campo: "whatsapp", rotulo: "WhatsApp", href: waHref, placeholder: "(11) 9…" }),
@@ -897,7 +994,7 @@ async function exportar() {
     abrirJanela({ titulo: "Levar os dados para o Supabase", descricao: "No Supabase, rode supabase/schema.sql, crie seu usuário em Authentication > Users e cole este SQL no SQL Editor. Pode rodar de novo sem duplicar nada.", larga: true, conteudo: [area, h("div", { class: "janela-acoes" }, copiar)] });
     return;
   }
-  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), tarefas: dados.listar("tarefas"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos") }, null, 2);
+  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), tarefas: dados.listar("tarefas"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos"), demos: dados.listar("demos") }, null, 2);
   const a = document.createElement("a"), url = URL.createObjectURL(new Blob([conteudo], { type: "application/json" }));
   a.href = url; a.download = "renderiza-" + hojeIso() + ".json"; a.click(); URL.revokeObjectURL(url);
 }
