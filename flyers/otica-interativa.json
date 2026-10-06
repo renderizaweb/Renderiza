@@ -1,0 +1,34 @@
+{
+ "marca": "Ótica Interativa",
+ "local": "Vila Maria · São Paulo",
+ "fontes": {
+  "titulo": "Nunito",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d3f99",
+  "fundo2": "#0b1a45",
+  "acento": "#ffd23f",
+  "tinta_acento": "#10245c",
+  "claro": "#eef2ff"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-interativa/01.jpg",
+  "pos": "50% 35%",
+  "largura": 700
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-interativa/04.jpg",
+  "pos": "50% 50%",
+  "legenda": "Loja ZEISS Vision Expert"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "777"
+ },
+ "titulo": "Enxergue melhor <em>com quem entende.</em>",
+ "texto": "Lentes ZEISS sob medida, armações para todos os estilos e atendimento sem pressa, com água e cafezinho.",
+ "whatsapp": "(11) 95077-0389",
+ "endereco": "Av. Guilherme Cotching, 1286 · Vila Maria",
+ "instagram": "@oticainterativa"
+}

@@ -1,7 +1,7 @@
 // Site público (/) e o que vai para o ar.   npm test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import config from "../site/config.mjs";
 import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel } from "../site/pagina.mjs";
 import { arquivosPublicados } from "../scripts/montar-site.mjs";
@@ -135,6 +135,14 @@ test("vão para o ar: home, painel em /painel e /login, demos e arquivos do site
   for (const d of ["index.html", "painel/index.html", "login/index.html", "painel/src/app.js", "compartilhar.jpg", "favicon.svg", "fontes/geist.woff2"]) assert.ok(destinos.includes(d), d);
   assert.ok(destinos.some(d => /^demo\/[^/]+\/index\.html$/.test(d)));
   for (const d of destinos) assert.doesNotMatch(d, /\.(md|mjs|sql|py)$|^(site|supabase|ferramentas|scripts|src)\//, d);
+});
+
+test("flyers de Stories: só o PNG vai ao ar, em /flyer/<lead>.png", () => {
+  const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("flyer/"));
+  for (const d of destinos) assert.match(d, /^flyer\/[\w-]+\.png$/, d);
+  const pasta = new URL("../flyers/", import.meta.url);
+  const pngs = existsSync(pasta) ? readdirSync(pasta).filter(f => f.endsWith(".png")) : [];
+  assert.equal(destinos.length, pngs.length);
 });
 
 test("o painel carrega seus arquivos por caminho absoluto (abre em /painel e em /login)", () => {

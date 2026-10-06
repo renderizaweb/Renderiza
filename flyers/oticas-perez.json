@@ -1,0 +1,35 @@
+{
+ "marca": "Óticas Perez",
+ "local": "Vila Bocaina · Mauá",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "DM Sans"
+ },
+ "tamanho_titulo": 94,
+ "cores": {
+  "fundo": "#2e271e",
+  "fundo2": "#111111",
+  "acento": "#d8bf93",
+  "tinta_acento": "#141414",
+  "claro": "#f4ede2"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/oticas-perez/00.jpg",
+  "pos": "50% 30%",
+  "largura": 760
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/oticas-perez/13.jpg",
+  "pos": "50% 40%",
+  "legenda": "Nossa loja em Mauá"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "192"
+ },
+ "titulo": "Qualidade, conforto e <em>preço justo.</em>",
+ "texto": "Venha conhecer e escolher o seu óculos com calma, sem pressa e sem pressão.",
+ "whatsapp": "(11) 98435-1281",
+ "endereco": "R. Campos Sales, 78 D · Mauá",
+ "instagram": "@oticasperez"
+}

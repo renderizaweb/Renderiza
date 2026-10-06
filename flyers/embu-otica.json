@@ -1,0 +1,33 @@
+{
+ "marca": "Embu Ótica",
+ "local": "Tingidor · Embu das Artes",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#34343a",
+  "fundo2": "#0d0d10",
+  "acento": "#e8c37a",
+  "tinta_acento": "#141414",
+  "claro": "#f3f0ea"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/embu/ig/embuotica_02.jpg",
+  "pos": "50% 35%"
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/embu/g/g00.jpg",
+  "pos": "45% 55%",
+  "legenda": "Atendimento de perto"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "549"
+ },
+ "titulo": "Cuide da sua visão <em>sem complicação.</em>",
+ "texto": "Exame de vista e óculos de grau e de sol, escolhidos com calma junto com você.",
+ "whatsapp": "(11) 97544-0148",
+ "endereco": "Av. Elias Yazbek, 1790 · Embu das Artes",
+ "instagram": "@embuotica"
+}

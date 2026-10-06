@@ -1,0 +1,34 @@
+{
+ "marca": "Ateliê Óptico Jabaquara",
+ "local": "Praça da Árvore · São Paulo",
+ "fontes": {
+  "titulo": "Bricolage Grotesque",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#4a1f8f",
+  "fundo2": "#141414",
+  "acento": "#52dfe4",
+  "tinta_acento": "#141414",
+  "claro": "#eef4f6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/atelie-optico-jabaquara/27.jpg",
+  "pos": "50% 30%",
+  "largura": 680
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/atelie-optico-jabaquara/15.jpg",
+  "pos": "50% 50%",
+  "legenda": "Armações de autor"
+ },
+ "selo": {
+  "texto": "Desde 1951"
+ },
+ "titulo": "Mais que necessidade, <em>estilo.</em>",
+ "texto": "Armações de autor e lentes de alta tecnologia, com laboratório próprio. Aqui o comum é diferente.",
+ "whatsapp": "(11) 98667-0505",
+ "endereco": "Av. Jabaquara, 988 · Praça da Árvore",
+ "instagram": "@atelieopticojabaquara"
+}

@@ -540,7 +540,7 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
 // Cada seção do painel é um cartão com ícone e cor próprios, para separar os assuntos à primeira vista.
 const ESTILO_SECAO = {
   Andamento: ["alvo", "verde"], Fechamento: ["trofeu", "verde"], Observações: ["nota", "ambar"],
-  Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], Contato: ["pessoa", "agua"],
+  Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], "Flyer para Stories": ["imagem", "rosa"], Contato: ["pessoa", "agua"],
   Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"], Tarefas: ["certo", "verde"],
 };
 function cartao(titulo, { acao, classe = "" } = {}, ...filhos) {
@@ -616,9 +616,13 @@ function acoesRapidas() {
     const mostrar = () => aviso("Copie o link: " + linkDemo);
     try { navigator.clipboard.writeText(linkDemo).then(() => aviso("Link da demo copiado."), mostrar); } catch (e) { mostrar(); }
   });
+  let linkFlyer = "", empresa = "";
+  const flyer = h("button", { type: "button", class: "acao-rapida flyer", title: "Baixa o PNG de Stories para mandar à ótica" }, icone("baixar", 15), "Baixar flyer");
+  flyer.addEventListener("click", () => { if (linkFlyer) baixarFlyer(linkFlyer, empresa); });
   const link = (classe, href, nomeIcone, texto) => h("a", { class: "acao-rapida " + classe, href, target: "_blank", rel: "noopener noreferrer" }, icone(nomeIcone, 15), texto);
   vincular(l => {
     const wa = waHref(l.whatsapp), ig = urlHref(l.instagram), demo = urlHref(l.link_demo);
+    linkFlyer = urlHref(l.link_flyer); empresa = l.empresa;
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
     linkDemo = demo ? new URL(demo, location.href).href : "";
     const botoes = [
@@ -626,11 +630,59 @@ function acoesRapidas() {
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
       demo ? copiar : null,
+      linkFlyer ? flyer : null,
     ].filter(Boolean);
     el.replaceChildren(...botoes);
     el.hidden = !botoes.length;
   });
   return el;
+}
+
+/* ---------- flyer de Stories: a arte que vai de cortesia para retomar o contato ---------- */
+const semAcentoNome = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+// Nome do arquivo sem acento: alguns navegadores trocam um nome com "Ó" por "download".
+const nomeDoFlyer = empresa => "Stories - " + (semAcentoNome(empresa).replace(/[^\w &().,'-]+/g, "").replace(/\s+/g, " ").trim() || "otica") + ".png";
+const mensagemDoFlyer = empresa => `Oi! Esqueci de te mandar esta cortesia: uma arte para os Stories da ${String(empresa || "").trim() || "ótica"}, pode usar à vontade. E aí, conseguiu olhar a demo do site?`;
+/** Baixa o PNG com nome legível. Link de outro site que não deixa ler o arquivo abre em outra aba. */
+async function baixarFlyer(url, empresa) {
+  let r;
+  try { r = await fetch(url, { cache: "no-store" }); } catch (e) { window.open(url, "_blank", "noopener"); return; }
+  if (!r.ok) { aviso("Não achei o arquivo do flyer (" + r.status + "). Confira o link na seção Flyer para Stories.", "erro"); return; }
+  const nome = nomeDoFlyer(empresa);
+  const a = h("a", { href: URL.createObjectURL(await r.blob()), download: nome });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+  aviso("Flyer baixado: " + nome);
+}
+
+function secaoFlyer(id) {
+  const previa = h("img", { class: "flyer-previa", alt: "Prévia do flyer de Stories", width: "108", height: "192", decoding: "async" });
+  const moldura = h("a", { class: "flyer-moldura", target: "_blank", rel: "noopener noreferrer", title: "Abrir em tamanho real" }, previa);
+  const quebrado = h("span", { class: "flyer-quebrado", text: "Prévia não carregou: confira o link.", hidden: true });
+  previa.addEventListener("error", () => { previa.hidden = true; quebrado.hidden = false; });
+  previa.addEventListener("load", () => { previa.hidden = false; quebrado.hidden = true; });
+  const baixar = h("button", { type: "button", class: "btn btn-primary btn-sm" }, icone("baixar", 15), "Baixar PNG");
+  const copiarMsg = h("button", { type: "button", class: "btn btn-outline btn-sm", title: "Texto para mandar junto com a arte" }, icone("copiar", 15), "Copiar mensagem");
+  let url = "", empresa = "";
+  baixar.addEventListener("click", () => { if (url) baixarFlyer(url, empresa); });
+  copiarMsg.addEventListener("click", () => {
+    const texto = mensagemDoFlyer(empresa), mostrar = () => aviso("Copie a mensagem: " + texto);
+    try { navigator.clipboard.writeText(texto).then(() => aviso("Mensagem copiada."), mostrar); } catch (e) { mostrar(); }
+  });
+  const cheio = h("div", { class: "flyer-cheio" }, h("div", { class: "flyer-lado" }, moldura, quebrado),
+    h("div", { class: "flyer-info" },
+      h("strong", { text: "Arte de Stories · 1080 × 1920" }),
+      h("p", { text: "Vai de cortesia no retorno: mande a arte e pergunte se a ótica conseguiu ver a demo." }),
+      h("div", { class: "flyer-botoes" }, baixar, copiarMsg)));
+  const vazio = h("p", { class: "flyer-vazio", text: "Ainda sem flyer. Quando a arte ficar pronta, o link entra aqui embaixo e o PNG aparece para baixar." });
+  vincular(l => {
+    const u = urlHref(l.link_flyer); empresa = l.empresa;
+    cheio.hidden = !u; vazio.hidden = !!u;
+    if (u && u !== url) { previa.hidden = false; quebrado.hidden = true; previa.src = u; moldura.href = u; }
+    url = u;
+  });
+  return cartao("Flyer para Stories", { classe: "secao-flyer" }, cheio, vazio,
+    campo("leads", id, { campo: "link_flyer", rotulo: "Link do flyer", href: urlHref, largo: true, placeholder: "/flyer/nome-da-otica.png" }));
 }
 
 function cabecalho(titulo, { subtitulo, extras = [] }) {
@@ -764,6 +816,7 @@ function corpoDoLead(id) {
     secao("Demo", h("div", { class: "campos campos-2" },
       campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
       campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" }))),
+    secaoFlyer(id),
     secao("Contato", grade(
       campo("leads", id, { campo: "whatsapp", rotulo: "WhatsApp", href: waHref, placeholder: "(11) 9…" }),
       campo("leads", id, { campo: "instagram", rotulo: "Instagram ou site", href: urlHref, placeholder: "@perfil" }),

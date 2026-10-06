@@ -1,0 +1,33 @@
+{
+ "marca": "Franco Óticas",
+ "local": "Centro · Franco da Rocha",
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d56c9",
+  "fundo2": "#0b1a4f",
+  "acento": "#ffd21f",
+  "tinta_acento": "#0b1a4f",
+  "claro": "#eef3ff"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/franco/g/p01.jpg",
+  "pos": "50% 45%"
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/franco/g/p15.jpg",
+  "pos": "50% 50%",
+  "legenda": "Dia de festa na porta"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "265"
+ },
+ "titulo": "Bom, bonito e <em>barato.</em>",
+ "texto": "Óculos de grau e de sol, lentes e exame de vista, com uma equipe inteira para te atender com carinho.",
+ "whatsapp": "(11) 99236-6203",
+ "endereco": "R. Dona Amália Sestini, 241a · Franco da Rocha",
+ "instagram": "@francoticas"
+}

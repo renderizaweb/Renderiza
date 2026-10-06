@@ -79,6 +79,13 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
 - **Não contatar mais**: tira a ótica da fila de retornos.
 - O painel de detalhes tem 689 px em telas que comportam, a largura disponível em telas menores e
   tela inteira no celular.
+- **Flyer para Stories** (`leads.link_flyer`): arte em PNG (1080 × 1920) que vai de cortesia no
+  retorno, quando a ótica não respondeu depois da demo ("esqueci de te mandar esta cortesia… conseguiu
+  ver a demo?"). Com o link preenchido, o detalhe mostra a prévia, **Baixar PNG** (baixa com o nome
+  `Stories - <ótica>.png`) e **Copiar mensagem**; o cabeçalho ganha o botão **Baixar flyer**. O PNG fica
+  em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
+  `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
+  em outra aba.
 
 ## Atualização pela IA
 
@@ -195,6 +202,7 @@ npm test                     # regras do placar e do site público
 | `proxima_acao`, `followup_em` | text, date | o que fazer e quando |
 | `valor_potencial` | numeric | valor estimado |
 | `cidade`, `segmento`, `site_atual`, `link_demo`, `link_gravacao`, `observacoes` | text | painel lateral |
+| `link_flyer` | text | flyer de Stories (PNG 1080×1920): `/flyer/<id>.png` ou link completo; seção "Flyer para Stories" |
 | `historico` | jsonb | `[{em, de, para, resultado?}]`: uma linha por mudança de etapa |
 | `revisar`, `revisar_motivo` | boolean, text | marcados na migração quando o status antigo era ambíguo |
 | `legado` | jsonb | documento original do painel antigo, intacto |

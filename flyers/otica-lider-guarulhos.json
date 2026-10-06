@@ -1,0 +1,34 @@
+{
+ "marca": "Ótica Líder",
+ "local": "Jardim Tranquilidade · Guarulhos",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1f2c7a",
+  "fundo2": "#0e1440",
+  "acento": "#5ec6ea",
+  "tinta_acento": "#0e1440",
+  "claro": "#eef6ff"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-lider-guarulhos/00.jpg",
+  "pos": "50% 30%",
+  "largura": 680
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-lider-guarulhos/02.jpg",
+  "pos": "50% 30%",
+  "legenda": "Aprovado!"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "72"
+ },
+ "titulo": "Tradição que passa <em>de pai para filho.</em>",
+ "texto": "Especialistas em lente multifocal e lente de contato graduada. Parcele em até 10x sem juros.",
+ "whatsapp": "(11) 97647-7326",
+ "endereco": "Av. Emílio Ribas, 2108 · Guarulhos",
+ "instagram": "@oticaliderguarulhos"
+}

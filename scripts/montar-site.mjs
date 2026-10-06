@@ -4,11 +4,12 @@
 //   /login                     → a mesma página do painel: mostra o login; com sessão, vai para /painel
 //   /demo/<ótica>              → demos/<ótica>/index.html
 //   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
+//   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
 // Fichas (.md), contexto, ferramentas, banco e scripts nunca entram.
 //   npm run build
 
-import { copyFileSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -55,6 +56,8 @@ export function arquivosPublicados() {
       if (f.endsWith(".html")) lista.push([join("demo", otica.name, f), join(RAIZ, "demos", otica.name, f)]);
     }
   }
+  const flyers = join(RAIZ, "flyers");
+  if (existsSync(flyers)) for (const f of readdirSync(flyers)) if (f.endsWith(".png")) lista.push([join("flyer", f), join(flyers, f)]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);

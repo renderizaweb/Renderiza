@@ -1,0 +1,37 @@
+{
+ "lead": "catglass",
+ "demo": "/demo/otica-catglass",
+ "marca": "Ótica CatGlass",
+ "local": "Parque Pinheiros · Taboão da Serra",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#4a1d6b",
+  "fundo2": "#241130",
+  "acento": "#edc46e",
+  "tinta_acento": "#241130",
+  "claro": "#eee6f5"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-catglass/00.jpg",
+  "pos": "50% 35%",
+  "largura": 780
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-catglass/01.jpg",
+  "pos": "50% 50%",
+  "legenda": "Loja 10 · Parque Pinheiros",
+  "lado": "esquerda"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "22"
+ },
+ "titulo": "Veja o mundo com <em>clareza e estilo.</em>",
+ "texto": "Óculos de grau, solares e lentes, escolhidos com calma e atenção.",
+ "whatsapp": "(11) 94038-2397",
+ "endereco": "Av. Paulo Ayres, 470 · Taboão da Serra",
+ "instagram": "@otica_catglass"
+}

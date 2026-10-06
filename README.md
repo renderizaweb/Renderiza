@@ -11,6 +11,7 @@ Um site só, publicado na Vercel:
 | `/painel` | Painel da Renderiza (Ritmo, Pipeline, Conteúdo). Sem sessão, manda para `/login` | só você |
 | `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`) | quem tiver o link |
 | `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
+| `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
 
 - `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
   como editar: [`site/README.md`](site/README.md).
@@ -58,6 +59,13 @@ que uma demo chega na `main`, a Vercel publica sozinha. No painel, o campo **Lin
 recebe só o caminho (`/demo/otica-sales`): aparece a etiqueta "demo ↗" na tabela e no kanban, e o
 botão "Copiar link da demo para enviar" monta o link completo para mandar à ótica. Sem internet, dá para baixar o `.html` e abrir
 direto no navegador.
+
+## Flyer de Stories
+
+Toda demo ganha um flyer de Stories: a cortesia que retoma o contato depois do vácuo. Fica em
+`flyers/<id-do-lead>.png` (feito pelo `ferramentas/flyer/gerar.mjs` a partir do `flyers/<id>.json`), vai ao
+ar em `/flyer/<id>.png` e o lead recebe `link_flyer = '/flyer/<id>.png'`. No painel, a seção **Flyer para
+Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONTEXTO.md`](CONTEXTO.md).
 
 ## Lista
 

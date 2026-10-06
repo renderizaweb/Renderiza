@@ -97,6 +97,7 @@ export function novoLead(empresa) {
     site_atual: "",
     link_demo: "",
     link_gravacao: "",
+    link_flyer: "",
     observacoes: "",
     historico: [],
     revisar: false,

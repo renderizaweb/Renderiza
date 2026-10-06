@@ -1,0 +1,35 @@
+{
+ "marca": "Ótica D&R",
+ "local": "Olavo Bilac · São Bernardo do Campo",
+ "fontes": {
+  "titulo": "Rubik",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#c0161f",
+  "fundo2": "#5e070c",
+  "acento": "#ffd400",
+  "tinta_acento": "#1a1a1a",
+  "claro": "#fff4f0"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-der/01.jpg",
+  "pos": "50% 40%",
+  "largura": 700
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/flyer/fotos/otica-der/03.jpg",
+  "pos": "50% 40%",
+  "legenda": "Aniversário da loja",
+  "lado": "esquerda"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": ""
+ },
+ "titulo": "Aqui o cliente <em>vira da família.</em>",
+ "texto": "Óculos de grau e de sol para adultos e crianças, com atendimento de perto e preço justo.",
+ "whatsapp": "(11) 94895-1636",
+ "endereco": "R. Maria Adelaide Lima Quelhas, 225",
+ "instagram": "@oticadersbc"
+}

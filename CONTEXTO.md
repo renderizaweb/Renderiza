@@ -142,6 +142,35 @@ WhatsApp".
    domínio), etapa `demo_criada` e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
    tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
 3. Atualizar a `ficha.md` (situação `pronta · data`) e a tabela do `README.md`.
+4. **Flyer de Stories junto com a demo** (pedido do Kaue em 06/10/2026, vale para toda demo nova): ver abaixo.
+
+## Flyer de Stories (cortesia para retomar o contato)
+
+**Para que serve:** o Kaue manda a demo e quase sempre recebe vácuo. No dia seguinte, ou alguns dias
+depois, ele retoma com o flyer: "Oi, esqueci de te mandar esta cortesia... E aí, conseguiu olhar a
+demo?". A arte é um presente pronto para os Stories da ótica, pensado para **atrair cliente da ótica**: o
+dono tem que ver e gostar. A gentileza puxa a resposta.
+
+- **Como é:** PNG 1080 × 1920 feito pelo `ferramentas/flyer/gerar.mjs` a partir de `flyers/<id-do-lead>.json`
+  (nome da ótica, bairro, fonte e cores da demo, foto principal em arco, polaroid, selo do Google, título
+  e texto da demo, botão do WhatsApp, endereço e Instagram). Nada importante nos 200 px de cima nem nos
+  170 de baixo (o Instagram cobre).
+- **Regras:** os mesmos dados conferidos da demo; foto real, de gente sorrindo (cliente, família,
+  criança, equipe) antes de produto; a nota só aparece se for 5,0 (abaixo disso, estrelas e total); o
+  WhatsApp é o que a ótica divulga para cliente (fachada, bio, Google), não o número pessoal do dono;
+  dentista leva nome e CRO do responsável. O gerador avisa quando o texto encosta no botão ou o rodapé
+  estoura: encurtar.
+- **Passo a passo:** `python3 ferramentas/flyer/extrair.py <pasta-da-demo>` tira as fotos da demo para
+  `rascunhos/flyer/fotos/<pasta>/` (com `folha.jpg` para escolher); escrever `flyers/<id>.json` (modelo:
+  qualquer um da pasta); `node ferramentas/flyer/gerar.mjs flyers/<id>.json` grava `flyers/<id>.png`;
+  conferir a imagem; na `main`, a Vercel publica em `/flyer/<id>.png`; no lead, `link_flyer = '/flyer/<id>.png'`.
+  O caminho das fotos no JSON é o da sessão que fez o flyer: para refazer, extrair de novo e apontar.
+- **No painel:** detalhes do lead → seção **Flyer para Stories** (prévia, "Baixar PNG" e "Copiar
+  mensagem"), e o botão rosa "Baixar flyer" nas ações rápidas. Só o PNG vai ao ar (o JSON não).
+- **Feitos em 06/10/2026 (9):** os 8 de **Em conversa** (CatGlass, MS Odontologia, Embu Ótica, Franco,
+  D&R, Interativa, Líder, Perez) e o Ateliê Óptico Jabaquara (**Contato iniciado**). A Embu não tem
+  demo: fotos do Google e do Instagram, e no flyer vai o WhatsApp da fachada, (11) 97544-0148 (o da
+  lista do Kaue, (11) 93911-3099, é outro).
 
 ## Material de cada ótica
 
