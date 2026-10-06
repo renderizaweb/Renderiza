@@ -29,6 +29,9 @@ da vez.
   caracteres, com "…" onde cortou), para os cards não ficarem com altura diferente nem espaço em branco.
 - **Nunca cortar rosto**: se o vídeo tem título por cima da cabeça, não usar o quadro (recortar abaixo
   do texto corta a testa).
+- **Foto real antes de post recente**: tem ótica que passou a postar só imagem de IA ou montagem (no lote 3:
+  Ranulpho, Universe e Niterói Prime em 2026). Aí a demo usa as fotos reais mais antigas do Drive e a ficha
+  avisa. Selfie com o letreiro da loja ao contrário é espelhada de volta (Personnalité).
 - Arquivo único `index.html` com as fotos dentro, que abre direto no navegador.
 - Referência de acabamento: as demos prontas em `demos/otica-catglass`, `demos/oticas-perez` e
   `demos/franco-oticas` (as mais recentes).
@@ -78,7 +81,7 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
 - `ms-odontologia` (01/10/2026): Clínica MS Odontologia, Dr. Marcos Silva, Itapevi. Cliente de antes do
   painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026.
 
-## Lote 2 (aprovado pelo Kaue em 29/09/2026): na fila
+## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 
 Saiu da varredura de 29/09/2026 (ver "Busca de novas óticas"). O Kaue vai mandar as fotos de cada uma
 num lote de imagens no Drive, como no lote 1. Direção e alertas na `ficha.md` de cada pasta.
@@ -101,11 +104,36 @@ num lote de imagens no Drive, como no lote 1. Direção e alertas na `ficha.md` 
 | 14 | `otica-studio7` | Aprovada na triagem. |
 | 15 | `lez-otica` | Aprovada na triagem. |
 
-As 15 estão no painel como **Leads a trabalhar**, com id igual ao nome da pasta, próxima ação
-"Criar demo (lote 2 · Nª)" e as observações do Kaue. Ficaram para uma próxima leva (boas, com
+As 15 estão no painel com id igual ao nome da pasta e as observações do Kaue: 14 em **Demo criada** e a
+Dutra em **A trabalhar** (parada: o @oticadutra é de outra Dutra, em Manaus, e falta foto da loja real).
+Ficaram para uma próxima leva (boas, com
 ressalva): Evangélica, Yannis, Nomura, Vizzuti, Zóio, Judá, Alianza, Millennium Express, Spaziani,
 Dr. Ótica, Pontes, Ojota e Majestic. Recusadas na triagem: Studio do Óculos, Gold Vision, Renova,
 Ricoo, Queirooz, Imagem Ótica, MedÓtica e De Óculos.
+
+## Lote 3 (escolhido pelo Kaue em 05/10/2026): demos prontas
+
+Saiu da varredura de 05/10/2026 (ver "Busca de novas óticas"). O Kaue escolheu as 10 primeiras da lista e
+mandou uma extra (Ponto Xys); as fotos vieram do Drive (pasta `1-1bK1Vdv56SryYloT_MRJXTI1XYsXBZu`, a página
+do Instagram salva de cada uma). Ele ainda vai mandar as próximas do lote. Direção, fontes do WhatsApp e
+alertas na `ficha.md` de cada pasta.
+
+| # | Pasta | Onde | Destaque |
+|---|---|---|---|
+| 1 | `otica-machado` | Jardim Satélite, São José dos Campos | A Amanda, consultora de imagem óptica desde 2016; 89,7 mil seguidores. |
+| 2 | `optica-cris-masson` | Centro, Ribeirão Preto | 5,0 com 1.397 avaliações; jardim, café e brinquedoteca. |
+| 3 | `optica-universe` | Sítio Pinheirinho, São Paulo | Coleção própria de óculos de sol (Série Constelações). |
+| 4 | `otica-flash` | Centro, Nova Iguaçu (RJ) | Casal de donos; óculos prontos em até 40 min. |
+| 5 | `otica-ranulpho` | Campo Grande, Rio de Janeiro | Desde 1978, 45 mil óculos; horário com pausa do almoço. |
+| 6 | `otica-six` | Centro, Peruíbe | Mais de 18 anos, consertos, crianças. |
+| 7 | `otica-plus-optical` | Higienópolis, São Paulo | Adulto, teen e kids, espaço kids; tem outra loja nos Jardins. |
+| 8 | `otica-niteroi-prime` | Icaraí, Niterói (RJ) | Consultoria de imagem gratuita (visagismo e coloração pessoal). |
+| 9 | `freitas-otica` | Méier, Rio de Janeiro | 40 anos no Méier, loja reformada em 2025. |
+| 10 | `otica-personnalite` | Jardim Aeroporto, Bauru | Grifes de luxo, envio para todo o Brasil. |
+| extra | `otica-ponto-xys` | Centro, Peruíbe | Extra do Kaue. É colega da Six, mas **as duas demos não têm nenhuma relação**. |
+
+As 11 estão no painel em **Demo criada**, com id igual ao nome da pasta e próxima ação "Enviar a demo pelo
+WhatsApp".
 
 ## Quando uma demo fica pronta
 
@@ -144,6 +172,9 @@ Ricoo, Queirooz, Imagem Ótica, MedÓtica e De Óculos.
 
 - `ferramentas/achar-lugar.mjs` (id do lugar) e `ferramentas/avaliacoes-google.mjs` (endereço, telefone,
   horário e depoimentos): o caminho usado a partir da Ótica Sales.
+- A ficha às vezes abre com uma foto só ou só com o horário de hoje: rodar de novo `fotos-google.mjs` e
+  `horario-google.mjs` (no lote 3, a segunda tentativa trouxe 16 fotos da Cris Masson e a semana inteira de
+  4 óticas). Horário com pausa para o almoço sai com as duas faixas ("9h às 13h e 14h às 18h").
 - `ferramentas/maps-mob.mjs`: busca no Google Maps em modo celular e devolve nome, nota e nº de
   avaliações. Uso: `node maps-mob.mjs saida.json "Nome da ótica cidade"`. No modo desktop o painel
   não carrega sem tela; no modo celular funciona.
@@ -176,7 +207,8 @@ Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 
 Lote 3 (05/10/2026): mesma linha, com os scripts versionados em `ferramentas/prospeccao/` (passo a passo e o que
 ajustar para outro nicho no README de lá). Régua mais alta: nota 4,8+, 40+ avaliações, Instagram com post em 45 dias e
-1.000+ seguidores. 22 + 7 de reserva aguardando a validação do Kaue (lista no chat de 05/10/2026).
+1.000+ seguidores. 22 + 7 de reserva (lista no chat de 05/10/2026): o Kaue escolheu as 10 primeiras e uma
+extra (seção "Lote 3") e ainda vai mandar as próximas.
 
 ## Repositório e site
 

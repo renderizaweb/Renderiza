@@ -1,0 +1,381 @@
+{
+ "pasta": "otica-ponto-xys",
+ "marca": "Ótica Ponto Xys",
+ "marca_logo": "Ótica Ponto Xys",
+ "marca_completa": "Ótica Ponto Xys",
+ "logo_sub": "Centro · Peruíbe",
+ "titulo": "Ótica Ponto Xys | Centro de Peruíbe",
+ "descricao": "Ótica Ponto Xys, na Av. Rubens Ferreira Martins, 165, loja 1, no Centro de Peruíbe: óculos de grau e de sol, lentes de contato, multifocais e armações infantis. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Ponto Xys: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticapontoxys_) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Montserrat",
+ "cores": {
+  "escuro": "#1f3b46",
+  "acento": "#f26a2e",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-ponto-xys/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-ponto-xys.json",
+ "topline": "Av. Rubens Ferreira Martins, 165 · Centro de Peruíbe",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Peruíbe",
+  "h1": "O ponto certo <em>da sua visão.</em>",
+  "intro": "Óculos de grau e de sol, lentes de contato, multifocais e armações infantis, com atendimento personalizado e entrega rápida. Na Av. Rubens Ferreira Martins, 165, no Centro de Peruíbe.",
+  "selo": "Grau, sol e lente de contato",
+  "link": "Ver a vitrine",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-ponto-xys/perfil/oticapontoxys__03.jpg",
+   "c": [
+    0.5,
+    0.38
+   ]
+  },
+  "alt": "Atendente da Ótica Ponto Xys sorrindo com óculos de grau tartaruga e a camiseta da loja"
+ },
+ "endereco": [
+  "Av. Rubens Ferreira Martins, 165, loja 1",
+  "Centro · Peruíbe"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes de contato",
+  "Multifocais",
+  "Clip-on",
+  "Óculos infantis",
+  "Centro de Peruíbe",
+  "Av. Rubens Ferreira Martins"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ponto Xys",
+  "h2": "Atendimento personalizado, <em>preço que cabe no bolso.</em>",
+  "p": [
+   "No Centro de Peruíbe, a Ótica Ponto Xys faz óculos de grau e de sol, multifocais e lentes de contato, com armações de marcas como Carolina Paccini, Speedo, Red Nose, Armani Exchange, HB, Mormaii, Ray-Ban e Vogue.",
+   "O atendimento é de perto: a equipe ajuda a escolher a armação certa, acha a solução quando a lente não se adapta e entrega rápido. Tem também armações infantis flexíveis e muitos modelos lindos para as crianças."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "217",
+    "avaliações no Google"
+   ],
+   [
+    "3 em 1",
+    "grau, sol e lente de contato"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-ponto-xys/perfil/oticapontoxys__05.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Atendente da Ótica Ponto Xys sorrindo com óculos de grau dourado e o clipe de sol na mão",
+  "pol": {
+   "id": 36,
+   "box": [
+    0.017,
+    0.017,
+    0.983,
+    0.983
+   ]
+  },
+  "pol_alt": "Armação Carolina Paccini com clipe de sol sobre o estojo",
+  "pol_cap": "Clip-on: grau e sol"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Variedade para <em>todos os estilos.</em>",
+   "p": "Clássicas, modernas, discretas ou que chamam atenção. Peça seu orçamento pelo WhatsApp ou venha conferir na loja.",
+   "rotulo": "Óculos da Ótica Ponto Xys",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Armações de grau tartaruga e vermelha com corrente de pérolas"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Armações de grau e de sol sobre uma revista de surfe"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Armações de grau douradas com correntes"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Armação de grau Red Nose de metal"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "box": [
+       0.012,
+       0.012,
+       0.988,
+       0.988
+      ]
+     },
+     "alt": "Armação de grau Maxline de metal sobre o estojo"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "box": [
+       0.017,
+       0.017,
+       0.983,
+       0.983
+      ]
+     },
+     "alt": "Armações de grau Carolina Paccini sobre o estojo rosa"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Armação de grau Armani Exchange com o estojo da marca"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "box": [
+       0.017,
+       0.017,
+       0.983,
+       0.983
+      ]
+     },
+     "alt": "Armação de grau HB sobre a caixa Hot Buttered"
+    },
+    {
+     "foto": {
+      "id": 35,
+      "box": [
+       0.017,
+       0.017,
+       0.983,
+       0.983
+      ]
+     },
+     "alt": "Armação de grau preta e vermelha sobre o estojo"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "box": [
+       0.022,
+       0.022,
+       0.978,
+       0.978
+      ]
+     },
+     "alt": "Óculos esportivo Mormaii com adaptador para grau"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Armação de grau Red Nose preta"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Armação de grau Kipling transparente"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Armação de grau gatinho preta com corrente"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Centro de Peruíbe ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Óculos infantis",
+   "rotulo": "01 / INFANTIL",
+   "foto": {
+    "id": 23,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armação infantil flexível com hastes coloridas ao lado de uma coelhinha de pelúcia",
+   "texto": "Armações flexíveis e muitos modelos lindos para crianças."
+  },
+  "solar": {
+   "foto": {
+    "id": 24,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Três óculos de sol com corrente dourada",
+   "texto": "Modelos de sol para a praia e para o dia a dia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do orçamento <em>à entrega rápida.</em>",
+  "passos": [
+   "Peça o seu orçamento pelo WhatsApp ou venha à loja",
+   "Escolha a armação com a ajuda da equipe",
+   "Lentes de visão simples, multifocais ou de contato",
+   "Óculos prontos rápido, e ajuda se a lente não se adaptar"
+  ],
+  "botao": "Pedir orçamento",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-ponto-xys/google/g00.jpg",
+   "box": [
+    0.03,
+    0,
+    0.98,
+    1
+   ]
+  },
+  "alt": "Fachada laranja da Ótica Ponto Xys, com o letreiro \"o ponto certo da sua visão\"",
+  "pol": {
+   "id": 30,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Cliente com armação de grau transparente e dourada",
+  "pol_cap": "Atendimento personalizado",
+  "card": [
+   "Lentes de contato",
+   "Também na Ponto Xys."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Clientes <em>há anos.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "cristina leme",
+   "tag": "Longe e perto",
+   "trecho": "O André sempre muito atencioso. No meu caso fiz um óculos multifocal e não consegui me adaptar, e o André foi super gentil e fez pra mim um de longe e outro de perto que uso até hoje."
+  },
+  {
+   "nome": "Marcella Miranda",
+   "tag": "Primeiro óculos da filha",
+   "trecho": "É o primeiro óculos da minha filha, ela ficou super confortável e segura com a escolha. A vendedora Tainã super simpática e atenciosa."
+  },
+  {
+   "nome": "Guilherme Fortunato",
+   "tag": "Entrega rápida",
+   "trecho": "Excelente, o atendente André é muito atencioso! Me ajudou d+ a escolher meu óculos!!! Também foi muito rápida a entrega do óculos, em menos de uma semana já estava pronto para resgatar!!!"
+  },
+  {
+   "nome": "lena santos",
+   "tag": "Lentes de qualidade"
+  }
+ ],
+ "instagram": "oticapontoxys_",
+ "insta": {
+  "seguidores": "1 mil seguidores",
+  "p": "Armações novas, dicas para cuidar da visão e as novidades da loja em Peruíbe.",
+  "foto": {
+   "id": 5,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Atendente da Ótica Ponto Xys com armação de grau dentro da loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Centro de Peruíbe.</em>",
+  "endereco": [
+   "Av. Rubens Ferreira Martins, 165, loja 1 · Centro",
+   "Peruíbe, SP · CEP 11750-000"
+  ],
+  "telefone": "(13) 97416-8326",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O ponto certo da sua visão.",
+ "mensagem": "Olá! Vim pelo site da Ótica Ponto Xys e queria um orçamento.",
+ "whatsapp": "5513974168326",
+ "fone_link": "+5513974168326",
+ "google": {
+  "coords": "-24.324643,-47.0018067",
+  "fid": "0x94d0267571900589:0x113552e74bb1fe03",
+  "gid": "/g/11gfd1qjv1"
+ },
+ "google_nome": "Ótica Ponto Xys",
+ "endereco_maps": "Av. Rubens Ferreira Martins, 165 - Lj 1 - Centro, Peruíbe - SP, 11750-000",
+ "google_nota": "5,0",
+ "google_total": "217",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o link wa.me/message/G34KNBHAMDW4O1 da bio abre o WhatsApp 55 13 97416-8326, o mesmo da placa da fachada; o Google tem o fixo (13) 3455-7955",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 11ª (extra, escolhida pelo Kaue). Bio: receituário, solar e lente de contato. Fachada: \"o ponto certo da sua visão\". As avaliações citam o André e a Tainã, clientes de anos, a solução para quem não se adaptou ao multifocal e muitos modelos para crianças. Kaue: é colega da Ótica Six, mas a demo não tem nenhuma relação com ela."
+  ],
+  "demo": [
+   "Petróleo e laranja da fachada, títulos em Montserrat. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"O ponto certo da sua visão.\" (a frase da fachada) com a atendente de camiseta da loja (ensaio de 2026).",
+   "Vitrine (13 fotos de armações), estilos (infantil e sol), atendimento com a fachada e 4 avaliações de 5 estrelas (nota 5,0 · 217)."
+  ],
+  "fotos": [
+   "Instagram recente (setembro de 2026): o ensaio com a atendente. Drive (2022 e 2023): as armações das marcas (as de moldura laranja recortadas por dentro), a armação infantil e a cliente de óculos. Google: a fachada.",
+   "Ficaram de fora: as artes de dicas e de promoção, os quadros de vídeo com texto e as fotos com a Ótica Six (nenhuma entrou)."
+  ],
+  "conferir": [
+   "WhatsApp (13) 97416-8326: da bio e da fachada.",
+   "Quem é quem: o André e a Tainã (avaliações); a moça do ensaio de 2026 e a de cabelo curto das fotos antigas. A demo não põe nome.",
+   "Uma avaliação de 4 estrelas pediu uma repaginada na loja e a resposta diz que vai passar por reforma: a foto da fachada pode mudar.",
+   "Marcas citadas: das legendas de 2022 a 2026; confirmar quais continuam."
+  ]
+ }
+}

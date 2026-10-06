@@ -1,0 +1,471 @@
+{
+ "pasta": "otica-plus-optical",
+ "marca": "Plus Optical",
+ "marca_logo": "Plus Optical",
+ "marca_completa": "Ótica Plus Optical",
+ "logo_sub": "Higienópolis · São Paulo",
+ "titulo": "Plus Optical | Ótica em Higienópolis, São Paulo",
+ "descricao": "Ótica Plus Optical, na R. Baronesa de Itu, 351, em Higienópolis, São Paulo: há quase 20 anos com óculos para adultos, teens e kids, personal stylist, espaço kids e marcas como Ferragamo, Longchamp, Dutz e Silhouette. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Plus Optical (Higienópolis): arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@plusoptical_) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#4a0f33",
+  "acento": "#5fb4f5",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-plus-optical/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-plus-optical.json",
+ "topline": "Higienópolis · também nos Jardins",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#clientes",
+   "Adulto, teen e kids"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Falar no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica em Higienópolis · há quase 20 anos",
+  "h1": "Óculos para a família <em>inteira.</em>",
+  "intro": "Adulto, teen e kids: armações de grau e de sol escolhidas com a ajuda de uma personal stylist, lentes certas para cada idade e um espaço kids para as crianças, na R. Baronesa de Itu, 351.",
+  "selo": "Personal stylist na escolha",
+  "link": "Ver os clientes",
+  "alvo": "clientes",
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Adolescente sorrindo com armação de grau azul dentro da Plus Optical"
+ },
+ "endereco": [
+  "R. Baronesa de Itu, 351",
+  "Higienópolis · São Paulo"
+ ],
+ "dias_curto": "seg a sex",
+ "marquee": [
+  "Adulto, teen e kids",
+  "Personal stylist",
+  "Espaço kids",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes multifocais",
+  "Higienópolis",
+  "Jardins"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Plus Optical",
+  "h2": "Uma ótica de família, <em>para a família.</em>",
+  "p": [
+   "Há quase 20 anos no bairro, a Plus Optical atende crianças, jovens e adultos, cada um com a lente e a armação ideal. Tem personal stylist e consultores para ajudar na escolha, e uma curadoria de marcas como Ferragamo, Longchamp, Dutz, Stepper, Silhouette e Swissflex.",
+   "Para os pequenos, tem o espaço kids, com brinquedos e lousa, e armações infantis flexíveis e resistentes, desde os bebês. A loja de Higienópolis fica na R. Baronesa de Itu, 351; a Plus Optical tem também uma loja nos Jardins."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "151",
+    "avaliações no Google"
+   ],
+   [
+    "quase 20",
+    "anos no bairro"
+   ]
+  ],
+  "foto": {
+   "id": 1,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Menino pequeno brincando no espaço kids da Plus Optical, com estante de brinquedos coloridos",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-plus-optical/google/g00.jpg",
+   "box": [
+    0,
+    0,
+    1,
+    0.92
+   ]
+  },
+  "pol_alt": "Fachada da Plus Optical, com o letreiro Adulto, Teen and Kids",
+  "pol_cap": "Adulto, teen and kids"
+ },
+ "carrosseis": [
+  {
+   "id": "clientes",
+   "eyebrow": "Adulto, teen e kids",
+   "h2": "Do bebê <em>ao avô.</em>",
+   "p": "Clientes de todas as idades com os óculos novos da Plus Optical. As armações infantis são flexíveis e resistentes, para acompanhar o dia a dia das crianças.",
+   "rotulo": "Clientes da Plus Optical",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 36,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menino sorrindo com óculos azuis e luvas de goleiro"
+    },
+    {
+     "foto": {
+      "id": 53,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Menino sorrindo com óculos de grau azuis"
+    },
+    {
+     "foto": {
+      "id": 41,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menina pequena de óculos de sol rosa e laço na cabeça"
+    },
+    {
+     "foto": {
+      "id": 2,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Adolescente ajeitando óculos de sol brancos diante de um muro de folhagens"
+    },
+    {
+     "foto": {
+      "id": 54,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Menino sorrindo com óculos de grau escuros"
+    },
+    {
+     "foto": {
+      "id": 46,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Cliente sorrindo com armação de grau vermelha"
+    },
+    {
+     "foto": {
+      "id": 40,
+      "box": [
+       0.13,
+       0,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menina com armação de grau dourada dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 35,
+      "c": [
+       0.45,
+       0.4
+      ]
+     },
+     "alt": "Rapaz sorrindo com armação de grau preta"
+    },
+    {
+     "foto": {
+      "id": 49,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Menina pequena com óculos de grau rosa, entre bichos de pelúcia"
+    },
+    {
+     "foto": {
+      "id": 45,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Garoto com armação de grau azul-marinho"
+    }
+   ]
+  },
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Curadoria com <em>olhar atento.</em>",
+   "p": "Ferragamo, Longchamp, Dutz, Stepper, Dindi, Emilio Pucci, Silhouette e infantis Silmo Kids. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Óculos da Plus Optical",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-plus-optical/google/g01.jpg",
+      "box": [
+       0.1,
+       0,
+       1,
+       1
+      ]
+     },
+     "alt": "Armações Ferragamo verde e tartaruga, de grau e de sol, sobre um tapete"
+    },
+    {
+     "foto": {
+      "id": 42
+     },
+     "alt": "Armação de grau gatinho Longchamp amarela e verde"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Armação de grau redonda Dutz vermelha e tartaruga"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-plus-optical/perfil/plusoptical__02.jpg"
+     },
+     "alt": "Armações de grau redondas Dindi, preta, tartaruga e roxa"
+    },
+    {
+     "foto": {
+      "id": 44
+     },
+     "alt": "Armações de grau Stepper vermelha e azul sobre o estojo"
+    },
+    {
+     "foto": {
+      "id": 39
+     },
+     "alt": "Armação de grau Dutz azul e tartaruga"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-plus-optical/google2/g01.jpg",
+      "box": [
+       0,
+       0.04,
+       1,
+       1
+      ]
+     },
+     "alt": "Armação de grau redonda transparente com haste mostarda"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Armação de grau Emilio Pucci rosé"
+    },
+    {
+     "foto": {
+      "id": 47
+     },
+     "alt": "Óculos infantil flexível com clipe de sol, em lilás"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Armação de grau Silhouette leve, cinza transparente"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Óculos com lentes Transitions sobre uma raquete de tênis, com a bolinha"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar em Higienópolis ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Óculos infantis",
+   "rotulo": "01 / KIDS",
+   "foto": {
+    "id": 56,
+    "box": [
+     0,
+     0.12,
+     1,
+     0.92
+    ]
+   },
+   "alt": "Óculos infantil flexível vermelho com cordão, ao lado de um dinossauro de brinquedo",
+   "texto": "Armações flexíveis e resistentes, desde os bebês."
+  },
+  "solar": {
+   "titulo": "Sol e esporte",
+   "foto": {
+    "id": 43
+   },
+   "alt": "Óculos de sol esportivos, amarelo e preto, com a sacola da Plus Optical",
+   "texto": "Óculos de sol e esportivos, também com grau."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento personalizado",
+  "h2": "Uma personal stylist <em>na sua escolha.</em>",
+  "passos": [
+   "Chame no WhatsApp e conte o que você procura",
+   "A personal stylist ajuda a escolher a armação ideal",
+   "Consultores indicam a lente certa para a sua receita",
+   "As crianças brincam no espaço kids enquanto você escolhe"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 25,
+   "box": [
+    0,
+    0,
+    1,
+    0.74
+   ]
+  },
+  "alt": "A Plus Optical por dentro: prateleiras de vidro com óculos de sol e armações",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-plus-optical/perfil/plusoptical__05.jpg",
+   "c": [
+    0.45,
+    0.5
+   ]
+  },
+  "pol_alt": "Criança desenhando na lousa do espaço kids, depois de escolher os óculos",
+  "pol_cap": "A lousa do espaço kids",
+  "card": [
+   "Personal stylist",
+   "Ajuda para achar a armação ideal."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Uma cliente <em>pra vida.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Vivien Trellesse Weber (Vivi)",
+   "tag": "Cliente pra vida",
+   "trecho": "Passei no oftalmologista e após pesquisar em alguns lugares, voltei na loja. Fiz meus óculos com eles e digo que a qualidade e o atendimento são impecáveis. Ganharam uma cliente pra vida."
+  },
+  {
+   "nome": "Gabriela",
+   "tag": "Ótica familiar",
+   "trecho": "Na saída, conheci a Débora e as filhas, que foram muito calorosas. É uma ótica familiar com estrutura de ótica corporativa!"
+  },
+  {
+   "nome": "Livia Belardi",
+   "tag": "Fui orçar e levei 3"
+  },
+  {
+   "nome": "Cecilia Macedo Haddad",
+   "tag": "Segundo óculos"
+  },
+  {
+   "nome": "Marise Sonnenreich",
+   "tag": "Coleção variada"
+  }
+ ],
+ "instagram": "plusoptical_",
+ "insta": {
+  "seguidores": "3,4 mil seguidores",
+  "p": "Marcas novas, clientes de todas as idades e dicas para cuidar da visão da família.",
+  "foto": {
+   "id": 3,
+   "box": [
+    0.02,
+    0,
+    0.645,
+    0.78
+   ]
+  },
+  "alt": "Cliente sorrindo com armação de grau marrom dentro da loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Higienópolis.</em>",
+  "endereco": [
+   "R. Baronesa de Itu, 351 · Santa Cecília",
+   "São Paulo, SP · CEP 01231-000"
+  ],
+  "telefone": "(11) 98805-1787",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Óculos para a família inteira.",
+ "mensagem": "Olá! Vim pelo site da Plus Optical e queria um orçamento.",
+ "whatsapp": "5511988051787",
+ "fone_link": "+5511988051787",
+ "google": {
+  "coords": "-23.5397273,-46.6564116",
+  "fid": "0x94ce583c2f0879fb:0x3183ee0ded2f792a",
+  "gid": "/g/11bxc6nq8v"
+ },
+ "google_nome": "Ótica Plus Optical - Higienópolis",
+ "endereco_maps": "R. Baronesa de Itu, 351 - Santa Cecilia, São Paulo - SP, 01231-000",
+ "google_nota": "5,0",
+ "google_total": "151",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o link api.whatsapp.com/send?phone=5511988051787 da bio do Instagram e do Perfil da Empresa no Google; o fixo do Google é (11) 3667-1508",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 7ª. Ótica de família (as avaliações citam a Débora e as filhas, a Carla e a Nathalia) especializada em adulto, teen e kids, com personal stylist e espaço kids. Tem duas lojas: Higienópolis (R. Baronesa de Itu, 351; esta ficha do Google, 5,0 · 151) e Jardins (Al. Ministro Rocha Azevedo, 856; outra ficha, 4,9 · 63). A demo é da loja de Higienópolis e cita a dos Jardins."
+  ],
+  "demo": [
+   "Vinho da fachada com o azul dos óculos do logo, títulos em Outfit. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Óculos para a família inteira.\" com a adolescente de óculos azuis dentro da loja.",
+   "Carrossel \"Adulto, teen e kids\" (10 clientes, quase todos crianças), \"Vitrine\" (11 fotos de marcas), estilos (infantis e sol/esporte), atendimento com a personal stylist e a lousa do espaço kids, horário com a sexta mais curta e sábado fechado, e 5 avaliações de 5 estrelas (nota 5,0 · 151)."
+  ],
+  "fotos": [
+   "Drive (2023 e 2024): as crianças e os clientes, o espaço kids, a loja por dentro (quadro de vídeo) e as armações das marcas. Google: a fachada \"Adulto Teen and Kids\", as Ferragamo e a armação transparente. Instagram recente (setembro de 2026): as Dindi e a criança na lousa.",
+   "Ficaram de fora: as artes de promoção (Black Month, fim de ano, segundo par de lentes), as artes de dicas, os quadros de vídeo borrados e as fotos pequenas."
+  ],
+  "conferir": [
+   "Horário do Google: seg a qui 9h às 19h, sex 9h às 16h30, sábado e domingo fechado.",
+   "Loja dos Jardins (Al. Ministro Rocha Azevedo, 856): a demo só cita. Vale perguntar se querem as duas lojas no site.",
+   "As fotos das crianças são de posts da própria loja; confirmar se podem ir para o site.",
+   "Marcas citadas (Ferragamo, Longchamp, Dutz, Stepper, Dindi, Emilio Pucci, Silhouette, Swissflex, Silmo Kids): das legendas e fotos de 2023 a 2026."
+  ]
+ }
+}

@@ -44,16 +44,18 @@
   };
   const updateStatus = () => {
     const now = spNow();
-    const today = client.hours[now.day];
+    // cada dia: [abre, fecha] ou, com pausa para o almoço, [abre, fecha, abre, fecha]
+    const faixas = h => { const out = []; for (let k = 0; h && k + 1 < h.length; k += 2) out.push([h[k], h[k + 1]]); return out; };
+    const agora = faixas(client.hours[now.day]).find(f => now.minutes >= f[0] && now.minutes < f[1]);
     let open = false, label, detail;
-    if (today && now.minutes >= today[0] && now.minutes < today[1]) {
-      open = true; label = "Aberto agora"; detail = "fecha às " + fmt(today[1]);
+    if (agora) {
+      open = true; label = "Aberto agora"; detail = "fecha às " + fmt(agora[1]);
     } else {
       label = "Fechado agora";
       for (let i = 0; i < 8; i++) {
-        const day = (now.day + i) % 7, h = client.hours[day];
-        if (!h || (i === 0 && now.minutes >= h[0])) continue;
-        detail = "abre " + (i === 0 ? "hoje" : i === 1 ? "amanhã" : dayNames[day]) + " às " + fmt(h[0]);
+        const day = (now.day + i) % 7, prox = faixas(client.hours[day]).find(f => i > 0 || f[0] > now.minutes);
+        if (!prox) continue;
+        detail = "abre " + (i === 0 ? "hoje" : i === 1 ? "amanhã" : dayNames[day]) + " às " + fmt(prox[0]);
         break;
       }
     }

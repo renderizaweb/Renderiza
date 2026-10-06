@@ -125,7 +125,8 @@ def ler_google(caminho):
     return json.load(open(caminho)) if caminho and os.path.exists(caminho) else {}
 
 def horario(google):
-    """['segunda-feira09:00–18:00', 'domingoFechado', ...] -> {0..6: [ini, fim] em minutos ou None}"""
+    """['segunda-feira09:00–18:00', 'domingoFechado', ...] -> {0..6: [ini, fim] em minutos ou None}
+    Com pausa para o almoço ('09:00–13:0014:00–18:00'): [ini, fim, ini, fim], uma dupla por faixa."""
     out = {}
     for linha in google.get('horas', []):
         linha = linha.replace('', '').strip()
@@ -134,7 +135,7 @@ def horario(google):
                 resto = linha[len(d):]
                 faixas = re.findall(r'(\d{1,2}):(\d{2})\s*[–-]\s*(\d{1,2}):(\d{2})', resto)
                 if 'Fechado' in resto or not faixas: out[i] = None
-                else: out[i] = [int(faixas[0][0]) * 60 + int(faixas[0][1]), int(faixas[-1][2]) * 60 + int(faixas[-1][3])]
+                else: out[i] = [m for f in faixas for m in (int(f[0]) * 60 + int(f[1]), int(f[2]) * 60 + int(f[3]))]
     return out if len(out) == 7 else None
 
 def fmt_h(m):
@@ -149,7 +150,8 @@ def linhas_horario(horas):
     out = []
     for dias, h in grupos:
         nome = DIAS_CURTOS[dias[0]] if len(dias) == 1 else f'{DIAS_CURTOS[dias[0]]} {"e" if len(dias) == 2 else "a"} {DIAS_CURTOS[dias[-1]].lower()}'
-        out.append((nome, 'Fechado' if not h else f'{fmt_h(h[0])} às {fmt_h(h[1])}', ','.join(map(str, dias))))
+        faixas = ' e '.join(f'{fmt_h(h[k])} às {fmt_h(h[k + 1])}' for k in range(0, len(h), 2)) if h else 'Fechado'
+        out.append((nome, faixas, ','.join(map(str, dias))))
     return out
 
 def avaliacoes(google):
@@ -175,7 +177,8 @@ def avaliacoes(google):
         texto = re.sub(r'\s*…\s*\d*$', '', texto)  # "… 1" do fim (contador de fotos da avaliação)
         nota = re.match(r'(\d)', a.get('nota') or '')
         if nota and nota.group(1) != '5': continue  # só 5 estrelas (a nota vem do aria-label "5 estrelas")
-        if re.search(r'p[ée]ssim|horr[íi]vel|n[ãa]o recomendo|decepcion|descaso|nunca mais|absurd|mal atendid|demora|reclama|ruim', texto, re.I): continue
+        elogio = re.sub(r'(n[ãa]o\s+tenho|nada)\s+(o\s+que\s+|do\s+que\s+|a\s+|de\s+que\s+)?reclamar', '', texto, flags=re.I)  # "não tenho o que reclamar" é elogio
+        if re.search(r'p[ée]ssim|horr[íi]vel|n[ãa]o recomendo|decepcion|descaso|nunca mais|absurd|mal atendid|demora|reclama|ruim', elogio, re.I): continue
         if texto: out.append({'nome': linhas[0].strip(), 'texto': texto, 'nota': (nota.group(1) if nota else '?')})
     return out
 

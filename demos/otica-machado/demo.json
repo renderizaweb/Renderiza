@@ -1,0 +1,220 @@
+{
+ "pasta": "otica-machado",
+ "marca": "Ótica Machado",
+ "marca_logo": "Ótica Machado",
+ "marca_completa": "Ótica Machado",
+ "logo_sub": "São José dos Campos",
+ "titulo": "Ótica Machado | Jardim Satélite, São José dos Campos",
+ "descricao": "Ótica Machado, na Av. Cassiopeia, 883, no Jardim Satélite, em São José dos Campos: óculos de grau e de sol escolhidos com a Amanda, consultora de imagem óptica desde 2016. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Machado: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@machado_otica) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 05/10/2026.",
+ "fonte": "Montserrat",
+ "cores": {
+  "escuro": "#2b2c3b",
+  "acento": "#d6ae66",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-machado/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-machado.json",
+ "topline": "Jardim Satélite · São José dos Campos",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#provador", "Provador"],
+  ["#sol", "Óculos de sol"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Falar com a Amanda",
+ "hero": {
+  "eyebrow": "Ótica no Jardim Satélite · São José dos Campos",
+  "h1": "Escolha sua melhor companhia: <em>seus óculos.</em>",
+  "intro": "Óculos de grau e de sol escolhidos com a Amanda, consultora de imagem óptica desde 2016. Ela indica a armação que valoriza o seu rosto e o seu estilo, na Av. Cassiopeia, 883.",
+  "selo": "Consultora de imagem desde 2016",
+  "link": "Ver o provador",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/perfil/machado_otica_04.jpg",
+   "c": [0.5, 0.42]
+  },
+  "alt": "Amanda, da Ótica Machado, sorrindo de óculos de sol ao ar livre"
+ },
+ "endereco": [
+  "Av. Cassiopeia, 883",
+  "Jardim Satélite · São José dos Campos"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Consultoria de imagem",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Armações escolhidas a dedo",
+  "Estacionamento próprio",
+  "Jardim Satélite",
+  "São José dos Campos",
+  "Nota 5,0 no Google"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ótica Machado",
+  "h2": "Armações escolhidas <em>a dedo.</em>",
+  "p": [
+   "No Jardim Satélite, em São José dos Campos, a Ótica Machado é a ótica da Amanda, consultora de imagem óptica desde 2016. Ela mesma escolhe as armações da loja, das clássicas às modernas, e ajuda cada cliente a achar a que combina com o rosto e o estilo.",
+   "Tem variedade de óculos de grau e de sol para todos os gostos, preço justo e estacionamento próprio. No Instagram, a Amanda prova os modelos para quase 90 mil seguidores."
+  ],
+  "stats": [
+   ["{nota}", "nota no Google"],
+   ["141", "avaliações no Google"],
+   ["89,7 mil", "seguidores no Instagram"]
+  ],
+  "foto": {
+   "id": 41
+  },
+  "alt": "Amanda sorrindo com armação de grau preta, diante das prateleiras de óculos da loja",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/google/g05.jpg",
+   "box": [0, 0.06, 1, 0.88]
+  },
+  "pol_alt": "Sacola da Ótica Machado com laço dourado e cartão de agradecimento",
+  "pol_cap": "Obrigado pela compra!"
+ },
+ "carrosseis": [
+  {
+   "id": "provador",
+   "eyebrow": "Provador",
+   "h2": "Um modelo para <em>cada estilo.</em>",
+   "p": "Gatinho, quadrado, redondo, transparente, tartaruga: a Amanda prova as armações da loja e mostra no rosto. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Armações de grau provadas pela Amanda",
+   "formato": "retrato",
+   "itens": [
+    {"foto": {"id": 8}, "alt": "Armação de grau gatinho preta, de aro grosso"},
+    {"foto": {"id": 23}, "alt": "Armação de grau gatinho cinza, diante das prateleiras da loja"},
+    {"foto": {"id": 3}, "alt": "Armação de grau gatinho cinza translúcida"},
+    {"foto": {"id": 24}, "alt": "Armação de grau quadrada marrom avermelhada"},
+    {"foto": {"id": 42}, "alt": "Armação de grau gatinho azul petróleo"},
+    {"foto": {"id": 27}, "alt": "Armação de grau gatinho branca, diante das prateleiras da loja"},
+    {"foto": {"id": 33}, "alt": "Armação de grau transparente, com asas cor-de-rosa pintadas ao fundo"},
+    {"foto": {"id": 12}, "alt": "Armação de grau gatinho tartaruga"},
+    {"foto": {"id": 5}, "alt": "Armação de grau redonda tartaruga, com asas coloridas pintadas ao fundo"},
+    {"foto": {"id": 0}, "alt": "Armação de grau preta com detalhe brilhante na parte de cima"},
+    {"foto": {"id": 29}, "alt": "Armação de grau preta em cima e transparente embaixo"},
+    {"foto": {"id": 46}, "alt": "Armação de grau gatinho transparente"},
+    {"foto": {"id": 13}, "alt": "Armação de grau gatinho vermelha, com gorro de tricô"},
+    {"foto": {"id": 34}, "alt": "Armação de grau preta e tartaruga"},
+    {"foto": {"id": 16}, "alt": "Armação de grau azul, diante das prateleiras da loja"},
+    {"foto": {"id": 32}, "alt": "Armação de grau rosé translúcida"}
+   ]
+  },
+  {
+   "id": "sol",
+   "eyebrow": "Óculos de sol",
+   "h2": "Para curtir o sol <em>com estilo.</em>",
+   "p": "Modelos de sol para o dia a dia, o passeio e a viagem. Pergunte pelo WhatsApp quais modelos chegaram.",
+   "rotulo": "Óculos de sol no rosto da Amanda",
+   "formato": "retrato",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/perfil/machado_otica_05.jpg", "c": [0.5, 0.3]}, "alt": "Amanda de óculos de sol gatinho diante do letreiro de São José dos Campos"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/perfil/machado_otica_01.jpg", "box": [0.12, 0.28, 0.98, 1], "c": [0.55, 0.5]}, "alt": "Amanda de óculos de sol sentada num banco, num dia de céu azul"},
+    {"foto": {"id": 51}, "alt": "Amanda de óculos de sol num banco de madeira, ao ar livre"},
+    {"foto": {"id": 2}, "alt": "Amanda de óculos de sol e vestido preto e branco diante de um muro"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/perfil/machado_otica_02.jpg", "c": [0.5, 0.4]}, "alt": "Amanda de óculos de sol hexagonais escuros"}
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Jardim Satélite ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "foto": {"id": 10},
+   "alt": "Amanda com armação de grau rosé",
+   "texto": "Armações clássicas e modernas para a sua receita."
+  },
+  "solar": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/google/g03.jpg",
+    "c": [0.5, 0.42]
+   },
+   "alt": "Dois óculos de sol pretos na prateleira branca da loja",
+   "texto": "Modelos de sol para todos os gostos."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento com a Amanda",
+  "h2": "Consultoria de imagem <em>na escolha.</em>",
+  "passos": [
+   "Chame a Amanda no WhatsApp e conte o que você procura",
+   "Ela indica as armações que valorizam o seu rosto e o seu estilo",
+   "Prove na loja, no Jardim Satélite, com estacionamento próprio",
+   "Lentes para a sua receita e entrega no prazo"
+  ],
+  "botao": "Falar com a Amanda",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-machado/google/g01.jpg",
+   "box": [0.38, 0.23, 0.82, 0.89]
+  },
+  "alt": "A Ótica Machado por dentro: mesa de atendimento com cadeiras vermelhas e prateleiras brancas cheias de armações",
+  "card": [
+   "Fotos dos modelos",
+   "Peça pelo WhatsApp antes de vir."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem compra <em>volta sempre.</em>"
+ },
+ "avaliacoes": [
+  {"nome": "Rose Mendes", "tag": "Atendimento impecável", "trecho": "Sempre que precisamos de óculos, não pensamos duas vezes: compramos com ela. É uma excelente profissional, super atenciosa, paciente e entende exatamente o que o cliente precisa."},
+  {"nome": "Suellen Beatriz", "tag": "Há mais de 5 anos", "trecho": "tem bastante variedades de óculos pra todos os gostos, entrega rápida também, tem estacionamento próprio da loja, amo a ótica machado faz mais de 5 anos que só compro meus óculos com eles"},
+  {"nome": "Amanda Bueno", "tag": "Conheci pelo Instagram", "trecho": "Conheci a ótica pelo Insta, vi os comentários positivos no Google e realmente a ótica é muito boa! A Amanda, que me atendeu, foi muito atenciosa e profissional."},
+  {"nome": "Isabel Barbosa", "tag": "Mãe e filha", "trecho": "Fomos muitíssimo bem atendidas, minha filha e eu. A Amanda no recebeu e foi muito atenciosa. Eu recomendo, pois além do bom atendimento, os óculos são lindos e o preço é justo."},
+  {"nome": "Aya Sharon Gouvêa de Freitas", "tag": "Loja aconchegante", "trecho": "Fui muito bem atendida, loja aconchegante, me senti a vontade"}
+ ],
+ "instagram": "machado_otica",
+ "insta": {
+  "seguidores": "89,7 mil seguidores",
+  "p": "Armações novas no rosto da Amanda, dicas de estilo e o dia a dia em São José dos Campos.",
+  "foto": {"id": 35},
+  "alt": "Amanda sorrindo com armação de grau marrom"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Jardim Satélite.</em>",
+  "endereco": [
+   "Av. Cassiopeia, 883 · Jardim Satélite",
+   "São José dos Campos, SP · CEP 12230-011"
+  ],
+  "telefone": "(12) 98882-8157",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Escolha sua melhor companhia: seus óculos.",
+ "mensagem": "Olá, Amanda! Vim pelo site da Ótica Machado e queria ver uns modelos.",
+ "whatsapp": "5512988828157",
+ "fone_link": "+5512988828157",
+ "google": {
+  "coords": "-23.2292442,-45.8891014",
+  "fid": "0x94cc4b8a407f671d:0xddc0baa54f89f478",
+  "gid": "/g/11jzh1b2n1"
+ },
+ "google_nome": "Ótica Machado",
+ "endereco_maps": "Av. Cassiopeia, 883 - Jardim Satélite, São José dos Campos - SP, 12230-011",
+ "google_nota": "5,0",
+ "google_total": "141",
+ "verificado": "2026-10-05",
+ "ficha": {
+  "whatsapp_fonte": "o +55 12 98882-8157 é o telefone do Perfil da Empresa no Google e vem como \"Whats 12 988828157\" nas legendas do Instagram",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 1ª. A Amanda é a cara da loja: consultora de imagem óptica desde 2016 (bio), quase 90 mil seguidores. Toda avaliação cita o atendimento dela."
+  ],
+  "demo": [
+   "Grafite e dourado da placa da loja, títulos em Montserrat. Sem logo em imagem (a foto de perfil é uma selfie no carro): fica o ícone padrão com o nome.",
+   "Capa \"Escolha sua melhor companhia: seus óculos.\" (a frase que fecha as legendas da loja) com a Amanda sorrindo de óculos de sol, foto recente do Instagram.",
+   "Carrossel \"Provador\" com 16 armações de grau no rosto da Amanda, carrossel \"Óculos de sol\" com 5 fotos, estilos (grau e sol), atendimento com a loja por dentro e 5 avaliações de 5 estrelas (nota 5,0 · 141)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2022 em diante): as selfies com as armações (as mais nítidas e de modelos diferentes). Instagram recente (2026): a capa e 3 fotos de sol. Google: a loja por dentro (foto 360°), os óculos de sol na prateleira e a sacola de presente (foto da cliente Rose Mendes, sem a marca d'água).",
+   "Ficaram de fora: a fachada (foto 360° com faixa de \"exame de vista grátis\" e telefones), quadros de vídeo e as selfies repetidas."
+  ],
+  "conferir": [
+   "Endereço: as legendas de 2022 dizem R. Canopus, 528; o Google e a bio dizem Av. Cassiopeia, 883. No mapa as duas ruas se encontram na esquina da loja, então deve ser o mesmo prédio. A demo usa a Av. Cassiopeia, 883.",
+   "Estacionamento próprio: dito por uma cliente no Google (Suellen Beatriz) e há placa de estacionamento no portão da foto da fachada.",
+   "Promoções antigas das legendas (consulta grátis, Campanha da Boa Visão, lentes Blue Light, 2º par grátis) não entraram: não confirmei se ainda valem.",
+   "O telefone fixo (12) 3209-2214 aparece na placa e nas legendas antigas; a demo usa só o WhatsApp."
+  ]
+ }
+}

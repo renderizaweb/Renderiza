@@ -1,0 +1,211 @@
+{
+ "pasta": "otica-six",
+ "marca": "Ótica Six",
+ "marca_logo": "Ótica Six",
+ "marca_completa": "Ótica Six",
+ "logo_sub": "Centro · Peruíbe",
+ "titulo": "Ótica Six | Centro de Peruíbe",
+ "descricao": "Ótica Six, na Av. Padre Anchieta, 1405, no Centro de Peruíbe: há mais de 18 anos com óculos de grau e de sol para toda a família, lentes e consertos. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Six: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@otica.six) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#123c8c",
+  "acento": "#ffb4a2",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-six/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-six.json",
+ "topline": "Av. Padre Anchieta, 1405 · Centro de Peruíbe",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#vitrine", "Vitrine"],
+  ["#provador", "Na Six"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Falar no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Peruíbe",
+  "h1": "Sua visão <em>em boas mãos.</em>",
+  "intro": "Há mais de 18 anos em Peruíbe: óculos de grau e de sol para toda a família, lentes para a sua receita e consertos, na Av. Padre Anchieta, 1405.",
+  "selo": "Mais de 18 anos em Peruíbe",
+  "link": "Ver a vitrine",
+  "foto": {"id": 0, "c": [0.5, 0.45]},
+  "alt": "Menina sorrindo com óculos de grau rosa"
+ },
+ "endereco": [
+  "Av. Padre Anchieta, 1405",
+  "Centro · Peruíbe"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Óculos infantis",
+  "Consertos",
+  "Pronto-socorro dos óculos",
+  "Mais de 18 anos",
+  "Centro de Peruíbe",
+  "Av. Padre Anchieta"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Six",
+  "h2": "Mais de 18 anos <em>de dedicação.</em>",
+  "p": [
+   "Na Av. Padre Anchieta, no Centro de Peruíbe, a Ótica Six atende há mais de 18 anos com qualidade e dedicação: óculos de grau e de sol, lentes para a sua receita e armações para toda a família, das crianças aos avós.",
+   "É também o pronto-socorro dos óculos: quebrou, soltou ou ficou torto, a Six faz consertos e ajustes. Loja com ar-condicionado, de segunda a sábado."
+  ],
+  "stats": [
+   ["{nota}", "nota no Google"],
+   ["201", "avaliações no Google"],
+   ["18+", "anos de qualidade e dedicação"]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/google/g00.jpg",
+   "c": [0.5, 0.5]
+  },
+  "alt": "Fachada da Ótica Six, com a placa azul e a placa do pronto-socorro dos óculos",
+  "pol": {"id": 3, "c": [0.5, 0.42]},
+  "pol_alt": "Cliente de cabelo branco sorrindo, provando um clipe de sol na loja",
+  "pol_cap": "Para todas as idades"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Armações que <em>combinam com você.</em>",
+   "p": "Gatinho, transparentes, metálicas, com correntinha e óculos de sol. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Óculos da Ótica Six",
+   "formato": "quadrado",
+   "itens": [
+    {"foto": {"id": 10, "box": [0, 0.08, 1, 0.92]}, "alt": "Duas armações de grau gatinho transparentes"},
+    {"foto": {"id": 15, "box": [0, 0.05, 1, 0.95]}, "alt": "Armações de grau metálicas redondas com corrente rosa"},
+    {"foto": {"id": 17}, "alt": "Armações de grau transparentes com corrente verde"},
+    {"foto": {"id": 21}, "alt": "Armações de grau entre flores e colar de pérolas"},
+    {"foto": {"id": 24, "box": [0, 0.15, 1, 1]}, "alt": "Armação de grau gatinho preta sobre um livro aberto, com colar de pérolas"},
+    {"foto": {"id": 29}, "alt": "Armações de grau em tons de marrom com sacola de presente"},
+    {"foto": {"id": 11}, "alt": "Duas armações de grau gatinho, tartaruga e preta, com pérolas"},
+    {"foto": {"id": 8}, "alt": "Óculos de sol marrom entre galhos de flores de cerejeira"},
+    {"foto": {"id": 14}, "alt": "Óculos de sol preto quadrado sobre uma pedra"},
+    {"foto": {"id": 27}, "alt": "Óculos de sol gatinho preto sobre madeira, com flores"},
+    {"foto": {"id": 35, "box": [0, 0.08, 1, 0.92]}, "alt": "Armações de grau douradas com corrente de pérolas"},
+    {"foto": {"id": 37, "box": [0, 0.1, 1, 0.9]}, "alt": "Armação de grau metálica sobre o estojo"}
+   ]
+  },
+  {
+   "id": "provador",
+   "eyebrow": "Na Six",
+   "h2": "Experimente, <em>sem pressa.</em>",
+   "p": "Clientes provando os modelos na loja, de mãe e filha a amigas. Venha escolher o seu.",
+   "rotulo": "Provando óculos na Ótica Six",
+   "formato": "retrato",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_00.jpg", "c": [0.5, 0.45]}, "alt": "Mãe e filha provando óculos de grau na loja"},
+    {"foto": {"id": 1, "c": [0.5, 0.4]}, "alt": "Menina sorrindo com óculos de grau rosa, de perto"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_04.jpg", "c": [0.5, 0.4]}, "alt": "Cliente de óculos de sol dentro da loja"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_05.jpg", "c": [0.5, 0.5]}, "alt": "Cliente experimentando uma armação de grau"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_01.jpg", "c": [0.5, 0.35]}, "alt": "Armação de grau com clipe de sol, segurada diante da parede de óculos"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_02.jpg", "c": [0.5, 0.3]}, "alt": "Armação de grau com correntinha, segurada diante da parede de óculos"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/perfil/otica.six_03.jpg", "c": [0.5, 0.38]}, "alt": "Armação de grau tartaruga segurada na loja"}
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Av. Padre Anchieta ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Óculos infantis",
+   "rotulo": "01 / INFANTIL",
+   "foto": {"id": 19, "c": [0.55, 0.5]},
+   "alt": "Armações infantis vermelhas e rosa com um estojo de princesa",
+   "texto": "Armações coloridas e estojos divertidos para os pequenos."
+  },
+  "solar": {
+   "foto": {"id": 36, "box": [0, 0.15, 1, 0.9]},
+   "alt": "Óculos de sol dourado com lente degradê sobre o estojo vermelho",
+   "texto": "Modelos de sol para o dia a dia na praia e na cidade."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de verdade",
+  "h2": "Do primeiro óculos <em>ao conserto.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à Av. Padre Anchieta, 1405",
+   "Escolha a armação com a ajuda da equipe, no seu tempo",
+   "Lentes certas para a sua receita",
+   "Quebrou ou ficou torto? A Six faz consertos e ajustes"
+  ],
+  "botao": "Falar no WhatsApp",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-six/google/g01.jpg",
+   "box": [0.35, 0.22, 0.79, 0.85]
+  },
+  "alt": "A Ótica Six por dentro: prateleiras de vidro com óculos de sol e o balcão de atendimento",
+  "card": [
+   "Consertos",
+   "O pronto-socorro dos óculos."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Atendimento de verdade <em>é na Six.</em>"
+ },
+ "avaliacoes": [
+  {"nome": "Kátia Scarel", "tag": "Ajuste nas hastes", "trecho": "Hoje, dia 17/04/2026, retornei para um ajuste nas hastes e o atendimento ao cliente continua de excelência."},
+  {"nome": "Conrado Jorge Bernardi", "tag": "Eu e a esposa", "trecho": "Grande variedade de armações de óculos com ótimas alternativas de preços! Atendimento profissional com amplo conhecimento, auxiliando nas escolhas adequadas ao perfil de cada cliente!"},
+  {"nome": "Paulo Tagliassachi", "tag": "Cliente há muitos anos"},
+  {"nome": "Analice", "tag": "Obrigada, Emily"},
+  {"nome": "Ismael Azevedo", "tag": "Pessoas atenciosas"}
+ ],
+ "instagram": "otica.six",
+ "insta": {
+  "seguidores": "1,6 mil seguidores",
+  "p": "Armações novas, clientes, parcerias e as novidades da loja.",
+  "foto": {"id": 33, "c": [0.5, 0.45]},
+  "alt": "Moça com a camiseta da Ótica Six ajeitando óculos de sol tartaruga"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Centro de Peruíbe.</em>",
+  "endereco": [
+   "Av. Padre Anchieta, 1405 · Centro",
+   "Peruíbe, SP · CEP 11770-042"
+  ],
+  "telefone": "(11) 99236-6076",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua visão em boas mãos.",
+ "mensagem": "Olá! Vim pelo site da Ótica Six e queria um orçamento.",
+ "whatsapp": "5511992366076",
+ "fone_link": "+5511992366076",
+ "google": {
+  "coords": "-24.3194703,-46.9953366",
+  "fid": "0x94d0260be0c0ef13:0x7650e9c4dee6ad22",
+  "gid": "/g/11f1mw795f"
+ },
+ "google_nome": "Ótica Six",
+ "endereco_maps": "Av. Padre Anchieta, 1405 - Centro, Peruíbe - SP, 11770-042",
+ "google_nota": "5,0",
+ "google_total": "201",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o link wa.me/message/CCKJYFTHLGV3F1 da bio abre o WhatsApp 55 11 99236-6076, o mesmo telefone do Perfil da Empresa no Google",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 6ª. Mais de 18 anos em Peruíbe e consertos (bio: \"Mais de 18 anos de qualidade e dedicação\", \"Consertos\"); a fachada tem a placa \"Pronto socorro dos óculos\". Kaue: é colega da Ótica Ponto Xys, mas a demo não tem nenhuma relação com ela."
+  ],
+  "demo": [
+   "Azul royal da fachada com rosa-coral, títulos em Lora. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Sua visão em boas mãos.\" (a frase das legendas) com a menina de óculos rosa.",
+   "Vitrine (12 fotos de óculos), \"Na Six\" (7: mãe e filha, a menina, clientes provando), estilos (infantil e sol), atendimento com a loja por dentro e o card de consertos, e 5 avaliações de 5 estrelas (nota 5,0 · 201)."
+  ],
+  "fotos": [
+   "Drive (posts de 2024 e 2025): os óculos, a menina de óculos rosa, a senhora provando o clipe e a moça com a camiseta da loja. Instagram recente (setembro e outubro de 2026): mãe e filha, clientes e as armações seguradas na loja. Google: a fachada e a loja por dentro (foto 360°).",
+   "Ficaram de fora: as artes (dicas, promoção de R$ 99,90, \"4 motivos\"), o cachorro de óculos, a foto de Natal, a foto pouco nítida do rapaz de óculos esportivo e os quadros de vídeo muito borrados."
+  ],
+  "conferir": [
+   "Quem é a moça da camiseta da Ótica Six (a Emily, citada numa avaliação?). A demo não põe nome.",
+   "Mãe e filha do post de 03/10/2026 são de uma parceria (@casinhadanih, \"a pequena Bárbara\"): confirmar se a loja pode usar a foto no site.",
+   "Horário do Google e da bio: seg a sex 9h às 18h, sáb 9h às 14h."
+  ]
+ }
+}

@@ -1,0 +1,383 @@
+{
+ "pasta": "otica-niteroi-prime",
+ "marca": "Ótica Niterói Prime",
+ "marca_logo": "Niterói Prime",
+ "marca_completa": "Ótica Niterói Prime",
+ "logo_sub": "Icaraí · Niterói",
+ "titulo": "Ótica Niterói Prime | Icaraí, Niterói",
+ "descricao": "Ótica Niterói Prime, no Shopping Center Icaraí (R. Ator Paulo Gustavo, 265, loja 125), em Niterói: consultoria de imagem óptica gratuita, com visagismo e coloração pessoal, e armações Guess, Chloé, Emilio Pucci e mais. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Niterói Prime: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaniteroi) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Poppins",
+ "cores": {
+  "escuro": "#161616",
+  "acento": "#d8b25c",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-niteroi-prime/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-niteroi-prime.json",
+ "topline": "Shopping Center Icaraí · Niterói",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#provador",
+   "Provador"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#atendimento",
+   "Consultoria"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Agendar consultoria",
+ "hero": {
+  "eyebrow": "Ótica em Icaraí · Niterói",
+  "h1": "A ótica que transforma <em>a sua imagem.</em>",
+  "intro": "Consultoria de imagem óptica gratuita: análise do formato do rosto, coloração pessoal e curadoria das armações que valorizam você. No Shopping Center Icaraí, R. Ator Paulo Gustavo, 265.",
+  "selo": "Consultoria de imagem gratuita",
+  "link": "Ver o provador",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-niteroi-prime/google/g01.jpg",
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "alt": "Fachada da Ótica Niterói Prime no Shopping Center Icaraí, com o logo dourado e as vitrines iluminadas"
+ },
+ "endereco": [
+  "R. Ator Paulo Gustavo, 265, loja 125",
+  "Shopping Center Icaraí · Niterói"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Consultoria de imagem",
+  "Visagismo",
+  "Coloração pessoal",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Shopping Center Icaraí",
+  "Icaraí",
+  "Niterói"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Niterói Prime",
+  "h2": "O óculos certo <em>muda a sua imagem.</em>",
+  "p": [
+   "No Shopping Center Icaraí, a Ótica Niterói Prime une óculos de grau e de sol a uma consultoria de imagem óptica gratuita: análise visagista, estudo da coloração pessoal e do formato do rosto, e a curadoria das armações que valorizam os seus traços.",
+   "Você sai com o óculos ideal e um dossiê personalizado da análise. Mais de 500 mulheres já descobriram aqui o modelo certo, entre armações Guess, Chloé, Emilio Pucci, Calvin Klein e Victoria's Secret."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "139",
+    "avaliações no Google"
+   ],
+   [
+    "500+",
+    "mulheres na consultoria"
+   ]
+  ],
+  "foto": {
+   "id": 7,
+   "c": [
+    0.38,
+    0.5
+   ]
+  },
+  "alt": "De óculos de sol tartaruga diante do Museu de Arte Contemporânea de Niterói",
+  "pol": {
+   "id": 17,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Cliente olhando a vitrine da Ótica Niterói Prime no shopping",
+  "pol_cap": "No Shopping Center Icaraí"
+ },
+ "carrosseis": [
+  {
+   "id": "provador",
+   "eyebrow": "Provador",
+   "h2": "Cada rosto, <em>uma armação.</em>",
+   "p": "Modelos de metal, translúcidos, redondos e gatinho, provados na loja e pela cidade. Peça fotos pelo WhatsApp ou venha provar.",
+   "rotulo": "Armações provadas na Ótica Niterói Prime",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Sorrindo com armação de grau Guess de metal dourado, na loja"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Sorrindo com armação de grau Guess tartaruga clara"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Armação de grau de metal, diante das prateleiras da loja"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Sorrindo com armação de grau translúcida rosada"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Armação de grau redonda de metal dourado"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Armação de grau Guess gatinho de metal"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Consultora da Ótica Niterói Prime no balcão da loja"
+    }
+   ]
+  },
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Grifes escolhidas <em>a dedo.</em>",
+   "p": "Chloé, Emilio Pucci, Guess, Calvin Klein, Lala Rudge e as cordinhas do Leblon. Pergunte pelo WhatsApp quais modelos chegaram.",
+   "rotulo": "Óculos da Ótica Niterói Prime",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 33
+     },
+     "alt": "Óculos de sol Chloé amarelo sobre o estojo"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Óculos de sol Emilio Pucci preto e branco"
+    },
+    {
+     "foto": {
+      "id": 45,
+      "box": [
+       0.1,
+       0,
+       0.9,
+       1
+      ]
+     },
+     "alt": "Armação de grau Guess tartaruga clara sobre o balcão"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Armação de grau Calvin Klein redonda de metal, na mão"
+    },
+    {
+     "foto": {
+      "id": 42
+     },
+     "alt": "Óculos de sol gatinho Belle, da coleção Lala Rudge"
+    },
+    {
+     "foto": {
+      "id": 50
+     },
+     "alt": "Óculos de sol pendurado na cordinha colorida"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Na consultoria, a armação certa sai da análise do seu rosto e das suas cores.",
+  "grau": {
+   "titulo": "Visagismo e cores",
+   "rotulo": "01 / VISAGISMO",
+   "foto": {
+    "id": 20,
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "alt": "Cliente com armação de grau que harmoniza com o tom de pele, o cabelo e os lábios",
+   "texto": "A armação que harmoniza com o seu tom de pele e o seu rosto."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Consultoria de imagem óptica",
+  "h2": "Gratuita, com hora <em>marcada para você.</em>",
+  "passos": [
+   "Agende pelo WhatsApp: o horário fica reservado só para você",
+   "Análise visagista e do formato do rosto",
+   "Estudo da coloração pessoal: os tons que valorizam você",
+   "Curadoria das armações e um dossiê personalizado da análise"
+  ],
+  "botao": "Agendar consultoria",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-niteroi-prime/google2/g01.jpg",
+   "box": [
+    0.18,
+    0.2,
+    0.86,
+    0.9
+   ]
+  },
+  "alt": "A Ótica Niterói Prime por dentro: prateleiras iluminadas de óculos e o balcão de atendimento",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-niteroi-prime/google/g00.jpg",
+   "box": [
+    0,
+    0.12,
+    1,
+    0.82
+   ]
+  },
+  "pol_alt": "Consultora mostrando tecidos coloridos para a análise de coloração pessoal de uma cliente",
+  "pol_cap": "Coloração pessoal",
+  "card": [
+   "Consultoria gratuita",
+   "Visagismo e coloração pessoal."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Sem pressa e <em>sem pressão.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Agape Araujo",
+   "tag": "Sem pressão"
+  },
+  {
+   "nome": "Luis Felipe Mesquita Malheiros",
+   "tag": "Explicam tudo",
+   "trecho": "A equipe me ajudou a escolher o que eu realmente precisava, sem pressa e explicando tudo direitinho. Ambiente organizado, produtos de qualidade e preço justo."
+  },
+  {
+   "nome": "Marcela",
+   "tag": "Atendimento humanizado",
+   "trecho": "Equipe muito simpática, atenciosa e acolhedora. O cuidado e a forma humanizada com que tratam os clientes fazem toda a diferença."
+  },
+  {
+   "nome": "Sandra Mara Vargas de Araujo",
+   "tag": "Diversas opções"
+  }
+ ],
+ "instagram": "oticaniteroi",
+ "insta": {
+  "seguidores": "3,9 mil seguidores",
+  "p": "Dicas de visagismo, armações novas, as grifes da loja e os passeios por Niterói.",
+  "foto": {
+   "id": 21,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Sorrindo de óculos de sol no Museu de Arte Contemporânea de Niterói"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Icaraí.</em>",
+  "endereco": [
+   "R. Ator Paulo Gustavo, 265, loja 125 · Shopping Center Icaraí",
+   "Icaraí · Niterói, RJ · CEP 24230-052"
+  ],
+  "telefone": "(21) 3492-8438",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "A ótica que transforma a sua imagem.",
+ "mensagem": "Olá! Vim pelo site da Ótica Niterói Prime e queria agendar a consultoria de imagem.",
+ "whatsapp": "552134928438",
+ "fone_link": "+552134928438",
+ "google": {
+  "coords": "-22.907493,-43.109864",
+  "fid": "0x9983ba9a65fafb:0x5fb366414dc65f94",
+  "gid": "/g/11pbnx_l8p"
+ },
+ "google_nome": "Ótica Niterói Prime",
+ "endereco_maps": "R. Ator Paulo Gustavo, 265 - Lj 125 - Icaraí, Niterói - RJ, 24230-052",
+ "google_nota": "5,0",
+ "google_total": "139",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o botão \"Nosso Whatsapp\" do Linktree da bio (linktr.ee/oticaniteroi1 → api.whatsapp.com/send?phone=552134928438), o mesmo telefone do Perfil da Empresa no Google; as legendas antigas (2021 a 2023) traziam o (21) 99513-4308",
+  "site": "oticaniteroi.carrd.co: página simples (Carrd) só da consultoria de imagem, ligada no Linktree",
+  "direcao": [
+   "Lote 3 · 8ª. O diferencial é a consultoria de imagem óptica gratuita (bio: \"A ótica que transforma a sua imagem através dos óculos\"; página Carrd: visagismo, coloração pessoal, formato do rosto, curadoria de armações, dossiê personalizado, \"mais de 500 mulheres\"). As avaliações citam o Leandro e o atendimento sem pressa e sem pressão."
+  ],
+  "demo": [
+   "Preto e dourado do logo, títulos em Poppins. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"A ótica que transforma a sua imagem.\" (da bio) com a fachada iluminada no Shopping Center Icaraí.",
+   "Provador (7 fotos), vitrine (8: grifes e a loja por dentro), card de visagismo, a consultoria em 4 passos com a foto da coloração pessoal, e 4 avaliações de 5 estrelas (nota 5,0 · 139)."
+  ],
+  "fotos": [
+   "Google: a fachada, a loja por dentro (foto 360°) e a consultoria de coloração com os tecidos. Drive (2021 a 2023): as armações provadas pela equipe na loja e no MAC de Niterói, e as grifes (Chloé, Emilio Pucci, Guess, Calvin Klein, Lala Rudge).",
+   "Ficaram de fora: a foto da Grazi Massafera (repost de famosa), fotos que parecem de campanha de marca, os posts recentes de \"minimalismo ou maximalismo\" (montagens com cara de IA), os quadros de vídeo com legenda e as artes de promoção."
+  ],
+  "conferir": [
+   "WhatsApp (21) 3492-8438 (Linktree e Google); as legendas antigas tinham (21) 99513-4308.",
+   "Endereço: o Google usa R. Ator Paulo Gustavo, 265, loja 125 (nome novo da R. Coronel Moreira César, que ainda está na bio). A demo usa o do Google.",
+   "\"Mais de 500 mulheres\" e o dossiê personalizado: da página Carrd da consultoria. Confirmar se a consultoria continua gratuita.",
+   "Quem é quem: a Livia (\"Dicas da Livia\" e topo da página Carrd), a Karla (Linktree) e o Leandro (avaliações). A demo não põe nome em ninguém."
+  ]
+ }
+}

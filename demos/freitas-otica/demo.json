@@ -1,0 +1,434 @@
+{
+ "pasta": "freitas-otica",
+ "marca": "Freitas Ótica",
+ "marca_logo": "Freitas Ótica",
+ "marca_completa": "Freitas Ótica",
+ "logo_sub": "Méier · desde 1983",
+ "titulo": "Freitas Ótica | Méier, Rio de Janeiro",
+ "descricao": "Freitas Ótica, na R. Lucídio Lago, 59, no Méier, Rio de Janeiro: 40 anos de tradição, preço acessível, a maior variedade de armações de grau, de sol e clip-on, e entrega em casa. Nota 5,0 no Google.",
+ "comentario": "Demo Freitas Ótica: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@freitas_otica) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Bricolage Grotesque",
+ "cores": {
+  "escuro": "#1b2a8f",
+  "acento": "#f59a23",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/freitas-otica/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/freitas-otica.json",
+ "topline": "Méier · Zona Norte do Rio · 40 anos de tradição",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#na-freitas",
+   "Na Freitas"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Méier · desde 1983",
+  "h1": "Cada personalidade, <em>um óculos.</em>",
+  "intro": "40 anos de tradição no Méier: a maior variedade de armações de grau, de sol e clip-on, preço acessível e atendimento de verdade, na R. Lucídio Lago. E se não puder vir, a Freitas entrega na sua casa.",
+  "selo": "40 anos de tradição no Méier",
+  "link": "Ver a vitrine",
+  "foto": {
+   "id": 52,
+   "c": [
+    0.5,
+    0.36
+   ]
+  },
+  "alt": "Atendente da Freitas Ótica sorrindo com óculos de grau, com o nome da loja ao fundo"
+ },
+ "endereco": [
+  "R. Lucídio Lago, 59, loja B",
+  "Méier · Rio de Janeiro"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "40 anos no Méier",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Clip-on",
+  "Óculos infantis",
+  "Entrega em casa",
+  "Preço acessível",
+  "Zona Norte do Rio"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Freitas",
+  "h2": "Tradição no Méier, <em>de cara nova.</em>",
+  "p": [
+   "Desde 1983 na R. Lucídio Lago, a Freitas Ótica é tradição no Méier: preço acessível, variedade de armações para todos os estilos e um atendimento que faz cliente voltar a vida inteira, de pais a filhos.",
+   "A loja ficou de cara nova, mais bonita e confortável, e continua com a maior variedade de armações de grau, de sol, clip-on e infantis. Quer comodidade? A Freitas entrega os óculos na sua casa."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "439",
+    "avaliações no Google"
+   ],
+   [
+    "40 anos",
+    "de tradição no Méier"
+   ]
+  ],
+  "foto": {
+   "id": 29,
+   "c": [
+    0.5,
+    0.36
+   ]
+  },
+  "alt": "A Freitas Ótica renovada: parede de madeira com o logo e o balcão azul",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/freitas-otica/google/g00.jpg",
+   "box": [
+    0.18,
+    0,
+    0.82,
+    1
+   ]
+  },
+  "pol_alt": "Fachada da Freitas Ótica, com a placa \"Preço acessível desde 1983\"",
+  "pol_cap": "Desde 1983 no Méier"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "A maior variedade <em>que você já viu.</em>",
+   "p": "Acetato colorido, tartaruga, metal, ovais, redondos, clip-on e infantis. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Óculos da Freitas Ótica",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 2,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações de grau em acetato colorido: laranja, azul, verde e tartaruga"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações de grau no expositor de acrílico, diante da parede de madeira"
+    },
+    {
+     "foto": {
+      "id": 1,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações de grau vermelha e preta seguradas diante da parede de madeira"
+    },
+    {
+     "foto": {
+      "id": 15,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Expositor com armações de grau tartaruga e coloridas"
+    },
+    {
+     "foto": {
+      "id": 10,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Óculos de sol tartaruga, de lado"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações de grau redondas sobre o balcão branco"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Armações de grau seguradas sob o letreiro da ótica"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Estojos infantis de unicórnio e gatinho para os óculos das crianças"
+    },
+    {
+     "foto": {
+      "id": 9,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação de grau tartaruga sobre o balcão de madeira"
+    },
+    {
+     "foto": {
+      "id": 17,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações de grau de metal fino sobre fundo branco"
+    }
+   ]
+  },
+  {
+   "id": "na-freitas",
+   "eyebrow": "Na Freitas",
+   "h2": "Experimente <em>todos.</em>",
+   "p": "Clientes e equipe provando os modelos na loja. Vem escolher o seu: é a cara da sua personalidade.",
+   "rotulo": "Provando óculos na Freitas Ótica",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Sorrindo com armação de grau vermelha e grossa"
+    },
+    {
+     "foto": {
+      "id": 37,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Com armação de grau verde diante da parede de óculos"
+    },
+    {
+     "foto": {
+      "id": 47,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Com óculos de sol de lente marrom dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "De óculos de sol diante da parede amarela da loja"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Provando óculos de sol e tirando foto no espelho da loja"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Méier ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 38,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armações de grau azul, laranja e transparente sobre o balcão de madeira",
+   "texto": "Do clássico ao colorido, para todos os estilos."
+  },
+  "solar": {
+   "foto": {
+    "id": 31,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Três óculos de sol tartaruga sobre o balcão de madeira",
+   "texto": "Modelos de sol e clip-on para o dia a dia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de verdade",
+  "h2": "Na loja ou <em>na sua casa.</em>",
+  "passos": [
+   "Chame no WhatsApp e faça o seu orçamento",
+   "Venha à R. Lucídio Lago e prove quantos modelos quiser",
+   "Lentes para a sua receita, com prazo de entrega rápido",
+   "Não pode vir? A Freitas entrega os óculos na sua casa"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 21,
+   "box": [
+    0,
+    0.02,
+    1,
+    0.68
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Atendente apresentando a fachada de vidro da Freitas Ótica, com as armações expostas",
+  "pol": {
+   "id": 19,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Três clientes de óculos sorrindo, vistas de cima",
+  "pol_cap": "Quem conhece, volta",
+  "card": [
+   "Entrega em casa",
+   "Seus óculos sem sair do lugar."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem conhece, <em>volta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "L. Mansur",
+   "tag": "Desde os 12 anos"
+  },
+  {
+   "nome": "A V F",
+   "tag": "Mãe e filha"
+  },
+  {
+   "nome": "Bruna Lemos",
+   "tag": "Loja maravilhosa",
+   "trecho": "Loja maravilhosa! Ambiente super agradável, atendimento excelente e tudo muito organizado e com ótimo preço. Dá pra ver o cuidado em cada detalhe."
+  },
+  {
+   "nome": "Renata Loureiro",
+   "tag": "Atendimento diferenciado"
+  }
+ ],
+ "instagram": "freitas_otica",
+ "insta": {
+  "seguidores": "13,2 mil seguidores",
+  "p": "Armações novas toda semana, dicas para cuidar dos óculos e os bastidores da loja no Méier.",
+  "foto": {
+   "id": 46,
+   "box": [
+    0.15,
+    0.15,
+    0.85,
+    0.85
+   ]
+  },
+  "alt": "Atendente da Freitas Ótica com armação de grau verde"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Méier.</em>",
+  "endereco": [
+   "R. Lucídio Lago, 59, loja B · Méier",
+   "Rio de Janeiro, RJ · CEP 20780-020"
+  ],
+  "telefone": "(21) 98286-4300",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Cada personalidade, um óculos.",
+ "mensagem": "Olá! Vim pelo site da Freitas Ótica e queria um orçamento.",
+ "whatsapp": "5521982864300",
+ "fone_link": "+5521982864300",
+ "google": {
+  "coords": "-22.9011652,-43.2774995",
+  "fid": "0x997db0b07b8611:0x36945371d6351ea6",
+  "gid": "/g/1tgfxvlr"
+ },
+ "google_nome": "Freitas Ótica Méier",
+ "endereco_maps": "R. Lucídio Lago, 59 - Lj B - Méier, Rio de Janeiro - RJ, 20780-020",
+ "google_nota": "5,0",
+ "google_total": "439",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o (21) 98286-4300 com o ícone do WhatsApp na placa da fachada (foto do Google) e no guia Sou Méier (2021); o Google tem o fixo (21) 3079-2394 e a bio do Instagram não tem link de WhatsApp (o link é do Facebook)",
+  "site": "freitas-otica.ueniweb.com: site automático da UENI, antigo (telefone (21) 2581-9098, R. Lucídio Lago, 33); não é domínio próprio",
+  "direcao": [
+   "Lote 3 · 9ª. \"40 anos de tradição no Méier\" (bio), \"Preço acessível desde 1983\" (placa da fachada). A loja foi reformada em 2025 (madeira e balcão azul). Diferenciais das legendas: a maior variedade de armações, clip-on, infantis e entrega em casa. Bio de hoje: \"Todas as armações por R$100,00\"."
+  ],
+  "demo": [
+   "Azul royal e laranja do logo, títulos em Bricolage Grotesque. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Cada personalidade, um óculos.\" (da bio) com a atendente sorrindo diante do letreiro da loja.",
+   "Vitrine (10 fotos), \"Na Freitas\" (6 fotos de clientes e equipe provando), estilos (grau e sol), atendimento com a entrega em casa e 4 avaliações de 5 estrelas (nota 5,0 · 439)."
+  ],
+  "fotos": [
+   "Drive (2025, fotos grandes e nítidas): a loja renovada, a equipe e clientes provando, os óculos sobre a madeira e os estojos infantis. Google: a fachada \"Preço acessível desde 1983\".",
+   "Ficaram de fora: as artes (\"Pac de óculos\", memes, dicas), as fotos com texto por cima (a não ser a da fachada de vidro, recortada acima do texto), a foto do motoboy com legenda no meio e os quadros de vídeo borrados do Instagram recente."
+  ],
+  "conferir": [
+   "WhatsApp (21) 98286-4300: da placa da fachada e do guia Sou Méier. Confirmar que é o atual.",
+   "Endereço: o Google diz R. Lucídio Lago, 59, loja B; o guia Sou Méier (2021) e o site da UENI dizem nº 33 (lojas A e B). A demo usa o do Google.",
+   "Horário do Google: seg a sex 9h às 17h, sáb 9h às 12h30 (o site da UENI, antigo, dizia até 18h e 13h).",
+   "\"Todas as armações por R$100\" (bio): a demo não fala de preço; perguntar se querem destacar."
+  ]
+ }
+}

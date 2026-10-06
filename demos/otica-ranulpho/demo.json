@@ -1,0 +1,204 @@
+{
+ "pasta": "otica-ranulpho",
+ "marca": "Ótica Ranulpho",
+ "marca_logo": "Ótica Ranulpho",
+ "marca_completa": "Ótica Ranulpho",
+ "logo_sub": "Campo Grande · RJ",
+ "titulo": "Ótica Ranulpho | Campo Grande, Rio de Janeiro",
+ "descricao": "Ótica Ranulpho, na R. Floriano Pacheco, 195, em Campo Grande, no Rio de Janeiro: desde 1978, mais de 45 mil óculos entregues, consultoria óptica e credenciada Varilux Especialista. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Ranulpho: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaranulpho) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#13233f",
+  "acento": "#f2a541",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-ranulpho/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-ranulpho.json",
+ "topline": "Campo Grande · Rio de Janeiro · desde 1978",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#vitrine", "Vitrine"],
+  ["#clientes", "Clientes"],
+  ["#atendimento", "Consultoria"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica em Campo Grande · desde 1978",
+  "h1": "Mais de 45 mil óculos <em>entregues.</em>",
+  "intro": "Desde 1978 em Campo Grande, a Ótica Ranulpho une técnica e estética: consultoria para escolher a armação, medição com equipamentos modernos e lentes Varilux, na R. Floriano Pacheco, 195.",
+  "selo": "Credenciada Varilux Especialista",
+  "link": "Ver a vitrine",
+  "foto": {"id": 41, "c": [0.42, 0.5]},
+  "alt": "Duas clientes sorrindo com as sacolas da Ótica Ranulpho"
+ },
+ "endereco": [
+  "R. Floriano Pacheco, 195",
+  "Campo Grande · Rio de Janeiro"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Desde 1978",
+  "45 mil óculos entregues",
+  "Consultoria óptica",
+  "Varilux Especialista",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Campo Grande",
+  "Rio de Janeiro"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Ranulpho",
+  "h2": "Técnica e estética <em>desde 1978.</em>",
+  "p": [
+   "Na R. Floriano Pacheco, em Campo Grande, a Ótica Ranulpho atende desde 1978 e já entregou mais de 45 mil óculos. O Sr. Ranulfo e a consultora Priscila ajudam a escolher a armação certa para o seu rosto e a sua receita.",
+   "A loja é credenciada Varilux Especialista e tem equipamentos modernos de medição. Tem família que faz os óculos aqui há mais de 10 anos, de pais a filhos."
+  ],
+  "stats": [
+   ["{nota}", "nota no Google"],
+   ["45 mil", "óculos entregues"],
+   ["desde 1978", "em Campo Grande"]
+  ],
+  "foto": {"id": 39, "c": [0.5, 0.45]},
+  "alt": "Menina de óculos novos sentada no balcão da loja",
+  "pol": {"id": 20, "c": [0.5, 0.4]},
+  "pol_alt": "Cliente sorrindo de óculos novos dentro da loja",
+  "pol_cap": "Mais um cliente satisfeito"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "As melhores marcas, <em>escolhidas a dedo.</em>",
+   "p": "Ray-Ban, Detroit, Volt, Nysel Gold, Havaianas e mais, de grau e de sol. Faça seu orçamento pelo WhatsApp ou venha provar.",
+   "rotulo": "Óculos da Ótica Ranulpho",
+   "formato": "quadrado",
+   "itens": [
+    {"foto": {"id": 48, "c": [0.45, 0.55]}, "alt": "Óculos de grau e de sol Havaianas coloridos ao lado da sacola da Ótica Ranulpho"},
+    {"foto": {"id": 28}, "alt": "Duas armações de grau Volt, tartaruga rosa e azul, sobre pedrinhas brancas"},
+    {"foto": {"id": 33, "c": [0.5, 0.55]}, "alt": "Óculos de sol preto com haste de madeira no estojo"},
+    {"foto": {"id": 19, "c": [0.5, 0.45]}, "alt": "Armação de grau Detroit tartaruga sobre o estojo amarelo da marca"},
+    {"foto": {"id": 37}, "alt": "Armação de grau Nysel Gold tartaruga mel entre folhagens"},
+    {"foto": {"id": 22}, "alt": "Óculos de sol Volt vermelho e azul sobre tecido florido"},
+    {"foto": {"id": 52}, "alt": "Armação de grau gatinho vinho Nysel Gold sobre o estojo"},
+    {"foto": {"id": 0, "c": [0.5, 0.45]}, "alt": "Três óculos de sol sobre a mesa: transparente, tartaruga e rosado"},
+    {"foto": {"id": 2, "c": [0.5, 0.45]}, "alt": "Mão segurando uma armação de grau preta diante de flores vermelhas"}
+   ]
+  },
+  {
+   "id": "clientes",
+   "eyebrow": "Clientes",
+   "h2": "Gente que enxerga <em>bem e bonito.</em>",
+   "p": "Clientes de Campo Grande com os óculos novos da Ranulpho. Venha você também.",
+   "rotulo": "Clientes da Ótica Ranulpho",
+   "formato": "retrato",
+   "itens": [
+    {"foto": {"id": 32, "c": [0.5, 0.45]}, "alt": "Cliente de cabelo grisalho com armação de grau verde"},
+    {"foto": {"id": 17, "c": [0.45, 0.5]}, "alt": "Cliente de óculos de sol com a sacola da Ótica Ranulpho"},
+    {"foto": {"id": 46, "c": [0.5, 0.45]}, "alt": "Cliente sorrindo com armação de grau transparente"},
+    {"foto": {"id": 42, "c": [0.5, 0.4]}, "alt": "Cliente sorrindo de óculos de sol gatinho dentro da loja"},
+    {"foto": {"id": 35, "c": [0.5, 0.45]}, "alt": "Cliente com armação de grau transparente"}
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar em Campo Grande ou faça seu orçamento pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-ranulpho/google/g00.jpg",
+    "c": [0.45, 0.45]
+   },
+   "alt": "Armação de grau Detroit azul e tartaruga sobre o estojo, entre pedrinhas brancas",
+   "texto": "Armações das melhores marcas e lentes Varilux para multifocal."
+  },
+  "solar": {
+   "foto": {"id": 21, "box": [0, 0.2, 1, 1]},
+   "alt": "Óculos de sol aviador Ray-Ban no estojo, com a sacola da Ótica Ranulpho",
+   "texto": "Grifes de sol, também com grau."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Consultoria óptica",
+  "h2": "Lindo e <em>tecnicamente perfeito.</em>",
+  "passos": [
+   "Chame no WhatsApp e faça o seu orçamento",
+   "Converse com a consultora sobre a sua receita e o seu estilo",
+   "Medição com equipamentos modernos e lentes certas, inclusive Varilux",
+   "Entrega com ajuste, com muito carinho e qualidade"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {"id": 45, "c": [0.5, 0.45]},
+  "alt": "Cliente com a sacola da Ótica Ranulpho dentro da loja",
+  "pol": {"id": 16, "box": [0, 0, 1, 0.75]},
+  "pol_alt": "Atendente da Ótica Ranulpho com a camiseta da loja",
+  "pol_cap": "Visão, compromisso, tecnologia e conhecimento",
+  "card": [
+   "Varilux Especialista",
+   "Ótica credenciada para multifocais."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "A família toda <em>confia.</em>"
+ },
+ "avaliacoes": [
+  {"nome": "Simone Abreu", "tag": "Há mais de 10 anos"},
+  {"nome": "Marcia Silva", "tag": "Bem equipada", "trecho": "Dou 5 pelo excelente atendimento do Sr Ranulfo e da Priscila. Fui por indicação. A ótica é bem equipada e moderna. Tem equipamentos pra medição que nunca vi em outras oticas."},
+  {"nome": "Andréa Cristina Silva", "tag": "Mãe e filho", "trecho": "A Priscila ouviu a mim e a meu filho com atenção e acertou em cheio nas indicações das armações."},
+  {"nome": "Daniela Rangel", "tag": "Consultoria", "trecho": "A consultoria prestada faz toda a diferença. Eu jamais imaginei que poderia me sentir tão confiante e satisfeita usando óculos, até ser atendida pela Priscila"},
+  {"nome": "Viviane Soares", "tag": "Preço justo", "trecho": "Priscila foi muito atenciosa e paciente na hora de ajudar a escolher. A loja tem ótimos produtos, com muita qualidade e preços justos."}
+ ],
+ "instagram": "oticaranulpho",
+ "insta": {
+  "seguidores": "1,7 mil seguidores",
+  "p": "Coleções novas, clientes com os óculos novos e dicas para cuidar da visão.",
+  "foto": {"id": 47, "c": [0.5, 0.5]},
+  "alt": "Óculos de sol espelhado azul ao lado da sacola da Ótica Ranulpho"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Campo Grande.</em>",
+  "endereco": [
+   "R. Floriano Pacheco, 195 · Campo Grande",
+   "Rio de Janeiro, RJ · CEP 23045-320"
+  ],
+  "telefone": "(21) 96430-1791",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Técnica e estética desde 1978.",
+ "mensagem": "Olá! Vim pelo site da Ótica Ranulpho e queria fazer um orçamento.",
+ "whatsapp": "5521964301791",
+ "fone_link": "+5521964301791",
+ "google": {
+  "coords": "-22.9164043,-43.5564425",
+  "fid": "0x9be6a978551829:0xe3385c9498307406",
+  "gid": "/g/1tvtckxg"
+ },
+ "google_nome": "OTICA RANULPHO",
+ "endereco_maps": "R. Floriano Pachêco, 195 - Campo Grande, Rio de Janeiro - RJ, 23045-320",
+ "google_nota": "5,0",
+ "google_total": "88",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o link wa.me/5521964301791 da bio do Instagram (o mesmo (21) 96430-1791 aparece numa legenda de 2023); o Google tem o fixo (21) 2415-3140",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 5ª. Desde 1978, mais de 45 mil óculos entregues e credenciada Varilux Especialista (bio). As avaliações citam o Sr. Ranulfo e a consultora Priscila, a medição com equipamentos modernos e famílias clientes há mais de 10 anos."
+  ],
+  "demo": [
+   "Azul-marinho e âmbar, títulos em Fraunces. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Mais de 45 mil óculos entregues.\" (da bio) com duas clientes sorrindo com as sacolas da loja.",
+   "Vitrine (9 fotos de óculos), clientes (5), estilos (Detroit e Ray-Ban), consultoria com o atendente de camiseta da loja, horário com a pausa do almoço (13h às 14h) e 5 avaliações de 5 estrelas (nota 5,0 · 88)."
+  ],
+  "fotos": [
+   "Drive (2022 e 2023, de 400 a 1440 px): clientes, a menina no balcão e os óculos. Google: a armação Detroit.",
+   "Ficaram de fora: os posts recentes do Instagram (setembro e outubro de 2026), que são imagens geradas por IA (modelos e óculos com a marca d'água da loja), as artes de dicas e promoções, os quadros de vídeo e as fotos pequenas."
+  ],
+  "conferir": [
+   "WhatsApp (21) 96430-1791: da bio. Confirmar que é o atual.",
+   "Nomes: a avaliação escreve \"Sr Ranulfo\"; a marca é Ranulpho. Quem é o senhor da camiseta \"Visão & Compromisso\" (o Sr. Ranulfo?).",
+   "Horário do Google: seg a sex 9h às 13h e 14h às 18h; sáb 9h às 13h.",
+   "Os posts recentes com IA: vale avisar com jeito que fotos reais da loja e dos clientes passam mais confiança no site."
+  ]
+ }
+}

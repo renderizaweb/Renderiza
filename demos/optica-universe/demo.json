@@ -1,0 +1,492 @@
+{
+ "pasta": "optica-universe",
+ "marca": "Óptica Universe",
+ "marca_logo": "Óptica Universe",
+ "marca_completa": "Óptica Universe",
+ "logo_sub": "Sítio Pinheirinho · São Paulo",
+ "titulo": "Óptica Universe | Sítio Pinheirinho, São Paulo",
+ "descricao": "Óptica Universe, na R. Costa Barros, 1848, no Sítio Pinheirinho, em São Paulo: óculos de grau e de sol, lentes para perto, longe e multifocais e a coleção própria de óculos de sol Universe. Nota 5,0 no Google.",
+ "comentario": "Demo Óptica Universe: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@universe.sa) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Sora",
+ "cores": {
+  "escuro": "#121a2e",
+  "acento": "#f4c542",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/optica-universe/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/optica-universe.json",
+ "topline": "R. Costa Barros, 1848 · Zona Leste de São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#colecao",
+   "Coleção"
+  ],
+  [
+   "#estilo",
+   "Estilo"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Óptica na Zona Leste de São Paulo",
+  "h1": "Explore + <em>seu universo.</em>",
+  "intro": "Óculos de grau e de sol, lentes para perto, longe e multifocais e um atendimento que explica tudo com calma. E a coleção própria de óculos de sol Universe, na R. Costa Barros, 1848.",
+  "selo": "Coleção própria desde 2017",
+  "link": "Ver a coleção",
+  "foto": {
+   "id": 29,
+   "c": [
+    0.45,
+    0.5
+   ]
+  },
+  "alt": "Moça de óculos de sol Universe e camiseta branca encostada num carro antigo azul"
+ },
+ "endereco": [
+  "R. Costa Barros, 1848",
+  "Sítio Pinheirinho · São Paulo"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes multifocais",
+  "Coleção Universe",
+  "Série Constelações",
+  "Exame de vista",
+  "Sítio Pinheirinho",
+  "Zona Leste de SP"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Universe",
+  "h2": "Óculos com <em>personalidade.</em>",
+  "p": [
+   "Na R. Costa Barros, no Sítio Pinheirinho, a Óptica Universe faz óculos de grau e de sol com atendimento de perto: o Sérgio e o Evandro explicam o grau, as lentes e cada escolha, do primeiro óculos ao multifocal.",
+   "Desde 2017 a Universe tem também a sua própria coleção de óculos de sol, a Série Constelações, com modelos que têm nome de constelação: Cignus, Indus, Sculptor, Telescopium, Lyra, Sextans."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "89",
+    "avaliações no Google"
+   ],
+   [
+    "desde 2017",
+    "coleção própria"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-universe/google/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada da Óptica Universe, com a placa preta, a vitrine de vidro e as prateleiras brancas",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-universe/google/g06.jpg",
+   "box": [
+    0.08,
+    0.12,
+    0.62,
+    0.86
+   ]
+  },
+  "pol_alt": "Óculos de sol marrom no estojo da Óptica Universe, com a flanela",
+  "pol_cap": "Entregue no estojo"
+ },
+ "carrosseis": [
+  {
+   "id": "colecao",
+   "eyebrow": "Coleção Universe",
+   "h2": "Série <em>Constelações.</em>",
+   "p": "Óculos de sol da marca própria da Universe, cada modelo com nome de constelação. Pergunte pelo WhatsApp quais cores estão disponíveis.",
+   "rotulo": "Óculos de sol da coleção Universe",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Óculos de sol Telescopium, redondo de metal preto"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Óculos de sol Sculptor, preto de aro grosso"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Óculos de sol Indus Turtle, redondo tartaruga"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Óculos de sol Cignus Brown, redondo marrom"
+    },
+    {
+     "foto": {
+      "id": 47
+     },
+     "alt": "Óculos de sol Sextans, redondo preto com lente verde"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Óculos de sol Alien preto e Lyra Red vermelho"
+    },
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Óculos Crux Silver, de grau com clipe de sol"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Óculos de sol preto com lente degradê azul"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Óculos de sol Telescopium com proteção lateral"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Óculos de sol redondo preto fosco"
+    },
+    {
+     "foto": {
+      "id": 43
+     },
+     "alt": "Óculos de sol redondo marrom com lente marrom"
+    },
+    {
+     "foto": {
+      "id": 40
+     },
+     "alt": "Óculos de sol preto e marrom de aro grosso"
+    },
+    {
+     "foto": {
+      "id": 49
+     },
+     "alt": "Óculos de sol marrom com lente degradê"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Óculos de sol redondo de metal, visto de lado"
+    }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "Estilo Universe",
+   "h2": "Do seu jeito, <em>fuja do padrão.</em>",
+   "p": "Os modelos da coleção no dia a dia: na rua, no muro grafitado, no carro antigo. Escolha o seu e venha provar.",
+   "rotulo": "Fotos de estilo com os óculos Universe",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.45,
+       0.5
+      ]
+     },
+     "alt": "Moça de óculos de sol gatinho ao lado de um carro antigo azul"
+    },
+    {
+     "foto": {
+      "id": 1,
+      "c": [
+       0.55,
+       0.5
+      ]
+     },
+     "alt": "Rapaz de boné e óculos de sol diante de um muro de folhagens"
+    },
+    {
+     "foto": {
+      "id": 46,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Rapaz de boné sorrindo de óculos de sol espelhado na rua"
+    },
+    {
+     "foto": {
+      "id": 24,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça de óculos de sol redondo diante de um muro branco"
+    },
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça de jaqueta azul e óculos de sol gatinho diante de uma parede azul-turquesa"
+    },
+    {
+     "foto": {
+      "id": 41,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça agachada de óculos de sol diante de um muro grafitado"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça de óculos de sol encostada no capô de um carro antigo azul"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Rapaz de boné e óculos de sol olhando para o lado"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Rapaz de boné sorrindo de óculos de sol"
+    },
+    {
+     "foto": {
+      "id": 50,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça ajeitando os óculos de sol diante de um muro grafitado"
+    },
+    {
+     "foto": {
+      "id": 7,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça de óculos de sol gatinho e jaqueta esportiva"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Moça de camiseta branca e óculos de sol redondo"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na R. Costa Barros ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Clip-on 3 em 1",
+   "rotulo": "01 / 3 EM 1",
+   "foto": {
+    "id": 18,
+    "box": [
+     0,
+     0.13,
+     1,
+     1
+    ]
+   },
+   "alt": "Óculos Clippon 3 em 1: armação de grau com clipe de sol e, ao lado, o clipe amarelo para dirigir à noite",
+   "texto": "Grau, sol e lente para dirigir à noite na mesma armação."
+  },
+  "solar": {
+   "foto": {
+    "id": 39,
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "alt": "Moça de óculos de sol gatinho diante de uma parede azul-turquesa",
+   "texto": "A coleção Universe e modelos para todos os estilos."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Tudo explicado, <em>sem pressa.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na R. Costa Barros",
+   "Entenda o seu grau e as opções de lente, com calma",
+   "Escolha a armação: de grau, de sol ou da coleção Universe",
+   "Óculos prontos rápido, com ajuste e pós-venda"
+  ],
+  "botao": "Falar no WhatsApp",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-universe/google/g01.jpg",
+   "box": [
+    0.325,
+    0.23,
+    0.725,
+    0.83
+   ]
+  },
+  "alt": "A Óptica Universe por dentro: mesa de atendimento, parede com o logo U e expositor de óculos de sol",
+  "card": [
+   "Exame de vista",
+   "Agende pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Atendimento <em>nota 1000.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Nicole",
+   "tag": "Sérgio e Evandro",
+   "trecho": "Sérgio e Evandro foram maravilhosos, muito gentis e esclarecedores em tudo, me ajudaram muito na escolha do meu óculos, desde a cor até o modelo dele"
+  },
+  {
+   "nome": "Wendel Marcolongo",
+   "tag": "A família toda",
+   "trecho": "ja fazem 4 anos que fazemos os óculos da minha esposa, meu e do meu filho e só temos que agradecer... qualidade dos produtos top, atendimento de primeira e preços muito bons"
+  },
+  {
+   "nome": "Vera Furtado",
+   "tag": "Óculos do filho",
+   "trecho": "Nos deixaram bem a vontade mostrando a melhor tecnologia em lentes e também a maior variedade em armações que deixasse meu filho bem satisfeito e feliz!"
+  },
+  {
+   "nome": "Patricia Teixeira",
+   "tag": "Primeiro multifocal",
+   "trecho": "Só na óptica universe eu me senti totalmente segura em fazer meus óculos (primeira vez que vou usar multifocal) um atendimento excepcional, fomos muito bem recepcionados e esclarecidos"
+  },
+  {
+   "nome": "Bianca Roncato",
+   "tag": "Explicam tudo",
+   "trecho": "O atendimento foi incrível, tive explicações sobre meu grau de miopia, sobre como o óculos funciona no olho, ou seja, percebi o cuidado desde o começo."
+  },
+  {
+   "nome": "Celso Valle",
+   "tag": "Lentes de perto",
+   "trecho": "Fui atendido pelo Evandro que confeccionou minhas lentes de perto. Explicou todas as minhas dúvidas. Profissional atencioso e competente."
+  }
+ ],
+ "instagram": "universe.sa",
+ "insta": {
+  "seguidores": "5,1 mil seguidores",
+  "p": "Modelos novos, lentes com proteção e os óculos da coleção Universe no dia a dia.",
+  "foto": {
+   "id": 42,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Moça de óculos de sol redondo e camiseta branca diante de um muro"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na R. Costa Barros.</em>",
+  "endereco": [
+   "R. Costa Barros, 1848 · Sítio Pinheirinho",
+   "São Paulo, SP · CEP 03210-001"
+  ],
+  "telefone": "(11) 99569-6933",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Explore + seu universo.",
+ "mensagem": "Olá! Vim pelo site da Óptica Universe e queria um orçamento.",
+ "whatsapp": "5511995696933",
+ "fone_link": "+5511995696933",
+ "google": {
+  "coords": "-23.600679,-46.5500797",
+  "fid": "0x94ce5d09f391e339:0x405a6ed2e332d5ac",
+  "gid": "/g/11t451ty0h"
+ },
+ "google_nome": "Óptica Universe",
+ "endereco_maps": "R. Costa Barros, 1848 - Sítio Pinheirinho, São Paulo - SP, 03210-001",
+ "google_nota": "5,0",
+ "google_total": "89",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99569-6933 é o telefone do Perfil da Empresa no Google e vem com o ícone do WhatsApp na placa da fachada (a placa tem também o (11) 98083-8178)",
+  "site": "www.shopuniverse.com.br aparece na fachada e nas sacolas, mas o domínio não existe mais (NXDOMAIN no DNS)",
+  "direcao": [
+   "Lote 3 · 3ª. Ótica de bairro com marca própria de óculos de sol (Universe, \"since 2017\", Série Constelações). As avaliações citam o Sérgio e o Evandro, que explicam tudo, lentes prontas rápido e famílias que voltam."
+  ],
+  "demo": [
+   "Azul-noite e amarelo-estrela (o universo da marca), títulos em Sora. Sem logo em imagem (o logo do astronauta é pequeno demais): fica o ícone padrão com o nome.",
+   "Capa \"Explore + seu universo.\" (o slogan da marca) com a foto de campanha da moça no carro antigo.",
+   "Carrossel \"Coleção Universe\" (14 modelos com nome de constelação), carrossel \"Estilo\" (12 fotos de campanha), estilos com o Clip-on 3 em 1, atendimento com a loja por dentro e 6 avaliações de 5 estrelas (nota 5,0 · 89)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2020, 800 a 960 px): os óculos da coleção e as fotos de campanha. Google: a fachada, a loja por dentro (foto 360°) e o estojo.",
+   "Ficaram de fora: os posts de 2026 com casais e pessoas que não sei quem são (alguns parecem montagem), o quadro de vídeo, a foto espelhada e as fotos menos nítidas."
+  ],
+  "conferir": [
+   "A coleção Universe (Série Constelações, preço de R$ 99 em 2020) continua à venda? A demo mostra os modelos sem preço.",
+   "O Clip-on 3 em 1 (grau + sol + night drive, 2020) ainda existe?",
+   "Exame de vista: a vitrine da fachada tem \"Agende o seu exame de vista\". Confirmar como funciona.",
+   "Quem são o Sérgio e o Evandro (donos? óptico?). As avaliações citam os dois.",
+   "O Google marca \"empresa que acolhe a comunidade LGBTQ+\"; a demo não cita."
+  ]
+ }
+}

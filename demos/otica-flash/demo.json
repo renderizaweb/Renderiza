@@ -1,0 +1,202 @@
+{
+ "pasta": "otica-flash",
+ "marca": "Ótica Flash",
+ "marca_logo": "Ótica Flash",
+ "marca_completa": "Ótica Flash",
+ "logo_sub": "Centro · Nova Iguaçu",
+ "titulo": "Ótica Flash | Centro de Nova Iguaçu",
+ "descricao": "Ótica Flash, na Galeria Calçadão Shopping (Av. Gov. Amaral Peixoto, 492, loja 12), no Centro de Nova Iguaçu: óculos de grau e de sol, óculos infantis e óculos prontos em até 40 minutos (grau de 0,00 a 2,00). Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Flash: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaflashni) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Archivo",
+ "cores": {
+  "escuro": "#131d63",
+  "acento": "#5cc8ff",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-flash/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-flash.json",
+ "topline": "Galeria Calçadão Shopping · Centro de Nova Iguaçu",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#vitrine", "Vitrine"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Centro de Nova Iguaçu",
+  "h1": "Realce seu olhar <em>com estilo.</em>",
+  "intro": "Óculos de grau e de sol, lentes e ajuda para achar a armação certa, na Galeria Calçadão Shopping. Óculos de visão simples, com grau de 0,00 a 2,00, ficam prontos em até 40 minutos.",
+  "selo": "Óculos prontos em até 40 minutos",
+  "link": "Ver a vitrine",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/google/g00.jpg",
+   "c": [0.5, 0.5]
+  },
+  "alt": "O casal da Ótica Flash de braços abertos na porta da loja, com a placa azul ao alto"
+ },
+ "endereco": [
+  "Av. Gov. Amaral Peixoto, 492, loja 12",
+  "Centro · Nova Iguaçu"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Prontos em até 40 minutos",
+  "Cobrimos orçamentos",
+  "Óculos infantis",
+  "Ana Hickmann",
+  "Galeria Calçadão Shopping",
+  "Centro de Nova Iguaçu"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Flash",
+  "h2": "Estilo e rapidez <em>no Calçadão.</em>",
+  "p": [
+   "Na Galeria Calçadão Shopping, no Centro de Nova Iguaçu, a Ótica Flash tem atendimento de perto, ajuda para achar a armação que combina com o seu rosto e o paredão da Flash: armações de grau para todos os estilos, gostos e personalidades.",
+   "Óculos de visão simples (grau de 0,00 a 2,00, para longe ou para perto) ficam prontos em até 40 minutos. E se você já tem um orçamento, traga: a Flash cobre orçamentos."
+  ],
+  "stats": [
+   ["{nota}", "nota no Google"],
+   ["268", "avaliações no Google"],
+   ["40 min", "óculos prontos (grau até 2,00)"]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/perfil/oticaflashni_00.jpg",
+   "c": [0.5, 0.45]
+  },
+  "alt": "Provando uma armação de grau tartaruga dentro da Ótica Flash",
+  "pol": {"id": 2, "box": [0, 0.08, 1, 0.92]},
+  "pol_alt": "Armação de grau nude no estojo rosa, com a flanela da Ótica Flash",
+  "pol_cap": "Estojo e flanela da Flash"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Uma armação para <em>cada estilo.</em>",
+   "p": "Transparentes, sem aro, gatinho, coloridas e infantis, de marcas como Detroit, Next e Ana Hickmann. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Armações da Ótica Flash",
+   "formato": "quadrado",
+   "itens": [
+    {"foto": {"id": 7, "box": [0, 0.05, 1, 0.95]}, "alt": "Quatro armações de grau transparentes sobre a mesa"},
+    {"foto": {"id": 6, "box": [0, 0.15, 1, 1]}, "alt": "Armações de grau Detroit em várias cores, com o estojo verde da marca"},
+    {"foto": {"id": 10, "box": [0, 0.1, 1, 0.95]}, "alt": "Armação de grau Next bicolor sobre a flanela da marca"},
+    {"foto": {"id": 3, "box": [0, 0.05, 1, 0.95]}, "alt": "Três armações de grau sem aro sobre a mesa"},
+    {"foto": {"id": 37, "box": [0, 0.15, 1, 0.95]}, "alt": "Duas armações de grau gatinho, nude e preta"},
+    {"foto": {"id": 35, "box": [0, 0.15, 1, 0.95]}, "alt": "Armação de grau gatinho branca e tartaruga"},
+    {"foto": {"id": 31, "box": [0, 0.15, 1, 1]}, "alt": "Armações infantis coloridas, amarela, azul e vermelha, com um cubo mágico"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/perfil/oticaflashni_03.jpg", "c": [0.5, 0.35]}, "alt": "Provando uma armação de grau transparente na loja"}
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Calçadão ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Óculos infantis",
+   "rotulo": "01 / INFANTIL",
+   "foto": {"id": 36, "box": [0, 0.08, 1, 1]},
+   "alt": "Armação infantil roxa e azul sobre blocos de brinquedo coloridos",
+   "texto": "Armações coloridas para proteger os olhinhos dos pequenos."
+  },
+  "solar": {
+   "foto": {"id": 8, "box": [0, 0.15, 1, 1]},
+   "alt": "Óculos de sol preto quadrado com a sacola e o estojo azul da Ótica Flash",
+   "texto": "Com proteção UV400, para o dia a dia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do orçamento à entrega, <em>sem enrolação.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à Galeria Calçadão Shopping, loja 12",
+   "Escolha a armação no paredão da Flash, com a nossa ajuda",
+   "Visão simples de 0,00 a 2,00 fica pronta em até 40 minutos",
+   "Precisou de um ajuste depois? É só voltar: tem pós-venda"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/perfil/oticaflashni_04.jpg",
+   "box": [0, 0.24, 1, 0.8]
+  },
+  "alt": "Entrega de óculos no balcão da Ótica Flash, com a sacola azul da loja",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/perfil/oticaflashni_05.jpg",
+   "box": [0, 0.06, 1, 0.78]
+  },
+  "pol_alt": "O casal da Ótica Flash rindo dentro da loja",
+  "pol_cap": "A gente cuida da sua visão",
+  "card": [
+   "Cobrimos orçamentos",
+   "Traga o seu e compare."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "O melhor <em>da região.</em>"
+ },
+ "avaliacoes": [
+  {"nome": "George Oliveira", "tag": "Sempre volto", "trecho": "Estou retornando satisfeitíssimo, pois sinto-me super bem tratado, com excelente opções, preço excelente e atendimento personalizado."},
+  {"nome": "Ana Paula", "tag": "Pós-venda", "trecho": "Procurei novamente a ótica e fui muito bem recebida e meu problema foi rapidamente resolvido, de forma eficiente e tranquila."},
+  {"nome": "Sara Lopes", "tag": "O melhor da região"},
+  {"nome": "Karine Diniz", "tag": "Gentileza"},
+  {"nome": "Marluce Alves", "tag": "Qualidade ótima"}
+ ],
+ "instagram": "oticaflashni",
+ "insta": {
+  "seguidores": "1,8 mil seguidores",
+  "p": "Armações novas, dicas, as promoções da semana e os bastidores da loja, com bom humor.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-flash/google2/g01.jpg",
+   "box": [0, 0.15, 1, 0.85]
+  },
+  "alt": "Fachada azul da Ótica Flash, loja 12, com o logo dos óculos"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Calçadão.</em>",
+  "endereco": [
+   "Av. Gov. Amaral Peixoto, 492 · Galeria Calçadão Shopping, loja 12",
+   "Centro · Nova Iguaçu, RJ · CEP 26210-060"
+  ],
+  "telefone": "(21) 97222-9344",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Realce seu olhar com estilo.",
+ "mensagem": "Olá! Vim pelo site da Ótica Flash e queria um orçamento.",
+ "whatsapp": "5521972229344",
+ "fone_link": "+5521972229344",
+ "google": {
+  "coords": "-22.7580928,-43.4517215",
+  "fid": "0x9967a735335c4b:0xb670c884be6a43d",
+  "gid": "/g/11wtsbc2t7"
+ },
+ "google_nome": "Ótica Flash",
+ "endereco_maps": "Av. Gov. Amaral Peixoto, 492 - Lj 12 - Centro, Nova Iguaçu - RJ, 26210-060",
+ "google_nota": "5,0",
+ "google_total": "268",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o +55 21 97222-9344 é o telefone do Perfil da Empresa no Google e o \"Fale conosco\" das legendas do Instagram",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 4ª. Ótica de casal na Galeria Calçadão Shopping (a placa diz loja 12; legendas de 2024 diziam loja 27). Diferenciais da bio: óculos em até 40 min (grau 0,00 a 2,00) e \"cobrimos orçamentos\". Uma avaliação cita o Neto; o destaque \"Dicas da Débora\" deve ser dela."
+  ],
+  "demo": [
+   "Azul royal da placa com azul-claro de destaque, títulos em Archivo. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Realce seu olhar com estilo.\" (a frase da bio) com o casal de braços abertos na porta da loja.",
+   "Vitrine com 8 fotos de armações, estilos (óculos infantis e de sol), atendimento com a entrega no balcão e o casal, e 5 avaliações de 5 estrelas (nota 5,0 · 268)."
+  ],
+  "fotos": [
+   "Google: o casal na fachada e a fachada. Drive (2024 e 2025): as fotos de armações (Detroit, Next, transparentes, sem aro, infantis), o estojo e os óculos de sol com a sacola. Instagram recente (setembro de 2026): a prova das armações, a entrega no balcão e o casal rindo (quadros de vídeo, sem o texto por cima).",
+   "Ficaram de fora: as artes de promoção, preço e datas (a maior parte do Instagram) e as colagens."
+  ],
+  "conferir": [
+   "Loja 12 (Google e placa) ou 27 (legendas de 2024)? A demo usa a 12.",
+   "WhatsApp (21) 97222-9344: confirmar que é WhatsApp.",
+   "Os nomes do casal (Neto? Débora?). A demo não põe nome em ninguém.",
+   "Preços das placas e promoções (R$ 99,90, multifocal R$ 199,90, \"compre 1 e leve 2\") e o exame de vista computadorizado grátis das legendas não entraram: mudam."
+  ]
+ }
+}

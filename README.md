@@ -88,6 +88,17 @@ direto no navegador.
 | [Óticas RVN](demos/oticas-rvn) | Perus, São Paulo | site | pronta · 03/10/2026 (lote 2 · 13ª) |
 | [Ótica Studio7](demos/otica-studio7) | Centro, Mauá | site | pronta · 03/10/2026 (lote 2 · 14ª) |
 | [Lez Ótica](demos/lez-otica) | Jardim Albertina, Guarulhos | site | pronta · 03/10/2026 (lote 2 · 15ª) |
+| [Ótica Machado](demos/otica-machado) | Jardim Satélite, São José dos Campos | site | pronta · 05/10/2026 (lote 3 · 1ª) |
+| [Óptica Cris Masson](demos/optica-cris-masson) | Centro, Ribeirão Preto | site | pronta · 06/10/2026 (lote 3 · 2ª) |
+| [Óptica Universe](demos/optica-universe) | Sítio Pinheirinho, São Paulo | site | pronta · 06/10/2026 (lote 3 · 3ª) |
+| [Ótica Flash](demos/otica-flash) | Centro, Nova Iguaçu (RJ) | site | pronta · 06/10/2026 (lote 3 · 4ª) |
+| [Ótica Ranulpho](demos/otica-ranulpho) | Campo Grande, Rio de Janeiro | site | pronta · 06/10/2026 (lote 3 · 5ª) |
+| [Ótica Six](demos/otica-six) | Centro, Peruíbe | site | pronta · 06/10/2026 (lote 3 · 6ª) |
+| [Ótica Plus Optical](demos/otica-plus-optical) | Higienópolis, São Paulo | site | pronta · 06/10/2026 (lote 3 · 7ª) |
+| [Ótica Niterói Prime](demos/otica-niteroi-prime) | Icaraí, Niterói (RJ) | site | pronta · 06/10/2026 (lote 3 · 8ª) |
+| [Freitas Ótica](demos/freitas-otica) | Méier, Rio de Janeiro | site | pronta · 06/10/2026 (lote 3 · 9ª) |
+| [Ótica Personnalité](demos/otica-personnalite) | Jardim Aeroporto, Bauru | site | pronta · 06/10/2026 (lote 3 · 10ª) |
+| [Ótica Ponto Xys](demos/otica-ponto-xys) | Centro, Peruíbe | site | pronta · 06/10/2026 (lote 3 · extra, escolhida pelo Kaue) |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |

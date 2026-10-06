@@ -1,0 +1,425 @@
+{
+ "pasta": "otica-personnalite",
+ "marca": "Ótica Personnalité",
+ "marca_logo": "Personnalité",
+ "marca_completa": "Ótica Personnalité Bauru",
+ "logo_sub": "Ótica · Bauru",
+ "titulo": "Ótica Personnalité | Óculos de sol e grau em Bauru",
+ "descricao": "Ótica Personnalité, na R. Antônio Alves, 30-16, no Jardim Aeroporto, em Bauru: as marcas mais luxuosas de óculos de sol e de grau, como Prada, Celine, Dior, Fendi, Ray-Ban e Swarovski, com envio para todo o Brasil. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Personnalité Bauru: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticapersonnalitebauru) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 06/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1d1b1e",
+  "acento": "#c9a27e",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/otica-personnalite/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/otica-personnalite.json",
+ "topline": "Bauru · enviamos para todo o Brasil",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#elas-usam",
+   "Elas usam"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Falar no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica de luxo em Bauru",
+  "h1": "Mais que uma ótica, <em>somos Personnalité.</em>",
+  "intro": "As marcas mais luxuosas de óculos de sol e de grau, de Prada, Celine e Dior a Fendi, Jimmy Choo, Ray-Ban e Swarovski. Na R. Antônio Alves, em Bauru, e com envio para todo o Brasil.",
+  "selo": "Enviamos para todo o Brasil",
+  "link": "Ver quem usa",
+  "alvo": "elas-usam",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-personnalite/google/g00.jpg",
+   "box": [
+    0.55,
+    0,
+    1,
+    1
+   ]
+  },
+  "alt": "A Ótica Personnalité por dentro: prateleiras Fendi e Jimmy Choo, poltronas e mesa de atendimento com espelho",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "endereco": [
+  "R. Antônio Alves, 30-16",
+  "Jardim Aeroporto · Bauru"
+ ],
+ "marquee": [
+  "Prada",
+  "Celine",
+  "Dior",
+  "Fendi",
+  "Jimmy Choo",
+  "Ray-Ban",
+  "Swarovski",
+  "Envio para todo o Brasil"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Personnalité",
+  "h2": "As marcas mais <em>luxuosas.</em>",
+  "p": [
+   "No Jardim Aeroporto, em Bauru, a Ótica Personnalité reúne grifes de óculos de sol e de grau: Prada, Celine, Dior, Fendi, Jimmy Choo, Versace, Carolina Herrera, Swarovski, Ray-Ban, Carrera e a brasileira Dindi, feita à mão.",
+   "A loja é ampla e elegante, com atendimento atencioso do começo ao pós-venda. E quem não é de Bauru também compra: a Personnalité atende pelo WhatsApp e envia para todo o Brasil."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "88",
+    "avaliações no Google"
+   ],
+   [
+    "17,6 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 37,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Cliente com óculos de sol Prada de metal dourado dentro da loja",
+  "pol": {
+   "id": 24,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "pol_alt": "Dois óculos de sol Ray-Ban sobre o estojo, numa mesa de madeira",
+  "pol_cap": "Ray-Ban, Prada, Celine e mais"
+ },
+ "carrosseis": [
+  {
+   "id": "elas-usam",
+   "eyebrow": "Elas usam",
+   "h2": "Grife no rosto, <em>estilo no dia a dia.</em>",
+   "p": "Ray-Ban, Prada, Celine, Versace e Spektre no rosto de quem compra na Personnalité. Peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Clientes com óculos da Ótica Personnalité",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Sorrindo de chapéu e óculos de sol Prada oval de metal"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Sorrindo com óculos de sol Ray-Ban oval de acetato"
+    },
+    {
+     "foto": {
+      "id": 15,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Ray-Ban de lente degradê"
+    },
+    {
+     "foto": {
+      "id": 41,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Versace preto de detalhes dourados"
+    },
+    {
+     "foto": {
+      "id": 0,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Ray-Ban oval de metal"
+    },
+    {
+     "foto": {
+      "id": 31,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Ajeitando óculos de sol Celine preto"
+    },
+    {
+     "foto": {
+      "id": 47,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Celine Triomphe tartaruga"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Ray-Ban oval diante de um painel colorido"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Com óculos de sol Prada retrô diante de um painel colorido"
+    }
+   ]
+  },
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Lançamentos <em>das grifes.</em>",
+   "p": "Carrera, Celine, Ray-Ban, Spektre, Dindi e Swarovski. Pergunte pelo WhatsApp quais modelos e cores estão na loja.",
+   "rotulo": "Óculos da Ótica Personnalité",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Óculos de sol Carrera de lente degradê sobre fundo escuro"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Óculos de sol Spektre Rigaut em cores novas, rosa e laranja"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Armação de grau Swarovski transparente com cristais na haste"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Óculos de sol Ray-Ban Jim Titanium de lente verde"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Óculos de sol Ray-Ban Reverse Clubmaster e Round"
+    },
+    {
+     "foto": {
+      "id": 9,
+      "box": [
+       0,
+       0.04,
+       1,
+       0.96
+      ]
+     },
+     "alt": "Óculos de sol Celine preto com os três pontos na haste"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Óculos de sol Spektre Rigaut com lente laranja"
+    },
+    {
+     "foto": {
+      "id": 1,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol Marc Jacobs preto ao pôr do sol"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha conhecer a loja em Bauru ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 14,
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "alt": "Armação de grau Dindi tartaruga, feita à mão no Brasil",
+   "texto": "Grifes de grau, de Swarovski à brasileira Dindi."
+  },
+  "solar": {
+   "foto": {
+    "id": 33,
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Óculos de sol Celine Triomphe preto e tartaruga com a caixa da marca",
+   "texto": "Os clássicos e os lançamentos das grifes."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Da loja para todo o Brasil",
+  "h2": "Atendimento impecável, <em>até o pós-venda.</em>",
+  "passos": [
+   "Chame no WhatsApp e conte qual modelo ou grife você procura",
+   "Receba fotos e vídeos dos modelos, ou venha provar na loja",
+   "Lentes para a sua receita, de visão simples a multifocal",
+   "Envio para todo o Brasil e suporte no pós-venda"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-personnalite/flip/i46.jpg",
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "alt": "Cliente com óculos de sol Ray-Ban de metal dentro da loja, com as prateleiras Fendi ao fundo",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/otica-personnalite/flip/p02.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Cliente provando óculos na loja, diante do letreiro Carolina Herrera",
+  "pol_cap": "Lançamentos exclusivos",
+  "card": [
+   "Envio para todo o Brasil",
+   "Compre pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "A melhor ótica <em>de Bauru.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Rhuam",
+   "tag": "Uma mais linda que a outra"
+  },
+  {
+   "nome": "Samanta Sabrina",
+   "tag": "Suporte pelo WhatsApp"
+  },
+  {
+   "nome": "Kelciane Simas",
+   "tag": "A melhor de Bauru"
+  },
+  {
+   "nome": "evandro marcomini",
+   "tag": "Loja confiável"
+  }
+ ],
+ "instagram": "oticapersonnalitebauru",
+ "insta": {
+  "seguidores": "17,6 mil seguidores",
+  "p": "Lançamentos das grifes, clientes com os óculos novos e as coleções que chegam à loja.",
+  "foto": {
+   "id": 35,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "De chapéu e óculos de sol Celine tartaruga"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Bauru.</em>",
+  "endereco": [
+   "R. Antônio Alves, 30-16 · Jardim Aeroporto",
+   "Bauru, SP · CEP 17012-431"
+  ],
+  "telefone": "(14) 3012-1314",
+  "rotulo_fone": "WhatsApp",
+  "nota": "Horário: confirme pelo WhatsApp."
+ },
+ "slogan": "Mais que uma ótica, somos Personnalité.",
+ "mensagem": "Olá! Vim pelo site da Ótica Personnalité e queria saber mais sobre os modelos.",
+ "whatsapp": "551430121314",
+ "fone_link": "+551430121314",
+ "google": {
+  "coords": "-22.3377374,-49.0645613",
+  "fid": "0x94bf670dafb3be07:0x2f0e4e6b2cc96c26",
+  "gid": "/g/11bttp9qy4"
+ },
+ "google_nome": "Ótica Personnalité Bauru - SP",
+ "endereco_maps": "R. Antônio Alves, 30-16 - Jardim Aeroporto, Bauru - SP, 17012-431",
+ "google_nota": "5,0",
+ "google_total": "88",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o link wa.me/message/TLIXSMH2EJ5MB1 da bio abre o WhatsApp 55 14 3012-1314, o mesmo telefone do Perfil da Empresa no Google",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 10ª. Ótica de grifes (bio: \"Mais que uma ótica, somos Personnalité!\", \"As marcas mais luxuosas você encontra aqui\", \"Enviamos para todo Brasil\"). Loja grande com Dior, Fendi, Jimmy Choo, illesteva e Lanvin na foto do Google. Empresa de empreendedoras (Google)."
+  ],
+  "demo": [
+   "Quase preto e champanhe, títulos em Playfair Display. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Mais que uma ótica, somos Personnalité.\" (da bio) com a loja por dentro (lado das prateleiras Fendi e Jimmy Choo).",
+   "Carrossel \"Elas usam\" (9 fotos), vitrine (8), estilos (Swarovski e Celine), atendimento com o envio para todo o Brasil e 4 avaliações de 5 estrelas (nota 5,0 · 88). Sem horário no Google: \"confirme pelo WhatsApp\"."
+  ],
+  "fotos": [
+   "Google: a loja por dentro. Drive (2024 e 2025): as fotos com os óculos no rosto (selfies e ensaios da loja), as fotos de produto da loja e algumas fotos de produto das marcas (fundo branco). Instagram recente: a cliente diante do letreiro Carolina Herrera.",
+   "Ficaram de fora: as fotos de campanha das grifes com modelos profissionais (Prada, Celine, Swarovski, Carrera, Furla), os posts recentes de influenciadores homens fora da loja, as artes e os quadros de vídeo."
+  ],
+  "conferir": [
+   "Horário: o Google não mostra a tabela (só \"abre ter. às 9h\"). A demo pede para confirmar pelo WhatsApp.",
+   "Quem são as moças das fotos (donas? equipe? influenciadoras parceiras?). A demo não põe nome.",
+   "Grifes citadas: das fotos e legendas de 2024 a 2026; confirmar quais continuam na loja.",
+   "As fotos de produto com fundo branco devem ser das próprias marcas; no site final, usar fotos da loja."
+  ]
+ }
+}

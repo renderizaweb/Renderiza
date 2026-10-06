@@ -1,0 +1,586 @@
+{
+ "pasta": "optica-cris-masson",
+ "marca": "Óptica Cris Masson",
+ "marca_logo": "Cris Masson",
+ "marca_completa": "Óptica Cris Masson",
+ "logo_sub": "Óptica · Ribeirão Preto",
+ "titulo": "Óptica Cris Masson | Centro de Ribeirão Preto",
+ "descricao": "Óptica Cris Masson, na R. Garibaldi, 490, no Centro de Ribeirão Preto: óculos de grau e de sol, lentes multifocais, café, jardim e brinquedoteca, com estacionamento próprio. Nota 5,0 no Google.",
+ "comentario": "Demo Óptica Cris Masson: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@opticacrismasson) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 06/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#33331a",
+  "acento": "#c9a46b",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/inv/optica-cris-masson/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/google/optica-cris-masson.json",
+ "topline": "Centro de Ribeirão Preto · estacionamento próprio",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#vitrine",
+   "Vitrine"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Falar no WhatsApp",
+ "hero": {
+  "eyebrow": "Óptica no Centro de Ribeirão Preto",
+  "h1": "Muito mais que <em>uma ótica.</em>",
+  "intro": "Óculos de grau e de sol com curadoria, lentes multifocais e atendimento acolhedor há 40 anos. Tem café, jardim e brinquedoteca para as crianças, na R. Garibaldi, 490.",
+  "selo": "Atendimento acolhedor há 40 anos",
+  "link": "Ver a vitrine",
+  "foto": {
+   "id": 10,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Interior da Óptica Cris Masson: prateleiras iluminadas com óculos, teto de madeira e plantas"
+ },
+ "endereco": [
+  "R. Garibaldi, 490",
+  "Centro · Ribeirão Preto"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes multifocais",
+  "Consultoria de estilo",
+  "Café na loja",
+  "Jardim",
+  "Brinquedoteca",
+  "Estacionamento próprio",
+  "Centro de Ribeirão Preto"
+ ],
+ "sobre": {
+  "eyebrow": "Sobre a Cris Masson",
+  "h2": "Um refúgio no <em>Centro de Ribeirão.</em>",
+  "p": [
+   "Na R. Garibaldi, no Centro de Ribeirão Preto, a Óptica Cris Masson é uma empresa de mulheres empreendedoras, com atendimento acolhedor há 40 anos. Tem curadoria de armações, consultoria de estilo e cuidado especial com as lentes multifocais.",
+   "Inspirado nos jardins europeus, o espaço externo foi feito para descansar, ler e tomar um café enquanto você escolhe. Para as crianças, tem brinquedoteca; para o carro, estacionamento próprio."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "1.397",
+    "avaliações no Google"
+   ],
+   [
+    "40 anos",
+    "de atendimento acolhedor"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g03.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Jardim da Óptica Cris Masson, com fonte de pedra, plantas e mesinha de ferro",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g04.jpg",
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "pol_alt": "Mesa posta com cappuccino e doces na loja",
+  "pol_cap": "Tem café na loja"
+ },
+ "carrosseis": [
+  {
+   "id": "vitrine",
+   "eyebrow": "Vitrine",
+   "h2": "Curadoria de armações <em>de grife.</em>",
+   "p": "Versace, Longchamp, Persol, Max Mara, Calvin Klein, Swarovski, Ana Hickmann e mais. Peça fotos dos modelos pelo WhatsApp ou venha provar.",
+   "rotulo": "Óculos da Óptica Cris Masson",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 19,
+      "box": [
+       0,
+       0.1,
+       1,
+       0.8
+      ]
+     },
+     "alt": "Óculos de sol Longchamp tartaruga com detalhe metálico na haste"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "box": [
+       0,
+       0,
+       1,
+       0.6
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Três óculos de sol esportivos empilhados na mesa"
+    },
+    {
+     "foto": {
+      "id": 40,
+      "box": [
+       0,
+       0.2,
+       1,
+       0.65
+      ]
+     },
+     "alt": "Armação de grau hexagonal vermelha e azul"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g13.jpg",
+      "box": [
+       0,
+       0.2,
+       1,
+       0.8
+      ]
+     },
+     "alt": "Prateleira iluminada com óculos de sol na loja"
+    },
+    {
+     "foto": {
+      "id": 45,
+      "box": [
+       0.38,
+       0.02,
+       1,
+       0.62
+      ],
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Armações de grau em tons de marrom sobre a mesa"
+    },
+    {
+     "foto": {
+      "id": 42,
+      "box": [
+       0,
+       0.05,
+       1,
+       0.5
+      ]
+     },
+     "alt": "Óculos de sol tartaruga com lentes marrons"
+    },
+    {
+     "foto": {
+      "id": 43,
+      "box": [
+       0,
+       0,
+       1,
+       0.62
+      ],
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Mulher de óculos com lentes degradê na loja"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "box": [
+       0,
+       0.05,
+       1,
+       0.62
+      ]
+     },
+     "alt": "Três armações de grau coloridas sobre o piso de pedra"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g14.jpg",
+      "box": [
+       0,
+       0.25,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Armações na mesa de atendimento, com a parede verde e o nome da loja ao fundo"
+    }
+   ]
+  },
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Um lugar para ficar <em>sem pressa.</em>",
+   "p": "Loja ampla, jardim com fonte, mesinhas para um café e brinquedoteca para as crianças. Venha conhecer.",
+   "rotulo": "O espaço da Óptica Cris Masson",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g01.jpg",
+      "box": [
+       0.42,
+       0.23,
+       0.66,
+       0.83
+      ]
+     },
+     "alt": "Parede de óculos com prateleiras iluminadas e espelho redondo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g10.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Janelões da loja cobertos de flores roxas, vistos do jardim"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g05.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Mesa posta no jardim, entre árvores e flores"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g08.jpg",
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Fonte de pedra com plantas no jardim da loja"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g02.jpg",
+      "box": [
+       0.325,
+       0.18,
+       0.605,
+       0.88
+      ]
+     },
+     "alt": "Brinquedoteca com fundo do mar pintado nas paredes, mesinha e brinquedos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g06.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Mesinhas no jardim, com vasos de flores e prateleiras de óculos ao fundo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g12.jpg",
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Xícara de café e taças na mesa posta"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "box": [
+       0.35,
+       0,
+       1,
+       1
+      ]
+     },
+     "alt": "Entrada da loja, com o nome na parede, plantas e o estacionamento"
+    }
+   ]
+  },
+  {
+   "id": "clientes",
+   "eyebrow": "Clientes",
+   "h2": "A família toda <em>bem-vinda.</em>",
+   "p": "Pais, filhos, avós e amigas: muita gente volta e traz a família. Obrigada a todos os nossos clientes.",
+   "rotulo": "Clientes da Óptica Cris Masson",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 50,
+      "c": [
+       0.45,
+       0.35
+      ]
+     },
+     "alt": "Mãe e filho pequeno de óculos de sol azul no jardim da loja"
+    },
+    {
+     "foto": {
+      "id": 2,
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Família diante da parede verde com o nome da Óptica Cris Masson"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g09.jpg",
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Grupo de amigas reunidas no jardim da loja"
+    },
+    {
+     "foto": {
+      "id": 54,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Duas mulheres folheando uma revista na loja"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g11.jpg",
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Sete mulheres sorrindo juntas dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "box": [
+       0.08,
+       0,
+       0.92,
+       0.55
+      ]
+     },
+     "alt": "Casal de clientes sorrindo na loja"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente sorrindo dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Duas clientes de óculos sorrindo na mesa de atendimento"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na R. Garibaldi ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "foto": {
+    "id": 3,
+    "box": [
+     0,
+     0.35,
+     1,
+     1
+    ],
+    "c": [
+     0.55,
+     0.5
+    ]
+   },
+   "alt": "Óculos de grau sem aro, com haste dourada, sobre a mesa",
+   "texto": "Do sem aro ao colorido, com lentes multifocais."
+  },
+  "solar": {
+   "foto": {
+    "id": 13,
+    "box": [
+     0,
+     0.08,
+     1,
+     0.82
+    ]
+   },
+   "alt": "Óculos de sol Versace preto com a grega prateada na haste",
+   "texto": "Grifes e lentes degradê para o sol de Ribeirão."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento sem pressa",
+  "h2": "A escolha dos óculos <em>com calma.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha direto: tem estacionamento próprio",
+   "Prove as armações com a ajuda da equipe, com um café",
+   "Lentes certas para a sua receita, inclusive multifocais",
+   "As crianças brincam na brinquedoteca enquanto você escolhe"
+  ],
+  "botao": "Falar no WhatsApp",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g00.jpg"
+  },
+  "alt": "Mesas de atendimento ao lado dos janelões para o jardim, com luminárias pretas e teto de madeira",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote3d/extra/optica-cris-masson/google2/g02.jpg",
+   "box": [
+    0.625,
+    0.28,
+    0.86,
+    0.868
+   ]
+  },
+  "pol_alt": "Cantinho da brinquedoteca com cozinha de brinquedo e tartaruga pintada na parede",
+  "pol_cap": "Brinquedoteca",
+  "card": [
+   "Consultoria de estilo",
+   "Ajuda para achar o modelo certo."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem conhece, <em>se encanta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Kristal Moura",
+   "tag": "Curadoria de armações",
+   "trecho": "Encantada com o conceito dessa ótica! Além da curadoria incrível de armações, o espaço é lindo e super aconchegante. O cuidado com o cliente é perceptível em cada detalhe."
+  },
+  {
+   "nome": "Janaina Frasson",
+   "tag": "Multifocal da família",
+   "trecho": "Resumiria a loja como uma experiência, na qual a expertise dos profissionais se juntam a um carinho e atenção ao cliente com o plus de um ambiente extremamente agradável."
+  },
+  {
+   "nome": "Roberta Solera",
+   "tag": "A Cris e a Pri",
+   "trecho": "A Cris, sempre tão atenciosa e querida, e a Pri, extremamente simpática, paciente e prestativa. É aquele lugar onde a gente se sente bem recebida e sai ainda mais feliz com a escolha!"
+  },
+  {
+   "nome": "Lulude Junqueira",
+   "tag": "Lugar aconchegante"
+  }
+ ],
+ "instagram": "opticacrismasson",
+ "insta": {
+  "seguidores": "5,5 mil seguidores",
+  "p": "Lançamentos, dicas da consultora de estilo Carol Masson, os Achadinhos da semana e os eventos da loja.",
+  "foto": {
+   "id": 11,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Mulher de vestido verde na porta da loja, com o jardim ao fundo"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na R. Garibaldi.</em>",
+  "endereco": [
+   "R. Garibaldi, 490 · Centro",
+   "Ribeirão Preto, SP · CEP 14010-170"
+  ],
+  "telefone": "(16) 99622-9321",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Muito mais que uma ótica.",
+ "mensagem": "Olá! Vim pelo site da Óptica Cris Masson e queria saber mais sobre os óculos.",
+ "whatsapp": "5516996229321",
+ "fone_link": "+5516996229321",
+ "google": {
+  "coords": "-21.1797768,-47.8054458",
+  "fid": "0x94b9bf1b9094c7b5:0xcf646df1d375a5a7",
+  "gid": "/g/1q64d7t3x"
+ },
+ "google_nome": "Óptica Cris Masson",
+ "endereco_maps": "R. Garibaldi, 490 - Centro, Ribeirão Preto - SP, 14010-170",
+ "google_nota": "5,0",
+ "google_total": "1.397",
+ "verificado": "2026-10-06",
+ "ficha": {
+  "whatsapp_fonte": "o botão \"WhatsApp Loja\" do Linktree da bio (linktr.ee/Opticamasson → bit.ly/3SkTR0M → api.whatsapp.com/send?phone=5516996229321); o Google tem só o fixo (16) 3941-3222",
+  "site": "",
+  "direcao": [
+   "Lote 3 · 2ª. 5,0 com quase 1.400 avaliações. A loja é uma experiência: jardim inspirado nos jardins europeus, café, brinquedoteca, eventos (Entre Elas, meditação) e consultora de estilo (Carol Masson). Bio: \"Muito mais que uma ótica\", \"atendimento acolhedor há 40 anos\"."
+  ],
+  "demo": [
+   "Oliva escuro e dourado dos posts da loja, títulos em Playfair Display. Sem logo em imagem: fica o ícone padrão com o nome.",
+   "Capa \"Muito mais que uma ótica.\" (a frase da bio) com a parede de óculos iluminada.",
+   "Três carrosséis: \"Vitrine\" (9 fotos de óculos), \"O espaço\" (8: loja, jardim, café e brinquedoteca) e \"Clientes\" (8: famílias, mãe e filho, amigas). Estilos (grau sem aro e sol Longchamp), atendimento com as mesas ao lado do jardim e a brinquedoteca, e 4 avaliações de 5 estrelas (nota 5,0 · 1.397)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, 2024 e 2025): óculos, entrada, a loja por dentro e os clientes. Google (78 fotos; vieram 16): a loja (foto e 360°), o jardim, o café, a brinquedoteca (360°) e as amigas reunidas.",
+   "Ficaram de fora: as artes (\"3 solares\", \"Trend Alert\", cartões de aniversário da equipe, Achadinhos com preço), os quadros de vídeo com texto por cima e as fotos de Natal."
+  ],
+  "conferir": [
+   "WhatsApp (16) 99622-9321: do Linktree da bio. Confirmar que é o da loja hoje.",
+   "Quem é quem: a Cris (empresária), a Carol Masson (consultora de estilo, nas legendas), a Pri (citada numa avaliação), o Fábio, a Daiane, a Mariele e a Celine (equipe, nas legendas). A demo não põe nome em ninguém das fotos.",
+   "Pet friendly (post de 2024/2025) e marcas citadas nas legendas (Versace, Longchamp, Persol, Max Mara, Calvin Klein, Swarovski, Ana Hickmann): confirmar se continuam.",
+   "Achadinhos com preço (a partir de R$ 189) não entraram: mudam toda semana."
+  ]
+ }
+}
