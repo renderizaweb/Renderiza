@@ -282,6 +282,15 @@ td.money .inline-text{text-align:right}
 .lead-chip.retorno-futuro{background:#e4edf9;color:#2f5b99}
 .lead-chip.resultado-ganho{background:#dff1e5;color:#1f6b41}
 .lead-chip.resultado-perda{background:#fbe6e3;color:#b3261e}
+button.lead-chip{border:0;cursor:pointer;font:inherit;font-size:.6875rem;font-weight:600}
+button.lead-chip:hover{filter:brightness(.96)}
+.lead-chip.demo-no_ar,.lead-chip.demo-sem_prazo{background:#dff1e5;color:#1f6b41}
+.lead-chip.demo-ultimo_dia{background:#fdf0d5;color:#8b5d12}
+.lead-chip.demo-expirada,.lead-chip.demo-fora{background:#fbe6e3;color:#b3261e}
+.lead-chip.demo-sem_controle{background:#eef2f0;color:#52645b}
+.secao-demo{scroll-margin-top:12px}
+.secao-demo.piscar{animation:piscar-cartao 1.6s ease}
+@keyframes piscar-cartao{from{box-shadow:0 0 0 3px #b9b1f2}}
 .etapas{display:grid;gap:8px}
 .etapas-legenda{display:none;font-size:.75rem;font-weight:600;color:#3d5546}
 .etapas-trilha{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}

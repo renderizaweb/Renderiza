@@ -602,6 +602,18 @@ function trilhaDeEtapas() {
   return el;
 }
 
+const CHIP_DEMO = {
+  no_ar: d => "Demo no ar até " + diaMes(d.vale_ate), ultimo_dia: () => "Demo: último dia hoje", sem_prazo: () => "Demo no ar, sem prazo",
+  expirada: d => "Demo expirada em " + diaMes(d.vale_ate), fora: () => "Demo fora do ar", sem_controle: () => "Demo sem prazo",
+};
+/** Rola o painel até a seção Demo (prazo, chave No ar, reabilitar) e pisca o cartão. */
+function irParaDemo() {
+  const el = document.querySelector("#painel-corpo .secao-demo");
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  el.classList.remove("piscar"); void el.offsetWidth; el.classList.add("piscar");
+}
+
 function chipsDoLead() {
   const el = h("div", { class: "lead-chips" });
   vincular(l => {
@@ -614,6 +626,9 @@ function chipsDoLead() {
     }
     if (l.interesse && l.interesse !== "nao_avaliado") chips.push(h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }));
     if (l.nao_contatar) chips.push(h("span", { class: "chip-parar", text: "não contatar" }));
+    const demo = situacaoDoLead(l);
+    if (demo) chips.push(h("button", { type: "button", class: "lead-chip demo-" + demo.estado, title: demo.texto + " Clique para mudar o prazo.",
+      onclick: irParaDemo }, icone("monitor", 13), CHIP_DEMO[demo.estado](dados.buscar("demos", demo.pasta))));
     if (l.fora_do_funil) chips.push(h("span", { class: "lead-chip", text: "Fora do funil" }));
     else if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: l.resultado === "ganho" ? "Ganho" + (l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") : "Perda" }));
     el.replaceChildren(...chips);
@@ -909,10 +924,10 @@ function corpoDoLead(id) {
       cadencia,
       h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos.")),
       h("label", { class: "check-painel neutro" }, foraDoFunil, h("span", {}, h("strong", { text: "Fora do funil." }), " Fica só na tela Clientes, sem etapa no Pipeline. Bom para relacionamento com quem já foi cliente."))),
+    secaoDemo(id),
     fechamento,
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
     cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),
-    secaoDemo(id),
     secaoFlyer(id),
     secao("Contato", grade(
       campo("leads", id, { campo: "whatsapp", rotulo: "WhatsApp", href: waHref, placeholder: "(11) 9…" }),

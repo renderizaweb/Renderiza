@@ -86,8 +86,9 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
-- **Prazo da demo** (tabela `demos`): toda demo fica no ar por 7 dias e depois sai sozinha. Na seção
-  **Demo** do detalhe aparece a situação (No ar até tal dia, Último dia, Expirada, Fora do ar) e os
+- **Prazo da demo** (tabela `demos`): toda demo fica no ar por 7 dias e depois sai sozinha. No topo do
+  detalhe, a etiqueta da demo ("Demo no ar até 13/10", "Demo expirada em 13/10", "Demo fora do ar") leva
+  direto à seção **Demo**, logo abaixo de Andamento, onde aparece a situação (No ar até tal dia, Último dia, Expirada, Fora do ar) e os
   controles: a chave **No ar** (desliga ou religa na hora; religar uma vencida já dá mais 7 dias),
   **Vale até** (o último dia no ar, qualquer data), **Reabilitar por 7 dias** / **7 dias a partir de
   hoje** e **No ar sem prazo**. Demo que ainda não tem prazo mostra **Pôr prazo de 7 dias**. Na tabela e

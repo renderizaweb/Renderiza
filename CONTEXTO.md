@@ -157,7 +157,8 @@ criação** e depois sai do ar sozinha; para reabilitar, é no card do lead.
   página "Esta demonstração saiu do ar" e um botão para a ótica pedir de novo pelo WhatsApp da Renderiza
   (é uma deixa para retomar a conversa). Na dúvida (banco fora, sem configuração, pasta sem linha), a
   demo **abre**: erro nunca derruba demo.
-- **No painel:** seção **Demo** do lead: situação, chave **No ar**, **Vale até**, **Reabilitar por 7 dias**
+- **No painel:** etiqueta "Demo no ar até …" no topo do card do lead (clicando, vai para os controles) e
+  seção **Demo**, logo abaixo de Andamento: situação, chave **No ar**, **Vale até**, **Reabilitar por 7 dias**
   (ou **7 dias a partir de hoje**) e **No ar sem prazo**. Etiqueta "demo expirada" / "demo fora do ar" na
   tabela e no kanban. Antes de mandar um link de novo, conferir que a demo está no ar.
 - **Demo nova:** nasce com 7 dias pelo gatilho do `link_demo` (passo 2 acima). Para dar mais tempo a quem
