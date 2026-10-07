@@ -273,6 +273,7 @@ const simbolo = readFileSync(join(RAIZ, "site", "estatico", "simbolo.svg"), "utf
 const base = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;0,800;1,700;1,800&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;1,600;1,700&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet"><!-- fontes que vão só até 700, como a Lora -->
+<link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:wght@600;700;800&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet"><!-- fontes sem itálico, como a Outfit -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:405px;height:720px;overflow:hidden}
@@ -387,6 +388,11 @@ async function cartela(html, dur, arquivo) {
     await document.fonts.ready;
     await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
   }, [fT, fX]);
+  // Fonte sem itálico (Outfit): o destaque fica reto, na cor, em vez de um itálico falso.
+  await p.evaluate(t => {
+    if (![...document.fonts].some(f => f.family.includes(t) && f.style === "italic" && f.status === "loaded"))
+      document.querySelectorAll("h1 em, h2 em").forEach(e => { e.style.fontStyle = "normal"; });
+  }, fT);
   const familias = await p.evaluate(() => [...document.fonts].filter(f => f.status === "loaded").map(f => f.family));
   if (!familias.some(f => f.includes(fT))) console.log("AVISO fonte " + fT + " não carregou na cartela");
   if (ENSAIO) {

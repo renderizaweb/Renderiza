@@ -1,0 +1,165 @@
+{
+ "demo": "otica-haramaki",
+ "marca": "Ótica Haramaki",
+ "local": "Vila Perus · São Paulo",
+ "cores": {
+  "fundo": "#17150f",
+  "fundo2": "#0e0d09",
+  "acento": "#ffc400",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Haramaki"
+  ],
+  "frase": "Estilo, cuidado e o melhor preço.",
+  "fotos": [
+   ".hero-photo img",
+   "#vitrine-track li:nth-child(10) img",
+   ".story-main img",
+   "#vitrine-track li:nth-child(20) img"
+  ],
+  "pos_fotos": [
+   "50% 35%",
+   "50% 50%",
+   "50% 25%",
+   "60% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.5
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 1.5,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 1.6,
+   "legenda": "A ótica amarela da Vila Perus"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 1.5,
+   "legenda": "Nota 5,0 com 321 avaliações"
+  },
+  {
+   "rolar": "#vitrine-track",
+   "alinhar": "topo",
+   "segura": 3,
+   "legenda": "Armação para todo estilo",
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.6,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#provando-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Provando na loja",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#provando-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#provando-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Ajuda a escolher a armação",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ]
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2,
+   "legenda": "Atendimento passo a passo"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.3,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".insta-photo",
+   "segura": 1.8,
+   "legenda": "Ligado ao Instagram da loja"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.8,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}
