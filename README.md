@@ -12,6 +12,7 @@ Um site só, publicado na Vercel:
 | `/demo/<ótica>` | Demo do site da ótica (ex.: `/demo/otica-catglass`), no ar por 7 dias | quem tiver o link, no prazo |
 | `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
 | `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
+| `/gravacao/<lead>.mp4` | Vídeo de apresentação da demo (MP4 vertical, ~30 s) para mandar no WhatsApp; o painel baixa | quem tiver o link |
 
 - `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
   como editar: [`site/README.md`](site/README.md).
@@ -70,6 +71,14 @@ na tabela `demos` do Supabase (uma linha por pasta, criada sozinha quando o lead
 se muda no painel, na seção **Demo** do lead: ligar e desligar, escolher o último dia, reabilitar por mais
 7 dias ou deixar sem prazo. Se o banco não responder, a demo abre (nunca cai por erro). Regras:
 [`CONTEXTO.md`](CONTEXTO.md).
+
+## Vídeo de apresentação
+
+Um MP4 vertical (1080 × 1920, ~30 s) da demo rodando no celular: abertura com a marca da ótica, o site
+rolando com legendas e toques (carrossel, botões) e fechamento ("Gostou? É só responder esta mensagem").
+Fica em `gravacoes/<id-do-lead>.mp4`, feito pelo `ferramentas/video/gravar.mjs` a partir do roteiro
+`gravacoes/<id>.json`; vai ao ar em `/gravacao/<id>.mp4` e o lead recebe `link_gravacao = '/gravacao/<id>.mp4'`.
+No painel, a seção **Demo** mostra **Assistir** e **Baixar MP4**, e o cabeçalho ganha **Baixar vídeo**.
 
 ## Flyer de Stories
 

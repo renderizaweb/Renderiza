@@ -169,6 +169,27 @@ criação** e depois sai do ar sozinha; para reabilitar, é no card do lead.
   `otica-dutra` não tem página publicada (parada); ganha o prazo quando entrar no lead.
 - **O flyer não tem prazo** (`/flyer/<id>.png` é presente para a ótica guardar).
 
+## Vídeo de apresentação da demo (MP4 ~30 s)
+
+Pedido do Kaue em 07/10/2026: um vídeo curto da demo para mandar à ótica no WhatsApp, como apresentação.
+O primeiro foi o da **Ótica Machado** (`gravacoes/otica-machado.mp4`, 31 s, 8 MB).
+
+- **Como é:** vertical 1080 × 1920, 30 quadros/s, H.264 com faixa de áudio muda (o WhatsApp trata como
+  vídeo, não como GIF). Abertura (selo "Prévia do site", foto da demo em arco, nome e bairro, "feito pela
+  Renderiza"), o site rolando no celular com 6 a 7 legendas curtas e o "dedo" mostrando toques (carrossel,
+  seletor de rosto, botão do WhatsApp) e fechamento com a primeira tela do site num celular, "Seu site novo
+  já está pronto." e "Gostou? É só responder esta mensagem."
+- **Como fazer:** escrever `gravacoes/<id-do-lead>.json` (modelo: `otica-machado.json`: cores e fontes da
+  demo, cenas com o seletor onde parar, quanto tempo segurar, legenda e ações) e rodar
+  `node ferramentas/video/gravar.mjs gravacoes/<id>.json` (uns 3 minutos). O gravador para o relógio da
+  página e grava quadro a quadro, então sai liso; ele mesmo acha a parada em que a legenda não cobre
+  texto. Conferir os quadros (`ffmpeg -ss <t> -i … -frames:v 1`) antes de publicar. Na `main`, vai ao ar em
+  `/gravacao/<id>.mp4`; no lead, `link_gravacao = '/gravacao/<id>.mp4'`.
+- **Regras:** só o que a demo mostra (sem preço, sem promessa); legenda curta, de função ("Vitrine com fotos
+  reais", "Avaliações reais do Google"); hora fixa no roteiro com a loja aberta, para o "Aberto agora".
+- **No painel:** seção **Demo** → **Assistir** / **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`);
+  botão **Baixar vídeo** no cabeçalho do card.
+
 ## Flyer de Stories (cortesia para retomar o contato)
 
 **Para que serve:** o Kaue manda a demo e quase sempre recebe vácuo. No dia seguinte, ou alguns dias

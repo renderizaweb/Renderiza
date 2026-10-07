@@ -648,13 +648,16 @@ function acoesRapidas() {
     const ok = () => aviso(demoFora ? "Link copiado, mas a demo não abre agora (" + demoFora + "). Reabilite na seção Demo antes de mandar." : "Link da demo copiado.", demoFora ? "erro" : undefined);
     try { navigator.clipboard.writeText(linkDemo).then(ok, mostrar); } catch (e) { mostrar(); }
   });
-  let linkFlyer = "", empresa = "";
+  let linkFlyer = "", linkVideo = "", empresa = "";
   const flyer = h("button", { type: "button", class: "acao-rapida flyer", title: "Baixa o PNG de Stories para mandar à ótica" }, icone("baixar", 15), "Baixar flyer");
   flyer.addEventListener("click", () => { if (linkFlyer) baixarFlyer(linkFlyer, empresa); });
+  const video = h("button", { type: "button", class: "acao-rapida video", title: "Baixa o vídeo de apresentação (MP4) para mandar à ótica" }, icone("baixar", 15), "Baixar vídeo");
+  video.addEventListener("click", () => { if (linkVideo) baixarVideo(linkVideo, empresa); });
   const link = (classe, href, nomeIcone, texto) => h("a", { class: "acao-rapida " + classe, href, target: "_blank", rel: "noopener noreferrer" }, icone(nomeIcone, 15), texto);
   vincular(l => {
     const wa = waHref(l.whatsapp), ig = urlHref(l.instagram), demo = urlHref(l.link_demo);
     linkFlyer = urlHref(l.link_flyer); empresa = l.empresa;
+    linkVideo = ehVideo(urlHref(l.link_gravacao)) ? urlHref(l.link_gravacao) : "";
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
     linkDemo = demo ? new URL(demo, location.href).href : "";
     const s = situacaoDoLead(l);
@@ -664,6 +667,7 @@ function acoesRapidas() {
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
       demo ? copiar : null,
+      linkVideo ? video : null,
       linkFlyer ? flyer : null,
     ].filter(Boolean);
     el.replaceChildren(...botoes);
@@ -677,17 +681,22 @@ const semAcentoNome = s => String(s || "").normalize("NFD").replace(/[\u0300-\u0
 // Nome do arquivo sem acento: alguns navegadores trocam um nome com "Ó" por "download".
 const nomeDoFlyer = empresa => "Stories - " + (semAcentoNome(empresa).replace(/[^\w &().,'-]+/g, "").replace(/\s+/g, " ").trim() || "otica") + ".png";
 const mensagemDoFlyer = empresa => `Oi! Esqueci de te mandar esta cortesia: uma arte para os Stories da ${String(empresa || "").trim() || "ótica"}, pode usar à vontade. E aí, conseguiu olhar a demo do site?`;
-/** Baixa o PNG com nome legível. Link de outro site que não deixa ler o arquivo abre em outra aba. */
-async function baixarFlyer(url, empresa) {
+/** Baixa o arquivo com nome legível. Link de outro site que não deixa ler o arquivo abre em outra aba. */
+async function baixarArquivo(url, nome, { oQue, onde }) {
   let r;
   try { r = await fetch(url, { cache: "no-store" }); } catch (e) { window.open(url, "_blank", "noopener"); return; }
-  if (!r.ok) { aviso("Não achei o arquivo do flyer (" + r.status + "). Confira o link na seção Flyer para Stories.", "erro"); return; }
-  const nome = nomeDoFlyer(empresa);
+  if (!r.ok) { aviso(`Não achei o arquivo ${oQue} (${r.status}). Confira o link ${onde}.`, "erro"); return; }
   const a = h("a", { href: URL.createObjectURL(await r.blob()), download: nome });
   document.body.append(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 60000);
-  aviso("Flyer baixado: " + nome);
+  aviso("Baixado: " + nome);
 }
+const baixarFlyer = (url, empresa) => baixarArquivo(url, nomeDoFlyer(empresa), { oQue: "do flyer", onde: "na seção Flyer para Stories" });
+
+/* ---------- vídeo de apresentação da demo (MP4 vertical, ~30 s), em link_gravacao ---------- */
+const ehVideo = u => /\.mp4(\?|#|$)/i.test(u);
+const nomeDoVideo = empresa => "Apresentacao - " + (semAcentoNome(empresa).replace(/[^\w &().,'-]+/g, "").replace(/\s+/g, " ").trim() || "otica") + ".mp4";
+const baixarVideo = (url, empresa) => baixarArquivo(url, nomeDoVideo(empresa), { oQue: "do vídeo", onde: "em Link da gravação, na seção Demo" });
 
 function secaoFlyer(id) {
   const previa = h("img", { class: "flyer-previa", alt: "Prévia do flyer de Stories", width: "108", height: "192", decoding: "async" });
@@ -794,7 +803,23 @@ function secaoDemo(id) {
     redesenhar();
   });
 
-  return cartao("Demo", { classe: "secao-demo" }, caixa, h("div", { class: "campos campos-2" },
+  // Vídeo de apresentação pronto: baixar ou assistir, sem procurar o arquivo.
+  const assistir = h("a", { class: "btn btn-outline btn-sm", target: "_blank", rel: "noopener noreferrer" }, icone("abrirLink", 15), "Assistir");
+  const baixarMp4 = h("button", { type: "button", class: "btn btn-primary btn-sm" }, icone("baixar", 15), "Baixar MP4");
+  const faixaVideo = h("div", { class: "demo-video" },
+    h("span", { class: "demo-video-icone" }, icone("monitor", 16)),
+    h("div", { class: "demo-video-texto" }, h("strong", { text: "Vídeo de apresentação" }), h("span", { text: "MP4 vertical, ~30 s, para mandar no WhatsApp" })),
+    h("div", { class: "demo-video-botoes" }, assistir, baixarMp4));
+  let urlVideo = "", empresaVideo = "";
+  baixarMp4.addEventListener("click", () => { if (urlVideo) baixarVideo(urlVideo, empresaVideo); });
+  vincular(l => {
+    const u = urlHref(l.link_gravacao);
+    urlVideo = ehVideo(u) ? u : ""; empresaVideo = l.empresa;
+    faixaVideo.hidden = !urlVideo;
+    if (urlVideo) assistir.href = urlVideo;
+  });
+
+  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, h("div", { class: "campos campos-2" },
     campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
     campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
 }

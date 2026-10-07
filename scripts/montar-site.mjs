@@ -5,6 +5,7 @@
 //   /demo/<ótica>              → demos/<ótica>/index.html
 //   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
+//   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
 // Fichas (.md), contexto, ferramentas, banco e scripts nunca entram.
 //   npm run build
@@ -58,6 +59,8 @@ export function arquivosPublicados() {
   }
   const flyers = join(RAIZ, "flyers");
   if (existsSync(flyers)) for (const f of readdirSync(flyers)) if (f.endsWith(".png")) lista.push([join("flyer", f), join(flyers, f)]);
+  const gravacoes = join(RAIZ, "gravacoes");
+  if (existsSync(gravacoes)) for (const f of readdirSync(gravacoes)) if (f.endsWith(".mp4")) lista.push([join("gravacao", f), join(gravacoes, f)]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);

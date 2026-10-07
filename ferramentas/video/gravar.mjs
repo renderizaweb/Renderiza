@@ -1,0 +1,322 @@
+// Vídeo de apresentação de uma demo (MP4 vertical 1080 × 1920, 30 quadros por segundo, ~30 s): abertura com a
+// marca da ótica, o site rolando no celular com legendas e toques, e fechamento. Vai para a ótica no WhatsApp.
+// Uso: node ferramentas/video/gravar.mjs gravacoes/<id-do-lead>.json [saida.mp4]
+//   Sem saída, grava gravacoes/<id>.mp4 (vai ao ar em /gravacao/<id>.mp4; o painel baixa pelo link_gravacao).
+//
+// Grava quadro a quadro com o relógio da página parado (page.clock) e as animações CSS avançadas à mão: cada
+// quadro é exatamente 1/30 s, sem engasgo, mesmo com a máquina lenta. O roteiro (JSON) traz:
+//   demo (pasta em demos/), marca, local, cores: { fundo, fundo2, acento, claro }, fontes: { titulo, texto },
+//   hora (ISO, para "Aberto agora" sair certo), abertura: { selo, foto (seletor da foto na demo) },
+//   fechamento: { titulo, destaque, convite },
+//   cenas: [{ rolar: seletor | número (topo da página), alinhar: "centro" | "topo", ajuste (px), mover (s),
+//            segura (s), legenda, legenda_no_topo, acoes: [{ em (s depois de parar), tipo: "deslizar" | "tocar", alvo, cartoes, dur, clicar }] }]
+import { readFileSync, mkdirSync, rmSync } from "node:fs";
+import { spawn } from "node:child_process";
+import { basename, dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { spkiProxy } from "../proxy.mjs";
+import { chromium } from "/opt/node22/lib/node_modules/playwright/index.mjs";
+
+const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
+const FFMPEG = process.env.FFMPEG || "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2";
+const [, , caminhoRoteiro, saidaArg] = process.argv;
+if (!caminhoRoteiro) { console.error("Uso: node ferramentas/video/gravar.mjs gravacoes/<id>.json [saida.mp4]"); process.exit(1); }
+const R = JSON.parse(readFileSync(caminhoRoteiro, "utf8"));
+const saida = resolve(saidaArg || join(dirname(caminhoRoteiro), basename(caminhoRoteiro, ".json") + ".mp4"));
+const tmp = join(dirname(saida), ".tmp-" + basename(saida, ".mp4"));
+mkdirSync(tmp, { recursive: true });
+
+const FPS = 30, DT = 1000 / FPS;
+const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
+const ABERTURA = R.abertura?.dur || 3.2, FECHAMENTO = R.fechamento?.dur || 3.8, FUSAO = 0.5;
+const c = { fundo: "#2b2c3b", fundo2: "#1b1c26", acento: "#d6ae66", claro: "#fffdf6", ...R.cores };
+const fT = R.fontes?.titulo || "Montserrat", fX = R.fontes?.texto || "DM Sans";
+const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const suave = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out cúbico
+const entre = (a, b, x) => Math.min(1, Math.max(0, (x - a) / (b - a)));
+
+const PROXY = (process.env.HTTPS_PROXY || "").replace(/^https?:\/\//, "");
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium",
+  args: ["--no-sandbox", "--hide-scrollbars", ...(PROXY ? ["--ignore-certificate-errors-spki-list=" + spkiProxy(), "--proxy-server=https=" + PROXY] : [])] });
+const contexto = () => browser.newContext({ viewport: VIEW, deviceScaleFactor: ESCALA, isMobile: true, hasTouch: true, locale: "pt-BR", timezoneId: "America/Sao_Paulo",
+  userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1" });
+
+// Avança as animações CSS (transições e @keyframes) do mesmo tanto que o relógio: nada corre sozinho entre quadros.
+const AVANCAR = () => {
+  window.__quadro = dt => {
+    for (const a of document.getAnimations()) {
+      if (a.__vt === undefined) { a.__vt = 0; a.pause(); }
+      a.__vt += dt;
+      a.currentTime = a.__vt;
+    }
+  };
+};
+
+/** Encoder: recebe JPEGs e grava um MP4 intermediário quase sem perda. */
+function codificador(arquivo) {
+  const ff = spawn(FFMPEG, ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(FPS), "-c:v", "mjpeg", "-i", "-",
+    "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", "-pix_fmt", "yuv420p", arquivo], { stdio: ["pipe", "inherit", "inherit"] });
+  const fim = new Promise((ok, falha) => ff.on("close", code => (code === 0 ? ok() : falha(new Error("ffmpeg saiu com " + code)))));
+  return {
+    quadro: buf => new Promise(ok => (ff.stdin.write(buf) ? ok() : ff.stdin.once("drain", ok))),
+    fechar: () => { ff.stdin.end(); return fim; },
+  };
+}
+// Captura pelo Playwright: ele respeita a escala do celular (o CDP direto volta a 1x e sai 405 × 720).
+const capturar = p => p.screenshot({ type: "jpeg", quality: 92, caret: "hide" });
+
+/* ---------- 1. o site rolando ---------- */
+const ctx = await contexto();
+const pagina = await ctx.newPage();
+await pagina.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
+await pagina.addInitScript(AVANCAR);
+await pagina.goto("file://" + join(RAIZ, "demos", R.demo, "index.html"), { waitUntil: "load" });
+await pagina.evaluate(async () => {
+  document.documentElement.style.scrollBehavior = "auto";
+  document.querySelectorAll("img[loading=lazy]").forEach(i => { i.loading = "eager"; });
+  await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+  await document.fonts.ready;
+});
+await pagina.clock.runFor(800);
+await pagina.waitForTimeout(600);
+
+// Camada por cima do site: legenda e o "dedo" que mostra os toques.
+await pagina.evaluate(({ c, fX }) => {
+  const css = document.createElement("style");
+  css.textContent = `
+  #__legenda{position:fixed;left:50%;bottom:96px;z-index:2147483646;transform:translate(-50%,0);max-width:340px;width:max-content;
+    display:flex;align-items:center;gap:10px;padding:13px 20px 13px 16px;border-radius:999px;background:${c.fundo}f2;color:${c.claro};
+    font:600 17px/1.25 "${fX}",system-ui,sans-serif;letter-spacing:-.1px;box-shadow:0 14px 34px #0000004d,0 0 0 1px #ffffff14;opacity:0;pointer-events:none}
+  #__legenda i{flex:none;width:9px;height:9px;border-radius:50%;background:${c.acento};box-shadow:0 0 0 4px ${c.acento}33}
+  #__dedo{position:fixed;left:0;top:0;z-index:2147483647;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;pointer-events:none;
+    background:#ffffff59;border:2px solid #fffffff2;box-shadow:0 6px 18px #0000004d;opacity:0}
+  #__dedo b{position:absolute;inset:-2px;border-radius:50%;border:2px solid #fff;opacity:0}`;
+  document.head.append(css);
+  const leg = document.createElement("div"); leg.id = "__legenda"; leg.innerHTML = "<i></i><span></span>";
+  const dedo = document.createElement("div"); dedo.id = "__dedo"; dedo.innerHTML = "<b></b>";
+  document.body.append(leg, dedo);
+}, { c, fX });
+
+// Mede onde cada cena para (posição de rolagem) e monta a linha do tempo. Com legenda embaixo, procura perto
+// do ponto pedido a parada em que a faixa da legenda não cobre título nem texto (e o alvo continua inteiro na tela).
+const medidas = await pagina.evaluate(cenas => {
+  const vh = innerHeight, cab = (document.querySelector(".site-header")?.offsetHeight || 70);
+  const max = document.documentElement.scrollHeight - vh;
+  const faixa = { topo: vh - 96 - 46 - 10, base: vh - 96 + 10, esq: 30, dir: innerWidth - 30 };
+  // Posição final na página: desconta o deslocamento das animações de entrada (.reveal desce 22 px até aparecer).
+  const desvio = e => { let dy = 0; for (let x = e; x && x !== document.body; x = x.parentElement) { const t = getComputedStyle(x).transform; if (t && t !== "none") dy += new DOMMatrix(t).m42; } return dy; };
+  const abs = e => { const r = e.getBoundingClientRect(), dy = desvio(e); return { top: r.top + scrollY - dy, bottom: r.bottom + scrollY - dy, left: r.left, right: r.right, h: r.height }; };
+  const textos = [...document.querySelectorAll("main h1, main h2, main h3, main p, main li, main blockquote, main img, main .stat, main .button, footer p, footer a, footer h2, footer strong")]
+    .filter(e => e.offsetHeight > 0 && !e.closest("#__legenda, #__dedo"))
+    .map(e => ({ ...abs(e), peso: /^H\d$/.test(e.tagName) ? 6 : e.tagName === "IMG" ? 0.6 : 4 }));
+  const limitar = y => Math.round(Math.max(0, Math.min(max, y)));
+  return cenas.map(ce => {
+    if (typeof ce.rolar === "number") return { y: limitar(ce.rolar) };
+    const e = document.querySelector(ce.rolar);
+    if (!e) return { y: null, erro: "não achei " + ce.rolar };
+    const a = abs(e);
+    const y0 = limitar((ce.alinhar === "topo" ? a.top - cab - 10 : a.top + a.h / 2 - (cab + (vh - cab) / 2)) + (ce.ajuste || 0));
+    if (!ce.legenda || ce.legenda_no_topo) return { y: y0 };
+    let melhor = y0, nota = Infinity;
+    for (let d = -240; d <= 240; d += 3) {
+      const y = limitar(y0 + d);
+      const cabe = a.h <= faixa.topo - cab - 12;
+      if (a.top - y < cab + 2 || (cabe && a.bottom - y > faixa.topo - 4)) continue; // alvo cortado ou embaixo da legenda
+      let n = Math.abs(d) * 0.12;
+      for (const t of textos) {
+        const sobre = Math.min(y + faixa.base, t.bottom) - Math.max(y + faixa.topo, t.top);
+        if (sobre > 0 && t.right > faixa.esq && t.left < faixa.dir) n += sobre * t.peso;
+      }
+      if (n < nota) { nota = n; melhor = y; }
+    }
+    return { y: melhor };
+  });
+}, R.cenas);
+medidas.forEach((m, i) => { if (m.erro) throw new Error("cena " + (i + 1) + ": " + m.erro); });
+
+const linha = []; // [{ini, fim, de, ate}] rolagem; legendas; ações
+const legendas = [], acoes = [];
+let t = 0, yAtual = medidas[0].y;
+R.cenas.forEach((ce, i) => {
+  const y = medidas[i].y;
+  if (i > 0 && y !== yAtual) {
+    const mover = ce.mover ?? Math.min(1.4, 0.75 + Math.abs(y - yAtual) / 3000);
+    linha.push({ ini: t, fim: t + mover, de: yAtual, ate: y });
+    t += mover;
+  }
+  yAtual = y;
+  const parada = t;
+  if (ce.legenda) legendas.push({ ini: parada + (i === 0 ? 0.35 : 0.1), fim: parada + ce.segura, texto: ce.legenda, topo: ce.legenda_no_topo });
+  (ce.acoes || []).forEach(a => acoes.push({ ...a, ini: parada + a.em, y }));
+  t += ce.segura;
+});
+const DUR_SITE = t;
+const yEm = s => { let y = medidas[0].y; for (const seg of linha) { if (s >= seg.fim) y = seg.ate; else if (s > seg.ini) return seg.de + (seg.ate - seg.de) * suave(entre(seg.ini, seg.fim, s)); } return y; };
+
+// Posições dos alvos das ações (em coordenadas da página) para o dedo.
+const alvos = await pagina.evaluate(lista => lista.map(a => {
+  const e = document.querySelector(a.alvo);
+  if (!e) return null;
+  const r = e.getBoundingClientRect();
+  let dy = 0; // mesma correção das animações de entrada
+  for (let x = e; x && x !== document.body; x = x.parentElement) { const t = getComputedStyle(x).transform; if (t && t !== "none") dy += new DOMMatrix(t).m42; }
+  const passo = e.children.length > 1 ? e.children[1].offsetLeft - e.children[0].offsetLeft : r.width;
+  return { x: r.left + r.width / 2, y: r.top + scrollY - dy + r.height / 2, w: r.width, passo };
+}), acoes);
+acoes.forEach((a, i) => { if (!alvos[i]) throw new Error("ação sem alvo: " + a.alvo); a.box = alvos[i]; a.dur = a.dur || (a.tipo === "deslizar" ? 0.8 : 0.55); });
+
+// Foto da abertura e a primeira tela do site (para o fechamento).
+const fotoAbertura = R.abertura?.foto ? await pagina.evaluate(s => document.querySelector(s)?.src || "", R.abertura.foto) : "";
+await pagina.evaluate(() => window.scrollTo(0, 0));
+const primeiraTela = "data:image/jpeg;base64," + (await capturar(pagina)).toString("base64");
+
+const site = codificador(join(tmp, "site.mp4"));
+const clicados = new Set();
+const total = Math.round(DUR_SITE * FPS);
+const inicio = Date.now();
+for (let f = 0; f < total; f++) {
+  const s = f / FPS, y = yEm(s);
+  // legenda
+  let leg = { texto: "", op: 0, dy: 12 };
+  for (const L of legendas) {
+    if (s < L.ini || s > L.fim) continue;
+    const entra = entre(L.ini, L.ini + 0.3, s), sai = 1 - entre(L.fim - 0.25, L.fim, s);
+    leg = { texto: L.texto, op: Math.min(entra, sai), dy: 12 * (1 - suave(entra)), topo: !!L.topo };
+  }
+  // ações: carrossel e dedo
+  const carrosseis = {};
+  let dedo = { op: 0, x: 0, y: 0, s: 1, anel: 0 };
+  const cliques = [];
+  for (const [i, a] of acoes.entries()) {
+    const k = entre(a.ini, a.ini + a.dur, s);
+    if (a.tipo === "deslizar") {
+      const ja = acoes.slice(0, i).filter(b => b.tipo === "deslizar" && b.alvo === a.alvo && s >= b.ini).reduce((n, b) => n + (b.cartoes || 1), 0);
+      if (s >= a.ini) carrosseis[a.alvo] = (ja + (a.cartoes || 1) * suave(k)) * a.box.passo;
+      if (s >= a.ini - 0.25 && s <= a.ini + a.dur + 0.3) {
+        const ap = entre(a.ini - 0.25, a.ini, s), some = 1 - entre(a.ini + a.dur, a.ini + a.dur + 0.3, s);
+        dedo = { op: Math.min(ap, some), x: a.box.x + a.box.w * 0.28 - a.box.w * 0.56 * suave(k), y: a.box.y - y, s: 1 - 0.08 * Math.sin(Math.PI * k), anel: 0 };
+      }
+    } else if (a.tipo === "tocar") {
+      if (s >= a.ini - 0.2 && s <= a.ini + a.dur) {
+        const ap = entre(a.ini - 0.2, a.ini, s), toque = entre(a.ini, a.ini + a.dur, s);
+        dedo = { op: Math.min(ap, 1 - entre(a.ini + a.dur * 0.6, a.ini + a.dur, s)), x: a.box.x, y: a.box.y - y, s: 1 - 0.15 * Math.sin(Math.PI * Math.min(1, toque * 2)), anel: toque };
+      }
+      const chave = i + ":" + a.alvo;
+      if (a.clicar && s >= a.ini + 0.12 && !clicados.has(chave)) { clicados.add(chave); cliques.push(a.alvo); }
+    }
+  }
+  await pagina.evaluate(({ y, leg, carrosseis, dedo, cliques }) => {
+    window.scrollTo({ top: y, behavior: "instant" });
+    for (const [sel, x] of Object.entries(carrosseis)) {
+      const el = document.querySelector(sel);
+      el.style.scrollSnapType = "none"; el.style.scrollBehavior = "auto"; el.scrollLeft = x;
+    }
+    const L = document.getElementById("__legenda");
+    if (leg.texto && L.lastChild.textContent !== leg.texto) L.lastChild.textContent = leg.texto;
+    L.style.opacity = leg.op; L.style.transform = `translate(-50%, ${leg.dy}px)`;
+    L.style.bottom = leg.topo ? "auto" : ""; L.style.top = leg.topo ? "86px" : "";
+    const D = document.getElementById("__dedo");
+    D.style.opacity = dedo.op; D.style.transform = `translate(${dedo.x}px, ${dedo.y}px) scale(${dedo.s})`;
+    D.firstChild.style.opacity = dedo.anel ? 1 - dedo.anel : 0; D.firstChild.style.transform = `scale(${1 + dedo.anel * 1.4})`;
+    cliques.forEach(sel => document.querySelector(sel)?.click());
+  }, { y, leg, carrosseis, dedo, cliques });
+  await pagina.clock.runFor(DT);
+  await pagina.evaluate(dt => window.__quadro(dt), DT);
+  await site.quadro(await capturar(pagina));
+  if (f % 90 === 0) process.stdout.write(`site ${Math.round(s)}s/${Math.round(DUR_SITE)}s (${Math.round((Date.now() - inicio) / 1000)}s)\n`);
+}
+await site.fechar();
+await ctx.close();
+
+/* ---------- 2. abertura e fechamento ---------- */
+const simbolo = readFileSync(join(RAIZ, "site", "estatico", "simbolo.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
+const base = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;0,800;1,700;1,800&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:405px;height:720px;overflow:hidden}
+body{font-family:"${fX}",system-ui,sans-serif;color:${c.claro};background:radial-gradient(120% 75% at 80% 8%, ${c.fundo} 0%, ${c.fundo2} 72%);position:relative}
+.bola{position:absolute;border-radius:50%;background:${c.acento}}
+.entra{animation:entra .9s cubic-bezier(.2,.8,.2,1) both}
+.foto-entra{animation:foto 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes entra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes foto{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes cresce{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes linha{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.selo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;letter-spacing:3.2px;text-transform:uppercase;color:${c.acento}}
+.selo:before{content:"";width:28px;height:2px;background:${c.acento};transform-origin:left;animation:linha .8s .1s ease both}
+.marca-rz{display:flex;align-items:center;gap:8px;font-size:12.5px;color:${c.claro};opacity:.78;font-weight:500}
+.marca-rz svg{width:18px;height:18px}
+</style></head><body>`;
+
+const abertura = base + `
+<div class="bola" style="width:150px;height:150px;right:-48px;top:-44px;animation:cresce 1s .05s cubic-bezier(.2,.8,.2,1) both"></div>
+<div class="bola" style="width:46px;height:46px;right:40px;top:170px;animation:cresce .8s .35s cubic-bezier(.2,.8,.2,1) both"></div>
+<div class="bola" style="width:300px;height:300px;left:-170px;bottom:40px;opacity:.08"></div>
+<div style="position:absolute;left:36px;top:92px;right:36px">
+  <p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Prévia do site")}</p>
+</div>
+${fotoAbertura ? `<div class="foto-entra" style="position:absolute;left:72px;top:138px;width:261px;height:300px;border-radius:131px 131px 26px 26px;overflow:hidden;border:5px solid ${c.acento};box-shadow:0 26px 60px #00000066;animation-delay:.15s">
+  <img src="${fotoAbertura}" style="width:100%;height:100%;object-fit:cover;object-position:${R.abertura?.pos || "50% 30%"}"></div>` : ""}
+<div style="position:absolute;left:36px;right:36px;top:470px">
+  <p class="entra" style="animation-delay:.35s;font-size:15px;opacity:.85;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
+  <h1 class="entra" style="animation-delay:.45s;font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff">${esc(R.marca)}</h1>
+  <p class="entra" style="animation-delay:.6s;margin-top:12px;font-size:14px;font-weight:600;color:${c.acento}">${esc(R.local)}</p>
+</div>
+<div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
+</body></html>`;
+
+const F = R.fechamento || {};
+const fechamento = base + `
+<div class="bola" style="width:150px;height:150px;left:-50px;top:-50px;animation:cresce 1s cubic-bezier(.2,.8,.2,1) both"></div>
+<div class="bola" style="width:300px;height:300px;right:-170px;bottom:60px;opacity:.08"></div>
+<div class="foto-entra" style="position:absolute;left:112px;top:70px;width:181px;height:330px;border-radius:30px;padding:7px;background:#0d0d12;box-shadow:0 28px 60px #00000080,0 0 0 1px #ffffff22;animation-delay:.05s;transform:rotate(-3deg)">
+  <img src="${primeiraTela}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:23px;display:block">
+</div>
+<div style="position:absolute;left:36px;right:36px;top:440px">
+  <h2 class="entra" style="animation-delay:.25s;font-family:'${fT}',sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.8px;color:#fff">${esc(F.titulo || "Seu site,")}<br><span style="color:${c.acento}">${esc(F.destaque || "pronto para ir ao ar.")}</span></h2>
+  <p class="entra" style="animation-delay:.5s;margin-top:16px;font-size:16px;line-height:1.45;opacity:.9">${esc(F.convite || "Gostou? É só responder esta mensagem.")}</p>
+</div>
+<div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.75s">${simbolo}<span>Renderiza · renderizaweb.com.br</span></div>
+</body></html>`;
+
+async function cartela(html, dur, arquivo) {
+  const ctx2 = await contexto();
+  const p = await ctx2.newPage();
+  await p.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
+  await p.addInitScript(AVANCAR);
+  await p.setContent(html, { waitUntil: "networkidle" });
+  await p.evaluate(AVANCAR); // setContent não roda o addInitScript
+  await p.evaluate(async ([t, x]) => {
+    const amostra = document.body.innerText;
+    await Promise.all([`800 44px "${t}"`, `600 15px "${x}"`, `500 15px "${x}"`, `700 12px "${x}"`].map(f => document.fonts.load(f, amostra)));
+    await document.fonts.ready;
+    await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+  }, [fT, fX]);
+  const familias = await p.evaluate(() => [...document.fonts].filter(f => f.status === "loaded").map(f => f.family));
+  if (!familias.some(f => f.includes(fT))) console.log("AVISO fonte " + fT + " não carregou na cartela");
+  const enc = codificador(arquivo);
+  for (let f = 0; f < Math.round(dur * FPS); f++) {
+    await p.evaluate(dt => window.__quadro(dt), f === 0 ? 0 : DT);
+    await enc.quadro(await capturar(p));
+  }
+  await enc.fechar();
+  await ctx2.close();
+}
+await cartela(abertura, ABERTURA, join(tmp, "abertura.mp4"));
+await cartela(fechamento, FECHAMENTO, join(tmp, "fechamento.mp4"));
+await browser.close();
+
+/* ---------- 3. montagem: fusões, áudio mudo (o WhatsApp trata como vídeo) e compressão para mandar ---------- */
+const o1 = ABERTURA - FUSAO, o2 = ABERTURA + DUR_SITE - 2 * FUSAO;
+const final = spawn(FFMPEG, ["-y", "-loglevel", "error",
+  "-i", join(tmp, "abertura.mp4"), "-i", join(tmp, "site.mp4"), "-i", join(tmp, "fechamento.mp4"),
+  "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+  "-filter_complex", `[0:v][1:v]xfade=transition=fade:duration=${FUSAO}:offset=${o1.toFixed(3)}[a];[a][2:v]xfade=transition=fade:duration=${FUSAO}:offset=${o2.toFixed(3)},format=yuv420p[v]`,
+  "-map", "[v]", "-map", "3:a", "-shortest",
+  "-c:v", "libx264", "-preset", "slow", "-crf", String(R.crf || 21), "-maxrate", "5M", "-bufsize", "10M", "-profile:v", "high", "-level", "4.1",
+  "-r", String(FPS), "-c:a", "aac", "-b:a", "64k", "-movflags", "+faststart", saida], { stdio: "inherit" });
+await new Promise((ok, falha) => final.on("close", code => (code === 0 ? ok() : falha(new Error("montagem falhou: " + code)))));
+rmSync(tmp, { recursive: true, force: true });
+const seg = (ABERTURA + DUR_SITE + FECHAMENTO - 2 * FUSAO).toFixed(1);
+console.log(`${saida} pronto: ${seg}s (site ${DUR_SITE.toFixed(1)}s, paradas ${medidas.map(m => m.y).join(", ")}), ${Math.round((Date.now() - inicio) / 1000)}s de gravação`);

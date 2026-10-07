@@ -23,9 +23,9 @@ if (existsSync(envLocal)) {
   }
 }
 
-const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8" };
+const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8", ".mp4": "video/mp4" };
 // Mesmas regras do vercel.json: só o site público pode aparecer no Google.
-const PRIVADO = /^\/(demo|painel|login|api)(\/|$)/;
+const PRIVADO = /^\/(demo|painel|login|api|flyer|gravacao)(\/|$)/;
 const { default: config } = await import("../api/config.js");
 const { default: travaDasDemos } = await import("../middleware.js");
 

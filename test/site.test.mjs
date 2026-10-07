@@ -137,6 +137,14 @@ test("vão para o ar: home, painel em /painel e /login, demos e arquivos do site
   for (const d of destinos) assert.doesNotMatch(d, /\.(md|mjs|sql|py)$|^(site|supabase|ferramentas|scripts|src)\//, d);
 });
 
+test("vídeos de apresentação: só o MP4 vai ao ar, em /gravacao/<lead>.mp4", () => {
+  const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("gravacao/"));
+  for (const d of destinos) assert.match(d, /^gravacao\/[\w-]+\.mp4$/, d);
+  const pasta = new URL("../gravacoes/", import.meta.url);
+  const mp4 = existsSync(pasta) ? readdirSync(pasta).filter(f => f.endsWith(".mp4")) : [];
+  assert.equal(destinos.length, mp4.length);
+});
+
 test("flyers de Stories: só o PNG vai ao ar, em /flyer/<lead>.png", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("flyer/"));
   for (const d of destinos) assert.match(d, /^flyer\/[\w-]+\.png$/, d);
