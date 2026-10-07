@@ -12,3 +12,7 @@ node_modules
 # Exportações com dados reais ficam fora do git.
 supabase/importacao-*.sql
 __pycache__/
+
+# ensaio do vídeo de apresentação (quadros para conferir, não vão para a main)
+gravacoes/*-ensaio/
+gravacoes/.tmp-*/

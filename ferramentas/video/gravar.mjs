@@ -1,16 +1,20 @@
 // Vídeo de apresentação de uma demo (MP4 vertical 1080 × 1920, 30 quadros por segundo, ~30 s): abertura com a
 // marca da ótica, o site rolando no celular com legendas e toques, e fechamento. Vai para a ótica no WhatsApp.
-// Uso: node ferramentas/video/gravar.mjs gravacoes/<id-do-lead>.json [saida.mp4]
+// Uso: node ferramentas/video/gravar.mjs gravacoes/<id-do-lead>.json [saida.mp4] [--ensaio]
 //   Sem saída, grava gravacoes/<id>.mp4 (vai ao ar em /gravacao/<id>.mp4; o painel baixa pelo link_gravacao).
+//   --ensaio: não grava o vídeo; tira 1 quadro por parada (com a legenda) e das cartelas, em <saida>-ensaio/,
+//   para conferir o roteiro em ~20 s. O roteiro padrão sai de: node ferramentas/video/roteiro.mjs <pasta-da-demo>
 //
 // Grava quadro a quadro com o relógio da página parado (page.clock) e as animações CSS avançadas à mão: cada
 // quadro é exatamente 1/30 s, sem engasgo, mesmo com a máquina lenta. O roteiro (JSON) traz:
 //   demo (pasta em demos/), marca, local, cores: { fundo, fundo2, acento, claro }, fontes: { titulo, texto },
 //   hora (ISO, para "Aberto agora" sair certo), abertura: { selo, foto (seletor da foto na demo) },
-//   fechamento: { titulo, destaque, convite },
+//   fechamento: { titulo, destaque, convite }, musica: "auto" (trilha original de musica.py) | caminho de um
+//   arquivo de áudio | ausente (faixa muda), volume_musica (1), resolucao: 720 (padrão leve, ~4 MB; o WhatsApp
+//   reduz para isso de todo jeito) | 1080 (Instagram), crf (23),
 //   cenas: [{ rolar: seletor | número (topo da página), alinhar: "centro" | "topo", ajuste (px), mover (s),
 //            segura (s), legenda, legenda_no_topo, acoes: [{ em (s depois de parar), tipo: "deslizar" | "tocar", alvo, cartoes, dur, clicar }] }]
-import { readFileSync, mkdirSync, rmSync } from "node:fs";
+import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,12 +23,15 @@ import { chromium } from "/opt/node22/lib/node_modules/playwright/index.mjs";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const FFMPEG = process.env.FFMPEG || "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2";
-const [, , caminhoRoteiro, saidaArg] = process.argv;
-if (!caminhoRoteiro) { console.error("Uso: node ferramentas/video/gravar.mjs gravacoes/<id>.json [saida.mp4]"); process.exit(1); }
+const argumentos = process.argv.slice(2);
+const ENSAIO = argumentos.includes("--ensaio");
+const [caminhoRoteiro, saidaArg] = argumentos.filter(x => !x.startsWith("--"));
+if (!caminhoRoteiro) { console.error("Uso: node ferramentas/video/gravar.mjs gravacoes/<id>.json [saida.mp4] [--ensaio]"); process.exit(1); }
 const R = JSON.parse(readFileSync(caminhoRoteiro, "utf8"));
 const saida = resolve(saidaArg || join(dirname(caminhoRoteiro), basename(caminhoRoteiro, ".json") + ".mp4"));
 const tmp = join(dirname(saida), ".tmp-" + basename(saida, ".mp4"));
-mkdirSync(tmp, { recursive: true });
+const pastaEnsaio = saida.replace(/\.mp4$/, "") + "-ensaio";
+mkdirSync(ENSAIO ? pastaEnsaio : tmp, { recursive: true });
 
 const FPS = 30, DT = 1000 / FPS;
 const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
@@ -170,9 +177,22 @@ const fotoAbertura = R.abertura?.foto ? await pagina.evaluate(s => document.quer
 await pagina.evaluate(() => window.scrollTo(0, 0));
 const primeiraTela = "data:image/jpeg;base64," + (await capturar(pagina)).toString("base64");
 
-const site = codificador(join(tmp, "site.mp4"));
+if (ENSAIO) {
+  // Cada parada como vai aparecer: rolagem final, entradas já concluídas e a legenda inteira.
+  for (const [i, ce] of R.cenas.entries()) {
+    await pagina.evaluate(({ y, texto, topo }) => {
+      window.scrollTo({ top: y, behavior: "instant" });
+      const L = document.getElementById("__legenda");
+      L.lastChild.textContent = texto || ""; L.style.opacity = texto ? 1 : 0; L.style.transform = "translate(-50%, 0)";
+      L.style.bottom = topo ? "auto" : ""; L.style.top = topo ? "86px" : "";
+    }, { y: medidas[i].y, texto: ce.legenda, topo: ce.legenda_no_topo });
+    for (let k = 0; k < 4; k++) { await pagina.clock.runFor(250); await pagina.evaluate(() => window.__quadro(400)); }
+    await pagina.screenshot({ path: join(pastaEnsaio, `${String(i + 2).padStart(2, "0")}-cena${i + 1}.jpg`), type: "jpeg", quality: 80 });
+  }
+}
+const site = ENSAIO ? null : codificador(join(tmp, "site.mp4"));
 const clicados = new Set();
-const total = Math.round(DUR_SITE * FPS);
+const total = ENSAIO ? 0 : Math.round(DUR_SITE * FPS);
 const inicio = Date.now();
 for (let f = 0; f < total; f++) {
   const s = f / FPS, y = yEm(s);
@@ -225,7 +245,7 @@ for (let f = 0; f < total; f++) {
   await site.quadro(await capturar(pagina));
   if (f % 90 === 0) process.stdout.write(`site ${Math.round(s)}s/${Math.round(DUR_SITE)}s (${Math.round((Date.now() - inicio) / 1000)}s)\n`);
 }
-await site.fechar();
+if (site) await site.fechar();
 await ctx.close();
 
 /* ---------- 2. abertura e fechamento ---------- */
@@ -241,6 +261,10 @@ body{font-family:"${fX}",system-ui,sans-serif;color:${c.claro};background:radial
 .foto-entra{animation:foto 1.1s cubic-bezier(.2,.8,.2,1) both}
 @keyframes entra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes foto{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.vivo{animation:vivo 1.4s cubic-bezier(.2,.8,.2,1) both}
+.assenta{animation:assenta 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes vivo{from{transform:scale(1.05)}to{transform:none}}
+@keyframes assenta{from{transform:translateY(12px)}to{transform:none}}
 @keyframes cresce{from{transform:scale(0)}to{transform:scale(1)}}
 @keyframes linha{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .selo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;letter-spacing:3.2px;text-transform:uppercase;color:${c.acento}}
@@ -256,11 +280,11 @@ const abertura = base + `
 <div style="position:absolute;left:36px;top:92px;right:36px">
   <p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Prévia do site")}</p>
 </div>
-${fotoAbertura ? `<div class="foto-entra" style="position:absolute;left:72px;top:138px;width:261px;height:300px;border-radius:131px 131px 26px 26px;overflow:hidden;border:5px solid ${c.acento};box-shadow:0 26px 60px #00000066;animation-delay:.15s">
+${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px;width:261px;height:300px;border-radius:131px 131px 26px 26px;overflow:hidden;border:5px solid ${c.acento};box-shadow:0 26px 60px #00000066;animation-delay:.15s">
   <img src="${fotoAbertura}" style="width:100%;height:100%;object-fit:cover;object-position:${R.abertura?.pos || "50% 30%"}"></div>` : ""}
 <div style="position:absolute;left:36px;right:36px;top:470px">
   <p class="entra" style="animation-delay:.35s;font-size:15px;opacity:.85;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
-  <h1 class="entra" style="animation-delay:.45s;font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff">${esc(R.marca)}</h1>
+  <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff">${esc(R.marca)}</h1>
   <p class="entra" style="animation-delay:.6s;margin-top:12px;font-size:14px;font-weight:600;color:${c.acento}">${esc(R.local)}</p>
 </div>
 <div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
@@ -295,6 +319,14 @@ async function cartela(html, dur, arquivo) {
   }, [fT, fX]);
   const familias = await p.evaluate(() => [...document.fonts].filter(f => f.status === "loaded").map(f => f.family));
   if (!familias.some(f => f.includes(fT))) console.log("AVISO fonte " + fT + " não carregou na cartela");
+  if (ENSAIO) {
+    await p.evaluate(() => window.__quadro(0));
+    await p.screenshot({ path: arquivo.replace(/\.mp4$/, "-inicio.jpg"), type: "jpeg", quality: 80 }); // o 1º quadro vira a miniatura
+    await p.evaluate(() => window.__quadro(3000));
+    await p.screenshot({ path: arquivo.replace(/\.mp4$/, ".jpg"), type: "jpeg", quality: 80 });
+    await ctx2.close();
+    return;
+  }
   const enc = codificador(arquivo);
   for (let f = 0; f < Math.round(dur * FPS); f++) {
     await p.evaluate(dt => window.__quadro(dt), f === 0 ? 0 : DT);
@@ -303,20 +335,39 @@ async function cartela(html, dur, arquivo) {
   await enc.fechar();
   await ctx2.close();
 }
-await cartela(abertura, ABERTURA, join(tmp, "abertura.mp4"));
-await cartela(fechamento, FECHAMENTO, join(tmp, "fechamento.mp4"));
+await cartela(abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
+await cartela(fechamento, FECHAMENTO, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "99-fechamento.mp4" : "fechamento.mp4"));
 await browser.close();
-
-/* ---------- 3. montagem: fusões, áudio mudo (o WhatsApp trata como vídeo) e compressão para mandar ---------- */
 const o1 = ABERTURA - FUSAO, o2 = ABERTURA + DUR_SITE - 2 * FUSAO;
-const final = spawn(FFMPEG, ["-y", "-loglevel", "error",
-  "-i", join(tmp, "abertura.mp4"), "-i", join(tmp, "site.mp4"), "-i", join(tmp, "fechamento.mp4"),
-  "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
-  "-filter_complex", `[0:v][1:v]xfade=transition=fade:duration=${FUSAO}:offset=${o1.toFixed(3)}[a];[a][2:v]xfade=transition=fade:duration=${FUSAO}:offset=${o2.toFixed(3)},format=yuv420p[v]`,
-  "-map", "[v]", "-map", "3:a", "-shortest",
-  "-c:v", "libx264", "-preset", "slow", "-crf", String(R.crf || 21), "-maxrate", "5M", "-bufsize", "10M", "-profile:v", "high", "-level", "4.1",
-  "-r", String(FPS), "-c:a", "aac", "-b:a", "64k", "-movflags", "+faststart", saida], { stdio: "inherit" });
-await new Promise((ok, falha) => final.on("close", code => (code === 0 ? ok() : falha(new Error("montagem falhou: " + code)))));
-rmSync(tmp, { recursive: true, force: true });
 const seg = (ABERTURA + DUR_SITE + FECHAMENTO - 2 * FUSAO).toFixed(1);
+if (ENSAIO) {
+  console.log(`ensaio em ${pastaEnsaio}: ${R.cenas.length} paradas (${medidas.map(m => m.y).join(", ")}), vídeo teria ${seg}s`);
+  process.exit(0);
+}
+
+/* ---------- 3. montagem: fusões, trilha (ou faixa muda: o WhatsApp trata como vídeo, não GIF) e compressão leve ---------- */
+const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio: "inherit" }).on("close", code => (code === 0 ? ok() : falha(new Error(cmd + " saiu com " + code)))));
+let audio = ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100"], filtroAudio = [];
+if (R.musica === "auto") {
+  // Trilha original no tempo do vídeo: o groove entra com o site e o acorde final cai no fechamento.
+  const wav = join(tmp, "trilha.wav");
+  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, seg, "--entrada", o1.toFixed(2), "--fechamento", (o2 + 0.4).toFixed(2)]);
+  audio = ["-i", wav];
+} else if (R.musica) {
+  const arq = resolve(dirname(resolve(caminhoRoteiro)), R.musica);
+  if (!existsSync(arq)) throw new Error("música não encontrada: " + arq);
+  audio = ["-stream_loop", "-1", "-i", arq];
+  filtroAudio = ["-af", `afade=t=in:d=0.4,afade=t=out:st=${(Number(seg) - 1.8).toFixed(2)}:d=1.8`];
+}
+if (R.musica && R.volume_musica && R.volume_musica !== 1) filtroAudio = ["-af", [filtroAudio[1], `volume=${R.volume_musica}`].filter(Boolean).join(",")];
+await rodar(FFMPEG, ["-y", "-loglevel", "error",
+  "-i", join(tmp, "abertura.mp4"), "-i", join(tmp, "site.mp4"), "-i", join(tmp, "fechamento.mp4"), ...audio,
+  // Grava em 1080 e reduz com lanczos: o texto sai mais nítido do que gravando direto em 720.
+  "-filter_complex", `[0:v][1:v]xfade=transition=fade:duration=${FUSAO}:offset=${o1.toFixed(3)}[a];[a][2:v]xfade=transition=fade:duration=${FUSAO}:offset=${o2.toFixed(3)}${Number(R.resolucao) === 1080 ? "" : ",scale=720:1280:flags=lanczos"},format=yuv420p[v]`,
+  "-map", "[v]", "-map", "3:a", ...filtroAudio, "-t", seg,
+  // Leve para o WhatsApp: tela de site comprime bem; aq-mode 3 evita faixas nos degradês escuros.
+  "-c:v", "libx264", "-preset", "slow", "-crf", String(R.crf || 23), "-maxrate", "4M", "-bufsize", "8M", "-x264-params", "aq-mode=3",
+  "-profile:v", "high", "-level", "4.1", "-r", String(FPS),
+  "-c:a", "aac", "-b:a", R.musica ? "112k" : "32k", "-movflags", "+faststart", saida]);
+if (!process.env.MANTER) rmSync(tmp, { recursive: true, force: true });
 console.log(`${saida} pronto: ${seg}s (site ${DUR_SITE.toFixed(1)}s, paradas ${medidas.map(m => m.y).join(", ")}), ${Math.round((Date.now() - inicio) / 1000)}s de gravação`);

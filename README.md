@@ -74,10 +74,12 @@ se muda no painel, na seção **Demo** do lead: ligar e desligar, escolher o úl
 
 ## Vídeo de apresentação
 
-Um MP4 vertical (1080 × 1920, ~30 s) da demo rodando no celular: abertura com a marca da ótica, o site
+Um MP4 vertical (720 × 1280, ~30 s, ~4 MB) da demo rodando no celular: abertura com a marca da ótica, o site
 rolando com legendas e toques (carrossel, botões) e fechamento ("Gostou? É só responder esta mensagem").
-Fica em `gravacoes/<id-do-lead>.mp4`, feito pelo `ferramentas/video/gravar.mjs` a partir do roteiro
-`gravacoes/<id>.json`; vai ao ar em `/gravacao/<id>.mp4` e o lead recebe `link_gravacao = '/gravacao/<id>.mp4'`.
+Roteiro automático a partir da demo (`node ferramentas/video/roteiro.mjs <pasta>`), ensaio em segundos
+(`gravar.mjs … --ensaio`) e gravação em ~3 min (`node ferramentas/video/gravar.mjs gravacoes/<id>.json`).
+Fica em `gravacoes/<id-do-lead>.mp4`; vai ao ar em `/gravacao/<id>.mp4` e o lead recebe
+`link_gravacao = '/gravacao/<id>.mp4'`. Padrão, regras e música: [`CONTEXTO.md`](CONTEXTO.md).
 No painel, a seção **Demo** mostra **Assistir** e **Baixar MP4**, e o cabeçalho ganha **Baixar vídeo**.
 
 ## Flyer de Stories

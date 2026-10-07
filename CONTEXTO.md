@@ -169,26 +169,53 @@ criação** e depois sai do ar sozinha; para reabilitar, é no card do lead.
   `otica-dutra` não tem página publicada (parada); ganha o prazo quando entrar no lead.
 - **O flyer não tem prazo** (`/flyer/<id>.png` é presente para a ótica guardar).
 
-## Vídeo de apresentação da demo (MP4 ~30 s)
+## Vídeo de apresentação da demo (MP4 ~30 s): o padrão
 
 Pedido do Kaue em 07/10/2026: um vídeo curto da demo para mandar à ótica no WhatsApp, como apresentação.
-O primeiro foi o da **Ótica Machado** (`gravacoes/otica-machado.mp4`, 31 s, 8 MB).
+O primeiro foi o da **Ótica Machado** (`gravacoes/otica-machado.mp4`, 31 s; o Kaue aprovou: "ficou muito
+bom"). Depois ele pediu um **modelo leve**, como a linha das demos. É este:
 
-- **Como é:** vertical 1080 × 1920, 30 quadros/s, H.264 com faixa de áudio muda (o WhatsApp trata como
-  vídeo, não como GIF). Abertura (selo "Prévia do site", foto da demo em arco, nome e bairro, "feito pela
-  Renderiza"), o site rolando no celular com 6 a 7 legendas curtas e o "dedo" mostrando toques (carrossel,
-  seletor de rosto, botão do WhatsApp) e fechamento com a primeira tela do site num celular, "Seu site novo
-  já está pronto." e "Gostou? É só responder esta mensagem."
-- **Como fazer:** escrever `gravacoes/<id-do-lead>.json` (modelo: `otica-machado.json`: cores e fontes da
-  demo, cenas com o seletor onde parar, quanto tempo segurar, legenda e ações) e rodar
-  `node ferramentas/video/gravar.mjs gravacoes/<id>.json` (uns 3 minutos). O gravador para o relógio da
-  página e grava quadro a quadro, então sai liso; ele mesmo acha a parada em que a legenda não cobre
-  texto. Conferir os quadros (`ffmpeg -ss <t> -i … -frames:v 1`) antes de publicar. Na `main`, vai ao ar em
-  `/gravacao/<id>.mp4`; no lead, `link_gravacao = '/gravacao/<id>.mp4'`.
-- **Regras:** só o que a demo mostra (sem preço, sem promessa); legenda curta, de função ("Vitrine com fotos
-  reais", "Avaliações reais do Google"); hora fixa no roteiro com a loja aberta, para o "Aberto agora".
-- **No painel:** seção **Demo** → **Assistir** / **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`);
-  botão **Baixar vídeo** no cabeçalho do card.
+**Passo a passo (uns 3 minutos por ótica, demo da linha comum):**
+1. `node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead]` → `gravacoes/<id>.json`. Sai da própria
+   demo: cores, fontes, nome, bairro, hora com a loja aberta e as cenas que ela tem.
+2. Revisar o JSON: dá para pôr o nome do dono na legenda da história ("A história da loja e da Amanda") e
+   trocar o texto das cartelas. O resto já vem pronto.
+3. `node ferramentas/video/gravar.mjs gravacoes/<id>.json --ensaio` (~10 s): um quadro por parada, com a
+   legenda, e as cartelas, em `gravacoes/<id>-ensaio/` (não commitar). Olhar se nada ficou coberto.
+4. `node ferramentas/video/gravar.mjs gravacoes/<id>.json` → `gravacoes/<id>.mp4`. Conferir 8 a 10 quadros
+   (`ffmpeg -ss <t> -i … -frames:v 1`).
+5. Na `main`, vai ao ar em `/gravacao/<id>.mp4`; no lead, `link_gravacao = '/gravacao/<id>.mp4'`. O painel
+   mostra **Assistir** / **Baixar MP4** na seção Demo e **Baixar vídeo** no cabeçalho do card.
+Demo feita à mão (sem `demo.json`): escrever o roteiro copiando `gravacoes/otica-machado.json`.
+
+**O que faz o vídeo ficar bom (revisão do da Machado):**
+- **É o site de verdade, no celular**, sem maquete: a ótica se reconhece. Gravado quadro a quadro com o
+  relógio da página parado, então rola liso mesmo com a máquina lenta, e as animações de entrada da
+  demo aparecem como no celular.
+- **Roteiro curto e com ritmo:** abertura de 3 s, 7 paradas de 1,5 a 3 s com rolagem suave de ~1 s entre
+  elas, fechamento de 3,5 s; 30 s no total.
+- **Uma legenda curta por parada**, dizendo a função ("Vitrine com fotos reais", "Avaliações reais do
+  Google", "WhatsApp e rota a um toque"). O gravador procura sozinho a parada em que a legenda não cobre
+  título nem texto (descontando a animação de entrada, que desce os blocos 22 px).
+- **O "dedo" mostra que dá para mexer:** passa o carrossel, toca no seletor de rosto (a resposta muda na
+  tela) e no botão do WhatsApp.
+- **Abertura com a cara da ótica** (foto do topo da demo, cores e fonte dela) e **fechamento que puxa a
+  conversa**: "Seu site novo já está pronto." e "Gostou? É só responder esta mensagem."
+- **"Aberto agora" certo:** a hora do roteiro é de loja aberta (sai do horário da demo).
+- **Primeiro quadro bonito:** foto e nome já aparecem no quadro 0, porque ele vira a miniatura no WhatsApp.
+- **Leve:** grava em 1080 e entrega em 720 × 1280 (~4 MB com música; o WhatsApp reduz para isso de todo
+  jeito). `"resolucao": 1080` para Instagram (~6 MB). Áudio sempre presente (trilha ou faixa muda), senão
+  o WhatsApp pode tratar como GIF.
+
+**Música (em avaliação pelo Kaue desde 07/10/2026):** `"musica": "auto"` gera uma trilha original com
+`ferramentas/video/musica.py` (sintetizada aqui, sem direito de terceiros): piano elétrico em arpejo, pad,
+baixo e bateria leve, em dó maior, ~97 bpm; o groove entra com o site e o acorde final cai no fechamento.
+`"musica": "caminho/arquivo.mp3"` usa uma faixa escolhida (com entrada e saída suaves); sem o campo, faixa
+muda. O roteiro gerado já vem com `"auto"`. O vídeo publicado da Machado ainda é o sem música (a versão com
+música foi só para avaliação).
+
+**Regras:** só o que a demo mostra (sem preço, sem promessa, sem dado novo); legendas de função, sem
+adjetivo vazio; nada de rosto cortado na parada (conferir no ensaio).
 
 ## Flyer de Stories (cortesia para retomar o contato)
 
