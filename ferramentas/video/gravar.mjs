@@ -9,7 +9,7 @@
 // quadro é exatamente 1/30 s, sem engasgo, mesmo com a máquina lenta. O roteiro (JSON) traz:
 //   demo (pasta em demos/), marca, local, cores: { fundo, fundo2, acento, claro }, fontes: { titulo, texto },
 //   hora (ISO, para "Aberto agora" sair certo), abertura: { selo, foto (seletor da foto na demo) },
-//   abertura.estilo "montagem" (fotos: [seletores], 3 a 4, em tela cheia com movimento lento; nome: [linha, destaque],
+//   abertura.estilo "montagem" (fotos: [seletores], 3 a 4, em tela cheia com movimento lento; rotulos_fotos; nome: [linha, destaque],
 //   frase) e fechamento.estilo "rolagem" (o site inteiro rolando dentro de um celular): versão "show".
 //   fechamento: { titulo, destaque, convite }, musica: "auto" (trilha original de musica.py) | caminho de um
 //   arquivo de áudio | ausente (faixa muda), volume_musica (1), resolucao: 720 (padrão leve, ~4 MB; o WhatsApp
@@ -327,6 +327,7 @@ const aberturaMontagem = base + `
 </style>
 ${fotosMontagem.map((src, i) => `<div class="quadro" style="z-index:${i + 1};${i ? `animation:surge .45s ${(i * PASSO).toFixed(2)}s ease both` : ""}">
   <img src="${src}" style="object-position:${(R.abertura.pos_fotos || [])[i] || "50% 30%"};animation:kb${i % 2} ${(PASSO + 0.9).toFixed(2)}s ${(i * PASSO).toFixed(2)}s linear both"></div>`).join("")}
+${fotosMontagem.map((_, i) => (R.abertura.rotulos_fotos || [])[i] ? `<span style="position:absolute;z-index:${22 + i};right:32px;top:54px;min-width:86px;text-align:center;padding:7px 12px;border-radius:999px;background:${c.acento};color:${c.fundo2};font:700 12px/1 '${fX}',sans-serif;letter-spacing:2.4px;text-transform:uppercase;box-shadow:0 6px 18px #0000004d;${i ? `animation:surge .35s ${(i * PASSO).toFixed(2)}s ease both` : ""}">${esc(R.abertura.rotulos_fotos[i])}</span>` : "").join("")}
 <div class="veu" style="z-index:20"></div>
 <div style="position:absolute;z-index:21;left:32px;top:58px;right:32px"><p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Prévia do site")}</p></div>
 <div style="position:absolute;z-index:21;left:32px;right:32px;bottom:112px">

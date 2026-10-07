@@ -48,7 +48,8 @@ const trilhos = [...html.matchAll(/id="([\w-]+)-track"/g)].map(m => m[1]).filter
 const cenas = [{ rolar: 0, segura: 1.5 }];
 if (tem("hero-photo")) cenas.push({ rolar: ".hero-photo", segura: 1.5, legenda: "Feito para abrir no celular" });
 if (tem("story-photos")) cenas.push({ rolar: ".story-photos", segura: 1.6, legenda: "A história da loja" });
-if (tem('class="stats"') && d.google_nota) cenas.push({ rolar: ".stats", segura: 1.5, legenda: `Nota ${d.google_nota} no Google em destaque` });
+// Números da loja (a demo só mostra a nota quando é 5,0; senão os números são outros, como o ano de abertura).
+if (tem('class="stats')) cenas.push({ rolar: ".stats", segura: 1.5, legenda: d.google_nota === "5,0" ? `Nota 5,0 com ${d.google_total} avaliações` : "A loja em números" });
 if (trilhos.length) cenas.push({ rolar: `#${trilhos[0]}-track`, alinhar: "topo", segura: 3.0, legenda: "Vitrine com fotos reais",
   acoes: [{ em: 0.5, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }, { em: 1.6, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }] });
 if (SHOW && trilhos[1]) cenas.push({ rolar: `#${trilhos[1]}-track`, alinhar: "topo", segura: 2.6, legenda: "Mais fotos reais da loja",
