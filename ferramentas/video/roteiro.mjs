@@ -1,5 +1,7 @@
 // Roteiro padrão do vídeo de apresentação, montado a partir de uma demo da linha comum (ferramentas/demo/gerar.py).
-// Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead]
+// Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead] [--show]
+//   --show: versão mais caprichada (~45 s): abertura em montagem de fotos em tela cheia com o nome e a frase da
+//   ótica, os dois carrosséis, atendimento e Instagram, e fechamento com o site inteiro rolando num celular.
 //   Grava gravacoes/<id-do-lead>.json (id = pasta quando não vem). Depois: revisar o JSON (legendas, nome do
 //   dono), rodar o ensaio e gravar:
 //     node ferramentas/video/gravar.mjs gravacoes/<id>.json --ensaio   (1 quadro por parada, ~20 s)
@@ -12,7 +14,8 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const [, , pasta, idLead] = process.argv;
+const SHOW = process.argv.includes("--show");
+const [pasta, idLead] = process.argv.slice(2).filter(x => !x.startsWith("--"));
 if (!pasta) { console.error("Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead]"); process.exit(1); }
 const arqConfig = join(RAIZ, "demos", pasta, "demo.json");
 if (!existsSync(arqConfig)) { console.error(`demos/${pasta}/demo.json não existe: esta demo não é da linha comum. Escreva o roteiro à mão (modelo: gravacoes/otica-machado.json).`); process.exit(1); }
@@ -39,6 +42,8 @@ function horaAberta() {
   return "2026-10-06T10:30:00-03:00";
 }
 
+// "Ótica e Beleza Pocopetz" -> ["Ótica e Beleza", "Pocopetz"]: a última palavra em destaque na montagem.
+const dividirNome = n => { const p = String(n).trim().split(/\s+/); return p.length > 1 ? [p.slice(0, -1).join(" "), p[p.length - 1]] : [n]; };
 const trilhos = [...html.matchAll(/id="([\w-]+)-track"/g)].map(m => m[1]).filter(id => id !== "reviews");
 const cenas = [{ rolar: 0, segura: 1.5 }];
 if (tem("hero-photo")) cenas.push({ rolar: ".hero-photo", segura: 1.5, legenda: "Feito para abrir no celular" });
@@ -46,18 +51,22 @@ if (tem("story-photos")) cenas.push({ rolar: ".story-photos", segura: 1.6, legen
 if (tem('class="stats"') && d.google_nota) cenas.push({ rolar: ".stats", segura: 1.5, legenda: `Nota ${d.google_nota} no Google em destaque` });
 if (trilhos.length) cenas.push({ rolar: `#${trilhos[0]}-track`, alinhar: "topo", segura: 3.0, legenda: "Vitrine com fotos reais",
   acoes: [{ em: 0.5, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }, { em: 1.6, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }] });
+if (SHOW && trilhos[1]) cenas.push({ rolar: `#${trilhos[1]}-track`, alinhar: "topo", segura: 2.6, legenda: "Mais fotos reais da loja",
+  acoes: [{ em: 0.45, tipo: "deslizar", alvo: `#${trilhos[1]}-track`, cartoes: 1, dur: 0.75 }, { em: 1.35, tipo: "deslizar", alvo: `#${trilhos[1]}-track`, cartoes: 1, dur: 0.75 }] });
 if (tem("face-tool") && tem('data-face="redondo"')) cenas.push({ rolar: ".face-tool", alinhar: "topo", segura: 2.6, legenda: "Ajuda a escolher a armação",
   acoes: [{ em: 0.6, tipo: "tocar", alvo: ".face-option[data-face=redondo]", clicar: true }, { em: 1.5, tipo: "tocar", alvo: ".face-option[data-face=coracao]", clicar: true }] });
+if (SHOW && tem('id="atendimento"')) cenas.push({ rolar: "#atendimento h2", alinhar: "topo", segura: 2.0, legenda: "O atendimento passo a passo" });
 if (tem('id="reviews-track"')) cenas.push({ rolar: "#reviews-track", alinhar: "topo", segura: 2.3, legenda: "Avaliações reais do Google",
   acoes: [{ em: 0.7, tipo: "deslizar", alvo: "#reviews-track", cartoes: 1 }] });
+if (SHOW && tem("insta-photo")) cenas.push({ rolar: ".insta-photo", segura: 1.8, legenda: "Ligado ao Instagram da loja" });
 if (tem('id="visite"') && tem("button--mustard")) cenas.push({ rolar: "#visite .button--mustard", segura: 2.8, legenda: "WhatsApp e rota a um toque",
   acoes: [{ em: 1.0, tipo: "tocar", alvo: "#visite .button--mustard" }] });
 
-// Demo com menos seções: segura um pouco mais cada parada para o vídeo ficar perto de 28-30 s.
-const mov = (cenas.length - 1) * 1.05, cartelas = 3.2 + 3.8 - 1;
+// Demo com menos seções: segura um pouco mais cada parada para o vídeo ficar perto de 28-30 s (show: ~40 s).
+const mov = (cenas.length - 1) * 1.05, cartelas = SHOW ? 5.6 + 5.4 - 1 : 3.2 + 3.8 - 1, alvo = SHOW ? 38 : 27;
 const somaSegura = cenas.reduce((n, c) => n + c.segura, 0);
-if (cartelas + mov + somaSegura < 27) {
-  const k = Math.min(1.35, (27 - cartelas - mov) / somaSegura);
+if (cartelas + mov + somaSegura < alvo) {
+  const k = Math.min(1.35, (alvo - cartelas - mov) / somaSegura);
   cenas.forEach(c => { c.segura = Math.round(c.segura * k * 10) / 10; });
 }
 
@@ -69,8 +78,13 @@ const roteiro = {
   fontes: { titulo: d.fonte || "Montserrat", texto: "DM Sans" },
   hora: horaAberta(),
   musica: "auto",
-  abertura: { selo: "Prévia do site", chamada: "O novo site da", foto: ".hero-photo img", pos: d.hero?.foto?.c ? `${Math.round(d.hero.foto.c[0] * 100)}% ${Math.round(d.hero.foto.c[1] * 100)}%` : "50% 30%" },
-  fechamento: { titulo: "Seu site novo", destaque: "já está pronto.", convite: "Gostou? É só responder esta mensagem." },
+  abertura: SHOW ? {
+    estilo: "montagem", selo: "Prévia do site", chamada: "O novo site da", nome: dividirNome(d.marca_completa || d.marca),
+    ...(d.slogan ? { frase: String(d.slogan).replace(/\.$/, "") + "." } : {}),
+    fotos: [".hero-photo img", ...(trilhos[0] ? [`#${trilhos[0]}-track li:nth-child(2) img`, `#${trilhos[0]}-track li:nth-child(4) img`] : []), ...(tem("insta-photo") ? [".insta-photo img"] : [])].slice(0, 4),
+    // Conferir no ensaio: rosto cortado ou foto repetida, troca o seletor (ou o enquadramento em pos_fotos).
+  } : { selo: "Prévia do site", chamada: "O novo site da", foto: ".hero-photo img", pos: d.hero?.foto?.c ? `${Math.round(d.hero.foto.c[0] * 100)}% ${Math.round(d.hero.foto.c[1] * 100)}%` : "50% 30%" },
+  fechamento: { ...(SHOW ? { estilo: "rolagem" } : {}), titulo: "Seu site novo", destaque: "já está pronto.", convite: "Gostou? É só responder esta mensagem." },
   cenas,
 };
 const id = idLead || pasta;

@@ -9,6 +9,8 @@
 // quadro é exatamente 1/30 s, sem engasgo, mesmo com a máquina lenta. O roteiro (JSON) traz:
 //   demo (pasta em demos/), marca, local, cores: { fundo, fundo2, acento, claro }, fontes: { titulo, texto },
 //   hora (ISO, para "Aberto agora" sair certo), abertura: { selo, foto (seletor da foto na demo) },
+//   abertura.estilo "montagem" (fotos: [seletores], 3 a 4, em tela cheia com movimento lento; nome: [linha, destaque],
+//   frase) e fechamento.estilo "rolagem" (o site inteiro rolando dentro de um celular): versão "show".
 //   fechamento: { titulo, destaque, convite }, musica: "auto" (trilha original de musica.py) | caminho de um
 //   arquivo de áudio | ausente (faixa muda), volume_musica (1), resolucao: 720 (padrão leve, ~4 MB; o WhatsApp
 //   reduz para isso de todo jeito) | 1080 (Instagram), crf (23),
@@ -35,7 +37,8 @@ mkdirSync(ENSAIO ? pastaEnsaio : tmp, { recursive: true });
 
 const FPS = 30, DT = 1000 / FPS;
 const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
-const ABERTURA = R.abertura?.dur || 3.2, FECHAMENTO = R.fechamento?.dur || 3.8, FUSAO = 0.5;
+const MONTAGEM = R.abertura?.estilo === "montagem", ROLAGEM = R.fechamento?.estilo === "rolagem";
+const ABERTURA = R.abertura?.dur || (MONTAGEM ? 5.6 : 3.2), FECHAMENTO = R.fechamento?.dur || (ROLAGEM ? 5.4 : 3.8), FUSAO = 0.5;
 const c = { fundo: "#2b2c3b", fundo2: "#1b1c26", acento: "#d6ae66", claro: "#fffdf6", ...R.cores };
 const fT = R.fontes?.titulo || "Montserrat", fX = R.fontes?.texto || "DM Sans";
 const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -174,6 +177,8 @@ acoes.forEach((a, i) => { if (!alvos[i]) throw new Error("ação sem alvo: " + a
 
 // Foto da abertura e a primeira tela do site (para o fechamento).
 const fotoAbertura = R.abertura?.foto ? await pagina.evaluate(s => document.querySelector(s)?.src || "", R.abertura.foto) : "";
+const fotosMontagem = MONTAGEM ? await pagina.evaluate(sels => sels.map(s => document.querySelector(s)?.src || ""), R.abertura.fotos || []) : [];
+if (MONTAGEM && (fotosMontagem.length < 2 || fotosMontagem.some(f => !f))) throw new Error("abertura.fotos: preciso de 2 a 4 seletores de foto que existam na demo");
 await pagina.evaluate(() => window.scrollTo(0, 0));
 const primeiraTela = "data:image/jpeg;base64," + (await capturar(pagina)).toString("base64");
 
@@ -246,12 +251,28 @@ for (let f = 0; f < total; f++) {
   if (f % 90 === 0) process.stdout.write(`site ${Math.round(s)}s/${Math.round(DUR_SITE)}s (${Math.round((Date.now() - inicio) / 1000)}s)\n`);
 }
 if (site) await site.fechar();
+
+// Fechamento "rolagem": a página inteira, já com tudo aparecido e sem botões flutuantes, para rolar no celular.
+let paginaInteira = "", alturaInteira = 0;
+if (ROLAGEM) {
+  await pagina.evaluate(() => {
+    document.querySelectorAll("#__legenda, #__dedo").forEach(e => e.remove());
+    document.querySelectorAll("body *").forEach(e => { if (getComputedStyle(e).position === "fixed") e.style.visibility = "hidden"; });
+    document.querySelectorAll(".reveal").forEach(e => e.classList.add("is-visible"));
+    document.querySelectorAll("[style*='scroll-snap-type']").forEach(e => { e.scrollLeft = 0; });
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  await pagina.evaluate(() => window.__quadro(4000));
+  alturaInteira = await pagina.evaluate(() => document.documentElement.scrollHeight);
+  paginaInteira = "data:image/jpeg;base64," + (await pagina.screenshot({ fullPage: true, scale: "css", type: "jpeg", quality: 82 })).toString("base64");
+}
 await ctx.close();
 
 /* ---------- 2. abertura e fechamento ---------- */
 const simbolo = readFileSync(join(RAIZ, "site", "estatico", "simbolo.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
 const base = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;0,800;1,700;1,800&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;1,600;1,700&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet"><!-- fontes que vão só até 700, como a Lora -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:405px;height:720px;overflow:hidden}
@@ -290,7 +311,55 @@ ${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px
 <div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
 </body></html>`;
 
+// Abertura "montagem": fotos da demo em tela cheia, uma cobrindo a outra, com movimento lento (Ken Burns);
+// o nome já está no 1º quadro (vira a miniatura no WhatsApp) e a frase da ótica entra no fim.
+const PASSO = (ABERTURA - 0.6) / Math.max(1, fotosMontagem.length);
+const trocas = fotosMontagem.map((_, i) => +(i * PASSO).toFixed(2)).slice(1);
+const nome = R.abertura?.nome || [R.marca];
+const aberturaMontagem = base + `
+<style>
+.quadro{position:absolute;inset:0;overflow:hidden}
+.quadro img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+@keyframes kb0{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+@keyframes kb1{from{transform:scale(1.03) translateX(-8px)}to{transform:scale(1.13) translateX(6px)}}
+.veu{position:absolute;inset:0;background:linear-gradient(180deg, ${c.fundo2}cc 0%, ${c.fundo2}00 22%, ${c.fundo2}00 44%, ${c.fundo2}e6 70%, ${c.fundo2} 100%)}
+</style>
+${fotosMontagem.map((src, i) => `<div class="quadro" style="z-index:${i + 1};${i ? `animation:surge .45s ${(i * PASSO).toFixed(2)}s ease both` : ""}">
+  <img src="${src}" style="object-position:${(R.abertura.pos_fotos || [])[i] || "50% 30%"};animation:kb${i % 2} ${(PASSO + 0.9).toFixed(2)}s ${(i * PASSO).toFixed(2)}s linear both"></div>`).join("")}
+<div class="veu" style="z-index:20"></div>
+<div style="position:absolute;z-index:21;left:32px;top:58px;right:32px"><p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Prévia do site")}</p></div>
+<div style="position:absolute;z-index:21;left:32px;right:32px;bottom:112px">
+  <p class="entra" style="animation-delay:.3s;font-size:15px;opacity:.88;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
+  <h1 class="assenta" style="font-family:'${fT}',serif;font-weight:700;line-height:.98;margin-top:8px;color:#fff;letter-spacing:-.5px">
+    ${nome.length > 1 ? `<span style="display:block;font-size:27px;font-weight:600;opacity:.92">${esc(nome[0])}</span><em style="display:block;font-size:58px;color:${c.acento};font-style:italic">${esc(nome[1])}</em>` : `<span style="font-size:44px">${esc(nome[0])}</span>`}
+  </h1>
+  <p class="entra" style="animation-delay:.55s;margin-top:14px;font-size:14px;font-weight:600;color:${c.claro};opacity:.9">${esc(R.local)}</p>
+  ${R.abertura?.frase ? `<p class="entra" style="animation-delay:${(ABERTURA - 2.2).toFixed(2)}s;margin-top:18px;font-family:'${fT}',serif;font-style:italic;font-size:19px;color:${c.acento}">“${esc(R.abertura.frase)}”</p>` : ""}
+</div>
+<div class="marca-rz entra" style="position:absolute;z-index:21;left:32px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
+</body></html>`;
+
 const F = R.fechamento || {};
+// Fechamento "rolagem": o site inteiro passando dentro de um celular enquanto o convite aparece.
+const TELA = { w: 196, h: 348 };
+const desce = Math.max(0, Math.round(alturaInteira * TELA.w / VIEW.width - TELA.h));
+const fechamentoRolagem = base + `
+<style>@keyframes rola{from{transform:translateY(0)}to{transform:translateY(-${desce}px)}}</style>
+<div class="bola" style="width:150px;height:150px;left:-50px;top:-50px;animation:cresce 1s cubic-bezier(.2,.8,.2,1) both"></div>
+<div class="bola" style="width:300px;height:300px;right:-170px;bottom:60px;opacity:.08"></div>
+<div class="foto-entra" style="position:absolute;left:${(VIEW.width - TELA.w - 16) / 2}px;top:46px;padding:8px;border-radius:32px;background:#0d0d12;box-shadow:0 30px 70px #00000088,0 0 0 1px #ffffff26;animation-delay:.05s">
+  <div style="width:${TELA.w}px;height:${TELA.h}px;border-radius:24px;overflow:hidden;background:#fff">
+    <img src="${paginaInteira}" style="width:100%;display:block;animation:rola ${(FECHAMENTO - 1.2).toFixed(2)}s .45s cubic-bezier(.55,0,.25,1) both">
+  </div>
+</div>
+<div style="position:absolute;left:34px;right:34px;top:452px">
+  <h2 class="entra" style="animation-delay:.3s;font-family:'${fT}',serif;font-weight:700;font-size:33px;line-height:1.08;letter-spacing:-.6px;color:#fff">${esc(F.titulo || "Seu site novo")}<br><em style="color:${c.acento}">${esc(F.destaque || "já está pronto.")}</em></h2>
+  <p class="entra" style="animation-delay:.6s;margin-top:16px;font-size:16px;line-height:1.45;opacity:.92">${esc(F.convite || "Gostou? É só responder esta mensagem.")}</p>
+</div>
+<div class="marca-rz entra" style="position:absolute;left:34px;bottom:44px;animation-delay:.9s">${simbolo}<span>Renderiza · renderizaweb.com.br</span></div>
+</body></html>`;
+
 const fechamento = base + `
 <div class="bola" style="width:150px;height:150px;left:-50px;top:-50px;animation:cresce 1s cubic-bezier(.2,.8,.2,1) both"></div>
 <div class="bola" style="width:300px;height:300px;right:-170px;bottom:60px;opacity:.08"></div>
@@ -320,10 +389,12 @@ async function cartela(html, dur, arquivo) {
   const familias = await p.evaluate(() => [...document.fonts].filter(f => f.status === "loaded").map(f => f.family));
   if (!familias.some(f => f.includes(fT))) console.log("AVISO fonte " + fT + " não carregou na cartela");
   if (ENSAIO) {
-    await p.evaluate(() => window.__quadro(0));
-    await p.screenshot({ path: arquivo.replace(/\.mp4$/, "-inicio.jpg"), type: "jpeg", quality: 80 }); // o 1º quadro vira a miniatura
-    await p.evaluate(() => window.__quadro(3000));
-    await p.screenshot({ path: arquivo.replace(/\.mp4$/, ".jpg"), type: "jpeg", quality: 80 });
+    // o 1º quadro (vira a miniatura no WhatsApp) e mais alguns ao longo da cartela
+    let antes = 0;
+    for (const ms of [0, 1500, 3000, (dur - 0.1) * 1000]) {
+      await p.evaluate(dt => window.__quadro(dt), ms - antes); antes = ms;
+      await p.screenshot({ path: arquivo.replace(/\.mp4$/, `-${String(Math.round(ms / 100)).padStart(2, "0")}.jpg`), type: "jpeg", quality: 80 });
+    }
     await ctx2.close();
     return;
   }
@@ -335,8 +406,8 @@ async function cartela(html, dur, arquivo) {
   await enc.fechar();
   await ctx2.close();
 }
-await cartela(abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
-await cartela(fechamento, FECHAMENTO, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "99-fechamento.mp4" : "fechamento.mp4"));
+await cartela(MONTAGEM ? aberturaMontagem : abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
+await cartela(ROLAGEM ? fechamentoRolagem : fechamento, FECHAMENTO, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "99-fechamento.mp4" : "fechamento.mp4"));
 await browser.close();
 const o1 = ABERTURA - FUSAO, o2 = ABERTURA + DUR_SITE - 2 * FUSAO;
 const seg = (ABERTURA + DUR_SITE + FECHAMENTO - 2 * FUSAO).toFixed(1);
@@ -351,7 +422,8 @@ let audio = ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44
 if (R.musica === "auto") {
   // Trilha original no tempo do vídeo: o groove entra com o site e o acorde final cai no fechamento.
   const wav = join(tmp, "trilha.wav");
-  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, seg, "--entrada", o1.toFixed(2), "--fechamento", (o2 + 0.4).toFixed(2)]);
+  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, seg, "--entrada", o1.toFixed(2), "--fechamento", (o2 + 0.4).toFixed(2),
+    ...(trocas.length ? ["--toques", [0.05, ...trocas].join(",")] : [])]);
   audio = ["-i", wav];
 } else if (R.musica) {
   const arq = resolve(dirname(resolve(caminhoRoteiro)), R.musica);

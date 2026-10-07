@@ -188,6 +188,14 @@ bom"). Depois ele pediu um **modelo leve**, como a linha das demos. É este:
    mostra **Assistir** / **Baixar MP4** na seção Demo e **Baixar vídeo** no cabeçalho do card.
 Demo feita à mão (sem `demo.json`): escrever o roteiro copiando `gravacoes/otica-machado.json`.
 
+**Versão "show" (~45 s, para lead com bom potencial):** `roteiro.mjs <pasta> [id] --show`. Abertura em
+montagem: 4 fotos com gente em tela cheia, trocando com movimento lento, o nome em duas linhas (a última
+palavra grande, em destaque) e a frase da ótica; mais paradas (os dois carrosséis, o atendimento, o
+Instagram); fechamento com o site inteiro rolando dentro de um celular. A música põe uma nota em cada troca
+de foto. A primeira foi a da **Pocopetz** (`gravacoes/otica-pocopetz.json`, 44,8 s, 5,9 MB, 07/10/2026):
+no ensaio, trocar foto que corte rosto ou deixe mancha no canto (`abertura.fotos` e `pos_fotos`) e fugir de
+foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
+
 **O que faz o vídeo ficar bom (revisão do da Machado):**
 - **É o site de verdade, no celular**, sem maquete: a ótica se reconhece. Gravado quadro a quadro com o
   relógio da página parado, então rola liso mesmo com a máquina lenta, e as animações de entrada da

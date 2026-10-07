@@ -10,6 +10,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("saida"); ap.add_argument("duracao", type=float)
 ap.add_argument("--entrada", type=float, default=2.7); ap.add_argument("--fechamento", type=float, default=27.2)
 ap.add_argument("--bpm", type=float, default=0); ap.add_argument("--semente", type=int, default=7)
+ap.add_argument("--toques", default="", help="segundos da abertura em que cai uma nota (ex.: as trocas de foto da montagem)")
 a = ap.parse_args()
 
 SR = 44100
@@ -103,9 +104,14 @@ drL = np.zeros(N); drR = np.zeros(N); bxL = np.zeros(N); bxR = np.zeros(N)
 # abertura: o pad de dó cresce até o groove entrar
 abre = max(1.0, inicio_groove)
 somar(padL, padR, pad([hz(n) for n in ACORDES["C"][1]], abre + 0.6, ataque=abre * 0.45, solta=0.6), 0.0, ganho=1.9)
-somar(pnL, pnR, piano(hz("G5"), 2.2, 0.55), max(0.0, abre - 1.85), pan=0.3)
-somar(pnL, pnR, piano(hz("E5"), 2.2, 0.5), max(0.0, abre - 1.2), pan=-0.3)
-somar(pnL, pnR, piano(hz("C5"), 2.2, 0.45), max(0.0, abre - 0.6), pan=0.0)
+toques = [float(x) for x in a.toques.split(",") if x.strip()]
+if toques:  # uma nota do acorde em cada troca de foto da abertura, subindo
+    for k, tq in enumerate(t for t in toques if t < abre - 0.15):
+        somar(pnL, pnR, piano(hz(["C5", "E5", "G5", "B5", "D6"][k % 5]), 2.4, 0.5 + 0.06 * k), tq, pan=(-0.3 if k % 2 else 0.3))
+else:
+    somar(pnL, pnR, piano(hz("G5"), 2.2, 0.55), max(0.0, abre - 1.85), pan=0.3)
+    somar(pnL, pnR, piano(hz("E5"), 2.2, 0.5), max(0.0, abre - 1.2), pan=-0.3)
+    somar(pnL, pnR, piano(hz("C5"), 2.2, 0.45), max(0.0, abre - 0.6), pan=0.0)
 
 ARPEJO = [0, 1, 2, 3, 4, 3, 2, 1]
 for c, nome in enumerate(seq):

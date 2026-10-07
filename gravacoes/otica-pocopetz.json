@@ -1,0 +1,174 @@
+{
+ "demo": "otica-pocopetz",
+ "marca": "Ótica e Beleza Pocopetz",
+ "local": "Centro · Mairiporã",
+ "cores": {
+  "fundo": "#2b1f16",
+  "fundo2": "#1a130d",
+  "acento": "#d9a65a",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica e Beleza",
+   "Pocopetz"
+  ],
+  "frase": "Uma experiência além dos óculos.",
+  "fotos": [
+   ".hero-photo img",
+   "#editorial-track li:nth-child(2) img",
+   "#editorial-track li:nth-child(4) img",
+   ".insta-photo img"
+  ],
+  "pos_fotos": [
+   "50% 32%",
+   "50% 28%",
+   "92% 35%",
+   "50% 30%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.4
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 1.6,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 1.8,
+   "legenda": "A loja por dentro, em fotos reais"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 1.6,
+   "legenda": "Nota 5,0 com 297 avaliações"
+  },
+  {
+   "rolar": "#editorial-track",
+   "alinhar": "topo",
+   "segura": 3.6,
+   "legenda": "Editorial com o estilo da loja",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#editorial-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#editorial-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 2.25,
+     "tipo": "deslizar",
+     "alvo": "#editorial-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#vitrine-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Vitrine das grifes",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Ajuda a escolher a armação",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ]
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Visagismo passo a passo"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".insta-photo",
+   "segura": 1.8,
+   "legenda": "Ligado ao Instagram da loja"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 3.0,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1.0,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}
