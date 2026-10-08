@@ -238,7 +238,9 @@ muda. O roteiro gerado já vem com `"auto"`; `"clima"` muda o jeito da trilha (a
 - show: Studio 7, Boutique dos Óculos, Bonsucesso (sóbrio), Universe (descolado), Personnalité (grife) e
   Laodicéia (roteiro à mão, demo antiga);
 - padrão com música: Machado (troca o antigo, sem música), Ponto Xys, Plus Optical e Six.
-Pocopetz, Wagner, Lez e Haramaki estão gravados (roteiros em `gravacoes/`), mas não foram para o painel.
+Depois, também a pedido dele ("para ficar registrado"), os que só tinham ido pelo chat: Pocopetz, Wagner,
+Lez e Haramaki (show, como foram mandados) e Cris Masson (padrão, regravado no modelo atual). A demo da
+Wagner ainda tem fotos com texto e preço no carrossel; o vídeo não mostra nenhuma.
 
 **Ensaio x vídeo:** no ensaio a página pula direto para a parada, e às vezes um bloco ainda aparece apagado
 (a animação de entrada não começou). No vídeo a rolagem é contínua e ele aparece; na dúvida, conferir o

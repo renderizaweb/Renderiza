@@ -1,0 +1,115 @@
+{
+ "demo": "optica-cris-masson",
+ "marca": "Óptica Cris Masson",
+ "local": "Centro · Ribeirão Preto",
+ "cores": {
+  "fundo": "#33331a",
+  "fundo2": "#202010",
+  "acento": "#c9a46b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T09:45:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "foto": ".hero-photo img",
+  "pos": "50% 50%"
+ },
+ "fechamento": {
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.5
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 1.5,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 1.6,
+   "legenda": "Um refúgio no Centro de Ribeirão"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 1.5,
+   "legenda": "Nota 5,0 com 1.397 avaliações"
+  },
+  {
+   "rolar": "#vitrine-track",
+   "alinhar": "topo",
+   "segura": 3,
+   "legenda": "Curadoria de armações de grife",
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.6,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Ajuda a escolher a armação",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ]
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.3,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.8,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}

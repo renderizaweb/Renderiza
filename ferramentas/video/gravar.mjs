@@ -307,6 +307,11 @@ body{font-family:"${fX}",system-ui,sans-serif;color:${c.claro};background:radial
 .marca-rz svg{width:18px;height:18px}
 </style></head><body>`;
 
+// Nome de 3+ palavras: as duas últimas ficam juntas ("Óptica / Cris Masson"), se couberem numa linha.
+function marcaEmLinhas(m) {
+  const p = String(m || "").trim().split(/\s+/);
+  return p.length >= 3 && (p.at(-2) + " " + p.at(-1)).length <= 12 ? [...p.slice(0, -2), p.at(-2) + "&nbsp;" + p.at(-1)].map((x, i, a) => (i === a.length - 1 ? x.split("&nbsp;").map(esc).join("&nbsp;") : esc(x))).join(" ") : esc(m);
+}
 const abertura = base + `
 <div class="bola" style="width:150px;height:150px;right:-48px;top:-44px;animation:cresce 1s .05s cubic-bezier(.2,.8,.2,1) both"></div>
 <div class="bola" style="width:46px;height:46px;right:40px;top:170px;animation:cresce .8s .35s cubic-bezier(.2,.8,.2,1) both"></div>
@@ -318,7 +323,7 @@ ${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px
   <img src="${fotoAbertura}" style="width:100%;height:100%;object-fit:cover;object-position:${R.abertura?.pos || "50% 30%"}"></div>` : ""}
 <div style="position:absolute;left:36px;right:36px;top:470px">
   <p class="entra" style="animation-delay:.35s;font-size:15px;opacity:.85;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
-  <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff;text-wrap:balance">${esc(R.marca)}</h1>
+  <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff;text-wrap:balance">${marcaEmLinhas(R.marca)}</h1>
   <p class="entra" style="animation-delay:.6s;margin-top:12px;font-size:14px;font-weight:600;color:${c.acento}">${esc(R.local)}</p>
 </div>
 <div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
