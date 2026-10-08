@@ -20,12 +20,13 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
+import { mensagemPadrao, linkWhatsappComTexto, renovarParaEnvio } from "./mensagem.js";
 
 const $ = s => document.querySelector(s);
 
 /* ---------- preferências da tela (só neste navegador) ---------- */
 const ui = {
-  aba: "tarefas", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, etapa: "", statusConteudo: "",
+  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, etapa: "", statusConteudo: "",
   // "Atualizado" e "Interesse" começam ocultas (voltam pelo menu Colunas). O interesse fica nos detalhes da ótica.
   ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse"]), conteudos: new Set() },
 };
@@ -41,7 +42,7 @@ try {
     if ((p.versaoColunas || 1) < 2) ui.ocultas.leads.add("interesse");
   }
 } catch (e) { /* sem armazenamento local: usa o padrão */ }
-// Abre sempre em Tarefas (o que fazer hoje); outra tela só pelo endereço, ex.: /painel#pipeline.
+// Abre sempre no Pipeline (a casa do painel); outra tela só pelo endereço, ex.: /painel#tarefas.
 if (ABAS.includes(location.hash.slice(1))) ui.aba = location.hash.slice(1);
 function guardar() {
   try { localStorage.setItem("renderiza:planilhao", JSON.stringify({ aba: ui.aba, visao: ui.visao, ordem: ui.ordem, versaoColunas: VERSAO_COLUNAS, ocultas: { leads: [...ui.ocultas.leads], conteudos: [...ui.ocultas.conteudos] } })); } catch (e) { /* opcional */ }
@@ -379,17 +380,25 @@ function seletorEtapa() {
   return sel;
 }
 
+// A barra tem partes fixas (abas, lugar da busca, ações): só abas e ações são redesenhadas,
+// para o campo de busca não perder o foco enquanto se digita.
 function renderBarraPipeline() {
-  const esquerda = abas([["tabela", "Tabela", "tabela"], ["kanban", "Kanban", "kanban"]], ui.visao, v => { ui.visao = v; guardar(); render(); }, "Visualização");
-  const direita = ui.visao === "tabela"
+  $("#abas-pipeline").replaceChildren(abas([["tabela", "Tabela", "tabela"], ["kanban", "Kanban", "kanban"]], ui.visao, v => { ui.visao = v; guardar(); render(); }, "Visualização"));
+  $("#acoes-pipeline").replaceChildren(ui.visao === "tabela"
     ? h("div", { class: "sheet-actions" }, seletorEtapa(), botaoOrdenar("leads"), botaoColunas("leads", COLUNAS_LEADS))
-    : h("div", { class: "sheet-actions" }, h("span", { class: "muted", text: "Arraste os cartões entre as etapas." }));
-  $("#barra-pipeline").replaceChildren(esquerda, direita);
+    : h("div", { class: "sheet-actions" }, h("span", { class: "muted", text: "Arraste os cartões entre as etapas." })));
 }
 
 function renderBarraConteudo() {
-  const esquerda = abas([["", "Todos"], ...STATUS_CONTEUDO.map(s => [s.id, s.id === "ideia" ? "Ideias" : s.id === "publicado" ? "Publicados" : s.nome])], ui.statusConteudo, v => { ui.statusConteudo = v; render(); }, "Filtrar por status");
-  $("#barra-conteudo").replaceChildren(esquerda, h("div", { class: "sheet-actions" }, botaoOrdenar("conteudos"), botaoColunas("conteudos", COLUNAS_CONTEUDOS)));
+  $("#abas-conteudo").replaceChildren(abas([["", "Todos"], ...STATUS_CONTEUDO.map(s => [s.id, s.id === "ideia" ? "Ideias" : s.id === "publicado" ? "Publicados" : s.nome])], ui.statusConteudo, v => { ui.statusConteudo = v; render(); }, "Filtrar por status"));
+  $("#acoes-conteudo").replaceChildren(h("div", { class: "sheet-actions" }, botaoOrdenar("conteudos"), botaoColunas("conteudos", COLUNAS_CONTEUDOS)));
+}
+
+/** Um campo de busca só, que mora na barra da tela aberta (ao lado das abas). Mover tira o foco: só move se mudou de tela. */
+const campoBusca = $(".search-control");
+function lugarDaBusca() {
+  const slot = ui.aba === "pipeline" ? $("#busca-pipeline") : ui.aba === "conteudo" ? $("#busca-conteudo") : ui.aba === "clientes" ? telaClientes.buscaSlot : $("#guarda-busca");
+  if (campoBusca.parentElement !== slot) slot.append(campoBusca);
 }
 
 /* ---------- kanban (mesmos dados da tabela) ---------- */
@@ -657,8 +666,16 @@ function acoesRapidas() {
   const video = h("button", { type: "button", class: "acao-rapida video", title: "Baixa o vídeo de apresentação (MP4) para mandar à ótica" }, icone("baixar", 15), "Baixar vídeo");
   video.addEventListener("click", () => { if (linkVideo) baixarVideo(linkVideo, empresa); });
   const link = (classe, href, nomeIcone, texto) => h("a", { class: "acao-rapida " + classe, href, target: "_blank", rel: "noopener noreferrer" }, icone(nomeIcone, 15), texto);
+  // Mensagem pronta: abre a conversa no WhatsApp de quem usa o painel com o texto do lead (não envia sozinho).
+  let leadAtual = null;
+  const mensagemPronta = h("a", { class: "acao-rapida whatsapp-pronta", target: "_blank", rel: "noopener noreferrer",
+    title: "Abre a conversa no seu WhatsApp com a mensagem pronta (seção Demo). Confira e aperte enviar." }, icone("mensagem", 15), "Mandar mensagem pronta");
+  mensagemPronta.addEventListener("click", () => { if (leadAtual) renovarDemoNoEnvio(leadAtual); });
   vincular(l => {
+    leadAtual = l;
     const wa = waHref(l.whatsapp), ig = urlHref(l.instagram), demo = urlHref(l.link_demo);
+    const comTexto = demo ? linkWhatsappComTexto(l.whatsapp, l.mensagem_whatsapp) : "";
+    if (comTexto) mensagemPronta.href = comTexto;
     linkFlyer = urlHref(l.link_flyer); empresa = l.empresa;
     linkVideo = ehVideo(urlHref(l.link_gravacao)) ? urlHref(l.link_gravacao) : "";
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
@@ -666,6 +683,7 @@ function acoesRapidas() {
     const s = situacaoDoLead(l);
     demoFora = s && !s.noAr ? (s.estado === "expirada" ? "expirada" : "fora do ar") : "";
     const botoes = [
+      comTexto ? mensagemPronta : null,
       wa ? link("whatsapp", wa, "mensagem", "WhatsApp") : null,
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
@@ -732,6 +750,15 @@ function secaoFlyer(id) {
   return cartao("Flyer para Stories", { classe: "secao-flyer" }, cheio, vazio,
     campo("leads", id, { campo: "link_flyer", rotulo: "Link do flyer", href: urlHref, largo: true, placeholder: "/flyer/nome-da-otica.png" }));
 }
+
+/* ---------- mensagem pronta: no envio, a demo fica 7 dias no ar a partir de hoje ---------- */
+async function renovarDemoNoEnvio(l) {
+  const s = situacaoDoLead(l);
+  const patch = s ? renovarParaEnvio(dados.buscar("demos", s.pasta), hojeEmBrasilia()) : null;
+  if (!patch || !dados.podeEditar()) return;
+  try { await salvar("demos", s.pasta, patch); aviso("Demo renovada: no ar " + (patch.vale_ate ? "até " + diaMes(patch.vale_ate) : "sem prazo") + " para a ótica ver com calma."); } catch (e) { /* aviso já mostrado */ }
+}
+const temCampoMensagem = l => Object.prototype.hasOwnProperty.call(l, "mensagem_whatsapp");
 
 /* ---------- seção Demo: link, gravação e o prazo no ar ---------- */
 const ESTADO_DEMO = { no_ar: "No ar", ultimo_dia: "Último dia", sem_prazo: "No ar", expirada: "Expirada", fora: "Fora do ar", sem_controle: "Sem prazo" };
@@ -824,7 +851,26 @@ function secaoDemo(id) {
     if (urlVideo) assistir.href = urlVideo;
   });
 
-  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, h("div", { class: "campos campos-2" },
+  // Mensagem pronta para o primeiro contato (leads.mensagem_whatsapp): editável aqui, enviada pelo botão do topo.
+  const usarModelo = h("button", { type: "button", class: "btn btn-outline btn-sm" }, icone("caneta", 15), "Usar o modelo");
+  usarModelo.addEventListener("click", async () => {
+    const l = dados.buscar("leads", id); if (!l) return;
+    try { await salvar("leads", id, { mensagem_whatsapp: mensagemPadrao(l) }); aviso("Modelo posto. Troque a linha \"É o site da…\" por um detalhe da ótica."); } catch (e) { /* aviso já mostrado */ }
+  });
+  const dicaMensagem = h("p", { class: "demo-dica" });
+  const caixaMensagem = h("div", { class: "demo-mensagem" },
+    campo("leads", id, { campo: "mensagem_whatsapp", rotulo: "Mensagem pronta para o WhatsApp", tipo: "area", linhas: 6, crescer: true, largo: true, placeholder: "Oi, tudo bem? Aqui é a Milena, da Renderiza…" }),
+    h("div", { class: "demo-mensagem-rodape" }, dicaMensagem, usarModelo));
+  vincular(l => {
+    caixaMensagem.hidden = !temCampoMensagem(l) || !String(l.link_demo || "").trim();
+    const temTexto = !!String(l.mensagem_whatsapp || "").trim();
+    usarModelo.hidden = temTexto; usarModelo.disabled = !dados.podeEditar();
+    dicaMensagem.textContent = !waHref(l.whatsapp) ? "Falta o WhatsApp da ótica (em Contato) para o botão Mandar mensagem pronta aparecer."
+      : temTexto ? "O botão Mandar mensagem pronta, no topo, abre a conversa no seu WhatsApp com este texto: nada sai sozinho, você confere e aperta enviar. Ao abrir, a demo fica no ar por mais " + DIAS_DE_PRAZO + " dias."
+      : "Sem mensagem ainda: use o modelo e troque a linha \"É o site da…\" por um detalhe da ótica.";
+  });
+
+  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, caixaMensagem, h("div", { class: "campos campos-2" },
     campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
     campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
 }
@@ -1045,17 +1091,7 @@ async function exportar() {
 }
 $("#exportar").addEventListener("click", exportar);
 
-/* ---------- estado da conexão ---------- */
-function renderEstadoSalvo() {
-  const c = dados.estadoDaConexao(), el = $("#save-state");
-  let ic = "certo", texto = "Alterações salvas", classe = "saved";
-  if (c.estado === "conectando") { ic = "carregando"; texto = "Carregando…"; classe = "loading"; }
-  else if (c.estado === "offline") { ic = "alerta"; texto = "Sem conexão com o banco"; classe = "error"; }
-  else if (c.salvando) { ic = "carregando"; texto = "Salvando…"; classe = "saving"; }
-  el.className = "save-state " + classe;
-  el.replaceChildren(icone(ic, 14, ic === "carregando" ? "spin" : ""), h("span", { text: texto }));
-}
-
+/* ---------- estado da conexão: só aparece quando cai (a faixa de erro); salvo é o normal ---------- */
 function renderBanner() {
   const c = dados.estadoDaConexao(), el = $("#banner");
   if (c.estado !== "offline") { el.hidden = true; return; }
@@ -1125,20 +1161,17 @@ function render() {
   $("#tela-acesso").replaceChildren();
 
   porLead = indexar(dados.listar("leads"), dados.listar("interacoes"));
-  renderEstadoSalvo();
   renderBanner();
   const f = dados.fonte();
   $("#sair").hidden = !(f && f.precisaLogin);
   $("#exportar").lastChild.textContent = f && f.exportarSql ? "Levar dados para o Supabase" : "Exportar meus dados";
   document.querySelectorAll(".nav-button").forEach(b => { const ativo = b.dataset.aba === ui.aba; b.dataset.active = String(ativo); b.setAttribute("aria-current", ativo ? "page" : "false"); });
   atualizarContadorDoMenu();
-  $("#migalha").textContent = TITULOS[ui.aba][0];
   $("#titulo").textContent = TITULOS[ui.aba][0];
   $("#subtitulo").textContent = TITULOS[ui.aba][1];
   const busca = $("#busca");
   if (document.activeElement !== busca) busca.value = ui.busca[chaveDaBusca()] || "";
   busca.placeholder = ui.aba === "conteudo" ? "Buscar ideia ou texto…" : "Buscar empresa, contato…";
-  $(".heading-controls").hidden = ui.aba === "ritmo" || ui.aba === "tarefas";
 
   $("#tela-tarefas").hidden = ui.aba !== "tarefas";
   $("#tela-clientes").hidden = ui.aba !== "clientes";
@@ -1160,6 +1193,7 @@ function render() {
     renderBarraConteudo();
     planilhaConteudos.atualizar();
   }
+  lugarDaBusca();
   atualizarPainel();
 }
 
@@ -1196,6 +1230,6 @@ document.addEventListener("keydown", e => {
   fecharSidebar();
 });
 
-dados.aoMudar(motivo => { if (motivo === "salvando") renderEstadoSalvo(); else render(); });
+dados.aoMudar(motivo => { if (motivo !== "salvando") render(); });
 render();
 dados.iniciar();

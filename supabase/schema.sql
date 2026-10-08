@@ -36,6 +36,7 @@ create table if not exists public.leads (
   link_demo       text not null default '',
   link_gravacao   text not null default '',
   link_flyer      text not null default '',          -- flyer de Stories (PNG): /flyer/<id>.png ou link completo
+  mensagem_whatsapp text not null default '',        -- mensagem pronta do 1º contato com a demo (painel: Mandar mensagem pronta)
   observacoes     text not null default '',
   historico       jsonb not null default '[]'::jsonb,  -- mudanças: [{em, de, para, resultado?}] e [{em, tipo:'interesse'|'nao_contatar', ...}]
   revisar         boolean not null default false,      -- marcado na migração quando o status antigo era ambíguo
@@ -87,6 +88,8 @@ alter table public.leads     add column if not exists nao_contatar boolean not n
 alter table public.leads     add column if not exists fora_do_funil boolean not null default false;
 -- Flyer de Stories (PNG 1080x1920) para retomar o contato: baixa no painel do lead e vai pelo WhatsApp.
 alter table public.leads     add column if not exists link_flyer text not null default '';
+-- Mensagem pronta do primeiro contato (texto + link da demo): o painel abre o WhatsApp com ela, sem enviar.
+alter table public.leads     add column if not exists mensagem_whatsapp text not null default '';
 
 do $$
 begin

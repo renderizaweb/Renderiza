@@ -145,6 +145,28 @@ WhatsApp".
    `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.
 3. Atualizar a `ficha.md` (situação `pronta · data`) e a tabela do `README.md`.
 4. **Flyer de Stories junto com a demo** (pedido do Kaue em 06/10/2026, vale para toda demo nova): ver abaixo.
+5. **Mensagem pronta de WhatsApp** (pedido do Kaue em 08/10/2026, vale para toda demo nova): ver abaixo.
+
+## Mensagem pronta de WhatsApp (1º contato com a demo)
+
+Para óticas (ou lojas) de menor potencial, o primeiro contato sai com um clique, sem escrever à mão. Toda
+demo nova ganha `leads.mensagem_whatsapp`; no painel, **Mandar mensagem pronta** (o primeiro botão do
+card) abre a conversa no WhatsApp de quem está no painel com o texto pronto. Não envia sozinho: confere e
+aperta enviar. Ao abrir, a demo fica no ar 7 dias a partir dali (o prazo contava da criação). O texto fica
+editável na seção Demo; sem texto, **Usar o modelo** põe o modelo.
+
+**Modelo** (`painel/src/mensagem.js`, `mensagemPadrao`): assina a Milena, da Renderiza; diz que olhou o
+Instagram, viu potencial e criou uma prévia de site; o link completo da demo; **"É o site da <loja>, <um
+detalhe real da ficha>."**; fecha com "me conta o que achou?". Regras:
+- **Um link só, o da demo.** O WhatsApp mostra a prévia do primeiro link do texto; o site da Renderiza
+  (ou qualquer outro link) antes dele rouba a prévia.
+- O detalhe sai da ficha e do que a demo mostra (anos de loja, a foto do casal na porta, a consultoria, o
+  número de avaliações). Nada de preço, promoção ou dado não confirmado; nome de pessoa só quando a ficha
+  confirma quem é (ex.: "Oi, Nina" na Ótica Nina).
+- Para gravar: `update public.leads set mensagem_whatsapp = $msg$…$msg$ where id = '<id>'` (o texto
+  com `mensagemPadrao(lead, { detalhe })`).
+- Sem WhatsApp no lead, o botão não aparece (a seção Demo avisa). Número fixo só funciona se for
+  WhatsApp Business.
 
 ## Prazo das demos (7 dias)
 
@@ -459,8 +481,8 @@ pronta ou capa de vídeo.
   (`fundadores` em `site/config.mjs`). Kaue: tecnologia e desenvolvimento. Milena: relacionamento e operações
   (carreira em RH, sem citar empregador, cargo ou resultados). Em aberto: tirar o depoimento da Milena, o
   Compasso como projeto dos fundadores, sobrenome/LinkedIn dela e passar o resto do site para "nós".
-- **Painel** (`painel/`, detalhes em `painel/README.md`): Tarefas, Clientes, Pipeline, Ritmo e Conteúdo,
-  com Supabase. Abre em Tarefas. Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
+- **Painel** (`painel/`, detalhes em `painel/README.md`): Pipeline, Tarefas, Clientes, Ritmo e Conteúdo,
+  com Supabase. Abre no Pipeline (pedido do Kaue em 08/10/2026: é a casa do painel). Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),

@@ -5,10 +5,11 @@ da Renderiza e as demos das óticas ficam em `/demo/<ótica>` (veja o [README da
 A mesma página responde em `/painel` e `/login`: sem sessão, a barra de endereço vai para `/login`;
 depois de entrar, volta para `/painel#<aba>`. Os caminhos abaixo são a partir da raiz do repositório.
 
-Planilha de operação da Renderiza: **Tarefas** (o que fazer), **Clientes** (todos, no funil ou fora
-dele), **Pipeline** (tabela ou kanban), **Ritmo** (placar do processo) e **Conteúdo**, no mesmo padrão
-visual e de uso do planilhão do Compasso (menu lateral verde, cabeçalho verde-escuro, primeira coluna
-fixa, linhas zebradas e linha de totais).
+Planilha de operação da Renderiza: **Pipeline** (tabela ou kanban; é onde o painel abre), **Tarefas** (o
+que fazer), **Clientes** (todos, no funil ou fora dele), **Ritmo** (placar do processo) e **Conteúdo**, no
+mesmo padrão visual e de uso do planilhão do Compasso (menu lateral verde, cabeçalho verde-escuro, primeira
+coluna fixa, linhas zebradas e linha de totais). Sem barra de caminho no topo: a busca fica na barra de cada
+tela, ao lado das abas (Tabela/Kanban, filtros); no celular, o topo só tem o botão do menu.
 
 ## Tarefas: o que fazer
 
@@ -86,6 +87,10 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
+- **Mensagem pronta de WhatsApp** (`leads.mensagem_whatsapp`): o primeiro botão do card, **Mandar
+  mensagem pronta**, abre a conversa no WhatsApp com o texto (não envia sozinho) e deixa a demo no ar 7 dias
+  a partir dali. O texto fica na seção **Demo**, editável; vazio, **Usar o modelo** (`src/mensagem.js`) põe o
+  modelo. Sem a coluna no banco (`supabase/schema.sql`), o campo não aparece.
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,

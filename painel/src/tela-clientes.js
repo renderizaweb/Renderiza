@@ -72,6 +72,9 @@ try { const s = localStorage.getItem("renderiza:clientes"); if (s === "" || SITU
  * @param {{host: HTMLElement, abrirLead: (id) => void, busca: () => string}} ctx
  */
 export function criarTelaClientes(ctx) {
+  // Barra fixa: o painel põe o campo de busca em buscaSlot (ao lado dos filtros); só filtros, ações e lista são redesenhados.
+  const abasSlot = h("div"), buscaSlot = h("div", { class: "busca-slot" }), acoesSlot = h("div", { class: "sheet-actions" }), listaSlot = h("div");
+  const barra = h("div", { class: "sheet-toolbar" }, h("div", { class: "barra-esquerda" }, abasSlot, buscaSlot), acoesSlot);
   function linha(l, tarefas) {
     const s = situacaoDoCliente(l);
     const prox = proximaTarefa(tarefas, l.id);
@@ -103,10 +106,11 @@ export function criarTelaClientes(ctx) {
     const vazio = h("div", { class: "vazio-lista" },
       h("strong", { text: q ? "Nenhum cliente com esse nome." : leads.length ? "Nenhum cliente nesta situação." : "Nenhum cliente ainda." }),
       h("p", { text: "Cadastre pelo botão Novo cliente: dentro do funil ou fora dele." }));
-    ctx.host.replaceChildren(
-      h("div", { class: "sheet-toolbar" }, filtros, h("div", { class: "sheet-actions" }, novo)),
-      lista.length ? h("ul", { class: "lista-clientes" }, lista.map(l => linha(l, tarefas))) : vazio);
+    abasSlot.replaceChildren(filtros);
+    acoesSlot.replaceChildren(novo);
+    listaSlot.replaceChildren(lista.length ? h("ul", { class: "lista-clientes" }, lista.map(l => linha(l, tarefas))) : vazio);
+    if (ctx.host.firstChild !== barra) ctx.host.replaceChildren(barra, listaSlot);
   }
 
-  return { render };
+  return { render, buscaSlot };
 }

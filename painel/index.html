@@ -89,11 +89,12 @@ h1,h2,h3,p{margin:0}
 
 /* área principal */
 .workspace{flex:1;min-width:0;display:flex;flex-direction:column}
-.topbar{height:69px;border-bottom:1px solid #e6ebe8;display:flex;justify-content:space-between;align-items:center;padding:0 39px;background:#fff;position:sticky;top:0;z-index:20}
-.breadcrumb{display:flex;align-items:center;gap:14px;font-size:.8125rem;color:#84918b}
-.breadcrumb strong{color:#52645b;font-weight:500}
-.save-state{display:flex;align-items:center;gap:7px;font-size:.75rem;color:#778b7f}
-.save-state.error{color:#bd573b;font-weight:500}
+.topbar{display:none;height:56px;border-bottom:1px solid #e6ebe8;align-items:center;gap:10px;padding:0 14px;background:#fff;position:sticky;top:0;z-index:20}
+.topbar-marca{font-weight:700;font-size:1.0625rem;letter-spacing:-.4px;color:#183f31}
+.topbar-marca span{color:#439069}
+.barra-esquerda{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-width:0}
+.barra-esquerda>div:empty{display:none}
+.barra-esquerda .search-control{width:280px}
 .mobile-toggle{display:none;width:32px;height:32px;place-items:center;border-radius:8px;color:#52645b}
 .main-content{padding:31px 39px 24px;max-width:1700px;width:100%;margin:0 auto}
 .page-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:23px}
@@ -314,6 +315,12 @@ button.lead-chip:hover{filter:brightness(.96)}
 .acao-rapida:hover{background:#f0f7f3;border-color:#b5d0c1}
 .acao-rapida.whatsapp{background:#1f9d57;border-color:#1f9d57;color:#fff}
 .acao-rapida.whatsapp:hover{background:#1a8a4c;border-color:#1a8a4c}
+.acao-rapida.whatsapp-pronta{background:#0f6e3d;border-color:#0f6e3d;color:#fff}
+.acao-rapida.whatsapp-pronta:hover{background:#0b5a31;border-color:#0b5a31}
+.demo-mensagem{display:grid;gap:8px;margin-top:14px}
+.demo-mensagem textarea{font-size:.8125rem;line-height:1.55;resize:vertical;min-height:120px}
+.demo-mensagem-rodape{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.demo-mensagem-rodape .btn{flex:none}
 .acao-rapida.demo{background:#5b4fc4;border-color:#5b4fc4;color:#fff}
 .acao-rapida.demo:hover{background:#4d42ad;border-color:#4d42ad}
 .acao-rapida.flyer{background:#fff4f7;border-color:#f1c9d6;color:#a8325a}
@@ -644,20 +651,18 @@ button.lead-chip:hover{filter:brightness(.96)}
 .cliente-proxima span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cliente-proxima.vazia{color:#9aa7a1}
 
-@media(max-width:1200px){.main-content{padding:26px 25px 20px}.topbar{padding:0 25px}}
-@media(max-width:1020px){.page-heading{align-items:flex-start;flex-wrap:wrap}.search-control{width:260px}}
+@media(max-width:1200px){.main-content{padding:26px 25px 20px}}
+@media(max-width:1020px){.page-heading{align-items:flex-start;flex-wrap:wrap}.barra-esquerda .search-control{width:240px}}
 @media(max-width:767px){
   .family-sidebar{position:fixed;left:0;top:0;bottom:0;transform:translateX(-100%);transition:transform .2s ease-out;z-index:45}
   body.sidebar-aberta .family-sidebar{transform:none}
   body.sidebar-aberta .sidebar-fundo{display:block;position:fixed;inset:0;z-index:44;background:#0f231c59}
   .mobile-toggle{display:grid}
-  .topbar{padding:0 14px;height:60px}
-  .breadcrumb{gap:8px}
-  .breadcrumb>span,.breadcrumb>svg{display:none}
+  .topbar{display:flex}
   .main-content{padding:22px 16px 16px}
   .page-heading{gap:16px}
   .page-heading h1{font-size:1.7rem}
-  .heading-controls,.search-control{width:100%}
+  .barra-esquerda,.busca-slot,.barra-esquerda .search-control{width:100%}
   .sheet-toolbar{align-items:flex-start;flex-direction:column;gap:12px}
   .sheet-actions{width:100%}
   .table-container{max-height:62vh}
@@ -698,13 +703,13 @@ button.lead-chip:hover{filter:brightness(.96)}
   <aside class="family-sidebar" aria-label="Menu">
     <div class="sidebar-inner">
       <div class="sidebar-header">
-        <a class="brand" href="#tarefas" aria-label="Renderiza, tarefas"><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>renderiza<span class="brand-dot">.</span></a>
+        <a class="brand" href="#pipeline" aria-label="Renderiza, pipeline"><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>renderiza<span class="brand-dot">.</span></a>
         <div class="family-label">PRODUÇÃO DIGITAL</div>
       </div>
       <nav class="sidebar-menu" aria-label="Telas">
+        <button class="nav-button" type="button" data-aba="pipeline"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg><span>Pipeline</span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="tarefas"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg><span>Tarefas</span><span class="nav-contador" id="contador-tarefas" hidden></span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="clientes"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Clientes</span><span class="nav-active-mark"></span></button>
-        <button class="nav-button" type="button" data-aba="pipeline"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg><span>Pipeline</span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="ritmo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg><span>Ritmo</span><span class="nav-active-mark"></span></button>
         <button class="nav-button" type="button" data-aba="conteudo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span>Conteúdo</span><span class="nav-active-mark"></span></button>
       </nav>
@@ -718,20 +723,19 @@ button.lead-chip:hover{filter:brightness(.96)}
   <div class="sidebar-fundo" id="sidebar-fundo"></div>
 
   <div class="workspace">
+    <!-- Só no celular: o botão que abre o menu (no computador o menu fica sempre à vista). -->
     <header class="topbar">
-      <div class="breadcrumb">
-        <button class="mobile-toggle" id="abrir-menu" type="button" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
-        <span>Renderiza</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg><strong id="migalha">Pipeline</strong>
-      </div>
-      <div class="save-state" id="save-state" role="status" aria-live="polite"></div>
+      <button class="mobile-toggle" id="abrir-menu" type="button" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+      <span class="topbar-marca">renderiza<span>.</span></span>
     </header>
 
     <main class="main-content">
       <div class="page-heading">
-        <div><span class="eyebrow">RENDERIZA</span><h1 id="titulo">Tarefas</h1><p id="subtitulo"></p></div>
-        <div class="heading-controls">
+        <div><span class="eyebrow">RENDERIZA</span><h1 id="titulo">Pipeline</h1><p id="subtitulo"></p></div>
+      </div>
+      <!-- A busca vai para a barra da tela aberta (ao lado de Tabela/Kanban e dos filtros): ver lugarDaBusca. -->
+      <div hidden id="guarda-busca">
           <label class="search-control"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="sr-only">Buscar</span><input id="busca" type="search" autocomplete="off"></label>
-        </div>
       </div>
       <div class="error-banner" id="banner" role="alert" hidden></div>
 
@@ -740,13 +744,13 @@ button.lead-chip:hover{filter:brightness(.96)}
       <section id="tela-ritmo" aria-label="Ritmo" hidden></section>
 
       <section id="tela-pipeline" aria-label="Pipeline" hidden>
-        <div class="sheet-toolbar" id="barra-pipeline"></div>
+        <div class="sheet-toolbar" id="barra-pipeline"><div class="barra-esquerda"><div id="abas-pipeline"></div><div class="busca-slot" id="busca-pipeline"></div></div><div id="acoes-pipeline"></div></div>
         <div id="grade-leads"></div>
         <div class="kanban" id="kanban" hidden></div>
       </section>
 
       <section id="tela-conteudo" aria-label="Conteúdo" hidden>
-        <div class="sheet-toolbar" id="barra-conteudo"></div>
+        <div class="sheet-toolbar" id="barra-conteudo"><div class="barra-esquerda"><div id="abas-conteudo"></div><div class="busca-slot" id="busca-conteudo"></div></div><div id="acoes-conteudo"></div></div>
         <div id="grade-conteudos"></div>
       </section>
     </main>
