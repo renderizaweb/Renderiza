@@ -186,7 +186,7 @@ td.money .inline-text{text-align:right}
 .planilhao tr:hover .ir,.link-cell:focus-within .ir,.ir:focus-visible{opacity:1}
 .ir:hover{background:#dceee1}
 .row-name-editor{display:flex;align-items:center;gap:6px;min-width:0}
-.row-name-editor .inline-text{min-width:0;color:#234d38;font-weight:620}
+.row-name-editor .inline-text{min-width:72px;color:#234d38;font-weight:620}
 .insert-row-button{position:absolute;top:50%;left:4px;z-index:2;display:grid;width:23px;height:23px;place-items:center;border:1px solid #8db89b;border-radius:6px;background:#fff;color:#286247;box-shadow:0 2px 7px #16442a20;opacity:0;transform:translateY(-50%) scale(.88);transition:opacity .15s,transform .15s,background-color .15s}
 .planilhao tbody tr:hover .insert-row-button,.insert-row-button:focus-visible{opacity:1;transform:translateY(-50%) scale(1)}
 .insert-row-button:hover,.insert-row-button:focus-visible{background:#dff0e2}
@@ -241,6 +241,11 @@ td.money .inline-text{text-align:right}
 .kanban-card[draggable=true]{cursor:grab}
 .kanban-card:hover{border-color:#a8c5b5;box-shadow:0 3px 15px #0c351506}
 .kanban-card strong{font-size:.8125rem;font-weight:600;color:#234d38;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kanban-card strong.kanban-nome{display:flex;align-items:center;gap:6px;min-width:0}
+.kanban-nome>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.selo-video{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:#1f5a45;color:#fff}
+.marca-revisar.marca-video{display:inline-grid;place-items:center;width:22px;padding:3px 0;background:#1f5a45;color:#fff;text-decoration:none}
+.marca-revisar.marca-video:hover{background:#174634}
 .kanban-card small{font-size:.75rem;color:#849087;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .kanban-card.arrastando{opacity:.48}
 .kanban-col.alvo{outline:2px dashed #5b9c69;outline-offset:-3px}

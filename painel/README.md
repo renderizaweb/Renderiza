@@ -89,7 +89,8 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,
-  Drive) continua só como link.
+  Drive) continua só como link. Quem tem vídeo ganha um selo de câmera na frente do nome no cartão do
+  kanban e, na tabela, uma etiqueta de câmera ao lado de "demo ↗" (abre o MP4).
 - **Prazo da demo** (tabela `demos`): toda demo fica no ar por 7 dias e depois sai sozinha. No topo do
   detalhe, a etiqueta da demo ("Demo no ar até 13/10", "Demo expirada em 13/10", "Demo fora do ar") leva
   direto à seção **Demo**, logo abaixo de Andamento, onde aparece a situação (No ar até tal dia, Último dia, Expirada, Fora do ar) e os

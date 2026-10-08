@@ -244,7 +244,7 @@ function conteudosVisiveis() {
 
 /* ---------- planilhas ---------- */
 const COLUNAS_LEADS = [
-  { campo: "empresa", titulo: "Empresa", tipo: "nome", largura: 230 },
+  { campo: "empresa", titulo: "Empresa", tipo: "nome", largura: 300 },
   { campo: "etapa", titulo: "Etapa", tipo: "select", largura: 194, ocultavel: false,
     opcoes: l => ETAPAS.map(e => [e.id, e.id === "finalizado" && l.etapa === "finalizado" ? rotuloEtapa(l) : e.nome]),
     classe: l => (l.etapa === "finalizado" ? l.resultado || "" : "") },
@@ -271,6 +271,7 @@ const planilhaLeads = criarPlanilha({
   aoOcultar: campo => { ui.ocultas.leads.add(campo); guardar(); render(); },
   marcas: l => [
     urlHref(l.link_demo) ? marcaDaDemo(l) : null,
+    temVideo(l) ? { texto: "", icone: "video", classe: "marca-video", titulo: "Tem vídeo de apresentação: abrir o MP4 em outra aba", href: urlHref(l.link_gravacao) } : null,
     l.revisar ? { texto: "revisar", titulo: "Veio do painel antigo e precisa de revisão" } : null,
     l.nao_contatar ? { texto: "não contatar", classe: "marca-parar", titulo: "Pediu para não receber mais contato" } : null,
   ].filter(Boolean),
@@ -412,7 +413,9 @@ function renderKanban() {
       const detalhe = [l.proxima_acao, diaMes(l.followup_em)].filter(Boolean).join(" · ");
       const cartao = h("div", { class: "kanban-card", role: "button", tabindex: "0", draggable: editavel ? "true" : null,
         onclick: () => abrirPainel("leads", l.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrirPainel("leads", l.id); } } },
-        h("strong", { text: l.empresa || "Sem nome" }),
+        h("strong", { class: "kanban-nome" },
+          temVideo(l) ? h("span", { class: "selo-video", title: "Tem vídeo de apresentação", "aria-label": "Tem vídeo de apresentação" }, icone("video", 12)) : null,
+          h("span", { text: l.empresa || "Sem nome" })),
         detalhe ? h("small", { text: detalhe }) : null,
         h("span", { class: "kanban-chips" },
           seloDeTarefas(tarefasAbertas.get(l.id)),
@@ -694,7 +697,9 @@ async function baixarArquivo(url, nome, { oQue, onde }) {
 const baixarFlyer = (url, empresa) => baixarArquivo(url, nomeDoFlyer(empresa), { oQue: "do flyer", onde: "na seção Flyer para Stories" });
 
 /* ---------- vídeo de apresentação da demo (MP4 vertical, ~30 s), em link_gravacao ---------- */
-const ehVideo = u => /\.mp4(\?|#|$)/i.test(u);
+function ehVideo(u) { return /\.mp4(\?|#|$)/i.test(u); }
+/** O lead já tem vídeo de apresentação (MP4) em link_gravacao: selo no cartão e etiqueta na tabela. */
+function temVideo(l) { return ehVideo(urlHref(l.link_gravacao) || ""); }
 const nomeDoVideo = empresa => "Apresentacao - " + (semAcentoNome(empresa).replace(/[^\w &().,'-]+/g, "").replace(/\s+/g, " ").trim() || "otica") + ".mp4";
 const baixarVideo = (url, empresa) => baixarArquivo(url, nomeDoVideo(empresa), { oQue: "do vídeo", onde: "em Link da gravação, na seção Demo" });
 

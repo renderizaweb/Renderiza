@@ -35,7 +35,7 @@ const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").
  * @param {() => boolean} o.manual          true em "Minha ordem": libera arrastar
  * @param {() => Set<string>} o.ocultas      campos ocultos
  * @param {(campo) => void} o.aoOcultar
- * @param {(linha) => Array<{texto, classe?, titulo?}>} [o.marcas]  etiquetas ao lado do nome
+ * @param {(linha) => Array<{texto, classe?, titulo?, href?, icone?}>} [o.marcas]  etiquetas ao lado do nome
  * @param {(linha) => Array<object>} [o.acoesExtras]  itens a mais no menu … da linha
  * @param {(linha, coluna, valor) => Promise} o.aoEditar
  * @param {(linha) => void} o.aoAbrir
@@ -206,12 +206,12 @@ export function criarPlanilha(o) {
       // Etiquetas ao lado do nome (ex.: "revisar", "não contatar"). Clicar abre os detalhes;
       // etiqueta com link (ex.: "demo ↗") abre o link em outra aba.
       const marcas = o.marcas ? o.marcas(l) : [];
-      const chave = marcas.map(m => m.texto + (m.href || "")).join("|");
+      const chave = marcas.map(m => m.texto + (m.href || "") + (m.icone || "")).join("|");
       if (td._marca._chave !== chave) {
         td._marca._chave = chave;
         td._marca.replaceChildren(...marcas.map(m => m.href
-          ? h("a", { class: "marca-revisar " + (m.classe || ""), href: m.href, target: "_blank", rel: "noopener noreferrer", text: m.texto, title: m.titulo || "" })
-          : h("button", { type: "button", class: "marca-revisar " + (m.classe || ""), text: m.texto, title: m.titulo || "", onclick: () => { const atual = o.buscar(l.id); if (atual) o.aoAbrir(atual); } })));
+          ? h("a", { class: "marca-revisar " + (m.classe || ""), href: m.href, target: "_blank", rel: "noopener noreferrer", title: m.titulo || "" }, m.icone ? icone(m.icone, 12) : null, m.texto)
+          : h("button", { type: "button", class: "marca-revisar " + (m.classe || ""), title: m.titulo || "", onclick: () => { const atual = o.buscar(l.id); if (atual) o.aoAbrir(atual); } }, m.icone ? icone(m.icone, 12) : null, m.texto)));
       }
     }
     if (td._alca) { const pode = o.manual() && !bloqueado; td._alca.draggable = pode; td._alca.classList.toggle("disabled", !pode); td._alca.setAttribute("aria-disabled", String(!pode)); td._alca.title = o.manual() ? "Arrastar para reordenar" : "Escolha Minha ordem para arrastar"; }
