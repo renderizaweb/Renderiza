@@ -345,6 +345,64 @@ ajustar para outro nicho no README de lá). Régua mais alta: nota 4,8+, 40+ ava
 1.000+ seguidores. 22 + 7 de reserva (lista no chat de 05/10/2026): o Kaue escolheu as 10 primeiras e uma
 extra (seção "Lote 3") e ainda vai mandar as próximas.
 
+## Dentistas
+
+Segundo nicho, depois das óticas. Antes da busca, o painel já tinha a Clínica MS Odontologia (Itapevi, demo
+`/demo/ms-odontologia`, que é a referência) e a Clínica Macena (Ferraz de Vasconcelos).
+
+**Critérios:**
+- Clínica ou consultório independente: nada de OdontoCompany, Sorridents, Oral Sin, Odonto Excellence,
+  AmorSaúde, Dr. Consulta, nome com 3+ unidades ou clínica popular/de convênio.
+- Google com nota 4,8+ e 40+ avaliações.
+- Sem site, ou com site quebrado, no Canva, link na bio ou página gratuita do Google (marcar qual). Site bom
+  de agência fica de fora.
+- Instagram com post nos últimos 45 dias e 1.000+ seguidores (vale o da clínica ou o pessoal do dentista),
+  com o dentista aparecendo em fotos reais.
+
+**Regra do Kaue para todo dentista (08/10/2026):** fotos bonitas, nada chocante nem feio (cuidado com os
+exemplos de tratamento); o site tem que ficar bonito; a clínica tem que ser apresentável, senão nem entra.
+Diferente das óticas: **capa de vídeo como foto não fica legal**. Perfil com muito vídeo pede escolha
+cuidadosa das imagens.
+
+**Regras do CFO na demo** (Código de Ética Odontológica, arts. 43 e 44; Resolução CFO-196/2019):
+- Nome e número do CRO do dentista visíveis (clínica: também o responsável técnico).
+- Nada de preço, promoção, "avaliação gratuita", "o melhor" ou outro superlativo.
+- Antes e depois só de casos do próprio dentista, com autorização do paciente.
+- Depoimento sem identificar o paciente para autopromoção (usar só o primeiro nome). Não confirmei como o
+  CRO-SP vê avaliação do Google dentro do site.
+
+**Como foi a busca (odonto lote 1, 05/10/2026):** 350 buscas no Google Maps, só na Grande SP ("dentista em" e
+"clínica odontológica em" por bairro e cidade; nas melhores regiões também "implante dentário", "lente de
+contato dental" e "harmonização orofacial em"). Mesmos passos de `ferramentas/prospeccao/`, com os scripts
+adaptados ao nicho na pasta da sessão (não versionados). Funil: 3.963 lugares → 1.559 no filtro → 833 sem
+site ou com site fraco → 234 com Instagram ativo e 1.000+ → 22 escolhidas + 13 de reserva. Interior e
+litoral não foram buscados. O que aprendi:
+- "Sem site no Google" engana: das 50 conferidas a fundo, 16 tinham site fora do Google (agência, SEO,
+  feito com IA). Sempre buscar na web e testar os domínios óbvios no DNS.
+- @ achado pelo nome erra muito: 32 das 234 eram de outra cidade ou país, de rede ou de fora do nicho.
+  Confirmar pela cidade nas legendas ou pelo CRO.
+- O proxy daqui dá erro (405/502) em sites que estão no ar: conferir antes de chamar de quebrado.
+
+**Odonto lote 1 (aprovado pelo Kaue em 08/10/2026):** 9 leads no painel, em **A trabalhar**, segmento
+"Odontologia", próxima ação "Criar demo (odonto lote 1 · Nª)", com N igual ao número na lista de 05/10.
+Nenhuma demo feita ainda. Dados, observações do Kaue e alertas ficam nas observações de cada lead.
+
+| # | Clínica | Onde | Observação do Kaue |
+|---|---|---|---|
+| 2 | Clínica ACS Odonto Center (@dentista.adrianacsiqueira) | Cidade Mãe do Céu (Tatuapé), São Paulo | Muito vídeo: cuidado com capas de vídeo e com exemplos chocantes e feios. |
+| 3 | Consultório Dra. Natiele Silva (@dra.natielesilva_) | Vila Matilde, São Paulo | Aprovada. |
+| 6 | Odonto Mile (@odontomile) | Centro, Itapecerica da Serra | Descolada, jovial, fotos boas. |
+| 7 | Dra. Karoline Stefani (@dra.karolstefani) | Vila Perus, São Paulo | Cuidado na escolha e na preparação das imagens. |
+| 11 | Dra. Fernanda Ornelas (@dra.fernandaornelas) | Jabaquara, São Paulo | Aprovada. |
+| 12 | Odontoelis (@odontoelisoficial) | Guaianases, São Paulo | Aprovada. |
+| 13 | Dr. Ítalo Totti (@dr.italototti) | Socorro, Mogi das Cruzes | Tem potencial, mas muito vídeo: escolher bem as imagens. |
+| 14 | Sauddá Odontologia (@sauddaodontologia) | Centro, Biritiba Mirim | Aprovada. |
+| 16 | Clínica Dra. Michele Renteiro (@dra.michelerenteiro) | Centro, Franco da Rocha | Aprovada. |
+
+Recusadas pelo Kaue: Dra. Thais Nogueira, Instituto Camila Ferreira, Lumidents, Lexus, AH Odontologia, Dra. Flora
+França, Dra. Gabriela Guinger, Mantelato, Bellatrix, Clínica Coutinho, Roberto Pires, Clínica Passioli e Sanches.
+As 13 da reserva não foram usadas.
+
 ## Repositório e site
 
 - **Oficial: `renderizaweb/renderiza`, branch `main`.** Site público, painel e demos no mesmo
