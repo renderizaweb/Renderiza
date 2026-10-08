@@ -1,0 +1,30 @@
+{
+ "marca": "Óptica Universe",
+ "local": "Sítio Pinheirinho · São Paulo",
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#1d2948",
+  "fundo2": "#0a0f1d",
+  "acento": "#f4c542",
+  "tinta_acento": "#121a2e",
+  "claro": "#eef2fb"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/optica-universe/25.jpg",
+  "pos": "50% 30%",
+  "largura": 660
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "89"
+ },
+ "titulo": "Explore + <em>seu universo.</em>",
+ "texto": "Óculos de grau e de sol, lentes multifocais e a coleção própria de solares Universe, a Série Constelações.",
+ "whatsapp": "(11) 99569-6933",
+ "endereco": "R. Costa Barros, 1848 · São Paulo",
+ "instagram": "@universe.sa"
+}

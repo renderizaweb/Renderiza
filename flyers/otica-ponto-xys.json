@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Ponto Xys",
+ "local": "Centro · Peruíbe",
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a4f5e",
+  "fundo2": "#0f2229",
+  "acento": "#f26a2e",
+  "tinta_acento": "#ffffff",
+  "claro": "#eef6f8"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-ponto-xys/00.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "217"
+ },
+ "titulo": "O ponto certo <em>da sua visão.</em>",
+ "texto": "Óculos de grau e de sol, multifocais, lentes de contato e armações infantis, com entrega rápida.",
+ "whatsapp": "(13) 97416-8326",
+ "endereco": "Av. Rubens Ferreira Martins, 165 · Peruíbe",
+ "instagram": "@oticapontoxys_"
+}

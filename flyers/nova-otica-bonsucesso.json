@@ -1,0 +1,29 @@
+{
+ "marca": "Nova Ótica Bonsucesso",
+ "local": "Cidade Nova Bonsucesso · Guarulhos",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2c3b33",
+  "fundo2": "#0e1512",
+  "acento": "#d4ae63",
+  "tinta_acento": "#1f2a24",
+  "claro": "#f4f0e6"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/nova-otica-bonsucesso/01.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "107"
+ },
+ "titulo": "Enxergar bem <em>é se sentir incrível.</em>",
+ "texto": "Armações atuais, lentes de qualidade e um atendimento que explica cada detalhe antes de você decidir.",
+ "whatsapp": "(11) 4307-5621",
+ "endereco": "R. Luminários, 93 · Guarulhos",
+ "instagram": "@novaoticabonsucesso"
+}

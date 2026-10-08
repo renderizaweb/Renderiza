@@ -1,0 +1,29 @@
+{
+ "marca": "Cupecê Óticas",
+ "local": "Jardim Prudência · São Paulo",
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0f5a66",
+  "fundo2": "#052227",
+  "acento": "#f4a73b",
+  "tinta_acento": "#0b2a30",
+  "claro": "#eaf7f8"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/cupece-oticas/03-recorte.jpg",
+  "pos": "50% 30%",
+  "largura": 600
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "228"
+ },
+ "titulo": "Visão para <em>todos.</em>",
+ "texto": "Exame de vista com optometrista, lentes multifocais e armações para todos os bolsos, com uma equipe que explica tudo com calma.",
+ "whatsapp": "(11) 99268-2210",
+ "endereco": "Av. Cupecê, 3190 · Jardim Prudência",
+ "instagram": "@cupeceoticas"
+}

@@ -1,0 +1,28 @@
+{
+ "marca": "Ótica Wagner",
+ "local": "Centro · Poá",
+ "fontes": {
+  "titulo": "Archivo",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2b241d",
+  "fundo2": "#0e0c0a",
+  "acento": "#ff7a1a",
+  "tinta_acento": "#141210",
+  "claro": "#fbf2ea"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-wagner/09.jpg",
+  "pos": "50% 35%",
+  "largura": 660
+ },
+ "selo": {
+  "texto": "Desde 1970"
+ },
+ "titulo": "Mais de 50 anos <em>cuidando da sua visão.</em>",
+ "texto": "Exame de vista com optometrista, armações para todos os estilos e um atendimento humanizado.",
+ "whatsapp": "(11) 97677-4339",
+ "endereco": "Av. Cap. Francisco Inácio, 30 · Poá",
+ "instagram": "@otica_wagner"
+}
