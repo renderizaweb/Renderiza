@@ -1,0 +1,34 @@
+{
+ "marca": "Dr. Ítalo Totti",
+ "local": "Totti Odontologia · Mogi das Cruzes",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#1b2c4b",
+  "fundo2": "#111a2c",
+  "acento": "#ddbd76",
+  "tinta_acento": "#111a2c",
+  "claro": "#f5f7fa"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dr.italototti/Instagram_files/466927896_18311599936167490_9059817130179924361_n.jpg",
+  "pos": "50% 22%"
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dr.italototti/Instagram_files/466989624_18311601013167490_3218638056964509045_n.jpg",
+  "pos": "50% 45%",
+  "legenda": "Sorriso renovado"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "409"
+ },
+ "titulo": "Transformando vidas <em>através dos sorrisos.</em>",
+ "texto": "Implantes, prótese protocolo, reabilitação e lentes de contato dental, com planejamento detalhado.",
+ "whatsapp": "(11) 98611-5803",
+ "cta": "Agende sua avaliação",
+ "endereco": "Av. João XXIII, 350 · Ed. Ômega, sala 91",
+ "instagram": "@dr.italototti"
+}

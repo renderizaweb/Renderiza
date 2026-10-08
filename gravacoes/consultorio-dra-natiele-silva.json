@@ -1,0 +1,154 @@
+{
+ "demo": "consultorio-dra-natiele-silva",
+ "marca": "Dra. Natiele Silva",
+ "local": "Vila Matilde · São Paulo",
+ "cores": {
+  "fundo": "#5b3a3c",
+  "fundo2": "#382425",
+  "acento": "#e6b2a0",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Dra.",
+   "Natiele Silva"
+  ],
+  "frase": "Mais que estética, sorrisos que conectam.",
+  "fotos": [
+   ".hero-media img",
+   ".doutor-foto img",
+   ".experience-photo img",
+   ".visit-photo img"
+  ],
+  "pos_fotos": [
+   "50% 30%",
+   "45% 40%",
+   "50% 35%",
+   "50% 35%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.4
+  },
+  {
+   "rolar": ".hero-proof",
+   "segura": 1.6,
+   "legenda": "Nota 5,0 com 55 avaliações"
+  },
+  {
+   "rolar": ".hero-media",
+   "segura": 1.6,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".doutor-foto",
+   "segura": 1.9,
+   "legenda": "A dentista em destaque, com o CRO"
+  },
+  {
+   "rolar": "#atendimento-track",
+   "alinhar": "topo",
+   "segura": 3.6,
+   "legenda": "Atendimento com fotos reais",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 2.25,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": ".experience-photo",
+   "segura": 1.8,
+   "legenda": "O planejamento, explicado"
+  },
+  {
+   "rolar": "#sorrisos-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Sorrisos reais dos pacientes",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#tratamentos h2",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Os tratamentos, explicados"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#contato .button-light",
+   "segura": 3.0,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1.0,
+     "tipo": "tocar",
+     "alvo": "#contato .button-light"
+    }
+   ]
+  }
+ ]
+}

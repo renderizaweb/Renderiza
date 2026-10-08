@@ -1,0 +1,169 @@
+{
+ "pasta": "saudda-odontologia",
+ "marca": "Sauddá Odontologia",
+ "marca_sub": "Biritiba Mirim",
+ "marca_completa": "Sauddá Odontologia",
+ "titulo": "Sauddá Odontologia · Dra. Renata Souza em Biritiba Mirim",
+ "descricao": "Sauddá Odontologia, no Centro de Biritiba Mirim, com a Dra. Renata Souza (responsável técnica, CROSP 97818): Invisalign, ortodontia, odontopediatria e atendimento para quem tem medo de dentista. Nota 5,0 no Google.",
+ "comentario": "Demo Sauddá Odontologia: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@sauddaodontologia, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 08/10/2026.",
+ "fontes": {"titulo": "Cormorant Garamond", "texto": "Manrope"},
+ "cores": {"primaria": "#7a2e55", "primaria_escura": "#5a1d3e", "noite": "#2e1424", "tinta": "#2a1a22", "clara": "#efe2d6", "clara2": "#faf5ef", "creme": "#f4ece2", "papel": "#fffcf8", "destaque": "#c9a35b", "ouro": "#e0bf7a"},
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/sauddaodontologia/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "173",
+ "google_nome": "SAUDDÁ Odontologia",
+ "endereco_maps": "R. Padre José Gonçalves Bastos, 57 - Centro, Biritiba Mirim - SP, 08940-000",
+ "maps_url": "https://www.google.com/maps?cid=1191984584171855048",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJZWgnvEfDzZQRyBxO9anHihA",
+ "whatsapp": "5511975218532",
+ "mensagem": "Olá! Vim pelo site da Sauddá Odontologia e gostaria de agendar uma avaliação.",
+ "instagram": "sauddaodontologia",
+ "verificado": "2026-10-08",
+ "horas_override": {"0": null, "1": [480, 1080], "2": [480, 1080], "3": [480, 1080], "4": [480, 1080], "5": [480, 1080], "6": null},
+ "logo": {"monograma": "S"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "A dentista"], ["#atendimento", "Atendimento"], ["#pequenos", "Crianças"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "carrossel:atendimento", "experiencia", "carrossel:pequenos", "tratamentos", "espaco", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Odontologia no Centro de Biritiba Mirim",
+  "h1": "Mudança visível",
+  "h1_em": "no seu sorriso.",
+  "lead": "Na Sauddá, a Dra. Renata Souza e a equipe cuidam de crianças, adultos e de quem tem medo de dentista: avaliação detalhada, Invisalign, ortodontia e odontopediatria, com hora marcada.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#atendimento", "Ver o atendimento"],
+  "provas": [["{nota}", ""], ["8 anos", "tem paciente com a Dra. Renata há tudo isso"], ["Invisalign", "alinhadores transparentes"]],
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/DduW-zWCUV3_00.jpg", "c": [0.42, 0.32]},
+  "alt": "Dra. Renata Souza sorrindo no consultório da Sauddá, de jaleco bege",
+  "nome": "Dra. Renata Souza",
+  "registro": "CROSP 97818 · RESPONSÁVEL TÉCNICA",
+  "chip": "Sauddá Odontologia"
+ },
+ "faixa": ["Para quem tem medo de dentista", "Crianças, adultos e famílias", "Avaliação detalhada"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Renata Souza,",
+  "h2_em": "à frente da Sauddá.",
+  "p": [
+   "Responsável técnica da Sauddá Odontologia, a Dra. Renata atende em Biritiba Mirim há muitos anos: tem paciente que a acompanha há mais de 8 anos e quem venha de Mogi das Cruzes só para a consulta com ela.",
+   "Da primeira visita das crianças à alta da ortodontia, ela e a equipe recebem cada paciente com calma e carinho, agora na sede da Sauddá, no Centro."
+  ],
+  "citacao": "Nota 10 para a Dra. Renata, que comanda esta empresa.",
+  "citacao_fonte": "Maria Aparecida, paciente desde antes de ser Sauddá (avaliação no Google)",
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/DeNRHpkiD_l_00.jpg", "c": [0.5, 0.42]},
+  "alt": "Dra. Renata Souza sorrindo, segurando um estojo de alinhador",
+  "selo": ["CROSP 97818", "Responsável técnica"],
+  "tira": [
+   {"foto": {"id": 17, "c": [0.3, 0.4]}, "alt": "Dra. Renata Souza com um paciente adulto no consultório"},
+   {"foto": {"id": 13, "c": [0.5, 0.45]}, "alt": "Dra. Renata Souza com uma menina na cadeira do dentista"},
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/DdpN0pMiM_O_00.jpg", "c": [0.5, 0.45]}, "alt": "Dra. Renata Souza sorrindo à mesa do consultório"}
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "atendimento", "tipo": "galeria", "fundo": "creme",
+   "eyebrow": "Atendimento de perto",
+   "h2": "Cada paciente",
+   "h2_em": "sai daqui sorrindo.",
+   "p": "Começo de Invisalign, alta da ortodontia, revisões de 6 em 6 meses: fotos reais de quem é atendido na Sauddá.",
+   "rotulo": "Pacientes atendidos na Sauddá",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_01.jpg", "c": [0.5, 0.35]}, "alt": "Paciente sorrindo ao lado da dentista, com o kit do Invisalign", "rotulo": "Invisalign", "titulo": "O começo do tratamento, com o kit em mãos"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_04.jpg", "c": [0.5, 0.35]}, "alt": "Paciente e dentista sorrindo com a caixa do tratamento", "rotulo": "Novos pacientes", "titulo": "Gratidão por cada paciente que confia"},
+    {"foto": {"id": 29, "c": [0.5, 0.4]}, "alt": "Paciente sorrindo ao lado da Dra. Renata no dia da alta da ortodontia", "rotulo": "Ortodontia", "titulo": "Dia de alta, sorriso novo"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_03.jpg", "c": [0.5, 0.35]}, "alt": "Paciente de jaqueta laranja sorrindo com a dentista", "rotulo": "Invisalign", "titulo": "Alinhadores com acompanhamento de perto"},
+    {"foto": {"id": 22, "c": [0.5, 0.35]}, "alt": "Mãe e filha ao lado da Dra. Renata no consultório", "rotulo": "De Mogi das Cruzes", "titulo": "Tem paciente que vem de outras cidades"},
+    {"foto": {"id": 14, "c": [0.5, 0.4]}, "alt": "Paciente sorrindo ao lado da Dra. Renata", "rotulo": "Do Canadá", "titulo": "A visita ao Brasil inclui a dentista"},
+    {"foto": {"id": 32, "c": [0.5, 0.35]}, "alt": "Paciente de longa data ao lado da Dra. Renata", "rotulo": "Há mais de 7 anos", "titulo": "Paciente de longa data"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_05.jpg", "c": [0.5, 0.35]}, "alt": "Paciente sorrindo com a dentista e a caixa do tratamento", "rotulo": "Invisalign", "titulo": "Um novo sorriso começa aqui"}
+   ]
+  },
+  {
+   "id": "pequenos", "tipo": "sorriso", "formato": "quadrado", "fundo": "clara",
+   "eyebrow": "Odontopediatria",
+   "h2": "Primeira vez no dentista,",
+   "h2_em": "sem medo.",
+   "p": "Muita paciência, conversa e carinho com os pequenos: da primeira consulta à limpeza com flúor e ao aparelho.",
+   "rotulo": "Crianças atendidas na Sauddá",
+   "nota": "Fotos publicadas no Instagram da Sauddá.",
+   "itens": [
+    {"foto": {"id": 9, "c": [0.5, 0.45]}, "alt": "Menina na primeira consulta, sentada à mesa ao lado da dentista", "legenda": "Primeira consulta"},
+    {"foto": {"id": 1, "c": [0.5, 0.4]}, "alt": "Menino sorrindo abraçado à Dra. Renata", "legenda": "Carinho desde a primeira visita"},
+    {"foto": {"id": 11, "c": [0.5, 0.45]}, "alt": "Menino de três anos no colo da Dra. Renata", "legenda": "Três anos de pura fofura"},
+    {"foto": {"id": 16, "c": [0.5, 0.45]}, "alt": "Menina sorrindo com a Dra. Renata na cadeira", "legenda": "Começando a semana sorrindo"},
+    {"foto": {"id": 18, "c": [0.5, 0.4]}, "alt": "Menina sorrindo ao lado da Dra. Renata", "legenda": "Consultas periódicas"},
+    {"foto": {"id": 5, "c": [0.5, 0.4]}, "alt": "Menino sorrindo com a Dra. Renata", "legenda": "Crescendo sem cáries"},
+    {"foto": {"id": 21, "c": [0.5, 0.45]}, "alt": "Menina sorrindo com o aparelho novo, na cadeira", "legenda": "Aparelho novo"},
+    {"foto": {"id": 37, "c": [0.5, 0.5]}, "alt": "Crianças assistindo a uma palestra sobre higiene bucal na escola", "legenda": "Palestra de higiene bucal em escola"}
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Dentista para quem tem medo de dentista",
+  "h2": "Aqui, o medo",
+  "h2_em": "fica do lado de fora.",
+  "lead": "Tudo começa com uma avaliação detalhada e sem pressa. Crianças, adultos e pacientes que precisam de mais atenção são recebidos com calma, e cada etapa é explicada antes de começar.",
+  "pontos": ["Avaliação detalhada e com tecnologia", "Sala de jogos e mimos para os pequenos", "Revisões de 6 em 6 meses"],
+  "foto": {"id": 39, "c": [0.5, 0.45]},
+  "alt": "Paciente relaxada na cadeira, de pernas para o ar, durante a consulta",
+  "legenda": "Chegou com medo. Hoje se sente em casa."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Do primeiro dente",
+  "h2_em": "ao sorriso novo.",
+  "itens": [
+   ["Invisalign", "Alinhadores transparentes. Restauração, coroa ou implante não tiram o tratamento dos seus planos: a avaliação diz se ele é indicado para você."],
+   ["Odontopediatria", "Primeira consulta, limpeza, flúor e acompanhamento, com paciência e carinho com os pequenos."],
+   ["Ortodontia", "Aparelhos e avaliação ortodôntica infantil, com acompanhamento até a alta."],
+   ["Prótese protocolo", "Reabilitação com prótese fixa. Quanto tempo você fica sem dentes? A resposta vem na avaliação."]
+  ],
+  "mais": [
+   ["Também na Sauddá", ["Limpeza e flúor", "Siso", "Estética dental", "Restaurações", "Revisões de 6 em 6 meses", "Palestras em escolas"]],
+   ["Quem vem até aqui", ["Biritiba Mirim", "Mogi das Cruzes", "Toda a região"]]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "espaco": {
+  "id": "clinica",
+  "eyebrow": "A clínica",
+  "h2": "Um lugar pensado",
+  "h2_em": "para você se sentir bem.",
+  "lead": "A sede da Sauddá fica no Centro de Biritiba Mirim: fachada vinho, recepção clara com madeira e flores, e consultórios modernos. Limpa e confortável, como contam os pacientes no Google.",
+  "fotos": [
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/google/g01.jpg", "c": [0.55, 0.5]}, "alt": "Recepção da Sauddá com balcão de madeira, flores e o logo na parede", "legenda": "Recepção"},
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/google/g00.jpg", "box": [0.1, 0, 0.75, 1], "c": [0.42, 0.5]}, "alt": "Fachada vinho da Sauddá Odontologia, no número 57", "legenda": "Fachada"},
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_00.jpg", "c": [0.5, 0.3]}, "alt": "Paciente e dentista sorrindo diante da parede com o logo da clínica"}
+  ],
+  "cards": [
+   ["5,0", "173 avaliações no Google", "Nota máxima de quem já é paciente."],
+   ["8 anos", "Pacientes que seguem junto", "Tem paciente com a Dra. Renata há mais de 8 anos."],
+   ["Região", "Pacientes de outras cidades", "Gente que vem de Mogi das Cruzes e até de fora do país."]
+  ]
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem é atendido",
+  "h2_em": "conta melhor.",
+  "itens": [
+   {"i": 3, "nome_exibido": "Evelyn Lopes", "trecho": "Tudo começa com uma avaliação super detalhada e tecnológica. A recepção maravilhosa todas as vezes que cheguei me senti super importante"},
+   {"i": 0},
+   {"i": 6, "trecho": "Sou cliente desde o início, antes de ser Saudda, sempre achei um local agradável onde sou muito bem recebida"},
+   {"i": 1},
+   {"i": 2},
+   {"i": 7, "trecho": "Um atendimento sem igual e os profissionais de real qualidade! Sou cliente fiel."}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos cuidar",
+  "h2_em": "do seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer a Sauddá, no Centro de Biritiba Mirim.",
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_02.jpg", "c": [0.5, 0.35]},
+  "alt": "Dentista sorrindo com duas crianças que começaram o tratamento",
+  "endereco": ["R. Padre José Gonçalves Bastos, 57", "Centro · Biritiba Mirim, SP · 08940-000"],
+  "whatsapp_texto": "(11) 97521-8532",
+  "insta_rotulo": "Pacientes, dicas e novidades"
+ },
+ "rodape": {"registro": "R.T. Dra. Renata Pereira de Souza · CROSP 97818", "esq": "Sauddá Odontologia Ltda · CROSP-CL 035537 · Biritiba Mirim, SP", "dir": "Atendimento com hora marcada"}
+}

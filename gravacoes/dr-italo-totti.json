@@ -1,0 +1,155 @@
+{
+ "demo": "dr-italo-totti",
+ "marca": "Dr. Ítalo Totti",
+ "local": "Socorro · Mogi das Cruzes",
+ "cores": {
+  "fundo": "#1b2c4b",
+  "fundo2": "#111c30",
+  "acento": "#ddbd76",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "Manrope"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "clima": "sobrio",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Dr. Ítalo",
+   "Totti"
+  ],
+  "frase": "Transformando vidas através dos sorrisos.",
+  "fotos": [
+   ".hero-media img",
+   ".doutor-foto img",
+   ".doutor-tira img:nth-child(2)",
+   ".space-photos figure:nth-child(1) img"
+  ],
+  "pos_fotos": [
+   "50% 28%",
+   "50% 30%",
+   "50% 30%",
+   "50% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.4
+  },
+  {
+   "rolar": ".hero-proof",
+   "segura": 1.6,
+   "legenda": "Nota 5,0 com 409 avaliações"
+  },
+  {
+   "rolar": ".hero-media",
+   "segura": 1.6,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".doutor-foto",
+   "segura": 1.9,
+   "legenda": "O doutor em destaque"
+  },
+  {
+   "rolar": "#atendimento-track",
+   "alinhar": "topo",
+   "segura": 3.6,
+   "legenda": "Atendimento com fotos reais",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 2.25,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#sorrisos-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Sorrisos reais dos pacientes",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#tratamentos h2",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Os tratamentos, explicados"
+  },
+  {
+   "rolar": ".space-photos",
+   "segura": 1.8,
+   "legenda": "A clínica por dentro"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#contato .button-light",
+   "segura": 3.0,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1.0,
+     "tipo": "tocar",
+     "alvo": "#contato .button-light"
+    }
+   ]
+  }
+ ]
+}

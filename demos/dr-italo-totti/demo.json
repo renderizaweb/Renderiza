@@ -1,0 +1,168 @@
+{
+ "pasta": "dr-italo-totti",
+ "marca": "Dr. Ítalo Totti",
+ "marca_sub": "Totti Odontologia",
+ "marca_completa": "Totti Odontologia · Dr. Ítalo Totti",
+ "titulo": "Dr. Ítalo Totti · Totti Odontologia em Mogi das Cruzes",
+ "descricao": "Totti Odontologia, com o Dr. Ítalo Totti, no Edifício Ômega (Socorro, Mogi das Cruzes): implantes, prótese protocolo, reabilitação oral e lentes de contato dental, com planejamento detalhado. Nota 5,0 no Google.",
+ "comentario": "Demo Dr. Ítalo Totti: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dr.italototti, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 08/10/2026.",
+ "fontes": {"titulo": "Fraunces", "texto": "Manrope"},
+ "cores": {"primaria": "#2a4a7a", "primaria_escura": "#1b2c4b", "noite": "#111a2c", "tinta": "#14192a", "clara": "#e3e8ef", "clara2": "#f5f7fa", "creme": "#f3efe8", "papel": "#fdfcfa", "destaque": "#c8a45a", "ouro": "#ddbd76"},
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dr.italototti/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/totti/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "409",
+ "google_nome": "Dr. Italo B. Totti",
+ "endereco_maps": "Edifício Ômega - Av. João XXIII, 350 - Sl 91 - Socorro, Mogi das Cruzes - SP, 08780-830",
+ "maps_url": "https://www.google.com/maps?cid=10054592278214910147",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJ8eKuChbYzZQRw6Bi0GcWiYs",
+ "whatsapp": "5511986115803",
+ "mensagem": "Olá! Vim pelo site da Totti Odontologia e gostaria de agendar uma avaliação com o Dr. Ítalo.",
+ "instagram": "dr.italototti",
+ "verificado": "2026-10-08",
+ "logo": {"monograma": "IT"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "O doutor"], ["#atendimento", "Pacientes"], ["#sorrisos", "Sorrisos"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "carrossel:atendimento", "experiencia", "carrossel:sorrisos", "tratamentos", "espaco", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Odontologia no Socorro · Mogi das Cruzes",
+  "h1": "Transformando vidas",
+  "h1_em": "através dos sorrisos.",
+  "lead": "Implantes, prótese protocolo, reabilitação e lentes de contato dental com o Dr. Ítalo Totti e equipe, no Edifício Ômega. Planejamento detalhado e cada etapa explicada antes de começar.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#sorrisos", "Ver sorrisos reais"],
+  "provas": [["{nota}", ""], ["+3.000", "sorrisos renovados"], ["16 anos", "tem paciente que voltou depois de tudo isso"]],
+  "foto": {"id": 5, "c": [0.5, 0.3]},
+  "alt": "Dr. Ítalo Totti sorrindo, de uniforme azul-marinho da Totti, com as mãos na cintura",
+  "nome": "Dr. Ítalo Totti",
+  "registro": "CIRURGIÃO-DENTISTA · TOTTI ODONTOLOGIA",
+  "chip": "+3.000 sorrisos"
+ },
+ "faixa": ["Planejamento detalhado", "Equipe atenciosa do início ao fim", "Clínica moderna e acolhedora"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dr. Ítalo Totti,",
+  "h2_em": "o sorriso como missão.",
+  "p": [
+   "À frente da Totti Odontologia, no Edifício Ômega, em Mogi das Cruzes, o Dr. Ítalo se dedica à reabilitação oral: implantes, prótese protocolo e lentes de contato dental, sempre com planejamento.",
+   "Tem paciente que fez implantes com ele há 16 anos e voltou para renovar o sorriso. Com uma equipe que os pacientes citam pelo nome nas avaliações, ele explica cada etapa e acompanha de perto."
+  ],
+  "citacao": "Nada se compara à alegria de devolver sorrisos e confiança.",
+  "citacao_fonte": "Dr. Ítalo Totti, no Instagram",
+  "foto": {"id": 26, "c": [0.5, 0.35]},
+  "alt": "Dr. Ítalo Totti sorrindo em fundo escuro, de camisa azul, com o jaleco no ombro",
+  "selo": ["+3.000", "sorrisos renovados"],
+  "tira": [
+   {"foto": {"id": 11, "c": [0.5, 0.3]}, "alt": "Dr. Ítalo Totti com o jaleco branco sobre o ombro"},
+   {"foto": {"id": 12, "c": [0.5, 0.3]}, "alt": "Dr. Ítalo Totti sorrindo, de camisa preta"},
+   {"foto": {"id": 28, "c": [0.5, 0.3]}, "alt": "Dr. Ítalo Totti e uma dentista da equipe, de braços cruzados, de uniforme da Totti"}
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "atendimento", "tipo": "galeria", "fundo": "creme",
+   "eyebrow": "Pacientes da Totti",
+   "h2": "Do primeiro contato",
+   "h2_em": "ao sorriso renovado.",
+   "p": "Fotos reais de pacientes, do consultório e do dia a dia da Totti Odontologia.",
+   "rotulo": "Pacientes e consultório da Totti",
+   "itens": [
+    {"foto": {"id": 9, "c": [0.5, 0.4]}, "alt": "Paciente sorrindo de orelha a orelha", "rotulo": "Sorriso renovado", "titulo": "Resultado natural e duradouro"},
+    {"foto": {"id": 36, "c": [0.5, 0.3]}, "alt": "Paciente sorrindo para o espelho na cadeira do consultório", "rotulo": "Reabilitação", "titulo": "A primeira olhada no espelho"},
+    {"foto": {"id": 50, "c": [0.5, 0.3]}, "alt": "Paciente recebendo um presente do Dr. Ítalo Totti no consultório", "rotulo": "Gratidão", "titulo": "Cada paciente, uma jornada"},
+    {"foto": {"id": 24, "c": [0.5, 0.4]}, "alt": "Paciente e dentista sorrindo juntos no consultório", "rotulo": "Confiança", "titulo": "Do primeiro contato até o fim"},
+    {"foto": {"id": 27, "c": [0.5, 0.35]}, "alt": "Dr. Ítalo Totti apontando, sorrindo, para um paciente com a sacola da Totti", "rotulo": "Na Totti", "titulo": "Atendimento que vira amizade"},
+    {"foto": {"id": 35, "c": [0.5, 0.45]}, "alt": "Escaneamento dental em 3D na tela do notebook", "rotulo": "Tecnologia", "titulo": "Escaneamento para planejar com precisão"},
+    {"foto": {"id": 39, "c": [0.5, 0.5]}, "alt": "Sala do Dr. Ítalo com mesa de vidro e vista da cidade", "rotulo": "Consultório", "titulo": "Conversa com calma, vista para Mogi"}
+   ]
+  },
+  {
+   "id": "sorrisos", "tipo": "sorriso", "formato": "quadrado", "fundo": "clara",
+   "eyebrow": "Sorrisos reais",
+   "h2": "Naturais,",
+   "h2_em": "do jeito de cada um.",
+   "p": "Lentes de contato dental e reabilitações planejadas para preservar a individualidade de cada sorriso.",
+   "rotulo": "Sorrisos de pacientes da Totti",
+   "nota": "Imagens de casos reais publicadas no Instagram do Dr. Ítalo. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {"foto": {"id": 13, "c": [0.5, 0.5]}, "alt": "Sorriso masculino com barba, de perto"},
+    {"foto": {"id": 22, "c": [0.5, 0.5]}, "alt": "Sorriso feminino, de perto"},
+    {"foto": {"id": 16, "c": [0.5, 0.5]}, "alt": "Sorriso de um paciente de barba grisalha, de perto"},
+    {"foto": {"id": 6, "c": [0.5, 0.5]}, "alt": "Sorriso feminino natural, de perto"},
+    {"foto": {"id": 19, "c": [0.5, 0.5]}, "alt": "Sorriso masculino com lentes de contato dental"},
+    {"foto": {"id": 23, "c": [0.5, 0.5]}, "alt": "Sorriso feminino de perfil, com batom"},
+    {"foto": {"id": 21, "c": [0.5, 0.5]}, "alt": "Sorriso masculino com barba, de frente"},
+    {"foto": {"id": 17, "c": [0.5, 0.5]}, "alt": "Sorriso feminino de perfil"}
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Planejamento antes de tudo",
+  "h2": "Cada etapa explicada,",
+  "h2_em": "do começo ao fim.",
+  "lead": "A reabilitação começa com avaliação, fotos e escaneamento, para planejar cada detalhe. Os pacientes contam nas avaliações: pontualidade, cuidado e explicação de cada etapa do procedimento.",
+  "pontos": ["Avaliação e registro fotográfico", "Escaneamento e planejamento digital", "Acompanhamento e manutenção"],
+  "foto": {"id": 10, "c": [0.62, 0.45]},
+  "alt": "Dr. Ítalo Totti trabalhando com lupa, diante da frase na parede: nós acreditamos que podemos transformar o seu mundo",
+  "legenda": "“Nós acreditamos que podemos transformar o seu mundo.”"
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Reabilitação completa,",
+  "h2_em": "com saúde e estética.",
+  "itens": [
+   ["Implantes dentários", "Planejamento, cirurgia e manutenção do implante, com acompanhamento de perto."],
+   ["Prótese protocolo", "Prótese fixa sobre implantes, que devolve o sorriso e o conforto para mastigar."],
+   ["Reabilitação oral", "Estética e função juntas: mastigação, saúde bucal e confiança para sorrir."],
+   ["Lentes de contato dental", "Planejadas para preservar a individualidade e a naturalidade do seu sorriso."]
+  ],
+  "mais": [
+   ["Também na Totti", ["Planejamento digital", "Escaneamento intraoral", "Bruxismo", "Limpeza", "Manutenção de implantes", "Registro fotográfico"]],
+   ["Onde fica", ["Edifício Ômega", "Socorro", "Mogi das Cruzes"]]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "espaco": {
+  "id": "clinica",
+  "eyebrow": "A clínica",
+  "h2": "Moderna, limpa",
+  "h2_em": "e acolhedora.",
+  "lead": "A Totti Odontologia fica na sala 91 do Edifício Ômega, na Av. João XXIII. Os pacientes falam de um consultório impecável, cheiroso e com equipamentos de ponta.",
+  "fotos": [
+   {"foto": {"id": 30, "c": [0.5, 0.5]}, "alt": "Recepção da Totti Odontologia com balcão de madeira e poltronas claras", "legenda": "Recepção"},
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/totti/google/g00.jpg", "box": [0.1, 0, 0.9, 0.8], "c": [0.5, 0.35]}, "alt": "Logo dourado da Totti Odontologia na porta de vidro"},
+   {"foto": {"id": 2, "c": [0.5, 0.35]}, "alt": "Dentista da Totti de óculos e touca, segurando um modelo de dente"}
+  ],
+  "cards": [
+   ["5,0", "409 avaliações no Google", "Nota máxima, avaliação após avaliação."],
+   ["+3.000", "Sorrisos renovados", "Segundo o perfil do Dr. Ítalo no Instagram."],
+   ["16 anos", "Paciente que voltou", "Fez implantes com o Dr. Ítalo há 16 anos e voltou para renovar."]
+  ]
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem passou por aqui",
+  "h2_em": "recomenda.",
+  "itens": [
+   {"i": 3, "trecho": "E essa equipe liderada pelo Dr. Italo só acalmaram meu coração ( morro de medo de dentista) me deixando tranquila e segura!"},
+   {"i": 6, "trecho": "Meu primeiro contato com dr Italo foi há  16 anos atrás, fiz implante inferior e superior, e hj renovando os implantes novamente agraciada com a técnica e a gentileza do dr Italo!"},
+   {"i": 7, "trecho": "A clínica é moderna, extremamente limpa, cheirosa e conta com equipamentos de ponta, o que passa muita segurança."},
+   {"i": 1},
+   {"i": 5, "nome_exibido": "Leal Roots"},
+   {"i": 2}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos renovar",
+  "h2_em": "o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer a Totti Odontologia, no Edifício Ômega.",
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/totti/ig/DeMiFHSxZlP_00.jpg", "box": [0, 0, 1, 0.6], "c": [0.5, 0.35]},
+  "alt": "Dr. Ítalo Totti sorrindo, de óculos e uniforme da Totti, fazendo sinal de positivo",
+  "endereco": ["Av. João XXIII, 350 · Edifício Ômega, sala 91", "Socorro · Mogi das Cruzes, SP · 08780-830"],
+  "whatsapp_texto": "(11) 98611-5803",
+  "insta_rotulo": "Casos, dicas e bastidores",
+  "sem_horario": "Atendimento com hora marcada"
+ },
+ "rodape": {"registro": "Totti Odontologia · Cirurgião-dentista", "esq": "Totti Odontologia Ltda · Edifício Ômega · Mogi das Cruzes, SP", "dir": "Atendimento com hora marcada"}
+}

@@ -403,6 +403,30 @@ Recusadas pelo Kaue: Dra. Thais Nogueira, Instituto Camila Ferreira, Lumidents, 
 França, Dra. Gabriela Guinger, Mantelato, Bellatrix, Clínica Coutinho, Roberto Pires, Clínica Passioli e Sanches.
 As 13 da reserva não foram usadas.
 
+**Demos de dentista (08/10/2026):** o Kaue pediu as 3 com mais potencial, inspiradas na da MS, com vídeo. Fotos do
+Drive dele (pasta `1U2xEPcdRcmEzzDcjIIdnDu2FEzPQ5XVF`, uma subpasta por clínica aprovada, com a página do Instagram
+salva; lista em `https://drive.google.com/embeddedfolderview?id=<id>`, download por
+`drive.usercontent.google.com/download?id=<id>&export=download&confirm=t`). Olhando as 9 pastas, ficaram **Dra. Natiele
+Silva** (`consultorio-dra-natiele-silva`), **Sauddá** (`saudda-odontologia`) e **Dr. Ítalo Totti** (`dr-italo-totti`);
+a Odonto Mile ficou como 4ª (no Drive, as fotos são do endereço antigo). As outras têm quase só boca de perto, arte
+pronta ou capa de vídeo.
+- **Linha comum de dentista:** `ferramentas/demo/gerar-odonto.py demos/<pasta>/demo.json`, no desenho da MS (capa
+  com o dentista em arco, faixa, "Quem cuida do seu sorriso" com CRO e tira de fotos, carrossel de atendimento,
+  experiência, carrossel de sorrisos ou de crianças, tratamentos, a clínica, avaliações do Google e contato com
+  mapa). Cores, fontes e seções vêm do `demo.json`; usa as funções do `gerar.py` (fotos, avaliações, horário).
+  Validar com `ferramentas/demo/validar.mjs` (o script importa de `/home/user/renderiza`: em sessão com a pasta
+  `Renderiza`, criar o atalho `ln -s /home/user/Renderiza /home/user/renderiza`).
+- **Fotos de dentista:** pessoas sorrindo (dentista, equipe, pacientes) antes de tudo; sorriso de perto só os
+  bonitos (sem afastador, sangue, broca nem procedimento); nada de quadro de vídeo com a pessoa falando; artes com
+  texto só recortadas. Foto do Drive sem data: usar pelas pessoas, e o consultório só das fotos recentes.
+- **Vídeo:** roteiro escrito à mão (`gravacoes/<id>.json`, seletores da linha de dentista: `.hero-media`,
+  `.hero-proof`, `.doutor-foto`, `#atendimento-track`, `#sorrisos-track` ou `#pequenos-track`, `#tratamentos h2`,
+  `.space-photos`, `#reviews-track`, `#contato .button-light`), versão show. Climas: Natiele leve, Sauddá grife,
+  Dr. Ítalo sóbrio. Na montagem, só fotos do próprio dentista ou da clínica (o nome aparece por cima). O gravador
+  precisa de `numpy` e `imageio-ffmpeg` (`pip install numpy imageio-ffmpeg`).
+- **Pendências:** CRO do Dr. Ítalo não confirmado (a demo e o flyer não mostram); horário dele só de quarta; na
+  Sauddá, confirmar a segunda-feira (o Google mostrou horário de feriado). Detalhes na ficha de cada demo.
+
 ## Repositório e site
 
 - **Oficial: `renderizaweb/renderiza`, branch `main`.** Site público, painel e demos no mesmo

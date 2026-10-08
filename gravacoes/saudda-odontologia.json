@@ -1,0 +1,155 @@
+{
+ "demo": "saudda-odontologia",
+ "marca": "Sauddá Odontologia",
+ "local": "Centro · Biritiba Mirim",
+ "cores": {
+  "fundo": "#5a1d3e",
+  "fundo2": "#381226",
+  "acento": "#e0bf7a",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "clima": "grife",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Odontologia",
+   "Sauddá"
+  ],
+  "frase": "Mudança visível no seu sorriso.",
+  "fotos": [
+   ".hero-media img",
+   ".space-photos figure:nth-child(1) img",
+   "#atendimento .gallery-card:nth-child(1) img",
+   ".doutor-foto img"
+  ],
+  "pos_fotos": [
+   "45% 30%",
+   "55% 50%",
+   "50% 35%",
+   "50% 40%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.4
+  },
+  {
+   "rolar": ".hero-proof",
+   "segura": 1.6,
+   "legenda": "Nota 5,0 com 173 avaliações"
+  },
+  {
+   "rolar": ".hero-media",
+   "segura": 1.6,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".doutor-foto",
+   "segura": 1.9,
+   "legenda": "A dentista em destaque, com o CRO"
+  },
+  {
+   "rolar": "#atendimento-track",
+   "alinhar": "topo",
+   "segura": 3.6,
+   "legenda": "Atendimento com fotos reais",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 2.25,
+     "tipo": "deslizar",
+     "alvo": "#atendimento-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#pequenos-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Um carrossel só das crianças",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#pequenos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#pequenos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#tratamentos h2",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Os tratamentos, explicados"
+  },
+  {
+   "rolar": ".space-photos",
+   "segura": 1.8,
+   "legenda": "A clínica por dentro e por fora"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#contato .button-light",
+   "segura": 3.0,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1.0,
+     "tipo": "tocar",
+     "alvo": "#contato .button-light"
+    }
+   ]
+  }
+ ]
+}

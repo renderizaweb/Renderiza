@@ -1,0 +1,34 @@
+{
+ "marca": "Dra. Natiele Silva",
+ "local": "Cirurgiã-dentista · CROSP 124156",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#5b3a3c",
+  "fundo2": "#2c2224",
+  "acento": "#e6b2a0",
+  "tinta_acento": "#2c2224",
+  "claro": "#faf3f1"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/reel_Ddz9rGCNo-M.jpg",
+  "pos": "45% 35%"
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dra.natielesilva/Instagram_files/367488212_18234680503229139_2630815882628553619_n.jpg",
+  "pos": "45% 50%",
+  "legenda": "Sorriso novo"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "55"
+ },
+ "titulo": "Mais que estética, <em>sorrisos que conectam.</em>",
+ "texto": "Facetas em resina feitas à mão, com planejamento e atendimento humanizado.",
+ "whatsapp": "(11) 94811-4607",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Antônio de Souza Campos, 208 · Vila Matilde",
+ "instagram": "@dra.natielesilva_"
+}

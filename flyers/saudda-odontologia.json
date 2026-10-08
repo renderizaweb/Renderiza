@@ -1,0 +1,34 @@
+{
+ "marca": "Sauddá Odontologia",
+ "local": "R.T. Dra. Renata Souza · CROSP 97818",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#5a1d3e",
+  "fundo2": "#2e1424",
+  "acento": "#e0bf7a",
+  "tinta_acento": "#2e1424",
+  "claro": "#faf5ef"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/DduW-zWCUV3_00.jpg",
+  "pos": "42% 30%"
+ },
+ "foto2": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/saudda/ig/Dd7OzhIDyg2_01.jpg",
+  "pos": "50% 35%",
+  "legenda": "Começo do Invisalign"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "173"
+ },
+ "titulo": "Mudança visível <em>no seu sorriso.</em>",
+ "texto": "Invisalign, ortodontia e odontopediatria, para quem tem medo de dentista (ou não).",
+ "whatsapp": "(11) 97521-8532",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Pe. José Gonçalves Bastos, 57 · Centro",
+ "instagram": "@sauddaodontologia"
+}

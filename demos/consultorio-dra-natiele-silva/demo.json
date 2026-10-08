@@ -1,0 +1,498 @@
+{
+ "pasta": "consultorio-dra-natiele-silva",
+ "marca": "Dra. Natiele Silva",
+ "marca_sub": "Cirurgiã-dentista",
+ "marca_completa": "Consultório Dra. Natiele Silva",
+ "titulo": "Dra. Natiele Silva · Facetas em resina na Vila Matilde",
+ "descricao": "Consultório da Dra. Natiele Silva, cirurgiã-dentista (CROSP 124156), na Vila Matilde, em São Paulo: facetas e lentes em resina feitas à mão, planejamento individual e atendimento humanizado. Nota 5,0 no Google.",
+ "comentario": "Demo Consultório Dra. Natiele Silva: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dra.natielesilva_, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 08/10/2026.",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "primaria": "#9a5f63",
+  "primaria_escura": "#5b3a3c",
+  "noite": "#2c2224",
+  "tinta": "#2b2321",
+  "clara": "#f1dfdc",
+  "clara2": "#faf3f1",
+  "creme": "#f7f1ea",
+  "papel": "#fffdfb",
+  "destaque": "#d9a08e",
+  "ouro": "#e2bf86"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dra.natielesilva/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "55",
+ "google_nome": "Consultório Odontológico Dra. Natiele Silva",
+ "endereco_maps": "R. Antônio de Souza Campos, 208 - Vila Matilde, São Paulo - SP, 03511-010",
+ "maps_url": "https://www.google.com/maps?cid=2049168939894687327",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJBQre_kBfzpQRX8YvO0sccBw",
+ "whatsapp": "5511948114607",
+ "mensagem": "Olá, Dra. Natiele! Vim pelo site e gostaria de agendar uma avaliação.",
+ "instagram": "dra.natielesilva_",
+ "verificado": "2026-10-08",
+ "logo": {
+  "monograma": "NS"
+ },
+ "cta": "Agendar avaliação",
+ "nav": [
+  [
+   "#dentista",
+   "A dentista"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#sorrisos",
+   "Sorrisos"
+  ],
+  [
+   "#tratamentos",
+   "Tratamentos"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#contato",
+   "Contato"
+  ]
+ ],
+ "ordem": [
+  "hero",
+  "faixa",
+  "dentista",
+  "carrossel:atendimento",
+  "experiencia",
+  "carrossel:sorrisos",
+  "tratamentos",
+  "depoimentos",
+  "contato"
+ ],
+ "hero": {
+  "eyebrow": "Odontologia estética na Vila Matilde",
+  "h1": "Mais que estética,",
+  "h1_em": "sorrisos que conectam.",
+  "lead": "Facetas em resina feitas à mão, com planejamento individual e atendimento humanizado. Antes de transformar, a Dra. Natiele explica o que será feito, por quê e quais são as suas possibilidades.",
+  "cta": "Quero agendar minha avaliação",
+  "link": [
+   "#sorrisos",
+   "Ver sorrisos reais"
+  ],
+  "provas": [
+   [
+    "{nota}",
+    ""
+   ],
+   [
+    "17 mil",
+    "pessoas acompanham no Instagram"
+   ],
+   [
+    "2 locais",
+    "Vila Matilde e Avenida Paulista"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/Dd4wqFSGS29_00.jpg",
+   "box": [
+    0,
+    0,
+    0.6,
+    1
+   ],
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Natiele Silva sorrindo, de blazer azul, com a mão no queixo",
+  "nome": "Dra. Natiele Silva",
+  "registro": "CROSP 124156 · CIRURGIÃ-DENTISTA",
+  "chip": "Facetas em resina"
+ },
+ "faixa": [
+  "Planejamento antes da resina",
+  "Atendimento humanizado",
+  "Consulta presencial ou on-line"
+ ],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Natiele Silva,",
+  "h2_em": "sorrisos feitos à mão.",
+  "p": [
+   "Cirurgiã-dentista, a Dra. Natiele atende na Vila Matilde e na Avenida Paulista. Ela trabalha com facetas e lentes em resina composta, feitas à mão, de acordo com o rosto de cada paciente, com textura e brilho naturais.",
+   "Antes de escolher cor e formato, ela avalia a saúde dos dentes e da gengiva, explica cada etapa e planeja junto com o paciente. Para ela, informação também faz parte do tratamento."
+  ],
+  "citacao": "Cada sorriso é único, e um bom planejamento começa ouvindo o que o paciente deseja.",
+  "citacao_fonte": "Dra. Natiele Silva, no Instagram",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/reel_Ddz9rGCNo-M.jpg",
+   "c": [
+    0.42,
+    0.5
+   ]
+  },
+  "alt": "Dra. Natiele Silva sorrindo, de blazer azul, com seringas de resina na mão",
+  "selo": [
+   "CROSP 124156",
+   "Cirurgiã-dentista"
+  ],
+  "tira": [
+   {
+    "foto": {
+     "id": 23,
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    "alt": "Dra. Natiele Silva de jaleco preto ao lado da cadeira do consultório"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/google/g01.jpg",
+     "box": [
+      0.4,
+      0,
+      0.84,
+      1
+     ],
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    "alt": "Dra. Natiele Silva de braços cruzados no consultório claro"
+   },
+   {
+    "foto": {
+     "id": 10,
+     "box": [
+      0.24,
+      0,
+      0.76,
+      1
+     ],
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    "alt": "Dra. Natiele Silva atendendo uma paciente na cadeira"
+   }
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "atendimento",
+   "tipo": "galeria",
+   "fundo": "creme",
+   "eyebrow": "Atendimento humanizado",
+   "h2": "Quem passa pela cadeira",
+   "h2_em": "sai sorrindo.",
+   "p": "Pacientes reais e o consultório da Vila Matilde: claro, limpo e aconchegante, como contam as avaliações do Google.",
+   "rotulo": "Pacientes e consultório da Dra. Natiele",
+   "itens": [
+    {
+     "foto": {
+      "id": 9,
+      "c": [
+       0.45,
+       0.5
+      ]
+     },
+     "alt": "Paciente sorrindo na cadeira do consultório depois das lentes em resina",
+     "rotulo": "Lentes em resina",
+     "titulo": "Sorriso novo, ainda na cadeira"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "O pai da Dra. Natiele sorrindo com o sorriso novo",
+     "rotulo": "Em família",
+     "titulo": "O sorriso que ela fez no próprio pai"
+    },
+    {
+     "foto": {
+      "id": 46,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Paciente loira sorrindo com as lentes em resina",
+     "rotulo": "Lentes em resina",
+     "titulo": "Autoestima renovada"
+    },
+    {
+     "foto": {
+      "id": 15,
+      "c": [
+       0.5,
+       0.25
+      ]
+     },
+     "alt": "Paciente de vestido azul sorrindo",
+     "rotulo": "Cor escolhida a dedo",
+     "titulo": "Brilho natural para os grandes dias"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Paciente sorrindo com a mão no queixo, no consultório",
+     "rotulo": "Facetas em resina",
+     "titulo": "Um upgrade planejado no sorriso"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/Dd919DNmRiK_00.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sala de atendimento do consultório, clara, com janela e cadeira",
+     "rotulo": "Consultório",
+     "titulo": "Claro, limpo e aconchegante"
+    }
+   ]
+  },
+  {
+   "id": "sorrisos",
+   "tipo": "sorriso",
+   "formato": "quadrado",
+   "fundo": "clara",
+   "eyebrow": "Sorrisos reais",
+   "h2": "Natural, com brilho",
+   "h2_em": "e do seu jeito.",
+   "p": "Lentes e facetas em resina composta feitas pela Dra. Natiele, com texturas sutis e a cor escolhida para cada rosto.",
+   "rotulo": "Sorrisos feitos pela Dra. Natiele",
+   "nota": "Imagens de casos reais publicadas no Instagram da Dra. Natiele. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/google/g00.jpg",
+      "c": [
+       0.4,
+       0.45
+      ]
+     },
+     "alt": "Sorriso com lentes em resina, de perto, com flores ao lado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/reel_Dd1faIYx43y.jpg",
+      "box": [
+       0.43,
+       0,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Sorriso com lentes em resina, de perto"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Sorriso com lentes em resina e brilho nos lábios"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Sorriso com lentes em resina segurando um pirulito colorido"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/reel_DeFSudhNmhT.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com lentes em resina e batom rosado"
+    },
+    {
+     "foto": {
+      "id": 40,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Sorriso com lentes em resina mordendo uma bala vermelha"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Sorriso masculino com lentes em resina, de perfil"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Sorriso com facetas em resina composta"
+    },
+    {
+     "foto": {
+      "id": 50
+     },
+     "alt": "Sorriso largo com lentes em resina composta"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Sorriso feminino com lentes em resina, de perfil"
+    }
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Antes da resina, o planejamento",
+  "h2": "Você entende o plano",
+  "h2_em": "e participa das escolhas.",
+  "lead": "Formato, cor, quantidade de dentes e limitações: tudo é conversado antes de começar. Quando há facetas antigas, primeiro vêm a remoção e a limpeza, para avaliar a real condição dos dentes.",
+  "pontos": [
+   "Avaliação clínica individual",
+   "Saúde antes da estética",
+   "Manutenção e acompanhamento"
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/Dd919DNmRiK_11.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Dra. Natiele Silva rindo junto com um paciente na cadeira",
+  "legenda": "Conversa e leveza em cada consulta."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "O cuidado certo começa",
+  "h2_em": "pelo que você precisa.",
+  "itens": [
+   [
+    "Facetas e lentes em resina",
+    "Técnica manual e aditiva, feita de acordo com o rosto, com textura e brilho naturais."
+   ],
+   [
+    "Planejamento do sorriso",
+    "Avaliação clínica e planejamento digital nos casos mais complexos, como diastemas e sorriso invertido."
+   ],
+   [
+    "Clareamento de consultório",
+    "Sessões acompanhadas de perto, para um branco que combina com você."
+   ],
+   [
+    "Manutenção das lentes",
+    "Limpeza e repolimento periódicos para as lentes durarem mais."
+   ]
+  ],
+  "mais": [
+   [
+    "Também no consultório",
+    [
+     "Clínica geral",
+     "Limpeza",
+     "Troca de facetas antigas",
+     "Gengivoplastia",
+     "Ortodontia",
+     "Implantes",
+     "Urgências"
+    ]
+   ],
+   [
+    "Do jeito que você preferir",
+    [
+     "Consulta presencial",
+     "Consulta on-line",
+     "Vila Matilde",
+     "Avenida Paulista"
+    ]
+   ]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem chegou com medo",
+  "h2_em": "saiu confiante.",
+  "itens": [
+   {
+    "i": 0,
+    "texto": "Depois de anos de traumas, foi o único lugar que me senti segura e confiante, fui muito bem recebida e cuidada… Indico de olhos fechados, vale muito a pena!"
+   },
+   {
+    "i": 2,
+    "nome_exibido": "Abailard Borges",
+    "trecho": "uma excelente profissional, muito atenciosa, passa segurança e confiança no que faz"
+   },
+   {
+    "i": 6,
+    "nome_exibido": "Moises Carvalho",
+    "trecho": "Fui ao consultório para fazer uma limpeza dentária e acabei fazendo o tratamento completo. A doutora é atenciosa"
+   },
+   {
+    "i": 4
+   },
+   {
+    "i": 3,
+    "trecho": "É visível o cuidado e a atenção com cada detalhe, o que transmite confiança e bem-estar desde o momento em que chegamos."
+   },
+   {
+    "i": 1,
+    "trecho": "Faço o tratamento ortodôntico da minha filha com a Dra. Nath e está sendo ótimo. É super visível a melhora dela!"
+   }
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação, presencial ou on-line, e entenda qual caminho faz sentido para você.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/natiele/ig/Dd919DNmRiK_02.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Dra. Natiele Silva sorrindo no consultório",
+  "endereco": [
+   "R. Antônio de Souza Campos, 208",
+   "Vila Matilde · São Paulo, SP · 03511-010"
+  ],
+  "whatsapp_texto": "(11) 94811-4607",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {
+  "registro": "Cirurgiã-dentista · CROSP 124156",
+  "esq": "Consultório Dra. Natiele Silva · Vila Matilde, São Paulo",
+  "dir": "Atendimento com hora marcada"
+ }
+}
