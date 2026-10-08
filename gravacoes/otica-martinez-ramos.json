@@ -1,0 +1,99 @@
+{
+ "demo": "otica-martinez-ramos",
+ "marca": "Ótica Martinez Ramos",
+ "local": "Planalto Paulista · São Paulo",
+ "cores": {
+  "fundo": "#11305f",
+  "fundo2": "#0b1e3b",
+  "acento": "#8fd3f7",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T11:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Martinez Ramos"
+  ],
+  "frase": "Visão para o seu melhor amanhã.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-main img",
+   ".experience-main img"
+  ],
+  "dur": 5.4,
+  "pos_fotos": [
+   "50% 30%",
+   "50% 55%",
+   "45% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 2,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2.2,
+   "legenda": "A loja no Planalto Paulista"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 2,
+   "legenda": "Nota 5,0 com 391 avaliações"
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.7,
+   "legenda": "Especialista em multifocal",
+   "legenda_no_topo": true,
+   "ajuste": -100
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 3.1,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 3.8,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}
