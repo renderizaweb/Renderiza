@@ -310,6 +310,9 @@ dono tem que ver e gostar. A gentileza puxa a resposta.
   WhatsApp é o que a ótica divulga para cliente (fachada, bio, Google), não o número pessoal do dono;
   dentista leva nome e CRO do responsável. O gerador avisa quando o texto encosta no botão ou o rodapé
   estoura: encurtar.
+- **Quem recebe:** os leads com demo em Contato iniciado e Em conversa (todos têm flyer desde 08/10/2026).
+  Os leads antigos sem demo, cadastrados em 02/10 e parados em Em conversa, não entram: não seguiram o
+  contato.
 - **Passo a passo:** `python3 ferramentas/flyer/extrair.py <pasta-da-demo>` tira as fotos da demo para
   `rascunhos/flyer/fotos/<pasta>/` (com `folha.jpg` para escolher); escrever `flyers/<id>.json` (modelo:
   qualquer um da pasta); `node ferramentas/flyer/gerar.mjs flyers/<id>.json` grava `flyers/<id>.png`;
