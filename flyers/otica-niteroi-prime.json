@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Niterói Prime",
+ "local": "Icaraí · Niterói",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a2723",
+  "fundo2": "#0b0a09",
+  "acento": "#d8b25c",
+  "tinta_acento": "#161616",
+  "claro": "#f7f2e8"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-niteroi-prime/06.jpg",
+  "pos": "50% 30%",
+  "largura": 660
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "139"
+ },
+ "titulo": "Transforme <em>a sua imagem.</em>",
+ "texto": "Consultoria de imagem óptica: formato do rosto, coloração pessoal e as armações que valorizam você.",
+ "whatsapp": "(21) 3492-8438",
+ "endereco": "Shopping Center Icaraí, loja 125 · Niterói",
+ "instagram": "@oticaniteroi"
+}

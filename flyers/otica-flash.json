@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Flash",
+ "local": "Centro · Nova Iguaçu",
+ "fontes": {
+  "titulo": "Archivo",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d2a85",
+  "fundo2": "#090f38",
+  "acento": "#5cc8ff",
+  "tinta_acento": "#090f38",
+  "claro": "#eef6ff"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-flash/01.jpg",
+  "pos": "50% 35%",
+  "largura": 680
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "268"
+ },
+ "titulo": "Realce seu olhar <em>com estilo.</em>",
+ "texto": "Óculos de grau e de sol, ajuda para achar a armação certa e óculos de visão simples prontos em até 40 minutos.",
+ "whatsapp": "(21) 97222-9344",
+ "endereco": "Av. Gov. Amaral Peixoto, 492 · Nova Iguaçu",
+ "instagram": "@oticaflashni"
+}

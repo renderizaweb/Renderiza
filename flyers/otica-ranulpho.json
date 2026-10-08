@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Ranulpho",
+ "local": "Campo Grande · Rio de Janeiro",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1e3560",
+  "fundo2": "#0a1428",
+  "acento": "#f2a541",
+  "tinta_acento": "#13233f",
+  "claro": "#f1f4fa"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-ranulpho/00.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "88"
+ },
+ "titulo": "Mais de 45 mil óculos <em>entregues.</em>",
+ "texto": "Desde 1978 em Campo Grande: consultoria para escolher a armação, medição moderna e lentes Varilux.",
+ "whatsapp": "(21) 96430-1791",
+ "endereco": "R. Floriano Pacheco, 195 · Campo Grande",
+ "instagram": "@oticaranulpho"
+}

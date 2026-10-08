@@ -1,0 +1,30 @@
+{
+ "marca": "Freitas Ótica",
+ "local": "Méier · Rio de Janeiro",
+ "fontes": {
+  "titulo": "Bricolage Grotesque",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#2638a8",
+  "fundo2": "#0c1450",
+  "acento": "#f59a23",
+  "tinta_acento": "#0c1450",
+  "claro": "#eef1ff"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/freitas-otica/00.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "439"
+ },
+ "titulo": "Cada personalidade, <em>um óculos.</em>",
+ "texto": "40 anos de tradição no Méier, com a maior variedade de armações de grau, de sol e clip-on.",
+ "whatsapp": "(21) 98286-4300",
+ "endereco": "R. Lucídio Lago, 59, loja B · Méier",
+ "instagram": "@freitas_otica"
+}

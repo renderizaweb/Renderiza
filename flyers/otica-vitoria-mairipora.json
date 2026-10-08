@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Vitória",
+ "local": "Centro · Mairiporã",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#6e2030",
+  "fundo2": "#260810",
+  "acento": "#e6c27a",
+  "tinta_acento": "#3a0d16",
+  "claro": "#fbf3ea"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-vitoria-mairipora/01.jpg",
+  "pos": "50% 40%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "243"
+ },
+ "titulo": "Sua autoestima <em>é importante.</em>",
+ "texto": "Consultoria de imagem em óculos, exame de vista e as marcas que você procura, há 20 anos em Mairiporã.",
+ "whatsapp": "(11) 99164-4165",
+ "endereco": "R. XV de Novembro, 27 · Mairiporã",
+ "instagram": "@oticavitoriamairipora"
+}

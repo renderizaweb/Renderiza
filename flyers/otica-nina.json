@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Nina",
+ "local": "Vila Nova Mazzei · São Paulo",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#22398a",
+  "fundo2": "#0c1640",
+  "acento": "#f25ca2",
+  "tinta_acento": "#16255c",
+  "claro": "#f6f8fe"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-nina/31.jpg",
+  "pos": "50% 30%",
+  "largura": 700
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "29"
+ },
+ "titulo": "Um óculos pode mudar <em>a sua imagem.</em>",
+ "texto": "Exame de vista com a Antonina, optometrista, e armações para todo estilo de rosto.",
+ "whatsapp": "(11) 2994-1393",
+ "endereco": "R. Iwajiro Takahashi, 19, sala 9 · Vila Mazzei",
+ "instagram": "@oticanina"
+}
