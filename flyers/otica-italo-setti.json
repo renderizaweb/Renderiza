@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Ítalo Setti",
+ "local": "Baeta Neves · São Bernardo do Campo",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d3170",
+  "fundo2": "#0a1230",
+  "acento": "#f59a2c",
+  "tinta_acento": "#13214d",
+  "claro": "#eef2ff"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-italo-setti/01.jpg",
+  "pos": "50% 45%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "131"
+ },
+ "titulo": "Transforme <em>o seu olhar.</em>",
+ "texto": "Óculos de qualidade, armações de várias marcas e atendimento humanizado. Desde 2005 em São Bernardo.",
+ "whatsapp": "(11) 99133-7642",
+ "endereco": "Av. Armando Ítalo Setti, 194 · São Bernardo",
+ "instagram": "@oticasitalosetti"
+}

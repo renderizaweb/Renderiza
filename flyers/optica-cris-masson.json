@@ -1,0 +1,29 @@
+{
+ "marca": "Óptica Cris Masson",
+ "local": "Centro · Ribeirão Preto",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#41412a",
+  "fundo2": "#14140b",
+  "acento": "#c9a46b",
+  "tinta_acento": "#26261a",
+  "claro": "#f6f2e6"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/optica-cris-masson/32.jpg",
+  "pos": "50% 30%",
+  "largura": 720
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "1.397"
+ },
+ "titulo": "Muito mais que <em>uma ótica.</em>",
+ "texto": "Curadoria de armações, lentes multifocais e atendimento acolhedor há 40 anos, com café, jardim e brinquedoteca.",
+ "whatsapp": "(16) 99622-9321",
+ "endereco": "R. Garibaldi, 490 · Ribeirão Preto",
+ "instagram": "@opticacrismasson"
+}

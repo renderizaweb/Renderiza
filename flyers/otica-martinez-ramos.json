@@ -1,0 +1,30 @@
+{
+ "marca": "Ótica Martinez Ramos",
+ "local": "Planalto Paulista · São Paulo",
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#17407c",
+  "fundo2": "#0a1c38",
+  "acento": "#8fd3f7",
+  "tinta_acento": "#0a1c38",
+  "claro": "#eef6fd"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-martinez-ramos/00.jpg",
+  "pos": "60% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "391"
+ },
+ "titulo": "Visão para o seu <em>melhor amanhã.</em>",
+ "texto": "Especialistas em lentes multifocais, com quem explica cada detalhe: das medidas à adaptação.",
+ "whatsapp": "(11) 94512-7163",
+ "endereco": "Av. Moaci, 373 · Planalto Paulista",
+ "instagram": "@oticamartinezramos"
+}

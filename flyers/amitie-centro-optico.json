@@ -1,0 +1,31 @@
+{
+ "marca": "Amitié Centro Óptico",
+ "local": "Vila Mogilar · Mogi das Cruzes",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#74142d",
+  "fundo2": "#2e0510",
+  "acento": "#f39200",
+  "tinta_acento": "#3a0814",
+  "claro": "#fff6ee"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/amitie-centro-optico/01.jpg",
+  "pos": "50% 30%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "125"
+ },
+ "titulo": "Cliente aqui <em>vira amigo.</em>",
+ "texto": "Exame de vista e óculos sob medida, com cafezinho.",
+ "whatsapp": "(11) 93775-2797",
+ "endereco": "Av. Francisco Rodrigues Filho, 1551 · Mogi",
+ "instagram": "@amitiecentrooptico",
+ "tamanho_titulo": 100
+}
