@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Laodicéia",
+ "local": "Taboão · Diadema",
+ "fontes": {
+  "titulo": "Archivo",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2d2a1f",
+  "fundo2": "#0f0e0a",
+  "acento": "#ffde00",
+  "tinta_acento": "#1d1b16",
+  "claro": "#fff8d9"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/oticas-laodiceia/00.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "17"
+ },
+ "titulo": "Cuidando da saúde <em>dos seus olhos.</em>",
+ "texto": "Preço justo, entrega no prazo e um atendimento que faz você se sentir em casa.",
+ "whatsapp": "(11) 95864-7777",
+ "endereco": "Av. Dom João VI, 987 · Diadema",
+ "instagram": "@oticas_laodiceia"
+}

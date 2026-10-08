@@ -1,0 +1,30 @@
+{
+ "marca": "Plus Optical",
+ "local": "Higienópolis · São Paulo",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#6a1749",
+  "fundo2": "#2a0619",
+  "acento": "#5fb4f5",
+  "tinta_acento": "#2a0619",
+  "claro": "#f6eef3"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-plus-optical/03.jpg",
+  "pos": "50% 35%",
+  "largura": 660
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "151"
+ },
+ "titulo": "Óculos para a família <em>inteira.</em>",
+ "texto": "Adulto, teen e kids: armações escolhidas com uma personal stylist e um espaço kids para os pequenos.",
+ "whatsapp": "(11) 98805-1787",
+ "endereco": "R. Baronesa de Itu, 351 · Higienópolis",
+ "instagram": "@plusoptical_"
+}

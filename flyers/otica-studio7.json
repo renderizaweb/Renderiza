@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Studio 7",
+ "local": "Centro · Mauá",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#3a3d45",
+  "fundo2": "#131417",
+  "acento": "#ff6a1f",
+  "tinta_acento": "#16171a",
+  "claro": "#f4f4f6"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-studio7/05.jpg",
+  "pos": "50% 40%",
+  "largura": 660
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "303"
+ },
+ "titulo": "Seu novo olhar <em>começa aqui.</em>",
+ "texto": "Óculos de grau e de sol, 2 em 1 com clipe de sol e lentes Varilux. Escolha na loja ou por vídeo chamada.",
+ "whatsapp": "(11) 3458-4740",
+ "endereco": "R. Ver. Fernando Zanela, 11 · Mauá",
+ "instagram": "@oticastudio7"
+}

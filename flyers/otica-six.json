@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Six",
+ "local": "Centro · Peruíbe",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1a4fae",
+  "fundo2": "#0a1f4d",
+  "acento": "#ffb4a2",
+  "tinta_acento": "#0a1f4d",
+  "claro": "#eef3ff"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-six/00.jpg",
+  "pos": "50% 35%",
+  "largura": 800
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "201"
+ },
+ "titulo": "Sua visão <em>em boas mãos.</em>",
+ "texto": "Há mais de 18 anos em Peruíbe, com óculos de grau e de sol para toda a família, lentes e consertos.",
+ "whatsapp": "(11) 99236-6076",
+ "endereco": "Av. Padre Anchieta, 1405 · Peruíbe",
+ "instagram": "@otica.six"
+}
