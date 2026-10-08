@@ -1,0 +1,34 @@
+{
+ "marca": "Ótica e Beleza Pocopetz",
+ "local": "Centro · Mairiporã",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#43301f",
+  "fundo2": "#160f09",
+  "acento": "#d9a65a",
+  "tinta_acento": "#2b1f16",
+  "claro": "#fbf3e6"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-pocopetz/01.jpg",
+  "pos": "50% 35%",
+  "largura": 800
+ },
+ "foto2": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-pocopetz/02.jpg",
+  "pos": "50% 50%",
+  "legenda": "Ótica e beleza num lugar só"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "297"
+ },
+ "titulo": "Uma experiência <em>além dos óculos.</em>",
+ "texto": "Mais de mil armações, consultoria de visagismo e óculos prontos em até 30 minutos.",
+ "whatsapp": "(11) 4604-3587",
+ "endereco": "Av. Tabelião Passarela, 271 · Mairiporã",
+ "instagram": "@oticapocopetz"
+}

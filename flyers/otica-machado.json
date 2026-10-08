@@ -1,0 +1,34 @@
+{
+ "marca": "Ótica Machado",
+ "local": "Jardim Satélite · São José dos Campos",
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#3b3d55",
+  "fundo2": "#15161e",
+  "acento": "#d6ae66",
+  "tinta_acento": "#2b2c3b",
+  "claro": "#f5f1e8"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-machado/01.jpg",
+  "pos": "50% 30%",
+  "largura": 700
+ },
+ "foto2": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-machado/02.jpg",
+  "pos": "50% 40%",
+  "legenda": "Embalado com carinho"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "141"
+ },
+ "titulo": "Armações escolhidas <em>a dedo.</em>",
+ "texto": "Óculos de grau e de sol escolhidos com a Amanda, consultora de imagem óptica, do jeito do seu rosto.",
+ "whatsapp": "(12) 98882-8157",
+ "endereco": "Av. Cassiopeia, 883 · São José dos Campos",
+ "instagram": "@machado_otica"
+}

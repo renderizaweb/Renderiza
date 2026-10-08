@@ -1,0 +1,35 @@
+{
+ "marca": "Ótica Haramaki",
+ "local": "Vila Perus · São Paulo",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "italico": false,
+ "cores": {
+  "fundo": "#2e2914",
+  "fundo2": "#100e08",
+  "acento": "#ffc400",
+  "tinta_acento": "#17150f",
+  "claro": "#fff8e1"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-haramaki/01.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "foto2": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-haramaki/02.jpg",
+  "pos": "50% 40%",
+  "legenda": "Mais uma cliente feliz"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "321"
+ },
+ "titulo": "A ótica amarela <em>da Vila Perus.</em>",
+ "texto": "Óculos de grau e de sol para todo estilo, dos clássicos da Ray-Ban às armações do dia a dia.",
+ "whatsapp": "(11) 97081-7977",
+ "endereco": "R. Antônio Bartolomeu, 12A · Vila Perus",
+ "instagram": "@oticaharamaki"
+}

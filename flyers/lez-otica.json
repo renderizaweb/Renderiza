@@ -1,0 +1,34 @@
+{
+ "marca": "Lez Ótica",
+ "local": "Jardim Albertina · Guarulhos",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#33282a",
+  "fundo2": "#120d0c",
+  "acento": "#d4845a",
+  "tinta_acento": "#1c1714",
+  "claro": "#fbf1ea"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/lez-otica/01.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "foto2": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/lez-otica/02.jpg",
+  "pos": "50% 35%",
+  "legenda": "Atendimento de perto"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "39"
+ },
+ "titulo": "Paz, amor e <em>um lindo par de óculos.</em>",
+ "texto": "Clip-on 2 em 1 e 3 em 1 e óculos de sol com o seu grau, com envio para todo o Brasil.",
+ "whatsapp": "(11) 95132-7970",
+ "endereco": "Estr. Pres. Juscelino, 5077B · Guarulhos",
+ "instagram": "@lezotica"
+}

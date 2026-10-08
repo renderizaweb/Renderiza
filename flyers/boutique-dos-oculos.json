@@ -1,0 +1,34 @@
+{
+ "marca": "Boutique dos Óculos",
+ "local": "Aclimação · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1f3f86",
+  "fundo2": "#0b1838",
+  "acento": "#ff7a85",
+  "tinta_acento": "#0b1838",
+  "claro": "#f2f5ff"
+ },
+ "foto": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/boutique-dos-oculos/01.jpg",
+  "pos": "50% 30%",
+  "largura": 800
+ },
+ "foto2": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/boutique-dos-oculos/19.jpg",
+  "pos": "50% 35%",
+  "legenda": "Aprovado!"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "123"
+ },
+ "titulo": "Óculos do jeito <em>do seu rosto.</em>",
+ "texto": "Consultoria para achar a armação certa e uma linha autoral com a cara da casa. Na Aclimação desde 1994.",
+ "whatsapp": "(11) 95940-2549",
+ "endereco": "Av. da Aclimação, 56 B · Aclimação",
+ "instagram": "@boutiquedosoculos96"
+}
