@@ -1,23 +1,24 @@
 {
- "demo": "otica-machado",
- "marca": "Ótica Machado",
- "local": "Jardim Satélite · São José dos Campos",
+ "demo": "otica-plus-optical",
+ "marca": "Ótica Plus Optical",
+ "local": "Higienópolis · São Paulo",
  "cores": {
-  "fundo": "#2b2c3b",
-  "fundo2": "#1b1c26",
-  "acento": "#d6ae66",
+  "fundo": "#4a0f33",
+  "fundo2": "#2e0920",
+  "acento": "#5fb4f5",
   "claro": "#fffdf6"
  },
  "fontes": {
-  "titulo": "Montserrat",
+  "titulo": "Outfit",
   "texto": "DM Sans"
  },
- "hora": "2026-10-06T10:30:00-03:00",
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
  "abertura": {
   "selo": "Prévia do site",
   "chamada": "O novo site da",
   "foto": ".hero-photo img",
-  "pos": "50% 28%"
+  "pos": "50% 40%"
  },
  "fechamento": {
   "titulo": "Seu site novo",
@@ -37,29 +38,29 @@
   {
    "rolar": ".story-photos",
    "segura": 1.6,
-   "legenda": "A história da loja e da Amanda"
+   "legenda": "Espaço kids para os pequenos"
   },
   {
    "rolar": ".stats",
    "segura": 1.5,
-   "legenda": "Nota 5,0 no Google em destaque"
+   "legenda": "Nota 5,0 com 151 avaliações"
   },
   {
-   "rolar": "#provador-track",
+   "rolar": "#clientes-track",
    "alinhar": "topo",
-   "segura": 3.0,
-   "legenda": "Vitrine com fotos reais",
+   "segura": 3,
+   "legenda": "Clientes de óculos novos",
    "acoes": [
     {
      "em": 0.5,
      "tipo": "deslizar",
-     "alvo": "#provador-track",
+     "alvo": "#clientes-track",
      "cartoes": 1
     },
     {
      "em": 1.6,
      "tipo": "deslizar",
-     "alvo": "#provador-track",
+     "alvo": "#clientes-track",
      "cartoes": 1
     }
    ]
@@ -104,12 +105,11 @@
    "legenda": "WhatsApp e rota a um toque",
    "acoes": [
     {
-     "em": 1.0,
+     "em": 1,
      "tipo": "tocar",
      "alvo": "#visite .button--mustard"
     }
    ]
   }
- ],
- "musica": "auto"
+ ]
 }

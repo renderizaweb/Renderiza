@@ -1,6 +1,10 @@
 # Trilha de fundo original para o vídeo de apresentação (sintetizada aqui, sem direitos de terceiros).
-# Uso: python3 ferramentas/video/musica.py <saida.wav> <duracao_s> [--entrada 2.7] [--fechamento 27.2] [--bpm 96]
+# Uso: python3 ferramentas/video/musica.py <saida.wav> <duracao_s> [--entrada 2.7] [--fechamento 27.2] [--bpm 96] [--clima leve]
 #   Leve e alegre, em dó maior: piano elétrico em arpejo, pad macio, baixo, bumbo e chocalho baixinhos.
+#   --clima muda o jeito, mantendo os mesmos timbres e o mesmo acorde final:
+#     leve (padrão, ~96 bpm) · sobrio (~80 bpm, piano em semínimas, pulso discreto: confiança)
+#     descolado (~118 bpm, bumbo em todo tempo, chocalho em semicolcheias, baixo sincopado)
+#     grife (~72 bpm, acordes de jazz ii–V–I com nonas e treze, quase sem bateria, mais reverb)
 #   Compasso 0: só o pad (abertura); depois o groove; no fechamento, o acorde final soando até acabar.
 #   Encaixa nos tempos do vídeo: o groove entra perto de --entrada e o acorde final perto de --fechamento.
 import argparse, wave
@@ -11,7 +15,9 @@ ap.add_argument("saida"); ap.add_argument("duracao", type=float)
 ap.add_argument("--entrada", type=float, default=2.7); ap.add_argument("--fechamento", type=float, default=27.2)
 ap.add_argument("--bpm", type=float, default=0); ap.add_argument("--semente", type=int, default=7)
 ap.add_argument("--toques", default="", help="segundos da abertura em que cai uma nota (ex.: as trocas de foto da montagem)")
+ap.add_argument("--clima", default="leve", choices=["leve", "sobrio", "descolado", "grife"])
 a = ap.parse_args()
+CLIMA = a.clima
 
 SR = 44100
 rng = np.random.default_rng(a.semente)
@@ -20,7 +26,8 @@ dur = a.duracao
 bpm = a.bpm or 96.0
 compasso = 4 * 60 / bpm
 if not a.bpm:
-    n = max(4, round((a.fechamento - a.entrada) / 2.5))
+    alvo = {"leve": 2.5, "sobrio": 3.0, "descolado": 2.05, "grife": 3.3}[CLIMA]  # segundos por compasso
+    n = max(3 if CLIMA == "grife" else 4, round((a.fechamento - a.entrada) / alvo))
     compasso = (a.fechamento - a.entrada) / n
     bpm = 240 / compasso
 inicio_groove = a.entrada
@@ -55,8 +62,14 @@ ACORDES = {
     "Am": ("A2", ["C4", "E4", "G4", "B4"]),
     "F": ("F2", ["A3", "C4", "E4", "G4"]),
     "G": ("G2", ["B3", "D4", "E4", "A4"]),
+    "Dm9": ("D3", ["F4", "A4", "C5", "E5"]),   # grife: ii–V–I de jazz
+    "G13": ("G2", ["F4", "A4", "B4", "E5"]),
 }
-seq = (["C", "Am", "F", "G"] * 8)[: max(0, n_comp - 2)] + ["F", "G"]
+# Progressão de cada clima (o ciclo e a cadência que leva ao dó do fechamento).
+PROG = {"leve": (["C", "Am", "F", "G"], ["F", "G"]), "sobrio": (["Am", "F", "C", "G"], ["F", "G"]),
+        "descolado": (["C", "G", "Am", "F"], ["F", "G"]), "grife": (["Dm9", "G13", "C", "Am"], ["Dm9", "G13"])}
+ciclo, cadencia = PROG[CLIMA]
+seq = (ciclo * 12)[: max(0, n_comp - 2)] + cadencia
 seq = seq[-n_comp:] if n_comp >= 2 else ["C"] * n_comp
 
 # ---- instrumentos ----
@@ -64,7 +77,7 @@ def piano(f, d=1.6, vel=1.0):
     """Piano elétrico (FM, como um Rhodes): ataque suave e brilho que cai rápido."""
     t = np.arange(int(SR * d)) / SR
     ind = 1.5 * np.exp(-t / 0.22)
-    env = np.minimum(1, t / 0.004) * np.exp(-t / 0.9)
+    env = np.minimum(1, t / 0.004) * np.exp(-t / 0.9) * np.minimum(1, np.maximum(0, (d - t) / 0.06))  # solta sem estalo
     y = np.sin(2 * np.pi * f * t + ind * np.sin(2 * np.pi * f * t)) + 0.12 * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t / 0.3)
     return y * env * vel
 
@@ -114,26 +127,66 @@ else:
     somar(pnL, pnR, piano(hz("C5"), 2.2, 0.45), max(0.0, abre - 0.6), pan=0.0)
 
 ARPEJO = [0, 1, 2, 3, 4, 3, 2, 1]
+bumbos = []  # onde cai cada bumbo (o pad "respira" com ele)
+def bumbo_em(tb, ganho):
+    somar(drL, drR, bumbo(), tb, ganho=ganho); bumbos.append(tb)
 for c, nome in enumerate(seq):
     t0 = inicio_groove + c * compasso
     raiz, vozes = ACORDES[nome]
     f_vozes = [hz(n) for n in vozes] + [hz(vozes[0]) * 2]
-    somar(padL, padR, pad([hz(n) for n in vozes], compasso + 0.5, ataque=0.25, solta=0.5), t0 - 0.05, ganho=0.85)
-    for k, i in enumerate(ARPEJO):  # colcheias, com leve balanço
-        tk = t0 + k * batida / 2 + (0.018 if k % 2 else 0)
-        vel = (0.9 if k == 0 else 0.62 if k % 2 == 0 else 0.48) * (0.75 if c == 0 else 1)
-        somar(pnL, pnR, piano(f_vozes[i] * 2 if i == 4 and nome in ("F", "G") else f_vozes[i], 1.3, vel), tk, pan=(-0.35 if k % 2 else 0.35))
     fb = hz(raiz)
-    somar(bxL, bxR, baixo(fb, batida * 1.5), t0)
-    somar(bxL, bxR, baixo(fb, batida * 0.9), t0 + 2 * batida, ganho=0.8)
-    somar(bxL, bxR, baixo(fb * 1.5, batida * 0.45), t0 + 3.5 * batida, ganho=0.55)
-    if c >= 1 or len(seq) < 4:  # a bateria entra no segundo compasso
-        for b in range(4):
-            tb = t0 + b * batida
-            if b in (0, 2): somar(drL, drR, bumbo(), tb, ganho=0.9)
-            if b in (1, 3): somar(drL, drR, estalo(), tb, pan=-0.15, ganho=0.22)
-        for e in range(8):
-            somar(drL, drR, chocalho(), t0 + e * batida / 2 + (0.018 if e % 2 else 0), pan=0.4, ganho=0.10 if e % 2 else 0.06)
+    bateria = c >= 1 or len(seq) < 4  # a bateria entra no segundo compasso
+    if CLIMA == "leve":
+        somar(padL, padR, pad([hz(n) for n in vozes], compasso + 0.5, ataque=0.25, solta=0.5), t0 - 0.05, ganho=0.85)
+        for k, i in enumerate(ARPEJO):  # colcheias, com leve balanço
+            tk = t0 + k * batida / 2 + (0.018 if k % 2 else 0)
+            vel = (0.9 if k == 0 else 0.62 if k % 2 == 0 else 0.48) * (0.75 if c == 0 else 1)
+            somar(pnL, pnR, piano(f_vozes[i] * 2 if i == 4 and nome in ("F", "G") else f_vozes[i], 1.3, vel), tk, pan=(-0.35 if k % 2 else 0.35))
+        somar(bxL, bxR, baixo(fb, batida * 1.5), t0)
+        somar(bxL, bxR, baixo(fb, batida * 0.9), t0 + 2 * batida, ganho=0.8)
+        somar(bxL, bxR, baixo(fb * 1.5, batida * 0.45), t0 + 3.5 * batida, ganho=0.55)
+        if bateria:
+            for b in range(4):
+                tb = t0 + b * batida
+                if b in (0, 2): bumbo_em(tb, 0.9)
+                if b in (1, 3): somar(drL, drR, estalo(), tb, pan=-0.15, ganho=0.22)
+            for e in range(8):
+                somar(drL, drR, chocalho(), t0 + e * batida / 2 + (0.018 if e % 2 else 0), pan=0.4, ganho=0.10 if e % 2 else 0.06)
+    elif CLIMA == "descolado":
+        somar(padL, padR, pad([hz(n) for n in vozes], compasso + 0.4, ataque=0.12, solta=0.4), t0 - 0.03, ganho=0.6)
+        for k, i in enumerate([0, 2, 4, 2, 1, 3, 4, 3]):  # colcheias curtas, saltando
+            tk = t0 + k * batida / 2 + (0.012 if k % 2 else 0)
+            vel = (0.92 if k in (0, 4) else 0.6 if k % 2 == 0 else 0.5) * (0.8 if c == 0 else 1)
+            somar(pnL, pnR, piano(f_vozes[i], 0.75, vel), tk, pan=(-0.4 if k % 2 else 0.4))
+        for pos, mult, d, g in ((0, 1, 0.7, 1.0), (0.75, 2, 0.22, 0.5), (1.5, 1, 0.4, 0.75), (2, 1, 0.7, 0.9), (3, 1.5, 0.4, 0.6), (3.5, 1, 0.4, 0.7)):
+            somar(bxL, bxR, baixo(fb * mult, batida * d), t0 + pos * batida, ganho=g)
+        if bateria:
+            for b in range(4):
+                bumbo_em(t0 + b * batida, 0.8)
+                if b in (1, 3): somar(drL, drR, estalo(), t0 + b * batida, pan=-0.15, ganho=0.34)
+            for e in range(16):
+                somar(drL, drR, chocalho(), t0 + e * batida / 4 + (0.01 if e % 2 else 0), pan=0.4, ganho=0.085 if e % 4 == 2 else 0.04)
+    elif CLIMA == "sobrio":
+        somar(padL, padR, pad([hz(n) for n in vozes], compasso + 0.6, ataque=0.4, solta=0.6), t0 - 0.05, ganho=1.0)
+        for k, i in enumerate([0, 2, 1, 3]):  # semínimas, sem pressa
+            somar(pnL, pnR, piano(f_vozes[i], 2.0, (0.72 if k == 0 else 0.5) * (0.8 if c == 0 else 1)), t0 + k * batida, pan=(-0.3 if k % 2 else 0.3))
+        somar(bxL, bxR, baixo(fb, batida * 3.2), t0)
+        somar(bxL, bxR, baixo(fb, batida * 0.9), t0 + 3 * batida, ganho=0.5)
+        if bateria:
+            bumbo_em(t0, 0.6); bumbo_em(t0 + 2 * batida, 0.42)
+            for e in range(8):
+                if e % 2: somar(drL, drR, chocalho(), t0 + e * batida / 2, pan=0.4, ganho=0.05)
+    else:  # grife
+        somar(padL, padR, pad([hz(n) for n in vozes], compasso + 0.8, ataque=0.6, solta=0.8), t0 - 0.1, ganho=1.15)
+        for k, f in enumerate(f_vozes[:4]):  # acorde dedilhado devagar no 1º tempo
+            somar(pnL, pnR, piano(f, compasso * 0.95, 0.42), t0 + k * 0.035, pan=-0.25 + 0.17 * k)
+        somar(pnL, pnR, piano(f_vozes[4], 1.6, 0.34), t0 + 2.5 * batida, pan=0.3)
+        somar(pnL, pnR, piano(f_vozes[2], 1.4, 0.28), t0 + 3.25 * batida, pan=-0.3)
+        somar(bxL, bxR, baixo(fb, batida * 2), t0, ganho=0.8)
+        somar(bxL, bxR, baixo(fb * 1.5, batida * 1.4), t0 + 2.5 * batida, ganho=0.5)
+        if bateria:
+            bumbo_em(t0, 0.32)
+            for b in (1, 3): somar(drL, drR, chocalho(), t0 + b * batida, pan=0.35, ganho=0.06)
 
 # fechamento: dó maior com nona, dedilhado, soando até o fim
 fim = inicio_groove + n_comp * compasso
@@ -146,19 +199,19 @@ somar(bxL, bxR, baixo(hz("C2") * 2, min(2.5, dur - fim)), fim, ganho=0.9)
 # ---- mixagem: filtros, "respiração" do pad com o bumbo, reverb e volume ----
 padL, padR = filtro(padL, baixo=1700), filtro(padR, baixo=1700)
 kick_env = np.zeros(N)
-for c in range(1, len(seq)):
-    for b in (0, 2):
-        i = int((inicio_groove + c * compasso + b * batida) * SR)
-        if i < N:
-            n = min(N - i, int(SR * 0.3)); kick_env[i:i + n] = np.maximum(kick_env[i:i + n], np.exp(-np.arange(n) / SR / 0.12))
-respira = 1 - 0.3 * kick_env
+for tb in bumbos:
+    i = int(tb * SR)
+    if i < N:
+        n = min(N - i, int(SR * 0.3)); kick_env[i:i + n] = np.maximum(kick_env[i:i + n], np.exp(-np.arange(n) / SR / 0.12))
+respira = 1 - {"leve": 0.3, "sobrio": 0.2, "descolado": 0.32, "grife": 0.12}[CLIMA] * kick_env
 padL *= respira; padR *= respira
 bxL, bxR = filtro(bxL, baixo=420), filtro(bxR, baixo=420)
 
-def reverb(x, segundos=2.2, semente=1):
+CAUDA = {"leve": 0.55, "sobrio": 0.65, "descolado": 0.45, "grife": 0.85}[CLIMA]
+def reverb(x, segundos=2.2 if CLIMA != "grife" else 3.2, semente=1):
     r = np.random.default_rng(semente)
     t = np.arange(int(SR * segundos)) / SR
-    ir = filtro(r.standard_normal(len(t)), baixo=6000) * np.exp(-t / 0.55)
+    ir = filtro(r.standard_normal(len(t)), baixo=6000) * np.exp(-t / CAUDA)
     ir /= np.sqrt(np.sum(ir ** 2))
     m = len(x) + len(ir)
     return np.fft.irfft(np.fft.rfft(x, m) * np.fft.rfft(ir, m), m)[: len(x)]
@@ -167,8 +220,9 @@ seco_L = 0.55 * padL + 0.75 * pnL + 0.9 * bxL + 0.55 * drL
 seco_R = 0.55 * padR + 0.75 * pnR + 0.9 * bxR + 0.55 * drR
 envio_L = 0.6 * padL + 0.5 * pnL + 0.12 * drL
 envio_R = 0.6 * padR + 0.5 * pnR + 0.12 * drR
-L = seco_L + 0.32 * reverb(envio_L, semente=1)
-R = seco_R + 0.32 * reverb(envio_R, semente=2)
+MOLHADO = {"leve": 0.32, "sobrio": 0.36, "descolado": 0.26, "grife": 0.44}[CLIMA]
+L = seco_L + MOLHADO * reverb(envio_L, semente=1)
+R = seco_R + MOLHADO * reverb(envio_R, semente=2)
 
 L, R = L[: int(SR * dur)], R[: int(SR * dur)]
 n = len(L); t = np.arange(n) / SR
@@ -182,4 +236,4 @@ L, R = np.tanh(L * ganho * 1.05) / 1.05, np.tanh(R * ganho * 1.05) / 1.05
 pcm = (np.stack([L, R], axis=1) * 32767).astype(np.int16)
 with wave.open(a.saida, "wb") as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-print(f"{a.saida}: {dur:.1f}s, {bpm:.1f} bpm, {n_comp} compassos no groove, pico {20*np.log10(max(np.abs(L).max(), np.abs(R).max())):.1f} dB, média {20*np.log10(np.sqrt(np.mean((L**2+R**2)/2))):.1f} dB")
+print(f"{a.saida}: {CLIMA}, {dur:.1f}s, {bpm:.1f} bpm, {n_comp} compassos no groove, pico {20*np.log10(max(np.abs(L).max(), np.abs(R).max())):.1f} dB, média {20*np.log10(np.sqrt(np.mean((L**2+R**2)/2))):.1f} dB")

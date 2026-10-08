@@ -14,6 +14,9 @@
 //   fechamento: { titulo, destaque, convite }, musica: "auto" (trilha original de musica.py) | caminho de um
 //   arquivo de áudio | ausente (faixa muda), volume_musica (1), resolucao: 720 (padrão leve, ~4 MB; o WhatsApp
 //   reduz para isso de todo jeito) | 1080 (Instagram), crf (23),
+//   clima: "leve" (padrão) | "sobrio" (confiança: trocas lentas, nome reto, rolagem calma) | "descolado" (cortes
+//   rápidos, nome em caixa alta, rolagem ágil) | "grife" (fusões longas, nome fino e espaçado, tudo mais devagar);
+//   vale para a montagem, a rolagem e a trilha (musica.py --clima).
 //   cenas: [{ rolar: seletor | número (topo da página), alinhar: "centro" | "topo", ajuste (px), mover (s),
 //            segura (s), legenda, legenda_no_topo, acoes: [{ em (s depois de parar), tipo: "deslizar" | "tocar", alvo, cartoes, dur, clicar }] }]
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
@@ -38,6 +41,15 @@ mkdirSync(ENSAIO ? pastaEnsaio : tmp, { recursive: true });
 const FPS = 30, DT = 1000 / FPS;
 const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
 const MONTAGEM = R.abertura?.estilo === "montagem", ROLAGEM = R.fechamento?.estilo === "rolagem";
+// Clima: troca das fotos da montagem (fusão e movimento), o desenho do nome e a velocidade da rolagem.
+const CLIMAS = {
+  leve: { fusao: 0.45, kb: ["scale(1.14)", "scale(1.02)", "scale(1.03) translateX(-8px)", "scale(1.13) translateX(6px)"], mover: [0.75, 1.4] },
+  sobrio: { fusao: 0.8, kb: ["scale(1.08)", "scale(1)", "scale(1)", "scale(1.07)"], mover: [0.95, 1.6] },
+  descolado: { fusao: 0.16, kb: ["scale(1.2) rotate(-1deg)", "scale(1.04)", "scale(1.04) translateX(-12px)", "scale(1.18) translateX(10px) rotate(1deg)"], mover: [0.62, 1.1] },
+  grife: { fusao: 1.0, kb: ["scale(1.07)", "scale(1)", "scale(1)", "scale(1.06)"], mover: [1.0, 1.7] },
+};
+const CLIMA = R.clima || "leve", K = CLIMAS[CLIMA];
+if (!K) throw new Error("clima desconhecido: " + CLIMA);
 const ABERTURA = R.abertura?.dur || (MONTAGEM ? 5.6 : 3.2), FECHAMENTO = R.fechamento?.dur || (ROLAGEM ? 5.4 : 3.8), FUSAO = 0.5;
 const c = { fundo: "#2b2c3b", fundo2: "#1b1c26", acento: "#d6ae66", claro: "#fffdf6", ...R.cores };
 const fT = R.fontes?.titulo || "Montserrat", fX = R.fontes?.texto || "DM Sans";
@@ -150,7 +162,7 @@ let t = 0, yAtual = medidas[0].y;
 R.cenas.forEach((ce, i) => {
   const y = medidas[i].y;
   if (i > 0 && y !== yAtual) {
-    const mover = ce.mover ?? Math.min(1.4, 0.75 + Math.abs(y - yAtual) / 3000);
+    const mover = ce.mover ?? Math.min(K.mover[1], K.mover[0] + Math.abs(y - yAtual) / 3000);
     linha.push({ ini: t, fim: t + mover, de: yAtual, ate: y });
     t += mover;
   }
@@ -306,7 +318,7 @@ ${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px
   <img src="${fotoAbertura}" style="width:100%;height:100%;object-fit:cover;object-position:${R.abertura?.pos || "50% 30%"}"></div>` : ""}
 <div style="position:absolute;left:36px;right:36px;top:470px">
   <p class="entra" style="animation-delay:.35s;font-size:15px;opacity:.85;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
-  <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff">${esc(R.marca)}</h1>
+  <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff;text-wrap:balance">${esc(R.marca)}</h1>
   <p class="entra" style="animation-delay:.6s;margin-top:12px;font-size:14px;font-weight:600;color:${c.acento}">${esc(R.local)}</p>
 </div>
 <div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
@@ -317,16 +329,30 @@ ${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px
 const PASSO = (ABERTURA - 0.6) / Math.max(1, fotosMontagem.length);
 const trocas = fotosMontagem.map((_, i) => +(i * PASSO).toFixed(2)).slice(1);
 const nome = R.abertura?.nome || [R.marca];
+// O nome na montagem: duas linhas (a de cima menor, o destaque grande na cor da marca), com o desenho do clima.
+function nomeMontagem() {
+  // Nome comprido encolhe; com mais de uma palavra, quebra em duas linhas equilibradas antes de encolher.
+  const destaque = nome[1] || nome[0], palavras = destaque.split(" ");
+  const linha = destaque.length > 11 && palavras.length > 1
+    ? Math.min(...palavras.slice(1).map((_, k) => Math.max(palavras.slice(0, k + 1).join(" ").length, palavras.slice(k + 1).join(" ").length)))
+    : destaque.length;
+  const tam = Math.min(58, Math.round(330 / Math.max(5, linha * 0.6)));
+  if (nome.length < 2) return `<span style="font-size:44px">${esc(nome[0])}</span>`;
+  if (CLIMA === "grife") return `<span style="display:block;font-size:13px;font-weight:600;letter-spacing:6px;text-transform:uppercase;opacity:.9;margin-bottom:10px">${esc(nome[0])}</span><span style="display:block;font-size:${tam}px;font-weight:600;letter-spacing:1px;color:${c.acento};text-wrap:balance">${esc(nome[1])}</span>`;
+  if (CLIMA === "descolado") return `<span style="display:block;font-size:24px;font-weight:700;opacity:.95">${esc(nome[0])}</span><span style="display:inline-block;margin-top:6px;padding:2px 12px 6px;background:${c.acento};color:${c.fundo2};font-size:${Math.min(54, tam)}px;font-weight:800;letter-spacing:-1px;text-transform:uppercase;transform:rotate(-2deg);transform-origin:left">${esc(nome[1])}</span>`;
+  if (CLIMA === "sobrio") return `<span style="display:block;font-size:26px;font-weight:600;opacity:.92">${esc(nome[0])}</span><span style="display:block;font-size:${tam}px;font-weight:800;letter-spacing:-1px;color:${c.acento};text-wrap:balance">${esc(nome[1])}</span>`;
+  return `<span style="display:block;font-size:27px;font-weight:600;opacity:.92">${esc(nome[0])}</span><em style="display:block;font-size:${tam}px;color:${c.acento};font-style:italic;text-wrap:balance">${esc(nome[1])}</em>`;
+}
 const aberturaMontagem = base + `
 <style>
 .quadro{position:absolute;inset:0;overflow:hidden}
 .quadro img{width:100%;height:100%;object-fit:cover;display:block}
 @keyframes surge{from{opacity:0}to{opacity:1}}
-@keyframes kb0{from{transform:scale(1.14)}to{transform:scale(1.02)}}
-@keyframes kb1{from{transform:scale(1.03) translateX(-8px)}to{transform:scale(1.13) translateX(6px)}}
+@keyframes kb0{from{transform:${K.kb[0]}}to{transform:${K.kb[1]}}}
+@keyframes kb1{from{transform:${K.kb[2]}}to{transform:${K.kb[3]}}}
 .veu{position:absolute;inset:0;background:linear-gradient(180deg, ${c.fundo2}cc 0%, ${c.fundo2}00 22%, ${c.fundo2}00 44%, ${c.fundo2}e6 70%, ${c.fundo2} 100%)}
 </style>
-${fotosMontagem.map((src, i) => `<div class="quadro" style="z-index:${i + 1};${i ? `animation:surge .45s ${(i * PASSO).toFixed(2)}s ease both` : ""}">
+${fotosMontagem.map((src, i) => `<div class="quadro" style="z-index:${i + 1};${i ? `animation:surge ${K.fusao}s ${(i * PASSO - (K.fusao > 0.5 ? K.fusao / 2 : 0)).toFixed(2)}s ease both` : ""}">
   <img src="${src}" style="object-position:${(R.abertura.pos_fotos || [])[i] || "50% 30%"};animation:kb${i % 2} ${(PASSO + 0.9).toFixed(2)}s ${(i * PASSO).toFixed(2)}s linear both"></div>`).join("")}
 ${fotosMontagem.map((_, i) => (R.abertura.rotulos_fotos || [])[i] ? `<span style="position:absolute;z-index:${22 + i};right:32px;top:54px;min-width:86px;text-align:center;padding:7px 12px;border-radius:999px;background:${c.acento};color:${c.fundo2};font:700 12px/1 '${fX}',sans-serif;letter-spacing:2.4px;text-transform:uppercase;box-shadow:0 6px 18px #0000004d;${i ? `animation:surge .35s ${(i * PASSO).toFixed(2)}s ease both` : ""}">${esc(R.abertura.rotulos_fotos[i])}</span>` : "").join("")}
 <div class="veu" style="z-index:20"></div>
@@ -334,10 +360,10 @@ ${fotosMontagem.map((_, i) => (R.abertura.rotulos_fotos || [])[i] ? `<span style
 <div style="position:absolute;z-index:21;left:32px;right:32px;bottom:112px">
   <p class="entra" style="animation-delay:.3s;font-size:15px;opacity:.88;font-weight:500">${esc(R.abertura?.chamada || "O novo site da")}</p>
   <h1 class="assenta" style="font-family:'${fT}',serif;font-weight:700;line-height:.98;margin-top:8px;color:#fff;letter-spacing:-.5px">
-    ${nome.length > 1 ? `<span style="display:block;font-size:27px;font-weight:600;opacity:.92">${esc(nome[0])}</span><em style="display:block;font-size:58px;color:${c.acento};font-style:italic">${esc(nome[1])}</em>` : `<span style="font-size:44px">${esc(nome[0])}</span>`}
+    ${nomeMontagem()}
   </h1>
   <p class="entra" style="animation-delay:.55s;margin-top:14px;font-size:14px;font-weight:600;color:${c.claro};opacity:.9">${esc(R.local)}</p>
-  ${R.abertura?.frase ? `<p class="entra" style="animation-delay:${(ABERTURA - 2.2).toFixed(2)}s;margin-top:18px;font-family:'${fT}',serif;font-style:italic;font-size:19px;color:${c.acento}">“${esc(R.abertura.frase)}”</p>` : ""}
+  ${R.abertura?.frase ? `<p class="entra" style="animation-delay:${(ABERTURA - 2.2).toFixed(2)}s;margin-top:18px;font-family:'${fT}',serif;font-style:${CLIMA === "leve" || CLIMA === "grife" ? "italic" : "normal"};font-size:19px;color:${CLIMA === "grife" ? c.claro : c.acento}">“${esc(R.abertura.frase)}”</p>` : ""}
 </div>
 <div class="marca-rz entra" style="position:absolute;z-index:21;left:32px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
 </body></html>`;
@@ -429,7 +455,7 @@ let audio = ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44
 if (R.musica === "auto") {
   // Trilha original no tempo do vídeo: o groove entra com o site e o acorde final cai no fechamento.
   const wav = join(tmp, "trilha.wav");
-  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, seg, "--entrada", o1.toFixed(2), "--fechamento", (o2 + 0.4).toFixed(2),
+  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, seg, "--entrada", o1.toFixed(2), "--fechamento", (o2 + 0.4).toFixed(2), "--clima", CLIMA,
     ...(trocas.length ? ["--toques", [0.05, ...trocas].join(",")] : [])]);
   audio = ["-i", wav];
 } else if (R.musica) {

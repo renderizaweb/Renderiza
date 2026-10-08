@@ -1,0 +1,127 @@
+{
+ "demo": "nova-otica-bonsucesso",
+ "marca": "Nova Ótica Bonsucesso",
+ "local": "Cidade Nova Bonsucesso · Guarulhos",
+ "cores": {
+  "fundo": "#1f2a24",
+  "fundo2": "#131a16",
+  "acento": "#d4ae63",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "clima": "sobrio",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Nova Ótica",
+   "Bonsucesso"
+  ],
+  "frase": "Enxergar bem é se sentir incrível.",
+  "fotos": [
+   ".hero-photo img",
+   ".style-card:nth-of-type(1) .style-image img",
+   ".story-polaroid img",
+   ".experience-main img"
+  ],
+  "dur": 6.6,
+  "pos_fotos": [
+   "50% 40%",
+   "50% 50%",
+   "50% 45%",
+   "50% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.7
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 1.7,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 1.8,
+   "legenda": "Feita para você se sentir em casa"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 1.7,
+   "legenda": "Nota 5,0 com 107 avaliações"
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 3.1,
+   "legenda": "Ajuda a escolher a armação",
+   "acoes": [
+    {
+     "em": 0.62,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.56,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ]
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.3,
+   "legenda": "O atendimento passo a passo",
+   "legenda_no_topo": true,
+   "ajuste": -70
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.73,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".insta-photo",
+   "segura": 2.2,
+   "legenda": "Ligado ao Instagram da loja"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 3.2,
+   "legenda": "Horário, WhatsApp e rota",
+   "acoes": [
+    {
+     "em": 1.03,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}

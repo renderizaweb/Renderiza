@@ -196,6 +196,19 @@ de foto. A primeira foi a da **Pocopetz** (`gravacoes/otica-pocopetz.json`, 44,8
 no ensaio, trocar foto que corte rosto ou deixe mancha no canto (`abertura.fotos` e `pos_fotos`) e fugir de
 foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
 
+**Clima (08/10/2026):** o Kaue pediu pegadas diferentes por ótica. `roteiro.mjs … --show --clima=<x>` grava
+`"clima"` no roteiro, e ele muda a montagem, a rolagem e a trilha juntas:
+- `leve` (padrão): o de sempre, ~96 bpm, nome em itálico na cor da marca.
+- `sobrio`: confiança e seriedade, para ótica com poucas fotos (**Bonsucesso**). Fusões lentas, nome reto e
+  pesado, frase reta, rolagem mais calma, paradas 15% mais longas; trilha ~80 bpm, piano em semínimas, pulso
+  discreto, sem caixa.
+- `descolado`: cortes rápidos (até 6 fotos), nome em caixa alta numa faixa na cor da marca, rolagem ágil,
+  paradas 12% mais curtas; trilha ~118 bpm com bumbo em todo tempo e chocalho em semicolcheias (**Universe**).
+- `grife`: fusões longas e movimento quase parado, "ÓTICA" pequeno e espaçado sobre o nome fino, frase em
+  itálico clara, rolagem lenta, paradas 25% mais longas; trilha ~72 bpm, acordes de jazz (ii–V–I com nonas),
+  quase sem bateria e mais reverb (**Personnalité**).
+Nome comprido na montagem quebra em duas linhas equilibradas e só então encolhe ("Boutique / dos Óculos").
+
 **O que faz o vídeo ficar bom (revisão do da Machado):**
 - **É o site de verdade, no celular**, sem maquete: a ótica se reconhece. Gravado quadro a quadro com o
   relógio da página parado, então rola liso mesmo com a máquina lenta, e as animações de entrada da
@@ -215,12 +228,22 @@ foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
   jeito). `"resolucao": 1080` para Instagram (~6 MB). Áudio sempre presente (trilha ou faixa muda), senão
   o WhatsApp pode tratar como GIF.
 
-**Música (em avaliação pelo Kaue desde 07/10/2026):** `"musica": "auto"` gera uma trilha original com
+**Música (aprovada; vai em todos desde 08/10/2026):** `"musica": "auto"` gera uma trilha original com
 `ferramentas/video/musica.py` (sintetizada aqui, sem direito de terceiros): piano elétrico em arpejo, pad,
 baixo e bateria leve, em dó maior, ~97 bpm; o groove entra com o site e o acorde final cai no fechamento.
 `"musica": "caminho/arquivo.mp3"` usa uma faixa escolhida (com entrada e saída suaves); sem o campo, faixa
-muda. O roteiro gerado já vem com `"auto"`. O vídeo publicado da Machado ainda é o sem música (a versão com
-música foi só para avaliação).
+muda. O roteiro gerado já vem com `"auto"`; `"clima"` muda o jeito da trilha (acima).
+
+**No ar (08/10/2026):** a pedido do Kaue ("pode incluir direto no painel de cada um"), com `link_gravacao`:
+- show: Studio 7, Boutique dos Óculos, Bonsucesso (sóbrio), Universe (descolado), Personnalité (grife) e
+  Laodicéia (roteiro à mão, demo antiga);
+- padrão com música: Machado (troca o antigo, sem música), Ponto Xys, Plus Optical e Six.
+Pocopetz, Wagner, Lez e Haramaki estão gravados (roteiros em `gravacoes/`), mas não foram para o painel.
+
+**Ensaio x vídeo:** no ensaio a página pula direto para a parada, e às vezes um bloco ainda aparece apagado
+(a animação de entrada não começou). No vídeo a rolagem é contínua e ele aparece; na dúvida, conferir o
+quadro do vídeo. Botão de seção logo abaixo de um título comprido (atendimento) fica embaixo da legenda:
+nessa cena, `"legenda_no_topo": true` com `"ajuste": -70`.
 
 **Regras:** só o que a demo mostra (sem preço, sem promessa, sem dado novo); legendas de função, sem
 adjetivo vazio; nada de rosto cortado na parada (conferir no ensaio).

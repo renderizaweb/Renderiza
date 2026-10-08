@@ -1,25 +1,43 @@
 {
- "demo": "otica-machado",
- "marca": "Ótica Machado",
- "local": "Jardim Satélite · São José dos Campos",
+ "demo": "otica-studio7",
+ "marca": "Ótica Studio 7 Mauá",
+ "local": "Centro · Mauá",
  "cores": {
-  "fundo": "#2b2c3b",
-  "fundo2": "#1b1c26",
-  "acento": "#d6ae66",
+  "fundo": "#2f3239",
+  "fundo2": "#1d1f23",
+  "acento": "#ff6a1f",
   "claro": "#fffdf6"
  },
  "fontes": {
-  "titulo": "Montserrat",
+  "titulo": "Poppins",
   "texto": "DM Sans"
  },
  "hora": "2026-10-06T10:30:00-03:00",
+ "musica": "auto",
  "abertura": {
+  "estilo": "montagem",
   "selo": "Prévia do site",
   "chamada": "O novo site da",
-  "foto": ".hero-photo img",
-  "pos": "50% 28%"
+  "nome": [
+   "Ótica",
+   "Studio 7"
+  ],
+  "frase": "Seu novo olhar começa aqui.",
+  "fotos": [
+   ".hero-photo img",
+   "#provador-track li:nth-child(3) img",
+   ".experience-main img",
+   "#provador-track li:nth-child(6) img"
+  ],
+  "pos_fotos": [
+   "40% 50%",
+   "50% 35%",
+   "50% 50%",
+   "50% 30%"
+  ]
  },
  "fechamento": {
+  "estilo": "rolagem",
   "titulo": "Seu site novo",
   "destaque": "já está pronto.",
   "convite": "Gostou? É só responder esta mensagem."
@@ -37,18 +55,18 @@
   {
    "rolar": ".story-photos",
    "segura": 1.6,
-   "legenda": "A história da loja e da Amanda"
+   "legenda": "A loja laranja do Centro de Mauá"
   },
   {
    "rolar": ".stats",
    "segura": 1.5,
-   "legenda": "Nota 5,0 no Google em destaque"
+   "legenda": "303 avaliações no Google"
   },
   {
    "rolar": "#provador-track",
    "alinhar": "topo",
-   "segura": 3.0,
-   "legenda": "Vitrine com fotos reais",
+   "segura": 3,
+   "legenda": "Provador com fotos reais",
    "acoes": [
     {
      "em": 0.5,
@@ -85,6 +103,14 @@
    ]
   },
   {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2,
+   "legenda": "Atendimento por vídeo chamada",
+   "legenda_no_topo": true,
+   "ajuste": -70
+  },
+  {
    "rolar": "#reviews-track",
    "alinhar": "topo",
    "segura": 2.3,
@@ -104,12 +130,11 @@
    "legenda": "WhatsApp e rota a um toque",
    "acoes": [
     {
-     "em": 1.0,
+     "em": 1,
      "tipo": "tocar",
      "alvo": "#visite .button--mustard"
     }
    ]
   }
- ],
- "musica": "auto"
+ ]
 }

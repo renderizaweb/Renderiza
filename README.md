@@ -79,7 +79,8 @@ rolando com legendas e toques (carrossel, botões) e fechamento ("Gostou? É só
 Roteiro automático a partir da demo (`node ferramentas/video/roteiro.mjs <pasta>`), ensaio em segundos
 (`gravar.mjs … --ensaio`) e gravação em ~3 min (`node ferramentas/video/gravar.mjs gravacoes/<id>.json`).
 Fica em `gravacoes/<id-do-lead>.mp4`; vai ao ar em `/gravacao/<id>.mp4` e o lead recebe
-`link_gravacao = '/gravacao/<id>.mp4'`. Padrão, regras e música: [`CONTEXTO.md`](CONTEXTO.md).
+`link_gravacao = '/gravacao/<id>.mp4'`. Versão caprichada com `--show`, e o jeito com `--clima=sobrio`,
+`descolado` ou `grife` (montagem, rolagem e trilha). Padrão, regras e música: [`CONTEXTO.md`](CONTEXTO.md).
 No painel, a seção **Demo** mostra **Assistir** e **Baixar MP4**, e o cabeçalho ganha **Baixar vídeo**.
 
 ## Flyer de Stories

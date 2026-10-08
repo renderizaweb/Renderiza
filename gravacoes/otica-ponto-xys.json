@@ -1,23 +1,24 @@
 {
- "demo": "otica-machado",
- "marca": "Ótica Machado",
- "local": "Jardim Satélite · São José dos Campos",
+ "demo": "otica-ponto-xys",
+ "marca": "Ótica Ponto Xys",
+ "local": "Centro · Peruíbe",
  "cores": {
-  "fundo": "#2b2c3b",
-  "fundo2": "#1b1c26",
-  "acento": "#d6ae66",
+  "fundo": "#1f3b46",
+  "fundo2": "#13252b",
+  "acento": "#f26a2e",
   "claro": "#fffdf6"
  },
  "fontes": {
   "titulo": "Montserrat",
   "texto": "DM Sans"
  },
- "hora": "2026-10-06T10:30:00-03:00",
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
  "abertura": {
   "selo": "Prévia do site",
   "chamada": "O novo site da",
   "foto": ".hero-photo img",
-  "pos": "50% 28%"
+  "pos": "50% 38%"
  },
  "fechamento": {
   "titulo": "Seu site novo",
@@ -37,29 +38,29 @@
   {
    "rolar": ".story-photos",
    "segura": 1.6,
-   "legenda": "A história da loja e da Amanda"
+   "legenda": "Atendimento de perto, no Centro"
   },
   {
    "rolar": ".stats",
    "segura": 1.5,
-   "legenda": "Nota 5,0 no Google em destaque"
+   "legenda": "Nota 5,0 com 217 avaliações"
   },
   {
-   "rolar": "#provador-track",
+   "rolar": "#vitrine-track",
    "alinhar": "topo",
-   "segura": 3.0,
-   "legenda": "Vitrine com fotos reais",
+   "segura": 3,
+   "legenda": "Vitrine com fotos da loja",
    "acoes": [
     {
      "em": 0.5,
      "tipo": "deslizar",
-     "alvo": "#provador-track",
+     "alvo": "#vitrine-track",
      "cartoes": 1
     },
     {
      "em": 1.6,
      "tipo": "deslizar",
-     "alvo": "#provador-track",
+     "alvo": "#vitrine-track",
      "cartoes": 1
     }
    ]
@@ -104,12 +105,11 @@
    "legenda": "WhatsApp e rota a um toque",
    "acoes": [
     {
-     "em": 1.0,
+     "em": 1,
      "tipo": "tocar",
      "alvo": "#visite .button--mustard"
     }
    ]
   }
- ],
- "musica": "auto"
+ ]
 }

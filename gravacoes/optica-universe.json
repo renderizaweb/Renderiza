@@ -1,0 +1,173 @@
+{
+ "demo": "optica-universe",
+ "marca": "Óptica Universe",
+ "local": "Sítio Pinheirinho · São Paulo",
+ "cores": {
+  "fundo": "#121a2e",
+  "fundo2": "#0b101d",
+  "acento": "#f4c542",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T11:15:00-03:00",
+ "clima": "descolado",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óptica",
+   "Universe"
+  ],
+  "frase": "Explore + seu universo.",
+  "fotos": [
+   ".hero-photo img",
+   "#estilo-track li:nth-child(5) img",
+   "#estilo-track li:nth-child(9) img",
+   "#estilo-track li:nth-child(6) img",
+   "#estilo-track li:nth-child(3) img",
+   ".story-main img"
+  ],
+  "dur": 5.8,
+  "pos_fotos": [
+   "50% 40%",
+   "50% 30%",
+   "50% 30%",
+   "50% 40%",
+   "50% 30%",
+   "50% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.3
+  },
+  {
+   "rolar": ".hero-photo",
+   "segura": 1.3,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 1.4,
+   "legenda": "Ótica de bairro com marca própria"
+  },
+  {
+   "rolar": ".stats",
+   "segura": 1.3,
+   "legenda": "Nota 5,0 com 89 avaliações"
+  },
+  {
+   "rolar": "#colecao-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Coleção própria Universe",
+   "acoes": [
+    {
+     "em": 0.44,
+     "tipo": "deslizar",
+     "alvo": "#colecao-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.41,
+     "tipo": "deslizar",
+     "alvo": "#colecao-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#estilo-track",
+   "alinhar": "topo",
+   "segura": 2.3,
+   "legenda": "Fotos de campanha da marca",
+   "acoes": [
+    {
+     "em": 0.4,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.19,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 2.3,
+   "legenda": "Ajuda a escolher a armação",
+   "acoes": [
+    {
+     "em": 0.53,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.32,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ]
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 1.8,
+   "legenda": "Do WhatsApp ao óculos pronto",
+   "legenda_no_topo": true,
+   "ajuste": -70
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.62,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".insta-photo",
+   "segura": 1.6,
+   "legenda": "Ligado ao Instagram da loja"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.5,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 0.88,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ]
+  }
+ ]
+}

@@ -1,7 +1,8 @@
 // Roteiro padrão do vídeo de apresentação, montado a partir de uma demo da linha comum (ferramentas/demo/gerar.py).
-// Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead] [--show]
+// Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead] [--show] [--clima=sobrio|descolado|grife]
 //   --show: versão mais caprichada (~45 s): abertura em montagem de fotos em tela cheia com o nome e a frase da
 //   ótica, os dois carrosséis, atendimento e Instagram, e fechamento com o site inteiro rolando num celular.
+//   --clima: o jeito do vídeo (ver gravar.mjs). sobrio e grife seguram mais cada parada; descolado, menos.
 //   Grava gravacoes/<id-do-lead>.json (id = pasta quando não vem). Depois: revisar o JSON (legendas, nome do
 //   dono), rodar o ensaio e gravar:
 //     node ferramentas/video/gravar.mjs gravacoes/<id>.json --ensaio   (1 quadro por parada, ~20 s)
@@ -15,6 +16,8 @@ import { fileURLToPath } from "node:url";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const SHOW = process.argv.includes("--show");
+const CLIMA = (process.argv.find(x => x.startsWith("--clima=")) || "").slice(8) || "";
+if (CLIMA && !["leve", "sobrio", "descolado", "grife"].includes(CLIMA)) { console.error("clima: leve, sobrio, descolado ou grife"); process.exit(1); }
 const [pasta, idLead] = process.argv.slice(2).filter(x => !x.startsWith("--"));
 if (!pasta) { console.error("Uso: node ferramentas/video/roteiro.mjs <pasta-da-demo> [id-do-lead]"); process.exit(1); }
 const arqConfig = join(RAIZ, "demos", pasta, "demo.json");
@@ -22,6 +25,8 @@ if (!existsSync(arqConfig)) { console.error(`demos/${pasta}/demo.json não exist
 const d = JSON.parse(readFileSync(arqConfig, "utf8"));
 const html = readFileSync(join(RAIZ, "demos", pasta, "index.html"), "utf8").replace(/data:[^"')]+/g, "");
 const tem = s => html.includes(s);
+// Classe usada no HTML (o CSS da linha comum traz todas, mesmo as que a demo não usa).
+const temClasse = nome => new RegExp(`class="[^"]*\\b${nome}\\b`).test(html);
 
 // Cor de fundo mais escura para o degradê das cartelas.
 const escurecer = (hex, k = 0.62) => "#" + hex.replace("#", "").match(/../g).map(x => Math.round(parseInt(x, 16) * k).toString(16).padStart(2, "0")).join("");
@@ -46,25 +51,28 @@ function horaAberta() {
 const dividirNome = n => { const p = String(n).trim().split(/\s+/); return p.length > 1 ? [p.slice(0, -1).join(" "), p[p.length - 1]] : [n]; };
 const trilhos = [...html.matchAll(/id="([\w-]+)-track"/g)].map(m => m[1]).filter(id => id !== "reviews");
 const cenas = [{ rolar: 0, segura: 1.5 }];
-if (tem("hero-photo")) cenas.push({ rolar: ".hero-photo", segura: 1.5, legenda: "Feito para abrir no celular" });
-if (tem("story-photos")) cenas.push({ rolar: ".story-photos", segura: 1.6, legenda: "A história da loja" });
+if (temClasse("hero-photo")) cenas.push({ rolar: ".hero-photo", segura: 1.5, legenda: "Feito para abrir no celular" });
+if (temClasse("story-photos")) cenas.push({ rolar: ".story-photos", segura: 1.6, legenda: "A história da loja" });
 // Números da loja (a demo só mostra a nota quando é 5,0; senão os números são outros, como o ano de abertura).
 if (tem('class="stats')) cenas.push({ rolar: ".stats", segura: 1.5, legenda: d.google_nota === "5,0" ? `Nota 5,0 com ${d.google_total} avaliações` : "A loja em números" });
 if (trilhos.length) cenas.push({ rolar: `#${trilhos[0]}-track`, alinhar: "topo", segura: 3.0, legenda: "Vitrine com fotos reais",
   acoes: [{ em: 0.5, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }, { em: 1.6, tipo: "deslizar", alvo: `#${trilhos[0]}-track`, cartoes: 1 }] });
 if (SHOW && trilhos[1]) cenas.push({ rolar: `#${trilhos[1]}-track`, alinhar: "topo", segura: 2.6, legenda: "Mais fotos reais da loja",
   acoes: [{ em: 0.45, tipo: "deslizar", alvo: `#${trilhos[1]}-track`, cartoes: 1, dur: 0.75 }, { em: 1.35, tipo: "deslizar", alvo: `#${trilhos[1]}-track`, cartoes: 1, dur: 0.75 }] });
-if (tem("face-tool") && tem('data-face="redondo"')) cenas.push({ rolar: ".face-tool", alinhar: "topo", segura: 2.6, legenda: "Ajuda a escolher a armação",
+if (temClasse("face-tool") && tem('data-face="redondo"')) cenas.push({ rolar: ".face-tool", alinhar: "topo", segura: 2.6, legenda: "Ajuda a escolher a armação",
   acoes: [{ em: 0.6, tipo: "tocar", alvo: ".face-option[data-face=redondo]", clicar: true }, { em: 1.5, tipo: "tocar", alvo: ".face-option[data-face=coracao]", clicar: true }] });
 if (SHOW && tem('id="atendimento"')) cenas.push({ rolar: "#atendimento h2", alinhar: "topo", segura: 2.0, legenda: "O atendimento passo a passo" });
 if (tem('id="reviews-track"')) cenas.push({ rolar: "#reviews-track", alinhar: "topo", segura: 2.3, legenda: "Avaliações reais do Google",
   acoes: [{ em: 0.7, tipo: "deslizar", alvo: "#reviews-track", cartoes: 1 }] });
-if (SHOW && tem("insta-photo")) cenas.push({ rolar: ".insta-photo", segura: 1.8, legenda: "Ligado ao Instagram da loja" });
+if (SHOW && temClasse("insta-photo")) cenas.push({ rolar: ".insta-photo", segura: 1.8, legenda: "Ligado ao Instagram da loja" });
 if (tem('id="visite"') && tem("button--mustard")) cenas.push({ rolar: "#visite .button--mustard", segura: 2.8, legenda: "WhatsApp e rota a um toque",
   acoes: [{ em: 1.0, tipo: "tocar", alvo: "#visite .button--mustard" }] });
 
 // Demo com menos seções: segura um pouco mais cada parada para o vídeo ficar perto de 28-30 s (show: ~40 s).
-const mov = (cenas.length - 1) * 1.05, cartelas = SHOW ? 5.6 + 5.4 - 1 : 3.2 + 3.8 - 1, alvo = SHOW ? 38 : 27;
+// O clima muda o fôlego: sobrio e grife seguram mais cada parada (e o vídeo fica um pouco maior); descolado, menos.
+const ritmo = { sobrio: 1.15, grife: 1.25, descolado: 0.88 }[CLIMA] || 1;
+if (ritmo !== 1) cenas.forEach(c => { c.segura = Math.round(c.segura * ritmo * 10) / 10; (c.acoes || []).forEach(a => { a.em = Math.round(a.em * ritmo * 100) / 100; }); });
+const mov = (cenas.length - 1) * 1.05, cartelas = SHOW ? 5.6 + 5.4 - 1 : 3.2 + 3.8 - 1, alvo = (SHOW ? 38 : 27) * (ritmo > 1 ? 1.08 : ritmo < 1 ? 0.94 : 1);
 const somaSegura = cenas.reduce((n, c) => n + c.segura, 0);
 if (cartelas + mov + somaSegura < alvo) {
   const k = Math.min(1.35, (alvo - cartelas - mov) / somaSegura);
@@ -78,11 +86,12 @@ const roteiro = {
   cores: { fundo: d.cores?.escuro || "#2b2c3b", fundo2: escurecer(d.cores?.escuro || "#2b2c3b"), acento: d.cores?.acento || "#d6ae66", claro: "#fffdf6" },
   fontes: { titulo: d.fonte || "Montserrat", texto: "DM Sans" },
   hora: horaAberta(),
+  ...(CLIMA && CLIMA !== "leve" ? { clima: CLIMA } : {}),
   musica: "auto",
   abertura: SHOW ? {
     estilo: "montagem", selo: "Prévia do site", chamada: "O novo site da", nome: dividirNome(d.marca_completa || d.marca),
     ...(d.slogan ? { frase: String(d.slogan).replace(/\.$/, "") + "." } : {}),
-    fotos: [".hero-photo img", ...(trilhos[0] ? [`#${trilhos[0]}-track li:nth-child(2) img`, `#${trilhos[0]}-track li:nth-child(4) img`] : []), ...(tem("insta-photo") ? [".insta-photo img"] : [])].slice(0, 4),
+    fotos: [".hero-photo img", ...(trilhos[0] ? [`#${trilhos[0]}-track li:nth-child(2) img`, `#${trilhos[0]}-track li:nth-child(4) img`] : []), ...(temClasse("insta-photo") ? [".insta-photo img"] : [])].slice(0, 4),
     // Conferir no ensaio: rosto cortado ou foto repetida, troca o seletor (ou o enquadramento em pos_fotos).
   } : { selo: "Prévia do site", chamada: "O novo site da", foto: ".hero-photo img", pos: d.hero?.foto?.c ? `${Math.round(d.hero.foto.c[0] * 100)}% ${Math.round(d.hero.foto.c[1] * 100)}%` : "50% 30%" },
   fechamento: { ...(SHOW ? { estilo: "rolagem" } : {}), titulo: "Seu site novo", destaque: "já está pronto.", convite: "Gostou? É só responder esta mensagem." },
