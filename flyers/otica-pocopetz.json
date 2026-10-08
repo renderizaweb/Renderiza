@@ -17,11 +17,6 @@
   "pos": "50% 35%",
   "largura": 800
  },
- "foto2": {
-  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-pocopetz/02.jpg",
-  "pos": "50% 50%",
-  "legenda": "Ótica e beleza num lugar só"
- },
  "selo": {
   "nota": "5,0",
   "total": "297"

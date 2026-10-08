@@ -17,11 +17,6 @@
   "pos": "50% 30%",
   "largura": 800
  },
- "foto2": {
-  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/boutique-dos-oculos/19.jpg",
-  "pos": "50% 35%",
-  "legenda": "Aprovado!"
- },
  "selo": {
   "nota": "5,0",
   "total": "123"

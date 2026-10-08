@@ -5,8 +5,8 @@
 // O JSON (flyers/<id>.json) traz os dados da demo da ótica:
 //   marca, local (linha pequena acima do nome), fontes: { titulo, texto } (Google Fonts),
 //   cores: { fundo, fundo2, acento, tinta_acento (texto em cima do acento), claro },
-//   foto: { arquivo, pos: "50% 40%", largura (até 860; menor para foto pequena) }, foto2 opcional: { arquivo, pos, legenda, lado: "esquerda" } (polaroid; o selo
-//     vai para o lado oposto),
+//   foto: { arquivo, pos: "50% 40%", largura (até 860; menor para foto pequena) }. Uma foto só, sem foto menor de
+//     complemento: menos é mais.
 //   selo: { nota: "5,0", total: "22" } (a nota só aparece se for 5,0; senão, só as estrelas e o total)
 //     ou selo: { texto: "Desde 1951" },
 //   titulo (aceita <em> para a parte em destaque), texto, whatsapp, cta ("Chame no WhatsApp"), endereco, instagram,
@@ -39,7 +39,6 @@ const ESTRELAS = "★★★★★";
 const selo = cfg.selo?.texto
   ? `<div class="selo"><span class="selo-txt">${esc(cfg.selo.texto)}</span></div>`
   : cfg.selo ? `<div class="selo">${String(cfg.selo.nota).trim() === "5,0" ? `<strong>5,0</strong>` : ""}<span><span class="estrelas">${ESTRELAS}</span><small>${cfg.selo.total ? esc(cfg.selo.total) + " avaliações no Google" : "nota no Google"}</small></span></div>` : "";
-const polaroid = cfg.foto2 ? `<figure class="polaroid"><img src="${dataUri(cfg.foto2.arquivo)}" style="object-position:${cfg.foto2.pos || "50% 50%"}"><figcaption>${esc(cfg.foto2.legenda || "")}</figcaption></figure>` : "";
 const ICONES = {
   whats: '<path d="M16.04 4C9.4 4 4 9.38 4 16c0 2.11.55 4.18 1.6 6L4 28l6.18-1.6A12.02 12.02 0 0 0 28.06 16C28.06 9.38 22.67 4 16.04 4Zm0 21.9c-1.8 0-3.56-.48-5.1-1.4l-.37-.22-3.67.95.98-3.57-.24-.37A9.86 9.86 0 0 1 6.1 16c0-5.46 4.46-9.9 9.94-9.9 5.47 0 9.92 4.44 9.92 9.9 0 5.46-4.45 9.9-9.92 9.9Zm5.44-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" fill="currentColor"/>',
   pin: '<path d="M16 3a10 10 0 0 0-10 10c0 7.5 10 16 10 16s10-8.5 10-16A10 10 0 0 0 16 3Zm0 13.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/>',
@@ -64,14 +63,9 @@ body{font-family:"${fX}",system-ui,sans-serif;font-variant-numeric:lining-nums;c
 .marca{font-family:"${fT}",serif;font-weight:700;font-size:64px;line-height:1.05;margin-top:14px;letter-spacing:-.5px;color:#fff}
 .foto{position:absolute;left:${FX}px;top:390px;width:${FW}px;height:840px;border-radius:${FW / 2}px ${FW / 2}px 48px 48px;overflow:hidden;border:10px solid ${c.acento};box-shadow:0 40px 90px #00000066;background:#222}
 .foto img{width:100%;height:100%;object-fit:cover;display:block}
-.polaroid{position:absolute;left:${FX + FW + 52 - 282}px;top:858px;width:282px;padding:15px 15px 0;z-index:3;background:#fff;border-radius:6px;box-shadow:0 26px 60px #00000059;transform:rotate(5deg)}
-.polaroid img{width:252px;height:262px;object-fit:cover;display:block;border-radius:2px}
-.polaroid figcaption{font-family:"${fT}",serif;font-weight:600;font-size:23px;color:#262626;text-align:center;padding:14px 4px 18px;line-height:1.15}
 .selo{position:absolute;left:${FX - 26}px;top:1150px;z-index:3;display:flex;align-items:center;gap:18px;background:#fff;color:#1d1d1f;border-radius:26px;padding:20px 30px 20px 26px;box-shadow:0 22px 50px #00000052}
 .selo strong{font-family:"${fT}",serif;font-size:62px;line-height:1;font-weight:700;letter-spacing:-1px}
 .selo span{display:flex;flex-direction:column;gap:4px}
-body.polaroid-esquerda .polaroid{left:${FX - 52}px;transform:rotate(-5deg)}
-body.polaroid-esquerda .selo{left:auto;right:${1080 - FX - FW - 26}px}
 .estrelas{color:${c.estrela || c.acento};font-size:32px;letter-spacing:4px;line-height:1}
 .selo small{font-size:24px;color:#4b4b52;font-weight:500}
 .selo-txt{font-family:"${fT}",serif;font-size:38px;font-weight:700}
@@ -84,11 +78,10 @@ h1 em{font-style:${cfg.italico === false ? "normal" : "italic"};color:${c.acento
 .rodape{position:absolute;left:96px;right:96px;top:1758px;display:flex;justify-content:center;gap:34px;font-size:25px;color:${c.claro};opacity:.88;font-weight:500;white-space:nowrap}
 .rodape span{display:flex;align-items:center;gap:9px}
 .rodape svg{width:30px;height:30px;color:${c.acento}}
-</style></head><body class="${cfg.foto2?.lado === "esquerda" ? "polaroid-esquerda" : ""}">
+</style></head><body>
 <div class="bola b1"></div><div class="bola b2"></div><div class="bola b3"></div>
 <header class="topo"><p class="local">${esc(cfg.local)}</p><p class="marca">${esc(cfg.marca)}</p></header>
 <div class="foto"><img src="${dataUri(cfg.foto.arquivo)}" style="object-position:${cfg.foto.pos || "50% 50%"}"></div>
-${polaroid}
 ${selo}
 <section class="texto"><h1>${titulo(cfg.titulo)}</h1>${cfg.texto ? `<p class="apoio">${esc(cfg.texto)}</p>` : ""}</section>
 <div class="cta">${svg("whats")}<span>${esc(cfg.cta || "Chame no WhatsApp")} · ${esc(cfg.whatsapp)}</span></div>

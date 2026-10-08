@@ -301,9 +301,10 @@ demo?". A arte é um presente pronto para os Stories da ótica, pensado para **a
 dono tem que ver e gostar. A gentileza puxa a resposta.
 
 - **Como é:** PNG 1080 × 1920 feito pelo `ferramentas/flyer/gerar.mjs` a partir de `flyers/<id-do-lead>.json`
-  (nome da ótica, bairro, fonte e cores da demo, foto principal em arco, polaroid, selo do Google, título
-  e texto da demo, botão do WhatsApp, endereço e Instagram). Nada importante nos 200 px de cima nem nos
-  170 de baixo (o Instagram cobre).
+  (nome da ótica, bairro, fonte e cores da demo, uma foto em arco, selo do Google, título e texto da demo,
+  botão do WhatsApp, endereço e Instagram). **Uma foto só:** nada de foto menor de complemento (polaroid);
+  o Kaue achou que pesava, menos é mais. Nada importante nos 200 px de cima nem nos 170 de baixo (o
+  Instagram cobre).
 - **Regras:** os mesmos dados conferidos da demo; foto real, de gente sorrindo (cliente, família,
   criança, equipe) antes de produto; a nota só aparece se for 5,0 (abaixo disso, estrelas e total); o
   WhatsApp é o que a ótica divulga para cliente (fachada, bio, Google), não o número pessoal do dono;

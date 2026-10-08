@@ -17,11 +17,6 @@
   "pos": "50% 30%",
   "largura": 800
  },
- "foto2": {
-  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/lez-otica/02.jpg",
-  "pos": "50% 35%",
-  "legenda": "Atendimento de perto"
- },
  "selo": {
   "nota": "5,0",
   "total": "39"

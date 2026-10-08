@@ -18,11 +18,6 @@
   "pos": "50% 30%",
   "largura": 800
  },
- "foto2": {
-  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-haramaki/02.jpg",
-  "pos": "50% 40%",
-  "legenda": "Mais uma cliente feliz"
- },
  "selo": {
   "nota": "5,0",
   "total": "321"

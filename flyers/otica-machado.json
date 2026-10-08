@@ -17,11 +17,6 @@
   "pos": "50% 30%",
   "largura": 700
  },
- "foto2": {
-  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-machado/02.jpg",
-  "pos": "50% 40%",
-  "legenda": "Embalado com carinho"
- },
  "selo": {
   "nota": "5,0",
   "total": "141"
