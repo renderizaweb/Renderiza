@@ -147,26 +147,47 @@ WhatsApp".
 4. **Flyer de Stories junto com a demo** (pedido do Kaue em 06/10/2026, vale para toda demo nova): ver abaixo.
 5. **Mensagem pronta de WhatsApp** (pedido do Kaue em 08/10/2026, vale para toda demo nova): ver abaixo.
 
-## Mensagem pronta de WhatsApp (1º contato com a demo)
+## Mensagem pronta de WhatsApp (1º contato com a demo, em etapas)
 
-Para óticas (ou lojas) de menor potencial, o primeiro contato sai com um clique, sem escrever à mão. Toda
-demo nova ganha `leads.mensagem_whatsapp`; no painel, **Mandar mensagem pronta** (o primeiro botão do
-card) abre a conversa no WhatsApp de quem está no painel com o texto pronto. Não envia sozinho: confere e
-aperta enviar. Ao abrir, a demo fica no ar 7 dias a partir dali (o prazo contava da criação). O texto fica
-editável na seção Demo; sem texto, **Usar o modelo** põe o modelo.
+Para óticas (ou lojas, clínicas) de menor potencial, o primeiro contato sai com poucos cliques. Pedido do
+Kaue em 08/10/2026, refeito no mesmo dia: **não pode ter cara de golpe nem de spam**. Mensagem que chega
+de número desconhecido já com link ("acesse aqui") é o formato do golpe e é a que é ignorada. Então:
 
-**Modelo** (`painel/src/mensagem.js`, `mensagemPadrao`): assina a Milena, da Renderiza; diz que olhou o
-Instagram, viu potencial e criou uma prévia de site; o link completo da demo; **"É o site da <loja>, <um
-detalhe real da ficha>."**; fecha com "me conta o que achou?". Regras:
-- **Um link só, o da demo.** O WhatsApp mostra a prévia do primeiro link do texto; o site da Renderiza
-  (ou qualquer outro link) antes dele rouba a prévia.
-- O detalhe sai da ficha e do que a demo mostra (anos de loja, a foto do casal na porta, a consultoria, o
-  número de avaliações). Nada de preço, promoção ou dado não confirmado; nome de pessoa só quando a ficha
-  confirma quem é (ex.: "Oi, Nina" na Ótica Nina).
-- Para gravar: `update public.leads set mensagem_whatsapp = $msg$…$msg$ where id = '<id>'` (o texto
-  com `mensagemPadrao(lead, { detalhe })`).
-- Sem WhatsApp no lead, o botão não aparece (a seção Demo avisa). Número fixo só funciona se for
-  WhatsApp Business.
+**A conversa em etapas** (`leads.mensagem_whatsapp`, as etapas separadas por uma linha `---`; no painel,
+uma caixa e um botão para cada uma, e os dois primeiros botões também no topo do card):
+1. **Abrir a conversa**, sem link: "Oi, tudo bem? É da Ótica X? Com quem eu falo?". Uma pergunta que se
+   responde com uma palavra; quase todo mundo responde.
+2. **Mandar a prévia**, só depois que responderem: quem é a Milena, o que a Renderiza faz, o detalhe real
+   da loja ("gostei muito de ver…") e o link da prévia. Sem pressão: "não precisa decidir nada".
+3. **Retomar**, uma vez só, se não responderem em 1 ou 2 dias: a prévia com o link e "se não for com você,
+   me diz com quem eu posso falar?". Sem resposta depois disso, para.
+
+Os botões só abrem a conversa no WhatsApp com o texto: a pessoa confere e aperta enviar. Duas mensagens
+seguidas com um clique não dá sem automação (extensão ou robô no WhatsApp Web), e automação é o que mais
+bloqueia número; nem é o caso: a 2ª etapa existe para esperar a resposta. Ao abrir a prévia ou a retomada,
+a demo fica no ar 7 dias a partir dali.
+
+**A prévia do link** (`scripts/montar-site.mjs`): toda demo sai com as meta `og:` (título e descrição da
+demo) e a foto do topo em `/demo/<pasta>/capa.jpg`. O link chega no WhatsApp com a foto e o nome da própria
+loja, o que nenhum golpe tem. Demo com fotos só em WebP fica sem a foto na prévia.
+
+**Regras do texto** (`painel/src/mensagem.js`, `mensagensPadrao`; o `detalhe` é um trecho sem preposição,
+ex.: "a foto de vocês na porta da loja e as 268 avaliações 5 estrelas no Google"):
+- Um link só, o da demo, e só a partir da 2ª etapa. Nada de "clique aqui", "acesse", urgência, preço,
+  promoção ou encurtador de link.
+- O detalhe sai da ficha e do que a demo mostra. Nome de pessoa só quando a ficha confirma quem é (ex.:
+  "Falo com a Nina, da Ótica Nina?").
+- Para gravar: `update public.leads set mensagem_whatsapp = $msg$<abrir>`, linha `---`, `<prévia>`,
+  linha `---`, `<retomar>$msg$ where id = '<id>'` (o texto sai de
+  `juntarMensagens(mensagensPadrao(lead, { detalhe }))`).
+
+**Para não virar spam** (o que mais pesa no bloqueio do número e em ser ignorado):
+- Mandar do número da Milena, com WhatsApp Business: foto/logo, nome "Milena · Renderiza", descrição e o
+  site. Quem recebe toca no nome para conferir; o perfil tem que confirmar a mensagem.
+- Poucos por dia (10 a 20), espaçados, em dia útil e horário de loja aberta.
+- Responder rápido quando responderem; quem tem vídeo de apresentação pode receber o vídeo na 2ª etapa
+  (o vídeo da própria loja convence mais que o link).
+- Sem WhatsApp no lead, os botões não aparecem. Número fixo só funciona se for WhatsApp Business.
 
 ## Prazo das demos (7 dias)
 

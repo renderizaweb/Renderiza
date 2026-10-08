@@ -87,10 +87,12 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
-- **Mensagem pronta de WhatsApp** (`leads.mensagem_whatsapp`): o primeiro botão do card, **Mandar
-  mensagem pronta**, abre a conversa no WhatsApp com o texto (não envia sozinho) e deixa a demo no ar 7 dias
-  a partir dali. O texto fica na seção **Demo**, editável; vazio, **Usar o modelo** (`src/mensagem.js`) põe o
-  modelo. Sem a coluna no banco (`supabase/schema.sql`), o campo não aparece.
+- **Mensagens prontas de WhatsApp, em etapas** (`leads.mensagem_whatsapp`, etapas separadas por `---`):
+  **1 · Abrir conversa** (sem link) e **2 · Mandar a prévia** (com o link, depois que responderem) no topo
+  do card; na seção **Demo**, uma caixa editável e um botão **Abrir no WhatsApp** por etapa, mais a
+  **Retomar** (sem resposta em 1 ou 2 dias). Os botões abrem a conversa com o texto, não enviam; os que
+  mandam o link deixam a demo no ar 7 dias a partir dali. Vazio, **Usar o modelo** (`src/mensagem.js`) põe
+  as três etapas. Sem a coluna no banco (`supabase/schema.sql`), as caixas não aparecem.
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,

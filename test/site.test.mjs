@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import config from "../site/config.mjs";
 import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel } from "../site/pagina.mjs";
-import { arquivosPublicados } from "../scripts/montar-site.mjs";
+import { arquivosPublicados, comPreviaDoLink, fotoDaCapa } from "../scripts/montar-site.mjs";
 
 const comContatos = {
   ...config,
@@ -135,6 +135,20 @@ test("vão para o ar: home, painel em /painel e /login, demos e arquivos do site
   for (const d of ["index.html", "painel/index.html", "login/index.html", "painel/src/app.js", "compartilhar.jpg", "favicon.svg", "fontes/geist.woff2"]) assert.ok(destinos.includes(d), d);
   assert.ok(destinos.some(d => /^demo\/[^/]+\/index\.html$/.test(d)));
   for (const d of destinos) assert.doesNotMatch(d, /\.(md|mjs|sql|py)$|^(site|supabase|ferramentas|scripts|src)\//, d);
+});
+
+test("demo sai com a prévia do link: meta og: com o nome da loja e a foto do topo em capa.jpg", async () => {
+  const lista = new Map(arquivosPublicados().map(([d, o]) => [d.split("\\").join("/"), o]));
+  const pagina = lista.get("demo/otica-flash/index.html"), capa = lista.get("demo/otica-flash/capa.jpg");
+  assert.equal(typeof pagina, "function");
+  const html = await pagina();
+  assert.match(html, /<meta property="og:title" content="Ótica Flash[^"]*">/);
+  assert.match(html, /<meta property="og:image" content="https:\/\/www\.renderizaweb\.com\.br\/demo\/otica-flash\/capa\.jpg">/);
+  assert.match(html, /<meta property="og:url" content="https:\/\/www\.renderizaweb\.com\.br\/demo\/otica-flash">/);
+  const jpg = await capa();
+  assert.ok(jpg[0] === 0xff && jpg[1] === 0xd8 && jpg.length < 600 * 1024, "JPEG de até 600 KB (limite da prévia do WhatsApp)");
+  assert.equal(comPreviaDoLink('<head><meta property="og:title" content="x"></head>', "x", "jpg"), '<head><meta property="og:title" content="x"></head>');
+  assert.equal(fotoDaCapa("<p>sem foto</p>"), null);
 });
 
 test("vídeos de apresentação: só o MP4 vai ao ar, em /gravacao/<lead>.mp4", () => {

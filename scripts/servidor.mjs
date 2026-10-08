@@ -45,7 +45,8 @@ createServer(async (req, res) => {
   const origem = candidatos.map(c => publicados.get(c)).find(Boolean);
   if (!origem) { res.statusCode = 404; return res.end("Não encontrado"); }
   const gerado = typeof origem === "function";
-  res.setHeader("Content-Type", gerado ? TIPOS[".html"] : TIPOS[extname(origem)] || "application/octet-stream");
+  // Gerado na hora: a home e as demos (HTML) e a capa da demo (imagem); a função diz o tipo em .tipo.
+  res.setHeader("Content-Type", gerado ? TIPOS[origem.tipo || ".html"] : TIPOS[extname(origem)] || "application/octet-stream");
   res.setHeader("Cache-Control", "no-store");
   res.end(gerado ? await origem() : await readFile(origem));
 }).listen(PORTA, () => console.log(`Renderiza em http://localhost:${PORTA}  (site em /, painel em /painel, login em /login, demos em /demo/<ótica>)`));
