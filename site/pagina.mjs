@@ -263,7 +263,7 @@ function secaoTeste({ temWa, contato }) {
           <div class="teste-barra" aria-hidden="true">${TESTE.map(() => "<span></span>").join("")}</div>
           <p class="teste-frase" data-frase aria-live="polite">Marque o que o seu negócio já tem.</p>
           <p class="teste-pergunta" data-pergunta>Se o cliente novo não precisasse perguntar, quanto tempo sobraria para quem já está na sua frente?</p>
-          <a class="botao botao-claro botao-grande" href="${esc(href)}"${temWa ? ` target="_blank" rel="noopener" data-teste-link data-base="${esc(linkWhatsapp(contato, ""))}"` : ""}>${icone("whatsapp", 20)}Quero ver o meu site</a>
+          <a class="botao botao-primario botao-grande" href="${esc(href)}"${temWa ? ` target="_blank" rel="noopener" data-teste-link data-base="${esc(linkWhatsapp(contato, ""))}"` : ""}>${icone("whatsapp", 20)}Quero ver o meu site</a>
         </div>
       </div>
     </div>
@@ -287,8 +287,6 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const depoimentos = (config.depoimentos || []).filter(d => d.publicar && d.texto && d.texto.trim());
   // N nas palavras de um cliente: o trecho do depoimento em que ele mesmo diz o que o site resolveu.
   const fala = depoimentos.find(d => d.valor && d.valor.trim());
-  const fundadoresComFoto = (config.fundadores || []).filter(f => f.foto);
-  const nomesFundadores = emLista((config.fundadores || []).map(f => esc(f.nome)));
 
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
   const descricao = "A Renderiza monta uma prévia do site do seu negócio com as suas fotos reais e as avaliações dos seus clientes. Você vê no celular, sem compromisso, e só depois decide.";
@@ -365,7 +363,6 @@ ${css.trim()}
           <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Quero ver o meu site</a>
           <a class="botao botao-secundario botao-grande" href="#teste">Fazer o teste${icone("baixo", 18)}</a>
         </div>
-        ${nomesFundadores ? `<p class="abertura-gente">${fundadoresComFoto.length ? `<span class="rostos">${fundadoresComFoto.map(f => `<img src="${esc(f.foto)}" alt="" width="720" height="960" decoding="async">`).join("")}</span>` : ""}<span><strong>${nomesFundadores}</strong>, ${(config.fundadores || []).length > 1 ? "os fundadores" : "o fundador"}. Você fala direto com a gente.</span></p>` : ""}
       </div>
 ${vitrine(destaques)}
     </div>
@@ -510,7 +507,7 @@ ${depoimentos.length ? `  <section class="secao secao-clara" id="depoimentos" ar
       <h2 id="contato-titulo">Quer ver como ficaria <em>o seu?</em></h2>
       <p>Mande o nome ou o Instagram do seu negócio. A gente monta a prévia e te mostra, sem compromisso.</p>
       <div class="acoes acoes-convite">
-        ${temWa ? `<a class="botao botao-claro botao-grande" href="${esc(linkWhatsapp(contato, MENSAGEM.convite))}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Quero ver o meu site</a>` : ""}
+        ${temWa ? `<a class="botao botao-primario botao-grande" href="${esc(linkWhatsapp(contato, MENSAGEM.convite))}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Quero ver o meu site</a>` : ""}
         ${!temWa && contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
         ${!temWa && !contato.linkedin ? `<p class="convite-pendente">Os canais de contato estão sendo atualizados.</p>` : ""}
       </div>

@@ -192,7 +192,8 @@ test("abertura: o que fazemos em 5 segundos, um pedido concreto e dois sites de 
   assert.equal(`${FRASE.inicio} ${FRASE.destaque}`, "O site do seu negócio, pronto antes de você pedir.");
   // quem recebeu a prévia confere o perfil: a página confirma em uma linha e mostra quem está por trás
   assert.match(abertura, /<a class="aviso" href="#como-funciona">Recebeu uma prévia do seu site\?/);
-  assert.match(abertura, /Kaue e Milena<\/strong>, os fundadores\. Você fala direto com a gente\./);
+  // nome e rosto dos fundadores ficam em "Quem está por trás", não na abertura (já tinham sido tirados antes)
+  assert.doesNotMatch(abertura, /Kaue|Milena|fundador|class="rostos"/);
   assert.match(abertura, /href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"[^>]*>.*Quero ver o meu site<\/a>/);
   // os exemplos são sites de clientes do público de hoje (autorizados), não o aplicativo
   const destaques = config.trabalhos.filter(t => t.publicar && t.destaque);
@@ -280,7 +281,7 @@ test("sem preço, promessa de resultado, superlativo nem \"de bairro\" no texto 
 test("imagem de compartilhamento: a mesma frase da abertura", () => {
   const script = readFileSync(new URL("../scripts/imagens-do-site.mjs", import.meta.url), "utf8");
   assert.match(script, /FRASE\.inicio/);
-  assert.doesNotMatch(script, /aplicativo com IA/);
+  assert.doesNotMatch(script, /aplicativo com IA|fundadores? da Renderiza/);
   assert.match(montarPagina(config), /<meta property="og:image:alt" content="Renderiza: o site do seu negócio, pronto antes de você pedir\.">/);
 });
 

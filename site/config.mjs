@@ -10,7 +10,7 @@ export default {
   pessoa: {
     nome: "Kaue",
     nomeCompleto: "Kaue de Almeida Cunha",
-    // Foto real em site/estatico/imagens/ (a grande no "Quem faz", o recorte do rosto na abertura).
+    // Foto real em site/estatico/imagens/. A abertura não mostra rosto nem nome dos fundadores (pedido de 09/10/2026).
     foto: "/imagens/kaue.webp",
     anosDeExperiencia: 5,
     trabalhoAtual: "Warren Investimentos",
