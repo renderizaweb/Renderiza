@@ -6,8 +6,8 @@ da vez.
 
 ## Quem, o quê e como falar
 
-- A Renderiza faz **demos de site para óticas de bairro** e oferece o site pronto ao dono, com um vídeo
-  curto mostrando a demo.
+- A Renderiza faz **demos de site** para negócios (óticas no ciclo 1, odonto com estética no ciclo 2) e
+  oferece o site pronto ao dono, com um vídeo curto mostrando a demo.
 - Responder sempre em **português**, direto e curto.
 - **Não inventar nada.** O que não deu para confirmar vira "não confirmei". Citar a fonte.
 - Dono da ótica: só pelos dados públicos da empresa (quadro de sócios da Receita). Nada de CPF,
@@ -19,6 +19,25 @@ da vez.
   (nenhum autorizou até agora).
 - **Instagram da Renderiza:** posts em `instagram/` (carrossel, imagem e Reels, com o README e as legendas).
   Gerar: `node instagram/gerar.mjs`; sai em `rascunhos/instagram/saida/`.
+
+## Ciclos de prospecção (como sprints)
+
+- **Ciclo 1**: foco em óticas, muito trabalho e **nenhuma venda**. Retrato do painel em
+  09/10/2026: 67 leads (54 óticas, 12 dentistas, 1 salão de festas), 59 primeiros contatos, 11 perdas (quase
+  todas óticas: já tem site ou alguém fazendo, sem interesse, "só no ano que vem"). O único lead perto de
+  fechar é dentista (Clínica MS Odontologia). O painel não tem nenhuma resposta nem retorno registrado, só os
+  primeiros contatos: não dá para ver onde a conversa morre.
+- **Ciclo 2** (começou em 09/10/2026): nicho **odonto com estética**. Os dentistas que já têm demo, vídeo e
+  flyer (em Gravação realizada e Contato iniciado) já são desse nicho. Por enquanto o ciclo é só conceitual:
+  **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela `ciclos` segue com "Out–dez 2026").
+- **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
+  Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo, no flyer nem na
+  mensagem pronta.)
+- **Instagram da Renderiza no ciclo 2:** o foco é dentista e estética, mas a maior parte dos posts tem que
+  ser genérica (outros nichos entram nas próximas semanas); posts pontuais de nicho são bem-vindos. A
+  frequência fica a cargo da proposta do Claude.
+- **Painel:** melhorias no front são recorrentes, para facilitar o dia a dia; pedidos chegam a qualquer
+  momento.
 
 ## Como tem que ser uma demo de site
 
