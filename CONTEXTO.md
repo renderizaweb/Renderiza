@@ -13,6 +13,10 @@ da vez.
 - Dono da ótica: só pelos dados públicos da empresa (quadro de sócios da Receita). Nada de CPF,
   endereço ou telefone pessoal.
 - O andamento comercial (enviada, respondeu, fechou) fica no **painel da Renderiza**, não aqui.
+- **Como a Renderiza fala de si (Kaue, 09/10/2026):** o público é negócio em geral (lojas, clínicas,
+  dentistas, estética), não só ótica. **Nunca "de bairro"** ("ótica de bairro", "loja de bairro"): soa
+  pejorativo. No Instagram da Renderiza, nenhuma demo nem foto de lead aparece sem autorização do cliente
+  (nenhum autorizou até agora).
 
 ## Como tem que ser uma demo de site
 
