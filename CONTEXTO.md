@@ -547,8 +547,11 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
   site; texto em "a gente". Mapa das seções em `site/README.md`.
 - **Identidade visual (02/10/2026):** logo real em `site/marca/logo-original.webp`, vetorizado em
   `site/estatico/simbolo.svg` (usado no topo, rodapé, favicon, ícone do iPhone e imagem de compartilhamento).
-  Paleta do logo e nada além: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,
-  sem brilhos nem sombras decorativas. Tokens em `site/estilo.css` (`:root`). O painel ainda usa o visual antigo.
+  Paleta do logo: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,
+  sem brilhos nem sombras decorativas. **Desde 09/10/2026 (pedido no projeto), um toque de terracota**
+  (`--terracota` `#b25134`; `--terracota-clara` `#e8855e` sobre o grafite), o oposto do tom frio do grafite:
+  só em detalhes (sobretítulos, aspas, o teste marcado, os ✓ do site e o aviso da abertura). Botões e
+  títulos continuam grafite e cinza; não espalhar a cor. Tokens em `site/estilo.css` (`:root`). O painel ainda usa o visual antigo.
   Fonte: **Geist** (OFL, auto-hospedada em `site/estatico/fontes/`), no lugar da Inter + Instrument Serif;
   títulos em duas cores (grafite + cinza) no lugar do itálico. Portfólio em cartões com print em alta
   (2x) que abrem o pop-up do projeto (02/10/2026).

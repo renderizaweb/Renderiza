@@ -2,13 +2,18 @@
 @font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fontes/geist.woff2) format("woff2")}
 
 :root{
-  /* Paleta do logo: grafite e o branco quente do símbolo. Nada de outra cor. */
+  /* Paleta do logo: grafite e o branco quente do símbolo. */
   --grafite:#1e2528; --grafite-2:#2b3438; --grafite-3:#151a1c;
   --gelo:#f1eee9;            /* o branco do símbolo: destaques sobre o grafite */
   --papel:#ffffff; --papel-2:#f6f5f2; --branco:#fff;
   --tinta:#1e2528; --tinta-suave:#5b6467; --tinta-clara:#8a9194; --linha:#e6e4df;
   --sobre-grafite:#b9bfc1;   /* texto secundário em fundo grafite */
   --enfase:#7a8386;           /* segunda parte dos títulos (no lugar do itálico) */
+  /* Um toque de terracota, o oposto do tom frio do grafite e vizinho do branco quente do símbolo. Só em
+     detalhes: sobretítulos, o aviso da abertura, o teste marcado, os ✓ do site, aspas, ícones pequenos e a
+     seleção de texto. Botões e títulos seguem grafite e cinza. */
+  --terracota:#b25134;        /* sobre fundo claro: 5,1:1 no branco e 4,7:1 no papel-2 */
+  --terracota-clara:#e8855e;  /* sobre o grafite: 5,9:1 */
   --sans:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --raio:16px; --lateral:20px; --topo:64px;
   color-scheme:light;
@@ -21,6 +26,7 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
 ul,ol{padding:0;list-style:none}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
+::selection{background:var(--terracota);color:#fff}
 svg{flex-shrink:0}
 :focus-visible{outline:3px solid var(--grafite);outline-offset:3px;border-radius:6px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -58,7 +64,8 @@ section[id]{scroll-margin-top:calc(var(--topo) + 8px)}
 .abertura{position:relative;isolation:isolate;overflow:hidden;padding:40px 0 8px}
 .abertura-grade{display:grid;gap:36px}
 .aviso{display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 8px;min-height:40px;margin-bottom:22px;padding:7px 16px;border-radius:999px;background:var(--papel-2);border:1px solid var(--linha);color:var(--tinta-suave);font-size:.875rem;font-weight:500;line-height:1.35;text-decoration:none;transition:border-color .15s}
-.aviso span{display:inline-flex;align-items:center;gap:5px;color:var(--grafite);font-weight:600}
+.aviso::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--terracota)}
+.aviso span{display:inline-flex;align-items:center;gap:5px;color:var(--terracota);font-weight:600}
 .aviso:hover{border-color:#cdc9c1}
 .aviso:hover svg{transform:translateX(2px)}
 .aviso svg{transition:transform .15s}
@@ -86,14 +93,14 @@ h1 em,h2 em{font-style:normal;color:var(--enfase)}
 /* seções */
 .secao{padding:64px 0}
 .secao-clara{background:var(--papel-2)}
-.sobretitulo{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite);margin-bottom:12px}
+.sobretitulo{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terracota);margin-bottom:12px}
 h2{font-weight:600;font-size:clamp(1.85rem,6.4vw,2.75rem);line-height:1.1;letter-spacing:-.04em;color:var(--grafite);text-wrap:balance}
 h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;color:var(--tinta)}
 .secao-lide{margin-top:14px;color:var(--tinta-suave);font-size:1.0625rem;max-width:40em}
 
 /* S · situação: o caminho do cliente novo hoje, em três passos; o último é o problema */
 .dor{background:var(--grafite);color:#fff;padding:64px 0;scroll-margin-top:calc(var(--topo) + 8px)}
-.dor .sobretitulo{color:var(--gelo)}
+.dor .sobretitulo{color:var(--terracota-clara)}
 .dor h2{color:#fff;max-width:15em}
 .dor h2 em{color:var(--sobre-grafite)}
 .dor-lide{margin-top:16px;max-width:38em;color:var(--sobre-grafite);font-size:1.0625rem;line-height:1.65}
@@ -120,8 +127,8 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .teste-texto strong{display:block;font-weight:600;font-size:1.0313rem;line-height:1.4;letter-spacing:-.01em;color:var(--tinta)}
 .teste-custo{display:grid;grid-template-rows:1fr;transition:grid-template-rows .25s ease,opacity .2s ease}
 .teste-custo>span{min-height:0;overflow:hidden;padding-top:6px;font-size:.9375rem;line-height:1.5;color:var(--tinta-suave)}
-.teste-itens input:checked+.teste-item{border-color:var(--grafite);box-shadow:0 0 0 1px var(--grafite)}
-.teste-itens input:checked+.teste-item .teste-caixa{background:var(--grafite);border-color:var(--grafite);color:var(--gelo)}
+.teste-itens input:checked+.teste-item{border-color:var(--terracota);box-shadow:0 0 0 1px var(--terracota)}
+.teste-itens input:checked+.teste-item .teste-caixa{background:var(--terracota);border-color:var(--terracota);color:#fff}
 .teste-itens input:checked+.teste-item .teste-custo{grid-template-rows:0fr;opacity:0}
 .teste-itens input:focus-visible+.teste-item{outline:3px solid var(--grafite);outline-offset:3px}
 .teste-resultado{display:flex;flex-direction:column;padding:26px 24px;border-radius:18px;background:var(--grafite);color:#fff}
@@ -135,7 +142,7 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .teste:has(input:checked~input:checked) .teste-barra span:nth-child(2),
 .teste:has(input:checked~input:checked~input:checked) .teste-barra span:nth-child(3),
 .teste:has(input:checked~input:checked~input:checked~input:checked) .teste-barra span:nth-child(4),
-.teste:has(input:checked~input:checked~input:checked~input:checked~input:checked) .teste-barra span:nth-child(5){background:var(--gelo)}
+.teste:has(input:checked~input:checked~input:checked~input:checked~input:checked) .teste-barra span:nth-child(5){background:var(--terracota-clara)}
 .teste-frase{margin-top:20px;font-size:1.0938rem;font-weight:500;line-height:1.45;letter-spacing:-.01em;color:#fff}
 .teste-pergunta{margin-top:10px;color:var(--sobre-grafite);line-height:1.55}
 .teste-pergunta[hidden]{display:none}
@@ -152,11 +159,11 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .contraste-site{color:var(--tinta);font-weight:600;line-height:1.45}
 .contraste-marca{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center}
 .contraste-hoje .contraste-marca{border:1.5px solid #c9c6bf;color:var(--tinta-clara)}
-.contraste-site .contraste-marca{background:var(--grafite);color:var(--gelo)}
+.contraste-site .contraste-marca{background:var(--terracota);color:#fff}
 .contraste-rotulo{display:block;margin-bottom:2px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-clara)}
 .contraste-site .contraste-rotulo{color:var(--tinta-suave)}
 .fala{position:relative;margin:28px 0 0;padding:28px 24px 24px;border-radius:var(--raio);background:var(--grafite);color:#fff}
-.fala-aspas{display:block;color:var(--gelo);margin-bottom:12px}
+.fala-aspas{display:block;color:var(--terracota-clara);margin-bottom:12px}
 .fala blockquote{margin:0}
 .fala p{font-size:1.1875rem;font-weight:500;line-height:1.5;letter-spacing:-.015em;color:var(--gelo)}
 .fala figcaption{margin-top:16px;font-size:.9375rem;color:var(--sobre-grafite)}
@@ -169,7 +176,7 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .passos li:not(:last-child)::after{content:"";position:absolute;left:18.5px;top:42px;bottom:4px;width:1px;background:#d8d5cf}
 .passos p{margin-top:4px;color:var(--tinta-suave)}
 .passos-nota{display:flex;align-items:center;gap:12px;margin-top:6px;padding:16px 20px;border-radius:14px;background:var(--branco);border:1px solid var(--linha);font-weight:600;line-height:1.4}
-.passos-nota svg{color:var(--grafite)}
+.passos-nota svg{color:var(--terracota)}
 
 /* trabalhos: portfólio. Cartão = print + uma frase; o resto fica no pop-up do projeto.
    Celular: carrossel (desliza para o lado). A partir do tablet: grade de 2 colunas. */
@@ -263,7 +270,7 @@ html:has(dialog[open]){overflow:hidden}
 .depoimentos:focus-visible{outline-offset:-3px}
 .depoimentos li{flex:0 0 86%;scroll-snap-align:start;display:flex}
 .depoimentos figure{width:100%;margin:0;display:flex;flex-direction:column;gap:16px;padding:28px 24px 24px;background:var(--branco);border:1px solid var(--linha);border-radius:var(--raio)}
-.depoimento-aspas{color:var(--grafite)}
+.depoimento-aspas{color:var(--terracota)}
 .depoimentos blockquote{margin:0;flex:1}
 .depoimentos blockquote p{font-size:1.0625rem;line-height:1.65;color:var(--tinta)}
 .depoimentos figcaption{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--linha)}
