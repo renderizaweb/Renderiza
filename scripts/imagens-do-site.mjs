@@ -32,7 +32,6 @@ const GRAFITE = "#1e2528", GELO = "#f1eee9";
 async function gerarImagens() {
   const { default: config } = await import("../site/config.mjs");
   const { FRASE } = await import("../site/pagina.mjs");
-  const nomes = (config.fundadores || []).map(f => f.nome);
   const css = `
     @font-face{font-family:Geist;font-weight:100 900;src:url(${fonte("geist.woff2")})}
     *{margin:0;box-sizing:border-box}
@@ -46,7 +45,7 @@ async function gerarImagens() {
   const og = `<style>${css}</style><div class="quadro">
     <div class="marca">${simbolo(56, GELO)}<b>renderiza</b></div>
     <h1>${FRASE.inicio}<br><em>${FRASE.destaque}</em></h1>
-    <div class="pe"><span><strong>${nomes.join(" e ") || config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, ${nomes.length > 1 ? "fundadores" : "fundador"} da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
+    <div class="pe"><span><strong>Sites para lojas, clínicas e consultórios</strong></span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
   </div>`;
   const icone = (tam, escala = 0.72) => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:${GRAFITE};display:grid;place-items:center}</style>
     ${simbolo(Math.round(tam * escala), GELO)}`;

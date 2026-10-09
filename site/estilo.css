@@ -9,10 +9,11 @@
   --tinta:#1e2528; --tinta-suave:#5b6467; --tinta-clara:#8a9194; --linha:#e6e4df;
   --sobre-grafite:#b9bfc1;   /* texto secundário em fundo grafite */
   --enfase:#7a8386;           /* segunda parte dos títulos (no lugar do itálico) */
-  /* Um toque de terracota, o oposto do tom frio do grafite e vizinho do branco quente do símbolo. Só em
-     detalhes: sobretítulos, o aviso da abertura, o teste marcado, os ✓ do site, aspas, ícones pequenos e a
-     seleção de texto. Botões e títulos seguem grafite e cinza. */
-  --terracota:#b25134;        /* sobre fundo claro: 5,1:1 no branco e 4,7:1 no papel-2 */
+  /* Terracota, o oposto do tom frio do grafite e vizinho do branco quente do símbolo: nos botões principais
+     e em detalhes (sobretítulos, o aviso da abertura, o teste marcado, os ✓ do site, aspas, ícones pequenos e a
+     seleção de texto). Títulos seguem grafite e cinza. */
+  --terracota:#b25134;        /* sobre fundo claro: 5,1:1 no branco e 4,7:1 no papel-2; texto branco nele: 5,1:1 */
+  --terracota-escura:#9a4429; /* botão principal ao passar o mouse */
   --terracota-clara:#e8855e;  /* sobre o grafite: 5,9:1 */
   --sans:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --raio:16px; --lateral:20px; --topo:64px;
@@ -44,12 +45,10 @@ section[id]{scroll-margin-top:calc(var(--topo) + 8px)}
 /* botões */
 .botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;border:1.5px solid transparent;font:inherit;font-weight:600;font-size:.9875rem;line-height:1.2;text-decoration:none;text-align:center;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
 .botao-grande{min-height:54px;padding:0 26px;font-size:1.03rem}
-.botao-primario{background:var(--grafite);color:#fff}
-.botao-primario:hover{background:var(--grafite-2)}
+.botao-primario{background:var(--terracota);color:#fff}
+.botao-primario:hover{background:var(--terracota-escura)}
 .botao-secundario{background:var(--branco);color:var(--grafite);border-color:var(--linha)}
 .botao-secundario:hover{border-color:var(--grafite);background:var(--papel-2)}
-.botao-claro{background:var(--gelo);color:var(--grafite)}
-.botao-claro:hover{background:var(--branco)}
 .botao-contorno{color:#fff;border-color:#ffffff66}
 .botao-contorno:hover{border-color:#fff;background:#ffffff14}
 
@@ -73,11 +72,6 @@ h1{font-weight:600;font-size:clamp(2.45rem,9.4vw,4.1rem);line-height:1.04;letter
 h1 em,h2 em{font-style:normal;color:var(--enfase)}
 .abertura-lide{margin-top:20px;font-size:1.09rem;line-height:1.65;color:var(--tinta-suave);max-width:34em}
 .acoes{display:flex;flex-direction:column;gap:12px;margin-top:28px}
-.abertura-gente{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:.9375rem;line-height:1.45;color:var(--tinta-suave)}
-.abertura-gente strong{color:var(--tinta);font-weight:600}
-.rostos{display:flex;flex:none}
-.rostos img{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:2px solid var(--branco);background:var(--linha)}
-.rostos img+img{margin-left:-11px}
 
 /* vitrine: dois sites de clientes no celular. No celular, só o topo dos aparelhos (o resto some num degradê). */
 .vitrine{position:relative;margin:0}
