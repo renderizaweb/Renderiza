@@ -22,14 +22,24 @@ da vez.
 
 ## Ciclos de prospecção (como sprints)
 
-- **Ciclo 1**: foco em óticas, muito trabalho e **nenhuma venda**. Retrato do painel em
-  09/10/2026: 67 leads (54 óticas, 12 dentistas, 1 salão de festas), 59 primeiros contatos, 11 perdas (quase
-  todas óticas: já tem site ou alguém fazendo, sem interesse, "só no ano que vem"). O único lead perto de
-  fechar é dentista (Clínica MS Odontologia). O painel não tem nenhuma resposta nem retorno registrado, só os
+Ciclos **semanais, de sexta a quinta**: sexta começa, quinta fecha com o diagnóstico e o encerramento dos
+contatos parados e sem resposta (conversa ativa não se encerra sozinha). As atas ficam em `docs/ciclos/`.
+
+- **Ciclo 1 (02 a 08/10/2026)**: foco em óticas, operação organizada pela primeira vez e **nenhuma venda**.
+  Ata: [`docs/ciclos/ciclo-01-ata.md`](docs/ciclos/ciclo-01-ata.md). Gargalo: muitos não respondem à 1ª
+  mensagem, e quem responde é o funcionário, que "vai passar ao dono" e some (hipótese: falta chegar ao
+  decisor). Conferido no painel em 09/10/2026: os "58 leads" da ata são 39 primeiros contatos com data de
+  01 a 08/10 (36 óticas, 3 dentistas) mais 19 da lista de agosto registrada em 02/10. 11 perdas, quase todas
+  óticas (já tem site ou alguém fazendo, sem interesse, "só no ano que vem"); o único lead perto de fechar é
+  dentista (Clínica MS Odontologia). O painel não tem nenhuma resposta nem retorno registrado, só os
   primeiros contatos: não dá para ver onde a conversa morre.
-- **Ciclo 2** (começou em 09/10/2026): nicho **odonto com estética**. Os dentistas que já têm demo, vídeo e
-  flyer (em Gravação realizada e Contato iniciado) já são desse nicho. Por enquanto o ciclo é só conceitual:
-  **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela `ciclos` segue com "Out–dez 2026").
+- **Ciclo 2 (09 a 15/10/2026)**: nicho **odonto com estética** e teste de abordagem **direta pelo
+  Instagram**, para chegar ao dono ou ao profissional. As óticas não foram abandonadas e o WhatsApp
+  continua. Os dentistas que já têm demo, vídeo e flyer (em Gravação realizada e Contato iniciado) já são
+  desse nicho. O ciclo é só conceitual: **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela
+  `ciclos` segue com "Out–dez 2026").
+- **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
+  login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
   Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo, no flyer nem na
   mensagem pronta.)
