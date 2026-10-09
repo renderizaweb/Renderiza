@@ -71,7 +71,8 @@ Etapas do funil (id → nome na tela), nesta ordem (desde 09/10/2026):
 - `a_trabalhar` **Leads a trabalhar**: lead validado, demo ainda não feita.
 - `demo_pronta` **Prontas para trabalhar**: demo, vídeo e flyer prontos; falta o primeiro contato.
 - **Em andamento**, uma fase com três etapas:
-  - `primeiro_contato` **Primeiro contato**: mandou a demo e espera a primeira resposta;
+  - `primeiro_contato` **Em conversa** (até 09/10/2026 se chamava Primeiro contato): mandou a demo,
+    a conversa está aberta;
   - `em_negociacao` **Em negociação**: respondeu e a conversa está andando;
   - `sem_resposta` **Sem resposta**: não respondeu, ou parou de responder (caminho do encerramento).
 - `finalizado` com `resultado` `ganho`, `perda` ou `encerrado` (não respondeu e o contato foi encerrado:

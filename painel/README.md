@@ -19,19 +19,21 @@ Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
 |---|---|---|
 | Leads a trabalhar | `a_trabalhar` | lead validado, demo ainda não feita |
 | Prontas para trabalhar | `demo_pronta` | demo, vídeo e flyer prontos; falta o primeiro contato |
-| **Em andamento** | `primeiro_contato` Primeiro contato | mandou a demo e espera a primeira resposta |
+| **Em andamento** | `primeiro_contato` Em conversa | mandou a demo: a conversa está aberta |
 | | `em_negociacao` Em negociação | respondeu e a conversa está andando |
 | | `sem_resposta` Sem resposta | não respondeu, ou parou de responder: caminho do encerramento |
 | Finalizado | `finalizado` + resultado | **Ganho**, **Perda** ou **Encerrado** (não respondeu: nem ganho, nem perda) |
 
-- **Kanban**: Em andamento é um grupo com uma subcoluna para cada etapa; o cartão muda de etapa ao ser solto
-  na subcoluna. Soltar em Finalizado abre a janela do resultado.
+- **Kanban**: as três etapas de Em andamento são colunas como as outras, na mesma linha e no mesmo verde, com
+  "Em andamento" escrito acima delas; o cartão muda de etapa ao ser solto na coluna. Soltar em Finalizado
+  abre a janela do resultado.
 - **Tabela e detalhes**: o select de etapa mostra as três de Em andamento num grupo; Em negociação aparece em
   azul, Sem resposta em âmbar e Encerrado em cinza. O filtro tem Em andamento (as três), cada etapa e cada
   resultado (Ganho, Perda, Encerrado).
 - **Trilha do lead** (topo dos detalhes): uma barra por fase; em Em andamento, embaixo, a etapa da vez.
 - Etapas antigas (antes de 09/10/2026): Demo criada e Gravação realizada viraram Prontas para trabalhar;
-  Contato iniciado virou Primeiro contato; Em conversa virou Em negociação (quem tinha interesse registrado)
+  Contato iniciado virou a etapa `primeiro_contato` (que na tela se chama Em conversa); o Em conversa de antes
+  (`follow_up`) virou Em negociação (quem tinha interesse registrado)
   ou Sem resposta. O `supabase/schema.sql` migrou os dados e deixou uma linha no histórico de cada lead
   ("etapas reorganizadas"). O histórico antigo continua com os nomes antigos.
 
@@ -112,12 +114,8 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   em `flyers/<id>.png` deste repositório e vai ao ar em `/flyer/<id>.png` (só o PNG; a configuração da arte,
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
-- **Mensagens prontas de WhatsApp, em etapas** (`leads.mensagem_whatsapp`, etapas separadas por `---`):
-  **1 · Abrir conversa** (sem link) e **2 · Mandar a prévia** (com o link, depois que responderem) no topo
-  do card; na seção **Demo**, uma caixa editável e um botão **Abrir no WhatsApp** por etapa, mais a
-  **Retomar** (sem resposta em 1 ou 2 dias). Os botões abrem a conversa com o texto, não enviam; os que
-  mandam o link deixam a demo no ar 7 dias a partir dali. Vazio, **Usar o modelo** (`src/mensagem.js`) põe
-  as três etapas. Sem a coluna no banco (`supabase/schema.sql`), as caixas não aparecem.
+- **Mensagens prontas de WhatsApp**: saíram do painel em 09/10/2026 (a equipe não usava). Os textos antigos
+  continuam em `leads.mensagem_whatsapp` e o modelo em `src/mensagem.js`.
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,
@@ -309,7 +307,7 @@ Nada é apagado: o documento original vai inteiro para `legado`.
 | Lead | Leads a trabalhar |
 | Demo em produção | Prontas para trabalhar se a demo estava pronta; senão Leads a trabalhar |
 | Pronto para enviar | Prontas para trabalhar (`demo_pronta`) |
-| Enviado | Em andamento · Primeiro contato (`primeiro_contato`) |
+| Enviado | Em andamento · Em conversa (`primeiro_contato`) |
 | Respondeu, Conversando, Proposta | Em andamento · Em negociação (`em_negociacao`) **e marcado para revisar** |
 | Fechado | Finalizado · Ganho |
 | Perdido | Finalizado · Perda |

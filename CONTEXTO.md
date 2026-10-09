@@ -41,8 +41,7 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
 - **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
-  Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo, no flyer nem na
-  mensagem pronta.)
+  Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo nem no flyer.)
 - **Instagram da Renderiza no ciclo 2:** o foco é dentista e estética, mas a maior parte dos posts tem que
   ser genérica (outros nichos entram nas próximas semanas); posts pontuais de nicho são bem-vindos. A
   frequência fica a cargo da proposta do Claude.
@@ -180,49 +179,32 @@ WhatsApp".
    `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.
 3. Atualizar a `ficha.md` (situação `pronta · data`) e a tabela do `README.md`.
 4. **Flyer de Stories junto com a demo** (pedido do Kaue em 06/10/2026, vale para toda demo nova): ver abaixo.
-5. **Mensagem pronta de WhatsApp** (pedido do Kaue em 08/10/2026, vale para toda demo nova): ver abaixo.
 
-## Mensagem pronta de WhatsApp (1º contato com a demo, em etapas)
+## Primeiro contato pelo WhatsApp
 
-Para óticas (ou lojas, clínicas) de menor potencial, o primeiro contato sai com poucos cliques. Pedido do
-Kaue em 08/10/2026, refeito no mesmo dia: **não pode ter cara de golpe nem de spam**. Mensagem que chega
-de número desconhecido já com link ("acesse aqui") é o formato do golpe e é a que é ignorada. Então:
+**Mensagens prontas: descontinuadas em 09/10/2026.** O painel não mostra mais as mensagens prontas (1 · Abrir
+conversa, 2 · Mandar a prévia e Retomar): a equipe não usava. **Não gerar `mensagem_whatsapp` para demos novas.**
+Os textos antigos continuam no banco, e o modelo em `painel/src/mensagem.js` (pode servir para a mensagem de
+encerramento do fluxo de Em andamento).
 
-**A conversa em etapas** (`leads.mensagem_whatsapp`, as etapas separadas por uma linha `---`; no painel,
-uma caixa e um botão para cada uma, e os dois primeiros botões também no topo do card):
-1. **Abrir a conversa**, sem link: "Oi, tudo bem? É da Ótica X? Com quem eu falo?". Uma pergunta que se
-   responde com uma palavra; quase todo mundo responde.
-2. **Mandar a prévia**, só depois que responderem: quem é a Milena, o que a Renderiza faz, o detalhe real
-   da loja ("gostei muito de ver…") e o link da prévia. Sem pressão: "não precisa decidir nada".
-3. **Retomar**, uma vez só, se não responderem em 1 ou 2 dias: a prévia com o link e "se não for com você,
-   me diz com quem eu posso falar?". Sem resposta depois disso, para.
-
-Os botões só abrem a conversa no WhatsApp com o texto: a pessoa confere e aperta enviar. Duas mensagens
-seguidas com um clique não dá sem automação (extensão ou robô no WhatsApp Web), e automação é o que mais
-bloqueia número; nem é o caso: a 2ª etapa existe para esperar a resposta. Ao abrir a prévia ou a retomada,
-a demo fica no ar 7 dias a partir dali.
+Continua valendo, do pedido do Kaue de 08/10/2026: o contato **não pode ter cara de golpe nem de spam**.
+Mensagem que chega de número desconhecido já com link ("acesse aqui") é o formato do golpe e é a que é ignorada.
 
 **A prévia do link** (`scripts/montar-site.mjs`): toda demo sai com as meta `og:` (título e descrição da
 demo) e a foto do topo em `/demo/<pasta>/capa.jpg`. O link chega no WhatsApp com a foto e o nome da própria
 loja, o que nenhum golpe tem. Demo com fotos só em WebP fica sem a foto na prévia.
 
-**Regras do texto** (`painel/src/mensagem.js`, `mensagensPadrao`; o `detalhe` é um trecho sem preposição,
-ex.: "a foto de vocês na porta da loja e as 268 avaliações 5 estrelas no Google"):
-- Um link só, o da demo, e só a partir da 2ª etapa. Nada de "clique aqui", "acesse", urgência, preço,
-  promoção ou encurtador de link.
-- O detalhe sai da ficha e do que a demo mostra. Nome de pessoa só quando a ficha confirma quem é (ex.:
-  "Falo com a Nina, da Ótica Nina?").
-- Para gravar: `update public.leads set mensagem_whatsapp = $msg$<abrir>`, linha `---`, `<prévia>`,
-  linha `---`, `<retomar>$msg$ where id = '<id>'` (o texto sai de
-  `juntarMensagens(mensagensPadrao(lead, { detalhe }))`).
+**Regras do texto** (quando a Renderiza escrever uma mensagem para alguém):
+- Um link só, o da demo. Nada de "clique aqui", "acesse", urgência, preço, promoção ou encurtador de link.
+- Um detalhe real da loja, tirado da ficha e do que a demo mostra. Nome de pessoa só quando a ficha confirma
+  quem é (ex.: "Falo com a Nina, da Ótica Nina?").
 
 **Para não virar spam** (o que mais pesa no bloqueio do número e em ser ignorado):
 - Mandar do número da Milena, com WhatsApp Business: foto/logo, nome "Milena · Renderiza", descrição e o
   site. Quem recebe toca no nome para conferir; o perfil tem que confirmar a mensagem.
 - Poucos por dia (10 a 20), espaçados, em dia útil e horário de loja aberta.
-- Responder rápido quando responderem; quem tem vídeo de apresentação pode receber o vídeo na 2ª etapa
-  (o vídeo da própria loja convence mais que o link).
-- Sem WhatsApp no lead, os botões não aparecem. Número fixo só funciona se for WhatsApp Business.
+- Responder rápido quando responderem; o vídeo da própria loja convence mais que o link.
+- Número fixo só recebe WhatsApp se for WhatsApp Business.
 
 ## Prazo das demos (7 dias)
 
@@ -572,11 +554,13 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
   com Supabase. Abre no Pipeline (pedido do Kaue em 08/10/2026: é a casa do painel). Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).
   **Funil (09/10/2026):** Leads a trabalhar (`a_trabalhar`) → Prontas para trabalhar (`demo_pronta`: demo,
-  vídeo e flyer prontos) → **Em andamento**, com três etapas: Primeiro contato (`primeiro_contato`), Em
-  negociação (`em_negociacao`) e Sem resposta (`sem_resposta`) → Finalizado com Ganho, Perda ou **Encerrado**
-  (não respondeu: nem ganho, nem perda). No kanban, Em andamento é um grupo com uma subcoluna por etapa.
+  vídeo e flyer prontos) → **Em andamento**, com três etapas: Em conversa (`primeiro_contato`; até 09/10 se
+  chamava Primeiro contato), Em negociação (`em_negociacao`) e Sem resposta (`sem_resposta`) → Finalizado com
+  Ganho, Perda ou **Encerrado** (não respondeu: nem ganho, nem perda). No kanban, as seis colunas ficam na
+  mesma linha e no mesmo verde, com "Em andamento" escrito acima das três dele.
   Nomes antigos que aparecem neste arquivo: Demo criada e Gravação realizada = Prontas para trabalhar;
-  Contato iniciado = Primeiro contato; Em conversa = Em negociação (com interesse) ou Sem resposta.
+  Contato iniciado = Em conversa (`primeiro_contato`); o Em conversa de antes de 09/10/2026 (`follow_up`) =
+  Em negociação (com interesse) ou Sem resposta.
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
     `schema.sql` rodado, usuário do Kaue criado, novos cadastros desligados.

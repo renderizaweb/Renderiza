@@ -9,7 +9,7 @@ import {
 import { migrarLead, completarLead } from "../painel/src/migracao.js";
 import { opcoesPlanas } from "../painel/src/dom.js";
 
-test("quatro fases; Em andamento junta Primeiro contato, Em negociação e Sem resposta", () => {
+test("quatro fases; Em andamento junta Em conversa, Em negociação e Sem resposta", () => {
   assert.deepEqual(FASES.map(f => f.nome), ["Leads a trabalhar", "Prontas para trabalhar", "Em andamento", "Finalizado"]);
   assert.deepEqual(FASES.find(f => f.id === "em_andamento").etapas, ["primeiro_contato", "em_negociacao", "sem_resposta"]);
   // cada etapa está em uma fase só, e na ordem do funil
@@ -38,12 +38,13 @@ test("rótulos: Em andamento leva o nome da fase; Finalizado leva o resultado", 
   assert.equal(rotuloEtapa({ etapa: "sem_resposta" }), "Em andamento · Sem resposta");
   assert.equal(rotuloEtapa({ etapa: "finalizado", resultado: "encerrado" }), "Finalizado · Encerrado");
   assert.equal(nomeDaEtapa("follow_up"), "Em conversa", "id antigo mantém o nome que tinha");
+  assert.equal(rotuloEtapa({ etapa: "primeiro_contato" }), "Em andamento · Em conversa", "primeiro_contato aparece como Em conversa");
 });
 
 test("histórico: linhas antigas, a reorganização e mudanças dentro de Em andamento", () => {
   assert.equal(textoDoHistorico({ de: "demo_enviada", para: "follow_up" }), "Contato iniciado → Em conversa");
   assert.equal(textoDoHistorico({ de: "follow_up", para: "sem_resposta", origem: "reorganizacao" }), "Em conversa → Em andamento · Sem resposta (etapas reorganizadas)");
-  assert.equal(textoDoHistorico({ de: "primeiro_contato", para: "em_negociacao" }), "Em andamento: Primeiro contato → Em negociação");
+  assert.equal(textoDoHistorico({ de: "primeiro_contato", para: "em_negociacao" }), "Em andamento: Em conversa → Em negociação");
   assert.equal(textoDoHistorico({ de: "sem_resposta", para: "finalizado", resultado: "encerrado" }), "Em andamento · Sem resposta → Finalizado · Encerrado");
   assert.equal(textoDoHistorico({ de: "a_trabalhar", para: "demo_pronta", origem: "ia" }), "Leads a trabalhar → Prontas para trabalhar (pela IA)");
 });
@@ -51,7 +52,7 @@ test("histórico: linhas antigas, a reorganização e mudanças dentro de Em and
 test("opções de etapa: Em andamento num grupo; Finalizado com o texto pedido ou de fora", () => {
   const ops = opcoesDeEtapa({ finalizado: "Finalizado · Ganho" });
   assert.equal(ops.length, 4);
-  assert.deepEqual(ops[2], { grupo: "Em andamento", opcoes: [["primeiro_contato", "Primeiro contato"], ["em_negociacao", "Em negociação"], ["sem_resposta", "Sem resposta"]] });
+  assert.deepEqual(ops[2], { grupo: "Em andamento", opcoes: [["primeiro_contato", "Em conversa"], ["em_negociacao", "Em negociação"], ["sem_resposta", "Sem resposta"]] });
   assert.deepEqual(ops[3], ["finalizado", "Finalizado · Ganho"]);
   assert.equal(opcoesDeEtapa({ finalizado: false }).length, 3);
   assert.deepEqual(opcoesPlanas(ops).map(o => o[0]), ETAPAS.map(e => e.id));

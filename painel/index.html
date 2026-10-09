@@ -236,7 +236,7 @@ td.money .inline-text{text-align:right}
 .empty-grid span{font-size:.8125rem;color:#91a297}
 
 /* kanban */
-.kanban{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(168px,1fr);gap:12px;overflow-x:auto;padding-bottom:8px;align-items:start}
+.kanban{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(168px,1fr);gap:12px;overflow-x:auto;padding:36px 0 8px;align-items:start}
 .kanban-col{background:#fff;border:1px solid #dfe7e2;border-radius:11px;overflow:hidden;display:flex;flex-direction:column;min-height:180px}
 .kanban-col header{display:flex;align-items:center;justify-content:space-between;gap:8px;height:48px;padding:0 14px;background:#285745;color:#f7fff9;font-size:.8125rem;font-weight:600}
 .kanban-col header small{background:#ffffff1f;color:#dcf7e6;border-radius:5px;padding:1px 7px;font-size:.75rem;font-weight:500}
@@ -262,16 +262,15 @@ td.money .inline-text{text-align:right}
 .resultado-chip.ganho{background:#e6f0e8;color:#2c6a45}
 .resultado-chip.perda{background:#fbe9e7;color:#b3261e}
 .resultado-chip.encerrado{background:#eef1f0;color:#52645b}
-/* Em andamento: um grupo com uma subcoluna por etapa (Primeiro contato, Em negociação, Sem resposta) */
-.kanban-grupo{grid-column:span var(--subcolunas,3);display:flex;flex-direction:column;min-width:0;padding:0 6px 6px;border:1px solid #cfe1d6;border-radius:12px;background:#e7f1eb}
-.kanban-grupo-topo{display:flex;align-items:center;gap:8px;height:34px;padding:0 8px;color:#1f5a45;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+/* Em andamento: as três etapas são colunas iguais às outras, na mesma linha; o nome da fase fica acima delas,
+   num colchete que abraça as três (no espaço de cima do .kanban, para não rebaixar as colunas). */
+.kanban-grupo{grid-column:span var(--subcolunas,3);position:relative;min-width:0}
+.kanban-grupo-colunas{display:grid;grid-template-columns:repeat(var(--subcolunas,3),minmax(0,1fr));gap:12px;align-items:start}
+.kanban-grupo-topo{position:absolute;left:0;right:0;bottom:calc(100% + 8px);display:flex;align-items:center;justify-content:center;gap:8px;padding-bottom:5px;border-bottom:2px solid #b3d4c1;color:#1f5a45;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.kanban-grupo-topo::before,.kanban-grupo-topo::after{content:"";position:absolute;bottom:-8px;width:2px;height:8px;background:#b3d4c1}
+.kanban-grupo-topo::before{left:0}
+.kanban-grupo-topo::after{right:0}
 .kanban-grupo-topo small{background:#1f5a4517;color:#1f5a45;border-radius:5px;padding:1px 7px;font-size:.75rem;font-weight:600;letter-spacing:0}
-.kanban-grupo-colunas{display:grid;grid-template-columns:repeat(var(--subcolunas,3),minmax(0,1fr));gap:6px;align-items:start}
-.kanban-col.sub header{height:42px;background:#2f6651}
-.kanban-col.sub header span{display:inline-flex;align-items:center;gap:7px;min-width:0}
-.kanban-col.sub header span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--cor-etapa,#9fd6b6)}
-.kanban-col.etapa-em_negociacao{--cor-etapa:#8fd0ef}
-.kanban-col.etapa-sem_resposta{--cor-etapa:#f0c46e}
 
 /* painel lateral */
 .painel-fundo{position:fixed;inset:0;z-index:40;background:#0f231c40}
@@ -336,17 +335,6 @@ button.lead-chip:hover{filter:brightness(.96)}
 .acao-rapida:hover{background:#f0f7f3;border-color:#b5d0c1}
 .acao-rapida.whatsapp{background:#1f9d57;border-color:#1f9d57;color:#fff}
 .acao-rapida.whatsapp:hover{background:#1a8a4c;border-color:#1a8a4c}
-.acao-rapida.whatsapp-pronta{background:#0f6e3d;border-color:#0f6e3d;color:#fff}
-.acao-rapida.whatsapp-pronta:hover{background:#0b5a31;border-color:#0b5a31}
-.demo-mensagem{display:grid;gap:10px;margin-top:14px;padding:14px;border:1px solid #d3e7da;border-radius:10px;background:#f6fbf8}
-.demo-mensagem-cabeca{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.demo-mensagem-cabeca strong{font-size:.875rem;color:#234d38}
-.etapa-msg{display:grid;gap:5px;padding:10px 12px;border-radius:8px;background:#fff;border:1px solid #e1ece5}
-.etapa-msg-topo{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.etapa-msg-topo strong{font-size:.8125rem;color:#1f5a45}
-.etapa-msg small{font-size:.75rem;color:#6d7b77}
-.etapa-msg textarea{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #dbe5dd;font-size:.8125rem;line-height:1.55;resize:none;overflow:hidden;background:#fff;color:var(--foreground);font-family:inherit}
-.etapa-msg textarea:focus{outline:none;border-color:#439069;box-shadow:0 0 0 2px #e0f0e5}
 .acao-rapida.demo{background:#5b4fc4;border-color:#5b4fc4;color:#fff}
 .acao-rapida.demo:hover{background:#4d42ad;border-color:#4d42ad}
 .acao-rapida.flyer{background:#fff4f7;border-color:#f1c9d6;color:#a8325a}

@@ -20,7 +20,6 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
-import { ETAPAS_MENSAGEM, mensagensPadrao, separarMensagens, juntarMensagens, linkWhatsappComTexto, renovarParaEnvio } from "./mensagem.js";
 
 const $ = s => document.querySelector(s);
 
@@ -457,7 +456,7 @@ function colunaDoKanban(etapaId, itens, { editavel, tarefasAbertas, adicionar = 
 }
 
 // Uma coluna por fase. "Em andamento" é um grupo com uma subcoluna para cada etapa dela
-// (Primeiro contato, Em negociação, Sem resposta): o cartão muda de etapa ao ser solto na subcoluna.
+// (Em conversa, Em negociação, Sem resposta): o cartão muda de etapa ao ser solto na subcoluna.
 function renderKanban() {
   const leads = leadsVisiveis({ comEtapa: false });
   const editavel = dados.podeEditar();
@@ -695,23 +694,8 @@ function acoesRapidas() {
   const video = h("button", { type: "button", class: "acao-rapida video", title: "Baixa o vídeo de apresentação (MP4) para mandar à ótica" }, icone("baixar", 15), "Baixar vídeo");
   video.addEventListener("click", () => { if (linkVideo) baixarVideo(linkVideo, empresa); });
   const link = (classe, href, nomeIcone, texto) => h("a", { class: "acao-rapida " + classe, href, target: "_blank", rel: "noopener noreferrer" }, icone(nomeIcone, 15), texto);
-  // Mensagens prontas em etapas: abrem a conversa no WhatsApp de quem usa o painel com o texto (não enviam).
-  // A 1ª não tem link; a prévia (2ª) sai depois que responderem e deixa a demo 7 dias no ar.
-  let leadAtual = null;
-  const botaoEtapa = (id, texto, titulo) => {
-    const a = h("a", { class: "acao-rapida whatsapp-pronta", target: "_blank", rel: "noopener noreferrer", title: titulo }, icone("mensagem", 15), texto);
-    if (id !== "abrir") a.addEventListener("click", () => { if (leadAtual) renovarDemoNoEnvio(leadAtual); });
-    return a;
-  };
-  const abrirConversa = botaoEtapa("abrir", "1 · Abrir conversa", "Primeira mensagem, sem link: uma pergunta para a ótica responder. Confira e aperte enviar.");
-  const mandarPrevia = botaoEtapa("previa", "2 · Mandar a prévia", "Depois que responderem: a mensagem com o link da prévia. A demo fica 7 dias no ar a partir daqui.");
   vincular(l => {
-    leadAtual = l;
     const wa = waHref(l.whatsapp), ig = urlHref(l.instagram), demo = urlHref(l.link_demo);
-    const etapas = demo ? separarMensagens(l.mensagem_whatsapp) : {};
-    const linkAbrir = linkWhatsappComTexto(l.whatsapp, etapas.abrir), linkPrevia = linkWhatsappComTexto(l.whatsapp, etapas.previa);
-    if (linkAbrir) abrirConversa.href = linkAbrir;
-    if (linkPrevia) mandarPrevia.href = linkPrevia;
     linkFlyer = urlHref(l.link_flyer); empresa = l.empresa;
     linkVideo = ehVideo(urlHref(l.link_gravacao)) ? urlHref(l.link_gravacao) : "";
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
@@ -719,8 +703,6 @@ function acoesRapidas() {
     const s = situacaoDoLead(l);
     demoFora = s && !s.noAr ? (s.estado === "expirada" ? "expirada" : "fora do ar") : "";
     const botoes = [
-      linkAbrir ? abrirConversa : null,
-      linkPrevia ? mandarPrevia : null,
       wa ? link("whatsapp", wa, "mensagem", "WhatsApp") : null,
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
@@ -787,15 +769,6 @@ function secaoFlyer(id) {
   return cartao("Flyer para Stories", { classe: "secao-flyer" }, cheio, vazio,
     campo("leads", id, { campo: "link_flyer", rotulo: "Link do flyer", href: urlHref, largo: true, placeholder: "/flyer/nome-da-otica.png" }));
 }
-
-/* ---------- mensagem pronta: no envio, a demo fica 7 dias no ar a partir de hoje ---------- */
-async function renovarDemoNoEnvio(l) {
-  const s = situacaoDoLead(l);
-  const patch = s ? renovarParaEnvio(dados.buscar("demos", s.pasta), hojeEmBrasilia()) : null;
-  if (!patch || !dados.podeEditar()) return;
-  try { await salvar("demos", s.pasta, patch); aviso("Demo renovada: no ar " + (patch.vale_ate ? "até " + diaMes(patch.vale_ate) : "sem prazo") + " para a ótica ver com calma."); } catch (e) { /* aviso já mostrado */ }
-}
-const temCampoMensagem = l => Object.prototype.hasOwnProperty.call(l, "mensagem_whatsapp");
 
 /* ---------- seção Demo: link, gravação e o prazo no ar ---------- */
 const ESTADO_DEMO = { no_ar: "No ar", ultimo_dia: "Último dia", sem_prazo: "No ar", expirada: "Expirada", fora: "Fora do ar", sem_controle: "Sem prazo" };
@@ -888,52 +861,7 @@ function secaoDemo(id) {
     if (urlVideo) assistir.href = urlVideo;
   });
 
-  // Mensagens prontas do primeiro contato (leads.mensagem_whatsapp, etapas separadas por "---"): cada etapa
-  // tem a sua caixa e o seu botão. Nada sai sozinho: o botão abre a conversa com o texto e a pessoa aperta enviar.
-  const caixasEtapa = ETAPAS_MENSAGEM.map(e => {
-    const area = h("textarea", { rows: e.id === "abrir" ? "2" : "5", "aria-label": e.nome });
-    const abrir = h("a", { class: "btn btn-outline btn-sm", target: "_blank", rel: "noopener noreferrer" }, icone("mensagem", 15), "Abrir no WhatsApp");
-    if (e.link) abrir.addEventListener("click", () => { const l = dados.buscar("leads", id); if (l) renovarDemoNoEnvio(l); });
-    const ajustar = () => { area.style.height = "auto"; area.style.height = area.scrollHeight + 2 + "px"; };
-    area.addEventListener("input", ajustar);
-    area.addEventListener("change", async () => {
-      const l = dados.buscar("leads", id); if (!l) return;
-      const novo = juntarMensagens({ ...separarMensagens(l.mensagem_whatsapp), [e.id]: area.value });
-      if (novo === (l.mensagem_whatsapp || "")) return;
-      try { await salvar("leads", id, { mensagem_whatsapp: novo }); } catch (err) { /* aviso já mostrado */ }
-    });
-    const el = h("div", { class: "etapa-msg" },
-      h("div", { class: "etapa-msg-topo" }, h("strong", { text: e.nome }), abrir),
-      h("small", { text: e.quando }), area);
-    return { e, el, area, abrir, ajustar };
-  });
-  const usarModelo = h("button", { type: "button", class: "btn btn-outline btn-sm" }, icone("caneta", 15), "Usar o modelo");
-  usarModelo.addEventListener("click", async () => {
-    const l = dados.buscar("leads", id); if (!l) return;
-    try { await salvar("leads", id, { mensagem_whatsapp: juntarMensagens(mensagensPadrao(l)) }); aviso("Modelo posto. Troque \"as fotos e as avaliações de vocês\" por um detalhe real da ótica."); } catch (e) { /* aviso já mostrado */ }
-  });
-  const dicaMensagem = h("p", { class: "demo-dica" });
-  const caixaMensagem = h("div", { class: "demo-mensagem" },
-    h("div", { class: "demo-mensagem-cabeca" }, h("strong", { text: "Mensagens prontas para o WhatsApp" }), usarModelo),
-    dicaMensagem, ...caixasEtapa.map(c => c.el));
-  vincular(l => {
-    caixaMensagem.hidden = !temCampoMensagem(l) || !String(l.link_demo || "").trim();
-    const etapas = separarMensagens(l.mensagem_whatsapp), editavel = dados.podeEditar();
-    const temTexto = !!String(l.mensagem_whatsapp || "").trim();
-    usarModelo.hidden = temTexto; usarModelo.disabled = !editavel;
-    for (const c of caixasEtapa) {
-      if (document.activeElement !== c.area) c.area.value = etapas[c.e.id] || "";
-      c.area.disabled = !editavel;
-      const href = linkWhatsappComTexto(l.whatsapp, etapas[c.e.id]);
-      c.abrir.hidden = !href; if (href) c.abrir.href = href;
-      requestAnimationFrame(c.ajustar);
-    }
-    dicaMensagem.textContent = !waHref(l.whatsapp) ? "Falta o WhatsApp da ótica (em Contato) para os botões aparecerem."
-      : temTexto ? "Uma etapa por vez: abra a conversa sem link e espere responderem. Os botões só abrem o WhatsApp com o texto; você confere e aperta enviar. Ao mandar o link, a demo fica no ar por mais " + DIAS_DE_PRAZO + " dias."
-      : "Sem mensagens ainda: use o modelo e troque o detalhe genérico por algo real da ótica.";
-  });
-
-  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, caixaMensagem, h("div", { class: "campos campos-2" },
+  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, h("div", { class: "campos campos-2" },
     campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
     campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
 }

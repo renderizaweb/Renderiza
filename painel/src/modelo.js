@@ -4,13 +4,14 @@
 //
 // Funil reorganizado em 09/10/2026 (o supabase/schema.sql migra os dados):
 //   Leads a trabalhar → Prontas para trabalhar → Em andamento → Finalizado (ganho, perda ou encerrado).
-//   "Em andamento" é uma fase com três etapas: Primeiro contato, Em negociação e Sem resposta.
+//   "Em andamento" é uma fase com três etapas: Em conversa (id primeiro_contato), Em negociação e Sem resposta.
 // Os ids antigos ficam só no histórico (ETAPAS_ANTIGAS dá o nome que tinham na tela).
 
 export const ETAPAS = [
   { id: "a_trabalhar", nome: "Leads a trabalhar", fase: "a_trabalhar" },
   { id: "demo_pronta", nome: "Prontas para trabalhar", fase: "demo_pronta", ajuda: "Demo, vídeo e flyer prontos: falta mandar." },
-  { id: "primeiro_contato", nome: "Primeiro contato", fase: "em_andamento", ajuda: "Mandou a demo e espera a primeira resposta." },
+  // "Em conversa" desde 09/10/2026 (antes "Primeiro contato"); o id ficou primeiro_contato.
+  { id: "primeiro_contato", nome: "Em conversa", fase: "em_andamento", ajuda: "Mandou a demo: a conversa está aberta." },
   { id: "em_negociacao", nome: "Em negociação", fase: "em_andamento", ajuda: "Respondeu e a conversa está andando." },
   { id: "sem_resposta", nome: "Sem resposta", fase: "em_andamento", ajuda: "Não respondeu, ou parou de responder: caminho do encerramento." },
   { id: "finalizado", nome: "Finalizado", fase: "finalizado" },
@@ -89,8 +90,9 @@ export const nomeCompletoDaEtapa = id => (ehEmAndamento(id) ? "Em andamento · "
 
 /**
  * Etapa no funil de 09/10/2026 para um id antigo (o mesmo mapeamento do supabase/schema.sql):
- * Demo criada e Gravação realizada → Prontas para trabalhar; Contato iniciado → Primeiro contato;
- * Em conversa → Em negociação se a ótica tem interesse registrado, senão Sem resposta.
+ * Demo criada e Gravação realizada → Prontas para trabalhar; Contato iniciado → primeiro_contato (hoje
+ * "Em conversa"); o antigo Em conversa (follow_up) → Em negociação se a ótica tem interesse registrado,
+ * senão Sem resposta.
  */
 export function etapaAtual(etapa, interesse) {
   if (etapa === "demo_criada" || etapa === "gravacao_realizada") return "demo_pronta";
@@ -187,7 +189,7 @@ export function textoDoHistorico(h) {
   if (h.tipo === "interesse") return "Interesse: " + nomeDoInteresse(h.de) + " → " + nomeDoInteresse(h.para) + (h.origem === "ia" ? " (pela IA)" : "");
   if (h.tipo === "nao_contatar") return h.para ? "Marcada para não receber mais contato" : "Voltou a poder ser contatada";
   const nota = h.origem === "reorganizacao" ? " (etapas reorganizadas)" : h.origem === "ia" ? " (pela IA)" : "";
-  // Dentro de Em andamento: "Em andamento: Primeiro contato → Em negociação".
+  // Dentro de Em andamento: "Em andamento: Em conversa → Em negociação".
   if (h.de && ehEmAndamento(h.de) && ehEmAndamento(h.para)) return "Em andamento: " + nomeDaEtapa(h.de) + " → " + nomeDaEtapa(h.para) + nota;
   const para = h.para === "finalizado" && h.resultado ? "Finalizado · " + nomeDoResultado(h.resultado) : nomeCompletoDaEtapa(h.para);
   return (h.de ? nomeCompletoDaEtapa(h.de) + " → " : "") + para + nota;
