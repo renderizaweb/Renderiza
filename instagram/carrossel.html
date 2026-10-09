@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Carrossel: como a Renderiza trabalha</title>
+<!-- Carrossel do Instagram (7 imagens 1080 × 1350): "Fizemos o site do seu negócio antes de você pedir".
+     Explica a nossa abordagem para quem recebe a mensagem e vai conferir o perfil. node instagram/gerar.mjs carrossel -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+.capa h1{position:absolute;left:84px;right:84px;top:226px;font-size:106px}
+.capa .sub{position:absolute;left:84px;top:690px;font-size:42px;font-weight:500;color:var(--enfase-escuro)}
+.arrasta{position:absolute;left:84px;bottom:92px;display:flex;align-items:center;gap:16px;font-size:30px;font-weight:600;color:var(--fundo)}
+.arrasta svg{width:44px;height:44px}
+.titulo{position:absolute;left:84px;right:84px;top:200px}
+.titulo h2{font-size:74px}
+
+.google{position:absolute;background:#fff;border-radius:30px;padding:34px 36px;box-shadow:0 30px 70px rgba(21,26,28,.18);font-family:Arial,Helvetica,sans-serif;color:#202124}
+.google .g-nome{font-size:36px;font-weight:400;margin-bottom:10px}
+.google .g-nota{display:flex;align-items:center;gap:12px;font-size:24px;color:#70757a}
+.google .g-nota b{color:#fbbc04;font-size:28px;letter-spacing:3px}
+.google .g-tipo{font-size:23px;color:#70757a;margin:8px 0 22px}
+.google .g-botoes{display:flex;gap:12px;margin-bottom:22px}
+.google .g-botoes span{height:52px;padding:0 24px;border-radius:26px;border:2px solid #dadce0;display:grid;place-items:center;font-size:22px;color:#1a73e8;font-weight:600}
+.google .sk{height:14px;background:#eceff1;margin:14px 0}
+
+.grade{position:absolute;left:84px;right:84px;top:660px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grade figure{position:relative;height:196px;border-radius:22px;overflow:hidden}
+.grade img{width:100%;height:100%;object-fit:cover;display:block}
+.grade .fora img{opacity:.28;filter:grayscale(1)}
+.grade .fora{background:var(--fundo-2)}
+.grade .dentro{box-shadow:inset 0 0 0 6px var(--escuro)}
+.grade .dentro::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 6px var(--escuro)}
+.grade .dentro i{position:absolute;right:14px;top:14px;width:46px;height:46px;border-radius:50%;background:var(--escuro);display:grid;place-items:center;z-index:2}
+.grade .dentro i svg{width:26px;height:26px;color:#fff}
+
+.lista{position:absolute;left:84px;top:690px;display:flex;flex-direction:column;gap:20px}
+.lista span{display:flex;align-items:center;gap:16px;height:76px;padding:0 30px 0 22px;border-radius:38px;background:var(--papel);font-size:30px;font-weight:600;box-shadow:0 10px 30px rgba(21,26,28,.07)}
+.lista svg{width:34px;height:34px;color:var(--escuro)}
+
+.zap{position:absolute;left:96px;right:96px;top:600px;height:640px;border-radius:34px;overflow:hidden;background:#efeae2;box-shadow:0 30px 70px rgba(21,26,28,.18);font-family:"Geist",sans-serif}
+.zap-topo{height:110px;background:#f0f2f5;display:flex;align-items:center;gap:20px;padding:0 30px;border-bottom:1px solid #e2e2e2}
+.zap-topo i{width:66px;height:66px;border-radius:50%;background:var(--escuro);color:var(--fundo);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:30px}
+.zap-topo b{display:block;font-size:30px;font-weight:600}
+.zap-topo small{font-size:22px;color:#667781}
+.balao{position:absolute;left:36px;top:150px;width:640px;background:#fff;border-radius:6px 26px 26px 26px;padding:22px 24px 16px;font-size:29px;line-height:1.36;color:#111b21;box-shadow:0 2px 2px rgba(0,0,0,.06)}
+.previa{margin-top:16px;border-radius:14px;overflow:hidden;background:#f7f8fa}
+.previa img{width:100%;height:190px;object-fit:cover;display:block}
+.previa b{display:block;font-size:26px;padding:14px 18px 2px}
+.previa small{display:block;font-size:22px;color:#667781;padding:0 18px 14px}
+.hora{display:block;text-align:right;font-size:20px;color:#667781;margin-top:8px}
+.hora svg{width:24px;height:16px;vertical-align:-2px;margin-left:6px}
+
+.no-ar{position:absolute;z-index:7;display:flex;align-items:center;gap:14px;height:76px;padding:0 32px;border-radius:38px;background:var(--papel);font-size:32px;font-weight:700;box-shadow:0 16px 40px rgba(21,26,28,.14)}
+.no-ar i{width:20px;height:20px;border-radius:50%;background:var(--zap);box-shadow:0 0 0 7px rgba(37,211,102,.18)}
+
+.fim h2{position:absolute;left:84px;right:84px;top:250px;font-size:100px}
+.fim .sub{position:absolute;left:84px;top:640px;font-size:46px;font-weight:600;color:var(--fundo)}
+.fim .botao{position:absolute;left:84px;top:760px;display:flex;align-items:center;gap:18px;height:104px;padding:0 46px;border-radius:52px;background:var(--fundo);color:var(--escuro);font-size:38px;font-weight:700}
+.fim .botao svg{width:40px;height:40px}
+.no-ar.url{gap:16px;color:var(--escuro)}
+.fim .assina{position:absolute;left:84px;right:84px;bottom:110px;display:flex;flex-direction:column;gap:22px}
+.fim .assina .marca{font-size:86px;gap:24px}
+.fim .assina .simbolo{width:100px;height:100px}
+.fim .assina p{font-size:32px;color:var(--enfase-escuro)}
+</style></head><body>
+
+<!-- 1 · capa -->
+<section class="slide escuro capa">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">1/7</span></div>
+  <h1>Fizemos o site do seu negócio <span class="tom">antes de você pedir.</span></h1>
+  <p class="sub">Calma, a gente explica.</p>
+  <div class="celular" style="left:560px;top:770px;width:450px;height:920px;transform:rotate(-7deg)"><span class="exemplo" style="left:-34px;top:330px">exemplo</span><div class="tela"><div class="conteudo" data-site></div></div></div>
+  <p class="arrasta">Arrasta para o lado <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
+</section>
+
+<!-- 2 · conhece -->
+<section class="slide">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">2/7</span></div>
+  <div class="titulo"><p class="passo">Passo 1</p><h2>A gente conhece o seu negócio <span class="tom">pelo Instagram e pelo Google.</span></h2></div>
+  <div class="celular" style="left:96px;top:600px;width:450px;height:920px"><div class="tela"><div class="conteudo" data-ig></div></div></div>
+  <div class="google" style="left:456px;top:800px;width:540px"><span class="exemplo" style="left:-20px;top:-18px">exemplo</span>
+    <p class="g-nome">Lume Estética</p><p class="g-nota">5,0 <b>★★★★★</b></p><p class="g-tipo">Clínica de estética</p>
+    <div class="g-botoes"><span>Rotas</span><span>Ligar</span><span>Salvar</span></div>
+    <span class="sk" style="width:92%"></span><span class="sk" style="width:74%"></span><span class="sk" style="width:58%"></span>
+  </div>
+</section>
+
+<!-- 3 · fotos reais -->
+<section class="slide">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">3/7</span></div>
+  <div class="titulo"><p class="passo">Passo 2</p><h2>Escolhe as suas fotos reais: <span class="tom">a equipe, o espaço, os clientes.</span></h2></div>
+  <div class="grade" data-grade="hero:1 produtos:0 sorriso:1 ambiente:1 oleo:0 massagem:1 toalha:0 maquiagem:1 luvas:1"></div>
+  <span class="exemplo" style="left:64px;top:636px">exemplo</span>
+</section>
+
+<!-- 4 · monta o site -->
+<section class="slide">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">4/7</span></div>
+  <div class="titulo"><p class="passo">Passo 3</p><h2>Monta o site <span class="tom">com tudo num lugar só.</span></h2></div>
+  <div class="lista">
+    <span data-ok>Suas fotos reais</span><span data-ok>Avaliações do Google</span><span data-ok>WhatsApp em um toque</span>
+    <span data-ok>Mapa e horário</span><span data-ok>Rápido no celular</span>
+  </div>
+  <div class="celular" style="left:600px;top:560px;width:410px;height:860px"><span class="exemplo" style="left:-28px;top:600px">exemplo</span><div class="tela"><div class="conteudo" data-site></div></div></div>
+</section>
+
+<!-- 5 · manda o link -->
+<section class="slide">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">5/7</span></div>
+  <div class="titulo"><p class="passo">Passo 4</p><h2>Manda o link para você ver. <span class="tom">Sem compromisso.</span></h2></div>
+  <div class="zap">
+    <div class="zap-topo"><i>M</i><div><b>Milena · Renderiza</b><small>online</small></div></div>
+    <div class="balao">Prazer! Aqui é a Milena, da Renderiza. Montei uma prévia de como ficaria o site de vocês:
+      <div class="previa"><img data-foto="hero" alt=""><b>Lume Estética · prévia do site</b><small>renderizaweb.com.br</small></div>
+      <span class="hora">10:24<svg viewBox="0 0 18 11" fill="none" stroke="#53bdeb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6l3.5 3.5L11 2M7 9.5L14.5 2"/></svg></span></div>
+  </div>
+  <span class="exemplo" style="left:76px;top:576px">exemplo</span>
+</section>
+
+<!-- 6 · no ar -->
+<section class="slide">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">6/7</span></div>
+  <div class="titulo"><p class="passo">Passo 5</p><h2>Gostou? A gente coloca no ar, <span class="tom">com o nome do seu negócio.</span></h2></div>
+  <div class="celular" style="left:335px;top:690px;width:410px;height:860px"><span class="exemplo" style="left:-28px;top:600px">exemplo</span><div class="tela"><div class="conteudo"><div class="l-url"><span><svg width="12" height="14" viewBox="0 0 12 14"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="#555"/><path d="M3 6V4a3 3 0 0 1 6 0v2" stroke="#555" stroke-width="1.6" fill="none"/></svg>seunegocio.com.br</span></div><div data-site data-sem-topo></div></div></div></div>
+  <span class="no-ar url" style="left:120px;top:600px"><svg width="26" height="30" viewBox="0 0 12 14"><rect x="1" y="6" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M3 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>www.seunegocio.com.br</span>
+  <span class="no-ar" style="left:690px;top:820px"><i></i>No ar</span>
+</section>
+
+<!-- 7 · convite -->
+<section class="slide escuro fim">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">7/7</span></div>
+  <h2>Quer ver como ficaria <span class="tom">o seu?</span></h2>
+  <p class="sub">Chama a gente no direct.</p>
+  <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4 19-7Z"/></svg>Enviar mensagem</span>
+  <div class="assina"><span class="marca"><span class="simbolo"></span>renderiza</span><p>Sites para o seu negócio · renderizaweb.com.br</p></div>
+</section>
+
+<script type="module">
+import { siteDeExemplo, instagramDeExemplo, fotosDoExemplo } from "./exemplo.js";
+const OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>';
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+document.querySelectorAll("[data-site]").forEach(el => {
+  el.innerHTML = siteDeExemplo();
+  if (el.hasAttribute("data-sem-topo")) el.querySelector(".l-topo").style.cssText = "height:16px;padding:0;overflow:hidden";
+});
+document.querySelectorAll("[data-ig]").forEach(el => (el.innerHTML = instagramDeExemplo()));
+document.querySelectorAll("[data-ok]").forEach(el => (el.innerHTML = OK + el.innerHTML));
+document.querySelectorAll("[data-foto]").forEach(el => (el.src = fotosDoExemplo(el.dataset.foto)));
+document.querySelectorAll("[data-grade]").forEach(el => {
+  el.innerHTML = el.dataset.grade.split(" ").map(p => { const [n, ok] = p.split(":");
+    return `<figure class="${ok === "1" ? "dentro" : "fora"}"><img src="${fotosDoExemplo(n)}" alt="">${ok === "1" ? `<i>${CHECK}</i>` : ""}</figure>`; }).join("");
+});
+// o site de exemplo é desenhado com 402 px de largura: cada tela ajusta a escala ao seu tamanho
+document.querySelectorAll(".tela").forEach(t => { const c = t.querySelector(".conteudo"); c.style.transform = `scale(${t.clientWidth / 402})`; });
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

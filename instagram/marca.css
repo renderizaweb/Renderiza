@@ -1,0 +1,116 @@
+/* Posts do Instagram da Renderiza: a marca e as peças comuns (celular, selo de exemplo, o site de exemplo).
+   A paleta fica toda aqui, nos tokens do :root. Quando a Renderiza ganhar cores novas, é trocar aqui e
+   gerar de novo (node instagram/gerar.mjs). Hoje: a paleta do logo (grafite e o branco quente do símbolo). */
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;src:url(../site/estatico/fontes/geist.woff2) format("woff2")}
+
+:root{
+  --fundo:#f1eee9;          /* fundo claro (o branco quente do símbolo) */
+  --fundo-2:#e8e4dd;        /* cartões e faixas sobre o fundo claro */
+  --escuro:#1e2528;         /* grafite: fundo da capa e do fechamento, texto no claro */
+  --escuro-2:#2b3438;
+  --tinta:#1e2528;
+  --tinta-suave:#5b6467;
+  --enfase:#7a8386;         /* segunda parte dos títulos no fundo claro */
+  --enfase-escuro:#b9bfc1;  /* segunda parte dos títulos no fundo escuro */
+  --papel:#ffffff;
+  --linha:#d9d4cc;
+  --zap:#25d366;            /* só o ícone e o balão do WhatsApp */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Geist",system-ui,sans-serif;color:var(--tinta);background:#777;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo)}
+.slide.escuro{background:var(--escuro);color:#fff}
+
+/* marca: símbolo + "renderiza", como no site */
+.marca{display:inline-flex;align-items:center;gap:14px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--tinta)}
+.escuro .marca{color:var(--fundo)}
+.simbolo{display:inline-flex}
+.simbolo svg{width:100%;height:100%;color:currentColor}
+
+.topo{position:absolute;left:84px;right:84px;top:76px;display:flex;justify-content:space-between;align-items:center}
+.topo .marca{font-size:34px}
+.topo .simbolo{width:40px;height:40px}
+.contador{font-size:26px;font-weight:500;color:var(--tinta-suave);letter-spacing:.02em}
+.escuro .contador{color:var(--enfase-escuro)}
+
+.passo{display:inline-block;font-size:24px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);margin-bottom:22px}
+.escuro .passo{color:var(--enfase-escuro)}
+h1,h2{font-weight:700;letter-spacing:-.035em;line-height:1.04}
+h1 .tom,h2 .tom{color:var(--enfase)}
+.escuro h1 .tom,.escuro h2 .tom{color:var(--enfase-escuro)}
+
+/* celular */
+.celular{position:absolute;background:#151a1c;padding:14px;border-radius:66px;box-shadow:0 40px 90px rgba(21,26,28,.28)}
+.celular::before{content:"";position:absolute;left:50%;top:26px;width:120px;height:32px;margin-left:-60px;border-radius:20px;background:#151a1c;z-index:5}
+.tela{position:relative;width:100%;height:100%;border-radius:52px;overflow:hidden;background:#fff}
+.tela>.conteudo{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.exemplo{position:absolute;z-index:6;background:var(--escuro);color:#fff;font-size:20px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+.escuro .exemplo{background:var(--fundo);color:var(--escuro)}
+
+/* ===== o site de exemplo: "Lume Estética", negócio fictício (fotos de banco, livres) ===== */
+.lume{--l-fundo:#fbf7f3;--l-tinta:#3a2c26;--l-suave:#7b6a62;--l-acento:#b6806a;--l-claro:#f1e4db;
+  width:402px;background:var(--l-fundo);color:var(--l-tinta);font-family:"DM Sans",system-ui,sans-serif;font-size:15px;line-height:1.45}
+.lume h1,.lume h2,.l-logo{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.02em}
+.lume em{font-style:italic;color:var(--l-acento)}
+.l-topo{height:96px;padding:46px 22px 0;display:flex;justify-content:space-between;align-items:center;background:var(--l-fundo)}
+.l-logo{font-size:24px;display:flex;align-items:baseline;gap:6px}
+.l-logo small{font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--l-suave)}
+.l-menu{width:22px;height:14px;border-top:2px solid var(--l-tinta);border-bottom:2px solid var(--l-tinta);position:relative}
+.l-menu::after{content:"";position:absolute;left:0;right:0;top:4px;border-top:2px solid var(--l-tinta)}
+.l-hero{position:relative;height:520px;margin:0 14px;border-radius:26px;overflow:hidden}
+.l-hero img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.l-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,26,20,0) 35%,rgba(40,26,20,.78) 100%)}
+.l-hero-txt{position:absolute;left:22px;right:22px;bottom:24px;z-index:2;color:#fff}
+.l-eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.9;margin-bottom:8px}
+.l-hero h1{font-size:38px;line-height:1.02;margin-bottom:16px}
+.l-hero h1 em{color:#f3d3c2}
+.l-btn{display:flex;align-items:center;justify-content:center;gap:9px;height:50px;border-radius:25px;background:var(--l-acento);color:#fff;font-weight:700;font-size:15px}
+.l-btn svg{width:20px;height:20px}
+.l-nota{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px}
+.l-nota b{color:#fbbc04;letter-spacing:2px;font-size:15px}
+.l-sec{padding:34px 22px 6px}
+.l-sec h2{font-size:28px;line-height:1.08;margin-bottom:14px}
+.l-sobre img{width:100%;height:210px;object-fit:cover;border-radius:20px;margin-bottom:16px}
+.sk{display:block;height:9px;border-radius:5px;background:rgba(58,44,38,.13);margin:9px 0}
+.l-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.l-card img{width:100%;height:150px;object-fit:cover;border-radius:16px}
+.l-card p{font-size:13px;font-weight:600;margin-top:7px;line-height:1.2}
+.l-av-topo{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 16px;margin-bottom:10px}
+.l-g{width:34px;height:34px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc04 0 50%,#34a853 0 75%,#4285f4 0);display:grid;place-items:center}
+.l-g::after{content:"";width:18px;height:18px;border-radius:50%;background:#fff}
+.l-av-topo b{display:block;color:#fbbc04;letter-spacing:2px;font-size:17px}
+.l-av-topo span{font-size:13px;color:var(--l-suave)}
+.l-av{background:#fff;border-radius:18px;padding:14px 16px;margin-bottom:10px}
+.l-av b{color:#fbbc04;letter-spacing:2px;font-size:14px}
+.l-galeria{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.l-galeria img{width:100%;height:150px;object-fit:cover;border-radius:16px}
+.l-zap{background:var(--zap)}
+.l-mapa{height:190px;border-radius:20px;overflow:hidden;background:#ece5dc;position:relative}
+.l-mapa svg{position:absolute;inset:0;width:100%;height:100%}
+.l-horario{display:flex;justify-content:space-between;font-size:14px;padding:12px 2px 0;border-bottom:1px solid rgba(58,44,38,.12);padding-bottom:10px}
+.l-rodape{padding:30px 22px 60px;font-family:"Fraunces",serif;font-size:20px;color:var(--l-suave)}
+.l-url{height:96px;padding:50px 16px 0;background:#f2f2f2}
+.l-url span{display:flex;align-items:center;justify-content:center;gap:6px;height:36px;border-radius:12px;background:#e3e3e3;font-family:"Geist",sans-serif;font-size:14px;color:#333}
+
+/* perfil de Instagram de exemplo */
+.ig{width:402px;background:#fff;font-family:"Geist",sans-serif;color:#111;padding-bottom:40px}
+.ig-topo{height:96px;padding:52px 18px 0;font-size:19px}
+.ig-perfil{display:flex;align-items:center;gap:26px;padding:10px 18px}
+.ig-avatar{width:86px;height:86px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 5px #d6249f}
+.ig-nums{display:flex;gap:22px;font-size:13px;color:#444}
+.ig-nums span{display:flex;flex-direction:column;align-items:center;gap:6px}
+.ig-nums b{display:block;width:34px;height:12px;border-radius:6px;background:#e4e4e4}
+.ig-nome{font-weight:600;font-size:15px;padding:8px 18px 0}
+.ig .sk{margin-left:18px;background:#ececec}
+.ig-botoes{display:flex;gap:8px;padding:12px 18px 16px}
+.ig-botoes span{flex:1;height:34px;border-radius:9px;background:#efefef;display:grid;place-items:center;font-size:14px;font-weight:600}
+.ig-botoes span:first-child{background:#0095f6;color:#fff}
+.ig-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grade img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+
+/* "link na bio" com botões demais (o antes do Reels) */
+.bio{width:402px;min-height:870px;background:linear-gradient(180deg,#f4ece6,#ead9cf);font-family:"Geist",sans-serif;padding:84px 26px 40px;display:flex;flex-direction:column;align-items:center}
+.bio-avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+.bio-nome{font-weight:600;font-size:17px;margin-bottom:22px;color:#3a2c26}
+.bio-btn{width:100%;height:52px;border-radius:14px;background:#fff;border:1px solid rgba(58,44,38,.12);display:grid;place-items:center;font-size:15px;font-weight:600;color:#3a2c26;margin-bottom:11px}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Imagem: seu negócio passa nesse teste?</title>
+<!-- Post de imagem do Instagram (1080 × 1350): os benefícios de ter site, em forma de teste para a pessoa fazer.
+     node instagram/gerar.mjs teste -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.teste h1{position:absolute;left:84px;right:84px;top:200px;font-size:104px}
+.itens{position:absolute;left:84px;right:84px;top:520px;display:flex;flex-direction:column}
+.itens p{display:flex;align-items:center;gap:30px;font-size:40px;font-weight:500;letter-spacing:-.015em;line-height:1.2;padding:28px 0;border-bottom:2px solid var(--linha)}
+.itens p:first-child{border-top:2px solid var(--linha)}
+.itens i{flex:none;width:56px;height:56px;border-radius:14px;border:4px solid var(--escuro)}
+.rodape{position:absolute;left:0;right:0;bottom:0;height:200px;background:var(--escuro);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 84px}
+.rodape b{font-size:48px;font-weight:700;letter-spacing:-.03em}
+.rodape b span{color:var(--enfase-escuro)}
+.rodape .marca{font-size:34px}
+.rodape .simbolo{width:40px;height:40px}
+</style></head><body>
+<section class="slide teste">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <h1>Seu negócio passa <span class="tom">nesse teste?</span></h1>
+  <div class="itens">
+    <p><i></i>Quem procura seu nome no Google acha você</p>
+    <p><i></i>O cliente fala com você em um toque</p>
+    <p><i></i>Suas avaliações estão num lugar só</p>
+    <p><i></i>Endereço e horário são fáceis de achar</p>
+    <p><i></i>Tudo abre rápido no celular</p>
+  </div>
+  <div class="rodape"><b>Faltou algum? <span>A gente resolve.</span></b><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+</section>
+<script type="module">
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

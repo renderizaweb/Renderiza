@@ -17,6 +17,8 @@ da vez.
   dentistas, estética), não só ótica. **Nunca "de bairro"** ("ótica de bairro", "loja de bairro"): soa
   pejorativo. No Instagram da Renderiza, nenhuma demo nem foto de lead aparece sem autorização do cliente
   (nenhum autorizou até agora).
+- **Instagram da Renderiza:** posts em `instagram/` (carrossel, imagem e Reels, com o README e as legendas).
+  Gerar: `node instagram/gerar.mjs`; sai em `rascunhos/instagram/saida/`.
 
 ## Como tem que ser uma demo de site
 

@@ -1,0 +1,19 @@
+{
+ "_sobre": "Fotos do negócio de exemplo (Lume Estética, fictício). Banco livre do Unsplash (licença Unsplash: uso comercial liberado, sem pedir autorização). Chave = nome do arquivo; valor = id da foto em images.unsplash.com/photo-<id>.",
+ "fotos": {
+  "hero": "1616394584738-fc6e612e71b9",
+  "ambiente": "1560750588-73207b1ef5b8",
+  "facial": "1570172619644-dfd03ed5d881",
+  "luvas": "1552693673-1bf958298935",
+  "sorriso": "1508214751196-bcfd4ca60f91",
+  "retrato": "1494790108377-be9c29b29330",
+  "rosa": "1531746020798-e6953c6e8e04",
+  "massagem": "1519823551278-64ac92734fb1",
+  "pedras": "1600334089648-b0d9d3028eb2",
+  "unhas": "1607779097040-26e80aa78e66",
+  "toalha": "1540555700478-4be289fbecef",
+  "produtos": "1598440947619-2c35fc9aa908",
+  "maquiagem": "1487412947147-5cebf100ffc2",
+  "oleo": "1515377905703-c4788e51af15"
+ }
+}
