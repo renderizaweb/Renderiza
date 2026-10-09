@@ -1,8 +1,8 @@
 // Imagens do site público, geradas com o Chromium do Playwright (nada de serviço externo).
 //
 //   node scripts/imagens-do-site.mjs
-//     → site/estatico/compartilhar.jpg (prévia no WhatsApp/LinkedIn, 1200×630),
-//       favicon-32.png e apple-touch-icon.png. Rodar de novo se mudar nome ou frase.
+//     → site/estatico/compartilhar.jpg (prévia no WhatsApp/LinkedIn, 1200×630, com a frase da abertura),
+//       favicon-32.png e apple-touch-icon.png. Rodar de novo se mudar nome ou frase (FRASE em site/pagina.mjs).
 //
 //   node scripts/imagens-do-site.mjs otimizar <foto.jpg> <site/estatico/imagens/nome.webp> [largura]
 //     → reduz e converte uma foto real para WebP (padrão: 960 px de largura), para a foto do Kaue
@@ -31,6 +31,8 @@ const GRAFITE = "#1e2528", GELO = "#f1eee9";
 
 async function gerarImagens() {
   const { default: config } = await import("../site/config.mjs");
+  const { FRASE } = await import("../site/pagina.mjs");
+  const nomes = (config.fundadores || []).map(f => f.nome);
   const css = `
     @font-face{font-family:Geist;font-weight:100 900;src:url(${fonte("geist.woff2")})}
     *{margin:0;box-sizing:border-box}
@@ -43,8 +45,8 @@ async function gerarImagens() {
     .pe strong{color:${GELO};font-weight:600}`;
   const og = `<style>${css}</style><div class="quadro">
     <div class="marca">${simbolo(56, GELO)}<b>renderiza</b></div>
-    <h1>Do site da loja ao <em>aplicativo com IA</em>.</h1>
-    <div class="pe"><span><strong>${config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, fundador da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
+    <h1>${FRASE.inicio}<br><em>${FRASE.destaque}</em></h1>
+    <div class="pe"><span><strong>${nomes.join(" e ") || config.pessoa.nomeCompleto || config.pessoa.nome}</strong>, ${nomes.length > 1 ? "fundadores" : "fundador"} da Renderiza</span><span>${new URL(config.endereco).hostname.replace(/^www\./, "")}</span></div>
   </div>`;
   const icone = (tam, escala = 0.72) => `<style>*{margin:0}body{width:${tam}px;height:${tam}px;overflow:hidden;background:${GRAFITE};display:grid;place-items:center}</style>
     ${simbolo(Math.round(tam * escala), GELO)}`;
