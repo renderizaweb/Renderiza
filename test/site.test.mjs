@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import config from "../site/config.mjs";
-import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel } from "../site/pagina.mjs";
+import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel, FRASE, TESTE } from "../site/pagina.mjs";
 import { arquivosPublicados, comPreviaDoLink, fotoDaCapa } from "../scripts/montar-site.mjs";
 
 const comContatos = {
@@ -66,7 +66,7 @@ test("portfólio: um cartão por projeto publicado, com print em alta e pop-up d
 test("Move: recursos, crédito ao cliente e link dentro do pop-up do projeto", () => {
   const html = montarPagina(config);
   const move = config.trabalhos.find(t => t.id === "move");
-  assert.ok(move.publicar && move.destaque);
+  assert.ok(move.publicar);
   for (const r of move.recursos) assert.ok(html.includes(r.titulo), r.titulo);
   // etiqueta IA: uma no cartão e uma por recurso com IA no pop-up do projeto e no "Ver tela"
   assert.equal((html.match(/class="selo-ia"/g) || []).length, 1 + 2 * move.recursos.filter(r => r.ia).length);
@@ -105,7 +105,7 @@ test("com contatos preenchidos, aparecem WhatsApp (com mensagem), LinkedIn e fot
   const wa = linkWhatsapp(comContatos.contato);
   assert.match(wa, /^https:\/\/wa\.me\/5511900000000\?text=Oi/);
   assert.ok(html.includes(wa.replace(/&/g, "&amp;")));
-  assert.ok((html.match(/linkedin\.com\/in\/exemplo/g) || []).length >= 2);
+  assert.ok(html.includes("linkedin.com/in/exemplo"), "LinkedIn no rodapé");
   assert.doesNotMatch(html, /Os canais de contato estão sendo atualizados/);
   assert.ok(!pendencias(comContatos).some(p => /WhatsApp|LinkedIn|foto real/.test(p)));
 });
@@ -181,21 +181,107 @@ test("vercel.json: só a home pode ser indexada; painel, login, demos e api não
   assert.ok(!v.headers.some(h => h.source === "/(.*)"));
 });
 
-test("abertura: frase concreta e trabalho real (Move), sem a ilustração esquemática", () => {
+const secao = (html, id) => html.slice(html.indexOf(`id="${id}"`), html.indexOf("</section>", html.indexOf(`id="${id}"`)));
+// Só o texto que a pessoa lê: sem CSS, sem scripts e sem tags.
+const textoVisivel = html => html.replace(/<style>[\s\S]*?<\/style>|<script>[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+
+test("abertura: o que fazemos em 5 segundos, um pedido concreto e dois sites de clientes no celular", () => {
   const html = montarPagina(config);
-  assert.match(html, /<h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA<\/em>\.<\/h1>/);
-  assert.match(html, /<figure class="vitrine">[\s\S]*movexfit\.com\.br[\s\S]*\/imagens\/projetos\/move-celular\.webp/);
-  assert.doesNotMatch(html, /Sites bonitos e leves|class="ilustracao"/);
+  const abertura = secao(html, "inicio");
+  assert.match(abertura, /<h1 id="abertura-titulo">O site do seu negócio, <em>pronto antes de você pedir\.<\/em><\/h1>/);
+  assert.equal(`${FRASE.inicio} ${FRASE.destaque}`, "O site do seu negócio, pronto antes de você pedir.");
+  // quem recebeu a prévia confere o perfil: a página confirma em uma linha e mostra quem está por trás
+  assert.match(abertura, /<a class="aviso" href="#como-funciona">Recebeu uma prévia do seu site\?/);
+  assert.match(abertura, /Kaue e Milena<\/strong>, os fundadores\. Você fala direto com a gente\./);
+  assert.match(abertura, /href="https:\/\/wa\.me\/5511988697165\?text=[^"]+"[^>]*>.*Quero ver o meu site<\/a>/);
+  // os exemplos são sites de clientes do público de hoje (autorizados), não o aplicativo
+  const destaques = config.trabalhos.filter(t => t.publicar && t.destaque);
+  assert.deepEqual(destaques.map(t => t.id), ["blue-lens", "lu-elegante-modas"]);
+  for (const t of destaques) {
+    assert.match(abertura, new RegExp(`data-abrir="projeto-${t.id}"[\\s\\S]*?${t.imagemCelular}`), t.id);
+    assert.ok(existsSync(new URL(`../site/estatico${t.imagemCelular}`, import.meta.url)), t.imagemCelular);
+  }
+  assert.doesNotMatch(abertura, /movexfit|aplicativo com IA|class="ilustracao"/);
 });
 
-test("por que ter um site: centraliza, profissionaliza e fica pronto para anúncios, sem promessa de Google nem serviço extra", () => {
+test("a ordem da página é a da venda consultiva (SPIN): situação, problema, necessidade, capacidade e compromisso", () => {
   const html = montarPagina(config);
-  const secao = html.slice(html.indexOf('<section class="dor"'), html.indexOf('<section class="secao" id="servicos"'));
-  assert.match(secao, /Seus clientes te conhecem\. <em>O cliente novo, não\.<\/em>/);
-  for (const titulo of ["Tudo num lugar só", "Mais profissional", "Pronto para anunciar"]) assert.ok(secao.includes(titulo), titulo);
-  assert.doesNotMatch(secao, /landing|tráfego|gatilho/i);
-  assert.doesNotMatch(secao, /Google encontra|busca no Google|algoritmo|sem login|QR|manutenção|vender mais|%/i);
-  assert.ok(html.indexOf('id="por-que"') < html.indexOf('id="servicos"'));
+  const ordem = ["inicio", "por-que", "teste", "solucao", "como-funciona", "trabalhos", "depoimentos", "sobre", "perguntas", "contato"];
+  const posicoes = ordem.map(id => html.indexOf(`id="${id}"`));
+  for (const [i, id] of ordem.entries()) assert.ok(posicoes[i] > 0, `falta a seção #${id}`);
+  for (let i = 1; i < ordem.length; i++) assert.ok(posicoes[i - 1] < posicoes[i], `#${ordem[i - 1]} vem antes de #${ordem[i]}`);
+  // o site só aparece como resposta: nada de lista de recursos antes do teste
+  const antesDoTeste = html.slice(html.indexOf('id="inicio"'), html.indexOf('id="teste"'));
+  assert.doesNotMatch(antesDoTeste, /class="lista-check"|Avaliações do Google<\/li>|Botão para falar no WhatsApp/);
+});
+
+test("S · situação: o caminho do cliente novo hoje, sem promessa de Google nem serviço extra", () => {
+  const html = montarPagina(config);
+  const s = secao(html, "por-que");
+  assert.match(s, /Seus clientes te conhecem\. <em>O cliente novo, não\.<\/em>/);
+  for (const passo of ["Ouve falar de você", "Pesquisa antes de chamar", "Encontra tudo espalhado"]) assert.ok(s.includes(passo), passo);
+  assert.match(s, /E você nem fica sabendo\./);
+  assert.doesNotMatch(s, /landing|tráfego|gatilho/i);
+  assert.doesNotMatch(s, /Google encontra|busca no Google|algoritmo|sem login|QR|manutenção|vender mais|%/i);
+});
+
+test("P e I · o teste: cinco situações, cada uma com o que custa, placar sem JavaScript e WhatsApp com o resultado", () => {
+  const html = montarPagina(config);
+  const t = secao(html, "teste");
+  assert.match(t, /Seu negócio passa <em>nesse teste\?<\/em>/);
+  assert.equal(TESTE.length, 5);
+  assert.equal((t.match(/<input type="checkbox"/g) || []).length, 5);
+  for (const item of TESTE) {
+    assert.ok(t.includes(`id="teste-${item.id}"`) && t.includes(`data-rotulo="${item.rotulo}"`), item.id);
+    assert.ok(t.includes(item.texto) && t.includes(item.custo), `${item.id}: situação e custo`);
+  }
+  // sem JS: o placar é um contador do CSS e a barra enche com :has(); o botão já leva uma mensagem pronta
+  assert.match(html, /\.teste-itens input:checked\{counter-increment:tem\}/);
+  assert.match(html, /\.teste-numero::before\{content:counter\(tem\)\}/);
+  assert.match(t, /data-teste-link data-base="https:\/\/wa\.me\/5511988697165"/);
+  assert.ok(t.includes(linkWhatsapp(config.contato, "Oi! Fiz o teste no site da Renderiza e quero ver como ficaria o site do meu negócio.").replace(/&/g, "&amp;")));
+  // N: a pergunta de necessidade vem antes do pedido
+  assert.match(t, /data-pergunta>Se o cliente novo não precisasse perguntar, quanto tempo sobraria para quem já está na sua frente\?/);
+  // com JS, a mensagem diz o placar e o que falta, com as palavras do dono
+  assert.ok(html.includes('"Oi! Fiz o teste no site da Renderiza: meu negócio tem "+n+" de "+cx.length+"."+(falta.length?" Ainda não tenho "'));
+});
+
+test("N · e se o cliente já chegasse sabendo? O site entra como resposta, item por item, e o valor nas palavras de um cliente", () => {
+  const html = montarPagina(config);
+  const n = secao(html, "solucao");
+  assert.match(n, /E se o cliente já chegasse <em>sabendo de tudo\?<\/em>/);
+  assert.equal((n.match(/class="contraste-hoje"/g) || []).length, TESTE.length, "uma linha para cada item do teste");
+  assert.equal((n.match(/class="contraste-site"/g) || []).length, TESTE.length);
+  const davi = config.depoimentos.find(d => d.id === "blue-lens");
+  assert.ok(davi.publicar && davi.valor && n.includes(davi.valor), "trecho real do Davi, sem mudar uma palavra");
+});
+
+test("capacidade e compromisso: como funciona da prévia ao ar, objeções respondidas antes e um avanço concreto no fim", () => {
+  const html = montarPagina(config);
+  const como = secao(html, "como-funciona");
+  assert.equal((como.match(/<li><h3>/g) || []).length, 5);
+  assert.match(como, /Você só paga se decidir colocar o site no ar\./);
+  const perguntas = secao(html, "perguntas");
+  for (const p of ["Recebi uma prévia do meu site. O que é?", "Já tenho Instagram. Preciso de um site?", "Quanto custa?", "O site fica no meu nome?", "Quem decide é outra pessoa. E agora?"]) assert.ok(perguntas.includes(p), p);
+  assert.match(perguntas, /sai do ar sozinho em 7 dias/, "a prévia tem prazo de verdade (middleware.js)");
+  const convite = secao(html, "contato");
+  assert.match(convite, /Quer ver como ficaria <em>o seu\?<\/em>/);
+  assert.ok(convite.includes(linkWhatsapp(config.contato, "Oi! Quero ver como ficaria o site do meu negócio. O Instagram é @").replace(/&/g, "&amp;")));
+});
+
+test("sem preço, promessa de resultado, superlativo nem \"de bairro\" no texto da home", () => {
+  const texto = textoVisivel(montarPagina(config));
+  assert.doesNotMatch(texto, /R\$\s?\d|\d+\s?reais|promoção|desconto/i, "preço é para a conversa");
+  assert.doesNotMatch(texto, /de bairro/i);
+  assert.doesNotMatch(texto, /melhor(es)? (site|agência|empresa|preço|do Brasil)|n[úu]mero 1|garant|vender mais|mais vendas|\d+\s?%/i);
+  assert.doesNotMatch(texto, /Google encontra|busca no Google|primeiro lugar no Google|algoritmo/i);
+});
+
+test("imagem de compartilhamento: a mesma frase da abertura", () => {
+  const script = readFileSync(new URL("../scripts/imagens-do-site.mjs", import.meta.url), "utf8");
+  assert.match(script, /FRASE\.inicio/);
+  assert.doesNotMatch(script, /aplicativo com IA/);
+  assert.match(montarPagina(config), /<meta property="og:image:alt" content="Renderiza: o site do seu negócio, pronto antes de você pedir\.">/);
 });
 
 test("cada recurso da Move tem botão 'Ver tela' que abre um pop-up com tela real e link para o site da Move", () => {
@@ -214,10 +300,10 @@ test("cada recurso da Move tem botão 'Ver tela' que abre um pop-up com tela rea
   for (const r of move.recursos) assert.ok(existsSync(new URL(`../site/estatico${r.imagem}`, import.meta.url)), r.imagem);
 });
 
-test("Compasso em destaque: problema, recursos com tela real, crédito à Milena e nada da família de verdade", () => {
+test("Compasso: problema, recursos com tela real, crédito à Milena e nada da família de verdade", () => {
   const html = montarPagina(config);
   const compasso = config.trabalhos.find(t => t.id === "compasso");
-  assert.ok(compasso.publicar && compasso.destaque);
+  assert.ok(compasso.publicar);
   assert.ok(html.includes("Uma ideia da Milena, desenvolvida pela Renderiza."));
   for (const r of compasso.recursos) assert.ok(html.includes(r.titulo), r.titulo);
   const telas = compasso.recursos.filter(r => r.imagem);
@@ -235,11 +321,11 @@ test("depoimentos: seção só aparece com depoimento aprovado", () => {
   assert.ok(real.includes("Criador do Move"));
   assert.ok(real.includes("Ótica Blulens") && !/BlueLens/.test(real), "nome da ótica como ela escreve");
   assert.doesNotMatch(real, /Graças a Deus/, "na home vai só o trecho do depoimento");
-  const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Ainda não", publicar: false }] };
+  const aprovado = { ...config, depoimentos: [{ id: "x", nome: "Rafael", papel: "Criador do Move", trabalho: "move", texto: "Texto <aprovado>.", publicar: true }, { id: "y", nome: "Milena", texto: "Texto sem aprovação", publicar: false }] };
   const html = montarPagina(aprovado);
   assert.match(html, /id="depoimentos"/);
   assert.ok(html.includes("Texto &lt;aprovado&gt;."));
-  assert.doesNotMatch(html, /Ainda não/);
+  assert.doesNotMatch(html, /Texto sem aprovação/);
   assert.ok(pendencias({ ...config, depoimentos: [{ nome: "Davi", texto: "Oi", publicar: false }] }).some(p => /depoimento de Davi: aguardando aprovação/.test(p)));
 });
 

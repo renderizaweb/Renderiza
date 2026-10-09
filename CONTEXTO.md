@@ -532,13 +532,19 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
   palavras reais de quem falou (ajuste leve de pontuação, nunca texto inventado). Publicados: Raphael (Move),
   Davi (Ótica Blulens: autorizou site e depoimento em 01/10/2026; na home vai um parágrafo, íntegra no
   config), Milena (Compasso) e Luciene Eunice (Lú Elegante), sem citar parentesco (decisão do Kaue, 01/10/2026).
-  Trabalhos na home: **Move** (movexfit.com.br, app do cliente Rafael, em destaque com os recursos
+  Trabalhos na home, nesta ordem (09/10/2026): **Ótica Blulens** (oticablulens01.com.br; escreve-se
+  "Blulens", sem "e") e **Lú Elegante** (luelegantemodas.com.br), os dois com `destaque: true` (aparecem no
+  celular da abertura); depois **Move** (movexfit.com.br, app do cliente Rafael, com os recursos
   feitos pela Renderiza; cada recurso tem "Ver tela" com print real do app, gerado com dados de
-  exemplo por `ferramentas/prints-move/`) **Compasso** (finanças da família, ideia da Milena; prints com família
-  fictícia por `ferramentas/prints-compasso/`), **Ótica Blulens** (oticablulens01.com.br; escreve-se
-  "Blulens", sem "e") e **Lú Elegante** (luelegantemodas.com.br). Texto do "Quem faz":
+  exemplo por `ferramentas/prints-move/`) e **Compasso** (finanças da família, ideia da Milena; prints com família
+  fictícia por `ferramentas/prints-compasso/`). Texto do "Quem faz":
   5 anos de desenvolvimento com foco em produto; Warren citada numa frase (tempo integral) e a
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
+- **Home na ordem do SPIN (09/10/2026):** abertura "O site do seu negócio, pronto antes de você pedir." →
+  situação (o caminho do cliente novo) → teste de 5 itens com o que cada falta custa (problema e implicação;
+  funciona sem JavaScript e leva o placar ao WhatsApp) → "E se o cliente já chegasse sabendo de tudo?"
+  (necessidade) → como funciona, trabalhos, depoimentos e quem somos → perguntas e convite. Preço fica fora do
+  site; texto em "a gente". Mapa das seções em `site/README.md`.
 - **Identidade visual (02/10/2026):** logo real em `site/marca/logo-original.webp`, vetorizado em
   `site/estatico/simbolo.svg` (usado no topo, rodapé, favicon, ícone do iPhone e imagem de compartilhamento).
   Paleta do logo e nada além: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,
@@ -549,7 +555,7 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
 - **Quem está por trás (02/10/2026):** Kaue e Milena como cofundadores, com o mesmo destaque
   (`fundadores` em `site/config.mjs`). Kaue: tecnologia e desenvolvimento. Milena: relacionamento e operações
   (carreira em RH, sem citar empregador, cargo ou resultados). Em aberto: tirar o depoimento da Milena, o
-  Compasso como projeto dos fundadores, sobrenome/LinkedIn dela e passar o resto do site para "nós".
+  Compasso como projeto dos fundadores e sobrenome/LinkedIn dela (o site passou para "a gente" em 09/10/2026).
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Pipeline, Tarefas, Clientes, Ritmo e Conteúdo,
   com Supabase. Abre no Pipeline (pedido do Kaue em 08/10/2026: é a casa do painel). Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).

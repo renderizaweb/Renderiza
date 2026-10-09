@@ -36,22 +36,19 @@ export default {
   contato: {
     // Número do WhatsApp Business com DDI e DDD, só dígitos.
     whatsapp: "5511988697165",
-    // Mensagem que já vem escrita quando a pessoa abre a conversa.
-    mensagemWhatsapp: "Oi, Kaue! Vi o site da Renderiza e quero conversar sobre um projeto.",
+    // Mensagem que já vem escrita quando a pessoa abre a conversa (os botões do teste, do convite final e de
+    // aplicativo têm a sua própria, em site/pagina.mjs).
+    mensagemWhatsapp: "Oi! Vi o site da Renderiza e quero ver como ficaria o site do meu negócio.",
     // Perfil pessoal (sem os parâmetros de rastreio do link de compartilhar).
     linkedin: "https://www.linkedin.com/in/kaue-de-almeida-cunha-300188193",
     // Instagram da Renderiza: ainda não criado (30/09/2026). Opcional: o site funciona sem.
     instagram: "",
   },
 
-  // Depoimentos. Só aparecem com texto e publicar: true (depois da aprovação de quem falou).
+  // Depoimentos. Só aparecem com texto e publicar: true (depois da aprovação de quem falou), na ordem daqui:
+  // primeiro quem é do público de hoje (negócios com site), depois os de aplicativo.
   //   trabalho: id do trabalho a que se refere; foto: opcional, em site/estatico/imagens/
   depoimentos: [
-    {
-      id: "raphael", nome: "Raphael", papel: "Criador do Move", trabalho: "move", foto: "", publicar: true,
-      // Mensagem do Raphael (30/09/2026), só com a pontuação ajustada.
-      texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
-    },
     {
       id: "blue-lens", nome: "Davi", papel: "Ótica Blulens", trabalho: "blue-lens", foto: "",
       // Depoimento enviado em 01/10/2026, com autorização para publicar o site e o feedback no portfólio.
@@ -68,25 +65,34 @@ export default {
       //   o trabalho de vocês para outros negócios que estejam buscando um site profissional e feito de forma
       //   personalizada. / Podem incluir nosso site e esse feedback no portfólio de vocês. Será um prazer contribuir para
       //   mostrar esse trabalho. / Obrigado pela parceria, Kaue!"
+      // valor: o trecho em que o próprio cliente diz o que o site resolveu (4º parágrafo, sem mudar uma palavra).
+      //   Vai na seção "E se o cliente já chegasse sabendo de tudo?", a necessidade nas palavras de quem já tem.
+      valor: "Sentimos que o site hoje transmite muito mais confiança e profissionalismo para quem conhece a Ótica Blulens pela internet, além de ser uma ferramenta importante para nossos clientes encontrarem nossa empresa e conhecerem nossos produtos e serviços.",
       texto: "Desde o início, percebemos muito cuidado em entender a nossa empresa, nossa identidade e aquilo que queríamos transmitir aos nossos clientes. O site ficou moderno, profissional, organizado e alinhado com o posicionamento que estamos buscando para a Blulens.",
       publicar: true,
-    },
-    {
-      id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", foto: "", publicar: true,
-      // Aprovado pela Milena em 01/10/2026.
-      texto: "Eu queria um jeito simples de organizar as finanças da casa, e o Kaue transformou essa ideia no Compasso. Hoje a gente vê o mês inteiro num lugar só e planeja os seguintes com tranquilidade. Ele ouviu cada detalhe que eu pedi até ficar do jeito que a gente precisava.",
     },
     {
       id: "luciene", nome: "Luciene Eunice", papel: "Lú Elegante", trabalho: "lu-elegante-modas", foto: "", publicar: true,
       // Aprovado pela Luciene em 01/10/2026.
       texto: "O Kaue teve muita paciência comigo em cada etapa do site da loja. Explicou tudo com calma, ouviu o que eu queria, e o site ficou melhor do que eu imaginava.",
     },
+    {
+      id: "raphael", nome: "Raphael", papel: "Criador do Move", trabalho: "move", foto: "", publicar: true,
+      // Mensagem do Raphael (30/09/2026), só com a pontuação ajustada.
+      texto: "Trabalhar com você até agora está sendo ótimo: é um profissional sempre presente, com muitas ideias que agregam ao projeto, sempre respeitando o prazo e às vezes entregando até antes. A comunicação é simples e direta, o que deixa o cliente super confortável e seguro com o trabalho.",
+    },
+    {
+      id: "milena", nome: "Milena", papel: "Idealizadora do Compasso", trabalho: "compasso", foto: "", publicar: true,
+      // Aprovado pela Milena em 01/10/2026.
+      texto: "Eu queria um jeito simples de organizar as finanças da casa, e o Kaue transformou essa ideia no Compasso. Hoje a gente vê o mês inteiro num lugar só e planeja os seguintes com tranquilidade. Ele ouviu cada detalhe que eu pedi até ficar do jeito que a gente precisava.",
+    },
   ],
 
-  // Trabalhos realizados (portfólio). Só aparecem os que têm publicar: true, na ordem daqui.
+  // Trabalhos realizados (portfólio). Só aparecem os que têm publicar: true, na ordem daqui: primeiro os sites
+  // (o público de hoje: lojas, clínicas e consultórios), depois os aplicativos.
   //   Cada um vira um cartão (print + resumo) que abre um pop-up com o projeto inteiro.
   //   selo: "cliente" ou "demonstracao" (esta ganha a etiqueta "Demonstração conceitual")
-  //   destaque: true = pode aparecer na abertura do site (o primeiro com print de celular)
+  //   destaque: true = aparece na abertura do site, no celular (os dois primeiros com print de celular)
   //   resumo: uma frase para o cartão; texto: a descrição completa do pop-up
   //   imagem / imagemGrande / imagemCelular: prints em site/estatico/imagens/projetos/ (1400 px, 2400 px e
   //     celular), todos tirados em alta resolução; sem imagem, o cartão mostra só a inicial
@@ -94,12 +100,46 @@ export default {
   //   falta: o que ainda precisa ser confirmado (só para você; não aparece no site)
   trabalhos: [
     {
+      id: "blue-lens",
+      titulo: "Ótica Blulens",
+      tipo: "Site · ótica",
+      selo: "cliente",
+      destaque: true,
+      resumo: "Site da ótica da família no Capão Redondo, em São Paulo.",
+      texto: "Site da ótica da família no Capão Redondo, em São Paulo: modelos, atendimento, avaliações do Google e WhatsApp.",
+      // Prints da página inicial (02/10/2026). A ótica autorizou mostrar o site no portfólio em 01/10/2026.
+      imagem: "/imagens/projetos/blulens-1400.webp",
+      imagemGrande: "/imagens/projetos/blulens-2400.webp",
+      imagemCelular: "/imagens/projetos/blulens-celular.webp",
+      alt: "Página inicial do site da Ótica Blulens",
+      link: "https://www.oticablulens01.com.br",
+      linkTexto: "Visitar o site",
+      publicar: true,
+      falta: "",
+    },
+    {
+      id: "lu-elegante-modas",
+      titulo: "Lú Elegante",
+      tipo: "Site · moda e beleza",
+      selo: "cliente",
+      destaque: true,
+      resumo: "Site da loja de roupas e do salão, em São Bernardo do Campo.",
+      texto: "Site da loja de roupas e do salão na Vila São Pedro, em São Bernardo do Campo: vitrine de peças, serviços do salão e WhatsApp.",
+      // Prints da página inicial (02/10/2026), no ar em luelegantemodas.com.br.
+      imagem: "/imagens/projetos/lu-elegante-1400.webp",
+      imagemGrande: "/imagens/projetos/lu-elegante-2400.webp",
+      imagemCelular: "/imagens/projetos/lu-elegante-celular.webp",
+      alt: "Página inicial do site da Lú Elegante",
+      link: "https://www.luelegantemodas.com.br",
+      linkTexto: "Visitar o site",
+      publicar: true,
+      falta: "",
+    },
+    {
       id: "move",
       titulo: "Move",
       tipo: "Aplicativo · treinos e acompanhamento",
       selo: "cliente",
-      // destaque: cartão grande, com print e lista de recursos
-      destaque: true,
       resumo: "App de treinos para alunos e personal trainers, com recursos de inteligência artificial.",
       texto: "Plataforma para alunos e personal trainers: o personal monta e envia o treino, o aluno executa série por série e os dois acompanham a evolução.",
       // ia: true ganha a etiqueta "IA"; icone: haltere, escanear, camera, mensagem, painel, sino
@@ -166,7 +206,6 @@ export default {
       titulo: "Compasso",
       tipo: "Aplicativo · finanças da família",
       selo: "cliente",
-      destaque: true,
       resumo: "O planejamento financeiro da família num lugar só, do mês atual aos próximos.",
       texto: "O planejamento financeiro da casa num lugar só: o casal vê se o mês fecha no azul, planeja os próximos e sabe por quanto tempo a reserva segura as contas essenciais.",
       // prints: compasso-familiar rodando local com uma família fictícia (Ana e Bruno); sem dados reais
@@ -210,42 +249,8 @@ export default {
       falta: "",
     },
     {
-      id: "blue-lens",
-      titulo: "Ótica Blulens",
-      tipo: "Site · ótica",
-      selo: "cliente",
-      resumo: "Site da ótica da família no Capão Redondo, em São Paulo.",
-      texto: "Site da ótica da família no Capão Redondo, em São Paulo: modelos, atendimento, avaliações do Google e WhatsApp.",
-      // Prints da página inicial (02/10/2026). A ótica autorizou mostrar o site no portfólio em 01/10/2026.
-      imagem: "/imagens/projetos/blulens-1400.webp",
-      imagemGrande: "/imagens/projetos/blulens-2400.webp",
-      imagemCelular: "/imagens/projetos/blulens-celular.webp",
-      alt: "Página inicial do site da Ótica Blulens",
-      link: "https://www.oticablulens01.com.br",
-      linkTexto: "Visitar o site",
-      publicar: true,
-      falta: "",
-    },
-    {
-      id: "lu-elegante-modas",
-      titulo: "Lú Elegante",
-      tipo: "Site · moda e beleza",
-      selo: "cliente",
-      resumo: "Site da loja de roupas e do salão, em São Bernardo do Campo.",
-      texto: "Site da loja de roupas e do salão na Vila São Pedro, em São Bernardo do Campo: vitrine de peças, serviços do salão e WhatsApp.",
-      // Prints da página inicial (02/10/2026), no ar em luelegantemodas.com.br.
-      imagem: "/imagens/projetos/lu-elegante-1400.webp",
-      imagemGrande: "/imagens/projetos/lu-elegante-2400.webp",
-      imagemCelular: "/imagens/projetos/lu-elegante-celular.webp",
-      alt: "Página inicial do site da Lú Elegante",
-      link: "https://www.luelegantemodas.com.br",
-      linkTexto: "Visitar o site",
-      publicar: true,
-      falta: "",
-    },
-    {
       id: "demos-oticas",
-      titulo: "Demonstrações para óticas de bairro",
+      titulo: "Demonstrações para óticas",
       tipo: "Sites",
       selo: "demonstracao",
       texto: "Sites de exemplo que preparo para óticas da Grande São Paulo, com fotos reais da loja, avaliações do Google, WhatsApp e mapa. Cada ótica recebe o próprio link, que não fica aberto ao público.",

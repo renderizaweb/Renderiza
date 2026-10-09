@@ -1,6 +1,7 @@
 # Site público (`/`)
 
-A home da Renderiza: quem é o Kaue, o que faz, como funciona, trabalhos selecionados e contato.
+A home da Renderiza, na ordem de uma venda consultiva (veja abaixo): o teste de 5 itens, o que o site resolve,
+como funciona, trabalhos, quem somos e contato.
 É HTML pronto no build, sem JavaScript para mostrar o conteúdo e com o CSS dentro da página.
 
 | Arquivo | Para quê |
@@ -9,6 +10,24 @@ A home da Renderiza: quem é o Kaue, o que faz, como funciona, trabalhos selecio
 | `pagina.mjs` | Textos e estrutura da página |
 | `estilo.css` | Visual (mobile first) |
 | `estatico/` | Vai para a raiz do site: fontes, ícones, `compartilhar.jpg` e, quando houver, `imagens/` |
+
+## A ordem da página (SPIN)
+
+A home segue as etapas da venda consultiva do SPIN (Neil Rackham): primeiro a pessoa reconhece a própria
+situação, depois o problema e o que ele custa, e só então vê o site como resposta. Por isso não há lista de
+recursos antes do teste.
+
+| Seção | Etapa | O que faz |
+|---|---|---|
+| `#inicio` | abertura | A frase (`FRASE` em `pagina.mjs`), um pedido concreto e dois sites de clientes no celular (`destaque: true`) |
+| `#por-que` | S · situação | O caminho do cliente novo hoje: ouve falar de você, pesquisa, encontra tudo espalhado |
+| `#teste` | P e I · problema e implicação | Cinco itens (`TESTE`) para marcar, cada um com o que custa quando falta. O placar funciona sem JavaScript (contador do CSS); com JavaScript, o botão leva o resultado ao WhatsApp |
+| `#solucao` | N · necessidade | "E se o cliente já chegasse sabendo de tudo?": cada item do teste com a resposta do site, e o valor nas palavras do Davi (`valor` do depoimento) |
+| `#como-funciona` a `#sobre` | capacidade | Da prévia ao ar, trabalhos, depoimentos e quem somos |
+| `#perguntas`, `#contato` | compromisso | As objeções respondidas antes de chamar e o convite: "Quer ver como ficaria o seu?" |
+
+Sem preço (é da conversa), sem promessa de Google ou de vendas e só palavras reais nos depoimentos. Os
+testes em `test/site.test.mjs` conferem essa ordem e essas regras.
 
 ## Completar o que falta
 
@@ -23,11 +42,12 @@ os botões levam ao bloco de contato (nenhum link quebrado).
   `texto`, `recursos` (cada um com "Ver tela"), o depoimento do cliente (se houver) e `link`. No celular os
   cartões viram carrossel; a partir do tablet, grade de 2 colunas. Prints em `estatico/imagens/projetos/`:
   `<id>-1400.webp` (cartão), `<id>-2400.webp` (pop-up) e `<id>-celular.webp`, tirados em 2x/3x. O campo
-  `falta` é só uma anotação e não aparece no site.
+  `falta` é só uma anotação e não aparece no site. Com `destaque: true` e `imagemCelular`, o projeto aparece
+  no celular da abertura (no máximo dois).
 - **Demos de óticas**: só com aprovação da ótica, porque usam fotos de clientes dela. Por enquanto
   nenhuma aparece (`publicar: false`).
-- **Domínio**: `endereco` é `https://www.renderizaweb.com.br`. Se mudar nome, frase ou domínio, rode
-  `node scripts/imagens-do-site.mjs` para refazer a imagem de compartilhamento.
+- **Domínio**: `endereco` é `https://www.renderizaweb.com.br`. Se mudar nome, frase (`FRASE`) ou domínio,
+  rode `node scripts/imagens-do-site.mjs` para refazer a imagem de compartilhamento.
 
 ## Ver no computador
 

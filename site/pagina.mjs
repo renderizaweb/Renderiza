@@ -1,5 +1,16 @@
 // Monta a home pública (/) a partir de site/config.mjs e site/estilo.css.
 // HTML pronto no build: sem JavaScript para mostrar o conteúdo, com o CSS dentro da página.
+//
+// A ordem da página é a da venda consultiva (SPIN, de Neil Rackham), a mesma das conversas no WhatsApp
+// (doc "SPIN no WhatsApp · Renderiza"). Cada seção tem um papel; mudar a ordem muda a venda:
+//   abertura     o que fazemos, em 5 segundos, com dois sites de clientes no ar
+//   S · Situação o caminho do cliente novo hoje (a gente mostra que conhece, não pergunta)
+//   P · Problema o teste: o dono marca o que o negócio já tem
+//   I · Implicação no próprio teste, o que cada item que falta custa
+//   N · Necessidade "e se o cliente já chegasse sabendo?"; só então o site aparece, como resposta
+//   capacidade   como funciona, trabalhos, depoimentos e quem somos
+//   compromisso  objeções prevenidas (perguntas) e um avanço concreto: pedir a prévia no WhatsApp
+// Regras: nada de preço (é para a conversa), promessa de resultado, superlativo, dado inventado ou "de bairro".
 
 import { readFileSync } from "node:fs";
 
@@ -14,6 +25,7 @@ const ICONES = {
   baixo: '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
   externo: '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
   mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  pergunta: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
   mais: '<path d="M5 12h14"/><path d="M12 5v14"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
   // Ícones dos recursos (Lucide).
@@ -23,9 +35,6 @@ const ICONES = {
   painel: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
   sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
   busca: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
-  estrela: '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
-  loja: '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>',
-  megafone: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
   fechar: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
   grade: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>',
   escudo: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
@@ -42,6 +51,61 @@ const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${t
 const icone = (nome, tam = 18) =>
   `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONES[nome]}</svg>`;
 
+/** A frase da abertura: o h1 da home e a imagem de compartilhamento (scripts/imagens-do-site.mjs). */
+export const FRASE = { inicio: "O site do seu negócio,", destaque: "pronto antes de você pedir." };
+
+// S · Situação: o caminho do cliente novo hoje. A gente mostra que conhece; o problema aparece sozinho no 3º passo.
+const CAMINHO = [
+  { icone: "pessoas", titulo: "Ouve falar de você", texto: "Por indicação, num post ou passando na frente." },
+  { icone: "busca", titulo: "Pesquisa antes de chamar", texto: "Procura no Instagram e no Google as fotos, o endereço, o horário e o que os outros clientes acham." },
+  { icone: "pergunta", titulo: "Encontra tudo espalhado", texto: "Um pouco no feed, um pouco no Google, um pouco no link da bio. O resto, precisa perguntar." },
+];
+
+// P · Problema e I · Implicação: o teste. Cada item é uma situação que o dono reconhece (P); "custo" é o que
+// acontece quando falta (I). "rotulo" vai na mensagem do WhatsApp ("Ainda não tenho ..."): o cliente já chega
+// dizendo, com as palavras dele, o que falta.
+export const TESTE = [
+  { id: "link", rotulo: "um link oficial", texto: "Quando pedem informações, você manda um link oficial com tudo.", custo: "Sem ele, vai tudo picado: o endereço numa mensagem, o horário em outra, as fotos em outra." },
+  { id: "endereco", rotulo: "endereço e horário a um toque", texto: "Endereço, mapa e horário estão a um toque, sem precisar perguntar.", custo: "Quem precisa perguntar se você abre no sábado nem sempre pergunta. Às vezes só vai a outro lugar." },
+  { id: "avaliacoes", rotulo: "avaliações à vista", texto: "Quem chega pelo Instagram vê o que os seus clientes dizem de você.", custo: "As avaliações ficam no Google, longe de quem está decidindo se chama você." },
+  { id: "servicos", rotulo: "serviços explicados", texto: "O cliente entende o que você faz sem rolar o feed inteiro.", custo: "O resto vira pergunta no direct, e você responde as mesmas coisas todos os dias." },
+  { id: "toque", rotulo: "contato em um toque", texto: "O cliente fala com você em um toque, com a mensagem já começada.", custo: "Cada passo a mais entre a vontade e a mensagem é uma chance de desistir." },
+];
+
+// N · Necessidade: depois do teste, o site entra como resposta. Uma linha para cada item do teste, na mesma ordem.
+const HOJE_E_NO_SITE = [
+  ["O endereço numa mensagem, o horário em outra, as fotos em outra.", "Um link com o nome do seu negócio e tudo dentro."],
+  ["“Onde fica?” “Abre no sábado?”", "Endereço, mapa e horário logo de cara, com a rota a um toque."],
+  ["As avaliações, só para quem procura no Google.", "O que os seus clientes dizem, logo na entrada."],
+  ["“Como funciona?” “Vocês fazem…?” no direct.", "Suas fotos reais e seus serviços explicados antes da pergunta."],
+  ["Procurar onde clicar para falar com você.", "WhatsApp em um toque, com a mensagem já começada."],
+];
+
+// Como funciona: o caminho da prévia até o ar, para quem quer entender o fluxo antes de chamar.
+const PASSOS = [
+  ["A gente conhece o seu negócio", "Pelo Instagram e pelo Google: as fotos, o que você faz e o que os clientes dizem."],
+  ["Monta a prévia com as suas fotos", "Fotos reais da equipe, do espaço e dos clientes, escolhidas uma a uma."],
+  ["Você vê no celular", "Um vídeo curto e o link da prévia, só seu. Sem compromisso."],
+  ["Ajusta com a gente", "Você diz o que mudar, e a gente ajusta até ficar com a cara do seu negócio."],
+  ["Vai para o ar no seu nome", "Com o endereço do seu negócio, como seunegocio.com.br. Os acessos ficam com você."],
+];
+
+// Objeções prevenidas: as que aparecem na conversa, respondidas antes de virar objeção. Preço fica para a conversa.
+const PERGUNTAS = [
+  ["Recebi uma prévia do meu site. O que é?", "Uma demonstração feita só para você, com o que o seu negócio já mostra em público: as fotos do Instagram, as avaliações e o horário do Google. O link não aparece no Google e sai do ar sozinho em 7 dias; se preferir, a gente tira antes. Para ver, você não passa nenhum dado nem paga nada."],
+  ["Já tenho Instagram. Preciso de um site?", "O Instagram mostra o seu dia a dia e continua importante. O site junta, num link só, o que o cliente novo procura antes de chamar: endereço, horário, serviços, avaliações e WhatsApp. E ainda leva para o seu Instagram."],
+  ["Quanto custa?", "Um valor fechado, combinado na conversa, depois que você vê a prévia. Ver a prévia não custa nada, e você só paga se decidir colocar o site no ar. O domínio e a hospedagem ficam no seu nome e podem ter custos próprios."],
+  ["O site fica no meu nome?", "Fica. O endereço, a hospedagem e os acessos são do seu negócio, não da Renderiza. Se um dia quiser que outra pessoa cuide do site, é só passar os acessos."],
+  ["Quem decide é outra pessoa. E agora?", "Encaminhe o vídeo e o link da prévia para quem decide: abrem em qualquer celular. Se preferir, conte o nome e o melhor horário dessa pessoa, e a gente fala direto com ela."],
+];
+
+// Mensagens que já chegam escritas no WhatsApp: cada botão pede um avanço concreto, não um "vou ver".
+const MENSAGEM = {
+  teste: "Oi! Fiz o teste no site da Renderiza e quero ver como ficaria o site do meu negócio.",
+  convite: "Oi! Quero ver como ficaria o site do meu negócio. O Instagram é @",
+  aplicativo: "Oi! Vi o site da Renderiza e quero conversar sobre um aplicativo.",
+};
+
 /** O que ainda falta preencher em site/config.mjs (o build mostra no terminal). */
 export function pendencias(config) {
   const p = [];
@@ -53,10 +117,11 @@ export function pendencias(config) {
   return p;
 }
 
-export function linkWhatsapp(contato) {
+/** Link do WhatsApp com a mensagem já escrita (a do config, se nenhuma for passada). */
+export function linkWhatsapp(contato, mensagem = contato.mensagemWhatsapp) {
   const numero = String(contato.whatsapp || "").replace(/\D/g, "");
   if (!numero) return "";
-  return `https://wa.me/${numero}` + (contato.mensagemWhatsapp ? "?text=" + encodeURIComponent(contato.mensagemWhatsapp) : "");
+  return `https://wa.me/${numero}` + (mensagem ? "?text=" + encodeURIComponent(mensagem) : "");
 }
 
 /** "5511988697165" → "(11) 98869-7165" (números do Brasil); outros ficam como vieram. */
@@ -67,8 +132,6 @@ export function telefoneLegivel(numero) {
   return d;
 }
 
-const dominio = url => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
-
 const TIPOS_DE_TRABALHO = ["cliente", "demonstracao"];
 
 
@@ -76,11 +139,13 @@ function validarTrabalho(t) {
   if (!TIPOS_DE_TRABALHO.includes(t.selo)) throw new Error(`site/config.mjs: trabalho "${t.id}" com selo desconhecido (${t.selo}). Use "cliente" ou "demonstracao".`);
 }
 
-const slug = texto => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const slug = texto => texto.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const idDoRecurso = (t, r) => `recurso-${t.id}-${slug(r.titulo)}`;
 const seloIa = () => `<span class="selo-ia">${icone("brilho", 12)}IA</span>`;
 // Print do desktop: 1400 px no cartão, 2400 px no pop-up (o navegador escolhe pela tela).
 const srcsetDe = t => (t.imagemGrande ? `${esc(t.imagem)} 1400w, ${esc(t.imagemGrande)} 2400w` : "");
+// "a, b e c"
+const emLista = itens => (itens.length < 2 ? itens.join("") : `${itens.slice(0, -1).join(", ")} e ${itens[itens.length - 1]}`);
 
 /** Cartão do portfólio: print grande e uma frase. Clicar em qualquer parte abre o pop-up do projeto. */
 function cartaoProjeto(t) {
@@ -157,6 +222,54 @@ function janelasDeRecursos(t) {
   </dialog>`).join("");
 }
 
+/** Abertura: dois sites de clientes no celular (os trabalhos com destaque). Tocar abre o pop-up do projeto. */
+function vitrine(destaques) {
+  if (!destaques.length) return "";
+  return `
+      <figure class="vitrine">
+        <div class="vitrine-celulares">${destaques.map((t, i) => `
+          <button class="celular" type="button" data-abrir="projeto-${esc(t.id)}" aria-haspopup="dialog">
+            <img src="${esc(t.imagemCelular)}" alt="${esc(t.titulo)}: site no celular" width="720" height="1440"${i === 0 ? ' fetchpriority="high"' : ""} decoding="async">
+            <span class="celular-rotulo" aria-hidden="true">${esc(t.titulo)}</span>
+          </button>`).join("")}
+        </div>
+        <figcaption>${emLista(destaques.map(t => `<strong>${esc(t.titulo)}</strong>`))}: ${destaques.length > 1 ? "sites de clientes, no ar" : "site de cliente, no ar"}.</figcaption>
+      </figure>`;
+}
+
+/** P e I: o teste. Funciona sem JavaScript (placar e barra no CSS); o JS escreve a frase e a mensagem do WhatsApp. */
+function secaoTeste({ temWa, contato }) {
+  const href = temWa ? linkWhatsapp(contato, MENSAGEM.teste) : "#contato";
+  return `
+  <section class="secao secao-clara" id="teste" aria-labelledby="teste-titulo">
+    <div class="envoltorio">
+      <p class="sobretitulo">Faça o teste</p>
+      <h2 id="teste-titulo">Seu negócio passa <em>nesse teste?</em></h2>
+      <p class="secao-lide">Marque o que o cliente novo já encontra hoje, sem precisar perguntar. Embaixo de cada item está o que acontece quando ele falta.</p>
+      <div class="teste" data-teste>
+        <fieldset class="teste-itens">
+          <legend class="sr-only">O que o seu negócio já tem</legend>${TESTE.map(item => `
+          <input type="checkbox" id="teste-${item.id}" name="teste" value="${item.id}" data-rotulo="${esc(item.rotulo)}" aria-describedby="teste-${item.id}-custo">
+          <label class="teste-item" for="teste-${item.id}">
+            <span class="teste-caixa">${icone("check", 16)}</span>
+            <span class="teste-texto">
+              <strong>${esc(item.texto)}</strong>
+              <span class="teste-custo"><span id="teste-${item.id}-custo">${esc(item.custo)}</span></span>
+            </span>
+          </label>`).join("")}
+        </fieldset>
+        <div class="teste-resultado">
+          <p class="teste-placar"><span class="teste-numero" aria-hidden="true"></span><span>de ${TESTE.length}</span></p>
+          <div class="teste-barra" aria-hidden="true">${TESTE.map(() => "<span></span>").join("")}</div>
+          <p class="teste-frase" data-frase aria-live="polite">Marque o que o seu negócio já tem.</p>
+          <p class="teste-pergunta" data-pergunta>Se o cliente novo não precisasse perguntar, quanto tempo sobraria para quem já está na sua frente?</p>
+          <a class="botao botao-claro botao-grande" href="${esc(href)}"${temWa ? ` target="_blank" rel="noopener" data-teste-link data-base="${esc(linkWhatsapp(contato, ""))}"` : ""}>${icone("whatsapp", 20)}Quero ver o meu site</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
 export function montarPagina(config, { css = readFileSync(new URL("./estilo.css", import.meta.url), "utf8"), ano = new Date().getFullYear() } = {}) {
   const { pessoa, contato } = config;
   const nomeCompleto = pessoa.nomeCompleto || pessoa.nome;
@@ -169,12 +282,16 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
   const telefone = telefoneLegivel(contato.whatsapp);
   const trabalhos = config.trabalhos.filter(t => t.publicar);
   const temDemo = trabalhos.some(t => t.selo === "demonstracao");
-  // Abertura mostra trabalho real: o primeiro destaque com print.
-  const vitrine = trabalhos.find(t => t.destaque && t.imagem);
+  // Abertura: os trabalhos em destaque com print de celular (sites de clientes do público de hoje).
+  const destaques = trabalhos.filter(t => t.destaque && t.imagemCelular).slice(0, 2);
   const depoimentos = (config.depoimentos || []).filter(d => d.publicar && d.texto && d.texto.trim());
+  // N nas palavras de um cliente: o trecho do depoimento em que ele mesmo diz o que o site resolveu.
+  const fala = depoimentos.find(d => d.valor && d.valor.trim());
+  const fundadoresComFoto = (config.fundadores || []).filter(f => f.foto);
+  const nomesFundadores = emLista((config.fundadores || []).map(f => esc(f.nome)));
 
   const titulo = "Renderiza · Sites e aplicativos para o seu negócio";
-  const descricao = `Sites rápidos e bem-feitos para pequenos negócios e aplicativos sob medida. Renderiza, de ${nomeCompleto}, desenvolvedor de software há ${pessoa.anosDeExperiencia} anos.`;
+  const descricao = "A Renderiza monta uma prévia do site do seu negócio com as suas fotos reais e as avaliações dos seus clientes. Você vê no celular, sem compromisso, e só depois decide.";
 
   const fundadores = (config.fundadores || []).map(f => `
         <article class="fundador">
@@ -211,7 +328,7 @@ export function montarPagina(config, { css = readFileSync(new URL("./estilo.css"
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Renderiza: do site da loja ao aplicativo com IA">
+<meta property="og:image:alt" content="Renderiza: ${esc(FRASE.inicio.toLowerCase())} ${esc(FRASE.destaque)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -228,9 +345,9 @@ ${css.trim()}
   <div class="topo-dentro">
     <a class="marca" href="#inicio" aria-label="Renderiza, início">${simbolo(30)}<span>renderiza</span></a>
     <nav class="topo-nav" aria-label="Seções">
-      <a href="#servicos">O que faço</a>
-      <a href="#trabalhos">Trabalhos</a>
+      <a href="#teste">Faça o teste</a>
       <a href="#como-funciona">Como funciona</a>
+      <a href="#trabalhos">Trabalhos</a>
       <a href="#sobre">Quem somos</a>
     </nav>
     <a class="botao botao-primario botao-topo" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 17)}<span>WhatsApp</span></a>
@@ -241,81 +358,71 @@ ${css.trim()}
   <section class="abertura" id="inicio" aria-labelledby="abertura-titulo">
     <div class="envoltorio abertura-grade">
       <div class="abertura-texto">
-        <h1 id="abertura-titulo">Do site da loja ao <em>aplicativo com IA</em>.</h1>
-        <p class="abertura-lide">Sites e aplicativos sob medida, feitos de ponta a ponta por um desenvolvedor com ${esc(pessoa.anosDeExperiencia)} anos de experiência em produto. Você fala direto com quem desenvolve.</p>
+        <a class="aviso" href="#como-funciona">Recebeu uma prévia do seu site? <span>Veja como funciona${icone("seta", 14)}</span></a>
+        <h1 id="abertura-titulo">${esc(FRASE.inicio)} <em>${esc(FRASE.destaque)}</em></h1>
+        <p class="abertura-lide">Para lojas, clínicas e consultórios: a gente monta uma prévia com as suas fotos reais e as avaliações dos seus clientes. Você vê no celular, sem compromisso, e só depois decide.</p>
         <div class="acoes">
-          <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Conversar no WhatsApp</a>
-          <a class="botao botao-secundario botao-grande" href="#trabalhos">Ver trabalhos${icone("baixo", 18)}</a>
+          <a class="botao botao-primario botao-grande" href="${esc(hrefWa)}"${attrsWa}>${icone("whatsapp", 20)}Quero ver o meu site</a>
+          <a class="botao botao-secundario botao-grande" href="#teste">Fazer o teste${icone("baixo", 18)}</a>
         </div>
+        ${nomesFundadores ? `<p class="abertura-gente">${fundadoresComFoto.length ? `<span class="rostos">${fundadoresComFoto.map(f => `<img src="${esc(f.foto)}" alt="" width="720" height="960" decoding="async">`).join("")}</span>` : ""}<span><strong>${nomesFundadores}</strong>, ${(config.fundadores || []).length > 1 ? "os fundadores" : "o fundador"}. Você fala direto com a gente.</span></p>` : ""}
       </div>
-
-${vitrine ? `<figure class="vitrine">
-        <div class="navegador">
-          <div class="navegador-barra" aria-hidden="true"><span></span><span></span><span></span><em>${esc(dominio(vitrine.link))}</em></div>
-          <img src="${esc(vitrine.imagem)}"${vitrine.imagemGrande ? ` srcset="${srcsetDe(vitrine)}" sizes="540px"` : ""} alt="${esc(vitrine.alt || "Tela do " + vitrine.titulo)}" width="1400" height="875" loading="lazy" decoding="async">
-        </div>
-        ${vitrine.imagemCelular ? `<div class="vitrine-celular"><img src="${esc(vitrine.imagemCelular)}" alt="" width="720" height="1440" loading="lazy" decoding="async"></div>` : ""}
-        <figcaption><a href="#trabalhos"><strong>${esc(vitrine.titulo)}</strong> · ${esc(vitrine.legenda || vitrine.tipo)}${icone("baixo", 14)}</a></figcaption>
-      </figure>` : ""}
+${vitrine(destaques)}
     </div>
   </section>
 
   <section class="dor" id="por-que" aria-labelledby="dor-titulo">
     <div class="envoltorio">
-      <p class="sobretitulo">Por que ter um site</p>
+      <p class="sobretitulo">Como é hoje</p>
       <h2 id="dor-titulo">Seus clientes te conhecem. <em>O cliente novo, não.</em></h2>
-      <p class="dor-lide">Quem foi indicado ou ouviu falar da sua loja pesquisa antes de ir. O site é o que ele encontra: a melhor versão do seu negócio, a um toque do WhatsApp.</p>
-      <ul class="dores">
+      <p class="dor-lide">Quem ouviu falar de você pesquisa antes de chamar. Hoje, esse caminho costuma ser assim:</p>
+      <ol class="caminho">${CAMINHO.map(p => `
         <li>
-          <span class="dor-icone">${icone("painel", 20)}</span>
-          <h3>Tudo num lugar só</h3>
-          <p>Fotos, avaliações, endereço, horário, Instagram e WhatsApp numa página. Um link para mandar a qualquer cliente.</p>
-        </li>
-        <li>
-          <span class="dor-icone">${icone("loja", 20)}</span>
-          <h3>Mais profissional</h3>
-          <p>Sua loja com cara de negócio estabelecido, lado a lado com as grandes redes, mostrando o que elas não têm: o seu atendimento.</p>
-        </li>
-        <li>
-          <span class="dor-icone">${icone("megafone", 20)}</span>
-          <h3>Pronto para anunciar</h3>
-          <p>Se um dia quiser investir em anúncios, eles já têm para onde levar: uma página feita para virar conversa no WhatsApp.</p>
-        </li>
-      </ul>
-      <p class="dor-fecho">O Instagram continua sendo o seu dia a dia. <em>O site é a sua primeira impressão.</em></p>
+          <span class="caminho-icone">${icone(p.icone, 20)}</span>
+          <h3>${esc(p.titulo)}</h3>
+          <p>${esc(p.texto)}</p>
+        </li>`).join("")}
+      </ol>
+      <p class="dor-fecho">É nessa pesquisa que ele decide se chama você. <em>E você nem fica sabendo.</em></p>
     </div>
   </section>
+${secaoTeste({ temWa, contato })}
 
-  <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
+  <section class="secao" id="solucao" aria-labelledby="solucao-titulo">
     <div class="envoltorio">
-      <p class="sobretitulo">O que eu faço</p>
-      <h2 id="servicos-titulo">Do tamanho que o seu negócio precisa.</h2>
-      <div class="servicos">
-        <article class="servico">
-          <h3>Sites para pequenos negócios</h3>
-          <p>Uma página rápida no celular, com o que o cliente precisa saber antes de entrar em contato.</p>
-          <ul class="lista-check">
-            <li>${icone("check", 17)}Fotos reais do seu negócio</li>
-            <li>${icone("check", 17)}Avaliações do Google</li>
-            <li>${icone("check", 17)}Horário, endereço e mapa</li>
-            <li>${icone("check", 17)}Botão para falar no WhatsApp</li>
-          </ul>
-        </article>
-        <article class="servico">
-          <h3>Aplicativos e sistemas sob medida</h3>
-          <p>Para projetos que pedem mais que um site, feitos do zero para o seu processo.</p>
-          <ul class="lista-check">
-            <li>${icone("check", 17)}Login e área do cliente</li>
-            <li>${icone("check", 17)}Painel de gestão</li>
-            <li>${icone("check", 17)}Integrações com outros sistemas</li>
-            <li>${icone("check", 17)}Recursos com inteligência artificial</li>
-          </ul>
-        </article>
+      <p class="sobretitulo">O que o site faz</p>
+      <h2 id="solucao-titulo">E se o cliente já chegasse <em>sabendo de tudo?</em></h2>
+      <p class="secao-lide">É para isso que serve o site: o cliente novo encontra sozinho o que hoje precisa perguntar, e chama você já sabendo o que quer.</p>
+      <div class="contraste">
+        <p class="contraste-cabeca" aria-hidden="true"><span>Hoje</span><span>No seu site</span></p>
+        <ul>${HOJE_E_NO_SITE.map(([hoje, site]) => `
+          <li>
+            <p class="contraste-hoje"><span class="contraste-marca">${icone("fechar", 14)}</span><span><span class="contraste-rotulo">Hoje</span>${esc(hoje)}</span></p>
+            <p class="contraste-site"><span class="contraste-marca">${icone("check", 14)}</span><span><span class="contraste-rotulo">No seu site</span>${esc(site)}</span></p>
+          </li>`).join("")}
+        </ul>
       </div>
+${fala ? `      <figure class="fala">
+        <span class="fala-aspas">${icone("aspas", 26)}</span>
+        <blockquote><p>${esc(fala.valor)}</p></blockquote>
+        <figcaption><strong>${esc(fala.nome || fala.papel)}</strong>${fala.nome && fala.papel ? `, ${esc(fala.papel)}` : ""}</figcaption>
+      </figure>
+` : ""}    </div>
+  </section>
+
+  <section class="secao secao-clara" id="como-funciona" aria-labelledby="como-titulo">
+    <div class="envoltorio">
+      <p class="sobretitulo">Como funciona</p>
+      <h2 id="como-titulo">Você vê o seu site <em>antes de decidir.</em></h2>
+      <p class="secao-lide">Sem reunião, sem formulário e sem pagar nada para ver.</p>
+      <ol class="passos">${PASSOS.map(([t, p]) => `
+        <li><h3>${esc(t)}</h3><p>${esc(p)}</p></li>`).join("")}
+      </ol>
+      <p class="passos-nota">${icone("escudo", 20)}<span>Você só paga se decidir colocar o site no ar.</span></p>
     </div>
   </section>
 
-  <section class="secao secao-clara" id="trabalhos" aria-labelledby="trabalhos-titulo">
+  <section class="secao" id="trabalhos" aria-labelledby="trabalhos-titulo">
     <div class="envoltorio carrossel" data-carrossel>
       <div class="carrossel-topo">
         <div>
@@ -327,20 +434,30 @@ ${vitrine ? `<figure class="vitrine">
           <button type="button" data-proximo aria-label="Próximo projeto" aria-controls="projetos-lista">${icone("seta", 20)}</button>
         </div>
       </div>
+      <p class="secao-lide">Sites de negócios como o seu e, quando o projeto pede mais, aplicativos sob medida.</p>
       <ul class="projetos" id="projetos-lista" data-trilho tabindex="0" aria-label="Projetos (no celular, deslize para o lado)">${trabalhos.map(cartaoProjeto).join("")}
       </ul>
       <div class="carrossel-pontos" hidden>${trabalhos.map((t, i) => `<button type="button" data-ir="${i}" aria-label="Ver projeto ${i + 1} de ${trabalhos.length}"></button>`).join("")}</div>
+    </div>
+    <div class="envoltorio">
+      <div class="alem">
+        <div>
+          <h3>Precisa de mais que um site?</h3>
+          <p>A gente também desenvolve aplicativos e sistemas sob medida: login e área do cliente, painel de gestão, integrações e recursos com inteligência artificial.</p>
+        </div>
+        <a class="alem-link" href="${esc(temWa ? linkWhatsapp(contato, MENSAGEM.aplicativo) : "#contato")}"${attrsWa}>Conversar sobre um aplicativo${icone("seta", 16)}</a>
+      </div>
     </div>
 ${trabalhos.map(t => janelaProjeto(t, depoimentos.find(d => d.trabalho === t.id))).join("")}
 ${trabalhos.map(janelasDeRecursos).join("")}
   </section>
 
-${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledby="depoimentos-titulo">
+${depoimentos.length ? `  <section class="secao secao-clara" id="depoimentos" aria-labelledby="depoimentos-titulo">
     <div class="envoltorio carrossel" data-carrossel>
       <div class="carrossel-topo">
         <div>
           <p class="sobretitulo">Depoimentos</p>
-          <h2 id="depoimentos-titulo">Quem já trabalhou comigo.</h2>
+          <h2 id="depoimentos-titulo">Quem já trabalhou com a gente.</h2>
         </div>
         <div class="carrossel-setas" hidden>
           <button type="button" data-anterior aria-label="Depoimento anterior" aria-controls="depoimentos-lista">${icone("voltar", 20)}</button>
@@ -363,20 +480,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
     </div>
   </section>
 
-` : ""}  <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
-    <div class="envoltorio">
-      <p class="sobretitulo">Como funciona</p>
-      <h2 id="como-titulo">Direto, sem burocracia.</h2>
-      <ol class="passos">
-        <li><h3>Conversa</h3><p>Entendo o seu negócio, seus clientes e o que vale mostrar.</p></li>
-        <li><h3>Proposta</h3><p>Apresento a solução. Em alguns casos, já com uma prévia feita com as informações do seu negócio.</p></li>
-        <li><h3>Combinado</h3><p>Escopo e valor definidos antes de começar.</p></li>
-        <li><h3>Entrega</h3><p>Desenvolvo o que foi combinado e entrego pronto para usar.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="secao secao-clara" id="sobre" aria-labelledby="sobre-titulo">
+` : ""}  <section class="secao" id="sobre" aria-labelledby="sobre-titulo">
     <div class="envoltorio sobre">
       <div class="sobre-abertura">
         <p class="sobretitulo">Quem está por trás</p>
@@ -388,36 +492,29 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
     </div>
   </section>
 
-  <section class="secao" id="perguntas" aria-labelledby="perguntas-titulo">
+  <section class="secao secao-clara" id="perguntas" aria-labelledby="perguntas-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Perguntas frequentes</p>
-      <h2 id="perguntas-titulo">Antes de começar.</h2>
-      <div class="perguntas">
+      <h2 id="perguntas-titulo">Antes de chamar.</h2>
+      <div class="perguntas">${PERGUNTAS.map(([p, r]) => `
         <details>
-          <summary>Como começamos?${icone("mais", 18)}</summary>
-          <p>Pelo WhatsApp. Você conta sobre o seu negócio e eu indico o próximo passo.</p>
-        </details>
-        <details>
-          <summary>Recebi uma prévia do meu site. O que é?${icone("mais", 18)}</summary>
-          <p>Uma demonstração feita com informações públicas do seu negócio, para você avaliar antes de qualquer compromisso. O link é privado e sai do ar quando você pedir.</p>
-        </details>
-        <details>
-          <summary>Quanto custa?${icone("mais", 18)}</summary>
-          <p>Depende do escopo, combinado caso a caso antes de começar. Domínio e hospedagem podem ter custos próprios.</p>
-        </details>
+          <summary>${esc(p)}${icone("mais", 18)}</summary>
+          <p>${esc(r)}</p>
+        </details>`).join("")}
       </div>
     </div>
   </section>
 
   <section class="convite" id="contato" aria-labelledby="contato-titulo">
     <div class="envoltorio envoltorio-estreito">
-      <h2 id="contato-titulo">Vamos conversar sobre o seu projeto?</h2>
-      <p>Conte pelo WhatsApp o que você precisa.</p>
+      <h2 id="contato-titulo">Quer ver como ficaria <em>o seu?</em></h2>
+      <p>Mande o nome ou o Instagram do seu negócio. A gente monta a prévia e te mostra, sem compromisso.</p>
       <div class="acoes acoes-convite">
-        ${temWa ? `<a class="botao botao-claro botao-grande" href="${esc(wa)}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Conversar no WhatsApp</a>` : ""}
-        ${contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
+        ${temWa ? `<a class="botao botao-claro botao-grande" href="${esc(linkWhatsapp(contato, MENSAGEM.convite))}" target="_blank" rel="noopener">${icone("whatsapp", 20)}Quero ver o meu site</a>` : ""}
+        ${!temWa && contato.linkedin ? `<a class="botao botao-contorno botao-grande" href="${esc(contato.linkedin)}" target="_blank" rel="noopener">${icone("linkedin", 18)}LinkedIn</a>` : ""}
         ${!temWa && !contato.linkedin ? `<p class="convite-pendente">Os canais de contato estão sendo atualizados.</p>` : ""}
       </div>
+      ${temWa ? `<p class="convite-numero">Ou salve o nosso número: WhatsApp ${esc(telefone)}</p>` : ""}
     </div>
   </section>
 </main>
@@ -436,6 +533,7 @@ ${depoimentos.length ? `  <section class="secao" id="depoimentos" aria-labelledb
 </footer>
 <script>/* carrosséis (projetos no celular e depoimentos): setas e pontos sobre a rolagem nativa (sem JS, desliza do mesmo jeito) */document.querySelectorAll("[data-carrossel]").forEach(function(c){var t=c.querySelector("[data-trilho]"),it=[].slice.call(t.children),a=c.querySelector("[data-anterior]"),p=c.querySelector("[data-proximo]"),ps=[].slice.call(c.querySelectorAll("[data-ir]"));if(it.length<2)return;c.querySelectorAll("[hidden]").forEach(function(e){e.hidden=false});var suave=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";function passo(){return it[1].offsetLeft-it[0].offsetLeft}function fim(){return t.scrollLeft>=t.scrollWidth-t.clientWidth-4}function ultimo(){return Math.max(0,Math.ceil((t.scrollWidth-t.clientWidth-4)/passo()))}function ir(i){t.scrollTo({left:Math.max(0,Math.min(i,ultimo()))*passo(),behavior:suave})}function atual(){return fim()?ultimo():Math.round(t.scrollLeft/passo())}function marcar(){var i=atual(),u=ultimo();a.disabled=t.scrollLeft<4;p.disabled=fim();ps.forEach(function(b,k){b.hidden=k>u;b.setAttribute("aria-current",k===i?"true":"false")});c.classList.toggle("tudo-visivel",t.scrollWidth<=t.clientWidth+4)}a.addEventListener("click",function(){ir(atual()-1)});p.addEventListener("click",function(){ir(atual()+1)});ps.forEach(function(b){b.addEventListener("click",function(){ir(+b.dataset.ir)})});var r;t.addEventListener("scroll",function(){cancelAnimationFrame(r);r=requestAnimationFrame(marcar)},{passive:true});addEventListener("resize",marcar);marcar()})</script>
 <script>/* pop-ups (projeto e "Ver tela" do recurso): tocar fora ou Esc fecha */document.querySelectorAll("[data-abrir]").forEach(function(b){var d=document.getElementById(b.dataset.abrir);if(!d||!d.showModal)return;b.addEventListener("click",function(){d.showModal()});d.addEventListener("click",function(e){if(e.target===d)d.close()})})</script>
+<script>/* teste: a frase muda com o placar e a mensagem do WhatsApp leva o resultado (o cliente já chega dizendo o que falta) */(function(){var t=document.querySelector("[data-teste]");if(!t)return;var cx=[].slice.call(t.querySelectorAll("input[type=checkbox]")),fr=t.querySelector("[data-frase]"),pg=t.querySelector("[data-pergunta]"),lk=t.querySelector("[data-teste-link]");function lista(a){return a.length<2?a.join(""):a.slice(0,-1).join(", ")+" e "+a[a.length-1]}function atualizar(){var n=cx.filter(function(c){return c.checked}).length,falta=cx.filter(function(c){return!c.checked}).map(function(c){return c.dataset.rotulo});fr.textContent=n===cx.length?"O cliente novo já encontra tudo. Se quiser comparar com uma prévia feita para você, é só chamar.":n>=3?"Falta pouco: o cliente novo já encontra boa parte sozinho.":n>0?"O cliente novo ainda precisa perguntar quase tudo antes de chamar.":"Por enquanto, o cliente novo precisa perguntar tudo antes de chamar.";pg.hidden=n===cx.length;if(lk)lk.href=lk.dataset.base+"?text="+encodeURIComponent("Oi! Fiz o teste no site da Renderiza: meu negócio tem "+n+" de "+cx.length+"."+(falta.length?" Ainda não tenho "+lista(falta)+".":"")+" Quero ver como ficaria o site do meu negócio.")}cx.forEach(function(c){c.addEventListener("change",atualizar)})})()</script>
 </body>
 </html>
 `;
