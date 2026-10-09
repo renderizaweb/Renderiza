@@ -1,0 +1,29 @@
+{
+ "marca": "Odonto Mile",
+ "local": "RT Dra. Myllena Cortes · CRO-SP 155.100",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#1c2a5e",
+  "fundo2": "#121a3c",
+  "acento": "#f0a3b6",
+  "tinta_acento": "#121a3c",
+  "claro": "#f5f8fd"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/odontomile/Instagram_files/639869984_18566476681027802_655119216078454726_n.jpg",
+  "pos": "45% 30%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "552"
+ },
+ "titulo": "Você merece o sorriso <em>que sempre quis.</em>",
+ "texto": "Facetas em resina premium, harmonização facial e Odontomile Kids, com tudo explicado.",
+ "whatsapp": "(11) 96922-0321",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Miguel Rotger Domingues, 247 · Itapecerica",
+ "instagram": "@odontomile"
+}

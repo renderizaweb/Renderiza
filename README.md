@@ -133,6 +133,12 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Consultório Dra. Natiele Silva (dentista)](demos/consultorio-dra-natiele-silva) | Vila Matilde, São Paulo | site | pronta · 08/10/2026 (odonto lote 1 · 3ª) |
 | [Sauddá Odontologia (dentista)](demos/saudda-odontologia) | Centro, Biritiba Mirim | site | pronta · 08/10/2026 (odonto lote 1 · 14ª) |
 | [Dr. Ítalo Totti · Totti Odontologia (dentista)](demos/dr-italo-totti) | Socorro, Mogi das Cruzes | site | pronta · 08/10/2026 (odonto lote 1 · 13ª) |
+| [Clínica ACS Odonto Center (dentista)](demos/clinica-acs-odonto-center) | Cidade Mãe do Céu (Tatuapé), São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 2ª) |
+| [Odonto Mile (dentista)](demos/odonto-mile) | Centro, Itapecerica da Serra | site | pronta · 09/10/2026 (odonto lote 1 · 6ª) |
+| [Dra. Karoline Stefani (dentista)](demos/dra-karoline-stefani) | Vila Perus, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 7ª) |
+| [Dra. Fernanda Ornelas (dentista)](demos/dra-fernanda-ornelas) | Jabaquara, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 11ª) |
+| [Odontoelis (dentista)](demos/odontoelis) | Guaianases, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 12ª) |
+| [Clínica Dra. Michele Renteiro (dentista)](demos/clinica-dra-michele-renteiro) | Centro, Franco da Rocha | site | pronta · 09/10/2026 (odonto lote 1 · 16ª) |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |

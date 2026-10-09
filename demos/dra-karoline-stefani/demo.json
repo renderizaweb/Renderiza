@@ -1,0 +1,499 @@
+{
+ "pasta": "dra-karoline-stefani",
+ "marca": "Dra. Karoline Stefani",
+ "marca_sub": "Cirurgiã-dentista",
+ "marca_completa": "Dra. Karoline Stefani",
+ "titulo": "Dra. Karoline Stefani · Dentista em Perus",
+ "descricao": "Dra. Karoline Stefani, cirurgiã-dentista (CROSP 119436) em Vila Perus, São Paulo: facetas e lentes em resina, tratamento de canal, implantes e aparelhos, com odontologia humanizada. Nota 5,0 no Google.",
+ "comentario": "Demo Dra. Karoline Stefani: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dra.karolstefani, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "primaria": "#2747a8",
+  "primaria_escura": "#1a2f75",
+  "noite": "#111c45",
+  "tinta": "#141a33",
+  "clara": "#e3e9f8",
+  "clara2": "#f6f8fd",
+  "creme": "#f6efe9",
+  "papel": "#fffefc",
+  "destaque": "#c99a7c",
+  "ouro": "#e6c3a9"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dra.karolstefani/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "41",
+ "google_nome": "Dra. Karoline Stefani",
+ "endereco_maps": "Rua Raphael di Sandro, 511 - Vila Perus, São Paulo - SP, 05204-160",
+ "maps_url": "https://www.google.com/maps?cid=1623449912782816002",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJT_M55rn7zpQRAgMPIhinhxY",
+ "whatsapp": "5511992987422",
+ "mensagem": "Olá, Dra. Karoline! Vim pelo site e gostaria de agendar uma avaliação.",
+ "instagram": "dra.karolstefani",
+ "verificado": "2026-10-09",
+ "logo": {
+  "foto": {
+   "id": 36,
+   "box": [
+    0.36,
+    0.26,
+    0.64,
+    0.54
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  }
+ },
+ "cta": "Agendar avaliação",
+ "nav": [
+  [
+   "#dentista",
+   "A dentista"
+  ],
+  [
+   "#sorrisos",
+   "Sorrisos"
+  ],
+  [
+   "#tratamentos",
+   "Tratamentos"
+  ],
+  [
+   "#consultorio",
+   "Consultório"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#contato",
+   "Contato"
+  ]
+ ],
+ "ordem": [
+  "hero",
+  "faixa",
+  "dentista",
+  "carrossel:sorrisos",
+  "experiencia",
+  "tratamentos",
+  "espaco",
+  "depoimentos",
+  "contato"
+ ],
+ "hero": {
+  "eyebrow": "Odontologia humanizada em Perus",
+  "h1": "Cuidar de sorrisos",
+  "h1_em": "é cuidar de pessoas.",
+  "lead": "Facetas e lentes em resina, tratamento de canal, implantes e aparelhos com a Dra. Karoline Stefani, que ouve o que você tem a dizer, explica cada etapa e planeja o sorriso com você.",
+  "cta": "Quero agendar minha avaliação",
+  "link": [
+   "#sorrisos",
+   "Ver sorrisos reais"
+  ],
+  "provas": [
+   [
+    "{nota}",
+    ""
+   ],
+   [
+    "10,4 mil",
+    "pessoas acompanham no Instagram"
+   ],
+   [
+    "Desde 2013",
+    "na odontologia"
+   ]
+  ],
+  "foto": {
+   "id": 38,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Karoline Stefani sorrindo no consultório, de jaqueta azul",
+  "nome": "Dra. Karoline Stefani",
+  "registro": "CROSP 119436 · CIRURGIÃ-DENTISTA",
+  "chip": "Facetas em resina"
+ },
+ "faixa": [
+  "Escuta antes de tudo",
+  "Facetas e lentes em resina",
+  "8 anos salvando dentes"
+ ],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Karoline Stefani,",
+  "h2_em": "uma história com a odontologia.",
+  "p": [
+   "Mineira de Campos Gerais, a Dra. Karoline se formou em 2013 e passou 8 anos dedicada a salvar dentes com o tratamento de canal, com pós-graduação em Endodontia.",
+   "Quando conheceu as técnicas de lentes em resina, encontrou a sua paixão: devolver sorrisos inteiros e a autoestima de quem senta na cadeira. Hoje atende em Perus, com uma odontologia humanizada."
+  ],
+  "citacao": "Por trás de cada sorriso que transformo, existe uma história… e por trás da minha, também.",
+  "citacao_fonte": "Dra. Karoline Stefani, no Instagram",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/ig/DagDJO9lOi7_01.jpg",
+   "box": [
+    0.58,
+    0.135,
+    1.0,
+    0.98
+   ],
+   "c": [
+    0.5,
+    0.0
+   ]
+  },
+  "alt": "Dra. Karoline Stefani sorrindo, sentada numa banqueta, de azul",
+  "selo": [
+   "CROSP 119436",
+   "Cirurgiã-dentista"
+  ],
+  "tira": [
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/ig/DagDJO9lOi7_04.jpg",
+     "box": [
+      0.42,
+      0.08,
+      0.98,
+      0.9
+     ],
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    "alt": "Dra. Karoline Stefani de terno bege, com uma xícara de café"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/ig/Dc3zweeSyxi_00.jpg",
+     "box": [
+      0,
+      0.05,
+      1,
+      0.85
+     ],
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    "alt": "Dra. Karoline Stefani de jaleco branco, sorrindo no consultório"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/ig/DagDJO9lOi7_03.jpg",
+     "box": [
+      0.0,
+      0.56,
+      0.29,
+      0.96
+     ],
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    "alt": "Dra. Karoline Stefani de jaleco, segurando um modelo de sorriso"
+   }
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "sorrisos",
+   "tipo": "sorriso",
+   "formato": "quadrado",
+   "fundo": "clara",
+   "eyebrow": "Sorrisos reais",
+   "h2": "Naturais, harmônicos",
+   "h2_em": "e do jeito de cada um.",
+   "p": "Facetas e lentes em resina feitas pela Dra. Karoline: cada detalhe planejado para valorizar os traços de cada paciente, sem exageros.",
+   "rotulo": "Sorrisos feitos pela Dra. Karoline",
+   "nota": "Imagens de casos reais publicadas no Instagram da Dra. Karoline. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {
+     "foto": {
+      "id": 23,
+      "box": [
+       0.5,
+       0,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Paciente sorrindo depois das facetas em resina"
+    },
+    {
+     "foto": {
+      "id": 5,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com lentes em resina e batom vermelho"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com facetas de resina premium, de frente"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com lentes em resina, de lado"
+    },
+    {
+     "foto": {
+      "id": 31,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso largo com lentes em resina"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso masculino com facetas em resina"
+    },
+    {
+     "foto": {
+      "id": 14,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com lentes em resina e batom"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso com facetas em resina, de frente"
+    }
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Odontologia humanizada",
+  "h2": "Ouvir de verdade",
+  "h2_em": "antes de tratar.",
+  "lead": "Para a Dra. Karoline, odontologia humanizada é atendimento baseado em ouvir o que você tem a dizer, acolher suas dores e resolver o seu problema, com cada etapa explicada com clareza e paciência.",
+  "pontos": [
+   "Escuta antes de tudo",
+   "Cada etapa explicada",
+   "Atendimento pontual e organizado"
+  ],
+  "foto": {
+   "id": 16,
+   "box": [
+    0,
+    0.12,
+    0.86,
+    1
+   ],
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Karoline Stefani sorrindo, de jaleco rosa",
+  "legenda": "Seu sorriso também merece uma nova história."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Estética e saúde,",
+  "h2_em": "com o mesmo cuidado.",
+  "itens": [
+   [
+    "Facetas e lentes em resina",
+    "Técnica direta, feita no consultório e planejada para um sorriso natural, com a cor escolhida junto com você."
+   ],
+   [
+    "Tratamento de canal",
+    "Pós-graduação em Endodontia e 8 anos dedicados a salvar dentes."
+   ],
+   [
+    "Implantes",
+    "Para repor dentes perdidos, com planejamento e acompanhamento."
+   ],
+   [
+    "Aparelhos",
+    "Ortodontia para alinhar o sorriso com segurança."
+   ]
+  ],
+  "mais": [
+   [
+    "Também no consultório",
+    [
+     "Troca de facetas antigas",
+     "Clareamento",
+     "Reabilitação estética",
+     "Avaliação"
+    ]
+   ],
+   [
+    "Onde",
+    [
+     "Vila Perus",
+     "São Paulo"
+    ]
+   ]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "espaco": {
+  "id": "consultorio",
+  "eyebrow": "O consultório",
+  "h2": "Moderno, limpo",
+  "h2_em": "e acolhedor.",
+  "lead": "O consultório da Dra. Karoline fica na Rua Raphael di Sandro, em Vila Perus. Os pacientes falam de um ambiente organizado, atendimento pontual e muito carinho.",
+  "fotos": [
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/google/g00.jpg",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    "alt": "Recepção do consultório com parede verde, balanço e piso de madeira",
+    "legenda": "Recepção"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/karol/ig/DagDJO9lOi7_03.jpg",
+     "box": [
+      0.71,
+      0.02,
+      1.0,
+      0.33
+     ],
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    "alt": "Dra. Karoline Stefani de jaleco, com o fotopolimerizador na mão"
+   },
+   {
+    "foto": {
+     "id": 36,
+     "box": [
+      0.2,
+      0.15,
+      0.8,
+      0.75
+     ],
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    "alt": "Logo da Dra. Karoline Stefani, cirurgiã-dentista",
+    "legenda": "A marca"
+   }
+  ],
+  "cards": [
+   [
+    "5,0",
+    "41 avaliações no Google",
+    "Nota máxima de quem já é paciente."
+   ],
+   [
+    "2013",
+    "Na odontologia",
+    "Formada em 2013, com pós-graduação em Endodontia."
+   ],
+   [
+    "8 anos",
+    "Salvando dentes",
+    "Antes da estética, 8 anos dedicados ao tratamento de canal."
+   ]
+  ]
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem sorri",
+  "h2_em": "conta a história.",
+  "itens": [
+   {
+    "i": 0,
+    "trecho": "Fiz minhas facetas tem 2 anos e foi a virada de chave na minha vida, levantou minha auto estima , todos elogiam a naturalidade do sorriso."
+   },
+   {
+    "i": 6,
+    "trecho": "Meus dentes ficaram exatamente como eu queria e muito naturais. Desde o primeiro contato, fui recebida com atenção e profissionalismo."
+   },
+   {
+    "i": 1
+   },
+   {
+    "i": 4
+   },
+   {
+    "i": 3
+   }
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos começar",
+  "h2_em": "a sua nova história?",
+  "lead": "Agende sua avaliação pelo WhatsApp e conte o que você sonha para o seu sorriso.",
+  "foto": {
+   "id": 37,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Karoline Stefani de braços cruzados, de jaqueta rosa",
+  "endereco": [
+   "Rua Raphael di Sandro, 511",
+   "Vila Perus · São Paulo, SP · 05204-160"
+  ],
+  "whatsapp_texto": "(11) 99298-7422",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {
+  "registro": "Cirurgiã-dentista · CROSP 119436",
+  "esq": "Dra. Karoline Stefani · Vila Perus, São Paulo",
+  "dir": "Atendimento com hora marcada"
+ }
+}

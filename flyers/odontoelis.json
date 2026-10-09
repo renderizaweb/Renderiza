@@ -1,0 +1,29 @@
+{
+ "marca": "Odontoelis",
+ "local": "Dra. Eliane Oliveira · CRO-SP 128284",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#6e3446",
+  "fundo2": "#2d1720",
+  "acento": "#d79aa6",
+  "tinta_acento": "#2d1720",
+  "claro": "#fcf5f6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/flyer-eliane.jpg",
+  "pos": "50% 25%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "76"
+ },
+ "titulo": "Aqui, <em>você é única.</em>",
+ "texto": "Lentes em resina, ortodontia, implantes e odontopediatria, com empatia e carinho.",
+ "whatsapp": "(11) 96282-0102",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Inácio de Oliveira Campos, 711 · Guaianases",
+ "instagram": "@odontoelisoficial"
+}

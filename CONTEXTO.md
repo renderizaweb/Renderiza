@@ -432,7 +432,7 @@ litoral não foram buscados. O que aprendi:
 
 **Odonto lote 1 (aprovado pelo Kaue em 08/10/2026):** 9 leads no painel, em **A trabalhar**, segmento
 "Odontologia", próxima ação "Criar demo (odonto lote 1 · Nª)", com N igual ao número na lista de 05/10.
-Nenhuma demo feita ainda. Dados, observações do Kaue e alertas ficam nas observações de cada lead.
+Todas têm demo, vídeo e flyer desde 09/10/2026 (abaixo). Dados, observações do Kaue e alertas ficam nas observações de cada lead.
 
 | # | Clínica | Onde | Observação do Kaue |
 |---|---|---|---|
@@ -473,6 +473,24 @@ pronta ou capa de vídeo.
   precisa de `numpy` e `imageio-ffmpeg` (`pip install numpy imageio-ffmpeg`).
 - **Pendências:** CRO do Dr. Ítalo não confirmado (a demo e o flyer não mostram); horário dele só de quarta; na
   Sauddá, confirmar a segunda-feira (o Google mostrou horário de feriado). Detalhes na ficha de cada demo.
+
+**Demos de dentista, 2ª leva (09/10/2026):** o Kaue pediu as 6 que restavam em A trabalhar, no mesmo padrão, com
+fotos do Drive (sem confundir as clínicas), avaliações excelentes e fotos bonitas, valorizando o jeito de cada um
+"sem ser emocionado demais". Ficaram **ACS Odonto Center** (`clinica-acs-odonto-center`), **Odonto Mile**
+(`odonto-mile`), **Dra. Karoline Stefani** (`dra-karoline-stefani`), **Dra. Fernanda Ornelas**
+(`dra-fernanda-ornelas`), **Odontoelis** (`odontoelis`) e **Dra. Michele Renteiro** (`clinica-dra-michele-renteiro`),
+todas com vídeo e flyer. Climas do vídeo: ACS sóbrio, Odonto Mile descolado, Fernanda grife, as outras leve.
+- **Na linha de sempre** (`gerar-odonto.py`, sem mudança): a seção do dentista pode virar a da equipe (`"id":
+  "equipe"`; Odonto Mile, sem dentista "cara da marca", cita a RT com o CRO); `box` recorta artes e prints; logo
+  pode ser foto recortada. No `c` das fotos, `[0.5, 0.0]` guarda o topo (é quanto do excesso sai, não o centro).
+- **Fotos:** só da clínica certa e do endereço atual (Odonto Mile e Fernanda têm fotos de endereço antigo no Drive;
+  o consultório delas veio do Google). Quando há outra dentista sem nome confirmado (Odontoelis) ou dúvida se é a
+  mesma pessoa (ACS), a demo não usa a foto como a doutora.
+- **Flyer de dentista:** uma foto só (a do dentista ou de paciente sorrindo), nome e CRO no alto; a nota só aparece
+  quando é 5,0 (a Odontoelis, com 4,9, mostra só as estrelas).
+- **Pendências:** ACS (conferir se é a Dra. Adriana nas fotos), Odonto Mile (RT mudou da Dra. Ketliny para a Dra.
+  Myllena; unidade de Embu sem endereço), Michele (legendas antigas com outro endereço), crianças na Odonto Mile e na
+  Odontoelis (autorização dos pais). Detalhes na ficha de cada demo.
 
 ## Repositório e site
 

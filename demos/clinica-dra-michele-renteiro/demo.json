@@ -1,0 +1,144 @@
+{
+ "pasta": "clinica-dra-michele-renteiro",
+ "marca": "Dra. Michele Renteiro",
+ "marca_sub": "Franco da Rocha",
+ "marca_completa": "Clínica Dra. Michele Renteiro",
+ "titulo": "Dra. Michele Renteiro · Dentista em Franco da Rocha",
+ "descricao": "Clínica Dra. Michele Renteiro, no Centro de Franco da Rocha: cirurgia oral, lentes em resina com a técnica de realismo, ortodontia e tratamento de ATM, com atendimento humanizado. CROSP 145848. Nota 5,0 no Google.",
+ "comentario": "Demo Clínica Dra. Michele Renteiro: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dra.michelerenteiro, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {"titulo": "Cormorant Garamond", "texto": "Manrope"},
+ "cores": {"primaria": "#8c3b5e", "primaria_escura": "#5a2440", "noite": "#26121e", "tinta": "#25161e", "clara": "#f5e3ea", "clara2": "#fdf6f8", "creme": "#f6efe9", "papel": "#fffdfc", "destaque": "#d4a35a", "ouro": "#e3bf7c"},
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dra_michelerenteiro/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/michele/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "124",
+ "google_nome": "Clínica Dra. Michele Renteiro",
+ "endereco_maps": "R. Dr. Hamilton Prado, 845 - Centro, Franco da Rocha - SP, 07801-040",
+ "maps_url": "https://www.google.com/maps?cid=2010803271373321188",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJ62ye1BnlzpQR5HNm7-vO5xs",
+ "whatsapp": "5511984768006",
+ "mensagem": "Olá, Dra. Michele! Vim pelo site e gostaria de agendar uma avaliação.",
+ "instagram": "dra.michelerenteiro",
+ "verificado": "2026-10-09",
+ "logo": {"monograma": "MR"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "A dentista"], ["#pacientes", "Pacientes"], ["#sorrisos", "Sorrisos"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "carrossel:pacientes", "experiencia", "carrossel:sorrisos", "tratamentos", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Odontologia no Centro de Franco da Rocha",
+  "h1": "Cuidar, acolher",
+  "h1_em": "e devolver confiança.",
+  "lead": "Cirurgias, lentes em resina com a técnica de realismo, ortodontia e tratamento de ATM com a Dra. Michele Renteiro, que já soma mais de 7 mil atendimentos em Franco da Rocha.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#sorrisos", "Ver sorrisos reais"],
+  "provas": [["{nota}", ""], ["+7 mil", "atendimentos"], ["7,9 mil", "pessoas acompanham no Instagram"]],
+  "foto": {"id": 29, "c": [0.5, 0.15]},
+  "alt": "Dra. Michele Renteiro sorrindo, de pijama cirúrgico verde, com os óculos na mão",
+  "nome": "Dra. Michele Renteiro",
+  "registro": "CROSP 145848 · CIRURGIÃ-DENTISTA",
+  "chip": "Realismo em resina"
+ },
+ "faixa": ["Atendimento humanizado", "Calma para quem tem medo", "+7 mil atendimentos"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Michele Renteiro,",
+  "h2_em": "cuidado que vira laço.",
+  "p": [
+   "Cirurgiã-dentista com mais de 7 mil atendimentos, a Dra. Michele faz de cirurgias de siso a lentes em resina com a técnica de realismo, sempre com atendimento humanizado.",
+   "Para ela, a maior alegria da profissão é criar laços com os pacientes: tem família inteira que se trata com ela há anos, em Franco da Rocha."
+  ],
+  "citacao": "Eu não escolhi apenas uma profissão. Escolhi transformar sorrisos e histórias.",
+  "citacao_fonte": "Dra. Michele Renteiro, no Instagram",
+  "foto": {"id": 35, "c": [0.5, 0.2]},
+  "alt": "Dra. Michele Renteiro sorrindo na cadeira do consultório, com o cartão com o nome dela",
+  "selo": ["CROSP 145848", "Cirurgiã-dentista"],
+  "tira": [
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/michele/ig/DdjbtUVBqvL_00.jpg", "box": [0, 0, 1, 0.62], "c": [0.6, 0.2]}, "alt": "Dra. Michele Renteiro de óculos, sorrindo com um paciente"},
+   {"foto": {"id": 12, "c": [0.5, 0.2]}, "alt": "Dra. Michele Renteiro sorrindo com elásticos coloridos de aparelho"},
+   {"foto": {"id": 28, "c": [0.5, 0.2]}, "alt": "Dra. Michele Renteiro de jaleco preto ao lado de um paciente"}
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "pacientes", "tipo": "galeria", "fundo": "creme",
+   "eyebrow": "Pacientes",
+   "h2": "Criar laços",
+   "h2_em": "é a maior alegria.",
+   "p": "Pacientes reais da Dra. Michele, de todas as idades, que voltam e trazem a família.",
+   "rotulo": "Pacientes da Dra. Michele Renteiro",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/michele/ig/reel_DdmCqWVgE7x.jpg", "box": [0.5, 0, 1, 1], "c": [0.5, 0.4]}, "alt": "Paciente sorrindo depois do tratamento", "rotulo": "Lentes em resina", "titulo": "Um sorriso cheio de detalhes"},
+    {"foto": {"id": 1, "c": [0.5, 0.25]}, "alt": "Paciente sorrindo ao lado da Dra. Michele", "rotulo": "Confiança", "titulo": "Fazer o que ama, com quem confia"},
+    {"foto": {"id": 30, "c": [0.5, 0.25]}, "alt": "Paciente sorrindo abraçada à Dra. Michele", "rotulo": "Carinho de sempre", "titulo": "Pacientes que viram amigos"},
+    {"foto": {"id": 32, "c": [0.5, 0.25]}, "alt": "Paciente abraçada à Dra. Michele no consultório", "rotulo": "Pacientes", "titulo": "Gratidão em cada consulta"},
+    {"foto": {"id": 27, "c": [0.5, 0.3]}, "alt": "Paciente sorrindo numa selfie com a dentista", "rotulo": "Aniversário", "titulo": "Até os dias especiais passam por aqui"}
+   ]
+  },
+  {
+   "id": "sorrisos", "tipo": "sorriso", "formato": "quadrado", "fundo": "clara",
+   "eyebrow": "Realismo em resina",
+   "h2": "Uma nova forma",
+   "h2_em": "de enxergar as lentes.",
+   "p": "Lentes em resina com a técnica de realismo: texturas e detalhes que deixam o sorriso natural.",
+   "rotulo": "Sorrisos feitos pela Dra. Michele",
+   "nota": "Imagens de casos reais publicadas no Instagram da Dra. Michele. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/michele/google/g00.jpg", "c": [0.5, 0.5]}, "alt": "Sorriso com lentes em resina, de perto"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/michele/ig/reel_DdUeZ5uveQz.jpg", "box": [0, 0.5, 1, 1], "c": [0.5, 0.5]}, "alt": "Sorriso com lentes em resina, de frente"},
+    {"foto": {"id": 3, "box": [0, 0.5, 1, 1], "c": [0.5, 0.5]}, "alt": "Sorriso depois do clareamento"},
+    {"foto": {"id": 7, "box": [0, 0.5, 1, 1], "c": [0.5, 0.5]}, "alt": "Sorriso com facetas em resina composta"},
+    {"foto": {"id": 24, "box": [0, 0.5, 1, 1], "c": [0.5, 0.5]}, "alt": "Sorriso depois do fechamento de diastema"}
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Para quem tem medo de dentista",
+  "h2": "Calma, explicação",
+  "h2_em": "e segurança.",
+  "lead": "Os pacientes contam que a Dra. Michele os acalmou até em cirurgias de siso mais complicadas, que ela explica tudo muito bem e que se sentem seguros ao longo de todo o tratamento.",
+  "pontos": ["Atendimento humanizado", "Cada etapa explicada", "Cirurgias com segurança"],
+  "foto": {"id": 11, "c": [0.5, 0.6]},
+  "alt": "Dra. Michele Renteiro sentada diante de uma parede de corações",
+  "legenda": "Ser cirurgiã-dentista é cuidar, acolher e devolver confiança."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Da cirurgia",
+  "h2_em": "às lentes em resina.",
+  "itens": [
+   ["Cirurgia oral", "Extração de siso e outras cirurgias, com calma e segurança do começo ao fim."],
+   ["Lentes em resina", "A técnica de realismo em resina, para lentes naturais e cheias de detalhes."],
+   ["Disfunção de ATM", "Tratamento para dores e desconfortos na articulação da mandíbula."],
+   ["Ortodontia", "Aparelhos para um sorriso mais harmonioso e mais qualidade de vida."]
+  ],
+  "mais": [
+   ["Também na clínica", ["Implantes", "Clareamento", "Gengivoplastia", "Coroa de porcelana", "Harmonização orofacial", "Perícias odontológicas"]],
+   ["Para quem vem de", ["Franco da Rocha", "Caieiras", "Francisco Morato"]]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem passou por aqui",
+  "h2_em": "volta e traz a família.",
+  "itens": [
+   {"i": 1, "trecho": "Precisei realizar uma extração de siso mais complicada e a dra me acalmou em todo o procedimento"},
+   {"i": 2, "trecho": "A Doutora Michele Renteiro faz um excelente trabalho desde a acolhida quanto ao tratamento super recomendo,explica tudo muito bem"},
+   {"i": 3},
+   {"i": 0, "nome_exibido": "Thiago Barbosa", "trecho": "Ambiente maravilhoso com profissionais top , sem contar com excelente atendimento e ótimo trabalho"},
+   {"i": 4}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer a clínica no Centro de Franco da Rocha.",
+  "foto": {"id": 31, "c": [0.5, 0.2]},
+  "alt": "Dra. Michele Renteiro sorrindo no consultório",
+  "endereco": ["R. Dr. Hamilton Prado, 845", "Centro · Franco da Rocha, SP · 07801-040"],
+  "whatsapp_texto": "(11) 98476-8006",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {"registro": "Dra. Michele Renteiro · CROSP 145848", "esq": "Renteiro e Ribeiro Odontologia Especializada · CROSP-CL 024773 · Franco da Rocha, SP", "dir": "Atendimento com hora marcada"}
+}

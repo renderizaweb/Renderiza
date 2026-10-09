@@ -1,0 +1,154 @@
+{
+ "demo": "clinica-dra-michele-renteiro",
+ "marca": "Clínica Dra. Michele Renteiro",
+ "local": "Centro · Franco da Rocha · 07801-040",
+ "cores": {
+  "fundo": "#5a2440",
+  "fundo2": "#26121e",
+  "acento": "#d4a35a",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Dra. Michele",
+   "Renteiro"
+  ],
+  "frase": "Cuidar, acolher e devolver confiança.",
+  "fotos": [
+   ".hero-media img",
+   ".doutor-foto img",
+   ".experience-photo img",
+   ".doutor-tira img:nth-child(1)"
+  ],
+  "pos_fotos": [
+   "50% 20%",
+   "50% 25%",
+   "50% 55%",
+   "60% 30%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Seu site novo",
+  "destaque": "já está pronto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.4
+  },
+  {
+   "rolar": ".hero-proof",
+   "segura": 1.6,
+   "legenda": "Nota 5,0 com 124 avaliações"
+  },
+  {
+   "rolar": ".hero-media",
+   "segura": 1.6,
+   "legenda": "Feito para abrir no celular"
+  },
+  {
+   "rolar": ".doutor-foto",
+   "segura": 1.9,
+   "legenda": "A dentista em destaque, com o CRO"
+  },
+  {
+   "rolar": "#pacientes-track",
+   "alinhar": "topo",
+   "segura": 3.6,
+   "legenda": "Pacientes que viram família",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#pacientes-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#pacientes-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 2.25,
+     "tipo": "deslizar",
+     "alvo": "#pacientes-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": ".experience-photo",
+   "segura": 1.8,
+   "legenda": "O jeito de atender, explicado"
+  },
+  {
+   "rolar": "#sorrisos-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "legenda": "Sorrisos reais",
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.35,
+     "tipo": "deslizar",
+     "alvo": "#sorrisos-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ]
+  },
+  {
+   "rolar": "#tratamentos h2",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Os tratamentos, explicados"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Avaliações reais do Google",
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#contato .button-light",
+   "segura": 3.0,
+   "legenda": "WhatsApp e rota a um toque",
+   "acoes": [
+    {
+     "em": 1.0,
+     "tipo": "tocar",
+     "alvo": "#contato .button-light"
+    }
+   ]
+  }
+ ]
+}

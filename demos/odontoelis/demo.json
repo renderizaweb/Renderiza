@@ -1,0 +1,143 @@
+{
+ "pasta": "odontoelis",
+ "marca": "Odontoelis",
+ "marca_sub": "Guaianases e Pq. Savoy",
+ "marca_completa": "Odontoelis",
+ "titulo": "Odontoelis · Dra. Eliane Oliveira em Guaianases",
+ "descricao": "Odontoelis, com a Dra. Eliane Oliveira (CRO-SP 128284), em Guaianases e no Parque Savoy, em São Paulo: lentes em resina, ortodontia, implantes, clareamento e odontopediatria, com empatia e carinho.",
+ "comentario": "Demo Odontoelis: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@odontoelisoficial, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {"titulo": "Playfair Display", "texto": "Manrope"},
+ "cores": {"primaria": "#a4566a", "primaria_escura": "#6e3446", "noite": "#2d1720", "tinta": "#2b1c22", "clara": "#f4e1e4", "clara2": "#fcf5f6", "creme": "#f7efec", "papel": "#fffdfc", "destaque": "#d79aa6", "ouro": "#ebc6aa"},
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/odontoelisoficial/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/google-junto.json",
+ "google_nota": "4,9",
+ "google_total": "76",
+ "google_nome": "Odontoelis",
+ "endereco_maps": "R. Inácio de Oliveira Campos, 711 - Guaianases, São Paulo - SP, 08450-480",
+ "maps_url": "https://www.google.com/maps?cid=5479673336884620641",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJoaBVF1dlzpQRYe0vCt61C0w",
+ "whatsapp": "5511962820102",
+ "mensagem": "Olá! Vim pelo site da Odontoelis e gostaria de agendar uma avaliação.",
+ "instagram": "odontoelisoficial",
+ "verificado": "2026-10-09",
+ "logo": {"monograma": "OE"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "A dentista"], ["#consultorio", "Consultório"], ["#sorrisos", "Sorrisos"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "experiencia", "carrossel:consultorio", "carrossel:sorrisos", "tratamentos", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Odontologia em Guaianases",
+  "h1": "Sorrisos transformam vidas,",
+  "h1_em": "e nós transformamos sorrisos.",
+  "lead": "Na Odontoelis, a Dra. Eliane Oliveira cuida de adultos e crianças com empatia, respeito e carinho: lentes em resina, ortodontia, implantes, clareamento e odontopediatria, em Guaianases e no Parque Savoy.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#consultorio", "Conhecer o consultório"],
+  "provas": [["{nota}", ""], ["2 unidades", "Guaianases e Parque Savoy"], ["4,8 mil", "pessoas acompanham no Instagram"]],
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/ig/DeDMwZZABKH_00.jpg", "box": [0, 0, 1, 0.72], "c": [0.5, 0.0]},
+  "alt": "Dra. Eliane Oliveira sorrindo no consultório da Odontoelis",
+  "nome": "Dra. Eliane Oliveira",
+  "registro": "CRO-SP 128284 · CIRURGIÃ-DENTISTA",
+  "chip": "Odontoelis"
+ },
+ "faixa": ["Aqui, você é única", "Adultos e crianças", "Guaianases e Parque Savoy"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Eliane Oliveira,",
+  "h2_em": "um consultório com missão.",
+  "p": [
+   "A Dra. Eliane escolheu a odontologia pelo simples fato de poder ajudar alguém. O consultório próprio veio depois, com uma missão clara: cuidar de pessoas com empatia, respeito e carinho.",
+   "Na Odontoelis, o atendimento nunca vira só mais um horário na agenda, e ela não oferece nada que não gostaria de receber. Porque aqui, cada paciente é único."
+  ],
+  "citacao": "A meta é ter um atendimento onde eu gostaria de passar.",
+  "citacao_fonte": "Dra. Eliane Oliveira, no Instagram",
+  "foto": {"id": 21, "c": [0.5, 0.15]},
+  "alt": "Dra. Eliane Oliveira de jaleco, sorrindo, com a máscara rosa abaixada",
+  "selo": ["CRO-SP 128284", "Cirurgiã-dentista"],
+  "tira": [
+   {"foto": {"id": 15, "c": [0.5, 0.3]}, "alt": "Dra. Eliane Oliveira sorrindo na colação de grau"},
+   {"foto": {"id": 27, "c": [0.5, 0.2]}, "alt": "Dra. Eliane Oliveira sorrindo ao ar livre, com um balão de coração"},
+   {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/ig/DeDMwZZABKH_01.jpg", "box": [0.24, 0.12, 0.76, 0.86], "c": [0.5, 0.1]}, "alt": "Dra. Eliane Oliveira no consultório"}
+  ]
+ },
+ "experiencia": {
+  "eyebrow": "Notas sobre o espaço",
+  "h2": "Um atendimento",
+  "h2_em": "como eu gostaria de receber.",
+  "lead": "A Odontoelis nasceu para cuidar de pessoas. Os pacientes falam de um consultório acolhedor e limpo, de uma equipe que tira todas as dúvidas e de quem faz tratamento lá há anos.",
+  "pontos": ["Empatia, respeito e carinho", "Todas as dúvidas respondidas", "Consultório limpo e acolhedor"],
+  "foto": {"id": 31, "c": [0.3, 0.5]},
+  "alt": "Recepção da Odontoelis com o logo na parede e poltronas rosadas",
+  "legenda": "Meu espaço tem a missão de cuidar de pessoas."
+ },
+ "carrosseis": [
+  {
+   "id": "consultorio", "tipo": "galeria", "fundo": "creme",
+   "eyebrow": "O consultório",
+   "h2": "Pronto para receber",
+   "h2_em": "adultos e crianças.",
+   "p": "Do dia temático do Bob Esponja para os pequenos à primeira limpeza: fotos reais da Odontoelis.",
+   "rotulo": "Consultório da Odontoelis",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/quadros/Dd4D4MOoDZZ_00_13.jpg", "c": [0.5, 0.4]}, "alt": "Entrada da Odontoelis decorada com balões", "rotulo": "Entrada", "titulo": "Bem-vindo à Odontoelis"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/quadros/Dd4D4MOoDZZ_00_02.jpg", "c": [0.5, 0.4]}, "alt": "Consultório decorado com balões do Bob Esponja para o dia das crianças", "rotulo": "Odontopediatria", "titulo": "Dia do fundo do mar para os pequenos"},
+    {"foto": {"id": 11, "c": [0.5, 0.5]}, "alt": "Criança na cadeira fazendo a primeira limpeza", "rotulo": "Primeira limpeza", "titulo": "Os pequenos desde cedo"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/google/g00.jpg", "c": [0.5, 0.5]}, "alt": "Fachada rosa da Odontoelis em Guaianases", "rotulo": "Guaianases", "titulo": "Fachada da unidade"}
+   ]
+  },
+  {
+   "id": "sorrisos", "tipo": "sorriso", "formato": "quadrado", "fundo": "clara",
+   "eyebrow": "Sorrisos reais",
+   "h2": "O seu novo sorriso",
+   "h2_em": "começa aqui.",
+   "p": "Lentes em resina feitas na Odontoelis, com a cor escolhida para cada sorriso.",
+   "rotulo": "Sorrisos feitos na Odontoelis",
+   "nota": "Imagens de casos reais publicadas no Instagram da Odontoelis. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {"foto": {"id": 35, "c": [0.5, 0.5]}, "alt": "Sorriso com lentes em resina, de perto"},
+    {"foto": {"id": 16, "c": [0.5, 0.5]}, "alt": "Sorriso com lentes em resina mordendo uma bala colorida"},
+    {"foto": {"id": 33, "c": [0.5, 0.5]}, "alt": "Sorriso com lentes em resina e o logo da Odontoelis"},
+    {"foto": {"id": 36, "c": [0.5, 0.5]}, "alt": "Sorriso masculino com lentes em resina"}
+   ]
+  }
+ ],
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Cuidado completo,",
+  "h2_em": "para toda a família.",
+  "itens": [
+   ["Lentes em resina", "Facetas feitas no consultório, com a cor escolhida para cada sorriso."],
+   ["Ortodontia", "Tratamento ortodôntico com acompanhamento até o sorriso novo."],
+   ["Odontopediatria", "Consultório preparado para os pequenos, com dias temáticos e muito carinho."],
+   ["Implantes", "Reposição de dentes com planejamento e acompanhamento."]
+  ],
+  "mais": [
+   ["Também na Odontoelis", ["Clareamento", "Gengivoplastia", "Tratamento de canal", "Restaurações", "Protetor bucal", "Harmonização facial"]],
+   ["Duas unidades", ["Guaianases", "Parque Savoy"]]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem se trata aqui",
+  "h2_em": "recomenda.",
+  "itens": [
+   {"i": 3},
+   {"i": 1},
+   {"i": 2},
+   {"i": 5},
+   {"i": 6, "nome_exibido": "Fernanda Bellini", "texto": "Atendimento perfeito, Doutora muito atenciosa comigo e minha filha, consultório super limpo, nota mil!"},
+   {"i": 4}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp na unidade de Guaianases. Também atendemos no Parque Savoy (R. Luís Norberto Freire, 88).",
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontoelis/quadros/Dd4D4MOoDZZ_00_06.jpg", "c": [0.5, 0.3]},
+  "alt": "Placa na porta do consultório: Dra. Eliane Oliveira, dentista",
+  "endereco": ["R. Inácio de Oliveira Campos, 711", "Guaianases · São Paulo, SP · 08450-480"],
+  "whatsapp_texto": "(11) 96282-0102",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {"registro": "Dra. Eliane Oliveira · CRO-SP 128284", "esq": "Odontoelis · CRO-CL 031276 · Guaianases e Parque Savoy, São Paulo", "dir": "Atendimento com hora marcada"}
+}

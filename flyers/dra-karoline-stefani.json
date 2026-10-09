@@ -1,0 +1,29 @@
+{
+ "marca": "Dra. Karoline Stefani",
+ "local": "Cirurgiã-dentista · CROSP 119436",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#1a2f75",
+  "fundo2": "#111c45",
+  "acento": "#c99a7c",
+  "tinta_acento": "#111c45",
+  "claro": "#f6f8fd"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dra.karolstefani/Instagram_files/652102274_18144702907473423_7836013527899409725_n.jpg",
+  "pos": "50% 25%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "41"
+ },
+ "titulo": "Cuidar de sorrisos <em>é cuidar de pessoas.</em>",
+ "texto": "Facetas e lentes em resina, canal, implantes e aparelhos, com escuta de verdade.",
+ "whatsapp": "(11) 99298-7422",
+ "cta": "Agende sua avaliação",
+ "endereco": "Rua Raphael di Sandro, 511 · Vila Perus",
+ "instagram": "@dra.karolstefani"
+}

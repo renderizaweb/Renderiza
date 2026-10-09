@@ -1,0 +1,540 @@
+{
+ "pasta": "odonto-mile",
+ "marca": "Odonto Mile",
+ "marca_sub": "Itapecerica da Serra",
+ "marca_completa": "Odonto Mile",
+ "titulo": "Odonto Mile · Facetas e harmonização em Itapecerica da Serra",
+ "descricao": "Odonto Mile, no Centro de Itapecerica da Serra e em Embu das Artes: facetas em resina premium, harmonização facial, clareamento e atendimento para os pequenos. RT Dra. Myllena Cortes da Silva, CRO-SP 155.100. Nota 5,0 no Google.",
+ "comentario": "Demo Odonto Mile: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@odontomile, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "primaria": "#2f4a9a",
+  "primaria_escura": "#1c2a5e",
+  "noite": "#121a3c",
+  "tinta": "#151a33",
+  "clara": "#dfe8f7",
+  "clara2": "#f5f8fd",
+  "creme": "#f7f1f1",
+  "papel": "#fffefd",
+  "destaque": "#f0a3b6",
+  "ouro": "#f5bccb"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/odontomile/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "552",
+ "google_nome": "Odonto Mile Itapecerica da Serra",
+ "endereco_maps": "R. Miguel Rotger Domingues, 247 - Centro, Itapecerica da Serra - SP, 06850-780",
+ "maps_url": "https://www.google.com/maps?cid=3100770870492161325",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJcX6Dvw-tz5QRLWWQma0mCCs",
+ "whatsapp": "5511969220321",
+ "mensagem": "Olá! Vim pelo site da Odonto Mile e gostaria de agendar uma avaliação.",
+ "instagram": "odontomile",
+ "verificado": "2026-10-09",
+ "logo": {
+  "monograma": "OM"
+ },
+ "cta": "Agendar avaliação",
+ "nav": [
+  [
+   "#equipe",
+   "A equipe"
+  ],
+  [
+   "#pacientes",
+   "Pacientes"
+  ],
+  [
+   "#sorrisos",
+   "Sorrisos"
+  ],
+  [
+   "#tratamentos",
+   "Tratamentos"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#contato",
+   "Contato"
+  ]
+ ],
+ "ordem": [
+  "hero",
+  "faixa",
+  "dentista",
+  "carrossel:pacientes",
+  "experiencia",
+  "carrossel:sorrisos",
+  "tratamentos",
+  "espaco",
+  "depoimentos",
+  "contato"
+ ],
+ "hero": {
+  "eyebrow": "Odontologia no Centro de Itapecerica da Serra",
+  "h1": "Você merece o sorriso",
+  "h1_em": "que sempre quis.",
+  "lead": "Facetas em resina premium, harmonização facial e atendimento para os pequenos, com uma equipe jovem que explica cada etapa e acompanha você depois da consulta.",
+  "cta": "Quero agendar minha avaliação",
+  "link": [
+   "#sorrisos",
+   "Ver sorrisos reais"
+  ],
+  "provas": [
+   [
+    "{nota}",
+    ""
+   ],
+   [
+    "2 unidades",
+    "Itapecerica da Serra e Embu das Artes"
+   ],
+   [
+    "11,8 mil",
+    "pessoas acompanham no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 32,
+   "box": [
+    0,
+    0,
+    1,
+    0.92
+   ],
+   "c": [
+    0.45,
+    0.35
+   ]
+  },
+  "alt": "Paciente da Odonto Mile sorrindo ao ar livre, de jaqueta jeans",
+  "nome": "Odonto Mile",
+  "registro": "RT DRA. MYLLENA CORTES DA SILVA · CRO-SP 155.100",
+  "chip": "Facetas em resina premium"
+ },
+ "faixa": [
+  "Facetas em resina premium",
+  "Explicam tudo e acompanham depois",
+  "Odontomile Kids"
+ ],
+ "dentista": {
+  "id": "equipe",
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Uma equipe jovem",
+  "h2_em": "que faz tudo acontecer.",
+  "p": [
+   "Na Odonto Mile, a responsável técnica é a Dra. Myllena Cortes da Silva (CRO-SP 155.100), à frente de uma equipe jovem que atende no Centro de Itapecerica da Serra e em Embu das Artes.",
+   "Os pacientes falam de recepção atenciosa, de dentistas que ouvem as queixas com calma e de um cuidado que continua depois do procedimento: a equipe manda mensagem para saber como cada um está."
+  ],
+  "citacao": "Durante os procedimentos, explicam tudo direitinho, o que deixa a gente muito mais tranquila.",
+  "citacao_fonte": "Camila Araujo, paciente (avaliação no Google)",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DYF_Bv3Gfwo_00.jpg",
+   "c": [
+    0.5,
+    0.62
+   ]
+  },
+  "alt": "Equipe da Odonto Mile reunida ao ar livre, sorrindo",
+  "selo": [
+   "CRO-SP 155.100",
+   "RT Dra. Myllena Cortes da Silva"
+  ],
+  "tira": [
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DYF_Bv3Gfwo_08.jpg",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    "alt": "Duas integrantes da equipe sorrindo numa selfie"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DYF_Bv3Gfwo_09.jpg",
+     "c": [
+      0.45,
+      0.55
+     ]
+    },
+    "alt": "Equipe rindo junta num brinquedo do parque"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google/g02.jpg",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    "alt": "Parede da recepção com o logo da Odonto Mile"
+   }
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "pacientes",
+   "tipo": "galeria",
+   "fundo": "creme",
+   "eyebrow": "Pacientes",
+   "h2": "Quem passa por aqui",
+   "h2_em": "sai sorrindo.",
+   "p": "Pacientes reais da Odonto Mile, de todas as idades: facetas, clareamento e os pequenos da Odontomile Kids.",
+   "rotulo": "Pacientes da Odonto Mile",
+   "itens": [
+    {
+     "foto": {
+      "id": 22,
+      "box": [
+       0,
+       0,
+       1,
+       0.92
+      ],
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Paciente loira sorrindo",
+     "rotulo": "Clareamento",
+     "titulo": "Branquinho e natural"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "box": [
+       0,
+       0,
+       1,
+       0.94
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Menino fazendo joinha na cadeira do dentista",
+     "rotulo": "Odontomile Kids",
+     "titulo": "Os pequenos também adoram"
+    },
+    {
+     "foto": {
+      "id": 25,
+      "box": [
+       0,
+       0,
+       1,
+       0.94
+      ],
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Paciente sorrindo com a mão na testa",
+     "rotulo": "Pacientes",
+     "titulo": "Confiança para sorrir"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "box": [
+       0,
+       0,
+       1,
+       0.92
+      ],
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Paciente de cabelo platinado sorrindo",
+     "rotulo": "Clareamento",
+     "titulo": "Sorriso renovado"
+    },
+    {
+     "foto": {
+      "id": 27,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Menina de touca sorrindo com os braços para cima",
+     "rotulo": "Mini pacientes",
+     "titulo": "Alegria desde pequenos"
+    }
+   ]
+  },
+  {
+   "id": "sorrisos",
+   "tipo": "sorriso",
+   "formato": "quadrado",
+   "fundo": "clara",
+   "eyebrow": "Sorrisos reais",
+   "h2": "Um sorriso renovado,",
+   "h2_em": "sem perder a identidade.",
+   "p": "Facetas em resina premium estratificadas, pensadas para trazer harmonia respeitando as características e o desejo de cada paciente.",
+   "rotulo": "Sorrisos feitos na Odonto Mile",
+   "nota": "Imagens de casos reais publicadas no Instagram da Odonto Mile. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DdHqRcrGny7_00.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Paciente sorrindo depois das facetas em resina premium"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DclhqAmjsE8_00.jpg",
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Paciente sorrindo com as facetas premium estratificadas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DdHqRcrGny7_01.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso feminino com facetas em resina premium, de perto"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DclhqAmjsE8_01.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso masculino com facetas estratificadas, de perto"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DdHqRcrGny7_02.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso feminino com facetas, de frente"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DZ-lSATjh3x_00.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sorriso masculino com facetas em resina, de perto"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DclhqAmjsE8_02.jpg",
+      "c": [
+       0.45,
+       0.5
+      ]
+     },
+     "alt": "Sorriso masculino com facetas, de lado"
+    }
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "O cuidado continua",
+  "h2": "Explicam cada etapa",
+  "h2_em": "e acompanham depois.",
+  "lead": "Da recepção ao fim do tratamento, tudo é explicado com calma. E depois do procedimento a equipe manda mensagem para saber como você está.",
+  "pontos": [
+   "Explicação em cada etapa",
+   "Mensagem depois do procedimento",
+   "Espaço novo e aconchegante"
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google/g03.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Escada de madeira da clínica com a frase: Você merece o sorriso que sempre quis",
+  "legenda": "“Você merece o sorriso que sempre quis.”"
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Estética e saúde,",
+  "h2_em": "para todas as idades.",
+  "itens": [
+   [
+    "Facetas em resina premium",
+    "Estratificadas e personalizadas, para harmonizar o sorriso sem perder a identidade."
+   ],
+   [
+    "Harmonização facial",
+    "Preenchimento labial e outros procedimentos, com avaliação individual."
+   ],
+   [
+    "Clareamento dental",
+    "Clareamento com acompanhamento, para um sorriso mais branco."
+   ],
+   [
+    "Odontomile Kids",
+    "Atendimento para os pequenos, com paciência e carinho."
+   ]
+  ],
+  "mais": [
+   [
+    "Também na Odonto Mile",
+    [
+     "Lentes de contato dental",
+     "Próteses",
+     "Placa para bruxismo",
+     "Extração de siso",
+     "Limpeza"
+    ]
+   ],
+   [
+    "Duas unidades",
+    [
+     "Itapecerica da Serra",
+     "Embu das Artes"
+    ]
+   ]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "espaco": {
+  "id": "clinica",
+  "eyebrow": "A clínica",
+  "h2": "Um espaço novo,",
+  "h2_em": "claro e aconchegante.",
+  "lead": "A unidade do Centro de Itapecerica da Serra tem recepção iluminada, consultórios modernos e um espaço que os pacientes descrevem como incrível e aconchegante.",
+  "fotos": [
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google/g01.jpg",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    "alt": "Consultório da Odonto Mile com cadeira, ring light e quadro de leão",
+    "legenda": "Consultório"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google/g00.jpg",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    "alt": "Recepção clara da Odonto Mile com planta",
+    "legenda": "Recepção"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/google/g02.jpg",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    "alt": "Logo da Odonto Mile na parede da sala de espera"
+   }
+  ],
+  "cards": [
+   [
+    "5,0",
+    "552 avaliações no Google",
+    "Nota máxima de quem já é paciente."
+   ],
+   [
+    "2",
+    "Unidades",
+    "Centro de Itapecerica da Serra e Embu das Artes."
+   ],
+   [
+    "Kids",
+    "Odontomile Kids",
+    "Atendimento pensado para os pequenos."
+   ]
+  ]
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem conhece",
+  "h2_em": "recomenda.",
+  "itens": [
+   {
+    "i": 1,
+    "trecho": "Fiquei muito satisfeita com o atendimento e, principalmente, com o resultado das minhas facetas. Ficaram lindas, naturais e exatamente como eu queria."
+   },
+   {
+    "i": 5,
+    "trecho": "E o cuidado continua depois, sempre mandando mensagem para saber como estamos. Isso muda tudo!"
+   },
+   {
+    "i": 3
+   },
+   {
+    "i": 2,
+    "nome_exibido": "Anderson Joaquim",
+    "trecho": "Desde o início, ouviu minhas queixas com muito cuidado, esclareceu as minhas dúvidas e me deixou tranquilo ( rs) para o meu caso."
+   },
+   {
+    "i": 6
+   },
+   {
+    "i": 4,
+    "trecho": "Experiência incrível, recepcionistas excelentes, atenciosas, explicam tudo claramente"
+   }
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp na unidade do Centro de Itapecerica da Serra. Também atendemos em Embu das Artes.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/odontomile/ig/DYF_Bv3Gfwo_01.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Integrantes da equipe da Odonto Mile sorrindo numa selfie",
+  "endereco": [
+   "R. Miguel Rotger Domingues, 247",
+   "Centro · Itapecerica da Serra, SP · 06850-780"
+  ],
+  "whatsapp_texto": "(11) 96922-0321",
+  "insta_rotulo": "Pacientes, dicas e bastidores"
+ },
+ "rodape": {
+  "registro": "RT Dra. Myllena Cortes da Silva · CRO-SP 155.100",
+  "esq": "Odonto Mile · CRO-CL 024.236 · Itapecerica da Serra e Embu das Artes",
+  "dir": "Atendimento com hora marcada"
+ }
+}

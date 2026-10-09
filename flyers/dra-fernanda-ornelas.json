@@ -1,0 +1,29 @@
+{
+ "marca": "Dra. Fernanda Ornelas",
+ "local": "Cirurgiã-dentista · CRO-SP 67272",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#561c25",
+  "fundo2": "#2a1015",
+  "acento": "#c9a46a",
+  "tinta_acento": "#2a1015",
+  "claro": "#fbf6f5"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/ig/reel_Dd9SUeoBq9f.jpg",
+  "pos": "50% 18%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "43"
+ },
+ "titulo": "Há 29 anos, <em>transformando sorrisos.</em>",
+ "texto": "Implantes, lentes de contato dental e harmonização facial, com calma e acompanhamento de perto.",
+ "whatsapp": "(11) 99105-1220",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. das Grumixamas, 99 · Jabaquara",
+ "instagram": "@dra.fernandaornelas"
+}

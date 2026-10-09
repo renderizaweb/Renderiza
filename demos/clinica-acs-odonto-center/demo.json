@@ -1,0 +1,344 @@
+{
+ "pasta": "clinica-acs-odonto-center",
+ "marca": "ACS Odonto Center",
+ "marca_sub": "Dra. Adriana C. Siqueira",
+ "marca_completa": "Clínica ACS Odonto Center",
+ "titulo": "ACS Odonto Center · Dra. Adriana C. Siqueira no Tatuapé",
+ "descricao": "Clínica ACS Odonto Center, com a Dra. Adriana C. Siqueira (CROSP 88003), no Tatuapé, em São Paulo: implantes, prótese fixa sobre implantes e estética do sorriso, há 21 anos. Nota 5,0 no Google.",
+ "comentario": "Demo Clínica ACS Odonto Center: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dentista.adrianacsiqueira, página salva pelo Kaue e posts recentes); nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "primaria": "#94702f",
+  "primaria_escura": "#2b3446",
+  "noite": "#1b2130",
+  "tinta": "#1e2230",
+  "clara": "#efe7d8",
+  "clara2": "#faf7f0",
+  "creme": "#f4eee3",
+  "papel": "#fffdf9",
+  "destaque": "#d6a84e",
+  "ouro": "#e2c07a"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dentista.adrianacsiqueira/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/acs/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "565",
+ "google_nome": "Clínica ACS Odonto Center",
+ "endereco_maps": "R. Demétrio Ribeiro, 753 - Cidade Mãe do Céu, São Paulo - SP, 03332-000",
+ "maps_url": "https://www.google.com/maps?cid=16888345285355279352",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJf62KV-tezpQR-JO-CY90X-o",
+ "whatsapp": "5511947437495",
+ "mensagem": "Olá! Vim pelo site da ACS Odonto Center e gostaria de agendar uma avaliação.",
+ "instagram": "dentista.adrianacsiqueira",
+ "verificado": "2026-10-09",
+ "logo": {
+  "monograma": "AC"
+ },
+ "cta": "Agendar avaliação",
+ "nav": [
+  [
+   "#dentista",
+   "A doutora"
+  ],
+  [
+   "#equipe",
+   "A clínica"
+  ],
+  [
+   "#tratamentos",
+   "Tratamentos"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#contato",
+   "Contato"
+  ]
+ ],
+ "ordem": [
+  "hero",
+  "faixa",
+  "dentista",
+  "carrossel:equipe",
+  "tratamentos",
+  "depoimentos",
+  "contato"
+ ],
+ "hero": {
+  "eyebrow": "Implantes e estética no Tatuapé",
+  "h1": "Sorrisos que",
+  "h1_em": "transformam vidas.",
+  "lead": "Há 21 anos, a Dra. Adriana C. Siqueira cuida de sorrisos com implantes, prótese fixa sobre implantes e estética, numa clínica que recebe cada paciente como em casa.",
+  "cta": "Quero agendar minha avaliação",
+  "link": [
+   "#equipe",
+   "Conhecer a clínica"
+  ],
+  "provas": [
+   [
+    "{nota}",
+    ""
+   ],
+   [
+    "+7.000",
+    "sorrisos cuidados"
+   ],
+   [
+    "21 anos",
+    "de odontologia"
+   ]
+  ],
+  "foto": {
+   "id": 49,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Adriana C. Siqueira sorrindo no consultório, com uma prótese sobre implantes na mão",
+  "nome": "Dra. Adriana C. Siqueira",
+  "registro": "CROSP 88003 · IMPLANTES E ESTÉTICA",
+  "chip": "Protocolo sobre implantes"
+ },
+ "faixa": [
+  "Implantes e prótese fixa",
+  "Uma equipe que acolhe",
+  "Atendimento com hora marcada"
+ ],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Adriana C. Siqueira,",
+  "h2_em": "21 anos de sorrisos.",
+  "p": [
+   "À frente da ACS Odonto Center, no Tatuapé, a Dra. Adriana se dedica a implantes, prótese fixa sobre implantes (o protocolo) e estética do sorriso. São mais de 7.000 sorrisos cuidados em 21 anos.",
+   "Ela explica cada caso com calma e clareza, e conta com uma equipe que os pacientes elogiam pelo nome: da recepção ao café, todo mundo faz você se sentir em casa."
+  ],
+  "citacao": "A Dra. Adriana me explicou com tanta clareza que fiquei encantada com sua atenção ao meu problema!",
+  "citacao_fonte": "Mary Eufrasio, paciente (avaliação no Google)",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/acs/quadros/DdT1HLrxg1B_00_001.jpg",
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Adriana C. Siqueira sorrindo na clínica, com o logo da ACS ao fundo",
+  "selo": [
+   "CROSP 88003",
+   "Implantes e estética"
+  ],
+  "tira": [
+   {
+    "foto": {
+     "id": 41,
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    "alt": "Dra. Adriana C. Siqueira no consultório, de jaleco azul-claro"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/acs/quadros/DcLuMWFudBW_00_016.jpg",
+     "box": [
+      0,
+      0.05,
+      1,
+      0.66
+     ],
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    "alt": "Dra. Adriana C. Siqueira de uniforme azul-marinho da ACS"
+   },
+   {
+    "foto": {
+     "id": 45,
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    "alt": "Placa \"Com Amor\" e bilhete de carinho das funcionárias para a doutora"
+   }
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "equipe",
+   "tipo": "galeria",
+   "fundo": "creme",
+   "eyebrow": "A clínica e a equipe",
+   "h2": "Gente que cuida",
+   "h2_em": "de cada detalhe.",
+   "p": "Equipe atenciosa, consultórios prontos para receber você e atualização constante: fotos reais da ACS Odonto Center.",
+   "rotulo": "Equipe e clínica ACS Odonto Center",
+   "itens": [
+    {
+     "foto": {
+      "id": 42,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Atendimento no consultório da ACS, com a tela ao fundo",
+     "rotulo": "Avaliação",
+     "titulo": "Cada caso explicado com calma"
+    },
+    {
+     "foto": {
+      "id": 25,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Equipe da ACS de uniforme no dia de atendimento de implantes",
+     "rotulo": "Implant Day",
+     "titulo": "A equipe inteira no atendimento"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "c": [
+       0.45,
+       0.5
+      ]
+     },
+     "alt": "Consultório da ACS com cadeira, microscópio e televisão",
+     "rotulo": "Consultório",
+     "titulo": "Pronto para receber você"
+    },
+    {
+     "foto": {
+      "id": 18,
+      "c": [
+       0.55,
+       0.5
+      ]
+     },
+     "alt": "Equipe da ACS em treinamento, com a cidade ao fundo",
+     "rotulo": "Atualização",
+     "titulo": "Sempre aprendendo para atender melhor"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Equipe da ACS em treinamento para clínicas odontológicas",
+     "rotulo": "Atualização",
+     "titulo": "Treinamento para clínicas odontológicas"
+    }
+   ]
+  }
+ ],
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Para voltar a sorrir",
+  "h2_em": "e comer com segurança.",
+  "itens": [
+   [
+    "Implantes dentários",
+    "Para repor um ou mais dentes, com planejamento e acompanhamento de perto."
+   ],
+   [
+    "Protocolo sobre implantes",
+    "Prótese fixa sobre implantes para quem usa dentadura e quer deixar a prótese móvel para trás."
+   ],
+   [
+    "Lentes de contato dental",
+    "Estética do sorriso planejada de acordo com o seu rosto."
+   ],
+   [
+    "Coroas e reabilitação",
+    "Coroa unitária, tratamento de canal e prevenção, para recuperar função e estética."
+   ]
+  ],
+  "mais": [
+   [
+    "Também na ACS",
+    [
+     "Aparelho invisível",
+     "Sorriso gengival",
+     "Periodontia",
+     "Limpeza",
+     "Urgências"
+    ]
+   ],
+   [
+    "Na recepção",
+    [
+     "Cafezinho coado",
+     "Chocolate quente",
+     "Atendimento com hora marcada"
+    ]
+   ]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem vem uma vez",
+  "h2_em": "volta sempre.",
+  "itens": [
+   {
+    "i": 0,
+    "texto": "Sou paciente há 10 anos. O atendimento é excelente, mesmo em tempos difíceis… eles foram compreensivos, pacientes e amorosos. Sempre que precisei de emergência, me deram suporte!"
+   },
+   {
+    "i": 3,
+    "texto": "Fui tão bem recepcionada, as meninas são super atenciosas e me senti em casa. A Dra. Adriana me explicou com tanta clareza que fiquei encantada…"
+   },
+   {
+    "i": 2,
+    "trecho": "O ambiente é extremamente acolhedor, limpo e organizado, fazendo com que a gente se sinta confortável desde a chegada."
+   },
+   {
+    "i": 1,
+    "trecho": "Acompanho minha mãe sempre a clínica, todos  atenciosos e fazem a gente se sentir acolhido."
+   },
+   {
+    "i": 4,
+    "trecho": "Minha experiência aqui na clínica foi tudo de bom perfeito ,as meninas da recepção,as doutoras Adriana é um amor de pessoa"
+   }
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha tomar um café com a gente no Tatuapé.",
+  "foto": {
+   "id": 19,
+   "c": [
+    0.7,
+    0.45
+   ]
+  },
+  "alt": "Equipe da ACS Odonto Center sorrindo",
+  "endereco": [
+   "R. Demétrio Ribeiro, 753",
+   "Cidade Mãe do Céu (Tatuapé) · São Paulo, SP · 03332-000"
+  ],
+  "whatsapp_texto": "(11) 94743-7495",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {
+  "registro": "Dra. Adriana C. Siqueira · CROSP 88003",
+  "esq": "Clínica ACS Odonto Center · Tatuapé, São Paulo",
+  "dir": "Atendimento com hora marcada"
+ }
+}

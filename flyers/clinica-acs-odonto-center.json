@@ -1,0 +1,29 @@
+{
+ "marca": "ACS Odonto Center",
+ "local": "Dra. Adriana C. Siqueira · CROSP 88003",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#2b3446",
+  "fundo2": "#1b2130",
+  "acento": "#d6a84e",
+  "tinta_acento": "#1b2130",
+  "claro": "#faf7f0"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dentista.adrianacsiqueira/Instagram_files/654962023_18107184328866660_8998103354815995752_n.jpg",
+  "pos": "50% 30%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "565"
+ },
+ "titulo": "Sorrisos que <em>transformam vidas.</em>",
+ "texto": "Implantes, prótese fixa sobre implantes e estética, há 21 anos no Tatuapé.",
+ "whatsapp": "(11) 94743-7495",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Demétrio Ribeiro, 753 · Tatuapé",
+ "instagram": "@dentista.adrianacsiqueira"
+}

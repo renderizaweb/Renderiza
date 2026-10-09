@@ -1,0 +1,129 @@
+{
+ "pasta": "dra-fernanda-ornelas",
+ "marca": "Dra. Fernanda Ornelas",
+ "marca_sub": "Odontologia",
+ "marca_completa": "Dra. Fernanda Ornelas",
+ "titulo": "Dra. Fernanda Ornelas · Implantes e estética no Jabaquara",
+ "descricao": "Dra. Fernanda Ornelas, cirurgiã-dentista (CRO-SP 67272) no Jabaquara, em São Paulo: implantes, lentes de contato dental e harmonização facial, há 29 anos transformando sorrisos. Nota 5,0 no Google.",
+ "comentario": "Demo Dra. Fernanda Ornelas: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dra.fernandaornelas, página salva pelo Kaue e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {"titulo": "Playfair Display", "texto": "Manrope"},
+ "cores": {"primaria": "#7d2a35", "primaria_escura": "#561c25", "noite": "#2a1015", "tinta": "#24161a", "clara": "#f1e3e1", "clara2": "#fbf6f5", "creme": "#f5efe8", "papel": "#fffdfb", "destaque": "#c9a46a", "ouro": "#dcbc85"},
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/inv/dra.fernandaorneas/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "43",
+ "google_nome": "Dra Fernanda Ornelas",
+ "endereco_maps": "R. das Grumixamas, 99 - Sl 707 - Jabaquara, São Paulo - SP, 04349-000",
+ "maps_url": "https://www.google.com/maps?cid=17053467340533792213",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJiT3_H_tb6AMR1f09bTEWquw",
+ "whatsapp": "5511991051220",
+ "mensagem": "Olá, Dra. Fernanda! Vim pelo site e gostaria de agendar uma avaliação.",
+ "instagram": "dra.fernandaornelas",
+ "verificado": "2026-10-09",
+ "logo": {"monograma": "FO"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "A dentista"], ["#consultorio", "Consultório"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "carrossel:consultorio", "experiencia", "tratamentos", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Implantes e estética no Jabaquara",
+  "h1": "Há 29 anos,",
+  "h1_em": "transformando sorrisos.",
+  "lead": "Implantes, lentes de contato dental e harmonização facial com a Dra. Fernanda Ornelas, que explica com calma cada pergunta e acompanha de perto, até depois do procedimento.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#consultorio", "Conhecer o consultório"],
+  "provas": [["{nota}", ""], ["29 anos", "de odontologia"], ["+10 anos", "tem paciente com ela há mais de uma década"]],
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/ig/reel_Dd9SUeoBq9f.jpg", "c": [0.5, 0.12]},
+  "alt": "Dra. Fernanda Ornelas sorrindo, de blusa preta, em retrato de estúdio",
+  "nome": "Dra. Fernanda Ornelas",
+  "registro": "CRO-SP 67272 · IMPLANTES E HARMONIZAÇÃO",
+  "chip": "29 anos de odontologia"
+ },
+ "faixa": ["Implantes com acompanhamento", "Calma para quem tem medo", "Consultório no Jabaquara"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Fernanda Ornelas,",
+  "h2_em": "29 anos de cuidado.",
+  "p": [
+   "Há 29 anos na odontologia, a Dra. Fernanda Ornelas se dedica a implantes, lentes de contato dental e harmonização facial, com atualização constante e materiais de qualidade.",
+   "No consultório do Jabaquara, ela atende junto com a Dra. Bruna. Explica cada pergunta com calma, acompanha o histórico de cada paciente e liga depois do procedimento para saber como a pessoa está."
+  ],
+  "citacao": "Profissional super competente e empática, daquelas que passa segurança nos procedimentos e explica com calma cada pergunta do paciente.",
+  "citacao_fonte": "Fernanda Queiroga, paciente (avaliação no Google)",
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google/g00.jpg", "c": [0.5, 0.0]},
+  "alt": "Dra. Fernanda Ornelas sorrindo, sentada, de jaqueta de couro preta",
+  "selo": ["CRO-SP 67272", "Cirurgiã-dentista"],
+  "tira": [
+   {"foto": {"id": 22, "c": [0.5, 0.2]}, "alt": "Dra. Fernanda Ornelas sorrindo, de blusa clara"},
+   {"foto": {"id": 53, "c": [0.5, 0.3]}, "alt": "Dra. Fernanda Ornelas sorrindo, de jaqueta rosa"},
+   {"foto": {"id": 10, "c": [0.5, 0.3]}, "alt": "Dra. Fernanda Ornelas sorrindo no consultório"}
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "consultorio", "tipo": "galeria", "fundo": "creme",
+   "eyebrow": "O consultório",
+   "h2": "Limpo, organizado",
+   "h2_em": "e aconchegante.",
+   "p": "O consultório da Dra. Fernanda fica no Jabaquara, num espaço que os pacientes descrevem como limpo, aconchegante e muito bem localizado.",
+   "rotulo": "Consultório da Dra. Fernanda Ornelas",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google/g02.jpg", "c": [0.5, 0.35]}, "alt": "Recepção com o logo dourado da Dra. Fernanda Ornelas Odontologia", "rotulo": "Recepção", "titulo": "Bem-vindo ao consultório"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google/g03.jpg", "c": [0.4, 0.5]}, "alt": "Consultório com cadeira vinho e televisão", "rotulo": "Consultório", "titulo": "Conforto para cada etapa"},
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google/g04.jpg", "c": [0.4, 0.5]}, "alt": "Sala de atendimento com cadeira vinho e janela", "rotulo": "Atendimento", "titulo": "Tudo explicado com calma"},
+    {"foto": {"id": 5, "c": [0.5, 0.3]}, "alt": "Dra. Fernanda Ornelas sorrindo ao lado de um paciente", "rotulo": "Manutenção", "titulo": "Pacientes que voltam há anos"},
+    {"foto": {"id": 18, "c": [0.4, 0.5]}, "alt": "Dra. Fernanda Ornelas de jaleco rosa, sentada à mesa do consultório", "rotulo": "Planejamento", "titulo": "Histórico de cada paciente"}
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Para quem tem medo de dentista",
+  "h2": "Mãos leves",
+  "h2_em": "e atendimento com calma.",
+  "lead": "Muitos pacientes chegam com medo por experiências antigas. Aqui, cada etapa é explicada com calma, o histórico de cada um é acompanhado de perto e o cuidado continua depois do procedimento.",
+  "pontos": ["Explicação de cada etapa", "Histórico de cada paciente", "Ligação depois do procedimento"],
+  "foto": {"arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/fernanda/google/g01.jpg", "c": [0.5, 0.5]},
+  "alt": "Recepção clara do consultório, com luminárias e logo",
+  "legenda": "Traz muita paz, ela e a clínica dela."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Do implante",
+  "h2_em": "à harmonização.",
+  "itens": [
+   ["Implantes dentários", "Planejamento, cirurgia e acompanhamento de perto, também depois do procedimento."],
+   ["Lentes de contato dental", "Lentes e facetas de porcelana para uma autoestima renovada, com naturalidade."],
+   ["Harmonização facial", "Toxina botulínica, preenchimentos e outros procedimentos, com avaliação individual."],
+   ["Restaurações e clareamento", "Do cuidado do dia a dia à estética do sorriso."]
+  ],
+  "mais": [
+   ["Também no consultório", ["Prótese de carga imediata", "Bichectomia", "Lipo de papada", "Bruxismo", "Check-up"]],
+   ["Quem atende", ["Dra. Fernanda Ornelas", "Dra. Bruna"]]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Confiança que",
+  "h2_em": "atravessa os anos.",
+  "itens": [
+   {"i": 1},
+   {"i": 5, "trecho": "No passado tive uma experiência q me causou trauma de dentista , hoje , depois q a conheci , não tenho mais medo !"},
+   {"i": 6, "trecho": "Me consulto com a Dra. Fernanda faz mais de 10 anos, ela é extremamente atenciosa, didática, perfeccionista, detalhista."},
+   {"i": 4, "texto": "Passei por procedimento para implantes… e o resultado foi maravilhoso. Na manhã do dia seguinte, a dra. me ligou para saber como eu estava."},
+   {"i": 2, "trecho": "Fui muito bem atendida pela Dr. Fernanda, uma profissional atenciosa, cuidadosa e muito competente."},
+   {"i": 0, "trecho": "A Bruna e a Fernanda fazem seus pacientes sairem melhores do que entraram."}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer o consultório no Jabaquara.",
+  "foto": {"id": 51, "c": [0.5, 0.3]},
+  "alt": "Dra. Fernanda Ornelas no fim do expediente, com uma xícara de café",
+  "endereco": ["R. das Grumixamas, 99 · sala 707", "Jabaquara · São Paulo, SP · 04349-000"],
+  "whatsapp_texto": "(11) 99105-1220",
+  "insta_rotulo": "Casos, dicas e bastidores"
+ },
+ "rodape": {"registro": "Cirurgiã-dentista · CRO-SP 67272", "esq": "Dra. Fernanda Ornelas Odontologia · Jabaquara, São Paulo", "dir": "Atendimento com hora marcada"}
+}

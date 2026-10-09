@@ -1,0 +1,29 @@
+{
+ "marca": "Dra. Michele Renteiro",
+ "local": "Cirurgiã-dentista · CROSP 145848",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#5a2440",
+  "fundo2": "#26121e",
+  "acento": "#d4a35a",
+  "tinta_acento": "#26121e",
+  "claro": "#fdf6f8"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/drive/fotos/dra michelerenteiro/Instagram_files/625109267_18091886371817781_765387766033033618_n.jpg",
+  "pos": "50% 20%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "124"
+ },
+ "titulo": "Cuidar, acolher <em>e devolver confiança.</em>",
+ "texto": "Cirurgias, lentes em resina com a técnica de realismo, ortodontia e ATM.",
+ "whatsapp": "(11) 98476-8006",
+ "cta": "Agende sua avaliação",
+ "endereco": "R. Dr. Hamilton Prado, 845 · Franco da Rocha",
+ "instagram": "@dra.michelerenteiro"
+}
