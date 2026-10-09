@@ -512,7 +512,7 @@ class Demo:
           <div class="hero-actions">{acoes}</div>
           <div class="hero-proof">{''.join(self.prova(v, t) for v, t in h['provas'])}</div>
         </div>
-        <figure class="hero-media reveal">
+        <figure class="hero-photo hero-media reveal">
           {self.img(h['foto'], 'hero', h['alt'], lazy=False)}
           <figcaption><span><strong>{esc(h['nome'])}</strong><small>{esc(h['registro'])}</small></span>{chip}</figcaption>
         </figure>

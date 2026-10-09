@@ -27,13 +27,13 @@
    ".hero-media img",
    ".doutor-foto img",
    ".experience-photo img",
-   ".doutor-tira img:nth-child(1)"
+   ".doutor-tira img:nth-child(2)"
   ],
   "pos_fotos": [
    "50% 20%",
    "50% 25%",
    "50% 55%",
-   "60% 30%"
+   "50% 25%"
   ]
  },
  "fechamento": {

@@ -480,9 +480,11 @@ fotos do Drive (sem confundir as clínicas), avaliações excelentes e fotos bon
 (`odonto-mile`), **Dra. Karoline Stefani** (`dra-karoline-stefani`), **Dra. Fernanda Ornelas**
 (`dra-fernanda-ornelas`), **Odontoelis** (`odontoelis`) e **Dra. Michele Renteiro** (`clinica-dra-michele-renteiro`),
 todas com vídeo e flyer. Climas do vídeo: ACS sóbrio, Odonto Mile descolado, Fernanda grife, as outras leve.
-- **Na linha de sempre** (`gerar-odonto.py`, sem mudança): a seção do dentista pode virar a da equipe (`"id":
-  "equipe"`; Odonto Mile, sem dentista "cara da marca", cita a RT com o CRO); `box` recorta artes e prints; logo
-  pode ser foto recortada. No `c` das fotos, `[0.5, 0.0]` guarda o topo (é quanto do excesso sai, não o centro).
+- **Na linha de sempre** (`gerar-odonto.py`): a seção do dentista pode virar a da equipe (`"id": "equipe"`;
+  Odonto Mile, sem dentista "cara da marca", cita a RT com o CRO); `box` recorta artes e prints; logo pode ser foto
+  recortada. No `c` das fotos, `[0.5, 0.0]` guarda o topo (é quanto do excesso sai, não o centro). A capa sai com a
+  classe `hero-photo`, que o `montar-site.mjs` usa para a foto da prévia do link (sem ela, ia a primeira foto da
+  página: na Dra. Karoline, o logo). As 3 demos de 08/10 ficaram como estavam (já enviadas).
 - **Fotos:** só da clínica certa e do endereço atual (Odonto Mile e Fernanda têm fotos de endereço antigo no Drive;
   o consultório delas veio do Google). Quando há outra dentista sem nome confirmado (Odontoelis) ou dúvida se é a
   mesma pessoa (ACS), a demo não usa a foto como a doutora.
