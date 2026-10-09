@@ -152,10 +152,10 @@ test("turma do mês: quem teve o primeiro contato no mês, mais interesse primei
 });
 
 test("dados antigos: pista do painel antigo e lista de quem falta registrar", () => {
-  const antigo = lead("P", { etapa: "demo_enviada", legado: { status: "enviado", enviadoEm: "2026-09-24T23:35:35.552Z", ultimoContato: "2026-09-24" } });
+  const antigo = lead("P", { etapa: "primeiro_contato", legado: { status: "enviado", enviadoEm: "2026-09-24T23:35:35.552Z", ultimoContato: "2026-09-24" } });
   assert.equal(pistaDoPainelAntigo(antigo).data, "2026-09-24");
   assert.match(pistaDoPainelAntigo(antigo).texto, /24\/09\/2026/);
-  const leads = [antigo, lead("Q"), lead("R", { etapa: "follow_up" }), lead("S", { etapa: "follow_up" })];
+  const leads = [antigo, lead("Q"), lead("R", { etapa: "sem_resposta" }), lead("S", { etapa: "sem_resposta" })];
   const faltam = semPrimeiroContato({ leads, interacoes: [int("S", "primeiro_contato", "2026-09-01")] });
   assert.deepEqual(faltam.map(l => l.id), ["R", "P"]);
   // nenhuma dessas conta como ótica nova
@@ -200,12 +200,26 @@ test("validação no painel repete as regras do banco", async () => {
   assert.equal(validarInteracao(int("W", "primeiro_contato", null, { precisao: "desconhecida" }), [], hoje), null);
 });
 
-test("mudar para Contato iniciado registra o primeiro contato só quando falta", () => {
-  assert.equal(contatoPelaEtapa("a_trabalhar", "demo_enviada", []), true);
-  assert.equal(contatoPelaEtapa("gravacao_realizada", "follow_up", []), true);
-  assert.equal(contatoPelaEtapa("demo_criada", "finalizado", []), true);
-  assert.equal(contatoPelaEtapa("a_trabalhar", "demo_enviada", [int("X", "primeiro_contato", "2026-08-01", { precisao: "aproximada" })]), false);
-  assert.equal(contatoPelaEtapa("follow_up", "finalizado", []), false);       // já estava depois do contato
-  assert.equal(contatoPelaEtapa("demo_criada", "gravacao_realizada", []), false); // ainda antes do contato
-  assert.equal(contatoPelaEtapa("demo_enviada", "a_trabalhar", []), false);
+test("mudar para Em andamento registra o primeiro contato só quando falta", () => {
+  assert.equal(contatoPelaEtapa("a_trabalhar", "primeiro_contato", []), true);
+  assert.equal(contatoPelaEtapa("demo_pronta", "em_negociacao", []), true);
+  assert.equal(contatoPelaEtapa("demo_pronta", "sem_resposta", []), true);
+  assert.equal(contatoPelaEtapa("demo_pronta", "finalizado", []), true);
+  assert.equal(contatoPelaEtapa("demo_pronta", "primeiro_contato", [int("X", "primeiro_contato", "2026-08-01", { precisao: "aproximada" })]), false);
+  assert.equal(contatoPelaEtapa("sem_resposta", "finalizado", []), false);           // já estava depois do contato
+  assert.equal(contatoPelaEtapa("primeiro_contato", "em_negociacao", []), false);    // dentro de Em andamento
+  assert.equal(contatoPelaEtapa("a_trabalhar", "demo_pronta", []), false);           // ainda antes do contato
+  assert.equal(contatoPelaEtapa("primeiro_contato", "a_trabalhar", []), false);
+});
+
+test("encerrado (não respondeu) é fechamento à parte: nem ganho, nem perda", () => {
+  const leads = [
+    lead("K", { etapa: "finalizado", resultado: "encerrado", data_fechamento: "2026-09-23" }),
+    lead("L", { etapa: "finalizado", resultado: "perda", data_fechamento: "2026-09-24" }),
+    lead("M", { etapa: "finalizado", resultado: "encerrado", data_fechamento: "2026-09-10" }), // fora da semana
+  ];
+  const p = placar({ leads, interacoes: [], periodo: SEMANA });
+  assert.deepEqual(p.encerrados.map(l => l.id), ["K"]);
+  assert.deepEqual(p.perdas.map(l => l.id), ["L"]);
+  assert.equal(p.ganhos.length, 0);
 });

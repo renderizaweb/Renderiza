@@ -2,8 +2,8 @@
 //
 // Regras (as mesmas do banco, em supabase/schema.sql):
 // - Ótica nova = PRIMEIRO CONTATO com data exata dentro do período. Um por ótica. Criar lead,
-//   criar demo ou atualizar a linha não conta. Mudar a etapa de antes do contato para "Contato
-//   iniciado" (ou depois) registra o primeiro contato do dia, se a ótica ainda não tiver (contatoPelaEtapa).
+//   criar demo ou atualizar a linha não conta. Mudar a etapa de antes do contato para "Em
+//   andamento" (ou depois) registra o primeiro contato do dia, se a ótica ainda não tiver (contatoPelaEtapa).
 // - Retorno feito = interação "retorno" (nova abordagem sua a uma ótica já contatada) no período.
 //   Resposta da ótica não conta; reagendar o follow-up não conta.
 // - Retorno previsto no período = retornos feitos que cumpriram um follow-up marcado para o período
@@ -12,7 +12,7 @@
 //
 // Datas são sempre "AAAA-MM-DD" (dia do calendário local) e são comparadas como texto.
 
-import { ETAPAS, pesoDoInteresse } from "./modelo.js";
+import { ETAPAS, pesoDoInteresse, faseDaEtapa } from "./modelo.js";
 
 /* ---------- datas ---------- */
 const paraData = iso => { const [a, m, d] = iso.split("-").map(Number); return new Date(Date.UTC(a, m - 1, d)); };
@@ -73,12 +73,13 @@ export function ultimaInteracao(lista) {
   return comData.length ? comData[comData.length - 1] : lista[lista.length - 1] || null;
 }
 
-const ETAPAS_ANTES_DO_CONTATO = new Set(["a_trabalhar", "demo_criada", "gravacao_realizada"]);
-const ETAPAS_COM_CONTATO = new Set(["demo_enviada", "follow_up", "finalizado"]);
-/** Mudar a etapa de antes do contato para "Contato iniciado" (ou depois) registra o primeiro contato,
+// Antes do contato: Leads a trabalhar e Prontas para trabalhar. Com contato: Em andamento e Finalizado.
+const antesDoContato = etapa => ["a_trabalhar", "demo_pronta"].includes(faseDaEtapa(etapa));
+const depoisDoContato = etapa => ["em_andamento", "finalizado"].includes(faseDaEtapa(etapa));
+/** Mudar a etapa de antes do contato para "Em andamento" (ou depois) registra o primeiro contato,
  *  se a ótica ainda não tiver um. `lista` = interações da ótica. */
 export const contatoPelaEtapa = (de, para, lista) =>
-  ETAPAS_ANTES_DO_CONTATO.has(de) && ETAPAS_COM_CONTATO.has(para) && !primeiroContato(lista);
+  antesDoContato(de) && depoisDoContato(para) && !primeiroContato(lista);
 
 /** Data do retorno ainda por fazer (ou null): ótica já contatada, com follow-up, sem pedido para parar,
  *  não finalizada, e nenhum retorno já cumpriu essa data. */
@@ -106,10 +107,11 @@ export function retornoSugerido(lead, lista, ciclo) {
 /* ---------- placar ---------- */
 /**
  * @returns {{novas: object[], retornosFeitos: object[], cumpridos: object[], pendentes: object[],
- *            previstos: number, respostas: number, ganhos: object[], perdas: object[]}}
+ *            previstos: number, respostas: number, ganhos: object[], perdas: object[], encerrados: object[]}}
  */
 export function placar({ leads, interacoes, periodo, porLead = indexar(leads, interacoes) }) {
-  const r = { periodo, novas: [], retornosFeitos: [], cumpridos: [], pendentes: [], respostas: 0, ganhos: [], perdas: [] };
+  const r = { periodo, novas: [], retornosFeitos: [], cumpridos: [], pendentes: [], respostas: 0, ganhos: [], perdas: [], encerrados: [] };
+  const fechados = { ganho: r.ganhos, perda: r.perdas, encerrado: r.encerrados };
   for (const lead of leads) {
     const lista = porLead.get(lead.id) || [];
     const pc = primeiroContato(lista); // só o primeiro: uma ótica conta uma vez, mesmo com dado repetido
@@ -123,7 +125,7 @@ export function placar({ leads, interacoes, periodo, porLead = indexar(leads, in
     }
     const pendente = retornoPendente(lead, lista);
     if (pendente && dentro(pendente, periodo)) r.pendentes.push({ lead, data: pendente });
-    if (lead.etapa === "finalizado" && dentro(lead.data_fechamento, periodo)) (lead.resultado === "ganho" ? r.ganhos : r.perdas).push(lead);
+    if (lead.etapa === "finalizado" && fechados[lead.resultado] && dentro(lead.data_fechamento, periodo)) fechados[lead.resultado].push(lead);
   }
   r.previstos = r.cumpridos.length + r.pendentes.length;
   return r;
@@ -208,8 +210,6 @@ export function turma({ leads, interacoes, periodo, porLead = indexar(leads, int
 }
 
 /* ---------- dados históricos incertos ---------- */
-const ETAPAS_DEPOIS_DO_CONTATO = new Set(["demo_enviada", "follow_up", "finalizado"]);
-
 /** O que o painel antigo guardou sobre contato (só como pista; nunca vira primeiro contato sozinho). */
 export function pistaDoPainelAntigo(lead) {
   const l = lead.legado;
@@ -229,7 +229,7 @@ export function semPrimeiroContato({ leads, interacoes, porLead = indexar(leads,
   return leads.filter(lead => {
     const lista = porLead.get(lead.id) || [];
     if (primeiroContato(lista)) return false;
-    return ETAPAS_DEPOIS_DO_CONTATO.has(lead.etapa) || lista.length > 0 || !!pistaDoPainelAntigo(lead);
+    return depoisDoContato(lead.etapa) || lista.length > 0 || !!pistaDoPainelAntigo(lead);
   }).sort((a, b) => ETAPAS.findIndex(e => e.id === b.etapa) - ETAPAS.findIndex(e => e.id === a.etapa) || String(a.empresa).localeCompare(String(b.empresa), "pt-BR"));
 }
 

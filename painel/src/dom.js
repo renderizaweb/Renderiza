@@ -12,3 +12,10 @@ export function h(tag, attrs = {}, ...filhos) {
   for (const f of filhos.flat(Infinity)) if (f != null && f !== false) el.append(f);
   return el;
 }
+
+/** Opções de um <select>: [valor, texto] vira <option>; {grupo, opcoes: [[valor, texto]…]} vira <optgroup>. */
+export const opcoesDoSelect = lista => lista.map(x => (Array.isArray(x)
+  ? h("option", { value: x[0], text: x[1] })
+  : h("optgroup", { label: x.grupo }, x.opcoes.map(([v, t]) => h("option", { value: v, text: t })))));
+/** As mesmas opções numa lista só, [valor, texto, grupo?] (para procurar um valor pelo texto). */
+export const opcoesPlanas = lista => lista.flatMap(x => (Array.isArray(x) ? [x] : x.opcoes.map(([v, t]) => [v, t, x.grupo])));

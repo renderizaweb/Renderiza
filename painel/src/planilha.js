@@ -5,7 +5,7 @@
 // - Colar várias linhas no campo "Adicionar…" cria vários registros.
 // - O valor só fica na tela como salvo depois que o banco confirma; se falhar, volta ao valor do banco.
 
-import { h } from "./dom.js";
+import { h, opcoesDoSelect, opcoesPlanas } from "./dom.js";
 import { icone } from "./icones.js";
 import { botaoMenu } from "./ui.js";
 import { lerValor, formatarValor } from "./modelo.js";
@@ -29,6 +29,7 @@ const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").
  * @param {object} o
  * @param {HTMLElement} o.host
  * @param {Array} o.colunas  [{campo, titulo, tipo:"nome"|"texto"|"link"|"data"|"valor"|"select"|"leitura", largura, ocultavel, opcoes(l), classe(l), href(v), exibir(l), placeholder}]
+ *                           opcoes(l) devolve [valor, texto] ou grupos {grupo, opcoes: [[valor, texto]…]} (viram <optgroup>).
  * @param {() => object[]} o.linhas         linhas visíveis, já filtradas e ordenadas
  * @param {(id) => object|null} o.buscar
  * @param {() => boolean} o.podeEditar
@@ -195,8 +196,8 @@ export function criarPlanilha(o) {
     else if (c.tipo === "data") { if (!focado) el.value = v || ""; el.classList.toggle("vazia", !el.value); el.disabled = bloqueado; }
     else if (c.tipo === "select") {
       const opcoes = c.opcoes(l);
-      const chave = opcoes.map(x => x.join(":")).join("|");
-      if (el._chave !== chave) { el.replaceChildren(...opcoes.map(([valor, texto]) => h("option", { value: valor, text: texto }))); el._chave = chave; }
+      const chave = JSON.stringify(opcoes);
+      if (el._chave !== chave) { el.replaceChildren(...opcoesDoSelect(opcoes)); el._chave = chave; }
       if (!focado) el.value = v || "";
       el.className = "cell-select " + (c.classe ? c.classe(l) : "");
       el.disabled = bloqueado;
@@ -366,7 +367,8 @@ export function criarPlanilha(o) {
         if (c.tipo === "valor") { v = lerValor(v); if (v === undefined) throw new Error(`"${bruto}" não é um valor válido em ${c.titulo}.`); }
         else if (c.tipo === "data") { v = lerData(v); if (v === undefined) throw new Error(`"${bruto}" não é uma data válida em ${c.titulo}. Use 31/12/2026.`); }
         else if (c.tipo === "select") {
-          const op = c.opcoes(l).find(([valor, rotulo]) => semAcento(rotulo) === semAcento(v) || semAcento(valor) === semAcento(v));
+          // Vale o texto ("Sem resposta"), o texto com o grupo ("Em andamento · Sem resposta") ou o id.
+          const op = opcoesPlanas(c.opcoes(l)).find(([valor, rotulo, grupo]) => [rotulo, valor, grupo && grupo + " · " + rotulo].some(t => t && semAcento(t) === semAcento(v)));
           if (!op) throw new Error(`"${bruto}" não é uma opção de ${c.titulo}.`);
           v = op[0] || null;
         } else if (c.tipo === "nome" && !v) return;

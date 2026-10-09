@@ -125,6 +125,9 @@ h1,h2,h3,p{margin:0}
 .select-trigger.largo{width:100%;height:40px}
 .select-trigger.ganho{color:#227656;font-weight:600}
 .select-trigger.perda{color:var(--destructive);font-weight:600}
+.select-trigger.encerrado{color:#52645b;font-weight:600}
+.select-trigger.etapa-em_negociacao{color:#1f5f7a;font-weight:600}
+.select-trigger.etapa-sem_resposta{color:#8b5d12}
 .hidden-column-count{display:inline-grid;min-width:19px;height:19px;margin-left:2px;place-items:center;border-radius:999px;background:#dcebd8;color:#27573f;font-size:.6875rem;font-weight:700}
 
 /* menu suspenso */
@@ -180,6 +183,9 @@ td.money .inline-text{text-align:right}
 .cell-select:disabled{cursor:default;opacity:.8}
 .cell-select.ganho{color:#227656;font-weight:600;border-color:#b8dac5;background-color:#eef7f1}
 .cell-select.perda{color:var(--destructive);font-weight:600;border-color:#efcaca;background-color:#fdf3f3}
+.cell-select.encerrado{color:#52645b;font-weight:600;border-color:#dfe5e2;background-color:#f3f5f4}
+.cell-select.etapa-em_negociacao{color:#1f5f7a;font-weight:600;border-color:#c4dde9;background-color:#eef6fa}
+.cell-select.etapa-sem_resposta{color:#8b5d12;border-color:#efdcb4;background-color:#fdf8ec}
 .muted-cell{font-size:.75rem;color:#849087;white-space:nowrap}
 .link-cell{display:flex;align-items:center;gap:2px}
 .link-cell .inline-text{flex:1;min-width:0}
@@ -255,6 +261,17 @@ td.money .inline-text{text-align:right}
 .resultado-chip{justify-self:start;font-size:.6875rem;font-weight:600;padding:2px 7px;border-radius:5px}
 .resultado-chip.ganho{background:#e6f0e8;color:#2c6a45}
 .resultado-chip.perda{background:#fbe9e7;color:#b3261e}
+.resultado-chip.encerrado{background:#eef1f0;color:#52645b}
+/* Em andamento: um grupo com uma subcoluna por etapa (Primeiro contato, Em negociação, Sem resposta) */
+.kanban-grupo{grid-column:span var(--subcolunas,3);display:flex;flex-direction:column;min-width:0;padding:0 6px 6px;border:1px solid #cfe1d6;border-radius:12px;background:#e7f1eb}
+.kanban-grupo-topo{display:flex;align-items:center;gap:8px;height:34px;padding:0 8px;color:#1f5a45;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.kanban-grupo-topo small{background:#1f5a4517;color:#1f5a45;border-radius:5px;padding:1px 7px;font-size:.75rem;font-weight:600;letter-spacing:0}
+.kanban-grupo-colunas{display:grid;grid-template-columns:repeat(var(--subcolunas,3),minmax(0,1fr));gap:6px;align-items:start}
+.kanban-col.sub header{height:42px;background:#2f6651}
+.kanban-col.sub header span{display:inline-flex;align-items:center;gap:7px;min-width:0}
+.kanban-col.sub header span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--cor-etapa,#9fd6b6)}
+.kanban-col.etapa-em_negociacao{--cor-etapa:#8fd0ef}
+.kanban-col.etapa-sem_resposta{--cor-etapa:#f0c46e}
 
 /* painel lateral */
 .painel-fundo{position:fixed;inset:0;z-index:40;background:#0f231c40}
@@ -288,6 +305,7 @@ td.money .inline-text{text-align:right}
 .lead-chip.retorno-futuro{background:#e4edf9;color:#2f5b99}
 .lead-chip.resultado-ganho{background:#dff1e5;color:#1f6b41}
 .lead-chip.resultado-perda{background:#fbe6e3;color:#b3261e}
+.lead-chip.resultado-encerrado{background:#eef1f0;color:#52645b}
 button.lead-chip{border:0;cursor:pointer;font:inherit;font-size:.6875rem;font-weight:600}
 button.lead-chip:hover{filter:brightness(.96)}
 .lead-chip.demo-no_ar,.lead-chip.demo-sem_prazo{background:#dff1e5;color:#1f6b41}
@@ -299,7 +317,7 @@ button.lead-chip:hover{filter:brightness(.96)}
 @keyframes piscar-cartao{from{box-shadow:0 0 0 3px #b9b1f2}}
 .etapas{display:grid;gap:8px}
 .etapas-legenda{display:none;font-size:.75rem;font-weight:600;color:#3d5546}
-.etapas-trilha{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.etapas-trilha{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
 .etapa-passo{display:grid;gap:6px;min-width:0}
 .etapa-barra{height:6px;border-radius:999px;background:#d9e4de}
 .etapa-nome{font-size:.6875rem;font-weight:500;color:#8a978f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -309,7 +327,10 @@ button.lead-chip:hover{filter:brightness(.96)}
 .etapa-passo.atual .etapa-nome{color:#174e3d;font-weight:700}
 .etapa-passo.atual.perda .etapa-barra{background:#c2493d;box-shadow:0 0 0 3px #c2493d29}
 .etapa-passo.atual.perda .etapa-nome{color:#a33a2f}
-@container (max-width:520px){.etapas-legenda{display:block}.etapa-nome{display:none}}
+.etapa-passo.atual.encerrado .etapa-barra{background:#7d8b85;box-shadow:0 0 0 3px #7d8b8529}
+.etapa-passo.atual.encerrado .etapa-nome{color:#3d4a45}
+.etapa-sub{margin-top:-3px;font-size:.6875rem;font-weight:600;color:#1f5f7a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@container (max-width:520px){.etapas-legenda{display:block}.etapa-nome,.etapa-sub{display:none}}
 .lead-acoes{display:flex;flex-wrap:wrap;gap:8px}
 .acao-rapida{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px;border-radius:999px;background:#fff;border:1px solid #d3e2d9;font-size:.8125rem;font-weight:600;color:#2f4f43;box-shadow:0 1px 2px #0c35150d;transition:background-color .15s,border-color .15s;white-space:nowrap}
 .acao-rapida:hover{background:#f0f7f3;border-color:#b5d0c1}
@@ -486,6 +507,8 @@ button.lead-chip:hover{filter:brightness(.96)}
 .opcao-resultado input{accent-color:var(--primary);width:16px;height:16px;margin:0}
 .opcao-resultado.ganho:has(input:checked){border-color:#36865c;background:#eef7f1;color:#22643f}
 .opcao-resultado.perda:has(input:checked){border-color:#c25346;background:#fff4f0;color:#9a432d}
+.opcao-resultado.encerrado:has(input:checked){border-color:#7d8b85;background:#f3f5f4;color:#3d4a45}
+.opcoes-resultado.tres{grid-template-columns:repeat(3,minmax(0,1fr))}
 .erro-form{color:var(--destructive);font-size:.8125rem;line-height:1.5}
 .dialog-form input[type=radio],.dialog-form input[type=checkbox]{width:16px;height:16px;padding:0;margin:2px 0 0;flex:none;accent-color:var(--primary)}
 .dialog-form .select-trigger{height:43px;font-size:.9375rem}
@@ -651,6 +674,7 @@ button.lead-chip:hover{filter:brightness(.96)}
 .situacao.em_venda{background:#e4edf9;color:#2f5b99}
 .situacao.ganho{background:#dff1e5;color:#1f6b41}
 .situacao.perda{background:#fbe6e3;color:#b3261e}
+.situacao.encerrado{background:#eef1f0;color:#52645b}
 .situacao.fora{background:#eef1f0;color:#52645b}
 .cliente-proxima{display:flex;align-items:center;gap:6px;font-size:.8125rem;color:#3d5546;min-width:0}
 .cliente-proxima span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

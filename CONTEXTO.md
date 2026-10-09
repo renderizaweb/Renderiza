@@ -35,7 +35,7 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   primeiros contatos: não dá para ver onde a conversa morre.
 - **Ciclo 2 (09 a 15/10/2026)**: nicho **odonto com estética** e teste de abordagem **direta pelo
   Instagram**, para chegar ao dono ou ao profissional. As óticas não foram abandonadas e o WhatsApp
-  continua. Os dentistas que já têm demo, vídeo e flyer (em Gravação realizada e Contato iniciado) já são
+  continua. Os dentistas que já têm demo, vídeo e flyer (em Prontas para trabalhar e Em andamento) já são
   desse nicho. O ciclo é só conceitual: **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela
   `ciclos` segue com "Out–dez 2026").
 - **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
@@ -174,7 +174,7 @@ WhatsApp".
 
 1. `demos/<pasta>/index.html` na `main` deste repositório: a Vercel publica em `/demo/<pasta>`.
 2. No painel (Supabase), no lead da ótica: `link_demo = '/demo/<pasta>'` (caminho relativo, sem o
-   domínio), etapa `demo_criada` e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
+   domínio), etapa `demo_pronta` (Prontas para trabalhar) e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
    tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
    Ao gravar o `link_demo`, o banco cria sozinho o prazo da demo: **7 dias no ar** (tabela `demos`,
    `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.
@@ -345,9 +345,9 @@ dono tem que ver e gostar. A gentileza puxa a resposta.
   WhatsApp é o que a ótica divulga para cliente (fachada, bio, Google), não o número pessoal do dono;
   dentista leva nome e CRO do responsável. O gerador avisa quando o texto encosta no botão ou o rodapé
   estoura: encurtar.
-- **Quem recebe:** os leads com demo em Contato iniciado e Em conversa (todos têm flyer desde 08/10/2026).
-  Os leads antigos sem demo, cadastrados em 02/10 e parados em Em conversa, não entram: não seguiram o
-  contato.
+- **Quem recebe:** os leads com demo em Em andamento que não responderam (até 09/10/2026, Contato iniciado e
+  Em conversa; todos têm flyer desde 08/10/2026). Os leads antigos sem demo, cadastrados em 02/10 e parados
+  em Em conversa, não entram: não seguiram o contato.
 - **Passo a passo:** `python3 ferramentas/flyer/extrair.py <pasta-da-demo>` tira as fotos da demo para
   `rascunhos/flyer/fotos/<pasta>/` (com `folha.jpg` para escolher); escrever `flyers/<id>.json` (modelo:
   qualquer um da pasta); `node ferramentas/flyer/gerar.mjs flyers/<id>.json` grava `flyers/<id>.png`;
@@ -571,6 +571,12 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
 - **Painel** (`painel/`, detalhes em `painel/README.md`): Pipeline, Tarefas, Clientes, Ritmo e Conteúdo,
   com Supabase. Abre no Pipeline (pedido do Kaue em 08/10/2026: é a casa do painel). Tarefa tem dia, hora, cliente e responsável (Kaue ou Milena), todos
   opcionais menos o texto. Cliente pode ficar fora do funil (só relacionamento).
+  **Funil (09/10/2026):** Leads a trabalhar (`a_trabalhar`) → Prontas para trabalhar (`demo_pronta`: demo,
+  vídeo e flyer prontos) → **Em andamento**, com três etapas: Primeiro contato (`primeiro_contato`), Em
+  negociação (`em_negociacao`) e Sem resposta (`sem_resposta`) → Finalizado com Ganho, Perda ou **Encerrado**
+  (não respondeu: nem ganho, nem perda). No kanban, Em andamento é um grupo com uma subcoluna por etapa.
+  Nomes antigos que aparecem neste arquivo: Demo criada e Gravação realizada = Prontas para trabalhar;
+  Contato iniciado = Primeiro contato; Em conversa = Em negociação (com interesse) ou Sem resposta.
   Situação em 29/09/2026:
   - Supabase ligado: projeto `gxdwluswpczlfgvzxqvg` (`https://gxdwluswpczlfgvzxqvg.supabase.co`),
     `schema.sql` rodado, usuário do Kaue criado, novos cadastros desligados.

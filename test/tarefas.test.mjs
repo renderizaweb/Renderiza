@@ -57,7 +57,9 @@ test("próxima tarefa do cliente ignora as feitas e deixa as sem data por últim
 
 test("situação do cliente", () => {
   assert.equal(situacaoDoCliente({ etapa: "a_trabalhar" }), "em_venda");
-  assert.equal(situacaoDoCliente({ etapa: "follow_up" }), "em_venda");
+  assert.equal(situacaoDoCliente({ etapa: "sem_resposta" }), "em_venda");
+  assert.equal(situacaoDoCliente({ etapa: "em_negociacao" }), "em_venda");
+  assert.equal(situacaoDoCliente({ etapa: "finalizado", resultado: "encerrado" }), "encerrado");
   assert.equal(situacaoDoCliente({ etapa: "finalizado", resultado: "ganho" }), "ganho");
   assert.equal(situacaoDoCliente({ etapa: "finalizado", resultado: "perda" }), "perda");
   assert.equal(situacaoDoCliente({ etapa: "finalizado", resultado: "ganho", fora_do_funil: true }), "fora");

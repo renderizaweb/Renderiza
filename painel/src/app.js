@@ -4,13 +4,13 @@
 
 import * as dados from "./dados.js";
 import { criarPlanilha } from "./planilha.js";
-import { h } from "./dom.js";
+import { h, opcoesDoSelect } from "./dom.js";
 import { icone } from "./icones.js";
 import { botaoMenu, abrirJanela, confirmar, aviso, janelaAberta, fecharJanelaDoTopo } from "./ui.js";
 import {
-  ETAPAS, RESULTADOS, CANAIS, STATUS_CONTEUDO, INTERESSES,
-  rotuloEtapa, ordemDaEtapa, novoLead, novoConteudo, nomeDoInteresse,
-  linhaDeHistorico, lerValor, formatarValor, nomeDaEtapa,
+  ETAPAS, FASES, RESULTADOS, CANAIS, STATUS_CONTEUDO, INTERESSES,
+  rotuloEtapa, ordemDaEtapa, novoLead, novoConteudo, nomeDoInteresse, nomeDoResultado,
+  linhaDeHistorico, lerValor, formatarValor, nomeDaEtapa, nomeCompletoDaEtapa, ehEmAndamento, opcoesDeEtapa,
 } from "./modelo.js";
 import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar } from "./acoes.js";
 import { hojeLocal, indexar, retornoPendente, retornoSugerido, ultimaInteracao, semanaDe, cicloVigente, contatoPelaEtapa } from "./ritmo.js";
@@ -123,7 +123,7 @@ async function mudarEtapa(lead, nova) {
     const fim = await pedirFinalizacao(lead);
     if (!fim) return false;
     await salvar("leads", lead.id, { etapa: "finalizado", ...fim, historico: [...historico, linhaDeHistorico(lead.etapa, "finalizado", fim.resultado)] });
-    aviso(lead.empresa + ": finalizado como " + (fim.resultado === "ganho" ? "ganho." : "perda."));
+    aviso(lead.empresa + ": finalizado como " + nomeDoResultado(fim.resultado).toLowerCase() + ".");
     await registrarContatoPelaEtapa(lead, de, nova);
     return true;
   }
@@ -132,13 +132,13 @@ async function mudarEtapa(lead, nova) {
   return true;
 }
 
-/** Saiu de antes do contato para "Contato iniciado" (ou depois) sem primeiro contato: registra o de hoje,
+/** Saiu de antes do contato para "Em andamento" (ou Finalizado) sem primeiro contato: registra o de hoje,
  *  para contar no Ritmo. Se falhar, a etapa já está salva e o aviso de erro aparece. */
 async function registrarContatoPelaEtapa(lead, de, para) {
   if (!contatoPelaEtapa(de, para, dados.listar("interacoes").filter(i => i.lead_id === lead.id))) return;
   try {
     await criar("interacoes", { lead_id: lead.id, tipo: "primeiro_contato", precisao: "exata", ocorreu_em: hojeLocal(), canal: "whatsapp",
-      resumo: `Registrado ao mudar a etapa para "${nomeDaEtapa(para)}".`, origem: "painel" });
+      resumo: `Registrado ao mudar a etapa para "${nomeCompletoDaEtapa(para)}".`, origem: "painel" });
     aviso(lead.empresa + ": 1º contato registrado hoje (conta no Ritmo).");
   } catch (e) { /* aviso já mostrado */ }
 }
@@ -167,7 +167,7 @@ async function colar(tabela, mudancas) {
       Object.assign(final, resto, patchDeInteresse(linha, interesse || "nao_avaliado"));
     }
     if (tabela === "leads" && "etapa" in final) {
-      if (final.etapa === "finalizado" && linha.etapa !== "finalizado") { aviso(`${linha.empresa}: para finalizar, troque a etapa na linha (pede ganho ou perda).`, "erro"); delete final.etapa; }
+      if (final.etapa === "finalizado" && linha.etapa !== "finalizado") { aviso(`${linha.empresa}: para finalizar, troque a etapa na linha (pede o resultado).`, "erro"); delete final.etapa; }
       else if (final.etapa !== linha.etapa) final.historico = [...(final.historico || linha.historico || []), linhaDeHistorico(linha.etapa, final.etapa)];
       else delete final.etapa;
     }
@@ -228,6 +228,8 @@ function leadsVisiveis({ comEtapa = true } = {}) {
 }
 function passaNoFiltro(l) {
   if (ui.etapa === "revisar") return !!l.revisar;
+  if (ui.etapa === "fase:em_andamento") return ehEmAndamento(l.etapa);
+  if (ui.etapa.startsWith("resultado:")) return l.etapa === "finalizado" && l.resultado === ui.etapa.slice(10);
   if (ui.etapa.startsWith("retornos")) {
     const data = retornoPendente(l, daOtica(l.id));
     if (!data) return false;
@@ -238,6 +240,11 @@ function passaNoFiltro(l) {
   }
   return l.etapa === ui.etapa;
 }
+/** Cor da etapa nos selects: o resultado no Finalizado; cada etapa de Em andamento com a sua. */
+function classeDaEtapa(l) {
+  if (l.etapa === "finalizado") return l.resultado || "";
+  return ehEmAndamento(l.etapa) ? "etapa-" + l.etapa : "";
+}
 function conteudosVisiveis() {
   const q = ui.busca.conteudos.trim().toLowerCase();
   return dados.listar("conteudos").filter(c => (!ui.statusConteudo || c.status === ui.statusConteudo) && (!q || [c.titulo, c.texto, c.gancho, c.observacoes].some(v => v && v.toLowerCase().includes(q)))).sort(ordenacao("conteudos")[2]);
@@ -247,8 +254,8 @@ function conteudosVisiveis() {
 const COLUNAS_LEADS = [
   { campo: "empresa", titulo: "Empresa", tipo: "nome", largura: 300 },
   { campo: "etapa", titulo: "Etapa", tipo: "select", largura: 194, ocultavel: false,
-    opcoes: l => ETAPAS.map(e => [e.id, e.id === "finalizado" && l.etapa === "finalizado" ? rotuloEtapa(l) : e.nome]),
-    classe: l => (l.etapa === "finalizado" ? l.resultado || "" : "") },
+    opcoes: l => opcoesDeEtapa({ finalizado: l.etapa === "finalizado" ? rotuloEtapa(l) : "Finalizado" }),
+    classe: classeDaEtapa },
   { campo: "whatsapp", titulo: "WhatsApp", tipo: "link", largura: 186, ocultavel: true, placeholder: "(11) 9…", href: waHref },
   { campo: "instagram", titulo: "Instagram ou site", tipo: "link", largura: 160, ocultavel: true, placeholder: "@perfil ou site", href: urlHref },
   { campo: "proxima_acao", titulo: "Próxima ação", tipo: "texto", largura: 190, ocultavel: true, placeholder: "—" },
@@ -369,7 +376,9 @@ function seletorEtapa() {
   if (ui.etapa === "revisar" && !temRevisar) ui.etapa = "";
   const sel = h("select", { class: "select-trigger", "aria-label": "Filtrar por etapa" },
     h("option", { value: "", text: "Todas as etapas" }),
-    h("optgroup", { label: "Etapa" }, ...ETAPAS.map(e => h("option", { value: e.id, text: e.nome }))),
+    h("optgroup", { label: "Etapa" }, ...FASES.map(f => h("option", { value: f.etapas.length > 1 ? "fase:" + f.id : f.id, text: f.nome }))),
+    h("optgroup", { label: "Em andamento" }, ...ETAPAS.filter(e => ehEmAndamento(e.id)).map(e => h("option", { value: e.id, text: e.nome }))),
+    h("optgroup", { label: "Finalizados" }, ...RESULTADOS.map(r => h("option", { value: "resultado:" + r.id, text: r.nome }))),
     h("optgroup", { label: "Retornos previstos" },
       h("option", { value: "retornos_atrasados", text: "Retornos atrasados" }),
       h("option", { value: "retornos_semana", text: "Retornos desta semana" }),
@@ -411,43 +420,57 @@ inputKanban.addEventListener("keydown", async e => {
   finally { inputKanban.disabled = !dados.podeEditar(); inputKanban.focus(); }
 });
 
+function cartaoDoKanban(l, editavel, tarefasAbertas) {
+  const detalhe = [l.proxima_acao, diaMes(l.followup_em)].filter(Boolean).join(" · ");
+  const cartao = h("div", { class: "kanban-card", role: "button", tabindex: "0", draggable: editavel ? "true" : null,
+    onclick: () => abrirPainel("leads", l.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrirPainel("leads", l.id); } } },
+    h("strong", { class: "kanban-nome" },
+      temVideo(l) ? h("span", { class: "selo-video", title: "Tem vídeo de apresentação", "aria-label": "Tem vídeo de apresentação" }, icone("video", 12)) : null,
+      h("span", { text: l.empresa || "Sem nome" })),
+    detalhe ? h("small", { text: detalhe }) : null,
+    h("span", { class: "kanban-chips" },
+      seloDeTarefas(tarefasAbertas.get(l.id)),
+      urlHref(l.link_demo) ? chipDaDemo(marcaDaDemo(l)) : null,
+      l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: nomeDoResultado(l.resultado) }) : null,
+      l.interesse && l.interesse !== "nao_avaliado" ? h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }) : null,
+      l.nao_contatar ? h("span", { class: "chip-parar", text: "não contatar" }) : null));
+  cartao.addEventListener("dragstart", e => { arrastandoCartao = l.id; cartao.classList.add("arrastando"); e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", l.id); });
+  cartao.addEventListener("dragend", () => { arrastandoCartao = null; cartao.classList.remove("arrastando"); });
+  return cartao;
+}
+
+/** Uma coluna (ou subcoluna de Em andamento) que recebe cartões arrastados e muda a etapa deles. */
+function colunaDoKanban(etapaId, itens, { editavel, tarefasAbertas, adicionar = false, sub = false }) {
+  const nome = nomeDaEtapa(etapaId);
+  const coluna = h("section", { class: "kanban-col" + (sub ? " sub etapa-" + etapaId : ""), "data-etapa": etapaId, "aria-label": nomeCompletoDaEtapa(etapaId) },
+    h("header", {}, h("span", { text: nome }), h("small", { text: String(itens.length) })),
+    adicionar ? h("div", { class: "kanban-add" }, icone("mais", 15), inputKanban) : null,
+    h("div", { class: "kanban-cards" }, ...itens.map(l => cartaoDoKanban(l, editavel, tarefasAbertas))));
+  coluna.addEventListener("dragover", e => { if (arrastandoCartao) { e.preventDefault(); coluna.classList.add("alvo"); } });
+  coluna.addEventListener("dragleave", () => coluna.classList.remove("alvo"));
+  coluna.addEventListener("drop", async e => {
+    e.preventDefault(); coluna.classList.remove("alvo");
+    const lead = dados.buscar("leads", e.dataTransfer.getData("text/plain") || arrastandoCartao);
+    if (lead) { try { await mudarEtapa(lead, etapaId); } catch (err) { /* aviso já mostrado */ } }
+  });
+  return coluna;
+}
+
+// Uma coluna por fase. "Em andamento" é um grupo com uma subcoluna para cada etapa dela
+// (Primeiro contato, Em negociação, Sem resposta): o cartão muda de etapa ao ser solto na subcoluna.
 function renderKanban() {
   const leads = leadsVisiveis({ comEtapa: false });
   const editavel = dados.podeEditar();
   inputKanban.disabled = !editavel;
   const tarefasAbertas = abertasPorCliente(dados.listar("tarefas"), hojeLocal());
-  $("#kanban").replaceChildren(...ETAPAS.map((etapa, i) => {
-    const itens = leads.filter(l => l.etapa === etapa.id);
-    const cartoes = h("div", { class: "kanban-cards" }, ...itens.map(l => {
-      const detalhe = [l.proxima_acao, diaMes(l.followup_em)].filter(Boolean).join(" · ");
-      const cartao = h("div", { class: "kanban-card", role: "button", tabindex: "0", draggable: editavel ? "true" : null,
-        onclick: () => abrirPainel("leads", l.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrirPainel("leads", l.id); } } },
-        h("strong", { class: "kanban-nome" },
-          temVideo(l) ? h("span", { class: "selo-video", title: "Tem vídeo de apresentação", "aria-label": "Tem vídeo de apresentação" }, icone("video", 12)) : null,
-          h("span", { text: l.empresa || "Sem nome" })),
-        detalhe ? h("small", { text: detalhe }) : null,
-        h("span", { class: "kanban-chips" },
-          seloDeTarefas(tarefasAbertas.get(l.id)),
-          urlHref(l.link_demo) ? chipDaDemo(marcaDaDemo(l)) : null,
-          l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: l.resultado === "ganho" ? "Ganho" : "Perda" }) : null,
-          l.interesse && l.interesse !== "nao_avaliado" ? h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }) : null,
-          l.nao_contatar ? h("span", { class: "chip-parar", text: "não contatar" }) : null));
-      cartao.addEventListener("dragstart", e => { arrastandoCartao = l.id; cartao.classList.add("arrastando"); e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", l.id); });
-      cartao.addEventListener("dragend", () => { arrastandoCartao = null; cartao.classList.remove("arrastando"); });
-      return cartao;
-    }));
-    const coluna = h("section", { class: "kanban-col", "data-etapa": etapa.id, "aria-label": etapa.nome },
-      h("header", {}, h("span", { text: etapa.nome }), h("small", { text: String(itens.length) })),
-      i === 0 ? h("div", { class: "kanban-add" }, icone("mais", 15), inputKanban) : null,
-      cartoes);
-    coluna.addEventListener("dragover", e => { if (arrastandoCartao) { e.preventDefault(); coluna.classList.add("alvo"); } });
-    coluna.addEventListener("dragleave", () => coluna.classList.remove("alvo"));
-    coluna.addEventListener("drop", async e => {
-      e.preventDefault(); coluna.classList.remove("alvo");
-      const lead = dados.buscar("leads", e.dataTransfer.getData("text/plain") || arrastandoCartao);
-      if (lead) { try { await mudarEtapa(lead, etapa.id); } catch (err) { /* aviso já mostrado */ } }
-    });
-    return coluna;
+  const opcoes = { editavel, tarefasAbertas };
+  const daEtapa = id => leads.filter(l => l.etapa === id);
+  $("#kanban").replaceChildren(...FASES.map((fase, i) => {
+    if (fase.etapas.length === 1) return colunaDoKanban(fase.etapas[0], daEtapa(fase.etapas[0]), { ...opcoes, adicionar: i === 0 });
+    const total = leads.filter(l => fase.etapas.includes(l.etapa)).length;
+    return h("div", { class: "kanban-grupo", role: "group", "aria-label": `${fase.nome}: ${total} ${total === 1 ? "lead" : "leads"}`, style: `--subcolunas:${fase.etapas.length}` },
+      h("header", { class: "kanban-grupo-topo" }, h("span", { text: fase.nome }), h("small", { text: String(total) })),
+      h("div", { class: "kanban-grupo-colunas" }, ...fase.etapas.map(id => colunaDoKanban(id, daEtapa(id), { ...opcoes, sub: true }))));
   }));
 }
 
@@ -595,21 +618,27 @@ function monograma(nome) {
   return [ini.toUpperCase(), CORES_AVATAR[soma % CORES_AVATAR.length]];
 }
 
-const ETAPA_CURTA = { a_trabalhar: "A trabalhar", demo_criada: "Demo criada", gravacao_realizada: "Gravação", demo_enviada: "Contato", follow_up: "Em conversa", finalizado: "Finalizado" };
+// Uma barra por fase. Em andamento mostra embaixo em qual das três etapas a ótica está.
 function trilhaDeEtapas() {
-  const passos = ETAPAS.map(e => h("li", { class: "etapa-passo" }, h("span", { class: "etapa-barra" }), h("span", { class: "etapa-nome", text: ETAPA_CURTA[e.id] || e.nome })));
+  const passos = FASES.map(f => {
+    const sub = h("small", { class: "etapa-sub", hidden: true });
+    const li = h("li", { class: "etapa-passo" }, h("span", { class: "etapa-barra" }), h("span", { class: "etapa-nome", text: f.curto }), sub);
+    return { f, li, nome: li.querySelector(".etapa-nome"), sub };
+  });
   const legenda = h("p", { class: "etapas-legenda" });
   vincular(l => {
-    const atual = ETAPAS.findIndex(e => e.id === l.etapa);
-    const final = l.etapa === "finalizado" && l.resultado ? (l.resultado === "ganho" ? "Ganho" : "Perda") : "Finalizado";
-    passos.forEach((li, i) => {
+    const atual = FASES.findIndex(f => f.etapas.includes(l.etapa));
+    const final = l.etapa === "finalizado" && l.resultado ? nomeDoResultado(l.resultado) : "Finalizado";
+    passos.forEach(({ f, li, nome, sub }, i) => {
       li.className = "etapa-passo" + (i < atual ? " feita" : i === atual ? " atual" : "") + (i === atual && l.etapa === "finalizado" && l.resultado ? " " + l.resultado : "");
       if (i === atual) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current");
-      if (ETAPAS[i].id === "finalizado") li.lastChild.textContent = final;
+      if (f.id === "finalizado") nome.textContent = final;
+      sub.hidden = !(i === atual && f.etapas.length > 1);
+      if (!sub.hidden) sub.textContent = nomeDaEtapa(l.etapa);
     });
-    legenda.textContent = `Etapa ${atual + 1} de ${ETAPAS.length} · ${l.etapa === "finalizado" ? final : ETAPAS[atual]?.nome || ""}`;
+    legenda.textContent = `Etapa ${atual + 1} de ${FASES.length} · ${rotuloEtapa(l)}`;
   });
-  const el = h("div", { class: "etapas" }, legenda, h("ol", { class: "etapas-trilha", "aria-label": "Etapa do funil" }, ...passos));
+  const el = h("div", { class: "etapas" }, legenda, h("ol", { class: "etapas-trilha", "aria-label": "Etapa do funil" }, ...passos.map(p => p.li)));
   vincular(l => { el.hidden = !!l.fora_do_funil; });
   return el;
 }
@@ -642,7 +671,7 @@ function chipsDoLead() {
     if (demo) chips.push(h("button", { type: "button", class: "lead-chip demo-" + demo.estado, title: demo.texto + " Clique para mudar o prazo.",
       onclick: irParaDemo }, icone("monitor", 13), CHIP_DEMO[demo.estado](dados.buscar("demos", demo.pasta))));
     if (l.fora_do_funil) chips.push(h("span", { class: "lead-chip", text: "Fora do funil" }));
-    else if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: l.resultado === "ganho" ? "Ganho" + (l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") : "Perda" }));
+    else if (l.etapa === "finalizado" && l.resultado) chips.push(h("span", { class: "lead-chip resultado-" + l.resultado, text: nomeDoResultado(l.resultado) + (l.resultado === "ganho" && l.valor_fechado != null ? " · " + dinheiro(l.valor_fechado) : "") }));
     el.replaceChildren(...chips);
   });
   return el;
@@ -942,7 +971,8 @@ function corpoDoLead(id) {
   titulo.querySelector("input").setAttribute("aria-label", "Empresa");
 
   // Etapa (funil) e interesse (o que a ótica demonstrou) são coisas separadas: um não muda o outro.
-  const etapa = h("select", { class: "select-trigger largo", "aria-label": "Etapa" }, ...ETAPAS.map(e => h("option", { value: e.id, text: e.nome })));
+  const etapa = h("select", { class: "select-trigger largo", "aria-label": "Etapa" }, opcoesDoSelect(opcoesDeEtapa()));
+  const opcaoFinalizado = etapa.querySelector('option[value="finalizado"]');
   etapa.addEventListener("change", async () => {
     const lead = dados.buscar("leads", id);
     try { if (lead) await mudarEtapa(lead, etapa.value); } catch (e) { /* aviso já mostrado */ }
@@ -950,8 +980,8 @@ function corpoDoLead(id) {
   });
   vincular(l => {
     if (document.activeElement !== etapa) etapa.value = l.etapa;
-    etapa.options[ETAPAS.length - 1].textContent = l.etapa === "finalizado" ? rotuloEtapa(l) : "Finalizado";
-    etapa.className = "select-trigger largo " + (l.etapa === "finalizado" ? l.resultado || "" : "");
+    opcaoFinalizado.textContent = l.etapa === "finalizado" ? rotuloEtapa(l) : "Finalizado";
+    etapa.className = "select-trigger largo " + classeDaEtapa(l);
     etapa.disabled = !dados.podeEditar();
   });
   const interesse = h("select", { class: "select-trigger largo", "aria-label": "Interesse" }, ...INTERESSES.map(x => h("option", { value: x.id, text: x.nome })));
@@ -1003,12 +1033,13 @@ function corpoDoLead(id) {
   vincular(() => { novaTarefa.disabled = !dados.podeEditar(); });
 
   const motivo = campo("leads", id, { campo: "motivo_perda", rotulo: "Motivo da perda", largo: true, placeholder: "Opcional" });
+  const valorFechado = campo("leads", id, { campo: "valor_fechado", rotulo: "Valor fechado", tipo: "valor", placeholder: "R$" });
   const fechamento = cartao("Fechamento", { classe: "cartao-fechamento" }, grade(
     campo("leads", id, { campo: "resultado", rotulo: "Resultado", tipo: "select", opcoes: RESULTADOS.map(r => [r.id, r.nome]) }),
     campo("leads", id, { campo: "data_fechamento", rotulo: "Data do fechamento", tipo: "data" }),
-    campo("leads", id, { campo: "valor_fechado", rotulo: "Valor fechado", tipo: "valor", placeholder: "R$" }),
+    valorFechado,
     motivo));
-  vincular(l => { fechamento.hidden = l.etapa !== "finalizado"; motivo.hidden = l.resultado !== "perda"; });
+  vincular(l => { fechamento.hidden = l.etapa !== "finalizado"; motivo.hidden = l.resultado !== "perda"; valorFechado.hidden = l.resultado !== "ganho"; });
 
   // O que aconteceu: interações registradas + mudanças de etapa e de interesse.
   const linhaDoTempo = criarLinhaDoTempo(id);
@@ -1083,19 +1114,25 @@ function pedirFinalizacao(lead) {
     const data = h("input", { type: "date", value: lead.data_fechamento || hojeIso() });
     const campoValor = h("label", {}, "Valor fechado (R$)", valor);
     const campoMotivo = h("label", {}, "Motivo da perda", motivo);
+    const rotuloData = h("span", { text: "Data do fechamento" });
+    const dicaEncerrado = h("p", { class: "dica-form", text: (RESULTADOS.find(r => r.id === "encerrado") || {}).ajuda || "" });
     const erro = h("p", { class: "erro-form", hidden: true });
     const form = h("form", { class: "dialog-form" },
-      h("div", { class: "opcoes-resultado", role: "radiogroup", "aria-label": "Resultado" }, radio("ganho", "Ganho"), radio("perda", "Perda")),
-      campoValor, campoMotivo, h("label", {}, "Data do fechamento", data), erro,
+      h("div", { class: "opcoes-resultado tres", role: "radiogroup", "aria-label": "Resultado" }, RESULTADOS.map(r => radio(r.id, r.nome))),
+      dicaEncerrado, campoValor, campoMotivo, h("label", {}, rotuloData, data), erro,
       h("button", { type: "submit", class: "btn btn-primary btn-lg" }, "Finalizar", icone("direita", 16)));
     const escolhido = () => (form.querySelector("input[name=resultado]:checked") || {}).value;
-    const ajustar = () => { const r = escolhido(); campoValor.hidden = r !== "ganho"; campoMotivo.hidden = r !== "perda"; };
+    const ajustar = () => {
+      const r = escolhido();
+      campoValor.hidden = r !== "ganho"; campoMotivo.hidden = r !== "perda"; dicaEncerrado.hidden = r !== "encerrado";
+      rotuloData.textContent = r === "encerrado" ? "Data do encerramento" : "Data do fechamento";
+    };
     form.addEventListener("change", ajustar); ajustar();
-    const { fechar } = abrirJanela({ titulo: "Finalizar " + (lead.empresa || "lead"), descricao: "Ganho ou perda. Dá para ajustar depois no painel do lead.", conteudo: form, aoFechar: () => resolve(resposta) });
+    const { fechar } = abrirJanela({ titulo: "Finalizar " + (lead.empresa || "lead"), descricao: "Ganho, perda ou encerrado (não respondeu). Dá para ajustar depois no painel do lead.", conteudo: form, aoFechar: () => resolve(resposta) });
     form.addEventListener("submit", e => {
       e.preventDefault();
       const resultado = escolhido();
-      if (!resultado) { erro.textContent = "Escolha Ganho ou Perda."; erro.hidden = false; return; }
+      if (!resultado) { erro.textContent = "Escolha Ganho, Perda ou Encerrado."; erro.hidden = false; return; }
       const v = lerValor(valor.value);
       if (resultado === "ganho" && v === undefined) { erro.textContent = "Use só números no valor fechado."; erro.hidden = false; return; }
       resposta = { resultado, valor_fechado: resultado === "ganho" ? v : null, motivo_perda: resultado === "perda" ? motivo.value.trim() || null : null, data_fechamento: data.value || hojeIso() };

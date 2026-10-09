@@ -7,7 +7,7 @@ import { h } from "./dom.js";
 import { icone } from "./icones.js";
 import { abrirJanela, aviso } from "./ui.js";
 import { criar } from "./acoes.js";
-import { novoLead, rotuloEtapa } from "./modelo.js";
+import { novoLead, rotuloEtapa, nomeDoResultado } from "./modelo.js";
 import { chaveDoNome } from "./ritmo.js";
 import { SITUACOES, situacaoDoCliente, proximaTarefa } from "./tarefas.js";
 
@@ -17,7 +17,7 @@ const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").
 
 export const nomeDaSituacao = l => {
   const s = situacaoDoCliente(l);
-  return s === "em_venda" ? rotuloEtapa(l) : s === "ganho" ? "Ganho" : s === "perda" ? "Perda" : "Fora do funil";
+  return s === "em_venda" ? rotuloEtapa(l) : s === "fora" ? "Fora do funil" : nomeDoResultado(s);
 };
 
 const ONDE = [

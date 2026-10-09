@@ -7,8 +7,11 @@
 // - Sem conexão, a edição fica bloqueada até o banco responder de novo.
 
 import { criarAdaptadorClaude } from "./adaptadores/claude.js";
+import { comEtapaAtual } from "./modelo.js";
 
 export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos"];
+// Lead com etapa de antes de 09/10/2026 (banco ainda não migrado) já aparece na etapa nova.
+const ler = (tabela, linha) => (tabela === "leads" && linha ? comEtapaAtual(linha) : linha);
 // Tabela que pode ainda não existir no banco (veio depois): se a leitura falhar, o painel segue sem ela.
 const OPCIONAIS = new Set(["demos"]);
 const faltando = new Set();
@@ -98,7 +101,7 @@ export async function carregar() {
     const listas = await Promise.all(TABELAS.map(t => adaptador.listar(t).then(
       lista => { faltando.delete(t); return lista; },
       e => { if (!OPCIONAIS.has(t) || e.rede || e.sessao) throw e; faltando.add(t); return []; })));
-    TABELAS.forEach((t, i) => { linhas[t] = new Map(listas[i].map(l => [l.id, l])); });
+    TABELAS.forEach((t, i) => { linhas[t] = new Map(listas[i].map(l => [l.id, ler(t, l)])); });
     mudarConexao("online");
     avisar("dados");
     if (!assinado) {
@@ -117,7 +120,7 @@ function receberMudanca(tabela, tipo, nova, antiga) {
   if (!nova || !nova.id || filas.has(tabela + "/" + nova.id)) return; // gravação local em andamento manda
   const atual = linhas[tabela].get(nova.id);
   if (atual && String(atual.atualizado_em) > String(nova.atualizado_em)) return;
-  linhas[tabela].set(nova.id, nova);
+  linhas[tabela].set(nova.id, ler(tabela, nova));
   avisar("dados");
 }
 
@@ -148,7 +151,7 @@ async function gravar(fn) {
 /** Atualiza campos de um registro. Só altera o estado local depois da confirmação do banco. */
 export function salvar(tabela, id, mudancas) {
   return naFila(tabela + "/" + id, () => gravar(async () => {
-    const linha = await adaptador.atualizar(tabela, id, mudancas);
+    const linha = ler(tabela, await adaptador.atualizar(tabela, id, mudancas));
     linhas[tabela].set(id, linha);
     avisar("dados");
     return linha;
@@ -157,7 +160,7 @@ export function salvar(tabela, id, mudancas) {
 
 export function criar(tabela, dados) {
   return gravar(async () => {
-    const linha = await adaptador.inserir(tabela, dados);
+    const linha = ler(tabela, await adaptador.inserir(tabela, dados));
     linhas[tabela].set(linha.id, linha);
     avisar("dados");
     return linha;

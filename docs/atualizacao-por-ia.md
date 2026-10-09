@@ -67,14 +67,22 @@ resumo como motivo (visível e corrigível no painel).
   follow-up é apagado e a ótica sai da fila.
 - Sem informação suficiente: não mexa em `followup_em`. Diga isso no resumo.
 
-Etapas do funil (id → nome na tela), nesta ordem: `a_trabalhar` Leads a trabalhar, `demo_criada` Demo
-criada, `gravacao_realizada` Gravação realizada, `demo_enviada` **Contato iniciado** (primeira mensagem
-mandada, ainda sem o vídeo), `follow_up` **Em conversa** (já mandou tudo e espera a decisão), `finalizado`
-(ganho ou perda).
+Etapas do funil (id → nome na tela), nesta ordem (desde 09/10/2026):
+- `a_trabalhar` **Leads a trabalhar**: lead validado, demo ainda não feita.
+- `demo_pronta` **Prontas para trabalhar**: demo, vídeo e flyer prontos; falta o primeiro contato.
+- **Em andamento**, uma fase com três etapas:
+  - `primeiro_contato` **Primeiro contato**: mandou a demo e espera a primeira resposta;
+  - `em_negociacao` **Em negociação**: respondeu e a conversa está andando;
+  - `sem_resposta` **Sem resposta**: não respondeu, ou parou de responder (caminho do encerramento).
+- `finalizado` com `resultado` `ganho`, `perda` ou `encerrado` (não respondeu e o contato foi encerrado:
+  nem ganho, nem perda).
+
+Os ids antigos (`demo_criada`, `gravacao_realizada`, `demo_enviada`, `follow_up`) não existem mais: o banco
+recusa e diz quais usar. Eles só aparecem no histórico de quem passou por eles.
 
 **Etapa não muda** por causa de contato ou de interesse. Só mude `etapa` (e `resultado` etc. ao
 finalizar) se você pedir explicitamente.
-Se você pedir para mudar a etapa para Contato iniciado (ou depois) de uma ótica **sem primeiro contato**,
+Se você pedir para mudar a etapa para Em andamento (ou depois) de uma ótica **sem primeiro contato**,
 registre o `primeiro_contato` no mesmo relato, com o dia que você disser (o painel faz o mesmo ao
 mudar a etapa na tela, com a data do dia).
 

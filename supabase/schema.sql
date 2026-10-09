@@ -19,9 +19,11 @@ create table if not exists public.leads (
   id              text primary key default gen_random_uuid()::text,
   dono            uuid not null default auth.uid() references auth.users (id) on delete cascade,
   empresa         text not null default '',
+  -- Funil (09/10/2026): a_trabalhar, demo_pronta ("Prontas para trabalhar"), as três de "Em andamento"
+  -- (primeiro_contato, em_negociacao, sem_resposta) e finalizado. Ver "funil reorganizado" mais abaixo.
   etapa           text not null default 'a_trabalhar'
-                  check (etapa in ('a_trabalhar', 'demo_criada', 'gravacao_realizada', 'demo_enviada', 'follow_up', 'finalizado')),
-  resultado       text check (resultado in ('ganho', 'perda')),
+                  check (etapa in ('a_trabalhar', 'demo_pronta', 'primeiro_contato', 'em_negociacao', 'sem_resposta', 'finalizado')),
+  resultado       text check (resultado in ('ganho', 'perda', 'encerrado')),  -- encerrado: não respondeu (nem ganho, nem perda)
   motivo_perda    text,
   valor_fechado   numeric(12, 2) check (valor_fechado >= 0),
   data_fechamento date,
@@ -103,6 +105,47 @@ begin
   end if;
 end;
 $$;
+
+-- ---------- funil reorganizado (09/10/2026) ----------
+-- Leads a trabalhar → Prontas para trabalhar → Em andamento (Primeiro contato, Em negociação, Sem resposta)
+-- → Finalizado (ganho, perda ou encerrado). Quem ainda está numa etapa antiga muda uma vez só, com uma
+-- linha no histórico (origem "reorganizacao"):
+--   demo_criada, gravacao_realizada → demo_pronta
+--   demo_enviada                    → primeiro_contato
+--   follow_up                       → em_negociacao se tem interesse registrado; senão sem_resposta
+-- Rodar de novo não muda nenhum lead: depois da primeira vez, não sobra etapa antiga.
+do $$
+declare
+  c record;
+begin
+  -- Tira as regras de etapa e de resultado (as antigas e as de uma execução anterior) para pôr as de agora.
+  for c in select conname from pg_constraint
+            where conrelid = 'public.leads'::regclass and contype = 'c'
+              and pg_get_constraintdef(oid) ~ '\m(etapa|resultado) = ANY'
+  loop
+    execute format('alter table public.leads drop constraint %I', c.conname);
+  end loop;
+end;
+$$;
+
+update public.leads l set
+  etapa = n.etapa,
+  historico = l.historico || jsonb_build_array(jsonb_build_object('em', now(), 'de', l.etapa, 'para', n.etapa, 'origem', 'reorganizacao'))
+from (
+  select id,
+         case when etapa in ('demo_criada', 'gravacao_realizada') then 'demo_pronta'
+              when etapa = 'demo_enviada' then 'primeiro_contato'
+              when interesse in ('interessado', 'perto_de_fechar') then 'em_negociacao'
+              else 'sem_resposta' end as etapa
+    from public.leads
+   where etapa in ('demo_criada', 'gravacao_realizada', 'demo_enviada', 'follow_up')
+) n
+where l.id = n.id;
+
+alter table public.leads add constraint leads_etapa_check
+  check (etapa in ('a_trabalhar', 'demo_pronta', 'primeiro_contato', 'em_negociacao', 'sem_resposta', 'finalizado'));
+alter table public.leads add constraint leads_resultado_check
+  check (resultado in ('ganho', 'perda', 'encerrado'));
 
 -- ---------- interacoes ----------
 -- Só o que de fato aconteceu. O placar da tela Ritmo sai daqui:
@@ -485,6 +528,8 @@ $$;
 --                   "etapa": "...", "resultado": "...", "valor_fechado": 0, "motivo_perda": "...", "data_fechamento": "..."}
 --   }]
 -- }
+-- etapa: a_trabalhar, demo_pronta, primeiro_contato, em_negociacao, sem_resposta ou finalizado.
+-- resultado (com etapa finalizado): ganho, perda ou encerrado.
 -- simular = true: faz tudo, devolve o resumo e desfaz (nada fica gravado).
 -- Recusa, sem gravar nada: ótica nova com nome igual a outra já cadastrada, segundo primeiro contato,
 -- retorno sem primeiro contato, data de interação no futuro, lead de outro usuário.
@@ -516,6 +561,7 @@ declare
   v_alt jsonb;
   v_novo_lead boolean;
   v_campo text;
+  v_etapas text[] := array['a_trabalhar', 'demo_pronta', 'primeiro_contato', 'em_negociacao', 'sem_resposta', 'finalizado'];
 begin
   if v_dono is null then
     raise exception 'Sem usuário: a IA precisa entrar com a conta do painel (a mesma do login).';
@@ -548,6 +594,9 @@ begin
         if v_parecidos is not null and not coalesce((v_novo ->> 'permitir_nome_repetido')::boolean, false) then
           raise exception 'Já existe ótica com nome igual ou parecido com "%": %. Use o id dela, ou confirme com o usuário que é outra ótica e mande "permitir_nome_repetido": true.',
             v_empresa, v_parecidos;
+        end if;
+        if not (coalesce(v_novo ->> 'etapa', 'a_trabalhar') = any (v_etapas)) then
+          raise exception 'Etapa "%" não existe. Use %.', v_novo ->> 'etapa', array_to_string(v_etapas, ', ');
         end if;
         insert into public.leads (empresa, cidade, whatsapp, instagram, segmento, etapa, posicao)
         values (
@@ -602,6 +651,13 @@ begin
           raise exception 'Campo "%" não pode ser alterado pelo relato.', v_campo;
         end if;
       end loop;
+      -- Etapas e resultados de antes de 09/10/2026 (demo_criada, follow_up…) não existem mais.
+      if v_upd ->> 'etapa' is not null and not (v_upd ->> 'etapa' = any (v_etapas)) then
+        raise exception 'Etapa "%" não existe. Use %.', v_upd ->> 'etapa', array_to_string(v_etapas, ', ');
+      end if;
+      if nullif(v_upd ->> 'resultado', '') is not null and v_upd ->> 'resultado' not in ('ganho', 'perda', 'encerrado') then
+        raise exception 'Resultado "%" não existe. Use ganho, perda ou encerrado.', v_upd ->> 'resultado';
+      end if;
       if v_upd ? 'followup_em' then
         v_follow := case
           when v_upd ->> 'followup_em' = 'cadencia' then public.renderiza_retorno_sugerido(v_lead.id)

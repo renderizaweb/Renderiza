@@ -3,12 +3,12 @@
 // fica separado do que aconteceu, para o placar da tela Ritmo ser honesto.
 
 import * as dados from "./dados.js";
-import { h } from "./dom.js";
+import { h, opcoesDoSelect } from "./dom.js";
 import { icone } from "./icones.js";
 import { abrirJanela, confirmar, aviso } from "./ui.js";
 import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar, juntar } from "./acoes.js";
 import {
-  TIPOS_INTERACAO, CANAIS_CONTATO, INTERESSES, ETAPAS, nomeDoTipo, nomeDoCanalDeContato, nomeDoInteresse,
+  TIPOS_INTERACAO, CANAIS_CONTATO, INTERESSES, opcoesDeEtapa, nomeDoTipo, nomeDoCanalDeContato, nomeDoInteresse,
   dataDaInteracao, textoDoHistorico, novoLead, rotuloEtapa,
 } from "./modelo.js";
 import {
@@ -331,8 +331,8 @@ export function abrirRecuperacao() {
 
   function formNova() {
     const nome = h("input", { type: "text", required: true, maxlength: "120", placeholder: "Nome da ótica", autocomplete: "off" });
-    const etapa = h("select", { class: "select-trigger largo", "aria-label": "Etapa" }, ...ETAPAS.filter(e => e.id !== "finalizado").map(e => h("option", { value: e.id, text: e.nome })));
-    etapa.value = "follow_up";
+    const etapa = h("select", { class: "select-trigger largo", "aria-label": "Etapa" }, opcoesDoSelect(opcoesDeEtapa({ finalizado: false })));
+    etapa.value = "sem_resposta"; // conversa antiga que parou; se ainda estiver andando, escolha Em negociação
     const datas = controlesDeData(null);
     const contexto = h("input", { type: "text", maxlength: "280", placeholder: "Ex.: conversamos em junho, pediu para falar depois das férias", autocomplete: "off" });
     const proxima = h("input", { type: "text", autocomplete: "off", placeholder: "Opcional" });

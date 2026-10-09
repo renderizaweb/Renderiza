@@ -1,22 +1,41 @@
 // Vocabulário do painel: etapas, resultados, canais e status.
 // Os ids batem com os valores aceitos pelas colunas no Supabase (supabase/schema.sql).
 // Os ids nunca mudam (são o que fica gravado no banco); o nome é só o que aparece na tela.
-// Em 02/10/2026 dois nomes mudaram, sem mexer nos dados:
-//   demo_enviada → "Contato iniciado" (mandei a primeira mensagem para a ótica, ainda sem o vídeo)
-//   follow_up    → "Em conversa" (já mandei tudo e estou esperando a decisão)
+//
+// Funil reorganizado em 09/10/2026 (o supabase/schema.sql migra os dados):
+//   Leads a trabalhar → Prontas para trabalhar → Em andamento → Finalizado (ganho, perda ou encerrado).
+//   "Em andamento" é uma fase com três etapas: Primeiro contato, Em negociação e Sem resposta.
+// Os ids antigos ficam só no histórico (ETAPAS_ANTIGAS dá o nome que tinham na tela).
 
 export const ETAPAS = [
-  { id: "a_trabalhar", nome: "Leads a trabalhar" },
-  { id: "demo_criada", nome: "Demo criada" },
-  { id: "gravacao_realizada", nome: "Gravação realizada" },
-  { id: "demo_enviada", nome: "Contato iniciado" },
-  { id: "follow_up", nome: "Em conversa" },
-  { id: "finalizado", nome: "Finalizado" },
+  { id: "a_trabalhar", nome: "Leads a trabalhar", fase: "a_trabalhar" },
+  { id: "demo_pronta", nome: "Prontas para trabalhar", fase: "demo_pronta", ajuda: "Demo, vídeo e flyer prontos: falta mandar." },
+  { id: "primeiro_contato", nome: "Primeiro contato", fase: "em_andamento", ajuda: "Mandou a demo e espera a primeira resposta." },
+  { id: "em_negociacao", nome: "Em negociação", fase: "em_andamento", ajuda: "Respondeu e a conversa está andando." },
+  { id: "sem_resposta", nome: "Sem resposta", fase: "em_andamento", ajuda: "Não respondeu, ou parou de responder: caminho do encerramento." },
+  { id: "finalizado", nome: "Finalizado", fase: "finalizado" },
 ];
+
+/** Colunas do kanban e passos da trilha. Cada fase junta uma ou mais etapas (Em andamento junta três). */
+export const FASES = [
+  { id: "a_trabalhar", nome: "Leads a trabalhar", curto: "A trabalhar" },
+  { id: "demo_pronta", nome: "Prontas para trabalhar", curto: "Prontas" },
+  { id: "em_andamento", nome: "Em andamento", curto: "Em andamento" },
+  { id: "finalizado", nome: "Finalizado", curto: "Finalizado" },
+].map(f => ({ ...f, etapas: ETAPAS.filter(e => e.fase === f.id).map(e => e.id) }));
+
+/** Etapas de antes de 09/10/2026, com o nome que tinham na tela. */
+export const ETAPAS_ANTIGAS = {
+  demo_criada: "Demo criada",
+  gravacao_realizada: "Gravação realizada",
+  demo_enviada: "Contato iniciado",
+  follow_up: "Em conversa",
+};
 
 export const RESULTADOS = [
   { id: "ganho", nome: "Ganho" },
   { id: "perda", nome: "Perda" },
+  { id: "encerrado", nome: "Encerrado", ajuda: "Não respondeu e o contato foi encerrado: nem ganho, nem perda." },
 ];
 
 export const CANAIS = [
@@ -57,11 +76,43 @@ export const CANAIS_CONTATO = [
 ];
 
 const nomePor = lista => id => (lista.find(x => x.id === id) || {}).nome || "";
-export const nomeDaEtapa = nomePor(ETAPAS);
+/** Nome curto da etapa ("Sem resposta"); id antigo sai com o nome antigo ("Em conversa"). */
+export const nomeDaEtapa = id => nomePor(ETAPAS)(id) || ETAPAS_ANTIGAS[id] || "";
 export const nomeDoResultado = nomePor(RESULTADOS);
 export const nomeDoCanal = nomePor(CANAIS);
 export const nomeDoStatus = nomePor(STATUS_CONTEUDO);
 export const ordemDaEtapa = id => ETAPAS.findIndex(e => e.id === id);
+export const faseDaEtapa = id => (ETAPAS.find(e => e.id === id) || {}).fase || "";
+export const ehEmAndamento = id => faseDaEtapa(id) === "em_andamento";
+/** "Em andamento · Sem resposta" para as etapas de Em andamento; as outras, só o nome. */
+export const nomeCompletoDaEtapa = id => (ehEmAndamento(id) ? "Em andamento · " : "") + nomeDaEtapa(id);
+
+/**
+ * Etapa no funil de 09/10/2026 para um id antigo (o mesmo mapeamento do supabase/schema.sql):
+ * Demo criada e Gravação realizada → Prontas para trabalhar; Contato iniciado → Primeiro contato;
+ * Em conversa → Em negociação se a ótica tem interesse registrado, senão Sem resposta.
+ */
+export function etapaAtual(etapa, interesse) {
+  if (etapa === "demo_criada" || etapa === "gravacao_realizada") return "demo_pronta";
+  if (etapa === "demo_enviada") return "primeiro_contato";
+  if (etapa === "follow_up") return interesse === "interessado" || interesse === "perto_de_fechar" ? "em_negociacao" : "sem_resposta";
+  return etapa;
+}
+/**
+ * Opções para escolher a etapa, com as de Em andamento num grupo: [[id, nome] | {grupo, opcoes}].
+ * `finalizado`: o texto da opção Finalizado (ex.: "Finalizado · Ganho"), ou false para deixá-la de fora.
+ */
+export function opcoesDeEtapa({ finalizado = "Finalizado" } = {}) {
+  return FASES.filter(f => f.id !== "finalizado" || finalizado !== false).map(f => (f.etapas.length > 1
+    ? { grupo: f.nome, opcoes: f.etapas.map(id => [id, nomeDaEtapa(id)]) }
+    : [f.etapas[0], f.id === "finalizado" ? finalizado : f.nome]));
+}
+
+/** Lead lido com etapa antiga (banco ainda não migrado, ou o banco do Claude) aparece já na etapa nova. */
+export function comEtapaAtual(lead) {
+  const etapa = etapaAtual(lead.etapa, lead.interesse);
+  return etapa === lead.etapa ? lead : { ...lead, etapa };
+}
 export const nomeDoInteresse = id => nomePor(INTERESSES)(id || "nao_avaliado");
 export const nomeDoTipo = nomePor(TIPOS_INTERACAO);
 export const nomeDoCanalDeContato = nomePor(CANAIS_CONTATO);
@@ -77,10 +128,10 @@ export function dataDaInteracao(i) {
   return d + "/" + m + "/" + a;
 }
 
-/** "Finalizado · Ganho" quando houver resultado; senão o nome da etapa. */
+/** "Finalizado · Ganho" quando houver resultado, "Em andamento · Sem resposta" nas etapas do meio; senão o nome da etapa. */
 export function rotuloEtapa(lead) {
   if (lead.etapa === "finalizado" && lead.resultado) return "Finalizado · " + nomeDoResultado(lead.resultado);
-  return nomeDaEtapa(lead.etapa) || lead.etapa || "";
+  return nomeCompletoDaEtapa(lead.etapa) || lead.etapa || "";
 }
 
 export function novoLead(empresa) {
@@ -135,8 +186,11 @@ export function textoDoHistorico(h) {
   if (h.texto) return "Painel antigo: " + h.texto;
   if (h.tipo === "interesse") return "Interesse: " + nomeDoInteresse(h.de) + " → " + nomeDoInteresse(h.para) + (h.origem === "ia" ? " (pela IA)" : "");
   if (h.tipo === "nao_contatar") return h.para ? "Marcada para não receber mais contato" : "Voltou a poder ser contatada";
-  const para = h.para === "finalizado" && h.resultado ? "Finalizado · " + nomeDoResultado(h.resultado) : nomeDaEtapa(h.para);
-  return (h.de ? nomeDaEtapa(h.de) + " → " : "") + para;
+  const nota = h.origem === "reorganizacao" ? " (etapas reorganizadas)" : h.origem === "ia" ? " (pela IA)" : "";
+  // Dentro de Em andamento: "Em andamento: Primeiro contato → Em negociação".
+  if (h.de && ehEmAndamento(h.de) && ehEmAndamento(h.para)) return "Em andamento: " + nomeDaEtapa(h.de) + " → " + nomeDaEtapa(h.para) + nota;
+  const para = h.para === "finalizado" && h.resultado ? "Finalizado · " + nomeDoResultado(h.resultado) : nomeCompletoDaEtapa(h.para);
+  return (h.de ? nomeCompletoDaEtapa(h.de) + " → " : "") + para + nota;
 }
 
 /** Converte "1.500,50", "R$ 2000" ou "2500.5" em número. null = vazio, undefined = inválido. */

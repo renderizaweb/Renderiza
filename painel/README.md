@@ -11,6 +11,30 @@ mesmo padrão visual e de uso do planilhão do Compasso (menu lateral verde, cab
 coluna fixa, linhas zebradas e linha de totais). Sem barra de caminho no topo: a busca fica na barra de cada
 tela, ao lado das abas (Tabela/Kanban, filtros); no celular, o topo só tem o botão do menu.
 
+## Pipeline: o funil
+
+Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
+
+| Fase | Etapa (id no banco) | Quando |
+|---|---|---|
+| Leads a trabalhar | `a_trabalhar` | lead validado, demo ainda não feita |
+| Prontas para trabalhar | `demo_pronta` | demo, vídeo e flyer prontos; falta o primeiro contato |
+| **Em andamento** | `primeiro_contato` Primeiro contato | mandou a demo e espera a primeira resposta |
+| | `em_negociacao` Em negociação | respondeu e a conversa está andando |
+| | `sem_resposta` Sem resposta | não respondeu, ou parou de responder: caminho do encerramento |
+| Finalizado | `finalizado` + resultado | **Ganho**, **Perda** ou **Encerrado** (não respondeu: nem ganho, nem perda) |
+
+- **Kanban**: Em andamento é um grupo com uma subcoluna para cada etapa; o cartão muda de etapa ao ser solto
+  na subcoluna. Soltar em Finalizado abre a janela do resultado.
+- **Tabela e detalhes**: o select de etapa mostra as três de Em andamento num grupo; Em negociação aparece em
+  azul, Sem resposta em âmbar e Encerrado em cinza. O filtro tem Em andamento (as três), cada etapa e cada
+  resultado (Ganho, Perda, Encerrado).
+- **Trilha do lead** (topo dos detalhes): uma barra por fase; em Em andamento, embaixo, a etapa da vez.
+- Etapas antigas (antes de 09/10/2026): Demo criada e Gravação realizada viraram Prontas para trabalhar;
+  Contato iniciado virou Primeiro contato; Em conversa virou Em negociação (quem tinha interesse registrado)
+  ou Sem resposta. O `supabase/schema.sql` migrou os dados e deixou uma linha no histórico de cada lead
+  ("etapas reorganizadas"). O histórico antigo continua com os nomes antigos.
+
 ## Tarefas: o que fazer
 
 O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
@@ -32,7 +56,8 @@ O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
 
 ## Clientes: todos, no funil ou fora dele
 
-- Filtros com contagem: Em venda (no funil, em aberto), Ganhos (pós-venda), Perdas e Fora do funil.
+- Filtros com contagem: Em venda (no funil, em aberto), Ganhos (pós-venda), Perdas, Encerrados (não
+  responderam) e Fora do funil.
   A busca do topo procura por nome, WhatsApp, Instagram e cidade.
 - Cada linha mostra a situação e a próxima tarefa. Clicar abre os detalhes (tarefas, andamento,
   interações e contato).
@@ -49,7 +74,7 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
 
 - **Novas óticas prospectadas**: cada ótica conta uma vez, no dia do **primeiro contato**
   personalizado que você fez (WhatsApp, telefone ou outro canal). Cadastrar lead ou criar demo não
-  conta. Mudar a etapa para **Contato iniciado** (ou depois) registra sozinho o primeiro contato do dia,
+  conta. Mudar a etapa para **Em andamento** (ou Finalizado) registra sozinho o primeiro contato do dia,
   se a ótica ainda não tiver um; se foi em outro dia, corrija a data na linha do tempo da ótica.
 - **Relacionamento**: retornos **feitos** no período (nova abordagem sua a uma ótica já contatada) e
   retornos **previstos** para o período (os que cumpriram um follow-up marcado para ele, mais os
@@ -133,7 +158,7 @@ HTML e JavaScript puro (módulos ES nativos), sem bundler. Os dados ficam no Sup
 - **Colunas**: mostre ou oculte colunas pelo menu *Colunas* ou pelo olho no cabeçalho.
   A escolha fica salva neste navegador. *Atualizado* começa oculta.
 - **Detalhes**: ícone ao lado do nome ou menu **…** da linha. O **…** também exclui (pede confirmação).
-- **Finalizar**: ao escolher *Finalizado* na etapa, abre a janela de Ganho ou Perda.
+- **Finalizar**: ao escolher *Finalizado* na etapa, abre a janela de Ganho, Perda ou Encerrado.
 
 ## Estrutura
 
@@ -163,6 +188,7 @@ scripts/servidor.mjs                servidor local igual à Vercel (npm run dev)
 scripts/relato.mjs                  atualização pela IA (buscar, simular, aplicar) com o seu login
 docs/atualizacao-por-ia.md          fluxo da IA: regras de interpretação, formato do plano, o que falta
 test/ritmo.test.mjs                 testes das regras do placar (npm test)
+test/funil.test.mjs                 testes do funil (fases, etapas antigas, mesma lista no painel e no banco)
 vercel.json                         build, pasta publicada, links sem .html e aviso ao Google para não indexar
 ```
 
@@ -216,15 +242,15 @@ npm test                     # regras do placar e do site público
 | `id` | text | chave (ids antigos preservados; novos são UUID) |
 | `dono` | uuid | usuário dono da linha (`auth.uid()` automático) |
 | `empresa` | text | nome |
-| `etapa` | text | `a_trabalhar`, `demo_criada`, `gravacao_realizada`, `demo_enviada` (na tela: Contato iniciado), `follow_up` (na tela: Em conversa), `finalizado` |
-| `resultado` | text | `ganho` ou `perda` (obrigatório quando `etapa = finalizado`) |
+| `etapa` | text | `a_trabalhar`, `demo_pronta`, `primeiro_contato`, `em_negociacao`, `sem_resposta`, `finalizado` (ver "Pipeline: o funil") |
+| `resultado` | text | `ganho`, `perda` ou `encerrado` (obrigatório quando `etapa = finalizado`) |
 | `motivo_perda`, `valor_fechado`, `data_fechamento` | text, numeric, date | preenchidos ao finalizar |
 | `whatsapp`, `instagram` | text | contato; `instagram` aceita @perfil ou site |
 | `proxima_acao`, `followup_em` | text, date | o que fazer e quando |
 | `valor_potencial` | numeric | valor estimado |
 | `cidade`, `segmento`, `site_atual`, `link_demo`, `link_gravacao`, `observacoes` | text | painel lateral |
 | `link_flyer` | text | flyer de Stories (PNG 1080×1920): `/flyer/<id>.png` ou link completo; seção "Flyer para Stories" |
-| `historico` | jsonb | `[{em, de, para, resultado?}]`: uma linha por mudança de etapa |
+| `historico` | jsonb | `[{em, de, para, resultado?, origem?}]`: uma linha por mudança de etapa (`origem`: `ia` ou `reorganizacao`, a migração de 09/10/2026) |
 | `revisar`, `revisar_motivo` | boolean, text | marcados na migração quando o status antigo era ambíguo |
 | `legado` | jsonb | documento original do painel antigo, intacto |
 | `posicao` | double precision | ordem manual do planilhão (*Minha ordem*); vazia = ordem de criação |
@@ -281,10 +307,10 @@ Nada é apagado: o documento original vai inteiro para `legado`.
 | status antigo | etapa nova |
 |---|---|
 | Lead | Leads a trabalhar |
-| Demo em produção | Demo criada se a demo estava pronta; senão Leads a trabalhar |
-| Pronto para enviar | Gravação realizada |
-| Enviado | Contato iniciado (`demo_enviada`) |
-| Respondeu, Conversando, Proposta | Em conversa (`follow_up`) **e marcado para revisar** |
+| Demo em produção | Prontas para trabalhar se a demo estava pronta; senão Leads a trabalhar |
+| Pronto para enviar | Prontas para trabalhar (`demo_pronta`) |
+| Enviado | Em andamento · Primeiro contato (`primeiro_contato`) |
+| Respondeu, Conversando, Proposta | Em andamento · Em negociação (`em_negociacao`) **e marcado para revisar** |
 | Fechado | Finalizado · Ganho |
 | Perdido | Finalizado · Perda |
 

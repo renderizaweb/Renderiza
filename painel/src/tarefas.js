@@ -89,12 +89,13 @@ export const SITUACOES = [
   ["em_venda", "Em venda"],
   ["ganho", "Ganhos (pós-venda)"],
   ["perda", "Perdas"],
+  ["encerrado", "Encerrados"],
   ["fora", "Fora do funil"],
 ];
 
 export function situacaoDoCliente(l) {
   if (l.fora_do_funil) return "fora";
-  if (l.etapa === "finalizado") return l.resultado === "perda" ? "perda" : "ganho";
+  if (l.etapa === "finalizado") return l.resultado === "perda" || l.resultado === "encerrado" ? l.resultado : "ganho";
   return "em_venda";
 }
 

@@ -7,12 +7,12 @@
 // - Usado em dois lugares: no adaptador do Claude (lê documentos antigos) e na
 //   exportação de SQL para importar tudo no Supabase.
 
-import { ehData } from "./modelo.js";
+import { ehData, etapaAtual } from "./modelo.js";
 
 const ETAPA_POR_STATUS = {
   lead: "a_trabalhar",
-  pronto: "gravacao_realizada",
-  enviado: "demo_enviada",
+  pronto: "demo_pronta",
+  enviado: "primeiro_contato",
 };
 const AMBIGUOS = { respondeu: "Respondeu", conversando: "Conversando", proposta: "Proposta" };
 
@@ -34,13 +34,9 @@ function etapaDoLeadAntigo(doc) {
   if (st === "fechado") return { etapa: "finalizado", resultado: "ganho" };
   if (st === "perdido") return { etapa: "finalizado", resultado: "perda" };
   if (st in AMBIGUOS) {
-    return { etapa: "follow_up", revisar: `No painel antigo o status era "${AMBIGUOS[st]}", que não existe mais. Foi para Follow-up; confira a etapa.` };
+    return { etapa: "em_negociacao", revisar: `No painel antigo o status era "${AMBIGUOS[st]}", que não existe mais. Foi para Em andamento · Em negociação; confira a etapa.` };
   }
-  if (st === "producao") {
-    if (demoPronta && gravado) return { etapa: "gravacao_realizada" };
-    if (demoPronta) return { etapa: "demo_criada" };
-    return { etapa: "a_trabalhar" };
-  }
+  if (st === "producao") return { etapa: demoPronta ? "demo_pronta" : "a_trabalhar" };
   if (st in ETAPA_POR_STATUS) {
     const etapa = ETAPA_POR_STATUS[st];
     if (st === "lead" && (demoPronta || gravado)) {
@@ -54,12 +50,10 @@ function etapaDoLeadAntigo(doc) {
     if (s === "fechado") return { etapa: "finalizado", resultado: "ganho" };
     if (s === "perdido") return { etapa: "finalizado", resultado: "perda" };
     if (s === "conversa" || s === "proposta") {
-      return { etapa: "follow_up", revisar: `No painel antigo a situação era "${s}". Foi para Follow-up; confira a etapa.` };
+      return { etapa: "em_negociacao", revisar: `No painel antigo a situação era "${s}". Foi para Em andamento · Em negociação; confira a etapa.` };
     }
-    if (s === "aguardando" || doc.enviado === true) return { etapa: "demo_enviada" };
-    if (demoPronta && gravado) return { etapa: "gravacao_realizada" };
-    if (demoPronta) return { etapa: "demo_criada" };
-    return { etapa: "a_trabalhar" };
+    if (s === "aguardando" || doc.enviado === true) return { etapa: "primeiro_contato" };
+    return { etapa: demoPronta ? "demo_pronta" : "a_trabalhar" };
   }
   return { etapa: "a_trabalhar", revisar: `Status antigo desconhecido ("${st}"). Ficou em Leads a trabalhar; confira a etapa.` };
 }
@@ -103,10 +97,11 @@ export function migrarLead(doc, id) {
   };
 }
 
-/** Lead no formato novo, com os campos que surgiram depois preenchidos pelo padrão. */
+/** Lead no formato novo, com os campos que surgiram depois preenchidos pelo padrão (e a etapa do funil de 09/10/2026). */
 export function completarLead(l) {
   return {
     ...l,
+    etapa: etapaAtual(l.etapa, l.interesse),
     historico: Array.isArray(l.historico) ? l.historico : [],
     interesse: l.interesse || "nao_avaliado",
     interesse_motivo: l.interesse_motivo || null,

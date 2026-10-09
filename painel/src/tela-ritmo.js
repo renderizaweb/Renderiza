@@ -197,10 +197,11 @@ export function criarTelaRitmo(ctx) {
     const nome = MESES[Number(periodo.inicio.slice(5, 7)) - 1];
     const comInteresse = linhas.filter(x => x.lead.interesse && x.lead.interesse !== "nao_avaliado").length;
     const responderam = linhas.filter(x => x.respondeu).length;
-    const ganhos = linhas.filter(x => x.lead.etapa === "finalizado" && x.lead.resultado === "ganho").length;
-    const perdas = linhas.filter(x => x.lead.etapa === "finalizado" && x.lead.resultado === "perda").length;
+    const fechadas = r => linhas.filter(x => x.lead.etapa === "finalizado" && x.lead.resultado === r).length;
+    const ganhos = fechadas("ganho"), perdas = fechadas("perda"), encerradas = fechadas("encerrado");
+    const fim = [ganhos ? plural(ganhos, "ganho", "ganhos") : "", perdas ? plural(perdas, "perda", "perdas") : "", encerradas ? plural(encerradas, "encerrada", "encerradas") : ""].filter(Boolean);
     const resumo = linhas.length
-      ? `${plural(linhas.length, "ótica teve", "óticas tiveram")} o primeiro contato em ${nome}. Hoje: ${comInteresse} com interesse registrado, ${plural(responderam, "respondeu", "responderam")}` + (ganhos || perdas ? `, ${ganhos} ganho${ganhos === 1 ? "" : "s"} e ${perdas} perda${perdas === 1 ? "" : "s"}.` : ".")
+      ? `${plural(linhas.length, "ótica teve", "óticas tiveram")} o primeiro contato em ${nome}. Hoje: ${comInteresse} com interesse registrado, ${plural(responderam, "respondeu", "responderam")}` + (fim.length ? ", " + fim.join(", ").replace(/, ([^,]*)$/, " e $1") + "." : ".")
       : `Nenhuma ótica teve o primeiro contato registrado em ${nome}.`;
     const tabela = estado.turmaAberta && linhas.length ? h("div", { class: "table-container turma-container" }, h("table", { class: "planilhao turma-tabela" },
       h("thead", {}, h("tr", {}, ["Ótica", "1º contato", "Etapa", "Interesse", "Última interação", "Próximo passo"].map((t, i) => h("th", { scope: "col", class: i === 0 ? "sticky-name" : "col", text: t })))),
@@ -242,8 +243,10 @@ export function criarTelaRitmo(ctx) {
 
   function contextoComercial(p, nomePeriodo) {
     const soma = p.ganhos.reduce((s, l) => s + (Number(l.valor_fechado) || 0), 0);
-    const texto = p.ganhos.length || p.perdas.length
-      ? `Fechamentos em ${nomePeriodo} (contexto): ${plural(p.ganhos.length, "ganho", "ganhos")}${soma ? " (" + dinheiro(soma) + ")" : ""} · ${plural(p.perdas.length, "perda", "perdas")}.`
+    const partes = [plural(p.ganhos.length, "ganho", "ganhos") + (soma ? " (" + dinheiro(soma) + ")" : ""), plural(p.perdas.length, "perda", "perdas")];
+    if (p.encerrados.length) partes.push(plural(p.encerrados.length, "encerrado sem resposta", "encerrados sem resposta"));
+    const texto = p.ganhos.length || p.perdas.length || p.encerrados.length
+      ? `Fechamentos em ${nomePeriodo} (contexto): ${partes.join(" · ")}.`
       : `Nenhum fechamento em ${nomePeriodo}.`;
     return h("p", { class: "contexto-comercial", text: texto });
   }
