@@ -1,0 +1,458 @@
+{
+ "pasta": "dra-milena-ferreira",
+ "marca": "Dra. Milena Ferreira",
+ "marca_sub": "Harmonização orofacial",
+ "marca_completa": "Dra. Milena Ferreira",
+ "titulo": "Dra. Milena Ferreira · Harmonização orofacial na Granja Viana",
+ "descricao": "Dra. Milena Ferreira, cirurgiã-dentista (CRO-SP 181642) com clínica própria na Granja Viana, em Cotia: toxina botulínica, preenchimento labial, bioestimuladores de colágeno e rinomodelação, com resultados naturais. Nota 5,0 no Google.",
+ "comentario": "Demo Dra. Milena Ferreira: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@dra.mmilenaferreira, página salva pelo Kaue e posts recentes, e @clinica.dramilenaferreira) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 09/10/2026.",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "primaria": "#9a6b4b",
+  "primaria_escura": "#3a2a20",
+  "noite": "#241913",
+  "tinta": "#221a15",
+  "clara": "#f1e6db",
+  "clara2": "#faf5ef",
+  "creme": "#f6eee5",
+  "papel": "#fffdfa",
+  "destaque": "#d4a373",
+  "ouro": "#e6c79c"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/inv/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/od/mat/milena/google-junto.json",
+ "google_nota": "5,0",
+ "google_total": "17",
+ "google_nome": "Dra Milena Ferreira",
+ "endereco_maps": "Rod. Raposo Tavares, 22850 - Lageadinho, Cotia - SP, 06709-015",
+ "maps_url": "https://www.google.com/maps?cid=7011420248143875954",
+ "avaliar_url": "https://search.google.com/local/writereview?placeid=ChIJI2JK7ZGrz5QRcs-YTZGRTWE",
+ "whatsapp": "5511997434605",
+ "mensagem": "Olá, Dra. Milena! Vim pelo site e gostaria de agendar uma avaliação.",
+ "instagram": "dra.mmilenaferreira",
+ "verificado": "2026-10-09",
+ "logo": {
+  "monograma": "MF"
+ },
+ "cta": "Agendar avaliação",
+ "nav": [
+  [
+   "#dentista",
+   "A doutora"
+  ],
+  [
+   "#clinica",
+   "A clínica"
+  ],
+  [
+   "#resultados",
+   "Resultados"
+  ],
+  [
+   "#tratamentos",
+   "Tratamentos"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#contato",
+   "Contato"
+  ]
+ ],
+ "ordem": [
+  "hero",
+  "faixa",
+  "dentista",
+  "carrossel:clinica",
+  "experiencia",
+  "carrossel:resultados",
+  "tratamentos",
+  "depoimentos",
+  "contato"
+ ],
+ "hero": {
+  "eyebrow": "Harmonização orofacial na Granja Viana",
+  "h1": "Sua beleza, com equilíbrio",
+  "h1_em": "e naturalidade.",
+  "lead": "Toxina botulínica, preenchimentos, bioestimuladores e rinomodelação com a Dra. Milena Ferreira, cirurgiã-dentista que planeja cada rosto de forma individual para realçar seus traços, sem exageros.",
+  "cta": "Quero agendar minha avaliação",
+  "link": [
+   "#resultados",
+   "Ver resultados reais"
+  ],
+  "provas": [
+   [
+    "{nota}",
+    ""
+   ],
+   [
+    "Clínica própria",
+    "na Granja Viana, desde setembro de 2026"
+   ],
+   [
+    "2,9 mil",
+    "pessoas acompanham no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/ig/Ddy6O28EaUh_01.jpg",
+   "c": [
+    0.5,
+    0.2
+   ]
+  },
+  "alt": "Dra. Milena Ferreira sorrindo na clínica, de vestido branco, diante do logo",
+  "nome": "Dra. Milena Ferreira",
+  "registro": "CRO-SP 181642 · HARMONIZAÇÃO OROFACIAL",
+  "chip": "Resultados naturais"
+ },
+ "faixa": [
+  "Planejamento individual",
+  "Resultados naturais",
+  "Clínica nova na Granja Viana"
+ ],
+ "dentista": {
+  "eyebrow": "Quem cuida da sua beleza",
+  "h2": "Dra. Milena Ferreira,",
+  "h2_em": "um sonho que agora tem endereço.",
+  "p": [
+   "Cirurgiã-dentista com atuação em harmonização orofacial (CRO-SP 181642), a Dra. Milena parte de uma ideia simples: cada rosto pede uma estratégia diferente. Não é sobre fazer tudo, é sobre saber o que fazer, onde fazer e quanto fazer.",
+   "Em setembro de 2026 ela abriu a própria clínica na Granja Viana, pensada em cada detalhe para que cada paciente se sinta acolhida e bem cuidada, da primeira conversa ao resultado."
+  ],
+  "citacao": "Ela não tenta mudar nossos traços, pelo contrário, busca valorizar o que temos de bonito, sempre com muito bom senso e sem exageros.",
+  "citacao_fonte": "Radha Soares, paciente (avaliação no Google)",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/google/g00.jpg",
+   "c": [
+    0.5,
+    0.15
+   ]
+  },
+  "alt": "Dra. Milena Ferreira sentada, de terno marrom, em ensaio profissional",
+  "selo": [
+   "CRO-SP 181642",
+   "Cirurgiã-dentista"
+  ],
+  "tira": [
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/ig/Ddy6O28EaUh_00.jpg",
+     "c": [
+      0.5,
+      0.2
+     ]
+    },
+    "alt": "Dra. Milena Ferreira sorrindo na inauguração da clínica"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/igc/DdKeCXAoFz4_00.jpg",
+     "box": [
+      0,
+      0,
+      1,
+      0.56
+     ],
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    "alt": "Dra. Milena Ferreira de terno marrom, em ensaio profissional"
+   },
+   {
+    "foto": {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/scan/m_06.jpg",
+     "box": [
+      0,
+      0.05,
+      1,
+      0.75
+     ],
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    "alt": "Dra. Milena Ferreira sorrindo na mesa de avaliação da clínica"
+   }
+  ]
+ },
+ "carrosseis": [
+  {
+   "id": "clinica",
+   "tipo": "galeria",
+   "fundo": "creme",
+   "eyebrow": "A clínica",
+   "h2": "Pensada em cada detalhe",
+   "h2_em": "para receber você.",
+   "p": "A clínica nova da Dra. Milena, na Granja Viana: recepção aconchegante, sala de avaliação e consultório prontos para o seu atendimento.",
+   "rotulo": "Clínica Dra. Milena Ferreira",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/recepcao-arco.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Recepção com arco iluminado e o logo da Dra. Milena Ferreira",
+     "rotulo": "Recepção",
+     "titulo": "Um lugar para chegar com calma"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/scan/f_051.jpg",
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Sala de avaliação com mesa clara e parede decorada com lábios",
+     "rotulo": "Avaliação",
+     "titulo": "Tudo planejado com você"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/scan/f_047.jpg",
+      "c": [
+       0.5,
+       0.55
+      ]
+     },
+     "alt": "Consultório com cadeira clara e armários brancos",
+     "rotulo": "Consultório",
+     "titulo": "Pronto para o seu procedimento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/lounge-arco.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Sala de espera com sofá claro e o logo iluminado",
+     "rotulo": "Sala de espera",
+     "titulo": "Conforto em cada detalhe"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/hq/scan/f_020.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Recepção decorada para a inauguração da clínica",
+     "rotulo": "Inauguração",
+     "titulo": "Setembro de 2026"
+    }
+   ]
+  },
+  {
+   "id": "resultados",
+   "tipo": "sorriso",
+   "formato": "quadrado",
+   "fundo": "clara",
+   "eyebrow": "Resultados reais",
+   "h2": "Naturais e elegantes,",
+   "h2_em": "do jeito de cada rosto.",
+   "p": "Pacientes da Dra. Milena depois de rinomodelação, preenchimento labial e harmonização: o objetivo é realçar a sua beleza, nunca mudar quem você é.",
+   "rotulo": "Resultados da Dra. Milena",
+   "nota": "Imagens de casos reais publicadas no Instagram da Dra. Milena, com autorização das pacientes. Cada tratamento tem indicação e resultado individuais.",
+   "itens": [
+    {
+     "foto": {
+      "id": 10,
+      "box": [
+       0.0,
+       0.12,
+       1.0,
+       1.0
+      ],
+      "c": [
+       0.6,
+       0.4
+      ]
+     },
+     "alt": "Perfil de paciente depois da rinomodelação"
+    },
+    {
+     "foto": {
+      "id": 28,
+      "box": [
+       0.55,
+       0.0,
+       1.0,
+       0.72
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Perfil de paciente depois da harmonização facial"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/igc/DdZlp1qIE4h_02.jpg",
+      "box": [
+       0.52,
+       0.26,
+       0.9,
+       0.6
+      ],
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Lábios depois do preenchimento labial"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "box": [
+       0.5,
+       0.08,
+       1.0,
+       0.74
+      ],
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Perfil de paciente com o contorno da mandíbula definido"
+    }
+   ]
+  }
+ ],
+ "experiencia": {
+  "eyebrow": "Antes de tudo, ouvir você",
+  "h2": "Cada rosto pede",
+  "h2_em": "uma estratégia diferente.",
+  "lead": "Queixas diferentes não devem receber a mesma resposta. Na avaliação, a Dra. Milena ouve o que incomoda você, explica cada possibilidade e planeja a combinação certa para o seu rosto, preservando os seus traços.",
+  "pontos": [
+   "Avaliação individual",
+   "Cada procedimento explicado",
+   "Naturalidade sem exageros"
+  ],
+  "foto": {
+   "id": 34,
+   "box": [
+    0,
+    0,
+    0.93,
+    0.92
+   ],
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Dra. Milena Ferreira sentada no consultório, de preto",
+  "legenda": "Valorizar sua beleza começa por ouvir você."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Harmonização",
+  "h2_em": "com bom senso.",
+  "itens": [
+   [
+    "Toxina botulínica",
+    "Suaviza as linhas de expressão, com a dose planejada para manter a sua expressão natural."
+   ],
+   [
+    "Preenchimento labial",
+    "Contorno, hidratação e volume na medida certa, respeitando o formato dos seus lábios."
+   ],
+   [
+    "Bioestimuladores de colágeno",
+    "Estimulam o próprio corpo a produzir colágeno, para uma pele mais firme e com viço."
+   ],
+   [
+    "Rinomodelação",
+    "Mais definição e harmonia para o nariz, respeitando a anatomia de cada paciente."
+   ]
+  ],
+  "mais": [
+   [
+    "Também na clínica",
+    [
+     "Preenchimento de mento e mandíbula",
+     "Lipo de papada HD",
+     "Skinbooster",
+     "Full face"
+    ]
+   ],
+   [
+    "Onde",
+    [
+     "Granja Viana",
+     "Cotia"
+    ]
+   ]
+  ],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem confia",
+  "h2_em": "recomenda.",
+  "itens": [
+   {
+    "nome": "Radha Soares",
+    "trecho": "Desde o primeiro atendimento me senti muito segura e bem cuidada. A Dra. Milena é extremamente atenciosa, cuidadosa e tem uma preocupação enorme em manter a naturalidade."
+   },
+   {
+    "nome": "Giselle Silva de Sousa",
+    "trecho": "Dra Milena super cuidadosa e responsável com o procedimento, me passou toda segurança e suporte que eu precisava!"
+   },
+   {
+    "nome": "Dayse Barros",
+    "trecho": "Resultado impecável de preenchimento e botox, além do atendimento incrível e o resultado ficou super natural"
+   },
+   {
+    "nome": "Charleyde Alves",
+    "trecho": "Muito feliz com o resultado da minha harmonização facial."
+   },
+   {
+    "nome": "Mayara Bueno",
+    "texto": "Dra Milena é uma profissional exemplar, maravilhosa, atenciosa, amei"
+   }
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos conversar",
+  "h2_em": "sobre o seu rosto?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer a clínica nova na Granja Viana.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/ig/Dd1sfqjiG6O_00.jpg",
+   "c": [
+    0.5,
+    0.2
+   ]
+  },
+  "alt": "Dra. Milena Ferreira de terno marrom, em ensaio profissional",
+  "endereco": [
+   "Rod. Raposo Tavares, 22850",
+   "Lageadinho (Granja Viana) · Cotia, SP · 06709-015"
+  ],
+  "whatsapp_texto": "(11) 99743-4605",
+  "insta_rotulo": "Resultados, dicas e bastidores"
+ },
+ "rodape": {
+  "registro": "Dra. Milena Ferreira · CRO-SP 181642",
+  "esq": "Cirurgiã-dentista · Harmonização orofacial · Granja Viana, Cotia",
+  "dir": "Atendimento com hora marcada"
+ }
+}

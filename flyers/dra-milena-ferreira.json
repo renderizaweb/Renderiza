@@ -1,0 +1,29 @@
+{
+ "marca": "Dra. Milena Ferreira",
+ "local": "Cirurgiã-dentista · CRO-SP 181642",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "cores": {
+  "fundo": "#3a2a20",
+  "fundo2": "#241913",
+  "acento": "#d4a373",
+  "tinta_acento": "#241913",
+  "claro": "#faf5ef"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/478e51f8-6b5c-5dcf-9ed3-7be721d5cd20/scratchpad/milena/ig/Ddy6O28EaUh_01.jpg",
+  "pos": "50% 18%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "17"
+ },
+ "titulo": "Sua beleza, com equilíbrio <em>e naturalidade.</em>",
+ "texto": "Toxina botulínica, preenchimentos, bioestimuladores e rinomodelação, sem exageros.",
+ "whatsapp": "(11) 99743-4605",
+ "cta": "Agende sua avaliação",
+ "endereco": "Rod. Raposo Tavares, 22850 · Granja Viana",
+ "instagram": "@dra.mmilenaferreira"
+}

@@ -139,6 +139,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Dra. Fernanda Ornelas (dentista)](demos/dra-fernanda-ornelas) | Jabaquara, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 11ª) |
 | [Odontoelis (dentista)](demos/odontoelis) | Guaianases, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 12ª) |
 | [Clínica Dra. Michele Renteiro (dentista)](demos/clinica-dra-michele-renteiro) | Centro, Franco da Rocha | site | pronta · 09/10/2026 (odonto lote 1 · 16ª) |
+| [Dra. Milena Ferreira (dentista, harmonização)](demos/dra-milena-ferreira) | Granja Viana, Cotia | site | pronta · 09/10/2026 (pedido do Kaue, fora do lote) |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |
