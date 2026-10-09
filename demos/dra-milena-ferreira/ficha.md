@@ -10,7 +10,7 @@
 | Empresa | não consultei o CNPJ |
 | Site | não tem |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar-odonto.py` a partir do `demo.json` |
-| Situação | pronta · 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. Não é lead do painel (pedido direto do Kaue), então a demo não tem prazo |
+| Situação | pronta · 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
 
 ## Quem é
 - Cirurgiã-dentista com atuação em harmonização orofacial, CRO-SP 181642 (bio e legendas: "Cirurgiã-Dentista | Harmonização Orofacial").

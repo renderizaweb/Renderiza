@@ -494,8 +494,8 @@ todas com vídeo e flyer. Climas do vídeo: ACS sóbrio, Odonto Mile descolado, 
   Myllena; unidade de Embu sem endereço), Michele (legendas antigas com outro endereço), crianças na Odonto Mile e na
   Odontoelis (autorização dos pais). Detalhes na ficha de cada demo.
 
-**Dra. Milena Ferreira (09/10/2026):** pedido direto do Kaue, fora do lote e fora do painel (sem lead, a demo
-não tem prazo). Harmonização orofacial na Granja Viana (Cotia), clínica própria inaugurada em setembro de 2026.
+**Dra. Milena Ferreira (09/10/2026):** pedido direto do Kaue, fora do lote. No painel (lead `dra-milena-ferreira`),
+em Gravação realizada. Harmonização orofacial na Granja Viana (Cotia), clínica própria inaugurada em setembro de 2026.
 Mesma linha de dentista, com carrossel de resultados de rosto (só o "depois", sem agulha, seringa, marca de produto
 nem rosto pintado) no lugar dos sorrisos; vídeo "grife". Não estava no Google com o nome do Instagram: achei pela
 marcação de local do post da inauguração ("Granja Viana") e a busca "Dra Milena Ferreira Granja Viana". A ID do
