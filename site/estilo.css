@@ -10,8 +10,8 @@
   --sobre-grafite:#b9bfc1;   /* texto secundário em fundo grafite */
   --enfase:#7a8386;           /* segunda parte dos títulos (no lugar do itálico) */
   /* Terracota, o oposto do tom frio do grafite e vizinho do branco quente do símbolo: nos botões principais
-     e em detalhes (sobretítulos, o aviso da abertura, o teste marcado, os ✓ do site, aspas, ícones pequenos e a
-     seleção de texto). Títulos seguem grafite e cinza. */
+     e em detalhes (sobretítulos, o aviso da abertura, o teste marcado, os ✓ do site, a borda do cartão do site em
+     Serviços, aspas, ícones pequenos e a seleção de texto). Títulos seguem grafite e cinza. */
   --terracota:#b25134;        /* sobre fundo claro: 5,1:1 no branco e 4,7:1 no papel-2; texto branco nele: 5,1:1 */
   --terracota-escura:#9a4429; /* botão principal ao passar o mouse */
   --terracota-clara:#e8855e;  /* sobre o grafite: 5,9:1 */
@@ -295,6 +295,23 @@ html:has(dialog[open]){overflow:hidden}
 .fundador-link{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;min-height:44px;margin-top:6px;font-weight:600;font-size:.9375rem;color:var(--grafite);text-decoration:underline;text-decoration-color:#c9c6bf;text-underline-offset:4px}
 .fundador-link:hover{text-decoration-color:currentColor}
 
+/* serviços: o site é a base (em destaque) e os adicionais ficam ao lado; sob medida fecha a seção */
+.servicos{display:grid;gap:28px;margin-top:32px}
+.servicos-coluna{display:grid;gap:12px;align-content:start}
+.servico-rotulo{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+.servico-base{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:26px 22px 24px;border-radius:var(--raio);background:var(--branco);border:1.5px solid var(--terracota)}
+.servico-base h3,.adicional h3{font-size:1.375rem;letter-spacing:-.03em}
+.servico-etiqueta{padding:4px 12px;border-radius:999px;background:var(--papel-2);border:1px solid var(--linha);color:var(--terracota);font-size:.8125rem;font-weight:600;line-height:1.4}
+.servico-lista{display:grid;gap:10px;margin-bottom:6px}
+.servico-lista li{display:flex;gap:10px;align-items:flex-start;font-weight:600;line-height:1.45}
+.servico-marca{flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;display:grid;place-items:center;background:var(--terracota);color:#fff}
+.adicionais{display:grid;gap:14px}
+.adicional{padding:22px 20px 16px;border-radius:var(--raio);background:var(--papel-2);border:1px solid var(--linha)}
+.secao-clara .adicional{background:var(--branco)}
+.adicional-para{margin-top:2px;font-size:.9375rem;font-weight:500;color:var(--tinta-suave)}
+.adicional-texto{margin-top:10px;max-width:36em}
+.adicional .alem-link{margin-top:6px}
+
 /* perguntas: as objeções que aparecem na conversa, respondidas antes */
 .perguntas{margin-top:28px;border-top:1px solid var(--linha);max-width:780px}
 .perguntas details{border-bottom:1px solid var(--linha)}
@@ -311,6 +328,9 @@ html:has(dialog[open]){overflow:hidden}
 .convite p{margin:14px auto 0;color:var(--sobre-grafite);max-width:32em}
 .acoes-convite{align-items:stretch;margin-top:30px}
 .convite .convite-numero{margin-top:18px;font-size:.875rem;color:var(--tinta-clara)}
+/* mês de inauguração: uma linha sóbria, com data e motivo, sem preço */
+.convite .convite-inauguracao{display:inline-flex;align-items:flex-start;gap:10px;max-width:36em;margin-top:22px;padding:10px 18px;border-radius:14px;border:1px solid #ffffff2e;color:var(--gelo);font-size:.9375rem;font-weight:500;line-height:1.45;text-align:left}
+.convite-inauguracao::before{content:"";flex:none;width:7px;height:7px;margin-top:7px;border-radius:50%;background:var(--terracota-clara)}
 .convite :focus-visible,.rodape :focus-visible{outline-color:var(--gelo)}
 .convite-pendente{font-size:.9375rem}
 
@@ -355,6 +375,9 @@ html:has(dialog[open]){overflow:hidden}
   .projeto-tela{padding:28px 28px 0}
   .projeto-info{padding:20px 24px 24px}
   .alem{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;padding:24px 28px}
+  .servicos{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+  .servico-base{padding:32px 30px 30px}
+  .adicional{padding:24px 26px 18px}
   .janela-projeto{width:min(1040px,calc(100% - 48px));height:auto;max-height:calc(100dvh - 48px);margin:auto;border-radius:20px}
   .projeto-palco{padding:48px 40px 0}
   .palco-desktop{display:block;flex:1;min-width:0}

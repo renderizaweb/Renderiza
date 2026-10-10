@@ -42,6 +42,19 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
   Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo nem no flyer.)
+- **Oferta (09/10/2026, doc "Oferta e nomenclatura"):** sem planos por nível. Todo cliente leva o **site**, que
+  já sai **pronto para anúncio** (Pixel da Meta, Google Analytics e o clique no WhatsApp contado como contato;
+  com o pixel vai o aviso de cookies) e com o **kit de divulgação** (QR para o balcão, textos para a bio e para o
+  perfil do Google, mensagem para pedir avaliação). **Adicionais**, no mesmo site: **Agenda online** (página de
+  agendamento do Google Agenda, para clínicas, consultórios, estética e salões) e **Catálogo** (produtos
+  cadastrados com login e senha, com mensalidade, para lojas e óticas); cada um só é construído quando o
+  primeiro cliente fechar. **Sob medida** para sistemas e aplicativos. A Renderiza **não roda anúncios**
+  (decisão do Kaue, 09/10/2026): para quem pergunta de tráfego pago, o site sai pronto para quem roda. Os nomes
+  são os mesmos no site, na conversa e na divulgação: site (não "landing page"), adicional (não "módulo"),
+  pronto para anúncio, kit de divulgação, valor único, mensalidade e mês de inauguração (nunca "promoção" no
+  site). Ainda esperam o ok do Kaue: os valores sugeridos dos adicionais (Agenda R$ 200; Catálogo R$ 700 +
+  R$ 59/mês) e o pixel em todo site. No site: seção `#servicos`, três perguntas no FAQ (o que fazer com o site,
+  tráfego pago e quem já tem gestor) e a linha do mês de inauguração, sem preço, até 31/10/2026.
 - **Instagram da Renderiza no ciclo 2:** o foco é dentista e estética, mas a maior parte dos posts tem que
   ser genérica (outros nichos entram nas próximas semanas); posts pontuais de nicho são bem-vindos. A
   frequência fica a cargo da proposta do Claude.
@@ -543,7 +556,7 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
 - **Home na ordem do SPIN (09/10/2026):** abertura "O site do seu negócio, pronto antes de você pedir." →
   situação (o caminho do cliente novo) → teste de 5 itens com o que cada falta custa (problema e implicação;
   funciona sem JavaScript e leva o placar ao WhatsApp) → "E se o cliente já chegasse sabendo de tudo?"
-  (necessidade) → como funciona, trabalhos, depoimentos e quem somos → perguntas e convite. Preço fica fora do
+  (necessidade) → como funciona, trabalhos, depoimentos, serviços e quem somos → perguntas e convite. Preço fica fora do
   site; texto em "a gente". Mapa das seções em `site/README.md`. Nome e rosto dos fundadores **não** vão na
   abertura nem na imagem de compartilhamento (já tinham sido tirados antes; pedido de novo em 09/10/2026): ficam
   em "Quem está por trás".
