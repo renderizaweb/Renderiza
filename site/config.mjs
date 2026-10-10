@@ -66,7 +66,7 @@ export default {
       //   personalizada. / Podem incluir nosso site e esse feedback no portfólio de vocês. Será um prazer contribuir para
       //   mostrar esse trabalho. / Obrigado pela parceria, Kaue!"
       // valor: o trecho em que o próprio cliente diz o que o site resolveu (4º parágrafo, sem mudar uma palavra).
-      //   Vai na seção "E se o cliente já chegasse sabendo de tudo?", a necessidade nas palavras de quem já tem.
+      //   Vai na seção "O cliente novo encontra tudo sem precisar perguntar.", a necessidade nas palavras de quem já tem.
       valor: "Sentimos que o site hoje transmite muito mais confiança e profissionalismo para quem conhece a Ótica Blulens pela internet, além de ser uma ferramenta importante para nossos clientes encontrarem nossa empresa e conhecerem nossos produtos e serviços.",
       texto: "Desde o início, percebemos muito cuidado em entender a nossa empresa, nossa identidade e aquilo que queríamos transmitir aos nossos clientes. O site ficou moderno, profissional, organizado e alinhado com o posicionamento que estamos buscando para a Blulens.",
       publicar: true,
