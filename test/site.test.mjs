@@ -207,7 +207,7 @@ test("abertura: o que fazemos em 5 segundos, um pedido concreto e dois sites de 
 
 test("a ordem da página é a da venda consultiva (SPIN): situação, problema, necessidade, capacidade e compromisso", () => {
   const html = montarPagina(config);
-  const ordem = ["inicio", "por-que", "teste", "solucao", "como-funciona", "trabalhos", "depoimentos", "sobre", "perguntas", "contato"];
+  const ordem = ["inicio", "por-que", "teste", "solucao", "como-funciona", "trabalhos", "depoimentos", "servicos", "sobre", "perguntas", "contato"];
   const posicoes = ordem.map(id => html.indexOf(`id="${id}"`));
   for (const [i, id] of ordem.entries()) assert.ok(posicoes[i] > 0, `falta a seção #${id}`);
   for (let i = 1; i < ordem.length; i++) assert.ok(posicoes[i - 1] < posicoes[i], `#${ordem[i - 1]} vem antes de #${ordem[i]}`);
@@ -263,11 +263,49 @@ test("capacidade e compromisso: como funciona da prévia ao ar, objeções respo
   assert.equal((como.match(/<li><h3>/g) || []).length, 5);
   assert.match(como, /Você só paga se decidir colocar o site no ar\./);
   const perguntas = secao(html, "perguntas");
-  for (const p of ["Recebi uma prévia do meu site. O que é?", "Já tenho Instagram. Preciso de um site?", "Quanto custa?", "O site fica no meu nome?", "Quem decide é outra pessoa. E agora?"]) assert.ok(perguntas.includes(p), p);
+  for (const p of ["Recebi uma prévia do meu site. O que é?", "Já tenho Instagram. Preciso de um site?", "O que eu faço com o site quando ele fica pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Quanto custa?", "O site fica no meu nome?", "Quem decide é outra pessoa. E agora?"]) assert.ok(perguntas.includes(p), p);
   assert.match(perguntas, /sai do ar sozinho em 7 dias/, "a prévia tem prazo de verdade (middleware.js)");
   const convite = secao(html, "contato");
   assert.match(convite, /Quer ver como ficaria <em>o seu\?<\/em>/);
   assert.ok(convite.includes(linkWhatsapp(config.contato, "Oi! Quero ver como ficaria o site do meu negócio. O Instagram é @").replace(/&/g, "&amp;")));
+});
+
+test("serviços: o site como base, dois adicionais e sob medida, com os mesmos nomes da conversa", () => {
+  const html = montarPagina(config);
+  assert.match(html, /<a href="#trabalhos">Trabalhos<\/a>\s*<a href="#servicos">Serviços<\/a>\s*<a href="#sobre">Quem somos<\/a>/);
+  const s = secao(html, "servicos");
+  assert.match(s, /Tudo começa pelo site\. <em>O resto entra quando você precisar\.<\/em>/);
+  assert.match(s, /<p class="servico-rotulo">A base<\/p>[\s\S]*<h3 id="servico-site">Site<\/h3>/);
+  for (const item of ["Pronto para anúncio: Pixel da Meta e Google Analytics", "Kit de divulgação: QR para o balcão e textos prontos", "No seu nome, sem mensalidade"]) assert.ok(s.includes(item), item);
+  // cada adicional abre o WhatsApp já dizendo do que o cliente quer saber
+  for (const [nome, mensagem] of [["Agenda online", "Oi! Vi o site da Renderiza e quero saber da agenda online."], ["Catálogo", "Oi! Vi o site da Renderiza e quero saber do catálogo."]]) {
+    assert.ok(s.includes(`<h3>${nome}</h3>`), nome);
+    assert.ok(s.includes(linkWhatsapp(config.contato, mensagem).replace(/&/g, "&amp;")), mensagem);
+  }
+  // sob medida saiu de Trabalhos e fecha Serviços
+  assert.match(s, /<h3>Sob medida<\/h3>[\s\S]*Conversar sobre um aplicativo/);
+  assert.doesNotMatch(secao(html, "trabalhos"), /Conversar sobre um aplicativo/);
+  // nomes da conversa, sem jargão; e a Renderiza não roda anúncios (decisão de 09/10/2026)
+  assert.doesNotMatch(textoVisivel(s), /módulo|landing|upgrade|premium|plano (básico|pro)/i);
+  assert.doesNotMatch(textoVisivel(html), /a gente (roda|cuida|gerencia)[^.]*an[úu]ncio|gest[ãa]o de (tr[áa]fego|an[úu]ncios)/i);
+});
+
+test("perguntas: uma para cada público que mais chama (o que fazer com o site, tráfego pago e quem já tem gestor)", () => {
+  const perguntas = secao(montarPagina(config), "perguntas");
+  for (const p of ["O que eu faço com o site quando ele fica pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?"]) assert.ok(perguntas.includes(p), p);
+  assert.match(perguntas, /O anúncio em si a gente não roda\./);
+  assert.match(perguntas, /só o catálogo tem mensalidade/);
+});
+
+test("mês de inauguração: benefício com data, sem preço, que some depois de 31/10 (horário de São Paulo)", () => {
+  const outubro = montarPagina(config, { hoje: new Date("2026-10-09T15:00:00Z") });
+  assert.match(secao(outubro, "contato"), /<p class="convite-inauguracao" data-ate="2026-10-31">Outubro é o mês de inauguração da Renderiza: até o dia 31, o site tem um valor especial, que a gente passa junto com a prévia\.<\/p>/);
+  assert.match(secao(outubro, "servicos"), /<p class="servico-etiqueta" data-ate="2026-10-31">/);
+  assert.match(outubro, /<script>\/\* mês de inauguração/);
+  // 23h30 de 31/10 em São Paulo ainda é outubro, mesmo com o build em UTC
+  assert.match(montarPagina(config, { hoje: new Date("2026-11-01T02:30:00Z") }), /class="convite-inauguracao"/);
+  const novembro = montarPagina(config, { hoje: new Date("2026-11-01T12:00:00Z") });
+  assert.doesNotMatch(novembro, /class="convite-inauguracao"|class="servico-etiqueta"|data-ate=|<script>\/\* mês de inauguração/);
 });
 
 test("sem preço, promessa de resultado, superlativo nem \"de bairro\" no texto da home", () => {
