@@ -143,20 +143,13 @@ h3{font-size:1.125rem;line-height:1.35;font-weight:650;letter-spacing:-.01em;col
 .teste-resultado .botao{margin-top:24px}
 .teste-resultado :focus-visible{outline-color:var(--gelo)}
 
-/* N · o site como resposta: cada "hoje" com o seu "no seu site" */
-.contraste{margin-top:32px;border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;background:var(--branco)}
-.contraste-cabeca{display:none}
-.contraste li{display:grid;border-top:1px solid var(--linha)}
-.contraste li:first-child{border-top:0}
-.contraste-hoje,.contraste-site{display:flex;gap:12px;align-items:flex-start;padding:16px 20px}
-.contraste-hoje{background:var(--papel-2);color:var(--tinta-suave);font-size:.9687rem;line-height:1.5}
-.contraste-site{color:var(--tinta);font-weight:600;line-height:1.45}
-.contraste-marca{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center}
-.contraste-hoje .contraste-marca{border:1.5px solid #c9c6bf;color:var(--tinta-clara)}
-.contraste-site .contraste-marca{background:var(--terracota);color:#fff}
-.contraste-rotulo{display:block;margin-bottom:2px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-clara)}
-.contraste-site .contraste-rotulo{color:var(--tinta-suave)}
-.fala{position:relative;margin:28px 0 0;padding:28px 24px 24px;border-radius:var(--raio);background:var(--grafite);color:#fff}
+/* N · o site como resposta: um item para cada item do teste e, ao lado, o valor nas palavras de um cliente */
+.resposta{display:grid;gap:20px;margin-top:32px}
+.resposta-lista{display:flex;flex-direction:column;border:1px solid var(--linha);border-radius:var(--raio);background:var(--branco)}
+.resposta-lista li{flex:1;display:flex;gap:12px;align-items:flex-start;padding:16px 20px;border-top:1px solid var(--linha);font-weight:600;line-height:1.45;text-wrap:balance}
+.resposta-lista li:first-child{border-top:0}
+.resposta-marca{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;background:var(--terracota);color:#fff}
+.fala{position:relative;margin:0;padding:28px 24px 24px;border-radius:var(--raio);background:var(--grafite);color:#fff}
 .fala-aspas{display:block;color:var(--terracota-clara);margin-bottom:12px}
 .fala blockquote{margin:0}
 .fala p{font-size:1.1875rem;font-weight:500;line-height:1.5;letter-spacing:-.015em;color:var(--gelo)}
@@ -303,7 +296,7 @@ html:has(dialog[open]){overflow:hidden}
 .servico-base h3,.adicional h3{font-size:1.375rem;letter-spacing:-.03em}
 .servico-etiqueta{padding:4px 12px;border-radius:999px;background:var(--papel-2);border:1px solid var(--linha);color:var(--terracota);font-size:.8125rem;font-weight:600;line-height:1.4}
 .servico-lista{display:grid;gap:10px;margin-bottom:6px}
-.servico-lista li{display:flex;gap:10px;align-items:flex-start;font-weight:600;line-height:1.45}
+.servico-lista li{display:flex;gap:10px;align-items:flex-start;font-weight:600;line-height:1.45;text-wrap:balance}
 .servico-marca{flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;display:grid;place-items:center;background:var(--terracota);color:#fff}
 .adicionais{display:grid;gap:14px}
 .adicional{padding:22px 20px 16px;border-radius:var(--raio);background:var(--papel-2);border:1px solid var(--linha)}
@@ -362,12 +355,8 @@ html:has(dialog[open]){overflow:hidden}
   .caminho{grid-template-columns:repeat(3,1fr);gap:24px}
   .caminho li:not(:last-child)::after{left:auto;right:-17px;top:50%;bottom:auto;transform:translateY(-50%) rotate(-45deg)}
   .teste-item{padding:18px 22px}
-  .contraste-cabeca{display:grid;grid-template-columns:1fr 1fr;margin:0;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave);border-bottom:1px solid var(--linha)}
-  .contraste-cabeca span{padding:14px 24px}
-  .contraste-cabeca span:first-child{background:var(--papel-2)}
-  .contraste li{grid-template-columns:1fr 1fr}
-  .contraste-hoje,.contraste-site{padding:18px 24px;align-items:center}
-  .contraste-rotulo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .resposta-lista li{padding:18px 24px;align-items:center}
+  .resposta:not(.resposta-com-fala) .resposta-lista{max-width:720px}
   .fala{padding:36px 40px 32px}
   .fala p{font-size:1.375rem}
   .carrossel-setas{display:flex}
@@ -411,6 +400,9 @@ html:has(dialog[open]){overflow:hidden}
   .vitrine figcaption{margin-top:18px}
   .teste{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
   .teste-resultado{position:sticky;top:calc(var(--topo) + 24px);padding:30px 28px}
+  .resposta-com-fala{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px}
+  .resposta-com-fala .fala{display:flex;flex-direction:column;justify-content:center;padding:32px 36px}
+  .resposta-com-fala .fala p{font-size:1.1875rem}
   .passos{grid-template-columns:repeat(5,1fr);gap:24px}
   .caminho li{padding:26px 24px}
   .janela-grade{grid-template-columns:320px 1fr;align-items:center}

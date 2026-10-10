@@ -247,12 +247,13 @@ test("P e I · o teste: cinco situações, cada uma com o que custa, placar sem 
   assert.ok(html.includes('"Oi! Fiz o teste no site da Renderiza: meu negócio tem "+n+" de "+cx.length+"."+(falta.length?" Ainda não tenho "'));
 });
 
-test("N · e se o cliente já chegasse sabendo? O site entra como resposta, item por item, e o valor nas palavras de um cliente", () => {
+test("N · o cliente novo encontra tudo sem precisar perguntar: o site entra como resposta, item por item, e o valor nas palavras de um cliente", () => {
   const html = montarPagina(config);
   const n = secao(html, "solucao");
-  assert.match(n, /E se o cliente já chegasse <em>sabendo de tudo\?<\/em>/);
-  assert.equal((n.match(/class="contraste-hoje"/g) || []).length, TESTE.length, "uma linha para cada item do teste");
-  assert.equal((n.match(/class="contraste-site"/g) || []).length, TESTE.length);
+  assert.match(n, /O cliente novo encontra tudo <em>sem precisar perguntar\.<\/em>/);
+  assert.equal((n.match(/<li><span class="resposta-marca">/g) || []).length, TESTE.length, "um item para cada item do teste");
+  // só a resposta: a pergunta "e se..." e a coluna "hoje" deixavam a seção confusa de primeira (10/10/2026)
+  assert.doesNotMatch(n, /E se o cliente|Hoje<\/span>/);
   const davi = config.depoimentos.find(d => d.id === "blue-lens");
   assert.ok(davi.publicar && davi.valor && n.includes(davi.valor), "trecho real do Davi, sem mudar uma palavra");
 });
@@ -276,7 +277,7 @@ test("serviços: o site como base, dois adicionais e sob medida, com os mesmos n
   const s = secao(html, "servicos");
   assert.match(s, /Tudo começa pelo site\. <em>O resto entra quando você precisar\.<\/em>/);
   assert.match(s, /<p class="servico-rotulo">A base<\/p>[\s\S]*<h3 id="servico-site">Site<\/h3>/);
-  for (const item of ["Pronto para anúncio: Pixel da Meta e Google Analytics", "Kit de divulgação: QR para o balcão e textos prontos", "No seu nome, sem mensalidade"]) assert.ok(s.includes(item), item);
+  for (const item of ["Pronto para anúncio: Pixel da Meta e Google Analytics", "Kit de divulgação: textos prontos para o Instagram e o WhatsApp", "No seu nome, sem mensalidade"]) assert.ok(s.includes(item), item);
   // cada adicional abre o WhatsApp já dizendo do que o cliente quer saber
   for (const [nome, mensagem] of [["Agenda online", "Oi! Vi o site da Renderiza e quero saber da agenda online."], ["Catálogo", "Oi! Vi o site da Renderiza e quero saber do catálogo."]]) {
     assert.ok(s.includes(`<h3>${nome}</h3>`), nome);
@@ -288,6 +289,8 @@ test("serviços: o site como base, dois adicionais e sob medida, com os mesmos n
   // nomes da conversa, sem jargão; e a Renderiza não roda anúncios (decisão de 09/10/2026)
   assert.doesNotMatch(textoVisivel(s), /módulo|landing|upgrade|premium|plano (básico|pro)/i);
   assert.doesNotMatch(textoVisivel(html), /a gente (roda|cuida|gerencia)[^.]*an[úu]ncio|gest[ãa]o de (tr[áa]fego|an[úu]ncios)/i);
+  // tudo digital: a Renderiza não entrega nada físico, como QR impresso para o balcão (pedido de 10/10/2026)
+  assert.doesNotMatch(textoVisivel(html), /balc[ãa]o|\bQR\b|impresso|adesivo/i);
 });
 
 test("perguntas: uma para cada público que mais chama (o que fazer com o site, tráfego pago e quem já tem gestor)", () => {

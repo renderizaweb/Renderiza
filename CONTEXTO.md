@@ -44,8 +44,9 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo nem no flyer.)
 - **Oferta (09/10/2026, doc "Oferta e nomenclatura"):** sem planos por nível. Todo cliente leva o **site**, que
   já sai **pronto para anúncio** (Pixel da Meta, Google Analytics e o clique no WhatsApp contado como contato;
-  com o pixel vai o aviso de cookies) e com o **kit de divulgação** (QR para o balcão, textos para a bio e para o
-  perfil do Google, mensagem para pedir avaliação). **Adicionais**, no mesmo site: **Agenda online** (página de
+  com o pixel vai o aviso de cookies) e com o **kit de divulgação** (texto para a bio e para o perfil do Google e
+  mensagem para pedir avaliação; tudo digital: a Renderiza não entrega nada físico, então nada de QR para o balcão,
+  pedido do Kaue em 10/10/2026). **Adicionais**, no mesmo site: **Agenda online** (página de
   agendamento do Google Agenda, para clínicas, consultórios, estética e salões) e **Catálogo** (produtos
   cadastrados com login e senha, com mensalidade, para lojas e óticas); cada um só é construído quando o
   primeiro cliente fechar. **Sob medida** para sistemas e aplicativos. A Renderiza **não roda anúncios**
@@ -555,11 +556,12 @@ lugar para o link "avaliar" sai do fid (`ChIJ` + base64 de `0a 12 09 <fid1 LE> 1
   Renderiza como projeto paralelo e independente. Sem data de início nem detalhes do trabalho na Warren.
 - **Home na ordem do SPIN (09/10/2026):** abertura "O site do seu negócio, pronto antes de você pedir." →
   situação (o caminho do cliente novo) → teste de 5 itens com o que cada falta custa (problema e implicação;
-  funciona sem JavaScript e leva o placar ao WhatsApp) → "E se o cliente já chegasse sabendo de tudo?"
-  (necessidade) → como funciona, trabalhos, depoimentos, serviços e quem somos → perguntas e convite. Preço fica fora do
-  site; texto em "a gente". Mapa das seções em `site/README.md`. Nome e rosto dos fundadores **não** vão na
-  abertura nem na imagem de compartilhamento (já tinham sido tirados antes; pedido de novo em 09/10/2026): ficam
-  em "Quem está por trás".
+  funciona sem JavaScript e leva o placar ao WhatsApp) → "O cliente novo encontra tudo sem precisar perguntar."
+  (necessidade; até 10/10/2026 era a pergunta "E se o cliente já chegasse sabendo de tudo?" com uma coluna "hoje",
+  que o Kaue achou confusa de primeira) → como funciona, trabalhos, depoimentos, serviços e quem somos → perguntas e
+  convite. Preço fica fora do site; texto em "a gente". Mapa das seções em `site/README.md`. Nome e rosto dos
+  fundadores **não** vão na abertura nem na imagem de compartilhamento (já tinham sido tirados antes; pedido de novo
+  em 09/10/2026): ficam em "Quem está por trás".
 - **Identidade visual (02/10/2026):** logo real em `site/marca/logo-original.webp`, vetorizado em
   `site/estatico/simbolo.svg` (usado no topo, rodapé, favicon, ícone do iPhone e imagem de compartilhamento).
   Paleta do logo: grafite `#1e2528`, branco e o branco quente do símbolo `#f1eee9`. Sem verde,

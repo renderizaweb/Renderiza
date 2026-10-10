@@ -7,7 +7,7 @@
 //   S · Situação o caminho do cliente novo hoje (a gente mostra que conhece, não pergunta)
 //   P · Problema o teste: o dono marca o que o negócio já tem
 //   I · Implicação no próprio teste, o que cada item que falta custa
-//   N · Necessidade "e se o cliente já chegasse sabendo?"; só então o site aparece, como resposta
+//   N · Necessidade "o cliente novo encontra tudo sem precisar perguntar": só então o site aparece, como resposta
 //   capacidade   como funciona, trabalhos, depoimentos e quem somos
 //   compromisso  objeções prevenidas (perguntas) e um avanço concreto: pedir a prévia no WhatsApp
 // Regras: nada de preço (é para a conversa), promessa de resultado, superlativo, dado inventado ou "de bairro".
@@ -72,13 +72,15 @@ export const TESTE = [
   { id: "toque", rotulo: "contato em um toque", texto: "O cliente fala com você em um toque, com a mensagem já começada.", custo: "Cada passo a mais entre a vontade e a mensagem é uma chance de desistir." },
 ];
 
-// N · Necessidade: depois do teste, o site entra como resposta. Uma linha para cada item do teste, na mesma ordem.
-const HOJE_E_NO_SITE = [
-  ["O endereço numa mensagem, o horário em outra, as fotos em outra.", "Um link com o nome do seu negócio e tudo dentro."],
-  ["“Onde fica?” “Abre no sábado?”", "Endereço, mapa e horário logo de cara, com a rota a um toque."],
-  ["As avaliações, só para quem procura no Google.", "O que os seus clientes dizem, logo na entrada."],
-  ["“Como funciona?” “Vocês fazem…?” no direct.", "Suas fotos reais e seus serviços explicados antes da pergunta."],
-  ["Procurar onde clicar para falar com você.", "WhatsApp em um toque, com a mensagem já começada."],
+// N · Necessidade: depois do teste, o site entra como resposta à pergunta que fecha o teste. Um item para cada item
+// do teste, na mesma ordem. Só a resposta: o "hoje" já está no caminho e no teste, e a coluna "hoje" ao lado deixava a
+// seção confusa de primeira (pedido de 10/10/2026).
+const NO_SITE = [
+  "Um link com o nome do seu negócio e tudo dentro",
+  "Endereço, mapa e horário logo de cara",
+  "As avaliações dos seus clientes, logo na entrada",
+  "Suas fotos reais e seus serviços explicados",
+  "WhatsApp em um toque, com a mensagem já começada",
 ];
 
 // Como funciona: o caminho da prévia até o ar, para quem quer entender o fluxo antes de chamar.
@@ -96,7 +98,7 @@ const PERGUNTAS = [
   ["Já tenho Instagram. Preciso de um site?", "O Instagram mostra o seu dia a dia e continua importante. O site junta, num link só, o que o cliente novo procura antes de chamar: endereço, horário, serviços, avaliações e WhatsApp. E ainda leva para o seu Instagram."],
   // Uma pergunta para cada público que mais chama: quem não sabe o que fazer com um site, quem pede tráfego pago
   // e quem já tem gestor de anúncios.
-  ["O que eu faço com o site quando ele fica pronto?", "Você manda o link quando pedirem informação e coloca na bio do Instagram, no perfil do Google e no status do WhatsApp. Junto com o site vai o kit de divulgação: o QR para o balcão, os textos prontos e a mensagem para pedir avaliação aos seus clientes."],
+  ["O que eu faço com o site quando ele fica pronto?", "Você manda o link quando pedirem informação e coloca na bio do Instagram, no perfil do Google e no status do WhatsApp. Junto com o site vai o kit de divulgação: os textos prontos para cada um desses lugares e a mensagem para pedir avaliação aos seus clientes."],
   ["Vocês fazem tráfego pago?", "O anúncio em si a gente não roda. A gente faz o lugar para onde ele leva: todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados, e quem cuidar do anúncio, você ou um gestor, vê quantos chamaram no WhatsApp."],
   ["Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Funciona. O Pixel da Meta e o Google Analytics já vêm instalados, e cada clique no WhatsApp é contado como contato. A gente passa o acesso para quem cuida do seu marketing."],
   ["Quanto custa?", "Um valor fechado, sem mensalidade, combinado na conversa depois que você vê a prévia. Ver a prévia não custa nada, e você só paga se decidir colocar o site no ar. Os adicionais são opcionais, e só o catálogo tem mensalidade, porque guarda os seus produtos. O domínio e a hospedagem ficam no seu nome e podem ter custos próprios."],
@@ -116,12 +118,13 @@ const MENSAGEM = {
 // Serviços: o site é a base de todo cliente e os adicionais entram no mesmo site quando o negócio pede. Sem planos
 // por nível: o pacote é o site mais o que o cliente somar. Os nomes são os mesmos no site, na conversa e na
 // divulgação (doc "Oferta e nomenclatura", 09/10/2026). A Renderiza não roda anúncios: todo site sai pronto para
-// quem roda (decisão de 09/10/2026).
+// quem roda (decisão de 09/10/2026). O kit de divulgação é todo digital: a Renderiza não entrega nada físico, como QR
+// impresso para o balcão (pedido de 10/10/2026).
 const SITE_INCLUI = [
   "Fotos reais, serviços e avaliações",
   "Endereço, horário e WhatsApp a um toque",
   "Pronto para anúncio: Pixel da Meta e Google Analytics",
-  "Kit de divulgação: QR para o balcão e textos prontos",
+  "Kit de divulgação: textos prontos para o Instagram e o WhatsApp",
   "No seu nome, sem mensalidade",
 ];
 const ADICIONAIS = [
@@ -431,23 +434,19 @@ ${secaoTeste({ temWa, contato })}
   <section class="secao" id="solucao" aria-labelledby="solucao-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">O que o site faz</p>
-      <h2 id="solucao-titulo">E se o cliente já chegasse <em>sabendo de tudo?</em></h2>
-      <p class="secao-lide">É para isso que serve o site: o cliente novo encontra sozinho o que hoje precisa perguntar, e chama você já sabendo o que quer.</p>
-      <div class="contraste">
-        <p class="contraste-cabeca" aria-hidden="true"><span>Hoje</span><span>No seu site</span></p>
-        <ul>${HOJE_E_NO_SITE.map(([hoje, site]) => `
-          <li>
-            <p class="contraste-hoje"><span class="contraste-marca">${icone("fechar", 14)}</span><span><span class="contraste-rotulo">Hoje</span>${esc(hoje)}</span></p>
-            <p class="contraste-site"><span class="contraste-marca">${icone("check", 14)}</span><span><span class="contraste-rotulo">No seu site</span>${esc(site)}</span></p>
-          </li>`).join("")}
+      <h2 id="solucao-titulo">O cliente novo encontra tudo <em>sem precisar perguntar.</em></h2>
+      <p class="secao-lide">O site junta tudo num link só, e o cliente chama você já sabendo o que quer.</p>
+      <div class="resposta${fala ? " resposta-com-fala" : ""}">
+        <ul class="resposta-lista">${NO_SITE.map(item => `
+          <li><span class="resposta-marca">${icone("check", 14)}</span><span>${esc(item)}</span></li>`).join("")}
         </ul>
-      </div>
-${fala ? `      <figure class="fala">
-        <span class="fala-aspas">${icone("aspas", 26)}</span>
-        <blockquote><p>${esc(fala.valor)}</p></blockquote>
-        <figcaption><strong>${esc(fala.nome || fala.papel)}</strong>${fala.nome && fala.papel ? `, ${esc(fala.papel)}` : ""}</figcaption>
-      </figure>
-` : ""}    </div>
+${fala ? `        <figure class="fala">
+          <span class="fala-aspas">${icone("aspas", 26)}</span>
+          <blockquote><p>${esc(fala.valor)}</p></blockquote>
+          <figcaption><strong>${esc(fala.nome || fala.papel)}</strong>${fala.nome && fala.papel ? `, ${esc(fala.papel)}` : ""}</figcaption>
+        </figure>
+` : ""}      </div>
+    </div>
   </section>
 
   <section class="secao secao-clara" id="como-funciona" aria-labelledby="como-titulo">

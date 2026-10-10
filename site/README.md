@@ -22,7 +22,7 @@ recursos antes do teste.
 | `#inicio` | abertura | A frase (`FRASE` em `pagina.mjs`), um pedido concreto e dois sites de clientes no celular (`destaque: true`) |
 | `#por-que` | S · situação | O caminho do cliente novo hoje: ouve falar de você, pesquisa, encontra tudo espalhado |
 | `#teste` | P e I · problema e implicação | Cinco itens (`TESTE`) para marcar, cada um com o que custa quando falta. O placar funciona sem JavaScript (contador do CSS); com JavaScript, o botão leva o resultado ao WhatsApp |
-| `#solucao` | N · necessidade | "E se o cliente já chegasse sabendo de tudo?": cada item do teste com a resposta do site, e o valor nas palavras do Davi (`valor` do depoimento) |
+| `#solucao` | N · necessidade | "O cliente novo encontra tudo sem precisar perguntar.": o que o site mostra, um item para cada item do teste (`NO_SITE`), e ao lado o valor nas palavras do Davi (`valor` do depoimento) |
 | `#como-funciona` a `#sobre` | capacidade | Da prévia ao ar, trabalhos, depoimentos, serviços (o site como base, os adicionais Agenda online e Catálogo e o sob medida) e quem somos |
 | `#perguntas`, `#contato` | compromisso | As objeções respondidas antes de chamar e o convite: "Quer ver como ficaria o seu?" |
 
