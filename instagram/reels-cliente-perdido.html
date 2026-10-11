@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: o cliente que você perdeu e nem ficou sabendo</title>
+<!-- Reels do Instagram (1080 × 1920, ~39 s), narrado no SPIN:
+     situação (22h47, alguém procura o seu serviço no Google) → problema (cai no Instagram, rola e não acha as respostas)
+     → implicação (volta pro Google e chama o próximo; você nunca fica sabendo) → necessidade ("e se ele achasse tudo
+     em 10 segundos?") → solução (o site responde cada pergunta) → "Seu cliente não pergunta. Ele decide." + Comenta PRÉVIA.
+     O negócio é fictício (Lume Estética). Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e} /* a mesma do site (site/estilo.css) */
+html,body{width:1080px;height:1920px;overflow:hidden}
+.reels{position:relative;width:1080px;height:1920px;background:var(--fundo);overflow:hidden}
+.r-topo{position:absolute;left:0;right:0;top:150px;display:flex;justify-content:center}
+.r-topo .marca{font-size:36px}
+.r-topo .simbolo{width:42px;height:42px}
+.legenda{position:absolute;left:70px;right:70px;top:240px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;font-size:80px;color:var(--tinta);opacity:0}
+.legenda .tom{color:var(--terracota)}
+.legenda small{display:block;font-size:46px;font-weight:600;letter-spacing:-.02em;color:var(--tinta-suave);margin-top:18px}
+#cel{left:225px;top:600px;width:630px;height:1270px}
+.tela .camada{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.hora-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:58px;padding:24px 0 0 44px;background:rgba(255,255,255,.94);font:600 22px/1 "Geist",sans-serif;color:#111;letter-spacing:-.01em}
+.toque{position:absolute;z-index:20;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0}
+.onda{position:absolute;z-index:19;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;border:4px solid rgba(37,211,102,.9);opacity:0}
+
+/* busca no Google (genérica: só o "Lume" tem nome; os outros resultados são linhas cinza) */
+.g{width:402px;min-height:900px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#202124;padding:64px 16px 0}
+.g-logo{font:700 26px/1 "Geist",sans-serif;letter-spacing:-.03em;text-align:center;margin:6px 0 16px;color:#5f6368}
+.g-busca{display:flex;align-items:center;gap:10px;height:48px;border-radius:24px;box-shadow:0 1px 6px rgba(32,33,36,.28);padding:0 18px;font-size:16px}
+.g-busca i{width:16px;height:16px;border-radius:50%;border:2.5px solid #9aa0a6;position:relative;flex:none}
+.g-busca i::after{content:"";position:absolute;width:7px;height:2.5px;background:#9aa0a6;right:-6px;bottom:-3px;transform:rotate(45deg)}
+.g-cursor{display:inline-block;width:2px;height:20px;background:#1a73e8;vertical-align:-4px;margin-left:1px}
+.g-res{margin-top:22px}
+.g-item{padding:16px 14px;border-radius:16px;margin-bottom:10px;border:1px solid #ebebeb}
+.g-item b{display:block;font-size:17px;font-weight:400;color:#1a0dab;margin-bottom:6px}
+.g-item .nota{font-size:13px;color:#70757a}
+.g-item .nota em{font-style:normal;color:#fbbc04;letter-spacing:2px}
+.g-item .sk{background:#eceff1;margin:8px 0}
+.g-item .t{display:block;height:13px;border-radius:7px;background:#c8d3f5;margin-bottom:10px}
+
+/* perguntas do cliente em volta do celular */
+.duvida{position:absolute;z-index:22;display:flex;align-items:center;height:96px;padding:0 38px;border-radius:48px;background:var(--papel);font-size:40px;font-weight:700;color:var(--tinta);box-shadow:0 18px 44px rgba(21,26,28,.18);opacity:0;white-space:nowrap}
+.duvida::before{content:"?";display:grid;place-items:center;width:52px;height:52px;margin-right:18px;border-radius:50%;background:var(--terracota);color:#fff;font-size:32px}
+.duvida.feito::before{content:"";background:var(--zap) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/30px no-repeat}
+
+.duvida.resp{left:50%;top:440px;translate:-50% 0}
+/* telas escuras: abertura, a implicação e o fechamento */
+.escura{position:absolute;inset:0;background:var(--escuro);opacity:0;z-index:30}
+.escura h2{position:absolute;left:84px;right:84px;font-size:112px;line-height:1.02;color:#fff;letter-spacing:-.04em}
+.escura h2 span{display:block}
+.escura .tom{color:var(--terracota-clara)}
+.escura .r-topo .marca{color:var(--fundo)}
+#abre{opacity:1}
+#abre h2{top:640px}
+#meio h2{top:600px}
+#meio .pergunta{position:absolute;left:84px;right:84px;top:600px;font-size:96px;font-weight:700;line-height:1.04;letter-spacing:-.04em;color:#fff}
+#fim h2{top:470px}
+.cta{position:absolute;left:84px;right:84px;top:1010px}
+.cta .botao{display:inline-flex;align-items:center;gap:22px;height:132px;padding:0 56px;border-radius:66px;background:var(--terracota);color:#fff;font-size:58px;font-weight:700;letter-spacing:-.02em}
+.cta .botao svg{width:56px;height:56px}
+.cta p{font-size:44px;font-weight:500;color:var(--enfase-escuro);margin-top:30px;line-height:1.2}
+.assina{position:absolute;left:84px;right:84px;bottom:170px;display:flex;align-items:center;justify-content:space-between}
+.assina .marca{font-size:56px;gap:18px;color:var(--fundo)}
+.assina .simbolo{width:66px;height:66px}
+.assina small{font-size:30px;color:var(--enfase-escuro);font-weight:500}
+</style></head><body>
+<div class="reels">
+  <div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- situação -->
+  <p class="legenda" data-de="2.95" data-ate="7.3"><span class="tom">22h47.</span><br>Alguém procura o que você faz.</p>
+  <!-- problema -->
+  <p class="legenda" data-de="7.5" data-ate="10.25">Ele caiu no seu <span class="tom">Instagram.</span></p>
+  <p class="legenda" data-de="10.45" data-ate="13.35">Rolou, rolou…<br><span class="tom">e não achou.</span></p>
+  <!-- implicação -->
+  <p class="legenda" data-de="13.55" data-ate="16.95">Voltou pro Google.<br><span class="tom">E chamou o próximo.</span></p>
+  <!-- necessidade -->
+  <p class="legenda" data-de="22.5" data-ate="25.0">E se ele achasse tudo<br><span class="tom">em 10 segundos?</span></p>
+  <!-- solução: cada pergunta respondida -->
+  <p class="legenda" data-de="25.2" data-ate="27.25">Os <span class="tom">tratamentos</span></p>
+  <p class="legenda" data-de="27.45" data-ate="29.25">As avaliações <span class="tom">do Google</span></p>
+  <p class="legenda" data-de="29.45" data-ate="31.25">WhatsApp <span class="tom">em um toque</span></p>
+  <p class="legenda" data-de="31.45" data-ate="33.45">Endereço <span class="tom">e horário</span></p>
+
+  <div class="celular" id="cel"><span class="exemplo" style="left:-34px;top:560px">exemplo</span>
+    <div class="tela"><span class="hora-cel">22:47</span>
+      <div class="camada" id="google"></div><div class="camada" id="insta"></div><div class="camada" id="site"></div></div></div>
+
+  <span class="duvida" id="d1" style="left:40px;top:760px">Quais tratamentos?</span>
+  <span class="duvida" id="d2" style="right:40px;top:1010px">É bom mesmo?</span>
+  <span class="duvida" id="d3" style="left:60px;top:1260px">Como eu chamo?</span>
+  <span class="duvida" id="d4" style="right:50px;top:1510px">Onde fica? Abre amanhã?</span>
+
+  <!-- no site, cada dúvida volta respondida, embaixo da legenda -->
+  <span class="duvida feito resp" id="e1">Quais tratamentos?</span>
+  <span class="duvida feito resp" id="e2">É bom mesmo?</span>
+  <span class="duvida feito resp" id="e3">Como eu chamo?</span>
+  <span class="duvida feito resp" id="e4">Onde fica? Abre amanhã?</span>
+
+  <span class="toque" id="toque"></span><span class="onda" id="onda"></span>
+
+  <div class="escura" id="abre">
+    <div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+    <h2><span>Você perdeu um cliente ontem.</span><span class="tom" id="a2">E nem ficou sabendo.</span></h2>
+  </div>
+  <div class="escura" id="meio">
+    <h2 id="m1"><span id="m1a">Sem mensagem.</span><span id="m1b">Sem aviso.</span><span class="tom" id="m1c">Só um cliente a menos.</span></h2>
+    <p class="pergunta" id="m2">Quantas vezes isso já aconteceu <span class="tom">com você?</span></p>
+  </div>
+  <div class="escura" id="fim">
+    <h2><span id="f1">Seu cliente não pergunta.</span><span class="tom" id="f2">Ele decide.</span></h2>
+    <div class="cta" id="f3"><span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</span>
+      <p>e a gente monta a prévia do site<br>do seu negócio, sem compromisso.</p></div>
+    <div class="assina" id="f4"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  </div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const google = $("#google"), insta = $("#insta"), site = $("#site"), tela = $(".tela"), toque = $("#toque"), onda = $("#onda");
+const linhas = (...w) => w.map(x => `<span class="sk" style="width:${x}%"></span>`).join("");
+const BUSCA = "limpeza de pele perto de mim";
+google.innerHTML = `<div class="g"><p class="g-logo">Google</p><div class="g-busca"><i></i><span id="q"></span><span class="g-cursor" id="cursor"></span></div>
+  <div class="g-res" id="res">
+    <div class="g-item" id="r1"><b>Lume Estética</b><span class="nota"><em>★★★★★</em> Estética · Aberto amanhã às 9h</span>${linhas(90, 64)}</div>
+    <div class="g-item" id="r2"><span class="t" style="width:62%"></span><span class="nota"><em>★★★★☆</em></span>${linhas(86, 58)}</div>
+    <div class="g-item" id="r3"><span class="t" style="width:48%"></span><span class="nota"><em>★★★★☆</em></span>${linhas(80, 66)}</div>
+    <div class="g-item" id="r4"><span class="t" style="width:56%"></span>${linhas(92, 50)}</div></div></div>`;
+// perfil do Instagram com uma grade comprida (o cliente rola procurando a resposta)
+const GRADE = ["hero", "ambiente", "facial", "sorriso", "massagem", "toalha", "unhas", "pedras", "luvas", "retrato", "rosa", "produtos", "maquiagem", "oleo", "facial", "toalha", "ambiente", "sorriso", "pedras", "massagem", "unhas", "luvas", "hero", "oleo", "rosa", "produtos", "retrato", "maquiagem", "facial", "ambiente"];
+insta.innerHTML = `<div class="ig">
+  <div class="ig-topo"><b>lume.estetica</b></div>
+  <div class="ig-perfil"><img class="ig-avatar" src="${foto("toalha")}" alt=""><div class="ig-nums"><span><b></b>posts</span><span><b></b>seguidores</span><span><b></b>seguindo</span></div></div>
+  <p class="ig-nome">Lume Estética</p>${linhas(80, 62)}
+  <div class="ig-botoes"><span>Seguir</span><span>Mensagem</span></div>
+  <div class="ig-grade">${GRADE.map(n => `<img src="${foto(n)}" alt="">`).join("")}</div></div>`;
+site.innerHTML = siteDeExemplo();
+
+const ESC = tela.clientWidth / 402, ALT = tela.clientHeight / ESC;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const lerp = (a, b, x) => a + (b - a) * x;
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+const aparece = (el, t, de, dur = 0.5) => { const v = sai(fase(t, de, de + dur)); el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 30}px)`; };
+
+const DUR = 39.5;
+// as cenas (s)
+const ABRE_FIM = 2.9, INSTA = 7.35, VOLTA = 13.45, MEIO = 17.0, MEIO_FIM = 22.35, SITE = 24.6, FIM = 33.65;
+// rolagem do Instagram: rola rápido, para, rola de novo (procurando)
+const ROLA_IG = [[7.9, 8.9, 0.22], [9.4, 10.5, 0.5], [11.0, 12.0, 0.78], [12.3, 13.1, 1]];
+// rolagem do site: para em cada parte, com a seção logo abaixo do topo da tela
+const ROLA_SITE = [[25.0, 25.9, "servicos"], [27.25, 28.1, "avaliacoes"], [29.25, 30.1, "contato"], [31.25, 32.1, "mapa"]];
+const TOQUE_R1 = 6.45, TOQUE_R2 = 15.6, TOQUE_ZAP = 30.75;
+const DUVIDAS = [["#d1", 8.3], ["#d2", 9.2], ["#d3", 10.1], ["#d4", 11.0]];
+const RESPOSTAS = [["#e1", 25.45, 27.25], ["#e2", 27.65, 29.25], ["#e3", 29.65, 31.25], ["#e4", 31.65, 33.45]];
+let paradas = {}, maxSite = 0, maxIg = 0;
+
+window.preparar = () => {
+  for (const c of [google, insta, site]) c.style.transform = `scale(${ESC})`;
+  for (const el of site.querySelectorAll("[data-parada]")) paradas[el.dataset.parada] = el.offsetTop - 110;
+  maxSite = site.scrollHeight - ALT; maxIg = insta.scrollHeight - ALT;
+  for (const k in paradas) paradas[k] = clamp(paradas[k], 0, maxSite);
+  return { duracao: DUR, entrada: ABRE_FIM, fechamento: FIM, clima: "sobrio",
+    ensaio: [0.05, 1.8, 4.2, 5.6, 6.6, 8.6, 11.5, 12.8, 15.7, 18.9, 21.3, 23.4, 25.9, 28.2, 30.8, 32.6, 34.8, 38.5] };
+};
+
+window.quadro = t => {
+  for (const el of document.querySelectorAll("[data-de]")) {
+    const de = +el.dataset.de, ate = +el.dataset.ate;
+    const v = ease(fase(t, de, de + 0.35)) * (1 - ease(fase(t, ate - 0.3, ate)));
+    el.style.opacity = v; el.style.transform = `translateY(${(1 - ease(fase(t, de, de + 0.35))) * 28}px)`;
+  }
+  // abertura: o gancho já está no quadro 0 (vira a capa)
+  $("#abre").style.opacity = 1 - ease(fase(t, ABRE_FIM - 0.35, ABRE_FIM));
+  aparece($("#a2"), t, 1.05, 0.45);
+
+  // o celular: Google → Instagram → Google → (escuro) → site
+  const vIg = ease(fase(t, INSTA - 0.2, INSTA + 0.25)) * (1 - ease(fase(t, VOLTA - 0.2, VOLTA + 0.2)));
+  insta.style.opacity = vIg;
+  site.style.opacity = t > MEIO_FIM ? 1 : 0; google.style.opacity = t > MEIO_FIM ? 0 : 1;
+  // na pergunta do "e se" o celular sai, e volta subindo já com o site
+  const sobe = ease(fase(t, SITE - 0.5, SITE + 0.4));
+  $("#cel").style.opacity = t < MEIO_FIM ? 1 : sobe;
+  $("#cel").style.transform = t < MEIO_FIM ? "none" : `translateY(${(1 - sobe) * 160}px)`;
+
+  // Google: digita a busca, aparecem os resultados
+  const n = Math.round(BUSCA.length * fase(t, 3.2, 4.7));
+  $("#q").textContent = BUSCA.slice(0, n);
+  $("#cursor").style.opacity = t > 4.9 ? 0 : (Math.floor(t * 2.5) % 2 || n < BUSCA.length ? 1 : 0);
+  const res = $("#res"); res.style.opacity = ease(fase(t, 4.85, 5.3)); res.style.transform = `translateY(${(1 - ease(fase(t, 4.85, 5.3))) * 16}px)`;
+  const r1 = $("#r1"), r2 = $("#r2");
+  r1.style.background = (t > TOQUE_R1 && t < TOQUE_R1 + 0.6) ? "#f1f3f4" : "#fff";
+  r1.style.opacity = t > VOLTA ? 0.35 : 1; // o que ele já viu e largou
+  r2.style.background = (t > TOQUE_R2 && t < TOQUE_R2 + 0.8) ? "#e8f0fe" : "#fff";
+  r2.style.boxShadow = t > TOQUE_R2 ? "0 0 0 2px #1a73e8" : "none";
+
+  // Instagram: rola procurando
+  let yIg = 0; for (const [a, b, k] of ROLA_IG) yIg = lerp(yIg, maxIg * k, ease(fase(t, a, b)));
+  insta.style.transform = `translateY(${-yIg * ESC}px) scale(${ESC})`;
+
+  // as dúvidas: aparecem enquanto ele rola o Instagram e somem quando ele desiste
+  for (const [id, de] of DUVIDAS) {
+    const el = $(id), v = sai(fase(t, de, de + 0.4));
+    el.style.opacity = v * (1 - ease(fase(t, VOLTA - 0.3, VOLTA + 0.1)));
+    el.style.transform = `translateY(${(1 - v) * 24}px)`;
+  }
+  // no site, cada uma volta respondida junto com a legenda
+  for (const [id, de, ate] of RESPOSTAS) {
+    const el = $(id), v = sai(fase(t, de, de + 0.4));
+    el.style.opacity = v * (1 - ease(fase(t, ate - 0.3, ate)));
+    el.style.transform = `scale(${1 + 0.08 * Math.sin(Math.PI * fase(t, de, de + 0.4))}) translateY(${(1 - v) * 20}px)`;
+  }
+
+  // o site: entra de baixo e rola parando em cada parte
+  let ySite = 0; for (const [a, b, alvo] of ROLA_SITE) ySite = lerp(ySite, paradas[alvo], ease(fase(t, a, b)));
+  site.style.transform = `translateY(${-ySite * ESC}px) scale(${ESC})`;
+
+  // o dedo
+  let alvo = null, vis = 0, aperta = 1;
+  const tocar = (el, tt, antes = 0.7, depois = 0.6) => {
+    if (t > tt - antes && t < tt + depois) {
+      alvo = centro(el); vis = ease(fase(t, tt - antes, tt - antes + 0.3)) * (1 - fase(t, tt + depois - 0.3, tt + depois));
+      if (t > tt && t < tt + 0.3) aperta = 0.86;
+    }
+  };
+  tocar(r1, TOQUE_R1); tocar(r2, TOQUE_R2, 0.9, 0.8);
+  const zap = site.querySelector('[data-alvo="whatsapp"]');
+  tocar(zap, TOQUE_ZAP, 0.6, 0.9);
+  zap.style.filter = t > TOQUE_ZAP && t < TOQUE_ZAP + 0.5 ? "brightness(.88)" : "none";
+  const o = fase(t, TOQUE_ZAP, TOQUE_ZAP + 0.7);
+  onda.style.opacity = o > 0 && o < 1 ? 1 - o : 0;
+  if (alvo) { toque.style.left = onda.style.left = alvo[0] + "px"; toque.style.top = onda.style.top = alvo[1] + "px"; }
+  toque.style.opacity = vis; toque.style.transform = `scale(${aperta})`;
+  onda.style.transform = `scale(${1 + o * 1.6})`;
+
+  // implicação no escuro: "Sem mensagem. Sem aviso. Só um cliente a menos." e a pergunta
+  $("#meio").style.opacity = ease(fase(t, MEIO, MEIO + 0.4)) * (1 - ease(fase(t, MEIO_FIM - 0.35, MEIO_FIM)));
+  aparece($("#m1a"), t, MEIO + 0.3); aparece($("#m1b"), t, MEIO + 1.0); aparece($("#m1c"), t, MEIO + 1.8);
+  $("#m1").style.opacity = 1 - ease(fase(t, 19.6, 19.9));
+  aparece($("#m2"), t, 20.0); if (t < 20) $("#m2").style.opacity = 0;
+
+  // fechamento
+  $("#fim").style.opacity = ease(fase(t, FIM, FIM + 0.45));
+  aparece($("#f1"), t, FIM + 0.3); aparece($("#f2"), t, FIM + 1.1); aparece($("#f3"), t, FIM + 2.1); aparece($("#f4"), t, FIM + 2.6);
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
