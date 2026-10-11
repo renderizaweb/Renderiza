@@ -143,19 +143,26 @@ with wave.open(a.voz) as w:
     vsr = w.getframerate(); v = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
 voz = np.interp(np.arange(int(len(v) * SR / vsr)) / SR, np.arange(len(v)) / vsr, v)
 voz = np.pad(voz, (0, max(0, N - len(voz))))[:N]
-voz = filtro(voz, alto=90)
 fala = np.convolve(np.abs(voz) > 0.02, np.ones(int(SR * 0.25)) / (SR * 0.25), mode="same")
 fala = np.convolve(np.minimum(1, fala * 4), np.ones(int(SR * 0.12)) / (SR * 0.12), mode="same")
 musica *= 1 - 0.55 * np.clip(fala, 0, 1)
 
-def norm(x, alvo_db):
-    return x / max(1e-9, np.sqrt(np.mean(x[np.abs(x) > 1e-4] ** 2))) * 10 ** (alvo_db / 20)
-mix = norm(musica, -21) + norm(voz, -15)
+def nivel(x):  # volume médio só onde há som
+    return np.sqrt(np.mean(x[np.abs(x) > 1e-3] ** 2))
+voz_db = 20 * np.log10(nivel(voz))  # a voz já vem tratada e nivelada (limpar-voz.py ou narrar.py)
+mix = voz + musica / nivel(musica) * 10 ** ((voz_db - 8) / 20)  # música 8 dB abaixo da voz
 mix = mix[: int(SR * dur)]
 t = np.arange(len(mix)) / SR
 mix *= np.minimum(1, t / 0.02) * np.minimum(1, np.maximum(0, (dur - t) / 1.2))
-mix = np.tanh(mix * 1.1) / 1.1
-mix *= 0.89 / np.abs(mix).max()
+# limitador limpo (sem saturar): ganho que só abaixa nos picos, com antecipação de 5 ms e volta suave
+TETO = 10 ** (-1.5 / 20)
+pico = np.abs(mix); k = int(SR * 0.005)
+pico = np.lib.stride_tricks.sliding_window_view(np.pad(pico, (k, k)), 2 * k + 1).max(axis=1)
+ganho = np.minimum(1, TETO / np.maximum(pico, 1e-9))
+volta = np.exp(-1 / (SR * 0.08))
+for i in range(1, len(ganho)):  # solta devagar
+    ganho[i] = min(ganho[i], 1 - (1 - ganho[i - 1]) * volta)
+mix *= ganho
 pcm = (np.stack([mix, mix], axis=1) * 32767).astype(np.int16)
 with wave.open(a.saida, "wb") as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())

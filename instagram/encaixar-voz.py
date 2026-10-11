@@ -3,7 +3,7 @@
 #   rascunhos/instagram/<nome>-voz.wav       só as frases, na ordem, com as pausas do roteiro
 #   instagram/narracao/<nome>.tempos.json    início e fim de cada frase e de cada palavra (a página e a trilha usam)
 # Uso: python3 instagram/encaixar-voz.py reels-narrado <gravacao.m4a>
-# Precisa de: python3 -m pip install faster-whisper numpy imageio-ffmpeg (o modelo "medium" baixa na primeira vez)
+# Precisa de: o mesmo do limpar-voz.py e python3 -m pip install faster-whisper (o modelo "medium" baixa na primeira vez)
 # Na frase, "ouvir" diz como ela aparece na transcrição (quando difere da legenda) e "tomada": "ultima" fica com a
 # última vez que ela foi gravada (as outras ficam com a primeira boa depois da frase anterior).
 import difflib, json, re, subprocess, sys, unicodedata, wave
@@ -18,12 +18,10 @@ TMP = RAIZ / "rascunhos" / "instagram"; TMP.mkdir(parents=True, exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 SR = 44100
 
-# 1. trata a voz: corta graves e ruído, tira o "embolado", dá presença, comprime e acelera um pouco (sem mudar o tom)
+# 1. trata a voz (ferramentas/video/limpar-voz.py: ruído e vozes de fundo fora, limpeza, nível de narração sem estourar)
 tratada = TMP / f"{nome}-gravacao.wav"
-filtros = ",".join(["highpass=f=85", "afftdn=nf=-28", "equalizer=f=220:t=q:w=1.2:g=-2.5", "equalizer=f=3200:t=q:w=1.5:g=3",
-                    "equalizer=f=9000:t=q:w=1:g=1.5", "acompressor=threshold=-22dB:ratio=3.2:attack=6:release=90:makeup=2",
-                    f"atempo={cfg.get('gravacao', {}).get('acelerar', 1.0)}"])
-subprocess.run([FF, "-y", "-loglevel", "error", "-i", entrada, "-af", filtros, "-ac", "1", "-ar", str(SR), str(tratada)], check=True)
+filtros = "limpar-voz-v2"
+subprocess.run([sys.executable, str(RAIZ / "ferramentas" / "video" / "limpar-voz.py"), entrada, str(tratada)], check=True)
 with wave.open(str(tratada)) as w:
     voz = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
 
@@ -70,7 +68,7 @@ for f in cfg["frases"]:
     som = np.where(env > max(0.02, env.max() * 0.06))[0]
     if len(som): ini, fim = ini + max(0, som[0] - 0.05 * SR) / SR, ini + min(len(env), som[-1] + 0.12 * SR) / SR
     x = voz[int(ini * SR): int(fim * SR)].copy()
-    k = int(0.012 * SR); x[:k] *= np.linspace(0, 1, k); x[-k:] *= np.linspace(1, 0, k)
+    k = int(0.02 * SR); x[:k] *= np.linspace(0, 1, k); x[-k:] *= np.linspace(1, 0, k)
     # palavras da legenda no tempo das palavras faladas (a legenda pode ter outra grafia: 22h47 x "dez e quarenta")
     leg = f["texto"].split()
     palavras = []
@@ -87,7 +85,6 @@ for f in cfg["frases"]:
 y = np.zeros(int(SR * t) + 1)
 for ini, x in pedacos:
     j = int(ini * SR); y[j:j + len(x)] += x[: len(y) - j]
-y = y / max(1e-6, np.abs(y).max()) * 0.89
 with wave.open(str(TMP / f"{nome}-voz.wav"), "wb") as w:
     w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((y * 32767).astype(np.int16).tobytes())
 duracao = round(len(y) / SR, 2)

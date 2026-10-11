@@ -39,6 +39,6 @@ palavra; a página e a trilha (`ferramentas/video/trilha-pulso.py`) seguem esses
 Mudou o texto: rodar o `narrar.py` de novo e gravar.
 
 Com a voz de alguém: grave as falas do roteiro de uma vez (pode errar e repetir) e rode
-`python3 instagram/encaixar-voz.py reels-narrado <gravacao.m4a>` (`pip install faster-whisper`). Ele trata a voz,
+`python3 instagram/encaixar-voz.py reels-narrado <gravacao.m4a>` (`pip install faster-whisper deepfilternet` + torch CPU). Ele trata a voz com `ferramentas/video/limpar-voz.py` (DeepFilterNet 3 tira ruído e vozes de fundo; EQ, de-esser, compressão, -16 LUFS, pico -2 dB),
 transcreve, acha cada frase (a primeira boa ou, com `"tomada": "ultima"`, a última gravada), corta e grava a voz e os
 tempos no lugar dos do `narrar.py`. A gravação do Kaue (11/10/2026) fica fora do repositório, nos arquivos do projeto.

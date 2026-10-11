@@ -1,5 +1,5 @@
 {
- "duracao": 58.19,
+ "duracao": 59.1,
  "frases": [
   {
    "id": "abre1",
@@ -7,36 +7,36 @@
    "pausa": 0.25,
    "impacto": true,
    "ini": 0.15,
-   "fim": 1.683,
+   "fim": 1.736,
    "palavras": [
     {
      "p": "Você",
      "ini": 0.15,
-     "fim": 0.441,
+     "fim": 0.454,
      "tom": false
     },
     {
      "p": "perdeu",
-     "ini": 0.441,
-     "fim": 0.781,
+     "ini": 0.454,
+     "fim": 0.794,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 0.781,
-     "fim": 0.961,
+     "ini": 0.794,
+     "fim": 0.974,
      "tom": false
     },
     {
      "p": "cliente",
-     "ini": 0.961,
-     "fim": 1.261,
+     "ini": 0.974,
+     "fim": 1.334,
      "tom": true
     },
     {
      "p": "ontem.",
-     "ini": 1.261,
-     "fim": 1.683,
+     "ini": 1.334,
+     "fim": 1.736,
      "tom": false
     }
    ],
@@ -47,31 +47,31 @@
    "id": "abre2",
    "cena": "abre",
    "pausa": 0.45,
-   "ini": 1.933,
-   "fim": 3.331,
+   "ini": 1.986,
+   "fim": 3.357,
    "palavras": [
     {
      "p": "E",
-     "ini": 1.933,
-     "fim": 2.191,
+     "ini": 1.986,
+     "fim": 2.211,
      "tom": false
     },
     {
      "p": "nem",
-     "ini": 2.191,
-     "fim": 2.391,
+     "ini": 2.211,
+     "fim": 2.451,
      "tom": false
     },
     {
      "p": "ficou",
-     "ini": 2.391,
-     "fim": 2.571,
+     "ini": 2.451,
+     "fim": 2.651,
      "tom": false
     },
     {
      "p": "sabendo.",
-     "ini": 2.571,
-     "fim": 3.171,
+     "ini": 2.651,
+     "fim": 3.211,
      "tom": true
     }
    ],
@@ -83,25 +83,25 @@
    "cena": "google",
    "pausa": 0.15,
    "impacto": true,
-   "ini": 3.781,
-   "fim": 5.39,
+   "ini": 3.807,
+   "fim": 5.346,
    "palavras": [
     {
      "p": "22h47",
-     "ini": 3.861,
-     "fim": 4.681,
+     "ini": 3.887,
+     "fim": 4.607,
      "tom": true
     },
     {
      "p": "da",
-     "ini": 4.681,
-     "fim": 4.961,
+     "ini": 4.607,
+     "fim": 4.867,
      "tom": false
     },
     {
      "p": "noite.",
-     "ini": 4.961,
-     "fim": 5.39,
+     "ini": 4.867,
+     "fim": 5.346,
      "tom": false
     }
    ],
@@ -112,49 +112,49 @@
    "id": "busca",
    "cena": "google",
    "pausa": 0.15,
-   "ini": 5.54,
-   "fim": 7.72,
+   "ini": 5.496,
+   "fim": 7.797,
    "palavras": [
     {
      "p": "Alguém",
-     "ini": 5.62,
-     "fim": 5.76,
+     "ini": 5.576,
+     "fim": 5.716,
      "tom": false
     },
     {
      "p": "procura",
-     "ini": 5.76,
-     "fim": 6.2,
+     "ini": 5.716,
+     "fim": 6.196,
      "tom": false
     },
     {
      "p": "exatamente",
-     "ini": 6.2,
-     "fim": 6.74,
+     "ini": 6.196,
+     "fim": 6.756,
      "tom": true
     },
     {
      "p": "o",
-     "ini": 6.74,
-     "fim": 6.88,
+     "ini": 6.756,
+     "fim": 6.896,
      "tom": false
     },
     {
      "p": "que",
-     "ini": 6.88,
-     "fim": 6.98,
+     "ini": 6.896,
+     "fim": 6.996,
      "tom": false
     },
     {
      "p": "você",
-     "ini": 6.98,
-     "fim": 7.3,
+     "ini": 6.996,
+     "fim": 7.336,
      "tom": false
     },
     {
      "p": "faz",
-     "ini": 7.3,
-     "fim": 7.72,
+     "ini": 7.336,
+     "fim": 7.797,
      "tom": false
     }
    ],
@@ -165,25 +165,25 @@
    "id": "acha",
    "cena": "google",
    "pausa": 0.3,
-   "ini": 7.87,
-   "fim": 9.843,
+   "ini": 7.947,
+   "fim": 8.892,
    "palavras": [
     {
      "p": "e",
-     "ini": 7.87,
-     "fim": 9.1,
+     "ini": 7.947,
+     "fim": 8.147,
      "tom": false
     },
     {
      "p": "acha",
-     "ini": 9.1,
-     "fim": 9.34,
+     "ini": 8.147,
+     "fim": 8.387,
      "tom": false
     },
     {
      "p": "você.",
-     "ini": 9.34,
-     "fim": 9.843,
+     "ini": 8.387,
+     "fim": 8.892,
      "tom": true
     }
    ],
@@ -195,31 +195,31 @@
    "cena": "insta",
    "pausa": 0.1,
    "impacto": true,
-   "ini": 10.143,
-   "fim": 11.258,
+   "ini": 9.192,
+   "fim": 10.384,
    "palavras": [
     {
      "p": "Cai",
-     "ini": 10.223,
-     "fim": 10.343,
+     "ini": 9.192,
+     "fim": 9.428,
      "tom": false
     },
     {
      "p": "no",
-     "ini": 10.343,
-     "fim": 10.543,
+     "ini": 9.428,
+     "fim": 9.628,
      "tom": false
     },
     {
      "p": "seu",
-     "ini": 10.543,
-     "fim": 10.683,
+     "ini": 9.628,
+     "fim": 9.808,
      "tom": false
     },
     {
      "p": "Instagram.",
-     "ini": 10.683,
-     "fim": 11.258,
+     "ini": 9.808,
+     "fim": 10.384,
      "tom": true
     }
    ],
@@ -230,25 +230,25 @@
    "id": "rola",
    "cena": "insta",
    "pausa": 0.1,
-   "ini": 11.358,
-   "fim": 14.077,
+   "ini": 10.484,
+   "fim": 13.264,
    "palavras": [
     {
      "p": "Rola.",
-     "ini": 11.358,
-     "fim": 12.197,
+     "ini": 10.564,
+     "fim": 11.324,
      "tom": false
     },
     {
      "p": "Rola.",
-     "ini": 12.377,
-     "fim": 13.057,
+     "ini": 11.484,
+     "fim": 12.184,
      "tom": false
     },
     {
      "p": "Rola.",
-     "ini": 13.057,
-     "fim": 13.957,
+     "ini": 12.204,
+     "fim": 13.144,
      "tom": true
     }
    ],
@@ -259,73 +259,73 @@
    "id": "duvidas",
    "cena": "insta",
    "pausa": 0.2,
-   "ini": 14.177,
-   "fim": 19.405,
+   "ini": 13.364,
+   "fim": 18.832,
    "palavras": [
     {
      "p": "Quais",
-     "ini": 14.257,
-     "fim": 14.397,
+     "ini": 13.444,
+     "fim": 13.584,
      "tom": false
     },
     {
      "p": "são",
-     "ini": 14.397,
-     "fim": 14.557,
+     "ini": 13.584,
+     "fim": 13.764,
      "tom": false
     },
     {
      "p": "os",
-     "ini": 14.557,
-     "fim": 14.697,
+     "ini": 13.764,
+     "fim": 13.904,
      "tom": false
     },
     {
      "p": "tratamentos?",
-     "ini": 14.697,
-     "fim": 15.397,
+     "ini": 13.904,
+     "fim": 14.564,
      "tom": false
     },
     {
      "p": "É",
-     "ini": 15.817,
-     "fim": 15.877,
+     "ini": 15.064,
+     "fim": 15.124,
      "tom": false
     },
     {
      "p": "bom",
-     "ini": 15.877,
-     "fim": 16.037,
+     "ini": 15.124,
+     "fim": 15.304,
      "tom": false
     },
     {
      "p": "mesmo?",
-     "ini": 16.037,
-     "fim": 16.417,
+     "ini": 15.304,
+     "fim": 15.704,
      "tom": false
     },
     {
      "p": "Onde",
-     "ini": 17.197,
-     "fim": 17.497,
+     "ini": 16.504,
+     "fim": 16.824,
      "tom": false
     },
     {
      "p": "fica?",
-     "ini": 17.497,
-     "fim": 17.857,
+     "ini": 16.824,
+     "fim": 17.204,
      "tom": false
     },
     {
      "p": "Abre",
-     "ini": 18.637,
-     "fim": 18.837,
+     "ini": 18.024,
+     "fim": 18.244,
      "tom": false
     },
     {
      "p": "amanhã?",
-     "ini": 18.837,
-     "fim": 19.405,
+     "ini": 18.244,
+     "fim": 18.832,
      "tom": false
     }
    ],
@@ -337,13 +337,13 @@
    "cena": "insta",
    "pausa": 0.45,
    "impacto": true,
-   "ini": 19.605,
-   "fim": 20.158,
+   "ini": 19.032,
+   "fim": 19.611,
    "palavras": [
     {
      "p": "Nada.",
-     "ini": 19.685,
-     "fim": 20.158,
+     "ini": 19.112,
+     "fim": 19.611,
      "tom": true
     }
    ],
@@ -354,31 +354,31 @@
    "id": "volta",
    "cena": "volta",
    "pausa": 0.1,
-   "ini": 20.608,
-   "fim": 21.668,
+   "ini": 20.061,
+   "fim": 21.181,
    "palavras": [
     {
      "p": "Ele",
-     "ini": 20.688,
-     "fim": 20.848,
+     "ini": 20.141,
+     "fim": 20.361,
      "tom": false
     },
     {
      "p": "volta",
-     "ini": 20.848,
-     "fim": 21.108,
+     "ini": 20.361,
+     "fim": 20.581,
      "tom": false
     },
     {
      "p": "pro",
-     "ini": 21.108,
-     "fim": 21.288,
+     "ini": 20.581,
+     "fim": 20.801,
      "tom": false
     },
     {
      "p": "Google",
-     "ini": 21.288,
-     "fim": 21.668,
+     "ini": 20.801,
+     "fim": 21.181,
      "tom": true
     }
    ],
@@ -389,78 +389,78 @@
    "id": "proximo",
    "cena": "volta",
    "pausa": 0.45,
-   "ini": 21.768,
-   "fim": 23.086,
+   "ini": 21.281,
+   "fim": 22.65,
    "palavras": [
     {
      "p": "e",
-     "ini": 21.768,
-     "fim": 21.982,
+     "ini": 21.281,
+     "fim": 21.503,
      "tom": false
     },
     {
      "p": "chama",
-     "ini": 21.982,
-     "fim": 22.142,
+     "ini": 21.503,
+     "fim": 21.683,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 22.142,
-     "fim": 22.302,
+     "ini": 21.683,
+     "fim": 21.823,
      "tom": false
     },
     {
      "p": "próximo",
-     "ini": 22.302,
-     "fim": 22.482,
+     "ini": 21.823,
+     "fim": 22.043,
      "tom": true
     },
     {
      "p": "da",
-     "ini": 22.482,
-     "fim": 22.722,
+     "ini": 22.043,
+     "fim": 22.243,
      "tom": false
     },
     {
      "p": "lista.",
-     "ini": 22.722,
-     "fim": 23.086,
+     "ini": 22.243,
+     "fim": 22.65,
      "tom": false
     }
    ],
-   "ouvido": "e chama o próximo da lista.",
-   "acerto": 0.94
+   "ouvido": "e chama um próximo da lista.",
+   "acerto": 1.0
   },
   {
    "id": "sem",
    "cena": "meio",
    "pausa": 0.15,
-   "ini": 23.536,
-   "fim": 25.881,
+   "ini": 23.1,
+   "fim": 25.58,
    "palavras": [
     {
      "p": "Sem",
-     "ini": 23.616,
-     "fim": 23.696,
+     "ini": 23.18,
+     "fim": 23.3,
      "tom": false
     },
     {
      "p": "mensagem.",
-     "ini": 23.696,
-     "fim": 24.736,
+     "ini": 23.3,
+     "fim": 24.36,
      "tom": false
     },
     {
      "p": "Sem",
-     "ini": 25.076,
-     "fim": 25.256,
+     "ini": 24.68,
+     "fim": 24.92,
      "tom": false
     },
     {
      "p": "aviso.",
-     "ini": 25.256,
-     "fim": 25.881,
+     "ini": 24.92,
+     "fim": 25.58,
      "tom": false
     }
    ],
@@ -472,37 +472,37 @@
    "cena": "meio",
    "pausa": 0.4,
    "impacto": true,
-   "ini": 26.031,
-   "fim": 27.578,
+   "ini": 25.73,
+   "fim": 27.414,
    "palavras": [
     {
      "p": "Só",
-     "ini": 26.111,
-     "fim": 26.451,
+     "ini": 25.81,
+     "fim": 26.23,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 26.451,
-     "fim": 26.751,
+     "ini": 26.23,
+     "fim": 26.53,
      "tom": false
     },
     {
      "p": "cliente",
-     "ini": 26.751,
-     "fim": 27.111,
+     "ini": 26.53,
+     "fim": 26.91,
      "tom": true
     },
     {
      "p": "a",
-     "ini": 27.111,
-     "fim": 27.231,
+     "ini": 26.91,
+     "fim": 27.03,
      "tom": false
     },
     {
      "p": "menos.",
-     "ini": 27.231,
-     "fim": 27.531,
+     "ini": 27.03,
+     "fim": 27.39,
      "tom": true
     }
    ],
@@ -513,91 +513,91 @@
    "id": "pensa",
    "cena": "meio",
    "pausa": 0.5,
-   "ini": 27.978,
-   "fim": 33.178,
+   "ini": 27.814,
+   "fim": 33.265,
    "palavras": [
     {
      "p": "Agora,",
-     "ini": 28.058,
-     "fim": 28.558,
+     "ini": 27.894,
+     "fim": 28.374,
      "tom": false
     },
     {
      "p": "pensa",
-     "ini": 28.998,
-     "fim": 29.198,
+     "ini": 28.974,
+     "fim": 29.114,
      "tom": false
     },
     {
      "p": "comigo:",
-     "ini": 29.198,
-     "fim": 29.678,
+     "ini": 29.114,
+     "fim": 29.574,
      "tom": false
     },
     {
      "p": "quantas",
-     "ini": 30.058,
-     "fim": 30.518,
+     "ini": 30.014,
+     "fim": 30.514,
      "tom": false
     },
     {
      "p": "vezes",
-     "ini": 30.518,
-     "fim": 30.858,
+     "ini": 30.514,
+     "fim": 30.854,
      "tom": false
     },
     {
      "p": "isso",
-     "ini": 30.858,
-     "fim": 31.078,
+     "ini": 30.854,
+     "fim": 30.974,
      "tom": false
     },
     {
      "p": "já",
-     "ini": 31.078,
-     "fim": 31.278,
+     "ini": 30.974,
+     "fim": 31.214,
      "tom": false
     },
     {
      "p": "aconteceu",
-     "ini": 31.278,
-     "fim": 31.578,
+     "ini": 31.214,
+     "fim": 31.594,
      "tom": false
     },
     {
      "p": "com",
-     "ini": 31.578,
-     "fim": 31.798,
+     "ini": 31.594,
+     "fim": 31.834,
      "tom": true
     },
     {
      "p": "você",
-     "ini": 31.798,
-     "fim": 32.118,
+     "ini": 31.834,
+     "fim": 32.194,
      "tom": true
     },
     {
      "p": "e",
-     "ini": 32.118,
-     "fim": 32.278,
+     "ini": 32.194,
+     "fim": 32.394,
      "tom": false
     },
     {
      "p": "você",
-     "ini": 32.278,
-     "fim": 32.578,
+     "ini": 32.394,
+     "fim": 32.634,
      "tom": false
     },
     {
      "p": "nem",
-     "ini": 32.578,
-     "fim": 32.838,
+     "ini": 32.634,
+     "fim": 32.914,
      "tom": false
     },
     {
      "p": "sabe?",
-     "ini": 32.838,
-     "fim": 33.138,
+     "ini": 32.914,
+     "fim": 33.265,
      "tom": false
     }
    ],
@@ -608,55 +608,55 @@
    "id": "ese",
    "cena": "ese",
    "pausa": 0.35,
-   "ini": 33.678,
-   "fim": 36.39,
+   "ini": 33.765,
+   "fim": 36.688,
    "palavras": [
     {
      "p": "E",
-     "ini": 33.678,
-     "fim": 33.888,
+     "ini": 33.827,
+     "fim": 34.027,
      "tom": false
     },
     {
      "p": "se",
-     "ini": 33.888,
-     "fim": 34.108,
+     "ini": 34.027,
+     "fim": 34.227,
      "tom": false
     },
     {
      "p": "ele",
-     "ini": 34.108,
-     "fim": 34.528,
+     "ini": 34.227,
+     "fim": 34.647,
      "tom": false
     },
     {
      "p": "achasse",
-     "ini": 34.528,
-     "fim": 34.868,
+     "ini": 34.647,
+     "fim": 34.987,
      "tom": false
     },
     {
      "p": "tudo",
-     "ini": 34.868,
-     "fim": 35.248,
+     "ini": 34.987,
+     "fim": 35.407,
      "tom": false
     },
     {
      "p": "em",
-     "ini": 35.248,
-     "fim": 35.548,
+     "ini": 35.407,
+     "fim": 35.727,
      "tom": false
     },
     {
      "p": "10",
-     "ini": 35.548,
-     "fim": 35.748,
+     "ini": 35.727,
+     "fim": 35.927,
      "tom": true
     },
     {
      "p": "segundos?",
-     "ini": 35.748,
-     "fim": 36.39,
+     "ini": 35.927,
+     "fim": 36.688,
      "tom": true
     }
    ],
@@ -670,19 +670,19 @@
    "impacto": true,
    "parada": "servicos",
    "duvida": "Quais tratamentos?",
-   "ini": 36.74,
-   "fim": 37.94,
+   "ini": 37.038,
+   "fim": 38.259,
    "palavras": [
     {
      "p": "Os",
-     "ini": 36.82,
-     "fim": 37.04,
+     "ini": 37.118,
+     "fim": 37.338,
      "tom": false
     },
     {
      "p": "tratamentos.",
-     "ini": 37.04,
-     "fim": 37.78,
+     "ini": 37.338,
+     "fim": 38.118,
      "tom": true
     }
    ],
@@ -695,31 +695,31 @@
    "pausa": 0.35,
    "parada": "avaliacoes",
    "duvida": "É bom mesmo?",
-   "ini": 38.29,
-   "fim": 39.628,
+   "ini": 38.609,
+   "fim": 40.0,
    "palavras": [
     {
      "p": "As",
-     "ini": 38.37,
-     "fim": 38.51,
+     "ini": 38.689,
+     "fim": 38.829,
      "tom": false
     },
     {
      "p": "avaliações",
-     "ini": 38.51,
-     "fim": 38.93,
+     "ini": 38.829,
+     "fim": 39.289,
      "tom": false
     },
     {
      "p": "do",
-     "ini": 38.93,
-     "fim": 39.15,
+     "ini": 39.289,
+     "fim": 39.549,
      "tom": false
     },
     {
      "p": "Google.",
-     "ini": 39.15,
-     "fim": 39.47,
+     "ini": 39.549,
+     "fim": 39.869,
      "tom": true
     }
    ],
@@ -732,31 +732,31 @@
    "pausa": 0.35,
    "parada": "contato",
    "duvida": "Como eu chamo?",
-   "ini": 39.978,
-   "fim": 41.392,
+   "ini": 40.35,
+   "fim": 41.847,
    "palavras": [
     {
      "p": "O",
-     "ini": 40.058,
-     "fim": 40.138,
+     "ini": 40.43,
+     "fim": 40.51,
      "tom": false
     },
     {
      "p": "WhatsApp",
-     "ini": 40.138,
-     "fim": 40.598,
+     "ini": 40.51,
+     "fim": 40.99,
      "tom": false
     },
     {
      "p": "num",
-     "ini": 40.598,
-     "fim": 40.918,
+     "ini": 40.99,
+     "fim": 41.33,
      "tom": true
     },
     {
      "p": "toque.",
-     "ini": 40.918,
-     "fim": 41.392,
+     "ini": 41.33,
+     "fim": 41.847,
      "tom": true
     }
    ],
@@ -769,25 +769,25 @@
    "pausa": 0.1,
    "parada": "mapa",
    "duvida": "Onde fica? Abre amanhã?",
-   "ini": 41.742,
-   "fim": 43.101,
+   "ini": 42.197,
+   "fim": 43.593,
    "palavras": [
     {
      "p": "Endereço",
-     "ini": 41.822,
-     "fim": 43.101,
+     "ini": 42.277,
+     "fim": 43.593,
      "tom": false
     },
     {
      "p": "e",
-     "ini": 41.822,
-     "fim": 42.402,
+     "ini": 42.277,
+     "fim": 42.877,
      "tom": false
     },
     {
      "p": "horário.",
-     "ini": 42.482,
-     "fim": 43.101,
+     "ini": 42.997,
+     "fim": 43.593,
      "tom": true
     }
    ],
@@ -798,31 +798,31 @@
    "id": "fechado",
    "cena": "site",
    "pausa": 0.45,
-   "ini": 43.201,
-   "fim": 44.877,
+   "ini": 43.693,
+   "fim": 45.442,
    "palavras": [
     {
      "p": "Mesmo",
-     "ini": 43.281,
-     "fim": 43.741,
+     "ini": 43.773,
+     "fim": 44.213,
      "tom": false
     },
     {
      "p": "com",
-     "ini": 43.741,
-     "fim": 44.041,
+     "ini": 44.213,
+     "fim": 44.573,
      "tom": false
     },
     {
      "p": "você",
-     "ini": 44.041,
-     "fim": 44.281,
+     "ini": 44.573,
+     "fim": 44.813,
      "tom": false
     },
     {
      "p": "fechado.",
-     "ini": 44.281,
-     "fim": 44.877,
+     "ini": 44.813,
+     "fim": 45.442,
      "tom": true
     }
    ],
@@ -834,37 +834,37 @@
    "cena": "fim",
    "pausa": 0.15,
    "impacto": true,
-   "ini": 45.327,
-   "fim": 47.107,
+   "ini": 45.892,
+   "fim": 47.592,
    "palavras": [
     {
      "p": "Seu",
-     "ini": 45.407,
-     "fim": 45.527,
+     "ini": 45.972,
+     "fim": 46.112,
      "tom": false
     },
     {
      "p": "cliente",
-     "ini": 45.527,
-     "fim": 45.707,
+     "ini": 46.112,
+     "fim": 46.292,
      "tom": false
     },
     {
      "p": "não",
-     "ini": 45.707,
-     "fim": 45.987,
+     "ini": 46.292,
+     "fim": 46.612,
      "tom": false
     },
     {
      "p": "faz",
-     "ini": 45.987,
-     "fim": 46.187,
+     "ini": 46.612,
+     "fim": 46.812,
      "tom": false
     },
     {
      "p": "pergunta.",
-     "ini": 46.187,
-     "fim": 46.947,
+     "ini": 46.812,
+     "fim": 47.592,
      "tom": true
     }
    ],
@@ -876,25 +876,25 @@
    "cena": "fim",
    "pausa": 0.5,
    "impacto": true,
-   "ini": 47.257,
-   "fim": 48.677,
+   "ini": 47.742,
+   "fim": 49.223,
    "palavras": [
     {
      "p": "Ele",
-     "ini": 47.337,
-     "fim": 47.617,
+     "ini": 47.742,
+     "fim": 48.021,
      "tom": false
     },
     {
      "p": "apenas",
-     "ini": 47.617,
-     "fim": 48.037,
+     "ini": 48.021,
+     "fim": 48.521,
      "tom": false
     },
     {
      "p": "decide.",
-     "ini": 48.037,
-     "fim": 48.577,
+     "ini": 48.521,
+     "fim": 49.223,
      "tom": true
     }
    ],
@@ -905,133 +905,133 @@
    "id": "cta",
    "cena": "cta",
    "pausa": 1.6,
-   "ini": 49.177,
-   "fim": 56.586,
+   "ini": 49.723,
+   "fim": 57.497,
    "palavras": [
     {
      "p": "Comenta",
-     "ini": 49.257,
-     "fim": 49.537,
+     "ini": 49.803,
+     "fim": 50.103,
      "tom": false
     },
     {
      "p": "PRÉVIA",
-     "ini": 49.537,
-     "fim": 50.077,
+     "ini": 50.103,
+     "fim": 50.663,
      "tom": true
     },
     {
      "p": "aqui",
-     "ini": 50.077,
-     "fim": 50.297,
+     "ini": 50.663,
+     "fim": 50.903,
      "tom": false
     },
     {
      "p": "nos",
-     "ini": 50.297,
-     "fim": 50.517,
+     "ini": 50.903,
+     "fim": 51.103,
      "tom": false
     },
     {
      "p": "comentários",
-     "ini": 50.517,
-     "fim": 51.037,
+     "ini": 51.103,
+     "fim": 51.643,
      "tom": false
     },
     {
      "p": "que",
-     "ini": 51.037,
-     "fim": 51.437,
+     "ini": 51.643,
+     "fim": 52.103,
      "tom": false
     },
     {
      "p": "nós",
-     "ini": 51.437,
-     "fim": 51.677,
+     "ini": 52.103,
+     "fim": 52.323,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 51.677,
-     "fim": 51.757,
+     "ini": 52.323,
+     "fim": 52.423,
      "tom": false
     },
     {
      "p": "Renderiza",
-     "ini": 51.757,
-     "fim": 52.317,
+     "ini": 52.423,
+     "fim": 53.023,
      "tom": false
     },
     {
      "p": "entramos",
-     "ini": 52.317,
-     "fim": 52.797,
+     "ini": 53.023,
+     "fim": 53.543,
      "tom": false
     },
     {
      "p": "em",
-     "ini": 52.797,
-     "fim": 52.957,
+     "ini": 53.543,
+     "fim": 53.703,
      "tom": false
     },
     {
      "p": "contato",
-     "ini": 52.957,
-     "fim": 53.177,
+     "ini": 53.703,
+     "fim": 53.903,
      "tom": false
     },
     {
      "p": "com",
-     "ini": 53.177,
-     "fim": 53.357,
+     "ini": 53.903,
+     "fim": 54.103,
      "tom": false
     },
     {
      "p": "você",
-     "ini": 53.357,
-     "fim": 53.777,
+     "ini": 54.103,
+     "fim": 54.483,
      "tom": false
     },
     {
      "p": "e",
-     "ini": 53.777,
-     "fim": 54.217,
+     "ini": 54.483,
+     "fim": 55.003,
      "tom": false
     },
     {
      "p": "montamos",
-     "ini": 54.217,
-     "fim": 54.597,
+     "ini": 55.003,
+     "fim": 55.403,
      "tom": false
     },
     {
      "p": "uma",
-     "ini": 54.597,
-     "fim": 55.137,
+     "ini": 55.403,
+     "fim": 55.983,
      "tom": false
     },
     {
      "p": "demo",
-     "ini": 55.137,
-     "fim": 55.557,
+     "ini": 55.983,
+     "fim": 56.463,
      "tom": false
     },
     {
      "p": "do",
-     "ini": 55.557,
-     "fim": 55.997,
+     "ini": 56.463,
+     "fim": 56.883,
      "tom": false
     },
     {
      "p": "seu",
-     "ini": 55.997,
-     "fim": 56.137,
+     "ini": 56.883,
+     "fim": 57.043,
      "tom": false
     },
     {
      "p": "negócio.",
-     "ini": 56.137,
-     "fim": 56.497,
+     "ini": 57.043,
+     "fim": 57.423,
      "tom": false
     }
    ],
