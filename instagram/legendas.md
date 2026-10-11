@@ -41,3 +41,19 @@ Faltou algum? Um site resolve os cinco de uma vez.
 Conta aqui nos comentários quantos você marcou 👇
 
 #sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais
+
+## 4. Reels: "O cliente que você perdeu e nem ficou sabendo" (SPIN)
+
+Você perdeu um cliente ontem. E nem ficou sabendo.
+
+22h47. Alguém procurou o que você faz, achou o seu Instagram e começou a rolar: quais tratamentos, é bom mesmo, como chama, onde fica, abre amanhã? Não achou. Voltou pro Google e chamou o próximo da lista.
+
+Sem mensagem, sem aviso. Só um cliente a menos.
+
+Um site responde tudo isso em segundos, mesmo com você fechado: o que você faz, as avaliações do Google, o WhatsApp em um toque, o endereço e o horário.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso 👇
+
+(A Lume Estética é um negócio fictício, criado só para este exemplo.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais

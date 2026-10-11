@@ -1,6 +1,6 @@
 // Posts do Instagram da Renderiza, prontos para baixar e postar:
 //   carrossel → 7 PNGs 1080 × 1350 (carrossel.html) · teste → 1 PNG 1080 × 1350 (teste.html)
-//   reels → MP4 1080 × 1920, 30 quadros por segundo, com trilha original (reels.html + ferramentas/video/musica.py)
+//   reels, reels-cliente-perdido → MP4 1080 × 1920, 30 quadros por segundo, com trilha original (reels.html + ferramentas/video/musica.py)
 // Uso: node instagram/gerar.mjs [carrossel|teste|reels ...] [--ensaio] (sem nada: todos) → rascunhos/instagram/saida/
 //   --ensaio: no Reels, só 11 quadros soltos (JPG) para conferir antes de gravar.
 // As páginas abrem por um servidor local (módulo JS não carrega por file://). As fotos do negócio de exemplo são de
@@ -20,7 +20,9 @@ const FFMPEG = process.env.FFMPEG || "/usr/local/lib/python3.11/dist-packages/im
 const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
-const quais = pedidos.length ? pedidos : ["carrossel", "teste", "reels"];
+// cada Reels é um <nome>.html com window.preparar() e window.quadro(t) e sai em <nome>.mp4
+const REELS = ["reels", "reels-cliente-perdido"];
+const quais = pedidos.length ? pedidos : ["carrossel", "teste", ...REELS];
 mkdirSync(SAIDA, { recursive: true }); mkdirSync(FOTOS, { recursive: true });
 
 // fotos do negócio de exemplo
@@ -71,17 +73,17 @@ async function imagens(pagina, prefixo) {
 
 const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio: "inherit" }).on("close", c => (c === 0 ? ok() : falha(new Error(cmd + " saiu com " + c)))));
 
-async function reels() {
-  const p = await abrir("reels.html", 1080, 1920);
-  const { duracao, entrada, fechamento } = await p.evaluate(() => window.preparar());
+async function reels(nome) {
+  const p = await abrir(nome + ".html", 1080, 1920);
+  const { duracao, entrada, fechamento, clima = "leve", ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
   if (ENSAIO) { // só alguns quadros, para conferir antes de gravar
-    for (const t of [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19]) {
+    for (const t of ensaio) {
       await p.evaluate(x => window.quadro(x), t);
-      await p.screenshot({ path: join(SAIDA, `reels-ensaio-${String(t).padStart(4, "0")}.jpg`), type: "jpeg", quality: 80 });
+      await p.screenshot({ path: join(SAIDA, `${nome}-ensaio-${t.toFixed(2).padStart(5, "0")}.jpg`), type: "jpeg", quality: 80 });
     }
-    await p.close(); console.log("reels: ensaio em " + SAIDA); return;
+    await p.close(); console.log(`${nome}: ensaio em ${SAIDA}`); return;
   }
-  const tmp = join(SAIDA, ".tmp-reels"); mkdirSync(tmp, { recursive: true });
+  const tmp = join(SAIDA, ".tmp-" + nome); mkdirSync(tmp, { recursive: true });
   const video = join(tmp, "video.mp4");
   const ff = spawn(FFMPEG, ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(FPS), "-c:v", "mjpeg", "-i", "-",
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", "-pix_fmt", "yuv420p", video], { stdio: ["pipe", "inherit", "inherit"] });
@@ -94,19 +96,19 @@ async function reels() {
   }
   ff.stdin.end(); await fim; await p.close();
   const wav = join(tmp, "trilha.wav");
-  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", "leve"]);
-  const saida = join(SAIDA, "reels.mp4");
+  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
+  const saida = join(SAIDA, nome + ".mp4");
   await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a", "-t", String(duracao),
     "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-x264-params", "aq-mode=3", "-profile:v", "high", "-level", "4.1", "-pix_fmt", "yuv420p", "-r", String(FPS),
     "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", saida]);
   rmSync(tmp, { recursive: true, force: true });
-  console.log(`reels: ${saida} (${duracao}s, ${Math.round((Date.now() - inicio) / 1000)}s de gravação)`);
+  console.log(`${nome}: ${saida} (${duracao}s, ${Math.round((Date.now() - inicio) / 1000)}s de gravação)`);
 }
 
 try {
   if (quais.includes("carrossel")) await imagens("carrossel.html", "carrossel");
   if (quais.includes("teste")) await imagens("teste.html", "teste");
-  if (quais.includes("reels")) await reels();
+  for (const r of REELS) if (quais.includes(r)) await reels(r);
 } finally {
   await browser.close();
   servidor.close();

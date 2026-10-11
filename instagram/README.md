@@ -7,11 +7,13 @@ Posts prontos para baixar e postar, feitos em HTML e gravados pelo `gerar.mjs`:
 | Carrossel "Fizemos o site do seu negócio antes de você pedir" | `carrossel.html` | `carrossel-1.png` … `carrossel-7.png` (1080 × 1350) |
 | Imagem "Seu negócio passa nesse teste?" | `teste.html` | `teste.png` (1080 × 1350) |
 | Reels "Do link na bio ao site" | `reels.html` | `reels.mp4` (1080 × 1920, 21 s, com trilha original) |
+| Reels "O cliente que você perdeu" (narrado no SPIN) | `reels-cliente-perdido.html` | `reels-cliente-perdido.mp4` (1080 × 1920, 39,5 s, trilha sóbria) |
 
 ```
 node instagram/gerar.mjs                 # todos
 node instagram/gerar.mjs carrossel teste # só as imagens
 node instagram/gerar.mjs reels --ensaio  # 11 quadros soltos do Reels, para conferir antes de gravar
+node instagram/gerar.mjs reels-cliente-perdido          # cada Reels pelo nome do arquivo
 ```
 
 As legendas para colar no Instagram estão em `legendas.md`.
