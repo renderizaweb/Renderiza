@@ -1,0 +1,30 @@
+{
+ "_sobre": "Reels \"Antes de anunciar\" (SPIN), narrado com a voz do Kaue clonada (Chatterbox). texto = legenda palavra a palavra (*palavra* em terracota); fala = o que a voz diz, quando difere; pausa = silêncio depois (s); cena = parte do vídeo e da trilha (abre, google = o anúncio, insta, volta = o resultado do anúncio, meio, ese, site, fim, cta); impacto = batida e tranco no início da frase.",
+ "motor": "clone",
+ "referencia": "rascunhos/vozes/kaue-ref.wav",
+ "inicio": 0.15,
+ "frases": [
+  {"id": "abre1", "cena": "abre", "texto": "Antes de pagar *anúncio,*", "pausa": 0.15, "impacto": true},
+  {"id": "abre2", "cena": "abre", "texto": "olha pra onde ele *leva.*", "pausa": 0.45},
+  {"id": "impulsiona", "cena": "google", "texto": "Você *impulsiona* um post.", "pausa": 0.2, "impacto": true},
+  {"id": "valor", "cena": "google", "texto": "*R$ 50.*", "fala": "Cinquenta reais.", "pausa": 0.2},
+  {"id": "clica", "cena": "google", "texto": "Um monte de gente *clica.*", "pausa": 0.3},
+  {"id": "insta", "cena": "insta", "texto": "E cai no seu *perfil.*", "pausa": 0.15, "impacto": true},
+  {"id": "duvidas", "cena": "insta", "texto": "Quais serviços? É bom mesmo? Onde fica? Como eu chamo?", "pausa": 0.25},
+  {"id": "nada", "cena": "insta", "texto": "E *sai.*", "pausa": 0.45, "impacto": true},
+  {"id": "pagou", "cena": "volta", "texto": "Você pagou pelo *clique.*", "pausa": 0.15},
+  {"id": "embora", "cena": "volta", "texto": "Mas o cliente foi *embora.*", "pausa": 0.45},
+  {"id": "pior", "cena": "meio", "texto": "E o pior:", "pausa": 0.15},
+  {"id": "nao_sabe", "cena": "meio", "texto": "o anúncio não sabe *quem quase comprou.*", "pausa": 0.35, "impacto": true},
+  {"id": "erradas", "cena": "meio", "texto": "Então ele continua mostrando pras *pessoas erradas.*", "pausa": 0.5},
+  {"id": "ese", "cena": "ese", "texto": "E se cada clique caísse num lugar feito *pra decidir?*", "pausa": 0.35},
+  {"id": "serv", "cena": "site", "texto": "Os *serviços.*", "pausa": 0.3, "impacto": true, "parada": "servicos", "duvida": "Quais serviços?"},
+  {"id": "aval", "cena": "site", "texto": "As *avaliações.*", "pausa": 0.3, "parada": "avaliacoes", "duvida": "É bom mesmo?"},
+  {"id": "zap", "cena": "site", "texto": "O WhatsApp *num toque.*", "fala": "O zap, num toque.", "pausa": 0.3, "parada": "contato", "duvida": "Como eu chamo?"},
+  {"id": "end", "cena": "site", "texto": "O endereço *no mapa.*", "pausa": 0.3, "parada": "mapa", "duvida": "Onde fica?"},
+  {"id": "pixel", "cena": "site", "texto": "E o *pixel* contando cada conversa.", "fala": "E o píxel, contando cada conversa.", "pausa": 0.45},
+  {"id": "fim1", "cena": "fim", "texto": "O anúncio traz a *pessoa.*", "pausa": 0.15, "impacto": true},
+  {"id": "fim2", "cena": "fim", "texto": "O site faz ela *chamar.*", "pausa": 0.5, "impacto": true},
+  {"id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta o site do seu negócio, pronto pra anúncio.", "pausa": 1.6}
+ ]
+}
