@@ -21,7 +21,7 @@ const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
 // cada Reels é um <nome>.html com window.preparar() e window.quadro(t) e sai em <nome>.mp4
-const REELS = ["reels", "reels-cliente-perdido", "reels-narrado"];
+const REELS = ["reels", "reels-cliente-perdido", "reels-narrado", "reels-anuncio"];
 const quais = pedidos.length ? pedidos : ["carrossel", "teste", ...REELS];
 mkdirSync(SAIDA, { recursive: true }); mkdirSync(FOTOS, { recursive: true });
 
