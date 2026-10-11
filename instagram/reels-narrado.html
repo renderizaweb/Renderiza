@@ -19,13 +19,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .fala{position:absolute;left:70px;right:70px;top:250px;text-align:center;font-weight:800;letter-spacing:-.04em;line-height:1.02;font-size:84px;color:var(--tinta);z-index:25}
 .fala .w{display:inline-block;opacity:0;transform-origin:50% 80%}
 .fala .w.tom{color:var(--terracota)}
-.fala.hora .w{font-size:200px;letter-spacing:-.05em;color:var(--terracota)}
+.fala.hora .w.tom{display:block;font-size:200px;letter-spacing:-.05em;color:var(--terracota)}
 .fala.centro{top:700px;font-size:104px}
 .escuro-txt{position:absolute;left:84px;right:84px;top:560px;font-weight:800;letter-spacing:-.045em;line-height:1.0;font-size:124px;color:#fff;z-index:35}
 .escuro-txt .linha{display:block;margin-bottom:12px}
 .escuro-txt .w{display:inline-block;opacity:0;transform-origin:0 80%}
 .escuro-txt .w.tom{color:var(--terracota-clara)}
-.escuro-txt.pequeno{font-size:104px}
+.escuro-txt.pequeno{font-size:92px}
 
 #cel{left:225px;top:600px;width:630px;height:1270px;transform-origin:50% 0}
 .tela .camada{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
@@ -59,7 +59,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .cta{position:absolute;left:84px;right:84px;top:1010px;z-index:36;opacity:0}
 .cta .botao{display:inline-flex;align-items:center;gap:22px;height:140px;padding:0 60px;border-radius:70px;background:var(--terracota);color:#fff;font-size:62px;font-weight:800;letter-spacing:-.02em;box-shadow:0 20px 60px rgba(178,81,52,.45)}
 .cta .botao svg{width:58px;height:58px}
-.cta p{font-size:44px;font-weight:500;color:var(--enfase-escuro);margin-top:30px;line-height:1.2}
+.cta p{max-width:820px;font-size:44px;font-weight:500;color:var(--enfase-escuro);margin-top:30px;line-height:1.2}
 .assina{position:absolute;left:84px;right:84px;bottom:170px;display:flex;align-items:center;justify-content:space-between;z-index:36;opacity:0}
 .assina .marca{font-size:56px;gap:18px;color:var(--fundo)}
 .assina .simbolo{width:66px;height:66px}
@@ -77,7 +77,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
   <span class="toque" id="toque"></span><span class="onda" id="onda"></span>
   <div class="escura" id="escura"><div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div></div>
   <div class="cta" id="cta"><span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</span>
-    <p>e a gente monta a prévia do site<br>do seu negócio, sem compromisso.</p></div>
+    <p>aqui nos comentários. A gente entra em contato e monta uma demo do seu negócio.</p></div>
   <div class="assina" id="assina"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
   <div class="flash" id="flash"></div>
 </div>

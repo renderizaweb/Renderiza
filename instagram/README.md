@@ -37,3 +37,8 @@ O texto fica em `narracao/<nome>.json` (legenda, o que a voz fala, pausas, impac
 gera a voz com o Piper (voz livre `pt_BR-faber-medium`, roda aqui; `pip install piper-tts`) e os tempos de cada
 palavra; a página e a trilha (`ferramentas/video/trilha-pulso.py`) seguem esses tempos. O `gerar.mjs` chama os dois.
 Mudou o texto: rodar o `narrar.py` de novo e gravar.
+
+Com a voz de alguém: grave as falas do roteiro de uma vez (pode errar e repetir) e rode
+`python3 instagram/encaixar-voz.py reels-narrado <gravacao.m4a>` (`pip install faster-whisper`). Ele trata a voz,
+transcreve, acha cada frase (a primeira boa ou, com `"tomada": "ultima"`, a última gravada), corta e grava a voz e os
+tempos no lugar dos do `narrar.py`. A gravação do Kaue (11/10/2026) fica fora do repositório, nos arquivos do projeto.
