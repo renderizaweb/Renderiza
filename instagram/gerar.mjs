@@ -1,6 +1,6 @@
 // Posts do Instagram da Renderiza, prontos para baixar e postar:
 //   carrossel → 7 PNGs 1080 × 1350 (carrossel.html) · teste → 1 PNG 1080 × 1350 (teste.html)
-//   reels, reels-cliente-perdido → MP4 1080 × 1920, 30 quadros por segundo, com trilha original (reels.html + ferramentas/video/musica.py)
+//   reels, reels-cliente-perdido, reels-narrado (com voz: narrar.py) → MP4 1080 × 1920, 30 quadros por segundo, com trilha original (reels.html + ferramentas/video/musica.py)
 // Uso: node instagram/gerar.mjs [carrossel|teste|reels ...] [--ensaio] (sem nada: todos) → rascunhos/instagram/saida/
 //   --ensaio: no Reels, só 11 quadros soltos (JPG) para conferir antes de gravar.
 // As páginas abrem por um servidor local (módulo JS não carrega por file://). As fotos do negócio de exemplo são de
@@ -21,7 +21,7 @@ const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
 // cada Reels é um <nome>.html com window.preparar() e window.quadro(t) e sai em <nome>.mp4
-const REELS = ["reels", "reels-cliente-perdido"];
+const REELS = ["reels", "reels-cliente-perdido", "reels-narrado"];
 const quais = pedidos.length ? pedidos : ["carrossel", "teste", ...REELS];
 mkdirSync(SAIDA, { recursive: true }); mkdirSync(FOTOS, { recursive: true });
 
@@ -34,7 +34,7 @@ for (const [nome, id] of Object.entries(JSON.parse(readFileSync(join(AQUI, "foto
 }
 
 // servidor local na raiz do repositório
-const TIPOS = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2" };
+const TIPOS = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".json": "application/json" };
 const servidor = createServer((req, res) => {
   const caminho = resolve(RAIZ, "." + decodeURIComponent(new URL(req.url, "http://x").pathname));
   if (!caminho.startsWith(RAIZ + sep) || !existsSync(caminho)) { res.writeHead(404); return res.end(); }
@@ -75,7 +75,7 @@ const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio
 
 async function reels(nome) {
   const p = await abrir(nome + ".html", 1080, 1920);
-  const { duracao, entrada, fechamento, clima = "leve", ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
+  const { duracao, entrada, fechamento, clima = "leve", narracao, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
   if (ENSAIO) { // só alguns quadros, para conferir antes de gravar
     for (const t of ensaio) {
       await p.evaluate(x => window.quadro(x), t);
@@ -96,7 +96,11 @@ async function reels(nome) {
   }
   ff.stdin.end(); await fim; await p.close();
   const wav = join(tmp, "trilha.wav");
-  await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
+  if (narracao) { // Reels com voz: a voz (instagram/narrar.py) e a trilha pulsante que abaixa quando ela fala
+    const voz = join(RAIZ, "rascunhos", "instagram", narracao + "-voz.wav");
+    if (!existsSync(voz)) await rodar("python3", [join(AQUI, "narrar.py"), narracao]);
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), join(AQUI, "narracao", narracao + ".tempos.json"), voz, wav, String(duracao)]);
+  } else await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
   const saida = join(SAIDA, nome + ".mp4");
   await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a", "-t", String(duracao),
     "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-x264-params", "aq-mode=3", "-profile:v", "high", "-level", "4.1", "-pix_fmt", "yuv420p", "-r", String(FPS),

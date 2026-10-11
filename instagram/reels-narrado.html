@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: o cliente que você perdeu</title>
+<!-- Reels do Instagram (1080 × 1920) com voz, narrado no SPIN. O tempo de tudo sai da narração:
+     instagram/narracao/reels-narrado.json (o texto) → python3 instagram/narrar.py reels-narrado (a voz e os tempos)
+     → esta página lê reels-narrado.tempos.json, mostra a legenda palavra a palavra e corta as cenas no ritmo da voz.
+     O negócio é fictício (Lume Estética). Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e} /* a mesma do site (site/estilo.css) */
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--fundo);overflow:hidden;transform-origin:50% 45%}
+.r-topo{position:absolute;left:0;right:0;top:150px;display:flex;justify-content:center;z-index:2}
+.r-topo .marca{font-size:36px}
+.r-topo .simbolo{width:42px;height:42px}
+
+/* legenda palavra a palavra */
+.fala{position:absolute;left:70px;right:70px;top:250px;text-align:center;font-weight:800;letter-spacing:-.04em;line-height:1.02;font-size:84px;color:var(--tinta);z-index:25}
+.fala .w{display:inline-block;opacity:0;transform-origin:50% 80%}
+.fala .w.tom{color:var(--terracota)}
+.fala.hora .w{font-size:200px;letter-spacing:-.05em;color:var(--terracota)}
+.fala.centro{top:700px;font-size:104px}
+.escuro-txt{position:absolute;left:84px;right:84px;top:560px;font-weight:800;letter-spacing:-.045em;line-height:1.0;font-size:124px;color:#fff;z-index:35}
+.escuro-txt .linha{display:block;margin-bottom:12px}
+.escuro-txt .w{display:inline-block;opacity:0;transform-origin:0 80%}
+.escuro-txt .w.tom{color:var(--terracota-clara)}
+.escuro-txt.pequeno{font-size:104px}
+
+#cel{left:225px;top:600px;width:630px;height:1270px;transform-origin:50% 0}
+.tela .camada{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.hora-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:58px;padding:24px 0 0 44px;background:rgba(255,255,255,.94);font:600 22px/1 "Geist",sans-serif;color:#111;letter-spacing:-.01em}
+.toque{position:absolute;z-index:20;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0}
+.onda{position:absolute;z-index:19;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;border:4px solid rgba(37,211,102,.9);opacity:0}
+.cinza{position:absolute;inset:0;z-index:5;background:rgba(30,37,40,.0);pointer-events:none}
+
+.g{width:402px;min-height:900px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#202124;padding:64px 16px 0}
+.g-logo{font:700 26px/1 "Geist",sans-serif;letter-spacing:-.03em;text-align:center;margin:6px 0 16px;color:#5f6368}
+.g-busca{display:flex;align-items:center;gap:10px;height:48px;border-radius:24px;box-shadow:0 1px 6px rgba(32,33,36,.28);padding:0 18px;font-size:16px}
+.g-busca i{width:16px;height:16px;border-radius:50%;border:2.5px solid #9aa0a6;position:relative;flex:none}
+.g-busca i::after{content:"";position:absolute;width:7px;height:2.5px;background:#9aa0a6;right:-6px;bottom:-3px;transform:rotate(45deg)}
+.g-cursor{display:inline-block;width:2px;height:20px;background:#1a73e8;vertical-align:-4px;margin-left:1px}
+.g-res{margin-top:22px}
+.g-item{padding:16px 14px;border-radius:16px;margin-bottom:10px;border:1px solid #ebebeb;background:#fff}
+.g-item b{display:block;font-size:17px;font-weight:400;color:#1a0dab;margin-bottom:6px}
+.g-item .nota{font-size:13px;color:#70757a}
+.g-item .nota em{font-style:normal;color:#fbbc04;letter-spacing:2px}
+.g-item .sk{background:#eceff1;margin:8px 0}
+.g-item .t{display:block;height:13px;border-radius:7px;background:#c8d3f5;margin-bottom:10px}
+
+.duvida{position:absolute;z-index:22;display:flex;align-items:center;height:100px;padding:0 40px;border-radius:50px;background:var(--papel);font-size:42px;font-weight:700;color:var(--tinta);box-shadow:0 18px 44px rgba(21,26,28,.22);opacity:0;white-space:nowrap}
+.duvida::before{content:"?";display:grid;place-items:center;width:54px;height:54px;margin-right:18px;border-radius:50%;background:var(--terracota);color:#fff;font-size:34px}
+.duvida.feito::before{content:"";background:var(--zap) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/30px no-repeat}
+.duvida.resp{left:50%;top:430px;translate:-50% 0}
+
+.escura{position:absolute;inset:0;background:var(--escuro);opacity:0;z-index:30}
+.escura .r-topo .marca{color:var(--fundo)}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:60;pointer-events:none}
+.cta{position:absolute;left:84px;right:84px;top:1010px;z-index:36;opacity:0}
+.cta .botao{display:inline-flex;align-items:center;gap:22px;height:140px;padding:0 60px;border-radius:70px;background:var(--terracota);color:#fff;font-size:62px;font-weight:800;letter-spacing:-.02em;box-shadow:0 20px 60px rgba(178,81,52,.45)}
+.cta .botao svg{width:58px;height:58px}
+.cta p{font-size:44px;font-weight:500;color:var(--enfase-escuro);margin-top:30px;line-height:1.2}
+.assina{position:absolute;left:84px;right:84px;bottom:170px;display:flex;align-items:center;justify-content:space-between;z-index:36;opacity:0}
+.assina .marca{font-size:56px;gap:18px;color:var(--fundo)}
+.assina .simbolo{width:66px;height:66px}
+.assina small{font-size:30px;color:var(--enfase-escuro);font-weight:500}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="celular" id="cel"><span class="exemplo" style="left:-34px;top:560px">exemplo</span>
+    <div class="tela"><span class="hora-cel">22:47</span>
+      <div class="camada" id="google"></div><div class="camada" id="insta"></div><div class="camada" id="site"></div><div class="cinza" id="cinza"></div></div></div>
+  <span class="duvida" id="d0" style="left:40px;top:760px">Quais tratamentos?</span>
+  <span class="duvida" id="d1" style="right:40px;top:1010px">É bom mesmo?</span>
+  <span class="duvida" id="d2" style="left:60px;top:1260px">Onde fica?</span>
+  <span class="duvida" id="d3" style="right:50px;top:1510px">Abre amanhã?</span>
+  <span class="toque" id="toque"></span><span class="onda" id="onda"></span>
+  <div class="escura" id="escura"><div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div></div>
+  <div class="cta" id="cta"><span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</span>
+    <p>e a gente monta a prévia do site<br>do seu negócio, sem compromisso.</p></div>
+  <div class="assina" id="assina"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const NOME = "reels-narrado";
+const { duracao: DUR, frases } = await (await fetch(`narracao/${NOME}.tempos.json`)).json();
+const F = Object.fromEntries(frases.map(f => [f.id, f]));
+const palco = $("#palco"), google = $("#google"), insta = $("#insta"), site = $("#site"), tela = $(".tela"), toque = $("#toque"), onda = $("#onda");
+const linhas = (...w) => w.map(x => `<span class="sk" style="width:${x}%"></span>`).join("");
+const BUSCA = "limpeza de pele perto de mim";
+google.innerHTML = `<div class="g"><p class="g-logo">Google</p><div class="g-busca"><i></i><span id="q"></span><span class="g-cursor" id="cursor"></span></div>
+  <div class="g-res" id="res">
+    <div class="g-item" id="r1"><b>Lume Estética</b><span class="nota"><em>★★★★★</em> Estética · Aberto amanhã às 9h</span>${linhas(90, 64)}</div>
+    <div class="g-item" id="r2"><span class="t" style="width:62%"></span><span class="nota"><em>★★★★☆</em></span>${linhas(86, 58)}</div>
+    <div class="g-item" id="r3"><span class="t" style="width:48%"></span><span class="nota"><em>★★★★☆</em></span>${linhas(80, 66)}</div>
+    <div class="g-item" id="r4"><span class="t" style="width:56%"></span>${linhas(92, 50)}</div></div></div>`;
+const GRADE = ["hero", "ambiente", "facial", "sorriso", "massagem", "toalha", "unhas", "pedras", "luvas", "retrato", "rosa", "produtos", "maquiagem", "oleo", "facial", "toalha", "ambiente", "sorriso", "pedras", "massagem", "unhas", "luvas", "hero", "oleo", "rosa", "produtos", "retrato", "maquiagem", "facial", "ambiente"];
+insta.innerHTML = `<div class="ig"><div class="ig-topo"><b>lume.estetica</b></div>
+  <div class="ig-perfil"><img class="ig-avatar" src="${foto("toalha")}" alt=""><div class="ig-nums"><span><b></b>posts</span><span><b></b>seguidores</span><span><b></b>seguindo</span></div></div>
+  <p class="ig-nome">Lume Estética</p>${linhas(80, 62)}<div class="ig-botoes"><span>Seguir</span><span>Mensagem</span></div>
+  <div class="ig-grade">${GRADE.map(n => `<img src="${foto(n)}" alt="">`).join("")}</div></div>`;
+site.innerHTML = siteDeExemplo();
+
+// legendas: cenas escuras empilham frases (grupos), as claras trocam uma por vez
+const ESCURAS = ["abre", "meio", "fim"];
+const GRUPOS = [["abre1", "abre2"], ["sem", "menos"], ["pensa"], ["fim1", "fim2"]];
+const grupoDe = id => GRUPOS.find(g => g.includes(id));
+const legendas = [];
+for (const [i, f] of frases.entries()) {
+  if (f.cena === "cta" || f.id === "duvidas") continue; // o CTA tem o botão; as dúvidas viram balões no celular
+  const escura = ESCURAS.includes(f.cena), g = grupoDe(f.id);
+  let caixa;
+  if (escura) {
+    caixa = g && g[0] !== f.id ? legendas.find(l => l.ids.includes(g[0])).el : null;
+    if (!caixa) { caixa = document.createElement("div"); caixa.className = "escuro-txt" + (f.id === "pensa" ? " pequeno" : ""); palco.appendChild(caixa); }
+  } else {
+    caixa = document.createElement("p"); caixa.className = "fala" + (f.id === "hora" ? " hora" : "") + (f.cena === "ese" ? " centro" : ""); palco.appendChild(caixa);
+  }
+  const linha = escura ? Object.assign(document.createElement("span"), { className: "linha" }) : caixa;
+  if (escura) caixa.appendChild(linha);
+  const ws = f.palavras.map(p => { const s = document.createElement("span"); s.className = "w" + (p.tom ? " tom" : ""); s.textContent = p.p; linha.appendChild(s); linha.append(" "); return { el: s, ...p }; });
+  // some quando começa a próxima frase que não é do mesmo grupo
+  const prox = frases.slice(i + 1).find(n => !(g && g.includes(n.id)));
+  const ate = prox ? prox.ini - 0.02 : DUR;
+  const existente = legendas.find(l => l.el === caixa);
+  if (existente) { existente.ids.push(f.id); existente.ate = ate; existente.ws.push(...ws); }
+  else legendas.push({ el: caixa, ids: [f.id], de: i === 0 ? 0 : f.ini - 0.05, ate, ws, escura });
+}
+
+const ESC = tela.clientWidth / 402, ALT = tela.clientHeight / ESC;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const volta = x => 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2); // passa do ponto e volta (back out)
+const lerp = (a, b, x) => a + (b - a) * x;
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+const pop = (el, t, de, d = 0.22) => { const x = fase(t, de, de + d); el.style.opacity = x > 0 ? 1 : 0; el.style.transform = `scale(${x > 0 ? lerp(1.35, 1, volta(x)) : 1})`; };
+const cenaIni = c => frases.find(f => f.cena === c).ini;
+const cenaFim = c => { const xs = frases.filter(f => f.cena === c); const u = xs[xs.length - 1]; return u.fim + (u.pausa || 0); };
+let paradas = {}, maxSite = 0, maxIg = 0;
+
+window.preparar = () => {
+  for (const c of [google, insta, site]) c.style.transform = `scale(${ESC})`;
+  for (const el of site.querySelectorAll("[data-parada]")) paradas[el.dataset.parada] = el.offsetTop - 110;
+  maxSite = site.scrollHeight - ALT; maxIg = insta.scrollHeight - ALT;
+  for (const k in paradas) paradas[k] = clamp(paradas[k], 0, maxSite);
+  return { duracao: DUR, narracao: NOME,
+    ensaio: [0.1, 2.4, F.hora.ini + 0.6, F.busca.fim, F.acha.fim, F.rola.ini + 0.5, F.duvidas.fim - 0.2, F.nada.ini + 0.15, F.proximo.ini + 0.6, F.menos.fim, F.pensa.fim, F.ese.fim, F.trat.fim, F.aval.fim, F.zap.fim, F.end.fim, F.fim2.fim, DUR - 0.5].map(x => +x.toFixed(2)) };
+};
+
+window.quadro = t => {
+  // legendas
+  for (const l of legendas) {
+    const vis = t >= l.de && t < l.ate;
+    l.el.style.display = vis ? "" : "none";
+    // a primeira frase já está inteira no quadro 0 (vira a capa e a prévia no feed)
+    if (vis) for (const w of l.ws) pop(w.el, t, l.ids[0] === frases[0].id && w.ini < frases[0].fim ? -1 : w.ini - 0.04);
+  }
+  // fundo escuro nas cenas escuras (corte seco, sem fade)
+  const escura = ["abre", "meio", "fim", "cta"].some(c => t >= (c === "abre" ? 0 : cenaIni(c) - 0.02) && t < cenaFim(c));
+  $("#escura").style.opacity = escura ? 1 : 0;
+
+  // tranco a cada impacto: a tela inteira dá um soco de zoom e treme um pouco
+  let soco = 0, tremor = 0, flash = 0;
+  for (const f of frases) if (f.impacto) {
+    const x = fase(t, f.ini - 0.03, f.ini + 0.35); if (x > 0 && x < 1) { soco = Math.max(soco, 1 - sai(x)); tremor = x < 0.4 ? 1 - x / 0.4 : 0; }
+    const y = fase(t, f.ini - 0.03, f.ini + 0.18); if (y > 0 && y < 1 && f.cena !== "abre") flash = Math.max(flash, 0.35 * (1 - y));
+  }
+  const dx = tremor * 9 * Math.sin(t * 97), dy = tremor * 7 * Math.cos(t * 83);
+  palco.style.transform = `translate(${dx}px,${dy}px) scale(${1 + 0.05 * soco})`;
+  $("#flash").style.opacity = flash;
+
+  // o celular: Google → Instagram → Google → (escuro) → site
+  const tG = cenaIni("google"), tI = cenaIni("insta"), tV = cenaIni("volta"), tS = cenaIni("site"), tE = cenaIni("ese");
+  insta.style.opacity = t >= tI - 0.02 && t < tV - 0.02 ? 1 : 0;
+  site.style.opacity = t >= tE ? 1 : 0; google.style.opacity = t >= tE ? 0 : 1;
+  const sobe = sai(fase(t, tS - 0.02, tS + 0.4)); // sobe depois que a pergunta do "e se" sai
+  $("#cel").style.opacity = t < tE ? 1 : sobe;
+  // câmera: aproxima no Google quando ele acha, afasta no "Nada.", sobe com o site
+  let zoom = 1, desce = 0;
+  zoom += 0.12 * ease(fase(t, F.acha.ini - 0.3, F.acha.ini + 0.3)) * (1 - ease(fase(t, tI - 0.1, tI + 0.2)));
+  zoom -= 0.06 * ease(fase(t, F.nada.ini, F.nada.ini + 0.4)) * (1 - ease(fase(t, tV - 0.1, tV + 0.2)));
+  if (t >= tE) desce = (1 - sobe) * 260;
+  $("#cel").style.transform = `translateY(${desce}px) scale(${zoom})`;
+  $("#cinza").style.background = `rgba(30,37,40,${0.45 * ease(fase(t, F.nada.ini, F.nada.ini + 0.3)) * (t < tV ? 1 : 0)})`;
+  tela.style.filter = t >= F.nada.ini && t < tV ? "grayscale(1)" : "none";
+
+  // Google: digita a busca enquanto a voz fala, aparecem os resultados
+  const n = Math.round(BUSCA.length * fase(t, F.busca.ini, F.busca.fim - 0.3));
+  $("#q").textContent = BUSCA.slice(0, n);
+  $("#cursor").style.opacity = t > F.busca.fim ? 0 : (Math.floor(t * 2.5) % 2 || n < BUSCA.length ? 1 : 0);
+  const res = $("#res"), rv = ease(fase(t, F.busca.fim - 0.2, F.busca.fim + 0.15)); res.style.opacity = rv; res.style.transform = `translateY(${(1 - rv) * 16}px)`;
+  const r1 = $("#r1"), r2 = $("#r2"), T1 = F.acha.ini + 0.35, T2 = F.proximo.ini + 0.45;
+  r1.style.background = t > T1 && t < T1 + 0.6 ? "#f1f3f4" : "#fff";
+  r1.style.opacity = t > tV ? 0.35 : 1;
+  r2.style.background = t > T2 && t < T2 + 0.8 ? "#e8f0fe" : "#fff";
+  r2.style.boxShadow = t > T2 ? "0 0 0 2px #1a73e8" : "none";
+
+  // Instagram: um tranco de rolagem em cada "Rola."
+  const rolas = F.rola.palavras.map(p => p.ini);
+  let yIg = 0; rolas.forEach((r, k) => { yIg = lerp(yIg, maxIg * (k + 1) / 4, ease(fase(t, r, r + 0.3))); });
+  yIg = lerp(yIg, maxIg, ease(fase(t, F.duvidas.ini, F.duvidas.fim)));
+  insta.style.transform = `translateY(${-yIg * ESC}px) scale(${ESC})`;
+
+  // as dúvidas: cada uma estoura junto com a pergunta falada; somem quando ele desiste
+  const perguntas = []; F.duvidas.palavras.forEach((p, k, a) => { if (k === 0 || /\?$/.test(a[k - 1].p)) perguntas.push(p.ini); });
+  perguntas.forEach((ini, k) => {
+    const el = $("#d" + k), x = fase(t, ini - 0.05, ini + 0.2);
+    el.style.opacity = x > 0 && t < tV - 0.02 ? 1 : 0;
+    el.style.transform = `scale(${x > 0 ? lerp(0.6, 1, volta(x)) : 0.6})`;
+  });
+  // no site: cada frase rola até a parte e mostra a dúvida respondida embaixo da legenda
+  const doSite = frases.filter(f => f.parada);
+  let ySite = 0; for (const f of doSite) ySite = lerp(ySite, paradas[f.parada], ease(fase(t, f.ini - 0.35, f.ini + 0.35)));
+  site.style.transform = `translateY(${-ySite * ESC}px) scale(${ESC})`;
+  for (const f of doSite) {
+    let el = document.getElementById("resp-" + f.id);
+    if (!el) { el = Object.assign(document.createElement("span"), { id: "resp-" + f.id, className: "duvida feito resp", textContent: f.duvida }); palco.appendChild(el); }
+    const prox = frases[frases.indexOf(f) + 1], x = fase(t, f.ini + 0.1, f.ini + 0.35);
+    el.style.opacity = x > 0 && t < prox.ini - 0.02 ? 1 : 0;
+    el.style.transform = `scale(${x > 0 ? lerp(0.6, 1, volta(x)) : 0.6})`;
+  }
+
+  // o dedo
+  let alvo = null, vis = 0, aperta = 1;
+  const tocar = (el, tt, antes = 0.5, depois = 0.5) => {
+    if (t > tt - antes && t < tt + depois) {
+      alvo = centro(el); vis = ease(fase(t, tt - antes, tt - antes + 0.2)) * (1 - fase(t, tt + depois - 0.2, tt + depois));
+      if (t > tt && t < tt + 0.25) aperta = 0.86;
+    }
+  };
+  tocar(r1, T1); tocar(r2, T2, 0.6, 0.6);
+  const zap = site.querySelector('[data-alvo="whatsapp"]'), TZ = F.zap.ini + 0.75;
+  tocar(zap, TZ, 0.5, 0.6);
+  zap.style.filter = t > TZ && t < TZ + 0.4 ? "brightness(.88)" : "none";
+  const o = fase(t, TZ, TZ + 0.6);
+  onda.style.opacity = o > 0 && o < 1 ? 1 - o : 0;
+  if (alvo) { toque.style.left = onda.style.left = alvo[0] + "px"; toque.style.top = onda.style.top = alvo[1] + "px"; }
+  toque.style.opacity = t >= tE && t < tS ? 0 : vis; toque.style.transform = `scale(${aperta})`;
+  onda.style.transform = `scale(${1 + o * 1.6})`;
+
+  // CTA: o botão estoura no "PRÉVIA" e a assinatura entra
+  const tC = F.cta.ini, pv = F.cta.palavras.find(p => /PRÉVIA/.test(p.p)).ini;
+  const c = fase(t, pv - 0.1, pv + 0.25);
+  $("#cta").style.opacity = c > 0 ? 1 : 0; $("#cta").style.transform = `scale(${c > 0 ? lerp(0.5, 1, volta(c)) : 0.5})`;
+  const s = sai(fase(t, tC + 1.2, tC + 1.7)); $("#assina").style.opacity = s; $("#assina").style.transform = `translateY(${(1 - s) * 30}px)`;
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
