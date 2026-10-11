@@ -1,0 +1,31 @@
+{
+  "_sobre": "Narração do Reels narrado (SPIN). texto = legenda na tela, palavra a palavra (*palavra* sai em terracota); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte da trilha e tranco na tela no início da frase.",
+  "voz": "pt_BR-faber-medium",
+  "velocidade": 0.86,
+  "inicio": 0.15,
+  "frases": [
+    {"id": "abre1", "cena": "abre", "texto": "Você perdeu um *cliente* ontem.", "pausa": 0.25, "impacto": true},
+    {"id": "abre2", "cena": "abre", "texto": "E nem ficou *sabendo.*", "pausa": 0.45},
+    {"id": "hora", "cena": "google", "texto": "*22h47.*", "fala": "Dez e quarenta e sete da noite.", "pausa": 0.15, "impacto": true},
+    {"id": "busca", "cena": "google", "texto": "Alguém procura *exatamente* o que você faz.", "pausa": 0.15},
+    {"id": "acha", "cena": "google", "texto": "E acha *você.*", "pausa": 0.3},
+    {"id": "insta", "cena": "insta", "texto": "Cai no seu *Instagram.*", "fala": "Cai no seu instagram.", "pausa": 0.1, "impacto": true},
+    {"id": "rola", "cena": "insta", "texto": "Rola. Rola. *Rola.*", "pausa": 0.1},
+    {"id": "duvidas", "cena": "insta", "texto": "Quais tratamentos? É bom mesmo? Onde fica? Abre amanhã?", "pausa": 0.2},
+    {"id": "nada", "cena": "insta", "texto": "*Nada.*", "pausa": 0.45, "impacto": true},
+    {"id": "volta", "cena": "volta", "texto": "Ele volta pro *Google.*", "fala": "Ele volta pro gúgol.", "pausa": 0.1},
+    {"id": "proximo", "cena": "volta", "texto": "E chama o *próximo* da lista.", "pausa": 0.45},
+    {"id": "sem", "cena": "meio", "texto": "Sem mensagem. Sem aviso.", "pausa": 0.15},
+    {"id": "menos", "cena": "meio", "texto": "Só um *cliente a menos.*", "pausa": 0.4, "impacto": true},
+    {"id": "pensa", "cena": "meio", "texto": "Agora pensa: quantas vezes isso já aconteceu *com você?*", "pausa": 0.5},
+    {"id": "ese", "cena": "ese", "texto": "E se ele achasse tudo em *10 segundos?*", "fala": "E se ele achasse tudo em dez segundos?", "pausa": 0.35},
+    {"id": "trat", "cena": "site", "texto": "Os *tratamentos.*", "pausa": 0.35, "impacto": true, "parada": "servicos", "duvida": "Quais tratamentos?"},
+    {"id": "aval", "cena": "site", "texto": "As avaliações do *Google.*", "fala": "As avaliações do gúgol.", "pausa": 0.35, "parada": "avaliacoes", "duvida": "É bom mesmo?"},
+    {"id": "zap", "cena": "site", "texto": "O WhatsApp *num toque.*", "fala": "O zap, num toque.", "pausa": 0.35, "parada": "contato", "duvida": "Como eu chamo?"},
+    {"id": "end", "cena": "site", "texto": "Endereço e *horário.*", "pausa": 0.1, "parada": "mapa", "duvida": "Onde fica? Abre amanhã?"},
+    {"id": "fechado", "cena": "site", "texto": "Mesmo com você *fechado.*", "pausa": 0.45},
+    {"id": "fim1", "cena": "fim", "texto": "Seu cliente não *pergunta.*", "pausa": 0.15, "impacto": true},
+    {"id": "fim2", "cena": "fim", "texto": "Ele *decide.*", "pausa": 0.5, "impacto": true},
+    {"id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta a do seu negócio.", "fala": "Comenta prévia, que a gente monta a do seu negócio.", "pausa": 1.6}
+  ]
+}
