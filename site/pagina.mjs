@@ -593,7 +593,7 @@ ${depoimentos.length ? `  <section class="secao secao-clara" id="depoimentos" ar
   <div class="envoltorio rodape-grade">
     <div>
       <a class="marca marca-rodape" href="#inicio" aria-label="Renderiza, voltar ao início">${simbolo(30)}<span>renderiza</span></a>
-      <p>Sites e aplicativos para negócios.<br>Um projeto de ${(config.fundadores || []).map(f => esc(f.nome)).join(" e ") || esc(nomeCompleto)}.</p>
+      <p>Sites e aplicativos para negócios.<br>Um projeto independente de ${esc(nomeCompleto)}.</p>
     </div>
     ${redes.length ? `<nav class="rodape-redes" aria-label="Contato">${redes.join("")}</nav>` : ""}
   </div>
