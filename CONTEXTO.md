@@ -283,6 +283,14 @@ foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
   quase sem bateria e mais reverb (**Personnalité**).
 Nome comprido na montagem quebra em duas linhas equilibradas e só então encolhe ("Boutique / dos Óculos").
 
+**Vídeo de divulgação de um site que já está no ar (cliente, 12/10/2026):** o mesmo gravador, para o cliente
+postar nos Stories, no Status e no Reels dele. Sem "venha comprar com a Renderiza": o roteiro leva `"url"` (o site
+no ar) no lugar de `"demo"`, `"assinatura": "@loja"` no canto das cartelas (no lugar da marca da Renderiza; `""`
+tira) e `"legenda_baixo": 170`, que sobe a legenda para fora da descrição e dos botões que o Instagram põe por cima.
+Abertura "Site novo no ar / Conheça o site da", fechamento "Visite o nosso site" + o endereço. Primeiro: a
+**Lú Elegante** (`gravacoes/lu-elegante.json`; o MP4 vai para `rascunhos/` e é mandado para ela, não vai ao ar).
+O mapa do Google do site entra na rolagem do fechamento como foto (fora da tela ele sai em branco).
+
 **O que faz o vídeo ficar bom (revisão do da Machado):**
 - **É o site de verdade, no celular**, sem maquete: a ótica se reconhece. Gravado quadro a quadro com o
   relógio da página parado, então rola liso mesmo com a máquina lenta, e as animações de entrada da

@@ -19,6 +19,10 @@
 //   vale para a montagem, a rolagem e a trilha (musica.py --clima).
 //   cenas: [{ rolar: seletor | número (topo da página), alinhar: "centro" | "topo", ajuste (px), mover (s),
 //            segura (s), legenda, legenda_no_topo, acoes: [{ em (s depois de parar), tipo: "deslizar" | "tocar", alvo, cartoes, dur, clicar }] }]
+//   Site que já está no ar (vídeo de divulgação para o cliente postar): url no lugar de demo, e assinatura com o
+//   texto do canto das cartelas ("@loja", "" para nada) no lugar de "feito pela Renderiza" / "Renderiza · renderizaweb.com.br".
+//   legenda_baixo: distância da legenda até o pé da tela, em px de 720 (96). Para Reels e Stories, ~170: fica acima da
+//   descrição e dos botões que o Instagram põe por cima do vídeo.
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve } from "node:path";
@@ -92,7 +96,7 @@ const ctx = await contexto();
 const pagina = await ctx.newPage();
 await pagina.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
 await pagina.addInitScript(AVANCAR);
-await pagina.goto("file://" + join(RAIZ, "demos", R.demo, "index.html"), { waitUntil: "load" });
+await pagina.goto(R.url || "file://" + join(RAIZ, "demos", R.demo, "index.html"), { waitUntil: "load", timeout: 90000 });
 await pagina.evaluate(async () => {
   document.documentElement.style.scrollBehavior = "auto";
   document.querySelectorAll("img[loading=lazy]").forEach(i => { i.loading = "eager"; });
@@ -103,10 +107,11 @@ await pagina.clock.runFor(800);
 await pagina.waitForTimeout(600);
 
 // Camada por cima do site: legenda e o "dedo" que mostra os toques.
-await pagina.evaluate(({ c, fX }) => {
+const BAIXO = R.legenda_baixo ?? 96;
+await pagina.evaluate(({ c, fX, BAIXO }) => {
   const css = document.createElement("style");
   css.textContent = `
-  #__legenda{position:fixed;left:50%;bottom:96px;z-index:2147483646;transform:translate(-50%,0);max-width:340px;width:max-content;
+  #__legenda{position:fixed;left:50%;bottom:${BAIXO}px;z-index:2147483646;transform:translate(-50%,0);max-width:340px;width:max-content;
     display:flex;align-items:center;gap:10px;padding:13px 20px 13px 16px;border-radius:999px;background:${c.fundo}f2;color:${c.claro};
     font:600 17px/1.25 "${fX}",system-ui,sans-serif;letter-spacing:-.1px;box-shadow:0 14px 34px #0000004d,0 0 0 1px #ffffff14;opacity:0;pointer-events:none}
   #__legenda i{flex:none;width:9px;height:9px;border-radius:50%;background:${c.acento};box-shadow:0 0 0 4px ${c.acento}33}
@@ -117,19 +122,22 @@ await pagina.evaluate(({ c, fX }) => {
   const leg = document.createElement("div"); leg.id = "__legenda"; leg.innerHTML = "<i></i><span></span>";
   const dedo = document.createElement("div"); dedo.id = "__dedo"; dedo.innerHTML = "<b></b>";
   document.body.append(leg, dedo);
-}, { c, fX });
+}, { c, fX, BAIXO });
 
 // Mede onde cada cena para (posição de rolagem) e monta a linha do tempo. Com legenda embaixo, procura perto
 // do ponto pedido a parada em que a faixa da legenda não cobre título nem texto (e o alvo continua inteiro na tela).
-const medidas = await pagina.evaluate(cenas => {
+const medidas = await pagina.evaluate(({ cenas, BAIXO }) => {
   const vh = innerHeight, cab = (document.querySelector(".site-header")?.offsetHeight || 70);
   const max = document.documentElement.scrollHeight - vh;
-  const faixa = { topo: vh - 96 - 46 - 10, base: vh - 96 + 10, esq: 30, dir: innerWidth - 30 };
+  const faixa = { topo: vh - BAIXO - 46 - 10, base: vh - BAIXO + 10, esq: 30, dir: innerWidth - 30 };
   // Posição final na página: desconta o deslocamento das animações de entrada (.reveal desce 22 px até aparecer).
   const desvio = e => { let dy = 0; for (let x = e; x && x !== document.body; x = x.parentElement) { const t = getComputedStyle(x).transform; if (t && t !== "none") dy += new DOMMatrix(t).m42; } return dy; };
   const abs = e => { const r = e.getBoundingClientRect(), dy = desvio(e); return { top: r.top + scrollY - dy, bottom: r.bottom + scrollY - dy, left: r.left, right: r.right, h: r.height }; };
-  const textos = [...document.querySelectorAll("main h1, main h2, main h3, main p, main li, main blockquote, main img, main .stat, main .button, footer p, footer a, footer h2, footer strong")]
-    .filter(e => e.offsetHeight > 0 && !e.closest("#__legenda, #__dedo"))
+  // nas demos o conteúdo fica em <main>; num site sem <main>, vale a página inteira (fora o topo fixo)
+  const em = document.querySelector("main") ? "main " : "";
+  const seletor = ["h1", "h2", "h3", "p", "li", "blockquote", "img", ".stat", ".button", ".btn"].map(x => em + x).join(", ");
+  const textos = [...document.querySelectorAll(seletor + ", footer p, footer a, footer h2, footer strong")]
+    .filter(e => e.offsetHeight > 0 && !e.closest("#__legenda, #__dedo, header, .site-header"))
     .map(e => ({ ...abs(e), peso: /^H\d$/.test(e.tagName) ? 6 : e.tagName === "IMG" ? 0.6 : 4 }));
   const limitar = y => Math.round(Math.max(0, Math.min(max, y)));
   return cenas.map(ce => {
@@ -153,7 +161,7 @@ const medidas = await pagina.evaluate(cenas => {
     }
     return { y: melhor };
   });
-}, R.cenas);
+}, { cenas: R.cenas, BAIXO });
 medidas.forEach((m, i) => { if (m.erro) throw new Error("cena " + (i + 1) + ": " + m.erro); });
 
 const linha = []; // [{ini, fim, de, ate}] rolagem; legendas; ações
@@ -275,13 +283,48 @@ if (ROLAGEM) {
     window.scrollTo({ top: 0, behavior: "instant" });
   });
   await pagina.evaluate(() => window.__quadro(4000));
-  alturaInteira = await pagina.evaluate(() => document.documentElement.scrollHeight);
-  paginaInteira = "data:image/jpeg;base64," + (await pagina.screenshot({ fullPage: true, scale: "css", type: "jpeg", quality: 82 })).toString("base64");
+  let foto = pagina, ctx3 = null;
+  if (R.url) {
+    // site no ar: a foto da página inteira sai de uma aba sem o relógio falso, senão o mapa do Google fica em branco
+    ctx3 = await contexto(); foto = await ctx3.newPage();
+    await foto.goto(R.url, { waitUntil: "networkidle", timeout: 90000 }).catch(() => {});
+    await foto.evaluate(async () => {
+      document.documentElement.style.scrollBehavior = "auto";
+      document.querySelectorAll("img[loading=lazy], iframe[loading=lazy]").forEach(e => { e.loading = "eager"; });
+      for (let y = 0; y < document.documentElement.scrollHeight; y += 400) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); }
+      document.querySelectorAll(".reveal").forEach(e => e.classList.add("is-visible"));
+      await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+    });
+    await foto.waitForTimeout(3000);
+    // iframe de outro site (o mapa) fora da tela não é desenhado na foto da página inteira: troca por uma foto dele
+    for (const f of await foto.$$("iframe")) {
+      await f.scrollIntoViewIfNeeded().catch(() => {});
+      await foto.waitForTimeout(2500);
+      const b64 = (await f.screenshot({ type: "jpeg", quality: 88 }).catch(() => null))?.toString("base64");
+      if (b64) await f.evaluate((el, src) => {
+        const img = document.createElement("img"), cs = getComputedStyle(el);
+        img.src = src; img.style.cssText = `display:block;width:${el.offsetWidth}px;height:${el.offsetHeight}px;border-radius:${cs.borderRadius}`;
+        el.replaceWith(img);
+      }, "data:image/jpeg;base64," + b64);
+    }
+    await foto.evaluate(() => {
+      document.querySelectorAll("body *").forEach(e => { if (getComputedStyle(e).position === "fixed") e.style.visibility = "hidden"; });
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+    await foto.waitForTimeout(600);
+  }
+  alturaInteira = await foto.evaluate(() => document.documentElement.scrollHeight);
+  paginaInteira = "data:image/jpeg;base64," + (await foto.screenshot({ fullPage: true, scale: "css", type: "jpeg", quality: 82 })).toString("base64");
+  if (ctx3) await ctx3.close();
 }
 await ctx.close();
 
 /* ---------- 2. abertura e fechamento ---------- */
 const simbolo = readFileSync(join(RAIZ, "site", "estatico", "simbolo.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
+// o canto das cartelas: a marca da Renderiza nas prévias; no vídeo de um site já no ar, o que o roteiro pedir (ou nada)
+const assinatura = (padrao, estilo) => R.assinatura === undefined
+  ? `<div class="marca-rz entra" style="${estilo}">${simbolo}<span>${padrao}</span></div>`
+  : R.assinatura ? `<div class="marca-rz entra" style="${estilo}"><span>${esc(R.assinatura)}</span></div>` : "";
 const base = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;0,800;1,700;1,800&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=${fT.replace(/ /g, "+")}:ital,wght@0,600;0,700;1,600;1,700&family=${fX.replace(/ /g, "+")}:wght@400;500;600;700&display=block" rel="stylesheet"><!-- fontes que vão só até 700, como a Lora -->
@@ -326,7 +369,7 @@ ${fotoAbertura ? `<div class="vivo" style="position:absolute;left:72px;top:138px
   <h1 class="assenta" style="font-family:'${fT}',sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-1px;margin-top:6px;color:#fff;text-wrap:balance">${marcaEmLinhas(R.marca)}</h1>
   <p class="entra" style="animation-delay:.6s;margin-top:12px;font-size:14px;font-weight:600;color:${c.acento}">${esc(R.local)}</p>
 </div>
-<div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
+${assinatura("feito pela Renderiza", "position:absolute;left:36px;bottom:44px;animation-delay:.8s")}
 </body></html>`;
 
 // Abertura "montagem": fotos da demo em tela cheia, uma cobrindo a outra, com movimento lento (Ken Burns);
@@ -370,7 +413,7 @@ ${fotosMontagem.map((_, i) => (R.abertura.rotulos_fotos || [])[i] ? `<span style
   <p class="entra" style="animation-delay:.55s;margin-top:14px;font-size:14px;font-weight:600;color:${c.claro};opacity:.9">${esc(R.local)}</p>
   ${R.abertura?.frase ? `<p class="entra" style="animation-delay:${(ABERTURA - 2.2).toFixed(2)}s;margin-top:18px;font-family:'${fT}',serif;font-style:${CLIMA === "leve" || CLIMA === "grife" ? "italic" : "normal"};font-size:19px;color:${CLIMA === "grife" ? c.claro : c.acento}">“${esc(R.abertura.frase)}”</p>` : ""}
 </div>
-<div class="marca-rz entra" style="position:absolute;z-index:21;left:32px;bottom:44px;animation-delay:.8s">${simbolo}<span>feito pela Renderiza</span></div>
+${assinatura("feito pela Renderiza", "position:absolute;z-index:21;left:32px;bottom:44px;animation-delay:.8s")}
 </body></html>`;
 
 const F = R.fechamento || {};
@@ -390,7 +433,7 @@ const fechamentoRolagem = base + `
   <h2 class="entra" style="animation-delay:.3s;font-family:'${fT}',serif;font-weight:700;font-size:33px;line-height:1.08;letter-spacing:-.6px;color:#fff">${esc(F.titulo || "Seu site novo")}<br><em style="color:${c.acento}">${esc(F.destaque || "já está pronto.")}</em></h2>
   <p class="entra" style="animation-delay:.6s;margin-top:16px;font-size:16px;line-height:1.45;opacity:.92">${esc(F.convite || "Gostou? É só responder esta mensagem.")}</p>
 </div>
-<div class="marca-rz entra" style="position:absolute;left:34px;bottom:44px;animation-delay:.9s">${simbolo}<span>Renderiza · renderizaweb.com.br</span></div>
+${assinatura("Renderiza · renderizaweb.com.br", "position:absolute;left:34px;bottom:44px;animation-delay:.9s")}
 </body></html>`;
 
 const fechamento = base + `
@@ -403,7 +446,7 @@ const fechamento = base + `
   <h2 class="entra" style="animation-delay:.25s;font-family:'${fT}',sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.8px;color:#fff">${esc(F.titulo || "Seu site,")}<br><span style="color:${c.acento}">${esc(F.destaque || "pronto para ir ao ar.")}</span></h2>
   <p class="entra" style="animation-delay:.5s;margin-top:16px;font-size:16px;line-height:1.45;opacity:.9">${esc(F.convite || "Gostou? É só responder esta mensagem.")}</p>
 </div>
-<div class="marca-rz entra" style="position:absolute;left:36px;bottom:44px;animation-delay:.75s">${simbolo}<span>Renderiza · renderizaweb.com.br</span></div>
+${assinatura("Renderiza · renderizaweb.com.br", "position:absolute;left:36px;bottom:44px;animation-delay:.75s")}
 </body></html>`;
 
 async function cartela(html, dur, arquivo) {
