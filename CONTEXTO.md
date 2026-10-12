@@ -407,11 +407,14 @@ dono tem que ver e gostar. A gentileza puxa a resposta.
 
 ## Busca de novas óticas (quando pedir)
 
-Critérios: independente e pequena (nada de rede ou franquia); o dono aparece no Instagram com fotos
-reais; **sem site próprio** (site quebrado é ótimo sinal); atende no WhatsApp; ativa (postou nos
-últimos 30 dias, no máximo 3 meses); Google com nota 4,0 ou mais e pelo menos 8 avaliações.
+Critérios (desde o lote 4, pelo estudo do ciclo 1, [`docs/ciclos/ciclo-01-estudo.md`](docs/ciclos/ciclo-01-estudo.md)):
+Grande SP; independente e **pequena** (10 a 120 avaliações no Google, nota 4,8+; nada de rede ou franquia);
+**WhatsApp de celular** (fixo é atendente); **sem site próprio**, conferido de verdade (site quebrado é ótimo
+sinal); Instagram com post em 45 dias e 300+ seguidores, com fotos reais; **sinal de que o dono atende** (as
+avaliações citam o dono pelo nome, ele responde em primeira pessoa); e o **nome do dono**, para abrir a conversa.
 Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
-post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha com os descartes.
+post, dono aparece, site, WhatsApp, nota/avaliações, quem atende (e o nome do dono), alerta. No fim, uma
+linha com os descartes.
 
 Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 1. `maps-lista.mjs`: lista do Google Maps por bairro ("ótica em Tatuapé São Paulo"), 20 por busca.
@@ -430,6 +433,20 @@ Lote 3 (05/10/2026): mesma linha, com os scripts versionados em `ferramentas/pro
 ajustar para outro nicho no README de lá). Régua mais alta: nota 4,8+, 40+ avaliações, Instagram com post em 45 dias e
 1.000+ seguidores. 22 + 7 de reserva (lista no chat de 05/10/2026): o Kaue escolheu as 10 primeiras e uma
 extra (seção "Lote 3") e ainda vai mandar as próximas.
+
+Lote 4 (12/10/2026): primeiro com o perfil do estudo. Funil: 152 buscas novas somadas às de 29/09 e 05/10 →
+3.172 óticas da Grande SP → 615 no filtro → 473 sem site → 84 com Instagram ativo e celular → avaliações
+lidas → 10 + 8 de reserva (lista no chat de 12/10/2026; nada cadastrado no painel). Passos e scripts novos no
+README de `ferramentas/prospeccao/` (`sinais.mjs` e `pontuar.py` para as avaliações, `conferir-ig.py` e
+`dominios.py` para conferir). O que aprendi:
+- **O local marcado nos posts confere o @.** O embed traz o local de cada post e a legenda inteira: 9 dos 84 @
+  achados pelo nome eram de outra cidade, e para 4 deles o certo apareceu testando variações (`--procurar`).
+- **Sem login o Google mostra só umas 5 avaliações por lugar**, o que basta para ver quem atende: "a Priscila,
+  dona dessa ótica", o dono que responde "ah sua linda, gratidão!" e o mesmo nome em várias avaliações.
+- **Quatro leads do painel estão com o @ de outra cidade** (conferido pelos posts em 12/10/2026): Dutra
+  (Manaus), LL Vision (DDD 84), Veneza (Feira de Santana) e Lúmina (Barreiras-BA). Nenhum tem demo (a Dutra
+  está parada no lote 2), mas a demo sairia com fotos de outra loja e a DM pelo Instagram iria para a loja
+  errada. Conferir antes de usar.
 
 ## Dentistas
 
