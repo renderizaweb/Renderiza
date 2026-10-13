@@ -316,9 +316,17 @@ Nome comprido na montagem quebra em duas linhas equilibradas e só então encolh
 fechamento continuam os da versão show; no meio, no jeito do Reels da Renderiza (`instagram/reels-cliente-perdido.html`),
 o site real da demo roda dentro de um celular na parte de baixo, e em cima fica uma legenda grande, sem voz, que
 conta a história e provoca de leve: uma pergunta ou dor que o dono nem percebeu e o site respondendo. Sem exagero,
-sem preço, sem promessa e sem nada inventado. O arco que funcionou: a situação ("Alguém aqui perto precisa de
-óculos novos" / "E procura pelo celular"), a loja e quem atende, os produtos, as avaliações com a pergunta
-implícita ("120 avaliações 5,0. *Quem procura vê isso hoje?*") e o WhatsApp a um toque. 6 ou 7 paradas, ~30 s.
+sem preço, sem promessa e sem nada inventado. 6 paradas, ~48 s.
+- **Texto claro, não charada** (revisão do Kaue, 13/10/2026): a primeira versão tinha frases curtas e enigmáticas
+  ("A Gaffa entrou numa nova fase. Quem procura já sabe?", "31 avaliações. Quem procura vê isso hoje?") e pouco
+  tempo para ler. Agora cada parada tem uma frase completa, que segue a mesma pessoa do começo ao fim, e uma linha
+  de apoio que explica. O arco: "Hoje, quem procura uma ótica *começa pelo celular.*" / "Quer ver a loja, os
+  modelos e a opinião de quem já comprou." → "Descobre que a Gaffa *está numa nova fase.*" / "A loja foi
+  renovada e tem um novo dono, o João Paulo..." → "Vê as armações *antes de sair de casa.*" → o diferencial da
+  loja → "E lê o que *os clientes contam.*" / "Nota 5,0 em 63 avaliações no Google, sem precisar procurar." →
+  "Quando decide, *chama no WhatsApp com um toque.*" / "O endereço, o horário e o caminho para chegar estão logo ali."
+- O tempo parado sai do tamanho do texto (3,4 a 5,6 s; a legenda fica na tela também durante a rolagem até a
+  próxima). As legendas de cada ótica ficam no `gravacoes/<id>.json`.
 - `python3 ferramentas/video/reels.py <id> <spec.json>` monta `gravacoes/<id>.json` com `"formato": "reels"` a
   partir do roteiro show e de um spec curto: uma legenda por parada (`[tipo, legenda, sub]`, tipos na ordem da
   página: topo, story, armacoes, estilo, estilos, rosto, atendimento, reviews, insta, visite), o acento clareado

@@ -6,9 +6,12 @@
 #    "nome": [linha de cima, destaque] (opcional: o nome da abertura, quando a quebra automática fica estranha),
 #    "cenas": [[tipo, legenda, sub opcional, {ajustes} opcional], …]}
 #   tipos (na ordem da página): topo, story, stats, armacoes, estilo, estilos, rosto, atendimento, reviews, insta, visite.
-#   Legenda: pergunta ou dor que o dono da ótica nem percebeu, e o site respondendo; o trecho entre * sai na cor da marca.
+#   Legenda: frase completa e clara, que conta a história em ordem (quem procura pelo celular, o que encontra no site,
+#   a loja e quem atende, os modelos, o que os clientes contam, o WhatsApp); a linha de apoio explica a frase. Nada de
+#   charada: o Kaue pediu (13/10/2026) texto fácil de entender e tempo para ler. O trecho entre * sai na cor da marca.
+#   O tempo parado sai do tamanho do texto (dá para fixar com {"segura": s} no fim da cena).
 # Uso: python3 ferramentas/video/reels.py <id> <spec.json>   (depois: gravar.mjs gravacoes/<id>.json --ensaio)
-import json, os, subprocess, sys
+import json, os, re, subprocess, sys
 
 RZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TIPOS = {
@@ -52,6 +55,14 @@ for c in spec['cenas']:
     if isinstance(c[-1], dict): ce.update(c[-1])
     ce['legenda'] = leg
     if len(c) > 2 and isinstance(c[2], str): ce['sub'] = c[2]
+    # tempo para ler com calma (frase + linha de apoio): a legenda fica na tela o tempo parado mais a rolagem até a
+    # próxima, uns 6,5 s para 18 palavras; parado, entre 3,4 e 5,6 s
+    palavras = len(re.findall(r"[\wÀ-ÿ']+", leg + ' ' + ce.get('sub', '')))
+    if not (isinstance(c[-1], dict) and 'segura' in c[-1]):
+        ce['segura'] = round(max(ce['segura'], min(5.6, max(3.4, 0.8 + 0.24 * palavras))), 1)
+    # carrossel com parada longa: um terceiro deslize
+    if tipo in ('armacoes', 'estilo') and ce['segura'] >= 4.2:
+        ce['acoes'].append({**ce['acoes'][-1], 'em': round(ce['acoes'][-1]['em'] + 1.2, 2)})
     cenas.append(ce)
 R['cenas'] = cenas
 json.dump(R, open(saida, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

@@ -40,18 +40,20 @@
  "cenas": [
   {
    "rolar": 0,
-   "segura": 2.3,
-   "legenda": "Antes de escolher a ótica, *ela pesquisa no celular.*"
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
   },
   {
    "rolar": ".story-photos",
-   "segura": 2,
-   "legenda": "E descobre por que *a loja se chama Manuella.*"
+   "segura": 5.6,
+   "legenda": "Descobre por que *a loja se chama Manuella.*",
+   "sub": "É o nome da filha da dona, que inspirou a ótica no Parque São Domingos."
   },
   {
    "rolar": "#armacoes-track",
    "alinhar": "topo",
-   "segura": 2.6,
+   "segura": 4.4,
    "acoes": [
     {
      "em": 0.5,
@@ -64,42 +66,28 @@
      "tipo": "deslizar",
      "alvo": "#armacoes-track",
      "cartoes": 1
-    }
-   ],
-   "legenda": "As coleções, *antes de sair de casa.*"
-  },
-  {
-   "rolar": "#estilo-track",
-   "alinhar": "topo",
-   "segura": 2.2,
-   "acoes": [
-    {
-     "em": 0.45,
-     "tipo": "deslizar",
-     "alvo": "#estilo-track",
-     "cartoes": 1,
-     "dur": 0.75
     },
     {
-     "em": 1.3,
+     "em": 2.7,
      "tipo": "deslizar",
-     "alvo": "#estilo-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "alvo": "#armacoes-track",
+     "cartoes": 1
     }
    ],
-   "legenda": "A armação certa, *escolhida com visagismo.*"
+   "legenda": "Vê as coleções *antes de sair de casa.*",
+   "sub": "Armações com personalidade, fotografadas uma a uma."
   },
   {
    "rolar": "#atendimento h2",
    "alinhar": "topo",
-   "segura": 2.2,
-   "legenda": "ZEISS, Varilux *e quem entende de multifocal.*"
+   "segura": 5.1,
+   "legenda": "E sabe que vai ter *quem entenda de lente.*",
+   "sub": "Visagismo, lentes ZEISS e Varilux e acompanhamento no multifocal."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.5,
+   "segura": 5.1,
    "acoes": [
     {
      "em": 0.7,
@@ -108,11 +96,12 @@
      "cartoes": 1
     }
    ],
-   "legenda": "341 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 341 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#visite .button--mustard",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 1,
@@ -120,8 +109,8 @@
      "alvo": "#visite .button--mustard"
     }
    ],
-   "legenda": "A receita vai *pelo WhatsApp, em um toque.*",
-   "sub": "Com endereço e horário à vista."
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
   }
  ]
 }

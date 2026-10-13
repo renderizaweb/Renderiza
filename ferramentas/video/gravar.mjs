@@ -25,7 +25,8 @@
 //   descrição e dos botões que o Instagram põe por cima do vídeo.
 //   formato: "reels" (pedido do Kaue, 13/10/2026, no jeito do Reels da Renderiza em instagram/): no meio do vídeo o
 //   site real roda dentro de um celular, na parte de baixo, e em cima fica a legenda grande, que conta a história e
-//   provoca ("120 avaliações 5,0. *Hoje, quem vê?*"; o trecho entre * sai na cor da marca; "sub" é a linha menor).
+//   explica, em frases completas ("Lê o que *os clientes contam.*"; o trecho entre * sai na cor da marca; "sub" é a
+//   linha de apoio, que explica a frase). O ensaio avisa quando a legenda encosta no celular.
 //   Abertura e fechamento continuam os mesmos. Cada legenda fica até a próxima entrar.
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
@@ -511,9 +512,9 @@ if (REELS) {
   const destaque = t => esc(t).replace(/\*([^*]+)\*/g, '<span class="tom">$1</span>');
   const moldura = base + `<style>
 body{background:radial-gradient(130% 62% at 88% 0%, ${c.fundo} 0%, ${c.fundo2} 72%)}
-#leg{position:absolute;left:28px;right:28px;top:98px;text-align:center;font-family:'${fT}',serif;font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-.5px;color:#fff;text-wrap:balance}
+#leg{position:absolute;left:26px;right:26px;top:90px;text-align:center;font-family:'${fT}',serif;font-weight:700;font-size:28px;line-height:1.12;letter-spacing:-.4px;color:#fff;text-wrap:balance}
 #leg .tom{color:${c.acento}}
-#sub{display:block;margin-top:11px;font-family:'${fX}',system-ui,sans-serif;font-weight:500;font-size:14.5px;line-height:1.35;letter-spacing:0;color:${c.claro};opacity:.84;text-wrap:balance}
+#sub{display:block;margin-top:12px;font-family:'${fX}',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.38;letter-spacing:0;color:${c.claro};opacity:.88;text-wrap:balance}
 .brilho{position:absolute;left:50%;top:${Math.round(M.y + 30)}px;width:330px;height:330px;margin-left:-165px;border-radius:50%;background:${c.acento};opacity:.13;filter:blur(46px)}
 </style>
 <div class="bola" style="width:92px;height:92px;right:-38px;top:-46px;opacity:.9"></div>
@@ -550,6 +551,9 @@ body{background:radial-gradient(130% 62% at 88% 0%, ${c.fundo} 0%, ${c.fundo2} 7
       const nome = `${String(i + 2).padStart(2, "0")}-cena${i + 1}`;
       await pintar({ texto: ce.legenda || "", sub: ce.sub, op: ce.legenda ? 1 : 0, dy: 0 });
       await pm.evaluate(() => window.__quadro(2000));
+      // a legenda (frase e linha de apoio) tem que caber acima do celular
+      const pe = await pm.evaluate(() => document.getElementById("leg").getBoundingClientRect().bottom);
+      if (pe > M.y - BORDA - 8) console.log(`AVISO cena ${i + 1}: a legenda desce até ${Math.round(pe)} px e encosta no celular (${Math.round(M.y - BORDA)}); encurte o texto`);
       await pm.screenshot({ path: join(pastaEnsaio, nome + "-moldura.png"), type: "png" });
       await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", join(pastaEnsaio, nome + "-moldura.png"), "-i", join(pastaEnsaio, nome + "-site.jpg"), "-i", join(pastaEnsaio, "celular.png"), "-i", join(pastaEnsaio, "tela.png"),
         "-filter_complex", `${juntar}[a];[a][2:v]overlay=0:0`, "-frames:v", "1", "-q:v", "3", join(pastaEnsaio, nome + ".jpg")]);
