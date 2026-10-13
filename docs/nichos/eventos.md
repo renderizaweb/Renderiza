@@ -1,0 +1,294 @@
+# Eventos: salões de festa, espaços e chácaras
+
+**Estudo feito em 13/10/2026**, antes da primeira prospecção do nicho, a pedido do Kaue: olhar o que a
+Renderiza já aprendeu com óticas e dentistas, medir o mercado de salões, espaços e chácaras de festa na Grande
+SP, olhar os sites de quem já tem e definir como vai ser a demo e a busca. Nada foi cadastrado no painel.
+
+Base: o material "Garimpo de Nichos" (ago/2026, que pôs "espaços, salões e chácaras para festa" em 1º lugar), o
+painel (Supabase), `CONTEXTO.md`, `docs/ciclos/ciclo-01-estudo.md` e uma amostra própria de 13/10/2026:
+**84 buscas no Google Maps** (salão de festas, espaço para eventos, buffet infantil, chácara de festas, espaço de
+casamento e sítio para eventos, em 40 bairros e cidades da Grande SP), **2.767 lugares diferentes**, dos quais
+**2.018 de evento**; **1.274 fichas abertas** (site, telefone, redes); **497 domínios testados**;
+**53 sites de concorrentes fotografados** no celular e no computador (22 olhados de perto); **31
+Instagrams** olhados a olho; **as avaliações de 12** salões e chácaras do perfil-alvo.
+
+## Resumo
+
+1. **O alvo é quem aluga o espaço e atende o próprio WhatsApp:** salão de festas e chácara ou sítio de festas,
+   de uma unidade. Buffet infantil, buffet de casamento grande, redes e casas de show ficam de fora.
+2. **É o pedaço do mercado sem site:** domínio próprio aparece em 26% dos salões de festas e 26% das
+   chácaras e sítios, contra 64% dos buffets infantis. E 93% dos salões mostram celular no Google.
+3. **Ninguém intermedia de verdade.** O casamentos.com.br só cobre casamento e esconde o telefone do espaço (só
+   tem o botão "Pedir orçamento"); o GetNinjas vende o pedido de orçamento; o Airbnb proíbe festa desde 2022.
+   Não existe um "Doctoralia dos salões".
+4. **Os sites que existem são fracos no que importa:** abertura sem foto do lugar (ou tampada pelo aviso de
+   cookies), texto genérico ("experiências inesquecíveis"), fotos pequenas, formulário que vai para um e-mail.
+   E pelo menos 1 em cada 6 domínios próprios (17%) não funciona (domínio vencido, Wix desconectado, página de
+   erro, "em manutenção"); outros 10% não responderam daqui (o proxy às vezes bloqueia: conferir).
+5. **A unidade de venda é a data.** Os perfis vivem de "últimas datas de novembro", "datas disponíveis". A demo
+   tem que levar a pessoa a **consultar uma data pelo WhatsApp**, com a data, o tipo de festa e o número de
+   convidados já escritos na mensagem. Nenhum concorrente olhado faz isso.
+6. **O "uau" é o espaço grande na tela.** No Instagram o salão aparece espremido em quadradinhos, e quase sempre
+   só a mesa do bolo. A demo mostra o lugar inteiro, vazio e montado, com as festas que aconteceram lá.
+7. **Pronto para prospectar**, com a régua da seção 8 (falta o ok do Kaue em 3 pontos, na seção 11).
+
+## 1. O que o painel ensina (óticas e dentistas) e como vale aqui
+
+No painel em 13/10/2026: 67 óticas (17 finalizadas, todas perda; 5 em negociação; 8 em conversa; 29 sem
+resposta; 8 com demo pronta ou a trabalhar) e 12 dentistas (a MS Odontologia perto de fechar). Nenhuma venda
+registrada ainda. As perdas: "já tem site ou alguém fazendo", "sem interesse", "agora não" e "sem retorno".
+
+| Lição das óticas e dentistas | Em eventos |
+|---|---|
+| Ótica pequena responde; a média morre no balcão; WhatsApp em fixo é atendente | Salão e chácara são tocados pelo dono ou pelo casal: o WhatsApp é o canal de reserva e quem responde costuma ser quem decide. 93% dos salões mostram celular no Google. Fixo continua sendo alerta. |
+| 3 dos 8 "não" foram "já tenho site": a checagem de "sem site" deixou passar | Aqui tem mais site do que nas óticas (sobretudo buffet). Testar sempre o domínio, o `http://`, o Wix desconectado e a página "em manutenção". |
+| O vídeo muda o tom da resposta | Mantém: demo, vídeo no formato do Reels e flyer, como nas óticas do lote 6. |
+| Fora da Grande SP não funcionou | Mantém Grande SP. Chácara fica nas bordas (Mairiporã, Cotia, Santa Isabel, Mogi, Suzano, Embu-Guaçu, Juquitiba): é Grande SP. |
+| A régua de "loja pequena" (10 a 120 avaliações) trouxe perfis fracos; vale "estabelecida, com rosto e vida" | Em salão, as avaliações sobem rápido (cada festa tem muitos convidados): 60 avaliações já é casa com estrada. "Vida" aqui é festa de verdade acontecendo toda semana. |
+| Abrir pelo nome do dono | Mais fácil que nas óticas. Li as avaliações de 12 salões e chácaras do perfil (sem site, 4,8+, 60+): em 9 o dono responde quase todas, em primeira pessoa ("Deus abençoe", "minha querida"); em 6 o cliente cita o dono ou a dona, e em 2 pelo nome ("a proprietária Elaine", "os donos Valéria e Beto", "a Thaís, dona desse sítio"); nas outras, "a dona e a família dela", "o casal que administra o local". |
+| Quem gosta e é pequeno tem pouco caixa | Aqui pesa menos: a diária de salão pequeno aparece por R$ 600 a R$ 1.000 nas artes do Instagram (Bia Clean, Crokofest, RGK), e o material de nichos fala em R$ 1.200 a R$ 6.000 por evento. O site custa menos que uma diária. |
+
+**O que já existe no painel do nicho:** um lead só, o **Espaço Valladares Festas** (Freguesia do Ó; nota 4,8 com
+160 avaliações; 9,5 mil seguidores; posts semanais de 15 anos), em Sem resposta e fora do funil: 1º contato em
+agosto, **sem demo**. O Google aponta o Instagram como site e o `espacovalladares.com.br` não existe. É um bom
+primeiro teste com demo, se o Kaue quiser retomar.
+
+## 2. O mercado na Grande SP (amostra de 13/10/2026)
+
+Pelo card do Maps (nota, avaliações e categoria), dos 2.018 lugares de evento:
+
+| Segmento | Lugares | Mediana de avaliações | 4,8+ e 60+ avaliações |
+|---|---|---|---|
+| Salão de festas | 441 | 55 | 55 |
+| Chácara e sítio | 701 | 59 | 95 |
+| Espaço e local de eventos | 292 | 76 | 46 |
+| Casamento (buffet e local) | 169 | 193 | 36 |
+| Buffet infantil | 415 | 272 | 109 |
+
+Pelas 1.274 fichas abertas (nota 4,5+ e 20+ avaliações), o que o Google mostra no campo "site":
+
+| Segmento | Fichas | Domínio próprio | Nada | Instagram, Facebook, WhatsApp ou link na bio | Celular no Google |
+|---|---|---|---|---|---|
+| Salão de festas | 226 | 26% | 42% | 29% | 93% |
+| Chácara e sítio | 450 | 26% | 52% | 19% | 88% |
+| Espaço e local de eventos | 180 | 53% | 28% | 18% | 77% |
+| Casamento (buffet e local) | 131 | 57% | 30% | 11% | 76% |
+| Buffet infantil | 287 | 64% | 21% | 14% | 76% |
+
+Por faixa de avaliações (sem buffet infantil), quanto maior a casa, mais site:
+
+| Avaliações no Google | Domínio próprio |
+|---|---|
+| 20 a 59 | 17% (de 324) |
+| 60 a 149 | 25% (de 276) |
+| 150 a 399 | 42% (de 220) |
+| 400 ou mais | 78% (de 167) |
+
+**Os domínios próprios (497 testados):** 261 (53%) estão cadastrados no Google com `http://` (sem cadeado:
+site antigo); 52 não existem mais e 18 não apontam para lugar nenhum; 9 são Wix com o domínio desconectado
+("ConnectYourDomain Error"); 10 dão "página não encontrada" e 1 está "Em manutenção"; e 52 não responderam daqui
+(conferir antes de chamar de quebrado). Também apareceu certificado vencido. O material de nichos já tinha achado o
+mesmo (o Maranata com o WordPress "Wrdpress", a Chácara Mangueiral em manutenção; os dois continuam assim em
+13/10/2026). Site quebrado é o melhor gancho: "o seu site não abre; olha como ele poderia estar".
+
+**Lição da busca:** "chácara **para** festas em Mairiporã" o Google entende como **rota** ("de chácara para festas
+em Mairiporã") e devolve zero. Na varredura, usar "chácara **de** festas em …".
+
+## 3. Quem intermedia (e por que isso ajuda)
+
+- **casamentos.com.br:** só casamento. A página do espaço tem fotos, faixa de preço, capacidade e opiniões, mas
+  **não mostra telefone, WhatsApp, site nem Instagram**: só "Pedir orçamento grátis", e o portal fica com o
+  contato. Vive de plano pago dos fornecedores (o material de nichos diz que cobra mensalidade; não achei o
+  preço). Argumento: "lá o cliente pede orçamento pelo portal; no seu site ele fala direto com você".
+- **GetNinjas:** tem a categoria "aluguel de salão de festa"; o cliente pede orçamento e o fornecedor paga
+  para responder.
+- **Airbnb:** proíbe festas e eventos em todos os imóveis desde junho de 2022 (regra permanente). Chácara que
+  quer festa não tem a vitrine do Airbnb para isso.
+- **OLX, GuiaMais, Telelistas:** classificado e lista telefônica, sem foto boa nem avaliação.
+
+Nenhuma dá ao dono uma página com as fotos dele, as avaliações do Google e o WhatsApp dele. É o "nicho órfão de
+plataforma" do material de nichos, confirmado.
+
+## 4. Os sites dos concorrentes
+
+Fotografei 53 sites de salões, espaços, buffets e chácaras da amostra (celular e computador) e olhei 22 de
+perto, em dois lotes: primeiro os que apareceram (muito buffet da capital e do ABC), depois só chácaras, salões e
+espaços de casamento com site. O resumo:
+
+**O que é ruim (e a demo corrige):**
+- **A primeira tela no celular não mostra o lugar:** foto de mesa sem o nome (Espaço Mônaco), um botão de menu
+  gigante (Kid Buum), só texto sobre fundo escuro (Castelo Imperial, Família Ayala), slider em branco (Espaço
+  Klaus, no teste daqui). E o aviso de cookies tampa metade da tela em vários.
+- **Texto genérico que serve para qualquer lugar:** "Eventos completos, experiências inesquecíveis" (Galpão
+  265), "Você tem um sonho... nós o prazer de realizá-lo" (Canto Verde), e superlativo ("a melhor e mais
+  aconchegante casa de eventos do ABC").
+- **Fotos pequenas:** mosaico de miniaturas (Megauê, Castelo Imperial), carrossel do tamanho de um selo,
+  fotos escuras.
+- **Contato que esfria:** formulário que vai para e-mail, com reCAPTCHA (Kid Buum); banner de WhatsApp em
+  imagem (Espaço Firenze); botão "Solicitar orçamento" que não diz o que acontece depois.
+- **Avaliação que não dá para ler:** print minúsculo do casamentos.com.br (Canto Verde); depoimento sem nome.
+- **Site que é um cartão:** uma tela só, com logo, frase, botão e uma foto (Buffet Adoleta).
+- **Atrito antes de ver o lugar:** tela de entrada "toque no botão para entrar" (Recanto dos Bambus); botão
+  flutuante que cobre as fotos ("Fale c/ especialista", Bella Rosa); página longa demais, 15 a 16 telas de texto
+  no celular (Mezzatorre, Lírio dos Vales).
+- **Abandono:** "Em manutenção" (Cantarola), certificado vencido (Pimentas no Reino), Wix desconectado,
+  `http://` sem cadeado, "Selo 2017" como prova mais recente (Firenze).
+
+**O que é bom (e a demo leva):**
+- **Gente de verdade na abertura e prova logo em seguida:** o Mezzatorre (espaço de casamento em Santo André) é o
+  melhor da amostra: casal de verdade na foto grande, "10+ anos de experiência" e "650+ sonhos realizados", e uma seção de
+  **casamentos reais**, cada festa com foto e data.
+- **Informação concreta em vez de adjetivo:** 445 m², 180 convidados, estacionamento conveniado, ar-condicionado,
+  camarim com suíte, cozinha equipada (Espaço Klaus); a lista de atrações com ✓ e a distância do metrô Carrão
+  (Zupaloo); capacidade para até 300 pessoas, casa da noiva, loft do noivo (Canto Verde).
+- **A foto certa do lugar:** a chácara de verdade, com a luz da noite, na abertura (Canto Verde).
+- **Tipos de evento e o passo a passo:** "Casamentos", "Festas e celebrações", "Eventos corporativos" e "primeiro
+  contato → visite o espaço → planejamento → confirmação → o grande dia" (Galpão 265).
+- **A data como assunto:** a faixa "Poucas datas disponíveis" no topo (Zupaloo).
+- **História real em duas linhas:** "nasceu em 1995, construído por Sebastião Filho; hoje, em memória do Sr.
+  Sebastião, sua linhagem preserva o espaço" (Recanto do Tião).
+- **Reserva no WhatsApp no topo e avaliações do Google com nome e estrelas** (Sítio Mádia), e **cada ambiente com
+  nome e foto** (Lírio dos Vales: o salão, a pista, o cenário da represa, o camarim).
+
+**Por segmento:** no **casamento** (Cotia, Guararema, ABC) a concorrência é forte e nova: sites
+caprichados de agência ou feitos com ferramenta de IA (Mezzatorre, Recanto dos Bambus, Lírio dos Vales). Na
+**chácara de festa e fim de semana**, o site, quando existe, é simples (Recanto do Tião, Sítio Mádia). No **salão de
+festas**, só 1 em cada 4 tem site.
+
+Quem faz esses sites: agências pequenas que assinam no rodapé (Formiga Digital, Zona Zero, REAL, pedrini), Wix e
+WordPress com modelo pronto, e já aparece site novo com cara de gerado por IA (Galpão 265, 2026). Nenhum usa
+foto grande do espaço, avaliação do Google legível e consulta de data no WhatsApp ao mesmo tempo.
+
+## 5. Quem é o cliente certo
+
+**Entra (em ordem):**
+1. **Salão de festas de aluguel:** o dono aluga o espaço (às vezes com buffet, brinquedos ou decoração dele);
+   aniversário, 15 anos, chá revelação, confraternização. É o mais "sem site" e o mais "celular no Google".
+2. **Chácara ou sítio de festas:** área verde, piscina, churrasqueira; festa, casamento no campo, confraternização
+   de empresa, às vezes diária de lazer. Foto linda por natureza; só 1 em cada 4 tem site.
+3. **Espaço de eventos pequeno ou médio** (debutante, casamento pequeno, corporativo), de uma unidade, com o dono
+   à frente. Aqui já tem mais site: conferir com mais cuidado.
+
+**Fica de fora:**
+- **Buffet infantil** (64% com domínio próprio, mediana de 272 avaliações; o material de nichos já descartava
+  "buffet completo com vendedor dedicado") e **buffet ou espaço de casamento grande** (na faixa de 400+
+  avaliações, quase 4 em cada 5 têm domínio próprio).
+- **Rede ou grupo** (Megauê, Grupo Bom Tom/Família Ayala, nomes com 3+ casas), **casa de show e balada** (Win
+  Shows, Espaço Loop), **salão de condomínio** (aparece na busca: "Salão de festas - Torre Sky"), clube, hotel,
+  pousada.
+- **Fornecedor de festa** (decoração, brinquedos, cerimonial, DJ, foto): é outro nicho, que pode vir depois
+  (o material de nichos sugere indicação cruzada com os salões).
+
+## 6. Como fica a demo de eventos
+
+Gerador novo (a criar), `ferramentas/demo/gerar-eventos.py`, reaproveitando o `gerar.py` (fotos, avaliações,
+horário, cores). A ordem da página:
+
+1. **Abertura:** a melhor foto do espaço em tela cheia (montado à noite, ou a área externa), o nome, o bairro e
+   uma frase real do perfil; botão **"Consultar uma data"**.
+2. **Que festas o lugar recebe:** só as confirmadas nas legendas e avaliações (aniversário, 15 anos,
+   casamento, chá revelação, confraternização…).
+3. **O espaço:** galeria grande (vazio e montado), que abre em tela cheia ao tocar. É o "uau".
+4. **Estrutura:** ícones só do que foi confirmado (capacidade, área coberta, piscina, churrasqueira, cozinha,
+   brinquedos, ar-condicionado, estacionamento, acessibilidade, suíte da noiva).
+5. **Festas que aconteceram aqui:** carrossel de festas reais (gente celebrando), com rótulo curto ("15 anos",
+   "1 aninho", "casamento"), **sem o nome do cliente**.
+6. **Quem recebe:** o dono ou a família e a história (anos de casa), só quando confirmados.
+7. **Avaliações do Google** (nota só se for 5,0).
+8. **Consultar uma data:** três campos (data, tipo de festa, convidados) que abrem o WhatsApp do lugar com a
+   mensagem pronta ("Olá! Queria consultar o dia 14/03/2027 para um aniversário de 15 anos, cerca de 120
+   convidados."). Dá para fazer no arquivo único, sem servidor.
+9. **Como chegar:** endereço, mapa, horário de atendimento do Google e Instagram.
+
+**Fotos (o que muda em relação às óticas):**
+- O Instagram do salão mostra muito a mesa do bolo e pouco o espaço. **As fotos do Google** (de clientes e do
+  dono) costumam mostrar o salão vazio, a piscina, a fachada: usar sempre `fotos-google.mjs`.
+- Gente celebrando antes de mesa decorada; mesa decorada antes de arte. **Nada de arte com preço, "datas
+  disponíveis", banco de imagem** (casais de modelo com texto, como no Pallace) ou cara de IA.
+- **Crianças e debutantes:** aparecem em quase todo post. Preferir família e grupo; criança em destaque só de
+  post do próprio lugar, e marcar no "conferir" da ficha (como nas dentistas).
+- **Foto de terceiro:** decoração e fotografia costumam ser de outra empresa (legendas "montagem feita por
+  @…", marca d'água do fotógrafo). Fugir de marca d'água e anotar o crédito na ficha.
+- **Nada de nome de cliente** na demo, no vídeo e no flyer ("os 15 anos da Isabella" vira "15 anos").
+- **Preço nunca**, mesmo com o lugar divulgando a diária.
+
+**Vídeo (formato do Reels), o arco adaptado:**
+1. "Hoje, quem procura um lugar para a festa *começa pelo celular.*" / "Quer ver o espaço, as festas que já
+   aconteceram e a opinião de quem fez."
+2. "Conhece o <nome> *e quem recebe.*" / o dono, a família, os anos de casa (só o que for real).
+3. "Vê o espaço inteiro *antes da visita.*" / "Montado para a festa e vazio, do salão à área externa."
+4. O diferencial real (a piscina, a área verde, a capacidade, o lugar), explicado.
+5. "E lê o que *quem fez a festa conta.*" / "Nota 5,0 em N avaliações no Google, sem precisar procurar."
+6. "Quando decide, *consulta a data no WhatsApp.*" / "Com o dia e o número de convidados já escritos na mensagem."
+
+**Flyer de Stories:** uma foto de festa com gente sorrindo (ou o espaço montado, se não houver), o título da
+demo, uma frase, o selo do Google, o WhatsApp, o endereço e o @. Sem preço e sem "datas disponíveis".
+
+## 7. Quando mandar
+
+O material de nichos chama **outubro a dezembro de pico** (formaturas e confraternizações), "péssimo para vender,
+ótimo para coletar material e agendar janeiro", e põe **janeiro e fevereiro como a melhor janela**. É hipótese, não
+foi medido. Minha leitura: dá para começar agora, porque o dono está com o WhatsApp na mão (é por ali que fecha
+data) e a demo fica pronta antes da procura de janeiro; mas a resposta pode demorar mais que nas óticas. Na
+prática: mandar de **terça a quinta, em horário comercial** (nunca sábado e domingo, que é dia de festa).
+
+Abordagem como nas óticas: pelo nome do dono quando as avaliações mostram. **Nunca se passar por cliente**
+perguntando data (o material de nichos sugere ligar perguntando disponibilidade; isso é fingir ser outra pessoa e
+vira cara de golpe).
+
+## 8. A régua da prospecção (proposta)
+
+- **Grande SP**, uma unidade (no máximo duas), dono à frente; nada de rede, buffet infantil grande, casa de
+  show, salão de condomínio, clube ou hotel.
+- **Google: nota 4,8+ e 60+ avaliações**, a mesma das óticas. Na amostra, 232 lugares de salão, chácara, espaço
+  e casamento passam (sem contar buffet infantil). Se faltar, descer para 4,7+ (a mediana do nicho é 4,7: festa ruim
+  derruba mais a nota que ótica).
+- **Sem site próprio funcionando**, conferido de verdade (DNS, `http://`, Wix desconectado, manutenção, busca do
+  nome). Site quebrado sobe na fila.
+- **Instagram com post nos últimos 45 dias** (estamos na alta: quem não posta em outubro parou) e **1.000+
+  seguidores** (de preferência 2.000+).
+- **Rosto e vida, versão festa:** festas reais acontecendo (gente), o espaço bem fotografado (vazio e montado),
+  dono ou família aparecendo é bônus; pouca arte com preço, nada de banco de imagem ou IA. Olhar a folha de
+  **todos**.
+- **WhatsApp de celular** (Google, bio ou legendas) e, se der, **o nome de quem atende** pelas avaliações.
+
+**Funil da amostra com essa régua:** 232 lugares com 4,8+ e 60+ (sem buffet infantil) → 140 sem site próprio
+funcionando → 129 com celular no Google. O corte do Instagram ainda não foi feito (nas óticas e dentistas, passavam de
+18% a 32%). Dá um primeiro lote de 10 a 15; a varredura completa, com mais bairros e cidades, aumenta a margem.
+
+## 9. Como vai ser a varredura
+
+Os passos de `ferramentas/prospeccao/README.md`, com estas mudanças (scripts do nicho na pasta de trabalho, ou
+num arquivo novo, sem mexer nos das óticas):
+- **Buscas:** "salão de festas em …", "espaço para eventos em …", "chácara de festas em …", "sítio para eventos
+  em …", "espaço para festas em …" e "espaço de casamento em …", por bairro na capital e por cidade nas bordas
+  (Mairiporã, Caieiras, Franco da Rocha, Santa Isabel, Arujá, Mogi, Suzano, Ribeirão Pires, Embu-Guaçu,
+  Juquitiba, Itapecerica, Cotia, Santana de Parnaíba). Nada de "buffet infantil" (só traz o que fica de fora).
+- **Filtro** (`filtrar.py`): reconhecer o nicho pela **categoria do card** (Salão de festas, Local para eventos,
+  Salão de eventos, Local para casamentos, Casa de campo com "festa/evento" no nome), não pelo nome; fora
+  "Buffet infantil", "Serviço de catering", "Organização de eventos", "Loja de artigos para festas", "Salão de
+  beleza" (aparece em "salão de festas"), casa de show, condomínio e clube.
+- **Redes do nicho** para tirar: Megauê, Grupo Bom Tom (Família Ayala, Família Gioielli, Bom Tom Buffet) e o que
+  a contagem de 3+ unidades pegar.
+- **`achar-ig.py`:** palavras genéricas do nicho (espaço, salão, festas, eventos, buffet, chácara, sítio,
+  recanto, casa) e as variações de @ ("espaco<nome>", "<nome>festas", "<nome>eventos", "chacara<nome>").
+- **`juntar.py`:** "parece do nicho" por festa|evento|salão|espaço|chácara|sítio|buffet|recanto.
+- **Fotos do Google desde a triagem** (`fotos-google.mjs`): é onde aparece o espaço vazio, que o Instagram não
+  mostra; ajuda a escolher e a confirmar o @.
+
+## 10. Cuidados que valem para todo o nicho
+
+- **O @ certo:** "Espaço Maranata", "Recanto Maranata" e "Sítio Maranata" são três lugares diferentes, e nome de
+  salão se repete muito ("Recanto" aparece em 145 nomes da amostra). Conferir pela bio, pelo local dos posts e
+  pelas fotos do Google, como sempre.
+- **Dois endereços, uma marca** (Buffet Fernandes "Casa" e "Espaço"): tudo bem até duas; a demo é de um endereço.
+- **Ficha do Google de chácara** às vezes é de hospedagem ("Casa de campo", "Pousada"): confirmar que recebe festa.
+- **Capacidade, piscina aquecida, estacionamento:** só com fonte (legenda, bio, atributo do Google, avaliação).
+- **Horário:** o do Google costuma ser o de atendimento ou visita, não o da festa. Escrever "atendimento".
+
+## 11. Pendências (para o Kaue decidir)
+
+1. **A régua:** 4,8+ e 60+ avaliações, 1.000+ seguidores, post em 45 dias (seção 8). Ou outra?
+2. **Quantas demos no primeiro lote** (sugestão: 10 a 15 na lista, como nas óticas) e se o **Espaço Valladares**
+   entra como primeiro teste com demo.
+3. **Os três segmentos** (salão, chácara, espaço pequeno) no mesmo lote, ou começar só por salão e chácara.

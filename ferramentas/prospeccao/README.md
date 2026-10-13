@@ -65,3 +65,6 @@ Os scripts vieram das óticas. Antes de rodar para outro nicho, ajuste:
   dentista `clinica|odontologia|odonto|dr|dra|dental|sorriso|consultorio`) e as variações de @.
 - `juntar.py`: a expressão que confere se o perfil "parece do nicho" (`otic|optic|oculo…`) e os cortes de
   seguidores e posts.
+- As buscas: evite "X **para** Y em <cidade>". O Google às vezes lê como rota ("chácara para festas em Mairiporã"
+  abre o caminho de "chácara" até "festas em Mairiporã" e a lista volta vazia); use "chácara **de** festas em …".
+  Busca que volta com 0 resultados merece uma olhada antes de seguir (eventos, 13/10/2026: `docs/nichos/eventos.md`).
