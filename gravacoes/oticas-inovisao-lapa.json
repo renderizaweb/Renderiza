@@ -40,19 +40,20 @@
  "cenas": [
   {
    "rolar": 0,
-   "segura": 2.3,
-   "legenda": "Escolher óculos *sem ninguém empurrando?*",
-   "sub": "É o que muita gente procura."
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
   },
   {
    "rolar": ".story-photos",
-   "segura": 2,
-   "legenda": "Na Lapa, *a explicação vem com calma.*"
+   "segura": 5.6,
+   "legenda": "Conhece uma ótica *que explica sem pressa.*",
+   "sub": "Na Lapa, com várias opções e nenhuma pressão para levar o mais caro."
   },
   {
    "rolar": "#armacoes-track",
    "alinhar": "topo",
-   "segura": 2.6,
+   "segura": 4.4,
    "acoes": [
     {
      "em": 0.5,
@@ -65,20 +66,28 @@
      "tipo": "deslizar",
      "alvo": "#armacoes-track",
      "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
     }
    ],
-   "legenda": "As armações, *direto no rosto.*"
+   "legenda": "Vê as armações *direto no rosto.*",
+   "sub": "E já chega na loja sabendo quais quer provar."
   },
   {
    "rolar": "#atendimento h2",
    "alinhar": "topo",
-   "segura": 2.2,
-   "legenda": "Ajuste, conserto *e entrega no prazo.*"
+   "segura": 5.6,
+   "legenda": "E sabe que pode voltar *para ajustes e consertos.*",
+   "sub": "Do parafuso solto à armação amassada, a equipe dá um jeito."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.5,
+   "segura": 4.4,
    "acoes": [
     {
      "em": 0.7,
@@ -87,11 +96,12 @@
      "cartoes": 1
     }
    ],
-   "legenda": "489 avaliações no Google. *Quem procura vê isso hoje?*"
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "São 489 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#visite .button--mustard",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 1,
@@ -99,8 +109,8 @@
      "alvo": "#visite .button--mustard"
     }
    ],
-   "legenda": "Chamar no WhatsApp *a um toque.*",
-   "sub": "Com endereço e horário à vista."
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
   }
  ]
 }

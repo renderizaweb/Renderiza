@@ -40,19 +40,20 @@
  "cenas": [
   {
    "rolar": 0,
-   "segura": 2.3,
-   "legenda": "A família toda *precisa de óculos?*",
-   "sub": "Ela procura uma ótica pelo celular."
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
   },
   {
    "rolar": ".story-photos",
-   "segura": 2,
-   "legenda": "Encontra quem atende *pais, filhos e avós.*"
+   "segura": 5.1,
+   "legenda": "Conhece a Indira *e quem atende.*",
+   "sub": "A Gabriela e a Maria, que atendem famílias inteiras no Jardim Popular."
   },
   {
    "rolar": "#armacoes-track",
    "alinhar": "topo",
-   "segura": 2.6,
+   "segura": 4.9,
    "acoes": [
     {
      "em": 0.5,
@@ -65,14 +66,21 @@
      "tipo": "deslizar",
      "alvo": "#armacoes-track",
      "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
     }
    ],
-   "legenda": "As armações, *antes de sair de casa.*"
+   "legenda": "Vê as armações *antes de sair de casa.*",
+   "sub": "Gatinho, cristal, estampadas e clássicas, para todas as idades."
   },
   {
    "rolar": "#estilo-track",
    "alinhar": "topo",
-   "segura": 2.2,
+   "segura": 4.6,
    "acoes": [
     {
      "em": 0.45,
@@ -87,14 +95,22 @@
      "alvo": "#estilo-track",
      "cartoes": 1,
      "dur": 0.75
+    },
+    {
+     "em": 2.5,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
     }
    ],
-   "legenda": "Do jeito que *fica no rosto.*"
+   "legenda": "E vê como cada modelo *fica no rosto.*",
+   "sub": "Para chegar na loja sabendo quais quer provar."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.5,
+   "segura": 4.4,
    "acoes": [
     {
      "em": 0.7,
@@ -103,11 +119,12 @@
      "cartoes": 1
     }
    ],
-   "legenda": "31 avaliações no Google. *Quem procura vê isso hoje?*"
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "São 31 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#visite .button--mustard",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 1,
@@ -115,8 +132,8 @@
      "alvo": "#visite .button--mustard"
     }
    ],
-   "legenda": "Chamar no WhatsApp *a um toque.*",
-   "sub": "Com endereço e horário à vista."
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
   }
  ]
 }
