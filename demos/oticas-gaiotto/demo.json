@@ -1,0 +1,164 @@
+{
+ "pasta": "oticas-gaiotto",
+ "marca": "Óticas Gaiotto",
+ "marca_logo": "Óticas Gaiotto",
+ "marca_completa": "Óticas Gaiotto",
+ "logo_sub": "Jd. Munhoz Júnior · Osasco",
+ "titulo": "Óticas Gaiotto | Jardim Munhoz Júnior, Osasco",
+ "descricao": "Óticas Gaiotto, na R. Piacatu, 413, no Jardim Munhoz Júnior, em Osasco: óculos de grau e de sol que unem qualidade, estilo e conforto, do infantil ao esportivo, com atendimento próximo. Nota 5,0 no Google.",
+ "comentario": "Demo Óticas Gaiotto: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticas_gaiotto) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Bricolage Grotesque",
+ "cores": {
+  "escuro": "#0f3a3c",
+  "acento": "#f2c94c",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-gaiotto/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-gaiotto.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-gaiotto/perfil.jpg",
+  "box": [0.12, 0.12, 0.88, 0.88]
+ },
+ "topline": "R. Piacatu, 413 · Jardim Munhoz Júnior, Osasco",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Vitrine"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Jardim Munhoz Júnior, Osasco",
+  "h1": "Referência em Osasco <em>para o seu olhar.</em>",
+  "intro": "Óculos de grau e de sol que unem qualidade, estilo e conforto, do infantil ao esportivo, com atendimento próximo. Na R. Piacatu, 413.",
+  "selo": "Aberta até as 19h (quarta, até as 20h)",
+  "link": "Ver a vitrine",
+  "foto": { "id": 19, "box": [0, 0, 1, 0.62], "c": [0.5, 0.45] },
+  "alt": "Atendente da Óticas Gaiotto, de uniforme azul-turquesa, dentro da loja"
+ },
+ "endereco": ["R. Piacatu, 413", "Jd. Munhoz Júnior · Osasco"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Infantil", "Esportivos", "Lentes de contato", "Ajustes na hora", "Osasco"],
+ "sobre": {
+  "eyebrow": "A Gaiotto",
+  "h2": "Uma família <em>cuidando do seu olhar.</em>",
+  "p": [
+   "A Óticas Gaiotto começou no Jardim Mutinga, em Barueri, e abriu a segunda loja na R. Piacatu, em Osasco: óculos que unem qualidade, estilo e conforto, com atendimento próximo.",
+   "A Ananda e a equipe atendem com carinho e resolvem na hora o que precisar: um ajuste, um parafuso solto, uma armação torta."
+  ],
+  "stats": [["{nota}", "nota no Google"], ["2 lojas", "Osasco e Barueri"]],
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaiotto/google/g01.jpg", "c": [0.5, 0.5] },
+  "alt": "A Óticas Gaiotto por dentro: prateleiras iluminadas de óculos e a mesa de madeira",
+  "pol": { "id": 22, "box": [0, 0.12, 1, 1], "c": [0.5, 0.5] },
+  "pol_alt": "Prateleiras brancas com óculos de sol coloridos",
+  "pol_cap": "A vitrine"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Do infantil <em>ao esportivo.</em>",
+   "p": "Armações de grau, solares, infantis e esportivos. Venha provar ou peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Óculos da Óticas Gaiotto",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaiotto/google/g02.jpg", "c": [0.5, 0.5] }, "alt": "Armações de grau pretas no expositor de acrílico" },
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaiotto/google/g03.jpg", "c": [0.5, 0.5] }, "alt": "Armações de metal e acetato no expositor" },
+    { "foto": { "id": 5, "c": [0.5, 0.5] }, "alt": "Óculos de sol espelhados empilhados no expositor" },
+    { "foto": { "id": 6, "c": [0.5, 0.5] }, "alt": "Óculos esportivos de lente espelhada" },
+    { "foto": { "id": 35, "c": [0.5, 0.55] }, "alt": "Óculos esportivos e tênis de corrida na vitrine" },
+    { "foto": { "id": 1, "c": [0.5, 0.5] }, "alt": "Óculos de sol infantil branco em forma de flor, sobre a grama" },
+    { "foto": { "id": 3, "c": [0.5, 0.5] }, "alt": "Óculos de sol infantis de coração, branco e lilás, com pulseiras" },
+    { "foto": { "id": 2, "c": [0.5, 0.5] }, "alt": "Óculos de sol infantis de coração, rosa e preto" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar em Osasco ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Infantil",
+   "rotulo": "01 / INFANTIL",
+   "foto": { "id": 4, "c": [0.5, 0.35] },
+   "alt": "Menina sorrindo de óculos de sol, dentro da loja",
+   "texto": "Óculos de sol e de grau para os pequenos."
+  },
+  "solar": {
+   "titulo": "Esportivos",
+   "rotulo": "02 / ESPORTE",
+   "foto": { "id": 6, "c": [0.5, 0.45] },
+   "alt": "Óculos esportivos de lente espelhada no expositor",
+   "texto": "Solares esportivos para o treino e a corrida."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>ao ajuste.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na R. Piacatu, 413",
+   "Escolha a armação com calma, do infantil ao esportivo",
+   "Lentes para a sua rotina, com orçamento pelo WhatsApp",
+   "Ajustes e consertos na hora, quando você precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaiotto/google/g00.jpg", "c": [0.5, 0.5] },
+  "alt": "Fachada azul-turquesa da Óticas Gaiotto na R. Piacatu",
+  "pol": { "id": 24, "box": [0.25, 0.3, 1, 1], "c": [0.5, 0.5] },
+  "pol_alt": "Armação de metal sobre a flanela rosa",
+  "pol_cap": "Na flanela",
+  "card": ["Até as 19h", "Quarta, até as 20h."],
+  "formato": "paisagem"
+ },
+ "avaliacoes_secao": { "h2": "Quem já passou <em>por aqui.</em>" },
+ "avaliacoes": [
+  { "nome": "Gabriela Soares", "tag": "A Ananda", "trecho": "A minha experiência com a Óticas Gaiotto foi incrível. Família de Deus e mega profissionais. Atendimento e qualidade. Super recomendo. Parabéns Ananda e toda sua equipe." },
+  { "nome": "Cida Dias", "tag": "O ajuste" },
+  { "nome": "Soraia Souza", "tag": "O parafuso", "trecho": "O meu óculos soltou o parafuso, fui até a ótica Gaiotto para ver se havia colocar um novo parafuso, resolvi o meu problema, o atendimento foi super rápido." },
+  { "nome": "Breno Matheus", "tag": "Variedade" },
+  { "nome": "Eduardo Vinicius", "tag": "Ótima loja" }
+ ],
+ "instagram": "oticas_gaiotto",
+ "insta": {
+  "seguidores": "1,2 mil seguidores",
+  "p": "Lançamentos, clientes e novidades das duas lojas.",
+  "foto": { "id": 4, "c": [0.5, 0.4] },
+  "alt": "Menina de óculos de sol na loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Osasco.</em>",
+  "endereco": ["R. Piacatu, 413 · Jardim Munhoz Júnior", "Osasco, SP · CEP 06240-160"],
+  "telefone": "(11) 91363-6000",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Referência em Osasco para o seu olhar.",
+ "mensagem": "Olá! Vim pelo site da Óticas Gaiotto e queria um orçamento.",
+ "whatsapp": "5511913636000",
+ "fone_link": "+5511913636000",
+ "google": { "coords": "-23.5034293,-46.8066232", "fid": "0x94cefe09743f821d:0x89a5f5fa2ae7150a", "gid": "/g/11zg9phqb2" },
+ "google_nome": "OTICAS GAIOTTO",
+ "endereco_maps": "R. Piacatu, 413 - Jardim Munhoz Junior, Osasco - SP, 06240-160",
+ "google_nota": "5,0",
+ "google_total": "23",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 91363-6000 é o telefone do Perfil da Empresa no Google e o das artes; a bio tem um link wa.me/message",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1,2 mil seguidores, 23 avaliações (quase todas desta semana: loja nova). Duas lojas: Av. Diretriz, 132, Jardim Mutinga, Barueri, e a nova da R. Piacatu, 413, Osasco (convite de inauguração em 16/08). Bio: \"Referência em Osasco quando o assunto é o seu olhar\". Uma avaliação cita a Ananda."
+  ],
+  "demo": [
+   "Azul-petróleo e o amarelo da coroa do logo, títulos em Bricolage Grotesque.",
+   "Capa com a frase da bio e a atendente de uniforme; a loja por dentro (Google) e a história das duas lojas.",
+   "Carrossel do infantil ao esportivo (8), infantil e esportivos, atendimento com a fachada (Google), 5 avaliações de 5 estrelas (nota 5,0 · 23)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): solares e esportivos no expositor, infantis, a atendente (cortada acima do texto). Google: a fachada, a loja por dentro e as armações.",
+   "Ficaram de fora: as artes de preço (\"armação a partir de R$ 49\", tabela de preços), sorteios, Halloween, Dia dos Namorados e o exame grátis na vitrine."
+  ],
+  "conferir": [
+   "A dona deve ser a Ananda (avaliação: \"Parabéns Ananda e toda sua equipe\"). Não confirmei se é a moça das fotos.",
+   "O Plus Code do Google diz Barueri; o endereço diz Osasco (a rua fica na divisa)."
+  ]
+ }
+}

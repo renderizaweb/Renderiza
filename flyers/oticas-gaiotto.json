@@ -1,0 +1,30 @@
+{
+ "marca": "Óticas Gaiotto",
+ "local": "Jd. Munhoz Júnior · Osasco",
+ "fontes": {
+  "titulo": "Bricolage Grotesque",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0f3a3c",
+  "fundo2": "#092425",
+  "acento": "#f2c94c",
+  "tinta_acento": "#092425",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaiotto/flyer.jpg",
+  "pos": "50% 45%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "23"
+ },
+ "titulo": "Referência em Osasco <em>para o seu olhar.</em>",
+ "texto": "Óculos de grau e de sol que unem qualidade, estilo e conforto, do infantil ao esportivo.",
+ "whatsapp": "(11) 91363-6000",
+ "endereco": "R. Piacatu, 413 · Osasco",
+ "instagram": "@oticas_gaiotto",
+ "italico": false
+}

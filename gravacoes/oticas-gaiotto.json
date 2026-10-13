@@ -1,0 +1,105 @@
+{
+ "demo": "oticas-gaiotto",
+ "formato": "reels",
+ "marca": "Óticas Gaiotto",
+ "local": "Jd. Munhoz Júnior · Osasco",
+ "cores": {
+  "fundo": "#0f3a3c",
+  "fundo2": "#092425",
+  "acento": "#f2c94c",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Bricolage Grotesque",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Gaiotto"
+  ],
+  "frase": "Referência em Osasco para o seu olhar.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(3) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Gaiotto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Loja nova em Osasco. *Quem procura já encontra?*"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "Uma família *cuidando do seu olhar.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Do infantil *ao esportivo.*"
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Para os pequenos *e para o treino.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "23 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Chamar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}
