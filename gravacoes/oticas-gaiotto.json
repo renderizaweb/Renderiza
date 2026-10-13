@@ -40,18 +40,20 @@
  "cenas": [
   {
    "rolar": 0,
-   "segura": 2.3,
-   "legenda": "Loja nova em Osasco. *Quem procura já encontra?*"
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
   },
   {
    "rolar": ".story-photos",
-   "segura": 2,
-   "legenda": "Uma família *cuidando do seu olhar.*"
+   "segura": 5.6,
+   "legenda": "Conhece a Gaiotto *e quem atende.*",
+   "sub": "A Ananda e a equipe, que começaram em Barueri e agora têm loja em Osasco."
   },
   {
    "rolar": "#armacoes-track",
    "alinhar": "topo",
-   "segura": 2.6,
+   "segura": 5.4,
    "acoes": [
     {
      "em": 0.5,
@@ -64,20 +66,28 @@
      "tipo": "deslizar",
      "alvo": "#armacoes-track",
      "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
     }
    ],
-   "legenda": "Do infantil *ao esportivo.*"
+   "legenda": "Vê os óculos *antes de sair de casa.*",
+   "sub": "Do infantil ao esportivo, para chegar sabendo o que quer provar."
   },
   {
    "rolar": "#estilos h2",
    "alinhar": "topo",
-   "segura": 2.2,
-   "legenda": "Para os pequenos *e para o treino.*"
+   "segura": 4.4,
+   "legenda": "E encontra óculos *para cada idade.*",
+   "sub": "Infantis para os pequenos e esportivos para o treino."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.5,
+   "segura": 5.1,
    "acoes": [
     {
      "em": 0.7,
@@ -86,11 +96,12 @@
      "cartoes": 1
     }
    ],
-   "legenda": "23 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 23 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#visite .button--mustard",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 1,
@@ -98,8 +109,8 @@
      "alvo": "#visite .button--mustard"
     }
    ],
-   "legenda": "Chamar no WhatsApp *a um toque.*",
-   "sub": "Com endereço e horário à vista."
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
   }
  ]
 }
