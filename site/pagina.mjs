@@ -58,7 +58,7 @@ export const FRASE = { inicio: "O site do seu negócio,", destaque: "pronto ante
 const CAMINHO = [
   { icone: "pessoas", titulo: "Ouve falar de você", texto: "Por indicação, num post ou passando na frente." },
   { icone: "busca", titulo: "Pesquisa antes de chamar", texto: "Procura no Instagram e no Google as fotos, o endereço, o horário e o que os outros clientes acham." },
-  { icone: "pergunta", titulo: "Encontra tudo espalhado", texto: "Um pouco no feed, um pouco no Google, um pouco no link da bio. O resto, precisa perguntar." },
+  { icone: "pergunta", titulo: "Encontra tudo espalhado", texto: "Um pouco no feed, um pouco no Google, um pouco no link da bio. O resto, ele precisa perguntar." },
 ];
 
 // P · Problema e I · Implicação: o teste. Cada item é uma situação que o dono reconhece (P); "custo" é o que
@@ -98,7 +98,7 @@ const PERGUNTAS = [
   ["Já tenho Instagram. Preciso de um site?", "O Instagram mostra o seu dia a dia e continua importante. O site junta, num link só, o que o cliente novo procura antes de chamar: endereço, horário, serviços, avaliações e WhatsApp. E ainda leva para o seu Instagram."],
   // Uma pergunta para cada público que mais chama: quem não sabe o que fazer com um site, quem pede tráfego pago
   // e quem já tem gestor de anúncios.
-  ["O que eu faço com o site quando ele fica pronto?", "Você manda o link quando pedirem informação e coloca na bio do Instagram, no perfil do Google e no status do WhatsApp. Junto com o site vai o kit de divulgação: os textos prontos para cada um desses lugares e a mensagem para pedir avaliação aos seus clientes."],
+  ["O que eu faço com o site quando ele ficar pronto?", "Você manda o link quando pedirem informação e coloca na bio do Instagram, no perfil do Google e no status do WhatsApp. Junto com o site vai o kit de divulgação: os textos prontos para cada um desses lugares e a mensagem para pedir avaliação aos seus clientes."],
   ["Vocês fazem tráfego pago?", "O anúncio em si a gente não roda. A gente faz o lugar para onde ele leva: todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados, e quem cuidar do anúncio, você ou um gestor, vê quantos chamaram no WhatsApp."],
   ["Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Funciona. O Pixel da Meta e o Google Analytics já vêm instalados, e cada clique no WhatsApp é contado como contato. A gente passa o acesso para quem cuida do seu marketing."],
   ["Quanto custa?", "Um valor fechado, sem mensalidade, combinado na conversa depois que você vê a prévia. Ver a prévia não custa nada, e você só paga se decidir colocar o site no ar. Os adicionais são opcionais, e só o catálogo tem mensalidade, porque guarda os seus produtos. O domínio e a hospedagem ficam no seu nome e podem ter custos próprios."],
