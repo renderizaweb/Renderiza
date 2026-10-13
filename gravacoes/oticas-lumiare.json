@@ -1,0 +1,106 @@
+{
+ "demo": "oticas-lumiare",
+ "formato": "reels",
+ "marca": "Óticas Lumiare",
+ "local": "Matriz · Mauá",
+ "cores": {
+  "fundo": "#0f2a78",
+  "fundo2": "#091a4a",
+  "acento": "#e2b740",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Lumiare"
+  ],
+  "frase": "Clareza que transforma.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(2) img",
+   "#armacoes-track li:nth-child(4) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Lumiare.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Ela não quer ser *só mais uma receita.*",
+   "sub": "E procura uma ótica pelo celular."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "Aqui, os donos *atendem com a família.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "A loja e quem atende, *antes de sair de casa.*"
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Do ajuste no rosto *ao pós-venda.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "30 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Chamar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

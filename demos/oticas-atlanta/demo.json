@@ -1,0 +1,165 @@
+{
+ "pasta": "oticas-atlanta",
+ "marca": "Óticas Atlanta",
+ "marca_logo": "Óticas Atlanta",
+ "marca_completa": "Óticas Atlanta",
+ "logo_sub": "Vila Valparaíso · Santo André",
+ "titulo": "Óticas Atlanta | Vila Valparaíso, Santo André",
+ "descricao": "Óticas Atlanta, na Av. Atlântica, 243, na Vila Valparaíso, em Santo André: armações e solares das novas coleções, marca própria, entrega no ABC e envio para todo o Brasil. 56 avaliações no Google.",
+ "comentario": "Demo Óticas Atlanta: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticasatlanta) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#0b2b3d",
+  "acento": "#29b6e6",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-atlanta/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-atlanta.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-atlanta/perfil.jpg",
+  "box": [0.28, 0.02, 0.72, 0.46]
+ },
+ "topline": "Av. Atlântica, 243 · Vila Valparaíso, Santo André",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Coleções"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica na Vila Valparaíso, Santo André",
+  "h1": "Enxergar melhor, <em>com cuidado.</em>",
+  "intro": "Armações e solares das novas coleções, marca própria Atlanta e um atendimento que explica cada lente. Na Av. Atlântica, 243.",
+  "selo": "Entrega antes do prazo combinado",
+  "link": "Ver as coleções",
+  "foto": { "id": 11, "box": [0, 0.02, 1, 0.76], "c": [0.5, 0.45] },
+  "alt": "Moça provando uma armação de grau dentro da Óticas Atlanta"
+ },
+ "endereco": ["Av. Atlântica, 243", "Vila Valparaíso · Santo André"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Marca própria", "Varilux", "Lentes de contato", "Infantil", "Entrega no ABC", "Santo André"],
+ "sobre": {
+  "eyebrow": "A Atlanta",
+  "h2": "Um sonho <em>que virou realidade.</em>",
+  "p": [
+   "Na Av. Atlântica, em Santo André, a Óticas Atlanta nasceu de um sonho e, no primeiro ano, já ganhou marca própria de armações, venda online e entrega para todo o ABC.",
+   "Aqui nunca foi só sobre óculos: é sobre enxergar melhor, com cuidado e atenção. A Valéria explica cada lente, ajuda a escolher o modelo e acompanha até depois da entrega."
+  ],
+  "stats": [["56", "avaliações no Google"], ["Marca própria", "armações Atlanta"]],
+  "foto": { "id": 18, "c": [0.5, 0.45] },
+  "alt": "Vitrine da Óticas Atlanta com prateleiras de vidro cheias de óculos de sol"
+  ,
+  "pol": { "id": 19, "c": [0.5, 0.55] },
+  "pol_alt": "Sacola azul da Óticas Atlanta",
+  "pol_cap": "Sacola Atlanta"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Coleções",
+   "h2": "Novas coleções, <em>para provar.</em>",
+   "p": "Armações de grau e solares em todas as cores e formatos. Venha experimentar ou peça fotos pelo WhatsApp.",
+   "rotulo": "Óculos da Óticas Atlanta",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 21, "c": [0.5, 0.5] }, "alt": "Óculos de sol de lente amarela, tartaruga e caramelo sobre a mesa branca" },
+    { "foto": { "id": 23, "c": [0.5, 0.5] }, "alt": "Óculos de sol de lentes azul, marrom e laranja" },
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-atlanta/google/g00.jpg", "c": [0.5, 0.45] }, "alt": "Óculos de sol arrumados em círculo sobre a mesa" },
+    { "foto": { "id": 33, "c": [0.5, 0.5] }, "alt": "Óculos de sol esportivos e espelhados" },
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-atlanta/google/g03.jpg", "c": [0.5, 0.5] }, "alt": "Armação rosé gatinho e óculos de sol vermelho" },
+    { "foto": { "id": 52, "c": [0.5, 0.5] }, "alt": "Prateleiras de vidro com armações de grau" },
+    { "foto": { "id": 60, "c": [0.5, 0.5] }, "alt": "Armações de grau douradas e transparentes na vitrine" },
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-atlanta/google/g01.jpg", "c": [0.5, 0.45] }, "alt": "Armação dourada na mão, diante das folhas" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Av. Atlântica ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Marca própria",
+   "rotulo": "01 / ATLANTA",
+   "foto": { "id": 41, "c": [0.5, 0.4] },
+   "alt": "Armação de grau na mão, diante da vitrine",
+   "texto": "Armações com a marca da casa e o cuidado da loja."
+  },
+  "solar": {
+   "titulo": "Óculos de sol",
+   "rotulo": "02 / SOL",
+   "foto": { "id": 44, "c": [0.5, 0.45] },
+   "alt": "Óculos de sol tartaruga, rosa e marrom sobre a mesa",
+   "texto": "Solares das novas coleções para provar com calma."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Av. Atlântica, 243",
+   "Escolha a armação com calma, com a ajuda da equipe",
+   "Lentes explicadas com clareza, para a sua rotina",
+   "Entrega antes do prazo, com kit de limpeza e pós-venda"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "id": 34, "c": [0.5, 0.42] },
+  "alt": "Atendente da Óticas Atlanta mostrando opções a um cliente na mesa de atendimento",
+  "pol": { "id": 59, "c": [0.5, 0.5] },
+  "pol_alt": "Armação de grau na mão, ao lado do estojo",
+  "pol_cap": "Pronto para usar",
+  "card": ["Entrega no ABC", "E envio para todo o Brasil."]
+ },
+ "avaliacoes_secao": { "h2": "Quem já fez <em>os óculos aqui.</em>" },
+ "avaliacoes": [
+  { "nome": "Suane Santoos", "tag": "A Valéria", "trecho": "Valéria, profissional maravilhosa e empática, dedicada a entender nossas necessidades e o modelo que mais se adequa ao nosso gosto." },
+  { "nome": "Mariella Mian", "tag": "Antes do prazo" },
+  { "nome": "Fernanda Vitoriano", "tag": "Pelo WhatsApp", "trecho": "Como eu ja tinha a armação, praticamente fiz toda a negociação por WhatsApp. Mas elas tbm tem armações lindas e com valores acessíveis." },
+  { "nome": "Beatriz Estrela", "tag": "Kit de limpeza", "trecho": "Me entregaram um kit de limpeza do óculos que ajuda na limpeza das lentes evitando riscado. Super indico" },
+  { "nome": "Roberta R Vidal", "tag": "Orientação" }
+ ],
+ "instagram": "oticasatlanta",
+ "insta": {
+  "seguidores": "1 mil seguidores",
+  "p": "Coleções novas, clientes e dicas de lentes.",
+  "foto": { "id": 12, "box": [0, 0.13, 1, 1], "c": [0.5, 0.35] },
+  "alt": "Cliente de óculos de sol novos tirando foto no espelho da loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Av. Atlântica.</em>",
+  "endereco": ["Av. Atlântica, 243 · Vila Valparaíso", "Santo André, SP · CEP 09060-000"],
+  "telefone": "(11) 93742-0802",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Enxergar melhor, com cuidado.",
+ "mensagem": "Olá! Vim pelo site da Óticas Atlanta e queria um orçamento.",
+ "whatsapp": "5511937420802",
+ "fone_link": "+5511937420802",
+ "google": { "coords": "-23.6661417,-46.5438008", "fid": "0x94ce436ff8b14a75:0xe2b55db344b0d66d", "gid": "/g/11wn5f_31n" },
+ "google_nome": "Oticas Atlanta",
+ "endereco_maps": "Av. Atlântica, 243 - Vila Valparaíso, Santo André - SP, 09060-000",
+ "google_nota": "4,9",
+ "google_total": "56",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 93742-0802 é o telefone do Perfil da Empresa no Google e o das artes",
+  "site": "não tem (a bio tem Linktree com \"óculos online\")",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1 mil seguidores, 56 avaliações. Bio: loja online e física, marca própria Atlanta, unidade em São Bernardo \"em breve\". Post de 1 ano: \"Um sonho que virou realidade... Aqui nunca foi só sobre óculos. É sobre enxergar melhor, com cuidado\". As avaliações citam a Valéria."
+  ],
+  "demo": [
+   "Azul-petróleo e o azul do logo (o olho), títulos em Outfit.",
+   "Capa \"Enxergar melhor, com cuidado.\" com a moça provando armação; a vitrine e a sacola na história.",
+   "Carrossel de coleções (8, fotos de produto em alta), marca própria e solares, atendimento à mesa com cliente, 5 avaliações de 5 estrelas. Nota 4,9: a demo mostra as estrelas e as 56 avaliações."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): solares e armações em alta resolução, a vitrine, o atendimento e quadros de vídeo cortados acima do texto. Google: solares, armações e a mão com a armação.",
+   "Ficaram de fora: as artes de banco de imagem e de IA (multifocal, mitos e verdades, campanha de saúde), sorteios, Natal, preço e parcelamento."
+  ],
+  "conferir": [
+   "Venda online: a bio tem um Linktree com \"óculos online\"; confirmar se é loja virtual (pode pesar no \"já tenho site\").",
+   "Quem é o dono ou a dona. A Valéria é citada nas avaliações.",
+   "As artes anunciam atendimento a domicílio e exame de vista; a demo não cita."
+  ]
+ }
+}

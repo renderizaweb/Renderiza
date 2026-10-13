@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Lumiare",
+ "local": "Matriz · Mauá",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0f2a78",
+  "fundo2": "#091a4a",
+  "acento": "#e2b740",
+  "tinta_acento": "#091a4a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticas_lumiare/Instagram_files/691983755_18075379946356342_4645647491718506520_n.jpg",
+  "pos": "50% 42%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "30"
+ },
+ "titulo": "Clareza <em>que transforma.</em>",
+ "texto": "Uma ótica de família, com consultoria, lentes de alta performance e pós-venda de verdade.",
+ "whatsapp": "(11) 92688-1609",
+ "endereco": "Av. Dom José Gaspar, 1471 A · Mauá",
+ "instagram": "@oticaslumiare"
+}

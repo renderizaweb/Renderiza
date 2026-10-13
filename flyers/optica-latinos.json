@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Latinos",
+ "local": "Jd. Santa Teresinha · São Paulo",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1c2b29",
+  "fundo2": "#111b19",
+  "acento": "#c9a14a",
+  "tinta_acento": "#111b19",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/optica-latinos/google/g03.jpg",
+  "pos": "50% 32%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "130"
+ },
+ "titulo": "Exame e óculos <em>no mesmo lugar.</em>",
+ "texto": "Consulta com médico oftalmologista e armações para a família toda, com cafezinho.",
+ "whatsapp": "(11) 97222-3885",
+ "endereco": "Av. dos Latinos, 582 · São Paulo",
+ "instagram": "@oticalatinos"
+}

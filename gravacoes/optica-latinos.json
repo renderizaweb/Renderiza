@@ -1,0 +1,128 @@
+{
+ "demo": "optica-latinos",
+ "formato": "reels",
+ "marca": "Ótica Latinos",
+ "local": "Jd. Santa Teresinha · São Paulo",
+ "cores": {
+  "fundo": "#1c2b29",
+  "fundo2": "#111b19",
+  "acento": "#c9a14a",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:45:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Latinos"
+  ],
+  "frase": "Exame e óculos no mesmo lugar.",
+  "fotos": [
+   ".hero-photo img",
+   "#estilo-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(1) img",
+   ".story-photos img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Latinos.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Exame num lugar, *óculos em outro?*",
+   "sub": "Ela procura onde resolver tudo."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "Aqui, consulta e ótica *no mesmo endereço.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "As armações, *antes de sair de casa.*"
+  },
+  {
+   "rolar": "#estilo-track",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.3,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ],
+   "legenda": "Uma armação *para cada dia.*"
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "E a consulta *com médico oftalmologista.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "130 avaliações no Google. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Agendar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

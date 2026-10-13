@@ -2,6 +2,8 @@
 # um spec curto com a história do vídeo, uma legenda por parada:
 #   {"acento": "#…" (opcional: o acento clareado que o gerar.py imprimiu, para a legenda ler bem no escuro),
 #    "fotos": [seletores da montagem] (opcional), "fechamento": {"titulo", "destaque"} (opcional),
+#    "clima": "leve" | "sobrio" | "descolado" | "grife" (opcional, como no gravar.mjs),
+#    "nome": [linha de cima, destaque] (opcional: o nome da abertura, quando a quebra automática fica estranha),
 #    "cenas": [[tipo, legenda, sub opcional, {ajustes} opcional], …]}
 #   tipos (na ordem da página): topo, story, stats, armacoes, estilo, estilos, rosto, atendimento, reviews, insta, visite.
 #   Legenda: pergunta ou dor que o dono da ótica nem percebeu, e o site respondendo; o trecho entre * sai na cor da marca.
@@ -39,6 +41,8 @@ R = json.load(open(saida, encoding='utf-8'))
 R = {'demo': R['demo'], 'formato': 'reels', **{k: v for k, v in R.items() if k not in ('demo', 'cenas')}}
 if spec.get('acento'): R['cores']['acento'] = spec['acento']
 if spec.get('fotos'): R['abertura']['fotos'] = spec['fotos']
+if spec.get('clima'): R['clima'] = spec['clima']
+if spec.get('nome'): R['abertura']['nome'] = spec['nome']
 R['fechamento'].update({'titulo': 'Tudo num lugar só,', 'destaque': f'com a cara da {R["abertura"]["nome"][-1]}.'})
 R['fechamento'].update(spec.get('fechamento', {}))
 cenas = []

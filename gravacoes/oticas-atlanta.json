@@ -1,0 +1,105 @@
+{
+ "demo": "oticas-atlanta",
+ "formato": "reels",
+ "marca": "Óticas Atlanta",
+ "local": "Vila Valparaíso · Santo André",
+ "cores": {
+  "fundo": "#0b2b3d",
+  "fundo2": "#071b26",
+  "acento": "#29b6e6",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Atlanta"
+  ],
+  "frase": "Enxergar melhor, com cuidado.",
+  "fotos": [
+   ".hero-photo img",
+   "#armacoes-track li:nth-child(1) img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Atlanta.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Um ano de Atlanta. *Quem procura já encontra?*"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "A vitrine, a história *e quem atende.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "As coleções, *antes de sair de casa.*"
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Marca própria, *com o cuidado da loja.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "56 avaliações no Google. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Chamar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

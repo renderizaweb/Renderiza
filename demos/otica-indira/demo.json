@@ -1,0 +1,181 @@
+{
+ "pasta": "otica-indira",
+ "marca": "Ótica Indira",
+ "marca_logo": "Ótica Indira",
+ "marca_completa": "Ótica Indira",
+ "logo_sub": "Jardim Popular · São Paulo",
+ "titulo": "Ótica Indira | Jardim Popular, São Paulo",
+ "descricao": "Ótica Indira, na R. Almerindo Alziro Paganini, 18C, no Jardim Popular, em São Paulo: óculos de grau e de sol para a família toda, lentes com filtro de luz azul e entrega no prazo combinado. 31 avaliações no Google.",
+ "comentario": "Demo Ótica Indira: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@otica.indira) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Poppins",
+ "cores": {
+  "escuro": "#0c2340",
+  "acento": "#2aa9f0",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-indira/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/otica-indira.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-indira/perfil.jpg",
+  "box": [0, 0, 1, 1]
+ },
+ "topline": "R. Almerindo Alziro Paganini, 18C · Jardim Popular, São Paulo",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Armações"],
+  ["#estilo", "No rosto"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Jardim Popular, São Paulo",
+  "h1": "A família toda <em>de óculos novos.</em>",
+  "intro": "Armações de grau e de sol para todas as idades, com atenção do começo ao fim e entrega no prazo combinado. Na R. Almerindo Alziro Paganini, 18C.",
+  "selo": "Entrega no prazo combinado",
+  "link": "Ver as armações",
+  "foto": { "id": 17, "c": [0.5, 0.4] },
+  "alt": "Moça de óculos de grau pretos estilo gatinho, ao ar livre"
+ },
+ "endereco": ["R. Almerindo Alziro Paganini, 18C", "Jardim Popular · São Paulo"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Gatinho", "Cristal", "Infantil", "Filtro de luz azul", "Jardim Popular"],
+ "sobre": {
+  "eyebrow": "A Indira",
+  "h2": "Atenção <em>do começo ao fim.</em>",
+  "p": [
+   "Na R. Almerindo Alziro Paganini, no Jardim Popular, a Ótica Indira atende famílias inteiras: pais, filhos e avós fazem os óculos com a mesma equipe.",
+   "A Gabriela e a Maria atendem com paciência, da escolha da armação à entrega, no prazo combinado e com preço justo."
+  ],
+  "stats": [["31", "avaliações no Google"], ["Seg a sáb", "sábado até as 15h"]],
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-indira/google/g00.jpg", "c": [0.5, 0.5] },
+  "alt": "A Ótica Indira por dentro: vitrines de óculos, balcão branco e cadeiras",
+  "pol": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-indira/google/g01.jpg", "c": [0.5, 0.5] },
+  "pol_alt": "Cantinho infantil da loja, com armações, brinquedos e cata-ventos",
+  "pol_cap": "Para os pequenos"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações para <em>todos os estilos.</em>",
+   "p": "Gatinho, cristal, estampadas e clássicas. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Ótica Indira",
+   "formato": "quadrado",
+   "itens": [
+    { "foto": { "id": 20 }, "alt": "Armações pretas gatinho sobre a bandeja rosa, com rosas" },
+    { "foto": { "id": 24 }, "alt": "Armações estampadas em rosa e preto, lado a lado" },
+    { "foto": { "id": 16, "c": [0.5, 0.45] }, "alt": "Armações cristal e rosé sobre a madeira" },
+    { "foto": { "id": 21 }, "alt": "Armação gatinho vinho com o cartão da loja" },
+    { "foto": { "id": 29 }, "alt": "Armação gatinho verde-escura com o cartão da loja" },
+    { "foto": { "id": 27 }, "alt": "Armação gatinho preta com hastes douradas" },
+    { "foto": { "id": 38 }, "alt": "Armação redonda preta com hastes douradas" },
+    { "foto": { "id": 39 }, "alt": "Armações nude sobre o estojo azul da Indira" },
+    { "foto": { "id": 32 }, "alt": "Armações gatinho em preto, cristal e rosa" },
+    { "foto": { "id": 7 }, "alt": "Armação rosé transparente sobre a madeira, com o campo ao fundo" }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "No rosto",
+   "h2": "Do jeito que <em>fica no rosto.</em>",
+   "p": "Venha provar no Jardim Popular ou peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Óculos da Ótica Indira no rosto",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 19, "c": [0.5, 0.4] }, "alt": "Moça de óculos gatinho marsala com glitter" },
+    { "foto": { "id": 26, "c": [0.5, 0.4] }, "alt": "Moça de óculos gatinho vermelho" },
+    { "foto": { "id": 40, "c": [0.5, 0.45] }, "alt": "Moça sorrindo de óculos gatinho cristal" },
+    { "foto": { "id": 28, "c": [0.45, 0.45] }, "alt": "Moça de perfil, de óculos vermelho com haste diferente" },
+    { "foto": { "id": 34, "c": [0.5, 0.4] }, "alt": "Cliente de óculos redondo rosé e batom vermelho" },
+    { "foto": { "id": 23, "c": [0.5, 0.35] }, "alt": "Moça de óculos de sol máscara marrom" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Jardim Popular ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Filtro de luz azul",
+   "rotulo": "01 / TELAS",
+   "foto": { "id": 8, "c": [0.5, 0.45] },
+   "alt": "Armação redonda de metal na mão",
+   "texto": "Lentes com filtro de luz azul para quem passa o dia nas telas."
+  },
+  "solar": {
+   "titulo": "Óculos de sol",
+   "rotulo": "02 / SOL",
+   "foto": { "id": 33, "c": [0.5, 0.5] },
+   "alt": "Óculos de sol preto com detalhe dourado, ao lado de um colar de contas",
+   "texto": "Solares com proteção UVA e UVB para o dia a dia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na R. Almerindo Alziro Paganini, 18C",
+   "Escolha a armação com calma, com a ajuda da equipe",
+   "Lentes para a sua rotina, com filtro de luz azul para as telas",
+   "Entrega no prazo combinado, no estojo azul da Indira"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-indira/google/g03.jpg", "c": [0.5, 0.45] },
+  "alt": "Armação de metal na mão, diante da fachada azul da Ótica Indira",
+  "pol": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-indira/google/g02.jpg", "c": [0.5, 0.5] },
+  "pol_alt": "Sacola de papel kraft com o logo da Ótica Indira",
+  "pol_cap": "Pronto para levar",
+  "card": ["No prazo", "Combinado com você."]
+ },
+ "avaliacoes_secao": { "h2": "Famílias <em>de clientes.</em>" },
+ "avaliacoes": [
+  { "nome": "Andréia Gottschald", "tag": "Maria e Gabriella", "trecho": "Super indico e quero agradecer ao serviço prestado pelas funcionárias da Ótica Indira, mulheres atenciosas e super educadas!" },
+  { "nome": "Rodrigo Anunciação", "tag": "A família toda", "trecho": "Eu,  minha esposa e meus filhos sempre realizamos exames e compramos óculos com a Gabriela. Preço justo e qualidade." },
+  { "nome": "Barbara Figueiredo", "tag": "As meninas" },
+  { "nome": "CIGA-NOS Família Valenzuela", "tag": "No prazo" }
+ ],
+ "instagram": "otica.indira",
+ "insta": {
+  "seguidores": "1,9 mil seguidores",
+  "p": "Armações novas, clientes e dicas, toda semana.",
+  "foto": { "id": 26, "c": [0.5, 0.4] },
+  "alt": "Moça de óculos gatinho vermelho, ao ar livre"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Jardim Popular.</em>",
+  "endereco": ["R. Almerindo Alziro Paganini, 18C · Jardim Popular", "São Paulo, SP · CEP 03671-000"],
+  "telefone": "(11) 96542-7969",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "A família toda de óculos novos.",
+ "mensagem": "Olá! Vim pelo site da Ótica Indira e queria um orçamento.",
+ "whatsapp": "5511965427969",
+ "fone_link": "+5511965427969",
+ "google": { "coords": "-23.5150668,-46.5058651", "fid": "0x94ce6156dfd0ad8d:0xe19d147d10126a47", "gid": "/g/11qh3pg_bt" },
+ "google_nome": "Ótica Indira",
+ "endereco_maps": "R. Almerindo Alziro Paganini, 18c - Jardim Popular, São Paulo - SP, 03671-000",
+ "google_nota": "4,9",
+ "google_total": "31",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96542-7969 é o telefone do Perfil da Empresa no Google e o link de WhatsApp da bio",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1,9 mil seguidores, 31 avaliações. As avaliações citam a Gabriela e a Maria e famílias inteiras de clientes. Uma legenda diz \"Atendemos à domicílio\"; a bio diz \"Sáb e Domingo - Agendado\"."
+  ],
+  "demo": [
+   "Marinho e o azul-claro do logo (o logo do Instagram no topo), títulos em Poppins.",
+   "Capa \"A família toda de óculos novos.\" (das avaliações) com a moça de óculos gatinho; a loja e o cantinho infantil (Google) na história.",
+   "Carrossel de armações (10), carrossel no rosto (6), filtro de luz azul e solares, atendimento com a fachada e a sacola (Google), 4 avaliações de 5 estrelas. Nota 4,9: a demo mostra as estrelas e as 31 avaliações."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): armações em estúdio e ao ar livre, moças de óculos. Google: a loja por dentro, o cantinho infantil, a sacola e a fachada.",
+   "Ficaram de fora: artes (\"Lentes anti blue\", Dia da Saúde Ocular, Páscoa, lentes coloridas) e o solar com preço (R$ 79,99)."
+  ],
+  "conferir": [
+   "Quem é a moça das fotos ao ar livre (dona?). As avaliações citam a Gabriela e a Maria.",
+   "Uma avaliação de 1 estrela (2023) sobre um reparo atrasado: não entrou.",
+   "As legendas anunciam exame de vista gratuito na compra (promoção) e atendimento a domicílio; a demo não cita."
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Beauty Eyes",
+ "local": "Santa Paula · São Caetano do Sul",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a241d",
+  "fundo2": "#1a1612",
+  "acento": "#c6a15b",
+  "tinta_acento": "#1a1612",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/otica_beautyeyes/Instagram_files/623256066_18103367956830394_8272444652555795880_n.jpg",
+  "pos": "60% 40%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "28"
+ },
+ "titulo": "Mais que uma ótica, <em>um centro de estilo.</em>",
+ "texto": "Saúde visual e visagismo, óculos de grife e moda no mesmo endereço.",
+ "whatsapp": "(11) 98935-0981",
+ "endereco": "R. Maranhão, 529 · São Caetano do Sul",
+ "instagram": "@oticabeautyeyes"
+}
