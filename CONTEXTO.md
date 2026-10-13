@@ -407,11 +407,18 @@ dono tem que ver e gostar. A gentileza puxa a resposta.
 
 ## Busca de novas óticas (quando pedir)
 
-Critérios (desde o lote 4, pelo estudo do ciclo 1, [`docs/ciclos/ciclo-01-estudo.md`](docs/ciclos/ciclo-01-estudo.md)):
-Grande SP; independente e **pequena** (10 a 120 avaliações no Google, nota 4,8+; nada de rede ou franquia);
-**WhatsApp de celular** (fixo é atendente); **sem site próprio**, conferido de verdade (site quebrado é ótimo
-sinal); Instagram com post em 45 dias e 300+ seguidores, com fotos reais; **sinal de que o dono atende** (as
-avaliações citam o dono pelo nome, ele responde em primeira pessoa); e o **nome do dono**, para abrir a conversa.
+Critérios (régua do Kaue, 13/10/2026, depois que o lote 4 veio fraco): **ótica estabelecida e com vida no
+Instagram**, que tenha porte para pagar R$ 500 no site. Exemplo de referência: a Ótica BluLens (Capão Redondo,
+5,0 com 300 avaliações, 5,5 mil seguidores).
+- Grande SP; independente (uma ou duas lojas; nada de rede ou franquia); Google com nota 4,8+ e **60 ou mais
+  avaliações** (sem teto).
+- Instagram com **1.000+ seguidores** (de preferência 2.000+), post nos últimos 45 dias, **rosto e vida**: dono
+  ou equipe aparecendo, vídeo, loja de verdade. Pouca arte pronta, pouco texto, nada com cara de IA. Olhar a
+  folha de fotos de **todas** antes de escolher.
+- **Sem site próprio**, conferido de verdade (domínio do Google que não existe mais é ótimo gancho).
+- WhatsApp de celular e o nome de quem atende ou do dono, quando as avaliações mostram.
+- A régua de loja pequena do estudo do ciclo 1 (10 a 120 avaliações, 300+ seguidores) trouxe perfis fracos,
+  com arte pronta e pouca gente: não usar de novo.
 Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
 post, dono aparece, site, WhatsApp, nota/avaliações, quem atende (e o nome do dono), alerta. No fim, uma
 linha com os descartes.
@@ -447,6 +454,16 @@ README de `ferramentas/prospeccao/` (`sinais.mjs` e `pontuar.py` para as avalia�
   (Manaus), LL Vision (DDD 84), Veneza (Feira de Santana) e Lúmina (Barreiras-BA). Nenhum tem demo (a Dutra
   está parada no lote 2), mas a demo sairia com fotos de outra loja e a DM pelo Instagram iria para a loja
   errada. Conferir antes de usar.
+- O Kaue achou o lote 4 fraco (lojas pequenas demais, arte pronta, pouca gente): virou a régua acima.
+
+Lote 5 (13/10/2026), com a régua nova: mesmas listas → 457 óticas com 60+ avaliações e nota 4,8+ → 288 sem site →
+52 com 1.000+ seguidores e post recente (mais 4 achadas numa segunda busca de @, devagar, porque o Instagram
+corta quem consulta rápido demais) → todas olhadas na folha → 13 + 6 de reserva (lista no chat de 13/10/2026; nada
+cadastrado no painel). O que aprendi:
+- **Comparar as fotos da ficha do Google com as do Instagram** confirma o @ quando a legenda não traz endereço:
+  fachada, logo, cor da loja e as pessoas batem (`ferramentas/fotos-google.mjs` baixa as do Google).
+- 12 dos 52 @ achados pelo nome eram de outra cidade ou país; mais 2 não bateram com a loja do Google nas fotos.
+- Curtidas por post não servem de régua: ótica com 5 mil seguidores tem 5 a 15 curtidas por post.
 
 ## Dentistas
 

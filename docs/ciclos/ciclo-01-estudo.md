@@ -63,6 +63,11 @@ Na Haramaki, quem respondeu foi o Erick, do marketing (conversa do Kaue), e a co
 
 ## O perfil para o próximo lote
 
+> **Atualização (13/10/2026):** o lote 4, feito com este perfil, veio fraco na opinião do Kaue (lojas pequenas
+> demais, arte pronta, pouca gente no Instagram). Para a busca vale a régua nova do CONTEXTO ("Busca de novas
+> óticas"): ótica estabelecida, 60+ avaliações, 1.000+ seguidores e rosto e vida no perfil. O que segue sobre
+> celular, nome do dono e abordagem continua valendo.
+
 1. **Grande SP** (capital e cidades da região metropolitana).
 2. **Loja pequena:** de 10 a 120 avaliações no Google, nota 4,8 ou mais.
 3. **WhatsApp de celular** no Google ou na bio, de preferência o mesmo número nos dois. Só fixo fica de fora.
