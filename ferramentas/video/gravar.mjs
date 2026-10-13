@@ -23,6 +23,10 @@
 //   texto do canto das cartelas ("@loja", "" para nada) no lugar de "feito pela Renderiza" / "Renderiza · renderizaweb.com.br".
 //   legenda_baixo: distância da legenda até o pé da tela, em px de 720 (96). Para Reels e Stories, ~170: fica acima da
 //   descrição e dos botões que o Instagram põe por cima do vídeo.
+//   formato: "reels" (pedido do Kaue, 13/10/2026, no jeito do Reels da Renderiza em instagram/): no meio do vídeo o
+//   site real roda dentro de um celular, na parte de baixo, e em cima fica a legenda grande, que conta a história e
+//   provoca ("120 avaliações 5,0. *Hoje, quem vê?*"; o trecho entre * sai na cor da marca; "sub" é a linha menor).
+//   Abertura e fechamento continuam os mesmos. Cada legenda fica até a próxima entrar.
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve } from "node:path";
@@ -45,6 +49,9 @@ mkdirSync(ENSAIO ? pastaEnsaio : tmp, { recursive: true });
 const FPS = 30, DT = 1000 / FPS;
 const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
 const MONTAGEM = R.abertura?.estilo === "montagem", ROLAGEM = R.fechamento?.estilo === "rolagem";
+// Reels: a tela do celular (em px do vídeo final 1080 × 1920) e o site nela, num celular de 390 × 740 (1,6×).
+const REELS = R.formato === "reels";
+const TELA_R = { x: 228, y: 690, w: 624, h: 1184 }, SITE_VIEW = REELS ? { width: 390, height: 740 } : VIEW, SITE_ESC = REELS ? 1.6 : ESCALA;
 // Clima: troca das fotos da montagem (fusão e movimento), o desenho do nome e a velocidade da rolagem.
 const CLIMAS = {
   leve: { fusao: 0.45, kb: ["scale(1.14)", "scale(1.02)", "scale(1.03) translateX(-8px)", "scale(1.13) translateX(6px)"], mover: [0.75, 1.4] },
@@ -64,7 +71,7 @@ const entre = (a, b, x) => Math.min(1, Math.max(0, (x - a) / (b - a)));
 const PROXY = (process.env.HTTPS_PROXY || "").replace(/^https?:\/\//, "");
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium",
   args: ["--no-sandbox", "--hide-scrollbars", ...(PROXY ? ["--ignore-certificate-errors-spki-list=" + spkiProxy(), "--proxy-server=https=" + PROXY] : [])] });
-const contexto = () => browser.newContext({ viewport: VIEW, deviceScaleFactor: ESCALA, isMobile: true, hasTouch: true, locale: "pt-BR", timezoneId: "America/Sao_Paulo",
+const contexto = (viewport = VIEW, deviceScaleFactor = ESCALA) => browser.newContext({ viewport, deviceScaleFactor, isMobile: true, hasTouch: true, locale: "pt-BR", timezoneId: "America/Sao_Paulo",
   userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1" });
 
 // Avança as animações CSS (transições e @keyframes) do mesmo tanto que o relógio: nada corre sozinho entre quadros.
@@ -92,7 +99,7 @@ function codificador(arquivo) {
 const capturar = p => p.screenshot({ type: "jpeg", quality: 92, caret: "hide" });
 
 /* ---------- 1. o site rolando ---------- */
-const ctx = await contexto();
+const ctx = await contexto(SITE_VIEW, SITE_ESC);
 const pagina = await ctx.newPage();
 await pagina.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
 await pagina.addInitScript(AVANCAR);
@@ -126,7 +133,7 @@ await pagina.evaluate(({ c, fX, BAIXO }) => {
 
 // Mede onde cada cena para (posição de rolagem) e monta a linha do tempo. Com legenda embaixo, procura perto
 // do ponto pedido a parada em que a faixa da legenda não cobre título nem texto (e o alvo continua inteiro na tela).
-const medidas = await pagina.evaluate(({ cenas, BAIXO }) => {
+const medidas = await pagina.evaluate(({ cenas, BAIXO, REELS }) => {
   const vh = innerHeight, cab = (document.querySelector(".site-header")?.offsetHeight || 70);
   const max = document.documentElement.scrollHeight - vh;
   const faixa = { topo: vh - BAIXO - 46 - 10, base: vh - BAIXO + 10, esq: 30, dir: innerWidth - 30 };
@@ -146,7 +153,7 @@ const medidas = await pagina.evaluate(({ cenas, BAIXO }) => {
     if (!e) return { y: null, erro: "não achei " + ce.rolar };
     const a = abs(e);
     const y0 = limitar((ce.alinhar === "topo" ? a.top - cab - 10 : a.top + a.h / 2 - (cab + (vh - cab) / 2)) + (ce.ajuste || 0));
-    if (!ce.legenda || ce.legenda_no_topo) return { y: y0 };
+    if (!ce.legenda || ce.legenda_no_topo || REELS) return { y: y0 }; // no Reels a legenda fica fora do site
     let melhor = y0, nota = Infinity;
     for (let d = -240; d <= 240; d += 3) {
       const y = limitar(y0 + d);
@@ -161,7 +168,7 @@ const medidas = await pagina.evaluate(({ cenas, BAIXO }) => {
     }
     return { y: melhor };
   });
-}, { cenas: R.cenas, BAIXO });
+}, { cenas: R.cenas, BAIXO, REELS });
 medidas.forEach((m, i) => { if (m.erro) throw new Error("cena " + (i + 1) + ": " + m.erro); });
 
 const linha = []; // [{ini, fim, de, ate}] rolagem; legendas; ações
@@ -176,11 +183,13 @@ R.cenas.forEach((ce, i) => {
   }
   yAtual = y;
   const parada = t;
-  if (ce.legenda) legendas.push({ ini: parada + (i === 0 ? 0.35 : 0.1), fim: parada + ce.segura, texto: ce.legenda, topo: ce.legenda_no_topo });
+  // no Reels a legenda entra um pouco antes de parar (durante a rolagem) e fica até a próxima
+  if (ce.legenda) legendas.push({ ini: REELS && i > 0 ? Math.max(0, t - Math.min(0.45, ce.mover ?? 0.45)) : parada + (i === 0 ? 0.35 : 0.1), fim: parada + ce.segura, texto: ce.legenda, sub: ce.sub, topo: ce.legenda_no_topo });
   (ce.acoes || []).forEach(a => acoes.push({ ...a, ini: parada + a.em, y }));
   t += ce.segura;
 });
 const DUR_SITE = t;
+if (REELS) legendas.forEach((L, k) => { L.fim = k + 1 < legendas.length ? legendas[k + 1].ini : DUR_SITE + 1; });
 const yEm = s => { let y = medidas[0].y; for (const seg of linha) { if (s >= seg.fim) y = seg.ate; else if (s > seg.ini) return seg.de + (seg.ate - seg.de) * suave(entre(seg.ini, seg.fim, s)); } return y; };
 
 // Posições dos alvos das ações (em coordenadas da página) para o dedo.
@@ -210,24 +219,28 @@ if (ENSAIO) {
       const L = document.getElementById("__legenda");
       L.lastChild.textContent = texto || ""; L.style.opacity = texto ? 1 : 0; L.style.transform = "translate(-50%, 0)";
       L.style.bottom = topo ? "auto" : ""; L.style.top = topo ? "86px" : "";
-    }, { y: medidas[i].y, texto: ce.legenda, topo: ce.legenda_no_topo });
+    }, { y: medidas[i].y, texto: REELS ? "" : ce.legenda, topo: ce.legenda_no_topo });
     for (let k = 0; k < 4; k++) { await pagina.clock.runFor(250); await pagina.evaluate(() => window.__quadro(400)); }
-    await pagina.screenshot({ path: join(pastaEnsaio, `${String(i + 2).padStart(2, "0")}-cena${i + 1}.jpg`), type: "jpeg", quality: 80 });
+    await pagina.screenshot({ path: join(pastaEnsaio, `${String(i + 2).padStart(2, "0")}-cena${i + 1}${REELS ? "-site" : ""}.jpg`), type: "jpeg", quality: 80 });
   }
 }
 const site = ENSAIO ? null : codificador(join(tmp, "site.mp4"));
 const clicados = new Set();
 const total = ENSAIO ? 0 : Math.round(DUR_SITE * FPS);
 const inicio = Date.now();
-for (let f = 0; f < total; f++) {
-  const s = f / FPS, y = yEm(s);
-  // legenda
+// a legenda no instante s (no Reels ela vai para a moldura, fora do site)
+function legEm(s) {
   let leg = { texto: "", op: 0, dy: 12 };
   for (const L of legendas) {
     if (s < L.ini || s > L.fim) continue;
     const entra = entre(L.ini, L.ini + 0.3, s), sai = 1 - entre(L.fim - 0.25, L.fim, s);
-    leg = { texto: L.texto, op: Math.min(entra, sai), dy: 12 * (1 - suave(entra)), topo: !!L.topo };
+    leg = { texto: L.texto, sub: L.sub, op: Math.min(entra, sai), dy: 12 * (1 - suave(entra)), topo: !!L.topo };
   }
+  return leg;
+}
+for (let f = 0; f < total; f++) {
+  const s = f / FPS, y = yEm(s);
+  const leg = REELS ? { texto: "", op: 0, dy: 12 } : legEm(s);
   // ações: carrossel e dedo
   const carrosseis = {};
   let dedo = { op: 0, x: 0, y: 0, s: 1, anel: 0 };
@@ -419,7 +432,7 @@ ${assinatura("feito pela Renderiza", "position:absolute;z-index:21;left:32px;bot
 const F = R.fechamento || {};
 // Fechamento "rolagem": o site inteiro passando dentro de um celular enquanto o convite aparece.
 const TELA = { w: 196, h: 348 };
-const desce = Math.max(0, Math.round(alturaInteira * TELA.w / VIEW.width - TELA.h));
+const desce = Math.max(0, Math.round(alturaInteira * TELA.w / SITE_VIEW.width - TELA.h));
 const fechamentoRolagem = base + `
 <style>@keyframes rola{from{transform:translateY(0)}to{transform:translateY(-${desce}px)}}</style>
 <div class="bola" style="width:150px;height:150px;left:-50px;top:-50px;animation:cresce 1s cubic-bezier(.2,.8,.2,1) both"></div>
@@ -489,6 +502,74 @@ async function cartela(html, dur, arquivo) {
 }
 await cartela(MONTAGEM ? aberturaMontagem : abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
 await cartela(ROLAGEM ? fechamentoRolagem : fechamento, FECHAMENTO, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "99-fechamento.mp4" : "fechamento.mp4"));
+
+/* ---------- 2b. Reels: a moldura (fundo da marca e legenda grande) e o celular com o site ---------- */
+const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio: "inherit" }).on("close", code => (code === 0 ? ok() : falha(new Error(cmd + " saiu com " + code)))));
+let arquivoSite = join(tmp, "site.mp4");
+if (REELS) {
+  const M = { x: TELA_R.x / ESCALA, y: TELA_R.y / ESCALA, w: TELA_R.w / ESCALA, h: TELA_R.h / ESCALA }, BORDA = 7, RAIO = 30;
+  const destaque = t => esc(t).replace(/\*([^*]+)\*/g, '<span class="tom">$1</span>');
+  const moldura = base + `<style>
+body{background:radial-gradient(130% 62% at 88% 0%, ${c.fundo} 0%, ${c.fundo2} 72%)}
+#leg{position:absolute;left:28px;right:28px;top:98px;text-align:center;font-family:'${fT}',serif;font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-.5px;color:#fff;text-wrap:balance}
+#leg .tom{color:${c.acento}}
+#sub{display:block;margin-top:11px;font-family:'${fX}',system-ui,sans-serif;font-weight:500;font-size:14.5px;line-height:1.35;letter-spacing:0;color:${c.claro};opacity:.84;text-wrap:balance}
+.brilho{position:absolute;left:50%;top:${Math.round(M.y + 30)}px;width:330px;height:330px;margin-left:-165px;border-radius:50%;background:${c.acento};opacity:.13;filter:blur(46px)}
+</style>
+<div class="bola" style="width:92px;height:92px;right:-38px;top:-46px;opacity:.9"></div>
+<p class="selo" style="position:absolute;left:0;right:0;top:58px;justify-content:center">${esc(R.reels_selo || "Prévia do site")}</p>
+<div class="brilho"></div>
+<div id="leg"><span id="txt"></span><small id="sub"></small></div>
+</body></html>`;
+  const celular = `<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>html,body{margin:0;width:405px;height:720px;background:transparent;overflow:hidden}
+.cel{position:absolute;left:${M.x - BORDA}px;top:${M.y - BORDA}px;width:${M.w}px;height:${M.h}px;border:${BORDA}px solid #0b0b0f;border-radius:${RAIO}px;box-shadow:0 26px 60px #00000099,0 0 0 1px #ffffff26}
+</style></head><body><div class="cel"></div></body></html>`;
+  // o celular por cima do site: borda e cantos arredondados (o miolo é transparente)
+  const ctxC = await contexto(); const pc = await ctxC.newPage();
+  await pc.setContent(celular); await pc.screenshot({ path: join(ENSAIO ? pastaEnsaio : tmp, "celular.png"), omitBackground: true, type: "png" });
+  await ctxC.close();
+  // a máscara da tela: o site com os cantos arredondados por dentro da borda (senão o canto reto aparece por fora)
+  const ctxT = await contexto({ width: M.w, height: M.h }); const pt = await ctxT.newPage();
+  await pt.setContent(`<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>html,body{margin:0;width:${M.w}px;height:${M.h}px;background:#000;overflow:hidden}div{width:100%;height:100%;border-radius:${RAIO - BORDA}px;background:#fff}</style></head><body><div></div></body></html>`);
+  await pt.screenshot({ path: join(ENSAIO ? pastaEnsaio : tmp, "tela.png"), type: "png" });
+  await ctxT.close();
+  const juntar = `[3:v]format=gray[m];[1:v][m]alphamerge[s];[0:v][s]overlay=${TELA_R.x}:${TELA_R.y}`;
+  const ctxM = await contexto(); const pm = await ctxM.newPage();
+  await pm.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
+  await pm.setContent(moldura, { waitUntil: "networkidle" });
+  await pm.evaluate(AVANCAR);
+  await pm.evaluate(async ([t, x]) => { await Promise.all([`700 28px "${t}"`, `500 15px "${x}"`, `700 12px "${x}"`].map(f => document.fonts.load(f, "Áá"))); await document.fonts.ready; }, [fT, fX]);
+  const pintar = leg => pm.evaluate(({ html, sub, op, dy }) => {
+    const L = document.getElementById("leg"), T = document.getElementById("txt"), S = document.getElementById("sub");
+    if (T.dataset.v !== html) { T.innerHTML = html; S.textContent = sub || ""; S.style.display = sub ? "block" : "none"; T.dataset.v = html; }
+    L.style.opacity = op; L.style.transform = `translateY(${dy}px)`;
+  }, { html: destaque(leg.texto), sub: leg.sub, op: leg.op, dy: leg.dy });
+  if (ENSAIO) {
+    // cada parada como vai sair: moldura com a legenda, o site e o celular por cima
+    for (const [i, ce] of R.cenas.entries()) {
+      const nome = `${String(i + 2).padStart(2, "0")}-cena${i + 1}`;
+      await pintar({ texto: ce.legenda || "", sub: ce.sub, op: ce.legenda ? 1 : 0, dy: 0 });
+      await pm.evaluate(() => window.__quadro(2000));
+      await pm.screenshot({ path: join(pastaEnsaio, nome + "-moldura.png"), type: "png" });
+      await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", join(pastaEnsaio, nome + "-moldura.png"), "-i", join(pastaEnsaio, nome + "-site.jpg"), "-i", join(pastaEnsaio, "celular.png"), "-i", join(pastaEnsaio, "tela.png"),
+        "-filter_complex", `${juntar}[a];[a][2:v]overlay=0:0`, "-frames:v", "1", "-q:v", "3", join(pastaEnsaio, nome + ".jpg")]);
+      rmSync(join(pastaEnsaio, nome + "-moldura.png")); rmSync(join(pastaEnsaio, nome + "-site.jpg"));
+    }
+  } else {
+    const enc = codificador(join(tmp, "moldura.mp4"));
+    for (let f = 0; f < total; f++) {
+      await pintar(legEm(f / FPS));
+      await pm.evaluate(dt => window.__quadro(dt), f === 0 ? 0 : DT);
+      await enc.quadro(await capturar(pm));
+    }
+    await enc.fechar();
+    arquivoSite = join(tmp, "site-reels.mp4");
+    await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", join(tmp, "moldura.mp4"), "-i", join(tmp, "site.mp4"), "-i", join(tmp, "celular.png"), "-i", join(tmp, "tela.png"),
+      "-filter_complex", `${juntar}:shortest=1[a];[a][2:v]overlay=0:0,format=yuv420p[v]`,
+      "-map", "[v]", "-r", String(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", arquivoSite]);
+  }
+  await ctxM.close();
+}
 await browser.close();
 const o1 = ABERTURA - FUSAO, o2 = ABERTURA + DUR_SITE - 2 * FUSAO;
 const seg = (ABERTURA + DUR_SITE + FECHAMENTO - 2 * FUSAO).toFixed(1);
@@ -498,7 +579,6 @@ if (ENSAIO) {
 }
 
 /* ---------- 3. montagem: fusões, trilha (ou faixa muda: o WhatsApp trata como vídeo, não GIF) e compressão leve ---------- */
-const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio: "inherit" }).on("close", code => (code === 0 ? ok() : falha(new Error(cmd + " saiu com " + code)))));
 let audio = ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100"], filtroAudio = [];
 if (R.musica === "auto") {
   // Trilha original no tempo do vídeo: o groove entra com o site e o acorde final cai no fechamento.
@@ -514,7 +594,7 @@ if (R.musica === "auto") {
 }
 if (R.musica && R.volume_musica && R.volume_musica !== 1) filtroAudio = ["-af", [filtroAudio[1], `volume=${R.volume_musica}`].filter(Boolean).join(",")];
 await rodar(FFMPEG, ["-y", "-loglevel", "error",
-  "-i", join(tmp, "abertura.mp4"), "-i", join(tmp, "site.mp4"), "-i", join(tmp, "fechamento.mp4"), ...audio,
+  "-i", join(tmp, "abertura.mp4"), "-i", arquivoSite, "-i", join(tmp, "fechamento.mp4"), ...audio,
   // Grava em 1080 e reduz com lanczos: o texto sai mais nítido do que gravando direto em 720.
   "-filter_complex", `[0:v][1:v]xfade=transition=fade:duration=${FUSAO}:offset=${o1.toFixed(3)}[a];[a][2:v]xfade=transition=fade:duration=${FUSAO}:offset=${o2.toFixed(3)}${Number(R.resolucao) === 1080 ? "" : ",scale=720:1280:flags=lanczos"},format=yuv420p[v]`,
   "-map", "[v]", "-map", "3:a", ...filtroAudio, "-t", seg,

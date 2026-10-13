@@ -1,0 +1,127 @@
+{
+ "demo": "oticas-manuella",
+ "formato": "reels",
+ "marca": "Óticas Manuella",
+ "local": "Parque São Domingos · São Paulo",
+ "cores": {
+  "fundo": "#2a1214",
+  "fundo2": "#1a0b0c",
+  "acento": "#e64f4f",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Manuella"
+  ],
+  "frase": "Um novo jeito de ver o mundo.",
+  "fotos": [
+   ".hero-photo img",
+   "#estilo-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(4) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Manuella.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Antes de escolher a ótica, *ela pesquisa no celular.*"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "E descobre por que *a loja se chama Manuella.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "As coleções, *antes de sair de casa.*"
+  },
+  {
+   "rolar": "#estilo-track",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "acoes": [
+    {
+     "em": 0.45,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    },
+    {
+     "em": 1.3,
+     "tipo": "deslizar",
+     "alvo": "#estilo-track",
+     "cartoes": 1,
+     "dur": 0.75
+    }
+   ],
+   "legenda": "A armação certa, *escolhida com visagismo.*"
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "ZEISS, Varilux *e quem entende de multifocal.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "341 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "A receita vai *pelo WhatsApp, em um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

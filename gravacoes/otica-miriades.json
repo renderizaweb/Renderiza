@@ -1,0 +1,126 @@
+{
+ "demo": "otica-miriades",
+ "formato": "reels",
+ "marca": "Ótica Miríades",
+ "local": "Jd. Santo Expedito · Guarulhos",
+ "cores": {
+  "fundo": "#0d1a3a",
+  "fundo2": "#081024",
+  "acento": "#4c81f2",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Miríades"
+  ],
+  "frase": "Seus óculos novos, sem complicação.",
+  "fotos": [
+   "#armacoes-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(2) img",
+   ".hero-photo img",
+   "#armacoes-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Miríades.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "Óculos novos, *e com pressa?*",
+   "sub": "Ela procura uma ótica pelo celular."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "Encontra uma loja *que atende com calma.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê a vitrine *antes de sair de casa.*"
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ],
+   "legenda": "Descobre a armação *que combina com o rosto.*"
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "E sabe que muitos óculos *ficam prontos em 1 hora.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "137 avaliações no Google. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Chamar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

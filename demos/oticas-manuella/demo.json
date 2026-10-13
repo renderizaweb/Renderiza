@@ -1,0 +1,181 @@
+{
+ "pasta": "oticas-manuella",
+ "marca": "Óticas Manuella",
+ "marca_logo": "Óticas Manuella",
+ "marca_completa": "Óticas Manuella",
+ "logo_sub": "Parque São Domingos · São Paulo",
+ "titulo": "Óticas Manuella | Parque São Domingos, São Paulo",
+ "descricao": "Óticas Manuella, na Rua Emílio Colella, 89, no Parque São Domingos, em São Paulo: óculos de grau e de sol com consultoria de visagismo, lentes ZEISS e Varilux, adaptação de multifocais e lentes de contato. Nota 5,0 no Google.",
+ "comentario": "Demo Óticas Manuella: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticasmanuellaoficial) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2a1214",
+  "acento": "#aa1818",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-manuella/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-manuella.json",
+ "topline": "Rua Emílio Colella, 89 · Parque São Domingos, São Paulo",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Armações"],
+  ["#estilo", "No rosto"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Parque São Domingos, São Paulo",
+  "h1": "Um novo jeito <em>de ver o mundo.</em>",
+  "intro": "Armações de grau e de sol escolhidas com consultoria de visagismo, lentes ZEISS e Varilux e especialistas na adaptação de multifocais. Na Rua Emílio Colella, 89.",
+  "selo": "Loja certificada ZEISS e Varilux",
+  "link": "Ver as armações",
+  "foto": { "id": 37, "c": [0.5, 0.4] },
+  "alt": "Moça da Óticas Manuella sorrindo, ajeitando os óculos de sol verdes, diante do letreiro da loja"
+ },
+ "endereco": ["Rua Emílio Colella, 89", "Parque São Domingos · São Paulo"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Visagismo", "Lentes ZEISS", "Varilux", "Multifocais", "Lentes de contato", "Clip-on", "Parque São Domingos"],
+ "sobre": {
+  "eyebrow": "A Manuella",
+  "h2": "Um nome <em>com história.</em>",
+  "p": [
+   "Desde 2020 no Parque São Domingos, a Óticas Manuella leva o nome da Manuella, a filha que inspirou o projeto. Desde o primeiro dia, a ideia é a mesma: dar um toque único a cada olhar.",
+   "Aqui a armação é escolhida com consultoria e visagismo, as lentes são ZEISS e Varilux e quem usa multifocal tem acompanhamento até se adaptar. A Bia e a Carol atendem com paciência, da escolha ao pós-venda."
+  ],
+  "stats": [["{nota}", "nota no Google"], ["341", "avaliações no Google"]],
+  "foto": { "id": 36, "box": [0.34, 0.0, 1.0, 1.0], "c": [0.55, 0.45] },
+  "alt": "Mãe e filha abraçadas, sorrindo, na festa de 3 anos da Óticas Manuella",
+  "pol": { "id": 21, "c": [0.5, 0.5] },
+  "pol_alt": "Armação tartaruga na mão, diante da vitrine iluminada da loja",
+  "pol_cap": "A vitrine"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações com <em>personalidade.</em>",
+   "p": "Acetatos, tartarugas, cristais e cores para todos os estilos. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Óticas Manuella",
+   "formato": "quadrado",
+   "itens": [
+    { "foto": { "id": 1 }, "alt": "Óculos de sol e armação azul sobre a prateleira iluminada" },
+    { "foto": { "id": 5 }, "alt": "Armações tartaruga e onça lado a lado" },
+    { "foto": { "id": 4 }, "alt": "Armação gatinho tartaruga" },
+    { "foto": { "id": 15 }, "alt": "Armações tartaruga e azul estampada" },
+    { "foto": { "id": 6 }, "alt": "Armações transparentes em rosa e azul" },
+    { "foto": { "id": 3 }, "alt": "Armação tartaruga com hastes douradas" },
+    { "foto": { "id": 2 }, "alt": "Armações preta, nude e cristal" },
+    { "foto": { "id": 35 }, "alt": "Armações vermelha e azul estampada" },
+    { "foto": { "id": 14 }, "alt": "Óculos de sol escuro com hastes azuis, diante da vitrine" },
+    { "foto": { "id": 20 }, "alt": "Óculos de sol verde, mostarda e nude no expositor" }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "No rosto",
+   "h2": "A armação certa <em>muda tudo.</em>",
+   "p": "Consultoria e visagismo para achar o modelo que combina com o seu rosto e com o seu jeito.",
+   "rotulo": "Óculos da Óticas Manuella no rosto",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 8, "c": [0.5, 0.4] }, "alt": "Moça de óculos tartaruga laranja, com a mão no queixo" },
+    { "foto": { "id": 28, "c": [0.5, 0.4] }, "alt": "Moça de óculos gatinho em dois tons" },
+    { "foto": { "id": 39, "c": [0.55, 0.4] }, "alt": "Moça sorrindo de óculos hexagonal tartaruga" },
+    { "foto": { "id": 26, "c": [0.45, 0.45] }, "alt": "Moça sorrindo de óculos de sol caramelo" },
+    { "foto": { "id": 23, "c": [0.5, 0.4] }, "alt": "Moça de blazer preto e óculos tartaruga, diante de um muro grafitado" },
+    { "foto": { "id": 19, "c": [0.5, 0.4] }, "alt": "Moça de blusa rosa e óculos de grau, diante de um grafite colorido" },
+    { "foto": { "id": 33, "c": [0.5, 0.4] }, "alt": "Moça de blusa rosa e óculos de sol escuros, na rua" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Parque São Domingos ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Clip-on",
+   "rotulo": "01 / CLIP-ON",
+   "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-manuella/google/g01.jpg", "c": [0.5, 0.42] },
+   "alt": "Armação de grau tartaruga com clipes de sol amarelo e marrom, diante da vitrine",
+   "texto": "A armação de grau com clipes de sol que encaixam por cima."
+  },
+  "solar": {
+   "titulo": "Multifocais",
+   "rotulo": "02 / MULTIFOCAL",
+   "foto": { "id": 23, "c": [0.5, 0.35] },
+   "alt": "Moça de óculos tartaruga, de blazer preto",
+   "texto": "Especialistas na adaptação: acompanhamento até você se acostumar."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>à adaptação.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Rua Emílio Colella, 89",
+   "Consultoria e visagismo: a armação que combina com o seu rosto",
+   "Lentes ZEISS e Varilux: mande a sua receita e receba o orçamento",
+   "Acompanhamento na adaptação, do primeiro óculos ao multifocal"
+  ],
+  "botao": "Mandar a receita no WhatsApp",
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-manuella/google/g00.jpg", "c": [0.45, 0.5] },
+  "alt": "Atendente da Óticas Manuella na mesa de atendimento, mostrando uma armação à cliente",
+  "pol": { "id": 38, "c": [0.5, 0.55] },
+  "pol_alt": "Caixas de lentes de contato Acuvue diante do letreiro neon da loja",
+  "pol_cap": "Lentes de contato",
+  "card": ["ZEISS e Varilux", "Loja certificada."],
+  "formato": "paisagem"
+ },
+ "avaliacoes_secao": { "h2": "Quem já fez <em>os óculos aqui.</em>" },
+ "avaliacoes": [
+  { "nome": "Sá Rocini", "tag": "A Bia", "trecho": "Desde o primeiro atendimento fomos muito bem recebidas pela Bia (uma querida!), que teve muuuita paciência pra nos ajudar a escolher as armações" },
+  { "nome": "Eduardo Silva", "tag": "Garantia", "trecho": "trocaram as lentes na garantia - a custo zero, e tudo em uma semana! O atendimento da Bia e da Carol foram impecáveis em todos os momentos" },
+  { "nome": "Patrícia Tramontina Toffoli", "tag": "Modelos variados", "trecho": "Óculos e lentes de extrema qualidade, modelos variados e um mais lindo que o outro. Sem contar que o atendimento da Bia e da Carol é ímpar." },
+  { "nome": "Camila R Aguiar", "tag": "Cada detalhe", "trecho": "Atendimento da Bia foi sensacional, me explicou certinho cada detalhe, cada armação, as lentes" },
+  { "nome": "Aline Cipriano", "tag": "Lentes de contato" }
+ ],
+ "instagram": "oticasmanuellaoficial",
+ "insta": {
+  "seguidores": "6,3 mil seguidores",
+  "p": "Coleções novas, solares e dicas de visagismo, toda semana.",
+  "foto": { "id": 11, "c": [0.5, 0.35] },
+  "alt": "Moça de blusa rosa e óculos de grau, sorrindo diante de um grafite"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Parque São Domingos.</em>",
+  "endereco": ["Rua Emílio Colella, 89 · Parque São Domingos", "São Paulo, SP · CEP 05126-130"],
+  "telefone": "(11) 96919-0599",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Um novo jeito de ver o mundo.",
+ "mensagem": "Olá! Vim pelo site da Óticas Manuella e queria um orçamento.",
+ "whatsapp": "5511969190599",
+ "fone_link": "+5511969190599",
+ "google": { "coords": "-23.4999694,-46.7399551", "fid": "0x94cef972c04014e5:0xb9cb373b2c3db213", "gid": "/g/11qgl9cc1z" },
+ "google_nome": "Óticas Manuella",
+ "endereco_maps": "Rua Emílio Colella, 89 - Parque São Domingos, São Paulo - SP, 05126-130",
+ "google_nota": "5,0",
+ "google_total": "341",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96919-0599 é o telefone do Perfil da Empresa no Google; a bio tem um link wa.me/message (sem o número à mostra)",
+  "site": "não tem (o Google aponta oculosmanuella.com.br, que não existe mais)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 6,4 mil seguidores, fotos de estúdio com a mesma moça (provável dona, não confirmei). Bio: especialistas em multifocais, consultoria e visagismo, loja certificada ZEISS e Varilux. Slogan das legendas: \"Um novo jeito de ver o mundo\"."
+  ],
+  "demo": [
+   "Vinho quase preto e o vermelho do logo, títulos em Playfair Display (o logo é uma serifa clássica).",
+   "Capa \"Um novo jeito de ver o mundo.\" com a moça de óculos de sol verde; a história do nome (a filha, Manuella) com a foto de mãe e filha na festa de 3 anos.",
+   "Carrossel de armações (10), carrossel no rosto (7), clip-on (Google) e multifocais, atendimento com a foto da mesa (Google) e as lentes de contato, 5 avaliações de 5 estrelas (nota 5,0 · 341)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2023): armações em estúdio, a moça da loja, a festa de 3 anos. Google: a mesa de atendimento e o clip-on.",
+   "Ficaram de fora: artes com texto (coquetel, Natal, Dia das Crianças, \"Vai viajar?\"), a promoção \"4 opções por 59\" e a foto de outra loja (vestido Farm)."
+  ],
+  "conferir": [
+   "\"Desde 2020\": a loja comemorou 3 anos em novembro de 2023 (coquetel de 25/11). Confirmar o ano.",
+   "A Manuella é a filha (legendas: \"a vida inspiradora da nossa Manuella, a força motriz desse projeto\" e \"minha pequena grande fonte de inspiração, a Manuella\").",
+   "Quem é a moça das fotos (dona?). As avaliações citam a Bia e a Carol no atendimento.",
+   "Uma avaliação fala de \"Dra. Claudia que faz as avaliações na própria ótica\"; a demo não cita exame."
+  ]
+ }
+}

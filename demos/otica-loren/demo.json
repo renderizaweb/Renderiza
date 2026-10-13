@@ -1,0 +1,423 @@
+{
+ "pasta": "otica-loren",
+ "marca": "Ótica L'oren",
+ "marca_logo": "Ótica L'oren",
+ "marca_completa": "Ótica L'oren",
+ "logo_sub": "Jardim São Paulo · Zona Leste",
+ "titulo": "Ótica L'oren | Jardim São Paulo, Zona Leste de São Paulo",
+ "descricao": "Ótica L'oren, na R. Dr. Rodrigues de Miranda Júnior, 119, no Jardim São Paulo, Zona Leste de São Paulo: óculos de grau e de sol, lentes multifocais, com filtro de luz azul e polarizadas, armações infantis e clip-on. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica L'oren: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaloren) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#25272b",
+  "acento": "#f6c224",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-loren/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/otica-loren.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-loren/perfil.jpg",
+  "box": [
+   0.17,
+   0.09,
+   0.83,
+   0.62
+  ]
+ },
+ "topline": "R. Dr. Rodrigues de Miranda Júnior, 119 · Zona Leste de São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#armacoes",
+   "Armações"
+  ],
+  [
+   "#estilo",
+   "Óculos de sol"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Jardim São Paulo, Zona Leste",
+  "h1": "A sua visão <em>com estilo.</em>",
+  "intro": "Armações de grau e de sol, lentes para cada rotina e um atendimento que cuida de cada detalhe, da escolha da armação à entrega. Na R. Dr. Rodrigues de Miranda Júnior, 119.",
+  "selo": "Famílias que voltam desde a inauguração",
+  "link": "Ver as armações",
+  "foto": {
+   "id": 38,
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "alt": "Moça da Ótica L'oren sorrindo, de óculos de sol marrons, na loja"
+ },
+ "endereco": [
+  "R. Dr. Rodrigues de Miranda Júnior, 119",
+  "Jardim São Paulo · São Paulo"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes multifocais",
+  "Filtro de luz azul",
+  "Lentes polarizadas",
+  "Clip-on 2 em 1",
+  "Armações infantis",
+  "Jardim São Paulo"
+ ],
+ "sobre": {
+  "eyebrow": "A L'oren",
+  "h2": "Cuidado <em>em cada detalhe.</em>",
+  "p": [
+   "Na R. Dr. Rodrigues de Miranda Júnior, no Jardim São Paulo, a Ótica L'oren faz óculos de grau e de sol com atendimento de perto: ajuda a escolher a armação que combina com o rosto, explica cada lente e acompanha a adaptação depois da entrega.",
+   "Muitas famílias são clientes desde a inauguração e voltam a cada óculos novo. Cada par sai no estojo da L'oren, com flanela e todo o capricho."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "120",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-loren/google/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "A Ótica L'oren por dentro: vitrines de óculos, cadeiras amarelas e a parede com o logo",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-loren/google/g02.jpg",
+   "box": [
+    0.0,
+    0.03,
+    1.0,
+    0.72
+   ]
+  },
+  "pol_alt": "Cliente da Ótica L'oren sorrindo de óculos, com a sacola da loja",
+  "pol_cap": "Cliente de casa"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações para <em>todos os estilos.</em>",
+   "p": "Femininas, masculinas, infantis e de cristal. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Ótica L'oren",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Armações femininas de acetato em cores claras"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Armações femininas pretas, vinho e cristal no expositor"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Armações de cristal sobre o vidro da vitrine"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Armações juvenis Vibe no expositor de acrílico"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Armações sobre o balcão, com o quadro Mais Amor"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Armação masculina azul ao lado de uma árvore dourada decorativa"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Armações tradicionais e discretas na vitrine"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Armação redonda diante do letreiro Gratidão"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Óculos de sol delicado e armações sobre a prateleira"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Armação clip-on 2 em 1 com o clipe de sol"
+    }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "Óculos de sol",
+   "h2": "Solares que <em>completam o look.</em>",
+   "p": "Modelos com proteção UV para o dia a dia. Venha provar na loja ou peça fotos pelo WhatsApp.",
+   "rotulo": "Óculos de sol da Ótica L'oren no rosto",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 37,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça da Ótica L'oren sorrindo de óculos vermelhos"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Óculos de sol Vizzano no expositor, com a foto de campanha"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol escuros no rosto, dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Óculos de sol degradê no expositor ao lado da sacola L'oren"
+    },
+    {
+     "foto": {
+      "id": 11,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol Maresia no rosto"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Óculos de sol Maresias no expositor azul"
+    },
+    {
+     "foto": {
+      "id": 27,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Óculos de sol Maresia redondo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-loren/google/g05.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Cliente de óculos de grau dourado, sorrindo"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Jardim São Paulo ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Clip-on 2 em 1",
+   "rotulo": "01 / 2 EM 1",
+   "foto": {
+    "id": 7,
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "alt": "Armação de grau com clipes de sol e amarelo para dirigir à noite",
+   "texto": "Grau, sol e lente para dirigir à noite na mesma armação."
+  },
+  "solar": {
+   "foto": {
+    "id": 33,
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "alt": "Menina sorrindo de óculos infantil cor-de-rosa, segurando flores",
+   "titulo": "Armações infantis",
+   "rotulo": "02 / INFANTIL",
+   "texto": "Armações leves e coloridas para os pequenos."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, no Jardim São Paulo",
+   "Escolha a armação com ajuda: formato do rosto, estilo e conforto",
+   "Lentes para a sua rotina: multifocal, filtro de luz azul, fotossensível ou polarizada",
+   "Óculos no estojo da L'oren, com acompanhamento da adaptação"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 1,
+   "box": [
+    0.0,
+    0.1,
+    1.0,
+    0.53
+   ]
+  },
+  "alt": "Moça da Ótica L'oren na loja, de uniforme azul, ao lado da cesta do sorteio do kit escolar",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-loren/google/g03.jpg",
+   "box": [
+    0.0,
+    0.42,
+    1.0,
+    1.0
+   ]
+  },
+  "pol_alt": "Óculos no estojo da Ótica L'oren, com flanela e spray de limpeza",
+  "pol_cap": "Entregue no estojo",
+  "card": [
+   "Entrega em casa",
+   "Pergunte pelo WhatsApp."
+  ],
+  "formato": "paisagem"
+ },
+ "avaliacoes_secao": {
+  "h2": "Clientes <em>de casa.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Dorca Cavalcante",
+   "tag": "Desde a inauguração",
+   "trecho": "Eu e minha família somos clientes da loja desde a inauguração. Sempre renovo meus óculos com a Ótica L’oren pela qualidade, preço e excelente atendimento."
+  },
+  {
+   "nome": "Aguieda Maria Macedo Maldonado",
+   "tag": "A Kelly",
+   "trecho": "Atendimento maravilhoso da querida Kelly 🥰 muito atenciosa e paciente, me ajudou na escolha da armação ideal pra meu rosto"
+  },
+  {
+   "nome": "Daniel Pinheiro",
+   "tag": "Pós-venda",
+   "trecho": "Pós-venda: Acompanhamento sobre a adaptação aos novos óculos."
+  },
+  {
+   "nome": "Simone Fernandes",
+   "tag": "Atenção e cuidado"
+  },
+  {
+   "nome": "Loiraa",
+   "tag": "Óculos lindos"
+  }
+ ],
+ "instagram": "oticaloren",
+ "insta": {
+  "seguidores": "12,3 mil seguidores",
+  "p": "Armações novas, solares e clientes de óculos novo, toda semana.",
+  "foto": {
+   "id": 32,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Moça da Ótica L'oren sorrindo na festa da loja, com balões coloridos"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Jardim São Paulo.</em>",
+  "endereco": [
+   "R. Dr. Rodrigues de Miranda Júnior, 119 · Jardim São Paulo",
+   "Zona Leste, São Paulo, SP · CEP 08461-450"
+  ],
+  "telefone": "(11) 98586-4362",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "A sua visão com estilo.",
+ "mensagem": "Olá! Vim pelo site da Ótica L'oren e queria um orçamento.",
+ "whatsapp": "5511985864362",
+ "fone_link": "+5511985864362",
+ "google": {
+  "coords": "-23.5597647,-46.4042592",
+  "fid": "0x94ce65da66bcf8b5:0x1fb6bc16bf32dfab",
+  "gid": "/g/11pcp9523z"
+ },
+ "google_nome": "Ótica L'oren",
+ "endereco_maps": "R. Dr. Rodrigues de Miranda Júnior, 119 - Jardim São Paulo (Zona Leste), São Paulo - SP, 08461-450",
+ "google_nota": "5,0",
+ "google_total": "120",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98586-4362 é o telefone do Perfil da Empresa no Google e o link wa.me da bio",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 12,3 mil seguidores; a mesma moça grava os vídeos na loja (provável dona, não confirmei). Slogan da marca: \"A sua visão com estilo\"."
+  ],
+  "demo": [
+   "Cinza-grafite e amarelo do logo, títulos em Playfair Display; logo do Instagram (o olho) no topo.",
+   "Capa \"A sua visão com estilo.\" com a moça da loja de óculos de sol; a loja por dentro e um cliente com a sacola (Google) na história.",
+   "Carrossel de armações (10), carrossel de óculos de sol no rosto (8), clip-on 2 em 1 e armações infantis, atendimento com a cliente do sorteio e o estojo, 5 avaliações de 5 estrelas (nota 5,0 · 120)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2021): armações, solares e a moça da loja. Google: a loja por dentro, o cliente com a sacola, o estojo e a cliente de óculos dourado.",
+   "Ficaram de fora: artes com preço e promoção (Black Friday, Reobote 59,99), datas comemorativas e fotos borradas."
+  ],
+  "conferir": [
+   "Quem é a moça dos vídeos (dona?).",
+   "Entrega em casa (destaque \"Delivery L'oren\" e uma avaliação: \"eles enviam os óculos com muito capricho\"): confirmar a região. Os destaques falam também em optometria; a demo não cita.",
+   "As fotos do Drive são de 2021; o Instagram de 2026 tem a mesma moça em vídeos."
+  ]
+ }
+}

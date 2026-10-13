@@ -1,0 +1,340 @@
+{
+ "pasta": "oticas-gaffa",
+ "marca": "Óticas Gaffa",
+ "marca_logo": "Óticas Gaffa",
+ "marca_completa": "Óticas Gaffa",
+ "logo_sub": "Bangú · Santo André",
+ "titulo": "Óticas Gaffa | Bangú, Santo André",
+ "descricao": "Óticas Gaffa, na Rua Oratório, 684, no Bangú, em Santo André: óculos de grau e de sol, clip-on e lentes multifocais, com atendimento do primeiro óculos à entrega. Nota 5,0 no Google.",
+ "comentario": "Demo Óticas Gaffa: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticasgaffa) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Montserrat",
+ "cores": {
+  "escuro": "#0b1840",
+  "acento": "#e3ad3b",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-gaffa/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-gaffa.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaffa/logo.png",
+  "box": [
+   0,
+   0,
+   1,
+   1
+  ]
+ },
+ "topline": "Rua Oratório, 684 · Bangú, Santo André",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#armacoes",
+   "Armações"
+  ],
+  [
+   "#estilos",
+   "Estilos"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Bangú, em Santo André",
+  "h1": "Precisão diante <em>dos seus olhos.</em>",
+  "intro": "Óculos de grau e de sol, clip-on e lentes multifocais, com quem explica cada detalhe e acompanha do primeiro óculos à entrega. Na Rua Oratório, 684.",
+  "selo": "Cuidando da sua visão há mais de 8 anos",
+  "link": "Ver as armações",
+  "foto": {
+   "id": 9,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Moça de óculos de sol clip-on, dentro da Óticas Gaffa"
+ },
+ "endereco": [
+  "Rua Oratório, 684",
+  "Bangú · Santo André"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Clip-on",
+  "Multifocais",
+  "Infantil",
+  "Lentes com proteção UV",
+  "Bangú · Santo André"
+ ],
+ "sobre": {
+  "eyebrow": "A Gaffa",
+  "h2": "Uma nova fase, <em>o mesmo cuidado.</em>",
+  "p": [
+   "Há mais de 8 anos na Rua Oratório, no Bangú, a Óticas Gaffa começou uma nova fase: loja renovada e o João Paulo como novo proprietário, com o compromisso de manter o atendimento de qualidade de sempre.",
+   "Aqui quem atende explica cada armação e cada lente sem pressa, do primeiro óculos ao multifocal, e acompanha até depois da entrega."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "63",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "O João Paulo e uma atendente conversando dentro da Óticas Gaffa renovada",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaffa/google/g00.jpg",
+   "box": [
+    0.0,
+    0.2,
+    1.0,
+    0.7
+   ]
+  },
+  "pol_alt": "Fachada azul da Óticas Gaffa na Rua Oratório",
+  "pol_cap": "Rua Oratório, 684"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações modernas, <em>leves e estilosas.</em>",
+   "p": "Grau, sol e clip-on para todos os gostos e idades. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Óticas Gaffa",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 2,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Armação preta retangular na mão, diante da vitrine"
+    },
+    {
+     "foto": {
+      "id": 4,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armação tartaruga na mão, sob a luz da tarde"
+    },
+    {
+     "foto": {
+      "id": 11,
+      "c": [
+       0.5,
+       0.42
+      ]
+     },
+     "alt": "Armação dourada e cristal na mão"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-gaffa/google/g01.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Óculos de sol tartaruga na prateleira da loja"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.72
+      ]
+     },
+     "alt": "Óculos de sol pretos na mão, diante da vitrine"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Estojo vermelho da Gaffa sobre o mapa de formatos de rosto"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Bangú ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Multifocais",
+   "rotulo": "01 / MULTIFOCAL",
+   "foto": {
+    "id": 34,
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "alt": "O João Paulo, de óculos de grau, explicando as lentes na loja",
+   "texto": "Ver bem de perto e de longe com um só par: o João explica como funcionam."
+  },
+  "solar": {
+   "titulo": "Clip-on",
+   "rotulo": "02 / CLIP-ON",
+   "foto": {
+    "id": 7,
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "alt": "Armações tartaruga ao lado do estojo vermelho da loja",
+   "texto": "Grau e sol na mesma armação, com o clipe que encaixa por cima."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do primeiro óculos <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Rua Oratório, 684",
+   "Escolha a armação com ajuda: formato do rosto, estilo e conforto",
+   "Lentes para a sua rotina, com o multifocal bem explicado",
+   "Óculos na sacola da Gaffa, com atenção até depois da entrega"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 32,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "O João Paulo, proprietário da Óticas Gaffa, sentado à mesa de atendimento",
+  "pol": {
+   "id": 18,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Sacola azul da Óticas Gaffa, com o logo dourado",
+  "pol_cap": "Pronto para levar",
+  "card": [
+   "Orçamento",
+   "Pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem já fez <em>os óculos aqui.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Lucas Nathan Oliveira",
+   "tag": "O João",
+   "trecho": "Fiz meus primeiros óculos com eles e estou bastante satisfeito. Só tenho a agradecer o apoio do João e da equipe."
+  },
+  {
+   "nome": "ingrid santos foltran",
+   "tag": "Do Whats à entrega"
+  },
+  {
+   "nome": "Davi Marques",
+   "tag": "Confortável",
+   "trecho": "Melhor ótica que já entrei. Fui bem recebido. Uma ótica a qual me senti confortável."
+  },
+  {
+   "nome": "Júlia Alves Ferreira Ferreira",
+   "tag": "Atenção",
+   "trecho": "Atendimento incrível! Fui muito bem atendida, com atenção, educação e muita dedicação."
+  },
+  {
+   "nome": "danielbarberbus",
+   "tag": "Modelos",
+   "trecho": "Excelente atendimento, melhores modelos de óculos"
+  }
+ ],
+ "instagram": "oticasgaffa",
+ "insta": {
+  "seguidores": "4,8 mil seguidores",
+  "p": "Armações novas, dicas de lentes e o dia a dia da loja.",
+  "foto": {
+   "id": 12,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "A loja por dentro: prateleiras de óculos e o espelho iluminado"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Bangú.</em>",
+  "endereco": [
+   "Rua Oratório, 684 · Bangú",
+   "Santo André, SP · CEP 09280-550"
+  ],
+  "telefone": "(11) 2379-5276",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Precisão diante dos seus olhos.",
+ "mensagem": "Olá! Vim pelo site da Óticas Gaffa e queria um orçamento.",
+ "whatsapp": "551123795276",
+ "fone_link": "+551123795276",
+ "google": {
+  "coords": "-23.6419327,-46.5248197",
+  "fid": "0x94ce43256e072a6b:0x61cad1e32c7cb0e2",
+  "gid": "/g/11gn1vvzf9"
+ },
+ "google_nome": "Óticas Gaffa",
+ "endereco_maps": "R. Oratório, 684 - Bangú, Santo André - SP, 09280-550",
+ "google_nota": "5,0",
+ "google_total": "63",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o (11) 2379-5276 é o telefone do Perfil da Empresa no Google e o das legendas (WhatsApp Business no fixo)",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 4,9 mil seguidores. Legenda do Instagram: \"nova fase ... sob nova direção, damos as boas-vindas ao novo proprietário, João Paulo\". Bio: \"Cuidando da sua visão há mais de 8 anos\"; destaques \"9 anos de Gaffa\" e \"Reinauguração\". Slogan do logo: \"Precisão diante dos seus olhos\"."
+  ],
+  "demo": [
+   "Azul-marinho e dourado do logo, títulos em Montserrat; o óculos \"GO\" do logo no topo.",
+   "Capa com o slogan e a moça de clip-on; a nova fase com o João Paulo e a fachada nova na história.",
+   "Carrossel de armações (7), multifocais (com o João) e clip-on, atendimento com o João à mesa e a sacola, 5 avaliações de 5 estrelas (nota 5,0 · 63)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): quadros dos vídeos com o João, a moça de clip-on, armações na mão e a loja. Google: a fachada nova e um solar na prateleira.",
+   "Ficaram de fora: as artes com foto de banco de imagem e texto (quase todo o feed recente), \"exame grátis\", Dia dos Pais e a fachada antiga."
+  ],
+  "conferir": [
+   "O dono é o João Paulo (legenda da nova direção; as avaliações citam o João). Abrir a conversa por ele.",
+   "WhatsApp no fixo (WhatsApp Business): pode cair no balcão.",
+   "As artes falam em exame de vista grátis na compra; a demo não cita exame."
+  ]
+ }
+}

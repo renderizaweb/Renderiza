@@ -1,0 +1,105 @@
+{
+ "demo": "oticas-gaffa",
+ "formato": "reels",
+ "marca": "Óticas Gaffa",
+ "local": "Bangú · Santo André",
+ "cores": {
+  "fundo": "#0b1840",
+  "fundo2": "#070f28",
+  "acento": "#e3ad3b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Gaffa"
+  ],
+  "frase": "Precisão diante dos seus olhos.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(2) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Gaffa.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 2.3,
+   "legenda": "A Gaffa entrou numa nova fase. *Quem procura já sabe?*"
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 2,
+   "legenda": "Loja renovada, *o mesmo cuidado de sempre.*"
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "As armações, *antes de sair de casa.*"
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "O multifocal *explicado sem complicação.*"
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 2.5,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "63 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 2.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Chamar no WhatsApp *a um toque.*",
+   "sub": "Com endereço e horário à vista."
+  }
+ ]
+}

@@ -1,0 +1,407 @@
+{
+ "pasta": "otica-dom-outlet",
+ "marca": "Ótica Dom Outlet",
+ "marca_logo": "Ótica Dom Outlet",
+ "marca_completa": "Ótica Dom Outlet",
+ "logo_sub": "Matriz · Mauá",
+ "titulo": "Ótica Dom Outlet | Matriz, Mauá",
+ "descricao": "Ótica Dom Outlet, na Av. Dom José Gaspar, 981, na Matriz, em Mauá: mais de 500 modelos de óculos de grau e de sol, consultoria de imagem, lentes multifocais e solares polarizados. Nota 5,0 no Google.",
+ "comentario": "Demo Ótica Dom Outlet: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticadomoutlet) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#141318",
+  "acento": "#e3262d",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-dom-outlet/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/otica-dom-outlet.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-dom-outlet/perfil.jpg",
+  "box": [
+   0.26,
+   0.26,
+   0.64,
+   0.66
+  ]
+ },
+ "topline": "Av. Dom José Gaspar, 981 · Matriz, Mauá",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#armacoes",
+   "Armações"
+  ],
+  [
+   "#estilo",
+   "Óculos de sol"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica na Matriz, em Mauá",
+  "h1": "Mais de 500 modelos. <em>Um é o seu.</em>",
+  "intro": "Óculos de grau e de sol com consultoria de imagem para achar o modelo que combina com você, lentes para cada rotina e especialistas em multifocais. Na Av. Dom José Gaspar, 981.",
+  "selo": "Consultoria de imagem em óculos",
+  "link": "Ver as armações",
+  "foto": {
+   "id": 11,
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Moça da Ótica Dom Outlet de óculos de grau brancos e jaqueta jeans"
+ },
+ "endereco": [
+  "Av. Dom José Gaspar, 981",
+  "Matriz · Mauá"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "+500 modelos",
+  "Consultoria de imagem",
+  "Multifocais",
+  "Polarizados",
+  "Infantil",
+  "Matriz · Mauá"
+ ],
+ "sobre": {
+  "eyebrow": "A Dom Outlet",
+  "h2": "Escolher óculos <em>com calma.</em>",
+  "p": [
+   "Na Av. Dom José Gaspar, na Matriz de Mauá, a Ótica Dom Outlet tem mais de 500 modelos de grau e de sol, para a família toda, do infantil ao multifocal.",
+   "A escolha é com consultoria de imagem: a equipe ajuda a achar o formato e a cor que combinam com o seu rosto, sem pressa e sem insistir. Quem compra volta pelo atendimento e pelo pós-venda."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "140",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 12,
+   "c": [
+    0.45,
+    0.55
+   ]
+  },
+  "alt": "Mãe e filha de óculos de grau azuis diante da vitrine infantil da Ótica Dom Outlet",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-dom-outlet/google/g00.jpg",
+   "box": [
+    0.27,
+    0.22,
+    0.62,
+    0.68
+   ]
+  },
+  "pol_alt": "Fachada da Ótica Dom Outlet na Av. Dom José Gaspar",
+  "pol_cap": "Na Dom José Gaspar"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Provador",
+   "h2": "Armações que <em>mudam o rosto.</em>",
+   "p": "Gatinho, quadradas, redondas, tartaruga e cristal. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações de grau da Ótica Dom Outlet no rosto",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 46,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça de óculos de grau verde-petróleo, dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Moça de óculos tartaruga e blusa de oncinha"
+    },
+    {
+     "foto": {
+      "id": 36,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça de óculos de grau dourado, de cabelo ondulado"
+    },
+    {
+     "foto": {
+      "id": 27,
+      "c": [
+       0.5,
+       0.25
+      ]
+     },
+     "alt": "Moça de óculos gatinho rosé, dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 42,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Mãe e filha com óculos de grau azuis combinando"
+    }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "Óculos de sol",
+   "h2": "Solares para <em>todos os estilos.</em>",
+   "p": "Proteção UVA e UVB e lentes polarizadas. Venha provar na loja ou peça fotos pelo WhatsApp.",
+   "rotulo": "Óculos de sol da Ótica Dom Outlet no rosto",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 40,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça de óculos de sol degradê rosé, dentro da loja"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Moça de óculos de sol máscara e jaqueta jeans"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça de óculos de sol pretos quadrados"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Moça de óculos de sol máscara transparente"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Moça de óculos de sol redondo degradê e blusa de oncinha"
+    },
+    {
+     "foto": {
+      "id": 45,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Menina sorrindo de óculos de sol infantil, na loja"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Óculos de sol em tons de marrom, rosa e cristal sobre a mesa"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Matriz, em Mauá, ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Multifocais",
+   "rotulo": "01 / MULTIFOCAL",
+   "foto": {
+    "id": 43,
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "alt": "Moça de óculos de grau transparente, sorrindo",
+   "texto": "Especialistas em lentes multifocais, com acompanhamento na adaptação."
+  },
+  "solar": {
+   "titulo": "Polarizados",
+   "rotulo": "02 / SOL",
+   "foto": {
+    "id": 38,
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   "alt": "Óculos de sol preto da Dom Outlet sobre a mesa, com a rua ao fundo",
+   "texto": "Proteção UVA e UVB e lentes polarizadas para o sol do dia a dia."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do provador <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Av. Dom José Gaspar, 981",
+   "Consultoria de imagem para escolher entre mais de 500 modelos",
+   "Lentes para a sua rotina, com especialistas em multifocais",
+   "Pós-venda atento, e envio para todo o Brasil"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "id": 32,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Duas moças sorrindo de óculos de sol dentro da Ótica Dom Outlet",
+  "pol": {
+   "id": 19,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Atendente da Dom Outlet de uniforme, dentro da loja",
+  "pol_cap": "Equipe Dom",
+  "card": [
+   "+500 modelos",
+   "Para escolher com calma."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem já escolheu <em>aqui.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Joselina Silva",
+   "tag": "Sem pressão",
+   "trecho": "Fui muito bem atendida…desde a conversa no WhatsApp até o momento que fui à ótica ! O Matheus me deixou a vontade pra escolhe a armação"
+  },
+  {
+   "nome": "Aline Jeane Silva",
+   "tag": "A Ana",
+   "trecho": "Excelente atendimento! Desde a vendedora Ana, que foi muito atenciosa, prestativa e ofereceu um ótimo atendimento"
+  },
+  {
+   "nome": "Carlê",
+   "tag": "Qualidade",
+   "trecho": "Fui muito bem atendido, com atenção, respeito e agilidade. Além disso, os produtos superaram minhas expectativas."
+  },
+  {
+   "nome": "john done",
+   "tag": "Pós-venda",
+   "trecho": "Já sou cliente a muito tempo, produtos de qualidade"
+  }
+ ],
+ "instagram": "oticadomoutlet",
+ "insta": {
+  "seguidores": "5,4 mil seguidores",
+  "p": "Modelos novos, provador e clientes de óculos novo, toda semana.",
+  "foto": {
+   "id": 48,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Moça de óculos de sol redondo degradê, na loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Matriz.</em>",
+  "endereco": [
+   "Av. Dom José Gaspar, 981 · Matriz",
+   "Mauá, SP · CEP 09370-670"
+  ],
+  "telefone": "(11) 98327-1017",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Mais de 500 modelos. Um é o seu.",
+ "mensagem": "Olá! Vim pelo site da Ótica Dom Outlet e queria um orçamento.",
+ "whatsapp": "5511983271017",
+ "fone_link": "+5511983271017",
+ "google": {
+  "coords": "-23.6761043,-46.4602625",
+  "fid": "0x94ce69f4abedf6e9:0xd650e60d3ce95b0c",
+  "gid": "/g/11flfzw7b3"
+ },
+ "google_nome": "Ótica Dom Outlet",
+ "endereco_maps": "Av. Dom José Gaspar, 981 - Matriz, Mauá - SP, 09370-670",
+ "google_nota": "5,0",
+ "google_total": "140",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98327-1017 é o telefone do Perfil da Empresa no Google, o das legendas e o da fachada",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 5,5 mil seguidores, muitas fotos de rosto no provador. Bio: \"Qualidade que você precisa, preço que você merece\", especialistas em multifocais, consultoria de imagem. Fachada: \"São mais de 500 modelos à sua escolha\"."
+  ],
+  "demo": [
+   "Preto e o vermelho do logo (o olho com a coroa), títulos em Outfit.",
+   "Capa \"Mais de 500 modelos. Um é o seu.\" com a moça de óculos brancos; mãe e filha na vitrine infantil e a fachada na história.",
+   "Dois carrosséis de rosto (grau e sol), multifocais e polarizados, atendimento com as duas moças e a atendente de uniforme, 4 avaliações de 5 estrelas (nota 5,0 · 140)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): o provador (rosto com armação), solares, mãe e filha. Google: a fachada nova.",
+   "Ficaram de fora: artes com preço e promoção (Black Friday, Dia dos Pais 50%, Dia do Cliente, \"10x\"), a fachada antiga com \"R$ 49\" e os quadros de vídeo de baixa resolução."
+  ],
+  "conferir": [
+   "Quem é a moça de cabelo preto das fotos (dona?) e a de cabelo ondulado (modelo ou cliente?). Uma legenda (#12) parece de uma parceria.",
+   "Uma avaliação cita \"o oftalmologista Matheus\" e a fachada diz \"Exame de vista, informe-se aqui\"; a demo não cita exame.",
+   "\"Enviamos para todo o Brasil\" está numa legenda; confirmar se ainda vale."
+  ]
+ }
+}
