@@ -140,6 +140,19 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Odontoelis (dentista)](demos/odontoelis) | Guaianases, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 12ª) |
 | [Clínica Dra. Michele Renteiro (dentista)](demos/clinica-dra-michele-renteiro) | Centro, Franco da Rocha | site | pronta · 09/10/2026 (odonto lote 1 · 16ª) |
 | [Dra. Milena Ferreira (dentista, harmonização)](demos/dra-milena-ferreira) | Granja Viana, Cotia | site | pronta · 09/10/2026 (pedido do Kaue, fora do lote) |
+| [Ótica L'oren](demos/otica-loren) | Jardim São Paulo, São Paulo | site | pronta · 13/10/2026 (lote 6 · 1ª, vídeo no formato do Reels) |
+| [Óticas Manuella](demos/oticas-manuella) | Parque São Domingos, São Paulo | site | pronta · 13/10/2026 (lote 6 · 2ª, vídeo no formato do Reels) |
+| [Ótica Dom Outlet](demos/otica-dom-outlet) | Matriz, Mauá | site | pronta · 13/10/2026 (lote 6 · 3ª, vídeo no formato do Reels) |
+| [Ótica Miríades](demos/otica-miriades) | Lavras, Guarulhos | site | pronta · 13/10/2026 (lote 6 · 4ª, vídeo no formato do Reels) |
+| [Óticas Gaffa](demos/oticas-gaffa) | Bangú, Santo André | site | pronta · 13/10/2026 (lote 6 · 5ª, vídeo no formato do Reels) |
+| [Óticas Inovisão Lapa](demos/oticas-inovisao-lapa) | Lapa, São Paulo | site | pronta · 13/10/2026 (lote 6 · 6ª, vídeo no formato do Reels) |
+| [Ótica Latinos](demos/optica-latinos) | Jardim Santa Teresinha, São Paulo | site | pronta · 13/10/2026 (lote 6 · 7ª, vídeo no formato do Reels) |
+| [Óticas Lumiare](demos/oticas-lumiare) | Matriz, Mauá | site | pronta · 13/10/2026 (lote 6 · 8ª, vídeo no formato do Reels) |
+| [Ótica Indira](demos/otica-indira) | Jardim Popular, São Paulo | site | pronta · 13/10/2026 (lote 6 · 9ª, vídeo no formato do Reels) |
+| [Ótica Beauty Eyes](demos/otica-beauty-eyes) | Santa Paula, São Caetano do Sul | site | pronta · 13/10/2026 (lote 6 · 10ª, vídeo no formato do Reels) |
+| [Óticas Atlanta](demos/oticas-atlanta) | Vila Valparaíso, Santo André | site | pronta · 13/10/2026 (lote 6 · 11ª, vídeo no formato do Reels) |
+| [Óticas Bunny](demos/oticas-bunny) | Centro Empresarial (Jardim São Luís), São Paulo | site | pronta · 13/10/2026 (lote 6 · 12ª, vídeo no formato do Reels) |
+| [Óticas Gaiotto](demos/oticas-gaiotto) | Jardim Munhoz Júnior, Osasco | site | pronta · 13/10/2026 (lote 6 · 13ª, vídeo no formato do Reels) |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |

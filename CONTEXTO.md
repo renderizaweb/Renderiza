@@ -183,6 +183,35 @@ alertas na `ficha.md` de cada pasta.
 As 11 estão no painel em **Demo criada**, com id igual ao nome da pasta e próxima ação "Enviar a demo pelo
 WhatsApp".
 
+## Lote 6 (escolhido pelo Kaue no Drive em 13/10/2026): demos prontas
+
+O Kaue pôs no Drive (pasta "lotes-leads-6-12.10.26") a página do Instagram salva de cada ótica que faz sentido
+para ele, dos lotes 4 e 5; a que não está lá não entra. Eram 15 pastas; **Cristã e Fernanda ficaram de fora**:
+a bio da página salva era de outra cidade (Chapadinha-MA e Campo Grande-MS), apesar de as fotos baterem com o
+Google. As 13 estão no painel em **Prontas para trabalhar** (`demo_pronta`), com demo, vídeo no formato do
+Reels e flyer de Stories, e próxima ação "Enviar a demo pelo WhatsApp". O que conferir antes de mandar está na
+`ficha.md` de cada pasta e nas observações do lead.
+
+| # | Pasta | Onde | Destaque |
+|---|---|---|---|
+| 1 | `otica-loren` | Jardim São Paulo, São Paulo | 12,3 mil seguidores; famílias clientes desde a inauguração. |
+| 2 | `oticas-manuella` | Parque São Domingos, São Paulo | O nome é da filha da dona; ZEISS e Varilux; 341 avaliações 5,0. |
+| 3 | `otica-dom-outlet` | Matriz, Mauá | Mais de 500 modelos, consultoria de imagem. |
+| 4 | `otica-miriades` | Lavras, Guarulhos | Básico bem feito (pouca foto própria); cafezinho e óculos em 1 hora. |
+| 5 | `oticas-gaffa` | Bangú, Santo André | Nova fase com o João Paulo como dono; slogan "Precisão diante dos seus olhos". |
+| 6 | `oticas-inovisao-lapa` | Lapa, São Paulo | "Sem pressão" (das avaliações); fotos cortadas acima do texto dos vídeos. |
+| 7 | `optica-latinos` | Jardim Santa Teresinha, São Paulo | Exame com médico oftalmologista e ótica no mesmo endereço. |
+| 8 | `oticas-lumiare` | Matriz, Mauá | Ótica de família; fica na mesma avenida da Dom Outlet. |
+| 9 | `otica-indira` | Jardim Popular, São Paulo | Famílias inteiras de clientes; a Gabriela e a Maria. |
+| 10 | `otica-beauty-eyes` | Santa Paula, São Caetano do Sul | Ótica e moda (Optic & Dress), grifes; vídeo no clima grife. |
+| 11 | `oticas-atlanta` | Vila Valparaíso, Santo André | 1 ano, marca própria, venda online pelo Linktree (conferir). |
+| 12 | `oticas-bunny` | Centro Empresarial (Jardim São Luís), São Paulo | Dentro do Centro Empresarial e a domicílio. |
+| 13 | `oticas-gaiotto` | Jardim Munhoz Júnior, Osasco | Segunda loja (a primeira é em Barueri); a Ananda. |
+
+Fotos de campanha de marca (modelos de estúdio e famosas, como Sabrina Sato) e artes com texto, preço ou cara
+de IA ficaram de fora em todas; quando o Instagram é quase só vídeo com texto (Inovisão, Gaffa, Atlanta), a foto
+entra cortada acima do texto (`box` no `demo.json`).
+
 ## Quando uma demo fica pronta
 
 1. `demos/<pasta>/index.html` na `main` deste repositório: a Vercel publica em `/demo/<pasta>`.
@@ -282,6 +311,20 @@ foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
   itálico clara, rolagem lenta, paradas 25% mais longas; trilha ~72 bpm, acordes de jazz (ii–V–I com nonas),
   quase sem bateria e mais reverb (**Personnalité**).
 Nome comprido na montagem quebra em duas linhas equilibradas e só então encolhe ("Boutique / dos Óculos").
+
+**Formato "reels" (pedido do Kaue em 13/10/2026, o padrão das óticas a partir do lote 6):** a abertura e o
+fechamento continuam os da versão show; no meio, no jeito do Reels da Renderiza (`instagram/reels-cliente-perdido.html`),
+o site real da demo roda dentro de um celular na parte de baixo, e em cima fica uma legenda grande, sem voz, que
+conta a história e provoca de leve: uma pergunta ou dor que o dono nem percebeu e o site respondendo. Sem exagero,
+sem preço, sem promessa e sem nada inventado. O arco que funcionou: a situação ("Alguém aqui perto precisa de
+óculos novos" / "E procura pelo celular"), a loja e quem atende, os produtos, as avaliações com a pergunta
+implícita ("120 avaliações 5,0. *Quem procura vê isso hoje?*") e o WhatsApp a um toque. 6 ou 7 paradas, ~30 s.
+- `python3 ferramentas/video/reels.py <id> <spec.json>` monta `gravacoes/<id>.json` com `"formato": "reels"` a
+  partir do roteiro show e de um spec curto: uma legenda por parada (`[tipo, legenda, sub]`, tipos na ordem da
+  página: topo, story, armacoes, estilo, estilos, rosto, atendimento, reviews, insta, visite), o acento clareado
+  que o `gerar.py` imprimiu, as fotos da montagem, o clima e o nome da abertura. O trecho entre `*` sai na cor.
+- Depois, `gravar.mjs … --ensaio` (a moldura com a legenda, o site e o celular, montados por parada) e a gravação.
+- O fechamento sai "Tudo num lugar só, / com a cara da <nome>." (trocar no spec quando o nome partir mal).
 
 **Vídeo de divulgação de um site que já está no ar (cliente, 12/10/2026):** o mesmo gravador, para o cliente
 postar nos Stories, no Status e no Reels dele. Sem "venha comprar com a Renderiza": o roteiro leva `"url"` (o site
@@ -464,6 +507,9 @@ cadastrado no painel). O que aprendi:
   fachada, logo, cor da loja e as pessoas batem (`ferramentas/fotos-google.mjs` baixa as do Google).
 - 12 dos 52 @ achados pelo nome eram de outra cidade ou país; mais 2 não bateram com a loja do Google nas fotos.
 - Curtidas por post não servem de régua: ótica com 5 mil seguidores tem 5 a 15 curtidas por post.
+- **A bio da página salva é a prova do @** (lote 6): a comparação de fotos validou a Cristã e a Fernanda, mas a
+  bio (endereço, DDD do WhatsApp) mostrou outra cidade. Com a página salva do navegador do Kaue, ler a bio antes
+  de tudo; a foto só confirma.
 
 ## Dentistas
 
