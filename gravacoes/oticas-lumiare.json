@@ -40,19 +40,20 @@
  "cenas": [
   {
    "rolar": 0,
-   "segura": 2.3,
-   "legenda": "Ela não quer ser *só mais uma receita.*",
-   "sub": "E procura uma ótica pelo celular."
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
   },
   {
    "rolar": ".story-photos",
-   "segura": 2,
-   "legenda": "Aqui, os donos *atendem com a família.*"
+   "segura": 5.4,
+   "legenda": "Conhece a Lumiare, *uma ótica de família.*",
+   "sub": "Os donos e a família atendem juntos, todos os dias, em Mauá."
   },
   {
    "rolar": "#armacoes-track",
    "alinhar": "topo",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 0.5,
@@ -65,20 +66,28 @@
      "tipo": "deslizar",
      "alvo": "#armacoes-track",
      "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
     }
    ],
-   "legenda": "A loja e quem atende, *antes de sair de casa.*"
+   "legenda": "Vê a loja e quem atende *antes de sair de casa.*",
+   "sub": "A vitrine, a medição com aparelho e a equipe de uniforme azul."
   },
   {
    "rolar": "#atendimento h2",
    "alinhar": "topo",
-   "segura": 2.2,
-   "legenda": "Do ajuste no rosto *ao pós-venda.*"
+   "segura": 5.6,
+   "legenda": "E sabe que o cuidado *continua depois da compra.*",
+   "sub": "Consultoria na escolha, ajuste no rosto e pós-venda de verdade."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.5,
+   "segura": 5.1,
    "acoes": [
     {
      "em": 0.7,
@@ -87,11 +96,12 @@
      "cartoes": 1
     }
    ],
-   "legenda": "30 avaliações nota 5,0. *Quem procura vê isso hoje?*"
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 30 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#visite .button--mustard",
-   "segura": 2.6,
+   "segura": 5.6,
    "acoes": [
     {
      "em": 1,
@@ -99,8 +109,8 @@
      "alvo": "#visite .button--mustard"
     }
    ],
-   "legenda": "Chamar no WhatsApp *a um toque.*",
-   "sub": "Com endereço e horário à vista."
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
   }
  ]
 }
