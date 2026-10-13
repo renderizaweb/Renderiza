@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Inovisão Lapa",
+ "local": "Lapa · São Paulo",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#141a33",
+  "fundo2": "#0c1020",
+  "acento": "#f5c400",
+  "tinta_acento": "#0c1020",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-inovisao-lapa/flyer.jpg",
+  "pos": "50% 40%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "489"
+ },
+ "titulo": "Óculos novos, <em>sem pressão.</em>",
+ "texto": "Explicação técnica com calma, várias opções e nenhuma pressão para levar o mais caro.",
+ "whatsapp": "(11) 94549-5013",
+ "endereco": "R. Clemente Álvares, 218 · São Paulo",
+ "instagram": "@inovisaolapa"
+}

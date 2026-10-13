@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica L'oren",
+ "local": "Jardim São Paulo · Zona Leste",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#25272b",
+  "fundo2": "#17181b",
+  "acento": "#f6c224",
+  "tinta_acento": "#17181b",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticaloren/Instagram_files/653683669_18143052565488106_8092792224079319339_n.jpg",
+  "pos": "50% 42%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "120"
+ },
+ "titulo": "A sua visão <em>com estilo.</em>",
+ "texto": "Óculos de grau e de sol, lentes para cada rotina e um atendimento que cuida de cada detalhe.",
+ "whatsapp": "(11) 98586-4362",
+ "endereco": "R. Dr. Rodrigues de Miranda Júnior, 119 · Zona Leste",
+ "instagram": "@oticaloren"
+}

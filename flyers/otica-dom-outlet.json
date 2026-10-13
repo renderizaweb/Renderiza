@@ -1,0 +1,30 @@
+{
+ "marca": "Ótica Dom Outlet",
+ "local": "Matriz · Mauá",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#141318",
+  "fundo2": "#0c0c0f",
+  "acento": "#e64147",
+  "tinta_acento": "#ffffff",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticadomoutlet/Instagram_files/500313119_1423493451990578_118591987439637469_n.jpg",
+  "pos": "50% 30%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "140"
+ },
+ "titulo": "Mais de 500 modelos. <em>Um é o seu.</em>",
+ "texto": "Consultoria de imagem para achar o seu entre mais de 500 modelos de grau e de sol.",
+ "whatsapp": "(11) 98327-1017",
+ "endereco": "Av. Dom José Gaspar, 981 · Mauá",
+ "instagram": "@oticadomoutlet",
+ "italico": false
+}
