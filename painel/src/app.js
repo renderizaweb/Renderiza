@@ -494,13 +494,24 @@ function cartaoDoKanban(l, editavel, tarefasAbertas) {
   return cartao;
 }
 
+/** Finalizado começa fechado (só o total); "Ver cards" abre até sair da tela. */
+let finalizadosAbertos = false;
+function resumoDosFinalizados(n) {
+  const alternar = () => { finalizadosAbertos = !finalizadosAbertos; renderKanban(); };
+  if (finalizadosAbertos) return h("button", { type: "button", class: "text-link kanban-ver", onclick: alternar }, "Esconder cards");
+  return h("div", { class: "kanban-resumo" }, h("strong", { text: `${n} ${n === 1 ? "lead finalizado" : "leads finalizados"}` }),
+    n ? h("button", { type: "button", class: "text-link kanban-ver", onclick: alternar }, "Ver cards") : null);
+}
+
 /** Uma coluna (ou subcoluna de Em andamento) que recebe cartões arrastados e muda a etapa deles. */
 function colunaDoKanban(etapaId, itens, { editavel, tarefasAbertas, adicionar = false, sub = false }) {
   const nome = nomeDaEtapa(etapaId);
+  const fechada = etapaId === "finalizado" && !finalizadosAbertos;
   const coluna = h("section", { class: "kanban-col" + (sub ? " sub etapa-" + etapaId : ""), "data-etapa": etapaId, "aria-label": nomeCompletoDaEtapa(etapaId) },
     h("header", {}, h("span", { text: nome }), h("small", { text: String(itens.length) })),
     adicionar ? h("div", { class: "kanban-add" }, icone("mais", 15), inputKanban) : null,
-    h("div", { class: "kanban-cards" }, ...itens.map(l => cartaoDoKanban(l, editavel, tarefasAbertas))));
+    etapaId === "finalizado" ? resumoDosFinalizados(itens.length) : null,
+    h("div", { class: "kanban-cards" }, ...(fechada ? [] : itens.map(l => cartaoDoKanban(l, editavel, tarefasAbertas)))));
   coluna.addEventListener("dragover", e => { if (arrastandoCartao) { e.preventDefault(); coluna.classList.add("alvo"); } });
   coluna.addEventListener("dragleave", () => coluna.classList.remove("alvo"));
   coluna.addEventListener("drop", async e => {
@@ -1385,6 +1396,7 @@ function render() {
     filtros.atualizar(leadsVisiveis().length, leadsDaBusca().length);
   } else {
     filtros.fechar();
+    finalizadosAbertos = false;
     renderBarraConteudo();
     planilhaConteudos.atualizar();
   }
