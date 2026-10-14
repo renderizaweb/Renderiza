@@ -16,8 +16,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .camada{position:absolute;left:0;top:0;width:1080px;height:1920px}
 .oculto{visibility:hidden}
 
-/* marca pequena no topo (o vídeo inteiro, menos o CTA) */
-.r-topo{position:absolute;left:0;right:0;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:2}
+/* marca pequena no topo (o vídeo inteiro, menos o CTA), no mesmo eixo dos textos e da janela (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:2}
 .r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
 .r-topo .simbolo{width:40px;height:40px}
 
@@ -104,17 +104,17 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .toque{position:absolute;z-index:80;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0;pointer-events:none}
 
 /* (e) celular da Lume */
-#cel{left:180px;top:380px;width:720px;height:1440px;z-index:12;transform-origin:50% 30%}
+#cel{left:150px;top:380px;width:720px;height:1440px;z-index:12;transform-origin:50% 30%}
 .tela .site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
 .barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
 .barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
 .barra-cel .sinais{display:flex;gap:10px;align-items:center;color:#111}
 .barra-cel .sinais svg{height:22px}
 .onda-zap{position:absolute;inset:0;border-radius:25px;outline:3px solid rgba(37,211,102,.9);opacity:0;pointer-events:none}
-.etiqueta{position:absolute;left:0;right:0;top:230px;height:90px;display:flex;justify-content:center;z-index:14}
+.etiqueta{position:absolute;left:80px;width:860px;top:230px;height:90px;display:flex;justify-content:center;z-index:14}
 .etiqueta>span{display:inline-block;height:90px;line-height:90px;padding:0 42px;border-radius:999px;background:#fff;color:var(--escuro);font-size:48px;font-weight:600;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 16px 40px rgba(0,0,0,.28)}
 .etiqueta .tom{color:var(--terracota)}
-.pixel{position:absolute;left:180px;top:1138px;height:84px;display:flex;align-items:center;gap:16px;padding:0 38px 0 28px;border-radius:999px;background:var(--escuro);color:var(--fundo);font-size:40px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.4);z-index:15}
+.pixel{position:absolute;left:150px;top:1138px;height:84px;display:flex;align-items:center;gap:16px;padding:0 38px 0 28px;border-radius:999px;background:var(--escuro);color:var(--fundo);font-size:40px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.4);z-index:15}
 .pixel svg{width:44px;height:44px;color:var(--terracota-clara)}
 
 /* CTA */
@@ -341,7 +341,7 @@ window.preparar = () => {
       { id: "mandou", cena: "fim", ini: 32.903, fim: 34.839, impacto: true },
       { id: "cta", cena: "cta", ini: 34.839, fim: 38.710 },
     ],
-    ensaio: [0, 0.2, 0.98, 1.05, 3.05, 3.2, 3.45, 3.55, 3.75, 3.95, 4.2, 7.8, 7.95, 12.62, 12.7, 14.1, 14.4, 14.55, 14.8, 15.55, 15.62, 15.8, 16.8, 17.2, 17.45, 19.0, 19.4, 19.7, 21.35, 21.85, 22.1, 22.8, 23.23, 23.3, 24.22, 24.3, 24.75, 25.17, 25.25, 27.12, 29.06, 29.65, 31.0, 32.95, 34.86, 34.98, 36.9, 37.0, 37.8, 37.95, 38.2, 38.69],
+    ensaio: [0.05, 1.5, 3.6, 6.9, 9.3, 11.3, 13.8, 15.1, 17.9, 18.9, 20.4, 22.3, 23.9, 24.5, 26.2, 28.1, 30.3, 32.0, 34.0, 35.6, 37.4, 38.5],
   };
 };
 
