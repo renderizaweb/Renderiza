@@ -22,10 +22,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .r-topo .simbolo{width:40px;height:40px}
 
 /* faixa do tempo, logo acima da janela */
-.faixa{position:absolute;left:100px;width:880px;top:230px;height:80px;overflow:hidden;z-index:3}
+.faixa{position:absolute;left:60px;width:880px;top:230px;height:80px;overflow:hidden;z-index:3}
 .faixa .pal{position:absolute;left:0;right:0;top:0;height:80px;display:flex;justify-content:center;align-items:center}
 .faixa .pal span{display:inline-block;height:80px;line-height:80px;padding:0 30px;border-radius:999px;font-weight:700;font-size:64px;letter-spacing:-.01em;text-transform:uppercase;color:var(--terracota-clara);white-space:nowrap}
-.faixa .pal.longa span{font-size:44px;letter-spacing:.06em;padding:0 34px}
+.faixa .pal.longa span{font-size:44px;letter-spacing:.06em;padding:0 30px}
 
 /* texto solto */
 .txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
@@ -34,7 +34,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 #g2{top:990px;font-size:72px;font-weight:600;color:var(--enfase-escuro);letter-spacing:-.03em}
 #v1{top:598px;font-size:120px;text-shadow:0 6px 40px rgba(0,0,0,.35)}
 #v2{top:742px;font-size:88px;color:var(--terracota-clara);text-shadow:0 6px 40px rgba(0,0,0,.35)}
-#c1{top:800px;font-size:96px}
+#c1{top:808px;font-size:88px}
 #c2{top:808px;font-size:88px}
 #f1{top:646px;font-size:110px}
 #f2{top:980px;font-size:96px}
@@ -68,13 +68,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .msgs{position:absolute;left:0;right:0;top:0;height:970px;overflow:hidden;background-color:#efeae2;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
 .barra{position:absolute;left:0;right:0;top:970px;height:90px;background:#efeae2}
-.campo{position:absolute;left:16px;top:12px;width:776px;height:66px;border-radius:33px;background:#fff;display:flex;align-items:center;padding:0 30px;font-size:32px;color:#111b21;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.campo{position:absolute;left:16px;top:10px;width:776px;height:70px;border-radius:35px;background:#fff;display:flex;align-items:center;padding:0 28px;font-size:40px;letter-spacing:-.01em;color:#111b21;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
 .campo .ph{color:#8696a0}
-.campo .cursor{display:inline-block;width:3px;height:38px;background:#00a884;margin-left:2px;vertical-align:-7px}
+.campo .cursor{display:inline-block;width:3px;height:46px;background:#00a884;margin-left:2px;vertical-align:-9px}
 .btn-mic{position:absolute;right:16px;top:12px;width:66px;height:66px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
 .btn-mic>span{position:absolute;inset:0;display:grid;place-items:center}
 .btn-mic svg{width:34px;height:34px}
-.pelicula{position:absolute;inset:0;background:rgba(30,37,40,.72);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);z-index:5;opacity:0}
+.pelicula{position:absolute;inset:0;background:rgba(30,37,40,.86);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);z-index:5;opacity:0}
 
 /* balões */
 .b{position:absolute;max-width:680px;padding:22px 30px;border-radius:28px;font-size:46px;line-height:1.28;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em;z-index:1}
@@ -85,6 +85,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .b.env::before{right:-14px;clip-path:polygon(0 0,100% 0,0 100%)}
 .b .esp{display:inline-block;width:86px;height:1px}
 .b.env .esp{width:128px}
+.b.quebra .esp,.b.env.quebra .esp{display:block;width:auto;height:16px}
 .b .meta{position:absolute;right:24px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:22px;line-height:1;color:#7a8386;letter-spacing:0}
 .b .tiques{display:inline-flex;width:34px;height:24px;color:#8696a0;transform-origin:50% 60%}
 .b .tiques svg{width:100%;height:100%}
@@ -125,7 +126,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .botao svg{width:66px;height:66px;flex:none}
 .cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
 #l1{top:1010px;font-size:44px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
-#l2{top:1004px;font-size:52px;font-weight:700;line-height:1.12;color:var(--fundo);letter-spacing:-.025em}
+#l2{top:1168px;font-size:52px;font-weight:700;line-height:1.12;color:var(--fundo);letter-spacing:-.025em}
 .cta-linha .tom{color:var(--terracota-clara)}
 
 .flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
@@ -167,7 +168,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
   <!-- cena 10: CTA -->
   <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
   <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
-  <p class="cta-linha oculto" id="l1">A prévia do seu site,<br><span class="tom">sem compromisso</span>.</p>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
   <p class="cta-linha oculto" id="l2">E deixa o Juninho<br><span class="tom">estudar em paz</span>.</p>
 
   <!-- notificações -->
@@ -205,7 +206,7 @@ function notificacao(el, { quem, titulo, msg, duas = false, exemplo = false }) {
     <p class="n-msg${duas ? " duas" : ""}">${msg}</p></div></div>${exemplo ? '<span class="exemplo">exemplo</span>' : ""}`;
 }
 notificacao($("#n1"), { quem: "J", titulo: "Juninho (sobrinho)", msg: "Tia, semana que vem fica pronto!" });
-notificacao($("#n2"), { quem: "rz", titulo: "Renderiza", msg: "Oi! Montamos uma prévia do site da Lume Estética.", duas: true, exemplo: true });
+notificacao($("#n2"), { quem: "rz", titulo: "Renderiza", msg: "Oi! Montamos uma prévia<br>do site da Lume Estética.", duas: true, exemplo: true });
 
 // cada conversa: cabeçalho, área de mensagens, barra de digitar; os balões ficam presos ao fundo e a pilha sobe
 function conversa(el, { quem, nome, msgs }) {
@@ -233,7 +234,7 @@ function conversa(el, { quem, nome, msgs }) {
 
 // a conversa com o sobrinho: um ano de desculpas (cada mês cai no começo de um compasso)
 const J = conversa($("#jJ"), { quem: "J", nome: "Juninho (sobrinho)", msgs: [
-  { t: 4.113, txt: "Tia, deixa que eu faço o seu site!", hora: "19:02" },
+  { t: 4.113, txt: "Tia, deixa que eu<br>faço o seu site!", hora: "19:02" },
   { t: 5.323, env: true, txt: "Jura? Pra quando?", hora: "19:03", lido: 5.75 },
   { t: 6.290, txt: "Semana que vem, no máximo.", hora: "19:04" },
   { t: 7.984, env: true, txt: "E o site?", hora: "10:41", lido: 8.25 },
@@ -250,8 +251,8 @@ J.offline = 14.516;
 
 // enquanto isso, no outro chat
 const C = conversa($("#jC"), { quem: "C", nome: "Cliente nova", msgs: [
-  { t: 15.726, txt: "Oi! Vocês têm site? Queria ver os tratamentos.", hora: "15:12" },
-  { t: 17.419, env: true, txt: "Ainda não... meu sobrinho tá fazendo.", hora: "15:13", lido: 17.85 },
+  { t: 15.726, txt: "Oi! Vocês têm site?<br>Queria ver os tratamentos.", hora: "15:12" },
+  { t: 17.419, env: true, txt: "Ainda não…<br>meu sobrinho tá fazendo.", hora: "15:13", lido: 17.85 },
   { t: 18.387, txt: "Ah, tá. Obrigada!", hora: "15:13" },
 ]});
 C.digitando = [[17.85, 18.387]];
@@ -259,13 +260,13 @@ C.offline = 18.871;
 
 // a Renderiza, com a prévia pronta
 const R = conversa($("#jR"), { quem: "rz", nome: "Renderiza", msgs: [
-  { t: 22.0, txt: "Oi! Montamos uma prévia do site da Lume Estética. Sem compromisso:", hora: "10:08", link: true },
+  { t: 22.0, txt: "Oi! Montamos uma prévia<br>do site da Lume Estética.<br>Sem compromisso:", hora: "10:08", link: true },
   { t: 24.194, env: true, txt: "Já?!", hora: "10:08", lido: 24.5, grande: true },
 ]});
 R.digitando = []; R.offline = 99;
 
 // a tia digitando: "Ainda não", a hesitação, "... meu sobrinho tá fazendo."
-const DIG1 = "Ainda não", DIG2 = "... meu sobrinho tá fazendo.";
+const DIG1 = "Ainda não", DIG2 = "… meu sobrinho tá fazendo.";
 const DIG_INI = 16.452, DIG_FIM = 17.300, DIG_PAUSA = 0.15, DIG_ENVIA = 17.419;
 
 // o celular com o site da Lume
@@ -287,6 +288,7 @@ const PARADAS = [[25.161, "hero", "Com as <span class=\"tom\">suas fotos</span> 
 const ONDAS = [29.274, 29.758, 30.242, 30.726];
 const PIXEL = 29.516;
 const BUMBOS = [35.323, 35.806, 36.290, 36.774, 37.258];
+const PIADA = 36.774;            // "E deixa o Juninho estudar em paz."
 const LOOP = 37.742;
 // impactos: o quadro inteiro dá um tranco (o "Já?!" dá um tranco pequeno)
 const IMPACTOS = [[0, 1], [0.968, 1], [12.581, 1], [14.516, 1], [19.355, 1], [23.226, 1], [24.194, 0.5], [25.161, 1], [27.097, 1], [29.032, 1], [30.968, 1], [32.903, 1], [34.839, 1], [37.742, 1]];
@@ -310,11 +312,18 @@ let ESC = 1, ALT = 0, paradas = {};
 const AREA = 970, PAD = 26, GAP = 18;
 
 window.preparar = () => {
-  for (const c of [J, C, R]) for (const m of c.itens) m.h = m.el.offsetHeight;
+  for (const c of [J, C, R]) for (const m of c.itens) {
+    const esp = m.el.querySelector(".esp");
+    if (esp) { const com = m.el.offsetHeight; esp.style.display = "none"; const sem = m.el.offsetHeight; esp.style.display = ""; m.el.classList.toggle("quebra", com > sem + 4); }
+    m.h = m.el.offsetHeight;
+  }
   ESC = tela.clientWidth / 402; ALT = tela.clientHeight / ESC;
   site.style.transform = `scale(${ESC})`;
-  const max = site.scrollHeight - ALT;
-  for (const el of site.querySelectorAll("[data-parada]")) paradas[el.dataset.parada] = clamp(el.offsetTop - 110, 0, max);
+  // cada parada começa logo abaixo da barra de status do celular (o topo do site fica inteiro na parada "hero"),
+  // e sobra espaço para a rolagem lenta de 30 px sem passar do fim do site
+  const max = site.scrollHeight - ALT, barra = 78 / ESC, folga = 30 / ESC;
+  for (const el of site.querySelectorAll("[data-parada]"))
+    paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : clamp(el.offsetTop - barra + 4, 0, max - folga);
   return {
     duracao: DUR,
     pulso: [
@@ -332,7 +341,7 @@ window.preparar = () => {
       { id: "mandou", cena: "fim", ini: 32.903, fim: 34.839, impacto: true },
       { id: "cta", cena: "cta", ini: 34.839, fim: 38.710 },
     ],
-    ensaio: [0.05, 1.5, 3.6, 6.9, 9.3, 11.3, 13.8, 15.1, 17.9, 18.9, 20.4, 22.3, 23.9, 24.5, 26.2, 28.1, 30.3, 32.0, 34.0, 35.6, 37.4, 38.5],
+    ensaio: [0, 0.2, 0.98, 1.05, 3.05, 3.2, 3.45, 3.55, 3.75, 3.95, 4.2, 7.8, 7.95, 12.62, 12.7, 14.1, 14.4, 14.55, 14.8, 15.55, 15.62, 15.8, 16.8, 17.2, 17.45, 19.0, 19.4, 19.7, 21.35, 21.85, 22.1, 22.8, 23.23, 23.3, 24.22, 24.3, 24.75, 25.17, 25.25, 27.12, 29.06, 29.65, 31.0, 32.95, 34.86, 34.98, 36.9, 37.0, 37.8, 37.95, 38.2, 38.69],
   };
 };
 
@@ -547,9 +556,9 @@ window.quadro = t => {
     for (const b of BUMBOS) { const x = fase(t, b, b + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
     $("#botao").style.transform = `scale(${esc})`;
   }
-  const l1 = $("#l1"), l2 = $("#l2"), troca = fase(t, 36.774, 37.074);
-  if (mostra(l1, noCta && troca < 1)) { const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5)); l1.style.opacity = x * (1 - troca); l1.style.transform = `translateY(${(1 - x) * 28}px)`; }
-  if (mostra(l2, noCta && troca > 0)) l2.style.opacity = troca;
+  const l1 = $("#l1"), l2 = $("#l2");
+  if (mostra(l1, noCta)) { const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5)); l1.style.opacity = x; l1.style.transform = `translateY(${(1 - x) * 28}px)`; }
+  if (mostra(l2, t >= PIADA)) { const x = sai(fase(t, PIADA, PIADA + 0.3)); l2.style.opacity = x; l2.style.transform = `translateY(${(1 - x) * 28}px)`; }
 
   // ---- toque ----
   const tq = $("#toque");
