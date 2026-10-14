@@ -292,3 +292,48 @@ num arquivo novo, sem mexer nos das óticas):
 2. **Quantas demos no primeiro lote** (sugestão: 10 a 15 na lista, como nas óticas) e se o **Espaço Valladares**
    entra como primeiro teste com demo.
 3. **Os três segmentos** (salão, chácara, espaço pequeno) no mesmo lote, ou começar só por salão e chácara.
+
+## 12. Lote 1 (14/10/2026): a primeira varredura
+
+**Funil:** 188 buscas no Google Maps (as 84 da amostra + 104 novas, sem "buffet infantil") → 6.041 lugares → 3.886 de
+evento → 242 candidatos com nota 4,8+, 60+ avaliações, sem buffet infantil e sem site próprio funcionando → Instagram
+lido de 201 (41 guardados para o próximo lote) → 79 com 1.000+ seguidores e post nos últimos 45 dias → 69 olhados
+na folha (os 10 últimos ficaram para o próximo lote) → 34 fortes → conferidos um a um → **15 excelentes + 5 de reserva
+com alerta**. Nada cadastrado no painel: a lista foi para o Kaue escolher.
+
+**Os 15 (sem site e sem intermediário achado):** Espaço Valladares (Freguesia do Ó; já no painel), Espaço Lira (Vila
+Pirajussara), Espaço Thamara d'Valu (Itapecerica), Chácara De Boa na Lagoa (Batistini, SBC), Chácara da Villa (Vila
+Balneária, SBC), Jardim Danfesti I e II (Jd. Itapemirim e Tatuapé), Buffet Terraço Nuevo (Diadema), Casa Rabello (Jd.
+Novo Carrão), Estância Paraíso (Itaquaquecetuba), Sítio Recanto Feliz (Mogi), Espaço Mary Carvalho (Suzano), Recanto
+Pagliosa (Arujá), Cohab Pool Party (Itaquera), Chácara BM (Rio Grande da Serra), Mansão Mikonos (Pq. Cruzeiro do Sul).
+
+**Reserva, com alerta de intermediário:** Spazio Maia (página no casamentos.com.br e domínio próprio que não existe
+mais), Alto da Serra Eventos (possível página antiga no casamentos.com.br), Espaço La Ro (página no casamentos.com.br
+com 1 avaliação), Mansão Jaraguá (casamentos.com.br, 8 avaliações), Buffet Stallieri (casamentos.com.br e duas casas).
+
+**Fora depois da conferência:** site próprio funcionando (Espaço Monet, Espaço Solareh, Domene, Ponte Villas: achados
+testando os domínios óbvios; o Google não mostrava); @ de outro lugar (Sítio Céu Azul: o @ é de uma produtora de
+eventos; Chácara Vale do Sol: o @ é de uma chácara em Santo André, a do Google é em Cotia; Sítio Passárgada: o @ marca
+Guarajuba, na Bahia); intermediário forte (Espaço Caiapiá, 88 avaliações no casamentos.com.br; Recanto do Waltinho,
+35 a 48).
+
+**Para o próximo lote:** os 41 candidatos sem Instagram lido e os 10 que passaram no corte e não foram olhados (na
+pasta da sessão de 13 e 14/10, `reserva-sem-ig.json` e `passam-ig-todos.json`), mais os "bons" da triagem (Mansão
+Feest, ALJ Festas, Buffet Hora do Break, Tatuapé Hall Prime, Espaço Casa, Sítio El Shaday, Chácara Luz da Natureza,
+Espaço Coronel, Chácara Lasareff).
+
+**O que este lote ensinou:**
+- **Espaço de casamento usa o casamentos.com.br:** dos 17 conferidos, 7 têm página lá (alguns com dezenas de
+  avaliações). Conferir sempre, com a busca do nome restrita ao casamentos.com.br. Salão de festa e chácara de festa
+  quase não aparecem lá.
+- **"Sem site no Google" engana de novo:** 4 dos 34 fortes tinham site próprio funcionando, achado testando
+  `<nome>.com.br`, `<nome>festas.com.br` e `<nome>eventos.com` no DNS.
+- **O @ achado pela variação do nome erra feio:** apareceram contas de 400 mil a 1 milhão de seguidores sem relação
+  (@sublime, @cantarola, @vilela, @pandora, @rise). O localizador agora só aceita a variação confirmada por endereço ou
+  telefone nas legendas; sem confirmação, fica a variação mais provável marcada "a conferir", e a comparação das
+  fotos do Google com as do Instagram decide.
+- **O dono aparece nas avaliações em quase todos:** "a proprietária Ana", "a proprietária Regiane", "Sr. Marcos e
+  Dona Rose", "o dono William", "a Thaís, dona desse sítio". Em salão e chácara o WhatsApp do Google é celular em
+  quase todos.
+- **O Instagram cansa rápido:** 1 consulta por segundo funciona, mas 242 perfis levam mais de 1h30. Para o próximo
+  lote, ler primeiro os que o Google já aponta e deixar a adivinhação por último.
