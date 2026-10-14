@@ -2,6 +2,7 @@
 # Segue as cenas da narração (instagram/narracao/<nome>.tempos.json) e mixa a voz por cima, abaixando a música
 # enquanto ela fala.
 # Uso: python3 ferramentas/video/trilha-pulso.py <tempos.json> <voz.wav> <saida.wav> <duracao_s> [--bpm 124]
+#   Sem voz (Reels só com texto): passe um WAV mudo; a música fica sozinha a -15 dBFS RMS. O gerar.mjs faz isso com "pulso".
 #   abre: drone grave e batidas de impacto · google: pulso de baixo e chimbal (o relógio) · insta: entra o bumbo
 #   reto e a palma; "Nada." corta tudo · volta: a batida abafada · meio: só o drone e um coração batendo
 #   ese: subida (ruído e tom crescendo) até o drop · site: tudo, com acordes curtos · fim: só os impactos · cta: fecha
@@ -149,8 +150,9 @@ musica *= 1 - 0.55 * np.clip(fala, 0, 1)
 
 def nivel(x):  # volume médio só onde há som
     return np.sqrt(np.mean(x[np.abs(x) > 1e-3] ** 2))
-voz_db = 20 * np.log10(nivel(voz))  # a voz já vem tratada e nivelada (limpar-voz.py ou narrar.py)
-mix = voz + musica / nivel(musica) * 10 ** ((voz_db - 8) / 20)  # música 8 dB abaixo da voz
+tem_voz = np.any(np.abs(voz) > 1e-3)  # Reels sem voz: a voz vem muda e a música fica sozinha, mais alta
+alvo_db = 20 * np.log10(nivel(voz)) - 8 if tem_voz else -15  # música 8 dB abaixo da voz (já tratada e nivelada)
+mix = voz + musica / nivel(musica) * 10 ** (alvo_db / 20)
 mix = mix[: int(SR * dur)]
 t = np.arange(len(mix)) / SR
 mix *= np.minimum(1, t / 0.02) * np.minimum(1, np.maximum(0, (dur - t) / 1.2))
