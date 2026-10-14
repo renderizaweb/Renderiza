@@ -57,3 +57,81 @@ Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem comprom
 (A Lume Estética é um negócio fictício, criado só para este exemplo.)
 
 #sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais
+
+---
+
+# Semana do 15/10: sobrinho, dicionário e pixel
+
+Ordem: o Reels na quinta (15/10), o carrossel no sábado (17/10) e o post na segunda (19/10), no horário de mais
+movimento do perfil (Insights > Público > Horários mais ativos). O fio da semana são as frases que todo dono já ouviu:
+a do sobrinho, a do cliente e a do gestor.
+
+## 5. Reels: "O sobrinho que ia fazer o site" (`reels-sobrinho`)
+
+Todo negócio tem um Juninho. 😅
+
+"Semana que vem, tia."
+"Semana de prova."
+"Meu notebook quebrou."
+"Tia, o site era pra quê mesmo?"
+
+E enquanto isso, a cliente pergunta se você tem site e ouve: "meu sobrinho tá fazendo". 😬
+
+A gente trabalha diferente: olha o seu Instagram e o seu Google, monta uma prévia do site do seu negócio e manda o link pra você ver. Sem compromisso e sem "semana que vem".
+
+Comenta PRÉVIA que a gente monta a do seu negócio 👇
+E conta aqui: qual foi a desculpa do seu Juninho? 😂
+
+Marca quem está esperando o site do sobrinho até hoje 👀
+
+(A Lume Estética, o Juninho e a cliente do vídeo são fictícios. Boa sorte na prova, Juninho.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #donodenegocio
+
+Comentário para fixar: "Começa aqui: qual foi a melhor desculpa que você já ouviu? A gente abre: 'meu notebook quebrou' 👇"
+
+## 6. Carrossel: "Dicionário do cliente de WhatsApp" (`carrossel-dicionario`)
+
+Salva esse dicionário 📌 e manda pra quem atende o WhatsApp com você.
+
+"Quanto é?", "Vou ver com meu marido", "Vou ver e te falo"... Você ouviu pelo menos uma dessas essa semana, né? 😅
+
+Repara: nas cinco frases, o cliente decide longe da conversa. Com o marido, olhando o concorrente ou dois dias depois. E o que ele leva de você é um preço solto no meio do chat.
+
+O que resolve é mandar junto um link que mostra o seu trabalho. As duas respostas da imagem 9, prontas pra copiar (troca o que está entre colchetes):
+
+✍️ Quando ouvir "vou ver e te falo":
+Claro, fica à vontade! Aqui tem os serviços, as fotos e as avaliações pra ver com calma e mostrar pra quem quiser: [link do seu site]. Posso te chamar amanhã pra saber o que achou?
+
+✍️ Quando ouvir "quanto é?":
+[Serviço] fica [valor]. Aqui tem as fotos e tudo o que está incluso: [link do seu site]. Quer que eu veja um horário pra você?
+
+Ainda não tem um link pra mandar? Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso.
+
+E conta aqui: qual frase faltou nesse dicionário? A gente traduz 👇
+
+(A Lume Estética é um negócio fictício, criado só para este exemplo.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #whatsappbusiness
+
+Comentário para fixar: "Qual frase faltou? Escreve aqui que a gente traduz 👇"
+
+## 7. Post: "Seu gestor pediu o pixel" (`post-pixel`)
+
+Gestor de tráfego: manda este post pro seu cliente que ainda não tem site (ou marca ele aqui) 👇
+
+Se o seu gestor já pediu "instala o pixel no site" e você foi direto pro Google... esse post é seu 🙋‍♀️
+
+Pixel é um código que fica no site e conta o que as pessoas que vieram do anúncio fazem lá dentro, como tocar no botão pra te chamar no WhatsApp. Ele mora no site: sem site, não tem onde instalar.
+
+Todo site da Renderiza já sai pronto pra anúncio: Pixel da Meta instalado, Google Analytics ligado e cada clique no WhatsApp contado.
+
+E não, a gente não faz tráfego pago 😉 Quem liga o anúncio é você ou o seu gestor. A gente entrega o site pronto pra ele medir.
+
+Já anuncia ou vai anunciar? Chama no direct. Se quiser ver antes, comenta PRÉVIA que a gente monta a prévia do seu site.
+
+E você, qual dessas buscas já fez? Conta nos comentários 😂
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #trafegopago #gestordetrafego
+
+Comentário para fixar: "Gestor de tráfego: marca aqui aquele cliente que ainda não tem site 👇"
