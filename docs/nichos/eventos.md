@@ -337,3 +337,23 @@ Espaço Coronel, Chácara Lasareff).
   quase todos.
 - **O Instagram cansa rápido:** 1 consulta por segundo funciona, mas 242 perfis levam mais de 1h30. Para o próximo
   lote, ler primeiro os que o Google já aponta e deixar a adivinhação por último.
+
+## 13. Demos do lote 1 (14/10/2026)
+
+O Kaue escolheu 13 no Drive (o Sítio Recanto Feliz ficou de fora: o @ é de Joinville-SC). Todas saíram com demo,
+vídeo no formato do Reels e flyer, e estão no painel em "Prontas".
+
+- **Ferramenta:** `ferramentas/demo/gerar-eventos.py` usa a linha comum (`gerar.py`) e acrescenta duas seções do
+  nicho: **estrutura** (ícones, só o confirmado em legenda do próprio @ ou avaliação) e **consultar uma data**
+  (dia, tipo de festa e convidados abrem o WhatsApp com a mensagem pronta). O segundo carrossel é "festas reais";
+  quando o @ não mostra festa (Recanto Pagliosa), vira "os jardins".
+- **Vídeo:** o arco da seção 6, com a cena 4 no carrossel de festas ou na estrutura (`#estrutura h2`).
+- **Horário do Google:** "Atendimento 24 horas" não vira horário e a página dizia "fechado agora"; nesses casos a
+  demo sai sem horário e com uma nota no topo (Mansão Mikonos). Sem horário no Google: idem (De Boa na Lagoa, Mary
+  Carvalho, Pagliosa).
+- **Criança no topo:** a foto da "dona posando" da Estância Paraíso era uma criança; trocada pela piscina. Conferir
+  a foto do topo e a do flyer com atenção dobrada neste nicho.
+- **Dois WhatsApps:** em Thamara D'Valu as legendas dão um número e o Google outro; em Pagliosa as legendas antigas
+  têm outro número. A ficha de cada demo diz qual foi usado e o que conferir antes de mandar.
+- **Intermediário:** o Jardim Danfesti tem página no casamentos.com.br e uma segunda casa (Tatuapé). Fica anotado
+  na ficha para o Kaue decidir a abordagem.

@@ -161,3 +161,16 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Ótica Vip Lapa](demos/otica-vip-lapa) | Lapa, São Paulo | site | pronta · 24/07/2026 |
 | [Óticas F. Dias](demos/oticas-f-dias) | Ferrazópolis, São Bernardo do Campo | artes para Instagram | pronta · 06/08/2026 |
 | [Óticas Supreme](demos/oticas-supreme) | Capão Redondo, São Paulo | artes para Instagram | pronta · 06/08/2026 |
+| [Espaço Valladares (eventos)](demos/espaco-valladares) | Freguesia do Ó, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Casa Rabello (eventos)](demos/casa-rabello) | Jardim Novo Carrão, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara BM (eventos)](demos/chacara-bm) | Rio Grande da Serra | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara da Villa (eventos)](demos/chacara-da-villa) | Vila Balneária, São Bernardo do Campo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara De Boa na Lagoa (eventos)](demos/chacara-de-boa-na-lagoa) | Batistini, São Bernardo do Campo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Mary Carvalho (eventos)](demos/espaco-mary-carvalho) | Vila Aparecida, Suzano | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Thamara D'Valu (eventos)](demos/espaco-thamara-d-valu) | Olaria, Itapecerica da Serra | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Lira (eventos)](demos/espaco-lira) | Campo Limpo, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Estância Paraíso (eventos)](demos/estancia-paraiso) | Chácara Cuiabá, Itaquaquecetuba | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Jardim Danfesti (eventos)](demos/jardim-danfesti) | Jardim Itapemirim, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Mansão Mikonos (eventos)](demos/mansao-mikonos) | Parque Cruzeiro do Sul, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Recanto Pagliosa (eventos)](demos/recanto-pagliosa) | Vista Alegre, Arujá | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Buffet Terraço Nuevo (eventos)](demos/buffet-terraco-nuevo) | Centro, Diadema | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
