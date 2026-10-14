@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Post: seu gestor pediu o pixel</title>
+<!-- Post solto do Instagram (1 imagem 1080 × 1350): "Seu gestor pediu o pixel."
+     O pedido do gestor contado pelo histórico de pesquisa da dona naquela noite (cada busca mais desesperada
+     que a anterior) e, embaixo, a resposta direta: o site já sai com o pixel instalado e a Renderiza não faz
+     tráfego pago. Fala com quem já anuncia, com quem vai anunciar e com o gestor de tráfego.
+     Sem Lume e sem site de exemplo, então sem selo. node instagram/gerar.mjs post-pixel -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.pixel{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;background:var(--fundo)}
+
+/* topo: marca à esquerda, sobretítulo à direita (y 64 a 104) */
+.pixel .cabeca{position:absolute;left:72px;right:72px;top:64px;height:40px;display:flex;justify-content:space-between;align-items:center}
+.pixel .cabeca .marca{font-size:32px;gap:12px}
+.pixel .cabeca .simbolo{width:38px;height:38px}
+.sobre{font-size:24px;font-weight:600;letter-spacing:.14em;margin-right:-.14em;text-transform:uppercase;color:var(--terra);line-height:1}
+
+/* título (y 150 a 240) */
+.pixel h1{position:absolute;left:72px;right:72px;top:150px;font-size:80px;line-height:90px;letter-spacing:-.035em;white-space:nowrap;color:var(--tinta)}
+.pixel h1 em{font-style:normal;color:var(--terra)}
+
+/* cartão do histórico (x 72 a 1008, y 272 a 780) */
+.historico{position:absolute;left:72px;top:272px;width:936px;height:508px;padding:0 40px;background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(30,37,40,.10)}
+.h-topo{position:absolute;left:40px;right:40px;top:36px;height:36px;display:flex;align-items:center;gap:14px;font-size:28px;font-weight:500;color:var(--cinza);letter-spacing:-.005em}
+.h-topo svg{flex:none;width:28px;height:28px}
+.h-linha{position:absolute;left:40px;right:40px;top:96px;height:2px;background:var(--linha)}
+.buscas{position:absolute;left:40px;right:40px;top:98px;bottom:0;display:flex;flex-direction:column}
+.busca{flex:none;height:86px;display:flex;align-items:center;gap:22px;border-bottom:2px solid #ece8e1;box-sizing:content-box}
+.busca svg{flex:none;width:30px;height:30px;color:#9aa0a6}
+.busca b{flex:1;min-width:0;font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--tinta);white-space:nowrap}
+.busca time{flex:none;font-size:30px;font-weight:500;color:var(--cinza);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.busca.apice{flex:1;height:auto;border-bottom:0;align-items:center}
+.busca.apice b{font-weight:700;white-space:normal;line-height:54px;letter-spacing:-.025em}
+.busca.apice time{color:var(--terra);font-weight:600}
+.busca.apice svg{color:var(--terra)}
+/* marca-texto: 60% da altura da linha, encostado embaixo */
+.mt{background:linear-gradient(to top,rgba(178,81,52,.25) 0,rgba(178,81,52,.25) 60%,transparent 60%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .12em;margin:0 -.12em;border-radius:6px}
+
+/* faixa grafite (y 812 a 1350) */
+.resposta{position:absolute;left:0;right:0;top:812px;bottom:0;background:var(--escuro);padding:48px 72px}
+.resposta h2{font-size:52px;font-weight:700;line-height:57.5px;letter-spacing:-.03em;color:var(--fundo)}
+.resposta h2 em{font-style:normal;color:var(--terra-escuro)}
+.resposta .o-que{margin-top:22px;font-size:36px;font-weight:500;line-height:45px;letter-spacing:-.01em;color:var(--enfase-escuro)}
+.resposta .trafego{margin-top:14px;font-size:36px;font-weight:600;line-height:45px;letter-spacing:-.01em;color:var(--fundo)}
+.acao{margin-top:28px;display:flex;align-items:center;gap:30px}
+.botao{flex:none;display:inline-flex;align-items:center;gap:14px;height:76px;padding:0 40px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:34px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.botao svg{flex:none;width:34px;height:34px}
+.gestor{display:flex;flex-direction:column;font-size:30px;font-weight:600;line-height:38px;letter-spacing:-.01em;white-space:nowrap}
+.gestor span:first-child{color:var(--terra-escuro)}
+.gestor span:last-child{color:var(--fundo)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- relógio com a seta de "voltar": o ícone das buscas recentes -->
+  <symbol id="recente" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.5"/><path d="M3.5 3.8v4.7h4.7"/><path d="M12 7.5V12l3.2 2"/></g></symbol>
+</svg>
+<section class="slide pixel">
+  <div class="cabeca">
+    <span class="marca"><span class="simbolo"></span>renderiza</span>
+    <span class="sobre">Pra quem anuncia ou vai anunciar</span>
+  </div>
+
+  <h1>Seu gestor pediu o <em>pixel</em>.</h1>
+
+  <div class="historico">
+    <div class="h-topo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 7v5l3.4 2.1"/></svg>
+      Seu histórico de pesquisa · ontem à noite
+    </div>
+    <div class="h-linha"></div>
+    <div class="buscas">
+      <div class="busca"><svg><use href="#recente"/></svg><b>o que é pixel</b><time>21:02</time></div>
+      <div class="busca"><svg><use href="#recente"/></svg><b>como fazer um site até amanhã</b><time>21:15</time></div>
+      <div class="busca"><svg><use href="#recente"/></svg><b>gestor de tráfego faz site?</b><time>22:40</time></div>
+      <div class="busca apice"><svg><use href="#recente"/></svg><b><span class="mt">como explicar pro gestor</span><br><span class="mt">que eu não tenho site</span></b><time>23:48</time></div>
+    </div>
+  </div>
+
+  <div class="resposta">
+    <h2>Calma. Todo site da Renderiza já sai com o <em>pixel instalado</em>.</h2>
+    <p class="o-que">Pixel da Meta, Google Analytics<br>e cada clique no WhatsApp contado.</p>
+    <p class="trafego">Tráfego pago a gente não faz:<br>o anúncio fica com você ou com o seu gestor.</p>
+    <div class="acao">
+      <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5 10.6 13.4"/><path d="M21.5 2.5 14.6 21.6l-4-8.2-8.1-4z"/></svg>Chama no direct</span>
+      <span class="gestor"><span>Gestor de tráfego?</span><span>Manda pro cliente que não tem site.</span></span>
+    </div>
+  </div>
+</section>
+<script type="module">
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

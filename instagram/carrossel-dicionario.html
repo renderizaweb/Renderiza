@@ -9,6 +9,8 @@
 <style>
 :root{--terra:#b25134;--terra-clara:#e8855e;--cinza:#7a8386;--suave:#5b6467;--fio:#d9d4cc;--claro:#f1eee9;--apoio-escuro:#b9bfc1;--enviado:#d9fdd3}
 .slide.escuro{color:var(--claro)}
+p,h1,h2,h3{text-wrap:pretty}
+.apoio{text-wrap:balance}
 
 /* topo: marca à esquerda, "Dicionário do cliente 2/10" à direita */
 .pag{display:flex;align-items:baseline;gap:12px;font-size:26px;font-weight:500;color:var(--suave);letter-spacing:.005em}
@@ -40,12 +42,14 @@
 .balao time{display:block;margin-top:8px;text-align:right;font-size:24px;line-height:1;color:var(--cinza);font-variant-numeric:tabular-nums}
 
 /* o verbete */
-.verbete{position:absolute;left:84px;top:380px;width:896px}
+.verbete{position:absolute;left:84px;top:380px;width:896px;height:752px;display:flex;flex-direction:column;align-items:flex-start}
+.verbete>*{flex:none}
 .classe{margin-top:24px;font-size:28px;color:var(--cinza);line-height:1.2}
 .rotulo{font-size:26px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);line-height:1}
 .verbete .rotulo{margin-top:44px}
 .traducao{margin-top:20px;max-width:880px;font-size:76px;font-weight:700;line-height:1.06;letter-spacing:-.035em;color:var(--tinta)}
-.verbete hr{height:2px;border:0;background:var(--fio);margin:44px 0 32px}
+.verbete hr{align-self:stretch;height:2px;border:0;background:var(--fio);margin:auto 0 32px}
+.verbete .nota{min-height:94px}
 .nota{font-size:36px;font-weight:500;line-height:1.3;color:var(--suave);letter-spacing:-.005em}
 .nota b{font-weight:600;color:var(--tinta)}
 .climax .balao p{font-size:72px}
@@ -200,9 +204,9 @@
     <div class="balao" style="transform:rotate(-1deg)"><p>Vou ver e te falo.</p><time>21:47</time></div>
     <p class="classe">(expressão, uso diário)</p>
     <p class="rotulo">Tradução</p>
-    <p class="traducao">Vou decidir <span class="destaque">longe daqui.</span></p>
+    <p class="traducao">Vou decidir <span class="destaque">longe&nbsp;daqui.</span></p>
     <hr>
-    <p class="nota"><b>Sinônimos:</b> “depois te chamo”, “vou pensar” e “kkk ok”.</p>
+    <p class="nota"><b>Sinônimos:</b> “depois te chamo”, “vou pensar” e “kkk&nbsp;ok”.</p>
   </div>
 </section>
 
@@ -210,8 +214,8 @@
 <section class="slide escuro reparou">
   <div class="topo" data-pag="7"></div>
   <p class="sobre" style="top:200px">Reparou?</p>
-  <h2>Nas cinco frases, o cliente decide <span class="destaque">longe da conversa.</span></h2>
-  <p class="texto">Com o marido, na outra aba, dois dias depois. E o que ele leva de você é um preço solto no meio do chat.</p>
+  <h2>Nas cinco frases, o&nbsp;cliente decide <span class="destaque">longe da&nbsp;conversa.</span></h2>
+  <p class="texto">Com o marido, na outra aba, dois dias depois. E&nbsp;o que ele leva de você é um preço solto no meio do chat.</p>
   <div class="conversa">
     <div class="mini" style="opacity:1;transform:rotate(-1deg)"><p>Me manda tudo por aqui.</p><time>09:14</time></div>
     <div class="mini" style="opacity:.79;margin-left:40px;transform:rotate(1deg)"><p>Oi, quanto é?</p><time>12:41</time></div>
@@ -249,7 +253,7 @@
   <p class="pronta" style="top:460px">Claro, fica à vontade! Aqui tem os serviços, as fotos e as avaliações pra ver com calma e mostrar pra quem quiser: <span class="troca">[link do seu site]</span>. Quando decidir, é só me chamar.</p>
   <div class="quando" style="top:770px"><span>Quando ouvir “quanto é?”</span><em data-copia>Copia e cola</em></div>
   <p class="pronta" style="top:810px">O <span class="troca">[serviço]</span> fica <span class="troca">[valor]</span>. Aqui tem as fotos e tudo o que está incluso: <span class="troca">[link do seu site]</span>. Quer que eu veja um horário pra você?</p>
-  <p class="rodape">A primeira também serve pra “vou ver com meu marido” e “tô vendo umas opções”. Troque o que está entre colchetes.</p>
+  <p class="rodape">A primeira também serve pra “vou ver com meu marido” e “tô&nbsp;vendo&nbsp;umas&nbsp;opções”. Troque o que está entre colchetes.</p>
 </section>
 
 <!-- 10 · convite -->
@@ -261,7 +265,7 @@
   <span class="linha"></span>
   <h3>Ainda não tem um link pra mandar?</h3>
   <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l1.9-5.4A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="3"/></svg>Comenta PRÉVIA</span>
-  <p class="texto">A gente monta a prévia do site do seu negócio e te manda. Sem compromisso.</p>
+  <p class="texto">A gente monta a prévia do site do seu negócio<br>e te manda. Sem compromisso.</p>
   <div class="assina"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
 </section>
 
@@ -279,14 +283,14 @@ document.querySelectorAll(".topo[data-pag]").forEach(el => {
 // (para a aba não cobrir nenhuma) e, quando não cabem entre duas abas (na capa), ficam escondidas por elas.
 const LETRAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const centro = i => 200 + 36 * i + 18;
-const EMPURRA = [0, 9, 4, 1];
+const EMPURRA = [0, 12, 5, 2];
 document.querySelectorAll(".indice").forEach(el => {
   const abas = [...el.dataset.abas].map(l => LETRAS.indexOf(l));
   el.innerHTML = [...LETRAS].map((l, i) => {
     if (abas.includes(i)) return `<span class="aba" style="top:${centro(i)}px">${l}</span>`;
     let y = centro(i);
     for (const a of abas) { const d = i - a; if (Math.abs(d) < EMPURRA.length) y += Math.sign(d) * EMPURRA[Math.abs(d)]; }
-    if (abas.some(a => Math.abs(y - centro(a)) < 42)) return "";
+    if (abas.some(a => Math.abs(y - centro(a)) < 46)) return "";
     return `<span style="top:${y}px">${l}</span>`;
   }).join("");
 });
