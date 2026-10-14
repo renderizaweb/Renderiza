@@ -3,56 +3,73 @@
 <title>Post: seu gestor pediu o pixel</title>
 <!-- Post solto do Instagram (1 imagem 1080 × 1350): "Seu gestor pediu o pixel."
      O pedido do gestor contado pelo histórico de pesquisa da dona naquela noite (cada busca mais desesperada
-     que a anterior) e, embaixo, a resposta direta: o site já sai com o pixel instalado e a Renderiza não faz
-     tráfego pago. Fala com quem já anuncia, com quem vai anunciar e com o gestor de tráfego.
+     que a anterior, e o texto escurecendo junto com a noite) e, embaixo, a resposta direta: o site já sai com o
+     pixel do cliente instalado, o que é o pixel em uma frase, o que vem junto e que a Renderiza não faz tráfego pago.
+     Fala com quem já anuncia, com quem vai anunciar e com o gestor de tráfego.
      Sem Lume e sem site de exemplo, então sem selo. node instagram/gerar.mjs post-pixel -->
 <link rel="stylesheet" href="marca.css">
 <style>
-.pixel{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;background:var(--fundo)}
+.pixel{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;--suave:#5b6467;--apoio:#b9bfc1;--claro:#f1eee9;background:var(--fundo)}
 
-/* topo: marca à esquerda, sobretítulo à direita (y 64 a 104) */
-.pixel .cabeca{position:absolute;left:72px;right:72px;top:64px;height:40px;display:flex;justify-content:space-between;align-items:center}
-.pixel .cabeca .marca{font-size:32px;gap:12px}
-.pixel .cabeca .simbolo{width:38px;height:38px}
-.sobre{font-size:24px;font-weight:600;letter-spacing:.14em;margin-right:-.14em;text-transform:uppercase;color:var(--terra);line-height:1}
+/* topo: marca à esquerda, sobretítulo à direita (mesmo tamanho de marca da .topo de marca.css) */
+.pixel .cabeca{position:absolute;left:72px;right:72px;top:62px;height:44px;display:flex;justify-content:space-between;align-items:center}
+.pixel .cabeca .marca{font-size:34px;gap:14px}
+.pixel .cabeca .simbolo{width:40px;height:40px}
+.sobre{font-size:26px;font-weight:700;letter-spacing:.12em;margin-right:-.12em;text-transform:uppercase;color:var(--terra);line-height:1}
 
-/* título (y 150 a 240) */
-.pixel h1{position:absolute;left:72px;right:72px;top:150px;font-size:80px;line-height:90px;letter-spacing:-.035em;white-space:nowrap;color:var(--tinta)}
+/* título */
+.pixel h1{position:absolute;left:72px;right:72px;top:140px;font-size:80px;line-height:90px;letter-spacing:-.035em;white-space:nowrap;color:var(--tinta)}
 .pixel h1 em{font-style:normal;color:var(--terra)}
 
-/* cartão do histórico (x 72 a 1008, y 272 a 780) */
-.historico{position:absolute;left:72px;top:272px;width:936px;height:508px;padding:0 40px;background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(30,37,40,.10)}
-.h-topo{position:absolute;left:40px;right:40px;top:36px;height:36px;display:flex;align-items:center;gap:14px;font-size:28px;font-weight:500;color:var(--cinza);letter-spacing:-.005em}
-.h-topo svg{flex:none;width:28px;height:28px}
-.h-linha{position:absolute;left:40px;right:40px;top:96px;height:2px;background:var(--linha)}
-.buscas{position:absolute;left:40px;right:40px;top:98px;bottom:0;display:flex;flex-direction:column}
-.busca{flex:none;height:86px;display:flex;align-items:center;gap:22px;border-bottom:2px solid #ece8e1;box-sizing:content-box}
-.busca svg{flex:none;width:30px;height:30px;color:#9aa0a6}
-.busca b{flex:1;min-width:0;font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--tinta);white-space:nowrap}
-.busca time{flex:none;font-size:30px;font-weight:500;color:var(--cinza);font-variant-numeric:tabular-nums;letter-spacing:.01em}
-.busca.apice{flex:1;height:auto;border-bottom:0;align-items:center}
-.busca.apice b{font-weight:700;white-space:normal;line-height:54px;letter-spacing:-.025em}
-.busca.apice time{color:var(--terra);font-weight:600}
-.busca.apice svg{color:var(--terra)}
-/* marca-texto: 60% da altura da linha, encostado embaixo */
-.mt{background:linear-gradient(to top,rgba(178,81,52,.25) 0,rgba(178,81,52,.25) 60%,transparent 60%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .12em;margin:0 -.12em;border-radius:6px}
+/* cartão do histórico: atravessa a divisa e entra na faixa grafite (amarra as duas metades) */
+.historico{position:absolute;z-index:2;left:72px;top:262px;width:936px;height:516px;background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(30,37,40,.12)}
+/* barra de pesquisa genérica (sem logo de buscador) */
+.h-topo{position:absolute;left:40px;right:40px;top:34px;height:64px;display:flex;align-items:center;gap:26px}
+.barra{flex:1;height:64px;display:flex;align-items:center;gap:16px;padding:0 26px;border-radius:999px;background:var(--fundo)}
+.barra svg{flex:none;width:30px;height:30px;color:var(--suave)}
+.barra i{flex:none;width:3px;height:34px;margin-right:-10px;border-radius:2px;background:var(--tinta)}
+.barra span{font-size:30px;font-weight:500;color:var(--cinza);letter-spacing:-.005em}
+.quando{flex:none;margin-right:12px;font-size:26px;font-weight:600;color:var(--suave);letter-spacing:-.005em}
+/* as buscas: o texto escurece conforme a noite avança (todas com contraste de leitura acima de 4,5:1) */
+.buscas{position:absolute;left:40px;right:40px;top:110px;bottom:0;display:flex;flex-direction:column}
+.busca{--c:var(--tinta);flex:none;height:80px;display:flex;align-items:center;gap:22px;border-bottom:2px solid #ece8e1;box-sizing:content-box;color:var(--c)}
+.busca:nth-child(1){--c:#6b7477}
+.busca:nth-child(2){--c:#4b5457}
+.busca:nth-child(3){--c:#353d40}
+.busca svg{flex:none;width:34px;height:34px}
+.busca b{flex:1;min-width:0;font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1.15;white-space:nowrap}
+.busca time{flex:none;margin-right:12px;font-size:32px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:0}
+.busca.apice{flex:1;height:auto;border-bottom:0;padding-bottom:20px;align-items:center;--c:var(--tinta)}
+.busca.apice b{font-weight:700;white-space:normal;line-height:58px;letter-spacing:-.025em}
+.busca.apice svg,.busca.apice time{color:var(--terra)}
+.busca.apice time{position:relative;font-weight:700}
+/* marca-texto: atrás do miolo das letras (sobe do pé das descendentes até acima da altura do x) */
+.mt{background:linear-gradient(to top,transparent 0,transparent 16%,rgba(232,133,94,.5) 16%,rgba(232,133,94,.5) 72%,transparent 72%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .14em;margin:0 -.14em;border-radius:4px}
+/* traço à mão em volta do 23:48 */
+.busca .circulo{position:absolute;left:-25px;top:-16px;width:140px;height:71px;overflow:visible;pointer-events:none}
 
-/* faixa grafite (y 812 a 1350) */
-.resposta{position:absolute;left:0;right:0;top:812px;bottom:0;background:var(--escuro);padding:48px 72px}
-.resposta h2{font-size:52px;font-weight:700;line-height:57.5px;letter-spacing:-.03em;color:var(--fundo)}
+/* faixa grafite: começa por trás do cartão */
+.resposta{position:absolute;left:0;right:0;top:718px;bottom:0;background:var(--escuro);padding:96px 72px 0}
+.resposta h2{font-size:52px;font-weight:700;line-height:58px;letter-spacing:-.03em;color:var(--claro)}
 .resposta h2 em{font-style:normal;color:var(--terra-escuro)}
-.resposta .o-que{margin-top:22px;font-size:36px;font-weight:500;line-height:45px;letter-spacing:-.01em;color:var(--enfase-escuro)}
-.resposta .trafego{margin-top:14px;font-size:36px;font-weight:600;line-height:45px;letter-spacing:-.01em;color:var(--fundo)}
-.acao{margin-top:28px;display:flex;align-items:center;gap:30px}
-.botao{flex:none;display:inline-flex;align-items:center;gap:14px;height:76px;padding:0 40px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:34px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.def{margin-top:18px;font-size:34px;font-weight:500;line-height:42px;letter-spacing:-.01em;color:var(--apoio);white-space:nowrap}
+.pilulas{margin-top:26px;display:flex;gap:12px}
+.pilula{flex:none;height:58px;display:inline-flex;align-items:center;gap:10px;padding:0 20px 0 15px;border-radius:999px;background:var(--escuro-2);box-shadow:inset 0 0 0 2px #36403f;color:var(--claro);font-size:28px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.pilula svg{flex:none;width:30px;height:30px;color:var(--terra-escuro)}
+.pilula svg.zap{color:var(--zap)}
+.trafego{margin-top:28px;font-size:34px;font-weight:500;line-height:43px;letter-spacing:-.01em;color:var(--apoio)}
+.acao{margin-top:30px;display:flex;align-items:center;gap:28px}
+.botao{flex:none;display:inline-flex;align-items:center;gap:14px;height:76px;padding:0 38px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:34px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
 .botao svg{flex:none;width:34px;height:34px}
-.gestor{display:flex;flex-direction:column;font-size:30px;font-weight:600;line-height:38px;letter-spacing:-.01em;white-space:nowrap}
-.gestor span:first-child{color:var(--terra-escuro)}
-.gestor span:last-child{color:var(--fundo)}
+.acao hr{flex:none;width:2px;height:56px;border:0;background:#3a4448}
+.gestor{display:flex;flex-direction:column;font-size:29px;line-height:37px;letter-spacing:-.01em;white-space:nowrap}
+.gestor span:first-child{font-weight:600;color:var(--claro)}
+.gestor span:last-child{font-weight:500;color:var(--apoio)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <!-- relógio com a seta de "voltar": o ícone das buscas recentes -->
   <symbol id="recente" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.5"/><path d="M3.5 3.8v4.7h4.7"/><path d="M12 7.5V12l3.2 2"/></g></symbol>
+  <symbol id="certo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.6"/><path d="m7.6 12.3 3 3 5.8-6.2"/></g></symbol>
 </svg>
 <section class="slide pixel">
   <div class="cabeca">
@@ -64,24 +81,32 @@
 
   <div class="historico">
     <div class="h-topo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 7v5l3.4 2.1"/></svg>
-      Seu histórico de pesquisa · ontem à noite
+      <div class="barra">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m15.8 15.8 5 5"/></svg>
+        <i></i><span>pesquisar</span>
+      </div>
+      <span class="quando">Ontem à noite</span>
     </div>
-    <div class="h-linha"></div>
     <div class="buscas">
-      <div class="busca"><svg><use href="#recente"/></svg><b>o que é pixel</b><time>21:02</time></div>
-      <div class="busca"><svg><use href="#recente"/></svg><b>como fazer um site até amanhã</b><time>21:15</time></div>
+      <div class="busca"><svg><use href="#recente"/></svg><b>o que é pixel no site</b><time>21:02</time></div>
+      <div class="busca"><svg><use href="#recente"/></svg><b>como fazer site sem saber nada</b><time>21:15</time></div>
       <div class="busca"><svg><use href="#recente"/></svg><b>gestor de tráfego faz site?</b><time>22:40</time></div>
-      <div class="busca apice"><svg><use href="#recente"/></svg><b><span class="mt">como explicar pro gestor</span><br><span class="mt">que eu não tenho site</span></b><time>23:48</time></div>
+      <div class="busca apice"><svg><use href="#recente"/></svg><b><span class="mt">como explicar pro gestor</span><br><span class="mt">que eu não tenho site</span></b><time>23:48<svg class="circulo" viewBox="0 0 150 76"><path d="M86 6C50 2 12 10 6 34c-5 22 26 36 66 36 38 0 72-10 72-33C144 15 112 5 74 7 60 8 46 11 36 16" fill="none" stroke="#b25134" stroke-width="4" stroke-linecap="round"/></svg></time></div>
     </div>
   </div>
 
   <div class="resposta">
-    <h2>Calma. Todo site da Renderiza já sai com o <em>pixel instalado</em>.</h2>
-    <p class="o-que">Pixel da Meta, Google Analytics<br>e cada clique no WhatsApp contado.</p>
+    <h2>Calma. Todo site da Renderiza<br>já sai com o seu <em>pixel instalado</em>.</h2>
+    <p class="def">O pixel é o código que conta quem veio do anúncio.</p>
+    <div class="pilulas">
+      <span class="pilula"><svg><use href="#certo"/></svg>Pixel da Meta</span>
+      <span class="pilula"><svg><use href="#certo"/></svg>Google Analytics</span>
+      <span class="pilula"><svg class="zap" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 5-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Cliques no WhatsApp</span>
+    </div>
     <p class="trafego">Tráfego pago a gente não faz:<br>o anúncio fica com você ou com o seu gestor.</p>
     <div class="acao">
       <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5 10.6 13.4"/><path d="M21.5 2.5 14.6 21.6l-4-8.2-8.1-4z"/></svg>Chama no direct</span>
+      <hr>
       <span class="gestor"><span>Gestor de tráfego?</span><span>Manda pro cliente que não tem site.</span></span>
     </div>
   </div>
