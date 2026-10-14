@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Carrossel: dicionário do cliente de WhatsApp</title>
+<!-- Carrossel do Instagram (10 imagens 1080 × 1350): "Dicionário do cliente de WhatsApp".
+     As cinco frases que o cliente manda no WhatsApp, traduzidas em verbetes; a virada (nas cinco, ele decide longe
+     da conversa), o que resolve (mandar junto um link que mostra o trabalho) e duas respostas prontas para copiar.
+     A Lume Estética (imagem 8) é um negócio fictício, com o selo "exemplo". node instagram/gerar.mjs carrossel-dicionario -->
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terra:#b25134;--terra-clara:#e8855e;--cinza:#7a8386;--suave:#5b6467;--fio:#d9d4cc;--claro:#f1eee9;--apoio-escuro:#b9bfc1;--enviado:#d9fdd3}
+.slide.escuro{color:var(--claro)}
+
+/* topo: marca à esquerda, "Dicionário do cliente 2/10" à direita */
+.pag{display:flex;align-items:baseline;gap:12px;font-size:26px;font-weight:500;color:var(--suave);letter-spacing:.005em}
+.pag b{font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.escuro .pag{color:var(--apoio-escuro)}
+.escuro .pag b{color:var(--claro)}
+
+/* índice de dedo: A a Z na borda direita */
+.indice{position:absolute;left:1022px;top:0;width:58px;height:1350px}
+.indice span{position:absolute;left:0;width:58px;height:36px;margin-top:-18px;display:grid;place-items:center;font-size:22px;font-weight:600;line-height:1;color:#a39b90}
+.escuro .indice span{color:var(--suave)}
+.indice .aba{height:64px;margin-top:-32px;border-radius:14px 0 0 14px;background:var(--terra);color:#fff;font-size:30px;font-weight:700;box-shadow:-6px 8px 18px rgba(30,37,40,.14)}
+.escuro .indice .aba{background:var(--terra-clara);color:var(--escuro);box-shadow:-6px 8px 18px rgba(0,0,0,.22)}
+
+/* textos comuns */
+.sobre{position:absolute;left:84px;font-size:26px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);line-height:1}
+.escuro .sobre{color:var(--terra-clara)}
+.destaque{color:var(--terra)}
+.escuro .destaque{color:var(--terra-clara)}
+
+/* cabeça do verbete: a letra grande e o fio na altura da base */
+.cabeca{position:absolute;left:84px;width:896px;top:170px;height:150px;display:flex;align-items:baseline}
+.cabeca .letra{font-size:150px;font-weight:800;line-height:150px;letter-spacing:-.04em;color:var(--terra)}
+.cabeca i{flex:1;height:2px;margin-left:30px;background:var(--fio)}
+
+/* balão recebido do WhatsApp */
+.balao{display:block;width:fit-content;background:#fff;border-radius:6px 30px 30px 30px;box-shadow:0 10px 30px rgba(30,37,40,.10);padding:34px 40px;transform-origin:0 50%}
+.balao p{font-size:64px;font-weight:600;line-height:1.1;letter-spacing:-.028em;color:var(--tinta);white-space:nowrap}
+.balao time{display:block;margin-top:8px;text-align:right;font-size:24px;line-height:1;color:var(--cinza);font-variant-numeric:tabular-nums}
+
+/* o verbete */
+.verbete{position:absolute;left:84px;top:380px;width:896px}
+.classe{margin-top:24px;font-size:28px;color:var(--cinza);line-height:1.2}
+.rotulo{font-size:26px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);line-height:1}
+.verbete .rotulo{margin-top:44px}
+.traducao{margin-top:20px;max-width:880px;font-size:76px;font-weight:700;line-height:1.06;letter-spacing:-.035em;color:var(--tinta)}
+.verbete hr{height:2px;border:0;background:var(--fio);margin:44px 0 32px}
+.nota{font-size:36px;font-weight:500;line-height:1.3;color:var(--suave);letter-spacing:-.005em}
+.nota b{font-weight:600;color:var(--tinta)}
+.climax .balao p{font-size:72px}
+.climax .traducao{font-size:88px;line-height:1.02}
+
+/* 1 · capa */
+.capa h1{position:absolute;left:84px;top:250px;font-size:110px;line-height:1;letter-spacing:-.045em;color:var(--claro)}
+.capa .apoio{position:absolute;left:84px;width:896px;top:610px;font-size:40px;font-weight:500;line-height:1.25;color:var(--apoio-escuro)}
+.isca{position:absolute;left:84px;top:770px;width:896px}
+.isca .rotulo{margin-top:40px}
+.tarja{display:block;width:620px;height:76px;margin-top:22px;border-radius:10px;background:var(--terra-clara)}
+.arrasta{position:absolute;left:84px;top:1210px;display:flex;align-items:center;gap:16px;font-size:34px;font-weight:600;color:var(--claro);line-height:1}
+.arrasta svg{width:46px;height:46px;color:var(--terra-clara)}
+
+/* 7 · reparou? */
+.reparou h2{position:absolute;left:84px;width:912px;top:250px;font-size:84px;line-height:1.04;letter-spacing:-.04em;color:var(--claro)}
+.reparou .texto{position:absolute;left:84px;width:900px;top:560px;font-size:40px;font-weight:500;line-height:1.3;color:var(--apoio-escuro)}
+.conversa{position:absolute;left:84px;top:790px;width:912px}
+.mini{display:flex;align-items:flex-end;gap:16px;width:fit-content;background:#fff;border-radius:5px 22px 22px 22px;padding:16px 24px 16px 26px;margin-bottom:20px;transform-origin:0 50%}
+.mini p{font-size:32px;font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--tinta);white-space:nowrap}
+.mini time{font-size:19px;line-height:1;color:var(--cinza);padding-bottom:3px}
+
+/* 8 · o que resolve */
+.resolve h2{position:absolute;left:84px;width:912px;top:236px;font-size:76px;line-height:1.04;letter-spacing:-.04em}
+.resolve .texto{position:absolute;left:84px;width:912px;top:440px;font-size:36px;font-weight:500;line-height:1.3;color:var(--suave)}
+.janela{position:absolute;left:84px;top:650px;width:912px;height:600px;border-radius:36px;overflow:hidden;background:#efeae2;box-shadow:0 30px 70px rgba(30,37,40,.16),0 4px 14px rgba(30,37,40,.06)}
+.j-topo{height:108px;background:#fff;display:flex;align-items:center;gap:22px;padding:0 34px;border-bottom:1px solid #e6e2dc}
+.j-topo i{width:64px;height:64px;border-radius:50%;background:#dfe3e5;color:#8a9497;display:grid;place-items:center;font-style:normal;font-weight:600;font-size:30px}
+.j-topo b{font-size:32px;font-weight:600;letter-spacing:-.015em}
+.j-topo .icones{margin-left:auto;display:flex;gap:30px;color:#667781}
+.j-topo .icones svg{width:34px;height:34px}
+.j-corpo{position:relative;padding:28px 34px 0}
+.msg{position:relative;width:fit-content;max-width:640px;font-size:34px;font-weight:500;line-height:1.3;letter-spacing:-.01em;color:#111b21;padding:16px 22px 14px 24px;box-shadow:0 1px 2px rgba(11,20,26,.10)}
+.msg time{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-top:4px;font-size:21px;font-weight:400;line-height:1;color:#667781}
+.msg time svg{width:26px;height:16px}
+.msg.rec{background:#fff;border-radius:4px 22px 22px 22px}
+.msg.env{background:var(--enviado);border-radius:22px 4px 22px 22px;margin:22px 0 0 auto;width:650px;max-width:650px}
+.cartao{position:relative;display:flex;align-items:center;gap:22px;margin-top:14px;padding:14px;border-radius:16px;background:rgba(17,27,33,.06)}
+.cartao img{width:130px;height:130px;border-radius:14px;object-fit:cover;display:block;flex:none}
+.cartao b{display:block;font-size:30px;font-weight:600;letter-spacing:-.015em;line-height:1.15}
+.cartao small{display:block;margin-top:6px;font-size:24px;font-weight:400;color:var(--cinza);line-height:1.2}
+.cartao .exemplo{top:-18px;right:-14px}
+
+/* 9 · respostas prontas */
+.prontas h2{position:absolute;left:84px;width:912px;top:236px;font-size:64px;line-height:1.06;letter-spacing:-.035em}
+.quando{position:absolute;left:84px;width:912px;display:flex;justify-content:space-between;align-items:center;line-height:1}
+.quando span{font-size:24px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
+.quando em{display:flex;align-items:center;gap:10px;font-style:normal;font-size:24px;font-weight:500;color:var(--suave)}
+.quando em svg{width:28px;height:28px}
+.pronta{position:absolute;left:84px;width:912px;background:var(--enviado);border-radius:30px 6px 30px 30px;padding:30px 40px 32px;font-size:36px;font-weight:500;line-height:1.35;letter-spacing:-.01em;color:#111b21;box-shadow:0 10px 30px rgba(30,37,40,.08)}
+.pronta .troca{color:var(--terra);font-weight:600}
+.prontas .rodape{position:absolute;left:84px;width:912px;top:1100px;font-size:30px;font-weight:500;line-height:1.3;color:var(--suave)}
+
+/* 10 · convite */
+.cta h2{position:absolute;left:84px;width:912px;top:220px;font-size:88px;line-height:1.04;letter-spacing:-.04em;color:var(--claro)}
+.cta .apoio{position:absolute;left:84px;width:912px;top:440px;font-size:40px;font-weight:500;line-height:1.25;color:var(--apoio-escuro)}
+.sua{position:absolute;left:84px;top:590px;display:flex;align-items:center;gap:6px;background:#fff;border-radius:6px 30px 30px 30px;padding:28px 40px}
+.sua p{font-size:56px;font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--cinza)}
+.sua i{width:4px;height:56px;background:var(--terra-clara);border-radius:2px}
+.cta .linha{position:absolute;left:84px;width:912px;top:790px;height:2px;background:var(--escuro-2)}
+.cta h3{position:absolute;left:84px;top:830px;font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--claro)}
+.botao{position:absolute;left:84px;top:930px;width:616px;height:110px;border-radius:999px;background:var(--terra-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:20px;font-size:48px;font-weight:700;letter-spacing:-.025em}
+.botao svg{width:50px;height:50px}
+.cta .texto{position:absolute;left:84px;width:820px;top:1080px;font-size:34px;font-weight:500;line-height:1.3;color:var(--apoio-escuro)}
+.assina{position:absolute;left:84px;width:912px;top:1222px;display:flex;align-items:center;justify-content:space-between}
+.assina .marca{font-size:34px}
+.assina .simbolo{width:40px;height:40px}
+.assina small{font-size:28px;color:var(--apoio-escuro);letter-spacing:.01em}
+</style></head><body>
+
+<!-- 1 · capa -->
+<section class="slide escuro capa">
+  <div class="topo" data-pag="1"></div>
+  <div class="indice" data-abas="MQTV"></div>
+  <p class="sobre" style="top:200px">Edição de bolso</p>
+  <h1>Dicionário<br>do cliente<br><span class="destaque">de WhatsApp</span></h1>
+  <p class="apoio">Cinco frases que você ouve toda semana, traduzidas.</p>
+  <div class="isca">
+    <div class="balao" style="transform:rotate(-2deg)"><p>Vou ver e te falo.</p><time>21:47</time></div>
+    <p class="rotulo">Tradução</p>
+    <span class="tarja"></span>
+  </div>
+  <p class="arrasta">Arrasta pra ler a tradução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
+</section>
+
+<!-- 2 · M -->
+<section class="slide">
+  <div class="topo" data-pag="2"></div>
+  <div class="indice" data-abas="M"></div>
+  <div class="cabeca"><span class="letra">M</span><i></i></div>
+  <div class="verbete">
+    <div class="balao" style="transform:rotate(-2deg)"><p>Me manda tudo por aqui.</p><time>09:14</time></div>
+    <p class="classe">(expressão, uso diário)</p>
+    <p class="rotulo">Tradução</p>
+    <p class="traducao">Daqui a dois dias, eu não acho mais nada nessa conversa.</p>
+    <hr>
+    <p class="nota">Foto, áudio e preço ficam soterrados no meio do chat.</p>
+  </div>
+</section>
+
+<!-- 3 · Q -->
+<section class="slide">
+  <div class="topo" data-pag="3"></div>
+  <div class="indice" data-abas="Q"></div>
+  <div class="cabeca"><span class="letra">Q</span><i></i></div>
+  <div class="verbete">
+    <div class="balao" style="margin-left:66px;transform:rotate(2deg)"><p>Oi, quanto é?</p><time>12:41</time></div>
+    <p class="classe">(expressão, uso diário)</p>
+    <p class="rotulo">Tradução</p>
+    <p class="traducao">Ainda não sei se vale a pena. Me mostra por quê.</p>
+    <hr>
+    <p class="nota">Responde o preço, sim. Mas manda junto o que mostra o valor.</p>
+  </div>
+</section>
+
+<!-- 4 · T -->
+<section class="slide">
+  <div class="topo" data-pag="4"></div>
+  <div class="indice" data-abas="T"></div>
+  <div class="cabeca"><span class="letra">T</span><i></i></div>
+  <div class="verbete">
+    <div class="balao" style="margin-left:16px;transform:rotate(-3deg)"><p>Tô vendo umas opções.</p><time>15:03</time></div>
+    <p class="classe">(expressão, uso diário)</p>
+    <p class="rotulo">Tradução</p>
+    <p class="traducao">Tem outro lugar aberto na outra aba agora.</p>
+    <hr>
+    <p class="nota">A comparação começou. E ela acontece sem você na conversa.</p>
+  </div>
+</section>
+
+<!-- 5 · V -->
+<section class="slide">
+  <div class="topo" data-pag="5"></div>
+  <div class="indice" data-abas="V"></div>
+  <div class="cabeca"><span class="letra">V</span><i></i></div>
+  <div class="verbete">
+    <div class="balao" style="margin-left:46px;transform:rotate(1.5deg)"><p>Vou ver com meu marido.</p><time>19:22</time></div>
+    <p class="classe">(expressão, uso diário)</p>
+    <p class="rotulo">Tradução</p>
+    <p class="traducao">Preciso de alguma coisa pra mostrar pra ele.</p>
+    <hr>
+    <p class="nota">E print de conversa não convence ninguém.</p>
+  </div>
+</section>
+
+<!-- 6 · V, o clímax -->
+<section class="slide climax">
+  <div class="topo" data-pag="6"></div>
+  <div class="indice" data-abas="V"></div>
+  <div class="cabeca"><span class="letra">V</span><i></i></div>
+  <div class="verbete">
+    <div class="balao" style="transform:rotate(-1deg)"><p>Vou ver e te falo.</p><time>21:47</time></div>
+    <p class="classe">(expressão, uso diário)</p>
+    <p class="rotulo">Tradução</p>
+    <p class="traducao">Vou decidir <span class="destaque">longe daqui.</span></p>
+    <hr>
+    <p class="nota"><b>Sinônimos:</b> “depois te chamo”, “vou pensar” e “kkk ok”.</p>
+  </div>
+</section>
+
+<!-- 7 · reparou? -->
+<section class="slide escuro reparou">
+  <div class="topo" data-pag="7"></div>
+  <p class="sobre" style="top:200px">Reparou?</p>
+  <h2>Nas cinco frases, o cliente decide <span class="destaque">longe da conversa.</span></h2>
+  <p class="texto">Com o marido, na outra aba, dois dias depois. E o que ele leva de você é um preço solto no meio do chat.</p>
+  <div class="conversa">
+    <div class="mini" style="opacity:1;transform:rotate(-1deg)"><p>Me manda tudo por aqui.</p><time>09:14</time></div>
+    <div class="mini" style="opacity:.79;margin-left:40px;transform:rotate(1deg)"><p>Oi, quanto é?</p><time>12:41</time></div>
+    <div class="mini" style="opacity:.58;margin-left:80px;transform:rotate(-1.5deg)"><p>Tô vendo umas opções.</p><time>15:03</time></div>
+    <div class="mini" style="opacity:.36;margin-left:120px;transform:rotate(.8deg)"><p>Vou ver com meu marido.</p><time>19:22</time></div>
+    <div class="mini" style="opacity:.15;margin-left:160px;transform:rotate(-.5deg)"><p>Vou ver e te falo.</p><time>21:47</time></div>
+  </div>
+</section>
+
+<!-- 8 · o que resolve -->
+<section class="slide resolve">
+  <div class="topo" data-pag="8"></div>
+  <p class="sobre" style="top:190px">O que resolve</p>
+  <h2>Manda junto um link que <span class="destaque">trabalha por você.</span></h2>
+  <p class="texto">No Instagram, o serviço se perde no meio dos posts. No site, está tudo numa página só: serviços, fotos, avaliações e o WhatsApp num toque.</p>
+  <div class="janela">
+    <div class="j-topo"><i>C</i><b>Cliente</b>
+      <span class="icones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5 21.5 7v10l-6-3.5"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 4.2 2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L7.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2Z"/></svg></span></div>
+    <div class="j-corpo">
+      <div class="msg rec">Vou ver com meu marido.<time>19:22</time></div>
+      <div class="msg env">Claro! Aqui tem tudo pra vocês verem com calma:
+        <div class="cartao"><img data-foto="hero" alt=""><div><b>Lume Estética</b><small>seunegocio.com.br</small></div><span class="exemplo">exemplo</span></div>
+        <time>19:23<svg viewBox="0 0 18 11" fill="none" stroke="#8696a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6l3.5 3.5L11 2M7 9.5L14.5 2"/></svg></time>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · respostas prontas -->
+<section class="slide prontas">
+  <div class="topo" data-pag="9"></div>
+  <p class="sobre" style="top:190px">Respostas prontas</p>
+  <h2>Duas respostas prontas <span class="destaque">pra copiar e colar.</span></h2>
+  <div class="quando" style="top:420px"><span>Quando ouvir “vou ver e te falo”</span><em data-copia>Copia e cola</em></div>
+  <p class="pronta" style="top:460px">Claro, fica à vontade! Aqui tem os serviços, as fotos e as avaliações pra ver com calma e mostrar pra quem quiser: <span class="troca">[link do seu site]</span>. Quando decidir, é só me chamar.</p>
+  <div class="quando" style="top:770px"><span>Quando ouvir “quanto é?”</span><em data-copia>Copia e cola</em></div>
+  <p class="pronta" style="top:810px">O <span class="troca">[serviço]</span> fica <span class="troca">[valor]</span>. Aqui tem as fotos e tudo o que está incluso: <span class="troca">[link do seu site]</span>. Quer que eu veja um horário pra você?</p>
+  <p class="rodape">A primeira também serve pra “vou ver com meu marido” e “tô vendo umas opções”. Troque o que está entre colchetes.</p>
+</section>
+
+<!-- 10 · convite -->
+<section class="slide escuro cta">
+  <div class="topo" data-pag="10"></div>
+  <h2>Qual frase <span class="destaque">faltou</span> nesse dicionário?</h2>
+  <p class="apoio">Escreve aqui nos comentários que a gente traduz.</p>
+  <div class="sua"><p>(a sua frase aqui)</p><i></i></div>
+  <span class="linha"></span>
+  <h3>Ainda não tem um link pra mandar?</h3>
+  <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l1.9-5.4A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="3"/></svg>Comenta PRÉVIA</span>
+  <p class="texto">A gente monta a prévia do site do seu negócio e te manda. Sem compromisso.</p>
+  <div class="assina"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+</section>
+
+<script type="module">
+import { fotosDoExemplo } from "./exemplo.js";
+const TOTAL = document.querySelectorAll(".slide").length;
+const COPIA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></svg>';
+
+// topo: marca e "Dicionário do cliente n/10"
+document.querySelectorAll(".topo[data-pag]").forEach(el => {
+  el.innerHTML = `<span class="marca"><span class="simbolo"></span>renderiza</span><span class="pag">Dicionário do cliente <b>${el.dataset.pag}/${TOTAL}</b></span>`;
+});
+
+// índice de dedo: 26 letras, 36 px cada, de y 200 a 1136. As letras vizinhas de uma aba se afastam um pouco
+// (para a aba não cobrir nenhuma) e, quando não cabem entre duas abas (na capa), ficam escondidas por elas.
+const LETRAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const centro = i => 200 + 36 * i + 18;
+const EMPURRA = [0, 9, 4, 1];
+document.querySelectorAll(".indice").forEach(el => {
+  const abas = [...el.dataset.abas].map(l => LETRAS.indexOf(l));
+  el.innerHTML = [...LETRAS].map((l, i) => {
+    if (abas.includes(i)) return `<span class="aba" style="top:${centro(i)}px">${l}</span>`;
+    let y = centro(i);
+    for (const a of abas) { const d = i - a; if (Math.abs(d) < EMPURRA.length) y += Math.sign(d) * EMPURRA[Math.abs(d)]; }
+    if (abas.some(a => Math.abs(y - centro(a)) < 42)) return "";
+    return `<span style="top:${y}px">${l}</span>`;
+  }).join("");
+});
+
+document.querySelectorAll("[data-copia]").forEach(el => (el.innerHTML = COPIA + el.innerHTML));
+document.querySelectorAll("[data-foto]").forEach(el => (el.src = fotosDoExemplo(el.dataset.foto)));
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
