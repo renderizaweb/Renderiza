@@ -1,0 +1,14 @@
+{
+ "marca": "Clínica Macena",
+ "local": "Dra. Emily Macena · CRO-SP 141.118",
+ "fontes": {"titulo": "Cormorant Garamond", "texto": "Manrope"},
+ "cores": {"fundo": "#3b2d1f", "fundo2": "#221a12", "acento": "#e3c990", "tinta_acento": "#221a12", "claro": "#faf6ef"},
+ "foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/macena/raw/dremilymacedo/Instagram_files/495435983_17848309239462834_1526641294472024054_n.jpg", "pos": "50% 20%"},
+ "selo": {"nota": "5,0", "total": "249"},
+ "titulo": "Seu sorriso, cuidado <em>com carinho e técnica.</em>",
+ "texto": "Alinhadores invisíveis, aparelho, facetas e implantes na Av. Brasil, em Ferraz.",
+ "whatsapp": "(11) 98685-4884",
+ "cta": "Agende sua avaliação",
+ "endereco": "Av. Brasil, 1856 · Vila Romanópolis",
+ "instagram": "@macenaodonto"
+}

@@ -140,6 +140,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Odontoelis (dentista)](demos/odontoelis) | Guaianases, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 12ª) |
 | [Clínica Dra. Michele Renteiro (dentista)](demos/clinica-dra-michele-renteiro) | Centro, Franco da Rocha | site | pronta · 09/10/2026 (odonto lote 1 · 16ª) |
 | [Dra. Milena Ferreira (dentista, harmonização)](demos/dra-milena-ferreira) | Granja Viana, Cotia | site | pronta · 09/10/2026 (pedido do Kaue, fora do lote) |
+| [Clínica Macena Odontologia (dentista)](demos/macena-odontologia) | Vila Romanópolis, Ferraz de Vasconcelos | site | pronta · 14/10/2026 (pedido do Kaue, fora do lote) |
 | [Ótica L'oren](demos/otica-loren) | Jardim São Paulo, São Paulo | site | pronta · 13/10/2026 (lote 6 · 1ª, vídeo no formato do Reels) |
 | [Óticas Manuella](demos/oticas-manuella) | Parque São Domingos, São Paulo | site | pronta · 13/10/2026 (lote 6 · 2ª, vídeo no formato do Reels) |
 | [Ótica Dom Outlet](demos/otica-dom-outlet) | Matriz, Mauá | site | pronta · 13/10/2026 (lote 6 · 3ª, vídeo no formato do Reels) |

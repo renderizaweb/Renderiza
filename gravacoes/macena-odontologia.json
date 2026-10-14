@@ -1,0 +1,36 @@
+{
+ "demo": "macena-odontologia",
+ "formato": "reels",
+ "marca": "Clínica Macena",
+ "local": "Vila Romanópolis · Ferraz de Vasconcelos",
+ "cores": {"fundo": "#3b2d1f", "fundo2": "#221a12", "acento": "#e3c990", "claro": "#fffdf6"},
+ "fontes": {"titulo": "Cormorant Garamond", "texto": "Manrope"},
+ "hora": "2026-10-14T10:30:00-03:00",
+ "musica": "auto",
+ "clima": "grife",
+ "abertura": {
+  "estilo": "montagem", "selo": "Prévia do site", "chamada": "O novo site da",
+  "nome": ["Clínica", "Macena"],
+  "frase": "Seu sorriso, cuidado com carinho e técnica.",
+  "fotos": [".hero-grid img", ".doutor-foto img", "#clinica-track .gallery-card:nth-child(1) img", ".experience-photo img"],
+  "pos_fotos": ["50% 22%", "50% 25%", "50% 55%", "50% 30%"]
+ },
+ "fechamento": {"estilo": "rolagem", "titulo": "Tudo num lugar só,", "destaque": "com a cara da Macena.", "convite": "Gostou? É só responder esta mensagem."},
+ "cenas": [
+  {"rolar": 0, "segura": 5.6, "legenda": "Hoje, quem procura um dentista *começa pelo celular.*", "sub": "Quer ver a clínica, quem atende e a opinião de quem já foi."},
+  {"rolar": ".doutor-foto", "alinhar": "topo", "segura": 5.6, "legenda": "Conhece a Dra. Emily *e o sonho que virou clínica.*", "sub": "Do primeiro consultório à Clínica Macena, aberta em agosto de 2025."},
+  {"rolar": "#clinica-track", "alinhar": "topo", "segura": 5.6, "acoes": [
+    {"em": 0.5, "tipo": "deslizar", "alvo": "#clinica-track", "cartoes": 1},
+    {"em": 1.7, "tipo": "deslizar", "alvo": "#clinica-track", "cartoes": 1},
+    {"em": 2.9, "tipo": "deslizar", "alvo": "#clinica-track", "cartoes": 1}],
+   "legenda": "Vê a clínica por dentro *antes de marcar.*", "sub": "A equipe, a recepção e os consultórios novos na Av. Brasil."},
+  {"rolar": "#alinhadores-track", "alinhar": "topo", "segura": 5.1, "acoes": [
+    {"em": 0.6, "tipo": "deslizar", "alvo": "#alinhadores-track", "cartoes": 1},
+    {"em": 1.8, "tipo": "deslizar", "alvo": "#alinhadores-track", "cartoes": 1}],
+   "legenda": "E entende o tratamento *sem precisar perguntar.*", "sub": "Alinhadores, aparelho, facetas e implantes, explicados com calma."},
+  {"rolar": "#reviews-track", "alinhar": "topo", "segura": 5.1, "acoes": [{"em": 0.7, "tipo": "deslizar", "alvo": "#reviews-track", "cartoes": 1}],
+   "legenda": "E lê o que *os pacientes contam.*", "sub": "Nota 5,0 em 249 avaliações no Google, sem precisar procurar."},
+  {"rolar": "#contato .button-light", "segura": 5.6, "acoes": [{"em": 1, "tipo": "tocar", "alvo": "#contato .button-light"}],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*", "sub": "O endereço, o horário e o caminho para chegar estão logo ali."}
+ ]
+}
