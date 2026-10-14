@@ -28,8 +28,7 @@ Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
   "Em andamento" escrito acima delas; o cartão muda de etapa ao ser solto na coluna. Soltar em Finalizado
   abre a janela do resultado.
 - **Tabela e detalhes**: o select de etapa mostra as três de Em andamento num grupo; Em negociação aparece em
-  azul, Sem resposta em âmbar e Encerrado em cinza. O filtro tem Em andamento (as três), cada etapa e cada
-  resultado (Ganho, Perda, Encerrado).
+  azul, Sem resposta em âmbar e Encerrado em cinza.
 - **Trilha do lead** (topo dos detalhes): uma barra por fase; em Em andamento, embaixo, a etapa da vez.
 - Etapas antigas (antes de 09/10/2026): Demo criada e Gravação realizada viraram Prontas para trabalhar;
   Contato iniciado virou a etapa `primeiro_contato` (que na tela se chama Em conversa); o Em conversa de antes
@@ -37,16 +36,39 @@ Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
   ou Sem resposta. O `supabase/schema.sql` migrou os dados e deixou uma linha no histórico de cada lead
   ("etapas reorganizadas"). O histórico antigo continua com os nomes antigos.
 
+### Filtros (tabela e kanban)
+
+No jeito do Linear, só que simples. O botão **Filtrar**, ao lado da busca, abre a lista de campos (dá para
+escrever: "mauá" já oferece Cidade: Mauá). Escolhido o campo, aparecem os valores com quantos leads há em cada
+um, ou os períodos, no caso das datas. Cada filtro ativo vira um chip abaixo da barra: clicar no operador troca
+"é" por "não é", clicar nos valores reabre a escolha, e o × tira o filtro. Valores do mesmo campo valem como
+"qualquer um deles"; campos diferentes valem todos juntos. À direita aparece "X de Y leads". Os filtros ficam
+guardados neste navegador e valem na tabela e no kanban.
+
+| Grupo | Campos |
+|---|---|
+| Funil | Etapa (com Finalizado · Ganho/Perda/Encerrado), Ciclo, Interesse, Próximo passo (o primeiro item pendente da checklist), Checklist (com pendentes, toda feita, sem checklist) |
+| Ótica | Nicho (segmento), Cidade (o que vem depois do "·"), Tags, Materiais (demo, vídeo, flyer), Demo no ar (no ar, último dia, expirada ou fora do ar) |
+| Datas | Início da conversa (o primeiro contato), Última interação, Retorno previsto (follow-up ainda por cumprir), Entrou no painel |
+| Outros | Tarefas (em aberto, atrasada), Marcações (não contatar, revisar) |
+
+Períodos: hoje, ontem, últimos 7 ou 30 dias, neste ciclo, no ciclo passado, entre datas e sem data. O Retorno
+previsto olha para frente: atrasado, até o fim da semana, próximos 7 dias, com data. A fila de retornos do Ritmo
+abre o Pipeline com esse filtro. A lógica está em `src/filtros.js` (testes em `test/filtros.test.mjs`) e a tela
+em `src/filtros-ui.js`.
+
 ### Ciclo (C1, C2…) e outras tags
 
 - Cada lead tem **tags** (coluna `tags`). A de ciclo, `ciclo N`, diz em que ciclo de prospecção a conversa
   começou: ciclos semanais, de sexta a quinta, com o ciclo 1 de 02 a 08/10/2026 (o que veio antes, como a lista
   de agosto, também é ciclo 1). Ela aparece no cartão do kanban e ao lado do nome na tabela como **C1, C2…**,
-  uma cor por ciclo, e como "Ciclo 2" no topo dos detalhes.
+  uma cor por ciclo, e como "Ciclo 2" no topo dos detalhes. Na tabela, a coluna **Ciclo** mostra o C1, C2.
+- **Dá para trocar o ciclo**: na coluna Ciclo da tabela ou no campo Ciclo dos detalhes (seção Andamento), que
+  tem do ciclo 1 ao próximo e "Sem ciclo".
 - **Entra sozinha** quando o lead sai de Leads a trabalhar ou de Prontas para trabalhar (o painel põe na hora e
   o gatilho `leads_marcar_ciclo` do banco garante o mesmo pela IA e pelo SQL). Quem já tem ciclo não muda.
-- Outras tags são livres: no campo **Tags** (seção Andamento) escreva e tecle Enter; o × tira. O filtro da
-  tabela tem um grupo **Tags** (ex.: só o Ciclo 2), e a busca acha pelas tags.
+- Outras tags são livres: no campo **Tags** (seção Andamento) escreva e tecle Enter; o × tira. Elas aparecem ao
+  lado do nome na tabela e no cartão. Os filtros têm Ciclo e Tags, e a busca acha pelas tags.
 - Carga inicial (14/10/2026): C1 para quem começou a conversa até 08/10, C2 para quem saiu de Prontas a partir
   de 09/10 (a Dra. Milena e os 7 do lote 6 de 13/10). Quem está em Leads a trabalhar ou Prontas ainda não tem ciclo.
 
@@ -56,8 +78,8 @@ Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
   Padrão: *Enviar a demo e o vídeo*, *1ª cobrança: mandar o flyer de cortesia*, *2ª cobrança: perguntar se viu
   a demo*, *3ª cobrança, a última*. Entram sozinhos quando o lead chega em Prontas para trabalhar; ao mover para
   Em andamento, "Enviar a demo e o vídeo" fica feito, com a data.
-- **No cartão** aparece o próximo item, com a caixinha para marcar ali mesmo, e quantos já foram (ex.: 1/4).
-  Tudo feito: "Checklist feita".
+- A checklist fica **só nos detalhes** (pedido do Kaue em 14/10/2026: o cartão fica limpo, com o nome, o ciclo e
+  as etiquetas). Na tabela, a coluna Checklist começa oculta (volta pelo menu Colunas).
 - **Nos detalhes** (seção Checklist, a primeira): marcar e desmarcar (fica a data), corrigir o texto (clique nele),
   subir, descer, tirar e acrescentar itens livres (ex.: "Disse que está em análise"). Tudo feito em Em conversa ou
   Sem resposta: aparece o atalho para mover para Sem resposta ou encerrar.

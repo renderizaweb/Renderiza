@@ -59,6 +59,21 @@ export function descricaoDaTag(tag) {
 /** Classe de cor: uma por ciclo, repetindo a cada 6; as outras tags ficam neutras. */
 export const classeDaTag = tag => { const n = numeroDoCiclo(tag); return n ? "tag-ciclo ciclo-cor-" + (((n - 1) % 6) + 1) : "tag-livre"; };
 
+/** Tags com o ciclo trocado (n = null tira o ciclo); as outras tags ficam como estão. */
+export const comCiclo = (tags, n) => [...(n ? [tagDoCiclo(n)] : []), ...tags.filter(t => !numeroDoCiclo(t))];
+/** Ciclos para escolher: do 1 até o próximo (o de hoje + 1), e mais algum que já esteja em uso. */
+export function ciclosParaEscolher(hoje, emUso = []) {
+  const ate = Math.max(cicloDoDia(hoje) + 1, ...emUso.filter(Boolean));
+  return Array.from({ length: ate }, (_, i) => i + 1);
+}
+/** "Ciclo 2 · 09 a 15/10" (o 1: "Ciclo 1 · até 08/10"). */
+export function nomeDoCiclo(n) {
+  const { inicio, fim } = periodoDoCiclo(n);
+  const dm = d => d.slice(8, 10) + "/" + d.slice(5, 7);
+  const mesmoMes = inicio.slice(5, 7) === fim.slice(5, 7);
+  return `Ciclo ${n} · ` + (n === 1 ? "até " + dm(fim) : (mesmoMes ? inicio.slice(8, 10) : dm(inicio)) + " a " + dm(fim));
+}
+
 const antesDoContato = etapa => ["a_trabalhar", "demo_pronta"].includes(faseDaEtapa(etapa));
 /** Saiu de antes do contato e ainda não tem ciclo: entra o do dia (`hoje` = "AAAA-MM-DD"). */
 export function patchDeCiclo(lead, para, hoje) {

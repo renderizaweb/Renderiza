@@ -46,7 +46,11 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   de etapa e saiu de novo em 09/10).
 - **Checklist do card (mesmo pedido):** no lugar da próxima ação. Padrão: enviar a demo e o vídeo, 1ª cobrança
   (flyer de cortesia), 2ª cobrança, 3ª cobrança, a última. Com tudo feito e sem resposta, o card vai para Sem
-  resposta ou é encerrado. Detalhes em `painel/README.md` ("Checklist do card").
+  resposta ou é encerrado. Fica só nos detalhes da ótica: o cartão do kanban mostra só o nome, o ciclo e as
+  etiquetas ("menos é mais", pedido de 14/10). Detalhes em `painel/README.md` ("Checklist do card").
+- **Filtros do Pipeline (14/10/2026):** botão Filtrar no estilo do Linear, para a tabela e o kanban: etapa,
+  ciclo, interesse, próximo passo, nicho, cidade, tags, materiais, demo no ar, datas (início da conversa, última
+  interação, retorno previsto, entrou no painel), tarefas e marcações. O ciclo de cada lead pode ser trocado à mão.
 - **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da

@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   INICIO_DOS_CICLOS, cicloDoDia, periodoDoCiclo, numeroDoCiclo, cicloDoLead, limparTag, comTag, semTag, emOrdem, rotuloDaTag,
-  descricaoDaTag, classeDaTag, patchDeCiclo,
+  descricaoDaTag, classeDaTag, patchDeCiclo, comCiclo, ciclosParaEscolher, nomeDoCiclo,
 } from "../painel/src/tags.js";
 import {
   ITENS_PADRAO, listaPadrao, itensDe, progresso, marcar, adicionar, renomear, remover, mover, patchDaChecklist, patchAoMudarEtapa,
@@ -126,4 +126,16 @@ test("o banco usa os mesmos itens padrão e o mesmo início dos ciclos (supabase
   assert.deepEqual(doBanco, listaPadrao());
   assert.match(sql, new RegExp(`\\(d - date '${INICIO_DOS_CICLOS}'\\) / 7`));
   for (const i of ITENS_PADRAO) assert.ok(sql.includes(`'${i.id}'`), i.id + " no gatilho leads_ajustar_checklist");
+});
+
+test("trocar o ciclo à mão: só a tag do ciclo muda", () => {
+  assert.deepEqual(comCiclo(["vip", "ciclo 1"], 2), ["ciclo 2", "vip"]);
+  assert.deepEqual(comCiclo(["vip", "ciclo 1", "ciclo 3"], null), ["vip"]);
+  assert.deepEqual(comCiclo([], 1), ["ciclo 1"]);
+  assert.deepEqual(ciclosParaEscolher("2026-10-14"), [1, 2, 3]);
+  assert.deepEqual(ciclosParaEscolher("2026-10-14", [5]), [1, 2, 3, 4, 5]);
+  assert.equal(nomeDoCiclo(1), "Ciclo 1 · até 08/10");
+  assert.equal(nomeDoCiclo(2), "Ciclo 2 · 09 a 15/10");
+  assert.equal(nomeDoCiclo(4), "Ciclo 4 · 23 a 29/10");
+  assert.equal(nomeDoCiclo(5), "Ciclo 5 · 30/10 a 05/11");
 });

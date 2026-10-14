@@ -8,19 +8,24 @@ import { h, opcoesDoSelect } from "./dom.js";
 import { icone } from "./icones.js";
 import { botaoMenu, abrirJanela, confirmar, aviso, janelaAberta, fecharJanelaDoTopo } from "./ui.js";
 import {
-  ETAPAS, FASES, RESULTADOS, CANAIS, STATUS_CONTEUDO, INTERESSES,
+  FASES, RESULTADOS, CANAIS, STATUS_CONTEUDO, INTERESSES,
   rotuloEtapa, ordemDaEtapa, novoLead, novoConteudo, nomeDoInteresse, nomeDoResultado,
   linhaDeHistorico, lerValor, formatarValor, nomeDaEtapa, nomeCompletoDaEtapa, ehEmAndamento, opcoesDeEtapa,
 } from "./modelo.js";
 import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar } from "./acoes.js";
-import { hojeLocal, indexar, retornoPendente, retornoSugerido, ultimaInteracao, semanaDe, cicloVigente, contatoPelaEtapa } from "./ritmo.js";
+import { hojeLocal, indexar, retornoSugerido, ultimaInteracao, cicloVigente, contatoPelaEtapa } from "./ritmo.js";
 import { abrirRegistro, criarLinhaDoTempo } from "./interacoes-ui.js";
 import { criarTelaRitmo } from "./tela-ritmo.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
-import { tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo } from "./tags.js";
+import {
+  tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo,
+  comCiclo, ciclosParaEscolher, nomeDoCiclo, tagDoCiclo, cicloDoLead,
+} from "./tags.js";
+import { aplicar, limpar as limparFiltros, FILTRO_DO_RITMO } from "./filtros.js";
+import { criarFiltros } from "./filtros-ui.js";
 import {
   ITENS_PADRAO, itensDe, progresso, marcar, adicionar, renomear, remover, mover as moverItem, listaPadrao, novoItem,
   patchDaChecklist, patchAoMudarEtapa,
@@ -30,12 +35,13 @@ const $ = s => document.querySelector(s);
 
 /* ---------- preferências da tela (só neste navegador) ---------- */
 const ui = {
-  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, etapa: "", statusConteudo: "",
-  // "Atualizado" e "Interesse" começam ocultas (voltam pelo menu Colunas). O interesse fica nos detalhes da ótica.
-  ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse"]), conteudos: new Set() },
+  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, statusConteudo: "",
+  filtros: [], // filtros do Pipeline (filtros.js), na tabela e no kanban
+  // "Atualizado", "Interesse" e "Checklist" começam ocultas (voltam pelo menu Colunas); ficam nos detalhes da ótica.
+  ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse", "checklist"]), conteudos: new Set() },
 };
 const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "conteudo"];
-const VERSAO_COLUNAS = 2; // 2: entraram "Última interação" (visível) e "Interesse" (oculta)
+const VERSAO_COLUNAS = 3; // 2: entraram "Última interação" (visível) e "Interesse" (oculta); 3: "Checklist" oculta, "Ciclo" visível
 try {
   const p = JSON.parse(localStorage.getItem("renderiza:planilhao") || "{}");
   if (p.visao === "kanban") ui.visao = "kanban";
@@ -44,12 +50,17 @@ try {
     ui.ocultas.leads = new Set(p.ocultas.leads || []);
     ui.ocultas.conteudos = new Set(p.ocultas.conteudos || []);
     if ((p.versaoColunas || 1) < 2) ui.ocultas.leads.add("interesse");
+    if ((p.versaoColunas || 1) < 3) ui.ocultas.leads.add("checklist");
   }
+  ui.filtros = limparFiltros(JSON.parse(localStorage.getItem("renderiza:filtros") || "[]"));
 } catch (e) { /* sem armazenamento local: usa o padrão */ }
 // Abre sempre no Pipeline (a casa do painel); outra tela só pelo endereço, ex.: /painel#tarefas.
 if (ABAS.includes(location.hash.slice(1))) ui.aba = location.hash.slice(1);
 function guardar() {
-  try { localStorage.setItem("renderiza:planilhao", JSON.stringify({ aba: ui.aba, visao: ui.visao, ordem: ui.ordem, versaoColunas: VERSAO_COLUNAS, ocultas: { leads: [...ui.ocultas.leads], conteudos: [...ui.ocultas.conteudos] } })); } catch (e) { /* opcional */ }
+  try {
+    localStorage.setItem("renderiza:planilhao", JSON.stringify({ aba: ui.aba, visao: ui.visao, ordem: ui.ordem, versaoColunas: VERSAO_COLUNAS, ocultas: { leads: [...ui.ocultas.leads], conteudos: [...ui.ocultas.conteudos] } }));
+    localStorage.setItem("renderiza:filtros", JSON.stringify(ui.filtros));
+  } catch (e) { /* opcional */ }
 }
 
 /* ---------- interações por ótica (recalculado a cada desenho) ---------- */
@@ -185,6 +196,11 @@ async function colar(tabela, mudancas) {
   let feitas = 0;
   for (const { linha, patch } of mudancas) {
     const final = { ...patch };
+    if (tabela === "leads" && "ciclo" in final) {
+      const { ciclo, ...resto } = final;
+      Object.keys(final).forEach(k => delete final[k]);
+      Object.assign(final, resto, { tags: comCiclo(tagsDe(linha), numeroDoCiclo(ciclo)) });
+    }
     if (tabela === "leads" && "interesse" in final) {
       // Interesse colado também fica no histórico, como quando se muda pelo select.
       const { interesse, ...resto } = final;
@@ -244,29 +260,28 @@ const ORDENS = {
 };
 const ordenacao = tabela => (ORDENS[tabela].find(o => o[0] === ui.ordem[tabela]) || ORDENS[tabela][0]);
 
-function leadsVisiveis({ comEtapa = true } = {}) {
+/** Leads do Pipeline com a busca (sem os filtros): a base dos filtros e das contagens deles. */
+function leadsDaBusca() {
   const q = ui.busca.leads.trim().toLowerCase();
-  return dados.listar("leads").filter(l => {
-    if (l.fora_do_funil) return false; // fora do funil: só na tela Clientes
-    if (comEtapa && ui.etapa && !passaNoFiltro(l)) return false;
-    return !q || [l.empresa, l.whatsapp, l.instagram, l.proxima_acao, l.cidade, l.segmento, l.observacoes, ...tagsDe(l), ...itensDe(l).map(i => i.texto)]
-      .some(v => v && String(v).toLowerCase().includes(q));
-  }).sort(ordenacao("leads")[2]);
+  return dados.listar("leads").filter(l => !l.fora_do_funil // fora do funil: só na tela Clientes
+    && (!q || [l.empresa, l.whatsapp, l.instagram, l.proxima_acao, l.cidade, l.segmento, l.observacoes, ...tagsDe(l), ...itensDe(l).map(i => i.texto)]
+      .some(v => v && String(v).toLowerCase().includes(q))));
 }
-function passaNoFiltro(l) {
-  if (ui.etapa === "revisar") return !!l.revisar;
-  if (ui.etapa.startsWith("tag:")) return tagsDe(l).includes(ui.etapa.slice(4));
-  if (ui.etapa === "fase:em_andamento") return ehEmAndamento(l.etapa);
-  if (ui.etapa.startsWith("resultado:")) return l.etapa === "finalizado" && l.resultado === ui.etapa.slice(10);
-  if (ui.etapa.startsWith("retornos")) {
-    const data = retornoPendente(l, daOtica(l.id));
-    if (!data) return false;
-    const hoje = hojeLocal();
-    if (ui.etapa === "retornos_atrasados") return data < hoje;
-    if (ui.etapa === "retornos_semana") return data >= hoje && data <= semanaDe(hoje).fim;
-    return true;
-  }
-  return l.etapa === ui.etapa;
+/** O que os filtros precisam saber além do lead: interações, tarefas e a situação da demo. */
+function ctxDosFiltros() {
+  const hoje = hojeLocal();
+  const tarefas = abertasPorCliente(dados.listar("tarefas"), hoje);
+  return {
+    hoje, interacoesDe: daOtica, tarefasDe: id => tarefas.get(id), temVideo,
+    demoDe: l => {
+      if (!String(l.link_demo || "").trim()) return null;
+      const s = situacaoDoLead(l);
+      return !s || s.noAr ? (s && s.estado === "ultimo_dia" ? "ultimo_dia" : "no_ar") : "fora";
+    },
+  };
+}
+function leadsVisiveis() {
+  return aplicar(leadsDaBusca(), ui.filtros, ctxDosFiltros()).sort(ordenacao("leads")[2]);
 }
 /** Cor da etapa nos selects: o resultado no Finalizado; cada etapa de Em andamento com a sua. */
 function classeDaEtapa(l) {
@@ -286,14 +301,21 @@ function textoDaChecklist(l) {
   const p = progresso(itens);
   return `${p.feitos}/${p.total} · ` + (p.completa ? "tudo feito" : p.proximo.texto);
 }
-/** Etiquetas das tags (C1, C2… e as livres), ciclo primeiro. */
-const marcasDasTags = l => emOrdem(tagsDe(l)).map(t => ({ texto: rotuloDaTag(t), classe: "marca-tag " + classeDaTag(t), titulo: descricaoDaTag(t) }));
+/** Etiquetas das tags livres ao lado do nome (o ciclo tem coluna própria). */
+const marcasDasTags = l => tagsDe(l).filter(t => !numeroDoCiclo(t)).map(t => ({ texto: t, classe: "marca-tag tag-livre", titulo: "Tag" }));
+/** Ciclos que dá para escolher: do 1 ao próximo, mais os que já estão em uso. */
+const ciclosDoPainel = () => ciclosParaEscolher(hojeLocal(), dados.listar("leads").flatMap(l => tagsDe(l).map(numeroDoCiclo)));
 
 const COLUNAS_LEADS = [
   { campo: "empresa", titulo: "Empresa", tipo: "nome", largura: 300 },
   { campo: "etapa", titulo: "Etapa", tipo: "select", largura: 194, ocultavel: false,
     opcoes: l => opcoesDeEtapa({ finalizado: l.etapa === "finalizado" ? rotuloEtapa(l) : "Finalizado" }),
     classe: classeDaEtapa },
+  // Ciclo em que a conversa começou (tag "ciclo N"); dá para trocar aqui ou nos detalhes.
+  { campo: "ciclo", titulo: "Ciclo", tipo: "select", largura: 92, ocultavel: true,
+    valor: l => (cicloDoLead(l) ? tagDoCiclo(cicloDoLead(l)) : ""),
+    opcoes: () => [["", "—"], ...ciclosDoPainel().map(n => [tagDoCiclo(n), "C" + n])],
+    classe: l => (cicloDoLead(l) ? "sel-ciclo " + classeDaTag(tagDoCiclo(cicloDoLead(l))).replace("tag-ciclo ", "") : "sel-ciclo vazio") },
   { campo: "whatsapp", titulo: "WhatsApp", tipo: "link", largura: 186, ocultavel: true, placeholder: "(11) 9…", href: waHref },
   { campo: "instagram", titulo: "Instagram ou site", tipo: "link", largura: 160, ocultavel: true, placeholder: "@perfil ou site", href: urlHref },
   // A checklist do card (no lugar da próxima ação): quantos feitos e o próximo. Edita-se nos detalhes da ótica.
@@ -325,6 +347,7 @@ const planilhaLeads = criarPlanilha({
   ].filter(Boolean),
   acoesExtras: l => [{ texto: "Registrar interação…", icone: "conversa", acao: () => abrirRegistro(l.id), desativado: !dados.podeEditar() }],
   aoEditar: (lead, c, valor) => (c.campo === "etapa" ? mudarEtapa(lead, valor)
+    : c.campo === "ciclo" ? salvar("leads", lead.id, { tags: comCiclo(tagsDe(lead), numeroDoCiclo(valor)) })
     : c.campo === "interesse" ? salvar("leads", lead.id, patchDeInteresse(lead, valor || "nao_avaliado"))
     : salvar("leads", lead.id, { [c.campo]: valor })),
   aoAbrir: l => abrirPainel("leads", l.id),
@@ -411,33 +434,20 @@ function botaoColunas(tabela, colunas) {
     { alinhar: "end", classe: "btn btn-outline" });
 }
 
-function seletorEtapa() {
-  const temRevisar = dados.listar("leads").some(l => l.revisar);
-  if (ui.etapa === "revisar" && !temRevisar) ui.etapa = "";
-  const tags = emOrdem([...new Set(dados.listar("leads").filter(l => !l.fora_do_funil).flatMap(tagsDe))]);
-  if (ui.etapa.startsWith("tag:") && !tags.includes(ui.etapa.slice(4))) ui.etapa = "";
-  const sel = h("select", { class: "select-trigger", "aria-label": "Filtrar por etapa" },
-    h("option", { value: "", text: "Todas as etapas" }),
-    h("optgroup", { label: "Etapa" }, ...FASES.map(f => h("option", { value: f.etapas.length > 1 ? "fase:" + f.id : f.id, text: f.nome }))),
-    h("optgroup", { label: "Em andamento" }, ...ETAPAS.filter(e => ehEmAndamento(e.id)).map(e => h("option", { value: e.id, text: e.nome }))),
-    h("optgroup", { label: "Finalizados" }, ...RESULTADOS.map(r => h("option", { value: "resultado:" + r.id, text: r.nome }))),
-    h("optgroup", { label: "Retornos previstos" },
-      h("option", { value: "retornos_atrasados", text: "Retornos atrasados" }),
-      h("option", { value: "retornos_semana", text: "Retornos desta semana" }),
-      h("option", { value: "retornos", text: "Todos os retornos pendentes" })),
-    tags.length ? h("optgroup", { label: "Tags" }, ...tags.map(t => h("option", { value: "tag:" + t, text: numeroDoCiclo(t) ? `Ciclo ${numeroDoCiclo(t)} (${rotuloDaTag(t)})` : t }))) : null,
-    temRevisar ? h("option", { value: "revisar", text: "Marcados para revisar" }) : null);
-  sel.value = ui.etapa;
-  sel.addEventListener("change", () => { ui.etapa = sel.value; render(); });
-  return sel;
-}
+// Filtros do Pipeline: botão ao lado da busca e uma faixa de chips abaixo da barra (tabela e kanban).
+const filtros = criarFiltros({
+  leads: leadsDaBusca, ctx: ctxDosFiltros, ler: () => ui.filtros,
+  gravar: lista => { ui.filtros = lista; guardar(); render(); },
+});
+$("#filtro-pipeline").append(filtros.botao);
+$("#faixa-pipeline").append(filtros.faixa);
 
 // A barra tem partes fixas (abas, lugar da busca, ações): só abas e ações são redesenhadas,
 // para o campo de busca não perder o foco enquanto se digita.
 function renderBarraPipeline() {
   $("#abas-pipeline").replaceChildren(abas([["tabela", "Tabela", "tabela"], ["kanban", "Kanban", "kanban"]], ui.visao, v => { ui.visao = v; guardar(); render(); }, "Visualização"));
   $("#acoes-pipeline").replaceChildren(ui.visao === "tabela"
-    ? h("div", { class: "sheet-actions" }, seletorEtapa(), botaoOrdenar("leads"), botaoColunas("leads", COLUNAS_LEADS))
+    ? h("div", { class: "sheet-actions" }, botaoOrdenar("leads"), botaoColunas("leads", COLUNAS_LEADS))
     : h("div", { class: "sheet-actions" }, h("span", { class: "muted", text: "Arraste os cartões entre as etapas." })));
 }
 
@@ -463,26 +473,6 @@ inputKanban.addEventListener("keydown", async e => {
   finally { inputKanban.disabled = !dados.podeEditar(); inputKanban.focus(); }
 });
 
-/** Linha da checklist no cartão: o próximo item (marcável ali mesmo), quantos feitos e o follow-up. */
-function checklistDoCartao(l, editavel) {
-  const itens = itensDe(l), dia = diaMes(l.followup_em);
-  if (!itens.length) {
-    const texto = l.etapa === "finalizado" ? "" : [l.proxima_acao, dia].filter(Boolean).join(" · ");
-    return texto ? h("small", { text: texto }) : null;
-  }
-  const p = progresso(itens);
-  const conta = h("span", { class: "ck-conta", text: `${p.feitos}/${p.total}` });
-  if (p.completa) {
-    return h("div", { class: "kanban-ck completa", title: "Checklist feita. Se a ótica não respondeu, o card pode ir para Sem resposta ou ser encerrado." },
-      h("span", { class: "ck-feito" }, icone("certo", 11)), h("span", { class: "ck-texto", text: "Checklist feita" }), conta);
-  }
-  const rotulo = "Marcar como feito: " + p.proximo.texto;
-  const marcarBtn = h("button", { type: "button", class: "ck-marcar", role: "checkbox", "aria-checked": "false", title: rotulo, "aria-label": rotulo,
-    draggable: "false", disabled: !editavel || null,
-    onclick: e => { e.stopPropagation(); marcarItem(l.id, p.proximo.id, true); }, onkeydown: e => e.stopPropagation() });
-  return h("div", { class: "kanban-ck" }, marcarBtn, h("span", { class: "ck-texto", title: p.proximo.texto, text: p.proximo.texto + (dia ? " · " + dia : "") }), conta);
-}
-
 function cartaoDoKanban(l, editavel, tarefasAbertas) {
   const tags = emOrdem(tagsDe(l));
   const ciclo = tags.find(numeroDoCiclo);
@@ -492,7 +482,6 @@ function cartaoDoKanban(l, editavel, tarefasAbertas) {
       temVideo(l) ? h("span", { class: "selo-video", title: "Tem vídeo de apresentação", "aria-label": "Tem vídeo de apresentação" }, icone("video", 12)) : null,
       h("span", { class: "kanban-empresa", text: l.empresa || "Sem nome" }),
       ciclo ? h("span", { class: "selo-ciclo " + classeDaTag(ciclo), title: descricaoDaTag(ciclo), text: rotuloDaTag(ciclo) }) : null),
-    checklistDoCartao(l, editavel),
     h("span", { class: "kanban-chips" },
       ...tags.filter(t => t !== ciclo).map(t => h("span", { class: "chip-tag " + classeDaTag(t), title: descricaoDaTag(t), text: rotuloDaTag(t) })),
       seloDeTarefas(tarefasAbertas.get(l.id)),
@@ -525,7 +514,7 @@ function colunaDoKanban(etapaId, itens, { editavel, tarefasAbertas, adicionar = 
 // Uma coluna por fase. "Em andamento" é um grupo com uma subcoluna para cada etapa dela
 // (Em conversa, Em negociação, Sem resposta): o cartão muda de etapa ao ser solto na subcoluna.
 function renderKanban() {
-  const leads = leadsVisiveis({ comEtapa: false });
+  const leads = leadsVisiveis();
   const editavel = dados.podeEditar();
   inputKanban.disabled = !editavel;
   const tarefasAbertas = abertasPorCliente(dados.listar("tarefas"), hojeLocal());
@@ -1019,10 +1008,31 @@ function secaoChecklist(id) {
     h("div", { class: "ck-novo" }, icone("mais", 15), novo, padrao), final);
 }
 
-/** Tags do lead: a de ciclo (C1, C2…) entra sozinha; as outras são livres. */
+/** Ciclo em que a conversa começou: entra sozinho ao sair de Prontas, e dá para trocar aqui. */
+function campoCiclo(id) {
+  const sel = h("select", { "aria-label": "Ciclo" });
+  sel.addEventListener("change", async () => {
+    const lead = dados.buscar("leads", id); if (!lead) return;
+    const n = numeroDoCiclo(sel.value);
+    try { await salvar("leads", id, { tags: comCiclo(tagsDe(lead), n) }); aviso(n ? `${lead.empresa}: ciclo ${n}.` : `${lead.empresa}: sem ciclo.`); } catch (e) { /* aviso já mostrado */ }
+    const atual = dados.buscar("leads", id); if (atual) sel.value = cicloDoLead(atual) ? tagDoCiclo(cicloDoLead(atual)) : "";
+  });
+  vincular(l => {
+    const opcoes = [["", "Sem ciclo"], ...ciclosDoPainel().map(n => [tagDoCiclo(n), nomeDoCiclo(n)])];
+    const chave = JSON.stringify(opcoes);
+    if (sel._chave !== chave) { sel.replaceChildren(...opcoes.map(([v, t]) => h("option", { value: v, text: t }))); sel._chave = chave; }
+    const n = cicloDoLead(l);
+    if (document.activeElement !== sel) sel.value = n ? tagDoCiclo(n) : "";
+    sel.className = "sel-ciclo-painel" + (n ? " " + classeDaTag(tagDoCiclo(n)).replace("tag-ciclo ", "") : "");
+    sel.disabled = !dados.podeEditar();
+  });
+  return h("label", { class: "campo" }, h("span", { text: "Ciclo" }), sel);
+}
+
+/** Tags livres do lead (o ciclo tem campo próprio; escrever "ciclo 3" aqui também troca o ciclo). */
 function campoTags(id) {
   const chips = h("span", { class: "tags-chips" });
-  const entrada = h("input", { type: "text", maxlength: "40", placeholder: "Adicionar tag…", list: "tags-usadas", autocomplete: "off", "aria-label": "Nova tag" });
+  const entrada = h("input", { type: "text", maxlength: "40", placeholder: "Ex.: indicação, vip…", list: "tags-usadas", autocomplete: "off", "aria-label": "Nova tag" });
   const usadas = h("datalist", { id: "tags-usadas" });
   async function gravar(fn) {
     const lead = dados.buscar("leads", id); if (!lead) return false;
@@ -1030,16 +1040,19 @@ function campoTags(id) {
     if (tags === antes || JSON.stringify(tags) === JSON.stringify(antes)) return true;
     try { await salvar("leads", id, { tags }); return true; } catch (e) { return false; }
   }
-  const adicionarTag = async () => { if (!entrada.value.trim()) return; if (await gravar(t => comTag(t, entrada.value))) entrada.value = ""; };
+  const adicionarTag = async () => {
+    if (!entrada.value.trim()) return;
+    const n = numeroDoCiclo(entrada.value);
+    if (await gravar(t => (n ? comCiclo(t, n) : comTag(t, entrada.value)))) entrada.value = "";
+  };
   entrada.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); adicionarTag(); } });
   entrada.addEventListener("change", adicionarTag);
   vincular(l => {
     const editavel = dados.podeEditar();
-    chips.replaceChildren(...emOrdem(tagsDe(l)).map(t => h("span", { class: "tag-editavel " + classeDaTag(t), title: descricaoDaTag(t) },
-      numeroDoCiclo(t) ? "Ciclo " + numeroDoCiclo(t) : t,
+    chips.replaceChildren(...tagsDe(l).filter(t => !numeroDoCiclo(t)).map(t => h("span", { class: "tag-editavel tag-livre" }, t,
       h("button", { type: "button", class: "tag-tirar", "aria-label": "Tirar a tag " + t, title: "Tirar", disabled: !editavel || null, onclick: () => gravar(lst => semTag(lst, t)) }, icone("fechar", 12)))));
     entrada.disabled = !editavel;
-    const todas = emOrdem([...new Set(dados.listar("leads").flatMap(tagsDe))]).filter(t => !tagsDe(l).includes(t));
+    const todas = [...new Set(dados.listar("leads").flatMap(tagsDe))].filter(t => !numeroDoCiclo(t) && !tagsDe(l).includes(t)).sort();
     usadas.replaceChildren(...todas.map(t => h("option", { value: t })));
   });
   return h("div", { class: "campo duplo" }, h("span", { text: "Tags" }), h("div", { class: "tags-editor" }, chips, entrada, usadas));
@@ -1167,6 +1180,7 @@ function corpoDoLead(id) {
         campoEtapa,
         h("div", { class: "campo" }, h("span", { text: "Interesse" }), interesse),
         campo("leads", id, { campo: "followup_em", rotulo: "Follow-up (plano)", tipo: "data" }),
+        campoCiclo(id),
         campoTags(id),
         campo("leads", id, { campo: "valor_potencial", rotulo: "Valor potencial", tipo: "valor", placeholder: "R$" }),
         motivoInteresse),
@@ -1368,7 +1382,9 @@ function render() {
     $("#grade-leads").hidden = ui.visao !== "tabela";
     $("#kanban").hidden = ui.visao !== "kanban";
     if (ui.visao === "tabela") planilhaLeads.atualizar(); else renderKanban();
+    filtros.atualizar(leadsVisiveis().length, leadsDaBusca().length);
   } else {
+    filtros.fechar();
     renderBarraConteudo();
     planilhaConteudos.atualizar();
   }
@@ -1384,7 +1400,7 @@ const telaRitmo = criarTelaRitmo({
   host: $("#tela-ritmo"),
   abrirLead: id => abrirPainel("leads", id),
   // Da fila de retornos para o Pipeline já filtrado (sem mudar a ordenação escolhida).
-  irParaPipeline: filtro => { ui.etapa = filtro; ui.visao = "tabela"; irPara("pipeline"); },
+  irParaPipeline: filtro => { ui.filtros = FILTRO_DO_RITMO[filtro] ? [{ ...FILTRO_DO_RITMO[filtro] }] : []; ui.visao = "tabela"; irPara("pipeline"); },
 });
 
 /* ---------- eventos ---------- */
