@@ -1,0 +1,405 @@
+{
+ "pasta": "jardim-danfesti",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/jardim-danfesti/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/jardim-danfesti.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/jardim-danfesti/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511964907230",
+ "fone_link": "+5511964907230",
+ "google": {
+  "coords": "-23.5286968,-46.458192",
+  "fid": "0x94ce67e5b0e9bfcd:0xe40f3e15b4d5becf",
+  "gid": "/g/11jg45btj7"
+ },
+ "endereco_maps": "R. Mariano Moro, 77 - Jardim Itapemirim, São Paulo - SP, 08225-060",
+ "google_nota": "4,9",
+ "google_total": "133",
+ "verificado": "2026-10-14",
+ "instagram": "jardimdanfesti_",
+ "marca": "Jardim Danfesti",
+ "marca_logo": "Jardim Danfesti",
+ "marca_completa": "Jardim Danfesti",
+ "logo_sub": "Jardim Itapemirim · São Paulo",
+ "titulo": "Jardim Danfesti | Espaço para festas no Jardim Itapemirim, Zona Leste",
+ "descricao": "Jardim Danfesti, na R. Mariano Moro, 77, no Jardim Itapemirim (Zona Leste de São Paulo): jardim com mesas de madeira, área coberta, lounge e espaço para DJ e banda, para aniversários, chás e mini casamentos de até 50 pessoas. Nota 4,9 no Google.",
+ "comentario": "Demo Jardim Danfesti: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@jardimdanfesti_, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Outfit",
+ "cores": {
+  "escuro": "#1d2a1f",
+  "acento": "#e9b949"
+ },
+ "topline": "R. Mariano Moro, 77 · Jardim Itapemirim, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O jardim"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas no Jardim Itapemirim, Zona Leste",
+  "h1": "Sua festa <em>no jardim.</em>",
+  "intro": "Jardim com mesas de madeira, área coberta, lounge e espaço para DJ e banda. Aniversários, chás e mini casamentos para até 50 pessoas.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 50,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Convidados celebrando no jardim, entre mesas e guarda-sóis"
+ },
+ "endereco": [
+  "R. Mariano Moro, 77",
+  "Jardim Itapemirim · São Paulo"
+ ],
+ "dias_curto": "qua a dom",
+ "marquee": [
+  "Aniversários",
+  "Chá de bebê",
+  "Mini casamento",
+  "Pagode e DJ",
+  "Jardim",
+  "Lounge",
+  "Até 50 pessoas",
+  "Zona Leste"
+ ],
+ "sobre": {
+  "eyebrow": "O Jardim Danfesti",
+  "h2": "Um jardim <em>para se sentir em casa.</em>",
+  "p": [
+   "No Jardim Itapemirim, perto da Jacu Pêssego, o Jardim Danfesti tem jardim com grama, mesas de madeira e guarda-sóis, área coberta, lounge com sofás e espaço para DJ e banda ao vivo. Comporta até 50 pessoas.",
+   "Quem recebe são a Suelen e o Danilo, donos do espaço. Nas avaliações, quem fez a festa conta que eles cuidam de cada detalhe e que os convidados se sentiram em casa."
+  ],
+  "stats": [
+   [
+    "133",
+    "avaliações no Google"
+   ],
+   [
+    "11 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 22
+  },
+  "alt": "Jardim com mesas de madeira diante da parede com o logo do Danfesti",
+  "pol": {
+   "id": 36,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Equipe do Jardim Danfesti de uniforme",
+  "pol_cap": "A equipe"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, área coberta <em>e lounge.</em>",
+   "p": "O jardim montado de dia e à noite, a área coberta e o lounge. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Jardim Danfesti",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g00.jpg"
+     },
+     "alt": "Jardim coberto montado com mesa baixa e almofadas"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Jardim com mesas de madeira e a casinha ao fundo"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Jardim à noite com varal de luzes"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Mesas no gramado e brinquedos para as crianças"
+    },
+    {
+     "foto": {
+      "id": 43
+     },
+     "alt": "Mesas com balões coloridos no gramado"
+    },
+    {
+     "foto": {
+      "id": 55
+     },
+     "alt": "Gramado com mesas e cadeiras de madeira"
+    },
+    {
+     "foto": {
+      "id": 54
+     },
+     "alt": "Lounge com sofás vermelhos e luzes de festa"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g06.jpg"
+     },
+     "alt": "Mesas com toalhas pink e guarda-sol no jardim"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Aniversários, chás, mini casamentos e encontros de quem já comemorou no Danfesti.",
+   "rotulo": "Festas que aconteceram no Jardim Danfesti",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g02.jpg"
+     },
+     "alt": "Família sorrindo junta no sofá",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 41,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Família reunida no jardim, sob os guarda-sóis",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g04.jpg"
+     },
+     "alt": "Amigas sorrindo numa selfie",
+     "cap": "Entre amigos"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Grupo de amigos comemorando com balões",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g01.jpg"
+     },
+     "alt": "Mesa de doces de chá de bebê com flores rosa",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Jardim montado com toalhas claras para um mini casamento",
+     "cap": "Mini casamento"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Convidados reunidos à mesa no jardim",
+     "cap": "Festa"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Drinks coloridos no balcão do jardim",
+     "cap": "Drinks"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o jardim <em>oferece.</em>",
+  "p": "O que aparece nas fotos e legendas do espaço e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "jardim",
+    "Jardim com mesas de madeira"
+   ],
+   [
+    "coberto",
+    "Área coberta"
+   ],
+   [
+    "estrela",
+    "Lounge com sofás e poltronas"
+   ],
+   [
+    "som",
+    "Espaço para DJ e banda"
+   ],
+   [
+    "bar",
+    "Bar de drinks parceiro"
+   ],
+   [
+    "cozinha",
+    "Cozinha"
+   ],
+   [
+    "brinquedos",
+    "Brinquedos para as crianças"
+   ],
+   [
+    "pessoas",
+    "Até 50 pessoas"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o jardim na R. Mariano Moro, 77",
+   "Combine os detalhes com a Suelen e o Danilo",
+   "No dia, a equipe cuida de tudo até o fim da festa"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g05.jpg"
+  },
+  "alt": "Bartender preparando drinks no balcão"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Raisa Povala",
+   "tag": "2 anos",
+   "trecho": "Durante toda a festa, vários convidados vieram até mim comentar que estavam se sentindo em casa, e isso não tem preço.  A Suelen e o Danilo realmente nasceram para trabalhar com festas."
+  },
+  {
+   "nome": "Livia Anjos Silva",
+   "tag": "Aniversário",
+   "trecho": "Toda minha família e amigos, ficaram encantados por cada cantinho bem cuidado… todos agora querem fazer festa no Danfesti kkk meu aniversário foi mega perfeito"
+  },
+  {
+   "nome": "Carolaine Morais",
+   "tag": "O espaço",
+   "trecho": "Com muitas mesas e cadeiras, além de poltronas confortáveis que trazem aquele toque de aconchego, o local oferece o cenário perfeito para qualquer tipo de comemoração."
+  },
+  {
+   "nome": "Ursula Silva Vendilino",
+   "tag": "Os donos",
+   "trecho": "O lugar é um charme , super aconchegante. O atendimento dos donos é sem igual , super atenciosos e educados."
+  },
+  {
+   "nome": "rosyelly xavier",
+   "tag": "Decoração",
+   "trecho": "Gostaria de agradecer ao Jardim Danfesti por todo o carinho e capricho com a decoração e o espaço  tudo estava simplesmente lindo e feito com muito bom gosto!"
+  },
+  {
+   "nome": "Karen Torres",
+   "tag": "Suelen e Danilo"
+  }
+ ],
+ "insta": {
+  "seguidores": "11 mil seguidores",
+  "p": "As festas, os pagodes e as lives no jardim.",
+  "foto": {
+   "id": 11
+  },
+  "alt": "Jardim à noite com varal de luzes",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Jardim Danfesti.",
+  "tipos": [
+   "Aniversário",
+   "Chá de bebê",
+   "Mini casamento",
+   "Confraternização",
+   "Festa infantil",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Jardim Danfesti e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Jardim Itapemirim.</em>",
+  "endereco": [
+   "R. Mariano Moro, 77 · Jardim Itapemirim",
+   "São Paulo, SP · CEP 08225-060"
+  ],
+  "telefone": "(11) 96490-7230",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua festa no jardim.",
+ "mensagem": "Olá! Vim pelo site do Jardim Danfesti e queria um orçamento.",
+ "google_nome": "Jardim Danfesti",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96490-7230 é o telefone do Perfil da Empresa no Google",
+  "site": "não tem site próprio; ATENÇÃO: tem página no casamentos.com.br (ver \"conferir\")",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Jardim com grama, mesas de madeira, área coberta e lounge no Jardim Itapemirim (perto da Jacu Pêssego); aniversários, chás, mini casamentos, pagode e lives, até 50 pessoas.",
+   "Donos: Suelen e Danilo (\"Suelen e Danilo são super atenciosos\", \"a Su\"); eles respondem as avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os convidados no jardim, o jardim (Suelen e Danilo, até 50 pessoas), carrossel do espaço (8, paisagem), festas reais (8, com 3 do Google), estrutura (8 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde do jardim e amarelo. Fonte Outfit."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (jardim coberto montado, famílias, chá de bebê, bartender).",
+   "Ficaram de fora: a criança fantasiada, as fotos de torcida e de time, as lives de DJ e as garrafas com nome de cliente."
+  ],
+  "conferir": [
+   "São duas casas da mesma família: esta (Jardim Itapemirim, 4,9/133) e o Jardim Danfesti II (Tatuapé, 5,0/67). A demo é só desta; perguntar se querem as duas no site.",
+   "Tem página no casamentos.com.br (intermediário): pode reduzir a vontade de ter site; vale tocar no assunto (o site é deles, sem depender da plataforma).",
+   "\"Até 50 pessoas\" vem da legenda do próprio @ (\"o nosso espaço comporta até 50 pessoas\"). Os drinks são do @dandrinksbartenders, citado como parceiro.",
+   "Horário do Google: quarta a domingo (segunda e terça fechado)."
+  ]
+ }
+}

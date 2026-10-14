@@ -1,0 +1,29 @@
+{
+ "marca": "Terraço Nuevo",
+ "local": "Centro · Diadema",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1b2238",
+  "fundo2": "#101522",
+  "acento": "#f0a35e",
+  "tinta_acento": "#101522",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g07.jpg",
+  "pos": "50% 35%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "140"
+ },
+ "titulo": "Sua festa<br><em>no terraço.</em>",
+ "texto": "Terraço com vista, salão climatizado, piscina e buffet completo, no Centro de Diadema.",
+ "whatsapp": "(11) 99819-9623",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Sete de Setembro, 1225 · Diadema",
+ "instagram": "@terraconuevo"
+}

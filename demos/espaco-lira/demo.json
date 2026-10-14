@@ -1,0 +1,381 @@
+{
+ "pasta": "espaco-lira",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-lira/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/espaco-lira.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-lira/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511979546479",
+ "fone_link": "+5511979546479",
+ "google": {
+  "coords": "-23.6350418,-46.7744975",
+  "fid": "0x94ce5388f4230159:0x732a6d04aab69f04",
+  "gid": "/g/11j7bt139r"
+ },
+ "endereco_maps": "R. Nicolau de Ávila, 77 - Vila Pirajussara, São Paulo - SP, 05786-170",
+ "google_nota": "4,9",
+ "google_total": "259",
+ "verificado": "2026-10-14",
+ "instagram": "espaco.lira",
+ "marca": "Espaço Lira",
+ "marca_logo": "Espaço Lira",
+ "marca_completa": "Espaço Lira",
+ "logo_sub": "Campo Limpo · São Paulo",
+ "titulo": "Espaço Lira | Espaço para festas no Campo Limpo, São Paulo",
+ "descricao": "Espaço Lira, na R. Nicolau de Ávila, 77, na Vila Pirajussara (Campo Limpo, Zona Sul de São Paulo): salão, decoração sob medida e buffet para casamentos, 15 anos, aniversários e chás. Nota 4,9 no Google.",
+ "comentario": "Demo Espaço Lira: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espaco.lira, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#2a2233",
+  "acento": "#d9a877"
+ },
+ "topline": "R. Nicolau de Ávila, 77 · Vila Pirajussara, Campo Limpo, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#salao",
+   "O salão"
+  ],
+  [
+   "#festas",
+   "Decorações"
+  ],
+  [
+   "#estrutura",
+   "A festa"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas no Campo Limpo, Zona Sul",
+  "h1": "Decoração única <em>para a sua festa.</em>",
+  "intro": "Salão, decoração sob medida e buffet para casamentos, 15 anos, aniversários e chás, na R. Nicolau de Ávila, 77.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o salão",
+  "alvo": "salao",
+  "foto": {
+   "id": 41,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Mesa do bolo sob o arco de flores em tons de laranja e vinho"
+ },
+ "endereco": [
+  "R. Nicolau de Ávila, 77",
+  "Campo Limpo · São Paulo"
+ ],
+ "dias_curto": "ter a dom",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Chá de bebê",
+  "Bodas",
+  "Decoração sob medida",
+  "Buffet",
+  "Campo Limpo"
+ ],
+ "sobre": {
+  "eyebrow": "O Espaço Lira",
+  "h2": "Cada festa <em>com a sua cor.</em>",
+  "p": [
+   "No Campo Limpo, o Espaço Lira faz a festa completa: o salão, a decoração pensada para cada cliente e o buffet. Terracota, azul serenity, rosa e prata, preto e dourado: cada festa sai com a sua cor.",
+   "Quem cuida de tudo é a Vivian Lira, do primeiro contato ao fim da festa. Nas avaliações, as famílias contam da atenção dela com cada detalhe que inventaram para o dia."
+  ],
+  "stats": [
+   [
+    "259",
+    "avaliações no Google"
+   ],
+   [
+    "5,2 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g01.jpg"
+  },
+  "alt": "Salão montado com mesas redondas e detalhes em azul tiffany",
+  "pol": {
+   "id": 33
+  },
+  "pol_alt": "Mesa de doces com arranjos de rosas vinho",
+  "pol_cap": "Bodas"
+ },
+ "carrosseis": [
+  {
+   "id": "salao",
+   "eyebrow": "O salão",
+   "h2": "Montado para <em>cada festa.</em>",
+   "p": "O mesmo salão, com mesas, toalhas e flores diferentes a cada festa. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do salão do Espaço Lira",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g05.jpg"
+     },
+     "alt": "Mesas com guardanapos vinho e a mesa do bolo ao fundo"
+    },
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Salão com mesas brancas e guardanapos vermelhos"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Salão montado em azul com arranjos de flores"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g09.jpg"
+     },
+     "alt": "Salão em preto e branco com a mesa do bolo"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Salão com cortinas vermelhas e mesas postas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g03.jpg"
+     },
+     "alt": "Mesa com arranjo alto de flores brancas"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Salão amplo com mesas e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g00.jpg"
+     },
+     "alt": "Entrada do Espaço Lira"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Decorações reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos, bodas, chás e aniversários decorados pelo Espaço Lira.",
+   "rotulo": "Decorações de festas no Espaço Lira",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Mesa do bolo de casamento em terracota com flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Decoração de 15 anos em rosa e prata",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Mesa do bolo em azul serenity com flores",
+     "cap": "Bodas"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Decoração de aniversário em preto, dourado e prata",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Salão decorado em rosa para chá de bebê",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Decoração tropical com balões e flores",
+     "cap": "19 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g06.jpg"
+     },
+     "alt": "Mesa do bolo com rosas e vasos dourados",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Decoração infantil com balões laranja",
+     "cap": "1 ano"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "A festa completa",
+  "h2": "Tudo num lugar <em>só.</em>",
+  "p": "O que o Espaço Lira faz, segundo as legendas e as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão para a festa"
+   ],
+   [
+    "estrela",
+    "Decoração sob medida"
+   ],
+   [
+    "cozinha",
+    "Buffet"
+   ],
+   [
+    "mesa",
+    "Mesas postas com louça e flores"
+   ],
+   [
+    "cerimonia",
+    "Casamentos e bodas"
+   ],
+   [
+    "pessoas",
+    "Equipe no dia da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão na R. Nicolau de Ávila, 77",
+   "Escolha as cores e a decoração com a Vivian",
+   "No dia, a equipe cuida da festa do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5388f4230159_0x732a6d04aab69f04/g02.jpg"
+  },
+  "alt": "Mesa do bolo com arco de flores azuis"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Dayane Santos",
+   "tag": "Casamento",
+   "trecho": "A Vivian é uma querida e desde o primeiro momento em que conversamos ela foi muito solícita, confiei totalmente nela com a decoração e deu tudo certo, ela tem muito bom gosto!"
+  },
+  {
+   "nome": "Alessandra Santos",
+   "tag": "15 anos",
+   "trecho": "Celebramos os 15 anos da minha filha no Espaço Lira, e foi simplesmente inesquecível! Desde o atendimento atencioso até cada detalhe da decoração, tudo superou nossas expectativas."
+  },
+  {
+   "nome": "Camila Soares",
+   "tag": "A Vivian",
+   "trecho": "Vívian seu trabalho deixou o meu dia muito mais incrível, que trabalho incrível, parabéns pela dedicação e atenção em tudo que eu inventei pra esse dia kk"
+  },
+  {
+   "nome": "Fabíola Silva",
+   "tag": "Buffet",
+   "trecho": "O espaço é muito lindo e aconchegante! Adorei tudo, desde da decoração ao buffet,  o atendimento também é excelente. Meus convidados elogiaram bastante, foi sucesso!!!"
+  },
+  {
+   "nome": "Mariane Quirino",
+   "tag": "1 ano",
+   "trecho": "conseguimos realizar o aniversário de 1 aninho do meu pequeno e foi inesquecível. Desde o atendimento da Vivian, comidinhas, decorações, tudo perfeito!"
+  },
+  {
+   "nome": "Fernanda Santos",
+   "tag": "Debutante"
+  }
+ ],
+ "insta": {
+  "seguidores": "5,2 mil seguidores",
+  "p": "Cada festa, cada decoração, toda semana.",
+  "foto": {
+   "id": 44
+  },
+  "alt": "Arco de flores e mesa do bolo em tons quentes",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Lira.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Chá de bebê",
+   "Bodas",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Lira e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Campo Limpo.</em>",
+  "endereco": [
+   "R. Nicolau de Ávila, 77 · Vila Pirajussara",
+   "São Paulo, SP · CEP 05786-170"
+  ],
+  "telefone": "(11) 97954-6479",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Venha celebrar conosco.",
+ "mensagem": "Olá! Vim pelo site do Espaço Lira e queria um orçamento.",
+ "google_nome": "Espaço Lira Campo Limpo",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97954-6479 é o telefone do Perfil da Empresa no Google",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Salão no Campo Limpo que faz a festa completa (salão, decoração e buffet); casamentos, 15 anos, bodas, chás e aniversários.",
+   "Quem atende: Vivian Lira (\"Combinei tudo com a Vivian Lira\"); o nome da casa é o sobrenome dela, mas não confirmei que é a dona."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a mesa do bolo sob o arco de flores, o espaço (festa completa, Vivian), carrossel do salão (8, com 4 do Google), decorações reais (8), a festa completa (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: ameixa escuro e dourado rosado. Fonte Fraunces. Sem fotos de gente: o Instagram mostra só salão e decoração."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (salão montado em azul, vinho e preto e branco; entrada).",
+   "Ficaram de fora: os stories (610 px), a arte de Ano Novo e os painéis com nome de cliente."
+  ],
+  "conferir": [
+   "Duas legendas falam em \"Espaço Lira Pq. Ipê\": pode ser o mesmo endereço (o Parque Ipê é vizinho da Vila Pirajussara) ou uma segunda unidade. Perguntar antes de mandar.",
+   "Buffet: vem das avaliações (\"desde a decoração ao buffet\", \"a comida estava deliciosa\"); bolo, doces e DJ costumam ser parceiros citados nas legendas.",
+   "Horário do Google: terça a domingo (segunda fechado).",
+   "Capacidade: não confirmei (a demo não cita)."
+  ]
+ }
+}

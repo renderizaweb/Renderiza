@@ -1,0 +1,398 @@
+{
+ "pasta": "estancia-paraiso",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/estancia-paraiso/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/estancia-paraiso.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/estancia-paraiso/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511983485665",
+ "fone_link": "+5511983485665",
+ "google": {
+  "coords": "-23.4359639,-46.3093247",
+  "fid": "0x94ce7de6548d0f03:0x8ecef60984052f",
+  "gid": "/g/11x8g7h52m"
+ },
+ "endereco_maps": "R. Vinhais, 21 - Chácara Cuiabá, Itaquaquecetuba - SP, 08587-060",
+ "google_nota": "5,0",
+ "google_total": "102",
+ "verificado": "2026-10-14",
+ "instagram": "estanciaparaisofestaseeventos",
+ "marca": "Estância Paraíso",
+ "marca_logo": "Estância Paraíso",
+ "marca_completa": "Estância Paraíso · Espaço com piscina",
+ "logo_sub": "Itaquaquecetuba · SP",
+ "titulo": "Estância Paraíso | Espaço com piscina em Itaquaquecetuba",
+ "descricao": "Estância Paraíso, na R. Vinhais, 21, na Chácara Cuiabá, em Itaquaquecetuba (SP): piscina adulto e infantil com LED, cascata e hidro, e área gourmet coberta, para aniversários, 15 anos e dias em família. Nota 5,0 no Google.",
+ "comentario": "Demo Estância Paraíso: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@estanciaparaisofestaseeventos, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Sora",
+ "cores": {
+  "escuro": "#141a22",
+  "acento": "#d4a24c"
+ },
+ "topline": "R. Vinhais, 21 · Chácara Cuiabá, Itaquaquecetuba",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Fotos"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço com piscina em Itaquaquecetuba",
+  "h1": "Piscina, cascata <em>e a sua festa.</em>",
+  "intro": "Piscina adulto e infantil com LED, cascata e hidro, e área gourmet coberta. Aniversários, 15 anos e dias com a família, para até 30 adultos.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g05.jpg"
+  },
+  "alt": "Piscina com LED azul diante da cascata iluminada"
+ },
+ "endereco": [
+  "R. Vinhais, 21",
+  "Chácara Cuiabá · Itaquaquecetuba"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Aniversários",
+  "15 anos",
+  "Dia de piscina",
+  "Encontros de família",
+  "Cascata",
+  "Hidromassagem",
+  "Área gourmet",
+  "Itaquaquecetuba"
+ ],
+ "sobre": {
+  "eyebrow": "A Estância Paraíso",
+  "h2": "Um sonho <em>que virou espaço.</em>",
+  "p": [
+   "Na Chácara Cuiabá, em Itaquaquecetuba, a Estância Paraíso foi construída aos poucos e hoje tem piscina adulto e infantil com LED, cascata e hidro, área gourmet coberta com churrasqueira, um dormitório e três banheiros.",
+   "Quem recebe é a Ju, dona do espaço. Nas avaliações, quem passou o dia lá fala da atenção dela desde a primeira mensagem e da piscina sempre limpa."
+  ],
+  "stats": [
+   [
+    "5,0",
+    "nota no Google, em 102 avaliações"
+   ],
+   [
+    "30",
+    "adultos, a lotação do espaço"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g01.jpg"
+  },
+  "alt": "Piscina com cascata e plantas num dia de sol",
+  "pol": {
+   "id": 18,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Debutante de vestido lilás diante dos balões",
+  "pol_cap": "15 anos"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Piscina, cascata <em>e área gourmet.</em>",
+   "p": "A piscina de dia e à noite, a cascata e a área gourmet coberta. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos da Estância Paraíso",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Cascata iluminada à noite, com plantas ao lado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g00.jpg"
+     },
+     "alt": "Área gourmet coberta com balcão e banquetas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g06.jpg"
+     },
+     "alt": "Cascata de madeira com o logo da Estância Paraíso"
+    },
+    {
+     "foto": {
+      "id": 60
+     },
+     "alt": "Cantinho de descanso com poltrona e sofá"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Piscina e deck ao entardecer"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Piscina e parede de mármore preto com plantas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g04.jpg"
+     },
+     "alt": "Piscina com boias num dia de sol"
+    },
+    {
+     "foto": {
+      "id": 65
+     },
+     "alt": "Cascata caindo na piscina"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Aniversários, 15 anos e encontros de quem já comemorou na Estância Paraíso.",
+   "rotulo": "Festas que aconteceram na Estância Paraíso",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 18,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Debutante de vestido lilás diante dos balões",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 27,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal abraçado diante do mármore preto",
+     "cap": "Ensaio de casal"
+    },
+    {
+     "foto": {
+      "id": 67
+     },
+     "alt": "Decoração de 18 anos em rosa com balões",
+     "cap": "18 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g08.jpg"
+     },
+     "alt": "Mesa de festa junina com bandeirinhas",
+     "cap": "Festa junina"
+    },
+    {
+     "foto": {
+      "id": 70
+     },
+     "alt": "Decoração de aniversário com tema de boteco",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 48
+     },
+     "alt": "Mesa do bolo com flores vermelhas",
+     "cap": "Festa"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g03.jpg"
+     },
+     "alt": "Balões dourados de número 27 e flores",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 68
+     },
+     "alt": "Decoração colorida com arco de balões",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "A lista que a própria Estância Paraíso publica no Instagram.",
+  "itens": [
+   [
+    "piscina",
+    "Piscina adulto e infantil com LED"
+   ],
+   [
+    "lago",
+    "Cascata e hidromassagem"
+   ],
+   [
+    "churrasqueira",
+    "Área gourmet coberta com churrasqueira"
+   ],
+   [
+    "cozinha",
+    "Geladeiras, freezer, fogão e micro-ondas"
+   ],
+   [
+    "quartos",
+    "1 dormitório"
+   ],
+   [
+    "estrela",
+    "3 banheiros, um ao lado da piscina"
+   ],
+   [
+    "mesa",
+    "Mesas e cadeiras"
+   ],
+   [
+    "pessoas",
+    "Até 30 adultos"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia de piscina.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Tire as dúvidas com a Ju, dona do espaço",
+   "Venha conhecer na R. Vinhais, 21",
+   "No dia, das 9h às 20h, o espaço é seu"
+  ],
+  "botao": "Consultar uma data",
+  "formato": "paisagem",
+  "foto": {
+   "id": 75
+  },
+  "alt": "Área gourmet coberta com balcão e geladeira"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem passou o dia <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Maya Saiki",
+   "tag": "A Ju",
+   "trecho": "A Juh, responsável pela locação, foi super atenciosa desde o início, tirou todas as dúvidas e deu todo o suporte necessário."
+  },
+  {
+   "nome": "Vitória Bruna",
+   "tag": "Família",
+   "trecho": "O espaço da piscina é lindo, bem cuidado, organizado e perfeito pra passar momentos com amigos e família. Ambiente agradável, limpo e confortável."
+  },
+  {
+   "nome": "Kawany Teixeira",
+   "tag": "Acolhida",
+   "trecho": "Lugar maravilhoso, tudo impecável a proprietária Ju foi super acolhedora e deu todo suporte. Voltarei mais vezes 😍"
+  },
+  {
+   "nome": "juliane cristine",
+   "tag": "Festa",
+   "trecho": "Um lugar perfeitamente incrível e maravilho… ótimo para passar o dia com a família e amigos… espaço perfeito para festa."
+  },
+  {
+   "nome": "Maria Edilania",
+   "tag": "Piscina",
+   "trecho": "Ambiente organizado, limpo, aconchegante.  Piscina top.   A Ju (responsável do local) super atenciosa. Vale a pena, recomendo."
+  },
+  {
+   "nome": "Yasmin Cardoso",
+   "tag": "A dona"
+  }
+ ],
+ "insta": {
+  "seguidores": "6,5 mil seguidores",
+  "p": "A piscina, as festas e a obra que virou espaço.",
+  "foto": {
+   "id": 63
+  },
+  "alt": "Piscina azul diante da cascata",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Estância Paraíso.",
+  "tipos": [
+   "Aniversário",
+   "15 anos",
+   "Dia de piscina",
+   "Encontro de família",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Estância Paraíso e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Itaquá.</em>",
+  "endereco": [
+   "R. Vinhais, 21 · Chácara Cuiabá",
+   "Itaquaquecetuba, SP · CEP 08587-060"
+  ],
+  "telefone": "(11) 98348-5665",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Piscina, cascata e a sua festa.",
+ "mensagem": "Olá! Vim pelo site da Estância Paraíso e queria um orçamento.",
+ "google_nome": "Espaço com piscina Estância Paraíso",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98348-5665 é o telefone do Perfil da Empresa no Google e o das legendas (wa.me/5511983485665)",
+  "site": "não tem (o Google mostra o Instagram; não achei site próprio)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Espaço novo e pequeno com piscina (LED, cascata e hidro) e área gourmet em Itaquaquecetuba; aniversários, 15 anos, dias de piscina e encontros, até 30 adultos.",
+   "Dona: Ju (\"a proprietária Ju\", \"a Juh, responsável pela locação\"); o espaço responde todas as avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a cascata iluminada, o espaço (Ju, construído aos poucos), carrossel do espaço (8, com 4 do Google), festas reais (8, com 2 do Google), estrutura (8 itens da lista do próprio @), como reservar, avaliações (5, nota 5,0), consultar uma data e mapa.",
+   "Cores: mármore preto e dourado da madeira. Fonte Sora."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; quase tudo story em 540 px) e Perfil da Empresa no Google (área gourmet, piscina de dia e com LED, cascata com o logo).",
+   "Ficaram de fora: as artes com preço e \"promoção\", as fotos da obra, as crianças na piscina e as fotos de comida."
+  ],
+  "conferir": [
+   "As legendas trazem preço da diária e \"promoção de inauguração\": nada disso entra na demo.",
+   "Lotação 30 adultos, horário 9h às 20h e a lista da estrutura vêm das legendas do próprio @.",
+   "É mais locação de piscina para o dia do que salão de festas: o vídeo e a demo falam de \"dia de piscina\" e festa pequena.",
+   "Não achei anúncio ativo em plataforma de aluguel por temporada; vale olhar o link da bio antes de mandar."
+  ]
+ }
+}

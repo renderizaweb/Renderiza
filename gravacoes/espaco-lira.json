@@ -1,0 +1,136 @@
+{
+ "demo": "espaco-lira",
+ "formato": "reels",
+ "marca": "Espaço Lira",
+ "local": "Campo Limpo · São Paulo",
+ "cores": {
+  "fundo": "#2a2233",
+  "fundo2": "#1a1520",
+  "acento": "#d9a877",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Espaço",
+   "Lira"
+  ],
+  "frase": "Venha celebrar conosco.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(1) img",
+   "#salao-track li:nth-child(1) img",
+   "#festas-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Espaço Lira.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um lugar para a festa *começa pelo celular.*",
+   "sub": "Quer ver o salão, as decorações e a opinião de quem fez a festa."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece o Espaço Lira *e quem faz a festa.*",
+   "sub": "A Vivian, que cuida da decoração e do atendimento, do começo ao fim."
+  },
+  {
+   "rolar": "#salao-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#salao-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#salao-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#salao-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o salão montado *antes da visita.*",
+   "sub": "O mesmo salão, com mesas e flores diferentes a cada festa."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 4.2,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as decorações que *já fizeram ali.*",
+   "sub": "Casamentos, 15 anos, bodas, chás e aniversários."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 259 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

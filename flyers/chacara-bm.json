@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara BM",
+ "local": "Rio Grande da Serra · SP",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d3a2b",
+  "fundo2": "#11231a",
+  "acento": "#f2b843",
+  "tinta_acento": "#11231a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce13c1e3264027_0x64f30d2c0002d9cf/g05.jpg",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "223"
+ },
+ "titulo": "Natureza para<br><em>a sua festa.</em>",
+ "texto": "Piscina, área coberta, churrasqueira e brinquedos no meio do verde, em Rio Grande da Serra.",
+ "whatsapp": "(11) 98591-9994",
+ "cta": "Consulte sua data",
+ "endereco": "R. Nova Jersey, 125 · Rio Grande da Serra",
+ "instagram": "@chacarabm"
+}

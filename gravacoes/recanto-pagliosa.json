@@ -1,0 +1,136 @@
+{
+ "demo": "recanto-pagliosa",
+ "formato": "reels",
+ "marca": "Recanto Pagliosa",
+ "local": "Vista Alegre · Arujá",
+ "cores": {
+  "fundo": "#1e3323",
+  "fundo2": "#132016",
+  "acento": "#e56fb0",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:30:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Recanto",
+   "Pagliosa"
+  ],
+  "frase": "Festa no meio das flores.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(2) img",
+   "#espaco-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Recanto Pagliosa.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma chácara para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, a casa e a opinião de quem já foi."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 4.9,
+   "legenda": "Conhece o Recanto Pagliosa *e a casa.*",
+   "sub": "Rústica, com lareira e mais de 30 camas, em Arujá."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o salão e a piscina *antes da visita.*",
+   "sub": "O salão montado, a piscina, a casa e a varanda iluminada."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E os jardins, *floridos o ano inteiro.*",
+   "sub": "Um cenário pronto para as fotos da festa."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem esteve lá conta.*",
+   "sub": "São 136 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

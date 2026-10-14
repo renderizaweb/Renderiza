@@ -1,0 +1,407 @@
+{
+ "pasta": "espaco-valladares",
+ "marca": "Espaço Valladares",
+ "marca_logo": "Espaço Valladares",
+ "marca_completa": "Espaço Valladares Festas",
+ "logo_sub": "Freguesia do Ó · São Paulo",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-valladares/perfil.jpg"
+ },
+ "titulo": "Espaço Valladares Festas | Freguesia do Ó, São Paulo",
+ "descricao": "Espaço Valladares Festas, na Av. João Paulo I, 1515, na Freguesia do Ó (Zona Norte de São Paulo): salão para 15 anos, casamentos, noivados e aniversários, com som, iluminação e escadaria. Nota 4,8 no Google.",
+ "comentario": "Demo Espaço Valladares Festas: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espacovalladares, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1f1a24",
+  "acento": "#c9a24a"
+ },
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-valladares/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/espaco-valladares.json",
+ "topline": "Av. João Paulo I, 1515 (sobreloja) · Freguesia do Ó, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#salao",
+   "O salão"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas na Freguesia do Ó, Zona Norte",
+  "h1": "Momentos <em>inesquecíveis.</em>",
+  "intro": "15 anos, casamentos, noivados e aniversários num salão com som, iluminação e escadaria, na Av. João Paulo I, 1515.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o salão",
+  "alvo": "salao",
+  "foto": {
+   "id": 22,
+   "c": [
+    0.5,
+    0.42
+   ]
+  },
+  "alt": "Debutante de vestido azul na pista iluminada do Espaço Valladares"
+ },
+ "endereco": [
+  "Av. João Paulo I, 1515",
+  "Freguesia do Ó · São Paulo"
+ ],
+ "dias_curto": "ter a sáb",
+ "marquee": [
+  "15 anos",
+  "Casamentos",
+  "Noivados",
+  "Aniversários",
+  "Som e iluminação",
+  "Escadaria",
+  "Freguesia do Ó"
+ ],
+ "sobre": {
+  "eyebrow": "O Espaço Valladares",
+  "h2": "Cada festa <em>com carinho.</em>",
+  "p": [
+   "Na Freguesia do Ó, o Espaço Valladares recebe festas de 15 anos, casamentos, noivados e aniversários, toda semana. O William, dono da casa, e a equipe acompanham cada festa de perto, do primeiro contato ao fim da noite.",
+   "O salão já tem som e iluminação, e a decoração muda a cada festa: lilás, azul royal, terracota, vermelho e dourado. As famílias contam nas avaliações o cuidado com cada detalhe."
+  ],
+  "stats": [
+   [
+    "160",
+    "avaliações no Google"
+   ],
+   [
+    "9,5 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 35,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Debutante de vestido rosé diante do móvel de madeira decorado do salão",
+  "pol": {
+   "id": 44,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Família sorrindo diante da mesa do bolo",
+  "pol_cap": "Festa de 15 anos"
+ },
+ "carrosseis": [
+  {
+   "id": "salao",
+   "eyebrow": "O salão",
+   "h2": "Pronto para <em>a sua festa.</em>",
+   "p": "O salão montado em festas de verdade: mesas, iluminação e a pista. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do salão do Espaço Valladares",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cef9e63287a103_0x89e3baef3ff3ba6c/g00.jpg"
+     },
+     "alt": "Salão montado com toalhas roxas e luzes"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cef9e63287a103_0x89e3baef3ff3ba6c/g01.jpg"
+     },
+     "alt": "Salão com a pista de LED acesa"
+    },
+    {
+     "foto": {
+      "id": 53
+     },
+     "alt": "Salão montado com mesas claras e flores"
+    },
+    {
+     "foto": {
+      "id": 49
+     },
+     "alt": "Salão com o número 15 iluminado"
+    },
+    {
+     "foto": {
+      "id": 47
+     },
+     "alt": "Mesas em verde e dourado no salão"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Salão com mesas laranja e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Mesas com toalhas azul royal"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Salão com mesas vermelhas e o 15 iluminado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "15 anos, casamentos e aniversários de quem já comemorou no Valladares.",
+   "rotulo": "Festas que aconteceram no Espaço Valladares",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 55,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido azul no salão",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "c": [
+       0.45,
+       0.5
+      ]
+     },
+     "alt": "Debutante de vestido vermelho ao lado do móvel decorado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 41
+     },
+     "alt": "Mesa de doces de casamento em terracota",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Móvel de madeira decorado em verde e dourado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Aniversariante em festa à fantasia ao lado do bolo",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 0
+     },
+     "alt": "Mesa de doces sob o lustre de cristal",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Mesa de doces em vermelho e dourado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cef9e63287a103_0x89e3baef3ff3ba6c/g06.jpg",
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Noivos e as daminhas sorrindo diante da mesa do bolo",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estilos": null,
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o salão <em>oferece.</em>",
+  "p": "O que as famílias contam nas avaliações do Google e o que aparece nas festas.",
+  "itens": [
+   [
+    "salao",
+    "Salão na Av. João Paulo I"
+   ],
+   [
+    "som",
+    "Som e iluminação"
+   ],
+   [
+    "estrela",
+    "Decoração a cada festa"
+   ],
+   [
+    "cerimonia",
+    "Escadaria para a entrada"
+   ],
+   [
+    "pessoas",
+    "Equipe no dia da festa"
+   ],
+   [
+    "mesa",
+    "Mesas e cadeiras"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão na Av. João Paulo I, 1515",
+   "Acerte os detalhes com o William e a equipe",
+   "No dia, a equipe acompanha a festa de perto"
+  ],
+  "botao": "Consultar uma data",
+  "formato": "paisagem",
+  "foto": {
+   "id": 38,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Valsa da debutante com o pai no salão, convidados em volta"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Paty Scaife",
+   "tag": "15 anos",
+   "trecho": "O Espaço Valladares é um salão lindíssimo, o William e sua equipe são incríveis.A festa da minha filha de 15 anos foi um sonho que se tornou realidade"
+  },
+  {
+   "nome": "Beatriz Celestino",
+   "tag": "Cada detalhe",
+   "trecho": "agradeço ao dono do salão Will , que educação , cuidou de cada detalhe com muito carinho e a equipe dele sensacional"
+  },
+  {
+   "nome": "Katja Leyse Costa Pereira",
+   "tag": "Aniversário",
+   "trecho": "Fizemos o aniversário de 12 anos de nossa filha no Espaço Valladares. Foi tudo perfeito.  O Espaço é lindo,  espaçoso, aconchegante com uma ótima estrutura."
+  },
+  {
+   "nome": "Cristiane Irineu",
+   "tag": "Casamento",
+   "trecho": "Minha filha casou no espaço no dia 04/02/23 , e só tenho motivos para agradecer o Willian , sua assistente Zara que foram super prestativos e disponíveis a todo momento."
+  },
+  {
+   "nome": "vanessa migliatti",
+   "tag": "Escada dos sonhos"
+  }
+ ],
+ "instagram": "espacovalladares",
+ "insta": {
+  "seguidores": "9,5 mil seguidores",
+  "p": "Festas de 15 anos, casamentos e aniversários, toda semana.",
+  "foto": {
+   "id": 12,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Pista de LED acesa no salão",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Valladares.",
+  "tipos": [
+   "15 anos",
+   "Casamento",
+   "Aniversário",
+   "Noivado",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Valladares e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Freguesia do Ó.</em>",
+  "endereco": [
+   "Av. João Paulo I, 1515 (sobreloja) · Freguesia do Ó",
+   "São Paulo, SP · CEP 02842-280"
+  ],
+  "telefone": "(11) 97067-4146",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Momentos inesquecíveis.",
+ "mensagem": "Olá! Vim pelo site do Espaço Valladares e queria um orçamento.",
+ "whatsapp": "5511970674146",
+ "fone_link": "+5511970674146",
+ "google": {
+  "coords": "-23.480559,-46.6866042",
+  "fid": "0x94cef9e63287a103:0x89e3baef3ff3ba6c",
+  "gid": "/g/11j0yv6hn4"
+ },
+ "google_nome": "Espaço Valladares Festas",
+ "endereco_maps": "Av. João Paulo I, 1515 - Freguesia do Ó, São Paulo - SP, 02842-280",
+ "google_nota": "4,8",
+ "google_total": "160",
+ "verificado": "2026-10-14",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97067-4146 é o telefone do Perfil da Empresa no Google e o da bio (wa.me/5511970674146)",
+  "site": "não tem (o Google aponta o Instagram; o espacovalladares.com.br não existe; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Salão na sobreloja da Av. João Paulo I, 1515; festas de 15 anos com produção caprichada, casamentos, noivados e aniversários.",
+   "Dono: William (\"o dono William\", \"o dono do salão Will\"); a assistente Zara aparece em avaliações de casamento."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com debutante na pista, a casa (William e equipe), carrossel do salão (8, com 2 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (5), consultar uma data (WhatsApp com dia, tipo e convidados) e mapa.",
+   "Cores: quase preto e dourado (o logo é preto e branco; o salão é rosa, lilás e dourado). Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2024) e Perfil da Empresa no Google (salão vazio montado, pista, casal com as daminhas).",
+   "Ficaram de fora: fotos com nome de cliente em destaque, as de baixa nitidez e as artes."
+  ],
+  "conferir": [
+   "Teve 1º contato em agosto/2026 sem demo (lista do Kaue): retomar como continuação da conversa.",
+   "Estrutura: \"som, iluminação\" e \"escada dos sonhos\" vêm das avaliações; a pista de LED aparece em posts com crédito de fornecedor (@mixlumiled): não citei a pista como da casa.",
+   "Capacidade do salão: não confirmei (a demo não cita).",
+   "As fotos de debutantes e famílias são de clientes postadas pelo próprio espaço."
+  ]
+ }
+}

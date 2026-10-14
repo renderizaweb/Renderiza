@@ -1,0 +1,29 @@
+{
+ "marca": "Casa Rabello",
+ "local": "Jardim Novo Carrão · São Paulo",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#23342a",
+  "fundo2": "#15201a",
+  "acento": "#e3895e",
+  "tinta_acento": "#15201a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/casarabello/Instagram_files/651860294_18061239590341968_3451694062494134231_n.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "112"
+ },
+ "titulo": "Festa com jeito<br><em>de casa.</em>",
+ "texto": "Salão coberto e jardim com pergolado para chás, aniversários, noivados e mini weddings.",
+ "whatsapp": "(11) 99948-0568",
+ "cta": "Consulte sua data",
+ "endereco": "R. Pedro Rabêlo, 165 · Jardim Novo Carrão",
+ "instagram": "@_casarabello"
+}

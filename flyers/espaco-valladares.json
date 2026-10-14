@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Valladares",
+ "local": "Freguesia do Ó · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1f1a24",
+  "fundo2": "#131016",
+  "acento": "#c9a24a",
+  "tinta_acento": "#131016",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/espacovalladares/Instagram_files/658154419_18317667235260580_2676631905056614616_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "160"
+ },
+ "titulo": "Momentos <em>inesquecíveis.</em>",
+ "texto": "15 anos, casamentos, noivados e aniversários num salão com som, iluminação e escadaria.",
+ "whatsapp": "(11) 97067-4146",
+ "cta": "Consulte sua data",
+ "endereco": "Av. João Paulo I, 1515 · Freguesia do Ó",
+ "instagram": "@espacovalladares"
+}

@@ -1,0 +1,116 @@
+{
+ "demo": "estancia-paraiso",
+ "formato": "reels",
+ "marca": "Estância Paraíso · Espaço com piscina",
+ "local": "Chácara Cuiabá · Itaquaquecetuba",
+ "cores": {
+  "fundo": "#141a22",
+  "fundo2": "#0c1015",
+  "acento": "#d4a24c",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Estância",
+   "Paraíso"
+  ],
+  "frase": "Piscina, cascata e a sua festa.",
+  "fotos": [
+   ".hero-photo img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Estância Paraíso.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um espaço com piscina *começa pelo celular.*",
+   "sub": "Quer ver a piscina, o que tem no espaço e a opinião de quem foi."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece a Estância Paraíso *e quem recebe.*",
+   "sub": "A Ju, dona do espaço, que tira as dúvidas desde a primeira mensagem."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê a piscina e a cascata *antes da visita.*",
+   "sub": "De dia, à noite com LED, e a área gourmet coberta."
+  },
+  {
+   "rolar": "#estrutura h2",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "legenda": "E tudo o que *o espaço oferece.*",
+   "sub": "Hidro, churrasqueira, dormitório e três banheiros, para até 30 adultos."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem foi conta.*",
+   "sub": "Nota 5,0 em 102 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

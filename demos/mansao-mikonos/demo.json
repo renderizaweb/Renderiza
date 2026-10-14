@@ -1,0 +1,413 @@
+{
+ "pasta": "mansao-mikonos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/mansao-mikonos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/mansao-mikonos-sem-horas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/mansao-mikonos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511947920888",
+ "fone_link": "+5511947920888",
+ "google": {
+  "coords": "-23.4936673,-46.4617628",
+  "fid": "0x94ce61003d54c5bd:0x883f7bbe8518a2ad",
+  "gid": "/g/11lzwmvdx2"
+ },
+ "endereco_maps": "R. Sen. Sigismundo Gonçalves, 58 - Parque Cruzeiro do Sul, São Paulo - SP, 08070-260",
+ "google_nota": "5,0",
+ "google_total": "90",
+ "verificado": "2026-10-14",
+ "instagram": "mansaomikonos",
+ "marca": "Mansão Mikonos",
+ "marca_logo": "Mansão Mikonos",
+ "marca_completa": "Mansão Mikonos",
+ "logo_sub": "Parque Cruzeiro do Sul · São Paulo",
+ "titulo": "Mansão Mikonos | Casa para festas na Zona Leste de São Paulo",
+ "descricao": "Mansão Mikonos, na R. Sen. Sigismundo Gonçalves, 58, no Parque Cruzeiro do Sul (Zona Leste de São Paulo): piscina aquecida, salão de festas, sala de jogos, sala de cinema e 4 dormitórios, para festas com day use ou pernoite. Nota 5,0 no Google.",
+ "comentario": "Demo Mansão Mikonos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da casa (@mansaomikonos, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 14/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#17161b",
+  "acento": "#c9a45c"
+ },
+ "topline": "R. Sen. Sigismundo Gonçalves, 58 · Parque Cruzeiro do Sul, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A mansão"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casa para festas no Parque Cruzeiro do Sul, Zona Leste",
+  "h1": "Sua festa <em>numa mansão.</em>",
+  "intro": "Piscina aquecida, salão de festas, sala de jogos, sala de cinema e 4 dormitórios. Aniversários, casamentos e eventos, com day use ou pernoite.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g02.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Convidados reunidos e sorrindo dentro da piscina",
+  "nota": "Day use ou pernoite · atendimento 24 horas"
+ },
+ "endereco": [
+  "R. Sen. Sigismundo Gonçalves, 58",
+  "Parque Cruzeiro do Sul · São Paulo"
+ ],
+ "marquee": [
+  "Aniversários",
+  "Casamentos",
+  "Eventos de empresa",
+  "Day use",
+  "Pernoite",
+  "Piscina aquecida",
+  "Pagode e DJ",
+  "Zona Leste"
+ ],
+ "sobre": {
+  "eyebrow": "A Mansão Mikonos",
+  "h2": "Um sonho <em>com endereço.</em>",
+  "p": [
+   "No Parque Cruzeiro do Sul, a uma travessa da Av. São Miguel e perto da estação de trem, a Mansão Mikonos tem piscina aquecida, salão de festas, sala de jogos, sala de cinema, 4 dormitórios, 5 banheiros e garagem para 5 carros.",
+   "A dona é a Kátia, que vendeu o apartamento para comprar a casa e fez o projeto inteiro: iluminação, móveis, cores. Nas avaliações, quem fez a festa fala da atenção dela e do aquário da sala."
+  ],
+  "stats": [
+   [
+    "5,0",
+    "nota no Google, em 90 avaliações"
+   ],
+   [
+    "4",
+    "dormitórios para quem fica"
+   ]
+  ],
+  "foto": {
+   "id": 33
+  },
+  "alt": "Fachada branca da mansão com arcos e palmeiras",
+  "pol": {
+   "id": 8,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal sorrindo diante da mesa do bolo",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Os ambientes",
+   "h2": "Cada canto <em>pensado para a festa.</em>",
+   "p": "A sala com vista para a piscina, a sala de jogos, os quartos e a área externa. Peça mais fotos e o vídeo pelo WhatsApp.",
+   "rotulo": "Fotos dos ambientes da Mansão Mikonos",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Sala com arco de vidro aberto para a piscina"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g01.jpg"
+     },
+     "alt": "Piscina com deck de pedra"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Sala de jogos com mesa de pôquer e aquário na parede"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Lounge externo com sofás ao lado das palmeiras"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Quarto com cama de casal e iluminação de LED"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Deck da piscina iluminado à noite"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Piscina com boias de flamingo e donut"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Área externa com sofás e gramado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Aniversários, casamentos, pagode ao vivo e dias de piscina de quem já comemorou na mansão.",
+   "rotulo": "Festas que aconteceram na Mansão Mikonos",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g05.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Amigos comemorando no bar iluminado",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 37,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Amigas sorrindo juntas na sala",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g07.jpg"
+     },
+     "alt": "Grupo de pagode tocando ao vivo na mansão",
+     "cap": "Pagode ao vivo"
+    },
+    {
+     "foto": {
+      "id": 8,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal sorrindo diante da mesa do bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Decoração de aniversário com tema do fundo do mar",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g02.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Convidados reunidos dentro da piscina",
+     "cap": "Dia de piscina"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Amigas reunidas na área externa",
+     "cap": "Entre amigas"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Mesa do bolo com painel pink de aniversário",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a mansão <em>oferece.</em>",
+  "p": "A lista que a própria Mansão Mikonos publica e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "piscina",
+    "Piscina aquecida"
+   ],
+   [
+    "salao",
+    "Salão de festas"
+   ],
+   [
+    "estrela",
+    "Sala de jogos"
+   ],
+   [
+    "som",
+    "Sala de cinema"
+   ],
+   [
+    "quartos",
+    "4 dormitórios para pernoite"
+   ],
+   [
+    "estrela",
+    "5 banheiros"
+   ],
+   [
+    "estacionamento",
+    "Garagem para 5 carros"
+   ],
+   [
+    "pessoas",
+    "Indicação de buffet, DJ e pagode"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Escolha: day use ou pernoite",
+   "Venha conhecer a mansão no Parque Cruzeiro do Sul",
+   "Peça à Kátia as indicações de buffet, DJ e decoração"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g06.jpg"
+  },
+  "alt": "Piscina montada para festa, com boias e caixas de som"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Viviane",
+   "tag": "40 anos",
+   "trecho": "Tivemos DJ, grupo de pagode ao vivo e bar com drinks, e mesmo com cerca de 60 pessoas, entre convidados e prestadores, todos conseguiram se divertir com tranquilidade"
+  },
+  {
+   "nome": "Cindy Lau de Carvalho",
+   "tag": "Piscina aquecida",
+   "trecho": "Comemorei meu aniversário com elogio de TODOS convidados! É linda e aconchegante, não poderia ter escolhido um lugar melhor!! Uma piscina aquecida que faz todos entrarem na piscina!!"
+  },
+  {
+   "nome": "Alex Mancini",
+   "tag": "Localização",
+   "trecho": "a localização é mais que perfeita, próximo a estação de trem é parada de ônibus, o espaço interno de sucesso aos meus convidados, ressalto aqui o aquário maravilhoso que tem na sala."
+  },
+  {
+   "nome": "Taciana Cristina",
+   "tag": "A Kátia",
+   "trecho": "A casa bem aconchegante, a Dona super simpática e atenciosa!!! Com certeza farei mais evento neste lugar! Obrigada Kátia!"
+  },
+  {
+   "nome": "Gabriela Estevam",
+   "tag": "Pernoite",
+   "trecho": "Ideal para festa, lazer ou reunião com a família, tem uma piscina maravilhosa e os quartos são modernos e confortáveis."
+  },
+  {
+   "nome": "Rodrigo",
+   "tag": "Anfitriã"
+  }
+ ],
+ "insta": {
+  "seguidores": "7,7 mil seguidores",
+  "p": "As festas, os ambientes e os dias de piscina na mansão.",
+  "foto": {
+   "id": 11
+  },
+  "alt": "Fachada da mansão sob o céu azul",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Mansão Mikonos.",
+  "tipos": [
+   "Aniversário",
+   "Casamento",
+   "Evento de empresa",
+   "Day use",
+   "Festa com pernoite",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Mansão Mikonos e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Zona Leste.</em>",
+  "endereco": [
+   "R. Sen. Sigismundo Gonçalves, 58 · Parque Cruzeiro do Sul",
+   "São Paulo, SP · CEP 08070-260"
+  ],
+  "telefone": "(11) 94792-0888",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua festa numa mansão.",
+ "mensagem": "Olá! Vim pelo site da Mansão Mikonos e queria um orçamento.",
+ "google_nome": "Mansão Mikonos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 94792-0888 é o telefone do Perfil da Empresa no Google",
+  "site": "não tem (não achei site próprio); conferir se anuncia em plataforma de aluguel por temporada (as legendas usam #casaparatemporada)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Casa de festas com piscina aquecida, salão, sala de jogos e de cinema e 4 dormitórios na Zona Leste (perto da Av. São Miguel); aniversários, casamentos, eventos de empresa, day use e pernoite.",
+   "Dona: Kátia (Katia Melo, \"Obrigada Kátia!\", \"a Dona super simpática\"); na legenda do projeto ela conta que vendeu o apartamento para comprar a casa."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os convidados na piscina, a mansão (a história da Kátia), carrossel dos ambientes (8), festas reais (8, com 3 do Google), estrutura (8 itens da lista do próprio @), como reservar, avaliações (5, nota 5,0), consultar uma data e mapa.",
+   "Cores: preto e dourado do logo. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; quase tudo story em 540 px) e Perfil da Empresa no Google (fachada, piscina cheia, pagode, bar).",
+   "Ficaram de fora: a foto de moto (pessoal), as fotos de pose de biquíni, a de patrocínio de casa de apostas, comida e as artes."
+  ],
+  "conferir": [
+   "As legendas trazem preço de diária: nada disso entra na demo. Elas também falam em respeito à lei do silêncio.",
+   "Estrutura (piscina climatizada, sala de jogos, sala de cinema, 4 dormitórios, 5 banheiros, 5 vagas) vem das legendas do próprio @; \"cerca de 60 pessoas\" é de uma avaliação.",
+   "O Google mostra \"atendimento 24 horas\" (sem horário de festa): a demo diz isso no topo.",
+   "Pode ter anúncio em plataforma de aluguel por temporada: olhar antes de mandar."
+  ]
+ }
+}

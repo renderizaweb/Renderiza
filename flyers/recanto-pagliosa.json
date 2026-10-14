@@ -1,0 +1,30 @@
+{
+ "marca": "Recanto Pagliosa",
+ "local": "Vista Alegre · Arujá",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1e3323",
+  "fundo2": "#121f15",
+  "acento": "#e56fb0",
+  "tinta_acento": "#121f15",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/recantopagliosa/Instagram_files/629529659_18384127090154238_3858536695298891407_n.jpg",
+  "pos": "50% 50%",
+  "largura": 700
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "136"
+ },
+ "titulo": "Festa no meio<br><em>das flores.</em>",
+ "texto": "Salão de festas, piscina, quadra e jardins floridos, com casa para mais de 30 pessoas, em Arujá.",
+ "whatsapp": "(11) 99172-3312",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. dos Índios, 5421 · Arujá",
+ "instagram": "@recantopagliosa"
+}

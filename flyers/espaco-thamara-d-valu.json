@@ -1,0 +1,29 @@
+{
+ "marca": "Thamara D'Valu",
+ "local": "Itapecerica da Serra · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2b201c",
+  "fundo2": "#1a1311",
+  "acento": "#e8a0a8",
+  "tinta_acento": "#1a1311",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/espacothamaradvalu/Instagram_files/468980051_18116794402412777_749769496985368691_n.jpg",
+  "pos": "50% 35%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "166"
+ },
+ "titulo": "O seu sonho<br><em>é o nosso sonho.</em>",
+ "texto": "Casamentos, aniversários e confraternizações num espaço de tijolo, madeira e flores, com piscina.",
+ "whatsapp": "(11) 96898-7813",
+ "cta": "Consulte sua data",
+ "endereco": "R. Mariane, 351 · Itapecerica da Serra",
+ "instagram": "@espacothamaradvalu"
+}

@@ -1,0 +1,29 @@
+{
+ "marca": "Mansão Mikonos",
+ "local": "Parque Cruzeiro do Sul · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#17161b",
+  "fundo2": "#0e0d10",
+  "acento": "#c9a45c",
+  "tinta_acento": "#0e0d10",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce61003d54c5bd_0x883f7bbe8518a2ad/g02.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "90"
+ },
+ "titulo": "Sua festa<br><em>numa mansão.</em>",
+ "texto": "Piscina aquecida, salão de festas, sala de jogos e 4 dormitórios. Day use ou pernoite.",
+ "whatsapp": "(11) 94792-0888",
+ "cta": "Consulte sua data",
+ "endereco": "R. Sen. Sigismundo Gonçalves, 58",
+ "instagram": "@mansaomikonos"
+}
