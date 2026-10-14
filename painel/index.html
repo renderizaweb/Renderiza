@@ -249,7 +249,7 @@ td.money .inline-text{text-align:right}
 .kanban-card:hover{border-color:#a8c5b5;box-shadow:0 3px 15px #0c351506}
 .kanban-card strong{font-size:.8125rem;font-weight:600;color:#234d38;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .kanban-card strong.kanban-nome{display:flex;align-items:center;gap:6px;min-width:0}
-.kanban-nome>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.kanban-nome>.kanban-empresa{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .selo-video{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:#1f5a45;color:#fff}
 .marca-revisar.marca-video{display:inline-grid;place-items:center;width:22px;padding:3px 0;background:#1f5a45;color:#fff;text-decoration:none}
 .marca-revisar.marca-video:hover{background:#174634}
@@ -467,6 +467,75 @@ button.lead-chip:hover{filter:brightness(.96)}
 .chip-demo:hover{background:#cfe4d6}
 .chip-tarefas{display:inline-flex;align-items:center;gap:4px;font-size:.75rem;font-weight:700;padding:2px 8px 2px 7px;border-radius:999px;white-space:nowrap;background:#fde7b0;color:#7a4f00}
 .chip-tarefas.atrasada{background:#fbe9e7;color:#b3261e}
+
+/* tags: o ciclo em que a conversa começou (C1, C2…), uma cor por ciclo; as livres ficam neutras */
+.ciclo-cor-1{--tag:#4b5fd1}
+.ciclo-cor-2{--tag:#d0602b}
+.ciclo-cor-3{--tag:#b03e7b}
+.ciclo-cor-4{--tag:#0e7d73}
+.ciclo-cor-5{--tag:#946708}
+.ciclo-cor-6{--tag:#7449c0}
+.tag-ciclo{background:var(--tag);color:#fff}
+.tag-livre{background:#eef1f0;color:#52645b}
+.selo-ciclo{flex:none;margin-left:auto;font-size:.6875rem;font-weight:800;letter-spacing:.3px;line-height:1;padding:4px 6px 3px;border-radius:5px}
+.chip-tag{display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.marca-revisar.marca-tag.tag-ciclo{background:var(--tag);color:#fff;font-weight:800;letter-spacing:.3px}
+.marca-revisar.marca-tag.tag-ciclo:hover{filter:brightness(1.1)}
+.marca-revisar.marca-tag.tag-livre{background:#eef1f0;color:#52645b}
+.lead-chip.tag-ciclo{background:var(--tag);color:#fff}
+.tags-editor{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-height:40px;padding:5px 8px;border:1px solid #dbe5dd;border-radius:6px;background:#fff}
+.tags-editor:focus-within{border-color:#4e9167;box-shadow:0 0 0 2px #e2f0e6}
+.tags-chips{display:contents}
+.tag-editavel{display:inline-flex;align-items:center;gap:2px;font-size:.75rem;font-weight:600;padding:2px 3px 2px 9px;border-radius:999px;white-space:nowrap}
+.tag-tirar{width:18px;height:18px;display:grid;place-items:center;border-radius:999px;color:inherit;opacity:.75}
+.tag-tirar:hover:not(:disabled){opacity:1;background:#0000001f}
+.campo .tags-editor input{flex:1;width:auto;min-width:110px;height:28px;border:0;padding:0 2px;box-shadow:none;background:none}
+.campo .tags-editor input:focus{box-shadow:none}
+
+/* checklist do card: no cartão do kanban, o próximo item; nos detalhes, a lista inteira */
+.kanban-ck{display:flex;align-items:flex-start;gap:6px;min-width:0;font-size:.75rem;line-height:1.35;color:#5d6f66}
+.kanban-ck .ck-texto{flex:1;min-width:0;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow-wrap:anywhere}
+.kanban-ck .ck-conta{flex:none;font-size:.6875rem;font-weight:600;color:#849087;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ck-marcar{flex:none;width:15px;height:15px;margin-top:1px;border:1.5px solid #9fb5a8;border-radius:4px;background:#fff;cursor:pointer;padding:0}
+.ck-marcar:hover:not(:disabled){border-color:var(--primary);background:#e2f1e7}
+.ck-marcar:disabled{cursor:default;opacity:.6}
+.kanban-ck.completa{color:#1f6b41;font-weight:600}
+.ck-feito{flex:none;width:15px;height:15px;margin-top:1px;border-radius:4px;background:#2b7a52;color:#fff;display:grid;place-items:center}
+.ck-topo{display:flex;align-items:center;gap:10px;margin:0 0 6px}
+.ck-barra{flex:1;height:6px;border-radius:999px;background:#e6eeea;overflow:hidden}
+.ck-barra-feita{display:block;height:100%;background:#37a07a;border-radius:inherit;transition:width .25s}
+.ck-topo.completa .ck-barra-feita{background:#1f6b41}
+.ck-resumo{font-size:.75rem;font-weight:600;color:#52645b;white-space:nowrap}
+.ck-lista{list-style:none;margin:0;padding:0}
+.ck-lista:empty{display:none}
+.ck-item{display:flex;align-items:center;gap:8px;padding:4px 0}
+.ck-item+.ck-item{border-top:1px solid #edf1ee}
+.ck-item.feito .tarefa-check{background:var(--primary);border-color:var(--primary)}
+.ck-texto-item{flex:1;min-width:0;font:inherit;font-size:.875rem;color:#22342f;border:1px solid transparent;border-radius:6px;padding:6px 7px;background:none}
+.ck-texto-item:hover:not(:disabled){border-color:#dbe5dd}
+.ck-texto-item:focus{outline:none;border-color:#4e9167;background:#fff;box-shadow:0 0 0 2px #e2f0e6}
+.ck-texto-item:disabled{color:inherit}
+.ck-item.feito .ck-texto-item{text-decoration:line-through;color:#7d8b85}
+.ck-quando{flex:none;font-size:.75rem;color:#6d7b77;font-variant-numeric:tabular-nums}
+.ck-acoes{flex:none;display:flex;gap:1px;opacity:0;transition:opacity .15s}
+.ck-item:hover .ck-acoes,.ck-item:focus-within .ck-acoes{opacity:1}
+@media(hover:none){.ck-acoes{opacity:1}}
+.ck-acao{width:26px;height:26px;display:grid;place-items:center;border-radius:6px;color:#6d7b77}
+.ck-acao:hover:not(:disabled){background:var(--accent);color:var(--accent-foreground)}
+.ck-acao:disabled{opacity:.3;cursor:default}
+.ck-subir svg{transform:rotate(180deg)}
+.ck-vazio{font-size:.8125rem;color:#6d7b77;margin:0 0 4px;line-height:1.5}
+.ck-novo{display:flex;align-items:center;gap:8px;padding:9px 0 0;margin-top:4px;color:#629175;border-top:1px solid #edf1ee}
+.ck-novo input{flex:1;min-width:0;border:0;outline:none;background:none;font:inherit;font-size:.875rem;color:#22342f;padding:4px 0}
+.ck-novo input::placeholder{color:#82a08c}
+.ck-novo .text-link{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:.8125rem}
+.ck-final{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding:10px 12px;border-radius:9px;background:#e9f5ee;color:#1f5a45;font-size:.8125rem;line-height:1.45}
+.ck-final>span{flex:1;min-width:170px}
+.ck-antiga{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px;padding:8px 10px;border-radius:8px;background:#f8f1e1;color:#6b5320;font-size:.8125rem;line-height:1.45}
+.ck-antiga>span{flex:1;min-width:0}
+.ck-registro{border:1px solid #dfe7e2;border-radius:8px;padding:8px 12px 11px;margin:0;display:grid;gap:8px}
+.ck-registro legend{font-size:.8125rem;font-weight:500;color:#3d5546;padding:0 4px}
+.ck-registro .check-form{display:flex;font-size:.875rem;line-height:1.4}
 .select-trigger.interesse-interessado,.cell-select.interesse-interessado{color:#1f5f7a;font-weight:600}
 .select-trigger.interesse-perto_de_fechar,.cell-select.interesse-perto_de_fechar{color:#2d6a1f;font-weight:600}
 .cell-select.interesse-nao_avaliado{color:#849087}

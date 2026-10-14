@@ -39,6 +39,8 @@ create table if not exists public.leads (
   link_gravacao   text not null default '',
   link_flyer      text not null default '',          -- flyer de Stories (PNG): /flyer/<id>.png ou link completo
   mensagem_whatsapp text not null default '',        -- mensagem pronta do 1º contato com a demo (painel: Mandar mensagem pronta)
+  tags            text[] not null default '{}',      -- etiquetas livres; "ciclo N" = ciclo em que a conversa começou (C1, C2 no cartão)
+  checklist       jsonb not null default '[]'::jsonb, -- passos do card: [{id, texto, feito, feito_em}] (no lugar da próxima ação)
   observacoes     text not null default '',
   historico       jsonb not null default '[]'::jsonb,  -- mudanças: [{em, de, para, resultado?}] e [{em, tipo:'interesse'|'nao_contatar', ...}]
   revisar         boolean not null default false,      -- marcado na migração quando o status antigo era ambíguo
@@ -92,6 +94,12 @@ alter table public.leads     add column if not exists fora_do_funil boolean not 
 alter table public.leads     add column if not exists link_flyer text not null default '';
 -- Mensagem pronta do primeiro contato (texto + link da demo): o painel abre o WhatsApp com ela, sem enviar.
 alter table public.leads     add column if not exists mensagem_whatsapp text not null default '';
+-- Tags (14/10/2026): etiquetas do lead. "ciclo N" diz em que ciclo de prospecção (semanal, sexta a quinta, o
+-- ciclo 1 de 02 a 08/10/2026) a conversa começou; entra sozinha pelo gatilho leads_marcar_ciclo, mais abaixo.
+alter table public.leads     add column if not exists tags text[] not null default '{}';
+-- Checklist do card (14/10/2026), no lugar da próxima ação: [{id, texto, feito, feito_em}]. O painel grava junto
+-- em proxima_acao o primeiro item pendente, para o Ritmo, as Tarefas e a IA continuarem lendo a próxima ação.
+alter table public.leads     add column if not exists checklist jsonb not null default '[]'::jsonb;
 
 do $$
 begin
@@ -102,6 +110,9 @@ begin
   -- (id, dono) único para as interações apontarem para um lead do mesmo dono.
   if not exists (select 1 from pg_constraint where conname = 'leads_id_dono_key') then
     alter table public.leads add constraint leads_id_dono_key unique (id, dono);
+  end if;
+  if not exists (select 1 from pg_constraint where conname = 'leads_checklist_lista') then
+    alter table public.leads add constraint leads_checklist_lista check (jsonb_typeof(checklist) = 'array');
   end if;
 end;
 $$;
@@ -424,6 +435,89 @@ $$;
 drop trigger if exists leads_registrar_demo on public.leads;
 create trigger leads_registrar_demo after insert or update of link_demo on public.leads
   for each row execute function public.leads_registrar_demo();
+
+-- ---------- ciclo de cada conversa (tag "ciclo N") ----------
+-- Ciclos de prospecção semanais, de sexta a quinta: ciclo 1 de 02 a 08/10/2026, ciclo 2 de 09 a 15/10, e assim
+-- por diante; o que veio antes (a lista de agosto) também é ciclo 1. É o mesmo cálculo do painel (painel/src/tags.js).
+create or replace function public.renderiza_ciclo_do_dia(d date)
+returns int
+language sql
+immutable
+set search_path = ''
+as $$
+  select greatest(1, ((d - date '2026-10-02') / 7) + 1)
+$$;
+
+-- Lead que sai de Leads a trabalhar ou de Prontas para trabalhar (ou já nasce depois delas) e ainda não tem tag de
+-- ciclo ganha a do dia (Brasília). Vale para o painel, para a IA (renderiza_aplicar_relato) e para o SQL Editor.
+create or replace function public.leads_marcar_ciclo()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  if new.etapa not in ('a_trabalhar', 'demo_pronta')
+     and (tg_op = 'INSERT' or old.etapa in ('a_trabalhar', 'demo_pronta'))
+     and not exists (select 1 from unnest(new.tags) t where t ~* '^ciclo\s+[1-9][0-9]*$') then
+    new.tags := new.tags || ('ciclo ' || public.renderiza_ciclo_do_dia((now() at time zone 'America/Sao_Paulo')::date));
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists leads_marcar_ciclo on public.leads;
+create trigger leads_marcar_ciclo before insert or update of etapa on public.leads
+  for each row execute function public.leads_marcar_ciclo();
+
+-- ---------- checklist do card ----------
+-- Itens padrão do contato. Iguais a ITENS_PADRAO em painel/src/checklist.js (um teste confere).
+create or replace function public.renderiza_checklist_padrao()
+returns jsonb
+language sql
+immutable
+set search_path = ''
+as $$
+  select '[{"id": "enviar_demo", "texto": "Enviar a demo e o vídeo", "feito": false, "feito_em": null},
+           {"id": "cobranca_1", "texto": "1ª cobrança: mandar o flyer de cortesia", "feito": false, "feito_em": null},
+           {"id": "cobranca_2", "texto": "2ª cobrança: perguntar se viu a demo", "feito": false, "feito_em": null},
+           {"id": "cobranca_3", "texto": "3ª cobrança, a última", "feito": false, "feito_em": null}]'::jsonb
+$$;
+
+-- O mesmo que o painel faz ao mudar a etapa (patchAoMudarEtapa), para valer também pela IA e pelo SQL Editor:
+-- chegando em Prontas (ou nascendo lá) sem nenhum item padrão, entram os padrão; saindo de antes do contato para
+-- Em andamento, "Enviar a demo e o vídeo" fica feito. A próxima ação vira o primeiro item pendente, a menos que
+-- a mesma gravação tenha escrito outra.
+create or replace function public.leads_ajustar_checklist()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+declare
+  v_antes jsonb := new.checklist;
+begin
+  if not ((tg_op = 'INSERT' and new.etapa = 'demo_pronta')
+          or (tg_op = 'UPDATE' and old.etapa in ('a_trabalhar', 'demo_pronta') and new.etapa <> old.etapa
+              and new.etapa in ('demo_pronta', 'primeiro_contato', 'em_negociacao', 'sem_resposta'))) then
+    return new;
+  end if;
+  if not exists (select 1 from jsonb_array_elements(new.checklist) e
+                  where e->>'id' in ('enviar_demo', 'cobranca_1', 'cobranca_2', 'cobranca_3')) then
+    new.checklist := new.checklist || public.renderiza_checklist_padrao();
+  end if;
+  if new.etapa <> 'demo_pronta' then
+    new.checklist := coalesce((select jsonb_agg(case when e->>'id' = 'enviar_demo' and not coalesce((e->>'feito')::boolean, false)
+                                                     then e || jsonb_build_object('feito', true, 'feito_em', now()) else e end order by o)
+                                 from jsonb_array_elements(new.checklist) with ordinality t(e, o)), '[]'::jsonb);
+  end if;
+  if new.checklist is distinct from v_antes and (tg_op = 'INSERT' or new.proxima_acao is not distinct from old.proxima_acao) then
+    new.proxima_acao := coalesce((select e->>'texto' from jsonb_array_elements(new.checklist) with ordinality t(e, o)
+                                   where not coalesce((e->>'feito')::boolean, false) order by o limit 1), '');
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists leads_ajustar_checklist on public.leads;
+create trigger leads_ajustar_checklist before insert or update of etapa on public.leads
+  for each row execute function public.leads_ajustar_checklist();
 
 -- ---------- funções para a atualização pela IA (docs/atualizacao-por-ia.md) ----------
 -- Todas rodam com as permissões de quem chama (security invoker): valem as mesmas políticas

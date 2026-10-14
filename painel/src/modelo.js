@@ -157,6 +157,8 @@ export function novoLead(empresa) {
     interesse: "nao_avaliado",
     interesse_motivo: null,
     nao_contatar: false,
+    tags: [],
+    checklist: [],
   };
 }
 

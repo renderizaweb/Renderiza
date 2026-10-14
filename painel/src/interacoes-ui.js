@@ -1,5 +1,5 @@
 // Interações nos detalhes do lead: registrar (ou corrigir) o que aconteceu, linha do tempo
-// e recuperação de óticas contatadas antes do painel. O que é plano (Próxima ação, Follow-up)
+// e recuperação de óticas contatadas antes do painel. O que é plano (checklist, Follow-up)
 // fica separado do que aconteceu, para o placar da tela Ritmo ser honesto.
 
 import * as dados from "./dados.js";
@@ -15,6 +15,8 @@ import {
   hojeLocal, primeiroContato, retornoSugerido, cicloVigente, validarInteracao, cronologica, retornoPendente,
   pistaDoPainelAntigo, semPrimeiroContato, chaveDoNome, indexar,
 } from "./ritmo.js";
+import { itensDe, marcar, adicionar, novoItem, patchDaChecklist } from "./checklist.js";
+import { tagDoCiclo, cicloDoDia } from "./tags.js";
 
 const diaMes = iso => (iso ? iso.slice(8, 10) + "/" + iso.slice(5, 7) : "");
 const diaCompleto = iso => (iso ? iso.split("-").reverse().join("/") : "");
@@ -84,8 +86,15 @@ export function abrirRegistro(leadId, { interacao = null, tipo: tipoInicial = nu
   const naoContatar = h("input", { type: "checkbox" });
   const campoNaoContatar = h("label", { class: "check-form" }, naoContatar, "Pediu para não receber mais contato (sai da fila de retornos)");
 
-  // Próximo passo (plano) — só no registro novo
-  const proxima = h("input", { type: "text", value: lead.proxima_acao || "", autocomplete: "off", placeholder: "Ex.: mandar o vídeo" });
+  // Próximo passo (plano) — só no registro novo: marcar itens da checklist, acrescentar um e o follow-up.
+  const pendentes = itensDe(lead).filter(i => !i.feito);
+  const marcas = pendentes.map(i => h("input", { type: "checkbox", value: i.id }));
+  let marcasMexidas = false;
+  marcas.forEach(m => m.addEventListener("change", () => { marcasMexidas = true; }));
+  const blocoMarcas = h("fieldset", { class: "ck-registro", hidden: !pendentes.length },
+    h("legend", { text: "Marcar na checklist" }),
+    ...pendentes.map((i, n) => h("label", { class: "check-form" }, marcas[n], i.texto)));
+  const novoItemTexto = h("input", { type: "text", maxlength: "200", autocomplete: "off", placeholder: "Ex.: disse que está em análise" });
   const followup = h("input", { type: "date", value: lead.followup_em || "" });
   const dicaFollowup = h("p", { class: "dica-form" });
   let followupMexido = false;
@@ -114,6 +123,11 @@ export function abrirRegistro(leadId, { interacao = null, tipo: tipoInicial = nu
     campoNaoContatar.hidden = t !== "resposta" || editando;
     resumo.placeholder = t === "resposta" ? "Ex.: pediu para receber o vídeo" : t === "anotacao" ? "Ex.: dono volta de férias dia 10" : t === "retorno" ? "Ex.: mandei o vídeo da demo" : "Ex.: mandei a demo pelo WhatsApp";
     if (editando) return;
+    // O primeiro contato costuma ser o envio da demo, e o retorno, a próxima cobrança: já vêm marcados (dá para desmarcar).
+    if (!marcasMexidas && marcas.length) {
+      const sugerido = t === "primeiro_contato" ? pendentes.findIndex(i => i.id === "enviar_demo") : t === "retorno" ? pendentes.findIndex(i => i.id !== "enviar_demo") : -1;
+      marcas.forEach((m, n) => { m.checked = n === sugerido; });
+    }
     followup.disabled = naoContatar.checked;
     if (naoContatar.checked) { followup.value = ""; dicaFollowup.textContent = "Sem follow-up: a ótica sai da fila de retornos."; return; }
     const nova = montar();
@@ -142,7 +156,8 @@ export function abrirRegistro(leadId, { interacao = null, tipo: tipoInicial = nu
     campoNaoContatar,
     editando ? null : h("div", { class: "secao-form" },
       h("span", { class: "section-eyebrow", text: "Próximo passo (planejado)" }),
-      h("div", { class: "linha-form" }, h("label", { class: "duplo" }, "Próxima ação", proxima), h("label", {}, "Follow-up", followup)),
+      blocoMarcas,
+      h("div", { class: "linha-form" }, h("label", { class: "duplo" }, "Novo item na checklist (opcional)", novoItemTexto), h("label", {}, "Follow-up", followup)),
       dicaFollowup),
     erro,
     h("div", { class: "janela-acoes" },
@@ -156,7 +171,7 @@ export function abrirRegistro(leadId, { interacao = null, tipo: tipoInicial = nu
   const { fechar } = abrirJanela({
     titulo: (editando ? "Corrigir interação · " : "Registrar interação · ") + (lead.empresa || "ótica"),
     descricao: editando ? "Corrija o que foi registrado. O próximo passo se ajusta nos detalhes da ótica."
-      : "Só o que já aconteceu. O que você pretende fazer vai em Próxima ação e Follow-up.",
+      : "Só o que já aconteceu. O que você pretende fazer vai na checklist e no Follow-up.",
     conteudo: form, larga: true,
   });
 
@@ -188,7 +203,10 @@ export function abrirRegistro(leadId, { interacao = null, tipo: tipoInicial = nu
       // O próximo passo e o interesse ficam na ótica.
       const plano = {};
       if ((followup.value || null) !== (atual.followup_em || null)) plano.followup_em = followup.value || null;
-      if (proxima.value.trim() !== (atual.proxima_acao || "")) plano.proxima_acao = proxima.value.trim();
+      const antes = itensDe(atual);
+      let itens = marcas.filter(m => m.checked).reduce((l, m) => marcar(l, m.value, true), antes);
+      itens = adicionar(itens, novoItemTexto.value);
+      if (itens !== antes) Object.assign(plano, patchDaChecklist(itens));
       const patch = juntar(atual, plano,
         nova.interesse ? patchDeInteresse(atual, nova.interesse, nova.resumo || atual.interesse_motivo || null) : {},
         naoContatar.checked ? patchDeNaoContatar(atual, true) : {});
@@ -335,7 +353,7 @@ export function abrirRecuperacao() {
     etapa.value = "sem_resposta"; // conversa antiga que parou; se ainda estiver andando, escolha Em negociação
     const datas = controlesDeData(null);
     const contexto = h("input", { type: "text", maxlength: "280", placeholder: "Ex.: conversamos em junho, pediu para falar depois das férias", autocomplete: "off" });
-    const proxima = h("input", { type: "text", autocomplete: "off", placeholder: "Opcional" });
+    const proxima = h("input", { type: "text", maxlength: "200", autocomplete: "off", placeholder: "Opcional" });
     const followup = h("input", { type: "date" });
     const duplicata = h("p", { class: "erro-form", hidden: true });
     const botao = h("button", { type: "submit", class: "btn btn-primary" }, icone("mais", 15), "Adicionar como já contatada");
@@ -343,7 +361,7 @@ export function abrirRecuperacao() {
       h("div", { class: "linha-form" }, h("label", { class: "duplo" }, "Ótica", nome), h("label", {}, "Etapa", etapa)),
       h("div", { class: "campo-datas" }, h("span", { text: "Primeiro contato" }), h("div", { class: "item-recuperar-campos" }, datas.els), datas.nota),
       h("label", {}, "Contexto", contexto),
-      h("div", { class: "linha-form" }, h("label", { class: "duplo" }, "Próxima ação", proxima), h("label", {}, "Follow-up", followup)),
+      h("div", { class: "linha-form" }, h("label", { class: "duplo" }, "Primeiro item da checklist", proxima), h("label", {}, "Follow-up", followup)),
       duplicata,
       h("div", { class: "janela-acoes" }, botao));
     form.addEventListener("submit", async e => {
@@ -361,7 +379,11 @@ export function abrirRecuperacao() {
       botao.disabled = true;
       try {
         const posicao = Math.max(0, ...dados.listar("leads").map(l => (typeof l.posicao === "number" ? l.posicao : Date.parse(l.criado_em) / 1000 || 0))) + 1000;
-        const lead = await criar("leads", { ...novoLead(empresa), etapa: etapa.value, proxima_acao: proxima.value.trim(), followup_em: followup.value || null, posicao });
+        // Conversa de antes do painel: o ciclo é o do primeiro contato (sem data, ciclo 1).
+        const { ocorreu_em } = datas.valor();
+        const lead = await criar("leads", { ...novoLead(empresa), etapa: etapa.value, followup_em: followup.value || null, posicao,
+          tags: [tagDoCiclo(ocorreu_em ? cicloDoDia(ocorreu_em) : 1)],
+          ...(proxima.value.trim() ? patchDaChecklist([novoItem(proxima.value)]) : {}) });
         if (await registrarPrimeiro(lead.id, datas, contexto.value.trim())) { aviso(empresa + ": adicionada como já contatada."); desenhar(); }
       } catch (err) { /* aviso já mostrado */ } finally { botao.disabled = false; }
     });

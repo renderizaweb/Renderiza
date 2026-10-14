@@ -36,8 +36,17 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
 - **Ciclo 2 (09 a 15/10/2026)**: nicho **odonto com estética** e teste de abordagem **direta pelo
   Instagram**, para chegar ao dono ou ao profissional. As óticas não foram abandonadas e o WhatsApp
   continua. Os dentistas que já têm demo, vídeo e flyer (em Prontas para trabalhar e Em andamento) já são
-  desse nicho. O ciclo é só conceitual: **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela
-  `ciclos` segue com "Out–dez 2026").
+  desse nicho. A tabela `ciclos` do banco segue com "Out–dez 2026": **não cadastrar nem mudar ciclo nela** sem
+  pedido.
+- **Ciclo de cada conversa no painel (pedido do Kaue em 13/10/2026):** tag `ciclo N` no lead, que aparece no
+  cartão como **C1, C2…** (uma cor por ciclo). Entra sozinha quando o lead sai de Prontas para trabalhar (ou de
+  Leads a trabalhar), pelo dia da semana do ciclo (sexta a quinta; 16/10 já é ciclo 3). Carga de 14/10: C1 para
+  quem começou a conversa até 08/10 (57, contando os 15 fora do funil), C2 para os 8 que saíram de Prontas de
+  09/10 em diante (Dra. Milena e os 7 do lote 6). A Ponto Xys ficou C1: o primeiro contato foi em 08/10 (ela voltou
+  de etapa e saiu de novo em 09/10).
+- **Checklist do card (mesmo pedido):** no lugar da próxima ação. Padrão: enviar a demo e o vídeo, 1ª cobrança
+  (flyer de cortesia), 2ª cobrança, 3ª cobrança, a última. Com tudo feito e sem resposta, o card vai para Sem
+  resposta ou é encerrado. Detalhes em `painel/README.md` ("Checklist do card").
 - **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
@@ -216,7 +225,8 @@ entra cortada acima do texto (`box` no `demo.json`).
 
 1. `demos/<pasta>/index.html` na `main` deste repositório: a Vercel publica em `/demo/<pasta>`.
 2. No painel (Supabase), no lead da ótica: `link_demo = '/demo/<pasta>'` (caminho relativo, sem o
-   domínio), etapa `demo_pronta` (Prontas para trabalhar) e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
+   domínio) e etapa `demo_pronta` (Prontas para trabalhar). A checklist padrão entra sozinha (gatilho
+   `leads_ajustar_checklist`) e a próxima ação vira "Enviar a demo e o vídeo". O painel mostra a etiqueta "demo ↗" na
    tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
    Ao gravar o `link_demo`, o banco cria sozinho o prazo da demo: **7 dias no ar** (tabela `demos`,
    `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.

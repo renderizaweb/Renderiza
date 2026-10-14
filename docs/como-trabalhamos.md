@@ -203,10 +203,12 @@ texto estourou, encurte. Olhe a imagem antes de publicar.
 1. Commit e push de `demos/<pasta>/`, `gravacoes/<id>.json` e `.mp4`, `flyers/<id>.json` e `.png`.
    Confira que as três URLs abrem (o domínio redireciona para o `www`).
 2. No lead: `link_demo = '/demo/<pasta>'`, `link_gravacao = '/gravacao/<id>.mp4'`,
-   `link_flyer = '/flyer/<id>.png'`, `etapa = 'demo_pronta'` (Prontas para trabalhar),
-   `proxima_acao = 'Enviar a demo pelo WhatsApp'` e uma linha a mais em `observacoes` ("Demo criada em
+   `link_flyer = '/flyer/<id>.png'`, `etapa = 'demo_pronta'` (Prontas para trabalhar) e uma linha a mais em
+   `observacoes` ("Demo criada em
    dd/mm/aaaa: ..." com o que conferir). Gravar o `link_demo` cria sozinho a janela da demo (**7 dias no
-   ar**, tabela `demos`); se o envio atrasar, o Kaue reabilita no card.
+   ar**, tabela `demos`); se o envio atrasar, o Kaue reabilita no card. Chegar em Prontas põe sozinho a
+   checklist padrão do card (enviar a demo, três cobranças) e a próxima ação "Enviar a demo e o vídeo"; quando o
+   Kaue mover para Em conversa, entra a tag do ciclo (C1, C2…). Não escreva `proxima_acao` à mão.
 3. Publique aos poucos: o Kaue prefere receber por partes ("estas 4 já estão no ar").
 
 ### 4.9 Avisar o Kaue
