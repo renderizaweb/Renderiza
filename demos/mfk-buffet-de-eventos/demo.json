@@ -1,0 +1,397 @@
+{
+ "pasta": "mfk-buffet-de-eventos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/mfk-buffet-de-eventos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/mfk-buffet-de-eventos.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/mfk-buffet-de-eventos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511972579492",
+ "fone_link": "+5511972579492",
+ "google": {
+  "coords": "-23.3084234,-46.568787",
+  "fid": "0x94ceedc2ab9e209f:0x6f42a877f6fe668a",
+  "gid": "/g/11j1k4nl2k"
+ },
+ "endereco_maps": "R. São Judas Tadeu, 56 - Jd odorico, Mairiporã - SP, 07629-658",
+ "google_nota": "4,8",
+ "google_total": "63",
+ "verificado": "2026-10-15",
+ "instagram": "mfkbuffetdeeventos",
+ "marca": "MFK Buffet de Eventos",
+ "marca_logo": "MFK Buffet",
+ "marca_completa": "MFK Buffet de Eventos",
+ "logo_sub": "Mairiporã · Serra da Cantareira",
+ "titulo": "MFK Buffet de Eventos | Buffet do Chef Michael Kirst em Mairiporã",
+ "descricao": "MFK Buffet de Eventos, do Chef Michael Kirst, em Mairiporã (SP): gastronomia natural e afetiva para casamentos, 15 anos, aniversários e confraternizações, com churrasco, comida da fazenda, massas, café da manhã e brunch, onde for a sua festa. Nota 4,8 no Google.",
+ "comentario": "Demo MFK Buffet de Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@mfkbuffetdeeventos, página salva pelo Kaue, e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#2a1d14",
+  "acento": "#e0a458"
+ },
+ "topline": "Buffet de eventos do Chef Michael Kirst · Mairiporã e região",
+ "nav": [
+  [
+   "#sobre",
+   "O chef"
+  ],
+  [
+   "#espaco",
+   "Cardápio"
+  ],
+  [
+   "#festas",
+   "Eventos"
+  ],
+  [
+   "#estrutura",
+   "O que fazemos"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet de eventos em Mairiporã e na Serra da Cantareira",
+  "h1": "O cardápio <em>do seu sonho.</em>",
+  "intro": "Gastronomia natural e afetiva do Chef Michael Kirst para casamentos, 15 anos e festas, montada onde for o seu evento.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o cardápio",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_02.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Noivos brindando ao lado da torre de taças, à noite"
+ },
+ "endereco": [
+  "R. São Judas Tadeu, 56",
+  "Jardim Odorico · Mairiporã"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Confraternizações",
+  "Churrasco",
+  "Comida da fazenda",
+  "Café da manhã",
+  "Serra da Cantareira"
+ ],
+ "sobre": {
+  "eyebrow": "O Chef Michael Kirst",
+  "h2": "Comida feita <em>com afeto.</em>",
+  "p": [
+   "O MFK é o buffet de eventos do Chef Michael Kirst, em Mairiporã. O cardápio é montado com você: churrasco, comida da fazenda, massas frescas, noite italiana, mesa de frutas, café da manhã e brunch.",
+   "O buffet vai até a sua festa, em sítios, ranchos e espaços da região, e leva tudo o que precisa. Nas avaliações, os noivos falam do sabor, da pontualidade e do cuidado do chef e da equipe."
+  ],
+  "stats": [
+   [
+    "63",
+    "avaliações no Google"
+   ],
+   [
+    "3 dias",
+    "de casamento atendidos, numa das avaliações"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_05.jpg"
+  },
+  "alt": "Equipe do MFK diante das mesas montadas no salão",
+  "pol": {
+   "id": 24,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Chef cuidando da churrasqueira",
+  "pol_cap": "Churrasco"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O cardápio",
+   "h2": "Do churrasco <em>ao café da manhã.</em>",
+   "p": "Alguns pratos do Chef Michael Kirst. Peça o cardápio completo e marque a degustação pelo WhatsApp.",
+   "rotulo": "Pratos do MFK Buffet de Eventos",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Mesa de frutas decorada"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Picanha ao ponto na churrasqueira"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Salada grega"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Pernil assado com uvas"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Mesa de café da manhã com pães e frios"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Massa fresca ao molho"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Mandioca com calabresa"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Buffet montado com rechauds no meio do verde"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Eventos reais",
+   "h2": "Já serviu <em>essas festas.</em>",
+   "p": "Casamentos, festas e encontros atendidos pelo MFK.",
+   "rotulo": "Eventos atendidos pelo MFK",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_00.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos se beijando na cerimônia ao ar livre",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_02.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noivos brindando ao lado da torre de taças",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_04.jpg"
+     },
+     "alt": "Mesa de doces iluminada à noite",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Mesa de bolos da fazenda no meio das plantas",
+     "cap": "Comida da fazenda"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_01.jpg"
+     },
+     "alt": "Casarão branco no meio da mata",
+     "cap": "Serra da Cantareira"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Mesa de frutas com toalha rendada",
+     "cap": "Mesa de frutas"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Mesa posta com rosas vermelhas e canapés",
+     "cap": "Jantar"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_03.jpg",
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Doces servidos em mesa de madeira no jardim",
+     "cap": "Doces"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "O que fazemos",
+  "h2": "Um buffet <em>para cada festa.</em>",
+  "p": "O que o MFK mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "churrasqueira",
+    "Churrasco"
+   ],
+   [
+    "cozinha",
+    "Comida da fazenda e feijoada"
+   ],
+   [
+    "estrela",
+    "Massas e noite italiana"
+   ],
+   [
+    "jardim",
+    "Café da manhã e brunch"
+   ],
+   [
+    "mesa",
+    "Mesa de frutas e doces"
+   ],
+   [
+    "pessoas",
+    "Degustação antes da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como contratar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data, o tipo de festa e o local pelo WhatsApp",
+   "Monte o cardápio com o Chef Michael Kirst",
+   "Prove tudo na degustação",
+   "No dia, o buffet leva tudo e serve no seu evento"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 31
+  },
+  "alt": "Carnes na churrasqueira de tijolos"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>com o MFK conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Vivi Santo",
+   "tag": "15 anos",
+   "trecho": "O serviço foi impecável, o cardápio além de lindo, estava EXTREMAMENTE SABOROSO!!! O Michael é um chef excepcional e muito atencioso"
+  },
+  {
+   "nome": "Lara Ibiapina",
+   "tag": "Casamento",
+   "trecho": "Eles fizeram desde churrasco, feijoada, pizza, buffet tradicional... e foi tudo impecável! Não tive que me preocupar com nada: eles levam todos os insumos e materiais necessários"
+  },
+  {
+   "nome": "Giuliana Travassos",
+   "tag": "Brunch",
+   "trecho": "A noite de pizzada tava perfeita, os cafés da manhã de nossos convidados no rancho uma delícia e o brunch das madrinhas uma salvação para o dia corrido."
+  },
+  {
+   "nome": "Thiago Teodoro",
+   "tag": "Casamento",
+   "trecho": "A qualidade da comida, os cuidados com os detalhes, o atendimento nas mesas fez com que todos, TODOS os convidados elogiassem e ficassem satisfeitos!"
+  },
+  {
+   "nome": "Fabiola Emina Fabi",
+   "tag": "Pontualidade",
+   "trecho": "Perfeito, comida deliciosa, atendimento impecável, cordialidade, educação, pontualidade. Serviço excelente super indico."
+  },
+  {
+   "nome": "Silvia Cunha Cunha",
+   "tag": "Equipe"
+  }
+ ],
+ "insta": {
+  "seguidores": "1,2 mil seguidores",
+  "p": "Os pratos do chef e os eventos da semana.",
+  "foto": {
+   "id": 0
+  },
+  "alt": "Churrasco na brasa",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do MFK.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Confraternização",
+   "Café da manhã ou brunch",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do MFK Buffet de Eventos e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Fale com a gente <em>em Mairiporã.</em>",
+  "endereco": [
+   "R. São Judas Tadeu, 56 · Jardim Odorico",
+   "Mairiporã, SP · CEP 07629-658"
+  ],
+  "telefone": "(11) 97257-9492",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O cardápio do seu sonho.",
+ "mensagem": "Olá! Vim pelo site do MFK Buffet de Eventos e queria um orçamento.",
+ "google_nome": "MFK Buffet de Eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97257-9492 é o WhatsApp do Linktree da bio (o Google não mostra telefone)",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). ATENÇÃO: não é um espaço de festas; é um buffet que vai até o evento (sítios, ranchos e espaços da Serra da Cantareira), do Chef Michael Kirst, com restaurante em Mairiporã (@restaurantecozinhadochef). A demo foi adaptada: cardápio no lugar do espaço, eventos atendidos no lugar de festas no salão.",
+   "Dono: Chef Michael Kirst (bio e avaliações: \"O Michael é um chef excepcional\"; a esposa dele também atende, segundo uma avaliação, sem nome)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos na torre de taças, o chef (cardápio e buffet que vai até a festa), carrossel do cardápio (8), eventos reais (8, com 5 dos posts recentes), o que fazemos (6 itens), como contratar, avaliações (5), consultar uma data e mapa (do restaurante).",
+   "Cores: marrom de madeira e âmbar. Fonte Fraunces."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva: quase só pratos, posts de 2018 e 2019) e os últimos posts do Instagram (casamentos de 2026, equipe, casarão na mata), lidos na triagem.",
+   "Ficaram de fora: as fotos pequenas e tremidas de pratos e as artes."
+  ],
+  "conferir": [
+   "É buffet itinerante: confirmar com o Kaue se a abordagem é a mesma dos espaços (a pergunta de situação muda: \"vocês atendem em que espaços?\").",
+   "O casarão na mata é de um post recente: não confirmei se é espaço do MFK ou de cliente; a demo não diz que é deles.",
+   "Tem uma avaliação de 1 estrela (descumprimento de contrato num casamento); a demo usa só as de 5.",
+   "Horário do Google: segunda a sábado (atendimento)."
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "marca": "Che Belle Giardino",
+ "local": "Parque Paulistano · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1f2a22",
+  "fundo2": "#131a15",
+  "acento": "#e8b4a0",
+  "tinta_acento": "#131a15",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/chebelle_giardino/Instagram_files/671865919_17959418544110702_3287222565195768416_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "1.099"
+ },
+ "titulo": "Um cenário à altura<br><em>do seu sonho.</em>",
+ "texto": "Jardim com coreto de flores, cerimônia ao ar livre e salão com lustres, com buffet completo.",
+ "whatsapp": "(11) 99014-8907",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Oliveira Freire, 811 · Zona Leste",
+ "instagram": "@chebelle_giardino"
+}

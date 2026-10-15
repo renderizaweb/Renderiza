@@ -1,0 +1,29 @@
+{
+ "marca": "MFK Buffet de Eventos",
+ "local": "Mairiporã · Serra da Cantareira",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a1d14",
+  "fundo2": "#1a110c",
+  "acento": "#e0a458",
+  "tinta_acento": "#1a110c",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/mfkbuffetdeeventos/mfkbuffetdeeventos_02.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "63"
+ },
+ "titulo": "O cardápio<br><em>do seu sonho.</em>",
+ "texto": "Gastronomia do Chef Michael Kirst para casamentos, 15 anos e festas, onde for o seu evento.",
+ "whatsapp": "(11) 97257-9492",
+ "cta": "Consulte sua data",
+ "endereco": "Mairiporã e Serra da Cantareira",
+ "instagram": "@mfkbuffetdeeventos"
+}

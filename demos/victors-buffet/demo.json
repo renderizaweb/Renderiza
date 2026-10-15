@@ -1,0 +1,393 @@
+{
+ "pasta": "victors-buffet",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/victors-buffet/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/victors-buffet.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/victors-buffet/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511999003993",
+ "fone_link": "+5511999003993",
+ "google": {
+  "coords": "-23.6188268,-46.5574428",
+  "fid": "0x94ce5cdef8072983:0x34fddc3268ef96ee",
+  "gid": "/g/1tmxgpgh"
+ },
+ "endereco_maps": "R. Saldanha Marinho, 259 - Santa Paula, São Caetano do Sul - SP, 09551-330",
+ "google_nota": "4,8",
+ "google_total": "917",
+ "verificado": "2026-10-15",
+ "instagram": "victorsbuffet",
+ "marca": "Victor's Festas e Eventos",
+ "marca_logo": "Victor's",
+ "marca_completa": "Victor's Festas e Eventos",
+ "logo_sub": "São Caetano do Sul · SP",
+ "titulo": "Victor's Festas e Eventos | Buffet em São Caetano do Sul",
+ "descricao": "Victor's Festas e Eventos, na R. Saldanha Marinho, 259, no Santa Paula, em São Caetano do Sul (SP): corredor de arcos, cerimônia com arco de flores, salão com pista de dança, espaço kids e buffet da casa para casamentos, 15 anos e aniversários. Nota 4,8 no Google.",
+ "comentario": "Demo Victor's Festas e Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@victorsbuffet, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#241a14",
+  "acento": "#c99a5b"
+ },
+ "topline": "R. Saldanha Marinho, 259 · Santa Paula, São Caetano do Sul",
+ "nav": [
+  [
+   "#sobre",
+   "O Victor's"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet de casamento e 15 anos em São Caetano do Sul",
+  "h1": "Surpreenda-se <em>no grande dia.</em>",
+  "intro": "Casamentos, 15 anos e aniversários com cerimônia no arco de flores, salão com pista de dança, espaço kids e o buffet da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 24,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Noivos sorrindo sob o arco de flores"
+ },
+ "endereco": [
+  "R. Saldanha Marinho, 259",
+  "Santa Paula · São Caetano do Sul"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Bodas",
+  "Cerimônia no arco de flores",
+  "Buffet da casa",
+  "Espaço kids",
+  "São Caetano do Sul"
+ ],
+ "sobre": {
+  "eyebrow": "O Victor's",
+  "h2": "Do corredor de arcos <em>à pista de dança.</em>",
+  "p": [
+   "No Santa Paula, em São Caetano do Sul, o Victor's recebe casamentos, festas de 15 anos, aniversários e bodas: um corredor de arcos iluminado, passarela com arco de flores para a cerimônia, salão com parede de pedra e pista de dança, bar e espaço kids.",
+   "A comida é do buffet da casa, caseira e farta, com opções como café colonial e mesa de queijos. Nas avaliações, os noivos contam que a equipe participa do planejamento e indica bons fornecedores."
+  ],
+  "stats": [
+   [
+    "917",
+    "avaliações no Google"
+   ],
+   [
+    "23 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 39
+  },
+  "alt": "Cerimônia no salão, com lustre de cristal e cadeiras",
+  "pol": {
+   "id": 38,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal sorrindo ao cortar o bolo",
+  "pol_cap": "Bodas"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Cada ambiente, <em>um cenário.</em>",
+   "p": "O corredor de arcos, a cerimônia, o salão e a pista. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Victor's",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5cdef8072983_0x34fddc3268ef96ee/g00.jpg"
+     },
+     "alt": "Corredor de arcos iluminado com cortinas de luz"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Passarela verde entre plantas, pronta para a cerimônia"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5cdef8072983_0x34fddc3268ef96ee/g12.jpg"
+     },
+     "alt": "Cerimônia montada com cadeiras e flores"
+    },
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Mesa com flores vermelhas sobre a pista de LED"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Mesa de doces com parede de pedra e pista iluminada"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5cdef8072983_0x34fddc3268ef96ee/g05.jpg"
+     },
+     "alt": "Recepção com cristaleira e piso de madeira"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.6,
+       0.5
+      ]
+     },
+     "alt": "Salão com parede de pedra e cristaleira de doces"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Passarela verde com arco de flores para a cerimônia"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos, aniversários e bodas de quem já comemorou no Victor's.",
+   "rotulo": "Festas que aconteceram no Victor's",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Noivos se beijando diante da mesa decorada",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Debutante de vestido lilás sob a árvore de flores",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Noivos sorrindo no salão com lustre",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 48
+     },
+     "alt": "Debutante de vestido azul no jardim",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Casal comemorando com bebida na mão",
+     "cap": "50 anos"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Debutante sorrindo com os pais",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Noiva sorrindo ao lado do pai, diante da mesa",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Debutante de vestido dourado na pista iluminada",
+     "cap": "15 anos"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o Victor's <em>oferece.</em>",
+  "p": "O que o próprio Victor's mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão com parede de pedra e lustres"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia com arco de flores"
+   ],
+   [
+    "cozinha",
+    "Buffet da casa, comida caseira"
+   ],
+   [
+    "bar",
+    "Bar"
+   ],
+   [
+    "estrela",
+    "Café colonial e mesa de queijos"
+   ],
+   [
+    "brinquedos",
+    "Espaço kids"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço na R. Saldanha Marinho, 259",
+   "Escolha o cardápio e veja os fornecedores indicados",
+   "No dia, a equipe cuida de tudo do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5cdef8072983_0x34fddc3268ef96ee/g03.jpg"
+  },
+  "alt": "Mesa de entrada com flores brancas e porta-retratos"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Maisa Fernanda Correa",
+   "tag": "Casamento",
+   "trecho": "Participaram de todo planejamento, sempre em pronto atendimento para sanar duvidas. Indicaram fornecedores maravilhosos que também fizeram a diferença no dia."
+  },
+  {
+   "nome": "Ambeatriz de O. da Silva Bia",
+   "tag": "Fartura",
+   "trecho": "O atendimento e acolhimento são impecáveis desde a primeira vez até o final da festa. Comida farta, quente de excelente qualidade."
+  },
+  {
+   "nome": "Ariana Araujo",
+   "tag": "Casamento",
+   "trecho": "O espaço é lindo, a equipe super organizada e atenciosa. A comida é deliciosa (ouvimos elogios de todos os convidados)."
+  },
+  {
+   "nome": "Nelson Berkenbrock",
+   "tag": "Estrutura",
+   "trecho": "Tudo bem estruturado, bem dividido, com decorações impecáveis, ótimo serviço e alimentação. Espaço kid's e pista de dança."
+  },
+  {
+   "nome": "Gabriela Cintas",
+   "tag": "Comida caseira",
+   "trecho": "Buffet simplesmente perfeito. Tudo muito gostoso. Comida caseira, recepção, organização, limpeza, pontualidade e profissionais bem atenciosos."
+  },
+  {
+   "nome": "Paty Shibuya",
+   "tag": "15 anos"
+  }
+ ],
+ "insta": {
+  "seguidores": "23 mil seguidores",
+  "p": "Debutantes, casamentos e bodas, toda semana.",
+  "foto": {
+   "id": 20
+  },
+  "alt": "Debutante de vestido vermelho no salão",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Victor's.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Festa infantil",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Victor's e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em São Caetano.</em>",
+  "endereco": [
+   "R. Saldanha Marinho, 259 · Santa Paula",
+   "São Caetano do Sul, SP · CEP 09551-330"
+  ],
+  "telefone": "(11) 99900-3993",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Surpreenda-se no grande dia.",
+ "mensagem": "Olá! Vim pelo site do Victor's e queria um orçamento.",
+ "google_nome": "Victor's Buffet",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99900-3993 é o WhatsApp do link da bio (bit.ly/wppvictors); o Google mostra o fixo (11) 4229-8571",
+  "site": "victorsfestas.com.br com certificado vencido (site antigo, o navegador avisa \"não seguro\"): gancho. Tem página no casamentos.com.br (mais de 30 anos, até 300 convidados).",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Buffet em São Caetano do Sul com corredor de arcos, cerimônia com arco de flores, salão com pista de dança, bar e espaço kids; muitas festas de 15 anos, casamentos e bodas.",
+   "Quem atende: não confirmei o nome (o buffet responde as avaliações como equipe)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos sob o arco de flores, o Victor's (ambientes e buffet), carrossel do espaço (8, com 3 do Google), festas reais (8), estrutura (6 itens dos destaques da bio e das avaliações), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: marrom da pedra e dourado. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, fotos de fotógrafos parceiros, 2025-2026) e Perfil da Empresa no Google (corredor de arcos, cerimônia, recepção).",
+   "Ficaram de fora: os letreiros com nome de cliente, o selo do casamentos.com.br e as fotos tremidas."
+  ],
+  "conferir": [
+   "WhatsApp: a demo usa o celular do link da bio; o Google tem fixo.",
+   "A pista de LED das legendas é de parceiro (@jled.eventos); a demo fala em \"pista de dança\", sem dizer de quem é.",
+   "Capacidade (até 300) e \"mais de 30 anos\" estão só na página do casamentos.com.br: a demo não cita.",
+   "Horário do Google: segunda a sábado, 10h às 18h."
+  ]
+ }
+}
