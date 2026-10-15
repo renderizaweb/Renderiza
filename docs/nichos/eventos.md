@@ -377,3 +377,46 @@ Lima, Estação 840, Chácara Lasareff, Sítio Francilene, Chácara Luz da Natur
 - **Fora:** Sítio Recanto Feliz (o @ achado é de Joinville-SC; o de Mogi não apareceu), Tatuapé Hall Prime
   (casamentos.com.br e sem celular), Mansão Feest (tabela de preço nas fotos), Espaço Casa, ALJ, Hora do Break,
   Coronel, Marrocos (infantil ou quintal), Sítio El Shaday (retiro), Jardim Danfesti II (vai junto com o I).
+
+## 15. Abordagem pelo WhatsApp (proposta de 15/10/2026, para o ok do Kaue)
+
+**O dia a dia do dono (o que deu para ver nos 28 dos lotes 1 e 2):** sexta a domingo é dia de festa (ele está no
+salão, não no celular); segunda costuma ser folga (Lira, Danfesti e Thamara aparecem fechados). A venda é toda pelo
+WhatsApp: a pessoa chega pelo Instagram, pelo Google ou por indicação, pergunta preço, data e capacidade, pede foto,
+marca uma visita, paga um sinal (Pix ou cartão parcelado, nas legendas da Estância Paraíso e da Mansão Feest) e
+assina o contrato. Os perfis vendem data ("Agenda 2027 aberta", "últimas datas", "reserve com um sinal").
+**Agenda:** não achei um aplicativo comum ao nicho (nem nas buscas, nem nos perfis); o controle de datas não aparece em
+nada público. Não confirmei: perguntar na conversa (é a pergunta de situação, abaixo). **casamentos.com.br:** vitrine
+de casamento que gera pedido de orçamento, esconde o telefone do espaço e é paga (não achei o preço); não é agenda.
+
+**Quando:** terça a quinta, das 10h às 17h. Nunca de sexta a domingo.
+
+**A sequência:**
+1. **1ª mensagem: texto curto + o vídeo, sem link** (link de número desconhecido é cara de golpe). Pelo nome do dono
+   quando a ficha confirma, um detalhe real do lugar e o vídeo de 40 s. Fecha oferecendo o link: "se quiser abrir no
+   celular, te mando".
+2. **Respondeu:** manda o link da demo e pede para testar o "consultar uma data" (a mensagem chega no WhatsApp
+   dele, é o "uau" do nicho).
+3. **Conversa em SPIN, uma pergunta por vez:**
+   - Situação: "Hoje o pessoal chega mais pelo Instagram, pelo Google ou por indicação? E as datas, vocês
+     controlam onde?"
+   - Problema: "Muita gente pede foto e preço e some? E no fim de semana, com festa rolando, dá para responder?"
+   - Implicação: "Um sábado que fica vazio não volta. Quantas consultas se perdem porque a pessoa não achou as fotos
+     ou não teve resposta na hora?"
+   - Necessidade: "Se ela já chegasse tendo visto o espaço inteiro, com a data e os convidados escritos, ajudaria?"
+4. **Preço só aqui**, depois do sim: o valor do mês de inauguração até 31/10 e o 2x.
+5. **Sem resposta:** a checklist do painel (flyer de cortesia na 1ª cobrança) e, depois de 48 h, o direct do @.
+
+**Objeções prováveis:** "já tenho Instagram" (o Instagram mostra a festa; o site mostra o lugar e vai no link da bio
+e no Google); "estou no casamentos.com.br" (lá o cliente pede orçamento pelo portal; no site ele fala direto com
+você, e dá para manter os dois); "agora não, estou na alta" (por isso: fica pronto antes de janeiro, quando o pessoal
+fecha as festas do ano; janeiro e fevereiro como melhor janela é hipótese da seção 7); "sem verba" (o 2x).
+
+**Além do site (o que já existe na oferta, com o nome de lá):** o site já sai com o **consultar uma data**, **pronto
+para anúncio** e o **kit de divulgação** (texto da bio, do perfil do Google e a mensagem para pedir avaliação depois
+da festa: avaliação é o que mais pesa no nicho). Adicional que encaixa: **Agenda online** como **agendamento de
+visita** (página do Google Agenda; valor sugerido ainda esperando o ok). **Ideias para o Kaue decidir, sem preço e
+sem prometer:** página de datas livres (o dono marca as datas fechadas e o site mostra os sábados livres), configurar
+o WhatsApp Business (respostas prontas com o link, mensagem automática de fim de semana), arrumar o Perfil da Empresa
+no Google (fotos, horário: vários aparecem "fechado agora" por erro de horário, link do site) e páginas por tipo de
+festa (casamento, 15 anos) para aparecer no Google.
