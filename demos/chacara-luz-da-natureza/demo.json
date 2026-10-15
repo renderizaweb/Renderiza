@@ -1,0 +1,392 @@
+{
+ "pasta": "chacara-luz-da-natureza",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/chacara-luz-da-natureza/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/chacara-luz-da-natureza.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/chacara-luz-da-natureza/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511933413563",
+ "fone_link": "+5511933413563",
+ "google": {
+  "coords": "-23.4766431,-46.9165769",
+  "fid": "0x94cf054c8eafb1c7:0x5fb605128f3f9b17",
+  "gid": "/g/11kpp9qqp_"
+ },
+ "endereco_maps": "R. Monte Olimpo, 734 - Parque Mirante de Parnaiba, Santana de Parnaíba - SP, 06514-200",
+ "google_nota": "5,0",
+ "google_total": "126",
+ "verificado": "2026-10-15",
+ "instagram": "chacaraluzdanatureza",
+ "marca": "Chácara Luz da Natureza",
+ "marca_logo": "Luz da Natureza",
+ "marca_completa": "Chácara Luz da Natureza · Festas e Eventos",
+ "logo_sub": "Santana de Parnaíba · SP",
+ "titulo": "Chácara Luz da Natureza | Festas e eventos em Santana de Parnaíba",
+ "descricao": "Chácara Luz da Natureza, na R. Monte Olimpo, 734, no Parque Mirante de Parnaíba, em Santana de Parnaíba (SP): piscina com hidro e cascata, salão coberto com churrasqueira, mirante do pôr do sol e sala de jogos, no meio da serra, para aniversários, chás, casamentos e confraternizações. Nota 5,0 no Google.",
+ "comentario": "Demo Chácara Luz da Natureza: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da chácara (@chacaraluzdanatureza, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#22302a",
+  "acento": "#f0a868"
+ },
+ "topline": "R. Monte Olimpo, 734 · Parque Mirante de Parnaíba, Santana de Parnaíba",
+ "nav": [
+  [
+   "#sobre",
+   "A chácara"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Chácara para festas em Santana de Parnaíba",
+  "h1": "Sua festa <em>em meio à natureza.</em>",
+  "intro": "Piscina com hidro e cascata, salão coberto com churrasqueira, mirante do pôr do sol e sala de jogos, com vista para a serra.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 4,
+   "c": [
+    0.5,
+    0.78
+   ]
+  },
+  "alt": "Piscina com a serra e o céu do pôr do sol ao fundo"
+ },
+ "endereco": [
+  "R. Monte Olimpo, 734",
+  "Santana de Parnaíba · SP"
+ ],
+ "dias_curto": "seg a qui",
+ "marquee": [
+  "Aniversários",
+  "Chá revelação",
+  "Casamentos",
+  "Confraternizações",
+  "Piscina com cascata",
+  "Mirante do pôr do sol",
+  "Sala de jogos",
+  "Santana de Parnaíba"
+ ],
+ "sobre": {
+  "eyebrow": "A Chácara Luz da Natureza",
+  "h2": "Tudo novo, <em>com vista para a serra.</em>",
+  "p": [
+   "No Parque Mirante de Parnaíba, a Chácara Luz da Natureza tem piscina com hidro e cascata, salão coberto com churrasqueira, banheiros novos, sala de jogos com bilhar e pebolim e um mirante feito para ver o pôr do sol.",
+   "Quem recebe é a Laura, dona da chácara. Nas avaliações, todo mundo fala dela: a atenção desde o primeiro contato e a ajuda antes e durante a festa."
+  ],
+  "stats": [
+   [
+    "5,0",
+    "no Google, em 126 avaliações"
+   ],
+   [
+    "2,8 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 1
+  },
+  "alt": "Salão coberto com telhado de telha e o gramado",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf054c8eafb1c7_0x5fb605128f3f9b17/g00.jpg"
+  },
+  "pol_alt": "Mesa de aniversário com o painel \"Gratidão\"",
+  "pol_cap": "Aniversário"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Piscina, salão <em>e o pôr do sol.</em>",
+   "p": "A piscina de dia e à noite, o salão coberto, o mirante e a área verde. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Chácara Luz da Natureza",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf054c8eafb1c7_0x5fb605128f3f9b17/g01.jpg"
+     },
+     "alt": "Piscina com a cascata ao pôr do sol"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Caminho vermelho até o salão coberto"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Piscina iluminada à noite sob a lua"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Mirante com bancos de madeira e vista para a serra"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Salão iluminado à noite, visto do pátio"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Piscina com luz azul e palmeiras ao entardecer"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Rede pendurada no jardim, com o sol se pondo"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Salão com mesa posta e vista para o verde"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Aniversários, chás, casamentos e confraternizações de quem já comemorou na chácara.",
+   "rotulo": "Festas que aconteceram na Chácara Luz da Natureza",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Mesa do bolo diante da parede de folhagens",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Arco de flores com poltrona de veludo verde",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Mesa de arraiá com painel colorido",
+     "cap": "Arraiá"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Mesa de aniversário em preto e dourado",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf054c8eafb1c7_0x5fb605128f3f9b17/g09.jpg"
+     },
+     "alt": "Família sorrindo reunida à mesa no jardim",
+     "cap": "Família"
+    },
+    {
+     "foto": {
+      "id": 21,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Mesa de aniversário colorida com balões",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf054c8eafb1c7_0x5fb605128f3f9b17/g11.jpg"
+     },
+     "alt": "Decoração de chá de bebê com ursinho e letras BABY",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Salão iluminado à noite com varal de luzes",
+     "cap": "À noite"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a chácara <em>oferece.</em>",
+  "p": "O que a própria chácara mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "piscina",
+    "Piscina com hidro e cascata"
+   ],
+   [
+    "churrasqueira",
+    "Salão coberto com churrasqueira"
+   ],
+   [
+    "jardim",
+    "Mirante do pôr do sol"
+   ],
+   [
+    "estrela",
+    "Sala de jogos"
+   ],
+   [
+    "cozinha",
+    "Cozinha"
+   ],
+   [
+    "coberto",
+    "Banheiros novos"
+   ],
+   [
+    "mesa",
+    "Itens de decoração no pacote"
+   ],
+   [
+    "pessoas",
+    "A dona na festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer a chácara no Parque Mirante",
+   "Escolha os itens de decoração com a Laura",
+   "No dia, a Laura dá suporte antes e durante a festa"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 34
+  },
+  "alt": "Gramado com bandeirinhas e o salão ao fundo"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Wenderson S.C",
+   "tag": "Casamento",
+   "trecho": "Tivemos o prazer de realizar o nosso casamento no dia 10/01/2026 na Chácara Luz da Natureza e foi simplesmente incrível! O espaço é maravilhoso, muito lindo, organizado e extremamente aconchegante"
+  },
+  {
+   "nome": "Sara Silva",
+   "tag": "Chá revelação",
+   "trecho": "Chácara linda, local PERFEITO, tudo novo e impecável, não tenho nada a reclamar..Fiz o meu chá revelação no último final de semana..."
+  },
+  {
+   "nome": "Tati Justino",
+   "tag": "Aniversário",
+   "trecho": "A Laura, proprietária do local, fez toda a diferença na nossa experiência. Sempre muito atenciosa, solicita"
+  },
+  {
+   "nome": "Virginia Batista",
+   "tag": "Confraternização",
+   "trecho": "Nossa festa corporativa foi muito bacana. Chácara maravilhosa, lugar lindo, bem localizada, ótimo lugar para fazer festas. A proprietária Laura é muito gentil."
+  },
+  {
+   "nome": "Carina Lopes",
+   "tag": "Festa surpresa",
+   "trecho": "Espaço e conforto para todos os meus convidados sem igual. A Laura é uma pessoa extraordinária, atenção e cuidado para que tudo fosse realizado com tamanha perfeição."
+  },
+  {
+   "nome": "Mayara Mirahy",
+   "tag": "A dona"
+  }
+ ],
+ "insta": {
+  "seguidores": "2,8 mil seguidores",
+  "p": "O pôr do sol, a piscina e as festas da chácara.",
+  "foto": {
+   "id": 13
+  },
+  "alt": "Piscina iluminada à noite",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Chácara Luz da Natureza.",
+  "tipos": [
+   "Aniversário",
+   "Chá revelação",
+   "Casamento",
+   "Confraternização",
+   "Pool party",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Chácara Luz da Natureza e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Santana de Parnaíba.</em>",
+  "endereco": [
+   "R. Monte Olimpo, 734 · Parque Mirante de Parnaíba",
+   "Santana de Parnaíba, SP · CEP 06514-200"
+  ],
+  "telefone": "(11) 93341-3563",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua festa em meio à natureza.",
+ "mensagem": "Olá! Vim pelo site da Chácara Luz da Natureza e queria um orçamento.",
+ "google_nome": "Chacara Luz da Natureza",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 93341-3563 é o telefone do Perfil da Empresa no Google e o do link da bio (wa.me/5511933413563)",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Chácara nova em Santana de Parnaíba com piscina (hidro e cascata), salão coberto com churrasqueira, mirante do pôr do sol e sala de jogos; aniversários, chás, casamento, confraternização e pool party.",
+   "Dona: Laura (\"A proprietária Laura\", \"a anfitriã Laura\"); ela responde as avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a piscina e a serra ao pôr do sol, a chácara (tudo novo, Laura), carrossel do espaço (8, com 1 do Google), festas reais (8, com 2 do Google), estrutura (8 itens das legendas), como reservar, avaliações (5, nota 5,0), consultar uma data e mapa.",
+   "Cores: verde da mata e laranja do pôr do sol. Fonte Fraunces."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; fotos de 2025 e 2026) e Perfil da Empresa no Google (piscina com cascata, festas, família).",
+   "Ficaram de fora: as crianças na piscina, a imagem feita por IA (trend do Studio Ghibli) e as artes."
+  ],
+  "conferir": [
+   "Na triagem achei a chácara \"mais simples, perto de quintal\" (o Kaue aprovou mesmo assim): a demo puxa o pôr do sol, a piscina e o mirante.",
+   "Horário do Google: segunda a quinta (atendimento; sexta a domingo fechado, dias de festa).",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

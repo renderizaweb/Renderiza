@@ -1,0 +1,409 @@
+{
+ "pasta": "estacao-840",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/estacao-840/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/estacao-840.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/estacao-840/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511998516481",
+ "fone_link": "+5511998516481",
+ "google": {
+  "coords": "-23.5282549,-46.7849355",
+  "fid": "0x94ceffc62967ede7:0x52c18d05c7cd9aab",
+  "gid": "/g/11fl9dgwyp"
+ },
+ "endereco_maps": "Av. Mal. Rondon, 840 - Centro, Osasco - SP, 06093-010",
+ "google_nota": "4,8",
+ "google_total": "1.029",
+ "verificado": "2026-10-15",
+ "instagram": "estacao840",
+ "marca": "Estação 840",
+ "marca_logo": "Estação 840",
+ "marca_completa": "Estação 840 · Eventos",
+ "logo_sub": "Centro · Osasco",
+ "titulo": "Estação 840 | Espaço de eventos numa antiga fábrica de trens em Osasco",
+ "descricao": "Estação 840, na Av. Marechal Rondon, 840, no Centro de Osasco (SP): espaço de eventos numa antiga fábrica de trens dos anos 1940, com 605 m² de vão livre, um vagão de trem de verdade, lounges e valet, para casamentos, 15 anos, formaturas e eventos de empresa. Nota 4,8 no Google.",
+ "comentario": "Demo Estação 840: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@estacao840, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1e1814",
+  "acento": "#d9a05b"
+ },
+ "topline": "Av. Marechal Rondon, 840 · Centro, Osasco",
+ "nav": [
+  [
+   "#sobre",
+   "A Estação"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço de eventos numa antiga fábrica de trens, em Osasco",
+  "h1": "Uma fábrica de trens <em>para a sua festa.</em>",
+  "intro": "Casamentos, 15 anos, formaturas e eventos de empresa em 605 m² de vão livre, com um vagão de trem de verdade.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 18,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos abraçados sob o céu de luzes do espaço industrial"
+ },
+ "endereco": [
+  "Av. Marechal Rondon, 840",
+  "Centro · Osasco"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Formaturas",
+  "Bodas",
+  "Eventos de empresa",
+  "Vagão de trem",
+  "605 m² de vão livre",
+  "Osasco"
+ ],
+ "sobre": {
+  "eyebrow": "A Estação 840",
+  "h2": "Uma fábrica dos anos 40, <em>cheia de festa.</em>",
+  "p": [
+   "A Estação 840 nasceu numa antiga fábrica de trens dos anos 1940, no Centro de Osasco. Os tijolos, as estruturas de ferro e um vagão de trem de verdade, restaurado e iluminado por dentro, viraram cenário para casamentos, 15 anos, formaturas e eventos de empresa.",
+   "São 605 m² de vão livre, lounges, iluminação pensada para cada evento e valet. Nas avaliações, quem fez a festa fala do espaço \"muito mais espaçoso do que parece\" e do atendimento da equipe."
+  ],
+  "stats": [
+   [
+    "605 m²",
+    "de vão livre"
+   ],
+   [
+    "1.029",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 20
+  },
+  "alt": "Lounge com sofá branco, árvores e a estrutura de ferro da fábrica",
+  "pol": {
+   "id": 16,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal sorrindo de mãos dadas",
+  "pol_cap": "Bodas de ouro"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Tijolo, ferro <em>e muita luz.</em>",
+   "p": "O salão montado, a cerimônia, os lounges e a fachada da antiga fábrica. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Estação 840",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Salão montado com mesas redondas sob a estrutura de ferro"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Cerimônia montada com cadeiras pretas e o jardim ao fundo"
+    },
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Mesa do bolo com flores sob o lustre de lâmpadas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ceffc62967ede7_0x52c18d05c7cd9aab/g05.jpg"
+     },
+     "alt": "Escada de ferro e o jardim vertical"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Mesa do bolo com lustre de cristal e parede de tijolo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ceffc62967ede7_0x52c18d05c7cd9aab/g00.jpg"
+     },
+     "alt": "Fachada de tijolos da antiga fábrica, à noite"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Mesa posta com taças e flores à luz de velas"
+    },
+    {
+     "foto": {
+      "id": 48
+     },
+     "alt": "Lounge com sofás e o jardim vertical"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e bodas de quem já comemorou na Estação 840.",
+   "rotulo": "Festas que aconteceram na Estação 840",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Noivos caminhando de mãos dadas na rua da fábrica",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 5,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido prata sob as árvores de flores pink",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Noivos assinando na cerimônia",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 9,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido pink sob o arco de flores",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Debutante de vestido rosé sob o varal de luzes",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 25,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos abraçados diante da parede verde",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Noiva diante do bar de flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ceffc62967ede7_0x52c18d05c7cd9aab/g04.jpg"
+     },
+     "alt": "Mesa de doces branca com orquídeas",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a Estação <em>oferece.</em>",
+  "p": "O que a própria Estação 840 mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "605 m² de vão livre"
+   ],
+   [
+    "estrela",
+    "Vagão de trem restaurado"
+   ],
+   [
+    "cerimonia",
+    "Espaço para cerimônia"
+   ],
+   [
+    "cozinha",
+    "Gastronomia com degustação"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento com valet"
+   ],
+   [
+    "coberto",
+    "Lounges e mobiliário contemporâneo"
+   ],
+   [
+    "som",
+    "Iluminação para cada evento"
+   ],
+   [
+    "pessoas",
+    "Eventos de empresa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de evento pelo WhatsApp",
+   "Venha conhecer a antiga fábrica no Centro de Osasco",
+   "Prove o cardápio na degustação",
+   "No dia, a equipe cuida do evento do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "formato": "paisagem",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ceffc62967ede7_0x52c18d05c7cd9aab/g03.jpg"
+  },
+  "alt": "Salão montado visto de cima, com mesas e lustres"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "David Rabello",
+   "tag": "Casamento",
+   "trecho": "Casamos lá recentemente, foi tudo incrível e impecável. O local presta ótimos serviços e o buffet recomendado não deixou nada a desejar"
+  },
+  {
+   "nome": "Sonia Marinho Del Maschi",
+   "tag": "O vagão",
+   "trecho": "Tem um vagão de trem, cheio de luzes Led internamente e com sofás que é um local charmoso e diferente para quem gosta de tirar e postar fotos"
+  },
+  {
+   "nome": "Lucas de Souza",
+   "tag": "Industrial",
+   "trecho": "A decoração industrial é sensacional. Fiquei meio em dúvida quando cheguei, porque você tem que entrar por uma fábrica, mas me surpreendi quando entrei."
+  },
+  {
+   "nome": "Mauricio Latuf",
+   "tag": "Atendimento",
+   "trecho": "O melhor espaço e pessoas hospitaleiros, o atendimento maravilhoso, os garçons todos jovens e com um carisma ótimo"
+  },
+  {
+   "nome": "Rosângela Maria de Almeida",
+   "tag": "Estrutura",
+   "trecho": "Que lugar incrível! Estrutura completa! Experiência inesquecível!"
+  },
+  {
+   "nome": "Dani B",
+   "tag": "Casamento"
+  }
+ ],
+ "insta": {
+  "seguidores": "31,7 mil seguidores",
+  "p": "Casamentos, debutantes e eventos na antiga fábrica.",
+  "foto": {
+   "id": 13
+  },
+  "alt": "Cerimônia montada com arco de flores sob as luzes",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>do seu evento?</em>",
+  "p": "Escolha o dia, o tipo de evento e quantos convidados. A mensagem chega pronta no WhatsApp da Estação 840.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Formatura",
+   "Aniversário",
+   "Evento de empresa",
+   "Outro evento"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Estação 840 e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Osasco.</em>",
+  "endereco": [
+   "Av. Marechal Rondon, 840 · Centro",
+   "Osasco, SP · CEP 06093-010"
+  ],
+  "telefone": "(11) 99851-6481",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Uma fábrica de trens para a sua festa.",
+ "mensagem": "Olá! Vim pelo site da Estação 840 e queria um orçamento.",
+ "google_nome": "Estação 840",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99851-6481 é o WhatsApp que o Perfil da Empresa no Google mostra (api.whatsapp.com); o telefone do Google é o fixo (11) 4880-0804",
+  "site": "o estacao840.com.br está com certificado vencido; o link da bio leva a uma página de captação (conteudo.estacao840.com.br) com \"Fale conosco no WhatsApp\". É o lead com mais estrutura de marketing do lote.",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Espaço grande numa antiga fábrica de trens dos anos 1940 em Osasco: 605 m² de vão livre, vagão de trem restaurado, lounges, valet; casamentos, 15 anos, formaturas e muitos eventos de empresa.",
+   "Quem atende: não confirmei nomes (as avaliações falam da equipe). A gastronomia aparece com parceiro nas legendas (@cfbuffet)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos sob as luzes, a Estação (a história da fábrica, 605 m², vagão), carrossel do espaço (8, com 1 do Google), festas reais (8, com 1 do Google), estrutura (8 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: marrom-tijolo escuro e âmbar das lâmpadas. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; fotos profissionais de 2024 e 2025) e Perfil da Empresa no Google (fachada, salão visto de cima, mesa de doces).",
+   "Ficaram de fora: as artes com texto (\"Atenção, noiva\", \"Formatura\"), os vídeos e as fotos de bastidores."
+  ],
+  "conferir": [
+   "É o maior do lote (31,7 mil seguidores, eventos de empresa de marcas grandes) e já tem página de captação: pode ter agência; a conversa é sobre um site completo no lugar da página solta.",
+   "A pista de dança e o buffet costumam ser parceiros: a demo fala em \"gastronomia com degustação\", sem dizer de quem é.",
+   "Horário do Google: segunda a sábado."
+  ]
+ }
+}

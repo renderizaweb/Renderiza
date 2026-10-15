@@ -1,0 +1,399 @@
+{
+ "pasta": "chacara-lasareff",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/chacara-lasareff/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/chacara-lasareff.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/chacara-lasareff/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511989362617",
+ "fone_link": "+5511989362617",
+ "google": {
+  "coords": "-23.7662553,-46.419889",
+  "fid": "0x94ce1301b0341293:0xc0442b8501782260",
+  "gid": "/g/11h8bmwnpq"
+ },
+ "endereco_maps": "Estr. Rio Pequeno, 2555 - Vila Lidia, Rio Grande da Serra - SP, 09450-000",
+ "google_nota": "4,8",
+ "google_total": "119",
+ "verificado": "2026-10-15",
+ "instagram": "chacaralasareff",
+ "marca": "Chácara Lasareff",
+ "marca_logo": "Chácara Lasareff",
+ "marca_completa": "Chácara Lasareff Festas e Eventos",
+ "logo_sub": "Vila Lídia · Rio Grande da Serra",
+ "titulo": "Chácara Lasareff | Espaço para festas e casamentos em Rio Grande da Serra",
+ "descricao": "Chácara Lasareff, na Estr. Rio Pequeno, 2555, na Vila Lídia, em Rio Grande da Serra (SP): salão para até 300 pessoas, piscina adulto e infantil, jardim, churrasqueira e estacionamento dentro da chácara, para casamentos, 15 anos, bodas e aniversários. Nota 4,8 no Google.",
+ "comentario": "Demo Chácara Lasareff: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da chácara (@chacaralasareff, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#14213d",
+  "acento": "#d4af37"
+ },
+ "topline": "Estr. Rio Pequeno, 2555 · Vila Lídia, Rio Grande da Serra",
+ "nav": [
+  [
+   "#sobre",
+   "A chácara"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas e casamentos em Rio Grande da Serra",
+  "h1": "Um lugar aconchegante <em>para o seu sonho.</em>",
+  "intro": "Salão para até 300 pessoas, piscina, jardim e churrasqueira, para casamentos, 15 anos, bodas e aniversários.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g00.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Noiva com o véu ao vento no jardim, à noite"
+ },
+ "endereco": [
+  "Estr. Rio Pequeno, 2555",
+  "Vila Lídia · Rio Grande da Serra"
+ ],
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Bodas",
+  "Aniversários",
+  "Salão para 300 pessoas",
+  "Piscina",
+  "Churrasqueira",
+  "Rio Grande da Serra"
+ ],
+ "sobre": {
+  "eyebrow": "A Chácara Lasareff",
+  "h2": "Espaço amplo, <em>novo e bonito.</em>",
+  "p": [
+   "Em Rio Grande da Serra, a Chácara Lasareff tem um salão para até 300 pessoas, piscina para adultos e outra para as crianças, jardim com bancos, área de churrasqueira, cozinha, banheiros grandes e estacionamento dentro da chácara.",
+   "A chácara empresta o kit de mesas e cadeiras para montar a decoração. Nas avaliações, quem casou lá fala do atendimento acolhedor e da facilidade para pagar."
+  ],
+  "stats": [
+   [
+    "300",
+    "pessoas no salão"
+   ],
+   [
+    "119",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 14
+  },
+  "alt": "Jardim com caminho de pedras e bancos brancos",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g10.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Noivos se beijando ao lado do bolo",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Salão, piscina <em>e jardim.</em>",
+   "p": "O salão, a área da piscina, o jardim e a entrada. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Chácara Lasareff",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Piscina azul e a área coberta"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g12.jpg"
+     },
+     "alt": "Entrada do salão montada com cortinas para a cerimônia"
+    },
+    {
+     "foto": {
+      "id": 15
+     },
+     "alt": "Salão amplo e claro, antes da montagem"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Pátio iluminado à noite"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Piscina com cerca branca e a área coberta ao fundo"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Churrasqueira de tijolos"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Árvores e gramado nos fundos da chácara"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Entrada da chácara"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e festas de quem já comemorou na Chácara Lasareff.",
+   "rotulo": "Festas que aconteceram na Chácara Lasareff",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g03.jpg"
+     },
+     "alt": "Entrada da madrinha no tapete azul da cerimônia",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g09.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos sorrindo com um convidado",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Mesa da debutante com flores amarelas",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Salão montado com mesas redondas",
+     "cap": "Festa"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g10.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos se beijando ao lado do bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Mesa posta com flores e taças",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g11.jpg"
+     },
+     "alt": "Salão montado com mesas e flores",
+     "cap": "Festa"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Mesa do bolo com arco de flores",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a chácara <em>oferece.</em>",
+  "p": "O que a própria chácara mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão para até 300 pessoas"
+   ],
+   [
+    "piscina",
+    "Piscina adulto e infantil"
+   ],
+   [
+    "jardim",
+    "Jardim com bancos"
+   ],
+   [
+    "churrasqueira",
+    "Área de churrasqueira"
+   ],
+   [
+    "cozinha",
+    "Cozinha"
+   ],
+   [
+    "mesa",
+    "Kit de mesas e cadeiras"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento dentro da chácara"
+   ],
+   [
+    "estrela",
+    "Banheiros amplos"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Agende uma visita à chácara",
+   "Combine o kit de mesas e a decoração",
+   "No dia, é só chegar e aproveitar"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 28
+  },
+  "alt": "Área externa coberta com o piso de pedra e grama"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Sérgio Zulian",
+   "tag": "Estrutura",
+   "trecho": "A Chácara Lasareff conta com um salão que acomoda facilmente mais de trezentas pessoas sentadas. Possui área de jardim, piscina para adultos e uma menor para crianças. O lugar é lindo!"
+  },
+  {
+   "nome": "Rosania Coinbra",
+   "tag": "Casamento",
+   "trecho": "E um espaço maravilhoso pra realizar seu sonho , me casei agora em agosto e foi simplesmente incrível."
+  },
+  {
+   "nome": "Camila Giacomozzi",
+   "tag": "Atendimento",
+   "trecho": "Espaço maravilhoso... É amplo, novo, muito bonito. Atendimento muito acolhedor, pessoal simpático e facilidade para pagar."
+  },
+  {
+   "nome": "Thiago Almeida",
+   "tag": "Estacionamento",
+   "trecho": "Lugar muito bom para fazer eventos, tem banheiros grandes, cozinha , churrasqueira e do lado de fora você consegue guardar os carros dentro da chácara."
+  },
+  {
+   "nome": "Sonia Barbosa",
+   "tag": "Decoração",
+   "trecho": "Espaço magnífico, excelente para casamento e aniversário. Todo local decorado de muito bom gosto"
+  },
+  {
+   "nome": "Laerte Francisco",
+   "tag": "Qualidade"
+  }
+ ],
+ "insta": {
+  "seguidores": "2 mil seguidores",
+  "p": "A chácara, as festas e as ideias de decoração.",
+  "foto": {
+   "id": 9
+  },
+  "alt": "Piscina iluminada à noite",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Chácara Lasareff.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Bodas",
+   "Aniversário",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Chácara Lasareff e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Rio Grande da Serra.</em>",
+  "endereco": [
+   "Estr. Rio Pequeno, 2555 · Vila Lídia",
+   "Rio Grande da Serra, SP · CEP 09450-000"
+  ],
+  "telefone": "(11) 98936-2617",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Um lugar aconchegante para o seu sonho.",
+ "mensagem": "Olá! Vim pelo site da Chácara Lasareff e queria um orçamento.",
+ "google_nome": "Chácara Lasareff Festas e Eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98936-2617 é o telefone do Perfil da Empresa no Google e o do link da bio; as legendas trazem outro, o (11) 99664-6589, \"Sônia\"",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Chácara nova em Rio Grande da Serra com salão para até 300 pessoas, piscinas, jardim, churrasqueira e estacionamento interno; casamentos, 15 anos, bodas e aniversários.",
+   "Quem atende: Sônia (legendas: \"Contato (11) 99664-6589 - Sônia\"). Não confirmei se é a dona."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a noiva no jardim, a chácara (salão para 300, kit de mesas), carrossel do espaço (8, com 1 do Google), festas reais (8, com 4 do Google), estrutura (8 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: azul-marinho e dourado do brasão do logo. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; fotos da chácara vazia, 1080 px) e Perfil da Empresa no Google (casamentos, cerimônia, salão montado).",
+   "Ficaram de fora: as \"ideias de decoração\" (várias parecem de outros lugares: uma tem a marca \"Inspirações\") e as fotos pequenas."
+  ],
+  "conferir": [
+   "WhatsApp: a demo usa o do Google e da bio; perguntar se o da Sônia (99664-6589) é o que atende as datas.",
+   "\"300 pessoas\" vem da legenda do próprio @ (\"salão com capacidade para 300 pessoas\"); outra legenda fala em 240 com mesas e cadeiras.",
+   "Duas avaliações de 3 e 4 estrelas (freezer, estacionamento): a demo usa só as de 5."
+  ]
+ }
+}

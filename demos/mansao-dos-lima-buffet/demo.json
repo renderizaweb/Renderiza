@@ -1,0 +1,385 @@
+{
+ "pasta": "mansao-dos-lima-buffet",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/mansao-dos-lima-buffet/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/mansao-dos-lima-buffet.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/mansao-dos-lima-buffet/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "551145743617",
+ "fone_link": "+551145743617",
+ "google": {
+  "coords": "-23.4680806,-46.5550239",
+  "fid": "0x94cef5a743427305:0x94b53ab1a2739895",
+  "gid": "/g/11fvlhbnym"
+ },
+ "endereco_maps": "R. Dona Dica, 530 - Jardim Tranquilidade, Guarulhos - SP, 07052-000",
+ "google_nota": "4,8",
+ "google_total": "484",
+ "verificado": "2026-10-15",
+ "instagram": "mansaodoslimabuffet",
+ "marca": "Mansão dos Lima",
+ "marca_logo": "Mansão dos Lima",
+ "marca_completa": "Mansão dos Lima Buffet",
+ "logo_sub": "Jardim Tranquilidade · Guarulhos",
+ "titulo": "Mansão dos Lima Buffet | Casamentos e 15 anos em Guarulhos",
+ "descricao": "Mansão dos Lima Buffet, na R. Dona Dica, 530, no Jardim Tranquilidade, em Guarulhos (SP): casarão de pedra com piscina, cerimônia ao ar livre no pergolado, salão principal com lustres e buffet completo, para casamentos, 15 anos e aniversários. Nota 4,8 no Google.",
+ "comentario": "Demo Mansão dos Lima Buffet: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@mansaodoslimabuffet, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2a2019",
+  "acento": "#c8a27a"
+ },
+ "topline": "R. Dona Dica, 530 · Jardim Tranquilidade, Guarulhos",
+ "nav": [
+  [
+   "#sobre",
+   "A Mansão"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet de casamento e 15 anos em Guarulhos",
+  "h1": "Elegância <em>para todos os momentos.</em>",
+  "intro": "Cerimônia ao ar livre no pergolado, salão principal com lustres, piscina e buffet completo, num casarão de pedra em Guarulhos.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 4,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos abraçados sob o pergolado iluminado"
+ },
+ "endereco": [
+  "R. Dona Dica, 530",
+  "Jardim Tranquilidade · Guarulhos"
+ ],
+ "dias_curto": "ter a sáb",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Bodas",
+  "Chá revelação",
+  "Cerimônia ao ar livre",
+  "Buffet completo",
+  "Guarulhos"
+ ],
+ "sobre": {
+  "eyebrow": "A Mansão dos Lima",
+  "h2": "Um casarão <em>para a sua festa.</em>",
+  "p": [
+   "No Jardim Tranquilidade, em Guarulhos, a Mansão dos Lima é um casarão de pedra com piscina, jardim com pergolado para a cerimônia ao ar livre e salão principal com lustres de cristal e tapete para a entrada dos noivos.",
+   "O buffet é completo, com a mesa nobre rústica, os doces e o cardápio da casa. Nas avaliações, as famílias falam da Camila e da Ingrid, que acompanham do primeiro contato pelo WhatsApp ao fim da festa."
+  ],
+  "stats": [
+   [
+    "484",
+    "avaliações no Google"
+   ],
+   [
+    "10 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 51
+  },
+  "alt": "Fachada do casarão de pedra com o tapete vermelho e o jardim",
+  "pol": {
+   "id": 16,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal sorrindo com a caixinha das alianças",
+  "pol_cap": "Pedido"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, piscina <em>e salão.</em>",
+   "p": "O casarão, a piscina, a cerimônia ao ar livre e o salão principal. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Mansão dos Lima",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Piscina e passarela verde até o casarão"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Salão principal com tapete vermelho e lustre"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cef5a743427305_0x94b53ab1a2739895/g00.jpg"
+     },
+     "alt": "Salão montado com mesas e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Cerimônia no salão com tapete verde"
+    },
+    {
+     "foto": {
+      "id": 40
+     },
+     "alt": "Tapete vermelho no jardim para a cerimônia"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Piscina vista da sacada"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cef5a743427305_0x94b53ab1a2739895/g10.jpg"
+     },
+     "alt": "Mesa do bolo com flores e cortina de luzes"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Mesa nobre rústica com flores"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos, bodas e chás de quem já comemorou na Mansão dos Lima.",
+   "rotulo": "Festas que aconteceram na Mansão dos Lima",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Noivos no jardim, com a parede verde ao fundo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Debutante de vestido pink sob o pergolado iluminado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Noivos sorrindo diante da mesa de doces",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Cerimônia ao ar livre ao lado da piscina",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Noivos ao lado do bolo de casamento",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Decoração de chá revelação à beira da piscina",
+     "cap": "Chá revelação"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Casal de idosos chegando à cerimônia",
+     "cap": "Bodas"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Noivos abraçados no jardim",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a Mansão <em>oferece.</em>",
+  "p": "O que a própria Mansão dos Lima mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre no pergolado"
+   ],
+   [
+    "salao",
+    "Salão principal com lustres"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "cozinha",
+    "Buffet completo"
+   ],
+   [
+    "mesa",
+    "Mesa nobre rústica"
+   ],
+   [
+    "pessoas",
+    "Assessoria no dia da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o casarão na R. Dona Dica, 530",
+   "Escolha o pacote e o cardápio com a equipe",
+   "No dia, a assessoria acompanha a festa até o último convidado"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 35
+  },
+  "alt": "Noivos sob o pergolado, à noite"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Lilian Patricia",
+   "tag": "Casamento",
+   "trecho": "Foi muito mais do que sonhávamos! Cada detalhe foi pensado e executado com um cuidado impressionante. As comidas estavam deliciosas"
+  },
+  {
+   "nome": "William Laboissiere",
+   "tag": "50 anos",
+   "trecho": "Fiz meus 50 anos no espaço Mansão dos Lima, foi tudo exatamente como o planejado, desde o contato inicial, sempre tratando com a Ingrid e Camila"
+  },
+  {
+   "nome": "Juliana Novais",
+   "tag": "A Camila",
+   "trecho": "Agradeço a Camila, muito atenciosa, dedica e paciente, grata por cada ajuda, dicas e disposição"
+  },
+  {
+   "nome": "Thalyta Silva",
+   "tag": "1 ano",
+   "trecho": "O buffet é muito flexível e deixa o cliente a vontade para realizar o evento da forma que eles sonharam. Os garçons muito educados e simpático."
+  },
+  {
+   "nome": "Ingrid Pereira",
+   "tag": "Casamento",
+   "trecho": "Só tenho elogios, o espaço, as comida, as bebidas, a gentileza das pessoas, tudo perfeito."
+  },
+  {
+   "nome": "Silvana Cristina",
+   "tag": "Atendimento"
+  }
+ ],
+ "insta": {
+  "seguidores": "10 mil seguidores",
+  "p": "Os casamentos e as festas de cada semana.",
+  "foto": {
+   "id": 20
+  },
+  "alt": "Noivos sob o arco de flores, à noite",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Mansão dos Lima.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Chá revelação",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Mansão dos Lima e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Guarulhos.</em>",
+  "endereco": [
+   "R. Dona Dica, 530 · Jardim Tranquilidade",
+   "Guarulhos, SP · CEP 07052-000"
+  ],
+  "rotulo_fone": "Telefone",
+  "telefone": "(11) 4574-3617"
+ },
+ "slogan": "Elegância para todos os momentos.",
+ "mensagem": "Olá! Vim pelo site da Mansão dos Lima e queria um orçamento.",
+ "google_nome": "Mansão dos Lima Buffet",
+ "ficha": {
+  "whatsapp_fonte": "NÃO CONFIRMADO: a demo usa o (11) 4574-3617, fixo do Google; o link da bio (contate.me/mansaodoslima) não abriu daqui. Confirmar o WhatsApp antes de mandar e trocar na demo.",
+  "site": "não tem. Tem página no casamentos.com.br (47 avaliações).",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Casarão de pedra em Guarulhos com piscina, pergolado para cerimônia ao ar livre, salão com lustres e buffet completo; muitos casamentos, 15 anos, bodas e chás.",
+   "Quem atende: Camila (assessora) e Ingrid (contratação), nas avaliações. Não confirmei o nome do dono."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos sob o pergolado, a Mansão (casarão, Camila e Ingrid), carrossel do espaço (8, com 2 do Google), festas reais (8), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: marrom da pedra e bege dourado. Fonte Playfair Display. O título usa a frase da bio (\"Elegância e sofisticação para todos os momentos\")."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; fotos grandes de casamentos) e Perfil da Empresa no Google (salão montado, mesa do bolo).",
+   "Ficaram de fora: a arte de promoção com o pacote, os bonecos com nome e as fotos do Google de convidados de costas."
+  ],
+  "conferir": [
+   "WhatsApp: confirmar o celular antes de mandar (a demo e o flyer estão com o fixo).",
+   "Uma avaliação de 3 estrelas: a demo usa só as de 5.",
+   "Horário do Google: terça a sábado (domingo e segunda fechados).",
+   "Capacidade: não confirmei (o casamentos.com.br fala de 50 a 200)."
+  ]
+ }
+}
