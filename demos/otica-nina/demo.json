@@ -1,0 +1,491 @@
+{
+ "pasta": "otica-nina",
+ "marca": "Ótica Nina",
+ "marca_logo": "Ótica Nina",
+ "marca_completa": "Ótica Nina",
+ "logo_sub": "Vila Nova Mazzei · Zona Norte",
+ "titulo": "Ótica Nina | Vila Nova Mazzei, Zona Norte de São Paulo",
+ "descricao": "Ótica Nina, da optometrista Antonina Maciel, na R. Iwajiro Takahashi, 19, sala 9, Vila Nova Mazzei, Zona Norte de São Paulo: óculos de grau e de sol, lentes Transitions e antirreflexo, lentes de contato e linha infantil. Nota 5,0 no Google.",
+ "comentario": "Site Ótica Nina: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram (@oticanina) e do Facebook da ótica e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 15/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#1f2a5c",
+  "acento": "#d83a7c",
+  "tinta": "claro"
+ },
+ "nitidez": {
+  "escala": 1.6,
+  "q": 84
+ },
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/google.json",
+ "logo": {
+  "arquivo": "/home/user/renderiza/rascunhos/flyer/fotos/otica-nina/00.jpg"
+ },
+ "topline": "R. Iwajiro Takahashi, 19 · Sala 9 · Vila Nova Mazzei",
+ "nav": [
+  [
+   "#sobre",
+   "A Nina"
+  ],
+  [
+   "#armacoes",
+   "Armações"
+  ],
+  [
+   "#solares",
+   "Óculos de sol"
+  ],
+  [
+   "#atendimento",
+   "Atendimento"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Falar com a Nina",
+ "hero": {
+  "eyebrow": "Ótica na Vila Nova Mazzei, Zona Norte",
+  "h1": "Um óculos pode mudar <em>a sua imagem.</em>",
+  "intro": "Armações de grau e de sol, lentes para cada rotina e a própria Nina para ajudar você a escolher o modelo que combina com o seu rosto. Na Sala 9 da R. Iwajiro Takahashi, 19.",
+  "selo": "A dona atende você",
+  "link": "Ver as armações",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/01.jpg",
+   "c": [
+    0.5,
+    0.3
+   ]
+  },
+  "alt": "Antonina Maciel, a Nina, sorrindo de óculos vermelhos na feira Expo Óptica"
+ },
+ "endereco": [
+  "R. Iwajiro Takahashi, 19 · Sala 9",
+  "Vila Nova Mazzei · São Paulo"
+ ],
+ "marquee": [
+  "Óculos de grau",
+  "Óculos de sol",
+  "Lentes Transitions",
+  "Antirreflexo",
+  "Lentes de contato",
+  "Linha infantil",
+  "Visagismo",
+  "Vila Nova Mazzei"
+ ],
+ "sobre": {
+  "eyebrow": "A Nina",
+  "h2": "A Nina da Ótica Nina <em>é a Antonina.</em>",
+  "p": [
+   "Optometrista, a Antonina Maciel fez do apelido o nome da ótica. Ela mesma atende: prova as armações primeiro e indica o modelo que valoriza o seu rosto, com o olhar de quem estuda o assunto, técnica em óptica e optometria e pós-graduada em ortóptica.",
+   "Vai às feiras do setor, como a Expo Óptica, buscar as novidades, e cada óculos sai no estojo com a marca da casa. É esse cuidado que os clientes contam nas avaliações."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "nota no Google"
+   ],
+   [
+    "15,6 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/02.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Antonina Maciel sorrindo na ótica, embaixo da placa com o nome dela",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/03.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Antonina de óculos de sol, sorrindo na feira Expo Óptica",
+  "pol_cap": "Na Expo Óptica"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Armações de grau",
+   "h2": "Armações para <em>todos os estilos.</em>",
+   "p": "Delicadas, coloridas ou clássicas, de acetato e de metal. Escolha a sua e venha provar; pelo WhatsApp a Nina manda mais modelos.",
+   "rotulo": "Armações de grau da Ótica Nina",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/11.jpg"
+     },
+     "alt": "Armação gatinho tartaruga diante do letreiro Deluxe"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/b_014.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação de acetato verde-água transparente"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/06.jpg"
+     },
+     "alt": "Armação azul de acetato"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/12.jpg"
+     },
+     "alt": "Armação redonda tartaruga de acetato"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/15.jpg"
+     },
+     "alt": "Armação de cristal transparente sobre o estojo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/13.jpg"
+     },
+     "alt": "Armações de metal azul-claro e dourado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/b_001.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Armação de acetato nude rosado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/14.jpg"
+     },
+     "alt": "Armações douradas com cordões de pérolas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/27.jpg"
+     },
+     "alt": "Armações de metal azul e dourado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/09.jpg"
+     },
+     "alt": "Armação redonda dourada sobre a caixa azul da Ótica Nina"
+    }
+   ]
+  },
+  {
+   "id": "solares",
+   "eyebrow": "Óculos de sol",
+   "h2": "Solares que <em>completam o look.</em>",
+   "p": "Modelos com proteção UV para o dia a dia, do clássico ao brilhante. Venha provar ou peça fotos pelo WhatsApp.",
+   "rotulo": "Óculos de sol da Ótica Nina",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/04.jpg"
+     },
+     "alt": "Óculos de sol branco e armação dourada diante do letreiro Deluxe"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/05.jpg"
+     },
+     "alt": "Óculos de sol com pedras brilhantes na armação dourada"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/08.jpg"
+     },
+     "alt": "Óculos de sol vermelho diante do letreiro Deluxe"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/07.jpg"
+     },
+     "alt": "Óculos de sol tartaruga diante da placa Sala 9"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/16.jpg"
+     },
+     "alt": "Óculos de sol lilás com lente degradê"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/28.jpg"
+     },
+     "alt": "Óculos de sol tartaruga sobre o espelho dourado com o logo da Nina"
+    }
+   ]
+  },
+  {
+   "id": "nina-prova",
+   "eyebrow": "Quem prova primeiro é a Nina",
+   "h2": "Cada armação <em>no rosto de verdade.</em>",
+   "p": "A Nina experimenta os modelos que chegam e mostra como ficam: é o jeito mais fácil de imaginar o seu.",
+   "rotulo": "A Nina provando as armações",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_099.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina sorrindo de armação quadrada tartaruga com detalhe verde"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_179.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina de armação gatinho preta com hastes xadrez"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/19.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina de armação tartaruga com ponta verde-água"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_137.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina sorrindo de armação redonda tartaruga"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_240.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina de armação retangular preta"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/21.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina de armação gatinho preta e verde"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_280.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina sorrindo de armação oval dourada"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/24.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "A Nina de óculos de sol dourado com lente degradê"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/31.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "A Nina de armação sem aro com detalhe dourado e batom vermelho"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Sala 9 ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Linha infantil",
+   "rotulo": "01 / INFANTIL",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/17.jpg",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "alt": "Menino sorrindo de óculos azul da linha infantil",
+   "texto": "Armações leves e resistentes para os pequenos."
+  },
+  "solar": {
+   "titulo": "Marcas que você conhece",
+   "rotulo": "02 / MARCAS",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/18.jpg",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "alt": "Armações Sabrina Sato e Tommy Hilfiger com os estojos",
+   "texto": "Sabrina Sato, Tommy Hilfiger e Colcci, além da linha da casa."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à Sala 9, na Vila Nova Mazzei",
+   "Escolha a armação com a ajuda da Nina: formato do rosto, estilo e conforto",
+   "Lentes para a sua rotina: antirreflexo, Transitions, multifocal ou lentes de contato",
+   "Óculos no estojo da Nina, com revisão sempre que precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/google/g00.jpg",
+   "box": [
+    0.0,
+    0.08,
+    1.0,
+    0.86
+   ],
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "A Sala 9 por dentro: balcão de atendimento, poltrona e a parede dourada Ótica Nina Deluxe",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/10.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Estojo azul com o logo da Ótica Nina ao lado do lensômetro",
+  "pol_cap": "O estojo da Nina",
+  "card": [
+   "Lentes de contato",
+   "Pergunte pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem compra <em>recomenda.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Francisco Silva",
+   "tag": "Variedade"
+  },
+  {
+   "nome": "Aparecida Moises",
+   "tag": "Muitas opções"
+  },
+  {
+   "nome": "Andréa Cristina",
+   "tag": "Qualidade e preço"
+  },
+  {
+   "nome": "Kaio Yander",
+   "tag": "Atendimento"
+  },
+  {
+   "nome": "Anderson Aguena (Dinho)",
+   "tag": "Atenção"
+  }
+ ],
+ "instagram": "oticanina",
+ "insta": {
+  "seguidores": "15,6 mil seguidores",
+  "p": "Armações novas, dicas de lentes e a Nina provando os modelos.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/nina/up/a_178.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "A Nina sorrindo de armação gatinho preta com hastes xadrez"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Sala 9.</em>",
+  "endereco": [
+   "R. Iwajiro Takahashi, 19 · Sala 9",
+   "Vila Nova Mazzei, São Paulo, SP · CEP 02315-000"
+  ],
+  "telefone": "(11) 2994-1393",
+  "rotulo_fone": "WhatsApp e telefone"
+ },
+ "slogan": "Um óculos pode mudar a sua imagem.",
+ "mensagem": "Olá, Nina! Vim pelo site e queria ver os modelos de armação.",
+ "whatsapp": "551129941393",
+ "fone_link": "+551129941393",
+ "google": {
+  "coords": "-23.4585045,-46.6022162",
+  "fid": "0x94cef662b4b9cf19:0xf417bd213f7ecd67",
+  "gid": "/g/11h_slqm3n"
+ },
+ "google_nome": "Ótica Nina",
+ "endereco_maps": "Rua Iwajiro Takahashi, 19 - Sl 9 - Vila Nova Mazzei, São Paulo - SP, 02315-000",
+ "google_nota": "5,0",
+ "google_total": "29",
+ "verificado": "2026-10-15",
+ "ficha": {
+  "whatsapp_fonte": "o (11) 2994-1393 é o telefone do Google, que tem o botão de WhatsApp (wa.me) na ficha",
+  "site": "não tem (o Google aponta o Instagram)",
+  "direcao": [
+   "Versão final para fechar (pedido do Kaue em 15/10/2026): alegre, com a cara da Nina, muita armação e a história dela, sem exagero. Ela tem poucas fotos boas e não tem tempo de fotografar: as fotos foram ampliadas com cuidado (EDSR 2x) e embutidas em resolução maior."
+  ],
+  "demo": [
+   "Azul-marinho e rosa do logo, títulos em Fraunces, logo real.",
+   "Capa com a frase dela, \"Um óculos pode mudar a sua imagem\" (post de 04/09/2026), e a Antonina de óculos vermelhos na Expo Óptica.",
+   "História: a Nina é a Antonina, optometrista (arte \"Quem sou eu?\"). Vitrine com 16 armações, carrossel \"Quem prova primeiro é a Nina\" (9 retratos, parte tirada do vídeo de 04/09), linha infantil e sol, atendimento com o estojo da casa, 5 avaliações (5,0 · 29)."
+  ],
+  "fotos": [
+   "Facebook (1024 px, coletadas em 02/10; hoje o Facebook pede login), vídeos do Instagram (quadros nítidos, recortados acima das legendas) e Google (a sala por dentro).",
+   "Ficaram de fora: o panorama e a sacola do Google (outro endereço, R. Coronel Sezefredo Fagundes) e a Loja 2 da Roland Garros (hoje outra ótica)."
+  ],
+  "conferir": [
+   "Horário completo (o Google mostrou só \"fecha 17h30\").",
+   "Se o (11) 2994-1393 recebe WhatsApp (o Google tem o botão).",
+   "Se \"Nina Deluxe\" é a marca própria de armações."
+  ]
+ }
+}

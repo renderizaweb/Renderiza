@@ -103,10 +103,16 @@ def tema(cfg):
 
 # ---------- fotos ----------
 class Fotos:
-    def __init__(self, inventario):
+    # nitidez = {"escala": 1.5, "q": 84} (opcional, para site final): a foto entra com mais pixels que a vaga
+    # (fica nítida na tela do celular) sem mudar o tamanho na página.
+    def __init__(self, inventario, nitidez=None):
         self.inv = {i['id']: i for i in json.load(open(inventario))} if inventario else {}
         self.avisos = []
+        self.escala = (nitidez or {}).get('escala', 1)
+        self.q = (nitidez or {}).get('q', 0)
     def uri(self, spec, tam, nome):
+        tam = (round(tam[0] * self.escala), round(tam[1] * self.escala))
+        spec = {**spec, 'q': max(spec.get('q', 80), self.q)}
         caminho = spec.get('arquivo') or self.inv[spec['id']]['arquivo']
         im = ImageOps.exif_transpose(Image.open(caminho)).convert('RGB')
         if 'box' in spec:
@@ -506,7 +512,7 @@ def cliente(cfg, google, horas):
 def gerar(caminho_cfg, saida=None):
     cfg = json.load(open(caminho_cfg, encoding='utf-8'))
     google = ler_google(cfg.get('google_json'))
-    fotos = Fotos(cfg.get('inventario'))
+    fotos = Fotos(cfg.get('inventario'), cfg.get('nitidez'))
     head = tema(cfg)
     corpo_html, horas = corpo(cfg, fotos, google)
     runtime = open(os.path.join(AQUI, 'runtime.js'), encoding='utf-8').read()
