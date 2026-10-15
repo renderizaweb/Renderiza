@@ -420,3 +420,20 @@ sem prometer:** página de datas livres (o dono marca as datas fechadas e o site
 o WhatsApp Business (respostas prontas com o link, mensagem automática de fim de semana), arrumar o Perfil da Empresa
 no Google (fotos, link do site e horário: na Thamara D'Valu, sábado e domingo aparecem fechados, justo os dias de festa) e páginas por tipo de
 festa (casamento, 15 anos) para aparecer no Google.
+
+## 16. Demos do lote 2 (15/10/2026)
+
+O Kaue aprovou os 15 da seção 14 e mandou o Drive. Saíram 13 com demo, vídeo e flyer (no painel em "Prontas").
+
+- **Mansão Jaraguá:** a pasta do Drive ("Nova pasta") veio vazia. Demo parada até a pasta subir de novo.
+- **Espaço Império Eventos:** o @espacoimperioeventos é do Império Eventos de **Votorantim** (telefones 15, legendas
+  de Votorantim), não do espaço de Carapicuíba do Google. Erro da triagem: a variação do nome foi aceita sem conferir
+  o local dos posts. Demo parada até o Kaue decidir.
+- **MFK Buffet de Eventos** não é espaço: é buffet que vai até a festa (Chef Michael Kirst, restaurante em Mairiporã).
+  A demo foi adaptada (cardápio no lugar do espaço).
+- **WhatsApp fora do Google:** Victor's (bit.ly da bio), Alto da Serra (bio), MFK (Linktree) e Estação 840 (o
+  WhatsApp que o Google mostra no botão); Mansão dos Lima ficou com o fixo (o contate.me da bio não abre daqui).
+- **Domínio que não existe mais** (gancho): Spazio Maia e Sítio Francilene (o site aparece nas artes antigas).
+- **Horário "24 horas" no Google:** `mk.py` passou a tirar o horário sozinho (Che Belle, Stallieri).
+- **Nome comprido no topo do celular** (Alto da Serra) empurrou o menu para fora da tela: encurtar a linha de baixo do
+  logo. O validador pega ("sem rolagem para o lado").

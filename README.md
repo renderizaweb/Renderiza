@@ -174,3 +174,16 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Mansão Mikonos (eventos)](demos/mansao-mikonos) | Parque Cruzeiro do Sul, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
 | [Recanto Pagliosa (eventos)](demos/recanto-pagliosa) | Vista Alegre, Arujá | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
 | [Buffet Terraço Nuevo (eventos)](demos/buffet-terraco-nuevo) | Centro, Diadema | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Buffet Che Belle Giardino (eventos)](demos/che-belle-giardino) | Parque Paulistano, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Spazio Maia Buffet (eventos)](demos/spazio-maia-buffet) | Tatuapé, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Ferreira K Eventos (eventos)](demos/ferreira-k-eventos) | Olaria, Itapecerica da Serra | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Buffet Stallieri (eventos)](demos/buffet-stallieri) | Cidade Jardim Cumbica, Guarulhos | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Victor's Festas e Eventos (eventos)](demos/victors-buffet) | Santa Paula, São Caetano do Sul | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Alto da Serra Eventos (eventos)](demos/alto-da-serra-eventos) | Riacho Grande, São Bernardo do Campo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [MFK Buffet de Eventos (eventos, buffet que vai até a festa)](demos/mfk-buffet-de-eventos) | Jardim Odorico, Mairiporã | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Espaço La Ro (eventos)](demos/espaco-la-ro) | Pirituba, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Mansão dos Lima Buffet (eventos)](demos/mansao-dos-lima-buffet) | Jardim Tranquilidade, Guarulhos | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Estação 840 (eventos)](demos/estacao-840) | Centro, Osasco | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Chácara Lasareff (eventos)](demos/chacara-lasareff) | Vila Lídia, Rio Grande da Serra | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Sítio Francilene (eventos)](demos/sitio-francilene) | Parque São Martinho, Mogi das Cruzes | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Chácara Luz da Natureza (eventos)](demos/chacara-luz-da-natureza) | Parque Mirante de Parnaíba, Santana de Parnaíba | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
