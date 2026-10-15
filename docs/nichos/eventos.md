@@ -418,5 +418,5 @@ da festa: avaliação é o que mais pesa no nicho). Adicional que encaixa: **Age
 visita** (página do Google Agenda; valor sugerido ainda esperando o ok). **Ideias para o Kaue decidir, sem preço e
 sem prometer:** página de datas livres (o dono marca as datas fechadas e o site mostra os sábados livres), configurar
 o WhatsApp Business (respostas prontas com o link, mensagem automática de fim de semana), arrumar o Perfil da Empresa
-no Google (fotos, horário: vários aparecem "fechado agora" por erro de horário, link do site) e páginas por tipo de
+no Google (fotos, link do site e horário: na Thamara D'Valu, sábado e domingo aparecem fechados, justo os dias de festa) e páginas por tipo de
 festa (casamento, 15 anos) para aparecer no Google.
