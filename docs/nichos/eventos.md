@@ -357,3 +357,23 @@ vídeo no formato do Reels e flyer, e estão no painel em "Prontas".
   têm outro número. A ficha de cada demo diz qual foi usado e o que conferir antes de mandar.
 - **Intermediário:** o Jardim Danfesti tem página no casamentos.com.br e uma segunda casa (Tatuapé). Fica anotado
   na ficha para o Kaue decidir a abordagem.
+
+## 14. Lote 2 (15/10/2026): a lista para o Kaue escolher
+
+O Kaue tirou a Cohab Pool Party ("parece fundo de quintal"): o critério ganha peso em **espaço estruturado e
+elegante**. Funil: as reservas e os "bons" do lote 1 (20, conferidos de novo), os 10 que passaram no corte e não
+tinham sido olhados (nenhum serve: infantil, artes de promoção, @ errado, um em Penha-SC) e os 41 sem Instagram lido
+(16 passaram no corte; 8 bons). Conferido em cada um: site próprio (DNS dos domínios óbvios), casamentos.com.br
+(busca restrita), o @ (local marcado nos posts ou o Google apontando) e quem responde as avaliações.
+
+Ordem de preferência entregue: Che Belle Giardino, Spazio Maia, Espaço Império, Ferreira K Eventos, Buffet
+Stallieri, Victor's Buffet, Alto da Serra Eventos, Mansão Jaraguá, MFK Buffet de Eventos, Espaço La Ro, Mansão dos
+Lima, Estação 840, Chácara Lasareff, Sítio Francilene, Chácara Luz da Natureza. Nada cadastrado no painel.
+
+- **Site escondido de novo:** Solene Espaço & Buffet (solenebuffet.com.br), Família Gioielli e Espaço Villa Borghese
+  têm site; Victor's e Estação 840 têm domínio com certificado vencido (site antigo: gancho, não impedimento).
+- **Telefone fixo no Google:** Victor's, Mansão dos Lima e Estação 840; MFK não tem telefone no Google. Achar o
+  WhatsApp na bio antes de mandar.
+- **Fora:** Sítio Recanto Feliz (o @ achado é de Joinville-SC; o de Mogi não apareceu), Tatuapé Hall Prime
+  (casamentos.com.br e sem celular), Mansão Feest (tabela de preço nas fotos), Espaço Casa, ALJ, Hora do Break,
+  Coronel, Marrocos (infantil ou quintal), Sítio El Shaday (retiro), Jardim Danfesti II (vai junto com o I).
