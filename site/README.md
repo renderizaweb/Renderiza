@@ -32,8 +32,10 @@ testes em `test/site.test.mjs` conferem essa ordem e essas regras. A linha do m�
 
 ## Páginas "Como funciona" por nicho (`/como-funciona/<nicho>`)
 
-A página que vai para o lead que já viu a prévia e está na dúvida: o que muda (hoje e com o site), o que vai no
-site, como funciona, **os pacotes com preço** (ao contrário da home), as perguntas de sempre e o convite. Não
+O link para mandar quando o lead pergunta "como funciona?" ou "quanto custa?". É **curta de propósito** (dá para
+entender em uma passada de olho): abertura, 3 passos, **os pacotes com preço** (ao contrário da home), até 4
+perguntas e o convite. Os testes seguram o tamanho (3 passos, até 4 perguntas, até 4 itens por pacote e um teto
+de palavras à vista); antes de aumentar, tire alguma coisa. Não
 entra no Google (`noindex`, como as demos); é para mandar o link. Eventos: `/como-funciona/eventos`, com o
 atalho `/eventos` (redirect no `vercel.json`).
 

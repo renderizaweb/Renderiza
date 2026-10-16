@@ -24,24 +24,33 @@ test("vercel.json: a página não entra no Google e /eventos leva até ela", () 
   assert.match(html, /<meta name="robots" content="noindex, nofollow">/);
 });
 
-test("a ordem de uma página de venda curta: o que muda, o que vai no site, como funciona, pacotes, perguntas e convite", () => {
-  const ordem = ["inicio", "o-que-muda", "no-site", "como-funciona", "pacotes", "perguntas", "contato"].map(id => html.indexOf(`id="${id}"`));
+test("página de venda curta: abertura, como funciona, pacotes, perguntas e convite, e nada além", () => {
+  const ordem = ["inicio", "como-funciona", "pacotes", "perguntas", "contato"].map(id => html.indexOf(`id="${id}"`));
   assert.ok(ordem.every(i => i > 0), "todas as seções existem");
   assert.deepEqual([...ordem].sort((a, b) => a - b), ordem, "na ordem");
+  assert.equal((html.match(/<section\b/g) || []).length, 5);
+  assert.ok(eventos.passos.length <= 3 && eventos.perguntas.length <= 4, "3 passos e até 4 perguntas");
+  for (const p of eventos.pacotes) assert.ok(p.inclui.length <= 4, `${p.id}: até 4 itens`);
 });
 
-test("três pacotes com preço; só o do meio é o recomendado, e ninguém é 'mais vendido' sem venda que prove", () => {
+test("lê em uma passada: o texto à vista (sem o que fica fechado em 'saber mais' e nas perguntas) é curto", () => {
+  const aberto = textoVisivel(html.replace(/<details[\s\S]*?<\/details>/g, "")).trim().split(" ").length;
+  assert.ok(aberto <= 470, `${aberto} palavras à vista`);
+});
+
+test("três pacotes com preço (Essencial, Completo, Completo + Anúncios); só o do meio é o recomendado, e ninguém é 'mais vendido' sem venda que prove", () => {
   assert.equal((html.match(/class="cf-pacote(?: cf-pacote-destaque)?"/g) || []).length, 3);
   assert.equal((html.match(/cf-pacote-destaque/g) || []).length - (html.match(/\.cf-pacote-destaque/g) || []).length, 1);
-  assert.ok(html.indexOf('id="pacote-campanhas"') > html.indexOf('cf-pacote cf-pacote-destaque') - 200);
-  for (const p of ["R$ 499", "2x de R$ 299", "R$ 899", "2x de R$ 549", "R$ 1.490"]) assert.ok(texto.includes(p), p);
+  assert.deepEqual(eventos.pacotes.map(p => p.nome), ["Essencial", "Completo", "Completo + Anúncios"]);
+  assert.ok(html.indexOf('id="pacote-completo"') > html.indexOf('cf-pacote cf-pacote-destaque') - 200);
+  for (const p of ["R$ 499", "2x de R$ 299", "R$ 699", "2x de R$ 399", "R$ 1.490"]) assert.ok(texto.includes(p), p);
+  assert.match(texto, /Mínimo de 3 meses, com o site Completo incluso/, "anúncios: um valor por mês, o site já dentro");
   assert.doesNotMatch(texto, /mais vendido|campeão de vendas/i);
 });
 
-test("o 'saber mais' explica as páginas de campanha (2 em 12 meses) e o investimento nos anúncios (pago direto à Meta)", () => {
+test("o 'saber mais' explica as páginas de datas (2 em 12 meses) e o valor dos anúncios (pago direto à Meta)", () => {
   assert.equal((html.match(/<details class="cf-saber">/g) || []).length, 2);
-  assert.match(texto, /2 pedidos como esse nos 12 meses/);
-  assert.match(texto, /Na conta do 1º mês/);
+  assert.match(texto, /2 pedidos nos 12 meses depois de fechar/);
   assert.match(texto, /pago direto para a Meta/);
   assert.match(texto, /não faz sessão de fotos/);
 });
@@ -52,12 +61,12 @@ test("cada botão abre o WhatsApp da Renderiza com a mensagem do pacote já escr
   assert.ok(html.includes(encodeURIComponent(eventos.convite.mensagem)));
 });
 
-test("mês de inauguração: o valor do CONTEXTO aparece no pacote Site até 31/10 e some depois", () => {
+test("mês de inauguração: o valor do CONTEXTO aparece no Essencial até 31/10 e some depois", () => {
   assert.match(html, /data-ate="2026-10-31"/);
   const depois = textoVisivel(montarComoFunciona(eventos, config, { hoje: new Date("2026-11-02T12:00:00Z") }));
   assert.doesNotMatch(depois, /mês de inauguração/);
   assert.match(texto, /Mês de inauguração: R\$ 399 no Pix ou 2x de R\$ 199, até 31\/10/);
-  assert.doesNotMatch(depois, /R\$ 399|R\$ 199/);
+  assert.doesNotMatch(depois, /R\$ 399 no Pix|R\$ 199/);
 });
 
 test("sem promessa de resultado, superlativo, 'de bairro', foto de lead nem caminho para o painel", () => {

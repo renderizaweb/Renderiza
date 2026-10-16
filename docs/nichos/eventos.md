@@ -570,3 +570,17 @@ o selo "Recomendado" no lugar de "mais vendido" (ainda não há venda que prove)
 **Conflitos com a home, para o Kaue decidir:** a home diz "o anúncio em si a gente não roda" e que todo site tem o
 Pixel; a página de eventos oferece anúncios no 3º pacote e o Pixel só no 2º. A home também não mostra preço (regra
 dela); esta página mostra, porque vai para quem já está na conversa.
+
+**Versão curta (16/10/2026, pedido do Kaue).** Ele gostou, mas achou "embrulhado demais": o link é para quando
+o lead pergunta "como funciona?" ou "quanto custa?", então tem que ser lido em uma passada. Saíram as seções "O
+que muda" e "O que vai no site"; ficaram abertura (botão principal "Ver pacotes e preços"), **3 passos**, os
+pacotes, **4 perguntas** e o convite (de 1.459 para 694 palavras; à vista, de 869 para 447). No celular o desenho
+do topo encolheu para os preços chegarem antes.
+- **Nomes novos:** "Site + campanhas" soava como anúncio (o próprio Kaue leu assim). Agora **Essencial**,
+  **Completo** (selo "Recomendado para eventos") e **Completo + Anúncios**.
+- **Completo mais barato:** R$ 899 → **R$ 699 no Pix ou 2x de R$ 399** (o Kaue achou caro; mesma lógica do
+  Essencial, +R$ 99 no 2x). Proposta, para ele validar.
+- **Anúncios sem conta de três parcelas:** **R$ 1.490 por mês, mínimo de 3 meses, com o site Completo incluso**
+  (antes: + R$ 899 do site à parte e a conta do 1º mês, que confundiu). O valor dos anúncios continua pago
+  direto à Meta, fechado no "E o valor dos anúncios?". Continua caro de propósito: a Renderiza não quer fechar
+  tráfego pago agora.

@@ -45,25 +45,7 @@
   @keyframes cf-chega{from{opacity:0;transform:translateY(18px) scale(.96)}}
 }
 
-/* o que muda: hoje e com o site, linha a linha */
-.cf-muda{margin-top:32px;display:grid;gap:12px}
-.cf-muda-cabeca{display:none}
-.cf-muda-linha{display:grid;gap:10px;padding:18px 18px 16px;border-radius:var(--raio);border:1px solid var(--linha);background:var(--branco)}
-.cf-muda-linha p{display:flex;gap:11px;align-items:flex-start;line-height:1.45}
-.cf-hoje{color:var(--tinta-suave);font-size:.9687rem}
-.cf-depois{font-weight:600}
-.cf-x,.cf-marca{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;display:grid;place-items:center}
-.cf-x{background:#efece6;color:var(--tinta-clara)}
-.cf-marca{background:var(--terracota);color:#fff}
-.cf-rotulo{font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-clara);margin-right:2px}
-.cf-depois .cf-rotulo{color:var(--terracota)}
-
-/* o que vai no site */
-.cf-recursos{display:grid;gap:14px;margin-top:32px}
-.cf-recursos li{padding:24px 22px;border-radius:var(--raio);background:var(--branco);border:1px solid var(--linha)}
-.cf-recurso-icone{display:grid;place-items:center;width:46px;height:46px;margin-bottom:16px;border-radius:14px;background:#b251341a;color:var(--terracota)}
-.cf-recursos h3{font-size:1.125rem;letter-spacing:-.025em}
-.cf-recursos p{margin-top:6px;color:var(--tinta-suave);font-size:.9687rem;line-height:1.55}
+.cf-marca{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;display:grid;place-items:center;background:var(--terracota);color:#fff}
 
 /* pacotes: três cartões; o recomendado em grafite */
 .cf-secao-pacotes{background:linear-gradient(180deg,var(--papel) 0%,var(--papel-2) 100%)}
@@ -101,25 +83,24 @@
 .cf-pacote-inauguracao svg{margin-top:2px}
 .cf-pacotes-nota{margin-top:14px;max-width:44em;color:var(--tinta-clara);font-size:.875rem;line-height:1.5}
 
-@media (min-width:600px){
-  .cf-recursos{grid-template-columns:1fr 1fr}
+/* página curta: menos espaço entre as seções e, no celular, o desenho menor, para os preços chegarem logo */
+.cf .secao{padding:52px 0}
+@media (max-width:719px){
+  .cf-abertura{padding-bottom:44px}
+  .cf-abertura-grade{gap:32px}
+  .cf-ilustracao{zoom:.8}
 }
 @media (min-width:720px){
+  .cf .secao{padding:72px 0}
   .cf-abertura{padding:72px 0 96px}
   .cf-abertura .acoes{flex-direction:row;flex-wrap:wrap}
-  .cf-muda{gap:0;border-radius:22px;border:1px solid var(--linha);background:var(--branco);overflow:hidden}
-  .cf-muda-cabeca{display:grid;grid-template-columns:1fr 1fr;padding:16px 28px;background:var(--papel-2);border-bottom:1px solid var(--linha);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-clara)}
-  .cf-muda-cabeca span:last-child{color:var(--terracota)}
-  .cf-muda-linha{grid-template-columns:1fr 1fr;gap:28px;padding:20px 28px;border:0;border-radius:0}
-  .cf-muda-linha+.cf-muda-linha{border-top:1px solid var(--linha)}
-  .cf-rotulo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 }
 @media (min-width:960px){
   .cf-abertura-grade{grid-template-columns:1.08fr .92fr;gap:56px}
   .cf-ilustracao{width:400px;margin-right:0}
   .cf-celular{width:268px}
   .cf-bolha{right:-6px;width:240px}
-  .cf-recursos{grid-template-columns:repeat(4,1fr)}
+  .cf .passos{grid-template-columns:repeat(3,1fr);max-width:880px}
   .cf-pacotes{grid-template-columns:repeat(3,1fr);gap:22px}
   .cf-pacote-destaque{transform:translateY(-12px)}
 }

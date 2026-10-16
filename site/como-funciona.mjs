@@ -2,9 +2,9 @@
 // já viu a prévia e ainda está na dúvida. HTML pronto no build, com o CSS da home (site/estilo.css) mais o desta
 // página (site/como-funciona.css). Os textos de cada nicho ficam em site/nichos/<nicho>.mjs.
 //
-// A ordem é a de uma página de venda curta: o que muda (antes e depois), o que vai no site, como funciona,
-// os pacotes com preço, as perguntas de sempre e o convite. Ao contrário da home, aqui o preço aparece: quem
-// recebe este link já está na conversa (pedido de 16/10/2026).
+// Página de venda curta, para ler em uma passada de olho quando o lead pergunta "como funciona?" ou "quanto
+// custa?": abertura, 3 passos, os pacotes com preço, 4 perguntas e o convite. Ao contrário da home, aqui o preço
+// aparece: quem recebe este link já está na conversa (pedidos de 16/10/2026).
 // Regras: nada de "mais vendido", promessa de resultado, superlativo ou "de bairro"; nenhuma foto de lead.
 
 import { readFileSync, readdirSync } from "node:fs";
@@ -75,7 +75,7 @@ function cartaoPacote(p, { temWa, contato, emInauguracao }) {
           ${p.saberMais ? `<details class="cf-saber">
             <summary>${esc(p.saberMais.resumo)}${icone("mais", 16)}</summary>
             ${p.saberMais.texto.map(t => `<p>${esc(t)}</p>`).join("")}
-            ${p.saberMais.exemplos ? `<ul class="cf-exemplos" aria-label="Exemplos de campanha">${p.saberMais.exemplos.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}
+            ${p.saberMais.exemplos ? `<ul class="cf-exemplos" aria-label="Exemplos de datas">${p.saberMais.exemplos.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}
           </details>` : ""}
           <a class="botao ${destaque ? "botao-primario" : "botao-secundario"} cf-pacote-botao" href="${esc(href)}"${temWa ? ' target="_blank" rel="noopener"' : ""}>${icone("whatsapp", 18)}${esc(p.botao)}</a>
         </li>`;
@@ -94,7 +94,7 @@ export function montarComoFunciona(nicho, config, {
   const attrsWa = temWa ? ' target="_blank" rel="noopener"' : "";
   const telefone = telefoneLegivel(contato.whatsapp);
   const emInauguracao = diaEmSaoPaulo(hoje) <= INAUGURACAO.ate;
-  const { abertura: a, antesDepois: ad, convite: cv } = nicho;
+  const { abertura: a, convite: cv } = nicho;
 
   const redes = [
     temWa && `<a href="${esc(linkWhatsapp(contato))}" target="_blank" rel="noopener">${icone("whatsapp", 17)}WhatsApp ${esc(telefone)}</a>`,
@@ -139,7 +139,6 @@ ${css.trim()}
   <div class="topo-dentro">
     <a class="marca" href="/" aria-label="Renderiza, ir para a página inicial">${simbolo(30)}<span>renderiza</span></a>
     <nav class="topo-nav" aria-label="Seções">
-      <a href="#o-que-muda">O que muda</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#pacotes">Pacotes</a>
       <a href="#perguntas">Perguntas</a>
@@ -156,8 +155,8 @@ ${css.trim()}
         <h1 id="cf-titulo">${esc(a.h1[0])} <em>${esc(a.h1[1])}</em></h1>
         <p class="cf-lide">${esc(a.lide)}</p>
         <div class="acoes">
-          <a class="botao botao-primario botao-grande" href="${esc(waDe(cv.mensagem))}"${attrsWa}>${icone("whatsapp", 20)}Falar no WhatsApp</a>
-          <a class="botao botao-contorno botao-grande" href="#pacotes">Ver os pacotes${icone("baixo", 18)}</a>
+          <a class="botao botao-primario botao-grande" href="#pacotes">Ver pacotes e preços${icone("baixo", 18)}</a>
+          <a class="botao botao-contorno botao-grande" href="${esc(waDe(cv.mensagem))}"${attrsWa}>${icone("whatsapp", 20)}Falar no WhatsApp</a>
         </div>
         <ul class="cf-fatos">${a.fatos.map((f, i) => `
           <li>${ic(ICONE_DO_FATO[i] || "check", 17)}<span>${esc(f)}</span></li>`).join("")}
@@ -167,42 +166,13 @@ ${ilustracao(nicho.ilustracao)}
     </div>
   </section>
 
-  <section class="secao" id="o-que-muda" aria-labelledby="muda-titulo">
-    <div class="envoltorio">
-      <p class="sobretitulo">${esc(ad.sobretitulo)}</p>
-      <h2 id="muda-titulo">${esc(ad.h2[0])} <em>${esc(ad.h2[1])}</em></h2>
-      <div class="cf-muda" role="table" aria-label="Hoje e com o site">
-        <div class="cf-muda-cabeca" role="row"><span role="columnheader">Hoje</span><span role="columnheader">Com o site</span></div>${ad.linhas.map(([hoje, depois]) => `
-        <div class="cf-muda-linha" role="row">
-          <p class="cf-hoje" role="cell"><span class="cf-x">${icone("fechar", 12)}</span><span><span class="cf-rotulo">Hoje: </span>${esc(hoje)}</span></p>
-          <p class="cf-depois" role="cell"><span class="cf-marca">${icone("check", 12)}</span><span><span class="cf-rotulo">Com o site: </span>${esc(depois)}</span></p>
-        </div>`).join("")}
-      </div>
-    </div>
-  </section>
-
-  <section class="secao secao-clara" id="no-site" aria-labelledby="no-site-titulo">
-    <div class="envoltorio">
-      <p class="sobretitulo">O que vai no site</p>
-      <h2 id="no-site-titulo">Tudo o que o cliente pergunta, <em>antes de perguntar.</em></h2>
-      <ul class="cf-recursos">${nicho.recursos.map(r => `
-        <li>
-          <span class="cf-recurso-icone">${ic(r.icone, 22)}</span>
-          <h3>${esc(r.titulo)}</h3>
-          <p>${esc(r.texto)}</p>
-        </li>`).join("")}
-      </ul>
-    </div>
-  </section>
-
   <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Como funciona</p>
-      <h2 id="como-titulo">Você vê o site pronto <em>antes de decidir.</em></h2>
+      <h2 id="como-titulo">Você vê o site pronto <em>antes de pagar.</em></h2>
       <ol class="passos">${nicho.passos.map(([t, p]) => `
         <li><h3>${esc(t)}</h3><p>${esc(p)}</p></li>`).join("")}
       </ol>
-      <p class="passos-nota">${icone("escudo", 20)}<span>Você só paga se decidir colocar o site no ar.</span></p>
     </div>
   </section>
 
@@ -210,14 +180,13 @@ ${ilustracao(nicho.ilustracao)}
     <div class="envoltorio">
       <p class="sobretitulo">Pacotes</p>
       <h2 id="pacotes-titulo">Preço fechado. <em>Você escolhe até onde ir.</em></h2>
-      <p class="secao-lide">Site e Site + campanhas: valor único, no Pix ou em 2x, sem mensalidade.</p>
       <ul class="cf-pacotes">${nicho.pacotes.map(p => cartaoPacote(p, { temWa, contato, emInauguracao })).join("")}
       </ul>
       <p class="cf-pacotes-nota">${esc(nicho.pacotesNota)}</p>
     </div>
   </section>
 
-  <section class="secao secao-clara" id="perguntas" aria-labelledby="perguntas-titulo">
+  <section class="secao" id="perguntas" aria-labelledby="perguntas-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Perguntas frequentes</p>
       <h2 id="perguntas-titulo">O que todo mundo pergunta.</h2>
