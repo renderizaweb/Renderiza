@@ -62,39 +62,39 @@ Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem comprom
 
 # Semana do 15/10: sobrinho, dicionário e pixel
 
-Ordem: o Reels na quinta (15/10), o carrossel no sábado (17/10) e o post na segunda (19/10), no horário de mais
+Ordem: o Reels na sexta (16/10), o carrossel no sábado (17/10) e o post na segunda (19/10), no horário de mais
 movimento do perfil (Insights > Público > Horários mais ativos). O fio da semana são as frases que todo dono já ouviu:
 a do sobrinho, a do cliente e a do gestor.
 
+Tom (Kaue, 15/10/2026): humor seco e realista, com no máximo um trocadilho por peça. Nada de piada forçada, emoji de
+risada ou exagero. E não dizer que a Renderiza faz ou não faz tráfego pago (a ideia está em aberto).
+
 ## 5. Reels: "O sobrinho que ia fazer o site" (`reels-sobrinho`)
 
-Todo negócio tem um Juninho. 😅
+Quando o site sobra pro sobrinho, fica pra semana que vem.
 
-"Semana que vem, tia."
+"Semana que vem, no máximo."
 "Semana de prova."
 "Meu notebook quebrou."
-"Tia, o site era pra quê mesmo?"
+"Me manda as fotos de novo?"
 
-E enquanto isso, a cliente pergunta se você tem site e ouve: "meu sobrinho tá fazendo". 😬
+Enquanto isso, a cliente pergunta se você tem site, ouve "meu sobrinho tá fazendo" e vai procurar outro lugar.
 
-A gente trabalha diferente: olha o seu Instagram e o seu Google, monta uma prévia do site do seu negócio e manda o link pra você ver. Sem compromisso e sem "semana que vem".
+A gente olha o seu Instagram e o seu Google, monta uma prévia do site do seu negócio e manda o link pra você ver. Sem compromisso e sem "semana que vem".
 
 Comenta PRÉVIA que a gente monta a do seu negócio 👇
-E conta aqui: qual foi a desculpa do seu Juninho? 😂
 
-Marca quem está esperando o site do sobrinho até hoje 👀
-
-(A Lume Estética, o Juninho e a cliente do vídeo são fictícios. Boa sorte na prova, Juninho.)
+(A Lume Estética, o Juninho e a cliente do vídeo são fictícios.)
 
 #sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #donodenegocio
 
-Comentário para fixar: "Começa aqui: qual foi a melhor desculpa que você já ouviu? A gente abre: 'meu notebook quebrou' 👇"
+Comentário para fixar: "Como funciona: você comenta PRÉVIA, a gente olha o seu Instagram e o seu Google e manda o link da prévia no direct. Sem compromisso."
 
 ## 6. Carrossel: "Dicionário do cliente de WhatsApp" (`carrossel-dicionario`)
 
 Salva esse dicionário 📌 e manda pra quem atende o WhatsApp com você.
 
-"Quanto é?", "Vou ver com meu marido", "Vou ver e te falo"... Você ouviu pelo menos uma dessas essa semana, né? 😅
+"Quanto é?", "Vou ver com meu marido", "Vou ver e te falo"... Você ouviu pelo menos uma dessas esta semana.
 
 Repara: nas cinco frases, o cliente decide longe da conversa. Com o marido, olhando o concorrente ou dois dias depois. E o que ele leva de você é um preço solto no meio do chat.
 
@@ -118,19 +118,15 @@ Comentário para fixar: "Qual frase faltou? Escreve aqui que a gente traduz 👇
 
 ## 7. Post: "Seu gestor pediu o pixel" (`post-pixel`)
 
-Gestor de tráfego: manda este post pro seu cliente que ainda não tem site (ou marca ele aqui) 👇
+Seu gestor pediu "instala o pixel no site" e você foi direto pro Google? Normal. A gente explica.
 
-Se o seu gestor já pediu "instala o pixel no site" e você foi direto pro Google... esse post é seu 🙋‍♀️
+Pixel é um código que fica no site e conta o que as pessoas que vieram do anúncio fazem lá dentro, como tocar no botão pra te chamar no WhatsApp. Sem site, não tem onde instalar.
 
-Pixel é um código que fica no site e conta o que as pessoas que vieram do anúncio fazem lá dentro, como tocar no botão pra te chamar no WhatsApp. Ele mora no site: sem site, não tem onde instalar.
-
-Todo site da Renderiza já sai pronto pra anúncio: Pixel da Meta instalado, Google Analytics ligado e cada clique no WhatsApp contado.
-
-E não, a gente não faz tráfego pago 😉 Quem liga o anúncio é você ou o seu gestor. A gente entrega o site pronto pra ele medir.
+Todo site da Renderiza já sai pronto pra anúncio: Pixel da Meta instalado, Google Analytics ligado e cada clique no WhatsApp contado. Quando o anúncio entrar no ar, o site já está medindo.
 
 Já anuncia ou vai anunciar? Chama no direct. Se quiser ver antes, comenta PRÉVIA que a gente monta a prévia do seu site.
 
-E você, qual dessas buscas já fez? Conta nos comentários 😂
+Gestor de tráfego: manda este post pro cliente que ainda não tem site.
 
 #sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #trafegopago #gestordetrafego
 

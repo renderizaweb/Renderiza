@@ -6,7 +6,8 @@
      Todo dono conhece o sobrinho que ia fazer o site: uma conversa de WhatsApp atravessa um ano de desculpas, uma cliente
      pede o site e ouve "meu sobrinho tá fazendo", e aí chega a mensagem da Renderiza com a prévia pronta.
      Juninho, a tia e a "Cliente nova" são fictícios (avatar com a inicial, sem foto de pessoa). A Lume Estética é fictícia
-     e aparece sempre com o selo "exemplo". Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+     e aparece sempre com o selo "exemplo". Tom (Kaue, 15/10/2026): humor seco e realista, um trocadilho no lugar de
+     piadas forçadas. Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
 <link rel="stylesheet" href="marca.css">
 <style>
@@ -136,7 +137,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
   <div class="faixa" id="faixa"><div class="pal" id="pA"><span></span></div><div class="pal" id="pB"><span></span></div></div>
 
   <!-- cena 1: o gancho -->
-  <p class="txt" id="g1">Todo negócio tem<br>um sobrinho<br><span class="tom">fazendo o site</span>.</p>
+  <p class="txt" id="g1">Quando o site<br><span class="tom">sobra pro<br>sobrinho</span>…</p>
   <p class="txt" id="g2">O seu já entregou?</p>
 
   <!-- as três conversas (montadas no script) -->
@@ -150,7 +151,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 
   <!-- cenas 6 e 7 -->
   <div class="camada oculto" id="escuro67">
-    <p class="txt" id="c1">Um ano de<br><span class="tom">“semana que vem”</span>.</p>
+    <p class="txt" id="c1">A cliente foi ver<br>no <span class="tom">concorrente</span>.</p>
     <p class="txt" id="c2">Aí chegou <span class="tom">outra</span><br>mensagem.</p>
   </div>
 
@@ -169,7 +170,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
   <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
   <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
   <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
-  <p class="cta-linha oculto" id="l2">E deixa o Juninho<br><span class="tom">estudar em paz</span>.</p>
+  <p class="cta-linha oculto" id="l2">Seu sobrinho <span class="tom">agradece</span>.</p>
 
   <!-- notificações -->
   <div class="notif" id="n1"></div>
@@ -239,10 +240,10 @@ const J = conversa($("#jJ"), { quem: "J", nome: "Juninho (sobrinho)", msgs: [
   { t: 6.290, txt: "Semana que vem, no máximo.", hora: "19:04" },
   { t: 7.984, env: true, txt: "E o site?", hora: "10:41", lido: 8.25 },
   { t: 8.710, txt: "Semana de prova, tia.", hora: "22:17" },
-  { t: 9.919, env: true, txt: "E o site??", hora: "14:05", lido: 10.2 },
+  { t: 9.919, env: true, txt: "Como tá o site?", hora: "14:05", lido: 10.2 },
   { t: 10.645, txt: "Meu notebook quebrou.", hora: "23:58" },
   { t: 11.855, env: true, txt: "Juninho, e o site?", hora: "09:12", lido: 12.15 },
-  { t: 12.581, txt: "Tia, o site era pra quê mesmo?", hora: "09:40", impacto: true },
+  { t: 12.581, txt: "Tia, me manda<br>as fotos de novo?", hora: "09:40", impacto: true },
   { t: 14.274, env: true, txt: "E o site?", hora: "20:33", lido: 14.516, pulinho: true },
 ]});
 // "digitando…" no cabeçalho antes de cada resposta dele
@@ -261,7 +262,7 @@ C.offline = 18.871;
 // a Renderiza, com a prévia pronta
 const R = conversa($("#jR"), { quem: "rz", nome: "Renderiza", msgs: [
   { t: 22.0, txt: "Oi! Montamos uma prévia<br>do site da Lume Estética.<br>Sem compromisso:", hora: "10:08", link: true },
-  { t: 24.194, env: true, txt: "Já?!", hora: "10:08", lido: 24.5, grande: true },
+  { t: 24.194, env: true, txt: "Nossa, já?", hora: "10:08", lido: 24.5, grande: true },
 ]});
 R.digitando = []; R.offline = 99;
 
@@ -288,7 +289,7 @@ const PARADAS = [[25.161, "hero", "Com as <span class=\"tom\">suas fotos</span> 
 const ONDAS = [29.274, 29.758, 30.242, 30.726];
 const PIXEL = 29.516;
 const BUMBOS = [35.323, 35.806, 36.290, 36.774, 37.258];
-const PIADA = 36.774;            // "E deixa o Juninho estudar em paz."
+const FECHO = 36.774;            // "Seu sobrinho agradece."
 const LOOP = 37.742;
 // impactos: o quadro inteiro dá um tranco (o "Já?!" dá um tranco pequeno)
 const IMPACTOS = [[0, 1], [0.968, 1], [12.581, 1], [14.516, 1], [19.355, 1], [23.226, 1], [24.194, 0.5], [25.161, 1], [27.097, 1], [29.032, 1], [30.968, 1], [32.903, 1], [34.839, 1], [37.742, 1]];
@@ -331,7 +332,7 @@ window.preparar = () => {
       { id: "gancho2", cena: "abre", ini: 0.968, fim: 3.871, impacto: true },
       { id: "promessa", cena: "google", ini: 3.871, fim: 7.742 },
       { id: "enrola", cena: "insta", ini: 7.742, fim: 12.581 },
-      { id: "praque", cena: "insta", ini: 12.581, fim: 14.516, impacto: true },
+      { id: "fotos", cena: "insta", ini: 12.581, fim: 14.516, impacto: true },
       { id: "nada", cena: "insta", ini: 14.516, fim: 15.484, impacto: true },
       { id: "desculpa", cena: "volta", ini: 15.484, fim: 19.355 },
       { id: "custo", cena: "meio", ini: 19.355, fim: 21.290 },
@@ -541,7 +542,7 @@ window.quadro = t => {
     px.style.transform = `translateX(${lerp(900, 0, sai(x))}px)`;
   }
 
-  // ---- cena 9: a piada final ----
+  // ---- cena 9: a promessa e a prévia ----
   const f1 = $("#f1"), f2 = $("#f2");
   if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
   if (mostra(f2, t >= 32.903 && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, 32.903)})`;
@@ -558,7 +559,7 @@ window.quadro = t => {
   }
   const l1 = $("#l1"), l2 = $("#l2");
   if (mostra(l1, noCta)) { const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5)); l1.style.opacity = x; l1.style.transform = `translateY(${(1 - x) * 28}px)`; }
-  if (mostra(l2, t >= PIADA)) { const x = sai(fase(t, PIADA, PIADA + 0.3)); l2.style.opacity = x; l2.style.transform = `translateY(${(1 - x) * 28}px)`; }
+  if (mostra(l2, t >= FECHO)) { const x = sai(fase(t, FECHO, FECHO + 0.3)); l2.style.opacity = x; l2.style.transform = `translateY(${(1 - x) * 28}px)`; }
 
   // ---- toque ----
   const tq = $("#toque");
