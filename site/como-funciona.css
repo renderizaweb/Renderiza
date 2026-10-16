@@ -97,8 +97,8 @@
 .cf-pacote-destaque .cf-exemplos li{background:#ffffff14;border-color:#ffffff29;color:var(--gelo)}
 .cf-pacote-destaque :focus-visible{outline-color:var(--gelo)}
 .cf-pacote-selo{position:absolute;top:-14px;left:22px;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--terracota);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.02em;line-height:1.3;box-shadow:0 10px 20px -10px #b25134}
-.cf-inauguracao{display:flex;align-items:flex-start;gap:10px;max-width:40em;margin-top:24px;padding:14px 18px;border-radius:14px;background:var(--branco);border:1px solid var(--linha);font-weight:600;line-height:1.45}
-.cf-inauguracao svg{color:var(--terracota);margin-top:2px}
+.cf-pacote-inauguracao{display:flex;align-items:flex-start;gap:8px;margin-top:12px;padding:9px 12px;border-radius:12px;background:#b2513414;color:var(--terracota-escura);font-size:.875rem;font-weight:600;line-height:1.4}
+.cf-pacote-inauguracao svg{margin-top:2px}
 .cf-pacotes-nota{margin-top:14px;max-width:44em;color:var(--tinta-clara);font-size:.875rem;line-height:1.5}
 
 @media (min-width:600px){

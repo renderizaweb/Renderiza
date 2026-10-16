@@ -566,4 +566,7 @@ preço, três pacotes, prazo, pagamento e "os acessos são seus". No ar em `/com
 **Decisões que esperam o Kaue:** os valores do 2º e do 3º pacote; o prazo "até 7 dias úteis depois do
 pagamento"; o pixel só no 2º pacote (a home ainda diz que "todo site sai pronto para anúncio, com o Pixel");
 o selo "Recomendado" no lugar de "mais vendido" (ainda não há venda que prove). O valor do mês de inauguração
-(R$ 399 ou 2x R$ 199) não aparece: a linha diz que o Site tem valor especial até 31/10 e que é na conversa.
+(R$ 399 no Pix ou 2x R$ 199) aparece no cartão do Site e some sozinho depois de 31/10.
+**Conflitos com a home, para o Kaue decidir:** a home diz "o anúncio em si a gente não roda" e que todo site tem o
+Pixel; a página de eventos oferece anúncios no 3º pacote e o Pixel só no 2º. A home também não mostra preço (regra
+dela); esta página mostra, porque vai para quem já está na conversa.

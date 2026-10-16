@@ -41,6 +41,7 @@ test("três pacotes com preço; só o do meio é o recomendado, e ninguém é 'm
 test("o 'saber mais' explica as páginas de campanha (2 em 12 meses) e o investimento nos anúncios (pago direto à Meta)", () => {
   assert.equal((html.match(/<details class="cf-saber">/g) || []).length, 2);
   assert.match(texto, /2 pedidos como esse nos 12 meses/);
+  assert.match(texto, /Na conta do 1º mês/);
   assert.match(texto, /pago direto para a Meta/);
   assert.match(texto, /não faz sessão de fotos/);
 });
@@ -51,11 +52,12 @@ test("cada botão abre o WhatsApp da Renderiza com a mensagem do pacote já escr
   assert.ok(html.includes(encodeURIComponent(eventos.convite.mensagem)));
 });
 
-test("mês de inauguração: a linha aparece até 31/10 e some depois (sem preço novo inventado)", () => {
+test("mês de inauguração: o valor do CONTEXTO aparece no pacote Site até 31/10 e some depois", () => {
   assert.match(html, /data-ate="2026-10-31"/);
   const depois = textoVisivel(montarComoFunciona(eventos, config, { hoje: new Date("2026-11-02T12:00:00Z") }));
   assert.doesNotMatch(depois, /mês de inauguração/);
-  assert.doesNotMatch(texto, /R\$ 399|R\$ 199/);
+  assert.match(texto, /Mês de inauguração: R\$ 399 no Pix ou 2x de R\$ 199, até 31\/10/);
+  assert.doesNotMatch(depois, /R\$ 399|R\$ 199/);
 });
 
 test("sem promessa de resultado, superlativo, 'de bairro', foto de lead nem caminho para o painel", () => {

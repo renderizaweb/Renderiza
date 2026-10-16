@@ -48,9 +48,9 @@ export default {
   passos: [
     ["A gente monta uma prévia", "Com as fotos do seu Instagram e as avaliações do Google. Ver não custa nada."],
     ["Você vê no celular", "Um vídeo curto e o link, só seus. Dá para mostrar a quem decide junto com você."],
-    ["Escolhe o pacote", "No Pix ou em 2x. Antes de ir para o ar, você pede os ajustes de texto e foto."],
-    ["Fica pronto em até 7 dias úteis", "Contados do pagamento, com o endereço do seu espaço, como seuespaco.com.br."],
-    ["Os acessos são seus", "Domínio e hospedagem no nome do espaço. Sem mensalidade e sem fidelidade."],
+    ["Ajusta com a gente", "Você diz o que mudar, e a gente ajusta até ficar com a cara do seu espaço."],
+    ["Escolhe o pacote", "No Pix ou em 2x. Em até 7 dias úteis, o site vai para o ar com o endereço do espaço, como seuespaco.com.br."],
+    ["Os acessos são seus", "Domínio e hospedagem no nome do espaço. Os pacotes de site não têm mensalidade."],
   ],
 
   // Pacotes: o Site é a base (preço do CONTEXTO.md); os outros dois são proposta de 16/10/2026, para o Kaue validar.
@@ -59,9 +59,11 @@ export default {
       id: "site",
       nome: "Site",
       para: "Para ter o espaço inteiro num link só.",
-      preco: { valor: "R$ 499", forma: "no Pix", parcela: "ou 2x de R$ 299" },
+      preco: { valor: "R$ 499", forma: "no Pix", parcela: "ou 2x de R$ 299 (R$ 598 no total)" },
+      // Mês de inauguração (CONTEXTO.md): o valor aparece com a data e some sozinho depois de 31/10.
+      inauguracao: "Mês de inauguração: R$ 399 no Pix ou 2x de R$ 199, até 31/10.",
       inclui: [
-        "Site completo com as suas fotos: o espaço, as festas e a estrutura",
+        "O site com as suas fotos: o espaço, as festas e a estrutura",
         "Consultar uma data: a mensagem chega pronta no seu WhatsApp",
         "Avaliações do Google, endereço, mapa e horário",
         "Kit de divulgação: textos para a bio, o Google e o pedido de avaliação",
@@ -75,16 +77,16 @@ export default {
       nome: "Site + campanhas",
       selo: "Recomendado para eventos",
       para: "Para quem vende data o ano inteiro.",
-      preco: { valor: "R$ 899", forma: "no Pix", parcela: "ou 2x de R$ 549" },
+      preco: { valor: "R$ 899", forma: "no Pix", parcela: "ou 2x de R$ 549 (R$ 1.098 no total)" },
       inclui: [
         "Tudo do Site",
-        "Pixel da Meta e Google Analytics cadastrados: você vê quantos chamaram pelo site",
-        "2 páginas de campanha nos primeiros 12 meses",
+        "Pixel da Meta e Google Analytics cadastrados: a gente conta quantas pessoas chamaram no WhatsApp pelo site, para você e para quem cuidar dos seus anúncios",
+        "2 páginas extras no seu site, cada uma para uma data especial, feitas quando você pedir, nos 12 meses depois de fechar",
       ],
       saberMais: {
-        resumo: "Como funcionam as páginas de campanha",
+        resumo: "Como funcionam as páginas extras",
         texto: [
-          "Chegou uma data forte? Um Réveillon, o Carnaval, o Dia das Mães ou a agenda de 2027 abrindo: você pede pelo WhatsApp, e a gente monta uma página só para aquela campanha, com as fotos certas, as datas e o botão de consultar.",
+          "Chegou uma data forte? Um Réveillon, o Carnaval, o Dia das Mães ou a agenda de 2027 abrindo: você pede pelo WhatsApp, e a gente monta, dentro do seu site, uma página só para aquela data, com as fotos certas, as datas livres e o botão de consultar. É uma página, não um anúncio: o link é seu para mandar e postar.",
           "Você tem 2 pedidos como esse nos 12 meses depois de fechar. A partir do terceiro, cada página é orçada à parte.",
         ],
         exemplos: ["Réveillon", "Carnaval", "Dia das Mães", "Festa junina", "Agenda 2027 aberta"],
@@ -96,18 +98,19 @@ export default {
       id: "anuncios",
       nome: "Site + anúncios",
       para: "Para quem quer anunciar no Instagram e no Facebook.",
-      preco: { valor: "R$ 1.490", forma: "por mês", parcela: "mais o Site + campanhas (R$ 899) e o valor dos anúncios" },
+      preco: { valor: "R$ 1.490", forma: "por mês", parcela: "por no mínimo 3 meses, mais o Site + campanhas (R$ 899, uma vez) e os anúncios, que você paga direto para a Meta" },
       inclui: [
         "Tudo do Site + campanhas",
         "Criação e gestão dos anúncios no Instagram e no Facebook",
         "Relatório todo mês: quanto foi investido e quantos chamaram",
-        "Mínimo de 3 meses",
+        "Mínimo de 3 meses; depois, mês a mês",
       ],
       saberMais: {
         resumo: "Como funciona o investimento nos anúncios",
         texto: [
           "O valor dos anúncios é pago direto para a Meta (dona do Instagram e do Facebook), no cartão do espaço. Ele não passa pela Renderiza: você vê cada centavo na sua conta.",
           "A gente sugere começar com R$ 30 por dia, cerca de R$ 900 por mês, e ajustar depois de ver os números. Os R$ 1.490 por mês são a criação e a gestão dos anúncios.",
+          "Na conta do 1º mês, com essa sugestão: R$ 899 do site (uma vez) + R$ 1.490 da gestão + cerca de R$ 900 de anúncios, pagos à Meta. Do 2º mês em diante: R$ 1.490 + os anúncios.",
           "Os anúncios usam as fotos e os vídeos que o espaço já tem ou manda: a gente não faz sessão de fotos.",
         ],
       },
@@ -115,13 +118,13 @@ export default {
       mensagem: "Oi! Vi como funciona o site para espaços de eventos e quero conversar sobre o pacote Site + anúncios.",
     },
   ],
-  pacotesNota: "Os pacotes Site e Site + campanhas são valor único, sem mensalidade. O domínio e a hospedagem ficam no nome do espaço e podem ter custos próprios.",
+  pacotesNota: "Site e Site + campanhas são valor único, sem mensalidade; o pacote com anúncios tem valor por mês. O domínio e a hospedagem ficam no nome do espaço e podem ter custos próprios: o domínio .com.br, por exemplo, é pago direto ao Registro.br, por ano.",
 
   perguntas: [
     ["Recebi uma prévia do site do meu espaço. O que é?", "Uma demonstração feita só para você, com o que o espaço já mostra em público: as fotos do Instagram e as avaliações do Google. O link não aparece no Google e sai do ar sozinho em 7 dias; se preferir, a gente tira antes. Para ver, você não passa nenhum dado nem paga nada."],
     ["Já tenho Instagram. Preciso de um site?", "O Instagram mostra a festa e continua importante. O site mostra o lugar: o espaço inteiro, a estrutura, as avaliações e a consulta de data, num link que vai na bio, no Google e no WhatsApp. E ainda leva para o seu Instagram."],
     ["Estou no casamentos.com.br. Vale a pena ter o site?", "Dá para manter os dois. No portal, o cliente pede orçamento por lá; no site, ele fala direto com você, e o link é seu para mandar a quem pedir."],
-    ["Quanto tempo leva para ficar pronto?", "Até 7 dias úteis depois do pagamento. A prévia já está quase toda pronta: o que falta são os seus ajustes e o endereço no nome do espaço."],
+    ["Quanto tempo leva para ficar pronto?", "Até 7 dias úteis depois do pagamento e dos seus ajustes. A prévia já está quase toda pronta: o que falta é o endereço no nome do espaço."],
     ["Tem mensalidade?", "Nos pacotes Site e Site + campanhas, não: é um valor único, no Pix ou em 2x. Só o pacote com anúncios tem valor por mês, porque os anúncios são cuidados todo mês."],
     ["O site fica no meu nome?", "Fica. O endereço, a hospedagem e os acessos são do espaço, não da Renderiza. Se um dia quiser que outra pessoa cuide do site, é só passar os acessos."],
     ["Vocês fazem tráfego pago?", "Fazemos, no pacote Site + anúncios: a gente cria e cuida dos anúncios no Instagram e no Facebook, e o valor investido é pago direto para a Meta, no cartão do espaço. Se você já tem quem cuide dos anúncios, o pacote Site + campanhas sai com o Pixel e o Google Analytics cadastrados para essa pessoa usar."],

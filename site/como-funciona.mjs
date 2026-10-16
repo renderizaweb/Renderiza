@@ -58,7 +58,7 @@ function ilustracao(il) {
 }
 
 /** Cartão de um pacote: nome, para quem, preço, o que inclui, o "saber mais" (se houver) e o botão. */
-function cartaoPacote(p, { temWa, contato }) {
+function cartaoPacote(p, { temWa, contato, emInauguracao }) {
   const destaque = Boolean(p.selo);
   const href = temWa ? linkWhatsapp(contato, p.mensagem) : "#contato";
   return `
@@ -68,6 +68,7 @@ function cartaoPacote(p, { temWa, contato }) {
           <p class="cf-pacote-para">${esc(p.para)}</p>
           <p class="cf-preco"><strong>${esc(p.preco.valor)}</strong><span>${esc(p.preco.forma)}</span></p>
           <p class="cf-parcela">${esc(p.preco.parcela)}</p>
+          ${p.inauguracao && emInauguracao ? `<p class="cf-pacote-inauguracao" data-ate="${INAUGURACAO.ate}">${ic("calendario", 15)}<span>${esc(p.inauguracao)}</span></p>` : ""}
           <ul class="cf-inclui">${p.inclui.map(item => `
             <li><span class="cf-marca">${icone("check", 12)}</span><span>${esc(item)}</span></li>`).join("")}
           </ul>
@@ -209,10 +210,9 @@ ${ilustracao(nicho.ilustracao)}
     <div class="envoltorio">
       <p class="sobretitulo">Pacotes</p>
       <h2 id="pacotes-titulo">Preço fechado. <em>Você escolhe até onde ir.</em></h2>
-      <p class="secao-lide">No Pix ou em 2x. Os pacotes de site são valor único, sem mensalidade.</p>
-      <ul class="cf-pacotes">${nicho.pacotes.map(p => cartaoPacote(p, { temWa, contato })).join("")}
+      <p class="secao-lide">Site e Site + campanhas: valor único, no Pix ou em 2x, sem mensalidade.</p>
+      <ul class="cf-pacotes">${nicho.pacotes.map(p => cartaoPacote(p, { temWa, contato, emInauguracao })).join("")}
       </ul>
-      ${emInauguracao ? `<p class="cf-inauguracao" data-ate="${INAUGURACAO.ate}">${ic("calendario", 18)}<span>Outubro é o mês de inauguração da Renderiza: até o dia 31, o pacote Site tem um valor especial. Pergunte na conversa.</span></p>` : ""}
       <p class="cf-pacotes-nota">${esc(nicho.pacotesNota)}</p>
     </div>
   </section>
