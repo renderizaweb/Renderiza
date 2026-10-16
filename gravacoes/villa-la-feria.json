@@ -59,7 +59,7 @@
   {
    "rolar": "#espaco-track",
    "alinhar": "topo",
-   "segura": 5.6,
+   "segura": 5.4,
    "acoes": [
     {
      "em": 0.5,
@@ -81,7 +81,7 @@
     }
    ],
    "legenda": "Vê o espaço inteiro *antes da visita.*",
-   "sub": "O jardim com mesas, o salão envidraçado, a área coberta e o buffet."
+   "sub": "O jardim com mesas, o salão, a área coberta e o buffet."
   },
   {
    "rolar": "#festas-track",

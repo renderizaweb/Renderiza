@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Onde | R. Comendador J. de Matos, 429 - Vila Clarice, São Paulo - SP, 05177-100 |
-| Instagram | [@mansaojaragua](https://www.instagram.com/mansaojaragua/) · 10,5 mil seguidores |
+| Instagram | [@mansaojaragua](https://www.instagram.com/mansaojaragua/) · 10,7 mil seguidores |
 | Google | nota 4,8 · 391 avaliações · conferido em 16/10/2026 |
 | WhatsApp | (11) 98749-0863 · o +55 11 98749-0863 é o celular do Perfil da Empresa no Google e o da bio do Instagram ("☎️wpp +55 11 98749-0863"). Uma legenda antiga usa (11) 99735-2034. |
 | Horário | Segunda a domingo 8h às 22h |

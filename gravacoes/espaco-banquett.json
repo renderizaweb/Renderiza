@@ -86,7 +86,7 @@
   {
    "rolar": "#festas-track",
    "alinhar": "topo",
-   "segura": 4.9,
+   "segura": 5.1,
    "acoes": [
     {
      "em": 0.5,
@@ -107,8 +107,8 @@
      "cartoes": 1
     }
    ],
-   "legenda": "E o que o buffet *já serviu ali.*",
-   "sub": "Doces, coquetel e drinks de festas que já aconteceram."
+   "legenda": "E o que *já foi servido ali.*",
+   "sub": "O coquetel do buffet da casa, doces e drinks de festas."
   },
   {
    "rolar": "#reviews-track",

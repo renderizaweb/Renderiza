@@ -81,12 +81,12 @@
     }
    ],
    "legenda": "Vê o espaço inteiro *antes da visita.*",
-   "sub": "O pergolado, a piscina, a estufa de vidro e a Sala da Noiva."
+   "sub": "A área da cerimônia, a piscina, o salão e a Sala da Noiva."
   },
   {
    "rolar": "#festas-track",
    "alinhar": "topo",
-   "segura": 4.9,
+   "segura": 4.6,
    "acoes": [
     {
      "em": 0.5,
@@ -108,7 +108,7 @@
     }
    ],
    "legenda": "E as festas que *já aconteceram ali.*",
-   "sub": "Casamentos e 15 anos de quem já comemorou na casa."
+   "sub": "Casamentos e eventos de quem já comemorou na casa."
   },
   {
    "rolar": "#reviews-track",

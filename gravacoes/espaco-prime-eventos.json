@@ -59,7 +59,7 @@
   {
    "rolar": "#espaco-track",
    "alinhar": "topo",
-   "segura": 5.1,
+   "segura": 5.4,
    "acoes": [
     {
      "em": 0.5,
@@ -81,7 +81,7 @@
     }
    ],
    "legenda": "Vê cada ambiente *antes da visita.*",
-   "sub": "A cerimônia ao ar livre, os camarins, o lustre e o bar."
+   "sub": "A cerimônia ao ar livre, os camarins, o lustre e o espaço gourmet."
   },
   {
    "rolar": "#festas-track",
@@ -108,7 +108,7 @@
     }
    ],
    "legenda": "E as festas que *já aconteceram ali.*",
-   "sub": "Casamentos e 15 anos que já passaram pelo Prime."
+   "sub": "Casamentos e editoriais de 15 anos feitos no Prime."
   },
   {
    "rolar": "#reviews-track",

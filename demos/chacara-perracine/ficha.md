@@ -27,5 +27,6 @@
 ## Conferir antes de mandar
 - Uma legenda fala que foram "enganados pelo homem, injustiçados pela justiça" (obra na quadra): não entrou na demo. Melhor não tocar no assunto.
 - A mulher de camiseta da chácara ao lado de uma noiva (post "Mais uma noiva perfeita!") pode ser a Márcia: não confirmei, por isso não usei a foto.
+- A piscina está nas fotos do Instagram e do Google, mas nenhuma legenda fala dela: vale confirmar se entra no aluguel.
 - Horário do Google: de segunda a sexta, das 9h às 17h; fechado no sábado e no domingo (atendimento).
 - Capacidade: não confirmei.

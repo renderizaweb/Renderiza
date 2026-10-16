@@ -24,7 +24,7 @@
  "marca_completa": "Mansão Jaraguá · Festas e Eventos",
  "logo_sub": "São Paulo · SP",
  "titulo": "Mansão Jaraguá | Casamentos e festas em São Paulo",
- "descricao": "Mansão Jaraguá, na R. Comendador J. de Matos, 429, na Vila Clarice, em São Paulo (SP): espaço para festas e eventos com salão, cerimônia ao ar livre, espaço da piscina com churrasqueira, cozinha para o buffet e estacionamento com valet. Casamentos, 15 anos e eventos de empresa.",
+ "descricao": "Mansão Jaraguá, na R. Comendador J. de Matos, 429, na Vila Clarice, em São Paulo (SP): espaço para festas e eventos com salão, cerimônia ao ar livre, espaço da piscina, churrasqueira, cozinha para o buffet e estacionamento com valet. Casamentos, 15 anos e eventos de empresa.",
  "comentario": "Demo Mansão Jaraguá: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@mansaojaragua, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
  "fonte": "Playfair Display",
  "cores": {
@@ -91,10 +91,10 @@
  ],
  "sobre": {
   "eyebrow": "Quem recebe",
-  "h2": "Os donos recebem <em>cada festa de perto.</em>",
+  "h2": "Os donos <em>atendem de perto.</em>",
   "p": [
-   "Na Vila Clarice, em São Paulo, a Mansão Jaraguá é um espaço para festas e eventos com salão, área externa para a cerimônia ao ar livre, espaço da piscina com churrasqueira e uma cozinha preparada para o buffet.",
-   "Os donos acompanham cada evento de perto, e nas avaliações os clientes elogiam a atenção da Sandra, da Lis e da Angelina. Na chegada, o estacionamento tem valet."
+   "Na Vila Clarice, em São Paulo, a Mansão Jaraguá é um espaço para festas e eventos com salão, área externa para a cerimônia ao ar livre, espaço da piscina, churrasqueira e uma cozinha preparada para o buffet.",
+   "Os donos cuidam do atendimento, e numa avaliação uma cliente elogia a atenção da Sandra, da Lis e da Angelina. Na chegada, o estacionamento tem valet."
   ],
   "stats": [
    [
@@ -102,7 +102,7 @@
     "avaliações no Google"
    ],
    [
-    "10,5 mil",
+    "10,7 mil",
     "seguidores no Instagram"
    ]
   ],
@@ -284,7 +284,7 @@
    "Mande a data e o tipo de festa pelo WhatsApp",
    "Agende uma visita à Mansão Jaraguá",
    "Escolha: cerimônia no salão ou ao ar livre",
-   "No dia, os donos e a equipe acompanham tudo"
+   "No dia, a equipe acompanha o evento"
   ],
   "botao": "Consultar uma data",
   "foto": {
@@ -332,7 +332,7 @@
   }
  ],
  "insta": {
-  "seguidores": "10,5 mil seguidores",
+  "seguidores": "10,7 mil seguidores",
   "p": "Noivas, festas e os ambientes da Mansão.",
   "foto": {
    "id": 27

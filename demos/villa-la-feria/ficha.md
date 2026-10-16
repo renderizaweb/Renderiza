@@ -13,7 +13,7 @@
 
 ## Direção da demo
 - Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Espaço de eventos em Sorocaba "integrado à natureza", com "festas completas com buffet próprio" (bio); casamentos, 15 anos, aniversários e muitas festas infantis. Nota 4,8 com 314 avaliações (a demo mostra o total, não a nota).
-- Donos: "O casal Carol e Gabriel e sua equipe" (avaliação do Google, de 3 anos atrás). O espaço já se chamou Chácara/Espaço La Feria (@espacolaferia nas legendas antigas).
+- Quem recebe: "O casal Carol e Gabriel e sua equipe" (avaliação do Google, de 3 anos atrás); uma legenda chama a Carol de "a alma, a mente, o coração do La Feria". Não confirmei que são os donos. O espaço já se chamou Chácara/Espaço La Feria (@espacolaferia nas legendas antigas).
 
 ## O que tem na demo
 - Gerada por ferramentas/demo/gerar-eventos.py no estilo "gala": topo em tela cheia com a mesa do bolo sob as folhagens, quem recebe (Carol e Gabriel), o espaço (8 fotos, 4 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.

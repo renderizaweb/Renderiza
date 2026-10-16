@@ -96,7 +96,7 @@
   "h2": "Uma casa <em>com nome e sobrenome.</em>",
   "p": [
    "No Parque São Martinho, em Mogi das Cruzes, a Casa Samanta Fonseca reúne espaço para a cerimônia ao ar livre, salão coberto para 200 pessoas, piscina, Sala da Noiva e quartos para hospedagem.",
-   "Samanta Fonseca já fazia festas e decoração em Mogi antes de abrir a casa. Hoje o casamento pode ser feito aqui do começo ao fim: decoração, maquiagem da noiva, foto e vídeo."
+   "A casa oferece casamento completo, com pacote que inclui a maquiagem da noiva, fotografia e filmagem."
   ],
   "stats": [
    [
@@ -117,17 +117,17 @@
   },
   "alt": "Caminho de pedra até o pergolado, com jardim dos dois lados",
   "pol": {
-   "id": 3
+   "id": 30
   },
-  "pol_alt": "Noivos cortando o bolo, com flores e doces na mesa",
+  "pol_alt": "Noiva na janela de madeira",
   "pol_cap": "Casamento"
  },
  "carrosseis": [
   {
    "id": "espaco",
    "eyebrow": "O espaço",
-   "h2": "Jardim, estufa <em>e salão.</em>",
-   "p": "O pergolado, a piscina, a estufa de vidro e o salão. Peça mais fotos pelo WhatsApp.",
+   "h2": "Jardim, piscina <em>e salão.</em>",
+   "p": "A área da cerimônia, a piscina, a Sala da Noiva e o salão. Peça mais fotos pelo WhatsApp.",
    "rotulo": "Fotos do espaço da Casa Samanta Fonseca",
    "formato": "retrato",
    "itens": [
@@ -147,7 +147,7 @@
      "foto": {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g00.jpg"
      },
-     "alt": "Estufa coberta com plantas e mesas brancas"
+     "alt": "Área com cobertura de vidro, plantas e mesas brancas"
     },
     {
      "foto": {
@@ -159,7 +159,7 @@
      "foto": {
       "id": 17
      },
-     "alt": "A estufa iluminada à noite, entre as árvores"
+     "alt": "A área coberta iluminada à noite, entre as árvores"
     },
     {
      "foto": {
@@ -185,23 +185,16 @@
    "id": "festas",
    "eyebrow": "Festas reais",
    "h2": "Já aconteceu <em>aqui.</em>",
-   "p": "Casamentos e 15 anos de quem já comemorou na Casa Samanta Fonseca.",
+   "p": "Casamentos e eventos de quem já comemorou na Casa Samanta Fonseca.",
    "rotulo": "Festas que aconteceram na Casa Samanta Fonseca",
    "formato": "retrato",
    "itens": [
     {
      "foto": {
-      "id": 37
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g07.jpg"
      },
-     "alt": "Jantar dos convidados na estufa, com lustres de cristal",
-     "cap": "Casamento"
-    },
-    {
-     "foto": {
-      "id": 2
-     },
-     "alt": "Noivos saindo sob chuva de pétalas",
-     "cap": "Casamento"
+     "alt": "Mesa do bolo branca com flores e malas antigas",
+     "cap": "Decoração"
     },
     {
      "foto": {
@@ -212,31 +205,17 @@
     },
     {
      "foto": {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g07.jpg"
+      "id": 37
      },
-     "alt": "Mesa do bolo branca com flores e malas antigas",
-     "cap": "Decoração"
+     "alt": "Jantar dos convidados sob a cobertura de vidro, com lustres de cristal",
+     "cap": "Evento"
     },
     {
      "foto": {
-      "id": 6
+      "id": 25
      },
-     "alt": "Decoração de 15 anos em rosa, dourado e branco",
-     "cap": "15 anos"
-    },
-    {
-     "foto": {
-      "id": 4
-     },
-     "alt": "Painel em arco com sofá branco para fotos",
-     "cap": "Backdrop"
-    },
-    {
-     "foto": {
-      "id": 1
-     },
-     "alt": "Mesa posta com taças, com a piscina ao fundo",
-     "cap": "Recepção"
+     "alt": "Noiva diante da parede de árvore dourada da Sala da Noiva",
+     "cap": "A noiva"
     },
     {
      "foto": {
@@ -244,6 +223,13 @@
      },
      "alt": "Salão com varal de luzes e mesas montadas à noite",
      "cap": "Festa"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g06.jpg"
+     },
+     "alt": "Mesa de doces iluminada à noite",
+     "cap": "Doces"
     }
    ]
   }
@@ -285,18 +271,18 @@
   "passos": [
    "Mande a data e o tipo de festa pelo WhatsApp",
    "Venha conhecer a casa em Mogi das Cruzes",
-   "Escolha decoração, maquiagem, foto e vídeo",
-   "No dia, é só chegar e celebrar"
+   "Escolha o pacote com maquiagem, foto e vídeo",
+   "No dia, a festa é sua"
   ],
   "botao": "Consultar uma data",
   "foto": {
-   "id": 25,
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g05.jpg",
    "c": [
     0.5,
-    0.35
+    0.5
    ]
   },
-  "alt": "Noiva sentada diante da parede de árvore dourada"
+  "alt": "Mesa posta com taças e guardanapos"
  },
  "avaliacoes_secao": {
   "h2": "Quem esteve <em>aqui conta.</em>"
@@ -335,11 +321,11 @@
  ],
  "insta": {
   "seguidores": "11,9 mil seguidores",
-  "p": "Casamentos, noivas e bastidores, toda semana.",
+  "p": "Casamentos, noivas e os bastidores da casa.",
   "foto": {
-   "id": 30
+   "id": 29
   },
-  "alt": "Noiva na janela de madeira",
+  "alt": "Decoração com capim dos pampas no deck, num casamento",
   "chip": "Consulte sua data"
  },
  "consulta": {
@@ -376,12 +362,12 @@
    "Samanta Fonseca aparece nos vídeos e dá nome à casa; antes já postava festas e decoração como \"Samanta Fonseca - Festas e Eventos\" (post de 2024). Não confirmei pelo Google que ela é a dona."
   ],
   "demo": [
-   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a noiva no jardim, a casa, o espaço (8 fotos, 2 do Google), festas reais (8, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a noiva no jardim, a casa, o espaço (8 fotos, 2 do Google), festas reais (6, 3 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
    "Cores: marrom-escuro e rosé dourado. Títulos em Cormorant Garamond."
   ],
   "fotos": [
    "Drive (página do Instagram salva) e Perfil da Empresa no Google (estufa, arco de folhagens, mesa do bolo, salão com luzes).",
-   "Ficaram de fora: os vídeos com texto por cima (\"comente eu quero\", \"50% OFF\"), as fotos de maquiagem e produtos e as panorâmicas 360 do Google."
+   "Ficaram de fora as fotos de festa e de decoração sem o local na legenda (o perfil já postou evento feito em outro espaço, o @sitio_nhachica), os vídeos com texto por cima (\"comente eu quero\", \"50% OFF\"), as fotos de maquiagem e produtos e as panorâmicas 360 do Google."
   ],
   "conferir": [
    "As legendas falam em pacotes, condições especiais e \"50% OFF\": nada disso entrou na demo.",

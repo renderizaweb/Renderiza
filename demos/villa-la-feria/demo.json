@@ -126,7 +126,7 @@
    "id": "espaco",
    "eyebrow": "O espaço",
    "h2": "Área verde, <em>área coberta.</em>",
-   "p": "O jardim com mesas, o salão envidraçado, a área coberta e o buffet. Peça mais fotos pelo WhatsApp.",
+   "p": "O jardim com mesas, o salão, a área coberta e o buffet. Peça mais fotos pelo WhatsApp.",
    "rotulo": "Fotos do espaço da Villa La Feria",
    "formato": "retrato",
    "itens": [
@@ -146,7 +146,7 @@
      "foto": {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g09.jpg"
      },
-     "alt": "Salão envidraçado com a decoração de aniversário montada"
+     "alt": "Salão com a decoração de aniversário montada"
     },
     {
      "foto": {
@@ -285,7 +285,7 @@
    "Mande a data e o tipo de festa pelo WhatsApp",
    "Venha conhecer o espaço em Sorocaba",
    "Escolha o cardápio do buffet e a decoração",
-   "No dia, Carol, Gabriel e a equipe cuidam de tudo"
+   "No dia, a equipe recebe você e os convidados"
   ],
   "botao": "Consultar uma data",
   "foto": {
@@ -303,7 +303,7 @@
  "avaliacoes": [
   {
    "nome": "Marcelo Campos",
-   "tag": "Os donos",
+   "tag": "Quem recebe",
    "trecho": "O casal Carol e Gabriel e sua equipe recepcionam e cuidam dos detalhes sempre com muita atenção pra que tudo transcorra como planejado."
   },
   {
@@ -334,7 +334,7 @@
  ],
  "insta": {
   "seguidores": "24 mil seguidores",
-  "p": "Festas de todo fim de semana, do casamento ao 1 aninho.",
+  "p": "Casamentos, 15 anos e festas de 1 aninho no espaço.",
   "foto": {
    "id": 36
   },
@@ -373,7 +373,7 @@
   "site": "não tem (o Google aponta para o Instagram; não achei página no casamentos.com.br)",
   "direcao": [
    "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Espaço de eventos em Sorocaba \"integrado à natureza\", com \"festas completas com buffet próprio\" (bio); casamentos, 15 anos, aniversários e muitas festas infantis. Nota 4,8 com 314 avaliações (a demo mostra o total, não a nota).",
-   "Donos: \"O casal Carol e Gabriel e sua equipe\" (avaliação do Google, de 3 anos atrás). O espaço já se chamou Chácara/Espaço La Feria (@espacolaferia nas legendas antigas)."
+   "Quem recebe: \"O casal Carol e Gabriel e sua equipe\" (avaliação do Google, de 3 anos atrás); uma legenda chama a Carol de \"a alma, a mente, o coração do La Feria\". Não confirmei que são os donos. O espaço já se chamou Chácara/Espaço La Feria (@espacolaferia nas legendas antigas)."
   ],
   "demo": [
    "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a mesa do bolo sob as folhagens, quem recebe (Carol e Gabriel), o espaço (8 fotos, 4 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",

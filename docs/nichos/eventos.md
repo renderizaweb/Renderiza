@@ -536,5 +536,11 @@ zoom lento em CSS (`ev-kb`), que o gravador avança quadro a quadro. Vale para a
 - **Instagram salvo pode ser antigo:** Prime (obra de 2021), Banquett (inauguração de 2022) e Império (2019). Quando o
   grid salvo é velho, as fotos do Google seguram a demo; vale pedir fotos recentes ao dono.
 - **Arte de fornecedor não é foto do espaço.** Espaço que faz workshop posta o portfólio dos parceiros.
+- **Conferência frase a frase antes de subir** (cinco conferentes, cada um com a bio, as legendas e as avaliações de
+  três demos): saíram generalizações ("os donos acompanham cada festa" a partir de uma avaliação), promessas no último
+  passo do "Como reservar" ("cuidam de tudo", "é só chegar"), serviço de fornecedor como se fosse da casa (welcome
+  drink, drinks, doces), "toda semana" no Instagram, a origem do nome do Poço e fotos de festa sem o local na legenda
+  (Casa Samanta Fonseca, que já postou festa feita em outro espaço). O que só aparece nas fotos do próprio espaço
+  (pergolado, lustre, mezanino) ficou; piscina só em foto vai para a ficha.
 - **Avaliação de cliente não vira dado do espaço:** capacidade citada só numa avaliação (Mirante, "mais de 300") fica
   como fala do cliente, e a dúvida vai para a ficha.

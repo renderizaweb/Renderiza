@@ -125,7 +125,7 @@
    "id": "espaco",
    "eyebrow": "Ambientes",
    "h2": "Cada canto <em>pensado para a festa.</em>",
-   "p": "A cerimônia ao ar livre, os camarins, o lustre e o bar. Peça mais fotos pelo WhatsApp.",
+   "p": "A cerimônia ao ar livre, os camarins, o lustre e o espaço gourmet. Peça mais fotos pelo WhatsApp.",
    "rotulo": "Ambientes do Espaço Prime",
    "formato": "retrato",
    "itens": [
@@ -177,7 +177,7 @@
    "id": "festas",
    "eyebrow": "Festas reais",
    "h2": "Já aconteceu <em>aqui.</em>",
-   "p": "Casamentos e 15 anos que já passaram pelo Espaço Prime.",
+   "p": "Casamentos que já passaram pelo Espaço Prime e editoriais de 15 anos feitos no salão.",
    "rotulo": "Festas que aconteceram no Espaço Prime",
    "formato": "retrato",
    "itens": [
@@ -200,7 +200,7 @@
       "id": 34
      },
      "alt": "Debutante de vestido preto na escada iluminada",
-     "cap": "15 anos"
+     "cap": "Editorial 15 anos"
     },
     {
      "foto": {
@@ -214,7 +214,7 @@
       "id": 10
      },
      "alt": "Debutante de vestido dourado no mezanino",
-     "cap": "15 anos"
+     "cap": "Editorial 15 anos"
     },
     {
      "foto": {
@@ -228,7 +228,7 @@
       "id": 12
      },
      "alt": "Debutante de vestido rosa diante da fachada",
-     "cap": "15 anos"
+     "cap": "Editorial 15 anos"
     }
    ]
   }
@@ -271,7 +271,7 @@
    "Mande a data e o tipo de festa pelo WhatsApp",
    "Agende uma visita ao espaço em Hortolândia",
    "Conheça o salão, os camarins e a cozinha",
-   "No dia, é só se arrumar no camarim e descer a escada"
+   "No dia, a noiva se arruma no camarim do próprio espaço"
   ],
   "botao": "Consultar uma data",
   "foto": {
@@ -334,9 +334,6 @@
    "Casamento",
    "15 anos",
    "Aniversário",
-   "Formatura",
-   "Confraternização",
-   "Evento da empresa",
    "Outra festa"
   ],
   "mensagem_inicio": "Olá! Vim pelo site do Espaço Prime e queria consultar uma data."

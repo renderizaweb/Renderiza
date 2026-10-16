@@ -24,7 +24,7 @@
  "marca_completa": "Casa Le Charme · Exclusive Weddings",
  "logo_sub": "Itapecerica da Serra · SP",
  "titulo": "Casa Le Charme | Casamentos em Itapecerica da Serra",
- "descricao": "Casa Le Charme, na R. Elza da Silva Andrade, 05, no Jardim Europa, em Itapecerica da Serra (SP): casa de arquitetura contemporânea cercada de natureza, para casamentos de até 100 pessoas, com cerimônia ao ar livre e welcome drink no jardim.",
+ "descricao": "Casa Le Charme, na R. Elza da Silva Andrade, 05, no Jardim Europa, em Itapecerica da Serra (SP): casa de arquitetura contemporânea cercada de natureza, para casamentos de até 100 pessoas, com cerimônia ao ar livre e coquetel no jardim.",
  "comentario": "Demo Casa Le Charme: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da casa (@casalecharme, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
  "fonte": "Playfair Display",
  "cores": {
@@ -62,7 +62,7 @@
  "hero": {
   "eyebrow": "Casamentos em Itapecerica da Serra",
   "h1": "Arquitetura <em>cercada de verde.</em>",
-  "intro": "Casamentos para até 100 pessoas numa casa com portas de 6 metros abertas para o jardim, cerimônia ao ar livre e welcome drink entre as plantas.",
+  "intro": "Casamentos para até 100 pessoas numa casa com portas de 6 metros abertas para o jardim, cerimônia ao ar livre e coquetel no jardim.",
   "selo": "Orçamento pelo WhatsApp",
   "link": "Ver os ambientes",
   "alvo": "espaco",
@@ -83,14 +83,14 @@
  "marquee": [
   "Exclusive weddings",
   "Cerimônia ao ar livre",
-  "Welcome drink",
-  "Mini wedding",
+  "Coquetel no jardim",
+  "Arquitetura contemporânea",
   "Até 100 convidados",
   "Itapecerica da Serra"
  ],
  "sobre": {
   "eyebrow": "A casa",
-  "h2": "Concreto, vidro <em>e muito verde.</em>",
+  "h2": "Design contemporâneo <em>aliado à natureza.</em>",
   "p": [
    "No Jardim Europa, em Itapecerica da Serra, a Casa Le Charme une arquitetura e design contemporâneos à natureza. As portas de 6 metros de altura trazem o jardim para dentro, e a cerimônia acontece ao ar livre.",
    "É feita para casamentos de até 100 pessoas. Da primeira visita ao grande dia, quem acompanha os noivos é o Renan, com a Val e a equipe, que também indicam fornecedores."
@@ -128,7 +128,7 @@
    "id": "espaco",
    "eyebrow": "Ambientes",
    "h2": "A casa, o jardim <em>e a cerimônia.</em>",
-   "p": "A fachada, a piscina entre as palmeiras, o corredor da cerimônia e o welcome drink. Peça mais fotos pelo WhatsApp.",
+   "p": "A fachada, o jardim, o corredor da cerimônia e o coquetel. Peça mais fotos pelo WhatsApp.",
    "rotulo": "Ambientes da Casa Le Charme",
    "formato": "retrato",
    "itens": [
@@ -160,7 +160,7 @@
      "foto": {
       "id": 2
      },
-     "alt": "Mesa de welcome drink com pães e taças no jardim"
+     "alt": "Mesa de coquetel com pães e taças no jardim"
     },
     {
      "foto": {
@@ -268,7 +268,7 @@
    ],
    [
     "bar",
-    "Welcome drink no jardim"
+    "Jardim para o coquetel"
    ],
    [
     "pessoas",
@@ -287,7 +287,7 @@
    "Mande a data e o número de convidados pelo WhatsApp",
    "Agende uma visita à casa em Itapecerica",
    "Monte a equipe com as indicações de fornecedores",
-   "No dia, o Renan e a equipe acompanham tudo"
+   "No dia, a equipe da casa acompanha o evento"
   ],
   "botao": "Consultar uma data",
   "foto": {

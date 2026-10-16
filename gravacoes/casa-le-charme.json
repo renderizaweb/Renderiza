@@ -59,7 +59,7 @@
   {
    "rolar": "#espaco-track",
    "alinhar": "topo",
-   "segura": 4.9,
+   "segura": 4.6,
    "acoes": [
     {
      "em": 0.5,
@@ -81,7 +81,7 @@
     }
    ],
    "legenda": "Vê cada ambiente *de perto.*",
-   "sub": "A fachada, a piscina, o corredor da cerimônia e o welcome drink."
+   "sub": "A fachada, o jardim, o corredor da cerimônia e o coquetel."
   },
   {
    "rolar": "#festas-track",

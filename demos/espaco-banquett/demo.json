@@ -43,7 +43,7 @@
   ],
   [
    "#festas",
-   "Buffet"
+   "Festas"
   ],
   [
    "#estrutura",
@@ -83,7 +83,7 @@
  "marquee": [
   "Aniversários",
   "Casamentos intimistas",
-  "15 anos",
+  "Reuniões",
   "Eventos de empresa",
   "Buffet da casa",
   "Até 85 convidados",
@@ -94,7 +94,7 @@
   "h2": "Marcela e Paulinho <em>recebem como em casa.</em>",
   "p": [
    "Na Ponte Grande, em Mogi das Cruzes, o Espaço Banquett é um salão aconchegante, com mobília moderna, parede de boiserie verde, tijolinhos e lounge na entrada, para até 85 convidados.",
-   "O espaço trabalha com o Banquett Buffet, que planeja o cardápio e pode cuidar também da decoração. Quem recebe são os proprietários, Marcela e Paulinho: nas avaliações, os clientes contam que se sentiram em casa."
+   "O espaço trabalha com o Banquett Buffet, que planeja o cardápio e pode cuidar também da decoração. Quem recebe são os proprietários, Marcela e Paulinho: numa das avaliações, quem fez a festa conta que se sentiu em casa."
   ],
   "stats": [
    [
@@ -173,9 +173,9 @@
   },
   {
    "id": "festas",
-   "eyebrow": "Do buffet da casa",
+   "eyebrow": "Festas reais",
    "h2": "Já foi servido <em>aqui.</em>",
-   "p": "Doces, coquetel e drinks de festas que já aconteceram no Banquett.",
+   "p": "O coquetel do buffet da casa, doces e drinks de festas que já aconteceram no Banquett.",
    "rotulo": "Buffet e festas do Espaço Banquett",
    "formato": "retrato",
    "itens": [
@@ -276,7 +276,7 @@
    "Mande a data e o tipo de festa pelo WhatsApp",
    "Venha conhecer o salão em Mogi das Cruzes",
    "Escolha o cardápio do buffet e a decoração",
-   "No dia, Marcela e Paulinho recebem você"
+   "No dia, a equipe do Banquett recebe seus convidados"
   ],
   "botao": "Consultar uma data",
   "foto": {
@@ -338,8 +338,6 @@
   "tipos": [
    "Aniversário",
    "Casamento",
-   "15 anos",
-   "Chá de bebê",
    "Evento da empresa",
    "Reunião",
    "Outra festa"

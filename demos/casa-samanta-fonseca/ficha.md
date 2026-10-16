@@ -16,12 +16,12 @@
 - Samanta Fonseca aparece nos vídeos e dá nome à casa; antes já postava festas e decoração como "Samanta Fonseca - Festas e Eventos" (post de 2024). Não confirmei pelo Google que ela é a dona.
 
 ## O que tem na demo
-- Gerada por ferramentas/demo/gerar-eventos.py no estilo "gala": topo em tela cheia com a noiva no jardim, a casa, o espaço (8 fotos, 2 do Google), festas reais (8, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.
+- Gerada por ferramentas/demo/gerar-eventos.py no estilo "gala": topo em tela cheia com a noiva no jardim, a casa, o espaço (8 fotos, 2 do Google), festas reais (6, 3 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.
 - Cores: marrom-escuro e rosé dourado. Títulos em Cormorant Garamond.
 
 ## Fotos
 - Drive (página do Instagram salva) e Perfil da Empresa no Google (estufa, arco de folhagens, mesa do bolo, salão com luzes).
-- Ficaram de fora: os vídeos com texto por cima ("comente eu quero", "50% OFF"), as fotos de maquiagem e produtos e as panorâmicas 360 do Google.
+- Ficaram de fora as fotos de festa e de decoração sem o local na legenda (o perfil já postou evento feito em outro espaço, o @sitio_nhachica), os vídeos com texto por cima ("comente eu quero", "50% OFF"), as fotos de maquiagem e produtos e as panorâmicas 360 do Google.
 
 ## Conferir antes de mandar
 - As legendas falam em pacotes, condições especiais e "50% OFF": nada disso entrou na demo.
