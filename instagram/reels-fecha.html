@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: seu negócio fecha, o site não</title>
+<!-- Reels do Instagram (1080 × 1920, 40 s = 20 compassos a 120 BPM), sem voz: só imagem, texto e a trilha pulsante
+     (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso" e pelo "bpm" do preparar()). A grade fica ancorada no
+     drop (23 s): todos os cortes caem em múltiplos de 0,5 s.
+     A noite depois que o negócio fecha. A Lume fecha às 19h; às 23h40 uma cliente finalmente procura, acha a Lume
+     ("Fechado · Abre amanhã às 9h"), vê o site e quer marcar. Pelo WhatsApp, a resposta ficaria para amanhã; com a Agenda
+     online (adicional do site) ela escolhe um horário livre e o compromisso cai direto na agenda do Google da dona, que
+     acorda às 7h com o sábado marcado. O relógio é o herói e anda o vídeo inteiro: 19:00, a noite, 07:00 e 19:00 de
+     novo no fim (o Reels repete em loop). Carla é fictícia (só nome e inicial); a Lume Estética é fictícia e aparece
+     sempre com o selo "exemplo". Tom (Kaue, 15/10/2026): seco e realista, um trocadilho só ("fica pra amanhã" →
+     "não fica"). Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e;--vermelho:#c0362c}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#101517}
+.reels{position:relative;width:1080px;height:1920px;background:#101517;overflow:hidden}
+.camada{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.oculto{visibility:hidden}
+
+/* a noite: grafite quase preto, com um degradê sutil; o "poente" é o resto de luz das 19h, que some até 23h40 */
+.ceu{position:absolute;inset:0;background:radial-gradient(130% 75% at 50% 24%,#212a2d 0%,#161c1e 48%,#0c1012 100%)}
+.poente{position:absolute;inset:0;background:radial-gradient(120% 42% at 50% 108%,rgba(178,81,52,.20) 0%,rgba(178,81,52,.06) 48%,rgba(178,81,52,0) 76%)}
+.breu{position:absolute;inset:0;background:#05080a;opacity:0}
+/* a manhã: o dia amanheceu */
+.dia-claro{position:absolute;inset:0;background:radial-gradient(120% 62% at 50% 0%,#fbf4ec 0%,#f1eee9 56%,#e6e1d9 100%)}
+
+/* marca pequena no topo, no eixo dos textos (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:60}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo.claro .marca{color:var(--escuro)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* relógio: cada algarismo numa casa com a largura dele (o espaçamento natural da fonte); a troca é seca, no tempo da
+   batida, e o relógio inteiro dá um tranco */
+.relogio{display:flex;justify-content:center;align-items:flex-start;font-weight:700;line-height:1;letter-spacing:0;white-space:nowrap}
+.relogio .slot{display:block;flex:none;height:.84em;overflow:hidden;text-align:center}
+.relogio .fita{display:flex;flex-direction:column;transform:translateY(-.075em)}
+.relogio .fita b{display:block;height:1em;font-weight:inherit}
+.relogio .dois{display:block;flex:none;height:.84em;text-align:center;transform:translateY(-.12em)}
+#rel{position:absolute;left:80px;width:860px;top:542px;font-size:300px;color:var(--fundo);z-index:20;transform-origin:50% 50%}
+
+/* carimbo de hora (o relógio encolhido) */
+.pilula{position:absolute;left:80px;width:860px;top:232px;height:88px;display:flex;justify-content:center;z-index:25;transform-origin:50% 50%}
+.capsula{position:relative;display:flex;align-items:center;gap:16px;height:88px;padding:0 38px 0 30px}
+.capsula .fundo-p{position:absolute;inset:0;border-radius:999px;background:#242c2f;box-shadow:inset 0 0 0 2px #333d41}
+.capsula svg{position:relative;width:40px;height:40px;color:var(--terracota-clara)}
+.capsula .relogio{position:relative;font-size:56px;color:var(--fundo)}
+
+/* texto solto */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom{color:var(--terracota-clara)}
+#a1{top:900px;font-size:92px}
+#a2{top:1146px;font-size:120px;color:var(--terracota-clara)}
+#g1{top:912px;font-size:80px}
+#n1{top:918px;font-size:110px}
+#w1{top:1128px;font-size:68px;line-height:1.08}
+#m1{top:268px;font-size:78px;line-height:1.06}
+#s1{top:262px;font-size:72px}
+#f1{top:650px;font-size:116px}
+#f2{top:930px;font-size:116px;color:var(--terracota-clara)}
+.txt.claro{color:var(--escuro)}
+.txt.claro .tom{color:var(--terracota)}
+#d1{top:1040px;font-size:80px}
+#d2{top:1140px;font-size:80px}
+
+/* celular da cliente */
+#cel{left:150px;top:360px;width:720px;height:1440px;z-index:12;transform-origin:50% 35%;box-shadow:0 0 0 2px #2d3639,0 40px 90px rgba(0,0,0,.55)}
+.tela .pg{position:absolute;inset:0;overflow:hidden}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
+.barra-cel .sinais{display:flex;gap:10px;align-items:center;color:#111}
+.barra-cel .sinais svg{height:22px}
+.sombra-pg{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+
+/* (a) a busca: barra genérica, sem logo de buscador */
+.bs{background:#fff}
+.bs-barra{position:absolute;left:26px;right:26px;top:104px;height:104px;border-radius:52px;background:#f3f1ee;box-shadow:inset 0 0 0 2px #e6e2dc;display:flex;align-items:center;gap:20px;padding:0 30px;white-space:nowrap;overflow:hidden}
+.bs-barra svg{flex:none;width:40px;height:40px;color:#5b6467}
+.bs-q{font-size:38px;letter-spacing:-.01em;color:#1e2528}
+.bs-ph{color:#899194}
+.bs-cursor{display:inline-block;width:3px;height:46px;background:var(--terracota);margin-left:2px;vertical-align:-9px}
+.bs-carga{position:absolute;left:60px;right:60px;top:222px;height:6px;border-radius:3px;overflow:hidden;background:#f1eee9}
+.bs-carga i{display:block;height:100%;width:0;background:var(--terracota)}
+.bs-card{position:absolute;left:26px;right:26px;top:250px;padding:26px 28px 30px;border-radius:36px;background:#fff;box-shadow:0 0 0 2px #ebe7e1,0 18px 40px rgba(30,37,40,.10)}
+.bs-fotos{display:flex;gap:10px;height:168px}
+.bs-fotos img{flex:1;min-width:0;height:168px;object-fit:cover;border-radius:18px}
+.bs-nome{display:block;margin-top:24px;font-size:52px;font-weight:650;letter-spacing:-.03em;color:#1e2528;line-height:1.1}
+.bs-av{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:34px;color:#5b6467;letter-spacing:-.005em}
+.bs-estrelas{display:inline-flex;gap:2px;color:#ef9f27}
+.bs-estrelas svg{width:34px;height:34px}
+.bs-hor{margin-top:8px;font-size:34px;color:#5b6467;letter-spacing:-.005em;transform-origin:0 50%}
+.bs-hor b{font-weight:600;color:var(--vermelho)}
+.bs-botoes{display:flex;gap:16px;margin-top:26px}
+.bs-btn{flex:1;height:88px;border-radius:44px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:36px;font-weight:600;letter-spacing:-.01em;color:#1e2528;box-shadow:inset 0 0 0 2px #d9d4cc;background:#fff}
+.bs-btn svg{width:38px;height:38px;color:var(--terracota)}
+.bs-outro{position:absolute;left:26px;right:26px;display:flex;gap:24px;align-items:center;padding:0 28px}
+.bs-outro i{flex:none;width:116px;height:116px;border-radius:18px;background:#f0f1f1}
+.bs-outro div{flex:1}
+.bs-outro .sk{display:block;height:16px;border-radius:8px;background:#eff0f0;margin:16px 0}
+
+/* (b) o site de exemplo */
+.tela .site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+
+/* (c) a Agenda online, no estilo do site da Lume (Fraunces, DM Sans, cores .lume) */
+.ag{background:#fbf7f3;color:#3a2c26;font-family:"DM Sans",system-ui,sans-serif}
+.ag-topo{position:absolute;left:0;right:0;top:78px;height:106px;padding:0 38px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #efe5dd}
+.ag-logo{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:44px;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px}
+.ag-logo small{font-family:"DM Sans",sans-serif;font-size:20px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#7b6a62}
+.ag-menu{position:relative;width:38px;height:24px;border-top:3px solid #3a2c26;border-bottom:3px solid #3a2c26}
+.ag-menu::after{content:"";position:absolute;left:0;right:0;top:7.5px;border-top:3px solid #3a2c26}
+.ag-corpo{position:absolute;left:38px;right:38px;top:232px}
+.ag-tag{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 24px 0 18px;border-radius:999px;background:#f1e4db;color:#8c5843;font-size:28px;font-weight:600;letter-spacing:.005em}
+.ag-tag svg{width:28px;height:28px}
+.ag-tit{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:72px;line-height:1.05;letter-spacing:-.02em;margin:26px 0 40px}
+.ag-dias{display:flex;gap:14px}
+.dia{flex:1;height:150px;border-radius:26px;background:#fff;box-shadow:inset 0 0 0 2px #eadfd6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transform-origin:50% 50%}
+.dia small{font-size:30px;font-weight:500;color:#7b6a62}
+.dia b{font-size:50px;font-weight:700;line-height:1.05}
+.dia.off{background:transparent;box-shadow:inset 0 0 0 2px #f0e7e0}
+.dia.off small,.dia.off b{color:#cbbdb4}
+.ag-horas{display:flex;gap:14px;margin-top:22px}
+.hora{flex:1;height:112px;border-radius:24px;background:#fff;box-shadow:inset 0 0 0 2px #eadfd6;display:grid;place-items:center;font-size:44px;font-weight:600;letter-spacing:-.01em;transform-origin:50% 50%}
+.ag-btn{margin-top:48px;height:122px;border-radius:61px;display:grid;place-items:center;font-size:46px;font-weight:700;letter-spacing:-.01em;transform-origin:50% 50%}
+/* a confirmação */
+.ok-corpo{position:absolute;left:38px;right:38px;top:262px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ok-check{width:184px;height:184px;border-radius:50%;background:#b6806a;color:#fff;display:grid;place-items:center;transform-origin:50% 50%}
+.ok-check svg{width:112px;height:112px}
+.ok-tit{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:80px;letter-spacing:-.02em;line-height:1.05;margin-top:46px}
+.ok-sub{font-size:40px;color:#7b6a62;margin-top:20px;letter-spacing:-.005em}
+
+/* (d) a conversa de WhatsApp (genérica) */
+#zapW{position:absolute;left:80px;top:360px;width:860px;height:700px;z-index:12}
+.zap{position:absolute;inset:0;border-radius:40px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+#zapW>.exemplo{right:34px;top:-17px;z-index:3;box-shadow:0 0 0 4px var(--escuro)}
+.z-cab{position:absolute;left:0;right:0;top:0;height:118px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 32px 0 14px;z-index:2}
+.z-cab .voltar{width:42px;height:42px;color:#54656f;flex:none}
+.z-av{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover}
+.z-quem{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.z-nome{font-size:37px;font-weight:600;color:#111;letter-spacing:-.01em;line-height:1.15}
+.z-status{font-size:31px;color:#667781;line-height:1.3;white-space:nowrap}
+.z-icones{display:flex;gap:34px;color:#54656f}
+.z-icones svg{width:42px;height:42px}
+.z-msgs{position:absolute;left:0;right:0;top:118px;bottom:92px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.z-barra{position:absolute;left:0;right:0;bottom:0;height:92px;background:#efeae2}
+.z-campo{position:absolute;left:16px;top:10px;right:98px;height:72px;border-radius:36px;background:#fff;display:flex;align-items:center;padding:0 28px;font-size:40px;letter-spacing:-.01em;color:#111b21;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.z-campo .ph{color:#8696a0}
+.z-campo .cursor{display:inline-block;width:3px;height:46px;background:#00a884;margin-left:2px;vertical-align:-9px}
+.z-btn{position:absolute;right:16px;top:12px;width:68px;height:68px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
+.z-btn>span{position:absolute;inset:0;display:grid;place-items:center}
+.z-btn svg{width:34px;height:34px}
+.b{position:absolute;max-width:680px;padding:22px 30px;border-radius:28px;font-size:46px;line-height:1.28;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em}
+.b.env{right:24px;background:#d9fdd3;border-top-right-radius:8px;transform-origin:100% 100%}
+.b.env::before{content:"";position:absolute;top:0;right:-14px;width:22px;height:26px;background:inherit;clip-path:polygon(0 0,100% 0,0 100%)}
+.b .esp{display:inline-block;width:128px;height:1px}
+.b .meta{position:absolute;right:24px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:22px;line-height:1;color:#7a8386;letter-spacing:0}
+.b .tiques{display:inline-flex;width:34px;height:24px;color:#8696a0}
+.b .tiques svg{width:100%;height:100%}
+
+/* (e) a agenda da dona (genérica, sem logo) */
+.cal{position:absolute;left:80px;width:860px;top:520px;height:900px;border-radius:44px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.45);z-index:12}
+.cal>.exemplo{right:34px;top:-17px;box-shadow:0 0 0 4px var(--escuro)}
+.cal-cab{position:absolute;left:44px;right:44px;top:40px}
+.cal-cab small{display:flex;align-items:center;gap:12px;font-size:32px;font-weight:600;color:#5b6467;letter-spacing:-.01em}
+.cal-cab small svg{width:36px;height:36px;color:var(--terracota)}
+.cal-cab b{display:block;font-size:80px;font-weight:700;letter-spacing:-.04em;color:#1e2528;line-height:1.05;margin-top:12px}
+.grade{position:absolute;left:0;right:0;top:232px}
+.linha{position:relative;height:160px;border-top:2px solid #ece8e2}
+.linha span{position:absolute;left:44px;top:16px;font-size:30px;font-weight:500;color:#7a8386;font-variant-numeric:tabular-nums}
+.evento{position:absolute;left:178px;right:40px;height:146px;border-radius:22px}
+.evento.cinza{background:#f1f2f2;padding:26px 30px}
+.evento.cinza .sk{display:block;height:18px;border-radius:9px;background:#e1e4e4;margin:0 0 18px}
+.alvo{position:absolute;left:178px;right:40px;height:146px;border-radius:22px;border:3px dashed rgba(178,81,52,.55);opacity:0}
+.evento.novo{display:flex;align-items:center;gap:20px;padding:0 28px 0 40px;background:#f8e6dd;box-shadow:inset 9px 0 0 var(--terracota);transform-origin:50% 100%}
+.evento.novo .ev-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.evento.novo b{font-size:38px;font-weight:650;color:#1e2528;letter-spacing:-.02em;line-height:1.15;white-space:nowrap}
+.ev-txt span{font-size:30px;font-weight:500;color:#5b6467;line-height:1.2}
+.evento.novo em{font-style:normal;font-size:28px;font-weight:600;color:var(--terracota);line-height:1.2}
+.av-c{flex:none;width:68px;height:68px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;font-size:34px;font-weight:600}
+
+/* (f) a manhã: tela de bloqueio */
+.bq-topo{position:absolute;left:80px;width:860px;top:300px;display:flex;flex-direction:column;align-items:center;gap:14px;color:var(--escuro)}
+.bq-topo svg{width:46px;height:46px}
+.bq-topo span{font-size:44px;font-weight:500;color:#5b6467;letter-spacing:-.01em;line-height:1}
+#relManha{position:absolute;left:80px;width:860px;top:452px;font-size:280px;color:var(--escuro)}
+.bq-notif{position:absolute;left:80px;width:860px;top:770px;border-radius:40px;background:rgba(255,255,255,.92);box-shadow:0 24px 60px rgba(30,37,40,.14);display:flex;align-items:center;gap:24px;padding:30px 36px 30px 30px;z-index:3}
+.bq-notif .exemplo{right:34px;top:-17px;box-shadow:0 0 0 4px #f1eee9}
+.app{flex:none;width:84px;height:84px;border-radius:24px;background:var(--terracota);color:#fff;display:grid;place-items:center}
+.app svg{width:48px;height:48px}
+.bq-txt{flex:1;min-width:0}
+.bq-l1{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.bq-l1 b{font-size:34px;font-weight:600;color:#111;letter-spacing:-.01em}
+.bq-l1 small{font-size:28px;color:#7a8386;font-variant-numeric:tabular-nums}
+.bq-msg{font-size:36px;color:#2b3438;line-height:1.25;margin-top:6px;letter-spacing:-.01em}
+
+/* legenda curta sobre o celular */
+#legenda{position:absolute;left:80px;width:860px;top:1318px;height:104px;display:flex;justify-content:center;z-index:40}
+#legenda span{display:inline-flex;align-items:center;height:104px;padding:0 46px;border-radius:999px;background:var(--escuro);color:var(--fundo);font-size:50px;font-weight:650;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 0 0 2px #39444a,0 20px 50px rgba(0,0,0,.45)}
+
+/* toque */
+.toque{position:absolute;z-index:80;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0;pointer-events:none}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:880px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1070px;font-size:44px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="estrela" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.4l2.95 6.1 6.7.9-4.9 4.65 1.2 6.65L12 17.5l-5.95 3.2 1.2-6.65L2.35 9.4l6.7-.9z"/></symbol>
+  <symbol id="cal-ic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+</svg>
+<div class="reels" id="palco">
+  <div class="ceu"></div>
+  <div class="poente" id="poente"></div>
+  <div class="breu" id="breu"></div>
+  <div class="dia-claro oculto" id="diaClaro"></div>
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- o relógio (herói) e o carimbo de hora -->
+  <div class="relogio" id="rel"></div>
+  <div class="pilula oculto" id="pil"><div class="capsula"><span class="fundo-p"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2.1"/></svg><div class="relogio" id="pilRel"></div></div></div>
+
+  <!-- 1. abre -->
+  <p class="txt" id="a1">Seu negócio<br>fecha às 19h.</p>
+  <p class="txt oculto" id="a2">O site, não.</p>
+  <!-- 2. o relógio corre -->
+  <p class="txt oculto" id="g1">A cliente finalmente<br>tem tempo de procurar.</p>
+
+  <!-- 3. o celular da cliente: busca, resultado, site, Agenda online -->
+  <div class="celular oculto" id="cel">
+    <div class="tela">
+      <div class="pg bs" id="pgBusca"></div>
+      <div class="pg oculto" id="pgSite"><div class="site" id="site"></div></div>
+      <div class="pg ag oculto" id="pgAgenda"></div>
+      <div class="pg ag oculto" id="pgOk"></div>
+      <div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais" id="sinais"></span></div>
+    </div>
+  </div>
+  <div class="oculto" id="legenda"><span>Viu tudo o que precisava ver.</span></div>
+
+  <!-- 4. nada -->
+  <p class="txt oculto" id="n1">Ela quer marcar.</p>
+
+  <!-- 5. volta: o WhatsApp -->
+  <div class="oculto" id="zapW"></div>
+  <p class="txt oculto" id="w1">Pelo WhatsApp, a resposta<br>fica pra amanhã.</p>
+
+  <!-- 6 e 7. meio e ese -->
+  <p class="txt oculto" id="m1">Com a Agenda online,<br><span class="tom">não fica.</span></p>
+
+  <!-- 8. o drop: a agenda da dona e a manhã -->
+  <p class="txt oculto" id="s1">O horário cai direto na<br>sua agenda do Google.</p>
+  <div class="cal oculto" id="cal"></div>
+  <div class="camada oculto" id="bloq">
+    <div class="bq-topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2.6"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5"/></svg><span>sábado</span></div>
+    <div class="relogio" id="relManha"></div>
+    <div class="bq-notif" id="bqNotif"><span class="app"><svg><use href="#cal-ic"/></svg></span><div class="bq-txt"><div class="bq-l1"><b>Sua agenda</b><small>23:47</small></div><p class="bq-msg">Sábado, 10:00 · Limpeza de pele · Carla</p></div><span class="exemplo">exemplo</span></div>
+    <p class="txt claro oculto" id="d1">Ela marcou às <span class="tom">23h47</span>.</p>
+    <p class="txt claro oculto" id="d2">Você estava dormindo.</p>
+  </div>
+
+  <!-- 9. fim -->
+  <p class="txt oculto" id="f1">Seu negócio<br>fecha.</p>
+  <p class="txt oculto" id="f2">O site, não.</p>
+
+  <!-- 10. CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- ícones (SVG) ----------
+const IC = {
+  lupa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m15.8 15.8 5 5"/></svg>',
+  globo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z"/></svg>',
+  rota: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 21.4 12 12 21.4 2.6 12Z"/><path d="M9.2 14.6v-2.4c0-.9.7-1.6 1.6-1.6h4.4M13.4 8.6l1.9 2-1.9 2"/></svg>',
+  voltar: '<svg class="voltar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  enviar: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 20.6 21.2 12 3.4 3.4l-.01 6.8L15 12 3.39 13.8Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M5.6 12.6l4.2 4.2 8.6-9.4"/></svg>',
+  cal: '<svg><use href="#cal-ic"/></svg>',
+};
+const ESTRELAS = '<svg><use href="#estrela"/></svg>'.repeat(5);
+$("#sinais").innerHTML = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>';
+
+// ---------- telas ----------
+// (a) busca e resultado
+$("#pgBusca").innerHTML = `
+  <div class="bs-barra">${IC.lupa}<span class="bs-q"><span class="bs-ph" id="bsPh">Pesquisar</span><span id="bsDig"></span><i class="bs-cursor" id="bsCursor"></i></span></div>
+  <div class="bs-carga" id="bsCarga"><i></i></div>
+  <div class="bs-card" id="bsCard">
+    <div class="bs-fotos"><img src="${foto("ambiente")}" alt=""><img src="${foto("hero")}" alt=""><img src="${foto("toalha")}" alt=""></div>
+    <b class="bs-nome">Lume Estética</b>
+    <div class="bs-av"><span class="bs-estrelas">${ESTRELAS}</span><span>Estética</span></div>
+    <p class="bs-hor" id="bsHor"><b>Fechado</b> · Abre amanhã às 9h</p>
+    <div class="bs-botoes"><span class="bs-btn" id="btnSite">${IC.globo}Site</span><span class="bs-btn">${IC.rota}Rota</span></div>
+  </div>
+  <div class="bs-outro" id="bsO1" style="top:820px"><i></i><div><span class="sk" style="width:58%"></span><span class="sk" style="width:84%"></span><span class="sk" style="width:36%"></span></div></div>
+  <div class="bs-outro" id="bsO2" style="top:984px"><i></i><div><span class="sk" style="width:66%"></span><span class="sk" style="width:78%"></span><span class="sk" style="width:42%"></span></div></div>
+  <div class="sombra-pg" id="bsSombra"></div>`;
+const BUSCA = "limpeza de pele perto de mim";
+const B_INI = 8.45, B_FIM = 9.45;
+
+// (b) o site
+const site = $("#site"), tela = $(".tela");
+site.innerHTML = siteDeExemplo();
+
+// (c) a Agenda online e a confirmação
+const logoLume = `<header class="ag-topo"><span class="ag-logo">Lume <small>estética</small></span><span class="ag-menu"></span></header>`;
+$("#pgAgenda").innerHTML = `${logoLume}
+  <div class="ag-corpo">
+    <span class="ag-tag">${IC.cal}Agenda online</span>
+    <h2 class="ag-tit">Limpeza de pele</h2>
+    <div class="ag-dias"><span class="dia off"><small>sex</small><b>23</b></span><span class="dia" id="dSab"><small>sáb</small><b>24</b></span><span class="dia"><small>seg</small><b>26</b></span><span class="dia"><small>ter</small><b>27</b></span></div>
+    <div class="ag-horas"><span class="hora" id="h10">10:00</span><span class="hora">11:00</span><span class="hora">13:00</span></div>
+    <div class="ag-btn" id="agBtn">Confirmar</div>
+  </div>`;
+$("#pgOk").innerHTML = `${logoLume}
+  <div class="ok-corpo"><span class="ok-check" id="okCheck">${IC.check}</span><h2 class="ok-tit" id="okTit">Horário marcado.</h2><p class="ok-sub">Sábado, 10:00 · Limpeza de pele</p></div>`;
+
+// (d) WhatsApp: a mensagem dela, e a dona offline desde as 19:02
+$("#zapW").innerHTML = `<div class="zap">
+    <div class="z-cab">${IC.voltar}<img class="z-av" src="${foto("toalha")}" alt=""><div class="z-quem"><span class="z-nome">Lume Estética</span><span class="z-status" id="zStatus">visto por último hoje às 19:02</span></div><div class="z-icones">${IC.video}${IC.fone}</div></div>
+    <div class="z-msgs"><div class="b env" id="zB">Oi! Tem horário sábado?<span class="esp"></span><span class="meta">23:46<span class="tiques">${IC.tiques}</span></span></div></div>
+    <div class="z-barra"><div class="z-campo"><span class="ph" id="zPh">Mensagem</span><span id="zDig"></span><span class="cursor" id="zCur"></span></div>
+      <span class="z-btn" id="zBtn"><span id="zMic">${IC.mic}</span><span id="zEnv">${IC.enviar}</span></span></div>
+  </div><span class="exemplo">exemplo</span>`;
+const MSG = "Oi! Tem horário sábado?";
+const Z_INI = 15.3, Z_FIM = 15.92, Z_ENVIA = 16.0;
+
+// (e) a agenda da dona
+const LIN = 160;
+$("#cal").innerHTML = `<span class="exemplo">exemplo</span>
+  <div class="cal-cab"><small>${IC.cal}Sua agenda</small><b>Sábado</b></div>
+  <div class="grade">
+    ${["09:00", "10:00", "11:00", "12:00"].map(h => `<div class="linha"><span>${h}</span></div>`).join("")}
+    <div class="evento cinza" style="top:${7}px"><i class="sk" style="width:46%"></i><i class="sk" style="width:28%"></i></div>
+    <div class="evento cinza" style="top:${3 * LIN + 7}px"><i class="sk" style="width:40%"></i><i class="sk" style="width:24%"></i></div>
+    <div class="alvo" id="alvo" style="top:${LIN + 7}px"></div>
+    <div class="evento novo" id="evNovo" style="top:${LIN + 7}px"><div class="ev-txt"><b>Limpeza de pele · Carla</b><span>10:00 – 11:00</span><em>marcado pelo site às 23:47</em></div><span class="av-c">C</span></div>
+  </div>`;
+
+// ---------- relógios ----------
+let AV = {};   // avanço de cada algarismo (em), Geist 700, medido no preparar()
+function montarRelogio(el, trilha) {
+  el.innerHTML = [0, 1, 2, 3, 4].map(i => i === 2 ? '<span class="dois">:</span>' : '<span class="slot"><span class="fita"><b></b><b></b></span></span>').join("");
+  const slots = [...el.querySelectorAll(".slot")].map(s => ({ el: s, fita: s.firstChild, a: s.firstChild.children[0], b: s.firstChild.children[1] }));
+  return { slots, dois: el.querySelector(".dois"), trilha };
+}
+const REL = montarRelogio($("#rel"), -0.02), PIL = montarRelogio($("#pilRel"), 0), MANHA = montarRelogio($("#relManha"), -0.02);
+function desenharRelogio(r, hora) {
+  const d = hora.replace(":", "");
+  r.slots.forEach((s, i) => { s.el.style.width = (AV[d[i]] + r.trilha) + "em"; s.a.textContent = d[i]; s.b.textContent = ""; });
+}
+// a noite, no tempo da batida: as horas trocam a cada tempo (4 a 5,5 s) e os minutos chegam em 23:40 no compasso (6 s)
+const HORAS = [[0, "19:00"], [4.0, "20:00"], [4.5, "21:00"], [5.0, "22:00"], [5.5, "23:00"], [6.0, "23:40"], [8.5, "23:41"], [12.0, "23:43"], [13.0, "23:45"]];
+function horaEm(t) {
+  let i = 0; for (let k = 0; k < HORAS.length; k++) if (t >= HORAS[k][0]) i = k;
+  return { agora: HORAS[i][1], t0: HORAS[i][0] };
+}
+
+// ---------- tempo ----------
+const DUR = 40;
+const CORTE = { abre: 0, google: 4, insta: 8, nada: 14, volta: 15, meio: 19, ese: 21, site: 23, agenda: 24, manha: 27, fim: 31, cta: 35 };
+const LOOP = 39;                 // o relógio volta para as 19:00 (o primeiro quadro)
+const BUMBOS = [35.5, 36, 36.5, 37, 37.5, 38, 38.5];
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [2, 1], [14, 1], [19, 0.7], [23, 1], [25, 0.8], [27, 1], [29, 0.8], [31, 1], [33, 1]];
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                    // ease-out
+const entra = x => x * x * x;                                               // ease-in
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, b, x) => a + (b - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const soco = (t, t0, de = 1.06, dur = 0.25) => t < t0 ? 1 : lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mistura = (a, b, x) => `rgb(${hex(a).map((v, i) => Math.round(lerp(v, hex(b)[i], x))).join(",")})`;
+// entra subindo um pouco (texto de apoio)
+const sobe = (el, t, t0, d = 0.3, dist = 28) => { const x = sai(fase(t, t0, t0 + d)); el.style.opacity = x; el.style.transform = `translateY(${(1 - x) * dist}px)`; return x; };
+
+let ESC = 1, paradas = {}, MORF = { dx: 0, dy: 0, s: 1 };
+
+window.preparar = () => {
+  // casas do relógio: largura do algarismo mais largo (o "1" fica centrado, como num relógio)
+  const ctx = document.createElement("canvas").getContext("2d");
+  ctx.font = "700 100px Geist";
+  for (const d of "0123456789:") AV[d] = ctx.measureText(d).width / 100;
+  for (const r of [REL, PIL, MANHA]) r.dois.style.width = (AV[":"] + r.trilha + 0.03) + "em";
+  desenharRelogio(REL, "19:00"); desenharRelogio(PIL, "23:40"); desenharRelogio(MANHA, "07:00");
+  // o relógio herói encolhe até o carimbo: escala e deslocamento entre as duas caixas
+  mostra($("#pil"), true);
+  const rh = $("#rel").getBoundingClientRect(), rp = $("#pilRel").getBoundingClientRect();
+  mostra($("#pil"), false);
+  MORF = { dx: rp.left + rp.width / 2 - (rh.left + rh.width / 2), dy: rp.top + rp.height / 2 - (rh.top + rh.height / 2), s: rp.height / rh.height };
+  // o site no celular: cada parada começa logo abaixo da barra de status
+  ESC = tela.clientWidth / 402;
+  const alt = tela.clientHeight / ESC, max = site.scrollHeight - alt, barra = 78 / ESC;
+  site.style.transform = `scale(${ESC})`;
+  for (const el of site.querySelectorAll("[data-parada]"))
+    paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : clamp(el.offsetTop - barra + 4, 0, max - 30 / ESC);
+  // fim da página (contato, mapa, horário): a legenda cai sobre o mapa e não cobre texto nenhum
+  paradas.fundo = clamp(paradas.fotos + 180 / ESC, 0, max - 30 / ESC);
+  return {
+    duracao: DUR,
+    bpm: 120,
+    pulso: [
+      { id: "fecha", cena: "abre", ini: 0, fim: 2, impacto: true },
+      { id: "nao", cena: "abre", ini: 2, fim: 4, impacto: true },
+      { id: "relogio", cena: "google", ini: 4, fim: 8 },
+      { id: "busca", cena: "insta", ini: 8, fim: 10 },
+      { id: "resultado", cena: "insta", ini: 10, fim: 12 },
+      { id: "site", cena: "insta", ini: 12, fim: 14 },
+      { id: "nada", cena: "insta", ini: 14, fim: 15, impacto: true },
+      { id: "whatsapp", cena: "volta", ini: 15, fim: 19 },
+      { id: "agenda", cena: "meio", ini: 19, fim: 21, impacto: true },
+      { id: "escolhe", cena: "ese", ini: 21, fim: 23 },
+      { id: "marcado", cena: "site", ini: 23, fim: 25, impacto: true },
+      { id: "cai", cena: "site", ini: 25, fim: 27, impacto: true },
+      { id: "manha", cena: "site", ini: 27, fim: 29, impacto: true },
+      { id: "dormindo", cena: "site", ini: 29, fim: 31, impacto: true },
+      { id: "fecha2", cena: "fim", ini: 31, fim: 33, impacto: true },
+      { id: "nao2", cena: "fim", ini: 33, fim: 35, impacto: true },
+      { id: "cta", cena: "cta", ini: 35, fim: 40 },
+    ],
+    ensaio: [0.05, 3.0, 3.9, 4.55, 6.3, 8.15, 10.4, 11.3, 12.2, 12.9, 13.5, 14.4, 15.2, 17.3, 19.1, 21.15, 22.6, 23.4, 24.75, 25.9, 27.7, 29.6, 33.6, 36.2, 39.6],
+  };
+};
+
+// ---------- toque (o dedo) ----------
+const tq = $("#toque");
+let dedo = null;
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+// toque simples: aparece 0,12 s antes, aperta em t0 e some
+function toque(t, t0, el) {
+  if (t < t0 - 0.12 || t >= t0 + 0.32) return;
+  const [x, y] = centro(el);
+  dedo = { x, y, op: Math.min(fase(t, t0 - 0.12, t0 - 0.02), 1 - fase(t, t0 + 0.2, t0 + 0.32)), aperto: t >= t0 && t < t0 + 0.18 };
+}
+
+window.quadro = t => {
+  dedo = null;
+  palco.style.transform = "none";
+
+  // ---- fundo e marca ----
+  const claro = t >= CORTE.manha && t < CORTE.fim;
+  mostra($("#diaClaro"), claro);
+  $("#poente").style.opacity = t >= LOOP ? ease(fase(t, LOOP, LOOP + 0.9)) : 1 - ease(fase(t, 4, 6.3));
+  $("#breu").style.opacity = t >= CORTE.nada && t < CORTE.volta ? 0.45 * (1 - fase(t, 14.9, 15.1)) : 0;
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || t >= LOOP);
+  topo.classList.toggle("claro", claro);
+  topo.style.opacity = t >= LOOP ? sai(fase(t, LOOP, LOOP + 0.4)) : 1;
+
+  // ---- o relógio herói ----
+  const rel = $("#rel");
+  let h = null, morf = 0, op = 1;
+  if (t < 8.35) { h = horaEm(t); morf = ease(fase(t, 8, 8.35)); }
+  else if (t >= CORTE.nada && t < 15.3) { h = { agora: "23:46", t0: -9 }; morf = ease(fase(t, 15, 15.3)); }
+  else if (t >= LOOP) { h = { agora: "19:00", t0: -9 }; op = sai(fase(t, LOOP, LOOP + 0.45)); }
+  if (mostra(rel, !!h)) {
+    desenharRelogio(REL, h.agora);
+    const tranco = morf > 0 ? 1 : soco(t, h.t0, 1.045, 0.22) * (t >= LOOP ? lerp(0.96, 1, op) : 1);
+    rel.style.transform = `translate(${MORF.dx * morf}px,${MORF.dy * morf}px) scale(${lerp(1, MORF.s, morf) * tranco})`;
+    rel.style.opacity = morf >= 1 ? 0 : op;
+  }
+  // o carimbo de hora (insta e volta)
+  const pil = $("#pil");
+  const pilA = t >= 8.3 && t < CORTE.nada, pilB = t >= 15.25 && t < CORTE.meio;
+  if (mostra(pil, pilA || pilB)) {
+    const t0 = pilA ? 8 : 15;
+    const f = ease(fase(t, t0 + 0.18, t0 + 0.35));
+    pil.querySelector(".fundo-p").style.opacity = f; pil.querySelector("svg").style.opacity = f;
+    $("#pilRel").style.opacity = t >= t0 + 0.35 ? 1 : 0;
+    const hh = pilA ? horaEm(t) : { agora: "23:46", t0: -9 };
+    desenharRelogio(PIL, hh.agora);
+    pil.style.transform = `scale(${soco(t, hh.t0, 1.08, 0.22)})`;
+  }
+
+  // ---- 1. abre ----
+  const a1 = $("#a1"), a2 = $("#a2");
+  const saiA = sai(fase(t, 3.7, 4.0));
+  if (mostra(a1, t < 4)) { a1.style.opacity = 1 - saiA; a1.style.transform = `translateY(${36 * saiA}px) scale(${soco(t, 0)})`; }
+  if (mostra(a2, t >= 2 && t < 4)) { a2.style.opacity = 1 - saiA; a2.style.transform = `translateY(${36 * saiA}px) scale(${soco(t, 2, 1.14, 0.28)})`; }
+
+  // ---- 2. o relógio corre; ao chegar, a frase ----
+  const g1 = $("#g1");
+  if (mostra(g1, t >= 6 && t < 8.15)) { sobe(g1, t, 6); g1.style.opacity *= 1 - fase(t, 7.9, 8.1); }
+
+  // ---- 3. o celular ----
+  const cel = $("#cel");
+  const celInsta = t >= CORTE.insta && t < CORTE.nada;
+  const celAg = t >= CORTE.meio && t < 24.35;
+  if (mostra(cel, celInsta || celAg)) {
+    if (celInsta) {
+      cel.style.top = "360px";
+      cel.style.transform = `translateY(${(1 - sai(fase(t, 8, 8.42))) * 1500}px)`;
+    } else {
+      cel.style.top = "500px";
+      const tum = t < 19.28 ? soco(t, 19, 1.045, 0.24) : soco(t, 19.28, 1.022, 0.24);
+      const desce = entra(fase(t, 24, 24.32));
+      cel.style.transform = `translateY(${desce * 1500}px) scale(${tum * soco(t, 23, 1.05, 0.25)})`;
+    }
+  }
+  const pgBusca = $("#pgBusca"), pgSite = $("#pgSite");
+  mostra(pgBusca, celInsta && t < 11.5);
+  mostra(pgSite, celInsta && t >= 11.2);
+  if (celInsta && t < 11.5) {
+    // a busca sendo digitada
+    const n = t < B_INI ? 0 : Math.min(BUSCA.length, Math.floor((t - B_INI) / ((B_FIM - B_INI) / BUSCA.length)) + 1);
+    $("#bsDig").textContent = BUSCA.slice(0, n);
+    $("#bsPh").style.display = n ? "none" : "";
+    $("#bsCursor").style.opacity = t < 9.55 && (n > 0 && n < BUSCA.length || Math.floor(t * 4) % 2 === 0) ? 1 : 0;
+    const carga = t >= 9.55 && t < 10.1;
+    $("#bsCarga").style.opacity = carga ? 1 - fase(t, 9.95, 10.1) : 0;
+    $("#bsCarga i").style.width = (carga ? ease(fase(t, 9.55, 9.95)) * 100 : 0) + "%";
+    // o cartão da Lume (no compasso) e o resto da lista
+    const card = $("#bsCard"), c = sai(fase(t, 10, 10.25));
+    card.style.opacity = c; card.style.transform = `translateY(${(1 - c) * 70}px) scale(${soco(t, 10, 1.03, 0.25)})`;
+    for (const [id, d] of [["#bsO1", 0.08], ["#bsO2", 0.14]]) { const o = sai(fase(t, 10 + d, 10.3 + d)); $(id).style.opacity = o; $(id).style.transform = `translateY(${(1 - o) * 70}px)`; }
+    $("#bsHor").style.transform = `scale(${1 + 0.07 * Math.sin(Math.PI * fase(t, 10.5, 10.8))})`;
+    $("#btnSite").style.background = t >= 11 && t < 11.22 ? "#efe9e2" : "#fff";
+    toque(t, 11, $("#btnSite"));
+    // o site entra por cima (como uma página nova)
+    const p = ease(fase(t, 11.2, 11.45));
+    pgBusca.style.transform = `translateX(${-200 * p}px)`;
+    $("#bsSombra").style.opacity = 0.3 * p;
+  }
+  if (celInsta && t >= 11.2) {
+    pgSite.style.transform = `translateX(${(1 - ease(fase(t, 11.2, 11.45))) * 692}px)`;
+    const PAR = [[11.2, "hero"], [12.0, "servicos"], [12.5, "fundo"], [13.0, "avaliacoes"]];
+    let k = 0; for (let i = 0; i < PAR.length; i++) if (t >= PAR[i][0]) k = i;
+    const t0 = PAR[k][0], t1 = k + 1 < PAR.length ? PAR[k + 1][0] : CORTE.nada;
+    const y0 = k ? paradas[PAR[k - 1][1]] : 0, y1 = paradas[PAR[k][1]];
+    const y = lerp(y0, y1, ease(fase(t, t0, t0 + 0.3))) + (24 / ESC) * ease(fase(t, t0 + 0.3, t1));
+    site.style.transform = `translateY(${-y * ESC}px) scale(${ESC})`;
+  }
+  const leg = $("#legenda");
+  if (mostra(leg, t >= 12.5 && t < CORTE.nada)) sobe(leg, t, 12.5, 0.25, 24);
+
+  // ---- 4. nada: corte seco ----
+  const n1 = $("#n1");
+  if (mostra(n1, t >= CORTE.nada && t < 15.15)) { n1.style.opacity = 1 - fase(t, 15, 15.15); n1.style.transform = `scale(${soco(t, CORTE.nada)})`; }
+
+  // ---- 5. volta: o WhatsApp ----
+  const zapW = $("#zapW");
+  if (mostra(zapW, t >= CORTE.volta && t < CORTE.meio)) {
+    zapW.style.transform = `translateY(${(1 - sai(fase(t, 15, 15.36))) * 1300}px)`;
+    const n = t < Z_INI ? 0 : Math.min(MSG.length, Math.floor((t - Z_INI) / ((Z_FIM - Z_INI) / MSG.length)) + 1);
+    const dig = t < Z_ENVIA ? MSG.slice(0, n) : "";
+    $("#zDig").textContent = dig; $("#zPh").style.display = dig ? "none" : "";
+    $("#zCur").style.display = t >= 15.2 && t < Z_ENVIA ? "" : "none";
+    $("#zMic").style.display = dig ? "none" : ""; $("#zEnv").style.display = dig ? "" : "none";
+    toque(t, Z_ENVIA, $("#zBtn"));
+    const b = $("#zB"), x = sai(fase(t, Z_ENVIA, Z_ENVIA + 0.22));
+    b.style.display = t >= Z_ENVIA ? "" : "none";
+    b.style.bottom = (24 - (1 - x) * 60) + "px"; b.style.opacity = x; b.style.transform = `scale(${lerp(0.92, 1, x)})`;
+    // a dona saiu às 19:02: a linha de status acende na cor de destaque
+    const st = $("#zStatus"), xst = ease(fase(t, 17, 17.25));
+    st.style.color = mistura("#667781", "#b25134", xst); st.style.fontWeight = xst > 0.5 ? 600 : 400;
+  }
+  const w1 = $("#w1");
+  if (mostra(w1, t >= 16.5 && t < CORTE.meio)) sobe(w1, t, 16.5);
+
+  // ---- 6 e 7. a Agenda online, o coração e a subida ----
+  const m1 = $("#m1");
+  if (mostra(m1, t >= CORTE.meio && t < 24.2)) {
+    const tum = t < 19.28 ? soco(t, 19, 1.06, 0.24) : soco(t, 19.28, 1.03, 0.24);
+    const s = ease(fase(t, 24, 24.2));
+    m1.style.opacity = 1 - s; m1.style.transform = `translateY(${-40 * s}px) scale(${tum})`;
+  }
+  mostra($("#pgAgenda"), celAg && t < CORTE.site);
+  mostra($("#pgOk"), celAg && t >= CORTE.site);
+  if (celAg && t < CORTE.site) {
+    const ac = "#b6806a";
+    // sábado (21 s)
+    const ds = $("#dSab"), xs = fase(t, 21, 21.1);
+    ds.style.background = mistura("#ffffff", ac, xs); ds.style.boxShadow = xs > 0 ? "none" : "";
+    ds.querySelector("small").style.color = mistura("#7b6a62", "#ffffff", xs); ds.querySelector("b").style.color = mistura("#3a2c26", "#ffffff", xs);
+    ds.style.transform = `scale(${t >= 21 ? soco(t, 21, 0.94, 0.2) : 1})`;
+    toque(t, 21, ds);
+    // os horários livres acendem depois do dia
+    [...document.querySelectorAll(".hora")].forEach((el, i) => { el.style.opacity = lerp(0.32, 1, sai(fase(t, 21.08 + i * 0.07, 21.3 + i * 0.07))); });
+    // 10:00 (22 s)
+    const h10 = $("#h10"), xh = fase(t, 22, 22.1);
+    h10.style.background = mistura("#ffffff", ac, xh); h10.style.color = mistura("#3a2c26", "#ffffff", xh); h10.style.boxShadow = xh > 0 ? "none" : "";
+    h10.style.transform = `scale(${t >= 22 ? soco(t, 22, 0.94, 0.2) : 1})`;
+    // Confirmar acende e o dedo vai até ele no alto da subida
+    const bt = $("#agBtn"), xb = fase(t, 22.05, 22.2);
+    bt.style.background = mistura("#eee4dc", ac, xb); bt.style.color = mistura("#b3a197", "#ffffff", xb);
+    const aperta = t >= 22.75 && t < 23;
+    bt.style.transform = `scale(${aperta ? 0.965 : 1})`; bt.style.filter = aperta ? "brightness(.9)" : "none";
+    if (t >= 21.88 && t < 23) {
+      const [x0, y0] = centro(h10), [x1, y1] = centro(bt), m = ease(fase(t, 22.3, 22.72));
+      dedo = { x: lerp(x0, x1, m), y: lerp(y0, y1, m), op: Math.min(fase(t, 21.88, 21.98), 1 - fase(t, 22.92, 23)), aperto: (t >= 22 && t < 22.18) || aperta };
+    }
+  }
+  if (celAg && t >= CORTE.site) {
+    const ck = $("#okCheck");
+    ck.style.transform = `scale(${chaves(fase(t, 23, 23.3), [0.6, 1.08, 1])})`;
+    ck.querySelector("path").style.strokeDasharray = 1; ck.querySelector("path").style.strokeDashoffset = 1 - ease(fase(t, 23.06, 23.3));
+    $("#okTit").style.transform = `scale(${soco(t, 23, 1.06, 0.25)})`;
+  }
+
+  // ---- 8. a agenda da dona ----
+  const s1 = $("#s1");
+  if (mostra(s1, t >= CORTE.agenda && t < CORTE.manha)) sobe(s1, t, 24, 0.3, 40);
+  const cal = $("#cal");
+  if (mostra(cal, t >= CORTE.agenda && t < CORTE.manha)) {
+    cal.style.transform = `translateY(${(1 - sai(fase(t, 24.05, 24.45))) * 1300}px)`;
+    $("#alvo").style.opacity = fase(t, 24.35, 24.5) * (1 - fase(t, 24.95, 25.02));
+    // o evento cai no lugar, em cima do impacto (25 s)
+    const ev = $("#evNovo");
+    if (t < 24.5) ev.style.opacity = 0;
+    else {
+      const q = entra(fase(t, 24.5, 25));
+      const esc = t < 25 ? lerp(1.24, 1, q) : chaves(fase(t, 25, 25.2), [0.95, 1.015, 1]);
+      ev.style.opacity = fase(t, 24.5, 24.62);
+      ev.style.transform = `translateY(${t < 25 ? lerp(-34, 0, q) : 0}px) rotate(${t < 25 ? lerp(-2.5, 0, q) : 0}deg) scale(${esc})`;
+      ev.style.filter = t < 25 ? `drop-shadow(0 ${lerp(40, 6, q)}px ${lerp(44, 10, q)}px rgba(30,37,40,${lerp(0.3, 0.12, q)}))` : "none";
+    }
+  }
+
+  // ---- 8. a manhã ----
+  if (mostra($("#bloq"), claro)) {
+    desenharRelogio(MANHA, "07:00");
+    const nb = $("#bqNotif"), x = sai(fase(t, 27.12, 27.42));
+    nb.style.opacity = x; nb.style.transform = `translateY(${(1 - x) * -50}px)`;
+    const d1 = $("#d1"), d2 = $("#d2");
+    if (mostra(d1, t >= 27.5)) sobe(d1, t, 27.5);
+    if (mostra(d2, t >= 29)) d2.style.transform = `scale(${soco(t, 29, 1.08, 0.25)})`;
+  }
+
+  // ---- 9. fim ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
+  if (mostra(f2, t >= 33 && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, 33, 1.1, 0.28)})`;
+
+  // ---- 10. CTA (e o relógio volta às 19:00 para o loop) ----
+  const noCta = t >= CORTE.cta;
+  const cm = $("#ctaMarca"), bo = $("#botao"), l1 = $("#l1");
+  mostra(cm, noCta && t < LOOP + 0.3); mostra(bo, noCta); mostra(l1, noCta);
+  if (noCta) {
+    const e = sai(fase(t, CORTE.cta, CORTE.cta + 0.3)), saiM = fase(t, LOOP, LOOP + 0.3);
+    cm.style.opacity = e * (1 - saiM); cm.style.transform = `scale(${lerp(0.8, 1, e) * lerp(1, 0.9, saiM)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const b of BUMBOS) { const x = fase(t, b, b + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    bo.style.transform = `scale(${esc})`;
+    sobe(l1, t, CORTE.cta + 0.2);
+  }
+
+  // ---- o dedo ----
+  if (dedo && dedo.op > 0) {
+    tq.style.left = dedo.x + "px"; tq.style.top = dedo.y + "px";
+    tq.style.opacity = dedo.op; tq.style.transform = `scale(${dedo.aperto ? 0.84 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarões: o drop e a manhã ----
+  let fl = 0;
+  const cl = (t0, d, a) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, a * (1 - x)); };
+  cl(CORTE.site, 0.08, 0.9); cl(CORTE.manha, 0.2, 0.9);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos e a aproximação na subida ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  const zoom = t >= CORTE.meio && t < CORTE.site ? lerp(1, 1.04, ease(fase(t, CORTE.meio, CORTE.site))) : 1;
+  palco.style.transformOrigin = "510px 900px";
+  palco.style.transform = `translateX(${dx}px) scale(${zoom})`;
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "500 15px 'DM Sans'", "600 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

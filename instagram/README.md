@@ -13,6 +13,10 @@ Posts prontos para baixar e postar, feitos em HTML e gravados pelo `gerar.mjs`:
 | Reels "O sobrinho que ia fazer o site" (conversa no WhatsApp, sem voz, trilha pulsante) | `reels-sobrinho.html` | `reels-sobrinho.mp4` (1080 × 1920, 38,7 s) |
 | Carrossel "Dicionário do cliente de WhatsApp" | `carrossel-dicionario.html` | `carrossel-dicionario-1.png` … `-10.png` (1080 × 1350) |
 | Post "Seu gestor pediu o pixel" | `post-pixel.html` | `post-pixel.png` (1080 × 1350) |
+| Reels "Enquanto você atende" (as perguntas que chegam no WhatsApp durante o atendimento, sem voz, trilha pulsante) | `reels-atende.html` | `reels-atende.mp4` (1080 × 1920, 37,5 s) |
+| Carrossel "Seu site já existe. Só está espalhado." | `carrossel-espalhado.html` | `carrossel-espalhado-1.png` … `-9.png` (1080 × 1350) |
+| Reels "Seu negócio fecha. O site, não." (a Agenda online depois que o negócio fecha, sem voz, trilha pulsante) | `reels-fecha.html` | `reels-fecha.mp4` (1080 × 1920, 40 s) |
+| Stories da semana de 16 a 23/10 (só a arte; a enquete e a caixinha entram no app) | `stories-semana.html` | `stories-semana-1.png` … `-8.png` (1080 × 1920) |
 
 ```
 node instagram/gerar.mjs                 # todos
@@ -27,6 +31,11 @@ Reels sem voz com a trilha pulsante: a página devolve `pulso` em `preparar()`, 
 frases de uma narração (`{id, cena, ini, fim, impacto?}`; cenas `abre`, `google`, `insta` com o id `nada` onde a batida
 corta, `volta`, `meio`, `ese`, `site` no drop, `fim` e `cta`). O `gerar.mjs` passa essas cenas e um áudio mudo para o
 `trilha-pulso.py`, que monta a trilha no mesmo tempo da tela. Exemplo: `reels-sobrinho.html`.
+O andamento padrão é 124 BPM. Para outro, `preparar()` devolve também `bpm` (o `reels-atende` usa 128 e o
+`reels-fecha`, 120), e os cortes da tela seguem a grade desse andamento a partir do drop.
+
+Stories: as páginas que começam com `stories` saem em 1080 × 1920, um PNG por `.slide`. A arte deixa um espaço vazio
+embaixo da pergunta para a figurinha (enquete ou caixinha de perguntas), que entra no app na hora de postar.
 
 ## Regras (Kaue, 09/10/2026)
 - O público é negócio em geral (lojas, clínicas, dentistas, estética), não só ótica. Nunca "de bairro".
