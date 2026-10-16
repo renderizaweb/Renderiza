@@ -492,3 +492,49 @@ Magi. Dados de todos na pasta da sessão (`lote3-final.json` e `notas-l3.md`).
   restrita ao instagram.com: Estrela de Davi, Estância Lopes, Terra Prometida).
 - **Espaço de casamento vende pelo casamentos.com.br:** de 4,7 com 300+ avaliações, quase todos têm dezenas de
   opiniões lá. Salão de festa e chácara de festa continuam quase fora do portal.
+
+## 18. Demos do lote 3 (16/10/2026)
+
+O Kaue montou o Drive com 15: 7 da primeira tentativa do lote 3 que ele aproveitou (Casa Le Charme, BOSKE, Espaço
+Banquett, Espaço Mirante Biritiba, O Poço Encantado, Chácara Ouro Verde, Espaço Reserva da Ilha), 2 que estavam no
+painel em "leads" sem demo (Espaço Império Eventos, Mansão Jaraguá) e as 6 primeiras da lista refeita (Canto da Terra,
+Casa Samanta Fonseca, Espaço Prime, Villa La Feria, Espaço 41, Chácara Perracine). Saíram **14 com demo, vídeo e
+flyer**. Os outros 20 da lista da seção 17, os 5 que já vendem pelo casamentos.com.br e os 20 de reserva ficam para o
+próximo lote.
+
+**BOSKE ficou de fora.** O @boskeeventos do Drive é o Boske de Santa Maria (RS) (bio na Estr. Angelo Berleze, WhatsApp
+55 do RS, legendas da UFSM e do Dia do Gaúcho), não o BOSKE de Embu-Guaçu do Google. O de Embu-Guaçu cita
+@boske.embuguacu numa resposta do dono, mas o perfil não abriu e o Google tem só 3 fotos. É o segundo caso igual ao do
+Império no lote 2: **@ achado por variação do nome tem que bater o endereço da bio ou o DDD do wa.me com o Google antes
+de entrar na lista.** Os outros 14 foram conferidos assim.
+
+**Estilo "gala"** (pedido do Kaue: "um pouco mais gourmetizada, mais elegante, principalmente casamento e
+formatura"): `"estilo": "gala"` no `demo.json` liga, em `ferramentas/demo/gerar-eventos.py`, o topo em tela cheia com
+a foto e o texto centralizado, títulos em Cormorant Garamond, menu em caixa alta espaçada, faixa escura com os tipos de
+festa em itálico, avaliações em serifa e a consulta de data em fundo escuro. Mesmo conteúdo e mesmas seções da demo
+padrão. Foi usado em 11; ficaram no padrão O Poço Encantado (festa de família e infantil), Chácara Ouro Verde
+(hospedagem e lazer) e Espaço Império (Instagram de artes antigas e fotos do Google de convidados). Foto clara no topo
+pede `css_extra` escurecendo o `.hero::after` (Casa Samanta Fonseca).
+
+**Vídeo: abertura com movimento** (o Kaue: "a tela fica parada muito tempo, parece uma imagem"). A primeira cena agora
+segura 1,7 s no topo e desce devagar até os botões e as estrelas (3 s), e a foto do topo de toda demo de eventos tem
+zoom lento em CSS (`ev-kb`), que o gravador avança quadro a quadro. Vale para as demos novas de eventos.
+
+**Por lead (o que conferir antes de enviar está na ficha de cada demo):**
+- **Espaço Império:** é o de Votorantim (o painel já foi corrigido). Instagram com artes de 2019, promoções e preços:
+  nada disso entrou. imperiofestas.com.br abre só uma página de senha.
+- **Chácara Ouro Verde:** WhatsApp da bio (96903-7697); o Google mostra o fixo e artes antigas usam outro celular.
+- **Espaço 41:** a foto de perfil é o rosto da dona; o logo da demo é um recorte da placa da fachada (foto do Google).
+- **Espaço Reserva da Ilha:** quase todo o Instagram são artes do workshop de fornecedores ("Especialista em…"), que
+  podem ser fotos de outros lugares: ficaram de fora. Poucas fotos de festa; o logo veio do Drive.
+- **Sites que existem mas não servem** (gancho): Casa Le Charme (lp.casalecharme.com.br fora do ar), O Poço Encantado
+  (certificado vencido), Espaço Banquett (Google Sites gratuito), Império (página de senha).
+- **Nota abaixo de 5,0** (a demo mostra o total, não a nota): Samanta Fonseca 4,7, Prime 4,9, Villa La Feria 4,8,
+  Perracine 4,7, Le Charme 4,8, Mirante 4,8, Poço 4,8, Ouro Verde 4,8, Império 4,6, Mansão Jaraguá 4,8.
+
+**O que este lote ensinou:**
+- **Instagram salvo pode ser antigo:** Prime (obra de 2021), Banquett (inauguração de 2022) e Império (2019). Quando o
+  grid salvo é velho, as fotos do Google seguram a demo; vale pedir fotos recentes ao dono.
+- **Arte de fornecedor não é foto do espaço.** Espaço que faz workshop posta o portfólio dos parceiros.
+- **Avaliação de cliente não vira dado do espaço:** capacidade citada só numa avaliação (Mirante, "mais de 300") fica
+  como fala do cliente, e a dúvida vai para a ficha.

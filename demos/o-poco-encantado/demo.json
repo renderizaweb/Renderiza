@@ -1,0 +1,384 @@
+{
+ "pasta": "o-poco-encantado",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/o-poco-encantado/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/o-poco-encantado.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/o-poco-encantado/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511945379958",
+ "fone_link": "+5511945379958",
+ "google": {
+  "coords": "-23.6489582,-46.6991388",
+  "fid": "0x94ce51b5aa8da667:0x25a26d91fc8e928f",
+  "gid": "/g/11fhyp0rs4"
+ },
+ "endereco_maps": "Rua Conde de Itu, 671 - Jardim Santo Amaro, São Paulo - SP, 04741-001",
+ "google_nota": "4,8",
+ "google_total": "162",
+ "verificado": "2026-10-16",
+ "instagram": "opocoencantado",
+ "marca": "O Poço Encantado",
+ "marca_logo": "O Poço Encantado",
+ "marca_completa": "O Poço Encantado · Eventos",
+ "logo_sub": "Santo Amaro · São Paulo",
+ "titulo": "O Poço Encantado | Espaço de eventos em Santo Amaro, São Paulo",
+ "descricao": "O Poço Encantado, na Rua Conde de Itu, 671, no Jardim Santo Amaro, em São Paulo (SP): espaço de eventos em meio à natureza, com sete ambientes integrados, jardim, salão com mezanino, sala de vidro e buffet da casa. Aniversários, festas infantis, casamentos intimistas e eventos de empresa.",
+ "comentario": "Demo O Poço Encantado: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@opocoencantado, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações e endereço do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2f3b2b",
+  "acento": "#c9873f"
+ },
+ "topline": "Rua Conde de Itu, 671 · Jardim Santo Amaro, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço de eventos em Santo Amaro",
+  "h1": "Um refúgio verde <em>em Santo Amaro.</em>",
+  "intro": "Aniversários, festas infantis, casamentos intimistas e eventos de empresa em sete ambientes integrados, com jardim, salão com mezanino e o buffet da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "id": 31,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa de madeira com doces e flores no jardim, à noite, sob as luzes"
+ },
+ "endereco": [
+  "Rua Conde de Itu, 671",
+  "São Paulo · SP"
+ ],
+ "dias_curto": "",
+ "marquee": [
+  "Aniversários",
+  "Festas infantis",
+  "Casamentos intimistas",
+  "Festa junina",
+  "Eventos de empresa",
+  "Buffet da casa",
+  "Santo Amaro"
+ ],
+ "sobre": {
+  "eyebrow": "O Poço",
+  "h2": "Um poço dos anos 40 <em>deu nome à casa.</em>",
+  "p": [
+   "No Jardim Santo Amaro, em São Paulo, O Poço Encantado tem sete ambientes integrados em meio à natureza, entre eles o jardim, o salão principal, o mezanino de 23 m² e a sala de vidro de 17 m².",
+   "O poço que dá nome ao espaço é da década de 40. A equipe cuida do buffet e da decoração com parceiros de muitos anos, e as festas infantis têm brincadeiras ao ar livre, como balanço na árvore e cirandas."
+  ],
+  "stats": [
+   [
+    "7",
+    "ambientes integrados"
+   ],
+   [
+    "5,2 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Área coberta com mesas redondas de madeira e plantas, à noite",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g05.jpg"
+  },
+  "pol_alt": "O poço de azulejos com a estrutura de ferro, decorado para uma festa",
+  "pol_cap": "O poço"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Jardim, salão <em>e mesas postas.</em>",
+   "p": "O jardim, a área coberta e as mesas montadas pela casa. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes d’O Poço Encantado",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Mesa rústica de madeira com doces e plantas penduradas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g01.jpg"
+     },
+     "alt": "Mesa comprida de doces com flores e luzinhas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g07.jpg"
+     },
+     "alt": "Pergolado com bandeirinhas e cortina de chita"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Mesa do bolo com girassóis"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g03.jpg"
+     },
+     "alt": "Mesa de frios com velas e samambaias"
+    },
+    {
+     "foto": {
+      "id": 50
+     },
+     "alt": "Balões 80 na parede de tijolinhos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g02.jpg"
+     },
+     "alt": "Mesa posta com sousplat prateado e flores"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Aniversários, casamentos, festas juninas e festas infantis de quem já comemorou n’O Poço Encantado.",
+   "rotulo": "Festas que aconteceram n’O Poço Encantado",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g12.jpg"
+     },
+     "alt": "Noivos trocando as alianças",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Bolo de 70 anos sob a cortina de luzes",
+     "cap": "70 anos"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Mesa de doces com arco de balões verdes e brancos",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Mesa de festa junina com chita, bandeirinhas e doces",
+     "cap": "Festa junina"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Festa infantil com balões coloridos sob o guarda-sol",
+     "cap": "Festa infantil"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g04.jpg"
+     },
+     "alt": "Mesa de doces com rosas vermelhas",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Bolo com flores rosa e doces",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce51b5aa8da667_0x25a26d91fc8e928f/g13.jpg"
+     },
+     "alt": "Mesa do buffet com salgados e flores",
+     "cap": "Buffet"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "jardim",
+    "Jardim entre árvores"
+   ],
+   [
+    "salao",
+    "Salão com mezanino"
+   ],
+   [
+    "coberto",
+    "Sala de vidro"
+   ],
+   [
+    "cozinha",
+    "Buffet e decoração da casa"
+   ],
+   [
+    "brinquedos",
+    "Brincadeiras ao ar livre"
+   ],
+   [
+    "pessoas",
+    "Acessível para cadeirantes"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer os ambientes em Santo Amaro",
+   "Escolha o cardápio do buffet e a decoração",
+   "No dia, a equipe cuida de tudo"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "O poço decorado com bandeirinhas para uma festa junina"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Priscila Pereira",
+   "tag": "80 anos",
+   "trecho": "Fizemos o aniversário de 80 anos da minha mãe e simplesmente amamos tudo, da organização até o pós festa!"
+  },
+  {
+   "nome": "denise ishida",
+   "tag": "Casamento",
+   "trecho": "Fiz meu casamento no espaço e recomendo! O lugar é super agradável e gostoso de passar o dia, com acessibilidade para cadeirantes."
+  },
+  {
+   "nome": "Daniele Batista de Sousa",
+   "tag": "Cerimônia",
+   "trecho": "Os serviços de decoração, alimentação, bar e organização da cerimônia são excelentes e executados com maestria e muito afeto."
+  },
+  {
+   "nome": "Karina Evangelista Lima",
+   "tag": "Empresa",
+   "trecho": "tudo estava impecável, desde a decoração que ficou linda, até a higienização dos banheiros, e alimentação."
+  },
+  {
+   "nome": "Fernando Lauterjung",
+   "tag": "O ambiente",
+   "trecho": "O ambiente é aconchegante e com natureza exuberante e a equipe é esforçada para proporcionar um momento especial."
+  },
+  {
+   "nome": "Matias Tino",
+   "tag": "Para todos",
+   "trecho": "Espaço excelente para eventos, aniversários, comemorações, tanto infantil como adulto"
+  }
+ ],
+ "insta": {
+  "seguidores": "5,2 mil seguidores",
+  "p": "Festas, bastidores e os ambientes do Poço.",
+  "foto": {
+   "id": 12
+  },
+  "alt": "Bolo de 73 anos com flores vermelhas",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp d’O Poço Encantado.",
+  "tipos": [
+   "Aniversário",
+   "Festa infantil",
+   "Casamento",
+   "Batizado",
+   "Chá de bebê",
+   "Festa junina",
+   "Evento da empresa",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site d’O Poço Encantado e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Santo Amaro.</em>",
+  "endereco": [
+   "Rua Conde de Itu, 671 · Jardim Santo Amaro",
+   "São Paulo, SP · CEP 04741-001"
+  ],
+  "telefone": "(11) 94537-9958",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Um refúgio verde em Santo Amaro.",
+ "mensagem": "Olá! Vim pelo site d’O Poço Encantado e queria um orçamento.",
+ "google_nome": "O Poço Encantado",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 94537-9958 é o celular do Perfil da Empresa no Google (a bio usa um link contate.me, sem o número)",
+  "site": "opocoencantado.com.br existe, mas está com o certificado vencido (o navegador avisa que não é seguro): bom gancho. Não achei página no casamentos.com.br.",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Espaço de eventos em Santo Amaro, São Paulo: \"Celebrando singularidades em meio à natureza · Seu refúgio único para eventos memoráveis\" (bio). Muitas festas infantis, aniversários de adultos, festas juninas de empresas e casamentos intimistas. Nota 4,8 com 162 avaliações (a demo mostra o total, não a nota).",
+   "Dono: não confirmei. Uma noiva agradece \"a Maíra, Pérola e Ricardo e à toda a equipe\"."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo padrão (não o \"gala\": o forte aqui são festas de família e infantis): o espaço (sete ambientes, o poço dos anos 40), ambientes (7 fotos, 4 do Google), festas reais (8, 3 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: verde-musgo e caramelo."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (área coberta à noite, o poço, mesas de doces e do buffet, alianças).",
+   "Ficaram de fora: as fotos com título por cima (\"Jardim\", \"Mezanino\", \"Sala de Vidro\"), as artes, as fotos em preto e branco e as de crianças em close."
+  ],
+  "conferir": [
+   "O Google não tem horário cadastrado: a demo sai sem horário.",
+   "Uma avaliação antiga (3 estrelas, 7 anos) fala de riscos para crianças (balanço, lago com carpa) e outra diz que não há estacionamento nem manobrista. A demo não fala de estacionamento.",
+   "Capacidade: não confirmei (uma avaliação cita um evento com 75 adultos e 12 crianças)."
+  ]
+ }
+}

@@ -1,0 +1,375 @@
+{
+ "pasta": "espaco-41",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-41/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-41.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-41/logo-placa.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5515997778664",
+ "fone_link": "+5515997778664",
+ "google": {
+  "coords": "-23.5144361,-47.4583219",
+  "fid": "0x94c58beace18211d:0xb55087b8f72bb39",
+  "gid": "/g/11wj5gtkl3"
+ },
+ "endereco_maps": "R. Dúlce Manzano, 41 - Jardim Emilia, Sorocaba - SP, 18031-040",
+ "google_nota": "5,0",
+ "google_total": "104",
+ "verificado": "2026-10-16",
+ "instagram": "espaco_41",
+ "estilo": "gala",
+ "marca": "Espaço 41",
+ "marca_logo": "Espaço 41",
+ "marca_completa": "Espaço 41 · Eventos e Festas",
+ "logo_sub": "Sorocaba · SP",
+ "titulo": "Espaço 41 | Casamentos intimistas e festas em Sorocaba",
+ "descricao": "Espaço 41, na Rua Dulce Manzano, 41, no Jardim Emília, em Sorocaba (SP): casa de eventos para até 70 pessoas, com salão, área externa com pergolado, cozinha para o buffet e louçaria para alugar. Casamentos intimistas, mini weddings, aniversários e eventos de empresa. Nota 5,0 no Google.",
+ "comentario": "Demo Espaço 41: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espaco_41, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2c3326",
+  "acento": "#c2a878"
+ },
+ "topline": "Rua Dulce Manzano, 41 · Jardim Emília, Sorocaba",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "A casa"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para eventos em Sorocaba",
+  "h1": "Uma casa de família <em>para a sua festa.</em>",
+  "intro": "Casamentos intimistas, mini weddings, aniversários e eventos de empresa para até 70 pessoas, com salão, área externa com pergolado e a louçaria da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver a casa",
+  "alvo": "espaco",
+  "foto": {
+   "id": 24,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Deck com pergolado, samambaias e mesas montadas"
+ },
+ "endereco": [
+  "Rua Dulce Manzano, 41",
+  "Sorocaba · SP"
+ ],
+ "dias_curto": "seg. a sex.",
+ "marquee": [
+  "Casamentos",
+  "Mini wedding",
+  "Aniversários",
+  "Bodas",
+  "15 anos",
+  "Formaturas",
+  "Eventos de empresa",
+  "Sorocaba"
+ ],
+ "sobre": {
+  "eyebrow": "Quem recebe",
+  "h2": "Juliana abriu <em>a casa da família.</em>",
+  "p": [
+   "No Jardim Emília, em Sorocaba, a casa onde a família de Juliana Labonia sempre fez as suas comemorações virou, em 2024, o Espaço 41: minimalista, aconchegante e feito para até 70 pessoas.",
+   "Juliana, a proprietária e anfitriã, trabalha com festas há mais de 15 anos e acompanha cada evento de perto. Nas avaliações, os noivos agradecem a ela e ao marido pelo cuidado do primeiro contato até o dia."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "no Google, em 104 avaliações"
+   ],
+   [
+    "70",
+    "convidados, no máximo"
+   ]
+  ],
+  "foto": {
+   "id": 22,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Área externa com pergolado, samambaias e mesas montadas",
+  "pol": {
+   "id": 20,
+   "c": [
+    0.3,
+    0.4
+   ]
+  },
+  "pol_alt": "Juliana diante da mesa do bolo do aniversário dela",
+  "pol_cap": "Juliana, a anfitriã"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "A casa",
+   "h2": "Salão, pergolado <em>e mesa posta.</em>",
+   "p": "O salão, a área externa, a cozinha e a louçaria da casa. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do Espaço 41",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g01.jpg"
+     },
+     "alt": "Mesas de madeira com a louçaria preta e branca montada"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Mesa posta com sousplat de palha e taças"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Salão interno com as mesas montadas e janelas de madeira"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Fachada da casa com o caminho de pedra"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Deck de madeira sob o pergolado, com a piscina ao lado"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Cozinha ampla com armários e geladeira"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos e aniversários de quem já comemorou no Espaço 41.",
+   "rotulo": "Festas que aconteceram no Espaço 41",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g03.jpg"
+     },
+     "alt": "Mesa do bolo com flores brancas diante da parede de samambaias",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g07.jpg"
+     },
+     "alt": "Noiva de costas no portão da casa, com o véu longo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Mesa do bolo com balões pretos e prata",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g05.jpg"
+     },
+     "alt": "Mesa do bolo com rosas e lírios",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g09.jpg"
+     },
+     "alt": "Mesa do bolo com balões rosa e listras",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 3,
+      "c": [
+       0.5,
+       0.75
+      ]
+     },
+     "alt": "Bolo de 30 anos com balões pretos",
+     "cap": "30 anos"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a casa <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão interno"
+   ],
+   [
+    "jardim",
+    "Área externa com pergolado"
+   ],
+   [
+    "cozinha",
+    "Cozinha ampla para o buffet"
+   ],
+   [
+    "mesa",
+    "Louçaria e decoração para alugar"
+   ],
+   [
+    "som",
+    "Espaço para o DJ"
+   ],
+   [
+    "pessoas",
+    "Até 70 convidados"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer a casa no Jardim Emília",
+   "Escolha a louçaria e a mesa posta",
+   "No dia, Juliana recebe você e os convidados"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g04.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Prato com guardanapo verde, taças e talheres dourados"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Allanis Carolini de Oliveira Dias",
+   "tag": "Casamento",
+   "trecho": "era exatamente o que eu e meu marido procurávamos para nosso casamento minimalista e intimista"
+  },
+  {
+   "nome": "Yasmin Rendon",
+   "tag": "Mini wedding",
+   "trecho": "Em especial agradeço a Juliana que cuidou de cada detalhe do nosso mini wedding"
+  },
+  {
+   "nome": "Franciele Tenca",
+   "tag": "Mesa posta",
+   "trecho": "contratamos a locação das louçarias, organização da mesa posta e mesa do bolo e foi tudo entregue melhor que o sonhado."
+  },
+  {
+   "nome": "Lorraine Santos",
+   "tag": "Dia de chuva",
+   "trecho": "Mesmo com o dia de chuva, o local suportou muito bem o evento e acomodou todos com conforto."
+  },
+  {
+   "nome": "Pamela Suelen",
+   "tag": "Os donos",
+   "trecho": "Queremos deixar nossa gratidão a Juliana e seu esposo que desde o primeiro contato nos deram todo suporte e nos auxiliaram em tudo."
+  },
+  {
+   "nome": "Alan Pablo",
+   "tag": "O ambiente",
+   "trecho": "O ambiente tem um charme que é perfeito. A equipe que nos atendeu é maravilhosa e muito atenciosa."
+  }
+ ],
+ "insta": {
+  "seguidores": "8,5 mil seguidores",
+  "p": "Mesas postas, festas e os bastidores da casa.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58beace18211d_0xb55087b8f72bb39/g08.jpg"
+  },
+  "alt": "Guardanapo com laço listrado e o cardápio sobre o prato",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>do seu evento?</em>",
+  "p": "Escolha o dia, o tipo de evento e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço 41.",
+  "tipos": [
+   "Casamento",
+   "Mini wedding",
+   "Aniversário",
+   "Bodas",
+   "15 anos",
+   "Formatura",
+   "Evento de empresa",
+   "Outro evento"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço 41 e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Jardim Emília.</em>",
+  "endereco": [
+   "Rua Dulce Manzano, 41 · Jardim Emília",
+   "Sorocaba, SP · CEP 18031-040"
+  ],
+  "telefone": "(15) 99777-8664",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Uma casa de família para a sua festa.",
+ "mensagem": "Olá! Vim pelo site do Espaço 41 e queria um orçamento.",
+ "google_nome": "Espaço 41 - Espaço para festas Sorocaba",
+ "ficha": {
+  "whatsapp_fonte": "o +55 15 99777-8664 é o celular do Perfil da Empresa no Google e o WhatsApp da bio do Instagram (wa.me/5515997778664)",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Casa de eventos no Jardim Emília, em Sorocaba: \"Minimalista, aconchegante e perfeito para até 70 pessoas\" e \"Há + de 15 anos no mercado de festas\" (bio). Nota 5,0 com 104 avaliações.",
+   "Dona: Juliana Labonia (\"Juliana Labonia | Espaço para eventos\", bio; \"Juliana, proprietária e anfitriã do Espaço 41\", legenda). Em 2024 ela transformou a casa da família no espaço (legendas). Avaliações citam \"Juliana e seu esposo\" e \"a Juliana e o Santiago\"."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com o deck e o pergolado, quem recebe (Juliana), a casa (6 fotos, 1 do Google), festas reais (6, 4 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6, nota 5,0), consultar uma data e mapa.",
+   "Cores: verde-oliva escuro e dourado claro. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; posts de 2024 e 2025) e Perfil da Empresa no Google (mesas postas, mesa do bolo, noiva no portão, aniversário).",
+   "A foto da Juliana (polaroide) é do post do aniversário de 40 anos dela, publicado pelo próprio espaço. A foto de perfil do Instagram é o rosto dela, então o logo da demo é um recorte da placa \"Espaço 41\" da fachada (foto do Google).",
+   "Ficaram de fora: as artes com texto, as fotos com crianças e grupos de convidados e a foto de Natal da família."
+  ],
+  "conferir": [
+   "A legenda diz que a louçaria e a decoração são cobradas à parte: a demo só diz \"para alugar\", sem preço.",
+   "Tem piscina nas fotos (deck novo e chá revelação), mas nenhuma legenda fala dela: deixei fora da estrutura.",
+   "Horário do Google: de segunda a sexta, das 9h às 18h; fechado no sábado e no domingo (atendimento). Por isso a demo diz \"seg. a sex.\"."
+  ]
+ }
+}

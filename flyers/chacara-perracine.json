@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara Perracine",
+ "local": "Poá · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2e1b1f",
+  "fundo2": "#1c1013",
+  "acento": "#d4a373",
+  "tinta_acento": "#1c1013",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/chacaraperracine/Instagram_files/468911085_18060096691846645_8388489664741616071_n.jpg",
+  "pos": "50% 55%"
+ },
+ "selo": {
+  "nota": "4,7",
+  "total": "172"
+ },
+ "titulo": "Casar no jardim,<br><em>festejar no salão.</em>",
+ "texto": "Casamentos, aniversários e chás com cerimônia no jardim, salão, camarim da noiva e piscina.",
+ "whatsapp": "(11) 99503-5915",
+ "cta": "Consulte sua data",
+ "endereco": "R. Clemente Cunha Ferreira, 902 · Poá",
+ "instagram": "@chacaraperracine"
+}

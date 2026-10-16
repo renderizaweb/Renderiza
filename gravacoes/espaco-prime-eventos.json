@@ -1,0 +1,142 @@
+{
+ "demo": "espaco-prime-eventos",
+ "formato": "reels",
+ "marca": "Espaço Prime Eventos",
+ "local": "Hortolândia · SP",
+ "cores": {
+  "fundo": "#2b1f1a",
+  "fundo2": "#1b1310",
+  "acento": "#c9a46b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Espaço",
+   "Prime"
+  ],
+  "frase": "Sob o lustre, o seu grande dia.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Espaço Prime.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.7,
+   "legenda": "Hoje, quem procura um lugar para casar *começa pelo celular.*",
+   "sub": "Quer ver o salão, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": 360,
+   "segura": 0.6,
+   "mover": 3.0,
+   "legenda": ""
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.1,
+   "legenda": "Conhece o Prime *do camarim ao salão.*",
+   "sub": "Escada iluminada, cerimônia ao ar livre e cozinha profissional, em Hortolândia."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê cada ambiente *antes da visita.*",
+   "sub": "A cerimônia ao ar livre, os camarins, o lustre e o bar."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Casamentos e 15 anos que já passaram pelo Prime."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Lê o que *quem fez a festa conta.*",
+   "sub": "198 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia e o número de convidados já escritos na mensagem."
+  }
+ ]
+}

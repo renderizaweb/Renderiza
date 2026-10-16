@@ -187,3 +187,17 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Chácara Lasareff (eventos)](demos/chacara-lasareff) | Vila Lídia, Rio Grande da Serra | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
 | [Sítio Francilene (eventos)](demos/sitio-francilene) | Parque São Martinho, Mogi das Cruzes | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
 | [Chácara Luz da Natureza (eventos)](demos/chacara-luz-da-natureza) | Parque Mirante de Parnaíba, Santana de Parnaíba | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Espaço Canto da Terra (eventos)](demos/espaco-canto-da-terra) | Santana, Pindamonhangaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Casa Samanta Fonseca (eventos)](demos/casa-samanta-fonseca) | Parque São Martinho, Mogi das Cruzes | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Prime Eventos (eventos)](demos/espaco-prime-eventos) | Chácaras Recreio Alvorada, Hortolândia | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Villa La Feria (eventos)](demos/villa-la-feria) | Rod. Raposo Tavares, Sorocaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço 41 (eventos)](demos/espaco-41) | Jardim Emília, Sorocaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Chácara Perracine (eventos)](demos/chacara-perracine) | Vila Perracini, Poá | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Casa Le Charme (eventos)](demos/casa-le-charme) | Jardim Europa, Itapecerica da Serra | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Banquett (eventos)](demos/espaco-banquett) | Ponte Grande, Mogi das Cruzes | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Mirante Biritiba (eventos)](demos/espaco-mirante-biritiba) | Jardim dos Eucaliptos, Biritiba Mirim | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [O Poço Encantado (eventos)](demos/o-poco-encantado) | Jardim Santo Amaro, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Chácara Ouro Verde (eventos e hospedagem)](demos/chacara-ouro-verde) | Soares, Juquitiba | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Espaço Reserva da Ilha (eventos)](demos/espaco-reserva-da-ilha) | Fazenda da Ilha, Embu-Guaçu | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Império Eventos (eventos)](demos/espaco-imperio-eventos) | Vossoroca, Votorantim | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Mansão Jaraguá (eventos)](demos/mansao-jaragua) | Vila Clarice, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |

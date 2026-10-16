@@ -1,0 +1,393 @@
+{
+ "pasta": "casa-samanta-fonseca",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/casa-samanta-fonseca/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/casa-samanta-fonseca.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/casa-samanta-fonseca/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511921760763",
+ "fone_link": "+5511921760763",
+ "google": {
+  "coords": "-23.6072641,-46.2240587",
+  "fid": "0x94ce75e927b627f9:0xdfc648dbac683cff",
+  "gid": "/g/11c2nvms7s"
+ },
+ "endereco_maps": "Av. Japão, 11000 - Parque São Martinho, Mogi das Cruzes - SP, 08700-000",
+ "google_nota": "4,7",
+ "google_total": "407",
+ "verificado": "2026-10-16",
+ "instagram": "casasamantafonseca",
+ "estilo": "gala",
+ "marca": "Casa Samanta Fonseca",
+ "marca_logo": "Casa Samanta Fonseca",
+ "marca_completa": "Casa Samanta Fonseca · Festas e Eventos",
+ "logo_sub": "Mogi das Cruzes · SP",
+ "titulo": "Casa Samanta Fonseca | Casamentos e festas em Mogi das Cruzes",
+ "descricao": "Casa Samanta Fonseca, na Av. Japão, 11000, no Parque São Martinho, em Mogi das Cruzes (SP): espaço para a cerimônia ao ar livre, salão coberto para 200 pessoas com mesas e cadeiras, piscina, Sala da Noiva e quartos, para casamentos, 15 anos e festas.",
+ "comentario": "Demo Casa Samanta Fonseca: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da casa (@casasamantafonseca, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2a2320",
+  "acento": "#c9a27e"
+ },
+ "css_extra": ".hero::after{background:radial-gradient(75% 50% at 50% 58%,rgba(12,10,8,.6),transparent 75%),linear-gradient(180deg,rgba(12,10,8,.62) 0%,rgba(12,10,8,.42) 30%,rgba(12,10,8,.62) 60%,rgba(12,10,8,.94) 100%)}",
+ "topline": "Av. Japão, 11000 · Parque São Martinho, Mogi das Cruzes",
+ "nav": [
+  [
+   "#sobre",
+   "A casa"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e festas em Mogi das Cruzes",
+  "h1": "O sim no jardim, <em>a festa no salão.</em>",
+  "intro": "Cerimônia ao ar livre, salão coberto para 200 pessoas com mesas e cadeiras, piscina, Sala da Noiva e quartos para quem quer ficar.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 27,
+   "c": [
+    0.5,
+    0.72
+   ]
+  },
+  "alt": "Noiva de véu longo no jardim, ao fim da tarde"
+ },
+ "endereco": [
+  "Av. Japão, 11000",
+  "Mogi das Cruzes · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "Mini wedding",
+  "15 anos",
+  "Chá revelação",
+  "Sala da Noiva",
+  "Piscina",
+  "Hospedagem",
+  "Mogi das Cruzes"
+ ],
+ "sobre": {
+  "eyebrow": "A casa",
+  "h2": "Uma casa <em>com nome e sobrenome.</em>",
+  "p": [
+   "No Parque São Martinho, em Mogi das Cruzes, a Casa Samanta Fonseca reúne espaço para a cerimônia ao ar livre, salão coberto para 200 pessoas, piscina, Sala da Noiva e quartos para hospedagem.",
+   "Samanta Fonseca já fazia festas e decoração em Mogi antes de abrir a casa. Hoje o casamento pode ser feito aqui do começo ao fim: decoração, maquiagem da noiva, foto e vídeo."
+  ],
+  "stats": [
+   [
+    "200",
+    "pessoas no salão coberto"
+   ],
+   [
+    "11,9 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 11,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Caminho de pedra até o pergolado, com jardim dos dois lados",
+  "pol": {
+   "id": 3
+  },
+  "pol_alt": "Noivos cortando o bolo, com flores e doces na mesa",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, estufa <em>e salão.</em>",
+   "p": "O pergolado, a piscina, a estufa de vidro e o salão. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Casa Samanta Fonseca",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Pergolado de ferro no gramado, com a piscina e a casa ao fundo"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Piscina sob o céu azul"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g00.jpg"
+     },
+     "alt": "Estufa coberta com plantas e mesas brancas"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Mesa de doces com flores brancas e capim dos pampas"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "A estufa iluminada à noite, entre as árvores"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g04.jpg"
+     },
+     "alt": "Arco de folhagens na entrada do salão"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Sala da Noiva com sofá e parede de árvore dourada"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Mesas redondas sob a cobertura de vidro, com o jardim ao lado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos e 15 anos de quem já comemorou na Casa Samanta Fonseca.",
+   "rotulo": "Festas que aconteceram na Casa Samanta Fonseca",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Jantar dos convidados na estufa, com lustres de cristal",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Noivos saindo sob chuva de pétalas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Noiva com buquê de rosas",
+     "cap": "A noiva"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g07.jpg"
+     },
+     "alt": "Mesa do bolo branca com flores e malas antigas",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Decoração de 15 anos em rosa, dourado e branco",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Painel em arco com sofá branco para fotos",
+     "cap": "Backdrop"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Mesa posta com taças, com a piscina ao fundo",
+     "cap": "Recepção"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce75e927b627f9_0xdfc648dbac683cff/g08.jpg"
+     },
+     "alt": "Salão com varal de luzes e mesas montadas à noite",
+     "cap": "Festa"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a casa <em>oferece.</em>",
+  "p": "O que a própria casa mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "coberto",
+    "Salão coberto para 200 pessoas"
+   ],
+   [
+    "mesa",
+    "Mesas e cadeiras inclusas"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "quartos",
+    "Quartos para hospedagem"
+   ],
+   [
+    "cozinha",
+    "Cozinha"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer a casa em Mogi das Cruzes",
+   "Escolha decoração, maquiagem, foto e vídeo",
+   "No dia, é só chegar e celebrar"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 25,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Noiva sentada diante da parede de árvore dourada"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem esteve <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Jose Luiz Teixeira",
+   "tag": "Casamento",
+   "trecho": "o local é muito bom pra casamento ao ar livre, também tem uma área muito boa pra recepção e ainda conta com cozinha e quartos pra dormir"
+  },
+  {
+   "nome": "keila Cristina",
+   "tag": "Salão",
+   "trecho": "salão de festas muito espaçoso com muitas mesas disponíveis, com banheiros, comportou bem a todos que ali estavam."
+  },
+  {
+   "nome": "Claudia Guimarães",
+   "tag": "O lugar",
+   "trecho": "Tudo perfeito, lugar aconchegante, famíliar, amplo, encantador!"
+  },
+  {
+   "nome": "Felipe Mendes",
+   "tag": "Equipe",
+   "trecho": "Ótimo lugar! Equipe extremamente capacitada e solicita."
+  },
+  {
+   "nome": "Rafaela Domiciano",
+   "tag": "Hospedagem",
+   "trecho": "tudo muito organizado e confortável para dormir, vale muito a pena, ótima para eventos!"
+  },
+  {
+   "nome": "Fernando Dias Dos Reis",
+   "tag": "Cuidado",
+   "trecho": "Lugar muito bonito, limpo e organizado."
+  }
+ ],
+ "insta": {
+  "seguidores": "11,9 mil seguidores",
+  "p": "Casamentos, noivas e bastidores, toda semana.",
+  "foto": {
+   "id": 30
+  },
+  "alt": "Noiva na janela de madeira",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Casa Samanta Fonseca.",
+  "tipos": [
+   "Casamento",
+   "Mini wedding",
+   "15 anos",
+   "Chá revelação",
+   "Aniversário",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Casa Samanta Fonseca e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Mogi das Cruzes.</em>",
+  "endereco": [
+   "Av. Japão, 11000 · Parque São Martinho",
+   "Mogi das Cruzes, SP · CEP 08700-000"
+  ],
+  "telefone": "(11) 92176-0763",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O sim no jardim, a festa no salão.",
+ "mensagem": "Olá! Vim pelo site da Casa Samanta Fonseca e queria um orçamento.",
+ "google_nome": "Casa Samanta Fonseca",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 92176-0763 é o celular do Perfil da Empresa no Google; as legendas pedem \"chama no WhatsApp\" sem mostrar o número",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Casa de eventos em Mogi das Cruzes com cerimônia ao ar livre, estufa de vidro, salão coberto para 200 pessoas, piscina, Sala da Noiva e quartos. Nota 4,7 com 407 avaliações (a demo mostra o total, não a nota).",
+   "Samanta Fonseca aparece nos vídeos e dá nome à casa; antes já postava festas e decoração como \"Samanta Fonseca - Festas e Eventos\" (post de 2024). Não confirmei pelo Google que ela é a dona."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a noiva no jardim, a casa, o espaço (8 fotos, 2 do Google), festas reais (8, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: marrom-escuro e rosé dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (estufa, arco de folhagens, mesa do bolo, salão com luzes).",
+   "Ficaram de fora: os vídeos com texto por cima (\"comente eu quero\", \"50% OFF\"), as fotos de maquiagem e produtos e as panorâmicas 360 do Google."
+  ],
+  "conferir": [
+   "As legendas falam em pacotes, condições especiais e \"50% OFF\": nada disso entrou na demo.",
+   "Noivas aparecem em várias fotos, postadas pela própria casa.",
+   "Horário do Google: todos os dias, das 8h às 18h (atendimento).",
+   "Quantidade de quartos, estacionamento e capacidade da área externa: não confirmei."
+  ]
+ }
+}

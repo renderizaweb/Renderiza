@@ -1,0 +1,29 @@
+{
+ "marca": "Villa La Feria",
+ "local": "Sorocaba · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#22281c",
+  "fundo2": "#151811",
+  "acento": "#c98d5e",
+  "tinta_acento": "#151811",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/vilalaferia/Instagram_files/472716654_18316798624160398_4409423990517071785_n.jpg",
+  "pos": "50% 62%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "314"
+ },
+ "titulo": "A festa inteira<br><em>sob o verde.</em>",
+ "texto": "Casamentos, 15 anos, aniversários e festas infantis com buffet próprio e a decoração da casa.",
+ "whatsapp": "(15) 99657-0880",
+ "cta": "Consulte sua data",
+ "endereco": "Rod. Raposo Tavares, km 107 · Sorocaba",
+ "instagram": "@villalaferia"
+}

@@ -6,6 +6,7 @@
 #       quartos, coberto, lago, campo, bar, cerimonia, mesa (outro nome: estrela)
 #   "consulta": {"h2", "p", "tipos": [...], "mensagem_inicio"}   consultar uma data: dia, tipo de festa e
 #       convidados abrem o WhatsApp do lugar com a mensagem pronta (sem preço, sem promessa).
+#   "estilo": "gala" (opcional): visual elegante de revista para casamento, 15 anos e formatura (ver GALA abaixo).
 # O resto do JSON é o do gerar.py ("estilos": null, carrosséis com ids próprios, ex.: "espaco" e "festas").
 # Uso: python3 gerar-eventos.py demos/<pasta>/demo.json   ->  demos/<pasta>/index.html e ficha.md
 #   Depois: node validar.mjs <index.html absoluto> <pasta_capturas>
@@ -51,6 +52,108 @@ CSS = (
     '.consulta-form input,.consulta-form select{font:inherit;font-weight:500;min-height:52px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.28);background:#fff;color:var(--ink);width:100%}'
     '.consulta-form .button{width:100%;margin-top:4px}.consulta-form small{color:rgba(255,255,255,.7);line-height:1.45}'
     '@media(max-width:860px){.consulta-grid{grid-template-columns:1fr;gap:28px}.consulta-form{padding:22px}}'
+    # a foto do topo respira (zoom lento): no vídeo, a primeira frase já não fica sobre uma tela parada
+    '@keyframes ev-kb{from{transform:scale(1.01)}to{transform:scale(1.12) translate(-1.2%,-.8%)}}'
+    '.hero-photo>img{animation:ev-kb 18s ease-in-out infinite alternate;transform-origin:50% 40%}'
+    '@media(prefers-reduced-motion:reduce){.hero-photo>img{animation:none}}'
+)
+
+# "estilo": "gala" (pedido do Kaue, 16/10/2026: demo "mais gourmetizada" para casamento, 15 anos, formatura): visual de
+# revista, com a foto do topo em tela cheia, serifa fina (Cormorant Garamond) e texto em Jost, fios dourados, cantos
+# retos, galerias amplas e a consulta de data em fundo escuro. Mesmo conteúdo e mesmas seções da demo comum.
+FONTES_GALA = ('<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;'
+               '1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">')
+GALA = (
+    ':root{--display:"Cormorant Garamond",Georgia,serif;--texto:"Jost",system-ui,sans-serif;--paper:#faf7f2;--cream:#f4eee5;--sage:#f2ece3;--sage-2:#e4dacb;--line:#e8dfd1;--muted:#6c645a}'
+    'body{font-family:var(--texto);font-weight:400}'
+    'h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.005em;line-height:1.02}'
+    'h1 em,h2 em{font-style:italic;font-weight:500;background:none;padding:0;color:var(--orange-deep)}'
+    'h2{font-size:clamp(2.5rem,4.6vw,3.8rem)}'
+    '.eyebrow{font-family:var(--texto);font-weight:500;letter-spacing:.3em;font-size:.7rem}'
+    '.section-heading{display:block;text-align:center;max-width:780px;margin:0 auto 54px}.section-heading>p{margin:18px auto 0;max-width:560px}'
+    '.section-heading .eyebrow{display:inline-flex;align-items:center;gap:14px}'
+    '.section-heading .eyebrow::before,.section-heading .eyebrow::after{content:"";width:34px;height:1px;background:currentColor;opacity:.55}'
+    '.topline{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}'
+    '.site-header{background:rgba(250,247,242,.94)}'
+    '.site-header .logo-text b{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:.01em;text-transform:none}'
+    '.site-header .logo-text small{letter-spacing:.24em;font-weight:500}'
+    '.logo-mark{border-radius:50%}'
+    '.desktop-nav{gap:22px}.desktop-nav a{font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;white-space:nowrap}'
+    '.header-cta{white-space:nowrap;padding-inline:20px}'
+    '.desktop-nav a::after{height:1px;bottom:-7px;background:var(--orange-deep)}'
+    '.button{border-radius:2px;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;font-weight:500;min-height:54px;padding:16px 28px}'
+    '.button:hover{transform:none}'
+    '.text-link{letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;font-weight:500}'
+    # topo em tela cheia
+    '.hero{min-height:min(94vh,900px);display:flex;flex-direction:column;justify-content:flex-end;background:#120f0c}'
+    '.hero::before{display:none}'
+    '.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 46% at 50% 62%,rgba(12,10,8,.5),transparent 72%),linear-gradient(180deg,rgba(12,10,8,.5) 0%,rgba(12,10,8,.22) 28%,rgba(12,10,8,.55) 58%,rgba(12,10,8,.92) 100%)}'
+    '.hero-copy{text-shadow:0 2px 22px rgba(0,0,0,.45)}.hero-copy .button,.hero-copy .proof-badge{text-shadow:none}'
+    '.hero .hero-visual{position:absolute;inset:0;width:auto;padding:0;z-index:-2;align-self:auto}'
+    '.hero .hero-photo{position:absolute;inset:0;border:0;border-radius:0;transform:none;box-shadow:none;background:#120f0c}'
+    '.hero .hero-photo>img{height:100%;width:100%}'
+    '.hero .address-tag{display:none}'
+    '.hero .hero-grid{display:block;min-height:0;padding-block:190px 44px}'
+    '.hero-copy{max-width:780px;margin-inline:auto;text-align:center}'
+    '.hero .eyebrow{justify-content:center;letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;color:#f0e5d1}'
+    '.hero .eyebrow .small-line{display:none}'
+    '.hero h1{font-size:clamp(3.4rem,7.2vw,6.2rem);font-weight:400;max-width:none;line-height:.96;color:#fff}'
+    '.hero h1 em{display:block;color:var(--mustard)}'
+    '.hero-intro{margin:26px auto 0;color:#eee5d6;font-size:1.125rem;font-weight:300;max-width:580px}'
+    '.hero-actions,.hero-proof{justify-content:center}'
+    '.proof-badge{border-radius:2px}'
+    '.hero-bottom{border-top-color:#ffffff2e;color:#dcd2c1;letter-spacing:.04em}'
+    # faixa
+    '.marquee{background:var(--green);color:#efe6d6}'
+    '.marquee-group{font-family:var(--display);font-style:italic;font-weight:500;text-transform:none;letter-spacing:.01em;font-size:1.35rem;padding-block:20px}'
+    '.marquee-group i{color:var(--mustard);font-size:.65rem}'
+    # sobre e quem recebe
+    '.story-section{background:var(--paper)}'
+    '.story-photos::before{content:"";position:absolute;left:-18px;top:-18px;width:62%;height:72%;border:1px solid var(--orange-deep);opacity:.45}'
+    '.story-main,.experience-main{position:relative;border-radius:0!important}'
+    '.polaroid{border:0;padding:8px 8px 0;background:#fff;box-shadow:0 24px 50px rgba(20,16,10,.16)}'
+    '.story-polaroid,.experience-polaroid{transform:none}'
+    '.polaroid figcaption{font-family:var(--display);font-style:italic;font-weight:500;font-size:1.05rem;letter-spacing:0}'
+    '.stat{background:transparent;border-radius:0;border-top:1px solid var(--line);padding:18px 0 0}'
+    '.stat strong{font-family:var(--display);font-weight:500;font-size:2.5rem;letter-spacing:0;color:var(--orange-deep)}'
+    '.experience-section{background:var(--cream)}'
+    # galerias
+    '.gallery-card,.vitrine-card{border-radius:2px;box-shadow:none;border:0}'
+    '.gallery-card figcaption,.vitrine-card figcaption{left:0;right:0;bottom:0;border-radius:0;background:linear-gradient(transparent,rgba(10,8,6,.72));color:#fff;padding:30px 16px 14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.66rem}'
+    '.carousel-dots button[aria-current="true"]::after{background:var(--orange-deep)}'
+    # estrutura
+    '.estrutura-grid{gap:0 28px}'
+    '.estrutura-grid li{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:22px 2px;flex-direction:column;align-items:flex-start;gap:12px}'
+    '.estrutura-grid svg{stroke-width:1.2;width:30px;height:30px;flex-basis:30px}'
+    '.estrutura-grid strong{font-weight:500;font-size:1.0625rem}'
+    # avaliações
+    '.reviews-section::before{display:none}'
+    '.review-card{border-radius:2px;background:#fffdf9}'
+    '.review-card blockquote{font-family:var(--display);font-style:italic;font-size:1.4rem;font-weight:500;line-height:1.32}'
+    '.review-card blockquote.is-long{font-size:1.2rem;line-height:1.38}'
+    '.review-tag{border-radius:2px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}'
+    '.review-avatar{background:transparent;border:1px solid var(--orange-deep);color:var(--orange-deep);font-weight:600}'
+    '.google-score>strong{font-weight:500;letter-spacing:0}'
+    # consulta de data em fundo escuro
+    '.consulta-section{background:var(--green);color:#f3ece0}'
+    '.consulta-copy h2{color:#fff}.consulta-copy h2 em{color:var(--mustard)}.consulta-copy p{color:#d9d0c1}'
+    '.consulta-section .eyebrow{color:var(--mustard)}'
+    '.consulta-form{background:#fffdf9;color:var(--ink);border-radius:2px;box-shadow:none}'
+    '.consulta-form input,.consulta-form select{border-radius:2px;border:1px solid var(--sage-2)}'
+    '.consulta-form small{color:var(--muted)}'
+    # instagram, visita e rodapé
+    '.insta-photo{border-radius:2px;transform:none;border:0}.insta-chip{border-radius:2px}'
+    '.visit-section{background:var(--paper)}.map-card{border-radius:2px;border:0}.visit-note,.visit-status{border-radius:2px}'
+    '.footer-slogan{font-family:var(--display);font-style:italic;font-weight:500;font-size:1.6rem}'
+    '@media(max-width:620px){'
+    '.hero{min-height:88svh}.hero .hero-grid{padding-block:150px 30px}'
+    '.topline .container>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.12em}'
+    '.hero h1{font-size:clamp(2.7rem,12.5vw,3.5rem)}.hero-intro{font-size:1rem}'
+    '.story-photos::before{left:-10px;top:-10px}'
+    '.section-heading{margin-bottom:34px}.section-heading .eyebrow::before,.section-heading .eyebrow::after{width:20px}'
+    '.marquee-group{font-size:1.1rem;padding-block:16px}'
+    '.site-header .logo-text b{font-size:1.2rem}'
+    '.review-card blockquote{font-size:1.25rem}}'
 )
 
 def estrutura_html(e):
@@ -105,12 +208,15 @@ def consulta_html(c, whatsapp, marca):
 def gerar(caminho):
     cfg = json.load(open(caminho, encoding='utf-8'))
     cfg.setdefault('estilos', None)
-    cfg['css_extra'] = CSS + cfg.get('css_extra', '')
+    gala = cfg.get('estilo') == 'gala'
+    cfg['css_extra'] = CSS + (GALA if gala else '') + cfg.get('css_extra', '')
     tmp = caminho + '.tmp.json'
     json.dump(cfg, open(tmp, 'w', encoding='utf-8'), ensure_ascii=False)
     try: saida = G.gerar(tmp)
     finally: os.remove(tmp)
     doc = open(saida, encoding='utf-8').read()
+    if gala:
+        assert '</head>' in doc; doc = doc.replace('</head>', '  ' + FONTES_GALA + '\n</head>', 1)
     if cfg.get('estrutura'):
         alvo = '\n    <section class="section experience-section" id="atendimento"'
         assert alvo in doc; doc = doc.replace(alvo, estrutura_html(cfg['estrutura']) + '\n' + alvo, 1)

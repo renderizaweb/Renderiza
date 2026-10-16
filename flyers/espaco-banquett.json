@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Banquett",
+ "local": "Mogi das Cruzes · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1b2420",
+  "fundo2": "#101613",
+  "acento": "#d9925b",
+  "tinta_acento": "#101613",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/espacobanquett/Instagram_files/639879658_18573382594044626_624842622760387177_n.webp",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "45"
+ },
+ "titulo": "Aconchego de casa,<br><em>festa de salão.</em>",
+ "texto": "Aniversários, casamentos intimistas e eventos para até 85 convidados, com o buffet da casa.",
+ "whatsapp": "(11) 97315-2874",
+ "cta": "Consulte sua data",
+ "endereco": "R. Antônio Gonçalves, 38 · Mogi",
+ "instagram": "@espaco.banquett"
+}

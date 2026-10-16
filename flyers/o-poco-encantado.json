@@ -1,0 +1,29 @@
+{
+ "marca": "O Poço Encantado",
+ "local": "Santo Amaro · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2f3b2b",
+  "fundo2": "#1d241a",
+  "acento": "#c9873f",
+  "tinta_acento": "#1d241a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/opocoencantado/Instagram_files/471199811_18264737680270678_6199781908564894320_n.jpg",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "162"
+ },
+ "titulo": "Um refúgio verde<br><em>em Santo Amaro.</em>",
+ "texto": "Aniversários, festas infantis, casamentos e eventos de empresa, com jardim e o buffet da casa.",
+ "whatsapp": "(11) 94537-9958",
+ "cta": "Consulte sua data",
+ "endereco": "Rua Conde de Itu, 671 · Santo Amaro",
+ "instagram": "@opocoencantado"
+}

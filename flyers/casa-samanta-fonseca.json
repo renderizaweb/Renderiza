@@ -1,0 +1,29 @@
+{
+ "marca": "Casa Samanta Fonseca",
+ "local": "Mogi das Cruzes · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a2320",
+  "fundo2": "#1a1513",
+  "acento": "#c9a27e",
+  "tinta_acento": "#1a1513",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/samantafoncecafestas/Instagram_files/652050445_18087704753168238_6130841855138028276_n.jpg",
+  "pos": "50% 70%"
+ },
+ "selo": {
+  "nota": "4,7",
+  "total": "407"
+ },
+ "titulo": "O sim no jardim,<br><em>a festa no salão.</em>",
+ "texto": "Casamentos e 15 anos com cerimônia ao ar livre, salão para 200 pessoas, piscina e quartos.",
+ "whatsapp": "(11) 92176-0763",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Japão, 11000 · Mogi das Cruzes",
+ "instagram": "@casasamantafonseca"
+}

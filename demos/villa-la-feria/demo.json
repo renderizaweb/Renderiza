@@ -1,0 +1,393 @@
+{
+ "pasta": "villa-la-feria",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/villa-la-feria/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/villa-la-feria.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/villa-la-feria/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5515996570880",
+ "fone_link": "+5515996570880",
+ "google": {
+  "coords": "-23.5238315,-47.5301517",
+  "fid": "0x94cf6048d682238b:0x8481b6ab6922565",
+  "gid": "/g/11gg42ds59"
+ },
+ "endereco_maps": "Rod. Raposo Tavares, km 107 - 5 n 2531, Sorocaba - SP",
+ "google_nota": "4,8",
+ "google_total": "314",
+ "verificado": "2026-10-16",
+ "instagram": "villalaferia",
+ "estilo": "gala",
+ "marca": "Villa La Feria",
+ "marca_logo": "Villa La Feria",
+ "marca_completa": "Espaço de Eventos Villa La Feria",
+ "logo_sub": "Sorocaba · SP",
+ "titulo": "Villa La Feria | Espaço de eventos com buffet próprio em Sorocaba",
+ "descricao": "Villa La Feria, na Rod. Raposo Tavares, km 107, em Sorocaba (SP): espaço de eventos integrado à natureza, com área coberta, área verde, buffet próprio e decoração da casa, para casamentos, 15 anos, aniversários e festas infantis.",
+ "comentario": "Demo Villa La Feria: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@villalaferia, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#22281c",
+  "acento": "#c98d5e"
+ },
+ "topline": "Rod. Raposo Tavares, km 107 · Sorocaba",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço de eventos em Sorocaba",
+  "h1": "A festa inteira <em>sob o verde.</em>",
+  "intro": "Casamentos, 15 anos, aniversários e festas infantis num espaço integrado à natureza, com buffet próprio e a decoração da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 3,
+   "c": [
+    0.5,
+    0.6
+   ]
+  },
+  "alt": "Mesa do bolo com flores, sob folhagens e luminárias acesas"
+ },
+ "endereco": [
+  "Rod. Raposo Tavares, km 107",
+  "Sorocaba · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "Mini wedding",
+  "15 anos",
+  "Aniversários",
+  "Festas infantis",
+  "Bodas",
+  "Buffet próprio",
+  "Sorocaba"
+ ],
+ "sobre": {
+  "eyebrow": "Villa La Feria",
+  "h2": "Carol e Gabriel <em>cuidam de cada detalhe.</em>",
+  "p": [
+   "Na Raposo Tavares, em Sorocaba, a Villa La Feria é um espaço de eventos integrado à natureza: área coberta para a festa, área verde ao ar livre e espaço para as crianças.",
+   "A festa sai completa: o buffet é da casa e a decoração também. Nas avaliações, quem já fez festa ali conta que o casal Carol e Gabriel e a equipe recebem e cuidam dos detalhes."
+  ],
+  "stats": [
+   [
+    "314",
+    "avaliações no Google"
+   ],
+   [
+    "24 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 9,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Mesa de doces em mosaico, com flores e luminárias de palha",
+  "pol": {
+   "id": 8
+  },
+  "pol_alt": "Lírio cor-de-rosa num arranjo da mesa",
+  "pol_cap": "Detalhes"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Área verde, <em>área coberta.</em>",
+   "p": "O jardim com mesas, o salão envidraçado, a área coberta e o buffet. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Villa La Feria",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g00.jpg"
+     },
+     "alt": "Mesas redondas montadas no gramado, sob o pergolado"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Mesa posta sob a luminária de palha, com a decoração ao fundo"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g09.jpg"
+     },
+     "alt": "Salão envidraçado com a decoração de aniversário montada"
+    },
+    {
+     "foto": {
+      "id": 47
+     },
+     "alt": "Mesa da família com flores secas e luminárias"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g13.jpg"
+     },
+     "alt": "Mesa posta no jardim, entre as árvores"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Estação do buffet com salgados e pães, diante do jardim vertical"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Área coberta com as mesas montadas para um 15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g11.jpg"
+     },
+     "alt": "Gramado com palmeiras e o estacionamento ao fundo"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, aniversários, 15 anos e festas infantis de quem já comemorou na Villa La Feria.",
+   "rotulo": "Festas que aconteceram na Villa La Feria",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Mesa do bolo com flores brancas e folhagens",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Mesa dos padrinhos com lírios e taças",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Mesa com hortênsias azuis e doces",
+     "cap": "Mini wedding"
+    },
+    {
+     "foto": {
+      "id": 0
+     },
+     "alt": "Mesa do bolo com girassóis e uma Kombi de brinquedo",
+     "cap": "50 anos"
+    },
+    {
+     "foto": {
+      "id": 43
+     },
+     "alt": "Decoração de 15 anos com balões e letreiro iluminado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Mesa do bolo decorada com tomates e flores",
+     "cap": "60 anos"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Decoração de 1 ano em tons de azul e lilás",
+     "cap": "Festa infantil"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Mesa do bolo e dos doces com luminárias, à noite",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "coberto",
+    "Área coberta para a festa"
+   ],
+   [
+    "jardim",
+    "Área verde ao ar livre"
+   ],
+   [
+    "cozinha",
+    "Buffet próprio"
+   ],
+   [
+    "mesa",
+    "Decoração da casa"
+   ],
+   [
+    "brinquedos",
+    "Espaço para as crianças"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento amplo"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço em Sorocaba",
+   "Escolha o cardápio do buffet e a decoração",
+   "No dia, Carol, Gabriel e a equipe cuidam de tudo"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cf6048d682238b_0x8481b6ab6922565/g03.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa do bolo com flores diante da parede de tijolos"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Marcelo Campos",
+   "tag": "Os donos",
+   "trecho": "O casal Carol e Gabriel e sua equipe recepcionam e cuidam dos detalhes sempre com muita atenção pra que tudo transcorra como planejado."
+  },
+  {
+   "nome": "Thalita Ferraz",
+   "tag": "Buffet",
+   "trecho": "Lugar lindo, atendimento excelente e buffet muito bom, fomos em uma festa e amamos."
+  },
+  {
+   "nome": "Anne Karolina",
+   "tag": "Detalhes",
+   "trecho": "tudo pensado nos mínimos detalhes para transformar eventos em experiências inesquecíveis"
+  },
+  {
+   "nome": "Bina Galon",
+   "tag": "A festa",
+   "trecho": "Lugar lindo, agradável, excelente serviço e proporcionou uma festa linda, segura com convidados a vontade"
+  },
+  {
+   "nome": "Raí Rodrigo",
+   "tag": "Ao ar livre",
+   "trecho": "Excelente para eventos ao ar livre, e amplo estacionamento."
+  },
+  {
+   "nome": "João Marcos Batista",
+   "tag": "Acesso",
+   "trecho": "Excelente estrutura, localização, investimento para eventos e festas e de fácil acesso em Sorocaba."
+  }
+ ],
+ "insta": {
+  "seguidores": "24 mil seguidores",
+  "p": "Festas de todo fim de semana, do casamento ao 1 aninho.",
+  "foto": {
+   "id": 36
+  },
+  "alt": "Coluna de flores brancas e folhagens na entrada",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Villa La Feria.",
+  "tipos": [
+   "Casamento",
+   "Mini wedding",
+   "15 anos",
+   "Aniversário",
+   "Festa infantil",
+   "Bodas",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Villa La Feria e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Sorocaba.</em>",
+  "endereco": [
+   "Rod. Raposo Tavares, km 107",
+   "Sorocaba, SP"
+  ],
+  "telefone": "(15) 99657-0880",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "A festa inteira sob o verde.",
+ "mensagem": "Olá! Vim pelo site da Villa La Feria e queria um orçamento.",
+ "google_nome": "Villa La Feria",
+ "ficha": {
+  "whatsapp_fonte": "o +55 15 99657-0880 é o celular do Perfil da Empresa no Google e o WhatsApp da bio do Instagram (wa.me/5515996570880)",
+  "site": "não tem (o Google aponta para o Instagram; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Espaço de eventos em Sorocaba \"integrado à natureza\", com \"festas completas com buffet próprio\" (bio); casamentos, 15 anos, aniversários e muitas festas infantis. Nota 4,8 com 314 avaliações (a demo mostra o total, não a nota).",
+   "Donos: \"O casal Carol e Gabriel e sua equipe\" (avaliação do Google, de 3 anos atrás). O espaço já se chamou Chácara/Espaço La Feria (@espacolaferia nas legendas antigas)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a mesa do bolo sob as folhagens, quem recebe (Carol e Gabriel), o espaço (8 fotos, 4 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: verde-escuro e terracota. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; posts de 2023 e 2024) e Perfil da Empresa no Google (jardim, salão envidraçado, mesa do bolo, gramado).",
+   "Ficaram de fora: a foto com a placa antiga \"Chácara La Feria\", a da Carol no aniversário dela, as fotos com crianças e convidados e as panorâmicas 360 do Google."
+  ],
+  "conferir": [
+   "Uma avaliação recente fala em \"lançamento\" e o Google tem fotos de uma inauguração com fita: parece que há estrutura nova (salão envidraçado). Vale perguntar o que mudou.",
+   "Uma legenda de 2026 cita \"uma capelinha ao fundo\": não usei porque não achei foto da capela.",
+   "Horário do Google: de segunda a sexta, das 9h às 17h; sábado e domingo, das 9h às 20h (atendimento).",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

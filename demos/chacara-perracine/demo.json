@@ -1,0 +1,378 @@
+{
+ "pasta": "chacara-perracine",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/chacara-perracine/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/chacara-perracine.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/chacara-perracine/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511995035915",
+ "fone_link": "+5511995035915",
+ "google": {
+  "coords": "-23.52823,-46.359239",
+  "fid": "0x94ce7b2a76d098e3:0x8f142723067e676",
+  "gid": "/g/11bv6pft02"
+ },
+ "endereco_maps": "Rua Clemente Cunha Ferreira, 902 - Vila Perracini, Poá - SP, 08552-330",
+ "google_nota": "4,7",
+ "google_total": "172",
+ "verificado": "2026-10-16",
+ "instagram": "chacaraperracine",
+ "estilo": "gala",
+ "marca": "Chácara Perracine",
+ "marca_logo": "Chácara Perracine",
+ "marca_completa": "Chácara Perracine · Eventos",
+ "logo_sub": "Poá · SP",
+ "titulo": "Chácara Perracine | Casamentos e festas em Poá",
+ "descricao": "Chácara Perracine, na Rua Clemente Cunha Ferreira, 902, na Vila Perracini, em Poá (SP): cerimônia no jardim, salão, camarim da noiva, espaço para a noiva acompanhar a cerimônia, piscina e plano B para dias de chuva. Casamentos, aniversários, chás e eventos.",
+ "comentario": "Demo Chácara Perracine: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da chácara (@chacaraperracine, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2e1b1f",
+  "acento": "#d4a373"
+ },
+ "topline": "Rua Clemente Cunha Ferreira, 902 · Vila Perracini, Poá",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e festas em Poá",
+  "h1": "Casar no jardim, <em>festejar no salão.</em>",
+  "intro": "Cerimônia no jardim, salão, camarim da noiva e um espaço reservado para a noiva acompanhar a cerimônia antes de entrar.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Arco de folhagens no jardim, com a cerimônia acontecendo ao fundo"
+ },
+ "endereco": [
+  "Rua Clemente Cunha Ferreira, 902",
+  "Poá · SP"
+ ],
+ "dias_curto": "seg. a sex.",
+ "marquee": [
+  "Casamentos",
+  "Cerimônia no jardim",
+  "Aniversários",
+  "Chá de bebê",
+  "Chá revelação",
+  "Confraternizações",
+  "Poá"
+ ],
+ "sobre": {
+  "eyebrow": "Quem recebe",
+  "h2": "Márcia, a dona, <em>acompanha cada festa.</em>",
+  "p": [
+   "Na Vila Perracini, em Poá, a Chácara Perracine tem jardim para a cerimônia, salão, piscina e camarim da noiva, com estacionamento e plano B para dias de chuva.",
+   "Enquanto espera a hora de entrar, a noiva acompanha a cerimônia em tempo real de um espaço reservado, sem ficar esperando no carro. E quem recebe é a Márcia, a dona: os noivos contam que ela acompanha tudo, do contrato ao dia da festa."
+  ],
+  "stats": [
+   [
+    "172",
+    "avaliações no Google"
+   ],
+   [
+    "4,6 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "A casa da chácara com o gramado e a piscina",
+  "pol": {
+   "id": 6
+  },
+  "pol_alt": "Noiva no altar do jardim, com os padrinhos ao lado",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, piscina <em>e salão.</em>",
+   "p": "O jardim da cerimônia, o salão, a piscina e o pergolado. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Chácara Perracine",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Cadeiras brancas no gramado, com flores vermelhas na ponta da fileira"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g04.jpg"
+     },
+     "alt": "Salão com mesas redondas e guardanapos vermelhos"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Corredor de espelhos sob o arco de flores"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g00.jpg"
+     },
+     "alt": "Piscina e gramado diante do salão envidraçado"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Pergolado com flores amarelas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g05.jpg"
+     },
+     "alt": "Salão montado com arranjos de flores altos"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "O gramado e a piscina vistos do alto"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Corredor de espelhos no gramado, com flores dos dois lados"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos e festas de quem já comemorou na Chácara Perracine.",
+   "rotulo": "Festas que aconteceram na Chácara Perracine",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g02.jpg"
+     },
+     "alt": "Mesa do bolo com flores laranja e varal de lâmpadas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7b2a76d098e3_0x8f142723067e676/g03.jpg"
+     },
+     "alt": "Corredor da cerimônia com capim dos pampas e flores",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Salão decorado com toalhas verde-claras e flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Noivos no altar sob os tecidos brancos, entre as plantas",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Mesa posta com toalha verde-água e taças",
+     "cap": "Recepção"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Doces e arranjo de flores azuis e brancas",
+     "cap": "Decoração"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a chácara <em>oferece.</em>",
+  "p": "O que a própria chácara mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "cerimonia",
+    "Cerimônia no jardim"
+   ],
+   [
+    "salao",
+    "Salão"
+   ],
+   [
+    "pessoas",
+    "Camarim da noiva"
+   ],
+   [
+    "coberto",
+    "Plano B para dias de chuva"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer a chácara em Poá",
+   "Feche a data com a Márcia",
+   "No dia, a noiva se arruma no camarim e acompanha a cerimônia"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 25,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Corredor de espelhos entre flores, sob o arco"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Thaina Cristina",
+   "tag": "A noiva",
+   "trecho": "consegui assistir cada momento da minha cerimônia, só resta minha gratidão"
+  },
+  {
+   "nome": "Maiséia Fagundes",
+   "tag": "Cerimônia",
+   "trecho": "O espaço é lindo, muito bem cuidado com uma área bem iluminada para fazer a cerimônia!"
+  },
+  {
+   "nome": "Alex Sandro Julião",
+   "tag": "A dona",
+   "trecho": "A Márcia dona do local é indiscutivelmente maravilhosa, dá atenção em todos os detalhes, deixando o cliente super a vontade"
+  },
+  {
+   "nome": "Tais Lima",
+   "tag": "A festa",
+   "trecho": "É lindo, aconchegante, tem estacionamento e conseguimos visualizar todos os ambientes independente de onde estamos na festa."
+  },
+  {
+   "nome": "Taily Poerame",
+   "tag": "Acolhimento",
+   "trecho": "Estrutura excelente, boa organização e o acolhimento da Marcia, que faz toda a diferença!"
+  },
+  {
+   "nome": "Priscila Gavassi",
+   "tag": "Aniversário",
+   "trecho": "foram festas felizes com boa música, boa comida e excelente atendimento da equipe da chácara"
+  }
+ ],
+ "insta": {
+  "seguidores": "4,6 mil seguidores",
+  "p": "Casamentos, noivas e festas da chácara.",
+  "foto": {
+   "id": 5
+  },
+  "alt": "Cerimônia no jardim sob o pergolado com tecidos brancos",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Chácara Perracine.",
+  "tipos": [
+   "Casamento",
+   "Aniversário",
+   "Chá de bebê",
+   "Chá revelação",
+   "15 anos",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Chácara Perracine e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Poá.</em>",
+  "endereco": [
+   "Rua Clemente Cunha Ferreira, 902 · Vila Perracini",
+   "Poá, SP · CEP 08552-330"
+  ],
+  "telefone": "(11) 99503-5915",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Casar no jardim, festejar no salão.",
+ "mensagem": "Olá! Vim pelo site da Chácara Perracine e queria um orçamento.",
+ "google_nome": "Chácara Perracine",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99503-5915 é o celular do Perfil da Empresa no Google e o WhatsApp da bio do Instagram (wa.me/5511995035915)",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Chácara de eventos em Poá: \"Espaço completo para seus eventos · Casamentos | Aniversários | Eventos\" (bio). Nota 4,7 com 172 avaliações (a demo mostra o total, não a nota).",
+   "Dona: Márcia (\"A Márcia dona do local\", \"A Márcia que é a dona\", \"a Márcia proprietária\", nas avaliações).",
+   "Diferencial: a noiva acompanha a cerimônia de um espaço reservado (\"você poderá assistir ao seu casamento em tempo real sem precisar aguardar no carro\", legenda; e duas avaliações de noivas)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com o arco de folhagens e a cerimônia no jardim, quem recebe (Márcia), o espaço (8 fotos, 3 do Google), festas reais (6, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: vinho-escuro e dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (casa, piscina, salão, mesa do bolo, corredor da cerimônia).",
+   "Ficaram de fora: as fotos da obra e da máquina na quadra (com a legenda sobre uma disputa na justiça), as artes com texto, as selfies e os vídeos escuros."
+  ],
+  "conferir": [
+   "Uma legenda fala que foram \"enganados pelo homem, injustiçados pela justiça\" (obra na quadra): não entrou na demo. Melhor não tocar no assunto.",
+   "A mulher de camiseta da chácara ao lado de uma noiva (post \"Mais uma noiva perfeita!\") pode ser a Márcia: não confirmei, por isso não usei a foto.",
+   "Horário do Google: de segunda a sexta, das 9h às 17h; fechado no sábado e no domingo (atendimento).",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

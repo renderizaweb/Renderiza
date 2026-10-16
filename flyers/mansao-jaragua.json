@@ -1,0 +1,29 @@
+{
+ "marca": "Mansão Jaraguá",
+ "local": "São Paulo · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#141c2b",
+  "fundo2": "#0c111a",
+  "acento": "#c9a46b",
+  "tinta_acento": "#0c111a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/mansaojaragua/Instagram_files/624617267_18007176578837576_7651657669260479314_n.webp",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "391"
+ },
+ "titulo": "Uma mansão<br><em>para o seu grande dia.</em>",
+ "texto": "Casamentos, 15 anos e eventos de empresa com salão, cerimônia ao ar livre e piscina.",
+ "whatsapp": "(11) 98749-0863",
+ "cta": "Consulte sua data",
+ "endereco": "R. Comendador J. de Matos, 429 · São Paulo",
+ "instagram": "@mansaojaragua"
+}
