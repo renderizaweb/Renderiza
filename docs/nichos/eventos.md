@@ -437,3 +437,58 @@ O Kaue aprovou os 15 da seção 14 e mandou o Drive. Saíram 13 com demo, vídeo
 - **Horário "24 horas" no Google:** `mk.py` passou a tirar o horário sozinho (Che Belle, Stallieri).
 - **Nome comprido no topo do celular** (Alto da Serra) empurrou o menu para fora da tela: encurtar a linha de baixo do
   logo. O validador pega ("sem rolagem para o lado").
+
+## 17. Lote 3 (16/10/2026): a lista refeita
+
+**A primeira tentativa não serviu.** O Kaue pediu "nem muito grande, nem muito pequeno, falar com o dono", e o filtro
+de porte desceu demais a régua (40 a 59 avaliações, nota 4,7, Instagram a partir de 1.200): saíram 14 salões simples,
+dos quais o Kaue aproveitou 5 ("muito longe das dos lotes 1 e 2"). O que ele quer, nas palavras dele: **salão de evento
+em que se fala "nossa, é legal mesmo"**, que responde a quem pergunta a data com um monte de foto e vídeo no WhatsApp,
+com bom Instagram, sem site e, de preferência, com o dono atendendo. **Casa de show, não.**
+
+**Calibração pelo painel** (os 28 de eventos dos lotes 1 e 2): nota 4,8+ em quase todos, mediana de 150 avaliações
+(as melhores entre 60 e 400), mediana de 5 mil seguidores, celular no Google em 24 de 28. As grandes do lote 2 (Che
+Belle, Estação 840, Victor's, com 900+ avaliações) quase não têm avaliação citando o dono.
+
+**A régua refeita:** nota 4,8+ (ou 4,7 com 80+ avaliações), de 60 a 600 avaliações, sem site funcionando, celular,
+Instagram com 1.300+ seguidores e post desde 1/9, fora casa de show, day use com preço, infantil, buffet que só leva a
+comida, rede. Olhado em todos: folha com 6 posts + 4 fotos do Google, site escondido (DNS dos nomes óbvios),
+casamentos.com.br (busca restrita ao site) e o dono nas avaliações.
+
+**Funil:** 425 buscas novas no Maps (185 em bairros e cidades que faltavam, 112 com outros termos, 128 em 46 cidades do
+entorno: Atibaia, Jundiaí, Itu/Sorocaba, Campinas, Vale do Paraíba e litoral) → base de 12.611 lugares (7.833 de evento)
+→ 2.341 fichas abertas → 627 candidatos na régua → 136 olhados na folha (que ainda não tinham sido vistos) → **26 na
+lista**, 5 bons que já vendem pelo casamentos.com.br e 20 de reserva. Nada cadastrado no painel.
+
+**A lista, do melhor para o pior:** Espaço Canto da Terra (Pindamonhangaba, 5,0 em 391; "Ana e Sr. Roberto"), Casa
+Samanta Fonseca (Mogi; a dona é a marca), Espaço Prime Eventos (Hortolândia), Villa La Feria (Sorocaba; "o casal Carol
+e Gabriel"), Espaço 41 (Sorocaba; "Juliana e o esposo"), Chácara Perracine (Poá; "a Márcia, dona"), Espaço Obata
+(Campinas; "a proprietária Lilian"), Chácara Porto Fest (São José dos Campos; "o Ney, proprietário"), Giardino di Menis
+(Campinas), Espaço Estrela de Davi (Santa Isabel), Casa Verdana (Taubaté), Espaço Festhalle (Taubaté; "a Patrícia e o
+esposo"), Espaço Querência (Pindamonhangaba; "Sr. Teotônio"), Chácara Vem Viver (Votorantim), Vanguarda Buffet
+(Caçapava; "Sr. Sebastião e Ana"), Espaço Rafima (Osasco; "a proprietária Patrícia"), Recanto Aleixo (Itanhaém), Sítio
+Imperador (Jundiaí), Espaço Verde Vale (Taubaté; "a proprietária Andréia"), Village Torre (Caieiras), Chácara Recanto
+Tropical (Parelheiros), Estação Baroneza (Salto), Spazio di Cristalli (Itupeva), Casa Villela (Itatiba), Espaço Pieri
+(Campinas), Vila Manresa (Indaiatuba, sem celular no Google).
+
+**Já vendem pelo casamentos.com.br** (dezenas de opiniões lá, para o Kaue decidir): Estância Lopes (Mauá, 53), Recanto
+Sollare (Arujá, ~97 e prêmio 2026), Recanto Elefante (Mairiporã, 90), Sítio Meu Rei (Itapecerica, 83), Mansão Esteves
+(Cidade Tiradentes, 33).
+
+**Reserva para o próximo lote:** Chácara Monarca, Chácara Sunshine, Chácara Íris do Campo, Palácio dos Lírios, Espaço A
+Jabutikabeira, Espaço Viotto, Espaço Verde Encanto, Salão do Campo, Salão Monte Alegre, Espaço Donna, Seven Doors,
+Espaço Nobre Mineirinho, ZINC Buffet, Cellebra, Eternize, Chácara Paradise, Kairós, Villa Primavera, Espaço Q!, Espaço
+Magi. Dados de todos na pasta da sessão (`lote3-final.json` e `notas-l3.md`).
+
+**O que este lote ensinou:**
+- **Porte não se mede só pelo número de avaliações.** O que separa bem é a avaliação citar o dono pelo nome; com 300 a
+  550 avaliações ainda aparece "a proprietária Patrícia" (Rafima) e "a Dona Reginalda" (Sollare).
+- **Busca por bairro pega cidade homônima de outro estado:** "Campo Grande" trouxe Campo Grande-MS, "Cachoeirinha"
+  trouxe Cachoeirinha-RS, "Belém" trouxe Belém-PA. O filtro agora exige o endereço em SP e o DDD da região.
+- **Site escondido de novo** (10 achados, todos fora): Espaço Pietro, Malabai, Espaço Real Buffet, Eco Espaço, Casa
+  Gaya, Recanto do Tucano, Spazio Golf, Vila Tramonti, Neia Eventos, Villa Lyon.
+- **O entorno rende mais que a Grande SP**, que já está bem varrida: das 26, 18 são de fora da Grande SP. Os bons da
+  Grande SP que tinham ficado de fora estavam na faixa de nota 4,7 ou sem o Instagram achado (resgatados pela busca
+  restrita ao instagram.com: Estrela de Davi, Estância Lopes, Terra Prometida).
+- **Espaço de casamento vende pelo casamentos.com.br:** de 4,7 com 300+ avaliações, quase todos têm dezenas de
+  opiniões lá. Salão de festa e chácara de festa continuam quase fora do portal.
