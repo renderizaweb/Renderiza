@@ -581,6 +581,16 @@ do topo encolheu para os preços chegarem antes.
 - **Completo mais barato:** R$ 899 → **R$ 699 no Pix ou 2x de R$ 399** (o Kaue achou caro; mesma lógica do
   Essencial, +R$ 99 no 2x). Proposta, para ele validar.
 - **Anúncios sem conta de três parcelas:** **R$ 1.490 por mês, mínimo de 3 meses, com o site Completo incluso**
-  (antes: + R$ 899 do site à parte e a conta do 1º mês, que confundiu). O valor dos anúncios continua pago
-  direto à Meta, fechado no "E o valor dos anúncios?". Continua caro de propósito: a Renderiza não quer fechar
-  tráfego pago agora.
+  (antes: + R$ 899 do site à parte e a conta do 1º mês, que confundiu). A linha de baixo do preço diz, à vista:
+  "Mais o valor dos anúncios, pago direto à Meta (sugestão: a partir de R$ 30 por dia)". Continua caro de
+  propósito: a Renderiza não quer fechar tráfego pago agora.
+- **Revisão (dono de espaço + regras):** até 31/10 o preço grande do Essencial **é** o da inauguração (R$ 399
+  ou 2x de R$ 199, "Depois, R$ 499"), e o de sempre volta sozinho no dia 1º (script, sem build); "pagamento
+  único" ao lado de "2x" virou "sem mensalidade"; saiu "Preço fechado" (a página tem coisa à parte: domínio,
+  3ª página extra, anúncios); Pixel contado como "quantos clicaram no WhatsApp" (é o que ele mede); domínio com
+  o valor do Registro.br (R$ 40 por ano, conferido em 16/10/2026); "você pede os ajustes no texto e nas fotos"
+  no lugar de "diz o que mudar, e a gente muda" (sem promessa sem limite).
+- **Para o Kaue decidir:** 2x de R$ 199 (R$ 398) sai abaixo do Pix de R$ 399 (é o valor do CONTEXTO); a
+  inauguração vale só para o Essencial, então até 31/10 o Completo fica R$ 300 acima; o Pixel só no Completo e
+  o pacote de anúncios ainda contradizem a home e o CONTEXTO ("todo site sai pronto para anúncio", "o anúncio
+  em si a gente não roda"). Dica: para "quanto custa?", mande o link com `#pacotes` no fim.

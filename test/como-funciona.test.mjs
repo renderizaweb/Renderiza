@@ -34,7 +34,7 @@ test("página de venda curta: abertura, como funciona, pacotes, perguntas e conv
 });
 
 test("lê em uma passada: o texto à vista (sem o que fica fechado em 'saber mais' e nas perguntas) é curto", () => {
-  const aberto = textoVisivel(html.replace(/<details[\s\S]*?<\/details>/g, "")).trim().split(" ").length;
+  const aberto = textoVisivel(html.replace(/<details[\s\S]*?<\/details>|<div [^>]*hidden>[\s\S]*?<\/div>/g, "")).trim().split(" ").length;
   assert.ok(aberto <= 470, `${aberto} palavras à vista`);
 });
 
@@ -44,15 +44,15 @@ test("três pacotes com preço (Essencial, Completo, Completo + Anúncios); só 
   assert.deepEqual(eventos.pacotes.map(p => p.nome), ["Essencial", "Completo", "Completo + Anúncios"]);
   assert.ok(html.indexOf('id="pacote-completo"') > html.indexOf('cf-pacote cf-pacote-destaque') - 200);
   for (const p of ["R$ 499", "2x de R$ 299", "R$ 699", "2x de R$ 399", "R$ 1.490"]) assert.ok(texto.includes(p), p);
-  assert.match(texto, /Mínimo de 3 meses, com o site Completo incluso/, "anúncios: um valor por mês, o site já dentro");
+  assert.match(texto, /Mínimo de 3 meses\. Mais o valor dos anúncios, pago direto à Meta/, "anúncios: um valor por mês e o dos anúncios à parte, à vista no cartão");
+  assert.match(texto, /O site Completo, já incluso/);
+  assert.doesNotMatch(texto, /Preço fechado|pagamento único/, "nada que a própria página desminta");
   assert.doesNotMatch(texto, /mais vendido|campeão de vendas/i);
 });
 
-test("o 'saber mais' explica as páginas de datas (2 em 12 meses) e o valor dos anúncios (pago direto à Meta)", () => {
-  assert.equal((html.match(/<details class="cf-saber">/g) || []).length, 2);
-  assert.match(texto, /2 pedidos nos 12 meses depois de fechar/);
-  assert.match(texto, /pago direto para a Meta/);
-  assert.match(texto, /não faz sessão de fotos/);
+test("o 'saber mais' do Completo explica as páginas extras: 2 pedidos em 12 meses, depois orçadas à parte", () => {
+  assert.equal((html.match(/<details class="cf-saber">/g) || []).length, 1);
+  assert.match(texto, /2 pedidos nos 12 meses depois de fechar; a partir do 3º, cada página é orçada à parte/);
 });
 
 test("cada botão abre o WhatsApp da Renderiza com a mensagem do pacote já escrita", () => {
@@ -61,12 +61,16 @@ test("cada botão abre o WhatsApp da Renderiza com a mensagem do pacote já escr
   assert.ok(html.includes(encodeURIComponent(eventos.convite.mensagem)));
 });
 
-test("mês de inauguração: o valor do CONTEXTO aparece no Essencial até 31/10 e some depois", () => {
-  assert.match(html, /data-ate="2026-10-31"/);
-  const depois = textoVisivel(montarComoFunciona(eventos, config, { hoje: new Date("2026-11-02T12:00:00Z") }));
-  assert.doesNotMatch(depois, /mês de inauguração/);
-  assert.match(texto, /Mês de inauguração: R\$ 399 no Pix ou 2x de R\$ 199, até 31\/10/);
-  assert.doesNotMatch(depois, /R\$ 399 no Pix|R\$ 199/);
+test("mês de inauguração: até 31/10 o preço grande do Essencial é o do CONTEXTO; depois, volta o de sempre", () => {
+  const essencial = html.slice(html.indexOf('id="pacote-essencial"'), html.indexOf('id="pacote-completo"'));
+  assert.match(textoVisivel(essencial), /R\$ 399 no Pix ou 2x de R\$ 199 · sem mensalidade Mês de inauguração, até 31\/10\. Depois, R\$ 499\./);
+  assert.match(essencial, /<div data-ate="2026-10-31">/, "o script tira o bloco da inauguração depois do dia");
+  assert.match(essencial, /<div data-depois="2026-10-31" hidden>\s*<p class="cf-preco"><strong>R\$ 499<\/strong>/, "e mostra o de sempre");
+  assert.match(html, /removeAttribute\("hidden"\)/);
+  const depois = montarComoFunciona(eventos, config, { hoje: new Date("2026-11-02T12:00:00Z") });
+  assert.doesNotMatch(textoVisivel(depois), /inauguração|R\$ 399 no Pix|R\$ 199/i);
+  assert.doesNotMatch(depois, /data-ate|data-depois|<script>/);
+  assert.match(textoVisivel(depois), /R\$ 499 no Pix ou 2x de R\$ 299/);
 });
 
 test("sem promessa de resultado, superlativo, 'de bairro', foto de lead nem caminho para o painel", () => {

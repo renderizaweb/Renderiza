@@ -57,6 +57,11 @@ function ilustracao(il) {
       </figure>`;
 }
 
+/** Preço grande, a forma (no Pix, por mês) e a linha de baixo (o 2x ou as condições). */
+const preco = pr => `
+          <p class="cf-preco"><strong>${esc(pr.valor)}</strong><span>${esc(pr.forma)}</span></p>
+          <p class="cf-parcela">${esc(pr.parcela)}</p>`;
+
 /** Cartão de um pacote: nome, para quem, preço, o que inclui, o "saber mais" (se houver) e o botão. */
 function cartaoPacote(p, { temWa, contato, emInauguracao }) {
   const destaque = Boolean(p.selo);
@@ -66,9 +71,11 @@ function cartaoPacote(p, { temWa, contato, emInauguracao }) {
           ${p.selo ? `<p class="cf-pacote-selo">${ic("brilho", 14)}${esc(p.selo)}</p>` : ""}
           <h3>${esc(p.nome)}</h3>
           <p class="cf-pacote-para">${esc(p.para)}</p>
-          <p class="cf-preco"><strong>${esc(p.preco.valor)}</strong><span>${esc(p.preco.forma)}</span></p>
-          <p class="cf-parcela">${esc(p.preco.parcela)}</p>
-          ${p.inauguracao && emInauguracao ? `<p class="cf-pacote-inauguracao" data-ate="${INAUGURACAO.ate}">${ic("calendario", 15)}<span>${esc(p.inauguracao)}</span></p>` : ""}
+          ${p.inauguracao && emInauguracao
+            ? `<div data-ate="${INAUGURACAO.ate}">${preco(p.inauguracao)}
+            <p class="cf-pacote-inauguracao">${ic("calendario", 15)}<span>${esc(p.inauguracao.nota)}</span></p></div>
+          <div data-depois="${INAUGURACAO.ate}" hidden>${preco(p.preco)}</div>`
+            : preco(p.preco)}
           <ul class="cf-inclui">${p.inclui.map(item => `
             <li><span class="cf-marca">${icone("check", 12)}</span><span>${esc(item)}</span></li>`).join("")}
           </ul>
@@ -179,7 +186,7 @@ ${ilustracao(nicho.ilustracao)}
   <section class="secao cf-secao-pacotes" id="pacotes" aria-labelledby="pacotes-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Pacotes</p>
-      <h2 id="pacotes-titulo">Preço fechado. <em>Você escolhe até onde ir.</em></h2>
+      <h2 id="pacotes-titulo">Pacotes e preços. <em>Você escolhe até onde ir.</em></h2>
       <ul class="cf-pacotes">${nicho.pacotes.map(p => cartaoPacote(p, { temWa, contato, emInauguracao })).join("")}
       </ul>
       <p class="cf-pacotes-nota">${esc(nicho.pacotesNota)}</p>
@@ -223,7 +230,7 @@ ${ilustracao(nicho.ilustracao)}
     <span>© ${ano} Renderiza</span>
   </div>
 </footer>
-${emInauguracao ? `<script>/* mês de inauguração: a linha sai sozinha depois do último dia, mesmo sem um build novo */(function(){var d=new Date(),h=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);[].forEach.call(document.querySelectorAll("[data-ate]"),function(e){if(h>e.getAttribute("data-ate"))e.parentNode.removeChild(e)})})()</script>
+${emInauguracao ? `<script>/* mês de inauguração: depois do último dia, o preço da inauguração sai e o de sempre volta, mesmo sem um build novo */(function(){var d=new Date(),h=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);[].forEach.call(document.querySelectorAll("[data-ate]"),function(e){if(h>e.getAttribute("data-ate"))e.parentNode.removeChild(e)});[].forEach.call(document.querySelectorAll("[data-depois]"),function(e){if(h>e.getAttribute("data-depois"))e.removeAttribute("hidden")})})()</script>
 ` : ""}</body>
 </html>
 `;

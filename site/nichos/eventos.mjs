@@ -27,8 +27,8 @@ export default {
 
   passos: [
     ["A gente monta uma prévia", "Com as fotos do seu Instagram. Ver não custa nada."],
-    ["Você ajusta do seu jeito", "Diz o que mudar, e a gente muda."],
-    ["O site vai para o ar", "Em até 7 dias úteis, com o endereço do espaço e os acessos no seu nome."],
+    ["Você pede os ajustes", "No texto e nas fotos, antes de decidir."],
+    ["O site vai para o ar", "Você paga e, em até 7 dias úteis, o site entra no ar com o endereço do espaço."],
   ],
 
   // Pacotes: o Essencial é o preço do CONTEXTO.md; o Completo e o com anúncios são proposta, para o Kaue validar.
@@ -38,14 +38,14 @@ export default {
       id: "essencial",
       nome: "Essencial",
       para: "O site do seu espaço.",
-      preco: { valor: "R$ 499", forma: "no Pix", parcela: "ou 2x de R$ 299 · pagamento único" },
-      // Mês de inauguração (CONTEXTO.md): o valor aparece com a data e some sozinho depois de 31/10.
-      inauguracao: "Mês de inauguração: R$ 399 no Pix ou 2x de R$ 199, até 31/10.",
+      preco: { valor: "R$ 499", forma: "no Pix", parcela: "ou 2x de R$ 299 · sem mensalidade" },
+      // Mês de inauguração (CONTEXTO.md): até 31/10 o preço grande é este; depois some sozinho e volta o de cima.
+      inauguracao: { valor: "R$ 399", forma: "no Pix", parcela: "ou 2x de R$ 199 · sem mensalidade", nota: "Mês de inauguração, até 31/10. Depois, R$ 499." },
       inclui: [
         "Fotos do espaço e das festas",
         "Consulta de data direto no seu WhatsApp",
         "Avaliações do Google, endereço e mapa",
-        "Textos prontos para a bio e o Google",
+        "Textos prontos para o Instagram e o Google",
       ],
       botao: "Quero o Essencial",
       mensagem: "Oi! Vi como funciona o site para espaços de eventos e quero o pacote Essencial.",
@@ -54,18 +54,17 @@ export default {
       id: "completo",
       nome: "Completo",
       selo: "Recomendado para eventos",
-      para: "O site e mais 2 páginas para as datas fortes do ano.",
-      preco: { valor: "R$ 699", forma: "no Pix", parcela: "ou 2x de R$ 399 · pagamento único" },
+      para: "Para quem vende data o ano inteiro.",
+      preco: { valor: "R$ 699", forma: "no Pix", parcela: "ou 2x de R$ 399 · sem mensalidade" },
       inclui: [
         "Tudo do Essencial",
-        "2 páginas de datas especiais em 12 meses",
-        "Pixel e Google Analytics: você sabe quantos chamaram pelo site",
+        "2 páginas extras em 12 meses, para datas como Réveillon e festa junina",
+        "Você vê quantos clicaram no WhatsApp (Pixel e Google Analytics)",
       ],
       saberMais: {
-        resumo: "Como funcionam as páginas de datas",
+        resumo: "Como funcionam as páginas extras",
         texto: [
-          "Chegou uma data forte? Você pede pelo WhatsApp, e a gente monta no seu site uma página só para ela, com as fotos certas e o botão de consultar.",
-          "São 2 pedidos nos 12 meses depois de fechar. A partir do terceiro, cada página é orçada à parte.",
+          "Chegou uma data especial? Você pede pelo WhatsApp e a gente monta no seu site uma página só para ela, com as fotos e o botão de consultar. São 2 pedidos nos 12 meses depois de fechar; a partir do 3º, cada página é orçada à parte.",
         ],
         exemplos: ["Réveillon", "Carnaval", "Dia das Mães", "Festa junina", "Agenda 2027"],
       },
@@ -75,30 +74,25 @@ export default {
     {
       id: "anuncios",
       nome: "Completo + Anúncios",
-      para: "A gente cuida dos seus anúncios no Instagram e no Facebook.",
-      preco: { valor: "R$ 1.490", forma: "por mês", parcela: "Mínimo de 3 meses, com o site Completo incluso." },
+      para: "A gente cria e cuida dos seus anúncios no Instagram e no Facebook.",
+      // Um valor por mês, o site dentro, e o valor dos anúncios à parte, pago à Meta no cartão do espaço.
+      preco: { valor: "R$ 1.490", forma: "por mês", parcela: "Mínimo de 3 meses. Mais o valor dos anúncios, pago direto à Meta (sugestão: a partir de R$ 30 por dia)." },
       inclui: [
-        "Tudo do Completo",
-        "Criação e gestão dos anúncios",
+        "O site Completo, já incluso e no seu nome",
+        "Anúncios com as fotos e os vídeos que você já tem",
         "Relatório todo mês",
       ],
-      saberMais: {
-        resumo: "E o valor dos anúncios?",
-        texto: [
-          "É pago direto para a Meta, no cartão do espaço, e não passa pela Renderiza. A sugestão é começar com R$ 30 por dia.",
-          "Os anúncios usam as fotos e os vídeos do espaço: a gente não faz sessão de fotos.",
-        ],
-      },
       botao: "Quero saber dos anúncios",
       mensagem: "Oi! Vi como funciona o site para espaços de eventos e quero conversar sobre o pacote Completo + Anúncios.",
     },
   ],
-  pacotesNota: "O domínio (seuespaco.com.br) fica no nome do espaço e é pago direto ao Registro.br, uma vez por ano.",
+  // Valor do Registro.br para .com.br conferido em 16/10/2026 (registro.br/dominio).
+  pacotesNota: "O endereço (seuespaco.com.br) é registrado no nome do espaço, direto no Registro.br: R$ 40 por ano.",
 
   perguntas: [
-    ["Recebi uma prévia do meu espaço. O que é?", "Uma demonstração feita só para você, com as fotos do seu Instagram e as avaliações do Google. O link não aparece no Google e sai do ar sozinho em 7 dias. Para ver, você não paga nada."],
+    ["Recebi uma prévia do meu espaço. O que é?", "Uma demonstração feita só para você, com as fotos do seu Instagram e as avaliações do Google. O link não aparece no Google e tem prazo para sair do ar. Para ver, você não paga nada."],
     ["Já tenho Instagram e portal de casamento. Preciso de site?", "O Instagram mostra a festa; o site mostra o lugar, com a consulta de data, num link que é seu para mandar a quem pedir. Dá para manter tudo junto."],
-    ["Tem mensalidade?", "No Essencial e no Completo, não: você paga uma vez, no Pix ou em 2x. Só o pacote com anúncios é por mês, porque os anúncios são cuidados todo mês."],
+    ["Tem mensalidade?", "No Essencial e no Completo, não: é um valor único, no Pix ou em 2x. Só o pacote com anúncios é por mês, porque os anúncios são cuidados todo mês."],
     ["O site fica no meu nome?", "Fica. O endereço, a hospedagem e os acessos são do espaço, não da Renderiza."],
   ],
 
