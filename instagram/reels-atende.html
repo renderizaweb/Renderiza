@@ -71,6 +71,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .qa{flex-direction:column;align-items:stretch;gap:0;padding:22px 26px 22px 22px}
 .qa-q{display:flex;align-items:center;gap:20px}
 .qa .av{width:72px;height:72px;font-size:34px}
+.qa .av .app{width:26px;height:26px;border-radius:8px;right:-6px;bottom:-6px}
+.qa .av .app svg{width:18px;height:18px}
 .qa-r{height:0;overflow:hidden;display:flex;justify-content:flex-end;align-items:flex-start}
 .qa-r .dentro{padding-top:14px}
 .balao{display:inline-flex;align-items:flex-end;gap:12px;padding:12px 18px 12px 26px;border-radius:26px 8px 26px 26px;background:#d9fdd3;color:#111b21;font-size:36px;line-height:1.2;letter-spacing:-.01em;box-shadow:0 1px 1px rgba(11,20,26,.1);transform-origin:100% 0;white-space:nowrap}
@@ -79,7 +81,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 
 /* o site da Lume dentro do celular */
 .site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0;background:#fbf7f3;padding-bottom:700px}
-#cSite{box-shadow:0 -24px 60px rgba(0,0,0,.4)}
+#cSite{z-index:3;box-shadow:0 -24px 60px rgba(0,0,0,.4)}
+#cBloq{z-index:1} /* camada própria: o escurecimento fica embaixo do site que sobe */
 .escurece{position:absolute;inset:0;background:#0d1112;opacity:0;z-index:8}
 .barra-site{position:absolute;z-index:4;left:0;right:0;top:0;height:88px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 56px 0 44px}
 .barra-site .exemplo{position:static;font-size:22px;padding:9px 16px}
@@ -201,6 +204,7 @@ const DUR = cp(20);   // 37,5 s
 const CORTE = { abre: 0, google: cp(2), insta: cp(4), nada: cp(7), volta: cp(8), meio: cp(10), ese: cp(11), site: cp(12), fim: cp(16), cta: cp(18) };
 const PONTE = cp(19) + 3 * T;      // o último tempo: volta a cena do começo (o Reels repete em loop)
 const FONE_ABRE = 580, FONE_ALTO = 250, FONE_BAIXO = 480;
+const TITULO_SAI = cp(2) - T, SOBE = cp(2) - 0.33;   // o título some antes de o celular subir
 
 // ---------- ícones (SVG) ----------
 const SINAIS = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
@@ -311,9 +315,9 @@ const ROTULOS = [[cp(12), "#tS1"], [cp(13), "#tS2"], [cp(14), "#tS3"], [cp(15), 
 
 // as perguntas voltam como chips e são respondidas pela seção do site
 const CHIPS = [
-  { quem: "Bruna", txt: "Abre sábado?", alvo: "sabado", t0: cp(13), ok: cp(13) + T, lado: -1, onde: "abaixo" },
+  { quem: "Bruna", txt: "Abre sábado?", alvo: "sabado", t0: cp(13), ok: cp(13) + T, lado: 1, onde: "abaixo", alinha: "dir" },
   { quem: "Aline", txt: "Qual o endereço?", alvo: "mapa", t0: cp(13) + 2 * T, ok: cp(13) + 3 * T, lado: 1, onde: "sobre" },
-  { quem: "Fernanda", txt: "Fazem massagem?", alvo: "massagem", t0: cp(14), ok: cp(14) + T, lado: -1, onde: "abaixo", fim: cp(14) + 2 * T },
+  { quem: "Fernanda", txt: "Fazem massagem?", alvo: "massagem", t0: cp(14), ok: cp(14) + T, lado: -1, onde: "sobre", fim: cp(14) + 2 * T },
   { quem: "Patrícia", txt: "Tem foto?", alvo: "galeria", t0: cp(14) + 2 * T + 0.1, ok: cp(14) + 3 * T, lado: 1, onde: "sobre" },
   { quem: "Júlia", txt: "Tem horário amanhã?", alvo: "zap", t0: cp(15), entra: cp(15) + T, lado: -1, onde: "acima" },
 ];
@@ -380,7 +384,7 @@ window.preparar = () => {
       { id: "atende2", cena: "fim", ini: cp(17), fim: cp(18), impacto: true },
       { id: "cta", cena: "cta", ini: cp(18), fim: DUR },
     ],
-    ensaio: [0.05, 1.98, 3.0, 3.58, 4.5, 6.9, 7.62, 9.5, 11.1, 12.3, 12.95, 13.3, 14.6, 15.6, 17.6, 19.0, 21.6, 22.35, 25.9, 27.4, 28.8, 31.0, 34.6, 37.3],
+    ensaio: [0.05, 1.95, 2.8, 3.4, 3.58, 5.75, 8.5, 11.1, 12.25, 12.95, 13.3, 14.5, 15.55, 17.6, 19.0, 21.6, 22.2, 22.6, 25.9, 26.95, 27.9, 28.8, 32.6, 37.2],
   };
 };
 
@@ -406,7 +410,9 @@ function desenharBloqueio(t, limpa) {
   if (!limpa) for (let i = 0; i < ESTADOS.length; i++) if (t >= ESTADOS[i].t) k = i;
   const at = k >= 0 ? ESTADOS[k] : VAZIO, an = k >= 1 ? ESTADOS[k - 1] : VAZIO;
   const forte = k >= 0 && at.e.forte;
-  const e = k >= 0 ? sai(fase(t, at.t, at.t + (forte ? 0.2 : 0.26))) : 1;
+  // as que já estão descem primeiro e abrem a vaga; a nova entra logo depois (não passa por cima do contador nem das outras)
+  const e = k >= 0 ? sai(fase(t, at.t, at.t + 0.2)) : 1;
+  const en = k >= 0 ? sai(fase(t, at.t + 0.08, at.t + 0.3)) : 1;
   const A = arranjo(at), B = arranjo(an);
   for (const [id, c] of Object.entries(CARDS)) {
     const emA = id in A.y, emB = id in B.y;
@@ -415,16 +421,16 @@ function desenharBloqueio(t, limpa) {
     let y, op = 1, esc = 1;
     if (emA && emB) y = lerp(B.y[id], A.y[id], e);
     else if (emA) {
-      y = A.y[id] - (forte ? 110 : 60) * (1 - e); op = Math.min(1, e * 1.7);
-      esc = forte ? chaves(fase(t, at.t, at.t + 0.3), [0.9, 1.04, 1]) : lerp(0.95, 1, e);
-    } else { y = lerp(B.y[id], A.gy, e); op = 1 - e; esc = lerp(1, 0.94, e); }
+      if (forte) { y = A.y[id] - 110 * (1 - e); op = Math.min(1, e * 1.7); esc = chaves(fase(t, at.t, at.t + 0.3), [0.9, 1.04, 1]); }
+      else { y = A.y[id] - 14 * (1 - en); op = Math.min(1, en * 1.6); esc = lerp(0.96, 1, en); }
+    } else { y = lerp(B.y[id], A.gy, e); op = 1 - clamp(e * 1.8); esc = lerp(1, 0.94, e); }
     c.el.style.top = y + "px"; c.el.style.opacity = op; c.el.style.transform = `scale(${esc})`;
   }
   const gOn = at.g > 0 || (an.g > 0 && e < 1);
   grupo.style.display = gOn ? "" : "none";
   if (gOn) {
     grupo.style.top = (an.g > 0 ? lerp(B.gy, A.gy, e) : A.gy) + "px";
-    grupo.style.opacity = an.g > 0 ? 1 : e;
+    grupo.style.opacity = an.g > 0 ? 1 : fase(e, 0.35, 1);
     const n = at.g;
     gTxt.textContent = `+${n} ${n > 1 ? "mensagens" : "mensagem"}`;
     grupo.style.transform = `scale(${at.g !== an.g && an.g > 0 ? soco(t, at.t, 1.05, 0.22) : 1})`;
@@ -470,18 +476,18 @@ window.quadro = t => {
 
   // ---- 1. abre: o título ----
   const tA = $("#tAbre");
-  if (mostra(tA, t < CORTE.google || ponte)) {
+  if (mostra(tA, t < TITULO_SAI + 0.18 || ponte)) {
     if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); tA.style.opacity = x; tA.style.transform = `translateY(${(1 - x) * 30}px)`; }
     else {
-      const s = ease(fase(t, CORTE.google - 0.36, CORTE.google - 0.06));
-      tA.style.opacity = 1 - s; tA.style.transform = `translateY(${-90 * s}px) scale(${soco(t, 0)})`;
+      const s = sai(fase(t, TITULO_SAI, TITULO_SAI + 0.18));
+      tA.style.opacity = 1 - s; tA.style.transform = `translateY(${-60 * s}px) scale(${soco(t, 0)})`;
     }
   }
 
   // ---- o celular: onde ele está e o que mostra ----
   const fone = $("#fone"), cBloq = $("#cBloq"), cResp = $("#cResp"), cSite = $("#cSite");
   let fTop = null;
-  if (t < CORTE.nada) fTop = lerp(FONE_ABRE, FONE_ALTO, ease(fase(t, CORTE.google - 0.36, CORTE.google)));
+  if (t < CORTE.nada) fTop = lerp(FONE_ABRE, FONE_ALTO, ease(fase(t, SOBE, CORTE.google)));
   else if (t >= CORTE.volta && t < CORTE.meio) fTop = FONE_BAIXO;
   else if (t >= CORTE.ese && t < CORTE.fim) fTop = lerp(1960, FONE_BAIXO, sai(fase(t, CORTE.ese, CORTE.ese + 0.45)));
   else if (ponte) fTop = lerp(1960, FONE_ABRE, sai(fase(t, PONTE, PONTE + 0.42)));
@@ -495,17 +501,17 @@ window.quadro = t => {
     fone.style.transform = `translateX(${v}px) scale(${esc})`;
     const naHistoria = t < CORTE.nada, naVolta = t >= CORTE.volta && t < CORTE.meio;
     const naEse = t >= CORTE.ese && t < CORTE.site, noSite = t >= CORTE.site && t < CORTE.fim;
-    // a virada: o site empurra a tela de bloqueio para cima, acelerando com a subida da trilha
-    const empurra = naEse ? Math.pow(fase(t, CORTE.ese + T, CORTE.site), 2.4) : 0;
-    mostra(cBloq, naHistoria || (naEse && empurra < 1) || ponte);
+    // a virada: a tela de bloqueio fica parada e o site sobe por cima dela, acelerando com a subida da trilha
+    const sobe = naEse ? Math.pow(fase(t, CORTE.ese + T, CORTE.site), 1.8) : 0;
+    mostra(cBloq, naHistoria || naEse || ponte);
     mostra(cResp, naVolta);
-    mostra(cSite, (naEse && empurra > 0) || noSite);
+    mostra(cSite, (naEse && sobe > 0) || noSite);
     if (naHistoria || naEse || ponte) {
       desenharBloqueio(t, !naHistoria);
-      cBloq.style.transform = empurra > 0 ? `translateY(${-1692 * empurra}px)` : "none";
+      $("#escurece").style.opacity = 0.55 * sobe;
     }
     if (naVolta) desenharRespostas(t);
-    if (naEse || noSite) cSite.style.transform = naEse ? `translateY(${1692 * (1 - empurra)}px)` : "none";
+    if (naEse || noSite) cSite.style.transform = naEse ? `translateY(${1440 * (1 - sobe)}px)` : "none";
   }
 
   // ---- 4. nada: as luvas ----
@@ -559,7 +565,7 @@ window.quadro = t => {
     if (!on) continue;
     const r = caixa(ALVO[c.alvo]);
     const w = c.el.offsetWidth, h = c.el.offsetHeight;
-    let x = r.left + r.width / 2 - w / 2, y;
+    let x = c.alinha === "dir" ? r.right - w + 30 : r.left + r.width / 2 - w / 2, y;
     if (c.onde === "sobre") y = r.top + r.height / 2 - h / 2;
     else if (c.onde === "abaixo") y = r.bottom + 18;
     else y = r.top - h - 22;
@@ -567,10 +573,9 @@ window.quadro = t => {
     const chega = sai(fase(t, c.t0, c.t0 + 0.3));
     x += c.lado * (1 - chega) * 700;
     let esc = 1, op = 1;
-    if (c.entra) { // entra no botão do WhatsApp
-      const d = ease(fase(t, c.entra, c.entra + 0.28));
-      const cx = r.left + r.width / 2 - w / 2, cy = r.top + r.height / 2 - h / 2;
-      x = lerp(x, cx, d); y = lerp(y, cy, d); esc = lerp(1, 0.2, d); op = 1 - fase(t, c.entra + 0.14, c.entra + 0.28);
+    if (c.entra) { // a pergunta vai para o botão do WhatsApp: encolhe e some logo acima dele
+      const d = sai(fase(t, c.entra, c.entra + 0.2));
+      y += 24 * d; esc = lerp(1, 0.72, d); op = 1 - d;
     }
     c.el.style.left = x + "px"; c.el.style.top = y + "px"; c.el.style.opacity = op;
     c.el.style.transform = `scale(${esc})`;
@@ -615,6 +620,26 @@ window.quadro = t => {
   palco.style.transform = dx ? `translateX(${dx}px)` : "none";
 };
 
+// a foto das luvas: o instrumento tem uma marca gravada (de verdade); ela fica desfocada, desenhada num canvas
+async function luvasSemMarca() {
+  const img = $("#luvas img"), orig = new Image();
+  orig.src = img.getAttribute("src");
+  await orig.decode();
+  const cv = Object.assign(document.createElement("canvas"), { width: orig.naturalWidth, height: orig.naturalHeight });
+  const ctx = cv.getContext("2d");
+  ctx.drawImage(orig, 0, 0);
+  const borra = (rx, ry, px) => {
+    ctx.save();
+    ctx.translate(778, 553); ctx.rotate(27 * Math.PI / 180);
+    ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, 2 * Math.PI); ctx.clip();
+    ctx.rotate(-27 * Math.PI / 180); ctx.translate(-778, -553);
+    ctx.filter = `blur(${px}px)`; ctx.drawImage(cv, 0, 0);
+    ctx.restore();
+  };
+  borra(70, 30, 3); borra(58, 22, 6); borra(50, 17, 8);
+  img.src = cv.toDataURL("image/jpeg", 0.92);
+}
+await luvasSemMarca().catch(() => {});
 await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
 await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
 await document.fonts.ready;

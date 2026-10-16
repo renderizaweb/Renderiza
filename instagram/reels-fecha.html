@@ -69,7 +69,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#101517}
 /* celular da cliente */
 #cel{left:150px;top:360px;width:720px;height:1440px;z-index:12;transform-origin:50% 35%;box-shadow:0 0 0 2px #2d3639,0 40px 90px rgba(0,0,0,.55)}
 .tela .pg{position:absolute;inset:0;overflow:hidden}
-.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
 .barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
 .barra-cel .sinais{display:flex;gap:10px;align-items:center;color:#111}
 .barra-cel .sinais svg{height:22px}
@@ -423,6 +423,8 @@ window.preparar = () => {
   site.style.transform = `scale(${ESC})`;
   for (const el of site.querySelectorAll("[data-parada]"))
     paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : clamp(el.offsetTop - barra + 4, 0, max - 30 / ESC);
+  // fim da página (contato, mapa, horário): a legenda cai sobre o mapa e não cobre texto nenhum
+  paradas.fundo = clamp(paradas.fotos + 180 / ESC, 0, max - 30 / ESC);
   return {
     duracao: DUR,
     bpm: 120,
@@ -445,7 +447,7 @@ window.preparar = () => {
       { id: "nao2", cena: "fim", ini: 33, fim: 35, impacto: true },
       { id: "cta", cena: "cta", ini: 35, fim: 40 },
     ],
-    ensaio: [0.05, 3.0, 3.9, 4.55, 6.3, 8.15, 10.4, 11.3, 12.2, 13.5, 14.4, 15.2, 17.3, 19.1, 21.15, 22.6, 23.4, 24.75, 25.9, 27.7, 29.6, 33.6, 36.2, 39.6],
+    ensaio: [0.05, 3.0, 3.9, 4.55, 6.3, 8.15, 10.4, 11.3, 12.2, 12.9, 13.5, 14.4, 15.2, 17.3, 19.1, 21.15, 22.6, 23.4, 24.75, 25.9, 27.7, 29.6, 33.6, 36.2, 39.6],
   };
 };
 
@@ -550,7 +552,7 @@ window.quadro = t => {
   }
   if (celInsta && t >= 11.2) {
     pgSite.style.transform = `translateX(${(1 - ease(fase(t, 11.2, 11.45))) * 692}px)`;
-    const PAR = [[11.2, "hero"], [12.0, "servicos"], [12.5, "fotos"], [13.0, "avaliacoes"]];
+    const PAR = [[11.2, "hero"], [12.0, "servicos"], [12.5, "fundo"], [13.0, "avaliacoes"]];
     let k = 0; for (let i = 0; i < PAR.length; i++) if (t >= PAR[i][0]) k = i;
     const t0 = PAR[k][0], t1 = k + 1 < PAR.length ? PAR[k + 1][0] : CORTE.nada;
     const y0 = k ? paradas[PAR[k - 1][1]] : 0, y1 = paradas[PAR[k][1]];
