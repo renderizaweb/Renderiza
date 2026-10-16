@@ -544,3 +544,26 @@ zoom lento em CSS (`ev-kb`), que o gravador avança quadro a quadro. Vale para a
   (pergolado, lustre, mezanino) ficou; piscina só em foto vai para a ficha.
 - **Avaliação de cliente não vira dado do espaço:** capacidade citada só numa avaliação (Mirante, "mais de 300") fica
   como fala do cliente, e a dúvida vai para a ficha.
+
+## 19. Página de venda para eventos (16/10/2026)
+
+**Pedido do Kaue:** uma página pública "como funciona" só de eventos, para mandar ao lead que está na dúvida, com
+preço, três pacotes, prazo, pagamento e "os acessos são seus". No ar em `/como-funciona/eventos` (atalho
+`/eventos`), fora do Google (`noindex`). Estrutura por nicho: óticas e os outros entram com um arquivo novo em
+`site/nichos/` (ver `site/README.md`).
+
+**Pacotes na página** (o 1º é o preço do CONTEXTO.md; o 2º e o 3º são **proposta, para o Kaue validar**):
+- **Site:** R$ 499 no Pix ou 2x de R$ 299. O site completo, a consulta de data, as avaliações e o kit de
+  divulgação, sem mensalidade.
+- **Site + campanhas** (selo "Recomendado para eventos"): R$ 899 no Pix ou 2x de R$ 549. Tudo do Site, o Pixel
+  da Meta e o Google Analytics cadastrados e **2 páginas de campanha nos 12 meses depois de fechar** (Réveillon,
+  Carnaval, Dia das Mães, agenda nova); a partir da terceira, cada página é orçada à parte.
+- **Site + anúncios:** R$ 1.490 por mês de criação e gestão dos anúncios no Instagram e no Facebook, mais o Site +
+  campanhas (R$ 899), mínimo de 3 meses. O investimento nos anúncios é pago **direto para a Meta, no cartão do
+  espaço** (sugestão: a partir de R$ 30 por dia), e as peças usam as fotos e os vídeos que o espaço já tem: a
+  Renderiza não fotografa nem põe dinheiro de anúncio no próprio cartão.
+
+**Decisões que esperam o Kaue:** os valores do 2º e do 3º pacote; o prazo "até 7 dias úteis depois do
+pagamento"; o pixel só no 2º pacote (a home ainda diz que "todo site sai pronto para anúncio, com o Pixel");
+o selo "Recomendado" no lugar de "mais vendido" (ainda não há venda que prove). O valor do mês de inauguração
+(R$ 399 ou 2x R$ 199) não aparece: a linha diz que o Site tem valor especial até 31/10 e que é na conversa.

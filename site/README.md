@@ -30,6 +30,24 @@ Sem preço (é da conversa), sem promessa de Google ou de vendas e só palavras 
 testes em `test/site.test.mjs` conferem essa ordem e essas regras. A linha do mês de inauguração
 (`INAUGURACAO` em `pagina.mjs`) sai sozinha depois do último dia: no build e, na página já no ar, pelo navegador.
 
+## Páginas "Como funciona" por nicho (`/como-funciona/<nicho>`)
+
+A página que vai para o lead que já viu a prévia e está na dúvida: o que muda (hoje e com o site), o que vai no
+site, como funciona, **os pacotes com preço** (ao contrário da home), as perguntas de sempre e o convite. Não
+entra no Google (`noindex`, como as demos); é para mandar o link. Eventos: `/como-funciona/eventos`, com o
+atalho `/eventos` (redirect no `vercel.json`).
+
+| Arquivo | Para quê |
+|---|---|
+| `nichos/<nicho>.mjs` | **O que você edita**: textos, pacotes (nome, preço, o que inclui, "saber mais", mensagem do WhatsApp) e perguntas do nicho |
+| `como-funciona.mjs` | A estrutura, igual para todo nicho |
+| `como-funciona.css` | O visual que só essa página tem (vem depois de `estilo.css`) |
+
+Para outro nicho (óticas, por exemplo), copie `nichos/eventos.mjs` para `nichos/oticas.mjs` e troque os textos: o
+build publica `/como-funciona/oticas` sozinho. Regras (testes em `test/como-funciona.test.mjs`): nada de "mais
+vendido" sem venda que prove, promessa de resultado, superlativo ou "de bairro"; nenhuma foto de lead (a ilustração
+do topo é desenhada); a linha do mês de inauguração some depois de 31/10, como na home.
+
 ## Completar o que falta
 
 `npm run build` lista no fim o que ainda está vazio no `config.mjs`. Enquanto o WhatsApp estiver vazio,

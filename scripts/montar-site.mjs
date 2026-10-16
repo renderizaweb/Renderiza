@@ -7,6 +7,7 @@
 //   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
+//   /como-funciona/<nicho>     → página de venda do nicho (site/como-funciona.mjs + site/nichos/<nicho>.mjs)
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
 // Fichas (.md), contexto, ferramentas, banco e scripts nunca entram.
 //   npm run build
@@ -29,6 +30,14 @@ async function modulosDoSite() {
   const { montarPagina, pendencias } = await import(pathToFileURL(join(RAIZ, "site", "pagina.mjs")).href + versao);
   const { default: config } = await import(pathToFileURL(join(RAIZ, "site", "config.mjs")).href + versao);
   return { config, montarPagina, pendencias };
+}
+
+/** Páginas "Como funciona" por nicho (/como-funciona/<nicho>), com os textos de site/nichos/<nicho>.mjs. */
+async function paginaComoFunciona(id) {
+  const versao = "?v=" + Date.now();
+  const { montarComoFunciona, textosDoNicho } = await import(pathToFileURL(join(RAIZ, "site", "como-funciona.mjs")).href + versao);
+  const { default: config } = await import(pathToFileURL(join(RAIZ, "site", "config.mjs")).href + versao);
+  return montarComoFunciona(await textosDoNicho(id), config);
 }
 
 /** HTML da home pública, montado a partir de site/config.mjs. */
@@ -80,6 +89,11 @@ export function arquivosPublicados() {
   const lista = [["index.html", paginaInicial], [join("painel", "index.html"), painel], [join("login", "index.html"), painel]];
   for (const f of arquivosDe(join(RAIZ, "painel", "src"))) lista.push([join("painel", "src", f), join(RAIZ, "painel", "src", f)]);
   for (const f of arquivosDe(join(RAIZ, "site", "estatico"))) lista.push([f, join(RAIZ, "site", "estatico", f)]);
+  for (const f of readdirSync(join(RAIZ, "site", "nichos"))) {
+    if (!f.endsWith(".mjs")) continue;
+    const nicho = f.replace(/\.mjs$/, "");
+    lista.push([join("como-funciona", nicho + ".html"), Object.assign(() => paginaComoFunciona(nicho), { tipo: ".html" })]);
+  }
   for (const otica of readdirSync(join(RAIZ, "demos"), { withFileTypes: true })) {
     if (!otica.isDirectory()) continue;
     for (const f of readdirSync(join(RAIZ, "demos", otica.name))) {

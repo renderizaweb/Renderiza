@@ -14,7 +14,7 @@
 
 import { readFileSync } from "node:fs";
 
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
 const ICONES = {
   // Logo do WhatsApp (Simple Icons, CC0): é preenchido, os outros são de traço (Lucide).
@@ -46,9 +46,9 @@ const ICONES = {
 };
 // Símbolo da Renderiza (vetorizado do logo original em site/marca/logo-original.webp). Cor = currentColor.
 const SIMBOLO = readFileSync(new URL("./estatico/simbolo.svg", import.meta.url), "utf8");
-const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" aria-hidden="true" focusable="false" `);
+export const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" aria-hidden="true" focusable="false" `);
 
-const icone = (nome, tam = 18) =>
+export const icone = (nome, tam = 18) =>
   `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONES[nome]}</svg>`;
 
 /** A frase da abertura: o h1 da home e a imagem de compartilhamento (scripts/imagens-do-site.mjs). */
@@ -134,14 +134,14 @@ const ADICIONAIS = [
 
 // Mês de inauguração: benefício com data e motivo, sem preço (o valor fica para a conversa). Some depois do último
 // dia: no build e, na página que já está no ar, pelo navegador (data-ate).
-const INAUGURACAO = {
+export const INAUGURACAO = {
   ate: "2026-10-31",
   texto: "Outubro é o mês de inauguração da Renderiza: até o dia 31, o site tem um valor especial, que a gente passa junto com a prévia.",
   etiqueta: "Valor de inauguração até 31/10",
 };
 
 /** "AAAA-MM-DD" do dia em São Paulo, que é UTC−3 o ano todo (o build roda em UTC). */
-function diaEmSaoPaulo(data) {
+export function diaEmSaoPaulo(data) {
   return new Date(data.getTime() - 3 * 3600e3).toISOString().slice(0, 10);
 }
 
