@@ -594,3 +594,12 @@ do topo encolheu para os preços chegarem antes.
   inauguração vale só para o Essencial, então até 31/10 o Completo fica R$ 300 acima; o Pixel só no Completo e
   o pacote de anúncios ainda contradizem a home e o CONTEXTO ("todo site sai pronto para anúncio", "o anúncio
   em si a gente não roda"). Dica: para "quanto custa?", mande o link com `#pacotes` no fim.
+
+**O "sol" (16/10/2026, pedido do Kaue):** uma animação "bonita, elegante, em loop e responsiva" do que o site
+concentra, como um sol com várias pontas e o site no centro. Entrou logo depois da abertura, na seção "Tudo num
+lugar só": o site (barra com `seuespaco.com.br`, foto, estrelas e "Consultar data") no meio de uma estrela de 16
+pontas que gira devagar, e em volta 8 pontas: Instagram, Fotos reais, Facebook, Avaliações (Google), TikTok,
+Depoimentos, WhatsApp e Localização. De cada ponta sai uma luz que corre até o site, uma depois da outra (ciclo
+de 4,8 s), e o ícone pulsa quando a luz sai. Só SVG e CSS, sem foto nem script; mede pela largura do desenho
+(`cqw`), conferido em 320, 390 e 1440 px sem rolagem para o lado; quem pede menos movimento vê o desenho parado.
+Os símbolos das redes são do Simple Icons 13.21.0 (CC0), em `site/marcas.mjs`.

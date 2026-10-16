@@ -25,6 +25,19 @@ export default {
     mensagem: ["Olá! Vim pelo site e queria consultar uma data.", "Data: sábado, 14/03/2027", "Festa: casamento", "Convidados: 120"],
   },
 
+  // O "sol": tudo o que o espaço tem na internet indo para o site, no centro (pedido do Kaue, 16/10/2026).
+  // Cada ponta é [ícone, nome]; os ícones das redes vêm de site/marcas.mjs.
+  sol: {
+    sobretitulo: "Tudo num lugar só",
+    h2: ["Tudo o que o espaço tem,", "num link só."],
+    lide: "As redes, o WhatsApp, as avaliações do Google e as fotos reais do espaço, juntos no site.",
+    endereco: "seuespaco.com.br",
+    pontas: [
+      ["instagram", "Instagram"], ["fotos", "Fotos reais"], ["facebook", "Facebook"], ["google", "Avaliações"],
+      ["tiktok", "TikTok"], ["aspas", "Depoimentos"], ["whatsapp", "WhatsApp"], ["mapa", "Localização"],
+    ],
+  },
+
   passos: [
     ["A gente monta uma prévia", "Com as fotos do seu Instagram. Ver não custa nada."],
     ["Você pede os ajustes", "No texto e nas fotos, antes de decidir."],

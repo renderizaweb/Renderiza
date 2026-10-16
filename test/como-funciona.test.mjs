@@ -24,18 +24,50 @@ test("vercel.json: a página não entra no Google e /eventos leva até ela", () 
   assert.match(html, /<meta name="robots" content="noindex, nofollow">/);
 });
 
-test("página de venda curta: abertura, como funciona, pacotes, perguntas e convite, e nada além", () => {
-  const ordem = ["inicio", "como-funciona", "pacotes", "perguntas", "contato"].map(id => html.indexOf(`id="${id}"`));
+test("página de venda curta: abertura, tudo junto (o sol), como funciona, pacotes, perguntas e convite, e nada além", () => {
+  const ordem = ["inicio", "tudo-junto", "como-funciona", "pacotes", "perguntas", "contato"].map(id => html.indexOf(`id="${id}"`));
   assert.ok(ordem.every(i => i > 0), "todas as seções existem");
   assert.deepEqual([...ordem].sort((a, b) => a - b), ordem, "na ordem");
-  assert.equal((html.match(/<section\b/g) || []).length, 5);
+  assert.equal((html.match(/<section\b/g) || []).length, 6);
   assert.ok(eventos.passos.length <= 3 && eventos.perguntas.length <= 4, "3 passos e até 4 perguntas");
   for (const p of eventos.pacotes) assert.ok(p.inclui.length <= 4, `${p.id}: até 4 itens`);
 });
 
-test("lê em uma passada: o texto à vista (sem o que fica fechado em 'saber mais' e nas perguntas) é curto", () => {
-  const aberto = textoVisivel(html.replace(/<details[\s\S]*?<\/details>|<div [^>]*hidden>[\s\S]*?<\/div>/g, "")).trim().split(" ").length;
-  assert.ok(aberto <= 470, `${aberto} palavras à vista`);
+test("lê em uma passada: o texto à vista (sem o que fica fechado em 'saber mais' e nas perguntas, e sem os desenhos) é curto", () => {
+  const aberto = textoVisivel(html.replace(/<details[\s\S]*?<\/details>|<div [^>]*hidden>[\s\S]*?<\/div>|<figure[\s\S]*?<\/figure>/g, "")).trim().split(" ").length;
+  assert.ok(aberto <= 450, `${aberto} palavras à vista`);
+});
+
+test("o sol: o site no centro e, em volta, as redes, o WhatsApp, as avaliações, as fotos e os depoimentos, com uma luz em loop", () => {
+  const sol = html.slice(html.indexOf('id="tudo-junto"'), html.indexOf('id="como-funciona"'));
+  const nomes = [...sol.matchAll(/<span class="cf-sol-nome">([^<]+)<\/span>/g)].map(m => m[1]);
+  assert.deepEqual(nomes, eventos.sol.pontas.map(([, n]) => n));
+  for (const n of ["Instagram", "Facebook", "TikTok", "WhatsApp", "Avaliações", "Fotos reais", "Depoimentos"]) assert.ok(nomes.includes(n), n);
+  assert.equal((sol.match(/class="cf-luz"/g) || []).length, nomes.length, "uma luz por ponta");
+  assert.match(sol, /<div class="cf-sol-site">[\s\S]*seuespaco\.com\.br/, "o site no centro");
+  assert.match(sol, /<div class="cf-sol-palco" aria-hidden="true">/);
+  assert.match(sol, /<figcaption class="sr-only">Ilustração: Instagram, /, "quem usa leitor de tela ouve a lista");
+  // cada ponta fica no círculo, a 38% do centro; as de cima com o nome acima do ícone
+  for (const m of sol.matchAll(/--x:([\d.]+)%;--y:([\d.]+)%/g)) assert.ok(Math.abs(Math.hypot(m[1] - 50, m[2] - 50) - 38) < 0.05);
+  assert.equal((sol.match(/class="cf-sol-cima"/g) || []).length, 3);
+});
+
+test("o sol se move só para quem não pediu menos movimento, e escala pela largura do desenho", () => {
+  const css = readFileSync(new URL("../site/como-funciona.css", import.meta.url), "utf8");
+  const comMovimento = css.slice(css.indexOf("@media (prefers-reduced-motion:no-preference){\n  .cf-sol"));
+  assert.match(comMovimento.slice(0, comMovimento.indexOf("\n}\n")), /\.cf-luz\{animation:cf-luz [^}]*infinite/);
+  assert.doesNotMatch(css.replace(/@media \(prefers-reduced-motion:no-preference\)\{[\s\S]*?\n\}\n/g, ""), /\.cf-(luz|sol-[a-z-]+)(::after)?\{[^}]*animation:/, "fora do bloco, nada se mexe");
+  assert.match(css, /@media \(prefers-reduced-motion:reduce\)\{\s*\.cf-luz\{display:none\}/);
+  assert.match(css, /\.cf-sol\{[^}]*container-type:inline-size/);
+});
+
+test("símbolos das redes: só dado de caminho SVG, com a cor de cada marca", async () => {
+  const { MARCAS } = await import("../site/marcas.mjs");
+  assert.deepEqual(Object.keys(MARCAS).sort(), ["facebook", "google", "instagram", "tiktok", "whatsapp"]);
+  for (const [k, m] of Object.entries(MARCAS)) {
+    assert.match(m.d, /^[MmLlHhVvCcSsQqTtAaZz0-9.,\s-]+$/, k);
+    assert.match(m.cor, /^#[0-9A-F]{6}$/, k);
+  }
 });
 
 test("três pacotes com preço (Essencial, Completo, Completo + Anúncios); só o do meio é o recomendado, e ninguém é 'mais vendido' sem venda que prove", () => {

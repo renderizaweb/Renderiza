@@ -9,6 +9,7 @@
 
 import { readFileSync, readdirSync } from "node:fs";
 import { INAUGURACAO, diaEmSaoPaulo, esc, icone, linkWhatsapp, simbolo, telefoneLegivel } from "./pagina.mjs";
+import { MARCAS } from "./marcas.mjs";
 
 // Ícones que só esta página usa (Lucide). Os outros vêm da home.
 const MAIS_ICONES = {
@@ -16,6 +17,8 @@ const MAIS_ICONES = {
   chave: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
   carteira: '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
   calendario: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  fotos: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+  mapa: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
 };
 const ic = (nome, tam = 18) => MAIS_ICONES[nome]
   ? `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${MAIS_ICONES[nome]}</svg>`
@@ -54,6 +57,57 @@ function ilustracao(il) {
           <span class="cf-bolha-hora">14:32 ✓✓</span>
         </div>
         <figcaption class="sr-only">Ilustração: no site, o cliente escolhe a data, o tipo de festa e os convidados, e a mensagem chega pronta no WhatsApp do espaço.</figcaption>
+      </figure>`;
+}
+
+/** O "sol": as pontas (redes, WhatsApp, avaliações, fotos) em volta e o site no centro; de cada ponta sai uma luz
+ * que corre até o site, uma depois da outra, em loop. Desenhado em SVG e CSS, sem foto; mede tudo pela largura
+ * do desenho (cqw), então escala igual do celular ao computador. Quem prefere menos movimento vê o desenho parado. */
+function sol(sl) {
+  // nas pontas de cima o nome fica acima do ícone (longe do centro), para não encostar no site nem no raio
+  const n = sl.pontas.length, R = 38;
+  const pos = sl.pontas.map((_, i) => {
+    const a = (-90 + (360 / n) * i) * Math.PI / 180;
+    return [50 + R * Math.cos(a), 50 + R * Math.sin(a), a];
+  });
+  const f = v => Math.round(v * 100) / 100;
+  // a estrela do sol: 16 pontas atrás do site
+  const estrela = Array.from({ length: 32 }, (_, i) => {
+    const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 22.5 : 30;
+    return `${f(50 + r * Math.cos(a))},${f(50 + r * Math.sin(a))}`;
+  }).join(" ");
+  const simboloDa = nome => MARCAS[nome]
+    ? `<svg viewBox="0 0 24 24" fill="${MARCAS[nome].cor}" aria-hidden="true" focusable="false"><path d="${MARCAS[nome].d}"/></svg>`
+    : ic(nome, 24).replace("<svg ", '<svg class="cf-sol-traco" ');
+  return `
+      <figure class="cf-sol">
+        <div class="cf-sol-palco" aria-hidden="true">
+          <span class="cf-sol-halo"></span>
+          <svg class="cf-sol-desenho" viewBox="0 0 100 100" focusable="false">
+            <defs>
+              <radialGradient id="cf-sol-brilho"><stop offset="0" stop-color="#e8855e" stop-opacity=".42"/><stop offset=".7" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity=".05"/></radialGradient>
+              <filter id="cf-sol-luz" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation=".7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <polygon class="cf-sol-estrela" points="${estrela}"/>
+            <circle class="cf-sol-orbita" cx="50" cy="50" r="${R}"/>
+            <circle class="cf-sol-orbita-fora" cx="50" cy="50" r="46.5"/>
+            ${pos.map(([x, y, a]) => `<line class="cf-raio" x1="${f(x)}" y1="${f(y)}" x2="${f(50 + 12 * Math.cos(a))}" y2="${f(50 + 12 * Math.sin(a))}"/>`).join("")}
+            <g filter="url(#cf-sol-luz)">${pos.map(([x, y, a], i) => `<line class="cf-luz" style="--i:${i}" pathLength="100" x1="${f(x)}" y1="${f(y)}" x2="${f(50 + 12 * Math.cos(a))}" y2="${f(50 + 12 * Math.sin(a))}"/>`).join("")}</g>
+          </svg>
+          <div class="cf-sol-site">
+            <div class="cf-sol-barra"><i></i><i></i><i></i><span>${esc(sl.endereco)}</span></div>
+            <div class="cf-sol-tela">
+              <div class="cf-sol-foto"><span></span><span></span><span></span></div>
+              <span class="cf-sol-estrelas">★★★★★</span>
+              <span class="cf-sol-linha"></span><span class="cf-sol-linha cf-sol-linha-curta"></span>
+              <span class="cf-sol-botao">Consultar data</span>
+            </div>
+          </div>
+          <ul class="cf-sol-pontas">${sl.pontas.map(([icone_, nome], i) => `
+            <li${pos[i][1] < 45 ? ' class="cf-sol-cima"' : ""} style="--x:${f(pos[i][0])}%;--y:${f(pos[i][1])}%;--i:${i}"><span class="cf-sol-ponta">${simboloDa(icone_)}</span><span class="cf-sol-nome">${esc(nome)}</span></li>`).join("")}
+          </ul>
+        </div>
+        <figcaption class="sr-only">Ilustração: ${esc(sl.pontas.map(([, nome]) => nome).join(", "))}, tudo indo para o site do espaço, no centro.</figcaption>
       </figure>`;
 }
 
@@ -173,6 +227,18 @@ ${ilustracao(nicho.ilustracao)}
     </div>
   </section>
 
+${nicho.sol ? `
+  <section class="secao secao-clara cf-sol-secao" id="tudo-junto" aria-labelledby="sol-titulo">
+    <div class="envoltorio cf-sol-grade">
+      <div class="cf-sol-texto">
+        <p class="sobretitulo">${esc(nicho.sol.sobretitulo)}</p>
+        <h2 id="sol-titulo">${esc(nicho.sol.h2[0])} <em>${esc(nicho.sol.h2[1])}</em></h2>
+        <p class="secao-lide">${esc(nicho.sol.lide)}</p>
+      </div>
+${sol(nicho.sol)}
+    </div>
+  </section>
+` : ""}
   <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envoltorio">
       <p class="sobretitulo">Como funciona</p>

@@ -83,6 +83,58 @@
 .cf-pacote-inauguracao svg{margin-top:2px}
 .cf-pacotes-nota{margin-top:14px;max-width:44em;color:var(--tinta-clara);font-size:.875rem;line-height:1.5}
 
+/* sol: o que o espaço tem na internet em volta, o site no centro, e uma luz que sai de cada ponta até o site.
+   Tudo mede pela largura do desenho (cqw): escala igual em qualquer tela. Sem movimento para quem pede menos. */
+.cf-sol-grade{display:grid;gap:30px;align-items:center}
+.cf-sol-texto .secao-lide{max-width:30em}
+.cf-sol{margin:0 auto;width:min(100%,540px);container-type:inline-size}
+.cf-sol-palco{position:relative;aspect-ratio:1;margin:3cqw 0 4cqw}
+.cf-sol-halo{position:absolute;left:50%;top:50%;width:62cqw;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#e8855e3d,#e8855e12 60%,transparent)}
+.cf-sol-desenho{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cf-sol-estrela{fill:url(#cf-sol-brilho);transform-origin:50% 50%;transform-box:view-box}
+.cf-sol-orbita{fill:none;stroke:#c9bfb2;stroke-width:.24;stroke-dasharray:.5 1.3;transform-origin:50% 50%;transform-box:view-box}
+.cf-sol-orbita-fora{fill:none;stroke:#e4ded4;stroke-width:.2}
+.cf-raio{stroke:#b25134;stroke-opacity:.2;stroke-width:.28}
+.cf-luz{stroke:#e8855e;stroke-width:1.2;stroke-linecap:round;stroke-dasharray:15 185;stroke-dashoffset:15;opacity:0}
+.cf-sol-site{position:absolute;left:50%;top:50%;z-index:1;width:33cqw;transform:translate(-50%,-50%);padding:1.3cqw 1.3cqw 1.5cqw;border-radius:3.6cqw;background:var(--grafite);box-shadow:0 5cqw 9cqw -4cqw #1e25288c,0 0 0 .35cqw #e8855e33,0 0 12cqw -1cqw #e8855e73}
+.cf-sol-barra{display:flex;align-items:center;gap:.8cqw;padding:.5cqw .5cqw 1.3cqw}
+.cf-sol-barra i{flex:none;width:1.25cqw;height:1.25cqw;border-radius:50%;background:#ffffff40}
+.cf-sol-barra span{flex:1;min-width:0;margin-left:.5cqw;padding:.45cqw 1.3cqw;border-radius:99px;background:#ffffff17;color:var(--gelo);font-size:max(6px,2.3cqw);font-weight:600;line-height:1.3;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cf-sol-tela{display:grid;gap:1.3cqw;padding:1.5cqw;border-radius:2.4cqw;background:#faf8f4}
+.cf-sol-foto{position:relative;height:12cqw;border-radius:1.6cqw;overflow:hidden;background:linear-gradient(165deg,#2b211c 0%,#6b3a26 42%,#c4703f 74%,#efc08a 100%)}
+.cf-sol-foto::before{content:"";position:absolute;left:-10%;right:-10%;top:2.4cqw;height:5cqw;border-top:1px solid #ffe4b880;border-radius:50%}
+.cf-sol-foto span{position:absolute;top:3.4cqw;width:1.1cqw;height:1.1cqw;border-radius:50%;background:#ffe7bd;box-shadow:0 0 1.8cqw .6cqw #ffd99a99}
+.cf-sol-foto span:nth-child(1){left:18%}.cf-sol-foto span:nth-child(2){left:49%;top:4.4cqw}.cf-sol-foto span:nth-child(3){left:80%}
+.cf-sol-estrelas{color:var(--terracota);font-size:max(7px,2.5cqw);letter-spacing:.35cqw;line-height:1}
+.cf-sol-linha{display:block;height:1cqw;width:92%;border-radius:99px;background:#e6e1d8}
+.cf-sol-linha-curta{width:58%;margin-top:-.4cqw}
+.cf-sol-botao{display:block;padding:.95cqw;border-radius:99px;background:var(--terracota);color:#fff;text-align:center;font-size:max(7px,2.2cqw);font-weight:600;line-height:1.2;white-space:nowrap}
+.cf-sol-pontas{position:absolute;inset:0;z-index:2;margin:0;padding:0;list-style:none}
+.cf-sol-pontas li{--tam:12.6cqw;position:absolute;left:var(--x);top:var(--y);display:grid;justify-items:center;gap:1.3cqw;width:24cqw;transform:translate(-50%,calc(var(--tam) / -2))}
+.cf-sol-pontas .cf-sol-cima{transform:translate(-50%,calc(var(--tam) / 2 - 100%))}
+.cf-sol-cima .cf-sol-nome{order:-1}
+.cf-sol-ponta{position:relative;display:grid;place-items:center;width:var(--tam);aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 1.8cqw 3.6cqw -1.8cqw #1e252866,0 0 0 .28cqw #e6e1d8}
+.cf-sol-ponta svg{width:46%;height:46%}
+.cf-sol-ponta .cf-sol-traco{color:var(--terracota)}
+.cf-sol-ponta::after{content:"";position:absolute;inset:0;border-radius:50%;border:.4cqw solid #e8855e;opacity:0}
+.cf-sol-nome{padding:.2cqw 1cqw;border-radius:6px;background:var(--papel-2);font-size:max(11px,2.85cqw);font-weight:600;line-height:1.2;color:var(--tinta);white-space:nowrap;letter-spacing:-.01em}
+@media (prefers-reduced-motion:no-preference){
+  .cf-sol-estrela{animation:cf-gira 90s linear infinite}
+  .cf-sol-orbita{animation:cf-gira 150s linear infinite reverse}
+  .cf-sol-halo{animation:cf-respira 4.8s ease-in-out infinite}
+  .cf-luz{animation:cf-luz 4.8s cubic-bezier(.5,0,.4,1) infinite;animation-delay:calc(var(--i) * .6s - 4.8s)}
+  .cf-sol-ponta{animation:cf-flutua 5.2s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -.65s)}
+  .cf-sol-ponta::after{animation:cf-ping 4.8s ease-out infinite;animation-delay:calc(var(--i) * .6s - 4.8s)}
+  @keyframes cf-gira{to{transform:rotate(360deg)}}
+  @keyframes cf-respira{50%{transform:translate(-50%,-50%) scale(1.07);opacity:.8}}
+  @keyframes cf-luz{0%{stroke-dashoffset:15;opacity:0}5%{opacity:1}48%{stroke-dashoffset:-96;opacity:1}54%,100%{stroke-dashoffset:-96;opacity:0}}
+  @keyframes cf-flutua{to{transform:translateY(-1cqw)}}
+  @keyframes cf-ping{0%{opacity:.85;transform:scale(1)}24%,100%{opacity:0;transform:scale(1.5)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .cf-luz{display:none}
+}
+
 /* página curta: menos espaço entre as seções e, no celular, o desenho menor, para os preços chegarem logo */
 .cf .secao{padding:52px 0}
 @media (max-width:719px){
@@ -101,6 +153,8 @@
   .cf-celular{width:268px}
   .cf-bolha{right:-6px;width:240px}
   .cf .passos{grid-template-columns:repeat(3,1fr);max-width:880px}
+  .cf-sol-grade{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:56px}
+  .cf-sol{margin-right:0}
   .cf-pacotes{grid-template-columns:repeat(3,1fr);gap:22px}
   .cf-pacote-destaque{transform:translateY(-12px)}
 }
