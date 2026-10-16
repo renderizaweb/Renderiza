@@ -131,3 +131,75 @@ Gestor de tráfego: manda este post pro cliente que ainda não tem site.
 #sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #trafegopago #gestordetrafego
 
 Comentário para fixar: "Gestor de tráfego: marca aqui aquele cliente que ainda não tem site 👇"
+
+---
+
+# Semana do 20/10: o site trabalha por você
+
+Ordem: o Reels "Enquanto você atende" na terça (20/10, 19h), o carrossel na quarta (21/10, 12h) e o Reels "Seu
+negócio fecha" na sexta (23/10, 19h). Domingo e quinta ficam sem post no feed. O cronograma completo, com os stories,
+está no doc "Cronograma de posts · 16 a 23/10".
+
+## 8. Reels: "Enquanto você atende" (`reels-atende`)
+
+Você está no meio de um atendimento, de luvas, e o celular não para na bancada.
+
+"Abre sábado?"
+"Qual o endereço?"
+"Tem horário amanhã?"
+"Tem foto de antes e depois?"
+
+Quando sai da sala, você responde tudo. E amanhã chegam as mesmas perguntas.
+
+Com um site, quem te procura encontra endereço, horário, serviços e fotos sem precisar perguntar. E quem chama no WhatsApp já chega sabendo o que quer.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+(A Lume Estética e as clientes do vídeo são fictícias.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #donodenegocio
+
+Comentário para fixar: "Qual pergunta você mais responde no WhatsApp? Conta aqui que a gente mostra em que parte do site essa resposta fica."
+
+## 9. Carrossel: "Seu site já existe. Só está espalhado." (`carrossel-espalhado`)
+
+Se você tem Instagram, perfil no Google e WhatsApp, o seu site já existe. Só está espalhado.
+
+Um site junta tudo isso num link só, que você manda no WhatsApp e coloca na bio.
+
+E você não precisa separar nada: a gente olha o seu Instagram e o seu Google e monta a prévia do site do seu negócio. Comenta PRÉVIA que a gente te manda o link, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+(A Lume Estética é um negócio fictício.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #instagramparanegocios
+
+Comentário para fixar: "E as fotos do seu trabalho, onde estão hoje: no Instagram, no Google ou na galeria do celular?"
+
+## 10. Reels: "Seu negócio fecha. O site, não." (`reels-fecha`)
+
+Seu negócio fecha às 19h. Às 23h40, uma cliente finalmente tem tempo de procurar: te acha no Google, vê os serviços, as fotos e as avaliações, e quer marcar.
+
+Pelo WhatsApp, a resposta ficaria pra amanhã. Com a Agenda online, ela escolhe um horário livre no site, e o compromisso cai direto na sua agenda do Google. Você acorda com o horário marcado.
+
+A Agenda online é um adicional do site, pensado pra clínicas, consultórios, estética e salões.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+(A Lume Estética e a Carla são fictícias.)
+
+#sitesprofissionais #presencadigital #empreendedorismo #pequenasempresas #negocioslocais #agendamentoonline
+
+Comentário para fixar: "Como funciona: você comenta PRÉVIA, a gente olha o seu Instagram e o seu Google e manda o link da prévia no direct. Sem compromisso."
+
+## Stories da semana (`stories-semana`)
+
+A figurinha entra no app, no espaço vazio embaixo da pergunta. Na enquete, a pergunta da figurinha fica em branco.
+
+- Sex 16, 20h: enquete "Já está no ar" / "Semana que vem".
+- Sáb 17, 20h: caixinha "Qual frase faltou?".
+- Dom 18, 19h: enquete "Quanto é?" / "Onde fica?".
+- Seg 19, 20h: enquete "Já anuncio" / "Ainda não".
+- Ter 20, 20h: enquete "Eu, depois" / "Alguém da equipe".
+- Qua 21, 20h: enquete "Mostra" / "Não mostra".
+- Qui 22, 12h: sem figurinha (dá para agendar no Business Suite); as respostas com PRÉVIA chegam no direct.
+- Sex 23, 20h: caixinha "Qual o @ do seu negócio?".
