@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: quem indica, manda o link</title>
+<!-- Reels do Instagram (1080 × 1920, 38,1 s = 20 compassos a 126 BPM, tom +3), sem voz: só imagem, texto e a trilha
+     pulsante (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso", pelo "bpm" e pelo "tom" do preparar()). A grade
+     fica ancorada no drop (22,86 s, compasso 12): todos os cortes caem em múltiplos de um tempo (0,476 s).
+     A indicação: num grupo de WhatsApp, a Carol pede uma limpeza de pele e a Tati indica a Lume. A Carol abre o Instagram,
+     vê as fotos e não acha endereço nem horário; pergunta no grupo, a Tati não sabe responder, e a indicação esfria
+     ("Depois eu vejo."). Com um site, a Tati manda o link, a Carol vê tudo e marca. Fecho: "Quem indica, manda o link."
+     (o único trocadilho, com "quem avisa, amigo é"). A conversa é vista do celular da Carol. Carol, Tati e Lu são
+     fictícias (avatar com a inicial, sem foto). A Lume Estética é fictícia e aparece sempre com o selo "exemplo", e o
+     endereço do link é uma barra cinza. Tom (Kaue, 15/10/2026): humor seco, um trocadilho só. Animação sem CSS:
+     window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA), no eixo dos textos (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:70}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* textos */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%;white-space:nowrap}
+.txt .tom,.faixa .tom{color:var(--terracota-clara)}
+/* a faixa de cima, entre a marca e a janela: cada texto fica centrado nela (o tamanho cabe na linha mais larga) */
+.faixa{position:absolute;left:80px;width:860px;top:236px;height:360px;display:flex;align-items:center;justify-content:center;z-index:60}
+.faixa p{text-align:center;font-weight:700;font-size:66px;letter-spacing:-.03em;line-height:1.1;color:var(--fundo);white-space:nowrap;transform-origin:50% 50%}
+#tAbre p{font-size:120px;letter-spacing:-.035em;line-height:1.04}
+
+/* ===== a conversa do grupo (genérica, sem marca), vista do celular da Carol ===== */
+.janela{position:absolute;left:60px;top:620px;width:880px;height:920px;border-radius:40px;overflow:hidden;z-index:10;background:#efeae2;box-shadow:0 30px 80px rgba(0,0,0,.38);transform-origin:50% 0}
+.cab{position:absolute;left:0;right:0;top:0;height:112px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 34px 0 16px;z-index:3}
+.cab .voltar{width:40px;height:40px;color:#54656f;flex:none}
+.g-av{flex:none;width:76px;height:76px;border-radius:50%;background:#a3aeb3;color:#fff;display:grid;place-items:center}
+.g-av svg{width:48px;height:48px}
+.cab .quem{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.cab .nome{font-size:36px;font-weight:600;color:#111b21;letter-spacing:-.01em;line-height:1.15;white-space:nowrap}
+.cab .membros{font-size:27px;color:#667781;line-height:1.3;white-space:nowrap;overflow:hidden}
+.cab .icones{display:flex;gap:34px;color:#54656f}
+.cab .icones svg{width:40px;height:40px}
+.msgs{position:absolute;left:0;right:0;top:112px;height:712px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.barra{position:absolute;left:0;right:0;bottom:0;height:96px;background:#efeae2;z-index:2}
+.campo{position:absolute;left:16px;top:12px;right:100px;height:72px;border-radius:36px;background:#fff;display:flex;align-items:center;padding:0 28px;font-size:40px;letter-spacing:-.01em;color:#111b21;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.campo .ph{color:#8696a0}
+.campo .cursor{display:inline-block;width:3px;height:46px;background:#00a884;margin-left:2px;vertical-align:-9px}
+.btn-mic{position:absolute;right:16px;top:14px;width:68px;height:68px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
+.btn-mic>span{position:absolute;inset:0;display:grid;place-items:center}
+.btn-mic svg{width:34px;height:34px}
+.pelicula{position:absolute;inset:0;background:rgba(18,23,25,.80);z-index:5;opacity:0}
+
+/* balões */
+.b{position:absolute;max-width:660px;padding:18px 28px 20px;border-radius:28px;font-size:48px;line-height:1.26;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em;z-index:1}
+.b.rec{left:102px;background:#fff;transform-origin:0 50%}
+.b.env{right:26px;background:#d9fdd3;transform-origin:100% 50%}
+.b.cauda.rec{border-top-left-radius:8px}
+.b.cauda.env{border-top-right-radius:8px}
+.b.cauda::before{content:"";position:absolute;top:0;width:22px;height:26px;background:inherit}
+.b.cauda.rec::before{left:-14px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.cauda.env::before{right:-14px;clip-path:polygon(0 0,100% 0,0 100%)}
+.b .quem{display:block;font-size:30px;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin-bottom:2px}
+.b .esp{display:inline-block;width:90px;height:1px}
+.b.env .esp{width:132px}
+.b.quebra .esp{display:block;width:auto;height:18px}
+.b .meta{position:absolute;right:22px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:23px;line-height:1;color:#667781;letter-spacing:0}
+.b .tiques{display:inline-flex;width:34px;height:24px;color:#53bdeb}
+.b .tiques svg{width:100%;height:100%}
+.b.aceso{z-index:6}
+.av-m{position:absolute;left:-84px;top:0;width:64px;height:64px;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:31px;font-weight:600;letter-spacing:-.02em}
+.dia{position:absolute;left:0;right:0;display:flex;justify-content:center}
+.dia span{display:flex;align-items:center;height:52px;padding:0 24px;border-radius:14px;background:rgba(255,255,255,.94);font-size:27px;font-weight:500;color:#54656f;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+
+/* o cartão do link (a prévia do site): foto, título, selo "exemplo" e o endereço como barra cinza */
+.b.comlink{width:660px;padding:10px 10px 50px}
+.cartao{position:relative;border-radius:20px;overflow:hidden;background:#f0f2f5}
+.cartao img{display:block;width:100%;height:232px;object-fit:cover;object-position:50% 38%}
+.cartao .exemplo{right:16px;top:16px;font-size:20px;padding:8px 14px}
+.c-txt{padding:18px 24px 22px}
+.c-txt b{display:block;font-size:40px;font-weight:600;color:#111b21;letter-spacing:-.015em;line-height:1.15}
+.c-txt .url{display:block;height:20px;width:46%;border-radius:10px;background:#d2d7da;margin-top:14px}
+
+/* ===== o celular da Carol: Instagram e site da Lume ===== */
+.fone{position:absolute;left:100px;top:620px;width:820px;height:1720px;border-radius:88px;background:#0d1112;padding:14px;z-index:20;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.10),0 50px 120px rgba(0,0,0,.5);transform-origin:50% 0}
+.visor{position:relative;width:792px;height:1692px;border-radius:74px;overflow:hidden;background:#fff}
+.camera{position:absolute;left:50%;top:28px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#07090a;box-shadow:0 0 0 3px rgba(255,255,255,.06);z-index:30}
+.pg{position:absolute;inset:0;overflow:hidden}
+.pagina{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+#pgSite{background:#fbf7f3}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:88px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 56px 0 44px}
+.barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
+.sinais{display:flex;gap:10px;align-items:center;color:#111}
+.sinais svg{height:22px}
+.ig-grade img{object-fit:cover}
+
+/* a marcação da seção no site: um contorno terracota que se desenha */
+.contorno{position:absolute;left:0;top:0;z-index:45;pointer-events:none;overflow:visible}
+
+/* toque */
+.toque{position:absolute;z-index:80;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.18);border:4px solid rgba(30,37,40,.62);opacity:0;pointer-events:none}
+
+/* meio e fim */
+#m1{top:810px;font-size:76px}
+#m2{top:918px;font-size:76px}
+#f1{top:690px;font-size:116px}
+#f2{top:850px;font-size:116px}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:850px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1040px;font-size:46px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- textos da faixa de cima -->
+  <div class="faixa" id="tAbre"><p>Sua cliente<br><span class="tom">te indicou.</span></p></div>
+  <div class="faixa oculto" id="tG1"><p>A amiga abre o seu Instagram.</p></div>
+  <div class="faixa oculto" id="tG2"><p>Vê as fotos.<br><span class="tom">Não acha endereço nem horário.</span></p></div>
+  <div class="faixa oculto" id="tI"><p>Quem te indicou<br>não sabe responder tudo.</p></div>
+  <div class="faixa oculto" id="tV"><p>Três mensagens depois,<br><span class="tom">o assunto já é outro.</span></p></div>
+  <div class="faixa oculto" id="tE"><p>Agora a Tati tem<br><span class="tom">um link pra mandar.</span></p></div>
+  <div class="faixa oculto" id="tS1"><p>O link mostra o que<br>a amiga ia perguntar.</p></div>
+  <div class="faixa oculto" id="tS2"><p>Fotos, avaliações,<br>endereço e horário.</p></div>
+  <div class="faixa oculto" id="tS3"><p>E a indicação vira<br><span class="tom">horário marcado.</span></p></div>
+
+  <!-- as duas conversas (montadas no script): a de verdade (A) e a mesma, com um link (B) -->
+  <div class="janela" id="jA"></div>
+  <div class="janela oculto" id="jB"></div>
+
+  <!-- o celular da Carol -->
+  <div class="fone oculto" id="fone">
+    <div class="visor">
+      <div class="pg" id="pgIg"><div class="pagina" id="ig"></div></div>
+      <div class="pg oculto" id="pgSite"><div class="pagina" id="site"></div></div>
+      <div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais"></span></div>
+      <span class="camera"></span>
+    </div>
+  </div>
+  <svg class="contorno oculto" id="contorno" width="1080" height="1920" viewBox="0 0 1080 1920" aria-hidden="true">
+    <path id="cFundo" fill="rgba(178,81,52,.07)"/>
+    <path id="cLinha" fill="none" stroke="#b25134" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+  </svg>
+
+  <!-- meio -->
+  <p class="txt oculto" id="m1">A amiga queria marcar.</p>
+  <p class="txt oculto" id="m2"><span class="tom">Faltou onde clicar.</span></p>
+
+  <!-- fim -->
+  <p class="txt oculto" id="f1">Quem indica,</p>
+  <p class="txt oculto" id="f2"><span class="tom">manda o link.</span></p>
+
+  <!-- CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, instagramDeExemplo, fotosDoExemplo as foto, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- grade: 126 BPM, um tempo = 0,476 s, um compasso = 1,905 s; o drop cai no compasso 12 ----------
+const BPM = 126, TOM = 3, T = 60 / BPM, CP = 4 * T;
+const cp = n => n * CP;
+const DUR = cp(20);   // 38,1 s
+const CORTE = { abre: 0, google: cp(2), insta: cp(5), nada: cp(7), volta: cp(7.5), meio: cp(9), ese: cp(10.5), site: cp(12), fim: cp(16), cta: cp(18) };
+const IG = cp(3);                     // corte para o Instagram
+const SITE = cp(12) + 2 * T;          // o site sobe, depois do toque no cartão
+const GRUPO = cp(15);                 // de volta ao grupo: "Marquei pra quinta."
+const PONTE = cp(19) + 3 * T;         // o último tempo: volta a cena do começo (o Reels repete em loop)
+const TITULO_SAI = CORTE.google - T;  // o título sai um tempo antes do primeiro corte
+
+// ---------- ícones (SVG) ----------
+const IC = {
+  voltar: '<svg class="voltar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  enviar: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 20.6 21.2 12 3.4 3.4l-.01 6.8L15 12 3.39 13.8Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+  grupo: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9.2" cy="8.4" r="3.5"/><path d="M2.4 19.6c.5-3.7 3.3-6 6.8-6s6.3 2.3 6.8 6Z"/><circle cx="16.9" cy="9.2" r="2.8" opacity=".75"/><path d="M15.9 13.8c3-.3 5.3 1.6 5.8 5h-4.1c-.2-1.9-.8-3.6-1.7-5Z" opacity=".75"/></svg>',
+};
+document.querySelectorAll(".sinais").forEach(s => (s.innerHTML = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>'));
+
+// ---------- quem escreve (fictícias: só nome e inicial). A Carol é a dona do celular: as mensagens dela saem à direita ----------
+const GENTE = { Tati: { ini: "T", cor: "#b0849a", nome: "#8a5671" }, Lu: { ini: "L", cor: "#8ea197", nome: "#4f7663" } };
+const MEMBROS = "Lu, Tati, Você";
+
+// cada conversa: cabeçalho do grupo, mensagens presas ao fundo (a pilha sobe) e a barra de digitar
+const AREA = 712, PAD = 24;
+function conversa(el, msgs) {
+  el.innerHTML = `<div class="cab">${IC.voltar}<span class="g-av">${IC.grupo}</span><div class="quem"><span class="nome">Amigas do pilates</span><span class="membros">${MEMBROS}</span></div>
+      <div class="icones">${IC.video}${IC.fone}</div></div>
+    <div class="msgs"></div>
+    <div class="barra"><div class="campo"><span class="ph">Mensagem</span><span class="dig"></span><span class="cursor"></span></div>
+      <span class="btn-mic"><span class="i-mic">${IC.mic}</span><span class="i-env">${IC.enviar}</span></span></div>
+    <div class="pelicula"></div>`;
+  const area = el.querySelector(".msgs");
+  const itens = msgs.map((m, i) => {
+    const b = document.createElement("div");
+    const ant = msgs[i - 1];
+    let gap = 16;
+    if (m.dia) { b.className = "dia"; b.innerHTML = `<span>${m.dia}</span>`; }
+    else {
+      const env = m.quem === "Carol";
+      const primeira = !ant || ant.dia || ant.quem !== m.quem;
+      if (!primeira) gap = 6;
+      b.className = "b " + (env ? "env" : "rec") + (primeira ? " cauda" : "") + (m.link ? " comlink" : "");
+      const meta = `<span class="meta">${m.hora}${env ? `<span class="tiques">${IC.tiques}</span>` : ""}</span>`;
+      const quem = !env && primeira ? `<span class="av-m" style="background:${GENTE[m.quem].cor}">${GENTE[m.quem].ini}</span><span class="quem" style="color:${GENTE[m.quem].nome}">${m.quem}</span>` : "";
+      b.innerHTML = m.link
+        ? `${quem}<div class="cartao"><img src="${foto("hero")}" alt=""><span class="exemplo">exemplo</span><div class="c-txt"><b>Lume Estética</b><span class="url"></span></div></div>${meta}`
+        : `${quem}${m.txt}<span class="esp"></span>${meta}`;
+    }
+    area.appendChild(b);
+    return { ...m, el: b, h: 0, gap };
+  });
+  return { el, area, itens, membros: el.querySelector(".membros"), dig: el.querySelector(".dig"), ph: el.querySelector(".ph"),
+    cursor: el.querySelector(".cursor"), mic: el.querySelector(".i-mic"), env: el.querySelector(".i-env"), pelicula: el.querySelector(".pelicula"), digitando: [] };
+}
+
+// A: a conversa de verdade. Uma mensagem por batida na hora das perguntas; "Depois eu vejo." corta seco (o "nada")
+const A = conversa($("#jA"), [
+  { t: -9, dia: "Hoje" },
+  { t: -9, quem: "Carol", txt: "Alguém indica uma limpeza de pele boa?", hora: "08:41" },
+  { t: cp(1), quem: "Tati", txt: "A Lume! Fiz lá mês passado e amei.", hora: "08:43", impacto: true },
+  { t: cp(2), quem: "Carol", txt: "Tem Instagram?", hora: "08:43" },
+  { t: cp(2) + 2 * T, quem: "Tati", txt: "@lume.estetica", hora: "08:44" },
+  { t: cp(5), quem: "Carol", txt: "Onde fica?", hora: "08:52" },
+  { t: cp(5) + T, quem: "Tati", txt: "Perto da padaria, acho.", hora: "08:52" },
+  { t: cp(5) + 2 * T, quem: "Carol", txt: "Abre sábado?", hora: "08:53" },
+  { t: cp(5) + 3 * T, quem: "Tati", txt: "Não sei. Pergunta pra ela.", hora: "08:53" },
+  { t: CORTE.nada, quem: "Carol", txt: "Depois eu vejo.", hora: "08:54", seco: true },
+  { t: CORTE.volta, quem: "Lu", txt: "Quem vai na aula de sábado?", hora: "10:17", outro: true },
+  { t: CORTE.volta + T, quem: "Carol", txt: "Eu!", hora: "10:18", outro: true },
+  { t: CORTE.volta + 2 * T, quem: "Tati", txt: "Eu também", hora: "10:20", outro: true },
+]);
+A.digitando = [[2 * T, cp(1), "Tati"], [cp(2) + 0.22, cp(2) + 2 * T, "Tati"]];
+// a Carol digita "Depois eu vejo." e envia no corte
+const DIG = "Depois eu vejo.", DIG_INI = cp(6) + 2 * T, DIG_FIM = DIG_INI + 0.62;
+
+// B: a mesma conversa, agora com um link para mandar
+const B = conversa($("#jB"), [
+  { t: -9, dia: "Hoje" },
+  { t: -9, quem: "Carol", txt: "Alguém indica uma limpeza de pele boa?", hora: "08:41" },
+  { t: -9, quem: "Tati", txt: "A Lume! Fiz lá mês passado e amei.", hora: "08:43" },
+  { t: CORTE.site, quem: "Tati", link: true, hora: "08:43", impacto: true },
+  { t: GRUPO, quem: "Carol", txt: "Marquei pra quinta.", hora: "08:51", impacto: true },
+]);
+B.digitando = [[CORTE.ese + 2 * T, CORTE.site, "Tati"]];
+B.cursor.style.display = "none"; B.env.style.display = "none";   // na conversa B a Carol não digita
+const CARTAO = B.itens[3].el.querySelector(".cartao");
+
+// ---------- o celular: o Instagram (com mais fotos na grade, para rolar) e o site da Lume ----------
+const ig = $("#ig");
+ig.innerHTML = instagramDeExemplo();
+{
+  // recortes diferentes das mesmas fotos de banco (sem retrato de pessoa), para a grade continuar
+  const MAIS = [["oleo"], ["toalha", "inset(28% 0% 0% 42%)"], ["maquiagem"], ["ambiente", "inset(4% 52% 20% 0%)"], ["pedras", "inset(30% 0% 4% 40%)"],
+    ["unhas", "inset(8% 0% 22% 18%)"], ["massagem", "inset(12% 0% 34% 0%)"], ["hero", "inset(0% 46% 18% 0%)"], ["facial", "inset(0% 18% 40% 22%)"],
+    ["ambiente", "inset(0% 0% 30% 46%)"], ["oleo", "inset(10% 0% 20% 30%)"], ["toalha", "inset(0% 50% 10% 0%)"]];
+  const grade = ig.querySelector(".ig-grade");
+  for (const [n, vb] of MAIS) {
+    const im = document.createElement("img");
+    im.src = foto(n); im.alt = "";
+    if (vb) im.style.objectViewBox = vb;
+    grade.appendChild(im);
+  }
+}
+const site = $("#site");
+site.innerHTML = siteDeExemplo();
+const ALVO = {
+  servicos: [site.querySelector(".l-cards")],
+  avaliacoes: [site.querySelector(".l-av-topo"), ...site.querySelectorAll(".l-av")],
+  mapa: [site.querySelector(".l-mapa"), ...site.querySelectorAll(".l-horario")],
+  agendar: [site.querySelector('[data-alvo="agendar"]')],
+};
+// as paradas do site, em cortes na batida (a cada dois tempos)
+const PARADAS = [
+  { t: SITE, parada: "hero" },
+  { t: cp(13), parada: "servicos", alvo: "servicos" },
+  { t: cp(13) + 2 * T, parada: "avaliacoes", alvo: "avaliacoes" },
+  { t: cp(14), parada: "mapa", alvo: "mapa" },
+  { t: cp(14) + 2 * T, parada: "agendar", alvo: "agendar" },
+];
+const TOQUE_CARTAO = cp(12) + 1.5 * T, TOQUE_AGENDAR = cp(14) + 3 * T;
+
+// ---------- textos: [elemento, entra, sai, jeito] ----------
+const FAIXAS = [
+  ["#tG1", cp(2) + 2 * T, cp(3) + 2 * T], ["#tG2", cp(3) + 2 * T, CORTE.insta],
+  ["#tI", cp(6), CORTE.nada],
+  ["#tV", CORTE.volta, CORTE.meio],
+  ["#tE", CORTE.ese, CORTE.site],
+  ["#tS1", CORTE.site, cp(13) + 2 * T, "soco"], ["#tS2", cp(13) + 2 * T, GRUPO], ["#tS3", GRUPO, CORTE.fim, "soco"],
+].map(([s, a, b, jeito]) => ({ el: $(s), a, b, jeito }));
+
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [cp(1), 0.7], [cp(9), 0.7], [cp(12), 1], [cp(13), 0.6], [cp(14), 0.6], [GRUPO, 0.8], [cp(16), 1], [cp(17), 1], [cp(18), 0.6]];
+const BUMBOS = [0, 1, 2, 3, 4, 5, 6].map(k => cp(18) + k * T);
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                    // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, b, x) => a + (b - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const soco = (t, t0, de = 1.06, dur = 0.25) => t < t0 ? 1 : lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+
+let ESC = 1, paradas = {}, IG_ROLA = [];
+
+window.preparar = () => {
+  // a fonte de cada texto da faixa cabe na linha mais larga (área segura: 860 px de largura)
+  for (const f of [...FAIXAS.map(f => f.el), $("#tAbre")]) {
+    const p = f.querySelector("p"), base = parseFloat(getComputedStyle(p).fontSize);
+    p.style.fontSize = Math.min(base, Math.floor(base * 852 / p.scrollWidth)) + "px";
+  }
+  for (const c of [A, B]) for (const m of c.itens) {
+    const esp = m.el.querySelector(".esp");
+    if (esp) { const com = m.el.offsetHeight; esp.style.display = "none"; const sem = m.el.offsetHeight; esp.style.display = ""; m.el.classList.toggle("quebra", com > sem + 4); }
+    m.h = m.el.offsetHeight;
+  }
+  ESC = 792 / 402;
+  const barra = 88 / ESC;
+  site.style.transform = `scale(${ESC})`;
+  for (const el of site.querySelectorAll("[data-parada]")) paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : el.offsetTop - barra - 6;
+  // o botão "Agendar pelo WhatsApp" fica no meio da parte visível da tela
+  const btn = ALVO.agendar[0], topoBtn = (btn.getBoundingClientRect().top - site.getBoundingClientRect().top) / ESC;
+  paradas.agendar = topoBtn - 210;
+  // o Instagram rola a grade em três puxadas, na batida
+  ig.style.transform = `scale(${ESC})`;
+  const maxIg = ig.scrollHeight - (1920 - 634) / ESC;
+  IG_ROLA = [[cp(3) + 2 * T, 150], [cp(4), 170], [cp(4) + 2 * T, 170]].map(([t0, d]) => [t0, d]);
+  const total = IG_ROLA.reduce((s, [, d]) => s + d, 0);
+  if (total > maxIg) IG_ROLA = IG_ROLA.map(([t0, d]) => [t0, d * maxIg / total]);
+  return {
+    duracao: DUR,
+    bpm: BPM,
+    tom: TOM,
+    pulso: [
+      { id: "indicou", cena: "abre", ini: 0, fim: cp(1), impacto: true },
+      { id: "lume", cena: "abre", ini: cp(1), fim: cp(2), impacto: true },
+      { id: "instagram", cena: "google", ini: cp(2), fim: CORTE.insta },
+      { id: "perguntas", cena: "insta", ini: CORTE.insta, fim: CORTE.nada },
+      { id: "nada", cena: "insta", ini: CORTE.nada, fim: CORTE.volta, impacto: true },
+      { id: "assunto", cena: "volta", ini: CORTE.volta, fim: CORTE.meio },
+      { id: "marcar", cena: "meio", ini: CORTE.meio, fim: CORTE.ese, impacto: true },
+      { id: "link", cena: "ese", ini: CORTE.ese, fim: CORTE.site },
+      { id: "cartao", cena: "site", ini: CORTE.site, fim: cp(13), impacto: true },
+      { id: "fotos", cena: "site", ini: cp(13), fim: cp(14), impacto: true },
+      { id: "horario", cena: "site", ini: cp(14), fim: GRUPO, impacto: true },
+      { id: "marcou", cena: "site", ini: GRUPO, fim: CORTE.fim, impacto: true },
+      { id: "indica", cena: "fim", ini: CORTE.fim, fim: cp(17), impacto: true },
+      { id: "manda", cena: "fim", ini: cp(17), fim: CORTE.cta, impacto: true },
+      { id: "cta", cena: "cta", ini: CORTE.cta, fim: DUR },
+    ],
+    ensaio: [0.05, 2.8, 3.75, 3.9, 5.65, 5.8, 8.4, 9.6, 12.8, 13.4, 14.35, 16.8, 17.25, 19.4, 20.1, 22.6, 22.95, 23.6, 24.9, 26.0, 27.9, 28.7, 33.0, 35.6],
+  };
+};
+
+// ---------- uma conversa no instante t ----------
+function desenharConversa(c, t) {
+  const vis = c.itens.filter(m => t >= m.t);
+  // a pilha inteira desce enquanto o balão novo sobe (os de impacto sobem quase de uma vez; o seco não anda)
+  let desce = 0;
+  for (const m of vis) if (!m.seco) desce += (m.h + m.gap) * (1 - sai(fase(t, m.t, m.t + (m.impacto ? 0.1 : 0.22))));
+  let y = AREA - PAD;
+  for (let k = c.itens.length - 1; k >= 0; k--) {
+    const m = c.itens[k], on = t >= m.t;
+    m.el.style.display = on ? "" : "none";
+    if (!on) continue;
+    y -= m.h;
+    m.el.style.top = (y + desce) + "px";
+    y -= m.gap;
+    let esc = 1, op = 1;
+    if (m.seco) { /* corta seco: já entra parado */ }
+    else if (m.impacto) esc = soco(t, m.t, 1.12, 0.25);
+    else { const x = sai(fase(t, m.t, m.t + 0.18)); esc = lerp(0.92, 1, x); op = x; }
+    m.el.style.transform = `scale(${esc})`; m.el.style.opacity = op;
+  }
+  const dig = c.digitando.find(([a, b]) => t >= a && t < b);
+  c.membros.textContent = dig ? `${dig[2]} está digitando…` : MEMBROS;
+}
+
+// texto da faixa: entra subindo (ou com um tranco, no drop)
+function faixa({ el, a, b, jeito }, t) {
+  if (!mostra(el, t >= a && t < b)) return;
+  const p = el.querySelector("p");
+  if (jeito === "soco") { p.style.opacity = 1; p.style.transform = `scale(${soco(t, a, 1.08, 0.24)})`; return; }
+  const x = sai(fase(t, a, a + 0.25));
+  p.style.opacity = x; p.style.transform = `translateY(${(1 - x) * 30}px)`;
+}
+
+// ---------- toque (o dedo) ----------
+const tq = $("#toque");
+let dedo = null;
+const caixa = els => { const rs = els.map(e => e.getBoundingClientRect()); const l = Math.min(...rs.map(r => r.left)), tp = Math.min(...rs.map(r => r.top)); return { left: l, top: tp, right: Math.max(...rs.map(r => r.right)), bottom: Math.max(...rs.map(r => r.bottom)) }; };
+function toque(t, t0, el) {
+  if (t < t0 - 0.12 || t >= t0 + 0.32) return;
+  const r = el.getBoundingClientRect();
+  dedo = { x: r.left + r.width / 2, y: r.top + r.height / 2, op: Math.min(fase(t, t0 - 0.12, t0 - 0.02), 1 - fase(t, t0 + 0.2, t0 + 0.32)), aperto: t >= t0 && t < t0 + 0.18 };
+}
+const retangulo = (x, y, w, h, r) => `M${x + r} ${y}H${x + w - r}A${r} ${r} 0 0 1 ${x + w} ${y + r}V${y + h - r}A${r} ${r} 0 0 1 ${x + w - r} ${y + h}H${x + r}A${r} ${r} 0 0 1 ${x} ${y + h - r}V${y + r}A${r} ${r} 0 0 1 ${x + r} ${y}Z`;
+
+window.quadro = t => {
+  dedo = null;
+  palco.style.transform = "none"; // mede sem o tranco do quadro anterior
+  const ponte = t >= PONTE;
+
+  // ---- marca ----
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || ponte);
+  topo.style.opacity = ponte ? fase(t, PONTE + 0.05, PONTE + 0.3) : 1;
+
+  // ---- 1. abre: o título ----
+  const tA = $("#tAbre"), pA = tA.querySelector("p");
+  if (mostra(tA, t < TITULO_SAI + 0.18 || ponte)) {
+    if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); pA.style.opacity = x; pA.style.transform = `translateY(${(1 - x) * 30}px)`; }
+    else { const s = sai(fase(t, TITULO_SAI, TITULO_SAI + 0.18)); pA.style.opacity = 1 - s; pA.style.transform = `translateY(${-50 * s}px) scale(${soco(t, 0)})`; }
+  }
+  for (const f of FAIXAS) faixa(f, t);
+
+  // ---- a conversa de verdade (abre, google até o Instagram, insta, nada, volta; e a ponte do loop) ----
+  const naA = t < IG || (t >= CORTE.insta && t < CORTE.meio) || ponte;
+  if (mostra(A.el, naA)) {
+    const tt = ponte ? 0 : t;
+    desenharConversa(A, tt);
+    // a Carol digita "Depois eu vejo." e envia no corte
+    let n = 0;
+    if (tt >= DIG_INI && tt < CORTE.nada) n = Math.min(DIG.length, Math.floor((tt - DIG_INI) / ((DIG_FIM - DIG_INI) / DIG.length)) + 1);
+    A.dig.textContent = DIG.slice(0, n); A.ph.style.display = n ? "none" : "";
+    A.cursor.style.display = tt >= DIG_INI - 0.12 && tt < CORTE.nada && (n < DIG.length || Math.floor(tt * 4) % 2 === 0) ? "" : "none";
+    A.mic.style.display = n ? "none" : ""; A.env.style.display = n ? "" : "none";
+    // nada: a tela segura parada; só o "Depois eu vejo." fica aceso
+    const nada = tt >= CORTE.nada && tt < CORTE.volta;
+    A.pelicula.style.opacity = nada ? 1 : 0;
+    A.itens[9].el.classList.toggle("aceso", nada);
+    // volta: o assunto muda e a conversa da indicação sobe e some
+    if (tt >= CORTE.volta) {
+      const some = sai(fase(tt, CORTE.volta, CORTE.volta + 2 * T + 0.3));
+      for (const m of A.itens) if (!m.outro) m.el.style.opacity = 1 - 0.92 * some;
+    }
+    let esc = 1;
+    if (t >= CORTE.insta && t < CORTE.nada) esc = soco(t, CORTE.insta, 1.02, 0.22);
+    const y = ponte ? (1 - sai(fase(t, PONTE, PONTE + 0.42))) * 1400 : 0;
+    A.el.style.transform = `translateY(${y}px) scale(${esc})`;
+  }
+
+  // ---- 2. o celular: o Instagram da Lume (google) e o site (no drop) ----
+  const fone = $("#fone"), pgIg = $("#pgIg"), pgSite = $("#pgSite");
+  const noIg = t >= IG && t < CORTE.insta, noSite = t >= SITE && t < GRUPO;
+  if (mostra(fone, noIg || noSite)) {
+    mostra(pgIg, noIg); mostra(pgSite, noSite);
+    if (noIg) {
+      fone.style.transform = `scale(${soco(t, IG, 1.03, 0.25)})`;
+      let y = 0;
+      for (const [t0, d] of IG_ROLA) y += d * sai(fase(t, t0, t0 + 0.5));
+      ig.style.transform = `translateY(${-y * ESC}px) scale(${ESC})`;
+    } else {
+      const sobe = sai(fase(t, SITE, SITE + 0.3));
+      let k = 0; for (let i = 0; i < PARADAS.length; i++) if (t >= PARADAS[i].t) k = i;
+      const p = PARADAS[k], t1 = k + 1 < PARADAS.length ? PARADAS[k + 1].t : GRUPO;
+      const y = paradas[p.parada] + 12 * ease(fase(t, p.t, t1));   // 12 px de rolagem lenta, para a tela não ficar parada
+      site.style.transform = `translateY(${-y * ESC}px) scale(${ESC})`;
+      fone.style.transform = `translateY(${(1 - sobe) * 1400}px) scale(${k > 0 ? soco(t, p.t, 1.025, 0.22) : 1})`;
+    }
+  }
+  // a marcação: o contorno terracota se desenha em volta da seção certa
+  const ct = $("#contorno");
+  let alvo = null;
+  if (noSite) for (const p of PARADAS) if (p.alvo && t >= p.t) alvo = p;
+  if (mostra(ct, !!alvo)) {
+    const r = caixa(ALVO[alvo.alvo]), pad = 14;
+    const d = retangulo(r.left - pad, r.top - pad, r.right - r.left + 2 * pad, r.bottom - r.top + 2 * pad, 26);
+    $("#cLinha").setAttribute("d", d); $("#cFundo").setAttribute("d", d);
+    const x = sai(fase(t, alvo.t + 0.04, alvo.t + 0.34));
+    $("#cLinha").style.strokeDashoffset = 1 - x;
+    $("#cFundo").style.opacity = fase(t, alvo.t + 0.2, alvo.t + 0.4);
+  }
+  if (noSite) toque(t, TOQUE_AGENDAR, ALVO.agendar[0]);
+
+  // ---- a conversa com o link (ese sobe; drop; e de volta ao grupo) ----
+  const naB = (t >= CORTE.ese && t < SITE + 0.3) || (t >= GRUPO && t < CORTE.fim);
+  if (mostra(B.el, naB)) {
+    desenharConversa(B, t);
+    let y = 0, op = 1, esc = 1;
+    if (t < CORTE.site) y = 1400 * (1 - sai(fase(t, CORTE.ese, CORTE.ese + 0.45)));   // sobe logo no começo da subida e espera o link
+    if (t >= SITE && t < GRUPO) op = 1 - fase(t, SITE + 0.12, SITE + 0.3);
+    if (t >= GRUPO) esc = soco(t, GRUPO, 1.02, 0.22);
+    B.el.style.transform = `translateY(${y}px) scale(${esc})`; B.el.style.opacity = op;
+    toque(t, TOQUE_CARTAO, CARTAO);
+  }
+
+  // ---- 5. meio: o coração ----
+  const m1 = $("#m1"), m2 = $("#m2");
+  const noMeio = t >= CORTE.meio && t < CORTE.ese;
+  if (mostra(m1, noMeio)) {
+    const tum = t < cp(10) ? (t < cp(9) + 0.28 ? soco(t, cp(9), 1.08, 0.24) : soco(t, cp(9) + 0.28, 1.03, 0.24))
+      : (t < cp(10) + 0.28 ? soco(t, cp(10), 1.05, 0.24) : soco(t, cp(10) + 0.28, 1.02, 0.24));
+    const zoom = lerp(1, 1.04, fase(t, CORTE.meio, CORTE.ese));
+    m1.style.transform = `scale(${tum * zoom})`; m1.style.opacity = 1 - fase(t, CORTE.ese - 0.2, CORTE.ese);
+    if (mostra(m2, t >= cp(9) + 3 * T)) {
+      const x = sai(fase(t, cp(9) + 3 * T, cp(9) + 3 * T + 0.3));
+      const tum2 = t < cp(10) + 0.28 ? soco(t, cp(10), 1.05, 0.24) : soco(t, cp(10) + 0.28, 1.02, 0.24);
+      m2.style.opacity = x * (1 - fase(t, CORTE.ese - 0.2, CORTE.ese));
+      m2.style.transform = `translateY(${(1 - x) * 26}px) scale(${tum2 * zoom})`;
+    }
+  } else mostra(m2, false);
+
+  // ---- 8. fim: o trocadilho ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
+  if (mostra(f2, t >= cp(17) && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, cp(17), 1.1, 0.28)})`;
+
+  // ---- 9. CTA e a volta ao começo ----
+  const noCta = t >= CORTE.cta;
+  const saiCta = fase(t, PONTE, PONTE + 0.16);
+  const cm = $("#ctaMarca"), bo = $("#botao"), l1 = $("#l1");
+  mostra(cm, noCta && saiCta < 1); mostra(bo, noCta && saiCta < 1); mostra(l1, noCta && saiCta < 1);
+  if (noCta && saiCta < 1) {
+    const e = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    cm.style.opacity = e * (1 - saiCta); cm.style.transform = `scale(${lerp(0.8, 1, e)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const b of BUMBOS) { const x = fase(t, b, b + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    bo.style.transform = `scale(${esc})`; bo.style.opacity = 1 - saiCta;
+    const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5));
+    l1.style.opacity = x * (1 - saiCta); l1.style.transform = `translateY(${(1 - x) * 28}px)`;
+  }
+
+  // ---- o dedo ----
+  if (dedo && dedo.op > 0) {
+    tq.style.left = dedo.x + "px"; tq.style.top = dedo.y + "px";
+    tq.style.opacity = dedo.op; tq.style.transform = `scale(${dedo.aperto ? 0.84 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarão no drop ----
+  let fl = 0;
+  const cl = (t0, d, a) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, a * (1 - x)); };
+  cl(CORTE.site, 0.07, 0.9);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos e a aproximação na subida ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  const zoom = t >= CORTE.ese && t < CORTE.site ? lerp(1, 1.04, ease(fase(t, CORTE.ese, CORTE.site))) : 1;
+  palco.style.transformOrigin = "510px 900px";
+  palco.style.transform = `translateX(${dx}px) scale(${zoom})`;
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "500 15px 'DM Sans'", "600 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

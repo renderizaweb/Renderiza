@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: elogio bom não fica no privado</title>
+<!-- Reels do Instagram (1080 × 1920, 38,36 s = 78 tempos a 122 BPM, tom -2), sem voz: só imagem, texto e a trilha
+     pulsante (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso", pelo "bpm" e pelo "tom" do preparar()). A grade
+     fica ancorada no drop (22,62 s, o tempo 46): todos os cortes caem em tempos inteiros contados a partir dele.
+     As avaliações: a cliente elogia no WhatsApp e o elogio fica na conversa; no Google, quem ainda não conhece a Lume vê
+     duas avaliações antigas. O kit de divulgação (só digital) que sai com todo site traz pronta a mensagem que pede a
+     avaliação, e o site mostra as avaliações logo na entrada. Fecho: "Elogio bom / não fica no privado." (o único
+     trocadilho: "privado" é a conversa). Marina, Paula, Bia e Lívia são fictícias (avatar com a inicial, sem foto). A Lume
+     Estética é fictícia e aparece com o selo "exemplo" em toda tela do Google e do site. As avaliações são estrelas e
+     linhas cinza, sem nota e sem contagem. Tom (Kaue, 15/10/2026): seco e realista, um trocadilho só. Animação sem CSS:
+     window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA), no eixo dos textos (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:70}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* textos */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom{color:var(--terracota-clara)}
+#tAbre{top:318px;font-size:100px}
+.faixa{top:258px;font-size:64px;line-height:1.08;letter-spacing:-.03em}
+.faixa.uma{top:292px}
+#tI{font-size:55px;top:266px}
+#tE{font-size:59px;top:296px}
+#tN{top:270px;font-size:96px}
+#tMeio{top:812px;font-size:64px;line-height:1.1;letter-spacing:-.03em}
+.fim{font-size:88px;line-height:1.1;letter-spacing:-.035em}
+#f1{top:760px}
+#f2{top:857px}
+
+/* ===== a janela do app de mensagens (genérico, sem marca) ===== */
+.janela{position:absolute;left:80px;top:660px;width:860px;height:740px;border-radius:40px;overflow:hidden;z-index:10;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.tj{position:absolute;left:0;top:0;width:860px;height:100%;overflow:hidden}
+#tLista{z-index:1;background:#fff}
+#tChat{z-index:2;background:#efeae2}
+.pelicula{position:absolute;inset:0;background:#0d1112;opacity:0;z-index:6;pointer-events:none}
+
+/* conversa */
+.cab{position:absolute;left:0;right:0;top:0;height:118px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 34px 0 16px;z-index:3;box-shadow:0 1px 0 #e9edef}
+.cab .voltar{width:42px;height:42px;color:#54656f;flex:none}
+.av{position:relative;flex:none;width:80px;height:80px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:600;font-size:38px;letter-spacing:-.02em}
+.quem{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.nome{font-size:38px;font-weight:600;color:#111b21;letter-spacing:-.015em;line-height:1.15}
+.status{font-size:30px;color:#667781;line-height:1.3;white-space:nowrap}
+.icones{display:flex;gap:34px;color:#54656f}
+.icones svg{width:42px;height:42px}
+.msgs{position:absolute;left:0;right:0;top:118px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.barra{position:absolute;left:0;right:0;bottom:0;height:92px;background:#efeae2;z-index:2}
+.campo{position:absolute;left:16px;right:98px;bottom:10px;height:72px;border-radius:36px;background:#fff;box-shadow:0 1px 1px rgba(11,20,26,.08);overflow:hidden}
+.campo .ph{position:absolute;left:28px;top:0;height:72px;display:flex;align-items:center;font-size:40px;letter-spacing:-.01em;color:#8696a0;white-space:nowrap}
+.campo .cursor{display:inline-block;width:3px;height:46px;background:#00a884;margin-right:3px}
+.campo .colado{position:absolute;left:0;right:0;top:0;padding:16px 28px 18px;font-size:36px;line-height:1.3;color:#111b21;letter-spacing:-.01em}
+.link{color:#0b77c2;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.btn-env{position:absolute;right:16px;bottom:12px;width:68px;height:68px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
+.btn-env>span{position:absolute;inset:0;display:grid;place-items:center}
+.btn-env svg{width:34px;height:34px}
+
+/* balões */
+.b{position:absolute;max-width:700px;padding:20px 28px;border-radius:28px;font-size:44px;line-height:1.28;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em}
+.b.rec{left:24px;background:#fff;border-top-left-radius:8px;transform-origin:0 100%}
+.b.env{right:24px;background:#d9fdd3;border-top-right-radius:8px;transform-origin:100% 100%}
+.b.rec::before,.b.env::before{content:"";position:absolute;top:0;width:22px;height:26px;background:inherit}
+.b.rec::before{left:-14px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.env::before{right:-14px;clip-path:polygon(0 0,100% 0,0 100%)}
+.b .esp{display:inline-block;width:92px;height:1px}
+.b.env .esp{width:134px}
+.b.quebra .esp{display:block;width:auto;height:18px}
+.b .meta{position:absolute;right:22px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:22px;line-height:1;color:#7a8386;letter-spacing:0}
+.b .tiques{display:inline-flex;width:34px;height:24px;color:#8696a0}
+.b .tiques svg{width:100%;height:100%}
+.b .link{display:inline-block;margin-top:4px}
+.chip-dia{position:absolute;left:0;right:0;display:flex;justify-content:center}
+.chip-dia span{display:block;height:50px;line-height:50px;padding:0 24px;border-radius:14px;background:#fff;color:#54656f;font-size:26px;font-weight:600;letter-spacing:.04em;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+
+/* lista de conversas */
+.l-cab{position:absolute;left:0;right:0;top:0;height:118px;display:flex;align-items:center;justify-content:space-between;padding:0 40px 0 40px;background:#fff;z-index:3}
+.l-cab b{font-size:46px;font-weight:700;letter-spacing:-.03em;color:#111b21}
+.l-cab .icones svg{width:40px;height:40px}
+.conv{position:absolute;left:0;right:0;top:0;height:156px;display:flex;align-items:center;gap:24px;padding:0 34px 0 30px;background:#fff;transform-origin:50% 50%}
+.conv .av{width:92px;height:92px;font-size:42px}
+.cv-txt{flex:1;min-width:0}
+.cv-l1{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.cv-l1 b{font-size:37px;font-weight:600;color:#111b21;letter-spacing:-.015em;white-space:nowrap}
+.cv-l1 small{font-size:26px;font-weight:500;color:#667781;white-space:nowrap}
+.cv-l1 small.nova{color:var(--zap)}
+.cv-l2{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px}
+.cv-l2 p{font-size:32px;color:#3b4a54;letter-spacing:-.012em;line-height:1.25;white-space:nowrap}
+.badge{flex:none;min-width:42px;height:42px;padding:0 12px;border-radius:21px;background:var(--zap);color:#fff;font-size:25px;font-weight:700;display:grid;place-items:center}
+.conv.velha .av{background:#e9ecee}
+.conv.velha .sk{display:block;height:16px;border-radius:8px;background:#eef0f1;margin:16px 0}
+
+/* ===== o celular de quem procura: a busca e o site (Lume, sempre com "exemplo") ===== */
+#cel{left:180px;top:456px;width:720px;height:1440px;z-index:12;transform-origin:50% 0;box-shadow:0 0 0 2px #2d3639,0 40px 90px rgba(0,0,0,.55)}
+.tela .pg{position:absolute;inset:0;overflow:hidden;background:#fff}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
+.barra-cel .sinais{display:flex;gap:10px;align-items:center;color:#111}
+.barra-cel .sinais svg{height:22px}
+.sombra-pg{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:3}
+
+/* (a) a busca e o perfil no Google (genérico, sem logo) */
+.bs-barra{position:absolute;left:24px;right:24px;top:94px;height:90px;border-radius:45px;background:#f3f1ee;box-shadow:inset 0 0 0 2px #e6e2dc;display:flex;align-items:center;gap:18px;padding:0 30px;white-space:nowrap;overflow:hidden}
+.bs-barra svg{flex:none;width:38px;height:38px;color:#5b6467}
+.bs-q{font-size:38px;letter-spacing:-.01em;color:#1e2528}
+.bs-ph{color:#899194}
+.bs-cursor{display:inline-block;width:3px;height:44px;background:var(--terracota);margin-left:2px;vertical-align:-8px}
+.bs-carga{position:absolute;left:60px;right:60px;top:196px;height:6px;border-radius:3px;overflow:hidden;background:#f1eee9}
+.bs-carga i{display:block;height:100%;width:0;background:var(--terracota)}
+.bs-res{position:absolute;left:24px;right:24px;top:206px}
+.bs-card{padding:22px 26px 8px;border-radius:34px;background:#fff;box-shadow:0 0 0 2px #ebe7e1,0 18px 40px rgba(30,37,40,.10)}
+.bs-fotos{display:flex;gap:10px;height:120px}
+.bs-fotos img{flex:1;min-width:0;height:120px;object-fit:cover;border-radius:16px}
+.bs-nome{display:block;margin-top:18px;font-size:50px;font-weight:650;letter-spacing:-.03em;color:#1e2528;line-height:1.1}
+.bs-cat{margin-top:2px;font-size:32px;color:#5b6467;letter-spacing:-.005em}
+.bs-sec{margin-top:18px;padding-top:16px;border-top:2px solid #eeeae5;font-size:34px;font-weight:600;color:#1e2528;letter-spacing:-.015em}
+.novo-wrap{overflow:hidden;height:0;margin:0 -12px}
+.av-g{position:relative;padding:14px 0 16px}
+.av-g+.av-g{border-top:2px solid #f2efeb}
+.av-topo{display:flex;align-items:center;gap:18px}
+.av-p{flex:none;width:62px;height:62px;border-radius:50%;background:#e6e8e8;color:#fff;display:grid;place-items:center;font-size:30px;font-weight:600}
+.av-id{flex:1;min-width:0}
+.av-id .sk{display:block;height:14px;border-radius:7px;background:#e6e8e8;margin:0 0 8px}
+.av-l2{display:flex;align-items:center;gap:12px}
+.estrelas{display:inline-flex;gap:2px;color:#f0a21c}
+.estrelas svg{width:30px;height:30px}
+.quando{position:relative;font-size:32px;font-weight:500;color:#5b6467;letter-spacing:-.01em;line-height:1;padding:7px 12px;border-radius:12px;transform-origin:30% 50%}
+.quando .marca-q{position:absolute;inset:0;border:3px solid var(--terracota);border-radius:12px;opacity:0}
+.av-g>.sk{display:block;height:14px;border-radius:7px;background:#eceeee;margin:14px 0 0}
+.av-g.novo{padding:14px 18px 16px 22px;margin:6px 0 4px;border-radius:22px;background:#f8e6dd;box-shadow:inset 8px 0 0 var(--terracota)}
+.av-g.novo .quando{background:var(--terracota);color:#fff;font-weight:600}
+.av-g.novo .av-id .sk,.av-g.novo>.sk{background:#ecd3c7}
+.bs-outro{display:flex;gap:24px;align-items:center;padding:0 28px;margin-top:30px}
+.bs-outro i{flex:none;width:110px;height:110px;border-radius:18px;background:#f0f1f1}
+.bs-outro div{flex:1}
+.bs-outro .sk{display:block;height:16px;border-radius:8px;background:#eff0f0;margin:16px 0}
+
+/* (b) o site de exemplo */
+.tela .site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.realce{position:absolute;border:5px solid var(--terracota-clara);border-radius:24px;z-index:42;pointer-events:none;box-shadow:0 0 0 4px rgba(30,37,40,.18)}
+
+/* toque */
+.toque{position:absolute;z-index:80;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0;pointer-events:none}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:850px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1040px;font-size:46px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="estrela" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.4l2.95 6.1 6.7.9-4.9 4.65 1.2 6.65L12 17.5l-5.95 3.2 1.2-6.65L2.35 9.4l6.7-.9z"/></symbol>
+</svg>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- 1. abre -->
+  <p class="txt" id="tAbre">Sua cliente<br><span class="tom">amou o resultado.</span></p>
+
+  <!-- textos da faixa de cima -->
+  <p class="txt faixa oculto" id="tG">E disse isso<br><span class="tom">no seu WhatsApp.</span></p>
+  <p class="txt faixa oculto" id="tI">No Google, quem não te conhece<br><span class="tom">vê duas avaliações antigas.</span></p>
+  <p class="txt oculto" id="tN">Ninguém mais leu.</p>
+  <p class="txt faixa oculto" id="tV"><span id="tV1">Ela avaliaria.</span><br><span class="tom" id="tV2">Só ninguém pediu.</span></p>
+  <p class="txt faixa uma oculto" id="tE">Agora, com a <span class="tom">mensagem certa.</span></p>
+  <p class="txt faixa oculto" id="tS1">O kit de divulgação já traz<br><span class="tom">essa mensagem pronta.</span></p>
+  <p class="txt faixa uma oculto" id="tS2">A avaliação <span class="tom">fica no Google.</span></p>
+  <p class="txt faixa uma oculto" id="tS3">E no site, <span class="tom">logo na entrada.</span></p>
+
+  <!-- a janela do app de mensagens: a conversa com a Marina e a lista de conversas -->
+  <div class="janela" id="jan">
+    <div class="tj" id="tLista"></div>
+    <div class="tj" id="tChat"></div>
+    <div class="pelicula" id="pel"></div>
+  </div>
+
+  <!-- o celular de quem procura: a busca no Google e o site -->
+  <div class="celular oculto" id="cel">
+    <div class="tela" id="tela">
+      <div class="pg" id="pgG"></div>
+      <div class="pg oculto" id="pgS"><div class="site" id="site"></div></div>
+      <div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais" id="sinais"></span></div>
+    </div>
+  </div>
+  <div class="realce oculto" id="realce"></div>
+
+  <!-- meio -->
+  <p class="txt oculto" id="tMeio">E a próxima cliente decide<br><span class="tom">pelo que vê no Google.</span></p>
+
+  <!-- fim -->
+  <p class="txt fim oculto" id="f1">Elogio bom</p>
+  <p class="txt fim oculto" id="f2">não fica no <span class="tom">privado.</span></p>
+
+  <!-- CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- grade: 122 BPM, um tempo = 0,4918 s, um compasso = 1,967 s; o drop é o tempo 46 (22,62 s) ----------
+const BPM = 122, TOM = -2, T = 60 / BPM;
+const DROP = 46 * T;
+const b = n => DROP + n * T;          // o instante do tempo n, contado a partir do drop
+const DUR = b(32);                    // 38,36 s
+const CORTE = { abre: 0, google: b(-38), insta: b(-26), nada: b(-18), volta: b(-14), meio: b(-10), ese: b(-4), site: b(0), perfil: b(8), entrada: b(12), fim: b(16), cta: b(24) };
+const MSG1 = b(-44);                  // chega o elogio da Marina
+const COLA = b(-2);                   // a mensagem do kit entra no campo
+const PONTE = b(31);                  // o último tempo: volta a cena do começo (o Reels repete em loop)
+const J_TOPO = 660, J_ALTO = 740;     // a janela na abertura (a capa): o título em cima, a conversa embaixo
+
+// ---------- ícones (SVG) ----------
+const IC = {
+  voltar: '<svg class="voltar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  enviar: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 20.6 21.2 12 3.4 3.4l-.01 6.8L15 12 3.39 13.8Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+  lupa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m15.8 15.8 5 5"/></svg>',
+  pontos: '<svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></g></svg>',
+  camera: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3.5 8.2c0-1 .8-1.8 1.8-1.8h2.3l1.6-2.2h5.6l1.6 2.2h2.3c1 0 1.8.8 1.8 1.8v9.6c0 1-.8 1.8-1.8 1.8H5.3c-1 0-1.8-.8-1.8-1.8Z"/><circle cx="12" cy="12.9" r="3.6"/></svg>',
+};
+const ESTRELAS = '<svg><use href="#estrela"/></svg>'.repeat(5);
+const SINAIS = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>';
+$("#sinais").innerHTML = SINAIS;
+
+// ---------- quem escreve (fictícias: só nome e inicial) ----------
+const GENTE = { "Marina": { ini: "M", cor: "#b38a7c" }, "Paula": { ini: "P", cor: "#8ea197" }, "Bia": { ini: "B", cor: "#a493ac" }, "Lívia": { ini: "L", cor: "#b0a079" } };
+const avatar = quem => `<span class="av" style="background:${GENTE[quem].cor}">${GENTE[quem].ini}</span>`;
+
+// ---------- a conversa com a Marina ----------
+const PEDIDO = "Que bom que você gostou, Marina! Se puder, conta isso no Google. Leva um minuto:";
+const LINK = "Avaliar no Google";
+$("#tChat").innerHTML = `
+  <div class="cab">${IC.voltar}${avatar("Marina")}<div class="quem"><span class="nome">Marina</span><span class="status" id="status">online</span></div><div class="icones">${IC.video}${IC.fone}</div></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="barra" id="barra"><div class="campo" id="campo"><span class="ph" id="ph"><i class="cursor" id="cur"></i>Mensagem</span><div class="colado" id="colado">${PEDIDO}<br><span class="link">${LINK}</span></div></div>
+    <span class="btn-env" id="btnEnv"><span id="icMic">${IC.mic}</span><span id="icEnv">${IC.enviar}</span></span></div>`;
+const MSGS = [
+  { id: "dia", chip: true, t: -1 },
+  { id: "elogio", txt: "Amei o resultado! Minha pele ficou outra.", hora: "10:42", t: MSG1 },
+  { id: "pedido", env: true, txt: PEDIDO, link: LINK, hora: "10:43", t: b(0), lido: b(2) },
+  { id: "claro", txt: "Claro! Acabei de deixar.", hora: "10:45", t: b(4) },
+];
+const area = $("#msgs");
+for (const m of MSGS) {
+  const el = document.createElement("div");
+  if (m.chip) { el.className = "chip-dia"; el.innerHTML = "<span>Hoje</span>"; }
+  else {
+    el.className = "b " + (m.env ? "env" : "rec");
+    el.innerHTML = `${m.txt}${m.link ? `<br><span class="link">${m.link}</span>` : ""}<span class="esp"></span><span class="meta">${m.hora}${m.env ? `<span class="tiques">${IC.tiques}</span>` : ""}</span>`;
+  }
+  area.appendChild(el);
+  Object.assign(m, { el, h: 0, tiques: el.querySelector(".tiques") });
+}
+// "digitando…" no cabeçalho antes de cada mensagem dela
+const DIGITA = [[-1, MSG1], [b(2.5), b(4)]];
+
+// ---------- a lista de conversas: os outros elogios chegam, um por compasso ----------
+const CONVS = [
+  { id: "marina", quem: "Marina", txt: "Amei o resultado! Minha pele ficou outra.", hora: "10:42", t: -1, lida: true },
+  { id: "paula", quem: "Paula", txt: "Melhor limpeza de pele que já fiz.", hora: "11:26", t: b(-36) },
+  { id: "bia", quem: "Bia", txt: "Já indiquei pra minha irmã.", hora: "14:03", t: b(-32) },
+  { id: "livia", quem: "Lívia", txt: "Obrigada pelo cuidado de sempre.", hora: "17:51", t: b(-28) },
+];
+$("#tLista").innerHTML = `<div class="l-cab"><b>Conversas</b><div class="icones">${IC.camera}${IC.lupa}${IC.pontos}</div></div>`;
+for (const c of CONVS) {
+  c.el = document.createElement("div");
+  c.el.className = "conv";
+  c.el.innerHTML = `${avatar(c.quem)}<div class="cv-txt"><div class="cv-l1"><b>${c.quem}</b><small${c.lida ? "" : ' class="nova"'}>${c.hora}</small></div>
+    <div class="cv-l2"><p>${c.txt}</p>${c.lida ? "" : '<span class="badge">1</span>'}</div></div>`;
+  $("#tLista").appendChild(c.el);
+}
+const VELHAS = [[44, 70], [36, 82], [50, 64]].map(([a, z]) => {
+  const el = document.createElement("div");
+  el.className = "conv velha";
+  el.innerHTML = `<span class="av"></span><div class="cv-txt"><span class="sk" style="width:${a}%"></span><span class="sk" style="width:${z}%"></span></div>`;
+  $("#tLista").appendChild(el);
+  return el;
+});
+const L0 = 126, ROW = 156;
+
+// ---------- a busca no Google e o perfil da Lume ----------
+const avaliacao = (quando, novo = false, larg = [92, 64]) => `
+  <div class="av-g${novo ? " novo" : ""}">
+    <div class="av-topo"><span class="av-p"${novo ? ` style="background:${GENTE["Marina"].cor}"` : ""}>${novo ? "M" : ""}</span>
+      <div class="av-id"><span class="sk" style="width:${novo ? 30 : 38}%"></span><div class="av-l2"><span class="estrelas">${ESTRELAS}</span><span class="quando">${quando}<i class="marca-q"></i></span></div></div></div>
+    <span class="sk" style="width:${larg[0]}%"></span><span class="sk" style="width:${larg[1]}%"></span>
+  </div>`;
+$("#pgG").innerHTML = `
+  <div class="bs-barra">${IC.lupa}<span class="bs-q"><span class="bs-ph" id="bsPh">Pesquisar</span><span id="bsDig"></span><i class="bs-cursor" id="bsCursor"></i></span></div>
+  <div class="bs-carga" id="bsCarga"><i></i></div>
+  <div class="bs-res" id="bsRes">
+    <div class="bs-card">
+      <div class="bs-fotos"><img src="${foto("ambiente")}" alt=""><img src="${foto("hero")}" alt=""><img src="${foto("toalha")}" alt=""></div>
+      <b class="bs-nome">Lume Estética</b>
+      <p class="bs-cat">Estética</p>
+      <p class="bs-sec">Avaliações</p>
+      <div class="novo-wrap" id="novoWrap">${avaliacao("agora", true, [88, 58])}</div>
+      <div id="av2">${avaliacao("há 2 anos", false, [94, 70])}</div>
+      <div id="av3">${avaliacao("há 3 anos", false, [86, 52])}</div>
+    </div>
+    <div class="bs-outro"><i></i><div><span class="sk" style="width:58%"></span><span class="sk" style="width:84%"></span><span class="sk" style="width:36%"></span></div></div>
+    <div class="bs-outro"><i></i><div><span class="sk" style="width:66%"></span><span class="sk" style="width:78%"></span><span class="sk" style="width:42%"></span></div></div>
+  </div>
+  <div class="sombra-pg" id="bsSombra"></div>`;
+const BUSCA = "Lume Estética";
+const B_INI = CORTE.insta + 0.1, B_FIM = CORTE.insta + 0.42;   // a busca digitada
+const CARD = b(-25);                                             // o perfil chega
+const MARCAS = [["#av2", b(-23)], ["#av3", b(-22)]];             // "há 2 anos" e "há 3 anos", um por tempo
+const NOVO = CORTE.perfil, AGORA = b(9);                         // a avaliação nova entra no topo
+
+// ---------- o site da Lume ----------
+const site = $("#site"), tela = $("#tela");
+site.innerHTML = siteDeExemplo();
+const nota = site.querySelector(".l-nota");                      // "★★★★★ Avaliações no Google", na entrada do site
+const REALCE = b(13);
+
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [MSG1, 1], [CORTE.nada, 1], [CORTE.meio, 0.8], [CORTE.site, 1], [b(4), 0.7], [CORTE.perfil, 0.8], [CORTE.entrada, 0.8], [CORTE.fim, 1], [b(20), 1], [CORTE.cta, 0.6]];
+const BUMBOS = [0, 1, 2, 3, 4, 5].map(k => b(24 + k));
+
+const clamp = (x, a = 0, z = 1) => Math.min(z, Math.max(a, x));
+const fase = (t, a, z) => clamp((t - a) / (z - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                    // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, z, x) => a + (z - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const soco = (t, t0, de = 1.06, dur = 0.25) => t < t0 ? 1 : lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+
+let ESC = 1, H_COLADO = 92, H_NOVO = 0;
+
+window.preparar = () => {
+  // balões: o horário vai na última linha quando cabe; se não, ganha uma linha só dele
+  for (const m of MSGS) {
+    if (m.chip) { m.h = m.el.offsetHeight; continue; }
+    const esp = m.el.querySelector(".esp");
+    const com = m.el.offsetHeight; esp.style.display = "none"; const sem = m.el.offsetHeight; esp.style.display = "";
+    m.el.classList.toggle("quebra", com > sem + 4);
+    m.h = m.el.offsetHeight;
+  }
+  // o campo de mensagem com o texto do kit colado: a barra cresce até ele caber
+  H_COLADO = $("#colado").offsetHeight + 20;
+  H_NOVO = $("#novoWrap").firstElementChild.offsetHeight + 10;
+  ESC = tela.clientWidth / 402;
+  site.style.transform = `scale(${ESC})`;
+  return {
+    duracao: DUR,
+    bpm: BPM,
+    tom: TOM,
+    pulso: [
+      { id: "amou", cena: "abre", ini: 0, fim: MSG1, impacto: true },
+      { id: "marina", cena: "abre", ini: MSG1, fim: CORTE.google, impacto: true },
+      { id: "elogios", cena: "google", ini: CORTE.google, fim: CORTE.insta },
+      { id: "busca", cena: "insta", ini: CORTE.insta, fim: CORTE.nada },
+      { id: "nada", cena: "insta", ini: CORTE.nada, fim: CORTE.volta, impacto: true },
+      { id: "pediu", cena: "volta", ini: CORTE.volta, fim: CORTE.meio },
+      { id: "proxima", cena: "meio", ini: CORTE.meio, fim: CORTE.ese, impacto: true },
+      { id: "certa", cena: "ese", ini: CORTE.ese, fim: CORTE.site },
+      { id: "kit", cena: "site", ini: CORTE.site, fim: b(4), impacto: true },
+      { id: "claro", cena: "site", ini: b(4), fim: CORTE.perfil, impacto: true },
+      { id: "perfil", cena: "site", ini: CORTE.perfil, fim: CORTE.entrada, impacto: true },
+      { id: "entrada", cena: "site", ini: CORTE.entrada, fim: CORTE.fim, impacto: true },
+      { id: "elogio", cena: "fim", ini: CORTE.fim, fim: b(20), impacto: true },
+      { id: "privado", cena: "fim", ini: b(20), fim: CORTE.cta, impacto: true },
+      { id: "cta", cena: "cta", ini: CORTE.cta, fim: DUR },
+    ],
+    ensaio: [0.05, 0.4, 1.2, 2.8, 3.7, 3.85, 4.05, 4.3, 5.2, 7.2, 9.15, 9.75, 9.95, 10.2, 10.6, 11.5, 12.3, 13.7, 13.85, 15.6, 15.85, 16.6, 17.6, 17.8, 18.8, 20.55, 20.8, 21.3, 21.8, 22.3, 22.55, 22.7, 23.2, 24.0, 24.75, 26.4, 26.62, 26.75, 27.4, 28.4, 28.6, 28.75, 29.4, 30.4, 30.6, 32.4, 32.6, 34.3, 34.55, 35.5, 37.7, 37.95, 38.3],
+  };
+};
+
+// ---------- desenho ----------
+// a pilha de balões presa ao fundo da área de mensagens (o balão novo empurra os outros para cima)
+const PAD = 26, GAP = 16;
+function desenharChat(tc, altura) {
+  const vis = MSGS.filter(m => tc >= m.t);
+  let desce = 0;
+  for (const m of vis) if (m.t > 0) desce += (m.h + GAP) * (1 - sai(fase(tc, m.t, m.t + 0.12)));
+  let y = altura - PAD;
+  for (let k = MSGS.length - 1; k >= 0; k--) {
+    const m = MSGS[k], on = tc >= m.t;
+    m.el.style.display = on ? "" : "none";
+    if (!on) continue;
+    y -= m.h;
+    m.el.style.top = (y + desce) + "px";
+    y -= GAP;
+    if (m.chip) continue;
+    const x = sai(fase(tc, m.t, m.t + 0.16));
+    m.el.style.opacity = Math.min(1, x * 1.6);
+    m.el.style.transform = `scale(${soco(tc, m.t, 1.12, 0.26) * lerp(0.92, 1, x)})`;
+    if (m.tiques) m.tiques.style.color = tc >= m.lido ? "#53bdeb" : "#8696a0";
+  }
+  $("#status").textContent = DIGITA.some(([a, z]) => tc >= a && tc < z) ? "digitando…" : "online";
+}
+
+// a lista: a conversa nova entra no topo e as outras descem uma linha
+function desenharLista(t) {
+  const vis = CONVS.filter(c => t >= c.t).sort((x, z) => z.t - x.t);
+  const nova = vis[0].t > 0 ? vis[0] : null;
+  const e = nova ? sai(fase(t, nova.t, nova.t + 0.22)) : 1;
+  const en = nova ? sai(fase(t, nova.t + 0.06, nova.t + 0.3)) : 1;
+  const linhas = [...vis.map(c => c.el), ...VELHAS];
+  for (const c of CONVS) if (t < c.t) c.el.style.display = "none";
+  linhas.forEach((el, i) => {
+    el.style.display = "";
+    let y = L0 + i * ROW, op = 1, esc = 1;
+    if (nova && el === nova.el) { y -= 18 * (1 - en); op = Math.min(1, en * 1.6); esc = soco(t, nova.t + 0.06, 1.04, 0.26) * lerp(0.97, 1, en); }
+    else if (nova) y = L0 + (i - 1) * ROW + ROW * e;
+    el.style.top = y + "px"; el.style.opacity = op; el.style.transform = `scale(${esc})`;
+  });
+}
+
+// texto da faixa de cima: entra subindo ("sobe") ou com um tranco ("soco")
+function faixa(el, t, a, z, modo = "sobe") {
+  if (!mostra(el, t >= a && t < z)) return;
+  if (modo === "soco") { el.style.opacity = 1; el.style.transform = `scale(${soco(t, a, 1.07, 0.24)})`; return; }
+  const x = sai(fase(t, a, a + 0.26));
+  el.style.opacity = x; el.style.transform = `translateY(${(1 - x) * 30}px)`;
+}
+
+window.quadro = t => {
+  palco.style.transform = "none"; // mede sem o tranco do quadro anterior
+  let dedo = null;
+  const ponte = t >= PONTE;
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || ponte);
+  topo.style.opacity = ponte ? sai(fase(t, PONTE + 0.05, PONTE + 0.35)) : 1;
+
+  // ---- 1. abre: o título ----
+  const tA = $("#tAbre");
+  if (mostra(tA, t < CORTE.google || ponte)) {
+    if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); tA.style.opacity = x; tA.style.transform = `translateY(${(1 - x) * 30}px)`; }
+    else {
+      const s = sai(fase(t, CORTE.google - 0.26, CORTE.google - 0.04));
+      tA.style.opacity = 1 - s; tA.style.transform = `translateY(${-60 * s}px) scale(${soco(t, 0)})`;
+    }
+  }
+
+  // ---- a janela: onde ela está, de que tamanho, e o que mostra ----
+  const jan = $("#jan"), tLista = $("#tLista"), tChat = $("#tChat");
+  let J = null;   // { top, h, lista, chat, xChat, tc, parada }
+  if (t < CORTE.google - 0.12) J = { top: J_TOPO, h: J_ALTO, chat: true, tc: t };
+  else if (t < CORTE.insta) {
+    const m = ease(fase(t, CORTE.google - 0.12, CORTE.google + 0.3));   // volta para a lista (a conversa sai pela direita)
+    J = { top: lerp(J_TOPO, 470, m), h: lerp(J_ALTO, 940, m), lista: true, chat: m < 1, xChat: 860 * m, xLista: -240 * (1 - m), tc: t };
+  }
+  else if (t >= CORTE.nada && t < CORTE.volta) J = { top: 470, h: 940, lista: true, parada: true };
+  else if (t >= CORTE.volta && t < CORTE.meio) {
+    const m = ease(fase(t, CORTE.volta, CORTE.volta + 0.3));            // abre a conversa da Marina outra vez
+    J = { top: 470, h: 940, lista: m < 1, chat: true, xChat: 860 * (1 - m), xLista: -240 * m, tc: t };
+  }
+  else if (t >= CORTE.ese && t < CORTE.perfil) J = { top: lerp(1960, 470, sai(fase(t, CORTE.ese, CORTE.ese + 1.5 * T))), h: 940, chat: true, tc: t };
+  else if (ponte) J = { top: lerp(1960, J_TOPO, sai(fase(t, PONTE, PONTE + 0.42))), h: J_ALTO, chat: true, tc: 0 };
+  if (mostra(jan, !!J)) {
+    jan.style.top = J.top + "px"; jan.style.height = J.h + "px";
+    jan.style.transform = `scale(${t >= CORTE.site && t < CORTE.perfil ? soco(t, CORTE.site, 1.03, 0.25) : 1})`;
+    mostra(tLista, !!J.lista); mostra(tChat, !!J.chat);
+    tLista.style.transform = J.xLista ? `translateX(${J.xLista}px)` : "none";
+    tChat.style.transform = J.xChat ? `translateX(${J.xChat}px)` : "none";
+    tChat.style.boxShadow = J.xChat ? "-24px 0 50px rgba(0,0,0,.16)" : "none";
+    $("#pel").style.opacity = J.parada ? 0.34 : (J.lista && J.xChat !== undefined && t >= CORTE.volta ? 0.34 * (1 - fase(t, CORTE.volta, CORTE.volta + 0.3)) : 0);
+    if (J.lista) desenharLista(J.parada ? CORTE.nada : t);
+    if (J.chat) {
+      // o campo de mensagem: vazio; com o cursor piscando (ninguém pediu / o kit vai entrar); com o texto do kit colado
+      const foco = (t >= CORTE.volta && t < CORTE.meio) || (t >= CORTE.ese && t < COLA);
+      const colado = t >= COLA && t < CORTE.site;
+      let hb = 92;
+      if (colado) hb = lerp(92, H_COLADO, sai(fase(t, COLA, COLA + 0.16)));
+      else if (t >= CORTE.site && t < CORTE.site + 0.14) hb = lerp(H_COLADO, 92, sai(fase(t, CORTE.site, CORTE.site + 0.14)));
+      $("#barra").style.height = hb + "px";
+      $("#campo").style.height = (hb - 20) + "px";
+      $("#colado").style.display = colado ? "" : "none";
+      $("#ph").style.display = colado ? "none" : "";
+      $("#cur").style.display = foco && Math.floor((t - DROP) / (T / 2)) % 2 === 0 ? "" : "none";
+      $("#icMic").style.display = colado ? "none" : ""; $("#icEnv").style.display = colado ? "" : "none";
+      const alt = J.h - 118 - hb;
+      area.style.height = alt + "px";
+      desenharChat(J.tc, alt);
+      // o dedo aperta "enviar" no fim da subida
+      if (t >= b(-1) - 0.1 && t < CORTE.site + 0.3) {
+        const [x, y] = centro($("#btnEnv"));
+        dedo = { x, y, op: Math.min(fase(t, b(-1) - 0.1, b(-1)), 1 - fase(t, CORTE.site + 0.14, CORTE.site + 0.3)), aperto: t >= CORTE.site - 0.12 && t < CORTE.site + 0.06 };
+      }
+    }
+  }
+
+  // ---- o celular de quem procura: a busca no Google e o site ----
+  const cel = $("#cel"), pgG = $("#pgG"), pgS = $("#pgS");
+  const naBusca = t >= CORTE.insta && t < CORTE.nada, noPerfil = t >= CORTE.perfil && t < CORTE.fim;
+  if (mostra(cel, naBusca || noPerfil)) {
+    if (naBusca) cel.style.transform = `translateY(${(1 - sai(fase(t, CORTE.insta, CORTE.insta + 0.3))) * 1500}px)`;
+    else cel.style.transform = `scale(${soco(t, CORTE.perfil, 1.04, 0.25) * soco(t, CORTE.entrada, 1.02, 0.25)})`;
+    const comG = naBusca || t < CORTE.entrada + 0.3, comS = t >= CORTE.entrada && noPerfil;
+    mostra(pgG, comG); mostra(pgS, comS);
+    if (comG) {
+      // a busca sendo digitada (no perfil ela já está feita)
+      const n = noPerfil ? BUSCA.length : t < B_INI ? 0 : Math.min(BUSCA.length, Math.floor((t - B_INI) / ((B_FIM - B_INI) / BUSCA.length)) + 1);
+      $("#bsDig").textContent = BUSCA.slice(0, n);
+      $("#bsPh").style.display = n ? "none" : "";
+      $("#bsCursor").style.opacity = naBusca && t < CARD && (n > 0 && n < BUSCA.length || Math.floor(t * 4) % 2 === 0) ? 1 : 0;
+      const carga = naBusca && t >= B_FIM && t < CARD + 0.1;
+      $("#bsCarga").style.opacity = carga ? 1 - fase(t, CARD, CARD + 0.1) : 0;
+      $("#bsCarga i").style.width = (carga ? ease(fase(t, B_FIM, CARD)) * 100 : 0) + "%";
+      // o perfil chega no tempo
+      const res = $("#bsRes"), c = noPerfil ? 1 : sai(fase(t, CARD, CARD + 0.24));
+      res.style.opacity = c; res.style.transform = `translateY(${(1 - c) * 60}px) scale(${naBusca ? soco(t, CARD, 1.03, 0.25) : 1})`;
+      // as duas avaliações antigas: "há 2 anos" e "há 3 anos" ganham a marcação, uma por tempo
+      for (const [sel, t0] of MARCAS) {
+        const q = $(sel + " .quando"), mk = $(sel + " .marca-q");
+        const on = naBusca && t >= t0;
+        mk.style.opacity = on ? sai(fase(t, t0, t0 + 0.12)) : 0;
+        q.style.color = on ? "var(--terracota)" : "";
+        q.style.fontWeight = on ? 600 : "";
+        q.style.transform = `scale(${on ? soco(t, t0, 1.16, 0.26) : 1})`;
+      }
+      // a avaliação nova entra no topo e empurra as antigas
+      const w = $("#novoWrap");
+      const nv = noPerfil ? sai(fase(t, NOVO + 0.04, NOVO + 0.34)) : 0;
+      w.style.height = H_NOVO * nv + "px";
+      const av = w.firstElementChild;
+      av.style.opacity = fase(nv, 0.3, 1);
+      av.style.transform = `scale(${noPerfil ? lerp(0.94, 1, nv) * soco(t, AGORA, 1.04, 0.26) : 1})`;
+      const ag = av.querySelector(".quando");
+      ag.style.transform = `scale(${noPerfil ? soco(t, AGORA, 1.25, 0.28) : 1})`;
+      // o site entra por cima (como uma página nova)
+      const p = noPerfil ? ease(fase(t, CORTE.entrada, CORTE.entrada + 0.26)) : 0;
+      pgG.style.transform = `translateX(${-200 * p}px)`;
+      $("#bsSombra").style.opacity = 0.3 * p;
+    }
+    if (comS) pgS.style.transform = `translateX(${(1 - ease(fase(t, CORTE.entrada, CORTE.entrada + 0.26))) * 692}px)`;
+  }
+  // a marcação das avaliações na entrada do site
+  const re = $("#realce");
+  if (mostra(re, noPerfil && t >= REALCE)) {
+    const r = nota.getBoundingClientRect(), pad = 12;
+    re.style.left = (r.left - pad) + "px"; re.style.top = (r.top - pad) + "px";
+    re.style.width = (r.width + 2 * pad) + "px"; re.style.height = (r.height + 2 * pad) + "px";
+    re.style.opacity = sai(fase(t, REALCE, REALCE + 0.16));
+    re.style.transform = `scale(${soco(t, REALCE, 1.08, 0.26)})`;
+  }
+
+  // ---- textos da faixa de cima ----
+  faixa($("#tG"), t, CORTE.google, CORTE.insta);
+  faixa($("#tI"), t, CORTE.insta, CORTE.nada);
+  const tN = $("#tN");
+  if (mostra(tN, t >= CORTE.nada && t < CORTE.volta)) tN.style.transform = `scale(${soco(t, CORTE.nada, 1.1, 0.26)})`;
+  faixa($("#tV"), t, CORTE.volta, CORTE.meio);
+  if (t >= CORTE.volta && t < CORTE.meio) {
+    const x = sai(fase(t, b(-13), b(-13) + 0.26));
+    $("#tV2").style.opacity = x; $("#tV2").style.display = "inline-block"; $("#tV2").style.transform = `translateY(${(1 - x) * 24}px)`;
+  }
+  faixa($("#tE"), t, CORTE.ese, CORTE.site);
+  faixa($("#tS1"), t, CORTE.site, CORTE.perfil, "soco");
+  faixa($("#tS2"), t, CORTE.perfil, CORTE.entrada, "soco");
+  faixa($("#tS3"), t, CORTE.entrada, CORTE.fim, "soco");
+
+  // ---- 5. meio: o coração ----
+  const tM = $("#tMeio");
+  if (mostra(tM, t >= CORTE.meio && t < CORTE.ese)) {
+    const c1 = b(-8), c2 = c1 + 0.28;
+    const tum = t < c1 ? soco(t, CORTE.meio, 1.07, 0.26) : t < c2 ? soco(t, c1, 1.05, 0.24) : soco(t, c2, 1.025, 0.24);
+    tM.style.transform = `scale(${tum * lerp(1, 1.03, fase(t, CORTE.meio, CORTE.ese))})`;
+    tM.style.opacity = 1 - fase(t, CORTE.ese - 0.2, CORTE.ese);
+  }
+
+  // ---- 8. fim: o trocadilho ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim, 1.08, 0.26)})`;
+  if (mostra(f2, t >= b(20) && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, b(20), 1.08, 0.26)})`;
+
+  // ---- 9. CTA e a volta ao começo ----
+  const noCta = t >= CORTE.cta;
+  const saiCta = fase(t, PONTE, PONTE + 0.16);
+  const cm = $("#ctaMarca"), bo = $("#botao"), l1 = $("#l1");
+  mostra(cm, noCta && saiCta < 1); mostra(bo, noCta && saiCta < 1); mostra(l1, noCta && saiCta < 1);
+  if (noCta && saiCta < 1) {
+    const e = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    cm.style.opacity = e * (1 - saiCta); cm.style.transform = `scale(${lerp(0.8, 1, e)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const k of BUMBOS) { const x = fase(t, k, k + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    bo.style.transform = `scale(${esc})`; bo.style.opacity = 1 - saiCta;
+    const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5));
+    l1.style.opacity = x * (1 - saiCta); l1.style.transform = `translateY(${(1 - x) * 28}px)`;
+  }
+
+  // ---- o dedo ----
+  const tq = $("#toque");
+  if (dedo && dedo.op > 0) {
+    tq.style.left = dedo.x + "px"; tq.style.top = dedo.y + "px";
+    tq.style.opacity = dedo.op; tq.style.transform = `scale(${dedo.aperto ? 0.84 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarões: o drop e os cortes do site ----
+  let fl = 0;
+  const cl = (t0, d) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, 0.9 * (1 - x)); };
+  cl(CORTE.site, 0.07); cl(CORTE.perfil, 0.06); cl(CORTE.entrada, 0.06);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  palco.style.transform = dx ? `translateX(${dx}px)` : "none";
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "500 15px 'DM Sans'", "600 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
