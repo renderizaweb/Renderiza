@@ -158,8 +158,9 @@ mix = voz + musica / nivel(musica) * 10 ** (alvo_db / 20)
 mix = mix[: int(SR * dur)]
 t = np.arange(len(mix)) / SR
 mix *= np.minimum(1, t / 0.02) * np.minimum(1, np.maximum(0, (dur - t) / 1.2))
-# limitador limpo (sem saturar): ganho que só abaixa nos picos, com antecipação de 5 ms e volta suave
-TETO = 10 ** (-1.5 / 20)
+# limitador limpo (sem saturar): ganho que só abaixa nos picos, com antecipação de 5 ms e volta suave.
+# Teto em -2,5 dB porque o AAC do MP4 sobe o pico real em até 1 dB; assim o vídeo sai perto de -1,5 dBTP.
+TETO = 10 ** (-2.5 / 20)
 pico = np.abs(mix); k = int(SR * 0.005)
 pico = np.lib.stride_tricks.sliding_window_view(np.pad(pico, (k, k)), 2 * k + 1).max(axis=1)
 ganho = np.minimum(1, TETO / np.maximum(pico, 1e-9))
