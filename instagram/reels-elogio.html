@@ -91,11 +91,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
 .conv .av{width:92px;height:92px;font-size:42px}
 .cv-txt{flex:1;min-width:0}
 .cv-l1{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.cv-l1 b{font-size:37px;font-weight:600;color:#111b21;letter-spacing:-.015em;white-space:nowrap}
-.cv-l1 small{font-size:26px;font-weight:500;color:#667781;white-space:nowrap}
+.cv-l1 b{font-size:40px;font-weight:600;color:#111b21;letter-spacing:-.015em;white-space:nowrap}
+.cv-l1 small{font-size:27px;font-weight:500;color:#667781;white-space:nowrap}
 .cv-l1 small.nova{color:var(--zap)}
 .cv-l2{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px}
-.cv-l2 p{font-size:32px;color:#3b4a54;letter-spacing:-.012em;line-height:1.25;white-space:nowrap}
+.cv-l2 p{font-size:36px;color:#3b4a54;letter-spacing:-.012em;line-height:1.25;white-space:nowrap}
 .badge{flex:none;min-width:42px;height:42px;padding:0 12px;border-radius:21px;background:var(--zap);color:#fff;font-size:25px;font-weight:700;display:grid;place-items:center}
 .conv.velha .av{background:#e9ecee}
 .conv.velha .sk{display:block;height:16px;border-radius:8px;background:#eef0f1;margin:16px 0}
@@ -339,7 +339,11 @@ const NOVO = CORTE.perfil, AGORA = b(9);                         // a avaliaçã
 const site = $("#site"), tela = $("#tela");
 site.innerHTML = siteDeExemplo();
 const nota = site.querySelector(".l-nota");                      // "★★★★★ Avaliações no Google", na entrada do site
-const REALCE = b(13);
+const faixaNota = document.createRange(); faixaNota.selectNodeContents(nota);   // só as estrelas e o texto, não a linha inteira
+const ZOOM = b(13), KZ = 1.33, ZL = 22, ZY = 760;               // a tela do site chega perto da linha das avaliações (ZL: a borda esquerda
+                                                                 // da tela em unidades do site; ZY: a altura da linha na tela); o rótulo do botão fica inteiro
+const REALCE = b(14);                                            // e a linha ganha a marcação, no tempo seguinte
+let NOTA = { x: 0, y: 0, w: 0, h: 0 };                           // a linha em unidades do site (medida no preparar)
 
 // impactos: o quadro inteiro dá um tranco
 const IMPACTOS = [[0, 1], [MSG1, 1], [CORTE.nada, 1], [CORTE.meio, 0.8], [CORTE.site, 1], [b(4), 0.7], [CORTE.perfil, 0.8], [CORTE.entrada, 0.8], [CORTE.fim, 1], [b(20), 1], [CORTE.cta, 0.6]];
@@ -371,6 +375,8 @@ window.preparar = () => {
   H_NOVO = $("#novoWrap").firstElementChild.offsetHeight + 10;
   ESC = tela.clientWidth / 402;
   site.style.transform = `scale(${ESC})`;
+  const rs = site.getBoundingClientRect(), rn = faixaNota.getBoundingClientRect();
+  NOTA = { x: (rn.left - rs.left) / ESC, y: (rn.top - rs.top) / ESC, w: rn.width / ESC, h: rn.height / ESC };
   return {
     duracao: DUR,
     bpm: BPM,
@@ -392,7 +398,7 @@ window.preparar = () => {
       { id: "privado", cena: "fim", ini: b(20), fim: CORTE.cta, impacto: true },
       { id: "cta", cena: "cta", ini: CORTE.cta, fim: DUR },
     ],
-    ensaio: [0.05, 0.4, 1.2, 2.8, 3.7, 3.85, 4.05, 4.3, 5.2, 7.2, 9.15, 9.75, 9.95, 10.2, 10.6, 11.5, 12.3, 13.7, 13.85, 15.6, 15.85, 16.6, 17.6, 17.8, 18.8, 20.55, 20.8, 21.3, 21.8, 22.3, 22.55, 22.7, 23.2, 24.0, 24.75, 26.4, 26.62, 26.75, 27.4, 28.4, 28.6, 28.75, 29.4, 30.4, 30.6, 32.4, 32.6, 34.3, 34.55, 35.5, 37.7, 37.95, 38.3],
+    ensaio: [0.05, 2.8, 3.85, 4.05, 7.2, 9.95, 12.3, 13.85, 15.85, 16.6, 17.8, 20.8, 21.8, 22.55, 22.7, 24.75, 26.75, 28.6, 29.8, 30.6, 32.6, 34.55, 35.5, 38.3],
   };
 };
 
@@ -554,12 +560,19 @@ window.quadro = t => {
       pgG.style.transform = `translateX(${-200 * p}px)`;
       $("#bsSombra").style.opacity = 0.3 * p;
     }
-    if (comS) pgS.style.transform = `translateX(${(1 - ease(fase(t, CORTE.entrada, CORTE.entrada + 0.26))) * 692}px)`;
+    if (comS) {
+      pgS.style.transform = `translateX(${(1 - ease(fase(t, CORTE.entrada, CORTE.entrada + 0.26))) * 692}px)`;
+      // a tela chega perto da entrada: o título, o botão e a linha das avaliações, maiores
+      const z = ease(fase(t, ZOOM, ZOOM + 0.45)), s = ESC * lerp(1, KZ, z);
+      const cx = NOTA.x + NOTA.w / 2, cy = NOTA.y + NOTA.h / 2;
+      const px = lerp(cx * ESC, (cx - ZL) * ESC * KZ, z), py = lerp(cy * ESC, ZY, z);
+      site.style.transform = `translate(${px - cx * s}px, ${py - cy * s}px) scale(${s})`;
+    }
   }
   // a marcação das avaliações na entrada do site
   const re = $("#realce");
   if (mostra(re, noPerfil && t >= REALCE)) {
-    const r = nota.getBoundingClientRect(), pad = 12;
+    const r = faixaNota.getBoundingClientRect(), pad = 12;
     re.style.left = (r.left - pad) + "px"; re.style.top = (r.top - pad) + "px";
     re.style.width = (r.width + 2 * pad) + "px"; re.style.height = (r.height + 2 * pad) + "px";
     re.style.opacity = sai(fase(t, REALCE, REALCE + 0.16));
