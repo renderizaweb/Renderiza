@@ -1,7 +1,8 @@
 # Trilha do Reels narrado (sintetizada aqui, sem direitos de terceiros): pulsante, em lá menor, sem piano doce.
 # Segue as cenas da narração (instagram/narracao/<nome>.tempos.json) e mixa a voz por cima, abaixando a música
 # enquanto ela fala.
-# Uso: python3 ferramentas/video/trilha-pulso.py <tempos.json> <voz.wav> <saida.wav> <duracao_s> [--bpm 124]
+# Uso: python3 ferramentas/video/trilha-pulso.py <tempos.json> <voz.wav> <saida.wav> <duracao_s> [--bpm 124] [--tom 0]
+#   --tom sobe ou desce a trilha em semitons (lá menor é 0), para os Reels da mesma semana não soarem iguais.
 #   Sem voz (Reels só com texto): passe um WAV mudo; a música fica sozinha a -15 dBFS RMS. O gerar.mjs faz isso com "pulso".
 #   abre: drone grave e batidas de impacto · google: pulso de baixo e chimbal (o relógio) · insta: entra o bumbo
 #   reto e a palma; "Nada." corta tudo · volta: a batida abafada · meio: só o drone e um coração batendo
@@ -12,6 +13,7 @@ import numpy as np
 ap = argparse.ArgumentParser()
 ap.add_argument("tempos"); ap.add_argument("voz"); ap.add_argument("saida"); ap.add_argument("duracao", type=float)
 ap.add_argument("--bpm", type=float, default=124)
+ap.add_argument("--tom", type=int, default=0)
 a = ap.parse_args()
 SR = 44100
 rng = np.random.default_rng(11)
@@ -31,7 +33,7 @@ grade = lambda t0, t1, passo: [DROP + k * passo for k in range(int(np.floor((t0 
 
 def hz(nota):
     nomes = {"C": 0, "C#": 1, "D": 2, "D#": 3, "E": 4, "F": 5, "F#": 6, "G": 7, "G#": 8, "A": 9, "A#": 10, "B": 11}
-    return 440.0 * 2 ** ((nomes[nota[:-1]] + 12 * (int(nota[-1]) + 1) - 69) / 12)
+    return 440.0 * 2 ** ((nomes[nota[:-1]] + 12 * (int(nota[-1]) + 1) - 69 + a.tom) / 12)
 
 def filtro(x, baixo=None, alto=None, ordem=2):
     X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1 / SR)
@@ -85,7 +87,7 @@ def subida(d):
     y = np.zeros_like(t); bloco = 2048
     for i in range(0, len(t), bloco):
         y[i:i + bloco] = filtro(x[i:i + bloco], baixo=corte[min(i, len(t) - 1)], alto=200)[: len(y[i:i + bloco])]
-    tom = np.sin(2 * np.pi * np.cumsum(110 * 2 ** (2 * t / d)) / SR) * 0.35
+    tom = np.sin(2 * np.pi * np.cumsum(hz("A2") * 2 ** (2 * t / d)) / SR) * 0.35
     return (y * 0.9 + tom) * (t / d) ** 1.6
 
 bat = np.zeros(N); grave = np.zeros(N); harm = np.zeros(N); fx = np.zeros(N)
@@ -156,8 +158,9 @@ mix = voz + musica / nivel(musica) * 10 ** (alvo_db / 20)
 mix = mix[: int(SR * dur)]
 t = np.arange(len(mix)) / SR
 mix *= np.minimum(1, t / 0.02) * np.minimum(1, np.maximum(0, (dur - t) / 1.2))
-# limitador limpo (sem saturar): ganho que só abaixa nos picos, com antecipação de 5 ms e volta suave
-TETO = 10 ** (-1.5 / 20)
+# limitador limpo (sem saturar): ganho que só abaixa nos picos, com antecipação de 5 ms e volta suave.
+# Teto em -2,5 dB porque o AAC do MP4 sobe o pico real em até 1 dB; assim o vídeo sai perto de -1,5 dBTP.
+TETO = 10 ** (-2.5 / 20)
 pico = np.abs(mix); k = int(SR * 0.005)
 pico = np.lib.stride_tricks.sliding_window_view(np.pad(pico, (k, k)), 2 * k + 1).max(axis=1)
 ganho = np.minimum(1, TETO / np.maximum(pico, 1e-9))
@@ -168,4 +171,4 @@ mix *= ganho
 pcm = (np.stack([mix, mix], axis=1) * 32767).astype(np.int16)
 with wave.open(a.saida, "wb") as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-print(f"{a.saida}: {dur:.1f}s, {a.bpm:.0f} bpm, drop em {DROP:.2f}s")
+print(f"{a.saida}: {dur:.1f}s, {a.bpm:.0f} bpm, tom {a.tom:+d}, drop em {DROP:.2f}s")

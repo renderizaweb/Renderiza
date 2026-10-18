@@ -16,6 +16,10 @@ Posts prontos para baixar e postar, feitos em HTML e gravados pelo `gerar.mjs`:
 | Reels "Enquanto você atende" (as perguntas que chegam no WhatsApp durante o atendimento, sem voz, trilha pulsante) | `reels-atende.html` | `reels-atende.mp4` (1080 × 1920, 37,5 s) |
 | Carrossel "Seu site já existe. Só está espalhado." | `carrossel-espalhado.html` | `carrossel-espalhado-1.png` … `-9.png` (1080 × 1350) |
 | Reels "Seu negócio fecha. O site, não." (a Agenda online depois que o negócio fecha, sem voz, trilha pulsante) | `reels-fecha.html` | `reels-fecha.mp4` (1080 × 1920, 40 s) |
+| Reels "Quem indica, manda o link" (a indicação no grupo das amigas que para no Instagram, sem voz, trilha pulsante) | `reels-indica.html` | `reels-indica.mp4` (1080 × 1920, 38,1 s) |
+| Reels "Elogio bom não fica no privado" (o elogio no WhatsApp que vira avaliação no Google com a mensagem do kit, sem voz, trilha pulsante) | `reels-elogio.html` | `reels-elogio.mp4` (1080 × 1920, 38,4 s) |
+| Reels "Preço?" (os "Preço?" nos comentários e o Catálogo com foto, preço e pedido pelo WhatsApp, sem voz, trilha pulsante) | `reels-catalogo.html` | `reels-catalogo.mp4` (1080 × 1920, 38 s) |
+| Reels "O site ficou pronto. E agora?" (o kit de divulgação leva o link para a bio, o Google, o status e o WhatsApp, sem voz, trilha pulsante) | `reels-pronto.html` | `reels-pronto.mp4` (1080 × 1920, 38,7 s) |
 | Stories da semana de 16 a 23/10 (só a arte; a enquete e a caixinha entram no app) | `stories-semana.html` | `stories-semana-1.png` … `-8.png` (1080 × 1920) |
 
 ```
@@ -33,6 +37,9 @@ corta, `volta`, `meio`, `ese`, `site` no drop, `fim` e `cta`). O `gerar.mjs` pas
 `trilha-pulso.py`, que monta a trilha no mesmo tempo da tela. Exemplo: `reels-sobrinho.html`.
 O andamento padrão é 124 BPM. Para outro, `preparar()` devolve também `bpm` (o `reels-atende` usa 128 e o
 `reels-fecha`, 120), e os cortes da tela seguem a grade desse andamento a partir do drop.
+Para a trilha não soar igual de um Reels para o outro, `preparar()` pode devolver `tom`, em semitons a partir de lá
+menor (`reels-indica` 126 BPM e +3; `reels-elogio` 122 e -2; `reels-catalogo` 130 e +5; `reels-pronto` 124 e +2).
+O limitador da trilha para em -2,5 dB porque o AAC do MP4 sobe o pico real; o vídeo sai perto de -16 LUFS e -1,5 dBTP.
 
 Stories: as páginas que começam com `stories` saem em 1080 × 1920, um PNG por `.slide`. A arte deixa um espaço vazio
 embaixo da pergunta para a figurinha (enquete ou caixinha de perguntas), que entra no app na hora de postar.

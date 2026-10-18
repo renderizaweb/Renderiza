@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: o site ficou pronto, e agora?</title>
+<!-- Reels do Instagram (1080 × 1920, 38,71 s = 80 tempos a 124 BPM, tom +2), sem voz: só imagem, texto e a trilha
+     pulsante (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso", pelo "bpm" e pelo "tom" do preparar()). A grade
+     fica ancorada no drop (22,26 s, o tempo 46): todos os cortes caem em tempos inteiros contados a partir dele.
+     O que fazer com o site quando ele fica pronto: a Renderiza manda o link para a dona da Lume, e o link não vai para
+     lugar nenhum (a bio ainda diz "Agendamentos pelo direct", o perfil do Google pede "Adicionar site", o status não
+     muda). As perguntas de sempre chegam no WhatsApp e ela responde do jeito antigo: texto longo, áudio de 1:42 e a foto
+     da tabela de preços. Com o kit de divulgação (só digital) que vai junto com o site, o link aparece em cada lugar: a
+     bio, o perfil do Google, o status e a resposta pronta para quando pedirem informação. Fecho: "O link vai aonde / a
+     cliente já está." Débora é fictícia (avatar com a inicial, sem foto). A Lume Estética é fictícia e aparece com o selo
+     "exemplo" em toda tela do Instagram, do Google e do site e em todo cartão do link; o endereço é uma barra cinza.
+     Tom (Kaue, 15/10/2026): seco e realista, um trocadilho só. Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA), no eixo dos textos (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:70}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* textos */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%;white-space:nowrap}
+.txt .tom,.faixa .tom{color:var(--terracota-clara)}
+/* a faixa de cima, entre a marca e a janela: cada texto fica centrado nela (a fonte cabe na linha mais larga) */
+.faixa{position:absolute;left:80px;width:860px;top:236px;height:268px;display:flex;align-items:center;justify-content:center;z-index:60}
+.faixa p{text-align:center;font-weight:700;font-size:66px;letter-spacing:-.03em;line-height:1.1;color:var(--fundo);white-space:nowrap;transform-origin:50% 50%}
+#t1{top:284px;font-size:96px}
+#t2{top:398px;font-size:158px;color:var(--terracota-clara)}
+#m1{top:800px;font-size:88px;line-height:1.12}
+#f1{top:744px;font-size:108px}
+#f2{top:884px;font-size:108px;color:var(--terracota-clara)}
+
+/* ===== as janelas (as telas do celular da dona, sem marca de aplicativo) ===== */
+.tela-w{position:absolute;left:60px;top:620px;width:880px;height:900px;z-index:10;transform-origin:50% 40%}
+.janela{position:absolute;inset:0;border-radius:40px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.38)}
+.tela-w>.exemplo{right:34px;top:-17px;z-index:8;box-shadow:0 0 0 4px var(--escuro)}
+
+/* conversa (genérica) */
+.cab{position:absolute;left:0;right:0;top:0;height:112px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 34px 0 16px;z-index:3}
+.cab .voltar{width:40px;height:40px;color:#54656f;flex:none}
+.c-av{flex:none;width:76px;height:76px;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:36px;font-weight:600;letter-spacing:-.02em}
+.c-av.rz{background:var(--escuro-2);color:var(--fundo)}
+.c-av.rz .simbolo{width:48px;height:48px}
+.cab .quem{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.cab .nome{font-size:36px;font-weight:600;color:#111b21;letter-spacing:-.01em;line-height:1.15;white-space:nowrap}
+.cab .sub{font-size:27px;color:#667781;line-height:1.3;white-space:nowrap}
+.cab .icones{display:flex;gap:34px;color:#54656f}
+.cab .icones svg{width:40px;height:40px}
+.msgs{position:absolute;left:0;right:0;top:112px;height:692px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.msgs::before{content:"";position:absolute;left:0;right:0;top:0;height:46px;background:linear-gradient(#efeae2,rgba(239,234,226,0));z-index:4;pointer-events:none}
+.barra{position:absolute;left:0;right:0;bottom:0;height:96px;background:#efeae2;z-index:2}
+.campo{position:absolute;left:16px;top:12px;right:100px;height:72px;border-radius:36px;background:#fff;display:flex;align-items:center;padding:0 28px;font-size:40px;letter-spacing:-.01em;color:#8696a0;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.btn-mic{position:absolute;right:16px;top:14px;width:68px;height:68px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
+.btn-mic svg{width:34px;height:34px}
+.pelicula{position:absolute;inset:0;background:rgba(18,23,25,.80);z-index:5;opacity:0}
+
+/* balões */
+.b{position:absolute;max-width:660px;padding:18px 28px 20px;border-radius:28px;font-size:48px;line-height:1.26;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em;z-index:1}
+.b.rec{left:26px;background:#fff;transform-origin:0 50%}
+.b.env{right:26px;background:#d9fdd3;transform-origin:100% 50%}
+.b.cauda.rec{border-top-left-radius:8px}
+.b.cauda.env{border-top-right-radius:8px}
+.b.cauda::before{content:"";position:absolute;top:0;width:22px;height:26px;background:inherit}
+.b.cauda.rec::before{left:-14px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.cauda.env::before{right:-14px;clip-path:polygon(0 0,100% 0,0 100%)}
+.b .esp{display:inline-block;width:90px;height:1px}
+.b.texto{max-width:700px}
+.b.env .esp{width:132px}
+.b.quebra .esp{display:block;width:auto;height:18px}
+.b .meta{position:absolute;right:22px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:23px;line-height:1;color:#667781;letter-spacing:0}
+.b .tiques{display:inline-flex;width:34px;height:24px;color:#8696a0}
+.b .tiques svg{width:100%;height:100%}
+.b.aceso{z-index:6}
+.dia{position:absolute;left:0;right:0;display:flex;justify-content:center}
+.dia span{display:flex;align-items:center;height:52px;padding:0 24px;border-radius:14px;background:rgba(255,255,255,.94);font-size:27px;font-weight:500;color:#54656f;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+/* texto longo (linhas cinza) */
+.b.longo{width:600px;padding:28px 28px 54px}
+.b.longo i{display:block;height:20px;border-radius:10px;background:rgba(17,27,33,.15);margin-bottom:17px}
+/* áudio */
+.b.audio{width:620px;height:150px;padding:0 24px 0 18px;display:flex;align-items:center;gap:16px}
+.au-play{flex:none;width:58px;height:58px;color:#54656f;display:grid;place-items:center}
+.au-play svg{width:46px;height:46px}
+.au-onda{flex:1;height:64px;display:flex;align-items:center;gap:5px;margin-bottom:22px}
+.au-onda i{flex:1;border-radius:3px;background:#9fb0aa}
+.au-onda i.ja{background:#5f7b72}
+.au-av{position:relative;flex:none;width:92px;height:92px;margin-bottom:8px}
+.au-av img{width:92px;height:92px;border-radius:50%;object-fit:cover}
+.au-av .mic{position:absolute;left:-12px;bottom:-6px;width:40px;height:40px;display:grid;place-items:center;color:#2f9e5f}
+.au-av .mic svg{width:34px;height:34px}
+.au-dur{position:absolute;left:94px;bottom:12px;font-size:34px;font-weight:500;color:#54656f;letter-spacing:0;line-height:1}
+/* foto da tabela de preços: papel com linhas, sem número nenhum */
+.b.foto{padding:8px;width:600px}
+.foto-img{position:relative;height:452px;border-radius:21px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#8a7360 0%,#6a5546 55%,#4c3c32 100%)}
+.folha{position:absolute;left:96px;top:30px;width:400px;height:500px;background:#f6f3ec;border-radius:4px;transform:rotate(-5deg);box-shadow:0 14px 26px rgba(0,0,0,.35);padding:40px 34px 0}
+.folha .tit{display:block;height:24px;width:58%;margin:0 auto 34px;border-radius:5px;background:#8f887d}
+.folha .lin{display:flex;align-items:center;gap:10px;height:46px}
+.folha .lin i{display:block;height:14px;border-radius:4px;background:#a9a297}
+.folha .lin u{flex:1;height:0;border-bottom:3px dotted #c9c2b6;text-decoration:none}
+.folha .lin b{display:block;width:54px;height:14px;border-radius:4px;background:#8f887d}
+.foto-img .luz{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 42%,rgba(0,0,0,.18) 100%)}
+.b.foto .meta{right:26px;bottom:22px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.b.foto .meta .tiques{color:#fff}
+/* o cartão do link (a prévia do site): foto, título, selo "exemplo" e o endereço como barra cinza */
+.b.comlink{width:660px;padding:10px 10px 50px}
+.b.comlink .antes{padding:8px 18px 16px;font-size:46px;line-height:1.24}
+.cartao{position:relative;border-radius:20px;overflow:hidden;background:#f0f2f5}
+.b.env .cartao{background:#c8ecc1}
+.cartao img{display:block;width:100%;height:232px;object-fit:cover;object-position:50% 38%}
+.cartao .exemplo{right:16px;top:16px;font-size:20px;padding:8px 14px}
+.c-txt{padding:18px 24px 22px}
+.c-txt b{display:block;font-size:40px;font-weight:600;color:#111b21;letter-spacing:-.015em;line-height:1.15}
+.c-txt .url{display:block;height:20px;width:46%;border-radius:10px;background:#d2d7da;margin-top:14px}
+.b.env .c-txt .url{background:#a9cfa3}
+/* o kit de divulgação: um arquivo na conversa */
+.b.doc{width:640px;padding:10px 10px 50px}
+.doc-in{display:flex;align-items:center;gap:24px;height:136px;padding:0 26px;border-radius:20px;background:#f3f4f4}
+.doc-ic{flex:none;width:80px;height:98px;border-radius:14px;background:var(--terracota);color:#fff;display:grid;place-items:center}
+.doc-ic svg{width:48px;height:48px}
+.doc-txt{flex:1;min-width:0}
+.doc-txt b{display:block;font-size:42px;font-weight:600;color:#111b21;letter-spacing:-.015em;line-height:1.15;white-space:nowrap}
+.doc-txt i{display:block;height:18px;width:50%;border-radius:9px;background:#d2d7da;margin-top:14px}
+
+/* perfil do Instagram (genérico, sem logotipo) */
+.pi{font-family:"Geist",sans-serif;color:#111}
+.pi-cab{height:116px;display:flex;align-items:center;gap:8px;padding:0 40px;font-size:42px;letter-spacing:-.02em}
+.pi-cab svg{width:32px;height:32px}
+.pi-cab .pi-ic{margin-left:auto;display:flex;gap:30px}
+.pi-cab .pi-ic svg{width:44px;height:44px}
+.pi-perfil{display:flex;align-items:center;gap:50px;padding:0 44px}
+.pi-av{flex:none;width:170px;height:170px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 5px #fff,0 0 0 8px #ddd6cd}
+.pi-nums{flex:1;display:flex;justify-content:space-between;padding-right:10px}
+.pi-nums span{display:flex;flex-direction:column;align-items:center;gap:14px;font-size:30px;color:#3a3f41}
+.pi-nums i{display:block;width:72px;height:28px;border-radius:14px;background:#e7e7e7}
+.pi-nome{padding:28px 44px 0;font-size:38px;font-weight:600;letter-spacing:-.015em}
+.pi-bio{padding:6px 44px 0}
+.pi-bio p{font-size:37px;line-height:1.3;color:#262626;letter-spacing:-.012em;white-space:nowrap}
+.pi-bio .alvo{display:inline-block;margin-top:22px}
+.pi-link{display:flex;align-items:center;gap:14px;height:52px}
+.pi-link svg{width:36px;height:36px;color:#3b5f86}
+.pi-link i{display:block;width:300px;height:22px;border-radius:11px;background:#cdd8e4}
+.pi-botoes{display:flex;gap:14px;padding:30px 44px 0}
+.pi-botoes span{flex:1;height:78px;border-radius:18px;background:#efefef;display:grid;place-items:center;font-size:32px;font-weight:600;letter-spacing:-.01em}
+.pi-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:32px}
+.pi-grade img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+
+/* perfil do negócio no Google (genérico, sem logotipo) */
+.gg{color:#1e2528}
+.gg-busca{position:absolute;left:30px;right:30px;top:30px;height:98px;border-radius:49px;background:#f3f1ee;box-shadow:inset 0 0 0 2px #e6e2dc;display:flex;align-items:center;gap:20px;padding:0 34px;font-size:38px;letter-spacing:-.01em}
+.gg-busca svg{width:40px;height:40px;color:#5b6467}
+.gg-fotos{position:absolute;left:30px;right:30px;top:154px;height:176px;display:flex;gap:10px}
+.gg-fotos img{flex:1;min-width:0;height:176px;object-fit:cover;border-radius:18px}
+.gg-nome{position:absolute;left:44px;top:352px;font-size:54px;font-weight:650;letter-spacing:-.03em;line-height:1.1}
+.gg-av{position:absolute;left:44px;top:428px;display:flex;align-items:center;gap:14px;font-size:34px;color:#5b6467}
+.gg-estrelas{display:inline-flex;gap:3px;color:#e9a23b}
+.gg-estrelas svg{width:34px;height:34px}
+.gg-botoes{position:absolute;left:30px;right:30px;top:500px;display:flex;gap:14px}
+.gg-btn{flex:1;height:86px;border-radius:43px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:34px;font-weight:600;letter-spacing:-.01em;color:#1e2528;box-shadow:inset 0 0 0 2px #d9d4cc;background:#fff}
+.gg-btn svg{width:38px;height:38px;color:var(--terracota)}
+.gg-btn.cheio{background:var(--terracota);color:#fff;box-shadow:none}
+.gg-btn.cheio svg{color:#fff}
+.gg-info{position:absolute;left:30px;right:30px;top:616px}
+.gg-linha{display:flex;align-items:center;gap:24px;height:86px;padding:0 14px;border-top:2px solid #f0ece6;font-size:36px;color:#3c4346;letter-spacing:-.01em;white-space:nowrap}
+.gg-linha svg{flex:none;width:40px;height:40px;color:#5b6467}
+.gg-linha i{display:block;height:20px;border-radius:10px;background:#e3e1dd}
+.gg-linha .add{color:var(--terracota);font-weight:600}
+
+/* WhatsApp: a aba de status (antes) e o status publicado (depois) */
+.st-cab{height:124px;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.st-cab b{font-size:46px;font-weight:700;letter-spacing:-.025em;color:#111b21}
+.st-ic{display:flex;gap:34px;color:#54656f}
+.st-ic svg{width:42px;height:42px}
+.st-sec{padding:8px 40px 6px;font-size:38px;font-weight:700;letter-spacing:-.02em;color:#111b21}
+.st-linha{display:flex;align-items:center;gap:28px;padding:16px 40px}
+.st-linha.alvo{display:inline-flex;margin:18px 0 8px 26px;padding:12px 34px 12px 14px}
+.st-av{position:relative;flex:none;width:118px;height:118px}
+.st-av img{width:118px;height:118px;border-radius:50%;object-fit:cover}
+.st-mais{position:absolute;right:-4px;bottom:-4px;width:46px;height:46px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 5px #fff}
+.st-mais svg{width:28px;height:28px}
+.st-av.vazio{border-radius:50%;background:#e9edef;box-shadow:inset 0 0 0 5px #fff,0 0 0 4px #b7c4ca}
+.st-txt{flex:1;min-width:0}
+.st-txt b{display:block;font-size:38px;font-weight:600;letter-spacing:-.015em;color:#111b21;line-height:1.2}
+.st-txt span{display:block;font-size:35px;color:#667781;letter-spacing:-.005em;line-height:1.3;margin-top:4px}
+.st-txt i{display:block;height:20px;border-radius:10px;background:#e7ebed;margin:14px 0}
+.st-sub{padding:26px 40px 4px;font-size:31px;font-weight:600;color:#667781}
+.sv{background:radial-gradient(120% 80% at 50% 30%,#57443b 0%,#3a2c26 70%,#2e231e 100%)}
+.sv-barra{position:absolute;left:26px;right:26px;top:24px;height:7px;border-radius:4px;background:rgba(255,255,255,.32);overflow:hidden}
+.sv-barra i{display:block;height:100%;width:0;background:#fff}
+.sv-cab{position:absolute;left:26px;right:26px;top:54px;display:flex;align-items:center;gap:20px;color:#fff}
+.sv-cab .voltar{width:40px;height:40px;flex:none}
+.sv-cab img{width:76px;height:76px;border-radius:50%;object-fit:cover}
+.sv-cab b{display:block;font-size:34px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+.sv-cab span{display:block;font-size:27px;opacity:.75;line-height:1.3}
+.sv-meio{position:absolute;left:110px;right:110px;top:236px}
+.sv-olho{position:absolute;left:0;right:0;bottom:36px;display:flex;justify-content:center;color:rgba(255,255,255,.8)}
+.sv-olho svg{width:46px;height:46px}
+.sv-meio .cartao{background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.sv-meio .cartao img{height:300px}
+.sv-leg{margin-top:34px}
+.sv-leg i{display:block;height:20px;border-radius:10px;background:rgba(255,255,255,.34);margin:0 auto 18px}
+
+/* ===== o celular com o site da Lume (volta) ===== */
+.fone{position:absolute;left:220px;top:600px;width:640px;height:1400px;border-radius:76px;background:#0d1112;padding:12px;z-index:20;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.10),0 50px 120px rgba(0,0,0,.5);transform-origin:50% 0}
+.visor{position:relative;width:616px;height:1376px;border-radius:64px;overflow:hidden;background:#fbf7f3}
+.camera{position:absolute;left:50%;top:22px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#07090a;box-shadow:0 0 0 3px rgba(255,255,255,.06);z-index:30}
+.pagina{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel .exemplo{position:static;font-size:21px;padding:8px 15px}
+.sinais{display:flex;gap:10px;align-items:center;color:#111}
+.sinais svg{height:21px}
+.apaga{position:absolute;inset:0;background:#000;opacity:0;z-index:20}
+
+/* etiqueta do lugar (montagem do drop) */
+.etiqueta{position:absolute;left:80px;width:860px;top:520px;height:64px;display:flex;justify-content:center;z-index:55}
+.etiqueta span{display:inline-flex;align-items:center;height:64px;padding:0 30px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);font-size:36px;font-weight:650;letter-spacing:-.015em;white-space:nowrap;transform-origin:50% 50%}
+
+/* a marcação: um contorno terracota que se desenha em volta do que importa */
+.contorno{position:absolute;left:0;top:0;z-index:45;pointer-events:none;overflow:visible}
+
+/* toque */
+.toque{position:absolute;z-index:80;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.18);border:4px solid rgba(30,37,40,.62);opacity:0;pointer-events:none}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:850px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1040px;font-size:46px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="estrela" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.4l2.95 6.1 6.7.9-4.9 4.65 1.2 6.65L12 17.5l-5.95 3.2 1.2-6.65L2.35 9.4l6.7-.9z"/></symbol>
+</svg>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- 1. abre: os títulos -->
+  <p class="txt" id="t1">O site ficou pronto.</p>
+  <p class="txt oculto" id="t2">E agora?</p>
+
+  <!-- textos da faixa de cima -->
+  <div class="faixa oculto" id="tG"><p>O link ainda não está<br><span class="tom">em lugar nenhum.</span></p></div>
+  <div class="faixa oculto" id="tI"><p>E você segue respondendo<br><span class="tom">do jeito antigo.</span></p></div>
+  <div class="faixa oculto" id="tV"><p><span id="tV1">O site está pronto.</span><br><span class="tom" id="tV2">Só que ninguém viu.</span></p></div>
+  <div class="faixa oculto" id="tE"><p>Agora, com o <span class="tom">kit de divulgação.</span></p></div>
+  <div class="faixa oculto" id="tS"><p>O kit traz o texto pronto<br><span class="tom">para cada lugar.</span></p></div>
+
+  <!-- as telas (montadas no script) -->
+  <div class="tela-w" id="jR"></div>
+  <div class="tela-w oculto" id="igA"></div>
+  <div class="tela-w oculto" id="ggA"></div>
+  <div class="tela-w oculto" id="stA"></div>
+  <div class="tela-w oculto" id="jD"></div>
+  <div class="tela-w oculto" id="igB"></div>
+  <div class="tela-w oculto" id="ggB"></div>
+  <div class="tela-w oculto" id="stB"></div>
+  <div class="tela-w oculto" id="jD2"></div>
+  <div class="etiqueta oculto" id="etq"><span id="etqTxt"></span></div>
+
+  <!-- o celular com o site (volta) -->
+  <div class="fone oculto" id="fone">
+    <div class="visor">
+      <div class="pagina" id="site"></div>
+      <div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais"></span></div>
+      <span class="camera"></span>
+      <div class="apaga" id="apaga"></div>
+    </div>
+  </div>
+
+  <svg class="contorno oculto" id="contorno" width="1080" height="1920" viewBox="0 0 1080 1920" aria-hidden="true">
+    <path id="cFundo" fill="rgba(178,81,52,.07)"/>
+    <path id="cLinha" fill="none" stroke="#b25134" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+  </svg>
+
+  <!-- meio -->
+  <p class="txt oculto" id="m1">Ele só trabalha<br><span class="tom">quando o link aparece.</span></p>
+
+  <!-- fim -->
+  <p class="txt oculto" id="f1">O link vai aonde</p>
+  <p class="txt oculto" id="f2">a cliente já está.</p>
+
+  <!-- CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- grade: 124 BPM, um tempo = 0,4839 s, um compasso = 1,935 s; o drop cai no tempo 46 (22,26 s) ----------
+const BPM = 124, TOM = 2, T = 60 / BPM;
+const b = n => n * T;                 // n tempos, em segundos
+const DUR = b(80);                    // 38,71 s
+const CORTE = { abre: 0, google: b(8), insta: b(20), nada: b(30), volta: b(32), meio: b(37), ese: b(42), site: b(46), fim: b(64), cta: b(72) };
+const PONTE = b(79);                  // o último tempo: volta a cena do começo (o Reels repete em loop)
+const AGORA = b(2);                   // "E agora?", na batida seguinte (a primeira barra da grade do drop)
+const TITULO_SAI = b(7.5);            // os títulos saem meio tempo antes do primeiro corte
+
+// ---------- ícones (SVG genéricos, sem marca) ----------
+const IC = {
+  voltar: '<svg class="voltar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+  play: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.6v14.8L19.2 12Z"/></svg>',
+  doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M6 2.8h8.2L19 7.6v13.6H6z"/><path d="M14 2.8v5h5"/><path d="M9 12.4h7M9 15.9h7M9 19.2h4.5"/></svg>',
+  lupa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m15.8 15.8 5 5"/></svg>',
+  globo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z"/></svg>',
+  rota: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 21.4 12 12 21.4 2.6 12Z"/><path d="M9.2 14.6v-2.4c0-.9.7-1.6 1.6-1.6h4.4M13.4 8.6l1.9 2-1.9 2"/></svg>',
+  ligar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  salvar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-11.6a7 7 0 0 0-14 0c0 5.4 7 11.6 7 11.6Z"/><circle cx="12" cy="9.8" r="2.6"/></svg>',
+  relogio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2.1"/></svg>',
+  corrente: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.1-1.1"/></svg>',
+  seta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
+  mais: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M12 8v8M8 12h8"/></svg>',
+  menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+  camera: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3v10.5H4z"/><circle cx="12" cy="13.3" r="3.4"/></svg>',
+  pontos: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5.5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="18.5" r="1.9"/></svg>',
+  olho: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3.2"/></svg>',
+  cruz: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5.5v13M5.5 12h13"/></svg>',
+};
+const ESTRELAS = '<svg><use href="#estrela"/></svg>'.repeat(5);
+document.querySelectorAll(".sinais").forEach(s => (s.innerHTML = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>'));
+
+// o cartão do link: foto, título, selo "exemplo" e o endereço como barra cinza (nada de domínio escrito)
+const CARTAO = `<img src="${foto("hero")}" alt=""><span class="exemplo">exemplo</span><div class="c-txt"><b>Lume Estética</b><span class="url"></span></div>`;
+
+// ---------- as conversas: o celular é da dona da Lume ("eu" = ela, à direita) ----------
+const AREA = 692, PAD = 24;
+function conversa(el, { av, nome, sub, msgs, exemplo = false }) {
+  el.innerHTML = `<div class="janela">
+    <div class="cab">${IC.voltar}${av}<div class="quem"><span class="nome">${nome}</span><span class="sub">${sub}</span></div><div class="icones">${IC.video}${IC.fone}</div></div>
+    <div class="msgs"></div>
+    <div class="barra"><div class="campo">Mensagem</div><span class="btn-mic">${IC.mic}</span></div>
+    <div class="pelicula"></div></div>${exemplo ? '<span class="exemplo">exemplo</span>' : ""}`;
+  const area = el.querySelector(".msgs");
+  const itens = msgs.map((m, i) => {
+    const d = document.createElement("div");
+    const ant = msgs[i - 1];
+    let gap = 16;
+    if (m.dia) { d.className = "dia"; d.innerHTML = `<span>${m.dia}</span>`; }
+    else {
+      const env = m.de === "eu";
+      const primeira = !ant || ant.dia || ant.de !== m.de;
+      if (!primeira) gap = 8;
+      const tipo = m.link ? " comlink" : m.kit ? " doc" : m.longo ? " longo" : m.audio ? " audio" : m.foto ? " foto" : " texto";
+      d.className = "b " + (env ? "env" : "rec") + (primeira ? " cauda" : "") + tipo;
+      const meta = `<span class="meta">${m.hora}${env ? `<span class="tiques">${IC.tiques}</span>` : ""}</span>`;
+      if (m.link) d.innerHTML = `${m.antes ? `<p class="antes">${m.antes}</p>` : ""}<div class="cartao">${CARTAO}</div>${meta}`;
+      else if (m.kit) d.innerHTML = `<div class="doc-in"><span class="doc-ic">${IC.doc}</span><div class="doc-txt"><b>Kit de divulgação</b><i></i></div></div>${meta}`;
+      else if (m.longo) d.innerHTML = m.longo.map(w => `<i style="width:${w}%"></i>`).join("") + meta;
+      else if (m.audio) {
+        // a onda do áudio: alturas fixas (o quadro é determinístico)
+        const alt = [30, 52, 38, 70, 46, 88, 60, 34, 76, 54, 92, 66, 40, 82, 58, 36, 72, 50, 90, 62, 44, 78, 56, 32, 68, 48, 84, 40, 64, 30];
+        d.innerHTML = `<span class="au-play">${IC.play}</span><span class="au-onda">${alt.map((h, k) => `<i${k < 2 ? ' class="ja"' : ""} style="height:${h}%"></i>`).join("")}</span>
+          <span class="au-av"><img src="${foto("toalha")}" alt=""><span class="mic">${IC.mic}</span></span><span class="au-dur">${m.audio}</span>${meta}`;
+      }
+      else if (m.foto) d.innerHTML = `<div class="foto-img"><div class="folha"><span class="tit"></span>${[[46, 54], [58, 54], [38, 54], [52, 54], [44, 54], [60, 54], [36, 54]].map(([w]) => `<p class="lin"><i style="width:${w}%"></i><u></u><b></b></p>`).join("")}</div><span class="luz"></span></div>${meta}`;
+      else d.innerHTML = `${m.txt}<span class="esp"></span>${meta}`;
+    }
+    area.appendChild(d);
+    return { ...m, el: d, h: 0, gap, tiques: d.querySelector(".tiques") };
+  });
+  return { el, area, itens, sub: el.querySelector(".sub"), pelicula: el.querySelector(".pelicula"), subTxt: sub, digitando: [] };
+}
+
+const avRz = '<span class="c-av rz"><span class="simbolo"></span></span>';
+const avD = '<span class="c-av" style="background:#9a8fae">D</span>';
+
+// a Renderiza avisa que o site está no ar (abre) e, com o kit, manda o kit junto (ese)
+const R = conversa($("#jR"), { av: avRz, nome: "Renderiza", sub: "online", msgs: [
+  { t: -9, dia: "Hoje" },
+  { t: -9, de: "ela", txt: "Seu site está no ar!", hora: "10:02" },
+  { t: b(1), de: "ela", link: true, hora: "10:02" },
+  { t: b(43), de: "ela", kit: true, hora: "10:02", impacto: true },
+]});
+const KIT = R.itens[3].el;
+
+// as perguntas de sempre e as respostas do jeito antigo (insta); a foto da tabela corta seco (nada)
+const D = conversa($("#jD"), { av: avD, nome: "Débora", sub: "online", exemplo: true, msgs: [
+  { t: -9, dia: "Hoje" },
+  { t: b(20), de: "ela", txt: "Qual o endereço?", hora: "14:12" },
+  { t: b(22), de: "eu", longo: [100, 93, 97, 88, 96, 54], hora: "14:19" },
+  { t: b(24), de: "ela", txt: "Tem foto dos trabalhos?", hora: "14:21" },
+  { t: b(26), de: "eu", audio: "1:42", hora: "14:30" },
+  { t: b(28), de: "ela", txt: "Quanto é a limpeza de pele?", hora: "14:32" },
+  { t: CORTE.nada, de: "eu", foto: true, hora: "14:41", seco: true },
+]});
+D.digitando = [[b(23), b(24)], [b(27), b(28)]];
+const FOTO = D.itens[6].el;
+
+// com o kit: quando pedirem informação, a resposta pronta com o link
+const D2 = conversa($("#jD2"), { av: avD, nome: "Débora", sub: "online", msgs: [
+  { t: -9, de: "ela", txt: "Qual o endereço?", hora: "14:12" },
+  { t: b(59), de: "eu", link: true, antes: "Oi! Aqui tem os serviços, as fotos e o endereço:", hora: "14:12", impacto: true, lido: b(61) },
+]});
+const RESPOSTA = D2.itens[1].el;
+
+// ---------- o perfil do Instagram, o perfil do Google e o status (antes e depois) ----------
+const instagram = depois => `<div class="janela pi">
+  <div class="pi-cab"><b>lume.estetica</b>${IC.seta}<span class="pi-ic">${IC.mais}${IC.menu}</span></div>
+  <div class="pi-perfil"><img class="pi-av" src="${foto("toalha")}" alt=""><div class="pi-nums"><span><i></i>posts</span><span><i></i>seguidores</span><span><i></i>seguindo</span></div></div>
+  <p class="pi-nome">Lume Estética</p>
+  <div class="pi-bio"><p>Estética facial e corporal</p>${depois
+    ? '<div class="alvo"><p>Serviços, horários e como chegar no link.</p><p class="pi-link">' + IC.corrente + "<i></i></p></div>"
+    : '<div class="alvo"><p>Agendamentos pelo direct</p></div>'}</div>
+  <div class="pi-botoes"><span>Editar perfil</span><span>Compartilhar perfil</span></div>
+  <div class="pi-grade">${["hero", "ambiente", "facial", "toalha", "pedras", "unhas"].map(n => `<img src="${foto(n)}" alt="">`).join("")}</div>
+</div><span class="exemplo">exemplo</span>`;
+const google = depois => `<div class="janela gg">
+  <div class="gg-busca">${IC.lupa}<span>Lume Estética</span></div>
+  <div class="gg-fotos"><img src="${foto("ambiente")}" alt=""><img src="${foto("hero")}" alt=""><img src="${foto("toalha")}" alt=""></div>
+  <p class="gg-nome">Lume Estética</p>
+  <p class="gg-av"><span class="gg-estrelas">${ESTRELAS}</span>Estética</p>
+  <div class="gg-botoes">${depois ? `<span class="gg-btn cheio alvo">${IC.globo}Site</span>` : ""}<span class="gg-btn">${IC.rota}Rota</span><span class="gg-btn">${IC.ligar}Ligar</span>${depois ? "" : `<span class="gg-btn">${IC.salvar}Salvar</span>`}</div>
+  <div class="gg-info">
+    <p class="gg-linha">${IC.pin}<i style="width:58%"></i></p>
+    <p class="gg-linha">${IC.relogio}<span>Seg a sex, 9h às 19h</span></p>
+    <p class="gg-linha${depois ? "" : " alvo"}">${IC.globo}${depois ? '<i style="width:44%"></i>' : '<span class="add">Adicionar site</span>'}</p>
+  </div>
+</div><span class="exemplo">exemplo</span>`;
+const statusVazio = `<div class="janela st">
+  <div class="st-cab"><b>Atualizações</b><span class="st-ic">${IC.camera}${IC.lupa}${IC.pontos}</span></div>
+  <p class="st-sec">Status</p>
+  <div class="st-linha alvo"><span class="st-av"><img src="${foto("toalha")}" alt=""><span class="st-mais">${IC.cruz}</span></span><div class="st-txt"><b>Meu status</b><span>Toque para adicionar status</span></div></div>
+  <p class="st-sub">Recentes</p>
+  ${[[52, 26], [40, 22], [60, 30]].map(([w1, w2]) => `<div class="st-linha"><span class="st-av vazio"></span><div class="st-txt"><i style="width:${w1}%"></i><i style="width:${w2}%"></i></div></div>`).join("")}
+</div><span class="exemplo">exemplo</span>`;
+const statusComLink = `<div class="janela sv">
+  <div class="sv-barra"><i id="svProg"></i></div>
+  <div class="sv-cab">${IC.voltar}<img src="${foto("toalha")}" alt=""><div><b>Meu status</b><span>agora</span></div></div>
+  <div class="sv-meio"><div class="cartao alvo">${CARTAO}</div><div class="sv-leg"><i style="width:84%"></i><i style="width:60%"></i></div></div>
+  <span class="sv-olho">${IC.olho}</span>
+</div>`;
+$("#igA").innerHTML = instagram(false); $("#igB").innerHTML = instagram(true);
+$("#ggA").innerHTML = google(false); $("#ggB").innerHTML = google(true);
+$("#stA").innerHTML = statusVazio; $("#stB").innerHTML = statusComLink;
+
+// ---------- o site da Lume no celular (volta) ----------
+const site = $("#site");
+site.innerHTML = siteDeExemplo();
+
+// ---------- quando cada tela aparece: [elemento, entra, sai, jeito] ----------
+const TELAS = [
+  ["#igA", CORTE.google, b(12)], ["#ggA", b(12), b(16)], ["#stA", b(16), CORTE.insta],
+  ["#jD", CORTE.insta, CORTE.volta],
+  ["#igB", CORTE.site, b(50), "drop"], ["#ggB", b(50), b(54), "drop"], ["#stB", b(54), b(58), "drop"], ["#jD2", b(58), CORTE.fim, "drop"],
+].map(([s, a, z, jeito]) => ({ el: $(s), a, z, jeito }));
+const ETIQUETAS = [[CORTE.site, "Bio do Instagram"], [b(50), "Perfil do Google"], [b(54), "Status do WhatsApp"], [b(58), "Quando pedirem informação"]];
+// as marcações: um tempo depois de cada tela entrar (a resposta pronta, um tempo depois de chegar)
+const CONTORNOS = [
+  ["#igA .alvo", b(9), b(12)], ["#ggA .alvo", b(13), b(16)], ["#stA .alvo", b(17), CORTE.insta],
+  ["#igB .alvo", b(47), b(50)], ["#ggB .alvo", b(51), b(54)], ["#stB .alvo", b(55), b(58)], [RESPOSTA, b(60), CORTE.fim],
+].map(([s, t0, fim]) => ({ el: typeof s === "string" ? $(s) : s, t0, fim }));
+
+// ---------- textos da faixa: [elemento, entra, sai, jeito] ----------
+const FAIXAS = [
+  ["#tG", CORTE.google, CORTE.insta], ["#tI", CORTE.insta, CORTE.volta], ["#tV", CORTE.volta, CORTE.meio],
+  ["#tE", CORTE.ese, CORTE.site], ["#tS", CORTE.site, CORTE.fim, "soco"],
+].map(([s, a, z, jeito]) => ({ el: $(s), a, z, jeito }));
+const LINHA2 = b(33);                  // "Só que ninguém viu."
+const APAGA = [[b(34), 0.45], [b(36), 0.72]];   // a tela do celular escurece em dois degraus, como quando ninguém mexe
+const TOQUE_KIT = b(45.5);
+
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [AGORA, 1], [CORTE.nada, 1], [CORTE.meio, 0.8], [CORTE.site, 1], [b(50), 0.7], [b(54), 0.7], [b(58), 0.7], [CORTE.fim, 1], [b(68), 1], [CORTE.cta, 0.6]];
+const BUMBOS = [0, 1, 2, 3, 4, 5, 6].map(k => b(72 + k));
+
+const clamp = (x, a = 0, z = 1) => Math.min(z, Math.max(a, x));
+const fase = (t, a, z) => clamp((t - a) / (z - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                    // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, z, x) => a + (z - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const soco = (t, t0, de = 1.06, dur = 0.25) => t < t0 ? 1 : lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+// largura do texto de um elemento (a linha mais larga), sem a caixa
+const largura = el => { const r = document.createRange(); r.selectNodeContents(el); return r.getBoundingClientRect().width; };
+const caber = (el, max = 852) => { const fs = parseFloat(getComputedStyle(el).fontSize), w = largura(el); if (w > max) el.style.fontSize = Math.floor(fs * max / w) + "px"; };
+
+let ESC = 1;
+
+window.preparar = () => {
+  // cada texto cabe na área segura (860 px de largura), com folga para o tranco de cada um
+  for (const el of [$("#t2"), ...FAIXAS.map(f => f.el.querySelector("p"))]) caber(el);
+  caber($("#t1"), 800);          // entra com um tranco de 6%
+  caber($("#m1"), 790);          // as batidas do coração
+  caber($("#tE p"), 820);        // a subida aproxima o quadro em 4%
+  caber($("#f1"), 780); caber($("#f2"), 780);   // os impactos do fim
+  // "O link vai aonde" e "a cliente já está." no mesmo tamanho
+  const ff = Math.min(parseFloat($("#f1").style.fontSize || 108), parseFloat($("#f2").style.fontSize || 108));
+  $("#f1").style.fontSize = $("#f2").style.fontSize = ff + "px";
+  for (const c of [R, D, D2]) for (const m of c.itens) {
+    const esp = m.el.querySelector(".esp");
+    if (esp) { const com = m.el.offsetHeight; esp.style.display = "none"; const sem = m.el.offsetHeight; esp.style.display = ""; m.el.classList.toggle("quebra", com > sem + 4); }
+    m.h = m.el.offsetHeight;
+  }
+  ESC = 616 / 402;
+  site.style.transform = `scale(${ESC})`;
+  return {
+    duracao: DUR,
+    bpm: BPM,
+    tom: TOM,
+    pulso: [
+      { id: "pronto", cena: "abre", ini: 0, fim: AGORA, impacto: true },
+      { id: "agora", cena: "abre", ini: AGORA, fim: CORTE.google, impacto: true },
+      { id: "bio", cena: "google", ini: CORTE.google, fim: b(12) },
+      { id: "perfil", cena: "google", ini: b(12), fim: b(16) },
+      { id: "status", cena: "google", ini: b(16), fim: CORTE.insta },
+      { id: "perguntas", cena: "insta", ini: CORTE.insta, fim: CORTE.nada },
+      { id: "nada", cena: "insta", ini: CORTE.nada, fim: CORTE.volta, impacto: true },
+      { id: "ninguem", cena: "volta", ini: CORTE.volta, fim: CORTE.meio },
+      { id: "trabalha", cena: "meio", ini: CORTE.meio, fim: CORTE.ese, impacto: true },
+      { id: "kit", cena: "ese", ini: CORTE.ese, fim: CORTE.site },
+      { id: "bio2", cena: "site", ini: CORTE.site, fim: b(50), impacto: true },
+      { id: "google2", cena: "site", ini: b(50), fim: b(54), impacto: true },
+      { id: "status2", cena: "site", ini: b(54), fim: b(58), impacto: true },
+      { id: "resposta", cena: "site", ini: b(58), fim: CORTE.fim, impacto: true },
+      { id: "aonde", cena: "fim", ini: CORTE.fim, fim: b(68), impacto: true },
+      { id: "esta", cena: "fim", ini: b(68), fim: CORTE.cta, impacto: true },
+      { id: "cta", cena: "cta", ini: CORTE.cta, fim: DUR },
+    ],
+    // um quadro por cena e um de cada lado dos cortes; 2,8 s é a capa
+    ensaio: [0.05, 2.8, 3.95, 5.75, 5.9, 7.85, 9.62, 9.75, 14.45, 14.6, 15.55, 17.85, 18.0, 20.27, 21.0, 22.2, 22.33, 25.5, 27.5, 29.6, 31.05, 33.1, 36.0, 38.6],
+  };
+};
+
+// ---------- uma conversa no instante t ----------
+function desenharConversa(c, t) {
+  const vis = c.itens.filter(m => t >= m.t);
+  // a pilha inteira desce enquanto o balão novo sobe (os de impacto sobem quase de uma vez; o seco não anda)
+  let desce = 0;
+  for (const m of vis) if (!m.seco) desce += (m.h + m.gap) * (1 - sai(fase(t, m.t, m.t + (m.impacto ? 0.1 : 0.22))));
+  let y = AREA - PAD;
+  for (let k = c.itens.length - 1; k >= 0; k--) {
+    const m = c.itens[k], on = t >= m.t;
+    m.el.style.display = on ? "" : "none";
+    if (!on) continue;
+    y -= m.h;
+    m.el.style.top = (y + desce) + "px";
+    y -= m.gap;
+    let esc = 1, op = 1;
+    if (m.seco) { /* corta seco: já entra parado */ }
+    else if (m.impacto) esc = soco(t, m.t, 1.1, 0.25);
+    else { const x = sai(fase(t, m.t, m.t + 0.18)); esc = lerp(0.92, 1, x); op = x; }
+    m.el.style.transform = `scale(${esc})`; m.el.style.opacity = op;
+    if (m.tiques) m.tiques.style.color = m.lido !== undefined && t >= m.lido ? "#53bdeb" : "";
+  }
+  c.sub.textContent = c.digitando.some(([a, z]) => t >= a && t < z) ? "digitando…" : c.subTxt;
+}
+
+// texto da faixa: entra subindo (ou com um tranco, no drop)
+function faixa({ el, a, z, jeito }, t) {
+  if (!mostra(el, t >= a && t < z)) return;
+  const p = el.querySelector("p");
+  if (jeito === "soco") { p.style.opacity = 1; p.style.transform = `scale(${soco(t, a, 1.08, 0.24)})`; return; }
+  const x = sai(fase(t, a, a + 0.25));
+  p.style.opacity = x; p.style.transform = `translateY(${(1 - x) * 30}px)`;
+}
+
+// ---------- toque (o dedo) ----------
+const tq = $("#toque");
+let dedo = null;
+function toque(t, t0, el) {
+  if (t < t0 - 0.12 || t >= t0 + 0.32) return;
+  const r = el.getBoundingClientRect();
+  dedo = { x: r.left + r.width / 2, y: r.top + r.height / 2, op: Math.min(fase(t, t0 - 0.12, t0 - 0.02), 1 - fase(t, t0 + 0.2, t0 + 0.32)), aperto: t >= t0 && t < t0 + 0.18 };
+}
+const retangulo = (x, y, w, h, r) => `M${x + r} ${y}H${x + w - r}A${r} ${r} 0 0 1 ${x + w} ${y + r}V${y + h - r}A${r} ${r} 0 0 1 ${x + w - r} ${y + h}H${x + r}A${r} ${r} 0 0 1 ${x} ${y + h - r}V${y + r}A${r} ${r} 0 0 1 ${x + r} ${y}Z`;
+
+window.quadro = t => {
+  dedo = null;
+  palco.style.transform = "none"; // mede sem o tranco do quadro anterior
+  const ponte = t >= PONTE;
+
+  // ---- marca ----
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || ponte);
+  topo.style.opacity = ponte ? fase(t, PONTE + 0.05, PONTE + 0.3) : 1;
+
+  // ---- 1. abre: os títulos ----
+  const t1 = $("#t1"), t2 = $("#t2");
+  const saiT = sai(fase(t, TITULO_SAI, TITULO_SAI + 0.18));
+  if (mostra(t1, t < TITULO_SAI + 0.18 || ponte)) {
+    if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); t1.style.opacity = x; t1.style.transform = `translateY(${(1 - x) * 30}px)`; }
+    else { t1.style.opacity = 1 - saiT; t1.style.transform = `translateY(${-26 * saiT}px) scale(${soco(t, 0)})`; }
+  }
+  if (mostra(t2, t >= AGORA && t < TITULO_SAI + 0.18)) { t2.style.opacity = 1 - saiT; t2.style.transform = `translateY(${-26 * saiT}px) scale(${soco(t, AGORA, 1.12, 0.28)})`; }
+  for (const f of FAIXAS) faixa(f, t);
+  // volta: a segunda linha entra um tempo depois
+  if (t >= CORTE.volta && t < CORTE.meio) { const x = sai(fase(t, LINHA2, LINHA2 + 0.25)); $("#tV2").style.opacity = x; }
+
+  // ---- a conversa com a Renderiza (abre; ese, com o kit; e a ponte do loop) ----
+  const naR = t < CORTE.google || (t >= CORTE.ese && t < CORTE.site) || ponte;
+  if (mostra(R.el, naR)) {
+    desenharConversa(R, ponte ? 0 : t);
+    let y = 0;
+    if (t >= CORTE.ese && t < CORTE.site) y = 1400 * (1 - sai(fase(t, CORTE.ese, CORTE.ese + 0.45)));
+    if (ponte) y = 1400 * (1 - sai(fase(t, PONTE, PONTE + 0.42)));
+    R.el.style.transform = `translateY(${y}px)`;
+    if (t >= CORTE.ese && t < CORTE.site) toque(t, TOQUE_KIT, KIT);
+  }
+
+  // ---- as telas: corte seco na batida, com um tranco pequeno ----
+  for (const w of TELAS) {
+    if (!mostra(w.el, t >= w.a && t < w.z)) continue;
+    w.el.style.transform = `scale(${soco(t, w.a, w.jeito === "drop" ? 1.035 : 1.022, 0.22)})`;
+  }
+  if (t >= CORTE.insta && t < CORTE.volta) {
+    desenharConversa(D, t);
+    // nada: a tela segura parada; só a foto da tabela fica acesa
+    const nada = t >= CORTE.nada;
+    D.pelicula.style.opacity = nada ? 1 : 0;
+    FOTO.classList.toggle("aceso", nada);
+  }
+  if (t >= b(58) && t < CORTE.fim) desenharConversa(D2, t);
+  if (t >= b(54) && t < b(58)) $("#svProg").style.width = 100 * fase(t, b(54), b(58) + 1.2) + "%";
+
+  // etiqueta do lugar, no drop
+  const etq = $("#etq");
+  if (mostra(etq, t >= CORTE.site && t < CORTE.fim)) {
+    let k = 0; for (let i = 0; i < ETIQUETAS.length; i++) if (t >= ETIQUETAS[i][0]) k = i;
+    const sp = $("#etqTxt");
+    if (sp.dataset.k !== String(k)) { sp.textContent = ETIQUETAS[k][1]; sp.dataset.k = k; }
+    sp.style.transform = `scale(${soco(t, ETIQUETAS[k][0], 1.12, 0.22)})`;
+  }
+
+  // a marcação: o contorno terracota se desenha em volta do que importa
+  const ct = $("#contorno");
+  let alvo = null;
+  for (const c of CONTORNOS) if (t >= c.t0 && t < c.fim) alvo = c;
+  if (mostra(ct, !!alvo)) {
+    const r = alvo.el.getBoundingClientRect(), pad = 14;
+    const d = retangulo(r.left - pad, r.top - pad, r.width + 2 * pad, r.height + 2 * pad, 24);
+    $("#cLinha").setAttribute("d", d); $("#cFundo").setAttribute("d", d);
+    $("#cLinha").style.strokeDashoffset = 1 - sai(fase(t, alvo.t0, alvo.t0 + 0.3));
+    $("#cFundo").style.opacity = fase(t, alvo.t0 + 0.15, alvo.t0 + 0.35);
+  }
+
+  // ---- 4. volta: o celular com o site, que ninguém abre (a tela escurece) ----
+  const fone = $("#fone");
+  if (mostra(fone, t >= CORTE.volta && t < CORTE.meio)) {
+    fone.style.transform = `translateY(${(1 - sai(fase(t, CORTE.volta, CORTE.volta + 0.35))) * 60}px)`;
+    let a = 0;
+    for (const [t0, alvoA] of APAGA) if (t >= t0) a = lerp(a, alvoA, ease(fase(t, t0, t0 + 0.35)));
+    $("#apaga").style.opacity = a;
+    site.style.transform = `scale(${ESC})`;
+  }
+
+  // ---- 5. meio: o coração ----
+  const m1 = $("#m1");
+  if (mostra(m1, t >= CORTE.meio && t < CORTE.ese)) {
+    const tum = t < b(38) ? soco(t, CORTE.meio, 1.06, 0.24) : t < b(38) + 0.28 ? soco(t, b(38), 1.04, 0.24) : soco(t, b(38) + 0.28, 1.02, 0.24);
+    m1.style.transform = `scale(${tum * lerp(1, 1.03, fase(t, CORTE.meio, CORTE.ese))})`;
+    m1.style.opacity = 1 - fase(t, CORTE.ese - 0.2, CORTE.ese);
+  }
+
+  // ---- 8. fim: só os impactos ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
+  if (mostra(f2, t >= b(68) && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, b(68), 1.1, 0.28)})`;
+
+  // ---- 9. CTA e a volta ao começo ----
+  const noCta = t >= CORTE.cta;
+  const saiCta = fase(t, PONTE, PONTE + 0.16);
+  const cm = $("#ctaMarca"), bo = $("#botao"), l1 = $("#l1");
+  mostra(cm, noCta && saiCta < 1); mostra(bo, noCta && saiCta < 1); mostra(l1, noCta && saiCta < 1);
+  if (noCta && saiCta < 1) {
+    const e = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    cm.style.opacity = e * (1 - saiCta); cm.style.transform = `scale(${lerp(0.8, 1, e)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const k of BUMBOS) { const x = fase(t, k, k + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    bo.style.transform = `scale(${esc})`; bo.style.opacity = 1 - saiCta;
+    const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5));
+    l1.style.opacity = x * (1 - saiCta); l1.style.transform = `translateY(${(1 - x) * 28}px)`;
+  }
+
+  // ---- o dedo ----
+  if (dedo && dedo.op > 0) {
+    tq.style.left = dedo.x + "px"; tq.style.top = dedo.y + "px";
+    tq.style.opacity = dedo.op; tq.style.transform = `scale(${dedo.aperto ? 0.84 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarões: o drop e os cortes da montagem ----
+  let fl = 0;
+  const cl = (t0, d, a) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, a * (1 - x)); };
+  cl(CORTE.site, 0.07, 0.9); cl(b(50), 0.06, 0.55); cl(b(54), 0.06, 0.55); cl(b(58), 0.06, 0.55);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos e a aproximação na subida ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  const zoom = t >= CORTE.ese && t < CORTE.site ? lerp(1, 1.04, ease(fase(t, CORTE.ese, CORTE.site))) : 1;
+  palco.style.transformOrigin = "540px 900px";
+  palco.style.transform = `translateX(${dx}px) scale(${zoom})`;
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "650 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "500 15px 'DM Sans'", "600 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
