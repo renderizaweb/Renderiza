@@ -78,7 +78,7 @@ const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio
 
 async function reels(nome) {
   const p = await abrir(nome + ".html", 1080, 1920);
-  const { duracao, entrada, fechamento, clima = "leve", narracao, pulso, bpm, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
+  const { duracao, entrada, fechamento, clima = "leve", narracao, pulso, bpm, tom, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
   if (ENSAIO) { // só alguns quadros, para conferir antes de gravar
     for (const t of ensaio) {
       await p.evaluate(x => window.quadro(x), t);
@@ -107,7 +107,7 @@ async function reels(nome) {
     const tempos = join(tmp, "cenas.json"), mudo = join(tmp, "mudo.wav");
     writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso }));
     await rodar(FFMPEG, ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono", "-t", String(duracao), "-c:a", "pcm_s16le", mudo]);
-    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, mudo, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : [])]);
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, mudo, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : [])]);
   } else await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
   const saida = join(SAIDA, nome + ".mp4");
   await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a", "-t", String(duracao),
