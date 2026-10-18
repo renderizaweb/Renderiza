@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: o preço no catálogo</title>
+<!-- Reels do Instagram (1080 × 1920, 37,85 s = 82 tempos a 130 BPM, tom +5), sem voz: só imagem, texto e a trilha
+     pulsante (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso", pelo "bpm" e pelo "tom" do preparar()). A grade
+     fica ancorada no drop (21,23 s, o tempo 46): todos os cortes caem em tempos inteiros contados a partir dele.
+     O adicional Catálogo. O post do kit da Lume enche de "Preço?" nos comentários; a dona responde um por um ("Te chamei
+     no direct!"), cada preço vira uma conversa no direct, e quem vê o preço some. No outro dia, mais quatro "Preço?".
+     Com o Catálogo no site, cada produto tem foto e preço, e o pedido chega no WhatsApp com o produto já escrito. Fecho:
+     "A resposta para Preço? agora é um link." Os produtos da Lume (frascos, potes e a caixinha do kit) são desenhos em
+     SVG, sem marca real; os preços são da Lume, fictícios (preço da Renderiza não aparece). Sofia, Larissa, Débora,
+     Vanessa, Helena, Natália, Raquel, Simone e Priscila são fictícias (avatar com a inicial, sem foto). A Lume Estética é
+     fictícia e aparece com o selo "exemplo" em toda tela do Instagram e do site. Tom (Kaue, 15/10/2026): seco e realista,
+     um trocadilho só. Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e;--azul:#3797f0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:70}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* textos */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom{color:var(--terracota-clara)}
+#titulo{top:246px;font-size:184px;letter-spacing:-.045em}
+.faixa{top:274px;font-size:68px;line-height:1.08;letter-spacing:-.03em}
+.faixa.uma{top:312px}
+.faixa.menor{font-size:58px}            /* as frases longas do Catálogo, para caberem em x 80 a 940 */
+.faixa.menor.uma{top:316px}
+#tF2{display:inline-block;transform-origin:50% 50%}
+#nd1{top:640px;font-size:112px;z-index:40}
+#nd2{top:780px;font-size:112px;color:var(--terracota-clara);z-index:40}
+#tMeio{top:780px;font-size:76px;line-height:1.1}
+
+/* ===== telas do Instagram da Lume, como cartões no eixo dos textos (x 80 a 940) ===== */
+.cartao{position:absolute;left:80px;top:470px;width:860px;height:1070px;border-radius:40px;background:#fff;overflow:hidden;z-index:10;color:#111;box-shadow:0 30px 80px rgba(0,0,0,.45);transform-origin:50% 50%}
+.cab{position:absolute;left:0;right:0;top:0;height:100px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 28px;border-bottom:2px solid #efefef;z-index:5}
+.cab b{font-size:34px;font-weight:600;letter-spacing:-.01em;color:#111;white-space:nowrap}
+.cab .exemplo{position:static;margin-left:auto;font-size:20px;padding:9px 16px}
+.cab .av{width:60px;height:60px;font-size:28px}
+.ic{flex:none;display:block;width:44px;height:44px;color:#111}
+.ic svg{width:100%;height:100%;display:block}
+.av-foto{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff,0 0 0 4px #e5d8ce}
+.av{flex:none;width:52px;height:52px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:600;font-size:26px;letter-spacing:-.02em;line-height:1}
+
+/* o post */
+.p-rolo{position:absolute;left:0;right:0;top:100px;padding-bottom:18px}
+.p-foto{height:480px;overflow:hidden;background:#efe2d8}
+.p-foto svg{width:100%;height:100%;display:block}
+.p-acoes{height:86px;display:flex;align-items:center;gap:30px;padding:0 26px}
+.p-acoes .ic{width:46px;height:46px}
+.p-acoes .salvar{margin-left:auto}
+.p-legenda{padding:0 28px 10px;font-size:36px;line-height:1.3;letter-spacing:-.01em;color:#111}
+.p-legenda b,.lin b{font-weight:600}
+.lin{position:relative;overflow:hidden}
+.lin-in{position:relative;display:flex;align-items:center;gap:18px;padding:10px 28px;min-height:78px;transform-origin:0 50%}
+.lin-in .av{width:56px;height:56px;font-size:28px}
+.lin-in .t{font-size:38px;line-height:1.25;letter-spacing:-.01em;color:#111;white-space:nowrap}
+.lin-in .cor{flex:none;margin-left:auto;width:30px;height:30px;color:#b4b4b4}
+.lin-in .cor svg{width:100%;height:100%;display:block}
+.lin.resp .lin-in{padding-left:100px;min-height:72px}
+.lin.resp .av-foto{width:46px;height:46px;box-shadow:none}
+.lin.resp .t{font-size:36px}
+.lin.ver .lin-in{min-height:52px;padding-top:0;padding-bottom:4px}
+.lin.ver .t{font-size:32px;color:#8e8e8e}
+.lin.campo .lin-in{min-height:84px;margin-top:8px;border-top:2px solid #efefef}
+.lin.campo .av-foto{width:52px;height:52px;box-shadow:none}
+.lin.campo .t{font-size:34px;color:#8e8e8e}
+.realce{position:absolute;left:84px;right:18px;top:3px;bottom:3px;border:4px solid var(--terracota);border-radius:20px;background:rgba(178,81,52,.06);opacity:0;pointer-events:none}
+
+/* o direct */
+.dm-abas{position:absolute;left:0;right:0;top:100px;height:76px;display:flex;align-items:center;gap:30px;padding:0 30px}
+.dm-abas b{font-size:32px;font-weight:600}
+.dm-abas span{font-size:30px;color:#8e8e8e}
+.dm-lista{position:absolute;left:0;right:0;top:176px;bottom:0;overflow:hidden}
+.dm-lin{position:absolute;left:0;right:0;top:0;height:140px;display:flex;align-items:center;gap:24px;padding:0 34px 0 30px}
+.dm-lin .av{width:96px;height:96px;font-size:42px}
+.dm-txt{flex:1;min-width:0}
+.dm-txt b{display:block;font-size:36px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.dm-txt p{font-size:36px;line-height:1.3;letter-spacing:-.01em;color:#111;font-weight:600;white-space:nowrap}
+.dm-txt p small{font-size:30px;font-weight:400;color:#8e8e8e}
+.ponto{flex:none;width:20px;height:20px;border-radius:50%;background:var(--azul)}
+.dm-lin.vazio .av{background:#f0f0f0}
+.dm-lin.vazio i{display:block;height:20px;border-radius:10px;background:#f0f0f0;margin:14px 0}
+
+/* a conversa */
+.chat{position:absolute;inset:0;background:#fff;z-index:8}
+.ch-perfil{position:absolute;left:0;right:0;top:150px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ch-perfil .av{width:150px;height:150px;font-size:66px}
+.ch-perfil b{font-size:38px;font-weight:600;margin-top:6px}
+.ch-perfil i{display:block;width:280px;height:18px;border-radius:9px;background:#f0f0f0}
+.ch-perfil .ver-perfil{margin-top:10px;height:58px;padding:0 28px;border-radius:14px;background:#efefef;font-size:28px;font-weight:600;display:grid;place-items:center}
+.bal{position:absolute;max-width:600px;padding:20px 30px;border-radius:40px;font-size:42px;line-height:1.24;letter-spacing:-.01em}
+.bal.rec{left:104px;top:624px;background:#efefef;color:#111}
+.rec-av{position:absolute;left:28px;top:656px;width:60px!important;height:60px!important;font-size:28px!important}
+.bal.env{right:26px;top:740px;background:var(--azul);color:#fff;transform-origin:100% 100%}
+.visto{position:absolute;right:36px;top:892px;font-size:34px;color:#8e8e8e;font-weight:600;letter-spacing:-.005em}
+.ch-barra{position:absolute;left:22px;right:22px;bottom:18px;height:84px;border-radius:42px;background:#efefef;display:flex;align-items:center;padding:0 32px;font-size:34px;color:#8e8e8e}
+.pelicula{position:absolute;inset:0;background:rgba(30,37,40,.95);z-index:20;opacity:0}
+.aceso{z-index:21}
+.visto.aceso{color:#d9d6d2}
+
+/* ===== o celular com o site da Lume (as telas do site em escala de quadro, no estilo de .lume) ===== */
+#cel{left:130px;top:452px;width:820px;height:1500px;z-index:12;transform-origin:50% 0;box-shadow:0 0 0 2px #2d3639,0 40px 90px rgba(0,0,0,.55)}
+.tela .pg{position:absolute;inset:0;overflow:hidden}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
+.sinais{display:flex;gap:10px;align-items:center;color:#111}
+.sinais svg{height:22px}
+.lm{background:#fbf7f3;color:#3a2c26;font-family:"DM Sans",system-ui,sans-serif}
+.lm-topo{position:absolute;left:0;right:0;top:78px;height:100px;padding:0 36px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #efe5dd;background:#fbf7f3}
+.lm-logo{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:44px;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px}
+.lm-logo small{font-family:"DM Sans",sans-serif;font-size:19px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#7b6a62}
+.lm-menu{position:relative;width:38px;height:24px;border-top:3px solid #3a2c26;border-bottom:3px solid #3a2c26}
+.lm-menu::after{content:"";position:absolute;left:0;right:0;top:7.5px;border-top:3px solid #3a2c26}
+.lm-voltar{display:flex;align-items:center;gap:8px}
+.lm-voltar>svg{width:40px;height:40px;margin-left:-10px}
+/* catálogo */
+.corpo{position:absolute;left:34px;right:34px;top:178px}
+.tag{display:inline-flex;align-items:center;height:50px;padding:0 22px;border-radius:999px;background:#f1e4db;color:#8c5843;font-size:24px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:24px}
+.cat-tit{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;margin:12px 0 22px}
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px}
+.prod{display:flex;flex-direction:column;transform-origin:50% 50%}
+.prod-foto{height:196px;border-radius:22px;overflow:hidden}
+.prod-foto svg{width:100%;height:100%;display:block}
+.prod-nome{font-size:34px;font-weight:600;line-height:1.2;margin-top:10px;letter-spacing:-.01em}
+.prod-preco{font-size:38px;font-weight:700;margin-top:auto;padding-top:2px;letter-spacing:-.01em;color:#3a2c26}
+/* página do produto */
+.pp-foto{height:330px;border-radius:26px;overflow:hidden;margin-top:24px}
+.pp-foto svg{width:100%;height:100%;display:block}
+.pp-nome{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:58px;line-height:1.05;letter-spacing:-.02em;margin-top:22px}
+.pp-preco{font-size:50px;font-weight:700;margin-top:6px;letter-spacing:-.01em}
+.pp-rot{font-size:25px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7b6a62;margin-top:18px}
+.pp-itens{margin-top:8px}
+.pp-item{display:flex;align-items:center;gap:16px;height:56px;font-size:36px;letter-spacing:-.005em}
+.pp-item svg{flex:none;width:40px;height:40px;color:#b6806a}
+.pp-btn{position:relative;margin-top:22px;height:104px;border-radius:52px;background:var(--zap);color:#fff;display:flex;align-items:center;justify-content:center;gap:16px;font-size:38px;font-weight:700;letter-spacing:-.005em;transform-origin:50% 50%}
+.pp-btn>svg{width:46px;height:46px}
+.onda{position:absolute;inset:0;border-radius:52px;outline:4px solid rgba(37,211,102,.9);opacity:0;pointer-events:none}
+/* o WhatsApp (genérico, sem logo) */
+.wz{background:#efeae2}
+.wz-cab{position:absolute;left:0;right:0;top:78px;height:112px;background:#fff;display:flex;align-items:center;gap:16px;padding:0 34px 0 14px;z-index:2}
+.wz-cab>svg{width:42px;height:42px;color:#54656f;flex:none}
+.wz-av{flex:none;width:76px;height:76px;border-radius:50%;object-fit:cover}
+.wz-nome{flex:1;font-size:36px;font-weight:600;color:#111;letter-spacing:-.01em}
+.wz-icones{display:flex;gap:34px;color:#54656f}
+.wz-icones svg{width:40px;height:40px}
+.wz-msgs{position:absolute;left:0;right:0;top:190px;height:560px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.wz-dia{position:absolute;left:50%;top:28px;transform:translateX(-50%);height:50px;padding:0 22px;border-radius:14px;background:#fff;font-size:24px;font-weight:500;color:#54656f;display:grid;place-items:center;box-shadow:0 1px 1px rgba(11,20,26,.1)}
+.wz-b{position:absolute;right:24px;bottom:24px;max-width:640px;padding:20px 28px;border-radius:26px;border-top-right-radius:8px;background:#d9fdd3;font-size:42px;line-height:1.26;color:#111b21;letter-spacing:-.01em;box-shadow:0 2px 2px rgba(11,20,26,.1);transform-origin:100% 100%}
+.wz-b .esp{display:inline-block;width:124px;height:1px}
+.wz-b .meta{position:absolute;right:22px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:22px;line-height:1;color:#7a8386}
+.tiques{display:inline-flex;width:34px;height:24px;color:#8696a0}
+.tiques svg{width:100%;height:100%}
+.wz-barra{position:absolute;left:0;right:0;top:750px;height:150px;background:#efeae2;display:flex;align-items:center;gap:14px;padding:0 16px}
+.wz-campo{position:relative;flex:1;min-height:76px;border-radius:38px;background:#fff;padding:16px 30px;font-size:38px;line-height:1.24;color:#111b21;letter-spacing:-.01em;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.wz-campo .ph{color:#8696a0}
+.wz-campo .cursor{display:inline-block;width:3px;height:42px;background:#00a884;margin-left:2px;vertical-align:-8px}
+.realce-campo{position:absolute;inset:-9px;border:4px solid var(--terracota);border-radius:46px;opacity:0;pointer-events:none}
+.wz-btn{position:relative;flex:none;width:84px;height:84px;border-radius:50%;background:var(--zap);color:#fff}
+.wz-btn>span{position:absolute;inset:0;display:grid;place-items:center}
+.wz-btn svg{width:40px;height:40px}
+.teclado{position:absolute;left:0;right:0;top:900px;bottom:0;background:#e4e1dd;padding:22px 8px 0}
+.tec-lin{display:flex;justify-content:center;gap:9px;margin-bottom:16px}
+.tec-lin span{width:66px;height:90px;border-radius:12px;background:#fff;display:grid;place-items:center;font-family:"Geist",sans-serif;font-size:36px;color:#2b3438;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.tec-lin span.larga{width:380px}
+
+/* toque */
+.toque{position:absolute;z-index:80;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0;pointer-events:none}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:850px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1040px;font-size:46px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- 1. abre -->
+  <p class="txt" id="titulo">Preço<span class="tom">?</span></p>
+
+  <!-- textos da faixa de cima -->
+  <p class="txt faixa oculto" id="tG">Você responde um por um<br><span class="tom">no direct.</span></p>
+  <p class="txt faixa oculto" id="tI">E cada preço vira<br><span class="tom">uma conversa.</span></p>
+  <p class="txt faixa oculto" id="tV">No outro dia,<br>mais quatro <span class="tom">“Preço?”</span>.</p>
+  <p class="txt faixa menor uma oculto" id="tE">Agora, com o <span class="tom">Catálogo</span> no site.</p>
+  <p class="txt faixa menor uma oculto" id="tS1">Cada produto com <span class="tom">foto e preço</span>.</p>
+  <p class="txt faixa menor oculto" id="tS2">E o pedido chega no WhatsApp<br>com o <span class="tom">produto já escrito</span>.</p>
+  <p class="txt faixa oculto" id="tF">A resposta para “Preço?”<br><span class="tom" id="tF2">agora é um link.</span></p>
+
+  <!-- o post da Lume (abre, google, volta e fim) -->
+  <div class="cartao" id="post"></div>
+  <!-- o direct da Lume (insta e nada) -->
+  <div class="cartao dm oculto" id="dm"></div>
+
+  <!-- nada -->
+  <p class="txt oculto" id="nd1">Viu o preço.</p>
+  <p class="txt oculto" id="nd2">E sumiu.</p>
+
+  <!-- meio -->
+  <p class="txt oculto" id="tMeio">Quem pergunta o preço<br><span class="tom">já escolheu o produto.</span></p>
+
+  <!-- o celular com o Catálogo (ese e site) -->
+  <div class="celular oculto" id="cel"><div class="tela" id="tela"></div></div>
+
+  <!-- CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { fotosDoExemplo as foto, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- grade: 130 BPM, um tempo = 0,4615 s, um compasso = 1,846 s; o drop cai no tempo 46 (21,23 s) ----------
+const BPM = 130, TOM = 5, T = 60 / BPM;
+const b = n => n * T;               // o instante do tempo n
+const DUR = b(82);                  // 37,85 s
+const CORTE = { abre: 0, google: b(8), insta: b(16), conversa: b(21), nada: b(26), volta: b(30), meio: b(36), ese: b(42),
+  site: b(46), kit: b(50), zap: b(58), fim: b(66), cta: b(74) };
+const PONTE = b(81);                // o último tempo: volta a cena do começo (o Reels repete em loop)
+const TOQUE_DM = b(20.5), ENVIA = b(22), VISTO = b(24), CORACAO = b(38);
+const TOQUE_KIT = b(49.5), TOQUE_BTN = b(57.5), TOQUE_ENV = b(61.5), ENVIADO = b(62), LIDO = b(64);
+const ONDAS = [b(54), b(55), b(56)];
+const BUMBOS = [74, 75, 76, 77, 78, 79].map(b);
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [b(2), 0.6], [CORTE.nada, 1], [CORTE.meio, 0.8], [CORTE.site, 1], [CORTE.kit, 0.7], [b(54), 0.5],
+  [CORTE.zap, 0.7], [ENVIADO, 0.6], [CORTE.fim, 1], [b(70), 1], [CORTE.cta, 0.6]];
+
+// ---------- ícones (SVG genéricos, sem logo) ----------
+const IC = {
+  coracao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20.3s-7.6-4.5-9.3-9C1.5 8 3.6 4.6 7.1 4.6c2 0 3.7 1.1 4.9 2.9 1.2-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.4 4.4 6.7-1.7 4.5-9.3 9-9.3 9Z"/></svg>',
+  balao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 0 1-12.7 7.5L3 21l1.5-4.8A8.6 8.6 0 1 1 20.6 12Z"/></svg>',
+  aviao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21.4 2.8 10.4 13.8M21.4 2.8 14.6 21l-4.2-7.2L3.2 9.4Z"/></svg>',
+  salvar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.6 3.4h12.8v17.2L12 16.1l-6.4 4.5Z"/></svg>',
+  voltar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  item: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4"/><path d="M7.9 12.3l2.8 2.8 5.4-5.8"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  envia: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 20.6 21.2 12 3.4 3.4l-.01 6.8L15 12 3.39 13.8Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+};
+const SINAIS = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>';
+
+// ---------- quem comenta e chama no direct (fictícias: só nome e inicial) ----------
+const COR = { Sofia: "#b29c8c", Larissa: "#8ea197", "Débora": "#a493ac", Vanessa: "#b0a079", Helena: "#949cb4",
+  "Natália": "#b38d92", Raquel: "#8b9dac", Simone: "#a39579", Priscila: "#9d8fae" };
+const av = (quem, cls = "") => `<span class="av ${cls}" style="background:${COR[quem]}">${quem[0]}</span>`;
+
+// ---------- os produtos da Lume: desenhos (sem marca real), com o rótulo "Lume" na Fraunces ----------
+const defs = (p, c1, c2) => `<defs>
+  <linearGradient id="${p}bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient>
+  <radialGradient id="${p}lz" cx="50%" cy="34%" r="62%"><stop offset="0" stop-color="#fffaf6" stop-opacity=".9"/><stop offset="1" stop-color="#fffaf6" stop-opacity="0"/></radialGradient>
+  <linearGradient id="${p}tp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a201b"/><stop offset=".45" stop-color="#54443b"/><stop offset="1" stop-color="#231915"/></linearGradient>
+  <linearGradient id="${p}cr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8dcd2"/><stop offset=".42" stop-color="#fffdfb"/><stop offset="1" stop-color="#dccfc3"/></linearGradient>
+  <linearGradient id="${p}ac" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a26954"/><stop offset=".5" stop-color="#c8957e"/><stop offset="1" stop-color="#99614d"/></linearGradient>
+  <filter id="${p}sb" x="-60%" y="-300%" width="220%" height="700%"><feGaussianBlur stdDeviation="7"/></filter></defs>`;
+const cenario = (p, w, h, mesa) => `<rect width="${w}" height="${h}" fill="url(#${p}bg)"/><rect y="${mesa}" width="${w}" height="${h - mesa}" fill="#5a3a2c" opacity=".06"/><rect width="${w}" height="${h}" fill="url(#${p}lz)"/>`;
+const sombra = (p, cx, cy, rx, ry) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#3a2c26" opacity=".32" filter="url(#${p}sb)"/>`;
+const rotulo = (x, y, tam, cor, sub, corSub) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="${tam}" fill="${cor}">Lume</text>`
+  + (sub ? `<text x="${x}" y="${(y + tam * 0.6).toFixed(1)}" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="600" font-size="${(tam * 0.32).toFixed(1)}" letter-spacing="${(tam * 0.05).toFixed(2)}" fill="${corSub}">${sub}</text>` : "");
+const svg = (w, h, miolo) => `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${miolo}</svg>`;
+
+// o kit: a caixinha e os três itens (sabonete com válvula, tônico e o pote de gel)
+const kit = p => svg(800, 480, `${defs(p, "#f7ece4", "#ead4c6")}${cenario(p, 800, 480, 384)}
+  ${sombra(p, 414, 394, 150, 12)}${sombra(p, 194, 414, 50, 8)}${sombra(p, 614, 414, 46, 8)}${sombra(p, 532, 440, 84, 9)}
+  <path d="M272 170 L302 138 L566 138 L536 170 Z" fill="#d2a690"/><path d="M536 170 L566 138 L566 358 L536 392 Z" fill="#8f5c49"/>
+  <rect x="272" y="170" width="264" height="222" fill="url(#${p}ac)"/>
+  <line x1="382" y1="214" x2="426" y2="214" stroke="#fbeee6" stroke-width="2" opacity=".75"/>
+  ${rotulo(404, 272, 66, "#fdf5ef", "KIT PÓS-LIMPEZA", "#f8e7dc")}
+  <rect x="186" y="140" width="10" height="30" fill="#2a201b"/>
+  <rect x="166" y="124" width="62" height="22" rx="6" fill="url(#${p}tp)"/><rect x="224" y="130" width="24" height="8" rx="3" fill="#2a201b"/>
+  <rect x="172" y="166" width="42" height="18" rx="4" fill="url(#${p}tp)"/>
+  <path d="M150 214 q0 -32 30 -32 h26 q30 0 30 32 v178 q0 18 -18 18 h-50 q-18 0 -18 -18Z" fill="url(#${p}cr)"/>
+  <rect x="150" y="262" width="86" height="86" fill="url(#${p}ac)"/>
+  ${rotulo(193, 303, 27, "#fdf5ef", "SABONETE", "#f8e7dc")}
+  <rect x="584" y="150" width="54" height="52" rx="8" fill="url(#${p}tp)"/>
+  <path d="M572 216 q0 -16 16 -16 h46 q16 0 16 16 v178 q0 16 -16 16 h-46 q-16 0 -16 -16Z" fill="#efcdbf"/>
+  <rect x="580" y="214" width="8" height="186" rx="4" fill="#fff" opacity=".35"/>
+  <rect x="572" y="262" width="78" height="80" fill="#fbf7f3"/>
+  ${rotulo(611, 300, 24, "#3a2c26", "TÔNICO", "#7b6a62")}
+  <rect x="460" y="346" width="144" height="32" rx="9" fill="url(#${p}ac)"/>
+  <rect x="454" y="372" width="156" height="66" rx="14" fill="url(#${p}cr)"/>
+  ${rotulo(532, 407, 22, "#3a2c26", "GEL HIDRATANTE", "#7b6a62")}`);
+
+// sérum de vitamina C: frasco âmbar com conta-gotas
+const serum = p => svg(400, 300, `${defs(p, "#f8e9da", "#eed1b7")}
+  <linearGradient id="${p}am" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b2622a"/><stop offset=".45" stop-color="#e2a05a"/><stop offset="1" stop-color="#a7582a"/></linearGradient>
+  ${cenario(p, 400, 300, 238)}${sombra(p, 200, 266, 60, 8)}
+  <rect x="186" y="44" width="28" height="54" rx="14" fill="url(#${p}tp)"/>
+  <rect x="176" y="92" width="48" height="26" rx="6" fill="url(#${p}tp)"/>
+  <rect x="183" y="114" width="34" height="16" fill="#9a5424"/>
+  <rect x="156" y="126" width="88" height="140" rx="18" fill="url(#${p}am)"/>
+  <rect x="166" y="138" width="8" height="116" rx="4" fill="#fff" opacity=".28"/>
+  <rect x="156" y="168" width="88" height="64" fill="#fbf3ec"/>
+  ${rotulo(200, 200, 25, "#3a2c26", "VITAMINA C", "#7b6a62")}`);
+
+// protetor solar com cor: bisnaga em pé, com a amostra da cor
+const protetor = p => svg(400, 300, `${defs(p, "#f4ece2", "#e8dacb")}
+  <linearGradient id="${p}pe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e7b593"/><stop offset=".45" stop-color="#f8dcc8"/><stop offset="1" stop-color="#dfa985"/></linearGradient>
+  ${cenario(p, 400, 300, 238)}${sombra(p, 200, 268, 50, 8)}
+  <rect x="146" y="40" width="108" height="18" rx="4" fill="#e1ab89"/>
+  <path d="M150 56 L250 56 L234 228 L166 228 Z" fill="url(#${p}pe)"/>
+  <rect x="162" y="224" width="76" height="42" rx="10" fill="url(#${p}tp)"/>
+  ${rotulo(200, 124, 28, "#3a2c26", "PROTETOR", "#7b6a62")}
+  <text x="200" y="157" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="600" font-size="9" letter-spacing="1.4" fill="#7b6a62">COM COR</text>
+  <circle cx="200" cy="184" r="10" fill="#c98f6c"/>`);
+
+// hidratante facial: pote baixo com tampa
+const hidratante = p => svg(400, 300, `${defs(p, "#f6e7e3", "#ebd1cb")}${cenario(p, 400, 300, 238)}${sombra(p, 200, 264, 96, 9)}
+  <rect x="116" y="146" width="168" height="40" rx="10" fill="url(#${p}ac)"/>
+  <rect x="122" y="149" width="156" height="7" rx="3.5" fill="#fff" opacity=".18"/>
+  <rect x="108" y="180" width="184" height="84" rx="18" fill="url(#${p}cr)"/>
+  ${rotulo(200, 224, 28, "#3a2c26", "HIDRATANTE FACIAL", "#7b6a62")}`);
+
+// ---------- (a) o post da Lume ----------
+// comentários: A (abre e google: chegam e ganham resposta), B (volta: no outro dia), C (fim: a resposta nova)
+const COMS = [
+  { g: "A", quem: "Sofia", txt: "Preço?", t0: b(2) }, { g: "A", resp: "Te chamei no direct!", t0: b(9) },
+  { g: "A", quem: "Larissa", txt: "Valor?", t0: b(3) }, { g: "A", resp: "Te chamei no direct!", t0: b(10) },
+  { g: "A", quem: "Débora", txt: "Preço?", t0: b(4) }, { g: "A", resp: "Te chamei no direct!", t0: b(11) },
+  { g: "A", quem: "Vanessa", txt: "Quanto?", t0: b(5) }, { g: "A", resp: "Te chamei no direct!", t0: b(12) },
+  { g: "A", campo: true, t0: b(8) },  // o campo de resposta aparece quando ela começa a responder
+  { g: "B", ver: true, t0: -1 },
+  { g: "B", quem: "Helena", txt: "Preço?", t0: b(31) }, { g: "B", quem: "Natália", txt: "Preço?", t0: b(32) },
+  { g: "B", quem: "Raquel", txt: "Preço?", t0: b(33) }, { g: "B", quem: "Simone", txt: "Preço?", t0: b(34) },
+  { g: "C", ver: true, t0: -1 },
+  { g: "C", quem: "Priscila", txt: "Preço?", t0: b(66) }, { g: "C", resp: "No catálogo, link na bio.", t0: b(68), realce: b(70) },
+];
+const post = $("#post");
+post.innerHTML = `<div class="p-rolo" id="pRolo">
+    <div class="p-foto">${kit("pf")}</div>
+    <div class="p-acoes"><span class="ic">${IC.coracao}</span><span class="ic">${IC.balao}</span><span class="ic">${IC.aviao}</span><span class="ic salvar">${IC.salvar}</span></div>
+    <p class="p-legenda"><b>lume.estetica</b> Kit pós-limpeza chegou.</p>
+    <div id="pComs"></div>
+  </div>
+  <div class="cab"><img class="av-foto" src="${foto("toalha")}" alt=""><b>lume.estetica</b><span class="exemplo">exemplo</span></div>`;
+for (const c of COMS) {
+  c.el = document.createElement("div");
+  c.el.className = "lin" + (c.resp ? " resp" : c.ver ? " ver" : c.campo ? " campo" : "");
+  c.el.innerHTML = `<div class="lin-in">${c.ver ? '<span class="t">Ver todos os comentários</span>'
+    : c.campo ? `<img class="av-foto" src="${foto("toalha")}" alt=""><span class="t">Adicione um comentário...</span>`
+    : c.resp ? `<img class="av-foto" src="${foto("toalha")}" alt=""><span class="t"><b>lume.estetica</b> ${c.resp}</span>${c.realce ? '<span class="realce"></span>' : ""}`
+    : `${av(c.quem)}<span class="t"><b>${c.quem}</b> ${c.txt}</span><span class="cor">${IC.coracao}</span>`}</div>`;
+  $("#pComs").appendChild(c.el);
+  Object.assign(c, { in: c.el.firstChild, re: c.el.querySelector(".realce"), h: 0 });
+}
+const VISIVEL = 1070 - 100;         // o que cabe no cartão, embaixo do cabeçalho
+
+// ---------- (b) o direct ----------
+const DMS = [
+  { quem: "Sofia", txt: "Quanto fica?", t0: b(16) }, { quem: "Larissa", txt: "Ainda tem?", t0: b(17) },
+  { quem: "Débora", txt: "Serve pra pele oleosa?", t0: b(18) }, { quem: "Vanessa", txt: "Entrega?", t0: b(19) },
+];
+const H_DM = 140;
+const dm = $("#dm");
+dm.innerHTML = `<div class="cab"><span class="ic">${IC.voltar}</span><b>lume.estetica</b><span class="exemplo">exemplo</span></div>
+  <div class="dm-abas"><b>Mensagens</b><span>Pedidos</span></div>
+  <div class="dm-lista" id="dmLista"></div>
+  <div class="chat oculto" id="chat">
+    <div class="cab"><span class="ic">${IC.voltar}</span>${av("Sofia")}<b>Sofia</b><span class="exemplo">exemplo</span></div>
+    <div class="ch-perfil">${av("Sofia")}<b>Sofia</b><i></i><span class="ver-perfil">Ver perfil</span></div>
+    ${av("Sofia", "rec-av")}<div class="bal rec">Quanto fica?</div>
+    <div class="bal env" id="balEnv">Fica R$&nbsp;129, com os três&nbsp;itens.</div>
+    <p class="visto" id="visto">Visto</p>
+    <div class="ch-barra">Mensagem...</div>
+    <div class="pelicula" id="pelicula"></div>
+  </div>`;
+for (const d of DMS) {
+  d.el = document.createElement("div");
+  d.el.className = "dm-lin";
+  d.el.innerHTML = `${av(d.quem)}<div class="dm-txt"><b>${d.quem}</b><p>${d.txt} <small>· agora</small></p></div><span class="ponto"></span>`;
+  $("#dmLista").appendChild(d.el);
+}
+const SK = [[38, 62], [30, 54], [42, 66], [34, 58]].map(([a, c]) => {
+  const el = document.createElement("div");
+  el.className = "dm-lin vazio";
+  el.innerHTML = `<span class="av"></span><div class="dm-txt"><i style="width:${a}%"></i><i style="width:${c}%"></i></div>`;
+  $("#dmLista").appendChild(el);
+  return el;
+});
+
+// ---------- (c) o celular: catálogo, página do kit e o WhatsApp ----------
+const PRODUTOS = [
+  { nome: "Kit pós-limpeza", preco: "R$&nbsp;129", foto: kit("gk") },
+  { nome: "Sérum vitamina C", preco: "R$&nbsp;89", foto: serum("gs") },
+  { nome: "Protetor solar<br>com cor", preco: "R$&nbsp;69", foto: protetor("gp") },
+  { nome: "Hidratante facial", preco: "R$&nbsp;59", foto: hidratante("gh") },
+];
+const MSG = "Oi! Quero o Kit pós-limpeza (R$ 129).";   // o "R$ 129" não quebra no meio
+const logo = '<span class="lm-logo">Lume <small>estética</small></span>';
+const teclas = ["qwertyuiop", "asdfghjkl", "zxcvbnm"].map(l => `<div class="tec-lin">${[...l].map(k => `<span>${k}</span>`).join("")}</div>`).join("")
+  + '<div class="tec-lin"><span class="larga"></span></div>';
+$("#tela").innerHTML = `
+  <div class="pg lm" id="pgCat">
+    <header class="lm-topo">${logo}<span class="lm-menu"></span></header>
+    <div class="corpo"><span class="tag">Catálogo</span><h2 class="cat-tit">Home care</h2>
+      <div class="grade">${PRODUTOS.map(p => `<div class="prod"><div class="prod-foto">${p.foto}</div><p class="prod-nome">${p.nome}</p><p class="prod-preco">${p.preco}</p></div>`).join("")}</div></div>
+  </div>
+  <div class="pg lm oculto" id="pgProd">
+    <header class="lm-topo"><span class="lm-voltar">${IC.voltar}${logo}</span><span class="lm-menu"></span></header>
+    <div class="corpo">
+      <div class="pp-foto">${kit("pk")}</div>
+      <h2 class="pp-nome">Kit pós-limpeza</h2><p class="pp-preco">R$&nbsp;129</p>
+      <p class="pp-rot">Vem no kit</p>
+      <div class="pp-itens">${["Sabonete facial", "Tônico calmante", "Gel hidratante"].map(i => `<p class="pp-item">${IC.item}${i}</p>`).join("")}</div>
+      <div class="pp-btn" id="ppBtn">${ZAP}Pedir pelo WhatsApp<span class="onda" id="onda"></span></div>
+    </div>
+  </div>
+  <div class="pg wz oculto" id="pgZap">
+    <div class="wz-cab">${IC.voltar}<img class="wz-av" src="${foto("toalha")}" alt=""><span class="wz-nome">Lume Estética</span><span class="wz-icones">${IC.video}${IC.fone}</span></div>
+    <div class="wz-msgs"><span class="wz-dia">Hoje</span>
+      <div class="wz-b" id="wzBal">${MSG}<span class="esp"></span><span class="meta">10:32<span class="tiques" id="wzTiq">${IC.tiques}</span></span></div></div>
+    <div class="wz-barra"><div class="wz-campo"><span class="ph" id="wzPh">Mensagem</span><span id="wzDig"></span><span class="cursor" id="wzCur"></span><span class="realce-campo" id="wzRealce"></span></div>
+      <span class="wz-btn" id="wzBtn"><span id="wzMic">${IC.mic}</span><span id="wzEnv">${IC.envia}</span></span></div>
+    <div class="teclado">${teclas}</div>
+  </div>
+  <div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais">${SINAIS}</span></div>`;
+PRODUTOS.forEach((p, k) => (p.el = document.querySelectorAll(".prod")[k]));
+const ITENS = [...document.querySelectorAll(".pp-item")];
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, z) => clamp((t - a) / (z - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                   // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, z, x) => a + (z - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const soco = (t, t0, de = 1.06, dur = 0.25) => t < t0 ? 1 : lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+
+window.preparar = () => {
+  for (const c of COMS) { c.el.style.display = ""; c.el.style.height = ""; c.h = c.in.offsetHeight; }
+  return {
+    duracao: DUR,
+    bpm: BPM,
+    tom: TOM,
+    pulso: [
+      { id: "preco", cena: "abre", ini: 0, fim: b(2), impacto: true },
+      { id: "comentarios", cena: "abre", ini: b(2), fim: b(8), impacto: true },
+      { id: "responde", cena: "google", ini: b(8), fim: b(16) },
+      { id: "direct", cena: "insta", ini: b(16), fim: b(21) },
+      { id: "conversa", cena: "insta", ini: b(21), fim: b(26) },
+      { id: "nada", cena: "insta", ini: b(26), fim: b(30), impacto: true },
+      { id: "outro-dia", cena: "volta", ini: b(30), fim: b(36) },
+      { id: "escolheu", cena: "meio", ini: b(36), fim: b(42), impacto: true },
+      { id: "catalogo", cena: "ese", ini: b(42), fim: b(46) },
+      { id: "grade", cena: "site", ini: b(46), fim: b(50), impacto: true },
+      { id: "kit", cena: "site", ini: b(50), fim: b(54), impacto: true },
+      { id: "pedir", cena: "site", ini: b(54), fim: b(58), impacto: true },
+      { id: "whatsapp", cena: "site", ini: b(58), fim: b(62), impacto: true },
+      { id: "pedido", cena: "site", ini: b(62), fim: b(66), impacto: true },
+      { id: "preco2", cena: "fim", ini: b(66), fim: b(70), impacto: true },
+      { id: "link", cena: "fim", ini: b(70), fim: b(74), impacto: true },
+      { id: "cta", cena: "cta", ini: b(74), fim: DUR },
+    ],
+    ensaio: [0.05, 0.6, 1.2, 2.77, 3.6, 3.75, 4.4, 5.9, 7.3, 7.45, 8.9, 9.6, 10.0, 11.4, 11.95, 12.1, 12.7, 13.75,
+      13.95, 15.9, 16.5, 16.7, 17.7, 19.3, 19.5, 20.6, 21.15, 21.3, 22.4, 23.0, 23.15, 24.3, 25.8, 26.7, 26.85, 27.6,
+      28.5, 28.75, 30.3, 30.55, 31.6, 33.0, 34.0, 34.3, 35.5, 37.3, 37.6, 37.8],
+  };
+};
+
+// ---------- toque (o dedo) ----------
+let dedo = null;
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+// aparece 0,12 s antes, aperta em t0 e some
+function toque(t, t0, el) {
+  if (t < t0 - 0.12 || t >= t0 + 0.32) return;
+  const [x, y] = centro(el);
+  dedo = { x, y, op: Math.min(fase(t, t0 - 0.12, t0 - 0.02), 1 - fase(t, t0 + 0.2, t0 + 0.32)), aperto: t >= t0 && t < t0 + 0.18 };
+}
+
+// texto da faixa de cima: entra subindo
+function faixa(el, t, a, z) {
+  if (!mostra(el, t >= a && t < z)) return;
+  const x = sai(fase(t, a, a + 0.25));
+  el.style.opacity = x; el.style.transform = `translateY(${(1 - x) * 30}px)`;
+}
+
+// ---------- o post: que comentários aparecem, e a rolagem ----------
+function estadoDoPost(t) {
+  if (t >= PONTE) return { g: "A", tp: 0 };
+  if (t < CORTE.insta) return { g: "A", tp: t };
+  if (t >= CORTE.volta && t < CORTE.meio) return { g: "B", tp: t };
+  if (t >= CORTE.fim && t < CORTE.cta) return { g: "C", tp: t };
+  return null;
+}
+function desenharPost(t) {
+  const est = estadoDoPost(t);
+  if (!mostra(post, !!est)) return;
+  for (const c of COMS) {
+    const on = c.g === est.g && (c.t0 < 0 || est.tp >= c.t0);
+    c.el.style.display = on ? "" : "none";
+    if (!on) continue;
+    const e = c.t0 < 0 ? 1 : sai(fase(est.tp, c.t0, c.t0 + 0.22));
+    c.el.style.height = c.h * e + "px";
+    c.in.style.opacity = c.t0 < 0 ? 1 : Math.min(1, e * 1.4);
+    c.in.style.transform = c.t0 < 0 ? "none" : `scale(${soco(est.tp, c.t0, 1.05, 0.25)})`;
+    if (c.re) {
+      const r = c.realce && est.tp >= c.realce ? sai(fase(est.tp, c.realce, c.realce + 0.18)) : 0;
+      c.re.style.opacity = r; c.re.style.transform = `scale(${c.realce ? soco(est.tp, c.realce, 1.04, 0.22) : 1})`;
+    }
+  }
+  // o cartão cresce com os comentários até a altura máxima; dali em diante, as respostas empurram a lista e o post rola
+  // o bastante para o último comentário ficar à vista
+  const rolo = $("#pRolo"), alto = rolo.offsetHeight;
+  post.style.height = Math.min(VISIVEL, alto) + 100 + "px";
+  rolo.style.transform = `translateY(${-Math.max(0, alto - VISIVEL)}px)`;
+  let y = 0, esc = 1;
+  if (t >= PONTE) y = lerp(1490, 0, sai(fase(t, PONTE, PONTE + 0.42)));
+  else if (est.g === "B") esc = soco(t, CORTE.volta, 1.03, 0.25);
+  else if (est.g === "C") esc = soco(t, CORTE.fim, 1.04, 0.25);
+  post.style.transform = `translateY(${y}px) scale(${esc})`;
+}
+
+// ---------- o direct: as conversas chegam no topo; a da Sofia abre ----------
+function desenharDirect(t) {
+  if (!mostra(dm, t >= CORTE.insta && t < CORTE.volta)) return;
+  dm.style.transform = `scale(${soco(t, CORTE.insta, 1.04, 0.25)})`;
+  let n = 0; for (const d of DMS) if (t >= d.t0) n++;
+  const e = sai(fase(t, DMS[n - 1].t0, DMS[n - 1].t0 + 0.2));
+  DMS.forEach((d, k) => {
+    d.el.style.display = k < n ? "" : "none";
+    if (k >= n) return;
+    const idx = n - 1 - k;
+    if (k === n - 1) { d.el.style.top = "0px"; d.el.style.opacity = e; d.el.style.transform = `translateY(${-24 * (1 - e)}px)`; }
+    else { d.el.style.top = lerp((idx - 1) * H_DM, idx * H_DM, e) + "px"; d.el.style.opacity = 1; d.el.style.transform = "none"; }
+  });
+  SK.forEach((el, j) => (el.style.top = lerp((n - 1 + j) * H_DM, (n + j) * H_DM, e) + "px"));
+  const sofia = DMS[0].el;
+  sofia.style.background = t >= TOQUE_DM && t < TOQUE_DM + 0.25 ? "#f2f2f2" : "";
+  toque(t, TOQUE_DM, sofia);
+  const chat = $("#chat");
+  if (mostra(chat, t >= TOQUE_DM + 0.08)) {
+    chat.style.transform = `translateX(${(1 - ease(fase(t, TOQUE_DM + 0.08, CORTE.conversa))) * 860}px)`;
+    const env = $("#balEnv"), x = sai(fase(t, ENVIA, ENVIA + 0.22));
+    env.style.opacity = t >= ENVIA ? Math.min(1, x * 1.5) : 0;
+    env.style.transform = `scale(${lerp(0.86, 1, x)})`;
+    const vi = $("#visto"), xv = sai(fase(t, VISTO, VISTO + 0.25));
+    vi.style.opacity = xv; vi.style.transform = `translateY(${(1 - xv) * 12}px)`;
+    // nada: a conversa apaga, só a mensagem com o preço e o "Visto" ficam acesos
+    const pel = sai(fase(t, CORTE.nada, CORTE.nada + 0.1));
+    $("#pelicula").style.opacity = pel;
+    env.classList.toggle("aceso", pel > 0); vi.classList.toggle("aceso", pel > 0);
+  }
+}
+
+// ---------- o celular: o Catálogo, a página do kit e o WhatsApp ----------
+function desenharCelular(t) {
+  const cel = $("#cel");
+  if (!mostra(cel, t >= CORTE.ese && t < CORTE.fim)) return;
+  // ese: sobe acelerando com a subida da trilha e chega no drop
+  const y = t < CORTE.site ? lerp(1508, 0, Math.pow(fase(t, b(43), CORTE.site), 1.8)) : 0;
+  let ult = -1; for (const p of [CORTE.site, CORTE.kit, CORTE.zap]) if (t >= p) ult = p;
+  cel.style.transform = `translateY(${y}px) scale(${ult >= 0 ? soco(t, ult, 1.035, 0.25) : 1})`;
+  const pCat = mostra($("#pgCat"), t < CORTE.kit), pProd = mostra($("#pgProd"), t >= CORTE.kit && t < CORTE.zap), pZap = mostra($("#pgZap"), t >= CORTE.zap);
+  if (pCat) {
+    // cada produto dá um tranco num tempo; o kit é tocado no contratempo
+    PRODUTOS.forEach((p, k) => (p.el.style.transform = `scale(${soco(t, b(46 + k), 1.06, 0.25) * (k === 0 && t >= TOQUE_KIT ? 0.97 : 1)})`));
+    toque(t, TOQUE_KIT, PRODUTOS[0].el.querySelector(".prod-foto"));
+  }
+  if (pProd) {
+    ITENS.forEach((el, k) => { const t0 = b(51 + k), x = sai(fase(t, t0, t0 + 0.25)); el.style.opacity = x; el.style.transform = `translateX(${(1 - x) * 30}px)`; });
+    let o = 0, oo = 0;
+    for (const q of ONDAS) { const x = fase(t, q, q + 0.45); if (x > 0 && x < 1) { o = 1 - x; oo = x; } }
+    $("#onda").style.opacity = o; $("#onda").style.outlineOffset = (2 + oo * 14) + "px";
+    const btn = $("#ppBtn");
+    btn.style.transform = `scale(${soco(t, b(54), 1.05, 0.25) * (t >= TOQUE_BTN ? 0.965 : 1)})`;
+    btn.style.filter = t >= TOQUE_BTN ? "brightness(.92)" : "none";
+    toque(t, TOQUE_BTN, btn);
+  }
+  if (pZap) {
+    const enviado = t >= ENVIADO;
+    $("#wzDig").textContent = enviado ? "" : MSG;
+    $("#wzPh").style.display = enviado ? "" : "none";
+    $("#wzCur").style.visibility = !enviado && Math.floor((t - CORTE.zap) / 0.4) % 2 === 0 ? "visible" : "hidden";
+    $("#wzEnv").style.display = enviado ? "none" : ""; $("#wzMic").style.display = enviado ? "" : "none";
+    // a mensagem já escrita ganha uma marcação até o toque em enviar
+    const rc = $("#wzRealce");
+    rc.style.opacity = sai(fase(t, CORTE.zap + 0.15, CORTE.zap + 0.35)) * (1 - fase(t, TOQUE_ENV - 0.25, TOQUE_ENV - 0.1));
+    rc.style.transform = `scale(${soco(t, CORTE.zap + 0.15, 1.04, 0.25)})`;
+    toque(t, TOQUE_ENV, $("#wzBtn"));
+    const bal = $("#wzBal"), x = sai(fase(t, ENVIADO, ENVIADO + 0.22));
+    bal.style.display = enviado ? "" : "none";
+    bal.style.opacity = x; bal.style.transform = `translateY(${(1 - x) * 40}px) scale(${lerp(0.92, 1, x)})`;
+    $("#wzTiq").style.color = t >= LIDO ? "#53bdeb" : "#8696a0";
+  }
+}
+
+window.quadro = t => {
+  dedo = null;
+  palco.style.transform = "none"; // mede sem o tranco do quadro anterior
+  const ponte = t >= PONTE;
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || ponte);
+  topo.style.opacity = ponte ? sai(fase(t, PONTE + 0.05, PONTE + 0.3)) : 1;
+
+  // ---- 1. abre: o título ----
+  const ti = $("#titulo");
+  if (mostra(ti, t < CORTE.google || ponte)) {
+    if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); ti.style.opacity = x; ti.style.transform = `translateY(${(1 - x) * 30}px)`; }
+    else { const s = sai(fase(t, CORTE.google - 0.2, CORTE.google)); ti.style.opacity = 1 - s; ti.style.transform = `translateY(${-50 * s}px) scale(${soco(t, 0, 1.06, 0.28)})`; }
+  }
+
+  // ---- o post, o direct e o celular ----
+  desenharPost(t);
+  desenharDirect(t);
+  desenharCelular(t);
+
+  // ---- textos da faixa ----
+  faixa($("#tG"), t, CORTE.google, CORTE.insta);
+  faixa($("#tI"), t, CORTE.insta, CORTE.nada);
+  faixa($("#tV"), t, CORTE.volta, CORTE.meio);
+  faixa($("#tE"), t, CORTE.ese, CORTE.site);
+  for (const [sel, a, z] of [["#tS1", CORTE.site, CORTE.zap], ["#tS2", CORTE.zap, CORTE.fim]]) {
+    const el = $(sel);
+    if (mostra(el, t >= a && t < z)) { el.style.opacity = 1; el.style.transform = `scale(${soco(t, a, 1.07, 0.22)})`; }
+  }
+  const tF = $("#tF"), tF2 = $("#tF2");
+  if (mostra(tF, t >= b(68) && t < CORTE.cta)) {
+    const x = sai(fase(t, b(68), b(68) + 0.25));
+    tF.style.opacity = x; tF.style.transform = `translateY(${(1 - x) * 30}px)`;
+    tF2.style.opacity = t >= b(70) ? 1 : 0; tF2.style.transform = `scale(${soco(t, b(70), 1.12, 0.28)})`;
+  }
+
+  // ---- nada: "Viu o preço." / "E sumiu." ----
+  const nd1 = $("#nd1"), nd2 = $("#nd2");
+  if (mostra(nd1, t >= CORTE.nada && t < CORTE.volta)) nd1.style.transform = `scale(${soco(t, CORTE.nada, 1.08, 0.25)})`;
+  if (mostra(nd2, t >= b(27) && t < CORTE.volta)) { const x = sai(fase(t, b(27), b(27) + 0.3)); nd2.style.opacity = x; nd2.style.transform = `translateY(${(1 - x) * 26}px)`; }
+
+  // ---- meio: o coração ----
+  const tM = $("#tMeio");
+  if (mostra(tM, t >= CORTE.meio && t < CORTE.ese)) {
+    const tum = t < CORACAO ? soco(t, CORTE.meio, 1.06, 0.25) : t < CORACAO + 0.28 ? soco(t, CORACAO, 1.08, 0.24) : soco(t, CORACAO + 0.28, 1.03, 0.24);
+    tM.style.transform = `scale(${tum * lerp(1, 1.04, fase(t, CORTE.meio, CORTE.ese))})`;
+    tM.style.opacity = Math.min(sai(fase(t, CORTE.meio, CORTE.meio + 0.2)), 1 - fase(t, CORTE.ese - 0.2, CORTE.ese));
+  }
+
+  // ---- CTA e a volta ao começo ----
+  const noCta = t >= CORTE.cta, saiCta = fase(t, PONTE, PONTE + 0.16);
+  const cm = $("#ctaMarca"), bo = $("#botao"), l1 = $("#l1");
+  mostra(cm, noCta && saiCta < 1); mostra(bo, noCta && saiCta < 1); mostra(l1, noCta && saiCta < 1);
+  if (noCta && saiCta < 1) {
+    const e = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    cm.style.opacity = e * (1 - saiCta); cm.style.transform = `scale(${lerp(0.8, 1, e)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const q of BUMBOS) { const x = fase(t, q, q + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    bo.style.transform = `scale(${esc})`; bo.style.opacity = 1 - saiCta;
+    const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5));
+    l1.style.opacity = x * (1 - saiCta); l1.style.transform = `translateY(${(1 - x) * 28}px)`;
+  }
+
+  // ---- o dedo ----
+  const tq = $("#toque");
+  if (dedo && dedo.op > 0) {
+    tq.style.left = dedo.x + "px"; tq.style.top = dedo.y + "px";
+    tq.style.opacity = dedo.op; tq.style.transform = `scale(${dedo.aperto ? 0.84 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarões: o drop e as trocas de tela do site ----
+  let fl = 0;
+  const cl = (t0, d, a) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, a * (1 - x)); };
+  cl(CORTE.site, 0.08, 0.9); cl(CORTE.kit, 0.05, 0.6); cl(CORTE.zap, 0.05, 0.6);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  palco.style.transform = dx ? `translateX(${dx}px)` : "none";
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces",
+  "400 15px 'DM Sans'", "500 15px 'DM Sans'", "600 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
