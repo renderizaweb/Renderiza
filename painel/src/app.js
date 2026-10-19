@@ -16,6 +16,7 @@ import { salvar, criar, falhou, patchDeInteresse, patchDeNaoContatar } from "./a
 import { hojeLocal, indexar, retornoSugerido, ultimaInteracao, cicloVigente, contatoPelaEtapa } from "./ritmo.js";
 import { abrirRegistro, criarLinhaDoTempo } from "./interacoes-ui.js";
 import { criarTelaRitmo } from "./tela-ritmo.js";
+import { criarTelaIndicadores } from "./tela-indicadores.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
@@ -40,7 +41,7 @@ const ui = {
   // "Atualizado", "Interesse" e "Checklist" começam ocultas (voltam pelo menu Colunas); ficam nos detalhes da ótica.
   ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse", "checklist"]), conteudos: new Set() },
 };
-const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "conteudo"];
+const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "indicadores", "conteudo"];
 const VERSAO_COLUNAS = 3; // 2: entraram "Última interação" (visível) e "Interesse" (oculta); 3: "Checklist" oculta, "Ciclo" visível
 try {
   const p = JSON.parse(localStorage.getItem("renderiza:planilhao") || "{}");
@@ -1351,6 +1352,7 @@ const TITULOS = {
   tarefas: ["Tarefas", "O que fazer hoje, amanhã e nos próximos dias. Com cliente ou sem."],
   clientes: ["Clientes", "Todos os clientes, no funil ou fora dele. Clique para ver o histórico e as tarefas."],
   ritmo: ["Ritmo", "Prospecção e relacionamento: o que você fez, não o que vendeu."],
+  indicadores: ["Indicadores", "O funil de cada ciclo e de cada nicho, do primeiro contato à venda."],
   pipeline: ["Pipeline", "Seus leads, da primeira conversa ao fechamento. É só clicar e editar."],
   conteudo: ["Conteúdo", "Ideias e publicações da Renderiza. É só clicar e editar."],
 };
@@ -1380,6 +1382,7 @@ function render() {
   $("#tela-tarefas").hidden = ui.aba !== "tarefas";
   $("#tela-clientes").hidden = ui.aba !== "clientes";
   $("#tela-ritmo").hidden = ui.aba !== "ritmo";
+  $("#tela-indicadores").hidden = ui.aba !== "indicadores";
   $("#tela-pipeline").hidden = ui.aba !== "pipeline";
   $("#tela-conteudo").hidden = ui.aba !== "conteudo";
   if (ui.aba === "tarefas") {
@@ -1388,6 +1391,8 @@ function render() {
     telaClientes.render();
   } else if (ui.aba === "ritmo") {
     telaRitmo.render();
+  } else if (ui.aba === "indicadores") {
+    telaIndicadores.render();
   } else if (ui.aba === "pipeline") {
     renderBarraPipeline();
     $("#grade-leads").hidden = ui.visao !== "tabela";
@@ -1414,6 +1419,8 @@ const telaRitmo = criarTelaRitmo({
   // Da fila de retornos para o Pipeline já filtrado (sem mudar a ordenação escolhida).
   irParaPipeline: filtro => { ui.filtros = FILTRO_DO_RITMO[filtro] ? [{ ...FILTRO_DO_RITMO[filtro] }] : []; ui.visao = "tabela"; irPara("pipeline"); },
 });
+
+const telaIndicadores = criarTelaIndicadores({ host: $("#tela-indicadores"), abrirLead: id => abrirPainel("leads", id) });
 
 /* ---------- eventos ---------- */
 function irPara(aba) {
