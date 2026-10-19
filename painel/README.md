@@ -144,6 +144,19 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   ou sem data. Elas ficam como já contatadas e **não contam como novas**. O que o painel antigo guardou
   (ex.: "Enviado em 24/09") aparece só como pista.
 
+## Indicadores: o funil de cada ciclo e de cada nicho
+
+Só leitura, em `/painel#indicadores` (contas em `src/indicadores.js`, testes em `test/indicadores.test.mjs`).
+Filtra por nicho (o campo Segmento) e mostra: a leitura dos números (alertas que só aparecem quando os dados
+sustentam), contatados, quantos responderam, quantos mostraram interesse e vendas; o funil; um cartão por ciclo
+(a etiqueta C1, C2… do card; a lista de agosto fica em "Antes dos ciclos") e por nicho; os motivos do "não"; e as
+conversas quentes em aberto, com os dias desde a última mudança.
+
+O painel quase não guarda a resposta da ótica, então **respondeu** é inferido: resposta registrada, interesse
+marcado, passagem por Em negociação ou perda com motivo ("já tenho site", "sem interesse"). Perda "sem retorno",
+Sem resposta e Encerrado contam como **não respondeu**; em conversa sem sinal é **aguardando**. Registrar a resposta
+(Registrar interação) e marcar as cobranças da checklist deixa os números exatos.
+
 ## Interações, interesse e cadência (detalhes da ótica)
 
 - **Interações**: primeiro contato, retorno feito, resposta recebida e anotação, cada uma com data e
