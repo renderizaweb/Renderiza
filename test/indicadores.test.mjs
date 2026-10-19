@@ -37,7 +37,8 @@ test("situação de cada contato", () => {
   assert.equal(s(lead("A", { etapa: "finalizado", resultado: "encerrado" })), "silencio");
   assert.equal(s(lead("A", { etapa: "sem_resposta" })), "silencio");
   assert.equal(s(lead("A", { etapa: "finalizado", resultado: "encerrado", historico: [{ em: "2026-10-10", para: "em_negociacao" }] })), "esfriou");
-  assert.equal(s(lead("A", {}), [pc("A", "2026-10-09"), { id: "r", lead_id: "A", tipo: "resposta", ocorreu_em: "2026-10-10", precisao: "exata" }]), "interessado");
+  assert.equal(s(lead("A", {}), [pc("A", "2026-10-09"), { id: "r", lead_id: "A", tipo: "resposta", ocorreu_em: "2026-10-10", precisao: "exata" }]), "conversando");
+  assert.equal(s(lead("A", { interesse: "interessado" }), [pc("A", "2026-10-09"), { id: "r", lead_id: "A", tipo: "resposta", ocorreu_em: "2026-10-10", precisao: "exata" }]), "interessado");
 });
 
 test("dias até a resposta e cobranças", () => {

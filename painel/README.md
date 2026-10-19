@@ -154,7 +154,9 @@ conversas quentes em aberto, com os dias desde a última mudança.
 
 O painel quase não guarda a resposta da ótica, então **respondeu** é inferido: resposta registrada, interesse
 marcado, passagem por Em negociação ou perda com motivo ("já tenho site", "sem interesse"). Perda "sem retorno",
-Sem resposta e Encerrado contam como **não respondeu**; em conversa sem sinal é **aguardando**. Registrar a resposta
+Sem resposta e Encerrado contam como **não respondeu**; em conversa sem sinal é **aguardando**. Responder não é
+interesse: **mostrou interesse** é quem passou por Em negociação ou tem o interesse marcado, e quem só respondeu
+fica em **respondeu, a avaliar** até alguém marcar o interesse ou o não. Registrar a resposta
 (Registrar interação) e marcar as cobranças da checklist deixa os números exatos.
 
 ## Interações, interesse e cadência (detalhes da ótica)
