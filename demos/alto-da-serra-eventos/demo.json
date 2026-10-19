@@ -1,0 +1,398 @@
+{
+ "pasta": "alto-da-serra-eventos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/alto-da-serra-eventos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/alto-da-serra-eventos.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/alto-da-serra-eventos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511930550353",
+ "fone_link": "+5511930550353",
+ "google": {
+  "coords": "-23.8143768,-46.4825286",
+  "fid": "0x94ce15ed3e09c701:0xbbbea09d4f8090f1",
+  "gid": "/g/11q22j9jp2"
+ },
+ "endereco_maps": "R. Antônio Vertamatti, 77 - Vila Jurubatuba, São Bernardo do Campo - SP, 09834-203",
+ "google_nota": "4,9",
+ "google_total": "110",
+ "verificado": "2026-10-15",
+ "instagram": "altodaserraeventoss",
+ "marca": "Alto da Serra Eventos",
+ "marca_logo": "Alto da Serra",
+ "marca_completa": "Alto da Serra Casa e Eventos",
+ "logo_sub": "Riacho Grande · SBC",
+ "titulo": "Alto da Serra Eventos | Espaço para festas no Riacho Grande, São Bernardo do Campo",
+ "descricao": "Alto da Serra Eventos, na R. Antônio Vertamatti, 77, no Riacho Grande, em São Bernardo do Campo (SP): piscina com cascata e hidro, salão envidraçado no meio da mata, gramado para cerimônia e jardim com orquídeas, para casamentos, 15 anos e chás. Nota 4,9 no Google.",
+ "comentario": "Demo Alto da Serra Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@altodaserraeventoss, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#1b3326",
+  "acento": "#e8a87c"
+ },
+ "topline": "R. Antônio Vertamatti, 77 · Riacho Grande, São Bernardo do Campo",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Fotos"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas no Riacho Grande, São Bernardo do Campo",
+  "h1": "O cenário perfeito <em>no meio da mata.</em>",
+  "intro": "Casamentos, 15 anos e chás com piscina de cascata, salão envidraçado e gramado para a cerimônia, perto da Represa Billings.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Cerimônia no gramado com arco de coração em flores"
+ },
+ "endereco": [
+  "R. Antônio Vertamatti, 77",
+  "Riacho Grande · São Bernardo do Campo"
+ ],
+ "dias_curto": "seg a sex",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Chá revelação",
+  "Chá de bebê",
+  "Aniversários",
+  "Piscina com cascata",
+  "Cerimônia no gramado",
+  "Riacho Grande"
+ ],
+ "sobre": {
+  "eyebrow": "O Alto da Serra",
+  "h2": "Natureza, flores <em>e espaço de sobra.</em>",
+  "p": [
+   "No Riacho Grande, em São Bernardo, perto da Represa Billings, o Alto da Serra tem piscina com cascata e hidro, salão envidraçado com vista para o verde, gramado amplo para a cerimônia e um jardim cheio de orquídeas e estrelícias.",
+   "Nas avaliações, quem fez a festa fala da equipe que acolhe desde a visita, do cuidado com cada detalhe e do buffet parceiro indicado pelo espaço."
+  ],
+  "stats": [
+   [
+    "110",
+    "avaliações no Google"
+   ],
+   [
+    "9,5 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 18
+  },
+  "alt": "Piscina com cascata de pedra e hidro, entre as palmeiras",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g04.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal de branco de mãos dadas no chá revelação",
+  "pol_cap": "Chá revelação"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Piscina, salão <em>e muito verde.</em>",
+   "p": "A piscina de dia e à noite, o salão envidraçado e o gramado. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Alto da Serra",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g00.jpg"
+     },
+     "alt": "Piscina iluminada à noite, com a cascata ao fundo"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Piscina com hidro e palmeiras"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Salão envidraçado com mesas de madeira"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Gramado amplo com palmeiras e céu azul"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Varanda coberta com vista para a piscina"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Palmeiras e mata em volta do espaço"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Redes na varanda, ao lado da piscina"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Casa com telhado vermelho e jardim"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, chás e festas de quem já comemorou no Alto da Serra.",
+   "rotulo": "Festas que aconteceram no Alto da Serra",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g10.jpg",
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Noivos sorrindo no gramado",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g03.jpg"
+     },
+     "alt": "Mesa do buffet sob o teto de folhagens",
+     "cap": "Buffet"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g04.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal de branco de mãos dadas",
+     "cap": "Chá revelação"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g01.jpg"
+     },
+     "alt": "Cerimônia com arco de coração em flores",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g05.jpg",
+      "c": [
+       0.6,
+       0.4
+      ]
+     },
+     "alt": "Mãe sorrindo ao lado da decoração com balões",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g11.jpg"
+     },
+     "alt": "Noiva vista de cima, cercada pelos convidados",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Salão decorado com bandeirinhas",
+     "cap": "Arraiá"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g09.jpg"
+     },
+     "alt": "Hidro iluminada à noite entre as flores",
+     "cap": "À noite"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio Alto da Serra mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "piscina",
+    "Piscina com cascata e hidro"
+   ],
+   [
+    "salao",
+    "Salão envidraçado"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia no gramado"
+   ],
+   [
+    "jardim",
+    "Jardim com orquídeas"
+   ],
+   [
+    "estrela",
+    "Mesa de bilhar e redes"
+   ],
+   [
+    "cozinha",
+    "Buffet parceiro indicado"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço no Riacho Grande",
+   "Feche o buffet e os detalhes com a equipe",
+   "No dia, a equipe recebe você e os convidados"
+  ],
+  "botao": "Consultar uma data",
+  "formato": "paisagem",
+  "foto": {
+   "id": 15
+  },
+  "alt": "Piscina com hidro e a mata ao fundo"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Mariana Alves",
+   "tag": "Casamento",
+   "trecho": "Lugar maravilhoso, funcionários super atenciosos que te acolhem a partir do momento em que chega, tudo milimetricamente detalhado, meu casamento foi perfeito, espaço lindo❤️"
+  },
+  {
+   "nome": "Diana Annunziata",
+   "tag": "A visita",
+   "trecho": "Foi tudo perfeito. Desde a visita para conhecer o espaço, amor a primeira vista. Espaço cuidado com carinho e aconchegante. Foram muitos os elogios."
+  },
+  {
+   "nome": "Thayná Lima Braga",
+   "tag": "Chá revelação",
+   "trecho": "O lugar é belíssimo, ótima estrutura, o serviço de buffet parceiro simplesmente maravilhoso (comida realmente MUITO boa), todos os convidados elogiaram a nossa festa num geral."
+  },
+  {
+   "nome": "Marcia Farias Pereira",
+   "tag": "15 anos",
+   "trecho": "Celebramos a festa de 15 anos da nossa filha,  neste espaço maravilhoso e a experiência foi incrível! O lugar é lindo, e a equipe foi impecável"
+  },
+  {
+   "nome": "Neide Leite",
+   "tag": "50 anos",
+   "trecho": "O lugar é deslumbrante, com uma beleza natural que serviu de cenário perfeito"
+  },
+  {
+   "nome": "Lucila Gondelman",
+   "tag": "Chá de bebê"
+  }
+ ],
+ "insta": {
+  "seguidores": "9,5 mil seguidores",
+  "p": "O espaço, as flores e as festas no meio da mata.",
+  "foto": {
+   "id": 22
+  },
+  "alt": "Piscina iluminada sob a lua cheia",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Alto da Serra.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Chá revelação",
+   "Chá de bebê",
+   "Aniversário",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Alto da Serra e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Riacho Grande.</em>",
+  "endereco": [
+   "R. Antônio Vertamatti, 77 · Riacho Grande",
+   "São Bernardo do Campo, SP · CEP 09834-203"
+  ],
+  "telefone": "(11) 93055-0353",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O cenário perfeito no meio da mata.",
+ "mensagem": "Olá! Vim pelo site do Alto da Serra e queria um orçamento.",
+ "google_nome": "Alto da Serra Eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 93055-0353 é o WhatsApp do link da bio; o Google mostra outro celular, o (11) 93055-8493",
+  "site": "não tem (o espacoaltodaserra.com.br é de outro lugar, em MG). Talvez tenha página antiga no casamentos.com.br.",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Espaço no Riacho Grande (SBC), perto da Billings: piscina com cascata e hidro, salão envidraçado, gramado e jardim de orquídeas; casamentos, 15 anos, chás e aniversários.",
+   "Dona: na triagem, uma avaliação citava \"a dona Cleuzinha\"; nas 10 lidas agora ninguém é citado pelo nome."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a cerimônia no gramado, o espaço (natureza e flores), carrossel do espaço (8, paisagem, com 1 do Google), festas reais (8, com 7 do Google), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde da mata e salmão das flores. Fonte Lora."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva: quase só espaço e flores, poucas festas) e Perfil da Empresa no Google (casamentos, chás, buffet, piscina à noite).",
+   "Ficaram de fora: as crianças na piscina, a mesa de bilhar com crianças e as fotos de flores em close."
+  ],
+  "conferir": [
+   "WhatsApp: a demo usa o da bio (93055-0353); o Google e o painel têm o 93055-8493.",
+   "O buffet é parceiro, indicado pelo espaço (avaliações): a demo diz isso.",
+   "Horário do Google: segunda a sexta (atendimento; fim de semana fechado).",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

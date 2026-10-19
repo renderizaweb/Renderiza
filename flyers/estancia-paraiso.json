@@ -1,0 +1,29 @@
+{
+ "marca": "Estância Paraíso",
+ "local": "Itaquaquecetuba · SP",
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#141a22",
+  "fundo2": "#0c1015",
+  "acento": "#d4a24c",
+  "tinta_acento": "#0c1015",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7de6548d0f03_0x8ecef60984052f/g05.jpg",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "102"
+ },
+ "titulo": "Piscina, cascata<br><em>e a sua festa.</em>",
+ "texto": "Piscina adulto e infantil com LED, cascata, hidro e área gourmet coberta, em Itaquaquecetuba.",
+ "whatsapp": "(11) 98348-5665",
+ "cta": "Consulte sua data",
+ "endereco": "R. Vinhais, 21 · Itaquaquecetuba",
+ "instagram": "@estanciaparaisofestaseeventos"
+}

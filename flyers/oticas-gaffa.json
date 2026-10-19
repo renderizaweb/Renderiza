@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Gaffa",
+ "local": "Bangú · Santo André",
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0b1840",
+  "fundo2": "#070f28",
+  "acento": "#e3ad3b",
+  "tinta_acento": "#070f28",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticasgaffa/Instagram_files/513607300_9772761629518468_3067489932229569847_n.jpg",
+  "pos": "50% 30%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "63"
+ },
+ "titulo": "Precisão diante <em>dos seus olhos.</em>",
+ "texto": "Do primeiro óculos ao multifocal, com quem explica cada detalhe.",
+ "whatsapp": "(11) 2379-5276",
+ "endereco": "Rua Oratório, 684 · Santo André",
+ "instagram": "@oticasgaffa"
+}

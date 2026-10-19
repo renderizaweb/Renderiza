@@ -1,0 +1,401 @@
+{
+ "pasta": "chacara-da-villa",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/chacara-da-villa/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/chacara-da-villa.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/chacara-da-villa/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511996417949",
+ "fone_link": "+5511996417949",
+ "google": {
+  "coords": "-23.771305,-46.5477638",
+  "fid": "0x94ce41ad1d6d72b7:0x172e163fb428b5ba",
+  "gid": "/g/11fjy3ncrs"
+ },
+ "endereco_maps": "Estr. Martim Afonso de Souza, 1825 - Vila Balnearia, São Bernardo do Campo - SP, 09822-250",
+ "google_nota": "4,8",
+ "google_total": "175",
+ "verificado": "2026-10-14",
+ "instagram": "chacara_da_villa_",
+ "marca": "Chácara da Villa",
+ "marca_logo": "Chácara da Villa",
+ "marca_completa": "Chácara da Villa Espaço & Eventos",
+ "logo_sub": "São Bernardo do Campo · SP",
+ "titulo": "Chácara da Villa | Espaço para eventos em São Bernardo do Campo",
+ "descricao": "Chácara da Villa, na Estr. Martim Afonso de Souza, 1825, na Vila Balneária, em São Bernardo do Campo (SP): 7.000 m² de verde, piscinas, campos de futebol e vôlei e salão coberto para casamentos, aniversários, chás e confraternizações. Nota 4,8 no Google.",
+ "comentario": "Demo Chácara da Villa: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da chácara (@chacara_da_villa_, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#24311f",
+  "acento": "#d9b26f"
+ },
+ "topline": "Estr. Martim Afonso de Souza, 1825 · Vila Balneária, São Bernardo do Campo",
+ "nav": [
+  [
+   "#sobre",
+   "A chácara"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para eventos em São Bernardo do Campo",
+  "h1": "Sua festa <em>no meio do verde.</em>",
+  "intro": "7.000 m² de gramado e árvores, piscinas, campos de futebol e vôlei e salão coberto. Casamentos, aniversários, chás e confraternizações.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 33,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Noivos de mãos dadas na escada diante do salão da chácara"
+ },
+ "endereco": [
+  "Estr. Martim Afonso de Souza, 1825",
+  "São Bernardo do Campo · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "Aniversários",
+  "Chá revelação",
+  "Confraternizações",
+  "7.000 m²",
+  "Piscinas",
+  "Futebol e vôlei",
+  "São Bernardo do Campo"
+ ],
+ "sobre": {
+  "eyebrow": "A Chácara da Villa",
+  "h2": "Espaço de sobra <em>para celebrar.</em>",
+  "p": [
+   "Na Vila Balneária, em São Bernardo do Campo, a Chácara da Villa tem 7.000 m² de gramado com muitas árvores, piscinas adulto e infantil, campos de futebol e vôlei e um salão coberto, que segura a festa até em dia de chuva.",
+   "Quem cuida de tudo é a Ana Paula, dona da chácara. Nas avaliações, quem fez a festa conta da atenção dela pelo WhatsApp, das visitas antes do grande dia e do sr. José, o caseiro."
+  ],
+  "stats": [
+   [
+    "7.000 m²",
+    "de área verde"
+   ],
+   [
+    "175",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 18
+  },
+  "alt": "Gramado com árvores e a piscina da chácara",
+  "pol": {
+   "id": 5,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Casal sorrindo com o bebê diante da mesa decorada",
+  "pol_cap": "Festa de 1 ano"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Gramado, piscinas <em>e o salão.</em>",
+   "p": "O salão coberto, o gramado, as piscinas e os campos. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Chácara da Villa",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce41ad1d6d72b7_0x172e163fb428b5ba/g00.jpg"
+     },
+     "alt": "Escada de tijolos no jardim até o salão coberto"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Piscina cercada de árvores e gramado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce41ad1d6d72b7_0x172e163fb428b5ba/g06.jpg"
+     },
+     "alt": "Salão coberto montado com mesas redondas e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Vista do salão para o gramado e o campo de vôlei"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Piscina e gramado com árvores floridas"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Gramado amplo com palmeiras e céu azul"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce41ad1d6d72b7_0x172e163fb428b5ba/g01.jpg"
+     },
+     "alt": "Piscina das crianças à sombra das árvores"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Árvores e piscina no gramado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, chás, aniversários e confraternizações de quem já comemorou na chácara.",
+   "rotulo": "Festas que aconteceram na Chácara da Villa",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivo carregando a noiva sob o arco de flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 5,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Casal sorrindo com o bebê diante da mesa decorada",
+     "cap": "Festa de 1 ano"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Mesa de chá de bebê montada no gramado",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Mesa de doces e bolo de casamento com flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce41ad1d6d72b7_0x172e163fb428b5ba/g08.jpg"
+     },
+     "alt": "Altar de madeira com flores montado no salão",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Mesa de aniversário com balões coloridos no salão",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Decoração de chá revelação com ursinhos e balões",
+     "cap": "Chá revelação"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Mesa de festa junina com arco de bandeirinhas",
+     "cap": "Arraiá"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a chácara <em>oferece.</em>",
+  "p": "O que a Chácara da Villa mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "jardim",
+    "7.000 m² de gramado e árvores"
+   ],
+   [
+    "piscina",
+    "Piscina adulto e infantil"
+   ],
+   [
+    "campo",
+    "Campo de futebol"
+   ],
+   [
+    "campo",
+    "Campo de vôlei"
+   ],
+   [
+    "churrasqueira",
+    "Cozinha com churrasqueira"
+   ],
+   [
+    "coberto",
+    "Salão coberto"
+   ],
+   [
+    "estrela",
+    "Vestiários com chuveiros"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia no gramado ou no salão"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer a chácara na Vila Balneária",
+   "Feche os detalhes com a Ana Paula",
+   "No dia, a chácara está pronta para receber"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce41ad1d6d72b7_0x172e163fb428b5ba/g11.jpg"
+  },
+  "alt": "Salão coberto da chácara visto do gramado"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Evylin Lopes",
+   "tag": "Casamento",
+   "trecho": "Realizei meu casamento na chácara e, como a previsão do tempo indicava a passagem de um ciclone, optamos por fazer a cerimônia e a festa dentro do salão. Mesmo assim, o espaço comportou tudo perfeitamente."
+  },
+  {
+   "nome": "Cledson Braga",
+   "tag": "1 ano",
+   "trecho": "A chácara é linda, muito bem cuidada, com uma área verde impecável e um ambiente extremamente agradável. Nossos convidados elogiaram muito"
+  },
+  {
+   "nome": "Geovanna Bueno",
+   "tag": "Aniversário",
+   "trecho": "O espaço é amplo, bem cuidado e com áreas verdes perfeitas para fotos — o pôr do sol rendeu cliques lindos."
+  },
+  {
+   "nome": "Cecilia Zubieta",
+   "tag": "15 anos",
+   "trecho": "Realizei a festa de 15anos de minha filha e desde a primeira visita o local me conquistou, com acesso fácil, área gourmet perfeita para um evento."
+  },
+  {
+   "nome": "Alysson Lopes",
+   "tag": "Confraternização",
+   "trecho": "Fizemos nossa confraternização de fim de ano lá, a estrutura é impecável, a chácara é linda, todos adoraram. A proprietária Ana sempre muito simpática"
+  },
+  {
+   "nome": "Monique Silva",
+   "tag": "Empresa"
+  }
+ ],
+ "insta": {
+  "seguidores": "2,5 mil seguidores",
+  "p": "As festas, o gramado e até os saguis que aparecem por lá.",
+  "foto": {
+   "id": 14
+  },
+  "alt": "Sagui sobre o telhado, entre as folhas",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Chácara da Villa.",
+  "tipos": [
+   "Casamento",
+   "Aniversário",
+   "15 anos",
+   "Chá revelação",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Chácara da Villa e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em São Bernardo.</em>",
+  "endereco": [
+   "Estr. Martim Afonso de Souza, 1825 · Vila Balneária",
+   "São Bernardo do Campo, SP · CEP 09822-250"
+  ],
+  "telefone": "(11) 99641-7949",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua festa no meio do verde.",
+ "mensagem": "Olá! Vim pelo site da Chácara da Villa e queria um orçamento.",
+ "google_nome": "Chácara da Villa",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99641-7949 é o telefone do Perfil da Empresa no Google e o das legendas (\"Reserve agora a sua data 11 996417949\")",
+  "site": "não tem (não achei site próprio nem página em plataforma de reservas)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Chácara de 7.000 m² com piscinas, campos e salão coberto em São Bernardo do Campo; casamentos, aniversários, chás e confraternizações de empresa.",
+   "Dona: Ana Paula (\"A proprietária Ana\", \"Ana Paula proprietária\"); o caseiro é o sr. José."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos diante do salão, a chácara (7.000 m², Ana Paula), carrossel do espaço (8, com 3 do Google), festas reais (8), estrutura (8 itens das legendas), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde da mata e dourado. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (salão montado, piscina infantil, altar).",
+   "Ficaram de fora: a debutante em close, as artes com texto, as confraternizações com marca de empresa e as fotos tremidas dos stories."
+  ],
+  "conferir": [
+   "Estrutura: 7.000 m², gramado com árvores, campos de futebol e vôlei, piscinas adulto e infantil, cozinha com churrasqueira e vestiários com chuveiros vêm das legendas do próprio @.",
+   "Os fornecedores (buffet, decoração, fotos) são outras empresas, citadas nas legendas; a demo fala só do espaço.",
+   "Capacidade: não confirmei (a demo não cita).",
+   "Horário do Google: todos os dias, 9h às 18h."
+  ]
+ }
+}

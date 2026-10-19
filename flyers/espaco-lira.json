@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Lira",
+ "local": "Campo Limpo · São Paulo",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a2233",
+  "fundo2": "#1a151f",
+  "acento": "#d9a877",
+  "tinta_acento": "#1a151f",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/espaçolira/Instagram_files/474909644_18056504990486959_6528839766075523128_n.webp",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "259"
+ },
+ "titulo": "Decoração única<br><em>para a sua festa.</em>",
+ "texto": "Salão, decoração sob medida e buffet para casamentos, 15 anos, aniversários e chás.",
+ "whatsapp": "(11) 97954-6479",
+ "cta": "Consulte sua data",
+ "endereco": "R. Nicolau de Ávila, 77 · Campo Limpo",
+ "instagram": "@espaco.lira"
+}

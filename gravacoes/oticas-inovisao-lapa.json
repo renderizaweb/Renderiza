@@ -1,0 +1,116 @@
+{
+ "demo": "oticas-inovisao-lapa",
+ "formato": "reels",
+ "marca": "Óticas Inovisão Lapa",
+ "local": "Lapa · São Paulo",
+ "cores": {
+  "fundo": "#141a33",
+  "fundo2": "#0c1020",
+  "acento": "#f5c400",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas Inovisão",
+   "Lapa"
+  ],
+  "frase": "Óculos novos, sem pressão.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Inovisão.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece uma ótica *que explica sem pressa.*",
+   "sub": "Na Lapa, com várias opções e nenhuma pressão para levar o mais caro."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê as armações *direto no rosto.*",
+   "sub": "E já chega na loja sabendo quais quer provar."
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "legenda": "E sabe que pode voltar *para ajustes e consertos.*",
+   "sub": "Do parafuso solto à armação amassada, a equipe dá um jeito."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "São 489 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

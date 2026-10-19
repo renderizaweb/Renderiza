@@ -1,0 +1,385 @@
+{
+ "pasta": "espaco-reserva-da-ilha",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-reserva-da-ilha/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-reserva-da-ilha.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/spacoreservadailha/Instagram_files/728959432_18137093686567850_1156969825019060068_n.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511975157771",
+ "fone_link": "+5511975157771",
+ "google": {
+  "coords": "-23.8192214,-46.8072776",
+  "fid": "0x94ce4b8cf8296459:0xc4f7313a242929c1",
+  "gid": "/g/11ypjt97yr"
+ },
+ "endereco_maps": "Av. Ernesto João Marcelino, 1261 - Fazenda da Ilha, Embu-Guaçu - SP, 06900-000",
+ "google_nota": "5,0",
+ "google_total": "45",
+ "verificado": "2026-10-16",
+ "instagram": "espacoreservadailha",
+ "estilo": "gala",
+ "marca": "Espaço Reserva da Ilha",
+ "marca_logo": "Reserva da Ilha",
+ "marca_completa": "Espaço Reserva da Ilha · Casamentos e Eventos",
+ "logo_sub": "Embu-Guaçu · SP",
+ "titulo": "Espaço Reserva da Ilha | Casamentos e eventos em Embu-Guaçu",
+ "descricao": "Espaço Reserva da Ilha, na Av. Ernesto João Marcelino, 1261, na Fazenda da Ilha, em Embu-Guaçu (SP): salão para até 400 convidados, cerimônia ao ar livre, lounge e estacionamento para 100 carros. Casamentos, debutantes e eventos de empresa. Nota 5,0 no Google.",
+ "comentario": "Demo Espaço Reserva da Ilha: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espacoreservadailha, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#13282a",
+  "acento": "#c8a45c"
+ },
+ "topline": "Av. Ernesto João Marcelino, 1261 · Fazenda da Ilha, Embu-Guaçu",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Eventos"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e eventos em Embu-Guaçu",
+  "h1": "O sim ao ar livre, <em>a festa no salão.</em>",
+  "intro": "Casamentos, debutantes e eventos de empresa com cerimônia ao ar livre, salão para até 400 convidados e estacionamento para 100 carros.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "id": 20,
+   "c": [
+    0.5,
+    0.6
+   ]
+  },
+  "alt": "Área plana ao ar livre com bancos de madeira para a cerimônia, entre as árvores"
+ },
+ "endereco": [
+  "Av. Ernesto João Marcelino, 1261",
+  "Embu-Guaçu · SP"
+ ],
+ "dias_curto": "seg. a sáb.",
+ "marquee": [
+  "Casamentos",
+  "Debutantes",
+  "Cerimônia ao ar livre",
+  "Eventos de empresa",
+  "Até 400 convidados",
+  "Embu-Guaçu"
+ ],
+ "sobre": {
+  "eyebrow": "O Reserva",
+  "h2": "Natureza por fora, <em>salão amplo por dentro.</em>",
+  "p": [
+   "Na Fazenda da Ilha, em Embu-Guaçu, o Espaço Reserva da Ilha tem área plana ao ar livre para a cerimônia, um salão amplo e versátil para até 400 convidados e lounges para os brindes no meio da festa.",
+   "A estrutura foi pensada para tudo ficar integrado, facilitando a circulação dos convidados e dos fornecedores. E o estacionamento recebe até 100 carros."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "no Google, em 45 avaliações"
+   ],
+   [
+    "400",
+    "convidados no salão"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce4b8cf8296459_0xc4f7313a242929c1/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada de madeira do Espaço Reserva da Ilha com o logo dourado",
+  "pol": {
+   "id": 37,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Noivos brindando ao lado da mesa de doces",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Ao ar livre <em>e no salão.</em>",
+   "p": "A área da cerimônia, o salão montado, o lounge e a chegada. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes do Espaço Reserva da Ilha",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce4b8cf8296459_0xc4f7313a242929c1/g03.jpg"
+     },
+     "alt": "Salão coberto montado para a cerimônia, com cadeiras brancas, tapete verde e lustre"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce4b8cf8296459_0xc4f7313a242929c1/g05.jpg"
+     },
+     "alt": "Salão coberto com fileiras de cadeiras brancas e cortinas"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Lounge com sofás brancos diante da parede verde com o logo"
+    },
+    {
+     "foto": {
+      "id": 19,
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Noivos na escada de madeira ao ar livre"
+    },
+    {
+     "foto": {
+      "id": 30,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Bartender preparando drinks no bar"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Eventos reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, festas de empresa, aniversários e o Workshop Noivos & Debutantes.",
+   "rotulo": "Eventos que aconteceram no Espaço Reserva da Ilha",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Festa de empresa à noite, com convidados de branco",
+     "cap": "White Party"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Família reunida no primeiro aniversário da filha",
+     "cap": "1 ano"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal de noivos na estação de brigadeiro",
+     "cap": "Workshop"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Doces servidos à beira da piscina",
+     "cap": "Workshop"
+    },
+    {
+     "foto": {
+      "id": 31,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Casal diante da parede verde com o logo do espaço",
+     "cap": "Festa de empresa"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Robô de LED animando a pista",
+     "cap": "A pista"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "salao",
+    "Salão amplo e versátil"
+   ],
+   [
+    "pessoas",
+    "Até 400 convidados"
+   ],
+   [
+    "coberto",
+    "Lounges para os convidados"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento para 100 carros"
+   ],
+   [
+    "estrela",
+    "Fornecedores parceiros"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de evento pelo WhatsApp",
+   "Agende uma visita ao espaço em Embu-Guaçu",
+   "Conheça o salão, a área da cerimônia e os fornecedores parceiros",
+   "No dia, a equipe cuida da recepção dos convidados"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 34,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada do espaço com o estacionamento à frente"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem esteve <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Alexandre Santos",
+   "tag": "Casamentos",
+   "trecho": "A natureza ao redor cria uma atmosfera mágica, e a estrutura é impecável — desde os ambientes amplos e bem cuidados até os detalhes que fazem toda a diferença."
+  },
+  {
+   "nome": "anderson Figueiredo",
+   "tag": "Aniversário",
+   "trecho": "Estive em um evento de aniversário, e foi muito satisfatório, o local muito bem planejado, acomodações impecáveis, gostei e recomendo!!"
+  },
+  {
+   "nome": "Mykaelly Beatris",
+   "tag": "Recepção",
+   "trecho": "Muito boa, recepção excelente, ótimo espaço, não tenho o que falar sobre eles, perfeição em espaço e prestadores de serviços"
+  },
+  {
+   "nome": "Marisa Romão",
+   "tag": "Atendimento",
+   "trecho": "Ótimo local para Eventos. Local aconchegante. Profissionalismo incrível."
+  },
+  {
+   "nome": "kyko nepomuceno",
+   "tag": "Estacionamento",
+   "trecho": "Ambiente excelente, ótimo estacionamento, excelente local para eventos"
+  },
+  {
+   "nome": "Cristiano Junior",
+   "tag": "O espaço",
+   "trecho": "Ótimo espaço, tudo é muito harmonioso."
+  }
+ ],
+ "insta": {
+  "seguidores": "3,8 mil seguidores",
+  "p": "Casamentos, debutantes e os bastidores do espaço.",
+  "foto": {
+   "id": 29,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos com algodão-doce no evento",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>do seu evento?</em>",
+  "p": "Escolha o dia, o tipo de evento e quantos convidados. A mensagem chega pronta no WhatsApp do Reserva da Ilha.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Evento de empresa",
+   "Confraternização",
+   "Aniversário",
+   "Outro evento"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Reserva da Ilha e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Embu-Guaçu.</em>",
+  "endereco": [
+   "Av. Ernesto João Marcelino, 1261 · Fazenda da Ilha",
+   "Embu-Guaçu, SP"
+  ],
+  "telefone": "(11) 97515-7771",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O sim ao ar livre, a festa no salão.",
+ "mensagem": "Olá! Vim pelo site do Espaço Reserva da Ilha e queria um orçamento.",
+ "google_nome": "Espaço Reserva da Ilha",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97515-7771 é o celular do Perfil da Empresa no Google (a bio usa um linktr.ee, sem o número)",
+  "site": "não tem (Google sem site; tem página no casamentos.com.br com poucas opiniões)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). \"Casamentos · Debutantes · Corporativos · Cerimônia ao ar livre\" (bio), em Embu-Guaçu. Salão para até 400 convidados e estacionamento para 100 carros (legenda). Nota 5,0 com 45 avaliações.",
+   "Dono: não confirmei. Uma avaliação (de um fornecedor) diz \"parabéns Itália e sua equipe\".",
+   "É um espaço maior que a média do lote (400 convidados) e faz workshop com fornecedores: pode ter equipe comercial. Vale ver quem responde."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a área da cerimônia ao ar livre, o espaço, ambientes (5 fotos, 2 do Google), eventos reais (6), estrutura (6 itens confirmados), como reservar, avaliações (6, nota 5,0), consultar uma data e mapa.",
+   "Logo: o arquivo do logo do espaço que estava no Drive. Cores: azul-petróleo escuro e dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (fachada, salão montado).",
+   "Ficaram de fora: as artes do workshop com texto (\"Especialista em…\"), porque as fotos podem ser do portfólio dos fornecedores e não do espaço, a arte de Natal e as panorâmicas 360 do Google."
+  ],
+  "conferir": [
+   "Poucas fotos de festas reais no Instagram (muitas são do workshop): vale pedir fotos de casamentos.",
+   "Algumas fotos são frames de vídeo, com menos nitidez.",
+   "Horário do Google: de segunda a sexta, das 9h às 19h; sábado, das 8h às 14h; fechado no domingo (atendimento)."
+  ]
+ }
+}

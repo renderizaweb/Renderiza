@@ -1,0 +1,383 @@
+{
+ "pasta": "chacara-ouro-verde",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/chacara-ouro-verde/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/chacara-ouro-verde.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/chacara-ouro-verde/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511969037697",
+ "fone_link": "+5511969037697",
+ "google": {
+  "coords": "-23.8755575,-47.090501",
+  "fid": "0x94cfbc49a67631f5:0xb46f88c04831b859",
+  "gid": "/g/11hd9chz0h"
+ },
+ "endereco_maps": "Estr. Martha Maria de Jesus - soares, Juquitiba - SP, 06950-000",
+ "google_nota": "4,8",
+ "google_total": "231",
+ "verificado": "2026-10-16",
+ "instagram": "ouroverdejuquitiba",
+ "marca": "Chácara Ouro Verde",
+ "marca_logo": "Chácara Ouro Verde",
+ "marca_completa": "Chácara Ouro Verde · Hospedagem e Eventos",
+ "logo_sub": "Juquitiba · SP",
+ "titulo": "Chácara Ouro Verde | Hospedagem e eventos em Juquitiba",
+ "descricao": "Chácara Ouro Verde, na Estr. Martha Maria de Jesus, em Juquitiba (SP): hospedagem e eventos na Mata Atlântica, com salão de festas, piscinas adulto e infantil, lago com barcos, salão de jogos e churrasqueira. Casamentos, aniversários, confraternizações e retiros.",
+ "comentario": "Demo Chácara Ouro Verde: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da chácara (@ouroverdejuquitiba, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações e endereço do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1f3a2a",
+  "acento": "#d4a843"
+ },
+ "topline": "Estr. Martha Maria de Jesus · Soares, Juquitiba",
+ "nav": [
+  [
+   "#sobre",
+   "A chácara"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Lazer"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Hospedagem e eventos em Juquitiba",
+  "h1": "Festa e hospedagem <em>na Mata Atlântica.</em>",
+  "intro": "Casamentos, aniversários, confraternizações e retiros com quartos para o grupo, piscinas, lago com barcos e salão de festas.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfbc49a67631f5_0xb46f88c04831b859/g00.jpg",
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Piscina com guarda-sóis e espreguiçadeiras, com a mata ao fundo"
+ },
+ "endereco": [
+  "Estr. Martha Maria de Jesus",
+  "Juquitiba · SP"
+ ],
+ "dias_curto": "",
+ "marquee": [
+  "Casamentos",
+  "Aniversários",
+  "Confraternizações",
+  "Retiros",
+  "Hospedagem",
+  "Piscinas",
+  "Lago com barcos",
+  "Juquitiba"
+ ],
+ "sobre": {
+  "eyebrow": "A chácara",
+  "h2": "Para festejar <em>e ficar o fim de semana.</em>",
+  "p": [
+   "Em Juquitiba, perto de São Paulo, a Chácara Ouro Verde junta hospedagem e eventos em meio à Mata Atlântica: salão de festas, salão de churrasqueira integrado às piscinas adulto e infantil, lago privativo com barcos, salão de jogos, horta e trilha.",
+   "Quem recebe é o proprietário, Davi. Os hóspedes contam que todos os dormitórios têm banheiro, que a chácara fica toda iluminada à noite e que o pão da padaria chega toda manhã."
+  ],
+  "stats": [
+   [
+    "231",
+    "avaliações no Google"
+   ],
+   [
+    "3,5 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 49,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "A chácara vista do alto, com a piscina, os telhados e a mata",
+  "pol": {
+   "id": 29
+  },
+  "pol_alt": "Dois cachorros no gramado",
+  "pol_cap": "Pode trazer o pet"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Piscinas, lago <em>e salão.</em>",
+   "p": "A piscina, o salão, a área da churrasqueira e o lago. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Chácara Ouro Verde",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 41
+     },
+     "alt": "Piscina sob o céu azul, com guarda-sóis e a mata"
+    },
+    {
+     "foto": {
+      "id": 58
+     },
+     "alt": "Salão com teto de madeira e piso brilhante"
+    },
+    {
+     "foto": {
+      "id": 40
+     },
+     "alt": "Salão da churrasqueira com mesas, aberto para o gramado"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Barco no lago privativo"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Deck de pedra da piscina com o sol entre as árvores"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Varanda de madeira com vista para a mata"
+    },
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Mesa de sinuca no salão de jogos"
+    },
+    {
+     "foto": {
+      "id": 50
+     },
+     "alt": "Redes entre as árvores no gramado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festa e lazer",
+   "h2": "O fim de semana <em>inteiro aqui.</em>",
+   "p": "Arraiá, fogueira, vôlei, barco e jogos: o que os grupos já viveram na chácara.",
+   "rotulo": "Festa e lazer na Chácara Ouro Verde",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Salão decorado com bandeirinhas para uma festa junina",
+     "cap": "Festa junina"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Fogueira acesa à noite",
+     "cap": "Fogueira"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Grupo jogando vôlei no gramado",
+     "cap": "Vôlei"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Casal de colete salva-vidas num barco no lago",
+     "cap": "Passeio de barco"
+    },
+    {
+     "foto": {
+      "id": 44
+     },
+     "alt": "Mesa de pingue-pongue na varanda",
+     "cap": "Salão de jogos"
+    },
+    {
+     "foto": {
+      "id": 17
+     },
+     "alt": "Mesa de pebolim",
+     "cap": "Pebolim"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Piscina vista do alto, com hóspedes nadando",
+     "cap": "Piscina"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a chácara <em>oferece.</em>",
+  "p": "O que a própria chácara mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "quartos",
+    "Hospedagem para o grupo"
+   ],
+   [
+    "salao",
+    "Salão de festas"
+   ],
+   [
+    "piscina",
+    "Piscinas adulto e infantil"
+   ],
+   [
+    "lago",
+    "Lago com barcos para pesca"
+   ],
+   [
+    "churrasqueira",
+    "Churrasqueira e forno a lenha"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento para muitos carros"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao fim de semana.</em>",
+  "passos": [
+   "Mande a data, o tipo de evento e o tamanho do grupo pelo WhatsApp",
+   "Venha conhecer a chácara em Juquitiba",
+   "Combine a festa e a hospedagem",
+   "No dia, é só chegar com o grupo"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 48,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Bancos de madeira no gramado, com a mata ao fundo"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem já ficou <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Letícia Campos",
+   "tag": "Os donos",
+   "trecho": "Fomos super bem recebidas pelos donos. Foram muito solícitos. O espaço é incrível, tem tudo para uma excelente estadia."
+  },
+  {
+   "nome": "Aline Sousa",
+   "tag": "Hospedagem",
+   "trecho": "A limpeza e a organização estavam impecáveis, tudo muito bem preparado e acolhedor."
+  },
+  {
+   "nome": "Nonata Leal",
+   "tag": "Casamento",
+   "trecho": "em julho para comemorar meu aniversário. Agora para meu casamento."
+  },
+  {
+   "nome": "Lais Lenha Verde",
+   "tag": "À noite",
+   "trecho": "Tem espaço adequado para todas as idades, todas as ocasiões, chácara é toda iluminada (fica coisa mais linda a noite), a grama bem cuidada."
+  },
+  {
+   "nome": "Thilaps Santos",
+   "tag": "Atendimento",
+   "trecho": "Além do local ser maravilhoso, devo destacar o excelente atendimento e atenção!"
+  },
+  {
+   "nome": "Mr. Boni",
+   "tag": "Grupo grande",
+   "trecho": "O espaço é enorme pra um grupo grande comporta tranquilo"
+  }
+ ],
+ "insta": {
+  "seguidores": "3,5 mil seguidores",
+  "p": "A piscina, o lago e os grupos que passam por aqui.",
+  "foto": {
+   "id": 42
+  },
+  "alt": "Árvore florida no gramado sob o céu azul",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>do seu evento?</em>",
+  "p": "Escolha o dia, o tipo de evento e quantas pessoas. A mensagem chega pronta no WhatsApp da Chácara Ouro Verde.",
+  "tipos": [
+   "Casamento",
+   "Aniversário",
+   "Confraternização",
+   "Retiro",
+   "Fim de semana em grupo",
+   "Festa junina",
+   "Outro evento"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Chácara Ouro Verde e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Juquitiba.</em>",
+  "telefone": "(11) 96903-7697",
+  "endereco": [
+   "Estr. Martha Maria de Jesus · Soares",
+   "Juquitiba, SP · CEP 06950-000"
+  ],
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Festa e hospedagem na Mata Atlântica.",
+ "mensagem": "Olá! Vim pelo site da Chácara Ouro Verde e queria um orçamento.",
+ "google_nome": "Chácara Ouro Verde",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96903-7697 é o WhatsApp da bio do Instagram (wa.me/5511969037697). O Google mostra o fixo (11) 4682-1216, e artes antigas usam (11) 93436-3422. Vale confirmar qual é o principal.",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). \"Hospedagem e eventos na Mata-Atlântica\" (bio), em Juquitiba: casamentos, aniversários, confraternizações, retiros de igreja e fins de semana em grupo. Nota 4,8 com 231 avaliações (a demo mostra o total, não a nota).",
+   "Dono: Davi (\"Parabéns ao proprietário Davi\"; \"A recepção da Maria Fernanda e do Davi\", nas avaliações)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo padrão (não o \"gala\": aqui o forte é hospedagem e lazer): a chácara, o espaço (8 fotos), festa e lazer (7), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: verde-mata e dourado."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (piscina com guarda-sóis).",
+   "Ficaram de fora: as artes de depoimento e de \"Agenda aberta\", a arte com preço do Natal, as fotos com crianças em close e as panorâmicas 360 do Google."
+  ],
+  "conferir": [
+   "Uma legenda traz preço por pessoa e diária (Natal): nada disso entrou na demo.",
+   "Os quartos: uma avaliação diz que são \"tipo alojamento com várias beliches\", outra que \"todos dormitórios com banheiros\". A demo diz só \"hospedagem para o grupo\" e cita os banheiros como fala dos hóspedes.",
+   "O Google não tem horário cadastrado: a demo sai sem horário."
+  ]
+ }
+}

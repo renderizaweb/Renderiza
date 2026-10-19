@@ -1,0 +1,395 @@
+{
+ "pasta": "buffet-stallieri",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/buffet-stallieri/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/buffet-stallieri-sem-horas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/buffet-stallieri/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511953179290",
+ "fone_link": "+5511953179290",
+ "google": {
+  "coords": "-23.4471991,-46.4665534",
+  "fid": "0x94ce8bf77f718fd1:0x37c97c17cacdc90f",
+  "gid": "/g/11h0bl5c8x"
+ },
+ "endereco_maps": "Av. Srg. da Aeronáutica Jaime Regalo Pereira, 201 - Cidade Jardim Cumbica, Guarulhos - SP, 07182-000",
+ "google_nota": "4,8",
+ "google_total": "353",
+ "verificado": "2026-10-15",
+ "instagram": "buffetstallieri",
+ "marca": "Buffet Stallieri",
+ "marca_logo": "Stallieri",
+ "marca_completa": "Buffet Stallieri Eventos",
+ "logo_sub": "Cumbica · Guarulhos",
+ "titulo": "Buffet Stallieri | Casamentos e 15 anos em Guarulhos",
+ "descricao": "Buffet Stallieri, na Av. Jaime Regalo Pereira, 201, na Cidade Jardim Cumbica, em Guarulhos (SP): salão principal e salão auxiliar, pista de LED, cerimônia no salão e buffet da casa, para casamentos, 15 anos e aniversários. Nota 4,8 no Google.",
+ "comentario": "Demo Buffet Stallieri: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@buffetstallieri, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 15/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#2b1d20",
+  "acento": "#d7a8a0"
+ },
+ "topline": "Av. Jaime Regalo Pereira, 201 · Cidade Jardim Cumbica, Guarulhos",
+ "nav": [
+  [
+   "#sobre",
+   "O Stallieri"
+  ],
+  [
+   "#espaco",
+   "O salão"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet de casamento e 15 anos em Guarulhos",
+  "h1": "Tem algo para celebrar? <em>Celebre com a gente.</em>",
+  "intro": "Casamentos, 15 anos e aniversários com salão principal, salão auxiliar, pista de LED, cerimônia no salão e o buffet da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o salão",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g06.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos se beijando diante da mesa decorada com flores",
+  "nota": "Casamentos, 15 anos e aniversários, com buffet da casa"
+ },
+ "endereco": [
+  "Av. Jaime Regalo Pereira, 201",
+  "Cidade Jardim Cumbica · Guarulhos"
+ ],
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Cerimônia no salão",
+  "Pista de LED",
+  "Buffet da casa",
+  "Camarim",
+  "Guarulhos"
+ ],
+ "sobre": {
+  "eyebrow": "O Buffet Stallieri",
+  "h2": "Um casal <em>cuidando da sua festa.</em>",
+  "p": [
+   "Em Guarulhos, o Stallieri recebe casamentos, festas de 15 anos e aniversários com salão principal, salão auxiliar, pista de dança de LED, camarim e o buffet da casa. A cerimônia pode acontecer no próprio salão.",
+   "À frente estão a Jéssica e o Alberto. Nas avaliações, os noivos contam que eles acolhem desde a primeira visita, indicam fornecedores de confiança e acompanham o cronograma da festa até o fim."
+  ],
+  "stats": [
+   [
+    "353",
+    "avaliações no Google"
+   ],
+   [
+    "6,8 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 5
+  },
+  "alt": "Salão montado com mesas rosé e luzes",
+  "pol": {
+   "id": 20,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Noivos sorrindo com o bebê no colo",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O salão",
+   "h2": "Pronto para <em>a sua festa.</em>",
+   "p": "O salão principal, o salão auxiliar, a pista de LED e o buffet. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do salão do Buffet Stallieri",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Salão montado com mesas e luzes de parede"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g00.jpg"
+     },
+     "alt": "Salão com mesas de toalha bordô e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Salão com mesas rosé e árvore de flores"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Salão auxiliar com mesas postas"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Pista de LED com as letras LOVE iluminadas"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Balcão do buffet"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Mesa posta com flores e taças"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g01.jpg"
+     },
+     "alt": "Mesa posta com taças rosadas e sousplat de palha"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, cerimônias e festas de quem já comemorou no Stallieri.",
+   "rotulo": "Festas que aconteceram no Buffet Stallieri",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g07.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos se beijando diante das letras iluminadas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Noivos sorrindo diante da mesa decorada",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g03.jpg"
+     },
+     "alt": "Cerimônia no salão, com o celebrante",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Noiva sorrindo com as madrinhas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g05.jpg"
+     },
+     "alt": "Convidados dançando na pista",
+     "cap": "Na pista"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g04.jpg",
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noiva abraçando a daminha na pista de LED",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Noiva com o buquê, diante das luzes",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Noivo e padrinhos sorrindo juntos",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o Stallieri <em>oferece.</em>",
+  "p": "O que o próprio Stallieri mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão principal e salão auxiliar"
+   ],
+   [
+    "estrela",
+    "Pista de dança de LED"
+   ],
+   [
+    "cozinha",
+    "Buffet da casa"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia no salão"
+   ],
+   [
+    "quartos",
+    "Camarim"
+   ],
+   [
+    "pessoas",
+    "Assessoria no dia da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão com a Jéssica e o Alberto",
+   "Monte o cardápio e veja os fornecedores indicados",
+   "No dia, a equipe segue o cronograma da festa até o fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 25
+  },
+  "alt": "Bolo de casamento branco com topo dourado"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Milena Leite Seiffer",
+   "tag": "Casamento",
+   "trecho": "Nosso sonho deu cor e forma assim q visitamos o espaço, Jéssica e Alberto nos acolheram de uma maneira tão especial q em meias palavras, tivemos a certeza q seria ali."
+  },
+  {
+   "nome": "Tatiana Silva",
+   "tag": "15 anos",
+   "trecho": "A organização, o ambiente, a decoração, a assessoria, o DJ, a comida, enfim, tudo perfeito! Super recomendo!"
+  },
+  {
+   "nome": "Telma Bello",
+   "tag": "Debutante",
+   "trecho": "Conseguimos cumprir todo nosso cronograma do Cerimonial com o auxílio do Alberto e de toda equipe."
+  },
+  {
+   "nome": "Sabrina Santos",
+   "tag": "Casamento",
+   "trecho": "Apaixonada pelo casal, Jéssica e Alberto, a equipe muito atenciosa e profissional, todos os convidados elogiaram o trabalho e a comida maravilhosa."
+  },
+  {
+   "nome": "Daniela Nunes",
+   "tag": "Equipe",
+   "trecho": "Realizamos nosso evento no Buffet Stallieri e foi simplesmente perfeito! O atendimento foi impecável, com uma equipe extremamente profissional, atenciosa, leve e alegre"
+  },
+  {
+   "nome": "raquel Firmino",
+   "tag": "Casamento"
+  }
+ ],
+ "insta": {
+  "seguidores": "6,8 mil seguidores",
+  "p": "Casamentos, debutantes e os detalhes de cada festa.",
+  "foto": {
+   "id": 6
+  },
+  "alt": "Pista de LED com banda tocando e letras iluminadas",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Stallieri.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Buffet Stallieri e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Guarulhos.</em>",
+  "endereco": [
+   "Av. Jaime Regalo Pereira, 201 · Cidade Jardim Cumbica",
+   "Guarulhos, SP · CEP 07182-000"
+  ],
+  "telefone": "(11) 95317-9290",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Tem algo para celebrar? Celebre com a gente.",
+ "mensagem": "Olá! Vim pelo site do Buffet Stallieri e queria um orçamento.",
+ "google_nome": "Buffet Stallieri",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 95317-9290 é o telefone do Perfil da Empresa no Google (o site que o Google mostra é o próprio wa.me desse número)",
+  "site": "não tem. Tem página no casamentos.com.br.",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Buffet de casamento e debutante em Guarulhos: salão principal e auxiliar, pista de LED, camarim, cerimônia no salão e buffet da casa.",
+   "À frente: o casal Jéssica e Alberto (citados em várias avaliações; o Alberto acompanha o cerimonial)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos diante da mesa florida, o Stallieri (Jéssica e Alberto), carrossel do salão (8, paisagem, com 2 do Google), festas reais (8, com 4 do Google), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: vinho escuro e rosé. Fonte Fraunces. O título usa a frase da bio (\"Tem algo para celebrar? Venha celebrar conosco\")."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; posts mais antigos, até 1080 px) e Perfil da Empresa no Google (fotos recentes de casamento, cerimônia e pista).",
+   "Ficaram de fora: as crianças em destaque, as placas com nome dos noivos e as fotos pequenas."
+  ],
+  "conferir": [
+   "Na triagem apareceram duas casas (Stallieri Eventos): confirmar se o endereço da Av. Jaime Regalo Pereira é o único.",
+   "O Google mostra \"Atendimento 24 horas\": a demo sai sem horário.",
+   "Capacidade: não confirmei (a demo não cita)."
+  ]
+ }
+}

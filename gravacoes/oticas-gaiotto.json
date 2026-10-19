@@ -1,0 +1,116 @@
+{
+ "demo": "oticas-gaiotto",
+ "formato": "reels",
+ "marca": "Óticas Gaiotto",
+ "local": "Jd. Munhoz Júnior · Osasco",
+ "cores": {
+  "fundo": "#0f3a3c",
+  "fundo2": "#092425",
+  "acento": "#f2c94c",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Bricolage Grotesque",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Gaiotto"
+  ],
+  "frase": "Referência em Osasco para o seu olhar.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(3) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Gaiotto.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece a Gaiotto *e quem atende.*",
+   "sub": "A Ananda e a equipe, que começaram em Barueri e agora têm loja em Osasco."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê os óculos *antes de sair de casa.*",
+   "sub": "Do infantil ao esportivo, para chegar sabendo o que quer provar."
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "legenda": "E encontra óculos *para cada idade.*",
+   "sub": "Infantis para os pequenos e esportivos para o treino."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 23 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

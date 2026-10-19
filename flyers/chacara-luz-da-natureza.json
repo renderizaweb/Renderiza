@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara Luz da Natureza",
+ "local": "Santana de Parnaíba · SP",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#22302a",
+  "fundo2": "#151d1a",
+  "acento": "#f0a868",
+  "tinta_acento": "#151d1a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/chacaraluzdanatureza/Instagram_files/476651846_17930243973006065_4972611558738232571_n.jpg",
+  "pos": "50% 85%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "126"
+ },
+ "titulo": "Sua festa<br><em>em meio à natureza.</em>",
+ "texto": "Piscina com cascata, salão com churrasqueira e mirante do pôr do sol, em Santana de Parnaíba.",
+ "whatsapp": "(11) 93341-3563",
+ "cta": "Consulte sua data",
+ "endereco": "R. Monte Olimpo, 734 · Parnaíba",
+ "instagram": "@chacaraluzdanatureza"
+}

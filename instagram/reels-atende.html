@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: enquanto você atende</title>
+<!-- Reels do Instagram (1080 × 1920, 37,5 s = 20 compassos a 128 BPM), sem voz: só imagem, texto e a trilha pulsante
+     (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso" do preparar()). A grade fica ancorada no drop (22,5 s).
+     A dona do negócio está atendendo, de luvas, e a tela de bloqueio do celular dela se enche das perguntas de sempre.
+     Quando sai da sala, responde tudo, como ontem. Com um site, a resposta já está lá. Fecho: "Enquanto você atende,
+     o site atende também." O site não responde mensagem nem é robô: a resposta está no site, e a pergunta nem precisa
+     ser feita. As pessoas são fictícias (avatar com a inicial, sem foto). A Lume Estética é fictícia e aparece sempre
+     com o selo "exemplo". Tom (Kaue, 15/10/2026): humor seco, um trocadilho só. Animação sem CSS: window.quadro(t)
+     desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e;--cartao:#f8f6f3}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.camada{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:70}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* textos */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom{color:var(--terracota-clara)}
+#tAbre{top:300px;font-size:104px;z-index:5}
+.faixa{top:274px;font-size:68px;line-height:1.08;letter-spacing:-.03em}
+.faixa.uma{top:312px}
+
+/* ===== o celular: genérico, sem marca, só um furo de câmera ===== */
+.fone{position:absolute;left:130px;top:580px;width:820px;height:1720px;border-radius:88px;background:#0d1112;padding:14px;z-index:10;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.10),0 50px 120px rgba(0,0,0,.5);transform-origin:50% 0}
+.visor{position:relative;width:792px;height:1692px;border-radius:74px;overflow:hidden;background:#1a1f21}
+.camera{position:absolute;left:50%;top:26px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#07090a;box-shadow:0 0 0 3px rgba(255,255,255,.06);z-index:30}
+.cam{position:absolute;left:0;top:0;width:792px;height:1692px;overflow:hidden}
+.papel{position:absolute;left:-90px;top:-90px;width:972px;height:1872px;object-fit:cover;object-position:50% 50%;filter:blur(44px) brightness(.5) saturate(.9)}
+.veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,20,22,.30) 0%,rgba(16,20,22,.06) 32%,rgba(16,20,22,.40) 100%)}
+.status{position:absolute;left:54px;right:54px;top:26px;height:32px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:28px;font-weight:600;letter-spacing:-.01em;z-index:5}
+.sinais{display:flex;gap:10px;align-items:center}
+.sinais svg{height:22px}
+
+/* tela de bloqueio */
+.dia{position:absolute;left:0;right:0;top:84px;text-align:center;font-size:32px;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:-.005em}
+.relogio{position:absolute;left:0;right:0;top:120px;text-align:center;font-size:172px;font-weight:600;line-height:1;letter-spacing:-.045em;color:#fff;font-variant-numeric:tabular-nums}
+.linha-pilula{position:absolute;left:0;right:0;top:310px;display:flex;justify-content:center}
+.pilula{display:inline-flex;align-items:center;gap:14px;height:64px;padding:0 32px 0 24px;border-radius:999px;background:rgba(255,255,255,.17);font-size:31px;font-weight:600;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+.pilula svg{width:34px;height:34px;color:var(--terracota-clara)}
+.contador{position:absolute;left:46px;top:402px;font-size:30px;font-weight:600;color:rgba(255,255,255,.84);letter-spacing:-.005em;transform-origin:0 50%}
+
+/* notificação */
+.card{position:absolute;left:22px;width:748px;border-radius:38px;background:var(--cartao);display:flex;align-items:center;gap:22px;padding:26px 30px 26px 24px;box-shadow:0 12px 32px rgba(0,0,0,.24);transform-origin:50% 0;z-index:2}
+.av{position:relative;flex:none;width:80px;height:80px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:600;font-size:38px;letter-spacing:-.02em}
+.av .app{position:absolute;right:-5px;bottom:-5px;width:30px;height:30px;border-radius:9px;background:var(--zap);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px var(--cartao)}
+.av .app svg{width:21px;height:21px}
+.c-txt{flex:1;min-width:0}
+.c-l1{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.c-l1 b{font-size:36px;font-weight:600;color:#15191b;letter-spacing:-.015em;white-space:nowrap}
+.c-l1 small{font-size:26px;font-weight:500;color:#7d8588;white-space:nowrap}
+.c-msg{font-size:38px;line-height:1.22;color:#2a3134;letter-spacing:-.012em;white-space:nowrap;margin-top:2px}
+.c-msg.velha{color:#7d8588}
+/* as mais antigas, agrupadas */
+.grupo{height:92px;padding:0 30px 0 24px;gap:20px;box-shadow:0 22px 0 -10px rgba(248,246,243,.55),0 44px 0 -22px rgba(248,246,243,.30),0 12px 32px rgba(0,0,0,.24)}
+.g-ic{flex:none;width:56px;height:56px;border-radius:16px;background:var(--zap);color:#fff;display:grid;place-items:center}
+.g-ic svg{width:38px;height:38px}
+.g-txt{font-size:36px;font-weight:600;color:#2a3134;letter-spacing:-.015em}
+
+/* respostas (volta) */
+.qa{flex-direction:column;align-items:stretch;gap:0;padding:22px 26px 22px 22px}
+.qa-q{display:flex;align-items:center;gap:20px}
+.qa .av{width:72px;height:72px;font-size:34px}
+.qa .av .app{width:26px;height:26px;border-radius:8px;right:-6px;bottom:-6px}
+.qa .av .app svg{width:18px;height:18px}
+.qa-r{height:0;overflow:hidden;display:flex;justify-content:flex-end;align-items:flex-start}
+.qa-r .dentro{padding-top:14px}
+.balao{display:inline-flex;align-items:flex-end;gap:12px;padding:12px 18px 12px 26px;border-radius:26px 8px 26px 26px;background:#d9fdd3;color:#111b21;font-size:36px;line-height:1.2;letter-spacing:-.01em;box-shadow:0 1px 1px rgba(11,20,26,.1);transform-origin:100% 0;white-space:nowrap}
+.balao .tq{width:32px;height:22px;color:#8696a0;flex:none;margin-bottom:6px}
+.balao .tq svg{width:100%;height:100%}
+
+/* o site da Lume dentro do celular */
+.site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0;background:#fbf7f3;padding-bottom:700px}
+#cSite{z-index:3;box-shadow:0 -24px 60px rgba(0,0,0,.4)}
+#cBloq{z-index:1} /* camada própria: o escurecimento fica embaixo do site que sobe */
+.escurece{position:absolute;inset:0;background:#0d1112;opacity:0;z-index:8}
+.barra-site{position:absolute;z-index:4;left:0;right:0;top:0;height:88px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 56px 0 44px}
+.barra-site .exemplo{position:static;font-size:22px;padding:9px 16px}
+.barra-site .sinais{color:#111}
+.onda-zap{position:absolute;inset:0;border-radius:25px;outline:3px solid rgba(37,211,102,.9);opacity:0;pointer-events:none}
+
+/* chips (a pergunta volta) e a marcação da resposta */
+.chip{position:absolute;left:0;top:0;height:92px;display:flex;align-items:center;gap:18px;padding:0 16px 0 12px;border-radius:999px;background:#fff;box-shadow:0 18px 44px rgba(0,0,0,.34);z-index:45;white-space:nowrap;transform-origin:50% 50%}
+.chip .av{width:68px;height:68px;font-size:32px}
+.chip .av .app{width:27px;height:27px;border-radius:8px;right:-4px;bottom:-4px;box-shadow:0 0 0 4px #fff}
+.chip .av .app svg{width:19px;height:19px}
+.ch-txt{font-size:40px;font-weight:600;color:#15191b;letter-spacing:-.02em;padding-right:6px}
+.ok{flex:none;width:58px;height:58px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center}
+.ok svg{width:36px;height:36px}
+.realce{position:absolute;border:5px solid var(--terracota);border-radius:26px;background:rgba(178,81,52,.06);z-index:42;pointer-events:none}
+
+/* nada: as luvas */
+#luvas{z-index:50;background:#0d1112;overflow:hidden}
+#luvas img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:74% 50%;transform-origin:72% 55%}
+#luvas .veu2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,20,.62) 0%,rgba(14,18,20,.70) 40%,rgba(14,18,20,.78) 100%)}
+#nd1{top:700px;font-size:100px;z-index:2}
+#nd2{top:944px;font-size:64px;font-weight:600;color:var(--terracota-clara);letter-spacing:-.025em;z-index:2}
+
+/* meio, fim */
+#tMeio{top:760px;font-size:112px}
+#f1{top:560px;font-size:104px}
+#f2{top:812px;font-size:104px}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:600px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:850px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1040px;font-size:46px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <!-- 1. abre -->
+  <p class="txt" id="tAbre">Enquanto você<br><span class="tom">atende…</span></p>
+
+  <!-- textos da faixa de cima -->
+  <p class="txt faixa oculto" id="tV1">Quando sai da sala,<br>você responde tudo.</p>
+  <p class="txt faixa oculto" id="tV2">As mesmas perguntas<br>de ontem.</p>
+  <p class="txt faixa oculto" id="tE">Agora, a mesma tarde<br><span class="tom">com um site.</span></p>
+  <p class="txt faixa oculto" id="tS1">Com um site, a resposta<br><span class="tom">já está lá.</span></p>
+  <p class="txt faixa uma oculto" id="tS2">Endereço e horário.</p>
+  <p class="txt faixa uma oculto" id="tS3">Serviços e fotos.</p>
+  <p class="txt faixa oculto" id="tS4">E quem chama já chega<br>sabendo o que quer.</p>
+
+  <!-- o celular -->
+  <div class="fone" id="fone">
+    <div class="visor">
+      <!-- (c) o site da Lume -->
+      <div class="cam" id="cSite">
+        <div class="site" id="site"></div>
+        <div class="barra-site"><span class="exemplo">exemplo</span><span class="sinais"></span></div>
+      </div>
+      <!-- (b) as respostas -->
+      <div class="cam" id="cResp">
+        <img class="papel" src="../rascunhos/instagram/fotos/pedras.jpg" alt=""><div class="veu" style="background:rgba(16,20,22,.42)"></div>
+        <div class="status"><span>15:12</span><span class="sinais"></span></div>
+        <div id="respostas"></div>
+      </div>
+      <!-- (a) a tela de bloqueio -->
+      <div class="cam" id="cBloq">
+        <img class="papel" src="../rascunhos/instagram/fotos/pedras.jpg" alt=""><div class="veu"></div>
+        <div class="status"><span></span><span class="sinais"></span></div>
+        <p class="dia">terça-feira</p>
+        <p class="relogio" id="relogio">14:00</p>
+        <div class="linha-pilula"><span class="pilula"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="8.2" r="3.7"/><path d="M4.6 19.8c1.2-3.5 4.1-5.4 7.4-5.4s6.2 1.9 7.4 5.4"/></svg>Em atendimento</span></div>
+        <p class="contador" id="contador"></p>
+        <div id="lista"></div>
+        <div class="escurece" id="escurece"></div>
+      </div>
+      <span class="camera"></span>
+    </div>
+  </div>
+
+  <!-- chips e marcações (montados no script) -->
+  <div id="chips"></div>
+
+  <!-- nada: as luvas -->
+  <div class="camada oculto" id="luvas">
+    <img src="../rascunhos/instagram/fotos/luvas.jpg" alt=""><div class="veu2"></div>
+    <p class="txt" id="nd1">11 conversas<br>esperando.</p>
+    <p class="txt" id="nd2">E você de luvas.</p>
+  </div>
+
+  <!-- meio -->
+  <p class="txt oculto" id="tMeio">E amanhã,<br><span class="tom">de novo.</span></p>
+
+  <!-- fim -->
+  <p class="txt oculto" id="f1">Enquanto você<br>atende,</p>
+  <p class="txt oculto" id="f2">o site <span class="tom">atende<br>também.</span></p>
+
+  <!-- CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- grade: 128 BPM, um tempo = 0,46875 s, um compasso = 1,875 s ----------
+const BPM = 128, T = 60 / BPM, CP = 4 * T;
+const cp = n => n * CP;
+const DUR = cp(20);   // 37,5 s
+const CORTE = { abre: 0, google: cp(2), insta: cp(4), nada: cp(7), volta: cp(8), meio: cp(10), ese: cp(11), site: cp(12), fim: cp(16), cta: cp(18) };
+const PONTE = cp(19) + 3 * T;      // o último tempo: volta a cena do começo (o Reels repete em loop)
+const FONE_ABRE = 580, FONE_ALTO = 250, FONE_BAIXO = 480;
+const TITULO_SAI = cp(2) - T, SOBE = cp(2) - 0.33;   // o título some antes de o celular subir
+
+// ---------- ícones (SVG) ----------
+const SINAIS = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>';
+const TIQUES = '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>';
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 12.6l4.1 4.1 8.7-9.3"/></svg>';
+document.querySelectorAll(".sinais").forEach(s => (s.innerHTML = SINAIS));
+
+// ---------- quem escreve (fictícias: só nome e inicial) ----------
+const GENTE = {
+  "Bruna": { ini: "B", cor: "#b29c8c" }, "Aline": { ini: "A", cor: "#8ea197" }, "Renata": { ini: "R", cor: "#a493ac" },
+  "Júlia": { ini: "J", cor: "#b0a079" }, "Patrícia": { ini: "P", cor: "#949cb4" }, "Fernanda": { ini: "F", cor: "#b38d92" },
+  "Camila": { ini: "C", cor: "#8b9dac" },
+};
+const avatar = (quem, app = true) => `<span class="av" style="background:${GENTE[quem].cor}">${GENTE[quem].ini}${app ? `<span class="app">${ZAP}</span>` : ""}</span>`;
+const cabeca = quem => `<div class="c-l1"><b>${quem}</b><small>WhatsApp</small></div>`;
+
+// ---------- a tela de bloqueio: o que chega, e quando ----------
+// abre: uma (com tranco) · google: uma por compasso · insta: a cada dois tempos, depois uma rajada que já cai no grupo,
+// e a Aline cobrando ("Oi?"): o cartão dela volta para o topo com a pergunta de antes
+const CHEGA = [
+  { t: cp(1), id: "bruna", quem: "Bruna", msgs: ["Oi! Vocês abrem sábado?"], forte: true },
+  { t: cp(2), id: "aline", quem: "Aline", msgs: ["Qual o endereço de vocês?"] },
+  { t: cp(3), id: "renata", quem: "Renata", msgs: ["Quanto é a limpeza de pele?"] },
+  { t: cp(4), id: "julia", quem: "Júlia", msgs: ["Tem horário amanhã de manhã?"] },
+  { t: cp(4.5), id: "patricia", quem: "Patrícia", msgs: ["Tem foto de antes e depois?"] },
+  { t: cp(5), id: "fernanda", quem: "Fernanda", msgs: ["Vocês fazem massagem também?"] },
+  { t: cp(5.5), id: "camila", quem: "Camila", msgs: ["Tem onde estacionar?"] },
+  { t: cp(5.5) + T, extra: true }, { t: cp(5.5) + 1.5 * T, extra: true }, { t: cp(6), extra: true }, { t: cp(6) + 0.5 * T, extra: true },
+  { t: cp(6.5), id: "aline2", quem: "Aline", msgs: ["Qual o endereço de vocês?", "Oi?"], substitui: "aline" },
+];
+const lista = $("#lista");
+const CARDS = {};
+for (const e of CHEGA) if (!e.extra) {
+  const el = document.createElement("div");
+  el.className = "card";
+  el.innerHTML = avatar(e.quem) + `<div class="c-txt">${cabeca(e.quem)}${e.msgs.map((m, i) => `<p class="c-msg${i < e.msgs.length - 1 ? " velha" : ""}">${m}</p>`).join("")}</div>`;
+  lista.appendChild(el);
+  CARDS[e.id] = { el, h: 0 };
+}
+const grupo = document.createElement("div");
+grupo.className = "card grupo";
+grupo.innerHTML = `<span class="g-ic">${ZAP}</span><span class="g-txt"></span>`;
+lista.appendChild(grupo);
+const gTxt = grupo.querySelector(".g-txt");
+
+// o estado da tela depois de cada chegada: até 4 cartões soltos, as mais antigas vão para o grupo
+const MAX = 4;
+const ESTADOS = [];
+{
+  let vis = [], g = 0, conv = 0;
+  const pessoas = new Set();
+  for (const e of CHEGA) {
+    if (e.extra) { g++; conv++; }
+    else {
+      if (e.substitui) { if (vis.includes(e.substitui)) vis = vis.filter(x => x !== e.substitui); else g--; }
+      vis.unshift(e.id);
+      if (!pessoas.has(e.quem)) { pessoas.add(e.quem); conv++; }
+      while (vis.length > MAX) { vis.pop(); g++; }
+    }
+    ESTADOS.push({ t: e.t, vis: [...vis], g, conv, e });
+  }
+}
+const VAZIO = { vis: [], g: 0, conv: 0 };
+const L_TOPO = 452, L_GAP = 12;
+
+// ---------- volta: ela responde ----------
+const RESP = [
+  { quem: "Bruna", q: "Oi! Vocês abrem sábado?", r: "Sábado, das 9h às 14h.", t: cp(8) + T },
+  { quem: "Aline", q: "Qual o endereço de vocês?", r: "Rua das Acácias, 120.", t: cp(8) + 2 * T },
+  { quem: "Patrícia", q: "Tem foto de antes e depois?", r: "Vou te mandar as fotos.", t: cp(8) + 3 * T },
+  { quem: "Júlia", q: "Tem horário amanhã de manhã?", r: "Tem sim! Que horas?", t: cp(9) },
+];
+const respostas = $("#respostas");
+for (const r of RESP) {
+  const el = document.createElement("div");
+  el.className = "card qa";
+  el.innerHTML = `<div class="qa-q">${avatar(r.quem)}<div class="c-txt">${cabeca(r.quem)}<p class="c-msg">${r.q}</p></div></div>
+    <div class="qa-r"><div class="dentro"><span class="balao">${r.r}<span class="tq">${TIQUES}</span></span></div></div>`;
+  respostas.appendChild(el);
+  Object.assign(r, { el, area: el.querySelector(".qa-r"), balao: el.querySelector(".balao"), hq: 0, hr: 0 });
+}
+const R_TOPO = 100, R_GAP = 12;
+
+// ---------- o site da Lume ----------
+const site = $("#site");
+site.innerHTML = siteDeExemplo();
+const zapBtn = site.querySelector('[data-alvo="whatsapp"]');
+zapBtn.style.position = "relative";
+const ondaZap = Object.assign(document.createElement("span"), { className: "onda-zap" });
+zapBtn.appendChild(ondaZap);
+const ALVO = {
+  mapa: site.querySelector(".l-mapa"),
+  sabado: site.querySelectorAll(".l-horario")[1],
+  massagem: site.querySelectorAll(".l-card")[1],
+  galeria: site.querySelector(".l-galeria"),
+  zap: zapBtn,
+};
+// paradas do site, uma por compasso (a de "fotos" entra no terceiro tempo do compasso 14)
+const PARADAS = [
+  { t: cp(12), parada: "hero" },
+  { t: cp(13), parada: "mapa" },
+  { t: cp(14), parada: "servicos" },
+  { t: cp(14) + 2 * T, parada: "fotos", rola: 0.3 },
+  { t: cp(15), parada: "contato" },
+];
+const ROTULOS = [[cp(12), "#tS1"], [cp(13), "#tS2"], [cp(14), "#tS3"], [cp(15), "#tS4"]];
+
+// as perguntas voltam como chips e são respondidas pela seção do site
+const CHIPS = [
+  { quem: "Bruna", txt: "Abre sábado?", alvo: "sabado", t0: cp(13), ok: cp(13) + T, lado: 1, onde: "abaixo", alinha: "dir" },
+  { quem: "Aline", txt: "Qual o endereço?", alvo: "mapa", t0: cp(13) + 2 * T, ok: cp(13) + 3 * T, lado: 1, onde: "sobre" },
+  { quem: "Fernanda", txt: "Fazem massagem?", alvo: "massagem", t0: cp(14), ok: cp(14) + T, lado: -1, onde: "sobre", fim: cp(14) + 2 * T },
+  { quem: "Patrícia", txt: "Tem foto?", alvo: "galeria", t0: cp(14) + 2 * T + 0.1, ok: cp(14) + 3 * T, lado: 1, onde: "sobre" },
+  { quem: "Júlia", txt: "Tem horário amanhã?", alvo: "zap", t0: cp(15), entra: cp(15) + T, lado: -1, onde: "acima" },
+];
+const chipsBox = $("#chips");
+for (const c of CHIPS) {
+  c.el = document.createElement("div");
+  c.el.className = "chip oculto";
+  c.el.innerHTML = `${avatar(c.quem)}<span class="ch-txt">${c.txt}</span>${c.entra ? "" : `<span class="ok">${CHECK}</span>`}`;
+  chipsBox.appendChild(c.el);
+  c.okEl = c.el.querySelector(".ok");
+  if (!c.entra) {
+    c.realce = document.createElement("div");
+    c.realce.className = "realce oculto";
+    chipsBox.appendChild(c.realce);
+  }
+  if (!c.fim) c.fim = c.t0 < cp(14) ? cp(14) : c.t0 < cp(15) ? cp(15) : CORTE.fim;
+}
+const ONDAS = [cp(15) + T, cp(15) + 2 * T, cp(15) + 3 * T];
+
+// impactos: o quadro inteiro dá um tranco
+const IMPACTOS = [[0, 1], [cp(1), 1], [cp(7), 1], [cp(10), 0.8], [cp(12), 1], [cp(13), 0.7], [cp(14), 0.7], [cp(15), 0.7], [cp(16), 1], [cp(17), 1], [cp(18), 0.6]];
+const BUMBOS = [0, 1, 2, 3, 4, 5].map(k => cp(18) + k * T);
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                   // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, b, x) => a + (b - a) * x;
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const vibra = (t, t0) => chaves(fase(t, t0, t0 + 0.40), [0, 8, -8, 6, -6, 3, 0]);
+const soco = (t, t0, de = 1.06, dur = 0.25) => lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+
+let ESC = 1, paradas = {};
+
+window.preparar = () => {
+  for (const c of Object.values(CARDS)) c.h = c.el.offsetHeight;
+  for (const r of RESP) {
+    r.hq = r.el.offsetHeight;
+    r.hr = r.area.querySelector(".dentro").offsetHeight;
+  }
+  ESC = 792 / 402;
+  site.style.transform = `scale(${ESC})`;
+  const barra = 88 / ESC;
+  for (const el of site.querySelectorAll("[data-parada]"))
+    paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : el.offsetTop - barra - 6;
+  return {
+    duracao: DUR,
+    bpm: BPM,
+    pulso: [
+      { id: "atende", cena: "abre", ini: 0, fim: cp(1), impacto: true },
+      { id: "bruna", cena: "abre", ini: cp(1), fim: cp(2), impacto: true },
+      { id: "relogio", cena: "google", ini: cp(2), fim: cp(4) },
+      { id: "chegam", cena: "insta", ini: cp(4), fim: cp(7) },
+      { id: "nada", cena: "insta", ini: cp(7), fim: cp(8), impacto: true },
+      { id: "responde", cena: "volta", ini: cp(8), fim: cp(10) },
+      { id: "amanha", cena: "meio", ini: cp(10), fim: cp(11), impacto: true },
+      { id: "tarde", cena: "ese", ini: cp(11), fim: cp(12) },
+      { id: "resposta", cena: "site", ini: cp(12), fim: cp(13), impacto: true },
+      { id: "endereco", cena: "site", ini: cp(13), fim: cp(14), impacto: true },
+      { id: "servicos", cena: "site", ini: cp(14), fim: cp(15), impacto: true },
+      { id: "chama", cena: "site", ini: cp(15), fim: cp(16), impacto: true },
+      { id: "atende1", cena: "fim", ini: cp(16), fim: cp(17), impacto: true },
+      { id: "atende2", cena: "fim", ini: cp(17), fim: cp(18), impacto: true },
+      { id: "cta", cena: "cta", ini: cp(18), fim: DUR },
+    ],
+    ensaio: [0.05, 1.95, 2.8, 3.4, 3.58, 5.75, 8.5, 11.1, 12.25, 12.95, 13.3, 14.5, 15.55, 17.6, 19.0, 21.6, 22.2, 22.6, 25.9, 26.95, 27.9, 28.8, 32.6, 37.2],
+  };
+};
+
+// ---------- relógio da tela de bloqueio: anda a cada tempo ----------
+function hora(t) {
+  let m = 0;
+  if (t >= CORTE.insta) m = 20 + Math.round(50 * Math.min(12, Math.floor((t - CORTE.insta) / T) + 1) / 12);
+  else if (t >= CORTE.google) m = Math.round(20 * Math.min(8, Math.floor((t - CORTE.google) / T) + 1) / 8);
+  const h = 14 + Math.floor(m / 60);
+  return `${h}:${String(m % 60).padStart(2, "0")}`;
+}
+
+function arranjo(est) {
+  const y = {}; let yy = L_TOPO;
+  for (const id of est.vis) { y[id] = yy; yy += CARDS[id].h + L_GAP; }
+  return { y, gy: yy };
+}
+
+// a tela de bloqueio no instante t ("limpa": sem notificações, como no começo)
+function desenharBloqueio(t, limpa) {
+  $("#relogio").textContent = limpa ? "14:00" : hora(t);
+  let k = -1;
+  if (!limpa) for (let i = 0; i < ESTADOS.length; i++) if (t >= ESTADOS[i].t) k = i;
+  const at = k >= 0 ? ESTADOS[k] : VAZIO, an = k >= 1 ? ESTADOS[k - 1] : VAZIO;
+  const forte = k >= 0 && at.e.forte;
+  // as que já estão descem primeiro e abrem a vaga; a nova entra logo depois (não passa por cima do contador nem das outras)
+  const e = k >= 0 ? sai(fase(t, at.t, at.t + 0.2)) : 1;
+  const en = k >= 0 ? sai(fase(t, at.t + 0.08, at.t + 0.3)) : 1;
+  const A = arranjo(at), B = arranjo(an);
+  for (const [id, c] of Object.entries(CARDS)) {
+    const emA = id in A.y, emB = id in B.y;
+    if (!emA && !(emB && e < 1)) { c.el.style.display = "none"; continue; }
+    c.el.style.display = "";
+    let y, op = 1, esc = 1;
+    if (emA && emB) y = lerp(B.y[id], A.y[id], e);
+    else if (emA) {
+      if (forte) { y = A.y[id] - 110 * (1 - e); op = Math.min(1, e * 1.7); esc = chaves(fase(t, at.t, at.t + 0.3), [0.9, 1.04, 1]); }
+      else { y = A.y[id] - 14 * (1 - en); op = Math.min(1, en * 1.6); esc = lerp(0.96, 1, en); }
+    } else { y = lerp(B.y[id], A.gy, e); op = 1 - clamp(e * 1.8); esc = lerp(1, 0.94, e); }
+    c.el.style.top = y + "px"; c.el.style.opacity = op; c.el.style.transform = `scale(${esc})`;
+  }
+  const gOn = at.g > 0 || (an.g > 0 && e < 1);
+  grupo.style.display = gOn ? "" : "none";
+  if (gOn) {
+    grupo.style.top = (an.g > 0 ? lerp(B.gy, A.gy, e) : A.gy) + "px";
+    grupo.style.opacity = an.g > 0 ? 1 : fase(e, 0.35, 1);
+    const n = at.g;
+    gTxt.textContent = `+${n} ${n > 1 ? "mensagens" : "mensagem"}`;
+    grupo.style.transform = `scale(${at.g !== an.g && an.g > 0 ? soco(t, at.t, 1.05, 0.22) : 1})`;
+  }
+  const cont = $("#contador");
+  const cOn = !limpa && t >= CORTE.google;
+  cont.style.display = cOn ? "" : "none";
+  if (cOn) {
+    cont.textContent = `${at.conv} ${at.conv > 1 ? "conversas" : "conversa"}`;
+    cont.style.opacity = fase(t, CORTE.google, CORTE.google + 0.2);
+    cont.style.transform = `scale(${at.conv !== an.conv ? soco(t, at.t, 1.12, 0.2) : 1})`;
+  }
+}
+
+function desenharRespostas(t) {
+  let y = R_TOPO;
+  for (const r of RESP) {
+    const e = sai(fase(t, r.t, r.t + 0.2));
+    r.el.style.top = y + "px";
+    r.area.style.height = r.hr * e + "px";
+    r.balao.style.opacity = Math.min(1, e * 1.5);
+    r.balao.style.transform = `scale(${lerp(0.9, 1, e)})`;
+    y += r.hq + r.hr * e + R_GAP;
+  }
+}
+
+// texto da faixa de cima: entra subindo
+function faixa(el, t, a, b) {
+  if (!mostra(el, t >= a && t < b)) return;
+  const x = sai(fase(t, a, a + 0.25));
+  el.style.opacity = x; el.style.transform = `translateY(${(1 - x) * 30}px)`;
+}
+
+// posição (no quadro) de um elemento do site
+const caixa = el => el.getBoundingClientRect();
+
+window.quadro = t => {
+  palco.style.transform = "none"; // mede sem o tranco do quadro anterior
+  const ponte = t >= PONTE;
+  const topo = $("#topo");
+  mostra(topo, t < CORTE.cta || ponte);
+  topo.style.opacity = ponte ? fase(t, PONTE + 0.05, PONTE + 0.3) : 1;
+
+  // ---- 1. abre: o título ----
+  const tA = $("#tAbre");
+  if (mostra(tA, t < TITULO_SAI + 0.18 || ponte)) {
+    if (ponte) { const x = sai(fase(t, PONTE + 0.1, PONTE + 0.4)); tA.style.opacity = x; tA.style.transform = `translateY(${(1 - x) * 30}px)`; }
+    else {
+      const s = sai(fase(t, TITULO_SAI, TITULO_SAI + 0.18));
+      tA.style.opacity = 1 - s; tA.style.transform = `translateY(${-60 * s}px) scale(${soco(t, 0)})`;
+    }
+  }
+
+  // ---- o celular: onde ele está e o que mostra ----
+  const fone = $("#fone"), cBloq = $("#cBloq"), cResp = $("#cResp"), cSite = $("#cSite");
+  let fTop = null;
+  if (t < CORTE.nada) fTop = lerp(FONE_ABRE, FONE_ALTO, ease(fase(t, SOBE, CORTE.google)));
+  else if (t >= CORTE.volta && t < CORTE.meio) fTop = FONE_BAIXO;
+  else if (t >= CORTE.ese && t < CORTE.fim) fTop = lerp(1960, FONE_BAIXO, sai(fase(t, CORTE.ese, CORTE.ese + 0.45)));
+  else if (ponte) fTop = lerp(1960, FONE_ABRE, sai(fase(t, PONTE, PONTE + 0.42)));
+  if (mostra(fone, fTop !== null)) {
+    // vibra a cada mensagem que chega
+    let v = 0;
+    if (t < CORTE.nada) for (const e of CHEGA) if (t >= e.t && t < e.t + 0.4) v = vibra(t, e.t) * (e.forte ? 1.7 : e.extra ? 0.7 : 1);
+    let esc = 1;
+    if (t >= CORTE.site && t < CORTE.fim) { for (const p of PARADAS) if (t >= p.t && t < p.t + 0.25 && !p.rola) esc = soco(t, p.t, 1.03, 0.25); }
+    fone.style.top = fTop + "px";
+    fone.style.transform = `translateX(${v}px) scale(${esc})`;
+    const naHistoria = t < CORTE.nada, naVolta = t >= CORTE.volta && t < CORTE.meio;
+    const naEse = t >= CORTE.ese && t < CORTE.site, noSite = t >= CORTE.site && t < CORTE.fim;
+    // a virada: a tela de bloqueio fica parada e o site sobe por cima dela, acelerando com a subida da trilha
+    const sobe = naEse ? Math.pow(fase(t, CORTE.ese + T, CORTE.site), 1.8) : 0;
+    mostra(cBloq, naHistoria || naEse || ponte);
+    mostra(cResp, naVolta);
+    mostra(cSite, (naEse && sobe > 0) || noSite);
+    if (naHistoria || naEse || ponte) {
+      desenharBloqueio(t, !naHistoria);
+      $("#escurece").style.opacity = 0.55 * sobe;
+    }
+    if (naVolta) desenharRespostas(t);
+    if (naEse || noSite) cSite.style.transform = naEse ? `translateY(${1440 * (1 - sobe)}px)` : "none";
+  }
+
+  // ---- 4. nada: as luvas ----
+  const luvas = $("#luvas");
+  if (mostra(luvas, t >= CORTE.nada && t < CORTE.volta)) {
+    const img = luvas.querySelector("img");
+    img.style.transform = `scale(${lerp(1.0, 1.06, fase(t, CORTE.nada, CORTE.volta))})`;
+    const nd1 = $("#nd1"), nd2 = $("#nd2");
+    nd1.style.transform = `scale(${soco(t, CORTE.nada, 1.08, 0.25)})`;
+    if (mostra(nd2, t >= CORTE.nada + 2 * T)) { const x = sai(fase(t, CORTE.nada + 2 * T, CORTE.nada + 2 * T + 0.3)); nd2.style.opacity = x; nd2.style.transform = `translateY(${(1 - x) * 26}px)`; }
+  }
+
+  // ---- 5. volta: textos ----
+  faixa($("#tV1"), t, CORTE.volta, cp(9) + T);
+  faixa($("#tV2"), t, cp(9) + T, CORTE.meio);
+
+  // ---- 6. meio: o coração ----
+  const tM = $("#tMeio");
+  if (mostra(tM, t >= CORTE.meio && t < CORTE.ese)) {
+    const tum = t < CORTE.meio + 0.28 ? soco(t, CORTE.meio, 1.08, 0.24) : soco(t, CORTE.meio + 0.28, 1.03, 0.24);
+    tM.style.transform = `scale(${tum * lerp(1, 1.04, fase(t, CORTE.meio, CORTE.ese))})`;
+    tM.style.opacity = 1 - fase(t, CORTE.ese - 0.2, CORTE.ese);
+  }
+
+  // ---- 7. ese ----
+  faixa($("#tE"), t, CORTE.ese, CORTE.site);
+
+  // ---- 8. o site (drop) ----
+  const noSite = t >= CORTE.site && t < CORTE.fim;
+  for (const [i, [t0, sel]] of ROTULOS.entries()) {
+    const el = $(sel), t1 = i + 1 < ROTULOS.length ? ROTULOS[i + 1][0] : CORTE.fim;
+    if (mostra(el, t >= t0 && t < t1)) { el.style.opacity = 1; el.style.transform = `scale(${soco(t, t0, 1.07, 0.22)})`; }
+  }
+  if (noSite || (t >= CORTE.ese && t < CORTE.site)) {
+    let k = 0; for (let i = 0; i < PARADAS.length; i++) if (t >= PARADAS[i].t) k = i;
+    const p = PARADAS[k], t1 = k + 1 < PARADAS.length ? PARADAS[k + 1].t : CORTE.fim;
+    let y = paradas[p.parada];
+    if (p.rola) y = lerp(paradas[PARADAS[k - 1].parada] + 30 / ESC, y, ease(fase(t, p.t, p.t + p.rola)));
+    y += 30 / ESC * ease(fase(t, p.t, t1));   // só 30 px, devagar, para a tela não ficar parada
+    site.style.transform = `translateY(${-y * ESC}px) scale(${ESC})`;
+    // o botão verde pulsa quando a pergunta entra nele
+    let o = 0, oo = 0;
+    for (const q of ONDAS) { const x = fase(t, q, q + 0.45); if (x > 0 && x < 1) { o = 1 - x; oo = x; } }
+    ondaZap.style.opacity = o; ondaZap.style.outlineOffset = (2 + oo * 12) + "px";
+    zapBtn.style.transform = `scale(${1 + 0.04 * Math.sin(Math.PI * clamp(oo * 2))})`;
+  }
+  for (const c of CHIPS) {
+    const on = t >= c.t0 && t < c.fim && noSite;
+    mostra(c.el, on);
+    if (c.realce) mostra(c.realce, on && t >= c.ok);
+    if (!on) continue;
+    const r = caixa(ALVO[c.alvo]);
+    const w = c.el.offsetWidth, h = c.el.offsetHeight;
+    let x = c.alinha === "dir" ? r.right - w + 30 : r.left + r.width / 2 - w / 2, y;
+    if (c.onde === "sobre") y = r.top + r.height / 2 - h / 2;
+    else if (c.onde === "abaixo") y = r.bottom + 18;
+    else y = r.top - h - 22;
+    x = clamp(x, 84, 996 - w);
+    const chega = sai(fase(t, c.t0, c.t0 + 0.3));
+    x += c.lado * (1 - chega) * 700;
+    let esc = 1, op = 1;
+    if (c.entra) { // a pergunta vai para o botão do WhatsApp: encolhe e some logo acima dele
+      const d = sai(fase(t, c.entra, c.entra + 0.2));
+      y += 24 * d; esc = lerp(1, 0.72, d); op = 1 - d;
+    }
+    c.el.style.left = x + "px"; c.el.style.top = y + "px"; c.el.style.opacity = op;
+    c.el.style.transform = `scale(${esc})`;
+    if (c.okEl) c.okEl.style.transform = `scale(${t < c.ok ? 0 : chaves(fase(t, c.ok, c.ok + 0.22), [0, 1.2, 1])})`;
+    if (c.realce && t >= c.ok) {
+      const pad = 10, re = c.realce;
+      re.style.left = (r.left - pad) + "px"; re.style.top = (r.top - pad) + "px";
+      re.style.width = (r.width + 2 * pad) + "px"; re.style.height = (r.height + 2 * pad) + "px";
+      re.style.opacity = sai(fase(t, c.ok, c.ok + 0.18));
+      re.style.transform = `scale(${soco(t, c.ok, 1.05, 0.22)})`;
+    }
+  }
+
+  // ---- 9. fim: o trocadilho ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
+  if (mostra(f2, t >= cp(17) && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, cp(17))})`;
+
+  // ---- 10. CTA e a volta ao começo ----
+  const noCta = t >= CORTE.cta;
+  const saiCta = fase(t, PONTE, PONTE + 0.16);
+  mostra($("#ctaMarca"), noCta && saiCta < 1); mostra($("#botao"), noCta && saiCta < 1); mostra($("#l1"), noCta && saiCta < 1);
+  if (noCta && saiCta < 1) {
+    const cm = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    $("#ctaMarca").style.opacity = cm * (1 - saiCta); $("#ctaMarca").style.transform = `scale(${lerp(0.8, 1, cm)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const b of BUMBOS) { const x = fase(t, b, b + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    $("#botao").style.transform = `scale(${esc})`; $("#botao").style.opacity = 1 - saiCta;
+    const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5));
+    $("#l1").style.opacity = x * (1 - saiCta); $("#l1").style.transform = `translateY(${(1 - x) * 28}px)`;
+  }
+
+  // ---- clarões: drop e cortes do site ----
+  let fl = 0;
+  const cl = (t0, d) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, 0.9 * (1 - x)); };
+  cl(CORTE.site, 0.07); for (const [t0] of ROTULOS.slice(1)) cl(t0, 0.06);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  palco.style.transform = dx ? `translateX(${dx}px)` : "none";
+};
+
+// a foto das luvas: o instrumento tem uma marca gravada (de verdade); ela fica desfocada, desenhada num canvas
+async function luvasSemMarca() {
+  const img = $("#luvas img"), orig = new Image();
+  orig.src = img.getAttribute("src");
+  await orig.decode();
+  const cv = Object.assign(document.createElement("canvas"), { width: orig.naturalWidth, height: orig.naturalHeight });
+  const ctx = cv.getContext("2d");
+  ctx.drawImage(orig, 0, 0);
+  const borra = (rx, ry, px) => {
+    ctx.save();
+    ctx.translate(778, 553); ctx.rotate(27 * Math.PI / 180);
+    ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, 2 * Math.PI); ctx.clip();
+    ctx.rotate(-27 * Math.PI / 180); ctx.translate(-778, -553);
+    ctx.filter = `blur(${px}px)`; ctx.drawImage(cv, 0, 0);
+    ctx.restore();
+  };
+  borra(70, 30, 3); borra(58, 22, 6); borra(50, 17, 8);
+  img.src = cv.toDataURL("image/jpeg", 0.92);
+}
+await luvasSemMarca().catch(() => {});
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

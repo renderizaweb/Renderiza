@@ -1,13 +1,15 @@
 // Posts do Instagram da Renderiza, prontos para baixar e postar:
 //   carrossel → 7 PNGs 1080 × 1350 (carrossel.html) · teste → 1 PNG 1080 × 1350 (teste.html)
 //   reels, reels-cliente-perdido, reels-narrado (com voz: narrar.py) → MP4 1080 × 1920, 30 quadros por segundo, com trilha original (reels.html + ferramentas/video/musica.py)
+//   stories-* → PNGs 1080 × 1920, um por .slide (a arte dos stories; enquete e caixa de pergunta entram no app)
 // Uso: node instagram/gerar.mjs [carrossel|teste|reels ...] [--ensaio] (sem nada: todos) → rascunhos/instagram/saida/
+//   Qualquer outro nome é uma página de imagens (<nome>.html, uma .slide por imagem) ou, se começar com "reels", um Reels.
 //   --ensaio: no Reels, só 11 quadros soltos (JPG) para conferir antes de gravar.
 // As páginas abrem por um servidor local (módulo JS não carrega por file://). As fotos do negócio de exemplo são de
 // banco livre (Unsplash, fotos.json) e são baixadas na primeira vez para rascunhos/instagram/fotos/.
 // Cores: só nos tokens de instagram/marca.css. Trocou a paleta, é gerar de novo.
 import { createServer } from "node:http";
-import { existsSync, mkdirSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { spawn, spawnSync } from "node:child_process";
 import { dirname, extname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -21,8 +23,9 @@ const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
 // cada Reels é um <nome>.html com window.preparar() e window.quadro(t) e sai em <nome>.mp4
-const REELS = ["reels", "reels-cliente-perdido", "reels-narrado", "reels-anuncio"];
-const quais = pedidos.length ? pedidos : ["carrossel", "teste", ...REELS];
+const REELS = ["reels", "reels-cliente-perdido", "reels-narrado", "reels-anuncio", "reels-sobrinho", "reels-atende", "reels-fecha", "reels-indica", "reels-elogio", "reels-catalogo", "reels-pronto"];
+const IMAGENS = ["carrossel", "teste", "carrossel-dicionario", "post-pixel", "carrossel-espalhado", "stories-semana"];
+const quais = pedidos.length ? pedidos : [...IMAGENS, ...REELS];
 mkdirSync(SAIDA, { recursive: true }); mkdirSync(FOTOS, { recursive: true });
 
 // fotos do negócio de exemplo
@@ -59,7 +62,7 @@ async function abrir(pagina, largura, altura) {
 }
 
 async function imagens(pagina, prefixo) {
-  const p = await abrir(pagina, 1080, 1350);
+  const p = await abrir(pagina, 1080, prefixo.startsWith("stories") ? 1920 : 1350); // story: 9:16; feed: 4:5
   const slides = await p.$$(".slide");
   const feitos = [];
   for (const [i, s] of slides.entries()) {
@@ -75,7 +78,7 @@ const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio
 
 async function reels(nome) {
   const p = await abrir(nome + ".html", 1080, 1920);
-  const { duracao, entrada, fechamento, clima = "leve", narracao, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
+  const { duracao, entrada, fechamento, clima = "leve", narracao, pulso, bpm, tom, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
   if (ENSAIO) { // só alguns quadros, para conferir antes de gravar
     for (const t of ensaio) {
       await p.evaluate(x => window.quadro(x), t);
@@ -100,6 +103,11 @@ async function reels(nome) {
     const voz = join(RAIZ, "rascunhos", "instagram", narracao + "-voz.wav");
     if (!existsSync(voz)) await rodar("python3", [join(AQUI, "narrar.py"), narracao]);
     await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), join(AQUI, "narracao", narracao + ".tempos.json"), voz, wav, String(duracao)]);
+  } else if (pulso) { // Reels sem voz com a trilha pulsante: "pulso" traz as cenas como as frases de uma narração
+    const tempos = join(tmp, "cenas.json"), mudo = join(tmp, "mudo.wav");
+    writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso }));
+    await rodar(FFMPEG, ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono", "-t", String(duracao), "-c:a", "pcm_s16le", mudo]);
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, mudo, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : [])]);
   } else await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
   const saida = join(SAIDA, nome + ".mp4");
   await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a", "-t", String(duracao),
@@ -110,9 +118,10 @@ async function reels(nome) {
 }
 
 try {
-  if (quais.includes("carrossel")) await imagens("carrossel.html", "carrossel");
-  if (quais.includes("teste")) await imagens("teste.html", "teste");
-  for (const r of REELS) if (quais.includes(r)) await reels(r);
+  for (const nome of quais) {
+    if (nome.startsWith("reels")) await reels(nome);
+    else await imagens(nome + ".html", nome);
+  }
 } finally {
   await browser.close();
   servidor.close();

@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço 41",
+ "local": "Sorocaba · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2c3326",
+  "fundo2": "#1b1f17",
+  "acento": "#c2a878",
+  "tinta_acento": "#1b1f17",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/espaco41/Instagram_files/481084559_122140225994565650_649248568983445324_n.jpg",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "104"
+ },
+ "titulo": "Uma casa de família<br><em>para a sua festa.</em>",
+ "texto": "Casamentos intimistas, mini weddings e aniversários para até 70 pessoas, com pergolado e louçaria para alugar.",
+ "whatsapp": "(15) 99777-8664",
+ "cta": "Consulte sua data",
+ "endereco": "Rua Dulce Manzano, 41 · Sorocaba",
+ "instagram": "@espaco_41"
+}

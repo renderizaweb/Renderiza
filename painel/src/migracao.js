@@ -106,6 +106,8 @@ export function completarLead(l) {
     interesse: l.interesse || "nao_avaliado",
     interesse_motivo: l.interesse_motivo || null,
     nao_contatar: !!l.nao_contatar,
+    tags: Array.isArray(l.tags) ? l.tags : [],
+    checklist: Array.isArray(l.checklist) ? l.checklist : [],
   };
 }
 

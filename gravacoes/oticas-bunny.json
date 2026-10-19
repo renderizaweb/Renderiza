@@ -1,0 +1,116 @@
+{
+ "demo": "oticas-bunny",
+ "formato": "reels",
+ "marca": "Óticas Bunny",
+ "local": "Jardim São Luís · São Paulo",
+ "cores": {
+  "fundo": "#161616",
+  "fundo2": "#0e0e0e",
+  "acento": "#d8c3a0",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Bunny"
+  ],
+  "frase": "Óculos novos sem sair do trabalho.",
+  "fotos": [
+   ".hero-photo img",
+   "#armacoes-track li:nth-child(1) img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Bunny.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.1,
+   "legenda": "Quem trabalha o dia todo *quer resolver os óculos rápido.*",
+   "sub": "E procura uma ótica pelo celular, no intervalo."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.4,
+   "legenda": "Descobre que a Bunny *fica no Centro Empresarial.*",
+   "sub": "E que também atende em casa: é só chamar no WhatsApp."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê as marcas que conhece, *uma por uma.*",
+   "sub": "Armações e solares para escolher sem sair do trabalho."
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 3.9,
+   "legenda": "E encontra um estilo *com personalidade.*",
+   "sub": "Armações marmorizadas, coloridas e diferentes do comum."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 30 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "Para ir até a loja ou pedir o atendimento em casa."
+  }
+ ]
+}

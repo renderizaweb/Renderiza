@@ -1,0 +1,130 @@
+{
+ "demo": "victors-buffet",
+ "formato": "reels",
+ "marca": "Victor's Festas e Eventos",
+ "local": "Santa Paula · São Caetano do Sul",
+ "cores": {
+  "fundo": "#241a14",
+  "fundo2": "#16100c",
+  "acento": "#c99a5b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T11:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Victor's",
+   "Festas e Eventos"
+  ],
+  "frase": "Surpreenda-se no grande dia.",
+  "fotos": [
+   ".hero-photo img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(2) img",
+   "#festas-track li:nth-child(1) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Victor's.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um buffet para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece o Victor's *por inteiro.*",
+   "sub": "Do corredor de arcos à pista de dança, com o buffet da casa, em São Caetano."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 4.2,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê cada ambiente *antes da visita.*",
+   "sub": "O corredor iluminado, a cerimônia e o salão."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 3.9,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Casamentos, 15 anos, aniversários e bodas."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 917 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

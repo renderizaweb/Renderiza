@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Reserva da Ilha",
+ "local": "Embu-Guaçu · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#13282a",
+  "fundo2": "#0b181a",
+  "acento": "#c8a45c",
+  "tinta_acento": "#0b181a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/spacoreservadailha/Instagram_files/586721162_18117649600567850_7262896676368652207_n.jpg",
+  "pos": "50% 60%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "45"
+ },
+ "titulo": "O sim ao ar livre,<br><em>a festa no salão.</em>",
+ "texto": "Casamentos, debutantes e eventos de empresa com salão para até 400 convidados.",
+ "whatsapp": "(11) 97515-7771",
+ "cta": "Consulte sua data",
+ "endereco": "Fazenda da Ilha · Embu-Guaçu",
+ "instagram": "@espacoreservadailha"
+}

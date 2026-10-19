@@ -1,0 +1,29 @@
+{
+ "marca": "Ferreira K Eventos",
+ "local": "Itapecerica da Serra · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#16130f",
+  "fundo2": "#0d0b09",
+  "acento": "#d4af37",
+  "tinta_acento": "#0d0b09",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/ferreirakeventos/Instagram_files/622279199_18070925486427196_901462558472988199_n.webp",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "60"
+ },
+ "titulo": "Realizando<br><em>o seu sonho.</em>",
+ "texto": "Casamentos, 15 anos e festas em dois salões, com gazebo e pacote completo, a 40 minutos de SP.",
+ "whatsapp": "(11) 94724-2838",
+ "cta": "Consulte sua data",
+ "endereco": "R. Mariane, 425 · Itapecerica da Serra",
+ "instagram": "@ferreirakeventos"
+}

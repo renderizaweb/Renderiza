@@ -1,0 +1,130 @@
+{
+ "demo": "espaco-la-ro",
+ "formato": "reels",
+ "marca": "Espaço La Ro · Locações para Festas",
+ "local": "Pirituba · São Paulo",
+ "cores": {
+  "fundo": "#2e2a21",
+  "fundo2": "#1d1a14",
+  "acento": "#e3a857",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Espaço",
+   "La Ro"
+  ],
+  "frase": "Aqui a sua festa acontece.",
+  "fotos": [
+   ".hero-photo img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do La Ro.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um lugar para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece o La Ro *e quem recebe.*",
+   "sub": "O Sr. Marcos e a Dona Rose, com buffet, decoração e DJ, em Pirituba."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê cada canto *antes da visita.*",
+   "sub": "A árvore de flores, o salão e o lounge."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 3.9,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Casamentos, 15 anos, aniversários e bodas."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "Nota 5,0 em 106 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

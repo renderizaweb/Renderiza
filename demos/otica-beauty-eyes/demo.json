@@ -1,0 +1,180 @@
+{
+ "pasta": "otica-beauty-eyes",
+ "marca": "Ótica Beauty Eyes",
+ "marca_logo": "Beauty Eyes",
+ "marca_completa": "Ótica Beauty Eyes",
+ "logo_sub": "Santa Paula · São Caetano do Sul",
+ "titulo": "Ótica Beauty Eyes | Santa Paula, São Caetano do Sul",
+ "descricao": "Ótica Beauty Eyes, na R. Maranhão, 529, no Santa Paula, em São Caetano do Sul: saúde visual e visagismo, armações e solares de grife e moda no mesmo endereço, com atendimento personalizado. 28 avaliações no Google.",
+ "comentario": "Demo Ótica Beauty Eyes: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticabeautyeyes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2a241d",
+  "acento": "#c6a15b",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-beauty-eyes/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/otica-beauty-eyes.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-beauty-eyes/logo.png",
+  "box": [0, 0, 1, 1]
+ },
+ "topline": "R. Maranhão, 529 · Santa Paula, São Caetano do Sul",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Grifes"],
+  ["#estilo", "Clientes"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Agendar no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Santa Paula, São Caetano do Sul",
+  "h1": "Mais que uma ótica, <em>um centro de estilo.</em>",
+  "intro": "Saúde visual e visagismo, armações e solares de grife e um atendimento personalizado, com cuidado nos detalhes. Na R. Maranhão, 529.",
+  "selo": "Saúde visual e visagismo",
+  "link": "Ver as grifes",
+  "foto": { "id": 23, "c": [0.6, 0.4] },
+  "alt": "Moça da Beauty Eyes de óculos espelhados, segurando uma caixa de óculos, diante das prateleiras de solares"
+ },
+ "endereco": ["R. Maranhão, 529", "Santa Paula · São Caetano do Sul"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Visagismo", "Óculos de grau", "Solares de grife", "Optic & Dress", "Infantil", "Atendimento com hora marcada", "São Caetano do Sul"],
+ "sobre": {
+  "eyebrow": "A Beauty Eyes",
+  "h2": "Óculos e moda <em>no mesmo endereço.</em>",
+  "p": [
+   "Na R. Maranhão, em São Caetano do Sul, a Beauty Eyes junta ótica e moda: na Optic & Dress tem armações, solares e roupas para montar o visual inteiro, com visagismo para achar o óculos que valoriza o seu rosto.",
+   "O atendimento é personalizado, com cuidado nos detalhes e tempo para conversar. Tem cliente que faz os óculos da família toda, de adultos a crianças."
+  ],
+  "stats": [["28", "avaliações no Google"], ["Seg a sáb", "sábado até as 16h"]],
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-beauty-eyes/google/g00.jpg", "c": [0.5, 0.5] },
+  "alt": "A Beauty Eyes por dentro: prateleiras de madeira com óculos, luminárias e poltronas",
+  "pol": { "id": 3, "c": [0.5, 0.5] },
+  "pol_alt": "Fachada da Optic & Dress, com manequins e o letreiro dos óculos",
+  "pol_cap": "Optic & Dress"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Grifes",
+   "h2": "Peças para <em>valorizar o olhar.</em>",
+   "p": "Armações e solares de grife para provar com calma. Peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Óculos da Ótica Beauty Eyes",
+   "formato": "quadrado",
+   "itens": [
+    { "foto": { "id": 39 }, "alt": "Óculos de sol com tachas douradas sobre a caixa vermelha" },
+    { "foto": { "id": 12 }, "alt": "Óculos de sol preto quadrado com a caixa amarela" },
+    { "foto": { "id": 42 }, "alt": "Óculos dourado com corrente, ao lado da caixa vermelha" },
+    { "foto": { "id": 47 }, "alt": "Óculos de sol dourado com lentes amarelas" },
+    { "foto": { "id": 43 }, "alt": "Armação vermelha estampada sobre o estojo branco da Beauty Eyes" },
+    { "foto": { "id": 40 }, "alt": "Óculos de sol branco gatinho" },
+    { "foto": { "id": 30, "c": [0.5, 0.6] }, "alt": "Armação tartaruga, o estojo vermelho e a sacola da Beauty Eyes" },
+    { "foto": { "id": 33, "c": [0.5, 0.45] }, "alt": "Armação preta sobre o estojo de couro" }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "Clientes",
+   "h2": "Quem veste <em>Beauty Eyes.</em>",
+   "p": "Clientes de óculos novo, do grau ao solar. Venha escolher o seu.",
+   "rotulo": "Clientes da Ótica Beauty Eyes",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 51, "c": [0.5, 0.35] }, "alt": "Cliente de óculos branco, sorrindo" },
+    { "foto": { "id": 46, "c": [0.5, 0.45] }, "alt": "Cliente com a sacola da loja" },
+    { "foto": { "id": 44, "c": [0.5, 0.35] }, "alt": "Cliente de óculos de sol aviador, no carro" },
+    { "foto": { "id": 50, "c": [0.5, 0.4] }, "alt": "Cliente sorrindo de óculos de sol redondo" },
+    { "foto": { "id": 24, "c": [0.5, 0.5] }, "alt": "Cliente com a sacola da loja, entre as araras de roupa" },
+    { "foto": { "id": 37, "c": [0.5, 0.45] }, "alt": "Duas clientes abraçadas" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Agende o seu horário pelo WhatsApp e venha provar.",
+  "grau": {
+   "titulo": "Visagismo",
+   "rotulo": "01 / VISAGISMO",
+   "foto": { "id": 0, "c": [0.5, 0.35] },
+   "alt": "Moça da Beauty Eyes de óculos de grau pretos, na loja",
+   "texto": "O formato e a cor que valorizam o seu rosto."
+  },
+  "solar": {
+   "titulo": "Solares de grife",
+   "rotulo": "02 / GRIFES",
+   "foto": { "id": 48, "c": [0.5, 0.4] },
+   "alt": "Cliente sorrindo de óculos de sol degradê",
+   "texto": "Modelos de grife para provar com calma."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Atendimento <em>personalizado.</em>",
+  "passos": [
+   "Agende pelo WhatsApp ou venha à loja, na R. Maranhão, 529",
+   "Visagismo: o formato e a cor que valorizam o seu rosto",
+   "Lentes para a sua rotina, para adultos e crianças",
+   "Óculos entregues com todo o cuidado, no estojo da Beauty Eyes"
+  ],
+  "botao": "Agendar no WhatsApp",
+  "foto": { "id": 18, "c": [0.5, 0.45] },
+  "alt": "Moça da loja com a sacola da Optic & Dress, diante das prateleiras",
+  "pol": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-beauty-eyes/google/g01.jpg", "c": [0.5, 0.45] },
+  "pol_alt": "Vitrine da loja com manequim e óculos",
+  "pol_cap": "A vitrine",
+  "card": ["Com hora marcada", "Agende pelo WhatsApp."]
+ },
+ "avaliacoes_secao": { "h2": "Quem já <em>passou por aqui.</em>" },
+ "avaliacoes": [
+  { "nome": "Patricia Octaviano", "tag": "A Melissa", "trecho": "A Melissa é maravilhosa!!! Atendimento personalizado, com cuidado nos detalhes, carinho a atenção com os clientes." },
+  { "nome": "Caique Ferreira", "tag": "A Flávia", "trecho": "O atendimento da Flávia impecável e super simpática! Muito obrigado! Virei cliente!" },
+  { "nome": "Conceição Costa", "tag": "Personalizado" },
+  { "nome": "Fabio Freire", "tag": "Variedade" },
+  { "nome": "Stephani Poquiviqui", "tag": "A melhor" }
+ ],
+ "instagram": "oticabeautyeyes",
+ "insta": {
+  "seguidores": "1,4 mil seguidores",
+  "p": "Lançamentos, clientes e a coleção Beauty Eyes.",
+  "foto": { "id": 6, "c": [0.5, 0.4] },
+  "alt": "Moça da Beauty Eyes de óculos de grau, diante da parede de solares"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na R. Maranhão.</em>",
+  "endereco": ["R. Maranhão, 529 · Santa Paula", "São Caetano do Sul, SP · CEP 09541-000"],
+  "telefone": "(11) 98935-0981",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Mais que uma ótica, um centro de estilo.",
+ "mensagem": "Olá! Vim pelo site da Beauty Eyes e queria agendar um horário.",
+ "whatsapp": "5511989350981",
+ "fone_link": "+5511989350981",
+ "google": { "coords": "-23.620908,-46.5681077", "fid": "0x94ce5d4de2d3dfa5:0x1fd021f3fb82b67f", "gid": "/g/11t7w3lkl0" },
+ "google_nome": "Ótica Beauty Eyes",
+ "endereco_maps": "R. Maranhão, 529 - Santa Paula, São Caetano do Sul - SP, 09541-000",
+ "google_nota": "4,9",
+ "google_total": "28",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98935-0981 é o telefone do Perfil da Empresa no Google e o da fachada",
+  "site": "não tem (o Google aponta o Instagram; a bio tem um Linktree)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1,5 mil seguidores, 28 avaliações. Bio: \"Saúde visual e visagismo\", \"Mais que uma ótica, um centro de estilo, bem-estar e autoestima!\". A loja é ótica e moda (\"Optic & Dress\" na fachada e na sacola). As avaliações citam a Melissa e a Flávia."
+  ],
+  "demo": [
+   "Marrom quase preto e o dourado do logo (o monograma BB com o óculos), títulos em Playfair Display.",
+   "Capa com a frase da bio e a moça da loja diante dos solares; a loja por dentro (Google) e a fachada Optic & Dress na história.",
+   "Carrossel de grifes (8), carrossel de clientes (6), visagismo e solares, atendimento com a moça da loja e a vitrine (Google), 5 avaliações de 5 estrelas. Nota 4,9: a demo mostra as estrelas e as 28 avaliações."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): a moça da loja, os óculos de grife nas caixas e clientes que postaram de óculos. Google: a loja por dentro e a vitrine.",
+   "Ficaram de fora: fotos de viagem e do dia a dia sem óculos, a planta do layout da loja e quadros de vídeo borrados."
+  ],
+  "conferir": [
+   "A moça da loja deve ser a Melissa (dona?), citada nas avaliações. Não confirmei.",
+   "As fotos de clientes vieram de reposts no Instagram da loja; perguntar se pode usar no site de verdade.",
+   "As caixas de Valentino e Fendi aparecem nas fotos; a demo não cita marca pelo nome."
+  ]
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "_sobre": "Vídeo de divulgação do site da Lú Elegante, que já está no ar (cliente): para ela postar nos Stories, no Status e no Reels. Sem marca da Renderiza.",
+ "url": "https://www.luelegantemodas.com.br/",
+ "marca": "Lú Elegante",
+ "local": "Vila São Pedro · São Bernardo do Campo",
+ "cores": {
+  "fundo": "#a3134f",
+  "fundo2": "#4f0a27",
+  "acento": "#ffd0e2",
+  "claro": "#fff9f6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Montserrat"
+ },
+ "hora": "2026-10-13T10:30:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "resolucao": 1080,
+ "assinatura": "@luelegantemodas",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Site novo no ar",
+  "chamada": "Conheça o site da",
+  "nome": [
+   "Lú",
+   "Elegante"
+  ],
+  "frase": "Você sempre linda.",
+  "fotos": [
+   ".hero-main img",
+   "#vitrine-track > :nth-child(1) img",
+   ".hero-tile--cabelo img",
+   "#loja-track > :nth-child(1) img"
+  ],
+  "rotulos_fotos": [
+   "Moda",
+   "Looks",
+   "Beleza",
+   "Loja"
+  ],
+  "pos_fotos": [
+   "50% 30%",
+   "50% 25%",
+   "50% 40%",
+   "50% 50%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Visite o nosso site",
+  "destaque": "luelegantemodas​.com.br",
+  "convite": "Veja as novidades e chame a Lú no WhatsApp."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.5
+  },
+  {
+   "rolar": ".hero-main",
+   "segura": 1.5,
+   "legenda": "Moda feminina até o G2"
+  },
+  {
+   "rolar": "#vitrine-track",
+   "alinhar": "topo",
+   "segura": 3.0,
+   "legenda": "Mande o print no WhatsApp",
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.6,
+     "tipo": "deslizar",
+     "alvo": "#vitrine-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#loja-track",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Venha experimentar na loja",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "deslizar",
+     "alvo": "#loja-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#salao h2",
+   "alinhar": "topo",
+   "segura": 1.8,
+   "legenda": "Salão de beleza junto da loja"
+  },
+  {
+   "rolar": "#historia .retrato",
+   "segura": 1.7,
+   "legenda": "Conheça a Lú",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#lojas article",
+   "alinhar": "topo",
+   "segura": 1.7,
+   "legenda": "Endereço e como chegar"
+  },
+  {
+   "rolar": ".final h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".final .btn-claro"
+    }
+   ]
+  }
+ ],
+ "legenda_baixo": 170
+}

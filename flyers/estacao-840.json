@@ -1,0 +1,29 @@
+{
+ "marca": "Estação 840",
+ "local": "Centro · Osasco",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1e1814",
+  "fundo2": "#120e0c",
+  "acento": "#d9a05b",
+  "tinta_acento": "#120e0c",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/estacao840/Instagram_files/481950040_18162574744332213_3509646568805615045_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "1.029"
+ },
+ "titulo": "Uma fábrica de trens<br><em>para a sua festa.</em>",
+ "texto": "Casamentos, 15 anos e eventos em 605 m² de vão livre, com um vagão de trem de verdade.",
+ "whatsapp": "(11) 99851-6481",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Marechal Rondon, 840 · Osasco",
+ "instagram": "@estacao840"
+}

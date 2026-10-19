@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Mirante Biritiba",
+ "local": "Biritiba Mirim · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a1f2b",
+  "fundo2": "#1a131a",
+  "acento": "#e0a15e",
+  "tinta_acento": "#1a131a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/espacomirantebiritiba/Instagram_files/482020410_659203163298446_9175747399956841416_n.jpg",
+  "pos": "50% 55%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "48"
+ },
+ "titulo": "O sim ao ar livre,<br><em>com o pôr do sol.</em>",
+ "texto": "Casamentos, 15 anos e aniversários com cerimônia no gramado, salão, piscina e acomodação.",
+ "whatsapp": "(11) 99185-6969",
+ "cta": "Consulte sua data",
+ "endereco": "R. Monteiro Lobato, 150 · Biritiba Mirim",
+ "instagram": "@espacomirantebiritiba"
+}

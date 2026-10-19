@@ -1,0 +1,30 @@
+{
+ "marca": "Óticas Atlanta",
+ "local": "Vila Valparaíso · Santo André",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0b2b3d",
+  "fundo2": "#071b26",
+  "acento": "#29b6e6",
+  "tinta_acento": "#071b26",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-atlanta/flyer.jpg",
+  "pos": "50% 45%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "56"
+ },
+ "titulo": "Enxergar melhor, <em>com cuidado.</em>",
+ "texto": "Armações e solares das novas coleções, marca própria e entrega antes do prazo combinado.",
+ "whatsapp": "(11) 93742-0802",
+ "endereco": "Av. Atlântica, 243 · Santo André",
+ "instagram": "@oticasatlanta",
+ "italico": false
+}

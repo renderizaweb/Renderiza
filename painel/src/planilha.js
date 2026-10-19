@@ -190,7 +190,7 @@ export function criarPlanilha(o) {
     if (!c || !el) return;
     const focado = document.activeElement === el && !forcar;
     const bloqueado = !o.podeEditar();
-    const v = l[c.campo];
+    const v = c.valor ? c.valor(l) : l[c.campo]; // coluna calculada (ex.: Ciclo, que vem das tags)
     if (c.tipo === "nome" || c.tipo === "texto" || c.tipo === "link") { if (!focado) el.value = v || ""; el.disabled = bloqueado; if (c.tipo !== "link") el.title = v || ""; }
     else if (c.tipo === "valor") { if (!focado) el.value = formatarValor(v); el.disabled = bloqueado; }
     else if (c.tipo === "data") { if (!focado) el.value = v || ""; el.classList.toggle("vazia", !el.value); el.disabled = bloqueado; }

@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Bunny",
+ "local": "Centro Empresarial · São Paulo",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#161616",
+  "fundo2": "#0e0e0e",
+  "acento": "#d8c3a0",
+  "tinta_acento": "#0e0e0e",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/otica_bunny/Instagram_files/655224885_18093951967866314_4649744919365799192_n.jpg",
+  "pos": "50% 35%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "30"
+ },
+ "titulo": "Óculos novos <em>sem sair do trabalho.</em>",
+ "texto": "No Centro Empresarial de São Paulo ou na sua casa: armações e solares das marcas que você conhece.",
+ "whatsapp": "(11) 95811-3814",
+ "endereco": "Centro Empresarial de SP · Bl. G, loja 22",
+ "instagram": "@oticas.bunny"
+}

@@ -1,0 +1,393 @@
+{
+ "pasta": "casa-le-charme",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/casa-le-charme/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/casa-le-charme.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/casa-le-charme/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511911443387",
+ "fone_link": "+5511911443387",
+ "google": {
+  "coords": "-23.7038882,-46.8424614",
+  "fid": "0x94cfadbca5c30be5:0x40696ed6e962bc93",
+  "gid": "/g/11kbycr9jf"
+ },
+ "endereco_maps": "R. Elza da Silva Andrade, 05 - Jardim Europa, Itapecerica da Serra - SP, 06855-130",
+ "google_nota": "4,8",
+ "google_total": "50",
+ "verificado": "2026-10-16",
+ "instagram": "casalecharme",
+ "estilo": "gala",
+ "marca": "Casa Le Charme",
+ "marca_logo": "Casa Le Charme",
+ "marca_completa": "Casa Le Charme · Exclusive Weddings",
+ "logo_sub": "Itapecerica da Serra · SP",
+ "titulo": "Casa Le Charme | Casamentos em Itapecerica da Serra",
+ "descricao": "Casa Le Charme, na R. Elza da Silva Andrade, 05, no Jardim Europa, em Itapecerica da Serra (SP): casa de arquitetura contemporânea cercada de natureza, para casamentos de até 100 pessoas, com cerimônia ao ar livre e coquetel no jardim.",
+ "comentario": "Demo Casa Le Charme: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da casa (@casalecharme, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#161616",
+  "acento": "#c9b38a"
+ },
+ "topline": "R. Elza da Silva Andrade, 05 · Jardim Europa, Itapecerica da Serra",
+ "nav": [
+  [
+   "#sobre",
+   "A casa"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Casamentos"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos em Itapecerica da Serra",
+  "h1": "Arquitetura <em>cercada de verde.</em>",
+  "intro": "Casamentos para até 100 pessoas numa casa com portas de 6 metros abertas para o jardim, cerimônia ao ar livre e coquetel no jardim.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa comprida posta à noite sob o lustre, com o jardim ao fundo"
+ },
+ "endereco": [
+  "R. Elza da Silva Andrade, 05",
+  "Itapecerica da Serra · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Exclusive weddings",
+  "Cerimônia ao ar livre",
+  "Coquetel no jardim",
+  "Arquitetura contemporânea",
+  "Até 100 convidados",
+  "Itapecerica da Serra"
+ ],
+ "sobre": {
+  "eyebrow": "A casa",
+  "h2": "Design contemporâneo <em>aliado à natureza.</em>",
+  "p": [
+   "No Jardim Europa, em Itapecerica da Serra, a Casa Le Charme une arquitetura e design contemporâneos à natureza. As portas de 6 metros de altura trazem o jardim para dentro, e a cerimônia acontece ao ar livre.",
+   "É feita para casamentos de até 100 pessoas. Da primeira visita ao grande dia, quem acompanha os noivos é o Renan, com a Val e a equipe, que também indicam fornecedores."
+  ],
+  "stats": [
+   [
+    "6 m",
+    "de altura nas portas da casa"
+   ],
+   [
+    "100",
+    "convidados, no máximo"
+   ]
+  ],
+  "foto": {
+   "id": 11,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada de vidro da casa entre ciprestes e plantas",
+  "pol": {
+   "id": 12,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Noiva sorrindo diante da casa, entre as plantas",
+  "pol_cap": "A noiva"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "A casa, o jardim <em>e a cerimônia.</em>",
+   "p": "A fachada, o jardim, o corredor da cerimônia e o coquetel. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes da Casa Le Charme",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g00.jpg"
+     },
+     "alt": "Fachada contemporânea com ciprestes e o sol entre as árvores"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Piscina entre palmeiras e folhagens"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "A casa ao pôr do sol, com o terraço iluminado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g08.jpg"
+     },
+     "alt": "Corredor espelhado da cerimônia entre flores brancas"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Mesa de coquetel com pães e taças no jardim"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g12.jpg"
+     },
+     "alt": "Corredor branco até o arco dourado da cerimônia"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Mapa de mesas em espelho com flores brancas"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Folhas de costela-de-adão no jardim"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Casamentos reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casais que já disseram sim na Casa Le Charme.",
+   "rotulo": "Casamentos que aconteceram na Casa Le Charme",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Noiva no altar à noite, entre palmeiras e flores brancas",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g03.jpg"
+     },
+     "alt": "Noivos cortando o bolo entre castiçais e copos-de-leite",
+     "cap": "O bolo"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Noiva de véu longo no jardim ao pôr do sol",
+     "cap": "A noiva"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Mesa de doces com velas e flores brancas",
+     "cap": "Doces"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Noivos abraçados com o véu ao vento",
+     "cap": "Os noivos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g07.jpg"
+     },
+     "alt": "Mesa do bolo com copos-de-leite em vasos de vidro",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Noivos ao lado da carruagem com cavalo branco",
+     "cap": "A chegada"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Noiva no altar entre arranjos brancos",
+     "cap": "Cerimônia"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a casa <em>oferece.</em>",
+  "p": "O que a própria casa mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Casa de arquitetura contemporânea"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "jardim",
+    "Jardim e paisagismo"
+   ],
+   [
+    "bar",
+    "Jardim para o coquetel"
+   ],
+   [
+    "pessoas",
+    "Até 100 convidados"
+   ],
+   [
+    "estrela",
+    "Indicação de fornecedores"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira visita <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o número de convidados pelo WhatsApp",
+   "Agende uma visita à casa em Itapecerica",
+   "Monte a equipe com as indicações de fornecedores",
+   "No dia, a equipe da casa acompanha o evento"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfadbca5c30be5_0x40696ed6e962bc93/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa posta com copos-de-leite e taças de cristal"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem casou <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Ellen Queiróz",
+   "tag": "Casamento",
+   "trecho": "O Renan e a Val são pessoas extraordinárias, sempre muito atenciosos, acolhedores e disponíveis para esclarecer cada dúvida ao longo de toda a jornada."
+  },
+  {
+   "nome": "Catarina Costa",
+   "tag": "O espaço",
+   "trecho": "A estrutura é impecável e o espaço é ideal para quem busca elegância em harmonia com a natureza."
+  },
+  {
+   "nome": "Karen Colaco",
+   "tag": "Decoração",
+   "trecho": "a casa já é maravilhosamente linda, é necessário pouca decoração, pois ela por si só já é lindíssima!"
+  },
+  {
+   "nome": "Bruna Nascimento",
+   "tag": "A casa",
+   "trecho": "Espaço impecável, moderno, elegante e rodeado pela natureza."
+  },
+  {
+   "nome": "Barbara Paes",
+   "tag": "Primeira visita",
+   "trecho": "na primeira visita já decidimos ser este o local, a estrutura, a beleza, não faltava nada!!"
+  },
+  {
+   "nome": "Jair Olivera Jr",
+   "tag": "Paisagismo",
+   "trecho": "no dia do evento toda a estrutura e paisagismo elevou e muito meu evento."
+  }
+ ],
+ "insta": {
+  "seguidores": "2,3 mil seguidores",
+  "p": "Casamentos, making of e a casa decorada.",
+  "foto": {
+   "id": 3
+  },
+  "alt": "Noivos se beijando sob a chuva de pétalas",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>do seu casamento?</em>",
+  "p": "Escolha o dia, o tipo de evento e quantos convidados. A mensagem chega pronta no WhatsApp da Casa Le Charme.",
+  "tipos": [
+   "Casamento",
+   "Mini wedding",
+   "Renovação de votos",
+   "Noivado",
+   "Chá de bebê",
+   "Outro evento"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Casa Le Charme e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Itapecerica.</em>",
+  "endereco": [
+   "R. Elza da Silva Andrade, 05 · Jardim Europa",
+   "Itapecerica da Serra, SP · CEP 06855-130"
+  ],
+  "telefone": "(11) 91144-3387",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Arquitetura cercada de verde.",
+ "mensagem": "Olá! Vim pelo site da Casa Le Charme e queria um orçamento.",
+ "google_nome": "Casa Le Charme",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 91144-3387 é o celular do Perfil da Empresa no Google (a bio usa um link wa.me/message, sem o número)",
+  "site": "não tem no ar: lp.casalecharme.com.br não existe mais (bom gancho). Tem página no casamentos.com.br com 8 opiniões.",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Casa de casamentos em Itapecerica da Serra: \"Exclusive weddings, arquitetura e design contemporâneo, aliados à natureza. Capacidade máxima: 100 pessoas\" (bio). Nota 4,8 com 50 avaliações (a demo mostra o total, não a nota).",
+   "Quem atende: o Renan (\"o atendimento do Renan\", \"a assessoria prestada pelo Renan e sua equipe\") e a Val (\"O Renan e a Val são pessoas extraordinárias\"). Não confirmei se são os donos."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a mesa posta sob o lustre, a casa, ambientes (8 fotos, 3 do Google), casamentos reais (8, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: preto e champanhe. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, fotos de fotógrafos de casamento) e Perfil da Empresa no Google (fachada, corredor espelhado, arco dourado, bolo, mesa posta).",
+   "Ficaram de fora: o vídeo preto, a arte com o logo, as fotos em preto e branco e as de baixa nitidez."
+  ],
+  "conferir": [
+   "Noivos aparecem em várias fotos, postadas pela própria casa e pelo Google.",
+   "Tem piscina nas fotos, mas nenhuma legenda fala dela: deixei fora da estrutura.",
+   "Uma avaliação de 3 estrelas diz que não há estacionamento, que a rua é de terra e que a subida é íngreme. A demo não fala de estacionamento nem de acessibilidade.",
+   "Horário do Google: de segunda a sábado, das 10h às 18h30; domingo, das 10h ao meio-dia (atendimento)."
+  ]
+ }
+}

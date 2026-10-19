@@ -1,0 +1,29 @@
+{
+ "marca": "Casa Le Charme",
+ "local": "Itapecerica da Serra · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#161616",
+  "fundo2": "#0d0d0d",
+  "acento": "#c9b38a",
+  "tinta_acento": "#0d0d0d",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/casalecharme/Instagram_files/469549112_17953475384855581_7219885646755568169_n.jpg",
+  "pos": "50% 50%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "50"
+ },
+ "titulo": "Arquitetura<br><em>cercada de verde.</em>",
+ "texto": "Casamentos para até 100 pessoas, com cerimônia ao ar livre e coquetel no jardim.",
+ "whatsapp": "(11) 91144-3387",
+ "cta": "Consulte sua data",
+ "endereco": "R. Elza da Silva Andrade, 05 · Itapecerica",
+ "instagram": "@casalecharme"
+}

@@ -1,0 +1,160 @@
+/* Páginas "Como funciona" por nicho (/como-funciona/<nicho>). Vem depois de estilo.css (a home): usa os mesmos
+   tokens, botões, cabeçalho, passos, perguntas, convite e rodapé, e acrescenta o que é só desta página. */
+
+/* abertura: grafite com a luz quente de uma festa ao fundo, o texto e o celular com a consulta de data */
+.cf-abertura{position:relative;isolation:isolate;overflow:hidden;background:var(--grafite-3);color:#fff;padding:44px 0 64px}
+.cf-abertura::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;background:radial-gradient(42% 38% at 82% 30%,#b2513447,transparent 70%),radial-gradient(30% 28% at 12% 12%,#e8855e24,transparent 72%),radial-gradient(36% 40% at 60% 100%,#f1eee914,transparent 70%)}
+.cf-abertura::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;background-image:radial-gradient(#f1eee91f 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.cf-abertura-grade{display:grid;gap:44px;align-items:center}
+.cf-aviso{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;padding:7px 15px;border-radius:999px;border:1px solid #ffffff26;background:#ffffff0d;color:var(--gelo);font-size:.875rem;font-weight:500;line-height:1.35}
+.cf-aviso::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--terracota-clara);box-shadow:0 0 0 4px #e8855e2e}
+.cf-abertura h1{color:#fff;font-size:clamp(2.35rem,8.6vw,4.05rem)}
+.cf-abertura h1 em{display:block;color:var(--terracota-clara)}
+.cf-lide{margin-top:20px;max-width:35em;color:var(--sobre-grafite);font-size:1.09rem;line-height:1.65}
+.cf-abertura .acoes{margin-top:28px}
+.cf-abertura :focus-visible{outline-color:var(--gelo)}
+.cf-fatos{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;color:var(--gelo);font-size:.9375rem;font-weight:500}
+.cf-fatos li{display:inline-flex;align-items:center;gap:8px}
+.cf-fatos svg{color:var(--terracota-clara)}
+
+/* ilustração: o site no celular (consulta de data) e a mensagem que chega no WhatsApp. Desenhada, sem foto. */
+.cf-ilustracao{position:relative;margin:0 auto;width:min(100%,380px);padding:0 0 112px}
+.cf-celular{width:248px;margin-left:8px;padding:8px;border-radius:40px;background:#0b0f10;box-shadow:0 0 0 1px #ffffff1f,0 40px 70px -30px #000000cc,0 0 90px -20px #b2513466;transform:rotate(-3deg)}
+.cf-tela{display:grid;gap:11px;padding:14px 13px 16px;border-radius:32px;background:#faf8f4;color:var(--tinta)}
+.cf-tela-topo{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:-.01em}
+.cf-tela-logo{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--terracota),#e8b07a)}
+.cf-tela-menu{margin-left:auto;width:16px;height:10px;border-top:2px solid #1e2528;border-bottom:2px solid #1e2528;position:relative}
+.cf-tela-menu::after{content:"";position:absolute;left:0;right:0;top:2px;height:2px;background:#1e2528}
+.cf-tela-foto{position:relative;height:118px;border-radius:16px;overflow:hidden;background:linear-gradient(165deg,#2b211c 0%,#6b3a26 42%,#c4703f 74%,#efc08a 100%)}
+.cf-tela-foto::before{content:"";position:absolute;left:-10%;right:-10%;top:18px;height:40px;border-top:1px solid #ffe4b880;border-radius:50%}
+.cf-tela-foto span{position:absolute;width:7px;height:7px;border-radius:50%;background:#ffe7bd;box-shadow:0 0 12px 4px #ffd99a99}
+.cf-tela-foto span:nth-child(1){left:18%;top:26px}.cf-tela-foto span:nth-child(2){left:50%;top:34px}.cf-tela-foto span:nth-child(3){left:80%;top:27px}
+.cf-tela-titulo{font-size:.95rem;font-weight:600;letter-spacing:-.02em}
+.cf-tela-campos{display:grid;gap:7px}
+.cf-tela-campo{display:grid;gap:1px;padding:7px 10px;border-radius:10px;border:1px solid var(--linha);background:#fff}
+.cf-tela-campo small{font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-clara)}
+.cf-tela-campo span{font-size:.78rem;font-weight:600}
+.cf-tela-botao{display:flex;align-items:center;justify-content:center;gap:6px;min-height:36px;border-radius:999px;background:var(--terracota);color:#fff;font-size:.75rem;font-weight:600}
+.cf-bolha{position:absolute;right:0;bottom:0;width:228px;padding:12px 14px 10px;border-radius:16px 16px 4px 16px;background:#dcf8c6;color:#14251a;font-size:.8125rem;line-height:1.45;box-shadow:0 24px 44px -20px #000000b3,0 0 0 1px #00000014}
+.cf-bolha p{margin:0}
+.cf-bolha-de{display:flex;align-items:center;gap:6px;margin-bottom:6px!important;font-size:.6875rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1f7a43}
+.cf-bolha-abre{font-weight:600;margin-bottom:3px!important}
+.cf-bolha-hora{display:block;margin-top:4px;text-align:right;font-size:.6875rem;color:#4f7a5c}
+@media (prefers-reduced-motion:no-preference){
+  .cf-bolha{animation:cf-chega .7s .5s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes cf-chega{from{opacity:0;transform:translateY(18px) scale(.96)}}
+}
+
+.cf-marca{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;display:grid;place-items:center;background:var(--terracota);color:#fff}
+
+/* pacotes: três cartões; o recomendado em grafite */
+.cf-secao-pacotes{background:linear-gradient(180deg,var(--papel) 0%,var(--papel-2) 100%)}
+.cf-pacotes{display:grid;gap:18px;margin-top:34px;align-items:stretch}
+.cf-pacote{position:relative;display:flex;flex-direction:column;padding:28px 22px 24px;border-radius:22px;background:var(--branco);border:1px solid var(--linha);box-shadow:0 18px 40px -34px #1e252866}
+.cf-pacote h3{font-size:1.4rem;letter-spacing:-.035em}
+.cf-pacote-para{margin-top:4px;color:var(--tinta-suave);font-size:.9687rem}
+.cf-preco{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:20px}
+.cf-preco strong{font-size:2.6rem;font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--grafite)}
+.cf-preco span{font-weight:600;color:var(--tinta-suave)}
+.cf-parcela{margin-top:6px;font-size:.9375rem;color:var(--tinta-suave);line-height:1.45}
+.cf-inclui{display:grid;gap:11px;margin-top:22px;padding-top:20px;border-top:1px solid var(--linha)}
+.cf-inclui li{display:flex;gap:10px;align-items:flex-start;font-weight:500;line-height:1.45}
+.cf-inclui .cf-marca{width:19px;height:19px;margin-top:2px}
+.cf-saber{border-radius:14px;background:var(--papel-2);border:1px solid var(--linha)}
+.cf-saber summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:10px 14px;font-weight:600;font-size:.9375rem;cursor:pointer;list-style:none}
+.cf-saber summary::-webkit-details-marker{display:none}
+.cf-saber summary svg{transition:transform .2s}
+.cf-saber[open] summary svg{transform:rotate(45deg)}
+.cf-saber p{padding:0 14px;margin-bottom:10px;font-size:.9375rem;line-height:1.55;color:var(--tinta-suave)}
+.cf-exemplos{display:flex;flex-wrap:wrap;gap:6px;padding:2px 14px 14px}
+.cf-exemplos li{padding:4px 11px;border-radius:999px;background:var(--branco);border:1px solid var(--linha);font-size:.8125rem;font-weight:600}
+.cf-pacote-botao{width:100%;margin-top:auto}
+.cf-pacote>.cf-inclui,.cf-pacote>.cf-saber{margin-bottom:22px}
+.cf-pacote-destaque{background:var(--grafite);border-color:var(--grafite);color:#fff;box-shadow:0 30px 60px -30px #1e2528cc,0 0 0 2px var(--terracota)}
+.cf-pacote-destaque h3,.cf-pacote-destaque .cf-preco strong{color:#fff}
+.cf-pacote-destaque .cf-pacote-para,.cf-pacote-destaque .cf-preco span,.cf-pacote-destaque .cf-parcela{color:var(--sobre-grafite)}
+.cf-pacote-destaque .cf-inclui{border-top-color:#ffffff24}
+.cf-pacote-destaque .cf-saber{background:#ffffff0f;border-color:#ffffff24}
+.cf-pacote-destaque .cf-saber p{color:var(--sobre-grafite)}
+.cf-pacote-destaque .cf-exemplos li{background:#ffffff14;border-color:#ffffff29;color:var(--gelo)}
+.cf-pacote-destaque :focus-visible{outline-color:var(--gelo)}
+.cf-pacote-selo{position:absolute;top:-14px;left:22px;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--terracota);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.02em;line-height:1.3;box-shadow:0 10px 20px -10px #b25134}
+.cf-pacote-inauguracao{display:flex;align-items:flex-start;gap:8px;margin-top:12px;padding:9px 12px;border-radius:12px;background:#b2513414;color:var(--terracota-escura);font-size:.875rem;font-weight:600;line-height:1.4}
+.cf-pacote-inauguracao svg{margin-top:2px}
+.cf-pacotes-nota{margin-top:14px;max-width:44em;color:var(--tinta-clara);font-size:.875rem;line-height:1.5}
+
+/* sol: o que o espaço tem na internet em volta, o site no centro, e uma luz que sai de cada ponta até o site.
+   Tudo mede pela largura do desenho (cqw): escala igual em qualquer tela. Sem movimento para quem pede menos. */
+.cf-sol-grade{display:grid;gap:30px;align-items:center}
+.cf-sol-texto .secao-lide{max-width:30em}
+.cf-sol{margin:0 auto;width:min(100%,540px);container-type:inline-size}
+.cf-sol-palco{position:relative;aspect-ratio:1;margin:3cqw 0 4cqw}
+.cf-sol-halo{position:absolute;left:50%;top:50%;width:62cqw;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#e8855e3d,#e8855e12 60%,transparent)}
+.cf-sol-desenho{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cf-sol-estrela{fill:url(#cf-sol-brilho);transform-origin:50% 50%;transform-box:view-box}
+.cf-sol-orbita{fill:none;stroke:#c9bfb2;stroke-width:.24;stroke-dasharray:.5 1.3;transform-origin:50% 50%;transform-box:view-box}
+.cf-sol-orbita-fora{fill:none;stroke:#e4ded4;stroke-width:.2}
+.cf-raio{stroke:#b25134;stroke-opacity:.2;stroke-width:.28}
+.cf-luz{stroke:#e8855e;stroke-width:1.2;stroke-linecap:round;stroke-dasharray:15 185;stroke-dashoffset:15;opacity:0}
+.cf-sol-site{position:absolute;left:50%;top:50%;z-index:1;width:33cqw;transform:translate(-50%,-50%);padding:1.3cqw 1.3cqw 1.5cqw;border-radius:3.6cqw;background:var(--grafite);box-shadow:0 5cqw 9cqw -4cqw #1e25288c,0 0 0 .35cqw #e8855e33,0 0 12cqw -1cqw #e8855e73}
+.cf-sol-barra{display:flex;align-items:center;gap:.8cqw;padding:.5cqw .5cqw 1.3cqw}
+.cf-sol-barra i{flex:none;width:1.25cqw;height:1.25cqw;border-radius:50%;background:#ffffff40}
+.cf-sol-barra span{flex:1;min-width:0;margin-left:.5cqw;padding:.45cqw 1.3cqw;border-radius:99px;background:#ffffff17;color:var(--gelo);font-size:max(6px,2.3cqw);font-weight:600;line-height:1.3;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cf-sol-tela{display:grid;gap:1.3cqw;padding:1.5cqw;border-radius:2.4cqw;background:#faf8f4}
+.cf-sol-foto{position:relative;height:12cqw;border-radius:1.6cqw;overflow:hidden;background:linear-gradient(165deg,#2b211c 0%,#6b3a26 42%,#c4703f 74%,#efc08a 100%)}
+.cf-sol-foto::before{content:"";position:absolute;left:-10%;right:-10%;top:2.4cqw;height:5cqw;border-top:1px solid #ffe4b880;border-radius:50%}
+.cf-sol-foto span{position:absolute;top:3.4cqw;width:1.1cqw;height:1.1cqw;border-radius:50%;background:#ffe7bd;box-shadow:0 0 1.8cqw .6cqw #ffd99a99}
+.cf-sol-foto span:nth-child(1){left:18%}.cf-sol-foto span:nth-child(2){left:49%;top:4.4cqw}.cf-sol-foto span:nth-child(3){left:80%}
+.cf-sol-estrelas{color:var(--terracota);font-size:max(7px,2.5cqw);letter-spacing:.35cqw;line-height:1}
+.cf-sol-linha{display:block;height:1cqw;width:92%;border-radius:99px;background:#e6e1d8}
+.cf-sol-linha-curta{width:58%;margin-top:-.4cqw}
+.cf-sol-botao{display:block;padding:.95cqw;border-radius:99px;background:var(--terracota);color:#fff;text-align:center;font-size:max(7px,2.2cqw);font-weight:600;line-height:1.2;white-space:nowrap}
+.cf-sol-pontas{position:absolute;inset:0;z-index:2;margin:0;padding:0;list-style:none}
+.cf-sol-pontas li{--tam:12.6cqw;position:absolute;left:var(--x);top:var(--y);display:grid;justify-items:center;gap:1.3cqw;width:24cqw;transform:translate(-50%,calc(var(--tam) / -2))}
+.cf-sol-pontas .cf-sol-cima{transform:translate(-50%,calc(var(--tam) / 2 - 100%))}
+.cf-sol-cima .cf-sol-nome{order:-1}
+.cf-sol-ponta{position:relative;display:grid;place-items:center;width:var(--tam);aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 1.8cqw 3.6cqw -1.8cqw #1e252866,0 0 0 .28cqw #e6e1d8}
+.cf-sol-ponta svg{width:46%;height:46%}
+.cf-sol-ponta .cf-sol-traco{color:var(--terracota)}
+.cf-sol-ponta::after{content:"";position:absolute;inset:0;border-radius:50%;border:.4cqw solid #e8855e;opacity:0}
+.cf-sol-nome{padding:.2cqw 1cqw;border-radius:6px;background:var(--papel-2);font-size:max(11px,2.85cqw);font-weight:600;line-height:1.2;color:var(--tinta);white-space:nowrap;letter-spacing:-.01em}
+@media (prefers-reduced-motion:no-preference){
+  .cf-sol-estrela{animation:cf-gira 90s linear infinite}
+  .cf-sol-orbita{animation:cf-gira 150s linear infinite reverse}
+  .cf-sol-halo{animation:cf-respira 4.8s ease-in-out infinite}
+  .cf-luz{animation:cf-luz 4.8s cubic-bezier(.5,0,.4,1) infinite;animation-delay:calc(var(--i) * .6s - 4.8s)}
+  .cf-sol-ponta{animation:cf-flutua 5.2s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -.65s)}
+  .cf-sol-ponta::after{animation:cf-ping 4.8s ease-out infinite;animation-delay:calc(var(--i) * .6s - 4.8s)}
+  @keyframes cf-gira{to{transform:rotate(360deg)}}
+  @keyframes cf-respira{50%{transform:translate(-50%,-50%) scale(1.07);opacity:.8}}
+  @keyframes cf-luz{0%{stroke-dashoffset:15;opacity:0}5%{opacity:1}48%{stroke-dashoffset:-96;opacity:1}54%,100%{stroke-dashoffset:-96;opacity:0}}
+  @keyframes cf-flutua{to{transform:translateY(-1cqw)}}
+  @keyframes cf-ping{0%{opacity:.85;transform:scale(1)}24%,100%{opacity:0;transform:scale(1.5)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .cf-luz{display:none}
+}
+
+/* página curta: menos espaço entre as seções e, no celular, o desenho menor, para os preços chegarem logo */
+.cf .secao{padding:52px 0}
+@media (max-width:719px){
+  .cf-abertura{padding-bottom:44px}
+  .cf-abertura-grade{gap:32px}
+  .cf-ilustracao{zoom:.8}
+}
+@media (min-width:720px){
+  .cf .secao{padding:72px 0}
+  .cf-abertura{padding:72px 0 96px}
+  .cf-abertura .acoes{flex-direction:row;flex-wrap:wrap}
+}
+@media (min-width:960px){
+  .cf-abertura-grade{grid-template-columns:1.08fr .92fr;gap:56px}
+  .cf-ilustracao{width:400px;margin-right:0}
+  .cf-celular{width:268px}
+  .cf-bolha{right:-6px;width:240px}
+  .cf .passos{grid-template-columns:repeat(3,1fr);max-width:880px}
+  .cf-sol-grade{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:56px}
+  .cf-sol{margin-right:0}
+  .cf-pacotes{grid-template-columns:repeat(3,1fr);gap:22px}
+  .cf-pacote-destaque{transform:translateY(-12px)}
+}

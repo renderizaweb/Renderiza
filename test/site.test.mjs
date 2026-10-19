@@ -286,7 +286,7 @@ test("serviços: o site como base, dois adicionais e sob medida, com os mesmos n
   // sob medida saiu de Trabalhos e fecha Serviços
   assert.match(s, /<h3>Sob medida<\/h3>[\s\S]*Conversar sobre um aplicativo/);
   assert.doesNotMatch(secao(html, "trabalhos"), /Conversar sobre um aplicativo/);
-  // nomes da conversa, sem jargão; e a Renderiza não roda anúncios (decisão de 09/10/2026)
+  // nomes da conversa, sem jargão; e o site não promete que a Renderiza roda anúncios (nem diz que não roda: 18/10/2026)
   assert.doesNotMatch(textoVisivel(s), /módulo|landing|upgrade|premium|plano (básico|pro)/i);
   assert.doesNotMatch(textoVisivel(html), /a gente (roda|cuida|gerencia)[^.]*an[úu]ncio|gest[ãa]o de (tr[áa]fego|an[úu]ncios)/i);
   // tudo digital: a Renderiza não entrega nada físico, como QR impresso para o balcão (pedido de 10/10/2026)
@@ -296,7 +296,9 @@ test("serviços: o site como base, dois adicionais e sob medida, com os mesmos n
 test("perguntas: uma para cada público que mais chama (o que fazer com o site, tráfego pago e quem já tem gestor)", () => {
   const perguntas = secao(montarPagina(config), "perguntas");
   for (const p of ["O que eu faço com o site quando ele ficar pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?"]) assert.ok(perguntas.includes(p), p);
-  assert.match(perguntas, /O anúncio em si a gente não roda\./);
+  // tráfego pago: a resposta fica no site pronto para anúncio, sem negar nem prometer (decisão de 18/10/2026)
+  assert.match(perguntas, /Todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados\./);
+  assert.doesNotMatch(perguntas, /não roda|n[ãa]o (faz|fazemos|cuida|cuidamos)[^.]*(tr[áa]fego|an[úu]ncio)/i);
   assert.match(perguntas, /só o catálogo tem mensalidade/);
 });
 

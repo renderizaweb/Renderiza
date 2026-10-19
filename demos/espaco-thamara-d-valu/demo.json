@@ -1,0 +1,401 @@
+{
+ "pasta": "espaco-thamara-d-valu",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-thamara-d-valu/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/espaco-thamara-d-valu.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/espaco-thamara-d-valu/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511968987813",
+ "fone_link": "+5511968987813",
+ "google": {
+  "coords": "-23.7129725,-46.8317097",
+  "fid": "0x94cfade9cebb5bcd:0xda0efacc16ae0329",
+  "gid": "/g/11h1twwq0_"
+ },
+ "endereco_maps": "R. Mariane, 351 - Olaria, Itapecerica da Serra - SP, 06859-170",
+ "google_nota": "4,8",
+ "google_total": "166",
+ "verificado": "2026-10-14",
+ "instagram": "espacothamaradvalu",
+ "marca": "Thamara D'Valu",
+ "marca_logo": "Thamara D'Valu",
+ "marca_completa": "Espaço Thamara D'Valu",
+ "logo_sub": "Itapecerica da Serra · SP",
+ "titulo": "Espaço Thamara D'Valu | Espaço para eventos em Itapecerica da Serra",
+ "descricao": "Espaço Thamara D'Valu, na R. Mariane, 351, na Olaria, em Itapecerica da Serra (SP): espaço rústico de tijolo e madeira, com salão coberto, piscina e área verde, para casamentos, aniversários e confraternizações. Nota 4,8 no Google.",
+ "comentario": "Demo Espaço Thamara D'Valu: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espacothamaradvalu, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2b201c",
+  "acento": "#e8a0a8"
+ },
+ "topline": "R. Mariane, 351 · Olaria, Itapecerica da Serra",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Fotos"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para eventos em Itapecerica da Serra",
+  "h1": "O seu sonho <em>é o nosso sonho.</em>",
+  "intro": "Casamentos, aniversários e confraternizações num espaço rústico de tijolo e madeira, com salão coberto, piscina e área verde.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 33,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos sorrindo sob o arco de flores"
+ },
+ "endereco": [
+  "R. Mariane, 351",
+  "Olaria · Itapecerica da Serra"
+ ],
+ "dias_curto": "seg a sex",
+ "marquee": [
+  "Casamentos",
+  "Aniversários",
+  "15 anos",
+  "Confraternizações",
+  "Salão coberto",
+  "Piscina",
+  "Área verde",
+  "Itapecerica da Serra"
+ ],
+ "sobre": {
+  "eyebrow": "O Espaço Thamara D'Valu",
+  "h2": "Tijolo, madeira <em>e muitas flores.</em>",
+  "p": [
+   "Na Olaria, em Itapecerica da Serra, o Espaço Thamara D'Valu tem salão coberto de tijolo e madeira, deck com pergolado e buganvílias, piscina e área verde. Recebe casamentos, aniversários, 15 anos e confraternizações.",
+   "Quem recebe é a Thaís, dona do espaço. Nas avaliações, os noivos contam que ela ficou com eles até de madrugada na véspera do casamento, ajudando a organizar tudo, e que indica bons fornecedores."
+  ],
+  "stats": [
+   [
+    "166",
+    "avaliações no Google"
+   ],
+   [
+    "4 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 4
+  },
+  "alt": "Deck de madeira com pergolado e buganvílias",
+  "pol": {
+   "id": 30,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Debutante de vestido azul sob o pergolado",
+  "pol_cap": "15 anos"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Pronto para <em>a sua festa.</em>",
+   "p": "O salão montado, o deck, a piscina e a área verde. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do Espaço Thamara D'Valu",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Salão coberto montado com mesas redondas e luzes"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Vista de cima da piscina e do salão entre as árvores"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Salão com paredes de tijolo e mesas postas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade9cebb5bcd_0xda0efacc16ae0329/g04.jpg"
+     },
+     "alt": "Salão com mesas compridas e a parede de tijolo ao fundo"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Deck de madeira e a área coberta"
+    },
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Piscina e área verde ao anoitecer"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Varanda coberta com colunas de madeira"
+    },
+    {
+     "foto": {
+      "id": 0,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Pergolado com flores sobre o deck"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, aniversários e confraternizações de quem já comemorou no Thamara D'Valu.",
+   "rotulo": "Festas que aconteceram no Espaço Thamara D'Valu",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade9cebb5bcd_0xda0efacc16ae0329/g01.jpg",
+      "c": [
+       0.45,
+       0.6
+      ]
+     },
+     "alt": "Noivos e convidados sorrindo na mesa comprida do jantar",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Mesa do bolo de casamento com flores e velas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade9cebb5bcd_0xda0efacc16ae0329/g05.jpg"
+     },
+     "alt": "Altar ao ar livre com tecidos azul e vermelho",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 16,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Família sorrindo diante da mesa de aniversário",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Noivos com os padrinhos de branco",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 15
+     },
+     "alt": "Bolo de casamento sob o arco de flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 34,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Convidados diante da parede de tijolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Mesa de aniversário com balões coloridos",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que aparece nas fotos do espaço e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão amplo e coberto"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "jardim",
+    "Área verde, deck e pergolado"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento"
+   ],
+   [
+    "pessoas",
+    "Indicação de fornecedores"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço na R. Mariane, 351",
+   "Acerte os detalhes com a Thaís, que indica os fornecedores",
+   "Na véspera e no dia, a Thaís ajuda a deixar tudo pronto"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 13
+  },
+  "alt": "Porta de madeira na parede de tijolo do espaço"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Tamiles Santos",
+   "tag": "Casamento",
+   "trecho": "minha gratidão à Thaís, dona desse sítio tão especial. Além de nos entregar um lugar simplesmente lindo, ela nos entregou cuidado, carinho e amor em cada detalhe."
+  },
+  {
+   "nome": "Alvaro Natividade",
+   "tag": "Estrutura",
+   "trecho": "A beleza natural do local, com sua piscina deslumbrante e área verde exuberante, cria um cenário perfeito para qualquer tipo de celebração. O salão amplo e bem estruturado oferece todo o conforto"
+  },
+  {
+   "nome": "Jackson Sampaio",
+   "tag": "Aniversário",
+   "trecho": "aconteceu a comemoração de aniversário da minha namorada, e todos os convidados amaram o espaço. Os responsáveis pelo estabelecimento, foram super atenciosos"
+  },
+  {
+   "nome": "johnny fernandes pimenta",
+   "tag": "Os donos",
+   "trecho": "Lugar muito bom, bem organizado e limpo, bem bonito para eventos, os donos são ótimas pessoas e nos recebem muito bem nos eventos."
+  },
+  {
+   "nome": "Ro Thayla Obym",
+   "tag": "Perto de SP",
+   "trecho": "Local Excelente, Lindo, bem organizado, próximo de São Paulo. Super recomendo"
+  },
+  {
+   "nome": "César Augusto",
+   "tag": "Atenção"
+  }
+ ],
+ "insta": {
+  "seguidores": "4 mil seguidores",
+  "p": "Casamentos, aniversários e as noites no espaço.",
+  "foto": {
+   "id": 0
+  },
+  "alt": "Pergolado com buganvílias sobre o deck",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Thamara D'Valu.",
+  "tipos": [
+   "Casamento",
+   "Aniversário",
+   "15 anos",
+   "Confraternização",
+   "Evento de empresa",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Thamara D'Valu e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Itapecerica.</em>",
+  "endereco": [
+   "R. Mariane, 351 · Olaria",
+   "Itapecerica da Serra, SP · CEP 06859-170"
+  ],
+  "telefone": "(11) 96898-7813",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O seu sonho é o nosso sonho.",
+ "mensagem": "Olá! Vim pelo site do Espaço Thamara D'Valu e queria um orçamento.",
+ "google_nome": "EspaçoThamara d valu",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96898-7813 é o WhatsApp das legendas do Instagram (\"Solicite seu orçamento pelo nosso what's 11 96898-7813\"); o Google mostra outro telefone, o +55 11 93211-7304 (é o que está no painel)",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Espaço rústico (tijolo, madeira, pergolado com buganvílias) com salão coberto, piscina e área verde em Itapecerica da Serra; casamentos, aniversários, 15 anos e confraternizações.",
+   "Dona: Thaís (\"à Thaís, dona desse sítio tão especial\"); o espaço responde as avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos, o espaço (Thaís, tijolo e flores), carrossel do espaço (8, paisagem), festas reais (8, com 2 do Google), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: madeira escura e o rosa das buganvílias. Fonte Playfair Display. O título usa o slogan das legendas (\"O seu sonho é o nosso sonho\")."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (jantar de casamento, altar, salão com mesas compridas).",
+   "Ficaram de fora: as artes (inclusive a de desconto), as crianças em close e as fotos tremidas."
+  ],
+  "conferir": [
+   "WhatsApp: a demo usa o 96898-7813 das legendas; o painel tem o 93211-7304 do Google. Confirmar qual é o do WhatsApp antes de mandar.",
+   "Uma avaliação (Vinicius Ferlin) reclama da escada do estacionamento; o espaço respondeu que já arrumou.",
+   "Capacidade: não confirmei (a demo não cita).",
+   "Horário do Google: segunda a sexta, 10h às 16h30 (atendimento; sábado e domingo aparecem fechados, que é quando tem festa)."
+  ]
+ }
+}

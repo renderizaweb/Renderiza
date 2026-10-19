@@ -1,0 +1,392 @@
+{
+ "pasta": "espaco-mirante-biritiba",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-mirante-biritiba/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-mirante-biritiba-sem-horas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-mirante-biritiba/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511991856969",
+ "fone_link": "+5511991856969",
+ "google": {
+  "coords": "-23.5883515,-46.0480439",
+  "fid": "0x94cdc36192453b63:0x3e0c038906970294",
+  "gid": "/g/11rf4d0fty"
+ },
+ "endereco_maps": "R. Monteiro Lobato, 150 - jardim dos eucaliptos, Biritiba Mirim - SP, 08940-000",
+ "google_nota": "4,8",
+ "google_total": "48",
+ "verificado": "2026-10-16",
+ "instagram": "espacomirantebiritiba",
+ "estilo": "gala",
+ "marca": "Espaço Mirante Biritiba",
+ "marca_logo": "Espaço Mirante",
+ "marca_completa": "Espaço Mirante Biritiba · Festas e Casamentos",
+ "logo_sub": "Biritiba Mirim · SP",
+ "titulo": "Espaço Mirante Biritiba | Casamentos e festas em Biritiba Mirim",
+ "descricao": "Espaço Mirante Biritiba, na R. Monteiro Lobato, 150, no Jardim dos Eucaliptos, em Biritiba Mirim (SP): salão de festas com acomodação, cozinha industrial, piscina e área externa para a cerimônia ao ar livre ao pôr do sol. Casamentos, 15 anos e aniversários.",
+ "comentario": "Demo Espaço Mirante Biritiba: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espacomirantebiritiba, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações e endereço do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2a1f2b",
+  "acento": "#e0a15e"
+ },
+ "topline": "R. Monteiro Lobato, 150 · Jardim dos Eucaliptos, Biritiba Mirim",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e festas em Biritiba Mirim",
+  "h1": "O sim ao ar livre, <em>com o pôr do sol.</em>",
+  "intro": "Casamentos, 15 anos e aniversários com cerimônia no gramado, salão de festas com acomodação, piscina e a vista do Alto Tietê.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "id": 11,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Noivos no gramado ao entardecer, ao lado de um carro antigo, com o sol entre as árvores"
+ },
+ "endereco": [
+  "R. Monteiro Lobato, 150",
+  "Biritiba Mirim · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "Cerimônia ao ar livre",
+  "15 anos",
+  "Aniversários",
+  "Pôr do sol",
+  "Piscina",
+  "Alto Tietê",
+  "Biritiba Mirim"
+ ],
+ "sobre": {
+  "eyebrow": "O Mirante",
+  "h2": "Um sítio com vista <em>para o pôr do sol.</em>",
+  "p": [
+   "Em Biritiba Mirim, no Alto Tietê, o Espaço Mirante tem salão de festas com acomodação, cozinha industrial, piscina e uma área externa grande para a cerimônia ao ar livre.",
+   "O pôr do sol é o cenário de muitos casamentos, e a árvore Santa Bárbara, onde os tucanos pousam no fim da tarde, já foi palco de muitos eventos. A festa pode ser no salão ou na área externa, com barracas ao ar livre."
+  ],
+  "stats": [
+   [
+    "48",
+    "avaliações no Google"
+   ],
+   [
+    "1,7 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 8,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Piscina e barracas brancas no gramado, ao entardecer",
+  "pol": {
+   "id": 33
+  },
+  "pol_alt": "A árvore Santa Bárbara no gramado",
+  "pol_cap": "A Santa Bárbara"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Gramado, piscina <em>e salão.</em>",
+   "p": "O corredor da cerimônia, a piscina ao entardecer e o salão. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes do Espaço Mirante",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Passarela de madeira até o altar no gramado, entre flores"
+    },
+    {
+     "foto": {
+      "id": 1
+     },
+     "alt": "Cadeiras da cerimônia montadas no gramado"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cdc36192453b63_0x3e0c038906970294/g08.jpg"
+     },
+     "alt": "Salão de festas amplo, com piso de madeira e janelas"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Piscina no gramado, entre palmeiras e árvores"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Pôr do sol refletido na piscina"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cdc36192453b63_0x3e0c038906970294/g07.jpg"
+     },
+     "alt": "Porta de madeira do salão com cortinas brancas"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Passarela até o arco da cerimônia, com a serra ao fundo"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Jardim com árvores e gramado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos e 15 anos de quem já comemorou no Espaço Mirante.",
+   "rotulo": "Festas que aconteceram no Espaço Mirante",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Mesa do bolo com flores e letreiro LOVE",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Noivos trocando as alianças sob o arco de flores",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 7
+     },
+     "alt": "Salão decorado com mesas postas e flores",
+     "cap": "Recepção"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Debutante de vestido lilás na entrada iluminada",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Noivos saindo entre os convidados com estrelinhas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 25
+     },
+     "alt": "Mesa de doces com arranjos de flores rosa e brancas",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Mesa posta com sousplat dourado e guardanapo rosa",
+     "cap": "Mesa posta"
+    },
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Noivos ao lado de um carro antigo vermelho",
+     "cap": "A chegada"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão de festas"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "cozinha",
+    "Cozinha industrial"
+   ],
+   [
+    "quartos",
+    "Acomodação"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço em Biritiba Mirim",
+   "Escolha: cerimônia no gramado, festa no salão ou ao ar livre",
+   "No dia, é só esperar o pôr do sol"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 9,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Noiva diante da mesa do bolo decorada com flores"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Édipo Alves",
+   "tag": "Estrutura",
+   "trecho": "o fim de tarde torna o lugar mais encantador, para todo tipo de evento está muito bem estruturado, cozinha, banheiros, área interna ampla e uma vasta área externa com piscina."
+  },
+  {
+   "nome": "Gerson Terentin",
+   "tag": "Casamento",
+   "trecho": "Local muito bem cuidado, salão de festas grande, ótima opção para festa de casamento. Opção de realizar fora ou dentro do salão."
+  },
+  {
+   "nome": "Ariovaldo dos Santos",
+   "tag": "Salão",
+   "trecho": "Excelente estrutura com salão de festas para mais de 300 pessoas. Área aberta com boa vista."
+  },
+  {
+   "nome": "Ana Lucia Gebara",
+   "tag": "O espaço",
+   "trecho": "Espaço amplo com um belo salão de festas, estacionamento e piscina. Vale a pena!!"
+  },
+  {
+   "nome": "Laís Franciele",
+   "tag": "O lugar",
+   "trecho": "Lugar inexplicável de lindo! Eu amo esse lugar"
+  },
+  {
+   "nome": "Lourdes daSilva",
+   "tag": "Cuidado",
+   "trecho": "Além de lindo e cheiroso muito organizado"
+  }
+ ],
+ "insta": {
+  "seguidores": "1,7 mil seguidores",
+  "p": "Casamentos, debutantes e o pôr do sol de Biritiba.",
+  "foto": {
+   "id": 37
+  },
+  "alt": "Noivos caminhando no gramado ao fim da tarde",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Mirante.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Reunião de família",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Mirante Biritiba e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Biritiba Mirim.</em>",
+  "endereco": [
+   "R. Monteiro Lobato, 150 · Jardim dos Eucaliptos",
+   "Biritiba Mirim, SP · CEP 08940-000"
+  ],
+  "telefone": "(11) 99185-6969",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "O sim ao ar livre, com o pôr do sol.",
+ "mensagem": "Olá! Vim pelo site do Espaço Mirante Biritiba e queria um orçamento.",
+ "google_nome": "Espaço Mirante Biritiba",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99185-6969 é o celular do Perfil da Empresa no Google (a bio do Instagram não mostra número)",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Sítio de eventos em Biritiba Mirim, no Alto Tietê: casamentos, festas, debutantes e aniversários (bio). Nota 4,8 com 48 avaliações (a demo mostra o total, não a nota).",
+   "Dono: não confirmei (nem nas avaliações nem nas legendas)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com os noivos ao pôr do sol, o espaço (salão, cozinha industrial, piscina, acomodação, a árvore Santa Bárbara), ambientes (8 fotos, 2 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: roxo do entardecer e laranja. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, fotos de fotógrafo de casamento) e Perfil da Empresa no Google (salão vazio, porta do salão).",
+   "Ficaram de fora: a foto em preto e branco, as de pista de dança e de família, o post político (eleição) e os vídeos de baixa resolução."
+  ],
+  "conferir": [
+   "A bio diz \"Eleito o melhor espaço para festas de Biritiba Mirim\": não usei (é superlativo e não achei a fonte).",
+   "A capacidade de \"mais de 300 pessoas\" aparece só numa avaliação de 3 anos atrás (está na demo como fala do cliente, não como dado do espaço). Vale perguntar.",
+   "Um post apoia um candidato a prefeito: melhor não tocar no assunto.",
+   "O Google mostra \"Atendimento 24 horas\": a demo sai sem horário."
+  ]
+ }
+}

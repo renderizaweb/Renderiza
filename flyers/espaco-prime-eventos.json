@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Prime Eventos",
+ "local": "Hortolândia · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2b1f1a",
+  "fundo2": "#1a1310",
+  "acento": "#c9a46b",
+  "tinta_acento": "#1a1310",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g01.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "198"
+ },
+ "titulo": "Sob o lustre,<br><em>o seu grande dia.</em>",
+ "texto": "Casamentos e 15 anos com escada iluminada, cerimônia ao ar livre e camarim da noiva e do noivo.",
+ "whatsapp": "(19) 99919-1986",
+ "cta": "Consulte sua data",
+ "endereco": "Rua dos Melros, 155 · Hortolândia",
+ "instagram": "@primeespacoeventos"
+}

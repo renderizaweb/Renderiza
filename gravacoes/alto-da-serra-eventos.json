@@ -1,0 +1,130 @@
+{
+ "demo": "alto-da-serra-eventos",
+ "formato": "reels",
+ "marca": "Alto da Serra Casa e Eventos",
+ "local": "Riacho Grande · São Bernardo do Campo",
+ "cores": {
+  "fundo": "#1b3326",
+  "fundo2": "#112018",
+  "acento": "#e8a87c",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Alto da",
+   "Serra"
+  ],
+  "frase": "O cenário perfeito no meio da mata.",
+  "fotos": [
+   ".hero-photo img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(1) img",
+   ".story-photos img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Alto da Serra.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um lugar para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece o Alto da Serra *no meio da mata.*",
+   "sub": "Piscina com cascata, salão envidraçado e jardim de orquídeas, no Riacho Grande."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o espaço inteiro *antes da visita.*",
+   "sub": "A piscina de dia e à noite, o salão e o gramado."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 3.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Casamentos, chás e aniversários."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 110 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

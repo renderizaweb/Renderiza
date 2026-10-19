@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: o sobrinho que ia fazer o site</title>
+<!-- Reels do Instagram (1080 × 1920, 38,71 s = 20 compassos a 124 BPM), sem voz: só imagem, texto e a trilha pulsante
+     (ferramentas/video/trilha-pulso.py, alimentada pelo "pulso" do preparar()). A grade fica ancorada no drop (23,226 s).
+     Todo dono conhece o sobrinho que ia fazer o site: uma conversa de WhatsApp atravessa um ano de desculpas, uma cliente
+     pede o site e ouve "meu sobrinho tá fazendo", e aí chega a mensagem da Renderiza com a prévia pronta.
+     Juninho, a tia e a "Cliente nova" são fictícios (avatar com a inicial, sem foto de pessoa). A Lume Estética é fictícia
+     e aparece sempre com o selo "exemplo". Tom (Kaue, 15/10/2026): humor seco e realista, um trocadilho no lugar de
+     piadas forçadas. Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e} /* a mesma do site (site/estilo.css), como no reels-cliente-perdido */
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--escuro)}
+.reels{position:relative;width:1080px;height:1920px;background:var(--escuro);overflow:hidden}
+.camada{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.oculto{visibility:hidden}
+
+/* marca pequena no topo (o vídeo inteiro, menos o CTA), no mesmo eixo dos textos e da janela (x 80 a 940) */
+.r-topo{position:absolute;left:80px;width:860px;top:150px;height:0;display:flex;justify-content:center;align-items:center;z-index:2}
+.r-topo .marca{font-size:34px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:40px;height:40px}
+
+/* faixa do tempo, logo acima da janela */
+.faixa{position:absolute;left:60px;width:880px;top:230px;height:80px;overflow:hidden;z-index:3}
+.faixa .pal{position:absolute;left:0;right:0;top:0;height:80px;display:flex;justify-content:center;align-items:center}
+.faixa .pal span{display:inline-block;height:80px;line-height:80px;padding:0 30px;border-radius:999px;font-weight:700;font-size:64px;letter-spacing:-.01em;text-transform:uppercase;color:var(--terracota-clara);white-space:nowrap}
+.faixa .pal.longa span{font-size:44px;letter-spacing:.06em;padding:0 30px}
+
+/* texto solto */
+.txt{position:absolute;left:80px;width:860px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom{color:var(--terracota-clara)}
+#g1{top:640px;font-size:96px}
+#g2{top:990px;font-size:72px;font-weight:600;color:var(--enfase-escuro);letter-spacing:-.03em}
+#v1{top:598px;font-size:120px;text-shadow:0 6px 40px rgba(0,0,0,.35)}
+#v2{top:742px;font-size:88px;color:var(--terracota-clara);text-shadow:0 6px 40px rgba(0,0,0,.35)}
+#c1{top:808px;font-size:88px}
+#c2{top:808px;font-size:88px}
+#f1{top:646px;font-size:110px}
+#f2{top:980px;font-size:96px}
+
+/* (a) notificação */
+.notif{position:absolute;left:60px;width:880px;top:260px;min-height:160px;border-radius:36px;background:rgba(245,245,245,.96);box-shadow:0 20px 50px rgba(0,0,0,.35);display:flex;align-items:center;gap:24px;padding:26px 34px 26px 28px;z-index:40}
+.notif .por-dentro{display:flex;align-items:center;gap:24px;width:100%}
+.av{position:relative;flex:none;width:72px;height:72px;border-radius:50%;background:#c9c3ba;color:#fff;display:grid;place-items:center;font-weight:600;font-size:36px;letter-spacing:-.02em}
+.av.rz{background:var(--escuro-2);color:var(--fundo)}
+.av.rz .simbolo{width:44px;height:44px}
+.av .zap{position:absolute;right:-5px;bottom:-5px;width:28px;height:28px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 3px #f5f5f5}
+.av .zap svg{width:21px;height:21px}
+.n-txt{flex:1;min-width:0}
+.n-l1{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.n-l1 b{font-size:34px;font-weight:600;color:#111;letter-spacing:-.01em;white-space:nowrap}
+.n-l1 small{font-size:26px;color:#7a8386;white-space:nowrap}
+.n-msg{font-size:34px;color:#333;line-height:1.24;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.005em}
+.n-msg.duas{white-space:normal}
+.notif .exemplo{right:30px;top:-17px;box-shadow:0 0 0 4px #f5f5f5}
+
+/* (b) janela de conversa */
+.janela{position:absolute;left:60px;top:340px;width:880px;height:1160px;border-radius:40px;overflow:hidden;z-index:10;transform-origin:50% 50%}
+.cab{position:absolute;left:0;right:0;top:0;height:100px;background:#fff;display:flex;align-items:center;gap:18px;padding:0 34px 0 16px;z-index:2}
+.cab .voltar{width:40px;height:40px;color:#54656f;flex:none}
+.cab .quem{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;height:100px}
+.cab .nome{font-size:34px;font-weight:600;color:#111;letter-spacing:-.01em;line-height:1.15;white-space:nowrap}
+.cab .status{font-size:26px;color:#7a8386;line-height:1.2;white-space:nowrap;overflow:hidden}
+.cab .icones{display:flex;gap:34px;color:#54656f}
+.cab .icones svg{width:40px;height:40px}
+.corpo{position:absolute;left:0;right:0;top:100px;bottom:0;transform-origin:50% 0}
+.msgs{position:absolute;left:0;right:0;top:0;height:970px;overflow:hidden;background-color:#efeae2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23cfc6b8' stroke-width='2' stroke-linecap='round' opacity='.28'%3E%3Ccircle cx='30' cy='34' r='11'/%3E%3Cpath d='M112 22l14 14M126 22l-14 14'/%3E%3Cpath d='M70 96q12-14 24 0t24 0'/%3E%3Crect x='136' y='110' width='22' height='22' rx='6'/%3E%3Cpath d='M22 140l10-16 10 16z'/%3E%3Ccircle cx='96' cy='158' r='4'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px}
+.barra{position:absolute;left:0;right:0;top:970px;height:90px;background:#efeae2}
+.campo{position:absolute;left:16px;top:10px;width:776px;height:70px;border-radius:35px;background:#fff;display:flex;align-items:center;padding:0 28px;font-size:40px;letter-spacing:-.01em;color:#111b21;white-space:nowrap;overflow:hidden;box-shadow:0 1px 1px rgba(11,20,26,.08)}
+.campo .ph{color:#8696a0}
+.campo .cursor{display:inline-block;width:3px;height:46px;background:#00a884;margin-left:2px;vertical-align:-9px}
+.btn-mic{position:absolute;right:16px;top:12px;width:66px;height:66px;border-radius:50%;background:var(--zap);color:#fff;display:grid;place-items:center}
+.btn-mic>span{position:absolute;inset:0;display:grid;place-items:center}
+.btn-mic svg{width:34px;height:34px}
+.pelicula{position:absolute;inset:0;background:rgba(30,37,40,.86);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);z-index:5;opacity:0}
+
+/* balões */
+.b{position:absolute;max-width:680px;padding:22px 30px;border-radius:28px;font-size:46px;line-height:1.28;color:#111b21;box-shadow:0 2px 2px rgba(11,20,26,.10);letter-spacing:-.01em;z-index:1}
+.b.rec{left:24px;background:#fff;border-top-left-radius:8px;transform-origin:0 100%}
+.b.env{right:24px;background:#d9fdd3;border-top-right-radius:8px;transform-origin:100% 100%}
+.b.rec::before,.b.env::before{content:"";position:absolute;top:0;width:22px;height:26px;background:inherit}
+.b.rec::before{left:-14px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.env::before{right:-14px;clip-path:polygon(0 0,100% 0,0 100%)}
+.b .esp{display:inline-block;width:86px;height:1px}
+.b.env .esp{width:128px}
+.b.quebra .esp,.b.env.quebra .esp{display:block;width:auto;height:16px}
+.b .meta{position:absolute;right:24px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:22px;line-height:1;color:#7a8386;letter-spacing:0}
+.b .tiques{display:inline-flex;width:34px;height:24px;color:#8696a0;transform-origin:50% 60%}
+.b .tiques svg{width:100%;height:100%}
+.b.grande{font-size:72px;line-height:1.1;font-weight:500;padding:22px 34px 24px}
+.b.aceso{z-index:6}
+.b.comlink{width:680px}
+.link{position:relative;display:flex;margin-top:18px;border-radius:18px;background:#f0f2f5;height:150px}
+.link img{width:150px;height:150px;object-fit:cover;border-radius:18px 0 0 18px;flex:none}
+.link div{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 26px}
+.link b{font-size:34px;font-weight:600;color:#111;letter-spacing:-.01em}
+.link small{font-size:26px;color:#7a8386;letter-spacing:0}
+.link .exemplo{right:16px;top:-15px;font-size:19px;padding:8px 14px}
+.b.comlink .linha-meta{height:40px}
+
+/* (d) toque */
+.toque{position:absolute;z-index:80;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.6);opacity:0;pointer-events:none}
+
+/* (e) celular da Lume */
+#cel{left:150px;top:380px;width:720px;height:1440px;z-index:12;transform-origin:50% 30%}
+.tela .site{position:absolute;left:0;top:0;width:402px;transform-origin:0 0}
+.barra-cel{position:absolute;z-index:4;left:0;right:0;top:0;height:78px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:space-between;padding:6px 46px 0 40px}
+.barra-cel .exemplo{position:static;font-size:22px;padding:9px 16px}
+.barra-cel .sinais{display:flex;gap:10px;align-items:center;color:#111}
+.barra-cel .sinais svg{height:22px}
+.onda-zap{position:absolute;inset:0;border-radius:25px;outline:3px solid rgba(37,211,102,.9);opacity:0;pointer-events:none}
+.etiqueta{position:absolute;left:80px;width:860px;top:230px;height:90px;display:flex;justify-content:center;z-index:14}
+.etiqueta>span{display:inline-block;height:90px;line-height:90px;padding:0 42px;border-radius:999px;background:#fff;color:var(--escuro);font-size:48px;font-weight:600;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+.etiqueta .tom{color:var(--terracota)}
+.pixel{position:absolute;left:150px;top:1138px;height:84px;display:flex;align-items:center;gap:16px;padding:0 38px 0 28px;border-radius:999px;background:var(--escuro);color:var(--fundo);font-size:40px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.4);z-index:15}
+.pixel svg{width:44px;height:44px;color:var(--terracota-clara)}
+
+/* CTA */
+.cta-marca{position:absolute;left:80px;width:860px;top:568px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:30}
+.cta-marca .marca{font-size:48px;gap:16px;color:var(--fundo);height:64px}
+.cta-marca .simbolo{width:60px;height:60px}
+.cta-marca small{font-size:34px;font-weight:500;color:var(--enfase-escuro);letter-spacing:-.01em;line-height:1}
+.botao{position:absolute;left:130px;top:825px;width:760px;height:150px;border-radius:999px;background:var(--terracota-clara);color:var(--escuro);display:flex;align-items:center;justify-content:center;gap:24px;font-size:72px;font-weight:700;letter-spacing:-.03em;z-index:30;box-shadow:0 24px 70px color-mix(in srgb,var(--terracota-clara) 28%,transparent)}
+.botao svg{width:66px;height:66px;flex:none}
+.cta-linha{position:absolute;left:80px;width:860px;text-align:center;z-index:30}
+#l1{top:1010px;font-size:44px;font-weight:500;line-height:1.2;color:var(--enfase-escuro);letter-spacing:-.015em}
+#l2{top:1168px;font-size:52px;font-weight:700;line-height:1.12;color:var(--fundo);letter-spacing:-.025em}
+.cta-linha .tom{color:var(--terracota-clara)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="faixa" id="faixa"><div class="pal" id="pA"><span></span></div><div class="pal" id="pB"><span></span></div></div>
+
+  <!-- cena 1: o gancho -->
+  <p class="txt" id="g1">Quando o site<br><span class="tom">sobra pro<br>sobrinho</span>…</p>
+  <p class="txt" id="g2">O seu já entregou?</p>
+
+  <!-- as três conversas (montadas no script) -->
+  <div class="janela oculto" id="jJ"></div>
+  <div class="janela oculto" id="jC"></div>
+  <div class="janela oculto" id="jR"></div>
+
+  <!-- cena 4: o vácuo -->
+  <p class="txt oculto" id="v1">Visualizou.</p>
+  <p class="txt oculto" id="v2">E não respondeu.</p>
+
+  <!-- cenas 6 e 7 -->
+  <div class="camada oculto" id="escuro67">
+    <p class="txt" id="c1">A cliente foi ver<br>no <span class="tom">concorrente</span>.</p>
+    <p class="txt" id="c2">Aí chegou <span class="tom">outra</span><br>mensagem.</p>
+  </div>
+
+  <!-- cena 8: a prévia no celular -->
+  <div class="celular oculto" id="cel">
+    <div class="tela"><div class="barra-cel"><span class="exemplo">exemplo</span><span class="sinais" id="sinais"></span></div><div class="site" id="site"></div></div>
+  </div>
+  <div class="etiqueta oculto" id="etq"><span id="etq-txt"></span></div>
+  <div class="pixel oculto" id="pixel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.4 12.4l3.1 3.1 6.2-6.6"/></svg>Pixel da Meta instalado</div>
+
+  <!-- cena 9 -->
+  <p class="txt oculto" id="f1">Seu sobrinho<br>prometeu.</p>
+  <p class="txt oculto" id="f2">A gente <span class="tom">já mandou</span><br>a prévia.</p>
+
+  <!-- cena 10: CTA -->
+  <div class="cta-marca oculto" id="ctaMarca"><span class="marca"><span class="simbolo"></span>renderiza</span><small>renderizaweb.com.br</small></div>
+  <div class="botao oculto" id="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Comenta PRÉVIA</div>
+  <p class="cta-linha oculto" id="l1">A gente monta a prévia do site<br>do seu negócio, <span class="tom">sem compromisso</span>.</p>
+  <p class="cta-linha oculto" id="l2">Seu sobrinho <span class="tom">agradece</span>.</p>
+
+  <!-- notificações -->
+  <div class="notif" id="n1"></div>
+  <div class="notif oculto" id="n2"></div>
+
+  <span class="toque" id="toque"></span>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { siteDeExemplo, fotosDoExemplo as foto, ZAP } from "./exemplo.js";
+const $ = s => document.querySelector(s);
+const palco = $("#palco");
+
+// ---------- ícones (SVG) ----------
+const IC = {
+  voltar: '<svg class="voltar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.6"/><path d="M15.5 10.3 21.5 7v10l-6-3.3Z"/></svg>',
+  fone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5.2 3.8h3.3l1.9 4.6-2.4 1.5a11.5 11.5 0 0 0 6.1 6.1l1.5-2.4 4.6 1.9v3.3a1.6 1.6 0 0 1-1.7 1.6A16.6 16.6 0 0 1 3.6 5.5a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 14.2a3.2 3.2 0 0 0 3.2-3.2V5.2a3.2 3.2 0 0 0-6.4 0V11a3.2 3.2 0 0 0 3.2 3.2Zm5.3-3.2a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-3.1A7 7 0 0 0 19 11h-1.7Z"/></svg>',
+  enviar: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 20.6 21.2 12 3.4 3.4l-.01 6.8L15 12 3.39 13.8Z"/></svg>',
+  tiques: '<svg viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.6 4.2 9.8 10.9 2.2"/><path d="M7.7 9.1l.7.7 6.7-7.6"/></svg>',
+};
+$("#sinais").innerHTML = '<svg viewBox="0 0 34 22"><rect x="0" y="14" width="5" height="8" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="5" height="13" rx="1.5" fill="currentColor"/><rect x="18" y="4" width="5" height="18" rx="1.5" fill="currentColor"/><rect x="27" y="0" width="5" height="22" rx="1.5" fill="currentColor"/></svg>'
+  + '<svg viewBox="0 0 48 22"><rect x="1" y="1" width="40" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/><rect x="4" y="4" width="30" height="14" rx="3.5" fill="currentColor"/><rect x="43" y="7" width="3.5" height="8" rx="1.5" fill="currentColor" opacity=".45"/></svg>';
+
+// ---------- componentes ----------
+const avatar = (quem) => quem === "rz"
+  ? `<span class="av rz"><span class="simbolo"></span><span class="zap">${ZAP}</span></span>`
+  : `<span class="av">${quem}<span class="zap">${ZAP}</span></span>`;
+const avatarCab = (quem) => quem === "rz" ? `<span class="av rz"><span class="simbolo"></span></span>` : `<span class="av">${quem}</span>`;
+
+function notificacao(el, { quem, titulo, msg, duas = false, exemplo = false }) {
+  el.innerHTML = `<div class="por-dentro">${avatar(quem)}<div class="n-txt"><div class="n-l1"><b>${titulo}</b><small>agora</small></div>
+    <p class="n-msg${duas ? " duas" : ""}">${msg}</p></div></div>${exemplo ? '<span class="exemplo">exemplo</span>' : ""}`;
+}
+notificacao($("#n1"), { quem: "J", titulo: "Juninho (sobrinho)", msg: "Tia, semana que vem fica pronto!" });
+notificacao($("#n2"), { quem: "rz", titulo: "Renderiza", msg: "Oi! Montamos uma prévia<br>do site da Lume Estética.", duas: true, exemplo: true });
+
+// cada conversa: cabeçalho, área de mensagens, barra de digitar; os balões ficam presos ao fundo e a pilha sobe
+function conversa(el, { quem, nome, msgs }) {
+  el.innerHTML = `<div class="cab">${IC.voltar}${avatarCab(quem)}<div class="quem"><span class="nome">${nome}</span><span class="status">online</span></div>
+      <div class="icones">${IC.video}${IC.fone}</div></div>
+    <div class="corpo"><div class="msgs"></div>
+      <div class="barra"><div class="campo"><span class="ph">Mensagem</span><span class="dig"></span><span class="cursor"></span></div>
+        <span class="btn-mic"><span class="i-mic">${IC.mic}</span><span class="i-env">${IC.enviar}</span></span></div></div>
+    <div class="pelicula"></div>`;
+  const area = el.querySelector(".msgs");
+  const itens = msgs.map(m => {
+    const b = document.createElement("div");
+    b.className = "b " + (m.env ? "env" : "rec") + (m.grande ? " grande" : "") + (m.link ? " comlink" : "");
+    const meta = `<span class="meta">${m.hora}${m.env ? `<span class="tiques">${IC.tiques}</span>` : ""}</span>`;
+    b.innerHTML = m.link
+      ? `${m.txt}<div class="link"><img src="${foto("hero")}" alt=""><div><b>Lume Estética</b><small>seunegocio.com.br</small></div><span class="exemplo">exemplo</span></div><div class="linha-meta"></div>${meta}`
+      : `${m.txt}<span class="esp"></span>${meta}`;
+    area.appendChild(b);
+    return { ...m, el: b, h: 0, tiques: b.querySelector(".tiques") };
+  });
+  return { el, area, itens, cab: el.querySelector(".cab"), corpo: el.querySelector(".corpo"), status: el.querySelector(".status"),
+    campo: el.querySelector(".campo"), ph: el.querySelector(".ph"), dig: el.querySelector(".dig"), cursor: el.querySelector(".cursor"),
+    mic: el.querySelector(".i-mic"), env: el.querySelector(".i-env"), pelicula: el.querySelector(".pelicula") };
+}
+
+// a conversa com o sobrinho: um ano de desculpas (cada mês cai no começo de um compasso)
+const J = conversa($("#jJ"), { quem: "J", nome: "Juninho (sobrinho)", msgs: [
+  { t: 4.113, txt: "Tia, deixa que eu<br>faço o seu site!", hora: "19:02" },
+  { t: 5.323, env: true, txt: "Jura? Pra quando?", hora: "19:03", lido: 5.75 },
+  { t: 6.290, txt: "Semana que vem, no máximo.", hora: "19:04" },
+  { t: 7.984, env: true, txt: "E o site?", hora: "10:41", lido: 8.25 },
+  { t: 8.710, txt: "Semana de prova, tia.", hora: "22:17" },
+  { t: 9.919, env: true, txt: "Como tá o site?", hora: "14:05", lido: 10.2 },
+  { t: 10.645, txt: "Meu notebook quebrou.", hora: "23:58" },
+  { t: 11.855, env: true, txt: "Juninho, e o site?", hora: "09:12", lido: 12.15 },
+  { t: 12.581, txt: "Tia, me manda<br>as fotos de novo?", hora: "09:40", impacto: true },
+  { t: 14.274, env: true, txt: "E o site?", hora: "20:33", lido: 14.516, pulinho: true },
+]});
+// "digitando…" no cabeçalho antes de cada resposta dele
+J.digitando = [[5.75, 6.29], [8.25, 8.71], [10.2, 10.645], [12.15, 12.581]];
+J.offline = 14.516;
+
+// enquanto isso, no outro chat
+const C = conversa($("#jC"), { quem: "C", nome: "Cliente nova", msgs: [
+  { t: 15.726, txt: "Oi! Vocês têm site?<br>Queria ver os tratamentos.", hora: "15:12" },
+  { t: 17.419, env: true, txt: "Ainda não…<br>meu sobrinho tá fazendo.", hora: "15:13", lido: 17.85 },
+  { t: 18.387, txt: "Ah, tá. Obrigada!", hora: "15:13" },
+]});
+C.digitando = [[17.85, 18.387]];
+C.offline = 18.871;
+
+// a Renderiza, com a prévia pronta
+const R = conversa($("#jR"), { quem: "rz", nome: "Renderiza", msgs: [
+  { t: 22.0, txt: "Oi! Montamos uma prévia<br>do site da Lume Estética.<br>Sem compromisso:", hora: "10:08", link: true },
+  { t: 24.194, env: true, txt: "Nossa, já?", hora: "10:08", lido: 24.5, grande: true },
+]});
+R.digitando = []; R.offline = 99;
+
+// a tia digitando: "Ainda não", a hesitação, "... meu sobrinho tá fazendo."
+const DIG1 = "Ainda não", DIG2 = "… meu sobrinho tá fazendo.";
+const DIG_INI = 16.452, DIG_FIM = 17.300, DIG_PAUSA = 0.15, DIG_ENVIA = 17.419;
+
+// o celular com o site da Lume
+const site = $("#site"), tela = $(".tela");
+site.innerHTML = siteDeExemplo();
+const zapBtn = site.querySelector('[data-alvo="whatsapp"]');
+zapBtn.style.position = "relative";
+const ondaZap = Object.assign(document.createElement("span"), { className: "onda-zap" });
+zapBtn.appendChild(ondaZap);
+
+// ---------- tempo ----------
+const DUR = 38.71;
+const CORTE = { abre: 0, google: 3.871, insta: 7.742, nada: 14.516, volta: 15.484, meio: 19.355, ese: 21.290, site: 23.226, fim: 30.968, cta: 34.839 };
+const MORF = 3.387;              // a notificação vira a janela
+const CHICOTE = 15.484;          // troca de conversa
+const FAIXA = [[3.871, "Março"], [7.742, "Junho"], [9.677, "Setembro"], [11.613, "Dezembro"], [14.032, "Um ano depois"], [15.484, "Enquanto isso, no outro chat", true]];
+const N2 = 21.774;               // chega a mensagem da Renderiza
+const PARADAS = [[25.161, "hero", "Com as <span class=\"tom\">suas fotos</span> e serviços."], [27.097, "avaliacoes", "Com as <span class=\"tom\">suas avaliações</span> do Google."], [29.032, "contato", "WhatsApp em <span class=\"tom\">um toque</span>."]];
+const ONDAS = [29.274, 29.758, 30.242, 30.726];
+const PIXEL = 29.516;
+const BUMBOS = [35.323, 35.806, 36.290, 36.774, 37.258];
+const FECHO = 36.774;            // "Seu sobrinho agradece."
+const LOOP = 37.742;
+// impactos: o quadro inteiro dá um tranco (o "Já?!" dá um tranco pequeno)
+const IMPACTOS = [[0, 1], [0.968, 1], [12.581, 1], [14.516, 1], [19.355, 1], [23.226, 1], [24.194, 0.5], [25.161, 1], [27.097, 1], [29.032, 1], [30.968, 1], [32.903, 1], [34.839, 1], [37.742, 1]];
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const sai = x => 1 - Math.pow(1 - x, 3);                                   // ease-out
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2); // ease-in-out
+const lerp = (a, b, x) => a + (b - a) * x;
+// valores em quadros-chave igualmente espaçados (0..1)
+const chaves = (x, vs) => { if (x <= 0) return vs[0]; if (x >= 1) return vs[vs.length - 1]; const p = x * (vs.length - 1), i = Math.floor(p); return lerp(vs[i], vs[i + 1], p - i); };
+const vibra = (t, t0) => chaves(fase(t, t0, t0 + 0.40), [0, 8, -8, 6, -6, 3, 0]);
+const soco = (t, t0, de = 1.06, dur = 0.25) => lerp(de, 1, sai(fase(t, t0, t0 + dur)));
+const mostra = (el, on) => { el.classList.toggle("oculto", !on); return on; };
+const rgb = (a, b, x) => `rgb(${a.map((v, i) => Math.round(lerp(v, b[i], x))).join(",")})`;
+// as cores vêm dos tokens (--terracota-clara e --escuro), para o selo da faixa fazer a transição entre elas
+const token = n => { const h = getComputedStyle(document.documentElement).getPropertyValue(n).trim().replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
+const TERRA_CLARA = token("--terracota-clara"), GRAFITE = token("--escuro");
+
+let ESC = 1, ALT = 0, paradas = {};
+const AREA = 970, PAD = 26, GAP = 18;
+
+window.preparar = () => {
+  for (const c of [J, C, R]) for (const m of c.itens) {
+    const esp = m.el.querySelector(".esp");
+    if (esp) { const com = m.el.offsetHeight; esp.style.display = "none"; const sem = m.el.offsetHeight; esp.style.display = ""; m.el.classList.toggle("quebra", com > sem + 4); }
+    m.h = m.el.offsetHeight;
+  }
+  ESC = tela.clientWidth / 402; ALT = tela.clientHeight / ESC;
+  site.style.transform = `scale(${ESC})`;
+  // cada parada começa logo abaixo da barra de status do celular (o topo do site fica inteiro na parada "hero"),
+  // e sobra espaço para a rolagem lenta de 30 px sem passar do fim do site
+  const max = site.scrollHeight - ALT, barra = 78 / ESC, folga = 30 / ESC;
+  for (const el of site.querySelectorAll("[data-parada]"))
+    paradas[el.dataset.parada] = el.dataset.parada === "hero" ? 0 : clamp(el.offsetTop - barra + 4, 0, max - folga);
+  return {
+    duracao: DUR,
+    pulso: [
+      { id: "gancho", cena: "abre", ini: 0, fim: 0.968, impacto: true },
+      { id: "gancho2", cena: "abre", ini: 0.968, fim: 3.871, impacto: true },
+      { id: "promessa", cena: "google", ini: 3.871, fim: 7.742 },
+      { id: "enrola", cena: "insta", ini: 7.742, fim: 12.581 },
+      { id: "fotos", cena: "insta", ini: 12.581, fim: 14.516, impacto: true },
+      { id: "nada", cena: "insta", ini: 14.516, fim: 15.484, impacto: true },
+      { id: "desculpa", cena: "volta", ini: 15.484, fim: 19.355 },
+      { id: "custo", cena: "meio", ini: 19.355, fim: 21.290 },
+      { id: "virada", cena: "ese", ini: 21.290, fim: 23.226 },
+      { id: "previa", cena: "site", ini: 23.226, fim: 30.968 },
+      { id: "prometeu", cena: "fim", ini: 30.968, fim: 32.903, impacto: true },
+      { id: "mandou", cena: "fim", ini: 32.903, fim: 34.839, impacto: true },
+      { id: "cta", cena: "cta", ini: 34.839, fim: 38.710 },
+    ],
+    ensaio: [0.05, 1.5, 3.6, 6.9, 9.3, 11.3, 13.8, 15.1, 17.9, 18.9, 20.4, 22.3, 23.9, 24.5, 26.2, 28.1, 30.3, 32.0, 34.0, 35.6, 37.4, 38.5],
+  };
+};
+
+// desenha uma conversa no instante t
+function desenharConversa(c, t) {
+  const vis = c.itens.filter(m => t >= m.t);
+  // a pilha inteira está deslocada para baixo enquanto o balão novo sobe (ease-out de 0,22 s)
+  // (os balões de impacto sobem quase de uma vez, para a escala bater junto com a batida)
+  let desce = 0; for (const m of vis) desce += (m.h + GAP) * (1 - sai(fase(t, m.t, m.t + (m.impacto || m.grande ? 0.1 : 0.22))));
+  let y = AREA - PAD;
+  for (let k = c.itens.length - 1; k >= 0; k--) {
+    const m = c.itens[k], on = t >= m.t;
+    m.el.style.display = on ? "" : "none";
+    if (!on) continue;
+    y -= m.h;
+    m.el.style.top = (y + desce) + "px";
+    y -= GAP;
+    let esc, op;
+    if (m.impacto) { esc = soco(t, m.t, 1.15, 0.25); op = 1; }
+    else if (m.grande) { esc = soco(t, m.t, 1.3, 0.25); op = 1; }
+    else { const x = sai(fase(t, m.t, m.t + 0.18)); esc = lerp(0.92, 1, x); op = x; }
+    m.el.style.transform = `scale(${esc})`; m.el.style.opacity = op;
+    if (m.tiques) {
+      const lido = m.lido !== undefined && t >= m.lido;
+      m.tiques.style.color = lido ? "#53bdeb" : "#8696a0";
+      m.tiques.style.transform = m.pulinho && lido ? `translateY(${-10 * Math.sin(Math.PI * fase(t, m.lido, m.lido + 0.28))}px) scale(${1 + 0.35 * Math.sin(Math.PI * fase(t, m.lido, m.lido + 0.28))})` : "none";
+    }
+  }
+  // cabeçalho: online, digitando…, e o "online" que some
+  const dig = c.digitando.some(([a, b]) => t >= a && t < b);
+  c.status.textContent = dig ? "digitando…" : "online";
+  // some primeiro (0,12 s) e só depois o nome desce para o meio
+  c.status.style.opacity = 1 - fase(t, c.offline, c.offline + 0.12);
+  c.status.style.height = lerp(31, 0, sai(fase(t, c.offline + 0.1, c.offline + 0.35))) + "px";
+}
+
+function desenharFaixa(t) {
+  const on = t >= FAIXA[0][0] && t < CORTE.meio;
+  mostra($("#faixa"), on);
+  if (!on) return;
+  let i = 0; for (let k = 0; k < FAIXA.length; k++) if (t >= FAIXA[k][0]) i = k;
+  const [t0, txt, longa] = FAIXA[i];
+  const e = sai(fase(t, t0, t0 + 0.2));
+  const novo = $(i % 2 ? "#pB" : "#pA"), velho = $(i % 2 ? "#pA" : "#pB");
+  novo.querySelector("span").textContent = txt; novo.classList.toggle("longa", !!longa);
+  novo.style.transform = `translateY(${(1 - e) * 80}px)`; novo.style.opacity = 1;
+  // por 0,3 s ela vira um selo; depois volta a ser só texto terracota
+  const selo = 1 - fase(t, t0 + 0.3, t0 + 0.42);
+  const sp = novo.querySelector("span");
+  sp.style.background = `rgba(${TERRA_CLARA.join(",")},${selo})`; sp.style.color = rgb(GRAFITE, TERRA_CLARA, 1 - selo);
+  if (i > 0) {
+    const [, tv, lv] = FAIXA[i - 1];
+    velho.querySelector("span").textContent = tv; velho.classList.toggle("longa", !!lv);
+    velho.querySelector("span").style.background = "transparent"; velho.querySelector("span").style.color = "var(--terracota-clara)";
+    velho.style.transform = `translateY(${-e * 80}px)`; velho.style.opacity = e < 1 ? 1 : 0;
+  } else velho.style.opacity = 0;
+}
+
+let toqueAlvo = null;
+function toque(t, t0, el) {
+  if (t < t0 - 0.05 || t >= t0 + 0.35) return;
+  const r = el.getBoundingClientRect();
+  toqueAlvo = { x: r.left + r.width / 2, y: r.top + r.height / 2, x0: t0 };
+}
+
+window.quadro = t => {
+  toqueAlvo = null;
+  palco.style.transform = "none"; // mede o toque sem o tranco/zoom do quadro anterior
+  // ---- marca pequena: o vídeo inteiro, menos o CTA ----
+  mostra($("#topo"), t < CORTE.cta);
+  desenharFaixa(t);
+
+  // ---- cena 1: o gancho ----
+  const g1 = $("#g1"), g2 = $("#g2");
+  const saiG = sai(fase(t, 2.903, 3.203));
+  if (mostra(g1, t < 3.25)) { g1.style.opacity = 1 - saiG; g1.style.transform = `translateY(${40 * saiG}px) scale(${soco(t, 0)})`; }
+  if (mostra(g2, t >= 0.968 && t < 3.25)) { g2.style.opacity = 1 - saiG; g2.style.transform = `translateY(${40 * saiG}px) scale(${soco(t, 0.968)})`; }
+
+  // notificação do Juninho: no quadro 0 (a capa), e de novo no fim (o loop)
+  const n1 = $("#n1");
+  if (t < MORF + 0.3) {
+    mostra(n1, true);
+    const m = sai(fase(t, MORF, MORF + 0.3));
+    n1.style.top = lerp(260, 340, m) + "px";
+    n1.style.minHeight = lerp(160, 100, m) + "px"; n1.style.height = m > 0 ? lerp(160, 100, m) + "px" : "";
+    n1.style.overflow = m > 0 ? "hidden" : "";
+    n1.style.borderRadius = `${lerp(36, 40, m)}px ${lerp(36, 40, m)}px ${lerp(36, 0, m)}px ${lerp(36, 0, m)}px`;
+    // o cartão fica branco e opaco por cima do cabeçalho; o texto dele some e o do cabeçalho aparece por baixo
+    n1.style.background = `rgba(${lerp(245, 255, m)},${lerp(245, 255, m)},${lerp(245, 255, m)},${lerp(0.96, 1, m)})`;
+    n1.style.boxShadow = `0 20px 50px rgba(0,0,0,${0.35 * (1 - m)})`;
+    n1.style.opacity = 1 - fase(t, MORF + 0.12, MORF + 0.22);
+    n1.querySelector(".por-dentro").style.opacity = 1 - fase(t, MORF, MORF + 0.1);
+    n1.style.transform = `translateX(${vibra(t, 0)}px)`;
+    toque(t, 3.145, n1);
+  } else if (t >= LOOP) {
+    mostra(n1, true);
+    n1.style.height = ""; n1.style.minHeight = "160px"; n1.style.overflow = ""; n1.style.borderRadius = "36px"; n1.style.opacity = 1;
+    n1.style.background = ""; n1.style.boxShadow = "";
+    n1.querySelector(".por-dentro").style.opacity = 1;
+    const d = fase(t, LOOP, LOOP + 0.3);
+    n1.style.top = lerp(-220, 260, sai(d)) + "px";
+    n1.style.transform = `translateX(${vibra(t, LOOP + 0.3)}px)`;
+  } else mostra(n1, false);
+
+  // ---- a conversa com o Juninho ----
+  const jJ = J.el, jC = C.el, jR = R.el;
+  const chic = ease(fase(t, CHICOTE, CHICOTE + 0.3));
+  if (mostra(jJ, t >= MORF && t < CHICOTE + 0.32)) {
+    desenharConversa(J, t);
+    const u = sai(fase(t, MORF, MORF + 0.45));
+    J.corpo.style.transform = u < 1 ? `scaleY(${u})` : "none";
+    J.cab.style.opacity = fase(t, MORF + 0.08, MORF + 0.16);
+    jJ.style.transform = chic > 0 ? `translateX(${-1080 * chic}px)` : "none";
+    // o vácuo: película sobre a janela, só o último balão aceso
+    const p = sai(fase(t, CORTE.nada, CORTE.nada + 0.12));
+    J.pelicula.style.opacity = p;
+    J.itens[J.itens.length - 1].el.classList.toggle("aceso", p > 0);
+  }
+  // "Visualizou." / "E não respondeu."
+  const v1 = $("#v1"), v2 = $("#v2"), saiV = fase(t, CHICOTE, CHICOTE + 0.2);
+  if (mostra(v1, t >= CORTE.nada && t < 15.7)) { v1.style.opacity = 1 - saiV; v1.style.transform = `translateX(${-260 * chic}px) scale(${soco(t, CORTE.nada)})`; }
+  if (mostra(v2, t >= 14.758 && t < 15.7)) { const x = sai(fase(t, 14.758, 15.058)); v2.style.opacity = x * (1 - saiV); v2.style.transform = `translateX(${-260 * chic}px) translateY(${(1 - x) * 28}px)`; }
+
+  // ---- enquanto isso, no outro chat ----
+  if (mostra(jC, t >= CHICOTE && t < CORTE.meio)) {
+    desenharConversa(C, t);
+    jC.style.transform = chic < 1 ? `translateX(${1080 * (1 - chic)}px)` : "none";
+    // a tia digita, hesita e envia
+    const v1n = DIG1.length, v2n = DIG2.length, ritmo = (DIG_FIM - DIG_INI - DIG_PAUSA) / (v1n + v2n);
+    let n = 0;
+    if (t >= DIG_INI && t < DIG_ENVIA) {
+      const a = Math.min(v1n, Math.floor((t - DIG_INI) / ritmo));
+      const t2 = DIG_INI + v1n * ritmo + DIG_PAUSA;
+      const b = t < t2 ? 0 : Math.min(v2n, Math.floor((t - t2) / ritmo) + 1);
+      n = a + b;
+    }
+    const digitado = (DIG1 + DIG2).slice(0, n);
+    C.dig.textContent = digitado;
+    C.ph.style.display = digitado ? "none" : "";
+    C.cursor.style.display = t >= DIG_INI && t < DIG_ENVIA && (digitado.length < v1n + v2n ? true : Math.floor(t * 4) % 2 === 0) ? "" : "none";
+    const comTexto = digitado.length > 0;
+    C.mic.style.display = comTexto ? "none" : ""; C.env.style.display = comTexto ? "" : "none";
+  }
+  for (const c of [J, R]) { c.cursor.style.display = "none"; c.env.style.display = "none"; }
+
+  // ---- cenas 6 e 7: o custo e a virada ----
+  const e67 = $("#escuro67"), c1 = $("#c1"), c2 = $("#c2");
+  if (mostra(e67, t >= CORTE.meio && t < CORTE.site)) {
+    if (mostra(c1, t < CORTE.ese)) {
+      // o coração: tum (1,08) e tum (1,03); a cena se aproxima devagar
+      const tum = t < 19.635 ? soco(t, CORTE.meio, 1.08, 0.24) : soco(t, 19.635, 1.03, 0.24);
+      const zoom = lerp(1, 1.04, fase(t, CORTE.meio, CORTE.ese));
+      c1.style.opacity = 1 - fase(t, CORTE.ese - 0.25, CORTE.ese);
+      c1.style.transform = `scale(${tum * zoom})`;
+    }
+    if (mostra(c2, t >= CORTE.ese && t < 22.75)) {
+      const x = sai(fase(t, CORTE.ese, CORTE.ese + 0.3));
+      c2.style.opacity = x * (1 - fase(t, 22.5, 22.75)); c2.style.transform = `translateY(${(1 - x) * 28}px)`;
+    }
+  }
+  const n2 = $("#n2");
+  if (mostra(n2, t >= N2 && t < CORTE.site)) {
+    const d = sai(fase(t, N2, N2 + 0.32));
+    n2.style.top = lerp(-260, 260, d) + "px";
+    n2.style.transform = `translateX(${vibra(t, N2 + 0.3)}px)`;
+    toque(t, 22.742, n2);
+  }
+
+  // ---- cena 8: a prévia (DROP) ----
+  if (mostra(jR, t >= CORTE.site && t < PARADAS[0][0])) {
+    desenharConversa(R, t);
+    jR.style.transform = `scale(${soco(t, CORTE.site, 1.08, 0.25)})`;
+    toque(t, 24.677, R.itens[0].el.querySelector(".link"));
+  }
+  const cel = $("#cel"), etq = $("#etq");
+  const noCel = t >= PARADAS[0][0] && t < CORTE.fim;
+  mostra(cel, noCel); mostra(etq, noCel);
+  if (noCel) {
+    let k = 0; for (let i = 0; i < PARADAS.length; i++) if (t >= PARADAS[i][0]) k = i;
+    const [t0, parada, rotulo] = PARADAS[k];
+    const t1 = k + 1 < PARADAS.length ? PARADAS[k + 1][0] : CORTE.fim;
+    const rola = 30 / ESC * ease(fase(t, t0, t1));   // só 30 px, devagar, para a tela não ficar parada
+    site.style.transform = `translateY(${-(paradas[parada] + rola) * ESC}px) scale(${ESC})`;
+    cel.style.transform = `scale(${soco(t, t0, 1.04, 0.25)})`;
+    const et = $("#etq-txt");
+    if (et.dataset.k !== String(k)) { et.innerHTML = rotulo; et.dataset.k = k; }
+    etq.style.transform = `scale(${soco(t, t0, 1.08, 0.22)})`;
+    // o botão verde pulsa
+    let o = 0, oo = 0;
+    for (const p of ONDAS) { const x = fase(t, p, p + 0.45); if (x > 0 && x < 1) { o = 1 - x; oo = x; } }
+    ondaZap.style.opacity = o; ondaZap.style.outlineOffset = (2 + oo * 12) + "px";
+    zapBtn.style.transform = `scale(${1 + 0.04 * Math.sin(Math.PI * clamp(oo * 2))})`;
+  }
+  const px = $("#pixel");
+  if (mostra(px, t >= PIXEL && t < CORTE.fim)) {
+    const x = fase(t, PIXEL, PIXEL + 0.32);
+    px.style.transform = `translateX(${lerp(900, 0, sai(x))}px)`;
+  }
+
+  // ---- cena 9: a promessa e a prévia ----
+  const f1 = $("#f1"), f2 = $("#f2");
+  if (mostra(f1, t >= CORTE.fim && t < CORTE.cta)) f1.style.transform = `scale(${soco(t, CORTE.fim)})`;
+  if (mostra(f2, t >= 32.903 && t < CORTE.cta)) f2.style.transform = `scale(${soco(t, 32.903)})`;
+
+  // ---- cena 10: CTA e loop ----
+  const noCta = t >= CORTE.cta;
+  mostra($("#ctaMarca"), noCta); mostra($("#botao"), noCta);
+  if (noCta) {
+    const cm = sai(fase(t, CORTE.cta, CORTE.cta + 0.3));
+    $("#ctaMarca").style.opacity = cm; $("#ctaMarca").style.transform = `scale(${lerp(0.8, 1, cm)})`;
+    let esc = chaves(fase(t, CORTE.cta, CORTE.cta + 0.35), [0.8, 1.05, 1]);
+    for (const b of BUMBOS) { const x = fase(t, b, b + 0.22); if (x > 0 && x < 1) esc *= 1 + 0.03 * Math.sin(Math.PI * x); }
+    $("#botao").style.transform = `scale(${esc})`;
+  }
+  const l1 = $("#l1"), l2 = $("#l2");
+  if (mostra(l1, noCta)) { const x = sai(fase(t, CORTE.cta + 0.2, CORTE.cta + 0.5)); l1.style.opacity = x; l1.style.transform = `translateY(${(1 - x) * 28}px)`; }
+  if (mostra(l2, t >= FECHO)) { const x = sai(fase(t, FECHO, FECHO + 0.3)); l2.style.opacity = x; l2.style.transform = `translateY(${(1 - x) * 28}px)`; }
+
+  // ---- toque ----
+  const tq = $("#toque");
+  if (toqueAlvo) {
+    const x = fase(t, toqueAlvo.x0 - 0.05, toqueAlvo.x0 + 0.35);
+    tq.style.left = toqueAlvo.x + "px"; tq.style.top = toqueAlvo.y + "px";
+    tq.style.opacity = Math.min(1, x * 6) * (1 - fase(t, toqueAlvo.x0 + 0.25, toqueAlvo.x0 + 0.35));
+    tq.style.transform = `scale(${t >= toqueAlvo.x0 && t < toqueAlvo.x0 + 0.2 ? 0.86 : 1})`;
+  } else tq.style.opacity = 0;
+
+  // ---- clarões: drop (0,06 s) e cortes do site (0,08 s) ----
+  let fl = 0;
+  const cl = (t0, d) => { const x = fase(t, t0, t0 + d); if (t >= t0 && x < 1) fl = Math.max(fl, 0.9 * (1 - x)); };
+  cl(CORTE.site, 0.06); for (const [p] of PARADAS) cl(p, 0.08);
+  $("#flash").style.opacity = fl;
+
+  // ---- o quadro inteiro: tranco nos impactos e a aproximação da virada ----
+  let dx = 0;
+  for (const [i, a] of IMPACTOS) { const x = fase(t, i, i + 0.15); if (t >= i && x < 1) dx = chaves(x, [0, 12, -9, 5, 0]) * a; }
+  const zoom = t >= N2 && t < CORTE.site ? lerp(1, 1.10, ease(fase(t, N2, CORTE.site))) : 1;
+  palco.style.transformOrigin = "500px 360px";
+  palco.style.transform = `translateX(${dx}px) scale(${zoom})`;
+};
+
+await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+await Promise.all(["400 46px Geist", "500 46px Geist", "600 46px Geist", "700 46px Geist", "600 20px Fraunces", "italic 600 20px Fraunces", "400 15px 'DM Sans'", "700 15px 'DM Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

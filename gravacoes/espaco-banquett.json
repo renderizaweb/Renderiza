@@ -1,0 +1,142 @@
+{
+ "demo": "espaco-banquett",
+ "formato": "reels",
+ "marca": "Espaço Banquett · Eventos",
+ "local": "Mogi das Cruzes · SP",
+ "cores": {
+  "fundo": "#1b2420",
+  "fundo2": "#111614",
+  "acento": "#d9925b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Espaço",
+   "Banquett"
+  ],
+  "frase": "Aconchego de casa, festa de salão.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Espaço Banquett.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.7,
+   "legenda": "Hoje, quem procura um salão de festas *começa pelo celular.*",
+   "sub": "Quer ver o espaço, o buffet e a opinião de quem fez a festa."
+  },
+  {
+   "rolar": 360,
+   "segura": 0.6,
+   "mover": 3.0,
+   "legenda": ""
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.1,
+   "legenda": "Conhece o salão *e quem recebe.*",
+   "sub": "Marcela e Paulinho, com o buffet da casa, para até 85 convidados."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o salão inteiro *antes da visita.*",
+   "sub": "O lounge, as mesas e os cantos para foto."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E o que *já foi servido ali.*",
+   "sub": "O coquetel do buffet da casa, doces e drinks de festas."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Lê o que *quem fez a festa conta.*",
+   "sub": "Nota 5,0 em 45 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia e o número de convidados já escritos na mensagem."
+  }
+ ]
+}

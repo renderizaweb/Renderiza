@@ -1,0 +1,130 @@
+{
+ "demo": "otica-loren",
+ "formato": "reels",
+ "marca": "Ótica L'oren",
+ "local": "Jardim São Paulo · São Paulo",
+ "cores": {
+  "fundo": "#25272b",
+  "fundo2": "#17181b",
+  "acento": "#f6c224",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:45:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "L'oren"
+  ],
+  "frase": "A sua visão com estilo.",
+  "fotos": [
+   ".hero-photo img",
+   "#armacoes-track li:nth-child(2) img",
+   "#armacoes-track li:nth-child(4) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da L'oren.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.1,
+   "legenda": "Conhece a L'oren *e quem atende.*",
+   "sub": "Uma loja no Jardim São Paulo com famílias clientes desde a inauguração."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê as armações *antes de sair de casa.*",
+   "sub": "Grau, sol, infantis e clip-on, para chegar sabendo o que quer provar."
+  },
+  {
+   "rolar": ".face-tool",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=redondo]",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": ".face-option[data-face=coracao]",
+     "clicar": true
+    }
+   ],
+   "legenda": "E descobre o modelo *que combina com o rosto.*",
+   "sub": "É só tocar no formato do rosto para ver as sugestões."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 120 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "demo": "optica-latinos",
+ "formato": "reels",
+ "marca": "Ótica Latinos",
+ "local": "Jd. Santa Teresinha · São Paulo",
+ "cores": {
+  "fundo": "#1c2b29",
+  "fundo2": "#111b19",
+  "acento": "#c9a14a",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:45:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Latinos"
+  ],
+  "frase": "Exame e óculos no mesmo lugar.",
+  "fotos": [
+   ".hero-photo img",
+   "#estilo-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(1) img",
+   ".story-photos img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Latinos.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece a Latinos *e quem atende.*",
+   "sub": "A Sara, a Fernanda e o Sr. Arnaldo, numa loja renovada e com cafezinho."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê as armações *antes de sair de casa.*",
+   "sub": "Marcas de qualidade, para chegar sabendo o que quer provar."
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "legenda": "E descobre que dá para *fazer o exame ali mesmo.*",
+   "sub": "Consulta com médico oftalmologista no mesmo endereço da ótica."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "São 130 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *agenda pelo WhatsApp.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "marca": "Spazio Maia",
+ "local": "Tatuapé · São Paulo",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1e2235",
+  "fundo2": "#121520",
+  "acento": "#d8b47a",
+  "tinta_acento": "#121520",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g04.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "169"
+ },
+ "titulo": "Onde sonhos viram<br><em>celebrações.</em>",
+ "texto": "Casamentos, 15 anos e festas no Tatuapé, com escadaria iluminada, buffet da casa e bar de drinks.",
+ "whatsapp": "(11) 99148-8258",
+ "cta": "Consulte sua data",
+ "endereco": "R. Antônio de Barros, 2087 · Tatuapé",
+ "instagram": "@spaziomaiabuffet"
+}

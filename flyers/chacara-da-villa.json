@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara da Villa",
+ "local": "São Bernardo do Campo · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#24311f",
+  "fundo2": "#161e13",
+  "acento": "#d9b26f",
+  "tinta_acento": "#161e13",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/chacaradavilla/Instagram_files/770985694_18154370539498051_2959860099635523507_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "175"
+ },
+ "titulo": "Sua festa<br><em>no meio do verde.</em>",
+ "texto": "7.000 m² de gramado, piscinas e salão coberto para casamentos, aniversários e confraternizações.",
+ "whatsapp": "(11) 99641-7949",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. Martim Afonso de Souza, 1825",
+ "instagram": "@chacara_da_villa_"
+}

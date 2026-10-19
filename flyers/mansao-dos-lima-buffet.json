@@ -1,0 +1,29 @@
+{
+ "marca": "Mansão dos Lima",
+ "local": "Jardim Tranquilidade · Guarulhos",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a2019",
+  "fundo2": "#1a130f",
+  "acento": "#c8a27a",
+  "tinta_acento": "#1a130f",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/mansaodoslimabuffet/Instagram_files/468523192_18250134934275476_8487234628511476058_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "484"
+ },
+ "titulo": "Elegância para<br><em>todos os momentos.</em>",
+ "texto": "Cerimônia ao ar livre, salão com lustres, piscina e buffet completo, em Guarulhos.",
+ "whatsapp": "(11) 4574-3617",
+ "cta": "Consulte sua data",
+ "endereco": "R. Dona Dica, 530 · Guarulhos",
+ "instagram": "@mansaodoslimabuffet"
+}

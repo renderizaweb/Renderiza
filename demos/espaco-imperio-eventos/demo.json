@@ -1,0 +1,364 @@
+{
+ "pasta": "espaco-imperio-eventos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-imperio-eventos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-imperio-eventos-sem-horas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-imperio-eventos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5515998593088",
+ "fone_link": "+5515998593088",
+ "google": {
+  "coords": "-23.5490916,-47.4555376",
+  "fid": "0x94c58a0f13093489:0x797dcaf3b0a93a7d",
+  "gid": "/g/11cm_h51vj"
+ },
+ "endereco_maps": "R. Cel. João Carlos de Campos, 333 - Vossoroca, Votorantim - SP, 18116-090",
+ "google_nota": "4,6",
+ "google_total": "199",
+ "verificado": "2026-10-16",
+ "instagram": "espacoimperioeventos",
+ "marca": "Espaço Império Eventos",
+ "marca_logo": "Império Eventos",
+ "marca_completa": "Espaço Império Eventos",
+ "logo_sub": "Votorantim · SP",
+ "titulo": "Espaço Império Eventos | Salão de festas em Votorantim",
+ "descricao": "Espaço Império Eventos, na R. Cel. João Carlos de Campos, 333, na Vossoroca, em Votorantim (SP): salão com escada, área interna e externa e cerimônia ao ar livre com pergolado. Casamentos, 15 anos, aniversários e eventos de empresa, com festa completa ou só a locação.",
+ "comentario": "Demo Espaço Império Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Perfil da Empresa no Google e do Instagram do espaço (@espacoimperioeventos, página salva pelo Kaue); avaliações e endereço do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1c1a24",
+  "acento": "#c9a24b"
+ },
+ "topline": "R. Cel. João Carlos de Campos, 333 · Vossoroca, Votorantim",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Salão de festas em Votorantim",
+  "h1": "Do pergolado <em>à pista de dança.</em>",
+  "intro": "Casamentos, 15 anos, aniversários e eventos de empresa com cerimônia ao ar livre no pergolado e salão com escada, em Votorantim.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g08.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa do bolo de casamento com orquídeas e flores, sob a cortina de folhagens e luzes"
+ },
+ "endereco": [
+  "R. Cel. João Carlos de Campos, 333",
+  "Votorantim · SP"
+ ],
+ "dias_curto": "",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Bodas",
+  "Eventos de empresa",
+  "Cerimônia ao ar livre",
+  "Votorantim"
+ ],
+ "sobre": {
+  "eyebrow": "O Império",
+  "h2": "Mais de 10 anos <em>de festas em Votorantim.</em>",
+  "p": [
+   "Na Vossoroca, em Votorantim, o Espaço Império tem área interna e externa: o salão com escada e uma área de cerimônia ao ar livre, com pergolado, separada do ambiente da festa.",
+   "Dá para fechar a festa completa ou só a locação do espaço. O responsável pelo salão é o Gabriel, e os clientes elogiam a equipe no dia do evento e as indicações de fornecedores."
+  ],
+  "stats": [
+   [
+    "10+",
+    "anos de história"
+   ],
+   [
+    "199",
+    "avaliações no Google"
+   ]
+  ],
+  "foto": {
+   "id": 19,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada do Espaço Império iluminada à noite",
+  "pol": {
+   "id": 9,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "Noiva entrando na cerimônia ao ar livre",
+  "pol_cap": "Cerimônia"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Pergolado, salão <em>e mesa do bolo.</em>",
+   "p": "A cerimônia ao ar livre, o salão com lustre e a fachada. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes do Espaço Império",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g07.jpg"
+     },
+     "alt": "Cerimônia ao ar livre com tapete vermelho, tecidos brancos e luzes"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g02.jpg"
+     },
+     "alt": "Salão com lustre de cristal e pista de dança iluminada"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Fachada do espaço à noite"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g12.jpg"
+     },
+     "alt": "Salão cheio de convidados sob o lustre"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g13.jpg"
+     },
+     "alt": "Pista de dança iluminada no salão, com os convidados em volta"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e aniversários de quem já comemorou no Império.",
+   "rotulo": "Festas que aconteceram no Espaço Império",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g09.jpg"
+     },
+     "alt": "Noivos diante da mesa do bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g03.jpg"
+     },
+     "alt": "Noiva com buquê de flores secas diante do painel de flores",
+     "cap": "A noiva"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g11.jpg"
+     },
+     "alt": "Aniversariante de 80 anos ao lado do bolo",
+     "cap": "80 anos"
+    },
+    {
+     "foto": {
+      "id": 41
+     },
+     "alt": "Aniversariante ao lado do bolo preto e dourado",
+     "cap": "18 anos"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Aniversariante diante do painel de flores de cerejeira",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre com pergolado"
+   ],
+   [
+    "salao",
+    "Salão com escada"
+   ],
+   [
+    "jardim",
+    "Área interna e externa"
+   ],
+   [
+    "mesa",
+    "Festa completa ou só a locação"
+   ],
+   [
+    "pessoas",
+    "Equipe no dia do evento"
+   ],
+   [
+    "estrela",
+    "Indicação de fornecedores"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Agende uma visita ao salão em Votorantim",
+   "Escolha: festa completa ou só a locação",
+   "No dia, a equipe acompanha o evento"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g08.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa do bolo de casamento com orquídeas e flores"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Janaina Oliveira Mariano",
+   "tag": "15 anos",
+   "trecho": "Salão bonito, aconchegante e com escada que era o sonho da minha filha para a festa dela de 15 anos!"
+  },
+  {
+   "nome": "Jussara Camargo",
+   "tag": "Casamento",
+   "trecho": "A estrutura, a organização e o suporte da equipe foram fundamentais para o sucesso do nosso tão sonhado casamento."
+  },
+  {
+   "nome": "Elaine Camargo",
+   "tag": "80 anos",
+   "trecho": "A festa de 80 anos da minha mãe foi lindaaaa. Atendimento nota 10, desde o primeiro contato."
+  },
+  {
+   "nome": "Ana Lot",
+   "tag": "Empresa",
+   "trecho": "Fizemos nossa festa corporativa de final de ano. Eles foram ótimos e organizados em tudo. Não nos preocupamos com nada."
+  },
+  {
+   "nome": "Kamilla Muniz",
+   "tag": "Área externa",
+   "trecho": "utilizei todo o salão e inclusive a área externa onde fiz minha decoração lá!"
+  },
+  {
+   "nome": "Rogério Prevedel",
+   "tag": "Equipe",
+   "trecho": "Equipe cordata, eficiente e acolhedora. Nenhum contratempo e só satisfação."
+  }
+ ],
+ "insta": {
+  "seguidores": "5,4 mil seguidores",
+  "p": "Casamentos, 15 anos e as festas do Império.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c58a0f13093489_0x797dcaf3b0a93a7d/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesa do bolo com flores sob a cortina de folhagens iluminada",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Império.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Chá de bebê",
+   "Formatura",
+   "Evento da empresa",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Império e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Votorantim.</em>",
+  "endereco": [
+   "R. Cel. João Carlos de Campos, 333 · Vossoroca",
+   "Votorantim, SP · CEP 18116-090"
+  ],
+  "telefone": "(15) 99859-3088",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Do pergolado à pista de dança.",
+ "mensagem": "Olá! Vim pelo site do Espaço Império e queria um orçamento.",
+ "google_nome": "Império Eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 15 99859-3088 é o celular do Perfil da Empresa no Google e o WhatsApp das legendas (\"15-99859.3088 (WhatsApp)\"). O fixo das legendas é (15) 3023-3088.",
+  "site": "imperiofestas.com.br (das artes antigas) abre só uma página de senha: o site não está no ar. Bom gancho.",
+  "direcao": [
+   "Eventos lote 3: lead que já estava no painel (etapa leads), mandado pelo Kaue no Drive de 16/10/2026. É o Império Eventos da Vossoroca, em Votorantim (o painel foi corrigido para Votorantim). \"+ de 10 anos de história\" (bio). Nota 4,6 com 199 avaliações (a demo mostra o total, não a nota).",
+   "Responsável: o Gabriel (\"agradeço ao Gabriel, responsável pelo salão\", \"Gabriel (Império Eventos)\", nas avaliações). O buffet citado nas avaliações é parceiro (Dona Festa Buffet)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo padrão (as fotos do Instagram são artes antigas e as do Google, de convidados): o espaço, ambientes (5 fotos, 4 do Google), festas reais (5, 3 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: grafite e dourado (o dourado do logo)."
+  ],
+  "fotos": [
+   "Perfil da Empresa no Google (mesa do bolo, cerimônia ao ar livre, salão com lustre, noivos, 80 anos) e as poucas fotos limpas do Instagram salvo (fachada à noite, cerimônia, aniversários).",
+   "Ficaram de fora: as artes com logo, texto, preço (\"a partir de R$ 9.900\") e desconto, e as fotos do Google com grupos de convidados e crianças em close."
+  ],
+  "conferir": [
+   "As legendas antigas falam em promoções, preços e \"o espaço mais lindo da região\": nada disso entrou na demo.",
+   "O Instagram salvo é quase todo de 2019; os destaques mostram festas recentes (15 anos, casamentos). Vale pedir fotos novas.",
+   "O Google mostra \"Atendimento 24 horas\" no sábado: a demo sai sem horário.",
+   "Capacidade e estacionamento: não confirmei."
+  ]
+ }
+}

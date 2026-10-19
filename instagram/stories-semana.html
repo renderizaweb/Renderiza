@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Stories da semana de 16 a 23/10</title>
+<!-- A arte dos stories da semana de 16 a 23/10/2026 (8 imagens 1080 × 1920, uma por dia, na ordem de sexta 16 a sexta 23).
+     Sete delas levam uma figurinha que o Kaue coloca no app na hora de postar (enquete ou caixinha de pergunta: o agendador
+     do Meta Business Suite não tem essas figurinhas). Por isso cada uma deixa um espaço vazio embaixo da pergunta, sem
+     texto de instrução, e o fundo é grafite para a figurinha branca aparecer. A de quinta (22) não tem figurinha e pode ser
+     agendada. Faixas que o Instagram cobre: o topo até y 220 e a barra de resposta de y 1700 para baixo.
+     A pergunta, as opções e o horário de cada uma estão no doc "Cronograma de posts · 16 a 23/10".
+     node instagram/gerar.mjs stories-semana -->
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terra:#b25134;--terra-clara:#e8855e;--cinza:#7a8386;--apoio:#b9bfc1;--claro:#f1eee9;--fio:#3a4448;--enviado:#d9fdd3}
+.slide{height:1920px;background:var(--escuro);color:var(--claro)}
+.slide.claro{background:var(--fundo);color:var(--tinta)}
+p,h1,h2{text-wrap:pretty}
+
+/* marca no alto, abaixo da faixa do Instagram (a mesma medida da .topo dos posts) */
+.st-topo{position:absolute;left:84px;top:236px}
+.st-topo .marca{font-size:34px;gap:14px;color:var(--claro)}
+.claro .st-topo .marca{color:var(--tinta)}
+.st-topo .simbolo{width:40px;height:40px}
+
+/* pergunta: sobretítulo, título e apoio, sempre no mesmo lugar; a figurinha entra no espaço de baixo */
+.pergunta{position:absolute;left:84px;right:84px;top:852px}
+.sobre{font-size:28px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-clara);line-height:1}
+.claro .sobre{color:var(--terra)}
+.pergunta h1{margin-top:30px;font-size:86px;line-height:1.05;letter-spacing:-.04em;color:var(--claro)}
+.pergunta h1 .tom{color:var(--terra-clara)}
+.pergunta .apoio{margin-top:28px;font-size:40px;font-weight:500;line-height:1.25;letter-spacing:-.015em;color:var(--apoio)}
+
+/* a ilustração de cada dia fica entre a marca e a pergunta (y 340 a 780) */
+.ilu{position:absolute;left:84px;right:84px;top:340px;height:440px}
+
+/* balões de WhatsApp */
+.balao{position:absolute;width:fit-content;max-width:820px;border-radius:6px 30px 30px 30px;background:#fff;padding:26px 34px 22px;box-shadow:0 14px 36px rgba(0,0,0,.28)}
+.balao p{font-size:52px;font-weight:600;line-height:1.1;letter-spacing:-.028em;color:var(--tinta);white-space:nowrap}
+.balao time{display:block;margin-top:8px;text-align:right;font-size:24px;line-height:1;color:var(--cinza);font-variant-numeric:tabular-nums}
+.balao.env{right:0;border-radius:30px 6px 30px 30px;background:var(--enviado)}
+
+/* notificação de tela de bloqueio (sem texto: o conteúdo é a pergunta da figurinha) */
+.notif{position:absolute;left:0;right:0;height:132px;display:flex;align-items:center;gap:24px;padding:0 30px;border-radius:34px;background:rgba(255,255,255,.09);box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
+.notif .app{flex:none;width:64px;height:64px;border-radius:16px;background:var(--zap);display:grid;place-items:center;color:#fff}
+.notif .app svg{width:40px;height:40px}
+.notif .txt{flex:1;min-width:0}
+.notif .txt b{display:block;font-size:34px;font-weight:600;letter-spacing:-.015em;color:var(--claro);line-height:1.1}
+.notif .txt i{display:block;height:16px;margin-top:16px;border-radius:8px;background:rgba(255,255,255,.2)}
+.notif time{flex:none;align-self:flex-start;margin-top:30px;font-size:26px;color:var(--apoio)}
+
+/* pílula de conversas e de modo foco */
+.pilula{display:inline-flex;align-items:center;gap:14px;height:64px;padding:0 28px;border-radius:999px;background:rgba(255,255,255,.1);font-size:30px;font-weight:600;letter-spacing:-.01em;color:var(--claro);white-space:nowrap}
+.pilula .ponto{width:14px;height:14px;border-radius:50%;background:var(--terra-clara)}
+
+/* 16: a promessa do sobrinho */
+.d16 .env{top:24px}
+.d16 .rec{left:0;top:214px}
+
+/* 17: o verbete em branco do dicionário */
+.d17 .cabeca{display:flex;align-items:baseline;height:150px}
+.d17 .letra{font-size:150px;font-weight:800;line-height:150px;letter-spacing:-.04em;color:var(--terra-clara)}
+.d17 .cabeca i{flex:1;height:2px;margin-left:30px;background:var(--fio)}
+.d17 .balao{left:0;top:196px}
+.d17 .balao .branco{display:block;width:560px;height:46px;margin-top:8px;border-bottom:5px dashed #c9c4bb}
+.d17 .balao time{margin-top:16px}
+.d17 .classe{position:absolute;left:0;top:384px;font-size:30px;color:#8e979a;line-height:1.2}
+
+/* 18 e 20: notificações empilhadas */
+.d18 .notif:nth-of-type(1){top:0}
+.d18 .notif:nth-of-type(2){top:150px;opacity:.82}
+.d18 .notif:nth-of-type(3){top:300px;opacity:.6}
+.d20 .relogio{position:absolute;left:0;right:0;top:-6px;text-align:center;font-size:140px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--claro);font-variant-numeric:tabular-nums}
+.d20 .foco{position:absolute;left:0;right:0;top:150px;display:flex;justify-content:center}
+.d20 .notif{top:240px}
+.d20 .mais{position:absolute;left:0;right:0;top:390px;display:flex;justify-content:center}
+
+/* 19: um anúncio genérico no feed */
+.anuncio{position:absolute;left:150px;width:612px;top:0;height:440px;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.anuncio .cab{height:86px;display:flex;align-items:center;gap:16px;padding:0 24px}
+.anuncio .av{width:50px;height:50px;border-radius:50%;background:var(--fundo-2);display:grid;place-items:center;font-size:24px;font-weight:700;color:var(--tinta-suave)}
+.anuncio .cab b{display:block;font-size:26px;font-weight:600;color:var(--tinta);letter-spacing:-.01em;line-height:1.1}
+.anuncio .cab div span{display:block;font-size:22px;color:var(--cinza);line-height:1.2}
+.anuncio img{display:block;width:100%;height:270px;object-fit:cover}
+.anuncio .cta{height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:#f4f2ee;font-size:27px;font-weight:600;color:var(--tinta)}
+.anuncio .cta svg{width:30px;height:30px;color:var(--tinta-suave)}
+
+/* 21: o cartão do negócio no Google, sem fotos */
+.ficha{position:absolute;left:96px;right:96px;top:10px;height:420px;border-radius:30px;background:#fff;padding:34px 36px;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.ficha b{display:block;font-size:44px;font-weight:700;letter-spacing:-.03em;color:var(--tinta);line-height:1}
+.ficha .estrelas{margin-top:16px;font-size:30px;letter-spacing:4px;color:#d8d3cb;line-height:1}
+.ficha .sk2{display:block;height:14px;width:58%;margin-top:18px;border-radius:7px;background:#ebe7e1}
+.ficha .fotos{margin-top:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.ficha .fotos span{height:170px;border-radius:18px;border:3px dashed #d8d3cb;display:grid;place-items:center;color:#c9c4bb}
+.ficha .fotos svg{width:56px;height:56px}
+
+/* 22: bastidores (fundo claro, sem figurinha: pode ser agendado) */
+.d22 .pergunta{top:340px}
+.d22 .pergunta h1{color:var(--tinta)}
+.passos{position:absolute;left:84px;right:84px;top:720px;display:flex;flex-direction:column;gap:30px}
+.passo-s{display:flex;align-items:center;gap:34px;height:190px;padding:0 40px;border-radius:34px;background:#fff;box-shadow:0 10px 30px rgba(30,37,40,.07)}
+.passo-s .n{flex:none;width:84px;height:84px;border-radius:50%;background:var(--escuro);color:var(--claro);display:grid;place-items:center;font-size:42px;font-weight:700;letter-spacing:-.02em}
+.passo-s p{font-size:42px;font-weight:600;line-height:1.16;letter-spacing:-.025em;color:var(--tinta)}
+.passo-s p span{color:var(--suave,#5b6467);font-weight:500}
+.passo-s:last-child .n{background:var(--terra)}
+.chamada{position:absolute;left:84px;right:84px;top:1430px;font-size:40px;font-weight:600;letter-spacing:-.02em;color:var(--tinta);line-height:1.2}
+.chamada b{display:block;font-size:52px;font-weight:700;letter-spacing:-.035em;margin-bottom:18px}
+.chamada div{display:flex;align-items:center;gap:22px;color:var(--suave,#5b6467);font-weight:500}
+.chamada .pill{flex:none;display:inline-flex;align-items:center;height:76px;padding:0 34px;border-radius:999px;background:var(--terra);color:#fff;font-size:36px;font-weight:700;letter-spacing:.02em}
+
+/* 23: o @ */
+.arroba{position:absolute;left:0;right:0;top:0;height:440px;display:grid;place-items:center}
+.arroba span{width:400px;height:400px;border-radius:50%;box-shadow:inset 0 0 0 4px rgba(232,133,94,.35);display:grid;place-items:center;font-size:300px;font-weight:600;line-height:1;letter-spacing:-.04em;color:var(--terra-clara);padding-bottom:40px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="zap" viewBox="0 0 32 32"><path fill="currentColor" d="M16.04 4C9.4 4 4 9.38 4 16c0 2.11.55 4.18 1.6 6L4 28l6.18-1.6A12.02 12.02 0 0 0 28.06 16C28.06 9.38 22.67 4 16.04 4Zm5.44 14.49c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></symbol>
+  <symbol id="imagem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></g></symbol>
+</svg>
+
+<!-- sexta 16, 20h · enquete: "Já está no ar" / "Semana que vem" (depois do Reels do sobrinho) -->
+<section class="slide d16">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="balao env"><p>E o site?</p><time>14:01</time></div>
+    <div class="balao rec"><p>Semana que vem, no máximo.</p><time>14:02</time></div>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Pergunta rápida</p>
+    <h1>E o seu site: já está no ar ou ficou pra <span class="tom">semana que vem</span>?</h1>
+  </div>
+</section>
+
+<!-- sábado 17, 20h · caixinha: "Qual frase faltou?" (depois do carrossel do dicionário) -->
+<section class="slide d17">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="cabeca"><span class="letra">?</span><i></i></div>
+    <div class="balao"><p><span class="branco"></span></p><time>agora</time></div>
+    <p class="classe">(expressão, a que você mais ouve)</p>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Dicionário do cliente de WhatsApp</p>
+    <h1>Qual frase do cliente <span class="tom">faltou</span> no dicionário?</h1>
+    <p class="apoio">Manda aqui que a gente traduz.</p>
+  </div>
+</section>
+
+<!-- domingo 18, 19h · enquete: "Quanto é?" / "Onde fica?" (prepara o Reels de terça) -->
+<section class="slide d18">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="notif"><span class="app"><svg><use href="#zap"/></svg></span><span class="txt"><b>Bruna</b><i style="width:78%"></i></span><time>agora</time></div>
+    <div class="notif"><span class="app"><svg><use href="#zap"/></svg></span><span class="txt"><b>Aline</b><i style="width:60%"></i></span><time>2 min</time></div>
+    <div class="notif"><span class="app"><svg><use href="#zap"/></svg></span><span class="txt"><b>Renata</b><i style="width:70%"></i></span><time>5 min</time></div>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Pra quem atende pelo WhatsApp</p>
+    <h1>Qual pergunta <span class="tom">mais chega</span> no seu WhatsApp?</h1>
+  </div>
+</section>
+
+<!-- segunda 19, 20h · enquete: "Já anuncio" / "Ainda não" (depois do post do pixel) -->
+<section class="slide d19">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="anuncio">
+      <div class="cab"><span class="av">S</span><div><b>seunegocio</b><span>Patrocinado</span></div></div>
+      <img src="../rascunhos/instagram/fotos/toalha.jpg" alt="">
+      <div class="cta">Saiba mais<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></div>
+    </div>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Pra quem anuncia ou vai anunciar</p>
+    <h1>Você já <span class="tom">anuncia</span> o seu negócio?</h1>
+  </div>
+</section>
+
+<!-- terça 20, 20h · enquete: "Eu, depois" / "Alguém da equipe" (depois do Reels "Enquanto você atende") -->
+<section class="slide d20">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="relogio">14:52</div>
+    <div class="foco"><span class="pilula"><span class="ponto"></span>Em atendimento</span></div>
+    <div class="notif"><span class="app"><svg><use href="#zap"/></svg></span><span class="txt"><b>Aline</b><i style="width:66%"></i></span><time>agora</time></div>
+    <div class="mais"><span class="pilula">+10 conversas</span></div>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Pergunta rápida</p>
+    <h1>Enquanto você atende, <span class="tom">quem responde</span> o WhatsApp?</h1>
+  </div>
+</section>
+
+<!-- quarta 21, 20h · enquete: "Mostra" / "Não sei" (depois do carrossel "Seu site já existe") -->
+<section class="slide d21">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu">
+    <div class="ficha">
+      <b>Seu negócio</b>
+      <div class="estrelas">★★★★★</div>
+      <span class="sk2"></span>
+      <div class="fotos"><span><svg><use href="#imagem"/></svg></span><span><svg><use href="#imagem"/></svg></span><span><svg><use href="#imagem"/></svg></span></div>
+    </div>
+  </div>
+  <div class="pergunta">
+    <p class="sobre">Pesquisa o nome do seu negócio</p>
+    <h1>O seu Google mostra <span class="tom">fotos do seu trabalho</span>?</h1>
+  </div>
+</section>
+
+<!-- quinta 22, 12h · sem figurinha: pode ser agendado no Business Suite -->
+<section class="slide claro d22">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="pergunta">
+    <p class="sobre">Bastidores</p>
+    <h1>Como a gente monta a prévia do seu site</h1>
+  </div>
+  <div class="passos">
+    <div class="passo-s"><span class="n">1</span><p>Olhamos o seu Instagram<br><span>e o seu Google.</span></p></div>
+    <div class="passo-s"><span class="n">2</span><p>Juntamos fotos, serviços,<br><span>avaliações, endereço e horário.</span></p></div>
+    <div class="passo-s"><span class="n">3</span><p>Montamos a prévia<br><span>e te mandamos o link.</span></p></div>
+  </div>
+  <div class="chamada"><b>Quer a sua?</b><div>Responde este story com<span class="pill">PRÉVIA</span></div></div>
+</section>
+
+<!-- sexta 23, 20h · caixinha: "Qual o @ do seu negócio?" (depois do Reels "Seu negócio fecha") -->
+<section class="slide d23">
+  <div class="st-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="ilu"><div class="arroba"><span>@</span></div></div>
+  <div class="pergunta">
+    <p class="sobre">Valor de inauguração até 31/10</p>
+    <h1>Manda o <span class="tom">@ do seu negócio</span>.</h1>
+    <p class="apoio">A gente monta a prévia do site e te manda o link. Sem compromisso.</p>
+  </div>
+</section>
+<script type="module">
+await document.fonts.ready;
+await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(ok => (i.onload = i.onerror = ok))));
+window.pronto = true;
+</script>
+</body></html>

@@ -1,0 +1,152 @@
+{
+ "pasta": "oticas-inovisao-lapa",
+ "marca": "Óticas Inovisão Lapa",
+ "marca_logo": "Óticas Inovisão",
+ "marca_completa": "Óticas Inovisão Lapa",
+ "logo_sub": "Lapa · São Paulo",
+ "titulo": "Óticas Inovisão Lapa | Lapa, São Paulo",
+ "descricao": "Óticas Inovisão, na R. Clemente Álvares, 218, na Lapa, em São Paulo: óculos de grau e de sol, lentes Zeiss e HB, explicação técnica com calma e ajustes. 489 avaliações no Google.",
+ "comentario": "Demo Óticas Inovisão Lapa: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@inovisaolapa) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Poppins",
+ "cores": {
+  "escuro": "#141a33",
+  "acento": "#f5c400",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-inovisao-lapa/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-inovisao-lapa.json",
+ "topline": "R. Clemente Álvares, 218 · Lapa, São Paulo",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "No rosto"],
+  ["#estilos", "Lentes"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica na Lapa, São Paulo",
+  "h1": "Óculos novos, <em>sem pressão.</em>",
+  "intro": "Armações de grau e de sol, lentes Zeiss e HB e uma equipe que explica cada detalhe com calma, com várias opções. Na R. Clemente Álvares, 218.",
+  "selo": "Aberta também aos sábados, até as 17h",
+  "link": "Ver no rosto",
+  "foto": { "id": 34, "box": [0, 0, 1, 0.68], "c": [0.5, 0.45] },
+  "alt": "Atendente da Óticas Inovisão de óculos laranja, dentro da loja"
+ },
+ "endereco": ["R. Clemente Álvares, 218", "Lapa · São Paulo"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Lentes Zeiss", "Lentes HB", "Ajustes e reparos", "Sem pressão", "Lapa · São Paulo"],
+ "sobre": {
+  "eyebrow": "A Inovisão",
+  "h2": "Explicar com calma <em>faz diferença.</em>",
+  "p": [
+   "Na R. Clemente Álvares, na Lapa, a Óticas Inovisão atende quem quer entender o que está levando: explicação técnica com calma, várias opções e nenhuma pressão para levar o mais caro.",
+   "Muitos clientes compram há anos e voltam também para ajustes e consertos, do parafuso solto à armação amassada. A equipe sempre dá um jeito."
+  ],
+  "stats": [["489", "avaliações no Google"], ["Seg a sáb", "sábado até as 17h"]],
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-inovisao-lapa/google/g01.jpg", "c": [0.5, 0.5] },
+  "alt": "A Óticas Inovisão Lapa por dentro: paredes de óculos, mesas de atendimento e o painel amarelo",
+  "pol": { "id": 36, "box": [0, 0.02, 1, 0.66] },
+  "pol_alt": "Expositor de óculos e atendente dentro da loja",
+  "pol_cap": "A loja"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "No rosto",
+   "h2": "A armação certa <em>muda o rosto.</em>",
+   "p": "Gatinho, redondas, quadradas e coloridas. Venha provar na Lapa ou peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Armações da Óticas Inovisão no rosto",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 60, "box": [0, 0, 1, 0.66] }, "alt": "Atendente de óculos gatinho preto, na loja" },
+    { "foto": { "id": 33, "box": [0, 0, 1, 0.57] }, "alt": "Atendente de óculos de grau, diante do painel amarelo" },
+    { "foto": { "id": 10, "box": [0, 0, 1, 0.64] }, "alt": "Atendente de cabelo comprido e batom vinho, na loja" },
+    { "foto": { "id": 5, "box": [0, 0, 1, 0.64] }, "alt": "Atendente de óculos redondo dourado" },
+    { "foto": { "id": 42, "box": [0, 0, 1, 0.74] }, "alt": "Atendente de óculos de grau, com a vitrine ao fundo" },
+    { "foto": { "id": 58, "box": [0, 0, 1, 0.65] }, "alt": "Atendente pensativa, diante das paredes de óculos" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Lapa ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Lentes Zeiss e HB",
+   "rotulo": "01 / LENTES",
+   "foto": { "id": 21, "c": [0.5, 0.45] },
+   "alt": "Armação de acetato cinza e cristal na mão",
+   "texto": "Lentes para a sua rotina, explicadas com calma, sem empurrar marca."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da explicação <em>à entrega.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na R. Clemente Álvares, 218",
+   "Explicação técnica com calma e várias opções, sem pressão",
+   "Lentes Zeiss e HB para a sua rotina",
+   "Entrega no prazo combinado e ajustes sempre que precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-inovisao-lapa/google/g00.jpg", "c": [0.5, 0.5] },
+  "alt": "Corredor da loja com as paredes de óculos dos dois lados",
+  "pol": { "id": 51, "c": [0.5, 0.4] },
+  "pol_alt": "Sacola preta da Óticas Inovisão com o logo amarelo",
+  "pol_cap": "Inovisão Lapa",
+  "card": ["Ajustes e reparos", "Pergunte pelo WhatsApp."],
+  "formato": "paisagem"
+ },
+ "avaliacoes_secao": { "h2": "Quem volta <em>há anos.</em>" },
+ "avaliacoes": [
+  { "nome": "Odair da Silva de Souza", "tag": "Sem pressão", "trecho": "foram super profissionais comigo,  explicações técnicas excelente,  detalhada,  não deixam o cliente pressionado, explicam com muita calma" },
+  { "nome": "Douglas Dancos", "tag": "O parafuso", "trecho": "Levei o óculos do meu pai para colocar um parafuso que havia se soltado da haste e fui surpreendido pela atenção e simpatia da equipe." },
+  { "nome": "Talita Maciel", "tag": "Há anos", "trecho": "Sempre que amasso ou quebro a armação eles fazem milagre e sempre dão um jeito de ajudar" },
+  { "nome": "Laerte Marcelino", "tag": "A Stephanye", "trecho": "Gostaria de agradecer pelo excelente serviço prestado da Stephanye, que me atendeu. Fiquei muito satisfeito com a compra do meu óculos" },
+  { "nome": "Elizangela Barros Azevedo Silva", "tag": "Entrega rápida", "trecho": "Super indico a ótica inovisao, ótimo atendimento serviço de qualidade e entrega rápida" }
+ ],
+ "instagram": "inovisaolapa",
+ "insta": {
+  "seguidores": "2,8 mil seguidores",
+  "p": "O dia a dia da loja, armações novas e dicas, toda semana.",
+  "foto": { "id": 13, "box": [0, 0, 1, 0.62] },
+  "alt": "Atendente da Óticas Inovisão mostrando armações de acetato"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Lapa.</em>",
+  "endereco": ["R. Clemente Álvares, 218 · Lapa", "São Paulo, SP · CEP 05074-050"],
+  "telefone": "(11) 94549-5013",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Óculos novos, sem pressão.",
+ "mensagem": "Olá! Vim pelo site da Óticas Inovisão Lapa e queria um orçamento.",
+ "whatsapp": "5511945495013",
+ "fone_link": "+5511945495013",
+ "google": { "coords": "-23.5202801,-46.7047265", "fid": "0x94cef863fb71e45f:0xd7fc53f647e2aafa", "gid": "/g/11gfp87mtp" },
+ "google_nome": "Óticas Inovisão Lapa",
+ "endereco_maps": "R. Clemente Álvares, 218 - Lapa, São Paulo - SP, 05074-050",
+ "google_nota": "4,9",
+ "google_total": "489",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o (11) 94549-5013 é o link wa.me da bio e o \"site\" do Google; o telefone do Google é o fixo (11) 3926-0500",
+  "site": "não tem (o Google aponta o WhatsApp)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 2,8 mil seguidores. O Instagram é quase só vídeo de humor com a equipe e texto em cima; as fotos entraram cortadas acima do texto. Destaques: \"Lentes HB\" e \"Zeiss\". Bio: exame de vista todos os dias."
+  ],
+  "demo": [
+   "Marinho e o amarelo do logo, títulos em Poppins.",
+   "Capa \"Óculos novos, sem pressão.\" (a frase vem das avaliações) com a atendente de óculos laranja; a loja por dentro (Google) na história.",
+   "Carrossel no rosto (6), lentes Zeiss e HB e formato do rosto, atendimento com o corredor da loja (Google) e a sacola, 5 avaliações de 5 estrelas. Nota 4,9: a demo mostra as estrelas e as 489 avaliações."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): quadros dos vídeos da equipe (cortados acima do texto), armação na mão e a sacola. Google: a loja por dentro.",
+   "Ficaram de fora: todos os quadros com texto no rosto, as fotos de campanha (Bulget, Attitude) e a cesta de Páscoa."
+  ],
+  "conferir": [
+   "\"Inovisão Lapa\" parece uma unidade (uma avaliação diz \"unidade Lapa\"): confirmar se é rede e se a rede tem site.",
+   "Quem é o dono ou a dona (os vídeos falam em \"patrão\" e \"chefe\"). As avaliações citam a Stephanye.",
+   "A bio anuncia exame de vista todos os dias; a demo não cita exame."
+  ]
+ }
+}

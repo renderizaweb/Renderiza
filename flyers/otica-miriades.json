@@ -1,0 +1,30 @@
+{
+ "marca": "Ótica Miríades",
+ "local": "Lavras · Guarulhos",
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0d1a3a",
+  "fundo2": "#081024",
+  "acento": "#4c81f2",
+  "tinta_acento": "#081024",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticamiriades/Instagram_files/494929935_2249771858772454_4581105476249143475_n.jpg",
+  "pos": "50% 32%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "137"
+ },
+ "titulo": "Seus óculos novos, <em>sem complicação.</em>",
+ "texto": "Atendimento com calma, um cafezinho e muitos óculos prontos em 1 hora.",
+ "whatsapp": "(11) 96111-7840",
+ "endereco": "Av. José Brumatti, 3559 A · Guarulhos",
+ "instagram": "@oticamiriades",
+ "italico": false
+}

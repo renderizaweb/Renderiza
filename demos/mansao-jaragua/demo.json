@@ -1,0 +1,390 @@
+{
+ "pasta": "mansao-jaragua",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/mansao-jaragua/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/mansao-jaragua.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/mansao-jaragua/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511987490863",
+ "fone_link": "+5511987490863",
+ "google": {
+  "coords": "-23.4647135,-46.7532085",
+  "fid": "0x94cefdefbc07c2e9:0x48f151a58cb898a2",
+  "gid": "/g/11h3jv3_5n"
+ },
+ "endereco_maps": "R. Comendador J. de Matos, 429 - Vila Clarice, São Paulo - SP, 05177-100",
+ "google_nota": "4,8",
+ "google_total": "391",
+ "verificado": "2026-10-16",
+ "instagram": "mansaojaragua",
+ "estilo": "gala",
+ "marca": "Mansão Jaraguá",
+ "marca_logo": "Mansão Jaraguá",
+ "marca_completa": "Mansão Jaraguá · Festas e Eventos",
+ "logo_sub": "São Paulo · SP",
+ "titulo": "Mansão Jaraguá | Casamentos e festas em São Paulo",
+ "descricao": "Mansão Jaraguá, na R. Comendador J. de Matos, 429, na Vila Clarice, em São Paulo (SP): espaço para festas e eventos com salão, cerimônia ao ar livre, espaço da piscina, churrasqueira, cozinha para o buffet e estacionamento com valet. Casamentos, 15 anos e eventos de empresa.",
+ "comentario": "Demo Mansão Jaraguá: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@mansaojaragua, página salva pelo Kaue) e do Perfil da Empresa no Google; avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#141c2b",
+  "acento": "#c9a46b"
+ },
+ "topline": "R. Comendador J. de Matos, 429 · Vila Clarice, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e festas em São Paulo",
+  "h1": "Uma mansão <em>para o seu grande dia.</em>",
+  "intro": "Casamentos, 15 anos e eventos de empresa com salão, cerimônia ao ar livre, espaço da piscina e a cozinha da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cefdefbc07c2e9_0x48f151a58cb898a2/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Salão com árvore de flores brancas, luzes azuis e cadeiras montadas para a cerimônia"
+ },
+ "endereco": [
+  "R. Comendador J. de Matos, 429",
+  "São Paulo · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Cerimônia ao ar livre",
+  "Eventos de empresa",
+  "Espaço da piscina",
+  "Valet",
+  "São Paulo"
+ ],
+ "sobre": {
+  "eyebrow": "Quem recebe",
+  "h2": "Os donos <em>atendem de perto.</em>",
+  "p": [
+   "Na Vila Clarice, em São Paulo, a Mansão Jaraguá é um espaço para festas e eventos com salão, área externa para a cerimônia ao ar livre, espaço da piscina, churrasqueira e uma cozinha preparada para o buffet.",
+   "Os donos cuidam do atendimento, e numa avaliação uma cliente elogia a atenção da Sandra, da Lis e da Angelina. Na chegada, o estacionamento tem valet."
+  ],
+  "stats": [
+   [
+    "391",
+    "avaliações no Google"
+   ],
+   [
+    "10,7 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cefdefbc07c2e9_0x48f151a58cb898a2/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada da Mansão Jaraguá ao anoitecer, com varal de luzes",
+  "pol": {
+   "id": 16
+  },
+  "pol_alt": "Noiva diante da parede de tijolos com lanternas",
+  "pol_cap": "A noiva"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Salão, jardim <em>e piscina.</em>",
+   "p": "A cerimônia ao ar livre, o salão, a piscina e as mesas montadas. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes da Mansão Jaraguá",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cefdefbc07c2e9_0x48f151a58cb898a2/g04.jpg"
+     },
+     "alt": "Arco de flores brancas e corredor da cerimônia no jardim"
+    },
+    {
+     "foto": {
+      "id": 6
+     },
+     "alt": "Salão com piso de madeira e luminárias de palha acesas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cefdefbc07c2e9_0x48f151a58cb898a2/g05.jpg"
+     },
+     "alt": "Área da cerimônia diante da parede de tijolos, com a mesa do altar"
+    },
+    {
+     "foto": {
+      "id": 38
+     },
+     "alt": "Piscina entre palmeiras"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Salão comprido com as mesas montadas"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Mesa redonda decorada no salão"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Mesa de doces com flores diante da janela para a piscina"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Mesa posta com castiçais e taças vermelhas"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos e festas de quem já comemorou na Mansão Jaraguá.",
+   "rotulo": "Festas que aconteceram na Mansão Jaraguá",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Mesa do bolo branco com flores brancas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Noiva diante da mesa do bolo",
+     "cap": "A noiva"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Noivos sob a árvore de flores do salão",
+     "cap": "Os noivos"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Mesa de doces com arranjos de flores rosa",
+     "cap": "Doces"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Noiva com o véu ao vento diante da cortina de flores",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Mesa redonda posta com louça e flores",
+     "cap": "Recepção"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Noiva no palco sob as luzes azuis",
+     "cap": "A festa"
+    },
+    {
+     "foto": {
+      "id": 13
+     },
+     "alt": "Prato servido com sousplat dourado",
+     "cap": "Buffet"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão principal"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "piscina",
+    "Espaço da piscina"
+   ],
+   [
+    "churrasqueira",
+    "Churrasqueira"
+   ],
+   [
+    "cozinha",
+    "Cozinha preparada para o buffet"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento com valet"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Agende uma visita à Mansão Jaraguá",
+   "Escolha: cerimônia no salão ou ao ar livre",
+   "No dia, a equipe acompanha o evento"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 18,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Noiva sozinha no salão iluminado"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Kamilla Bogik",
+   "tag": "15 anos",
+   "trecho": "Um lugar lindo, os donos são simplesmente maravilhosos, com um atendimento muito diferenciado."
+  },
+  {
+   "nome": "Adilson Domingues",
+   "tag": "Cerimônia",
+   "trecho": "Excelente para cerimonias de casamento. Lugar amplo e bem cuidado"
+  },
+  {
+   "nome": "Aline Lima",
+   "tag": "Área externa",
+   "trecho": "O ambiente é lindo, muito bem cuidado e com uma área externa maravilhosa."
+  },
+  {
+   "nome": "Andrea Magan",
+   "tag": "Empresa",
+   "trecho": "Fácil acesso, ambiente agradável, boa comida, música ótima, atendimento maravilhoso e estacionamento com vallet."
+  },
+  {
+   "nome": "Henrique Rodrigues",
+   "tag": "Piscina",
+   "trecho": "Espaço grande para a realização de eventos, conta com uma piscina grande e um bom espaço com churrasqueira, além de ser localizado em uma região com muita área verde."
+  },
+  {
+   "nome": "Allan Vilches",
+   "tag": "Estrutura",
+   "trecho": "O local é super espaçoso, com uma infraestrutura de primeira qualidade e nem se fala na piscina..."
+  }
+ ],
+ "insta": {
+  "seguidores": "10,7 mil seguidores",
+  "p": "Noivas, festas e os ambientes da Mansão.",
+  "foto": {
+   "id": 27
+  },
+  "alt": "Noiva de costas no salão, sob as luminárias",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Mansão Jaraguá.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Bodas",
+   "Aniversário",
+   "Evento da empresa",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Mansão Jaraguá e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Vila Clarice.</em>",
+  "endereco": [
+   "R. Comendador J. de Matos, 429 · Vila Clarice",
+   "São Paulo, SP · CEP 05177-100"
+  ],
+  "telefone": "(11) 98749-0863",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Uma mansão para o seu grande dia.",
+ "mensagem": "Olá! Vim pelo site da Mansão Jaraguá e queria um orçamento.",
+ "google_nome": "Mansão Jaraguá",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 98749-0863 é o celular do Perfil da Empresa no Google e o da bio do Instagram (\"☎️wpp +55 11 98749-0863\"). Uma legenda antiga usa (11) 99735-2034.",
+  "site": "não tem (Google sem site; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 3: lead que já estava no painel (etapa leads), mandado pelo Kaue no Drive de 16/10/2026. Espaço para festas e eventos na Vila Clarice, em São Paulo: casamentos, debutantes e corporativos (legenda). Nota 4,8 com 391 avaliações (a demo mostra o total, não a nota).",
+   "Donos: \"os donos são simplesmente maravilhosos\" (avaliação). Numa resposta do proprietário no Google, quem assina é o Sergio. Clientes citam a Sandra, a Lis e a Angelina."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com o salão montado para a cerimônia, quem recebe, ambientes (8 fotos, 2 do Google), festas reais (8), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: azul-marinho e dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, muitas fotos de fotógrafo) e Perfil da Empresa no Google (salão com a árvore de flores, fachada, cerimônia ao ar livre).",
+   "Ficaram de fora: a foto da aula de dança, o vídeo preto, as fotos de convidados e as de baixa nitidez."
+  ],
+  "conferir": [
+   "Uma avaliação de 3 estrelas reclama que os donos \"ficam em cima o tempo todo\" durante a festa; o dono respondeu. A demo só diz que eles acompanham de perto.",
+   "Horário do Google: todos os dias, das 8h às 22h (atendimento).",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

@@ -1,0 +1,392 @@
+{
+ "pasta": "ferreira-k-eventos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/ferreira-k-eventos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/ferreira-k-eventos.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/ferreira-k-eventos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511947242838",
+ "fone_link": "+5511947242838",
+ "google": {
+  "coords": "-23.7131825,-46.8315412",
+  "fid": "0x94cfade12c06da7f:0x427f4de64b6c8e9a",
+  "gid": "/g/11h84sr5jf"
+ },
+ "endereco_maps": "R. Mariane, 425 - Olaria, Itapecerica da Serra - SP, 06859-170",
+ "google_nota": "4,9",
+ "google_total": "60",
+ "verificado": "2026-10-15",
+ "instagram": "ferreirakeventos",
+ "marca": "Ferreira K Eventos",
+ "marca_logo": "Ferreira K",
+ "marca_completa": "Espaço Ferreira K Eventos",
+ "logo_sub": "Itapecerica da Serra · SP",
+ "titulo": "Ferreira K Eventos | Espaço para festas em Itapecerica da Serra",
+ "descricao": "Ferreira K Eventos, na R. Mariane, 425, na Olaria, em Itapecerica da Serra (SP), a 40 minutos de São Paulo: dois salões, gazebo para casamentos e pacote completo para casamentos, 15 anos, aniversários e confraternizações. Nota 4,9 no Google.",
+ "comentario": "Demo Ferreira K Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@ferreirakeventos, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#16130f",
+  "acento": "#d4af37"
+ },
+ "topline": "R. Mariane, 425 · Olaria, Itapecerica da Serra",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Os salões"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas em Itapecerica da Serra, a 40 minutos de SP",
+  "h1": "Realizando <em>o seu sonho.</em>",
+  "intro": "Casamentos, 15 anos, festas e confraternizações em dois salões, com gazebo para a cerimônia e o pacote completo.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os salões",
+  "alvo": "espaco",
+  "foto": {
+   "id": 19,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos sorrindo no tapete vermelho, entre os convidados"
+ },
+ "endereco": [
+  "R. Mariane, 425",
+  "Olaria · Itapecerica da Serra"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Confraternizações",
+  "Formaturas",
+  "Gazebo",
+  "Pacote completo",
+  "Itapecerica da Serra"
+ ],
+ "sobre": {
+  "eyebrow": "O Espaço Ferreira K",
+  "h2": "Dois salões <em>e muito capricho.</em>",
+  "p": [
+   "Na Olaria, em Itapecerica da Serra, o Ferreira K tem dois salões, gazebo para a cerimônia de casamento e área externa. O pacote completo inclui o buffet, a mesa dos caldos, o café de saída e a balada no fim da festa.",
+   "Quem recebe são a Kelly e o Cleiton, os responsáveis pelo espaço. Nas avaliações, as famílias contam da atenção da Kelly do primeiro dia ao fim do evento."
+  ],
+  "stats": [
+   [
+    "60",
+    "avaliações no Google"
+   ],
+   [
+    "40 min",
+    "de São Paulo"
+   ]
+  ],
+  "foto": {
+   "id": 9
+  },
+  "alt": "Salão com lustre de cristal e mesas postas",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade12c06da7f_0x427f4de64b6c8e9a/g02.jpg",
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "pol_alt": "Família sorrindo na festa de aniversário",
+  "pol_cap": "Aniversário"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Os salões",
+   "h2": "Pronto para <em>a sua festa.</em>",
+   "p": "Os dois salões, o gazebo e os cantos do espaço. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do Espaço Ferreira K",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade12c06da7f_0x427f4de64b6c8e9a/g00.jpg"
+     },
+     "alt": "Recepção com poltronas e o letreiro do Ferreira K"
+    },
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Salão com lustre de cristal e mesas postas"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Salão montado com mesas e luzes"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Mesas redondas com flores vermelhas"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Gazebo com mesas para a cerimônia, no jardim"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Área com bar e flores"
+    },
+    {
+     "foto": {
+      "id": 11
+     },
+     "alt": "Salão à noite, com a mesa do bolo iluminada"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Balcão iluminado de verde"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e aniversários de quem já comemorou no Ferreira K.",
+   "rotulo": "Festas que aconteceram no Ferreira K",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 7,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Noivos abraçados, com o véu ao vento",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos sorrindo diante da mesa decorada",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade12c06da7f_0x427f4de64b6c8e9a/g01.jpg"
+     },
+     "alt": "Mesa de doces com flores e lanternas"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Mesa do bolo com flores vermelhas e espelho"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade12c06da7f_0x427f4de64b6c8e9a/g03.jpg"
+     },
+     "alt": "Mesa do bolo com flores rosa"
+    },
+    {
+     "foto": {
+      "id": 33
+     },
+     "alt": "Mesa do café de saída",
+     "cap": "Café de saída"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Mesa de doces com tapete vermelho"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Noivos brindando",
+     "cap": "Casamento"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio Ferreira K mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Dois salões"
+   ],
+   [
+    "cerimonia",
+    "Gazebo para casamentos"
+   ],
+   [
+    "cozinha",
+    "Pacote completo, com buffet"
+   ],
+   [
+    "estrela",
+    "Mesa dos caldos e café de saída"
+   ],
+   [
+    "som",
+    "Balada no fim da festa"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha fazer uma visita e marcar os detalhes",
+   "Escolha a decoração e o cardápio com a Kelly",
+   "No dia, a equipe cuida da festa até o fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 29
+  },
+  "alt": "Gazebo com mesas no jardim"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Alessandra Carvalho Fernandes",
+   "tag": "Festa da filha",
+   "trecho": "Gente de verdade, contratem sem medo! O espaço é surreal de lindo. O serviço é impecável. E a comida então nem se fala."
+  },
+  {
+   "nome": "Elaine Santos",
+   "tag": "A Kelly",
+   "trecho": "Lugar maravilhoso! A Kelly é super atenciosa e da toda atenção necessária para que tudo fique perfeito. Obrigada equipe Ferreira K ! 🥰"
+  },
+  {
+   "nome": "Ghully",
+   "tag": "Casamento",
+   "trecho": "Fechei o espaço para fazer meu casamento, atendimento 100% humanizados, pessoal super profissional e além de tudo o espaço é exatamente como nas fotos"
+  },
+  {
+   "nome": "Maria Fernanda Pereira",
+   "tag": "Confraternização",
+   "trecho": "A Kelly foi uma excelente anfitriã do princípio ao fim do evento de Confraternização de nossa equipe de trabalho em 2024!"
+  },
+  {
+   "nome": "Andressa Oliveira",
+   "tag": "1 ano",
+   "trecho": "Espaço maravilhoso! Atendeu além das expectativas. Aniversário de 1 ano da Lorena foi perfeito e muito memorável."
+  },
+  {
+   "nome": "Lu Murakawa",
+   "tag": "Noiva"
+  }
+ ],
+ "insta": {
+  "seguidores": "1,4 mil seguidores",
+  "p": "Casamentos, debutantes e as decorações de cada festa.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfade12c06da7f_0x427f4de64b6c8e9a/g01.jpg"
+  },
+  "alt": "Mesa de doces com flores e lanternas",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Ferreira K.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Confraternização",
+   "Formatura",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Ferreira K Eventos e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Itapecerica.</em>",
+  "endereco": [
+   "R. Mariane, 425 · Olaria",
+   "Itapecerica da Serra, SP · CEP 06859-170"
+  ],
+  "telefone": "(11) 94724-2838",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Realizando o seu sonho.",
+ "mensagem": "Olá! Vim pelo site do Ferreira K Eventos e queria um orçamento.",
+ "google_nome": "Ferreira k eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 94724-2838 é o telefone do Perfil da Empresa no Google e um dos dois WhatsApps da arte do perfil (o outro é o 94777-1342)",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Espaço com dois salões, gazebo e piscina em Itapecerica da Serra, \"a 40 minutos de SP\"; casamentos, 15 anos, aniversários, formaturas e confraternizações, com pacote completo.",
+   "Responsáveis: Kelly (@tia.keli) e Cleiton (legenda de agradecimento de um cliente: \"aos responsáveis @tia.keli e Cleiton\"); a Kelly aparece nas avaliações como anfitriã."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos no tapete vermelho, o espaço (dois salões, Kelly e Cleiton), carrossel dos salões (8, com 1 do Google), festas reais (8, com 2 do Google), estrutura (6 itens das legendas), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: preto e dourado do logo. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (recepção, mesas de doces, família).",
+   "Ficaram de fora: as fotos com a marca \"Ferreira K eventos\" escrita por cima, os letreiros com nome de cliente e as artes de promoção."
+  ],
+  "conferir": [
+   "Fica na mesma rua do Espaço Thamara D'Valu (lote 1): R. Mariane, 351 e 425. Não mandar no mesmo dia para os dois.",
+   "A piscina aparece numa foto do perfil; a capacidade não confirmei (a demo não cita).",
+   "A arte de promoção (DJ, plataforma 360 e pista de LED no pacote) não entra na demo."
+  ]
+ }
+}

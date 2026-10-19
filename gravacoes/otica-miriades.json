@@ -1,0 +1,116 @@
+{
+ "demo": "otica-miriades",
+ "formato": "reels",
+ "marca": "Ótica Miríades",
+ "local": "Jd. Santo Expedito · Guarulhos",
+ "cores": {
+  "fundo": "#0d1a3a",
+  "fundo2": "#081024",
+  "acento": "#4c81f2",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Sora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ótica",
+   "Miríades"
+  ],
+  "frase": "Seus óculos novos, sem complicação.",
+  "fotos": [
+   "#armacoes-track li:nth-child(1) img",
+   "#armacoes-track li:nth-child(2) img",
+   ".hero-photo img",
+   "#armacoes-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Miríades.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.1,
+   "legenda": "Conhece a Miríades *e o jeito da casa.*",
+   "sub": "Atendimento com calma em Guarulhos e, muitas vezes, um cafezinho."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê a vitrine *antes de sair de casa.*",
+   "sub": "Armações de grau e de sol para escolher com calma, sem pressa."
+  },
+  {
+   "rolar": "#atendimento h2",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "legenda": "E sabe que muitos óculos *ficam prontos em 1 hora.*",
+   "sub": "Com ajuste sempre que precisar, mesmo depois da compra."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.4,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "São 137 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

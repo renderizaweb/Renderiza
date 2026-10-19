@@ -1,0 +1,392 @@
+{
+ "pasta": "espaco-canto-da-terra",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-canto-da-terra/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-canto-da-terra.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-canto-da-terra/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5512991181312",
+ "fone_link": "+5512991181312",
+ "google": {
+  "coords": "-22.9259663,-45.4482528",
+  "fid": "0x94ccefa60decf2e5:0xd560f10234e476b1",
+  "gid": "/g/11j59jlr27"
+ },
+ "endereco_maps": "R. Padre Estevão Maria, 95 - Santana, Pindamonhangaba - SP, 12403-280",
+ "google_nota": "5,0",
+ "google_total": "391",
+ "verificado": "2026-10-16",
+ "instagram": "cantodaterrapinda",
+ "estilo": "gala",
+ "marca": "Espaço Canto da Terra",
+ "marca_logo": "Canto da Terra",
+ "marca_completa": "Espaço Canto da Terra · Festas e Eventos",
+ "logo_sub": "Pindamonhangaba · SP",
+ "titulo": "Espaço Canto da Terra | Festas e eventos em Pindamonhangaba",
+ "descricao": "Espaço Canto da Terra, na R. Padre Estevão Maria, 95, no bairro Santana, em Pindamonhangaba (SP): paisagismo, gramado, pergolado para a cerimônia, piscina e salão, para casamentos, 15 anos, bodas, noivados e aniversários. Nota 5,0 no Google.",
+ "comentario": "Demo Espaço Canto da Terra: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@cantodaterrapinda, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1e2a22",
+  "acento": "#c8a46a"
+ },
+ "topline": "R. Padre Estevão Maria, 95 · Santana, Pindamonhangaba",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para eventos em Pindamonhangaba",
+  "h1": "Celebrar <em>entre palmeiras e jardins.</em>",
+  "intro": "Casamentos, 15 anos, bodas e aniversários num espaço com paisagismo, pergolado, piscina e salão, já com mesas e cadeiras da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 25,
+   "c": [
+    0.5,
+    0.62
+   ]
+  },
+  "alt": "Piscina iluminada ao entardecer, com palmeiras, varal de luzes e o salão ao fundo"
+ },
+ "endereco": [
+  "R. Padre Estevão Maria, 95",
+  "Pindamonhangaba · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Bodas",
+  "Noivados",
+  "Aniversários",
+  "Paisagismo",
+  "Piscina",
+  "Pindamonhangaba"
+ ],
+ "sobre": {
+  "eyebrow": "O Canto da Terra",
+  "h2": "Ana e Renato, <em>os donos do espaço.</em>",
+  "p": [
+   "No bairro Santana, em Pindamonhangaba, o Espaço Canto da Terra tem área verde com paisagismo, gramado, pergolado para a cerimônia, piscina e salão.",
+   "Quem recebe são os proprietários, Ana e Renato, com o Sr. Roberto. Nas avaliações, os proprietários aparecem pelo nome, e os noivos contam que o espaço já tem mesas, cadeiras e os móveis da festa."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "no Google, em 391 avaliações"
+   ],
+   [
+    "7 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 27,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Passarela de madeira sobre a piscina, com o salão e o mezanino ao fundo",
+  "pol": {
+   "id": 41
+  },
+  "pol_alt": "Noivos brindando na mesa do bolo, com flores brancas",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, piscina <em>e salão.</em>",
+   "p": "O gramado com o pergolado, a piscina ao entardecer e o salão. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Canto da Terra",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Bancos de madeira no gramado entre ciprestes, ao entardecer"
+    },
+    {
+     "foto": {
+      "id": 42
+     },
+     "alt": "Salão com piso claro e a piscina iluminada à frente"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ccefa60decf2e5_0xd560f10234e476b1/g00.jpg"
+     },
+     "alt": "O espaço à noite visto do mezanino: piscina e salão com mesas montadas"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Passarela de madeira até o pergolado no jardim"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Bancos da cerimônia iluminados à noite"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Sala de estar com sofás e almofadas"
+    },
+    {
+     "foto": {
+      "id": 49
+     },
+     "alt": "Piscina e jardim com palmeiras"
+    },
+    {
+     "foto": {
+      "id": 48
+     },
+     "alt": "Pergolado iluminado à noite com o salão ao fundo"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e aniversários de quem já comemorou no Canto da Terra.",
+   "rotulo": "Festas que aconteceram no Canto da Terra",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Noivos sob o pergolado à noite",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Mesa do bolo sob folhagens e lâmpadas",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ccefa60decf2e5_0xd560f10234e476b1/g04.jpg"
+     },
+     "alt": "Noivos dançando no salão com piso xadrez",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Debutante de vestido azul com fogos de luz",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Noiva caminhando até o altar sob o pergolado",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "id": 44
+     },
+     "alt": "Mesa de doces sob folhagens suspensas",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Festa de 15 anos à noite, com a piscina e o salão iluminados",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ccefa60decf2e5_0xd560f10234e476b1/g06.jpg"
+     },
+     "alt": "Grupo de amigos reunido no salão",
+     "cap": "Confraternização"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "jardim",
+    "Paisagismo e gramado"
+   ],
+   [
+    "cerimonia",
+    "Pergolado para a cerimônia"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ],
+   [
+    "salao",
+    "Salão"
+   ],
+   [
+    "mesa",
+    "Mesas, cadeiras e móveis da casa"
+   ],
+   [
+    "pessoas",
+    "Atendimento dos donos"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o espaço em Pindamonhangaba",
+   "Monte a festa com as mesas e cadeiras da casa",
+   "No dia, a festa é sua"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 46,
+   "c": [
+    0.5,
+    0.6
+   ]
+  },
+  "alt": "Pergolado de madeira e gramado com palmeiras"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Julia Teixeira",
+   "tag": "Casamento",
+   "trecho": "O espaço é lindo, muito bem cuidado e as áreas verdes, com as folhagens e o gramado, trazem uma elegância única ao ambiente."
+  },
+  {
+   "nome": "Carolina Scacabarozzi",
+   "tag": "Os donos",
+   "trecho": "Proprietários Ana e Renato são muito atenciosos e gentis, o lugar é lindíssimo, qualquer evento ficaria bonito lá!"
+  },
+  {
+   "nome": "Paula Godoi",
+   "tag": "Atendimento",
+   "trecho": "Meu agradecimento especial à Ana e ao Sr. Roberto, que fazem tudo com muito carinho, simpatia e dedicação."
+  },
+  {
+   "nome": "Fabíola I Assessoria",
+   "tag": "Assessoria",
+   "trecho": "Ana e Renato são os proprietários e são sensacionais no acolhimento e no profissionalismo."
+  },
+  {
+   "nome": "Jorge Abdo Chalita",
+   "tag": "Paisagismo",
+   "trecho": "Espaço encantador e atendimento classe A e com um paisagismo bem projetado."
+  },
+  {
+   "nome": "Carol M",
+   "tag": "O espaço",
+   "trecho": "O lugar é excepcional, é tudo muito lindo, desde a parte da área verde, até o salão."
+  }
+ ],
+ "insta": {
+  "seguidores": "7 mil seguidores",
+  "p": "Casamentos, 15 anos e o jardim do Canto da Terra.",
+  "foto": {
+   "id": 34
+  },
+  "alt": "Pergolado e gramado à noite sob o céu azul",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Canto da Terra.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Bodas",
+   "Noivado",
+   "Aniversário",
+   "Chá de bebê",
+   "Reunião de família",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Canto da Terra e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Pindamonhangaba.</em>",
+  "endereco": [
+   "R. Padre Estevão Maria, 95 · Santana",
+   "Pindamonhangaba, SP · CEP 12403-280"
+  ],
+  "telefone": "(12) 99118-1312",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Celebrar entre palmeiras e jardins.",
+ "mensagem": "Olá! Vim pelo site do Espaço Canto da Terra e queria um orçamento.",
+ "google_nome": "Espaço Canto da Terra",
+ "ficha": {
+  "whatsapp_fonte": "o +55 12 99118-1312 é o telefone do Perfil da Empresa no Google e o WhatsApp das legendas (\"Nosso WhatsApp: (12) 99118-1312\")",
+  "site": "não tem (não achei site próprio nem página do espaço no casamentos.com.br; o \"Espaço Canto da Terra\" de lá é de Brejetuba-ES)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Espaço com paisagismo, pergolado, piscina e salão em Pindamonhangaba; casamentos, 15 anos, bodas, noivado, aniversário, chá de bebê (bio). Nota 5,0 com 391 avaliações.",
+   "Donos: Ana e Renato (\"Proprietários Ana e Renato\", \"Ana e Renato são os proprietários\"); o Sr. Roberto também aparece nas avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com a piscina e as palmeiras ao entardecer, quem recebe (Ana e Renato), o espaço (8 fotos, 1 do Google), festas reais (8, 2 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6, nota 5,0), consultar uma data e mapa.",
+   "Cores: verde-escuro e dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; fotos de 2025 e 2026) e Perfil da Empresa no Google (o espaço à noite, casal dançando, grupo no salão).",
+   "Ficaram de fora: a arte \"Agenda 2027\", a do Dia dos Pais, o print da nota no Google e os vídeos de baixa resolução."
+  ],
+  "conferir": [
+   "Debutantes aparecem em 2 fotos das festas (15 anos), postadas pelo próprio espaço.",
+   "Horário do Google: todos os dias, das 7h às 23h (meia-noite na sexta e no sábado): é atendimento, não a festa.",
+   "Capacidade e estacionamento: não confirmei."
+  ]
+ }
+}

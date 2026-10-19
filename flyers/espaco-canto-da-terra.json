@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Canto da Terra",
+ "local": "Pindamonhangaba · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1e2a22",
+  "fundo2": "#121a15",
+  "acento": "#c8a46a",
+  "tinta_acento": "#121a15",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/drive/cantodaerrapinda/Instagram_files/536267671_1326880616106528_4438994264633578386_n.jpg",
+  "pos": "50% 60%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "391"
+ },
+ "titulo": "Celebrar<br><em>entre palmeiras.</em>",
+ "texto": "Casamentos, 15 anos e bodas com pergolado, piscina e salão, já com mesas e cadeiras da casa.",
+ "whatsapp": "(12) 99118-1312",
+ "cta": "Consulte sua data",
+ "endereco": "R. Padre Estevão Maria, 95 · Pinda",
+ "instagram": "@cantodaterrapinda"
+}

@@ -1,0 +1,130 @@
+{
+ "demo": "espaco-thamara-d-valu",
+ "formato": "reels",
+ "marca": "Espaço Thamara D'Valu",
+ "local": "Olaria · Itapecerica da Serra",
+ "cores": {
+  "fundo": "#2b201c",
+  "fundo2": "#1b1411",
+  "acento": "#e8a0a8",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T11:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do espaço",
+  "nome": [
+   "Thamara",
+   "D'Valu"
+  ],
+  "frase": "O seu sonho é o nosso sonho.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(1) img",
+   ".story-photos img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Thamara D'Valu.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um lugar para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.4,
+   "legenda": "Conhece o Thamara D'Valu *e quem recebe.*",
+   "sub": "A Thaís, dona do espaço, que ajuda os noivos até na véspera."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o salão e a área verde *antes da visita.*",
+   "sub": "Tijolo, madeira, a piscina e o pergolado com flores."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 3.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Casamentos, aniversários e confraternizações."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 166 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

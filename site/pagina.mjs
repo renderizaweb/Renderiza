@@ -14,7 +14,7 @@
 
 import { readFileSync } from "node:fs";
 
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
 const ICONES = {
   // Logo do WhatsApp (Simple Icons, CC0): é preenchido, os outros são de traço (Lucide).
@@ -46,9 +46,9 @@ const ICONES = {
 };
 // Símbolo da Renderiza (vetorizado do logo original em site/marca/logo-original.webp). Cor = currentColor.
 const SIMBOLO = readFileSync(new URL("./estatico/simbolo.svg", import.meta.url), "utf8");
-const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" aria-hidden="true" focusable="false" `);
+export const simbolo = tam => SIMBOLO.replace("<svg ", `<svg width="${tam}" height="${tam}" aria-hidden="true" focusable="false" `);
 
-const icone = (nome, tam = 18) =>
+export const icone = (nome, tam = 18) =>
   `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONES[nome]}</svg>`;
 
 /** A frase da abertura: o h1 da home e a imagem de compartilhamento (scripts/imagens-do-site.mjs). */
@@ -99,7 +99,7 @@ const PERGUNTAS = [
   // Uma pergunta para cada público que mais chama: quem não sabe o que fazer com um site, quem pede tráfego pago
   // e quem já tem gestor de anúncios.
   ["O que eu faço com o site quando ele ficar pronto?", "Você manda o link quando pedirem informação e coloca na bio do Instagram, no perfil do Google e no status do WhatsApp. Junto com o site vai o kit de divulgação: os textos prontos para cada um desses lugares e a mensagem para pedir avaliação aos seus clientes."],
-  ["Vocês fazem tráfego pago?", "O anúncio em si a gente não roda. A gente faz o lugar para onde ele leva: todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados, e quem cuidar do anúncio, você ou um gestor, vê quantos chamaram no WhatsApp."],
+  ["Vocês fazem tráfego pago?", "Todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados. Assim, quando o anúncio entrar no ar, dá para ver quantas pessoas vieram dele e quantas chamaram no WhatsApp."],
   ["Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Funciona. O Pixel da Meta e o Google Analytics já vêm instalados, e cada clique no WhatsApp é contado como contato. A gente passa o acesso para quem cuida do seu marketing."],
   ["Quanto custa?", "Um valor fechado, sem mensalidade, combinado na conversa depois que você vê a prévia. Ver a prévia não custa nada, e você só paga se decidir colocar o site no ar. Os adicionais são opcionais, e só o catálogo tem mensalidade, porque guarda os seus produtos. O domínio e a hospedagem ficam no seu nome e podem ter custos próprios."],
   ["O site fica no meu nome?", "Fica. O endereço, a hospedagem e os acessos são do seu negócio, não da Renderiza. Se um dia quiser que outra pessoa cuide do site, é só passar os acessos."],
@@ -117,9 +117,9 @@ const MENSAGEM = {
 
 // Serviços: o site é a base de todo cliente e os adicionais entram no mesmo site quando o negócio pede. Sem planos
 // por nível: o pacote é o site mais o que o cliente somar. Os nomes são os mesmos no site, na conversa e na
-// divulgação (doc "Oferta e nomenclatura", 09/10/2026). A Renderiza não roda anúncios: todo site sai pronto para
-// quem roda (decisão de 09/10/2026). O kit de divulgação é todo digital: a Renderiza não entrega nada físico, como QR
-// impresso para o balcão (pedido de 10/10/2026).
+// divulgação (doc "Oferta e nomenclatura", 09/10/2026). Sobre anúncios, o site não diz que a Renderiza roda nem que
+// não roda: todo site sai pronto para anúncio (decisão de 18/10/2026, que substituiu a de 09/10). O kit de divulgação
+// é todo digital: a Renderiza não entrega nada físico, como QR impresso para o balcão (pedido de 10/10/2026).
 const SITE_INCLUI = [
   "Fotos reais, serviços e avaliações",
   "Endereço, horário e WhatsApp a um toque",
@@ -134,14 +134,14 @@ const ADICIONAIS = [
 
 // Mês de inauguração: benefício com data e motivo, sem preço (o valor fica para a conversa). Some depois do último
 // dia: no build e, na página que já está no ar, pelo navegador (data-ate).
-const INAUGURACAO = {
+export const INAUGURACAO = {
   ate: "2026-10-31",
   texto: "Outubro é o mês de inauguração da Renderiza: até o dia 31, o site tem um valor especial, que a gente passa junto com a prévia.",
   etiqueta: "Valor de inauguração até 31/10",
 };
 
 /** "AAAA-MM-DD" do dia em São Paulo, que é UTC−3 o ano todo (o build roda em UTC). */
-function diaEmSaoPaulo(data) {
+export function diaEmSaoPaulo(data) {
   return new Date(data.getTime() - 3 * 3600e3).toISOString().slice(0, 10);
 }
 

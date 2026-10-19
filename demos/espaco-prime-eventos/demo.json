@@ -1,0 +1,375 @@
+{
+ "pasta": "espaco-prime-eventos",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-prime-eventos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-prime-eventos.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-prime-eventos/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5519999191986",
+ "fone_link": "+5519999191986",
+ "google": {
+  "coords": "-22.8414957,-47.2355338",
+  "fid": "0x94c8bd73f9f95387:0x63b2fecd4c2315be",
+  "gid": "/g/11n07x8z6t"
+ },
+ "endereco_maps": "Rua dos Melros, 155 chácara Recreio Alvorada - Chácaras Recreio Alvorada, Hortolândia - SP, 13183-761",
+ "google_nota": "4,9",
+ "google_total": "198",
+ "verificado": "2026-10-16",
+ "instagram": "primeespacoeventos",
+ "estilo": "gala",
+ "marca": "Espaço Prime Eventos",
+ "marca_logo": "Espaço Prime",
+ "marca_completa": "Espaço Prime Eventos",
+ "logo_sub": "Hortolândia · SP",
+ "titulo": "Espaço Prime Eventos | Casamentos e festas em Hortolândia",
+ "descricao": "Espaço Prime Eventos, na Rua dos Melros, 155, Chácaras Recreio Alvorada, em Hortolândia (SP): salão com lustres e escada iluminada, cerimônia ao ar livre, camarim da noiva e do noivo, cozinha profissional, piscina e espaço gourmet, para casamentos, 15 anos e festas.",
+ "comentario": "Demo Espaço Prime Eventos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Perfil da Empresa no Google e do Instagram do espaço (@primeespacoeventos, página salva pelo Kaue); avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#2b1f1a",
+  "acento": "#c9a46b"
+ },
+ "topline": "Rua dos Melros, 155 · Chácaras Recreio Alvorada, Hortolândia",
+ "nav": [
+  [
+   "#sobre",
+   "O espaço"
+  ],
+  [
+   "#espaco",
+   "Ambientes"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e festas em Hortolândia",
+  "h1": "Sob o lustre, <em>o seu grande dia.</em>",
+  "intro": "Salão com mezanino e escada iluminada, cerimônia ao ar livre, camarim da noiva e do noivo e cozinha profissional para o buffet.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver os ambientes",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g01.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Salão com lustre de cristal, mezanino e escada, com as mesas montadas"
+ },
+ "endereco": [
+  "Rua dos Melros, 155",
+  "Hortolândia · SP"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Cerimônia ao ar livre",
+  "Camarim da noiva",
+  "Escada iluminada",
+  "Espaço gourmet",
+  "Hortolândia"
+ ],
+ "sobre": {
+  "eyebrow": "O Prime",
+  "h2": "Do camarim <em>ao salão iluminado.</em>",
+  "p": [
+   "Nas Chácaras Recreio Alvorada, em Hortolândia, o Espaço Prime foi construído para festas: salão principal com mezanino e escada iluminada, área para a cerimônia ao ar livre, piscina e espaço gourmet.",
+   "A noiva e o noivo têm cada um o seu camarim, e o buffet trabalha numa cozinha profissional. O caminho até o espaço é asfaltado, com estacionamento no local."
+  ],
+  "stats": [
+   [
+    "198",
+    "avaliações no Google"
+   ],
+   [
+    "9,9 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada vermelha do Espaço Prime, com telhado em A",
+  "pol": {
+   "id": 32
+  },
+  "pol_alt": "Mesa de doces entre flores vermelhas e folhagens",
+  "pol_cap": "Decoração"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "Ambientes",
+   "h2": "Cada canto <em>pensado para a festa.</em>",
+   "p": "A cerimônia ao ar livre, os camarins, o lustre e o espaço gourmet. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Ambientes do Espaço Prime",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g05.jpg"
+     },
+     "alt": "Corredor de flores brancas até o altar da cerimônia"
+    },
+    {
+     "foto": {
+      "id": 20
+     },
+     "alt": "Camarim da noiva com sofá capitonê e espelho"
+    },
+    {
+     "foto": {
+      "id": 27
+     },
+     "alt": "Camarim da noiva com o vestido, o espelho e o lustre"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Camarim do noivo com sofá azul e espelho"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Lustre de cristal aceso no salão"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g04.jpg"
+     },
+     "alt": "Cristaleira com louças brancas e flores no salão"
+    },
+    {
+     "foto": {
+      "id": 39
+     },
+     "alt": "Bar do espaço gourmet com o barman"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos que já passaram pelo Espaço Prime e editoriais de 15 anos feitos no salão.",
+   "rotulo": "Festas que aconteceram no Espaço Prime",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g06.jpg"
+     },
+     "alt": "Cerimônia ao ar livre, com os convidados e o corredor de flores",
+     "cap": "Cerimônia"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g02.jpg"
+     },
+     "alt": "Mesa posta com flores brancas e cadeiras de madeira",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Debutante de vestido preto na escada iluminada",
+     "cap": "Editorial 15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g03.jpg"
+     },
+     "alt": "Mesas decoradas com flores ao pé da escada",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Debutante de vestido dourado no mezanino",
+     "cap": "Editorial 15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94c8bd73f9f95387_0x63b2fecd4c2315be/g08.jpg"
+     },
+     "alt": "Noivos no salão, com o buquê",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 12
+     },
+     "alt": "Debutante de vestido rosa diante da fachada",
+     "cap": "Editorial 15 anos"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão com escada iluminada"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "pessoas",
+    "Camarim da noiva e do noivo"
+   ],
+   [
+    "cozinha",
+    "Cozinha profissional"
+   ],
+   [
+    "piscina",
+    "Piscina e espaço gourmet"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento no local"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Agende uma visita ao espaço em Hortolândia",
+   "Conheça o salão, os camarins e a cozinha",
+   "No dia, a noiva se arruma no camarim do próprio espaço"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 26,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "alt": "Lounge com sofás, tapete e flores ao pé da escada"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "rodrigo braga",
+   "tag": "Chegada",
+   "trecho": "Um lugar aconchegante, com estacionamento privativo"
+  },
+  {
+   "nome": "Angelina Angelina Cerimonial",
+   "tag": "Cerimonialista",
+   "trecho": "cozinha completa e profissional, sala da noiva e noivo de um capricho só."
+  },
+  {
+   "nome": "Claudio Murarolli",
+   "tag": "Estrutura",
+   "trecho": "Espaço completo para realização de festas, casamento, eventos. Com estrutura completa na cozinha, um ambiente muito bonito."
+  },
+  {
+   "nome": "Ana Paula Tavares",
+   "tag": "Cuidado",
+   "trecho": "Espaço maravilhoso, super equipado e com uma decoração lindíssima! Tudo muito bem conservado e limpo."
+  },
+  {
+   "nome": "Renan Medrado",
+   "tag": "O espaço",
+   "trecho": "Quando estamos dentro, até parece que estou na Suíça."
+  },
+  {
+   "nome": "Sarah Zorzin",
+   "tag": "Festa",
+   "trecho": "Nossa festa ficou perfeita... Super recomendo!!"
+  }
+ ],
+ "insta": {
+  "seguidores": "9,9 mil seguidores",
+  "p": "Noivas, debutantes e os cantos do Prime.",
+  "foto": {
+   "id": 37
+  },
+  "alt": "Debutante de vestido rosa no camarim",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Prime.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Prime e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Hortolândia.</em>",
+  "endereco": [
+   "Rua dos Melros, 155 · Chácaras Recreio Alvorada",
+   "Hortolândia, SP · CEP 13183-761"
+  ],
+  "telefone": "(19) 99919-1986",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sob o lustre, o seu grande dia.",
+ "mensagem": "Olá! Vim pelo site do Espaço Prime e queria um orçamento.",
+ "google_nome": "Espaço Prime Eventos",
+ "ficha": {
+  "whatsapp_fonte": "o +55 19 99919-1986 é o celular do Perfil da Empresa no Google e o número das legendas (\"Agende uma visita 📲 (19) 99919-1986\")",
+  "site": "não tem (espacoprime.com.br é uma loja de bebidas, outro negócio; o espaço tem página no casamentos.com.br com 5 opiniões)",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Salão de festas em Hortolândia com telhado em A, lustres, mezanino e escada iluminada; casamentos e 15 anos. Nota 4,9 com 198 avaliações (a demo mostra o total, não a nota).",
+   "Dono: não confirmei. O post da inauguração diz que o projeto foi \"pensado com muito carinho pela @anapaulapatreze e @ryan.lustosa.18\"."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com o salão e o lustre, o espaço, ambientes (7 fotos, 2 do Google), festas reais (7, 4 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6), consultar uma data e mapa.",
+   "Cores: marrom-escuro e dourado. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "O Instagram salvo é quase todo de 2020 e 2021 (obra e inauguração), por isso a demo usa mais as fotos do Google (salão, mesas, cerimônia, noivos). Três delas têm a marca do fotógrafo (@tadeifotografiaefilms) num canto.",
+   "Ficaram de fora: fotos da obra, as artes com texto, as imagens 3D de 2020 e a foto do Google com a marca \"MEMORIES\"."
+  ],
+  "conferir": [
+   "Debutantes aparecem em 4 fotos (3 nas festas e 1 no Instagram), de editoriais postados pelo próprio espaço.",
+   "A arte de 2020 fala em área interna para 400 pessoas, gerador e palco para banda: é de antes da inauguração, por isso não usei. Vale perguntar.",
+   "Uma avaliação de 1 estrela reclama de duas visitas canceladas em cima da hora.",
+   "Horário do Google: todos os dias, das 9h às 17h (atendimento)."
+  ]
+ }
+}

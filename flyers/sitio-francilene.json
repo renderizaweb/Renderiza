@@ -1,0 +1,29 @@
+{
+ "marca": "Sítio Francilene",
+ "local": "Mogi das Cruzes · SP",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#22331f",
+  "fundo2": "#151f13",
+  "acento": "#e07a8b",
+  "tinta_acento": "#151f13",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_04.jpg",
+  "pos": "50% 35%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "421"
+ },
+ "titulo": "Um paraíso verde<br><em>para a sua festa.</em>",
+ "texto": "Sítio com lago, salão com palco, buffet e decoração da casa, em Mogi das Cruzes.",
+ "whatsapp": "(11) 99131-9871",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. das Arueiras, 3 · Mogi das Cruzes",
+ "instagram": "@sitiofrancilene"
+}

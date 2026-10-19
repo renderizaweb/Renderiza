@@ -1,0 +1,30 @@
+{
+ "marca": "Chácara De Boa na Lagoa",
+ "local": "Batistini · São Bernardo do Campo",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#163a3f",
+  "fundo2": "#0d2327",
+  "acento": "#f2a65a",
+  "tinta_acento": "#0d2327",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/chacaradeboanalagoa/Instagram_files/645494733_17932770009197198_6073423598823874904_n.jpg",
+  "pos": "50% 50%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "114"
+ },
+ "titulo": "Festa com vista<br><em>para a represa.</em>",
+ "texto": "Piscina, área de churrasqueira coberta e casa com 7 quartos, à beira da represa, em São Bernardo do Campo.",
+ "whatsapp": "(11) 94860-9819",
+ "cta": "Consulte sua data",
+ "endereco": "R. Cotegipe, 751 · Batistini, SBC",
+ "instagram": "@chacaradeboanalagoa"
+}

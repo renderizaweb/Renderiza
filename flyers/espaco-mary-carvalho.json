@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço Mary Carvalho",
+ "local": "Vila Aparecida · Suzano",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#33261f",
+  "fundo2": "#1f1713",
+  "acento": "#8fc27f",
+  "tinta_acento": "#1f1713",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/drive/espacomarycarvalhoeventos/Instagram_files/623506076_18090316169002764_8251774857352293597_n.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "88"
+ },
+ "titulo": "Festa com piscina<br><em>em Suzano.</em>",
+ "texto": "Salão, piscina com cascata, churrasqueira, brinquedão e quarto para quem fica.",
+ "whatsapp": "(11) 95861-8982",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. das Neves, 1032 · Suzano",
+ "instagram": "@espacomarycarvalhoeventos"
+}

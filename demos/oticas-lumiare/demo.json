@@ -1,0 +1,159 @@
+{
+ "pasta": "oticas-lumiare",
+ "marca": "Óticas Lumiare",
+ "marca_logo": "Óticas Lumiare",
+ "marca_completa": "Óticas Lumiare",
+ "logo_sub": "Matriz · Mauá",
+ "titulo": "Óticas Lumiare | Matriz, Mauá",
+ "descricao": "Óticas Lumiare, na Av. Dom José Gaspar, 1471 A, na Matriz, em Mauá: ótica de família, com armações modernas, lentes de alta performance, consultoria e pós-venda. Nota 5,0 no Google.",
+ "comentario": "Demo Óticas Lumiare: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticaslumiare) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#0f2a78",
+  "acento": "#e2b740",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-lumiare/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-lumiare.json",
+ "topline": "Av. Dom José Gaspar, 1471 A · Matriz, Mauá",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Na loja"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica de família na Matriz, em Mauá",
+  "h1": "Clareza <em>que transforma.</em>",
+  "intro": "Armações modernas, lentes de alta performance e um atendimento em que você não é só um número de receita. Na Av. Dom José Gaspar, 1471 A.",
+  "selo": "Os donos e a família atendem na loja",
+  "link": "Conhecer a loja",
+  "foto": { "id": 10, "c": [0.5, 0.42] },
+  "alt": "A família da Óticas Lumiare, de uniforme azul, com uma cliente segurando a sacola da loja"
+ },
+ "endereco": ["Av. Dom José Gaspar, 1471 A", "Matriz · Mauá"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Consultoria", "Lentes de alta performance", "Clip-on", "Multifocal", "Matriz · Mauá"],
+ "sobre": {
+  "eyebrow": "A Lumiare",
+  "h2": "Um sonho <em>de família.</em>",
+  "p": [
+   "A Lumiare nasceu do sonho de humanizar a saúde visual. Os donos e a família trabalham juntos na loja, todos os dias, para oferecer o cuidado que sempre quiseram encontrar como clientes.",
+   "Aqui você não é só um número de receita: tem consultoria para escolher a armação, aparelhos modernos para medir com precisão e um pós-venda de verdade. Tem cliente que vem até de Cotia."
+  ],
+  "stats": [["{nota}", "nota no Google"], ["30", "avaliações no Google"]],
+  "foto": { "id": 11, "c": [0.5, 0.48] },
+  "alt": "A família da Óticas Lumiare com as crianças, de uniforme azul, no dia da inauguração",
+  "pol": { "id": 9, "c": [0.5, 0.5] },
+  "pol_alt": "Fachada da Óticas Lumiare com balões azuis e dourados na inauguração",
+  "pol_cap": "A inauguração"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Na Lumiare",
+   "h2": "Cuidado <em>em cada detalhe.</em>",
+   "p": "A loja, a vitrine e quem atende. Venha conhecer ou peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "A Óticas Lumiare por dentro",
+   "formato": "retrato",
+   "itens": [
+    { "foto": { "id": 6, "c": [0.5, 0.5] }, "alt": "Vitrine iluminada com óculos de sol nas prateleiras de vidro" },
+    { "foto": { "id": 5, "c": [0.5, 0.45] }, "alt": "Atendente medindo os olhos de um menino com o aparelho" },
+    { "foto": { "id": 3, "c": [0.5, 0.5] }, "alt": "A equipe da Lumiare com duas clientes na loja" },
+    { "foto": { "id": 2, "c": [0.5, 0.35] }, "alt": "Duas crianças de uniforme da loja, a menina de óculos" },
+    { "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-lumiare/google/g01.jpg", "c": [0.5, 0.5] }, "alt": "A loja por dentro: mesas brancas de atendimento e a parede azul de óculos" },
+    { "foto": { "id": 20, "c": [0.5, 0.4] }, "alt": "Atendente da Lumiare sentado à mesa, com armações à frente" },
+    { "foto": { "id": 12, "c": [0.5, 0.5] }, "alt": "Mesa de doces e frutas da inauguração" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Matriz, em Mauá, ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Clip-on",
+   "rotulo": "01 / CLIP-ON",
+   "foto": { "id": 28, "box": [0, 0, 1, 0.58], "c": [0.5, 0.5] },
+   "alt": "Cliente sorrindo de óculos clip-on na porta da loja",
+   "texto": "Grau e sol na mesma armação: o clipe encaixa por cima."
+  },
+  "solar": {
+   "titulo": "Primeiro multifocal",
+   "rotulo": "02 / MULTIFOCAL",
+   "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-lumiare/google/g00.jpg", "c": [0.5, 0.55] },
+   "alt": "Armação gatinho preta sobre a flanela da Lumiare, com o estojo azul",
+   "texto": "A gente tira as dúvidas e acompanha a adaptação."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Da escolha <em>ao pós-venda.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Av. Dom José Gaspar, 1471 A",
+   "Consultoria para escolher a armação que combina com você",
+   "Medição com aparelhos modernos e lentes de alta performance",
+   "Pós-venda de verdade, do ajuste à adaptação"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "id": 4, "c": [0.5, 0.45] },
+  "alt": "Atendente da Lumiare ajustando os óculos no rosto de um cliente",
+  "pol": { "id": 30, "c": [0.5, 0.5] },
+  "pol_alt": "Sacola azul da Óticas Lumiare",
+  "pol_cap": "Na sacola Lumiare",
+  "card": ["Clientes de longe", "Tem quem venha de Cotia."]
+ },
+ "avaliacoes_secao": { "h2": "Quem já virou <em>da família.</em>" },
+ "avaliacoes": [
+  { "nome": "cassia verusca Moreira", "tag": "Pós-venda", "trecho": "Sabemos se a empresa é boa,  se preocupa com o cliente no pós venda. Quando algo sai do controle. E foi ótimo o pós venda." },
+  { "nome": "Kathllen Cerqueira", "tag": "Três óculos" },
+  { "nome": "Bioexatas Detona", "tag": "Duas armações", "trecho": "Ótimo atendimento, bom preço e a qualidade da armação e da lente é um diferencial . Fiz duas armações bem bonitas e gostei muito." },
+  { "nome": "Cristiane Guarnieri", "tag": "A atenção" },
+  { "nome": "Daniele Queiroz", "tag": "Capacitados" }
+ ],
+ "instagram": "oticaslumiare",
+ "insta": {
+  "seguidores": "656 seguidores",
+  "p": "O dia a dia da loja, clientes de óculos novo e dicas de lentes.",
+  "foto": { "id": 8, "box": [0, 0, 1, 0.62], "c": [0.5, 0.5] },
+  "alt": "Os donos da Óticas Lumiare atrás do balcão da loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Dom José Gaspar.</em>",
+  "endereco": ["Av. Dom José Gaspar, 1471 A · Matriz", "Mauá, SP · CEP 09370-670"],
+  "telefone": "(11) 92688-1609",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Clareza que transforma.",
+ "mensagem": "Olá! Vim pelo site da Óticas Lumiare e queria um orçamento.",
+ "whatsapp": "5511926881609",
+ "fone_link": "+5511926881609",
+ "google": { "coords": "-23.6805068,-46.4605429", "fid": "0x94ce6b0d2c1625d5:0x5860e723b878f0d1", "gid": "/g/11nc70q0kr" },
+ "google_nome": "Óticas Lumiare",
+ "endereco_maps": "Av. Dom José Gaspar, 1471 - Matriz, Mauá - SP, 09370-670",
+ "google_nota": "5,0",
+ "google_total": "30",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 92688-1609 é o telefone do Perfil da Empresa no Google e o link wa.me da bio",
+  "site": "não tem",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 656 seguidores, 30 avaliações: loja nova e pequena. Legendas: \"Somos os donos da ótica e, junto com a nossa família...\", \"Abrir a Lumiare é realizar o sonho de humanizar a saúde visual... Aqui, você não é apenas um número de receita\". Slogan: \"Clareza que transforma\".",
+   "Fica na mesma avenida da Ótica Dom Outlet (Av. Dom José Gaspar, 981), em Mauá."
+  ],
+  "demo": [
+   "Azul do uniforme e o dourado do logo, títulos em Fraunces.",
+   "Capa com o slogan e a família com uma cliente; a história do sonho de família, com a inauguração.",
+   "Carrossel da loja e do atendimento (7), clip-on e primeiro multifocal, atendimento com o ajuste dos óculos no cliente, 5 avaliações de 5 estrelas (nota 5,0 · 30)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): a família de uniforme, a inauguração, o atendimento e a vitrine. Google: a armação na flanela e a loja por dentro.",
+   "Ficaram de fora: as artes com modelo e texto (\"Consulta e óculos em um só lugar\", \"Mitos e verdades\"), o post com preço (multifocal R$ 699) e os quadros com texto no meio."
+  ],
+  "conferir": [
+   "Os nomes dos donos: um vídeo apresenta \"e ela é a Ingrid\" (o casal atrás do balcão). Não confirmei quem é o dono.",
+   "Loja pequena (656 seguidores, 30 avaliações), fora da régua nova; entrou porque o Kaue escolheu."
+  ]
+ }
+}

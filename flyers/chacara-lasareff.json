@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara Lasareff",
+ "local": "Vila Lídia · Rio Grande da Serra",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#14213d",
+  "fundo2": "#0c1425",
+  "acento": "#d4af37",
+  "tinta_acento": "#0c1425",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce1301b0341293_0xc0442b8501782260/g00.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "119"
+ },
+ "titulo": "Um lugar aconchegante<br><em>para o seu sonho.</em>",
+ "texto": "Salão para até 300 pessoas, piscina, jardim e churrasqueira, em Rio Grande da Serra.",
+ "whatsapp": "(11) 98936-2617",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. Rio Pequeno, 2555 · Rio Grande da Serra",
+ "instagram": "@chacaralasareff"
+}

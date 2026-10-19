@@ -1,0 +1,29 @@
+{
+ "marca": "Victor's Festas e Eventos",
+ "local": "São Caetano do Sul · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#241a14",
+  "fundo2": "#16100c",
+  "acento": "#c99a5b",
+  "tinta_acento": "#16100c",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/victorbuffet/Instagram_files/488520048_18357563647176276_7659527202025665549_n.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "917"
+ },
+ "titulo": "Surpreenda-se<br><em>no grande dia.</em>",
+ "texto": "Casamentos, 15 anos e aniversários com cerimônia no arco de flores e o buffet da casa.",
+ "whatsapp": "(11) 99900-3993",
+ "cta": "Consulte sua data",
+ "endereco": "R. Saldanha Marinho, 259 · São Caetano",
+ "instagram": "@victorsbuffet"
+}

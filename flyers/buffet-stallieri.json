@@ -1,0 +1,29 @@
+{
+ "marca": "Buffet Stallieri",
+ "local": "Cumbica · Guarulhos",
+ "fontes": {
+  "titulo": "Fraunces",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2b1d20",
+  "fundo2": "#1a1113",
+  "acento": "#d7a8a0",
+  "tinta_acento": "#1a1113",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce8bf77f718fd1_0x37c97c17cacdc90f/g06.jpg",
+  "pos": "50% 40%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "353"
+ },
+ "titulo": "Celebre<br><em>com a gente.</em>",
+ "texto": "Casamentos, 15 anos e aniversários, com pista de LED e o buffet da casa.",
+ "whatsapp": "(11) 95317-9290",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Jaime Regalo Pereira, 201 · Guarulhos",
+ "instagram": "@buffetstallieri"
+}

@@ -1,10 +1,11 @@
 {
  "demo": "dr-italo-totti",
+ "formato": "reels",
  "marca": "Dr. Ítalo Totti",
  "local": "Socorro · Mogi das Cruzes",
  "cores": {
   "fundo": "#1b2c4b",
-  "fundo2": "#111c30",
+  "fundo2": "#111a2c",
   "acento": "#ddbd76",
   "claro": "#fffdf6"
  },
@@ -12,9 +13,9 @@
   "titulo": "Fraunces",
   "texto": "Manrope"
  },
- "hora": "2026-10-06T10:30:00-03:00",
- "clima": "sobrio",
+ "hora": "2026-10-14T10:30:00-03:00",
  "musica": "auto",
+ "clima": "sobrio",
  "abertura": {
   "estilo": "montagem",
   "selo": "Prévia do site",
@@ -39,97 +40,76 @@
  },
  "fechamento": {
   "estilo": "rolagem",
-  "titulo": "Seu site novo",
-  "destaque": "já está pronto.",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Totti.",
   "convite": "Gostou? É só responder esta mensagem."
  },
  "cenas": [
   {
    "rolar": 0,
-   "segura": 1.4
-  },
-  {
-   "rolar": ".hero-proof",
-   "segura": 1.6,
-   "legenda": "Nota 5,0 com 409 avaliações"
-  },
-  {
-   "rolar": ".hero-media",
-   "segura": 1.6,
-   "legenda": "Feito para abrir no celular"
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um dentista *começa pelo celular.*",
+   "sub": "Quer ver o consultório, quem atende e a opinião de quem já foi."
   },
   {
    "rolar": ".doutor-foto",
-   "segura": 1.9,
-   "legenda": "O doutor em destaque"
+   "alinhar": "topo",
+   "segura": 5.6,
+   "legenda": "Conhece o Dr. Ítalo *e o trabalho dele.*",
+   "sub": "Reabilitação oral no Edifício Ômega, com mais de 3.000 sorrisos renovados."
   },
   {
    "rolar": "#atendimento-track",
    "alinhar": "topo",
-   "segura": 3.6,
-   "legenda": "Atendimento com fotos reais",
+   "segura": 5.6,
    "acoes": [
     {
-     "em": 0.45,
+     "em": 0.5,
      "tipo": "deslizar",
      "alvo": "#atendimento-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "cartoes": 1
     },
     {
-     "em": 1.35,
+     "em": 1.7,
      "tipo": "deslizar",
      "alvo": "#atendimento-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "cartoes": 1
     },
     {
-     "em": 2.25,
+     "em": 2.9,
      "tipo": "deslizar",
      "alvo": "#atendimento-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "cartoes": 1
     }
-   ]
+   ],
+   "legenda": "Vê o atendimento *do começo ao fim.*",
+   "sub": "Do primeiro contato ao sorriso renovado, cada etapa explicada antes de começar."
   },
   {
    "rolar": "#sorrisos-track",
    "alinhar": "topo",
-   "segura": 2.6,
-   "legenda": "Sorrisos reais dos pacientes",
+   "segura": 5.1,
    "acoes": [
     {
-     "em": 0.45,
+     "em": 0.6,
      "tipo": "deslizar",
      "alvo": "#sorrisos-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "cartoes": 1
     },
     {
-     "em": 1.35,
+     "em": 1.8,
      "tipo": "deslizar",
      "alvo": "#sorrisos-track",
-     "cartoes": 1,
-     "dur": 0.75
+     "cartoes": 1
     }
-   ]
-  },
-  {
-   "rolar": "#tratamentos h2",
-   "alinhar": "topo",
-   "segura": 2.0,
-   "legenda": "Os tratamentos, explicados"
-  },
-  {
-   "rolar": ".space-photos",
-   "segura": 1.8,
-   "legenda": "A clínica por dentro"
+   ],
+   "legenda": "E vê sorrisos *naturais, do jeito de cada um.*",
+   "sub": "Implantes, prótese protocolo e lentes de contato dental."
   },
   {
    "rolar": "#reviews-track",
    "alinhar": "topo",
-   "segura": 2.4,
-   "legenda": "Avaliações reais do Google",
+   "segura": 5.1,
    "acoes": [
     {
      "em": 0.7,
@@ -137,19 +117,22 @@
      "alvo": "#reviews-track",
      "cartoes": 1
     }
-   ]
+   ],
+   "legenda": "E lê o que *os pacientes contam.*",
+   "sub": "Nota 5,0 em 409 avaliações no Google, sem precisar procurar."
   },
   {
    "rolar": "#contato .button-light",
-   "segura": 3.0,
-   "legenda": "WhatsApp e rota a um toque",
+   "segura": 5.6,
    "acoes": [
     {
-     "em": 1.0,
+     "em": 1,
      "tipo": "tocar",
      "alvo": "#contato .button-light"
     }
-   ]
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço e o caminho para chegar estão logo ali."
   }
  ]
 }

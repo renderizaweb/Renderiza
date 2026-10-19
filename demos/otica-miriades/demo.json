@@ -1,0 +1,154 @@
+{
+ "pasta": "otica-miriades",
+ "marca": "Ótica Miríades",
+ "marca_logo": "Ótica Miríades",
+ "marca_completa": "Ótica Miríades",
+ "logo_sub": "Lavras · Guarulhos",
+ "titulo": "Ótica Miríades | Lavras, Guarulhos",
+ "descricao": "Ótica Miríades, na Av. José Brumatti, 3559 A, em Guarulhos: óculos de grau e de sol, clip-on e atendimento com cafezinho; muitos óculos ficam prontos em 1 hora. 137 avaliações no Google.",
+ "comentario": "Demo Ótica Miríades: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticamiriades) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Sora",
+ "cores": {
+  "escuro": "#0d1a3a",
+  "acento": "#2f6df0",
+  "tinta": "acento"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/otica-miriades/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/otica-miriades.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-miriades/logo.png",
+  "box": [0, 0, 1, 1]
+ },
+ "topline": "Av. José Brumatti, 3559 A · Lavras, Guarulhos",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Vitrine"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica em Lavras, Guarulhos",
+  "h1": "Seus óculos novos, <em>sem complicação.</em>",
+  "intro": "Armações de grau e de sol, atendimento com calma e um cafezinho, e muitos óculos prontos em 1 hora. Na Av. José Brumatti, 3559 A.",
+  "selo": "Óculos em 1 hora",
+  "link": "Ver a vitrine",
+  "foto": { "id": 8, "c": [0.5, 0.32] },
+  "alt": "Moça da Ótica Miríades de óculos de grau, dentro da loja"
+ },
+ "endereco": ["Av. José Brumatti, 3559 A", "Jd. Santo Expedito · Guarulhos"],
+ "dias_curto": "seg a sáb",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Óculos em 1 hora", "Clip-on", "Lentes para o dia a dia", "Ajustes", "Lavras · Guarulhos"],
+ "sobre": {
+  "eyebrow": "A Miríades",
+  "h2": "Ótica é em qualquer lugar. <em>Atendimento, não.</em>",
+  "p": [
+   "Na Av. José Brumatti, a Ótica Miríades atende Lavras e a região com uma vitrine cheia de armações de grau e de sol, e uma equipe que ajuda a escolher sem pressa.",
+   "Quem chega é recebido com um sorriso e, muitas vezes, com um cafezinho. E depois da compra, o ajuste dos óculos é sempre que precisar."
+  ],
+  "stats": [["137", "avaliações no Google"], ["1 hora", "para muitos óculos ficarem prontos"]],
+  "foto": { "id": 48, "c": [0.5, 0.45] },
+  "alt": "Vitrine da Ótica Miríades com armações, óculos de sol e a sacola vermelha da loja"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações para <em>cada rosto.</em>",
+   "p": "Grau, sol e clip-on, das clássicas às coloridas. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Ótica Miríades",
+   "formato": "quadrado",
+   "itens": [
+    { "foto": { "id": 19 }, "alt": "Armações expostas num arranjo de flores dentro de uma gaiola dourada" },
+    { "foto": { "id": 11 }, "alt": "Armações transparentes e pretas sobre flores vermelhas, diante da vitrine" },
+    { "foto": { "id": 3, "c": [0.5, 0.55] }, "alt": "Armações douradas e metálicas sobre o veludo preto, com o cartão da loja" },
+    { "foto": { "id": 1, "c": [0.5, 0.45] }, "alt": "Armações transparentes, rosé e vinho sobre a flanela" },
+    { "foto": { "id": 5, "c": [0.5, 0.5] }, "alt": "Prateleira de armações de grau masculinas" },
+    { "foto": { "id": 24 }, "alt": "Armações coloridas na vitrine com flores amarelas" },
+    { "foto": { "id": 7, "c": [0.5, 0.5] }, "alt": "Armações pretas e tartaruga na prateleira de vidro" },
+    { "foto": { "id": 31 }, "alt": "Óculos de sol pretos e espelhados na vitrine" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar na Av. José Brumatti ou peça fotos dos modelos pelo WhatsApp.",
+  "grau": {
+   "titulo": "Clip-on",
+   "rotulo": "01 / CLIP-ON",
+   "foto": { "id": 12, "c": [0.5, 0.5] },
+   "alt": "Armação preta com dois clipes de sol, um marrom e um escuro",
+   "texto": "Grau e sol na mesma armação: o clipe de sol encaixa por cima."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do cafezinho <em>ao óculos pronto.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, na Av. José Brumatti, 3559 A",
+   "Escolha a armação com calma, com a ajuda da equipe",
+   "Lentes para o seu dia a dia, explicadas sem complicação",
+   "Muitos óculos ficam prontos em 1 hora, e o ajuste é sempre que precisar"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/otica-miriades/google/g01.jpg", "c": [0.5, 0.55] },
+  "alt": "Sacola vermelha da Ótica Miríades, estojos e a caneca do cafezinho sobre o balcão",
+  "pol": { "id": 51, "c": [0.5, 0.45] },
+  "pol_alt": "Moça da Ótica Miríades sorrindo, dentro da loja",
+  "pol_cap": "Quem atende",
+  "card": ["Óculos em 1 hora", "Consulte pelo WhatsApp."]
+ },
+ "avaliacoes_secao": { "h2": "Quem passa <em>por aqui.</em>" },
+ "avaliacoes": [
+  { "nome": "Gabriel Santos", "tag": "Cafezinho", "trecho": "Fui muito bem tratado e de sobra ganhei um cafézinho. Minha adaptação com meus óculos não teve nenhum problema, e sempre que preciso de um ajuste, a ótica sempre está disposta à me ajudar." },
+  { "nome": "greice santos", "tag": "As meninas", "trecho": "Eu amei fazer meu óculos com as meninas,super atenciosas na minha escolha e me passaram lentes que me ajudam no dia a dia" },
+  { "nome": "Suelen Amorim", "tag": "Segunda compra", "trecho": "o atendimento e simplesmente perfeito está e a minha segunda compra e só tenho que agradecer o carinho o cuidado" },
+  { "nome": "Adriano Dudu", "tag": "Sorriso no rosto", "trecho": "vc chega lá sempre tem um pra atender vc com um lindo sorriso no rosto" },
+  { "nome": "Angela Sales", "tag": "Atenciosos" }
+ ],
+ "instagram": "oticamiriades",
+ "insta": {
+  "seguidores": "2,7 mil seguidores",
+  "p": "Armações novas, vitrine e recados da loja, toda semana.",
+  "foto": { "id": 19, "c": [0.5, 0.5] },
+  "alt": "Armações num arranjo de flores dentro de uma gaiola dourada"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na José Brumatti.</em>",
+  "endereco": ["Av. José Brumatti, 3559 A · Jd. Santo Expedito", "Guarulhos, SP · CEP 07160-170"],
+  "telefone": "(11) 96111-7840",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Seus óculos novos, sem complicação.",
+ "mensagem": "Olá! Vim pelo site da Ótica Miríades e queria um orçamento.",
+ "whatsapp": "5511961117840",
+ "fone_link": "+5511961117840",
+ "google": { "coords": "-23.3983619,-46.4298391", "fid": "0x94ce8979cd056961:0x4133b0b13fe9a6a2", "gid": "/g/1hf12z_qr" },
+ "google_nome": "Ótica Miríades",
+ "endereco_maps": "Av. José Brumatti, 3559 A - Jardim Santo Expedito, Guarulhos - SP, 07160-170",
+ "google_nota": "4,9",
+ "google_total": "137",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 96111-7840 é o telefone do Perfil da Empresa no Google, o link wa.me da bio e o das legendas",
+  "site": "não tem (o Google aponta o WhatsApp)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 2,8 mil seguidores. Bio: \"Óculos em 1 Hora\", \"Exame de Vista Todos os Dias\", crediário. O Instagram tem muita foto de campanha de marca (Sabrina Sato, Carmen Vitti, Fox), que não entrou: não é foto da loja."
+  ],
+  "demo": [
+   "Azul do perfil (marinho e azul royal), títulos em Sora; o óculos branco do perfil como logo.",
+   "Formato \"básico bem feito\": capa com a moça da loja, a vitrine na história, um carrossel de vitrine (8), clip-on e formato do rosto, atendimento com a sacola e a caneca do cafezinho (Google), 5 avaliações de 5 estrelas.",
+   "Nota 4,9: a demo mostra as estrelas e as 137 avaliações, sem o número da nota."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, posts de 2022): a vitrine e a moça da loja (quadros de vídeo). Google: a sacola com a caneca e o letreiro.",
+   "Ficaram de fora: as fotos de campanha com modelos e famosas, artes de exame de vista e crediário (10x, 15x) e datas comemorativas."
+  ],
+  "conferir": [
+   "Quem é a moça das fotos (dona?). As avaliações citam a Graça e \"as meninas\".",
+   "\"Óculos em 1 hora\" está na bio; nas legendas, \"até 8 graus pronto em 30 min\". A demo diz \"muitos óculos\".",
+   "A bio e as legendas anunciam exame de vista todos os dias; a demo não cita exame."
+  ]
+ }
+}

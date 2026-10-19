@@ -1,0 +1,432 @@
+{
+ "pasta": "che-belle-giardino",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/che-belle-giardino/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/che-belle-giardino-sem-horas.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/che-belle-giardino/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511990148907",
+ "fone_link": "+5511990148907",
+ "google": {
+  "coords": "-23.4845656,-46.4277407",
+  "fid": "0x94ce65a79ad26c59:0x4de3e17b34e3606a",
+  "gid": "/g/11byx8hdj5"
+ },
+ "endereco_maps": "Av. Oliveira Freire, 811 - Parque Paulistano, São Paulo - SP, 08080-570",
+ "google_nota": "4,8",
+ "google_total": "1.099",
+ "verificado": "2026-10-15",
+ "instagram": "chebelle_giardino",
+ "marca": "Che Belle Giardino",
+ "marca_logo": "Che Belle Giardino",
+ "marca_completa": "Buffet Che Belle Giardino",
+ "logo_sub": "Parque Paulistano · São Paulo",
+ "titulo": "Buffet Che Belle Giardino | Casamentos e 15 anos na Zona Leste de São Paulo",
+ "descricao": "Buffet Che Belle Giardino, na Av. Oliveira Freire, 811, no Parque Paulistano (Zona Leste de São Paulo): jardim com coreto de flores, cerimônia ao ar livre e salão com lustres, com buffet completo, para casamentos, 15 anos e aniversários. Nota 4,8 no Google.",
+ "comentario": "Demo Buffet Che Belle Giardino: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@chebelle_giardino, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações e endereço do Google, verificados em 15/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1f2a22",
+  "acento": "#e8b4a0"
+ },
+ "topline": "Av. Oliveira Freire, 811 · Parque Paulistano, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O Giardino"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Casamentos e 15 anos no Parque Paulistano, Zona Leste",
+  "h1": "Um cenário à altura <em>do seu sonho.</em>",
+  "intro": "Jardim com coreto de flores, cerimônia ao ar livre e salão com lustres, com buffet completo.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 4,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos sob o arco de flores do coreto, à noite",
+  "nota": "Casamentos, 15 anos e aniversários, com buffet completo"
+ },
+ "endereco": [
+  "Av. Oliveira Freire, 811",
+  "Parque Paulistano · São Paulo"
+ ],
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Cerimônia ao ar livre",
+  "Buffet completo",
+  "Jardim",
+  "Salão com lustres",
+  "Zona Leste"
+ ],
+ "sobre": {
+  "eyebrow": "O Che Belle Giardino",
+  "h2": "Do jardim <em>ao salão.</em>",
+  "p": [
+   "No Parque Paulistano, o Che Belle Giardino tem jardim com coreto de flores, passarela para a cerimônia ao ar livre, varal de luzes e um salão principal com lustres. Casamentos, festas de 15 anos e aniversários, com o buffet da casa.",
+   "Nas avaliações, os noivos falam da comida, dos garçons e da assessoria da Karol e da equipe, do primeiro contato ao fim da festa."
+  ],
+  "stats": [
+   [
+    "1.099",
+    "avaliações no Google"
+   ],
+   [
+    "4,6 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 33,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Passarela verde para a cerimônia ao ar livre, entre as árvores do jardim",
+  "pol": {
+   "id": 16,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Aniversariante sorrindo diante da mesa decorada",
+  "pol_cap": "80 anos"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Jardim, coreto <em>e salão.</em>",
+   "p": "O jardim de dia e à noite, a cerimônia ao ar livre e o salão principal. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Che Belle Giardino",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "id": 5
+     },
+     "alt": "Salão principal montado com mesas e lustres"
+    },
+    {
+     "foto": {
+      "id": 31
+     },
+     "alt": "Caminho iluminado do jardim até o coreto, à noite"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce65a79ad26c59_0x4de3e17b34e3606a/g10.jpg"
+     },
+     "alt": "Varal de luzes sobre o pátio do jardim"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Passarela da cerimônia ao ar livre"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce65a79ad26c59_0x4de3e17b34e3606a/g09.jpg"
+     },
+     "alt": "Painel de borboleta na parede de tijolos, à luz das lâmpadas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce65a79ad26c59_0x4de3e17b34e3606a/g03.jpg"
+     },
+     "alt": "Porta rústica e cadeira de balanço no jardim"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce65a79ad26c59_0x4de3e17b34e3606a/g00.jpg"
+     },
+     "alt": "Fachada do Che Belle iluminada à noite"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Noivos caminhando pela passarela do jardim"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e aniversários de quem já comemorou no Che Belle Giardino.",
+   "rotulo": "Festas que aconteceram no Che Belle Giardino",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 12,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noivos no coreto de flores, à noite",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 20,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido rosa diante do painel de flores",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noivos no salão, diante da mesa do bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 48,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Debutante de vestido pink no salão com lustres",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 37,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal sorrindo no jardim, com buquê de flores",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 3,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido verde no gramado",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noivos diante do painel de borboleta",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Aniversariante sorrindo diante da mesa decorada",
+     "cap": "Aniversário"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o Giardino <em>oferece.</em>",
+  "p": "O que aparece no Instagram do espaço e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "jardim",
+    "Jardim com coreto de flores"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "salao",
+    "Salão principal com lustres"
+   ],
+   [
+    "cozinha",
+    "Buffet completo, com garçons"
+   ],
+   [
+    "pessoas",
+    "Assessoria no dia da festa"
+   ],
+   [
+    "estrela",
+    "Degustação do cardápio"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o jardim e o salão",
+   "Prove o cardápio na degustação",
+   "No dia, a equipe acompanha a festa do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "formato": "paisagem",
+  "foto": {
+   "id": 31
+  },
+  "alt": "Jardim do Che Belle Giardino iluminado à noite"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Dayane Myleny",
+   "tag": "Casamento",
+   "trecho": "Nos casamos dia 11/04/2026 e a festa foi na unidade Giardino e foi tudo simplesmente perfeito ❤️ todos os convidados elogiaram tudo, desde decoração, comida, música, recepção."
+  },
+  {
+   "nome": "Tali Cume",
+   "tag": "Atenção",
+   "trecho": "Desde o início muito atenciosos e prestativos, sempre se preocupando com a estrutura da festa e nossa alimentação. Karol muito atenciosa aos detalhes"
+  },
+  {
+   "nome": "Tamires Daiane",
+   "tag": "Cada detalhe",
+   "trecho": "Estava tudo simplesmente perfeito! O carinho, a dedicação e o cuidado em cada detalhe fizeram esse momento ser ainda mais especial para nós."
+  },
+  {
+   "nome": "Saulo Wanderlei",
+   "tag": "Festa",
+   "trecho": "Adorei a experiência, comida muito boa e atendimento da equipe nota 1000 Karol, Matheus, Maria e todos os garçons super educados e receptivos!"
+  },
+  {
+   "nome": "Douglas Rogerio nogueira",
+   "tag": "Organização",
+   "trecho": "Um lugar incrível lindo a comida o espaço e os funcionários de uma excelência tudo bem organizado"
+  },
+  {
+   "nome": "Cintia Vidal",
+   "tag": "Família"
+  }
+ ],
+ "insta": {
+  "seguidores": "4,6 mil seguidores",
+  "p": "Casamentos, 15 anos e o jardim, toda semana.",
+  "foto": {
+   "id": 49,
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Debutante de vestido pink diante do painel de flores com o letreiro Che Belle",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Che Belle Giardino.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Bodas",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Che Belle Giardino e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Parque Paulistano.</em>",
+  "endereco": [
+   "Av. Oliveira Freire, 811 · Parque Paulistano",
+   "São Paulo, SP · CEP 08080-570"
+  ],
+  "telefone": "(11) 99014-8907",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Um cenário à altura do seu sonho.",
+ "mensagem": "Olá! Vim pelo site do Che Belle Giardino e queria um orçamento.",
+ "google_nome": "Buffet Che Belle Giardino",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99014-8907 é o telefone do Perfil da Empresa no Google e o do link da bio (wa.me/5511990148907)",
+  "site": "não tem (chebelle.com.br e buffetchebelle.com.br não existem; não achei página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Unidade com jardim (coreto de flores, cerimônia ao ar livre, varal de luzes) e salão com lustres, buffet completo; casamentos, 15 anos e aniversários.",
+   "Quem atende: Karol (assessoria, citada em várias avaliações), com Maria Paula, Matheus e a equipe. Não confirmei o nome do dono."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos no coreto, o Giardino (jardim e salão, Karol), carrossel do espaço (8, paisagem, com 4 do Google), festas reais (8), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde do jardim e rosé das flores. Fonte Playfair Display."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva, fotos grandes de 2026) e Perfil da Empresa no Google (fachada, jardim, casais).",
+   "Ficaram de fora: as fotos com o nome dos noivos em destaque e as tremidas."
+  ],
+  "conferir": [
+   "A bio diz \"perfil oficial do @buffet_che_belle\" e uma avaliação fala em \"unidade Giardino\": o Buffet Che Belle tem mais de uma casa. A demo é só do Giardino.",
+   "O Google mostra \"Atendimento 24 horas\": a demo sai sem horário.",
+   "Capacidade: não confirmei (a demo não cita)."
+  ]
+ }
+}

@@ -104,7 +104,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | pronta · 29/09/2026 |
 | [Lú Elegante (moda e beleza, fora das óticas)](demos/lu-elegante-modas) | Vila São Pedro, São Bernardo do Campo | site | pronta · 01/10/2026 |
 | [Clínica MS Odontologia (fora das óticas)](demos/ms-odontologia) | São Carlos, Itapevi | site | pronta · 01/10/2026 (versão 2, fotos novas) |
-| [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | pronta · 02/10/2026 (lote 2 · 1ª) |
+| [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | versão final · 15/10/2026 (fotos ampliadas, vídeo Reels) · 1ª versão 02/10/2026 (lote 2 · 1ª) |
 | [Ótica Boutique dos Óculos](demos/boutique-dos-oculos) | Aclimação, São Paulo | site | pronta · 02/10/2026 (lote 2 · 2ª) |
 | [Ótica Haramaki](demos/otica-haramaki) | Vila Perus, São Paulo | site | pronta · 02/10/2026 (lote 2 · 3ª) |
 | [Nova Ótica Bonsucesso](demos/nova-otica-bonsucesso) | Cidade Nova Bonsucesso, Guarulhos | site | pronta · 02/10/2026 (lote 2 · 4ª) |
@@ -140,6 +140,20 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Odontoelis (dentista)](demos/odontoelis) | Guaianases, São Paulo | site | pronta · 09/10/2026 (odonto lote 1 · 12ª) |
 | [Clínica Dra. Michele Renteiro (dentista)](demos/clinica-dra-michele-renteiro) | Centro, Franco da Rocha | site | pronta · 09/10/2026 (odonto lote 1 · 16ª) |
 | [Dra. Milena Ferreira (dentista, harmonização)](demos/dra-milena-ferreira) | Granja Viana, Cotia | site | pronta · 09/10/2026 (pedido do Kaue, fora do lote) |
+| [Clínica Macena Odontologia (dentista)](demos/macena-odontologia) | Vila Romanópolis, Ferraz de Vasconcelos | site | pronta · 14/10/2026 (pedido do Kaue, fora do lote) |
+| [Ótica L'oren](demos/otica-loren) | Jardim São Paulo, São Paulo | site | pronta · 13/10/2026 (lote 6 · 1ª, vídeo no formato do Reels) |
+| [Óticas Manuella](demos/oticas-manuella) | Parque São Domingos, São Paulo | site | pronta · 13/10/2026 (lote 6 · 2ª, vídeo no formato do Reels) |
+| [Ótica Dom Outlet](demos/otica-dom-outlet) | Matriz, Mauá | site | pronta · 13/10/2026 (lote 6 · 3ª, vídeo no formato do Reels) |
+| [Ótica Miríades](demos/otica-miriades) | Lavras, Guarulhos | site | pronta · 13/10/2026 (lote 6 · 4ª, vídeo no formato do Reels) |
+| [Óticas Gaffa](demos/oticas-gaffa) | Bangú, Santo André | site | pronta · 13/10/2026 (lote 6 · 5ª, vídeo no formato do Reels) |
+| [Óticas Inovisão Lapa](demos/oticas-inovisao-lapa) | Lapa, São Paulo | site | pronta · 13/10/2026 (lote 6 · 6ª, vídeo no formato do Reels) |
+| [Ótica Latinos](demos/optica-latinos) | Jardim Santa Teresinha, São Paulo | site | pronta · 13/10/2026 (lote 6 · 7ª, vídeo no formato do Reels) |
+| [Óticas Lumiare](demos/oticas-lumiare) | Matriz, Mauá | site | pronta · 13/10/2026 (lote 6 · 8ª, vídeo no formato do Reels) |
+| [Ótica Indira](demos/otica-indira) | Jardim Popular, São Paulo | site | pronta · 13/10/2026 (lote 6 · 9ª, vídeo no formato do Reels) |
+| [Ótica Beauty Eyes](demos/otica-beauty-eyes) | Santa Paula, São Caetano do Sul | site | pronta · 13/10/2026 (lote 6 · 10ª, vídeo no formato do Reels) |
+| [Óticas Atlanta](demos/oticas-atlanta) | Vila Valparaíso, Santo André | site | pronta · 13/10/2026 (lote 6 · 11ª, vídeo no formato do Reels) |
+| [Óticas Bunny](demos/oticas-bunny) | Centro Empresarial (Jardim São Luís), São Paulo | site | pronta · 13/10/2026 (lote 6 · 12ª, vídeo no formato do Reels) |
+| [Óticas Gaiotto](demos/oticas-gaiotto) | Jardim Munhoz Júnior, Osasco | site | pronta · 13/10/2026 (lote 6 · 13ª, vídeo no formato do Reels) |
 | [Ótica CatGlass](demos/otica-catglass) | Taboão da Serra | site | pronta · 24/09/2026 |
 | [Óticas Perez](demos/oticas-perez) | Mauá | site | pronta · 24/09/2026 |
 | [Franco Óticas](demos/franco-oticas) | Franco da Rocha | site | pronta · 24/09/2026 |
@@ -147,3 +161,43 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Ótica Vip Lapa](demos/otica-vip-lapa) | Lapa, São Paulo | site | pronta · 24/07/2026 |
 | [Óticas F. Dias](demos/oticas-f-dias) | Ferrazópolis, São Bernardo do Campo | artes para Instagram | pronta · 06/08/2026 |
 | [Óticas Supreme](demos/oticas-supreme) | Capão Redondo, São Paulo | artes para Instagram | pronta · 06/08/2026 |
+| [Espaço Valladares (eventos)](demos/espaco-valladares) | Freguesia do Ó, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Casa Rabello (eventos)](demos/casa-rabello) | Jardim Novo Carrão, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara BM (eventos)](demos/chacara-bm) | Rio Grande da Serra | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara da Villa (eventos)](demos/chacara-da-villa) | Vila Balneária, São Bernardo do Campo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Chácara De Boa na Lagoa (eventos)](demos/chacara-de-boa-na-lagoa) | Batistini, São Bernardo do Campo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Mary Carvalho (eventos)](demos/espaco-mary-carvalho) | Vila Aparecida, Suzano | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Thamara D'Valu (eventos)](demos/espaco-thamara-d-valu) | Olaria, Itapecerica da Serra | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Espaço Lira (eventos)](demos/espaco-lira) | Campo Limpo, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Estância Paraíso (eventos)](demos/estancia-paraiso) | Chácara Cuiabá, Itaquaquecetuba | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Jardim Danfesti (eventos)](demos/jardim-danfesti) | Jardim Itapemirim, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Mansão Mikonos (eventos)](demos/mansao-mikonos) | Parque Cruzeiro do Sul, São Paulo | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Recanto Pagliosa (eventos)](demos/recanto-pagliosa) | Vista Alegre, Arujá | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Buffet Terraço Nuevo (eventos)](demos/buffet-terraco-nuevo) | Centro, Diadema | site | pronta · 14/10/2026 (eventos lote 1, vídeo no formato do Reels) |
+| [Buffet Che Belle Giardino (eventos)](demos/che-belle-giardino) | Parque Paulistano, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Spazio Maia Buffet (eventos)](demos/spazio-maia-buffet) | Tatuapé, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Ferreira K Eventos (eventos)](demos/ferreira-k-eventos) | Olaria, Itapecerica da Serra | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Buffet Stallieri (eventos)](demos/buffet-stallieri) | Cidade Jardim Cumbica, Guarulhos | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Victor's Festas e Eventos (eventos)](demos/victors-buffet) | Santa Paula, São Caetano do Sul | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Alto da Serra Eventos (eventos)](demos/alto-da-serra-eventos) | Riacho Grande, São Bernardo do Campo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [MFK Buffet de Eventos (eventos, buffet que vai até a festa)](demos/mfk-buffet-de-eventos) | Jardim Odorico, Mairiporã | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Espaço La Ro (eventos)](demos/espaco-la-ro) | Pirituba, São Paulo | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Mansão dos Lima Buffet (eventos)](demos/mansao-dos-lima-buffet) | Jardim Tranquilidade, Guarulhos | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Estação 840 (eventos)](demos/estacao-840) | Centro, Osasco | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Chácara Lasareff (eventos)](demos/chacara-lasareff) | Vila Lídia, Rio Grande da Serra | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Sítio Francilene (eventos)](demos/sitio-francilene) | Parque São Martinho, Mogi das Cruzes | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Chácara Luz da Natureza (eventos)](demos/chacara-luz-da-natureza) | Parque Mirante de Parnaíba, Santana de Parnaíba | site | pronta · 15/10/2026 (eventos lote 2, vídeo no formato do Reels) |
+| [Espaço Canto da Terra (eventos)](demos/espaco-canto-da-terra) | Santana, Pindamonhangaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Casa Samanta Fonseca (eventos)](demos/casa-samanta-fonseca) | Parque São Martinho, Mogi das Cruzes | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Prime Eventos (eventos)](demos/espaco-prime-eventos) | Chácaras Recreio Alvorada, Hortolândia | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Villa La Feria (eventos)](demos/villa-la-feria) | Rod. Raposo Tavares, Sorocaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço 41 (eventos)](demos/espaco-41) | Jardim Emília, Sorocaba | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Chácara Perracine (eventos)](demos/chacara-perracine) | Vila Perracini, Poá | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Casa Le Charme (eventos)](demos/casa-le-charme) | Jardim Europa, Itapecerica da Serra | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Banquett (eventos)](demos/espaco-banquett) | Ponte Grande, Mogi das Cruzes | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Mirante Biritiba (eventos)](demos/espaco-mirante-biritiba) | Jardim dos Eucaliptos, Biritiba Mirim | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [O Poço Encantado (eventos)](demos/o-poco-encantado) | Jardim Santo Amaro, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Chácara Ouro Verde (eventos e hospedagem)](demos/chacara-ouro-verde) | Soares, Juquitiba | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Espaço Reserva da Ilha (eventos)](demos/espaco-reserva-da-ilha) | Fazenda da Ilha, Embu-Guaçu | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Espaço Império Eventos (eventos)](demos/espaco-imperio-eventos) | Vossoroca, Votorantim | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
+| [Mansão Jaraguá (eventos)](demos/mansao-jaragua) | Vila Clarice, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |

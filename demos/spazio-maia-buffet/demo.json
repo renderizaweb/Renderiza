@@ -1,0 +1,420 @@
+{
+ "pasta": "spazio-maia-buffet",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/spazio-maia-buffet/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/spazio-maia-buffet.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/spazio-maia-buffet/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511991488258",
+ "fone_link": "+5511991488258",
+ "google": {
+  "coords": "-23.5483346,-46.5546911",
+  "fid": "0x94ce5f8696c4a5df:0x53cc80aae5ea0e08",
+  "gid": "/g/11kb_4747p"
+ },
+ "endereco_maps": "R. Antônio de Barros, 2087 - Tatuapé, São Paulo - SP, 03401-000",
+ "google_nota": "4,9",
+ "google_total": "169",
+ "verificado": "2026-10-15",
+ "instagram": "spaziomaiabuffet",
+ "marca": "Spazio Maia",
+ "marca_logo": "Spazio Maia",
+ "marca_completa": "Spazio Maia Buffet",
+ "logo_sub": "Tatuapé · São Paulo",
+ "titulo": "Spazio Maia Buffet | Casamentos e 15 anos no Tatuapé, São Paulo",
+ "descricao": "Spazio Maia Buffet, na R. Antônio de Barros, 2087, no Tatuapé (Zona Leste de São Paulo): salão com escadaria iluminada, buffet da casa e bar de drinks para casamentos, 15 anos, aniversários e eventos corporativos. Nota 4,9 no Google.",
+ "comentario": "Demo Spazio Maia Buffet: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@spaziomaiabuffet, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#1e2235",
+  "acento": "#d8b47a"
+ },
+ "topline": "R. Antônio de Barros, 2087 · Tatuapé, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "O Spazio"
+  ],
+  [
+   "#espaco",
+   "O salão"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet e salão de festas no Tatuapé, Zona Leste",
+  "h1": "Onde sonhos viram <em>celebrações.</em>",
+  "intro": "Casamentos, 15 anos e festas num salão com escadaria iluminada, buffet da casa e bar de drinks.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o salão",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g07.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "alt": "Debutante de vestido rosa descendo a escadaria iluminada"
+ },
+ "endereco": [
+  "R. Antônio de Barros, 2087",
+  "Tatuapé · São Paulo"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Noivados",
+  "Corporativos",
+  "Escadaria iluminada",
+  "Bar de drinks",
+  "Tatuapé"
+ ],
+ "sobre": {
+  "eyebrow": "O Spazio Maia",
+  "h2": "Cada festa, <em>do seu jeito.</em>",
+  "p": [
+   "No Tatuapé, o Spazio Maia recebe casamentos, festas de 15 anos, aniversários e eventos de empresa num salão com escadaria iluminada e decorada com flores, mesa do bolo de madeira, cantinho instagramável e pista para dançar.",
+   "O buffet é da casa, com bar de drinks personalizado. Nas avaliações, as famílias falam da comida, do cuidado da equipe e de quem atende, como a Gi, o Felipe e a Fabíola."
+  ],
+  "stats": [
+   [
+    "169",
+    "avaliações no Google"
+   ],
+   [
+    "4,4 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 50
+  },
+  "alt": "Escadaria iluminada do salão, com flores no corrimão",
+  "pol": {
+   "id": 0,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Aniversariante sorrindo diante da mesa do bolo",
+  "pol_cap": "100 anos"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O salão",
+   "h2": "Pronto para <em>a sua festa.</em>",
+   "p": "A fachada, a mesa do bolo montada a cada festa e os detalhes do salão. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do salão do Spazio Maia",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g00.jpg"
+     },
+     "alt": "Fachada do Spazio Maia Buffet iluminada à noite"
+    },
+    {
+     "foto": {
+      "id": 39
+     },
+     "alt": "Mesa do bolo de madeira com arranjos azuis e brancos"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Mesa de doces com flores diante da cortina de luzes"
+    },
+    {
+     "foto": {
+      "id": 2
+     },
+     "alt": "Mesa do bolo com arranjos de flores e lustre"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g01.jpg"
+     },
+     "alt": "Mesa de doces com flores rosa e cortina de luzes"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Decoração em azul com poltrona branca"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Mesa do bolo de madeira com flores claras"
+    },
+    {
+     "foto": {
+      "id": 46
+     },
+     "alt": "Mesa de aniversário com o número 50 iluminado"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e aniversários de quem já comemorou no Spazio Maia.",
+   "rotulo": "Festas que aconteceram no Spazio Maia",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g04.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos sorrindo ao cortar o bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 13,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Debutante de vestido azul entre luzes",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 25,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivo beijando a noiva no rosto",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 52,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal sorrindo e aplaudindo na festa",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 32,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido azul-claro diante da mesa do bolo",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 36,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Aniversariante diante da mesa decorada com balões",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "id": 40,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Aniversariante sorrindo ao lado do número 18 iluminado",
+     "cap": "18 anos"
+    },
+    {
+     "foto": {
+      "id": 26,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Debutante de vestido verde diante das flores",
+     "cap": "15 anos"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o Spazio <em>oferece.</em>",
+  "p": "O que o próprio Spazio Maia mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão com escadaria iluminada"
+   ],
+   [
+    "cozinha",
+    "Buffet da casa"
+   ],
+   [
+    "bar",
+    "Bar de drinks personalizado"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia no salão"
+   ],
+   [
+    "estrela",
+    "Cantinho instagramável"
+   ],
+   [
+    "pessoas",
+    "Equipe no dia da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão na R. Antônio de Barros, 2087",
+   "Monte o cardápio e o bar de drinks com a equipe",
+   "No dia, a equipe cuida de tudo do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce5f8696c4a5df_0x53cc80aae5ea0e08/g02.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Noivos no salão, diante da cortina de luzes"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Andrielle Priscila",
+   "tag": "Casamento",
+   "trecho": "Realizei meu casamento no Spazio Maia Buffet, e só tenho elogios a fazer <3 A Gi e a equipe são simplesmente TUDO, os convidados também só elogiaram hahah."
+  },
+  {
+   "nome": "Rosa Lucia Jorge",
+   "tag": "Equipe",
+   "trecho": "Recomendo, são mais que profissionais , uma equipe humanizada, nos sentimos em casa, nossos convidados elogiaram."
+  },
+  {
+   "nome": "Mirian Pereira",
+   "tag": "18 anos",
+   "trecho": "O aniversário da minha filha de 18 anos foi maravilhoso,lugar lindo, aconchegante, comida deliciosa,e equipe maravilhosa"
+  },
+  {
+   "nome": "Perla Paes",
+   "tag": "50 anos",
+   "trecho": "Fiz meu aniversário de 50 anos no dia 22/03/2026 é foi maravilhoso, tudooooo Felipe e Fabíola são maravilhosos, prestativos, educados e muuuuito profissionais."
+  },
+  {
+   "nome": "Michele Campos",
+   "tag": "Casamento",
+   "trecho": "Serviço de excelente qualidade, extremamente atenciosos. Fizeram de meu casamento uma noite inesquecível, um conto de fadas, me fizeram sentir uma princesa."
+  },
+  {
+   "nome": "Natália B",
+   "tag": "Atenção"
+  }
+ ],
+ "insta": {
+  "seguidores": "4,4 mil seguidores",
+  "p": "Debutantes, casamentos e cada detalhe das festas.",
+  "foto": {
+   "id": 14
+  },
+  "alt": "Debutante de vestido azul sob as luzes",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Spazio Maia.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Noivado",
+   "Evento de empresa",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Spazio Maia e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Tatuapé.</em>",
+  "endereco": [
+   "R. Antônio de Barros, 2087 · Tatuapé",
+   "São Paulo, SP · CEP 03401-000"
+  ],
+  "telefone": "(11) 99148-8258",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Onde sonhos viram celebrações.",
+ "mensagem": "Olá! Vim pelo site do Spazio Maia e queria um orçamento.",
+ "google_nome": "Spazio Maia Buffet",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99148-8258 é o telefone do Perfil da Empresa no Google",
+  "site": "o spaziomaiabuffet.com.br, que o Google mostra, não existe mais (gancho: \"o site que aparece no Google caiu\"). Tem página no casamentos.com.br.",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Salão no Tatuapé com escadaria iluminada, buffet da casa e bar de drinks; casamentos, 15 anos (muitos), aniversários e corporativos.",
+   "Quem atende: a Gi, o Felipe e a Fabíola (avaliações). A dona aparece nos posts, mas não confirmei o nome dela."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com a debutante na escadaria, o Spazio (escadaria, buffet e bar), carrossel do salão (8, com 2 do Google), festas reais (8), estrutura (6 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: azul-noite e dourado. Fonte Lora."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (fachada, casamento, debutante na escadaria).",
+   "Ficaram de fora: as artes, as fotos com nome de cliente em destaque e as de baixa nitidez."
+  ],
+  "conferir": [
+   "A assessoria de casamento das legendas é parceira (@principioassessoria), e o DJ também (@djpaulinhooriginal); a demo não cita os dois.",
+   "Capacidade: não confirmei (a demo não cita).",
+   "Horário do Google: segunda a sábado, 9h às 18h."
+  ]
+ }
+}

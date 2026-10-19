@@ -1,0 +1,136 @@
+{
+ "demo": "jardim-danfesti",
+ "formato": "reels",
+ "marca": "Jardim Danfesti",
+ "local": "Jardim Itapemirim · São Paulo",
+ "cores": {
+  "fundo": "#1d2a1f",
+  "fundo2": "#121a13",
+  "acento": "#e9b949",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-07T09:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site do",
+  "nome": [
+   "Jardim",
+   "Danfesti"
+  ],
+  "frase": "Sua festa no jardim.",
+  "fotos": [
+   ".hero-photo img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(3) img",
+   "#festas-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara do Danfesti.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura um lugar para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece o Jardim Danfesti *e quem recebe.*",
+   "sub": "A Suelen e o Danilo, donos do espaço, que cuidam de cada detalhe."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê o jardim e o lounge *antes da visita.*",
+   "sub": "De dia e à noite, com mesas de madeira e luzes."
+  },
+  {
+   "rolar": "#festas-track",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#festas-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E as festas que *já aconteceram ali.*",
+   "sub": "Aniversários, chás e mini casamentos, para até 50 pessoas."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 133 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}

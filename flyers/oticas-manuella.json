@@ -1,0 +1,29 @@
+{
+ "marca": "Óticas Manuella",
+ "local": "Parque São Domingos · São Paulo",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2a1214",
+  "fundo2": "#1a0b0c",
+  "acento": "#e64f4f",
+  "tinta_acento": "#ffffff",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/oticasmanuellaoficial/Instagram_files/472747149_18480512524003680_8890248681449565750_n.jpg",
+  "pos": "50% 40%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "341"
+ },
+ "titulo": "Um novo jeito <em>de ver o mundo.</em>",
+ "texto": "Armações escolhidas com visagismo e lentes ZEISS e Varilux, no Parque São Domingos.",
+ "whatsapp": "(11) 96919-0599",
+ "endereco": "Rua Emílio Colella, 89 · São Paulo",
+ "instagram": "@oticasmanuellaoficial"
+}

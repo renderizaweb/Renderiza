@@ -1,0 +1,122 @@
+{
+ "pasta": "macena-odontologia",
+ "marca": "Clínica Macena",
+ "marca_sub": "Odontologia Especializada",
+ "marca_completa": "Clínica Macena Odontologia Especializada",
+ "titulo": "Clínica Macena Odontologia · Ferraz de Vasconcelos",
+ "descricao": "Clínica Macena Odontologia Especializada, da Dra. Emily Macena (CRO-SP 141.118), na Av. Brasil em Ferraz de Vasconcelos: alinhadores invisíveis, aparelho, facetas e implantes, com atendimento acolhedor.",
+ "comentario": "Demo Clínica Macena: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram @macenaodonto (página salva pelo Kaue em 14/10/2026); avaliações e horário do Google.",
+ "fontes": {"titulo": "Cormorant Garamond", "texto": "Manrope"},
+ "cores": {"primaria": "#a07a45", "primaria_escura": "#3b2d1f", "noite": "#221a12", "tinta": "#221a15", "clara": "#f2eadd", "clara2": "#faf6ef", "creme": "#f5eee3", "papel": "#fffdf9", "destaque": "#c9a15f", "ouro": "#e3c990"},
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/macena/inv/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/macena/google.json",
+ "google_nota": "5,0",
+ "google_total": "249",
+ "google_nome": "Clínica Macena Odontologia Especializada",
+ "endereco_maps": "Av. Brasil, 1856 - Vila Romanópolis, Ferraz de Vasconcelos - SP, 08529-310",
+ "maps_url": "https://www.google.com/maps?cid=9678853855800934474",
+ "whatsapp": "5511986854884",
+ "mensagem": "Olá! Vim pelo site da Clínica Macena e gostaria de agendar uma avaliação.",
+ "instagram": "macenaodonto",
+ "verificado": "2026-10-14",
+ "logo": {"monograma": "EM"},
+ "cta": "Agendar avaliação",
+ "nav": [["#dentista", "A doutora"], ["#clinica", "A clínica"], ["#alinhadores", "Alinhadores"], ["#tratamentos", "Tratamentos"], ["#depoimentos", "Avaliações"], ["#contato", "Contato"]],
+ "ordem": ["hero", "faixa", "dentista", "carrossel:clinica", "experiencia", "carrossel:alinhadores", "tratamentos", "depoimentos", "contato"],
+ "hero": {
+  "eyebrow": "Odontologia em Ferraz de Vasconcelos",
+  "h1": "Seu sorriso, cuidado",
+  "h1_em": "com carinho e técnica.",
+  "lead": "Alinhadores invisíveis, aparelho, facetas e implantes com a Dra. Emily Macena e equipe, numa clínica nova na Av. Brasil, pensada para você se sentir acolhido do começo ao fim.",
+  "cta": "Quero agendar minha avaliação",
+  "link": ["#clinica", "Conhecer a clínica"],
+  "provas": [["{nota}", ""], ["Clínica nova", "na Av. Brasil, desde agosto de 2025"], ["Segunda a sábado", "atendimento com hora marcada"]],
+  "foto": {"id": 2, "c": [0.5, 0.22]},
+  "alt": "Dra. Emily Macena sorrindo, de branco, em ensaio profissional",
+  "nome": "Dra. Emily Macena",
+  "registro": "CRO-SP 141.118 · CIRURGIÃ-DENTISTA",
+  "chip": "Alinhadores invisíveis"
+ },
+ "faixa": ["Atendimento acolhedor", "Clínica nova em Ferraz", "Segunda a sábado"],
+ "dentista": {
+  "eyebrow": "Quem cuida do seu sorriso",
+  "h2": "Dra. Emily Macena,",
+  "h2_em": "um sonho que virou clínica.",
+  "p": ["Cirurgiã-dentista (CRO-SP 141.118), a Dra. Emily abriu o primeiro consultório em Ferraz de Vasconcelos com muito amor e vontade de fazer a diferença. Desde o começo, ela sonhava com um lugar que representasse mais do que uma clínica.", "Em agosto de 2025 o sonho ganhou endereço: a Clínica Macena Odontologia Especializada, na Av. Brasil, com uma equipe que cuida de cada detalhe, da recepção ao fim do tratamento."],
+  "citacao": "Desde o atendimento na recepção até a consulta, fui tratada com muita atenção, respeito e profissionalismo.",
+  "citacao_fonte": "Bianca, paciente (avaliação no Google)",
+  "foto": {"id": 13, "c": [0.5, 0.25]},
+  "alt": "Dra. Emily Macena sentada, de branco, em ensaio profissional",
+  "selo": ["CRO-SP 141.118", "Cirurgiã-dentista"],
+  "tira": [
+   {"foto": {"id": 40, "c": [0.5, 0.3]}, "alt": "Dra. Emily Macena no sofá da clínica, diante do logo"},
+   {"foto": {"id": 8, "c": [0.5, 0.25]}, "alt": "Dra. Emily Macena sorrindo, de preto"},
+   {"foto": {"id": 3, "c": [0.5, 0.25]}, "alt": "Dra. Emily Macena em ensaio em preto e branco"}
+  ]
+ },
+ "carrosseis": [
+  {"id": "clinica", "tipo": "galeria", "fundo": "creme", "eyebrow": "A clínica", "h2": "Do canteiro de obras", "h2_em": "a um espaço lindo.", "p": "A Clínica Macena abriu em agosto de 2025 na Av. Brasil, em Ferraz: recepção aconchegante, consultórios novos e uma equipe pronta para receber você.", "rotulo": "Clínica Macena",
+   "itens": [
+    {"foto": {"arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/macena/inv/perfil.jpg", "c": [0.5, 0.55]}, "alt": "Equipe da Clínica Macena reunida diante da parede iluminada", "rotulo": "Equipe", "titulo": "Quem recebe você"},
+    {"foto": {"id": 23, "c": [0.5, 0.4]}, "alt": "Parede da recepção com o logo dourado da Macena", "rotulo": "Recepção", "titulo": "A nova casa da Macena"},
+    {"foto": {"id": 28, "c": [0.5, 0.55]}, "alt": "Recepção clara com poltronas e a Dra. Emily sentada", "rotulo": "Recepção", "titulo": "Para chegar com calma"},
+    {"foto": {"id": 22, "c": [0.5, 0.5]}, "alt": "Consultório com cadeiras odontológicas novas", "rotulo": "Consultório", "titulo": "Pronto para o seu atendimento"},
+    {"foto": {"id": 20, "c": [0.5, 0.4]}, "alt": "Dra. Emily cumprimentando um convidado na inauguração da clínica", "rotulo": "Inauguração", "titulo": "Agosto de 2025"}
+   ]},
+  {"id": "alinhadores", "tipo": "galeria", "fundo": "clara", "eyebrow": "Alinhadores invisíveis", "h2": "Um sorriso novo", "h2_em": "a caminho.", "p": "Do planejamento à entrega do kit, tudo é pensado para que cada paciente se sinta único desde o primeiro momento.", "rotulo": "Alinhadores",
+   "itens": [
+    {"foto": {"id": 35, "c": [0.5, 0.4]}, "alt": "Dra. Emily Macena segurando a caixa de um kit de alinhadores", "rotulo": "Entrega do kit", "titulo": "O começo da transformação"},
+    {"foto": {"id": 33, "c": [0.5, 0.3]}, "alt": "Dra. Emily Macena mostrando um alinhador transparente", "rotulo": "Alinhador", "titulo": "Discreto e confortável"},
+    {"foto": {"id": 10, "c": [0.5, 0.3]}, "alt": "Paciente sorrindo ao abrir o kit de alinhadores na cadeira", "rotulo": "Paciente", "titulo": "Dia de instalação"},
+    {"foto": {"id": 26, "c": [0.5, 0.3]}, "alt": "Paciente sorrindo com o kit de alinhadores aberto", "rotulo": "Paciente", "titulo": "Orientação na entrega"},
+    {"foto": {"id": 15, "c": [0.5, 0.3]}, "alt": "Paciente na cadeira recebendo a sacola do kit", "rotulo": "Paciente", "titulo": "Cada paciente é único"}
+   ]}
+ ],
+ "experiencia": {
+  "eyebrow": "Sem medo de dentista",
+  "h2": "Um atendimento",
+  "h2_em": "que começa antes da cadeira.",
+  "lead": "O cuidado começa antes mesmo da sua chegada: cada detalhe é preparado para você ter uma experiência tranquila, segura e acolhedora. Na consulta, tudo é explicado com calma.",
+  "pontos": ["Tudo explicado com calma", "Ambiente limpo e acolhedor", "Café e água na recepção"],
+  "foto": {"id": 1, "c": [0.5, 0.3]},
+  "alt": "Dra. Emily Macena sorrindo, de branco, com fundo escuro",
+  "legenda": "Aqui, cada paciente é único."
+ },
+ "tratamentos": {
+  "eyebrow": "Tratamentos",
+  "h2": "Do alinhamento",
+  "h2_em": "ao implante.",
+  "itens": [
+   ["Alinhadores invisíveis", "Discretos e confortáveis, com planejamento do início ao fim e a entrega do kit na clínica."],
+   ["Aparelho ortodôntico", "Acompanhamento do começo do tratamento até a contenção estética, quando o aparelho sai."],
+   ["Facetas em resina", "Mais harmonia para o sorriso em poucas sessões, com resultado natural."],
+   ["Implantes", "Com o Dr. Kevin, implantodontista da clínica, para devolver função e confiança ao sorriso."]
+  ],
+  "mais": [["Também na clínica", ["Harmonização orofacial", "Toxina botulínica", "Preenchimento labial"]], ["Onde", ["Vila Romanópolis", "Ferraz de Vasconcelos"]]],
+  "cta": "Conversar sobre meu caso"
+ },
+ "depoimentos": {
+  "eyebrow": "Relatos de pacientes",
+  "h2": "Quem confia",
+  "h2_em": "recomenda.",
+  "itens": [
+   {"nome": "Bianca Santos", "nome_exibido": "Bianca", "trecho": "Tive uma excelente experiência no Consultório Macena. Desde o atendimento na recepção até a consulta, fui tratada com muita atenção, respeito e profissionalismo."},
+   {"nome": "Priscila Araújo", "nome_exibido": "Priscila", "trecho": "Minha experiência superou expectativas, fui bem atendida desde a recepção, ótimas Dra. sem contar o espaço, aconchegante que me deixou tranquila, confiante"},
+   {"nome": "Luiz Henrique", "nome_exibido": "Luiz", "trecho": "Atendimento atencioso, clínica super limpa e organizada. O(a) Dr(a) explica tudo com muita calma e me deixou totalmente seguro durante o procedimento."},
+   {"nome": "Milena Oliveira", "nome_exibido": "Milena", "trecho": "lugar muito bonito e aconchegante"},
+   {"nome": "Raila Almeida", "nome_exibido": "Raila", "texto": "Atendimento perfeito! Recepção do começo ao fim. Profissionais super atenciosos, recomendo bastante."}
+  ]
+ },
+ "contato": {
+  "eyebrow": "Seu próximo passo",
+  "h2": "Vamos cuidar",
+  "h2_em": "do seu sorriso?",
+  "lead": "Agende sua avaliação pelo WhatsApp e venha conhecer a clínica na Av. Brasil, em Ferraz de Vasconcelos.",
+  "foto": {"id": 4, "c": [0.5, 0.25]},
+  "alt": "Dra. Emily Macena sentada, de preto, em ensaio profissional",
+  "endereco": ["Av. Brasil, 1856", "Vila Romanópolis · Ferraz de Vasconcelos, SP · 08529-310"],
+  "whatsapp_texto": "(11) 98685-4884",
+  "insta_rotulo": "Sorrisos, dicas e bastidores"
+ },
+ "rodape": {"registro": "Clínica Macena Odontologia Especializada · Dra. Emily Macena, CRO-SP 141.118", "esq": "Odontologia · Vila Romanópolis, Ferraz de Vasconcelos", "dir": "Segunda a sábado, com hora marcada"}
+}

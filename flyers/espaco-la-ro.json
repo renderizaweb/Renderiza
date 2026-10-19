@@ -1,0 +1,29 @@
+{
+ "marca": "Espaço La Ro",
+ "local": "Pirituba · São Paulo",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#2e2a21",
+  "fundo2": "#1c1a14",
+  "acento": "#e3a857",
+  "tinta_acento": "#1c1a14",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/drive/espacolaro/Instagram_files/619411592_17922203511230940_4670989176919543138_n.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "106"
+ },
+ "titulo": "Aqui a sua festa<br><em>acontece.</em>",
+ "texto": "Um espaço intimista e cheio de flores, com buffet, decoração e DJ, em Pirituba.",
+ "whatsapp": "(11) 91553-7335",
+ "cta": "Consulte sua data",
+ "endereco": "Av. Com. Feiz Zarzur, 659 · Pirituba",
+ "instagram": "@espacolaro"
+}

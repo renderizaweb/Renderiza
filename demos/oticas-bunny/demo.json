@@ -1,0 +1,165 @@
+{
+ "pasta": "oticas-bunny",
+ "marca": "Óticas Bunny",
+ "marca_logo": "Óticas Bunny",
+ "marca_completa": "Óticas Bunny",
+ "logo_sub": "Centro Empresarial · São Paulo",
+ "titulo": "Óticas Bunny | Centro Empresarial de São Paulo, Jardim São Luís",
+ "descricao": "Óticas Bunny, no Centro Empresarial de São Paulo (Av. Maria Coelho Aguiar, 215, Bloco G, loja 22), no Jardim São Luís: armações e solares de marcas conhecidas, atendimento a domicílio e pós-venda. Nota 5,0 no Google.",
+ "comentario": "Demo Óticas Bunny: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticas.bunny) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#161616",
+  "acento": "#d8c3a0",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-bunny/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/oticas-bunny.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/oticas-bunny/perfil.jpg",
+  "box": [0, 0, 1, 1]
+ },
+ "topline": "Centro Empresarial de São Paulo · Bloco G, loja 22",
+ "nav": [
+  ["#sobre", "A ótica"],
+  ["#armacoes", "Vitrine"],
+  ["#estilos", "Estilos"],
+  ["#atendimento", "Atendimento"],
+  ["#depoimentos", "Avaliações"],
+  ["#visite", "Como chegar"]
+ ],
+ "cta_topo": "Orçamento no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Centro Empresarial de São Paulo",
+  "h1": "Óculos novos <em>sem sair do trabalho.</em>",
+  "intro": "Na loja do Centro Empresarial ou no seu endereço: armações e solares das marcas que você conhece, com quem acompanha cada escolha. Bloco G, loja 22.",
+  "selo": "Atendimento a domicílio pelo WhatsApp",
+  "link": "Ver a vitrine",
+  "foto": { "id": 34, "c": [0.5, 0.35] },
+  "alt": "Moça de cabelo cacheado com óculos de sol e cordão azul, ao ar livre"
+ },
+ "endereco": ["Av. Maria Coelho Aguiar, 215 · Bl. G, loja 22", "Jardim São Luís · São Paulo"],
+ "dias_curto": "seg a sex",
+ "marquee": ["Óculos de grau", "Óculos de sol", "Atendimento a domicílio", "Marcas conhecidas", "Pós-venda", "Centro Empresarial"],
+ "sobre": {
+  "eyebrow": "A Bunny",
+  "h2": "Atendimento que <em>acompanha cada escolha.</em>",
+  "p": [
+   "No Centro Empresarial de São Paulo, no Jardim São Luís, a Óticas Bunny atende quem trabalha por perto e quem prefere ser atendido em casa: é só chamar no WhatsApp.",
+   "As meninas acompanham todo o processo, explicam cada detalhe e cuidam do pós-venda, da garantia ao reparo. Tem cliente desde 2024 que já trouxe os amigos."
+  ],
+  "stats": [["{nota}", "nota no Google"], ["30", "avaliações no Google"]],
+  "foto": { "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/oticas-bunny/google/g00.jpg", "box": [0, 0.17, 1, 0.85] },
+  "alt": "A loja da Óticas Bunny no Centro Empresarial, com o letreiro e as vitrines iluminadas",
+  "pol": { "id": 21, "c": [0.5, 0.5] },
+  "pol_alt": "Armação tartaruga azul no expositor da loja",
+  "pol_cap": "Na vitrine"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Das marcas que <em>você conhece.</em>",
+   "p": "Armações de grau e solares para todos os estilos. Venha provar ou peça fotos dos modelos pelo WhatsApp.",
+   "rotulo": "Óculos da Óticas Bunny",
+   "formato": "quadrado",
+   "itens": [
+    { "foto": { "id": 23 }, "alt": "Óculos de sol tartaruga claro sobre a caixa da coleção" },
+    { "foto": { "id": 26 }, "alt": "Óculos de sol azul degradê no expositor" },
+    { "foto": { "id": 27 }, "alt": "Armação preta e rosa sobre o fundo rosa" },
+    { "foto": { "id": 29 }, "alt": "Óculos de sol preto sobre o estojo" },
+    { "foto": { "id": 33, "c": [0.5, 0.45] }, "alt": "Armação de acetato caramelo, vista de perto" },
+    { "foto": { "id": 35 }, "alt": "Armação azul de acetato sobre o balcão" },
+    { "foto": { "id": 5 }, "alt": "Óculos de sol de lente espelhada azul na mão" },
+    { "foto": { "id": 14 }, "alt": "Óculos de sol tartaruga sobre o mármore" },
+    { "foto": { "id": 22 }, "alt": "Armações de grau na mão, sobre o mármore" },
+    { "foto": { "id": 24 }, "alt": "Expositor de solares com cordões coloridos" }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Venha provar no Centro Empresarial ou peça para a gente ir até você.",
+  "grau": {
+   "titulo": "Armações com personalidade",
+   "rotulo": "01 / GRAU",
+   "foto": { "id": 28, "c": [0.5, 0.4] },
+   "alt": "Moça de cabelo cacheado com óculos de grau marmorizado",
+   "texto": "Marmorizadas, coloridas e diferentes do comum."
+  },
+  "solar": {
+   "titulo": "Solares",
+   "rotulo": "02 / SOL",
+   "foto": { "id": 31, "c": [0.5, 0.4] },
+   "alt": "Moça de cabelo cacheado com óculos de sol claro, ao ar livre",
+   "texto": "Das marcas que você conhece, para provar com calma."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Na loja <em>ou na sua casa.</em>",
+  "passos": [
+   "Chame no WhatsApp ou venha à loja, no Centro Empresarial de São Paulo",
+   "Prefere em casa? O atendimento vai até você",
+   "Escolha com calma, com a explicação de cada detalhe",
+   "Pós-venda de verdade: garantia, ajustes e reparos"
+  ],
+  "botao": "Falar no WhatsApp",
+  "foto": { "id": 18, "c": [0.5, 0.5] },
+  "alt": "Armações de metal douradas e pretas no expositor da loja",
+  "pol": { "id": 36, "c": [0.5, 0.4] },
+  "pol_alt": "Moça de perfil provando óculos de grau",
+  "pol_cap": "Provador",
+  "card": ["A domicílio", "Chame no WhatsApp."]
+ },
+ "avaliacoes_secao": { "h2": "Quem já <em>virou cliente.</em>" },
+ "avaliacoes": [
+  { "nome": "Eduardo Rodrigues", "tag": "Desde 2024", "trecho": "Sou cliente da Óticas Bunny desde 2024 e sempre tive experiências muito positivas. Além de confiar na qualidade dos produtos, o atendimento é realmente diferenciado." },
+  { "nome": "Rosângela Carvalho", "tag": "As meninas", "trecho": "O atendimento foi perfeito! Amei as meninas! Me acompanharam durante todo o processo de escolha dos óculos com muito detalhamento das informações." },
+  { "nome": "Adriana Lopes", "tag": "Pós-venda", "trecho": "Atendimento exemplar, pós venda com a mesma qualidade, comportamento raro hoje em dia." },
+  { "nome": "Miriam Carmo", "tag": "Acolhida", "trecho": "Você se sente acolhida com um atendimento perfeito, acolhedor, carinhoso e preço justo." },
+  { "nome": "Bia Miguel", "tag": "Do jeitinho", "trecho": "Eu amei o atendimento elas são maravilhosas O meu óculos ficou perfeito do jeitinho q elas falaram" }
+ ],
+ "instagram": "oticas.bunny",
+ "insta": {
+  "seguidores": "1,1 mil seguidores",
+  "p": "Coleções novas, solares e clientes de óculos novo.",
+  "foto": { "id": 36, "c": [0.5, 0.4] },
+  "alt": "Moça de perfil com óculos de grau"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Centro Empresarial.</em>",
+  "endereco": ["Av. Maria Coelho Aguiar, 215 · Bloco G, loja 22", "Jardim São Luís, São Paulo, SP · CEP 05804-900"],
+  "telefone": "(11) 95811-3814",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Óculos novos sem sair do trabalho.",
+ "mensagem": "Olá! Vim pelo site da Óticas Bunny e queria um orçamento.",
+ "whatsapp": "5511958113814",
+ "fone_link": "+5511958113814",
+ "google": { "coords": "-23.6487404,-46.7287951", "fid": "0x94ce5128a9881e01:0x272e130a8cbd2561", "gid": "/g/11lzpb06x7" },
+ "google_nome": "Óticas Bunny",
+ "endereco_maps": "Av. Maria Coelho Aguiar, 215 - Bl G, loja 22 - Jardim São Luís, São Paulo - SP, 05804-900",
+ "google_nota": "5,0",
+ "google_total": "30",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 95811-3814 é o telefone do Perfil da Empresa no Google e o link wa.me da bio",
+  "site": "não tem (o Google aponta oticasbunny.com, que não existe)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1,2 mil seguidores, 30 avaliações. A loja fica dentro do Centro Empresarial de São Paulo (fecha aos sábados). Bio: atendimento a domicílio pelo WhatsApp. Destaques com marcas (Ray-Ban, Vogue, Evoke, Bulget, Atitude e outras). As avaliações falam em \"as meninas\" e pós-venda."
+  ],
+  "demo": [
+   "Preto e champanhe, com o coelho do logo no topo, títulos em Fraunces.",
+   "Capa \"Óculos novos sem sair do trabalho.\" (a loja fica no Centro Empresarial e atende a domicílio) com a moça de óculos de sol; a loja (Google) na história.",
+   "Carrossel de vitrine (10, fotos de produto da loja), armações com personalidade e solares, atendimento na loja ou em casa, 5 avaliações de 5 estrelas (nota 5,0 · 30)."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): fotos de produto na loja e a moça de cabelo cacheado. Google: a loja no Centro Empresarial.",
+   "Ficaram de fora: as fotos de campanha das marcas (modelos de estúdio, Sabrina Sato, Bulget, Atitude), artes com texto e Páscoa/Barbie."
+  ],
+  "conferir": [
+   "Quem é a moça de cabelo cacheado (dona, funcionária ou modelo?). Dono: não confirmei.",
+   "Aos sábados a loja fecha (Centro Empresarial)."
+  ]
+ }
+}

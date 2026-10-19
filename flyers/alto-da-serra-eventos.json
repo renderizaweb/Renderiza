@@ -1,0 +1,29 @@
+{
+ "marca": "Alto da Serra Eventos",
+ "local": "Riacho Grande · SBC",
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1b3326",
+  "fundo2": "#101f17",
+  "acento": "#e8a87c",
+  "tinta_acento": "#101f17",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce15ed3e09c701_0xbbbea09d4f8090f1/g10.jpg",
+  "pos": "50% 35%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "110"
+ },
+ "titulo": "O cenário perfeito<br><em>no meio da mata.</em>",
+ "texto": "Piscina com cascata, salão envidraçado e cerimônia no gramado, no Riacho Grande.",
+ "whatsapp": "(11) 93055-0353",
+ "cta": "Consulte sua data",
+ "endereco": "R. Antônio Vertamatti, 77 · SBC",
+ "instagram": "@altodaserraeventoss"
+}

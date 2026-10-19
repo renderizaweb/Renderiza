@@ -1,0 +1,380 @@
+{
+ "pasta": "espaco-banquett",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-banquett/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/google/espaco-banquett.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev3/inv/espaco-banquett/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511973152874",
+ "fone_link": "+5511973152874",
+ "google": {
+  "coords": "-23.5119295,-46.2055494",
+  "fid": "0x94cdd72073237bed:0x91b18450c96f868d",
+  "gid": "/g/11t8g7v6v2"
+ },
+ "endereco_maps": "R. Antônio Gonçalves, 38 - Jardim Pte. Grande, Mogi das Cruzes - SP, 08770-440",
+ "google_nota": "5,0",
+ "google_total": "45",
+ "verificado": "2026-10-16",
+ "instagram": "espaco.banquett",
+ "estilo": "gala",
+ "marca": "Espaço Banquett",
+ "marca_logo": "Espaço Banquett",
+ "marca_completa": "Espaço Banquett · Eventos",
+ "logo_sub": "Mogi das Cruzes · SP",
+ "titulo": "Espaço Banquett | Salão de festas com buffet em Mogi das Cruzes",
+ "descricao": "Espaço Banquett, na R. Antônio Gonçalves, 38, na Ponte Grande, em Mogi das Cruzes (SP): salão aconchegante com mobília moderna, para até 85 convidados, com o Banquett Buffet. Aniversários, casamentos intimistas e eventos de empresa. Nota 5,0 no Google.",
+ "comentario": "Demo Espaço Banquett: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@espaco.banquett, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 16/10/2026.",
+ "fonte": "Playfair Display",
+ "cores": {
+  "escuro": "#1b2420",
+  "acento": "#d9925b"
+ },
+ "topline": "R. Antônio Gonçalves, 38 · Ponte Grande, Mogi das Cruzes",
+ "nav": [
+  [
+   "#sobre",
+   "Quem recebe"
+  ],
+  [
+   "#espaco",
+   "O salão"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Salão de festas em Mogi das Cruzes",
+  "h1": "Aconchego de casa, <em>festa de salão.</em>",
+  "intro": "Aniversários, casamentos intimistas e eventos de empresa para até 85 convidados, com mobília moderna e o buffet da casa.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o salão",
+  "alvo": "espaco",
+  "foto": {
+   "id": 27,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Salão iluminado com mesas de madeira, plantas e painel laranja ao fundo"
+ },
+ "endereco": [
+  "R. Antônio Gonçalves, 38",
+  "Mogi das Cruzes · SP"
+ ],
+ "dias_curto": "seg. a sex.",
+ "marquee": [
+  "Aniversários",
+  "Casamentos intimistas",
+  "Reuniões",
+  "Eventos de empresa",
+  "Buffet da casa",
+  "Até 85 convidados",
+  "Mogi das Cruzes"
+ ],
+ "sobre": {
+  "eyebrow": "Quem recebe",
+  "h2": "Marcela e Paulinho <em>recebem como em casa.</em>",
+  "p": [
+   "Na Ponte Grande, em Mogi das Cruzes, o Espaço Banquett é um salão aconchegante, com mobília moderna, parede de boiserie verde, tijolinhos e lounge na entrada, para até 85 convidados.",
+   "O espaço trabalha com o Banquett Buffet, que planeja o cardápio e pode cuidar também da decoração. Quem recebe são os proprietários, Marcela e Paulinho: numa das avaliações, quem fez a festa conta que se sentiu em casa."
+  ],
+  "stats": [
+   [
+    "{nota}",
+    "no Google, em 45 avaliações"
+   ],
+   [
+    "85",
+    "convidados, no máximo"
+   ]
+  ],
+  "foto": {
+   "id": 35,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Lounge de entrada com sofás, estante de plantas e a fachada de vidro",
+  "pol": {
+   "id": 1,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "pol_alt": "Bolo branco com o logo do Banquett diante da parede verde",
+  "pol_cap": "Inauguração"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O salão",
+   "h2": "Moderno <em>e aconchegante.</em>",
+   "p": "O lounge, o salão, as mesas e os cantos para foto. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do salão do Espaço Banquett",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 33
+     },
+     "alt": "Lounge com sofá de couro, poltronas e espelhos redondos"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Salão com mesas, plantas e o painel laranja"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cdd72073237bed_0x91b18450c96f868d/g01.jpg"
+     },
+     "alt": "Banco estofado ao longo da parede com mesas postas"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Sofá com almofadas azuis diante da parede de tijolinhos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cdd72073237bed_0x91b18450c96f868d/g02.jpg"
+     },
+     "alt": "Mesa redonda posta com toalhinhas de renda e taças"
+    },
+    {
+     "foto": {
+      "id": 23
+     },
+     "alt": "Canto com mesas e cadeiras diante da parede de madeira"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já foi servido <em>aqui.</em>",
+   "p": "O coquetel do buffet da casa, doces e drinks de festas que já aconteceram no Banquett.",
+   "rotulo": "Buffet e festas do Espaço Banquett",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Mesa de doces com arranjo de flores laranja diante da parede verde",
+     "cap": "Doces"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Bolo branco com flores e plantas",
+     "cap": "Bolo"
+    },
+    {
+     "foto": {
+      "id": 10
+     },
+     "alt": "Ceviche servido em taças com chips de banana",
+     "cap": "Coquetel"
+    },
+    {
+     "foto": {
+      "id": 18
+     },
+     "alt": "Tâmaras recheadas com gorgonzola, nozes e mel",
+     "cap": "Coquetel"
+    },
+    {
+     "foto": {
+      "id": 4
+     },
+     "alt": "Dois drinks coloridos com alecrim",
+     "cap": "Drinks"
+    },
+    {
+     "foto": {
+      "id": 0
+     },
+     "alt": "Arranjo de flores laranja e folhagens",
+     "cap": "Decoração"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Mini hambúrgueres com batata frita no copinho",
+     "cap": "Buffet"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cdd72073237bed_0x91b18450c96f868d/g05.jpg"
+     },
+     "alt": "Mesa de aniversário de 21 anos com balões lilás e letreiro",
+     "cap": "21 anos"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o espaço <em>oferece.</em>",
+  "p": "O que o próprio espaço mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "salao",
+    "Salão com mobília moderna"
+   ],
+   [
+    "pessoas",
+    "Até 85 convidados"
+   ],
+   [
+    "cozinha",
+    "Buffet da casa (Banquett Buffet)"
+   ],
+   [
+    "mesa",
+    "Mesas dos convidados inclusas"
+   ],
+   [
+    "estrela",
+    "Peças de decoração para alugar"
+   ],
+   [
+    "coberto",
+    "Lounge de entrada"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao dia da festa.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão em Mogi das Cruzes",
+   "Escolha o cardápio do buffet e a decoração",
+   "No dia, a equipe do Banquett recebe seus convidados"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 9,
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Mesas redondas de madeira com cadeiras de palhinha"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Allair Claro",
+   "tag": "80 anos",
+   "trecho": "Um local diferente, salão de festas diferenciado, um espaço maravilhoso pra uma festa mais intimista como foi a minha celebração dos 80 anos."
+  },
+  {
+   "nome": "aiyra malu",
+   "tag": "O salão",
+   "trecho": "O salão por si só já é lindo! Local aconchegante, espaçoso além de ser muito bonito..."
+  },
+  {
+   "nome": "The Boss",
+   "tag": "Os donos",
+   "trecho": "Espaço completo e aconchegante! Os anfitriões são uns amores, a comida uma delicia, a infraestrutura e decoração é de aplaudir de pé."
+  },
+  {
+   "nome": "Moretti Fotos",
+   "tag": "Buffet",
+   "trecho": "Espaço lindo e aconchegante, um atendimento de altíssimo nível e um buffet com sabores inesquecíveis..."
+  },
+  {
+   "nome": "Roberta Comelli",
+   "tag": "Atendimento",
+   "trecho": "Serviço e atendimento impecáveis, além de trazer sempre novidades que alegram os olhos e agradam o paladar."
+  },
+  {
+   "nome": "Thaís Reis",
+   "tag": "Equipe",
+   "trecho": "Ótimo atendimento, comida maravilhosa, funcionários atenciosos."
+  }
+ ],
+ "insta": {
+  "seguidores": "2,4 mil seguidores",
+  "p": "O salão, o buffet e as festas da casa.",
+  "foto": {
+   "id": 7
+  },
+  "alt": "Lembrancinhas em potes de vidro enfileirados",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Espaço Banquett.",
+  "tipos": [
+   "Aniversário",
+   "Casamento",
+   "Evento da empresa",
+   "Reunião",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Espaço Banquett e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Mogi das Cruzes.</em>",
+  "endereco": [
+   "R. Antônio Gonçalves, 38 · Ponte Grande",
+   "Mogi das Cruzes, SP · CEP 08770-440"
+  ],
+  "telefone": "(11) 97315-2874",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Aconchego de casa, festa de salão.",
+ "mensagem": "Olá! Vim pelo site do Espaço Banquett e queria um orçamento.",
+ "google_nome": "Espaço Banquett",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97315-2874 é o celular do Perfil da Empresa no Google e o WhatsApp da bio do Instagram (wa.me/5511973152874)",
+  "site": "só uma página gratuita no Google Sites (sites.google.com/view/espaobanquett): bom gancho para um site de verdade. Não achei página no casamentos.com.br.",
+  "direcao": [
+   "Eventos lote 3 (escolhido pelo Kaue no Drive de 16/10/2026). Salão de eventos em Mogi das Cruzes: \"Capacidade: 85 convidados · Aconchegante, com mobília moderna · Serviços de buffet\" (bio). Nota 5,0 com 45 avaliações.",
+   "Donos: \"Marcela e Paulinho, os proprietários\" (avaliação do Google, de 3 meses atrás). O buffet é o @banquett.buffet, que trabalha com exclusividade no espaço."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py no estilo \"gala\": topo em tela cheia com o salão iluminado, quem recebe (Marcela e Paulinho), o salão (6 fotos, 2 do Google), o buffet da casa (8, 1 do Google), estrutura (6 itens confirmados), como reservar, avaliações (6, nota 5,0), consultar uma data e mapa.",
+   "Cores: verde-escuro e laranja-terracota. Títulos em Cormorant Garamond."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; quase tudo da obra e da inauguração, em 2022) e Perfil da Empresa no Google (mesas postas, aniversário de 21 anos).",
+   "Ficaram de fora: as fotos da obra, a foto da família e a da mulher brindando (pode ser a Marcela, não confirmei) a fachada em obra e a arte do Google com depoimento e telefone."
+  ],
+  "conferir": [
+   "As fotos do Instagram são de 2022. Vale pedir fotos de festas recentes.",
+   "Uma avaliação pede melhorar os banheiros e o estacionamento: a demo não fala de estacionamento.",
+   "Horário do Google: de segunda a sexta, das 9h às 18h; fechado no sábado e no domingo (atendimento)."
+  ]
+ }
+}

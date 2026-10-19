@@ -1,0 +1,396 @@
+{
+ "pasta": "optica-latinos",
+ "marca": "Ótica Latinos",
+ "marca_logo": "Ótica Latinos",
+ "marca_completa": "Ótica Latinos",
+ "logo_sub": "Jd. Santa Teresinha · São Paulo",
+ "titulo": "Ótica Latinos | Av. dos Latinos, Jardim Santa Teresinha, São Paulo",
+ "descricao": "Ótica Latinos, na Av. dos Latinos, 582, no Jardim Santa Teresinha, em São Paulo: exame de vista com médico oftalmologista, óculos de grau e de sol, armações infantis e lentes com filtro de luz azul. 130 avaliações no Google.",
+ "comentario": "Demo Ótica Latinos: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram da loja (@oticalatinos) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 13/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#1c2b29",
+  "acento": "#c9a14a",
+  "tinta": "escuro"
+ },
+ "inventario": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/inv/optica-latinos/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/google/optica-latinos.json",
+ "topline": "Av. dos Latinos, 582 · Jardim Santa Teresinha, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A ótica"
+  ],
+  [
+   "#armacoes",
+   "Armações"
+  ],
+  [
+   "#estilo",
+   "No rosto"
+  ],
+  [
+   "#estilos",
+   "Exame"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#visite",
+   "Como chegar"
+  ]
+ ],
+ "cta_topo": "Agendar no WhatsApp",
+ "hero": {
+  "eyebrow": "Ótica no Jardim Santa Teresinha, São Paulo",
+  "h1": "Exame e óculos <em>no mesmo lugar.</em>",
+  "intro": "Consulta com médico oftalmologista, armações para a família toda e um atendimento humanizado, com cafezinho. Na Av. dos Latinos, 582.",
+  "selo": "Exame de vista com médico oftalmologista",
+  "link": "Ver as armações",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/optica-latinos/google/g03.jpg",
+   "c": [
+    0.5,
+    0.32
+   ]
+  },
+  "alt": "Atendente da Ótica Latinos sorrindo, de óculos de grau pretos"
+ },
+ "endereco": [
+  "Av. dos Latinos, 582",
+  "Jd. Santa Teresinha · São Paulo"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Exame de vista",
+  "Médico oftalmologista",
+  "Óculos de grau",
+  "Óculos de sol",
+  "Infantil",
+  "Filtro de luz azul",
+  "Jd. Santa Teresinha"
+ ],
+ "sobre": {
+  "eyebrow": "A Latinos",
+  "h2": "Atendimento humanizado, <em>de verdade.</em>",
+  "p": [
+   "Na Av. dos Latinos, no Jardim Santa Teresinha, a Ótica Latinos junta consulta com médico oftalmologista e ótica no mesmo endereço: do exame à escolha da armação, tudo com calma.",
+   "A loja foi renovada e ficou mais moderna e aconchegante, mas o jeito de atender continua o mesmo: a Sara, a Fernanda e o Sr. Arnaldo atendem com o carinho de sempre, e o cafezinho é por conta da casa."
+  ],
+  "stats": [
+   [
+    "130",
+    "avaliações no Google"
+   ],
+   [
+    "Seg a sáb",
+    "sábado até as 14h"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/optica-latinos/google/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Fachada branca da Ótica Latinos com o letreiro dourado e a árvore na calçada",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/optica-latinos/google/g01.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "pol_alt": "A vitrine da Ótica Latinos vista de dentro da loja",
+  "pol_cap": "A vitrine"
+ },
+ "carrosseis": [
+  {
+   "id": "armacoes",
+   "eyebrow": "Vitrine",
+   "h2": "Armações de <em>marcas de qualidade.</em>",
+   "p": "Acetatos coloridos, tartarugas e metais. Escolha a sua e venha provar; pelo WhatsApp a gente manda mais modelos.",
+   "rotulo": "Armações da Ótica Latinos",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Armação gatinho verde com tartaruga"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Armação preta com hastes azul-turquesa"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Armação dourada de metal com o estojo Savage"
+    },
+    {
+     "foto": {
+      "id": 39
+     },
+     "alt": "Armação nude com detalhes tartaruga"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Armação azul-marinho com tartaruga"
+    },
+    {
+     "foto": {
+      "id": 49
+     },
+     "alt": "Armação tartaruga e bege"
+    },
+    {
+     "foto": {
+      "id": 51
+     },
+     "alt": "Armação cinza tartaruga com o estojo azul Savage"
+    },
+    {
+     "foto": {
+      "id": 46
+     },
+     "alt": "Armação preta e tartaruga"
+    },
+    {
+     "foto": {
+      "id": 50
+     },
+     "alt": "Armação bege de haste comprida, vista de lado"
+    }
+   ]
+  },
+  {
+   "id": "estilo",
+   "eyebrow": "No rosto",
+   "h2": "Uma armação <em>para cada dia.</em>",
+   "p": "Você tem um sapato para cada ocasião. Por que não um óculos? Venha provar ou peça fotos pelo WhatsApp.",
+   "rotulo": "Óculos da Ótica Latinos no rosto",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "id": 7,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Moça de óculos azul-turquesa, diante da parede de armações"
+    },
+    {
+     "foto": {
+      "id": 22,
+      "box": [
+       0,
+       0.24,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Moça de óculos pretos e blusa de gola alta"
+    },
+    {
+     "foto": {
+      "id": 4,
+      "box": [
+       0,
+       0.25,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Moça de óculos gatinho turquesa"
+    },
+    {
+     "foto": {
+      "id": 23,
+      "box": [
+       0,
+       0.25,
+       1,
+       1
+      ],
+      "c": [
+       0.5,
+       0.3
+      ]
+     },
+     "alt": "Moça de óculos de grau preto e moletom branco"
+    },
+    {
+     "foto": {
+      "id": 1,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Armações pretas e tartaruga na mão, entre as folhas"
+    }
+   ]
+  }
+ ],
+ "estilos": {
+  "p": "Agende a consulta pelo WhatsApp ou venha conhecer a loja.",
+  "grau": {
+   "titulo": "Exame de vista",
+   "rotulo": "01 / EXAME",
+   "foto": {
+    "id": 3,
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "alt": "Autorrefrator da sala de exame da Ótica Latinos",
+   "texto": "Consulta com médico oftalmologista, na própria ótica."
+  },
+  "solar": {
+   "titulo": "Filtro de luz azul",
+   "rotulo": "02 / TELAS",
+   "foto": {
+    "id": 33
+   },
+   "alt": "Armação tartaruga com o estojo Savage",
+   "texto": "Lentes com filtro de luz azul para quem passa o dia nas telas."
+  }
+ },
+ "atendimento": {
+  "eyebrow": "Atendimento de perto",
+  "h2": "Do exame <em>à entrega.</em>",
+  "passos": [
+   "Agende a consulta pelo WhatsApp ou venha à loja, na Av. dos Latinos, 582",
+   "Exame de vista com médico oftalmologista, na própria ótica",
+   "Escolha a armação com calma (e um cafezinho), com muitas opções infantis",
+   "Lentes de marcas de qualidade e atenção depois da entrega"
+  ],
+  "botao": "Agendar no WhatsApp",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/lote6/extra/optica-latinos/g02-limpa.jpg",
+   "c": [
+    0.55,
+    0.5
+   ]
+  },
+  "alt": "Paciente no aparelho de exame na sala de consulta da Ótica Latinos",
+  "pol": {
+   "id": 13,
+   "c": [
+    0.5,
+    0.55
+   ]
+  },
+  "pol_alt": "Óculos sobre a flanela, ao lado do estojo",
+  "pol_cap": "Pronto para usar",
+  "card": [
+   "Consulta",
+   "Agende pelo WhatsApp."
+  ]
+ },
+ "avaliacoes_secao": {
+  "h2": "Clientes <em>há anos.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Camila Dias Pinheiro",
+   "tag": "Há 8 anos",
+   "trecho": "Sou cliente a mais de 08 anos e posso dizer com tranquilidade e propriedade que sempre oferecem um atendimento humanizado e respeitoso."
+  },
+  {
+   "nome": "JOSY Santos",
+   "tag": "Cafezinho",
+   "trecho": "Fui muito bem atendida pela Sara e Fernanda, elas simplesmente me deixou bem à vontade na escolha do meu óculos e sem contar que ainda tem um cafezinho maravilhoso"
+  },
+  {
+   "nome": "Guilherme Santos",
+   "tag": "A consulta",
+   "trecho": "Desde o agendamento até a retirada dos óculos, fui muito bem atendido. A consulta com o doutor foi excelente"
+  },
+  {
+   "nome": "Yasmim Boaventura",
+   "tag": "Infantil",
+   "trecho": "levei minha filha e fomos super bem atendidas,mostraram uma variedade de óculos para que ela pudesse escolher"
+  },
+  {
+   "nome": "Margarida Diógenes de Carvalho",
+   "tag": "Luz azul"
+  }
+ ],
+ "instagram": "oticalatinos",
+ "insta": {
+  "seguidores": "1,3 mil seguidores",
+  "p": "Armações novas, dicas de lentes e de saúde dos olhos.",
+  "foto": {
+   "id": 7,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Moça de óculos azul-turquesa na loja"
+ },
+ "visita": {
+  "h2": "Te esperamos <em>na Av. dos Latinos.</em>",
+  "endereco": [
+   "Av. dos Latinos, 582 · Jardim Santa Teresinha",
+   "São Paulo, SP · CEP 03572-000"
+  ],
+  "telefone": "(11) 97222-3885",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Exame e óculos no mesmo lugar.",
+ "mensagem": "Olá! Vim pelo site da Ótica Latinos e queria agendar uma consulta.",
+ "whatsapp": "5511972223885",
+ "fone_link": "+5511972223885",
+ "google": {
+  "coords": "-23.5727625,-46.5003009",
+  "fid": "0x94ce67738e90c6f3:0x5154ea982626518d",
+  "gid": "/g/11bzwppbzx"
+ },
+ "google_nome": "Óptica Latinos",
+ "endereco_maps": "Av. dos Latinos, 582 - Jardim Santa Teresinha, São Paulo - SP, 03572-000",
+ "google_nota": "4,9",
+ "google_total": "130",
+ "verificado": "2026-10-13",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 97222-3885 é o telefone do Perfil da Empresa no Google, o link de WhatsApp do Google e o das legendas",
+  "site": "não tem (o Google aponta o WhatsApp; a bio tem um Linktree)",
+  "direcao": [
+   "Lote 6 (escolhida pelo Kaue no Drive de 13/10/2026). 1,3 mil seguidores. Bio: \"Ótica Latinos | Óculos & Exame\", exame de vista com médico oftalmologista, consulta grátis na compra (promoção: fora da demo). As avaliações citam a Sara, a Fernanda e o Sr. Arnaldo, a loja renovada e o cafezinho."
+  ],
+  "demo": [
+   "Verde-grafite e o dourado do letreiro, títulos em Lora.",
+   "Capa \"Exame e óculos no mesmo lugar.\" com a atendente (Google); a fachada e a vitrine na história.",
+   "Carrossel de armações (9, fotos de estúdio), carrossel no rosto (6), exame e filtro de luz azul, atendimento com a sala de exame (Google), 5 avaliações de 5 estrelas. Nota 4,9: a demo mostra as estrelas e as 130 avaliações."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva): armações em estúdio, a moça dos vídeos (cortada abaixo do texto quando tinha), o autorrefrator e a fachada. Google: a atendente, a fachada, a vitrine e a sala de exame.",
+   "Ficaram de fora: quadros com texto no rosto, a arte \"filtro azul para quem é?\" e a promoção da consulta grátis."
+  ],
+  "conferir": [
+   "Quem é a moça da capa (Google) e a dos vídeos. Dono: não confirmei; as avaliações citam o Sr. Arnaldo (pode ser o dono).",
+   "O nome no Google é \"Óptica Latinos\"; a fachada e o Instagram dizem \"Ótica Latinos\" (a demo usa o da fachada)."
+  ]
+ }
+}

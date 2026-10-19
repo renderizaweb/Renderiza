@@ -36,8 +36,21 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
 - **Ciclo 2 (09 a 15/10/2026)**: nicho **odonto com estética** e teste de abordagem **direta pelo
   Instagram**, para chegar ao dono ou ao profissional. As óticas não foram abandonadas e o WhatsApp
   continua. Os dentistas que já têm demo, vídeo e flyer (em Prontas para trabalhar e Em andamento) já são
-  desse nicho. O ciclo é só conceitual: **não cadastrar nem mudar ciclo no banco** sem pedido (a tabela
-  `ciclos` segue com "Out–dez 2026").
+  desse nicho. A tabela `ciclos` do banco segue com "Out–dez 2026": **não cadastrar nem mudar ciclo nela** sem
+  pedido.
+- **Ciclo de cada conversa no painel (pedido do Kaue em 13/10/2026):** tag `ciclo N` no lead, que aparece no
+  cartão como **C1, C2…** (uma cor por ciclo). Entra sozinha quando o lead sai de Prontas para trabalhar (ou de
+  Leads a trabalhar), pelo dia da semana do ciclo (sexta a quinta; 16/10 já é ciclo 3). Carga de 14/10: C1 para
+  quem começou a conversa até 08/10 (57, contando os 15 fora do funil), C2 para os 8 que saíram de Prontas de
+  09/10 em diante (Dra. Milena e os 7 do lote 6). A Ponto Xys ficou C1: o primeiro contato foi em 08/10 (ela voltou
+  de etapa e saiu de novo em 09/10).
+- **Checklist do card (mesmo pedido):** no lugar da próxima ação. Padrão: enviar a demo e o vídeo, 1ª cobrança
+  (flyer de cortesia), 2ª cobrança, 3ª cobrança, a última. Com tudo feito e sem resposta, o card vai para Sem
+  resposta ou é encerrado. Fica só nos detalhes da ótica: o cartão do kanban mostra só o nome, o ciclo e as
+  etiquetas ("menos é mais", pedido de 14/10). Detalhes em `painel/README.md` ("Checklist do card").
+- **Filtros do Pipeline (14/10/2026):** botão Filtrar no estilo do Linear, para a tabela e o kanban: etapa,
+  ciclo, interesse, próximo passo, nicho, cidade, tags, materiais, demo no ar, datas (início da conversa, última
+  interação, retorno previsto, entrou no painel), tarefas e marcações. O ciclo de cada lead pode ser trocado à mão.
 - **Ideia guardada, sem desenvolver:** plataforma compartilhada para óticas (site próprio de cada uma, com
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
@@ -183,11 +196,41 @@ alertas na `ficha.md` de cada pasta.
 As 11 estão no painel em **Demo criada**, com id igual ao nome da pasta e próxima ação "Enviar a demo pelo
 WhatsApp".
 
+## Lote 6 (escolhido pelo Kaue no Drive em 13/10/2026): demos prontas
+
+O Kaue pôs no Drive (pasta "lotes-leads-6-12.10.26") a página do Instagram salva de cada ótica que faz sentido
+para ele, dos lotes 4 e 5; a que não está lá não entra. Eram 15 pastas; **Cristã e Fernanda ficaram de fora**:
+a bio da página salva era de outra cidade (Chapadinha-MA e Campo Grande-MS), apesar de as fotos baterem com o
+Google. As 13 estão no painel em **Prontas para trabalhar** (`demo_pronta`), com demo, vídeo no formato do
+Reels e flyer de Stories, e próxima ação "Enviar a demo pelo WhatsApp". O que conferir antes de mandar está na
+`ficha.md` de cada pasta e nas observações do lead.
+
+| # | Pasta | Onde | Destaque |
+|---|---|---|---|
+| 1 | `otica-loren` | Jardim São Paulo, São Paulo | 12,3 mil seguidores; famílias clientes desde a inauguração. |
+| 2 | `oticas-manuella` | Parque São Domingos, São Paulo | O nome é da filha da dona; ZEISS e Varilux; 341 avaliações 5,0. |
+| 3 | `otica-dom-outlet` | Matriz, Mauá | Mais de 500 modelos, consultoria de imagem. |
+| 4 | `otica-miriades` | Lavras, Guarulhos | Básico bem feito (pouca foto própria); cafezinho e óculos em 1 hora. |
+| 5 | `oticas-gaffa` | Bangú, Santo André | Nova fase com o João Paulo como dono; slogan "Precisão diante dos seus olhos". |
+| 6 | `oticas-inovisao-lapa` | Lapa, São Paulo | "Sem pressão" (das avaliações); fotos cortadas acima do texto dos vídeos. |
+| 7 | `optica-latinos` | Jardim Santa Teresinha, São Paulo | Exame com médico oftalmologista e ótica no mesmo endereço. |
+| 8 | `oticas-lumiare` | Matriz, Mauá | Ótica de família; fica na mesma avenida da Dom Outlet. |
+| 9 | `otica-indira` | Jardim Popular, São Paulo | Famílias inteiras de clientes; a Gabriela e a Maria. |
+| 10 | `otica-beauty-eyes` | Santa Paula, São Caetano do Sul | Ótica e moda (Optic & Dress), grifes; vídeo no clima grife. |
+| 11 | `oticas-atlanta` | Vila Valparaíso, Santo André | 1 ano, marca própria, venda online pelo Linktree (conferir). |
+| 12 | `oticas-bunny` | Centro Empresarial (Jardim São Luís), São Paulo | Dentro do Centro Empresarial e a domicílio. |
+| 13 | `oticas-gaiotto` | Jardim Munhoz Júnior, Osasco | Segunda loja (a primeira é em Barueri); a Ananda. |
+
+Fotos de campanha de marca (modelos de estúdio e famosas, como Sabrina Sato) e artes com texto, preço ou cara
+de IA ficaram de fora em todas; quando o Instagram é quase só vídeo com texto (Inovisão, Gaffa, Atlanta), a foto
+entra cortada acima do texto (`box` no `demo.json`).
+
 ## Quando uma demo fica pronta
 
 1. `demos/<pasta>/index.html` na `main` deste repositório: a Vercel publica em `/demo/<pasta>`.
 2. No painel (Supabase), no lead da ótica: `link_demo = '/demo/<pasta>'` (caminho relativo, sem o
-   domínio), etapa `demo_pronta` (Prontas para trabalhar) e próxima ação atualizada. O painel mostra a etiqueta "demo ↗" na
+   domínio) e etapa `demo_pronta` (Prontas para trabalhar). A checklist padrão entra sozinha (gatilho
+   `leads_ajustar_checklist`) e a próxima ação vira "Enviar a demo e o vídeo". O painel mostra a etiqueta "demo ↗" na
    tabela e no kanban, e o botão "Copiar link da demo para enviar" nos detalhes monta o link completo.
    Ao gravar o `link_demo`, o banco cria sozinho o prazo da demo: **7 dias no ar** (tabela `demos`,
    `vale_ate = hoje + 7`). Demo sem lead: `insert into public.demos (id, dono) values ('<pasta>', '<uuid do Kaue>')`.
@@ -282,6 +325,36 @@ foto marcada como duvidosa na ficha (ex.: possível campanha de marca).
   itálico clara, rolagem lenta, paradas 25% mais longas; trilha ~72 bpm, acordes de jazz (ii–V–I com nonas),
   quase sem bateria e mais reverb (**Personnalité**).
 Nome comprido na montagem quebra em duas linhas equilibradas e só então encolhe ("Boutique / dos Óculos").
+
+**Formato "reels" (pedido do Kaue em 13/10/2026, o padrão das óticas a partir do lote 6):** a abertura e o
+fechamento continuam os da versão show; no meio, no jeito do Reels da Renderiza (`instagram/reels-cliente-perdido.html`),
+o site real da demo roda dentro de um celular na parte de baixo, e em cima fica uma legenda grande, sem voz, que
+conta a história e provoca de leve: uma pergunta ou dor que o dono nem percebeu e o site respondendo. Sem exagero,
+sem preço, sem promessa e sem nada inventado. 6 paradas, ~48 s.
+- **Texto claro, não charada** (revisão do Kaue, 13/10/2026): a primeira versão tinha frases curtas e enigmáticas
+  ("A Gaffa entrou numa nova fase. Quem procura já sabe?", "31 avaliações. Quem procura vê isso hoje?") e pouco
+  tempo para ler. Agora cada parada tem uma frase completa, que segue a mesma pessoa do começo ao fim, e uma linha
+  de apoio que explica. O arco: "Hoje, quem procura uma ótica *começa pelo celular.*" / "Quer ver a loja, os
+  modelos e a opinião de quem já comprou." → "Descobre que a Gaffa *está numa nova fase.*" / "A loja foi
+  renovada e tem um novo dono, o João Paulo..." → "Vê as armações *antes de sair de casa.*" → o diferencial da
+  loja → "E lê o que *os clientes contam.*" / "Nota 5,0 em 63 avaliações no Google, sem precisar procurar." →
+  "Quando decide, *chama no WhatsApp com um toque.*" / "O endereço, o horário e o caminho para chegar estão logo ali."
+- O tempo parado sai do tamanho do texto (3,4 a 5,6 s; a legenda fica na tela também durante a rolagem até a
+  próxima). As legendas de cada ótica ficam no `gravacoes/<id>.json`.
+- `python3 ferramentas/video/reels.py <id> <spec.json>` monta `gravacoes/<id>.json` com `"formato": "reels"` a
+  partir do roteiro show e de um spec curto: uma legenda por parada (`[tipo, legenda, sub]`, tipos na ordem da
+  página: topo, story, armacoes, estilo, estilos, rosto, atendimento, reviews, insta, visite), o acento clareado
+  que o `gerar.py` imprimiu, as fotos da montagem, o clima e o nome da abertura. O trecho entre `*` sai na cor.
+- Depois, `gravar.mjs … --ensaio` (a moldura com a legenda, o site e o celular, montados por parada) e a gravação.
+- O fechamento sai "Tudo num lugar só, / com a cara da <nome>." (trocar no spec quando o nome partir mal).
+
+**Vídeo de divulgação de um site que já está no ar (cliente, 12/10/2026):** o mesmo gravador, para o cliente
+postar nos Stories, no Status e no Reels dele. Sem "venha comprar com a Renderiza": o roteiro leva `"url"` (o site
+no ar) no lugar de `"demo"`, `"assinatura": "@loja"` no canto das cartelas (no lugar da marca da Renderiza; `""`
+tira) e `"legenda_baixo": 170`, que sobe a legenda para fora da descrição e dos botões que o Instagram põe por cima.
+Abertura "Site novo no ar / Conheça o site da", fechamento "Visite o nosso site" + o endereço. Primeiro: a
+**Lú Elegante** (`gravacoes/lu-elegante.json`; o MP4 vai para `rascunhos/` e é mandado para ela, não vai ao ar).
+O mapa do Google do site entra na rolagem do fechamento como foto (fora da tela ele sai em branco).
 
 **O que faz o vídeo ficar bom (revisão do da Machado):**
 - **É o site de verdade, no celular**, sem maquete: a ótica se reconhece. Gravado quadro a quadro com o
@@ -399,11 +472,21 @@ dono tem que ver e gostar. A gentileza puxa a resposta.
 
 ## Busca de novas óticas (quando pedir)
 
-Critérios: independente e pequena (nada de rede ou franquia); o dono aparece no Instagram com fotos
-reais; **sem site próprio** (site quebrado é ótimo sinal); atende no WhatsApp; ativa (postou nos
-últimos 30 dias, no máximo 3 meses); Google com nota 4,0 ou mais e pelo menos 8 avaliações.
+Critérios (régua do Kaue, 13/10/2026, depois que o lote 4 veio fraco): **ótica estabelecida e com vida no
+Instagram**, que tenha porte para pagar R$ 500 no site. Exemplo de referência: a Ótica BluLens (Capão Redondo,
+5,0 com 300 avaliações, 5,5 mil seguidores).
+- Grande SP; independente (uma ou duas lojas; nada de rede ou franquia); Google com nota 4,8+ e **60 ou mais
+  avaliações** (sem teto).
+- Instagram com **1.000+ seguidores** (de preferência 2.000+), post nos últimos 45 dias, **rosto e vida**: dono
+  ou equipe aparecendo, vídeo, loja de verdade. Pouca arte pronta, pouco texto, nada com cara de IA. Olhar a
+  folha de fotos de **todas** antes de escolher.
+- **Sem site próprio**, conferido de verdade (domínio do Google que não existe mais é ótimo gancho).
+- WhatsApp de celular e o nome de quem atende ou do dono, quando as avaliações mostram.
+- A régua de loja pequena do estudo do ciclo 1 (10 a 120 avaliações, 300+ seguidores) trouxe perfis fracos,
+  com arte pronta e pouca gente: não usar de novo.
 Entregar lista numerada com: nome, @ com link, bairro/cidade, por que parece boa, seguidores, último
-post, dono aparece, site, WhatsApp, nota/avaliações, alerta. No fim, uma linha com os descartes.
+post, dono aparece, site, WhatsApp, nota/avaliações, quem atende (e o nome do dono), alerta. No fim, uma
+linha com os descartes.
 
 Como foi feita a do lote 2 (ferramentas em `ferramentas/`):
 1. `maps-lista.mjs`: lista do Google Maps por bairro ("ótica em Tatuapé São Paulo"), 20 por busca.
@@ -422,6 +505,33 @@ Lote 3 (05/10/2026): mesma linha, com os scripts versionados em `ferramentas/pro
 ajustar para outro nicho no README de lá). Régua mais alta: nota 4,8+, 40+ avaliações, Instagram com post em 45 dias e
 1.000+ seguidores. 22 + 7 de reserva (lista no chat de 05/10/2026): o Kaue escolheu as 10 primeiras e uma
 extra (seção "Lote 3") e ainda vai mandar as próximas.
+
+Lote 4 (12/10/2026): primeiro com o perfil do estudo. Funil: 152 buscas novas somadas às de 29/09 e 05/10 →
+3.172 óticas da Grande SP → 615 no filtro → 473 sem site → 84 com Instagram ativo e celular → avaliações
+lidas → 10 + 8 de reserva (lista no chat de 12/10/2026; nada cadastrado no painel). Passos e scripts novos no
+README de `ferramentas/prospeccao/` (`sinais.mjs` e `pontuar.py` para as avaliações, `conferir-ig.py` e
+`dominios.py` para conferir). O que aprendi:
+- **O local marcado nos posts confere o @.** O embed traz o local de cada post e a legenda inteira: 9 dos 84 @
+  achados pelo nome eram de outra cidade, e para 4 deles o certo apareceu testando variações (`--procurar`).
+- **Sem login o Google mostra só umas 5 avaliações por lugar**, o que basta para ver quem atende: "a Priscila,
+  dona dessa ótica", o dono que responde "ah sua linda, gratidão!" e o mesmo nome em várias avaliações.
+- **Quatro leads do painel estão com o @ de outra cidade** (conferido pelos posts em 12/10/2026): Dutra
+  (Manaus), LL Vision (DDD 84), Veneza (Feira de Santana) e Lúmina (Barreiras-BA). Nenhum tem demo (a Dutra
+  está parada no lote 2), mas a demo sairia com fotos de outra loja e a DM pelo Instagram iria para a loja
+  errada. Conferir antes de usar.
+- O Kaue achou o lote 4 fraco (lojas pequenas demais, arte pronta, pouca gente): virou a régua acima.
+
+Lote 5 (13/10/2026), com a régua nova: mesmas listas → 457 óticas com 60+ avaliações e nota 4,8+ → 288 sem site →
+52 com 1.000+ seguidores e post recente (mais 4 achadas numa segunda busca de @, devagar, porque o Instagram
+corta quem consulta rápido demais) → todas olhadas na folha → 13 + 6 de reserva (lista no chat de 13/10/2026; nada
+cadastrado no painel). O que aprendi:
+- **Comparar as fotos da ficha do Google com as do Instagram** confirma o @ quando a legenda não traz endereço:
+  fachada, logo, cor da loja e as pessoas batem (`ferramentas/fotos-google.mjs` baixa as do Google).
+- 12 dos 52 @ achados pelo nome eram de outra cidade ou país; mais 2 não bateram com a loja do Google nas fotos.
+- Curtidas por post não servem de régua: ótica com 5 mil seguidores tem 5 a 15 curtidas por post.
+- **A bio da página salva é a prova do @** (lote 6): a comparação de fotos validou a Cristã e a Fernanda, mas a
+  bio (endereço, DDD do WhatsApp) mostrou outra cidade. Com a página salva do navegador do Kaue, ler a bio antes
+  de tudo; a foto só confirma.
 
 ## Dentistas
 

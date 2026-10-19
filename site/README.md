@@ -30,6 +30,28 @@ Sem preço (é da conversa), sem promessa de Google ou de vendas e só palavras 
 testes em `test/site.test.mjs` conferem essa ordem e essas regras. A linha do mês de inauguração
 (`INAUGURACAO` em `pagina.mjs`) sai sozinha depois do último dia: no build e, na página já no ar, pelo navegador.
 
+## Páginas "Como funciona" por nicho (`/como-funciona/<nicho>`)
+
+O link para mandar quando o lead pergunta "como funciona?" ou "quanto custa?". É **curta de propósito** (dá para
+entender em uma passada de olho): abertura, o "sol" (`sol` no arquivo do nicho: o site no centro e, em volta,
+as redes, o WhatsApp, as avaliações e as fotos, com uma luz em loop; parado para quem pede menos movimento), 3 passos, **os pacotes com preço** (ao contrário da home), até 4
+perguntas e o convite. Os testes seguram o tamanho (3 passos, até 4 perguntas, até 4 itens por pacote e um teto
+de palavras à vista); antes de aumentar, tire alguma coisa. Não
+entra no Google (`noindex`, como as demos); é para mandar o link. Eventos: `/como-funciona/eventos`, com o
+atalho `/eventos` (redirect no `vercel.json`).
+
+| Arquivo | Para quê |
+|---|---|
+| `nichos/<nicho>.mjs` | **O que você edita**: textos, pacotes (nome, preço, o que inclui, "saber mais", mensagem do WhatsApp) e perguntas do nicho |
+| `como-funciona.mjs` | A estrutura, igual para todo nicho |
+| `como-funciona.css` | O visual que só essa página tem (vem depois de `estilo.css`) |
+| `marcas.mjs` | Símbolos das redes do "sol" (Instagram, Facebook, TikTok, WhatsApp, Google), do Simple Icons (CC0), com a cor de cada marca |
+
+Para outro nicho (óticas, por exemplo), copie `nichos/eventos.mjs` para `nichos/oticas.mjs` e troque os textos: o
+build publica `/como-funciona/oticas` sozinho. Regras (testes em `test/como-funciona.test.mjs`): nada de "mais
+vendido" sem venda que prove, promessa de resultado, superlativo ou "de bairro"; nenhuma foto de lead (a ilustração
+do topo é desenhada); a linha do mês de inauguração some depois de 31/10, como na home.
+
 ## Completar o que falta
 
 `npm run build` lista no fim o que ainda está vazio no `config.mjs`. Enquanto o WhatsApp estiver vazio,

@@ -1,0 +1,29 @@
+{
+ "marca": "Ótica Indira",
+ "local": "Jardim Popular · São Paulo",
+ "fontes": {
+  "titulo": "Poppins",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#0c2340",
+  "fundo2": "#071628",
+  "acento": "#2aa9f0",
+  "tinta_acento": "#071628",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-garimpo-brasuca/529963eb-5daf-58be-bd2d-95a59972ce4a/scratchpad/drive-leads/z/lotes-leads-6-12.10.26/otica-indira/Instagram_files/619601646_18112319731627967_6720441115224315269_n.jpg",
+  "pos": "50% 40%",
+  "largura": 760
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "31"
+ },
+ "titulo": "A família toda <em>de óculos novos.</em>",
+ "texto": "Armações de grau e de sol para todas as idades, com atenção do começo ao fim.",
+ "whatsapp": "(11) 96542-7969",
+ "endereco": "R. Almerindo Alziro Paganini, 18C · São Paulo",
+ "instagram": "@otica.indira"
+}

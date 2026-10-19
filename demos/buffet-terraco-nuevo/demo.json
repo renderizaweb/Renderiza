@@ -1,0 +1,417 @@
+{
+ "pasta": "buffet-terraco-nuevo",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/buffet-terraco-nuevo/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/buffet-terraco-nuevo.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/buffet-terraco-nuevo/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511998199623",
+ "fone_link": "+5511998199623",
+ "google": {
+  "coords": "-23.6878667,-46.6116071",
+  "fid": "0x94ce456e885a2901:0x4356baa9d2f0d8eb",
+  "gid": "/g/11s54lkl2f"
+ },
+ "endereco_maps": "Av. Sete de Setembro, 1225 - Centro, Diadema - SP, 09912-010",
+ "google_nota": "5,0",
+ "google_total": "140",
+ "verificado": "2026-10-14",
+ "instagram": "terraconuevo",
+ "marca": "Terraço Nuevo",
+ "marca_logo": "Terraço Nuevo",
+ "marca_completa": "Buffet Terraço Nuevo",
+ "logo_sub": "Centro · Diadema",
+ "titulo": "Buffet Terraço Nuevo | Espaço para festas no Centro de Diadema",
+ "descricao": "Buffet Terraço Nuevo, na Av. Sete de Setembro, 1225, no Centro de Diadema (SP): terraço com vista, salão climatizado, piscina e buffet completo para casamentos, aniversários, chás e festas infantis. Nota 5,0 no Google.",
+ "comentario": "Demo Buffet Terraço Nuevo: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do buffet (@terraconuevo, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#1b2238",
+  "acento": "#f0a35e"
+ },
+ "topline": "Av. Sete de Setembro, 1225 · Centro, Diadema",
+ "nav": [
+  [
+   "#sobre",
+   "O terraço"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Buffet e espaço para festas no Centro de Diadema",
+  "h1": "Sua festa <em>no terraço.</em>",
+  "intro": "Terraço com vista, salão climatizado, piscina e buffet completo para casamentos, aniversários, chás e festas infantis.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g07.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "alt": "Noivos sorrindo no terraço do Terraço Nuevo"
+ },
+ "endereco": [
+  "Av. Sete de Setembro, 1225",
+  "Centro · Diadema"
+ ],
+ "dias_curto": "seg a sáb",
+ "marquee": [
+  "Casamentos",
+  "Aniversários",
+  "Chá revelação",
+  "Festas infantis",
+  "Confraternizações",
+  "Terraço com vista",
+  "Buffet completo",
+  "Diadema"
+ ],
+ "sobre": {
+  "eyebrow": "O Terraço Nuevo",
+  "h2": "A festa <em>com vista.</em>",
+  "p": [
+   "No Centro de Diadema, o Terraço Nuevo tem terraço com vista para a cidade, salão climatizado, piscina e buffet completo. Casamentos com cerimônia no terraço, aniversários, chás revelação e festas infantis, cada um com a sua decoração.",
+   "Nas avaliações, as famílias falam do atendimento da Meire e da Vânia, que resolvem tudo rápido, até uma festa que precisou mudar de lugar na véspera."
+  ],
+  "stats": [
+   [
+    "5,0",
+    "nota no Google, em 140 avaliações"
+   ],
+   [
+    "6 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g02.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Terraço ao pôr do sol, com mesas e convidados",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g09.jpg",
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Noiva sorrindo com duas amigas",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Terraço <em>e salão.</em>",
+   "p": "O terraço montado de dia e à noite, a cerimônia e o salão. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Terraço Nuevo",
+   "formato": "paisagem",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g00.jpg"
+     },
+     "alt": "Terraço montado com mesas altas e passarela verde"
+    },
+    {
+     "foto": {
+      "id": 0
+     },
+     "alt": "Terraço à noite com mesas de madeira e palmeiras"
+    },
+    {
+     "foto": {
+      "id": 1,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Arco de flores para cerimônia no terraço"
+    },
+    {
+     "foto": {
+      "id": 29,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Salão com mesas de madeira e vista pelas janelas"
+    },
+    {
+     "foto": {
+      "id": 6,
+      "c": [
+       0.5,
+       0.6
+      ]
+     },
+     "alt": "Passarela de cerimônia entre cortinas brancas"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Salão montado com toalhas amarelas"
+    },
+    {
+     "foto": {
+      "id": 33,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Arranjo de flores no terraço ao entardecer"
+    },
+    {
+     "foto": {
+      "id": 38,
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Salão com mesas azuis e decoração montada"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, aniversários, chás e festas infantis de quem já comemorou no Terraço Nuevo.",
+   "rotulo": "Festas que aconteceram no Terraço Nuevo",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g05.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos sorrindo ao lado do bolo",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 19
+     },
+     "alt": "Mesa do bolo de casamento com flores laranja",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 30
+     },
+     "alt": "Decoração de 50 anos em preto e dourado",
+     "cap": "50 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g06.jpg",
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Noivos abraçados com os convidados em volta",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 22
+     },
+     "alt": "Decoração de chá revelação com ursinho e letras BABY",
+     "cap": "Chá revelação"
+    },
+    {
+     "foto": {
+      "id": 16
+     },
+     "alt": "Decoração de aniversário com tema de cinema",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 8
+     },
+     "alt": "Mesa tropical com flores amarelas",
+     "cap": "Confraternização"
+    },
+    {
+     "foto": {
+      "id": 3
+     },
+     "alt": "Decoração de festa infantil com personagens",
+     "cap": "Festa infantil"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o buffet <em>oferece.</em>",
+  "p": "O que aparece nas fotos e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "coberto",
+    "Terraço com vista"
+   ],
+   [
+    "salao",
+    "Salão climatizado"
+   ],
+   [
+    "cozinha",
+    "Buffet completo"
+   ],
+   [
+    "estrela",
+    "Decoração para cada tema"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia no terraço"
+   ],
+   [
+    "piscina",
+    "Piscina"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o terraço na Av. Sete de Setembro, 1225",
+   "Escolha o tema e o buffet com a equipe",
+   "No dia, a equipe cuida da festa do começo ao fim"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce456e885a2901_0x4356baa9d2f0d8eb/g10.jpg"
+  },
+  "alt": "Mesa do bolo de casamento com flores e móveis de vime"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Carolina Paschoal",
+   "tag": "Na véspera",
+   "trecho": "Foi então que conhecemos o Terraço Nuevo, e a Meire, que até agora estou sem palavras para seu atendimento. Nos atendeu com tanta agilidade e carinho que conseguimos organizar tudo em tempo recorde."
+  },
+  {
+   "nome": "Sanna Hayra Monteiro",
+   "tag": "Estrutura",
+   "trecho": "O espaço é super bem cuidado, limpo, climatizado e com uma estrutura que atendeu perfeitamente a todas as necessidades da nossa comemoração."
+  },
+  {
+   "nome": "Graciele Graci",
+   "tag": "Buffet",
+   "trecho": "desde do primeiro contato que fui super bem atendida ,Vânia fez tudo que eu pedi,o buffet e completo."
+  },
+  {
+   "nome": "Nathalia Genari",
+   "tag": "A vista",
+   "trecho": "Lugar lindo, super bem equipado para qualquer evento! Amei a vista, é perfeita 😍"
+  },
+  {
+   "nome": "Leticia Gonçalves",
+   "tag": "Aniversário",
+   "trecho": "fiz a festa do meu filho de 5 anos no espaço terraço nuevo e vou fazer a minha festa de 30 anos lá, muito aconchegante e todo mundo amou o lugar."
+  },
+  {
+   "nome": "Melina França",
+   "tag": "Elegante"
+  }
+ ],
+ "insta": {
+  "seguidores": "6 mil seguidores",
+  "p": "Cada festa e cada decoração, toda semana.",
+  "foto": {
+   "id": 36
+  },
+  "alt": "Arco de balões pretos e dourados com o número 50",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Terraço Nuevo.",
+  "tipos": [
+   "Casamento",
+   "Aniversário",
+   "Chá revelação",
+   "Festa infantil",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Terraço Nuevo e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Diadema.</em>",
+  "endereco": [
+   "Av. Sete de Setembro, 1225 · Centro",
+   "Diadema, SP · CEP 09912-010"
+  ],
+  "telefone": "(11) 99819-9623",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Sua festa no terraço.",
+ "mensagem": "Olá! Vim pelo site do Terraço Nuevo e queria um orçamento.",
+ "google_nome": "Buffet Terraço Nuevo",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99819-9623 é o telefone do Perfil da Empresa no Google",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Buffet com terraço com vista, salão climatizado e piscina no Centro de Diadema; casamentos com cerimônia no terraço, aniversários, chás e festas infantis.",
+   "Quem atende: Meire e Vânia (citadas nas avaliações). A dona aparece num post das \"Empresárias de Diadema\"; não confirmei o nome dela."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com os noivos no terraço, o terraço (vista, Meire e Vânia), carrossel do espaço (8, paisagem), festas reais (8, com 2 do Google), estrutura (6 itens das avaliações e fotos), como reservar, avaliações (5, nota 5,0), consultar uma data e mapa.",
+   "Cores: azul-noite e laranja do pôr do sol no terraço. Fonte Lora."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva; muitas decorações) e Perfil da Empresa no Google (terraço de dia e ao pôr do sol, casamentos).",
+   "Ficaram de fora: os painéis com nome de criança, os personagens fantasiados em close e a foto 360 distorcida."
+  ],
+  "conferir": [
+   "Piscina, salão climatizado e \"buffet completo\" vêm das avaliações (Sanna Hayra Monteiro, Ana Paula silva, Graciele Graci); não achei foto da piscina.",
+   "A decoração pode ser de parceiros: a demo diz \"decoração para cada tema\", sem dizer quem faz.",
+   "Horário do Google: segunda a sábado (domingo fechado).",
+   "Capacidade: não confirmei (a demo não cita)."
+  ]
+ }
+}

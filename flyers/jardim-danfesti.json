@@ -1,0 +1,29 @@
+{
+ "marca": "Jardim Danfesti",
+ "local": "Jardim Itapemirim · São Paulo",
+ "fontes": {
+  "titulo": "Outfit",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1d2a1f",
+  "fundo2": "#111a13",
+  "acento": "#e9b949",
+  "tinta_acento": "#111a13",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67e5b0e9bfcd_0xe40f3e15b4d5becf/g02.jpg",
+  "pos": "50% 45%"
+ },
+ "selo": {
+  "nota": "4,9",
+  "total": "133"
+ },
+ "titulo": "Sua festa<br><em>no jardim.</em>",
+ "texto": "Jardim, área coberta, lounge e espaço para DJ e banda, para até 50 pessoas, na Zona Leste.",
+ "whatsapp": "(11) 96490-7230",
+ "cta": "Consulte sua data",
+ "endereco": "R. Mariano Moro, 77 · Jd. Itapemirim",
+ "instagram": "@jardimdanfesti_"
+}

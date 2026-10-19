@@ -1,0 +1,116 @@
+{
+ "demo": "oticas-gaffa",
+ "formato": "reels",
+ "marca": "Óticas Gaffa",
+ "local": "Bangú · Santo André",
+ "cores": {
+  "fundo": "#0b1840",
+  "fundo2": "#070f28",
+  "acento": "#e3ad3b",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Montserrat",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Óticas",
+   "Gaffa"
+  ],
+  "frase": "Precisão diante dos seus olhos.",
+  "fotos": [
+   ".hero-photo img",
+   ".story-photos img",
+   "#armacoes-track li:nth-child(2) img",
+   ".insta-photo img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Gaffa.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma ótica *começa pelo celular.*",
+   "sub": "Quer ver a loja, os modelos e a opinião de quem já comprou."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Descobre que a Gaffa *está numa nova fase.*",
+   "sub": "A loja foi renovada e tem um novo dono, o João Paulo, com o cuidado de sempre."
+  },
+  {
+   "rolar": "#armacoes-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#armacoes-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê as armações *antes de sair de casa.*",
+   "sub": "Modelos modernos e leves, para chegar sabendo o que quer provar."
+  },
+  {
+   "rolar": "#estilos h2",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "legenda": "Entende o multifocal *antes de perguntar.*",
+   "sub": "E sabe que na loja tem quem explique cada detalhe."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 5.1,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *os clientes contam.*",
+   "sub": "Nota 5,0 em 63 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#visite .button--mustard",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#visite .button--mustard"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O endereço, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

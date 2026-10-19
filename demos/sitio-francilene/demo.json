@@ -1,0 +1,394 @@
+{
+ "pasta": "sitio-francilene",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/sitio-francilene/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/google/sitio-francilene.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev2/inv/sitio-francilene/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511991319871",
+ "fone_link": "+5511991319871",
+ "google": {
+  "coords": "-23.6185923,-46.2198527",
+  "fid": "0x94ce7591ecf78977:0xf9ec4a8ac553192e",
+  "gid": "/g/11cn8_05c2"
+ },
+ "endereco_maps": "Estr. das Arueiras, 3 - Parque São Martinho, Mogi das Cruzes - SP, 08889-899",
+ "google_nota": "4,8",
+ "google_total": "421",
+ "verificado": "2026-10-15",
+ "instagram": "sitiofrancilene",
+ "marca": "Sítio Francilene",
+ "marca_logo": "Sítio Francilene",
+ "marca_completa": "Sítio Francilene · Buffet e Decoração",
+ "logo_sub": "Mogi das Cruzes · SP",
+ "titulo": "Sítio Francilene | Sítio, buffet e decoração para festas em Mogi das Cruzes",
+ "descricao": "Sítio Francilene, na Estr. das Arueiras, 3, no Parque São Martinho, em Mogi das Cruzes (SP): sítio no meio do verde, com lago, salão com palco, cerimônia ao ar livre, buffet e decoração próprios, para casamentos, 15 anos e festas. Nota 4,8 no Google.",
+ "comentario": "Demo Sítio Francilene: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do sítio (@sitiofrancilene, página salva pelo Kaue, e posts recentes) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 15/10/2026.",
+ "fonte": "Lora",
+ "cores": {
+  "escuro": "#22331f",
+  "acento": "#e07a8b"
+ },
+ "topline": "Estr. das Arueiras, 3 · Parque São Martinho, Mogi das Cruzes",
+ "nav": [
+  [
+   "#sobre",
+   "O sítio"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Sítio, buffet e decoração em Mogi das Cruzes",
+  "h1": "Um paraíso verde <em>para a sua festa.</em>",
+  "intro": "Casamentos, 15 anos e festas num sítio com lago, salão com palco, buffet e decoração da casa, pertinho de São Paulo.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7591ecf78977_0xf9ec4a8ac553192e/g00.jpg",
+   "c": [
+    0.5,
+    0.5
+   ]
+  },
+  "alt": "Vista do alto do sítio, com o salão, os jardins e a mata em volta"
+ },
+ "endereco": [
+  "Estr. das Arueiras, 3",
+  "Parque São Martinho · Mogi das Cruzes"
+ ],
+ "marquee": [
+  "Casamentos",
+  "15 anos",
+  "Aniversários",
+  "Confraternizações",
+  "Lago",
+  "Buffet e decoração",
+  "Cerimônia ao ar livre",
+  "Mogi das Cruzes"
+ ],
+ "sobre": {
+  "eyebrow": "O Sítio Francilene",
+  "h2": "Sítio e buffet <em>no mesmo lugar.</em>",
+  "p": [
+   "No Parque São Martinho, em Mogi das Cruzes, o Sítio Francilene tem lago, jardins, salão amplo com palco, espaço para a cerimônia ao ar livre e lugar para dormir. O buffet e a decoração são da casa, com pacote completo e degustação.",
+   "Quem recebe é a Shirlene, dona do sítio. Nas avaliações, as famílias falam da atenção dela e da equipe de assessoria no dia da festa."
+  ],
+  "stats": [
+   [
+    "421",
+    "avaliações no Google"
+   ],
+   [
+    "2,7 mil",
+    "seguidores no Instagram"
+   ]
+  ],
+  "foto": {
+   "id": 8
+  },
+  "alt": "Lago com o céu do entardecer refletido e o salão ao fundo",
+  "pol": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_04.jpg",
+   "c": [
+    0.5,
+    0.35
+   ]
+  },
+  "pol_alt": "Noivos sorrindo no casamento",
+  "pol_cap": "Casamento"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Lago, jardins <em>e o salão.</em>",
+   "p": "O sítio visto do alto, o lago, o salão montado e a cerimônia. Peça mais fotos e um vídeo pelo WhatsApp.",
+   "rotulo": "Fotos do espaço do Sítio Francilene",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7591ecf78977_0xf9ec4a8ac553192e/g01.jpg"
+     },
+     "alt": "Lago com caminho de pedras e palmeiras"
+    },
+    {
+     "foto": {
+      "id": 29
+     },
+     "alt": "Salão montado com mesas e cadeiras brancas"
+    },
+    {
+     "foto": {
+      "id": 9
+     },
+     "alt": "Caminho de pedras com luminárias até o salão"
+    },
+    {
+     "foto": {
+      "id": 21
+     },
+     "alt": "Palco do salão decorado com flores e cortinas"
+    },
+    {
+     "foto": {
+      "id": 28
+     },
+     "alt": "Fachada do salão com o letreiro LOVE no gramado"
+    },
+    {
+     "foto": {
+      "id": 14
+     },
+     "alt": "Área verde do sítio com árvores"
+    },
+    {
+     "foto": {
+      "id": 26
+     },
+     "alt": "Mesa de doces diante da parede verde"
+    },
+    {
+     "foto": {
+      "id": 36
+     },
+     "alt": "Entrada do salão com porta de vidro"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, 15 anos e festas de quem já comemorou no Sítio Francilene.",
+   "rotulo": "Festas que aconteceram no Sítio Francilene",
+   "formato": "quadrado",
+   "itens": [
+    {
+     "foto": {
+      "id": 35
+     },
+     "alt": "Cerimônia de casamento sob a tenda",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_00.jpg"
+     },
+     "alt": "Decoração de 15 anos em pink com balões",
+     "cap": "15 anos"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_05.jpg",
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Noiva sorrindo com o vestido de renda",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 34
+     },
+     "alt": "Mesa do bolo com cortina de luzes",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_02.jpg"
+     },
+     "alt": "Decoração de aniversário em vermelho e xadrez",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 32
+     },
+     "alt": "Mesa de doces com flores lilás",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 24
+     },
+     "alt": "Mesa de doces de madeira com flores",
+     "cap": "Decoração da casa"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce7591ecf78977_0xf9ec4a8ac553192e/g10.jpg"
+     },
+     "alt": "Festa na pista de LED, com convidados dançando",
+     "cap": "Festa"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que o sítio <em>oferece.</em>",
+  "p": "O que o próprio sítio mostra no Instagram e o que contam as avaliações do Google.",
+  "itens": [
+   [
+    "lago",
+    "Lago e jardins"
+   ],
+   [
+    "salao",
+    "Salão amplo com palco"
+   ],
+   [
+    "cerimonia",
+    "Cerimônia ao ar livre"
+   ],
+   [
+    "cozinha",
+    "Buffet da casa"
+   ],
+   [
+    "estrela",
+    "Decoração da casa"
+   ],
+   [
+    "quartos",
+    "Espaço para dormir"
+   ],
+   [
+    "estacionamento",
+    "Estacionamento amplo"
+   ],
+   [
+    "pessoas",
+    "Assessoria no dia da festa"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o sítio e fazer a degustação",
+   "Escolha o pacote, o cardápio e a decoração com a Shirlene",
+   "No dia, a assessoria acompanha a festa"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "id": 25
+  },
+  "alt": "Salão claro com mesas redondas"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Guilherme Farias",
+   "tag": "Casamento",
+   "trecho": "Nosso casamento foi realizado em um lugar simplesmente lindo e maravilhoso! Tudo estava perfeito: fácil acesso, espaço amplo, limpo, organizado e com cada detalhe pensado com carinho."
+  },
+  {
+   "nome": "Manoel Henrique Rodrigues da Silva",
+   "tag": "30 anos",
+   "trecho": "A proprietária do local, Shirlene, é uma pessoa muito atenciosa e gentil. O sítio conta com uma boa estrutura e espaço para dormir (com colchões novos)."
+  },
+  {
+   "nome": "ARTESANATO BY CIDINHA Almeida",
+   "tag": "Assessoria",
+   "trecho": "Pensa num local maravilhoso rico em detalhes aconchegante,fácil acesso e com uma equipe de Assessoria que arrasam"
+  },
+  {
+   "nome": "Francisca Gerlanda Nobrega",
+   "tag": "Sítio e buffet",
+   "trecho": "Sítio e Buffet no mesmo espaço. Para festas, casamentos ou aquele final de semana com a galera ou com os amigos. Natureza bem perto de São Paulo."
+  },
+  {
+   "nome": "Adrilene Pereira da Silva",
+   "tag": "Natureza",
+   "trecho": "Um verdadeiro paraíso na terra! O lugar ideal para se eternizar os mais lindos momentos de uma vida inteira."
+  },
+  {
+   "nome": "Lorenna Sponda",
+   "tag": "Anfitriões"
+  }
+ ],
+ "insta": {
+  "seguidores": "2,7 mil seguidores",
+  "p": "As festas, as decorações e o pôr do sol no sítio.",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/th/sitiofrancilene/sitiofrancilene_01.jpg"
+  },
+  "alt": "Decoração de 15 anos em pink",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp do Sítio Francilene.",
+  "tipos": [
+   "Casamento",
+   "15 anos",
+   "Aniversário",
+   "Confraternização",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site do Sítio Francilene e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>em Mogi das Cruzes.</em>",
+  "endereco": [
+   "Estr. das Arueiras, 3 · Parque São Martinho",
+   "Mogi das Cruzes, SP · CEP 08889-899"
+  ],
+  "telefone": "(11) 99131-9871",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Um paraíso verde para a sua festa.",
+ "mensagem": "Olá! Vim pelo site do Sítio Francilene e queria um orçamento.",
+ "google_nome": "Sítio Francilene",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99131-9871 é o telefone do Perfil da Empresa no Google e o das artes antigas (\"Confirmação pelo WhatsApp (11) 99131-9871\")",
+  "site": "o sitiofrancilene.com.br, que aparece nas artes antigas, não existe mais (gancho: \"o site das suas artes saiu do ar\").",
+  "direcao": [
+   "Eventos lote 2 (escolhido pelo Kaue no Drive de 15/10/2026). Sítio em Mogi das Cruzes com lago, jardins, salão com palco, cerimônia ao ar livre e lugar para dormir, com buffet e decoração da casa (pacote completo e degustação).",
+   "Dona: Shirlene (\"A proprietária do local, Shirlene\"); o perfil do Instagram está no nome dela (Shirlene Baroni)."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com o sítio visto do alto, o sítio (sítio e buffet, Shirlene), carrossel do espaço (8, com 1 do Google), festas reais (8, com 4 dos posts recentes e 1 do Google), estrutura (8 itens), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde da mata e rosa das decorações recentes. Fonte Lora."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva: posts de 2017 a 2021, quase todos de 720 a 1080 px) e posts recentes de 2026 lidos na triagem; Perfil da Empresa no Google (vista aérea, lago, pista).",
+   "Ficaram de fora: as artes com preço e desconto (\"ganhe R$ 2.000 de desconto\"), as de feira de noivas e as fotos escuras."
+  ],
+  "conferir": [
+   "As fotos do Drive são antigas: pedir fotos recentes do salão e do lago é um bom gancho.",
+   "Uma avaliação de 1 estrela reclama de atendimento no orçamento; a demo usa só as de 5.",
+   "Capacidade: não confirmei."
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "marca": "Chácara Ouro Verde",
+ "local": "Juquitiba · SP",
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "DM Sans"
+ },
+ "cores": {
+  "fundo": "#1f3a2a",
+  "fundo2": "#13231a",
+  "acento": "#d4a843",
+  "tinta_acento": "#13231a",
+  "claro": "#fffdf6"
+ },
+ "foto": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94cfbc49a67631f5_0xb46f88c04831b859/g00.jpg",
+  "pos": "50% 55%"
+ },
+ "selo": {
+  "nota": "4,8",
+  "total": "231"
+ },
+ "titulo": "Festa e hospedagem<br><em>na Mata Atlântica.</em>",
+ "texto": "Casamentos, aniversários e retiros com quartos para o grupo, piscinas e lago com barcos.",
+ "whatsapp": "(11) 96903-7697",
+ "cta": "Consulte sua data",
+ "endereco": "Estr. Martha Maria de Jesus · Juquitiba",
+ "instagram": "@ouroverdejuquitiba"
+}

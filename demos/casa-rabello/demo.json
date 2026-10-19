@@ -1,0 +1,409 @@
+{
+ "pasta": "casa-rabello",
+ "inventario": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/casa-rabello/inventario.json",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/google/casa-rabello.json",
+ "logo": {
+  "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/ev1/inv/casa-rabello/perfil.jpg"
+ },
+ "estilos": null,
+ "whatsapp": "5511999480568",
+ "fone_link": "+5511999480568",
+ "google": {
+  "coords": "-23.5848434,-46.509061",
+  "fid": "0x94ce67878b3cacdb:0xe42d7e4f0f3735a1",
+  "gid": "/g/11tmxh5ngs"
+ },
+ "endereco_maps": "R. Pedro Rabêlo, 165 - Jardim Novo Carrao, São Paulo - SP, 03908-000",
+ "google_nota": "4,9",
+ "google_total": "112",
+ "verificado": "2026-10-14",
+ "instagram": "_casarabello",
+ "marca": "Casa Rabello",
+ "marca_logo": "Casa Rabello",
+ "marca_completa": "Casa Rabello",
+ "logo_sub": "Jardim Novo Carrão · São Paulo",
+ "titulo": "Casa Rabello | Espaço para festas no Jardim Novo Carrão, São Paulo",
+ "descricao": "Casa Rabello, na R. Pedro Rabêlo, 165, no Jardim Novo Carrão (Zona Leste de São Paulo): salão coberto e jardim com pergolado para chás, aniversários, noivados e mini weddings. Nota 4,9 no Google.",
+ "comentario": "Demo Casa Rabello: arquivo HTML único, com imagens, estilos e interações incorporados. Fotos do Instagram do espaço (@_casarabello, página salva pelo Kaue) e do Perfil da Empresa no Google; nota, avaliações, endereço e horário do Google, verificados em 14/10/2026.",
+ "fonte": "Fraunces",
+ "cores": {
+  "escuro": "#23342a",
+  "acento": "#e3895e"
+ },
+ "topline": "R. Pedro Rabêlo, 165 · Jardim Novo Carrão, São Paulo",
+ "nav": [
+  [
+   "#sobre",
+   "A casa"
+  ],
+  [
+   "#espaco",
+   "O espaço"
+  ],
+  [
+   "#festas",
+   "Festas"
+  ],
+  [
+   "#estrutura",
+   "Estrutura"
+  ],
+  [
+   "#depoimentos",
+   "Avaliações"
+  ],
+  [
+   "#consulta",
+   "Consultar data"
+  ]
+ ],
+ "cta_topo": "Consultar uma data",
+ "hero": {
+  "eyebrow": "Espaço para festas no Jardim Novo Carrão, Zona Leste",
+  "h1": "Festa com jeito <em>de casa.</em>",
+  "intro": "Salão coberto e jardim com pergolado para chá de bebê, chá revelação, aniversários, noivados e mini weddings, na R. Pedro Rabêlo, 165.",
+  "selo": "Orçamento pelo WhatsApp",
+  "link": "Ver o espaço",
+  "alvo": "espaco",
+  "foto": {
+   "id": 34,
+   "c": [
+    0.5,
+    0.45
+   ]
+  },
+  "alt": "Casal sorrindo no jardim, sob o pergolado e o arco de balões"
+ },
+ "endereco": [
+  "R. Pedro Rabêlo, 165",
+  "Jardim Novo Carrão · São Paulo"
+ ],
+ "dias_curto": "todos os dias",
+ "marquee": [
+  "Chá de bebê",
+  "Chá revelação",
+  "Aniversários",
+  "Noivados",
+  "Mini wedding",
+  "Jardim com pergolado",
+  "Salão coberto",
+  "Zona Leste"
+ ],
+ "sobre": {
+  "eyebrow": "A Casa Rabello",
+  "h2": "Uma casa <em>para celebrar.</em>",
+  "p": [
+   "No Jardim Novo Carrão, a Casa Rabello tem dois ambientes: o salão coberto, com parede de tijolinho, e o jardim com pergolado, para a festa ao ar livre. Recebe chá de bebê, chá revelação, aniversários, noivados e mini weddings.",
+   "Quem recebe é a Renata, dona da casa. Nas avaliações, as famílias contam da atenção dela do primeiro contato ao dia da festa: \"nos sentimos realmente em casa\"."
+  ],
+  "stats": [
+   [
+    "112",
+    "avaliações no Google"
+   ],
+   [
+    "2",
+    "ambientes: salão e jardim"
+   ]
+  ],
+  "foto": {
+   "id": 48
+  },
+  "alt": "Jardim da Casa Rabello com pergolado, plantas e grama",
+  "pol": {
+   "id": 36,
+   "c": [
+    0.5,
+    0.4
+   ]
+  },
+  "pol_alt": "Casal abraçado diante do arco de balões",
+  "pol_cap": "Chá de bebê"
+ },
+ "carrosseis": [
+  {
+   "id": "espaco",
+   "eyebrow": "O espaço",
+   "h2": "Salão e jardim, <em>do seu jeito.</em>",
+   "p": "Dois ambientes para montar a festa: o salão coberto e o jardim com pergolado. Peça mais fotos pelo WhatsApp.",
+   "rotulo": "Fotos do espaço da Casa Rabello",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g01.jpg"
+     },
+     "alt": "Salão coberto com mesas e cadeiras brancas e parede de tijolinho"
+    },
+    {
+     "foto": {
+      "id": 53
+     },
+     "alt": "Área externa com mesas e árvores"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g11.jpg"
+     },
+     "alt": "Altar montado no jardim, sob o pergolado"
+    },
+    {
+     "foto": {
+      "id": 45
+     },
+     "alt": "Salão montado com mesas e flores rosa"
+    },
+    {
+     "foto": {
+      "id": 52
+     },
+     "alt": "Área externa com mesas coloridas"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g10.jpg"
+     },
+     "alt": "Jardim com ombrelone e mesa de apoio"
+    },
+    {
+     "foto": {
+      "id": 37
+     },
+     "alt": "Quintal com brinquedo inflável e mesas"
+    },
+    {
+     "foto": {
+      "id": 54
+     },
+     "alt": "Pergolado montado para festa no jardim"
+    }
+   ]
+  },
+  {
+   "id": "festas",
+   "eyebrow": "Festas reais",
+   "h2": "Já aconteceu <em>aqui.</em>",
+   "p": "Casamentos, chás e aniversários de quem já comemorou na Casa Rabello.",
+   "rotulo": "Festas que aconteceram na Casa Rabello",
+   "formato": "retrato",
+   "itens": [
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g04.jpg",
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Noiva sorrindo com as madrinhas no jardim",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 49,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Noivos sorrindo ao lado do bolo",
+     "cap": "Mini wedding"
+    },
+    {
+     "foto": {
+      "id": 44,
+      "c": [
+       0.5,
+       0.45
+      ]
+     },
+     "alt": "Mulher grávida de vestido rosa no pergolado iluminado",
+     "cap": "Chá de bebê"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g13.jpg"
+     },
+     "alt": "Mesa de doces de casamento em verde e branco no jardim",
+     "cap": "Casamento"
+    },
+    {
+     "foto": {
+      "id": 47,
+      "c": [
+       0.5,
+       0.35
+      ]
+     },
+     "alt": "Casal com os filhos sorrindo diante do bolo",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "id": 39,
+      "c": [
+       0.5,
+       0.4
+      ]
+     },
+     "alt": "Casal sorrindo diante do bolo e do arco de balões",
+     "cap": "Chá revelação"
+    },
+    {
+     "foto": {
+      "id": 42
+     },
+     "alt": "Decoração colorida com arco de balões no salão",
+     "cap": "Aniversário"
+    },
+    {
+     "foto": {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g06.jpg",
+      "c": [
+       0.5,
+       0.5
+      ]
+     },
+     "alt": "Casal sentado no banco do jardim, sob o pergolado",
+     "cap": "No jardim"
+    }
+   ]
+  }
+ ],
+ "estrutura": {
+  "eyebrow": "Estrutura",
+  "h2": "O que a casa <em>oferece.</em>",
+  "p": "O que a Casa Rabello mostra nas legendas do Instagram e o que as famílias contam nas avaliações.",
+  "itens": [
+   [
+    "salao",
+    "Salão coberto"
+   ],
+   [
+    "jardim",
+    "Jardim com pergolado"
+   ],
+   [
+    "churrasqueira",
+    "Churrasqueira"
+   ],
+   [
+    "brinquedos",
+    "Brinquedos para as crianças"
+   ],
+   [
+    "estrela",
+    "Espaço para brinquedo inflável"
+   ],
+   [
+    "mesa",
+    "Mesas e cadeiras"
+   ]
+  ]
+ },
+ "atendimento": {
+  "eyebrow": "Como reservar",
+  "h2": "Da primeira mensagem <em>ao grande dia.</em>",
+  "passos": [
+   "Mande a data e o tipo de festa pelo WhatsApp",
+   "Venha conhecer o salão e o jardim na R. Pedro Rabêlo, 165",
+   "Combine os detalhes com a Renata",
+   "No dia, a Renata acompanha a festa de perto"
+  ],
+  "botao": "Consultar uma data",
+  "foto": {
+   "arquivo": "/tmp/claude-0/-home-user-Renderiza/211fd947-7b25-5803-85d0-531d3bb28150/scratchpad/estudo/gfotos/0x94ce67878b3cacdb_0xe42d7e4f0f3735a1/g10.jpg"
+  },
+  "alt": "Jardim da Casa Rabello com ombrelone e plantas"
+ },
+ "avaliacoes_secao": {
+  "h2": "Quem fez a festa <em>aqui conta.</em>"
+ },
+ "avaliacoes": [
+  {
+   "nome": "Andreza Moura",
+   "tag": "A Renata",
+   "trecho": "Lugar maravilhoso para eternizar um momento tão especial, acolhedor, aconchegante e lindo. Super indico a Casa Rabello a proprietária Renata uma simpatia, atenciosa"
+  },
+  {
+   "nome": "Ane Caroline Dos Santos",
+   "tag": "Casamento",
+   "trecho": "o espaço é acolhedor e tem um Charme único. Realizei meu casamento no dia 25/10/25, e foi assim surreal!"
+  },
+  {
+   "nome": "Vanessa Mazuquelli",
+   "tag": "Dois ambientes",
+   "trecho": "Quando ao espaço é maravilhoso, como lá tem  dois ambientes  da  para usar a imaginação na decoração e deixar os convidados bem a vontade."
+  },
+  {
+   "nome": "Thays Katharynne",
+   "tag": "Aniversário",
+   "trecho": "Fiz o aniversário do meu filho e foi tudo lindo!! Meus convidados adoraram o lugar! Tem espaço para as crianças brincarem, um espaço lindo no quintal para tirar foto"
+  },
+  {
+   "nome": "Amanda Macedo",
+   "tag": "Chá de bebê",
+   "trecho": "Fizemos nosso chá de bebê e foi maravilhoso! Nos sentimos realmente em casa, e entre os convidados foram só elogios."
+  },
+  {
+   "nome": "Thaís V Teixeira",
+   "tag": "Noivado"
+  }
+ ],
+ "insta": {
+  "seguidores": "2,4 mil seguidores",
+  "p": "Chás, aniversários e casamentos, no salão e no jardim.",
+  "foto": {
+   "id": 24
+  },
+  "alt": "Jardim com árvores e luzes ao entardecer",
+  "chip": "Consulte sua data"
+ },
+ "consulta": {
+  "h2": "Qual é a data <em>da sua festa?</em>",
+  "p": "Escolha o dia, o tipo de festa e quantos convidados. A mensagem chega pronta no WhatsApp da Casa Rabello.",
+  "tipos": [
+   "Chá de bebê",
+   "Chá revelação",
+   "Aniversário",
+   "Noivado",
+   "Casamento",
+   "Outra festa"
+  ],
+  "mensagem_inicio": "Olá! Vim pelo site da Casa Rabello e queria consultar uma data."
+ },
+ "visita": {
+  "h2": "Te esperamos <em>no Novo Carrão.</em>",
+  "endereco": [
+   "R. Pedro Rabêlo, 165 · Jardim Novo Carrão",
+   "São Paulo, SP · CEP 03908-000"
+  ],
+  "telefone": "(11) 99948-0568",
+  "rotulo_fone": "WhatsApp"
+ },
+ "slogan": "Festa com jeito de casa.",
+ "mensagem": "Olá! Vim pelo site da Casa Rabello e queria um orçamento.",
+ "google_nome": "CASA RABELLO",
+ "ficha": {
+  "whatsapp_fonte": "o +55 11 99948-0568 é o telefone do Perfil da Empresa no Google",
+  "site": "não tem (não achei site próprio nem página no casamentos.com.br)",
+  "direcao": [
+   "Eventos lote 1 (escolhido pelo Kaue no Drive de 14/10/2026). Casa com salão coberto (tijolinho) e jardim com pergolado na Zona Leste; muito chá de bebê, chá revelação e aniversário infantil, e também noivado e mini wedding.",
+   "Dona: Renata (\"a proprietária Renata\", \"Renta a dona\"); ela responde as avaliações."
+  ],
+  "demo": [
+   "Gerada por ferramentas/demo/gerar-eventos.py: topo com casal no jardim, a casa (Renata, dois ambientes), carrossel do espaço (8, com 3 do Google), festas reais (8, com 3 do Google), estrutura (6 itens das legendas), como reservar, avaliações (5), consultar uma data e mapa.",
+   "Cores: verde-escuro do jardim e terracota do tijolinho. Fonte Fraunces."
+  ],
+  "fotos": [
+   "Drive (página do Instagram salva) e Perfil da Empresa no Google (salão vazio, jardim, casamento).",
+   "Ficaram de fora: artes com texto (\"Espaço aberto\", \"Festa safári\"), painéis com nome de criança e as fotos com criança em destaque."
+  ],
+  "conferir": [
+   "Estrutura: jardim, brinquedos inclusos, churrasqueira, mesas e cadeiras, pergolado e espaço para inflável vêm das legendas do próprio @ (post da festa floresta e do aniversário de 1 ano).",
+   "A decoração das festas é de empresas parceiras (ex.: @nildadinizfestas, Festas e Mimos); a demo fala do espaço, não da decoração.",
+   "Horário do Google: todos os dias, 9h às 18h (é o horário de atendimento, não de festa).",
+   "Capacidade: não confirmei (a demo não cita)."
+  ]
+ }
+}

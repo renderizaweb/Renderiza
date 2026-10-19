@@ -28,14 +28,66 @@ Desde 09/10/2026 o funil tem quatro fases, que são as colunas do kanban:
   "Em andamento" escrito acima delas; o cartão muda de etapa ao ser solto na coluna. Soltar em Finalizado
   abre a janela do resultado.
 - **Tabela e detalhes**: o select de etapa mostra as três de Em andamento num grupo; Em negociação aparece em
-  azul, Sem resposta em âmbar e Encerrado em cinza. O filtro tem Em andamento (as três), cada etapa e cada
-  resultado (Ganho, Perda, Encerrado).
+  azul, Sem resposta em âmbar e Encerrado em cinza.
 - **Trilha do lead** (topo dos detalhes): uma barra por fase; em Em andamento, embaixo, a etapa da vez.
 - Etapas antigas (antes de 09/10/2026): Demo criada e Gravação realizada viraram Prontas para trabalhar;
   Contato iniciado virou a etapa `primeiro_contato` (que na tela se chama Em conversa); o Em conversa de antes
   (`follow_up`) virou Em negociação (quem tinha interesse registrado)
   ou Sem resposta. O `supabase/schema.sql` migrou os dados e deixou uma linha no histórico de cada lead
   ("etapas reorganizadas"). O histórico antigo continua com os nomes antigos.
+
+### Filtros (tabela e kanban)
+
+No jeito do Linear, só que simples. O botão **Filtrar**, ao lado da busca, abre a lista de campos (dá para
+escrever: "mauá" já oferece Cidade: Mauá). Escolhido o campo, aparecem os valores com quantos leads há em cada
+um, ou os períodos, no caso das datas. Cada filtro ativo vira um chip abaixo da barra: clicar no operador troca
+"é" por "não é", clicar nos valores reabre a escolha, e o × tira o filtro. Valores do mesmo campo valem como
+"qualquer um deles"; campos diferentes valem todos juntos. À direita aparece "X de Y leads". Os filtros ficam
+guardados neste navegador e valem na tabela e no kanban.
+
+| Grupo | Campos |
+|---|---|
+| Funil | Etapa (com Finalizado · Ganho/Perda/Encerrado), Ciclo, Interesse, Próximo passo (o primeiro item pendente da checklist), Checklist (com pendentes, toda feita, sem checklist) |
+| Ótica | Nicho (segmento), Cidade (o que vem depois do "·"), Tags, Materiais (demo, vídeo, flyer), Demo no ar (no ar, último dia, expirada ou fora do ar) |
+| Datas | Início da conversa (o primeiro contato), Última interação, Retorno previsto (follow-up ainda por cumprir), Entrou no painel |
+| Outros | Tarefas (em aberto, atrasada), Marcações (não contatar, revisar) |
+
+Períodos: hoje, ontem, últimos 7 ou 30 dias, neste ciclo, no ciclo passado, entre datas e sem data. O Retorno
+previsto olha para frente: atrasado, até o fim da semana, próximos 7 dias, com data. A fila de retornos do Ritmo
+abre o Pipeline com esse filtro. A lógica está em `src/filtros.js` (testes em `test/filtros.test.mjs`) e a tela
+em `src/filtros-ui.js`.
+
+### Ciclo (C1, C2…) e outras tags
+
+- Cada lead tem **tags** (coluna `tags`). A de ciclo, `ciclo N`, diz em que ciclo de prospecção a conversa
+  começou: ciclos semanais, de sexta a quinta, com o ciclo 1 de 02 a 08/10/2026 (o que veio antes, como a lista
+  de agosto, também é ciclo 1). Ela aparece no cartão do kanban e ao lado do nome na tabela como **C1, C2…**,
+  uma cor por ciclo, e como "Ciclo 2" no topo dos detalhes. Na tabela, a coluna **Ciclo** mostra o C1, C2.
+- **Dá para trocar o ciclo**: na coluna Ciclo da tabela ou no campo Ciclo dos detalhes (seção Andamento), que
+  tem do ciclo 1 ao próximo e "Sem ciclo".
+- **Entra sozinha** quando o lead sai de Leads a trabalhar ou de Prontas para trabalhar (o painel põe na hora e
+  o gatilho `leads_marcar_ciclo` do banco garante o mesmo pela IA e pelo SQL). Quem já tem ciclo não muda.
+- Outras tags são livres: no campo **Tags** (seção Andamento) escreva e tecle Enter; o × tira. Elas aparecem ao
+  lado do nome na tabela e no cartão. Os filtros têm Ciclo e Tags, e a busca acha pelas tags.
+- Carga inicial (14/10/2026): C1 para quem começou a conversa até 08/10, C2 para quem saiu de Prontas a partir
+  de 09/10 (a Dra. Milena e os 7 do lote 6 de 13/10). Quem está em Leads a trabalhar ou Prontas ainda não tem ciclo.
+
+### Checklist do card (no lugar da próxima ação)
+
+- Cada card tem uma **checklist** (coluna `checklist`): os passos do contato, marcados conforme acontecem.
+  Padrão: *Enviar a demo e o vídeo*, *1ª cobrança: mandar o flyer de cortesia*, *2ª cobrança: perguntar se viu
+  a demo*, *3ª cobrança, a última*. Entram sozinhos quando o lead chega em Prontas para trabalhar; ao mover para
+  Em andamento, "Enviar a demo e o vídeo" fica feito, com a data.
+- A checklist fica **só nos detalhes** (pedido do Kaue em 14/10/2026: o cartão fica limpo, com o nome, o ciclo e
+  as etiquetas). Na tabela, a coluna Checklist começa oculta (volta pelo menu Colunas).
+- **Nos detalhes** (seção Checklist, a primeira): marcar e desmarcar (fica a data), corrigir o texto (clique nele),
+  subir, descer, tirar e acrescentar itens livres (ex.: "Disse que está em análise"). Tudo feito em Em conversa ou
+  Sem resposta: aparece o atalho para mover para Sem resposta ou encerrar.
+- **Registrar interação** tem "Marcar na checklist": o primeiro contato já vem marcando o envio da demo, e o
+  retorno, a próxima cobrança (dá para desmarcar). Dá para acrescentar um item ali também.
+- A coluna `proxima_acao` continua no banco e passa a ser o texto do primeiro item pendente, gravado junto: o
+  Ritmo, as sugestões das Tarefas e a IA continuam lendo a próxima ação. Se a IA escrever outra próxima ação, ela
+  aparece na seção Checklist com o botão "Pôr na checklist".
 
 ## Tarefas: o que fazer
 
@@ -48,8 +100,8 @@ O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
 - Filtro por responsável: Todos, Kaue, Milena ou Sem responsável.
 - O círculo marca como feita (e desmarca). As feitas nos últimos 7 dias ficam numa lista recolhida;
   nos detalhes do cliente aparecem todas, como histórico.
-- **Próximas ações anotadas nos clientes**: o campo antigo "Próxima ação" de quem ainda não tem tarefa
-  aberta aparece como sugestão, com um botão para criar a tarefa. Nada é criado sozinho.
+- **Próximas ações anotadas nos clientes**: a próxima ação (o primeiro item pendente da checklist) de quem ainda
+  não tem tarefa aberta aparece como sugestão, com um botão para criar a tarefa. Nada é criado sozinho.
 - Na janela da tarefa dá para cadastrar um cliente novo sem sair dela.
 - **Contador no menu**: ao lado de "Tarefas", quantas estão em aberto para hoje, somando as atrasadas
   (vermelho se houver atrasada; some quando zera). No celular, um ponto no botão do menu avisa.
@@ -96,7 +148,7 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
 
 - **Interações**: primeiro contato, retorno feito, resposta recebida e anotação, cada uma com data e
   resumo curto (canal opcional). Ficam numa linha do tempo junto com as mudanças de etapa e de
-  interesse. *Próxima ação* e *Follow-up* continuam sendo o **plano**: não contam no placar.
+  interesse. A *checklist* e o *Follow-up* continuam sendo o **plano**: não contam no placar.
 - **Registrar interação** é um botão discreto nos detalhes (e no menu **…** da linha). A rotina não
   depende dele: a IA pode registrar a partir do seu relato (veja abaixo).
 - **Interesse** (Não avaliado, Interessado, Perto de fechar) é opcional e não é etapa. Silêncio
@@ -145,7 +197,7 @@ HTML e JavaScript puro (módulos ES nativos), sem bundler. Os dados ficam no Sup
 - **Editar**: clique na célula e digite. Salva ao sair do campo. *Enter* salva e desce,
   *Shift+Enter* sobe, *Tab* avança, *Alt+setas* andam entre células, *Esc* desfaz.
 - **Adicionar**: campo *Adicionar lead…* no fim da tabela. Colar várias linhas nele cria vários
-  registros de uma vez (colunas: Empresa, WhatsApp, Instagram ou site, Próxima ação).
+  registros de uma vez (colunas: Empresa, WhatsApp, Instagram ou site, primeiro item da checklist).
 - **Inserir no meio**: passe o mouse na linha e clique no **+** à esquerda do nome.
 - **Reordenar**: arraste pela alça (⋮⋮) ao lado do nome, ou *Alt+↑/↓* com a alça em foco.
   Funciona em *Ordenar > Minha ordem*; nas outras ordenações a alça fica desligada.
@@ -244,7 +296,9 @@ npm test                     # regras do placar e do site público
 | `resultado` | text | `ganho`, `perda` ou `encerrado` (obrigatório quando `etapa = finalizado`) |
 | `motivo_perda`, `valor_fechado`, `data_fechamento` | text, numeric, date | preenchidos ao finalizar |
 | `whatsapp`, `instagram` | text | contato; `instagram` aceita @perfil ou site |
-| `proxima_acao`, `followup_em` | text, date | o que fazer e quando |
+| `proxima_acao`, `followup_em` | text, date | o que fazer (o primeiro item pendente da checklist) e quando |
+| `tags` | text[] | etiquetas; `ciclo N` = ciclo em que a conversa começou (C1, C2 no cartão), posta pelo gatilho `leads_marcar_ciclo` |
+| `checklist` | jsonb | `[{id, texto, feito, feito_em}]`: passos do card; os padrão (`enviar_demo`, `cobranca_1..3`) vêm de `renderiza_checklist_padrao()` e entram pelo gatilho `leads_ajustar_checklist` |
 | `valor_potencial` | numeric | valor estimado |
 | `cidade`, `segmento`, `site_atual`, `link_demo`, `link_gravacao`, `observacoes` | text | painel lateral |
 | `link_flyer` | text | flyer de Stories (PNG 1080×1920): `/flyer/<id>.png` ou link completo; seção "Flyer para Stories" |

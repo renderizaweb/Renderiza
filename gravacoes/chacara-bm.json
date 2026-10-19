@@ -1,0 +1,116 @@
+{
+ "demo": "chacara-bm",
+ "formato": "reels",
+ "marca": "Chácara BM",
+ "local": "Rio Grande da Serra · SP",
+ "cores": {
+  "fundo": "#1d3a2b",
+  "fundo2": "#12241b",
+  "acento": "#f2b843",
+  "claro": "#fffdf6"
+ },
+ "fontes": {
+  "titulo": "Lora",
+  "texto": "DM Sans"
+ },
+ "hora": "2026-10-06T10:15:00-03:00",
+ "musica": "auto",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Chácara",
+   "BM"
+  ],
+  "frase": "Natureza para a sua festa.",
+  "fotos": [
+   ".hero-photo img",
+   "#espaco-track li:nth-child(1) img",
+   "#festas-track li:nth-child(1) img",
+   "#espaco-track li:nth-child(3) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Chácara BM.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 5.6,
+   "legenda": "Hoje, quem procura uma chácara para a festa *começa pelo celular.*",
+   "sub": "Quer ver o espaço, as festas que já aconteceram e a opinião de quem fez."
+  },
+  {
+   "rolar": ".story-photos",
+   "segura": 5.6,
+   "legenda": "Conhece a Chácara BM *e quem recebe.*",
+   "sub": "O Sérgio e a Irene, donos da chácara, em Rio Grande da Serra."
+  },
+  {
+   "rolar": "#espaco-track",
+   "alinhar": "topo",
+   "segura": 5.4,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.5,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": "#espaco-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "Vê a piscina e o verde *antes da visita.*",
+   "sub": "A piscina, a área coberta, o parquinho e o jardim."
+  },
+  {
+   "rolar": "#estrutura h2",
+   "alinhar": "topo",
+   "segura": 4.2,
+   "legenda": "E tudo o que *a chácara oferece.*",
+   "sub": "Piscina das crianças, churrasqueira, cozinha e brinquedos."
+  },
+  {
+   "rolar": "#reviews-track",
+   "alinhar": "topo",
+   "segura": 4.9,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *quem fez a festa conta.*",
+   "sub": "São 223 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#consulta .consulta-form",
+   "segura": 5.6,
+   "acoes": [
+    {
+     "em": 1,
+     "tipo": "tocar",
+     "alvo": "#consulta .button"
+    }
+   ],
+   "legenda": "Quando decide, *consulta a data no WhatsApp.*",
+   "sub": "Com o dia, o tipo de festa e o número de convidados já na mensagem."
+  }
+ ]
+}
