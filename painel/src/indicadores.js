@@ -14,6 +14,7 @@ import { primeiroContato } from "./ritmo.js";
 export const SITUACOES = {
   venda: "Venda",
   interessado: "Interessado, em aberto",
+  conversando: "Respondeu, a avaliar",
   esfriou: "Respondeu e parou",
   nao: "Disse não",
   silencio: "Não respondeu",
@@ -68,7 +69,9 @@ export function analisar(lead, lista = []) {
   else if (motivo) situacao = "nao";
   else if (lead.resultado) situacao = respondeu ? "esfriou" : "silencio"; // perda sem motivo, encerrado
   else if (lead.etapa === "sem_resposta") situacao = respondeu ? "esfriou" : "silencio";
-  else situacao = respondeu ? "interessado" : "aguardando";
+  // Responder não é interesse: só conta como interessado quem negociou ou teve o interesse marcado.
+  else if (!respondeu) situacao = "aguardando";
+  else situacao = negociou || (lead.interesse && lead.interesse !== "nao_avaliado") ? "interessado" : "conversando";
 
   // Dias do primeiro contato até o primeiro sinal de resposta (resposta registrada ou mudança de etapa que a mostra).
   let diasAteResposta = null;
@@ -110,6 +113,7 @@ export function resumo(grupo) {
     silencio: conta("silencio"),
     esfriou: conta("esfriou"),
     interessadoAberto: conta("interessado"),
+    conversando: conta("conversando"),
     aguardando,
     taxaResposta: pct(respondeu, contatados.length),
     diasAteResposta: mediana(contatados.map(x => x.a.diasAteResposta).filter(n => n !== null)),
@@ -169,6 +173,9 @@ export function alertas(total, producao, quentes, qualidade) {
     const sem = total.semRespostaComCobranca - total.cobrancasFeitas;
     if (sem > 0) lista.push({ tom: "alerta", texto: `${sem} de ${total.semRespostaComCobranca} conversas sem resposta não têm nenhuma cobrança marcada como feita. Ou a cobrança não está acontecendo, ou não está sendo marcada.` });
   }
+  if (total.conversando) {
+    lista.push({ tom: "atencao", texto: `${total.conversando} ${total.conversando === 1 ? "lead respondeu e segue" : "leads responderam e seguem"} em aberto sem interesse avaliado. Marcar o interesse (ou o não) de cada um mostra quantos estão de fato perto de comprar.` });
+  }
   const parados = quentes.filter(q => q.diasParado !== null && q.diasParado >= 5);
   if (parados.length) {
     lista.push({ tom: "alerta", texto: `${parados.length === 1 ? "1 conversa quente está parada" : parados.length + " conversas quentes estão paradas"} há 5 dias ou mais (${parados.slice(0, 4).map(q => q.empresa).join(", ")}). São os leads mais perto de virar venda.` });
@@ -181,7 +188,7 @@ export function alertas(total, producao, quentes, qualidade) {
     lista.push({ tom: "atencao", texto: `${naoSite} de ${total.nao} "não" foram "já tem site ou alguém fazendo". A checagem de "sem site" antes da demo está deixando passar.` });
   }
   if (total.contatados >= 20 && !total.vendas) {
-    lista.push({ tom: "alerta", texto: `${total.contatados} contatos e nenhuma venda. ${total.interessados} ${total.interessados === 1 ? "chegou" : "chegaram"} a mostrar interesse: o funil perde mais na resposta (${total.taxaResposta ?? 0}% responderam) e no fechamento.` });
+    lista.push({ tom: "alerta", texto: `${total.contatados} contatos e nenhuma venda. ${total.interessados} ${total.interessados === 1 ? "chegou" : "chegaram"} a mostrar interesse: ${(total.taxaResposta ?? 0) >= 40 ? `${total.taxaResposta}% responderam, então o funil perde mais entre a resposta e o interesse` : `o funil perde mais na resposta (${total.taxaResposta ?? 0}% responderam)`} e no fechamento.` });
   }
   return lista;
 }

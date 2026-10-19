@@ -11,7 +11,7 @@ const estado = { nicho: "" };
 try { estado.nicho = JSON.parse(localStorage.getItem("renderiza:indicadores") || "{}").nicho || ""; } catch (e) { /* opcional */ }
 const guardar = () => { try { localStorage.setItem("renderiza:indicadores", JSON.stringify({ nicho: estado.nicho })); } catch (e) { /* opcional */ } };
 
-const ORDEM = ["venda", "interessado", "esfriou", "nao", "silencio", "aguardando"];
+const ORDEM = ["venda", "interessado", "conversando", "esfriou", "nao", "silencio", "aguardando"];
 const plural = (n, um, varios) => n + " " + (n === 1 ? um : varios);
 const dm = iso => iso.slice(8, 10) + "/" + iso.slice(5, 7);
 const nomeDoGrupo = c => (c === 0 ? "Antes dos ciclos · lista de agosto" : nomeDoCiclo(c));
@@ -93,7 +93,7 @@ export function criarTelaIndicadores(ctx) {
 
   function barraSituacoes(g) {
     const total = g.contatados || 1;
-    const n = { venda: g.vendas, interessado: g.interessadoAberto, esfriou: g.esfriou, nao: g.nao, silencio: g.silencio, aguardando: g.aguardando };
+    const n = { venda: g.vendas, interessado: g.interessadoAberto, conversando: g.conversando, esfriou: g.esfriou, nao: g.nao, silencio: g.silencio, aguardando: g.aguardando };
     return h("div", { class: "ind-pilha", role: "img", "aria-label": ORDEM.filter(s => n[s]).map(s => `${SITUACOES[s]}: ${n[s]}`).join(", ") },
       ORDEM.filter(s => n[s]).map(s => h("span", { class: "sit-" + s, style: `width:${(100 * n[s]) / total}%`, title: `${SITUACOES[s]}: ${n[s]}` })));
   }
@@ -115,6 +115,7 @@ export function criarTelaIndicadores(ctx) {
         h("dl", { class: "ind-lista" },
           linha("Contatados", g.contatados),
           linha("Mostraram interesse", g.interessados),
+          g.conversando ? linha("Responderam, a avaliar", g.conversando) : null,
           linha("Disseram não", g.nao),
           linha("Não responderam", g.silencio),
           g.esfriou ? linha("Responderam e pararam", g.esfriou) : null,
@@ -153,7 +154,7 @@ export function criarTelaIndicadores(ctx) {
     return h("p", { class: "grid-notice ind-nota" },
       h("strong", { text: "Como cada número é contado. " }),
       "Contatado: tem primeiro contato ou já está em Em andamento ou Finalizado. Respondeu: resposta registrada, interesse marcado, passagem por Em negociação ou perda com motivo (\"já tenho site\", \"sem interesse\"). ",
-      "Não respondeu: Sem resposta, Encerrado ou perda \"sem retorno\". Aguardando: em conversa, sem sinal de resposta ainda. ",
+      "Não respondeu: Sem resposta, Encerrado ou perda \"sem retorno\". Mostrou interesse: passou por Em negociação ou tem o interesse marcado; quem só respondeu fica em \"Respondeu, a avaliar\". Aguardando: em conversa, sem sinal de resposta ainda. ",
       `Hoje o painel tem ${plural(q.respostasRegistradas, "resposta registrada", "respostas registradas")}, ${plural(q.retornosRegistrados, "retorno registrado", "retornos registrados")} e ${plural(q.interesseAvaliado, "contato com interesse avaliado", "contatos com interesse avaliado")}.`);
   }
 
