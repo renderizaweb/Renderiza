@@ -1352,7 +1352,7 @@ const TITULOS = {
   tarefas: ["Tarefas", "O que fazer hoje, amanhã e nos próximos dias. Com cliente ou sem."],
   clientes: ["Clientes", "Todos os clientes, no funil ou fora dele. Clique para ver o histórico e as tarefas."],
   ritmo: ["Ritmo", "Prospecção e relacionamento: o que você fez, não o que vendeu."],
-  indicadores: ["Indicadores", "O funil de cada ciclo e de cada nicho, do primeiro contato à venda."],
+  indicadores: ["Indicadores", "Onde focar: o nicho e o perfil de negócio que mais viram interesse, e o funil do contato à venda."],
   pipeline: ["Pipeline", "Seus leads, da primeira conversa ao fechamento. É só clicar e editar."],
   conteudo: ["Conteúdo", "Ideias e publicações da Renderiza. É só clicar e editar."],
 };

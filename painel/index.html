@@ -707,8 +707,40 @@ button.lead-chip:hover{filter:brightness(.96)}
 .ind-medio.pouco{color:#9aa8a0}
 .ind-pilha{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#eef2f0}
 .ind-pilha span{display:block;height:100%}
-.sit-venda{background:#174e3d}.sit-interessado{background:#3e9a76}.sit-conversando{background:#9fcfb9}.sit-esfriou{background:#e2b65e}
-.sit-nao{background:#c8644a}.sit-silencio{background:#a9b5ae}.sit-aguardando{background:#d5e2ea}
+.sit-venda{background:#174e3d}.sit-interessado{background:#3e9a76}.sit-esfriou{background:#e2b65e}
+.sit-nao{background:#c8644a}.sit-silencio{background:#a9b5ae}.sit-aguardando{background:#d5e2ea}.sit-conversando{background:#a3d4bf}
+.ind-alerta.foco{border-left-color:#3e9a76;background:#eef7f1;color:#1d4434}
+.ind-alvo{display:grid;gap:10px}
+.ind-chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.ind-chips li{display:grid;gap:2px;padding:12px 14px;border:1px solid #cfe3d6;border-radius:10px;background:#f3faf5;min-width:0}
+.ind-chips small{font-size:.75rem;color:#5d7268}
+.ind-chips strong{font-size:1rem;font-weight:650;color:#174e3d}
+.ind-chips span{font-size:.8125rem;color:#2f6a51}
+.ind-tabela-rolagem{overflow-x:auto;margin:0 -4px;padding:0 4px}
+.ind-tabela{width:100%;border-collapse:collapse;font-size:.875rem}
+.ind-tabela th,.ind-tabela td{padding:9px 10px;border-bottom:1px solid #e7ede9;text-align:left;vertical-align:middle}
+.ind-tabela thead th{font-size:.75rem;font-weight:600;color:#5d7268;white-space:nowrap}
+.ind-tabela tbody th{font-weight:600;color:#22342f}
+.ind-tabela tbody th small{display:block;font-size:.75rem;font-weight:400;color:#9a7a3a}
+.ind-tabela tbody tr:last-child>*{border-bottom:0}
+.ind-tabela td.num{text-align:right;font-variant-numeric:tabular-nums}
+.ind-tabela tr.destaque>*{background:#eef7f1}
+.ind-tabela tr.destaque th{color:#174e3d}
+.ind-tabela tr.pouco>*{color:#8b9a92}
+.ind-taxa{min-width:92px;white-space:nowrap}
+.ind-taxa .num{font-weight:600;font-variant-numeric:tabular-nums}
+.ind-taxa small{font-size:.75rem;color:#7a8a83;margin-left:4px}
+.ind-taxa small::before{content:"("}.ind-taxa small::after{content:")"}
+.ind-taxa.forte .num{color:#174e3d}
+.ind-taxa.vazia{color:#a4b1a9}
+.ind-barrinha{display:block;height:5px;margin-top:4px;border-radius:999px;background:#e7efe9;overflow:hidden}
+.ind-barrinha b{display:block;height:100%;background:#9fb8aa;border-radius:999px}
+.ind-taxa.forte .ind-barrinha b{background:#24775c}
+.ind-cortes{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:14px}
+.ind-corte{padding:18px 20px}
+.ind-corte h3{font-size:.9375rem;font-weight:650;color:#234d38}
+.ind-tabela.compacta th,.ind-tabela.compacta td{padding:7px 8px}
+.ind-tabela.compacta tbody th{min-width:118px}
 .ind-legenda{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8125rem;color:#52645b}
 .ind-legenda span{display:inline-flex;align-items:center;gap:6px}
 .ind-legenda i{width:10px;height:10px;border-radius:3px;display:inline-block}
@@ -862,6 +894,12 @@ button.lead-chip:hover{filter:brightness(.96)}
   .ind-celula strong{font-size:1.6rem}
   .ind-duas{grid-template-columns:1fr}
   .ind-grupos{grid-template-columns:1fr}
+  .ind-cortes{grid-template-columns:1fr}
+  .ind-chips{grid-template-columns:1fr 1fr}
+  .ind-taxa{min-width:62px}
+  .ind-tabela.compacta th,.ind-tabela.compacta td{padding:6px 5px}
+  .ind-tabela.compacta tbody th{min-width:0}
+  .ind-corte{padding:16px 14px}
   .ind-passo-topo small{margin-left:0;width:100%}
   .fila-celulas{grid-template-columns:repeat(2,minmax(0,1fr))}
   .periodo-rotulo{min-width:0;flex:1}
