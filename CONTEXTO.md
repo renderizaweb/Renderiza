@@ -74,6 +74,13 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   frequência fica a cargo da proposta do Claude.
 - **Painel:** melhorias no front são recorrentes, para facilitar o dia a dia; pedidos chegam a qualquer
   momento.
+- **Conversas do WhatsApp nos cards (20/10/2026):** os cards com conversa conferida ganharam, no fim das Observações,
+  o bloco `[WhatsApp · …]` (situação, quem atendeu, conversa, próximo passo). A linha `Quem atendeu:` começa com dono,
+  equipe, robô, ninguém ou não identificado e alimenta a tela Indicadores (detalhes em `painel/README.md`). Conversas
+  e backups do WhatsApp nunca entram no repositório.
+- **Indicadores (20/10/2026, pedido do Kaue):** a tela mostra onde focar (nicho e perfil: seguidores, avaliações e
+  nota no Google, região, quem atendeu, WhatsApp fixo ou celular, site atual), com interesse = pediu o valor,
+  perguntou como funciona, em negociação ou venda. Os números ficam no painel, não aqui.
 
 ## Como tem que ser uma demo de site
 

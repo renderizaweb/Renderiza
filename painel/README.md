@@ -144,18 +144,55 @@ aparecem só como contexto. O mesmo placar vale para **semana** (segunda a domin
   ou sem data. Elas ficam como já contatadas e **não contam como novas**. O que o painel antigo guardou
   (ex.: "Enviado em 24/09") aparece só como pista.
 
-## Indicadores: o funil de cada ciclo e de cada nicho
+## Indicadores: onde focar, o perfil de quem se interessa e o funil
 
-Só leitura, em `/painel#indicadores` (contas em `src/indicadores.js`, testes em `test/indicadores.test.mjs`).
-Filtra por nicho (o campo Segmento) e mostra: a leitura dos números (alertas que só aparecem quando os dados
-sustentam), contatados, quantos responderam, quantos mostraram interesse e vendas; o funil; um cartão por ciclo
-(a etiqueta C1, C2… do card; a lista de agosto fica em "Antes dos ciclos") e por nicho; os motivos do "não"; e as
-conversas quentes em aberto, com os dias desde a última mudança.
+Só leitura, em `/painel#indicadores` (contas em `src/indicadores.js` e `src/perfil.js`, testes em
+`test/indicadores.test.mjs` e `test/perfil.test.mjs`). Filtra por nicho (o campo Segmento) e mostra, nesta ordem:
 
-O painel quase não guarda a resposta da ótica, então **respondeu** é inferido: resposta registrada, interesse
-marcado, passagem por Em negociação ou perda com motivo ("já tenho site", "sem interesse"). Perda "sem retorno",
-Sem resposta e Encerrado contam como **não respondeu**; em conversa sem sinal é **aguardando**. Registrar a resposta
-(Registrar interação) e marcar as cobranças da checklist deixa os números exatos.
+1. **Onde focar**: o perfil que mais vira interesse (a melhor faixa de cada corte, quando tem pelo menos 8 contatos
+   e fica 5 pontos acima da média) e frases curtas com os números: interesse por nicho, a melhor e a pior faixa de
+   cada corte (só quando a diferença passa de 10 pontos) e quantas conversas pararam antes de uma pessoa responder.
+2. **Números**: contatados, quantos responderam, quantos mostraram interesse e vendas; demos, vídeos e flyers.
+3. **Qual nicho focar** (só em "Todos"): os nichos lado a lado, com resposta, interesse, "não", conversas em aberto
+   e **demos por interessado** (quantas demos foram feitas no nicho para cada um que mostrou interesse).
+4. **Perfil de quem responde e se interessa**: um cartão por corte, com contatos, % que respondeu e % que mostrou
+   interesse em cada faixa. Faixa com menos de 8 contatos fica apagada e não entra na leitura.
+   - Seguidores no Instagram (até 1 mil, 1 a 3 mil, 3 a 10 mil, mais de 10 mil), avaliações no Google (até 50,
+     51 a 100, 101 a 300, mais de 300) e nota no Google: das **Observações** da triagem ("Instagram: 3,6 mil
+     seguidores", "Google: 4,9 · 228 avaliações", "Nota 5,0 com 90 avaliações"); vale o primeiro número escrito.
+   - Região (capital, Grande SP pelo DDD 11, interior e litoral de SP, outros estados) e número do WhatsApp
+     (celular ou fixo): do campo WhatsApp e da cidade.
+   - Site atual (não tem, fora do ar, tem): do campo Site atual.
+   - **Quem atendeu o WhatsApp**: da linha `Quem atendeu:` das Observações, que começa com `dono`, `equipe`, `robô`,
+     `ninguém` ou `não identificado` (ver "Contexto do WhatsApp nos cards", abaixo).
+5. O **funil**, a **leitura dos números** (alertas que só aparecem quando os dados sustentam), os motivos do "não",
+   as conversas quentes em aberto (com os dias desde a última mudança) e um cartão por ciclo (a etiqueta C1, C2…
+   do card; a lista de agosto fica em "Antes dos ciclos").
+
+Como cada número é contado:
+- **Respondeu**: uma pessoa respondeu. Resposta registrada (mensagem automática não conta: fica como anotação),
+  interesse marcado, passagem por Em negociação ou perda com motivo ("já tenho site", "sem interesse"). Perda "sem
+  retorno", Sem resposta e Encerrado contam como **não respondeu**; em conversa sem sinal é **aguardando**.
+- **Mostrou interesse**: o campo Interesse marcado (pediu o valor, perguntou como funciona), estar em Em negociação
+  agora ou ter fechado. Ter passado por Em negociação e saído conta só como resposta.
+- O resultado (perda, encerrado) só vale em Finalizado: card que voltou para Em andamento é tratado como aberto.
+
+### Contexto do WhatsApp nos cards
+
+Cada card com conversa conferida no WhatsApp ganha, no fim das Observações, um bloco assim:
+
+```
+[WhatsApp · conferido no backup de 19/10/2026]
+Situação: Quente (pediu o valor)
+Quem atendeu: dono — o nome de quem respondeu (e por quem passou antes)
+Conversa: o que foi falado, com as datas.
+Próximo passo: o que fazer.
+```
+
+Junto, pelo mesmo caminho da atualização pela IA: o Interesse vira "Interessado" quando a pessoa pediu o valor ou
+perguntou como funciona, a resposta de pessoa é registrada, e "resposta" que era só mensagem automática vira
+anotação. Para atualizar um card à mão, mantenha a linha `Quem atendeu:` começando por uma das cinco palavras: é
+dela que sai o corte "Quem atendeu" dos Indicadores.
 
 ## Interações, interesse e cadência (detalhes da ótica)
 
