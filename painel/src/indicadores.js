@@ -251,6 +251,9 @@ export function alertas(total, producao, quentes, qualidade) {
     const sem = total.semRespostaComCobranca - total.cobrancasFeitas;
     if (sem > 0) lista.push({ tom: "alerta", texto: `${sem} de ${total.semRespostaComCobranca} conversas sem resposta não têm nenhuma cobrança marcada como feita. Ou a cobrança não está acontecendo, ou não está sendo marcada.` });
   }
+  if (total.conversando) {
+    lista.push({ tom: "atencao", texto: `${total.conversando} ${total.conversando === 1 ? "lead respondeu e segue" : "leads responderam e seguem"} em aberto sem interesse avaliado. Marcar o interesse (ou o não) de cada um mostra quantos estão de fato perto de comprar.` });
+  }
   const parados = quentes.filter(q => q.diasParado !== null && q.diasParado >= 5);
   if (parados.length) {
     lista.push({ tom: "alerta", texto: `${parados.length === 1 ? "1 conversa quente está parada" : parados.length + " conversas quentes estão paradas"} há 5 dias ou mais (${parados.slice(0, 4).map(q => q.empresa).join(", ")}). São os leads mais perto de virar venda.` });
