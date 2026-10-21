@@ -172,6 +172,19 @@ test("exemplos de sistema: /exemplos e as páginas ao lado, com os dados juntos 
   }
 });
 
+test("Bastidor em /exemplos: o preço da calculadora é o mesmo dos textos da página", () => {
+  const html = readFileSync(new URL("../exemplos/index.html", import.meta.url), "utf8");
+  const preco = /const PRECO = \{ base: (\d+), inclusos: (\d+), extra: ([\d.]+), acessos: (\d+) \}/.exec(html);
+  assert.ok(preco, "PRECO na página");
+  const [, base, inclusos, extra, acessos] = preco;
+  const reais = v => Number(v).toLocaleString("pt-BR", { minimumFractionDigits: Number(v) % 1 ? 2 : 0 });
+  assert.ok(html.includes(`R$ ${base} por mês com ${inclusos} módulos`), "chamada do preço");
+  assert.ok(html.includes(`R$ ${reais(extra)} por mês`), "preço do módulo a mais");
+  assert.ok(html.includes(`Até ${acessos} acessos`) && html.includes(`até ${acessos}`), "acessos");
+  assert.match(html, /[Ss]em fidelidade/);
+  assert.doesNotMatch(html, /taxa de (ativação|adesão|implantação)/i, "o valor inicial se chama montagem");
+});
+
 test("flyers de Stories: só o PNG vai ao ar, em /flyer/<lead>.png", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("flyer/"));
   for (const d of destinos) assert.match(d, /^flyer\/[\w-]+\.png$/, d);

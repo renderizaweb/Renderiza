@@ -153,6 +153,10 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   online da **Villa Alecrim**, espaço inventado, com dados fictícios e um aviso disso em toda página; vídeo
   Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
   tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
+  O sistema se chama **Bastidor** (nome proposto em 21/10/2026; conferir no INPI antes de registrar marca).
+  O site é a vitrine (pago uma vez); o Bastidor é o sistema da equipe (mensalidade). Preço na página: R$ 49/mês
+  com 2 módulos e até 5 acessos, R$ 14,99 por módulo a mais, sem fidelidade, montagem grátis com o site.
+  Nunca chamar o valor inicial de "taxa de ativação/adesão/implantação": é a **montagem do sistema**.
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Exemplos de sistemas · Renderiza</title>
-<meta name="description" content="Agenda online, painel de gestão, financeiro e atendimento para espaços de eventos. Exemplos com dados fictícios, feitos pela Renderiza.">
+<title>Bastidor · o sistema da Renderiza para espaços de eventos</title>
+<meta name="description" content="Agenda online, agenda da equipe, clientes, contratos, financeiro e atendimento num lugar só. A partir de R$ 49 por mês, sem fidelidade. Veja o exemplo funcionando.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#1e2528">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.renderizaweb.com.br/exemplos">
-<meta property="og:title" content="Exemplos de sistemas para espaços de eventos · Renderiza">
-<meta property="og:description" content="Agenda online, agenda da equipe, clientes, contratos, financeiro e atendimento num lugar só. Veja como ficaria no seu espaço.">
+<meta property="og:title" content="Bastidor: o sistema do seu espaço de eventos">
+<meta property="og:description" content="Pedidos, datas, clientes, contratos e parcelas num lugar só, no celular de toda a equipe. A partir de R$ 49 por mês, sem fidelidade.">
 <meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/painel.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -18,73 +18,166 @@
 <link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fontes/geist.woff2) format("woff2")}
-:root{--fundo:#f1eee9;--fundo-2:#e8e4dd;--cartao:#fff;--escuro:#1e2528;--escuro-2:#2b3438;--tinta:#1e2528;--suave:#5b6467;--enfase:#7a8386;--enfase-escuro:#b9bfc1;--linha:#d9d4cc;--zap:#1fa855}
+:root{--fundo:#f1eee9;--fundo-2:#e8e4dd;--cartao:#fff;--escuro:#1e2528;--escuro-2:#2b3438;--tinta:#1e2528;--suave:#5b6467;--enfase:#7a8386;--enfase-escuro:#b9bfc1;--linha:#d9d4cc;--linha-2:#ebe7e0;--zap:#1fa855;--zap-2:#178a45;--ok:#1f7a4d;--ok-claro:#e1f1e7;--ouro:#b8913f;--ouro-claro:#f6efdd}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{font-family:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased}
+body{font-family:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 a{color:inherit}
 img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .cont{width:min(1160px,100% - 40px);margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
+/* topo */
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
-.marca{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:24px;letter-spacing:-.04em;text-decoration:none}
-.marca svg{width:28px;height:28px}
-.marca small{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);padding:4px 10px;border-radius:999px;background:var(--fundo-2);margin-left:6px}
-.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 22px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .12s,background .15s,border-color .15s;white-space:nowrap}
+.marca{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:23px;letter-spacing:-.04em;text-decoration:none}
+.marca svg{width:27px;height:27px}
+.produto{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--suave);padding:5px 11px;border-radius:999px;background:var(--fundo-2);margin-left:4px;letter-spacing:0}
+.produto b{color:var(--tinta);font-weight:700}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 22px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .12s,background .15s,border-color .15s;white-space:nowrap}
 .botao:active{transform:scale(.98)}
 .botao.escuro{background:var(--escuro);color:#fff}
 .botao.escuro:hover{background:#0f1416}
 .botao.claro{background:transparent;border:1.5px solid var(--linha)}
 .botao.claro:hover{border-color:#bdb6ab}
 .botao.zap{background:var(--zap);color:#fff}
+.botao.zap:hover{background:var(--zap-2)}
 .botao.pequeno{height:42px;padding:0 16px;font-size:15px;border-radius:12px}
 
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;padding:36px 0 72px}
-.olho{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-bottom:18px}
-h1{font-size:clamp(38px,5.4vw,64px);line-height:1.02;letter-spacing:-.045em;font-weight:700}
+/* abertura */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;padding:30px 0 64px}
+.olho{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-bottom:18px}
+.olho::before{content:"";width:26px;height:2px;background:var(--ouro)}
+h1{font-size:clamp(38px,5.4vw,62px);line-height:1.03;letter-spacing:-.045em;font-weight:700}
 h1 span,h2 span{color:var(--enfase)}
-.hero p.lide{font-size:19px;color:var(--suave);margin:22px 0 30px;max-width:40ch}
+.hero p.lide{font-size:19px;color:var(--suave);margin:20px 0 22px;max-width:42ch}
+.preco-chamada{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.preco-chamada span{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:var(--cartao);border:1px solid var(--linha);font-size:14.5px;font-weight:600}
+.preco-chamada span b{font-weight:700}
+.preco-chamada span:first-child{background:var(--escuro);border-color:var(--escuro);color:#fff}
 .hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
-.nota{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:14px;color:var(--suave)}
-.nota i{width:8px;height:8px;border-radius:50%;background:#c49a45;flex:none}
-.celular{justify-self:center;width:min(330px,100%);aspect-ratio:9/16;padding:10px;border-radius:44px;background:#151a1c;box-shadow:0 40px 90px -30px #151a1c99,0 0 0 1px #ffffff12 inset;position:relative}
-.celular video,.celular img{width:100%;height:100%;object-fit:cover;border-radius:35px;background:#0f261d}
-.celular .som{position:absolute;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:0;background:#000000a6;color:#fff;font:600 13px/1 inherit;font-family:inherit;cursor:pointer;backdrop-filter:blur(6px)}
+.nota{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:var(--suave)}
+.nota i{width:8px;height:8px;border-radius:50%;background:var(--ouro);flex:none}
+.celular{justify-self:center;width:min(320px,100%);aspect-ratio:9/16;padding:10px;border-radius:44px;background:#151a1c;box-shadow:0 40px 90px -30px #151a1c99;position:relative}
+.celular video{width:100%;height:100%;object-fit:cover;border-radius:35px;background:#0f261d}
+.celular .som{position:absolute;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;background:#000000a6;color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
 
+/* blocos */
 section.bloco{padding:72px 0}
-.bloco-cab{max-width:680px;margin-bottom:36px}
+.bloco-cab{max-width:700px;margin-bottom:34px}
 h2{font-size:clamp(30px,3.6vw,44px);line-height:1.06;letter-spacing:-.035em;font-weight:700}
 .bloco-cab p{color:var(--suave);font-size:18px;margin-top:14px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.card{display:flex;flex-direction:column;background:var(--cartao);border:1px solid var(--linha);border-radius:24px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px #1e252866}
-.card figure{aspect-ratio:16/10;overflow:hidden;background:var(--fundo-2);border-bottom:1px solid var(--linha)}
-.card figure img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.card:hover figure img{transform:scale(1.03)}
-.card .txt{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card .tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
-.card h3{font-size:21px;letter-spacing:-.02em;line-height:1.2}
-.card p{color:var(--suave);font-size:15.5px}
-.card .ir{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px}
-.card.destaque{grid-column:span 2;flex-direction:row}
-.card.destaque figure{aspect-ratio:auto;flex:1.25;border-bottom:0;border-right:1px solid var(--linha)}
-.card.destaque .txt{flex:1;padding:30px}
-.card.destaque h3{font-size:26px}
+.escuro-bloco{background:var(--escuro);color:#fff}
+.escuro-bloco h2 span{color:var(--enfase-escuro)}
+.escuro-bloco .bloco-cab p{color:var(--enfase-escuro)}
 
-.fluxo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;counter-reset:passo}
-.etapa{position:relative;background:var(--cartao);border:1px solid var(--linha);border-radius:20px;padding:18px 16px 18px}
-.etapa::before{counter-increment:passo;content:counter(passo);display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--escuro);color:#fff;font-size:14px;font-weight:700;margin-bottom:14px}
-.etapa:not(:last-child)::after{content:"";position:absolute;top:33px;right:-12px;width:12px;height:2px;background:var(--linha)}
-.etapa b{display:block;font-size:15.5px;line-height:1.3;letter-spacing:-.01em}
-.etapa span{display:block;font-size:13.5px;color:var(--suave);margin-top:6px;line-height:1.4}
-.etapa small{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--enfase)}
+/* sem e com */
+.semcom{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lado{border-radius:24px;padding:28px}
+.lado.sem{background:#262e31;border:1px solid #384246}
+.lado.com{background:#fff;color:var(--tinta)}
+.lado h3{display:flex;align-items:center;gap:10px;font-size:19px;letter-spacing:-.02em;margin-bottom:18px}
+.lado h3 i{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:16px}
+.lado.sem h3 i{background:#3a4448;color:#e6a39a}
+.lado.com h3 i{background:var(--ok-claro);color:var(--ok)}
+.lado ol{list-style:none;display:flex;flex-direction:column;gap:14px}
+.lado li{display:grid;grid-template-columns:74px 1fr;gap:12px;font-size:15.5px;line-height:1.45}
+.lado li b{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.lado.sem li{color:#cdd3d4}
+.lado.sem li b{color:#8d989b}
+.lado.com li b{color:var(--ok)}
 
+/* site e bastidor */
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative}
+.papel{border-radius:24px;padding:30px;background:var(--cartao);border:1px solid var(--linha);display:flex;flex-direction:column;gap:12px}
+.papel.bastidor{background:var(--escuro);color:#fff;border-color:var(--escuro)}
+.papel .tag{display:inline-flex;align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--fundo-2);color:var(--suave)}
+.papel.bastidor .tag{background:#ffffff1a;color:#e9d29b}
+.papel h3{font-size:26px;letter-spacing:-.03em;line-height:1.15}
+.papel > p{color:var(--suave);font-size:16px}
+.papel.bastidor > p{color:var(--enfase-escuro)}
+.papel ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.papel li{display:flex;gap:10px;font-size:15.5px}
+.papel li svg{color:var(--ok);margin-top:2px}
+.papel.bastidor li svg{color:#9fd8b4}
+.papel .pe{margin-top:auto;padding-top:10px;font-size:14px;font-weight:600;color:var(--suave)}
+.papel.bastidor .pe{color:#e9d29b}
+.ponte{margin-top:20px;display:flex;align-items:center;gap:16px;padding:20px 24px;border-radius:20px;background:var(--ouro-claro);border:1px solid #eadbb5;font-size:16px;color:#4c3d18}
+.ponte svg{color:var(--ouro);width:28px;height:28px}
+
+/* módulos */
+.sempre{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.sempre span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:var(--cartao);border:1px solid var(--linha);font-size:15px;font-weight:600}
+.sempre span svg{color:var(--ok)}
+.sempre small{color:var(--suave);font-weight:500}
+.modulos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.modulo{display:flex;flex-direction:column;background:var(--cartao);border:1px solid var(--linha);border-radius:24px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.modulo:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px #1e252866}
+.modulo figure{aspect-ratio:16/10;overflow:hidden;background:var(--fundo-2);border-bottom:1px solid var(--linha)}
+.modulo figure img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.modulo .txt{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.modulo h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.modulo p{color:var(--suave);font-size:15.5px}
+.modulo .ir{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px}
+.embreve{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.embreve div{padding:20px 22px;border-radius:20px;border:1.5px dashed #c5bdb0;display:flex;gap:14px;align-items:flex-start}
+.embreve b{display:block;font-size:16.5px}
+.embreve span{display:block;color:var(--suave);font-size:15px;margin-top:2px}
+.embreve em{font-style:normal;flex:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:var(--fundo-2);color:var(--suave)}
+
+/* acesso */
 .passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .passo{padding:26px;border-radius:24px;background:var(--fundo-2)}
-.passo b{display:block;font-size:20px;letter-spacing:-.02em;margin:10px 0 8px}
+.passo em{font-style:normal;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--suave)}
+.passo b{display:block;font-size:20px;letter-spacing:-.02em;margin:10px 0 8px;line-height:1.25}
 .passo span{color:var(--suave);font-size:16px}
-.passo em{font-style:normal;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--suave)}
+
+/* preço */
+.precos{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:28px;align-items:start}
+.escolha h3{font-size:19px;letter-spacing:-.02em;margin-bottom:4px}
+.escolha > p{color:var(--suave);font-size:15.5px;margin-bottom:16px}
+.opcoes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opcao{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:16px;border-radius:18px;background:var(--cartao);border:1.5px solid var(--linha);transition:border-color .15s,box-shadow .15s,background .15s}
+.opcao:hover{border-color:#bdb6ab}
+.opcao .caixa{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid #c3bcb0;display:grid;place-items:center;color:#fff;margin-top:1px;transition:all .15s}
+.opcao b{display:block;font-size:16px}
+.opcao small{display:block;color:var(--suave);font-size:13.5px;line-height:1.4;margin-top:2px}
+.opcao .valor{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:8px;background:var(--fundo-2);color:var(--suave)}
+.opcao[aria-pressed=true]{border-color:var(--escuro);box-shadow:0 0 0 3px #1e25281a}
+.opcao[aria-pressed=true] .caixa{background:var(--escuro);border-color:var(--escuro)}
+.opcao[aria-pressed=true] .valor.incluso{background:var(--ok-claro);color:var(--ok)}
+.opcao[aria-pressed=true] .valor.extra{background:var(--ouro-claro);color:#7a5a17}
+.atalhos{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.atalhos span{font-size:14px;color:var(--suave);align-self:center;margin-right:2px}
+.atalhos button{padding:8px 13px;border-radius:999px;border:1.5px solid var(--linha);background:transparent;font-size:14px;font-weight:600}
+.atalhos button:hover{border-color:#bdb6ab}
+.resumo{position:sticky;top:20px;background:var(--escuro);color:#fff;border-radius:26px;padding:28px}
+.resumo h3{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--enfase-escuro)}
+.total{display:flex;align-items:baseline;margin:10px 0 4px}
+.total small{font-size:22px;font-weight:600;margin-right:6px}
+.total .cent{font-size:28px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.total .pm{margin-left:8px}
+.total b{font-size:60px;font-weight:700;letter-spacing:-.05em;line-height:1}
+.total span{font-size:16px;color:var(--enfase-escuro)}
+.total-sub{color:var(--enfase-escuro);font-size:15px}
+.linhas{list-style:none;margin:20px 0;padding:16px 0;border-top:1px solid #3a4448;border-bottom:1px solid #3a4448;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.linhas li{display:flex;justify-content:space-between;gap:14px}
+.linhas li span{color:#d4d9da}
+.linhas li b{font-weight:600;white-space:nowrap}
+.linhas li.verde b{color:#9fd8b4}
+.resumo .botao{width:100%}
+.resumo .miudo{margin-top:12px;font-size:13.5px;color:var(--enfase-escuro);text-align:center}
+.barra-total{display:none}
+
+/* perguntas */
+.perguntas{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+details{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:0 22px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 0;font-weight:600;font-size:16.5px;line-height:1.35}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:9px;background:var(--fundo-2);display:grid;place-items:center;font-size:18px;font-weight:500;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 20px;color:var(--suave);font-size:15.5px}
 
 .convite{margin:24px 0 80px;padding:56px;border-radius:32px;background:var(--escuro);color:#fff;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
 .convite h2 span{color:var(--enfase-escuro)}
@@ -93,34 +186,38 @@ footer{padding:0 0 48px;color:var(--suave);font-size:14px;display:flex;justify-c
 footer a{font-weight:600}
 
 @media (max-width:980px){
-  .hero{grid-template-columns:1fr;gap:40px;padding-top:16px}
-  .cards{grid-template-columns:1fr 1fr}
-  .card.destaque{grid-column:1/-1}
-  .fluxo{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .etapa:nth-child(3)::after{display:none}
-  .passos{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;gap:40px;padding-top:12px}
+  .modulos{grid-template-columns:1fr 1fr}
+  .passos,.perguntas{grid-template-columns:1fr}
+  .precos{grid-template-columns:1fr}
+  .resumo{position:static}
   .convite{grid-template-columns:1fr;padding:36px 28px}
 }
-@media (max-width:640px){
+@media (max-width:700px){
   body{font-size:16px}
   .cont{width:calc(100% - 32px)}
-  .topo{padding:16px 0}
+  .topo{padding:14px 0}
   .topo .botao span{display:none}
   .topo .botao{width:46px;padding:0}
-  .marca small{display:none}
+  .produto{display:none}
   .hero p.lide{font-size:17px}
   .hero .acoes .botao{flex:1}
-  .celular{width:min(300px,86vw)}
+  .preco-chamada span{font-size:13.5px}
+  .celular{width:min(290px,84vw)}
   section.bloco{padding:52px 0}
-  .cards{grid-template-columns:1fr}
-  .card.destaque{flex-direction:column}
-  .card.destaque figure{aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--linha)}
-  .card.destaque .txt{padding:20px 22px 22px}
-  .fluxo{grid-template-columns:1fr;gap:10px}
-  .etapa{display:grid;grid-template-columns:30px 1fr;column-gap:14px;padding:16px}
-  .etapa::before{margin:0;grid-row:span 3}
-  .etapa::after{display:none}
-  .etapa small{grid-column:2}
+  .semcom,.dois,.modulos,.embreve,.opcoes{grid-template-columns:1fr}
+  .opcoes{gap:10px}
+  .opcao{padding:14px}
+  .lado,.papel{padding:22px}
+  .lado li{grid-template-columns:62px 1fr;font-size:15px}
+  .papel h3{font-size:23px}
+  .ponte{flex-direction:column;align-items:flex-start;gap:10px;padding:18px}
+  .total b{font-size:52px}
+  .barra-total{display:flex;position:sticky;bottom:0;z-index:5;margin:18px -16px 0;padding:12px 16px max(12px,env(safe-area-inset-bottom));background:#fffffff2;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--linha);align-items:center;justify-content:space-between;gap:12px}
+  .barra-total div small{display:block;font-size:12.5px;color:var(--suave)}
+  .barra-total div b{font-size:22px;letter-spacing:-.03em}
+  .barra-total a{height:46px}
+  details{padding:0 18px}
   .convite{margin-bottom:56px}
   .convite .botao{width:100%}
 }
@@ -130,110 +227,233 @@ footer a{font-weight:600}
 <body>
 <div class="cont">
   <header class="topo">
-    <a class="marca" href="/" aria-label="Renderiza"><svg viewBox="158 161 943 943" aria-hidden="true"><path fill="currentColor" d="M 693.5 198.3 C 613.8 240.3,564.2 343.4,578 438.5 C 588.9 513,625.4 575.6,676.8 607.3 C 724.6 636.9,773.6 644.7,864.3 637.1 C 914.9 632.8,940 632.3,966 635.1 C 1012.7 640,1051.7 655.4,1085.9 682.4 C 1093.2 688.1,1094.6 688.9,1095.8 687.6 C 1097.6 685.8,1093.5 677.2,1085.3 665.8 C 1057.3 626.8,1011.4 601.3,948 589.6 C 924.3 585.2,907.4 583.2,855.5 578.5 C 792.6 572.7,765.4 567.1,736.8 553.7 C 698.4 535.8,670.6 503,650.9 452.5 C 616.5 364.3,633.2 279.5,699.4 206 C 712.4 191.6,710.6 189.3,693.5 198.3 M 703.4 313.6 C 666.5 369.1,680.5 457.8,733 501.5 C 760.4 524.2,798.1 539.9,842 546.9 C 859.3 549.7,864.4 549.9,864.8 547.8 C 865 546.6,863.4 545.6,858.3 544 C 802 525.4,754.5 483.1,727.4 427.5 C 708.6 388.9,703.2 354.7,710.1 317 C 712.4 304.3,712.3 305,710.6 305 C 709.8 305,706.6 308.9,703.4 313.6 M 457 557.7 C 454 557.9,433.5 560.1,411.5 562.5 C 345.8 569.8,322.5 570.3,290.2 565 C 272.4 562.1,271.2 563.5,285.8 570.3 C 327.5 589.9,364.6 595.8,460 598 C 484.5 598.6,503.9 599.5,511 600.5 C 555.5 606.4,586.4 619.2,611.4 642 C 618.3 648.3,619.4 649,620.7 647.7 C 622.3 646.1,619.3 635.6,614.4 625.7 C 589.7 576.4,534.7 552.7,457 557.7 M 162.3 581.7 C 159.9 587.8,186.6 621.8,206 637.4 C 248.5 671.6,293 684.5,399.4 693.5 C 458 698.4,484.7 702.8,509 711.5 C 570.4 733.6,607.6 782.1,621.2 858 C 624.5 876.3,624.5 916.4,621.2 935.5 C 612.5 985.8,592.2 1027.4,559.6 1061.7 C 553 1068.7,551.7 1072,555.4 1072 C 558.7 1072,579.2 1060.5,589.5 1052.8 C 635.8 1018.3,667.8 963.4,680.2 897 C 683.2 880.6,683.5 837,680.7 820.5 C 670.6 762.5,651.6 723,617.1 689 C 586.6 658.8,550.3 641.5,500.9 633.8 C 480.4 630.7,433 630.6,391.5 633.8 C 350.5 636.9,332 637.4,314 636.1 C 254.1 631.6,208.7 615.6,172.5 586 C 164.7 579.6,163.3 579,162.3 581.7 M 656.3 628.7 C 654.1 629.5,654.9 632.8,659.9 643.5 C 679.7 685.4,717.2 707.9,770.6 709.7 C 792.1 710.4,801.2 709.5,846 701.9 C 889.5 694.5,900.2 693.1,920 692.3 C 947.1 691.3,980.2 695.6,1006.3 703.6 C 1009.9 704.7,1007.9 700.9,1003.3 698 C 984.5 685.9,954.2 674.8,929 670.6 C 906.1 666.8,868.3 665.9,832.4 668.1 C 747.8 673.5,705 664.5,664.3 632.8 C 660.8 630.2,657.9 628,657.8 628.1 C 657.6 628.1,656.9 628.4,656.3 628.7 M 402.1 725.8 C 399 726.8,402 728.9,411.8 732.4 C 512.4 769.2,567.5 861.6,548.1 961.1 C 545.4 975,547.5 975.4,555.5 962.6 C 580 923.2,586.7 872.6,572.9 831 C 554.9 776.7,506.6 741.2,434 729.1 C 421 726.9,404 725.2,402.1 725.8"/></svg>renderiza<small>Exemplos</small></a>
-    <a class="botao zap pequeno" href="https://wa.me/5511988697165?text=Oi!%20Vi%20os%20exemplos%20de%20sistemas%20da%20Renderiza%20e%20quero%20saber%20mais." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg><span>Falar no WhatsApp</span></a>
+    <a class="marca" href="/" aria-label="Renderiza"><svg viewBox="158 161 943 943" aria-hidden="true"><path fill="currentColor" d="M 693.5 198.3 C 613.8 240.3,564.2 343.4,578 438.5 C 588.9 513,625.4 575.6,676.8 607.3 C 724.6 636.9,773.6 644.7,864.3 637.1 C 914.9 632.8,940 632.3,966 635.1 C 1012.7 640,1051.7 655.4,1085.9 682.4 C 1093.2 688.1,1094.6 688.9,1095.8 687.6 C 1097.6 685.8,1093.5 677.2,1085.3 665.8 C 1057.3 626.8,1011.4 601.3,948 589.6 C 924.3 585.2,907.4 583.2,855.5 578.5 C 792.6 572.7,765.4 567.1,736.8 553.7 C 698.4 535.8,670.6 503,650.9 452.5 C 616.5 364.3,633.2 279.5,699.4 206 C 712.4 191.6,710.6 189.3,693.5 198.3 M 703.4 313.6 C 666.5 369.1,680.5 457.8,733 501.5 C 760.4 524.2,798.1 539.9,842 546.9 C 859.3 549.7,864.4 549.9,864.8 547.8 C 865 546.6,863.4 545.6,858.3 544 C 802 525.4,754.5 483.1,727.4 427.5 C 708.6 388.9,703.2 354.7,710.1 317 C 712.4 304.3,712.3 305,710.6 305 C 709.8 305,706.6 308.9,703.4 313.6 M 457 557.7 C 454 557.9,433.5 560.1,411.5 562.5 C 345.8 569.8,322.5 570.3,290.2 565 C 272.4 562.1,271.2 563.5,285.8 570.3 C 327.5 589.9,364.6 595.8,460 598 C 484.5 598.6,503.9 599.5,511 600.5 C 555.5 606.4,586.4 619.2,611.4 642 C 618.3 648.3,619.4 649,620.7 647.7 C 622.3 646.1,619.3 635.6,614.4 625.7 C 589.7 576.4,534.7 552.7,457 557.7 M 162.3 581.7 C 159.9 587.8,186.6 621.8,206 637.4 C 248.5 671.6,293 684.5,399.4 693.5 C 458 698.4,484.7 702.8,509 711.5 C 570.4 733.6,607.6 782.1,621.2 858 C 624.5 876.3,624.5 916.4,621.2 935.5 C 612.5 985.8,592.2 1027.4,559.6 1061.7 C 553 1068.7,551.7 1072,555.4 1072 C 558.7 1072,579.2 1060.5,589.5 1052.8 C 635.8 1018.3,667.8 963.4,680.2 897 C 683.2 880.6,683.5 837,680.7 820.5 C 670.6 762.5,651.6 723,617.1 689 C 586.6 658.8,550.3 641.5,500.9 633.8 C 480.4 630.7,433 630.6,391.5 633.8 C 350.5 636.9,332 637.4,314 636.1 C 254.1 631.6,208.7 615.6,172.5 586 C 164.7 579.6,163.3 579,162.3 581.7 M 656.3 628.7 C 654.1 629.5,654.9 632.8,659.9 643.5 C 679.7 685.4,717.2 707.9,770.6 709.7 C 792.1 710.4,801.2 709.5,846 701.9 C 889.5 694.5,900.2 693.1,920 692.3 C 947.1 691.3,980.2 695.6,1006.3 703.6 C 1009.9 704.7,1007.9 700.9,1003.3 698 C 984.5 685.9,954.2 674.8,929 670.6 C 906.1 666.8,868.3 665.9,832.4 668.1 C 747.8 673.5,705 664.5,664.3 632.8 C 660.8 630.2,657.9 628,657.8 628.1 C 657.6 628.1,656.9 628.4,656.3 628.7 M 402.1 725.8 C 399 726.8,402 728.9,411.8 732.4 C 512.4 769.2,567.5 861.6,548.1 961.1 C 545.4 975,547.5 975.4,555.5 962.6 C 580 923.2,586.7 872.6,572.9 831 C 554.9 776.7,506.6 741.2,434 729.1 C 421 726.9,404 725.2,402.1 725.8"/></svg>renderiza<span class="produto"><b>Bastidor</b> · para espaços de eventos</span></a>
+    <a class="botao zap pequeno" href="https://wa.me/5511988697165?text=Oi!%20Vi%20o%20Bastidor%20da%20Renderiza%20e%20quero%20saber%20mais." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg><span>Falar no WhatsApp</span></a>
   </header>
 
   <section class="hero">
     <div>
-      <span class="olho">Para espaços de eventos</span>
-      <h1>Além do site, <span>um sistema para o dia a dia do seu espaço.</span></h1>
-      <p class="lide">Agenda online para o cliente pedir a data, e um painel para a equipe cuidar da agenda, dos clientes, dos contratos, do financeiro e do atendimento. Tudo integrado.</p>
+      <span class="olho">Bastidor, da Renderiza</span>
+      <h1>Tudo o que acontece antes da festa, <span>num lugar só.</span></h1>
+      <p class="lide">Pedidos, datas, clientes, contratos e parcelas. O Bastidor organiza os bastidores do seu espaço de eventos, no celular e no computador de toda a equipe.</p>
+      <div class="preco-chamada"><span>A partir de <b>R$ 49 por mês</b></span><span>Sem fidelidade</span><span>Até 5 acessos</span></div>
       <div class="acoes">
-        <a class="botao escuro" href="/exemplos/painel-eventos">Ver o painel de exemplo <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="botao claro" href="/exemplos/agenda-online">Ver a agenda online</a>
+        <a class="botao escuro" href="/exemplos/painel-eventos">Ver o exemplo funcionando <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="botao claro" href="#precos">Ver quanto custa</a>
       </div>
-      <p class="nota"><i></i>Exemplos com dados fictícios de um espaço inventado, a Villa Alecrim. Pode clicar em tudo.</p>
+      <p class="nota"><i></i>O exemplo usa dados de um espaço inventado, a Villa Alecrim. Pode clicar em tudo.</p>
     </div>
     <div class="celular">
-      <video id="video" src="/gravacao/exemplo-sistema-eventos.mp4" poster="/exemplos/img/video.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: o painel de exemplo no celular"></video>
+      <video id="video" src="/gravacao/exemplo-sistema-eventos.mp4" poster="/exemplos/img/video.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: o Bastidor de exemplo no celular"></video>
       <button class="som" id="som" type="button" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><span>Ligar o som</span></button>
     </div>
   </section>
 </div>
 
-<section class="bloco" id="exemplos">
+<section class="bloco escuro-bloco">
   <div class="cont">
-    <div class="bloco-cab"><h2>O que dá para ter <span>no seu espaço</span></h2><p>Cada parte funciona sozinha, mas fica melhor junto: o pedido que chega pela agenda online já aparece no painel da equipe.</p></div>
-    <div class="cards">
-      <a class="card destaque" href="/exemplos/painel-eventos">
-        <figure><img src="/exemplos/img/t-painel.jpg" alt="Visão geral do painel: festas do mês, recebido, a receber e próximos eventos" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Painel de gestão</span><h3>O espaço inteiro numa tela só</h3><p>Abre o painel e já vê as próximas festas, o que entrou no mês, o que falta receber e os pedidos novos. No celular e no computador.</p><span class="ir">Abrir o painel <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/agenda-online">
-        <figure><img src="/exemplos/img/t-agenda-online.jpg" alt="Agenda online: o cliente escolhe a festa, a data e o pacote" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Agenda online</span><h3>O cliente pede a data sozinho</h3><p>Escolhe a festa, vê os dias livres, o pacote e os convidados, e pede a pré-reserva pelo link. O pedido cai no painel na hora.</p><span class="ir">Testar a agenda <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#agenda">
-        <figure><img src="/exemplos/img/t-agenda.jpg" alt="Agenda do mês com uma cor para cada tipo de festa" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Agenda da equipe</span><h3>Festas, visitas e degustações</h3><p>Uma cor para cada tipo de festa e o nome de quem cuida de cada compromisso. Toque numa pessoa e veja só o que está com ela.</p><span class="ir">Ver a agenda <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#clientes">
-        <figure><img src="/exemplos/img/t-clientes.jpg" alt="Ficha do cliente com a festa, o pacote e os pagamentos" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Clientes</span><h3>A ficha de cada cliente</h3><p>A festa, o pacote, os adicionais, as parcelas, o checklist e o histórico da conversa, num toque.</p><span class="ir">Ver os clientes <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#contratos">
-        <figure><img src="/exemplos/img/t-contratos.jpg" alt="Contratos em colunas: orçamento enviado, contrato enviado, assinado, quitado e festa realizada" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Contratos</span><h3>Do orçamento à assinatura</h3><p>Cada festa numa coluna, do orçamento ao contrato assinado pelo link. Quem está esperando assinatura há dias aparece em destaque.</p><span class="ir">Ver os contratos <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#financeiro">
-        <figure><img src="/exemplos/img/t-financeiro.jpg" alt="Financeiro: recebido no mês, a receber, receita por mês e vendas por pacote" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Financeiro</span><h3>Quanto entrou e quanto falta</h3><p>Receita mês a mês, parcelas da semana, atrasos, os pacotes e adicionais que mais vendem e o que saiu do estoque.</p><span class="ir">Ver o financeiro <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#atendimento">
-        <figure><img src="/exemplos/img/t-atendimento.jpg" alt="Atendimento: pedidos do WhatsApp, Instagram e agenda online" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Atendimento</span><h3>Nenhum pedido se perde</h3><p>Quem chamou no WhatsApp, no Instagram ou pela agenda online, em que etapa está e quem está atendendo.</p><span class="ir">Ver o atendimento <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="/exemplos/painel-eventos#equipe">
-        <figure><img src="/exemplos/img/t-equipe.jpg" alt="Equipe e acessos: o que cada pessoa pode ver" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><span class="tag">Equipe e acessos</span><h3>Cada pessoa com o seu login</h3><p>A recepção agenda, o financeiro cuida das parcelas e você vê tudo. Você decide quem vê o quê.</p><span class="ir">Ver a equipe <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
+    <div class="bloco-cab"><h2>Uma semana no seu espaço, <span>sem e com o Bastidor</span></h2><p>Os mesmos pedidos, as mesmas festas e a mesma equipe. Muda só onde as coisas ficam.</p></div>
+    <div class="semcom">
+      <div class="lado sem"><h3><i>✕</i>Sem o Bastidor</h3><ol>
+        <li><b>Segunda</b><span>Os pedidos chegam pelo WhatsApp, pelo Instagram e pelo telefone. Alguns ficam sem resposta.</span></li>
+        <li><b>Terça</b><span>Para saber se o sábado está livre, alguém precisa olhar o caderno da recepção.</span></li>
+        <li><b>Quarta</b><span>A parcela da noiva venceu e ninguém lembrou de cobrar.</span></li>
+        <li><b>Quinta</b><span>O contrato foi impresso, levado para assinar e ficou numa pasta.</span></li>
+        <li><b>Sábado</b><span>A produção liga para perguntar o horário e os adicionais da festa.</span></li>
+      </ol></div>
+      <div class="lado com"><h3><i>✓</i>Com o Bastidor</h3><ol>
+        <li><b>Segunda</b><span>Todo pedido cai no Atendimento, e dá para ver quem está respondendo cada um.</span></li>
+        <li><b>Terça</b><span>O cliente vê os dias livres e pede a data sozinho, pela agenda online.</span></li>
+        <li><b>Quarta</b><span>O Financeiro mostra quem pagou, quem vai pagar e quem atrasou.</span></li>
+        <li><b>Quinta</b><span>O contrato vai por link e volta assinado pelo celular.</span></li>
+        <li><b>Sábado</b><span>A produção abre a festa no celular: horário, convidados, adicionais e checklist.</span></li>
+      </ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="cont">
+    <div class="bloco-cab"><h2>O site e o Bastidor <span>são coisas diferentes, que trabalham juntas</span></h2><p>Um é para quem ainda não conhece o seu espaço. O outro é para quem trabalha nele.</p></div>
+    <div class="dois">
+      <div class="papel">
+        <span class="tag">O site</span>
+        <h3>A vitrine do seu espaço</h3>
+        <p>Para o cliente que está procurando onde fazer a festa: fotos, avaliações do Google, como chegar e o botão do WhatsApp.</p>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aberto para todo mundo, no Google e no Instagram</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Pago uma vez, sem mensalidade</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>É seu: o endereço e os acessos ficam no seu nome</li>
+        </ul>
+        <a class="pe" href="/#projetos-lista">Ver sites feitos pela Renderiza →</a>
+      </div>
+      <div class="papel bastidor">
+        <span class="tag">O Bastidor</span>
+        <h3>O sistema de quem trabalha no espaço</h3>
+        <p>Para você e a sua equipe: agenda, clientes, contratos, financeiro e atendimento, cada um com o seu login.</p>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cada pessoa vê só o que você liberar</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Mensalidade a partir de R$ 49, sem fidelidade</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Você escolhe os módulos que fazem sentido</li>
+        </ul>
+        <a class="pe" href="/exemplos/painel-eventos">Abrir o Bastidor de exemplo →</a>
+      </div>
+    </div>
+    <div class="ponte"><svg class="i" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.2 1.2"/><path d="M14 10a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.2-1.2"/></svg><span><b>Juntos:</b> a agenda online fica dentro do seu site. O cliente pede a data na vitrine e o pedido chega no Bastidor, com a data já separada. E quem fecha o site com a Renderiza não paga a montagem do Bastidor.</span></div>
+  </div>
+</section>
+
+<section class="bloco" id="modulos" style="padding-top:24px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Os módulos <span>do Bastidor</span></h2><p>Cada módulo cuida de uma parte do trabalho. Você escolhe os que quer, e todo plano já vem com:</p></div>
+    <div class="sempre">
+      <span><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Visão geral do dia <small>o que importa hoje, numa tela</small></span>
+      <span><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Equipe e acessos <small>até 5 pessoas</small></span>
+      <span><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Suporte no WhatsApp</span>
+    </div>
+    <div class="modulos">
+      <a class="modulo" href="/exemplos/agenda-online"><figure><img src="/exemplos/img/t-agenda-online.jpg" alt="Agenda online: o cliente escolhe a festa, a data e o pacote" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Agenda online</h3><p>O cliente vê os dias livres, escolhe a festa e o pacote e pede a pré-reserva pelo link. Funciona 24 horas, sem ninguém precisar responder.</p><span class="ir">Testar como cliente →</span></div></a>
+      <a class="modulo" href="/exemplos/painel-eventos#agenda"><figure><img src="/exemplos/img/t-agenda.jpg" alt="Agenda da equipe com uma cor para cada tipo de festa" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Agenda da equipe</h3><p>Festas, visitas, degustações e reuniões do mês, com uma cor para cada tipo de festa e o nome de quem cuida de cada uma.</p><span class="ir">Ver no exemplo →</span></div></a>
+      <a class="modulo" href="/exemplos/painel-eventos#clientes"><figure><img src="/exemplos/img/t-clientes.jpg" alt="Ficha do cliente com a festa, o pacote e os pagamentos" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Clientes</h3><p>A ficha de cada cliente: a festa, o pacote, os adicionais, o checklist e o histórico da conversa.</p><span class="ir">Ver no exemplo →</span></div></a>
+      <a class="modulo" href="/exemplos/painel-eventos#contratos"><figure><img src="/exemplos/img/t-contratos.jpg" alt="Contratos em colunas, do orçamento à festa" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Contratos</h3><p>Do orçamento ao contrato assinado pelo link. Quem está há dias sem assinar aparece em destaque.</p><span class="ir">Ver no exemplo →</span></div></a>
+      <a class="modulo" href="/exemplos/painel-eventos#financeiro"><figure><img src="/exemplos/img/t-financeiro.jpg" alt="Financeiro: recebido no mês, a receber e receita por mês" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Financeiro</h3><p>Quanto entrou, quanto falta receber, as parcelas da semana, os atrasos e os pacotes que mais vendem.</p><span class="ir">Ver no exemplo →</span></div></a>
+      <a class="modulo" href="/exemplos/painel-eventos#atendimento"><figure><img src="/exemplos/img/t-atendimento.jpg" alt="Atendimento: pedidos do WhatsApp, Instagram e agenda online" loading="lazy" width="1280" height="800"></figure>
+        <div class="txt"><h3>Atendimento</h3><p>Os pedidos do WhatsApp, do Instagram e da agenda online num lugar só, com a etapa de cada um e quem está atendendo.</p><span class="ir">Ver no exemplo →</span></div></a>
+    </div>
+    <div class="embreve">
+      <div><div><b>Assistente com IA</b><span>Responde os pedidos fora do horário e já prepara o orçamento para você conferir.</span></div><em>Em breve</em></div>
+      <div><div><b>Lembretes automáticos</b><span>Avisa o cliente da parcela, da visita e da degustação pelo WhatsApp.</span></div><em>Em breve</em></div>
     </div>
   </div>
 </section>
 
 <section class="bloco" style="padding-top:24px">
   <div class="cont">
-    <div class="bloco-cab"><h2>Do primeiro “oi” <span>até o dia da festa</span></h2><p>Um caminho só, sem planilha solta, papel na gaveta ou conversa perdida no celular de alguém.</p></div>
-    <div class="fluxo">
-      <div class="etapa"><b>O cliente pede a data</b><span>Pela agenda online, com a festa, o pacote e os convidados.</span><small>Agenda online</small></div>
-      <div class="etapa"><b>O pedido chega no painel</b><span>Com aviso para a equipe e a data já separada.</span><small>Atendimento</small></div>
-      <div class="etapa"><b>Visita e orçamento</b><span>A visita entra na agenda de quem vai atender.</span><small>Agenda</small></div>
-      <div class="etapa"><b>Contrato pelo link</b><span>O cliente assina do celular, sem papel.</span><small>Contratos</small></div>
-      <div class="etapa"><b>Parcelas em dia</b><span>Cada pagamento cai no financeiro, com os atrasos à vista.</span><small>Financeiro</small></div>
-      <div class="etapa"><b>A festa acontece</b><span>A produção vê o checklist, o horário e os adicionais.</span><small>Agenda da equipe</small></div>
-    </div>
-  </div>
-</section>
-
-<section class="bloco" style="padding-top:24px">
-  <div class="cont">
-    <div class="bloco-cab"><h2>Feito <span>para o seu jeito de trabalhar</span></h2><p>Os exemplos mostram o caminho. O seu sistema sai do jeito que o seu espaço funciona hoje.</p></div>
+    <div class="bloco-cab"><h2>Como a sua equipe <span>entra no Bastidor</span></h2><p>Sem instalar nada: abre no navegador do celular ou do computador.</p></div>
     <div class="passos">
-      <div class="passo"><em>01</em><b>A gente entende a rotina</b><span>Como chegam os pedidos, como sai o orçamento, quem cuida de quê.</span></div>
-      <div class="passo"><em>02</em><b>Monta com a sua cara</b><span>As suas festas, os seus pacotes, a sua equipe e as cores do seu espaço.</span></div>
-      <div class="passo"><em>03</em><b>Você e a equipe usam</b><span>No celular e no computador, cada um com o seu login. E a gente acompanha.</span></div>
+      <div class="passo"><em>01</em><b>Você recebe o Bastidor do seu espaço</b><span>Com o nome, as cores, os seus pacotes e as festas que já estão marcadas.</span></div>
+      <div class="passo"><em>02</em><b>Convida a equipe</b><span>Até 5 pessoas no plano. Cada uma recebe um convite e cria a própria senha.</span></div>
+      <div class="passo"><em>03</em><b>Cada um vê o que é seu</b><span>A recepção cuida da agenda, o financeiro das parcelas e você vê tudo. <a href="/exemplos/painel-eventos#equipe" style="font-weight:600;color:var(--tinta)">Ver no exemplo</a></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="precos" style="padding-top:24px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Quanto custa: <span>você monta o seu plano</span></h2><p><b style="color:var(--tinta)">R$ 49 por mês com 2 módulos à sua escolha.</b> Quer mais? Cada módulo a mais custa R$ 14,99 por mês. Sem fidelidade.</p></div>
+    <div class="precos">
+      <div class="escolha">
+        <h3>Escolha os módulos</h3>
+        <p>Os 2 primeiros já estão no valor. Toque para marcar ou desmarcar.</p>
+        <div class="opcoes" id="opcoes"></div>
+        <div class="atalhos"><span>Exemplos:</span><button type="button" data-atalho="agenda-online,agenda">Só a agenda</button><button type="button" data-atalho="agenda-online,agenda,financeiro">Agenda e dinheiro</button><button type="button" data-atalho="agenda-online,agenda,clientes,contratos,financeiro,atendimento">Tudo</button></div>
+        <div class="barra-total" aria-hidden="true"><div><small id="barra-mods">2 módulos</small><b id="barra-total">R$ 49,00/mês</b></div><a class="botao zap pequeno" id="barra-zap" href="#" target="_blank" rel="noopener">Quero esse</a></div>
+      </div>
+      <aside class="resumo" aria-live="polite">
+        <h3>O seu plano</h3>
+        <div class="total"><small>R$</small><b id="total">49</b><span class="cent" id="centavos">,00</span><span class="pm">por mês</span></div>
+        <p class="total-sub" id="total-sub">2 módulos · até 5 acessos</p>
+        <ul class="linhas" id="linhas"></ul>
+        <a class="botao zap" id="zap" href="#" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Quero esse plano</a>
+        <p class="miudo">Sem fidelidade: pode mudar os módulos ou cancelar quando quiser.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" style="padding-top:24px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Perguntas <span>que todo mundo faz</span></h2></div>
+    <div class="perguntas">
+      <details><summary>Preciso ter o site para usar o Bastidor?</summary><p>Não. Mas, fechando o site com a Renderiza, a montagem do Bastidor é por nossa conta e a agenda online já fica dentro dele. Se você já tem um site, a agenda online ganha um link para colocar nele e no Instagram, e a montagem é combinada na conversa.</p></details>
+      <details><summary>Tem fidelidade ou multa para cancelar?</summary><p>Não. Você paga mês a mês e pode cancelar quando quiser. Se sair, leva os seus dados numa planilha.</p></details>
+      <details><summary>O que é um acesso?</summary><p>É uma pessoa com o próprio login: você, a recepção, o comercial, o financeiro. O plano já vem com até 5. Precisa de mais? São R$ 9,90 por mês a cada 5 acessos a mais.</p></details>
+      <details><summary>Posso trocar os módulos depois?</summary><p>Pode, a qualquer momento: começar com 2 e ir colocando os outros quando a equipe se acostumar. O valor novo vale a partir da mensalidade seguinte.</p></details>
+      <details><summary>Tenho mais de um espaço. Como fica?</summary><p>Um Bastidor só para todos os seus espaços: cada um com a própria agenda, e você vê tudo junto. Cada espaço a mais custa R$ 29 por mês.</p></details>
+      <details><summary>Funciona no celular? Precisa instalar?</summary><p>Funciona no celular e no computador, direto no navegador. Dá para colocar o ícone na tela inicial do celular e abrir como um aplicativo.</p></details>
+      <details><summary>Quem vê os meus dados?</summary><p>Só a sua equipe. Cada pessoa entra com a própria senha e só vê o que você liberar: dá para esconder o financeiro de quem cuida da agenda, por exemplo. Os dados são do seu espaço, e você baixa tudo em planilha quando quiser.</p></details>
+      <details><summary>E os módulos com IA?</summary><p>Vão entrar novos módulos, como um assistente com IA que responde os pedidos fora do horário. Eles chegam como módulos a mais: você só paga se quiser usar.</p></details>
+      <details><summary>Como começa?</summary><p>Você chama no WhatsApp. A gente entende a rotina do espaço, monta o Bastidor com os seus pacotes, as festas já marcadas e a sua equipe, e treina todo mundo para usar.</p></details>
+      <details><summary>O que está no exemplo é de verdade?</summary><p>A Villa Alecrim não existe: nomes, datas e valores são inventados, para você ver como fica. O seu Bastidor sai com os dados e o jeito de trabalhar do seu espaço.</p></details>
     </div>
   </div>
 </section>
 
 <div class="cont">
   <section class="convite">
-    <div><h2>Quer ver como ficaria <span>no seu espaço?</span></h2><p>Conta como funciona a sua rotina hoje que a gente mostra o que dá para organizar primeiro.</p></div>
-    <a class="botao zap" href="https://wa.me/5511988697165?text=Oi!%20Vi%20os%20exemplos%20de%20sistemas%20da%20Renderiza%20e%20quero%20saber%20mais." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Chamar no WhatsApp</a>
+    <div><h2>Quer ver o Bastidor <span>com o nome do seu espaço?</span></h2><p>Conta como funciona a sua rotina hoje que a gente mostra por onde começar.</p></div>
+    <a class="botao zap" href="https://wa.me/5511988697165?text=Oi!%20Vi%20o%20Bastidor%20da%20Renderiza%20e%20quero%20ver%20com%20o%20nome%20do%20meu%20espa%C3%A7o." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Chamar no WhatsApp</a>
   </section>
-  <footer><span>A Villa Alecrim não existe: é um espaço inventado para os exemplos. Nomes, datas e valores são fictícios.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
+  <footer><span>A Villa Alecrim não existe: é um espaço inventado para o exemplo. Nomes, datas e valores são fictícios.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
 </div>
 
 <script>
 (function () {
-  const v = document.getElementById("video"), b = document.getElementById("som");
-  b.addEventListener("click", () => {
-    v.muted = !v.muted; if (!v.muted) { v.currentTime = 0; v.play().catch(() => {}); }
-    b.setAttribute("aria-pressed", String(!v.muted));
-    b.querySelector("span").textContent = v.muted ? "Ligar o som" : "Desligar o som";
+  // Preço do Bastidor (pedido do Kaue, 21/10/2026). Mudou aqui, mude também os textos da página.
+  const PRECO = { base: 49, inclusos: 2, extra: 14.99, acessos: 5 };
+  const ZAP = "5511988697165";
+  const MODULOS = [
+    ["agenda-online", "Agenda online", "O cliente pede a data pelo link"],
+    ["agenda", "Agenda da equipe", "Festas, visitas e degustações"],
+    ["clientes", "Clientes", "A ficha de cada cliente"],
+    ["contratos", "Contratos", "Do orçamento à assinatura"],
+    ["financeiro", "Financeiro", "Parcelas, recebido e a receber"],
+    ["atendimento", "Atendimento", "Todos os pedidos num lugar só"],
+  ];
+  let marcados = ["agenda-online", "agenda"];
+  const $ = s => document.querySelector(s);
+  const reais = v => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const total = () => PRECO.base + Math.max(0, marcados.length - PRECO.inclusos) * PRECO.extra;
+  const check = '<svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  function desenhar() {
+    $("#opcoes").innerHTML = MODULOS.map(([id, nome, sub]) => {
+      const i = marcados.indexOf(id), sel = i >= 0, incluso = sel && i < PRECO.inclusos;
+      return `<button type="button" class="opcao" data-mod="${id}" aria-pressed="${sel}"><span class="caixa">${check}</span><span><b>${nome}</b><small>${sub}</small>
+        <span class="valor ${sel ? (incluso ? "incluso" : "extra") : ""}">${sel ? (incluso ? "no valor do plano" : "+ R$ " + reais(PRECO.extra) + "/mês") : "R$ " + reais(PRECO.extra) + "/mês a mais"}</span></span></button>`;
+    }).join("");
+    const t = total(), [int, cent] = reais(t).split(",");
+    $("#total").textContent = int; $("#centavos").textContent = "," + cent;
+    const n = marcados.length;
+    $("#total-sub").textContent = `${n} ${n === 1 ? "módulo" : "módulos"} · até ${PRECO.acessos} acessos`;
+    const extras = marcados.slice(PRECO.inclusos);
+    const nomes = id => MODULOS.find(m => m[0] === id)[1];
+    $("#linhas").innerHTML = [
+      `<li><span>Plano Bastidor${n ? ": " + marcados.slice(0, PRECO.inclusos).map(nomes).join(" e ") : ""}</span><b>R$ ${reais(PRECO.base)}</b></li>`,
+      ...extras.map(id => `<li><span>+ ${nomes(id)}</span><b>R$ ${reais(PRECO.extra)}</b></li>`),
+      n < PRECO.inclusos ? `<li class="verde"><span>Você ainda pode escolher mais ${PRECO.inclusos - n} sem pagar a mais</span><b>R$ 0</b></li>` : "",
+      `<li class="verde"><span>Até ${PRECO.acessos} acessos, visão geral e suporte</span><b>incluso</b></li>`,
+      `<li class="verde"><span>Montagem do sistema, para quem fecha o site com a Renderiza</span><b>R$ 0</b></li>`,
+    ].join("");
+    const texto = `Oi! Vi o Bastidor da Renderiza e quero o plano com ${marcados.length ? marcados.map(nomes).join(", ") : "os módulos que fizerem sentido"} (R$ ${reais(t)} por mês).`;
+    const link = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(texto);
+    $("#zap").href = link; $("#barra-zap").href = link;
+    $("#barra-total").textContent = "R$ " + reais(t) + "/mês";
+    $("#barra-mods").textContent = `${n} ${n === 1 ? "módulo" : "módulos"} · até ${PRECO.acessos} acessos`;
+  }
+  $("#opcoes").addEventListener("click", e => {
+    const b = e.target.closest("[data-mod]"); if (!b) return;
+    const id = b.dataset.mod;
+    marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id];
+    desenhar();
   });
-  // sem movimento para quem pede: o vídeo fica parado no cartaz
+  document.querySelector(".atalhos").addEventListener("click", e => {
+    const b = e.target.closest("[data-atalho]"); if (!b) return;
+    marcados = b.dataset.atalho.split(","); desenhar();
+  });
+  desenhar();
+
+  const v = $("#video"), s = $("#som");
+  s.addEventListener("click", () => {
+    v.muted = !v.muted; if (!v.muted) { v.currentTime = 0; v.play().catch(() => {}); }
+    s.setAttribute("aria-pressed", String(!v.muted));
+    s.querySelector("span").textContent = v.muted ? "Ligar o som" : "Desligar o som";
+  });
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); }
 })();
 </script>

@@ -86,13 +86,14 @@ No painel, a seção **Demo** mostra **Assistir** e **Baixar MP4**, e o cabeçal
 
 ## Exemplos de sistema (`/exemplos`)
 
-Para quando o cliente pergunta "o que mais vocês fazem?": exemplos de sistema com dados fictícios, que não
-saem do ar. Ficam em `exemplos/` (cada arquivo vai ao ar do jeito que está) e são de um espaço de eventos
+Para quando o cliente pergunta "o que mais vocês fazem?": o **Bastidor**, o sistema da Renderiza para espaços
+de eventos (o site é a vitrine; o Bastidor é o sistema de quem trabalha no espaço), com exemplos de dados
+fictícios que não saem do ar. Ficam em `exemplos/` (cada arquivo vai ao ar do jeito que está) e são de um espaço de eventos
 inventado, a **Villa Alecrim**:
 
 | Endereço | O que é |
 |---|---|
-| `/exemplos` | A página para mandar: o vídeo, um cartão por parte do sistema e o caminho do pedido até a festa |
+| `/exemplos` | A página que se vende sozinha: o vídeo, a semana sem e com o Bastidor, site × Bastidor, os módulos, como a equipe entra, a calculadora do plano (manda o plano escolhido para o WhatsApp) e as perguntas |
 | `/exemplos/painel-eventos` | O painel do espaço: visão geral, agenda da equipe, clientes, contratos, financeiro, atendimento e equipe com acessos (`#agenda`, `#financeiro`… abrem direto na parte) |
 | `/exemplos/agenda-online` | O que o cliente do espaço usa: escolhe a festa, a data livre, convidados e pacote, e pede a pré-reserva |
 | `/gravacao/exemplo-sistema-eventos.mp4` | O vídeo no formato Reels (`gravacoes/exemplo-sistema-eventos.json`, abertura `"estilo": "sistema"`) |
@@ -100,6 +101,10 @@ inventado, a **Villa Alecrim**:
 - Os dados ficam em `exemplos/dados-villa-alecrim.js` e saem da data de hoje: a agenda e o financeiro estão
   sempre no mês atual. O painel e a agenda online leem do mesmo arquivo, então as datas livres batem.
 - O pedido feito na agenda online fica no navegador de quem testou e aparece no painel (Atendimento e Agenda).
+- Preço do Bastidor (Kaue, 21/10/2026): R$ 49 por mês com 2 módulos à escolha e até 5 acessos; cada módulo a
+  mais R$ 14,99 por mês; sem fidelidade; montagem grátis para quem fecha o site. Propostos e ainda por confirmar:
+  +5 acessos por R$ 9,90/mês e cada espaço a mais por R$ 29/mês. O valor fica em `PRECO` no script de
+  `exemplos/index.html` e nos textos da mesma página (o teste confere que batem).
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.
 - `painel-eventos.html?video=1` põe todas as partes uma embaixo da outra, para o gravador rolar.
 - Imagens dos cartões e da prévia do link: `node ferramentas/exemplos/capturas.mjs` (depois de mudar os exemplos
