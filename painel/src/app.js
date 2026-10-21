@@ -1371,7 +1371,7 @@ function render() {
   const f = dados.fonte();
   $("#sair").hidden = !(f && f.precisaLogin);
   $("#exportar").lastChild.textContent = f && f.exportarSql ? "Levar dados para o Supabase" : "Exportar meus dados";
-  document.querySelectorAll(".nav-button").forEach(b => { const ativo = b.dataset.aba === ui.aba; b.dataset.active = String(ativo); b.setAttribute("aria-current", ativo ? "page" : "false"); });
+  document.querySelectorAll(".nav-button[data-aba]").forEach(b => { const ativo = b.dataset.aba === ui.aba; b.dataset.active = String(ativo); b.setAttribute("aria-current", ativo ? "page" : "false"); });
   atualizarContadorDoMenu();
   $("#titulo").textContent = TITULOS[ui.aba][0];
   $("#subtitulo").textContent = TITULOS[ui.aba][1];
@@ -1430,7 +1430,7 @@ function irPara(aba) {
   render();
   window.scrollTo(0, 0);
 }
-document.querySelectorAll(".nav-button").forEach(b => b.addEventListener("click", () => irPara(b.dataset.aba)));
+document.querySelectorAll(".nav-button[data-aba]").forEach(b => b.addEventListener("click", () => irPara(b.dataset.aba)));
 window.addEventListener("hashchange", () => { const aba = location.hash.slice(1); if (ABAS.includes(aba) && aba !== ui.aba) irPara(aba); });
 $("#busca").addEventListener("input", e => { ui.busca[chaveDaBusca()] = e.target.value; render(); });
 $("#sair").addEventListener("click", () => dados.sair());
