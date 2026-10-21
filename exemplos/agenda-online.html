@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda online · Villa Alecrim (exemplo)</title>
+<meta name="description" content="Exemplo de agenda online para espaço de eventos: o cliente escolhe a festa, vê as datas livres e pede a pré-reserva. Dados fictícios, feito pela Renderiza.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#173a2f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agenda online para espaço de eventos (exemplo)">
+<meta property="og:description" content="O cliente escolhe a festa, vê as datas livres e pede a pré-reserva pelo link. Demonstração com dados fictícios, feita pela Renderiza.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/agenda.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#f4f1e9;--cartao:#fff;--tinta:#17201b;--tinta-2:#46534b;--suave:#7d8a82;--linha:#e6e2d6;--linha-2:#f0ede4;
+  --verde:#2d6a4f;--verde-2:#1d4a37;--verde-claro:#e2efe7;--ouro:#c49a45;--ouro-claro:#f7efdb;--escuro:#173a2f;
+  --raio:20px;--fonte:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--serif:"Fraunces",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--fonte);font-size:15px;line-height:1.5;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.pagina{display:grid;grid-template-columns:minmax(340px,440px) minmax(0,1fr);min-height:100vh}
+/* lado da marca */
+.marca{position:sticky;top:0;height:100vh;background:var(--escuro);color:#e6efe9;padding:40px 44px;display:flex;flex-direction:column;gap:28px;overflow:hidden}
+.marca::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 100% 0%,#2d6a4f 0%,transparent 70%),radial-gradient(70% 50% at 0% 100%,#c49a4533 0%,transparent 70%);pointer-events:none}
+.marca > *{position:relative}
+.ramos{position:absolute;right:-60px;bottom:-40px;width:340px;height:340px;color:#ffffff10;pointer-events:none}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo span{width:42px;height:42px;border-radius:13px;background:#ffffff17;display:grid;place-items:center}
+.logo b{display:block;font:italic 600 26px/1 var(--serif)}
+.logo small{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#a9c7b6}
+.marca h1{font:500 40px/1.08 var(--serif);letter-spacing:-.02em;color:#fff;margin-top:auto}
+.marca h1 em{font-style:italic;color:#f1d38f}
+.marca p.lide{color:#c4d8cc;font-size:15.5px;max-width:34ch}
+.vantagens{display:flex;flex-direction:column;gap:12px;list-style:none}
+.vantagens li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:#d9e6df}
+.vantagens li i{width:28px;height:28px;border-radius:9px;background:#ffffff14;display:grid;place-items:center;flex:none;color:#f1d38f}
+.resumo{border-radius:18px;background:#0000002b;border:1px solid #ffffff14;padding:16px 18px;display:none}
+.resumo.ver{display:block}
+.resumo h2{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a9c7b6;margin-bottom:10px}
+.resumo dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.resumo dt{color:#a9c7b6}
+.resumo dd{color:#fff;font-weight:600}
+.rodape-marca{font-size:12.5px;color:#8fb09e}
+.rodape-marca a{color:#f1d38f;font-weight:700;text-decoration:none}
+
+/* lado do pedido */
+.pedido{padding:40px clamp(20px,5vw,72px) 56px;display:flex;flex-direction:column;align-items:center}
+.pedido-in{width:100%;max-width:680px}
+.topo-cel{display:none}
+.selo{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--ouro-claro);color:#7a5a17;font-size:12.5px;font-weight:700;margin-bottom:18px;text-decoration:none}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--ouro)}
+.selo .curto{display:none}
+.passos{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.passos b{font-size:13px;font-weight:700;color:var(--suave);white-space:nowrap}
+.trilha{flex:1;height:6px;border-radius:999px;background:var(--linha);overflow:hidden}
+.trilha i{display:block;height:100%;width:25%;border-radius:inherit;background:var(--verde);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.voltar{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:13.5px;color:var(--tinta-2);padding:6px 8px 6px 2px;border-radius:9px}
+.voltar[hidden]{display:none}
+.cartao{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 1px 2px #17201b0d,0 20px 50px -30px #17201b40;padding:30px}
+.etapa{display:none;animation:entra .4s cubic-bezier(.2,.8,.2,1)}
+.etapa.ativa{display:block}
+@keyframes entra{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.etapa h2{font:600 30px/1.15 var(--serif);letter-spacing:-.02em}
+.etapa h2 em{font-style:italic;color:var(--verde)}
+.etapa > p.sub{color:var(--suave);margin:6px 0 22px}
+
+.festas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.festa{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 16px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;text-align:left;transition:all .18s}
+.festa:hover{border-color:#c9cfc4;transform:translateY(-2px)}
+.festa .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center}
+.festa b{font-size:15.5px}
+.festa small{color:var(--suave);font-size:12.5px;line-height:1.35}
+.festa.sel{border-color:var(--verde);background:#f5faf7;box-shadow:0 0 0 3px #2d6a4f1f}
+
+.cal-topo{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-topo b{font-size:17px;text-transform:capitalize}
+.cal-topo button{width:40px;height:40px;border-radius:12px;border:1px solid var(--linha);display:grid;place-items:center;background:#fff}
+.cal-topo button:disabled{opacity:.35;cursor:default}
+.semana,.dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.semana span{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--suave);padding-bottom:4px}
+.d{aspect-ratio:1/1;max-height:64px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:700;font-size:15px;border:1.5px solid transparent;background:#f7f6f0;position:relative;transition:all .15s}
+.d small{font-size:9.5px;font-weight:700;letter-spacing:.02em;line-height:1}
+.d.livre{background:#fff;border-color:var(--linha)}
+.d.livre:hover{border-color:var(--verde)}
+.d.livre small{color:var(--verde)}
+.d.meio{background:var(--ouro-claro);color:#7a5a17}
+.d.cheio{background:#f0eeea;color:#b5b9b3;text-decoration:line-through;cursor:not-allowed}
+.d.passou,.d.vazio{background:transparent;color:#c9ccc6;cursor:default}
+.d.vazio{visibility:hidden}
+.d.sel{background:var(--verde);border-color:var(--verde);color:#fff}
+.d.sel small{color:#d5eadc}
+.leg{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--tinta-2);font-weight:600}
+.leg span{display:inline-flex;align-items:center;gap:7px}
+.leg i{width:14px;height:14px;border-radius:5px;border:1.5px solid var(--linha);background:#fff}
+.leg i.m{background:var(--ouro-claro);border-color:#ecdcb0}
+.leg i.c{background:#f0eeea;border-color:#f0eeea}
+.escolha-dia{margin-top:18px;padding:16px;border-radius:16px;background:#f7f6f0;display:none}
+.escolha-dia.ver{display:block;animation:entra .3s ease}
+.escolha-dia b.qual{display:block;font-size:16px;margin-bottom:10px}
+.periodos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.periodo{padding:14px;border-radius:14px;border:1.5px solid var(--linha);background:#fff;text-align:left;transition:all .15s}
+.periodo b{display:block}
+.periodo small{color:var(--suave);font-size:12.5px}
+.periodo.sel{border-color:var(--verde);box-shadow:0 0 0 3px #2d6a4f1f}
+.periodo:disabled{opacity:.45;cursor:not-allowed;text-decoration:line-through}
+.dica{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--tinta-2)}
+.dica svg{color:var(--ouro);margin-top:1px}
+
+.conv{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;border:1px solid var(--linha);margin-bottom:22px}
+.conv .num{font-size:30px;font-weight:800;letter-spacing:-.03em;min-width:3ch;text-align:center}
+.conv .num small{display:block;font-size:12px;font-weight:600;color:var(--suave);letter-spacing:0}
+.conv button{width:44px;height:44px;border-radius:13px;border:1px solid var(--linha);display:grid;place-items:center;background:#fff;font-size:22px;font-weight:600}
+.conv input[type=range]{flex:1;accent-color:var(--verde);height:28px}
+.rotulo{font-size:13px;font-weight:700;color:var(--tinta-2);margin:0 0 10px;display:block}
+.pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.pacote{padding:16px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;text-align:left;display:flex;flex-direction:column;gap:8px;transition:all .15s;position:relative}
+.pacote b{font-size:16px}
+.pacote ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--tinta-2)}
+.pacote li{display:flex;gap:6px}
+.pacote li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--ouro);margin-top:7px}
+.pacote.sel{border-color:var(--verde);background:#f5faf7;box-shadow:0 0 0 3px #2d6a4f1f}
+.pacote .fav{position:absolute;top:-10px;right:12px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--ouro);color:#fff;padding:3px 8px;border-radius:999px}
+.extras{display:flex;flex-wrap:wrap;gap:8px}
+.extra{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--linha);background:#fff;font-weight:600;font-size:13.5px;transition:all .15s}
+.extra i{width:18px;height:18px;border-radius:6px;border:1.5px solid #c9cec7;display:grid;place-items:center;color:#fff}
+.extra.sel{border-color:var(--verde);background:#f5faf7}
+.extra.sel i{background:var(--verde);border-color:var(--verde)}
+
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo.cheio{grid-column:1/-1}
+.campo label{font-size:13px;font-weight:700;color:var(--tinta-2)}
+.campo input,.campo select,.campo textarea{border-radius:13px;border:1.5px solid var(--linha);padding:12px 14px;background:#fff;outline:0;transition:border .15s,box-shadow .15s}
+.campo textarea{resize:vertical;min-height:84px}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--verde);box-shadow:0 0 0 3px #2d6a4f1f}
+.campo .erro{display:none;font-size:12.5px;color:#c2410c;font-weight:600}
+.campo.invalido input{border-color:#e9a37f}
+.campo.invalido .erro{display:block}
+.troca{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:14px;background:#f7f6f0;cursor:pointer}
+.troca b{display:block;font-size:14.5px}
+.troca small{color:var(--suave);font-size:12.5px}
+.troca input{appearance:none;width:46px;height:28px;border-radius:999px;background:#d5d8d1;position:relative;flex:none;cursor:pointer;transition:background .2s}
+.troca input::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s}
+.troca input:checked{background:var(--verde)}
+.troca input:checked::after{transform:translateX(18px)}
+
+.acoes{display:flex;gap:10px;margin-top:26px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 22px;border-radius:15px;font-weight:700;font-size:15.5px;transition:all .15s;text-decoration:none}
+.botao.primario{flex:1;background:var(--verde);color:#fff;box-shadow:0 10px 24px -12px #2d6a4f}
+.botao.primario:hover{background:var(--verde-2)}
+.botao.primario:disabled{background:#b8c4bd;box-shadow:none;cursor:not-allowed}
+.botao.leve{border:1.5px solid var(--linha);background:#fff}
+
+.pronto{text-align:center;padding:8px 0}
+.selo-ok{width:84px;height:84px;margin:4px auto 18px;border-radius:50%;background:var(--verde-claro);display:grid;place-items:center;color:var(--verde);animation:pula .6s cubic-bezier(.2,1.4,.4,1)}
+.selo-ok svg{width:42px;height:42px;stroke-width:2.4}
+@keyframes pula{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.pronto h2{font-size:32px}
+.pronto p.sub{max-width:44ch;margin-left:auto;margin-right:auto}
+.ficha{text-align:left;margin:22px 0 0;border-radius:16px;border:1px solid var(--linha);overflow:hidden}
+.ficha div{display:flex;justify-content:space-between;gap:14px;padding:12px 16px;border-top:1px solid var(--linha-2);font-size:14px}
+.ficha div:first-child{border-top:0}
+.ficha span{color:var(--suave)}
+.ficha b{text-align:right}
+.demo-nota{margin-top:20px;padding:16px;border-radius:16px;background:var(--ouro-claro);text-align:left;display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#5d4713}
+.demo-nota a{font-weight:800;color:#5d4713}
+.pronto .acoes{flex-direction:column}
+.pronto .acoes .botao{flex:none}
+
+/* celular */
+@media (max-width:900px){
+  .pagina{display:block}
+  .marca{display:none}
+  .topo-cel{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));background:var(--escuro);color:#fff;position:sticky;top:0;z-index:5}
+  .topo-cel .logo span{width:34px;height:34px}
+  .topo-cel .logo b{font-size:21px}
+  .topo-cel .logo small{font-size:10px}
+  .capa{background:var(--escuro);color:#fff;padding:6px 16px 64px;position:relative;overflow:hidden}
+  .capa h1{font:500 31px/1.1 var(--serif);letter-spacing:-.02em}
+  .capa h1 em{font-style:italic;color:#f1d38f}
+  .capa p{color:#c4d8cc;font-size:14.5px;margin-top:8px}
+  .capa .ramos{width:220px;height:220px;right:-50px;bottom:-60px}
+  .pedido{padding:0 12px 40px;margin-top:-44px;position:relative}
+  .cartao{padding:20px 18px 22px;border-radius:22px}
+  .selo{margin:0 0 14px}
+  .selo .longo{display:none}.selo .curto{display:inline}
+  .etapa h2{font-size:25px}
+  .festas{grid-template-columns:1fr 1fr;gap:10px}
+  .festa{padding:14px}
+  .festa .ic{width:38px;height:38px}
+  .semana,.dias{gap:4px}
+  .d{border-radius:11px;font-size:14px}
+  .d small{font-size:8.5px}
+  .pacotes{grid-template-columns:1fr;gap:10px}
+  .pacote ul{flex-direction:row;flex-wrap:wrap;gap:4px 12px}
+  .campos{grid-template-columns:1fr}
+  .acoes{position:sticky;bottom:0;margin:22px -18px -22px;padding:12px 18px max(12px,env(safe-area-inset-bottom));background:#fffffff0;border-top:1px solid var(--linha-2);border-radius:0 0 22px 22px}
+  .pronto .acoes{position:static;margin:22px 0 0;padding:0;border:0;background:none}
+  .conv{gap:10px;padding:12px}
+  .conv input[type=range]{display:none}
+  .conv .num{flex:1}
+}
+@media (min-width:901px){.capa{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topo-cel">
+  <a class="logo" href="#"><span data-icone="ramo"></span><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></a>
+</header>
+<div class="capa"><svg class="ramos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5" data-ramo></svg><h1>Escolha a data <em>da sua festa.</em></h1><p>Veja os dias livres e peça a pré-reserva. A gente responde no WhatsApp.</p></div>
+
+<div class="pagina">
+  <aside class="marca">
+    <svg class="ramos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5" data-ramo></svg>
+    <a class="logo" href="#"><span data-icone="ramo"></span><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></a>
+    <h1>Escolha a data <em>da sua festa.</em></h1>
+    <p class="lide">Casamentos, 15 anos, aniversários e festas de empresa num jardim cheio de verde. Veja os dias livres e peça a pré-reserva em 2 minutos.</p>
+    <ul class="vantagens">
+      <li><i data-icone="agenda"></i><span>Datas livres de verdade, atualizadas pela equipe</span></li>
+      <li><i data-icone="relogio"></i><span>A data fica separada para você por 48 horas</span></li>
+      <li><i data-icone="whatsapp"></i><span>A equipe confirma tudo com você pelo WhatsApp</span></li>
+    </ul>
+    <div class="resumo" id="resumo"><h2>O seu pedido</h2><dl id="resumo-dl"></dl></div>
+    <p class="rodape-marca">Demonstração com dados fictícios, feita pela <a href="/exemplos">Renderiza</a>.</p>
+  </aside>
+
+  <main class="pedido">
+    <div class="pedido-in">
+      <a class="selo" href="/exemplos"><i></i><span class="longo">Exemplo: a Villa Alecrim não existe. É uma demonstração da Renderiza.</span><span class="curto">Exemplo da Renderiza: espaço fictício</span></a>
+      <div class="passos"><button class="voltar" id="voltar" hidden><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="m15 18-6-6 6-6"/></svg>Voltar</button><div class="trilha"><i id="trilha"></i></div><b id="passo-txt">Passo 1 de 4</b></div>
+      <form class="cartao" id="form" novalidate>
+        <section class="etapa ativa" data-etapa="1">
+          <h2>Qual é a <em>festa?</em></h2>
+          <p class="sub">Escolha o tipo de evento para ver as datas e os pacotes certos.</p>
+          <div class="festas" id="festas"></div>
+        </section>
+        <section class="etapa" data-etapa="2">
+          <h2>Escolha a <em>data</em></h2>
+          <p class="sub">Os dias livres estão em branco. Toque num deles.</p>
+          <div class="cal-topo"><button type="button" id="mes-ant" aria-label="Mês anterior"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><b id="mes-nome"></b><button type="button" id="mes-prox" aria-label="Próximo mês"><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          <div class="semana"><span>dom</span><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span></div>
+          <div class="dias" id="dias"></div>
+          <div class="leg"><span><i></i>Livre</span><span><i class="m"></i>Só um período livre</span><span><i class="c"></i>Reservado</span></div>
+          <div class="escolha-dia" id="escolha-dia"><b class="qual" id="dia-nome"></b><div class="periodos" id="periodos"></div></div>
+          <p class="dica"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><span id="dica-datas"></span></p>
+          <div class="acoes"><button type="button" class="botao primario" id="ir-3" disabled>Continuar</button></div>
+        </section>
+        <section class="etapa" data-etapa="3">
+          <h2>Quantos <em>convidados?</em></h2>
+          <p class="sub">Pode ser uma estimativa. Dá para ajustar depois.</p>
+          <div class="conv"><button type="button" data-conv="-10" aria-label="Menos 10">−</button><div class="num"><span id="conv-n">120</span><small>convidados</small></div><input type="range" id="conv" min="30" max="300" step="10" value="120" aria-label="Convidados"><button type="button" data-conv="10" aria-label="Mais 10">+</button></div>
+          <span class="rotulo">Pacote de interesse</span>
+          <div class="pacotes" id="pacotes"></div>
+          <span class="rotulo">Quer incluir algo?</span>
+          <div class="extras" id="extras"></div>
+          <div class="acoes"><button type="button" class="botao primario" id="ir-4">Continuar</button></div>
+        </section>
+        <section class="etapa" data-etapa="4">
+          <h2>Para quem é a <em>pré-reserva?</em></h2>
+          <p class="sub">A equipe da Villa Alecrim fala com você pelo WhatsApp.</p>
+          <div class="campos">
+            <div class="campo cheio"><label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Ex.: Camila Souza"><span class="erro">Escreva o seu nome.</span></div>
+            <div class="campo"><label for="zap">WhatsApp</label><input id="zap" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="erro">Confira o número, com DDD.</span></div>
+            <div class="campo"><label for="email">E-mail <span style="color:var(--suave);font-weight:500">(se quiser)</span></label><input id="email" type="email" autocomplete="email" placeholder="voce@email.com"></div>
+            <div class="campo cheio"><label class="troca" for="quer-visita"><span><b>Quero conhecer o espaço antes</b><small>A equipe marca uma visita com você.</small></span><input type="checkbox" id="quer-visita" checked></label></div>
+            <div class="campo cheio"><label for="obs">Algo que a gente precise saber?</label><textarea id="obs" placeholder="Ex.: cerimônia no jardim, convidados com criança, horário especial"></textarea></div>
+          </div>
+          <div class="acoes"><button class="botao primario" id="enviar">Pedir a pré-reserva</button></div>
+        </section>
+        <section class="etapa" data-etapa="5">
+          <div class="pronto">
+            <div class="selo-ok"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h2 id="pronto-titulo">Pronto!</h2>
+            <p class="sub" id="pronto-sub"></p>
+            <div class="ficha" id="ficha"></div>
+            <div class="demo-nota"><svg class="i" viewBox="0 0 24 24" style="color:#a07a24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><span>Na demonstração, o seu pedido acabou de chegar no painel do espaço, com a data já separada. <a href="painel-eventos.html#atendimento">Ver como a equipe recebe →</a></span></div>
+            <div class="acoes"><a class="botao primario" href="painel-eventos.html#atendimento">Ver no painel do espaço</a><button type="button" class="botao leve" id="de-novo">Fazer outro pedido</button></div>
+          </div>
+        </section>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="dados-villa-alecrim.js"></script>
+<script>
+(function () {
+  const V = window.VILLA, { HOJE, TIPOS, PACOTES, ADICIONAIS, somar, mesmoDia, MES, dataLonga } = V;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const IC = {
+    ramo: '<path d="M12 21C12 13 12 8 12 3"/><path d="M12 7c-2.6-.2-4.2-1.6-4.8-3.8 2.5-.1 4.2 1.2 4.8 3.8zM12 7c2.6-.2 4.2-1.6 4.8-3.8-2.5-.1-4.2 1.2-4.8 3.8zM12 12c-3-.2-4.8-1.8-5.4-4.4 2.9-.1 4.8 1.4 5.4 4.4zM12 12c3-.2 4.8-1.8 5.4-4.4-2.9-.1-4.8 1.4-5.4 4.4zM12 17c-3.2-.2-5.1-2-5.7-4.7 3.1-.1 5.1 1.6 5.7 4.7zM12 17c3.2-.2 5.1-2 5.7-4.7-3.1-.1-5.1 1.6-5.7 4.7z"/>',
+    agenda: '<rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/>',
+    relogio: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    whatsapp: '<path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/>',
+    casamento: '<circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/><path d="m10 4 2-2 2 2-2 2.5z"/>',
+    quinze: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4l-5.2 2.7 1-5.8L3.5 9.2l5.9-.9z"/>',
+    aniversario: '<path d="M4 21h16M5 21v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7"/><path d="M5 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0M12 12V8"/><path d="M12 8c-1 0-1.6-.8-1.2-1.8L12 4l1.2 2.2c.4 1-.2 1.8-1.2 1.8z"/>',
+    infantil: '<circle cx="12" cy="9" r="6"/><path d="M12 15v6M10 21h4M9.5 7.5c.5-1 1.4-1.5 2.5-1.5"/>',
+    corporativo: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+    outro: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>',
+    ok: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  };
+  const ic = n => `<svg class="i" viewBox="0 0 24 24">${IC[n]}</svg>`;
+  $$("[data-icone]").forEach(e => { e.innerHTML = ic(e.dataset.icone); });
+  $$("[data-ramo]").forEach(e => { e.innerHTML = IC.ramo; });
+
+  const FESTAS = [
+    ["casamento", "Casamento", "Cerimônia e festa no mesmo lugar"],
+    ["quinze", "15 anos", "Valsa, pista e muita foto"],
+    ["aniversario", "Aniversário", "Para comemorar qualquer idade"],
+    ["infantil", "Infantil", "Com recreação para a criançada"],
+    ["corporativo", "Empresa", "Confraternização, lançamento, formatura"],
+    ["outro", "Outra festa", "Chá, bodas, batizado…"],
+  ];
+  const ped = { tipo: null, data: null, periodo: null, conv: 120, pacote: "classico", adic: [] };
+  let passo = 1, mes = new Date(HOJE.getFullYear(), HOJE.getMonth(), 1);
+  const LIMITE = new Date(HOJE.getFullYear(), HOJE.getMonth() + 14, 1);
+
+  function irPara(n) {
+    passo = n;
+    $$(".etapa").forEach(e => e.classList.toggle("ativa", Number(e.dataset.etapa) === n));
+    $("#trilha").style.width = Math.min(100, n * 25) + "%";
+    $("#passo-txt").textContent = n <= 4 ? `Passo ${n} de 4` : "Pedido enviado";
+    $("#voltar").hidden = n === 1 || n === 5;
+    if (n === 3) pacotes();
+    resumo();
+    if (n > 1) { const alvo = document.querySelector(".pedido-in"); const y = alvo.getBoundingClientRect().top + scrollY - 70; if (scrollY > y) scrollTo({ top: y, behavior: "smooth" }); }
+  }
+  $("#voltar").addEventListener("click", () => irPara(Math.max(1, passo - 1)));
+
+  /* 1. festa */
+  $("#festas").innerHTML = FESTAS.map(([id, nome, sub]) => { const t = TIPOS[id] || { cor: "#58646d", fundo: "#eceff1" }; return `<button type="button" class="festa" data-festa="${id}"><span class="ic" style="background:${t.fundo};color:${t.cor}">${ic(id)}</span><b>${nome}</b><small>${sub}</small></button>`; }).join("");
+  $("#festas").addEventListener("click", e => {
+    const b = e.target.closest("[data-festa]"); if (!b) return;
+    ped.tipo = b.dataset.festa;
+    $$(".festa").forEach(x => x.classList.toggle("sel", x === b));
+    setTimeout(() => irPara(2), 220);
+  });
+
+  /* 2. data */
+  function estado(d) {
+    if (d < HOJE) return "passou";
+    const o = V.ocupadas()[V.chave(d)] || [];
+    if (o.includes("dia") && o.includes("noite")) return "cheio";
+    if (o.length) return "meio";
+    return "livre";
+  }
+  function calendario() {
+    $("#mes-nome").textContent = MES[mes.getMonth()] + " " + mes.getFullYear();
+    $("#mes-ant").disabled = mes <= new Date(HOJE.getFullYear(), HOJE.getMonth(), 1);
+    $("#mes-prox").disabled = new Date(mes.getFullYear(), mes.getMonth() + 1, 1) >= LIMITE;
+    const cel = [];
+    for (let i = 0; i < mes.getDay(); i++) cel.push(`<span class="d vazio"></span>`);
+    for (let d = new Date(mes); d.getMonth() === mes.getMonth(); d = somar(d, 1)) {
+      const st = estado(d), sel = ped.data && mesmoDia(d, ped.data);
+      const rot = st === "cheio" ? "" : st === "meio" ? "1 livre" : st === "livre" && d.getDay() === 6 ? "sábado" : "";
+      cel.push(`<button type="button" class="d ${st} ${sel ? "sel" : ""}" data-d="${V.chave(d)}" ${st === "passou" || st === "cheio" ? "disabled" : ""} aria-label="${esc(dataLonga(d))}${st === "cheio" ? ", reservado" : ""}">${d.getDate()}${rot ? `<small>${rot}</small>` : ""}</button>`);
+    }
+    $("#dias").innerHTML = cel.join("");
+    // sábados com a noite livre nos próximos 3 meses
+    let livres = 0;
+    for (let d = somar(HOJE, 1); d < somar(HOJE, 91); d = somar(d, 1)) if (d.getDay() === 6 && !(V.ocupadas()[V.chave(d)] || []).includes("noite")) livres++;
+    $("#dica-datas").textContent = livres === 0 ? "Os sábados à noite dos próximos 3 meses já estão reservados. Ainda dá para sábado de dia, sexta ou domingo."
+      : livres === 1 ? "Só sobrou 1 sábado à noite livre nos próximos 3 meses. Sexta e domingo também são ótimos para festa."
+      : `Ainda há ${livres} sábados à noite livres nos próximos 3 meses.`;
+  }
+  $("#mes-ant").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() - 1, 1); calendario(); });
+  $("#mes-prox").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() + 1, 1); calendario(); });
+  $("#dias").addEventListener("click", e => {
+    const b = e.target.closest("[data-d]"); if (!b || b.disabled) return;
+    const [a, m, d] = b.dataset.d.split("-").map(Number);
+    ped.data = new Date(a, m - 1, d); ped.periodo = null;
+    calendario(); periodos();
+  });
+  function periodos() {
+    const o = V.ocupadas()[V.chave(ped.data)] || [];
+    const lista = [["dia", "De dia", "11h às 17h"], ["noite", "À noite", "19h às 2h"]];
+    if (!ped.periodo) ped.periodo = o.includes("noite") ? "dia" : "noite";
+    $("#dia-nome").textContent = dataLonga(ped.data) + " de " + ped.data.getFullYear();
+    $("#periodos").innerHTML = lista.map(([id, nome, h]) => `<button type="button" class="periodo ${ped.periodo === id ? "sel" : ""}" data-p="${id}" ${o.includes(id) ? "disabled" : ""}><b>${nome}</b><small>${o.includes(id) ? "já reservado" : h}</small></button>`).join("");
+    $("#escolha-dia").classList.add("ver");
+    $("#ir-3").disabled = false;
+    resumo();
+  }
+  $("#periodos").addEventListener("click", e => { const b = e.target.closest("[data-p]"); if (!b || b.disabled) return; ped.periodo = b.dataset.p; periodos(); });
+  $("#ir-3").addEventListener("click", () => irPara(3));
+
+  /* 3. convidados e pacote */
+  function conv(n) { ped.conv = Math.max(30, Math.min(300, n)); $("#conv-n").textContent = ped.conv; $("#conv").value = ped.conv; resumo(); }
+  $("#conv").addEventListener("input", e => conv(Number(e.target.value)));
+  $$("[data-conv]").forEach(b => b.addEventListener("click", () => conv(ped.conv + Number(b.dataset.conv))));
+  function pacotes() {
+    $("#pacotes").innerHTML = Object.entries(PACOTES).map(([k, p]) => `<button type="button" class="pacote ${ped.pacote === k ? "sel" : ""}" data-pac="${k}">${k === "classico" ? '<span class="fav">Mais pedido</span>' : ""}<b>${p.nome}</b><ul>${p.inclui.slice(0, 4).map(x => `<li>${esc(x)}</li>`).join("")}</ul></button>`).join("");
+    const lista = ped.tipo === "infantil" ? ["recreacao", "doces", "cabine", "telao"] : ped.tipo === "corporativo" ? ["telao", "openbar", "dj", "horaextra"] : ["cerimonia", "openbar", "doces", "cabine", "horaextra"];
+    $("#extras").innerHTML = lista.filter(k => !(ped.tipo !== "casamento" && k === "cerimonia")).map(k => `<button type="button" class="extra ${ped.adic.includes(k) ? "sel" : ""}" data-ad="${k}"><i>${ic("ok")}</i>${esc(ADICIONAIS[k].nome)}</button>`).join("");
+  }
+  $("#pacotes").addEventListener("click", e => { const b = e.target.closest("[data-pac]"); if (!b) return; ped.pacote = b.dataset.pac; pacotes(); resumo(); });
+  $("#extras").addEventListener("click", e => { const b = e.target.closest("[data-ad]"); if (!b) return; const k = b.dataset.ad; ped.adic = ped.adic.includes(k) ? ped.adic.filter(x => x !== k) : [...ped.adic, k]; pacotes(); resumo(); });
+  $("#ir-4").addEventListener("click", () => irPara(4));
+
+  /* 4. dados */
+  $("#zap").addEventListener("input", e => {
+    const d = e.target.value.replace(/\D/g, "").slice(0, 11);
+    e.target.value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d;
+    e.target.closest(".campo").classList.remove("invalido");
+  });
+  $("#nome").addEventListener("input", e => e.target.closest(".campo").classList.remove("invalido"));
+  $("#form").addEventListener("submit", e => {
+    e.preventDefault();
+    if (passo !== 4) return;
+    const nome = $("#nome").value.trim(), zap = $("#zap").value.replace(/\D/g, "");
+    $("#nome").closest(".campo").classList.toggle("invalido", nome.length < 2);
+    $("#zap").closest(".campo").classList.toggle("invalido", zap.length < 10);
+    if (nome.length < 2 || zap.length < 10) { (nome.length < 2 ? $("#nome") : $("#zap")).focus(); return; }
+    const tipo = ped.tipo === "outro" ? "aniversario" : ped.tipo;
+    const visita = $("#quer-visita").checked;
+    const ok = V.guardarPedido({
+      id: "web-" + Date.now(), nome, tipo, data: ped.data.toISOString(), periodo: ped.periodo, conv: ped.conv, pacote: ped.pacote, adic: ped.adic,
+      quando: new Date().toISOString(), status: "novo",
+      msg: `Pré-reserva pela agenda online: ${PACOTES[ped.pacote].nome}, ${ped.conv} convidados, ${ped.periodo === "dia" ? "de dia" : "à noite"}.${ped.adic.length ? " Quer " + ped.adic.map(a => ADICIONAIS[a].nome.toLowerCase()).join(", ") + "." : ""}${visita ? " Quer visitar o espaço." : ""}${$("#obs").value.trim() ? " “" + $("#obs").value.trim().slice(0, 200) + "”" : ""}`,
+    });
+    $("#pronto-titulo").textContent = `Pronto, ${nome.split(" ")[0]}!`;
+    $("#pronto-sub").textContent = `A sua data está separada por 48 horas. A equipe da Villa Alecrim vai chamar você no WhatsApp para confirmar${visita ? " e marcar a visita" : ""}.`;
+    $("#ficha").innerHTML = linhasResumo().map(([a, b]) => `<div><span>${a}</span><b>${esc(b)}</b></div>`).join("");
+    if (!ok) document.querySelector(".demo-nota span").textContent = "Na demonstração, o pedido iria para o painel do espaço. Este navegador não deixou guardar, então ele não aparece por lá.";
+    irPara(5);
+  });
+  $("#de-novo").addEventListener("click", () => {
+    Object.assign(ped, { tipo: null, data: null, periodo: null, conv: 120, pacote: "classico", adic: [] });
+    $("#form").reset(); $$(".festa").forEach(x => x.classList.remove("sel")); $("#escolha-dia").classList.remove("ver"); $("#ir-3").disabled = true;
+    conv(120); pacotes(); calendario(); irPara(1);
+  });
+
+  /* resumo (lado da marca) */
+  function linhasResumo() {
+    const l = [];
+    if (ped.tipo) l.push(["Festa", FESTAS.find(f => f[0] === ped.tipo)[1]]);
+    if (ped.data) l.push(["Data", dataLonga(ped.data) + (ped.periodo ? (ped.periodo === "dia" ? ", de dia" : ", à noite") : "")]);
+    if (passo >= 3) { l.push(["Convidados", String(ped.conv)]); l.push(["Pacote", PACOTES[ped.pacote].nome]); }
+    if (passo >= 3 && ped.adic.length) l.push(["Incluir", ped.adic.map(a => ADICIONAIS[a].nome).join(", ")]);
+    return l;
+  }
+  function resumo() {
+    const l = linhasResumo();
+    $("#resumo").classList.toggle("ver", l.length > 0 && passo < 5);
+    $("#resumo-dl").innerHTML = l.map(([a, b]) => `<dt>${a}</dt><dd>${esc(b)}</dd>`).join("");
+  }
+
+  conv(120); pacotes(); calendario(); irPara(1);
+})();
+</script>
+</body>
+</html>

@@ -13,6 +13,7 @@ Um site só, publicado na Vercel:
 | `/demo/<ótica>/artes-instagram` | Kit de artes, quando o entregável é esse | quem tiver o link |
 | `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
 | `/gravacao/<lead>.mp4` | Vídeo de apresentação da demo (MP4 vertical, ~30 s) para mandar no WhatsApp; o painel baixa | quem tiver o link |
+| `/exemplos` | Exemplos de sistema para mandar ao cliente (dados fictícios): painel de gestão e agenda online de um espaço de eventos, com vídeo | quem tiver o link |
 
 - `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
   como editar: [`site/README.md`](site/README.md).
@@ -82,6 +83,27 @@ Fica em `gravacoes/<id-do-lead>.mp4`; vai ao ar em `/gravacao/<id>.mp4` e o lead
 `link_gravacao = '/gravacao/<id>.mp4'`. Versão caprichada com `--show`, e o jeito com `--clima=sobrio`,
 `descolado` ou `grife` (montagem, rolagem e trilha). Padrão, regras e música: [`CONTEXTO.md`](CONTEXTO.md).
 No painel, a seção **Demo** mostra **Assistir** e **Baixar MP4**, e o cabeçalho ganha **Baixar vídeo**.
+
+## Exemplos de sistema (`/exemplos`)
+
+Para quando o cliente pergunta "o que mais vocês fazem?": exemplos de sistema com dados fictícios, que não
+saem do ar. Ficam em `exemplos/` (cada arquivo vai ao ar do jeito que está) e são de um espaço de eventos
+inventado, a **Villa Alecrim**:
+
+| Endereço | O que é |
+|---|---|
+| `/exemplos` | A página para mandar: o vídeo, um cartão por parte do sistema e o caminho do pedido até a festa |
+| `/exemplos/painel-eventos` | O painel do espaço: visão geral, agenda da equipe, clientes, contratos, financeiro, atendimento e equipe com acessos (`#agenda`, `#financeiro`… abrem direto na parte) |
+| `/exemplos/agenda-online` | O que o cliente do espaço usa: escolhe a festa, a data livre, convidados e pacote, e pede a pré-reserva |
+| `/gravacao/exemplo-sistema-eventos.mp4` | O vídeo no formato Reels (`gravacoes/exemplo-sistema-eventos.json`, abertura `"estilo": "sistema"`) |
+
+- Os dados ficam em `exemplos/dados-villa-alecrim.js` e saem da data de hoje: a agenda e o financeiro estão
+  sempre no mês atual. O painel e a agenda online leem do mesmo arquivo, então as datas livres batem.
+- O pedido feito na agenda online fica no navegador de quem testou e aparece no painel (Atendimento e Agenda).
+- Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.
+- `painel-eventos.html?video=1` põe todas as partes uma embaixo da outra, para o gravador rolar.
+- Imagens dos cartões e da prévia do link: `node ferramentas/exemplos/capturas.mjs` (depois de mudar os exemplos
+  ou regravar o vídeo).
 
 ## Flyer de Stories
 

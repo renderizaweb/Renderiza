@@ -159,6 +159,19 @@ test("vídeos de apresentação: só o MP4 vai ao ar, em /gravacao/<lead>.mp4", 
   assert.equal(destinos.length, mp4.length);
 });
 
+test("exemplos de sistema: /exemplos e as páginas ao lado, com os dados juntos e sem scripts de ferramenta", () => {
+  const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("exemplos/"));
+  for (const d of ["exemplos/index.html", "exemplos/painel-eventos.html", "exemplos/agenda-online.html", "exemplos/dados-villa-alecrim.js"]) assert.ok(destinos.includes(d), d);
+  for (const d of destinos) assert.match(d, /^exemplos\/[\w/-]+\.(html|js|css|jpg|png|webp|svg)$/, d);
+  // as páginas leem os dados pelo caminho relativo (abrem em /exemplos/<página> e direto do disco, para o vídeo)
+  for (const f of ["painel-eventos.html", "agenda-online.html"]) {
+    const html = readFileSync(new URL("../exemplos/" + f, import.meta.url), "utf8");
+    assert.match(html, /<script src="dados-villa-alecrim\.js"><\/script>/, f);
+    assert.match(html, /<meta name="robots" content="noindex, nofollow">/, f);
+    assert.match(html, /fict[íi]cio/i, f + " avisa que os dados são fictícios");
+  }
+});
+
 test("flyers de Stories: só o PNG vai ao ar, em /flyer/<lead>.png", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("flyer/"));
   for (const d of destinos) assert.match(d, /^flyer\/[\w-]+\.png$/, d);

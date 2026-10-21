@@ -8,6 +8,8 @@
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
 //   /como-funciona/<nicho>     → página de venda do nicho (site/como-funciona.mjs + site/nichos/<nicho>.mjs)
+//   /exemplos, /exemplos/<x>   → exemplos/ (sistemas de exemplo com dados fictícios: painel, agenda online e imagens);
+//                                só HTML, JS, CSS e imagens vão ao ar
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
 // Fichas (.md), contexto, ferramentas, banco e scripts nunca entram.
 //   npm run build
@@ -106,6 +108,8 @@ export function arquivosPublicados() {
       if (capa) lista.push([join("demo", otica.name, "capa." + capa.tipo), Object.assign(async () => fotoDaCapa(readFileSync(arquivo, "utf8")).dados, { tipo: "." + capa.tipo })]);
     }
   }
+  const exemplos = join(RAIZ, "exemplos");
+  if (existsSync(exemplos)) for (const f of arquivosDe(exemplos)) if (/\.(html|js|css|jpg|png|webp|svg)$/.test(f)) lista.push([join("exemplos", f), join(exemplos, f)]);
   const flyers = join(RAIZ, "flyers");
   if (existsSync(flyers)) for (const f of readdirSync(flyers)) if (f.endsWith(".png")) lista.push([join("flyer", f), join(flyers, f)]);
   const gravacoes = join(RAIZ, "gravacoes");

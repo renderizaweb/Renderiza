@@ -1,0 +1,45 @@
+{
+ "exemplo": "painel-eventos.html?video=1",
+ "marca": "Villa Alecrim",
+ "local": "Exemplo de sistema",
+ "formato": "reels",
+ "reels_selo": "Exemplo de sistema",
+ "hora": "2026-10-21T10:40:00-03:00",
+ "clima": "leve",
+ "musica": "auto",
+ "cores": { "fundo": "#1f4a3a", "fundo2": "#0f261d", "acento": "#f1d38f", "claro": "#f4f1e9" },
+ "fontes": { "titulo": "Fraunces", "texto": "Plus Jakarta Sans" },
+ "abertura": {
+  "estilo": "sistema",
+  "selo": "Exemplo de sistema",
+  "chamada": "Para espaços de eventos",
+  "titulo": "Agenda, clientes e financeiro",
+  "destaque": "num lugar só.",
+  "avisos": [
+   { "icone": "✦", "titulo": "Nova pré-reserva", "texto": "Casamento · 150 convidados · sáb", "cor": "#2d6a4f" },
+   { "icone": "R$", "titulo": "Pagamento recebido", "texto": "Parcela 3/5 · Pix · Juliana & Pedro", "cor": "#b98a00" },
+   { "icone": "✓", "titulo": "Contrato assinado", "texto": "15 anos da Valentina", "cor": "#7c4ddb" }
+  ]
+ },
+ "fechamento": {
+  "titulo": "Seu espaço,",
+  "destaque": "do jeito que você trabalha.",
+  "convite": "Quer um assim? É só responder esta mensagem."
+ },
+ "cenas": [
+  { "rolar": 0, "segura": 3.6, "legenda": "Seu espaço de eventos, *organizado num lugar só.*", "sub": "Agenda, clientes, contratos e financeiro, no celular e no computador." },
+  { "rolar": "#inicio .g-73 .cartao", "alinhar": "topo", "segura": 4.6, "legenda": "Toca na festa e vê *tudo o que foi combinado.*", "sub": "Pacote, adicionais, horário e quanto já foi pago.",
+    "acoes": [ { "em": 0.9, "tipo": "tocar", "alvo": "#inicio [data-abrir='ev:juliana-pedro']", "clicar": true } ] },
+  { "rolar": "#agenda .cal", "segura": 3.2, "legenda": "A agenda do mês, *uma cor para cada festa.*", "sub": "Casamentos, 15 anos, visitas e degustações." },
+  { "rolar": "#agenda .cal", "segura": 3.4, "legenda": "Cada pessoa da equipe *com a sua agenda.*", "sub": "Toque no nome e veja o que está com ela.",
+    "acoes": [ { "em": 0.6, "tipo": "tocar", "alvo": "#pessoas [data-pessoa='rafael']", "clicar": true } ] },
+  { "rolar": "#clientes .cartao", "alinhar": "topo", "segura": 4.4, "legenda": "Cada cliente *com a sua ficha.*", "sub": "A festa, os pagamentos e a conversa toda.",
+    "acoes": [ { "em": 0.9, "tipo": "tocar", "alvo": "#clientes .cartoes-cli .item:nth-child(3)", "clicar": true } ] },
+  { "rolar": "#kanban", "segura": 3.8, "legenda": "Do orçamento *ao contrato assinado.*", "sub": "Sem papel: o cliente assina pelo link.",
+    "acoes": [ { "em": 0.8, "tipo": "deslizar", "alvo": "#kanban", "cartoes": 1 }, { "em": 2.1, "tipo": "deslizar", "alvo": "#kanban", "cartoes": 1 } ] },
+  { "rolar": "#financeiro .g4", "alinhar": "topo", "segura": 3.6, "legenda": "Sabe *quanto entrou* e quanto falta receber.", "sub": "As parcelas, os atrasos e o mês até hoje." },
+  { "rolar": "#fin-produtos", "alinhar": "topo", "segura": 3.4, "legenda": "E o que *mais vende* nas festas.", "sub": "Pacotes, adicionais e o que saiu do estoque." },
+  { "rolar": "#atendimento .g-73 .cartao", "alinhar": "topo", "segura": 3.6, "legenda": "WhatsApp, Instagram e site *caem num lugar só.*", "sub": "A agenda online já manda o pedido com a data." },
+  { "rolar": "#equipe .pessoas", "alinhar": "topo", "segura": 3.2, "legenda": "Cada pessoa *com o seu login.*", "sub": "Você decide quem vê o financeiro." }
+ ]
+}

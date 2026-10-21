@@ -148,6 +148,11 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   Sem lead no painel até o Kaue pedir.
 - `ms-odontologia` (01/10/2026): Clínica MS Odontologia, Dr. Marcos Silva, Itapevi. Cliente de antes do
   painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026.
+- `/exemplos` (21/10/2026, pedido do Kaue): exemplos de sistema para oferecer além do site aos espaços de
+  eventos ("temos outras soluções: painel de gestão integrado com agenda online…"). Painel do espaço e agenda
+  online da **Villa Alecrim**, espaço inventado, com dados fictícios e um aviso disso em toda página; vídeo
+  Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
+  tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 

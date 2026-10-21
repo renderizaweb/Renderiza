@@ -28,6 +28,9 @@
 //   explica, em frases completas ("Lê o que *os clientes contam.*"; o trecho entre * sai na cor da marca; "sub" é a
 //   linha de apoio, que explica a frase). O ensaio avisa quando a legenda encosta no celular.
 //   Abertura e fechamento continuam os mesmos. Cada legenda fica até a próxima entrar.
+//   Exemplos da Renderiza (/exemplos, sistemas com dados fictícios): exemplo: "painel-eventos.html?video=1" no lugar de
+//   demo (abre exemplos/<arquivo>) e abertura.estilo "sistema": a primeira tela do sistema num celular, com avisos que
+//   pulam ao lado (abertura.avisos: [{ titulo, texto, cor }], até 3), e o título em duas linhas (titulo, destaque).
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve } from "node:path";
@@ -49,7 +52,7 @@ mkdirSync(ENSAIO ? pastaEnsaio : tmp, { recursive: true });
 
 const FPS = 30, DT = 1000 / FPS;
 const VIEW = { width: 405, height: 720 }, ESCALA = 8 / 3; // 405 × 720 no celular = 1080 × 1920 no vídeo
-const MONTAGEM = R.abertura?.estilo === "montagem", ROLAGEM = R.fechamento?.estilo === "rolagem";
+const MONTAGEM = R.abertura?.estilo === "montagem", SISTEMA = R.abertura?.estilo === "sistema", ROLAGEM = R.fechamento?.estilo === "rolagem";
 // Reels: a tela do celular (em px do vídeo final 1080 × 1920) e o site nela, num celular de 390 × 740 (1,6×).
 const REELS = R.formato === "reels";
 const TELA_R = { x: 228, y: 690, w: 624, h: 1184 }, SITE_VIEW = REELS ? { width: 390, height: 740 } : VIEW, SITE_ESC = REELS ? 1.6 : ESCALA;
@@ -62,7 +65,7 @@ const CLIMAS = {
 };
 const CLIMA = R.clima || "leve", K = CLIMAS[CLIMA];
 if (!K) throw new Error("clima desconhecido: " + CLIMA);
-const ABERTURA = R.abertura?.dur || (MONTAGEM ? 5.6 : 3.2), FECHAMENTO = R.fechamento?.dur || (ROLAGEM ? 5.4 : 3.8), FUSAO = 0.5;
+const ABERTURA = R.abertura?.dur || (MONTAGEM ? 5.6 : SISTEMA ? 4.6 : 3.2), FECHAMENTO = R.fechamento?.dur || (ROLAGEM ? 5.4 : 3.8), FUSAO = 0.5;
 const c = { fundo: "#2b2c3b", fundo2: "#1b1c26", acento: "#d6ae66", claro: "#fffdf6", ...R.cores };
 const fT = R.fontes?.titulo || "Montserrat", fX = R.fontes?.texto || "DM Sans";
 const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -104,7 +107,7 @@ const ctx = await contexto(SITE_VIEW, SITE_ESC);
 const pagina = await ctx.newPage();
 await pagina.clock.install({ time: new Date(R.hora || "2026-10-06T10:30:00-03:00") });
 await pagina.addInitScript(AVANCAR);
-await pagina.goto(R.url || "file://" + join(RAIZ, "demos", R.demo, "index.html"), { waitUntil: "load", timeout: 90000 });
+await pagina.goto(R.url || "file://" + (R.exemplo ? join(RAIZ, "exemplos", R.exemplo) : join(RAIZ, "demos", R.demo, "index.html")), { waitUntil: "load", timeout: 90000 });
 await pagina.evaluate(async () => {
   document.documentElement.style.scrollBehavior = "auto";
   document.querySelectorAll("img[loading=lazy]").forEach(i => { i.loading = "eager"; });
@@ -389,7 +392,10 @@ ${assinatura("feito pela Renderiza", "position:absolute;left:36px;bottom:44px;an
 // Abertura "montagem": fotos da demo em tela cheia, uma cobrindo a outra, com movimento lento (Ken Burns);
 // o nome já está no 1º quadro (vira a miniatura no WhatsApp) e a frase da ótica entra no fim.
 const PASSO = (ABERTURA - 0.6) / Math.max(1, fotosMontagem.length);
-const trocas = fotosMontagem.map((_, i) => +(i * PASSO).toFixed(2)).slice(1);
+const AVISOS = SISTEMA ? (R.abertura.avisos || []).slice(0, 3) : [];
+const QUANDO_AVISO = AVISOS.map((_, i) => +(0.55 + i * 0.85).toFixed(2));
+// toques da trilha: a troca de cada foto da montagem ou a entrada de cada aviso
+const trocas = SISTEMA ? QUANDO_AVISO : fotosMontagem.map((_, i) => +(i * PASSO).toFixed(2)).slice(1);
 const nome = R.abertura?.nome || [R.marca];
 // O nome na montagem: duas linhas (a de cima menor, o destaque grande na cor da marca), com o desenho do clima.
 function nomeMontagem() {
@@ -428,6 +434,30 @@ ${fotosMontagem.map((_, i) => (R.abertura.rotulos_fotos || [])[i] ? `<span style
   ${R.abertura?.frase ? `<p class="entra" style="animation-delay:${(ABERTURA - 2.2).toFixed(2)}s;margin-top:18px;font-family:'${fT}',serif;font-style:${CLIMA === "leve" || CLIMA === "grife" ? "italic" : "normal"};font-size:19px;color:${CLIMA === "grife" ? c.claro : c.acento}">“${esc(R.abertura.frase)}”</p>` : ""}
 </div>
 ${assinatura("feito pela Renderiza", "position:absolute;z-index:21;left:32px;bottom:44px;animation-delay:.8s")}
+</body></html>`;
+
+// Abertura "sistema" (exemplos de sistema): a primeira tela num celular inclinado, avisos do dia a dia pulando
+// ao lado (um já no 1º quadro, que vira a miniatura no WhatsApp) e o título embaixo.
+const aberturaSistema = base + `
+<style>
+@keyframes pula{0%{opacity:0;transform:translateX(-22px) scale(.94)}60%{opacity:1;transform:translateX(3px) scale(1.01)}100%{opacity:1;transform:none}}
+.aviso{position:absolute;left:20px;width:236px;display:flex;gap:10px;align-items:center;padding:11px 13px;border-radius:16px;background:#fff;color:#17201b;box-shadow:0 18px 40px #00000059,0 0 0 1px #0000000d;z-index:5}
+.aviso i{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:#fff;font-style:normal;font-weight:800;font-size:15px}
+.aviso b{display:block;font:700 12.5px/1.2 '${fX}',sans-serif}
+.aviso span{display:block;margin-top:2px;font:500 11px/1.3 '${fX}',sans-serif;color:#5b6660}
+</style>
+<div class="bola" style="width:150px;height:150px;right:-48px;top:-44px;animation:cresce 1s .05s cubic-bezier(.2,.8,.2,1) both"></div>
+<div class="bola" style="width:300px;height:300px;left:-170px;bottom:40px;opacity:.08"></div>
+<div style="position:absolute;left:32px;top:58px;right:32px"><p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Exemplo de sistema")}</p></div>
+<div style="position:absolute;left:168px;top:96px;width:200px;height:380px;transform:rotate(4deg)"><div class="vivo" style="width:100%;height:100%;padding:7px;border-radius:30px;background:#0b0b0f;box-shadow:0 30px 70px #00000088,0 0 0 1px #ffffff26">
+  <img src="${primeiraTela}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:23px;display:block"></div></div>
+${AVISOS.map((a, i) => `<div class="aviso" style="top:${142 + i * 92}px;${i ? `animation:pula .7s ${QUANDO_AVISO[i]}s cubic-bezier(.2,.8,.2,1) both` : "animation:assenta 1s cubic-bezier(.2,.8,.2,1) both"}">
+  <i style="background:${esc(a.cor || c.acento)}">${esc(a.icone || "•")}</i><div><b>${esc(a.titulo)}</b><span>${esc(a.texto)}</span></div></div>`).join("")}
+<div style="position:absolute;left:32px;right:32px;bottom:104px">
+  <p class="entra" style="animation-delay:.3s;font-size:15px;opacity:.88;font-weight:500">${esc(R.abertura?.chamada || "")}</p>
+  <h1 class="assenta" style="font-family:'${fT}',serif;font-weight:700;font-size:33px;line-height:1.06;letter-spacing:-.6px;margin-top:8px;color:#fff;text-wrap:balance">${esc(R.abertura?.titulo || R.marca)}<br><em style="color:${c.acento}">${esc(R.abertura?.destaque || "")}</em></h1>
+</div>
+${assinatura("feito pela Renderiza", "position:absolute;left:32px;bottom:44px;animation-delay:.8s")}
 </body></html>`;
 
 const F = R.fechamento || {};
@@ -501,7 +531,7 @@ async function cartela(html, dur, arquivo) {
   await enc.fechar();
   await ctx2.close();
 }
-await cartela(MONTAGEM ? aberturaMontagem : abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
+await cartela(MONTAGEM ? aberturaMontagem : SISTEMA ? aberturaSistema : abertura, ABERTURA, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "01-abertura.mp4" : "abertura.mp4"));
 await cartela(ROLAGEM ? fechamentoRolagem : fechamento, FECHAMENTO, join(ENSAIO ? pastaEnsaio : tmp, ENSAIO ? "99-fechamento.mp4" : "fechamento.mp4"));
 
 /* ---------- 2b. Reels: a moldura (fundo da marca e legenda grande) e o celular com o site ---------- */
