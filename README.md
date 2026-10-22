@@ -105,6 +105,8 @@ inventado, a **Villa Alecrim**:
   mais R$ 14,99 por mês; sem fidelidade; montagem grátis para quem fecha o site. Propostos e ainda por confirmar:
   +5 acessos por R$ 9,90/mês e cada espaço a mais por R$ 29/mês. O valor fica em `PRECO` no script de
   `exemplos/index.html` e nos textos da mesma página (o teste confere que batem).
+- Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não
+  está incluso. Os textos ficam em `MODULOS`, no script de `exemplos/index.html`; o teste confere os avisos.
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.
 - `painel-eventos.html?video=1` põe todas as partes uma embaixo da outra, para o gravador rolar.
 - Imagens dos cartões e da prévia do link: `node ferramentas/exemplos/capturas.mjs` (depois de mudar os exemplos

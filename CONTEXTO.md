@@ -159,6 +159,11 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   R$ 14,99 por módulo a mais, sem fidelidade, montagem grátis com o site. Nunca chamar o valor inicial de "taxa
   de ativação/adesão/implantação": é a **montagem do painel**. Nada de "em breve" (nem IA): tudo ainda é
   exemplo, e falar de módulo futuro dá a entender que os outros já estão prontos.
+  O que cada módulo NÃO faz (fica escrito no "Bom saber" de cada um): a agenda online só vem com o site
+  (fica dentro dele); a agenda da equipe é do painel, sem Google Agenda (dá para conversar); o financeiro é
+  controle (dá baixa), não recebe nem cobra (sem Pix/boleto integrado); o contrato é termo de aceite digital,
+  sem certificado digital, e o texto é do espaço (a Renderiza não escreve nem revisa contrato); o atendimento
+  recebe sozinho só os pedidos da agenda online (WhatsApp e Instagram a equipe anota).
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 

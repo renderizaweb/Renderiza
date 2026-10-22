@@ -18,7 +18,7 @@
   "avisos": [
    { "icone": "✦", "titulo": "Nova pré-reserva", "texto": "Casamento · 150 convidados · sáb", "cor": "#2d6a4f" },
    { "icone": "R$", "titulo": "Pagamento recebido", "texto": "Parcela 3/5 · Pix · Juliana & Pedro", "cor": "#b98a00" },
-   { "icone": "✓", "titulo": "Contrato assinado", "texto": "15 anos da Valentina", "cor": "#7c4ddb" }
+   { "icone": "✓", "titulo": "Contrato aceito", "texto": "15 anos da Valentina", "cor": "#7c4ddb" }
   ]
  },
  "fechamento": {
@@ -35,11 +35,11 @@
     "acoes": [ { "em": 0.6, "tipo": "tocar", "alvo": "#pessoas [data-pessoa='rafael']", "clicar": true } ] },
   { "rolar": "#clientes .cartao", "alinhar": "topo", "segura": 4.4, "legenda": "Cada cliente *com a sua ficha.*", "sub": "A festa, os pagamentos e a conversa toda.",
     "acoes": [ { "em": 0.9, "tipo": "tocar", "alvo": "#clientes .cartoes-cli .item:nth-child(3)", "clicar": true } ] },
-  { "rolar": "#kanban", "segura": 3.8, "legenda": "Do orçamento *ao contrato assinado.*", "sub": "Sem papel: o cliente assina pelo link.",
+  { "rolar": "#kanban", "segura": 3.8, "legenda": "Do orçamento *ao contrato aceito.*", "sub": "Sem papel: o cliente aceita pelo link, no celular.",
     "acoes": [ { "em": 0.8, "tipo": "deslizar", "alvo": "#kanban", "cartoes": 1 }, { "em": 2.1, "tipo": "deslizar", "alvo": "#kanban", "cartoes": 1 } ] },
   { "rolar": "#financeiro .g4", "alinhar": "topo", "segura": 3.6, "legenda": "Sabe *quanto entrou* e quanto falta receber.", "sub": "As parcelas, os atrasos e o mês até hoje." },
   { "rolar": "#fin-produtos", "alinhar": "topo", "segura": 3.4, "legenda": "E o que *mais vende* nas festas.", "sub": "Pacotes, adicionais e o que saiu do estoque." },
-  { "rolar": "#atendimento .g-73 .cartao", "alinhar": "topo", "segura": 3.6, "legenda": "WhatsApp, Instagram e site *caem num lugar só.*", "sub": "A agenda online já manda o pedido com a data." },
+  { "rolar": "#atendimento .g-73 .cartao", "alinhar": "topo", "segura": 3.6, "legenda": "Todo pedido de orçamento *anotado num lugar só.*", "sub": "Os da agenda online já chegam com a data." },
   { "rolar": "#equipe .pessoas", "alinhar": "topo", "segura": 3.2, "legenda": "Cada pessoa *com o seu login.*", "sub": "Você decide quem vê o financeiro." }
  ]
 }

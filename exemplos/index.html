@@ -87,14 +87,16 @@ h2{font-size:clamp(30px,3.6vw,42px);line-height:1.08;letter-spacing:-.035em;font
 
 /* módulos */
 .modulos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.modulo{display:flex;flex-direction:column;background:var(--cartao);border:1px solid var(--linha);border-radius:22px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.modulo:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px #1e252866}
+.modulo{display:flex;flex-direction:column;background:var(--cartao);border:1px solid var(--linha);border-radius:22px;overflow:hidden}
 .modulo figure{aspect-ratio:16/9;overflow:hidden;background:var(--fundo-2);border-bottom:1px solid var(--linha)}
 .modulo figure img{width:100%;height:100%;object-fit:cover;object-position:top left}
 .modulo .txt{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
 .modulo h3{font-size:19px;letter-spacing:-.02em}
 .modulo p{color:var(--suave);font-size:15.5px}
-.modulo .ir{margin-top:auto;padding-top:6px;font-weight:600;font-size:15px}
+.modulo .links{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.modulo .ir{font-weight:600;font-size:15px;text-decoration:none}
+.modulo .det{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:999px;border:1.5px solid var(--linha);font-size:14px;font-weight:600}
+.modulo .det:hover{border-color:#bdb6ab}
 
 /* preço */
 .precos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
@@ -113,11 +115,47 @@ h2{font-size:clamp(30px,3.6vw,42px);line-height:1.08;letter-spacing:-.035em;font
 .conta{border-radius:26px;background:var(--cartao);border:1px solid var(--linha);padding:28px}
 .conta h3{font-size:21px;letter-spacing:-.02em}
 .conta > p{color:var(--suave);font-size:15.5px;margin:4px 0 16px}
-.opcoes{display:flex;flex-wrap:wrap;gap:8px}
-.opcao{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 14px 0 10px;border-radius:999px;border:1.5px solid var(--linha);background:#fff;font-weight:600;font-size:15px;transition:all .15s}
-.opcao i{width:22px;height:22px;border-radius:7px;border:2px solid #c3bcb0;display:grid;place-items:center;color:#fff;transition:all .15s}
-.opcao[aria-pressed=true]{border-color:var(--escuro);background:#f7f5f1}
-.opcao[aria-pressed=true] i{background:var(--escuro);border-color:var(--escuro)}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod{position:relative}
+.mod-sel{width:100%;height:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px 40px 14px 14px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;transition:border-color .15s,box-shadow .15s,background .15s}
+.mod-sel:hover{border-color:#bdb6ab}
+.mod-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--fundo-2);color:var(--tinta);transition:background .15s,color .15s}
+.mod-txt b{display:block;font-size:15.5px;line-height:1.25}
+.mod-txt small{display:block;font-size:13px;color:var(--suave);line-height:1.35;margin-top:2px}
+.mod-txt em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700;padding:2px 8px;border-radius:7px;background:var(--fundo-2);color:var(--suave)}
+.mod-ok{position:absolute;right:12px;bottom:12px;width:22px;height:22px;border-radius:50%;border:2px solid #c3bcb0;display:grid;place-items:center;color:#fff;transition:all .15s}
+.mod-sel[aria-pressed=true]{border-color:var(--escuro);box-shadow:0 0 0 3px #1e25281a;background:#fbfaf7}
+.mod-sel[aria-pressed=true] .mod-ic{background:var(--escuro);color:#fff}
+.mod-sel[aria-pressed=true] .mod-ok{background:var(--escuro);border-color:var(--escuro)}
+.mod-sel[aria-pressed=true] em.inc{background:var(--ok-claro);color:var(--ok)}
+.mod-sel[aria-pressed=true] em.ext{background:var(--ouro-claro);color:#7a5a17}
+.mod-info{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--suave);transition:background .15s,color .15s}
+.mod-info:hover,.mod-info:focus-visible{background:var(--fundo-2);color:var(--tinta)}
+.aviso-site{display:flex;gap:10px;align-items:flex-start;margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--ouro-claro);color:#4c3d18;font-size:14.5px}
+.aviso-site[hidden]{display:none}
+.aviso-site svg{color:var(--ouro);margin-top:1px}
+/* janela de detalhes do módulo */
+.info-veu{position:fixed;inset:0;z-index:50;background:#0f141699;display:none;align-items:center;justify-content:center;padding:20px}
+.info-veu.aberto{display:flex;animation:aparece .2s ease}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.info{width:min(480px,100%);max-height:calc(100vh - 40px);overflow:auto;background:#fff;border-radius:24px;padding:26px;position:relative;box-shadow:0 30px 80px -20px #0008}
+.info .fechar{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:12px;background:var(--fundo-2);display:grid;place-items:center}
+.info-topo{display:flex;align-items:center;gap:14px;margin-right:44px}
+.info-topo .mod-ic{width:50px;height:50px;border-radius:15px;background:var(--escuro);color:#fff}
+.info-topo .mod-ic svg{width:24px;height:24px}
+.info-topo h3{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.info-topo small{display:block;color:var(--suave);font-size:14px;margin-top:2px}
+.info .resumo-mod{font-size:17px;line-height:1.45;margin:18px 0 4px}
+.info h4{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--suave);margin:18px 0 10px}
+.info ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.info li{display:flex;gap:10px;font-size:15.5px;line-height:1.45}
+.info li svg{color:var(--ok);margin-top:2px;width:18px;height:18px}
+.info .saber{margin-top:18px;padding:14px 16px;border-radius:16px;background:var(--ouro-claro);color:#4c3d18}
+.info .saber h4{margin:0 0 8px;color:#7a5a17}
+.info .saber li{font-size:15px}
+.info .saber li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--ouro);margin-top:9px}
+.acoes-info{display:flex;gap:10px;margin-top:20px}
+.acoes-info .botao{flex:1;height:48px;font-size:15px;padding:0 14px}
 .resultado{margin-top:20px;padding:18px 20px;border-radius:18px;background:var(--fundo)}
 .resultado .linha{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .resultado .linha span{color:var(--suave);font-size:15px}
@@ -165,6 +203,11 @@ footer a{font-weight:600}
   .seta{padding:2px 0}
   .seta svg{transform:rotate(90deg)}
   .plano,.conta{padding:24px}
+  .mods{grid-template-columns:1fr}
+  .info-veu{align-items:flex-end;padding:0}
+  .info{border-radius:24px 24px 0 0;max-height:88vh;padding:22px 20px max(20px,env(safe-area-inset-bottom))}
+  .acoes-info{flex-direction:column-reverse}
+  .acoes-info .botao{flex:none;height:50px}
   .plano .grande b{font-size:56px}
   details{padding:0 18px}
   .convite{margin-bottom:56px}
@@ -215,27 +258,27 @@ footer a{font-weight:600}
         <div class="seta" aria-hidden="true"><div><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>o pedido<br>de data chega</div></div>
         <div class="lado"><small>O painel</small><b>O que a sua equipe usa</b><span>O lugar onde vocês organizam o trabalho: agenda, clientes, contratos e pagamentos. Só entra quem tem senha.</span></div>
       </div>
-      <p class="juntos"><b>Os dois se conversam:</b> quando o cliente pede uma data pelo site, o pedido aparece no painel. Você pode ter só o painel, só o site ou os dois. E quem faz o site com a Renderiza não paga a montagem do painel.</p>
+      <p class="juntos"><b>Os dois se conversam:</b> quando o cliente pede uma data pelo site, o pedido aparece no painel. A agenda online é a ponte: ela fica no site e manda os pedidos para o painel. E quem faz o site com a Renderiza não paga a montagem do painel.</p>
     </div>
   </div>
 </section>
 
 <section class="bloco" id="modulos" style="padding-top:16px">
   <div class="cont">
-    <div class="bloco-cab"><h2>Os módulos: <span>escolha o que você precisa</span></h2><p>O painel é dividido em partes, que a gente chama de módulos. Você escolhe quais quer usar. Toque num deles para ver funcionando.</p></div>
+    <div class="bloco-cab"><h2>Os módulos: <span>escolha o que você precisa</span></h2><p>O painel é dividido em partes, que a gente chama de módulos. Você escolhe quais quer usar. Veja cada um funcionando ou toque em Detalhes para saber o que ele inclui.</p></div>
     <div class="modulos">
-      <a class="modulo" href="/exemplos/agenda-online"><figure><img src="/exemplos/img/t-agenda-online.jpg" alt="Agenda online: o cliente escolhe a festa, a data e o pacote" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Agenda online</h3><p>O seu cliente vê os dias livres e pede a data sozinho, pelo link.</p><span class="ir">Testar como cliente →</span></div></a>
-      <a class="modulo" href="/exemplos/painel-eventos#agenda"><figure><img src="/exemplos/img/t-agenda.jpg" alt="Agenda da equipe com uma cor para cada tipo de festa" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Agenda da equipe</h3><p>Festas, visitas e degustações do mês, com quem cuida de cada uma.</p><span class="ir">Ver funcionando →</span></div></a>
-      <a class="modulo" href="/exemplos/painel-eventos#clientes"><figure><img src="/exemplos/img/t-clientes.jpg" alt="Ficha do cliente com a festa, o pacote e os pagamentos" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Clientes</h3><p>A ficha de cada cliente: a festa, o pacote e tudo o que foi combinado.</p><span class="ir">Ver funcionando →</span></div></a>
-      <a class="modulo" href="/exemplos/painel-eventos#contratos"><figure><img src="/exemplos/img/t-contratos.jpg" alt="Contratos em colunas, do orçamento à festa" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Contratos</h3><p>Do orçamento ao contrato assinado pelo celular, sem papel.</p><span class="ir">Ver funcionando →</span></div></a>
-      <a class="modulo" href="/exemplos/painel-eventos#financeiro"><figure><img src="/exemplos/img/t-financeiro.jpg" alt="Financeiro: recebido no mês, a receber e receita por mês" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Financeiro</h3><p>Quanto entrou, quanto falta receber e quem está com parcela atrasada.</p><span class="ir">Ver funcionando →</span></div></a>
-      <a class="modulo" href="/exemplos/painel-eventos#atendimento"><figure><img src="/exemplos/img/t-atendimento.jpg" alt="Atendimento: pedidos do WhatsApp, Instagram e agenda online" loading="lazy" width="1280" height="800"></figure>
-        <div class="txt"><h3>Atendimento</h3><p>Os pedidos do WhatsApp, do Instagram e do site num lugar só.</p><span class="ir">Ver funcionando →</span></div></a>
+      <div class="modulo"><a href="/exemplos/agenda-online" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-agenda-online.jpg" alt="Agenda online: o cliente escolhe a festa, a data e o pacote" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Agenda online</h3><p>O seu cliente vê os dias livres e pede a data pelo site, a qualquer hora.</p><div class="links"><a class="ir" href="/exemplos/agenda-online">Testar como cliente →</a><button type="button" class="det" data-info="agenda-online"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-eventos#agenda" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-agenda.jpg" alt="Agenda da equipe com uma cor para cada tipo de festa" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Agenda da equipe</h3><p>A agenda do espaço dentro do painel: festas, visitas e degustações do mês.</p><div class="links"><a class="ir" href="/exemplos/painel-eventos#agenda">Ver funcionando →</a><button type="button" class="det" data-info="agenda"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-eventos#clientes" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-clientes.jpg" alt="Ficha do cliente com a festa, o pacote e os pagamentos" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Clientes</h3><p>A ficha de cada cliente: a festa, o pacote e tudo o que foi combinado.</p><div class="links"><a class="ir" href="/exemplos/painel-eventos#clientes">Ver funcionando →</a><button type="button" class="det" data-info="clientes"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-eventos#contratos" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-contratos.jpg" alt="Contratos em colunas, do orçamento à festa" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Contratos</h3><p>Do orçamento ao contrato aceito pelo cliente no celular, sem papel.</p><div class="links"><a class="ir" href="/exemplos/painel-eventos#contratos">Ver funcionando →</a><button type="button" class="det" data-info="contratos"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-eventos#financeiro" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-financeiro.jpg" alt="Financeiro: recebido no mês, a receber e receita por mês" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Financeiro</h3><p>O controle do que entrou, do que falta receber e de quem atrasou.</p><div class="links"><a class="ir" href="/exemplos/painel-eventos#financeiro">Ver funcionando →</a><button type="button" class="det" data-info="financeiro"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-eventos#atendimento" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/t-atendimento.jpg" alt="Atendimento: os pedidos de orçamento, de onde vieram e em que etapa estão" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Atendimento</h3><p>Todos os pedidos de orçamento num lugar só, com quem está atendendo cada um.</p><div class="links"><a class="ir" href="/exemplos/painel-eventos#atendimento">Ver funcionando →</a><button type="button" class="det" data-info="atendimento"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
     </div>
   </div>
 </section>
@@ -260,12 +303,13 @@ footer a{font-weight:600}
       </div>
       <div class="conta">
         <h3>Faça a conta</h3>
-        <p>Toque nos módulos que você quer usar.</p>
-        <div class="opcoes" id="opcoes"></div>
+        <p>Toque nos módulos que você quer usar. No <b>i</b>, você vê o que cada um inclui.</p>
+        <div class="mods" id="mods"></div>
         <div class="resultado" aria-live="polite">
           <div class="linha"><span id="qtd">2 módulos</span><b id="total">R$ 49,00</b></div>
           <p id="detalhe">por mês, com até 5 pessoas da equipe</p>
         </div>
+        <p class="aviso-site" id="aviso-site" hidden><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg><span>A agenda online fica dentro do site, então vem junto com o site da Renderiza.</span></p>
         <a class="botao zap" id="zap" href="#" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Quero começar com esses</a>
       </div>
     </div>
@@ -276,7 +320,7 @@ footer a{font-weight:600}
   <div class="cont">
     <div class="bloco-cab"><h2>Perguntas <span>que todo mundo faz</span></h2></div>
     <div class="perguntas">
-      <details><summary>Preciso ter site para usar o painel?</summary><p>Não. O painel funciona sozinho, e a agenda online ganha um link para você mandar no WhatsApp e colocar no Instagram. Se fizer o site com a Renderiza, a montagem do painel é grátis e a agenda online já fica dentro do site.</p></details>
+      <details><summary>Preciso ter site para usar o painel?</summary><p>Só para a agenda online, porque ela fica dentro do site e vem junto com o site da Renderiza. Os outros módulos funcionam sem site. E quem faz o site com a Renderiza não paga a montagem do painel.</p></details>
       <details><summary>Tem fidelidade ou multa para cancelar?</summary><p>Não. Você paga mês a mês e pode cancelar quando quiser. Se sair, leva os seus dados numa planilha.</p></details>
       <details><summary>E se a minha equipe tiver mais de 5 pessoas?</summary><p>O plano já vem com 5 pessoas, cada uma com a sua senha. Precisa de mais? São R$ 9,90 por mês a cada 5 pessoas a mais.</p></details>
       <details><summary>Posso mudar os módulos depois?</summary><p>Pode, quando quiser. Muita gente começa com a agenda e coloca o financeiro depois. O valor novo vale a partir da mensalidade seguinte.</p></details>
@@ -295,18 +339,143 @@ footer a{font-weight:600}
   <footer><span>A Villa Alecrim não existe: é um espaço inventado para o exemplo. Nomes, datas e valores são fictícios.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
 </div>
 
+<div class="info-veu" id="info-veu"><div class="info" role="dialog" aria-modal="true" aria-labelledby="info-nome" id="info"></div></div>
+
 <script>
 (function () {
   // Preço do Painel Renderiza (pedido do Kaue, 21/10/2026). Mudou aqui, mude também os textos da página.
   const PRECO = { base: 49, inclusos: 2, extra: 14.99, acessos: 5 };
   const ZAP = "5511988697165";
-  const MODULOS = [["agenda-online", "Agenda online"], ["agenda", "Agenda da equipe"], ["clientes", "Clientes"], ["contratos", "Contratos"], ["financeiro", "Financeiro"], ["atendimento", "Atendimento"]];
+  // Os módulos: o que aparece na conta e na janela de Detalhes (o que faz e o que é bom saber).
+  const MODULOS = [
+ {
+  "id": "agenda-online",
+  "nome": "Agenda online",
+  "curto": "O cliente pede a data pelo site",
+  "resumo": "O seu cliente escolhe a data da festa pelo site, a qualquer hora, sem esperar ninguém responder.",
+  "faz": [
+   "Mostra no seu site os dias livres e os já reservados",
+   "O cliente escolhe a festa, os convidados e o pacote",
+   "O pedido chega no painel com a data separada para você confirmar"
+  ],
+  "saber": [
+   "Fica dentro do site, então vem junto com o site da Renderiza.",
+   "É um pedido de pré-reserva: quem confirma a data é você."
+  ],
+  "link": "/exemplos/agenda-online",
+  "linktxt": "Testar como cliente",
+  "site": true,
+  "icone": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"16.5\" rx=\"2.5\"/><path d=\"M3 9.5h18M8 2.5v4M16 2.5v4M12 12.5v5.5M9.25 15.25h5.5\"/>"
+ },
+ {
+  "id": "agenda",
+  "nome": "Agenda da equipe",
+  "curto": "Festas, visitas e degustações",
+  "resumo": "A agenda do seu espaço, dentro do painel, que toda a equipe vê no celular.",
+  "faz": [
+   "Festas, visitas, degustações e reuniões do mês numa tela só",
+   "Uma cor para cada tipo de festa e o nome de quem cuida de cada uma",
+   "Cada pessoa pode ver só o que está com ela"
+  ],
+  "saber": [
+   "É uma agenda própria do painel. A ligação com o Google Agenda não está incluída, mas dá para conversar."
+  ],
+  "link": "/exemplos/painel-eventos#agenda",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"16.5\" rx=\"2.5\"/><path d=\"M3 9.5h18M8 2.5v4M16 2.5v4M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01\"/>"
+ },
+ {
+  "id": "clientes",
+  "nome": "Clientes",
+  "curto": "A ficha de cada cliente",
+  "resumo": "Tudo o que foi combinado com cada cliente, guardado num lugar só.",
+  "faz": [
+   "Contato, data, convidados, pacote e adicionais",
+   "Checklist da festa: degustação, lista de convidados, reunião final",
+   "Histórico: quando chegou, a visita, o orçamento e os pagamentos"
+  ],
+  "saber": [
+   "As conversas continuam no seu WhatsApp. No painel fica o registro do que foi combinado."
+  ],
+  "link": "/exemplos/painel-eventos#clientes",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<circle cx=\"9\" cy=\"8\" r=\"3.5\"/><path d=\"M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5\"/><path d=\"M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2\"/>"
+ },
+ {
+  "id": "contratos",
+  "nome": "Contratos",
+  "curto": "O cliente aceita pelo celular",
+  "resumo": "O cliente lê e aceita o contrato do seu espaço pelo celular, sem imprimir nada.",
+  "faz": [
+   "O contrato vai para o cliente por um link",
+   "Ele lê e aceita no celular",
+   "O painel guarda a data, a hora e quem aceitou",
+   "Você vê quem está com orçamento, com contrato enviado e com contrato aceito"
+  ],
+  "saber": [
+   "É um termo de aceite digital: não usa certificado digital (como o e-CPF).",
+   "O texto do contrato é o do seu espaço. A Renderiza não escreve nem revisa contratos."
+  ],
+  "link": "/exemplos/painel-eventos#contratos",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"/><path d=\"M14 3v5h5\"/><path d=\"m9 14.5 2 2 4-4\"/>"
+ },
+ {
+  "id": "financeiro",
+  "nome": "Financeiro",
+  "curto": "O controle do que entra",
+  "resumo": "O controle do dinheiro do espaço: o que entrou, o que falta entrar e quem atrasou.",
+  "faz": [
+   "As parcelas de cada festa, com o vencimento",
+   "Você dá baixa quando o pagamento chega",
+   "O total do mês, o que falta receber e quem está atrasado",
+   "Os pacotes e adicionais que mais vendem"
+  ],
+  "saber": [
+   "É um controle: o painel não recebe pagamentos nem cobra o cliente. Pix, boleto e cartão continuam do jeito que você já recebe."
+  ],
+  "link": "/exemplos/painel-eventos#financeiro",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M19 7V5.5A1.5 1.5 0 0 0 17.5 4H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6\"/><circle cx=\"16.5\" cy=\"14\" r=\"1.3\"/>"
+ },
+ {
+  "id": "atendimento",
+  "nome": "Atendimento",
+  "curto": "Todos os pedidos num lugar só",
+  "resumo": "Todo pedido de orçamento anotado num lugar só, para nenhum ficar sem resposta.",
+  "faz": [
+   "Cada pedido com a data desejada, os convidados e de onde veio",
+   "Em que etapa está: novo, visita marcada, orçamento enviado",
+   "Quem da equipe está atendendo"
+  ],
+  "saber": [
+   "Os pedidos da agenda online entram sozinhos. Os do WhatsApp e do Instagram, a equipe anota no painel em poucos toques."
+  ],
+  "link": "/exemplos/painel-eventos#atendimento",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z\"/><path d=\"M8.5 11h7M8.5 14.5h4\"/>"
+ }
+];
   let marcados = ["agenda-online", "agenda"];
   const $ = s => document.querySelector(s);
+  const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
   const reais = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  const check = '<svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const svg = (p, t = 20) => `<svg class="i" viewBox="0 0 24 24" style="width:${t}px;height:${t}px">${p}</svg>`;
+  const OK = '<path d="M5 12.5l4.5 4.5L19 7.5"/>', INFO = '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>';
+  const mod = id => MODULOS.find(m => m.id === id);
+  const etiqueta = id => { const i = marcados.indexOf(id); return i < 0 ? ["", "+ " + reais(PRECO.extra) + "/mês"] : i < PRECO.inclusos ? ["inc", "no valor do plano"] : ["ext", "+ " + reais(PRECO.extra) + "/mês"]; };
+
   function desenhar() {
-    $("#opcoes").innerHTML = MODULOS.map(([id, nome]) => `<button type="button" class="opcao" data-mod="${id}" aria-pressed="${marcados.includes(id)}"><i>${check}</i>${nome}</button>`).join("");
+    $("#mods").innerHTML = MODULOS.map(m => {
+      const [cl, txt] = etiqueta(m.id);
+      return `<div class="mod"><button type="button" class="mod-sel" data-mod="${m.id}" aria-pressed="${marcados.includes(m.id)}"><span class="mod-ic">${svg(m.icone)}</span><span class="mod-txt"><b>${esc(m.nome)}</b><small>${esc(m.curto)}</small><em class="${cl}">${txt}</em></span><span class="mod-ok">${svg(OK, 13)}</span></button>
+        <button type="button" class="mod-info" data-info="${m.id}" aria-label="O que é ${esc(m.nome)}">${svg(INFO, 18)}</button></div>`;
+    }).join("");
     const n = marcados.length, extras = Math.max(0, n - PRECO.inclusos), t = PRECO.base + extras * PRECO.extra;
     $("#qtd").textContent = n === 1 ? "1 módulo" : n + " módulos";
     $("#total").textContent = reais(t);
@@ -314,15 +483,38 @@ footer a{font-weight:600}
       ? `por mês. Você ainda pode escolher mais ${PRECO.inclusos - n} sem pagar a mais.`
       : extras ? `por mês: ${reais(PRECO.base)} do plano + ${extras} × ${reais(PRECO.extra)}, com até ${PRECO.acessos} pessoas da equipe`
       : `por mês, com até ${PRECO.acessos} pessoas da equipe`;
-    const nomes = marcados.map(id => MODULOS.find(m => m[0] === id)[1]);
+    $("#aviso-site").hidden = !marcados.some(id => mod(id).site);
+    const nomes = marcados.map(id => mod(id).nome);
     const texto = `Oi! Vi o Painel Renderiza e quero começar com ${nomes.length ? nomes.join(", ") : "os módulos que fizerem sentido"} (${reais(t)} por mês).`;
     $("#zap").href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(texto);
   }
-  $("#opcoes").addEventListener("click", e => {
-    const b = e.target.closest("[data-mod]"); if (!b) return;
-    const id = b.dataset.mod;
-    marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id];
-    desenhar();
+  function alternar(id) { marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id]; desenhar(); }
+
+  /* janela de detalhes */
+  const veu = $("#info-veu"), janela = $("#info");
+  let voltarPara = null;
+  function abrirInfo(id, origem) {
+    const m = mod(id), dentro = marcados.includes(id);
+    janela.innerHTML = `<button type="button" class="fechar" aria-label="Fechar">${svg('<path d="M18 6 6 18M6 6l12 12"/>')}</button>
+      <div class="info-topo"><span class="mod-ic">${svg(m.icone)}</span><div><h3 id="info-nome">${esc(m.nome)}</h3><small>${dentro ? "Está no seu plano" : "Módulo do Painel Renderiza"}</small></div></div>
+      <p class="resumo-mod">${esc(m.resumo)}</p>
+      <h4>O que dá para fazer</h4><ul>${m.faz.map(x => `<li>${svg(OK, 18)}<span>${esc(x)}</span></li>`).join("")}</ul>
+      <div class="saber"><h4>Bom saber</h4><ul>${m.saber.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
+      <div class="acoes-info"><a class="botao claro" href="${m.link}">${esc(m.linktxt)}</a><button type="button" class="botao escuro" data-alternar="${m.id}">${dentro ? "Tirar do plano" : "Colocar no plano"}</button></div>`;
+    voltarPara = origem || null;
+    veu.classList.add("aberto"); document.body.style.overflow = "hidden";
+    janela.querySelector(".fechar").focus();
+  }
+  function fecharInfo() { veu.classList.remove("aberto"); document.body.style.overflow = ""; voltarPara?.focus?.(); }
+  veu.addEventListener("click", e => {
+    if (e.target === veu || e.target.closest(".fechar")) return fecharInfo();
+    const b = e.target.closest("[data-alternar]");
+    if (b) { const id = b.dataset.alternar; alternar(id); fecharInfo(); if (marcados.includes(id)) document.getElementById("precos").scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && veu.classList.contains("aberto")) fecharInfo(); });
+  document.addEventListener("click", e => {
+    const info = e.target.closest("[data-info]"); if (info) return abrirInfo(info.dataset.info, info);
+    const sel = e.target.closest("[data-mod]"); if (sel) alternar(sel.dataset.mod);
   });
   desenhar();
 

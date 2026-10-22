@@ -740,7 +740,7 @@ body.video .toast{bottom:28px}
     ];
     const ev = todosEventos();
     $("#contratos").innerHTML = `
-      <div class="vista-cab"><div><h2 id="t-contratos">Contratos</h2><p>Do orçamento à festa. Contrato assinado pelo link, sem papel.</p></div></div>
+      <div class="vista-cab"><div><h2 id="t-contratos">Contratos</h2><p>Do orçamento à festa. O cliente aceita o contrato pelo link, sem papel.</p></div></div>
       <div class="kanban" id="kanban">${cols.map(([st, nome]) => {
         // na coluna de orçamento entram também os pedidos do atendimento que já receberam orçamento
         const doAtendimento = st === "orcamento" ? pedidos().filter(p => p.status === "orcamento" && p.pacote).map(p => ({ id: p.id, abrir: "pd:" + p.id, cliente: p.nome, tipo: p.tipo, data: p.data, conv: p.conv, resp: p.resp, valor: V.valorDe({ pacote: p.pacote, conv: p.conv, adic: [] }) })) : [];
@@ -749,7 +749,7 @@ body.video .toast{bottom:28px}
         return `<div class="coluna"><div class="coluna-cab"><b><i style="background:${STATUS[st].cor}"></i>${nome} <span class="qtd">${cards.length}</span></b><small>${moeda(total)}</small></div>
           ${cards.slice(0, 4).map(e => `<div class="card" data-abrir="${e.abrir || "ev:" + e.id}"><div class="linha">${pill(e.tipo)}${av(e.resp, "p")}</div><b>${esc(e.cliente)}</b>
             <div class="linha"><span>${dataCurta(e.data)} · ${e.conv} conv.</span><span class="valor">${moeda(e.valor)}</span></div>
-            ${st === "contrato" ? `<span class="aviso">${ic("relogio", "width:14px;height:14px")}Esperando assinatura há ${e.id === "bem-viver" ? 2 : 4} dias</span>` : ""}
+            ${st === "contrato" ? `<span class="aviso">${ic("relogio", "width:14px;height:14px")}Esperando o aceite há ${e.id === "bem-viver" ? 2 : 4} dias</span>` : ""}
             ${st === "assinado" ? `<div class="barra"><b style="width:${pct(e)}%"></b></div>` : ""}</div>`).join("")}
           ${cards.length > 4 ? `<button class="botao leve pequeno" data-ver-todos="${st}">Ver mais ${cards.length - 4}</button>` : ""}</div>`;
       }).join("")}</div>`;
@@ -896,7 +896,7 @@ body.video .toast{bottom:28px}
     linhas.push([somar(f, -24), `Primeiro contato pelo ${ORIGENS[e.origem].nome}`, PESSOA[e.resp].curto + " respondeu em 4 min"]);
     linhas.push([somar(f, -14), "Visita ao espaço", "com " + PESSOA[e.resp].curto]);
     linhas.push([somar(f, -6), "Orçamento enviado", PACOTES[e.pacote].nome + " para " + e.conv + " convidados"]);
-    if (e.fechado) linhas.push([f, "Contrato assinado pelo link", "assinatura digital"]);
+    if (e.fechado) linhas.push([f, "Contrato aceito pelo link", "aceite digital, com data e hora"]);
     for (const p of e.parcelas.filter(p => p.pago && p.n > 1).slice(-2)) linhas.push([p.pagoEm, `Pagamento da parcela ${p.n}/${p.de}`, moeda(p.valor) + " · " + p.forma]);
     if (e.data < HOJE) linhas.push([e.data, "Festa realizada", e.conv + " convidados"]);
     return linhas.filter(l => l[0] <= HOJE).sort((a, b) => b[0] - a[0]);
@@ -917,7 +917,7 @@ body.video .toast{bottom:28px}
         </div>
         <div class="secao-g"><h4>Incluso no pacote</h4><div class="tags">${p.inclui.map(x => `<span>${esc(x)}</span>`).join("")}</div></div>
         ${e.adic.length ? `<div class="secao-g"><h4>Adicionais</h4><div class="tags">${e.adic.map(a => `<span style="background:#f7f0de">${esc(ADICIONAIS[a].nome)}</span>`).join("")}</div></div>` : ""}
-        ${e.fechado ? `<div class="pagamento-res"><div class="topo-p"><small>Pago ${moeda(e.pago)} de ${moeda(e.valor)}</small><b>${pct(e)}%</b></div><div class="barra"><b style="width:${pct(e)}%"></b></div><small>${prox ? `Próxima parcela: ${moeda(prox.valor)} em ${dm(prox.vence)} (${prox.forma})` : "Tudo pago. 🎉"}</small></div>` : `<div class="pagamento-res"><div class="topo-p"><small>Valor do orçamento</small><b>${moeda(e.valor)}</b></div><small>${e.status === "contrato" ? "Contrato enviado pelo link, esperando a assinatura." : "Orçamento enviado. Falta a visita ou a resposta do cliente."}</small></div>`}`,
+        ${e.fechado ? `<div class="pagamento-res"><div class="topo-p"><small>Pago ${moeda(e.pago)} de ${moeda(e.valor)}</small><b>${pct(e)}%</b></div><div class="barra"><b style="width:${pct(e)}%"></b></div><small>${prox ? `Próxima parcela: ${moeda(prox.valor)} em ${dm(prox.vence)} (${prox.forma})` : "Tudo pago. 🎉"}</small></div>` : `<div class="pagamento-res"><div class="topo-p"><small>Valor do orçamento</small><b>${moeda(e.valor)}</b></div><small>${e.status === "contrato" ? "Contrato enviado pelo link, esperando o aceite do cliente." : "Orçamento enviado. Falta a visita ou a resposta do cliente."}</small></div>`}`,
       pagamentos: e.parcelas.length ? `<div>${e.parcelas.map(x => `<div class="parcela"><div><b>Parcela ${x.n}/${x.de}</b><small>${x.forma} · vence ${dm(x.vence)}</small></div><span class="sit ${x.situacao}">${{ pago: "Pago", aberto: "A vencer", hoje: "Vence hoje", atrasada: "Atrasada" }[x.situacao]}</span><b>${moeda(x.valor)}</b></div>`).join("")}</div>` : `<p style="color:var(--suave)">As parcelas aparecem quando o contrato for assinado.</p>`,
       checklist: `<div id="checklist">${checklistDe(e).map((c, i) => `<div class="check ${c.ok ? "feito" : ""}" data-check="${e.id}:${i}"><i>${ic("ok", "width:14px;height:14px;stroke-width:3")}</i><span>${esc(c.t)}</span></div>`).join("")}</div>`,
       historico: `<div class="linha-tempo">${historicoDe(e).map(([d, t, s]) => `<div class="marco"><b>${esc(t)}</b><small>${dm(d)} · ${esc(s)}</small></div>`).join("")}</div>`,
@@ -927,7 +927,7 @@ body.video .toast{bottom:28px}
         <h3>${esc(e.cliente)}</h3><p>${esc(dataLonga(e.data))} · ${emQuanto(e.data)}</p>
         <div class="abas-g">${abas.map(([k, n]) => `<button data-aba="${e.id}:${k}" class="${k === aba ? "ativo" : ""}">${n}</button>`).join("")}</div></div>
       <div class="gaveta-corpo">${corpo[aba]}</div>
-      <div class="gaveta-pe"><button class="botao leve" data-acao="zap">${ic("whatsapp")}WhatsApp</button><button class="botao primario" data-acao="${e.status === "contrato" ? "lembrar" : "editar"}">${e.status === "contrato" ? "Lembrar da assinatura" : "Editar reserva"}</button></div>`);
+      <div class="gaveta-pe"><button class="botao leve" data-acao="zap">${ic("whatsapp")}WhatsApp</button><button class="botao primario" data-acao="${e.status === "contrato" ? "lembrar" : "editar"}">${e.status === "contrato" ? "Lembrar do aceite" : "Editar reserva"}</button></div>`);
   }
   function abrirCompromisso(id) {
     const c = COMPROMISSOS.concat(compromissosExtras).find(x => x.id === id); if (!c) return;

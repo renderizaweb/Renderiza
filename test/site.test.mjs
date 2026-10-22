@@ -183,6 +183,9 @@ test("Painel Renderiza em /exemplos: o preço da conta é o mesmo dos textos da 
   assert.ok(html.includes(`+ R$ ${reais(extra)} por mês`), "preço do módulo a mais");
   assert.ok(html.includes(`<b>${acessos} pessoas</b>`) && html.includes(`Até ${acessos} pessoas`), "pessoas da equipe");
   assert.doesNotMatch(html, /[Ee]m breve|Bastidor/, "nada de módulo futuro nem o nome antigo");
+  // o "bom saber" de cada módulo: o que não está incluso fica escrito (resguardo)
+  for (const [modulo, aviso] of [["agenda-online", "vem junto com o site"], ["agenda", "Google Agenda não está incluída"], ["contratos", "não usa certificado digital"], ["contratos", "não escreve nem revisa contratos"], ["financeiro", "não recebe pagamentos nem cobra o cliente"], ["atendimento", "a equipe anota no painel"]])
+    assert.match(html, new RegExp(`"id": "${modulo}"[\\s\\S]*?"saber": \\[[^\\]]*${aviso}`), `${modulo}: ${aviso}`);
   assert.match(html, /[Ss]em fidelidade/);
   assert.doesNotMatch(html, /taxa de (ativação|adesão|implantação)/i, "o valor inicial se chama montagem");
 });
