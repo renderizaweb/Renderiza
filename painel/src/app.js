@@ -767,7 +767,7 @@ function acoesRapidas() {
     if (!linkDemo) return;
     const mostrar = () => aviso("Copie o link: " + linkDemo);
     // Link copiado de demo vencida abre o aviso de fora do ar: lembra de reabilitar antes de mandar.
-    const ok = () => aviso(demoFora ? "Link copiado, mas a demo não abre agora (" + demoFora + "). Reabilite na seção Demo antes de mandar." : "Link da demo copiado.", demoFora ? "erro" : undefined);
+    const ok = () => aviso(demoFora ? "Link copiado, mas a demo não abre agora (" + demoFora + "). Reabilite na seção Demo antes de mandar." : "Link da demo copiado. Quando abrirem, aparece na tela Atividade e na seção Demo.", demoFora ? "erro" : undefined);
     try { navigator.clipboard.writeText(linkDemo).then(ok, mostrar); } catch (e) { mostrar(); }
   });
   let linkPainel = "";
@@ -951,7 +951,8 @@ function secaoDemo(id) {
   // Quem abriu a demo (o contador entra na demo pelo build; o lead vem do link_demo).
   const mapa = mapaDeVisitas(id, daDemo, {
     ninguem: "Ninguém abriu a demo ainda.", soVoces: "Só vocês abriram a demo até agora.",
-    sinais: r => [r.whatsapp && "clicou no WhatsApp da loja"],
+    sinais: r => [r.fim && "viu até o fim", r.whatsapp && "clicou no WhatsApp da loja", r.cliques.includes("instagram") && "abriu o Instagram",
+      r.cliques.includes("rota") && "pediu a rota", r.cliques.includes("avaliacoes") && "viu as avaliações"],
   });
   const visitasDaDemo = h("div", { class: "demo-visitas" }, h("span", { class: "demo-visitas-titulo", text: "Quem abriu a demo" }), ...mapa.els);
   vincular(l => {
@@ -1020,6 +1021,7 @@ function mapaDeVisitas(id, filtro, { ninguem, soVoces, sinais }) {
         h("strong", { text: quandoFoi(g.inicio) }),
         g.segundos ? h("span", { class: "pr-tempo", text: duracao(g.segundos) }) : null),
       h("p", { class: "pr-onde", text: [g.aparelho, g.local, g.ip && "IP " + g.ip].filter(Boolean).join(" · ") || "Aparelho não identificado" }),
+      g.secoes && g.secoes.length ? h("p", { class: "pr-partes" }, h("strong", { text: "Mais tempo em: " }), g.secoes.slice(0, 4).map(([nome, s]) => `${nome} (${duracao(s)})`).join(" · ")) : null,
       h("ul", { class: "pr-passos" }, ...g.passos.map(p => h("li", { class: p.forte ? "forte" : "", title: dataHora(p.em) }, p.texto))))));
     mais.hidden = grupos.length <= 5;
     mais.textContent = todas ? "Mostrar só as últimas" : `Ver todas as ${grupos.length} visitas`;

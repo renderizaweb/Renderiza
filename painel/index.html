@@ -498,6 +498,8 @@ button.lead-chip:hover{filter:brightness(.96)}
 .pr-passos{margin:0;padding-left:18px;font-size:.8125rem;display:flex;flex-direction:column;gap:2px}
 .pr-passos li.forte{font-weight:600;color:#1f4f86}
 .pr-mais{margin-top:8px}
+.pr-partes{font-size:.75rem;color:var(--muted-foreground);margin:-2px 0 6px}
+.pr-partes strong{font-weight:600;color:#4e5d57}
 .demo-visitas{margin:12px 0 4px;padding-top:12px;border-top:1px solid var(--border)}
 .demo-visitas[hidden]{display:none}
 .demo-visitas-titulo{display:block;font-size:.75rem;letter-spacing:.6px;text-transform:uppercase;font-weight:600;color:#819085;margin-bottom:8px}
@@ -519,24 +521,45 @@ button.lead-chip:hover{filter:brightness(.96)}
 .atv-dia{margin:0 0 22px}
 .atv-dia-nome{display:flex;align-items:baseline;gap:10px;font-size:.8125rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#5e6f69;margin:0 0 10px}
 .atv-dia-nome span{font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted-foreground)}
-.atv-itens{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid #dfe7e2;display:flex;flex-direction:column;gap:10px}
-.atv-item{position:relative;background:#fff;border:1px solid #dfe7e2;border-radius:11px;padding:12px 16px}
-.atv-item::before{content:"";position:absolute;left:-26px;top:17px;width:12px;height:12px;border-radius:50%;background:#1f4f86;border:2px solid var(--background)}
+.atv-itens{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid #dfe7e2;display:flex;flex-direction:column;gap:8px}
+.atv-item{position:relative;background:#fff;border:1px solid #dfe7e2;border-radius:11px}
+.atv-item::before{content:"";position:absolute;left:-26px;top:16px;width:12px;height:12px;border-radius:50%;background:#1f4f86;border:2px solid var(--background)}
 .atv-item.quem-equipe,.atv-item.quem-equipe_ip{background:#fafbfa}
 .atv-item.quem-equipe::before,.atv-item.quem-equipe_ip::before{background:#b9c4bf}
-.atv-item.quem-equipe .atv-passos,.atv-item.quem-equipe_ip .atv-passos{color:var(--muted-foreground)}
+.atv-item.quem-equipe .atv-frase,.atv-item.quem-equipe_ip .atv-frase,.atv-item.quem-equipe .atv-passos,.atv-item.quem-equipe_ip .atv-passos{color:var(--muted-foreground)}
+.atv-item.ao-vivo::before{background:#2fa36b;animation:atv-pulso 2s infinite}
 .atv-item.novo{animation:atv-novo 2.4s ease-out}
 @keyframes atv-novo{0%{background:#e3f0fd;border-color:#8fc3f5}100%{}}
-.atv-topo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.8125rem}
-.atv-lead{font-weight:700;font-size:.9375rem;color:var(--foreground);text-align:left}
-.atv-lead:hover{text-decoration:underline}
-.atv-lugares{display:inline-flex;gap:6px;flex-wrap:wrap}
+.atv-resumo{display:flex;align-items:center;gap:12px;width:100%;padding:11px 14px 11px 16px;text-align:left;border-radius:11px;color:inherit}
+.atv-resumo:hover{background:#f6f9f7}
+.atv-resumo:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
+.atv-texto{flex:1;min-width:0;display:grid;gap:2px}
+.atv-frase{font-size:.9rem;line-height:1.45;color:var(--foreground)}
+.atv-frase .pr-quem{margin-right:7px;vertical-align:1px}
+.atv-frase strong{font-weight:700}
+.atv-sub{font-size:.8125rem;color:var(--muted-foreground)}
+.atv-quando{flex:none;font-size:.75rem;color:#1f4f86;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.atv-agora{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:999px;background:#e3f5ec;color:#16714a;font-weight:700}
+.atv-agora::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fa36b}
+.atv-seta{flex:none;display:inline-grid;color:var(--muted-foreground);transition:transform .15s}
+.atv-item.aberto .atv-seta{transform:rotate(180deg)}
+.atv-detalhes{padding:2px 16px 14px;border-top:1px solid #edf1ee;margin:0 2px}
+.atv-detalhes[hidden]{display:none}
+.atv-acoes{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
 .atv-lugar{display:inline-flex;align-items:center;gap:4px;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--muted);color:#4e5d57;text-decoration:none}
 .atv-lugar.demo{background:#edf4ef;color:#174e3d}
 .atv-lugar.demo:hover{background:#dcebe1}
-.atv-quando{margin-left:auto;display:inline-flex;gap:8px;font-size:.75rem;color:var(--muted-foreground);font-variant-numeric:tabular-nums;white-space:nowrap}
-.atv-quando strong{color:#1f4f86;font-weight:600}
-.atv-meta{font-size:.75rem;color:var(--muted-foreground);margin:4px 0 8px;overflow-wrap:anywhere}
+.atv-meta{font-size:.75rem;color:var(--muted-foreground);margin:0 0 10px;overflow-wrap:anywhere}
+.atv-rotulo{display:block;font-size:.6875rem;letter-spacing:.6px;text-transform:uppercase;font-weight:700;color:#819085;margin:0 0 6px}
+.atv-partes{margin:0 0 12px;max-width:560px}
+.atv-partes ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.atv-partes li{display:grid;grid-template-columns:minmax(90px,170px) 1fr 72px;align-items:center;gap:10px;font-size:.8125rem}
+.atv-parte-nome{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.atv-barra-fundo{height:8px;border-radius:999px;background:#edf1ee;overflow:hidden}
+.atv-barra-cheia{display:block;height:100%;border-radius:999px;background:#5f8fc4}
+.atv-parte-tempo{text-align:right;color:var(--muted-foreground);font-variant-numeric:tabular-nums}
+.atv-numero.agora{background:#e3f5ec;border-color:#bfe5d0}
+.atv-numero.agora strong{color:#16714a}
 .atv-passos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:.8125rem}
 .atv-passos li{display:flex;gap:10px}
 .atv-passos time{flex:none;width:40px;color:var(--muted-foreground);font-variant-numeric:tabular-nums}
@@ -548,9 +571,11 @@ button.lead-chip:hover{filter:brightness(.96)}
   .atv-ao-vivo{margin-left:0}
   .atv-numero{min-width:0;flex:1 1 40%}
   .atv-itens{padding-left:14px}
-  .atv-item{padding:11px 12px}
   .atv-item::before{left:-22px}
-  .atv-quando{margin-left:0;width:100%}
+  .atv-resumo{align-items:flex-start;gap:8px;padding:10px 10px 10px 12px}
+  .atv-quando{padding-top:2px}
+  .atv-detalhes{padding:2px 12px 12px}
+  .atv-partes li{grid-template-columns:minmax(70px,110px) 1fr 64px;gap:8px}
 }
 .chip-demo{display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;background:#dceee1;color:#1f5a45;text-decoration:none}
 .chip-demo:hover{background:#cfe4d6}

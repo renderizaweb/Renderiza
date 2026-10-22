@@ -854,13 +854,15 @@ create unique index if not exists leads_codigo_idx on public.leads (codigo);
 -- abriu o exemplo, clicou no WhatsApp, rolou até o fim, quanto tempo ficou. Só entra pela função
 -- registrar_visita (a página não grava direto); o dono do lead só lê e apaga.
 -- As demos das óticas (/demo/<pasta>) também contam: pagina 'demo', a pasta em demo e o lead achado pelo link_demo.
+-- Na demo, 'clicou' guarda os outros cliques (Instagram, rota, avaliações, telefone, menu, botões) e o 'tempo'
+-- leva quanto tempo ficou em cada parte da página (detalhe.secoes) e se saiu (detalhe.saiu).
 create table if not exists public.visitas (
   id         bigint generated always as identity primary key,
   dono       uuid not null references auth.users (id) on delete cascade,
   lead_id    text not null references public.leads (id) on delete cascade,
   pagina     text not null check (pagina in ('exemplos', 'painel-eventos', 'agenda-online', 'demo')),
   demo       text not null default '',          -- pasta da demo (só quando pagina = 'demo')
-  evento     text not null check (evento in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo')),
+  evento     text not null check (evento in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'clicou', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo')),
   detalhe    jsonb not null default '{}'::jsonb check (jsonb_typeof(detalhe) = 'object'),
   visitante  text not null default '',          -- número aleatório guardado no navegador (o mesmo aparelho)
   sessao     text not null default '',          -- uma abertura da página
@@ -875,6 +877,9 @@ alter table public.visitas add column if not exists demo text not null default '
 alter table public.visitas drop constraint if exists visitas_pagina_check;
 alter table public.visitas add constraint visitas_pagina_check
   check (pagina = any (array['exemplos', 'painel-eventos', 'agenda-online', 'demo']));
+alter table public.visitas drop constraint if exists visitas_evento_check;
+alter table public.visitas add constraint visitas_evento_check
+  check (evento = any (array['abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'clicou', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo']));
 create index if not exists visitas_lead_idx on public.visitas (lead_id, criado_em desc);
 create index if not exists visitas_dono_idx on public.visitas (dono, criado_em desc);
 alter table public.visitas enable row level security;
@@ -891,8 +896,9 @@ create policy "visitas do dono: apagar" on public.visitas
 
 -- Chamada pelo site (api/visita.js) com a chave pública. Código que não existe, evento estranho ou mais de
 -- 60 passos por hora do mesmo navegador: não grava. Abriu, chegou nos preços e rolou até o fim contam uma
--- vez por abertura da página; o tempo na página fica com o maior valor. Na demo, o lead vem da pasta
--- (link_demo do lead), não do código.
+-- vez por abertura da página; o tempo na página fica com o maior valor (a página manda de novo a cada 30 s e ao
+-- sair) e ganha detalhe.ate, a hora do banco da última atualização: o painel usa para "vendo agora". Na demo, o
+-- lead vem da pasta (link_demo do lead), não do código.
 -- A versão sem p_demo deixaria a chamada ambígua: sai. (No banco de produção ela ficou renomeada para
 -- registrar_visita_antiga, sem acesso público, porque o DROP pelo conector não terminava.)
 drop function if exists public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text);
@@ -916,8 +922,12 @@ declare
   v_sessao text := left(coalesce(p_sessao, ''), 24);
 begin
   if p_pagina not in ('exemplos', 'painel-eventos', 'agenda-online', 'demo')
-     or p_evento not in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo') then
+     or p_evento not in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'clicou', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo') then
     return false;
+  end if;
+  if p_evento = 'tempo' then
+    if coalesce(v_detalhe->>'s', '') !~ '^[0-9]{1,6}$' then return false; end if;
+    v_detalhe := v_detalhe || jsonb_build_object('ate', to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS"Z"'));
   end if;
   if p_pagina = 'demo' then
     if v_demo !~ '^[a-z0-9][a-z0-9-]{0,79}$' then return false; end if;
@@ -939,7 +949,7 @@ begin
     if p_evento = 'tempo' then
       update public.visitas v set detalhe = v_detalhe
        where v.lead_id = v_lead_id and v.sessao = v_sessao and v.pagina = p_pagina and v.evento = 'tempo'
-         and coalesce((v.detalhe->>'s')::numeric, 0) < coalesce((v_detalhe->>'s')::numeric, 0);
+         and coalesce(v.detalhe->>'s', '0')::numeric <= (v_detalhe->>'s')::numeric;
       return true;
     end if;
     return false;

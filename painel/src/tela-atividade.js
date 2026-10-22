@@ -6,7 +6,7 @@
 import * as dados from "./dados.js";
 import { h } from "./dom.js";
 import { icone } from "./icones.js";
-import { atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, duracao, PERIODOS } from "./visitas.js";
+import { atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, duracao, PERIODOS, fraseDaVisita, complementoDaVisita, vendoAgora } from "./visitas.js";
 
 const A_CADA = 30000;
 const POR_PAGINA = 40;
@@ -56,6 +56,8 @@ export function naoVistas() {
  */
 export function criarTelaAtividade(ctx) {
   let pagina = 1, relogio = null, conferidoEm = null, conferindo = false;
+  const abertos = new Set(); // visitas com os detalhes abertos (continuam abertas quando a lista se redesenha)
+  const chaveDe = g => g.lead_id + "/" + g.visitante + "/" + g.inicio;
 
   // Barra fixa (criada uma vez): a busca não perde o foco quando a lista se redesenha.
   const abas = (rotulo, opcoes, chave) => {
@@ -116,7 +118,9 @@ export function criarTelaAtividade(ctx) {
     const nome = id => (dados.buscar("leads", id) || {}).empresa || "Lead apagado";
     const grupos = filtrarAtividade(todos, { quem: estado.quem, onde: estado.onde, desde: inicioDoPeriodo(estado.periodo), busca: estado.busca }, nome);
     const r = resumoDaAtividade(grupos);
+    const agoraMesmo = grupos.filter(g => g.quem === "cliente" && vendoAgora(g)).length;
     numeros.replaceChildren(...[
+      agoraMesmo ? h("div", { class: "atv-numero agora" }, h("strong", { text: String(agoraMesmo) }), h("span", { text: agoraMesmo === 1 ? "cliente vendo agora" : "clientes vendo agora" })) : null,
       numero(r.visitas, "visitas de clientes", "visita de cliente"),
       numero(r.leads, "leads diferentes", "lead"),
       numero(r.demos, "demos abertas", "demo aberta"),
@@ -149,21 +153,55 @@ export function criarTelaAtividade(ctx) {
 
   const numero = (n, varios, um, forte = false) => h("div", { class: "atv-numero" + (forte ? " forte" : "") }, h("strong", { text: String(n) }), h("span", { text: n === 1 ? um : varios }));
 
+  // Fechada, a visita é uma frase ("Ótica Nina abriu a demo e clicou no WhatsApp da loja"); clicar abre os
+  // detalhes: onde, aparelho, cidade, IP, o que mais olhou e cada passo com a hora.
   function item(g, nomeDoLead, novo, agora) {
-    const lugares = [...new Map(g.passos.map(p => [p.lugar, p])).values()];
+    const chave = chaveDe(g), aberto = abertos.has(chave), aoVivo = vendoAgora(g, agora);
     const quando = haQuanto(g.fim, agora);
-    const meta = [g.aparelho, g.local, g.ip && "IP " + g.ip, g.segundos && duracao(g.segundos) + " na página"].filter(Boolean).join(" · ");
-    return h("li", { class: "atv-item quem-" + g.quem + (novo ? " novo" : "") },
-      h("div", { class: "atv-topo" },
-        h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
-        h("button", { type: "button", class: "atv-lead", title: "Abrir o lead", text: nomeDoLead, onclick: () => ctx.abrirLead(g.lead_id) }),
-        h("span", { class: "atv-lugares" }, lugares.map(p => p.pagina === "demo"
-          ? h("a", { class: "atv-lugar demo", href: "/demo/" + p.demo, target: "_blank", rel: "noopener", title: "Abrir a demo (conta como visita de vocês)" }, icone("abrirLink", 12), p.lugar)
-          : h("span", { class: "atv-lugar", text: p.lugar }))),
-        h("span", { class: "atv-quando", title: new Date(g.fim).toLocaleString("pt-BR") }, quando ? h("strong", { text: quando }) : null, hora(g.inicio) === hora(g.fim) ? hora(g.fim) : `${hora(g.inicio)}–${hora(g.fim)}`)),
-      meta ? h("p", { class: "atv-meta", text: meta }) : null,
-      h("ol", { class: "atv-passos" }, [...g.passos].reverse().map(p =>
-        h("li", { class: p.forte ? "forte" : "" }, h("time", { text: hora(p.em) }), h("span", { text: p.texto })))));
+    const complemento = complementoDaVisita(g);
+    const detalhes = h("div", { class: "atv-detalhes", hidden: !aberto });
+    const resumo = h("button", { type: "button", class: "atv-resumo", "aria-expanded": String(aberto), title: aberto ? "Fechar os detalhes" : "Ver os detalhes" },
+      h("span", { class: "atv-texto" },
+        h("span", { class: "atv-frase" },
+          h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
+          h("strong", { text: nomeDoLead }), " ", fraseDaVisita(g)),
+        complemento ? h("span", { class: "atv-sub", text: complemento }) : null),
+      h("span", { class: "atv-quando", title: new Date(g.fim).toLocaleString("pt-BR") },
+        aoVivo ? h("span", { class: "atv-agora", text: "vendo agora" }) : h("span", { text: quando || hora(g.fim) })),
+      h("span", { class: "atv-seta", "aria-hidden": "true" }, icone("abaixo", 16)));
+    const li = h("li", { class: "atv-item quem-" + g.quem + (novo ? " novo" : "") + (aberto ? " aberto" : "") + (aoVivo ? " ao-vivo" : "") }, resumo, detalhes);
+    const desenharDetalhes = () => {
+      const lugares = [...new Map(g.passos.map(p => [p.lugar, p])).values()];
+      const meta = [g.aparelho, g.local, g.ip && "IP " + g.ip, hora(g.inicio) === hora(g.fim) ? hora(g.fim) : `das ${hora(g.inicio)} às ${hora(g.fim)}`].filter(Boolean).join(" · ");
+      const maior = g.secoes.length ? g.secoes[0][1] : 0;
+      detalhes.replaceChildren(
+        h("div", { class: "atv-acoes" },
+          h("button", { type: "button", class: "btn btn-outline btn-sm", onclick: () => ctx.abrirLead(g.lead_id) }, icone("painel", 14), "Abrir o lead"),
+          lugares.map(p => p.pagina === "demo"
+            ? h("a", { class: "btn btn-outline btn-sm", href: "/demo/" + p.demo, target: "_blank", rel: "noopener", title: "/demo/" + p.demo + " (conta como visita de vocês)" }, icone("abrirLink", 14), "Abrir a demo")
+            : h("span", { class: "atv-lugar", text: p.lugar }))),
+        h("p", { class: "atv-meta", text: meta }),
+        g.secoes.length ? h("div", { class: "atv-partes" },
+          h("span", { class: "atv-rotulo", text: "O que mais olhou" }),
+          h("ul", {}, g.secoes.slice(0, 6).map(([nome, s]) => h("li", {},
+            h("span", { class: "atv-parte-nome", text: nome }),
+            h("span", { class: "atv-barra-fundo" }, h("span", { class: "atv-barra-cheia", style: `width:${Math.max(6, Math.round(s / maior * 100))}%` })),
+            h("span", { class: "atv-parte-tempo", text: duracao(s) }))))) : null,
+        h("div", { class: "atv-passos-caixa" },
+          h("span", { class: "atv-rotulo", text: "Passo a passo" }),
+          h("ol", { class: "atv-passos" }, [...g.passos].reverse().map(p =>
+            h("li", { class: p.forte ? "forte" : "" }, h("time", { text: hora(p.em) }), h("span", { text: p.texto }))))));
+    };
+    if (aberto) desenharDetalhes();
+    resumo.addEventListener("click", () => {
+      const abrir = !abertos.has(chave);
+      if (abrir) { abertos.add(chave); desenharDetalhes(); } else abertos.delete(chave);
+      detalhes.hidden = !abrir;
+      li.classList.toggle("aberto", abrir);
+      resumo.setAttribute("aria-expanded", String(abrir));
+      resumo.title = abrir ? "Fechar os detalhes" : "Ver os detalhes";
+    });
+    return li;
   }
 
   return { render, ativar };

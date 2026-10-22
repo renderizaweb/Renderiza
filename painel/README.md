@@ -162,10 +162,13 @@ fica em **respondeu, a avaliar** até alguém marcar o interesse ou o não. Regi
 ## Atividade: quem abriu o link do painel e as demos, ao vivo
 
 Só leitura, em `/painel#atividade` (contas em `src/visitas.js`, testes em `test/visitas.test.mjs`). Uma linha do
-tempo de todos os leads, a última ação primeiro, agrupada por dia: cada visita mostra quem foi (**Cliente**,
-**Vocês** ou **Provavelmente vocês**), o lead (clique abre o lead), onde (página do Painel Renderiza, exemplo do
-painel, agenda online de exemplo ou **Demo <pasta>**, que abre a demo), aparelho, cidade, IP, quanto tempo ficou e
-cada passo com a hora. No topo: visitas de clientes, leads diferentes, demos abertas e cliques no WhatsApp.
+tempo de todos os leads, a última ação primeiro, agrupada por dia. Cada visita é uma linha curta, sem termo técnico:
+quem foi (**Cliente**, **Vocês** ou **Provavelmente vocês**), o lead e o que fez numa frase ("Ótica Nina abriu a
+demo, viu até o fim e clicou no WhatsApp da loja"), embaixo "Ficou 2 min, mais tempo em Armações", e à direita há
+quanto tempo foi ou **vendo agora** (a página ainda aberta). Clicar abre os detalhes: **Abrir o lead**, **Abrir a
+demo**, aparelho, cidade, IP e horário, **O que mais olhou** (tempo em cada parte da demo, em barras) e o passo a
+passo com a hora. No topo: clientes vendo agora, visitas de clientes, leads diferentes, demos abertas e cliques no
+WhatsApp.
 
 - **Filtros:** quem (Todos, Clientes, Vocês), onde (Tudo, Link do painel, Demos), período (Hoje, 7 dias, 30 dias,
   Tudo) e busca por lead, pasta da demo, cidade ou IP. A escolha fica salva no navegador (a busca não).
@@ -174,8 +177,13 @@ cada passo com a hora. No topo: visitas de clientes, leads diferentes, demos abe
   tela foi aberta pisca, e o menu mostra quantas visitas de clientes são novas.
 - **Quem é nosso:** navegador que já abriu este painel se marca (`renderiza:equipe`) e as visitas dele são
   **Vocês**, em qualquer lead; outro aparelho no mesmo IP de uma visita nossa é **Provavelmente vocês**.
-- **Demos:** o build põe o contador em cada `/demo/<pasta>` e o banco acha o lead pelo `link_demo`. No lead, a
-  seção **Demo** mostra **Quem abriu a demo**; o selo "abriu" do cartão conta demo e link do painel.
+- **Demos:** o build põe o contador em cada `/demo/<pasta>` e o banco acha o lead pelo `link_demo`: o link da demo
+  continua o mesmo (sem parâmetro), e os já enviados contam também. A demo manda: abriu, rolou até o fim, os
+  cliques (WhatsApp da loja, Instagram, rota, mapa, avaliações, telefone, menu e botões, com a parte onde foi) e o
+  tempo em cada parte (capa, sobre, armações…; o nome vem do menu, do aria-label ou do título). O tempo vai a cada
+  30 s com a página aberta e ao sair: é o que dá o **vendo agora** (notícia há menos de 75 s, sem ter saído). No
+  lead, a seção **Demo** mostra **Quem abriu a demo** com "Mais tempo em…"; o selo "abriu" do cartão conta demo e
+  link do painel.
 
 ## Interações, interesse e cadência (detalhes da ótica)
 

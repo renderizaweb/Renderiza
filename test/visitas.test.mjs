@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { EVENTOS, PAGINAS_CONTADAS, mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, resumoDasVisitas, textoDoPasso, duracao,
-  atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, lugarDe } from "../painel/src/visitas.js";
+  atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, lugarDe, fraseDaVisita, complementoDaVisita, vendoAgora } from "../painel/src/visitas.js";
 import { aparelhoDe, ipDe, localDe, paraRegistro } from "../api/visita.js";
 import { comContador } from "../scripts/montar-site.mjs";
 
@@ -152,4 +152,53 @@ test("os passos e páginas do painel são os mesmos do banco (supabase/schema.sq
   const usados = new Set([...paginas.matchAll(/(?:rzVisita\??\.?\(|enviar\()"([a-z_]+)"/g)].map(m => m[1]));
   for (const e of usados) assert.ok(EVENTOS.includes(e), "evento que o banco não aceita: " + e);
   assert.ok(usados.size >= 8, "a página manda os passos: " + [...usados].join(", "));
+});
+
+test("demo: cliques em português, com a parte da página", () => {
+  const C = (detalhe) => textoDoPasso({ evento: "clicou", pagina: "demo", detalhe });
+  assert.equal(C({ alvo: "instagram", parte: "Rodapé" }), "Abriu o Instagram da loja (em Rodapé)");
+  assert.equal(C({ alvo: "rota" }), "Pediu a rota até a loja");
+  assert.equal(C({ alvo: "menu", para: "Armações" }), "Pelo menu, foi para Armações");
+  assert.equal(C({ alvo: "botao", texto: "Clássico", parte: "Estilos" }), 'Clicou em "Clássico" (em Estilos)');
+  assert.equal(C({ alvo: "link", para: "google.com" }), "Abriu um link (google.com)");
+});
+
+test("demo: o que mais olhou, a última notícia e se ainda está vendo", () => {
+  const D = (min, evento, extra = {}) => V(min, evento, { lead_id: "nina", pagina: "demo", demo: "otica-nina", sessao: "d1", ...extra });
+  const ate = m => new Date(Date.UTC(2026, 9, 22, 12, m)).toISOString();
+  const visitas = [
+    D(0, "abriu"),
+    D(1, "tempo", { detalhe: { s: 30, saiu: false, secoes: [["Capa", 20], ["Armações", 10]], ate: ate(6) } }), // a página mandou de novo às 12:06
+    D(2, "clicou", { detalhe: { alvo: "menu", para: "Armações" } }),
+  ];
+  const [g] = agruparVisitas(visitas);
+  assert.deepEqual(g.secoes, [["Capa", 20], ["Armações", 10]]);
+  assert.equal(g.fim, ate(6), "a última notícia é a do tempo, não a da abertura");
+  assert.equal(g.saiu, false);
+  assert.equal(vendoAgora(g, Date.parse(ate(6)) + 60000), true);
+  assert.equal(vendoAgora(g, Date.parse(ate(6)) + 120000), false, "sem notícia há 2 min: saiu");
+  const [saiu] = agruparVisitas([...visitas.slice(0, 1), D(1, "tempo", { detalhe: { s: 40, saiu: true, ate: ate(7) } })]);
+  assert.equal(saiu.saiu, true); assert.equal(vendoAgora(saiu, Date.parse(ate(7)) + 1000), false);
+  const [antigo] = agruparVisitas([D(0, "abriu"), D(1, "tempo", { detalhe: { s: 40 } })]);
+  assert.equal(antigo.saiu, true, "tempo do formato antigo (sem saiu) só ia ao sair");
+  // duas aberturas (sessões) somam as partes
+  const [dois] = agruparVisitas([...visitas, D(8, "abriu", { sessao: "d2" }), D(9, "tempo", { sessao: "d2", detalhe: { s: 15, secoes: [["Armações", 15]], ate: ate(10) } })]);
+  assert.deepEqual(dois.secoes, [["Armações", 25], ["Capa", 20]]);
+  assert.equal(dois.segundos, 45);
+});
+
+test("a visita numa frase, sem termo técnico", () => {
+  const D = (min, evento, detalhe = {}) => V(min, evento, { pagina: "demo", demo: "otica-nina", detalhe });
+  const frase = vs => fraseDaVisita(agruparVisitas(vs)[0]);
+  assert.equal(frase([D(0, "abriu")]), "abriu a demo");
+  assert.equal(frase([D(0, "abriu"), D(1, "rolou_fim"), D(2, "clicou_whatsapp", { onde: "demo" })]), "abriu a demo, viu até o fim e clicou no WhatsApp da loja");
+  assert.equal(frase([D(0, "abriu"), D(1, "clicou", { alvo: "menu", para: "Sobre" }), D(2, "clicou", { alvo: "menu", para: "Armações" }), D(3, "clicou", { alvo: "instagram" }),
+    D(4, "rolou_fim"), D(5, "clicou", { alvo: "rota" }), D(6, "clicou_whatsapp")]), "abriu a demo, abriu o Instagram, pediu a rota até a loja e clicou no WhatsApp da loja", "longa: menu e fim saem primeiro (ficam nos detalhes)");
+  assert.equal(frase([V(0, "abriu"), V(1, "viu_precos"), V(2, "viu_detalhes", { detalhe: { m: "financeiro" } }), V(3, "viu_detalhes", { detalhe: { m: "contratos" } })]),
+    "abriu o link do painel, chegou nos preços e viu os detalhes de 2 módulos");
+  assert.equal(frase([V(0, "abriu"), V(1, "abriu_exemplo", { detalhe: { qual: "financeiro" } }), V(2, "abriu", { pagina: "painel-eventos", sessao: "s2" }), V(3, "mudou_tela", { pagina: "painel-eventos", sessao: "s2" })]),
+    "abriu o link do painel, viu o exemplo do painel e mudou de tela no exemplo", "o clique no exemplo e a abertura do exemplo são uma coisa só");
+  const g = agruparVisitas([D(0, "abriu"), V(1, "tempo", { pagina: "demo", demo: "otica-nina", detalhe: { s: 130, secoes: [["Armações", 70], ["Capa", 40]] } })])[0];
+  assert.equal(complementoDaVisita(g), "Ficou 2 min 10 s, mais tempo em Armações");
+  assert.equal(complementoDaVisita(agruparVisitas([D(0, "abriu")])[0]), "");
 });

@@ -84,7 +84,10 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
 - **Atividade (22/10/2026, pedido do Kaue):** tela de observabilidade do painel: linha do tempo ao vivo (tempo real
   + leitura a cada 30 s) de quem abriu o link do Painel Renderiza e as demos das óticas, com o lead, a demo ou a
   página, o aparelho, a cidade e o IP, e filtros de quem (cliente ou nós), onde, período e busca. As demos contam
-  desde 22/10/2026 (o contador entra no build). As visitas ficam no banco, não aqui.
+  desde 22/10/2026 (o contador entra no build): abriu, até onde rolou, cliques (WhatsApp, Instagram, rota,
+  avaliações, menu, botões), o tempo em cada parte e "vendo agora". O link da demo é o mesmo de sempre (sem
+  parâmetro): cada lead tem a sua demo, então os links já enviados também contam. Cada visita aparece como uma
+  frase curta e abre os detalhes no clique. As visitas ficam no banco, não aqui.
 
 ## Como tem que ser uma demo de site
 
