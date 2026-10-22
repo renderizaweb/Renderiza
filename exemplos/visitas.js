@@ -1,7 +1,9 @@
-// Contador de visitas do Painel Renderiza. Só conta quando o link tem o código do lead (/exemplos?c=abcd):
-// o código fica guardado no navegador por 30 dias, então o exemplo do painel e a agenda online, abertos a
-// partir dali, também contam. Cada passo vai para /api/visita (api/visita.js), que grava no Supabase.
-// Passos automáticos: abriu a página, rolou até o fim e quanto tempo ficou. As páginas avisam os outros com
+// Contador de visitas do Painel Renderiza e das demos. No painel, só conta quando o link tem o código do lead
+// (/exemplos?c=abcd): o código fica guardado no navegador por 30 dias, então o exemplo do painel e a agenda
+// online, abertos a partir dali, também contam. Na demo de um lead (/demo/<pasta>, data-pagina="demo"), o
+// build põe este script com a pasta (data-demo) e o banco acha o lead pelo link_demo: não precisa de código.
+// Cada passo vai para /api/visita (api/visita.js), que grava no Supabase. Passos automáticos: abriu a página,
+// rolou até o fim e quanto tempo ficou (e, na demo, os cliques no WhatsApp). As páginas avisam os outros com
 // window.rzVisita(evento, detalhe). Sem código, no vídeo (?video=1) ou aberto do disco, não faz nada.
 (function () {
   const nada = () => {};
@@ -12,18 +14,23 @@
     const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* sem armazenamento: conta só esta página */ } };
     const aleatorio = n => Array.from(crypto.getRandomValues(new Uint8Array(n)), b => "abcdefghjkmnpqrstuvwxyz23456789"[b % 31]).join("");
 
-    let codigo = "";
-    const doLink = new URLSearchParams(location.search).get("c");
-    if (doLink && /^[a-z0-9]{3,8}$/i.test(doLink)) {
-      codigo = doLink.toLowerCase();
-      guardar("renderiza:codigo", JSON.stringify({ c: codigo, em: Date.now() }));
-    } else {
-      try { const s = JSON.parse(ler("renderiza:codigo") || "null"); if (s && Date.now() - s.em < 30 * 864e5) codigo = s.c; } catch (e) { /* sem código */ }
-    }
-    if (!codigo) return;
-
     const script = document.currentScript;
     const pagina = (script && script.dataset.pagina) || "exemplos";
+    const demo = pagina === "demo" ? String((script && script.dataset.demo) || "").toLowerCase() : "";
+    let codigo = "";
+    if (pagina === "demo") {
+      if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(demo)) return;
+    } else {
+      const doLink = new URLSearchParams(location.search).get("c");
+      if (doLink && /^[a-z0-9]{3,8}$/i.test(doLink)) {
+        codigo = doLink.toLowerCase();
+        guardar("renderiza:codigo", JSON.stringify({ c: codigo, em: Date.now() }));
+      } else {
+        try { const s = JSON.parse(ler("renderiza:codigo") || "null"); if (s && Date.now() - s.em < 30 * 864e5) codigo = s.c; } catch (e) { /* sem código */ }
+      }
+      if (!codigo) return;
+    }
+
     let visitante = ler("renderiza:visitante");
     if (!visitante) { visitante = aleatorio(10); guardar("renderiza:visitante", visitante); }
     const sessao = aleatorio(10);
@@ -32,7 +39,7 @@
     try { equipe = equipe || Object.keys(localStorage).some(k => /^sb-[a-z0-9]+-auth-token$/.test(k)); } catch (e) { /* segue */ }
 
     function enviar(evento, detalhe) {
-      const corpo = JSON.stringify({ c: codigo, p: pagina, e: evento, d: detalhe || {}, v: visitante, s: sessao, eq: equipe });
+      const corpo = JSON.stringify({ c: codigo, p: pagina, e: evento, d: detalhe || {}, v: visitante, s: sessao, eq: equipe, ...(demo ? { demo } : {}) });
       try {
         if (navigator.sendBeacon && navigator.sendBeacon("/api/visita", new Blob([corpo], { type: "text/plain" }))) return;
       } catch (e) { /* tenta pelo fetch */ }
@@ -57,6 +64,14 @@
       if (scrollY + innerHeight >= document.documentElement.scrollHeight - 320) { fim = true; enviar("rolou_fim", {}); removeEventListener("scroll", olharFim); }
     };
     addEventListener("scroll", olharFim, { passive: true });
+
+    // Na demo: o botão de WhatsApp da loja (é o que o dono mais testa).
+    if (pagina === "demo") {
+      document.addEventListener("click", ev => {
+        const a = ev.target && ev.target.closest && ev.target.closest("a[href]");
+        if (a && /wa\.me\/|api\.whatsapp\.com|whatsapp:\/\//i.test(a.href)) window.rzVisita("clicou_whatsapp", { onde: "demo" }, "demo");
+      }, true);
+    }
 
     // Tempo com a página na frente (manda ao sair ou trocar de app; o banco fica com o maior).
     let visivelDesde = document.visibilityState === "visible" ? Date.now() : 0, total = 0;

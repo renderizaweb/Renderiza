@@ -83,6 +83,15 @@ export function comPreviaDoLink(html, otica, tipoDaCapa) {
 }
 
 /**
+ * Põe na demo o contador de visitas (exemplos/visitas.js): quem abriu, clicou no WhatsApp, rolou até o fim e
+ * quanto tempo ficou aparecem no painel, no lead dono do link_demo. Aberta do disco ou no vídeo, não conta.
+ */
+export function comContador(html, otica) {
+  if (/\/exemplos\/visitas\.js/.test(html) || !/<\/head>/i.test(html) || !/^[a-z0-9][a-z0-9-]{0,79}$/.test(otica)) return html;
+  return html.replace(/<\/head>/i, `<script src="/exemplos/visitas.js" data-pagina="demo" data-demo="${otica}" defer></script></head>`);
+}
+
+/**
  * Lista [caminho publicado, origem]. A origem é um arquivo ou uma função que gera o conteúdo.
  * É a mesma lista para o build e para o servidor local.
  */
@@ -102,9 +111,9 @@ export function arquivosPublicados() {
       if (!f.endsWith(".html")) continue;
       const arquivo = join(RAIZ, "demos", otica.name, f);
       if (f !== "index.html") { lista.push([join("demo", otica.name, f), arquivo]); continue; }
-      // A página principal sai com as meta og: e a foto do topo vira capa.jpg (a imagem da prévia do link).
+      // A página principal sai com as meta og:, o contador de visitas, e a foto do topo vira capa.jpg (a imagem da prévia do link).
       const capa = fotoDaCapa(readFileSync(arquivo, "utf8"));
-      lista.push([join("demo", otica.name, f), Object.assign(async () => comPreviaDoLink(readFileSync(arquivo, "utf8"), otica.name, capa?.tipo), { tipo: ".html" })]);
+      lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(comPreviaDoLink(readFileSync(arquivo, "utf8"), otica.name, capa?.tipo), otica.name), { tipo: ".html" })]);
       if (capa) lista.push([join("demo", otica.name, "capa." + capa.tipo), Object.assign(async () => fotoDaCapa(readFileSync(arquivo, "utf8")).dados, { tipo: "." + capa.tipo })]);
     }
   }

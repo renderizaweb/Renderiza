@@ -81,6 +81,10 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
 - **Indicadores (20/10/2026, pedido do Kaue):** a tela mostra onde focar (nicho e perfil: seguidores, avaliações e
   nota no Google, região, quem atendeu, WhatsApp fixo ou celular, site atual), com interesse = pediu o valor,
   perguntou como funciona, em negociação ou venda. Os números ficam no painel, não aqui.
+- **Atividade (22/10/2026, pedido do Kaue):** tela de observabilidade do painel: linha do tempo ao vivo (tempo real
+  + leitura a cada 30 s) de quem abriu o link do Painel Renderiza e as demos das óticas, com o lead, a demo ou a
+  página, o aparelho, a cidade e o IP, e filtros de quem (cliente ou nós), onde, período e busca. As demos contam
+  desde 22/10/2026 (o contador entra no build). As visitas ficam no banco, não aqui.
 
 ## Como tem que ser uma demo de site
 

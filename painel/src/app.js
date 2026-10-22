@@ -21,7 +21,8 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
-import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, resumoDasVisitas, duracao } from "./visitas.js";
+import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, visitantesDaEquipe, resumoDasVisitas, duracao, daDemo } from "./visitas.js";
+import { criarTelaAtividade, naoVistas } from "./tela-atividade.js";
 import {
   tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo,
   comCiclo, ciclosParaEscolher, nomeDoCiclo, tagDoCiclo, cicloDoLead,
@@ -42,7 +43,7 @@ const ui = {
   // "Atualizado", "Interesse" e "Checklist" começam ocultas (voltam pelo menu Colunas); ficam nos detalhes da ótica.
   ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse", "checklist"]), conteudos: new Set() },
 };
-const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "indicadores", "conteudo"];
+const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "indicadores", "atividade", "conteudo"];
 const VERSAO_COLUNAS = 3; // 2: entraram "Última interação" (visível) e "Interesse" (oculta); 3: "Checklist" oculta, "Ciclo" visível
 try {
   const p = JSON.parse(localStorage.getItem("renderiza:planilhao") || "{}");
@@ -583,6 +584,14 @@ function atualizarContadorDoMenu() {
   menu.classList.toggle("tem-tarefas", total > 0);
   menu.classList.toggle("atrasada", atrasadas > 0);
   menu.setAttribute("aria-label", total ? `Abrir menu (${el.title})` : "Abrir menu");
+  // Atividade: visitas de clientes que chegaram depois da última vez que a tela foi aberta.
+  const novas = $("#contador-atividade");
+  if (novas) {
+    const n = ui.aba === "atividade" ? 0 : naoVistas();
+    novas.hidden = !n;
+    novas.textContent = String(n);
+    novas.title = n ? `${n} ${n === 1 ? "visita nova" : "visitas novas"} de cliente` : "";
+  }
 }
 setInterval(atualizarContadorDoMenu, 60000); // vira o dia com o painel aberto
 
@@ -939,7 +948,18 @@ function secaoDemo(id) {
     if (urlVideo) assistir.href = urlVideo;
   });
 
-  return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, h("div", { class: "campos campos-2" },
+  // Quem abriu a demo (o contador entra na demo pelo build; o lead vem do link_demo).
+  const mapa = mapaDeVisitas(id, daDemo, {
+    ninguem: "Ninguém abriu a demo ainda.", soVoces: "Só vocês abriram a demo até agora.",
+    sinais: r => [r.whatsapp && "clicou no WhatsApp da loja"],
+  });
+  const visitasDaDemo = h("div", { class: "demo-visitas" }, h("span", { class: "demo-visitas-titulo", text: "Quem abriu a demo" }), ...mapa.els);
+  vincular(l => {
+    visitasDaDemo.hidden = !pastaDaDemo(l.link_demo);
+    if (!visitasDaDemo.hidden) mapa.desenhar(l);
+  });
+
+  return cartao("Demo", { classe: "secao-demo" }, caixa, visitasDaDemo, faixaVideo, h("div", { class: "campos campos-2" },
     campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
     campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
 }
@@ -959,18 +979,53 @@ function quandoFoi(iso) {
   const hora = d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
   return (dias === 0 ? "Hoje" : dias === 1 ? "Ontem" : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })) + ", " + hora;
 }
-/** Resumo das visitas do cliente a um lead (selo no cartão e marca na tabela). */
-function resumoDoPainel(l) {
-  if (!mostraPainel(l) || dados.tabelaFaltando("visitas")) return null;
+/** Visitas de um lead agrupadas, com o que é nosso visto em todos os leads (navegador ou IP). */
+function gruposDoLead(id, filtro = () => true) {
   const todas = dados.listar("visitas");
-  const doLead = todas.filter(v => v.lead_id === l.id);
-  if (!doLead.length) return null;
-  const r = resumoDasVisitas(agruparVisitas(doLead, ipsDaEquipe(todas)));
+  return agruparVisitas(todas.filter(v => v.lead_id === id && filtro(v)), ipsDaEquipe(todas), visitantesDaEquipe(todas));
+}
+/** Resumo das visitas do cliente a um lead, no link do painel ou na demo (selo no cartão e marca na tabela). */
+function resumoDoPainel(l) {
+  if (dados.tabelaFaltando("visitas") || !dados.listar("visitas").some(v => v.lead_id === l.id)) return null;
+  const r = resumoDasVisitas(gruposDoLead(l.id));
   return r.visitas ? r : null;
 }
 function tituloDoResumo(r) {
-  return `O cliente abriu o link do painel ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"} · última: ${quandoFoi(r.ultima)}` +
+  const oQue = r.demo && r.painel ? "a demo e o link do painel" : r.demo ? "a demo" : "o link do painel";
+  return `O cliente abriu ${oQue} ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"} · última: ${quandoFoi(r.ultima)}` +
     [r.precos && "chegou nos preços", r.whatsapp && "clicou no WhatsApp", r.exemplo && "viu o exemplo"].filter(Boolean).map(t => " · " + t).join("");
+}
+/**
+ * Resumo e lista de visitas de um lead (as do link do painel ou as da demo): o "mapa de interação".
+ * Devolve os elementos e a função que redesenha com o lead.
+ */
+function mapaDeVisitas(id, filtro, { ninguem, soVoces, sinais }) {
+  const resumo = h("div", { class: "pr-resumo" });
+  const lista = h("ol", { class: "pr-visitas" });
+  const mais = h("button", { type: "button", class: "text-link pr-mais", hidden: true });
+  let todas = false;
+  const desenhar = l => {
+    if (dados.tabelaFaltando("visitas")) { resumo.replaceChildren(h("p", { text: "O contador de visitas ainda não está no banco (supabase/schema.sql)." })); lista.replaceChildren(); mais.hidden = true; return; }
+    const grupos = gruposDoLead(l.id, filtro);
+    const r = resumoDasVisitas(grupos);
+    resumo.className = "pr-resumo" + (r.visitas ? " aberto" : "");
+    resumo.replaceChildren(...[
+      h("strong", { text: r.visitas ? `O cliente abriu ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"}` : grupos.length ? soVoces : ninguem }),
+      r.visitas ? h("span", { text: `Última: ${quandoFoi(r.ultima)}${r.segundos ? " · " + duracao(r.segundos) + " no total" : ""}` }) : null,
+      h("span", { class: "pr-sinais" }, ...sinais(r).filter(Boolean).map(t => h("span", { class: "pr-sinal", text: t })))].filter(Boolean));
+    const mostrar = todas ? grupos : grupos.slice(0, 5);
+    lista.replaceChildren(...mostrar.map(g => h("li", { class: "pr-visita quem-" + g.quem },
+      h("div", { class: "pr-visita-topo" },
+        h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
+        h("strong", { text: quandoFoi(g.inicio) }),
+        g.segundos ? h("span", { class: "pr-tempo", text: duracao(g.segundos) }) : null),
+      h("p", { class: "pr-onde", text: [g.aparelho, g.local, g.ip && "IP " + g.ip].filter(Boolean).join(" · ") || "Aparelho não identificado" }),
+      h("ul", { class: "pr-passos" }, ...g.passos.map(p => h("li", { class: p.forte ? "forte" : "", title: dataHora(p.em) }, p.texto))))));
+    mais.hidden = grupos.length <= 5;
+    mais.textContent = todas ? "Mostrar só as últimas" : `Ver todas as ${grupos.length} visitas`;
+  };
+  mais.addEventListener("click", () => { todas = !todas; const l = dados.buscar("leads", id); if (l) desenhar(l); });
+  return { els: [resumo, lista, mais], desenhar };
 }
 function chipDoPainel(l) {
   const r = resumoDoPainel(l);
@@ -984,41 +1039,22 @@ function secaoPainelRenderiza(id) {
   const link = h("code", { class: "pr-link" });
   const copiar = h("button", { type: "button", class: "btn btn-primary btn-sm" }, icone("copiar", 15), "Copiar link");
   const abrir = h("a", { class: "btn btn-outline btn-sm", target: "_blank", rel: "noopener" }, icone("abrirLink", 15), "Abrir");
-  const resumo = h("div", { class: "pr-resumo" });
-  const lista = h("ol", { class: "pr-visitas" });
-  const mais = h("button", { type: "button", class: "text-link pr-mais", hidden: true });
-  let url = "", todas = false;
+  let url = "";
   copiar.addEventListener("click", () => copiarLinkDoPainel(url));
+  const mapa = mapaDeVisitas(id, v => !daDemo(v), {
+    ninguem: "Ninguém abriu ainda.", soVoces: "Só vocês abriram até agora.",
+    sinais: r => [r.precos && "chegou nos preços", r.exemplo && "viu o exemplo", r.whatsapp && "clicou no WhatsApp"],
+  });
   const el = cartao("Painel Renderiza", { classe: "secao-painel-rz" },
     h("div", { class: "pr-topo" }, link, h("div", { class: "pr-botoes" }, copiar, abrir)),
     h("p", { class: "pr-dica", text: "O exemplo do painel com o código deste lead no fim. Quem abrir esse link aparece aqui: quando, em que aparelho e o que viu." }),
-    resumo, lista, mais);
-  const desenhar = l => {
+    ...mapa.els);
+  vincular(l => {
     el.hidden = !mostraPainel(l);
     if (el.hidden) return;
     url = linkDoPainel(l); link.textContent = linkCurto(l); abrir.href = url;
-    if (dados.tabelaFaltando("visitas")) { resumo.replaceChildren(h("p", { text: "O contador de visitas ainda não está no banco (supabase/schema.sql)." })); lista.replaceChildren(); mais.hidden = true; return; }
-    const todasVisitas = dados.listar("visitas");
-    const grupos = agruparVisitas(todasVisitas.filter(v => v.lead_id === l.id), ipsDaEquipe(todasVisitas));
-    const r = resumoDasVisitas(grupos);
-    resumo.className = "pr-resumo" + (r.visitas ? " aberto" : "");
-    resumo.replaceChildren(
-      h("strong", { text: r.visitas ? `O cliente abriu ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"}` : grupos.length ? "Só vocês abriram até agora." : "Ninguém abriu ainda." }),
-      r.visitas ? h("span", { text: `Última: ${quandoFoi(r.ultima)}${r.segundos ? " · " + duracao(r.segundos) + " no total" : ""}` }) : null,
-      h("span", { class: "pr-sinais" }, ...[r.precos && "chegou nos preços", r.exemplo && "viu o exemplo", r.whatsapp && "clicou no WhatsApp"].filter(Boolean).map(t => h("span", { class: "pr-sinal", text: t }))));
-    const mostrar = todas ? grupos : grupos.slice(0, 5);
-    lista.replaceChildren(...mostrar.map(g => h("li", { class: "pr-visita quem-" + g.quem },
-      h("div", { class: "pr-visita-topo" },
-        h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
-        h("strong", { text: quandoFoi(g.inicio) }),
-        g.segundos ? h("span", { class: "pr-tempo", text: duracao(g.segundos) }) : null),
-      h("p", { class: "pr-onde", text: [g.aparelho, g.local, g.ip && "IP " + g.ip].filter(Boolean).join(" · ") || "Aparelho não identificado" }),
-      h("ul", { class: "pr-passos" }, ...g.passos.map(p => h("li", { class: p.forte ? "forte" : "", title: dataHora(p.em) }, p.texto))))));
-    mais.hidden = grupos.length <= 5;
-    mais.textContent = todas ? "Mostrar só as últimas" : `Ver todas as ${grupos.length} visitas`;
-  };
-  mais.addEventListener("click", () => { todas = !todas; const l = dados.buscar("leads", id); if (l) desenhar(l); });
-  vincular(desenhar);
+    mapa.desenhar(l);
+  });
   return el;
 }
 
@@ -1440,6 +1476,7 @@ const TITULOS = {
   clientes: ["Clientes", "Todos os clientes, no funil ou fora dele. Clique para ver o histórico e as tarefas."],
   ritmo: ["Ritmo", "Prospecção e relacionamento: o que você fez, não o que vendeu."],
   indicadores: ["Indicadores", "Onde focar: o nicho e o perfil de negócio que mais viram interesse, e o funil do contato à venda."],
+  atividade: ["Atividade", "Quem abriu o link do painel e as demos, e o que fez. Ao vivo, o mais recente primeiro."],
   pipeline: ["Pipeline", "Seus leads, da primeira conversa ao fechamento. É só clicar e editar."],
   conteudo: ["Conteúdo", "Ideias e publicações da Renderiza. É só clicar e editar."],
 };
@@ -1470,6 +1507,8 @@ function render() {
   $("#tela-clientes").hidden = ui.aba !== "clientes";
   $("#tela-ritmo").hidden = ui.aba !== "ritmo";
   $("#tela-indicadores").hidden = ui.aba !== "indicadores";
+  $("#tela-atividade").hidden = ui.aba !== "atividade";
+  telaAtividade.ativar(ui.aba === "atividade" && c.estado === "online");
   $("#tela-pipeline").hidden = ui.aba !== "pipeline";
   $("#tela-conteudo").hidden = ui.aba !== "conteudo";
   if (ui.aba === "tarefas") {
@@ -1480,6 +1519,8 @@ function render() {
     telaRitmo.render();
   } else if (ui.aba === "indicadores") {
     telaIndicadores.render();
+  } else if (ui.aba === "atividade") {
+    telaAtividade.render();
   } else if (ui.aba === "pipeline") {
     renderBarraPipeline();
     $("#grade-leads").hidden = ui.visao !== "tabela";
@@ -1508,6 +1549,7 @@ const telaRitmo = criarTelaRitmo({
 });
 
 const telaIndicadores = criarTelaIndicadores({ host: $("#tela-indicadores"), abrirLead: id => abrirPainel("leads", id) });
+const telaAtividade = criarTelaAtividade({ host: $("#tela-atividade"), abrirLead: id => abrirPainel("leads", id) });
 
 /* ---------- eventos ---------- */
 function irPara(aba) {

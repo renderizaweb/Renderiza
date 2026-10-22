@@ -853,11 +853,13 @@ create unique index if not exists leads_codigo_idx on public.leads (codigo);
 -- Um registro por passo de quem abriu o link: abriu a página, chegou nos preços, viu os detalhes de um módulo,
 -- abriu o exemplo, clicou no WhatsApp, rolou até o fim, quanto tempo ficou. Só entra pela função
 -- registrar_visita (a página não grava direto); o dono do lead só lê e apaga.
+-- As demos das óticas (/demo/<pasta>) também contam: pagina 'demo', a pasta em demo e o lead achado pelo link_demo.
 create table if not exists public.visitas (
   id         bigint generated always as identity primary key,
   dono       uuid not null references auth.users (id) on delete cascade,
   lead_id    text not null references public.leads (id) on delete cascade,
-  pagina     text not null check (pagina in ('exemplos', 'painel-eventos', 'agenda-online')),
+  pagina     text not null check (pagina in ('exemplos', 'painel-eventos', 'agenda-online', 'demo')),
+  demo       text not null default '',          -- pasta da demo (só quando pagina = 'demo')
   evento     text not null check (evento in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo')),
   detalhe    jsonb not null default '{}'::jsonb check (jsonb_typeof(detalhe) = 'object'),
   visitante  text not null default '',          -- número aleatório guardado no navegador (o mesmo aparelho)
@@ -868,6 +870,11 @@ create table if not exists public.visitas (
   aparelho   text not null default '',          -- "celular · Android · Chrome"
   criado_em  timestamptz not null default now()
 );
+-- Banco criado antes das demos contarem (22/10/2026): a coluna da pasta e a página nova.
+alter table public.visitas add column if not exists demo text not null default '';
+alter table public.visitas drop constraint if exists visitas_pagina_check;
+alter table public.visitas add constraint visitas_pagina_check
+  check (pagina = any (array['exemplos', 'painel-eventos', 'agenda-online', 'demo']));
 create index if not exists visitas_lead_idx on public.visitas (lead_id, criado_em desc);
 create index if not exists visitas_dono_idx on public.visitas (dono, criado_em desc);
 alter table public.visitas enable row level security;
@@ -884,11 +891,16 @@ create policy "visitas do dono: apagar" on public.visitas
 
 -- Chamada pelo site (api/visita.js) com a chave pública. Código que não existe, evento estranho ou mais de
 -- 60 passos por hora do mesmo navegador: não grava. Abriu, chegou nos preços e rolou até o fim contam uma
--- vez por abertura da página; o tempo na página fica com o maior valor.
+-- vez por abertura da página; o tempo na página fica com o maior valor. Na demo, o lead vem da pasta
+-- (link_demo do lead), não do código.
+-- A versão sem p_demo deixaria a chamada ambígua: sai. (No banco de produção ela ficou renomeada para
+-- registrar_visita_antiga, sem acesso público, porque o DROP pelo conector não terminava.)
+drop function if exists public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text);
+drop function if exists public.registrar_visita_antiga(text, text, text, jsonb, text, text, boolean, text, text, text);
 create or replace function public.registrar_visita(
   p_codigo text, p_pagina text, p_evento text, p_detalhe jsonb default '{}'::jsonb,
   p_visitante text default '', p_sessao text default '', p_equipe boolean default false,
-  p_ip text default '', p_local text default '', p_aparelho text default '')
+  p_ip text default '', p_local text default '', p_aparelho text default '', p_demo text default '')
 returns boolean
 language plpgsql
 volatile
@@ -898,16 +910,25 @@ as $$
 declare
   v_lead_id text;
   v_dono uuid;
+  v_demo text := lower(coalesce(p_demo, ''));
   v_detalhe jsonb := case when jsonb_typeof(p_detalhe) = 'object' and length(p_detalhe::text) <= 1000 then p_detalhe else '{}'::jsonb end;
   v_visitante text := left(coalesce(p_visitante, ''), 24);
   v_sessao text := left(coalesce(p_sessao, ''), 24);
 begin
-  if coalesce(p_codigo, '') !~ '^[a-z0-9]{3,8}$'
-     or p_pagina not in ('exemplos', 'painel-eventos', 'agenda-online')
+  if p_pagina not in ('exemplos', 'painel-eventos', 'agenda-online', 'demo')
      or p_evento not in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo') then
     return false;
   end if;
-  select l.id, l.dono into v_lead_id, v_dono from public.leads l where l.codigo = p_codigo;
+  if p_pagina = 'demo' then
+    if v_demo !~ '^[a-z0-9][a-z0-9-]{0,79}$' then return false; end if;
+    select l.id, l.dono into v_lead_id, v_dono from public.leads l
+     where public.renderiza_pasta_da_demo(l.link_demo) = v_demo
+     order by l.atualizado_em desc limit 1;
+  else
+    if coalesce(p_codigo, '') !~ '^[a-z0-9]{3,8}$' then return false; end if;
+    select l.id, l.dono into v_lead_id, v_dono from public.leads l where l.codigo = p_codigo;
+    v_demo := '';
+  end if;
   if v_lead_id is null then return false; end if;
   if (select count(*) from public.visitas v
        where v.lead_id = v_lead_id and v.visitante = v_visitante and v.criado_em > now() - interval '1 hour') >= 60 then
@@ -923,14 +944,14 @@ begin
     end if;
     return false;
   end if;
-  insert into public.visitas (dono, lead_id, pagina, evento, detalhe, visitante, sessao, equipe, ip, local, aparelho)
-  values (v_dono, v_lead_id, p_pagina, p_evento, v_detalhe, v_visitante, v_sessao, coalesce(p_equipe, false),
+  insert into public.visitas (dono, lead_id, pagina, demo, evento, detalhe, visitante, sessao, equipe, ip, local, aparelho)
+  values (v_dono, v_lead_id, p_pagina, v_demo, p_evento, v_detalhe, v_visitante, v_sessao, coalesce(p_equipe, false),
           left(coalesce(p_ip, ''), 64), left(coalesce(p_local, ''), 80), left(coalesce(p_aparelho, ''), 80));
   return true;
 end;
 $$;
-revoke all on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text) from public;
-grant execute on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text) to anon, authenticated;
+revoke all on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text, text) from public;
+grant execute on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text, text) to anon, authenticated;
 
 -- ---------- tempo real (opcional) ----------
 -- Faz o painel aberto em outro aparelho receber as mudanças sem recarregar.

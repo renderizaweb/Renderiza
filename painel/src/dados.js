@@ -117,6 +117,23 @@ export async function carregar() {
   }
 }
 
+/**
+ * Lê de novo uma tabela, além do tempo real (a tela Atividade chama a cada 30 s: se o tempo real cair, ela
+ * continua ao vivo). Falha de rede aqui não muda o estado da conexão. Retorna se algo mudou.
+ */
+export async function recarregar(tabela) {
+  if (!adaptador || conexao.estado !== "online" || faltando.has(tabela)) return false;
+  let lista;
+  try { lista = await adaptador.listar(tabela); } catch (e) { return false; }
+  const antes = linhas[tabela];
+  const novas = new Map(lista.map(l => [l.id, filas.has(tabela + "/" + l.id) && antes.has(l.id) ? antes.get(l.id) : ler(tabela, l)]));
+  const mudou = novas.size !== antes.size || [...novas].some(([id, l]) => JSON.stringify(antes.get(id)) !== JSON.stringify(l));
+  if (!mudou) return false;
+  linhas[tabela] = novas;
+  avisar("dados");
+  return true;
+}
+
 // Mudança vinda de outra aba/aparelho (ou eco da própria gravação, já confirmada).
 function receberMudanca(tabela, tipo, nova, antiga) {
   if (tipo === "DELETE") { const id = antiga && antiga.id; if (id && linhas[tabela].delete(id)) avisar("dados"); return; }

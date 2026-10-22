@@ -159,6 +159,24 @@ interesse: **mostrou interesse** é quem passou por Em negociação ou tem o int
 fica em **respondeu, a avaliar** até alguém marcar o interesse ou o não. Registrar a resposta
 (Registrar interação) e marcar as cobranças da checklist deixa os números exatos.
 
+## Atividade: quem abriu o link do painel e as demos, ao vivo
+
+Só leitura, em `/painel#atividade` (contas em `src/visitas.js`, testes em `test/visitas.test.mjs`). Uma linha do
+tempo de todos os leads, a última ação primeiro, agrupada por dia: cada visita mostra quem foi (**Cliente**,
+**Vocês** ou **Provavelmente vocês**), o lead (clique abre o lead), onde (página do Painel Renderiza, exemplo do
+painel, agenda online de exemplo ou **Demo <pasta>**, que abre a demo), aparelho, cidade, IP, quanto tempo ficou e
+cada passo com a hora. No topo: visitas de clientes, leads diferentes, demos abertas e cliques no WhatsApp.
+
+- **Filtros:** quem (Todos, Clientes, Vocês), onde (Tudo, Link do painel, Demos), período (Hoje, 7 dias, 30 dias,
+  Tudo) e busca por lead, pasta da demo, cidade ou IP. A escolha fica salva no navegador (a busca não).
+- **Ao vivo:** o tempo real do Supabase traz a visita na hora; com a tela aberta, ela também lê a tabela de novo a
+  cada 30 s (e ao voltar para a aba), e o botão **Atualizar** lê na hora. O que chegou depois da última vez que a
+  tela foi aberta pisca, e o menu mostra quantas visitas de clientes são novas.
+- **Quem é nosso:** navegador que já abriu este painel se marca (`renderiza:equipe`) e as visitas dele são
+  **Vocês**, em qualquer lead; outro aparelho no mesmo IP de uma visita nossa é **Provavelmente vocês**.
+- **Demos:** o build põe o contador em cada `/demo/<pasta>` e o banco acha o lead pelo `link_demo`. No lead, a
+  seção **Demo** mostra **Quem abriu a demo**; o selo "abriu" do cartão conta demo e link do painel.
+
 ## Interações, interesse e cadência (detalhes da ótica)
 
 - **Interações**: primeiro contato, retorno feito, resposta recebida e anotação, cada uma com data e
@@ -234,6 +252,8 @@ painel/src/tela-tarefas.js          tela Tarefas, janela de tarefa e tarefas nos
 painel/src/tela-clientes.js         tela Clientes e cadastro rápido de cliente
 painel/src/tarefas.js               contas de tarefas e clientes (sem tela; com testes)
 painel/src/tela-ritmo.js            tela Ritmo (semana, mês, ciclo, turma do mês, fila de retornos, ciclo)
+painel/src/tela-atividade.js        tela Atividade (linha do tempo das visitas ao link do painel e às demos)
+painel/src/visitas.js               contas das visitas: agrupar, quem foi, textos, filtros (sem tela; com testes)
 painel/src/ritmo.js                 contas do placar, cadência e validação das interações (sem tela; com testes)
 painel/src/interacoes-ui.js         registrar/corrigir interação, linha do tempo, óticas já contatadas
 painel/src/acoes.js                 gravações usadas por várias telas (interesse, não contatar)

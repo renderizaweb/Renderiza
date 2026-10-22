@@ -1,6 +1,6 @@
-// Função da Vercel: registra um passo de quem abriu o link do Painel Renderiza (/exemplos?c=<código do lead>).
-// O navegador (exemplos/visitas.js) manda { c, p, e, d, v, s, eq }: código, página, evento, detalhe, visitante,
-// sessão e se é da equipe. Aqui entram o IP, a cidade (cabeçalhos da Vercel) e o aparelho (user-agent), e tudo
+// Função da Vercel: registra um passo de quem abriu o link do Painel Renderiza (/exemplos?c=<código do lead>)
+// ou a demo de um lead (/demo/<pasta>). O navegador (exemplos/visitas.js) manda { c, p, e, d, v, s, eq, demo }:
+// código, página, evento, detalhe, visitante, sessão, se é da equipe e a pasta da demo. Aqui entram o IP, a cidade (cabeçalhos da Vercel) e o aparelho (user-agent), e tudo
 // vai para a função registrar_visita do Supabase com a chave PÚBLICA (nunca a secreta). Robôs (a prévia do
 // link no WhatsApp, buscadores) não contam. Responde 204 sempre: o contador nunca atrapalha a página.
 
@@ -35,18 +35,22 @@ export function localDe(h) {
   return [cidade, estado, pais && pais !== "BR" ? pais : ""].filter(Boolean).join(" · ").slice(0, 80);
 }
 
-/** Corpo do navegador ({ c, p, e, d, v, s, eq }) já no formato da função registrar_visita, ou null se não serve. */
+/**
+ * Corpo do navegador ({ c, p, e, d, v, s, eq, demo }) já no formato da função registrar_visita, ou null se não
+ * serve. Nas demos das óticas (p "demo") não há código: o lead vem da pasta da demo.
+ */
 export function paraRegistro(corpo, h) {
-  if (!corpo || typeof corpo !== "object") return null;
+  if (!corpo || typeof corpo !== "object" || typeof corpo.e !== "string" || typeof corpo.p !== "string") return null;
   const codigo = String(corpo.c || "").toLowerCase();
-  if (!/^[a-z0-9]{3,8}$/.test(codigo) || typeof corpo.e !== "string" || typeof corpo.p !== "string") return null;
+  const demo = corpo.p === "demo" ? String(corpo.demo || "").toLowerCase() : "";
+  if (corpo.p === "demo" ? !/^[a-z0-9][a-z0-9-]{0,79}$/.test(demo) : !/^[a-z0-9]{3,8}$/.test(codigo)) return null;
   const ua = String(cabecalho(h, "user-agent"));
   if (ROBO.test(ua)) return null;
   const detalhe = corpo.d && typeof corpo.d === "object" && !Array.isArray(corpo.d) ? corpo.d : {};
   return {
-    p_codigo: codigo, p_pagina: corpo.p.slice(0, 40), p_evento: corpo.e.slice(0, 40), p_detalhe: detalhe,
+    p_codigo: /^[a-z0-9]{3,8}$/.test(codigo) ? codigo : "", p_pagina: corpo.p.slice(0, 40), p_evento: corpo.e.slice(0, 40), p_detalhe: detalhe,
     p_visitante: String(corpo.v || "").slice(0, 24), p_sessao: String(corpo.s || "").slice(0, 24), p_equipe: corpo.eq === true,
-    p_ip: ipDe(h), p_local: localDe(h), p_aparelho: aparelhoDe(ua),
+    p_ip: ipDe(h), p_local: localDe(h), p_aparelho: aparelhoDe(ua), p_demo: demo,
   };
 }
 

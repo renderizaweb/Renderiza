@@ -114,6 +114,11 @@ inventado, a **Villa Alecrim**:
   testou a agenda online, rolou até o fim e o tempo na página. No lead aparece cada visita com quem foi:
   **Vocês** (navegador que já abriu o painel da Renderiza), **Provavelmente vocês** (mesmo IP de uma visita de
   vocês) ou **Cliente**; no cartão, o selo "abriu" quando o cliente abriu. Sem o código no link, nada é contado.
+- **Demos e tela Atividade (22/10/2026):** o build (`scripts/montar-site.mjs`, `comContador`) põe o mesmo contador
+  em cada demo (`/demo/<pasta>`, `data-pagina="demo"`): conta abriu, clique no WhatsApp da loja, rolou até o fim e
+  tempo, e o banco acha o lead pelo `link_demo` (coluna `visitas.demo`). Aberta do disco ou com `?video=1`, não
+  conta. No painel, a tela **Atividade** (`/painel#atividade`) junta tudo numa linha do tempo ao vivo, com filtros
+  de quem (cliente ou vocês), onde (link do painel ou demos), período e busca (`painel/README.md`).
 - Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não
   está incluso. Os textos ficam em `MODULOS`, no script de `exemplos/index.html`; o teste confere os avisos.
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.
