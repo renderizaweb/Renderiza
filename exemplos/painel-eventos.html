@@ -480,6 +480,7 @@ body.video .toast{bottom:28px}
 <div class="toast" id="toast" role="status" aria-live="polite"><i><svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span></span></div>
 <a class="selo-demo" href="/exemplos"><i></i>Exemplo do Painel Renderiza · dados fictícios</a>
 
+<script src="visitas.js" data-pagina="painel-eventos"></script>
 <script src="dados-villa-alecrim.js"></script>
 <script>
 (function () {
@@ -555,6 +556,7 @@ body.video .toast{bottom:28px}
     if (!VISTAS.some(x => x[0] === v)) v = "inicio";
     if (!pode(v)) { aviso(`${eu.curto} não tem acesso a ${VISTAS.find(x => x[0] === v)[1].toLowerCase()}.`); v = "inicio"; }
     atual = v;
+    if (!VIDEO && rolar) window.rzVisita?.("mudou_tela", { tela: v }, v);
     if (!VIDEO) document.querySelectorAll(".vista").forEach(s => s.classList.toggle("ativa", s.id === v));
     marcarAtivo();
     if (rolar && !VIDEO) window.scrollTo({ top: 0 });

@@ -821,6 +821,117 @@ grant execute on function public.renderiza_buscar_leads(text) to authenticated;
 grant execute on function public.renderiza_retorno_sugerido(text) to authenticated;
 grant execute on function public.renderiza_aplicar_relato(jsonb, boolean) to authenticated;
 
+-- ---------- link do Painel Renderiza por lead e as visitas (22/10/2026) ----------
+-- Cada lead tem um código curto (4 letras e números, sem os que confundem: 0/o, 1/l/i). O link que vai no
+-- WhatsApp é /exemplos?c=<codigo>: a página conta quem abriu e o que fez, e o painel mostra no lead.
+create or replace function public.renderiza_novo_codigo()
+returns text
+language plpgsql
+volatile
+set search_path = ''
+as $$
+declare
+  letras constant text := 'abcdefghjkmnpqrstuvwxyz23456789';
+  c text;
+begin
+  loop
+    c := '';
+    for i in 1..4 loop
+      c := c || substr(letras, 1 + floor(random() * length(letras))::int, 1);
+    end loop;
+    exit when not exists (select 1 from public.leads l where l.codigo = c);
+  end loop;
+  return c;
+end;
+$$;
+
+alter table public.leads add column if not exists codigo text;
+alter table public.leads alter column codigo set default public.renderiza_novo_codigo();
+update public.leads set codigo = public.renderiza_novo_codigo() where codigo is null;
+create unique index if not exists leads_codigo_idx on public.leads (codigo);
+
+-- Um registro por passo de quem abriu o link: abriu a página, chegou nos preços, viu os detalhes de um módulo,
+-- abriu o exemplo, clicou no WhatsApp, rolou até o fim, quanto tempo ficou. Só entra pela função
+-- registrar_visita (a página não grava direto); o dono do lead só lê e apaga.
+create table if not exists public.visitas (
+  id         bigint generated always as identity primary key,
+  dono       uuid not null references auth.users (id) on delete cascade,
+  lead_id    text not null references public.leads (id) on delete cascade,
+  pagina     text not null check (pagina in ('exemplos', 'painel-eventos', 'agenda-online')),
+  evento     text not null check (evento in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo')),
+  detalhe    jsonb not null default '{}'::jsonb check (jsonb_typeof(detalhe) = 'object'),
+  visitante  text not null default '',          -- número aleatório guardado no navegador (o mesmo aparelho)
+  sessao     text not null default '',          -- uma abertura da página
+  equipe     boolean not null default false,    -- navegador que já abriu o painel da Renderiza: fomos nós
+  ip         text not null default '',
+  local      text not null default '',          -- cidade e estado pelo IP (cabeçalhos da Vercel)
+  aparelho   text not null default '',          -- "celular · Android · Chrome"
+  criado_em  timestamptz not null default now()
+);
+create index if not exists visitas_lead_idx on public.visitas (lead_id, criado_em desc);
+create index if not exists visitas_dono_idx on public.visitas (dono, criado_em desc);
+alter table public.visitas enable row level security;
+revoke all on public.visitas from anon, authenticated;
+grant select, delete on public.visitas to authenticated;
+drop policy if exists "visitas do dono" on public.visitas;
+create policy "visitas do dono" on public.visitas
+  for select to authenticated
+  using (dono = (select auth.uid()));
+drop policy if exists "visitas do dono: apagar" on public.visitas;
+create policy "visitas do dono: apagar" on public.visitas
+  for delete to authenticated
+  using (dono = (select auth.uid()));
+
+-- Chamada pelo site (api/visita.js) com a chave pública. Código que não existe, evento estranho ou mais de
+-- 60 passos por hora do mesmo navegador: não grava. Abriu, chegou nos preços e rolou até o fim contam uma
+-- vez por abertura da página; o tempo na página fica com o maior valor.
+create or replace function public.registrar_visita(
+  p_codigo text, p_pagina text, p_evento text, p_detalhe jsonb default '{}'::jsonb,
+  p_visitante text default '', p_sessao text default '', p_equipe boolean default false,
+  p_ip text default '', p_local text default '', p_aparelho text default '')
+returns boolean
+language plpgsql
+volatile
+security definer
+set search_path = ''
+as $$
+declare
+  v_lead_id text;
+  v_dono uuid;
+  v_detalhe jsonb := case when jsonb_typeof(p_detalhe) = 'object' and length(p_detalhe::text) <= 1000 then p_detalhe else '{}'::jsonb end;
+  v_visitante text := left(coalesce(p_visitante, ''), 24);
+  v_sessao text := left(coalesce(p_sessao, ''), 24);
+begin
+  if coalesce(p_codigo, '') !~ '^[a-z0-9]{3,8}$'
+     or p_pagina not in ('exemplos', 'painel-eventos', 'agenda-online')
+     or p_evento not in ('abriu', 'viu_precos', 'viu_detalhes', 'abriu_exemplo', 'clicou_whatsapp', 'mudou_tela', 'pediu_reserva', 'rolou_fim', 'tempo') then
+    return false;
+  end if;
+  select l.id, l.dono into v_lead_id, v_dono from public.leads l where l.codigo = p_codigo;
+  if v_lead_id is null then return false; end if;
+  if (select count(*) from public.visitas v
+       where v.lead_id = v_lead_id and v.visitante = v_visitante and v.criado_em > now() - interval '1 hour') >= 60 then
+    return false;
+  end if;
+  if v_sessao <> '' and p_evento in ('abriu', 'viu_precos', 'rolou_fim', 'tempo') and exists (
+       select 1 from public.visitas v where v.lead_id = v_lead_id and v.sessao = v_sessao and v.pagina = p_pagina and v.evento = p_evento) then
+    if p_evento = 'tempo' then
+      update public.visitas v set detalhe = v_detalhe
+       where v.lead_id = v_lead_id and v.sessao = v_sessao and v.pagina = p_pagina and v.evento = 'tempo'
+         and coalesce((v.detalhe->>'s')::numeric, 0) < coalesce((v_detalhe->>'s')::numeric, 0);
+      return true;
+    end if;
+    return false;
+  end if;
+  insert into public.visitas (dono, lead_id, pagina, evento, detalhe, visitante, sessao, equipe, ip, local, aparelho)
+  values (v_dono, v_lead_id, p_pagina, p_evento, v_detalhe, v_visitante, v_sessao, coalesce(p_equipe, false),
+          left(coalesce(p_ip, ''), 64), left(coalesce(p_local, ''), 80), left(coalesce(p_aparelho, ''), 80));
+  return true;
+end;
+$$;
+revoke all on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text) from public;
+grant execute on function public.registrar_visita(text, text, text, jsonb, text, text, boolean, text, text, text) to anon, authenticated;
+
 -- ---------- tempo real (opcional) ----------
 -- Faz o painel aberto em outro aparelho receber as mudanças sem recarregar.
 do $$
@@ -828,7 +939,7 @@ declare
   t text;
 begin
   if exists (select 1 from pg_publication where pubname = 'supabase_realtime') then
-    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos', 'tarefas', 'demos'] loop
+    foreach t in array array['leads', 'conteudos', 'interacoes', 'ciclos', 'tarefas', 'demos', 'visitas'] loop
       if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
         execute format('alter publication supabase_realtime add table public.%I', t);
       end if;

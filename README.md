@@ -105,6 +105,15 @@ inventado, a **Villa Alecrim**:
   mais R$ 14,99 por mês; sem fidelidade; montagem grátis para quem fecha o site. Propostos e ainda por confirmar:
   +5 acessos por R$ 9,90/mês e cada espaço a mais por R$ 29/mês. O valor fica em `PRECO` no script de
   `exemplos/index.html` e nos textos da mesma página (o teste confere que batem).
+- **Link por lead e quem abriu (22/10/2026):** cada lead tem um código curto (`leads.codigo`, 4 letras, nasce
+  sozinho). Nos leads de eventos, o painel mostra o link `renderizaweb.com.br/exemplos?c=<código>` (botão
+  **Copiar link do painel** no topo do lead e a seção **Painel Renderiza**). Quem abre esse link é contado:
+  `exemplos/visitas.js` manda cada passo para `api/visita.js` (que junta IP, cidade e aparelho e chama a função
+  `registrar_visita` com a chave pública), e tudo fica na tabela `visitas`. Passos: abriu, chegou nos preços,
+  viu os detalhes de um módulo, foi ver o exemplo, mudou de tela no exemplo, clicou no WhatsApp (com o plano),
+  testou a agenda online, rolou até o fim e o tempo na página. No lead aparece cada visita com quem foi:
+  **Vocês** (navegador que já abriu o painel da Renderiza), **Provavelmente vocês** (mesmo IP de uma visita de
+  vocês) ou **Cliente**; no cartão, o selo "abriu" quando o cliente abriu. Sem o código no link, nada é contado.
 - Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não
   está incluso. Os textos ficam em `MODULOS`, no script de `exemplos/index.html`; o teste confere os avisos.
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.

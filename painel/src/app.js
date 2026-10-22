@@ -21,6 +21,7 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
+import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, resumoDasVisitas, duracao } from "./visitas.js";
 import {
   tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo,
   comCiclo, ciclosParaEscolher, nomeDoCiclo, tagDoCiclo, cicloDoLead,
@@ -343,6 +344,7 @@ const planilhaLeads = criarPlanilha({
     ...marcasDasTags(l),
     urlHref(l.link_demo) ? marcaDaDemo(l) : null,
     temVideo(l) ? { texto: "", icone: "video", classe: "marca-video", titulo: "Tem vídeo de apresentação: abrir o MP4 em outra aba", href: urlHref(l.link_gravacao) } : null,
+    marcaDoPainel(l),
     l.revisar ? { texto: "revisar", titulo: "Veio do painel antigo e precisa de revisão" } : null,
     l.nao_contatar ? { texto: "não contatar", classe: "marca-parar", titulo: "Pediu para não receber mais contato" } : null,
   ].filter(Boolean),
@@ -487,6 +489,7 @@ function cartaoDoKanban(l, editavel, tarefasAbertas) {
       ...tags.filter(t => t !== ciclo).map(t => h("span", { class: "chip-tag " + classeDaTag(t), title: descricaoDaTag(t), text: rotuloDaTag(t) })),
       seloDeTarefas(tarefasAbertas.get(l.id)),
       urlHref(l.link_demo) ? chipDaDemo(marcaDaDemo(l)) : null,
+      chipDoPainel(l),
       l.etapa === "finalizado" && l.resultado ? h("span", { class: "resultado-chip " + l.resultado, text: nomeDoResultado(l.resultado) }) : null,
       l.interesse && l.interesse !== "nao_avaliado" ? h("span", { class: "chip-interesse " + l.interesse, text: nomeDoInteresse(l.interesse) }) : null,
       l.nao_contatar ? h("span", { class: "chip-parar", text: "não contatar" }) : null));
@@ -758,6 +761,9 @@ function acoesRapidas() {
     const ok = () => aviso(demoFora ? "Link copiado, mas a demo não abre agora (" + demoFora + "). Reabilite na seção Demo antes de mandar." : "Link da demo copiado.", demoFora ? "erro" : undefined);
     try { navigator.clipboard.writeText(linkDemo).then(ok, mostrar); } catch (e) { mostrar(); }
   });
+  let linkPainel = "";
+  const copiarPainel = h("button", { type: "button", class: "acao-rapida copiar-painel", title: "Copia o link do Painel Renderiza com o código deste lead: quem abrir aparece na seção Painel Renderiza" }, icone("copiar", 15), "Copiar link do painel");
+  copiarPainel.addEventListener("click", () => copiarLinkDoPainel(linkPainel));
   let linkFlyer = "", linkVideo = "", empresa = "";
   const flyer = h("button", { type: "button", class: "acao-rapida flyer", title: "Baixa o PNG de Stories para mandar à ótica" }, icone("baixar", 15), "Baixar flyer");
   flyer.addEventListener("click", () => { if (linkFlyer) baixarFlyer(linkFlyer, empresa); });
@@ -770,6 +776,7 @@ function acoesRapidas() {
     linkVideo = ehVideo(urlHref(l.link_gravacao)) ? urlHref(l.link_gravacao) : "";
     const ehPerfil = /^@/.test(String(l.instagram || "").trim()) || /instagram\.com/i.test(ig);
     linkDemo = demo ? new URL(demo, location.href).href : "";
+    linkPainel = mostraPainel(l) ? linkDoPainel(l) : "";
     const s = situacaoDoLead(l);
     demoFora = s && !s.noAr ? (s.estado === "expirada" ? "expirada" : "fora do ar") : "";
     const botoes = [
@@ -777,6 +784,7 @@ function acoesRapidas() {
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
       demo ? copiar : null,
+      linkPainel ? copiarPainel : null,
       linkVideo ? video : null,
       linkFlyer ? flyer : null,
     ].filter(Boolean);
@@ -934,6 +942,84 @@ function secaoDemo(id) {
   return cartao("Demo", { classe: "secao-demo" }, caixa, faixaVideo, h("div", { class: "campos campos-2" },
     campo("leads", id, { campo: "link_demo", rotulo: "Link da demo", href: urlHref, placeholder: "/demo/nome-da-otica" }),
     campo("leads", id, { campo: "link_gravacao", rotulo: "Link da gravação", href: urlHref, placeholder: "https://…" })));
+}
+
+/* ---------- link do Painel Renderiza e o mapa de quem abriu (tabela visitas, visitas.js) ---------- */
+function copiarLinkDoPainel(url) {
+  if (!url) return;
+  const mostrar = () => aviso("Copie o link: " + url);
+  try { navigator.clipboard.writeText(url).then(() => aviso("Link do painel copiado. Quando o cliente abrir, aparece na seção Painel Renderiza."), mostrar); } catch (e) { mostrar(); }
+}
+const QUEM_ABRIU = { cliente: "Cliente", equipe: "Vocês", equipe_ip: "Provavelmente vocês" };
+const DICA_QUEM = { cliente: "Navegador que nunca abriu o painel da Renderiza e IP diferente dos de vocês", equipe: "Navegador com o painel da Renderiza aberto", equipe_ip: "Mesmo IP de uma visita de vocês" };
+function quandoFoi(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  const dias = Math.round((new Date(new Date().toDateString()) - new Date(d.toDateString())) / 864e5);
+  const hora = d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+  return (dias === 0 ? "Hoje" : dias === 1 ? "Ontem" : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })) + ", " + hora;
+}
+/** Resumo das visitas do cliente a um lead (selo no cartão e marca na tabela). */
+function resumoDoPainel(l) {
+  if (!mostraPainel(l) || dados.tabelaFaltando("visitas")) return null;
+  const todas = dados.listar("visitas");
+  const doLead = todas.filter(v => v.lead_id === l.id);
+  if (!doLead.length) return null;
+  const r = resumoDasVisitas(agruparVisitas(doLead, ipsDaEquipe(todas)));
+  return r.visitas ? r : null;
+}
+function tituloDoResumo(r) {
+  return `O cliente abriu o link do painel ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"} · última: ${quandoFoi(r.ultima)}` +
+    [r.precos && "chegou nos preços", r.whatsapp && "clicou no WhatsApp", r.exemplo && "viu o exemplo"].filter(Boolean).map(t => " · " + t).join("");
+}
+function chipDoPainel(l) {
+  const r = resumoDoPainel(l);
+  return r ? h("span", { class: "chip-visto" + (r.whatsapp || r.precos ? " forte" : ""), title: tituloDoResumo(r) }, icone("mostrar", 12), r.visitas > 1 ? `abriu ${r.visitas}×` : "abriu") : null;
+}
+function marcaDoPainel(l) {
+  const r = resumoDoPainel(l);
+  return r ? { texto: r.visitas > 1 ? `abriu ${r.visitas}×` : "abriu", icone: "mostrar", classe: "marca-visto", titulo: tituloDoResumo(r) } : null;
+}
+function secaoPainelRenderiza(id) {
+  const link = h("code", { class: "pr-link" });
+  const copiar = h("button", { type: "button", class: "btn btn-primary btn-sm" }, icone("copiar", 15), "Copiar link");
+  const abrir = h("a", { class: "btn btn-outline btn-sm", target: "_blank", rel: "noopener" }, icone("abrirLink", 15), "Abrir");
+  const resumo = h("div", { class: "pr-resumo" });
+  const lista = h("ol", { class: "pr-visitas" });
+  const mais = h("button", { type: "button", class: "text-link pr-mais", hidden: true });
+  let url = "", todas = false;
+  copiar.addEventListener("click", () => copiarLinkDoPainel(url));
+  const el = cartao("Painel Renderiza", { classe: "secao-painel-rz" },
+    h("div", { class: "pr-topo" }, link, h("div", { class: "pr-botoes" }, copiar, abrir)),
+    h("p", { class: "pr-dica", text: "O exemplo do painel com o código deste lead no fim. Quem abrir esse link aparece aqui: quando, em que aparelho e o que viu." }),
+    resumo, lista, mais);
+  const desenhar = l => {
+    el.hidden = !mostraPainel(l);
+    if (el.hidden) return;
+    url = linkDoPainel(l); link.textContent = linkCurto(l); abrir.href = url;
+    if (dados.tabelaFaltando("visitas")) { resumo.replaceChildren(h("p", { text: "O contador de visitas ainda não está no banco (supabase/schema.sql)." })); lista.replaceChildren(); mais.hidden = true; return; }
+    const todasVisitas = dados.listar("visitas");
+    const grupos = agruparVisitas(todasVisitas.filter(v => v.lead_id === l.id), ipsDaEquipe(todasVisitas));
+    const r = resumoDasVisitas(grupos);
+    resumo.className = "pr-resumo" + (r.visitas ? " aberto" : "");
+    resumo.replaceChildren(
+      h("strong", { text: r.visitas ? `O cliente abriu ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"}` : grupos.length ? "Só vocês abriram até agora." : "Ninguém abriu ainda." }),
+      r.visitas ? h("span", { text: `Última: ${quandoFoi(r.ultima)}${r.segundos ? " · " + duracao(r.segundos) + " no total" : ""}` }) : null,
+      h("span", { class: "pr-sinais" }, ...[r.precos && "chegou nos preços", r.exemplo && "viu o exemplo", r.whatsapp && "clicou no WhatsApp"].filter(Boolean).map(t => h("span", { class: "pr-sinal", text: t }))));
+    const mostrar = todas ? grupos : grupos.slice(0, 5);
+    lista.replaceChildren(...mostrar.map(g => h("li", { class: "pr-visita quem-" + g.quem },
+      h("div", { class: "pr-visita-topo" },
+        h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
+        h("strong", { text: quandoFoi(g.inicio) }),
+        g.segundos ? h("span", { class: "pr-tempo", text: duracao(g.segundos) }) : null),
+      h("p", { class: "pr-onde", text: [g.aparelho, g.local, g.ip && "IP " + g.ip].filter(Boolean).join(" · ") || "Aparelho não identificado" }),
+      h("ul", { class: "pr-passos" }, ...g.passos.map(p => h("li", { class: p.forte ? "forte" : "", title: dataHora(p.em) }, p.texto))))));
+    mais.hidden = grupos.length <= 5;
+    mais.textContent = todas ? "Mostrar só as últimas" : `Ver todas as ${grupos.length} visitas`;
+  };
+  mais.addEventListener("click", () => { todas = !todas; const l = dados.buscar("leads", id); if (l) desenhar(l); });
+  vincular(desenhar);
+  return el;
 }
 
 /* ---------- checklist do card (no lugar da próxima ação) ---------- */
@@ -1200,6 +1286,7 @@ function corpoDoLead(id) {
       h("label", { class: "check-painel" }, naoContatar, h("span", {}, h("strong", { text: "Não contatar mais." }), " A ótica pediu para não receber contato: sai da fila de retornos.")),
       h("label", { class: "check-painel neutro" }, foraDoFunil, h("span", {}, h("strong", { text: "Fora do funil." }), " Fica só na tela Clientes, sem etapa no Pipeline. Bom para relacionamento com quem já foi cliente."))),
     secaoDemo(id),
+    secaoPainelRenderiza(id),
     fechamento,
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
     cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),

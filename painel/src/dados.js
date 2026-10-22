@@ -9,11 +9,11 @@
 import { criarAdaptadorClaude } from "./adaptadores/claude.js";
 import { comEtapaAtual } from "./modelo.js";
 
-export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos"];
+export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos", "visitas"];
 // Lead com etapa de antes de 09/10/2026 (banco ainda não migrado) já aparece na etapa nova.
 const ler = (tabela, linha) => (tabela === "leads" && linha ? comEtapaAtual(linha) : linha);
 // Tabela que pode ainda não existir no banco (veio depois): se a leitura falhar, o painel segue sem ela.
-const OPCIONAIS = new Set(["demos"]);
+const OPCIONAIS = new Set(["demos", "visitas"]);
 const faltando = new Set();
 export const tabelaFaltando = tabela => faltando.has(tabela);
 
@@ -102,6 +102,9 @@ export async function carregar() {
       lista => { faltando.delete(t); return lista; },
       e => { if (!OPCIONAIS.has(t) || e.rede || e.sessao) throw e; faltando.add(t); return []; })));
     TABELAS.forEach((t, i) => { linhas[t] = new Map(listas[i].map(l => [l.id, ler(t, l)])); });
+    // Marca este navegador como da equipe: as visitas que ele fizer ao link do painel (/exemplos?c=…) não
+    // contam como do cliente (exemplos/visitas.js lê esta marca).
+    try { localStorage.setItem("renderiza:equipe", "1"); } catch (e) { /* sem armazenamento */ }
     mudarConexao("online");
     avisar("dados");
     if (!assinado) {

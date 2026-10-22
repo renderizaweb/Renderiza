@@ -164,6 +164,9 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   controle (dá baixa), não recebe nem cobra (sem Pix/boleto integrado); o contrato é termo de aceite digital,
   sem certificado digital, e o texto é do espaço (a Renderiza não escreve nem revisa contrato); o atendimento
   recebe sozinho só os pedidos da agenda online (WhatsApp e Instagram a equipe anota).
+  Para os leads de eventos, mandar sempre o link com o código (**Copiar link do painel**, no lead): é ele que
+  conta quem abriu (tabela `visitas`; README, "Exemplos de sistema"). O IP fica guardado para separar o cliente de
+  nós; a página avisa no rodapé que conta a visita.
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 

@@ -336,11 +336,12 @@ footer a{font-weight:600}
     <div><h2>Quer ver como ficaria <span>no seu espaço?</span></h2><p>Conta como funciona a sua rotina hoje que a gente mostra por onde começar.</p></div>
     <a class="botao zap" href="https://wa.me/5511988697165?text=Oi!%20Vi%20o%20Painel%20Renderiza%20e%20quero%20ver%20como%20ficaria%20no%20meu%20espa%C3%A7o." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Chamar no WhatsApp</a>
   </section>
-  <footer><span>A Villa Alecrim não existe: é um espaço inventado para o exemplo. Nomes, datas e valores são fictícios.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
+  <footer><span>A Villa Alecrim não existe: é um espaço inventado para o exemplo. Nomes, datas e valores são fictícios. Quando o link vem da Renderiza, a página conta a visita (quando abriu e o que viu), para a gente saber se ajudou.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
 </div>
 
 <div class="info-veu" id="info-veu"><div class="info" role="dialog" aria-modal="true" aria-labelledby="info-nome" id="info"></div></div>
 
+<script src="/exemplos/visitas.js" data-pagina="exemplos"></script>
 <script>
 (function () {
   // Preço do Painel Renderiza (pedido do Kaue, 21/10/2026). Mudou aqui, mude também os textos da página.
@@ -502,6 +503,7 @@ footer a{font-weight:600}
       <div class="saber"><h4>Bom saber</h4><ul>${m.saber.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
       <div class="acoes-info"><a class="botao claro" href="${m.link}">${esc(m.linktxt)}</a><button type="button" class="botao escuro" data-alternar="${m.id}">${dentro ? "Tirar do plano" : "Colocar no plano"}</button></div>`;
     voltarPara = origem || null;
+    window.rzVisita("viu_detalhes", { m: id }, id);
     veu.classList.add("aberto"); document.body.style.overflow = "hidden";
     janela.querySelector(".fechar").focus();
   }
@@ -517,6 +519,19 @@ footer a{font-weight:600}
     const sel = e.target.closest("[data-mod]"); if (sel) alternar(sel.dataset.mod);
   });
   desenhar();
+
+  // Contador de visitas (exemplos/visitas.js): chegou nos preços, abriu um exemplo, clicou no WhatsApp.
+  const precos = document.getElementById("precos");
+  if ("IntersectionObserver" in window) new IntersectionObserver((itens, obs) => {
+    if (itens.some(i => i.isIntersecting)) { window.rzVisita("viu_precos", {}, ""); obs.disconnect(); }
+  }, { threshold: 0.35 }).observe(precos);
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href]"); if (!a) return;
+    const href = a.getAttribute("href");
+    const onde = a.closest(".topo") ? "topo" : a.closest("#precos") ? "precos" : a.closest(".convite") ? "convite" : a.closest("#modulos") ? "modulos" : a.closest(".hero") ? "topo" : a.closest(".info") ? "detalhes" : "pagina";
+    if (/wa\.me\//.test(href)) window.rzVisita("clicou_whatsapp", a.id === "zap" ? { onde, modulos: marcados, total: Number((PRECO.base + Math.max(0, marcados.length - PRECO.inclusos) * PRECO.extra).toFixed(2)) } : { onde });
+    else if (/^\/exemplos\/(painel-eventos|agenda-online)/.test(href)) window.rzVisita("abriu_exemplo", { qual: href.includes("agenda-online") ? "agenda online" : (href.split("#")[1] || "painel"), onde });
+  });
 
   const v = $("#video"), s = $("#som");
   s.addEventListener("click", () => {

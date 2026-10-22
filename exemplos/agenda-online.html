@@ -295,6 +295,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
   </main>
 </div>
 
+<script src="visitas.js" data-pagina="agenda-online"></script>
 <script src="dados-villa-alecrim.js"></script>
 <script>
 (function () {
@@ -433,6 +434,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
       quando: new Date().toISOString(), status: "novo",
       msg: `Pré-reserva pela agenda online: ${PACOTES[ped.pacote].nome}, ${ped.conv} convidados, ${ped.periodo === "dia" ? "de dia" : "à noite"}.${ped.adic.length ? " Quer " + ped.adic.map(a => ADICIONAIS[a].nome.toLowerCase()).join(", ") + "." : ""}${visita ? " Quer visitar o espaço." : ""}${$("#obs").value.trim() ? " “" + $("#obs").value.trim().slice(0, 200) + "”" : ""}`,
     });
+    window.rzVisita?.("pediu_reserva", { festa: tipo, pacote: ped.pacote, convidados: ped.conv });
     $("#pronto-titulo").textContent = `Pronto, ${nome.split(" ")[0]}!`;
     $("#pronto-sub").textContent = `A sua data está separada por 48 horas. A equipe da Villa Alecrim vai chamar você no WhatsApp para confirmar${visita ? " e marcar a visita" : ""}.`;
     $("#ficha").innerHTML = linhasResumo().map(([a, b]) => `<div><span>${a}</span><b>${esc(b)}</b></div>`).join("");
