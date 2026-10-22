@@ -295,7 +295,7 @@ test("capacidade e compromisso: como funciona da prévia ao ar, objeções respo
   assert.equal((como.match(/<li><h3>/g) || []).length, 5);
   assert.match(como, /Você só paga se decidir colocar o site no ar\./);
   const perguntas = secao(html, "perguntas");
-  for (const p of ["Recebi uma prévia do meu site. O que é?", "Já tenho Instagram. Preciso de um site?", "O que eu faço com o site quando ele fica pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Quanto custa?", "O site fica no meu nome?", "Quem decide é outra pessoa. E agora?"]) assert.ok(perguntas.includes(p), p);
+  for (const p of ["Recebi uma prévia do meu site. O que é?", "Já tenho Instagram. Preciso de um site?", "O que eu faço com o site quando ele ficar pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?", "Quanto custa?", "O site fica no meu nome?", "Quem decide é outra pessoa. E agora?"]) assert.ok(perguntas.includes(p), p);
   assert.match(perguntas, /sai do ar sozinho em 7 dias/, "a prévia tem prazo de verdade (middleware.js)");
   const convite = secao(html, "contato");
   assert.match(convite, /Quer ver como ficaria <em>o seu\?<\/em>/);
@@ -326,7 +326,7 @@ test("serviços: o site como base, dois adicionais e sob medida, com os mesmos n
 
 test("perguntas: uma para cada público que mais chama (o que fazer com o site, tráfego pago e quem já tem gestor)", () => {
   const perguntas = secao(montarPagina(config), "perguntas");
-  for (const p of ["O que eu faço com o site quando ele fica pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?"]) assert.ok(perguntas.includes(p), p);
+  for (const p of ["O que eu faço com o site quando ele ficar pronto?", "Vocês fazem tráfego pago?", "Já tenho quem cuida dos meus anúncios. O site funciona com isso?"]) assert.ok(perguntas.includes(p), p);
   // tráfego pago: a resposta fica no site pronto para anúncio, sem negar nem prometer (decisão de 18/10/2026)
   assert.match(perguntas, /Todo site sai pronto para anúncio, com o Pixel da Meta e o Google Analytics instalados\./);
   assert.doesNotMatch(perguntas, /não roda|n[ãa]o (faz|fazemos|cuida|cuidamos)[^.]*(tr[áa]fego|an[úu]ncio)/i);
