@@ -1,0 +1,31 @@
+{
+ "_sobre": "Narração do Reels \"O ciclo de um espaço de eventos\" (pedido do Kaue, 24/10/2026): a sexta-feira da Marina, dona da Villa Alecrim (espaço fictício, o mesmo do exemplo do painel), antes e depois do site com a agenda online e do painel. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase.",
+ "motor": "kokoro",
+ "voz": "pm_alex",
+ "velocidade": 1.0,
+ "inicio": 0.2,
+ "frases": [
+  { "id": "hora", "cena": "noite", "texto": "Sexta-feira, *23h.*", "fala": "Sexta-feira, onze da noite.", "pausa": 0.35, "impacto": true },
+  { "id": "marina", "cena": "noite", "texto": "A Marina, dona de um espaço de festas, ainda está no *WhatsApp.*", "pausa": 0.25 },
+  { "id": "perguntas", "cena": "conversas", "texto": "Todo mundo pergunta a mesma coisa: se a data está livre, quanto custa, se dá para *visitar.*", "pausa": 0.3 },
+  { "id": "caderno", "cena": "caderno", "texto": "A resposta está num caderno, numa planilha e na *cabeça dela.*", "pausa": 0.3 },
+  { "id": "data", "cena": "data", "texto": "No sábado, duas famílias quase fecharam a *mesma data.*", "pausa": 0.3, "impacto": true },
+  { "id": "pix", "cena": "pix", "texto": "E o Pix da Juliana? Está em algum lugar *dessa conversa.*", "pausa": 0.6 },
+  { "id": "virada", "cena": "virada", "texto": "Agora, a mesma sexta-feira. Com *outro caminho.*", "pausa": 0.35, "impacto": true },
+  { "id": "insta", "cena": "insta", "texto": "As pessoas descobrem a Villa Alecrim no Instagram e tocam no *link da bio.*", "pausa": 0.2 },
+  { "id": "sol", "cena": "sol", "texto": "O site junta tudo num lugar só: as fotos reais, as avaliações, os pacotes, o endereço e o *WhatsApp.*", "pausa": 0.3, "impacto": true },
+  { "id": "escolhe", "cena": "agenda", "texto": "Ali, a pessoa escolhe a festa, uma data livre e quantos *convidados,*", "pausa": 0.1 },
+  { "id": "pede", "cena": "agenda", "texto": "e pede a pré-reserva sem esperar *ninguém.*", "pausa": 0.3 },
+  { "id": "cai", "cena": "painel", "texto": "O pedido cai direto no *painel.*", "pausa": 0.3, "impacto": true },
+  { "id": "agenda", "cena": "agenda-equipe", "texto": "A agenda do mês, com uma cor para *cada festa.*", "pausa": 0.2 },
+  { "id": "ficha", "cena": "ficha", "texto": "A ficha de cada cliente, com o que foi combinado e o que já foi *pago.*", "pausa": 0.2 },
+  { "id": "contrato", "cena": "contrato", "texto": "O contrato vai por link, e o cliente aceita *pelo celular.*", "pausa": 0.2 },
+  { "id": "financeiro", "cena": "financeiro", "texto": "O financeiro mostra o que entrou e o que falta *receber.*", "pausa": 0.2 },
+  { "id": "equipe", "cena": "equipe", "texto": "E cada pessoa da equipe entra com a *sua senha.*", "pausa": 0.35 },
+  { "id": "ia", "cena": "ia", "texto": "O que se repete todo dia, a IA pode adiantar, sob medida para o *seu espaço.*", "fala": "O que se repete todo dia, a inteligência artificial pode adiantar, sob medida para o seu espaço.", "pausa": 0.6 },
+  { "id": "dorme", "cena": "dorme", "texto": "Sexta-feira, 23h. A Marina está *dormindo.*", "fala": "Sexta-feira, onze da noite. A Marina está dormindo.", "pausa": 0.25, "impacto": true },
+  { "id": "chegou", "cena": "dorme", "texto": "E o pedido de março já chegou, com data, convidados e *pacote.*", "pausa": 0.45 },
+  { "id": "marca", "cena": "marca", "texto": "*Renderiza.* Site e painel para espaços de eventos.", "pausa": 0.3, "impacto": true },
+  { "id": "cta", "cena": "cta", "texto": "Comenta *PAINEL* que a gente te manda o exemplo para testar.", "fala": "Comenta painel, que a gente te manda o exemplo para testar.", "pausa": 0.2 }
+ ]
+}

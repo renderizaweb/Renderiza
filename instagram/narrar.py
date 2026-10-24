@@ -7,6 +7,9 @@
 #   clone: Chatterbox multilíngue (licença MIT, roda aqui) imitando a voz de "referencia" (10 a 15 s de fala limpa,
 #     ex.: um trecho da voz tratada pelo encaixar-voz.py). Cada frase é conferida pelo Whisper e refeita se sair
 #     embolada; as palavras da legenda seguem os tempos que o Whisper ouviu. pip install chatterbox-tts faster-whisper
+#   kokoro: voz sintética livre do Kokoro (Apache 2.0, roda na CPU; "voz": "pm_alex", "pm_santa" ou "pf_dora"),
+#     bem mais natural que o Piper. Modelo baixado para rascunhos/vozes/. As palavras da legenda seguem os tempos que
+#     o Whisper ouviu. pip install kokoro-onnx faster-whisper
 import difflib, json, re, subprocess, sys, unicodedata, wave
 from pathlib import Path
 import numpy as np
@@ -37,6 +40,21 @@ if MOTOR == "piper":
         subprocess.run([sys.executable, "-m", "piper", "-m", str(modelo), "-f", str(arq), "--length-scale", str(cfg.get("velocidade", 1.0)),
                         "--sentence-silence", "0.12"], input=texto.encode(), check=True, capture_output=True)
         return ler(arq), None
+elif MOTOR == "kokoro":
+    from kokoro_onnx import Kokoro
+    from faster_whisper import WhisperModel
+    for arq in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        if not (VOZES / arq).exists():
+            subprocess.run(["curl", "-sSLf", "-m", "900", "-o", str(VOZES / arq),
+                            f"https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{arq}"], check=True)
+    kokoro = Kokoro(str(VOZES / "kokoro-v1.0.onnx"), str(VOZES / "voices-v1.0.bin"))
+    ouvido = WhisperModel("small", device="cpu", compute_type="int8")
+    def falar(texto, arq):
+        w, sr = kokoro.create(texto, voice=cfg.get("voz", "pm_alex"), speed=cfg.get("velocidade", 1.0), lang="pt-br")
+        x = np.interp(np.arange(0, len(w) / sr, 1 / SR), np.arange(len(w)) / sr, w).astype(np.float32)
+        a16 = np.interp(np.arange(0, len(w) / sr, 1 / 16000), np.arange(len(w)) / sr, w).astype(np.float32)
+        segs, _ = ouvido.transcribe(a16, language="pt", word_timestamps=True)
+        return x, [{"p": p.word.strip(), "ini": p.start, "fim": p.end} for s_ in segs for p in s_.words]
 else:
     import torch
     from chatterbox.mtl_tts import ChatterboxMultilingualTTS
