@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <title>Reels narrado: o homem que sabia todos os horários</title>
-<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz: o Seu Valdir, que sabia o horário de tudo na Rua das
-     Acácias, tira quinze dias de férias e a rua se perde; quando ele volta, ninguém pergunta mais nada, porque as
-     lojas fizeram site. A Renderiza só aparece no fim (pedido de 27/10/2026: a história prende sozinha e a pessoa só
-     percebe no final que é uma publi). Tudo é fictício e as telas das lojas levam o selo "exemplo".
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Versão 2 (27/10/2026): por 28 anos a Rua das Acácias
+     funcionou no horário que o Seu Valdir dizia, e ele nunca errou, porque inventou todos (em 1997 ele chutou "oito"
+     e a farmácia passou a abrir às oito). Quando ele viaja, ninguém sabe o próprio horário; cada loja põe o seu num
+     site, e na volta ele erra pela primeira vez. A Renderiza só aparece no fim. Tudo é fictício e as telas das lojas
+     levam o selo "exemplo".
      O tempo de tudo sai da narração: narracao/reels-valdir.json → python3 instagram/narrar.py reels-valdir → esta
-     página lê reels-valdir.tempos.json. A rua é um desenho só (#mundo), e a câmera anda por ele: o banco do Seu
-     Valdir, a porta da farmácia, a padaria. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+     página lê reels-valdir.tempos.json. A rua é um desenho só (#mundo), e a câmera anda por ele; 1997 aparece em tom
+     de foto antiga, e as cenas do Zé, à noite. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
 <link rel="stylesheet" href="marca.css">
 <style>
@@ -17,11 +18,15 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111}
 .fundo{position:absolute;inset:0}
 #f-ceu{background:radial-gradient(46% 16% at 66% 31%,rgba(232,133,94,.42) 0%,rgba(232,133,94,0) 100%),linear-gradient(180deg,#0f1518 0%,#182024 26%,#2a2826 40%,#43302a 48%,#1e2528 64%,#161c1f 100%)}
 #f-quente{background:radial-gradient(64% 40% at 50% 54%,#4d2d22 0%,#2d2725 40%,#1e2528 66%,#161b1d 100%)}
-#f-lurdes{background:radial-gradient(70% 46% at 30% 70%,#3f2a22 0%,#262423 45%,#171c1e 100%)}
 .poeira{position:absolute;inset:0;z-index:30;pointer-events:none}
 .poeira i{position:absolute;left:0;top:0;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%}
 #mundo{position:absolute;left:0;top:0;width:1600px;height:2600px;transform-origin:0 0;z-index:5}
 #mundo svg{display:block}
+/* noite (o Zé) e 1997 (foto antiga) */
+#noite{position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(60% 40% at 60% 55%,rgba(255,196,120,.08),rgba(0,0,0,0) 70%),linear-gradient(180deg,rgba(8,16,40,.44),rgba(10,18,36,.34));opacity:0}
+#antigo{position:absolute;inset:0;z-index:7;pointer-events:none;opacity:0;background:radial-gradient(ellipse 75% 60% at 50% 50%,rgba(0,0,0,0) 45%,rgba(40,22,8,.62) 100%)}
+#antigo::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,240,210,.035) 0 2px,rgba(0,0,0,0) 2px 5px);mix-blend-mode:screen}
+#carimbo{position:absolute;right:70px;bottom:250px;z-index:46;font:700 54px/1 "Geist",monospace;letter-spacing:.06em;color:#ff9a3d;text-shadow:0 0 14px rgba(255,140,40,.65);opacity:0;font-variant-numeric:tabular-nums}
 .cena{position:absolute;inset:0;z-index:10;display:none}
 .sombra-topo{position:absolute;left:0;right:0;top:0;height:640px;z-index:44;pointer-events:none;background:linear-gradient(180deg,rgba(10,13,14,.78) 0,rgba(10,13,14,.5) 300px,rgba(10,13,14,0) 640px)}
 .vinheta{position:absolute;inset:0;z-index:40;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 52%,transparent 50%,rgba(0,0,0,.5) 100%)}
@@ -30,65 +35,40 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111}
 .fala{position:absolute;left:56px;right:56px;top:226px;text-align:center;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:76px;color:#f6f3ee;text-wrap:balance;text-shadow:0 6px 36px rgba(0,0,0,.55)}
 .fala .w{display:inline-block;opacity:0;transform-origin:50% 85%}
 .fala .tom{color:var(--terracota-clara)}
-.ov{position:absolute;left:0;top:0;z-index:20;opacity:0}
 svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
 /* balões */
-.balao{position:absolute;z-index:22;padding:26px 38px;border-radius:44px;background:#f1eee9;color:#1e2528;font-size:50px;font-weight:700;letter-spacing:-.03em;line-height:1.1;box-shadow:0 30px 70px rgba(0,0,0,.4);white-space:nowrap;opacity:0}
-.balao::after{content:"";position:absolute;width:44px;height:44px;background:inherit;border-radius:0 0 0 10px;transform:skewX(-24deg)}
-.balao.esq::after{left:64px;bottom:-20px;transform:rotate(-30deg) skewX(-10deg)}
-.balao.dir::after{right:64px;bottom:-20px;transform:rotate(30deg) skewX(10deg)}
-.balao.cima::after{left:80px;top:-20px;transform:rotate(30deg) skewX(10deg)}
-.balao.vd{background:var(--terracota);color:#fff}
+.balao{position:absolute;left:0;top:0;z-index:22;padding:24px 36px;border-radius:42px;background:#f1eee9;color:#1e2528;font-size:48px;font-weight:700;letter-spacing:-.03em;line-height:1.1;box-shadow:0 30px 70px rgba(0,0,0,.4);white-space:nowrap;opacity:0}
+.balao::after{content:"";position:absolute;width:42px;height:42px;background:inherit;border-radius:0 0 0 10px}
+.balao.esq::after{left:60px;bottom:-18px;transform:rotate(-30deg) skewX(-10deg)}
+.balao.dir::after{right:60px;bottom:-18px;transform:rotate(30deg) skewX(10deg)}
+.balao.nada::after{display:none}
+.balao.vd{background:var(--terracota);color:#fff;font-size:62px;font-weight:800;padding:18px 34px}
 .balao.esc{background:#2b3438;color:#f1eee9}
-.balao small{display:block;font-size:30px;font-weight:600;letter-spacing:0;opacity:.7;margin-bottom:6px}
-.balao span{display:inline-block}
+.balao .ok{position:absolute;right:-14px;top:-14px;width:46px;height:46px;border-radius:50%;background:#22a355;color:#fff;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.35);opacity:0}
+.balao .ok svg{width:26px;height:26px;stroke-width:3.4}
+.balao .txt{display:inline-block}
 
-/* fichas da cabeça do Seu Valdir */
-.ficha{position:absolute;left:0;top:0;z-index:21;display:flex;align-items:center;gap:18px;padding:18px 28px 18px 18px;border-radius:30px;background:#f1eee9;color:#1e2528;box-shadow:0 24px 60px rgba(0,0,0,.42);white-space:nowrap;opacity:0}
-.ficha i{width:68px;height:68px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;flex:none}
-.ficha i svg{width:36px;height:36px}
-.ficha b{display:block;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1.05}
-.ficha small{display:block;font-size:28px;font-weight:600;color:#5b6467;margin-top:2px}
-.ficha.mini{padding:12px 22px 12px 12px;gap:12px}
-.ficha.mini i{width:48px;height:48px}.ficha.mini i svg{width:26px;height:26px}
-.ficha.mini b{font-size:30px}
+/* relógios */
+.relo{position:absolute;left:0;top:0;z-index:21;width:250px;padding:18px 18px 14px;border-radius:34px;background:#f1eee9;box-shadow:0 26px 60px rgba(0,0,0,.45);text-align:center;opacity:0}
+.relo svg{width:180px;height:180px;display:block;margin:0 auto}
+.relo b{display:block;margin-top:8px;font-size:34px;font-weight:800;letter-spacing:-.03em;color:#1e2528}
+#pulso{position:absolute;left:0;top:0;z-index:21;width:420px;height:560px;opacity:0}
 
-/* 28 anos */
-#ano{position:absolute;left:0;right:0;top:420px;z-index:21;display:flex;justify-content:center;gap:6px;font-size:190px;font-weight:800;letter-spacing:-.05em;color:#f1eee9;opacity:0;text-shadow:0 20px 60px rgba(0,0,0,.5)}
-#ano .d{display:inline-block;width:.62em;height:1.02em;overflow:hidden;position:relative}
-#ano .d span{position:absolute;left:0;right:0;text-align:center;line-height:1.02em}
+/* placa da farmácia */
+#placa{position:absolute;left:0;top:0;z-index:22;width:400px;padding:26px 24px 30px;border-radius:22px;background:#f1eee9;color:#1e2528;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.5);opacity:0}
+#placa small{display:block;font-size:36px;font-weight:800;letter-spacing:.12em;color:#5b6467}
+#placa .h{position:relative;display:inline-block;font-size:150px;font-weight:800;letter-spacing:-.05em;line-height:1}
+#placa .risco{position:absolute;left:-8px;right:-8px;top:52%;height:12px;border-radius:6px;background:var(--terracota);transform-origin:0 50%;transform:scaleX(0) rotate(-6deg)}
+#placa .novo{position:absolute;right:-96px;top:-58px;font:italic 600 132px/1 "Fraunces",serif;color:var(--terracota);transform:rotate(-10deg);opacity:0}
+
+/* TV de 1997 e a casa do Zé */
+#tv{position:absolute;left:60px;top:560px;width:420px;height:360px;z-index:21;opacity:0}
+#casa{position:absolute;left:90px;top:560px;width:900px;height:700px;z-index:21;border-radius:40px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);opacity:0}
 
 /* cartão-postal */
-#postal{position:absolute;left:210px;top:520px;width:660px;height:440px;z-index:23;border-radius:16px;background:#fbf7f0;padding:18px;box-shadow:0 40px 90px rgba(0,0,0,.55);opacity:0}
+#postal{position:absolute;left:210px;top:560px;width:660px;height:440px;z-index:23;border-radius:16px;background:#fbf7f0;padding:18px;box-shadow:0 40px 90px rgba(0,0,0,.55);opacity:0}
 #postal svg{width:100%;height:100%;border-radius:8px;display:block}
-
-/* relógio da farmácia */
-#relogio{position:absolute;left:800px;top:500px;width:230px;height:230px;z-index:21;opacity:0}
-
-/* ligação da Dona Lurdes */
-#lu-cartao{position:absolute;left:150px;top:450px;width:780px;z-index:22;display:flex;align-items:center;gap:26px;padding:26px 34px;border-radius:40px;background:#2b3438;color:#f1eee9;box-shadow:0 30px 70px rgba(0,0,0,.45);opacity:0}
-#lu-cartao .av{width:110px;height:110px;border-radius:50%;background:#d9cbb8;color:#1e2528;display:grid;place-items:center;flex:none}
-#lu-cartao .av svg{width:58px;height:58px;stroke-width:2.1}
-#lu-cartao b{display:block;font-size:52px;font-weight:800;letter-spacing:-.03em}
-#lu-cartao small{display:block;font-size:32px;font-weight:600;color:#b9bfc1;margin-top:4px}
-#lu-cartao .fone-ic{margin-left:auto;width:96px;height:96px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center}
-#lu-cartao .fone-ic svg{width:48px;height:48px;stroke-width:2.2}
-#lu-pessoa{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:15}
-
-/* a busca da família nova */
-#busca{position:absolute;left:640px;top:460px;width:400px;height:540px;z-index:23;border-radius:46px;padding:12px;background:#0d1112;box-shadow:0 40px 90px rgba(0,0,0,.6);opacity:0}
-#busca .tela{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#f6f4f0;font-family:"Geist",sans-serif}
-#bu-barra{position:absolute;left:22px;right:22px;top:40px;height:66px;border-radius:33px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;gap:12px;padding:0 22px;font-size:30px;font-weight:600;color:#1e2528}
-#bu-barra svg{width:30px;height:30px;color:#5b6467}
-#bu-mapa{position:absolute;left:0;right:0;top:126px;height:250px}
-#bu-res{position:absolute;left:18px;right:18px;bottom:18px;padding:20px 22px;border-radius:24px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12)}
-#bu-res small{display:block;font-size:24px;font-weight:600;color:#5b6467}
-#bu-res b{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em;color:#1e2528;margin-top:2px}
-#bu-res em{font-style:normal;color:var(--terracota)}
-#familia{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:19;opacity:0}
-#passantes{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:26;opacity:0;filter:blur(3px)}
-#folha{position:absolute;left:0;top:0;width:70px;height:70px;margin:-35px 0 0 -35px;z-index:24;opacity:0}
 
 /* os sites */
 .fone{position:absolute;left:0;top:0;width:440px;height:900px;z-index:12;border-radius:74px;padding:14px;background:linear-gradient(150deg,#4a5357 0%,#1a1f21 30%,#0b0e0f 100%);box-shadow:0 80px 140px -40px rgba(0,0,0,.8),0 30px 60px -20px rgba(0,0,0,.45),inset 0 0 0 2px rgba(255,255,255,.09),inset 0 0 0 6px #070909;transform-origin:50% 50%;opacity:0}
@@ -108,7 +88,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .ms-topo i::after{content:"";position:absolute;left:0;right:0;top:4.5px;border-top:3px solid currentColor}
 .ms-hero{position:relative;height:300px;margin:0 16px;border-radius:30px;overflow:hidden;background:var(--c);color:#fff}
 .ms-hero svg.des{position:absolute;right:-10px;bottom:-12px;width:230px;height:230px;opacity:.95}
-.ms-hero h3{position:absolute;left:26px;top:26px;right:120px;font-size:40px;font-weight:800;letter-spacing:-.035em;line-height:1.02}
+.ms-hero h3{position:absolute;left:26px;top:26px;right:110px;font-size:42px;font-weight:800;letter-spacing:-.035em;line-height:1.02}
 .ms-aberto{display:inline-flex;align-items:center;gap:10px;margin:20px 22px 6px;padding:10px 18px;border-radius:99px;background:#e3f3e8;color:#1d6b3c;font-size:23px;font-weight:700}
 .ms-aberto::before{content:"";width:12px;height:12px;border-radius:50%;background:#22a355}
 .ms-linha{display:flex;align-items:center;gap:16px;margin:8px 16px 0;padding:14px 14px;border-radius:22px}
@@ -124,9 +104,9 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 #mc-simbolo{position:absolute;left:540px;top:960px;width:250px;height:250px;margin:-125px 0 0 -125px;color:#f1eee9}
 #mc-simbolo .simbolo{width:100%;height:100%}
 #mc-nome{position:absolute;left:50%;translate:-50% 0;width:max-content;top:1120px;text-align:center;font-weight:600;font-size:150px;letter-spacing:-.055em;color:#f1eee9;line-height:1.05}
-#mc-sub{position:absolute;left:0;right:0;top:1310px;text-align:center;font-weight:600;font-size:50px;letter-spacing:-.025em;color:#b9bfc1;opacity:0}
-#mc-linha{position:absolute;left:80px;right:80px;top:560px;text-align:center;font-weight:800;font-size:82px;letter-spacing:-.045em;line-height:1.08;color:#f6f3ee;text-wrap:balance}
-#mc-linha .w{display:inline-block;opacity:0}
+#mc-sub{position:absolute;left:90px;right:90px;top:1310px;text-align:center;font-weight:700;font-size:56px;letter-spacing:-.03em;color:#e6e1da;line-height:1.1;text-wrap:balance}
+#mc-sub .w,#mc-linha .w{display:inline-block;opacity:0}
+#mc-linha{position:absolute;left:80px;right:80px;top:560px;text-align:center;font-weight:800;font-size:84px;letter-spacing:-.045em;line-height:1.08;color:#f6f3ee;text-wrap:balance}
 #mc-linha .tom{color:var(--terracota-clara)}
 #cta-botao{position:absolute;left:540px;top:1060px;translate:-50% 0;display:inline-flex;align-items:center;gap:24px;height:158px;padding:0 64px;border-radius:79px;background:var(--terracota);color:#fff;font-size:68px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 24px 70px rgba(178,81,52,.55);overflow:hidden;opacity:0}
 #cta-botao svg{width:62px;height:62px}
@@ -139,29 +119,20 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 <div class="reels" id="palco">
   <div class="fundo" id="f-ceu"></div>
   <div class="fundo" id="f-quente"></div>
-  <div class="fundo" id="f-lurdes"></div>
   <div id="mundo"></div>
+  <div id="noite"></div>
+  <div id="antigo"></div>
   <div class="poeira" id="poeira"></div>
 
-  <!-- sobre a rua -->
-  <div class="balao esq" id="b-pergunta">Que horas abre a farmácia?</div>
-  <div class="balao vd dir" id="b-resposta"><span id="br-1">8h.</span> <span id="br-2">Domingo, 9h.</span></div>
-  <div id="fichas"></div>
-  <div id="ano"></div>
+  <!-- por cima da rua -->
+  <div id="baloes"></div>
+  <div id="relos"></div>
+  <svg id="pulso" viewBox="-210 -280 420 560"></svg>
+  <div id="placa"><small>ABRE ÀS</small><span class="h"><span id="pl-10">10h</span><span class="risco" id="pl-risco"></span><span class="novo" id="pl-8">8h</span></span></div>
+  <svg id="tv" viewBox="0 0 420 360"></svg>
+  <svg id="casa" viewBox="0 0 900 700"></svg>
   <div id="postal"></div>
-  <svg id="relogio" viewBox="-120 -120 240 240"></svg>
-  <svg id="familia" viewBox="0 0 1080 1920"></svg>
-  <div id="busca"><div class="tela"><div id="bu-barra"></div><svg id="bu-mapa" viewBox="0 0 376 250"></svg><div id="bu-res"></div></div></div>
-  <svg id="passantes" viewBox="0 0 1080 1920"></svg>
-  <svg id="folha" viewBox="-35 -35 70 70"></svg>
-  <div class="balao dir" id="b-jogo">E o jogo de domingo?</div>
-
-  <section class="cena" id="c-lurdes">
-    <svg id="lu-pessoa" viewBox="0 0 1080 1920"></svg>
-    <div id="lu-cartao"></div>
-    <div class="balao esc" id="b-zé" style="left:420px;top:1130px"><small>Chaveiro do Zé</small>Aqui é o chaveiro, senhora.</div>
-    <div class="balao dir" id="b-lurdes" style="left:330px;top:930px">Uma calabresa grande,<br>por favor.</div>
-  </section>
+  <div id="carimbo">'97 &nbsp;3 &nbsp;12</div>
 
   <section class="cena" id="c-sites"></section>
   <section class="cena" id="c-fim"></section>
@@ -198,7 +169,6 @@ function pos(el, { x = 0, y = 0, s = 1, r = 0, o = 1, b = 0 } = {}) {
   el.style.visibility = o <= 0.002 ? "hidden" : "";
 }
 const attr = (el, k, v) => el.setAttribute(k, v);
-const gt = (el, x, y, s = 1, r = 0) => attr(el, "transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${r.toFixed(2)}) scale(${s.toFixed(4)})`);
 // entra: aparece com um pulinho a partir do instante t0
 const entra = (t, t0, d = 0.32) => { const x = fase(t, t0 - 0.04, t0 + d); return { x, s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: x > 0 ? Math.min(1, x * 3) : 0, y: (1 - sai(x)) * 30 }; };
 const limpa = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9-]/g, "");
@@ -210,46 +180,44 @@ function W(id, pal, n = 0) {
 }
 
 // ---------- cenas: cada uma começa na primeira frase dela ----------
-const ORDEM = ["rua", "perguntas", "sabe", "anos", "viagem", "fila", "lurdes", "mudanca", "volta", "ninguem", "sites", "jogo", "marca", "cta"];
+const ORDEM = ["abre", "perguntas", "segredo", "chute", "fila", "ze", "relogio", "viagem", "manha", "ninguem", "sites", "novela", "volta", "corrige", "marca", "cta"];
 const S = {};
 ORDEM.forEach((c, i) => { S[c] = i === 0 ? 0 : frases.find(f => f.cena === c).ini; });
+const I = id => F[id].ini;
 const T = {
-  acacias: W("rua", "acacias"), valdir: W("valdir", "valdir"),
-  que: W("farmacia", "que"), oito: W("farmacia", "oito"), nove: W("farmacia", "nove"),
-  vet: W("sabia", "veterinario"), feira: W("sabia", "feira"), gel: W("sabia", "geladeira"), sabia: W("sabia", "sabia"), cabeca: W("sabia", "cabeca"),
-  ate: W("viagem", "ate"), foi: W("viagem", "foi"), filha: W("viagem", "filha"), praia: W("viagem", "praia"),
-  fila: W("fila", "fila"), abria: W("fila", "abria"), h9: W("fila", "9h"),
-  ligou: W("lurdes", "ligou"), chaveiro: W("lurdes", "chaveiro"), calabresa: W("lurdes", "calabresa"),
-  mudar: W("mudanca", "mudar"), achando: W("mudanca", "achando"), padaria: W("mudanca", "padaria"),
-  voltou: W("nada", "voltou"), sentou: W("espera", "sentou"), esperou: W("espera", "esperou"),
-  ninguem: W("ninguem", "ninguem"), perguntou: W("ninguem", "perguntou"), nadaW: W("ninguem", "nada"),
-  padS: W("sites", "padaria"), horario: W("sites", "horario"), endereco: W("sites", "endereco"), zap: W("sites", "whatsapp"), farmS: W("sites", "farmacia"), chavS: W("sites", "chaveiro"),
-  agora: W("jogo", "agora"), jogo: W("jogo", "jogo"),
-  renderiza: W("marca", "renderiza"), previa: W("cta", "previa"),
+  homem: W("abre", "homem"), q1: I("q1"), r1: I("r1"), q2: I("q2"), r2: I("r2"), q3: I("q3"), r3: I("r3"),
+  nunca: I("nunca"), errou: W("nunca", "errou"), um: W("nunca", "um"), segredo: I("segredo"), todos: I("todos"),
+  alguem97: W("chute", "alguem"), sabia: W("chutou", "sabia"), chutou: W("chutou", "chutou"), oito97: W("chutou", "oito"),
+  fila: W("fila", "fila"), abria: I("abria"), dez: W("abria", "10h"), passou: I("passou"), oito8: W("passou", "8h"),
+  ze: I("ze"), novela97: W("ze", "novela"), acertava: W("relogio", "acertava"), relogioW: W("relogio", "relogio"),
+  ate: W("nada", "ate"), foi: W("nada", "foi"), praia: W("nada", "praia"),
+  farmac: W("manha", "farmaceutico"), padeiro: W("manha", "padeiro"), que3: I("mesmo"), mesmo: W("mesmo", "mesmo"),
+  ninguem: I("ninguem"), fazia: I("fazia"),
+  pela: W("sites", "pela"), loja: W("sites", "loja"), horarioS: W("sites", "horario"), siteW: W("site", "site"), endereco: W("site", "endereco"), zap: W("site", "whatsapp"),
+  fecha: W("novela", "fecha"), tempo: I("tempo"),
+  voltou: W("volta", "voltou"), alguem3: W("volta", "alguem"), oito3: W("disse", "oito"),
+  era: I("era"), sete: I("sete"), seteW: W("sete", "sete"), ta: I("tano"),
+  chuta: W("chuta", "chuta"), renderiza: W("marca", "renderiza"), previa: W("cta", "previa"),
 };
 
 // ---------- ícones (Lucide) e marcas ----------
 const IC = {
   telefone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
-  calendario: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
-  chaveinglesa: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
   chave: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
   relogio: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   mapa: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
-  busca: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
   mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
-  pizza: '<path d="m12 14-1 1"/><path d="m13.75 18.25-1.25 1.42"/><path d="M17.775 5.654a15.68 15.68 0 0 0-12.121 12.12"/><path d="M18.8 9.3a1 1 0 0 0 2.1 7.7"/><path d="M21.964 20.732a1 1 0 0 1-1.232 1.232l-18-5a1 1 0 0 1-.695-1.232A19.68 19.68 0 0 1 15.732 2.037a1 1 0 0 1 1.232.695z"/>',
-  cruz: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+  certo: '<path d="M20 6 9 17l-5-5"/>',
 };
 const ic = (n, extra = "") => `<svg class="i" viewBox="0 0 24 24" ${extra}>${IC[n]}</svg>`;
 const ZAP_B = `<svg viewBox="0 0 24 24" fill="#fff"><path d="${MARCAS.whatsapp.d}"/></svg>`;
 
-// ====================== a rua (um desenho só; a câmera anda por ele) ======================
+// ====================== gente ======================
 const PELE = "#d79d79", PELE2 = "#c4876a";
-// cabeça de gente: olhos, cabelo e (no Seu Valdir) boina e bigode. (cx, cy) = centro da cabeça
+// cabeça: olhos (cada um com id, para piscar), sobrancelhas, cabelo ou chapéu, bigode. (cx, cy) = centro da cabeça
 function cabeca(o, cx, cy, r) {
-  const k = r / 40;
-  let s = `<g id="${o.id || ""}cab">`;
+  const k = r / 40, id = o.id || "";
+  let s = `<g id="${id}cab">`;
   if (o.cabelo === "longo") s += `<rect x="${cx - r * 1.08}" y="${cy - r * 0.9}" width="${r * 2.16}" height="${r * 2.1}" rx="${r}" fill="${o.corCabelo}"/>`;
   s += `<circle cx="${cx - r}" cy="${cy + 2 * k}" r="${8 * k}" fill="${o.pele2 || PELE2}"/><circle cx="${cx + r}" cy="${cy + 2 * k}" r="${8 * k}" fill="${o.pele2 || PELE2}"/>`;
   s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${o.pele || PELE}"/>`;
@@ -257,6 +225,10 @@ function cabeca(o, cx, cy, r) {
     s += `<ellipse cx="${cx - 35 * k}" cy="${cy - 9 * k}" rx="${9 * k}" ry="${13 * k}" fill="#d6d0c6"/><ellipse cx="${cx + 35 * k}" cy="${cy - 9 * k}" rx="${9 * k}" ry="${13 * k}" fill="#d6d0c6"/>`;
     s += `<path d="M${cx - 43 * k} ${cy - 13 * k} Q${cx - 41 * k} ${cy - 50 * k} ${cx} ${cy - 51 * k} Q${cx + 41 * k} ${cy - 50 * k} ${cx + 44 * k} ${cy - 15 * k} Z" fill="#2b3438"/>`;
     s += `<path d="M${cx - 45 * k} ${cy - 14 * k} Q${cx + 8 * k} ${cy - 24 * k} ${cx + 60 * k} ${cy - 10 * k} Q${cx + 12 * k} ${cy - 5 * k} ${cx - 45 * k} ${cy - 7 * k} Z" fill="#1a2023"/>`;
+  } else if (o.chef) {
+    s += `<path d="M${cx - r * 1.03} ${cy - r * 0.05} Q${cx - r * 1.05} ${cy - r * 1.0} ${cx} ${cy - r * 0.98} Q${cx + r * 1.05} ${cy - r * 1.0} ${cx + r * 1.03} ${cy - r * 0.05} Q${cx + r * 0.6} ${cy - r * 0.55} ${cx} ${cy - r * 0.52} Q${cx - r * 0.6} ${cy - r * 0.55} ${cx - r * 1.03} ${cy - r * 0.05} Z" fill="${o.corCabelo}"/>`;
+    s += `<rect x="${cx - r * 0.82}" y="${cy - r * 1.22}" width="${r * 1.64}" height="${r * 0.42}" rx="${4 * k}" fill="#f6f3ee"/>`;
+    s += `<circle cx="${cx - r * 0.5}" cy="${cy - r * 1.45}" r="${r * 0.5}" fill="#f6f3ee"/><circle cx="${cx + r * 0.5}" cy="${cy - r * 1.45}" r="${r * 0.5}" fill="#f6f3ee"/><circle cx="${cx}" cy="${cy - r * 1.7}" r="${r * 0.6}" fill="#f6f3ee"/>`;
   } else if (o.cabelo === "curto" || o.cabelo === "longo") {
     s += `<path d="M${cx - r * 1.03} ${cy - r * 0.05} Q${cx - r * 1.05} ${cy - r * 1.12} ${cx} ${cy - r * 1.1} Q${cx + r * 1.05} ${cy - r * 1.12} ${cx + r * 1.03} ${cy - r * 0.05} Q${cx + r * 0.6} ${cy - r * 0.62} ${cx} ${cy - r * 0.6} Q${cx - r * 0.6} ${cy - r * 0.62} ${cx - r * 1.03} ${cy - r * 0.05} Z" fill="${o.corCabelo}"/>`;
   } else if (o.cabelo === "coque") {
@@ -266,13 +238,15 @@ function cabeca(o, cx, cy, r) {
     s += `<path d="M${cx - r * 1.02} ${cy - r * 0.2} Q${cx - r} ${cy - r * 1.15} ${cx} ${cy - r * 1.12} Q${cx + r} ${cy - r * 1.15} ${cx + r * 1.02} ${cy - r * 0.25} Z" fill="${o.corCabelo}"/><path d="M${cx - r * 0.2} ${cy - r * 0.32} Q${cx + r * 0.9} ${cy - r * 0.45} ${cx + r * 1.55} ${cy - r * 0.18} Q${cx + r} ${cy - r * 0.08} ${cx - r * 0.2} ${cy - r * 0.18} Z" fill="${o.corCabelo}"/>`;
   }
   const ey = cy - 2 * k;
-  s += `<g id="${o.id || ""}sob" fill="${o.boina ? "#bdb7ad" : "#3a2f2a"}" opacity="${o.boina ? 1 : 0}"><rect x="${cx - 24 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/><rect x="${cx + 8 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/></g>`;
-  s += `<g id="${o.id || ""}olhos" fill="#1e2528"><circle cx="${cx - 15 * k}" cy="${ey}" r="${4.6 * k}"/><circle cx="${cx + 15 * k}" cy="${ey}" r="${4.6 * k}"/></g>`;
+  s += `<g id="${id}sob" fill="${o.corSob || (o.boina ? "#bdb7ad" : "#3a2f2a")}"><rect id="${id}sE" x="${cx - 24 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/><rect id="${id}sD" x="${cx + 8 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/></g>`;
+  s += `<g id="${id}olhos" fill="#1e2528"><circle id="${id}oE" cx="${cx - 15 * k}" cy="${ey}" r="${4.6 * k}"/><circle id="${id}oD" cx="${cx + 15 * k}" cy="${ey}" r="${4.6 * k}"/></g>`;
   if (o.oculos) s += `<g fill="none" stroke="#1e2528" stroke-width="${2.6 * k}"><circle cx="${cx - 15 * k}" cy="${ey}" r="${11 * k}"/><circle cx="${cx + 15 * k}" cy="${ey}" r="${11 * k}"/><path d="M${cx - 4 * k} ${ey} h${8 * k}"/></g>`;
   s += `<ellipse cx="${cx}" cy="${cy + 12 * k}" rx="${7 * k}" ry="${9 * k}" fill="${o.pele2 || PELE2}"/>`;
-  if (o.bigode) s += `<path d="M${cx - 26 * k} ${cy + 26 * k} Q${cx - 14 * k} ${cy + 16 * k} ${cx} ${cy + 23 * k} Q${cx + 14 * k} ${cy + 16 * k} ${cx + 26 * k} ${cy + 26 * k} Q${cx + 24 * k} ${cy + 34 * k} ${cx + 12 * k} ${cy + 32 * k} Q${cx + 4 * k} ${cy + 30 * k} ${cx} ${cy + 32 * k} Q${cx - 4 * k} ${cy + 30 * k} ${cx - 12 * k} ${cy + 32 * k} Q${cx - 24 * k} ${cy + 34 * k} ${cx - 26 * k} ${cy + 26 * k} Z" fill="#e6e1d9"/>`;
-  s += `<path id="${o.id || ""}sorriso" d="M${cx - 11 * k} ${cy + 38 * k} Q${cx} ${cy + 46 * k} ${cx + 11 * k} ${cy + 38 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" fill="none" stroke-linecap="round" opacity="${o.sorri ? 1 : 0}"/>`;
-  if (o.escuros) s += `<g id="${o.id || ""}escuros"><rect x="${cx - 29 * k}" y="${ey - 9 * k}" width="${24 * k}" height="${16 * k}" rx="${6 * k}" fill="#101415"/><rect x="${cx + 5 * k}" y="${ey - 9 * k}" width="${24 * k}" height="${16 * k}" rx="${6 * k}" fill="#101415"/><rect x="${cx - 6 * k}" y="${ey - 4 * k}" width="${12 * k}" height="${3 * k}" fill="#101415"/></g>`;
+  if (o.bigode) s += `<path id="${id}bigode" d="M${cx - 26 * k} ${cy + 26 * k} Q${cx - 14 * k} ${cy + 16 * k} ${cx} ${cy + 23 * k} Q${cx + 14 * k} ${cy + 16 * k} ${cx + 26 * k} ${cy + 26 * k} Q${cx + 24 * k} ${cy + 34 * k} ${cx + 12 * k} ${cy + 32 * k} Q${cx + 4 * k} ${cy + 30 * k} ${cx} ${cy + 32 * k} Q${cx - 4 * k} ${cy + 30 * k} ${cx - 12 * k} ${cy + 32 * k} Q${cx - 24 * k} ${cy + 34 * k} ${cx - 26 * k} ${cy + 26 * k} Z" fill="${o.corBigode || "#e6e1d9"}"/>`;
+  s += `<path id="${id}sorriso" d="M${cx - 11 * k} ${cy + 38 * k} Q${cx} ${cy + 46 * k} ${cx + 11 * k} ${cy + 38 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" fill="none" stroke-linecap="round" opacity="${o.sorri ? 1 : 0}"/>`;
+  s += `<path id="${id}triste" d="M${cx - 10 * k} ${cy + 43 * k} Q${cx} ${cy + 36 * k} ${cx + 10 * k} ${cy + 43 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" fill="none" stroke-linecap="round" opacity="0"/>`;
+  s += `<ellipse id="${id}boca" cx="${cx}" cy="${cy + 41 * k}" rx="${5 * k}" ry="${6.5 * k}" fill="#5a2a20" opacity="0"/>`;
+  if (o.escuros) s += `<g id="${id}escuros"><rect x="${cx - 29 * k}" y="${ey - 9 * k}" width="${24 * k}" height="${16 * k}" rx="${6 * k}" fill="#101415"/><rect x="${cx + 5 * k}" y="${ey - 9 * k}" width="${24 * k}" height="${16 * k}" rx="${6 * k}" fill="#101415"/><rect x="${cx - 6 * k}" y="${ey - 4 * k}" width="${12 * k}" height="${3 * k}" fill="#101415"/></g>`;
   return s + "</g>";
 }
 // sentado num banco: origem no assento, os pés em y = 76
@@ -298,17 +272,21 @@ function dePe(o) {
   s += `<g id="${o.id}p1"><rect x="-29" y="-150" width="26" height="146" rx="11" fill="${o.calca}"/><ellipse cx="-18" cy="-4" rx="21" ry="9" fill="#141819"/></g>`;
   s += `<g id="${o.id}p2"><rect x="3" y="-150" width="26" height="146" rx="11" fill="${o.calca}"/><ellipse cx="18" cy="-4" rx="21" ry="9" fill="#141819"/></g>`;
   s += `<path d="M-50 -140 L-46 -262 Q-44 -288 -20 -290 L20 -290 Q44 -288 46 -262 L50 -140 Z" fill="${o.roupa}"/>`;
+  if (o.jaleco) s += `<path d="M-50 -140 L-46 -262 Q-44 -288 -20 -290 L20 -290 Q44 -288 46 -262 L50 -140 Z" fill="#f6f3ee"/><path d="M-16 -290 L0 -236 L16 -290 Z" fill="${o.roupa}"/><path d="M0 -236 V-140" stroke="#d6d0c6" stroke-width="3"/><rect x="18" y="-250" width="20" height="5" rx="2" fill="#2f4a6b"/>`;
+  if (o.avental) s += `<path d="M-34 -240 H34 L38 -130 H-38 Z" fill="#f6f3ee"/><path d="M-34 -240 Q0 -262 34 -240" stroke="#f6f3ee" stroke-width="6" fill="none"/>`;
   if (o.gola) s += `<path d="M-16 -290 L0 -250 L16 -290 Z" fill="${o.gola}"/><g fill="${o.gola}" opacity=".8"><circle cx="0" cy="-232" r="3.6"/><circle cx="0" cy="-206" r="3.6"/><circle cx="0" cy="-180" r="3.6"/></g>`;
-  s += `<path d="M-47 -272 Q-62 -210 -54 -150" stroke="${o.braco || o.roupa}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
-  if (o.mala) s += `<path d="M47 -272 Q62 -214 66 -156" stroke="${o.braco || o.roupa}" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M52 -150 v-16 q0-8 8-8 h20 q8 0 8 8 v16" stroke="#3a2a22" stroke-width="7" fill="none"/><rect x="34" y="-150" width="74" height="104" rx="12" fill="#b25134"/><rect x="34" y="-112" width="74" height="9" fill="#8f3f28"/><circle cx="66" cy="-142" r="13" fill="${o.pele || PELE}"/>`;
-  else if (o.celular) s += `<path d="M47 -272 Q70 -222 30 -206" stroke="${o.braco || o.roupa}" stroke-width="24" stroke-linecap="round" fill="none"/><rect x="6" y="-238" width="30" height="50" rx="6" fill="#111"/><rect x="9" y="-234" width="24" height="40" rx="3" fill="#9cc6e0" opacity=".9"/><circle cx="26" cy="-204" r="12" fill="${o.pele || PELE}"/>`;
-  else s += `<path d="M47 -272 Q62 -210 54 -150" stroke="${o.braco || o.roupa}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
+  const braco = o.jaleco ? "#f6f3ee" : (o.braco || o.roupa);
+  s += `<path d="M-47 -272 Q-62 -210 -54 -150" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
+  if (o.mala) s += `<path d="M47 -272 Q62 -214 66 -156" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M52 -150 v-16 q0-8 8-8 h20 q8 0 8 8 v16" stroke="#3a2a22" stroke-width="7" fill="none"/><rect x="34" y="-150" width="74" height="104" rx="12" fill="#b25134"/><rect x="34" y="-112" width="74" height="9" fill="#8f3f28"/><circle cx="66" cy="-142" r="13" fill="${o.pele || PELE}"/>`;
+  else if (o.celular) s += `<path d="M47 -272 Q70 -222 30 -206" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><rect x="6" y="-238" width="30" height="50" rx="6" fill="#111"/><rect x="9" y="-234" width="24" height="40" rx="3" fill="#9cc6e0" opacity=".9"/><circle cx="26" cy="-204" r="12" fill="${o.pele || PELE}"/>`;
+  else s += `<path d="M47 -272 Q62 -210 54 -150" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
   s += `<circle cx="-54" cy="-146" r="12" fill="${o.pele || PELE}"/>${o.mala || o.celular ? "" : `<circle cx="54" cy="-146" r="12" fill="${o.pele || PELE}"/>`}`;
   s += `<rect x="-11" y="-306" width="22" height="20" fill="${o.pele2 || PELE2}"/>`;
   s += cabeca(o, 0, -346, 40);
   return s + "</g>";
 }
 
+// ====================== a rua (um desenho só; a câmera anda por ele) ======================
 const LOJAS = [
   { nome: "Padaria Acácia", alto: "#ddd1c1", cortina: "#b25134", ano: "1958", fachada: "#e8dfd3", cornija: "#c9bba8", placa: "#1e2528", letra: "#f1eee9", t1: "#b25134", t2: "#f1eee9", moldura: "#6b4a3a", fs: 29,
     vitrine: (x, y) => `<g fill="#c98a4b"><ellipse cx="${x - 30}" cy="${y + 40}" rx="26" ry="15"/><ellipse cx="${x + 26}" cy="${y + 40}" rx="26" ry="15"/><ellipse cx="${x}" cy="${y + 14}" rx="30" ry="15"/></g><g stroke="#a86a35" stroke-width="3" fill="none"><path d="M${x - 40} ${y + 36}l8-8M${x - 28} ${y + 38}l8-8M${x + 16} ${y + 36}l8-8M${x + 28} ${y + 38}l8-8M${x - 10} ${y + 10}l8-8M${x + 2} ${y + 12}l8-8"/></g><rect x="${x - 58}" y="${y + 54}" width="116" height="6" fill="#8a5a3c"/>` },
@@ -347,15 +325,19 @@ function loja(i, L) {
   s += `<rect x="${x + 24}" y="${y0 + 214}" width="142" height="164" rx="6" fill="${L.moldura}"/><rect x="${x + 32}" y="${y0 + 222}" width="126" height="148" rx="3" fill="#f2c98e"/>`;
   s += `<rect x="${x + 32}" y="${y0 + 222}" width="126" height="148" rx="3" fill="url(#vidro)"/>` + L.vitrine(x + 95, y0 + 280);
   s += `<rect x="${x + 186}" y="${y0 + 206}" width="92" height="224" rx="4" fill="${L.moldura}"/><rect x="${x + 196}" y="${y0 + 218}" width="72" height="116" rx="3" fill="#f2c98e" opacity=".85"/><circle cx="${x + 260}" cy="${y0 + 344}" r="5" fill="#d9b26a"/>`;
+  // a dúvida (cena "Ninguém sabia")
+  s += `<g id="duvida${i}" opacity="0"><circle cx="${x + 150}" cy="${y0 - 70}" r="46" fill="#f1eee9"/><text x="${x + 150}" y="${y0 - 48}" text-anchor="middle" font-family="Geist" font-weight="800" font-size="64" fill="#b25134">?</text></g>`;
   return s + "</g>";
 }
+const VALDIR = { boina: true, bigode: true, roupa: "#7a4433", braco: "#6c3b2d", gola: "#e8dfd3", calca: "#2b3438", escuros: true };
+const ZE = { cabelo: "bone", corCabelo: "#2f4a6b", bigode: true, corBigode: "#3a2a22", roupa: "#5a4a3c", braco: "#4d3f33", calca: "#2b3438", pele: "#b07a56", pele2: "#9a6646" };
 function montarMundo() {
   let s = `<svg viewBox="0 0 1600 2600" width="1600" height="2600"><defs>
     <linearGradient id="vidro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
     <radialGradient id="poste-luz"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".55"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
     <pattern id="pgrade" width="10" height="13" patternUnits="userSpaceOnUse"><rect width="10" height="13" fill="#7d878b"/><rect y="10" width="10" height="3" fill="#5f686c"/></pattern>
     <pattern id="calcada" width="180" height="76" patternUnits="userSpaceOnUse"><rect width="180" height="76" fill="#3c454a"/><path d="M0 38 Q45 4 90 38 T180 38" stroke="#2c3438" stroke-width="15" fill="none"/></pattern>
-    <radialGradient id="brilho-placa"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient></defs>`;
+    <radialGradient id="luz-porta"><stop offset="0" stop-color="#ffcf8a" stop-opacity=".8"/><stop offset="1" stop-color="#ffcf8a" stop-opacity="0"/></radialGradient></defs>`;
   // prédios ao fundo
   const P = [[-20, 400, 200], [170, 330, 150], [310, 440, 200], [500, 370, 170], [660, 300, 150], [800, 410, 220], [1010, 350, 170], [1170, 430, 190], [1350, 360, 150], [1490, 420, 160]];
   for (const [x, y, w] of P) {
@@ -363,10 +345,9 @@ function montarMundo() {
     for (let r = y + 34; r < 500; r += 54) for (let c = x + 22; c < x + w - 30; c += 44) if (h(r * 7 + c, 3) > 0.55) s += `<rect x="${c}" y="${r}" width="16" height="24" rx="2" fill="#e8855e" opacity="${(0.18 + h(r + c, 9) * 0.35).toFixed(2)}"/>`;
   }
   LOJAS.forEach((L, i) => { s += loja(i, L); });
-  // brilho na placa da padaria (cena da família)
-  s += `<ellipse id="padaria-brilho" cx="200" cy="934" rx="260" ry="130" fill="url(#brilho-placa)" opacity="0"/>`;
-  // porta de aço da farmácia (fechada no domingo de manhã)
-  s += `<g id="grade"><rect id="grade-r" x="536" y="1076" width="92" height="224" fill="url(#pgrade)"/><g id="grade-placa"><rect x="546" y="1160" width="72" height="44" rx="6" fill="#f1eee9"/><text x="582" y="1180" text-anchor="middle" font-family="Geist" font-weight="700" font-size="15" fill="#1e2528">DOMINGO</text><text x="582" y="1198" text-anchor="middle" font-family="Geist" font-weight="800" font-size="17" fill="#b25134">9h</text></g></g>`;
+  // a luz da porta do chaveiro, à noite, e a porta de aço que desce às 20h30
+  s += `<ellipse id="luz-ze" cx="1182" cy="1250" rx="230" ry="190" fill="url(#luz-porta)" opacity="0"/>`;
+  s += `<rect id="grade-ze" x="1136" y="1076" width="92" height="0" fill="url(#pgrade)"/>`;
   // calçada, meio-fio e rua
   s += `<rect x="0" y="1300" width="1600" height="300" fill="url(#calcada)"/><rect x="0" y="1300" width="1600" height="6" fill="#485257"/><rect x="0" y="1306" width="1600" height="60" fill="#000" opacity=".12"/>`;
   s += `<rect x="0" y="1596" width="1600" height="18" fill="#58636a"/><rect x="0" y="1614" width="1600" height="986" fill="#1d2427"/>`;
@@ -381,48 +362,79 @@ function montarMundo() {
   for (let i = 0; i < 70; i++) { const a = h(i, 1) * 6.283, r = Math.sqrt(h(i, 2)) * 1, cx = 970 + Math.cos(a) * 125 * r, cy = 795 + Math.sin(a) * 70 * r; s += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(5 + h(i, 4) * 6).toFixed(1)}" fill="${h(i, 5) > 0.5 ? "#e9c46a" : "#f1d38f"}"/>`; }
   s += `</g>`;
   // placa da rua
-  s += `<g id="placa-rua"><rect x="596" y="1050" width="9" height="366" fill="#262c2f"/><rect x="486" y="1040" width="230" height="64" rx="8" fill="#2f4a6b"/><rect x="492" y="1046" width="218" height="52" rx="5" fill="none" stroke="#f1eee9" stroke-width="2" opacity=".7"/><text x="601" y="1082" text-anchor="middle" font-family="Geist" font-weight="700" font-size="29" fill="#f1eee9">R. das Acácias</text></g>`;
+  s += `<g id="placa-rua" transform="translate(760 0)"><rect x="596" y="1050" width="9" height="366" fill="#262c2f"/><rect x="486" y="1040" width="230" height="64" rx="8" fill="#2f4a6b"/><rect x="492" y="1046" width="218" height="52" rx="5" fill="none" stroke="#f1eee9" stroke-width="2" opacity=".7"/><text x="601" y="1082" text-anchor="middle" font-family="Geist" font-weight="700" font-size="29" fill="#f1eee9">R. das Acácias</text></g>`;
   // banco
   s += `<g id="banco"><rect x="712" y="1228" width="10" height="100" fill="#262c2f"/><rect x="898" y="1228" width="10" height="100" fill="#262c2f"/><rect x="700" y="1236" width="220" height="15" rx="4" fill="#a86f4a"/><rect x="700" y="1260" width="220" height="15" rx="4" fill="#a86f4a"/>`;
   s += `<rect x="690" y="1316" width="240" height="17" rx="4" fill="#8a5a3c"/><rect x="690" y="1329" width="240" height="7" fill="#6e4630"/><rect x="708" y="1334" width="10" height="66" fill="#262c2f"/><rect x="902" y="1334" width="10" height="66" fill="#262c2f"/></g>`;
-  // gente
   s += `<g id="mala-banco" opacity="0"><path d="M955 1328 v-16 q0-8 8-8 h20 q8 0 8 8 v16" stroke="#3a2a22" stroke-width="7" fill="none"/><rect x="938" y="1326" width="74" height="74" rx="12" fill="#b25134"/><rect x="938" y="1352" width="74" height="9" fill="#8f3f28"/></g>`;
   s += `<g id="jornal-banco" opacity="0"><rect x="820" y="1302" width="90" height="16" rx="3" fill="#f1eee9"/><rect x="826" y="1306" width="60" height="3" fill="#bdb4a6"/></g>`;
+  // gente
   s += `<g id="fila"></g>`;
-  s += `<g transform="translate(775 1320)">${sentado({ id: "vs", boina: true, bigode: true, jornal: true, roupa: "#7a4433", braco: "#6c3b2d", gola: "#e8dfd3", calca: "#2b3438", calca2: "#323c41", escuros: true })}</g>`;
-  s += `<g transform="translate(884 1320)">${sentado({ id: "vz", cabelo: "curto", corCabelo: "#2a211c", roupa: "#2f4a6b", braco: "#294260", calca: "#5b5048", pele: "#a86f4f", pele2: "#94603f", sorri: true })}</g>`;
-  s += `<g id="ve-pos">${dePe({ id: "ve", boina: true, bigode: true, mala: true, roupa: "#7a4433", braco: "#6c3b2d", gola: "#e8dfd3", calca: "#2b3438", escuros: true })}</g>`;
+  s += `<g transform="translate(775 1320)">${sentado({ id: "vs", ...VALDIR, jornal: true, calca2: "#323c41" })}</g>`;
+  s += `<g id="ve-pos">${dePe({ id: "ve", ...VALDIR, mala: true })}</g>`;
+  s += `<g id="p97-pos">${dePe({ id: "p97", cabelo: "longo", corCabelo: "#3a2a20", roupa: "#2f4a6b", calca: "#5b6467", pele: "#e0b08f" })}</g>`;
+  s += `<g id="fc-pos">${dePe({ id: "fc", jaleco: true, roupa: "#9cc6e0", calca: "#2b3438", cabelo: "curto", corCabelo: "#8d8780", oculos: true, pele: "#e3b593" })}</g>`;
+  s += `<g id="pd-pos">${dePe({ id: "pd", chef: true, corCabelo: "#3a2a20", roupa: "#e8dfd3", avental: true, calca: "#5b5048", pele: "#c98f6c", bigode: true, corBigode: "#3a2a22" })}</g>`;
+  s += `<g id="ze-pos">${dePe({ id: "ze", ...ZE })}</g>`;
+  s += `<g id="mo-pos">${dePe({ id: "mo", cabelo: "longo", corCabelo: "#4a2a1a", roupa: "#e8855e", calca: "#2f4a6b", celular: true, pele: "#c98f6c", pele2: "#b07a56" })}</g>`;
   return s + "</svg>";
 }
 $("#mundo").innerHTML = montarMundo();
-const VS = $("#vs"), VZ = $("#vz"), VE = $("#ve-pos");
+const VS = $("#vs"), VE = $("#ve-pos");
 
-// a fila da farmácia: seis pessoas, a primeira na porta
+// a fila da farmácia em 1997: seis pessoas, a primeira na porta
 const FILA = [
-  { pele: "#e0b08f", roupa: "#e8855e", calca: "#2b3438", cabelo: "longo", corCabelo: "#3a2a20", x: 512, s: 0.96 },
-  { pele: "#8d5a3b", pele2: "#7a4c31", roupa: "#f1eee9", calca: "#5b6467", cabelo: "curto", corCabelo: "#1a1412", x: 448, s: 1.04 },
-  { pele: "#d79d79", roupa: "#2f4a6b", calca: "#c9bba8", cabelo: "bone", corCabelo: "#b25134", x: 388, s: 1.0 },
-  { pele: "#f0c8a8", roupa: "#9cb39f", calca: "#2b3438", cabelo: "coque", corCabelo: "#cfcac2", x: 328, s: 0.92, oculos: true },
-  { pele: "#b07a56", pele2: "#9a6646", roupa: "#d9cbb8", calca: "#1e2528", cabelo: "curto", corCabelo: "#2a211c", x: 266, s: 1.06 },
-  { pele: "#e6b896", roupa: "#b25134", calca: "#384146", cabelo: "longo", corCabelo: "#6b3a22", x: 206, s: 0.95 },
+  { pele: "#e0b08f", roupa: "#e8855e", calca: "#2b3438", cabelo: "longo", corCabelo: "#3a2a20", x: 520, s: 0.96 },
+  { pele: "#8d5a3b", pele2: "#7a4c31", roupa: "#f1eee9", calca: "#5b6467", cabelo: "curto", corCabelo: "#1a1412", x: 442, s: 1.04 },
+  { pele: "#d79d79", roupa: "#2f4a6b", calca: "#c9bba8", cabelo: "bone", corCabelo: "#b25134", x: 364, s: 1.0 },
+  { pele: "#f0c8a8", roupa: "#9cb39f", calca: "#2b3438", cabelo: "coque", corCabelo: "#cfcac2", x: 286, s: 0.92, oculos: true },
+  { pele: "#b07a56", pele2: "#9a6646", roupa: "#d9cbb8", calca: "#1e2528", cabelo: "curto", corCabelo: "#2a211c", x: 208, s: 1.06 },
+  { pele: "#e6b896", roupa: "#b25134", calca: "#384146", cabelo: "longo", corCabelo: "#6b3a22", x: 130, s: 0.95 },
 ];
 $("#fila").innerHTML = FILA.map((p, i) => `<g id="fl${i}" opacity="0">${dePe({ id: "fp" + i, ...p })}</g>`).join("");
 
-// ---------- por cima da rua ----------
-// fichas da cabeça: três grandes, nas palavras, e três pequenas em "cabeça"
-const FICHAS = [
-  { ic: "telefone", b: "Veterinário", s: "o telefone", t: () => T.vet },
-  { ic: "calendario", b: "Feira", s: "toda quarta", t: () => T.feira },
-  { ic: "chaveinglesa", b: "Geladeira", s: "o Seu Tonho", t: () => T.gel },
-  { ic: "pizza", b: "Pizzaria", mini: true, t: () => T.cabeca - 0.12 },
-  { ic: "chave", b: "Chaveiro", mini: true, t: () => T.cabeca },
-  { ic: "cruz", b: "Farmácia", mini: true, t: () => T.cabeca + 0.12 },
-];
-$("#fichas").innerHTML = FICHAS.map((f, i) => `<div class="ficha${f.mini ? " mini" : ""}" id="fc${i}"><i>${ic(f.ic)}</i><div><b>${f.b}</b>${f.s ? `<small>${f.s}</small>` : ""}</div></div>`).join("");
-const FC = FICHAS.map((f, i) => ({ ...f, el: $("#fc" + i) }));
+// ---------- balões ----------
+const BAL = {
+  q1: ["esq", "Que horas abre a farmácia?"], a1: ["vd esq", "8h"], q2: ["esq", "E a padaria?"], a2: ["vd esq", "6h"], q3: ["esq", "E o chaveiro?"], a3: ["vd esq", "Até as 9h"],
+  p97: ["dir", "Que horas abre<br>a farmácia?"], hmm: ["esc esq", "…"], c97: ["vd esq", "8h"],
+  fc: ["dir", "Que horas a gente<br>abre mesmo?"], pd: ["esc esq", "?"],
+  mo: ["dir", "Que horas abre<br>a farmácia?"], v8: ["vd esq", "8h"], era: ["dir", "Era, Seu Valdir."],
+};
+$("#baloes").innerHTML = Object.entries(BAL).map(([k, [c, t]]) => `<div class="balao ${c}" id="b-${k}"><span class="txt">${t}</span>${/^a\d$/.test(k) ? `<span class="ok">${ic("certo")}</span>` : ""}</div>`).join("");
+const B = Object.fromEntries(Object.keys(BAL).map(k => [k, $("#b-" + k)]));
 
-// o contador dos anos (1997 a 2025)
-$("#ano").innerHTML = [0, 1, 2, 3].map(i => `<span class="d" id="an${i}"><span></span><span></span></span>`).join("");
+// ---------- relógios ----------
+const mostrador = r => `<circle r="${r}" fill="#fbf8f3"/><circle r="${r}" fill="none" stroke="#1e2528" stroke-width="${r * 0.09}"/>
+  ${Array.from({ length: 12 }, (_, i) => `<rect x="${-r * 0.03}" y="${-r * 0.88}" width="${r * 0.06}" height="${r * (i % 3 ? 0.1 : 0.18)}" rx="${r * 0.03}" fill="#1e2528" transform="rotate(${i * 30})"/>`).join("")}
+  <rect class="ph" x="${-r * 0.055}" y="${-r * 0.5}" width="${r * 0.11}" height="${r * 0.58}" rx="${r * 0.055}" fill="#1e2528"/><rect class="pm" x="${-r * 0.035}" y="${-r * 0.78}" width="${r * 0.07}" height="${r * 0.86}" rx="${r * 0.035}" fill="#b25134"/><circle r="${r * 0.08}" fill="#1e2528"/>`;
+const RELOS = [["Padaria", 7, 10], ["Farmácia", 9, 45], ["Chaveiro", 10, 20]];
+$("#relos").innerHTML = RELOS.map(([n], i) => `<div class="relo" id="rl${i}"><svg viewBox="-60 -60 120 120">${mostrador(56)}</svg><b>${n}</b></div>`).join("")
+  + `<div class="relo" id="rlz"><svg viewBox="-60 -60 120 120">${mostrador(56)}</svg><b id="rlz-b">21h</b></div>`;
+const RL = RELOS.map((r, i) => ({ el: $("#rl" + i), h0: r[1], m0: r[2] }));
+function hora(svg, hh, mm) { // ponteiros em hh:mm (mm pode passar de 60)
+  const tot = hh * 60 + mm;
+  $(".ph", svg).setAttribute("transform", `rotate(${((tot / 60) % 12 * 30).toFixed(2)})`);
+  $(".pm", svg).setAttribute("transform", `rotate(${(tot % 60 * 6).toFixed(2)})`);
+}
+// o relógio de pulso do Seu Valdir
+$("#pulso").innerHTML = `<rect x="-62" y="-280" width="124" height="560" rx="30" fill="#8f3f28"/><g fill="#7a3420">${[-230, -200, 200, 230].map(y => `<rect x="-62" y="${y}" width="124" height="6"/>`).join("")}</g>
+  <circle r="168" fill="#c9bba8"/><circle r="152" fill="#e8dfd3"/><g transform="scale(2.4)">${mostrador(58)}</g><rect x="160" y="-18" width="26" height="36" rx="6" fill="#c9bba8"/>`;
+hora($("#pulso"), 8, 0);
+// a placa da farmácia, a TV de 1997 e a casa do Zé
+$("#tv").innerHTML = `<path d="M150 40 L120 0 M270 40 L300 0" stroke="#1e2528" stroke-width="8" stroke-linecap="round"/><rect x="10" y="36" width="400" height="300" rx="46" fill="#3a2f2a"/><rect x="34" y="60" width="290" height="250" rx="40" fill="#0d1112"/>
+  <g id="tv-tela"><clipPath id="tv-c"><rect x="44" y="70" width="270" height="230" rx="34"/></clipPath><g clip-path="url(#tv-c)"><rect x="44" y="70" width="270" height="230" fill="url(#tv-g)"/>
+  <defs><linearGradient id="tv-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6c48c"/><stop offset="1" stop-color="#b25134"/></linearGradient></defs>
+  <circle cx="179" cy="250" r="70" fill="#fff1d6" opacity=".8"/><g fill="#2a1a14"><circle cx="138" cy="190" r="26"/><path d="M98 300 Q100 222 138 222 Q176 222 178 300Z"/><circle cx="222" cy="194" r="24"/><path d="M184 300 Q186 228 222 228 Q258 228 260 300Z"/></g>
+  <path id="tv-coracao" d="M180 160 c-10 -16 -34 -10 -30 8 c3 12 30 28 30 28 c0 0 27 -16 30 -28 c4 -18 -20 -24 -30 -8z" fill="#fff"/></g></g>
+  <g fill="#5a4a3c"><circle cx="366" cy="110" r="18"/><circle cx="366" cy="160" r="18"/></g><g fill="#2b2420">${[0, 1, 2, 3, 4].map(k => `<rect x="346" y="${200 + k * 18}" width="40" height="6" rx="3"/>`).join("")}</g>`;
+$("#casa").innerHTML = `<rect width="900" height="700" fill="#24292c"/><rect width="900" height="700" fill="url(#casa-tv)"/>
+  <defs><radialGradient id="casa-tv" cx="140" cy="520" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7fb2d6" stop-opacity=".35"/><stop offset="1" stop-color="#7fb2d6" stop-opacity="0"/></radialGradient></defs>
+  <rect x="0" y="560" width="900" height="140" fill="#1a1e20"/>
+  <g transform="translate(700 140)"><svg x="-70" y="-70" width="140" height="140" viewBox="-60 -60 120 120" id="casa-relo">${mostrador(56)}</svg></g>
+  <rect x="300" y="380" width="460" height="150" rx="40" fill="#b25134"/><rect x="290" y="300" width="480" height="120" rx="50" fill="#a04830"/><rect x="270" y="380" width="70" height="170" rx="30" fill="#8f3f28"/><rect x="720" y="380" width="70" height="170" rx="30" fill="#8f3f28"/>
+  <g transform="translate(530 470) scale(1.35)">${sentado({ id: "zc", ...ZE, sorri: true })}</g>
+  <g transform="translate(30 560)"><rect x="0" y="-20" width="230" height="170" rx="26" fill="#121516"/><rect x="0" y="-20" width="230" height="170" rx="26" fill="none" stroke="#7fb2d6" stroke-opacity=".5" stroke-width="3"/></g>`;
+hora($("#casa-relo"), 20, 59);
 // o cartão-postal
 $("#postal").innerHTML = `<svg viewBox="0 0 624 404"><defs><linearGradient id="pc-ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6c48c"/><stop offset="1" stop-color="#ee9a6a"/></linearGradient></defs>
   <rect width="624" height="404" fill="url(#pc-ceu)"/><circle cx="430" cy="196" r="70" fill="#fff1d6"/>
@@ -430,37 +442,11 @@ $("#postal").innerHTML = `<svg viewBox="0 0 624 404"><defs><linearGradient id="p
   <path d="M0 318 Q160 296 320 314 T640 304 V404 H0Z" fill="#f1d38f"/>
   <g stroke="#fff" stroke-width="4" opacity=".55" fill="none"><path d="M60 250 q20 -8 40 0M250 262 q20 -8 40 0M470 252 q20 -8 40 0"/></g>
   <path d="M92 318 L104 214" stroke="#6b4a3a" stroke-width="9" stroke-linecap="round"/><path d="M104 214 q-40 -6 -60 18 M104 214 q-10 -36 -42 -40 M104 214 q30 -28 64 -20 M104 214 q40 0 52 30" stroke="#3f6b4c" stroke-width="12" fill="none" stroke-linecap="round"/>
-  <text x="36" y="86" font-family="Fraunces" font-style="italic" font-weight="600" font-size="62" fill="#fff" style="text-shadow:0 2px 8px rgba(0,0,0,.25)">Lembranças</text>
+  <text x="36" y="86" font-family="Fraunces" font-style="italic" font-weight="600" font-size="62" fill="#fff">Lembranças</text>
   <text x="36" y="140" font-family="Fraunces" font-style="italic" font-weight="500" font-size="42" fill="#fff">da praia</text>
   <rect x="520" y="22" width="80" height="96" rx="4" fill="#fbf7f0" stroke="#b25134" stroke-width="3" stroke-dasharray="6 5"/><circle cx="560" cy="66" r="22" fill="#e8855e"/></svg>`;
-// o relógio da farmácia (8h → 9h)
-$("#relogio").innerHTML = `<circle r="112" fill="#f1eee9"/><circle r="112" fill="none" stroke="#1e2528" stroke-width="10"/>
-  ${Array.from({ length: 12 }, (_, i) => `<rect x="-3" y="-100" width="6" height="${i % 3 ? 12 : 20}" rx="3" fill="#1e2528" transform="rotate(${i * 30})"/>`).join("")}
-  <rect id="rl-h" x="-6" y="-58" width="12" height="66" rx="6" fill="#1e2528"/><rect id="rl-m" x="-4" y="-88" width="8" height="96" rx="4" fill="#b25134"/><circle r="9" fill="#1e2528"/>`;
-// a família que acabou de se mudar (por cima da rua, mais perto da câmera)
-const caixa = (x, y, w, hh, txt) => `<g><rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="6" fill="#c8a06e"/><rect x="${x}" y="${y}" width="${w}" height="${hh * 0.16}" fill="#b48b5a"/><rect x="${x + w / 2 - 14}" y="${y}" width="28" height="${hh}" fill="#d9b98a" opacity=".7"/>${txt ? `<text x="${x + w / 2}" y="${y + hh * 0.66}" text-anchor="middle" font-family="Geist" font-weight="800" font-size="30" fill="#6b4a2a">${txt}</text>` : ""}</g>`;
-$("#familia").innerHTML = `<g id="fm-caixas">${caixa(70, 1500, 230, 190, "MUDANÇA")}${caixa(300, 1560, 180, 130, "")}${caixa(110, 1350, 180, 150, "COZINHA")}</g>
-  <g transform="translate(640 1760) scale(1.95)">${dePe({ id: "fm1", roupa: "#2f4a6b", calca: "#c9bba8", cabelo: "curto", corCabelo: "#2a211c", celular: true, pele: "#c98f6c" })}</g>
-  <g transform="translate(860 1760) scale(1.85)">${dePe({ id: "fm2", roupa: "#e8855e", calca: "#2b3438", cabelo: "longo", corCabelo: "#4a2a1a", pele: "#e0b08f" })}</g>
-  <g transform="translate(760 1770) scale(1.15)">${dePe({ id: "fm3", roupa: "#e9c46a", calca: "#2f4a6b", cabelo: "curto", corCabelo: "#4a2a1a", pele: "#e0b08f" })}</g>`;
-$("#bu-barra").innerHTML = `${ic("busca")}padaria`;
-$("#bu-mapa").innerHTML = `<rect width="376" height="250" fill="#e9e5dd"/><g stroke="#fff" stroke-width="14"><path d="M-10 70 H390M-10 180 H390M90 -10 V260M250 -10 V260"/></g><g stroke="#fff" stroke-width="7"><path d="M-10 128 H390M170 -10 V260M330 -10 V260"/></g>
-  <rect x="104" y="84" width="52" height="34" rx="4" fill="#d8e6d2"/><rect x="186" y="140" width="50" height="30" rx="4" fill="#d8e6d2"/>
-  <circle cx="58" cy="208" r="13" fill="#2f6fe0" stroke="#fff" stroke-width="5"/><path d="M58 208 L328 32" stroke="#2f6fe0" stroke-width="5" stroke-dasharray="10 9" fill="none"/>
-  <g transform="translate(328 34)"><path d="M0 4 c-14 -14 -18 -22 -18 -30 a18 18 0 0 1 36 0 c0 8 -4 16 -18 30z" fill="#b25134"/><circle cy="-26" r="7" fill="#fff"/></g>`;
-$("#bu-res").innerHTML = `<small>Padaria mais próxima</small><b>Padaria do Centro · <em>2,4 km</em></b>`;
-// quem passa olhando o celular
-$("#passantes").innerHTML = `<g id="ps1">${dePe({ id: "pa1", roupa: "#9cb39f", calca: "#2b3438", cabelo: "curto", corCabelo: "#2a211c", celular: true, pele: "#b07a56", pele2: "#9a6646" })}</g>
-  <g id="ps2">${dePe({ id: "pa2", roupa: "#e8855e", calca: "#384146", cabelo: "longo", corCabelo: "#3a2a20", celular: true, pele: "#e6b896" })}</g>`;
-$("#folha").innerHTML = `<path d="M0 -26 C18 -18 22 8 0 26 C-22 8 -18 -18 0 -26Z" fill="#e9c46a"/><path d="M0 -22 V24" stroke="#b58a2e" stroke-width="2.4"/>`;
 
-// ---------- Dona Lurdes ----------
-$("#lu-pessoa").innerHTML = `<g transform="translate(300 2160) scale(3.1)">${dePe({ id: "lu", roupa: "#9cb39f", calca: "#5b6467", cabelo: "coque", corCabelo: "#d6d0c6", oculos: true, pele: "#e3b593" })}</g>
-  <g transform="translate(300 2160) scale(3.1)"><path d="M-40 -330 q-26 -6 -30 -30 q-2 -14 10 -18 l10 -2 q8 0 8 8 l2 16 q2 8 -6 10 q4 10 14 12z" fill="#2b3438"/><circle cx="-52" cy="-318" r="12" fill="#e3b593"/>
-    <path d="M-62 -310 q-30 40 -6 70 q20 26 -10 60 q-26 30 6 64" stroke="#2b3438" stroke-width="3.2" fill="none"/></g>`;
-$("#lu-cartao").innerHTML = `<span class="av">${ic("chave")}</span><div><b>Chaveiro do Zé</b><small id="lu-estado">chamando…</small></div><span class="fone-ic">${ic("telefone")}</span>`;
-
-// ---------- os sites (três celulares) ----------
+// ---------- os sites (três celulares e o da moça) ----------
 const barra = (cor, hora) => `<div class="status" style="color:${cor}"><span>${hora}</span><i><span class="sin"><b style="height:6px"></b><b style="height:10px"></b><b style="height:14px"></b><b style="height:18px"></b></span><span class="bat"></span></i></div>`;
 const desenho = {
   pao: `<svg class="des" viewBox="0 0 100 100"><g fill="#f2c98e"><ellipse cx="46" cy="66" rx="40" ry="22"/></g><g stroke="#c98a4b" stroke-width="4" fill="none" stroke-linecap="round"><path d="M24 58l10-10M40 62l10-10M56 62l10-10"/></g><ellipse cx="72" cy="40" rx="20" ry="12" fill="#f6dcae"/></svg>`,
@@ -470,38 +456,42 @@ const desenho = {
 const SITES = [
   { id: "pad", nome: "Padaria Acácia", cor: "#b25134", des: "pao", h3: "Pão quente às 6h e às 16h", aberto: "Aberto agora · até as 20h",
     linhas: [["relogio", "Horário", "Seg a sáb, 6h às 20h"], ["mapa", "Endereço", "Rua das Acácias, 112"]] },
-  { id: "far", nome: "Farmácia Acácias", cor: "#2b3438", des: "cruz", h3: "Domingo, das 9h às 13h", aberto: "Aberto agora · até as 22h",
-    linhas: [["relogio", "Horário", "Seg a sáb, 7h às 22h"], ["mapa", "Endereço", "Rua das Acácias, 140"]] },
-  { id: "cha", nome: "Chaveiro do Zé", cor: "#8a6a4f", des: "chave", h3: "Atendimento 24 horas", aberto: "Aberto agora · 24 horas",
-    linhas: [["chave", "Na hora", "Cópia de chave e abertura"], ["mapa", "Endereço", "Rua das Acácias, 188"]] },
+  { id: "far", nome: "Farmácia Acácias", cor: "#2b3438", des: "cruz", h3: "Abre às 7h, todo dia", aberto: "Aberto agora · até as 22h",
+    linhas: [["relogio", "Horário", "Todo dia, 7h às 22h"], ["mapa", "Endereço", "Rua das Acácias, 140"]] },
+  { id: "cha", nome: "Chaveiro do Zé", cor: "#8a6a4f", des: "chave", h3: "Até as 20h30, sem perder a novela", aberto: "Aberto agora · até 20h30",
+    linhas: [["relogio", "Horário", "Seg a sáb, 8h às 20h30"], ["mapa", "Endereço", "Rua das Acácias, 188"]] },
+  { id: "mo", nome: "Farmácia Acácias", cor: "#2b3438", des: "cruz", h3: "Abre às 7h, todo dia", aberto: "Aberto agora · até as 22h",
+    linhas: [["relogio", "Horário", "Todo dia, 7h às 22h"], ["mapa", "Endereço", "Rua das Acácias, 140"]] },
 ];
-$("#c-sites").innerHTML = SITES.map(st => `<div class="fone" id="fn-${st.id}"><span class="exemplo claro">exemplo</span><div class="visor">${barra("#1e2528", "8:02")}
+const fone = st => `<div class="fone" id="fn-${st.id}"><span class="exemplo claro">exemplo</span><div class="visor">${barra("#1e2528", "8:02")}
   <div class="ms" style="--c:${st.cor}"><div class="ms-topo">${st.nome}<i></i></div>
   <div class="ms-hero"><h3>${st.h3}</h3>${desenho[st.des]}</div>
   <div class="ms-aberto">${st.aberto}</div>
   ${st.linhas.map(([i, a, b], k) => `<div class="ms-linha" id="ml-${st.id}${k}"><span class="ic">${ic(i)}</span><div><small>${a}</small><b>${b}</b></div></div>`).join("")}
-  <div class="ms-zap" id="mz-${st.id}">${ZAP_B}Chamar no WhatsApp</div></div></div></div>`).join("");
+  <div class="ms-zap" id="mz-${st.id}">${ZAP_B}Chamar no WhatsApp</div></div></div></div>`;
+$("#c-sites").innerHTML = SITES.slice(0, 3).map(fone).join("");
+palco.insertAdjacentHTML("beforeend", fone(SITES[3]));
+const FMO = $("#fn-mo"); FMO.style.zIndex = 24;
 
 // ---------- marca e convite ----------
 {
-  const M = F.marca.palavras, C = F.cta.palavras, ip = C.findIndex(p => /PRÉVIA/.test(p.p));
+  const L = F.chuta.palavras, M = F.marca.palavras, C = F.cta.palavras, ip = C.findIndex(p => /PRÉVIA/.test(p.p)), ir = M.findIndex(p => /Renderiza/.test(p.p));
   const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 190 : 255; return `${(540 + r * Math.cos(a)).toFixed(1)},${(960 + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
   $("#c-fim").innerHTML = `<svg id="mc-estrela" viewBox="0 0 1080 1920"><defs><radialGradient id="mc-g" cx="540" cy="960" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".5"/><stop offset=".6" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
     <circle cx="540" cy="960" r="420" fill="url(#mc-g)"/><polygon points="${est}" fill="#e8855e" fill-opacity=".13" id="mc-poli"/></svg>
-    <p id="mc-linha">${M.slice(0, -1).map(p => `<span class="w${/Seu|Valdir/.test(p.p) ? " tom" : ""}">${p.p}</span>`).join(" ")}</p>
+    <p id="mc-linha">${L.map(p => `<span class="w${/chuta/.test(p.p) ? " tom" : ""}">${p.p}</span>`).join(" ")}</p>
     <div id="mc-simbolo"><span class="simbolo"></span></div><div id="mc-nome">renderiza</div>
-    <p id="mc-sub">site para negócio local</p>
+    <p id="mc-sub">${M.slice(ir + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
     <div id="cta-botao"><span id="cta-luz"></span>${ic("mensagem", 'style="stroke-width:2.2"')}<span>Comenta <em id="cta-previa">PRÉVIA</em></span></div>
     <p id="cta-texto">${C.slice(ip + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
     <p id="cta-nota">O Seu Valdir e a Rua das Acácias são fictícios.</p>`;
 }
-const mcPal = $$("#mc-linha .w").map((el, k) => ({ el, ini: F.marca.palavras[k].ini }));
+const mcPal = $$("#mc-linha .w").map((el, k) => ({ el, ini: F.chuta.palavras[k].ini }));
+const subPal = (() => { const M = F.marca.palavras, ir = M.findIndex(p => /Renderiza/.test(p.p)); return $$("#mc-sub .w").map((el, k) => ({ el, ini: M[ir + 1 + k].ini })); })();
 const ctaPal = (() => { const C = F.cta.palavras, ip = C.findIndex(p => /PRÉVIA/.test(p.p)); return $$("#cta-texto .w").map((el, k) => ({ el, ini: C[ip + 1 + k].ini })); })();
 
 // poeira (luz no ar), sempre igual a cada gravação
 const POEIRA = Array.from({ length: 26 }, (_, i) => { const el = document.createElement("i"); $("#poeira").appendChild(el); return { el, x: h(i, 1) * 1080, y: h(i, 2) * 2100, v: 14 + h(i, 3) * 34, s: 0.4 + h(i, 4) * 1.1, f: h(i, 5) * 6.28 }; });
-// flores da acácia caindo (nos 28 anos)
-const PETALAS = Array.from({ length: 22 }, (_, i) => { const el = document.createElement("i"); el.style.cssText = `position:absolute;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:${h(i, 7) > 0.5 ? "#e9c46a" : "#f1d38f"};z-index:21;opacity:0`; palco.appendChild(el); return { el, x: 380 + h(i, 1) * 700, y0: 360 + h(i, 2) * 200, v: 240 + h(i, 3) * 200, f: h(i, 5) * 6.28, d: h(i, 6) * 1.2 }; });
 
 // ---------- legendas: frases longas viram pedaços de até duas linhas ----------
 function partir(ws) {
@@ -516,9 +506,17 @@ function partir(ws) {
   }
   return [...partir(ws.slice(0, melhor)), ...partir(ws.slice(melhor))];
 }
+// perguntas e respostas curtas ficam juntas na mesma legenda
+const JUNTAS = [["q1", "r1"], ["q2", "r2"], ["q3", "r3"], ["nunca", "segredo", "todos"], ["era", "sete", "tano"], ["novela", "tempo"], ["ninguem", "fazia"]];
 const FORA = ["marca", "cta"]; // essas falas viram o texto grande da própria cena
 const pedacos = [];
-for (const f of frases) for (const ws of partir(f.palavras)) pedacos.push({ f, ws });
+const grupos = [];
+for (const f of frases) {
+  const j = JUNTAS.find(g => g.includes(f.id));
+  if (j && j[0] !== f.id) { grupos[grupos.length - 1].ws.push(...f.palavras); continue; }
+  grupos.push({ f, ws: [...f.palavras] });
+}
+for (const g of grupos) for (const ws of (g.ws.map(p => p.p).join(" ").length <= 44 ? [g.ws] : partir(g.ws))) pedacos.push({ f: g.f, ws });
 pedacos.forEach((p, i) => { p.de = i === 0 ? -1 : p.ws[0].ini - 0.06; });
 pedacos.forEach((p, i) => { p.ate = i < pedacos.length - 1 ? pedacos[i + 1].de : DUR + 1; });
 for (const p of pedacos) {
@@ -533,204 +531,240 @@ for (const p of pedacos) {
 // câmera: o ponto (cx, cy) da rua fica no centro da tela, com zoom s. Dois pontos no mesmo instante = corte seco
 const E = 0.001;
 const CAM = [
-  [0, 560, 650, 1.3], [T.acacias + 0.5, 610, 980, 1.0], [T.valdir - 0.2, 760, 1010, 1.06], [T.valdir + 0.75, 790, 1172, 2.0],
-  [S.anos - 0.25, 792, 1176, 2.08], [S.anos + 0.55, 800, 1040, 1.1], [S.viagem - 0.05, 805, 1040, 1.08],
-  [T.foi, 820, 1060, 1.14], [T.praia, 900, 1060, 1.08], [S.fila - E, 900, 1060, 1.08],
-  [S.fila, 470, 1080, 1.42], [T.h9 + 0.6, 450, 1100, 1.52], [S.lurdes, 450, 1100, 1.52],
-  [S.mudanca - E, 450, 1100, 1.52], [S.mudanca, 300, 1060, 1.42], [S.volta - E, 286, 1050, 1.48],
-  [S.volta, 900, 1110, 1.24], [T.sentou, 840, 1130, 1.32], [S.ninguem, 800, 1148, 1.62], [S.sites - E, 796, 1150, 1.78], [S.sites, 250, 1070, 1.42], [T.padS, 225, 1045, 1.6], [S.jogo - 0.3 - E, 225, 1045, 1.6],
-  [S.jogo - 0.3, 822, 1152, 1.72], [S.marca, 822, 1145, 1.86],
+  [0, 1000, 650, 1.3], [1.7, 930, 960, 1.0], [T.homem - 0.2, 780, 1060, 1.12], [S.perguntas, 790, 1160, 1.72], [T.segredo, 790, 1164, 1.78], [T.todos + 0.1, 782, 1110, 2.55],
+  [S.chute - E, 782, 1110, 2.55], [S.chute, 720, 1150, 1.5], [S.fila - E, 712, 1146, 1.54],
+  [S.fila, 400, 1090, 1.38], [T.abria, 470, 1110, 1.5], [S.ze - E, 548, 1116, 1.66],
+  [S.ze, 1110, 1110, 1.52], [S.relogio - E, 1116, 1114, 1.58],
+  [S.relogio, 790, 1170, 1.72], [S.viagem - E, 790, 1174, 1.78],
+  [S.viagem, 800, 1110, 1.2], [T.foi, 830, 1120, 1.22], [T.praia, 920, 1110, 1.16], [S.manha - E, 920, 1110, 1.16],
+  [S.manha, 430, 1110, 1.55], [S.ninguem - E, 440, 1112, 1.6],
+  [S.ninguem, 770, 990, 0.95], [S.sites, 770, 1000, 0.98],
+  [S.novela - E, 770, 1000, 0.98], [S.novela, 1110, 1110, 1.52], [S.volta - E, 1116, 1114, 1.58],
+  [S.volta, 740, 1150, 1.58], [S.corrige, 720, 1150, 1.66], [T.ta, 724, 1148, 1.7], [T.ta + 0.4, 755, 1112, 2.3], [S.marca, 757, 1110, 2.36],
 ];
 function pose(P, t) {
   if (t <= P[0][0]) return P[0];
   for (let k = 0; k < P.length - 1; k++) if (t < P[k + 1][0]) { const a = P[k], b = P[k + 1], x = ease(fase(t, a[0], b[0])); return a.map((v, i) => lerp(v, b[i], x)); }
   return P[P.length - 1];
 }
-// a tela no instante t: onde fica um ponto da rua
 let CAMERA = [0, 540, 960, 1];
 const naTela = (x, y) => [540 + (x - CAMERA[1]) * CAMERA[3], 960 + (y - CAMERA[2]) * CAMERA[3]];
 const vis = (el, v) => { el.style.display = v ? "block" : "none"; };
+const mostra = (id, v) => attr($("#" + id), "opacity", v ? 1 : 0);
+// alguém andando de x0 até x1 entre t0 e t1, com as pernas
+function anda(id, t, t0, t1, x0, x1, y = 1394, esc = 1) {
+  const a = fase(t, t0, t1), passo = a > 0 && a < 1 ? Math.sin(t * 9) : 0;
+  attr($(`#${id}-pos`), "transform", `translate(${lerp(x0, x1, sai(a)).toFixed(1)} ${(y - Math.abs(passo) * 6).toFixed(1)}) scale(${(x1 < x0 ? -esc : esc)} ${esc})`);
+  attr($(`#${id}p1`), "transform", `rotate(${(passo * 14).toFixed(2)} -16 -150)`);
+  attr($(`#${id}p2`), "transform", `rotate(${(-passo * 14).toFixed(2)} 16 -150)`);
+}
+const em = (t, a, b) => t >= a && t < b;
 
 function qMundo(t) {
   CAMERA = pose(CAM, t);
   const [, cx, cy, s] = CAMERA;
   $("#mundo").style.transform = `translate(${(540 - cx * s).toFixed(1)}px,${(960 - cy * s).toFixed(1)}px) scale(${s.toFixed(4)})`;
-  // a placa da rua dá um pulinho em "Acácias"
-  const pr = pulso(t, T.acacias - 0.05, 0.45);
-  attr($("#placa-rua"), "transform", `translate(601 1072) scale(${(1 + 0.18 * pr).toFixed(3)}) translate(-601 -1072)`);
-  // Seu Valdir sentado: até levantar em "Até"; volta a sentar em "Sentou"
-  const sentadoAntes = t < T.ate, sentadoDepois = t >= T.sentou && t < S.marca;
-  attr(VS, "opacity", sentadoAntes || sentadoDepois ? 1 : 0);
-  // respira, pisca e, em "ninguém", olha para os lados
+  // 1997 em tom de foto antiga; o Zé à noite
+  const antigo = em(t, S.chute, S.viagem), noite = em(t, S.ze, S.relogio) || em(t, S.novela, S.volta);
+  $("#mundo").style.filter = [antigo ? "sepia(.78) saturate(.8) contrast(1.04)" : "", noite ? "brightness(.8) saturate(.85)" : ""].join(" ").trim();
+  $("#antigo").style.opacity = antigo ? 1 : 0;
+  $("#noite").style.opacity = noite ? 1 : 0;
+  attr($("#luz-ze"), "opacity", noite ? 0.9 : 0);
+  $("#carimbo").style.opacity = antigo && !em(t, S.relogio, S.viagem) ? 1 : 0;
+
+  // Seu Valdir sentado: até levantar em "Até"; de novo quando volta da praia
+  const voltaSenta = T.voltou + 0.25;
+  const sentadoAntes = t < T.ate, sentadoDepois = t >= voltaSenta && t < S.marca;
+  attr(VS, "opacity", (sentadoAntes && !em(t, S.fila, S.relogio) && !em(t, S.manha, S.volta)) || sentadoDepois ? 1 : 0);
   const resp = Math.sin(t * 2.1) * 1.5;
   let olhoX = 0;
-  if (t > T.ninguem - 0.1 && t < S.sites) olhoX = 7 * Math.sin(Math.PI * 2 * fase(t, T.ninguem - 0.1, T.nadaW + 0.3));
-  else if (t > S.perguntas && t < S.sabe) olhoX = -5 * (1 - fase(t, T.oito - 0.2, T.oito + 0.3));
-  const pisca = [2.6, 7.4, 13.8, 19.2, 42.0, 50.2, 57.0].some(b => t > b && t < b + 0.12);
-  attr($("#vsolhos"), "transform", `translate(${olhoX.toFixed(2)} ${pisca ? -199.5 * 0.85 : 0}) scale(1 ${pisca ? 0.15 : 1})`);
-  attr($("#vscab"), "transform", `translate(0 ${resp.toFixed(2)}) rotate(${(t > S.jogo ? 3 * Math.sin(t * 1.4) : t > S.sabe && t < S.anos ? 4 * Math.sin((t - S.sabe) * 3) : 0).toFixed(2)} 0 -170)`);
-  attr($("#vsescuros"), "opacity", t > S.volta && t < S.jogo ? 1 : 0);
-  attr($("#vssorriso"), "opacity", t > T.oito - 0.1 && t < S.sabe ? 1 : t > T.agora ? fase(t, T.agora, T.agora + 0.3) : 0);
-  attr($("#vssob"), "transform", t > T.nadaW - 0.05 && t < S.sites ? `translate(0 ${(-6 * sai(fase(t, T.nadaW - 0.05, T.nadaW + 0.2))).toFixed(2)})` : "");
+  if (em(t, T.q1, T.q2)) olhoX = -5; else if (em(t, T.q2, T.q3)) olhoX = 5; else if (em(t, T.q3, T.nunca)) olhoX = -4;
+  if (em(t, T.alguem97, T.sabia)) olhoX = -6; if (em(t, T.alguem3, T.era + 0.3)) olhoX = -6;
+  const pisca = [2.6, 9.2, 17.2, 30.4, 56.2].some(b => t > b && t < b + 0.12);
+  const pisc = em(t, T.todos + 0.25, T.todos + 0.95); // a piscadela de quem inventou tudo
+  attr($("#vsoE"), "transform", pisca ? "translate(0 -168) scale(1 .15)" : "");
+  attr($("#vsoD"), "transform", pisca || pisc ? "translate(0 -168) scale(1 .15)" : "");
+  attr($("#vsolhos"), "transform", `translate(${olhoX} 0)`);
+  // 1997: bigode escuro; ele dá de ombros no "chutou"
+  attr($("#vsbigode"), "fill", antigo ? "#3a2a22" : "#e6e1d9");
+  attr($("#vssob"), "fill", antigo ? "#3a2a22" : "#bdb7ad");
+  const ombro = pulso(t, T.chutou - 0.15, 0.7);
+  attr($("#vscab"), "transform", `translate(0 ${(resp + ombro * 8).toFixed(2)}) rotate(${(ombro * 10 + (em(t, T.sabia, T.chutou) ? -6 : 0)).toFixed(2)} 0 -170)`);
+  attr($("#vssob"), "transform", `translate(0 ${(-7 * ombro - (em(t, T.ta, S.marca) ? 11 * sai(fase(t, T.ta, T.ta + 0.25)) : 0)).toFixed(2)})`);
+  attr($("#vsescuros"), "opacity", t > S.volta && t < S.marca ? 1 : 0);
+  attr($("#vsescuros"), "transform", em(t, T.ta, S.marca) ? `translate(0 ${(19 * sai(fase(t, T.ta, T.ta + 0.3))).toFixed(2)})` : "");
+  attr($("#vssorriso"), "opacity", (em(t, T.r1, T.nunca) || em(t, T.todos, S.chute) || em(t, T.oito3, T.ta)) ? 1 : 0);
+  attr($("#vsboca"), "opacity", em(t, T.ta, S.marca) ? 1 : 0);
   attr($("#vsjornal"), "opacity", t < T.ate ? 1 : 0);
-  attr($("#jornal-banco"), "opacity", t >= T.ate && t < T.sentou ? 1 : 0);
-  attr($("#mala-banco"), "opacity", t >= T.sentou && t < S.sites ? 1 : 0);
-  // o vizinho só no fim
-  attr(VZ, "opacity", t > S.jogo - 0.3 ? 1 : 0);
-  attr($("#vzolhos"), "transform", `translate(${t > S.jogo ? -4 : 0} 0)`);
-  // Seu Valdir de pé: levanta em "Até", sai andando para a direita em "foi"; volta andando em "Quinze dias depois"
+  attr($("#jornal-banco"), "opacity", t >= T.ate && t < voltaSenta ? 1 : 0);
+  attr($("#mala-banco"), "opacity", t >= voltaSenta && t < S.marca ? 1 : 0);
+
+  // Seu Valdir de pé: levanta em "Até" e sai para a praia; volta com a mala
   let ve = null;
-  if (t >= T.ate && t < S.fila) {
-    const anda = fase(t, T.foi - 0.1, T.filha + 0.25);
-    ve = { x: lerp(790, 1290, anda), y: 1396, anda: anda > 0 && anda < 1, escuros: false };
-  } else if (t >= S.volta && t < T.sentou) {
-    const anda = fase(t, S.volta, T.voltou + 0.35);
-    ve = { x: lerp(1290, 790, sai(anda)), y: 1396, anda: anda < 0.98, escuros: true };
-  }
+  if (em(t, T.ate, S.manha)) ve = { x0: 790, x1: 1210, t0: T.foi - 0.1, t1: T.praia + 0.25 };
+  else if (em(t, S.volta, voltaSenta)) ve = { x0: 1250, x1: 790, t0: S.volta - 0.1, t1: voltaSenta - 0.05 };
   attr(VE, "opacity", ve ? 1 : 0);
-  if (ve) {
-    const passo = ve.anda ? Math.sin(t * 9) : 0;
-    attr(VE, "transform", `translate(${ve.x.toFixed(1)} ${(ve.y - Math.abs(passo) * 6).toFixed(1)})`);
-    attr($("#vep1"), "transform", `rotate(${(passo * 14).toFixed(2)} -16 -150)`);
-    attr($("#vep2"), "transform", `rotate(${(-passo * 14).toFixed(2)} 16 -150)`);
-    attr($("#veescuros"), "opacity", ve.escuros ? 1 : 0);
-  }
-  // a fila na farmácia e a porta de aço
-  const naFila = t > S.fila - 0.2 && t < S.lurdes;
+  if (ve) { anda("ve", t, ve.t0, ve.t1, ve.x0, ve.x1, 1396); attr($("#ve-pos"), "transform", $("#ve-pos").getAttribute("transform").replace(/scale\(-1 1\)/, "scale(1 1)")); }
+  attr($("#veescuros"), "opacity", t > S.volta ? 1 : 0);
+
+  // 1997: quem pergunta da farmácia
+  const p97 = em(t, S.chute, S.fila);
+  mostra("p97-pos", p97);
+  if (p97) anda("p97", t, S.chute - 0.4, T.alguem97 + 0.1, 380, 600);
+
+  // a fila em 1997 e o farmacêutico chegando para trocar a placa
+  const naFila = em(t, S.fila - 0.2, S.ze);
   FILA.forEach((p, i) => {
-    const t0 = S.fila + 0.15 + i * (T.abria - S.fila - 0.5) / FILA.length, e = entra(t, t0, 0.3);
+    const t0 = S.fila + 0.1 + i * (T.fila + 0.25 - S.fila) / FILA.length, e = entra(t, t0, 0.3);
     const g = $("#fl" + i);
     attr(g, "opacity", naFila ? e.o : 0);
-    const balanca = 1.5 * Math.sin(t * 2.4 + i);
-    attr(g, "transform", `translate(${p.x} ${1394 + e.y * 0.6}) scale(${(p.s * lerp(0.9, 1, e.x)).toFixed(3)}) rotate(${balanca.toFixed(2)} 0 -150)`);
+    attr(g, "transform", `translate(${p.x} ${1394 + e.y * 0.6}) scale(${(p.s * lerp(0.9, 1, e.x)).toFixed(3)}) rotate(${(1.5 * Math.sin(t * 2.4 + i)).toFixed(2)} 0 -150)`);
   });
-  const sobe = sai(fase(t, T.h9 - 0.05, T.h9 + 0.7));
-  attr($("#grade"), "opacity", t > S.fila - 1 && t < S.lurdes ? 1 : 0);
-  attr($("#grade-r"), "height", (224 * (1 - sobe)).toFixed(1));
-  attr($("#grade-placa"), "opacity", (1 - fase(t, T.h9, T.h9 + 0.25)).toFixed(3));
-  // a padaria acende quando a família diz "padaria"
-  attr($("#padaria-brilho"), "opacity", (t > S.mudanca && t < S.volta ? 0.85 * fase(t, T.padaria - 0.1, T.padaria + 0.35) * (0.8 + 0.2 * Math.sin(t * 8)) : 0).toFixed(3));
-  // as flores da acácia balançam
+  const fc = em(t, T.passou - 0.6, S.ze) || em(t, S.manha, S.ninguem);
+  mostra("fc-pos", fc);
+  if (em(t, S.fila, S.ze)) anda("fc", t, T.passou - 0.6, T.oito8 - 0.1, 120, 600, 1400, 1.02);
+  else if (fc) anda("fc", t, 0, 0, 600, 600, 1394);
+  const pd = em(t, S.manha, S.ninguem);
+  mostra("pd-pos", pd);
+  if (pd) anda("pd", t, 0, 0, 290, 290, 1394);
+  if (fc && em(t, S.manha, S.ninguem)) attr($("#fcolhos"), "transform", "translate(-5 0)");
+  else attr($("#fcolhos"), "transform", "");
+  attr($("#pdolhos"), "transform", em(t, T.mesmo, S.ninguem) ? "translate(5 0)" : "translate(5 0)");
+  attr($("#pdsob"), "transform", em(t, T.mesmo, S.ninguem) ? "translate(0 -6)" : "");
+
+  // o Zé: em 1997 olhando a novela começar; hoje fechando às 20h30
+  const ze = em(t, S.ze, S.relogio) || em(t, S.novela, T.tempo);
+  mostra("ze-pos", ze);
+  if (ze) { const zx = em(t, S.novela, T.tempo) ? 1070 : 1182; anda("ze", t, 0, 0, zx, zx, 1340, 0.98); } // hoje ele fica ao lado da porta, para ela descer à vista
+  attr($("#zeolhos"), "transform", em(t, S.ze, S.relogio) ? "translate(-6 0)" : "");
+  attr($("#zetriste"), "opacity", em(t, T.novela97 - 0.2, S.relogio) ? 1 : 0);
+  attr($("#zesorriso"), "opacity", em(t, S.novela, T.tempo) ? 1 : 0);
+  const desce = em(t, S.novela, S.volta) ? sai(fase(t, T.fecha - 0.1, T.fecha + 0.8)) : 0;
+  attr($("#grade-ze"), "height", (224 * desce).toFixed(1));
+
+  // a moça que pergunta da farmácia na volta
+  const mo = em(t, S.volta, S.marca);
+  mostra("mo-pos", mo);
+  if (mo) anda("mo", t, T.alguem3 - 0.9, T.alguem3 + 0.1, 380, 610);
+  attr($("#moolhos"), "transform", "translate(5 0)");
+  attr($("#mosorriso"), "opacity", em(t, T.era, S.marca) ? 1 : 0);
+
+  // "Ninguém sabia.": uma dúvida em cima de cada loja
+  for (let i = 0; i < 5; i++) {
+    const e = entra(t, T.ninguem + 0.08 * i, 0.3), o = em(t, S.ninguem, S.sites) ? e.o : 0;
+    attr($("#duvida" + i), "opacity", o.toFixed(3));
+    attr($("#duvida" + i), "transform", `translate(${200 + 300 * i} 800) scale(${e.s.toFixed(3)}) translate(${-200 - 300 * i} -800) translate(0 ${(e.y + 6 * Math.sin(t * 3 + i)).toFixed(1)})`);
+  }
   attr($("#copa"), "transform", `rotate(${(0.6 * Math.sin(t * 0.9)).toFixed(2)} 970 1000)`);
   attr($("#flores"), "transform", `rotate(${(0.6 * Math.sin(t * 0.9)).toFixed(2)} 970 1000)`);
 }
 
-function qBaloes(t) {
-  // perguntas: alguém de fora pergunta, ele responde
-  const b1 = entra(t, T.que - 0.05), b2 = entra(t, T.oito - 0.05);
-  const fora = fase(t, S.sabe - 0.25, S.sabe + 0.1);
-  const [hx, hy] = naTela(775, 1122);
-  pos($("#b-pergunta"), { x: 70, y: hy - 400 + b1.y, s: b1.s, o: b1.o * (1 - fora) });
-  pos($("#b-resposta"), { x: hx + 70, y: hy - 230 + b2.y, s: b2.s, o: b2.o * (1 - fora) });
-  $("#b-resposta").style.transformOrigin = "0 100%"; $("#b-pergunta").style.transformOrigin = "15% 100%";
-  const d2 = entra(t, T.nove - 0.08);
-  pos($("#br-2"), { s: d2.s, o: d2.o });
-  $("#br-2").style.display = t > T.nove - 0.12 ? "" : "none";
-  // as fichas giram em volta da cabeça
-  const giro = (t - S.sabe) * 0.5;
-  const foraF = fase(t, S.anos - 0.2, S.anos + 0.25);
-  FC.forEach((f, i) => {
-    const e = entra(t, f.t(), 0.34);
-    const a = (i < 3 ? [-2.5, -0.6, 0.95][i] : [-1.6, 0.2, 2.2][i - 3]) + giro * (i < 3 ? 1 : -1);
-    const rx = i < 3 ? 300 : 360, ry = i < 3 ? 210 : 280;
-    const w = f.el.offsetWidth, hh = f.el.offsetHeight;
-    const x = hx + Math.cos(a) * rx - w / 2, y = hy - 20 + Math.sin(a) * ry - hh / 2;
-    const atras = Math.sin(a) < -0.5 && i >= 3 ? 0.75 : 1;
-    pos(f.el, { x, y: y + e.y, s: e.s * (1 - 0.5 * foraF) * atras, o: e.o * (1 - foraF), r: Math.sin(a * 2) * 3 });
-  });
-  // 28 anos: o contador corre de 1997 a 2025
-  const an = fase(t, S.anos - 0.1, T.ate - 0.6), ao = fase(t, S.anos - 0.15, S.anos + 0.15) * (1 - fase(t, T.ate - 0.35, T.ate));
-  const ano = 1997 + 28 * ease(an);
-  const dig = String(Math.floor(ano)).split(""), frac = ano - Math.floor(ano);
-  $("#ano").style.opacity = ao.toFixed(3);
-  if (ao > 0) dig.forEach((d, i) => {
-    const sp = $$("#an" + i + " span"); const muda = i === 3 || (i === 2 && dig[3] === "9");
-    const prox = String((+d + 1) % 10);
-    sp[0].textContent = d; sp[1].textContent = prox;
-    const y = muda && an < 1 ? -sai(frac) * 100 : 0;
-    sp[0].style.transform = `translateY(${y}%)`; sp[1].style.transform = `translateY(${100 + y}%)`;
-  });
-  // pétalas caem nos 28 anos
-  for (const p of PETALAS) {
-    const u = t - (S.anos - 0.1) - p.d;
-    const o = t > S.anos - 0.2 && t < T.ate ? (u > 0 ? 1 : 0) * (1 - fase(t, T.ate - 0.4, T.ate)) : 0;
-    p.el.style.opacity = o.toFixed(3);
-    if (o > 0) p.el.style.transform = `translate(${(p.x + Math.sin(u * 2.4 + p.f) * 40).toFixed(1)}px,${(p.y0 + u * p.v).toFixed(1)}px) scale(${(0.6 + 0.4 * Math.abs(Math.sin(u * 3 + p.f))).toFixed(2)},1)`;
-  }
-  // o cartão-postal
-  const pc = fase(t, T.praia - 0.1, T.praia + 0.45), pcf = fase(t, S.fila - 0.3, S.fila);
-  pos($("#postal"), { x: (1 - saiX(pc)) * 500, y: (1 - saiX(pc)) * 300 - 30 * pcf, r: lerp(28, -5, saiX(pc)), s: lerp(0.7, 1, saiX(pc)), o: Math.min(1, pc * 4) * (1 - pcf) });
-  // o relógio da farmácia: 8h → 9h até "9h"
-  const rl = fase(t, S.fila, T.h9), ro = fase(t, S.fila - 0.05, S.fila + 0.25) * (1 - fase(t, S.lurdes - 0.25, S.lurdes));
-  pos($("#relogio"), { s: lerp(0.6, 1, volta(fase(t, S.fila - 0.05, S.fila + 0.35))) * (1 + 0.1 * pulso(t, T.h9, 0.35)), o: ro });
-  const minutos = 60 * ease(rl);
-  attr($("#rl-m"), "transform", `rotate(${(minutos * 6).toFixed(2)})`);
-  attr($("#rl-h"), "transform", `rotate(${(240 + minutos * 0.5).toFixed(2)})`);
-  // a família nova e a busca
-  const fm = fase(t, S.mudanca - 0.05, S.mudanca + 0.3) * (1 - fase(t, S.volta - 0.2, S.volta));
-  $("#familia").style.opacity = fm.toFixed(3);
-  $("#familia").style.transform = `translateY(${((1 - sai(fase(t, S.mudanca - 0.05, S.mudanca + 0.4))) * 60).toFixed(1)}px)`;
-  const bu = entra(t, T.achando - 0.25, 0.36);
-  pos($("#busca"), { y: bu.y * 2, s: bu.s, o: bu.o * (1 - fase(t, S.volta - 0.2, S.volta)), r: 3 });
-  $("#bu-res").style.opacity = fase(t, T.achando + 0.35, T.achando + 0.6).toFixed(3);
-  // quem passa olhando o celular (enquanto ele espera)
-  const pp = t > T.sentou && t < S.sites;
-  $("#passantes").style.opacity = pp ? 1 : 0;
-  if (pp) {
-    const a1 = fase(t, T.sentou + 0.1, T.sentou + 2.6), a2 = fase(t, T.esperou + 0.2, T.esperou + 2.9);
-    attr($("#ps1"), "transform", `translate(${lerp(-200, 1300, a1).toFixed(1)} ${(1900 - Math.abs(Math.sin(t * 8)) * 10).toFixed(1)}) scale(2.7)`);
-    attr($("#ps2"), "transform", `translate(${lerp(1300, -200, a2).toFixed(1)} ${(1930 - Math.abs(Math.sin(t * 7.5)) * 10).toFixed(1)}) scale(-2.8 2.8)`);
-  }
-  // a folha que cai em "Ninguém perguntou nada."
-  const fl = fase(t, S.ninguem - 0.6, S.sites - 0.1);
-  if (fl > 0 && fl < 1) {
-    const [vx, vy] = naTela(790, 1080);
-    pos($("#folha"), { x: lerp(vx + 220, vx + 10, fl) + Math.sin(fl * 9) * 60, y: lerp(320, vy, fl), r: Math.sin(fl * 9) * 40, s: 1.4, o: Math.min(1, fl * 6) * (1 - fase(fl, 0.92, 1)) });
-  } else pos($("#folha"), { o: 0 });
-  // o vizinho pergunta do jogo
-  const bj = entra(t, T.jogo - 0.15);
-  const [zx, zy] = naTela(884, 1122);
-  pos($("#b-jogo"), { x: zx + 90 - $("#b-jogo").offsetWidth, y: zy - 330 + bj.y, s: bj.s, o: bj.o * (1 - fase(t, S.marca - 0.25, S.marca)) });
-  $("#b-jogo").style.transformOrigin = "85% 100%";
+// x de um balão: com a ponta à direita (xd), a ponta fica sobre ax; com a ponta à esquerda (xe), o balão começa em x. Nunca sai da tela
+const xd = (el, ax) => clamp(ax - el.offsetWidth + 70, 24, 1056 - el.offsetWidth);
+const xe = (el, x) => clamp(x, 24, 1056 - el.offsetWidth);
+function balao(el, t, t0, t1, x, y, extra = {}) {
+  const e = entra(t, t0), sai_ = t1 ? fase(t, t1 - 0.18, t1) : 0;
+  pos(el, { x, y: y + e.y, s: e.s * (extra.s || 1), r: extra.r || 0, o: e.o * (1 - sai_) * (extra.o ?? 1) });
 }
-
-function qLurdes(t) {
-  const e = fase(t, S.lurdes - 0.05, S.lurdes + 0.3);
-  $("#lu-pessoa").style.transform = `translateY(${((1 - sai(e)) * 120).toFixed(1)}px)`;
-  const c = entra(t, T.ligou - 0.1, 0.34);
-  pos($("#lu-cartao"), { y: c.y, s: c.s * (1 + 0.04 * pulso(t, T.chaveiro, 0.4)), o: c.o });
-  $("#lu-estado").textContent = t < T.calabresa - 0.4 ? "chamando…" : "em ligação · 0:0" + Math.min(9, Math.floor(t - T.calabresa + 1.4));
-  const fi = $("#lu-cartao .fone-ic"); fi.style.transform = `rotate(${(t < T.calabresa - 0.4 ? 14 * Math.sin(t * 30) : 0).toFixed(1)}deg)`;
-  const b = entra(t, T.calabresa - 0.1, 0.34), z = entra(t, T.calabresa + 0.75, 0.34);
-  pos($("#b-lurdes"), { y: b.y, s: b.s, o: b.o }); $("#b-lurdes").style.transformOrigin = "85% 100%";
-  pos($("#b-zé"), { y: z.y, s: z.s, o: z.o }); $("#b-zé").style.transformOrigin = "30% 0";
+function qSobre(t) {
+  // perguntas de todo lado; as respostas dele, rápidas, ao lado da cabeça
+  const fimP = T.todos + 1.0;
+  const coluna = lerp(600, 690, ease(fase(t, T.segredo, T.todos)));
+  balao(B.q1, t, T.q1, T.segredo, 50, 480, { o: 1 - 0.6 * fase(t, T.segredo - 0.1, T.segredo + 0.2) });
+  balao(B.q2, t, T.q2, T.segredo, 50, 610, { o: 1 - 0.6 * fase(t, T.segredo - 0.1, T.segredo + 0.2) });
+  balao(B.q3, t, T.q3, T.segredo, 50, 740, { o: 1 - 0.6 * fase(t, T.segredo - 0.1, T.segredo + 0.2) });
+  [["a1", T.r1, 600, T.nunca], ["a2", T.r2, 720, T.errou], ["a3", T.r3, 840, T.um]].forEach(([k, t0, y, tOk], i) => {
+    balao(B[k], t, t0, fimP, coluna, y);
+    const ok = entra(t, tOk, 0.3); pos($(".ok", B[k]), { s: ok.s, o: t < T.todos ? ok.o : 1 - fase(t, T.todos - 0.1, T.todos) });
+    // "Inventou todos.": a resposta gira e vira interrogação
+    const g = fase(t, T.todos + 0.05 * i, T.todos + 0.3 + 0.05 * i);
+    $(".txt", B[k]).textContent = g >= 0.5 ? "?" : ["8h", "6h", "Até as 9h"][i];
+    $(".txt", B[k]).style.transform = `scaleX(${Math.abs(Math.cos(Math.PI * g)).toFixed(3)})`;
+  });
+  // 1997: a pergunta, o "…" e o chute
+  const [px] = naTela(600, 0);
+  balao(B.p97, t, T.alguem97, S.fila, xd(B.p97, px), 560);
+  balao(B.hmm, t, T.sabia - 0.1, T.chutou + 0.1, xe(B.hmm, naTela(775, 0)[0] + 40), 640);
+  balao(B.c97, t, T.oito97 - 0.05, S.fila, xe(B.c97, naTela(775, 0)[0] + 50), 640);
+  // a placa da farmácia: 10h, riscado, 8h
+  const pl = entra(t, T.abria - 0.1, 0.34), plFora = fase(t, S.ze - 0.2, S.ze);
+  pos($("#placa"), { x: 300, y: 500 + pl.y, s: pl.s, r: -3, o: pl.o * (1 - plFora) });
+  $("#pl-risco").style.transform = `scaleX(${sai(fase(t, T.oito8 - 0.35, T.oito8 - 0.05)).toFixed(3)}) rotate(-6deg)`;
+  const n8 = entra(t, T.oito8, 0.3); pos($("#pl-8"), { s: n8.s, o: n8.o, r: -10 });
+  // a TV de 1997 (a novela já começou) e a casa do Zé (a tempo)
+  const tv = entra(t, T.ze + 0.6, 0.4);
+  pos($("#tv"), { y: tv.y, s: tv.s * (1 + 0.03 * pulso(t, T.novela97, 0.4)), o: em(t, S.ze, S.relogio) ? tv.o * (1 - fase(t, S.relogio - 0.2, S.relogio)) : 0 });
+  attr($("#tv-coracao"), "transform", `translate(180 176) scale(${(1 + 0.12 * Math.abs(Math.sin(t * 5))).toFixed(3)}) translate(-180 -176)`);
+  const casa = fase(t, T.tempo - 0.15, T.tempo + 0.25);
+  pos($("#casa"), { y: (1 - sai(casa)) * 80, s: lerp(0.9, 1, sai(casa)), o: em(t, S.novela, S.volta) ? casa * (1 - fase(t, S.volta - 0.2, S.volta)) : 0 });
+  // relógios: "A rua é que acertava o relógio por ele." e, depois, cada um num horário
+  const naRel = em(t, S.relogio - 0.1, S.viagem), naConf = em(t, T.fazia - 0.2, S.sites);
+  RL.forEach((r, i) => {
+    let o = 0, x = 70 + i * 330, y = 470, hh = r.h0, mm = r.m0;
+    if (naRel) {
+      const e = entra(t, S.relogio + 0.12 * i, 0.32); o = e.o * (1 - fase(t, S.viagem - 0.2, S.viagem)); y += e.y;
+      const a = ease(fase(t, T.acertava - 0.1, T.acertava + 0.55)); // os ponteiros correm até as 8h do relógio dele
+      const alvo = 8 * 60 + 12 * 60, ini = r.h0 * 60 + r.m0; mm = lerp(ini, alvo, a); hh = 0;
+      pos(r.el, { x, y, s: e.s * (1 + 0.06 * pulso(t, T.acertava + 0.55, 0.3)), o });
+    } else if (naConf) {
+      const e = entra(t, T.fazia + 0.1 * i, 0.32); o = e.o * (1 - fase(t, S.sites - 0.15, S.sites)); y = 1520 + e.y;
+      mm = r.h0 * 60 + r.m0 + (t - T.fazia) * [140, -220, 310][i]; hh = 0;
+      pos(r.el, { x, y, s: e.s, r: Math.sin(t * 7 + i) * 2, o });
+    } else pos(r.el, { o: 0 });
+    if (o > 0) hora($("svg", r.el), hh, mm);
+  });
+  // o relógio do Zé: 21h em 1997 (a novela já começou); hoje, 20h30, e a porta desce
+  const rz = $("#rlz"), z97 = em(t, S.ze, S.relogio), zHoje = em(t, S.novela, T.tempo);
+  if (z97 || zHoje) {
+    const t0 = z97 ? S.ze + 0.3 : S.novela + 0.2, fim = z97 ? S.relogio : T.tempo, e = entra(t, t0, 0.32);
+    $("#rlz-b").textContent = z97 ? "21h" : "20h30";
+    hora($("svg", rz), 0, z97 ? lerp(20 * 60 + 52, 21 * 60, ease(fase(t, T.novela97 - 0.6, T.novela97))) : lerp(20 * 60 + 24, 20 * 60 + 30, ease(fase(t, T.fecha - 0.5, T.fecha))));
+    pos(rz, { x: 770, y: 470 + e.y, s: e.s * (1 + 0.06 * pulso(t, z97 ? T.novela97 : T.fecha, 0.3)), o: e.o * (1 - fase(t, fim - 0.15, fim)) });
+  } else pos(rz, { o: 0 });
+  const pw = entra(t, S.relogio + 0.25, 0.4);
+  pos($("#pulso"), { x: 330, y: 1240 + pw.y * 3, s: 0.62 * pw.s * (1 + 0.05 * pulso(t, T.relogioW, 0.35)), r: -8, o: naRel ? pw.o * (1 - fase(t, S.viagem - 0.2, S.viagem)) : 0 });
+  // o cartão-postal
+  const pc = fase(t, T.praia - 0.1, T.praia + 0.45), pcf = fase(t, S.manha - 0.3, S.manha);
+  pos($("#postal"), { x: (1 - saiX(pc)) * 500, y: (1 - saiX(pc)) * 300 - 30 * pcf, r: lerp(28, -5, saiX(pc)), s: lerp(0.7, 1, saiX(pc)), o: Math.min(1, pc * 4) * (1 - pcf) });
+  // "Que horas a gente abre mesmo?" e o padeiro sem saber
+  const [fx] = naTela(600, 0), [pdx] = naTela(290, 0);
+  balao(B.fc, t, T.que3, S.ninguem, xd(B.fc, fx), 610);
+  balao(B.pd, t, T.mesmo + 0.25, S.ninguem, pdx - 40, 700);
+  // a volta: a pergunta da moça, o "8h" dele, a correção e o site no celular dela
+  const [mx] = naTela(610, 0), [vx] = naTela(775, 0);
+  balao(B.mo, t, T.alguem3 + 0.3, T.era, xd(B.mo, mx), 560);
+  const murcha = em(t, T.ta, S.marca) ? sai(fase(t, T.ta, T.ta + 0.5)) : 0;
+  pos(B.v8, { x: vx + 40, y: 650 + entra(t, T.oito3 - 0.05).y + 40 * murcha, s: entra(t, T.oito3 - 0.05).s * (1 - 0.25 * murcha), r: 16 * murcha, o: entra(t, T.oito3 - 0.05).o * (1 - 0.55 * murcha) * (1 - fase(t, S.marca - 0.3, S.marca)) });
+  balao(B.era, t, T.era, T.ta + 0.35, xd(B.era, mx), 560);
+  const fm = fase(t, T.sete - 0.12, T.sete + 0.4);
+  pos(FMO, { x: 40, y: lerp(1500, 520, saiX(fm)), s: 0.66 * (fm > 0 ? lerp(0.9, 1, volta(fm)) : 0.9), r: -7, o: Math.min(1, fm * 4) * (1 - fase(t, S.marca - 0.3, S.marca)) });
+  $("#ml-mo0").style.background = `rgba(232,133,94,${(0.35 * pulso(t, T.seteW - 0.1, 1.0)).toFixed(3)})`;
 }
 
 function qSites(t) {
   const P = { pad: $("#fn-pad"), far: $("#fn-far"), cha: $("#fn-cha") };
-  // o da padaria sobe no "padaria"; vai para a esquerda quando entra a farmácia; os dois recuam quando chega o chaveiro
-  const a = fase(t, T.padS - 0.15, T.padS + 0.45), b = fase(t, T.farmS - 0.2, T.farmS + 0.35), c = fase(t, T.chavS - 0.12, T.chavS + 0.4);
-  const recua = ease(c);
-  const xPad = lerp(lerp(320, 70, ease(b)), 20, recua), sPad = lerp(lerp(1.2, 0.84, ease(b)), 0.7, recua);
-  pos(P.pad, { x: xPad, y: lerp(1200, 520, saiX(a)) + lerp(0, 60, recua), s: sPad * (a > 0 ? lerp(0.85, 1, volta(a)) : 0.85), r: lerp(0, -6, ease(b)), o: Math.min(1, a * 4), b: 2.5 * recua });
-  pos(P.far, { x: lerp(1100, lerp(570, 620, recua), saiX(b)), y: lerp(560, 580, recua), s: lerp(0.84, 0.7, recua), r: lerp(14, 6, saiX(b)), o: Math.min(1, b * 4), b: 2.5 * recua });
-  pos(P.cha, { x: 320, y: lerp(1250, 470, saiX(c)), s: c > 0 ? lerp(0.6, 1.02, volta(c)) : 0.6, r: lerp(-8, 0, saiX(c)), o: Math.min(1, c * 4) });
-  for (const k of Object.values(P)) k.style.zIndex = k === P.cha ? 14 : 12;
-  // as linhas do site da padaria acendem nas palavras
-  [[T.horario, "#ml-pad0"], [T.endereco, "#ml-pad1"]].forEach(([ts, id]) => { const x = pulso(t, ts - 0.1, 0.9); $(id).style.background = `rgba(232,133,94,${(0.32 * x).toFixed(3)})`; });
-  $("#mz-pad").style.transform = `scale(${(1 + 0.08 * pulso(t, T.zap - 0.05, 0.6)).toFixed(3)})`;
+  const L = [["pad", T.pela - 0.1, 15, -6, 0.76], ["far", T.loja - 0.1, 320, 0, 0.88], ["cha", T.horarioS - 0.15, 625, 6, 0.76]];
+  for (const [k, t0, x, r, s] of L) {
+    const a = fase(t, t0, t0 + 0.45);
+    pos(P[k], { x, y: lerp(1400, k === "far" ? 600 : 650, saiX(a)), s: s * (a > 0 ? lerp(0.85, 1, volta(a)) : 0.85), r, o: Math.min(1, a * 4) });
+    P[k].style.zIndex = k === "far" ? 14 : 12;
+    $(`#ml-${k}0`).style.background = `rgba(232,133,94,${(0.34 * clamp(fase(t, T.horarioS - 0.1, T.horarioS + 0.3) * (1 - fase(t, T.endereco - 0.3, T.endereco)))).toFixed(3)})`;
+    $(`#ml-${k}1`).style.background = `rgba(232,133,94,${(0.34 * pulso(t, T.endereco - 0.1, 0.8)).toFixed(3)})`;
+    $(`#mz-${k}`).style.transform = `scale(${(1 + 0.08 * pulso(t, T.zap - 0.05, 0.6)).toFixed(3)})`;
+  }
 }
 
 function qFim(t) {
-  // as palavras da frase da marca, uma a uma; em "Renderiza", o símbolo e o nome
+  // a frase da moral, palavra por palavra; em "Renderiza", o símbolo, o nome e o resto da frase embaixo
   for (const w of mcPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 22, s: x > 0 ? lerp(0.85, 1, volta(x)) : 0.85, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
   const m = fase(t, T.renderiza - 0.04, T.renderiza + 0.6), cta = ease(fase(t, S.cta - 0.32, S.cta + 0.22));
-  pos($("#mc-linha"), { y: lerp(0, -150, ease(m)) - 200 * cta, s: lerp(1, 0.78, ease(m)), o: 1 - cta });
+  pos($("#mc-linha"), { y: lerp(0, -150, ease(m)) - 200 * cta, s: lerp(1, 0.74, ease(m)), o: (1 - 0.35 * ease(m)) * (1 - cta) });
   pos($("#mc-simbolo"), { y: lerp(0, -330, cta), s: (m > 0 ? lerp(0.3, 1, volta(m)) : 0.3) * lerp(1, 0.44, cta), r: lerp(-140, 0, saiX(m)), o: m > 0 ? Math.min(1, m * 3) : 0, b: (1 - saiX(m)) * 14 });
   const nm = ease(fase(t, T.renderiza + 0.1, T.renderiza + 0.62));
   $("#mc-nome").style.clipPath = `inset(-30% ${(100 - 100 * nm).toFixed(2)}% -30% 0)`;
   pos($("#mc-nome"), { y: lerp(0, -462, cta) + (1 - nm) * 20, s: lerp(1, 0.5, cta) });
-  pos($("#mc-sub"), { y: lerp(0, -520, cta) + (1 - sai(fase(t, T.renderiza + 0.5, T.renderiza + 0.9))) * 16, s: lerp(1, 0.8, cta), o: fase(t, T.renderiza + 0.5, T.renderiza + 0.9) });
+  for (const w of subPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 18, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  pos($("#mc-sub"), { y: lerp(0, -560, cta), s: lerp(1, 0.78, cta), o: 1 - fase(t, S.cta + 0.3, S.cta + 0.7) });
   const est = saiX(fase(t, T.renderiza - 0.05, T.renderiza + 1));
   $("#mc-poli").setAttribute("transform", `translate(540 960) rotate(${(5 * (t - T.renderiza)).toFixed(2)}) scale(${lerp(0.3, 1, est).toFixed(3)}) translate(-540 -960)`);
   $("#mc-estrela").style.transform = `translateY(${lerp(0, -330, cta).toFixed(1)}px)`; $("#mc-estrela").style.opacity = est.toFixed(3);
@@ -745,18 +779,16 @@ function qFim(t) {
 
 window.quadro = t => {
   palco.style.transform = "none";
-  // a rua aparece em quase tudo; some na ligação, nos sites e na marca
-  const naRua = !(t >= S.lurdes && t < S.mudanca) && !(t >= T.padS - 0.2 && t < S.jogo - 0.3) && t < S.marca;
-  const mundoO = t < S.marca - 0.3 ? 1 : 1 - fase(t, S.marca - 0.3, S.marca);
-  vis($("#mundo"), naRua || (t >= S.marca - 0.3 && t < S.marca)); $("#mundo").style.opacity = mundoO.toFixed(3);
-  if (naRua || t < S.marca) qMundo(t);
-  qBaloes(t);
-  const lu = t >= S.lurdes && t < S.mudanca, si = t >= T.padS - 0.2 && t < S.jogo - 0.3, fi = t >= S.marca - 0.3;
-  vis($("#c-lurdes"), lu); if (lu) qLurdes(t);
+  const si = em(t, S.sites, S.novela), fi = t >= S.marca - 0.3;
+  const naRua = !si && t < S.marca;
+  vis($("#mundo"), naRua || em(t, S.marca - 0.3, S.marca));
+  $("#mundo").style.opacity = t < S.marca - 0.3 ? 1 : (1 - fase(t, S.marca - 0.3, S.marca)).toFixed(3);
+  if (t < S.marca) qMundo(t);
+  if (si || fi) { $("#antigo").style.opacity = 0; $("#noite").style.opacity = 0; $("#carimbo").style.opacity = 0; }
+  qSobre(t);
   vis($("#c-sites"), si); if (si) qSites(t);
   vis($("#c-fim"), fi); if (fi) qFim(t);
-  $("#f-ceu").style.opacity = lu || si ? 0 : 1;
-  $("#f-lurdes").style.opacity = lu ? 1 : 0;
+  $("#f-ceu").style.opacity = si ? 0 : 1;
   $("#f-quente").style.opacity = si || fi ? 1 : 0;
   // poeira quente
   for (const p of POEIRA) {
@@ -786,17 +818,18 @@ window.quadro = t => {
   $("#flash").style.opacity = flash.toFixed(3);
 };
 
-// cenas da trilha (ferramentas/video/trilha-pulso.py só conhece estas partes): o pulso diz qual é qual
-const TRILHA = { rua: "abre", perguntas: "google", sabe: "google", anos: "meio", viagem: "meio", fila: "insta", lurdes: "insta", mudanca: "insta",
-  volta: "volta", ninguem: "ese", sites: "site", jogo: "site", marca: "fim", cta: "cta" };
+// cenas da trilha (ferramentas/video/trilha-pulso.py só conhece estas partes): o pulso diz qual é qual.
+// O flashback de 1997 é o groove ("insta"); a viagem corta a batida ("nada"); a correção e a moral ficam só com os impactos ("fim").
+const TRILHA = { abre: "abre", perguntas: "google", segredo: "google", chute: "insta", fila: "insta", ze: "insta", relogio: "insta", viagem: "volta",
+  manha: "meio", ninguem: "ese", sites: "site", novela: "site", volta: "site", corrige: "fim", marca: "fim", cta: "cta" };
 window.preparar = () => {
   window.quadro(0);
   return {
     duracao: DUR, narracao: NOME, bpm: 118, tom: -2,
     pulso: frases.map(f => ({ id: f.id, cena: TRILHA[f.cena], ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
-    ensaio: [0.3, 2.4, T.valdir + 0.9, T.oito + 0.6, T.nove + 0.5, T.gel + 0.5, T.cabeca + 0.5, S.anos + 1.2, T.foi + 0.8, T.praia + 0.6, T.fila + 0.3, T.h9 + 0.8,
-      T.chaveiro + 0.3, T.calabresa + 1.2, T.mudar, T.padaria + 0.4, T.voltou - 0.4, T.sentou + 0.8, T.nadaW + 0.3, T.padS + 0.6, T.zap + 0.3, T.farmS + 0.6, T.chavS + 0.7,
-      T.jogo + 0.4, T.renderiza - 0.5, T.renderiza + 1.0, T.previa + 1.2].map(x => +x.toFixed(2)),
+    ensaio: [0.3, 2.4, T.homem + 0.6, T.r1 + 0.3, T.r3 + 0.5, T.um + 0.3, T.todos + 0.6, T.alguem97 + 0.5, T.sabia + 0.3, T.oito97 + 0.4, T.fila + 0.4, T.dez + 0.3, T.oito8 + 0.5,
+      T.novela97 + 0.2, T.acertava + 0.8, T.foi + 0.8, T.praia + 0.6, T.mesmo + 0.5, T.ninguem + 0.6, T.fazia + 1.5, T.loja + 0.5, T.zap + 0.3,
+      T.fecha + 0.7, T.tempo + 0.6, T.alguem3 + 0.8, T.oito3 + 0.3, T.seteW + 0.5, T.ta + 0.6, T.chuta + 0.5, T.renderiza + 1.2, T.previa + 1.2].map(x => +x.toFixed(2)),
   };
 };
 

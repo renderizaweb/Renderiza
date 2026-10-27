@@ -1,25 +1,227 @@
 {
- "_sobre": "Narração do Reels \"O homem que sabia todos os horários\" (pedido do Kaue, 27/10/2026: história que prende sozinha e só no fim mostra que é da Renderiza). O Seu Valdir e a Rua das Acácias são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha.",
+ "_sobre": "Narração do Reels \"O homem que sabia todos os horários\", versão 2 (27/10/2026: o Kaue achou a primeira sem graça e sem virada, e reclamou das pausas longas que pareciam anunciar uma piada que não vinha). A virada: o Seu Valdir inventou todos os horários da rua, e as lojas se acertaram com ele. Pausas curtas e controladas aqui: cada frase é gravada sozinha, porque a voz faz uma pausa de quase 0,8 s entre frases, que soa como deixa de piada; só depois de uma piada a pausa é maior. O Seu Valdir e a Rua das Acácias são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+10%",
  "inicio": 0.2,
  "frases": [
-  { "id": "rua", "cena": "rua", "texto": "Na Rua das Acácias, ninguém procurava nada na *internet.*", "pausa": 0.25 },
-  { "id": "valdir", "cena": "rua", "texto": "Era só perguntar para o *Seu Valdir.*", "pausa": 0.45 },
-  { "id": "farmacia", "cena": "perguntas", "texto": "Que horas abre a farmácia? *Oito.* No domingo, *nove.*", "pausa": 0.3 },
-  { "id": "sabia", "cena": "sabe", "texto": "O telefone do veterinário, o dia da feira, quem conserta geladeira. Ele sabia tudo de *cabeça.*", "pausa": 0.3 },
-  { "id": "anos", "cena": "anos", "texto": "*28 anos* no mesmo banco da praça.", "fala": "Vinte e oito anos no mesmo banco da praça.", "pausa": 0.45 },
-  { "id": "viagem", "cena": "viagem", "texto": "Até que, em janeiro, o Seu Valdir foi passar quinze dias na casa da filha, na *praia.*", "pausa": 0.5, "impacto": true },
-  { "id": "fila", "cena": "fila", "texto": "No domingo, às 8h, tinha fila na porta da farmácia. Abria às *9h.*", "fala": "No domingo, às oito, tinha fila na porta da farmácia. Abria às nove.", "pausa": 0.3, "impacto": true },
-  { "id": "lurdes", "cena": "lurdes", "texto": "A Dona Lurdes ligou para o chaveiro e pediu uma *calabresa.*", "pausa": 0.9 },
-  { "id": "mudanca", "cena": "mudanca", "texto": "E a família que tinha acabado de se mudar passou a semana achando que a rua não tinha *padaria.*", "pausa": 0.55 },
-  { "id": "nada", "cena": "volta", "texto": "Quinze dias depois, o Seu Valdir *voltou.*", "pausa": 0.35, "impacto": true },
-  { "id": "espera", "cena": "volta", "texto": "Sentou no banco e *esperou.*", "pausa": 0.9 },
-  { "id": "ninguem", "cena": "ninguem", "texto": "Ninguém perguntou *nada.*", "pausa": 1.1 },
-  { "id": "sites", "cena": "sites", "texto": "Enquanto ele estava fora, a padaria fez um *site,* com horário, endereço e WhatsApp. A farmácia também. Até o *chaveiro.*", "pausa": 0.45, "impacto": true },
-  { "id": "jogo", "cena": "jogo", "texto": "O Seu Valdir continua no banco da praça. Agora só perguntam do jogo de *domingo.*", "pausa": 0.55 },
-  { "id": "marca", "cena": "marca", "texto": "Nem toda rua tem um Seu Valdir. Para as outras, tem a *Renderiza.*", "pausa": 0.35, "impacto": true },
-  { "id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.", "fala": "Comenta prévia, que a gente monta a prévia do seu site.", "pausa": 0.2 }
+  {
+   "id": "abre",
+   "cena": "abre",
+   "texto": "Por *28 anos,* a Rua das Acácias funcionou no horário de um homem só.",
+   "fala": "Por vinte e oito anos, a Rua das Acácias funcionou no horário de um homem só.",
+   "pausa": 0.25
+  },
+  {
+   "id": "q1",
+   "cena": "perguntas",
+   "texto": "Seu Valdir, que horas abre a farmácia?",
+   "pausa": 0.12
+  },
+  {
+   "id": "r1",
+   "cena": "perguntas",
+   "texto": "*Oito.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "q2",
+   "cena": "perguntas",
+   "texto": "E a padaria?",
+   "pausa": 0.1
+  },
+  {
+   "id": "r2",
+   "cena": "perguntas",
+   "texto": "*Seis.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "q3",
+   "cena": "perguntas",
+   "texto": "E o chaveiro?",
+   "pausa": 0.1
+  },
+  {
+   "id": "r3",
+   "cena": "perguntas",
+   "texto": "Até as *nove.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nunca",
+   "cena": "segredo",
+   "texto": "Nunca errou um.",
+   "pausa": 0.2
+  },
+  {
+   "id": "segredo",
+   "cena": "segredo",
+   "texto": "O segredo?",
+   "pausa": 0.15
+  },
+  {
+   "id": "todos",
+   "cena": "segredo",
+   "texto": "Inventou *todos.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "chute",
+   "cena": "chute",
+   "texto": "Em 1997, alguém perguntou da farmácia.",
+   "fala": "Em mil novecentos e noventa e sete, alguém perguntou da farmácia.",
+   "pausa": 0.15
+  },
+  {
+   "id": "chutou",
+   "cena": "chute",
+   "texto": "Ele não sabia e chutou: *oito.*",
+   "fala": "Ele não sabia, e chutou: oito.",
+   "pausa": 0.25
+  },
+  {
+   "id": "fila",
+   "cena": "fila",
+   "texto": "No dia seguinte, às 8h, tinha fila.",
+   "fala": "No dia seguinte, às oito, tinha fila.",
+   "pausa": 0.15
+  },
+  {
+   "id": "abria",
+   "cena": "fila",
+   "texto": "A farmácia abria às 10h.",
+   "fala": "A farmácia abria às dez.",
+   "pausa": 0.1
+  },
+  {
+   "id": "passou",
+   "cena": "fila",
+   "texto": "Passou a abrir às *8h.*",
+   "fala": "Passou a abrir às oito.",
+   "pausa": 0.25
+  },
+  {
+   "id": "ze",
+   "cena": "ze",
+   "texto": "E o Zé, do chaveiro, nunca mais viu o começo da *novela.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "relogio",
+   "cena": "relogio",
+   "texto": "A rua é que acertava o *relógio* por ele.",
+   "pausa": 0.45
+  },
+  {
+   "id": "nada",
+   "cena": "viagem",
+   "texto": "Até que, em janeiro, ele foi passar quinze dias na *praia.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "manha",
+   "cena": "manha",
+   "texto": "Na primeira manhã, o farmacêutico perguntou ao padeiro:",
+   "pausa": 0.1
+  },
+  {
+   "id": "mesmo",
+   "cena": "manha",
+   "texto": "Que horas a gente abre *mesmo?*",
+   "fala": "Que horas a gente abre, mesmo?",
+   "pausa": 0.3
+  },
+  {
+   "id": "ninguem",
+   "cena": "ninguem",
+   "texto": "Ninguém sabia.",
+   "pausa": 0.15
+  },
+  {
+   "id": "fazia",
+   "cena": "ninguem",
+   "texto": "Fazia 28 anos que ninguém escolhia o próprio *horário.*",
+   "fala": "Fazia vinte e oito anos que ninguém escolhia o próprio horário.",
+   "pausa": 0.25
+  },
+  {
+   "id": "sites",
+   "cena": "sites",
+   "texto": "Então, pela primeira vez, cada loja disse o próprio horário.",
+   "pausa": 0.12,
+   "impacto": true
+  },
+  {
+   "id": "site",
+   "cena": "sites",
+   "texto": "Num *site,* com endereço e WhatsApp.",
+   "pausa": 0.25
+  },
+  {
+   "id": "novela",
+   "cena": "novela",
+   "texto": "O Zé agora fecha às 8h30.",
+   "fala": "O Zé agora fecha às oito e meia.",
+   "pausa": 0.12
+  },
+  {
+   "id": "tempo",
+   "cena": "novela",
+   "texto": "A tempo da *novela.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "volta",
+   "cena": "volta",
+   "texto": "Quando o Seu Valdir voltou, alguém perguntou da farmácia.",
+   "pausa": 0.12
+  },
+  {
+   "id": "disse",
+   "cena": "volta",
+   "texto": "Ele disse: *oito.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "era",
+   "cena": "corrige",
+   "texto": "Era, Seu Valdir.",
+   "pausa": 0.1
+  },
+  {
+   "id": "sete",
+   "cena": "corrige",
+   "texto": "Agora é às *sete.*",
+   "pausa": 0.1
+  },
+  {
+   "id": "tano",
+   "cena": "corrige",
+   "texto": "Tá no site.",
+   "pausa": 0.5
+  },
+  {
+   "id": "chuta",
+   "cena": "marca",
+   "texto": "Se o seu negócio não diz o próprio horário, alguém chuta por ele.",
+   "pausa": 0.15
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu site responde por você.",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.",
+   "fala": "Comenta prévia, que a gente monta a prévia do seu site.",
+   "pausa": 0.2
+  }
  ]
 }

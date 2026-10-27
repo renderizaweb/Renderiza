@@ -73,12 +73,16 @@ elif MOTOR == "edge":
                 if m["type"] == "audio": mp3 += m["data"]
                 elif m["type"] == "WordBoundary": ws.append({"p": m["text"], "ini": m["offset"] / 1e7, "fim": (m["offset"] + m["duration"]) / 1e7})
             return bytes(mp3), ws
-        for tentativa in range(4):  # o serviço às vezes derruba a conexão
-            try: mp3, ws = asyncio.run(pedir()); break
+        for tentativa in range(4):  # o serviço às vezes derruba a conexão ou manda o áudio cortado
+            try:
+                mp3, ws = asyncio.run(pedir())
+                pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-i", "-", "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                                     input=mp3, capture_output=True, check=True).stdout
+                x = np.frombuffer(pcm, np.float32).copy()
+                if ws and ws[-1]["fim"] > len(x) / SR + 0.05: raise RuntimeError(f"áudio cortado em {len(x) / SR:.2f}s")
+                break
             except Exception as e: print(f"  {texto!r} tentativa {tentativa + 1}: {e}", flush=True)
-        pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-i", "-", "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
-                             input=mp3, capture_output=True, check=True).stdout
-        return np.frombuffer(pcm, np.float32).copy(), ws
+        return x, ws
 else:
     import torch
     from chatterbox.mtl_tts import ChatterboxMultilingualTTS
