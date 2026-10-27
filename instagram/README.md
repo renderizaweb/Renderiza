@@ -20,6 +20,8 @@ Posts prontos para baixar e postar, feitos em HTML e gravados pelo `gerar.mjs`:
 | Reels "Elogio bom não fica no privado" (o elogio no WhatsApp que vira avaliação no Google com a mensagem do kit, sem voz, trilha pulsante) | `reels-elogio.html` | `reels-elogio.mp4` (1080 × 1920, 38,4 s) |
 | Reels "Preço?" (os "Preço?" nos comentários e o Catálogo com foto, preço e pedido pelo WhatsApp, sem voz, trilha pulsante) | `reels-catalogo.html` | `reels-catalogo.mp4` (1080 × 1920, 38 s) |
 | Reels "O site ficou pronto. E agora?" (o kit de divulgação leva o link para a bio, o Google, o status e o WhatsApp, sem voz, trilha pulsante) | `reels-pronto.html` | `reels-pronto.mp4` (1080 × 1920, 38,7 s) |
+| Reels narrado "O ciclo de um espaço de eventos" (a sexta-feira da Marina, dona da Villa Alecrim, antes e depois do site, da agenda online e do painel; voz do Kokoro, trilha pulsante com as cenas mapeadas em `pulso`) | `reels-ciclo-eventos.html` + `narracao/reels-ciclo-eventos.json` | `reels-ciclo-eventos.mp4` (1080 × 1920, 85,5 s) |
+| Vídeo do exemplo do painel para o Instagram (o de /exemplos em 1080, com "Comenta PAINEL") | `exemplo-sistema-eventos.json` (`node ferramentas/video/gravar.mjs instagram/exemplo-sistema-eventos.json <saida.mp4>`) | 1080 × 1920, 53 s |
 | Stories da semana de 16 a 23/10 (só a arte; a enquete e a caixinha entram no app) | `stories-semana.html` | `stories-semana-1.png` … `-8.png` (1080 × 1920) |
 
 ```

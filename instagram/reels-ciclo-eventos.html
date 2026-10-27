@@ -48,7 +48,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .fone.leve{box-shadow:0 60px 110px -40px rgba(30,37,40,.55),0 24px 50px -24px rgba(30,37,40,.35),inset 0 0 0 2px rgba(255,255,255,.09),inset 0 0 0 6px #070909}
 .visor{position:relative;width:100%;height:100%;border-radius:65px;overflow:hidden;background:#fff}
 .camada{position:absolute;inset:0}
-.fone>.exemplo{left:-30px;top:470px;z-index:25}
+.fone>.exemplo{left:44px;top:-14px;z-index:25}
 .status{position:absolute;left:0;right:0;top:0;height:62px;display:flex;align-items:center;justify-content:space-between;padding:14px 44px 0 52px;font:600 23px/1 "Geist",sans-serif;z-index:6}
 .status i{display:inline-flex;gap:8px;align-items:center}
 .status .bat{width:38px;height:19px;border-radius:6px;border:2px solid currentColor;position:relative;opacity:.9}
@@ -150,8 +150,8 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .d-tag{position:absolute;left:0;top:0;height:84px;display:flex;align-items:center;gap:16px;padding:0 34px 0 28px;border-radius:42px;background:#fff;font:700 38px/1 "Geist",sans-serif;color:#13202a;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 26px 50px -14px rgba(0,0,0,.75);z-index:4}
 .d-tag i{width:22px;height:22px;border-radius:50%}
 #d-vermelho{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,rgba(255,70,50,.6),rgba(170,20,20,.38) 55%,rgba(80,0,0,.25));opacity:0;z-index:6}
-#d-onda{position:absolute;left:405px;top:900px;width:200px;height:200px;border-radius:50%;border:8px solid #ff6a55;opacity:0;z-index:5}
-#d-pilula{position:absolute;left:50%;top:770px;translate:-50% 0;display:flex;align-items:center;gap:14px;height:76px;padding:0 30px;border-radius:38px;background:#d8392f;color:#fff;font:700 34px/1 "Geist",sans-serif;white-space:nowrap;box-shadow:0 20px 50px -10px rgba(216,57,47,.7);z-index:7;opacity:0}
+#d-onda{position:absolute;left:405px;top:980px;width:200px;height:200px;border-radius:50%;border:8px solid #ff6a55;opacity:0;z-index:5}
+#d-pilula{position:absolute;left:50%;top:850px;translate:-50% 0;display:flex;align-items:center;gap:14px;height:76px;padding:0 30px;border-radius:38px;background:#d8392f;color:#fff;font:700 34px/1 "Geist",sans-serif;white-space:nowrap;box-shadow:0 20px 50px -10px rgba(216,57,47,.7);z-index:7;opacity:0}
 #d-pilula svg{width:34px;height:34px}
 
 /* 5 · pix */
@@ -161,8 +161,8 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .ch-cab .lin>svg{width:34px;height:34px}
 .ch-cab .av{flex:none;width:66px;height:66px;border-radius:50%;background:#e8a0b4;color:#fff;font-weight:700;font-size:25px;display:grid;place-items:center}
 .ch-cab .nm{flex:1;min-width:0}
-.ch-cab b{display:block;font-size:28px;font-weight:700;color:#111b21}
-.ch-cab small{display:block;font-size:20px;color:#667781;margin-top:4px}
+.ch-cab b{display:block;font-size:28px;font-weight:700;color:#111b21;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-cab small{display:block;font-size:20px;color:#667781;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ch-corpo{position:absolute;left:0;right:0;top:166px;bottom:98px;overflow:hidden}
 .ch-rolo{position:absolute;left:0;right:0;top:0}
 .ch-b{position:absolute;max-width:350px;padding:13px 18px 10px;border-radius:22px;font-size:24px;line-height:1.3;color:#111b21;box-shadow:0 1px 1px rgba(0,0,0,.08)}
@@ -248,7 +248,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .s-ponta .nome.cima{top:-124px}
 .s-ponta .nome.baixo{top:76px}
 #s-site{position:absolute;left:505px;top:1040px;width:344px;margin-left:-172px;margin-top:-212px;padding:14px;border-radius:30px;background:#1e2528;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 3px rgba(232,133,94,.28),0 0 120px -10px rgba(232,133,94,.65);z-index:4}
-#s-site>.exemplo{left:-26px;top:-20px}
+#s-site>.exemplo{left:50%;top:auto;bottom:-20px;translate:-50% 0}
 .ss-barra{display:flex;align-items:center;gap:8px;padding:2px 4px 14px}
 .ss-barra i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.25)}
 .ss-barra span{flex:1;margin-left:6px;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.09);color:#e8e2da;font:600 20px/1.2 "Geist",sans-serif;white-space:nowrap;text-align:center}
@@ -326,7 +326,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .ag-pronto .ficha div{display:flex;justify-content:space-between;padding:13px 18px;border-top:1px solid #f0ede4;font-size:19px}
 .ag-pronto .ficha div:first-child{border-top:0}
 .ag-pronto .ficha span{color:var(--va-suave)}
-#ag-resumo{position:absolute;left:600px;top:690px;width:332px;padding:26px 26px 22px;border-radius:30px;background:#fff;box-shadow:0 40px 80px -30px rgba(30,37,40,.45),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta);transform-origin:50% 50%;z-index:13}
+#ag-resumo{position:absolute;left:600px;top:640px;width:332px;padding:26px 26px 22px;border-radius:30px;background:#fff;box-shadow:0 40px 80px -30px rgba(30,37,40,.45),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta);transform-origin:50% 50%;z-index:13}
 #ag-resumo h5{font-size:17px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--va-suave);display:flex;align-items:center;gap:10px;margin-bottom:8px}
 #ag-resumo h5 i{width:34px;height:34px;border-radius:10px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
 #ag-resumo h5 svg{width:22px;height:22px}
@@ -455,8 +455,8 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .ct-li.on .ct-cx svg{opacity:1}
 .ct-btn{position:absolute;left:24px;right:24px;bottom:40px;height:86px;border-radius:22px;background:#b8c4bd;color:#fff;display:grid;place-items:center;font-size:27px;font-weight:700}
 .ct-btn.on{background:var(--va-v2);box-shadow:0 16px 30px -14px #2d6a4f}
-#ct-carimbo{position:absolute;left:150px;top:960px;width:420px;height:150px;display:grid;place-items:center;border:7px solid #1f7a4d;color:#1f7a4d;border-radius:22px;font:800 52px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.01em;background:rgba(236,246,240,.94);box-shadow:0 30px 60px -20px rgba(31,122,77,.55);z-index:16;opacity:0}
-#ct-salvo{left:560px;top:1140px;width:372px;padding:22px 24px;border-radius:26px;z-index:14;opacity:0}
+#ct-carimbo{position:absolute;left:150px;top:880px;width:420px;height:150px;display:grid;place-items:center;border:7px solid #1f7a4d;color:#1f7a4d;border-radius:22px;font:800 52px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.01em;background:rgba(236,246,240,.94);box-shadow:0 30px 60px -20px rgba(31,122,77,.55);z-index:16;opacity:0}
+#ct-salvo{left:560px;top:1100px;width:372px;padding:22px 24px;border-radius:26px;z-index:14;opacity:0}
 #ct-salvo .t{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--va-suave)}
 #ct-salvo .t i{width:40px;height:40px;border-radius:12px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
 #ct-salvo .t svg{width:24px;height:24px}
@@ -532,7 +532,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .ia-dig{display:flex;gap:10px;margin-top:22px;padding:20px 24px;border-radius:22px;background:rgba(241,238,233,.06);width:126px;opacity:0}
 .ia-dig i{width:14px;height:14px;border-radius:50%;background:#e8855e}
 #ia-fitam{position:absolute;left:100px;top:830px;width:840px;height:640px;overflow:visible}
-.ia-nota{position:absolute;left:0;right:0;top:1440px;text-align:center;font:500 24px/1 "Geist",sans-serif;color:#8c9598;opacity:0}
+.ia-nota{position:absolute;left:0;right:0;top:1436px;text-align:center;font:500 30px/1 "Geist",sans-serif;color:#8c9598;opacity:0}
 
 /* 17 · dorme */
 #c-dorme{transform-origin:50% 55%}
@@ -554,7 +554,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .dm-tela b{display:block;font-size:104px;font-weight:200;letter-spacing:-.04em;line-height:1;margin-top:6px}
 .dm-escuro{position:absolute;inset:0;background:#000;z-index:3}
 #dm-suporte{position:absolute;left:330px;top:1210px;width:210px;height:60px;border-radius:14px 14px 4px 4px;background:linear-gradient(180deg,#3a4145,#262c2f);box-shadow:0 10px 20px rgba(0,0,0,.4)}
-#dm-notif{left:118px;top:892px;width:784px;padding:26px 30px 28px;border-radius:38px;background:rgba(246,243,238,.97);box-shadow:0 50px 100px -30px rgba(0,0,0,.85),0 0 90px rgba(241,211,143,.14);transform-origin:50% 50%;opacity:0;z-index:5}
+#dm-notif{left:118px;top:892px;width:784px;padding:26px 30px 28px;border-radius:38px;background:rgba(246,243,238,.97);box-shadow:0 50px 100px -30px rgba(0,0,0,.85),0 0 90px rgba(241,211,143,.14);transform-origin:50% 50%;opacity:0;z-index:20}
 .dn-cab{display:flex;align-items:center;gap:14px;font-size:21px;font-weight:800;letter-spacing:.12em;color:var(--va-suave);text-transform:uppercase}
 .dn-cab i{flex:none;width:58px;height:58px;border-radius:17px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
 .dn-cab i svg{width:34px;height:34px;stroke-width:1.5}
@@ -568,13 +568,13 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 #mc-estrela{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
 #mc-simbolo{position:absolute;left:540px;top:770px;width:250px;height:250px;margin:-125px 0 0 -125px;color:#f1eee9}
 #mc-simbolo .simbolo{width:100%;height:100%}
-#mc-nome{position:absolute;left:0;right:0;top:930px;text-align:center;font-weight:600;font-size:150px;letter-spacing:-.055em;color:#f1eee9;line-height:1.05}
+#mc-nome{position:absolute;left:50%;translate:-50% 0;width:max-content;top:930px;text-align:center;font-weight:600;font-size:150px;letter-spacing:-.055em;color:#f1eee9;line-height:1.05}
 #mc-linha{position:absolute;left:90px;right:90px;top:1132px;text-align:center;font-weight:600;font-size:58px;letter-spacing:-.03em;line-height:1.12;color:#b9bfc1;text-wrap:balance}
 #mc-linha .w{display:inline-block;opacity:0}
 #mc-linha .forte{color:#f6f3ee}
 #cta-botao{position:absolute;left:540px;top:1036px;translate:-50% 0;display:inline-flex;align-items:center;gap:24px;height:158px;padding:0 64px;border-radius:79px;background:var(--terracota);color:#fff;font-size:68px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 24px 70px rgba(178,81,52,.55);overflow:hidden;opacity:0}
 #cta-botao svg{width:62px;height:62px}
-#cta-botao em{font-style:normal;display:inline-block}
+#cta-botao em{font-style:normal;display:inline-block;transform-origin:0 60%}
 #cta-luz{position:absolute;top:-20px;bottom:-20px;left:0;width:120px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-300px) skewX(-18deg)}
 #cta-texto{position:absolute;left:110px;right:110px;top:1236px;text-align:center;font-size:50px;font-weight:500;color:#e6e1da;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
 #cta-texto .w{display:inline-block;opacity:0}
@@ -624,7 +624,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 
   <section class="cena" id="c-insta"></section>
   <section class="cena" id="c-sol"></section>
-  <section class="cena" id="c-agenda"></section>
+  <section class="cena" id="c-agenda" style="z-index:11"></section>
   <section class="cena" id="c-painel"></section>
   <section class="cena" id="c-ae"></section>
   <section class="cena" id="c-ficha"></section>
@@ -892,7 +892,7 @@ const ITENS = [];
   for (const it of ITENS) { it.h = it.tipo === "sk" ? ALT["sk" + it.n] : ALT[it.tipo]; b += it.lado && lado0 && it.lado !== lado0 ? 8 : 0; it.b = b; b += it.h + 12; lado0 = it.lado || lado0; }
 }
 const CH_TOT = ITENS[ITENS.length - 1].b + 400, CH_VIS = 1000 - 166 - 98;
-$("#a-chat").innerHTML = barra("#111b21", "23:06") + `<div class="ch-cab"><div class="lin">${ic("esq")}<span class="av">JP</span><div class="nm"><b>Juliana &amp; Pedro</b><small>casamento · visto por último hoje</small></div><span style="display:flex;gap:22px;color:#1fa855">${ic("video", 'style="width:34px;height:34px"')}${ic("telefone", 'style="width:30px;height:30px"')}</span></div></div>
+$("#a-chat").innerHTML = barra("#111b21", "23:06") + `<div class="ch-cab"><div class="lin">${ic("esq")}<span class="av">JS</span><div class="nm"><b>Juliana</b><small>casamento · 06/03</small></div><span style="display:flex;gap:22px;color:#1fa855">${ic("video", 'style="width:34px;height:34px"')}${ic("telefone", 'style="width:30px;height:30px"')}</span></div></div>
   <div class="ch-corpo"><div class="ch-rolo" id="a-rolo" style="height:${CH_TOT}px">${ITENS.map((it, k) => {
     const top = CH_TOT - it.b - it.h, hr = `<span class="hr">${["21:14", "19:02", "10:31", "08:47", "22:05", "17:40"][k % 6]}${it.lado === "out" ? " ✓✓" : ""}</span>`;
     if (it.tipo === "data") return `<span class="ch-data" style="top:${top}px">${it.txt}</span>`;
@@ -970,7 +970,7 @@ const ACESO = [T.tudo + 0.05, T.fotos, T.aval, T.aval + 0.4, T.pacotes, T.endere
   let dias = `<span class="ag-d vazio"></span>`;
   for (let d = 1; d <= 31; d++) { const st = OCUP[d] || "livre"; dias += `<span class="ag-d ${st}" data-d="${d}">${d}${st === "meio" ? "<small>1 livre</small>" : ""}</span>`; }
   const FESTAS = [["casamento", "Casamento"], ["quinze", "15 anos"], ["aniversario", "Aniversário"], ["infantil", "Infantil"], ["corporativo", "Corporativo"], ["outro", "Outro"]];
-  $("#c-agenda").innerHTML = `<div class="fone leve" id="foneC" style="left:80px;top:580px;width:490px;height:1010px"><span class="exemplo">exemplo</span><div class="visor ag">
+  $("#c-agenda").innerHTML = `<div class="fone leve" id="foneC" style="left:80px;top:530px;width:490px;height:970px"><span class="exemplo">exemplo</span><div class="visor ag">
     <div class="ag-cab">${barra("#fff", "23:06")}<div class="va-logo"><i>${ic("ramo")}</i><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></div></div>
     <div class="ag-passos"><span id="ag-passo">Passo 1 de 4</span><span class="ag-trilha"><i id="ag-trilha"></i></span></div>
     <div class="ag-palco"><div class="ag-trem" id="ag-trem">
@@ -1039,7 +1039,7 @@ $("#c-contrato").innerHTML = `<div id="ct-doc"><span class="k">CONTRATO</span><h
     <p class="cl">1. O evento</p><span class="sk2"></span><span class="sk2" style="width:86%"></span><p class="cl">2. Pagamento</p><span class="sk2"></span><span class="sk2" style="width:72%"></span><p class="cl">3. Cancelamento</p><span class="sk2"></span><span class="sk2" style="width:64%"></span>
     <div class="ass">Assinatura do contratante</div></div>
   <div id="ct-link">${ic("link")}villaalecrim.com.br/contrato</div>
-  <div class="fone leve" id="foneD" style="left:130px;top:640px;width:470px;height:960px"><span class="exemplo">exemplo</span><div class="visor ct">
+  <div class="fone leve" id="foneD" style="left:130px;top:560px;width:470px;height:900px"><span class="exemplo">exemplo</span><div class="visor ct">
     <div class="ag-cab">${barra("#fff", "23:12")}<div class="va-logo"><i>${ic("ramo")}</i><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></div></div>
     <div class="ct-corpo"><h4>Contrato</h4><p class="q">15 anos da Valentina · sáb, 13/03</p><p class="cl">1. O evento</p><span class="sk2"></span><span class="sk2" style="width:80%"></span>
       <p class="cl">2. Pagamento</p><span class="sk2"></span><span class="sk2" style="width:70%"></span><p class="cl">3. Cancelamento</p><span class="sk2"></span><span class="sk2" style="width:60%"></span></div>
@@ -1059,7 +1059,7 @@ const barEls = $$("#fn-graf .fn-b");
 // 15 · equipe: cada um com a sua senha
 const EQ = [["MA", "#2d6a4f", "Marina", "Proprietária", [["Agenda", 1], ["Financeiro", 1]]], ["RC", "#2f6fe0", "Rafael", "Comercial", [["Agenda", 1], ["Financeiro", 0]]], ["BL", "#b4542f", "Beatriz", "Financeiro", [["Agenda", 1], ["Financeiro", 1]]]];
 $("#c-equipe").innerHTML = EQ.map(([ini, cor, n, p, ch], k) => `<div class="vcard eq" id="eq${k}" style="top:${572 + 262 * k}px">${k === 0 ? '<span class="exemplo">exemplo</span>' : ""}<span class="av" style="background:${cor}">${ini}</span>
-  <div class="nm"><b>${n}</b><span>${p}</span></div><div class="lin"><span class="senha" id="eq-s${k}">${ic("cadeado")}<b id="eq-d${k}"></b></span>${ch.map(([c, on], j) => `<span class="chip" id="eq-c${k}${j}">${ic(on ? "check" : "cadeado")}<b>${c}</b></span>`).join("")}</div></div>`).join("");
+  <div class="nm"><b>${n}</b><span>${p}</span></div><div class="lin"><span class="senha" id="eq-s${k}">${ic("cadeado")}<b id="eq-d${k}"></b></span>${ch.map(([c, on], j) => `<span class="chip${on ? "" : " off"}" id="eq-c${k}${j}">${ic(on ? "check" : "cadeado")}<b>${c}</b></span>`).join("")}</div></div>`).join("");
 
 // 16 · ia: ideia sob medida (não é um botão do painel)
 $("#c-ia").innerHTML = `<div id="ia-dias">${["seg", "ter", "qua", "qui", "sex", "sáb", "dom"].map(d => `<span>${d}</span>`).join("")}</div>
@@ -1136,23 +1136,24 @@ const TOQUES = [
   [T.festa, () => centro($("#ag-f-quinze")), 1], [T.livre + 0.06, () => centro(dia13), 1], [T.convidados + 0.62, () => centro($("#ag-p-Completo")), 1], [T.pre, () => centro($("#ag-btn")), 1],
   [T.aceita, () => centro($("#ct-cx")), 1], [T.aceita + 0.4, () => centro($("#ct-btn")), 1],
 ];
+const ALVO = tq => tq.xy || tq[1](); // onde o alvo estava na hora do toque (o dia 13 anda com o trem de passos depois)
 function qDedo(t) {
   const dedo = $("#dedo"), onda = $("#dedo-onda");
   let p = null, n = null;
   for (const tq of TOQUES) { if (tq[0] <= t) p = tq; else if (!n) n = tq; }
   let alvo = null, o = 0, aperta = 1, claro = 0;
-  if (p && t - p[0] < 0.3) { alvo = p[1](); o = 1; claro = p[2]; if (t - p[0] < 0.22) aperta = 0.84; }
+  if (p && t - p[0] < 0.3) { alvo = ALVO(p); o = 1; claro = p[2]; if (t - p[0] < 0.22) aperta = 0.84; }
   else if (n && n[0] - t < 0.62) {
     claro = n[2];
-    if (p && n[0] - p[0] < 1.5) { const a = p[1](), b = n[1](), x = ease(fase(t, p[0] + 0.25, n[0] - 0.06)); alvo = [lerp(a[0], b[0], x), lerp(a[1], b[1], x)]; o = 1; }
-    else { const b = n[1](), x = ease(fase(t, n[0] - 0.62, n[0] - 0.12)); alvo = [b[0] + 140 * (1 - x), b[1] + 220 * (1 - x)]; o = fase(t, n[0] - 0.62, n[0] - 0.42); }
-  } else if (p && t - p[0] < 0.6) { const a = p[1](); const x = fase(t, p[0] + 0.3, p[0] + 0.6); alvo = [a[0] + 60 * x, a[1] + 90 * x]; o = 1 - x; claro = p[2]; }
+    if (p && n[0] - p[0] < 1.0) { const a = ALVO(p), b = ALVO(n), x = ease(fase(t, p[0] + 0.25, n[0] - 0.06)); alvo = [lerp(a[0], b[0], x), lerp(a[1], b[1], x)]; o = 1; }
+    else { const b = ALVO(n), x = ease(fase(t, n[0] - 0.62, n[0] - 0.12)); alvo = [b[0] + 140 * (1 - x), b[1] + 220 * (1 - x)]; o = fase(t, n[0] - 0.62, n[0] - 0.42); }
+  } else if (p && t - p[0] < 0.6) { const a = ALVO(p); const x = fase(t, p[0] + 0.3, p[0] + 0.6); alvo = [a[0] + 60 * x, a[1] + 90 * x]; o = 1 - x; claro = p[2]; }
   dedo.className = claro ? "claro" : ""; onda.className = claro ? "claro" : "";
   if (alvo) { dedo.style.left = alvo[0] + "px"; dedo.style.top = alvo[1] + "px"; }
   dedo.style.opacity = o; dedo.style.transform = `scale(${aperta})`;
   let ow = 0, oxy = null;
   for (const tq of TOQUES) { const x = fase(t, tq[0], tq[0] + 0.55); if (x > 0 && x < 1) { ow = x; oxy = tq; } }
-  if (oxy) { const a = oxy[1](); onda.style.left = a[0] + "px"; onda.style.top = a[1] + "px"; onda.className = oxy[2] ? "claro" : ""; }
+  if (oxy) { const a = ALVO(oxy); onda.style.left = a[0] + "px"; onda.style.top = a[1] + "px"; onda.className = oxy[2] ? "claro" : ""; }
   onda.style.opacity = ow > 0 ? 1 - ow : 0; onda.style.transform = `scale(${1 + ow * 1.7})`;
 }
 
@@ -1198,6 +1199,7 @@ function qFoneA(t) {
   const [, x, y, s, r, o] = pose(POSE_A, t), fA = $("#foneA");
   fA.style.display = o > 0.002 ? "" : "none";
   if (o <= 0.002) return;
+  fA.querySelector(".exemplo").style.opacity = fase(t, 6.3, 6.6);
   const bob = t < 6.4 ? Math.sin(t * 1.25) * 7 : t > 19 && t < 22.96 ? Math.sin(t * 1.1) * 4 : 0;
   pos(fA, { x: x - 290, y: y - 790 + bob, s, r: r + (t < 6.4 ? Math.sin(t * 0.7) * 0.6 : 0), o, b: t > T.agora ? 12 * fase(t, T.agora, T.agora + 0.45) : 0 });
   // tela de bloqueio
@@ -1208,9 +1210,9 @@ function qFoneA(t) {
     $("#a-badge").textContent = n; $("#a-badge").style.transform = `scale(${1 + 0.35 * (1 - sai(fase(t, ult, ult + 0.22)))})`;
     $("#a-topo").style.transform = `scale(${1 + 0.07 * pulso(t, T.whats - 0.05, 0.5)})`;
     notifEls.forEach((el, i) => {
-      let k = 0; for (let j = i + 1; j < CHEGA.length; j++) k += ease(fase(t, CHEGA[j], CHEGA[j] + 0.26));
-      const e = fase(t, CHEGA[i], CHEGA[i] + 0.26), y2 = 200 + 120 * k - (1 - sai(e)) * 60;
-      pos(el, { y: y2, s: lerp(0.9, 1, sai(e)), o: e > 0 && y2 < 990 ? Math.min(1, e * 3) : 0 });
+      let k = 0; for (let j = i + 1; j < CHEGA.length; j++) k += sai(fase(t, CHEGA[j], CHEGA[j] + 0.22));
+      const e = fase(t, CHEGA[i] + 0.08, CHEGA[i] + 0.34), y2 = 200 + 120 * k;
+      pos(el, { y: y2, s: lerp(0.84, 1, volta(e)), o: e > 0 ? Math.min(1, e * 2.5) * (1 - fase(y2, 860, 990)) : 0 });
     });
   }
   // lista de conversas
@@ -1246,12 +1248,12 @@ function qConversas(t) {
 }
 function qCaderno(t) {
   const fora = fase(t, 15.42, 15.78);
-  const obj = (el, t0, r0, r1, fx, fy, f0) => {
-    const x = fase(t, t0 - 0.06, t0 + 0.34);
-    pos(el, { x: fx * 300 * sai(fora), y: (1 - sai(x)) * 90 + Math.sin(t * 1.5 + f0) * 6 + fy * 300 * sai(fora), s: (x > 0 ? lerp(0.45, 1, volta(x)) : 0.45) * (1 - 0.3 * fora),
-      r: lerp(r0, r1, sai(x)) + Math.sin(t * 1.1 + f0) * 0.8, o: (x > 0 ? Math.min(1, x * 4) : 0) * (1 - fora), b: 10 * fora });
+  const obj = (el, t0, r0, r1, fx, fy, f0, antes = 0) => {
+    const x = fase(t, t0 - 0.06, t0 + 0.34), g = antes ? sai(fase(t, t0 - antes, t0 - 0.06)) : 0; // g: vem de longe antes da palavra
+    pos(el, { x: fx * 300 * sai(fora), y: (1 - sai(x)) * 90 + Math.sin(t * 1.5 + f0) * 6 + fy * 300 * sai(fora), s: (x > 0 ? lerp(0.45, 1, volta(x)) : lerp(0.2, 0.45, g)) * (1 - 0.3 * fora),
+      r: lerp(r0, r1, sai(x)) + Math.sin(t * 1.1 + f0) * 0.8, o: (x > 0 ? Math.min(1, x * 4) : 0.45 * g) * (1 - fora), b: x > 0 ? 10 * fora : 9 });
   };
-  obj($("#k-caderno"), T.caderno, -22, -6, -1, -0.6, 0);
+  obj($("#k-caderno"), T.caderno, -22, -6, -1, -0.6, 0, 0.55);
   obj($("#k-planilha"), T.planilha, 18, 4, 1, -0.4, 1.7);
   obj($("#k-cabeca"), T.cabeca, -8, 0, 0, 1, 3.1);
   const xn = fase(t, T.dela - 0.04, T.dela + 0.3);
@@ -1260,8 +1262,9 @@ function qCaderno(t) {
 }
 function qData(t) {
   const ent = fase(t, S.data - 0.04, S.data + 0.4), fora = fase(t, 18.78, 19.15);
-  const z = ease(fase(t, 16.15, 17.35)), s = lerp(1, 1.85, z) * lerp(0.9, 1, saiX(ent));
-  const cx = lerp(835, 505, z), cy = lerp(1020, 1000, z);
+  const z = ease(fase(t, 16.15, 17.35)), s = lerp(1, 1.6, z) * lerp(0.9, 1, saiX(ent));
+  const cx = lerp(835, 505, z), cy = lerp(1020, 1080, z);
+  $("#d-cal .d-topo").style.opacity = (1 - fase(t, 16.3, 16.9)).toFixed(3);
   const cal = $("#d-cal");
   cal.style.transform = `translate(${(cx - 99 - s * 736 - 360 * sai(fora)).toFixed(1)}px,${(cy - 600 - s * 420 + (1 - saiX(ent)) * 120).toFixed(1)}px) scale(${s.toFixed(4)})`;
   cal.style.opacity = Math.min(1, ent * 3) * (1 - fora);
@@ -1269,7 +1272,7 @@ function qData(t) {
   $("#d-col").style.transform = `scaleY(${sai(col)})`; $("#d-col").style.opacity = col > 0 ? 1 - 0.4 * fase(t, T.duas, T.duas + 0.5) : 0;
   const TI = T.mesma + 0.08;
   $("#d-alerta").style.opacity = fase(t, TI, TI + 0.12);
-  const [eD, eA] = [$("#d-tag1"), $("#d-tag2")], wD = eD.offsetWidth, wA = eA.offsetWidth, yC = 958;
+  const [eD, eA] = [$("#d-tag1"), $("#d-tag2")], wD = eD.offsetWidth, wA = eA.offsetWidth, yC = 1038;
   const entrada = saiX(fase(t, T.duas - 0.05, T.duas + 0.75)), quase = ease(fase(t, T.quase, TI - 0.12)), corre = entra(fase(t, TI - 0.12, TI)), bate = fase(t, TI, TI + 0.5);
   const vib = t < TI ? Math.sin(t * 60) * 3 * fase(t, T.quase, TI - 0.15) : 0;
   let xD = lerp(-wD - 60, 505 - wD - 100, entrada) + 60 * quase, xA = lerp(1140, 505 + 100, entrada) - 60 * quase;
@@ -1306,7 +1309,8 @@ function qVirada(t) {
   for (const id of ["#vr-arco", "#vr-arco2"]) $(id).setAttribute("stroke-dashoffset", (100 - 100 * arco).toFixed(2));
   const fora = fase(t, 25.85, 26.25);
   pos($("#v-relogio"), { y: (1 - saiX(ent)) * 90 + 160 * sai(fora), s: lerp(0.65, 1, saiX(ent)) * (1 - 0.3 * sai(fora)) * (1 + 0.03 * pulso(t, T.outro + 0.6, 0.6)), r: (1 - saiX(ent)) * 25, o: Math.min(1, ent * 2) * (1 - fora), b: 12 * sai(fora) + (1 - ent) * 8 });
-  for (const w of vPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 26 - 60 * sai(fora), s: x > 0 ? lerp(0.86, 1, volta(x)) : 0.86, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - fora) }); }
+  const foraT = fase(t, 25.6, 25.9);
+  for (const w of vPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 26 - 60 * sai(foraT), s: x > 0 ? lerp(0.86, 1, volta(x)) : 0.86, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - foraT), b: 8 * foraT }); }
 }
 let LINK = [540, 1070];
 function qInsta(t) {
@@ -1345,8 +1349,8 @@ function qSol(t) {
   });
 }
 function qAgenda(t) {
-  const ent = saiX(fase(t, S.agenda - 0.05, S.agenda + 0.55)), sai2 = fase(t, S.painel - 0.05, S.painel + 0.45);
-  pos($("#foneC"), { x: -140 * sai(sai2), y: (1 - ent) * 900 + 950 * entra(sai2), r: lerp(6, -2, ent) - 8 * sai2, o: ent > 0 ? 1 - fase(t, S.painel + 0.3, S.painel + 0.45) : 0 });
+  const ent = saiX(fase(t, S.agenda - 0.05, S.agenda + 0.55)), sai2 = fase(t, S.painel - 0.32, S.painel + 0.12);
+  pos($("#foneC"), { x: -140 * sai(sai2), y: (1 - ent) * 900 + 950 * entra(sai2), r: lerp(6, -2, ent) - 8 * sai2, o: ent > 0 ? 1 - fase(t, S.painel - 0.05, S.painel + 0.12) : 0 });
   const passo = ease(fase(t, T.festa + 0.32, T.festa + 0.68)) + ease(fase(t, T.livre + 0.3, T.livre + 0.6));
   $("#ag-trem").style.transform = `translateX(${(-460 * passo).toFixed(1)}px)`;
   const ok = fase(t, T.ninguem - 0.1, T.ninguem + 0.3);
@@ -1383,9 +1387,9 @@ function qAgenda(t) {
   const rs = $("#ag-resumo");
   if (voo <= 0) pos(rs, { x: (1 - re) * 420 - 40 * ergue, y: -60 * ergue + Math.sin(t * 1.2) * 4, r: lerp(6, 0, re) - 3 * ergue, s: 1 + 0.03 * ergue + 0.03 * pulso(t, T.ninguem + 0.05, 0.4), o: re > 0 ? 1 : 0 });
   else {
-    const k2 = ease(voo), P0 = [766 - 40, 960 - 60], P1 = [520, 520], P2 = LP_NOVO;
+    const k2 = ease(voo), P0 = [766 - 40, 913 - 60], P1 = [520, 500], P2 = LP_NOVO;
     const bx = (1 - k2) ** 2 * P0[0] + 2 * (1 - k2) * k2 * P1[0] + k2 ** 2 * P2[0], by = (1 - k2) ** 2 * P0[1] + 2 * (1 - k2) * k2 * P1[1] + k2 ** 2 * P2[1];
-    pos(rs, { x: bx - 766, y: by - 960, r: -3 - 9 * Math.sin(Math.PI * k2), s: lerp(1.03, 0.18, k2), o: 1 - fase(voo, 0.85, 1), b: 4 * Math.sin(Math.PI * k2) });
+    pos(rs, { x: bx - 766, y: by - 913, r: -3 - 9 * Math.sin(Math.PI * k2), s: lerp(1.03, 0.18, k2), o: 1 - fase(voo, 0.85, 1), b: 4 * Math.sin(Math.PI * k2) });
   }
 }
 let LP_NOVO = [700, 1080];
@@ -1423,19 +1427,19 @@ function qFicha(t) {
   $("#fi-parc").textContent = `${(f1 > 0.5 ? 1 : 0) + (f2 > 0.5 ? 1 : 0)} de 5 parcelas`;
 }
 function qContrato(t) {
-  const S0 = S.contrato, ent = saiX(fase(t, S0 - 0.05, S0 + 0.45)), fora = fase(t, S.financeiro - 0.1, S.financeiro + 0.3);
+  const S0 = S.contrato, ent = saiX(fase(t, S0 - 0.05, S0 + 0.45)), fora = fase(t, S.financeiro - 0.3, S.financeiro + 0.05);
   const vai = ease(fase(t, T.linkC + 0.2, T.linkC + 0.75));
-  pos($("#ct-doc"), { x: (1 - ent) * 520 + lerp(0, -305, vai), y: lerp(0, 270, vai), r: lerp(4, -2, vai) + (1 - ent) * 8, s: lerp(1, 0.42, vai), o: (ent > 0 ? 1 : 0) * (1 - fase(t, T.linkC + 0.6, T.linkC + 0.8)) });
+  pos($("#ct-doc"), { x: (1 - ent) * 520 + lerp(0, -305, vai), y: lerp(0, 150, vai), r: lerp(4, -2, vai) + (1 - ent) * 8, s: lerp(1, 0.42, vai), o: (ent > 0 ? 1 : 0) * (1 - fase(t, T.linkC + 0.6, T.linkC + 0.8)) });
   const lk = fase(t, T.linkC - 0.05, T.linkC + 0.25);
-  pos($("#ct-link"), { x: lerp(0, -300, vai), y: lerp(0, 300, vai), s: (lk > 0 ? lerp(0.6, 1, volta(lk)) : 0.6) * lerp(1, 0.5, vai), o: (lk > 0 ? Math.min(1, lk * 3) : 0) * (1 - fase(t, T.linkC + 0.55, T.linkC + 0.75)) });
+  pos($("#ct-link"), { x: lerp(0, -300, vai), y: lerp(0, 190, vai), s: (lk > 0 ? lerp(0.6, 1, volta(lk)) : 0.6) * lerp(1, 0.5, vai), o: (lk > 0 ? Math.min(1, lk * 3) : 0) * (1 - fase(t, T.linkC + 0.55, T.linkC + 0.75)) });
   const fe = saiX(fase(t, S0 + 0.35, S0 + 0.95));
-  pos($("#foneD"), { x: -200 * entra(fora), y: (1 - fe) * 900, r: (1 - fe) * -6, o: (fe > 0 ? 1 : 0) * (1 - fora) });
+  pos($("#foneD"), { x: -120 * entra(fora), y: (1 - fe) * 900 + 700 * entra(fora), r: (1 - fe) * -6 - 5 * fora, o: (fe > 0 ? 1 : 0) * (1 - fora) });
   $("#ct-li").classList.toggle("on", t >= T.aceita + 0.04); $("#ct-btn").classList.toggle("on", t >= T.aceita + 0.04);
   const pr = t >= T.aceita + 0.4 && t < T.aceita + 0.62; $("#ct-btn").style.transform = `scale(${pr ? 0.95 : 1})`;
   const cb = fase(t, T.celular - 0.04, T.celular + 0.22);
-  pos($("#ct-carimbo"), { x: -200 * entra(fora), s: cb > 0 ? lerp(2.4, 1, sai(cb)) : 2.4, r: lerp(-16, -8, sai(cb)), o: (cb > 0 ? Math.min(1, cb * 4) : 0) * (1 - fora) });
-  const sv = fase(t, T.celular + 0.3, T.celular + 0.7);
-  pos($("#ct-salvo"), { x: (1 - sai(sv)) * 120 + 300 * entra(fora), s: sv > 0 ? lerp(0.85, 1, volta(sv)) : 0.85, o: (sv > 0 ? Math.min(1, sv * 3) : 0) * (1 - fora) });
+  pos($("#ct-carimbo"), { x: -120 * entra(fora), y: 700 * entra(fora), s: cb > 0 ? lerp(2.4, 1, sai(cb)) : 2.4, r: lerp(-16, -8, sai(cb)), o: (cb > 0 ? Math.min(1, cb * 4) : 0) * (1 - fora) });
+  const sv = fase(t, T.celular + 0.12, T.celular + 0.5);
+  pos($("#ct-salvo"), { x: (1 - sai(sv)) * 120 + 400 * entra(fora), s: sv > 0 ? lerp(0.85, 1, volta(sv)) : 0.85, o: (sv > 0 ? Math.min(1, sv * 3) : 0) * (1 - fora) });
   const tr = 1 - fase(t, T.celular + 0.12, T.celular + 0.45);
   $("#c-contrato").style.transform = t > T.celular + 0.12 && tr > 0 ? `translate(${(Math.sin(t * 90) * 7 * tr).toFixed(1)}px,${(Math.cos(t * 77) * 5 * tr).toFixed(1)}px)` : "";
 }
@@ -1445,12 +1449,12 @@ function qFin(t) {
   const at = saiX(fase(t, T.falta + 0.4, T.falta + 0.8));
   pos($("#fn-atraso"), { y: (1 - at) * 100 - 80 * entra(fora), o: Math.min(1, at * 2) * (1 - fora), x: t > T.falta + 0.62 ? Math.sin(t * 80) * 6 * (1 - fase(t, T.falta + 0.62, T.falta + 0.95)) : 0 });
   const tg = fase(t, T.falta + 0.6, T.falta + 0.85); $("#fn-tag").style.transform = `scale(${tg > 0 ? volta(tg) : 0.4})`; $("#fn-tag").style.opacity = tg > 0 ? 1 : 0;
-  $("#fn-v1").textContent = brl(77940 * saiX(fase(t, T.entrou - 0.05, T.entrou + 0.65)));
-  $("#fn-v2").textContent = brl(92600 * saiX(fase(t, T.falta - 0.05, T.falta + 0.65)));
+  $("#fn-v1").textContent = brl(77940 * saiX(fase(t, S0 + 0.3, T.entrou + 0.35)));
+  $("#fn-v2").textContent = brl(92600 * saiX(fase(t, T.falta - 0.45, T.falta + 0.45)));
   barEls.forEach((b, i) => { const x = fase(t, S0 + 0.3 + 0.05 * i, S0 + 0.85 + 0.05 * i); for (const el of b.querySelectorAll("i")) el.style.transform = `scaleY(${x > 0 ? volta(x) : 0})`; });
 }
 function qEquipe(t) {
-  const fora = fase(t, S.ia - 0.12, S.ia + 0.25);
+  const fora = fase(t, S.ia - 0.45, S.ia - 0.1);
   [T.pessoa, T.pessoa + 0.3, T.equipeW].forEach((ts, k) => {
     const e = saiX(fase(t, ts - 0.1, ts + 0.4));
     pos($("#eq" + k), { x: (1 - e) * (k % 2 ? -700 : 700) - 120 * entra(fora) * (k - 1), y: -60 * entra(fora), r: (1 - e) * (k % 2 ? -4 : 4), o: (e > 0 ? Math.min(1, e * 2) : 0) * (1 - fora) });
@@ -1460,12 +1464,10 @@ function qEquipe(t) {
     if (s.classList.contains("ok") !== ok) { s.classList.toggle("ok", ok); s.querySelector("svg").innerHTML = IC[ok ? "aberto" : "cadeado"]; }
     s.style.transform = `scale(${1 + 0.06 * pulso(t, T.senha + 0.06 * k, 0.3)})`;
   });
-  const off = t >= T.senha + 0.3, c = $("#eq-c11");
-  if (c.classList.contains("off") !== off) c.classList.toggle("off", off);
-  c.style.transform = `scale(${1 + 0.12 * pulso(t, T.senha + 0.3, 0.35)})`;
+  $("#eq-c11").style.transform = `scale(${1 + 0.12 * pulso(t, T.senha + 0.12, 0.35)})`;
 }
 function qIA(t) {
-  const S0 = S.ia, fora = fase(t, S.dorme - 0.3, S.dorme + 0.1), ab = fase(t, T.ia, T.ia + 0.3);
+  const S0 = S.ia, fora = fase(t, S.dorme - 0.45, S.dorme - 0.1), ab = fase(t, T.ia, T.ia + 0.3);
   iaDias.forEach((d, k) => d.classList.toggle("on", t >= T.repete + 0.1 * k));
   pos($("#ia-dias"), { y: (1 - saiX(fase(t, S0 - 0.05, S0 + 0.4))) * -30, o: fase(t, S0 - 0.05, S0 + 0.3) * (1 - ab) });
   const suga = ease(fase(t, T.ia - 0.08, T.ia + 0.4));
@@ -1505,7 +1507,7 @@ function qDorme(t) {
   [T.chegou + 0.3, T.dataN, T.convN, T.pacote].forEach((ts, i) => { const x = fase(t, ts - 0.04, ts + 0.28); pos($("#dn-c" + i), { y: (1 - sai(x)) * 18, s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: x > 0 ? Math.min(1, x * 3) : 0 }); });
 }
 function qFim(t) {
-  const m = fase(t, T.renderiza - 0.04, T.renderiza + 0.6), cta = ease(fase(t, S.cta - 0.15, S.cta + 0.45));
+  const m = fase(t, T.renderiza - 0.04, T.renderiza + 0.6), cta = ease(fase(t, S.cta - 0.32, S.cta + 0.22));
   pos($("#mc-simbolo"), { y: lerp(0, -172, cta), s: (m > 0 ? lerp(0.3, 1, volta(m)) : 0.3) * lerp(1, 0.44, cta), r: lerp(-140, 0, saiX(m)), o: m > 0 ? Math.min(1, m * 3) : 0, b: (1 - saiX(m)) * 14 });
   const nm = ease(fase(t, T.renderiza + 0.1, T.renderiza + 0.62));
   $("#mc-nome").style.clipPath = `inset(-30% ${(100 - 100 * nm).toFixed(2)}% -30% 0)`;
@@ -1515,7 +1517,7 @@ function qFim(t) {
   const est = saiX(fase(t, T.renderiza - 0.05, T.renderiza + 1));
   $("#mc-poli").setAttribute("transform", `translate(540 770) rotate(${(5 * (t - T.renderiza)).toFixed(2)}) scale(${lerp(0.3, 1, est).toFixed(3)}) translate(-540 -770)`);
   $("#mc-estrela").style.transform = `translateY(${lerp(0, -172, cta).toFixed(1)}px)`; $("#mc-estrela").style.opacity = est.toFixed(3);
-  const b = fase(t, S.cta - 0.02, S.cta + 0.36), pb = pulso(t, T.painelCta, 0.32);
+  const b = fase(t, S.cta + 0.04, S.cta + 0.4), pb = pulso(t, T.painelCta, 0.32);
   pos($("#cta-botao"), { y: (1 - sai(b)) * 40, s: (b > 0 ? lerp(0.5, 1, volta(b)) : 0.5) * (1 + 0.05 * pb + 0.015 * Math.sin(t * 3.2) * fase(t, 82, 83)), o: b > 0 ? Math.min(1, b * 3) : 0 });
   $("#cta-painel").style.transform = `scale(${(1 + 0.14 * pb).toFixed(3)})`;
   const lz = ((t - T.painelCta) % 2.4) / 0.7; $("#cta-luz").style.transform = `translateX(${(t > T.painelCta && lz < 1 ? lerp(-200, 900, lz) : -300).toFixed(0)}px) skewX(-18deg)`;
@@ -1530,13 +1532,15 @@ window.quadro = t => {
   palco.style.transform = "none"; // as medidas (dedo, voos) saem sem o tranco
   // fundos: frio até a virada; claro no meio (abre num círculo a partir do botão do site); noite quando ela dorme
   const frio = 1 - fase(t, T.agora, T.agora + 0.95);
-  const claroIn = fase(t, S.agenda - 0.2, S.agenda + 0.45), claro = claroIn * (1 - fase(t, S.ia - 0.15, S.ia + 0.4));
+  const claroIn = fase(t, S.agenda - 0.35, S.agenda + 0.25), claroOut = fase(t, S.ia - 0.4, S.ia - 0.02), claro = claroIn * (1 - claroOut);
+  const rIn = 2300 * Math.pow(claroIn, 1.6), rOut = 2300 * Math.pow(1 - claroOut, 1.6);
+  const cap = rIn >= 1100 && rOut >= 600; // a faixa da legenda (y 226 a 386) já está no claro
   const noite = fase(t, S.dorme - 0.15, S.dorme + 0.6) * (1 - fase(t, S.marca - 0.2, S.marca + 0.3));
   $("#f-frio").style.opacity = frio.toFixed(3); $("#f-noite").style.opacity = noite.toFixed(3);
-  const fc = $("#f-claro"); fc.style.opacity = claro > 0 ? (claroIn < 1 ? 1 : claro).toFixed(3) : 0;
-  fc.style.clipPath = claroIn > 0 && claroIn < 1 ? `circle(${(2300 * Math.pow(claroIn, 1.6)).toFixed(0)}px at 505px 1196px)` : "";
+  const fc = $("#f-claro"); fc.style.opacity = claro > 0 ? 1 : 0;
+  fc.style.clipPath = claroIn > 0 && claroIn < 1 ? `circle(${rIn.toFixed(0)}px at 505px 1196px)` : claroOut > 0 && claroOut < 1 ? `circle(${rOut.toFixed(0)}px at 505px 640px)` : "";
   $("#vinheta").style.opacity = (1 - 0.75 * claro).toFixed(3);
-  const topo = $("#topo"); topo.style.color = claro > 0.5 ? "#1e2528" : "#f1eee9"; topo.style.opacity = ((0.82 - 0.82 * fase(t, S.marca - 0.3, S.marca)) * (t < S.agenda + 0.2 && t > S.agenda - 0.3 ? 0.4 : 1)).toFixed(3);
+  const topo = $("#topo"); topo.style.color = cap ? "#1e2528" : "#f1eee9"; topo.style.opacity = ((0.82 - 0.82 * fase(t, S.marca - 0.3, S.marca)) * (t < S.agenda + 0.2 && t > S.agenda - 0.3 ? 0.4 : 1)).toFixed(3);
   // poeira: fria no começo, quente depois, quase nada no claro
   const corP = frio > 0.5 ? [160, 200, 228] : noite > 0.5 ? [215, 225, 245] : [236, 150, 112], opP = lerp(lerp(0.55, 0.8, 1 - frio), 0.18, claro);
   for (const p of POEIRA) {
@@ -1558,6 +1562,8 @@ window.quadro = t => {
     const vis = t >= p.de && t < p.ate;
     p.el.style.display = vis ? "" : "none";
     if (!vis) continue;
+    const cls = "fala " + (cap ? "clara" : frio > 0.5 ? "fria" : "quente");
+    if (p.el.className !== cls) p.el.className = cls;
     const fora = fase(t, p.ate - 0.08, p.ate);
     p.ws.forEach((w, k) => {
       const x = p.de < 0 ? 1 : fase(t, w.ini - 0.05, w.ini + 0.2);
@@ -1573,7 +1579,7 @@ window.quadro = t => {
   }
   const rw = t > T.agora && t < T.agora + 0.4 ? (1 - fase(t, T.agora, T.agora + 0.4)) * 14 * Math.sin(t * 140) : 0; // o rebobinar puxa a imagem de lado
   palco.style.transform = soco > 0 || rw ? `translate(${(tremor * 9 * Math.sin(t * 97) + rw).toFixed(1)}px,${(tremor * 7 * Math.cos(t * 83)).toFixed(1)}px) scale(${(1 + 0.045 * soco).toFixed(4)})` : "";
-  $("#flash").style.opacity = flash.toFixed(3);
+  $("#flash").style.opacity = flash.toFixed(3); $("#flash").style.background = t < T.agora ? "#d4e6f3" : "#f7d3bf";
 };
 
 // cenas da trilha (ferramentas/video/trilha-pulso.py só conhece estas partes): o pulso diz qual é qual
@@ -1583,11 +1589,12 @@ window.preparar = () => {
   for (const b of BALOES) { b.w = b.el.offsetWidth; b.h = b.el.offsetHeight; }
   window.quadro(T.link - 0.3); palco.style.transform = "none"; LINK = centro($("#ig-link"));
   window.quadro(T.cai + 0.3); palco.style.transform = "none"; { const r = $("#lp-novo").getBoundingClientRect(); LP_NOVO = [r.left + r.width / 2, r.top + r.height / 2]; }
+  for (const tq of TOQUES) { window.quadro(tq[0]); palco.style.transform = "none"; tq.xy = tq[1](); }
   window.quadro(0);
   return {
     duracao: DUR, narracao: NOME,
     pulso: frases.map(f => ({ id: f.id === "pix" ? "nada" : f.id, cena: TRILHA[f.cena], ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
-    ensaio: [0, 4.9, 10.75, 15.0, T.mesma + 0.3, 21.0, 25.2, T.link + 0.1, T.zap + 0.6, 39.3, T.ninguem + 0.5, 45.3, 48.3, 52.6, 56.1, 59.4, 62.2, 67.6, 75.95, 79.6, 84.5].map(x => +x.toFixed(2)),
+    ensaio: [0, 4.9, 10.75, 15.0, T.mesma + 0.3, 21.0, 25.2, T.link + 0.1, T.zap + 0.34, 39.3, T.ninguem + 0.5, 44.5, 45.3, 48.3, 52.6, 56.1, 59.4, 62.2, 67.6, 75.95, 79.6, 84.5].map(x => +x.toFixed(2)),
   };
 };
 

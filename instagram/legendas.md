@@ -301,3 +301,23 @@ As artes são as mesmas de `stories-semana`, em outros dias. Cada post do feed t
 - Sex 23, 20h: enquete "Já anuncio" / "Ainda não".
 - Sáb 24, 20h: enquete "Quanto é?" / "Onde fica?".
 - Dom 25, 12h: sem figurinha (dá para agendar no Business Suite); 20h: caixinha "Qual o @ do seu negócio?".
+
+# Eventos e painel (a partir de 27/10)
+
+Fixado nos dois: "Como funciona: você comenta PAINEL e a gente te manda no direct o link do exemplo da Villa Alecrim, para clicar em tudo."
+
+## O ciclo de um espaço de eventos (`reels-ciclo-eventos`)
+
+Sexta-feira, 23h, num espaço de festas. Uma versão com o WhatsApp lotado e outra com o site e o painel trabalhando juntos.
+
+A Villa Alecrim é fictícia, mas o painel do vídeo funciona: agenda online, agenda da equipe, clientes, contratos e financeiro.
+
+Comenta PAINEL que a gente te manda o exemplo para testar. Até 31/10, o site tem valor de inauguração.
+
+## Exemplo do painel (`exemplo-sistema-eventos`)
+
+Um tour pelo painel da Villa Alecrim, um espaço de festas fictício: a agenda do mês, a ficha de cada cliente, os contratos aceitos pelo celular e o financeiro.
+
+O site é o que o seu cliente vê. O painel é o que a sua equipe usa. E os dois se conversam: o pedido de data feito no site cai direto no painel.
+
+Comenta PAINEL que a gente te manda o exemplo para testar. Até 31/10, o site tem valor de inauguração.
