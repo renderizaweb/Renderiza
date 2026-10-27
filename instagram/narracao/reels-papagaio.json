@@ -1,0 +1,248 @@
+{
+ "_sobre": "Narração do Reels \"O papagaio da recepção\" (Reels 2 da série com história, 27/10/2026). Alvo: o dono de consultório odontológico, clínica ou ótica cuja recepção responde as mesmas perguntas o dia inteiro. Objetivo: ele perceber que essas perguntas têm resposta fixa e que quem pergunta à noite e fica sem resposta marca em outro lugar; o site responde a qualquer hora. O único trocadilho é o \"bico\" do papagaio. O Juca fala com voz própria (voz, tom e ritmo na frase). Cada frase é gravada sozinha, com pausa curta; pausa maior só depois de piada. O Doutor Paulo, a Cida e o Juca são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "manha",
+   "texto": "A Cida é a recepcionista do Doutor Paulo, *dentista.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "sete",
+   "cena": "manha",
+   "texto": "Às sete da manhã, o WhatsApp dela já tem vinte *mensagens.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "q1",
+   "cena": "perguntas",
+   "texto": "Qual o *horário?*",
+   "pausa": 0.08
+  },
+  {
+   "id": "q2",
+   "cena": "perguntas",
+   "texto": "Vocês aceitam *convênio?*",
+   "pausa": 0.08
+  },
+  {
+   "id": "q3",
+   "cena": "perguntas",
+   "texto": "Quanto custa a *limpeza?*",
+   "pausa": 0.08
+  },
+  {
+   "id": "q4",
+   "cena": "perguntas",
+   "texto": "Tem *estacionamento?*",
+   "pausa": 0.25
+  },
+  {
+   "id": "responde",
+   "cena": "perguntas",
+   "texto": "Ela responde todas.",
+   "pausa": 0.12
+  },
+  {
+   "id": "mais",
+   "cena": "perguntas",
+   "texto": "Chegam mais vinte, com as mesmas *perguntas.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "terca",
+   "cena": "tentativas",
+   "texto": "Na terça, ela colou um papel com as respostas no *balcão.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "quarta",
+   "cena": "tentativas",
+   "texto": "Na quarta, gravou um áudio de quatro *minutos.*",
+   "pausa": 0.12
+  },
+  {
+   "id": "ninguem",
+   "cena": "tentativas",
+   "texto": "Ninguém ouviu até o *fim.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "quinta",
+   "cena": "bico",
+   "texto": "Na quinta, o Doutor Paulo arrumou um ajudante para fazer um *bico* na recepção.",
+   "pausa": 0.2
+  },
+  {
+   "id": "juca",
+   "cena": "bico",
+   "texto": "O *Juca.*",
+   "pausa": 0.12,
+   "impacto": true
+  },
+  {
+   "id": "papagaio",
+   "cena": "bico",
+   "texto": "Um *papagaio.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "decorou",
+   "cena": "juca",
+   "texto": "Em uma semana, ele sabia tudo de *cor.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "pj1",
+   "cena": "juca",
+   "texto": "Sábado até meio-dia!",
+   "pausa": 0.1,
+   "voz": "pt-BR-FranciscaNeural",
+   "tom": "+60Hz",
+   "ritmo": "+22%"
+  },
+  {
+   "id": "pj2",
+   "cena": "juca",
+   "texto": "Aceita convênio!",
+   "pausa": 0.1,
+   "voz": "pt-BR-FranciscaNeural",
+   "tom": "+60Hz",
+   "ritmo": "+22%"
+  },
+  {
+   "id": "pj3",
+   "cena": "juca",
+   "texto": "Limpeza, cento e cinquenta!",
+   "pausa": 0.25,
+   "voz": "pt-BR-FranciscaNeural",
+   "tom": "+60Hz",
+   "ritmo": "+22%"
+  },
+  {
+   "id": "funcionou",
+   "cena": "juca",
+   "texto": "*Funcionou.*",
+   "pausa": 0.12
+  },
+  {
+   "id": "balcao",
+   "cena": "juca",
+   "texto": "No balcão.",
+   "pausa": 0.35
+  },
+  {
+   "id": "nada",
+   "cena": "noite",
+   "texto": "Só que as perguntas não chegavam pelo *balcão.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "onze",
+   "cena": "noite",
+   "texto": "Chegavam às onze da noite, pelo *WhatsApp.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "dormia",
+   "cena": "dorme",
+   "texto": "E o Juca dormia às *oito.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "lia",
+   "cena": "manha2",
+   "texto": "De manhã, a Cida encontrava:",
+   "pausa": 0.12
+  },
+  {
+   "id": "outro",
+   "cena": "manha2",
+   "texto": "Deixa, já marquei em outro *lugar.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "fez",
+   "cena": "site",
+   "texto": "Então o Doutor Paulo fez um *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "itens",
+   "cena": "site",
+   "texto": "Horário, convênios, preço da limpeza, endereço, estacionamento e *WhatsApp.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "agora",
+   "cena": "noite2",
+   "texto": "Agora, quem pergunta às onze da noite tem a resposta às onze da *noite.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "manda",
+   "cena": "noite2",
+   "texto": "E de manhã manda só uma mensagem:",
+   "pausa": 0.12
+  },
+  {
+   "id": "quero",
+   "cena": "noite2",
+   "texto": "*Quero marcar.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "almoco",
+   "cena": "almoco",
+   "texto": "A Cida voltou a almoçar *quente.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "continua",
+   "cena": "fecho",
+   "texto": "E o Juca continua na recepção.",
+   "pausa": 0.12
+  },
+  {
+   "id": "repete",
+   "cena": "fecho",
+   "texto": "Hoje, ele só repete uma frase:",
+   "pausa": 0.15
+  },
+  {
+   "id": "tanosite",
+   "cena": "fecho",
+   "texto": "*Tá no site!*",
+   "pausa": 0.45,
+   "voz": "pt-BR-FranciscaNeural",
+   "tom": "+60Hz",
+   "ritmo": "+5%",
+   "impacto": true
+  },
+  {
+   "id": "repete2",
+   "cena": "marca",
+   "texto": "Se a pergunta se repete, a resposta pode ficar *pronta.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu site responde por você, a qualquer *hora.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.",
+   "pausa": 0.0,
+   "fala": "Comenta prévia, que a gente monta a prévia do seu site."
+  }
+ ]
+}

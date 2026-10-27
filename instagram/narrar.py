@@ -12,6 +12,7 @@
 #     o Whisper ouviu. pip install kokoro-onnx faster-whisper
 #   edge: vozes neurais brasileiras da Microsoft ("voz": "pt-BR-AntonioNeural", "pt-BR-FranciscaNeural" ou
 #     "pt-BR-ThalitaMultilingualNeural"; "ritmo": "+12%"; "tom": "-2Hz"), pelo serviço de leitura em voz alta do Edge.
+#     Uma frase pode trocar "voz", "ritmo" e "tom" só para ela (a voz de um personagem, por exemplo).
 #     As mesmas vozes existem no Azure Speech, que é o caminho com licença para uso comercial. As palavras da legenda
 #     seguem os tempos que o próprio serviço devolve. pip install edge-tts imageio-ffmpeg
 import difflib, json, re, subprocess, sys, unicodedata, wave
@@ -67,7 +68,8 @@ elif MOTOR == "edge":
     def falar(texto, arq):
         async def pedir():
             mp3, ws = bytearray(), []
-            c = edge_tts.Communicate(texto, cfg.get("voz", "pt-BR-AntonioNeural"), rate=cfg.get("ritmo", "+0%"), pitch=cfg.get("tom", "+0Hz"),
+            o = {**cfg, **FRASE}  # uma frase pode ter a própria "voz", "ritmo" e "tom"
+            c = edge_tts.Communicate(texto, o.get("voz", "pt-BR-AntonioNeural"), rate=o.get("ritmo", "+0%"), pitch=o.get("tom", "+0Hz"),
                                      boundary="WordBoundary", proxy=os.environ.get("HTTPS_PROXY"))
             async for m in c.stream():
                 if m["type"] == "audio": mp3 += m["data"]
@@ -117,6 +119,7 @@ def aparar(x):
 pedacos, tempos, t = [], [], cfg.get("inicio", 0.0)  # pedacos: (início em s, áudio)
 for i, f in enumerate(cfg["frases"]):
     fala = f.get("fala") or re.sub(r"\*", "", f["texto"])
+    FRASE = {k: f[k] for k in ("voz", "ritmo", "tom") if k in f}
     x, ouvidas = falar(fala, tmp / f"{i:02d}.wav")
     x, corte = aparar(x)
     x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01] ** 2))) * 0.12  # todas as frases no mesmo volume
