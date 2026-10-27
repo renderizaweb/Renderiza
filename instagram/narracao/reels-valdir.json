@@ -1,0 +1,25 @@
+{
+ "_sobre": "Narração do Reels \"O homem que sabia todos os horários\" (pedido do Kaue, 27/10/2026: história que prende sozinha e só no fim mostra que é da Renderiza). O Seu Valdir e a Rua das Acácias são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  { "id": "rua", "cena": "rua", "texto": "Na Rua das Acácias, ninguém procurava nada na *internet.*", "pausa": 0.25 },
+  { "id": "valdir", "cena": "rua", "texto": "Era só perguntar para o *Seu Valdir.*", "pausa": 0.45 },
+  { "id": "farmacia", "cena": "perguntas", "texto": "Que horas abre a farmácia? *Oito.* No domingo, *nove.*", "pausa": 0.3 },
+  { "id": "sabia", "cena": "sabe", "texto": "O telefone do veterinário, o dia da feira, quem conserta geladeira. Ele sabia tudo de *cabeça.*", "pausa": 0.3 },
+  { "id": "anos", "cena": "anos", "texto": "*28 anos* no mesmo banco da praça.", "fala": "Vinte e oito anos no mesmo banco da praça.", "pausa": 0.45 },
+  { "id": "viagem", "cena": "viagem", "texto": "Até que, em janeiro, o Seu Valdir foi passar quinze dias na casa da filha, na *praia.*", "pausa": 0.5, "impacto": true },
+  { "id": "fila", "cena": "fila", "texto": "No domingo, às 8h, tinha fila na porta da farmácia. Abria às *9h.*", "fala": "No domingo, às oito, tinha fila na porta da farmácia. Abria às nove.", "pausa": 0.3, "impacto": true },
+  { "id": "lurdes", "cena": "lurdes", "texto": "A Dona Lurdes ligou para o chaveiro e pediu uma *calabresa.*", "pausa": 0.9 },
+  { "id": "mudanca", "cena": "mudanca", "texto": "E a família que tinha acabado de se mudar passou a semana achando que a rua não tinha *padaria.*", "pausa": 0.55 },
+  { "id": "nada", "cena": "volta", "texto": "Quinze dias depois, o Seu Valdir *voltou.*", "pausa": 0.35, "impacto": true },
+  { "id": "espera", "cena": "volta", "texto": "Sentou no banco e *esperou.*", "pausa": 0.9 },
+  { "id": "ninguem", "cena": "ninguem", "texto": "Ninguém perguntou *nada.*", "pausa": 1.1 },
+  { "id": "sites", "cena": "sites", "texto": "Enquanto ele estava fora, a padaria fez um *site,* com horário, endereço e WhatsApp. A farmácia também. Até o *chaveiro.*", "pausa": 0.45, "impacto": true },
+  { "id": "jogo", "cena": "jogo", "texto": "O Seu Valdir continua no banco da praça. Agora só perguntam do jogo de *domingo.*", "pausa": 0.55 },
+  { "id": "marca", "cena": "marca", "texto": "Nem toda rua tem um Seu Valdir. Para as outras, tem a *Renderiza.*", "pausa": 0.35, "impacto": true },
+  { "id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.", "fala": "Comenta prévia, que a gente monta a prévia do seu site.", "pausa": 0.2 }
+ ]
+}
