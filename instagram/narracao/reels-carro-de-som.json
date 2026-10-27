@@ -1,0 +1,222 @@
+{
+ "_sobre": "Narração do Reels \"O carro de som\" (Reels 3 da série com história, 27/10/2026). Alvo: o dono de negócio local que já impulsiona post ou anuncia e não sabe o que voltou. Objetivo: ele perceber que o anúncio que leva para um perfil sem preço e sem horário não deixa rastro, e que um site pronto para anúncio mostra quem chegou e deixa falar de novo só com quem se interessou. Não diz que a Renderiza faz anúncio nem que não faz. O único trocadilho é \"malhando em ferro frio\". O Tião fala pelo alto-falante (efeito megafone) até quando responde de perto, e o celular responde com a frase dele. O Seu Jorge, o Tião e a Academia Força Total são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "m1",
+   "cena": "rua",
+   "texto": "Academia Força *Total!* Matrícula sem *taxa!*",
+   "pausa": 0.3,
+   "efeito": "megafone",
+   "ritmo": "+16%",
+   "tom": "+4Hz",
+   "impacto": true
+  },
+  {
+   "id": "abre",
+   "cena": "rua",
+   "texto": "Todo sábado, o Seu Jorge paga o carro de som do *Tião.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "ouve",
+   "cena": "rua",
+   "texto": "A rua inteira *ouve.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "j1",
+   "cena": "conversa",
+   "texto": "Quantos *ouviram?*",
+   "pausa": 0.12,
+   "tom": "-3Hz"
+  },
+  {
+   "id": "t1",
+   "cena": "conversa",
+   "texto": "Todo *mundo!*",
+   "pausa": 0.25,
+   "efeito": "megafone",
+   "ritmo": "+16%",
+   "tom": "+4Hz"
+  },
+  {
+   "id": "j2",
+   "cena": "conversa",
+   "texto": "E quantos *vieram?*",
+   "pausa": 0.12,
+   "tom": "-3Hz"
+  },
+  {
+   "id": "t2",
+   "cena": "conversa",
+   "texto": "Aí já não é *comigo!*",
+   "pausa": 0.45,
+   "efeito": "megafone",
+   "ritmo": "+16%",
+   "tom": "+4Hz"
+  },
+  {
+   "id": "troca",
+   "cena": "insta",
+   "texto": "Então o Seu Jorge trocou o carro de som pelo botão do *Instagram:*",
+   "pausa": 0.1
+  },
+  {
+   "id": "impulsionar",
+   "cena": "insta",
+   "texto": "*Impulsionar.*",
+   "pausa": 0.2,
+   "impacto": true
+  },
+  {
+   "id": "trinta",
+   "cena": "insta",
+   "texto": "Trinta reais por *dia.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "semana",
+   "cena": "insta",
+   "texto": "Em uma semana, oito mil e quatrocentas pessoas viram o *anúncio.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "j3",
+   "cena": "resposta",
+   "texto": "E quantos *vieram?*",
+   "pausa": 0.25,
+   "tom": "-3Hz"
+  },
+  {
+   "id": "t3",
+   "cena": "resposta",
+   "texto": "Aí já não é *comigo!*",
+   "pausa": 0.6,
+   "efeito": "megafone",
+   "ritmo": "+16%",
+   "tom": "+4Hz"
+  },
+  {
+   "id": "nada",
+   "cena": "perfil",
+   "texto": "Quem clicou caiu num perfil sem preço, sem horário, só com um *aviso:*",
+   "pausa": 0.1
+  },
+  {
+   "id": "direct",
+   "cena": "perfil",
+   "texto": "*Chama* no *direct.*",
+   "pausa": 0.3,
+   "fala": "Chama no dairéct."
+  },
+  {
+   "id": "sumiram",
+   "cena": "sumiram",
+   "texto": "Olharam e voltaram para o feed, sem deixar *rastro.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "ferro",
+   "cena": "ferro",
+   "texto": "O Seu Jorge estava malhando em ferro *frio.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "fez",
+   "cena": "site",
+   "texto": "Então ele fez um *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "itens",
+   "cena": "site",
+   "texto": "Planos, horário, endereço e *WhatsApp.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "leva",
+   "cena": "site",
+   "texto": "E o anúncio passou a levar para *lá.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "conta",
+   "cena": "numeros",
+   "texto": "E o site conta quem chegou:",
+   "pausa": 0.12
+  },
+  {
+   "id": "n1",
+   "cena": "numeros",
+   "texto": "trezentas pessoas *visitaram,*",
+   "pausa": 0.08
+  },
+  {
+   "id": "n2",
+   "cena": "numeros",
+   "texto": "quarenta viram os *planos*",
+   "pausa": 0.08
+  },
+  {
+   "id": "n3",
+   "cena": "numeros",
+   "texto": "e nove chamaram no *WhatsApp.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "seguinte",
+   "cena": "janela",
+   "texto": "Na semana seguinte, ele anunciou só para quem tinha chegado *perto.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "janela",
+   "cena": "janela",
+   "texto": "Como um carro de som que volta só nas casas em que alguém abriu a *janela.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "gostou",
+   "cena": "fecho",
+   "texto": "O Tião gostou da *ideia.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "para",
+   "cena": "fecho",
+   "texto": "Agora ele só para onde tem janela *aberta.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "baixinho",
+   "cena": "fecho",
+   "texto": "E fala *baixinho.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Antes de anunciar mais *alto,* saiba quem está *ouvindo.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu site já sai pronto para *anúncio.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.",
+   "pausa": 0.4,
+   "fala": "Comenta prévia, que a gente monta a prévia do seu site."
+  }
+ ]
+}

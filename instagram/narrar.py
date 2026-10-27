@@ -13,6 +13,7 @@
 #   edge: vozes neurais brasileiras da Microsoft ("voz": "pt-BR-AntonioNeural", "pt-BR-FranciscaNeural" ou
 #     "pt-BR-ThalitaMultilingualNeural"; "ritmo": "+12%"; "tom": "-2Hz"), pelo serviço de leitura em voz alta do Edge.
 #     Uma frase pode trocar "voz", "ritmo" e "tom" só para ela (a voz de um personagem, por exemplo).
+# Qualquer motor: "efeito": "megafone" numa frase faz ela sair pelo alto-falante (só os médios, saturada e com eco de rua).
 #     As mesmas vozes existem no Azure Speech, que é o caminho com licença para uso comercial. As palavras da legenda
 #     seguem os tempos que o próprio serviço devolve. pip install edge-tts imageio-ffmpeg
 import difflib, json, re, subprocess, sys, unicodedata, wave
@@ -116,12 +117,20 @@ def aparar(x):
     ini = max(0, som[0] - int(0.03 * SR))
     return x[ini: som[-1] + int(0.1 * SR)], ini / SR
 
+EFEITOS = {"megafone": "highpass=f=600,lowpass=f=3300,volume=8,asoftclip=type=atan,highpass=f=500,lowpass=f=3600,aecho=0.8:0.5:110|230:0.22|0.12"}
+def efeito(x, nome):
+    import imageio_ffmpeg
+    return np.frombuffer(subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
+                                         "-af", EFEITOS[nome], "-f", "f32le", "-"], input=x.astype(np.float32).tobytes(),
+                                        capture_output=True, check=True).stdout, np.float32).copy()
+
 pedacos, tempos, t = [], [], cfg.get("inicio", 0.0)  # pedacos: (início em s, áudio)
 for i, f in enumerate(cfg["frases"]):
     fala = f.get("fala") or re.sub(r"\*", "", f["texto"])
     FRASE = {k: f[k] for k in ("voz", "ritmo", "tom") if k in f}
     x, ouvidas = falar(fala, tmp / f"{i:02d}.wav")
     x, corte = aparar(x)
+    if f.get("efeito"): x = efeito(x, f["efeito"])
     x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01] ** 2))) * 0.12  # todas as frases no mesmo volume
     dur = len(x) / SR
     brutas = f["texto"].split()
