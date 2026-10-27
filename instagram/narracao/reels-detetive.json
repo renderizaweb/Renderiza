@@ -1,0 +1,233 @@
+{
+ "_sobre": "Narração do Reels \"O caso dos clientes que sumiram\" (versão 3 do Reels 1 da série com história, 27/10/2026). Alvo: o dono de ótica, consultório ou clínica que só tem Instagram e WhatsApp e acha que o movimento caiu pela crise. Objetivo: ele entender que o cliente novo pesquisa antes de ir e, quando não acha nada, compra de outro sem avisar. Cada pista do detetive é um problema real de quem não tem site; o único trocadilho é \"E ninguém enxergava\". Cada frase é gravada sozinha, com pausa curta (a voz faria quase 0,8 s entre frases); pausa maior só depois de piada. A Ótica da Lúcia e o detetive Moura são fictícios. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "sumiu",
+   "texto": "Os clientes novos da Ótica da Lúcia *sumiram.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "pista0",
+   "cena": "sumiu",
+   "texto": "Sem bilhete, sem pista.",
+   "pausa": 0.25
+  },
+  {
+   "id": "crise",
+   "cena": "culpa",
+   "texto": "A Dona Lúcia culpou a *crise.*",
+   "pausa": 0.12
+  },
+  {
+   "id": "calor",
+   "cena": "culpa",
+   "texto": "Depois, culpou o *calor.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "contratou",
+   "cena": "culpa",
+   "texto": "Depois, contratou um *detetive.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "moura",
+   "cena": "moura",
+   "texto": "Detetive *Moura.*",
+   "pausa": 0.1
+  },
+  {
+   "id": "anos",
+   "cena": "moura",
+   "texto": "Vinte anos de profissão, nenhum caso sem solução.",
+   "pausa": 0.2
+  },
+  {
+   "id": "fez",
+   "cena": "busca",
+   "texto": "Ele fez o que um cliente novo faria:",
+   "pausa": 0.05
+  },
+  {
+   "id": "pesquisou",
+   "cena": "busca",
+   "texto": "pegou o celular e *pesquisou.*",
+   "fala": "Pegou o celular e pesquisou.",
+   "pausa": 0.2
+  },
+  {
+   "id": "p1",
+   "cena": "pista1",
+   "texto": "Primeira pista: um perfil no *Instagram.*",
+   "pausa": 0.1
+  },
+  {
+   "id": "natal",
+   "cena": "pista1",
+   "texto": "Última foto: Natal de *2022.*",
+   "fala": "Última foto: Natal de dois mil e vinte e dois.",
+   "pausa": 0.2
+  },
+  {
+   "id": "endereco",
+   "cena": "direct",
+   "texto": "Endereço: chama no *direct.*",
+   "pausa": 0.1
+  },
+  {
+   "id": "chamou",
+   "cena": "direct",
+   "texto": "Ele chamou.",
+   "pausa": 0.1
+  },
+  {
+   "id": "visto",
+   "cena": "direct",
+   "texto": "*Visualizado.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "p2",
+   "cena": "fone",
+   "texto": "Segunda pista: um telefone.",
+   "pausa": 0.12
+  },
+  {
+   "id": "existe",
+   "cena": "fone",
+   "texto": "Esse número não *existe.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "p3",
+   "cena": "mapa",
+   "texto": "Terceira pista: no mapa, um aviso.",
+   "pausa": 0.1
+  },
+  {
+   "id": "fechado",
+   "cena": "mapa",
+   "texto": "Pode estar *fechado.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "nada",
+   "cena": "oculos",
+   "texto": "Às três da tarde, o detetive Moura saiu de *óculos novos.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "esquina",
+   "cena": "oculos",
+   "texto": "Da ótica da *esquina.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "la",
+   "cena": "outra",
+   "texto": "Lá, um site respondia antes da *pergunta.*",
+   "pausa": 0.1
+  },
+  {
+   "id": "itens",
+   "cena": "outra",
+   "texto": "Horário, endereço, preço do exame e *WhatsApp.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "rel",
+   "cena": "relatorio",
+   "texto": "No relatório:",
+   "pausa": 0.08
+  },
+  {
+   "id": "sequestrou",
+   "cena": "relatorio",
+   "texto": "Ninguém sequestrou os seus clientes, Dona Lúcia.",
+   "pausa": 0.1
+  },
+  {
+   "id": "acharam",
+   "cena": "relatorio",
+   "texto": "Eles só não acharam a *senhora.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "melhor",
+   "cena": "vitrine",
+   "texto": "A melhor ótica da cidade.",
+   "pausa": 0.15
+  },
+  {
+   "id": "enxergava",
+   "cena": "vitrine",
+   "texto": "E ninguém *enxergava.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "fezsite",
+   "cena": "solucao",
+   "texto": "A Dona Lúcia fez um *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "segunda",
+   "cena": "solucao",
+   "texto": "Na segunda, entrou um cliente novo:",
+   "pausa": 0.1
+  },
+  {
+   "id": "achei",
+   "cena": "solucao",
+   "texto": "Achei vocês na *internet.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "noite",
+   "cena": "noite",
+   "texto": "Já o detetive Moura, naquela noite, pesquisou o próprio *nome.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "vazio",
+   "cena": "noite",
+   "texto": "*Nada.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "reaberto",
+   "cena": "noite",
+   "texto": "Caso *reaberto.*",
+   "pausa": 0.45,
+   "impacto": true
+  },
+  {
+   "id": "investigar",
+   "cena": "marca",
+   "texto": "Se o cliente precisa investigar, ele desiste.",
+   "pausa": 0.15
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* ele acha você de primeira.",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.",
+   "fala": "Comenta prévia, que a gente monta a prévia do seu site.",
+   "pausa": 0.2
+  }
+ ]
+}
