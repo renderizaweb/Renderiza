@@ -10,6 +10,10 @@
 #   kokoro: voz sintética livre do Kokoro (Apache 2.0, roda na CPU; "voz": "pm_alex", "pm_santa" ou "pf_dora"),
 #     bem mais natural que o Piper. Modelo baixado para rascunhos/vozes/. As palavras da legenda seguem os tempos que
 #     o Whisper ouviu. pip install kokoro-onnx faster-whisper
+#   edge: vozes neurais brasileiras da Microsoft ("voz": "pt-BR-AntonioNeural", "pt-BR-FranciscaNeural" ou
+#     "pt-BR-ThalitaMultilingualNeural"; "ritmo": "+12%"; "tom": "-2Hz"), pelo serviço de leitura em voz alta do Edge.
+#     As mesmas vozes existem no Azure Speech, que é o caminho com licença para uso comercial. As palavras da legenda
+#     seguem os tempos que o próprio serviço devolve. pip install edge-tts imageio-ffmpeg
 import difflib, json, re, subprocess, sys, unicodedata, wave
 from pathlib import Path
 import numpy as np
@@ -55,6 +59,26 @@ elif MOTOR == "kokoro":
         a16 = np.interp(np.arange(0, len(w) / sr, 1 / 16000), np.arange(len(w)) / sr, w).astype(np.float32)
         segs, _ = ouvido.transcribe(a16, language="pt", word_timestamps=True)
         return x, [{"p": p.word.strip(), "ini": p.start, "fim": p.end} for s_ in segs for p in s_.words]
+elif MOTOR == "edge":
+    import asyncio, os, ssl
+    import edge_tts, edge_tts.communicate, imageio_ffmpeg
+    if os.environ.get("SSL_CERT_FILE"):  # atrás de um proxy que refaz o TLS
+        edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
+    def falar(texto, arq):
+        async def pedir():
+            mp3, ws = bytearray(), []
+            c = edge_tts.Communicate(texto, cfg.get("voz", "pt-BR-AntonioNeural"), rate=cfg.get("ritmo", "+0%"), pitch=cfg.get("tom", "+0Hz"),
+                                     boundary="WordBoundary", proxy=os.environ.get("HTTPS_PROXY"))
+            async for m in c.stream():
+                if m["type"] == "audio": mp3 += m["data"]
+                elif m["type"] == "WordBoundary": ws.append({"p": m["text"], "ini": m["offset"] / 1e7, "fim": (m["offset"] + m["duration"]) / 1e7})
+            return bytes(mp3), ws
+        for tentativa in range(4):  # o serviço às vezes derruba a conexão
+            try: mp3, ws = asyncio.run(pedir()); break
+            except Exception as e: print(f"  {texto!r} tentativa {tentativa + 1}: {e}", flush=True)
+        pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-i", "-", "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                             input=mp3, capture_output=True, check=True).stdout
+        return np.frombuffer(pcm, np.float32).copy(), ws
 else:
     import torch
     from chatterbox.mtl_tts import ChatterboxMultilingualTTS

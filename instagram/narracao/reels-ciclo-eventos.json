@@ -1,8 +1,8 @@
 {
  "_sobre": "Narração do Reels \"O ciclo de um espaço de eventos\" (pedido do Kaue, 24/10/2026): a sexta-feira da Marina, dona da Villa Alecrim (espaço fictício, o mesmo do exemplo do painel), antes e depois do site com a agenda online e do painel. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase.",
- "motor": "kokoro",
- "voz": "pm_alex",
- "velocidade": 1.0,
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
  "inicio": 0.2,
  "frases": [
   { "id": "hora", "cena": "noite", "texto": "Sexta-feira, *23h.*", "fala": "Sexta-feira, onze da noite.", "pausa": 0.35, "impacto": true },
