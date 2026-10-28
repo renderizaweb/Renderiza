@@ -1,0 +1,526 @@
+{
+ "pasta": "katia-rodrigues-fotografia",
+ "marca": "Estúdio Katia Rodrigues Fotografia",
+ "titulo_nome": "Katia Rodrigues",
+ "titulo_script": "fotografia",
+ "dona": "Katia",
+ "quem_sou": "Sou a Katia, do Estúdio Katia Rodrigues Fotografia",
+ "google": {
+  "coords": "-23.5400125,-46.5788015",
+  "fid": "0x94ce5f7bc12c0ad7:0x6d7218c76a02942b",
+  "gid": "/g/11fk3vncwf"
+ },
+ "google_nome": "Estúdio Katia Rodrigues Fotografia",
+ "endereco_maps": "Rua Catiguá, 159 - Sl 703 - Tatuapé, São Paulo - SP, 03065-030",
+ "google_nota": "5,0",
+ "google_total": "38",
+ "whatsapp": "5511951465173",
+ "instagram": "katiarodrigues_fotografia",
+ "seguidores": "3.074",
+ "slogan": "Seu Natal, sua família, sua história.",
+ "cores": {
+  "fundo": "#fbf9f6",
+  "papel": "#ffffff",
+  "areia": "#f2efea",
+  "linha": "#e4ded6",
+  "tinta": "#22262e",
+  "tinta2": "#5e636c",
+  "rosa": "#c4483e",
+  "acento": "#24406b",
+  "acento_escuro": "#1b3256",
+  "cafe": "#1a2333"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Baskerville",
+    "ital,wght@0,400;0,700;1,400"
+   ],
+   "sans": [
+    "Karla",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Petit Formal Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "jornada": "cartoes",
+  "natal_capa": "retrato",
+  "ornamento": "❄",
+  "script_escala": 0.62,
+  "css": "h1,h2,h3{letter-spacing:-.02em}.abertura h1{font-size:clamp(2.6rem,5.4vw,4.6rem)}.abertura h1 .script{margin-top:.25em}.jornada li{border-radius:16px}#portfolio .galeria{grid-template-columns:repeat(5,minmax(0,1fr))}@media(max-width:760px){#portfolio .galeria{grid-template-columns:repeat(2,minmax(0,1fr))}#painel-natal .g-item:first-child,#painel-ensaios .g-p{grid-column:span 2}}#natal-2025 .galeria{grid-template-columns:repeat(2,minmax(0,1fr))}#natal-2025 .g-l{grid-column:span 1}"
+ },
+ "horarios": {
+  "horas": [
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "mensagem": "Olá, Katia! Quero o horário de {data} ({semana}) às {hora} para o ensaio Um Natal para Guardar. Ainda está livre?",
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 15h",
+   "2026-11-14 10h",
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 16h",
+   "2026-11-28 11h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-12 10h",
+   "2026-12-12 14h",
+   "2026-12-12 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Katia define os dela"
+ },
+ "site": {
+  "titulo": "Estúdio Katia Rodrigues Fotografia | Gestante, parto, newborn e Natal no Tatuapé",
+  "descricao": "Estúdio Katia Rodrigues Fotografia, no Tatuapé, em São Paulo: gestante, parto, newborn, acompanhamento, aniversários, Páscoa e Natal, com álbuns. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia no Tatuapé · São Paulo",
+   "frase": "Um Natal para guardar.",
+   "intro": "Gestante, parto, newborn, o primeiro ano do bebê e as datas especiais, num estúdio no Tatuapé, com álbuns que as famílias guardam.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "1 ano"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Acompanhamento",
+    "Álbuns",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_05.jpg",
+     "f": "p",
+     "alt": "Família de pijama xadrez sentada no tapete, em frente à árvore de Natal",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g01.jpg",
+     "f": "l",
+     "alt": "Gestante de top branco encostada na parede clara do estúdio",
+     "c": [
+      0.45,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g00.jpg",
+     "f": "l",
+     "alt": "Bebê de 1 ano sentada entre balões claros, com o bolo",
+     "c": [
+      0.35,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Momentos <em>para guardar.</em>",
+   "p": "Os ensaios mais recentes da Katia. Toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado.",
+   "eyebrow": "Portfólio"
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_04.jpg",
+      "f": "p",
+      "alt": "Família de pijama xadrez enfeitando a árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_01.jpg",
+      "f": "p",
+      "alt": "Pai, mãe e filha de pijama brincando na cama de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_02.jpg",
+      "f": "p",
+      "alt": "Família tomando café na bandeja, na cama de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_03.jpg",
+      "f": "p",
+      "alt": "Mãe e filha rindo juntas, o pai sentado à frente",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_05.jpg",
+      "f": "p",
+      "alt": "Família de pijama no tapete, em frente à árvore",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "ensaios",
+    "nome": "Gestante, bebê e 15 anos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g01.jpg",
+      "f": "l",
+      "alt": "Gestante de top branco encostada na parede clara",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_00.jpg",
+      "f": "p",
+      "alt": "Menina de 15 anos de vestido rosa, sentada na poltrona",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g00.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano sentada entre balões claros, com o bolo",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g01.jpg",
+    "f": "l",
+    "alt": "Gestante de top branco encostada na parede clara do estúdio",
+    "c": [
+     0.4,
+     0.4
+    ]
+   },
+   "eyebrow": "O estúdio",
+   "h2": "Anos de ensaios <em>e de álbuns.</em>",
+   "p": [
+    "A Katia fotografa famílias num estúdio no Tatuapé, em São Paulo: gestantes, partos, recém-nascidos, o primeiro ano dos bebês e as datas especiais, como Páscoa e Natal. E entrega álbuns, que as famílias elogiam nas avaliações."
+   ],
+   "citacao": "Às vezes, a fotografia mais especial nasce justamente quando a família esquece a câmera e simplesmente vive.",
+   "citacao_quem": "Katia Rodrigues, no Instagram",
+   "p2": [
+    "Nas avaliações, tem quem faça ensaios com ela todo ano há 8 anos e quem chamou a Katia para os dois partos, o newborn e o primeiro aniversário dos filhos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "38 avaliações no Google"
+    ],
+    [
+     "8 anos",
+     "de ensaios anuais, numa avaliação"
+    ],
+    [
+     "3.594",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da gestação <em>a cada Natal.</em>",
+   "p": "Os ensaios que as famílias contam ter feito com a Katia:",
+   "fonte": "Legendas da Katia no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio claro, com a luz da janela."
+    },
+    {
+     "nome": "Parto",
+     "sub": "A chegada",
+     "p": "Ela fotografa o parto, como contam as avaliações."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Cenários montados para a segurança dos bebês."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Até 1 ano",
+     "p": "O primeiro ano do bebê, mês a mês."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "Smash e 15 anos",
+     "p": "Do smash fruit de 1 ano aos 15 anos."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Páscoa e Natal",
+     "p": "As sessões do ano, com álbuns de qualidade."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Um Natal <em>para guardar.</em>",
+   "p": "A agenda de Natal 2026 está aberta: de pijama na cama, ou em volta da árvore com os presentes. Escolha um horário e a mensagem chega pronta no WhatsApp da Katia.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_01.jpg",
+    "f": "p",
+    "alt": "Pai, mãe e filha de pijama brincando na cama de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Andrea Garcia",
+    "tag": "Do gestante ao Natal",
+    "trecho": "Eu fiz o ensaio gestante, new born, acompanhamento ate 1 ano, aniversario e todas as sessões que ela prove, como Pascoa e Natal."
+   },
+   {
+    "nome": "Fernanda Duarte",
+    "tag": "8 anos de ensaios",
+    "trecho": "Faço ensaios anuais com a Kátia a 8 anos. Estúdio tem uma ótima localização, fácil acesso, principalmente pq tenho bebê pequeno."
+   },
+   {
+    "nome": "Karina Gallerani",
+    "tag": "Partos e newborn",
+    "trecho": "Fotografou meus 2 partos , new born , aniversário de 1 ano e smash fruit da minha filha e logo menos do meu pequeno."
+   },
+   {
+    "nome": "Marcia Mesquita",
+    "tag": "Álbum",
+    "trecho": "O album tem uma qualidade ótima, os cenários no estúdio são sempre de muito bom gosto."
+   },
+   {
+    "nome": "Mariana Carpentieri",
+    "tag": "Gestante, parto e newborn",
+    "trecho": "Todo o cuidado, carinho e olhar para esse momento fizerem toda a diferença."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Tatuapé, em São Paulo.",
+   "telefone": "(11) 95146-5173",
+   "endereco": [
+    "Rua Catiguá, 159, sala 703",
+    "Tatuapé",
+    "São Paulo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Estúdio Katia Rodrigues Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@katiarodrigues_fotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Um Natal para Guardar | Estúdio Katia Rodrigues Fotografia",
+  "descricao": "Um Natal para Guardar: o ensaio de Natal 2026 do Estúdio Katia Rodrigues, no Tatuapé, em São Paulo. De pijama na cama ou em volta da árvore. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Tatuapé",
+   "h1": "Um Natal <em>para guardar.</em>",
+   "citacao": "Nem todo sorriso precisa ser pedido. Nem todo abraço precisa ser ensaiado. E nem todo momento bonito precisa sair perfeito.",
+   "citacao_quem": "Katia Rodrigues, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_04.jpg",
+    "f": "p",
+    "alt": "Família de pijama xadrez enfeitando a árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Na cama <em>ou em volta da árvore.</em>",
+   "p": "O Natal 2026 do estúdio tem dois cantos: a cama com a manta, a guirlanda e a bandeja do café da manhã, e a árvore com os presentes, os ursos e o cavalinho de madeira. As fotos de lançamento mostram uma família de pijama xadrez, do jeito que ela é.",
+   "itens": [
+    "No estúdio, no Tatuapé, em São Paulo.",
+    "Dois cantos: a cama de Natal e a árvore com presentes.",
+    "Agenda de Natal aberta, com lista VIP desde 15/10.",
+    "Valores e detalhes pelo WhatsApp da Katia."
+   ],
+   "legenda_fotos": "O ensaio de Natal 2026, no estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_05.jpg",
+    "f": "p",
+    "alt": "Família de pijama no tapete, em frente à árvore e aos presentes",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_02.jpg",
+    "f": "p",
+    "alt": "Família tomando café na bandeja, na cama de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/postsall/katiarodrigues_fotografia_03.jpg",
+    "f": "p",
+    "alt": "Mãe e filha rindo juntas na cama de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Do bebê <em>à família toda.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios no estúdio da Katia.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g00.jpg",
+     "f": "l",
+     "alt": "Bebê de 1 ano sentada entre balões claros, com o bolo",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/gfotos/g01.jpg",
+     "f": "l",
+     "alt": "Gestante de top branco encostada na parede clara",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "comentario": "Demo Estúdio Katia Rodrigues Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Karina Gallerani",
+    "tag": "Partos e newborn",
+    "trecho": "Fotografou meus 2 partos , new born , aniversário de 1 ano e smash fruit da minha filha e logo menos do meu pequeno."
+   },
+   {
+    "nome": "Marcia Mesquita",
+    "tag": "Álbum",
+    "trecho": "O album tem uma qualidade ótima, os cenários no estúdio são sempre de muito bom gosto."
+   },
+   {
+    "nome": "Mariana Carpentieri",
+    "tag": "Gestante, parto e newborn",
+    "trecho": "Todo o cuidado, carinho e olhar para esse momento fizerem toda a diferença."
+   },
+   {
+    "nome": "Andrea Garcia",
+    "tag": "Do gestante ao Natal",
+    "trecho": "Eu fiz o ensaio gestante, new born, acompanhamento ate 1 ano, aniversario e todas as sessões que ela prove, como Pascoa e Natal."
+   },
+   {
+    "nome": "Fernanda Duarte",
+    "tag": "8 anos de ensaios",
+    "trecho": "Faço ensaios anuais com a Kátia a 8 anos. Estúdio tem uma ótima localização, fácil acesso, principalmente pq tenho bebê pequeno."
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Katia abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Katia define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Katia abre com o dia e a hora escritos."
+    ],
+    [
+     "A Katia confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · Tatuapé",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Katia no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "o das legendas do Instagram ((11) 95146-5173, 22 e 23/10); o Google tem outro celular, (11) 96397-1853",
+  "site": "site Alboom congelado (katiarodrigues.com.br, “Website congelado”); 16 domínios óbvios testados",
+  "situacao": "publicada em 28/10/2026 · `/demo/katia-rodrigues-fotografia` e `/demo/katia-rodrigues-fotografia/natal`",
+  "direcao": [
+   "Personalidade: “Um Natal para Guardar”, a campanha dela, puxa o site todo. Serifa clássica (Libre Baskerville), letra cursiva formal, azul-marinho com o vermelho do xadrez do pijama, flocos de neve entre as especialidades e jornada em cartões.",
+   "Material curto: o Instagram dela só libera a capa de cada post (os carrosséis dão “sem contextJSON”), o Drive veio vazio e o Google tem 2 fotos. O portfólio tem 2 abas em grade de 5 colunas (sem buracos) e a página de Natal usa as 5 fotos de lançamento.",
+   "Sem logo em boa resolução: monograma KR e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: portfólio em 2 abas (Natal 2026; Gestante, bebê e 15 anos), a Katia pelas avaliações, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Um Natal para Guardar”: os dois cantos do cenário, a agenda de exemplo (sábados) e outros ensaios.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "As capas dos 6 últimos posts do Instagram (5 do Natal 2026, em 1080 px; a do vídeo de 15 anos, em 640 px) e 2 fotos do Google.",
+   "Não há foto da Katia em boa resolução (a do perfil tem 100 px): a seção sobre ela usa uma foto de ensaio. A família das fotos de Natal são clientes (não é ela)."
+  ],
+  "textos": [
+   "Legendas do Natal 2026: “Um Natal para Guardar”, “Nem todo sorriso precisa ser pedido...”, “Às vezes, a fotografia mais especial nasce justamente quando a família esquece a câmera e simplesmente vive”, “Seu Natal, sua família, sua história”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Endereço: o Google diz Tatuapé (Rua Catiguá, 159, sala 703) e o levantamento viu Guarulhos no Instagram. Confirmar antes de mandar e trocar no demo.json se for o caso.",
+   "WhatsApp: a demo usa o das legendas; o do Google é outro.",
+   "Pedir fotos dos ensaios (gestante, newborn, 1 ano) e uma foto dela para a seção sobre."
+  ]
+ },
+ "marca_completa": "Estúdio Katia Rodrigues Fotografia",
+ "fone_link": "+5511951465173",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Katia! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/katia-rodrigues-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Katia",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Katia, do Estúdio Katia Rodrigues Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Katia, do Estúdio Katia Rodrigues Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

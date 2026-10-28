@@ -287,3 +287,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Fernanda Ludovik Fotografia (fotógrafa)](demos/fernanda-ludovik-fotografia) | Vila Lúcia, São Paulo | site + página de Natal (`/natal`, “Expresso Polar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 18ª) |
 | [Estúdio Elô e Jeff (fotógrafa)](demos/eloo-e-jeff-fotografia) | Jardim do Tiro, São Paulo | site + página de Natal (`/natal`, “Natal Polar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 19ª) |
 | [Rafaella Ketinny Fotografia (fotógrafa)](demos/rafaella-ketinny-fotografia) | Parque São Diogo, São Bernardo do Campo | site + página de Natal (`/natal`, “O primeiro Natal do seu bebê”) | pronta · 28/10/2026 (fotógrafos lote 1 · 20ª) |
+| [Estúdio Katia Rodrigues Fotografia (fotógrafa)](demos/katia-rodrigues-fotografia) | Tatuapé, São Paulo | site + página de Natal (`/natal`, “Um Natal para Guardar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 6ª, por último) |
