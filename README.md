@@ -285,3 +285,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Tia Isa Fotografia (fotógrafa)](demos/tia-isa-fotografia) | Paulicéia, São Bernardo do Campo | site + página de Natal (`/natal`, “O Natal que vira porta-retrato”) | pronta · 28/10/2026 (fotógrafos lote 1 · 16ª) |
 | [Daline Lopes Fotografia (fotógrafa)](demos/daline-lopes-fotografia) | Chácaras Marajuara, Embu das Artes | site + página de Natal (`/natal`, “Expresso Encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 17ª) |
 | [Fernanda Ludovik Fotografia (fotógrafa)](demos/fernanda-ludovik-fotografia) | Vila Lúcia, São Paulo | site + página de Natal (`/natal`, “Expresso Polar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 18ª) |
+| [Estúdio Elô e Jeff (fotógrafa)](demos/eloo-e-jeff-fotografia) | Jardim do Tiro, São Paulo | site + página de Natal (`/natal`, “Natal Polar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 19ª) |

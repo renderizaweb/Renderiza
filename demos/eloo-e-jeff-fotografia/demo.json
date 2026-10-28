@@ -1,0 +1,657 @@
+{
+ "pasta": "eloo-e-jeff-fotografia",
+ "marca": "Estúdio Elô e Jeff",
+ "titulo_nome": "Elô e Jeff",
+ "titulo_script": "foto e filme",
+ "dona": "Elô",
+ "quem_a": "a Elô e o Jeff",
+ "quem_da": "da Elô e do Jeff",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/google/google_limpo.json",
+ "google": {
+  "coords": "-23.4729248,-46.6885587",
+  "fid": "0x94cef93610ce8905:0x89a07c5a99a9fb41",
+  "gid": "/g/11j1zjfgmj"
+ },
+ "google_nome": "Estudio de Fotografia Elôo e Jeff",
+ "endereco_maps": "Estudio de Fotografia Elôo e Jeff, Jardim do Tiro, São Paulo - SP",
+ "google_nota": "4,9",
+ "google_total": "64",
+ "whatsapp": "5511958179990",
+ "instagram": "estudio.eloojeff",
+ "seguidores": "6.541",
+ "slogan": "Fotografia e filme para bebês e crianças.",
+ "mensagem": "Olá, Elô e Jeff! Vi o site de vocês e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fafaf7",
+  "papel": "#ffffff",
+  "areia": "#edf4ef",
+  "linha": "#dde6df",
+  "tinta": "#1d2320",
+  "tinta2": "#58625c",
+  "rosa": "#79c4a2",
+  "acento": "#1d2320",
+  "acento_escuro": "#000000",
+  "cafe": "#17201b"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Instrument Serif",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Plus Jakarta Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allison",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "abas": "sublinhado",
+  "botoes": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "●",
+  "script_escala": 1.05,
+  "css": "h1,h2,h3,h1 em,h2 em,h3 em{font-weight:400}h1 em,h2 em,h3 em{color:#2f8f6c}.abertura h1{letter-spacing:-.02em}.especialidades i{font-size:.45em}.natal h2 em{color:#9fd8bd}.aba{border-radius:0}"
+ },
+ "renderiza": {
+  "ola": "Elô e Jeff",
+  "para": "vocês",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Somos a Elô e o Jeff, do Estúdio Elô e Jeff. Vimos o site e a página de Natal que a Renderiza montou para nós e queremos garantir o nosso (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Somos a Elô e o Jeff, do Estúdio Elô e Jeff. Vimos o site e a página de Natal que a Renderiza montou para nós e queríamos conversar sobre o valor."
+ },
+ "horarios": {
+  "horas": [
+   "11h",
+   "12h",
+   "13h"
+  ],
+  "exemplo": "Horários de exemplo: a Elô e o Jeff definem os deles",
+  "mensagem": "Olá, Elô e Jeff! Quero o horário de {data} ({semana}) às {hora} para o ensaio do Natal Polar. Ainda está livre?",
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 11h",
+   "2026-11-14 11h",
+   "2026-11-14 13h",
+   "2026-11-21 11h",
+   "2026-11-21 13h",
+   "2026-11-28 11h",
+   "2026-11-28 13h",
+   "2026-12-05 13h",
+   "2026-12-12 12h",
+   "2026-12-12 13h"
+  ]
+ },
+ "site": {
+  "titulo": "Estúdio Elô e Jeff | Mesversário, smash the cake e newborn na Zona Norte de São Paulo",
+  "descricao": "Estúdio Elô e Jeff, no Jardim do Tiro, Zona Norte de São Paulo: foto e filme de bebês e crianças, mesversário, smash the cake personalizado e newborn afetivo. Nota 4,9 no Google, com 64 avaliações.",
+  "hero": {
+   "eyebrow": "Fotografia na Zona Norte · SP",
+   "frase": "Cada fase vira uma cena.",
+   "intro": "Foto e filme de bebês e crianças: newborn afetivo, mesversário com um tema por mês e smash the cake personalizado, num estúdio claro no Jardim do Tiro.",
+   "rotulos": [
+    "Newborn",
+    "Smash",
+    "Mesversário"
+   ],
+   "especialidades": [
+    "Newborn afetivo",
+    "Mesversário",
+    "Smash the cake",
+    "Projeto da festa",
+    "Ensaio kids",
+    "Foto e filme"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/514037849_1293946126074333_7248681383800942729_n.jpg",
+     "f": "p",
+     "alt": "Mãe com o recém-nascido no colo, rosto com rosto",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/De61EKvjZpY_De61EKvjZpY_05.jpg",
+     "f": "p",
+     "alt": "Bebê de 1 ano com chantilly nas mãos, no smash do Mickey Safari",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/518894001_1309807324488213_8750907404462861092_n.jpg",
+     "f": "l",
+     "alt": "Bebê de 11 meses no tema pintora, com o cavalete",
+     "c": [
+      0.62,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Um tema <em>para cada mês.</em>",
+   "p": "Ensaios feitos pela Elô e pelo Jeff. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "eyebrow": "Portfólio",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "mesversario",
+    "nome": "Mesversário",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/499270097_1262341089234837_8318475489349254101_n.jpg",
+      "f": "p",
+      "alt": "Bebê vestida de Branca de Neve",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/499272276_18274711696258171_991823773007548453_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 8 meses no tema Chaves, de marinheiro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/501318743_18275869951258171_728619022633245000_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 9 meses rindo com a bola, no tema futebol",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/502960493_1272304118238534_3441345001134248146_n.jpg",
+      "f": "l",
+      "alt": "Bebê vestida de Chiquinha, no tema Chaves",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/518894001_1309807324488213_8750907404462861092_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 11 meses no tema pintora",
+      "pos": "50% 50%",
+      "box": [
+       0.3,
+       0,
+       0.86,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/513614112_1293937292741883_4665526594461888227_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 10 meses no tema bailarina",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/505901946_1279174100884869_7960117912541094345_n.jpg",
+      "f": "p",
+      "alt": "Bebê vestido de monstrinho no tema Monstros S.A.",
+      "pos": "50% 50%",
+      "box": [
+       0.22,
+       0,
+       0.78,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/520196922_1308700191265593_7630420908175851710_n.jpg",
+      "f": "l",
+      "alt": "Bebê espiando no tema Os Incríveis",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/De61EKvjZpY_De61EKvjZpY_04.jpg",
+      "f": "p",
+      "alt": "Bebê de chapéu de safári no carrinho do Mickey Safari",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/DfCgsWKHa13_DfCgsWKHa13_01.jpg",
+      "f": "l",
+      "alt": "Bebê com o bolo no smash dos Looney Tunes bebês",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/De61EKvjZpY_De61EKvjZpY_05.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano com chantilly nas mãos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/514152148_1293953662740246_2035288509875882113_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano rindo no cenário de balões lilás",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/497864629_18274038856258171_5278016354072594466_n.jpg",
+      "f": "p",
+      "alt": "Bebê com o rosto de bolo rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/520746481_1312305774238368_1615767227175001009_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no smash com tema de música",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/500173839_1262402199228726_7817422611815860476_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário de Alice no País das Maravilhas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/gfotos/g02.jpg",
+      "f": "l",
+      "alt": "Bebê de camisa xadrez com o bolo, no smash do caubói",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn afetivo",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/514037849_1293946126074333_7248681383800942729_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o recém-nascido no colo, rosto com rosto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/513086163_1293957259406553_7161921624323380632_n.jpg",
+      "f": "l",
+      "alt": "Pai e mãe de rosto colado com o recém-nascido",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/502727124_1270963011705978_2653406894093745910_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo, de perto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/518295599_1309802357822043_1721389851251297647_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de macacão branco com o ursinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/513955261_1293950942740518_5353142887016046887_n.jpg",
+      "f": "p",
+      "alt": "Pezinhos do recém-nascido nas mãos da mãe",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/511472390_18278488306258171_4296466137346976989_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo na manta verde",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/De_7e0KHSgo_De_7e0KHSgo_00.jpg",
+      "f": "p",
+      "alt": "Menino abraçado ao ursão de pelúcia",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/497726859_18274168159258171_2055190166470470500_n.jpg",
+      "f": "l",
+      "alt": "A mão da mãe na cabeça do recém-nascido",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/762373429_18329670202258171_4815803301527453500_n.jpg",
+    "f": "p",
+    "alt": "Elô e Jeff, o casal do estúdio, com a câmera",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "Um casal, <em>foto e filme.</em>",
+   "p": [
+    "A Elô e o Jeff fotografam e filmam bebês e crianças num estúdio no Jardim do Tiro, na Zona Norte de São Paulo. Na bio, se apresentam como especialistas em bebês e crianças, referência em mesversário e em smash the cake personalizado."
+   ],
+   "citacao": "Newborn afetivo: quando o foco não é só o bebê, mas tudo o que pulsa ao redor dele.",
+   "citacao_quem": "Elô e Jeff, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam do acompanhamento de 12 meses, dos cenários feitos em poucos dias no tema que sonharam e do espaço pensado para os bebês: banheiro, trocador, micro-ondas, água e fraldas à mão."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "64 avaliações no Google"
+    ],
+    [
+     "6.541",
+     "seguidores no Instagram"
+    ],
+    [
+     "5 anos",
+     "de estúdio, comemorados em 2025"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro colo <em>à festa de 5 anos.</em>",
+   "p": "Os ensaios do estúdio, com foto e filme:",
+   "fonte": "Bio, destaques e legendas do estúdio no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn afetivo",
+     "sub": "Os primeiros dias",
+     "p": "O foco não é só o bebê: é o colo, o toque e o olhar da família."
+    },
+    {
+     "nome": "Mesversário",
+     "sub": "Mês a mês",
+     "p": "Um tema por mês, com acompanhamento de 12 meses."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "Personalizado",
+     "p": "O cenário feito sob medida, no tema que a família sonhou."
+    },
+    {
+     "nome": "Projeto da festa",
+     "sub": "Festa e smash",
+     "p": "O smash combinando com a festa, e a equipe para fotografar o aniversário."
+    },
+    {
+     "nome": "Ensaio kids",
+     "sub": "De 2 anos em diante",
+     "p": "Minecraft, explorador, futebol: um ensaio com a cara de cada criança."
+    },
+    {
+     "nome": "Foto e filme",
+     "sub": "Storymaker",
+     "p": "Vídeos e stories dos ensaios, além das fotos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Natal <em>Polar.</em>",
+   "p": "A agenda do Natal Polar, o cenário de Natal 2026 do estúdio, já está aberta em pré-venda. Escolha um horário e a mensagem chega pronta no WhatsApp da Elô e do Jeff.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/gfotos/g05.jpg",
+    "f": "l",
+    "alt": "Família de vermelho no cenário de Natal do estúdio, com bengalas de doce",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal no estúdio, em outro ano"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Bianca Amorim",
+    "tag": "Acompanhamento de 12 meses",
+    "trecho": "Fechei o acompanhamento por 12 meses e agora que finalizou estou triste de não vê-los mais todo mes!"
+   },
+   {
+    "nome": "Lyvia Rodrigues",
+    "tag": "Mesversário",
+    "trecho": "Apresentei a ideia desse ensaio ao Jeff e a Elo, eles abraçaram na hora e, mesmo sem terem esse cenário, fizeram acontecer junto comigo."
+   },
+   {
+    "nome": "Ana Karolina Moreira",
+    "tag": "Smash the cake",
+    "trecho": "O cenário, feito em poucos dias no tema que eu sonhei, ficou perfeito e superou todas as minhas expectativas!"
+   },
+   {
+    "nome": "Leia Silva",
+    "tag": "Ensaio",
+    "trecho": "Tanto a Elô quanto o Jeff foram super atenciosos, pacientes e entregaram um resultados INCRÍVEL."
+   },
+   {
+    "nome": "Alessandra Fėlix",
+    "tag": "Mês a mês",
+    "trecho": "Minha gratidão a Eloo e Jeff por registrar, mês a mês, o crescimento do meu filho."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim do Tiro, na Zona Norte de São Paulo.",
+   "telefone": "(11) 95817-9990",
+   "endereco": [
+    "Jardim do Tiro",
+    "Zona Norte",
+    "São Paulo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Estúdio Elô e Jeff (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@estudio.eloojeff) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Natal Polar | Estúdio Elô e Jeff",
+  "descricao": "Natal Polar, o ensaio de Natal 2026 do Estúdio Elô e Jeff, na Zona Norte de São Paulo, com foto e filme. Agenda em pré-venda: escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Zona Norte",
+   "h1": "Natal <em>Polar.</em>",
+   "citacao": "Com certeza continuaremos contando com vocês para as próximas campanhas e para registrar os momentos mais importantes da nossa vida.",
+   "citacao_quem": "Alessandra Félix, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/gfotos/g05.jpg",
+    "f": "l",
+    "alt": "Família de vermelho no cenário de Natal do estúdio, com bengalas de doce",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal no estúdio, em outro ano"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Em pré-venda <em>desde 22 de outubro.</em>",
+   "p": "O Natal 2026 do estúdio se chama Natal Polar: a agenda abriu em pré-venda junto com a divulgação do cenário. Para o bebê do acompanhamento, os irmãos ou a família toda, com foto e filme.",
+   "itens": [
+    "No estúdio, no Jardim do Tiro, Zona Norte de São Paulo.",
+    "Agenda em pré-venda desde 22/10.",
+    "Foto e filme: eles também fazem os vídeos.",
+    "Valores e detalhes pelo WhatsApp da Elô e do Jeff."
+   ],
+   "legenda_fotos": "O estúdio da Elô e do Jeff, no Jardim do Tiro"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/gfotos/g00.jpg",
+    "f": "p",
+    "alt": "A entrada do estúdio, com plantas e a placa",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/postsflat/DfCgsWKHa13_DfCgsWKHa13_00.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário claro do estúdio, entre os balões",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/517600122_1308721207930158_805428270218677329_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascido de 1 mês na poltroninha branca do estúdio",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Em família",
+   "h2": "Natal <em>em família.</em>",
+   "nome": "Em família",
+   "p": "Ensaios em família no estúdio, do recém-nascido aos irmãos.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/496341817_1254948973307382_3810084418656057874_n.jpg",
+     "f": "p",
+     "alt": "Mãe sentada no chão abraçando o filho",
+     "pos": "50% 40%",
+     "box": [
+      0,
+      0.16,
+      1,
+      1
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/513086163_1293957259406553_7161921624323380632_n.jpg",
+     "f": "l",
+     "alt": "Pai e mãe de rosto colado com o recém-nascido",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/drive/496844459_1254952506640362_8433085631056183384_n.jpg",
+     "f": "p",
+     "alt": "Mãe beijando o bebê no colo",
+     "pos": "50% 40%",
+     "box": [
+      0,
+      0,
+      1,
+      0.8
+     ]
+    }
+   ]
+  },
+  "agenda": {
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, no horário do estúdio. A Elô e o Jeff definem os dias, a duração e quantos horários abrem; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Elô e do Jeff abre com o dia e a hora escritos."
+    ],
+    [
+     "Eles confirmam",
+     "Respondem com os valores e os detalhes do ensaio."
+    ]
+   ],
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Elô e do Jeff abre com a mensagem pronta, com o dia e a hora."
+  },
+  "comentario": "Demo Estúdio Elô e Jeff: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Ana Karolina Moreira",
+    "tag": "Smash the cake",
+    "trecho": "O cenário, feito em poucos dias no tema que eu sonhei, ficou perfeito e superou todas as minhas expectativas!"
+   },
+   {
+    "nome": "Leia Silva",
+    "tag": "Ensaio",
+    "trecho": "Tanto a Elô quanto o Jeff foram super atenciosos, pacientes e entregaram um resultados INCRÍVEL."
+   },
+   {
+    "nome": "Alessandra Fėlix",
+    "tag": "Mês a mês",
+    "trecho": "Minha gratidão a Eloo e Jeff por registrar, mês a mês, o crescimento do meu filho."
+   },
+   {
+    "nome": "Bianca Amorim",
+    "tag": "Acompanhamento de 12 meses",
+    "trecho": "Fechei o acompanhamento por 12 meses e agora que finalizou estou triste de não vê-los mais todo mes!"
+   },
+   {
+    "nome": "Lyvia Rodrigues",
+    "tag": "Mesversário",
+    "trecho": "Apresentei a ideia desse ensaio ao Jeff e a Elo, eles abraçaram na hora e, mesmo sem terem esse cenário, fizeram acontecer junto comigo."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Zona Norte",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Elô e o Jeff no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95817-9990)",
+  "site": "site fora do ar (o Google não tem link); só o Instagram",
+  "situacao": "publicada em 28/10/2026 · `/demo/eloo-e-jeff-fotografia` e `/demo/eloo-e-jeff-fotografia/natal`",
+  "direcao": [
+   "Personalidade: foto e filme. Abertura em “filme” (as três fotos numa tira de filme com perfurações), minimalista como o estúdio de piso branco, preto e verde-menta (o 💚 do estúdio), serifa editorial (Instrument Serif) e sem serifa limpa (Plus Jakarta Sans).",
+   "O estúdio é de um casal: o site fala “a Elô e o Jeff” e a faixa da Renderiza cumprimenta os dois. O nome segue a bio (“Elô e Jeff”); o Google e o @ escrevem “Elôo”.",
+   "Sem logo em boa resolução: monograma EJ e o nome com “foto e filme” em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Mesversário, Smash the cake, Newborn afetivo), o casal, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Natal Polar”: a pré-venda, a agenda de exemplo (sábados, das 11h às 13h, como o estúdio abre aos sábados) e ensaios em família.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram: a pasta do Drive do lote 1 (posts de maio a julho de 2025), os carrosséis de outubro de 2026 (até 4096 px) e 8 fotos do Google.",
+   "Fora de propósito: as artes com texto (os títulos de smash, convites, “Vida”, “Essência”; das fotos com título, só o recorte sem o texto), os bebês sem roupa e no banho.",
+   "Natal Polar: não há fotos do cenário de 2026 (o post de 22/10 não aparece no embed); a página usa um Natal de outro ano (foto do Google) e diz isso.",
+   "A foto de quem fotografa é a do perfil (o casal com a câmera)."
+  ],
+  "textos": [
+   "Bio: “Elô e Jeff | Estúdio de Foto Vídeo e Storymaker · Fotografia e Filme · Especialistas em bebês e crianças · Referência em Mesversario · Smash the cake Personalizado”.",
+   "Legendas: “Newborn afetivo: quando o foco não é só o bebê, mas tudo o que pulsa ao redor dele”, “Nossa reinauguração e 5 anos do estúdio, 12/07/25”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho.",
+   "Horários: a raspagem do Google trouxe três blocos; vale o primeiro (terça a sexta, das 11h às 17h30; sábado, das 11h às 14h)."
+  ],
+  "conferir": [
+   "O endereço não aparece no Google (só o bairro): confirmar se querem a rua no site.",
+   "Pedir as fotos do cenário Natal Polar.",
+   "Os horários de Natal são exemplo."
+  ]
+ },
+ "video_local": "Zona Norte de São Paulo",
+ "marca_completa": "Estúdio Elô e Jeff",
+ "fone_link": "+5511958179990",
+ "verificado": "2026-10-28",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/eloo-e-jeff-fotografia/marca/favicon.png"
+ }
+}
