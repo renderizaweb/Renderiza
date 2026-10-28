@@ -399,6 +399,12 @@ as $$
   select lower(substring(coalesce(link, '') from '/demo/([A-Za-z0-9-]+)'))
 $$;
 
+-- Reabrir grátis pelo link (28/10/2026, pedido do Kaue): quem abre uma demo vencida vê o botão "Reabrir por 1 hora"
+-- e pode usar uma vez por demo (liberada_ate = até quando; reaberta_pelo_link_em = quando usou). A partir da
+-- segunda vez, só pelo painel. Demo desligada no painel (no_ar falso) não reabre pelo botão.
+alter table public.demos add column if not exists liberada_ate timestamptz;
+alter table public.demos add column if not exists reaberta_pelo_link_em timestamptz;
+
 -- O site (middleware.js) pergunta antes de abrir /demo/<pasta>, com a chave pública. Só responde sim ou
 -- não, sem mostrar nada da tabela. Pasta sem linha fica no ar.
 create or replace function public.demo_liberada(pasta text)
@@ -409,13 +415,68 @@ security definer
 set search_path = ''
 as $$
   select coalesce(
-    (select d.no_ar and (d.vale_ate is null or d.vale_ate >= (now() at time zone 'America/Sao_Paulo')::date)
+    (select d.no_ar and (d.vale_ate is null or d.vale_ate >= (now() at time zone 'America/Sao_Paulo')::date or d.liberada_ate > now())
        from public.demos d
       where d.id = lower(pasta)),
     true)
 $$;
 revoke all on function public.demo_liberada(text) from public;
 grant execute on function public.demo_liberada(text) to anon, authenticated;
+
+-- O mesmo, com o motivo, para a página de fora do ar escolher o texto e mostrar (ou não) o botão de reabrir.
+-- motivo: no_ar | reaberta (dentro da 1 hora) | vencida | fora (desligada) | sem_controle (pasta sem linha).
+create or replace function public.demo_situacao(pasta text)
+returns jsonb
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select coalesce(
+    (select case
+       when not d.no_ar then jsonb_build_object('liberada', false, 'motivo', 'fora', 'pode_reabrir', false)
+       when d.vale_ate is null or d.vale_ate >= (now() at time zone 'America/Sao_Paulo')::date
+         then jsonb_build_object('liberada', true, 'motivo', 'no_ar', 'pode_reabrir', false)
+       when d.liberada_ate > now() then jsonb_build_object('liberada', true, 'motivo', 'reaberta', 'pode_reabrir', false, 'ate', d.liberada_ate)
+       else jsonb_build_object('liberada', false, 'motivo', 'vencida', 'pode_reabrir', d.reaberta_pelo_link_em is null)
+     end
+       from public.demos d
+      where d.id = lower(pasta)),
+    jsonb_build_object('liberada', true, 'motivo', 'sem_controle', 'pode_reabrir', false))
+$$;
+
+-- O botão "Reabrir por 1 hora" (api/reabrir-demo.js, chave pública): só demo vencida, ligada e nunca reaberta.
+create or replace function public.reabrir_demo(pasta text)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = ''
+as $$
+declare
+  v_d public.demos%rowtype;
+  v_ate timestamptz;
+begin
+  select * into v_d from public.demos d where d.id = lower(coalesce(pasta, '')) for update;
+  if not found then return jsonb_build_object('ok', false, 'motivo', 'sem_controle'); end if;
+  if not v_d.no_ar then return jsonb_build_object('ok', false, 'motivo', 'fora'); end if;
+  if v_d.vale_ate is null or v_d.vale_ate >= (now() at time zone 'America/Sao_Paulo')::date then
+    return jsonb_build_object('ok', true, 'motivo', 'no_ar');
+  end if;
+  if v_d.reaberta_pelo_link_em is not null then
+    if v_d.liberada_ate > now() then return jsonb_build_object('ok', true, 'motivo', 'reaberta', 'ate', v_d.liberada_ate); end if;
+    return jsonb_build_object('ok', false, 'motivo', 'ja_reabriu');
+  end if;
+  update public.demos d set liberada_ate = now() + interval '1 hour', reaberta_pelo_link_em = now()
+   where d.id = v_d.id
+   returning d.liberada_ate into v_ate;
+  return jsonb_build_object('ok', true, 'motivo', 'reaberta', 'ate', v_ate);
+end;
+$$;
+revoke all on function public.demo_situacao(text) from public;
+revoke all on function public.reabrir_demo(text) from public;
+grant execute on function public.demo_situacao(text) to anon, authenticated;
+grant execute on function public.reabrir_demo(text) to anon, authenticated;
 
 -- Demo nova nasce com 7 dias: quando um lead recebe um link /demo/<pasta> que ainda não tem linha.
 create or replace function public.leads_registrar_demo()

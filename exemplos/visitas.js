@@ -19,6 +19,8 @@
     const demo = pagina === "demo" ? String((script && script.dataset.demo) || "").toLowerCase() : "";
     // Outra página da mesma demo (ex.: "natal", a campanha da fotógrafa): vai no "abriu".
     const sub = pagina === "demo" ? String((script && script.dataset.sub) || "").toLowerCase().slice(0, 40) : "";
+    // Página "demo fora do ar" (middleware.js): conta que a pessoa voltou e por quê ("vencida", "reaberta", "fora").
+    const fora = pagina === "demo" ? String((script && script.dataset.fora) || "") : "";
     let codigo = "";
     if (pagina === "demo") {
       if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(demo)) return;
@@ -57,7 +59,16 @@
 
     let origem = "";
     try { origem = document.referrer ? new URL(document.referrer).hostname : ""; } catch (e) { /* sem origem */ }
-    enviar("abriu", { tela: innerWidth + "x" + innerHeight, ...(sub ? { sub } : {}), ...(origem && origem !== location.hostname ? { de: origem } : {}) });
+    enviar("abriu", { tela: innerWidth + "x" + innerHeight, ...(sub ? { sub } : {}), ...(origem && origem !== location.hostname ? { de: origem } : {}), ...(fora ? { fora } : {}) });
+
+    // O card de valor na tela (oferta da demo, site/oferta-na-demo.mjs): conta como "viu o valor", uma vez.
+    const precos = document.querySelector("[data-rz-precos]");
+    if (precos && "IntersectionObserver" in window) {
+      const olhar = new IntersectionObserver(es => {
+        if (es.some(e => e.isIntersecting)) { olhar.disconnect(); enviar("viu_precos", { onde: pagina }); }
+      }, { threshold: 0.35 });
+      olhar.observe(precos);
+    }
 
     // Rolou até o fim (uma vez).
     let fim = false;
@@ -101,6 +112,7 @@
         // A oferta da Renderiza na demo (valor e prazo): o WhatsApp é o da Renderiza, não o da loja.
         if (el.matches("[data-rz-garantir]")) return { alvo: "oferta", texto: "garantir" };
         if (el.matches("[data-rz-negociar]")) return { alvo: "oferta", texto: "negociar" };
+        if (el.dataset.rzAlvo) return { alvo: el.dataset.rzAlvo }; // botões nossos: faixa do valor, reabrir a demo
         if (/wa\.me\/|api\.whatsapp\.com|whatsapp:\/\//i.test(href)) return { whatsapp: true };
         if (el.matches("[data-directions]") || /maps\/dir|destination=|waze\.com/i.test(href)) return { alvo: "rota" };
         if (el.matches("[data-review-write]")) return { alvo: "avaliar" };
@@ -130,7 +142,7 @@
           const c = el && cliqueDe(el);
           if (!c) return;
           const parte = parteDe(el);
-          if (c.whatsapp) { window.rzVisita("clicou_whatsapp", { onde: "demo", ...(parte ? { parte } : {}) }, "demo"); return; }
+          if (c.whatsapp) { window.rzVisita("clicou_whatsapp", { onde: fora ? "fora" : "demo", ...(parte ? { parte } : {}) }, "demo"); return; }
           const chave = c.alvo + ":" + (c.para || c.texto || "");
           if (jaClicou.has(chave) || jaClicou.size >= 25) return;
           jaClicou.add(chave);

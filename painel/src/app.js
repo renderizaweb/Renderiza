@@ -21,7 +21,7 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
-import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, visitantesDaEquipe, resumoDasVisitas, duracao, daDemo } from "./visitas.js";
+import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, visitantesDaEquipe, resumoDasVisitas, duracao, daDemo, textoDoRepasse } from "./visitas.js";
 import { criarTelaAtividade, naoVistas } from "./tela-atividade.js";
 import {
   tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo,
@@ -726,6 +726,7 @@ function trilhaDeEtapas() {
 const CHIP_DEMO = {
   no_ar: d => "Demo no ar até " + diaMes(d.vale_ate), ultimo_dia: () => "Demo: último dia hoje", sem_prazo: () => "Demo no ar, sem prazo",
   expirada: d => "Demo expirada em " + diaMes(d.vale_ate), fora: () => "Demo fora do ar", sem_controle: () => "Demo sem prazo",
+  reaberta: () => "Demo reaberta pelo lead (1 hora)",
 };
 /** Rola o painel até a seção Demo (prazo, chave No ar, reabilitar) e pisca o cartão. */
 function irParaDemo() {
@@ -858,7 +859,7 @@ function secaoFlyer(id) {
 }
 
 /* ---------- seção Demo: link, gravação e o prazo no ar ---------- */
-const ESTADO_DEMO = { no_ar: "No ar", ultimo_dia: "Último dia", sem_prazo: "No ar", expirada: "Expirada", fora: "Fora do ar", sem_controle: "Sem prazo" };
+const ESTADO_DEMO = { no_ar: "No ar", ultimo_dia: "Último dia", sem_prazo: "No ar", expirada: "Expirada", reaberta: "Reaberta pelo lead", fora: "Fora do ar", sem_controle: "Sem prazo" };
 function secaoDemo(id) {
   const situacao = h("p", { class: "demo-situacao" });
   const chave = h("input", { type: "checkbox", role: "switch", "aria-label": "Demo no ar" });
@@ -870,7 +871,7 @@ function secaoDemo(id) {
     h("label", { class: "demo-chave" }, chave, h("span", { text: "No ar" })),
     h("label", { class: "campo demo-vale" }, h("span", { text: "Vale até (último dia no ar)" }), vale),
     h("div", { class: "demo-botoes" }, prazo, semPrazo));
-  const dica = h("p", { class: "demo-dica", text: "Vencida ou fora do ar, quem abrir o link vê o aviso \"Esta demonstração saiu do ar\" e um botão para pedir de novo pelo WhatsApp." });
+  const dica = h("p", { class: "demo-dica", text: "Vencida ou fora do ar, quem abrir o link vê o aviso \"Esta demonstração saiu do ar\" e um botão para pedir de novo pelo WhatsApp. Vencida (não desligada), aparece também \"Reabrir por 1 hora, grátis\", que o lead pode usar uma vez; depois, só por aqui. A volta dele aparece na tela Atividade." });
   const caixa = h("div", { class: "demo-prazo" }, situacao, controles, porPrazo, dica);
   let pasta = "", demo = null;
 
@@ -951,8 +952,9 @@ function secaoDemo(id) {
   // Quem abriu a demo (o contador entra na demo pelo build; o lead vem do link_demo).
   const mapa = mapaDeVisitas(id, daDemo, {
     ninguem: "Ninguém abriu a demo ainda.", soVoces: "Só vocês abriram a demo até agora.",
-    sinais: r => [r.fim && "viu até o fim", r.whatsapp && "clicou no WhatsApp da loja", r.cliques.includes("instagram") && "abriu o Instagram",
-      r.cliques.includes("rota") && "pediu a rota", r.cliques.includes("avaliacoes") && "viu as avaliações"],
+    sinais: r => [r.precos && "viu o valor", r.fim && "viu até o fim", r.whatsapp && "clicou no WhatsApp da loja", r.cliques.includes("reabrir") && "reabriu pelo botão",
+      r.cliques.includes("instagram") && "abriu o Instagram", r.cliques.includes("rota") && "pediu a rota", r.cliques.includes("avaliacoes") && "viu as avaliações",
+      r.aparelhos > 1 && `abriu em ${r.aparelhos} aparelhos`],
   });
   const visitasDaDemo = h("div", { class: "demo-visitas" }, h("span", { class: "demo-visitas-titulo", text: "Quem abriu a demo" }), ...mapa.els);
   vincular(l => {
@@ -994,7 +996,7 @@ function resumoDoPainel(l) {
 function tituloDoResumo(r) {
   const oQue = r.demo && r.painel ? "a demo e o link do painel" : r.demo ? "a demo" : "o link do painel";
   return `O cliente abriu ${oQue} ${r.visitas === 1 ? "1 vez" : r.visitas + " vezes"} · última: ${quandoFoi(r.ultima)}` +
-    [r.precos && "chegou nos preços", r.whatsapp && "clicou no WhatsApp", r.exemplo && "viu o exemplo"].filter(Boolean).map(t => " · " + t).join("");
+    [r.precos && "chegou nos preços", r.whatsapp && "clicou no WhatsApp", r.exemplo && "viu o exemplo", r.aparelhos > 1 && `aberto em ${r.aparelhos} aparelhos (pode ter sido repassado)`].filter(Boolean).map(t => " · " + t).join("");
 }
 /**
  * Resumo e lista de visitas de um lead (as do link do painel ou as da demo): o "mapa de interação".
@@ -1019,6 +1021,7 @@ function mapaDeVisitas(id, filtro, { ninguem, soVoces, sinais }) {
       h("div", { class: "pr-visita-topo" },
         h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
         h("strong", { text: quandoFoi(g.inicio) }),
+        g.repasse ? h("span", { class: "pr-repasse", title: textoDoRepasse(g), text: "outro aparelho" }) : null,
         g.segundos ? h("span", { class: "pr-tempo", text: duracao(g.segundos) }) : null),
       h("p", { class: "pr-onde", text: [g.aparelho, g.local, g.ip && "IP " + g.ip].filter(Boolean).join(" · ") || "Aparelho não identificado" }),
       g.secoes && g.secoes.length ? h("p", { class: "pr-partes" }, h("strong", { text: "Mais tempo em: " }), g.secoes.slice(0, 4).map(([nome, s]) => `${nome} (${duracao(s)})`).join(" · ")) : null,
@@ -1045,7 +1048,7 @@ function secaoPainelRenderiza(id) {
   copiar.addEventListener("click", () => copiarLinkDoPainel(url));
   const mapa = mapaDeVisitas(id, v => !daDemo(v), {
     ninguem: "Ninguém abriu ainda.", soVoces: "Só vocês abriram até agora.",
-    sinais: r => [r.precos && "chegou nos preços", r.exemplo && "viu o exemplo", r.whatsapp && "clicou no WhatsApp"],
+    sinais: r => [r.precos && "chegou nos preços", r.exemplo && "viu o exemplo", r.whatsapp && "clicou no WhatsApp", r.aparelhos > 1 && `abriu em ${r.aparelhos} aparelhos`],
   });
   const el = cartao("Painel Renderiza", { classe: "secao-painel-rz" },
     h("div", { class: "pr-topo" }, link, h("div", { class: "pr-botoes" }, copiar, abrir)),

@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { EVENTOS, PAGINAS_CONTADAS, mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, resumoDasVisitas, textoDoPasso, duracao,
-  atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, lugarDe, fraseDaVisita, complementoDaVisita, vendoAgora } from "../painel/src/visitas.js";
+  atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, lugarDe, fraseDaVisita, complementoDaVisita, vendoAgora, textoDoRepasse } from "../painel/src/visitas.js";
 import { aparelhoDe, ipDe, localDe, paraRegistro } from "../api/visita.js";
 import { comContador } from "../scripts/montar-site.mjs";
 
@@ -218,4 +218,31 @@ test("demo: o clique na oferta da Renderiza (valor e prazo) é separado do Whats
   const contador = readFileSync(new URL("../exemplos/visitas.js", import.meta.url), "utf8");
   assert.match(contador, /\[data-rz-garantir\][\s\S]*alvo: "oferta"/);
   assert.ok(contador.indexOf("data-rz-garantir") < contador.indexOf("wa\\.me"), "a oferta é reconhecida antes do WhatsApp genérico");
+});
+
+test("demo vencida e oferta: textos e frase", () => {
+  const D = (min, evento, detalhe = {}) => V(min, evento, { pagina: "demo", demo: "casa-rabello", detalhe });
+  assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { fora: "vencida" } }), "Voltou na demo, que estava vencida (viu o aviso e o botão de reabrir)");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "reabrir" } }), "Reabriu a demo por 1 hora (botão grátis)");
+  assert.equal(textoDoPasso({ evento: "clicou_whatsapp", pagina: "demo", detalhe: { onde: "fora" } }), "Chamou vocês no WhatsApp para liberar a demo de novo");
+  assert.equal(textoDoPasso({ evento: "viu_precos", pagina: "demo" }), "Viu o card com o valor do site");
+  assert.equal(fraseDaVisita(agruparVisitas([D(0, "abriu", { fora: "vencida" }), D(1, "clicou", { alvo: "reabrir" })])[0]), "voltou na demo, que estava vencida e reabriu por 1 hora");
+  assert.equal(fraseDaVisita(agruparVisitas([D(0, "abriu"), D(1, "clicou", { alvo: "faixa" }), D(2, "viu_precos")])[0]), "abriu a demo e viu o valor do site");
+  assert.equal(agruparVisitas([D(0, "abriu", { fora: "vencida" })])[0].passos[0].forte, true, "voltar na demo vencida é sinal forte");
+});
+
+test("repassou: outro aparelho abriu a mesma demo", () => {
+  const D = (min, extra) => V(min, "abriu", { pagina: "demo", demo: "casa-rabello", ...extra });
+  const dono = { visitante: "a", aparelho: "celular · Android · WhatsApp", local: "Mogi das Cruzes · SP", ip: "1.1.1.1" };
+  const grupos = agruparVisitas([
+    D(0, dono),
+    D(40, { visitante: "b", aparelho: "celular · Android · Chrome", local: "Mogi das Cruzes · SP", ip: "1.1.1.2" }), // o mesmo celular, outro navegador
+    D(80, { visitante: "c", aparelho: "celular · iPhone · Safari", local: "Mogi das Cruzes · SP", ip: "2.2.2.2" }),  // outro aparelho
+    D(120, { visitante: "d", aparelho: "celular · Android · Chrome", local: "Suzano · SP", ip: "3.3.3.3" }),        // mesmo sistema, outra cidade
+    D(160, { visitante: "eu", equipe: true, aparelho: "computador · Mac · Chrome", ip: "9.9.9.9" }),
+  ]).reverse();
+  assert.deepEqual(grupos.map(g => !!g.repasse), [false, false, true, true, false]);
+  assert.equal(textoDoRepasse(grupos[2]), "Outro aparelho (celular · iPhone, em Mogi das Cruzes): pode ter sido repassado");
+  assert.equal(resumoDasVisitas(grupos.slice().reverse()).aparelhos, 3);
+  assert.equal(textoDoRepasse(grupos[0]), "");
 });

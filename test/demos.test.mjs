@@ -1,7 +1,8 @@
 // Prazo das demos: a trava do site (middleware.js) e as regras que o painel mostra.   npm test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import middleware, { config, pastaDoCaminho, demoLiberada, paginaForaDoAr } from "../middleware.js";
+import middleware, { config, pastaDoCaminho, demoLiberada, situacaoDaDemo as situacaoNoSite, paginaForaDoAr } from "../middleware.js";
+import { pastaDoPedido } from "../api/reabrir-demo.js";
 import { pastaDaDemo, hojeEmBrasilia, somarDias, situacaoDaDemo, reabilitar } from "../painel/src/demos.js";
 import site from "../site/config.mjs";
 
@@ -120,4 +121,71 @@ test("painel: situação da demo (as mesmas regras do banco)", () => {
   assert.equal(situacaoDaDemo({ no_ar: true, vale_ate: null }, hoje).estado, "sem_prazo");
   assert.equal(situacaoDaDemo({ no_ar: false, vale_ate: "2026-12-31" }, hoje).estado, "fora");
   assert.equal(situacaoDaDemo({ no_ar: false, vale_ate: "2026-12-31" }, hoje).noAr, false);
+});
+
+test("demo vencida: a página mostra o botão de reabrir por 1 hora só uma vez; desligada, não", () => {
+  const vencida = paginaForaDoAr({ liberada: false, motivo: "vencida", pode_reabrir: true }, "casa-rabello");
+  assert.match(vencida, /Reabrir por 1 hora, grátis/);
+  assert.match(vencida, /data-rz-alvo="reabrir"/);
+  assert.match(vencida, /fetch\("\/api\/reabrir-demo"/);
+  assert.match(vencida, /<script src="\/exemplos\/visitas\.js" data-pagina="demo" data-demo="casa-rabello" data-fora="vencida" defer>/);
+  assert.match(vencida, /renderizaweb\.com\.br%2Fdemo%2Fcasa-rabello|renderizaweb\.com\.br\/demo\/casa-rabello/, "o WhatsApp leva o link da demo");
+  const jaUsou = paginaForaDoAr({ liberada: false, motivo: "vencida", pode_reabrir: false }, "casa-rabello");
+  assert.doesNotMatch(jaUsou, /Reabrir por 1 hora/);
+  assert.match(jaUsou, /já foi reaberta uma vez/);
+  assert.match(jaUsou, /data-fora="reaberta"/);
+  const desligada = paginaForaDoAr({ liberada: false, motivo: "fora", pode_reabrir: false }, "casa-rabello");
+  assert.doesNotMatch(desligada, /Reabrir por 1 hora/);
+  assert.match(desligada, /data-fora="fora"/);
+  assert.doesNotMatch(paginaForaDoAr(), /visitas\.js/, "sem pasta, sem contador");
+  assert.equal(pastaDoPedido({ pasta: "Casa-Rabello" }), "casa-rabello");
+  assert.equal(pastaDoPedido({ pasta: "../x" }), "");
+  assert.equal(pastaDoPedido(null), "");
+});
+
+test("a trava pergunta demo_situacao; se ela falhar, usa demo_liberada", async () => {
+  let pedido;
+  const sit = { liberada: false, motivo: "vencida", pode_reabrir: true };
+  assert.deepEqual(await situacaoNoSite("x", { url: "https://x.supabase.co", chave: "k", buscar: async (url, op) => { pedido = { url, ...op }; return resposta(sit); } }), sit);
+  assert.equal(pedido.url, "https://x.supabase.co/rest/v1/rpc/demo_situacao");
+  assert.equal(await situacaoNoSite("x", { url: "https://x", chave: "k", buscar: async () => resposta(true) }), null, "resposta estranha");
+  const fetchOriginal = globalThis.fetch, envOriginal = { ...process.env };
+  try {
+    process.env.SUPABASE_URL = "https://x.supabase.co"; process.env.SUPABASE_ANON_KEY = "sb_publishable_abc";
+    globalThis.fetch = async url => (url.endsWith("demo_situacao") ? resposta(sit) : resposta(true));
+    const r = await middleware(new Request("https://x/demo/casa-rabello"));
+    assert.equal(r.status, 410);
+    assert.match(await r.text(), /Reabrir por 1 hora/);
+    globalThis.fetch = async url => (url.endsWith("demo_situacao") ? resposta({ liberada: true, motivo: "reaberta" }) : resposta(false));
+    assert.equal(await middleware(new Request("https://x/demo/casa-rabello")), undefined, "dentro da 1 hora, abre");
+    globalThis.fetch = async url => (url.endsWith("demo_situacao") ? resposta({}, 404) : resposta(false));
+    assert.equal((await middleware(new Request("https://x/demo/casa-rabello"))).status, 410, "sem demo_situacao, vale a demo_liberada");
+  } finally {
+    globalThis.fetch = fetchOriginal;
+    for (const k of Object.keys(process.env)) if (!(k in envOriginal)) delete process.env[k];
+    Object.assign(process.env, envOriginal);
+  }
+});
+
+test("painel: demo vencida que o lead reabriu pelo botão", () => {
+  const hoje = "2026-10-28", agora = Date.parse("2026-10-28T17:30:00Z");
+  const reaberta = situacaoDaDemo({ no_ar: true, vale_ate: "2026-10-27", liberada_ate: "2026-10-28T18:00:00Z", reaberta_pelo_link_em: "2026-10-28T17:00:00Z" }, hoje, agora);
+  assert.equal(reaberta.estado, "reaberta"); assert.equal(reaberta.noAr, true);
+  assert.match(reaberta.texto, /no ar até 15:00/);
+  const passou = situacaoDaDemo({ no_ar: true, vale_ate: "2026-10-27", liberada_ate: "2026-10-28T17:00:00Z", reaberta_pelo_link_em: "2026-10-28T16:00:00Z" }, hoje, agora);
+  assert.equal(passou.estado, "expirada");
+  assert.match(passou.texto, /já usou o reabrir grátis em 28\/10/);
+  assert.match(situacaoDaDemo({ no_ar: true, vale_ate: "2026-10-27" }, hoje, agora).texto, /botão de reabrir por 1 hora/);
+});
+
+test("painel: todo estado da demo tem nome na seção Demo e no selo do topo", async () => {
+  const { readFileSync } = await import("node:fs");
+  const app = readFileSync(new URL("../painel/src/app.js", import.meta.url), "utf8");
+  const bloco = nome => { const i = app.indexOf("const " + nome + " = {"); return app.slice(i, app.indexOf("};", i)); };
+  const estados = [...readFileSync(new URL("../painel/src/demos.js", import.meta.url), "utf8").matchAll(/estado: "([a-z_]+)"/g)].map(m => m[1]);
+  assert.ok(estados.includes("reaberta") && estados.length >= 7);
+  for (const e of new Set(estados)) {
+    assert.match(bloco("ESTADO_DEMO"), new RegExp("\\b" + e + ":"), "ESTADO_DEMO sem " + e);
+    assert.match(bloco("CHIP_DEMO"), new RegExp("\\b" + e + ":"), "CHIP_DEMO sem " + e);
+  }
 });

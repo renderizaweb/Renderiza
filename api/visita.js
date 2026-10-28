@@ -54,7 +54,8 @@ export function paraRegistro(corpo, h) {
   };
 }
 
-async function lerCorpo(req) {
+/** Corpo JSON do pedido (a Vercel já pode ter lido; o servidor local, não). Mais de 4 mil caracteres: null. */
+export async function lerCorpo(req) {
   if (req.body !== undefined && req.body !== null && req.body !== "") {
     if (typeof req.body === "string") { try { return JSON.parse(req.body); } catch (e) { return null; } }
     if (Buffer.isBuffer(req.body)) { try { return JSON.parse(req.body.toString("utf8")); } catch (e) { return null; } }

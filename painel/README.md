@@ -184,6 +184,11 @@ WhatsApp.
   30 s com a página aberta e ao sair: é o que dá o **vendo agora** (notícia há menos de 75 s, sem ter saído). No
   lead, a seção **Demo** mostra **Quem abriu a demo** com "Mais tempo em…"; o selo "abriu" do cartão conta demo e
   link do painel.
+- **Repassou?** Quando o mesmo link é aberto por outro aparelho do cliente (sistema diferente, como iPhone depois
+  de Android, ou o mesmo sistema em outra cidade), a visita ganha "Outro aparelho (…): pode ter sido repassado" e o
+  lead mostra "abriu em N aparelhos". O mesmo celular em outro navegador (o do WhatsApp e o Chrome) não conta.
+- **Valor na demo:** nas demos com oferta (`site/ofertas.mjs`), a visita mostra "viu o valor do site" quando o card
+  aparece na tela e "Tocou na faixa do valor" quando a pessoa toca na faixa do topo.
 
 ## Interações, interesse e cadência (detalhes da ótica)
 
@@ -222,7 +227,10 @@ WhatsApp.
   hoje** e **No ar sem prazo**. Demo que ainda não tem prazo mostra **Pôr prazo de 7 dias**. Na tabela e
   no kanban, a etiqueta vira "demo expirada" ou "demo fora do ar", e **Copiar link da demo** avisa quando
   o link não está abrindo. Quem abre uma demo fora do prazo vê o aviso "Esta demonstração saiu do ar"
-  com um botão para pedir de novo pelo WhatsApp da Renderiza (`middleware.js`, na Vercel).
+  com um botão para pedir de novo pelo WhatsApp da Renderiza (`middleware.js`, na Vercel). Na demo vencida (não
+  na desligada), aparece antes "Reabrir por 1 hora, grátis", que o lead usa uma vez; enquanto dura a hora, a
+  situação mostra **Reaberta pelo lead**, e depois o texto avisa que ele já usou. A volta e o clique aparecem na
+  Atividade ("Voltou na demo, que estava vencida", "Reabriu a demo por 1 hora").
 
 ## Atualização pela IA
 

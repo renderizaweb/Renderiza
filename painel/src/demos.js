@@ -1,5 +1,6 @@
 // Prazo das demos: as mesmas regras da função demo_liberada do Supabase, que o site (middleware.js)
-// consulta antes de abrir /demo/<pasta>. Demo no ar = no_ar e vale_ate >= hoje (Brasília) ou sem prazo.
+// consulta antes de abrir /demo/<pasta>. Demo no ar = no_ar e vale_ate >= hoje (Brasília) ou sem prazo, ou dentro
+// da 1 hora que o próprio lead liberou pelo botão da página de fora do ar (liberada_ate).
 
 export const DIAS_DE_PRAZO = 7;
 
@@ -22,17 +23,22 @@ export function somarDias(iso, n) {
 
 const diasEntre = (de, ate) => Math.round((Date.parse(ate + "T12:00:00Z") - Date.parse(de + "T12:00:00Z")) / 86400000);
 const diaMes = v => v.slice(8, 10) + "/" + v.slice(5, 7);
+const hora = iso => new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit" }).format(new Date(iso));
 
 /**
  * Situação da demo para mostrar no painel.
- * estado: "no_ar" | "ultimo_dia" | "sem_prazo" | "expirada" | "fora" | "sem_controle" (pasta sem linha: fica no ar).
+ * estado: "no_ar" | "ultimo_dia" | "sem_prazo" | "expirada" | "reaberta" (vencida, mas o lead reabriu por 1 hora pelo
+ * botão da página de fora do ar) | "fora" | "sem_controle" (pasta sem linha: fica no ar).
  */
-export function situacaoDaDemo(demo, hoje = hojeEmBrasilia()) {
+export function situacaoDaDemo(demo, hoje = hojeEmBrasilia(), agora = Date.now()) {
   if (!demo) return { estado: "sem_controle", noAr: true, texto: "Ainda sem prazo: fica no ar até alguém pôr um." };
   if (!demo.no_ar) return { estado: "fora", noAr: false, texto: "Desligada: quem abrir o link vê o aviso de demo fora do ar." };
   if (!demo.vale_ate) return { estado: "sem_prazo", noAr: true, texto: "Sem prazo: fica no ar até alguém desligar." };
   const faltam = diasEntre(hoje, demo.vale_ate);
-  if (faltam < 0) return { estado: "expirada", noAr: false, texto: `Ficou no ar até ${diaMes(demo.vale_ate)}. Quem abrir o link vê o aviso de demo fora do ar.` };
+  if (faltam < 0 && demo.liberada_ate && Date.parse(demo.liberada_ate) > agora)
+    return { estado: "reaberta", noAr: true, texto: `Venceu em ${diaMes(demo.vale_ate)}, mas o próprio lead reabriu pelo botão grátis: no ar até ${hora(demo.liberada_ate)}.` };
+  if (faltam < 0) return { estado: "expirada", noAr: false, texto: `Ficou no ar até ${diaMes(demo.vale_ate)}. Quem abrir o link vê o aviso de demo fora do ar` +
+    (demo.reaberta_pelo_link_em ? ` (o lead já usou o reabrir grátis em ${diaMes(hojeEmBrasilia(new Date(demo.reaberta_pelo_link_em)))}: agora, só por aqui).` : " e o botão de reabrir por 1 hora, grátis (uma vez).") };
   if (faltam === 0) return { estado: "ultimo_dia", noAr: true, texto: `Hoje (${diaMes(demo.vale_ate)}) é o último dia: amanhã sai do ar.` };
   return { estado: "no_ar", noAr: true, texto: `Até ${diaMes(demo.vale_ate)} (${faltam === 1 ? "falta 1 dia" : `faltam ${faltam} dias`}).` };
 }

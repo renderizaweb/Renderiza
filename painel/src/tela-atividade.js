@@ -6,7 +6,7 @@
 import * as dados from "./dados.js";
 import { h } from "./dom.js";
 import { icone } from "./icones.js";
-import { atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, duracao, PERIODOS, fraseDaVisita, complementoDaVisita, vendoAgora } from "./visitas.js";
+import { atividade, filtrarAtividade, resumoDaAtividade, inicioDoPeriodo, duracao, PERIODOS, fraseDaVisita, complementoDaVisita, vendoAgora, textoDoRepasse } from "./visitas.js";
 
 const A_CADA = 30000;
 const POR_PAGINA = 40;
@@ -165,7 +165,8 @@ export function criarTelaAtividade(ctx) {
         h("span", { class: "atv-frase" },
           h("span", { class: "pr-quem", title: DICA_QUEM[g.quem], text: QUEM_ABRIU[g.quem] }),
           h("strong", { text: nomeDoLead }), " ", fraseDaVisita(g)),
-        complemento ? h("span", { class: "atv-sub", text: complemento }) : null),
+        complemento ? h("span", { class: "atv-sub", text: complemento }) : null,
+        g.repasse ? h("span", { class: "atv-repasse", text: textoDoRepasse(g) }) : null),
       h("span", { class: "atv-quando", title: new Date(g.fim).toLocaleString("pt-BR") },
         aoVivo ? h("span", { class: "atv-agora", text: "vendo agora" }) : h("span", { text: quando || hora(g.fim) })),
       h("span", { class: "atv-seta", "aria-hidden": "true" }, icone("abaixo", 16)));

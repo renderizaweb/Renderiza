@@ -55,6 +55,11 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   login para o catálogo, no mesmo backend da Renderiza). Só volta se os resultados justificarem.
 - **Preço do site:** R$ 499 no Pix ou 2x de R$ 299. Promoção ativa, por ser o mês de inauguração da
   Renderiza: R$ 399 à vista ou 2x de R$ 199. (Preço é para a conversa; nunca vai na demo nem no flyer.)
+  **Exceção (28/10/2026, pedido do Kaue):** as 16 demos de eventos com prazo até 31/10 mostram o valor do mês de
+  inauguração (R$ 399 no Pix ou 2x de R$ 199; depois, R$ 499) numa faixa no topo e num card antes do rodapé, com
+  os dias que faltam; o card some sozinho depois de 31/10. Os valores vêm do Essencial de `site/nichos/eventos.mjs`
+  e a lista fica em `site/ofertas.mjs` (o build põe; o arquivo da demo, o vídeo e o flyer continuam sem preço).
+  Sem botão para falar com a Renderiza no card (o Kaue achou que confunde): "é só responder a nossa mensagem".
 - **Oferta (09/10/2026, doc "Oferta e nomenclatura"):** sem planos por nível. Todo cliente leva o **site**, que
   já sai **pronto para anúncio** (Pixel da Meta, Google Analytics e o clique no WhatsApp contado como contato;
   com o pixel vai o aviso de cookies) e com o **kit de divulgação** (texto para a bio e para o perfil do Google e
@@ -88,6 +93,12 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   avaliações, menu, botões), o tempo em cada parte e "vendo agora". O link da demo é o mesmo de sempre (sem
   parâmetro): cada lead tem a sua demo, então os links já enviados também contam. Cada visita aparece como uma
   frase curta e abre os detalhes no clique. As visitas ficam no banco, não aqui.
+  Desde 28/10/2026: quem abre uma demo **vencida** também conta (a página de fora do ar tem o contador), e o
+  painel avisa quando **outro aparelho** abre o mesmo link (sistema diferente, ou o mesmo sistema em outra cidade):
+  "pode ter sido repassado".
+- **Anotado para depois (Kaue, 28/10/2026):** aviso no celular pelo Telegram quando um cliente abre a demo ou
+  clica no WhatsApp; botão discreto "falar com a Renderiza" dentro da demo (agora não: confunde com o WhatsApp da
+  loja); demos mais leves no celular, se não der agora. Fora de cogitação por ora: aviso de privacidade nas demos.
 
 ## Como tem que ser uma demo de site
 
@@ -307,6 +318,11 @@ criação** e depois sai do ar sozinha; para reabilitar, é no card do lead.
   página "Esta demonstração saiu do ar" e um botão para a ótica pedir de novo pelo WhatsApp da Renderiza
   (é uma deixa para retomar a conversa). Na dúvida (banco fora, sem configuração, pasta sem linha), a
   demo **abre**: erro nunca derruba demo.
+- **Reabrir grátis por 1 hora (28/10/2026, pedido do Kaue):** demo **vencida** (não a desligada no painel) mostra
+  na página de fora do ar o botão "Reabrir por 1 hora, grátis". O lead pode usar **uma vez por demo**
+  (`demos.reaberta_pelo_link_em`, `demos.liberada_ate`, funções `demo_situacao` e `reabrir_demo`); da segunda vez
+  em diante, a página só oferece o WhatsApp e a demo só volta pelo painel. A página conta a volta da pessoa e os
+  cliques (tela Atividade), e a seção Demo do lead mostra "Reaberta pelo lead" enquanto durar a hora.
 - **No painel:** etiqueta "Demo no ar até …" no topo do card do lead (clicando, vai para os controles) e
   seção **Demo**, logo abaixo de Andamento: situação, chave **No ar**, **Vale até**, **Reabilitar por 7 dias**
   (ou **7 dias a partir de hoje**) e **No ar sem prazo**. Etiqueta "demo expirada" / "demo fora do ar" na

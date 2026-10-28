@@ -29,13 +29,13 @@ const reais = v => "R$ " + Number(v || 0).toLocaleString("pt-BR", { minimumFract
 export function textoDoPasso(v) {
   const d = v.detalhe || {};
   switch (v.evento) {
-    case "abriu": return "Abriu " + (daDemo(v) && d.sub ? SUBPAGINAS[d.sub] || `a página "${d.sub}" da demo` : PAGINAS[v.pagina] || "a página");
-    case "viu_precos": return "Chegou nos preços";
+    case "abriu": return d.fora ? FORA[d.fora] || FORA.fora : "Abriu " + (daDemo(v) && d.sub ? SUBPAGINAS[d.sub] || `a página "${d.sub}" da demo` : PAGINAS[v.pagina] || "a página");
+    case "viu_precos": return daDemo(v) ? "Viu o card com o valor do site" : "Chegou nos preços";
     case "viu_detalhes": return "Viu os detalhes de " + (MODULOS[d.m] || "um módulo");
     case "abriu_exemplo": return d.qual === "agenda online" ? "Foi testar a agenda online" : "Foi ver no exemplo " + (TELAS[d.qual] || "o painel");
     case "mudou_tela": return "No exemplo, abriu " + (TELAS[d.tela] || "outra tela");
     case "clicou_whatsapp": {
-      if (daDemo(v)) return "Clicou no WhatsApp da loja, na demo";
+      if (daDemo(v)) return d.onde === "fora" ? "Chamou vocês no WhatsApp para liberar a demo de novo" : "Clicou no WhatsApp da loja, na demo";
       const mods = Array.isArray(d.modulos) ? d.modulos.map(m => MODULOS[m] || m) : [];
       return mods.length ? `Clicou no WhatsApp com o plano: ${mods.join(", ")}${d.total ? ` (${reais(d.total)}/mês)` : ""}` : "Clicou no WhatsApp";
     }
@@ -52,12 +52,15 @@ export function textoDoPasso(v) {
     default: return v.evento;
   }
 }
-const CLIQUES = { instagram: "Abriu o Instagram da loja", facebook: "Abriu o Facebook da loja", tiktok: "Abriu o TikTok da loja", rota: "Pediu a rota até a loja",
+// A demo fora do ar (middleware.js): a pessoa voltou no link e viu o aviso.
+const FORA = { vencida: "Voltou na demo, que estava vencida (viu o aviso e o botão de reabrir)", reaberta: "Voltou na demo vencida, que já tinha sido reaberta uma vez",
+  fora: "Voltou na demo, que está desligada (viu o aviso de fora do ar)" };
+const CLIQUES = { reabrir: "Reabriu a demo por 1 hora (botão grátis)", faixa: "Tocou na faixa do valor, no topo", instagram: "Abriu o Instagram da loja", facebook: "Abriu o Facebook da loja", tiktok: "Abriu o TikTok da loja", rota: "Pediu a rota até a loja",
   mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["instagram", "rota", "mapa", "avaliacoes", "telefone", "oferta"]);
-const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has((v.detalhe || {}).alvo));
+const CLIQUES_FORTES = new Set(["reabrir", "faixa", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
+const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has((v.detalhe || {}).alvo)) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
 
 /** IPs vistos em visitas marcadas como nossas: outra visita com o mesmo IP provavelmente também é nossa. */
 export const ipsDaEquipe = visitas => new Set(visitas.filter(v => v.equipe && v.ip).map(v => v.ip));
@@ -71,6 +74,7 @@ export const visitantesDaEquipe = visitas => new Set(visitas.filter(v => v.equip
  * fim: a última ação, contando o tempo que a página manda a cada 30 s (detalhe.ate, a hora do banco).
  * secoes: na demo, quanto tempo ficou em cada parte ([nome, segundos], a mais vista primeiro).
  * saiu: a página avisou que a pessoa saiu (ou trocou de app) depois da última ação.
+ * repasse: { aparelho, local } quando a visita do cliente veio de outro aparelho (veja marcarRepasses).
  */
 export function agruparVisitas(visitas, ipsEquipe = ipsDaEquipe(visitas), visitantesEquipe = visitantesDaEquipe(visitas)) {
   const ordem = [...visitas].sort((a, b) => Date.parse(a.criado_em) - Date.parse(b.criado_em));
@@ -98,7 +102,7 @@ export function agruparVisitas(visitas, ipsEquipe = ipsDaEquipe(visitas), visita
     g.ultimoPassoMs = Math.max(g.ultimoPassoMs, t);
     g.passos.push({ evento: v.evento, texto: textoDoPasso(v), em: v.criado_em, forte: forte(v), pagina: v.pagina, demo: v.demo || "", lugar: lugarDe(v), detalhe: d });
   }
-  return grupos.map(g => {
+  const prontos = grupos.map(g => {
     const tempos = [...g.tempos.values()];
     const segundos = tempos.reduce((a, x) => a + x.s, 0);
     const porParte = new Map();
@@ -111,14 +115,39 @@ export function agruparVisitas(visitas, ipsEquipe = ipsDaEquipe(visitas), visita
       secoes: [...porParte].sort((a, b) => b[1] - a[1]),
       saiu: !!ultimoTempo && ultimoTempo.saiu && ultimoTempo.ateMs >= ultimoPassoMs,
     };
-  }).reverse();
+  });
+  return marcarRepasses(prontos).reverse();
+}
+
+const baseDoAparelho = a => String(a || "").split(" · ").slice(0, 2).join(" · "); // "celular · iPhone"
+const cidadeDe = l => String(l || "").split(" · ")[0];
+
+/**
+ * "Repassou para alguém": a visita do cliente vem de um aparelho que ainda não tinha aberto o link do lead. Conta
+ * como outro aparelho o sistema diferente (iPhone, Android, Windows…) ou o mesmo sistema em outra cidade. O mesmo
+ * celular em outro navegador (o do WhatsApp e o Chrome) não conta: o sistema e a cidade são os mesmos.
+ * Recebe os grupos em ordem de tempo (do mais antigo) e marca g.repasse.
+ */
+export function marcarRepasses(grupos) {
+  const vistos = new Map(); // lead → [{ base, cidade }]
+  for (const g of grupos) {
+    g.repasse = null;
+    if (g.quem !== "cliente") continue;
+    const base = baseDoAparelho(g.aparelho), cidade = cidadeDe(g.local);
+    const lista = vistos.get(g.lead_id) || [];
+    const conhecido = lista.some(x => x.base === base && (!cidade || !x.cidade || x.cidade === cidade));
+    if (lista.length && !conhecido && (base || cidade)) g.repasse = { aparelho: base, local: g.local || "" };
+    if (!conhecido) lista.push({ base, cidade });
+    vistos.set(g.lead_id, lista);
+  }
+  return grupos;
 }
 
 /** Ainda com a página aberta: a última notícia tem menos de 75 s (a página manda a cada 30 s) e não avisou que saiu. */
 export const vendoAgora = (g, agora = Date.now()) => !g.saiu && agora - Date.parse(g.fim) < 75000;
 
 const juntar = l => (l.length < 2 ? l.join("") : l.slice(0, -1).join(", ") + " e " + l[l.length - 1]);
-const ALVOS = { instagram: "abriu o Instagram", facebook: "abriu o Facebook", tiktok: "abriu o TikTok", rota: "pediu a rota até a loja", mapa: "abriu o mapa",
+const ALVOS = { reabrir: "reabriu por 1 hora", instagram: "abriu o Instagram", facebook: "abriu o Facebook", tiktok: "abriu o TikTok", rota: "pediu a rota até a loja", mapa: "abriu o mapa",
   avaliacoes: "foi ver as avaliações", avaliar: "foi avaliar no Google", telefone: "tocou para ligar", email: "tocou no e-mail",
   oferta: "clicou na oferta da Renderiza" };
 const ABERTURAS = { demo: "abriu a demo", exemplos: "abriu o link do painel", "painel-eventos": "viu o exemplo do painel", "agenda-online": "abriu a agenda online" };
@@ -135,14 +164,15 @@ export function fraseDaVisita(g) {
   const add = (chave, texto) => { if (!itens.has(chave)) itens.set(chave, texto); };
   for (const p of g.passos) {
     const d = p.detalhe || {};
-    if (p.evento === "abriu") add("abriu:" + p.pagina, () => ABERTURAS[p.pagina] || "abriu a página");
+    if (p.evento === "abriu" && d.fora) add("abriu:fora", () => (d.fora === "fora" ? "voltou na demo, que está desligada" : "voltou na demo, que estava vencida"));
+    else if (p.evento === "abriu") add("abriu:" + p.pagina, () => ABERTURAS[p.pagina] || "abriu a página");
     else if (p.evento === "abriu_exemplo") { const pg = d.qual === "agenda online" ? "agenda-online" : "painel-eventos"; add("abriu:" + pg, () => ABERTURAS[pg]); }
     else if (p.evento === "mudou_tela") { telas++; add("telas", () => (telas > 1 ? `passou por ${telas} telas do exemplo` : "mudou de tela no exemplo")); }
-    else if (p.evento === "viu_precos") add("precos", () => "chegou nos preços");
+    else if (p.evento === "viu_precos") add("precos", () => (p.pagina === "demo" ? "viu o valor do site" : "chegou nos preços"));
     else if (p.evento === "viu_detalhes") { modulos.add(MODULOS[d.m] || d.m || "um módulo"); add("detalhes", () => (modulos.size === 1 ? "viu os detalhes de " + [...modulos][0] : `viu os detalhes de ${modulos.size} módulos`)); }
     else if (p.evento === "pediu_reserva") add("reserva", () => "fez uma reserva de teste");
     else if (p.evento === "rolou_fim") add("fim", () => (p.pagina === "demo" ? "viu até o fim" : "rolou até o fim"));
-    else if (p.evento === "clicou_whatsapp") add("whatsapp", () => (p.pagina === "demo" ? "clicou no WhatsApp da loja" : "clicou no WhatsApp"));
+    else if (p.evento === "clicou_whatsapp") add("whatsapp", () => (d.onde === "fora" ? "chamou vocês no WhatsApp" : p.pagina === "demo" ? "clicou no WhatsApp da loja" : "clicou no WhatsApp"));
     else if (p.evento === "clicou" && ALVOS[d.alvo]) add("clicou:" + d.alvo, () => ALVOS[d.alvo]);
     else if (p.evento === "clicou" && d.alvo === "menu") add("menu", () => "usou o menu");
     else if (p.evento === "clicou" && d.alvo === "botao") { botoes++; ultimoBotao = d.texto || ""; add("botoes", () => (botoes > 1 || !ultimoBotao ? `clicou em ${botoes > 1 ? botoes + " botões" : "um botão"}` : `clicou em "${ultimoBotao}"`)); }
@@ -154,6 +184,9 @@ export function fraseDaVisita(g) {
   if (!textos.length) return g.secoes && g.secoes.length ? "ficou na página" : "abriu a página";
   return juntar(textos);
 }
+
+/** O aviso de repasse: "Outro aparelho (celular · iPhone, em Santo André): pode ter sido repassado". */
+export const textoDoRepasse = g => (g.repasse ? `Outro aparelho${g.repasse.aparelho || g.repasse.local ? ` (${[g.repasse.aparelho, g.repasse.local && "em " + cidadeDe(g.repasse.local)].filter(Boolean).join(", ")})` : ""}: pode ter sido repassado` : "");
 
 /** O complemento da frase: "Ficou 2 min, mais tempo em Armações". */
 export function complementoDaVisita(g) {
@@ -176,6 +209,7 @@ export function resumoDasVisitas(grupos) {
     demo: passos.some(p => p.pagina === "demo"),
     painel: passos.some(p => p.pagina !== "demo"),
     fim: passos.some(p => p.evento === "rolou_fim"),
+    aparelhos: doCliente.length ? 1 + doCliente.filter(g => g.repasse).length : 0,
     cliques: [...new Set(passos.filter(p => p.evento === "clicou").map(p => (p.detalhe || {}).alvo).filter(Boolean))],
     segundos: doCliente.reduce((s, g) => s + g.segundos, 0),
   };

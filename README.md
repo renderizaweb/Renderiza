@@ -124,6 +124,12 @@ inventado, a **Villa Alecrim**:
   **Outras páginas da demo** (ex.: `natal.html` das fotógrafas, `artes-instagram.html`) também contam, para o mesmo
   lead, com o nome da página no `abriu` (`detalhe.sub`). Os botões da **oferta da Renderiza** na demo (Garantir o meu /
   Negociar, `data-rz-garantir`/`data-rz-negociar`) são um clique à parte (`alvo: "oferta"`), separado do WhatsApp da loja.
+- **Valor dentro da demo (28/10/2026):** as demos da lista de `site/ofertas.mjs` (as 16 de eventos até 31/10) saem
+  do build com uma faixa no topo e um card de valor no fim do conteúdo (`site/oferta-na-demo.mjs`, `comOferta`),
+  com as cores da própria demo e os dias que faltam; depois do prazo, os dois somem sozinhos. O contador vê o card
+  na tela (`viu_precos`) e o toque na faixa (`clicou`, alvo `faixa`).
+- **Demo vencida (28/10/2026):** a página de fora do ar (`middleware.js`) tem o contador (`data-fora`) e, na demo
+  vencida que nunca foi reaberta, o botão "Reabrir por 1 hora, grátis" (`api/reabrir-demo.js` → `reabrir_demo`).
 - Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não
   está incluso. Os textos ficam em `MODULOS`, no script de `exemplos/index.html`; o teste confere os avisos.
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.

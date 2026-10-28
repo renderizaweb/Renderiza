@@ -2,7 +2,8 @@
 //   /                          → site público da Renderiza (site/pagina.mjs com os dados de site/config.mjs)
 //   /painel                    → painel (painel/index.html e painel/src/); sem sessão, manda para /login
 //   /login                     → a mesma página do painel: mostra o login; com sessão, vai para /painel
-//   /demo/<ótica>              → demos/<ótica>/index.html, com as meta og: para a prévia do link
+//   /demo/<ótica>              → demos/<ótica>/index.html, com as meta og: para a prévia do link, o contador de
+//                                visitas e, se tiver oferta com prazo (site/ofertas.mjs), a faixa e o card de valor
 //   /demo/<ótica>/capa.jpg     → a foto do topo da demo: é a imagem da prévia no WhatsApp
 //   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
@@ -17,6 +18,8 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { ofertaDaDemo } from "../site/ofertas.mjs";
+import { comOferta } from "../site/oferta-na-demo.mjs";
 
 const RAIZ = resolve(fileURLToPath(new URL("..", import.meta.url)));
 export const SAIDA = join(RAIZ, "publico");
@@ -115,7 +118,9 @@ export function arquivosPublicados() {
       if (f !== "index.html") { lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(readFileSync(arquivo, "utf8"), otica.name, f.replace(/\.html$/, "")), { tipo: ".html" })]); continue; }
       // A página principal sai com as meta og:, o contador de visitas, e a foto do topo vira capa.jpg (a imagem da prévia do link).
       const capa = fotoDaCapa(readFileSync(arquivo, "utf8"));
-      lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(comPreviaDoLink(readFileSync(arquivo, "utf8"), otica.name, capa?.tipo), otica.name), { tipo: ".html" })]);
+      // Demo com oferta de prazo (site/ofertas.mjs) sai também com a faixa e o card de valor.
+      const oferta = ofertaDaDemo(otica.name);
+      lista.push([join("demo", otica.name, f), Object.assign(async () => comOferta(comContador(comPreviaDoLink(readFileSync(arquivo, "utf8"), otica.name, capa?.tipo), otica.name), oferta), { tipo: ".html" })]);
       if (capa) lista.push([join("demo", otica.name, "capa." + capa.tipo), Object.assign(async () => fotoDaCapa(readFileSync(arquivo, "utf8")).dados, { tipo: "." + capa.tipo })]);
     }
   }
