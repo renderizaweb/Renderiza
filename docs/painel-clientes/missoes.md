@@ -32,7 +32,8 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 **Sua parte** (fora do repositório; passo a passo no [`04`](04-arquitetura.md)):
 
-1. Criar o e-mail próprio do Painel Renderiza.
+1. Criar um Gmail próprio do Painel Renderiza (ex.: `painelrenderiza@gmail.com`). Não precisa de e-mail pago no
+   domínio.
 2. Supabase: conta nova com esse e-mail e os dois projetos, `painel-renderiza-prod` e `painel-renderiza-stg` (região
    São Paulo). Não entrar nessa conta como dono ou admin com o login de hoje.
 3. Dar às sessões o acesso ao Supabase novo: nas configurações do ambiente do Claude (menu do ambiente na barra de
@@ -45,7 +46,9 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
    | `PAINEL_STG_SUPABASE_URL` e `PAINEL_STG_SUPABASE_ANON_KEY` | endereço e chave **pública** do STG |
    | `PAINEL_PROD_SUPABASE_URL` e `PAINEL_PROD_SUPABASE_ANON_KEY` | endereço e chave **pública** da produção |
 
-4. Serviço de e-mail com remetente no `renderizaweb.com.br` (registros no DNS) e ligado ao login dos dois projetos.
+4. Serviço de envio de e-mail (Resend ou Brevo, plano grátis) com remetente `nao-responda@renderizaweb.com.br`: não
+   precisa de caixa de e-mail paga, só dos registros que o serviço mostrar no DNS do `renderizaweb.com.br`. Depois,
+   os dados de SMTP vão no login dos dois projetos do Supabase (*Authentication → SMTP*).
 5. Depois que a sessão criar a pasta: projeto novo na Vercel (pasta `painel-clientes`, chaves da produção em
    *Production* e do STG em *Preview*) e o `painel.renderizaweb.com.br` apontado para ela.
 
