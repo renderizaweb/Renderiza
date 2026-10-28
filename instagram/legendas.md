@@ -321,3 +321,65 @@ Um tour pelo painel da Villa Alecrim, um espaço de festas fictício: a agenda d
 O site é o que o seu cliente vê. O painel é o que a sua equipe usa. E os dois se conversam: o pedido de data feito no site cai direto no painel.
 
 Comenta PAINEL que a gente te manda o exemplo para testar. Até 31/10, o site tem valor de inauguração.
+
+# Semana de 28/10 a 01/11: posts ao meio-dia
+
+Um post ou carrossel às 12h de quarta a sábado, e o Reels do dia às 19h. Ordem: Google na quarta (antes de Finados), contrato na quinta (dia do exemplo do painel), números na sexta (dia do detetive) e a bio no sábado (dia do papagaio, que é da mesma Odonto Prado). Os números dos carrosséis têm fonte na própria imagem e na legenda.
+
+## 15. Post: "A bio tem 150 caracteres." (`post-bio`)
+
+A bio do Instagram tem 150 caracteres, contando espaço e quebra de linha. Cabe o nome, uma frase e o convite para o direct.
+
+O cliente novo quer saber mais: o horário de sábado, o endereço com ponto de referência, o preço, se aceita convênio, onde estacionar. Quando não acha, pergunta no direct ou vai para quem já deixou tudo à vista.
+
+O site junta essas respostas num link com o nome do seu negócio. Na bio, fica só o link.
+
+A Odonto Prado é um exemplo fictício.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+Comentário para fixar: "Se a sua bio tivesse espaço para mais uma linha, o que você colocaria?"
+
+## 16. Carrossel: "O cliente novo, em três números." (`carrossel-numeros`)
+
+Três pesquisas sobre o cliente que ainda não te conhece.
+
+54% dos brasileiros fazem compras à noite ou de madrugada.
+Quem responde um contato em até uma hora tem quase 7 vezes mais chance de uma conversa de verdade do que quem responde uma hora depois.
+Só 4% dos consumidores dizem que nunca leem avaliações de negócios na internet.
+
+Os três pedem a mesma coisa: horário, preço, endereço e avaliações à mão do cliente, a qualquer hora. É isso que o site junta num link com o nome do seu negócio.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+Fontes: CX Trends 2026 (Octadesk e Opinion Box, 2.000 consumidores brasileiros); Oldroyd, McElheran e Elkington, Harvard Business Review, 2011 (2.241 empresas dos EUA); BrightLocal, Local Consumer Review Survey 2025 (1.026 consumidores dos EUA).
+
+Comentário para fixar: "Que horas chega a última mensagem de cliente no seu WhatsApp?"
+
+## 17. Post: "Cadê o contrato do dia 14?" (`post-contrato`)
+
+Toda festa fechada deixa rastro: a data combinada no WhatsApp, o contrato no e-mail, a versão revisada numa pasta, o comprovante na galeria. Na véspera, alguém precisa juntar tudo.
+
+No Painel Renderiza, cada festa tem uma ficha com a data, o cliente, o pacote, o contrato assinado e os pagamentos. Quem atende, quem cobra e quem cuida da festa olham a mesma tela, no celular ou no computador.
+
+A partir de R$ 49 por mês, com 2 módulos à sua escolha e até 5 pessoas da equipe. Sem fidelidade.
+
+A Villa Alecrim, a Ana Beatriz e o Thiago são fictícios. O painel da imagem funciona.
+
+Comenta PAINEL que a gente te manda o exemplo para testar. Até 31/10, o site tem valor de inauguração.
+
+Comentário para fixar: "Onde fica o contrato de vocês hoje: e-mail, WhatsApp, pasta ou papel?"
+
+## 18. Carrossel: o perfil do Google completo, item por item (`carrossel-google`)
+
+Segundo o Google, os clientes têm 70% mais probabilidade de visitar e 50% mais probabilidade de comprar de empresas com o perfil completo.
+
+Segunda, 2/11, é feriado de Finados. Comece pelo horário especial do feriado e siga a lista: descrição, fotos, serviços, atributos, avaliações e o link do site.
+
+Quem faz o site com a Renderiza recebe junto o kit de divulgação, com o texto da descrição para o Google e a mensagem para pedir avaliação aos seus clientes.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso. Até 31/10, o site tem valor de inauguração.
+
+Fonte: Central de Ajuda do Google, "Completar o Perfil da Empresa no Google".
+
+Comentário para fixar: "O horário de feriado do seu negócio já está no Google?"

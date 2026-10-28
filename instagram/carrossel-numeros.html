@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Carrossel: o cliente novo, em três números</title>
+<!-- Carrossel do Instagram (6 imagens 1080 × 1350): "O cliente novo, em três números."
+     Três pesquisas reais, cada uma com a fonte na própria imagem, e o que cada número pede de um negócio:
+       54%: brasileiros que fazem compras à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box, 2.000 entrevistas);
+       7×:  quem responde um contato em até 1 hora tem quase 7 vezes mais chance de uma conversa de verdade do que quem
+            responde 1 hora depois, e mais de 60 vezes contra quem demora 1 dia ou mais (Oldroyd, McElheran e Elkington,
+            "The Short Life of Online Sales Leads", Harvard Business Review, março de 2011, 2.241 empresas dos EUA);
+       4%:  consumidores que dizem nunca ler avaliações de negócios na internet (BrightLocal, Local Consumer Review
+            Survey 2025, 1.026 consumidores dos EUA).
+     Nada de número inventado: se uma fonte mudar, troque aqui e na legenda. node instagram/gerar.mjs carrossel-numeros -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.num-c{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;--suave:#5b6467;--apoio:#b9bfc1;--claro:#f1eee9}
+.kicker{font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);line-height:1}
+.escuro .kicker{color:var(--terra-escuro)}
+.miolo{position:absolute;left:84px;right:84px;top:190px;display:flex;flex-direction:column}
+.grande{font-size:300px;font-weight:700;line-height:.86;letter-spacing:-.065em;color:var(--terra);margin:34px 0 0 -10px;font-variant-numeric:lining-nums}
+.frase{margin-top:34px;font-size:50px;font-weight:700;line-height:58px;letter-spacing:-.03em;color:var(--tinta)}
+.fonte{position:absolute;left:84px;right:84px;bottom:322px;font-size:22px;font-weight:500;line-height:30px;color:var(--suave);letter-spacing:0}
+.fonte b{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:19px;margin-right:6px}
+.banda{position:absolute;left:0;right:0;bottom:0;height:290px;background:var(--escuro);padding:62px 84px 0;color:var(--claro);font-size:44px;font-weight:700;line-height:54px;letter-spacing:-.025em}
+.banda em{font-style:normal;color:var(--terra-escuro)}
+
+/* capa */
+.capa .miolo{top:330px}
+.capa h1{margin-top:30px;font-size:128px;line-height:122px;letter-spacing:-.05em;color:var(--claro)}
+.capa h1 .tom{color:var(--terra-escuro)}
+.trio{position:absolute;left:84px;right:84px;bottom:150px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.trio div{background:var(--escuro-2);border-radius:28px;padding:30px 28px 32px;box-shadow:inset 0 0 0 2px #36403f}
+.trio b{display:block;font-size:100px;line-height:1;letter-spacing:-.05em;color:var(--terra-escuro)}
+.trio span{display:block;margin-top:14px;font-size:25px;line-height:32px;font-weight:500;color:var(--apoio)}
+.arraste{position:absolute;left:84px;right:84px;bottom:76px;display:flex;justify-content:flex-end;align-items:center;gap:12px;font-size:26px;font-weight:600;color:var(--apoio)}
+.arraste svg{width:34px;height:34px}
+
+/* 54%: a régua do dia */
+.regua{margin-top:56px}
+.faixa{display:flex;height:76px;border-radius:18px;overflow:hidden}
+.faixa span{display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;letter-spacing:.02em}
+.faixa .noite{background:var(--escuro);color:var(--apoio)}
+.faixa .cedo{background:#d9d4cc;color:var(--suave)}
+.faixa .aberto{background:#fff;color:var(--tinta);box-shadow:inset 0 0 0 3px var(--terra);border-radius:0}
+.horas{position:relative;height:40px;margin-top:12px;font-size:22px;font-weight:600;color:var(--suave);font-variant-numeric:tabular-nums}
+.horas i{position:absolute;top:0;font-style:normal;transform:translateX(-50%)}
+.horas i:first-child{transform:none}.horas i:last-child{transform:translateX(-100%)}
+
+/* 7× e 60× lado a lado */
+.par{display:flex;align-items:flex-end;gap:48px;margin-top:34px}
+.par .grande{margin-top:0}
+.par .lado{padding-bottom:18px;border-left:3px solid #d9d4cc;padding-left:44px}
+.par .lado b{display:block;font-size:120px;line-height:.9;letter-spacing:-.05em;color:var(--tinta)}
+.par .lado span{display:block;margin-top:14px;font-size:28px;line-height:36px;font-weight:600;color:var(--suave)}
+.par3 .frase{font-size:46px;line-height:55px}
+
+/* 4%: 100 pontos */
+.pontos-linha{display:flex;align-items:center;gap:52px;margin-top:44px}
+.pontos{display:grid;grid-template-columns:repeat(20,1fr);gap:8px;width:480px}
+.pontos i{display:block;width:100%;aspect-ratio:1;border-radius:50%;background:var(--terra)}
+.pontos i.nunca{background:transparent;box-shadow:inset 0 0 0 3px var(--tinta)}
+.legenda-p{display:flex;flex-direction:column;gap:16px;font-size:26px;font-weight:600;line-height:32px;color:var(--suave);white-space:nowrap}
+.legenda-p span{display:flex;align-items:center;gap:14px}
+.legenda-p i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--terra)}
+.legenda-p i.nunca{background:transparent;box-shadow:inset 0 0 0 3px var(--tinta)}
+
+/* síntese */
+.sintese h2{margin-top:30px;font-size:84px;line-height:86px;letter-spacing:-.045em;color:var(--claro)}
+.sintese h2 em{font-style:normal;color:var(--terra-escuro)}
+.linhas{position:absolute;left:84px;right:84px;top:640px;display:flex;flex-direction:column}
+.linhas div{display:flex;align-items:center;gap:34px;padding:30px 0;border-top:2px solid #36403f}
+.linhas b{flex:none;width:170px;font-size:66px;line-height:1;letter-spacing:-.05em;color:var(--terra-escuro)}
+.linhas span{font-size:36px;line-height:44px;font-weight:600;letter-spacing:-.02em;color:var(--claro)}
+.fecho{position:absolute;left:84px;right:84px;bottom:92px;font-size:36px;font-weight:500;line-height:44px;color:var(--apoio)}
+
+/* convite */
+.convite .miolo{top:330px}
+.convite h2{margin-top:30px;font-size:108px;line-height:106px;letter-spacing:-.05em;color:var(--claro)}
+.convite .acao{margin-top:64px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.botao{display:inline-flex;align-items:center;gap:16px;height:96px;padding:0 48px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:44px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.botao svg{width:42px;height:42px}
+.convite .acao p{font-size:36px;line-height:46px;font-weight:500;color:var(--apoio)}
+.fontes{position:absolute;left:84px;right:84px;bottom:76px;padding-top:26px;border-top:2px solid #36403f;font-size:21px;line-height:30px;font-weight:500;color:var(--cinza)}
+.fontes b{color:var(--apoio);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:19px;display:block;margin-bottom:6px}
+</style></head><body>
+
+<!-- 1 · capa -->
+<section class="slide escuro num-c capa">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">1/6</span></div>
+  <div class="miolo">
+    <span class="kicker">Três pesquisas, com fonte</span>
+    <h1>O cliente novo, <span class="tom">em três números.</span></h1>
+  </div>
+  <div class="trio">
+    <div><b>54%</b><span>compram à noite ou de madrugada</span></div>
+    <div><b>7×</b><span>mais chance para quem responde em 1 hora</span></div>
+    <div><b>4%</b><span>nunca leem avaliações</span></div>
+  </div>
+  <div class="arraste">Arraste para o lado<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></div>
+</section>
+
+<!-- 2 · 54% -->
+<section class="slide num-c">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">2/6</span></div>
+  <div class="miolo">
+    <span class="kicker">1 · Fora do horário</span>
+    <div class="grande">54%</div>
+    <p class="frase">dos brasileiros fazem compras à noite ou de madrugada.</p>
+    <div class="regua">
+      <div class="faixa">
+        <span class="noite" style="flex:6">madrugada</span><span class="cedo" style="flex:3"></span><span class="aberto" style="flex:9">loja aberta</span><span class="noite" style="flex:6">noite</span>
+      </div>
+      <div class="horas"><i style="left:0">0h</i><i style="left:25%">6h</i><i style="left:37.5%">9h</i><i style="left:75%">18h</i><i style="left:100%">24h</i></div>
+    </div>
+  </div>
+  <p class="fonte"><b>Fonte</b>CX Trends 2026, Octadesk e Opinion Box · 2.000 consumidores brasileiros</p>
+  <div class="banda">Depois que a loja fecha, o cliente só tem <em>o que estiver escrito.</em></div>
+</section>
+
+<!-- 3 · 7× -->
+<section class="slide num-c par3">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">3/6</span></div>
+  <div class="miolo">
+    <span class="kicker">2 · Velocidade</span>
+    <div class="par">
+      <div class="grande">7×</div>
+      <div class="lado"><b>60×</b><span>contra quem demora<br>um dia ou mais</span></div>
+    </div>
+    <p class="frase">Quem responde em até uma hora tem quase 7 vezes mais chance de uma conversa de verdade com quem decide do que quem responde uma hora depois.</p>
+  </div>
+  <p class="fonte"><b>Fonte</b>Harvard Business Review, 2011 · 2.241 empresas dos EUA</p>
+  <div class="banda">Nem sempre dá para responder em uma hora. <em>O básico, o site responde na hora.</em></div>
+</section>
+
+<!-- 4 · 4% -->
+<section class="slide num-c">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">4/6</span></div>
+  <div class="miolo">
+    <span class="kicker">3 · Avaliações</span>
+    <div class="grande">4%</div>
+    <p class="frase">dos consumidores dizem que nunca leem avaliações de negócios na internet.</p>
+    <div class="pontos-linha">
+      <div class="pontos" id="pontos"></div>
+      <div class="legenda-p"><span><i></i>leem, ao menos às vezes</span><span><i class="nunca"></i>nunca leem</span></div>
+    </div>
+  </div>
+  <p class="fonte"><b>Fonte</b>BrightLocal, Local Consumer Review Survey 2025 · 1.026 consumidores dos EUA</p>
+  <div class="banda">Os outros 96% leem. <em>No site, as avaliações ficam logo na entrada.</em></div>
+</section>
+
+<!-- 5 · síntese -->
+<section class="slide escuro num-c sintese">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">5/6</span></div>
+  <div class="miolo">
+    <span class="kicker">O que os três pedem</span>
+    <h2>Informação à mão,<br><em>a qualquer hora.</em></h2>
+  </div>
+  <div class="linhas">
+    <div><b>54%</b><span>O site continua no ar depois que a loja fecha.</span></div>
+    <div><b>7×</b><span>Horário, preço e endereço respondidos antes da pergunta.</span></div>
+    <div><b>4%</b><span>As avaliações dos seus clientes logo na entrada.</span></div>
+  </div>
+  <p class="fecho">Tudo num link com o nome do seu negócio.</p>
+</section>
+
+<!-- 6 · convite -->
+<section class="slide escuro num-c convite">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">6/6</span></div>
+  <div class="miolo">
+    <span class="kicker">Sem compromisso</span>
+    <h2>Quer ver como ficaria o seu?</h2>
+    <div class="acao">
+      <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.6A8.4 8.4 0 1 1 20.5 11.6Z"/></svg>Comenta PRÉVIA</span>
+      <p>A gente monta a prévia do site<br>do seu negócio e te manda no direct.</p>
+    </div>
+  </div>
+  <div class="fontes"><b>Fontes</b>CX Trends 2026, Octadesk e Opinion Box. Oldroyd, McElheran e Elkington, “The Short Life of Online Sales Leads”, Harvard Business Review, 2011. BrightLocal, Local Consumer Review Survey 2025.</div>
+</section>
+
+<script type="module">
+// 100 pontos, 4 vazios (os que nunca leem): espalhados, para não parecer um bloco
+const NUNCA = new Set([17, 42, 68, 91]), g = document.getElementById("pontos");
+for (let i = 0; i < 100; i++) { const p = document.createElement("i"); if (NUNCA.has(i)) p.className = "nunca"; g.append(p); }
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

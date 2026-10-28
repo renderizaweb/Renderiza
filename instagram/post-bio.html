@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Post: a bio tem 150 caracteres</title>
+<!-- Post solto do Instagram (1 imagem 1080 × 1350): "A bio tem 150 caracteres."
+     A bio de um consultório de exemplo (a Odonto Prado do Reels do papagaio) com o básico que o cliente novo
+     pergunta: horário, endereço, preço, convênio, estacionamento. Passa de 150 caracteres e o que sobra fica
+     marcado, como no editor; o corte cai em "aceitamos c|onvênios", bem na pergunta que mais chega.
+     Embaixo, a resposta: o que não cabe na bio cabe num site, e na bio fica só o link.
+     O limite de 150 caracteres vale para toda bio do Instagram (contando espaço e quebra de linha).
+     node instagram/gerar.mjs post-bio -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.bio-post{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;--suave:#5b6467;--apoio:#b9bfc1;--claro:#f1eee9;background:var(--fundo)}
+.bio-post .cabeca{position:absolute;left:72px;right:72px;top:62px;height:44px;display:flex;justify-content:space-between;align-items:center}
+.bio-post .cabeca .marca{font-size:34px;gap:14px}
+.bio-post .cabeca .simbolo{width:40px;height:40px}
+.sobre{font-size:26px;font-weight:700;letter-spacing:.12em;margin-right:-.12em;text-transform:uppercase;color:var(--terra);line-height:1}
+.bio-post h1{position:absolute;left:72px;right:72px;top:146px;font-size:96px;line-height:98px;letter-spacing:-.04em;color:var(--tinta)}
+.bio-post h1 em{font-style:normal;color:var(--terra)}
+
+/* o editor da bio: atravessa a divisa e entra na faixa grafite */
+.editor{position:absolute;z-index:2;left:72px;top:372px;width:936px;background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(30,37,40,.12);padding:34px 40px 30px}
+.ed-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.ed-rotulo{font-size:26px;font-weight:600;color:var(--suave);letter-spacing:-.005em}
+.editor .exemplo{position:static;font-size:18px;padding:8px 14px}
+.texto{white-space:pre-wrap;font-size:32px;line-height:48px;font-weight:500;letter-spacing:-.012em;color:var(--tinta)}
+.texto .sobra{color:#8f3a21;background:rgba(232,133,94,.26);border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.texto i{display:inline-block;width:3px;height:38px;margin-left:2px;vertical-align:-8px;border-radius:2px;background:var(--tinta)}
+.ed-pe{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:20px;border-top:2px solid #ece8e1}
+.ed-pe span{font-size:24px;font-weight:500;color:var(--cinza)}
+.conta{font-size:34px;font-weight:600;color:var(--cinza);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.conta b{color:var(--terra);font-weight:700}
+
+.resposta{position:absolute;left:0;right:0;top:790px;bottom:0;background:var(--escuro);padding:118px 72px 0}
+.resposta h2{font-size:58px;font-weight:700;line-height:64px;letter-spacing:-.035em;color:var(--claro)}
+.resposta h2 em{font-style:normal;color:var(--terra-escuro)}
+.resposta p{margin-top:16px;font-size:32px;font-weight:500;line-height:42px;letter-spacing:-.01em;color:var(--apoio)}
+.acao{margin-top:34px;display:flex;align-items:center;gap:28px}
+.botao{flex:none;display:inline-flex;align-items:center;gap:14px;height:76px;padding:0 38px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:34px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.botao svg{flex:none;width:34px;height:34px}
+.acao hr{flex:none;width:2px;height:56px;border:0;background:#3a4448}
+.acao .lado{display:flex;flex-direction:column;font-size:28px;line-height:36px;letter-spacing:-.01em;white-space:nowrap;font-weight:500;color:var(--apoio)}
+</style></head><body>
+<section class="slide bio-post">
+  <div class="cabeca">
+    <span class="marca"><span class="simbolo"></span>renderiza</span>
+    <span class="sobre">Pra quem só tem Instagram</span>
+  </div>
+
+  <h1>A bio tem <em>150</em><br>caracteres.</h1>
+
+  <div class="editor">
+    <div class="ed-topo"><span class="ed-rotulo">Bio</span><span class="exemplo">exemplo</span></div>
+    <p class="texto" id="texto"></p>
+    <div class="ed-pe"><span>Contando espaço e quebra de linha</span><span class="conta" id="conta"></span></div>
+  </div>
+
+  <div class="resposta">
+    <h2>O que não cabe na bio<br><em>cabe num site.</em></h2>
+    <p>Horário, endereço, preços e WhatsApp num link com o nome do seu negócio. Na bio, fica só o link.</p>
+    <div class="acao">
+      <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.6A8.4 8.4 0 1 1 20.5 11.6Z"/></svg>Comenta PRÉVIA</span>
+      <hr>
+      <span class="lado"><span>A gente monta a prévia</span><span>do seu site, sem compromisso.</span></span>
+    </div>
+  </div>
+</section>
+<script type="module">
+// a bio de exemplo; o que passa de 150 caracteres (quebra de linha conta 1) fica marcado
+const BIO = "Odonto Prado · clínica odontológica\nSeg a sex 8h às 19h · sáb 8h às 12h\nRua das Acácias, 120, sala 3, em cima da farmácia\nLimpeza R$ 150 · aceitamos convênios\nEstacionamento conveniado na rua de trás\nAgende pelo direct";
+const LIMITE = 150, t = document.getElementById("texto");
+t.append(BIO.slice(0, LIMITE));
+const s = document.createElement("span"); s.className = "sobra"; s.textContent = BIO.slice(LIMITE); t.append(s, document.createElement("i"));
+document.getElementById("conta").innerHTML = `<b>${BIO.length}</b> / ${LIMITE}`;
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
