@@ -18,6 +18,8 @@ export const daDemo = v => v.pagina === "demo";
 const MODULOS = { "agenda-online": "Agenda online", agenda: "Agenda da equipe", clientes: "Clientes", contratos: "Contratos", financeiro: "Financeiro", atendimento: "Atendimento" };
 const TELAS = { inicio: "a visão geral", agenda: "a agenda", clientes: "os clientes", contratos: "os contratos", financeiro: "o financeiro", atendimento: "o atendimento", equipe: "a equipe e acessos" };
 const PAGINAS = { exemplos: "a página do painel", "painel-eventos": "o exemplo do painel", "agenda-online": "a agenda online de exemplo", demo: "a demo do site" };
+/** Outras páginas de uma demo (detalhe.sub do "abriu"). */
+const SUBPAGINAS = { natal: "a página de Natal da demo", "artes-instagram": "as artes para Instagram da demo" };
 const LUGARES = { exemplos: "Página do Painel Renderiza", "painel-eventos": "Exemplo do painel", "agenda-online": "Agenda online de exemplo" };
 /** Onde foi: "Página do Painel Renderiza", "Demo otica-nina"… */
 export const lugarDe = v => (daDemo(v) ? "Demo " + (v.demo || "") : LUGARES[v.pagina] || v.pagina).trim();
@@ -27,7 +29,7 @@ const reais = v => "R$ " + Number(v || 0).toLocaleString("pt-BR", { minimumFract
 export function textoDoPasso(v) {
   const d = v.detalhe || {};
   switch (v.evento) {
-    case "abriu": return "Abriu " + (PAGINAS[v.pagina] || "a página");
+    case "abriu": return "Abriu " + (daDemo(v) && d.sub ? SUBPAGINAS[d.sub] || `a página "${d.sub}" da demo` : PAGINAS[v.pagina] || "a página");
     case "viu_precos": return "Chegou nos preços";
     case "viu_detalhes": return "Viu os detalhes de " + (MODULOS[d.m] || "um módulo");
     case "abriu_exemplo": return d.qual === "agenda online" ? "Foi testar a agenda online" : "Foi ver no exemplo " + (TELAS[d.qual] || "o painel");
@@ -44,6 +46,7 @@ export function textoDoPasso(v) {
       if (d.alvo === "menu") return "Pelo menu, foi para " + (d.para || "outra parte");
       if (d.alvo === "botao") return `Clicou em "${d.texto || "um botão"}"` + onde;
       if (d.alvo === "link") return "Abriu um link" + (d.para ? ` (${d.para})` : "");
+      if (d.alvo === "oferta") return (d.texto === "negociar" ? 'Clicou em "Negociar"' : 'Clicou em "Garantir o meu"') + " (WhatsApp da Renderiza)" + onde;
       return (CLIQUES[d.alvo] || "Clicou em algo") + onde;
     }
     default: return v.evento;
@@ -53,7 +56,7 @@ const CLIQUES = { instagram: "Abriu o Instagram da loja", facebook: "Abriu o Fac
   mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["instagram", "rota", "mapa", "avaliacoes", "telefone"]);
+const CLIQUES_FORTES = new Set(["instagram", "rota", "mapa", "avaliacoes", "telefone", "oferta"]);
 const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has((v.detalhe || {}).alvo));
 
 /** IPs vistos em visitas marcadas como nossas: outra visita com o mesmo IP provavelmente também é nossa. */
@@ -116,7 +119,8 @@ export const vendoAgora = (g, agora = Date.now()) => !g.saiu && agora - Date.par
 
 const juntar = l => (l.length < 2 ? l.join("") : l.slice(0, -1).join(", ") + " e " + l[l.length - 1]);
 const ALVOS = { instagram: "abriu o Instagram", facebook: "abriu o Facebook", tiktok: "abriu o TikTok", rota: "pediu a rota até a loja", mapa: "abriu o mapa",
-  avaliacoes: "foi ver as avaliações", avaliar: "foi avaliar no Google", telefone: "tocou para ligar", email: "tocou no e-mail" };
+  avaliacoes: "foi ver as avaliações", avaliar: "foi avaliar no Google", telefone: "tocou para ligar", email: "tocou no e-mail",
+  oferta: "clicou na oferta da Renderiza" };
 const ABERTURAS = { demo: "abriu a demo", exemplos: "abriu o link do painel", "painel-eventos": "viu o exemplo do painel", "agenda-online": "abriu a agenda online" };
 // O que pode sair da frase quando ela fica longa (o resto continua nos detalhes).
 const MENOS_IMPORTANTE = ["botoes", "menu", "telas", "fim", "clicou:mapa", "clicou:email", "clicou:facebook", "clicou:tiktok"];

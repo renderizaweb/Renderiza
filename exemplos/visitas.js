@@ -17,6 +17,8 @@
     const script = document.currentScript;
     const pagina = (script && script.dataset.pagina) || "exemplos";
     const demo = pagina === "demo" ? String((script && script.dataset.demo) || "").toLowerCase() : "";
+    // Outra página da mesma demo (ex.: "natal", a campanha da fotógrafa): vai no "abriu".
+    const sub = pagina === "demo" ? String((script && script.dataset.sub) || "").toLowerCase().slice(0, 40) : "";
     let codigo = "";
     if (pagina === "demo") {
       if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(demo)) return;
@@ -55,7 +57,7 @@
 
     let origem = "";
     try { origem = document.referrer ? new URL(document.referrer).hostname : ""; } catch (e) { /* sem origem */ }
-    enviar("abriu", { tela: innerWidth + "x" + innerHeight, ...(origem && origem !== location.hostname ? { de: origem } : {}) });
+    enviar("abriu", { tela: innerWidth + "x" + innerHeight, ...(sub ? { sub } : {}), ...(origem && origem !== location.hostname ? { de: origem } : {}) });
 
     // Rolou até o fim (uma vez).
     let fim = false;
@@ -96,6 +98,9 @@
       const jaClicou = new Set();
       const cliqueDe = el => {
         const href = el.matches("a[href]") ? el.href : "", bruto = el.getAttribute("href") || "";
+        // A oferta da Renderiza na demo (valor e prazo): o WhatsApp é o da Renderiza, não o da loja.
+        if (el.matches("[data-rz-garantir]")) return { alvo: "oferta", texto: "garantir" };
+        if (el.matches("[data-rz-negociar]")) return { alvo: "oferta", texto: "negociar" };
         if (/wa\.me\/|api\.whatsapp\.com|whatsapp:\/\//i.test(href)) return { whatsapp: true };
         if (el.matches("[data-directions]") || /maps\/dir|destination=|waze\.com/i.test(href)) return { alvo: "rota" };
         if (el.matches("[data-review-write]")) return { alvo: "avaliar" };

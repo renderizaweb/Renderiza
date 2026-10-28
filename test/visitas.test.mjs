@@ -202,3 +202,20 @@ test("a visita numa frase, sem termo técnico", () => {
   assert.equal(complementoDaVisita(g), "Ficou 2 min 10 s, mais tempo em Armações");
   assert.equal(complementoDaVisita(agruparVisitas([D(0, "abriu")])[0]), "");
 });
+
+test("demo com mais de uma página (fotógrafa: site + campanha de Natal): a outra página conta para o mesmo lead, com o nome", () => {
+  const html = "<html><head><title>X</title></head><body></body></html>";
+  assert.match(comContador(html, "ana-carolina-fotografia", "natal"), /data-demo="ana-carolina-fotografia" data-sub="natal" defer><\/script><\/head>/);
+  assert.doesNotMatch(comContador(html, "ana-carolina-fotografia", "Nome Estranho!"), /data-sub/);
+  assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "natal" } }), "Abriu a página de Natal da demo");
+  assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "pascoa" } }), 'Abriu a página "pascoa" da demo');
+});
+
+test("demo: o clique na oferta da Renderiza (valor e prazo) é separado do WhatsApp da loja e conta como interesse", () => {
+  const C = (detalhe) => textoDoPasso({ evento: "clicou", pagina: "demo", detalhe });
+  assert.equal(C({ alvo: "oferta", texto: "garantir", parte: "Renderiza" }), 'Clicou em "Garantir o meu" (WhatsApp da Renderiza) (em Renderiza)');
+  assert.equal(C({ alvo: "oferta", texto: "negociar" }), 'Clicou em "Negociar" (WhatsApp da Renderiza)');
+  const contador = readFileSync(new URL("../exemplos/visitas.js", import.meta.url), "utf8");
+  assert.match(contador, /\[data-rz-garantir\][\s\S]*alvo: "oferta"/);
+  assert.ok(contador.indexOf("data-rz-garantir") < contador.indexOf("wa\\.me"), "a oferta é reconhecida antes do WhatsApp genérico");
+});

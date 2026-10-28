@@ -121,6 +121,9 @@ inventado, a **Villa Alecrim**:
   `visitas.demo`). O link da demo não muda nem ganha parâmetro: os já enviados contam. Aberta do disco ou com
   `?video=1`, não conta. No painel, a tela **Atividade** (`/painel#atividade`) junta tudo numa linha do tempo ao vivo, com filtros
   de quem (cliente ou vocês), onde (link do painel ou demos), período e busca (`painel/README.md`).
+  **Outras páginas da demo** (ex.: `natal.html` das fotógrafas, `artes-instagram.html`) também contam, para o mesmo
+  lead, com o nome da página no `abriu` (`detalhe.sub`). Os botões da **oferta da Renderiza** na demo (Garantir o meu /
+  Negociar, `data-rz-garantir`/`data-rz-negociar`) são um clique à parte (`alvo: "oferta"`), separado do WhatsApp da loja.
 - Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não
   está incluso. Os textos ficam em `MODULOS`, no script de `exemplos/index.html`; o teste confere os avisos.
 - Sem preço na agenda online (como nas demos); no painel, os valores são do espaço fictício.
