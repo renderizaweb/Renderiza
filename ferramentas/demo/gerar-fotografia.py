@@ -423,6 +423,124 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 @media(max-width:520px){.flutuante{width:54px;height:54px;right:14px;bottom:14px}.rz-pilula{left:14px;bottom:20px}}
 '''
 
+# ---------- estilo (opcional): a personalidade de cada demo ----------
+# demo.json "estilo" muda tipografia, abertura, formas das fotos, abas, botões e detalhes; o CSS de cada escolha entra
+# depois do CSS base (sobrescreve). Sem "estilo", a página sai igual à de sempre. Chaves e valores:
+#   fontes {serif|sans|script: [família, eixos do Google Fonts]}, script_escala (número), titulo "natural",
+#   topo "centro", abertura "arco"|"polaroid"|"faixa", fotos "suave"|"arco", galeria "quadrado",
+#   abas "sublinhado"|"script", botoes "reto"|"suave", eyebrow "ponto"|"losango", jornada "cartoes",
+#   natal_capa "retrato" (foto do topo da página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
+PILHAS = {'serif': 'Georgia,serif', 'sans': 'system-ui,-apple-system,"Segoe UI",sans-serif', 'script': '"Brush Script MT",cursive'}
+
+ESTILO = {
+    ('titulo', 'natural'): '''
+.abertura h1{text-transform:none;letter-spacing:-.015em;font-weight:400;line-height:.94}
+.abertura h1 .script{margin:.1em 0 0 .32em}
+.marca-nome b{text-transform:none;letter-spacing:.01em;font-size:1.34rem;font-weight:500}
+@media(max-width:520px){.marca-nome b{font-size:1.12rem;letter-spacing:0}}''',
+    ('topo', 'centro'): '''
+@media(min-width:1061px){html{scroll-padding-top:136px}
+.topo-in{display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:". marca cta" "nav nav nav";gap:0 20px;min-height:0;padding-top:14px}
+.marca{grid-area:marca}.topo-cta{grid-area:cta;justify-self:end}
+.nav{grid-area:nav;justify-content:center;margin-top:12px;padding:6px 0;border-top:1px solid var(--linha)}}''',
+    ('abertura', 'arco'): '''
+.mosaico{gap:14px}
+.mosaico figure:first-child,.mosaico figure:nth-child(3){border-radius:999px 999px 0 0}
+.mosaico figure:nth-child(2){border-radius:999px}
+.mosaico figcaption{left:50%;transform:translateX(-50%);white-space:nowrap}
+.mosaico figure:nth-child(2) figcaption{bottom:15%}
+@media(max-width:520px){.mosaico figure:nth-child(2) figcaption{display:none}.mosaico figcaption{left:50%}}''',
+    ('abertura', 'polaroid'): '''
+.mosaico{gap:26px 20px;padding:14px 8px 10px}
+.mosaico figure{overflow:visible;background:#fffdf9;padding:10px 10px 40px;box-shadow:0 16px 34px #3a2b2324,0 2px 6px #3a2b2314}
+.mosaico figure:first-child{transform:rotate(-1.8deg)}.mosaico figure:nth-child(2){transform:rotate(2.4deg)}.mosaico figure:nth-child(3){transform:rotate(-1.2deg)}
+.mosaico figure+figure img{inset:10px 10px 40px;width:calc(100% - 20px);height:calc(100% - 50px)}
+.mosaico figcaption{left:0;right:0;bottom:0;height:40px;display:grid;place-items:center;background:none;border-radius:0;padding:0;font-family:var(--script);font-weight:400;font-size:1.45rem;letter-spacing:0;text-transform:none;color:var(--tinta)}
+.mosaico figure:first-child::after{content:"";position:absolute;top:-13px;left:50%;width:104px;height:26px;margin-left:-52px;background:color-mix(in srgb,var(--rosa) 50%,transparent);transform:rotate(3deg)}
+@media(max-width:520px){.mosaico{gap:16px 12px;padding:10px 4px 6px}.mosaico figure{padding:6px 6px 28px}.mosaico figure+figure img{inset:6px 6px 28px;width:calc(100% - 12px);height:calc(100% - 34px)}
+.mosaico figcaption{left:0;bottom:0;height:28px;padding:0;font-size:1.02rem;letter-spacing:0}.mosaico figure:first-child::after{width:70px;height:20px;margin-left:-35px;top:-10px}}''',
+    ('abertura', 'faixa'): '''
+.abertura{text-align:center}
+.abertura-grid{grid-template-columns:minmax(0,1fr);gap:clamp(30px,4vw,52px)}
+.abertura-texto{display:contents}
+.abertura-topo{order:1;max-width:940px;margin:0 auto}
+.abertura .eyebrow{justify-content:center}.abertura .eyebrow::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.abertura h1 .script{margin:.06em 0 0}
+.frase{margin:22px auto 0;max-width:720px}
+.mosaico{order:2;grid-template-columns:1fr 1.32fr 1fr;grid-template-rows:auto;align-items:end;gap:clamp(10px,1.6vw,22px)}
+.mosaico figure:first-child{grid-row:1;grid-column:2}
+.mosaico figure:nth-child(2){grid-row:1;grid-column:1;aspect-ratio:3/4;margin-bottom:9%}
+.mosaico figure:nth-child(3){grid-row:1;grid-column:3;aspect-ratio:3/4;margin-bottom:9%}
+.abertura-baixo{order:3;max-width:640px;margin:0 auto}
+.abertura-intro{margin:0 auto 26px}
+.abertura-acoes{justify-content:center;margin:0 0 22px}.prova{justify-content:center}
+@media(max-width:900px){.abertura-intro{margin-bottom:22px}}
+@media(max-width:520px){.mosaico{grid-template-columns:1fr 1.5fr 1fr;gap:8px;margin-inline:-8px}.mosaico figure+figure figcaption{display:none}}''',
+    ('fotos', 'suave'): '''
+.mosaico figure,.g-item,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{border-radius:16px}
+.sobre-foto::before{border-radius:24px}.review-card,.dia{border-radius:16px}.mapa{border-radius:16px;overflow:hidden}''',
+    ('fotos', 'arco'): '''
+.sobre-foto img,.sobre-foto::before{border-radius:999px 999px 0 0}
+.cenario figure:first-child{border-radius:999px 999px 0 0}
+.g-item,.natal-foto img,.n-abertura .foto img,.cenario figure+figure{border-radius:6px}''',
+    ('galeria', 'quadrado'): '''
+.g-item::before{padding-top:100%}.g-l::before{padding-top:50%}''',
+    ('abas', 'sublinhado'): '''
+.abas{gap:6px clamp(20px,3vw,40px)}
+.aba{border:0;border-bottom:1px solid transparent;border-radius:0;padding:10px 2px}
+.aba[aria-selected="true"]{background:none;color:var(--tinta);border-color:var(--acento)}
+.aba:hover:not([aria-selected="true"]){border-color:var(--linha)}
+@media(max-width:760px){.abas{display:flex;justify-content:center;gap:4px 22px}.aba{padding:10px 2px}}''',
+    ('abas', 'script'): '''
+.abas{gap:4px clamp(18px,3vw,38px)}
+.aba{border:0;border-radius:0;padding:4px 4px 8px;font-family:var(--script);font-weight:400;font-size:1.7rem;letter-spacing:0;text-transform:none;color:var(--tinta-2)}
+.aba small{font-family:var(--sans);font-size:.7rem;vertical-align:super}
+.aba[aria-selected="true"]{background:none;color:var(--acento)}
+.aba[aria-selected="true"]::after{content:"";display:block;height:1px;margin:2px 22% 0;background:currentColor}
+@media(max-width:760px){.abas{display:flex;justify-content:center;gap:2px 18px}.aba{padding:4px 2px 8px;font-size:1.32rem;letter-spacing:0}}''',
+    ('botoes', 'reto'): '''
+.botao,.hora,.proximos a,.aba,.exemplo,.menu-botao,.arrow-button,.legenda-grade i{border-radius:2px}''',
+    ('botoes', 'suave'): '''
+.botao,.hora,.proximos a,.aba,.exemplo,.legenda-grade i{border-radius:12px}''',
+    ('eyebrow', 'ponto'): '''
+.eyebrow::before,.cabeca .eyebrow::after,.abertura .eyebrow::after{width:5px;height:5px;border-radius:50%;opacity:.85}''',
+    ('eyebrow', 'losango'): '''
+.eyebrow::before,.cabeca .eyebrow::after,.abertura .eyebrow::after{width:6px;height:6px;transform:rotate(45deg);opacity:.8}''',
+    ('jornada', 'cartoes'): '''
+.jornada{gap:18px}
+.jornada li{background:var(--papel);border:1px solid var(--linha);padding:30px 28px 32px}
+.jornada li::before{font-size:2.5rem;line-height:1;margin-bottom:16px}
+@media(max-width:560px){.jornada li{padding:24px 22px 26px}}''',
+    ('natal_capa', 'retrato'): '''
+@media(min-width:901px){.n-abertura-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
+.n-abertura .foto img{aspect-ratio:4/5}
+@media(max-width:900px){.n-abertura .foto{max-width:520px}}''',
+    ('textura', 'papel'): '''
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}''',
+}
+
+
+def fontes_link(f):
+    familias = '&'.join('family=' + nome.replace(' ', '+') + (':' + eixos if eixos else '') for nome, eixos in (f[k] for k in ('serif', 'sans', 'script') if k in f))
+    return ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+            f'<link href="https://fonts.googleapis.com/css2?{familias}&display=swap" rel="stylesheet">')
+
+
+def css_estilo(e):
+    """O CSS que a personalidade da demo acrescenta ao base (vazio sem "estilo")."""
+    partes = []
+    f = e.get('fontes') or {}
+    if f: partes.append(':root{' + ''.join(f'--{k}:"{f[k][0]}",{PILHAS[k]};' for k in ('serif', 'sans', 'script') if k in f) + '}')
+    for chave in ('titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'natal_capa', 'textura'):
+        if e.get(chave): partes.append(ESTILO[(chave, e[chave])])
+    if e.get('script_escala'):
+        x = e['script_escala']
+        partes.append(f'.abertura h1 .script{{font-size:calc(.86em*{x})}}.marca-nome i{{font-size:calc(1.45rem*{x})}}'
+                      f'@media(max-width:520px){{.marca-nome i{{font-size:calc(1.25rem*{x})}}}}')
+    if e.get('css'): partes.append(e['css'])
+    return '\n/* estilo desta demo */' + '\n'.join(partes) + '\n'
+
+
 JS = r'''
 (() => {
   "use strict";
@@ -607,6 +725,9 @@ def head(cfg, F, titulo, descricao, comentario):
     linha = c.get('linha', '#e6dbcf')
     css = T(CSS, fundo=c['fundo'], papel=c['papel'], areia=c['areia'], linha=linha, tinta=c['tinta'], tinta2=c['tinta2'],
             rosa=c['rosa'], acento=c['acento'], acento_escuro=c['acento_escuro'], cafe=c['cafe'])
+    e = cfg.get('estilo') or {}
+    if e: css += css_estilo(e)
+    fontes = fontes_link(e['fontes']) if e.get('fontes') else FONTES
     return f'''<!doctype html>
 <!-- {comentario} -->
 <html lang="pt-BR">
@@ -619,7 +740,7 @@ def head(cfg, F, titulo, descricao, comentario):
   <title>{esc(titulo)}</title>
   <link rel="icon" type="image/png" href="{fav[0]}">
   <script>document.documentElement.classList.add("js");if(/[?&]video=1(&|$)/.test(location.search))document.documentElement.classList.add("modo-video");</script>
-  {FONTES}
+  {fontes}
   <style>{css}</style>
 </head>'''
 
@@ -725,7 +846,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     </div>
   </div>
 </section>
-<p class="especialidades">{' <i aria-hidden="true">✦</i> '.join(f'<span>{esc(x)}</span>' for x in h["especialidades"])}</p>''')
+<p class="especialidades">{(' <i aria-hidden="true">' + (cfg.get('estilo') or {}).get('ornamento', '✦') + '</i> ').join(f'<span>{esc(x)}</span>' for x in h["especialidades"])}</p>''')
 
     # portfólio
     gals = s['galerias']
@@ -818,7 +939,8 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
 # ---------- a página de Natal ----------
 def pagina_natal(cfg, F, google, horas, dias, total, livres):
     n = cfg['natal']; h = n['hero']
-    capa = F.uri(h['foto'], 0, 0, fmt='jpeg', q=76, tam=(1500, 1000))
+    retrato = (cfg.get('estilo') or {}).get('natal_capa') == 'retrato'
+    capa = F.uri(h['foto'], 0, 0, fmt='jpeg', q=76, tam=(960, 1200) if retrato else (1500, 1000))
     q = quem(cfg)
     nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', n['galeria']['nome'], ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', 'O site ' + q['da'], 'site')]
     out = [head(cfg, F, n['titulo'], n['descricao'], n['comentario']), '<body class="pagina-natal">', SIMBOLOS, faixa_rz(cfg, 'natal'),
