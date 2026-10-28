@@ -68,7 +68,7 @@ pegar uma tarefa do quadro e trabalhar no seu pedaço.
 ## Parada 2 · Fundação: banco e casca ⬜
 
 **Para quê:** o esqueleto que todos os módulos usam. Depois dela, os módulos andam em paralelo.
-**Referência:** [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md) e os exemplos.
+**Referência:** [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md), [`09-ux.md`](09-ux.md) e os exemplos.
 
 - **O banco inteiro de uma vez:** todas as tabelas do `05`, com o cliente no centro, a RLS e os testes de
   isolamento (uma conta nunca vê a outra; "só vê" não edita; módulo desligado não aparece).
@@ -80,6 +80,8 @@ pegar uma tarefa do quadro e trabalhar no seu pedaço.
   quem?"** (escolher ou criar o cliente), usado em todos os módulos.
 - Equipe e acessos, Configurações do negócio e Serviços (pacotes ou ensaios, horários, bloqueios).
 - As palavras mudam pelo nicho (espaço/festa; estúdio/ensaio).
+- **Onboarding** (`09`): 5 telas rápidas no cadastro e os "Primeiros passos" no Início, com a importação das datas
+  já marcadas.
 
 **Chegou quando:** numa conta de teste, o dono convida uma pessoa e dá a ela só a Agenda (só vê); ela entra pelo
 celular, vê só a Agenda e não consegue editar; os testes de isolamento passam.
@@ -156,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | Pesquisa de UX: `09-ux.md` (princípios, melhorias em cada tela do exemplo, onboarding de 5 telas, peças comuns, velocidade, referências). Nova tarefa T2.8 (onboarding). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Supabase do Painel Renderiza numa conta nova, com produção e STG; o projeto de hoje fica só com o Painel de prospecção. Nomes fixados: Painel de prospecção, Painel Renderiza e Admin. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 3 respondida: admin, valores de proposta e como subir são operação da Renderiza; cada sessão aplica as próprias migrações com as regras do `08`; o piloto ainda não tem site (a ponte é provada num site de teste). Sem perguntas em aberto. Documentos juntados na `main`. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 2 respondida: endereço `painel.renderizaweb.com.br`; a Renderiza cria as contas com o próprio acesso; o site do piloto já existe e é independente; regras do teste de 7 dias. Rodada 3 aberta (4 perguntas e juntar os documentos na `main`). | Claude, a pedido da Renderiza |

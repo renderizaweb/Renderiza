@@ -42,7 +42,8 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
 | [`04-arquitetura.md`](04-arquitetura.md) | Como fica de pé: Supabase, Vercel, domínio, e-mail, API pública, estrutura do código e o passo a passo das contas | paradas 1, 2 e 4 |
 | [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md) | O cliente no centro: como tudo se amarra no banco e na tela; as tabelas; os acessos por módulo | paradas 2 a 5 |
 | [`06-privacidade-e-seguranca.md`](06-privacidade-e-seguranca.md) | LGPD, termos, backup, chaves e o que nunca fazer com dado de cliente | parada 5 (e sempre) |
-| [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md) | A rodada de perguntas da vez, o que já foi decidido e o que vale por padrão | antes de decidir qualquer coisa |
+| [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md) | O que já foi decidido e o que vale por padrão | antes de decidir qualquer coisa |
+| [`09-ux.md`](09-ux.md) | A experiência: princípios, o que melhorar em cada tela do exemplo, onboarding, peças comuns, velocidade e referências | antes de desenhar qualquer tela |
 
 ## Como continuar o projeto (pessoa ou IA)
 

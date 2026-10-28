@@ -30,9 +30,10 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 | T2.2 | Migração do negócio: clientes (com WhatsApp único), fichas, serviços, horários, campanhas, pedidos, reservas, valores, compromissos, parcelas, contratos, entregas, sites, pagamentos e entradas; situação calculada do cliente; RLS e testes | T2.1 | `supabase/migrations/*_negocio.sql`, `supabase/testes/negocio*` | livre | |
 | T2.3 | Semente: Villa Alecrim e Estúdio Ciranda no banco local e no STG (nunca na produção), a partir dos arquivos de `exemplos/` | T2.2 | `supabase/semente/` | livre | |
 | T2.4 | Casca: entrar, cadastro com 7 dias grátis (escolhe o nicho e os módulos; um prazo só, contado do início; teste vencido entra com os dados bloqueados e o aviso para assinar), primeiro acesso pelo convite, esqueci a senha, escolher a conta, menu com módulos ligados e trancados | T1.7, T2.1 | `src/sessao.js`, `src/telas/` | livre | |
-| T2.5 | Peças comuns dos exemplos (layout, gaveta, tabela, calendário, avisos, exportar CSV, **"Para quem?"**) e as palavras por nicho | T1.5 | `src/ui/`, `src/nichos/`, `estilo.css` | livre | |
+| T2.5 | Peças comuns, no padrão do [`09-ux.md`](09-ux.md): barra de baixo e menu lateral, "+" ações rápidas, **"Para quem?"**, detalhes, filtros, desfazer, WhatsApp num toque, estados (vazio, erro, carregando), formulários, paleta Ctrl+K, exportar CSV; e as palavras por nicho | T1.5 | `src/ui/`, `src/nichos/`, `estilo.css` | livre | |
 | T2.6 | Equipe e acessos: convidar, "só vê" ou "edita" por módulo, tirar acesso, limite de 5 | T2.4, T2.5 | `src/modulos/equipe/` | livre | |
 | T2.7 | Configurações do negócio e Serviços (pacotes ou ensaios, adicionais, horários, bloqueios, campanhas) | T2.2, T2.5 | `src/modulos/configuracoes/`, `src/modulos/servicos/` | livre | |
+| T2.8 | Onboarding do `09`: as 5 telas do cadastro (negócio, nome e WhatsApp, o que organizar primeiro, pergunta do nicho), "Primeiros passos" no Início e trazer as datas já marcadas (planilha ou digitar rápido) | T2.4, T2.7 | `src/telas/onboarding/`, `src/modulos/inicio/primeiros-passos.js` | livre | |
 
 ## Parada 3 · Módulos do dia a dia (em paralelo)
 
@@ -74,7 +75,7 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 | ID | Tarefa | Depende de | Mexe em | Situação | Sessão / branch |
 |---|---|---|---|---|---|
 | T6.1 | Montar a conta do piloto pelo admin: serviços, festas já marcadas, equipe | paradas 3 e 5 | dados no banco real (sem arquivo) | livre | |
-| T6.2 | Roteiro de teste de ponta a ponta (Playwright e no celular) e a rodada de correções | paradas 3, 4 e 5 | `test/fluxos/` | livre | |
+| T6.2 | Roteiro de teste de ponta a ponta (Playwright e no celular), o teste das 5 tarefas do `09` com 3 pessoas e a rodada de correções | paradas 3, 4 e 5 | `test/fluxos/` | livre | |
 | T6.3 | Acompanhar a primeira semana do piloto e registrar os ajustes | T6.1 | `docs/painel-clientes/` (diário) | livre | |
 
 ## Notas de passagem
@@ -109,6 +110,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Tarefa | Recado |
 |---|---|---|
+| 28/10/2026 | — | UX: [`09-ux.md`](09-ux.md) é a referência das telas junto com os exemplos (o que melhorar em cada tela, onboarding, peças comuns, velocidade). Nova tarefa T2.8 (onboarding). |
 | 28/10/2026 | — | Supabase: conta nova com `painel-renderiza-prod` e `painel-renderiza-stg`; migração sempre no STG antes da produção. O projeto de hoje é do Painel de prospecção e não se toca. |
 | 28/10/2026 | — | Documentos na `main`. Cada sessão aplica as próprias migrações no banco real, com as regras do `08`; juntar e subir para a `main` é com a Renderiza. O piloto ainda não tem site: a T4.6 prova a ponte num site de teste. |
 | 28/10/2026 | — | Rodada 2 respondida: T1.1 a T1.4 são da Renderiza (contas e DNS); endereço `painel.renderizaweb.com.br`. |
