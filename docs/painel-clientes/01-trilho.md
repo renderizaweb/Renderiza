@@ -1,9 +1,9 @@
 # O trilho do Painel Renderiza
 
 O projeto é um trem: sai da partida (o que já existe), passa por **6 paradas** e chega ao destino. Cada parada é um
-grupo de tarefas com um **"chegou quando"**: só se sai dela quando o "chegou quando" é verdade. Não tem cronograma por
-dia: o trem anda conforme as paradas fecham. As tarefas de cada parada estão no [quadro de tarefas](tarefas.md), e
-as regras para várias sessões trabalharem (em paralelo ou continuando a mesma tarefa), em
+**missão** com um **"chegou quando"**: só se sai dela quando o "chegou quando" é verdade. Não tem cronograma por
+dia: o trem anda conforme as missões fecham. O que cada missão entrega está em [`missoes.md`](missoes.md), e as
+regras para várias sessões trabalharem (em paralelo ou continuando a mesma missão), em
 [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
 
 **Destino:** o piloto (um espaço de eventos) usando o Painel Renderiza no dia a dia, com **todos os módulos** num
@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 1 · Organização e infraestrutura |
-| **Próxima ação** | A Renderiza cria o Supabase, a Vercel e o e-mail (T1.2 a T1.4) e aponta `painel.renderizaweb.com.br` (T1.1); as sessões começam T1.5 e T1.6 |
+| **Próxima ação** | Missão 1: a Renderiza cria o e-mail, o Supabase (produção e STG), as variáveis `PAINEL_*`, o serviço de e-mail e a Vercel; uma sessão cria o esqueleto da pasta |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 28/10/2026 |
 
@@ -33,8 +33,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
   prontos.
 - **6** junta tudo no piloto.
 - **Onde mora o risco do prazo:** o que depende de vocês (criar contas, apontar o domínio) e o Meu site (mexe nos
-  geradores de site). Por isso essas tarefas começam cedo.
-- **Legenda:** ✅ feita · 🚂 o trem está aqui · ⬜ não começou. Situação de cada tarefa: no [quadro](tarefas.md).
+  geradores de site). Por isso essas partes começam cedo.
+- **Legenda:** ✅ feita · 🚂 o trem está aqui · ⬜ não começou. Situação de cada missão: em [`missoes.md`](missoes.md).
 
 ---
 
@@ -59,11 +59,11 @@ trabalharem sem se bater.
 - Esqueleto da pasta `painel-clientes/`: casca vazia, rotas e **todos os módulos já registrados** (vazios), para
   ninguém precisar mexer em arquivo comum depois.
 - Banco local para testes e a rotina das migrações (como criar, testar e quem aplica no banco real).
-- Regras do trabalho em paralelo e quadro de tarefas prontos (feito em 28/10/2026).
+- Regras do trabalho em várias sessões e as missões prontas (feito em 28/10/2026).
 - Tela de login mínima no ar.
 
-**Chegou quando:** o login funciona no endereço escolhido, o e-mail de confirmação chega, e qualquer sessão consegue
-pegar uma tarefa do quadro e trabalhar no seu pedaço.
+**Chegou quando:** o login funciona no endereço escolhido, o e-mail de confirmação chega, e uma migração de teste
+passou pelo STG e pela produção.
 
 ## Parada 2 · Fundação: banco e casca ⬜
 
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | O trabalho passou de tarefas para 6 missões, uma por parada (`missoes.md`), com o texto pronto para abrir cada sessão. Acesso das sessões ao Supabase novo pelas variáveis `PAINEL_*` do ambiente. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Pesquisa de UX: `09-ux.md` (princípios, melhorias em cada tela do exemplo, onboarding de 5 telas, peças comuns, velocidade, referências). Nova tarefa T2.8 (onboarding). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Supabase do Painel Renderiza numa conta nova, com produção e STG; o projeto de hoje fica só com o Painel de prospecção. Nomes fixados: Painel de prospecção, Painel Renderiza e Admin. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 3 respondida: admin, valores de proposta e como subir são operação da Renderiza; cada sessão aplica as próprias migrações com as regras do `08`; o piloto ainda não tem site (a ponte é provada num site de teste). Sem perguntas em aberto. Documentos juntados na `main`. | Claude, a pedido da Renderiza |

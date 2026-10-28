@@ -3,8 +3,8 @@
 O que **já foi decidido** (com data e fonte) e o que segue **por padrão** até alguém vetar.
 
 **Perguntas em aberto: nenhuma.** Não abrir pergunta sobre o que é operação da Renderiza (quem entra no admin, valores
-de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma tarefa: escreva no aviso do
-[quadro](tarefas.md) e pergunte à Renderiza; a resposta vira linha aqui.
+de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma missão: deixe um aviso em
+[`missoes.md`](missoes.md) e pergunte à Renderiza; a resposta vira linha aqui.
 
 ## Decididas
 
@@ -26,13 +26,15 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma t
 | 28/10/2026 | **Admin** da Renderiza: contas e quem acessa, pagamentos (simples), indicadores gerais (sem dado de cliente final), ligar e desligar módulos. | rodada 1 |
 | 28/10/2026 | **Cadastro sozinho com 7 dias grátis**; a Renderiza aprova à mão, com ou sem prazo; não pagou, a Renderiza desliga à mão (sem regra automática de dias). Contas também podem ser criadas pela Renderiza. | rodada 1 |
 | 28/10/2026 | **Trilho por paradas** (6), sem cronograma por dia. | rodada 1 |
-| 28/10/2026 | **Várias sessões de IA ao mesmo tempo**, com quadro de tarefas no repositório e regras para não se baterem (`08`, `tarefas.md`). | rodada 1 |
+| 28/10/2026 | **Várias sessões de IA ao mesmo tempo**, com as missões no repositório e regras para não se baterem (`08`, `missoes.md`). | rodada 1 |
 | 28/10/2026 | Endereço do painel: **`painel.renderizaweb.com.br`** (o `renderiza.com.br` é de outra pessoa). | rodada 2 |
 | 28/10/2026 | A Renderiza cria as contas de infraestrutura (Supabase, Vercel, e-mail) com o próprio acesso de administrador. Contas de clientes nascem pelo Admin (ou pelo cadastro), cada uma com a sua conta (tenant) no banco. | rodada 2 |
 | 28/10/2026 | **O site do cliente é dele e independente.** A demo é a versão inicial que a Renderiza faz para a prospecção (`demos/`); o site fechado vai para um Git e uma Vercel novos, com os acessos do cliente, separado da Renderiza. A ligação com o painel (agenda online, Meu site) entra quando o cliente quiser. | rodadas 2 e 3 |
 | 28/10/2026 | **O piloto ainda não tem site** (vai ser feito). O painel não depende disso: a ponte com o site é testada num site de teste gerado de uma demo. | rodada 3 |
 | 28/10/2026 | **Administradores:** quantos a Renderiza quiser, cadastrados por ela (tabela `equipe_renderiza`). Não é assunto do projeto. | rodada 3 |
 | 28/10/2026 | **Valor da versão final do Meu site:** combinado na proposta de cada cliente, fora do painel. O painel só precisa gerar a versão final. | rodada 3 |
+| 28/10/2026 | **Missões, não tarefas:** 6 missões, uma por parada (`missoes.md`); as missões 3, 4 e 5 podem ser divididas em blocos para rodar em mais de uma sessão. | pedido de 28/10/2026 |
+| 28/10/2026 | **Acesso das sessões:** mesmo repositório; o Supabase novo entra pelas variáveis `PAINEL_*` do ambiente do Claude (o conector do Supabase fica numa conta só). | pedido de 28/10/2026 |
 | 28/10/2026 | **Nomes:** o painel que a Renderiza usa para prospectar é o **Painel de prospecção**; o produto para clientes é o **Painel Renderiza**; a área da Renderiza dentro dele é o **Admin**. | pedido de 28/10/2026 |
 | 28/10/2026 | **Supabase:** o projeto de hoje (`gxdwluswpczlfgvzxqvg`) continua só do Painel de prospecção. O Painel Renderiza ganha uma **conta nova** (e-mail próprio) com dois projetos: `painel-renderiza-prod` e `painel-renderiza-stg`. Migração sempre no STG antes da produção. | pedido de 28/10/2026 |
 | 28/10/2026 | **Sessões e banco:** uma pessoa (da Renderiza) toca o projeto com várias sessões do Claude, em tarefas paralelas ou continuando a mesma tarefa em outra sessão. Cada sessão tem acesso direto ao Supabase e aplica as próprias migrações, com cuidado (`08`). Juntar e subir para a `main` é com a Renderiza. | rodada 3 |
@@ -50,7 +52,7 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma t
 | D6 | Meu site por **consulta ao painel** a cada visita (com cache), sem republicar o site | mantém o fallback e a regra da versão final (`03`) |
 | D7 | No Meu site, **texto entra como texto** (só a marcação `*destaque*`) | ninguém quebra o site nem injeta código |
 | D8 | **Valores só no Financeiro e em Contratos**; a ficha completa só no módulo Clientes | o banco esconde o que a pessoa não pode ver |
-| D9 | Código em **`painel-clientes/` neste repositório**, cada tarefa na sua branch; a Renderiza junta e sobe | documentos, exemplos e geradores juntos |
+| D9 | Código em **`painel-clientes/` neste repositório**, cada missão na sua branch; a Renderiza junta e sobe | documentos, exemplos e geradores juntos |
 | D10 | Os **exemplos são a especificação** das telas | já foram aprovados e estão na página de venda |
 | D11 | **Backup semanal** automático enquanto não houver backup no plano | o gratuito do Supabase não tem |
 | D12 | Termos de uso e política: **a IA rascunha**, alguém que entende de LGPD revisa | antes do primeiro cliente pagante |

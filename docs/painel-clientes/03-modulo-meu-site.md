@@ -129,7 +129,7 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
 - **Publicar:** vira a versão no ar em até 1 minuto. Cada publicação fica no histórico, com quem publicou.
 - **Histórico:** voltar para qualquer versão publicada, ou **voltar para a versão inicial**.
 - Acesso como os outros módulos: "só vê" olha e faz prévia; "edita" pode publicar (ou: só o dono publica; decidir
-  na tarefa T4.4).
+  na Missão 4).
 
 ## Situações do site
 

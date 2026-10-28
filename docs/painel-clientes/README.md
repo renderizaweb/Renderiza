@@ -9,11 +9,11 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 > **Parada 1 de 6 · Organização e infraestrutura.** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
-> começar a usar por volta de 11/11/2026. A Renderiza cria as contas (Supabase, Vercel, e-mail); as sessões começam
-> pelas tarefas T1.5 e T1.6. Detalhes e diário de bordo: [`01-trilho.md`](01-trilho.md); quem está fazendo o quê:
-> [`tarefas.md`](tarefas.md).
+> começar a usar por volta de 11/11/2026. **Missão 1 em andamento:** a Renderiza cria as contas e os acessos
+> (Supabase, Vercel, e-mail); uma sessão já pode criar o esqueleto da pasta. Detalhes e diário de bordo:
+> [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 
-(Quem fechar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
+(Quem fechar uma missão atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
 
 ## Não confundir os dois painéis
 
@@ -22,7 +22,7 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 | Quem usa | Kaue e Milena | os clientes da Renderiza e as equipes deles |
 | Para quê | prospecção: leads, demos, ritmo, atividade | o dia a dia do negócio do cliente: agenda, clientes, contratos, financeiro, atendimento e o site |
 | Endereço | `renderizaweb.com.br/painel` | `painel.renderizaweb.com.br` |
-| Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na tarefa T1.5) |
+| Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na Missão 1) |
 | Banco | Supabase `gxdwluswpczlfgvzxqvg` (conta atual) | conta nova do Supabase com dois projetos: `painel-renderiza-prod` (produção) e `painel-renderiza-stg` (STG) |
 | Vitrine | — | `/exemplos` (eventos, Villa Alecrim) e `/exemplos/fotografia` (Estúdio Ciranda), com dados fictícios |
 
@@ -35,7 +35,7 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
 | Arquivo | O que tem | Quando ler |
 |---|---|---|
 | [`01-trilho.md`](01-trilho.md) | O trilho: as 6 paradas até o piloto, o que cada uma entrega, onde o trem está e o diário de bordo | sempre, primeiro |
-| [`tarefas.md`](tarefas.md) | O quadro de tarefas: cada tarefa, do que depende, o que pode alterar e quem está fazendo | antes de começar qualquer trabalho |
+| [`missoes.md`](missoes.md) | As 6 missões (uma por parada): o que cada uma entrega, os blocos, quem está fazendo, as notas de passagem e o texto para colar ao abrir uma sessão | antes de começar qualquer trabalho |
 | [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md) | As regras para várias sessões de IA trabalharem ao mesmo tempo sem se bater | antes de começar qualquer trabalho |
 | [`02-produto.md`](02-produto.md) | O que vendemos: para quem, preço, como a conta nasce e vive, módulos, Admin, promessas que a página já fez | antes de mexer em qualquer tela |
 | [`03-modulo-meu-site.md`](03-modulo-meu-site.md) | O módulo novo: editar o site pelo painel, com a versão inicial sempre de pé | parada 4 |
@@ -51,9 +51,10 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
    aqui também: [`CONTEXTO.md`](../../CONTEXTO.md) e [`docs/como-trabalhamos.md`](../como-trabalhamos.md)
    (português, direto e curto; **não inventar nada**; nunca pedir senha ou chave pelo chat).
 2. Leia [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md): o projeto anda em várias sessões, em paralelo ou
-   continuando a mesma tarefa. Pegue só a tarefa que a Renderiza indicou, marque-a no [quadro](tarefas.md), mantenha
-   a nota de passagem em dia e mexa só no que a tarefa permite. Migração no banco real: só com as regras do `08`.
-3. Ao entregar: branch com push, quadro em `pronta para subir`, uma linha no **diário de bordo** do trilho (data, o
+   continuando a mesma missão. Pegue só a missão (e o bloco) que a Renderiza indicou, marque-a em
+   [`missoes.md`](missoes.md), mantenha a nota de passagem em dia e mexa só no que ela permite. Migração no banco: só
+   com as regras do `08`.
+3. Ao entregar: branch com push, `pronta para subir` em `missoes.md`, uma linha no **diário de bordo** do trilho (data, o
    que foi feito, quem fez) e, se a parada fechou, "Onde o trem está" atualizado aqui e no trilho. Juntar na `main` é
    com a Renderiza.
 4. Decidiu algo novo (ou o Kaue e a Milena decidiram)? Registre no `07` com data e fonte.

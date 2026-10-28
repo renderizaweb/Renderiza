@@ -48,7 +48,7 @@ painel-clientes/
     adaptadores/supabase.js  supabase-js por CDN, versão fixa (como painel/src/adaptadores/supabase.js)
     telas/                   entrar, cadastro, convite, escolher a conta, exportar
     nichos/eventos.js  nichos/fotografia.js
-    modulos/index.js         o registro de todos os módulos (nasce completo na T1.5)
+    modulos/index.js         o registro de todos os módulos (nasce completo na Missão 1)
     modulos/inicio/  clientes/  agenda/  atendimento/  financeiro/  contratos/  meu-site/
             equipe/  configuracoes/  servicos/
     admin/                   Admin (só a equipe Renderiza): contas/ pessoas/ pagamentos/ indicadores/
@@ -68,7 +68,7 @@ painel-clientes/
   vídeos) atrapalhar.
 - Os exemplos são arquivos únicos de ~90 KB; no painel real eles viram módulos. O visual (CSS) e as funções de
   desenho das telas são reaproveitados.
-- Cada tarefa do painel anda na sua branch; juntar e subir para a `main` é com a Renderiza (as demos continuam com o
+- Cada missão do painel anda na sua branch; juntar e subir para a `main` é com a Renderiza (as demos continuam com o
   fluxo de sempre). Várias sessões trabalham ao mesmo tempo: regras em
   [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
 
@@ -126,22 +126,26 @@ Quem faz é a Renderiza, com o próprio acesso de administrador (decidido em 28/
 senha. Os nomes dos menus podem mudar; na dúvida, a sessão da
 vez guia na tela.
 
-1. **Supabase** (T1.2): com o e-mail novo do Painel Renderiza, criar a conta e os dois projetos,
+1. **Supabase** (Missão 1): com o e-mail novo do Painel Renderiza, criar a conta e os dois projetos,
    `painel-renderiza-prod` e `painel-renderiza-stg` (região South America · São Paulo; senhas dos bancos num
    gerenciador de senhas). Em cada um, em *Authentication*: ligar a confirmação de e-mail e cadastrar o endereço do
    painel como *Site URL* e nos endereços de retorno (na produção, `painel.renderizaweb.com.br`; no STG, os endereços
    de prévia da Vercel). Copiar a URL e a chave **pública** (`sb_publishable_…`) de cada um para a Vercel. As chaves
    secretas não saem do Supabase.
-2. **Vercel** (T1.3): *Add New → Project*, importar o repositório `renderizaweb/Renderiza`, *Root Directory* =
+2. **Vercel** (Missão 1): *Add New → Project*, importar o repositório `renderizaweb/Renderiza`, *Root Directory* =
    `painel-clientes`, framework *Other*. Em *Environment Variables*: `SUPABASE_URL` e `SUPABASE_ANON_KEY` duas vezes,
    com os valores da **produção** marcados para *Production* e os do **STG** marcados para *Preview*. Assim o
    endereço oficial usa a produção e toda prévia de branch usa o STG. Em *Domains*: `painel.renderizaweb.com.br`; a
    Vercel mostra o registro de DNS para criar.
-3. **DNS** (T1.1): no Registro.br (ou onde o domínio estiver), criar o registro que a Vercel pediu e os do e-mail.
-4. **E-mail** (T1.4): criar a conta no serviço de e-mail, adicionar o domínio, criar no DNS os registros que ele
+3. **DNS** (Missão 1): no Registro.br (ou onde o domínio estiver), criar o registro que a Vercel pediu e os do e-mail.
+4. **E-mail** (Missão 1): criar a conta no serviço de e-mail, adicionar o domínio, criar no DNS os registros que ele
    mostrar (SPF, DKIM, DMARC) e colocar os dados de SMTP no Supabase (*Authentication → SMTP*).
-5. **Acesso das sessões:** o que uma sessão de IA precisar (ex.: aplicar migração) vai por variável de ambiente ou
-   pelo conector do Supabase, nunca pelo chat.
+5. **Acesso das sessões ao Supabase novo:** nas configurações do ambiente do Claude (menu do ambiente na barra de
+   título da sessão → Editar), criar `PAINEL_SUPABASE_ACCESS_TOKEN` (token de acesso da conta nova, *Account → Access
+   Tokens*), `PAINEL_STG_SUPABASE_URL`, `PAINEL_STG_SUPABASE_ANON_KEY`, `PAINEL_PROD_SUPABASE_URL` e
+   `PAINEL_PROD_SUPABASE_ANON_KEY`. Uma sessão nova já enxerga. As variáveis de hoje (`SUPABASE_URL`,
+   `SUPABASE_ANON_KEY`) continuam sendo do Painel de prospecção. O conector do Supabase entra numa conta só; por isso,
+   para a conta nova, as variáveis. Nunca colar chave ou senha no chat.
 
 ## Endereço e domínio
 

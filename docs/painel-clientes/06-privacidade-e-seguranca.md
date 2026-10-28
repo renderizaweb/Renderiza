@@ -26,7 +26,7 @@ antes do primeiro cliente pagante (padrão: eu rascunho, alguém revisa).
 
 Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copiadas inteiras, fotos de ensaio.
 
-## Documentos que precisam existir (parada 5, tarefa T5.5)
+## Documentos que precisam existir (parada 5, Missão 5)
 
 - **Termos de uso do Painel Renderiza:** o que é o serviço, preço e mensalidade, sem fidelidade, atraso (aviso, só
   leitura, desconexão), cancelamento, exportação dos dados, prazo de guarda e apagamento, o papel da Renderiza como
@@ -60,9 +60,9 @@ Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copi
 
 - O plano gratuito do Supabase **não faz backup**. Até subir para o Pro (que guarda 7 dias de backup diário):
   cópia automática **semanal** do banco (GitHub Actions com `pg_dump`), **cifrada**, guardada num lugar privado
-  fora do Supabase e fora do repositório (onde: decidir na tarefa T5.6).
+  fora do Supabase e fora do repositório (onde: decidir na Missão 5).
 - As imagens do Storage entram na mesma rotina (ou têm cópia própria).
-- **Backup que nunca foi restaurado não conta:** restaurar num banco de teste na tarefa T5.6 e a cada 3 meses.
+- **Backup que nunca foi restaurado não conta:** restaurar num banco de teste na Missão 5 e a cada 3 meses.
 
 ## Se algo der errado (incidente)
 

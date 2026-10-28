@@ -177,4 +177,4 @@ de cliente final, a não ser o contrato para quem tem o código dele.
 ## De onde vêm os dados de teste
 
 `exemplos/dados-villa-alecrim.js` e `exemplos/dados-estudio-ciranda.js` já têm equipe, tipos, pacotes, adicionais,
-situações e um mês de movimento. Eles viram a **semente** das contas de teste no banco local (tarefa T2.3).
+situações e um mês de movimento. Eles viram a **semente** das contas de teste no banco local (Missão 2).
