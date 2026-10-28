@@ -654,7 +654,7 @@ window.RZ = {
   if (location.protocol !== "file:") {
     const base = location.pathname.replace(/\/(index|natal)(\.html)?$/, "").replace(/\/$/, "");
     const q = location.search.replace(/([?&])video=1&?/, "$1").replace(/[?&]$/, "");
-    $$("[data-pagina]").forEach(e => { const [pag, hash] = e.getAttribute("href").split("#"); e.href = base + (e.dataset.pagina === "natal" ? "/natal" : "") + q + (hash ? "#" + hash : ""); });
+    $$("a[data-pagina]").forEach(e => { const [pag, hash] = e.getAttribute("href").split("#"); e.href = base + (e.dataset.pagina === "natal" ? "/natal" : "") + q + (hash ? "#" + hash : ""); });
   }
 
   // ---------- topo ----------

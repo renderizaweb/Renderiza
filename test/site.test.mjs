@@ -445,6 +445,8 @@ test("demos com mais de uma página (fotógrafas): os links entre elas são abso
       const html = readFileSync(arq, "utf8");
       assert.doesNotMatch(html, /href="(index|natal)\.html/, `${pasta}/${f}: link relativo entre as páginas da demo`);
       assert.match(html, new RegExp(`href="/demo/${pasta}/natal`), `${pasta}/${f}: sem o link absoluto para a página de Natal`);
+      // no ar, o build põe <script data-pagina="demo"> (contador): o script da página só pode mexer nos links
+      assert.doesNotMatch(html, /\$\$\("\[data-pagina\]"\)/, `${pasta}/${f}: [data-pagina] pega também o script do contador`);
     }
   }
 });
