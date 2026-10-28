@@ -1,0 +1,643 @@
+{
+ "pasta": "marilia-rovaris-fotografia",
+ "marca": "Estúdio Marília Rovaris Fotografia",
+ "marca_completa": "Estúdio Marília Rovaris Fotografia",
+ "titulo_nome": "Marília Rovaris",
+ "titulo_script": "fotografia",
+ "dona": "Marília",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5491449,-46.5411658",
+  "fid": "0x94ce5f6cede464b7:0x601aff7d74fe7ab7",
+  "gid": "/g/11hfpqbzy2"
+ },
+ "google_nome": "Estudio Marília Rovaris fotografia - Ensaio Gestante e Newborn",
+ "endereco_maps": "R. Lutécia, 581 - Vila Carrão, São Paulo - SP, 03423-000",
+ "google_nota": "5,0",
+ "google_total": "66",
+ "verificado": "2026-10-28",
+ "whatsapp": "5511987009792",
+ "fone_link": "+5511987009792",
+ "instagram": "mariliarovarisfotografia",
+ "seguidores": "12,4 mil",
+ "mensagem": "Olá, Marília! Vi o seu site e queria saber mais sobre os ensaios.",
+ "slogan": "Registramos os melhores momentos da sua vida.",
+ "cores": {
+  "fundo": "#fbf7f6",
+  "papel": "#fffdfd",
+  "areia": "#f5ebe9",
+  "linha": "#eadbd8",
+  "tinta": "#322729",
+  "tinta2": "#6c5a5d",
+  "rosa": "#d29aa3",
+  "acento": "#a5566a",
+  "acento_escuro": "#86435a",
+  "cafe": "#2e2023"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 14h",
+   "2026-11-07 15h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 16h",
+   "2026-11-21 9h",
+   "2026-11-21 10h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 14h",
+   "2026-11-28 15h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 15h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 14h",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Marília define os dela",
+  "mensagem": "Olá, Marília! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Marília",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Marília, do Estúdio Marília Rovaris Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Marília, do Estúdio Marília Rovaris Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "site": {
+  "titulo": "Estúdio Marília Rovaris Fotografia | Gestante, newborn e família na Vila Carrão, São Paulo",
+  "descricao": "Estúdio Marília Rovaris Fotografia, na Vila Carrão, em São Paulo: ensaios de gestante, newborn, bebês, família e 15 anos. Mais de 24 anos registrando histórias. Nota 5,0 no Google.",
+  "comentario": "Demo Estúdio Marília Rovaris Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram dela (@mariliarovarisfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia na Vila Carrão · São Paulo",
+   "frase": "Registramos os melhores momentos da sua vida.",
+   "intro": "Gestante, newborn, bebês e família no estúdio da Marília, na Vila Carrão, em São Paulo.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "15 anos",
+    "Família"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469968959_18152661934338876_4299837381777097279_n.jpg",
+     "f": "p",
+     "alt": "Gestante de rosa entre os arcos de flores",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/464213404_18147626776338876_4525772478670661620_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido dormindo de touca de aviador",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DehfKZPiX5e__DehfKZPiX5e_01.jpg",
+     "f": "p",
+     "alt": "Gestante sentada com o filho e o marido no estúdio",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada história, <em>com carinho.</em>",
+   "p": "Ensaios feitos no estúdio da Marília. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/463824631_18147094123338876_7754361845302388342_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio de gestante entre as flores rosas",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/466989926_18149830126338876_150698466593245804_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco na poltrona de vime",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467634273_18150690157338876_9087396163831248637_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido vermelho sentada no tapete",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/464176877_18147737896338876_5643258461799752971_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco com chapéu, de pé no estúdio",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/466786393_18149830051338876_7385562952579653848_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado entre os arcos de flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/468409209_18151104307338876_4664402410581639154_n.jpg",
+      "f": "p",
+      "alt": "Gestante de tule azul sentada na poltrona de vime",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469972143_18152661787338876_5439476510984406394_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul-marinho entre os arcos de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/464666481_18148178434338876_7433019492317508854_n.jpg",
+      "f": "p",
+      "alt": "Gestante segurando os sapatinhos do bebê",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467807845_18150593227338876_5745982009171371360_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco em frente à janela",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/470080083_18152662357338876_589090162377856230_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda verde sentada na poltrona",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/466923087_18150071917338876_3862191536948126868_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto, ele segurando os sapatinhos",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DdmPBlgmoLt__DdmPBlgmoLt_00.jpg",
+      "f": "p",
+      "alt": "Gestante de azul-claro sentada na poltrona de vime",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/464213404_18147626776338876_4525772478670661620_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo de touca de aviador",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DcTtbPukRii__DcTtbPukRii_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de vestido de renda rosa no pelego",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DdRWt62ke2P__DdRWt62ke2P_00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo no sofazinho do cenário",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469957816_18152662273338876_3194869220666875304_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de touca de crochê, com as mãos no rosto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DcTtbPukRii__DcTtbPukRii_02.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no arco com flores rosas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/463955269_18147530842338876_8369853455928706486_n.jpg",
+      "f": "p",
+      "alt": "Bebê de bruços olhando para a câmera, no cenário rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DdRWt62ke2P__DdRWt62ke2P_03.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo no sofazinho, de macacão verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DcTtbPukRii__DcTtbPukRii_01.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo no pelego, de laço rosa",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Casal e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DehfKZPiX5e__DehfKZPiX5e_02.jpg",
+      "f": "p",
+      "alt": "Família com o filho pequeno no ensaio de gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467307496_18150095041338876_939777782586926980_n.jpg",
+      "f": "p",
+      "alt": "Casal com os dois huskies no fundo marrom",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DdmPBlgmoLt__DdmPBlgmoLt_01.jpg",
+      "f": "p",
+      "alt": "Casal de frente um para o outro, ela de azul-claro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/468970492_18151927132338876_2487324303946489495_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no fundo marrom",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/464761576_18148287883338876_8421999752320159593_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto, ele ajeitando o casaco nos ombros dela",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467400822_18150072379338876_1294391014942220180_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado, ele com as mãos na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DejuEe2EQ0i__DejuEe2EQ0i_02.jpg",
+      "f": "p",
+      "alt": "Ele beijando a testa dela no ensaio de gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467742241_18150595225338876_3062122049707142654_n.jpg",
+      "f": "p",
+      "alt": "Casal sentado no tapete do estúdio",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/721466444_18209711005338876_3126521750402192874_n.jpg",
+    "f": "p",
+    "alt": "Marília Rovaris com a câmera no estúdio",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "p": [
+    "A Marília fotografa há mais de 24 anos. No estúdio da Vila Carrão, ela faz ensaios de gestante, newborn, bebês, família e 15 anos, com cabelo e maquiagem no próprio estúdio."
+   ],
+   "citacao": "Cada gestação carrega uma história única, um amor infinito e a bênção de Deus em cada detalhe.",
+   "citacao_quem": "Marília Rovaris, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as clientes contam que ela conduz o ensaio inteiro: ajuda com as poses, o olhar, o cabelo e a luz, e deixa todo mundo à vontade."
+   ],
+   "numeros": [
+    [
+     "+24",
+     "anos registrando histórias"
+    ],
+    [
+     "5,0",
+     "66 avaliações no Google"
+    ],
+    [
+     "12,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da gestação <em>aos 15 anos.</em>",
+   "p": "Os ensaios que a Marília faz no estúdio:",
+   "fonte": "Bio, destaques e legendas da Marília no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Cada gestação, uma história",
+     "p": "Figurinos de tule e renda, flores e cenários claros. Já fez ensaio até no hospital Santa Joana."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Os primeiros dias de vida do bebê, com carinho, delicadeza e segurança."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê registrados no estúdio, até o primeiro aninho."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O aniversário",
+     "p": "Temas para comemorar: jardim encantado, futebol, Poderoso Chefinho e o que a família pedir."
+    },
+    {
+     "nome": "15 anos",
+     "sub": "Debutante",
+     "p": "Ensaio de 15 anos com cabelo e maquiagem no estúdio."
+    },
+    {
+     "nome": "Casal e família",
+     "sub": "Todo mundo junto",
+     "p": "Casais, irmãos e até os cachorros da família."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal <em>da sua família.</em>",
+   "p": "Escolha um horário para o ensaio de Natal no estúdio e a mensagem chega pronta no WhatsApp da Marília.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469952425_18152662369338876_2554966609403925454_n.jpg",
+    "f": "p",
+    "alt": "Gestante de vestido vermelho deitada no sofá branco"
+   },
+   "legenda": "No estúdio, na Vila Carrão"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rodrigo Freitas",
+    "tag": "Ensaio no estúdio",
+    "trecho": "Trabalho simplesmente SENSACIONAL! A Marilia é prática, experiente, sabe todas as poses que ficam legais, educada, paciente."
+   },
+   {
+    "nome": "Carolina Keiko",
+    "tag": "Gestante",
+    "trecho": "Nem fiquei nervosa ou perdida pra fazer as fotos rsrs, a Marília vai conduzindo tudo perfeitamente te auxiliando nas poses."
+   },
+   {
+    "nome": "Juliana Araujo Martins",
+    "tag": "15 anos",
+    "trecho": "Pessoa e profissional maravilhosa! Ela fez o ensaio de 15 anos da minha filha e foi perfeito, fotos lindíssima e ficamos super realizadas."
+   },
+   {
+    "nome": "Alice Oliveira",
+    "tag": "Smash the cake",
+    "trecho": "A Marília é uma profissional incrível, já realizei dois ensaios com ela, do meu filho."
+   },
+   {
+    "nome": "Thassia Martins",
+    "tag": "Atendimento",
+    "trecho": "Recebemos todo carinho e atenção desde de o primeiro contato , ambiente agradável e descontraído , deixando as fotos ainda mais espontâneas e naturais !"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Carrão, em São Paulo.",
+   "telefone": "(11) 98700-9792",
+   "endereco": [
+    "Rua Lutécia, 581",
+    "Vila Carrão",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Marília Rovaris Fotografia",
+  "descricao": "Natal 2026 no Estúdio Marília Rovaris Fotografia, na Vila Carrão, em São Paulo: ensaio de Natal no estúdio para bebês e famílias. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Marília Rovaris Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo; fotos do estúdio (as de Natal 2026 entram quando ela mandar). Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Natal <em>no estúdio.</em>",
+   "citacao": "Registramos os melhores momentos da sua vida!",
+   "citacao_quem": "Marília Rovaris, na bio do Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/467634273_18150690157338876_9087396163831248637_n.jpg",
+    "f": "p",
+    "alt": "Gestante de vestido vermelho sentada no tapete branco do estúdio",
+    "c": [
+     0.5,
+     0.12
+    ]
+   },
+   "legenda": "No estúdio, na Vila Carrão"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um Natal <em>para guardar.</em>",
+   "p": "A Marília já faz ensaio de Natal no estúdio: o de 2024 está nos destaques do Instagram dela, com a árvore prateada. Aqui ficam os horários do Natal de 2026, para as famílias reservarem.",
+   "itens": [
+    "No estúdio, na Vila Carrão.",
+    "Para bebês, gestantes, irmãos e a família toda.",
+    "Cabelo e maquiagem no estúdio, se quiser.",
+    "Valores e detalhes pelo WhatsApp da Marília."
+   ],
+   "legenda_fotos": "Natal 2024 e o estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/504828377_1020221000273353_7906774584308665541_n.jpg",
+    "f": "p",
+    "alt": "Mãe e bebê ao lado da árvore de Natal prateada, no Natal de 2024",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469952425_18152662369338876_2554966609403925454_n.jpg",
+    "f": "p",
+    "alt": "Gestante de vestido vermelho deitada no sofá branco",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/466762550_18149830468338876_299226577862950463_n.jpg",
+    "f": "p",
+    "alt": "Menino comemorando com o bolo de futebol",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Marília abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, no horário do estúdio. A Marília define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Marília abre com o dia e a hora escritos."
+    ],
+    [
+     "A Marília confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "No estúdio",
+   "h2": "Os pequenos <em>do estúdio.</em>",
+   "nome": "No estúdio",
+   "p": "Bebês e crianças fotografados pela Marília.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/466835447_18149830240338876_8620570234325680264_n.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido azul sentada no pelego",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469948360_18152662015338876_4632733934480678367_n.jpg",
+     "f": "p",
+     "alt": "Bebê de camisa branca sorrindo de bruços",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/drive/469991791_18152662159338876_8523233693621861233_n.jpg",
+     "f": "p",
+     "alt": "Bebê sentado no bercinho branco",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/marilia-rovaris-fotografia/postsall/DehfKZPiX5e__DehfKZPiX5e_00.jpg",
+     "f": "p",
+     "alt": "Menino apoiado na barriga da mãe gestante",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thassia Martins",
+    "tag": "Atendimento",
+    "trecho": "Recebemos todo carinho e atenção desde de o primeiro contato , ambiente agradável e descontraído , deixando as fotos ainda mais espontâneas e naturais !"
+   },
+   {
+    "nome": "Rodrigo Freitas",
+    "tag": "Ensaio no estúdio",
+    "trecho": "Trabalho simplesmente SENSACIONAL! A Marilia é prática, experiente, sabe todas as poses que ficam legais, educada, paciente."
+   },
+   {
+    "nome": "Alice Oliveira",
+    "tag": "Smash the cake",
+    "trecho": "A Marília é uma profissional incrível, já realizei dois ensaios com ela, do meu filho."
+   },
+   {
+    "nome": "Carolina Keiko",
+    "tag": "Gestante",
+    "trecho": "Nem fiquei nervosa ou perdida pra fazer as fotos rsrs, a Marília vai conduzindo tudo perfeitamente te auxiliando nas poses."
+   },
+   {
+    "nome": "Juliana Araujo Martins",
+    "tag": "15 anos",
+    "trecho": "Pessoa e profissional maravilhosa! Ela fez o ensaio de 15 anos da minha filha e foi perfeito, fotos lindíssima e ficamos super realizadas."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Marília no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98700-9792); a bio do Instagram usa um link curto do WhatsApp (wa.me/message)",
+  "site": "não tem: o Google aponta beacons.ai/mariliarovarisfotografia (link na bio); 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/marilia-rovaris-fotografia` e `/demo/marilia-rovaris-fotografia/natal`",
+  "direcao": [
+   "Portfólio romântico, com o rosa das flores dos cenários dela; a cor de destaque é um rosa antigo.",
+   "Sem logo público: o topo e o rodapé usam um monograma MR e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Registramos os melhores momentos da sua vida”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Gestante, Newborn e bebês, Casal e família), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: o ensaio, a agenda de exemplo (sábados) e fotos do estúdio; a única foto de Natal é o quadro do Natal 2024 (Reels).",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2024) e os posts de agosto a outubro de 2026 (newborn, gestante, smash).",
+   "Fora de propósito: bebês sem roupa na banheira, quadros de Reels com tarja ou texto e o smash com o nome escrito por cima.",
+   "A foto de quem fotografa é a do perfil dela, no estúdio."
+  ],
+  "textos": [
+   "Bio: “Registramos os melhores momentos da sua vida”, Gestante | Newborn | Família, “+24 anos registrando histórias”, Vila Carrão.",
+   "Legendas dela: “Cada gestação carrega uma história única…” (15/10/2026), o newborn “com muito carinho, delicadeza e segurança” e o ensaio no hospital Santa Joana.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Não há Natal 2026 visível: pedir as fotos do Natal 2024 (destaque) ou do cenário deste ano.",
+   "Os horários de Natal são exemplo (sábados, no horário do estúdio).",
+   "Ela pode ter equipe (24 anos, 3,6 mil posts, maquiadora citada nas avaliações): o texto fala da Marília e do estúdio."
+  ]
+ }
+}
