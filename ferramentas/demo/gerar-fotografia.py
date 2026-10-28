@@ -701,12 +701,15 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     prova = (f'<a class="prova" href="#depoimentos"><span class="estrelas" aria-hidden="true">★★★★★</span>'
              + (f'<b>{esc(cfg["google_nota"])}</b>' if nota else '') + f'<span>{esc(cfg["google_total"])} avaliações no Google</span></a>')
     rot = h.get('rotulos', ['Gestação', 'Newborn', 'Primeiros passos'])
+    # nome com palavra longa (DIAMANTINO) não cabe na coluna no tamanho padrão: o título diminui na proporção
+    maior = max(len(w) for w in q['nome'].split())
+    tam_h1 = f' style="font-size:calc(clamp(2.5rem,6.4vw,5.6rem)*{min(1, 7.5 / maior):.3f})"' if maior > 8 else ''
     out.append(f'''<section class="abertura" aria-labelledby="titulo-site">
   <div class="container abertura-grid">
     <div class="abertura-texto">
       <div class="abertura-topo">
         <p class="eyebrow">{esc(h["eyebrow"])}</p>
-        <h1 id="titulo-site">{esc(q["nome"])} <span class="script">{esc(q["script"])}</span></h1>
+        <h1 id="titulo-site"{tam_h1}>{esc(q["nome"])} <span class="script">{esc(q["script"])}</span></h1>
         <p class="frase">{esc(h["frase"])}</p>
       </div>
       <div class="abertura-baixo">

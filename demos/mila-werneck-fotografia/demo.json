@@ -1,0 +1,672 @@
+{
+ "pasta": "mila-werneck-fotografia",
+ "marca": "Studio Mila Werneck",
+ "marca_completa": "Studio Mila Werneck",
+ "titulo_nome": "Mila Werneck",
+ "titulo_script": "studio",
+ "dona": "Mila",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.505023,-46.8105817",
+  "fid": "0x94ce677fdd035c39:0x532630f0dbbf19a",
+  "gid": "/g/11f724c34_"
+ },
+ "google_nome": "Studio Mila Werneck",
+ "endereco_maps": "R. Petrolina, 305 - Jardim Mutinga, Barueri - SP, 06463-200",
+ "google_nota": "5,0",
+ "google_total": "63",
+ "verificado": "2026-10-28",
+ "whatsapp": "5511959350068",
+ "fone_link": "+5511959350068",
+ "instagram": "milawerneckstudio",
+ "seguidores": "3,5 mil",
+ "mensagem": "Olá, Mila! Vi o seu site e queria saber mais sobre os ensaios.",
+ "slogan": "Conto a sua história através da fotografia.",
+ "cores": {
+  "fundo": "#faf8fa",
+  "papel": "#fffefe",
+  "areia": "#f1edf2",
+  "linha": "#e4dde6",
+  "tinta": "#2d2a31",
+  "tinta2": "#615b66",
+  "rosa": "#b8a6c4",
+  "acento": "#7b6a8f",
+  "acento_escuro": "#62527a",
+  "cafe": "#2a2430"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-07 10h30",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 15h30",
+   "2026-11-21 10h30",
+   "2026-11-21 14h",
+   "2026-11-28 9h",
+   "2026-11-28 10h30",
+   "2026-11-28 14h",
+   "2026-12-05 9h",
+   "2026-12-05 14h",
+   "2026-12-05 15h30",
+   "2026-12-12 9h",
+   "2026-12-12 10h30"
+  ],
+  "exemplo": "Horários de exemplo: a Mila define os dela",
+  "mensagem": "Olá, Mila! Quero o horário de {data} ({semana}) às {hora} para o Especial de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Mila",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Mila, do Studio Mila Werneck. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Mila, do Studio Mila Werneck. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "site": {
+  "titulo": "Studio Mila Werneck | Newborn, bebês e família em Barueri",
+  "descricao": "Studio Mila Werneck, no Jardim Mutinga, em Barueri: ensaios de newborn, acompanhamento do bebê, gestante, família e smash the cake. Fotografia leve e delicada. Nota 5,0 no Google.",
+  "comentario": "Demo Studio Mila Werneck (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram dela (@milawerneckstudio) e do Perfil da Empresa no Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Barueri",
+   "frase": "Conto a sua história através da fotografia.",
+   "intro": "Newborn, acompanhamento do bebê, gestante e família no estúdio da Mila, no Jardim Mutinga, em Barueri.",
+   "rotulos": [
+    "Família",
+    "Acompanhamento",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Acompanhamento do bebê",
+    "Gestante",
+    "Família",
+    "Smash the cake",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487838330_1105213658285028_332803001026151492_n.jpg",
+     "f": "p",
+     "alt": "Pais e irmãos abraçados com o recém-nascido no colo da mãe",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487793251_1106192938187100_2026638378052955851_n.jpg",
+     "f": "l",
+     "alt": "Bebê sorrindo deitada no tapete de pelo, com tiara",
+     "c": [
+      0.45,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/gfotos/g00.jpg",
+     "f": "l",
+     "alt": "Recém-nascido de touca de ursinho, com as mãos no rosto",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Leve, romântica <em>e com delicadeza.</em>",
+   "p": "Ensaios feitos no estúdio da Mila. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/gfotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca de ursinho, com as mãos no rosto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/474009806_18477820732029589_8688232527346864199_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida sorrindo dormindo, com tiara de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/466736083_18465174328029589_4221844074746165833_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida num cestinho em forma de coração, com flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487168667_1105925771547150_2573921202760636605_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no centro de uma moldura de pregadores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487240232_1105213514951709_3132086182456801013_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo num cestinho de palha com manta azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/486905924_1106604924812568_9008879447799240015_n.jpg",
+      "f": "p",
+      "alt": "Detalhe do olhinho fechado do recém-nascido",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487307701_1105658464907214_3333181953773790551_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo na caminha com pelego",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487336973_1105925798213814_9008204386118561711_n.jpg",
+      "f": "l",
+      "alt": "Mãos dos pais envolvendo a recém-nascida",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487363989_1106605341479193_7689041091110213730_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida enrolada, dormindo com tiara",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487823677_1105213648285029_3816567754963612989_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida num vaso de crochê com flores",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Acompanhamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487793251_1106192938187100_2026638378052955851_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo deitada no tapete de pelo, com tiara",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487407318_1105678471571880_2572572394072978078_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentada entre os ursos de pelúcia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/488000632_1106765761463151_8566817177258663597_n.jpg",
+      "f": "l",
+      "alt": "Bebê de olhos arregalados segurando a grade da caminha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487516874_1107528348053559_7242823328658198752_n.jpg",
+      "f": "l",
+      "alt": "Menina de suéter apoiada numa cadeirinha de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487826568_1106192898187104_1843916294707758023_n.jpg",
+      "f": "l",
+      "alt": "Bebê de roupa vermelha deitado no pelego",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487377080_1105658708240523_1184381806058520587_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo deitado no tapete de crochê",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/488507772_1108669657939428_3206005095427195618_n.jpg",
+      "f": "l",
+      "alt": "Bebê de tiara azul engatinhando no pelego",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487783600_1107528054720255_5407754712019058190_n.jpg",
+      "f": "l",
+      "alt": "Bebê de vermelho com o telefone de brinquedo",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/486609911_1105658674907193_7043955082387306112_n.jpg",
+      "f": "p",
+      "alt": "Casal testa com testa no ensaio de gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/466062492_18465079915029589_1942661351453990384_n.jpg",
+      "f": "l",
+      "alt": "Casal deitado no chão, ela segurando os sapatinhos do bebê",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487050986_1106192708187123_781009167661613890_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado, ele com a mão na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487194645_1105073244965736_4110248070404382865_n.jpg",
+      "f": "l",
+      "alt": "Pais com o recém-nascido no colo, de branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487408766_1106192928187101_7298996282129727836_n.jpg",
+      "f": "p",
+      "alt": "Ele beijando a testa dela no ensaio de gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487216844_1106765754796485_7876639557483373531_n.jpg",
+      "f": "l",
+      "alt": "Casal soprando confetes azuis na revelação",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487604766_1105658884907172_4793039869717201238_n.jpg",
+      "f": "l",
+      "alt": "Pais abraçando a recém-nascida",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/474113360_18477817738029589_6532359225143557299_n.jpg",
+      "f": "l",
+      "alt": "Pais e filho com o cachorro no cenário de tijolinhos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487449500_1105678341571893_5597233409373517776_n.jpg",
+      "f": "l",
+      "alt": "Casal mostrando a foto do ultrassom",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487838330_1105213658285028_332803001026151492_n.jpg",
+      "f": "p",
+      "alt": "Pais e irmãos abraçados com o recém-nascido",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e aniversário",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/gfotos/g01.jpg",
+      "f": "l",
+      "alt": "Menina de vestido lilás sorrindo no cavalinho de balanço",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487077689_1106765768129817_4817043288306519221_n.jpg",
+      "f": "l",
+      "alt": "Bebê com o bolo no cenário de balões dourados",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487099442_1105213548285039_5849872303684112856_n.jpg",
+      "f": "p",
+      "alt": "Menino de 7 anos com o balão de número 7",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487304565_1106605068145887_5327644754125248991_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo no cenário de 1 ano com balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/474036185_18477805846029589_4190753458990993302_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filho sentados com as letras do aniversário de 2 anos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487699213_1105658701573857_495280390425384294_n.jpg",
+      "f": "l",
+      "alt": "Irmãs deitadas no chão, rindo",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/476793678_3877020209227846_5490995126296774382_n.jpg",
+    "f": "p",
+    "alt": "Mila Werneck segurando a câmera, sorrindo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Camila, a Mila, fotografa famílias no estúdio dela, no Jardim Mutinga, em Barueri. A especialidade é o começo da vida: o newborn, os meses do bebê no acompanhamento e o primeiro aninho."
+   ],
+   "citacao": "É uma honra poder registrar e trabalhar com algo tão puro.",
+   "citacao_quem": "Mila Werneck, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da paciência dela com os bebês, do jeito de posicionar e acalmar cada um, e do estúdio acolhedor. Em 2026, ela também fotografa newborn em casa e ensaios ao ar livre."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "63 avaliações no Google"
+    ],
+    [
+     "1.443",
+     "publicações no Instagram"
+    ],
+    [
+     "3,5 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da descoberta <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios que a Mila faz:",
+   "fonte": "Os ensaios que a Mila mostra no Instagram e nos destaques (Gestante, Newborn, Acompanhamento, Smash the cake).",
+   "passos": [
+    {
+     "nome": "Revelação e gestante",
+     "sub": "A espera",
+     "p": "Do ultrassom à barriga grande: o casal, os irmãos e até o cachorro."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "No estúdio ou em casa, com cuidado e no tempo do bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê registrados um a um: o 3º, o 6º, o 9º mês."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O aniversário",
+     "p": "Bolo e cenário para comemorar. E não é só para 1 ano: a partir dos 2, tem velinha e parabéns."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo mundo junto",
+     "p": "Pais, irmãos e avós, no estúdio ou ao ar livre."
+    },
+    {
+     "nome": "Especial de Natal",
+     "sub": "Todo fim de ano",
+     "p": "Um tema novo a cada Natal: em 2024, foi “Desejo de Natal”."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Todo ano, <em>um Especial de Natal.</em>",
+   "p": "A Mila monta o Especial de Natal no estúdio todo fim de ano. Escolha um horário e a mensagem chega pronta no WhatsApp dela.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/488269573_1106765791463148_8451925420995760535_n.jpg",
+    "f": "l",
+    "alt": "Bebê de touca no cestinho, entre os ursinhos de pelúcia"
+   },
+   "legenda": "No estúdio, em Barueri"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Alice Belizario Personal Chef",
+    "tag": "Newborn",
+    "trecho": "Foi incrível ver como ela sabia exatamente como posicionar, acalmar e confortar a bebê."
+   },
+   {
+    "nome": "Viviane nascimento",
+    "tag": "Ensaio da neta",
+    "trecho": "Minha experiência foi excelente, A Mila é uma profissional dedicada atenciosa, tem muita habilidade com as crianças. Consegue deixar a criança bem tranquila para sessão de fotos."
+   },
+   {
+    "nome": "Joninhas Oliveira",
+    "tag": "Newborn",
+    "trecho": "Fizemos o ensaio new born da nossa filha com a Mila e nós amamos."
+   },
+   {
+    "nome": "Dra Pâmela Vasconcelos Araújo",
+    "tag": "Primeiro aninho",
+    "trecho": "Vocês capturaram cada sorriso, cada detalhe e cada emoção, transformando esses instantes em memórias eternas."
+   },
+   {
+    "nome": "Jamily Victoria",
+    "tag": "Ensaio",
+    "trecho": "Eu super recomendo, foram muitos atenciosos, eu amei cada foto e com toda certeza irei querer fazer de novo"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Mutinga, em Barueri.",
+   "telefone": "(11) 95935-0068",
+   "endereco": [
+    "Rua Petrolina, 305",
+    "Jardim Mutinga",
+    "Barueri · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Especial de Natal 2026 | Studio Mila Werneck",
+  "descricao": "Especial de Natal 2026 no Studio Mila Werneck, em Barueri: ensaio de Natal no estúdio para bebês e famílias. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Studio Mila Werneck: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo; as fotos são do estúdio (as de Natal entram quando ela mandar). Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Especial de Natal 2026",
+   "h1": "O Natal <em>no estúdio.</em>",
+   "citacao": "É uma honra poder registrar e trabalhar com algo tão puro.",
+   "citacao_quem": "Mila Werneck, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487824423_1106766004796460_5495590266448365109_n.jpg",
+    "f": "l",
+    "alt": "Bebê engatinhando entre os ursos de pelúcia, no estúdio"
+   },
+   "legenda": "No estúdio, em Barueri"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Todo ano, <em>um tema novo.</em>",
+   "p": "Todo fim de ano a Mila monta o Especial de Natal no estúdio: em 2024, o tema foi “Desejo de Natal”, e o de 2025 está nos destaques do Instagram dela. Aqui ficam os horários do Especial de 2026, para as famílias reservarem.",
+   "itens": [
+    "No estúdio, no Jardim Mutinga, em Barueri.",
+    "Para bebês, irmãos e a família toda.",
+    "Os horários abrem aqui, com o contador de vagas.",
+    "Valores e detalhes pelo WhatsApp da Mila."
+   ],
+   "legenda_fotos": "Cenários e bastidores do estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487828120_1106765954796465_3469608639656274260_n.jpg",
+    "f": "l",
+    "alt": "Bebê de touca na caminha de madeira, com o urso de pelúcia",
+    "pos": "50% 40%",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/gfotos/g03.jpg",
+    "f": "l",
+    "alt": "A Mila fotografando a recém-nascida no bercinho de flores"
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/488076645_1107528318053562_3404301021003190930_n.jpg",
+    "f": "l",
+    "alt": "Bebê sorrindo dentro da lua de pelego, entre as plantas"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Mila abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, sessões de 1 hora e meia. A Mila define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Mila abre com o dia e a hora escritos."
+    ],
+    [
+     "A Mila confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "No estúdio",
+   "h2": "Os pequenos <em>que passaram por aqui.</em>",
+   "nome": "No estúdio",
+   "p": "Bebês e crianças fotografados no estúdio da Mila.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487223819_1106765804796480_5053216895354331891_n.jpg",
+     "f": "l",
+     "alt": "Bebê de tiara entre os ursos de pelúcia",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487404234_1105925931547134_4187095353419116802_n.jpg",
+     "f": "l",
+     "alt": "Bebê de touca de pelúcia deitado no pelego",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487798481_1105658694907191_5564779021497390918_n.jpg",
+     "f": "l",
+     "alt": "Bebê engatinhando no tapete, entre plantas",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/487876326_1107528078053586_6490952239720831277_n.jpg",
+     "f": "l",
+     "alt": "Recém-nascida num cesto com lavanda",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/mila-werneck-fotografia/drive/488082706_1107527934720267_1121254688099343788_n.jpg",
+     "f": "l",
+     "alt": "Pezinhos do bebê sobre o pelego",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Viviane nascimento",
+    "tag": "Ensaio da neta",
+    "trecho": "Minha experiência foi excelente, A Mila é uma profissional dedicada atenciosa, tem muita habilidade com as crianças. Consegue deixar a criança bem tranquila para sessão de fotos."
+   },
+   {
+    "nome": "Alice Belizario Personal Chef",
+    "tag": "Newborn",
+    "trecho": "Foi incrível ver como ela sabia exatamente como posicionar, acalmar e confortar a bebê."
+   },
+   {
+    "nome": "Dra Pâmela Vasconcelos Araújo",
+    "tag": "Primeiro aninho",
+    "trecho": "Vocês capturaram cada sorriso, cada detalhe e cada emoção, transformando esses instantes em memórias eternas."
+   },
+   {
+    "nome": "Joninhas Oliveira",
+    "tag": "Newborn",
+    "trecho": "Fizemos o ensaio new born da nossa filha com a Mila e nós amamos."
+   },
+   {
+    "nome": "Jamily Victoria",
+    "tag": "Ensaio",
+    "trecho": "Eu super recomendo, foram muitos atenciosos, eu amei cada foto e com toda certeza irei querer fazer de novo"
+   }
+  ],
+  "final": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Mila no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95935-0068)",
+  "site": "fora do ar: milawerneckstudio.alboompro.com é um site Alboom congelado (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/mila-werneck-fotografia` e `/demo/mila-werneck-fotografia/natal`",
+  "direcao": [
+   "Portfólio leve e delicado, como ela descreve o trabalho na bio; a cor de destaque é um lilás acinzentado.",
+   "Sem logo em boa resolução: o topo e o rodapé usam um monograma MW e “Mila Werneck studio” em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Conto a sua história através da fotografia”)."
+  ],
+  "demo": [
+   "Site: portfólio em 4 abas (Newborn, Acompanhamento, Gestante e família, Smash e aniversário), quem fotografa, os ensaios, avaliações do Google, o bloco do Especial de Natal e o contato com mapa.",
+   "Página do Especial de Natal 2026: o ensaio, a agenda de exemplo (sábados) e fotos do estúdio.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela (pasta do Drive do lote 1: posts de set. a nov. de 2024) e do Perfil da Empresa no Google (o newborn de touca, o smash de lilás e dois bastidores).",
+   "Não há foto de Natal em boa resolução: o Especial de Natal 2024 só está em Reels (360 px) e o de 2025 nos destaques. A página de Natal usa fotos do estúdio e diz isso.",
+   "A foto de quem fotografa é a dela com a câmera."
+  ],
+  "textos": [
+   "Bio: “Conto a sua história através da Fotografia”, “Fotografia leve, romântica e com delicadeza”.",
+   "Legendas dela: “É uma honra poder registrar e trabalhar com algo tão puro”, o smash para maiores de 1 ano (com velinha e parabéns), o Especial de Natal 2024 “Desejo de Natal” e o newborn a domicílio de 2026.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Pedir as fotos do Natal 2025 (destaque “NATAL 2025”) ou de 2026 para a página de Natal.",
+   "Em 2026 os posts são de newborn em casa e ensaios ao ar livre: confirmar se o estúdio do Jardim Mutinga continua.",
+   "Ela tem um segundo perfil (@milawerneckfotografia).",
+   "Os horários de Natal são exemplo."
+  ]
+ }
+}
