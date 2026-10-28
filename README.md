@@ -272,3 +272,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Studio Camila Linhares (fotógrafa)](demos/camila-linhares-fotografia) | Santo Amaro, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 2ª) |
 | [Susana Heller Fotografia (fotógrafa)](demos/susana-heller-fotografia) | Planalto Paulista, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 3ª) |
 | [Studio Mila Werneck (fotógrafa)](demos/mila-werneck-fotografia) | Jardim Mutinga, Barueri | site + página do Especial de Natal (`/natal`, com fotos do estúdio) | pronta · 28/10/2026 (fotógrafos lote 1 · 4ª) |
+| [Fotografia Pri Diamantino (fotógrafa)](demos/pri-diamantino-fotografia) | Pirituba, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 5ª) |

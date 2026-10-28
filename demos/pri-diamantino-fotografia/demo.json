@@ -1,0 +1,622 @@
+{
+ "pasta": "pri-diamantino-fotografia",
+ "marca": "Fotografia Pri Diamantino",
+ "marca_completa": "Fotografia Pri Diamantino",
+ "titulo_nome": "Pri Diamantino",
+ "titulo_script": "fotografia",
+ "dona": "Pri",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4849181,-46.7162693",
+  "fid": "0x94cef988e3a457f9:0x7f81362266133476",
+  "gid": "/g/11zglyy9m5"
+ },
+ "google_nome": "Fotografia Pri Diamantino",
+ "endereco_maps": "Av. Cabo Adão Pereira, 289 - Vila Pereira Barreto, São Paulo - SP, 02936-010",
+ "google_nota": "5,0",
+ "google_total": "15",
+ "verificado": "2026-10-28",
+ "whatsapp": "5511959588229",
+ "fone_link": "+5511959588229",
+ "instagram": "fotografiapridiamantino",
+ "seguidores": "1,6 mil",
+ "mensagem": "Olá, Pri! Vi o seu site e queria saber mais sobre os ensaios.",
+ "slogan": "Ensaio seguro, confortável e delicado.",
+ "cores": {
+  "fundo": "#f8f4ef",
+  "papel": "#fffdf9",
+  "areia": "#efe6dc",
+  "linha": "#e2d6c8",
+  "tinta": "#2f2620",
+  "tinta2": "#66574b",
+  "rosa": "#c9a27e",
+  "acento": "#8a6440",
+  "acento_escuro": "#6f4f31",
+  "cafe": "#2b211a"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "10h",
+   "11h",
+   "13h",
+   "14h",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 13h",
+   "2026-11-07 14h",
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-21 10h",
+   "2026-11-21 11h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 13h",
+   "2026-11-28 14h",
+   "2026-11-28 15h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 13h",
+   "2026-12-05 14h",
+   "2026-12-12 10h",
+   "2026-12-12 11h",
+   "2026-12-12 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Pri define os dela",
+  "mensagem": "Olá, Pri! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Pri",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Pri, da Fotografia Pri Diamantino. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Pri, da Fotografia Pri Diamantino. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "site": {
+  "titulo": "Fotografia Pri Diamantino | Newborn, gestante e bebês em Pirituba, São Paulo",
+  "descricao": "Fotografia Pri Diamantino, estúdio em Pirituba, São Paulo: especialista em recém-nascidos, com ensaios de gestante, acompanhamento do bebê e Natal. Nota 5,0 no Google.",
+  "comentario": "Demo Fotografia Pri Diamantino (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram dela (@fotografiapridiamantino) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Pirituba · São Paulo",
+   "frase": "Ensaio seguro, confortável e delicado.",
+   "intro": "Especialista em recém-nascidos, com ensaios de gestante, bebês e família no estúdio da Pri, em Pirituba.",
+   "rotulos": [
+    "Newborn",
+    "Bebês",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Gestante",
+    "Acompanhamento do bebê",
+    "Família",
+    "Natal",
+    "Calendário personalizado"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/De98ucSHRMx__De98ucSHRMx_01.jpg",
+     "f": "p",
+     "alt": "Recém-nascido de touca de ursinho verde, com um coelhinho de pelúcia",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/655029491_18220142350313978_3654992501166018054_n.jpg",
+     "f": "p",
+     "alt": "Bebê sorrindo de faixa verde no cabelo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653576928_18110390053784340_5237242555999567471_n.jpg",
+     "f": "p",
+     "alt": "Casal sentado no chão, ela segurando os sapatinhos do bebê",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada detalhe, <em>com delicadeza.</em>",
+   "p": "Ensaios feitos pela Pri. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/De98ucSHRMx__De98ucSHRMx_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascido enrolado em verde, de touca de ursinho, no pelego",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653404325_18111956833738850_6691498959020715130_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo de lado na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/500064330_1335590724190705_5671813188099431017_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida num cestinho, enrolada em mostarda",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/622059176_18093367891957259_3262157309275084305_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de crochê, dormindo de bruços",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653487420_18096358219988091_385371183347300380_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido num cesto de palha com touca de crochê",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/651285729_18056899202697938_7916799466789429770_n.jpg",
+      "f": "p",
+      "alt": "Mãe beijando o recém-nascido no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/656628550_18348425500210255_4191792319985569082_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara abraçada a um ursinho no pelego rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/De98ucSHRMx__De98ucSHRMx_01.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho, sorrindo dormindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/DerTNZioHBM__DerTNZioHBM_02.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca azul numa baciinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/631785953_18435731851119704_8024245573276109942_n.jpg",
+      "f": "p",
+      "alt": "Pais segurando a recém-nascida enrolada em mostarda",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/650751088_18082329089589225_6003678505516237705_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo de vestido branco e laço no cabelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653463410_18102825079723686_1860168393949582404_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses sentado ao lado do número 6 feito de frutas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/655706949_18098864078313956_3166111675997616091_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentada num banquinho, de faixa verde no cabelo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653628584_18091787768153123_4419168546336096718_n.jpg",
+      "f": "l",
+      "alt": "Bebê deitada na almofada com flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/655029491_18220142350313978_3654992501166018054_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo de faixa verde no cabelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/656247401_18177123625383600_7040266525829373906_n.jpg",
+      "f": "l",
+      "alt": "Bebê rindo com a mão na boca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/615581157_17958464252899121_7758918040322094639_n.jpg",
+      "f": "p",
+      "alt": "Mãe sentada com o bebê num cesto de palha",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653576928_18110390053784340_5237242555999567471_n.jpg",
+      "f": "p",
+      "alt": "Casal sentado no chão, ela segurando os sapatinhos do bebê",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/655628879_18074996102441452_1949039372986966680_n.jpg",
+      "f": "p",
+      "alt": "Casal se beijando, as mãos na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/652876043_18095710576996352_8777230195400726658_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada no campo, de vestido branco e chapéu",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/642947571_17999480675884489_3990202400990019131_n.jpg",
+      "f": "p",
+      "alt": "Gestante de perfil na janela com cortina de renda",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/669878103_18593050702014508_138014099214946538_n.jpg",
+      "f": "p",
+      "alt": "Casal no campo, ele com a mão na barriga",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653535071_18073573007562436_4288083825681656328_n.jpg",
+      "f": "p",
+      "alt": "Casal no quarto, refletido no espelho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/653892456_18147897112462821_7614805418823082324_n.jpg",
+      "f": "p",
+      "alt": "Gestante de pé no campo com o lago ao fundo",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/657729736_18096691013315344_3005728041613808770_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na cama, em preto e branco",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/drive/652761540_18037858037565149_6154508566685586604_n.jpg",
+    "f": "p",
+    "alt": "Pri Diamantino de chapéu, com a câmera na mão",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "p": [
+    "A Priscilla, a Pri, é especialista em recém-nascidos e tem estúdio em Pirituba, na zona norte de São Paulo. Fotografa gestantes, newborns, o acompanhamento dos bebês e famílias, com o cuidado que está na bio dela: ensaio seguro, confortável e delicado."
+   ],
+   "citacao": "Já falei aqui o quanto eu sou apaixonada por cada bebê que eu registro?",
+   "citacao_quem": "Pri Diamantino, no Instagram",
+   "p2": [
+    "Tem família que faz todas as fotos com ela há sete anos, como conta um cliente no Google. E as fotos do ensaio também podem virar um calendário personalizado, feito para cada família."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "15 avaliações no Google"
+    ],
+    [
+     "1,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "cenários de Natal em 2026"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro ano.</em>",
+   "p": "Os ensaios que a Pri faz:",
+   "fonte": "Bio e legendas da Pri no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "No estúdio ou no campo",
+     "p": "Do anúncio do ultrassom ao barrigão, no estúdio ou ao ar livre."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "A especialidade",
+     "p": "Os primeiros dias do bebê, com segurança, conforto e no tempo dele."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Trimestral",
+     "p": "O 3º, o 6º e o 9º mês: cada fase, uma nova descoberta."
+    },
+    {
+     "nome": "Família",
+     "sub": "Há anos com a mesma família",
+     "p": "Tem família que faz todas as fotos com ela há sete anos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Dois cenários em 2026",
+     "p": "O laço vermelho e a árvore de flores brancas."
+    },
+    {
+     "nome": "Calendário",
+     "sub": "Feito para cada cliente",
+     "p": "As fotos do ensaio viram um calendário de design delicado."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Ao redor <em>da árvore.</em>",
+   "p": "Os ensaios de Natal 2026 já estão acontecendo, com dois cenários. Escolha um horário e a mensagem chega pronta no WhatsApp da Pri.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Dexft-inddd__Dexft-inddd_02.jpg",
+    "f": "p",
+    "alt": "Menina sorrindo em frente à árvore de flores brancas, entre os presentes"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Mario Pereira da silva",
+    "tag": "Família",
+    "trecho": "Sete anos que fazemos todas as nossas fotos com está profissional incrível, todos os momentos que nos marcaram foram registrado pelo olhar da Priscila"
+   },
+   {
+    "nome": "Camila Dantas",
+    "tag": "Ensaio",
+    "trecho": "Excelente profissional! Além de muito talentosa, é atenciosa, paciente e faz tudo com muito carinho."
+   },
+   {
+    "nome": "Israel Medeiros",
+    "tag": "Ensaio",
+    "trecho": "Seu trabalho é incrível. Não é só tirar fotos, é conseguir transformar momentos em lembranças cheias de emoção."
+   },
+   {
+    "nome": "Rebeca Brito Alves",
+    "tag": "Atendimento",
+    "trecho": "Desde o primeiro contato, transmite confiança, carinho e muito profissionalismo."
+   },
+   {
+    "nome": "Juliana Abdoullah",
+    "tag": "Ensaio pessoal",
+    "trecho": "Fiz um ensaio pessoal com ela e super animada, colocou música pra me deixar a vontade e me fez rir o bastante, resultado: fotos incríveis e mega profissionais!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica em Pirituba, na zona norte de São Paulo.",
+   "telefone": "(11) 95958-8229",
+   "endereco": [
+    "Av. Cabo Adão Pereira, 289",
+    "Vila Pereira Barreto · Pirituba",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Fotografia Pri Diamantino",
+  "descricao": "Natal 2026 na Fotografia Pri Diamantino, em Pirituba, São Paulo: ensaio de Natal no estúdio, com dois cenários. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Fotografia Pri Diamantino: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Ao redor <em>da árvore.</em>",
+   "citacao": "Porque, no fim, o que torna o Natal mágico não são os presentes embaixo da árvore, mas as pessoas que se reúnem ao redor dela.",
+   "citacao_quem": "Pri Diamantino, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Dexft-inddd__Dexft-inddd_01.jpg",
+    "f": "p",
+    "alt": "Pais com a filha de braços para cima no escorregador, ao lado da árvore de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários <em>em 2026.</em>",
+   "p": "Os ensaios de Natal 2026 já estão acontecendo no estúdio, com dois cenários: o laço vermelho, com a cortina de veludo, e a árvore de flores brancas, com os presentes e o escorregador das crianças.",
+   "itens": [
+    "No estúdio, em Pirituba.",
+    "Dois cenários: o laço vermelho e a árvore branca.",
+    "Para a família toda, do bebê aos avós.",
+    "Valores e detalhes pelo WhatsApp da Pri."
+   ],
+   "legenda_fotos": "Os cenários de Natal de 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/DemYRi1Dioo__DemYRi1Dioo_01.jpg",
+    "f": "p",
+    "alt": "Casal se beijando com a bebê no colo, no cenário do laço vermelho",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Dexft-inddd__Dexft-inddd_03.jpg",
+    "f": "p",
+    "alt": "Menina deitada no tapete em frente à árvore de flores brancas",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Desf715jP_w__Desf715jP_w_00.jpg",
+    "f": "p",
+    "alt": "Menina sentada no cenário do laço vermelho",
+    "c": [
+     0.5,
+     0.7
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Pri abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, das 10h às 16h, como o estúdio abre aos sábados. A Pri define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Pri abre com o dia e a hora escritos."
+    ],
+    [
+     "A Pri confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Os primeiros ensaios <em>do ano.</em>",
+   "nome": "Natal 2026",
+   "p": "Famílias que já fizeram o ensaio de Natal nos cenários deste ano.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/DemYRi1Dioo__DemYRi1Dioo_00.jpg",
+     "f": "p",
+     "alt": "Pais com a bebê no colo no cenário do laço vermelho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Dexft-inddd__Dexft-inddd_00.jpg",
+     "f": "p",
+     "alt": "Pais brincando com a filha no escorregador perto da árvore",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Desf715jP_w__Desf715jP_w_02.jpg",
+     "f": "p",
+     "alt": "Menina rindo entre os presentes, em frente à árvore",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/pri-diamantino-fotografia/postsall/Desf715jP_w__Desf715jP_w_01.jpg",
+     "f": "p",
+     "alt": "Menina sentada entre os presentes, sorrindo",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Mario Pereira da silva",
+    "tag": "Família",
+    "trecho": "Sete anos que fazemos todas as nossas fotos com está profissional incrível, todos os momentos que nos marcaram foram registrado pelo olhar da Priscila"
+   },
+   {
+    "nome": "Israel Medeiros",
+    "tag": "Ensaio",
+    "trecho": "Seu trabalho é incrível. Não é só tirar fotos, é conseguir transformar momentos em lembranças cheias de emoção."
+   },
+   {
+    "nome": "Camila Dantas",
+    "tag": "Ensaio",
+    "trecho": "Excelente profissional! Além de muito talentosa, é atenciosa, paciente e faz tudo com muito carinho."
+   },
+   {
+    "nome": "Rebeca Brito Alves",
+    "tag": "Atendimento",
+    "trecho": "Desde o primeiro contato, transmite confiança, carinho e muito profissionalismo."
+   },
+   {
+    "nome": "Juliana Abdoullah",
+    "tag": "Ensaio pessoal",
+    "trecho": "Fiz um ensaio pessoal com ela e super animada, colocou música pra me deixar a vontade e me fez rir o bastante, resultado: fotos incríveis e mega profissionais!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Pri no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95958-8229); a bio do Instagram leva ao WhatsApp por um link curto (wa.link)",
+  "site": "não tem: sem link no Google; 20 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/pri-diamantino-fotografia` e `/demo/pri-diamantino-fotografia/natal`",
+  "direcao": [
+   "Portfólio quente, em tons de terra (o 🤎 que ela usa nas legendas); a cor de destaque é um marrom caramelo.",
+   "Sem logo público: o topo e o rodapé usam um monograma PD e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Ensaio seguro, confortável e delicado”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Newborn, Bebês, Gestante), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: os dois cenários (o laço vermelho e a árvore de flores brancas), a agenda de exemplo (sábados, das 10h às 16h, como o estúdio abre) e os primeiros ensaios do ano.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023) e os posts de outubro de 2026 (Natal 2026 e newborns).",
+   "A foto de quem fotografa é a dela de chapéu e câmera, de um ensaio feito por @julia.juarez.val (ela agradece no post).",
+   "Fora de propósito: quadro de Reels com texto por cima e o recém-nascido sem roupa de bruços (nº 11 da folha)."
+  ],
+  "textos": [
+   "Bio: especialista em recém-nascidos, estúdio em Pirituba, “Ensaio seguro, confortável e delicado”.",
+   "Legendas dela: o Natal 2026 com 2 cenários (17/10), “o que torna o Natal mágico… as pessoas que se reúnem ao redor dela” (21/10), o calendário feito para uma cliente (23/10).",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "O endereço do Google é na Vila Pereira Barreto; a bio diz Pirituba (é a mesma região).",
+   "Os horários de Natal são exemplo (sábados, 10h às 16h, o horário do estúdio no Google).",
+   "A foto dela é de outra fotógrafa (@julia.juarez.val): perguntar se pode usar."
+  ]
+ }
+}
