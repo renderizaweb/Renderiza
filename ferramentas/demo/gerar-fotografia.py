@@ -430,6 +430,7 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 #   fontes {serif|sans|script: [família, eixos do Google Fonts]}, script_escala (número), titulo "natural",
 #   topo "centro", abertura "arco"|"polaroid"|"faixa"|"bolhas"|"capsulas"|"filme", fotos "suave"|"arco", galeria "quadrado",
 #   abas "sublinhado"|"script", botoes "reto"|"suave", eyebrow "ponto"|"losango", jornada "cartoes",
+#   tema "escuro" (fundo escuro: as cores do demo.json invertem; isto corrige os tons fixos do CSS base),
 #   agenda "bilhete" (os dias da agenda de Natal como passagens), natal_capa "retrato" (foto do topo da
 #   página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
 PILHAS = {'serif': 'Georgia,serif', 'sans': 'system-ui,-apple-system,"Segoe UI",sans-serif', 'script': '"Brush Script MT",cursive'}
@@ -548,6 +549,18 @@ ESTILO = {
 @media(min-width:901px){.n-abertura-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
 .n-abertura .foto img{aspect-ratio:4/5}
 @media(max-width:900px){.n-abertura .foto{max-width:520px}}''',
+    ('tema', 'escuro'): '''
+html{color-scheme:dark}
+.mosaico figcaption{background:color-mix(in srgb,var(--fundo) 82%,transparent);color:var(--tinta)}
+.menu-mobile{box-shadow:0 18px 40px #00000059}
+.hora.is-reservado{color:color-mix(in srgb,var(--tinta2) 70%,transparent)}
+.carousel-dots button::after{background:color-mix(in srgb,var(--tinta2) 55%,transparent)}
+.botao--linha:hover{color:var(--fundo)}
+.natal{background:var(--cafe);border-block:1px solid var(--linha)}
+.mapa iframe{filter:grayscale(.35) brightness(.85)}
+.hora{color:var(--rosa);border-color:color-mix(in srgb,var(--rosa) 70%,transparent)}a.hora:hover,a.hora.escolhido{background:var(--rosa);color:var(--fundo)}
+.legenda-grade i{border-color:var(--rosa)}.agenda-topo .contador b{color:var(--rosa)}
+.g-item,.mosaico figure,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{box-shadow:0 0 0 1px color-mix(in srgb,var(--rosa) 35%,transparent)}''',
     ('textura', 'papel'): '''
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}''',
 }
@@ -564,7 +577,7 @@ def css_estilo(e):
     partes = []
     f = e.get('fontes') or {}
     if f: partes.append(':root{' + ''.join(f'--{k}:"{f[k][0]}",{PILHAS[k]};' for k in ('serif', 'sans', 'script') if k in f) + '}')
-    for chave in ('titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'agenda', 'natal_capa', 'textura'):
+    for chave in ('tema', 'titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'agenda', 'natal_capa', 'textura'):
         if e.get(chave): partes.append(ESTILO[(chave, e[chave])])
     if e.get('script_escala'):
         x = e['script_escala']
