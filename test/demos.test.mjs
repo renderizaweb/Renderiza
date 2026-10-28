@@ -70,6 +70,8 @@ test("demo fora do ar responde 410 com a página de aviso; no ar ou na dúvida, 
     const antes = consultas;
     assert.equal(await middleware(new Request("https://x/painel")), undefined);
     assert.equal(consultas, antes, "fora de /demo/ nem consulta");
+    assert.equal(await middleware(new Request("https://x/demo/otica-sales/f/0123456789abcdef.jpg")), undefined);
+    assert.equal(consultas, antes, "foto da demo nem consulta");
 
     delete process.env.SUPABASE_URL;
     globalThis.fetch = async () => resposta(false);

@@ -5,6 +5,7 @@
 //   /demo/<ótica>              → demos/<ótica>/index.html, com as meta og: para a prévia do link, o contador de
 //                                visitas e, se tiver oferta com prazo (site/ofertas.mjs), a faixa e o card de valor
 //   /demo/<ótica>/capa.jpg     → a foto do topo da demo: é a imagem da prévia no WhatsApp
+//   /demo/<ótica>/f/<hash>.jpg → as fotos da demo, tiradas de dentro do HTML com os mesmos bytes (scripts/fotos-da-demo.mjs)
 //   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
@@ -15,11 +16,12 @@
 // Fichas (.md), contexto, ferramentas, banco e scripts nunca entram.
 //   npm run build
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { ofertaDaDemo } from "../site/ofertas.mjs";
 import { comOferta } from "../site/oferta-na-demo.mjs";
+import { separarFotos } from "./fotos-da-demo.mjs";
 
 const RAIZ = resolve(fileURLToPath(new URL("..", import.meta.url)));
 export const SAIDA = join(RAIZ, "publico");
@@ -97,6 +99,21 @@ export function comContador(html, otica, sub = "") {
 }
 
 /**
+ * Página de uma demo já com as fotos separadas (e a capa da prévia), guardada até o arquivo mudar: no servidor local,
+ * a lista é refeita a cada pedido e as demos somam mais de 160 MB.
+ */
+const paginasLidas = new Map();
+function paginaDaDemo(arquivo, pasta) {
+  const { mtimeMs, size } = statSync(arquivo);
+  const guardada = paginasLidas.get(arquivo);
+  if (guardada && guardada.mtimeMs === mtimeMs && guardada.size === size) return guardada;
+  const original = readFileSync(arquivo, "utf8");
+  const pagina = { mtimeMs, size, capa: fotoDaCapa(original), ...separarFotos(original, pasta) };
+  paginasLidas.set(arquivo, pagina);
+  return pagina;
+}
+
+/**
  * Lista [caminho publicado, origem]. A origem é um arquivo ou uma função que gera o conteúdo.
  * É a mesma lista para o build e para o servidor local.
  */
@@ -112,17 +129,19 @@ export function arquivosPublicados() {
   }
   for (const otica of readdirSync(join(RAIZ, "demos"), { withFileTypes: true })) {
     if (!otica.isDirectory()) continue;
+    const fotosDaPasta = new Map(); // a mesma foto em duas páginas da demo (site e Natal) vira um arquivo só
     for (const f of readdirSync(join(RAIZ, "demos", otica.name))) {
       if (!f.endsWith(".html")) continue;
-      const arquivo = join(RAIZ, "demos", otica.name, f);
-      if (f !== "index.html") { lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(readFileSync(arquivo, "utf8"), otica.name, f.replace(/\.html$/, "")), { tipo: ".html" })]); continue; }
+      const { html, fotos, capa } = paginaDaDemo(join(RAIZ, "demos", otica.name, f), otica.name);
+      for (const [nome, foto] of fotos) fotosDaPasta.set(nome, foto);
+      if (f !== "index.html") { lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(html, otica.name, f.replace(/\.html$/, "")), { tipo: ".html" })]); continue; }
       // A página principal sai com as meta og:, o contador de visitas, e a foto do topo vira capa.jpg (a imagem da prévia do link).
-      const capa = fotoDaCapa(readFileSync(arquivo, "utf8"));
       // Demo com oferta de prazo (site/ofertas.mjs) sai também com a faixa e o card de valor.
       const oferta = ofertaDaDemo(otica.name);
-      lista.push([join("demo", otica.name, f), Object.assign(async () => comOferta(comContador(comPreviaDoLink(readFileSync(arquivo, "utf8"), otica.name, capa?.tipo), otica.name), oferta), { tipo: ".html" })]);
-      if (capa) lista.push([join("demo", otica.name, "capa." + capa.tipo), Object.assign(async () => fotoDaCapa(readFileSync(arquivo, "utf8")).dados, { tipo: "." + capa.tipo })]);
+      lista.push([join("demo", otica.name, f), Object.assign(async () => comOferta(comContador(comPreviaDoLink(html, otica.name, capa?.tipo), otica.name), oferta), { tipo: ".html" })]);
+      if (capa) lista.push([join("demo", otica.name, "capa." + capa.tipo), Object.assign(async () => capa.dados, { tipo: "." + capa.tipo })]);
     }
+    for (const [nome, foto] of fotosDaPasta) lista.push([join("demo", otica.name, "f", nome), Object.assign(async () => Buffer.from(foto.base64, "base64"), { tipo: "." + foto.tipo })]);
   }
   const exemplos = join(RAIZ, "exemplos");
   if (existsSync(exemplos)) for (const f of arquivosDe(exemplos)) if (/\.(html|js|css|jpg|png|webp|svg)$/.test(f)) lista.push([join("exemplos", f), join(exemplos, f)]);

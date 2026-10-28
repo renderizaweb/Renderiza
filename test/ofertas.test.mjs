@@ -45,3 +45,31 @@ test("build: as demos da oferta saem com o card e o contador; as outras, só com
   assert.doesNotMatch(outra, /valor-do-site/);
   assert.match(outra, /data-pagina="demo"/);
 });
+
+test("fotos fora da página: os mesmos bytes num arquivo por foto; ícones pequenos ficam dentro", async () => {
+  const { separarFotos, TAMANHO_MINIMO } = await import("../scripts/fotos-da-demo.mjs");
+  const grande = Buffer.alloc(TAMANHO_MINIMO + 10, 7).toString("base64"), pequena = Buffer.alloc(100, 1).toString("base64");
+  const html = `<img src="data:image/jpeg;base64,${grande}"><div style="background:url('data:image/png;base64,${pequena}')"></div><script>const f = ["data:image/jpeg;base64,${grande}"]</script>`;
+  const { html: saida, fotos } = separarFotos(html, "casa-rabello");
+  assert.equal(fotos.size, 1, "a mesma foto repetida vira um arquivo só");
+  const [[nome, foto]] = [...fotos];
+  assert.match(nome, /^[0-9a-f]{16}\.jpg$/);
+  assert.equal(foto.base64, grande, "os bytes não mudam");
+  assert.equal((saida.match(new RegExp(`/demo/casa-rabello/f/${nome}`, "g")) || []).length, 2, "no <img> e no script");
+  assert.match(saida, /data:image\/png;base64,/, "a pequena fica dentro");
+});
+
+test("build: a demo sai leve, com as fotos em /demo/<pasta>/f/, e a trava não consulta o banco para foto", async () => {
+  const { ehArquivo } = await import("../middleware.js");
+  const lista = new Map(arquivosPublicados().map(([d, o]) => [d.split("\\").join("/"), o]));
+  const html = await lista.get("demo/casa-rabello/index.html")();
+  assert.ok(html.length < 300000, "a página da demo fica com menos de 300 KB: " + html.length);
+  const links = [...new Set(html.match(/\/demo\/casa-rabello\/f\/[0-9a-f]{16}\.(?:jpg|png|webp|gif)/g) || [])];
+  assert.ok(links.length >= 10);
+  for (const l of links) assert.ok(lista.has(l.slice(1)), "foto publicada: " + l);
+  assert.equal(ehArquivo("/demo/casa-rabello/f/abc.jpg"), true);
+  assert.equal(ehArquivo("/demo/casa-rabello/capa.jpg"), true);
+  assert.equal(ehArquivo("/demo/casa-rabello"), false);
+  assert.equal(ehArquivo("/demo/ana-carolina-fotografia/natal.html"), false);
+  assert.equal(ehArquivo("/demo/ana-carolina-fotografia/natal"), false);
+});

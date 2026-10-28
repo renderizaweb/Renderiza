@@ -20,6 +20,12 @@ export function pastaDoCaminho(caminho) {
   return m ? m[1].toLowerCase() : "";
 }
 
+/**
+ * Foto, capa ou outro arquivo da demo (tem extensão e não é .html): passa sem consultar o banco. As fotos saíram de
+ * dentro da página (scripts/fotos-da-demo.mjs) e uma demo pede dezenas delas; a trava fica só nas páginas.
+ */
+export const ehArquivo = caminho => /\.[a-z0-9]{2,5}$/i.test(caminho) && !/\.html$/i.test(caminho);
+
 /** true = no ar, false = fora do ar, null = não deu para saber (aí a demo abre). */
 export async function demoLiberada(pasta, { url, chave, buscar = fetch, tempo = TEMPO_MAXIMO }) {
   const cabecalhos = { apikey: chave, "Content-Type": "application/json", Accept: "application/json" };
@@ -106,8 +112,9 @@ ${reabrir}
 
 export default async function middleware(request) {
   try {
-    const pasta = pastaDoCaminho(new URL(request.url).pathname);
-    if (!pasta) return;
+    const caminho = new URL(request.url).pathname;
+    const pasta = pastaDoCaminho(caminho);
+    if (!pasta || ehArquivo(caminho)) return;
     const env = typeof process !== "undefined" ? process.env : {};
     const url = env.SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_URL || "";
     const chave = env.SUPABASE_ANON_KEY || env.SUPABASE_PUBLISHABLE_KEY || env.NEXT_PUBLIC_SUPABASE_ANON_KEY || env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "";

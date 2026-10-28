@@ -128,6 +128,11 @@ inventado, a **Villa Alecrim**:
   do build com uma faixa no topo e um card de valor no fim do conteúdo (`site/oferta-na-demo.mjs`, `comOferta`),
   com as cores da própria demo e os dias que faltam; depois do prazo, os dois somem sozinhos. O contador vê o card
   na tela (`viu_precos`) e o toque na faixa (`clicou`, alvo `faixa`).
+- **Demo leve (28/10/2026):** na publicação, as fotos saem de dentro do HTML da demo e viram arquivos em
+  `/demo/<pasta>/f/<hash>.<ext>` com os mesmos bytes (`scripts/fotos-da-demo.mjs`; ícones com menos de 4 KB ficam
+  dentro). A página cai de 1,5–4 MB para uns 70 KB e as fotos com `loading="lazy"` só baixam perto da tela. O arquivo
+  da demo não muda (vídeo, capturas e flyer seguem iguais). A trava (`middleware.js`) não consulta o banco para foto,
+  e as fotos têm cache longo (`vercel.json`).
 - **Demo vencida (28/10/2026):** a página de fora do ar (`middleware.js`) tem o contador (`data-fora`) e, na demo
   vencida que nunca foi reaberta, o botão "Reabrir por 1 hora, grátis" (`api/reabrir-demo.js` → `reabrir_demo`).
 - Cada módulo tem **Detalhes** (o "i" na conta e o botão nos cartões): o que faz e o "bom saber", com o que não

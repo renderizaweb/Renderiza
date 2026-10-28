@@ -98,7 +98,13 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   "pode ter sido repassado".
 - **Anotado para depois (Kaue, 28/10/2026):** aviso no celular pelo Telegram quando um cliente abre a demo ou
   clica no WhatsApp; botão discreto "falar com a Renderiza" dentro da demo (agora não: confunde com o WhatsApp da
-  loja); demos mais leves no celular, se não der agora. Fora de cogitação por ora: aviso de privacidade nas demos.
+  loja). Fora de cogitação por ora: aviso de privacidade nas demos.
+- **Demos mais leves (28/10/2026, pedido do Kaue, "sem perder a qualidade"):** na publicação, as fotos saem de dentro
+  da página para arquivos separados, com os mesmos bytes (`scripts/fotos-da-demo.mjs`): a página abre com uns 70 KB
+  e as fotos carregam perto da tela. Conferido demo a demo, antes e depois, no tamanho de celular. Num 4G lento
+  (1,6 Mbps), a Casa Rabello terminava de abrir em 11,7 s (2,5 MB) e passou a 2,4 s (0,44 MB); a Ótica Nina, de
+  21,4 s para 2,7 s. Antes, os botões de WhatsApp e o contador só funcionavam depois disso (o script roda no fim da
+  página): quem fechava antes nem era contado.
 
 ## Como tem que ser uma demo de site
 
