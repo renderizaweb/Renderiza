@@ -280,3 +280,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Valéria Duarte Fotografia (fotógrafa)](demos/valeria-duarte-fotografia) | Badra, Suzano | site + página “Laços de Natal” (`/natal`, com fotos do estúdio) | pronta · 28/10/2026 (fotógrafos lote 1 · 11ª) |
 | [Estúdio Fotográfico Jessica Cunha (fotógrafa)](demos/jessica-cunha-fotografia) | Vila Galvão, Guarulhos | site + página de Natal (`/natal`, “Memórias em Veludo”) | pronta · 28/10/2026 (fotógrafos lote 1 · 12ª) |
 | [Aline Fernandes Fotografia (fotógrafa)](demos/aline-fernandes-fotografia) | Vila Fátima, Guarulhos | site + página de Natal (`/natal`, “O primeiro Natal”) | pronta · 28/10/2026 (fotógrafos lote 1 · 13ª) |
+| [Vitória Mazo Fotografia (fotógrafa)](demos/vitoria-mazo-fotografia) | Arujazinho IV, Arujá | site + página de Natal (`/natal`, “Um Natal encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 14ª) |

@@ -1,0 +1,711 @@
+{
+ "pasta": "vitoria-mazo-fotografia",
+ "marca": "Vitória Mazo Fotografia",
+ "titulo_nome": "Vitória Mazo",
+ "titulo_script": "fotografia",
+ "dona": "Vitória",
+ "quem_sou": "Sou a Vitória, da Vitória Mazo Fotografia",
+ "google": {
+  "coords": "-23.4130451,-46.3211546",
+  "fid": "0x94ce7dfc436cc1ad:0xd57077056dc65546",
+  "gid": "/g/11qm6yfdcl"
+ },
+ "google_nome": "vitoria mazo fotografia",
+ "endereco_maps": "Estr. de Santa Isabel, 1571 - Arujazinho IV, Arujá - SP, 07432-575",
+ "google_nota": "5,0",
+ "google_total": "29",
+ "whatsapp": "5511969238587",
+ "instagram": "vitoriamazofotografia",
+ "seguidores": "4.985",
+ "slogan": "As famílias mais lindas passam por aqui.",
+ "cores": {
+  "fundo": "#fbf8f3",
+  "papel": "#ffffff",
+  "areia": "#f3ede4",
+  "linha": "#e8dfd2",
+  "tinta": "#252a2e",
+  "tinta2": "#5f6468",
+  "rosa": "#e2a377",
+  "acento": "#2f6a86",
+  "acento_escuro": "#255770",
+  "cafe": "#1f2d35"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "DM Serif Display",
+    "ital@0;1"
+   ],
+   "sans": [
+    "DM Sans",
+    "opsz,wght@9..40,300..600"
+   ],
+   "script": [
+    "Caveat",
+    "wght@500;600"
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "galeria": "quadrado",
+  "abas": "script",
+  "botoes": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "textura": "papel",
+  "ornamento": "✿",
+  "script_escala": 1.12,
+  "css": ".abertura h1 .script,.marca-nome i{font-weight:600}.aba{font-weight:600}.mosaico figcaption{font-weight:600}h1,h2,h3{letter-spacing:0}#natal-2025 .galeria{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin-inline:auto}"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-07 16h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 14h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 15h",
+   "2026-11-21 16h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-05 15h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Vitória define os dela",
+  "mensagem": "Olá, Vitória! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Vitória Mazo Fotografia | Newborn, acompanhamento, gestante e aniversários em Arujá",
+  "descricao": "Vitória Mazo Fotografia, estúdio em Arujá desde 2018: newborn, acompanhamento mensal, gestante, smash the cake, aniversários e Natal, com cenários para cada fase. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Estúdio em Arujá · desde 2018",
+   "frase": "Um cenário para cada fase.",
+   "intro": "Newborn, acompanhamento mês a mês, gestante, smash the cake e os aniversários dos crescidinhos, num estúdio em Arujá que muda de cenário o tempo todo.",
+   "rotulos": [
+    "Newborn",
+    "Crescidinhos",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Acompanhamento",
+    "Gestante",
+    "Smash the cake",
+    "Crescidinhos",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473566092_18161460820330053_1690488254381923116_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de coroa de flores dormindo na caminha de pelúcia pêssego",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeZTvNYkW3F_DeZTvNYkW3F_01.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo no cenário de ateliê de pintura",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474058338_18161460895330053_2096947939752781610_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido azul longo e coroa, no fundo azul",
+     "c": [
+      0.5,
+      0.25
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Um cenário <em>para cada fase.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Vitória. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473566092_18161460820330053_1690488254381923116_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de coroa de flores na caminha de pelúcia pêssego",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473809408_18161460022330053_7138236541005060201_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo no bercinho de vime com flores secas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473896233_18161460826330053_4166977735159291926_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de faixa de flores enrolada na manta rosa",
+      "pos": "50% 50%",
+      "box": [
+       0.08,
+       0,
+       0.92,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474026848_18161459359330053_2583134914217772310_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo com as mãos no queixo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473754901_18161462596330053_8384006492027828388_n.jpg",
+      "f": "p",
+      "alt": "Pai beijando o recém-nascido enrolado na manta",
+      "pos": "50% 30%",
+      "box": [
+       0.345,
+       0,
+       1,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473793321_18161460997330053_5813675134912057802_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 mês de roupão sorrindo no sofazinho",
+      "pos": "50% 40%",
+      "box": [
+       0.2,
+       0,
+       0.8,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473994465_18161461780330053_597171618611039644_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na carruagem de flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473823653_18161462011330053_6530985366265156833_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo ao lado de três corações de feltro",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "acompanhamento",
+    "nome": "Mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473800314_18161460142330053_8509626152448253691_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 5 meses na poltrona, com borboletas ao fundo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473818808_18161461741330053_3805575959528947562_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 4 meses rindo no cenário da raposinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473782888_18161461609330053_866710500566344474_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 9 meses vestido de vaqueiro no cenário da fazendinha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474101147_18161460196330053_8878779802223142434_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas de 4 meses fantasiadas de raposa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/gfotos/g03.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido de tule sentada no cenário claro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474015805_18161460943330053_1943869619950896335_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 9 meses de marinheiro no cenário do mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473797401_18161461069330053_2432851516844665176_n.jpg",
+      "f": "p",
+      "alt": "Pai de quimono segurando a filha de quimono rosa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474322906_18161460064330053_2758233391815047222_n.jpg",
+      "f": "l",
+      "alt": "Bebê fantasiado de monstrinho no sofá azul",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474058338_18161460895330053_2096947939752781610_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido azul longo e coroa",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473811397_18161462632330053_4320663591802435420_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido rosa de tule no fundo rosa",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474147400_18161461024330053_8034436251406615315_n.jpg",
+      "f": "p",
+      "alt": "Casal sentado no chão, ela com a mão na barriga, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473835351_18161459980330053_1628316130709093157_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido nude com mangas de tule",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474103647_18161461087330053_2137251839144103868_n.jpg",
+      "f": "p",
+      "alt": "Gestante de saída de praia branca no cenário boho",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/474013396_18161460856330053_3294026094395144206_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda preta no fundo escuro, com luzes",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473883742_18161462725330053_2733805090557096499_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada no cenário boho, com cestos na parede",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/gfotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante de preto sentada no banquinho, no fundo bege",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "crescidinhos",
+    "nome": "Crescidinhos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeZTvNYkW3F_DeZTvNYkW3F_01.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo no cenário de ateliê de pintura",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/Dewwg-8ETFn_Dewwg-8ETFn_01.jpg",
+      "f": "l",
+      "alt": "Menina de Chapeuzinho Vermelho com a cesta, nos 3 anos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeZTvNYkW3F_DeZTvNYkW3F_02.jpg",
+      "f": "p",
+      "alt": "Pai e filha sentados no cenário de ateliê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/De2M28PIMdh_De2M28PIMdh_04.jpg",
+      "f": "l",
+      "alt": "Pais e filho fazendo careta juntos, no aniversário",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473996821_18161461084330053_4587335643572903381_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano de vestido lilás no cenário do bosque",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeZf5FMkdsc_DeZf5FMkdsc_00.jpg",
+      "f": "l",
+      "alt": "Menino rindo com o pincel na mão, no ateliê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeZTvNYkW3F_DeZTvNYkW3F_03.jpg",
+      "f": "p",
+      "alt": "Menina pintando sentada no chão do ateliê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473652196_18161460001330053_974186023111613527_n.jpg",
+      "f": "l",
+      "alt": "Menina de 1 ano no cenário do fundo do mar, com balões",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/713324892_18214328806330053_3817729632008253000_n.jpg",
+    "f": "p",
+    "alt": "Vitória Mazo abraçada ao Rafley, ao pôr do sol",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Vitória fotografa desde 2018, num estúdio em Arujá onde o cenário muda o tempo todo: raposinha, fundo do mar, ateliê de pintura, Chapeuzinho Vermelho. Na bio, ela se apresenta como especialista em recém-nascidos."
+   ],
+   "citacao": "As famílias mais lindas passam por aqui.",
+   "citacao_quem": "Vitória Mazo, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam da Vitória e do Rafley, que atendem juntos, e contam que voltam: do newborn ao acompanhamento mensal, do smash the cake às festas."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "29 avaliações no Google"
+    ],
+    [
+     "4.985",
+     "seguidores no Instagram"
+    ],
+    [
+     "1.656",
+     "publicações no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>aos crescidinhos.</em>",
+   "p": "Os ensaios do estúdio, fase por fase:",
+   "fonte": "Bio, destaques e legendas da Vitória no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Entre 28 e 32 semanas",
+     "p": "Vários cenários, figurinos para todos os estilos, make e babyliss."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "No estúdio ou em casa, até com o pet da família."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Um cenário a cada mês: raposinha, fazendinha, fundo do mar."
+    },
+    {
+     "nome": "Smash",
+     "sub": "O primeiro aninho",
+     "p": "Smash the cake ou smash the fruit, com bolo, frutas e balões."
+    },
+    {
+     "nome": "Crescidinhos",
+     "sub": "Aniversário com tema",
+     "p": "Chapeuzinho Vermelho, Hot Wheels, ateliê de pintura."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O cenário encantado e o do Grinch, já no estúdio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Um Natal <em>encantado.</em>",
+   "p": "O cenário de Natal 2026 já está no estúdio, em Arujá, e o do Grinch também. Escolha um horário e a mensagem chega pronta no WhatsApp da Vitória.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeukOHcN0tT_DeukOHcN0tT_00.jpg",
+    "f": "p",
+    "alt": "A janela em arco com o varal de luzinhas do cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.36
+    ]
+   },
+   "legenda": "O cenário de Natal 2026"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Letícia Santos",
+    "tag": "Família",
+    "trecho": "hoje minha bebe tem 2 anos, eu não troco eles por NADA, eles cobrem todas as festas e datas comemorativas."
+   },
+   {
+    "nome": "Loudri Marco",
+    "tag": "Newborn e smash",
+    "trecho": "Conheci eles na pandemia, onde fechei um ensaio newborn para minha sobrinha e desde então fiz vários outros."
+   },
+   {
+    "nome": "Sirley Fernandes",
+    "tag": "Bebês",
+    "trecho": "Tem variedades de cenários, as roupinhas são limpinhas. O atendimento é maravilhoso, eles são atenciosos, além de ter muito cuidado e carinho com os nossos bebês."
+   },
+   {
+    "nome": "Jackson Oliveira",
+    "tag": "4 meses",
+    "trecho": "Eles capturaram momentos preciosos da minha filha Lorena de 4 meses, e amamos o resultado."
+   },
+   {
+    "nome": "Day Premium",
+    "tag": "Ensaios",
+    "trecho": "muito atenciosos um trabalho excelente faço fotos para minha loja de roupa e amo todos ensaios e edições feito por esse studio"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Arujazinho IV, em Arujá.",
+   "telefone": "(11) 96923-8587",
+   "endereco": [
+    "Estr. de Santa Isabel, 1571",
+    "Arujazinho IV",
+    "Arujá · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Vitória Mazo Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@vitoriamazofotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: um Natal encantado | Vitória Mazo Fotografia",
+  "descricao": "Ensaio de Natal 2026 no estúdio da Vitória Mazo, em Arujá: o cenário encantado e o do Grinch. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Arujá",
+   "h1": "Um Natal <em>encantado.</em>",
+   "citacao": "Um cenário lindo e encantador que foi pensado em cada detalhe.",
+   "citacao_quem": "Vitória Mazo, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473754219_18161463751330053_7721498635318882998_n.jpg",
+    "f": "p",
+    "alt": "Família de seis pessoas sentada no cenário de Natal, com árvores e guirlanda",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal no estúdio, em Arujá"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários <em>de Natal.</em>",
+   "p": "Em 2026, o estúdio tem dois cenários de Natal: o encantado, com a janela em arco e o varal de luzinhas, e o do Grinch, que fez tanto sucesso que foi parar no feed. Para o bebê, os irmãos ou a família toda.",
+   "itens": [
+    "No estúdio, no Arujazinho IV, em Arujá.",
+    "O cenário encantado e o do Grinch.",
+    "Do recém-nascido à família toda.",
+    "Valores e detalhes pelo WhatsApp da Vitória."
+   ],
+   "legenda_fotos": "Os cenários de 2026 e um Natal de outros anos"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DeukOHcN0tT_DeukOHcN0tT_00.jpg",
+    "f": "p",
+    "alt": "A janela em arco com o varal de luzinhas do cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/postsflat/DewxlKRR9r4_DewxlKRR9r4_00.jpg",
+    "f": "p",
+    "alt": "O cenário do Grinch, com a árvore e os presentes",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473836231_18161463403330053_7795305780941171199_n.jpg",
+    "f": "l",
+    "alt": "Bebê de 3 meses rindo no cenário de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natais de outros anos",
+   "h2": "O primeiro Natal <em>do Kevin.</em>",
+   "nome": "Outros Natais",
+   "p": "Ensaios de Natal de outros anos, postados no Instagram dela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/473886996_18161463577330053_2303003088358582732_n.jpg",
+     "f": "p",
+     "alt": "Mãe sentada no chão com o bebê, no cenário de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/drive/503917721_1430374081478206_837889216089389398_n.jpg",
+     "f": "p",
+     "alt": "Mãe erguendo o bebê no cenário de Natal",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "comentario": "Demo Vitória Mazo Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Sirley Fernandes",
+    "tag": "Bebês",
+    "trecho": "Tem variedades de cenários, as roupinhas são limpinhas. O atendimento é maravilhoso, eles são atenciosos, além de ter muito cuidado e carinho com os nossos bebês."
+   },
+   {
+    "nome": "Jackson Oliveira",
+    "tag": "4 meses",
+    "trecho": "Eles capturaram momentos preciosos da minha filha Lorena de 4 meses, e amamos o resultado."
+   },
+   {
+    "nome": "Day Premium",
+    "tag": "Ensaios",
+    "trecho": "muito atenciosos um trabalho excelente faço fotos para minha loja de roupa e amo todos ensaios e edições feito por esse studio"
+   },
+   {
+    "nome": "Letícia Santos",
+    "tag": "Família",
+    "trecho": "hoje minha bebe tem 2 anos, eu não troco eles por NADA, eles cobrem todas as festas e datas comemorativas."
+   },
+   {
+    "nome": "Loudri Marco",
+    "tag": "Newborn e smash",
+    "trecho": "Conheci eles na pandemia, onde fechei um ensaio newborn para minha sobrinha e desde então fiz vários outros."
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Vitória abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Vitória define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Vitória abre com o dia e a hora escritos."
+    ],
+    [
+     "A Vitória confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · Arujá",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Vitória no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96923-8587), o mesmo da bio",
+  "site": "só o Instagram: o Google aponta o @; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/vitoria-mazo-fotografia` e `/demo/vitoria-mazo-fotografia/natal`",
+  "direcao": [
+   "Personalidade: o estúdio dos cenários. Abertura em polaroides (com a fita adesiva e a legenda escrita à mão), letra manuscrita (Caveat) nas abas e na assinatura, serifa gorda e simpática (DM Serif Display), fotos de cantos redondos em grade quadrada como o feed, e um azul-petróleo de destaque (o 💙 das legendas).",
+   "Sem logo em boa resolução: monograma VM e o nome em letra manuscrita, feitos para a demo.",
+   "A frase do rodapé e a citação são legendas dela (“As famílias mais lindas passam por aqui”)."
+  ],
+  "demo": [
+   "Site: portfólio em 4 abas (Newborn, Mês a mês, Gestante, Crescidinhos), quem fotografa (a Vitória e o Rafley), os ensaios fase a fase, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Um Natal encantado”: os dois cenários de 2026 (o encantado e o do Grinch), a agenda de exemplo (sábados, das 9h às 16h) e Natais de outros anos.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023), os carrosséis de outubro de 2026 (Crescidinhos e Dia das Crianças, em alta) e 6 fotos do Google.",
+   "Natal 2026: só as capas dos dois vídeos (o cenário encantado e o do Grinch, em 1080 e 720 px).",
+   "Fora de propósito: as montagens de várias fotos, as artes com texto (Natal encantado, aniversário de 30), a gestante de tule sem roupa, os bebês sem roupa.",
+   "A foto de quem fotografa é a do perfil (o casal ao pôr do sol)."
+  ],
+  "textos": [
+   "Bio: “Estúdio · Gestante, Newborn, acompanhamento · Desde 2018 · Especialista em recém nascidos”.",
+   "Legendas dela: “As famílias mais lindas passam por aqui”, “Ensaio gestante completo: diversos cenários à sua escolha, figurinos para todos os estilos, make e babyliss”, “Um cenário lindo e encantador que foi pensando em cada detalhe” (na citação, “pensado”).",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "As avaliações falam da Vitória e do Rafley: confirmar como o casal prefere aparecer e quem atende o WhatsApp.",
+   "Pedir fotos dos ensaios de Natal 2026 (só há as capas dos vídeos).",
+   "Os horários de Natal são exemplo; no Google, o estúdio abre de segunda a sábado."
+  ]
+ },
+ "marca_completa": "Vitória Mazo Fotografia",
+ "fone_link": "+5511969238587",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Vitória! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vitoria-mazo-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Vitória",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Vitória, da Vitória Mazo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Vitória, da Vitória Mazo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}
