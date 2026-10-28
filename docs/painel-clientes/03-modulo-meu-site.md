@@ -16,7 +16,7 @@ paga um valor adicional pela **versão final**.
 4. **Desconectou, voltou.** Não pagou ou cancelou: a Renderiza desliga a conta (ou o módulo) no painel
    administrativo, à mão, e o site volta sozinho à versão inicial, sem ninguém mexer no site. As versões ficam guardadas pelo prazo dos termos;
    reconectou, a última volta.
-5. **Versão final é vendida à parte** (valor: rodada 3 do `07`). A Renderiza gera o site com o conteúdo final embutido e sem o script
+5. **Versão final é vendida à parte** (valor combinado na proposta de cada cliente, fora do painel). A Renderiza gera o site com o conteúdo final embutido e sem o script
    do Meu site, e entrega no repositório do cliente. Daí em diante o site não depende mais do painel.
 6. **Padrão fechado.** Cores, botões, fontes e seções seguem o modelo do site; o cliente escolhe dentro das opções
    que o modelo oferece. Não é um construtor livre de site: é o que protege a qualidade e o "pacote fechado".
@@ -162,4 +162,4 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
 
 - Preço: módulo como os outros (R$ 14,99, ou um dos 2 do plano). Decidido em 28/10/2026.
 - Desconexão: manual, pelo painel administrativo. Decidido em 28/10/2026.
-- Em aberto: o valor da versão final (rodada 3 do `07`).
+- Valor da versão final: combinado na proposta de cada cliente, fora do painel. Decidido em 28/10/2026.

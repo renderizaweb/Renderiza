@@ -1,7 +1,7 @@
 # Dados e permissões
 
 Proposta do modelo de dados. Os nomes são em português, como no painel interno (`supabase/schema.sql`). A
-estrutura final nasce nas migrações da parada 2; este documento muda junto (no mesmo pull request).
+estrutura final nasce nas migrações da parada 2; este documento muda junto (no mesmo commit).
 
 ## O cliente no centro
 

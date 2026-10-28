@@ -7,11 +7,11 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 1 de 6 · Organização e infraestrutura.** Rodadas 1 e 2 respondidas em 28/10/2026. Endereço:
-> `painel.renderizaweb.com.br`. Piloto: um espaço de eventos que já tem site da Renderiza, com meta de começar a usar
-> por volta de 11/11/2026. A Renderiza cria as contas (Supabase, Vercel, e-mail) e as sessões começam pelas tarefas
-> T1.5 e T1.6. Rodada 3 de perguntas em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Detalhes e diário
-> de bordo: [`01-trilho.md`](01-trilho.md); quem está fazendo o quê: [`tarefas.md`](tarefas.md).
+> **Parada 1 de 6 · Organização e infraestrutura.** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
+> Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
+> começar a usar por volta de 11/11/2026. A Renderiza cria as contas (Supabase, Vercel, e-mail); as sessões começam
+> pelas tarefas T1.5 e T1.6. Detalhes e diário de bordo: [`01-trilho.md`](01-trilho.md); quem está fazendo o quê:
+> [`tarefas.md`](tarefas.md).
 
 (Quem fechar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
 
@@ -47,11 +47,12 @@ Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiz
 1. Leia este README, o [trilho](01-trilho.md) e o documento da parada atual. As regras gerais da Renderiza valem
    aqui também: [`CONTEXTO.md`](../../CONTEXTO.md) e [`docs/como-trabalhamos.md`](../como-trabalhamos.md)
    (português, direto e curto; **não inventar nada**; nunca pedir senha ou chave pelo chat).
-2. Leia [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md): várias sessões trabalham ao mesmo tempo. Pegue
-   só a tarefa que a Renderiza indicou, marque-a no [quadro](tarefas.md) e mexa só no que ela permite. Se ela depende
-   de uma pergunta em aberto no `07`, pergunte: não decida sozinho.
-3. Ao entregar: pull request, quadro atualizado, uma linha no **diário de bordo** do trilho (data, o que foi feito,
-   quem fez) e, se a parada fechou, "Onde o trem está" atualizado aqui e no trilho.
+2. Leia [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md): o projeto anda em várias sessões, em paralelo ou
+   continuando a mesma tarefa. Pegue só a tarefa que a Renderiza indicou, marque-a no [quadro](tarefas.md), mantenha
+   a nota de passagem em dia e mexa só no que a tarefa permite. Migração no banco real: só com as regras do `08`.
+3. Ao entregar: branch com push, quadro em `pronta para subir`, uma linha no **diário de bordo** do trilho (data, o
+   que foi feito, quem fez) e, se a parada fechou, "Onde o trem está" atualizado aqui e no trilho. Juntar na `main` é
+   com a Renderiza.
 4. Decidiu algo novo (ou o Kaue e a Milena decidiram)? Registre no `07` com data e fonte.
 5. Mudou o plano? Mude o documento **no mesmo commit** do código. Documento desatualizado é bug.
 6. Nunca: dado real de cliente no repositório (nem em print, teste ou commit), chave secreta no front ou no chat,

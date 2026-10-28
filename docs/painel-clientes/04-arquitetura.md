@@ -68,8 +68,8 @@ painel-clientes/
   vídeos) atrapalhar.
 - Os exemplos são arquivos únicos de ~90 KB; no painel real eles viram módulos. O visual (CSS) e as funções de
   desenho das telas são reaproveitados.
-- Trabalho no painel vai por branch e pull request, com prévia da Vercel, e não direto na `main` (aqui há dado de
-  cliente; as demos continuam com o fluxo de sempre). Várias sessões trabalham ao mesmo tempo: regras em
+- Cada tarefa do painel anda na sua branch; juntar e subir para a `main` é com a Renderiza (as demos continuam com o
+  fluxo de sempre). Várias sessões trabalham ao mesmo tempo: regras em
   [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
 
 ## Supabase

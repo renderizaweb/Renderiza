@@ -1,19 +1,10 @@
-# Decisões e perguntas
+# Decisões
 
-O que **já foi decidido** (com data e fonte), o que segue **por padrão** até alguém vetar, e as **perguntas da
-rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2026). Resposta nova vira linha em
-"Decididas".
+O que **já foi decidido** (com data e fonte) e o que segue **por padrão** até alguém vetar.
 
-## Rodada 3 (aberta, enviada em 28/10/2026)
-
-1. **Admin.** Quem da Renderiza entra no painel administrativo?
-2. **Versão final do Meu site.** Qual valor? "Depois" vale.
-3. **Juntar o trabalho das sessões.** Quem confere, junta na `main` e aplica as migrações no banco real: você, ou uma
-   sessão "integradora"? *Recomendo:* a integradora; você acompanha pelo diário de bordo.
-4. **Site do piloto.** Qual é o site, e onde está o código dele: numa pasta de `demos/` deste repositório ou no
-   repositório do cliente? (Serve para a tarefa T4.6, que liga o site ao painel quando o cliente quiser.)
-5. **Documentos na `main`.** Posso juntar estes documentos na `main` agora, para as outras sessões já começarem por
-   eles?
+**Perguntas em aberto: nenhuma.** Não abrir pergunta sobre o que é operação da Renderiza (quem entra no admin, valores
+de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma tarefa: escreva no aviso do
+[quadro](tarefas.md) e pergunte à Renderiza; a resposta vira linha aqui.
 
 ## Decididas
 
@@ -38,7 +29,11 @@ rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2
 | 28/10/2026 | **Várias sessões de IA ao mesmo tempo**, com quadro de tarefas no repositório e regras para não se baterem (`08`, `tarefas.md`). | rodada 1 |
 | 28/10/2026 | Endereço do painel: **`painel.renderizaweb.com.br`** (o `renderiza.com.br` é de outra pessoa). | rodada 2 |
 | 28/10/2026 | A Renderiza cria as contas de infraestrutura (Supabase, Vercel, e-mail) com o próprio acesso de administrador. Contas de clientes nascem pelo painel administrativo (ou pelo cadastro), cada uma com a sua conta (tenant) no banco. | rodada 2 |
-| 28/10/2026 | O piloto já tem site feito pela Renderiza. **O site é do cliente e independente**; a ligação com o painel (agenda online, Meu site) entra quando o cliente quiser. | rodada 2 |
+| 28/10/2026 | **O site do cliente é dele e independente.** A demo é a versão inicial que a Renderiza faz para a prospecção (`demos/`); o site fechado vai para um Git e uma Vercel novos, com os acessos do cliente, separado da Renderiza. A ligação com o painel (agenda online, Meu site) entra quando o cliente quiser. | rodadas 2 e 3 |
+| 28/10/2026 | **O piloto ainda não tem site** (vai ser feito). O painel não depende disso: a ponte com o site é testada num site de teste gerado de uma demo. | rodada 3 |
+| 28/10/2026 | **Administradores:** quantos a Renderiza quiser, cadastrados por ela (tabela `equipe_renderiza`). Não é assunto do projeto. | rodada 3 |
+| 28/10/2026 | **Valor da versão final do Meu site:** combinado na proposta de cada cliente, fora do painel. O painel só precisa gerar a versão final. | rodada 3 |
+| 28/10/2026 | **Sessões e banco:** uma pessoa (da Renderiza) toca o projeto com várias sessões do Claude, em tarefas paralelas ou continuando a mesma tarefa em outra sessão. Cada sessão tem acesso direto ao Supabase e aplica as próprias migrações, com cuidado (`08`). Juntar e subir para a `main` é com a Renderiza. | rodada 3 |
 | 28/10/2026 | **Teste de 7 dias:** a pessoa escolhe os módulos no cadastro; o prazo é um só, contado do início da conta (módulo ligado depois não ganha prazo novo); módulo caro de oferecer (ex.: com IA) fica bloqueado no teste; depois do teste, a pessoa entra mas os dados ficam bloqueados, com o aviso para fechar a mensalidade. | rodada 2 |
 
 ## Por padrão (vale até alguém vetar)
@@ -53,7 +48,7 @@ rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2
 | D6 | Meu site por **consulta ao painel** a cada visita (com cache), sem republicar o site | mantém o fallback e a regra da versão final (`03`) |
 | D7 | No Meu site, **texto entra como texto** (só a marcação `*destaque*`) | ninguém quebra o site nem injeta código |
 | D8 | **Valores só no Financeiro e em Contratos**; a ficha completa só no módulo Clientes | o banco esconde o que a pessoa não pode ver |
-| D9 | Código em **`painel-clientes/` neste repositório**, por branch e pull request | documentos, exemplos e geradores juntos |
+| D9 | Código em **`painel-clientes/` neste repositório**, cada tarefa na sua branch; a Renderiza junta e sobe | documentos, exemplos e geradores juntos |
 | D10 | Os **exemplos são a especificação** das telas | já foram aprovados e estão na página de venda |
 | D11 | **Backup semanal** automático enquanto não houver backup no plano | o gratuito do Supabase não tem |
 | D12 | Termos de uso e política: **a IA rascunha**, alguém que entende de LGPD revisa | antes do primeiro cliente pagante |
@@ -66,16 +61,12 @@ rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2
 | D19 | Teste vencido ou conta desligada: os dados de quem pede saem numa planilha **pelo WhatsApp**, exportada pela Renderiza no admin (com registro) | cumpre a promessa "leva os seus dados numa planilha" sem liberar o painel |
 | D20 | Hoje todos os módulos ficam **liberados no teste** (nenhum usa IA ainda) | a marcação "só pago" existe para os módulos futuros |
 
-## Para as próximas rodadas
+## Rodadas de perguntas respondidas
 
-- CNPJ da Renderiza (entra nos termos de uso e na cobrança).
-- Montagem para quem não fez o site (com o cadastro sozinho, talvez nem precise).
-
-## Rodadas respondidas
-
-- **Rodada 1 (28/10/2026):** endereço e nome; domínio e contas; piloto e nicho; data; módulos do primeiro lote;
-  mensalidade por Pix; preço do Meu site.
-- **Rodada 2 (28/10/2026):** domínio; quem cria as contas; site do piloto; teste de 7 dias. Ficaram para a rodada 3:
-  quem entra no admin, o valor da versão final e quem junta o trabalho das sessões.
+- **Rodada 1 (28/10/2026):** endereço e nome; piloto e nicho; data; módulos do primeiro lote; mensalidade por Pix;
+  preço do Meu site.
+- **Rodada 2 (28/10/2026):** domínio; quem cria as contas; o site do cliente; teste de 7 dias.
+- **Rodada 3 (28/10/2026):** administradores, valor da versão final e quem junta o trabalho são operação da
+  Renderiza; o piloto ainda não tem site; documentos liberados para a `main`.
 
 As respostas estão em "Decididas".

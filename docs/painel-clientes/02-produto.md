@@ -41,7 +41,7 @@ assistente, quem edita as fotos), até 5 pessoas no plano.
 | Montagem do painel para quem faz o site com a Renderiza | **grátis** |
 | Teste | **7 dias grátis** para quem se cadastra sozinho, contados do início, com os módulos que a pessoa escolher (menos os marcados como "só pago") |
 | Mais 5 pessoas · cada espaço a mais | R$ 9,90 · R$ 29 por mês: **propostos**, ficam para depois do piloto |
-| Versão final do site (para quem sai) | a definir (rodada 3) |
+| Versão final do site (para quem sai) | combinada na proposta de cada cliente, fora do painel |
 
 O valor fica em `PRECO`, no script das páginas de venda; o teste `test/site.test.mjs` confere que os textos batem.
 A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão no painel administrativo.

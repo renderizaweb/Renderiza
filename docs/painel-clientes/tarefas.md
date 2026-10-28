@@ -4,10 +4,11 @@ Cada linha é uma tarefa que **uma sessão** (um agente de IA ou uma pessoa) peg
 entregar e não se bater estão em [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md). A ordem das paradas
 está no [trilho](01-trilho.md).
 
-**Situação:** `livre` · `em andamento` · `em revisão` (pull request aberto) · `feita` · `travada` (diga por quê em
-"Avisos").
+**Situação:** `livre` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada` (diga
+por quê em "Avisos").
 **Mexe em:** a pasta ou os arquivos que só essa tarefa altera. Os caminhos sem prefixo são dentro de `painel-clientes/`.
-**Ao pegar:** troque `livre` por `em andamento` e escreva a sua branch na última coluna. Mexa só na linha da sua tarefa.
+**Ao pegar:** troque `livre` por `em andamento` e escreva a sua branch na última coluna. Mexa só na linha e na nota
+de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pela branch e pela nota de passagem dela.
 
 ## Parada 1 · Organização e infraestrutura
 
@@ -54,7 +55,7 @@ está no [trilho](01-trilho.md).
 | T4.3 | Meu site no site: contrato de conteúdo v1, marcações `data-rz` nos geradores, script com fallback, `virar-site.mjs` com o código da conta | T4.1 | `ferramentas/demo/gerar*.py`, `ferramentas/meu-site/`, `scripts/virar-site.mjs` | livre | |
 | T4.4 | Meu site no painel: editor por seção, imagens, rascunho, prévia, publicar, histórico, voltar à versão inicial | T4.3 | `src/modulos/meu-site/`, `api/publico/site/` | livre | |
 | T4.5 | Desconectar o site e gerar a versão final | T4.3 | `scripts/versao-final.mjs` | livre | |
-| T4.6 | Site do piloto ligado ao painel, quando ele quiser (o site é dele e independente) | T4.2, T4.3, rodada 3 | `demos/<piloto>/` ou o repositório do site dele | livre | |
+| T4.6 | Site de teste, gerado de uma demo de eventos, ligado ao painel (agenda online e Meu site) para provar a ponte; quando o site do piloto existir e ele quiser, o mesmo para ele | T4.2, T4.3 | `test/site-teste/`; depois, o repositório do site do piloto | livre | |
 
 ## Parada 5 · Painel administrativo e regras (em paralelo)
 
@@ -76,6 +77,31 @@ está no [trilho](01-trilho.md).
 | T6.2 | Roteiro de teste de ponta a ponta (Playwright e no celular) e a rodada de correções | paradas 3, 4 e 5 | `test/fluxos/` | livre | |
 | T6.3 | Acompanhar a primeira semana do piloto e registrar os ajustes | T6.1 | `docs/painel-clientes/` (diário) | livre | |
 
+## Notas de passagem
+
+Uma por tarefa em andamento, para outra sessão continuar sem refazer nada. Atualize junto com os commits; apague
+quando a tarefa ficar `feita`.
+
+```
+T0.0 · branch claude/xxxx · atualizada em dd/mm hh:mm
+Feito: …
+Falta: …
+Próximo passo: …
+Decisões no caminho: …
+Migrações aplicadas no real: …
+```
+
+(nenhuma tarefa em andamento)
+
+## Migrações aplicadas no banco real
+
+Uma linha por migração, logo depois de aplicar (regras em `08`). Antes de aplicar uma nova, confira esta lista e a
+do próprio banco.
+
+| Data | Arquivo | Tarefa | Branch |
+|---|---|---|---|
+| — | (nenhuma ainda) | — | — |
+
 ## Avisos entre sessões
 
 Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dependência, achou um bug fora da sua
@@ -83,5 +109,6 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Tarefa | Recado |
 |---|---|---|
+| 28/10/2026 | — | Documentos na `main`. Cada sessão aplica as próprias migrações no banco real, com as regras do `08`; juntar e subir para a `main` é com a Renderiza. O piloto ainda não tem site: a T4.6 prova a ponte num site de teste. |
 | 28/10/2026 | — | Rodada 2 respondida: T1.1 a T1.4 são da Renderiza (contas e DNS); endereço `painel.renderizaweb.com.br`. |
 | 28/10/2026 | — | Quadro criado. T1.5 e T1.6 podem começar já; o resto da parada 1 espera a rodada 2 do `07`. |

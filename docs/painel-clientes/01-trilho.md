@@ -3,10 +3,12 @@
 O projeto é um trem: sai da partida (o que já existe), passa por **6 paradas** e chega ao destino. Cada parada é um
 grupo de tarefas com um **"chegou quando"**: só se sai dela quando o "chegou quando" é verdade. Não tem cronograma por
 dia: o trem anda conforme as paradas fecham. As tarefas de cada parada estão no [quadro de tarefas](tarefas.md), e
-as regras para várias sessões trabalharem ao mesmo tempo, em [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
+as regras para várias sessões trabalharem (em paralelo ou continuando a mesma tarefa), em
+[`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
 
 **Destino:** o piloto (um espaço de eventos) usando o Painel Renderiza no dia a dia, com **todos os módulos** num
-lote só (nada parcial), o site dele conectado e a Renderiza acompanhando tudo pelo painel administrativo. Meta da
+lote só (nada parcial), a ponte com o site provada num site de teste (e ligada ao site do piloto quando ele existir
+e quiser) e a Renderiza acompanhando tudo pelo painel administrativo. Meta da
 Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a partir de 28/10/2026).
 
 ## Painel de bordo
@@ -15,7 +17,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 |---|---|
 | **Onde o trem está** | Parada 1 · Organização e infraestrutura |
 | **Próxima ação** | A Renderiza cria o Supabase, a Vercel e o e-mail (T1.2 a T1.4) e aponta `painel.renderizaweb.com.br` (T1.1); as sessões começam T1.5 e T1.6 |
-| **Em aberto** | rodada 3 do [`07`](07-decisoes-e-perguntas.md) (admin, versão final, quem junta o trabalho, qual é o site do piloto); nada disso trava a parada 1 |
+| **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 28/10/2026 |
 
 ## O mapa
@@ -109,9 +111,10 @@ inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) 
   mensagem pronta no WhatsApp.
 - **Meu site:** marcações nos geradores, script com fallback, editor no painel, prévia, publicar, histórico, voltar à
   versão inicial, desconectar e gerar a versão final.
-- O site do piloto conectado (o site é dele e independente; a ligação entra quando ele quiser).
+- Um site de teste, gerado de uma demo de eventos, ligado ao painel. O piloto ainda não tem site; quando tiver e
+  quiser, o mesmo vale para ele (o site é dele e independente).
 
-**Chegou quando:** no site de teste e no do piloto, o pedido cai no painel em segundos; uma edição publicada aparece
+**Chegou quando:** no site de teste, o pedido cai no painel em segundos; uma edição publicada aparece
 no site em até 1 minuto; e, com o painel desligado, o site abre normal com a versão inicial.
 
 ## Parada 5 · Painel administrativo e regras ⬜ (em paralelo)
@@ -133,7 +136,7 @@ números; um backup foi restaurado com sucesso; os termos são aceitos no primei
 **Para quê:** o primeiro cliente real usando.
 
 - Conta do piloto montada pelo admin: serviços, festas já marcadas, equipe e acessos.
-- Site do piloto conectado (agenda online e Meu site).
+- Se o site do piloto já existir e ele quiser: agenda online e Meu site ligados.
 - Teste de ponta a ponta no celular, seguindo um roteiro.
 - Primeira semana acompanhada de perto, com as correções na hora.
 
@@ -153,6 +156,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | Rodada 3 respondida: admin, valores de proposta e como subir são operação da Renderiza; cada sessão aplica as próprias migrações com as regras do `08`; o piloto ainda não tem site (a ponte é provada num site de teste). Sem perguntas em aberto. Documentos juntados na `main`. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 2 respondida: endereço `painel.renderizaweb.com.br`; a Renderiza cria as contas com o próprio acesso; o site do piloto já existe e é independente; regras do teste de 7 dias. Rodada 3 aberta (4 perguntas e juntar os documentos na `main`). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 1 respondida: piloto de eventos, meta de 2 semanas, todos os módulos num lote só, painel administrativo com cadastro e 7 dias grátis, Pix à mão. Trilho refeito em 6 paradas; cliente no centro do banco; regras do trabalho em paralelo e quadro de tarefas criados. `renderiza.com.br` já tem dono (desde 2017). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Perguntas resumidas numa rodada 1 de 7. Planos do Supabase e da Vercel ficam com a Renderiza. | Claude, a pedido da Renderiza |
