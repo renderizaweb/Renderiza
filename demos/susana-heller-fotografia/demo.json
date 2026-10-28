@@ -1,0 +1,632 @@
+{
+ "pasta": "susana-heller-fotografia",
+ "marca": "Susana Heller Fotografia",
+ "marca_completa": "Susana Heller Fotografia",
+ "titulo_nome": "Susana Heller",
+ "titulo_script": "fotografia",
+ "dona": "Susana",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6271675,-46.6455574",
+  "fid": "0x94ce5ea96740c14b:0xf852743fd9f958dd",
+  "gid": "/g/11bw73lcg6"
+ },
+ "google_nome": "Susana Heller Fotografia",
+ "endereco_maps": "R. Nereu Ramos, 74 - Planalto Paulista, São Paulo - SP, 04070-010",
+ "google_nota": "5,0",
+ "google_total": "74",
+ "verificado": "2026-10-28",
+ "whatsapp": "5511953052001",
+ "fone_link": "+5511953052001",
+ "instagram": "susanahellerfotografia",
+ "seguidores": "10,9 mil",
+ "mensagem": "Olá, Susana! Vi o seu site e queria saber mais sobre os ensaios.",
+ "slogan": "Eu registro o amor.",
+ "cores": {
+  "fundo": "#faf7f5",
+  "papel": "#fffefd",
+  "areia": "#f2ebe7",
+  "linha": "#e7ddd8",
+  "tinta": "#2f2a2c",
+  "tinta2": "#685e61",
+  "rosa": "#c9a0a7",
+  "acento": "#8f5563",
+  "acento_escuro": "#74404d",
+  "cafe": "#2c2226"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 10h",
+   "2026-11-14 10h",
+   "2026-11-14 11h",
+   "2026-11-21 9h",
+   "2026-11-28 9h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-12-05 9h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 10h"
+  ],
+  "exemplo": "Horários de exemplo: a Susana define os dela",
+  "mensagem": "Olá, Susana! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Susana",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Susana, da Susana Heller Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Susana, da Susana Heller Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "site": {
+  "titulo": "Susana Heller Fotografia | Gestante, newborn e família no Planalto Paulista, São Paulo",
+  "descricao": "Susana Heller Fotografia, no Planalto Paulista, em São Paulo: ensaios de gestante, newborn, bebês, Dia das Mães e Natal. 5 vezes premiada no Outstanding Award. Nota 5,0 no Google.",
+  "comentario": "Demo Susana Heller Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram dela (@susanahellerfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia no Planalto Paulista · São Paulo",
+   "frase": "Eu registro o amor.",
+   "intro": "Ensaios de gestante, newborn, bebês e família no estúdio da Susana, no Planalto Paulista.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Mães e filhos"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Dia das Mães",
+    "Natal",
+    "Família"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/470215621_18472815520019665_1995240218192517181_n.jpg",
+     "f": "p",
+     "alt": "Casal abraçado no ensaio de gestante, de branco",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/655648254_18130616446553154_4877195328721247569_n.jpg",
+     "f": "l",
+     "alt": "Recém-nascida dormindo num cestinho branco, com tiara de flores",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DXRz0Y3Dgr1__DXRz0Y3Dgr1_01.jpg",
+     "f": "p",
+     "alt": "Mãe e filha sorrindo no cenário de flores do Dia das Mães",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>com amor.</em>",
+   "p": "Ensaios feitos no estúdio da Susana. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/470179027_18473342107019665_7160427737038680731_n.jpg",
+      "f": "p",
+      "alt": "Gestante ruiva de jaqueta de couro, com a mão no cabelo",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/660716203_18320721853271761_3160332788285906849_n.jpg",
+      "f": "p",
+      "alt": "Casal testa com testa, ele com a mão na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/649247259_17982117476963648_3861721588875196428_n.jpg",
+      "f": "p",
+      "alt": "Gestante de terno branco com a filha sentada ao lado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/470192424_18473342284019665_7466636724081282769_n.jpg",
+      "f": "p",
+      "alt": "Gestante de perfil, de branco, com a mão na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/653569808_18059812535392679_6647389416962944591_n.jpg",
+      "f": "p",
+      "alt": "Casal em preto e branco, ele abraçando a barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/648970946_17938864905012178_4930811844633609193_n.jpg",
+      "f": "p",
+      "alt": "Gestante de terno branco sentada num cubo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/470209618_18472812682019665_2767939350217640628_n.jpg",
+      "f": "p",
+      "alt": "Gestante de blazer preto e calça jeans",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/669398106_18588443050029654_4604547700931512997_n.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo com o cachorro no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/655226797_18121871854609239_8060158946317800074_n.jpg",
+      "f": "p",
+      "alt": "Casal em preto e branco, ele beijando o rosto dela",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/470199365_18472814491019665_2192526934030350828_n.jpg",
+      "f": "p",
+      "alt": "Gestante de jaqueta de couro sorrindo",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/655648254_18130616446553154_4877195328721247569_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo num cestinho branco, com tiara de flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/502714994_1264661448613922_7411673571591601072_n.jpg",
+      "f": "p",
+      "alt": "Pais olhando o recém-nascido no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/651520900_18038359832774682_7502690744494501046_n.jpg",
+      "f": "l",
+      "alt": "Irmã mais velha deitada ao lado da recém-nascida enrolada",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/662445917_18125966287518117_6679912419167475700_n.webp",
+      "f": "p",
+      "alt": "Bebê de um ano de pé, apoiado num cubo branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/663265059_18403066471149724_6213240002414241058_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de boina verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/468916390_18470530177019665_8487172718544935967_n.jpg",
+      "f": "l",
+      "alt": "Bebê comendo o bolo no smash the cake",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "maes",
+    "nome": "Mães e filhos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DXRz0Y3Dgr1__DXRz0Y3Dgr1_00.jpg",
+      "f": "p",
+      "alt": "Mãe e filha no balanço do cenário de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DYKRt6KACfM__DYKRt6KACfM_00.jpg",
+      "f": "p",
+      "alt": "Mãe abraçando a filha pequena no cenário de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DXRz0Y3Dgr1__DXRz0Y3Dgr1_03.jpg",
+      "f": "p",
+      "alt": "Mãe e filha sentadas no chão, de vestido rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DYKRt6KACfM__DYKRt6KACfM_01.jpg",
+      "f": "p",
+      "alt": "Mãe segurando a filha no balanço",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DXRz0Y3Dgr1__DXRz0Y3Dgr1_05.jpg",
+      "f": "p",
+      "alt": "Mãe sorrindo com a filha no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DYKRt6KACfM__DYKRt6KACfM_03.jpg",
+      "f": "p",
+      "alt": "Mãe brincando com a filha de cabeça para baixo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/501036640_1408871597196626_7541384114061437974_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o filho e a filha, todos de branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DXRz0Y3Dgr1__DXRz0Y3Dgr1_02.jpg",
+      "f": "p",
+      "alt": "Mãe e filha sentadas no balanço de flores",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/drive/469179176_1225963796198518_3667825139347184601_n.jpg",
+    "f": "p",
+    "alt": "Susana Heller sorrindo, de blusa preta",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "p": [
+    "A Susana fotografa famílias há 14 anos. Começou quando sonhava em ser mãe: encantada com as fotos de recém-nascidos, foi aprender newborn quando ainda havia poucos profissionais no Brasil. A chegada da Olívia, a primeira filha, foi o porquê."
+   ],
+   "citacao": "O sonho começou quando eu queria me tornar mãe, e ainda nem estava esperando pela minha primeira filha, Olívia.",
+   "citacao_quem": "Susana Heller",
+   "p2": [
+    "O primeiro estúdio foi um quarto que os pais dela cederam. Hoje o estúdio fica no Planalto Paulista, e o trabalho dela já foi premiado 5 vezes no Outstanding Award. Nas avaliações, as famílias a chamam de Su."
+   ],
+   "numeros": [
+    [
+     "5x",
+     "premiada no Outstanding Award"
+    ],
+    [
+     "5,0",
+     "74 avaliações no Google"
+    ],
+    [
+     "10,9 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da doce espera <em>a cada Natal.</em>",
+   "p": "Os ensaios que a Susana faz no estúdio:",
+   "fonte": "Os ensaios que a Susana mostra no Instagram e nos destaques (Gestantes, Newborn, Cake Smash).",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A doce espera",
+     "p": "Com o casal, os irmãos e até os pets: figurino claro, jaqueta de couro ou preto e branco."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Foi onde tudo começou para a Susana, com cuidado e segurança com o recém-nascido."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Bolo, balões e cenário para comemorar o primeiro ano do bebê."
+    },
+    {
+     "nome": "Dia das Mães",
+     "sub": "Mães, filhas e avós",
+     "p": "Mães com os filhos no colo ou já crescidos, no cenário de flores com o balanço."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Cenários novos todo ano",
+     "p": "Em 2026, a casinha na neve e a sala do “Ho ho ho”, com o pianinho."
+    },
+    {
+     "nome": "Para sempre",
+     "sub": "Acompanhar a família",
+     "p": "Tem família que fez o newborn com ela e volta todo ano: no Natal, na Páscoa e no Dia das Mães."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Esse ano <em>tem neve.</em>",
+   "p": "O Natal 2026 já abriu no estúdio, com dois cenários novos. Escolha um horário e a mensagem chega pronta no WhatsApp da Susana.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9X0FlMhc__Dey9X0FlMhc_01.jpg",
+    "f": "l",
+    "alt": "Família com o cachorro no cenário de Natal com a lareira e as árvores"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Juliana Possebonmr",
+    "tag": "Newborn e Dia das Mães",
+    "trecho": "Conheço a Su há quase 9 anos, quando ela fez o newborn da minha filha, lembrança que guardamos com muito carinho! O trabalho dela é incrível, com personalidade e sensibilidade!"
+   },
+   {
+    "nome": "Marilia Medeiros",
+    "tag": "Gestante",
+    "trecho": "Fiz o ensaio gestante com meu esposo e meu cachorrinho. Ficou lindo e de muito bom gosto! A Susana é uma profissional incrível, consegue deixar um clima em que ficamos super a vontade"
+   },
+   {
+    "nome": "Paulo Paes",
+    "tag": "Atendimento",
+    "trecho": "A Susana é uma excelente profissional. Gostamos muito do atendimento, desde a solicitação do orçamento, registro das fotos, cenários disponíveis no estúdio"
+   },
+   {
+    "nome": "Larissa Reis",
+    "tag": "Newborn e Natal",
+    "trecho": "Eu super indico o trabalho da Susana. Estamos com ela desde o new born do meu Joaquim."
+   },
+   {
+    "nome": "Adriana Souza",
+    "tag": "Gestante",
+    "trecho": "Susana é uma ótima profissional e pessoa nos deixou super a vontade para registrar esse momento mais que abençoado."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Planalto Paulista, em São Paulo.",
+   "telefone": "(11) 95305-2001",
+   "endereco": [
+    "Rua Nereu Ramos, 74",
+    "Planalto Paulista",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Susana Heller Fotografia",
+  "descricao": "Natal 2026 na Susana Heller Fotografia, no Planalto Paulista, em São Paulo: ensaio de Natal no estúdio, com cenário de neve. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Susana Heller Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Esse ano <em>tem neve.</em>",
+   "citacao": "Os tempos mudaram, e temos a grande oportunidade de deixar esses registros lindos pros nossos filhos, que poderão se lembrar de todos os detalhes desses momentos especiais em família.",
+   "citacao_quem": "Susana Heller, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9D-7lHhN__Dey9D-7lHhN_01.jpg",
+    "f": "l",
+    "alt": "Pais e filho com o cachorro na frente da casinha na neve"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários <em>novos.</em>",
+   "p": "O Natal 2026 abriu no estúdio em 19 de outubro, com dois cenários: a casinha na neve, com os pinheiros e os flocos caindo, e a sala do “Ho ho ho”, com a lareira branca, as árvores e o pianinho que faz sucesso com as crianças.",
+   "itens": [
+    "No estúdio, no Planalto Paulista.",
+    "Para crianças, irmãos, pais e até o cachorro.",
+    "A neve foi pedido das crianças: “Tia, esse ano tem neve?”.",
+    "Valores e detalhes pelo WhatsApp da Susana."
+   ],
+   "legenda_fotos": "Os cenários de Natal de 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_04.jpg",
+    "f": "l",
+    "alt": "Menina de vestido azul na frente da casinha na neve, com os flocos caindo",
+    "pos": "50% 40%",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_01.jpg",
+    "f": "l",
+    "alt": "Menina sentada no cenário do “Ho ho ho”, com a lareira e as árvores"
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9X0FlMhc__Dey9X0FlMhc_00.jpg",
+    "f": "l",
+    "alt": "Menino tocando o pianinho no cenário de Natal"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Susana abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, das 9h ao meio-dia, como o estúdio abre aos sábados. A Susana define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Susana abre com o dia e a hora escritos."
+    ],
+    [
+     "A Susana confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "As primeiras famílias <em>do ano.</em>",
+   "nome": "Natal 2026",
+   "p": "Os primeiros ensaios nos cenários de 2026, postados em outubro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_00.jpg",
+     "f": "l",
+     "alt": "Irmãs abraçadas no cenário do “Ho ho ho”",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_06.jpg",
+     "f": "l",
+     "alt": "Duas irmãs de braços para cima na neve",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9D-7lHhN__Dey9D-7lHhN_03.jpg",
+     "f": "l",
+     "alt": "Mãe abraçando o filho na frente da casinha na neve",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_02.jpg",
+     "f": "l",
+     "alt": "Menina abraçada a uma rena de pelúcia, perto da árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9D-7lHhN__Dey9D-7lHhN_02.jpg",
+     "f": "l",
+     "alt": "Menino sentado na manta xadrez ao lado do urso de pelúcia",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_08.jpg",
+     "f": "l",
+     "alt": "Pai ganhando beijo das duas filhas no cenário de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_03.jpg",
+     "f": "l",
+     "alt": "Irmãs sentadas no chão com os bichinhos de pelúcia",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9X0FlMhc__Dey9X0FlMhc_02.jpg",
+     "f": "l",
+     "alt": "Pais e filho abraçados ao lado da árvore de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/DesZ5QrFOUC__DesZ5QrFOUC_07.jpg",
+     "f": "l",
+     "alt": "Mãe e filha rindo rosto com rosto",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/susana-heller-fotografia/postsall/Dey9X0FlMhc__Dey9X0FlMhc_03.jpg",
+     "f": "l",
+     "alt": "Mãe sorrindo com o cachorro no colo, entre as árvores",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Larissa Reis",
+    "tag": "Newborn e Natal",
+    "trecho": "Eu super indico o trabalho da Susana. Estamos com ela desde o new born do meu Joaquim."
+   },
+   {
+    "nome": "Paulo Paes",
+    "tag": "Atendimento",
+    "trecho": "A Susana é uma excelente profissional. Gostamos muito do atendimento, desde a solicitação do orçamento, registro das fotos, cenários disponíveis no estúdio"
+   },
+   {
+    "nome": "Juliana Possebonmr",
+    "tag": "Newborn e Dia das Mães",
+    "trecho": "Conheço a Su há quase 9 anos, quando ela fez o newborn da minha filha, lembrança que guardamos com muito carinho! O trabalho dela é incrível, com personalidade e sensibilidade!"
+   },
+   {
+    "nome": "Marilia Medeiros",
+    "tag": "Gestante",
+    "trecho": "Fiz o ensaio gestante com meu esposo e meu cachorrinho. Ficou lindo e de muito bom gosto! A Susana é uma profissional incrível, consegue deixar um clima em que ficamos super a vontade"
+   },
+   {
+    "nome": "Adriana Souza",
+    "tag": "Gestante",
+    "trecho": "Susana é uma ótima profissional e pessoa nos deixou super a vontade para registrar esse momento mais que abençoado."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Susana no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95305-2001); a bio do Instagram usa um link curto do WhatsApp (wa.me/message), sem o número à vista",
+  "site": "não tem: sem link no Google; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026). A bio manda “agendar no link”",
+  "situacao": "publicada em 28/10/2026 · `/demo/susana-heller-fotografia` e `/demo/susana-heller-fotografia/natal`",
+  "direcao": [
+   "Portfólio claro, com um rosé queimado de destaque, no tom dos ensaios de gestante e do cenário de flores.",
+   "Sem logo público: o topo e o rodapé usam um monograma SH e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Eu registro o amor”); as citações são legendas dela no Instagram."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Gestante, Newborn e bebês, Mães e filhos), a história dela, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: os dois cenários novos (a neve e a sala do “Ho ho ho”), a agenda de exemplo (sábados, das 9h ao meio-dia, como o estúdio abre) e as primeiras famílias do ano.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023, ensaios de gestante, newborn e bebês) e os posts de 2026 (Natal 2026, de 19 e 22/10, e o Dia das Mães).",
+   "Fora de propósito: quadros de Reels com texto por cima e imagens com tarja preta.",
+   "A foto de quem fotografa é a do perfil dela."
+  ],
+  "textos": [
+   "Bio do Instagram: 5x Outstanding Award, Gestante e Newborn, Planalto Paulista, “Eu registro o amor”.",
+   "Legendas dela: a história dos 11 anos (post de 2023: o sonho de ser mãe, a Olívia, o primeiro estúdio no quarto cedido pelos pais), o Natal 2026 aberto em 19/10, “Tia, esse ano tem neve!?” e o pianinho.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Os “14 anos” saem do post de 2023 (“foram 11 anos”); confirmar com ela.",
+   "Os horários de Natal são exemplo (sábados, 9h ao meio-dia, o horário do estúdio no Google).",
+   "WhatsApp: a demo usa o celular do Google; a bio usa um link curto do WhatsApp. Conferir se é o mesmo número."
+  ]
+ }
+}

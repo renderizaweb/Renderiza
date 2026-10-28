@@ -270,3 +270,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Mansão Jaraguá (eventos)](demos/mansao-jaragua) | Vila Clarice, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
 | [Ana Carolina Fotografia (fotógrafa)](demos/ana-carolina-fotografia) | Jardim São Caetano, São Caetano do Sul | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 1ª, formato novo de portfólio com preço e prazo na demo, vídeo no formato do Reels) |
 | [Studio Camila Linhares (fotógrafa)](demos/camila-linhares-fotografia) | Santo Amaro, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 2ª) |
+| [Susana Heller Fotografia (fotógrafa)](demos/susana-heller-fotografia) | Planalto Paulista, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 3ª) |
