@@ -428,9 +428,10 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 # demo.json "estilo" muda tipografia, abertura, formas das fotos, abas, botões e detalhes; o CSS de cada escolha entra
 # depois do CSS base (sobrescreve). Sem "estilo", a página sai igual à de sempre. Chaves e valores:
 #   fontes {serif|sans|script: [família, eixos do Google Fonts]}, script_escala (número), titulo "natural",
-#   topo "centro", abertura "arco"|"polaroid"|"faixa", fotos "suave"|"arco", galeria "quadrado",
+#   topo "centro", abertura "arco"|"polaroid"|"faixa"|"bolhas", fotos "suave"|"arco", galeria "quadrado",
 #   abas "sublinhado"|"script", botoes "reto"|"suave", eyebrow "ponto"|"losango", jornada "cartoes",
-#   natal_capa "retrato" (foto do topo da página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
+#   agenda "bilhete" (os dias da agenda de Natal como passagens), natal_capa "retrato" (foto do topo da
+#   página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
 PILHAS = {'serif': 'Georgia,serif', 'sans': 'system-ui,-apple-system,"Segoe UI",sans-serif', 'script': '"Brush Script MT",cursive'}
 
 ESTILO = {
@@ -477,6 +478,16 @@ ESTILO = {
 .abertura-acoes{justify-content:center;margin:0 0 22px}.prova{justify-content:center}
 @media(max-width:900px){.abertura-intro{margin-bottom:22px}}
 @media(max-width:520px){.mosaico{grid-template-columns:1fr 1.5fr 1fr;gap:8px;margin-inline:-8px}.mosaico figure+figure figcaption{display:none}}''',
+    ('abertura', 'bolhas'): '''
+.mosaico{grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:0;position:relative;align-items:center}
+.mosaico::before{content:"";position:absolute;width:34%;aspect-ratio:1;border-radius:50%;background:var(--rosa);opacity:.28;right:0;top:-6%}
+.mosaico::after{content:"";position:absolute;width:13%;aspect-ratio:1;border-radius:50%;background:var(--acento);opacity:.16;left:2%;bottom:-2%}
+.abertura .mosaico figure{border-radius:50%;aspect-ratio:1;box-shadow:0 0 0 7px var(--fundo),0 0 0 8px var(--rosa)}
+.mosaico figure:first-child{grid-row:1/3;grid-column:1;aspect-ratio:1;z-index:1}
+.mosaico figure:nth-child(2){grid-column:2;grid-row:1;width:82%;justify-self:start;margin:0 0 -4% -4%;z-index:2}
+.mosaico figure:nth-child(3){grid-column:2;grid-row:2;width:64%;justify-self:end;margin:-2% 4% 0 0}
+.mosaico figcaption{left:50%;bottom:9%;transform:translateX(-50%);white-space:nowrap}
+@media(max-width:520px){.abertura .mosaico figure{box-shadow:0 0 0 4px var(--fundo),0 0 0 5px var(--rosa)}.mosaico figcaption{left:50%;bottom:7%}.mosaico figure:nth-child(3) figcaption{display:none}}''',
     ('fotos', 'suave'): '''
 .mosaico figure,.g-item,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{border-radius:16px}
 .sobre-foto::before{border-radius:24px}.review-card,.dia{border-radius:16px}.mapa{border-radius:16px;overflow:hidden}''',
@@ -512,6 +523,11 @@ ESTILO = {
 .jornada li{background:var(--papel);border:1px solid var(--linha);padding:30px 28px 32px}
 .jornada li::before{font-size:2.5rem;line-height:1;margin-bottom:16px}
 @media(max-width:560px){.jornada li{padding:24px 22px 26px}}''',
+    ('agenda', 'bilhete'): '''
+.dia{border:1px solid color-mix(in srgb,var(--acento) 30%,var(--linha));grid-template-columns:auto 1px 1fr;gap:4px 16px;-webkit-mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000),radial-gradient(circle 10px at 100% 50%,#0000 96%,#000);-webkit-mask-composite:source-in;mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000),radial-gradient(circle 10px at 100% 50%,#0000 96%,#000);mask-composite:intersect}
+.dia::after{content:"";grid-column:2;grid-row:1/3;align-self:stretch;border-left:1px dashed color-mix(in srgb,var(--acento) 50%,transparent)}
+.dia-nome{grid-column:1;grid-row:1/3}.dia-nome span{color:var(--acento);font-weight:600}
+.dia-horas{grid-column:3}.dia-resta{grid-column:3}''',
     ('natal_capa', 'retrato'): '''
 @media(min-width:901px){.n-abertura-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
 .n-abertura .foto img{aspect-ratio:4/5}
@@ -532,7 +548,7 @@ def css_estilo(e):
     partes = []
     f = e.get('fontes') or {}
     if f: partes.append(':root{' + ''.join(f'--{k}:"{f[k][0]}",{PILHAS[k]};' for k in ('serif', 'sans', 'script') if k in f) + '}')
-    for chave in ('titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'natal_capa', 'textura'):
+    for chave in ('titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'agenda', 'natal_capa', 'textura'):
         if e.get(chave): partes.append(ESTILO[(chave, e[chave])])
     if e.get('script_escala'):
         x = e['script_escala']
