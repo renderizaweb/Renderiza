@@ -23,6 +23,15 @@ export function separarMensagens(texto) {
   if (partes.length === 1) return { abrir: "", previa: partes[0], retomar: "" };
   return Object.fromEntries(ETAPAS_MENSAGEM.map((e, i) => [e.id, partes[i] || ""]));
 }
+/**
+ * Mensagem pronta para mandar agora (ex.: a de encerramento de 28/10/2026): texto único, sem as etapas do primeiro
+ * contato. O card mostra "Copiar mensagem" ao lado do WhatsApp. Texto em etapas (o modelo antigo, que saiu do
+ * painel em 09/10/2026) fica de fora.
+ */
+export function mensagemPronta(texto) {
+  const m = separarMensagens(texto);
+  return m.abrir || m.retomar ? "" : m.previa;
+}
 /** { abrir, previa, retomar } → texto guardado. */
 export function juntarMensagens(m) {
   const partes = ETAPAS_MENSAGEM.map(e => String(m[e.id] || "").trim());

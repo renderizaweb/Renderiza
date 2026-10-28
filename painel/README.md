@@ -213,7 +213,9 @@ WhatsApp.
   `flyers/<id>.json`, não). Link completo de outro site também vale: se o site não deixar baixar, abre
   em outra aba.
 - **Mensagens prontas de WhatsApp**: saíram do painel em 09/10/2026 (a equipe não usava). Os textos antigos
-  continuam em `leads.mensagem_whatsapp` e o modelo em `src/mensagem.js`.
+  continuam em `leads.mensagem_whatsapp` e o modelo em `src/mensagem.js`. Desde 28/10/2026, quando o campo tem um
+  texto só (sem as etapas separadas por `---`), o topo do card mostra **Copiar mensagem** ao lado do WhatsApp: foi
+  assim que entrou a mensagem de encerramento dos 16 leads de eventos (demo e valor até 31/10, com o link do painel).
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,

@@ -21,6 +21,7 @@ import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.
 import { criarTelaClientes } from "./tela-clientes.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
+import { mensagemPronta } from "./mensagem.js";
 import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, visitantesDaEquipe, resumoDasVisitas, duracao, daDemo, textoDoRepasse } from "./visitas.js";
 import { criarTelaAtividade, naoVistas } from "./tela-atividade.js";
 import {
@@ -762,6 +763,19 @@ function chipsDoLead() {
 /** WhatsApp, Instagram e demo a um toque, sem procurar os campos lá embaixo. */
 function acoesRapidas() {
   const el = h("div", { class: "lead-acoes" });
+  // Mensagem pronta (leads.mensagem_whatsapp com um texto só): copia para colar no WhatsApp.
+  let pronta = "";
+  const copiarMensagem = h("button", { type: "button", class: "acao-rapida copiar-mensagem", title: "Copia a mensagem pronta deste lead, para colar no WhatsApp" }, icone("copiar", 15), "Copiar mensagem");
+  copiarMensagem.addEventListener("click", () => {
+    // Sem permissão de copiar: mostra o texto selecionado numa janela, para copiar à mão.
+    const mostrar = () => {
+      const area = h("textarea", { class: "sql", readonly: true, rows: "12", "aria-label": "Mensagem pronta", style: "white-space:pre-wrap;font:inherit" });
+      area.value = pronta;
+      abrirJanela({ titulo: "Mensagem pronta", descricao: "Não deu para copiar sozinho. Selecione o texto e copie.", conteudo: area });
+      area.focus(); area.select();
+    };
+    try { navigator.clipboard.writeText(pronta).then(() => aviso("Mensagem copiada. É só colar no WhatsApp."), mostrar); } catch (e) { mostrar(); }
+  });
   let linkDemo = "", demoFora = "";
   const copiar = h("button", { type: "button", class: "acao-rapida copiar-demo", title: "Copia o link completo, pronto para mandar à ótica" }, icone("copiar", 15), "Copiar link da demo");
   copiar.addEventListener("click", () => {
@@ -789,8 +803,10 @@ function acoesRapidas() {
     linkPainel = mostraPainel(l) ? linkDoPainel(l) : "";
     const s = situacaoDoLead(l);
     demoFora = s && !s.noAr ? (s.estado === "expirada" ? "expirada" : "fora do ar") : "";
+    pronta = mensagemPronta(l.mensagem_whatsapp);
     const botoes = [
       wa ? link("whatsapp", wa, "mensagem", "WhatsApp") : null,
+      pronta ? copiarMensagem : null,
       ig ? link("", ig, ehPerfil ? "instagram" : "abrirLink", ehPerfil ? "Instagram" : "Site") : null,
       demo ? link("demo", demo, "monitor", "Ver demo") : null,
       demo ? copiar : null,

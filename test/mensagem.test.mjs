@@ -53,3 +53,11 @@ test("no envio, a demo fica no ar 7 dias a partir de hoje (se já não ficar)", 
   assert.equal(renovarParaEnvio({ no_ar: true, vale_ate: null }, hoje), null);
   assert.equal(renovarParaEnvio(null, hoje), null);
 });
+
+test("mensagem pronta: só o texto único (a de encerramento); o modelo antigo em etapas fica de fora", async () => {
+  const { mensagemPronta } = await import("../painel/src/mensagem.js");
+  assert.equal(mensagemPronta("Oi, tudo bem?\nLink: https://x"), "Oi, tudo bem?\nLink: https://x");
+  assert.equal(mensagemPronta("Oi, é da loja?\n\n---\n\nPrazer!\n\n---\n\nOi de novo"), "");
+  assert.equal(mensagemPronta(""), "");
+  assert.equal(mensagemPronta(null), "");
+});
