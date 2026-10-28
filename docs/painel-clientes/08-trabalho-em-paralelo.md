@@ -45,25 +45,28 @@ arquivo antes de começar.
 
 ## O banco: cada sessão aplica as suas migrações, com cuidado
 
-Cada sessão tem acesso direto ao Supabase e aplica no banco real as migrações da própria tarefa. É o ponto mais
-sensível do projeto, então:
+Cada sessão tem acesso direto ao Supabase e aplica as migrações da própria tarefa. São dois bancos do Painel
+Renderiza (`04`): o **STG**, com dados fictícios, e a **produção**, com clientes reais. O banco do Painel de
+prospecção nunca é tocado. É o ponto mais sensível do projeto, então:
 
 1. **Toda mudança no banco é uma migração** em `painel-clientes/supabase/migrations/`, com nome
    `AAAAMMDDHHMMSS_assunto.sql` (data e hora no nome: duas sessões nunca criam o mesmo número).
 2. **Teste antes, no banco local** (Postgres 16 do ambiente; rotina da T1.6), incluindo a RLS e o teste de
    isolamento de toda tabela nova.
-3. **Antes de aplicar no real, confira o que já está lá:** a lista de migrações aplicadas no banco e a tabela
-   "Migrações aplicadas" do quadro. Se o banco tem uma migração que você não tem na branch, traga a branch dela antes
-   de seguir.
-4. **Aplique pelo caminho que registra a migração no próprio banco** (a ferramenta de migração do conector do
-   Supabase ou o `supabase db push`), uma de cada vez, em ordem.
-5. **Logo depois de aplicar:** push da branch com o arquivo da migração e uma linha em "Migrações aplicadas" no
-   quadro (data, arquivo, tarefa, branch). Assim outra sessão nunca encontra o banco diferente do que está no
-   repositório.
-6. **Migração aplicada no real nunca é editada.** Precisa mudar? Migração nova.
-7. **Nada destrutivo sem a Renderiza dizer "pode":** apagar tabela ou coluna com dados, `delete` ou `update` em massa,
+3. **Sempre STG primeiro, produção depois.** Aplicou no STG, confira que o painel funciona lá (a prévia da branch
+   na Vercel já usa o STG). Só então aplique a mesma migração na produção. Nunca na produção sem ter passado pelo STG.
+4. **Antes de aplicar, confira o que já está no banco:** a lista de migrações aplicadas nele e a tabela "Migrações
+   aplicadas" do quadro. Se o banco tem uma migração que você não tem na branch, traga a branch dela antes de seguir.
+5. **Aplique pelo caminho que registra a migração no próprio banco** (a ferramenta de migração do conector do
+   Supabase ou o `supabase db push`), uma de cada vez, em ordem. Confira duas vezes em qual projeto está conectado.
+6. **Logo depois de aplicar:** push da branch com o arquivo da migração e a linha em "Migrações aplicadas" no quadro
+   (data, arquivo, tarefa, branch, STG e produção). Assim outra sessão nunca encontra o banco diferente do que está
+   no repositório.
+7. **Migração aplicada nunca é editada** (nem no STG). Precisa mudar? Migração nova.
+8. **Nada destrutivo na produção sem a Renderiza dizer "pode":** apagar tabela ou coluna com dados, `delete` ou `update` em massa,
    mudar a RLS para afrouxar. Na dúvida, pergunte.
-8. **Só estrutura, nunca dado de cliente** pelas migrações. A semente de teste (T2.3) roda só no banco local.
+9. **Só estrutura, nunca dado de cliente** pelas migrações. A semente de teste (T2.3) roda no banco local e no STG,
+   nunca na produção.
 
 A parada 2 cria **o banco inteiro de uma vez** (T2.1 e T2.2). Assim os módulos da parada 3 quase não precisam de
 migração, e as que precisarem são pequenas e só da sua área.
@@ -91,6 +94,7 @@ migração, e as que precisarem são pequenas e só da sua área.
 ## O que não fazer
 
 - Começar sem tarefa definida, ou pegar uma que está `em andamento` em outra sessão sem a Renderiza pedir.
-- Aplicar migração no banco real sem testar no local, sem conferir o que já está aplicado ou sem registrar no quadro.
+- Aplicar migração na produção sem passar pelo STG, sem conferir o que já está aplicado ou sem registrar no quadro.
+- Tocar no banco do Painel de prospecção.
 - Mudar o formato de uma tabela, da API ou do Meu site sem atualizar o documento e avisar no quadro.
 - Pôr identificador de modelo de IA nos commits, chave no código ou dado real no repositório.

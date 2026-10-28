@@ -17,7 +17,7 @@ antes do primeiro cliente pagante (padrão: eu rascunho, alguém revisa).
 
 | De quem | O quê | Cuidado |
 |---|---|---|
-| Pessoas da equipe | nome, e-mail, papel, o que fizeram no painel, quando entraram e de que aparelho | login pelo Supabase Auth; senha nunca passa pela Renderiza; as entradas aparecem no painel administrativo |
+| Pessoas da equipe | nome, e-mail, papel, o que fizeram no painel, quando entraram e de que aparelho | login pelo Supabase Auth; senha nunca passa pela Renderiza; as entradas aparecem no Admin |
 | Clientes finais | nome, WhatsApp, e-mail, Instagram, data e tipo da festa ou ensaio, convidados, valores, o que foi combinado | só o necessário; CPF e endereço só se o contrato do cliente exigir |
 | Aceite de contrato | nome de quem aceitou, data, hora, IP, aparelho, a versão do texto | é a prova do aceite; fica guardado com o contrato |
 | Pedidos da agenda online | nome, contato, data desejada, tipo, convidados | aviso curto no formulário dizendo para quem vão os dados |
@@ -49,7 +49,7 @@ Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copi
 - **Senha** gerida pelo Supabase Auth (mínimo 8 caracteres); sessão que expira; "sair de todos os aparelhos".
 - **Cabeçalhos:** fora do Google, sem abrir dentro de outro site, CSP.
 - **Uploads:** só imagem, tamanho máximo, conversão para WebP (o arquivo original não é guardado).
-- **Painel administrativo:** a equipe Renderiza vê contas, pessoas, entradas, pagamentos e números gerais, mas
+- **Admin:** a equipe Renderiza vê contas, pessoas, entradas, pagamentos e números gerais, mas
   **não** os dados dos clientes finais (nomes, contatos, valores das festas). Os indicadores são só contagens.
 - **Suporte da Renderiza:** entrar numa conta de cliente só com registro (quem, quando, por quê), visível para o dono.
 - **Cadastro aberto:** confirmação de e-mail, verificação contra robô e limite de cadastros por endereço.

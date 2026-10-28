@@ -17,16 +17,18 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Não confundir os dois painéis
 
-| | Painel interno (Pipeline) | Painel Renderiza (este projeto) |
+| | Painel de prospecção | Painel Renderiza (este projeto) |
 |---|---|---|
 | Quem usa | Kaue e Milena | os clientes da Renderiza e as equipes deles |
 | Para quê | prospecção: leads, demos, ritmo, atividade | o dia a dia do negócio do cliente: agenda, clientes, contratos, financeiro, atendimento e o site |
 | Endereço | `renderizaweb.com.br/painel` | `painel.renderizaweb.com.br` |
 | Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na tarefa T1.5) |
-| Banco | Supabase `gxdwluswpczlfgvzxqvg` | um projeto Supabase **novo e separado** (proposta) |
+| Banco | Supabase `gxdwluswpczlfgvzxqvg` (conta atual) | conta nova do Supabase com dois projetos: `painel-renderiza-prod` (produção) e `painel-renderiza-stg` (STG) |
 | Vitrine | — | `/exemplos` (eventos, Villa Alecrim) e `/exemplos/fotografia` (Estúdio Ciranda), com dados fictícios |
 
-Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiza** (o dos clientes).
+Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiza** (o dos clientes). O de
+prospecção é sempre chamado de **Painel de prospecção**, e a área da Renderiza dentro do Painel Renderiza, de
+**Admin**.
 
 ## Os documentos
 
@@ -35,7 +37,7 @@ Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiz
 | [`01-trilho.md`](01-trilho.md) | O trilho: as 6 paradas até o piloto, o que cada uma entrega, onde o trem está e o diário de bordo | sempre, primeiro |
 | [`tarefas.md`](tarefas.md) | O quadro de tarefas: cada tarefa, do que depende, o que pode alterar e quem está fazendo | antes de começar qualquer trabalho |
 | [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md) | As regras para várias sessões de IA trabalharem ao mesmo tempo sem se bater | antes de começar qualquer trabalho |
-| [`02-produto.md`](02-produto.md) | O que vendemos: para quem, preço, como a conta nasce e vive, módulos, painel administrativo, promessas que a página já fez | antes de mexer em qualquer tela |
+| [`02-produto.md`](02-produto.md) | O que vendemos: para quem, preço, como a conta nasce e vive, módulos, Admin, promessas que a página já fez | antes de mexer em qualquer tela |
 | [`03-modulo-meu-site.md`](03-modulo-meu-site.md) | O módulo novo: editar o site pelo painel, com a versão inicial sempre de pé | parada 4 |
 | [`04-arquitetura.md`](04-arquitetura.md) | Como fica de pé: Supabase, Vercel, domínio, e-mail, API pública, estrutura do código e o passo a passo das contas | paradas 1, 2 e 4 |
 | [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md) | O cliente no centro: como tudo se amarra no banco e na tela; as tabelas; os acessos por módulo | paradas 2 a 5 |
@@ -72,7 +74,10 @@ Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiz
   sempre que o painel não responde ou a conta está desconectada.
 - **Versão final:** a última versão publicada no Meu site, "congelada" dentro do site, sem depender do painel.
   É vendida à parte para quem sai.
-- **Painel administrativo:** a área só da equipe Renderiza: contas, quem acessa, pagamentos, indicadores, ligar e
+- **Painel de prospecção:** o painel que a Renderiza usa para prospectar (`painel/`, leads, demos). Não é este
+  projeto.
+- **STG:** o banco de homologação do Painel Renderiza, com dados fictícios; tudo passa por ele antes da produção.
+- **Admin:** a área do Painel Renderiza só da equipe Renderiza: contas, quem acessa, pagamentos, indicadores, ligar e
   desligar módulos.
 - **Teste de 7 dias:** quem se cadastra sozinho usa grátis por 7 dias; a Renderiza aprova à mão.
 - **Montagem do painel:** o trabalho de criar a conta do cliente, cadastrar os pacotes, as datas já marcadas e a

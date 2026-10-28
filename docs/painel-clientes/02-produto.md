@@ -44,7 +44,7 @@ assistente, quem edita as fotos), até 5 pessoas no plano.
 | Versão final do site (para quem sai) | combinada na proposta de cada cliente, fora do painel |
 
 O valor fica em `PRECO`, no script das páginas de venda; o teste `test/site.test.mjs` confere que os textos batem.
-A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão no painel administrativo.
+A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão no Admin.
 
 ## Como a conta nasce e vive
 
@@ -58,10 +58,10 @@ A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão
 - **O teste é um só, de 7 dias, contados do início da conta.** Ligou outro módulo no 5º dia? Ele vale só até o fim
   dos mesmos 7 dias, não ganha prazo novo.
 - **Módulo "só pago":** o que custa caro para a Renderiza oferecer de graça (ex.: um módulo futuro que use IA) fica
-  bloqueado no teste. A marcação é por módulo, no painel administrativo.
+  bloqueado no teste. A marcação é por módulo, no Admin.
 - **Teste acabou:** a pessoa continua entrando, mas os dados ficam bloqueados e o painel mostra o aviso para fechar o
   plano (a mensalidade). Nada é apagado: assinou, tudo volta como estava.
-- **Conta criada pela Renderiza** (como a do piloto): já nasce ativa, pelo painel administrativo, com a conta
+- **Conta criada pela Renderiza** (como a do piloto): já nasce ativa, pelo Admin, com a conta
   (tenant) certa no banco.
 - **Aprovar:** a Renderiza confere e libera, com prazo ou sem prazo.
 - **Não pagou:** a Renderiza desliga a conta no admin (é manual, sem regra automática de dias). A pessoa entra, vê o
@@ -87,9 +87,9 @@ por módulo), Configurações do negócio e Serviços (os pacotes ou os tipos de
 | **Atendimento** | Todo pedido de orçamento num lugar só: data ou ensaio desejado, convidados, de onde veio (agenda online, WhatsApp, Instagram, Google), etapa e quem está atendendo. "Fechou" vira reserva sem digitar de novo. | Só os pedidos da agenda online entram sozinhos; os do WhatsApp e do Instagram a equipe anota em poucos toques. |
 | **Meu site** (novo, 28/10/2026) | Atualizar o site pelo painel: textos, botões (rótulo, destino e posição entre as opções do modelo), cores, imagens, galeria, depoimentos e seções. Rascunho, prévia e publicar. Detalhe em [`03`](03-modulo-meu-site.md). | Só para site feito pela Renderiza. Edita dentro do padrão do site (não é um construtor livre). Desconectado, o site volta sozinho à versão inicial; a versão final é vendida à parte. |
 
-## Painel administrativo (só a Renderiza)
+## Admin (só a Renderiza)
 
-Pedido de 28/10/2026: ao entrar, quem é da equipe Renderiza tem também o painel administrativo. Simples no começo.
+Pedido de 28/10/2026: ao entrar, quem é da equipe Renderiza tem também o Admin. Simples no começo.
 
 | Parte | O que mostra e faz |
 |---|---|

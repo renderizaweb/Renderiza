@@ -23,16 +23,18 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma t
 | 28/10/2026 | **Todos os módulos num lote só**, sem entrega parcial. A ordem de construção é técnica (o cliente no centro do banco primeiro). | rodada 1 |
 | 28/10/2026 | **Cliente no centro:** todo pedido, reserva, contrato e parcela é de um cliente (`05`). | rodada 1 |
 | 28/10/2026 | **Mensalidade por Pix, por fora**, registrada à mão. Cobrança automática fica para a segunda parte. | rodada 1 |
-| 28/10/2026 | **Painel administrativo** da Renderiza: contas e quem acessa, pagamentos (simples), indicadores gerais (sem dado de cliente final), ligar e desligar módulos. | rodada 1 |
+| 28/10/2026 | **Admin** da Renderiza: contas e quem acessa, pagamentos (simples), indicadores gerais (sem dado de cliente final), ligar e desligar módulos. | rodada 1 |
 | 28/10/2026 | **Cadastro sozinho com 7 dias grátis**; a Renderiza aprova à mão, com ou sem prazo; não pagou, a Renderiza desliga à mão (sem regra automática de dias). Contas também podem ser criadas pela Renderiza. | rodada 1 |
 | 28/10/2026 | **Trilho por paradas** (6), sem cronograma por dia. | rodada 1 |
 | 28/10/2026 | **Várias sessões de IA ao mesmo tempo**, com quadro de tarefas no repositório e regras para não se baterem (`08`, `tarefas.md`). | rodada 1 |
 | 28/10/2026 | Endereço do painel: **`painel.renderizaweb.com.br`** (o `renderiza.com.br` é de outra pessoa). | rodada 2 |
-| 28/10/2026 | A Renderiza cria as contas de infraestrutura (Supabase, Vercel, e-mail) com o próprio acesso de administrador. Contas de clientes nascem pelo painel administrativo (ou pelo cadastro), cada uma com a sua conta (tenant) no banco. | rodada 2 |
+| 28/10/2026 | A Renderiza cria as contas de infraestrutura (Supabase, Vercel, e-mail) com o próprio acesso de administrador. Contas de clientes nascem pelo Admin (ou pelo cadastro), cada uma com a sua conta (tenant) no banco. | rodada 2 |
 | 28/10/2026 | **O site do cliente é dele e independente.** A demo é a versão inicial que a Renderiza faz para a prospecção (`demos/`); o site fechado vai para um Git e uma Vercel novos, com os acessos do cliente, separado da Renderiza. A ligação com o painel (agenda online, Meu site) entra quando o cliente quiser. | rodadas 2 e 3 |
 | 28/10/2026 | **O piloto ainda não tem site** (vai ser feito). O painel não depende disso: a ponte com o site é testada num site de teste gerado de uma demo. | rodada 3 |
 | 28/10/2026 | **Administradores:** quantos a Renderiza quiser, cadastrados por ela (tabela `equipe_renderiza`). Não é assunto do projeto. | rodada 3 |
 | 28/10/2026 | **Valor da versão final do Meu site:** combinado na proposta de cada cliente, fora do painel. O painel só precisa gerar a versão final. | rodada 3 |
+| 28/10/2026 | **Nomes:** o painel que a Renderiza usa para prospectar é o **Painel de prospecção**; o produto para clientes é o **Painel Renderiza**; a área da Renderiza dentro dele é o **Admin**. | pedido de 28/10/2026 |
+| 28/10/2026 | **Supabase:** o projeto de hoje (`gxdwluswpczlfgvzxqvg`) continua só do Painel de prospecção. O Painel Renderiza ganha uma **conta nova** (e-mail próprio) com dois projetos: `painel-renderiza-prod` e `painel-renderiza-stg`. Migração sempre no STG antes da produção. | pedido de 28/10/2026 |
 | 28/10/2026 | **Sessões e banco:** uma pessoa (da Renderiza) toca o projeto com várias sessões do Claude, em tarefas paralelas ou continuando a mesma tarefa em outra sessão. Cada sessão tem acesso direto ao Supabase e aplica as próprias migrações, com cuidado (`08`). Juntar e subir para a `main` é com a Renderiza. | rodada 3 |
 | 28/10/2026 | **Teste de 7 dias:** a pessoa escolhe os módulos no cadastro; o prazo é um só, contado do início da conta (módulo ligado depois não ganha prazo novo); módulo caro de oferecer (ex.: com IA) fica bloqueado no teste; depois do teste, a pessoa entra mas os dados ficam bloqueados, com o aviso para fechar a mensalidade. | rodada 2 |
 
@@ -40,7 +42,7 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma t
 
 | # | Padrão | Por quê |
 |---|---|---|
-| D1 | Projeto Supabase **separado** do painel interno | dado de cliente não se mistura com prospecção; um erro num lado não derruba o outro |
+| D1 | Supabase **separado** do Painel de prospecção (conta nova, com produção e STG) | dado de cliente não se mistura com prospecção; um erro num lado não derruba o outro |
 | D2 | Supabase na região **São Paulo** | mais rápido; dados no Brasil |
 | D3 | Front em **JavaScript puro** (módulos ES, sem bundler), como o `painel/` e os exemplos | o mesmo jeito do repositório; reaproveita os exemplos |
 | D4 | **Front estático, regras no banco (RLS)**; funções da Vercel só para a API pública | segurança pelo banco; hospedagem trocável |

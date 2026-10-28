@@ -8,7 +8,7 @@ as regras para várias sessões trabalharem (em paralelo ou continuando a mesma 
 
 **Destino:** o piloto (um espaço de eventos) usando o Painel Renderiza no dia a dia, com **todos os módulos** num
 lote só (nada parcial), a ponte com o site provada num site de teste (e ligada ao site do piloto quando ele existir
-e quiser) e a Renderiza acompanhando tudo pelo painel administrativo. Meta da
+e quiser) e a Renderiza acompanhando tudo pelo Admin. Meta da
 Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a partir de 28/10/2026).
 
 ## Painel de bordo
@@ -45,7 +45,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
   fictícios: **são a especificação visual de cada tela**.
 - Agendas online de exemplo (`exemplos/agenda-online.html`, `exemplos/agenda-fotografia.html`).
 - Preço decidido (21/10/2026).
-- Experiência com Supabase + Vercel no painel interno (login, RLS, funções públicas, middleware).
+- Experiência com Supabase + Vercel no painel de prospecção (login, RLS, funções públicas, middleware).
 - Geradores de site (`ferramentas/demo/gerar*.py`) e a conversão de demo em site do cliente (`scripts/virar-site.mjs`).
 
 ## Parada 1 · Organização e infraestrutura 🚂
@@ -54,7 +54,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 trabalharem sem se bater.
 
 - `painel.renderizaweb.com.br` apontado para a Vercel.
-- Contas criadas pela Renderiza, com o próprio acesso de administrador, seguindo o passo a passo do [`04`](04-arquitetura.md): Supabase (projeto novo), Vercel
+- Contas criadas pela Renderiza, com o próprio acesso de administrador, seguindo o passo a passo do [`04`](04-arquitetura.md): Supabase (conta nova com dois projetos: produção e STG), Vercel
   (projeto novo na pasta `painel-clientes/`) e serviço de e-mail com remetente no domínio.
 - Esqueleto da pasta `painel-clientes/`: casca vazia, rotas e **todos os módulos já registrados** (vazios), para
   ninguém precisar mexer em arquivo comum depois.
@@ -117,12 +117,12 @@ inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) 
 **Chegou quando:** no site de teste, o pedido cai no painel em segundos; uma edição publicada aparece
 no site em até 1 minuto; e, com o painel desligado, o site abre normal com a versão inicial.
 
-## Parada 5 · Painel administrativo e regras ⬜ (em paralelo)
+## Parada 5 · Admin e regras ⬜ (em paralelo)
 
 **Para quê:** a Renderiza enxergar e controlar a plataforma, e o painel poder guardar dado de cliente com segurança.
-**Referência:** [`02-produto.md`](02-produto.md) (painel administrativo) e [`06`](06-privacidade-e-seguranca.md).
+**Referência:** [`02-produto.md`](02-produto.md) (Admin) e [`06`](06-privacidade-e-seguranca.md).
 
-- **Painel administrativo:** contas (situação, teste de 7 dias, aprovar, prazo, desligar), ligar e desligar
+- **Admin:** contas (situação, teste de 7 dias, aprovar, prazo, desligar), ligar e desligar
   módulos, marcar os módulos "só pago" (bloqueados no teste), pessoas e último acesso, pagamentos registrados à mão, indicadores gerais (só números) e entrar numa conta
   para ajudar (sempre registrado).
 - **Regras:** termos de uso e política de privacidade (rascunho + revisão), aceite no primeiro acesso, backup
@@ -156,8 +156,9 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | Supabase do Painel Renderiza numa conta nova, com produção e STG; o projeto de hoje fica só com o Painel de prospecção. Nomes fixados: Painel de prospecção, Painel Renderiza e Admin. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 3 respondida: admin, valores de proposta e como subir são operação da Renderiza; cada sessão aplica as próprias migrações com as regras do `08`; o piloto ainda não tem site (a ponte é provada num site de teste). Sem perguntas em aberto. Documentos juntados na `main`. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 2 respondida: endereço `painel.renderizaweb.com.br`; a Renderiza cria as contas com o próprio acesso; o site do piloto já existe e é independente; regras do teste de 7 dias. Rodada 3 aberta (4 perguntas e juntar os documentos na `main`). | Claude, a pedido da Renderiza |
-| 28/10/2026 | 1 | Rodada 1 respondida: piloto de eventos, meta de 2 semanas, todos os módulos num lote só, painel administrativo com cadastro e 7 dias grátis, Pix à mão. Trilho refeito em 6 paradas; cliente no centro do banco; regras do trabalho em paralelo e quadro de tarefas criados. `renderiza.com.br` já tem dono (desde 2017). | Claude, a pedido da Renderiza |
+| 28/10/2026 | 1 | Rodada 1 respondida: piloto de eventos, meta de 2 semanas, todos os módulos num lote só, Admin com cadastro e 7 dias grátis, Pix à mão. Trilho refeito em 6 paradas; cliente no centro do banco; regras do trabalho em paralelo e quadro de tarefas criados. `renderiza.com.br` já tem dono (desde 2017). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Perguntas resumidas numa rodada 1 de 7. Planos do Supabase e da Vercel ficam com a Renderiza. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Documentos do produto escritos em `docs/painel-clientes/`. | Claude, a pedido da Renderiza |

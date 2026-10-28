@@ -1,6 +1,6 @@
 # Dados e permissões
 
-Proposta do modelo de dados. Os nomes são em português, como no painel interno (`supabase/schema.sql`). A
+Proposta do modelo de dados. Os nomes são em português, como no painel de prospecção (`supabase/schema.sql`). A
 estrutura final nasce nas migrações da parada 2; este documento muda junto (no mesmo commit).
 
 ## O cliente no centro
@@ -62,7 +62,7 @@ CONTA (o espaço / o estúdio)
 - **Tudo pertence a uma conta.** Toda tabela tem `conta_id`, e a RLS só deixa ler ou gravar quem é da conta.
 - **Acesso por módulo, em três níveis:** sem acesso, **só vê**, **edita** (como o exemplo mostra em Equipe e acessos;
   `exemplos/dados-villa-alecrim.js`, campo `acesso`).
-- **Módulo desligado ninguém vê**, nem o dono. Quem liga e desliga é a Renderiza, no painel administrativo. Os dados
+- **Módulo desligado ninguém vê**, nem o dono. Quem liga e desliga é a Renderiza, no Admin. Os dados
   ficam guardados; religou, voltam.
 - **O dono** tem tudo, incluindo Equipe e acessos, Configurações e publicar no Meu site.
 - **Teste vencido ou conta desligada:** a pessoa entra, mas o banco não entrega nenhum dado da conta (a função `pode`
@@ -138,11 +138,11 @@ create policy "financeiro: editar" on public.parcelas
 | `sites_previas` | links de prévia | site, versão, código, expira em |
 | Storage `site-imagens/<conta>/…` | imagens enviadas | WebP, com limite por conta |
 
-**Painel administrativo (só a equipe Renderiza)**
+**Admin (só a equipe Renderiza)**
 
 | Tabela ou visão | Para quê |
 |---|---|
-| `equipe_renderiza` | quem entra no painel administrativo |
+| `equipe_renderiza` | quem entra no Admin |
 | `entradas` | cada login: pessoa, conta, quando, aparelho (para "quem loga, quem está acessando") |
 | `pagamentos` | o Pix de cada mês, registrado à mão: conta, mês de referência, valor, pago em, observação, quem registrou |
 | `acessos_suporte` | cada vez que a Renderiza entrou numa conta para ajudar: quem, quando, por quê |

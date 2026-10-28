@@ -15,11 +15,11 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 | ID | Tarefa | Depende de | Mexe em | Situação | Sessão / branch |
 |---|---|---|---|---|---|
 | T1.1 | `painel.renderizaweb.com.br` apontado para a Vercel (a Renderiza, com o passo a passo do `04`) | T1.3 | DNS (fora do repositório) | livre | |
-| T1.2 | Projeto Supabase novo: região São Paulo, login com confirmação de e-mail, endereços do site (a Renderiza, com o passo a passo) | — | painel do Supabase (fora do repositório) | livre | |
+| T1.2 | Conta nova do Supabase (e-mail próprio do Painel Renderiza) com dois projetos, `painel-renderiza-prod` e `painel-renderiza-stg`: região São Paulo, login com confirmação de e-mail, endereços do site (a Renderiza, com o passo a passo) | — | painel do Supabase (fora do repositório) | livre | |
 | T1.3 | Projeto Vercel novo na pasta `painel-clientes/`, variáveis públicas, build só quando a pasta muda | T1.5 | `vercel.json` | livre | |
 | T1.4 | Serviço de e-mail com remetente no domínio (SPF, DKIM, DMARC), ligado ao Supabase; modelos em português | T1.1, T1.2 | `supabase/emails/` | livre | |
 | T1.5 | Esqueleto da pasta: `index.html`, rotas, adaptador do Supabase, **todos os módulos e as áreas do admin já registrados (vazios)**, testes rodando | — | `index.html`, `src/app.js`, `src/rotas.js`, `src/modulos/index.js`, `src/admin/index.js`, `src/adaptadores/`, `test/` | livre | |
-| T1.6 | Banco local para testes (Postgres 16, como em `docs/atualizacao-por-ia.md`) e a rotina das migrações: criar, testar, aplicar no real | — | `supabase/` (config e scripts), `scripts/banco*.mjs` | livre | |
+| T1.6 | Banco local para testes (Postgres 16, como em `docs/atualizacao-por-ia.md`) e a rotina das migrações: criar, testar no local, aplicar no STG, aplicar na produção | — | `supabase/` (config e scripts), `scripts/banco*.mjs` | livre | |
 | T1.7 | Tela de login mínima no ar | T1.2, T1.3, T1.5 | `src/sessao.js`, `src/telas/entrar.js` | livre | |
 
 ## Parada 2 · Fundação: banco e casca
@@ -28,7 +28,7 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 |---|---|---|---|---|---|
 | T2.1 | Migração base: contas, módulos, pessoas, convites, atividades, termos, equipe Renderiza; função `pode()`; RLS e testes de isolamento | T1.6 | `supabase/migrations/*_base.sql`, `supabase/testes/base*` | livre | |
 | T2.2 | Migração do negócio: clientes (com WhatsApp único), fichas, serviços, horários, campanhas, pedidos, reservas, valores, compromissos, parcelas, contratos, entregas, sites, pagamentos e entradas; situação calculada do cliente; RLS e testes | T2.1 | `supabase/migrations/*_negocio.sql`, `supabase/testes/negocio*` | livre | |
-| T2.3 | Semente: Villa Alecrim e Estúdio Ciranda no banco local, a partir dos arquivos de `exemplos/` | T2.2 | `supabase/semente/` | livre | |
+| T2.3 | Semente: Villa Alecrim e Estúdio Ciranda no banco local e no STG (nunca na produção), a partir dos arquivos de `exemplos/` | T2.2 | `supabase/semente/` | livre | |
 | T2.4 | Casca: entrar, cadastro com 7 dias grátis (escolhe o nicho e os módulos; um prazo só, contado do início; teste vencido entra com os dados bloqueados e o aviso para assinar), primeiro acesso pelo convite, esqueci a senha, escolher a conta, menu com módulos ligados e trancados | T1.7, T2.1 | `src/sessao.js`, `src/telas/` | livre | |
 | T2.5 | Peças comuns dos exemplos (layout, gaveta, tabela, calendário, avisos, exportar CSV, **"Para quem?"**) e as palavras por nicho | T1.5 | `src/ui/`, `src/nichos/`, `estilo.css` | livre | |
 | T2.6 | Equipe e acessos: convidar, "só vê" ou "edita" por módulo, tirar acesso, limite de 5 | T2.4, T2.5 | `src/modulos/equipe/` | livre | |
@@ -57,7 +57,7 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 | T4.5 | Desconectar o site e gerar a versão final | T4.3 | `scripts/versao-final.mjs` | livre | |
 | T4.6 | Site de teste, gerado de uma demo de eventos, ligado ao painel (agenda online e Meu site) para provar a ponte; quando o site do piloto existir e ele quiser, o mesmo para ele | T4.2, T4.3 | `test/site-teste/`; depois, o repositório do site do piloto | livre | |
 
-## Parada 5 · Painel administrativo e regras (em paralelo)
+## Parada 5 · Admin e regras (em paralelo)
 
 | ID | Tarefa | Depende de | Mexe em | Situação | Sessão / branch |
 |---|---|---|---|---|---|
@@ -66,7 +66,7 @@ de passagem da sua tarefa. **Ao continuar** a tarefa de outra sessão: comece pe
 | T5.3 | Admin · Pagamentos: registrar o Pix do mês, quem pagou e quem não pagou | T2.2, T2.5 | `src/admin/pagamentos/` | livre | |
 | T5.4 | Admin · Indicadores: contas por situação, cadastros, pessoas ativas, uso por módulo, pedidos dos sites (só números) | T2.2, T2.5 | `src/admin/indicadores/`, migração própria (visões) | livre | |
 | T5.5 | Termos de uso e política de privacidade (rascunho para revisão) e aceite no primeiro acesso | T2.4 | `publico/termos/`, `publico/privacidade/` | livre | |
-| T5.6 | Backup semanal cifrado e um teste de restauração | T1.2, T2.2 | `.github/workflows/backup-painel.yml` (na raiz do repositório) | livre | |
+| T5.6 | Backup semanal cifrado da produção e um teste de restauração (no STG ou no local) | T1.2, T2.2 | `.github/workflows/backup-painel.yml` (na raiz do repositório) | livre | |
 | T5.7 | Revisão de segurança: RLS de todas as tabelas, funções públicas, chaves, cabeçalhos, uploads; abre tarefa para cada correção | paradas 3 e 4 quase prontas | (só lê; as correções viram tarefas) | livre | |
 
 ## Parada 6 · Piloto no ar
@@ -88,19 +88,19 @@ Feito: …
 Falta: …
 Próximo passo: …
 Decisões no caminho: …
-Migrações aplicadas no real: …
+Migrações aplicadas (STG / produção): …
 ```
 
 (nenhuma tarefa em andamento)
 
-## Migrações aplicadas no banco real
+## Migrações aplicadas
 
-Uma linha por migração, logo depois de aplicar (regras em `08`). Antes de aplicar uma nova, confira esta lista e a
-do próprio banco.
+Uma linha por migração; marque a data em cada banco logo depois de aplicar (regras em `08`: sempre STG primeiro).
+Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 
-| Data | Arquivo | Tarefa | Branch |
-|---|---|---|---|
-| — | (nenhuma ainda) | — | — |
+| Arquivo | Tarefa | Branch | STG | Produção |
+|---|---|---|---|---|
+| (nenhuma ainda) | — | — | — | — |
 
 ## Avisos entre sessões
 
@@ -109,6 +109,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Tarefa | Recado |
 |---|---|---|
+| 28/10/2026 | — | Supabase: conta nova com `painel-renderiza-prod` e `painel-renderiza-stg`; migração sempre no STG antes da produção. O projeto de hoje é do Painel de prospecção e não se toca. |
 | 28/10/2026 | — | Documentos na `main`. Cada sessão aplica as próprias migrações no banco real, com as regras do `08`; juntar e subir para a `main` é com a Renderiza. O piloto ainda não tem site: a T4.6 prova a ponte num site de teste. |
 | 28/10/2026 | — | Rodada 2 respondida: T1.1 a T1.4 são da Renderiza (contas e DNS); endereço `painel.renderizaweb.com.br`. |
 | 28/10/2026 | — | Quadro criado. T1.5 e T1.6 podem começar já; o resto da parada 1 espera a rodada 2 do `07`. |

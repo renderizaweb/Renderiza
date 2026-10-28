@@ -22,13 +22,13 @@ Supabase (banco, login e arquivos) e Vercel (hospedagem), começando nos planos 
 
 ## Princípios
 
-1. **Separado do painel interno.** Projeto Supabase e projeto Vercel próprios. Dado de cliente não se mistura com
+1. **Separado do painel de prospecção.** Projeto Supabase e projeto Vercel próprios. Dado de cliente não se mistura com
    prospecção, as regras de acesso são outras (muitas contas, não um dono só) e um erro num lado não derruba o outro.
 2. **Front estático, regras no banco.** Telas em HTML, CSS e JavaScript; quem decide o que cada pessoa vê é a RLS
    do banco. As funções da Vercel são poucas e finas (a API pública e o que precisar de chave secreta). Assim a
    hospedagem pode trocar (ex.: Cloudflare Pages) sem reescrever nada.
 3. **A chave pública não abre nada sem login.** Toda tabela tem RLS. O que o público acessa sem login passa por
-   funções pequenas, que devolvem só o mínimo (como `demo_liberada` e `registrar_visita` no painel interno).
+   funções pequenas, que devolvem só o mínimo (como `demo_liberada` e `registrar_visita` no painel de prospecção).
 4. **O site do cliente nunca depende do painel para ficar de pé** (agenda online e Meu site têm fallback).
 5. **Endereço público estável, no domínio da Renderiza.** Sites de clientes não apontam para o endereço do Supabase.
 6. **O jeito de trabalhar do repositório:** JavaScript puro em módulos ES, sem bundler (como `painel/`), testes com
@@ -51,7 +51,7 @@ painel-clientes/
     modulos/index.js         o registro de todos os módulos (nasce completo na T1.5)
     modulos/inicio/  clientes/  agenda/  atendimento/  financeiro/  contratos/  meu-site/
             equipe/  configuracoes/  servicos/
-    admin/                   painel administrativo (só a equipe Renderiza): contas/ pessoas/ pagamentos/ indicadores/
+    admin/                   Admin (só a equipe Renderiza): contas/ pessoas/ pagamentos/ indicadores/
     ui/                      peças dos exemplos: menu, abas, gaveta, tabela, calendário, avisos, "Para quem?"
   publico/                   páginas sem login: aceite de contrato (/c/<código>), prévia
   api/publico/               funções da Vercel da API pública
@@ -74,12 +74,25 @@ painel-clientes/
 
 ## Supabase
 
-- **Projeto novo**, plano gratuito, região **São Paulo (`sa-east-1`)**: perto dos usuários e dos dados no Brasil.
+**Os projetos do Supabase (decidido em 28/10/2026):**
+
+| Projeto | Conta do Supabase | Para quê |
+|---|---|---|
+| `gxdwluswpczlfgvzxqvg` (o de hoje) | a conta atual da Renderiza | **Painel de prospecção** (`painel/`). Não muda nada e não entra neste projeto. |
+| `painel-renderiza-prod` | **conta nova**, com um e-mail próprio do Painel Renderiza | **Produção** do Painel Renderiza: clientes reais. |
+| `painel-renderiza-stg` | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
+
+- O plano gratuito permite 2 projetos ativos por pessoa dona ou admin, somando todas as organizações dela. Por isso o
+  login da conta atual **não** entra como dono ou admin na conta nova (senão os limites se somam).
+- O STG pausa sozinho depois de 1 semana sem uso; é só reativar no painel do Supabase.
+
+- Os dois projetos novos no plano gratuito, região **São Paulo (`sa-east-1`)**: perto dos usuários e dos dados no
+  Brasil.
 - **Auth:** e-mail e senha, com confirmação de e-mail. Dois jeitos de a conta nascer (`02`, "Como a conta nasce e
   vive"): **cadastro sozinho**, que cria a conta em teste de 7 dias (com verificação contra robô, ex.: Cloudflare
-  Turnstile), ou **criada pela Renderiza** no painel administrativo, com convite ao dono. O dono convida a equipe.
+  Turnstile), ou **criada pela Renderiza** no Admin, com convite ao dono. O dono convida a equipe.
   Senha mínima de 8 caracteres. Mais adiante: entrar com o Google, verificação em duas etapas.
-- **Painel administrativo:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
+- **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.
 - **Banco:** tabelas em `public`, todas com RLS; funções `security definer` sempre com `search_path` fixo; nada de
@@ -88,10 +101,10 @@ painel-clientes/
   pode ser público, ex.: PDF de contrato aceito, se um dia for guardado).
 - **Tempo real:** para o Atendimento (pedido novo aparece na hora) e, se valer, o "online agora" da Equipe. O
   gratuito permite 200 conexões ao mesmo tempo.
-- **Ambiente de desenvolvimento:** o gratuito permite 2 projetos ativos, e o painel interno já é um. Não sobra
-  projeto de testes: desenvolver num banco local (Supabase CLI, ou Postgres + PostgREST imitando o Supabase, que já
-  foi usado aqui; ver `docs/atualizacao-por-ia.md`) e aplicar as migrações no projeto real depois dos testes.
-- **Pausa por falta de uso:** o projeto gratuito pausa depois de 1 semana sem atividade. Antes de ter clientes, um
+- **Ambientes:** os testes automáticos rodam num banco local (Postgres 16 do ambiente das sessões; ver
+  `docs/atualizacao-por-ia.md`); depois, toda migração vai primeiro para o **STG** e só então para a **produção**
+  (regras em `08`). Dados fictícios (Villa Alecrim, Estúdio Ciranda) só no local e no STG.
+- **Pausa por falta de uso:** projeto gratuito pausa depois de 1 semana sem atividade. Antes de ter clientes, um
   aviso automático (GitHub Actions) que chama `/api/publico/saude` a cada poucos dias mantém o projeto acordado e
   serve de alarme. Os sites conectados não sofrem com a pausa (fallback), mas o painel sim.
 
@@ -113,13 +126,17 @@ Quem faz é a Renderiza, com o próprio acesso de administrador (decidido em 28/
 senha. Os nomes dos menus podem mudar; na dúvida, a sessão da
 vez guia na tela.
 
-1. **Supabase** (T1.2): criar o projeto (nome "painel-renderiza", região South America · São Paulo, senha do banco
-   guardada num gerenciador de senhas). Em *Authentication*: ligar a confirmação de e-mail e cadastrar o endereço do
-   painel como *Site URL* e nos endereços de retorno. Copiar a URL do projeto e a chave **pública**
-   (`sb_publishable_…`) para a Vercel. A chave secreta não sai do Supabase.
+1. **Supabase** (T1.2): com o e-mail novo do Painel Renderiza, criar a conta e os dois projetos,
+   `painel-renderiza-prod` e `painel-renderiza-stg` (região South America · São Paulo; senhas dos bancos num
+   gerenciador de senhas). Em cada um, em *Authentication*: ligar a confirmação de e-mail e cadastrar o endereço do
+   painel como *Site URL* e nos endereços de retorno (na produção, `painel.renderizaweb.com.br`; no STG, os endereços
+   de prévia da Vercel). Copiar a URL e a chave **pública** (`sb_publishable_…`) de cada um para a Vercel. As chaves
+   secretas não saem do Supabase.
 2. **Vercel** (T1.3): *Add New → Project*, importar o repositório `renderizaweb/Renderiza`, *Root Directory* =
-   `painel-clientes`, framework *Other*. Em *Environment Variables*: `SUPABASE_URL` e `SUPABASE_ANON_KEY`. Em
-   *Domains*: o endereço escolhido; a Vercel mostra o registro de DNS para criar.
+   `painel-clientes`, framework *Other*. Em *Environment Variables*: `SUPABASE_URL` e `SUPABASE_ANON_KEY` duas vezes,
+   com os valores da **produção** marcados para *Production* e os do **STG** marcados para *Preview*. Assim o
+   endereço oficial usa a produção e toda prévia de branch usa o STG. Em *Domains*: `painel.renderizaweb.com.br`; a
+   Vercel mostra o registro de DNS para criar.
 3. **DNS** (T1.1): no Registro.br (ou onde o domínio estiver), criar o registro que a Vercel pediu e os do e-mail.
 4. **E-mail** (T1.4): criar a conta no serviço de e-mail, adicionar o domínio, criar no DNS os registros que ele
    mostrar (SPF, DKIM, DMARC) e colocar os dados de SMTP no Supabase (*Authentication → SMTP*).

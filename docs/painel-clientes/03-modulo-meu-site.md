@@ -161,5 +161,5 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
 ## Decidido e em aberto
 
 - Preço: módulo como os outros (R$ 14,99, ou um dos 2 do plano). Decidido em 28/10/2026.
-- Desconexão: manual, pelo painel administrativo. Decidido em 28/10/2026.
+- Desconexão: manual, pelo Admin. Decidido em 28/10/2026.
 - Valor da versão final: combinado na proposta de cada cliente, fora do painel. Decidido em 28/10/2026.
