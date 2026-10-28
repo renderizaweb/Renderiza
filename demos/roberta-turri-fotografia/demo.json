@@ -1,0 +1,674 @@
+{
+ "pasta": "roberta-turri-fotografia",
+ "marca": "Roberta Turri Fotografia",
+ "titulo_nome": "Roberta Turri",
+ "titulo_script": "fotografia",
+ "dona": "Roberta",
+ "google": {
+  "coords": "-23.6349358,-46.5597669",
+  "fid": "0x94ce43702f721a25:0x23ca46f7dffd4253",
+  "gid": "/g/11fwcc63h0"
+ },
+ "google_nome": "Roberta Turri Fotografia",
+ "endereco_maps": "R. Luiz Fiorotti - Olímpico, São Caetano do Sul - SP, 09570-030",
+ "google_nota": "5,0",
+ "google_total": "49",
+ "whatsapp": "5511985968084",
+ "instagram": "roturrifotografia",
+ "seguidores": "7,7 mil",
+ "slogan": "Da gestação à infância do bebê.",
+ "cores": {
+  "fundo": "#f7f8f9",
+  "papel": "#fdfefe",
+  "areia": "#ebf0f2",
+  "linha": "#dbe3e7",
+  "tinta": "#22292e",
+  "tinta2": "#56626a",
+  "rosa": "#9fb7c4",
+  "acento": "#3f6b84",
+  "acento_escuro": "#2f566d",
+  "cafe": "#1c2328"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 15h30",
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 15h30",
+   "2026-11-28 14h",
+   "2026-12-05 9h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-12 9h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Roberta define os dela",
+  "mensagem": "Olá, Roberta! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Roberta Turri Fotografia | Newborn, gestante e bebês em São Caetano do Sul",
+  "descricao": "Roberta Turri Fotografia, em São Caetano do Sul, no ABC: especialista em newborn, com ensaios de gestante, acompanhamento do bebê, smash the cake e Natal. Mais de 1.000 famílias atendidas. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia em São Caetano do Sul · ABC",
+   "frase": "Da gestação à infância do bebê.",
+   "intro": "Newborn, gestante, acompanhamento e smash the cake no estúdio da Roberta, em São Caetano do Sul.",
+   "rotulos": [
+    "Newborn",
+    "Gestante",
+    "Infância"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Gestante",
+    "Acompanhamento",
+    "Smash the cake",
+    "Infantil",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622303944_17974263140992710_8202432120571264995_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida enrolada como uma rosa, de manta rosa e verde",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/625095107_18110968777638703_8297079766909783974_n.jpg",
+     "f": "p",
+     "alt": "Gestante de renda branca sentada num cubo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622432165_18034117577563393_7282280030484423816_n.jpg",
+     "f": "p",
+     "alt": "Menina de cabelo cacheado sorrindo no cenário azul de flores",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Cada detalhe, <em>com calma.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Roberta. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/619074807_17997374696899784_7090126079763710800_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca de raposa, com a raposinha de pelúcia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622303944_17974263140992710_8202432120571264995_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida enrolada como uma rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/621763956_18053788703428924_190002054180101013_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo no sofazinho, ao lado da mesinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/619600416_17985805955926932_305804718366261746_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de orelhinhas de coelho com flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622384769_18090894857490485_5403142938967982998_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de boina e gravatinha no pelego azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/624995361_18092506223062529_2827782344685104175_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca de ursinho no balde verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/623795956_18111894088630643_1381657284927626949_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de boné listrado, dormindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/624089653_18199957741330000_3352058211749674815_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara entre as rosas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/620862314_18042596180709074_6449688127098688494_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de chapéu de palha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/625360488_18080416490256492_3527765408040791644_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida num ninho verde entre flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/628204341_18396993865146407_5829370873005793740_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida num cesto com flores azuis e girassóis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/627679881_18337100626209331_6994047221248807106_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara de unicórnio",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e smash",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/618838886_17974761443820709_6690170204210761854_n.jpg",
+      "f": "l",
+      "alt": "Menino de 1 ano sentado no cenário de balões azuis",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/623055733_18065434058256204_5552044970241564125_n.jpg",
+      "f": "l",
+      "alt": "Bebê engatinhando entre as laranjas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/620913066_18076849004611952_2567559058553112955_n.jpg",
+      "f": "l",
+      "alt": "Bebê com bolo no rosto no cenário rosa de arco-íris",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/625174877_18079639382205640_129918958131309736_n.jpg",
+      "f": "l",
+      "alt": "Bebê de vestido amarelo sentada na caminha azul",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/624004530_18123529288560288_6308503581055345568_n.jpg",
+      "f": "l",
+      "alt": "Menino no carrinho azul no cenário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/626470772_18081715238463253_4877485741585907777_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentado no pelego azul",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/641285549_18559627435015163_4591373688703543621_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentada na cadeirinha no cenário de balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/623931382_18136193818500364_499077245423570615_n.jpg",
+      "f": "l",
+      "alt": "Menina comemorando no cenário da Moana",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/623221250_18078656996344718_4863015805869364138_n.jpg",
+      "f": "l",
+      "alt": "Bebê de óculos no carrinho azul",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/636920261_18561927622036356_8754968721620372638_n.jpg",
+      "f": "l",
+      "alt": "Bebê de touca de urso sentado no pelego azul",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e infância",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/625095107_18110968777638703_8297079766909783974_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda branca sentada num cubo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/620895172_18098065837931106_7119812742872444588_n.jpg",
+      "f": "l",
+      "alt": "Gestante enrolada em tule branco, sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622432165_18034117577563393_7282280030484423816_n.jpg",
+      "f": "p",
+      "alt": "Menina de cabelo cacheado sorrindo no cenário azul",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/619804257_18010268903828628_7238462895358917920_n.jpg",
+      "f": "l",
+      "alt": "Menina de vestido azul no cenário de flores e cortina azul",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622122933_18091081379091255_4008292469785928957_n.jpg",
+      "f": "l",
+      "alt": "Gestante de renda no fundo de flores azuis",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/622298279_18101050459869241_6563649398254780762_n.jpg",
+      "f": "l",
+      "alt": "Irmão mais velho abraçando o recém-nascido no balde",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/625343904_18130301566463302_4384760949449948848_n.jpg",
+      "f": "l",
+      "alt": "Menina sorrindo no cenário da Moana",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/621591804_18118446799600886_8221342359643993836_n.jpg",
+      "f": "l",
+      "alt": "Menina no cenário de flores com a cortina azul",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/drive/697147283_18548022175069942_7985748057390640055_n.jpg",
+    "f": "p",
+    "alt": "Roberta Turri com a câmera, em preto e branco",
+    "c": [
+     0.45,
+     0.4
+    ]
+   },
+   "p": [
+    "A Roberta, a Ro, é especialista em newborn e fotografa da gestação à infância do bebê no estúdio dela, em São Caetano do Sul, no ABC. Já são mais de 1.000 famílias atendidas."
+   ],
+   "citacao": "Transformando momentos em memórias.",
+   "citacao_quem": "Roberta Turri, na bio do Instagram",
+   "p2": [
+    "Nas avaliações do Google, as mães falam do acolhimento e da calma dela: respeita o tempo do bebê, explica cada passo e dá dicas de maternidade. O estúdio é climatizado e tem vaga na porta."
+   ],
+   "numeros": [
+    [
+     "+1.000",
+     "famílias atendidas"
+    ],
+    [
+     "5,0",
+     "49 avaliações no Google"
+    ],
+    [
+     "7,7 mil",
+     "seguidores no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da gestação <em>à infância.</em>",
+   "p": "Os ensaios que a Roberta faz no estúdio:",
+   "fonte": "Bio, destaques e legendas da Roberta no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Ensaios de gestante no estúdio, de renda ou tule branco."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "A especialidade",
+     "p": "Nos primeiros 15 dias de vida, como ela explica; também com o bebê acordado e com gêmeos."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "O mesversário com tema: frutinhas, flores, bichinhos."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Temas como a Moana, o carrinho e os balões, com bolo e bagunça."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "A infância",
+     "p": "Ensaios infantis e de aniversário para os maiores."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Lareira e Estação Noel",
+     "p": "Dois cenários em 2026, do bebê aos irmãos maiores."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A lareira <em>e a Estação Noel.</em>",
+   "p": "Os dois cenários de Natal 2026 já estão no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Roberta.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DehcGfJlLel__DehcGfJlLel_03.jpg",
+    "f": "l",
+    "alt": "O cenário da lareira com as árvores douradas e a bebê no tapete"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes_h2": "O que as mães <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Aline Sousa",
+    "tag": "Newborn",
+    "trecho": "Fizemos o ensaio newborn da minha bebê com 12 dias de vida, a Ro foi extremamente acolhedora, explicou tudo muito bem desde o primeiro momento e nos atendeu com excelência."
+   },
+   {
+    "nome": "Karina Uzuelli",
+    "tag": "Bebê",
+    "trecho": "A Roberta foi excelente! Super carinhosa, atenciosa, respeita o tempo do bebê! Tem mto cuidado e calma em tudo que faz!"
+   },
+   {
+    "nome": "Fernanda Bonalume Campello",
+    "tag": "Newborn",
+    "trecho": "Passamos por um problema de saúde e ela me acolheu, respeitou o meu tempo e o do meu bebê, me ouviu, apoiou e me incentivou a seguir com o ensaio de newborn"
+   },
+   {
+    "nome": "Ju Paraiso",
+    "tag": "Bebê",
+    "trecho": "Profissional excelente e estúdio lindo. Ela nos deixou super a vontade, paciente com bebês.... amei e recomendo"
+   },
+   {
+    "nome": "Mariangela Magaroto Chagas Rosa",
+    "tag": "Ensaio profissional",
+    "trecho": "Simplesmente maravilhoso!!! A Roberta é super profissional!!! Adorei o trabalho!!!"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no bairro Olímpico, em São Caetano do Sul: climatizado e com vaga na porta.",
+   "telefone": "(11) 98596-8084",
+   "endereco": [
+    "Rua Luiz Fiorotti",
+    "Olímpico",
+    "São Caetano do Sul · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Roberta Turri Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@roturrifotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos"
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Roberta Turri Fotografia",
+  "descricao": "Natal 2026 na Roberta Turri Fotografia, em São Caetano do Sul: a lareira e a Estação Noel. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Um dia, tudo isso <em>vai virar saudade.</em>",
+   "citacao": "Porque fotografar não é apenas guardar a imagem de hoje. É preservar um pedacinho da história da sua família para que ela continue sendo contada no futuro.",
+   "citacao_quem": "Roberta Turri, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DehcGfJlLel__DehcGfJlLel_01.jpg",
+    "f": "l",
+    "alt": "Mãe segurando a bebê ao lado da árvore de Natal dourada",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários <em>em 2026.</em>",
+   "p": "Em 2026, o estúdio tem dois cenários de Natal: a sala da lareira, com as árvores douradas e a poltrona de couro, e a Estação Noel, um chalezinho escondido numa floresta encantada, com neve e bichinhos curiosos.",
+   "itens": [
+    "No estúdio em São Caetano do Sul, climatizado e com vaga na porta.",
+    "Do bebê aos irmãos maiores: o Natal não tem idade.",
+    "Um cenário para as crianças explorarem e brincarem.",
+    "Valores e detalhes pelo WhatsApp da Roberta."
+   ],
+   "legenda_fotos": "A Estação Noel e a lareira"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DekIhWlI2TP__DekIhWlI2TP_03.jpg",
+    "f": "p",
+    "alt": "Bebê na janelinha do chalé vermelho da Estação Noel",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DehcGfJlLel__DehcGfJlLel_03.jpg",
+    "f": "l",
+    "alt": "O cenário da lareira com as árvores douradas",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DeiJbWoI3Bw__DeiJbWoI3Bw_02.jpg",
+    "f": "l",
+    "alt": "Bebê sentado na poltroninha em frente à lareira",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Os primeiros ensaios <em>do ano.</em>",
+   "nome": "Natal 2026",
+   "p": "Bebês que já fizeram o ensaio de Natal nos cenários deste ano.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DekIhWlI2TP__DekIhWlI2TP_00.jpg",
+     "f": "p",
+     "alt": "Bebê de capuz branco rindo na frente do chalé",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DehcGfJlLel__DehcGfJlLel_00.jpg",
+     "f": "l",
+     "alt": "Bebê engatinhando no tapete em frente à lareira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DekIhWlI2TP__DekIhWlI2TP_02.jpg",
+     "f": "p",
+     "alt": "Bebê na porta do chalé vermelho, entre os ursos polares",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DehcGfJlLel__DehcGfJlLel_02.jpg",
+     "f": "l",
+     "alt": "Bebê sentada na poltroninha verde em frente à lareira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DekIhWlI2TP__DekIhWlI2TP_01.jpg",
+     "f": "p",
+     "alt": "Bebê sentado na mala de madeira em frente ao chalé",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DeiJbWoI3Bw__DeiJbWoI3Bw_01.jpg",
+     "f": "l",
+     "alt": "Bebê deitado de bruços no tapete da lareira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DekIhWlI2TP__DekIhWlI2TP_04.jpg",
+     "f": "p",
+     "alt": "Bebê de vermelho no trenzinho de madeira, na neve",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DeiJbWoI3Bw__DeiJbWoI3Bw_00.jpg",
+     "f": "l",
+     "alt": "Bebê dentro da caixa de presente dourada",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/postsall/DeiJbWoI3Bw__DeiJbWoI3Bw_03.jpg",
+     "f": "l",
+     "alt": "Bebê na poltrona de couro ao lado da árvore",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "comentario": "Demo Roberta Turri Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as mães <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Fernanda Bonalume Campello",
+    "tag": "Newborn",
+    "trecho": "Passamos por um problema de saúde e ela me acolheu, respeitou o meu tempo e o do meu bebê, me ouviu, apoiou e me incentivou a seguir com o ensaio de newborn"
+   },
+   {
+    "nome": "Ju Paraiso",
+    "tag": "Bebê",
+    "trecho": "Profissional excelente e estúdio lindo. Ela nos deixou super a vontade, paciente com bebês.... amei e recomendo"
+   },
+   {
+    "nome": "Mariangela Magaroto Chagas Rosa",
+    "tag": "Ensaio profissional",
+    "trecho": "Simplesmente maravilhoso!!! A Roberta é super profissional!!! Adorei o trabalho!!!"
+   },
+   {
+    "nome": "Aline Sousa",
+    "tag": "Newborn",
+    "trecho": "Fizemos o ensaio newborn da minha bebê com 12 dias de vida, a Ro foi extremamente acolhedora, explicou tudo muito bem desde o primeiro momento e nos atendeu com excelência."
+   },
+   {
+    "nome": "Karina Uzuelli",
+    "tag": "Bebê",
+    "trecho": "A Roberta foi excelente! Super carinhosa, atenciosa, respeita o tempo do bebê! Tem mto cuidado e calma em tudo que faz!"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Roberta abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Roberta define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Roberta abre com o dia e a hora escritos."
+    ],
+    [
+     "A Roberta confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Roberta no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google e da bio do Instagram (wa.me/5511985968084), o mesmo das legendas",
+  "site": "não tem: o Google aponta o Instagram; 18 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/roberta-turri-fotografia` e `/demo/roberta-turri-fotografia/natal`",
+  "direcao": [
+   "Portfólio claro, com o azul dos cenários de newborn dela; a cor de destaque é um azul petróleo.",
+   "Sem logo em boa resolução: o topo e o rodapé usam um monograma RT e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Da gestação à infância do bebê”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Newborn, Bebês e smash, Gestante e infância), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: a lareira e a Estação Noel, a agenda de exemplo e os primeiros ensaios do ano.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023) e os posts de Natal 2026 (15 a 22/10).",
+   "As fotos dela vêm em 1080 px: o topo da página de Natal fica um pouco ampliado.",
+   "Fora de propósito: quadros de Reels com texto e os recém-nascidos sem roupa (rede azul, travesseiro de lhama, laranjas no rosto)."
+  ],
+  "textos": [
+   "Bio: “Da gestação a infância do bebê”, especialista em newborn, “Mais de 1.000 famílias atendidas”, “Transformando momentos em memórias”, São Caetano do Sul.",
+   "Legendas dela: “Um dia, tudo isso vai virar saudade”, “fotografar não é apenas guardar a imagem de hoje…”, o chalé na floresta encantada, estúdio climatizado e com vaga na porta.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "O Google não mostra o número da rua nem o horário; a demo usa só “Rua Luiz Fiorotti, Olímpico”.",
+   "Os horários de Natal são exemplo."
+  ]
+ },
+ "marca_completa": "Roberta Turri Fotografia",
+ "fone_link": "+5511985968084",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Roberta! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/roberta-turri-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Roberta",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Roberta, da Roberta Turri Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Roberta, da Roberta Turri Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

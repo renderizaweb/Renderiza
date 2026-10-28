@@ -1,0 +1,140 @@
+{
+ "demo": "roberta-turri-fotografia",
+ "url": "file:///home/user/renderiza/demos/roberta-turri-fotografia/index.html?video=1",
+ "formato": "reels",
+ "marca": "Roberta Turri Fotografia",
+ "local": "São Caetano do Sul · ABC",
+ "cores": {
+  "fundo": "#1c2328",
+  "fundo2": "#111619",
+  "acento": "#9fb7c4",
+  "claro": "#fdfefe"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Jost"
+ },
+ "hora": "2026-10-28T11:00:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Roberta Turri",
+   "Fotografia"
+  ],
+  "frase": "Da gestação à infância do bebê.",
+  "fotos": [
+   ".hero-photo img",
+   "#painel-newborn .g-item:nth-child(2) img",
+   "#painel-bebes .g-item:nth-child(2) img",
+   "#painel-gestante .g-item:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Roberta.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 3.6,
+   "legenda": "Hoje, quem procura uma fotógrafa *começa pelo celular.*",
+   "sub": "Quer ver as fotos, conhecer quem fotografa e saber o que as famílias contam."
+  },
+  {
+   "rolar": "#portfolio .abas",
+   "alinhar": "topo",
+   "segura": 5.8,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": "#aba-bebes",
+     "clicar": true
+    },
+    {
+     "em": 1.7,
+     "tipo": "tocar",
+     "alvo": "#painel-bebes .g-item:nth-child(1)",
+     "clicar": true
+    },
+    {
+     "em": 3.0,
+     "tipo": "deslizar",
+     "alvo": ".lb-trilho",
+     "cartoes": 1
+    },
+    {
+     "em": 4.8,
+     "tipo": "tocar",
+     "alvo": ".lb-fechar",
+     "clicar": true
+    }
+   ],
+   "legenda": "Vê o portfólio *em tela cheia.*",
+   "sub": "Newborn, Bebês e smash e Gestante e infância: um toque abre a foto, e é só passar para o lado."
+  },
+  {
+   "rolar": ".sobre-foto",
+   "segura": 4.6,
+   "legenda": "Conhece *quem vai fotografar.*",
+   "sub": "A Roberta é especialista em newborn: mais de 1.000 famílias atendidas em São Caetano do Sul.",
+   "alinhar": "topo",
+   "ajuste": -10
+  },
+  {
+   "rolar": "#depoimentos .avaliacoes-topo",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.8,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.3,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *as famílias contam.*",
+   "sub": "Nota 5,0 em 49 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#natal h2",
+   "segura": 4.8,
+   "acoes": [
+    {
+     "em": 1.2,
+     "tipo": "tocar",
+     "alvo": "#natal .proximos li:nth-child(2) a",
+     "clicar": true
+    }
+   ],
+   "legenda": "Escolhe o horário *do ensaio de Natal.*",
+   "sub": "Um toque e a mensagem chega pronta no WhatsApp da Roberta, com o dia e a hora.",
+   "alinhar": "topo"
+  },
+  {
+   "rolar": "#contato .canais",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 1.4,
+     "tipo": "tocar",
+     "alvo": "#contato .canais>li:first-child a"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O estúdio, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}
