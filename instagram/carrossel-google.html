@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Carrossel: o perfil do Google completo, item por item</title>
+<!-- Carrossel do Instagram (8 imagens 1080 × 1350): o Perfil da Empresa no Google completo, item por item.
+     O número da capa é do próprio Google (Central de Ajuda, "Completar o Perfil da Empresa no Google"): os clientes
+     têm 70% mais probabilidade de visitar e 50% mais probabilidade de comprar de empresas com um perfil completo.
+     Os itens seguem a mesma página: horário (e horário especial de feriado), descrição e data de abertura, fotos e
+     vídeos com regularidade, serviços e atributos, pedir avaliações; e o link do site, que é onde a Renderiza entra.
+     Feito para sair no sábado, 31/10: segunda, 2/11, é Finados, por isso o primeiro item é o horário do feriado.
+     As telas são desenhos genéricos, sem logo do Google e sem negócio inventado. node instagram/gerar.mjs carrossel-google -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.gp{--terra:#b25134;--terra-escuro:#e8855e;--cinza:#7a8386;--suave:#5b6467;--apoio:#b9bfc1;--claro:#f1eee9;--estrela:#e0a526}
+.kicker{font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);line-height:1}
+.escuro .kicker{color:var(--terra-escuro)}
+.miolo{position:absolute;left:84px;right:84px;top:190px}
+.gp h2{margin-top:30px;font-size:92px;line-height:94px;letter-spacing:-.045em;color:var(--tinta)}
+.gp h2 em{font-style:normal;color:var(--terra)}
+.gp .miolo p{margin-top:28px;font-size:37px;line-height:49px;font-weight:500;letter-spacing:-.012em;color:var(--suave)}
+.tela-mock{position:absolute;left:84px;right:84px;bottom:90px;background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(30,37,40,.10);padding:34px 40px}
+.mk-rot{font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);margin-bottom:10px}
+.sk{display:block;height:18px;border-radius:9px;background:#ece8e1;margin:22px 0}
+
+/* capa */
+.capa .miolo{top:280px}
+.capa .grande{margin:40px 0 0 -12px;font-size:340px;font-weight:700;line-height:.86;letter-spacing:-.065em;color:var(--terra-escuro)}
+.capa .miolo .frase{margin-top:40px;font-size:56px;line-height:64px;font-weight:700;letter-spacing:-.035em;color:var(--claro)}
+.capa .miolo .frase2{margin-top:22px;font-size:38px;line-height:48px;font-weight:500;color:var(--apoio)}
+.capa .pe{position:absolute;left:84px;right:84px;bottom:76px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.capa .pe small{font-size:21px;line-height:28px;font-weight:500;color:var(--cinza);max-width:520px}
+.arraste{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:600;color:var(--claro);white-space:nowrap}
+.arraste svg{width:36px;height:36px;color:var(--terra-escuro)}
+
+/* 1 · horário */
+.hor{display:flex;justify-content:space-between;align-items:center;padding:30px 0;border-top:2px solid #ece8e1;font-size:36px;font-weight:600;color:var(--tinta);letter-spacing:-.01em}
+.hor:first-of-type{border-top:0}
+.hor span{color:var(--suave);font-weight:500}
+.hor.feriado{margin:0 -40px;padding:32px 40px;background:#fbefe9;border-top:0;border-left:8px solid var(--terra);padding-left:32px}
+.hor.feriado b{display:flex;align-items:center;gap:16px}
+.pilula{font-size:21px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--terra);padding:7px 14px;border-radius:999px}
+.hor.feriado > span{color:var(--terra);font-weight:700}
+.hor .pilula{color:#fff}
+
+/* 2 · descrição */
+
+.abertura{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:28px;border-top:2px solid #ece8e1;font-size:34px;font-weight:600;color:var(--tinta)}
+.abertura span{color:var(--suave);font-weight:500}
+
+/* 3 · fotos */
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grade div{height:210px;border-radius:20px;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 18px;font-size:24px;font-weight:700;color:#fff;letter-spacing:-.005em;position:relative;overflow:hidden}
+.grade div svg{position:absolute;right:16px;top:16px;width:34px;height:34px;opacity:.9}
+.grade .t1{background:#2b3438}.grade .t2{background:#b25134}.grade .t3{background:#7a8386}
+.grade .t4{background:#c9a98f}.grade .t5{background:#5b6467}.grade .t6{background:#8f6b55}
+.nota-mk{margin-top:22px;font-size:26px;font-weight:600;color:var(--suave);display:flex;align-items:center;gap:12px}
+.nota-mk svg{width:30px;height:30px;color:var(--terra)}
+
+/* 4 · serviços e atributos */
+.serv{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:2px solid #ece8e1}
+.serv .sk{margin:0;width:340px}
+.serv b{font-size:28px;font-weight:600;color:var(--suave)}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips span{display:inline-flex;align-items:center;gap:10px;height:62px;padding:0 24px;border-radius:999px;background:var(--fundo);font-size:28px;font-weight:600;color:var(--tinta)}
+.chips svg{width:26px;height:26px;color:var(--terra)}
+
+/* 5 · avaliações */
+.balao{max-width:700px;margin-left:auto;background:#e7f6ec;border-radius:28px 28px 8px 28px;padding:26px 30px;font-size:32px;line-height:42px;font-weight:500;color:var(--tinta)}
+.balao .link{display:inline-flex;align-items:center;gap:10px;margin-top:14px;height:52px;padding:0 20px;border-radius:14px;background:#fff;font-size:25px;font-weight:700;color:var(--terra)}
+.balao .link svg{width:24px;height:24px}
+.av{margin-top:26px;padding-top:24px;border-top:2px solid #ece8e1}
+.estrelas{font-size:32px;letter-spacing:4px;color:var(--estrela)}
+.av .sk{margin:14px 0}
+.resp{margin-top:18px;padding:18px 22px;border-radius:18px;background:var(--fundo)}
+.resp b{font-size:23px;font-weight:700;color:var(--suave);letter-spacing:.02em}
+.resp .sk{background:#ddd7cf;margin:12px 0 4px}
+
+/* 6 · site */
+.perfil-cab{display:flex;align-items:center;gap:22px}
+.perfil-cab .av-img{width:84px;height:84px;border-radius:50%;background:#d9d4cc}
+.perfil-cab .sk{margin:10px 0;width:360px}
+.perfil-cab .estrelas{font-size:26px}
+.botoes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.botoes span{display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 0 24px;border-radius:24px;background:var(--fundo);font-size:28px;font-weight:600;color:var(--suave)}
+.botoes svg{width:44px;height:44px}
+.botoes .site{position:relative;background:#fbefe9;color:var(--terra);box-shadow:inset 0 0 0 3px var(--terra)}
+.botoes .circulo{position:absolute;left:-26px;top:-22px;width:calc(100% + 52px);height:calc(100% + 44px);overflow:visible;pointer-events:none}
+.atalhos{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px 26px;font-size:29px;font-weight:600;color:var(--suave)}
+.atalhos span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--terra);margin-right:10px;vertical-align:4px}
+
+/* convite */
+.convite .miolo{top:300px}
+.convite h2{color:var(--claro);font-size:96px;line-height:96px}
+.convite h2 em{color:var(--terra-escuro)}
+.convite .miolo p{color:var(--apoio)}
+.botao{display:inline-flex;align-items:center;gap:16px;height:96px;margin-top:52px;padding:0 48px;border-radius:999px;background:var(--terra-escuro);color:var(--escuro);font-size:44px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.botao svg{width:42px;height:42px}
+.convite .depois{margin-top:22px;font-size:32px;line-height:42px;font-weight:500;color:var(--apoio)}
+.convite .fonte{position:absolute;left:84px;right:84px;bottom:76px;padding-top:24px;border-top:2px solid #36403f;font-size:21px;line-height:30px;font-weight:500;color:var(--cinza)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></g></symbol>
+  <symbol id="foto" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-8.5 8.5"/></g></symbol>
+  <symbol id="certo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.6"/><path d="m7.6 12.3 3 3 5.8-6.2"/></g></symbol>
+  <symbol id="relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></g></symbol>
+  <symbol id="rotas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 21.2 12 12 21.2 2.8 12Z"/><path d="M9 14.5V12a1.5 1.5 0 0 1 1.5-1.5H15"/><path d="m13 8.5 2 2-2 2"/></g></symbol>
+  <symbol id="ligar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20.5 16.6v2.6a1.8 1.8 0 0 1-2 1.8A17.6 17.6 0 0 1 3 5.5a1.8 1.8 0 0 1 1.8-2h2.6a1.8 1.8 0 0 1 1.8 1.5l.5 2.6a1.8 1.8 0 0 1-.5 1.6L8 10.4a14.4 14.4 0 0 0 5.6 5.6l1.2-1.2a1.8 1.8 0 0 1 1.6-.5l2.6.5a1.8 1.8 0 0 1 1.5 1.8Z"/></symbol>
+  <symbol id="globo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z"/></g></symbol>
+  <symbol id="salvar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M6 3.5h12v17l-6-4-6 4Z"/></symbol>
+</svg>
+
+<!-- 1 · capa -->
+<section class="slide escuro gp capa">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">1/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Perfil da Empresa no Google</span>
+    <div class="grande">70%</div>
+    <p class="frase">mais chance de o cliente visitar quando o seu perfil no Google está completo.</p>
+    <p class="frase2">E 50% mais chance de ele comprar. Os dois números são do próprio Google.</p>
+  </div>
+  <div class="pe">
+    <small>Fonte: Central de Ajuda do Google, “Completar o Perfil da Empresa no Google”.</small>
+    <span class="arraste">O que preencher<svg><use href="#seta"/></svg></span>
+  </div>
+</section>
+
+<!-- 2 · horário -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">2/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 1 de 6</span>
+    <h2>Horário, inclusive <em>o de feriado.</em></h2>
+    <p>Segunda, 2 de novembro, é Finados. Dá para marcar um horário especial só para esse dia. Sem isso, quem pesquisa vê o horário de um dia comum, ou um aviso de que ele pode ser diferente.</p>
+  </div>
+  <div class="tela-mock">
+    <div class="mk-rot">Horário especial</div>
+    <div class="hor"><b>Sáb, 31 de outubro</b><span>8h às 12h</span></div>
+    <div class="hor"><b>Dom, 1º de novembro</b><span>Fechado</span></div>
+    <div class="hor feriado"><b>Seg, 2 de novembro <span class="pilula">Finados</span></b><span>Fechado</span></div>
+  </div>
+</section>
+
+<!-- 3 · descrição -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">3/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 2 de 6</span>
+    <h2>Descrição e <em>data de abertura.</em></h2>
+    <p>Em poucas linhas: o que vocês fazem, para quem e desde quando. É o texto que aparece no perfil, com as palavras do seu negócio.</p>
+  </div>
+  <div class="tela-mock desc">
+    <div class="mk-rot">Descrição</div>
+    <span class="sk"></span><span class="sk"></span><span class="sk"></span><span class="sk"></span><span class="sk" style="width:62%"></span>
+    <div class="abertura"><b>Data de abertura</b><span>março de 2014</span></div>
+  </div>
+</section>
+
+<!-- 4 · fotos -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">4/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 3 de 6</span>
+    <h2>Fotos e vídeos, <em>sempre novos.</em></h2>
+    <p>Logo, foto de capa e fotos reais: a fachada, o lugar por dentro, a equipe e o trabalho. O Google pede para enviar novas com regularidade.</p>
+  </div>
+  <div class="tela-mock">
+    <div class="grade">
+      <div class="t1"><svg><use href="#foto"/></svg>Logo</div>
+      <div class="t2"><svg><use href="#foto"/></svg>Capa</div>
+      <div class="t3"><svg><use href="#foto"/></svg>Fachada</div>
+      <div class="t4"><svg><use href="#foto"/></svg>Por dentro</div>
+      <div class="t5"><svg><use href="#foto"/></svg>Equipe</div>
+      <div class="t6"><svg><use href="#foto"/></svg>Trabalho</div>
+    </div>
+    <div class="nota-mk"><svg><use href="#certo"/></svg>Fotos de verdade, do seu negócio</div>
+  </div>
+</section>
+
+<!-- 5 · serviços e atributos -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">5/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 4 de 6</span>
+    <h2>Serviços e <em>atributos.</em></h2>
+    <p>Os serviços com nome e, se quiser, preço. Depois, os atributos que ajudam a decidir antes de sair de casa.</p>
+  </div>
+  <div class="tela-mock">
+    <div class="mk-rot">Serviços</div>
+    <div class="serv"><span class="sk"></span><b>R$</b></div>
+    <div class="serv"><span class="sk" style="width:280px"></span><b>R$</b></div>
+    <div class="serv"><span class="sk" style="width:390px"></span><b>R$</b></div>
+    <div class="chips">
+      <span><svg><use href="#certo"/></svg>Estacionamento</span>
+      <span><svg><use href="#certo"/></svg>Acessibilidade</span>
+      <span><svg><use href="#certo"/></svg>Wi-Fi</span>
+      <span><svg><use href="#certo"/></svg>Aceita cartão</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · avaliações -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">6/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 5 de 6</span>
+    <h2>Avaliações: <em>peça e responda.</em></h2>
+    <p>Mande o link de avaliação para quem acabou de ser atendido. E responda as que chegarem, as boas e as outras.</p>
+  </div>
+  <div class="tela-mock">
+    <div class="balao">Obrigada pela visita! Se puder, conta como foi pra gente:<br><span class="link"><svg><use href="#globo"/></svg>Link de avaliação</span></div>
+    <div class="av">
+      <div class="estrelas">★★★★★</div>
+      <span class="sk"></span><span class="sk" style="width:70%"></span>
+      <div class="resp"><b>Resposta do proprietário</b><span class="sk" style="width:80%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · site -->
+<section class="slide gp">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">7/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Item 6 de 6</span>
+    <h2>O link <em>do site.</em></h2>
+    <p>É o botão que leva a tudo o que não cabe no perfil. Sem ele, quem quer saber mais volta para a pesquisa.</p>
+  </div>
+  <div class="tela-mock">
+    <div class="perfil-cab"><span class="av-img"></span><div><span class="sk"></span><div class="estrelas">★★★★★</div></div></div>
+    <div class="botoes">
+      <span><svg><use href="#rotas"/></svg>Rotas</span>
+      <span><svg><use href="#ligar"/></svg>Ligar</span>
+      <span class="site"><svg><use href="#globo"/></svg>Site<svg class="circulo" viewBox="0 0 200 190" preserveAspectRatio="none"><path d="M118 8C62 2 12 22 8 84c-4 62 40 96 98 96 56 0 88-34 86-92C190 32 150 6 96 10 80 11 64 16 52 24" fill="none" stroke="#b25134" stroke-width="5" stroke-linecap="round"/></svg></span>
+      <span><svg><use href="#salvar"/></svg>Salvar</span>
+    </div>
+    <div class="atalhos"><span>Serviços explicados</span><span>Fotos</span><span>Avaliações</span><span>WhatsApp em um toque</span></div>
+  </div>
+</section>
+
+<!-- 8 · convite -->
+<section class="slide escuro gp convite">
+  <div class="topo"><span class="marca"><span class="simbolo"></span>renderiza</span><span class="contador">8/8</span></div>
+  <div class="miolo">
+    <span class="kicker">Com a Renderiza</span>
+    <h2>O site vai com o <em>kit de divulgação.</em></h2>
+    <p>No kit, o texto da descrição para o Google e a mensagem pronta para pedir avaliação aos seus clientes.</p>
+    <span class="botao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.6A8.4 8.4 0 1 1 20.5 11.6Z"/></svg>Comenta PRÉVIA</span>
+    <p class="depois">A gente monta a prévia do site do seu negócio, sem compromisso.</p>
+  </div>
+  <p class="fonte">Os números da capa são do Google: Central de Ajuda, “Completar o Perfil da Empresa no Google”.</p>
+</section>
+
+<script type="module">
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>

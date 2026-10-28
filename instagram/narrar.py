@@ -7,6 +7,15 @@
 #   clone: Chatterbox multilíngue (licença MIT, roda aqui) imitando a voz de "referencia" (10 a 15 s de fala limpa,
 #     ex.: um trecho da voz tratada pelo encaixar-voz.py). Cada frase é conferida pelo Whisper e refeita se sair
 #     embolada; as palavras da legenda seguem os tempos que o Whisper ouviu. pip install chatterbox-tts faster-whisper
+#   kokoro: voz sintética livre do Kokoro (Apache 2.0, roda na CPU; "voz": "pm_alex", "pm_santa" ou "pf_dora"),
+#     bem mais natural que o Piper. Modelo baixado para rascunhos/vozes/. As palavras da legenda seguem os tempos que
+#     o Whisper ouviu. pip install kokoro-onnx faster-whisper
+#   edge: vozes neurais brasileiras da Microsoft ("voz": "pt-BR-AntonioNeural", "pt-BR-FranciscaNeural" ou
+#     "pt-BR-ThalitaMultilingualNeural"; "ritmo": "+12%"; "tom": "-2Hz"), pelo serviço de leitura em voz alta do Edge.
+#     Uma frase pode trocar "voz", "ritmo" e "tom" só para ela (a voz de um personagem, por exemplo).
+# Qualquer motor: "efeito": "megafone" numa frase faz ela sair pelo alto-falante (só os médios, saturada e com eco de rua).
+#     As mesmas vozes existem no Azure Speech, que é o caminho com licença para uso comercial. As palavras da legenda
+#     seguem os tempos que o próprio serviço devolve. pip install edge-tts imageio-ffmpeg
 import difflib, json, re, subprocess, sys, unicodedata, wave
 from pathlib import Path
 import numpy as np
@@ -37,6 +46,46 @@ if MOTOR == "piper":
         subprocess.run([sys.executable, "-m", "piper", "-m", str(modelo), "-f", str(arq), "--length-scale", str(cfg.get("velocidade", 1.0)),
                         "--sentence-silence", "0.12"], input=texto.encode(), check=True, capture_output=True)
         return ler(arq), None
+elif MOTOR == "kokoro":
+    from kokoro_onnx import Kokoro
+    from faster_whisper import WhisperModel
+    for arq in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        if not (VOZES / arq).exists():
+            subprocess.run(["curl", "-sSLf", "-m", "900", "-o", str(VOZES / arq),
+                            f"https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{arq}"], check=True)
+    kokoro = Kokoro(str(VOZES / "kokoro-v1.0.onnx"), str(VOZES / "voices-v1.0.bin"))
+    ouvido = WhisperModel("small", device="cpu", compute_type="int8")
+    def falar(texto, arq):
+        w, sr = kokoro.create(texto, voice=cfg.get("voz", "pm_alex"), speed=cfg.get("velocidade", 1.0), lang="pt-br")
+        x = np.interp(np.arange(0, len(w) / sr, 1 / SR), np.arange(len(w)) / sr, w).astype(np.float32)
+        a16 = np.interp(np.arange(0, len(w) / sr, 1 / 16000), np.arange(len(w)) / sr, w).astype(np.float32)
+        segs, _ = ouvido.transcribe(a16, language="pt", word_timestamps=True)
+        return x, [{"p": p.word.strip(), "ini": p.start, "fim": p.end} for s_ in segs for p in s_.words]
+elif MOTOR == "edge":
+    import asyncio, os, ssl
+    import edge_tts, edge_tts.communicate, imageio_ffmpeg
+    if os.environ.get("SSL_CERT_FILE"):  # atrás de um proxy que refaz o TLS
+        edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
+    def falar(texto, arq):
+        async def pedir():
+            mp3, ws = bytearray(), []
+            o = {**cfg, **FRASE}  # uma frase pode ter a própria "voz", "ritmo" e "tom"
+            c = edge_tts.Communicate(texto, o.get("voz", "pt-BR-AntonioNeural"), rate=o.get("ritmo", "+0%"), pitch=o.get("tom", "+0Hz"),
+                                     boundary="WordBoundary", proxy=os.environ.get("HTTPS_PROXY"))
+            async for m in c.stream():
+                if m["type"] == "audio": mp3 += m["data"]
+                elif m["type"] == "WordBoundary": ws.append({"p": m["text"], "ini": m["offset"] / 1e7, "fim": (m["offset"] + m["duration"]) / 1e7})
+            return bytes(mp3), ws
+        for tentativa in range(4):  # o serviço às vezes derruba a conexão ou manda o áudio cortado
+            try:
+                mp3, ws = asyncio.run(pedir())
+                pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-i", "-", "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                                     input=mp3, capture_output=True, check=True).stdout
+                x = np.frombuffer(pcm, np.float32).copy()
+                if ws and ws[-1]["fim"] > len(x) / SR + 0.05: raise RuntimeError(f"áudio cortado em {len(x) / SR:.2f}s")
+                break
+            except Exception as e: print(f"  {texto!r} tentativa {tentativa + 1}: {e}", flush=True)
+        return x, ws
 else:
     import torch
     from chatterbox.mtl_tts import ChatterboxMultilingualTTS
@@ -68,11 +117,20 @@ def aparar(x):
     ini = max(0, som[0] - int(0.03 * SR))
     return x[ini: som[-1] + int(0.1 * SR)], ini / SR
 
+EFEITOS = {"megafone": "highpass=f=600,lowpass=f=3300,volume=8,asoftclip=type=atan,highpass=f=500,lowpass=f=3600,aecho=0.8:0.5:110|230:0.22|0.12"}
+def efeito(x, nome):
+    import imageio_ffmpeg
+    return np.frombuffer(subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
+                                         "-af", EFEITOS[nome], "-f", "f32le", "-"], input=x.astype(np.float32).tobytes(),
+                                        capture_output=True, check=True).stdout, np.float32).copy()
+
 pedacos, tempos, t = [], [], cfg.get("inicio", 0.0)  # pedacos: (início em s, áudio)
 for i, f in enumerate(cfg["frases"]):
     fala = f.get("fala") or re.sub(r"\*", "", f["texto"])
+    FRASE = {k: f[k] for k in ("voz", "ritmo", "tom") if k in f}
     x, ouvidas = falar(fala, tmp / f"{i:02d}.wav")
     x, corte = aparar(x)
+    if f.get("efeito"): x = efeito(x, f["efeito"])
     x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01] ** 2))) * 0.12  # todas as frases no mesmo volume
     dur = len(x) / SR
     brutas = f["texto"].split()

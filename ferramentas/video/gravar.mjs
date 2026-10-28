@@ -31,6 +31,7 @@
 //   Exemplos da Renderiza (/exemplos, sistemas com dados fictícios): exemplo: "painel-eventos.html?video=1" no lugar de
 //   demo (abre exemplos/<arquivo>) e abertura.estilo "sistema": a primeira tela do sistema num celular, com avisos que
 //   pulam ao lado (abertura.avisos: [{ titulo, texto, cor }], até 3), e o título em duas linhas (titulo, destaque).
+//   abertura.subir / fechamento.subir: px de 720 que o texto sobe (0; 40 no Instagram); o celular encolhe no mesmo topo.
 import { readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve } from "node:path";
@@ -393,6 +394,9 @@ ${assinatura("feito pela Renderiza", "position:absolute;left:36px;bottom:44px;an
 // o nome já está no 1º quadro (vira a miniatura no WhatsApp) e a frase da ótica entra no fim.
 const PASSO = (ABERTURA - 0.6) / Math.max(1, fotosMontagem.length);
 const AVISOS = SISTEMA ? (R.abertura.avisos || []).slice(0, 3) : [];
+// abertura.subir: o título sobe; o celular fica no mesmo topo (logo abaixo do selo) e encolhe até o pé subir o mesmo
+// tanto, e os avisos acompanham o celular (ficam em cima das mesmas partes da tela).
+const SUBIR = SISTEMA ? Number(R.abertura.subir) || 0 : 0, CEL = { k: (380 - SUBIR) / 380, h: 380 - SUBIR, w: +(200 * (380 - SUBIR) / 380).toFixed(1) };
 const QUANDO_AVISO = AVISOS.map((_, i) => +(0.55 + i * 0.85).toFixed(2));
 // toques da trilha: a troca de cada foto da montagem ou a entrada de cada aviso
 const trocas = SISTEMA ? QUANDO_AVISO : fotosMontagem.map((_, i) => +(i * PASSO).toFixed(2)).slice(1);
@@ -449,11 +453,11 @@ const aberturaSistema = base + `
 <div class="bola" style="width:150px;height:150px;right:-48px;top:-44px;animation:cresce 1s .05s cubic-bezier(.2,.8,.2,1) both"></div>
 <div class="bola" style="width:300px;height:300px;left:-170px;bottom:40px;opacity:.08"></div>
 <div style="position:absolute;left:32px;top:58px;right:32px"><p class="selo entra" style="animation-delay:.05s">${esc(R.abertura?.selo || "Exemplo de sistema")}</p></div>
-<div style="position:absolute;left:168px;top:96px;width:200px;height:380px;transform:rotate(4deg)"><div class="vivo" style="width:100%;height:100%;padding:7px;border-radius:30px;background:#0b0b0f;box-shadow:0 30px 70px #00000088,0 0 0 1px #ffffff26">
+<div style="position:absolute;left:${268 - CEL.w / 2}px;top:96px;width:${CEL.w}px;height:${CEL.h}px;transform:rotate(4deg)"><div class="vivo" style="width:100%;height:100%;padding:7px;border-radius:30px;background:#0b0b0f;box-shadow:0 30px 70px #00000088,0 0 0 1px #ffffff26">
   <img src="${primeiraTela}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:23px;display:block"></div></div>
-${AVISOS.map((a, i) => `<div class="aviso" style="top:${142 + i * 92}px;${i ? `animation:pula .7s ${QUANDO_AVISO[i]}s cubic-bezier(.2,.8,.2,1) both` : "animation:assenta 1s cubic-bezier(.2,.8,.2,1) both"}">
+${AVISOS.map((a, i) => `<div class="aviso" style="top:${+(96 + (46 + i * 92) * CEL.k).toFixed(1)}px;${i ? `animation:pula .7s ${QUANDO_AVISO[i]}s cubic-bezier(.2,.8,.2,1) both` : "animation:assenta 1s cubic-bezier(.2,.8,.2,1) both"}">
   <i style="background:${esc(a.cor || c.acento)}">${esc(a.icone || "•")}</i><div><b>${esc(a.titulo)}</b><span>${esc(a.texto)}</span></div></div>`).join("")}
-<div style="position:absolute;left:32px;right:32px;bottom:104px">
+<div style="position:absolute;left:32px;right:32px;bottom:${104 + SUBIR}px">
   <p class="entra" style="animation-delay:.3s;font-size:15px;opacity:.88;font-weight:500">${esc(R.abertura?.chamada || "")}</p>
   <h1 class="assenta" style="font-family:'${fT}',serif;font-weight:700;font-size:33px;line-height:1.06;letter-spacing:-.6px;margin-top:8px;color:#fff;text-wrap:balance">${esc(R.abertura?.titulo || R.marca)}<br><em style="color:${c.acento}">${esc(R.abertura?.destaque || "")}</em></h1>
 </div>
@@ -480,13 +484,15 @@ const fechamentoRolagem = base + `
 ${assinatura("Renderiza · renderizaweb.com.br", "position:absolute;left:34px;bottom:44px;animation-delay:.9s")}
 </body></html>`;
 
+// fechamento.subir: como na abertura, o texto sobe e o celular encolhe até o pé subir o mesmo tanto, no mesmo topo.
+const SUBIR_F = Number(F.subir) || 0, CEL_F = { h: 330 - SUBIR_F, w: +(181 * (330 - SUBIR_F) / 330).toFixed(1) };
 const fechamento = base + `
 <div class="bola" style="width:150px;height:150px;left:-50px;top:-50px;animation:cresce 1s cubic-bezier(.2,.8,.2,1) both"></div>
 <div class="bola" style="width:300px;height:300px;right:-170px;bottom:60px;opacity:.08"></div>
-<div class="foto-entra" style="position:absolute;left:112px;top:70px;width:181px;height:330px;border-radius:30px;padding:7px;background:#0d0d12;box-shadow:0 28px 60px #00000080,0 0 0 1px #ffffff22;animation-delay:.05s;transform:rotate(-3deg)">
+<div class="foto-entra" style="position:absolute;left:${202.5 - CEL_F.w / 2}px;top:70px;width:${CEL_F.w}px;height:${CEL_F.h}px;border-radius:30px;padding:7px;background:#0d0d12;box-shadow:0 28px 60px #00000080,0 0 0 1px #ffffff22;animation-delay:.05s;transform:rotate(-3deg)">
   <img src="${primeiraTela}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:23px;display:block">
 </div>
-<div style="position:absolute;left:36px;right:36px;top:440px">
+<div style="position:absolute;left:36px;right:36px;top:${440 - SUBIR_F}px">
   <h2 class="entra" style="animation-delay:.25s;font-family:'${fT}',sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.8px;color:#fff">${esc(F.titulo || "Seu site,")}<br><span style="color:${c.acento}">${esc(F.destaque || "pronto para ir ao ar.")}</span></h2>
   <p class="entra" style="animation-delay:.5s;margin-top:16px;font-size:16px;line-height:1.45;opacity:.9">${esc(F.convite || "Gostou? É só responder esta mensagem.")}</p>
 </div>

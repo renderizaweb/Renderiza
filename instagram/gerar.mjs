@@ -23,7 +23,7 @@ const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
 // cada Reels é um <nome>.html com window.preparar() e window.quadro(t) e sai em <nome>.mp4
-const REELS = ["reels", "reels-cliente-perdido", "reels-narrado", "reels-anuncio", "reels-sobrinho", "reels-atende", "reels-fecha", "reels-indica", "reels-elogio", "reels-catalogo", "reels-pronto"];
+const REELS = ["reels", "reels-cliente-perdido", "reels-narrado", "reels-anuncio", "reels-sobrinho", "reels-atende", "reels-fecha", "reels-indica", "reels-elogio", "reels-catalogo", "reels-pronto", "reels-ciclo-eventos"];
 const IMAGENS = ["carrossel", "teste", "carrossel-dicionario", "post-pixel", "carrossel-espalhado", "stories-semana"];
 const quais = pedidos.length ? pedidos : [...IMAGENS, ...REELS];
 mkdirSync(SAIDA, { recursive: true }); mkdirSync(FOTOS, { recursive: true });
@@ -102,7 +102,11 @@ async function reels(nome) {
   if (narracao) { // Reels com voz: a voz (instagram/narrar.py) e a trilha pulsante que abaixa quando ela fala
     const voz = join(RAIZ, "rascunhos", "instagram", narracao + "-voz.wav");
     if (!existsSync(voz)) await rodar("python3", [join(AQUI, "narrar.py"), narracao]);
-    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), join(AQUI, "narracao", narracao + ".tempos.json"), voz, wav, String(duracao)]);
+    // a trilha só conhece as partes abre, google, insta, volta, meio, ese, site, fim e cta: uma narração com cenas de
+    // outro nome devolve também "pulso", as mesmas frases com a parte da trilha de cada uma (ex.: reels-ciclo-eventos)
+    let tempos = join(AQUI, "narracao", narracao + ".tempos.json");
+    if (pulso) { tempos = join(tmp, "cenas.json"); writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso })); }
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, voz, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : [])]);
   } else if (pulso) { // Reels sem voz com a trilha pulsante: "pulso" traz as cenas como as frases de uma narração
     const tempos = join(tmp, "cenas.json"), mudo = join(tmp, "mudo.wav");
     writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso }));

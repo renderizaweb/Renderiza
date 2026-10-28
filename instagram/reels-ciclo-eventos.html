@@ -1,0 +1,1607 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: o ciclo de um espaço de eventos</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz: a sexta-feira da Marina, dona da Villa Alecrim (espaço
+     fictício, o mesmo de exemplos/painel-eventos.html e exemplos/dados-villa-alecrim.js), antes e depois do site com a
+     agenda online e do painel. O tempo de tudo sai da narração: narracao/reels-ciclo-eventos.json →
+     python3 instagram/narrar.py reels-ciclo-eventos → esta página lê reels-ciclo-eventos.tempos.json, mostra a legenda
+     palavra a palavra e troca cada imagem na palavra certa. As cenas da narração têm nomes próprios; o "pulso" do
+     preparar() diz a que parte da trilha (ferramentas/video/trilha-pulso.py) cada uma corresponde.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s), e o gerar.mjs grava quadro a quadro.
+     Só fatos do produto de verdade: o painel não recebe pagamento, não sincroniza com o Google Agenda e não tem IA;
+     a cena da IA é uma ideia sob medida, fora do painel. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e; /* a mesma do site (site/estilo.css) */
+  /* Villa Alecrim: só dentro das telas dela */
+  --va-verde:#1f4a3a;--va-escuro:#0f261d;--va-ouro:#f1d38f;--va-creme:#f4f1e9;--va-v2:#2d6a4f;--va-tinta:#17201b;--va-t2:#46534b;--va-suave:#7d8a82;--va-linha:#e6e2d6;--va-claro:#e2efe7}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111}
+.reels{position:relative;width:1080px;height:1920px;overflow:hidden;background:#1e2528;transform-origin:50% 45%}
+.fundo{position:absolute;inset:0}
+#f-quente{background:radial-gradient(64% 40% at 50% 56%,#4d2d22 0%,#2d2725 40%,#1e2528 66%,#161b1d 100%)}
+#f-frio{background:radial-gradient(78% 44% at 50% 60%,#1c2c38 0%,#121d26 46%,#090e12 100%)}
+#f-noite{background:linear-gradient(180deg,#0a1016 0%,#0f171e 50%,#0b1014 100%)}
+#f-claro{background:radial-gradient(90% 50% at 50% 26%,#faf7f2 0%,#f1eee9 55%,#e6e1d8 100%)}
+.poeira{position:absolute;inset:0;z-index:2;pointer-events:none}
+.poeira i{position:absolute;left:0;top:0;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%}
+.cena{position:absolute;inset:0;z-index:10;display:none}
+.vinheta{position:absolute;inset:0;z-index:40;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 52%,transparent 52%,rgba(0,0,0,.5) 100%)}
+.flash{position:absolute;inset:0;z-index:60;background:#fff;opacity:0;pointer-events:none}
+.r-topo{position:absolute;left:0;right:0;top:138px;z-index:44;display:flex;justify-content:center}
+.r-topo .marca{font-size:34px;color:inherit}
+.r-topo .simbolo{width:40px;height:40px}
+.falas{position:absolute;inset:0;z-index:45;pointer-events:none}
+.fala{position:absolute;left:56px;right:56px;top:226px;text-align:center;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:76px;color:#f6f3ee;text-wrap:balance}
+.fala .w{display:inline-block;opacity:0;transform-origin:50% 85%}
+.fala .tom{color:var(--terracota-clara)}
+.fala.fria .tom{color:#9cc6e0}
+.fala.fria,.fala.quente{text-shadow:0 6px 36px rgba(0,0,0,.5)}
+.fala.clara{color:var(--tinta)}
+.fala.clara .tom{color:var(--terracota)}
+.exemplo.claro{background:rgba(241,238,233,.94);color:#1e2528}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* aparelhos */
+.fone{position:absolute;z-index:12;border-radius:80px;padding:15px;background:linear-gradient(150deg,#4a5357 0%,#1a1f21 30%,#0b0e0f 100%);box-shadow:0 80px 140px -40px rgba(0,0,0,.8),0 30px 60px -20px rgba(0,0,0,.45),inset 0 0 0 2px rgba(255,255,255,.09),inset 0 0 0 6px #070909;transform-origin:50% 0}
+.fone::before{content:"";position:absolute;left:50%;top:31px;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#040505;z-index:20}
+.fone.leve{box-shadow:0 60px 110px -40px rgba(30,37,40,.55),0 24px 50px -24px rgba(30,37,40,.35),inset 0 0 0 2px rgba(255,255,255,.09),inset 0 0 0 6px #070909}
+.visor{position:relative;width:100%;height:100%;border-radius:65px;overflow:hidden;background:#fff}
+.camada{position:absolute;inset:0}
+.fone>.exemplo{left:44px;top:-14px;z-index:25}
+.status{position:absolute;left:0;right:0;top:0;height:62px;display:flex;align-items:center;justify-content:space-between;padding:14px 44px 0 52px;font:600 23px/1 "Geist",sans-serif;z-index:6}
+.status i{display:inline-flex;gap:8px;align-items:center}
+.status .bat{width:38px;height:19px;border-radius:6px;border:2px solid currentColor;position:relative;opacity:.9}
+.status .bat::after{content:"";position:absolute;left:2px;top:2px;bottom:2px;width:68%;border-radius:2px;background:currentColor}
+.status .sin{display:inline-flex;align-items:flex-end;gap:3px;height:18px}
+.status .sin b{width:5px;border-radius:2px;background:currentColor}
+#dedo{position:absolute;left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;z-index:30;background:rgba(255,255,255,.26);border:4px solid rgba(255,255,255,.92);box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0}
+#dedo.claro{background:rgba(30,37,40,.15);border-color:rgba(30,37,40,.62);box-shadow:none}
+#dedo-onda{position:absolute;left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;z-index:29;border:4px solid rgba(255,255,255,.9);opacity:0}
+#dedo-onda.claro{border-color:rgba(45,106,79,.8)}
+
+/* 1 · noite */
+#n-luz{position:absolute;left:-60px;top:560px;width:1200px;height:1400px;border-radius:50%;background:radial-gradient(closest-side,rgba(110,170,215,.32),rgba(70,120,170,.12) 50%,transparent)}
+#n-relogio{position:absolute;left:0;right:0;top:432px;text-align:center;font-weight:200;font-size:250px;letter-spacing:-.04em;line-height:1;color:#e9f1f6;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(150,200,235,.55),0 0 130px rgba(90,150,205,.4)}
+#n-relogio span{display:inline-block}
+#n-tag{left:50%;top:706px;translate:-50% 0;z-index:13;background:rgba(241,238,233,.12);color:#dfe8ee;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.16)}
+.bloq{background:radial-gradient(130% 70% at 50% 0%,#29506b 0%,#132634 45%,#0a141b 100%);z-index:3}
+.bl-topo{position:absolute;left:0;right:0;top:96px;display:flex;align-items:center;justify-content:center;gap:24px}
+.app-zap{position:relative;width:86px;height:86px;border-radius:23px;background:linear-gradient(160deg,#62f08e,#1ebe57);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.app-zap svg{width:56px;height:56px}
+.badge{position:absolute;right:-24px;top:-20px;min-width:54px;height:54px;padding:0 12px;border-radius:27px;background:#ff3b30;color:#fff;font:700 31px/54px "Geist",sans-serif;text-align:center;box-shadow:0 0 0 5px #183244}
+.bl-topo b{display:block;font:600 33px/1.1 "Geist",sans-serif;color:#fff;letter-spacing:-.02em}
+.bl-topo small{display:block;margin-top:6px;font:500 23px/1 "Geist",sans-serif;color:#9fb6c6}
+.notif{position:absolute;left:14px;right:14px;top:0;height:108px;border-radius:30px;background:rgba(205,225,238,.17);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);display:flex;align-items:center;gap:16px;padding:0 20px;font-family:"Geist",sans-serif;transform-origin:50% 0}
+.notif>i{flex:none;width:58px;height:58px;border-radius:16px;background:linear-gradient(160deg,#62f08e,#1ebe57);display:grid;place-items:center}
+.notif>i svg{width:36px;height:36px}
+.notif div{flex:1;min-width:0}
+.notif b{display:flex;justify-content:space-between;align-items:baseline;font-size:25px;font-weight:700;color:#fff}
+.notif b small{font-size:20px;font-weight:500;color:#9fb6c6}
+.notif span{display:block;margin-top:4px;font-size:23px;color:#d2dee6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 2 · conversas */
+.zl{background:#fff;font-family:"Geist",sans-serif;color:#111b21;z-index:2}
+.zl-cab{position:absolute;left:0;right:0;top:62px;padding:8px 26px 0;background:#fff;z-index:3;height:240px;border-bottom:1px solid #eceff1}
+.zl-cab .tt{display:flex;justify-content:space-between;align-items:center}
+.zl-cab h3{font-size:46px;font-weight:700;letter-spacing:-.035em}
+.zl-cab .neg{font-size:18px;font-weight:600;color:#1a8f4c;background:#e7f7ec;padding:7px 13px;border-radius:99px}
+.zl-busca{margin-top:16px;height:58px;border-radius:20px;background:#f0f2f5;display:flex;align-items:center;gap:12px;padding:0 20px;color:#8696a0;font-size:23px}
+.zl-busca svg{width:26px;height:26px}
+.zl-filtros{display:flex;gap:10px;margin-top:16px}
+.zl-filtros span{padding:9px 18px;border-radius:99px;background:#f0f2f5;font-size:20px;font-weight:600;color:#54656f}
+.zl-filtros span.on{background:#d9fdd3;color:#0a7c3e}
+.zl-filtros em{font-style:normal;color:#0a7c3e}
+.zl-linhas{position:absolute;left:0;right:0;top:304px}
+.zl-l{position:relative;height:122px;display:flex;align-items:center;gap:18px;padding:0 24px}
+.zl-l::after{content:"";position:absolute;left:122px;right:0;bottom:0;border-bottom:1px solid #eef0f2}
+.zl-av{flex:none;width:80px;height:80px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:28px}
+.zl-tx{flex:1;min-width:0}
+.zl-tx b{display:block;font-size:28px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zl-tx span{display:block;margin-top:5px;font-size:23px;color:#667781;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zl-dir{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.zl-dir small{font-size:19px;font-weight:600;color:#1fa855}
+.zl-dir em{font-style:normal;min-width:40px;height:40px;padding:0 10px;border-radius:20px;background:#25d366;color:#fff;font-size:22px;font-weight:700;display:grid;place-items:center}
+#c-conversas{z-index:14}
+.balao{position:absolute;left:0;top:0;padding:18px 30px 20px;border-radius:8px 32px 32px 32px;background:#fff;box-shadow:0 30px 60px -18px rgba(0,0,0,.65),0 8px 18px rgba(0,0,0,.25);font-family:"Geist",sans-serif;transform-origin:0 0;white-space:nowrap}
+.balao small{display:block;font-size:24px;font-weight:700;margin-bottom:6px}
+.balao p{font-size:42px;font-weight:600;letter-spacing:-.025em;color:#111b21;line-height:1.1}
+.balao.p{padding:14px 24px 16px}
+.balao.p small{font-size:20px}
+.balao.p p{font-size:31px;color:#3b4a52}
+
+/* 3 · caderno */
+.obj{position:absolute;transform-origin:50% 50%}
+#k-caderno{left:84px;top:560px;width:450px;height:520px;border-radius:16px;box-shadow:0 40px 70px -24px rgba(0,0,0,.75)}
+#k-caderno svg{display:block;width:100%;height:100%}
+.planilha{left:496px;top:650px;width:440px;border-radius:16px;overflow:hidden;background:#f3f5f6;box-shadow:0 40px 70px -24px rgba(0,0,0,.75);font-family:"Geist",sans-serif}
+.pl-barra{height:52px;display:flex;align-items:center;gap:8px;padding:0 16px;background:#dfe5e8;font-size:19px;font-weight:600;color:#3e4b52}
+.pl-barra i{width:12px;height:12px;border-radius:50%;background:#b5c0c6}
+.pl-barra span{margin-left:10px}
+.planilha table{border-collapse:collapse;width:100%;font-size:22px;color:#26323a}
+.planilha td,.planilha th{border:1px solid #cfd8dd;height:52px;padding:0 10px;text-align:left;white-space:nowrap}
+.planilha th{background:#e8edf0;font-size:17px;color:#6b7a83;font-weight:600;text-align:center;height:36px}
+.planilha td.n{background:#e8edf0;color:#6b7a83;font-size:17px;text-align:center;width:34px;padding:0}
+.planilha tr.cab td{font-weight:700;background:#eef2f4}
+.planilha tr.ruim td:not(.n){background:#f6dede}
+.planilha td.sel{outline:3px solid #1f7a4d;outline-offset:-3px}
+#k-cabeca{left:150px;top:1080px;width:470px;height:420px}
+#k-nuvem{position:absolute;left:560px;top:1112px;width:340px;height:150px;border-radius:75px;background:#dde5ea;box-shadow:0 30px 60px -18px rgba(0,0,0,.7);display:grid;place-items:center;font:800 50px/1 "Geist",sans-serif;color:#1d2a32;letter-spacing:-.03em;transform-origin:10% 90%}
+#k-nuvem::before,#k-nuvem::after{content:"";position:absolute;border-radius:50%;background:#dde5ea}
+#k-nuvem::before{width:42px;height:42px;left:24px;bottom:-40px}
+#k-nuvem::after{width:22px;height:22px;left:-4px;bottom:-70px}
+
+/* 4 · data */
+#d-cal{position:absolute;left:99px;top:600px;width:812px;padding:24px;border-radius:40px;background:linear-gradient(180deg,#1a2630,#141e26);box-shadow:0 50px 100px -30px rgba(0,0,0,.8),inset 0 0 0 2px rgba(160,200,225,.12);font-family:"Geist",sans-serif;color:#dce7ee;transform-origin:0 0}
+#d-cal .exemplo{left:-18px;top:-16px}
+.d-topo{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 12px 8px}
+.d-topo b{font-size:46px;font-weight:700;letter-spacing:-.03em}
+.d-topo span{display:flex;gap:12px}
+.d-topo span i{width:54px;height:54px;border-radius:16px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#8aa3b3}
+.d-topo span svg{width:28px;height:28px}
+.d-sem{display:grid;grid-template-columns:repeat(7,104px);gap:0 6px;height:44px;align-items:center}
+.d-sem span{text-align:center;font-size:21px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7c94a4}
+.d-dias{display:grid;grid-template-columns:repeat(7,104px);grid-auto-rows:100px;gap:6px}
+.d-dia{border-radius:18px;background:#1c2a34;padding:12px 14px;font-size:30px;font-weight:600;color:#c4d3dc}
+.d-dia.fora{color:#4c606d;background:transparent}
+.d-dia.sab{background:#22343f}
+#d-col{position:absolute;left:684px;top:158px;width:104px;height:524px;border-radius:18px;background:linear-gradient(180deg,rgba(140,200,240,.32),rgba(140,200,240,.08));box-shadow:0 0 0 2px rgba(150,205,240,.45);transform-origin:50% 0;opacity:0}
+#d-alerta{position:absolute;left:684px;top:370px;width:104px;height:100px;border-radius:18px;background:#d8392f;box-shadow:0 0 0 3px #ff8a7a,0 0 50px rgba(255,70,50,.9);padding:12px 14px;font-size:30px;font-weight:700;color:#fff;opacity:0}
+.d-tag{position:absolute;left:0;top:0;height:84px;display:flex;align-items:center;gap:16px;padding:0 34px 0 28px;border-radius:42px;background:#fff;font:700 38px/1 "Geist",sans-serif;color:#13202a;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 26px 50px -14px rgba(0,0,0,.75);z-index:4}
+.d-tag i{width:22px;height:22px;border-radius:50%}
+#d-vermelho{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,rgba(255,70,50,.6),rgba(170,20,20,.38) 55%,rgba(80,0,0,.25));opacity:0;z-index:6}
+#d-onda{position:absolute;left:405px;top:980px;width:200px;height:200px;border-radius:50%;border:8px solid #ff6a55;opacity:0;z-index:5}
+#d-pilula{position:absolute;left:50%;top:850px;translate:-50% 0;display:flex;align-items:center;gap:14px;height:76px;padding:0 30px;border-radius:38px;background:#d8392f;color:#fff;font:700 34px/1 "Geist",sans-serif;white-space:nowrap;box-shadow:0 20px 50px -10px rgba(216,57,47,.7);z-index:7;opacity:0}
+#d-pilula svg{width:34px;height:34px}
+
+/* 5 · pix */
+.ch{background:#efe7de;font-family:"Geist",sans-serif;z-index:1}
+.ch-cab{position:absolute;left:0;right:0;top:0;height:166px;background:#f6f5f3;z-index:4;border-bottom:1px solid #e2ddd6}
+.ch-cab .lin{position:absolute;left:16px;right:24px;top:78px;display:flex;align-items:center;gap:14px;color:#1fa855}
+.ch-cab .lin>svg{width:34px;height:34px}
+.ch-cab .av{flex:none;width:66px;height:66px;border-radius:50%;background:#e8a0b4;color:#fff;font-weight:700;font-size:25px;display:grid;place-items:center}
+.ch-cab .nm{flex:1;min-width:0}
+.ch-cab b{display:block;font-size:28px;font-weight:700;color:#111b21;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-cab small{display:block;font-size:20px;color:#667781;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-corpo{position:absolute;left:0;right:0;top:166px;bottom:98px;overflow:hidden}
+.ch-rolo{position:absolute;left:0;right:0;top:0}
+.ch-b{position:absolute;max-width:350px;padding:13px 18px 10px;border-radius:22px;font-size:24px;line-height:1.3;color:#111b21;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.ch-b.in{left:16px;background:#fff;border-top-left-radius:6px}
+.ch-b.out{right:16px;background:#d9fdd3;border-top-right-radius:6px}
+.ch-b .sk{display:block;height:14px;border-radius:7px;background:rgba(17,27,33,.13);margin:7px 0}
+.ch-b .hr{display:block;text-align:right;font-size:16px;color:#667781;margin-top:3px}
+.ch-b.foto{padding:6px}
+.ch-b.foto svg{display:block;width:300px;height:200px;border-radius:16px}
+.ch-b .aud{display:flex;align-items:center;gap:12px;height:48px}
+.ch-b .aud i{width:40px;height:40px;border-radius:50%;background:#e8a0b4}
+.ch-b .aud b{flex:1;height:6px;border-radius:3px;background:repeating-linear-gradient(90deg,#9aa6ad 0 4px,transparent 4px 8px)}
+.ch-data{position:absolute;left:50%;translate:-50% 0;padding:9px 20px;border-radius:12px;background:#fff;font-size:19px;font-weight:600;color:#54656f;white-space:nowrap}
+.ch-fixa{position:absolute;left:50%;top:184px;translate:-50% 0;z-index:5;padding:9px 20px;border-radius:12px;background:rgba(255,255,255,.95);font-size:19px;font-weight:600;color:#54656f;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.ch-pe{position:absolute;left:0;right:0;bottom:0;height:98px;background:#f6f5f3;display:flex;align-items:center;gap:14px;padding:0 20px 8px;z-index:4}
+.ch-pe span{flex:1;height:58px;border-radius:29px;background:#fff;border:1px solid #e2ddd6}
+.ch-pe i{flex:none;width:58px;height:58px;border-radius:50%;background:#1fa855;display:grid;place-items:center;color:#fff}
+.ch-pe i svg{width:28px;height:28px}
+.ch-b.pix{width:350px;padding:0;overflow:hidden}
+.pix .pt{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#e3f4f1}
+.pix .pt i{width:44px;height:44px;display:grid;place-items:center}
+.pix .pt b{font-size:25px;font-weight:700;color:#0f3b35}
+.pix .pv{padding:14px 18px 12px}
+.pix .pv strong{display:block;font-size:38px;font-weight:800;letter-spacing:-.03em}
+.pix .pv span{display:block;font-size:19px;color:#667781;margin-top:4px}
+#lupa{position:absolute;left:0;top:0;width:340px;height:340px;z-index:15;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
+
+/* 6 · virada */
+#v-scan{position:absolute;inset:0;z-index:20;background:repeating-linear-gradient(0deg,rgba(255,255,255,.075) 0 2px,transparent 2px 7px);opacity:0;mix-blend-mode:screen}
+#v-relogio{position:absolute;left:240px;top:800px;width:600px;height:600px;overflow:visible}
+#v-texto{position:absolute;left:56px;right:56px;top:280px;text-align:center;font-weight:800;letter-spacing:-.05em;line-height:1.0;font-size:112px;color:#f6f3ee;text-shadow:0 8px 50px rgba(0,0,0,.45)}
+#v-texto p{margin-bottom:22px;text-wrap:balance}
+#v-texto .w{display:inline-block;opacity:0;transform-origin:50% 85%}
+#v-texto .tom{color:var(--terracota-clara)}
+
+/* 7 · insta */
+.ig2{background:#fff;font-family:"Geist",sans-serif;color:#000}
+.ig2-cab{position:absolute;left:0;right:0;top:62px;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:#fff;z-index:3}
+.ig2-cab b{font-size:32px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.ig2-cab b svg{width:24px;height:24px}
+.ig2-cab span{display:flex;gap:22px}
+.ig2-cab span svg{width:36px;height:36px}
+.ig2-rolo{position:absolute;left:0;right:0;top:138px}
+.ig2-perfil{display:flex;align-items:center;gap:28px;padding:14px 24px 10px}
+.ig2-av{flex:none;width:150px;height:150px;border-radius:50%;padding:6px;background:conic-gradient(from 200deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig2-av div{width:100%;height:100%;border-radius:50%;border:5px solid #fff;background:radial-gradient(circle at 50% 35%,#2d6a4f,#173a2f 70%);display:grid;place-items:center;color:var(--va-ouro)}
+.ig2-av svg{width:64px;height:64px;stroke-width:1.3}
+.ig2-nums{flex:1;display:flex;justify-content:space-around;text-align:center}
+.ig2-nums b{display:block;font-size:31px;font-weight:700;letter-spacing:-.02em}
+.ig2-nums small{display:block;font-size:20px;color:#262626;margin-top:2px}
+.ig2-bio{padding:4px 26px 0;font-size:22px;line-height:1.35;color:#111}
+.ig2-bio b{font-size:24px;display:inline-block;padding:2px 6px;margin-left:-6px;border-radius:8px}
+.ig2-bio .cat{color:#737373}
+.ig2-link{display:inline-flex;align-items:center;gap:8px;margin-top:4px;padding:4px 8px;margin-left:-8px;border-radius:10px;font-weight:700;color:#00376b}
+.ig2-link svg{width:24px;height:24px}
+.ig2-bts{display:flex;gap:10px;padding:16px 24px 6px}
+.ig2-bts span{flex:1;height:52px;border-radius:12px;background:#efefef;display:grid;place-items:center;font-size:21px;font-weight:600}
+.ig2-bts span:first-child{background:#0095f6;color:#fff}
+.ig2-dest{display:flex;gap:22px;padding:16px 24px 12px}
+.ig2-dest div{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:17px;color:#262626}
+.ig2-dest i{width:96px;height:96px;border-radius:50%;padding:4px;box-shadow:inset 0 0 0 2px #dbdbdb}
+.ig2-dest i svg{width:100%;height:100%;border-radius:50%;display:block}
+.ig2-abas{display:flex;justify-content:center;border-top:1px solid #dbdbdb;height:58px;align-items:center}
+.ig2-abas span{display:grid;place-items:center;width:33%;height:100%;border-top:2px solid #000;margin-top:-1px}
+.ig2-abas svg{width:30px;height:30px}
+.ig2-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.ig2-grade>div{position:relative;aspect-ratio:1;overflow:hidden;background:#eee}
+.ig2-grade svg.tl{display:block;width:100%;height:100%}
+.ig2-grade .cor{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;color:#fff;opacity:0;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.ig2-grade .cor svg{width:100%;height:100%;fill:#fff;stroke:#fff}
+
+/* 8 · sol */
+#s-halo{position:absolute;left:505px;top:1040px;width:1040px;height:1040px;margin:-520px 0 0 -520px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,133,94,.44),rgba(232,133,94,.15) 55%,rgba(232,133,94,0))}
+#s-svg{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+.s-ponta{position:absolute;left:0;top:0;width:0;height:0;z-index:3}
+.s-ponta .bola{position:absolute;left:-62px;top:-62px;width:124px;height:124px;border-radius:50%;background:#fbf9f6;display:grid;place-items:center;box-shadow:0 22px 40px -14px rgba(0,0,0,.65),0 0 0 4px rgba(255,255,255,.07)}
+.s-ponta.on .bola{box-shadow:0 22px 40px -14px rgba(0,0,0,.65),0 0 0 5px #e8855e,0 0 46px 6px rgba(232,133,94,.6)}
+.s-ponta .bola svg{width:58px;height:58px}
+.s-ponta .bola svg.i{color:var(--terracota);stroke-width:2}
+.s-ponta .anel{position:absolute;left:-62px;top:-62px;width:124px;height:124px;border-radius:50%;border:5px solid var(--terracota-clara);opacity:0}
+.s-ponta .nome{position:absolute;left:0;translate:-50% 0;white-space:nowrap;padding:7px 18px;border-radius:12px;background:rgba(241,238,233,.09);font:600 29px/1.1 "Geist",sans-serif;color:#cfc8c0;letter-spacing:-.01em}
+.s-ponta.on .nome{background:rgba(232,133,94,.2);color:#fff3ec}
+.s-ponta .nome.cima{top:-124px}
+.s-ponta .nome.baixo{top:76px}
+#s-site{position:absolute;left:505px;top:1040px;width:344px;margin-left:-172px;margin-top:-212px;padding:14px;border-radius:30px;background:#1e2528;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 3px rgba(232,133,94,.28),0 0 120px -10px rgba(232,133,94,.65);z-index:4}
+#s-site>.exemplo{left:50%;top:auto;bottom:-20px;translate:-50% 0}
+.ss-barra{display:flex;align-items:center;gap:8px;padding:2px 4px 14px}
+.ss-barra i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.25)}
+.ss-barra span{flex:1;margin-left:6px;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.09);color:#e8e2da;font:600 20px/1.2 "Geist",sans-serif;white-space:nowrap;text-align:center}
+.ss-tela{border-radius:20px;background:var(--va-creme);padding:14px;display:grid;gap:11px;font-family:"Plus Jakarta Sans",sans-serif}
+.ss-foto{height:146px;border-radius:14px;overflow:hidden}
+.ss-foto svg{display:block;width:100%;height:100%}
+.ss-nome{display:flex;justify-content:space-between;align-items:center}
+.ss-nome b{font:italic 600 27px/1 "Fraunces",serif;color:var(--va-verde)}
+.ss-nome span{color:#c49a45;font-size:22px;letter-spacing:1px}
+.ss-l{height:11px;border-radius:6px;background:#e3ddd0}
+.ss-btn{height:58px;border-radius:29px;background:var(--va-verde);color:#fff;display:grid;place-items:center;font-weight:700;font-size:23px}
+
+/* 9 · agenda online */
+.va-logo{display:flex;align-items:center;gap:14px}
+.va-logo i{flex:none;width:58px;height:58px;border-radius:17px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#cfe3d6}
+.va-logo i svg{width:36px;height:36px;stroke-width:1.5}
+.va-logo b{display:block;font:italic 600 33px/1 "Fraunces",Georgia,serif;color:#fff;letter-spacing:-.01em}
+.va-logo small{display:block;margin-top:7px;font:700 13px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#a9c7b6}
+.ag{background:var(--va-creme);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta)}
+.ag-cab{position:absolute;left:0;right:0;top:0;height:198px;background:linear-gradient(160deg,#24563f,#173a2f 60%,#0f261d);padding:80px 26px 0}
+.ag-passos{position:absolute;left:24px;right:24px;top:216px;display:flex;align-items:center;gap:12px;font-size:18px;font-weight:700;color:var(--va-suave);white-space:nowrap}
+.ag-trilha{flex:1;height:8px;border-radius:4px;background:#e2ddcf;overflow:hidden}
+.ag-trilha i{display:block;height:100%;border-radius:4px;background:var(--va-v2);width:25%}
+.ag-palco{position:absolute;left:0;right:0;top:252px;bottom:0;overflow:hidden}
+.ag-trem{position:absolute;left:0;top:0;height:100%;display:flex}
+.ag-et{position:relative;width:460px;height:100%;flex:none;padding:8px 19px 0}
+.ag-et h4{font:600 37px/1.1 "Fraunces",serif;letter-spacing:-.02em}
+.ag-et h4 em{font-style:italic;color:var(--va-v2)}
+.ag-et p.sub{font-size:19px;color:var(--va-suave);margin:6px 0 18px}
+.ag-festas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ag-festa{position:relative;height:118px;border-radius:20px;border:2px solid var(--va-linha);background:#fff;padding:15px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.ag-festa i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center}
+.ag-festa i svg{width:27px;height:27px}
+.ag-festa b{font-size:24px;font-weight:700}
+.ag-festa.sel{border-color:var(--va-v2);background:#f2f8f4;box-shadow:0 0 0 4px rgba(45,106,79,.16)}
+.ag-ok{position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:50%;background:var(--va-v2);color:#fff;display:grid;place-items:center;opacity:0}
+.ag-ok svg{width:20px;height:20px;stroke-width:3}
+.ag-mes{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:25px;font-weight:700}
+.ag-mes i{width:48px;height:48px;border-radius:14px;border:1.5px solid var(--va-linha);background:#fff;display:grid;place-items:center}
+.ag-mes i svg{width:24px;height:24px}
+.ag-sem,.ag-dias{display:grid;grid-template-columns:repeat(7,56px);gap:5px}
+.ag-sem span{text-align:center;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--va-suave);padding-bottom:5px}
+.ag-d{height:58px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:21px;font-weight:700;background:#f7f6f0;border:1.5px solid transparent}
+.ag-d small{font-size:10px;font-weight:700;margin-top:1px;line-height:1}
+.ag-d.livre{background:#fff;border-color:var(--va-linha)}
+.ag-d.meio{background:#f7efdb;color:#7a5a17}
+.ag-d.cheio{background:#efede8;color:#b5b9b3;text-decoration:line-through}
+.ag-d.vazio{visibility:hidden}
+.ag-d.sel{background:var(--va-v2);border-color:var(--va-v2);color:#fff}
+.ag-leg{display:flex;gap:14px;margin-top:14px;font-size:15px;font-weight:600;color:var(--va-t2)}
+.ag-leg span{display:inline-flex;align-items:center;gap:6px}
+.ag-leg i{width:14px;height:14px;border-radius:5px;border:1.5px solid var(--va-linha);background:#fff}
+.ag-leg i.m{background:#f7efdb;border-color:#ecdcb0}
+.ag-leg i.c{background:#efede8;border-color:#efede8}
+.ag-conv{display:flex;align-items:center;gap:12px;padding:14px;border-radius:20px;border:1.5px solid var(--va-linha);background:#fff;margin-bottom:18px}
+.ag-conv i{flex:none;width:58px;height:58px;border-radius:16px;border:1.5px solid var(--va-linha);display:grid;place-items:center}
+.ag-conv i svg{width:26px;height:26px}
+.ag-conv .num{flex:1;text-align:center;font-size:56px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ag-conv .num small{display:block;font-size:17px;font-weight:600;color:var(--va-suave);letter-spacing:0;margin-top:5px}
+.ag-rot{font-size:18px;font-weight:700;color:var(--va-t2);margin:0 0 10px}
+.ag-pac{position:relative;height:84px;border-radius:18px;border:2px solid var(--va-linha);background:#fff;padding:0 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ag-pac b{font-size:25px}
+.ag-pac span{font-size:16px;color:var(--va-suave);font-weight:600}
+.ag-pac.sel{border-color:var(--va-v2);background:#f2f8f4;box-shadow:0 0 0 4px rgba(45,106,79,.16)}
+.ag-btn{position:absolute;left:19px;right:19px;bottom:34px;height:86px;border-radius:22px;background:var(--va-v2);color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;font-size:27px;font-weight:700;box-shadow:0 16px 30px -14px #2d6a4f}
+.ag-btn svg{width:30px;height:30px}
+.ag-gira{width:30px;height:30px;border-radius:50%;border:4px solid rgba(255,255,255,.35);border-top-color:#fff;display:none}
+.ag-pronto{position:absolute;left:0;right:0;top:252px;bottom:0;background:var(--va-creme);padding:40px 26px 0;text-align:center;opacity:0}
+.ag-pronto .ok{width:130px;height:130px;margin:10px auto 22px;border-radius:50%;background:var(--va-claro);color:var(--va-v2);display:grid;place-items:center}
+.ag-pronto .ok svg{width:70px;height:70px;stroke-width:2.6}
+.ag-pronto h4{font:600 40px/1.1 "Fraunces",serif;letter-spacing:-.02em}
+.ag-pronto h4 em{font-style:italic;color:var(--va-v2)}
+.ag-pronto p{font-size:19px;color:var(--va-t2);margin:12px auto 0;max-width:22em;line-height:1.45}
+.ag-pronto .ficha{margin-top:24px;border-radius:18px;border:1px solid var(--va-linha);background:#fff;text-align:left}
+.ag-pronto .ficha div{display:flex;justify-content:space-between;padding:13px 18px;border-top:1px solid #f0ede4;font-size:19px}
+.ag-pronto .ficha div:first-child{border-top:0}
+.ag-pronto .ficha span{color:var(--va-suave)}
+#ag-resumo{position:absolute;left:600px;top:640px;width:332px;padding:26px 26px 22px;border-radius:30px;background:#fff;box-shadow:0 40px 80px -30px rgba(30,37,40,.45),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta);transform-origin:50% 50%;z-index:13}
+#ag-resumo h5{font-size:17px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--va-suave);display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#ag-resumo h5 i{width:34px;height:34px;border-radius:10px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
+#ag-resumo h5 svg{width:22px;height:22px}
+.rs-l{position:relative;height:96px;padding-top:14px;border-top:1px solid #efece4}
+.rs-l small{display:block;font-size:20px;font-weight:600;color:var(--va-suave)}
+.rs-l b{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;transform-origin:0 50%;white-space:nowrap}
+.rs-l .sk{position:absolute;left:0;top:56px;width:62%;height:16px;border-radius:8px;background:#efece4}
+.rs-ok{margin-top:10px;height:62px;border-radius:31px;background:var(--va-claro);color:var(--va-v2);display:flex;align-items:center;justify-content:center;gap:10px;font-size:22px;font-weight:800;opacity:0}
+.rs-ok svg{width:26px;height:26px;stroke-width:3}
+.ag-voa{position:absolute;left:0;top:0;z-index:16;padding:12px 22px;border-radius:99px;background:var(--va-v2);color:#fff;font:800 26px/1 "Plus Jakarta Sans",sans-serif;white-space:nowrap;box-shadow:0 14px 30px -10px rgba(45,106,79,.7);opacity:0}
+
+/* 10 · painel */
+#laptop{position:absolute;left:110px;top:800px;width:820px;transform-origin:50% 45%}
+#laptop>.exemplo{left:-22px;top:-18px;z-index:3}
+.lp-tampa{height:526px;border-radius:30px 30px 10px 10px;background:#0e1112;padding:18px 18px 22px;box-shadow:0 60px 100px -40px rgba(30,37,40,.6),inset 0 0 0 2px #2b3134}
+.lp-tela{width:784px;height:486px;border-radius:12px;overflow:hidden;background:#f4f3ee;display:flex}
+.lp-base{position:relative;left:-60px;width:940px;height:34px;border-radius:0 0 40px 40px;background:linear-gradient(180deg,#dadddd,#a7acae);box-shadow:0 30px 50px -20px rgba(30,37,40,.5)}
+.lp-base::before{content:"";position:absolute;left:50%;top:0;width:150px;height:12px;margin-left:-75px;border-radius:0 0 12px 12px;background:#8d9294}
+.lp-lat{width:168px;flex:none;background:#173a2f;padding:16px 10px;display:flex;flex-direction:column;gap:14px;color:#c3d6cb;font-family:"Plus Jakarta Sans",sans-serif}
+.lp-logo{display:flex;align-items:center;gap:8px;padding:0 4px}
+.lp-logo i{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#cfe3d6}
+.lp-logo i svg{width:17px;height:17px}
+.lp-logo b{display:block;font:italic 600 16px/1 "Fraunces",serif;color:#fff}
+.lp-logo small{display:block;font-size:6.5px;font-weight:700;letter-spacing:.14em;color:#9fbfae;margin-top:3px}
+.lp-menu{display:flex;flex-direction:column;gap:2px}
+.lp-menu span{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:9px;font-size:11.5px;font-weight:600}
+.lp-menu span.on{background:rgba(255,255,255,.09);color:#fff}
+.lp-menu svg{width:13px;height:13px}
+.lp-menu em{margin-left:auto;font-style:normal;min-width:17px;height:17px;border-radius:9px;background:#e0607e;color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;opacity:0}
+.lp-main{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta);min-width:0}
+.lp-top{display:flex;align-items:center;gap:10px}
+.lp-busca{flex:1;height:30px;border-radius:9px;background:#fff;border:1px solid #e6e5de;font-size:11px;color:#7d8a82;display:flex;align-items:center;padding:0 10px}
+.lp-nova{height:30px;padding:0 12px;border-radius:9px;background:#2d6a4f;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center}
+.lp-oi{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.lp-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lp-k{background:#fff;border:1px solid #e6e5de;border-radius:11px;padding:9px 10px}
+.lp-k small{display:block;font-size:9px;color:#7d8a82;font-weight:600;white-space:nowrap}
+.lp-k b{display:block;font-size:17px;font-weight:800;margin-top:3px;letter-spacing:-.02em}
+.lp-cols{flex:1;display:grid;grid-template-columns:1.2fr 1fr;gap:8px;min-height:0}
+.lp-cx{background:#fff;border:1px solid #e6e5de;border-radius:11px;padding:10px;overflow:hidden}
+.lp-cx h6{font-size:11.5px;font-weight:800;margin-bottom:6px}
+.lp-ev{display:flex;align-items:center;gap:8px;padding:5px 4px;border-bottom:1px solid #f0efe9;border-radius:8px}
+.lp-ev .dt{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:800}
+.lp-ev div{min-width:0}
+.lp-ev b{display:block;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-ev small{display:block;font-size:9px;color:#7d8a82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lp-novo{background:#e2efe7;box-shadow:inset 0 0 0 2px #2d6a4f}
+#lp-brilho{position:absolute;left:-40px;top:-40px;right:-40px;height:620px;border-radius:60px;background:radial-gradient(closest-side,rgba(45,106,79,.35),transparent);opacity:0;z-index:-1}
+#lp-toast{position:absolute;left:130px;top:592px;width:780px;display:flex;align-items:center;gap:22px;padding:24px 28px;border-radius:30px;background:#fff;box-shadow:0 40px 80px -30px rgba(30,37,40,.5),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;z-index:14;opacity:0}
+#lp-toast>i{flex:none;width:86px;height:86px;border-radius:24px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
+#lp-toast>i svg{width:46px;height:46px}
+#lp-toast b{display:block;font-size:37px;font-weight:800;letter-spacing:-.02em;color:var(--va-tinta)}
+#lp-toast span{display:block;font-size:28px;font-weight:600;color:var(--va-t2);margin-top:6px}
+#lp-toast small{position:absolute;right:28px;top:26px;font-size:20px;font-weight:600;color:var(--va-suave)}
+
+/* 11 · agenda da equipe */
+.vcard{position:absolute;background:#fff;box-shadow:0 50px 90px -40px rgba(30,37,40,.45),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta)}
+.vcard>.exemplo{left:-20px;top:-18px;z-index:3}
+#ae-cal{left:78px;top:560px;width:854px;padding:22px 20px 20px;border-radius:34px;transform-origin:50% 40%}
+.ae-topo{display:flex;align-items:center;justify-content:space-between;padding:0 6px 16px}
+.ae-topo h4{font-size:40px;font-weight:800;letter-spacing:-.03em;display:flex;align-items:center;gap:14px}
+.ae-topo h4 i{width:52px;height:52px;border-radius:15px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
+.ae-topo h4 i svg{width:30px;height:30px}
+.ae-topo .mes{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:16px;border:1.5px solid #e6e5de;font-size:23px;font-weight:700}
+.ae-topo .mes svg{width:22px;height:22px}
+.ae-eq{display:flex}
+.ae-eq span{width:48px;height:48px;border-radius:50%;margin-left:-10px;border:3px solid #fff;display:grid;place-items:center;color:#fff;font-size:15px;font-weight:800}
+.ae-sem,.ae-grade{display:grid;grid-template-columns:repeat(7,1fr)}
+.ae-sem span{padding:10px 0;text-align:center;font-size:17px;font-weight:700;letter-spacing:.08em;color:#7d8a82;text-transform:uppercase}
+.ae-grade{border-top:1px solid #ecebe4;border-left:1px solid #ecebe4}
+.ae-c{height:112px;border-right:1px solid #ecebe4;border-bottom:1px solid #ecebe4;padding:7px 6px;position:relative}
+.ae-c.fds{background:#faf9f5}
+.ae-c>b{display:block;font-size:19px;font-weight:700;color:#46534b;margin:0 0 5px 4px}
+.ae-c.fora>b{color:#c4c8c2}
+.ae-p{display:block;height:33px;border-radius:8px;padding:0 6px;font-size:15.5px;font-weight:700;line-height:33px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:4px solid;margin-bottom:4px;transform-origin:50% 0}
+.ae-p.pre{outline:2px dashed;outline-offset:-2px}
+#ae-leg{position:absolute;left:78px;top:1300px;width:854px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.ae-chip{display:flex;align-items:center;gap:10px;padding:13px 22px;border-radius:99px;background:#fff;box-shadow:0 10px 24px -12px rgba(30,37,40,.35),0 0 0 1px rgba(30,37,40,.05);font:700 26px/1 "Plus Jakarta Sans",sans-serif;color:var(--va-tinta);opacity:0}
+.ae-chip i{width:18px;height:18px;border-radius:50%}
+
+/* 12 · ficha */
+#fi{left:110px;top:560px;width:820px;padding:32px 34px 34px;border-radius:36px}
+.fi-tags{display:flex;gap:10px}
+.fi-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;font-size:21px;font-weight:700}
+.fi-tag i{width:9px;height:9px;border-radius:50%;background:currentColor}
+#fi h4{font-size:56px;font-weight:800;letter-spacing:-.035em;margin-top:16px;line-height:1.05}
+#fi .fi-sub{font-size:26px;color:var(--va-suave);margin-top:8px;font-weight:500}
+.fi-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.fi-c{border-radius:20px;background:#f7f6f1;border:1px solid #efeee8;padding:16px 20px;height:100px}
+.fi-c small{display:block;font-size:20px;color:var(--va-suave);font-weight:600}
+.fi-c b{display:block;font-size:34px;font-weight:800;margin-top:4px;letter-spacing:-.02em;transform-origin:0 50%}
+.fi-rot{font-size:18px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--va-suave);margin:24px 0 12px}
+.fi-chips{display:flex;gap:12px;flex-wrap:wrap;height:52px}
+.fi-chip{padding:12px 20px;border-radius:14px;background:#f7efdb;color:#5d4713;font-size:24px;font-weight:700;opacity:0}
+.fi-pg{margin-top:24px;border-radius:24px;background:#f2f8f4;border:1px solid #d7e8dd;padding:22px 24px}
+.fi-pg .lin{display:flex;justify-content:space-between;align-items:baseline}
+.fi-pg .lin span{font-size:24px;color:var(--va-t2);font-weight:600}
+.fi-pg .lin b{font-size:46px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.fi-parc{display:flex;gap:10px;margin-top:16px}
+.fi-parc i{flex:1;height:18px;border-radius:9px;background:#dce6df;overflow:hidden;position:relative}
+.fi-parc i b{position:absolute;inset:0;background:var(--va-v2);transform-origin:0 50%;transform:scaleX(0)}
+.fi-pg .rod{display:flex;justify-content:space-between;margin-top:14px;font-size:22px;font-weight:700;color:var(--va-v2)}
+.fi-pg .rod span:last-child{color:var(--va-suave);font-weight:600}
+
+/* 13 · contrato */
+#ct-doc{position:absolute;left:520px;top:600px;width:400px;height:540px;padding:34px 32px;border-radius:14px;background:#fffdf8;box-shadow:0 40px 80px -30px rgba(30,37,40,.5),0 0 0 1px rgba(30,37,40,.05);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta);transform-origin:50% 50%;z-index:13}
+#ct-doc .k{font-size:15px;font-weight:800;letter-spacing:.2em;color:var(--va-suave)}
+#ct-doc h5{font-size:29px;font-weight:800;line-height:1.12;margin:10px 0 6px;letter-spacing:-.02em}
+#ct-doc .q{font-size:19px;color:var(--va-t2);margin-bottom:12px}
+#ct-doc .cl{font-size:17px;font-weight:800;margin:14px 0 4px}
+#ct-doc .sk2{display:block;height:9px;border-radius:5px;background:#e9e5da;margin:7px 0}
+#ct-doc .ass{position:absolute;left:32px;right:32px;bottom:36px;border-top:2px solid #cfcabd;padding-top:8px;font-size:15px;color:var(--va-suave)}
+#ct-link{position:absolute;left:480px;top:520px;display:flex;align-items:center;gap:12px;height:72px;padding:0 26px;border-radius:36px;background:#fff;box-shadow:0 20px 40px -16px rgba(30,37,40,.5),0 0 0 2px var(--va-v2);font:700 25px/1 "Plus Jakarta Sans",sans-serif;color:var(--va-verde);white-space:nowrap;z-index:15;opacity:0}
+#ct-link svg{width:30px;height:30px}
+.ct{background:var(--va-creme);font-family:"Plus Jakarta Sans",sans-serif;color:var(--va-tinta)}
+.ct .ag-cab{height:186px}
+.ct-corpo{position:absolute;left:0;right:0;top:186px;bottom:0;padding:26px 24px 0}
+.ct-corpo h4{font:600 36px/1.1 "Fraunces",serif;letter-spacing:-.02em}
+.ct-corpo .q{font-size:18px;color:var(--va-suave);margin:6px 0 14px}
+.ct-corpo .cl{font-size:17px;font-weight:800;margin:12px 0 2px}
+.ct-corpo .sk2{display:block;height:9px;border-radius:5px;background:#e3ded2;margin:8px 0}
+.ct-li{position:absolute;left:24px;right:24px;bottom:146px;display:flex;align-items:center;gap:14px;padding:16px;border-radius:18px;background:#fff;border:1.5px solid var(--va-linha);font-size:22px;font-weight:700}
+.ct-cx{flex:none;width:40px;height:40px;border-radius:12px;border:2.5px solid #c9cec7;display:grid;place-items:center;color:#fff}
+.ct-cx svg{width:26px;height:26px;stroke-width:3;opacity:0}
+.ct-li.on .ct-cx{background:var(--va-v2);border-color:var(--va-v2)}
+.ct-li.on .ct-cx svg{opacity:1}
+.ct-btn{position:absolute;left:24px;right:24px;bottom:40px;height:86px;border-radius:22px;background:#b8c4bd;color:#fff;display:grid;place-items:center;font-size:27px;font-weight:700}
+.ct-btn.on{background:var(--va-v2);box-shadow:0 16px 30px -14px #2d6a4f}
+#ct-carimbo{position:absolute;left:150px;top:880px;width:420px;height:150px;display:grid;place-items:center;border:7px solid #1f7a4d;color:#1f7a4d;border-radius:22px;font:800 52px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.01em;background:rgba(236,246,240,.94);box-shadow:0 30px 60px -20px rgba(31,122,77,.55);z-index:16;opacity:0}
+#ct-salvo{left:560px;top:1100px;width:372px;padding:22px 24px;border-radius:26px;z-index:14;opacity:0}
+#ct-salvo .t{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--va-suave)}
+#ct-salvo .t i{width:40px;height:40px;border-radius:12px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
+#ct-salvo .t svg{width:24px;height:24px}
+#ct-salvo b{display:block;font-size:28px;font-weight:800;margin-top:12px;letter-spacing:-.02em}
+#ct-salvo span{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:22px;color:#1f7a4d;font-weight:700}
+#ct-salvo span svg{width:24px;height:24px;stroke-width:3}
+
+/* 14 · financeiro */
+.fn-k{top:568px;width:405px;padding:26px 28px;border-radius:30px}
+.fn-k .r{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:600;color:var(--va-suave);white-space:nowrap}
+.fn-k .r i{flex:none;width:46px;height:46px;border-radius:13px;background:#e2efe7;color:var(--va-v2);display:grid;place-items:center}
+.fn-k .r svg{width:26px;height:26px}
+.fn-k b{display:block;font-size:62px;font-weight:800;letter-spacing:-.045em;margin-top:14px;line-height:1;font-variant-numeric:tabular-nums}
+.fn-k .s{margin-top:14px;font-size:20px;font-weight:600;color:var(--va-suave);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.fn-k .s em{font-style:normal;padding:4px 10px;border-radius:99px;background:#ddf3e7;color:#1f7a4d;font-weight:800}
+#fn-graf{left:90px;top:826px;width:830px;height:476px;padding:26px 28px;border-radius:30px}
+#fn-graf h5{display:flex;justify-content:space-between;align-items:center;font-size:27px;font-weight:800}
+#fn-graf h5 span{font-size:18px;font-weight:600;color:var(--va-suave);display:flex;gap:16px;align-items:center}
+#fn-graf h5 span i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.fn-barras{position:absolute;left:28px;right:28px;bottom:62px;height:300px;display:flex;align-items:flex-end;gap:12px}
+.fn-b{flex:1;position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.fn-b i{display:block;background:#2d6a4f;transform-origin:50% 100%}
+.fn-b i:last-child{border-radius:0 0 4px 4px}
+.fn-b i:first-child{border-radius:8px 8px 0 0}
+.fn-b i:only-child{border-radius:8px 8px 4px 4px}
+.fn-b i.ar{background:#cfe3d6}
+.fn-b.atual i:not(.ar){background:#1d4a37}
+.fn-b span{position:absolute;left:-6px;right:-6px;bottom:-38px;text-align:center;font-size:17px;font-weight:600;color:var(--va-suave)}
+.fn-b.atual span{color:var(--va-tinta);font-weight:800}
+#fn-atraso{left:90px;top:1322px;width:830px;height:124px;padding:0 26px;border-radius:26px;display:flex;align-items:center;gap:18px}
+#fn-atraso .av{flex:none;width:68px;height:68px;border-radius:50%;background:#7c4ddb;color:#fff;display:grid;place-items:center;font-size:23px;font-weight:800}
+#fn-atraso .tx{flex:1;min-width:0}
+#fn-atraso .tx b{display:block;font-size:27px;font-weight:800;white-space:nowrap}
+#fn-atraso .tx span{display:block;font-size:21px;color:var(--va-suave);margin-top:4px;font-weight:600}
+#fn-atraso .v{font-size:30px;font-weight:800}
+#fn-atraso .tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:99px;background:#fdecdf;color:#c2410c;font-size:22px;font-weight:800}
+#fn-atraso .tag svg{width:24px;height:24px}
+
+/* 15 · equipe */
+.eq{left:110px;width:820px;height:238px;padding:26px 30px;border-radius:32px;display:grid;grid-template-columns:100px 1fr;grid-template-rows:auto auto;column-gap:24px;row-gap:18px;align-items:center}
+.eq .av{grid-row:1/3;align-self:start;width:100px;height:100px;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:34px;font-weight:800}
+.eq .nm b{font-size:36px;font-weight:800;letter-spacing:-.02em}
+.eq .nm span{font-size:24px;color:var(--va-suave);font-weight:600;margin-left:10px}
+.eq .lin{display:flex;align-items:center;gap:12px}
+.eq .senha{flex:none;display:flex;align-items:center;gap:12px;width:268px;height:66px;padding:0 16px;border-radius:18px;border:2px solid #e6e5de;background:#f7f6f1}
+.eq .senha.ok{border-color:#2d6a4f;background:#f2f8f4}
+.eq .senha svg{flex:none;width:30px;height:30px;color:var(--va-suave)}
+.eq .senha.ok svg{color:var(--va-v2)}
+.eq .senha b{font-size:36px;letter-spacing:5px;color:var(--va-tinta);line-height:1}
+.eq .chip{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 16px;border-radius:14px;font-size:22px;font-weight:700;white-space:nowrap;background:#e2efe7;color:#1d4a37}
+.eq .chip svg{width:24px;height:24px;stroke-width:2.6}
+.eq .chip.off{background:#f0eeea;color:#9aa19c}
+.eq .chip.off b{text-decoration:line-through;font-weight:700}
+
+/* 16 · ia */
+#ia-dias{position:absolute;left:0;right:0;top:560px;display:flex;justify-content:center;gap:10px}
+#ia-dias span{padding:12px 18px;border-radius:14px;background:rgba(241,238,233,.07);color:#8e989b;font:700 25px/1 "Geist",sans-serif}
+#ia-dias span.on{background:rgba(232,133,94,.2);color:#f6c9b5}
+#ia-fita{position:absolute;left:150px;top:650px;width:780px;height:600px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
+.ia-q{position:absolute;left:0;top:0;display:flex;align-items:center;gap:16px;padding:18px 28px;border-radius:8px 30px 30px 30px;background:rgba(241,238,233,.95);font:600 34px/1.1 "Geist",sans-serif;color:#1e2528;white-space:nowrap;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.ia-q small{font-size:21px;font-weight:700;color:#7a8386}
+#ia-brilho{position:absolute;left:375px;top:560px;width:260px;height:260px;overflow:visible}
+#ia-painel{position:absolute;left:120px;top:850px;width:800px;padding:30px;border-radius:36px;background:linear-gradient(180deg,#2b3337,#20272a);box-shadow:0 50px 90px -30px rgba(0,0,0,.8),inset 0 0 0 1.5px rgba(255,255,255,.08);font-family:"Geist",sans-serif}
+.ia-cab{display:flex;align-items:center;gap:16px}
+.ia-cab .sp{flex:none;width:66px;height:66px;border-radius:20px;background:linear-gradient(140deg,#e8855e,#b25134);display:grid;place-items:center;color:#fff}
+.ia-cab .sp svg{width:36px;height:36px;fill:#fff;stroke:none}
+.ia-cab b{font-size:38px;font-weight:700;color:#f6f3ee;letter-spacing:-.03em}
+.ia-cab .sob{margin-left:auto;padding:11px 22px;border-radius:99px;border:2.5px solid var(--terracota-clara);color:#f6c9b5;font-size:25px;font-weight:700;transform-origin:50% 50%}
+.ia-it{display:flex;align-items:center;gap:20px;margin-top:18px;height:106px;padding:0 24px;border-radius:26px;background:rgba(241,238,233,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);opacity:0}
+.ia-it i{flex:none;width:62px;height:62px;border-radius:18px;background:rgba(232,133,94,.16);color:#f0a585;display:grid;place-items:center}
+.ia-it i svg{width:32px;height:32px}
+.ia-it b{font-size:34px;font-weight:600;color:#f1eee9;letter-spacing:-.02em;white-space:nowrap}
+.ia-dig{display:flex;gap:10px;margin-top:22px;padding:20px 24px;border-radius:22px;background:rgba(241,238,233,.06);width:126px;opacity:0}
+.ia-dig i{width:14px;height:14px;border-radius:50%;background:#e8855e}
+#ia-fitam{position:absolute;left:100px;top:830px;width:840px;height:640px;overflow:visible}
+.ia-nota{position:absolute;left:0;right:0;top:1436px;text-align:center;font:500 30px/1 "Geist",sans-serif;color:#8c9598;opacity:0}
+
+/* 17 · dorme */
+#c-dorme{transform-origin:50% 55%}
+#dm-quente{position:absolute;left:-320px;top:640px;width:1200px;height:1000px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,150,90,.3),rgba(232,133,94,.08) 60%,transparent)}
+#dm-janela{position:absolute;left:612px;top:560px;width:310px;height:380px;border-radius:12px;background:linear-gradient(180deg,#112130,#1b3242);box-shadow:inset 0 0 0 14px #172028,0 0 0 2px #0c1216,0 30px 80px -20px rgba(150,180,220,.12);overflow:hidden}
+#dm-janela::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:10px;margin-left:-5px;background:#172028;z-index:2}
+#dm-janela::after{content:"";position:absolute;left:0;right:0;top:50%;height:10px;margin-top:-5px;background:#172028;z-index:2}
+#dm-lua{position:absolute;left:170px;top:62px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fbf6e9,#e8dfc8 70%,#d4c8ad);box-shadow:0 0 50px 14px rgba(250,240,215,.35),0 0 140px 50px rgba(220,225,240,.14)}
+#dm-janela .est{position:absolute;width:4px;height:4px;border-radius:50%;background:#eef2ff}
+#dm-luar{position:absolute;left:330px;top:900px;width:620px;height:420px;background:linear-gradient(200deg,rgba(200,215,240,.10),rgba(200,215,240,0) 70%);clip-path:polygon(60% 0,100% 0,70% 100%,0 100%)}
+#dm-movel{position:absolute;left:30px;top:1262px;width:1020px;height:700px;border-radius:20px 20px 0 0;background:linear-gradient(180deg,#2c241f 0,#231c18 34px,#1a1512 100%);box-shadow:inset 0 2px 0 #3d322b,0 -20px 60px rgba(0,0,0,.4)}
+#dm-movel i{position:absolute;left:70px;right:70px;top:100px;height:190px;border-radius:14px;box-shadow:inset 0 0 0 2px #30271f}
+#dm-movel b{position:absolute;left:50%;top:180px;width:90px;height:12px;margin-left:-45px;border-radius:6px;background:#3a2f27}
+#dm-cel{left:270px;top:560px;width:330px;height:690px;padding:12px;border-radius:58px}
+#dm-cel::before{top:24px;width:96px;height:28px;margin-left:-48px}
+#dm-cel .visor{border-radius:47px;background:#000}
+.dm-tela{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,#1d3a4e,#0d1a24 60%,#070d12);text-align:center;font-family:"Geist",sans-serif;color:#fff}
+.dm-tela small{display:block;margin-top:96px;font-size:22px;font-weight:500;color:#b9c8d3}
+.dm-tela b{display:block;font-size:104px;font-weight:200;letter-spacing:-.04em;line-height:1;margin-top:6px}
+.dm-escuro{position:absolute;inset:0;background:#000;z-index:3}
+#dm-suporte{position:absolute;left:330px;top:1210px;width:210px;height:60px;border-radius:14px 14px 4px 4px;background:linear-gradient(180deg,#3a4145,#262c2f);box-shadow:0 10px 20px rgba(0,0,0,.4)}
+#dm-notif{left:118px;top:892px;width:784px;padding:26px 30px 28px;border-radius:38px;background:rgba(246,243,238,.97);box-shadow:0 50px 100px -30px rgba(0,0,0,.85),0 0 90px rgba(241,211,143,.14);transform-origin:50% 50%;opacity:0;z-index:20}
+.dn-cab{display:flex;align-items:center;gap:14px;font-size:21px;font-weight:800;letter-spacing:.12em;color:var(--va-suave);text-transform:uppercase}
+.dn-cab i{flex:none;width:58px;height:58px;border-radius:17px;background:var(--va-verde);color:var(--va-ouro);display:grid;place-items:center}
+.dn-cab i svg{width:34px;height:34px;stroke-width:1.5}
+.dn-cab small{margin-left:auto;font-size:21px;letter-spacing:0;text-transform:none;font-weight:600}
+#dm-notif b.tt{display:block;font-size:48px;font-weight:800;letter-spacing:-.03em;color:var(--va-tinta);margin-top:16px}
+.dn-chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;min-height:136px;align-content:flex-start}
+.dn-chip{display:inline-flex;align-items:center;gap:10px;height:62px;padding:0 22px;border-radius:18px;background:#e7efe9;color:#1d4a37;font-size:29px;font-weight:800;opacity:0;white-space:nowrap}
+.dn-chip svg{width:28px;height:28px}
+
+/* 18–19 · marca e convite */
+#mc-estrela{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#mc-simbolo{position:absolute;left:540px;top:770px;width:250px;height:250px;margin:-125px 0 0 -125px;color:#f1eee9}
+#mc-simbolo .simbolo{width:100%;height:100%}
+#mc-nome{position:absolute;left:50%;translate:-50% 0;width:max-content;top:930px;text-align:center;font-weight:600;font-size:150px;letter-spacing:-.055em;color:#f1eee9;line-height:1.05}
+#mc-linha{position:absolute;left:90px;right:90px;top:1132px;text-align:center;font-weight:600;font-size:58px;letter-spacing:-.03em;line-height:1.12;color:#b9bfc1;text-wrap:balance}
+#mc-linha .w{display:inline-block;opacity:0}
+#mc-linha .forte{color:#f6f3ee}
+#cta-botao{position:absolute;left:540px;top:1036px;translate:-50% 0;display:inline-flex;align-items:center;gap:24px;height:158px;padding:0 64px;border-radius:79px;background:var(--terracota);color:#fff;font-size:68px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 24px 70px rgba(178,81,52,.55);overflow:hidden;opacity:0}
+#cta-botao svg{width:62px;height:62px}
+#cta-botao em{font-style:normal;display:inline-block;transform-origin:0 60%}
+#cta-luz{position:absolute;top:-20px;bottom:-20px;left:0;width:120px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-300px) skewX(-18deg)}
+#cta-texto{position:absolute;left:110px;right:110px;top:1236px;text-align:center;font-size:50px;font-weight:500;color:#e6e1da;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+#cta-texto .w{display:inline-block;opacity:0}
+#cta-nota{position:absolute;left:0;right:0;top:1424px;text-align:center;font-size:27px;font-weight:500;color:#8c9598;opacity:0}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="fundo" id="f-quente"></div>
+  <div class="fundo" id="f-frio"></div>
+  <div class="fundo" id="f-noite"></div>
+  <div class="fundo" id="f-claro"></div>
+  <div class="poeira" id="poeira"></div>
+
+  <section class="cena" id="c-noite">
+    <div id="n-luz"></div>
+    <div id="n-relogio"><span>2</span><span>3</span><span id="n-dp">:</span><span>0</span><span>4</span></div>
+    <span class="exemplo" id="n-tag">Villa Alecrim · exemplo</span>
+  </section>
+
+  <div class="fone" id="foneA" style="left:290px;top:790px;width:500px;height:1030px;display:none"><span class="exemplo claro">exemplo</span>
+    <div class="visor"><div class="camada ch" id="a-chat"></div><div class="camada zl" id="a-lista"></div><div class="camada bloq" id="a-bloq"></div></div></div>
+
+  <section class="cena" id="c-conversas"></section>
+
+  <section class="cena" id="c-caderno">
+    <div class="obj" id="k-caderno"></div>
+    <div class="obj planilha" id="k-planilha"></div>
+    <svg class="obj" id="k-cabeca" viewBox="0 0 300 268"></svg>
+    <div id="k-nuvem">sáb 20?</div>
+  </section>
+
+  <section class="cena" id="c-data">
+    <div id="d-cal"></div>
+    <div class="d-tag" id="d-tag1"><i style="background:#2f6fe0"></i>Família Duarte</div>
+    <div class="d-tag" id="d-tag2"><i style="background:#d6456b"></i>Ana &amp; Thiago</div>
+    <div id="d-onda"></div>
+    <div id="d-pilula"></div>
+    <div id="d-vermelho"></div>
+  </section>
+
+  <section class="cena" id="c-pix" style="z-index:14"><svg id="lupa" viewBox="0 0 340 340"></svg></section>
+
+  <section class="cena" id="c-virada">
+    <svg id="v-relogio" viewBox="-300 -300 600 600"></svg>
+    <div id="v-texto"></div>
+    <div id="v-scan"></div>
+  </section>
+
+  <section class="cena" id="c-insta"></section>
+  <section class="cena" id="c-sol"></section>
+  <section class="cena" id="c-agenda" style="z-index:11"></section>
+  <section class="cena" id="c-painel"></section>
+  <section class="cena" id="c-ae"></section>
+  <section class="cena" id="c-ficha"></section>
+  <section class="cena" id="c-contrato"></section>
+  <section class="cena" id="c-fin"></section>
+  <section class="cena" id="c-equipe"></section>
+  <section class="cena" id="c-ia"></section>
+  <section class="cena" id="c-dorme"></section>
+  <section class="cena" id="c-fim"></section>
+
+  <span id="dedo-onda"></span><span id="dedo"></span>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="r-topo" id="topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { MARCAS } from "../site/marcas.mjs";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const NOME = "reels-ciclo-eventos";
+const { duracao: VOZ, frases } = await (await fetch(`narracao/${NOME}.tempos.json`)).json();
+const DUR = Math.round((VOZ + 1.67) * 10) / 10; // a voz acaba e o convite fica mais 1,5 s na tela
+const F = Object.fromEntries(frases.map(f => [f.id, f]));
+const palco = $("#palco");
+
+// ---------- contas ----------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const saiX = x => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x));
+const entra = x => x * x * x;
+const volta = x => (x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2)); // passa do ponto e volta
+const lerp = (a, b, x) => a + (b - a) * x;
+const pulso = (t, t0, d = 0.5) => { const x = fase(t, t0, t0 + d); return x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0; };
+const h = (i, k = 0) => { const s = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return s - Math.floor(s); };
+const mistura = (a, b, x) => { const p = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16)); const A = p(a), B = p(b); return `rgb(${A.map((v, i) => Math.round(lerp(v, B[i], x))).join(",")})`; };
+const brl = v => "R$ " + Math.round(v).toLocaleString("pt-BR");
+function pos(el, { x = 0, y = 0, s = 1, r = 0, o = 1, b = 0 } = {}) {
+  el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg) scale(${s.toFixed(4)})`;
+  el.style.opacity = o.toFixed(3);
+  el.style.filter = b > 0.15 ? `blur(${b.toFixed(1)}px)` : "";
+  el.style.visibility = o <= 0.002 ? "hidden" : "";
+}
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+// tempo de uma palavra falada (a primeira que bate exatamente; senão, a que começa assim)
+const limpa = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9-]/g, "");
+function W(id, pal, n = 0) {
+  const ps = F[id].palavras, alvo = limpa(pal);
+  const xs = ps.filter(p => limpa(p.p) === alvo).length ? ps.filter(p => limpa(p.p) === alvo) : ps.filter(p => limpa(p.p).startsWith(alvo));
+  if (!xs[n]) throw new Error(`sem a palavra "${pal}" na frase ${id}`);
+  return xs[n].ini;
+}
+
+// ---------- cenas: cada uma começa na primeira frase dela ----------
+const ORDEM = ["noite", "conversas", "caderno", "data", "pix", "virada", "insta", "sol", "agenda", "painel", "agenda-equipe", "ficha", "contrato", "financeiro", "equipe", "ia", "dorme", "marca", "cta"];
+const S = {};
+ORDEM.forEach((c, i) => { S[c] = i === 0 ? 0 : frases.find(f => f.cena === c).ini; });
+const T = {
+  h23: W("hora", "23h"), whats: W("marina", "whatsapp"),
+  q1: W("perguntas", "data"), q2: W("perguntas", "quanto"), q3: W("perguntas", "da"),
+  caderno: W("caderno", "caderno"), planilha: W("caderno", "planilha"), cabeca: W("caderno", "cabeca"), dela: W("caderno", "dela"),
+  sabado: W("data", "sabado"), duas: W("data", "duas"), quase: W("data", "quase"), mesma: W("data", "mesma"), dataD: W("data", "data"),
+  pix: W("pix", "pix"), juliana: W("pix", "juliana"), esta: W("pix", "esta"), dessa: W("pix", "dessa"),
+  agora: W("virada", "agora"), sexta: W("virada", "sexta-feira"), outro: W("virada", "outro"),
+  descobrem: W("insta", "descobrem"), villa: W("insta", "villa"), instagram: W("insta", "instagram"), tocam: W("insta", "tocam"), link: W("insta", "link"), bio: W("insta", "bio"),
+  junta: W("sol", "junta"), tudo: W("sol", "tudo"), fotos: W("sol", "fotos"), aval: W("sol", "avaliacoes"), pacotes: W("sol", "pacotes"), endereco: W("sol", "endereco"), zap: W("sol", "whatsapp"),
+  festa: W("escolhe", "festa"), dataA: W("escolhe", "data"), livre: W("escolhe", "livre"), quantos: W("escolhe", "quantos"), convidados: W("escolhe", "convidados"),
+  pede: W("pede", "pede"), pre: W("pede", "pre-reserva"), ninguem: W("pede", "ninguem"),
+  cai: W("cai", "cai"), painel: W("cai", "painel"),
+  cor: W("agenda", "cor"), cada: W("agenda", "cada"),
+  combinado: W("ficha", "combinado"), pago: W("ficha", "pago"),
+  linkC: W("contrato", "link"), aceita: W("contrato", "aceita"), celular: W("contrato", "celular"),
+  entrou: W("financeiro", "entrou"), falta: W("financeiro", "falta"),
+  pessoa: W("equipe", "pessoa"), equipeW: W("equipe", "equipe"), entra: W("equipe", "entra"), senha: W("equipe", "senha"),
+  repete: W("ia", "repete"), todo: W("ia", "todo"), ia: W("ia", "ia"), adiantar: W("ia", "adiantar"), sob: W("ia", "sob"), medida: W("ia", "medida"), seu: W("ia", "seu"),
+  dormindo: W("dorme", "dormindo"), chegou: W("chegou", "chegou"), dataN: W("chegou", "data"), convN: W("chegou", "convidados"), pacote: W("chegou", "pacote"),
+  renderiza: W("marca", "renderiza"), painelCta: W("cta", "painel"),
+};
+
+// ---------- ícones (Lucide) e marcas ----------
+const IC = {
+  ramo: '<path d="M12 21C12 13 12 8 12 3"/><path d="M12 7c-2.6-.2-4.2-1.6-4.8-3.8 2.5-.1 4.2 1.2 4.8 3.8zM12 7c2.6-.2 4.2-1.6 4.8-3.8-2.5-.1-4.2 1.2-4.8 3.8zM12 12c-3-.2-4.8-1.8-5.4-4.4 2.9-.1 4.8 1.4 5.4 4.4zM12 12c3-.2 4.8-1.8 5.4-4.4-2.9-.1-4.8 1.4-5.4 4.4zM12 17c-3.2-.2-5.1-2-5.7-4.7 3.1-.1 5.1 1.6 5.7 4.7zM12 17c3.2-.2 5.1-2 5.7-4.7-3.1-.1-5.1 1.6-5.7 4.7z"/>',
+  casamento: '<circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/><path d="m10 4 2-2 2 2-2 2.5z"/>',
+  quinze: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4l-5.2 2.7 1-5.8L3.5 9.2l5.9-.9z"/>',
+  aniversario: '<path d="M4 21h16M5 21v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7"/><path d="M5 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0M12 12V8"/><path d="M12 8c-1 0-1.6-.8-1.2-1.8L12 4l1.2 2.2c.4 1-.2 1.8-1.2 1.8z"/>',
+  infantil: '<circle cx="12" cy="9" r="6"/><path d="M12 15v6M10 21h4M9.5 7.5c.5-1 1.4-1.5 2.5-1.5"/>',
+  corporativo: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  outro: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  busca: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  cadeado: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  aberto: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>',
+  mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  brilho: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+  sol: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+  passos: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+  fotos: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+  aspas: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
+  mapa: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  pacote: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
+  calendario: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  carteira: '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
+  relogio: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  pessoas: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  arquivo: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  casa: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  escudo: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+  alerta: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>',
+  esq: '<path d="m15 18-6-6 6-6"/>', dir: '<path d="m9 18 6-6-6-6"/>', baixo: '<path d="m6 9 6 6 6-6"/>',
+  mais: '<path d="M5 12h14"/><path d="M12 5v14"/>', menos: '<path d="M5 12h14"/>',
+  coracao: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  menu: '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>',
+  novo: '<rect width="18" height="18" x="3" y="3" rx="4"/><path d="M8 12h8"/><path d="M12 8v8"/>',
+  grade: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/>',
+  video: '<path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+  telefone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  microfone: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
+  repetir: '<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+};
+const ic = (n, extra = "") => `<svg class="i" viewBox="0 0 24 24" ${extra}>${IC[n]}</svg>`;
+const marcaSvg = (n, cor = MARCAS[n].cor) => `<svg viewBox="0 0 24 24" fill="${cor}"><path d="${MARCAS[n].d}"/></svg>`;
+const ZAP_B = marcaSvg("whatsapp", "#fff");
+const barra = (cor, hora) => `<div class="status" style="color:${cor}"><span>${hora}</span><i><span class="sin"><b style="height:6px"></b><b style="height:10px"></b><b style="height:14px"></b><b style="height:18px"></b></span><span class="bat"></span></i></div>`;
+const iniciais = n => n.replace(/[^A-Za-zÀ-ú& ]/g, "").split(/\s+|&/).filter(w => w && w.length > 1 && !/^(da|de|do|dos|das|e)$/i.test(w)).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+const TIPOS = { casamento: ["Casamento", "#d6456b", "#fce8ee"], quinze: ["15 anos", "#7c4ddb", "#efe8fd"], aniversario: ["Aniversário", "#dd7426", "#fdeedd"], infantil: ["Infantil", "#b98a00", "#fbf2cf"], corporativo: ["Corporativo", "#2f6fe0", "#e4edfd"], visita: ["Visita", "#2d6a4f", "#e2efe7"], degustacao: ["Degustação", "#0f8f8a", "#dcf2f1"] };
+
+// ---------- desenhos das fotos (sem foto de gente: mesas, luzes, bolo, flores) ----------
+function ladrilho(k, id) {
+  const fundo = (a, b) => `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="100" height="100" fill="url(#${id})"/>`;
+  const luzes = (y0, amp, n) => {
+    const f = x => y0 + amp * Math.abs(Math.sin(Math.PI * (x + 4) / 54));
+    let d = ""; for (let x = -4; x <= 104; x += 3) d += (d ? "L" : "M") + x + " " + f(x).toFixed(1);
+    let s = `<path d="${d}" fill="none" stroke="#ffe3a3" stroke-opacity=".4" stroke-width=".5"/>`;
+    for (let i = 0; i <= n; i++) { const x = -2 + (104 / n) * i, y = f(x) + 1.2; s += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.6" fill="#f1d38f" opacity=".22"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.4" fill="#fff1c9"/>`; }
+    return s;
+  };
+  const bokeh = (cor, op, pts) => pts.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${cor}" opacity="${op}"/>`).join("");
+  const flor = (x, y, r, c) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><circle cx="${x}" cy="${y}" r="${(r * 0.38).toFixed(1)}" fill="#fff" opacity=".45"/>`;
+  const D = [
+    () => fundo("#0f261d", "#2c4b3d") + bokeh("#f1d38f", ".1", [[20, 40, 8], [70, 34, 10], [88, 52, 6]]) + luzes(12, 10, 9) + luzes(30, 7, 7)
+      + `<ellipse cx="6" cy="70" rx="12" ry="16" fill="#163428"/><ellipse cx="95" cy="68" rx="12" ry="18" fill="#163428"/><rect x="6" y="66" width="88" height="5" rx="1.5" fill="#efe7d6"/><rect x="6" y="71" width="88" height="13" fill="#d6cbb3"/>`
+      + [18, 34, 50, 66, 82].map(x => `<rect x="${x - 0.8}" y="58" width="1.6" height="8" fill="#fff6e3"/><circle cx="${x}" cy="56.6" r="4" fill="#ffcf6e" opacity=".25"/><circle cx="${x}" cy="56.6" r="1.3" fill="#ffd27a"/>`).join("")
+      + [26, 42, 58, 74].map(x => `<path d="M${x - 2} 59 h4 l-1 4 h-2z" fill="#e9f0ee" opacity=".7"/>`).join(""),
+    () => fundo("#f5ebe2", "#e2cbbb") + bokeh("#fff", ".35", [[14, 20, 7], [84, 16, 9], [90, 60, 5]])
+      + `<rect x="28" y="80" width="44" height="3" rx="1.5" fill="#c4ad92"/><rect x="47" y="83" width="6" height="9" fill="#c4ad92"/><rect x="31" y="58" width="38" height="22" rx="2" fill="#fffaf2"/><rect x="36" y="40" width="28" height="18" rx="2" fill="#fffdf8"/><rect x="41" y="26" width="18" height="14" rx="2" fill="#fffaf2"/>`
+      + `<path d="M31 62h38M36 44h28M41 30h18" stroke="#e7cf9a" stroke-width="1.2"/>` + flor(36, 58, 3, "#e8a3a6") + flor(41, 57, 2.4, "#f6d0c4") + flor(62, 40, 2.8, "#e8a3a6") + flor(57, 25, 2.6, "#f3c4b8") + flor(66, 79, 2.4, "#f6d0c4")
+      + `<ellipse cx="44" cy="40" rx="3" ry="1.4" fill="#7fa585"/><ellipse cx="38" cy="80" rx="3" ry="1.4" fill="#7fa585"/>`,
+    () => fundo("#e8efe7", "#cad8cc") + `<path d="M40 70h20l-3 22h-14z" fill="#f6f2ea"/><path d="M42 72h16" stroke="#d9cfbd" stroke-width="1"/>`
+      + [[30, 52, -30], [70, 50, 30], [38, 40, -10], [62, 38, 14], [50, 60, 0], [24, 64, -50], [76, 64, 50]].map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="4" ry="11" fill="#5f8f6b" transform="rotate(${r} ${x} ${y})"/>`).join("")
+      + flor(50, 34, 8, "#f2c4c9") + flor(36, 44, 7, "#fff3e8") + flor(64, 44, 7, "#e89aa5") + flor(44, 56, 6, "#f6d9b8") + flor(58, 57, 6, "#fff3e8") + flor(28, 56, 5, "#e89aa5") + flor(72, 56, 5, "#f2c4c9"),
+    () => fundo("#0c1a26", "#1d3a33") + `<circle cx="80" cy="16" r="6" fill="#f4efe2" opacity=".9"/><circle cx="80" cy="16" r="12" fill="#f4efe2" opacity=".08"/>`
+      + `<circle cx="12" cy="54" r="17" fill="#10261c"/><circle cx="26" cy="60" r="12" fill="#143022"/><circle cx="90" cy="58" r="15" fill="#10261c"/>` + luzes(24, 9, 8)
+      + `<rect y="74" width="100" height="26" fill="#1f4a3a"/><rect x="30" y="69" width="18" height="3" rx="1" fill="#e9e1d0"/><rect x="56" y="69" width="18" height="3" rx="1" fill="#e9e1d0"/>`
+      + [39, 65].map(x => `<circle cx="${x}" cy="67" r="3.5" fill="#ffcf6e" opacity=".3"/><circle cx="${x}" cy="67" r="1.1" fill="#ffd27a"/>`).join(""),
+    () => fundo("#f0e7f7", "#d6c3ea") + `<circle cx="16" cy="20" r="9" fill="#b89be0"/><circle cx="29" cy="13" r="8" fill="#f3d1e6"/><circle cx="26" cy="27" r="7" fill="#fff"/><circle cx="84" cy="18" r="8" fill="#f3d1e6"/><circle cx="74" cy="12" r="6" fill="#b89be0"/>`
+      + `<rect x="10" y="70" width="80" height="4" fill="#fff"/><rect x="10" y="74" width="80" height="18" fill="#e7d8f4"/><rect x="42" y="50" width="16" height="20" rx="1.5" fill="#fff"/><rect x="45" y="40" width="10" height="10" rx="1.5" fill="#f3d1e6"/>`
+      + `<text x="50" y="37" font-size="9" text-anchor="middle" fill="#c49a45" font-family="Fraunces" font-style="italic" font-weight="600">15</text>`
+      + [16, 24, 32, 68, 76, 84].map((x, i) => `<rect x="${x - 3}" y="62" width="6" height="8" rx="1" fill="#fff"/><circle cx="${x}" cy="61" r="2.6" fill="${["#b89be0", "#f3c4b8", "#f1d38f"][i % 3]}"/>`).join(""),
+    () => fundo("#110d1c", "#271a3d") + `<polygon points="30,0 37,0 62,100 18,100" fill="#f1d38f" opacity=".14"/><polygon points="64,0 70,0 92,100 52,100" fill="#e8855e" opacity=".12"/><polygon points="45,0 50,0 34,100 4,100" fill="#b89be0" opacity=".12"/>`
+      + `<circle cx="50" cy="16" r="9" fill="#cfd3dc"/><path d="M41 16h18M50 7v18M43 11h14M43 21h14" stroke="#8a90a0" stroke-width=".6"/><circle cx="47" cy="13" r="2" fill="#fff" opacity=".8"/>`
+      + `<rect y="80" width="100" height="20" fill="#2c2142"/>` + bokeh("#f1d38f", ".5", [[22, 88, 2], [48, 92, 2.4], [76, 86, 1.8], [60, 95, 1.6]]),
+    () => fundo("#3a2316", "#8c5a33") + bokeh("#f1d38f", ".16", [[16, 20, 9], [80, 26, 12], [60, 12, 6], [30, 70, 8], [88, 76, 7]])
+      + `<g transform="rotate(-8 40 60)"><path d="M34 26h12l-2 30q-4 5-8 0z" fill="#f1d38f" opacity=".9"/><path d="M34 26h12" stroke="#fff6dc" stroke-width="1"/><rect x="39.3" y="58" width="1.4" height="20" fill="#f4e7c8"/><rect x="35" y="78" width="10" height="1.8" rx=".9" fill="#f4e7c8"/></g>`
+      + `<g transform="rotate(8 62 60)"><path d="M56 26h12l-2 30q-4 5-8 0z" fill="#f1d38f" opacity=".85"/><path d="M56 26h12" stroke="#fff6dc" stroke-width="1"/><rect x="61.3" y="58" width="1.4" height="20" fill="#f4e7c8"/><rect x="57" y="78" width="10" height="1.8" rx=".9" fill="#f4e7c8"/></g>`
+      + bokeh("#fff6dc", ".8", [[42, 40, .8], [40, 48, .6], [63, 36, .7], [61, 46, .6]]),
+    () => fundo("#f6f2ea", "#e4dac7") + `<path d="M24 94V50a26 26 0 0 1 52 0v44" fill="none" stroke="#7fa585" stroke-width="3.4"/>`
+      + Array.from({ length: 11 }, (_, i) => { const a = Math.PI - (Math.PI * i) / 10, x = 50 + 26 * Math.cos(a), y = 50 - 26 * Math.sin(a); return flor(x.toFixed(1), y.toFixed(1), 3.6, ["#f2c4c9", "#fff3e8", "#e89aa5"][i % 3]); }).join("")
+      + [70, 80, 90].map(y => `<rect x="8" y="${y}" width="12" height="3" rx="1" fill="#d9cfbd"/><rect x="80" y="${y}" width="12" height="3" rx="1" fill="#d9cfbd"/>`).join("") + `<polygon points="46,94 54,94 60,100 40,100" fill="#fff"/>`,
+    () => fundo("#273958", "#e3a06a") + `<circle cx="20" cy="22" r="5" fill="#ffe9c4" opacity=".7"/><rect x="18" y="46" width="64" height="40" fill="#f2ebe0"/><polygon points="13,48 50,27 87,48" fill="#d6c9b5"/>`
+      + [26, 44, 62].map(x => `<rect x="${x}" y="56" width="11" height="14" rx="1" fill="#ffd27a"/>`).join("") + `<rect x="45" y="72" width="10" height="14" fill="#8a6a4a"/>`
+      + `<circle cx="10" cy="80" r="10" fill="#1f4a3a"/><circle cx="91" cy="80" r="11" fill="#1f4a3a"/><rect y="86" width="100" height="14" fill="#2d5a44"/>` + luzes(40, 5, 8),
+  ];
+  return `<svg class="tl" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">${D[k]()}</svg>`;
+}
+
+// ====================== montagem ======================
+// 1 · noite: notificações na tela de bloqueio
+const NOTIFS = [["Patrícia", "Boa noite! Ainda tem sábado em abril?"], ["Felipe", "Quanto fica pra 120 pessoas?"], ["Carla", "Oi! Tem data livre em março?"],
+  ["Ana", "Dá pra visitar no sábado?"], ["Renata", "Qual o valor do pacote completo?"], ["Gustavo", "Vocês fazem festa de 40 anos?"], ["Denise", "Tem data livre em março?"],
+  ["Juliana", "Marina, mandei o comprovante"], ["Paulo", "Quanto fica pra 120 pessoas?"], ["Bruna", "Dá pra visitar no sábado?"], ["Lucas", "Tem data em maio?"],
+  ["Sônia", "Quanto fica o buffet?"], ["Caio", "Ainda tem data livre?"], ["Rita", "Quanto custa?"], ["Débora", "Dá pra visitar amanhã?"], ["Marcos", "Tem data livre em março?"], ["Lia", "Oi, tudo bem?"]];
+const CHEGA = [-0.9, -0.6, -0.3, 2.55, 3.05, 3.5, 3.9, 4.25, 4.55, 4.82, 5.05, 5.25, 5.42, 5.57, 5.7, 5.82, 5.93];
+$("#a-bloq").innerHTML = barra("#fff", "23:04") + `<div class="bl-topo" id="a-topo"><span class="app-zap">${ZAP_B}<em class="badge" id="a-badge">3</em></span><div><b>WhatsApp</b><small>Villa Alecrim</small></div></div>`
+  + NOTIFS.map(([n, m]) => `<div class="notif"><i>${ZAP_B}</i><div><b>${n}<small>agora</small></b><span>${m}</span></div></div>`).join("");
+const notifEls = $$("#a-bloq .notif");
+
+// 2 · conversas: a lista do WhatsApp e as perguntas
+const LINHAS = [["Carla", "Tem data livre em março?", 3, "#25a35a", "23:04"], ["Felipe Duarte", "Quanto fica pra 120 pessoas?", 2, "#2f6fe0", "23:04"], ["Ana Beatriz", "Dá pra visitar no sábado?", 1, "#d6456b", "23:03"],
+  ["Patrícia Gomes", "Boa noite! Ainda tem sábado em abril?", 4, "#8e44ad", "23:01"], ["Renata & Caio", "Qual o valor do pacote completo?", 2, "#c7712b", "22:58"], ["Juliana & Pedro", "Marina, mandei o comprovante", 5, "#e0607e", "22:51"],
+  ["Gustavo Prado", "Vocês fazem festa de 40 anos?", 1, "#0f8f8a", "22:47"], ["Denise", "Tem data livre em março?", 2, "#b98a00", "22:40"], ["Paulo", "Quanto fica pra 120 pessoas?", 1, "#2d6a4f", "22:36"],
+  ["Bruna", "Dá pra visitar no sábado?", 3, "#58646d", "22:31"], ["Lucas", "Tem data em maio?", 1, "#9a6a12", "22:22"]];
+$("#a-lista").innerHTML = barra("#111b21", "23:05") + `<div class="zl-cab"><div class="tt"><h3>Conversas</h3><span class="neg">Villa Alecrim</span></div><div class="zl-busca">${ic("busca")}Pesquisar</div>
+  <div class="zl-filtros"><span class="on">Tudo</span><span>Não lidas <em id="a-nl">17</em></span><span>Grupos</span></div></div>
+  <div class="zl-linhas" id="a-linhas">${LINHAS.map(([n, m, , c, hr]) => `<div class="zl-l"><span class="zl-av" style="background:${c}">${iniciais(n)}</span><div class="zl-tx"><b>${n}</b><span>${m}</span></div><div class="zl-dir"><small>${hr}</small><em>1</em></div></div>`).join("")}</div>`;
+const linhaEms = $$("#a-linhas em");
+const BALOES = [
+  [7.45, 520, 590, "Denise", "#b98a00", "Tem data livre em março?", 0, 3], [7.78, 64, 1210, "Paulo", "#1f7aec", "Quanto fica pra 120 pessoas?", 0, -2], [8.08, 470, 1360, "Bruna", "#c7712b", "Dá pra visitar no sábado?", 0, 2],
+  [T.q1 - 0.04, 60, 720, "Carla", "#25a35a", "Tem data livre em março?", 1, -2], [9.22, 500, 880, "Rita", "#8e44ad", "Tem data livre em março?", 0, 3],
+  [T.q2 - 0.04, 230, 960, "Felipe", "#1f7aec", "Quanto fica pra 120 pessoas?", 1, 1.5], [10.08, 70, 1110, "Lucas", "#d35400", "Quanto fica pra 120 pessoas?", 0, -3],
+  [T.q3 - 0.04, 110, 1200, "Ana", "#d6456b", "Dá pra visitar no sábado?", 1, -1.5], [10.9, 430, 1080, "Sônia", "#0f8f8a", "Tem data livre em março?", 0, 4],
+  [11.03, 60, 590, "Caio", "#2d6a4f", "Dá pra visitar no sábado?", 0, -4], [11.16, 390, 1350, "Lia", "#e0607e", "Quanto fica pra 120 pessoas?", 0, 2], [11.29, 150, 860, "Marcos", "#58646d", "Tem data livre em março?", 0, -3],
+].map(([t, x, y, nome, cor, txt, grande, r]) => ({ t, x, y, r, grande }) && { t, x, y, r, grande, nome, cor, txt });
+$("#c-conversas").innerHTML = BALOES.map(b => `<div class="balao${b.grande ? "" : " p"}" style="left:${b.x}px;top:${b.y}px;z-index:${b.grande ? 3 : 1}"><small style="color:${b.cor}">${b.nome}</small><p>${b.txt}</p></div>`).join("");
+$$("#c-conversas .balao").forEach((el, k) => (BALOES[k].el = el));
+
+// 3 · caderno, planilha e a cabeça dela
+$("#k-caderno").innerHTML = `<svg viewBox="0 0 450 520"><defs><linearGradient id="kc-p" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ebe8e0"/><stop offset="1" stop-color="#d9d5cb"/></linearGradient></defs>
+  <rect width="450" height="520" rx="16" fill="url(#kc-p)"/>
+  ${Array.from({ length: 9 }, (_, i) => `<line x1="0" x2="450" y1="${118 + 50 * i}" y2="${118 + 50 * i}" stroke="#b6c5d1" stroke-width="2"/>`).join("")}
+  <line x1="70" x2="70" y1="40" y2="520" stroke="#d98b8b" stroke-width="2.5"/>
+  ${Array.from({ length: 11 }, (_, i) => `<circle cx="${30 + 39 * i}" cy="22" r="11" fill="#0c1114"/><rect x="${26 + 39 * i}" y="-6" width="8" height="30" rx="4" fill="#9aa5ab"/>`).join("")}
+  <g font-family="Fraunces" font-style="italic" font-weight="500" fill="#22303a">
+    <text x="88" y="104" font-size="44">Março</text>
+    <text x="88" y="158" font-size="31">sáb 13 · Valentina?</text>
+    <text x="88" y="208" font-size="31">sáb 20 · Duarte</text>
+    <text x="88" y="258" font-size="31">sáb 20 · Ana e Thiago</text>
+    <text x="88" y="308" font-size="31">visita sáb 10h ??</text>
+    <text x="88" y="358" font-size="31">Pix Juliana · ver!!</text>
+    <text x="88" y="408" font-size="31" fill="#5b6b75">orçamento 120 pess.</text>
+  </g>
+  <path d="M84 198 C150 186 230 206 300 192" stroke="#c0392b" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="172" cy="248" rx="30" ry="24" fill="none" stroke="#c0392b" stroke-width="4"/>
+  <path d="M300 300 l26 -22 M300 278 l26 22" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M88 116 C160 120 200 112 210 116" stroke="#22303a" stroke-width="2.5" fill="none"/>
+  <path d="M330 440 c20 -30 40 10 60 -20 s30 20 40 -10" stroke="#22303a" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
+$("#k-planilha").innerHTML = `<div class="pl-barra"><i></i><i></i><i></i><span>reservas_2027_final.xlsx</span></div><table>
+  <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+  <tr class="cab"><td class="n">1</td><td>Data</td><td>Cliente</td><td>Pessoas</td><td>Pago?</td></tr>
+  <tr><td class="n">2</td><td>13/03</td><td>Valentina</td><td>120</td><td>?</td></tr>
+  <tr><td class="n">3</td><td>20/03</td><td>Duarte</td><td>140</td><td>sinal</td></tr>
+  <tr class="ruim"><td class="n">4</td><td>20/03</td><td>Ana &amp; Thiago</td><td>170</td><td class="sel">?</td></tr>
+  <tr><td class="n">5</td><td>27/03</td><td></td><td></td><td></td></tr></table>`;
+$("#k-cabeca").innerHTML = `<defs><linearGradient id="kh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34444f"/><stop offset="1" stop-color="#1a242b"/></linearGradient></defs>
+  <path d="M60 268 C60 222 86 204 122 198 L124 176 C92 166 72 136 76 100 C80 52 118 22 166 22 C212 24 242 56 240 96 L258 128 C259 131 257 133 254 134 L242 137 C245 145 241 151 236 153 C240 162 234 172 218 174 L202 176 L200 198 C234 204 262 222 268 268 Z" fill="url(#kh)" stroke="#7d9ab0" stroke-width="2.5" stroke-opacity=".7"/>
+  <path d="M120 70 C140 60 170 60 190 74" stroke="#8fb0c6" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+
+// 4 · data: o calendário de março (1º de março de 2027 cai numa segunda)
+{
+  let dias = "";
+  for (let c = 0; c < 35; c++) { const d = c, fora = d < 1 || d > 31, num = d < 1 ? 28 : d > 31 ? d - 31 : d; dias += `<div class="d-dia${fora ? " fora" : ""}${c % 7 === 6 ? " sab" : ""}">${num}</div>`; }
+  $("#d-cal").innerHTML = `<span class="exemplo claro">exemplo</span><div class="d-topo"><b>Março 2027</b><span><i>${ic("esq")}</i><i>${ic("dir")}</i></span></div>
+    <div class="d-sem">${["dom", "seg", "ter", "qua", "qui", "sex", "sáb"].map(s => `<span>${s}</span>`).join("")}</div><div class="d-dias">${dias}</div><div id="d-col"></div><div id="d-alerta">20</div>`;
+  $("#d-pilula").innerHTML = `${ic("alerta")}sáb, 20/03 · 2 reservas`;
+}
+
+// 5 · pix: a conversa comprida com a Juliana
+const ITENS = [];
+{
+  const add = (tipo, lado, txt, n) => ITENS.push({ tipo, lado, txt, n });
+  add("txt", "out", "Vou conferir aqui, Ju!"); add("txt", "in", "Marina, você recebeu?"); add("sk", "in", "", 2); add("txt", "in", "Mandei ontem à noite"); add("sk", "out", "", 1);
+  add("data", null, "Ontem"); add("audio", "in"); add("sk", "out", "", 2); add("txt", "in", "Era a 2ª parcela, né?"); add("pix", "in"); add("txt", "in", "Segue o comprovante");
+  add("sk", "in", "", 1); add("data", null, "Quarta-feira");
+  const extras = ["Combinado!", "Pode ser às 15h?", "Perfeito", "Obrigada!", "Vamos levar a cerimonialista", "Qual o horário da degustação?", "Show", "Amei as fotos", "Confirmo amanhã", "E o DJ?"];
+  for (let k = 0; k < 64; k++) {
+    if (k % 7 === 6) { add("data", null, ["Segunda-feira", "28 de fevereiro", "21 de fevereiro", "14 de fevereiro", "7 de fevereiro", "31 de janeiro", "24 de janeiro", "17 de janeiro", "10 de janeiro", "3 de janeiro"][Math.floor(k / 7) % 10]); continue; }
+    const lado = h(k, 9) > 0.45 ? "in" : "out", r = h(k, 4);
+    if (r < 0.12) add("foto", lado); else if (r < 0.22) add("audio", lado); else if (r < 0.55) add("txt", lado, extras[k % extras.length]); else add("sk", lado, "", 1 + Math.floor(h(k, 2) * 3));
+  }
+  const ALT = { txt: 78, sk1: 62, sk2: 84, sk3: 106, audio: 76, foto: 216, data: 46, pix: 236 };
+  let b = 18, lado0 = null;
+  for (const it of ITENS) { it.h = it.tipo === "sk" ? ALT["sk" + it.n] : ALT[it.tipo]; b += it.lado && lado0 && it.lado !== lado0 ? 8 : 0; it.b = b; b += it.h + 12; lado0 = it.lado || lado0; }
+}
+const CH_TOT = ITENS[ITENS.length - 1].b + 400, CH_VIS = 1000 - 166 - 98;
+$("#a-chat").innerHTML = barra("#111b21", "23:06") + `<div class="ch-cab"><div class="lin">${ic("esq")}<span class="av">JS</span><div class="nm"><b>Juliana</b><small>casamento · 06/03</small></div><span style="display:flex;gap:22px;color:#1fa855">${ic("video", 'style="width:34px;height:34px"')}${ic("telefone", 'style="width:30px;height:30px"')}</span></div></div>
+  <div class="ch-corpo"><div class="ch-rolo" id="a-rolo" style="height:${CH_TOT}px">${ITENS.map((it, k) => {
+    const top = CH_TOT - it.b - it.h, hr = `<span class="hr">${["21:14", "19:02", "10:31", "08:47", "22:05", "17:40"][k % 6]}${it.lado === "out" ? " ✓✓" : ""}</span>`;
+    if (it.tipo === "data") return `<span class="ch-data" style="top:${top}px">${it.txt}</span>`;
+    const cls = `ch-b ${it.lado}`, st = `style="top:${top}px${it.tipo === "sk" ? `;width:${200 + Math.round(h(k, 6) * 150)}px` : ""}"`;
+    if (it.tipo === "txt") return `<div class="${cls}" ${st}>${it.txt}${hr}</div>`;
+    if (it.tipo === "sk") return `<div class="${cls}" ${st}>${Array.from({ length: it.n }, (_, j) => `<span class="sk" style="width:${j === it.n - 1 ? 60 : 100}%"></span>`).join("")}</div>`;
+    if (it.tipo === "audio") return `<div class="${cls}" ${st} ><span class="aud"><i></i><b></b></span></div>`;
+    if (it.tipo === "foto") return `<div class="${cls} foto" ${st}>${ladrilho([1, 2, 7, 3][k % 4], "chf" + k)}</div>`;
+    return `<div class="${cls} pix" id="a-pix" ${st}><div class="pt"><i><svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 2.5 21.5 12 12 21.5 2.5 12z" fill="none" stroke="#2bb3a3" stroke-width="2.6" stroke-linejoin="round"/><path d="M12 8 16 12 12 16 8 12z" fill="#2bb3a3"/></svg></i><b>Comprovante Pix</b></div><div class="pv"><strong>R$ 7.890,00</strong><span>Juliana M. Souza → Villa Alecrim</span><span>2ª parcela · 21:14</span></div></div>`;
+  }).join("")}</div></div><span class="ch-fixa" id="a-fixa">Hoje</span><div class="ch-pe">${ic("mais", 'style="width:34px;height:34px;color:#54656f"')}<span></span><i>${ic("microfone")}</i></div>`;
+const PIX = ITENS.find(it => it.tipo === "pix");
+const S_C = PIX.b + PIX.h / 2 - CH_VIS / 2; // rolagem em que o comprovante passa no meio da tela
+const DATAS = ITENS.filter(it => it.tipo === "data");
+$("#lupa").innerHTML = `<defs><radialGradient id="lp-v" cx=".4" cy=".35"><stop offset="0" stop-color="#e6f2fa" stop-opacity=".35"/><stop offset="1" stop-color="#bcd6e6" stop-opacity=".1"/></radialGradient></defs>
+  <line x1="205" y1="205" x2="300" y2="300" stroke="#2a3640" stroke-width="34" stroke-linecap="round"/><line x1="205" y1="205" x2="300" y2="300" stroke="#55697a" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="140" cy="140" r="104" fill="url(#lp-v)" stroke="#e3ecf2" stroke-width="18"/><path d="M78 108 A72 72 0 0 1 132 70" stroke="#fff" stroke-opacity=".7" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+
+// 6 · virada: o relógio que volta
+{
+  let marcas = "";
+  for (let k = 0; k < 60; k++) { const a = k * 6 * Math.PI / 180, g = k % 5 === 0, r1 = g ? 222 : 236, r2 = 250; marcas += `<line x1="${(r1 * Math.sin(a)).toFixed(1)}" y1="${(-r1 * Math.cos(a)).toFixed(1)}" x2="${(r2 * Math.sin(a)).toFixed(1)}" y2="${(-r2 * Math.cos(a)).toFixed(1)}" stroke-width="${g ? 7 : 3}" stroke-linecap="round"/>`; }
+  $("#v-relogio").innerHTML = `<defs><radialGradient id="vr-f" cx=".5" cy=".42"><stop offset="0" stop-color="#2f3739"/><stop offset="1" stop-color="#1a2022"/></radialGradient><radialGradient id="vr-g"><stop offset="0" stop-color="#e8855e" stop-opacity=".55"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
+    <circle r="420" fill="url(#vr-g)" id="vr-gl"/><circle r="266" fill="url(#vr-f)" stroke-width="4" id="vr-aro"/><g id="vr-marcas">${marcas}</g>
+    <text y="128" text-anchor="middle" font-family="Geist" font-weight="600" font-size="30" letter-spacing="5" id="vr-txt">SEX · 23:04</text>
+    <circle r="290" fill="none" stroke="#e8855e" stroke-width="22" stroke-opacity=".22" pathLength="100" stroke-dasharray="100 100" transform="rotate(-90)" id="vr-arco2"/>
+    <circle r="290" fill="none" stroke="#e8855e" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="100 100" transform="rotate(-90)" id="vr-arco"/>
+    <line y1="26" y2="-140" stroke-width="15" stroke-linecap="round" id="vr-h"/><line y1="34" y2="-212" stroke-width="9" stroke-linecap="round" id="vr-m"/>
+    <line y1="40" y2="-232" stroke="#e8855e" stroke-width="4" stroke-linecap="round" id="vr-s"/><circle r="14" fill="#e8855e"/><circle r="5" fill="#1e2528"/>`;
+  const V = F.virada.palavras, corte = V.findIndex(p => /\.$/.test(p.p)) + 1;
+  $("#v-texto").innerHTML = [V.slice(0, corte), V.slice(corte)].map(ws => `<p>${ws.map(p => `<span class="w${p.tom ? " tom" : ""}">${p.p}</span>`).join(" ")}</p>`).join("");
+}
+const vPal = $$("#v-texto .w").map((el, k) => ({ el, ini: F.virada.palavras[k].ini }));
+
+// 7 · insta: o perfil da Villa Alecrim
+$("#c-insta").innerHTML = `<div class="fone" id="foneB" style="left:255px;top:600px;width:570px;height:1150px"><span class="exemplo claro">exemplo</span><div class="visor ig2">
+  ${barra("#000", "23:05")}<div class="ig2-cab"><b>${ic("cadeado", 'style="width:22px;height:22px;stroke-width:2.4"')}villaalecrim${ic("baixo", 'style="stroke-width:2.6"')}</b><span>${ic("novo")}${ic("menu")}</span></div>
+  <div class="ig2-rolo" id="ig-rolo">
+    <div class="ig2-perfil"><div class="ig2-av"><div>${ic("ramo")}</div></div><div class="ig2-nums"><div><b>248</b><small>publicações</small></div><div><b>12,4 mil</b><small>seguidores</small></div><div><b>310</b><small>seguindo</small></div></div></div>
+    <div class="ig2-bio"><b id="ig-nome">Villa Alecrim</b><div class="cat">Espaço de eventos</div><div>Casamentos, 15 anos e festas num jardim cheio de verde.</div>
+      <span class="ig2-link" id="ig-link">${ic("link")}villaalecrim.com.br</span></div>
+    <div class="ig2-bts"><span>Seguir</span><span>Mensagem</span><span style="flex:none;width:52px">${ic("pessoas", 'style="width:24px;height:24px"')}</span></div>
+    <div class="ig2-dest">${[["Casamentos", 7], ["15 anos", 4], ["Espaço", 8], ["Buffet", 1], ["Noite", 3]].map(([n, k], i) => `<div><i>${ladrilho(k, "igd" + i)}</i>${n}</div>`).join("")}</div>
+    <div class="ig2-abas"><span>${ic("grade")}</span></div>
+    <div class="ig2-grade">${[0, 1, 2, 3, 4, 5, 6, 7, 8, 2, 0, 6].map((k, i) => `<div>${ladrilho(k, "igg" + i)}<span class="cor">${ic("coracao")}</span></div>`).join("")}</div>
+  </div></div></div>`;
+const tiles = $$("#c-insta .ig2-grade>div");
+
+// 8 · sol: o site no centro e tudo o que ele junta
+const SOL = { x: 505, y: 1040, R: 334 };
+const PONTAS = [["instagram", "Instagram", "m"], ["fotos", "Fotos reais"], ["google", "Avaliações", "m"], ["aspas", "Depoimentos"], ["pacote", "Pacotes"], ["mapa", "Localização"], ["whatsapp", "WhatsApp", "m"], ["calendario", "Consultar data"]];
+const ACESO = [T.tudo + 0.05, T.fotos, T.aval, T.aval + 0.4, T.pacotes, T.endereco, T.zap, T.zap + 0.3];
+{
+  const f = v => v.toFixed(1);
+  const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 205 : 272; return `${f(SOL.x + r * Math.cos(a))},${f(SOL.y + r * Math.sin(a))}`; }).join(" ");
+  const ang = PONTAS.map((_, i) => (-90 + 45 * i) * Math.PI / 180);
+  const raio = (a, cls, extra = "") => `<line class="${cls}" x1="${f(SOL.x + (SOL.R - 64) * Math.cos(a))}" y1="${f(SOL.y + (SOL.R - 64) * Math.sin(a))}" x2="${f(SOL.x + 120 * Math.cos(a))}" y2="${f(SOL.y + 120 * Math.sin(a))}" ${extra}/>`;
+  $("#c-sol").innerHTML = `<div id="s-halo"></div><svg id="s-svg" viewBox="0 0 1080 1920">
+    <defs><radialGradient id="s-br" cx="${SOL.x}" cy="${SOL.y}" r="272" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".55"/><stop offset=".7" stop-color="#e8855e" stop-opacity=".16"/><stop offset="1" stop-color="#e8855e" stop-opacity=".06"/></radialGradient></defs>
+    <polygon id="s-estrela" points="${est}" fill="url(#s-br)"/>
+    <circle id="s-orbita" cx="${SOL.x}" cy="${SOL.y}" r="${SOL.R}" fill="none" stroke="#e8c9b8" stroke-opacity=".35" stroke-width="2.5" stroke-dasharray="5 13"/>
+    <circle cx="${SOL.x}" cy="${SOL.y}" r="420" fill="none" stroke="#f1eee9" stroke-opacity=".07" stroke-width="2" id="s-fora"/>
+    ${ang.map((a, i) => raio(a, "s-raio", `stroke="#e8855e" stroke-width="3" stroke-opacity=".18" id="s-r${i}"`)).join("")}
+    ${ang.map((a, i) => raio(a, "s-luz", `stroke="#e8855e" stroke-width="16" stroke-opacity=".3" stroke-linecap="round" pathLength="100" stroke-dasharray="20 300" stroke-dashoffset="20" id="s-l${i}"`)).join("")}
+    ${ang.map((a, i) => raio(a, "s-luz", `stroke="#fff1e6" stroke-width="5" stroke-linecap="round" pathLength="100" stroke-dasharray="16 300" stroke-dashoffset="16" id="s-m${i}"`)).join("")}
+  </svg>
+  ${PONTAS.map(([icn, nome, m], i) => `<div class="s-ponta" id="s-p${i}"><span class="anel"></span><span class="bola">${m ? marcaSvg(icn) : ic(icn)}</span><span class="nome ${[0, 1, 7].includes(i) ? "cima" : "baixo"}">${nome}</span></div>`).join("")}
+  <div id="s-site"><span class="exemplo claro">exemplo</span><div class="ss-barra"><i></i><i></i><i></i><span>villaalecrim.com.br</span></div>
+    <div class="ss-tela"><div class="ss-foto">${ladrilho(3, "ssf")}</div><div class="ss-nome"><b>Villa Alecrim</b><span>★★★★★</span></div><span class="ss-l" style="width:92%"></span><span class="ss-l" style="width:60%"></span><span class="ss-btn" id="s-btn">Consultar data</span></div></div>`;
+}
+
+// 9 · agenda online no celular + o resumo do pedido
+{
+  // março de 2027: o 1º cai numa segunda (coluna 1)
+  const OCUP = { 6: "cheio", 20: "cheio", 27: "cheio", 5: "meio", 7: "meio", 13: "meio", 19: "meio", 21: "meio", 26: "meio", 28: "meio" };
+  let dias = `<span class="ag-d vazio"></span>`;
+  for (let d = 1; d <= 31; d++) { const st = OCUP[d] || "livre"; dias += `<span class="ag-d ${st}" data-d="${d}">${d}${st === "meio" ? "<small>1 livre</small>" : ""}</span>`; }
+  const FESTAS = [["casamento", "Casamento"], ["quinze", "15 anos"], ["aniversario", "Aniversário"], ["infantil", "Infantil"], ["corporativo", "Corporativo"], ["outro", "Outro"]];
+  $("#c-agenda").innerHTML = `<div class="fone leve" id="foneC" style="left:80px;top:530px;width:490px;height:970px"><span class="exemplo">exemplo</span><div class="visor ag">
+    <div class="ag-cab">${barra("#fff", "23:06")}<div class="va-logo"><i>${ic("ramo")}</i><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></div></div>
+    <div class="ag-passos"><span id="ag-passo">Passo 1 de 4</span><span class="ag-trilha"><i id="ag-trilha"></i></span></div>
+    <div class="ag-palco"><div class="ag-trem" id="ag-trem">
+      <div class="ag-et"><h4>Qual é a <em>festa?</em></h4><p class="sub">Escolha o tipo de evento.</p><div class="ag-festas">${FESTAS.map(([k, n]) => `<div class="ag-festa" id="ag-f-${k}"><i style="background:${(TIPOS[k] || ["", "#58646d", "#eceff1"])[2]};color:${(TIPOS[k] || ["", "#58646d"])[1]}">${ic(k)}</i><b>${n}</b><span class="ag-ok">${ic("check")}</span></div>`).join("")}</div></div>
+      <div class="ag-et"><h4>Escolha a <em>data</em></h4><p class="sub">Os dias livres estão em branco.</p><div class="ag-mes"><i>${ic("esq")}</i>Março 2027<i>${ic("dir")}</i></div>
+        <div class="ag-sem">${["dom", "seg", "ter", "qua", "qui", "sex", "sáb"].map(s => `<span>${s}</span>`).join("")}</div><div class="ag-dias">${dias}</div>
+        <div class="ag-leg"><span><i></i>Livre</span><span><i class="m"></i>Um período</span><span><i class="c"></i>Reservado</span></div></div>
+      <div class="ag-et"><h4>Convidados e <em>pacote</em></h4><p class="sub">Quantas pessoas vêm?</p><div class="ag-conv"><i>${ic("menos")}</i><div class="num"><span id="ag-num">0</span><small>convidados</small></div><i>${ic("mais")}</i></div>
+        <p class="ag-rot">Pacote</p>${[["Essencial", "5 horas · buffet"], ["Clássico", "6 horas · DJ"], ["Completo", "7 horas · open bar"]].map(([n, d]) => `<div class="ag-pac" id="ag-p-${n}"><b>${n}</b><span>${d}</span></div>`).join("")}
+        <div class="ag-btn" id="ag-btn"><span class="ag-gira" id="ag-gira"></span><span id="ag-btn-txt">Pedir pré-reserva</span></div></div>
+    </div></div>
+    <div class="ag-pronto" id="ag-pronto"><div class="ok" id="ag-okc">${ic("check")}</div><h4>Pré-reserva <em>enviada!</em></h4><p>A data fica separada por 48 horas. A equipe confirma pelo WhatsApp.</p>
+      <div class="ficha"><div><span>Festa</span><b>15 anos</b></div><div><span>Data</span><b>sáb, 13/03</b></div><div><span>Convidados</span><b>120</b></div></div></div>
+  </div></div>
+  <div id="ag-resumo"><h5><i>${ic("ramo")}</i>O seu pedido</h5>${[["Festa", "15 anos"], ["Data", "sáb, 13/03"], ["Convidados", "120"], ["Pacote", "Completo"]].map(([r, v], i) => `<div class="rs-l"><small>${r}</small><span class="sk" id="rs-sk${i}"></span><b id="rs-v${i}">${v}</b></div>`).join("")}
+    <div class="rs-ok" id="rs-ok">${ic("check")}Pré-reserva enviada</div></div>
+  ${["15 anos", "sáb, 13/03", "120", "Completo"].map((v, i) => `<span class="ag-voa" id="ag-voa${i}">${v}</span>`).join("")}`;
+}
+const dia13 = $('#c-agenda .ag-d[data-d="13"]');
+const livres = $$("#c-agenda .ag-d.livre");
+
+// 10 · painel no notebook
+{
+  const MENU = [["casa", "Visão geral", 1], ["calendario", "Agenda"], ["pessoas", "Clientes"], ["arquivo", "Contratos"], ["carteira", "Financeiro"], ["mensagem", "Atendimento", 0, 1], ["escudo", "Equipe e acessos"]];
+  const EV = [["06", "SÁB", "Juliana & Pedro", "Casamento · 180 convidados", "#d6456b", "#fce8ee"], ["07", "DOM", "Alice, 7 anos", "Infantil · 90 convidados", "#b98a00", "#fbf2cf"], ["12", "SEX", "Nexa Tecnologia", "Corporativo · 220 convidados", "#2f6fe0", "#e4edfd"], ["20", "SÁB", "Ana Beatriz & Thiago", "Casamento · 170 convidados", "#d6456b", "#fce8ee"]];
+  $("#c-painel").innerHTML = `<div id="laptop"><span class="exemplo">exemplo</span><div id="lp-brilho"></div><div class="lp-tampa"><div class="lp-tela">
+    <aside class="lp-lat"><div class="lp-logo"><i>${ic("ramo")}</i><div><b>Villa Alecrim</b><small>PAINEL DO ESPAÇO</small></div></div>
+      <div class="lp-menu">${MENU.map(([i, n, on, b]) => `<span class="${on ? "on" : ""}">${ic(i)}${n}${b ? `<em id="lp-badge">1</em>` : ""}</span>`).join("")}</div></aside>
+    <div class="lp-main"><div class="lp-top"><span class="lp-busca">Buscar cliente, evento ou data</span><span class="lp-nova">+ Nova reserva</span></div>
+      <div class="lp-oi">Boa noite, Marina</div>
+      <div class="lp-kpis"><div class="lp-k"><small>Festas no mês</small><b>9</b></div><div class="lp-k"><small>Recebido no mês</small><b>R$ 77.940</b></div><div class="lp-k"><small>A receber em 30 dias</small><b>R$ 92.600</b></div><div class="lp-k"><small>Pedidos na semana</small><b id="lp-ped">8</b></div></div>
+      <div class="lp-cols"><div class="lp-cx"><h6>Próximos eventos</h6>${EV.map(([d, s, n, x, c, f]) => `<div class="lp-ev"><span class="dt" style="background:${f};color:${c}">${d}</span><div><b>${n}</b><small>${s.toLowerCase()} · ${x}</small></div></div>`).join("")}</div>
+        <div class="lp-cx"><h6>Pedidos que chegaram</h6><div class="lp-ev" id="lp-novo"><span class="dt" style="background:#efe8fd;color:#7c4ddb">${ic("quinze", 'style="width:15px;height:15px"')}</span><div><b>Nova pré-reserva</b><small>15 anos · sáb, 13/03 · 120</small></div></div>
+          <div class="lp-ev"><span class="dt" style="background:#e2efe7;color:#2d6a4f">PG</span><div><b>Patrícia Gomes</b><small>Casamento · visita marcada</small></div></div>
+          <div class="lp-ev"><span class="dt" style="background:#fdeedd;color:#dd7426">GP</span><div><b>Gustavo Prado</b><small>Aniversário · novo</small></div></div>
+          <div class="lp-ev"><span class="dt" style="background:#fce8ee;color:#d6456b">RC</span><div><b>Renata &amp; Caio</b><small>Casamento · visita</small></div></div></div></div>
+    </div></div></div><div class="lp-base"></div></div>
+  <div id="lp-toast"><i>${ic("sino")}</i><div><b>Nova pré-reserva</b><span>15 anos · 120 convidados · sáb, 13/03</span></div><small>agora</small></div>`;
+}
+
+// 11 · agenda da equipe: uma cor para cada festa
+const AE_EV = [[3, "visita", "15h Patrícia"], [5, "corporativo", "19h Nexa"], [6, "casamento", "19h Juliana"], [7, "infantil", "13h Alice"], [10, "visita", "10h Renata"], [11, "degustacao", "19h Ana & Thiago"],
+  [13, "quinze", "Pré-reserva", 1], [16, "visita", "16h Duarte"], [19, "corporativo", "19h Vértice"], [20, "casamento", "18h Ana & Thiago"], [21, "infantil", "12h Theo"], [24, "visita", "14h Débora"],
+  [25, "degustacao", "19h Mariana"], [26, "corporativo", "20h Bem Viver"], [27, "quinze", "20h Duarte"]];
+{
+  let cel = "";
+  for (let c = 0; c < 35; c++) { const d = c, fora = d < 1 || d > 31, num = d < 1 ? 28 : d > 31 ? d - 31 : d; cel += `<div class="ae-c${fora ? " fora" : ""}${c % 7 === 0 || c % 7 === 6 ? " fds" : ""}" ${fora ? "" : `data-d="${d}"`}><b>${num}</b></div>`; }
+  $("#c-ae").innerHTML = `<div class="vcard" id="ae-cal"><span class="exemplo">exemplo</span><div class="ae-topo"><h4><i>${ic("calendario")}</i>Agenda</h4><span class="mes">${ic("esq")}Março 2027${ic("dir")}</span>
+    <span class="ae-eq">${[["MA", "#2d6a4f"], ["RC", "#2f6fe0"], ["BL", "#b4542f"], ["LS", "#9a6a12"]].map(([n, c]) => `<span style="background:${c}">${n}</span>`).join("")}</span></div>
+    <div class="ae-sem">${["dom", "seg", "ter", "qua", "qui", "sex", "sáb"].map(s => `<span>${s}</span>`).join("")}</div><div class="ae-grade">${cel}</div></div>
+    <div id="ae-leg">${["casamento", "quinze", "infantil", "corporativo", "visita", "degustacao"].map(k => `<span class="ae-chip" data-tipo="${k}"><i style="background:${TIPOS[k][1]}"></i>${TIPOS[k][0]}</span>`).join("")}</div>`;
+  for (const ev of AE_EV) { const [d, tipo, txt, pre] = ev, [, cor, fundo] = TIPOS[tipo]; const el = document.createElement("span"); el.className = "ae-p" + (pre ? " pre" : ""); el.style.cssText = `background:${fundo};color:${cor};border-color:${cor}`; el.textContent = txt; $(`#c-ae .ae-c[data-d="${d}"]`).appendChild(el); ev.el = el; }
+}
+const aeChips = $$("#ae-leg .ae-chip");
+
+// 12 · ficha da cliente
+$("#c-ficha").innerHTML = `<div class="vcard" id="fi"><span class="exemplo">exemplo</span><div class="fi-tags"><span class="fi-tag" style="background:#efe8fd;color:#7c4ddb"><i></i>15 anos</span><span class="fi-tag" style="background:#e4edfd;color:#2f6fe0"><i></i>Assinado</span></div>
+  <h4>15 anos da Valentina</h4><p class="fi-sub">Sábado, 13 de março · comercial: Rafael</p>
+  <div class="fi-grade">${[["Data", "sáb, 13/03"], ["Horário", "20h às 3h"], ["Convidados", "120"], ["Pacote", "Completo"]].map(([r, v], i) => `<div class="fi-c"><small>${r}</small><b id="fi-v${i}">${v}</b></div>`).join("")}</div>
+  <p class="fi-rot">Adicionais</p><div class="fi-chips"><span class="fi-chip" id="fi-a0">Mesa de doces</span><span class="fi-chip" id="fi-a1">Cabine de fotos</span></div>
+  <div class="fi-pg"><div class="lin"><span>Pago</span><b id="fi-pago">R$ 0</b></div><div class="fi-parc">${[0, 1, 2, 3, 4].map(i => `<i><b id="fi-p${i}"></b></i>`).join("")}</div>
+    <div class="rod"><span id="fi-parc">0 de 5 parcelas</span><span>total R$ 45.100</span></div></div></div>`;
+
+// 13 · contrato pelo link, aceito no celular
+$("#c-contrato").innerHTML = `<div id="ct-doc"><span class="k">CONTRATO</span><h5>Prestação de serviços para evento</h5><p class="q">Villa Alecrim · 15 anos da Valentina</p>
+    <p class="cl">1. O evento</p><span class="sk2"></span><span class="sk2" style="width:86%"></span><p class="cl">2. Pagamento</p><span class="sk2"></span><span class="sk2" style="width:72%"></span><p class="cl">3. Cancelamento</p><span class="sk2"></span><span class="sk2" style="width:64%"></span>
+    <div class="ass">Assinatura do contratante</div></div>
+  <div id="ct-link">${ic("link")}villaalecrim.com.br/contrato</div>
+  <div class="fone leve" id="foneD" style="left:130px;top:560px;width:470px;height:900px"><span class="exemplo">exemplo</span><div class="visor ct">
+    <div class="ag-cab">${barra("#fff", "23:12")}<div class="va-logo"><i>${ic("ramo")}</i><div><b>Villa Alecrim</b><small>Espaço de eventos</small></div></div></div>
+    <div class="ct-corpo"><h4>Contrato</h4><p class="q">15 anos da Valentina · sáb, 13/03</p><p class="cl">1. O evento</p><span class="sk2"></span><span class="sk2" style="width:80%"></span>
+      <p class="cl">2. Pagamento</p><span class="sk2"></span><span class="sk2" style="width:70%"></span><p class="cl">3. Cancelamento</p><span class="sk2"></span><span class="sk2" style="width:60%"></span></div>
+    <div class="ct-li" id="ct-li"><span class="ct-cx" id="ct-cx">${ic("check")}</span>Li e aceito o contrato</div><div class="ct-btn" id="ct-btn">Aceitar contrato</div></div></div>
+  <div id="ct-carimbo">Aceito · 23:12</div>
+  <div class="vcard" id="ct-salvo"><div class="t"><i>${ic("arquivo")}</i>Painel · Contratos</div><b>15 anos da Valentina</b><span>${ic("check")}Aceito pelo celular · 23:12</span></div>`;
+
+// 14 · financeiro
+const BARRAS = [["nov", 100], ["dez", 91], ["jan", 84], ["fev", 101], ["mar", 108], ["abr", 92], ["mai", 105], ["jun", 115], ["jul", 113], ["ago", 124], ["set", 133], ["out", 78, 53], ["nov", 0, 46], ["dez", 0, 30]];
+$("#c-fin").innerHTML = `<div class="vcard fn-k" id="fn-k1" style="left:90px"><span class="exemplo">exemplo</span><div class="r"><i>${ic("carteira")}</i>Recebido no mês</div><b id="fn-v1">R$ 0</b><div class="s"><em>↗ 12%</em>até hoje</div></div>
+  <div class="vcard fn-k" id="fn-k2" style="left:515px"><div class="r"><i>${ic("relogio")}</i>A receber em 30 dias</div><b id="fn-v2">R$ 0</b><div class="s">16 parcelas · 1 atrasada</div></div>
+  <div class="vcard" id="fn-graf"><h5>Receita por mês<span><span><i style="background:#2d6a4f"></i>recebido</span><span><i style="background:#cfe3d6"></i>a receber</span></span></h5>
+    <div class="fn-barras">${BARRAS.map(([m, r, a = 0], i) => `<div class="fn-b${i === 11 ? " atual" : ""}">${a ? `<i class="ar" style="height:${a * 2}px"></i>` : ""}${r ? `<i style="height:${r * 2}px"></i>` : ""}<span>${m}</span></div>`).join("")}</div></div>
+  <div class="vcard" id="fn-atraso"><span class="av">VR</span><div class="tx"><b>15 anos da Valentina</b><span>3ª de 5 parcelas · venceu dia 10</span></div><span class="v">R$ 7.890</span><span class="tag" id="fn-tag">${ic("alerta")}atrasada</span></div>`;
+const barEls = $$("#fn-graf .fn-b");
+
+// 15 · equipe: cada um com a sua senha
+const EQ = [["MA", "#2d6a4f", "Marina", "Proprietária", [["Agenda", 1], ["Financeiro", 1]]], ["RC", "#2f6fe0", "Rafael", "Comercial", [["Agenda", 1], ["Financeiro", 0]]], ["BL", "#b4542f", "Beatriz", "Financeiro", [["Agenda", 1], ["Financeiro", 1]]]];
+$("#c-equipe").innerHTML = EQ.map(([ini, cor, n, p, ch], k) => `<div class="vcard eq" id="eq${k}" style="top:${572 + 262 * k}px">${k === 0 ? '<span class="exemplo">exemplo</span>' : ""}<span class="av" style="background:${cor}">${ini}</span>
+  <div class="nm"><b>${n}</b><span>${p}</span></div><div class="lin"><span class="senha" id="eq-s${k}">${ic("cadeado")}<b id="eq-d${k}"></b></span>${ch.map(([c, on], j) => `<span class="chip${on ? "" : " off"}" id="eq-c${k}${j}">${ic(on ? "check" : "cadeado")}<b>${c}</b></span>`).join("")}</div></div>`).join("");
+
+// 16 · ia: ideia sob medida (não é um botão do painel)
+$("#c-ia").innerHTML = `<div id="ia-dias">${["seg", "ter", "qua", "qui", "sex", "sáb", "dom"].map(d => `<span>${d}</span>`).join("")}</div>
+  <div id="ia-fita">${Array.from({ length: 6 }, (_, k) => `<div class="ia-q">${["Tem data livre em março?", "Quanto fica pra 120 pessoas?", "Dá pra visitar no sábado?"][k % 3]}<small>${["Carla", "Felipe", "Ana", "Denise", "Paulo", "Bruna"][k]}</small></div>`).join("")}</div>
+  <svg id="ia-brilho" viewBox="-130 -130 260 260"><defs><linearGradient id="ia-g" x1="0" y1="-1" x2="0" y2="1"><stop offset="0" stop-color="#f3b394"/><stop offset="1" stop-color="#b25134"/></linearGradient></defs>
+    <g id="ia-raios">${Array.from({ length: 12 }, (_, k) => { const a = k * 30 * Math.PI / 180; return `<line x1="${(70 * Math.cos(a)).toFixed(1)}" y1="${(70 * Math.sin(a)).toFixed(1)}" x2="${(120 * Math.cos(a)).toFixed(1)}" y2="${(120 * Math.sin(a)).toFixed(1)}" stroke="#e8855e" stroke-width="5" stroke-linecap="round"/>`; }).join("")}</g>
+    <circle r="90" fill="#e8855e" opacity=".14"/><path id="ia-estrela" d="M0 -92 C8 -30 30 -8 92 0 C30 8 8 30 0 92 C-8 30 -30 8 -92 0 C-30 -8 -8 -30 0 -92Z" fill="url(#ia-g)"/>
+    <path d="M58 -70 C61 -56 66 -51 80 -48 C66 -45 61 -40 58 -26 C55 -40 50 -45 36 -48 C50 -51 55 -56 58 -70Z" fill="#f6c9b5"/></svg>
+  <svg id="ia-fitam" viewBox="0 0 840 640"><rect x="10" y="10" width="820" height="${562 + 20}" rx="44" fill="none" stroke="#e8855e" stroke-width="4" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="100" id="ia-contorno"/>
+    ${Array.from({ length: 33 }, (_, k) => `<line x1="${40 + k * 24}" x2="${40 + k * 24}" y1="10" y2="${k % 4 === 0 ? 36 : 24}" stroke="#e8855e" stroke-width="3" opacity="0" class="ia-tick"/>`).join("")}</svg>
+  <div id="ia-painel"><div class="ia-cab"><span class="sp"><svg viewBox="0 0 24 24">${IC.brilho}</svg></span><b>Assistente</b><span class="sob" id="ia-sob">sob medida</span></div>
+    ${[["mensagem", "Responder as dúvidas de sempre"], ["sol", "Resumo do dia"], ["passos", "Próximos passos de cada festa"]].map(([i, n], k) => `<div class="ia-it" id="ia-i${k}"><i>${ic(i)}</i><b>${n}</b></div>`).join("")}
+    <div class="ia-dig" id="ia-dig"><i></i><i></i><i></i></div></div>
+  <p class="ia-nota" id="ia-nota">ideia feita para cada espaço</p>`;
+const iaQs = $$("#ia-fita .ia-q"), iaDias = $$("#ia-dias span"), iaTicks = $$("#c-ia .ia-tick");
+
+// 17 · dorme: a mesma sexta, 23h
+$("#c-dorme").innerHTML = `<div id="dm-quente"></div><div id="dm-luar"></div>
+  <div id="dm-janela"><div id="dm-lua"></div>${Array.from({ length: 14 }, (_, k) => `<span class="est" style="left:${Math.round(20 + h(k, 1) * 270)}px;top:${Math.round(20 + h(k, 2) * 330)}px"></span>`).join("")}</div>
+  <div id="dm-movel"><i></i><b></b></div><div id="dm-suporte"></div>
+  <div class="fone" id="dm-cel"><div class="visor"><div class="dm-tela"><small>sexta-feira</small><b>23:04</b></div><div class="dm-escuro" id="dm-escuro"></div></div></div>
+  <div class="vcard" id="dm-notif"><span class="exemplo">exemplo</span><div class="dn-cab"><i>${ic("ramo")}</i>Villa Alecrim<small>agora</small></div><b class="tt">Nova pré-reserva</b>
+    <div class="dn-chips">${[["quinze", "15 anos"], ["calendario", "sáb, 13/03"], ["pessoas", "120 convidados"], ["pacote", "Pacote Completo"]].map(([i, n], k) => `<span class="dn-chip" id="dn-c${k}">${ic(i)}${n}</span>`).join("")}</div></div>`;
+const estrelas = $$("#dm-janela .est");
+
+// 18–19 · marca e convite
+{
+  const M = F.marca.palavras.slice(1), C = F.cta.palavras, ip = C.findIndex(p => /PAINEL/.test(p.p));
+  const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 190 : 255; return `${(540 + r * Math.cos(a)).toFixed(1)},${(770 + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
+  $("#c-fim").innerHTML = `<svg id="mc-estrela" viewBox="0 0 1080 1920"><defs><radialGradient id="mc-g" cx="540" cy="770" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".5"/><stop offset=".6" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="540" cy="770" r="420" fill="url(#mc-g)" id="mc-halo"/><polygon points="${est}" fill="#e8855e" fill-opacity=".13" id="mc-poli"/></svg>
+    <div id="mc-simbolo"><span class="simbolo"></span></div><div id="mc-nome">renderiza</div>
+    <p id="mc-linha">${M.map((p, k) => `<span class="w${k < 3 ? " forte" : ""}">${p.p.replace(/\.$/, "")}</span>`).join(" ")}</p>
+    <div id="cta-botao"><span id="cta-luz"></span>${ic("mensagem", 'style="stroke-width:2.2"')}<span>Comenta <em id="cta-painel">PAINEL</em></span></div>
+    <p id="cta-texto">${C.slice(ip + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
+    <p id="cta-nota">Villa Alecrim é um espaço fictício.</p>`;
+}
+const mcPal = $$("#mc-linha .w").map((el, k) => ({ el, ini: F.marca.palavras[k + 1].ini }));
+const ctaPal = (() => { const C = F.cta.palavras, ip = C.findIndex(p => /PAINEL/.test(p.p)); return $$("#cta-texto .w").map((el, k) => ({ el, ini: C[ip + 1 + k].ini })); })();
+
+// poeira (luz no ar), sempre igual a cada gravação
+const POEIRA = Array.from({ length: 30 }, (_, i) => { const el = document.createElement("i"); $("#poeira").appendChild(el); return { el, x: h(i, 1) * 1080, y: h(i, 2) * 2100, v: 14 + h(i, 3) * 38, s: 0.4 + h(i, 4) * 1.1, f: h(i, 5) * 6.28 }; });
+
+// ---------- legendas: frases longas viram pedaços de até duas linhas ----------
+function partir(ws) {
+  const txt = a => a.map(p => p.p).join(" ");
+  for (let k = 0; k < ws.length - 1; k++) if (/[.?!]$/.test(ws[k].p)) return [...partir(ws.slice(0, k + 1)), ...partir(ws.slice(k + 1))];
+  if (txt(ws).length <= 44) return [ws];
+  let melhor = 1, nota = Infinity;
+  for (let k = 1; k < ws.length; k++) {
+    let n = Math.abs(txt(ws.slice(0, k)).length - txt(ws.slice(k)).length);
+    if (/[,:;]$/.test(ws[k - 1].p)) n -= 20; else if (/^(e|com|sem|para|que)$/i.test(ws[k].p)) n -= 6;
+    if (n < nota) { nota = n; melhor = k; }
+  }
+  return [...partir(ws.slice(0, melhor)), ...partir(ws.slice(melhor))];
+}
+const FRIAS = ["noite", "conversas", "caderno", "data", "pix"], CLARAS = ["agenda", "painel", "agenda-equipe", "ficha", "contrato", "financeiro", "equipe"];
+const FORA = ["virada", "marca", "cta"]; // essas falas viram o texto grande da própria cena
+const pedacos = [];
+for (const f of frases) for (const ws of partir(f.palavras)) pedacos.push({ f, ws });
+pedacos.forEach((p, i) => { p.de = i === 0 ? -1 : p.ws[0].ini - 0.06; });
+pedacos.forEach((p, i) => { p.ate = i < pedacos.length - 1 ? pedacos[i + 1].de : DUR + 1; });
+for (const p of pedacos) {
+  if (FORA.includes(p.f.cena)) continue;
+  p.el = document.createElement("p");
+  p.el.className = "fala " + (FRIAS.includes(p.f.cena) ? "fria" : CLARAS.includes(p.f.cena) ? "clara" : "quente");
+  p.wel = p.ws.map(w => { const s = document.createElement("span"); s.className = "w" + (w.tom ? " tom" : ""); s.textContent = w.p; p.el.append(s, " "); return s; });
+  $("#falas").appendChild(p.el);
+}
+
+// ---------- o dedo que toca ----------
+const TOQUES = [
+  [T.link, () => centro($("#ig-link")), 0],
+  [T.festa, () => centro($("#ag-f-quinze")), 1], [T.livre + 0.06, () => centro(dia13), 1], [T.convidados + 0.62, () => centro($("#ag-p-Completo")), 1], [T.pre, () => centro($("#ag-btn")), 1],
+  [T.aceita, () => centro($("#ct-cx")), 1], [T.aceita + 0.4, () => centro($("#ct-btn")), 1],
+];
+const ALVO = tq => tq.xy || tq[1](); // onde o alvo estava na hora do toque (o dia 13 anda com o trem de passos depois)
+function qDedo(t) {
+  const dedo = $("#dedo"), onda = $("#dedo-onda");
+  let p = null, n = null;
+  for (const tq of TOQUES) { if (tq[0] <= t) p = tq; else if (!n) n = tq; }
+  let alvo = null, o = 0, aperta = 1, claro = 0;
+  if (p && t - p[0] < 0.3) { alvo = ALVO(p); o = 1; claro = p[2]; if (t - p[0] < 0.22) aperta = 0.84; }
+  else if (n && n[0] - t < 0.62) {
+    claro = n[2];
+    if (p && n[0] - p[0] < 1.0) { const a = ALVO(p), b = ALVO(n), x = ease(fase(t, p[0] + 0.25, n[0] - 0.06)); alvo = [lerp(a[0], b[0], x), lerp(a[1], b[1], x)]; o = 1; }
+    else { const b = ALVO(n), x = ease(fase(t, n[0] - 0.62, n[0] - 0.12)); alvo = [b[0] + 140 * (1 - x), b[1] + 220 * (1 - x)]; o = fase(t, n[0] - 0.62, n[0] - 0.42); }
+  } else if (p && t - p[0] < 0.6) { const a = ALVO(p); const x = fase(t, p[0] + 0.3, p[0] + 0.6); alvo = [a[0] + 60 * x, a[1] + 90 * x]; o = 1 - x; claro = p[2]; }
+  dedo.className = claro ? "claro" : ""; onda.className = claro ? "claro" : "";
+  if (alvo) { dedo.style.left = alvo[0] + "px"; dedo.style.top = alvo[1] + "px"; }
+  dedo.style.opacity = o; dedo.style.transform = `scale(${aperta})`;
+  let ow = 0, oxy = null;
+  for (const tq of TOQUES) { const x = fase(t, tq[0], tq[0] + 0.55); if (x > 0 && x < 1) { ow = x; oxy = tq; } }
+  if (oxy) { const a = ALVO(oxy); onda.style.left = a[0] + "px"; onda.style.top = a[1] + "px"; onda.className = oxy[2] ? "claro" : ""; }
+  onda.style.opacity = ow > 0 ? 1 - ow : 0; onda.style.transform = `scale(${1 + ow * 1.7})`;
+}
+
+// ====================== quadro a quadro ======================
+const JANELA = {
+  noite: [-1, 6.9], conversas: [7.3, 12.05], caderno: [12.3, 15.9], data: [15.45, 19.2], pix: [19.85, 23.0], virada: [22.9, 26.4], insta: [25.85, 30.65],
+  sol: [30.1, 37.45], agenda: [36.75, 45.0], painel: [43.5, 46.45], ae: [45.85, 49.25], ficha: [48.75, 53.45], contrato: [52.95, 56.95], fin: [56.45, 60.15],
+  equipe: [59.7, 63.0], ia: [62.65, 69.75], dorme: [69.25, 77.25], fim: [76.85, 99],
+};
+const POSE_A = [[-1, 290, 790, 1, -2, 1], [6.22, 290, 790, 1, -2, 1], [6.9, 290, 600, 1.1, 0, 1], [11.72, 290, 600, 1.1, 0, 1], [12.35, 290, 1960, 1, 9, 0],
+  [18.5, 290, 1960, 1, -7, 0], [19.05, 290, 590, 1.08, 0, 1], [T.agora, 290, 590, 1.08, 0, 1], [T.agora + 0.55, 290, 760, 0.45, -40, 0]];
+function pose(P, t) {
+  if (t <= P[0][0]) return P[0];
+  for (let k = 0; k < P.length - 1; k++) if (t < P[k + 1][0]) { const a = P[k], b = P[k + 1], x = ease(fase(t, a[0], b[0])); return a.map((v, i) => lerp(v, b[i], x)); }
+  return P[P.length - 1];
+}
+// rolagem da conversa do Pix: passa pelo comprovante no "Pix", depois vai e volta procurando
+const ROLA = [[18.5, -80], [18.95, 0], [T.juliana - 0.12, S_C], [19.95, S_C + 1250], [20.55, S_C + 980], [21.15, S_C + 2050], [21.7, S_C + 1720], [22.35, S_C + 2950], [22.96, S_C + 3550], [23.6, S_C + 4100]];
+function rolagem(t) {
+  const K = ROLA;
+  if (t <= K[0][0]) return [K[0][1], 0];
+  for (let k = 0; k < K.length - 1; k++) if (t < K[k + 1][0]) {
+    const [t0, s0] = K[k], [t1, s1] = K[k + 1], d = t1 - t0, u = (t - t0) / d;
+    const m0 = k > 0 ? (s1 - K[k - 1][1]) / (t1 - K[k - 1][0]) : 0, m1 = k < K.length - 2 ? (K[k + 2][1] - s0) / (K[k + 2][0] - t0) : 0;
+    const h00 = 2 * u ** 3 - 3 * u ** 2 + 1, h10 = u ** 3 - 2 * u ** 2 + u, h01 = -2 * u ** 3 + 3 * u ** 2, h11 = u ** 3 - u ** 2;
+    const s = h00 * s0 + h10 * d * m0 + h01 * s1 + h11 * d * m1;
+    const v = ((6 * u ** 2 - 6 * u) * s0 + (3 * u ** 2 - 4 * u + 1) * d * m0 + (-6 * u ** 2 + 6 * u) * s1 + (3 * u ** 2 - 2 * u) * d * m1) / d;
+    return [s, v];
+  }
+  return [K[K.length - 1][1], 0];
+}
+
+function qNoite(t) {
+  const fora = ease(fase(t, 6.1, 6.55));
+  const soco = t >= T.h23 ? 1 - sai(fase(t, T.h23, T.h23 + 0.55)) : 0;
+  pos($("#n-relogio"), { y: -110 * fora + Math.sin(t * 0.8) * 4, s: 1 + 0.05 * soco, o: 1 - fora, b: 10 * fora });
+  $("#n-dp").style.opacity = Math.floor(t * 2) % 2 === 0 ? 1 : 0.25;
+  pos($("#n-tag"), { y: -40 * fora, o: 1 - fora });
+  let fl = 0; for (const c of CHEGA) if (c > 0) fl = Math.max(fl, pulso(t, c, 0.35));
+  pos($("#n-luz"), { s: 1 + 0.03 * Math.sin(t * 1.3) + 0.05 * fl, o: (0.75 + 0.25 * fl) * (1 - 0.7 * fora) });
+}
+function qFoneA(t) {
+  const [, x, y, s, r, o] = pose(POSE_A, t), fA = $("#foneA");
+  fA.style.display = o > 0.002 ? "" : "none";
+  if (o <= 0.002) return;
+  fA.querySelector(".exemplo").style.opacity = fase(t, 6.3, 6.6);
+  const bob = t < 6.4 ? Math.sin(t * 1.25) * 7 : t > 19 && t < 22.96 ? Math.sin(t * 1.1) * 4 : 0;
+  pos(fA, { x: x - 290, y: y - 790 + bob, s, r: r + (t < 6.4 ? Math.sin(t * 0.7) * 0.6 : 0), o, b: t > T.agora ? 12 * fase(t, T.agora, T.agora + 0.45) : 0 });
+  // tela de bloqueio
+  const sobe = ease(fase(t, 6.3, 6.78)), bl = $("#a-bloq");
+  bl.style.transform = `translateY(${-1010 * sobe}px)`; bl.style.display = sobe >= 1 ? "none" : "";
+  if (sobe < 1) {
+    let n = 0, ult = -9; for (const c of CHEGA) if (c <= t) { n++; ult = c; }
+    $("#a-badge").textContent = n; $("#a-badge").style.transform = `scale(${1 + 0.35 * (1 - sai(fase(t, ult, ult + 0.22)))})`;
+    $("#a-topo").style.transform = `scale(${1 + 0.07 * pulso(t, T.whats - 0.05, 0.5)})`;
+    notifEls.forEach((el, i) => {
+      let k = 0; for (let j = i + 1; j < CHEGA.length; j++) k += sai(fase(t, CHEGA[j], CHEGA[j] + 0.22));
+      const e = fase(t, CHEGA[i] + 0.08, CHEGA[i] + 0.34), y2 = 200 + 120 * k;
+      pos(el, { y: y2, s: lerp(0.84, 1, volta(e)), o: e > 0 ? Math.min(1, e * 2.5) * (1 - fase(y2, 860, 990)) : 0 });
+    });
+  }
+  // lista de conversas
+  const lista = $("#a-lista"); lista.style.display = t > 6.1 && t < 12.5 ? "" : "none";
+  if (t > 6.1 && t < 12.5) {
+    $("#a-linhas").style.transform = `translateY(${-250 * ease(fase(t, 6.9, 11.7))}px)`;
+    let tot = 0;
+    linhaEms.forEach((em, r) => { const n = LINHAS[r][2] + Math.floor(clamp((t - 6.5 - h(r, 3) * 1.5) * (0.4 + h(r, 5) * 0.9), 0, 7)); em.textContent = n; tot += n; });
+    $("#a-nl").textContent = tot;
+  }
+  // conversa do Pix
+  const chat = $("#a-chat"); chat.style.display = t > 18.3 ? "" : "none";
+  if (t > 18.3) {
+    const [s, v] = rolagem(t);
+    const rolo = $("#a-rolo");
+    rolo.style.transform = `translateY(${(CH_VIS - CH_TOT + s).toFixed(1)}px)`;
+    rolo.style.filter = Math.abs(v) > 600 ? `blur(${Math.min(3, Math.abs(v) / 1600).toFixed(1)}px)` : "";
+    const pc = CH_VIS - PIX.b - PIX.h / 2 + s - CH_VIS / 2; // distância do comprovante ao meio da tela
+    const g = clamp(1 - Math.abs(pc) / 220);
+    $("#a-pix").style.boxShadow = g > 0 ? `0 0 0 ${(4 * g).toFixed(1)}px rgba(43,179,163,${g.toFixed(2)}),0 0 ${(40 * g).toFixed(0)}px rgba(43,179,163,${(0.7 * g).toFixed(2)})` : "";
+    let d = DATAS[0]; for (const it of DATAS) if (it.b < s + CH_VIS - 40) d = it;
+    $("#a-fixa").textContent = s < 120 ? "Hoje" : d.txt;
+    chat.style.filter = t > 22.35 ? `saturate(${(1 - 0.7 * fase(t, 22.35, 22.95)).toFixed(2)})` : "";
+  }
+}
+function qConversas(t) {
+  const tremor = fase(t, 10.85, 11.5) * (1 - fase(t, 11.62, 11.75));
+  const sx = Math.sin(t * 87) * 8 * tremor, sy = Math.cos(t * 73) * 6 * tremor, fora = fase(t, 11.62, 11.98);
+  for (const b of BALOES) {
+    const x = fase(t, b.t, b.t + 0.32), cx = b.x + (b.w || 400) / 2 - 540, cy = b.y + (b.h || 100) / 2 - 1040;
+    pos(b.el, { x: sx + cx * 0.9 * sai(fora), y: sy + cy * 0.9 * sai(fora) + (1 - sai(x)) * 24, s: (x > 0 ? lerp(0.55, 1, volta(x)) : 0.55) * (1 + 0.03 * fase(t, 10.85, 11.6)), r: b.r, o: (x > 0 ? Math.min(1, x * 4) : 0) * (1 - fora) * (b.grande ? 1 : 0.92), b: 8 * fora });
+  }
+}
+function qCaderno(t) {
+  const fora = fase(t, 15.42, 15.78);
+  const obj = (el, t0, r0, r1, fx, fy, f0, antes = 0) => {
+    const x = fase(t, t0 - 0.06, t0 + 0.34), g = antes ? sai(fase(t, t0 - antes, t0 - 0.06)) : 0; // g: vem de longe antes da palavra
+    pos(el, { x: fx * 300 * sai(fora), y: (1 - sai(x)) * 90 + Math.sin(t * 1.5 + f0) * 6 + fy * 300 * sai(fora), s: (x > 0 ? lerp(0.45, 1, volta(x)) : lerp(0.2, 0.45, g)) * (1 - 0.3 * fora),
+      r: lerp(r0, r1, sai(x)) + Math.sin(t * 1.1 + f0) * 0.8, o: (x > 0 ? Math.min(1, x * 4) : 0.45 * g) * (1 - fora), b: x > 0 ? 10 * fora : 9 });
+  };
+  obj($("#k-caderno"), T.caderno, -22, -6, -1, -0.6, 0, 0.55);
+  obj($("#k-planilha"), T.planilha, 18, 4, 1, -0.4, 1.7);
+  obj($("#k-cabeca"), T.cabeca, -8, 0, 0, 1, 3.1);
+  const xn = fase(t, T.dela - 0.04, T.dela + 0.3);
+  pos($("#k-nuvem"), { x: 120 * sai(fora), y: Math.sin(t * 1.8) * 5 - 200 * sai(fora), s: xn > 0 ? lerp(0.3, 1, volta(xn)) : 0.3, o: (xn > 0 ? Math.min(1, xn * 4) : 0) * (1 - fora), b: 8 * fora });
+  $("#k-nuvem").textContent = ["sáb 20?", "Pix?", "120?", "visita?"][t < T.dela ? 0 : Math.floor((t - T.dela) / 0.3) % 4];
+}
+function qData(t) {
+  const ent = fase(t, S.data - 0.04, S.data + 0.4), fora = fase(t, 18.78, 19.15);
+  const z = ease(fase(t, 16.15, 17.35)), s = lerp(1, 1.6, z) * lerp(0.9, 1, saiX(ent));
+  const cx = lerp(835, 505, z), cy = lerp(1020, 1080, z);
+  $("#d-cal .d-topo").style.opacity = (1 - fase(t, 16.3, 16.9)).toFixed(3);
+  const cal = $("#d-cal");
+  cal.style.transform = `translate(${(cx - 99 - s * 736 - 360 * sai(fora)).toFixed(1)}px,${(cy - 600 - s * 420 + (1 - saiX(ent)) * 120).toFixed(1)}px) scale(${s.toFixed(4)})`;
+  cal.style.opacity = Math.min(1, ent * 3) * (1 - fora);
+  const col = fase(t, T.sabado - 0.05, T.sabado + 0.4);
+  $("#d-col").style.transform = `scaleY(${sai(col)})`; $("#d-col").style.opacity = col > 0 ? 1 - 0.4 * fase(t, T.duas, T.duas + 0.5) : 0;
+  const TI = T.mesma + 0.08;
+  $("#d-alerta").style.opacity = fase(t, TI, TI + 0.12);
+  const [eD, eA] = [$("#d-tag1"), $("#d-tag2")], wD = eD.offsetWidth, wA = eA.offsetWidth, yC = 1038;
+  const entrada = saiX(fase(t, T.duas - 0.05, T.duas + 0.75)), quase = ease(fase(t, T.quase, TI - 0.12)), corre = entra(fase(t, TI - 0.12, TI)), bate = fase(t, TI, TI + 0.5);
+  const vib = t < TI ? Math.sin(t * 60) * 3 * fase(t, T.quase, TI - 0.15) : 0;
+  let xD = lerp(-wD - 60, 505 - wD - 100, entrada) + 60 * quase, xA = lerp(1140, 505 + 100, entrada) - 60 * quase;
+  xD = lerp(xD, 505 - wD + 8, corre); xA = lerp(xA, 505 - 8, corre);
+  let yD = yC, yA = yC, rD = 0, rA = 0;
+  if (t >= TI) { const v = volta(bate); xD = lerp(505 - wD + 8, 505 - wD + 44, v); yD = yC - 64 * v; rD = -6 * v; xA = lerp(497, 505 - 44, v); yA = yC + 64 * v; rA = 5 * v; }
+  pos(eD, { x: xD - 360 * sai(fora) + vib, y: yD, r: rD, o: (entrada > 0.01 ? 1 : 0) * (1 - fora) });
+  pos(eA, { x: xA - 360 * sai(fora) - vib, y: yA, r: rA, o: (entrada > 0.01 ? 1 : 0) * (1 - fora) });
+  $("#d-vermelho").style.opacity = t >= TI ? 0.9 * (1 - sai(fase(t, TI, TI + 0.65))) : 0;
+  const on = fase(t, TI, TI + 0.6);
+  pos($("#d-onda"), { s: lerp(0.4, 2.8, sai(on)), o: on > 0 && on < 1 ? 1 - on : 0 });
+  const pl = fase(t, T.dataD, T.dataD + 0.3);
+  pos($("#d-pilula"), { x: -360 * sai(fora), y: (1 - sai(pl)) * 24, s: pl > 0 ? lerp(0.6, 1, volta(pl)) : 0.6, o: (pl > 0 ? 1 : 0) * (1 - fora) });
+  const tr = t >= TI ? 1 - fase(t, TI, TI + 0.45) : 0;
+  $("#c-data").style.transform = tr > 0 ? `translate(${(Math.sin(t * 95) * 16 * tr).toFixed(1)}px,${(Math.cos(t * 81) * 12 * tr).toFixed(1)}px)` : "";
+}
+function qPix(t) {
+  const l = fase(t, T.esta - 0.1, T.esta + 0.35), u = t - T.esta, fim = fase(t, 22.45, 22.95);
+  const lx = 540 + 190 * Math.sin(u * 1.9) + 50 * Math.sin(u * 4.3), ly = 1080 + 230 * Math.sin(u * 2.6 + 0.8);
+  pos($("#lupa"), { x: lx - 140, y: ly - 140 + 320 * (1 - saiX(l)) + 260 * entra(fim), r: -12 + 10 * Math.sin(u * 2.1) + 30 * fim, s: l > 0 ? lerp(0.6, 1, volta(l)) : 0.6, o: (l > 0 ? 1 : 0) * (1 - fim) });
+}
+function qVirada(t) {
+  const sc = $("#v-scan");
+  sc.style.opacity = t >= T.agora ? (0.95 * (1 - fase(t, T.agora, T.agora + 0.95))).toFixed(3) : 0;
+  sc.style.transform = `translateY(${((t * 700) % 7).toFixed(1)}px)`;
+  const ent = fase(t, T.agora + 0.04, T.agora + 0.5), giro = fase(t, T.agora, T.sexta + 0.32);
+  const m = 24 + 1440 * (1 - saiX(giro)), hh = 332 + (m - 24) / 12, sec = t < T.sexta + 0.32 ? -2600 * (1 - saiX(giro)) : 6 * (t - T.sexta - 0.32);
+  $("#vr-m").setAttribute("transform", `rotate(${m.toFixed(2)})`); $("#vr-h").setAttribute("transform", `rotate(${hh.toFixed(2)})`); $("#vr-s").setAttribute("transform", `rotate(${sec.toFixed(2)})`);
+  const q = ease(fase(t, T.agora + 0.15, T.sexta + 0.45)), cor = mistura("#9db8c9", "#f1eee9", q);
+  for (const id of ["#vr-m", "#vr-h"]) $(id).setAttribute("stroke", cor);
+  $("#vr-marcas").setAttribute("stroke", mistura("#5d7686", "#b9bfc1", q)); $("#vr-aro").setAttribute("stroke", mistura("#3d5566", "#5a4038", q));
+  $("#vr-txt").setAttribute("fill", mistura("#7f96a5", "#e8855e", q)); $("#vr-gl").setAttribute("opacity", (0.25 + 0.75 * q).toFixed(2));
+  const arco = ease(fase(t, T.outro - 0.05, T.outro + 0.85));
+  for (const id of ["#vr-arco", "#vr-arco2"]) $(id).setAttribute("stroke-dashoffset", (100 - 100 * arco).toFixed(2));
+  const fora = fase(t, 25.85, 26.25);
+  pos($("#v-relogio"), { y: (1 - saiX(ent)) * 90 + 160 * sai(fora), s: lerp(0.65, 1, saiX(ent)) * (1 - 0.3 * sai(fora)) * (1 + 0.03 * pulso(t, T.outro + 0.6, 0.6)), r: (1 - saiX(ent)) * 25, o: Math.min(1, ent * 2) * (1 - fora), b: 12 * sai(fora) + (1 - ent) * 8 });
+  const foraT = fase(t, 25.6, 25.9);
+  for (const w of vPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 26 - 60 * sai(foraT), s: x > 0 ? lerp(0.86, 1, volta(x)) : 0.86, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - foraT), b: 8 * foraT }); }
+}
+let LINK = [540, 1070];
+function qInsta(t) {
+  const ent = saiX(fase(t, S.insta - 0.1, S.insta + 0.55)), z = ease(fase(t, T.bio - 0.02, T.bio + 0.56)), k = lerp(1, 3.6, z);
+  const O = [540, 600], tx = LINK[0] + k * (O[0] - LINK[0]) - O[0], ty = LINK[1] + k * (O[1] - LINK[1]) - O[1];
+  pos($("#foneB"), { x: tx, y: ty + (1 - ent) * 1250, s: k, r: (1 - ent) * 9, o: 1 - fase(t, T.bio + 0.3, T.bio + 0.56), b: 10 * fase(t, T.bio + 0.15, T.bio + 0.5) });
+  tiles.forEach((el, i) => { const x = fase(t, T.descobrem - 0.25 + 0.05 * i, T.descobrem + 0.1 + 0.05 * i); el.style.opacity = x > 0 ? Math.min(1, x * 3) : 0; el.style.transform = `scale(${x > 0 ? lerp(0.7, 1, volta(x)) : 0.7})`; });
+  [0, 4, 7].forEach((i, j) => { const x = fase(t, T.instagram + 0.15 * j, T.instagram + 0.15 * j + 0.6), c = tiles[i].querySelector(".cor"); c.style.opacity = x > 0 && x < 1 ? Math.sin(Math.PI * x) * 1.4 : 0; c.style.transform = `scale(${lerp(0.4, 1.1, sai(x))})`; });
+  const hn = pulso(t, T.villa - 0.05, 0.9);
+  $("#ig-nome").style.background = hn > 0 ? `rgba(0,149,246,${(0.14 * hn).toFixed(3)})` : "";
+  $("#ig-rolo").style.transform = `translateY(${(-230 * ease(fase(t, T.instagram - 0.1, T.instagram + 0.45)) * (1 - ease(fase(t, T.tocam - 0.35, T.tocam + 0.12)))).toFixed(1)}px)`;
+  const lk = fase(t, T.link, T.link + 0.12) * (1 - fase(t, T.bio + 0.3, T.bio + 0.5));
+  $("#ig-link").style.background = lk > 0 ? `rgba(0,149,246,${(0.18 * lk).toFixed(3)})` : "";
+}
+function qSol(t) {
+  const u = t - S.sol, fora = fase(t, 36.95, 37.4);
+  let pc = 0; for (const a of ACESO) pc = Math.max(pc, pulso(t, a + 0.5, 0.45));
+  const c = fase(t, S.sol - 0.22, S.sol + 0.45), todos = pulso(t, ACESO[7] + 0.55, 0.9);
+  pos($("#s-site"), { s: lerp(2.4, 1, saiX(c)) * (1 + 0.035 * pc + 0.04 * todos) * (1 + 0.08 * sai(fora)), o: c > 0 ? Math.min(1, c * 2.5) : 0, b: (1 - c) * 6 });
+  const e = saiX(fase(t, S.sol - 0.05, S.sol + 0.9));
+  $("#s-estrela").setAttribute("transform", `translate(${SOL.x} ${SOL.y}) rotate(${(4 * u).toFixed(2)}) scale(${lerp(0.3, 1, e).toFixed(3)}) translate(${-SOL.x} ${-SOL.y})`);
+  $("#s-orbita").setAttribute("transform", `rotate(${(-2.5 * u).toFixed(2)} ${SOL.x} ${SOL.y})`);
+  $("#s-orbita").setAttribute("stroke-opacity", (0.35 * e).toFixed(2));
+  pos($("#s-halo"), { s: lerp(0.3, 1, e) * (1 + 0.05 * Math.sin(t * 1.3) + 0.08 * todos), o: e });
+  PONTAS.forEach((_, i) => {
+    const tf = T.junta + 0.08 * i, x = fase(t, tf, tf + 0.6), ee = saiX(x), a = (-90 + 45 * i + lerp(40, 0, ee)) * Math.PI / 180, rad = lerp(820, SOL.R, ee);
+    const el = $("#s-p" + i), on = t >= ACESO[i];
+    el.classList.toggle("on", on);
+    pos(el, { x: SOL.x + rad * Math.cos(a), y: SOL.y + rad * Math.sin(a) + Math.sin(t * 1.4 + i * 0.8) * 5, s: x > 0 ? lerp(0.5, 1, volta(x)) * (1 + 0.14 * pulso(t, ACESO[i], 0.4)) : 0.5, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - sai(fora)) });
+    const pg = fase(t, ACESO[i], ACESO[i] + 0.6); const an = el.querySelector(".anel");
+    an.style.opacity = pg > 0 && pg < 1 ? 1 - pg : 0; an.style.transform = `scale(${1 + 0.9 * sai(pg)})`;
+    $("#s-r" + i).setAttribute("stroke-opacity", ((0.18 + 0.5 * fase(t, ACESO[i], ACESO[i] + 0.5)) * (x > 0 ? ee : 0) * (1 - fora)).toFixed(3));
+    let d = -1; if (t >= ACESO[i]) { const k2 = Math.floor((t - ACESO[i]) / 1.9), t0 = ACESO[i] + 1.9 * k2; d = fase(t, t0, t0 + 0.62); if (d >= 1) d = -1; }
+    const of = d < 0 ? 300 : lerp(20, -100, sai(d));
+    $("#s-l" + i).setAttribute("stroke-dashoffset", of.toFixed(1)); $("#s-m" + i).setAttribute("stroke-dashoffset", (d < 0 ? 300 : lerp(16, -100, sai(d))).toFixed(1));
+  });
+}
+function qAgenda(t) {
+  const ent = saiX(fase(t, S.agenda - 0.05, S.agenda + 0.55)), sai2 = fase(t, S.painel - 0.32, S.painel + 0.12);
+  pos($("#foneC"), { x: -140 * sai(sai2), y: (1 - ent) * 900 + 950 * entra(sai2), r: lerp(6, -2, ent) - 8 * sai2, o: ent > 0 ? 1 - fase(t, S.painel - 0.05, S.painel + 0.12) : 0 });
+  const passo = ease(fase(t, T.festa + 0.32, T.festa + 0.68)) + ease(fase(t, T.livre + 0.3, T.livre + 0.6));
+  $("#ag-trem").style.transform = `translateX(${(-460 * passo).toFixed(1)}px)`;
+  const ok = fase(t, T.ninguem - 0.1, T.ninguem + 0.3);
+  $("#ag-trilha").style.width = `${25 + 25 * passo + 25 * ok}%`;
+  $("#ag-passo").textContent = `Passo ${1 + Math.round(passo) + (ok > 0.5 ? 1 : 0)} de 4`;
+  $("#ag-f-quinze").classList.toggle("sel", t >= T.festa + 0.04);
+  const okf = $("#ag-f-quinze .ag-ok"), xo = fase(t, T.festa + 0.04, T.festa + 0.3); okf.style.opacity = xo > 0 ? 1 : 0; okf.style.transform = `scale(${xo > 0 ? volta(xo) : 0})`;
+  livres.forEach((d, i) => { const p = pulso(t, T.dataA + 0.02 * (i % 7), 0.5); d.style.borderColor = p > 0 ? `rgba(45,106,79,${(0.3 + 0.7 * p).toFixed(2)})` : ""; d.style.transform = p > 0 ? `scale(${(1 + 0.06 * p).toFixed(3)})` : ""; });
+  dia13.classList.toggle("sel", t >= T.livre + 0.08);
+  dia13.style.transform = t >= T.livre + 0.08 ? `scale(${(1 + 0.15 * pulso(t, T.livre + 0.08, 0.35)).toFixed(3)})` : "";
+  $("#ag-num").textContent = Math.round(120 * saiX(fase(t, T.quantos - 0.05, T.convidados + 0.4)));
+  const tp = T.convidados + 0.62; $("#ag-p-Completo").classList.toggle("sel", t >= tp + 0.04);
+  const pr = t >= T.pre && t < T.pre + 0.24, env = t >= T.pre + 0.18 && t < T.ninguem - 0.05;
+  $("#ag-btn").style.transform = `scale(${pr ? 0.95 : 1})`; $("#ag-btn").style.background = pr ? "#1d4a37" : "";
+  $("#ag-gira").style.display = env ? "block" : "none"; $("#ag-gira").style.transform = `rotate(${(t * 720) % 360}deg)`;
+  $("#ag-btn-txt").textContent = env ? "Enviando…" : "Pedir pré-reserva";
+  pos($("#ag-pronto"), { o: ok, y: (1 - sai(ok)) * 30 });
+  const ck = fase(t, T.ninguem, T.ninguem + 0.4); $("#ag-okc").style.transform = `scale(${ck > 0 ? volta(ck) : 0.3})`;
+  // o resumo do pedido, e depois o voo até o painel
+  const re = saiX(fase(t, S.agenda + 0.1, S.agenda + 0.7));
+  const SEL = [T.festa + 0.5, T.livre + 0.55, T.convidados + 0.45, tp + 0.5];
+  const DE = [() => centro($("#ag-f-quinze")), () => centro(dia13), () => centro($("#ag-num")), () => centro($("#ag-p-Completo"))];
+  SEL.forEach((ts, i) => {
+    const x = fase(t, ts, ts + 0.3); $("#rs-sk" + i).style.opacity = x > 0 ? 0 : 1;
+    const v = $("#rs-v" + i); v.style.opacity = x > 0 ? 1 : 0; v.style.transform = `scale(${x > 0 ? volta(x) : 0.5})`;
+    const voa = $("#ag-voa" + i), y = fase(t, ts - 0.45, ts);
+    if (y > 0 && y < 1) {
+      const a = DE[i](), b = centro(v), k2 = ease(y), mx = lerp(a[0], b[0], k2), my = lerp(a[1], b[1], k2) - 160 * Math.sin(Math.PI * k2);
+      voa.style.left = mx + "px"; voa.style.top = my + "px"; voa.style.opacity = 1; voa.style.transform = `translate(-50%,-50%) scale(${lerp(0.8, 1.1, Math.sin(Math.PI * k2)).toFixed(3)})`;
+    } else voa.style.opacity = 0;
+  });
+  const rok = fase(t, T.ninguem + 0.05, T.ninguem + 0.4); $("#rs-ok").style.opacity = rok; $("#rs-ok").style.transform = `scale(${rok > 0 ? volta(rok) : 0.6})`;
+  const voo = fase(t, T.cai - 0.05, T.cai + 0.62), ergue = ease(fase(t, S.painel, T.cai - 0.05));
+  const rs = $("#ag-resumo");
+  if (voo <= 0) pos(rs, { x: (1 - re) * 420 - 40 * ergue, y: -60 * ergue + Math.sin(t * 1.2) * 4, r: lerp(6, 0, re) - 3 * ergue, s: 1 + 0.03 * ergue + 0.03 * pulso(t, T.ninguem + 0.05, 0.4), o: re > 0 ? 1 : 0 });
+  else {
+    const k2 = ease(voo), P0 = [766 - 40, 913 - 60], P1 = [520, 500], P2 = LP_NOVO;
+    const bx = (1 - k2) ** 2 * P0[0] + 2 * (1 - k2) * k2 * P1[0] + k2 ** 2 * P2[0], by = (1 - k2) ** 2 * P0[1] + 2 * (1 - k2) * k2 * P1[1] + k2 ** 2 * P2[1];
+    pos(rs, { x: bx - 766, y: by - 913, r: -3 - 9 * Math.sin(Math.PI * k2), s: lerp(1.03, 0.18, k2), o: 1 - fase(voo, 0.85, 1), b: 4 * Math.sin(Math.PI * k2) });
+  }
+}
+let LP_NOVO = [700, 1080];
+function qPainel(t) {
+  const ent = saiX(fase(t, S.painel - 0.02, S.painel + 0.55)), z = ease(fase(t, S["agenda-equipe"] - 0.2, S["agenda-equipe"] + 0.35));
+  pos($("#laptop"), { y: (1 - ent) * 820, s: lerp(0.9, 1, ent) * lerp(1, 2.1, z), o: (ent > 0 ? 1 : 0) * (1 - fase(t, S["agenda-equipe"] - 0.05, S["agenda-equipe"] + 0.3)), b: 8 * z });
+  const pousa = T.cai + 0.6, nv = fase(t, pousa - 0.05, pousa + 0.15);
+  $("#lp-novo").style.opacity = nv; $("#lp-novo").style.transform = `scale(${nv > 0 ? volta(nv) : 0.6})`;
+  $("#lp-badge").style.opacity = t >= pousa ? 1 : 0; $("#lp-badge").style.transform = `scale(${t >= pousa ? volta(fase(t, pousa, pousa + 0.3)) : 0})`;
+  $("#lp-ped").textContent = t >= pousa ? 9 : 8;
+  $("#lp-brilho").style.opacity = (0.9 * Math.max(pulso(t, pousa, 0.6), pulso(t, T.painel, 0.7))).toFixed(3);
+  const ts = fase(t, pousa + 0.02, pousa + 0.42), tz = z;
+  pos($("#lp-toast"), { y: (1 - sai(ts)) * -40 - 300 * entra(tz), s: ts > 0 ? lerp(0.7, 1, volta(ts)) : 0.7, o: (ts > 0 ? Math.min(1, ts * 3) : 0) * (1 - tz) });
+}
+function qAE(t) {
+  const S0 = S["agenda-equipe"], ent = saiX(fase(t, S0 - 0.15, S0 + 0.4)), fora = fase(t, S.ficha - 0.1, S.ficha + 0.3);
+  pos($("#ae-cal"), { s: lerp(0.6, 1, ent) * (1 + 0.025 * fase(t, S0, S.ficha)), x: -560 * entra(fora), r: -4 * fora, o: Math.min(1, ent * 2) * (1 - fora) });
+  const CT = {}; aeChips.forEach((c, k) => { CT[c.dataset.tipo] = T.cor + 0.11 * k; });
+  AE_EV.forEach((ev, k) => {
+    const t0 = S0 + 0.42 + 0.08 * k, x = fase(t, t0, t0 + 0.32), fl = pulso(t, CT[ev[1]], 0.4);
+    pos(ev.el, { y: (1 - sai(x)) * -46, s: (x > 0 ? lerp(0.6, 1, volta(x)) : 0.6) * (1 + 0.1 * fl), o: x > 0 ? Math.min(1, x * 3) : 0 });
+    ev.el.style.boxShadow = fl > 0 ? `0 0 0 ${(3 * fl).toFixed(1)}px ${TIPOS[ev[1]][1]}55` : "";
+  });
+  aeChips.forEach((c, k) => { const x = fase(t, T.cor + 0.11 * k - 0.05, T.cor + 0.11 * k + 0.25); pos(c, { y: (1 - sai(x)) * 30 + 200 * entra(fora), s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - fora) }); });
+}
+function qFicha(t) {
+  const ent = saiX(fase(t, S.ficha - 0.05, S.ficha + 0.5)), fora = fase(t, S.contrato - 0.1, S.contrato + 0.3);
+  pos($("#fi"), { x: (1 - ent) * 760 - 620 * entra(fora), r: (1 - ent) * 4 - 3 * fora, s: 1 - 0.08 * fora, o: (ent > 0 ? 1 : 0) * (1 - fora) });
+  [T.combinado - 0.3, T.combinado - 0.15, T.combinado, T.combinado + 0.15].forEach((ts, i) => { const x = fase(t, ts, ts + 0.3), v = $("#fi-v" + i); v.style.opacity = x > 0 ? Math.min(1, x * 3) : 0; v.style.transform = `scale(${x > 0 ? volta(x) : 0.6})`; });
+  [T.combinado + 0.45, T.combinado + 0.62].forEach((ts, i) => { const x = fase(t, ts, ts + 0.3); pos($("#fi-a" + i), { y: (1 - sai(x)) * 16, s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: x > 0 ? Math.min(1, x * 3) : 0 }); });
+  const P = [13530, 7890], t1 = T.pago - 0.35, t2 = T.pago - 0.05;
+  const f1 = sai(fase(t, t1, t1 + 0.35)), f2 = sai(fase(t, t2, t2 + 0.35));
+  $("#fi-p0").style.transform = `scaleX(${f1})`; $("#fi-p1").style.transform = `scaleX(${f2})`;
+  $("#fi-pago").textContent = brl(P[0] * f1 + P[1] * f2);
+  $("#fi-parc").textContent = `${(f1 > 0.5 ? 1 : 0) + (f2 > 0.5 ? 1 : 0)} de 5 parcelas`;
+}
+function qContrato(t) {
+  const S0 = S.contrato, ent = saiX(fase(t, S0 - 0.05, S0 + 0.45)), fora = fase(t, S.financeiro - 0.3, S.financeiro + 0.05);
+  const vai = ease(fase(t, T.linkC + 0.2, T.linkC + 0.75));
+  pos($("#ct-doc"), { x: (1 - ent) * 520 + lerp(0, -305, vai), y: lerp(0, 150, vai), r: lerp(4, -2, vai) + (1 - ent) * 8, s: lerp(1, 0.42, vai), o: (ent > 0 ? 1 : 0) * (1 - fase(t, T.linkC + 0.6, T.linkC + 0.8)) });
+  const lk = fase(t, T.linkC - 0.05, T.linkC + 0.25);
+  pos($("#ct-link"), { x: lerp(0, -300, vai), y: lerp(0, 190, vai), s: (lk > 0 ? lerp(0.6, 1, volta(lk)) : 0.6) * lerp(1, 0.5, vai), o: (lk > 0 ? Math.min(1, lk * 3) : 0) * (1 - fase(t, T.linkC + 0.55, T.linkC + 0.75)) });
+  const fe = saiX(fase(t, S0 + 0.35, S0 + 0.95));
+  pos($("#foneD"), { x: -120 * entra(fora), y: (1 - fe) * 900 + 700 * entra(fora), r: (1 - fe) * -6 - 5 * fora, o: (fe > 0 ? 1 : 0) * (1 - fora) });
+  $("#ct-li").classList.toggle("on", t >= T.aceita + 0.04); $("#ct-btn").classList.toggle("on", t >= T.aceita + 0.04);
+  const pr = t >= T.aceita + 0.4 && t < T.aceita + 0.62; $("#ct-btn").style.transform = `scale(${pr ? 0.95 : 1})`;
+  const cb = fase(t, T.celular - 0.04, T.celular + 0.22);
+  pos($("#ct-carimbo"), { x: -120 * entra(fora), y: 700 * entra(fora), s: cb > 0 ? lerp(2.4, 1, sai(cb)) : 2.4, r: lerp(-16, -8, sai(cb)), o: (cb > 0 ? Math.min(1, cb * 4) : 0) * (1 - fora) });
+  const sv = fase(t, T.celular + 0.12, T.celular + 0.5);
+  pos($("#ct-salvo"), { x: (1 - sai(sv)) * 120 + 400 * entra(fora), s: sv > 0 ? lerp(0.85, 1, volta(sv)) : 0.85, o: (sv > 0 ? Math.min(1, sv * 3) : 0) * (1 - fora) });
+  const tr = 1 - fase(t, T.celular + 0.12, T.celular + 0.45);
+  $("#c-contrato").style.transform = t > T.celular + 0.12 && tr > 0 ? `translate(${(Math.sin(t * 90) * 7 * tr).toFixed(1)}px,${(Math.cos(t * 77) * 5 * tr).toFixed(1)}px)` : "";
+}
+function qFin(t) {
+  const S0 = S.financeiro, fora = fase(t, S.equipe - 0.1, S.equipe + 0.3);
+  [["#fn-k1", 0], ["#fn-k2", 0.08], ["#fn-graf", 0.16]].forEach(([id, d]) => { const e = saiX(fase(t, S0 - 0.05 + d, S0 + 0.45 + d)); pos($(id), { y: (1 - e) * 160 - 80 * entra(fora), s: lerp(0.94, 1, e), o: Math.min(1, e * 2) * (1 - fora) }); });
+  const at = saiX(fase(t, T.falta + 0.4, T.falta + 0.8));
+  pos($("#fn-atraso"), { y: (1 - at) * 100 - 80 * entra(fora), o: Math.min(1, at * 2) * (1 - fora), x: t > T.falta + 0.62 ? Math.sin(t * 80) * 6 * (1 - fase(t, T.falta + 0.62, T.falta + 0.95)) : 0 });
+  const tg = fase(t, T.falta + 0.6, T.falta + 0.85); $("#fn-tag").style.transform = `scale(${tg > 0 ? volta(tg) : 0.4})`; $("#fn-tag").style.opacity = tg > 0 ? 1 : 0;
+  $("#fn-v1").textContent = brl(77940 * saiX(fase(t, S0 + 0.3, T.entrou + 0.35)));
+  $("#fn-v2").textContent = brl(92600 * saiX(fase(t, T.falta - 0.45, T.falta + 0.45)));
+  barEls.forEach((b, i) => { const x = fase(t, S0 + 0.3 + 0.05 * i, S0 + 0.85 + 0.05 * i); for (const el of b.querySelectorAll("i")) el.style.transform = `scaleY(${x > 0 ? volta(x) : 0})`; });
+}
+function qEquipe(t) {
+  const fora = fase(t, S.ia - 0.45, S.ia - 0.1);
+  [T.pessoa, T.pessoa + 0.3, T.equipeW].forEach((ts, k) => {
+    const e = saiX(fase(t, ts - 0.1, ts + 0.4));
+    pos($("#eq" + k), { x: (1 - e) * (k % 2 ? -700 : 700) - 120 * entra(fora) * (k - 1), y: -60 * entra(fora), r: (1 - e) * (k % 2 ? -4 : 4), o: (e > 0 ? Math.min(1, e * 2) : 0) * (1 - fora) });
+    const n = Math.floor(6 * fase(t, T.entra + 0.08 * k, T.entra + 0.62 + 0.08 * k));
+    $("#eq-d" + k).textContent = "•".repeat(n);
+    const ok = t >= T.senha + 0.06 * k, s = $("#eq-s" + k);
+    if (s.classList.contains("ok") !== ok) { s.classList.toggle("ok", ok); s.querySelector("svg").innerHTML = IC[ok ? "aberto" : "cadeado"]; }
+    s.style.transform = `scale(${1 + 0.06 * pulso(t, T.senha + 0.06 * k, 0.3)})`;
+  });
+  $("#eq-c11").style.transform = `scale(${1 + 0.12 * pulso(t, T.senha + 0.12, 0.35)})`;
+}
+function qIA(t) {
+  const S0 = S.ia, fora = fase(t, S.dorme - 0.45, S.dorme - 0.1), ab = fase(t, T.ia, T.ia + 0.3);
+  iaDias.forEach((d, k) => d.classList.toggle("on", t >= T.repete + 0.1 * k));
+  pos($("#ia-dias"), { y: (1 - saiX(fase(t, S0 - 0.05, S0 + 0.4))) * -30, o: fase(t, S0 - 0.05, S0 + 0.3) * (1 - ab) });
+  const suga = ease(fase(t, T.ia - 0.08, T.ia + 0.4));
+  iaQs.forEach((el, k) => {
+    const per = 6 * 116, y = ((k * 116 - (t - S0) * 190) % per + per) % per - 30, x = k % 2 ? 150 : 20;
+    const tx = 355 - 150, ty = 690 - 650;
+    pos(el, { x: lerp(x, tx - 200, suga), y: lerp(y, ty, suga), s: lerp(1, 0.1, suga), o: fase(t, S0, S0 + 0.3) * (1 - suga) });
+  });
+  const b = fase(t, T.ia - 0.08, T.ia + 0.45);
+  pos($("#ia-brilho"), { y: -20 * fase(t, T.ia + 0.5, T.ia + 1.1), s: (b > 0 ? volta(b) : 0) * (1 + 0.05 * Math.sin(t * 3)) * (1 - 0.3 * fase(t, T.ia + 0.5, T.ia + 1.1)), r: 45 * (1 - saiX(b)) + 6 * Math.sin(t * 0.9), o: (b > 0 ? 1 : 0) * (1 - fora) });
+  const rr = fase(t, T.ia, T.ia + 0.7); $("#ia-raios").setAttribute("opacity", rr > 0 && rr < 1 ? (1 - rr).toFixed(2) : 0); $("#ia-raios").setAttribute("transform", `scale(${lerp(0.6, 1.5, sai(rr)).toFixed(3)})`);
+  const p = saiX(fase(t, T.ia + 0.45, T.ia + 1.05));
+  pos($("#ia-painel"), { y: (1 - p) * 160 + 80 * entra(fora), s: lerp(0.94, 1, p) * (1 + 0.02 * pulso(t, T.seu, 0.6)), o: (p > 0 ? Math.min(1, p * 2) : 0) * (1 - fora) });
+  [T.adiantar - 0.05, T.adiantar + 0.32, T.adiantar + 0.69].forEach((ts, k) => { const x = fase(t, ts, ts + 0.32); pos($("#ia-i" + k), { x: (1 - sai(x)) * 60, s: x > 0 ? lerp(0.8, 1, volta(x)) : 0.8, o: x > 0 ? Math.min(1, x * 3) : 0 }); });
+  const so = fase(t, T.sob - 0.05, T.sob + 0.3); $("#ia-sob").style.transform = `scale(${(so > 0 ? volta(so) : 0.5) * (1 + 0.12 * pulso(t, T.medida, 0.45))})`; $("#ia-sob").style.opacity = so > 0 ? 1 : 0;
+  $("#ia-sob").style.background = t > T.medida ? `rgba(232,133,94,${(0.25 * fase(t, T.medida, T.medida + 0.3)).toFixed(3)})` : "";
+  const dg = fase(t, T.adiantar + 1.05, T.adiantar + 1.3); $("#ia-dig").style.opacity = dg;
+  $$("#ia-dig i").forEach((d, k) => { d.style.transform = `translateY(${(-9 * Math.max(0, Math.sin(t * 7 - k * 0.9))).toFixed(1)}px)`; });
+  const ct = ease(fase(t, T.medida - 0.05, T.medida + 0.85));
+  $("#ia-contorno").setAttribute("stroke-dashoffset", (100 - 100 * ct).toFixed(2)); $("#ia-fitam").style.opacity = (1 - fora).toFixed(3);
+  $("#ia-fitam").style.transform = `translateY(${((1 - p) * 160 + 80 * entra(fora)).toFixed(1)}px)`;
+  iaTicks.forEach((tk, k) => tk.setAttribute("opacity", fase(t, T.medida + 0.02 * k, T.medida + 0.02 * k + 0.1).toFixed(2)));
+  $("#ia-nota").style.opacity = (fase(t, T.seu - 0.2, T.seu + 0.3) * (1 - fora)).toFixed(3);
+}
+function qDorme(t) {
+  const ent = fase(t, S.dorme - 0.12, S.dorme + 0.7), fora = fase(t, S.marca - 0.15, S.marca + 0.2);
+  const c = $("#c-dorme"); c.style.transform = `scale(${lerp(1.07, 1, ease(fase(t, S.dorme, S.marca))).toFixed(4)})`; c.style.opacity = Math.min(1, ent * 1.4) * (1 - fora);
+  $("#dm-quente").style.opacity = (1 - ease(fase(t, T.dormindo - 0.1, T.dormindo + 0.8))).toFixed(3);
+  $("#dm-lua").style.boxShadow = `0 0 ${(50 + 10 * Math.sin(t * 1.1)).toFixed(0)}px 14px rgba(250,240,215,.35),0 0 140px 50px rgba(220,225,240,.14)`;
+  estrelas.forEach((e, k) => { e.style.opacity = (0.35 + 0.65 * Math.abs(Math.sin(t * (0.6 + h(k, 3)) + k))).toFixed(2); });
+  const acorda = ease(fase(t, T.chegou - 0.25, T.chegou + 0.1));
+  $("#dm-escuro").style.opacity = (0.72 - 0.72 * acorda).toFixed(3);
+  pos($("#dm-cel"), { y: Math.sin(t * 0.6) * 2, s: 1 });
+  const n = fase(t, T.chegou - 0.04, T.chegou + 0.42), k = n > 0 ? volta(n) : 0;
+  const de = [435, 830], ate = [510, 1066];
+  pos($("#dm-notif"), { x: lerp(de[0], ate[0], k) - 510, y: lerp(de[1], ate[1], k) - 1066, s: lerp(0.38, 1, k), o: n > 0 ? Math.min(1, n * 3) : 0 });
+  [T.chegou + 0.3, T.dataN, T.convN, T.pacote].forEach((ts, i) => { const x = fase(t, ts - 0.04, ts + 0.28); pos($("#dn-c" + i), { y: (1 - sai(x)) * 18, s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: x > 0 ? Math.min(1, x * 3) : 0 }); });
+}
+function qFim(t) {
+  const m = fase(t, T.renderiza - 0.04, T.renderiza + 0.6), cta = ease(fase(t, S.cta - 0.32, S.cta + 0.22));
+  pos($("#mc-simbolo"), { y: lerp(0, -172, cta), s: (m > 0 ? lerp(0.3, 1, volta(m)) : 0.3) * lerp(1, 0.44, cta), r: lerp(-140, 0, saiX(m)), o: m > 0 ? Math.min(1, m * 3) : 0, b: (1 - saiX(m)) * 14 });
+  const nm = ease(fase(t, T.renderiza + 0.1, T.renderiza + 0.62));
+  $("#mc-nome").style.clipPath = `inset(-30% ${(100 - 100 * nm).toFixed(2)}% -30% 0)`;
+  pos($("#mc-nome"), { y: lerp(0, -312, cta) + (1 - nm) * 20, s: lerp(1, 0.5, cta) });
+  for (const w of mcPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 22, s: x > 0 ? lerp(0.85, 1, volta(x)) : 0.85, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  pos($("#mc-linha"), { y: lerp(0, -362, cta), s: lerp(1, 0.6, cta) });
+  const est = saiX(fase(t, T.renderiza - 0.05, T.renderiza + 1));
+  $("#mc-poli").setAttribute("transform", `translate(540 770) rotate(${(5 * (t - T.renderiza)).toFixed(2)}) scale(${lerp(0.3, 1, est).toFixed(3)}) translate(-540 -770)`);
+  $("#mc-estrela").style.transform = `translateY(${lerp(0, -172, cta).toFixed(1)}px)`; $("#mc-estrela").style.opacity = est.toFixed(3);
+  const b = fase(t, S.cta + 0.04, S.cta + 0.4), pb = pulso(t, T.painelCta, 0.32);
+  pos($("#cta-botao"), { y: (1 - sai(b)) * 40, s: (b > 0 ? lerp(0.5, 1, volta(b)) : 0.5) * (1 + 0.05 * pb + 0.015 * Math.sin(t * 3.2) * fase(t, 82, 83)), o: b > 0 ? Math.min(1, b * 3) : 0 });
+  $("#cta-painel").style.transform = `scale(${(1 + 0.14 * pb).toFixed(3)})`;
+  const lz = ((t - T.painelCta) % 2.4) / 0.7; $("#cta-luz").style.transform = `translateX(${(t > T.painelCta && lz < 1 ? lerp(-200, 900, lz) : -300).toFixed(0)}px) skewX(-18deg)`;
+  for (const w of ctaPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 20, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  $("#cta-nota").style.opacity = fase(t, S.cta + 1.3, S.cta + 1.8).toFixed(3);
+  $("#c-fim").style.opacity = fase(t, T.renderiza - 0.12, T.renderiza + 0.1).toFixed(3);
+}
+
+const QUADROS = { noite: qNoite, conversas: qConversas, caderno: qCaderno, data: qData, pix: qPix, virada: qVirada, insta: qInsta, sol: qSol, agenda: qAgenda, painel: qPainel, ae: qAE, ficha: qFicha, contrato: qContrato, fin: qFin, equipe: qEquipe, ia: qIA, dorme: qDorme, fim: qFim };
+
+window.quadro = t => {
+  palco.style.transform = "none"; // as medidas (dedo, voos) saem sem o tranco
+  // fundos: frio até a virada; claro no meio (abre num círculo a partir do botão do site); noite quando ela dorme
+  const frio = 1 - fase(t, T.agora, T.agora + 0.95);
+  const claroIn = fase(t, S.agenda - 0.35, S.agenda + 0.25), claroOut = fase(t, S.ia - 0.4, S.ia - 0.02), claro = claroIn * (1 - claroOut);
+  const rIn = 2300 * Math.pow(claroIn, 1.6), rOut = 2300 * Math.pow(1 - claroOut, 1.6);
+  const cap = rIn >= 1100 && rOut >= 600; // a faixa da legenda (y 226 a 386) já está no claro
+  const noite = fase(t, S.dorme - 0.15, S.dorme + 0.6) * (1 - fase(t, S.marca - 0.2, S.marca + 0.3));
+  $("#f-frio").style.opacity = frio.toFixed(3); $("#f-noite").style.opacity = noite.toFixed(3);
+  const fc = $("#f-claro"); fc.style.opacity = claro > 0 ? 1 : 0;
+  fc.style.clipPath = claroIn > 0 && claroIn < 1 ? `circle(${rIn.toFixed(0)}px at 505px 1196px)` : claroOut > 0 && claroOut < 1 ? `circle(${rOut.toFixed(0)}px at 505px 640px)` : "";
+  $("#vinheta").style.opacity = (1 - 0.75 * claro).toFixed(3);
+  const topo = $("#topo"); topo.style.color = cap ? "#1e2528" : "#f1eee9"; topo.style.opacity = ((0.82 - 0.82 * fase(t, S.marca - 0.3, S.marca)) * (t < S.agenda + 0.2 && t > S.agenda - 0.3 ? 0.4 : 1)).toFixed(3);
+  // poeira: fria no começo, quente depois, quase nada no claro
+  const corP = frio > 0.5 ? [160, 200, 228] : noite > 0.5 ? [215, 225, 245] : [236, 150, 112], opP = lerp(lerp(0.55, 0.8, 1 - frio), 0.18, claro);
+  for (const p of POEIRA) {
+    const y = ((p.y - t * p.v) % 2100 + 2100) % 2100 - 90, x = p.x + Math.sin(t * 0.35 + p.f) * 34, tw = 0.45 + 0.55 * Math.abs(Math.sin(t * 0.7 + p.f));
+    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) scale(${p.s.toFixed(2)})`;
+    p.el.style.background = `radial-gradient(closest-side,rgba(${corP.join(",")},${(opP * tw).toFixed(3)}),rgba(${corP.join(",")},0))`;
+  }
+  // cenas
+  for (const [c, [a, b]] of Object.entries(JANELA)) {
+    const el = $("#c-" + c), vis = t >= a && t < b;
+    el.style.display = vis ? "block" : "none";
+    if (vis) QUADROS[c](t);
+  }
+  qFoneA(t);
+  qDedo(t);
+  // legendas
+  for (const p of pedacos) {
+    if (!p.el) continue;
+    const vis = t >= p.de && t < p.ate;
+    p.el.style.display = vis ? "" : "none";
+    if (!vis) continue;
+    const cls = "fala " + (cap ? "clara" : frio > 0.5 ? "fria" : "quente");
+    if (p.el.className !== cls) p.el.className = cls;
+    const fora = fase(t, p.ate - 0.08, p.ate);
+    p.ws.forEach((w, k) => {
+      const x = p.de < 0 ? 1 : fase(t, w.ini - 0.05, w.ini + 0.2);
+      pos(p.wel[k], { y: (1 - sai(x)) * 22 - 14 * fora, s: x > 0 ? lerp(0.86, 1, volta(x)) : 0.86, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - fora) });
+    });
+  }
+  // tranco em cada impacto: soco de zoom, tremor e clarão
+  let soco = 0, tremor = 0, flash = 0;
+  for (const f of frases) if (f.impacto) {
+    const forca = f.cena === "dorme" ? 0.35 : 1;
+    const x = fase(t, f.ini - 0.03, f.ini + 0.38); if (x > 0 && x < 1) { soco = Math.max(soco, (1 - sai(x)) * forca); tremor = Math.max(tremor, (x < 0.35 ? 1 - x / 0.35 : 0) * forca); }
+    const y = fase(t, f.ini - 0.03, f.ini + 0.2); if (y > 0 && y < 1 && f.id !== "hora") flash = Math.max(flash, 0.38 * (1 - y) * forca);
+  }
+  const rw = t > T.agora && t < T.agora + 0.4 ? (1 - fase(t, T.agora, T.agora + 0.4)) * 14 * Math.sin(t * 140) : 0; // o rebobinar puxa a imagem de lado
+  palco.style.transform = soco > 0 || rw ? `translate(${(tremor * 9 * Math.sin(t * 97) + rw).toFixed(1)}px,${(tremor * 7 * Math.cos(t * 83)).toFixed(1)}px) scale(${(1 + 0.045 * soco).toFixed(4)})` : "";
+  $("#flash").style.opacity = flash.toFixed(3); $("#flash").style.background = t < T.agora ? "#d4e6f3" : "#f7d3bf";
+};
+
+// cenas da trilha (ferramentas/video/trilha-pulso.py só conhece estas partes): o pulso diz qual é qual
+const TRILHA = { noite: "abre", conversas: "google", caderno: "insta", data: "insta", pix: "volta", virada: "ese", insta: "ese", sol: "site", agenda: "site", painel: "site", "agenda-equipe": "site",
+  ficha: "site", contrato: "site", financeiro: "site", equipe: "site", ia: "site", dorme: "meio", marca: "fim", cta: "cta" };
+window.preparar = () => {
+  for (const b of BALOES) { b.w = b.el.offsetWidth; b.h = b.el.offsetHeight; }
+  window.quadro(T.link - 0.3); palco.style.transform = "none"; LINK = centro($("#ig-link"));
+  window.quadro(T.cai + 0.3); palco.style.transform = "none"; { const r = $("#lp-novo").getBoundingClientRect(); LP_NOVO = [r.left + r.width / 2, r.top + r.height / 2]; }
+  for (const tq of TOQUES) { window.quadro(tq[0]); palco.style.transform = "none"; tq.xy = tq[1](); }
+  window.quadro(0);
+  return {
+    duracao: DUR, narracao: NOME,
+    pulso: frases.map(f => ({ id: f.id === "pix" ? "nada" : f.id, cena: TRILHA[f.cena], ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    ensaio: [0, 4.9, 10.75, 15.0, T.mesma + 0.3, 21.0, 25.2, T.link + 0.1, T.zap + 0.34, 39.3, T.ninguem + 0.5, 44.5, 45.3, 48.3, 52.6, 56.1, 59.4, 62.2, 67.6, 75.95, 79.6, 84.5].map(x => +x.toFixed(2)),
+  };
+};
+
+await Promise.all(["800 76px Geist", "200 250px Geist", "600 30px Geist", "italic 600 30px Fraunces", "600 30px Fraunces", "italic 500 30px Fraunces", "500 30px Fraunces",
+  "800 30px 'Plus Jakarta Sans'", "700 30px 'Plus Jakarta Sans'", "600 30px 'Plus Jakarta Sans'", "500 30px 'Plus Jakarta Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.quadro(0);
+window.pronto = true;
+</script>
+</body></html>

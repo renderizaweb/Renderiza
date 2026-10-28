@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: o carro de som</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Reels 3 da série com história (27/10/2026).
+     Alvo: o dono de negócio local que já impulsiona post ou anuncia, ou pensa em começar, e não sabe o que voltou.
+     Objetivo: ele perceber que o anúncio que leva para um perfil sem preço e sem horário não deixa rastro, e que um
+     site pronto para anúncio mostra quem chegou e deixa falar de novo só com quem se interessou. O vídeo não diz que a
+     Renderiza faz anúncio nem que não faz: quem anuncia é o próprio Seu Jorge.
+     A história: o Seu Jorge paga o carro de som do Tião; quantos vieram, "aí já não é comigo". Ele troca pelo botão
+     Impulsionar, e o celular responde igual. Malhando em ferro frio (o único trocadilho). Então ele faz um site, sabe
+     quem chegou e anuncia de novo só para quem chegou perto: um carro de som que volta só onde abriram a janela. No fim,
+     o Tião para só nas janelas abertas, e fala baixinho. Tudo é fictício, e as telas levam o selo "exemplo".
+     O tempo de tudo sai da narração: narracao/reels-carro-de-som.json → python3 instagram/narrar.py reels-carro-de-som →
+     esta página lê reels-carro-de-som.tempos.json. A rua é um desenho só, com a sua câmera; a academia é outro.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota:#b25134;--terracota-clara:#e8855e}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111}
+.reels{position:relative;width:1080px;height:1920px;overflow:hidden;background:#161c1f;transform-origin:50% 45%}
+.comp{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:5;display:none}
+#escuro{position:absolute;inset:0;z-index:10;background:#0b0f11;opacity:0;pointer-events:none}
+.poeira{position:absolute;inset:0;z-index:30;pointer-events:none}
+.poeira i{position:absolute;left:0;top:0;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%}
+.sombra-topo{position:absolute;left:0;right:0;top:0;height:640px;z-index:44;pointer-events:none;background:linear-gradient(180deg,rgba(10,13,14,.78) 0,rgba(10,13,14,.5) 300px,rgba(10,13,14,0) 640px)}
+.vinheta{position:absolute;inset:0;z-index:40;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 52%,transparent 50%,rgba(0,0,0,.5) 100%)}
+.flash{position:absolute;inset:0;z-index:60;background:#f7d3bf;opacity:0;pointer-events:none}
+.falas{position:absolute;inset:0;z-index:45;pointer-events:none}
+.fala{position:absolute;left:56px;right:56px;top:226px;text-align:center;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:76px;color:#f6f3ee;text-wrap:balance;text-shadow:0 6px 36px rgba(0,0,0,.55)}
+.fala .w{display:inline-block;opacity:0;transform-origin:50% 85%}
+.fala .tom{color:var(--terracota-clara)}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* balões: mensagens que chegam, perguntas dos pacientes e o Juca */
+.balao{position:absolute;left:0;top:0;z-index:22;padding:22px 34px;border-radius:40px;background:#f1eee9;color:#1e2528;font-size:46px;font-weight:700;letter-spacing:-.03em;line-height:1.1;box-shadow:0 30px 70px rgba(0,0,0,.35);white-space:nowrap;opacity:0;transform-origin:50% 100%}
+.balao::after{content:"";position:absolute;width:40px;height:40px;background:inherit;border-radius:0 0 0 10px}
+.balao.dir::after{right:60px;bottom:-16px;transform:rotate(30deg) skewX(10deg)}
+.balao.esq::after{left:60px;bottom:-16px;transform:rotate(60deg) skewX(-10deg)}
+.balao.msg{font-size:42px;padding:20px 30px 20px 92px;border-radius:30px}
+.balao.msg::before{content:"";position:absolute;left:24px;top:50%;width:48px;height:48px;margin-top:-24px;border-radius:50%;background:#25d366 var(--zap) center/30px no-repeat}
+.balao.eco{font-size:30px;padding:14px 22px 14px 66px;border-radius:22px}
+.balao.eco::before{left:16px;width:36px;height:36px;margin-top:-18px;background-size:22px}
+.balao .ok{position:absolute;right:-14px;top:-14px;width:46px;height:46px;border-radius:50%;background:#22a355;display:grid;place-items:center;opacity:0}
+.balao .ok svg{width:28px;height:28px;color:#fff}
+.balao.papo{background:#d8f0c6;color:#1d3b14;font-size:52px}
+.balao.grande{font-size:84px;padding:28px 48px;border-radius:52px}
+
+/* o celular e as telas */
+.fone{position:absolute;left:0;top:0;width:440px;height:900px;z-index:24;border-radius:74px;padding:14px;background:linear-gradient(150deg,#4a5357 0%,#1a1f21 30%,#0b0e0f 100%);box-shadow:0 80px 140px -40px rgba(0,0,0,.8),0 30px 60px -20px rgba(0,0,0,.45),inset 0 0 0 2px rgba(255,255,255,.09),inset 0 0 0 6px #070909;transform-origin:50% 50%;opacity:0}
+.fone::before{content:"";position:absolute;left:50%;top:29px;width:116px;height:34px;margin-left:-58px;border-radius:20px;background:#040505;z-index:20}
+.fone>.exemplo{left:40px;top:-14px;z-index:25}
+.exemplo.claro{background:rgba(241,238,233,.94);color:#1e2528}
+.visor{position:relative;width:100%;height:100%;border-radius:60px;overflow:hidden;background:#fbf8f3}
+.status{position:absolute;left:0;right:0;top:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:14px 40px 0 48px;font:600 22px/1 "Geist",sans-serif;z-index:6;color:#1e2528}
+.status i{display:inline-flex;gap:8px;align-items:center}
+.status .bat{width:36px;height:18px;border-radius:6px;border:2px solid currentColor;position:relative;opacity:.9}
+.status .bat::after{content:"";position:absolute;left:2px;top:2px;bottom:2px;width:68%;border-radius:2px;background:currentColor}
+.status .sin{display:inline-flex;align-items:flex-end;gap:3px;height:18px}
+.status .sin b{width:5px;border-radius:2px;background:currentColor}
+.tela{position:absolute;inset:0;padding-top:60px;font-family:"Geist",sans-serif;color:#1e2528;background:#fbf8f3;display:none}
+.zp-topo{height:86px;display:flex;align-items:center;gap:16px;padding:0 22px;background:#f6f3ee;border-bottom:2px solid #e7e1d8;font-size:28px;font-weight:800}
+.zp-topo svg{width:30px;height:30px;flex:none}
+.zp-topo i{width:58px;height:58px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff}
+.zp-topo i svg{width:34px;height:34px}
+.zp-topo small{display:block;font-size:19px;font-weight:600;color:#7a8386;margin-top:2px}
+.zp-fundo{position:absolute;left:0;right:0;top:146px;bottom:0;background:#ece5dc}
+.zp-dia{position:absolute;left:50%;transform:translateX(-50%);padding:6px 16px;border-radius:10px;background:#fff;font-size:20px;font-weight:700;color:#5b6467;white-space:nowrap}
+.zp-m{position:absolute;max-width:330px;padding:16px 22px 32px;border-radius:24px;font-size:29px;font-weight:600;line-height:1.2;box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.zp-m.ent{left:18px;background:#fff;border-top-left-radius:6px}
+.zp-m.sai{right:18px;background:#d9fdd3;border-top-right-radius:6px}
+.zp-m small{position:absolute;right:16px;bottom:7px;font-size:18px;color:#8a9396;font-weight:600}
+.zp-audio{position:absolute;left:18px;width:372px;height:104px;border-radius:24px;border-top-left-radius:6px;background:#fff;display:flex;align-items:center;gap:14px;padding:0 18px;box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.zp-play{width:52px;height:52px;flex:none;display:grid;place-items:center;color:#5b6467}
+.zp-play svg{width:40px;height:40px;fill:currentColor;stroke:none}
+.zp-ondas{display:flex;align-items:center;gap:4px;height:56px;flex:1}
+.zp-ondas b{width:5px;border-radius:3px;background:#b9c0c2}
+.zp-ondas b.on{background:#2a7f9e}
+.zp-dur{position:absolute;left:84px;bottom:6px;font-size:18px;color:#8a9396;font-weight:600}
+#t-bloq{background:linear-gradient(170deg,#24313a,#0d1418);color:#fff}
+.bl-hora{text-align:center;font-size:120px;font-weight:600;letter-spacing:-.04em;margin-top:56px}
+.bl-data{text-align:center;font-size:26px;font-weight:600;color:#cfd6d8}
+.bl-not{margin:18px 16px 0;padding:16px 18px;border-radius:26px;background:rgba(255,255,255,.17);display:flex;gap:14px;align-items:flex-start;opacity:0}
+.bl-not i{width:50px;height:50px;border-radius:14px;background:#25d366;flex:none;display:grid;place-items:center}
+.bl-not i svg{width:30px;height:30px}
+.bl-not b{display:block;font-size:22px;font-weight:700}
+.bl-not b small{float:right;font-weight:600;color:#cfd6d8}
+.bl-not p{font-size:26px;font-weight:600;margin-top:4px;line-height:1.2}
+.ms{position:absolute;inset:0;padding-top:60px;font-family:"Geist",sans-serif;color:#1e2528}
+.ms-topo{height:70px;padding:0 26px;display:flex;align-items:center;justify-content:space-between;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.ms-topo i{width:28px;height:18px;border-top:3px solid currentColor;border-bottom:3px solid currentColor;position:relative}
+.ms-topo i::after{content:"";position:absolute;left:0;right:0;top:4.5px;border-top:3px solid currentColor}
+.ms-hero{position:relative;height:150px;margin:0 16px;border-radius:28px;overflow:hidden;background:#2a7f9e;color:#fff}
+.ms-hero svg.des{position:absolute;right:14px;bottom:-10px;width:110px;height:110px;opacity:.55}
+.ms-hero h3{position:absolute;left:24px;top:22px;right:120px;font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.05}
+.ms-aberto{display:inline-flex;align-items:center;gap:10px;margin:14px 22px 2px;padding:9px 18px;border-radius:99px;background:#e3f3e8;color:#1d6b3c;font-size:22px;font-weight:700}
+.ms-aberto::before{content:"";width:12px;height:12px;border-radius:50%;background:#22a355}
+.ms-linha{display:flex;align-items:center;gap:14px;margin:4px 14px 0;padding:9px 12px;border-radius:20px}
+.ms-linha .ic{width:52px;height:52px;border-radius:16px;background:#e3eff3;display:grid;place-items:center;flex:none;color:#1e5d75}
+.ms-linha .ic svg{width:28px;height:28px}
+.ms-linha small{display:block;font-size:19px;font-weight:600;color:#7a8386}
+.ms-linha b{display:block;font-size:24px;font-weight:700;letter-spacing:-.015em}
+.ms-zap{position:absolute;left:18px;right:18px;bottom:26px;height:80px;border-radius:24px;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;gap:14px;font-size:28px;font-weight:800}
+.ms-zap svg{width:34px;height:34px}
+
+/* marca e convite */
+.cena{position:absolute;inset:0;z-index:30;display:none}
+#mc-estrela{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#mc-simbolo{position:absolute;left:540px;top:960px;width:250px;height:250px;margin:-125px 0 0 -125px;color:#f1eee9}
+#mc-simbolo .simbolo{width:100%;height:100%}
+#mc-nome{position:absolute;left:50%;translate:-50% 0;width:max-content;top:1120px;text-align:center;font-weight:600;font-size:150px;letter-spacing:-.055em;color:#f1eee9;line-height:1.05}
+#mc-sub{position:absolute;left:90px;right:90px;top:1310px;text-align:center;font-weight:700;font-size:56px;letter-spacing:-.03em;color:#e6e1da;line-height:1.1;text-wrap:balance}
+#mc-sub .w,#mc-linha .w{display:inline-block;opacity:0}
+#mc-linha{position:absolute;left:80px;right:80px;top:560px;text-align:center;font-weight:800;font-size:80px;letter-spacing:-.045em;line-height:1.08;color:#f6f3ee;text-wrap:balance}
+#mc-linha .tom{color:var(--terracota-clara)}
+#cta-botao{position:absolute;left:540px;top:1060px;translate:-50% 0;display:inline-flex;align-items:center;gap:24px;height:158px;padding:0 64px;border-radius:79px;background:var(--terracota);color:#fff;font-size:68px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 24px 70px rgba(178,81,52,.55);overflow:hidden;opacity:0}
+#cta-botao svg{width:62px;height:62px}
+#cta-botao em{font-style:normal;display:inline-block;transform-origin:0 60%}
+#cta-luz{position:absolute;top:-20px;bottom:-20px;left:0;width:120px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-300px) skewX(-18deg)}
+#cta-texto{position:absolute;left:110px;right:110px;top:1262px;text-align:center;font-size:50px;font-weight:500;color:#e6e1da;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+#cta-texto .w{display:inline-block;opacity:0}
+#cta-nota{position:absolute;left:0;right:0;top:1450px;text-align:center;font-size:27px;font-weight:500;color:#8c9598;opacity:0}
+/* o alto-falante e o cochicho */
+.balao.grito{background:#ffd84d;color:#1e2528;font-weight:900;font-size:60px;letter-spacing:-.04em;border-radius:28px;padding:24px 38px;box-shadow:0 0 0 7px #1e2528,0 30px 70px rgba(0,0,0,.35)}
+.balao.grito.duas{white-space:normal;width:max-content;max-width:900px;text-align:center;line-height:1.02}
+.balao.cochicho{font-size:34px;font-weight:600;font-style:italic;padding:14px 24px;border-radius:24px;letter-spacing:-.01em}
+/* o post e o impulsionar */
+.ig-topo{height:84px;display:flex;align-items:center;gap:14px;padding:0 22px;font-size:26px;font-weight:800}
+.ig-topo small{display:block;font-size:19px;font-weight:600;color:#7a8386;margin-top:2px}
+.ig-av{width:56px;height:56px;border-radius:50%;background:#f2b632;display:grid;place-items:center;flex:none;color:#1e2528}
+.ig-av svg{width:32px;height:32px}
+.ig-foto{height:412px;background:#f2b632}
+.ig-foto svg{width:100%;height:100%;display:block}
+.ig-acoes{display:flex;gap:22px;padding:16px 22px 6px}
+.ig-acoes svg{width:38px;height:38px}
+.ig-leg{padding:4px 22px;font-size:24px;line-height:1.3}
+.ig-imp{margin:14px 22px 0;height:76px;border-radius:18px;background:#2f6fde;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800}
+.ig-dedo{position:absolute;left:170px;top:722px;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(30,37,40,.22);border:5px solid rgba(255,255,255,.9);opacity:0;z-index:4}
+.ig-folha{position:absolute;left:0;right:0;bottom:0;padding:34px 32px 48px;border-radius:40px 40px 0 0;background:#fff;box-shadow:0 -20px 50px rgba(0,0,0,.2);transform:translateY(110%);z-index:5}
+.ig-folha .t{display:block;font-size:28px;font-weight:800;margin-bottom:10px}
+.ig-val{font-size:84px;font-weight:800;letter-spacing:-.05em;line-height:1.05;white-space:nowrap}
+.ig-val small{font-size:30px;font-weight:700;color:#7a8386;letter-spacing:-.02em}
+.ig-barra{height:14px;border-radius:7px;background:#e2dcd2;margin:22px 0 18px;position:relative}
+.ig-barra i{position:absolute;left:0;top:0;bottom:0;width:10%;border-radius:7px;background:#2f6fde}
+.ig-barra i::after{content:"";position:absolute;right:-16px;top:-9px;width:32px;height:32px;border-radius:50%;background:#2f6fde}
+.ig-folha p{font-size:25px;color:#5b6467;font-weight:600}
+.ig-num{font-size:124px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.ig-linha{display:flex;justify-content:space-between;padding:16px 0 0;margin-top:18px;border-top:2px solid #eee;font-size:26px;font-weight:700}
+/* o perfil */
+.pf-topo{height:72px;display:flex;align-items:center;gap:14px;padding:0 24px;font-size:28px;font-weight:800}
+.pf-topo svg{width:30px;height:30px}
+.pf-cab{display:flex;align-items:center;gap:22px;padding:6px 24px}
+.pf-av{width:116px;height:116px;border-radius:50%;background:#f2b632;display:grid;place-items:center;color:#1e2528;flex:none}
+.pf-av svg{width:66px;height:66px}
+.pf-nome{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.pf-nome small{display:block;font-size:22px;font-weight:600;color:#7a8386;margin-top:4px}
+.pf-bio{padding:16px 24px 0;font-size:25px;line-height:1.3}
+.pf-bio div{display:flex;align-items:center;gap:10px;border-radius:12px;padding:3px 8px;margin:2px 0 0 -8px}
+.pf-bio svg{width:26px;height:26px;flex:none}
+.pf-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:22px}
+.pf-grade i{display:block;height:136px;position:relative;overflow:hidden}
+.pf-grade i svg{width:100%;height:100%;display:block}
+/* o site da academia */
+.ms-hero.am{background:#f2b632;color:#1e2528}
+/* o anúncio que leva para o site */
+#anuncio{position:absolute;left:50px;top:560px;width:400px;z-index:25;border-radius:32px;background:#fff;overflow:hidden;font-family:"Geist",sans-serif;color:#1e2528;box-shadow:0 40px 90px rgba(0,0,0,.45);opacity:0}
+#anuncio .exemplo{left:auto;right:14px;top:14px}
+.an-topo{display:flex;align-items:center;gap:14px;padding:18px 20px;font-size:23px;font-weight:800}
+.an-topo i{width:52px;height:52px;border-radius:50%;background:#f2b632;display:grid;place-items:center;flex:none}
+.an-topo i svg{width:30px;height:30px}
+.an-topo small{display:block;font-size:18px;color:#7a8386;font-weight:600}
+.an-img{position:relative;height:250px;background:#f2b632;display:grid;place-items:center;text-align:center;font-size:54px;font-weight:900;letter-spacing:-.045em;line-height:.98}
+.an-bt{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;font-size:28px;font-weight:800;background:#2f6fde;color:#fff}
+#seta{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:25;pointer-events:none;opacity:0}
+/* quem clicou e foi embora */
+#fluxo{position:absolute;inset:0;z-index:25;pointer-events:none}
+.av{position:absolute;left:0;top:0;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0}
+.av svg{width:46px;height:46px}
+/* o painel do site */
+#painel{position:absolute;left:84px;right:84px;top:560px;z-index:26;padding:58px 54px 34px;border-radius:48px;background:#f1eee9;color:#1e2528;font-family:"Geist",sans-serif;box-shadow:0 60px 120px rgba(0,0,0,.5);opacity:0}
+#painel .exemplo{left:54px;top:-18px}
+.pn-cab{font-size:46px;font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
+.pn-cab small{display:block;font-size:28px;font-weight:600;color:#7a8386;margin-top:6px;letter-spacing:-.01em}
+.pn-l{display:flex;align-items:center;gap:30px;padding:24px 0;border-top:2px solid #e2dcd2;opacity:0}
+.pn-ic{width:100px;height:100px;border-radius:30px;background:#f2b632;display:grid;place-items:center;flex:none;color:#1e2528}
+.pn-ic svg{width:54px;height:54px}
+.pn-ic.zap{background:#25d366}
+.pn-l b{display:block;font-size:112px;font-weight:800;letter-spacing:-.05em;line-height:.95}
+.pn-l span{display:block;font-size:34px;font-weight:600;color:#5b6467;margin-top:6px}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-rua" viewBox="0 0 1080 1920"><g id="ru"></g></svg>
+  <svg class="comp" id="c-academia" viewBox="0 0 1080 1920"><g id="ac"></g></svg>
+  <div id="escuro"></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="painel"></div>
+  <div id="anuncio"></div>
+  <svg id="seta" viewBox="0 0 1080 1920"><path id="seta-p" d="M250 1050 C 260 1210, 420 1250, 560 1180" fill="none" stroke="#f1eee9" stroke-width="12" stroke-dasharray="2 26" stroke-linecap="round"/><path id="seta-h" d="M532 1150 L578 1172 L540 1206" fill="none" stroke="#f1eee9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="fone" id="fone"></div>
+  <div id="fluxo"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { MARCAS } from "../site/marcas.mjs";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const NOME = "reels-carro-de-som";
+const { duracao: VOZ, frases } = await (await fetch(`narracao/${NOME}.tempos.json`)).json();
+const DUR = Math.round((VOZ + 1.67) * 10) / 10; // a voz acaba e o convite fica mais 1,5 s na tela
+const F = Object.fromEntries(frases.map(f => [f.id, f]));
+const palco = $("#palco");
+
+// ---------- contas ----------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const saiX = x => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x));
+const volta = x => (x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2)); // passa do ponto e volta
+const lerp = (a, b, x) => a + (b - a) * x;
+const pulso = (t, t0, d = 0.5) => { const x = fase(t, t0, t0 + d); return x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0; };
+const h = (i, k = 0) => { const s = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return s - Math.floor(s); };
+function pos(el, { x = 0, y = 0, s = 1, r = 0, o = 1, b = 0 } = {}) {
+  el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg) scale(${s.toFixed(4)})`;
+  el.style.opacity = o.toFixed(3);
+  el.style.filter = b > 0.15 ? `blur(${b.toFixed(1)}px)` : "";
+  el.style.visibility = o <= 0.002 ? "hidden" : "";
+}
+const attr = (el, k, v) => el.setAttribute(k, v);
+const entra = (t, t0, d = 0.32) => { const x = fase(t, t0 - 0.04, t0 + d); return { x, s: x > 0 ? lerp(0.6, 1, volta(x)) : 0.6, o: x > 0 ? Math.min(1, x * 3) : 0, y: (1 - sai(x)) * 30 }; };
+const limpa = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9-]/g, "");
+function W(id, pal, n = 0) {
+  const ps = F[id].palavras, alvo = limpa(pal);
+  const xs = ps.filter(p => limpa(p.p) === alvo).length ? ps.filter(p => limpa(p.p) === alvo) : ps.filter(p => limpa(p.p).startsWith(alvo));
+  if (!xs[n]) throw new Error(`sem a palavra "${pal}" na frase ${id}`);
+  return xs[n].ini;
+}
+const em = (t, a, b) => t >= a && t < b;
+const xd = (el, ax) => clamp(ax - el.offsetWidth + 70, 24, 1056 - el.offsetWidth); // balão com a ponta à direita, sem sair da tela
+const xe = (el, ax) => clamp(ax - 70, 24, 1056 - el.offsetWidth); // balão com a ponta à esquerda
+const vis = (el, v) => { el.style.display = v ? "block" : "none"; };
+const E = 0.001;
+function pose(P, t) {
+  if (t <= P[0][0]) return P[0].slice(1);
+  for (let k = 0; k < P.length - 1; k++) if (t < P[k + 1][0]) { const a = P[k], b = P[k + 1], x = ease(fase(t, a[0], b[0])); return a.slice(1).map((v, i) => lerp(v, b[i + 1], x)); }
+  return P[P.length - 1].slice(1);
+}
+// câmera de um desenho: o ponto (cx, cy) fica no centro da tela, com zoom s
+const camera = (g, [cx, cy, s]) => attr(g, "transform", `translate(${(540 - cx * s).toFixed(1)} ${(960 - cy * s).toFixed(1)}) scale(${s.toFixed(4)})`);
+const naTela = (cam, x, y) => [540 + (x - cam[0]) * cam[2], 960 + (y - cam[1]) * cam[2]];
+
+// ---------- cenas: cada uma começa na primeira frase dela ----------
+const ORDEM = ["rua", "conversa", "insta", "resposta", "perfil", "sumiram", "ferro", "site", "numeros", "janela", "fecho", "marca", "cta"];
+const S = {};
+ORDEM.forEach((c, i) => { S[c] = i === 0 ? 0 : frases.find(f => f.cena === c).ini; });
+const I = id => F[id].ini, FIM_ = id => F[id].fim;
+const T = {
+  m1: I("m1"), total: W("m1", "total"), abre: I("abre"), jorge: W("abre", "jorge"), tiao: W("abre", "tiao"), ouve: I("ouve"),
+  j1: I("j1"), t1: I("t1"), j2: I("j2"), t2: I("t2"),
+  instagram: W("troca", "instagram"), impulsionar: I("impulsionar"), trinta: I("trinta"), semana: I("semana"), anuncio: W("semana", "anuncio"),
+  j3: I("j3"), t3: I("t3"),
+  perfil: W("nada", "perfil"), aviso: W("nada", "aviso"), direct: W("direct", "direct"), voltaram: W("sumiram", "voltaram"), rastro: W("sumiram", "rastro"),
+  frio: W("ferro", "frio"),
+  siteW: W("fez", "site"), planos: W("itens", "planos"), horario: W("itens", "horario"), endereco: W("itens", "endereco"), zap: W("itens", "whatsapp"),
+  leva: I("leva"), la: W("leva", "la"),
+  n1: I("n1"), n2: I("n2"), n3: I("n3"),
+  perto: W("seguinte", "perto"), janela: I("janela"),
+  gostou: I("gostou"), aberta: W("para", "aberta"), baixinho: W("baixinho", "baixinho"),
+  renderiza: W("marca", "renderiza"), previa: W("cta", "previa"),
+};
+
+// ---------- ícones (Lucide) ----------
+const IC = {
+  relogio: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  mapa: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  mensagem: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  voltar: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+  etiqueta: '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  usuario: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  halter: '<path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/>',
+  coracao: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  olho: '<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>',
+};
+const ic = (n, extra = "") => `<svg class="i" viewBox="0 0 24 24" ${extra}>${IC[n]}</svg>`;
+const ZAP_B = `<svg viewBox="0 0 24 24" fill="#fff"><path d="${MARCAS.whatsapp.d}"/></svg>`;
+palco.style.setProperty("--zap", `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#fff'><path d='${MARCAS.whatsapp.d}'/></svg>`)}")`);
+const hex = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+const mix = (a, b, x) => { const p = hex(a), q = hex(b); return `rgb(${p.map((v, i) => Math.round(lerp(v, q[i], clamp(x)))).join(",")})`; };
+
+// ====================== gente ======================
+const PELE = "#d79d79", PELE2 = "#c4876a";
+// cabeça: olhos, sobrancelhas, cabelo, óculos. (cx, cy) = centro da cabeça
+function cabeca(o, cx, cy, r) {
+  const k = r / 40, id = o.id || "";
+  let s = `<g id="${id}cab">`;
+  if (o.cabelo === "longo") s += `<path d="M${cx - r * 1.08} ${cy + r * 1.3} Q${cx - r * 1.2} ${cy - r * 1.14} ${cx} ${cy - r * 1.12} Q${cx + r * 1.2} ${cy - r * 1.14} ${cx + r * 1.08} ${cy + r * 1.3} Z" fill="${o.corCabelo}"/>`;
+  s += `<circle cx="${cx - r}" cy="${cy + 2 * k}" r="${8 * k}" fill="${o.pele2 || PELE2}"/><circle cx="${cx + r}" cy="${cy + 2 * k}" r="${8 * k}" fill="${o.pele2 || PELE2}"/>`;
+  s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${o.pele || PELE}"/>`;
+  if (o.cabelo === "curto") {
+    s += `<path d="M${cx - r * 1.03} ${cy - r * 0.05} Q${cx - r * 1.05} ${cy - r * 1.12} ${cx} ${cy - r * 1.1} Q${cx + r * 1.05} ${cy - r * 1.12} ${cx + r * 1.03} ${cy - r * 0.05} Q${cx + r * 0.6} ${cy - r * 0.62} ${cx} ${cy - r * 0.6} Q${cx - r * 0.6} ${cy - r * 0.62} ${cx - r * 1.03} ${cy - r * 0.05} Z" fill="${o.corCabelo}"/>`;
+  } else if (o.cabelo === "coque") {
+    s += `<circle cx="${cx}" cy="${cy - r * 1.12}" r="${r * 0.42}" fill="${o.corCabelo}"/>`;
+    s += `<path d="M${cx - r * 1.03} ${cy - r * 0.05} Q${cx - r * 1.05} ${cy - r * 1.1} ${cx} ${cy - r * 1.06} Q${cx + r * 1.05} ${cy - r * 1.1} ${cx + r * 1.03} ${cy - r * 0.05} Q${cx + r * 0.6} ${cy - r * 0.55} ${cx} ${cy - r * 0.52} Q${cx - r * 0.6} ${cy - r * 0.55} ${cx - r * 1.03} ${cy - r * 0.05} Z" fill="${o.corCabelo}"/>`;
+  } else if (o.cabelo === "longo") {
+    s += `<path d="M${cx - r * 1.04} ${cy + r * 0.1} Q${cx - r * 1.08} ${cy - r * 1.12} ${cx} ${cy - r * 1.1} Q${cx + r * 1.08} ${cy - r * 1.12} ${cx + r * 1.04} ${cy + r * 0.1} Q${cx + r * 0.9} ${cy - r * 0.5} ${cx + r * 0.2} ${cy - r * 0.62} Q${cx - r * 0.5} ${cy - r * 0.5} ${cx - r * 1.04} ${cy + r * 0.1} Z" fill="${o.corCabelo}"/>`;
+  } else if (o.cabelo === "careca") {
+    s += `<path d="M${cx - r * 1.02} ${cy + r * 0.1} Q${cx - r * 1.04} ${cy - r * 0.5} ${cx - r * 0.8} ${cy - r * 0.62} L${cx - r * 0.86} ${cy + r * 0.1} Z M${cx + r * 1.02} ${cy + r * 0.1} Q${cx + r * 1.04} ${cy - r * 0.5} ${cx + r * 0.8} ${cy - r * 0.62} L${cx + r * 0.86} ${cy + r * 0.1} Z" fill="${o.corCabelo}"/>`;
+  }
+  const ey = cy - 2 * k;
+  s += `<g id="${id}sob" fill="${o.corSob || "#3a2f2a"}"><rect x="${cx - 24 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/><rect x="${cx + 8 * k}" y="${ey - 16 * k}" width="${16 * k}" height="${4 * k}" rx="${2 * k}"/></g>`;
+  s += `<g id="${id}olhos" fill="#1e2528"><circle cx="${cx - 15 * k}" cy="${ey}" r="${4.6 * k}"/><circle cx="${cx + 15 * k}" cy="${ey}" r="${4.6 * k}"/></g>`;
+  if (o.oculos) s += `<g fill="none" stroke="${o.corOculos || "#1e2528"}" stroke-width="${2.6 * k}"><circle cx="${cx - 15 * k}" cy="${ey}" r="${11 * k}"/><circle cx="${cx + 15 * k}" cy="${ey}" r="${11 * k}"/><path d="M${cx - 4 * k} ${ey} h${8 * k}"/></g>`;
+  if (o.brinco) s += `<circle cx="${cx - r - 2 * k}" cy="${cy + 14 * k}" r="${4 * k}" fill="${o.brinco}"/><circle cx="${cx + r + 2 * k}" cy="${cy + 14 * k}" r="${4 * k}" fill="${o.brinco}"/>`;
+  s += `<ellipse cx="${cx}" cy="${cy + 12 * k}" rx="${7 * k}" ry="${9 * k}" fill="${o.pele2 || PELE2}"/>`;
+  if (o.bigode) s += `<path d="M${cx - 22 * k} ${cy + 25 * k} Q${cx - 12 * k} ${cy + 14 * k} ${cx} ${cy + 20 * k} Q${cx + 12 * k} ${cy + 14 * k} ${cx + 22 * k} ${cy + 25 * k} Q${cx} ${cy + 22 * k} ${cx - 22 * k} ${cy + 25 * k} Z" fill="${o.corCabelo}"/>`;
+  s += `<path id="${id}sorriso" d="M${cx - 11 * k} ${cy + 26 * k} Q${cx} ${cy + 36 * k} ${cx + 11 * k} ${cy + 26 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" fill="none" stroke-linecap="round" opacity="0"/>`;
+  s += `<path id="${id}reta" d="M${cx - 9 * k} ${cy + 29 * k} H${cx + 9 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" stroke-linecap="round" opacity="1"/>`;
+  s += `<path id="${id}triste" d="M${cx - 10 * k} ${cy + 32 * k} Q${cx} ${cy + 24 * k} ${cx + 10 * k} ${cy + 32 * k}" stroke="#7a3d2e" stroke-width="${3.4 * k}" fill="none" stroke-linecap="round" opacity="0"/>`;
+  s += `<ellipse id="${id}oh" cx="${cx}" cy="${cy + 30 * k}" rx="${6 * k}" ry="${8 * k}" fill="#7a3d2e" opacity="0"/>`;
+  return s + "</g>";
+}
+// de pé: origem nos pés. Pernas em grupos próprios, para andar
+function dePe(o) {
+  const braco = o.jaleco || o.braco || o.roupa, pele = o.pele || PELE;
+  let s = `<g id="${o.id}">`;
+  s += `<ellipse cx="0" cy="4" rx="58" ry="9" fill="#000" opacity=".22"/>`;
+  s += `<g id="${o.id}p1"><rect x="-29" y="-150" width="26" height="146" rx="11" fill="${o.calca}"/><ellipse cx="-18" cy="-4" rx="21" ry="9" fill="#141819"/></g>`;
+  s += `<g id="${o.id}p2"><rect x="3" y="-150" width="26" height="146" rx="11" fill="${o.calca}"/><ellipse cx="18" cy="-4" rx="21" ry="9" fill="#141819"/></g>`;
+  s += `<path d="M-50 -140 L-46 -262 Q-44 -288 -20 -290 L20 -290 Q44 -288 46 -262 L50 -140 Z" fill="${o.roupa}"/>`;
+  if (o.jaleco) {
+    s += `<path d="M-56 -292 Q-60 -200 -64 -76 L-6 -76 L-4 -222 L-24 -292 Z" fill="${o.jaleco}"/><path d="M56 -292 Q60 -200 64 -76 L6 -76 L4 -222 L24 -292 Z" fill="${o.jaleco}"/>`;
+    s += `<path d="M-24 -292 L-4 -222 M24 -292 L4 -222" stroke="#d6d0c6" stroke-width="5" fill="none"/><rect x="-50" y="-206" width="30" height="34" rx="4" fill="none" stroke="#d6d0c6" stroke-width="4"/><path d="M-42 -214 v24" stroke="#2a7f9e" stroke-width="5" stroke-linecap="round"/>`;
+  }
+  if (o.bracos === "peito") s += `<path d="M-47 -272 Q-80 -226 -24 -246" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M47 -272 Q80 -226 24 -246" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><circle cx="-22" cy="-246" r="12" fill="${pele}"/><circle cx="22" cy="-246" r="12" fill="${pele}"/>`;
+  else if (o.bracos === "barra") s += `<path d="M-47 -272 Q-88 -228 -64 -198" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M47 -272 Q88 -228 64 -198" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
+  else if (o.bracos === "abre") s += `<path d="M-47 -272 Q-62 -210 -54 -150" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><circle cx="-54" cy="-146" r="12" fill="${pele}"/><g id="${o.id}braco"><path d="M47 -272 Q90 -250 118 -282" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><circle cx="122" cy="-286" r="12" fill="${pele}"/></g>`;
+  else {
+    s += `<path d="M-47 -272 Q-62 -210 -54 -150" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><circle cx="-54" cy="-146" r="12" fill="${pele}"/>`;
+    if (o.celular) s += `<path d="M47 -272 Q70 -222 30 -206" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><rect x="6" y="-238" width="30" height="50" rx="6" fill="#111"/><rect x="9" y="-234" width="24" height="40" rx="3" fill="#9cc6e0" opacity=".9"/><circle cx="26" cy="-204" r="12" fill="${pele}"/>`;
+    else s += `<path d="M47 -272 Q62 -210 54 -150" stroke="${braco}" stroke-width="24" stroke-linecap="round" fill="none"/><circle cx="54" cy="-146" r="12" fill="${pele}"/>`;
+  }
+  s += `<rect x="-11" y="-306" width="22" height="20" fill="${o.pele2 || PELE2}"/>`;
+  s += cabeca(o, 0, -346, 40);
+  return s + "</g>";
+}
+const boca = (pre, qual) => ["sorriso", "reta", "triste", "oh"].forEach(k => attr($(`#${pre}${k}`), "opacity", k === qual ? 1 : 0));
+const pernas = (pre, t, andando) => { const p = andando ? Math.sin(t * 9) : 0; attr($(`#${pre}p1`), "transform", `rotate(${(p * 14).toFixed(2)} -16 -150)`); attr($(`#${pre}p2`), "transform", `rotate(${(-p * 14).toFixed(2)} 16 -150)`); };
+const fecha = (pre, x) => attr($(`#${pre}olhos`), "transform", x > 0 ? `translate(0 -348) scale(1 ${lerp(1, 0.15, x).toFixed(3)}) translate(0 348)` : "");
+
+
+// o Seu Jorge, dono da academia: regata, braço de fora e bigode
+const JORGE = { id: "jo", cabelo: "curto", corCabelo: "#1a1412", bigode: true, roupa: "#2b3438", braco: "#a86f4f", calca: "#2f4a6b", pele: "#a86f4f", pele2: "#93603f", bracos: "peito" };
+// o carro de som do Tião, de lado e virado para a esquerda; origem no chão, no meio do carro
+function carro() {
+  let s = `<defs><clipPath id="ti-clip"><rect x="-232" y="-322" width="140" height="108" rx="10"/></clipPath></defs>`;
+  s += `<ellipse cx="0" cy="8" rx="320" ry="22" fill="#000" opacity=".28"/>`;
+  s += `<rect x="-210" y="-352" width="420" height="14" rx="5" fill="#5b6467"/><rect x="-160" y="-342" width="10" height="16" fill="#5b6467"/><rect x="150" y="-342" width="10" height="16" fill="#5b6467"/>`;
+  s += `<path d="M-70 -396 L-70 -362 L-210 -336 L-210 -422 Z" fill="#d6dadc"/><ellipse cx="-210" cy="-379" rx="14" ry="43" fill="#3c4144"/><rect x="-78" y="-398" width="44" height="38" rx="8" fill="#8a9396"/>`;
+  s += `<path d="M70 -396 L70 -362 L210 -336 L210 -422 Z" fill="#d6dadc"/><ellipse cx="210" cy="-379" rx="14" ry="43" fill="#3c4144"/><rect x="34" y="-398" width="44" height="38" rx="8" fill="#8a9396"/>`;
+  s += `<path d="M-310 -78 L-310 -236 Q-308 -330 -226 -336 L262 -336 Q310 -334 310 -286 L310 -78 Q310 -54 286 -54 L-286 -54 Q-310 -54 -310 -78 Z" fill="#f4f1ec"/>`;
+  s += `<path d="M-310 -204 H310 V-78 Q310 -54 286 -54 L-286 -54 Q-310 -54 -310 -78 Z" fill="#c8402e"/>`;
+  s += `<path d="M-300 -214 L-300 -250 Q-298 -318 -244 -322 L-244 -214 Z" fill="#9cc6e0"/>`;
+  s += `<rect x="-232" y="-322" width="140" height="108" rx="10" fill="#6f93a8"/>`;
+  s += `<g clip-path="url(#ti-clip)"><ellipse cx="-160" cy="-204" rx="56" ry="30" fill="#e9c46a"/>${cabeca({ id: "ti", cabelo: "curto", corCabelo: "#3a2a20", pele: "#e0b08f", pele2: "#c99a7a" }, -158, -262, 32)}
+    <path d="M-192 -282 Q-190 -306 -158 -308 Q-126 -306 -124 -282 Z" fill="#2f5fa8"/><path d="M-192 -284 L-230 -280 Q-214 -270 -192 -274 Z" fill="#244c88"/></g>`;
+  s += `<g id="ti-mic"><path d="M-207 -224 q-24 34 -8 76" stroke="#1e2528" stroke-width="4" fill="none"/><rect x="-216" y="-262" width="18" height="36" rx="9" fill="#1e2528"/><circle cx="-207" cy="-222" r="11" fill="#e0b08f"/></g>`;
+  s += [[-70, 100], [50, 100], [170, 110]].map(([x, w]) => `<rect x="${x}" y="-322" width="${w}" height="100" rx="8" fill="#9cc6e0"/>`).join("");
+  s += `<rect x="-40" y="-192" width="330" height="106" rx="6" fill="#fffef8"/><text x="125" y="-140" text-anchor="middle" font-family="Geist" font-weight="900" font-size="46" fill="#1e2528" letter-spacing="-1">FORÇA TOTAL</text><text x="125" y="-104" text-anchor="middle" font-family="Geist" font-weight="800" font-size="22" fill="#c8402e" letter-spacing="1">MATRÍCULA SEM TAXA</text>`;
+  s += `<circle cx="-300" cy="-120" r="16" fill="#fff3c4"/><rect x="-318" y="-74" width="40" height="14" rx="6" fill="#8a9396"/><rect x="290" y="-74" width="30" height="14" rx="6" fill="#8a9396"/>`;
+  for (const x of [-190, 190]) s += `<g class="roda"><circle cx="${x}" cy="-50" r="56" fill="#1e2528"/><circle cx="${x}" cy="-50" r="26" fill="#b8c0c3"/><path d="M${x - 22} -50 h44 M${x} -72 v44" stroke="#8a9396" stroke-width="6"/></g>`;
+  return s;
+}
+
+// ====================== 1. a rua: a academia, as casas e o carro de som ======================
+const CASAS = [840, 880, 810, 860, 830, 890, 850, 820].map((topo, i) => ({ x: 560 + i * 360, topo, cor: ["#f2d7b6", "#cfe0d4", "#f4c6b8", "#d7d4ec", "#f1e3a8", "#c9dfe8", "#e8cdb5", "#d9e6c8"][i] }));
+const JAN = CASAS.flatMap(c => [{ x: c.x + 40, y: 940, w: 100, h: 130 }, { x: c.x + 200, y: 940, w: 100, h: 130 }, { x: c.x + 190, y: 1270, w: 110, h: 120 }]);
+const ESPIA = [0, 4, 7, 10, 14, 17]; // de manhã: quem aparece na janela por causa do barulho
+const ABERTAS = [5, 9, 13, 20, 23]; // na semana seguinte: quem chegou perto
+const CELIA = 5; // a Dona Célia, no térreo da segunda casa
+const GENTE = [{ cabelo: "curto", corCabelo: "#3a2a20", pele: "#e0b08f", pele2: "#c99a7a", roupa: "#2f4a6b" }, { cabelo: "longo", corCabelo: "#1a1412", pele: "#8d5a3b", pele2: "#7a4c31", roupa: "#9cb39f" },
+  { cabelo: "coque", corCabelo: "#b0743c", pele: "#f0c8a8", pele2: "#dcae8c", roupa: "#b8a6d9" }, { cabelo: "careca", corCabelo: "#5b5450", pele: "#c4876a", pele2: "#a86f4f", roupa: "#e9c46a" }];
+const pessoa = (k, j) => {
+  const o = k === CELIA ? { cabelo: "coque", corCabelo: "#d8d2c8", corSob: "#a89f94", oculos: true, pele: "#e6b896", pele2: "#d29f7d", roupa: "#c8402e" } : GENTE[k % 4];
+  const cx = j.x + j.w / 2, r = j.w * 0.25;
+  return `<ellipse cx="${cx}" cy="${j.y + j.h + 6}" rx="${j.w * 0.42}" ry="${j.h * 0.34}" fill="${o.roupa}"/>` + cabeca({ ...o, id: "jg" + k }, cx, j.y + j.h * 0.5, r);
+};
+const CARRO_Y = 1820;
+{
+  let s = `<defs><linearGradient id="ru-ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fa8d6"/><stop offset=".7" stop-color="#bcdcea"/><stop offset="1" stop-color="#f3e7cf"/></linearGradient>
+    <linearGradient id="ru-tarde" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1c3f"/><stop offset=".6" stop-color="#6a3f63"/><stop offset="1" stop-color="#e0875a"/></linearGradient>
+    <pattern id="persiana" width="12" height="18" patternUnits="userSpaceOnUse"><rect width="12" height="18" fill="#d3cbbd"/><rect y="14" width="12" height="4" fill="#aaa091"/></pattern>
+    ${JAN.map((j, k) => `<clipPath id="jc${k}"><rect x="${j.x}" y="${j.y}" width="${j.w}" height="${j.h}"/></clipPath>`).join("")}</defs>`;
+  s += `<rect x="-1200" y="-2400" width="6000" height="3920" fill="url(#ru-ceu)"/><rect id="ru-tardeceu" x="-1200" y="-2400" width="6000" height="3920" fill="url(#ru-tarde)" opacity="0"/>`;
+  s += `<circle id="ru-sol" cx="2300" cy="380" r="70" fill="#fff4d6"/>`;
+  s += `<g fill="#fff" opacity=".85">${[[200, 420], [1300, 300], [2650, 380], [3500, 260], [900, -200], [2100, -500]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="120" ry="32"/><ellipse cx="${x + 50}" cy="${y - 18}" rx="74" ry="30"/>`).join("")}</g>`;
+  // a academia
+  s += `<rect x="-460" y="700" width="980" height="820" fill="#2b3438"/><rect x="-470" y="680" width="1000" height="30" rx="4" fill="#1e2528"/>`;
+  s += `<rect x="-400" y="770" width="880" height="176" rx="12" fill="#1e2528"/><text x="40" y="830" text-anchor="middle" font-family="Geist" font-weight="700" font-size="32" letter-spacing="12" fill="#cfd6d8">ACADEMIA</text><text x="40" y="918" text-anchor="middle" font-family="Geist" font-weight="900" font-size="94" letter-spacing="-2" fill="#f2b632">FORÇA TOTAL</text>`;
+  s += `<rect x="-400" y="1010" width="640" height="430" fill="#3c4a52"/><g fill="#27312f">${[-340, -250, -160, -70, 20, 110].map(x => `<rect x="${x}" y="1300" width="16" height="140"/><circle cx="${x + 8}" cy="1290" r="26"/>`).join("")}<rect x="-380" y="1380" width="600" height="18"/></g><path d="M-400 1010 L-180 1440 M-60 1010 L160 1440" stroke="#ffffff" stroke-width="22" opacity=".06"/>`;
+  s += `<rect x="290" y="1050" width="200" height="470" fill="#3c4a52" stroke="#1e2528" stroke-width="12"/><rect x="304" y="1270" width="12" height="70" rx="5" fill="#cfd6d8"/>`;
+  // as casas
+  for (const c of CASAS) {
+    s += `<rect x="${c.x}" y="${c.topo}" width="340" height="${1520 - c.topo}" fill="${c.cor}"/><rect x="${c.x - 12}" y="${c.topo - 26}" width="364" height="32" rx="4" fill="${c.cor}"/><rect x="${c.x - 12}" y="${c.topo + 2}" width="364" height="8" fill="#000" opacity=".08"/>`;
+    s += `<rect x="${c.x}" y="1180" width="340" height="14" fill="#000" opacity=".07"/><rect x="${c.x + 40}" y="1290" width="100" height="230" rx="4" fill="#8a6a4f"/><circle cx="${c.x + 124}" cy="1410" r="6" fill="#e9c46a"/>`;
+  }
+  s += JAN.map(j => `<rect x="${j.x - 10}" y="${j.y - 10}" width="${j.w + 20}" height="${j.h + 20}" rx="4" fill="#f4f1ec"/><rect x="${j.x - 16}" y="${j.y + j.h + 8}" width="${j.w + 32}" height="12" rx="3" fill="#e2dcd2"/>`).join("");
+  // calçada e rua
+  s += `<rect x="-1200" y="1520" width="6000" height="70" fill="#d9d2c6"/><rect x="-1200" y="1586" width="6000" height="14" fill="#b9b1a4"/><rect x="-1200" y="1600" width="6000" height="3000" fill="#5b6467"/>`;
+  for (let k = -6; k < 26; k++) s += `<rect x="${k * 220}" y="2050" width="120" height="16" rx="6" fill="#e9e4da" opacity=".75"/>`;
+  // o fim de tarde escurece tudo, menos as janelas acesas
+  s += `<rect id="ru-noite" x="-1200" y="-2400" width="6000" height="7000" fill="#1c2140" opacity="0"/>`;
+  s += JAN.map((j, k) => `<g clip-path="url(#jc${k})"><rect id="ji${k}" x="${j.x}" y="${j.y}" width="${j.w}" height="${j.h}" fill="#a9c9d6"/><g id="jp${k}" opacity="0">${pessoa(k, j)}</g>
+    <rect id="js${k}" x="${j.x}" y="${j.y}" width="${j.w}" height="${j.h * 0.3}" fill="url(#persiana)"/><rect id="jd${k}" x="${j.x}" y="${j.y}" width="${j.w}" height="${j.h * 0.3}" fill="#1c2140" opacity="0"/></g>
+    <circle id="jr${k}" cx="${j.x + j.w / 2}" cy="${j.y + j.h / 2}" r="80" fill="none" stroke="#ffd58a" stroke-width="10" opacity="0"/>`).join("");
+  // o Seu Jorge na porta da academia (atrás do carro)
+  s += `<g id="ja-pos" transform="translate(385 1545) scale(1.15)">${dePe({ ...JORGE, id: "ja" })}</g>`;
+  s += `<g id="carro-pos">${carro()}</g>`;
+  s += `<g id="ondas" fill="none" stroke="#2b3438" stroke-linecap="round">${[0, 1, 2, 3, 4, 5].map(k => `<path id="on${k}"/>`).join("")}</g>`;
+  // o Seu Jorge na janela do carro (na frente dele)
+  s += `<g id="jo-pos" opacity="0">${dePe(JORGE)}</g><g id="jc-pos" opacity="0">${dePe({ ...JORGE, id: "jc", bracos: "", celular: true })}</g>`;
+  $("#ru").innerHTML = s;
+}
+const ON = [0, 1, 2, 3, 4, 5].map(k => $("#on" + k)), RODAS = $$("#carro-pos .roda");
+const JI = JAN.map((_, k) => $("#ji" + k)), JP = JAN.map((_, k) => $("#jp" + k)), JS = JAN.map((_, k) => $("#js" + k)), JD = JAN.map((_, k) => $("#jd" + k)), JR = JAN.map((_, k) => $("#jr" + k));
+ESPIA.forEach(k => boca("jg" + k, "oh"));
+
+// ====================== 2. a academia: malhando em ferro frio ======================
+{
+  let s = `<defs><radialGradient id="ac-gelo" cx="540" cy="1250" r="1100" gradientUnits="userSpaceOnUse"><stop offset=".45" stop-color="#e6f6ff" stop-opacity="0"/><stop offset="1" stop-color="#e6f6ff" stop-opacity=".45"/></radialGradient></defs>`;
+  s += `<rect x="-500" y="-400" width="2100" height="1960" fill="#4a575e"/><rect x="-500" y="1180" width="2100" height="30" fill="#f2b632"/>`;
+  for (const x0 of [-140, 900]) {
+    s += `<rect x="${x0}" y="1330" width="320" height="20" rx="6" fill="#5b6467"/><rect x="${x0 + 20}" y="1350" width="14" height="210" fill="#5b6467"/><rect x="${x0 + 286}" y="1350" width="14" height="210" fill="#5b6467"/>`;
+    for (let i = 0; i < 4; i++) { const x = x0 + 40 + i * 76; s += `<rect x="${x - 26}" y="1304" width="52" height="12" rx="6" fill="#d8eef7"/><circle cx="${x - 26}" cy="1310" r="22" fill="#c4e4f2" stroke="#8fc0d6" stroke-width="4"/><circle cx="${x + 26}" cy="1310" r="22" fill="#c4e4f2" stroke="#8fc0d6" stroke-width="4"/>`; }
+  }
+  s += `<rect x="-500" y="1560" width="2100" height="1200" fill="#1e2528"/>`;
+  for (let k = 0; k < 9; k++) s += `<path d="M-500 ${1620 + k * 80 + k * k * 6} H1600" stroke="#2b3438" stroke-width="4"/>`;
+  s += `<rect x="-500" y="-400" width="2100" height="3200" fill="url(#ac-gelo)"/>`;
+  s += `<g id="ac-jo"><g transform="translate(540 1740) scale(1.75)">${dePe({ ...JORGE, id: "ab", bracos: "barra" })}</g>`;
+  // a barra congelada, com as anilhas cobertas de gelo e as estalactites
+  s += `<rect x="130" y="1385" width="820" height="24" rx="10" fill="#d8eef7" stroke="#9cc9dc" stroke-width="4"/>`;
+  for (const [x, d] of [[150, 1], [930, -1]]) {
+    const a = d > 0 ? x : x - 46, b = d > 0 ? x + 46 : x - 76;
+    s += `<rect x="${a}" y="1286" width="46" height="222" rx="12" fill="#c4e4f2" stroke="#8fc0d6" stroke-width="4"/><rect x="${d > 0 ? x + 46 : x - 76}" y="1318" width="30" height="158" rx="10" fill="#d2ecf6" stroke="#8fc0d6" stroke-width="4"/>`;
+    s += `<path d="M${a + 10} 1300 v90 M${a + 30} 1310 v40" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"/>`;
+    s += [0, 14, 30].map((o, i) => `<path d="M${a + o + 2} 1506 l${12} 0 l${-6} ${38 + i * 14} z" fill="#e6f6ff"/>`).join("");
+  }
+  s += [230, 290, 350, 700, 760, 830, 880].map((x, i) => `<path d="M${x} 1407 l14 0 l-7 ${30 + (i % 3) * 18} z" fill="#e6f6ff"/>`).join("");
+  s += `<circle cx="428" cy="1397" r="23" fill="${JORGE.pele}"/><circle cx="652" cy="1397" r="23" fill="${JORGE.pele}"/></g>`;
+  s += `<g id="ac-bafo" fill="#ffffff" style="filter:blur(5px)">${[0, 1, 2].map(k => `<g id="bf${k}"><circle cx="0" cy="0" r="16"/><circle cx="14" cy="-8" r="12"/><circle cx="-12" cy="-6" r="10"/></g>`).join("")}</g>`;
+  s += `<g id="ac-neve" fill="#ffffff">${Array.from({ length: 40 }, (_, i) => `<circle id="nv${i}" r="${(3 + h(i, 11) * 6).toFixed(1)}"/>`).join("")}</g>`;
+  $("#ac").innerHTML = s;
+}
+const BAFO = [0, 1, 2].map(k => $("#bf" + k)), NEVE = Array.from({ length: 40 }, (_, i) => $("#nv" + i));
+
+// ---------- o celular e as telas ----------
+const barra = hora => `<div class="status"><span class="hora">${hora}</span><i><span class="sin"><b style="height:6px"></b><b style="height:10px"></b><b style="height:14px"></b><b style="height:18px"></b></span><span class="bat"></span></i></div>`;
+const FOTO = `<svg viewBox="0 0 412 412"><rect width="412" height="412" fill="#f2b632"/><g transform="translate(206 150) scale(5.4) translate(-12 -12)" fill="none" stroke="#1e2528" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${IC.halter}</g>
+  <text x="206" y="318" text-anchor="middle" font-family="Geist" font-weight="900" font-size="46" letter-spacing="-2" fill="#1e2528">MATRÍCULA</text><text x="206" y="364" text-anchor="middle" font-family="Geist" font-weight="900" font-size="46" letter-spacing="-2" fill="#1e2528">SEM TAXA</text></svg>`;
+const post = cor => `<i style="background:${cor}"><svg viewBox="0 0 100 100"><g transform="translate(50 50) scale(2.2) translate(-12 -12)" fill="none" stroke="${cor === "#f2b632" ? "#1e2528" : "#f2b632"}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC.halter}</g></svg></i>`;
+$("#fone").innerHTML = `<span class="exemplo claro" id="fone-ex">exemplo</span><div class="visor">${barra("09:15")}
+  <div class="tela" id="t-post"><div class="ig-topo"><span class="ig-av">${ic("halter")}</span><div>forcatotal.academia<small id="ig-pat">Patrocinado</small></div></div>
+    <div class="ig-foto">${FOTO}</div>
+    <div class="ig-acoes">${ic("coracao")}${ic("mensagem")}${ic("enviar")}</div>
+    <p class="ig-leg"><b>forcatotal.academia</b> Matrícula sem taxa este mês!</p>
+    <div class="ig-imp" id="ig-imp">Impulsionar publicação</div><span class="ig-dedo" id="ig-dedo"></span>
+    <div class="ig-folha" id="ig-orc"><span class="t">Orçamento e duração</span><div class="ig-val">R$ 30<small> por dia</small></div><div class="ig-barra"><i id="ig-bi"></i></div><p>7 dias · R$ 210 no total</p></div>
+    <div class="ig-folha" id="ig-res"><span class="t">Resultados</span><div class="ig-num" id="ig-num">0</div><p>contas alcançadas</p><div class="ig-linha"><span>Visitas ao perfil</span><b id="ig-vis">0</b></div></div></div>
+  <div class="tela" id="t-perfil"><div class="pf-topo">${ic("voltar")}forcatotal.academia</div>
+    <div class="pf-cab"><span class="pf-av">${ic("halter", 'style="stroke-width:1.6"')}</span><div class="pf-nome">Academia Força Total<small>Academia</small></div></div>
+    <div class="pf-bio"><div>Treino pesado, todo dia</div><div id="pf-dm">${ic("mensagem")}Matrícula: chama no direct</div></div>
+    <div class="pf-grade">${["#f2b632", "#2b3438", "#c8402e", "#2b3438", "#f2b632", "#5b6467", "#c8402e", "#f2b632", "#2b3438"].map(post).join("")}</div></div>
+  <div class="tela" id="t-site"><div class="ms"><div class="ms-topo">Força Total<i></i></div>
+    <div class="ms-hero am"><h3>Treine com professor, das 6h às 22h</h3><svg class="des" viewBox="0 0 24 24" fill="none" stroke="#1e2528" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${IC.halter}</svg></div>
+    <div class="ms-aberto">Aberto agora · até as 22h</div>
+    ${[["etiqueta", "Planos", "Mensal R$ 99 · trimestral R$ 270"], ["relogio", "Horário", "Seg a sex, 6h às 22h · sáb 8h às 14h"], ["mapa", "Endereço", "Rua das Acácias, 120"]]
+      .map(([i, a, b], k) => `<div class="ms-linha" id="ml${k}"><span class="ic">${ic(i)}</span><div><small>${a}</small><b>${b}</b></div></div>`).join("")}
+    <div class="ms-zap" id="mz">${ZAP_B}Chamar no WhatsApp</div></div></div>
+</div>`;
+const FONE = $("#fone"), TELAS = $$(".tela", FONE), HORA = $(".status .hora", FONE);
+const mostraTela = id => TELAS.forEach(el => { el.style.display = el.id === "t-" + id ? "block" : "none"; });
+
+// o anúncio e o painel do site
+$("#anuncio").innerHTML = `<div class="an-topo"><i>${ic("halter")}</i><b>forcatotal.academia<small>Patrocinado</small></b></div><div class="an-img"><span class="exemplo">exemplo</span>MATRÍCULA<br>SEM TAXA</div><div class="an-bt">Saiba mais<span>›</span></div>`;
+const PN = [[300, "olho", "pessoas visitaram", ""], [40, "etiqueta", "viram os planos", ""], [9, "", "chamaram no WhatsApp", " zap"]];
+$("#painel").innerHTML = `<span class="exemplo">exemplo</span><div class="pn-cab">Visitas do site<small>Academia Força Total · esta semana</small></div>` +
+  PN.map(([n, i, txt, z], k) => `<div class="pn-l" id="pn${k}"><i class="pn-ic${z}">${i ? ic(i) : ZAP_B}</i><div><b id="pn-n${k}">0</b><span>${txt}</span></div></div>`).join("");
+
+// quem clicou no anúncio: cai no perfil, olha e vai embora
+const AV = Array.from({ length: 18 }, (_, i) => {
+  const el = document.createElement("i"); el.className = "av"; el.style.background = ["#2f6f73", "#c8402e", "#8a6a4f", "#2f5fa8", "#9cb39f", "#b8a6d9"][i % 6]; el.innerHTML = ic("usuario", 'style="stroke-width:2.2"'); $("#fluxo").appendChild(el);
+  const a = (i / 18) * Math.PI * 2 + 0.3;
+  return { el, a, x: clamp(550 + 360 * Math.cos(a), 60, 1020), y: clamp(1010 + 520 * Math.sin(a), 470, 1800), x0: 100 + h(i, 1) * 880, ent: 0.09 * i, sai: h(i, 2) * 0.6 };
+});
+
+// ---------- balões ----------
+const balao = (txt, cls) => { const el = document.createElement("div"); el.className = "balao " + cls; el.innerHTML = txt; $("#baloes").appendChild(el); return el; };
+const B_M1 = balao("Academia Força Total!<br>Matrícula sem taxa!", "grito duas esq");
+const B_J = [balao("Quantos ouviram?", "esq"), balao("E quantos vieram?", "esq")];
+const B_T = [balao("Todo mundo!", "grito esq"), balao("Aí já não é comigo!", "grito esq")];
+const B_J3 = balao("E quantos vieram?", "esq"), B_T3 = balao("Aí já não é comigo!", "grito esq");
+const B_CO = balao("Matrícula sem taxa, viu?", "cochicho esq");
+// ---------- marca e convite ----------
+{
+  const L = F.moral.palavras, M = F.marca.palavras, C = F.cta.palavras, ip = C.findIndex(p => /PRÉVIA/.test(p.p)), ir = M.findIndex(p => /Renderiza/.test(p.p));
+  const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 190 : 255; return `${(540 + r * Math.cos(a)).toFixed(1)},${(960 + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
+  $("#c-fim").innerHTML = `<svg id="mc-estrela" viewBox="0 0 1080 1920"><defs><radialGradient id="mc-g" cx="540" cy="960" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".5"/><stop offset=".6" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="540" cy="960" r="420" fill="url(#mc-g)"/><polygon points="${est}" fill="#e8855e" fill-opacity=".13" id="mc-poli"/></svg>
+    <p id="mc-linha">${L.map(p => `<span class="w${p.tom ? " tom" : ""}">${p.p}</span>`).join(" ")}</p>
+    <div id="mc-simbolo"><span class="simbolo"></span></div><div id="mc-nome">renderiza</div>
+    <p id="mc-sub">${M.slice(ir + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
+    <div id="cta-botao"><span id="cta-luz"></span>${ic("mensagem", 'style="stroke-width:2.2"')}<span>Comenta <em id="cta-previa">PRÉVIA</em></span></div>
+    <p id="cta-texto">${C.slice(ip + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
+    <p id="cta-nota">O Seu Jorge, o Tião e a Academia Força Total são fictícios.</p>`;
+}
+const mcPal = $$("#mc-linha .w").map((el, k) => ({ el, ini: F.moral.palavras[k].ini }));
+const subPal = (() => { const M = F.marca.palavras, ir = M.findIndex(p => /Renderiza/.test(p.p)); return $$("#mc-sub .w").map((el, k) => ({ el, ini: M[ir + 1 + k].ini })); })();
+const ctaPal = (() => { const C = F.cta.palavras, ip = C.findIndex(p => /PRÉVIA/.test(p.p)); return $$("#cta-texto .w").map((el, k) => ({ el, ini: C[ip + 1 + k].ini })); })();
+
+// poeira, sempre igual a cada gravação
+const POEIRA = Array.from({ length: 22 }, (_, i) => { const el = document.createElement("i"); $("#poeira").appendChild(el); return { el, x: h(i, 1) * 1080, y: h(i, 2) * 2100, v: 14 + h(i, 3) * 34, s: 0.4 + h(i, 4) * 1.1, f: h(i, 5) * 6.28 }; });
+
+// ---------- legendas: frases longas viram pedaços de até duas linhas ----------
+function partir(ws) {
+  const txt = a => a.map(p => p.p).join(" ");
+  for (let k = 0; k < ws.length - 1; k++) if (/[.?!]$/.test(ws[k].p)) return [...partir(ws.slice(0, k + 1)), ...partir(ws.slice(k + 1))];
+  if (txt(ws).length <= 44) return [ws];
+  let melhor = 1, nota = Infinity;
+  for (let k = 1; k < ws.length; k++) {
+    let n = Math.abs(txt(ws.slice(0, k)).length - txt(ws.slice(k)).length);
+    if (/[,:;]$/.test(ws[k - 1].p)) n -= 20; else if (/^(e|com|sem|para|que)$/i.test(ws[k].p)) n -= 6;
+    if (n < nota) { nota = n; melhor = k; }
+  }
+  return [...partir(ws.slice(0, melhor)), ...partir(ws.slice(melhor))];
+}
+// falas curtas que ficam juntas na mesma legenda (até duas linhas)
+const JUNTAS = [];
+const FORA = ["marca", "cta"]; // essas falas viram o texto grande da própria cena
+const SO_BALAO = ["m1", "j1", "t1", "j2", "t2", "j3", "t3", "n1", "n2", "n3"]; // falas que saem em balão ou no painel, sem legenda
+const pedacos = [], grupos = [];
+for (const f of frases) {
+  const j = JUNTAS.find(g => g.includes(f.id));
+  if (j && j[0] !== f.id) { grupos[grupos.length - 1].ws.push(...f.palavras); continue; }
+  grupos.push({ f, ws: [...f.palavras], junto: !!j });
+}
+for (const g of grupos) for (const ws of (g.ws.map(p => p.p).join(" ").length <= (g.junto ? 50 : 44) ? [g.ws] : partir(g.ws))) pedacos.push({ f: g.f, ws });
+pedacos.forEach((p, i) => { p.de = i === 0 ? -1 : p.ws[0].ini - 0.06; });
+pedacos.forEach((p, i) => { p.ate = i < pedacos.length - 1 ? pedacos[i + 1].de : DUR + 1; });
+for (const p of pedacos) {
+  if (FORA.includes(p.f.cena) || SO_BALAO.includes(p.f.id)) continue;
+  p.el = document.createElement("p");
+  p.el.className = "fala";
+  p.wel = p.ws.map(w => { const s = document.createElement("span"); s.className = "w" + (w.tom ? " tom" : ""); s.textContent = w.p; p.el.append(s, " "); return s; });
+  $("#falas").appendChild(p.el);
+}
+
+// ====================== quadro a quadro ======================
+const CAM_RU = [
+  [0, 1650, 1300, 1.0], [T.total, 1350, 1290, 0.98], [T.abre, 950, 1270, 0.92], [T.abre + 0.9, 640, 1250, 0.88], [T.ouve - 0.1, 610, 1250, 0.88],
+  [T.ouve + 0.6, 1200, 1200, 0.68], [S.conversa - E, 1215, 1200, 0.69],
+  [S.conversa, 440, 1470, 1.5], [S.insta - E, 445, 1470, 1.55], [S.insta, 420, 1500, 1.5], [S.ferro - E, 425, 1500, 1.55],
+];
+const CAR_R = [[0, 1800], [T.abre + 1.0, 700]];
+const CAR_J = [[T.janela - E, 4300], [T.janela + 0.9, 3010], [T.janela + 1.4, 3010], [T.janela + 2.3, 1880], [T.janela + 2.8, 1880], [S.fecho - 0.1, 1325]];
+const carroX = t => (t < S.janela ? pose(CAR_R, t) : pose(CAR_J, t))[0];
+function camRua(t) {
+  if (t < S.janela) return pose(CAM_RU, t);
+  const largo = pose([[S.janela, 1500, 1180, 0.5], [T.perto + 0.6, 2450, 1180, 0.5]], t), segue = [carroX(t) - 120, 1320, 0.62], perto = [1190, 1450, 1.3];
+  if (t < T.janela) return largo;
+  const a = ease(fase(t, T.janela, T.janela + 0.8)), b = ease(fase(t, S.fecho - 0.5, S.fecho + 0.2)), c = fase(t, S.fecho, S.marca);
+  const m = largo.map((v, i) => lerp(v, segue[i], a));
+  return m.map((v, i) => lerp(v, perto[i] + (i === 2 ? 0.08 * c : 0), b));
+}
+// as ondas do alto-falante: três arcos para cada lado, saindo das cornetas
+function ondas(t, X, forca, alcance = 1) {
+  for (let k = 0; k < 6; k++) {
+    const dir = k < 3 ? -1 : 1, a = (t * 1.7 + (k % 3) / 3) % 1, r = 30 + a * 320 * alcance, cx = X + dir * 214, cy = CARRO_Y - 379;
+    const p = [-34, 34].map(g => [cx + dir * r * Math.cos(g * Math.PI / 180), cy + r * Math.sin(g * Math.PI / 180)]);
+    attr(ON[k], "d", `M${p[0][0].toFixed(1)} ${p[0][1].toFixed(1)} Q${(cx + dir * r * 1.2).toFixed(1)} ${cy} ${p[1][0].toFixed(1)} ${p[1][1].toFixed(1)}`);
+    attr(ON[k], "opacity", (forca * (1 - a) * 0.8).toFixed(3)); attr(ON[k], "stroke-width", (14 * (1 - a * 0.5) * Math.max(0.5, alcance)).toFixed(1));
+  }
+}
+const falando = (t, ...ts) => ts.some(([a, b]) => em(t, a, b));
+function qRua(t) {
+  const cam = camRua(t); camera($("#ru"), cam);
+  const tarde = t >= S.janela ? fase(t, S.janela - 0.1, S.janela + 0.5) : 0;
+  attr($("#ru-tardeceu"), "opacity", tarde.toFixed(3)); attr($("#ru-noite"), "opacity", (0.42 * tarde).toFixed(3)); $("#carro-pos").style.filter = tarde > 0 ? `brightness(${(1 - 0.28 * tarde).toFixed(3)})` : "";
+  attr($("#ru-sol"), "opacity", (1 - tarde).toFixed(3));
+  // o carro
+  const X = carroX(t), v = Math.abs(X - carroX(t - 0.05)) / 0.05, anda = v > 20;
+  attr($("#carro-pos"), "transform", `translate(${X.toFixed(1)} ${(CARRO_Y + (anda ? Math.sin(t * 24) * 2 : 0)).toFixed(1)})`);
+  RODAS.forEach((r, i) => attr(r, "transform", `rotate(${((X / 56) * 57.3).toFixed(1)} ${i ? 190 : -190} -50)`));
+  // o Tião fala no microfone, até de perto
+  const fala = falando(t, [T.m1, FIM_("m1")], [T.t1, FIM_("t1")], [T.t2, FIM_("t2")]);
+  const cochicho = em(t, T.baixinho - 0.1, T.baixinho + 1.2), parado = t >= S.janela && !anda && t >= T.janela;
+  boca("ti", fala || (parado && !cochicho && t < S.fecho) ? (Math.sin(t * 50) > 0 ? "oh" : "reta") : cochicho ? "sorriso" : t >= S.fecho ? "sorriso" : "reta");
+  let forca = 0, alcance = 1;
+  if (em(t, T.m1 - 0.1, T.abre + 0.4) || em(t, T.ouve - 0.2, S.conversa) || fala) forca = 1;
+  if (parado && t < S.fecho - 0.2) { forca = 0.75; alcance = 0.6; }
+  if (cochicho) { forca = 0.5; alcance = 0.12; }
+  ondas(t, X, forca, alcance);
+  // o Seu Jorge: na porta, na janela do carro, no celular
+  attr($("#ja-pos"), "opacity", t < S.conversa ? 1 : 0);
+  boca("ja", em(t, T.jorge - 0.1, S.conversa) ? "sorriso" : "reta");
+  const conversa = em(t, S.conversa, S.insta), celular = em(t, S.insta, S.ferro);
+  attr($("#jo-pos"), "opacity", conversa ? 1 : 0); attr($("#jc-pos"), "opacity", celular ? 1 : 0);
+  if (conversa) {
+    const grito = falando(t, [T.t1, FIM_("t1") + 0.2], [T.t2, FIM_("t2") + 0.3]);
+    attr($("#jo-pos"), "transform", `translate(330 1890) scale(1.3) rotate(${grito ? -5 : 0} 0 0)`);
+    boca("jo", grito ? "oh" : "reta"); fecha("jo", grito ? 0.7 : 0);
+  }
+  if (celular) {
+    attr($("#jc-pos"), "transform", "translate(330 1890) scale(1.3)");
+    boca("jc", t >= S.perfil ? "triste" : em(t, T.t3, S.perfil) ? "oh" : em(t, T.anuncio, T.j3) ? "sorriso" : "reta");
+  }
+  janelas(t, tarde);
+}
+// as janelas: de manhã espiam o barulho; na semana seguinte só ficam abertas as de quem chegou perto
+function janelas(t, tarde) {
+  JAN.forEach((j, k) => {
+    let fecha_ = 0.3, gente = 0, luz = 0, py = 0, anel = 0;
+    if (t < S.janela) {
+      const e = ESPIA.indexOf(k);
+      if (e >= 0 && em(t, T.ouve - 0.2, S.conversa)) { const a = fase(t, T.ouve + e * 0.08, T.ouve + e * 0.08 + 0.3); gente = a > 0 ? 1 : 0; py = (1 - saiX(a)) * j.h; fecha_ = lerp(0.3, 0.05, a); }
+    } else {
+      const i = ABERTAS.indexOf(k);
+      if (i < 0) fecha_ = lerp(0.3, 1, sai(fase(t, S.janela + 0.2 + (k % 7) * 0.13, S.janela + 0.5 + (k % 7) * 0.13)));
+      else {
+        const a = fase(t, T.perto - 0.35 + i * 0.1, T.perto + i * 0.1);
+        fecha_ = lerp(0.3, 0.02, a); luz = a; gente = a > 0 ? 1 : 0; py = (1 - saiX(a)) * j.h * 0.7;
+        const r = fase(t, T.perto + i * 0.1, T.perto + i * 0.1 + 1.1); anel = r > 0 && r < 1 ? r : 0;
+      }
+    }
+    attr(JS[k], "height", (j.h * fecha_).toFixed(1)); attr(JD[k], "height", (j.h * fecha_).toFixed(1)); attr(JD[k], "opacity", (0.55 * tarde).toFixed(3));
+    attr(JI[k], "fill", luz > 0 ? mix("#a9c9d6", "#ffd58a", luz) : mix("#a9c9d6", "#3a3f5c", tarde));
+    attr(JP[k], "opacity", gente); attr(JP[k], "transform", `translate(0 ${py.toFixed(1)})`);
+    attr(JR[k], "opacity", (anel ? 1 - anel : 0).toFixed(3)); attr(JR[k], "r", (60 + 140 * sai(anel)).toFixed(1));
+  });
+  boca("jg" + CELIA, t >= T.baixinho ? "sorriso" : "reta");
+}
+
+function qAcademia(t) {
+  camera($("#ac"), pose([[S.ferro - E, 540, 1330, 1.22], [S.site, 540, 1300, 1.32]], t));
+  const tr = Math.sin(t * 61) * 3.2;
+  attr($("#ac-jo"), "transform", `translate(${tr.toFixed(1)} 0)`);
+  boca("ab", "reta"); attr($("#absob"), "transform", "translate(0 -6)");
+  BAFO.forEach((b, k) => { const a = ((t - S.ferro) * 0.8 + k / 3) % 1; attr(b, "transform", `translate(${(560 + a * 110).toFixed(1)} ${(1188 - a * 90).toFixed(1)}) scale(${(0.5 + a * 1.2).toFixed(3)})`); attr(b, "opacity", (0.55 * Math.sin(Math.PI * a)).toFixed(3)); });
+  NEVE.forEach((n, i) => { const y = ((h(i, 12) * 1800 + (t - S.ferro) * (90 + h(i, 13) * 120)) % 1800) + 300; attr(n, "cx", (h(i, 14) * 1160 - 40 + Math.sin(t + i) * 20).toFixed(1)); attr(n, "cy", y.toFixed(1)); attr(n, "opacity", (0.5 + 0.4 * h(i, 15)).toFixed(2)); });
+}
+
+const FONE_P = [
+  [S.insta - 0.35, 320, 1500, 0.8, 6, 0], [S.insta + 0.1, 320, 470, 0.95, 0, 1], [S.resposta, 320, 470, 0.95, 0, 1], [S.resposta + 0.3, 330, 600, 0.86, 0, 1],
+  [S.perfil - 0.1, 330, 600, 0.86, 0, 1], [S.perfil + 0.25, 320, 520, 0.92, 0, 1], [S.ferro - 0.3, 320, 520, 0.92, 0, 1], [S.ferro - 0.05, 320, 1500, 0.8, -6, 0],
+  [S.site - E, 320, 1500, 0.8, 6, 0], [S.site + 0.3, 320, 480, 0.95, 0, 1], [T.leva - 0.2, 320, 480, 0.95, 0, 1], [T.leva + 0.3, 560, 560, 0.82, 0, 1],
+  [S.numeros - 0.15, 560, 560, 0.82, 0, 1], [S.numeros + 0.1, 560, 620, 0.8, 0, 0],
+];
+function qFone(t) {
+  const [x, y, s, r, o] = pose(FONE_P, t), tr = em(t, T.t3 - 0.05, T.t3 + 1.2) ? 1 - fase(t, T.t3 + 0.6, T.t3 + 1.2) : 0;
+  pos(FONE, { x: x + tr * 9 * Math.sin(t * 70), y, s, r: r + tr * 3 * Math.sin(t * 55), o });
+  if (o <= 0.002) return;
+  const tela = t >= S.site ? "site" : t >= S.perfil ? "perfil" : "post";
+  mostraTela(tela);
+  HORA.textContent = tela === "site" ? "21:40" : "09:15";
+  if (tela === "post") {
+    $("#ig-imp").style.transform = `scale(${(1 - 0.06 * pulso(t, T.impulsionar - 0.1, 0.4)).toFixed(3)})`;
+    const d = fase(t, T.impulsionar - 0.35, T.impulsionar + 0.25);
+    pos($("#ig-dedo"), { s: lerp(1.4, 0.8, sai(d)), o: d > 0 && d < 1 ? Math.sin(Math.PI * d) : 0 });
+    $("#ig-pat").style.opacity = t >= T.impulsionar ? 1 : 0;
+    const orc = fase(t, T.trinta - 0.15, T.trinta + 0.25) * (1 - fase(t, T.semana - 0.1, T.semana + 0.15));
+    $("#ig-orc").style.transform = `translateY(${(110 * (1 - sai(orc))).toFixed(1)}%)`;
+    $("#ig-bi").style.width = `${(8 + 30 * ease(fase(t, T.trinta, T.trinta + 0.7))).toFixed(1)}%`;
+    const res = fase(t, T.semana - 0.05, T.semana + 0.35), n = ease(fase(t, T.semana + 0.3, T.anuncio));
+    $("#ig-res").style.transform = `translateY(${(110 * (1 - sai(res))).toFixed(1)}%)`;
+    $("#ig-num").textContent = Math.round(8400 * n).toLocaleString("pt-BR"); $("#ig-vis").textContent = Math.round(312 * n);
+  }
+  if (tela === "perfil") $("#pf-dm").style.background = `rgba(232,133,94,${(0.42 * fase(t, T.direct - 0.35, T.direct)).toFixed(3)})`;
+  if (tela === "site") {
+    const ts = [T.planos, T.horario, T.endereco];
+    $$(".ms-linha", FONE).forEach((el, i) => { el.style.background = `rgba(232,133,94,${(0.38 * pulso(t, ts[i] - 0.1, 1.1)).toFixed(3)})`; });
+    $("#mz").style.transform = `scale(${(1 + 0.08 * pulso(t, T.zap - 0.05, 0.6) + 0.06 * pulso(t, T.la - 0.1, 0.6)).toFixed(3)})`;
+  }
+}
+// o anúncio passa a levar para o site
+function qAnuncio(t) {
+  const a = fase(t, T.leva - 0.1, T.leva + 0.35), fora = fase(t, S.numeros - 0.25, S.numeros);
+  pos($("#anuncio"), { y: (1 - sai(a)) * 60, s: a > 0 ? lerp(0.8, 1, volta(a)) : 0.8, r: -3, o: Math.min(1, a * 3) * (1 - fora) });
+  const sp = fase(t, T.leva + 0.4, T.la + 0.2);
+  $("#seta").style.opacity = (sp > 0 ? 1 : 0) * (1 - fora);
+  $("#seta-p").style.strokeDashoffset = (-60 * t).toFixed(1);
+  $("#seta-h").style.opacity = sp >= 1 ? 1 : 0;
+  $(".an-bt", $("#anuncio")).style.transform = `scale(${(1 + 0.06 * pulso(t, T.leva + 0.3, 0.5)).toFixed(3)})`;
+}
+// quem clicou: cai no perfil, olha em volta e some
+function qFluxo(t) {
+  AV.forEach(v => {
+    const e = fase(t, T.perfil - 0.25 + v.ent, T.perfil + 0.25 + v.ent), s_ = fase(t, T.voltaram - 0.3 + v.sai, T.voltaram + 0.5 + v.sai);
+    const x = lerp(v.x0, v.x, saiX(e)) + Math.cos(v.a) * 420 * ease(s_), y = lerp(-120, v.y, saiX(e)) + Math.sin(t * 2 + v.a * 3) * 8 + Math.sin(v.a) * 300 * ease(s_) - 160 * ease(s_);
+    pos(v.el, { x, y, s: lerp(1, 0.4, s_), o: (e > 0 ? Math.min(1, e * 3) : 0) * (1 - s_) });
+  });
+}
+function qPainel(t) {
+  const a = fase(t, S.numeros - 0.15, S.numeros + 0.3), fora = fase(t, S.janela - 0.3, S.janela);
+  pos($("#painel"), { y: (1 - sai(a)) * 60, s: a > 0 ? lerp(0.85, 1, volta(a)) : 0.85, o: Math.min(1, a * 3) * (1 - fora) });
+  [T.n1, T.n2, T.n3].forEach((t0, k) => {
+    const b = fase(t, t0 - 0.1, t0 + 0.2), n = ease(fase(t, t0 - 0.05, t0 + 0.6));
+    pos($("#pn" + k), { y: (1 - sai(b)) * 24, o: b });
+    $("#pn-n" + k).textContent = Math.round(PN[k][0] * n);
+  });
+}
+// os balões da conversa, do celular e do cochicho
+function qBaloes(t, cam) {
+  const X = carroX(t), [hx, hy] = naTela(cam, X - 214, CARRO_Y - 420), [jx, jy] = naTela(cam, 330, 1890 - 346 * 1.3);
+  {
+    const a = entra(t, T.m1 + 0.05), o = em(t, T.m1, T.abre) ? a.o * (1 - fase(t, T.abre - 0.25, T.abre)) : 0;
+    pos(B_M1, { x: xe(B_M1, hx), y: hy - B_M1.offsetHeight - 50 + a.y, s: a.s, o, r: -2 + Math.sin(t * 40) * 0.8 });
+  }
+  const turnos = [[B_J[0], T.j1, T.t1, "j"], [B_T[0], T.t1, T.j2, "t"], [B_J[1], T.j2, T.t2, "j"], [B_T[1], T.t2, S.insta, "t"]];
+  for (const [b, t0, t1, quem] of turnos) {
+    const a = entra(t, t0 + 0.02), o = em(t, t0 - 0.05, t1) ? a.o * (1 - fase(t, t1 - 0.12, t1)) : 0;
+    if (quem === "j") pos(b, { x: xe(b, jx + 10), y: jy - 90 - b.offsetHeight + a.y, s: a.s, o });
+    else pos(b, { x: xe(b, hx), y: hy - b.offsetHeight - 40 + a.y, s: a.s, o, r: -2 + Math.sin(t * 40) * 1.2 });
+  }
+  {
+    const a = entra(t, T.j3 + 0.02), o = em(t, T.j3 - 0.05, S.perfil) ? a.o * (1 - fase(t, S.perfil - 0.2, S.perfil)) : 0;
+    pos(B_J3, { x: 60, y: 430 + a.y, s: a.s, o });
+    const b = entra(t, T.t3 + 0.02), ob = em(t, T.t3 - 0.05, S.perfil) ? b.o * (1 - fase(t, S.perfil - 0.2, S.perfil)) : 0;
+    pos(B_T3, { x: xe(B_T3, 560), y: 548 + b.y, s: b.s, o: ob, r: -2 + Math.sin(t * 40) * 1.2 });
+  }
+  {
+    const [tx, ty] = naTela(cam, X - 120, CARRO_Y - 300), a = entra(t, T.baixinho - 0.05), o = em(t, T.baixinho - 0.1, S.marca) ? a.o * (1 - fase(t, S.marca - 0.35, S.marca - 0.1)) : 0;
+    pos(B_CO, { x: xe(B_CO, tx), y: ty - B_CO.offsetHeight - 10 + a.y, s: a.s, o });
+  }
+}
+function qFim(t) {
+  for (const w of mcPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 22, s: x > 0 ? lerp(0.85, 1, volta(x)) : 0.85, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  const m = fase(t, T.renderiza - 0.04, T.renderiza + 0.6), cta = ease(fase(t, S.cta - 0.32, S.cta + 0.22));
+  pos($("#mc-linha"), { y: lerp(0, -150, ease(m)) - 200 * cta, s: lerp(1, 0.74, ease(m)), o: (1 - 0.35 * ease(m)) * (1 - cta) });
+  pos($("#mc-simbolo"), { y: lerp(0, -330, cta), s: (m > 0 ? lerp(0.3, 1, volta(m)) : 0.3) * lerp(1, 0.44, cta), r: lerp(-140, 0, saiX(m)), o: m > 0 ? Math.min(1, m * 3) : 0, b: (1 - saiX(m)) * 14 });
+  const nm = ease(fase(t, T.renderiza + 0.1, T.renderiza + 0.62));
+  $("#mc-nome").style.clipPath = `inset(-30% ${(100 - 100 * nm).toFixed(2)}% -30% 0)`;
+  pos($("#mc-nome"), { y: lerp(0, -462, cta) + (1 - nm) * 20, s: lerp(1, 0.5, cta) });
+  for (const w of subPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 18, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  pos($("#mc-sub"), { y: lerp(0, -560, cta), s: lerp(1, 0.78, cta), o: 1 - fase(t, S.cta + 0.3, S.cta + 0.7) });
+  const est = saiX(fase(t, T.renderiza - 0.05, T.renderiza + 1));
+  $("#mc-poli").setAttribute("transform", `translate(540 960) rotate(${(5 * (t - T.renderiza)).toFixed(2)}) scale(${lerp(0.3, 1, est).toFixed(3)}) translate(-540 -960)`);
+  $("#mc-estrela").style.transform = `translateY(${lerp(0, -330, cta).toFixed(1)}px)`; $("#mc-estrela").style.opacity = est.toFixed(3);
+  const b = fase(t, S.cta + 0.04, S.cta + 0.4), pb = pulso(t, T.previa, 0.32);
+  pos($("#cta-botao"), { y: (1 - sai(b)) * 40, s: (b > 0 ? lerp(0.5, 1, volta(b)) : 0.5) * (1 + 0.05 * pb + 0.015 * Math.sin(t * 3.2) * fase(t, DUR - 2, DUR - 1)), o: b > 0 ? Math.min(1, b * 3) : 0 });
+  $("#cta-previa").style.transform = `scale(${(1 + 0.14 * pb).toFixed(3)})`;
+  const lz = ((t - T.previa) % 2.4) / 0.7; $("#cta-luz").style.transform = `translateX(${(t > T.previa && lz < 1 ? lerp(-200, 900, lz) : -300).toFixed(0)}px) skewX(-18deg)`;
+  for (const w of ctaPal) { const x = fase(t, w.ini - 0.05, w.ini + 0.22); pos(w.el, { y: (1 - sai(x)) * 20, o: x > 0 ? Math.min(1, x * 3) : 0 }); }
+  $("#cta-nota").style.opacity = fase(t, S.cta + 1.3, S.cta + 1.8).toFixed(3);
+  $("#c-fim").style.opacity = fase(t, S.marca - 0.3, S.marca).toFixed(3);
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const rua = t < S.ferro || em(t, S.janela - 0.1, S.marca), acad = em(t, S.ferro, S.site), fim = t >= S.marca - 0.3;
+  vis($("#c-rua"), rua); if (rua) qRua(t);
+  vis($("#c-academia"), acad); if (acad) qAcademia(t);
+  palco.style.background = em(t, S.site, S.numeros) ? "radial-gradient(64% 40% at 50% 54%,#f2b632 0%,#7a5a16 50%,#141c1e 100%)" : "#161c1f";
+  $("#escuro").style.opacity = em(t, S.insta - 0.3, S.ferro) ? (0.6 * fase(t, S.insta - 0.3, S.insta + 0.1)).toFixed(3) : 0;
+  qFone(t); qAnuncio(t); qFluxo(t); qPainel(t);
+  qBaloes(t, rua ? camRua(t) : [540, 960, 1]);
+  vis($("#c-fim"), fim); if (fim) qFim(t);
+  for (const p of POEIRA) {
+    const y = ((p.y - t * p.v) % 2100 + 2100) % 2100 - 90, x = p.x + Math.sin(t * 0.35 + p.f) * 34, tw = 0.45 + 0.55 * Math.abs(Math.sin(t * 0.7 + p.f));
+    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) scale(${p.s.toFixed(2)})`;
+    p.el.style.background = `radial-gradient(closest-side,rgba(236,150,112,${(0.45 * tw).toFixed(3)}),rgba(236,150,112,0))`;
+  }
+  // legendas
+  for (const p of pedacos) {
+    if (!p.el) continue;
+    const v = t >= p.de && t < p.ate;
+    p.el.style.display = v ? "" : "none";
+    if (!v) continue;
+    const fora = fase(t, p.ate - 0.08, p.ate);
+    p.ws.forEach((w, k) => {
+      const x = p.de < 0 ? 1 : fase(t, w.ini - 0.05, w.ini + 0.2);
+      pos(p.wel[k], { y: (1 - sai(x)) * 22 - 14 * fora, s: x > 0 ? lerp(0.86, 1, volta(x)) : 0.86, o: (x > 0 ? Math.min(1, x * 3) : 0) * (1 - fora) });
+    });
+  }
+  // tranco em cada impacto: soco de zoom, tremor e clarão
+  let soco = 0, tremor = 0, flash = 0;
+  for (const f of frases) if (f.impacto) {
+    const x = fase(t, f.ini - 0.03, f.ini + 0.38); if (x > 0 && x < 1) { soco = Math.max(soco, 1 - sai(x)); tremor = Math.max(tremor, x < 0.35 ? 1 - x / 0.35 : 0); }
+    const y = fase(t, f.ini - 0.03, f.ini + 0.2); if (y > 0 && y < 1) flash = Math.max(flash, 0.34 * (1 - y));
+  }
+  palco.style.transform = soco > 0 ? `translate(${(tremor * 9 * Math.sin(t * 97)).toFixed(1)}px,${(tremor * 7 * Math.cos(t * 83)).toFixed(1)}px) scale(${(1 + 0.045 * soco).toFixed(4)})` : "";
+  $("#flash").style.opacity = flash.toFixed(3);
+};
+
+// cenas da trilha (ferramentas/video/trilha-pulso.py só conhece estas partes): o pulso diz qual é qual.
+// O carro de som abre com impactos; a conversa é o pulso; o Instagram é o groove ("insta"), cortado logo depois do
+// "Aí já não é comigo!" ("nada"); o perfil fica abafado ("volta"), quem some só com o coração ("meio"), o ferro frio
+// sobe até o drop, que cai em "fez um site".
+const TRILHA = { rua: "abre", conversa: "google", insta: "insta", resposta: "insta", perfil: "volta", sumiram: "meio", ferro: "ese",
+  site: "site", numeros: "site", janela: "site", fecho: "fim", marca: "fim", cta: "cta" };
+window.preparar = () => {
+  window.quadro(0);
+  return {
+    duracao: DUR, narracao: NOME, bpm: 124, tom: 0,
+    pulso: frases.map(f => ({ id: f.id, cena: TRILHA[f.cena], ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    ensaio: [0.5, 2.6, T.abre + 0.6, T.tiao, T.ouve + 0.9, T.j1 + 0.4, T.t1 + 0.4, T.j2 + 0.4, T.t2 + 0.6, T.instagram, T.impulsionar + 0.15, T.trinta + 0.6,
+      T.anuncio, T.j3 + 0.4, T.t3 + 0.5, T.perfil + 0.9, T.direct + 0.2, T.voltaram + 0.4, T.rastro, T.frio, T.siteW + 0.4, T.horario, T.zap + 0.2, T.la + 0.3,
+      T.n1 + 0.6, T.n3 + 0.8, T.perto + 0.5, T.janela + 1.2, T.janela + 2.6, T.aberta, T.baixinho + 0.4, F.moral.ini + 1.5, T.renderiza + 1.2, T.previa + 1.2].map(x => +x.toFixed(2)),
+  };
+};
+
+
+await Promise.all(["800 76px Geist", "700 30px Geist", "600 30px Geist", "italic 600 30px Fraunces"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.quadro(0);
+window.pronto = true;
+</script>
+</body></html>
