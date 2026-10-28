@@ -1,0 +1,669 @@
+{
+ "pasta": "tia-isa-fotografia",
+ "marca": "Tia Isa Fotografia",
+ "titulo_nome": "Tia Isa",
+ "titulo_script": "fotografia",
+ "dona": "Isa",
+ "quem_a": "a Tia Isa",
+ "quem_da": "da Tia Isa",
+ "quem_sou": "Sou a Isa, da Tia Isa Fotografia",
+ "google": {
+  "coords": "-23.6695866,-46.5917102",
+  "fid": "0x94ce43d5a63684b5:0x4a1fa4ec22087e91",
+  "gid": "/g/11rnnzlp9l"
+ },
+ "google_nome": "Tia Isa Fotografia- SP",
+ "endereco_maps": "R. Jabaquara, 115 - Paulicéia, São Bernardo do Campo - SP, 09689-030",
+ "google_nota": "4,9",
+ "google_total": "52",
+ "whatsapp": "5511976605082",
+ "instagram": "tiaisa.foto",
+ "seguidores": "3.449",
+ "slogan": "Eternizo momentos especiais com registros sensíveis.",
+ "cores": {
+  "fundo": "#fdfbfb",
+  "papel": "#ffffff",
+  "areia": "#f7f2f7",
+  "linha": "#ece3ec",
+  "tinta": "#2d2733",
+  "tinta2": "#675f6d",
+  "rosa": "#eab3c4",
+  "acento": "#76589f",
+  "acento_escuro": "#614686",
+  "cafe": "#2b2336"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Lora",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Dancing Script",
+    "wght@500;600"
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✧",
+  "script_escala": 0.88,
+  "css": ".abertura h1 .script,.marca-nome i{font-weight:500}h1,h2,h3{font-weight:500}.aba[aria-selected=\"true\"]{background:var(--acento);border-color:var(--acento);color:#fff}@media(min-width:761px){#natal-2025 .galeria{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:760px){.abas{grid-template-columns:repeat(3,minmax(0,1fr))}}"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-07 16h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 14h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 15h",
+   "2026-11-21 16h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-05 15h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Tia Isa define os dela",
+  "mensagem": "Olá, Isa! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Tia Isa Fotografia | Newborn, smash the cake e família em São Bernardo do Campo",
+  "descricao": "Tia Isa Fotografia, na Paulicéia, em São Bernardo do Campo: newborn, smash the cake, gestante, família e Natal com foto impressa na hora. Nota 4,9 no Google, com 52 avaliações.",
+  "hero": {
+   "eyebrow": "São Bernardo do Campo · SP",
+   "frase": "Por trás de cada fotografia, existe uma história.",
+   "intro": "Newborn, smash the cake, gestante e família num estúdio claro e cheio de balões, na Paulicéia, em São Bernardo do Campo.",
+   "rotulos": [
+    "Newborn",
+    "1º aninho",
+    "Família"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Smash the cake",
+    "Gestante",
+    "Família",
+    "Páscoa",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De2jo9NEXZv_De2jo9NEXZv_01.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de blusa de tricô “hello world”, de olhos abertos",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/Deuexe5DcSN_Deuexe5DcSN_01.jpg",
+     "f": "p",
+     "alt": "Menina de 1 ano sorrindo de vestido branco, com balões ao fundo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De2jo9NEXZv_De2jo9NEXZv_00.jpg",
+     "f": "p",
+     "alt": "Pais com a recém-nascida no colo, no estúdio branco",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Cheio de luz <em>e de balões.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Tia Isa. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De2jo9NEXZv_De2jo9NEXZv_01.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de blusa de tricô “hello world”",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/657290558_18406642207176341_3139433698663632488_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido enrolado no pano branco, sobre a manta verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/623053563_18092433775998692_3112426977581233827_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de faixa de flor na pelúcia branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/662814813_18368929360206402_6930764273376748640_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de faixa de flor dormindo de lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/623819365_18064525739276704_528472404893801060_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido sorrindo enrolado na manta azul",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/622786190_18115645864717883_2866029087478046787_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo com a mão no rosto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/651058541_18085153721337441_3084472123939129969_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de mãos no rosto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/651172366_18070384502544727_133819588476767942_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de faixa verde dormindo",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "aninho",
+    "nome": "1º aninho",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/Deuexe5DcSN_Deuexe5DcSN_01.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano sorrindo de vestido branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/655220625_18092707930886186_4885405642662209281_n.jpg",
+      "f": "l",
+      "alt": "Menino de orelhinhas de coelho no arco do ONE",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/DewaYmpDWTZ_DewaYmpDWTZ_01.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano sentada no arco-íris de balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/650465743_18082910615357521_3372367509372311224_n.jpg",
+      "f": "p",
+      "alt": "Menino de smoking no smash the cake, com bolo no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/655219018_18069823112261051_6921177806514089290_n.jpg",
+      "f": "l",
+      "alt": "Menino de orelhinhas de coelho sentado no cenário de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/500352221_2018949735299414_2514021531375369774_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido de girassol com bolo no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/DexCaQKDZTK_DexCaQKDZTK_00.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano no cenário do arco-íris",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/620859870_18081649142226005_7357574456568670948_n.jpg",
+      "f": "l",
+      "alt": "Menina de macacão segurando uma cenoura, no cenário de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/Deuexe5DcSN_Deuexe5DcSN_00.jpg",
+      "f": "p",
+      "alt": "Menina no cavalinho de madeira, entre os balões",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/497331466_1190467149531810_4095542580183186822_n.jpg",
+      "f": "p",
+      "alt": "Gestante de rosa com coroa de flores, entre as árvores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De2jo9NEXZv_De2jo9NEXZv_00.jpg",
+      "f": "p",
+      "alt": "Pais com a recém-nascida no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/648728709_18013468382828367_8783214332655913414_n.jpg",
+      "f": "p",
+      "alt": "Mãe olhando para o recém-nascido nas mãos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/499238113_1007175131483274_7948068280311424197_n.jpg",
+      "f": "p",
+      "alt": "Gestante de jeans com flores, no fundo branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/DewaYmpDWTZ_DewaYmpDWTZ_00.jpg",
+      "f": "p",
+      "alt": "Pais sentados com a filha de 1 ano no cavalinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/496858298_1188363245892501_3683902231687197354_n.jpg",
+      "f": "p",
+      "alt": "Menina de pirulito no fundo rosa",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De2jo9NEXZv_De2jo9NEXZv_04.jpg",
+      "f": "p",
+      "alt": "Pai com a recém-nascida e o violão, a mãe ao lado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/503016057_1410575966755075_7499832899938279123_n.jpg",
+      "f": "p",
+      "alt": "Casal erguendo o bebê no arco de flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/DexCaQKDZTK_DexCaQKDZTK_01.jpg",
+      "f": "p",
+      "alt": "Pais beijando a filha de 1 ano",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/495718328_983354824012305_8253439943187585437_n.jpg",
+      "f": "p",
+      "alt": "Menino de orelhinhas de coelho de pé, sorrindo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/669656808_18418188868120436_6967471311990670961_n.jpg",
+      "f": "p",
+      "alt": "Menino de camisa branca no piquenique, ao ar livre",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/655019864_18098590225971934_4027424533828213432_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentada na cadeirinha, com cenouras no chão",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/gfotos/g00.jpg",
+    "f": "p",
+    "alt": "Isa sorrindo com a câmera na mão",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "Pode chamar <em>de Tia Isa.</em>",
+   "p": [
+    "A Isa fotografa recém-nascidos, gestantes, o primeiro aninho e famílias num estúdio claro na Paulicéia, em São Bernardo do Campo. Na bio, ela resume: “Eternizo momentos especiais com registros sensíveis”."
+   ],
+   "citacao": "Sou suspeita pra falar porque sou apaixonada pela sessão newborn, mas acredito que toda família deveria fazer!",
+   "citacao_quem": "Tia Isa, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam da paciência dela com os bebês, do cenário montado com as inspirações que mandaram e do atendimento rápido pelo WhatsApp. E muitas voltam: “Eu amo quando eles voltam pra fazer um novo ensaio”."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "52 avaliações no Google"
+    ],
+    [
+     "3.449",
+     "seguidores no Instagram"
+    ],
+    [
+     "323",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro dia <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios da Tia Isa:",
+   "fonte": "Bio, destaques e legendas da Isa no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio ou ao ar livre, entre as árvores."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "A sessão de que ela mais gosta, com o cenário pensado para o bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Eles voltam",
+     "p": "O bebê de 7 dias que volta com 1 ano para um novo ensaio."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Com tema: fundo do mar, girassóis, arco-íris de balões."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Páscoa e Dia das Mães",
+     "p": "Sessões temáticas ao longo do ano."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Foto impressa na hora",
+     "p": "O cenário de 2026, com porta-retrato para levar."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal <em>que vira porta-retrato.</em>",
+   "p": "O cenário de Natal 2026 já está no estúdio, e as fotos saem impressas na hora, com porta-retrato. Escolha um horário e a mensagem chega pronta no WhatsApp da Tia Isa.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4zp8aHdfu_De4zp8aHdfu_01.jpg",
+    "f": "l",
+    "alt": "A Isa com os dois cachorros no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "A Tia Isa no cenário de Natal 2026"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Laís Mendes",
+    "tag": "Newborn",
+    "trecho": "Ela é extremamente carinhosa e cuidadosa com o bebê, além de ter feito o cenário de acordo com as inspirações que enviei para ela."
+   },
+   {
+    "nome": "Juliene Felinto",
+    "tag": "Smash the cake",
+    "trecho": "Ela registrou tudo com muito capricho, amor, delicadeza e muita dedicação, ela tem toda paciência do mundo para poder registrara as melhores fotos."
+   },
+   {
+    "nome": "Márjori Tamise de Carvalho Souza",
+    "tag": "Família",
+    "trecho": "Impecável é a palavra que posso atribuir, além de ser uma ótima profissional, também é uma maravilhosa pessoa"
+   },
+   {
+    "nome": "Gabriela Silva",
+    "tag": "Ensaio",
+    "trecho": "A Isa é maravilhosa, muito educada, prestativa, tornou esse momento muito mais especial, amamos todas as fotos"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Paulicéia, em São Bernardo do Campo.",
+   "telefone": "(11) 97660-5082",
+   "endereco": [
+    "R. Jabaquara, 115",
+    "Paulicéia",
+    "São Bernardo do Campo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Tia Isa Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@tiaisa.foto) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: o Natal que vira porta-retrato | Tia Isa Fotografia",
+  "descricao": "Ensaio de Natal 2026 com a Tia Isa, em São Bernardo do Campo: cenário branco e dourado e fotos impressas na hora, com porta-retrato. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h1": "O Natal <em>que vira porta-retrato.</em>",
+   "citacao": "Dessa vez, eu estava do outro lado da câmera, registrando a minha própria família.",
+   "citacao_quem": "Tia Isa, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4zp8aHdfu_De4zp8aHdfu_00.jpg",
+    "f": "l",
+    "alt": "A Isa, o marido e os dois cachorros no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "A Tia Isa e a família, no cenário de Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Foto impressa <em>na hora.</em>",
+   "p": "O cenário de Natal 2026 é branco e dourado, com o arco de estrelas, as árvores, o presente gigante e a almofada vermelha. As fotos saem impressas na hora, com porta-retrato para guardar, e quem agenda durante a semana ganha o seu de presente.",
+   "itens": [
+    "No estúdio, na Paulicéia, em São Bernardo do Campo.",
+    "Fotos impressas na hora, com porta-retrato.",
+    "Agendou durante a semana? O porta-retrato é presente.",
+    "Do recém-nascido à família toda."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026 e o porta-retrato"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4wk7SB9pF_De4wk7SB9pF_00.jpg",
+    "f": "p",
+    "alt": "O porta-retrato “Feliz Natal” com a foto impressa, em frente à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/862310901_18117863606586529_6038788329745513832_n.jpg",
+    "f": "p",
+    "alt": "A Isa no cenário de Natal 2026, em frente ao arco de estrelas",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4zp8aHdfu_De4zp8aHdfu_02.jpg",
+    "f": "l",
+    "alt": "A Isa com os cachorros entre as árvores do cenário",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal no estúdio",
+   "h2": "Natal <em>da Tia Isa.</em>",
+   "nome": "Natal",
+   "p": "O cenário de 2026, com a família dela, e Natais de outros anos.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/620983959_18082600610186900_450334686050296645_n.jpg",
+     "f": "p",
+     "alt": "Menino de gorro de Papai Noel sentado no cenário de Natal",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4zp8aHdfu_De4zp8aHdfu_03.jpg",
+     "f": "l",
+     "alt": "A Isa e o marido com os cachorros no cenário de Natal 2026",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/drive/653721490_18108187261632111_9072286166208173818_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho com o ursinho, no cenário de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/postsflat/De4zp8aHdfu_De4zp8aHdfu_01.jpg",
+     "f": "l",
+     "alt": "A Isa abraçada aos cachorros no cenário de Natal 2026",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "comentario": "Demo Tia Isa Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Márjori Tamise de Carvalho Souza",
+    "tag": "Família",
+    "trecho": "Impecável é a palavra que posso atribuir, além de ser uma ótima profissional, também é uma maravilhosa pessoa"
+   },
+   {
+    "nome": "Gabriela Silva",
+    "tag": "Ensaio",
+    "trecho": "A Isa é maravilhosa, muito educada, prestativa, tornou esse momento muito mais especial, amamos todas as fotos"
+   },
+   {
+    "nome": "Laís Mendes",
+    "tag": "Newborn",
+    "trecho": "Ela é extremamente carinhosa e cuidadosa com o bebê, além de ter feito o cenário de acordo com as inspirações que enviei para ela."
+   },
+   {
+    "nome": "Juliene Felinto",
+    "tag": "Smash the cake",
+    "trecho": "Ela registrou tudo com muito capricho, amor, delicadeza e muita dedicação, ela tem toda paciência do mundo para poder registrara as melhores fotos."
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Tia Isa abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Tia Isa define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Tia Isa abre com o dia e a hora escritos."
+    ],
+    [
+     "A Tia Isa confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Tia Isa no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97660-5082), o mesmo das legendas",
+  "site": "sem site: sem link no Google; 16 domínios testados (tiaisa.com.br é de outra pessoa, do Paraná); a bio leva ao Linktree",
+  "situacao": "publicada em 28/10/2026 · `/demo/tia-isa-fotografia` e `/demo/tia-isa-fotografia/natal`",
+  "direcao": [
+   "Personalidade: doce e cheia de balões, como os smash dela. Abertura em “bolhas” (fotos redondas com contorno, como balões), serifa calorosa (Lora), letra cursiva leve, cantos suaves e a paleta branca com rosa e lilás.",
+   "O nome é “Tia Isa”: o site fala “a Tia Isa” e a faixa da Renderiza cumprimenta a Isa.",
+   "Sem logo em boa resolução: monograma TI e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é uma legenda dela (“Por trás de cada fotografia, existe uma história”); a do rodapé, a bio."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Newborn, 1º aninho, Família e gestante), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “O Natal que vira porta-retrato”: a foto impressa na hora (a campanha dela), o cenário branco e dourado com a família da Isa, a agenda de exemplo (sábados) e Natais de outros anos.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2021 a 2023), os carrosséis de outubro de 2026 (newborn da Olívia, smash da Isabella e da Clarice, a família dela no Natal 2026, até 3600 px) e 5 fotos do Google.",
+   "Fora de propósito: a arte com texto (a evolução), a amamentação, os bebês sem roupa e no banho, as fotos da festa (mesa de doces).",
+   "A foto de quem fotografa é a do Google (com a câmera); a mesma mulher da foto do perfil e do post da família no Natal."
+  ],
+  "textos": [
+   "Bio: “Tia Isa | Fotógrafa Newborn · Eternizo momentos especiais com registros sensíveis · São Bernardo do Campo · Gestante, Newborn, Infantil”.",
+   "Legendas dela: “Dessa vez, eu estava do outro lado da câmera”, “Fotos impressas na hora e porta-retrato... quem agendar durante a semana ainda ganha o seu de presente”, “Eu amo quando eles voltam pra fazer um novo ensaio”.",
+   "Avaliações do Google: 4 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "A família no Natal 2026 é a dela (marido e cachorros): confirmar se ela topa as fotos no site e na página de Natal.",
+   "O levantamento viu uma avaliação reclamando da entrega (ela respondeu): não está entre as visíveis agora.",
+   "Os horários de Natal são exemplo; no Google, o estúdio abre de segunda a sábado, das 9h às 18h."
+  ]
+ },
+ "video_local": "São Bernardo do Campo",
+ "marca_completa": "Tia Isa Fotografia",
+ "fone_link": "+5511976605082",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Isa! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/tia-isa-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Isa",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Isa, da Tia Isa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Isa, da Tia Isa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}
