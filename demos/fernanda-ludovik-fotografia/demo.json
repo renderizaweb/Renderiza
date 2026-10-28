@@ -1,0 +1,661 @@
+{
+ "pasta": "fernanda-ludovik-fotografia",
+ "marca": "Fernanda Ludovik Fotografia",
+ "titulo_nome": "Fernanda Ludovik",
+ "titulo_script": "fotografia",
+ "dona": "Fernanda",
+ "quem_sou": "Sou a Fernanda, da Fernanda Ludovik Fotografia",
+ "google": {
+  "coords": "-23.5904895,-46.5751577",
+  "fid": "0x94ce5fc20af7375f:0x70b8209dee0f29b7",
+  "gid": "/g/11hzlzm7px"
+ },
+ "google_nome": "Fernanda Ludovik Fotografia",
+ "endereco_maps": "R. Rio do Peixe, 38 - Sl 5 - Vila Lucia, São Paulo - SP, 03145-010",
+ "google_nota": "5,0",
+ "google_total": "39",
+ "whatsapp": "5511976745474",
+ "instagram": "fernandaludovikfotografia",
+ "seguidores": "8,1 mil",
+ "slogan": "Registro momentos que marcam a sua história para sempre.",
+ "cores": {
+  "fundo": "#fbfaf6",
+  "papel": "#ffffff",
+  "areia": "#f1f0e9",
+  "linha": "#e2e0d6",
+  "tinta": "#222826",
+  "tinta2": "#5b6360",
+  "rosa": "#d6a64e",
+  "acento": "#1f6b58",
+  "acento_escuro": "#185646",
+  "cafe": "#16271f"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Spectral",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Outfit",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Satisfy",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "abas": "sublinhado",
+  "eyebrow": "ponto",
+  "jornada": "cartoes",
+  "natal_capa": "retrato",
+  "ornamento": "✳",
+  "script_escala": 0.82,
+  "css": ".n-abertura .foto img{border-radius:999px 999px 24px 24px}.jornada li{border-radius:18px}"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-07 16h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 14h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 15h",
+   "2026-11-21 16h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-05 15h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Fernanda define os dela",
+  "mensagem": "Olá, Fernanda! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Fernanda Ludovik Fotografia | Newborn, smash the cake e aniversários na Vila Lúcia, São Paulo",
+  "descricao": "Fernanda Ludovik Fotografia, na Vila Lúcia, Zona Leste de São Paulo: gestantes, newborn, acompanhamento, smash the cake e aniversários com cenários feitos sob medida. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia na Vila Lúcia · Zona Leste",
+   "frase": "Cada bebê ganha o seu cenário.",
+   "intro": "Gestantes, recém-nascidos, o acompanhamento mês a mês e os aniversários, com cenários desenvolvidos a partir da inspiração de cada família, na Vila Lúcia, em São Paulo.",
+   "rotulos": [
+    "Newborn",
+    "1º aninho",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Aniversários",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/653348335_18067738796296960_3716281091876690834_n.jpg",
+     "f": "p",
+     "alt": "Menino beijando a irmã recém-nascida",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/postsflat/DeDhqdXjs1C_DeDhqdXjs1C_02.jpg",
+     "f": "l",
+     "alt": "Bebê de 1 ano rindo de vestido lilás, entre os balões",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/498296993_9889671291148524_7158062375549822409_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filha de testa colada no cenário boho",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Cada bebê, <em>um cenário.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Fernanda. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/653348335_18067738796296960_3716281091876690834_n.jpg",
+      "f": "p",
+      "alt": "Menino beijando a irmã recém-nascida",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/625048352_18118658011579230_3081265030774494667_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido sorrindo de capuz de pelúcia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/626624139_18302743711272034_5272707733198897593_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de faixa de flores com o coelhinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/366078813_18228307759213192_8377634952395467506_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca de ratinho no balde",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/622124911_18106750660782920_6192474393231597964_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no balde com a farda e o capacete dos pais",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/622460309_18055221098392451_2107749998095334963_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido sorrindo no carrinho, com a manta bordada",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/364076855_18228307372213192_7171960044203453215_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na banheirinha, no cenário rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/362596525_18225994918213192_437057288227385827_n.jpg",
+      "f": "l",
+      "alt": "Irmão abraçando o recém-nascido, em preto e branco",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e 1º ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/postsflat/DeDhqdXjs1C_DeDhqdXjs1C_02.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano rindo de vestido lilás, entre os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/652769740_18097655200798073_6442280345529986214_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cenário laranja feito sob medida para ele",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/654201719_18106224160891683_6656640272417066450_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cenário do Pequeno Príncipe",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/358137792_18223715251213192_5752855941448385193_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano com o bolo no cenário da fazendinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/658787499_18452308471111345_197447357315380238_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no arco de balões rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/postsflat/DeDhqdXjs1C_DeDhqdXjs1C_09.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano sorrindo de perto, com balões lilás",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "aniversarios",
+    "nome": "Aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/361171306_18225110266213192_2136652503464827059_n.jpg",
+      "f": "l",
+      "alt": "Menino no cenário de Harry Potter, com os bonecos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/624097786_18073709984105099_8866924952000895735_n.jpg",
+      "f": "l",
+      "alt": "Cenário da Skye, da Patrulha Canina, com balões rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/654639527_18090174733927543_8510403305174784562_n.jpg",
+      "f": "l",
+      "alt": "Menino de 7 anos no cenário do PJ Masks",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/650135933_17996635607876471_2253397085119616745_n.jpg",
+      "f": "l",
+      "alt": "Menino de 2 anos de Super-Homem, no cenário de super-heróis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/347410779_18223719283213192_1069198663601619184_n.jpg",
+      "f": "l",
+      "alt": "Menino de 2 anos no cenário junino",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/654707706_18098477728959651_6250215000551820525_n.jpg",
+      "f": "l",
+      "alt": "Menino de 3 anos no cenário da Patrulha Canina",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e mães",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/498296993_9889671291148524_7158062375549822409_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de testa colada no cenário boho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/619852696_17978662685952251_204587827773088527_n.jpg",
+      "f": "l",
+      "alt": "Mãe sentada no chão com o bebê no colo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/502130021_703418012301950_6377220729221790290_n.jpg",
+      "f": "p",
+      "alt": "Mãe sentada com o bebê no colo, no cenário boho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/655817459_18146328967474444_3841686854065156687_n.jpg",
+      "f": "l",
+      "alt": "Pais beijando o recém-nascido",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/postsall/fernandaludovikfotografia_01.jpg",
+      "f": "p",
+      "alt": "Menino de 1 ano e 7 meses sentado no fundo azul",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/652770863_18106480384875996_4179921274409438380_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filha rindo deitadas no chão",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/gfotos/g03.jpg",
+      "f": "p",
+      "alt": "Menina de vestido azul no cenário de balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/gfotos/g05.jpg",
+      "f": "l",
+      "alt": "Família de chef de cozinha no cenário da cozinha",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/drive/375631692_760202335874447_8522444474451617460_n.jpg",
+    "f": "p",
+    "alt": "Fernanda Ludovik sorrindo com a câmera na mão",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "Mãe, pedagoga <em>e fotógrafa.</em>",
+   "p": [
+    "A Fernanda fotografa num estúdio na Vila Lúcia, na Zona Leste de São Paulo: gestantes, recém-nascidos, o acompanhamento dos bebês e os aniversários. Muitos cenários ela desenvolve sob medida, a partir da inspiração que a família manda."
+   ],
+   "citacao": "Ela me mandou a inspiração! Eu desenvolvi o cenário!",
+   "citacao_quem": "Fernanda Ludovik, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam da paciência dela e do marido, que atendem juntos, e do respeito ao tempo do bebê. E muitas voltam: ela acompanha os bebês desde os primeiros dias até os aniversários."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "39 avaliações no Google"
+    ],
+    [
+     "8,1 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1.399",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Dos primeiros dias <em>aos 7 anos.</em>",
+   "p": "Os ensaios da Fernanda, fase por fase:",
+   "fonte": "Bio, destaques e legendas da Fernanda no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Ensaio de gestante no estúdio da Vila Lúcia."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Com acessórios e cenário pensados para cada bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Um tema por mês: oficina mecânica, bailarina, coelhinho."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Cenário desenvolvido sob medida, a partir da inspiração da família."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "Dos 2 aos 7 anos",
+     "p": "Patrulha Canina, Harry Potter, PJ Masks, super-heróis."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Páscoa, Mães, junino e Natal",
+     "p": "Sessões temáticas ao longo do ano."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Todos a bordo <em>do Expresso Polar.</em>",
+   "p": "O cenário de Natal 2026 já chegou ao estúdio: o trem, a placa do Polo Norte, a neve e as luzes. Escolha um horário e a mensagem chega pronta no WhatsApp da Fernanda.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/gfotos/g04.jpg",
+    "f": "l",
+    "alt": "Família de vermelho no cenário de Natal do estúdio",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal no estúdio da Fernanda"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Loiane Keule",
+    "tag": "Newborn",
+    "trecho": "Cada detalhe, cada cuidado e toda a sua paciência fizeram desse momento algo ainda mais especial."
+   },
+   {
+    "nome": "Rafaela Garcia",
+    "tag": "Smash de 1 aninho",
+    "trecho": "Saí de Interlagos (Zona Sul) por indicação, e valeu MUITO a pena. A Fernanda e o esposo foram extremamente atenciosos, cuidadosos e pacientes"
+   },
+   {
+    "nome": "Carla Palmeira",
+    "tag": "Bebê",
+    "trecho": "Ótimos profissionais, deixaram nós bem à vontade e a nossa bebê também, sempre respeitando o tempo dela."
+   },
+   {
+    "nome": "Julia Carvalho",
+    "tag": "Bebê",
+    "trecho": "Fomos muito bem recebidos pela Fernanda para fazer as fotos da nossa bebê, com muita paciência e dedicação durante a sessão de fotos e todo cuidado com nossa filha."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Lúcia, na Zona Leste de São Paulo.",
+   "telefone": "(11) 97674-5474",
+   "endereco": [
+    "R. Rio do Peixe, 38, sala 5",
+    "Vila Lúcia",
+    "São Paulo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Fernanda Ludovik Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@fernandaludovikfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Expresso Polar | Fernanda Ludovik Fotografia",
+  "descricao": "Natal 2026 no estúdio da Fernanda Ludovik, na Vila Lúcia, em São Paulo: o cenário Expresso Polar, com trem, neve e luzes. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Vila Lúcia",
+   "h1": "Todos a bordo <em>do Expresso Polar.</em>",
+   "citacao": "Mais do que fotografias, queremos registrar o brilho nos olhos das crianças, os abraços apertados e aquela magia do Natal.",
+   "citacao_quem": "Fernanda Ludovik, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_12.jpg",
+    "f": "p",
+    "alt": "O trem vermelho e azul do Expresso Polar, com a placa dourada",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "O Expresso Polar, cenário de Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Neve, luzes <em>e um trem de verdade.</em>",
+   "p": "O cenário de Natal 2026 é o Expresso Polar: o trem, a árvore coberta de neve com as cartas para o Papai Noel, o banco da estação com a manta xadrez, as malas e as placas para o Polo Norte. “Não é IA”, ela avisa: o trem e o banco existem mesmo, no estúdio.",
+   "itens": [
+    "No estúdio, na Vila Lúcia, Zona Leste de São Paulo.",
+    "O trem, a neve, as luzes e as placas do Polo Norte.",
+    "Do recém-nascido à família toda.",
+    "Valores e detalhes pelo WhatsApp da Fernanda."
+   ],
+   "legenda_fotos": "O Expresso Polar, no vídeo de lançamento"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_13.jpg",
+    "f": "p",
+    "alt": "A árvore coberta de neve com as cartas para o Papai Noel e as malas",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_15.jpg",
+    "f": "p",
+    "alt": "O trem e as placas do Polo Norte, ao lado do banco da estação",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_16.jpg",
+    "f": "p",
+    "alt": "O banco da estação com a manta xadrez e a lanterna",
+    "c": [
+     0.5,
+     0.6
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal no estúdio",
+   "h2": "Natal <em>no estúdio da Fernanda.</em>",
+   "nome": "Natal no estúdio",
+   "p": "O Expresso Polar de 2026 e um Natal de outros anos.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_14.jpg",
+     "f": "p",
+     "alt": "A locomotiva azul do Expresso Polar",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/gfotos/g04.jpg",
+     "f": "l",
+     "alt": "Família de vermelho no cenário de Natal",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/quadros/polar_11.jpg",
+     "f": "p",
+     "alt": "O trem do Expresso Polar com as luzes ao fundo",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "comentario": "Demo Fernanda Ludovik Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carla Palmeira",
+    "tag": "Bebê",
+    "trecho": "Ótimos profissionais, deixaram nós bem à vontade e a nossa bebê também, sempre respeitando o tempo dela."
+   },
+   {
+    "nome": "Julia Carvalho",
+    "tag": "Bebê",
+    "trecho": "Fomos muito bem recebidos pela Fernanda para fazer as fotos da nossa bebê, com muita paciência e dedicação durante a sessão de fotos e todo cuidado com nossa filha."
+   },
+   {
+    "nome": "Loiane Keule",
+    "tag": "Newborn",
+    "trecho": "Cada detalhe, cada cuidado e toda a sua paciência fizeram desse momento algo ainda mais especial."
+   },
+   {
+    "nome": "Rafaela Garcia",
+    "tag": "Smash de 1 aninho",
+    "trecho": "Saí de Interlagos (Zona Sul) por indicação, e valeu MUITO a pena. A Fernanda e o esposo foram extremamente atenciosos, cuidadosos e pacientes"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Fernanda abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Fernanda define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Fernanda abre com o dia e a hora escritos."
+    ],
+    [
+     "A Fernanda confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · Vila Lúcia",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Fernanda no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97674-5474)",
+  "site": "só o Instagram; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/fernanda-ludovik-fotografia` e `/demo/fernanda-ludovik-fotografia/natal`",
+  "direcao": [
+   "Personalidade: os cenários feitos sob medida. Abertura em “cápsulas” (três fotos altas e arredondadas, em escada), serifa elegante e legível (Spectral), sem serifa moderna (Outfit), verde-esmeralda e dourado, jornada em cartões e a capa do Natal em arco.",
+   "Sem logo em boa resolução: monograma FL e o nome em letra cursiva, feitos para a demo.",
+   "A frase do rodapé é a bio (“Registro momentos que marcam a sua história para sempre”); a citação do Natal é a legenda do lançamento do Expresso Polar."
+  ],
+  "demo": [
+   "Site: portfólio em 4 abas (Newborn, Smash e 1º ano, Aniversários, Família e mães), quem fotografa, os ensaios fase a fase, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Expresso Polar”: o cenário (quadros do vídeo de lançamento), a agenda de exemplo (sábados) e um Natal de outros anos.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023, quase todos com 853 a 1440 px), os carrosséis de outubro de 2026, 7 fotos do Google e quadros do vídeo de lançamento do Expresso Polar (720 px).",
+   "Fora de propósito: bebês sem roupa e no banho (smash com banheira), as artes com texto e os bastidores com flash.",
+   "A foto de quem fotografa é a dela com a câmera (a mesma da foto do perfil)."
+  ],
+  "textos": [
+   "Bio: “Registro momentos que marcam a sua história para sempre! · Mãe | Fotógrafa | Pedagoga · Especialista em ensaios”.",
+   "Legendas dela: “Ela me mandou a inspiração! Eu desenvolvi o cenário!”, “TODOS A BORDO… O Expresso Polar está chegando!”, “Genteeee não é IA rs, é meu cenário real!”.",
+   "Avaliações do Google: 4 visíveis sem login (todas 5 estrelas), com o nome e o trecho; uma cita o marido, que atende junto."
+  ],
+  "conferir": [
+   "As fotos antigas são pequenas (853 px): pedir os arquivos em alta, sobretudo do Natal 2025 e de clientes no Expresso Polar.",
+   "Os horários de Natal são exemplo; no Google, o estúdio abre de segunda a sábado."
+  ]
+ },
+ "marca_completa": "Fernanda Ludovik Fotografia",
+ "fone_link": "+5511976745474",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Fernanda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/fernanda-ludovik-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Fernanda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Fernanda, da Fernanda Ludovik Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Fernanda, da Fernanda Ludovik Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

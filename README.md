@@ -284,3 +284,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Studio Aizza Cardoso Fotografia (fotógrafa)](demos/aizza-cardoso-fotografia) | Dos Casas, São Bernardo do Campo | site + página de Natal (`/natal`, “Natal entre nós”) | pronta · 28/10/2026 (fotógrafos lote 1 · 15ª) |
 | [Tia Isa Fotografia (fotógrafa)](demos/tia-isa-fotografia) | Paulicéia, São Bernardo do Campo | site + página de Natal (`/natal`, “O Natal que vira porta-retrato”) | pronta · 28/10/2026 (fotógrafos lote 1 · 16ª) |
 | [Daline Lopes Fotografia (fotógrafa)](demos/daline-lopes-fotografia) | Chácaras Marajuara, Embu das Artes | site + página de Natal (`/natal`, “Expresso Encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 17ª) |
+| [Fernanda Ludovik Fotografia (fotógrafa)](demos/fernanda-ludovik-fotografia) | Vila Lúcia, São Paulo | site + página de Natal (`/natal`, “Expresso Polar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 18ª) |
