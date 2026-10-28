@@ -428,7 +428,7 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 # demo.json "estilo" muda tipografia, abertura, formas das fotos, abas, botões e detalhes; o CSS de cada escolha entra
 # depois do CSS base (sobrescreve). Sem "estilo", a página sai igual à de sempre. Chaves e valores:
 #   fontes {serif|sans|script: [família, eixos do Google Fonts]}, script_escala (número), titulo "natural",
-#   topo "centro", abertura "arco"|"polaroid"|"faixa"|"bolhas", fotos "suave"|"arco", galeria "quadrado",
+#   topo "centro", abertura "arco"|"polaroid"|"faixa"|"bolhas"|"capsulas"|"filme", fotos "suave"|"arco", galeria "quadrado",
 #   abas "sublinhado"|"script", botoes "reto"|"suave", eyebrow "ponto"|"losango", jornada "cartoes",
 #   agenda "bilhete" (os dias da agenda de Natal como passagens), natal_capa "retrato" (foto do topo da
 #   página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
@@ -488,6 +488,22 @@ ESTILO = {
 .mosaico figure:nth-child(3){grid-column:2;grid-row:2;width:64%;justify-self:end;margin:-2% 4% 0 0}
 .mosaico figcaption{left:50%;bottom:9%;transform:translateX(-50%);white-space:nowrap}
 @media(max-width:520px){.abertura .mosaico figure{box-shadow:0 0 0 4px var(--fundo),0 0 0 5px var(--rosa)}.mosaico figcaption{left:50%;bottom:7%}.mosaico figure:nth-child(3) figcaption{display:none}}''',
+    ('abertura', 'capsulas'): '''
+.mosaico{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;gap:clamp(10px,1.4vw,18px);align-items:start;padding-bottom:6%}
+.abertura .mosaico figure,.abertura .mosaico figure:first-child{grid-row:auto;aspect-ratio:3/5;border-radius:999px}
+.mosaico figure:nth-child(2){margin-top:16%}.mosaico figure:nth-child(3){margin-top:32%}
+.mosaico figure:first-child img{position:absolute;inset:0}
+.mosaico figcaption{left:50%;bottom:8%;transform:translateX(-50%);white-space:nowrap}
+@media(max-width:520px){.mosaico{gap:8px}.mosaico figcaption{left:50%;bottom:7%;font-size:.54rem;padding:4px 8px;letter-spacing:.08em}}''',
+    ('abertura', 'filme'): '''
+.mosaico{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;gap:10px;background:#1b1e1c;padding:34px 12px;border-radius:6px;position:relative;align-self:center}
+.mosaico::before,.mosaico::after{content:"";position:absolute;left:12px;right:12px;height:12px;background:repeating-linear-gradient(90deg,#f4f1ea 0 11px,transparent 11px 24px);opacity:.92}
+.mosaico::before{top:11px}.mosaico::after{bottom:11px}
+.abertura .mosaico figure,.abertura .mosaico figure:first-child{grid-row:auto;aspect-ratio:3/4;border-radius:2px;background:#2a2e2b}
+.mosaico figure:first-child img{position:absolute;inset:0}
+.mosaico figcaption{left:50%;bottom:10px;transform:translateX(-50%);white-space:nowrap;background:#1b1e1ce0;color:#f4f1ea}
+@media(max-width:520px){.mosaico{gap:6px;padding:24px 8px}.mosaico::before,.mosaico::after{left:8px;right:8px;height:8px;background:repeating-linear-gradient(90deg,#f4f1ea 0 7px,transparent 7px 16px)}.mosaico::before{top:8px}.mosaico::after{bottom:8px}
+.mosaico figcaption{left:50%;bottom:6px;font-size:.52rem;padding:3px 7px;letter-spacing:.08em}}''',
     ('fotos', 'suave'): '''
 .mosaico figure,.g-item,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{border-radius:16px}
 .sobre-foto::before{border-radius:24px}.review-card,.dia{border-radius:16px}.mapa{border-radius:16px;overflow:hidden}''',
