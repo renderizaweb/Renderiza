@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painel Renderiza · Estúdio Ciranda (exemplo)</title>
+<meta name="description" content="Exemplo de painel para fotografia: agenda de ensaios por horário, campanha de Natal com vagas, clientes e entregas, contratos, financeiro e atendimento. Dados fictícios, feito pela Renderiza.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3a2430">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Painel Renderiza para fotografia (exemplo)">
+<meta property="og:description" content="Agenda de ensaios por horário, campanha de Natal com vagas, clientes, entregas e pagamentos num lugar só. Demonstração com dados fictícios, feita pela Renderiza.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/f-painel.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#f4f3ee;--cartao:#fff;--tinta:#17201b;--tinta-2:#46534b;--suave:#7d8a82;--linha:#e6e5de;--linha-2:#efeee8;
+  --verde:#8a4a5f;--verde-2:#6b3446;--verde-claro:#e2efe7;--ouro:#c58b5e;--lateral:#3a2430;
+  --perigo:#c2410c;--perigo-claro:#fdecdf;--ok:#1f7a4d;--ok-claro:#ddf3e7;
+  --raio:18px;--sombra:0 1px 2px rgba(23,32,27,.05),0 8px 24px -12px rgba(23,32,27,.12);
+  --fonte:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--fonte);font-size:14px;line-height:1.45;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- estrutura ---------- */
+.app{display:grid;grid-template-columns:252px 1fr;min-height:100vh}
+.lateral{position:sticky;top:0;height:100vh;background:var(--lateral);color:#d9e6df;display:flex;flex-direction:column;padding:22px 14px 16px;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;padding:0 8px;color:#fff}
+.logo-ramo{width:34px;height:34px;border-radius:11px;background:#ffffff14;display:grid;place-items:center;color:#cfe3d6}
+.logo-ramo svg{width:22px;height:22px}
+.logo b{display:block;font:italic 600 21px/1 "Fraunces",Georgia,serif;letter-spacing:-.2px}
+.logo small{display:block;margin-top:3px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9fbfae}
+.menu{display:flex;flex-direction:column;gap:2px}
+.menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;font-weight:600;color:#c3d6cb;position:relative;transition:background .15s,color .15s}
+.menu a:hover{background:#ffffff0d;color:#fff}
+.menu a.ativo{background:#ffffff17;color:#fff}
+.menu a.ativo::before{content:"";position:absolute;left:-14px;top:9px;bottom:9px;width:3px;border-radius:0 3px 3px 0;background:var(--ouro)}
+.menu .num{margin-left:auto;min-width:22px;height:20px;padding:0 6px;border-radius:999px;background:#e0607e;color:#fff;font-size:11.5px;font-weight:700;display:grid;place-items:center}
+.menu a.trancado{display:none}
+.link-agenda{margin-top:auto;border-radius:16px;background:#ffffff10;padding:14px;font-size:12.5px;color:#c3d6cb}
+.link-agenda strong{display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;margin-bottom:4px}
+.link-agenda code{display:block;margin:8px 0 10px;padding:7px 9px;border-radius:9px;background:#0000002e;color:#e8f1ec;font:600 11.5px/1.3 var(--fonte);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.link-agenda a{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:#f3d999}
+.quem{display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:#00000024}
+.quem select{appearance:none;background:transparent;border:0;color:#fff;font-weight:700;width:100%;cursor:pointer;padding-right:18px}
+.quem select option{color:#17201b}
+.quem small{display:block;font-size:11px;color:#9fbfae}
+.quem .seta{margin-left:-22px;pointer-events:none;color:#9fbfae}
+
+.principal{min-width:0;display:flex;flex-direction:column}
+.topo{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:14px 32px;background:color-mix(in srgb,var(--fundo) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.topo .logo{display:none}
+.espaco{flex:1}
+.busca{display:flex;align-items:center;gap:8px;height:42px;width:min(340px,32vw);padding:0 14px;border-radius:12px;background:var(--cartao);border:1px solid var(--linha);color:var(--suave)}
+.busca input{border:0;outline:0;background:transparent;width:100%;color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 16px;border-radius:12px;font-weight:700;white-space:nowrap;transition:transform .12s,background .15s}
+.botao:active{transform:scale(.98)}
+.botao.primario{background:var(--verde);color:#fff;box-shadow:0 6px 16px -8px #8a4a5f}
+.botao.primario:hover{background:var(--verde-2)}
+.botao.leve{background:var(--cartao);border:1px solid var(--linha)}
+.botao.leve:hover{border-color:#cfd3c8}
+.botao.pequeno{height:34px;padding:0 12px;border-radius:10px;font-size:13px}
+.icone-botao{position:relative;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--cartao);border:1px solid var(--linha)}
+.icone-botao .ponto{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:#e0607e;border:2px solid #fff}
+.av{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;letter-spacing:.02em}
+.av.p{width:24px;height:24px;font-size:10px}
+.av.g{width:44px;height:44px;font-size:15px}
+.av.cliente{background:#e8e7e0;color:var(--tinta-2)}
+.pilha{display:flex}.pilha .av{border:2px solid var(--fundo);margin-left:-8px}.pilha .av:first-child{margin-left:0}
+
+main{padding:8px 32px 48px;min-width:0}
+.vista{display:none;animation:surge .35s cubic-bezier(.2,.8,.2,1)}
+.vista.ativa{display:block}
+@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.vista-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:10px 0 20px;flex-wrap:wrap}
+.vista-cab h2{font-size:26px;line-height:1.15;letter-spacing:-.02em;font-weight:800}
+.vista-cab p{color:var(--suave);margin-top:4px;font-size:14px}
+.vista-cab .acoes{display:flex;gap:8px;flex-wrap:wrap}
+
+.cartao{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:var(--sombra);min-width:0}
+.cartao-cab{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px 6px}
+.cartao-cab h3{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.cartao-cab a,.cartao-cab button.ver{font-size:13px;font-weight:700;color:var(--verde)}
+.cartao-corpo{padding:10px 20px 18px}
+.grade{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-73{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.mt{margin-top:16px}
+
+/* números */
+.kpi{padding:18px 20px;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.kpi .rot{display:flex;align-items:center;gap:8px;color:var(--suave);font-size:13px;font-weight:600}
+.kpi .rot i{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--verde-claro);color:var(--verde)}
+.kpi .valor{font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+.kpi .det{font-size:12.5px;color:var(--suave)}
+.delta{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:999px;font-size:12px;font-weight:700;background:var(--ok-claro);color:var(--ok)}
+.delta.baixo{background:var(--perigo-claro);color:var(--perigo)}
+.kpi svg.linha{position:absolute;right:14px;bottom:14px;width:96px;height:36px}
+
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.sem::before{display:none}
+.barra{height:6px;border-radius:999px;background:var(--linha-2);overflow:hidden}
+.barra b{display:block;height:100%;border-radius:inherit;background:var(--verde)}
+
+/* listas */
+.lista{display:flex;flex-direction:column}
+.item{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--linha-2);cursor:pointer;border-radius:12px;transition:background .15s}
+.item:first-child{border-top:0}
+.item:hover{background:#f8f8f4}
+.data-bloco{flex:none;width:52px;height:56px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.data-bloco b{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.data-bloco small{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.item .meio{min-width:0;flex:1}
+.item .meio b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .meio span{display:block;color:var(--suave);font-size:12.5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .fim{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:96px}
+.item .fim small{font-size:12px;color:var(--suave);font-weight:600}
+.origem{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff}
+
+/* agenda */
+.agenda-barra{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.mes-nav{display:flex;align-items:center;gap:4px;background:var(--cartao);border:1px solid var(--linha);border-radius:12px;padding:4px}
+.mes-nav button{width:34px;height:34px;border-radius:9px;display:grid;place-items:center}
+.mes-nav button:hover{background:var(--linha-2)}
+.mes-nav b{min-width:150px;text-align:center;font-size:15px;text-transform:capitalize}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;flex:none;height:36px;padding:0 12px 0 6px;border-radius:999px;background:var(--cartao);border:1px solid var(--linha);font-weight:600;font-size:13px;transition:all .15s}
+.chip.so-texto{padding:0 14px}
+.chip.ativo{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.legenda{display:flex;gap:14px;flex-wrap:wrap;color:var(--tinta-2);font-size:12.5px;font-weight:600;margin-left:auto}
+.legenda span{display:inline-flex;align-items:center;gap:6px}
+.legenda i{width:9px;height:9px;border-radius:3px}
+.agenda-grade{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+.cal{overflow:hidden}
+.cal-sem{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-bottom:1px solid var(--linha)}
+.cal-sem span{padding:10px 12px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--suave)}
+.cal-dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.dia{min-height:118px;padding:8px;border-right:1px solid var(--linha-2);border-bottom:1px solid var(--linha-2);display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:background .15s;min-width:0}
+.dia:nth-child(7n){border-right:0}
+.dia:hover{background:#fafaf6}
+.dia.fds{background:#fbfaf6}
+.dia.fora{opacity:.42}
+.dia.sel{box-shadow:inset 0 0 0 2px var(--verde);background:#f4f9f6}
+.dia .n{font-size:12.5px;font-weight:700;color:var(--tinta-2);width:26px;height:26px;display:grid;place-items:center;border-radius:50%}
+.dia.hoje .n{background:var(--verde);color:#fff}
+.ev{display:flex;align-items:center;gap:5px;padding:4px 6px;border-radius:7px;font-size:11.5px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;border-left:3px solid;transition:opacity .2s,transform .2s;min-width:0}
+.ev time{font-weight:800;opacity:.85;flex:none}
+.ev em{font-style:normal;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ev.pre{border-left-style:dashed;background:repeating-linear-gradient(135deg,#fff,#fff 5px,#f6f2e4 5px,#f6f2e4 10px)!important}
+.ev.apagado,.ponto-ev.apagado{opacity:.16}
+.dia .mais{font-size:11.5px;font-weight:700;color:var(--suave);padding-left:4px}
+.pontos{display:none;gap:3px;justify-content:center;flex-wrap:wrap}
+.ponto-ev{width:6px;height:6px;border-radius:50%}
+.dia-painel .cartao-corpo{padding-top:4px}
+.dia-livre{display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px;background:var(--verde-claro);color:var(--verde-2);font-weight:600;margin-top:8px}
+.comp{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--linha-2);cursor:pointer}
+.comp:first-child{border-top:0}
+.comp .hora{flex:none;width:46px;font-weight:800;font-size:13px;color:var(--tinta-2);padding-top:1px}
+.comp .faixa{flex:none;width:4px;border-radius:4px}
+.comp b{display:block;font-size:14px}
+.comp span{display:block;font-size:12.5px;color:var(--suave);margin-top:2px}
+.ocup{display:flex;flex-direction:column;gap:12px}
+.ocup-linha{display:grid;grid-template-columns:44px 1fr 46px;gap:10px;align-items:center;font-size:13px}
+.ocup-linha b{font-weight:700;text-transform:capitalize}
+.ocup-linha .barra{height:10px}
+.ocup-linha span{text-align:right;color:var(--suave);font-weight:600}
+.sabados{display:flex;gap:4px}
+.sabados i{flex:1;height:10px;border-radius:4px;background:var(--linha-2)}
+.sabados i.cheio{background:var(--verde)}
+.sabados i.pre{background:#d7c48f}
+
+/* tabelas */
+.tabela{width:100%;border-collapse:collapse}
+.tabela th{text-align:left;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--suave);padding:12px 16px;border-bottom:1px solid var(--linha)}
+.tabela td{padding:13px 16px;border-bottom:1px solid var(--linha-2);vertical-align:middle}
+.tabela tbody tr{cursor:pointer;transition:background .15s}
+.tabela tbody tr:hover{background:#fafaf6}
+.tabela tbody tr:last-child td{border-bottom:0}
+.tabela .nome{display:flex;align-items:center;gap:12px;min-width:0}
+.tabela .nome b{display:block}
+.tabela .nome small{display:block;color:var(--suave);font-size:12px}
+.tabela .num{text-align:right;font-weight:700;white-space:nowrap}
+.pago-cel{display:flex;align-items:center;gap:10px;min-width:130px}
+.pago-cel .barra{flex:1}
+.pago-cel small{width:34px;text-align:right;font-weight:700;color:var(--tinta-2)}
+.filtros{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.busca.local{margin-left:0;width:min(300px,100%)}
+.cartoes-cli{display:none}
+
+/* contratos */
+.kanban{display:grid;grid-template-columns:repeat(5,minmax(230px,1fr));align-items:start;gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.coluna{background:#ecebe4;border-radius:var(--raio);padding:12px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start;min-width:0}
+.coluna-cab{display:flex;align-items:center;justify-content:space-between;padding:2px 4px}
+.coluna-cab b{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.coluna-cab b i{width:8px;height:8px;border-radius:50%}
+.coluna-cab small{font-size:12px;color:var(--tinta-2);font-weight:700}
+.coluna-cab .qtd{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:999px;background:#fff;font-size:12px}
+.card{background:var(--cartao);border-radius:14px;padding:13px;border:1px solid var(--linha);cursor:pointer;display:flex;flex-direction:column;gap:9px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--sombra)}
+.card b{font-size:14px;line-height:1.3}
+.card .linha{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--suave)}
+.card .valor{font-weight:800;color:var(--tinta);font-size:14px}
+.aviso{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--perigo);background:var(--perigo-claro);padding:4px 8px;border-radius:8px}
+
+/* financeiro */
+.grafico svg{width:100%;height:auto;display:block}
+.grafico .rotulo{font-size:11px;fill:var(--suave);font-weight:600}
+.grafico .valor-barra{font-size:10.5px;fill:var(--tinta-2);font-weight:700}
+.grafico rect.b{transition:opacity .2s}
+.grafico rect.b:hover{opacity:.8}
+.leg-graf{display:flex;gap:16px;font-size:12.5px;color:var(--tinta-2);font-weight:600}
+.leg-graf span{display:inline-flex;align-items:center;gap:6px}
+.leg-graf i{width:10px;height:10px;border-radius:3px}
+.rank{display:flex;flex-direction:column;gap:14px}
+.rank-l{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:center}
+.rank-l .pos{width:26px;height:26px;border-radius:8px;background:var(--linha-2);display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--tinta-2)}
+.rank-l b{display:block;font-size:14px}
+.rank-l .barra{margin-top:6px}
+.rank-l .dir{text-align:right}
+.rank-l .dir b{font-size:14px}
+.rank-l .dir small{display:block;font-size:12px;color:var(--suave)}
+.itens-bar{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.item-bar{padding:12px;border-radius:14px;background:#f8f7f2;border:1px solid var(--linha-2)}
+.item-bar small{display:block;color:var(--suave);font-size:12px;font-weight:600}
+.item-bar b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.item-bar span{font-size:12px;color:var(--tinta-2)}
+.sit{font-size:12px;font-weight:700;padding:3px 8px;border-radius:7px;white-space:nowrap}
+.sit.pago{background:var(--ok-claro);color:var(--ok)}
+.sit.aberto{background:var(--linha-2);color:var(--tinta-2)}
+.sit.hoje{background:#fbf2cf;color:#8a6d00}
+.sit.atrasada{background:var(--perigo-claro);color:var(--perigo)}
+
+/* atendimento */
+.funil{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;overflow:hidden}
+.funil div{padding:18px 20px;border-left:1px solid var(--linha-2);position:relative}
+.funil div:first-child{border-left:0}
+.funil small{display:block;color:var(--suave);font-size:12.5px;font-weight:600}
+.funil b{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em;margin-top:4px}
+.funil span{font-size:12px;font-weight:700;color:var(--verde)}
+.origens{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:6px 0 14px}
+.origens i{display:block;height:100%}
+.origens-leg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px 16px;font-size:13px}
+.origens-leg span{display:flex;align-items:center;gap:8px;color:var(--tinta-2);font-weight:600}
+.origens-leg span i{width:10px;height:10px;border-radius:3px}
+.origens-leg b{margin-left:auto;color:var(--tinta)}
+.novo-agora{animation:brilha 2.4s ease 2}
+@keyframes brilha{0%,100%{background:transparent}30%{background:#fbf2cf}}
+
+/* equipe */
+.pessoa{padding:18px;display:flex;flex-direction:column;gap:12px}
+.pessoa-topo{display:flex;align-items:center;gap:12px}
+.pessoa-topo b{display:block;font-size:15px}
+.pessoa-topo small{display:block;color:var(--suave);font-size:12.5px}
+.online{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--suave)}
+.online::before{content:"";width:8px;height:8px;border-radius:50%;background:#b8c0bb}
+.online.sim{color:var(--ok)}.online.sim::before{background:#22c55e;box-shadow:0 0 0 3px #22c55e33}
+.acessos{display:flex;gap:6px;flex-wrap:wrap}
+.acessos span{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:7px;background:var(--verde-claro);color:var(--verde-2)}
+.acessos span.ver{background:var(--linha-2);color:var(--tinta-2)}
+.matriz td,.matriz th{text-align:center}
+.matriz td:first-child,.matriz th:first-child{text-align:left;font-weight:700}
+.marca-ok{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--verde-claro);color:var(--verde)}
+.marca-ver{font-size:11.5px;font-weight:700;color:var(--tinta-2);background:var(--linha-2);padding:3px 8px;border-radius:7px}
+.marca-nao{color:#c3c8c4;font-weight:700}
+
+/* gaveta (detalhes) */
+.veu{position:fixed;inset:0;z-index:60;background:#0f1a1466;opacity:0;pointer-events:none;transition:opacity .25s}
+.veu.aberto{opacity:1;pointer-events:auto}
+.gaveta{position:fixed;z-index:61;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--cartao);box-shadow:-20px 0 60px -20px #0f1a1440;transform:translateX(104%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.gaveta.aberta{transform:none}
+.gaveta-cab{padding:22px 24px 16px;border-bottom:1px solid var(--linha-2);position:relative}
+.gaveta-cab .fechar{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--linha-2)}
+.gaveta-cab h3{font-size:21px;letter-spacing:-.02em;line-height:1.2;margin:10px 44px 4px 0}
+.gaveta-cab p{color:var(--suave)}
+.gaveta-corpo{flex:1;overflow:auto;padding:18px 24px 28px;display:flex;flex-direction:column;gap:18px}
+.abas-g{display:flex;gap:4px;margin-top:14px;background:var(--linha-2);padding:4px;border-radius:12px;width:max-content;max-width:100%}
+.abas-g button{padding:7px 12px;border-radius:9px;font-weight:700;font-size:13px;color:var(--tinta-2)}
+.abas-g button.ativo{background:#fff;color:var(--tinta);box-shadow:0 1px 2px #0000001a}
+.fatos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fato{padding:12px 14px;border-radius:14px;background:#f8f7f2;border:1px solid var(--linha-2)}
+.fato small{display:block;color:var(--suave);font-size:12px;font-weight:600}
+.fato b{display:flex;align-items:center;gap:8px;font-size:14.5px;margin-top:3px}
+.secao-g h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--suave);margin-bottom:10px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{padding:6px 10px;border-radius:10px;background:var(--linha-2);font-size:12.5px;font-weight:600}
+.pagamento-res{padding:16px;border-radius:16px;background:linear-gradient(135deg,#eef6f1,#f8f5ea);border:1px solid #dfe9e2}
+.pagamento-res .topo-p{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.pagamento-res .topo-p b{font-size:22px;letter-spacing:-.02em}
+.pagamento-res .barra{height:8px;margin:10px 0 8px;background:#ffffffb3}
+.pagamento-res small{color:var(--tinta-2);font-size:12.5px}
+.parcela{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--linha-2);font-size:13.5px}
+.parcela:first-child{border-top:0}
+.parcela small{display:block;color:var(--suave);font-size:12px}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;border:1px solid var(--linha-2);cursor:pointer;font-weight:600;transition:background .15s}
+.check + .check{margin-top:6px}
+.check i{width:22px;height:22px;border-radius:7px;border:2px solid #c9cec7;display:grid;place-items:center;color:#fff;flex:none;transition:all .15s}
+.check.feito{background:#f6faf7}
+.check.feito i{background:var(--verde);border-color:var(--verde)}
+.check.feito span{color:var(--suave);text-decoration:line-through}
+.linha-tempo{position:relative;padding-left:22px}
+.linha-tempo::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--linha-2)}
+.marco{position:relative;padding:0 0 16px}
+.marco::before{content:"";position:absolute;left:-21px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--c,var(--verde))}
+.marco b{display:block;font-size:13.5px}
+.marco p{font-size:13.5px;line-height:1.45}
+.marco p b{display:inline}
+.marco small{color:var(--suave);font-size:12px}
+.balao{padding:12px 14px;border-radius:14px 14px 14px 4px;background:#f1f5f2;font-size:14px;line-height:1.5}
+.gaveta-pe{display:flex;gap:8px;padding:14px 24px;border-top:1px solid var(--linha-2);flex-wrap:wrap}
+.gaveta-pe .botao{flex:1}
+
+/* modal */
+.modal{position:fixed;z-index:62;left:50%;top:50%;width:min(480px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;transition:all .25s cubic-bezier(.2,.8,.2,1);padding:24px}
+.modal.aberto{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h3{font-size:20px;letter-spacing:-.02em}
+.modal p.sub{color:var(--suave);margin:4px 0 18px}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.campo label{font-size:12.5px;font-weight:700;color:var(--tinta-2)}
+.campo input,.campo select{height:44px;border-radius:12px;border:1px solid var(--linha);padding:0 12px;background:#fff;outline:0}
+.campo input:focus,.campo select:focus{border-color:var(--verde);box-shadow:0 0 0 3px #8a4a5f22}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.toast{position:fixed;z-index:80;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--tinta);color:#fff;padding:13px 18px;border-radius:14px;font-weight:600;box-shadow:0 18px 40px -12px #0007;transition:all .3s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;gap:10px;max-width:calc(100vw - 32px)}
+.toast.ver{opacity:1;transform:translate(-50%,0)}
+.toast i{width:22px;height:22px;border-radius:50%;background:#22c55e;display:grid;place-items:center;flex:none}
+.selo-demo{position:fixed;z-index:20;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 12px 8px 10px;border-radius:999px;background:#fff;border:1px solid var(--linha);box-shadow:var(--sombra);font-size:12px;font-weight:700;color:var(--tinta-2)}
+.selo-demo i{width:8px;height:8px;border-radius:50%;background:var(--ouro)}
+.abas{display:none}
+
+/* ---------- telas médias: menu só com ícones ---------- */
+@media (max-width:1180px){
+  .app{grid-template-columns:76px 1fr}
+  .lateral{padding:20px 12px;align-items:center}
+  .lateral .logo{padding:0}.lateral .logo div,.menu a span,.menu .num,.link-agenda,.quem div,.quem select,.quem .seta{display:none}
+  .menu a{justify-content:center;padding:12px}
+  .menu a.ativo::before{left:-12px}
+  .quem{margin-top:auto;background:transparent;padding:0}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .agenda-grade{grid-template-columns:1fr}
+}
+@media (max-width:980px){
+  .g-73,.g3{grid-template-columns:1fr}
+  .busca{display:none}
+}
+
+/* ---------- celular ---------- */
+@media (max-width:760px){
+  body{font-size:14px}
+  .app{display:block}
+  .lateral{display:none}
+  .topo{padding:10px 16px;padding-top:max(10px,env(safe-area-inset-top));border-bottom-color:var(--linha)}
+  .topo .logo{display:flex;padding:0;color:var(--tinta)}
+  .topo .logo-ramo{background:var(--verde);color:#fff;width:32px;height:32px}
+  .topo .logo small{color:var(--verde)}
+  .topo .botao.primario span{display:none}
+  .topo .botao.primario{width:42px;padding:0}
+  .topo .av.eu{display:none}
+  main{padding:4px 16px 110px}
+  .vista-cab{margin:14px 0 14px}
+  .vista-cab h2{font-size:22px}
+  .vista-cab .acoes .botao.leve{display:none}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .g2,.g4.pessoas{grid-template-columns:1fr}
+  .grade{gap:12px}
+  .kpi{padding:14px}
+  .kpi .rot{font-size:12px}
+  .kpi .rot i{display:none}
+  .kpi .valor{font-size:21px}
+  .kpi svg.linha{display:none}
+  .kpi .det{font-size:11.5px}
+  .cartao-cab{padding:16px 16px 4px}
+  .cartao-corpo{padding:8px 16px 16px}
+  .item .fim{min-width:0}
+  .item .fim .pilha,.item .fim .av{display:none}
+  .legenda{margin-left:0;width:100%;gap:10px;font-size:12px}
+  .mes-nav b{min-width:120px;font-size:14px}
+  .agenda-barra .chips{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .dia{min-height:54px;padding:5px 2px;align-items:center;gap:5px}
+  .dia .ev,.dia .mais{display:none}
+  .dia .pontos{display:flex}
+  .cal-sem span{padding:8px 0;text-align:center;font-size:10.5px}
+  .tabela.clientes{display:none}
+  .cartoes-cli{display:flex;flex-direction:column}
+  .cartoes-cli .item{padding:13px 0}
+  .kanban{grid-template-columns:repeat(5,82%);gap:10px;margin:0 -16px;padding:0 16px 6px;scroll-padding:0 16px}
+  .funil{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .funil div:nth-child(3){border-left:0}
+  .funil div:nth-child(n+3){border-top:1px solid var(--linha-2)}
+  .funil b{font-size:23px}
+  .matriz th,.matriz td{padding:10px 6px;font-size:12px}
+  .matriz th div{display:none}
+  .gaveta{top:auto;width:100%;max-height:88vh;border-radius:24px 24px 0 0;transform:translateY(104%)}
+  .gaveta-cab{padding:20px 18px 14px}
+  .gaveta-cab::before{content:"";position:absolute;left:50%;top:8px;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:#d9dbd4}
+  .gaveta-corpo{padding:16px 18px 24px}
+  .gaveta-pe{padding:12px 18px max(12px,env(safe-area-inset-bottom))}
+  .abas{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:40;left:0;right:0;bottom:0;background:#fffffff2;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--linha);padding:6px 6px max(8px,env(safe-area-inset-bottom))}
+  .abas a,.abas button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;font-size:11px;font-weight:700;color:var(--suave);border-radius:12px}
+  .abas .ativo{color:var(--verde)}
+  .abas svg.i{width:22px;height:22px}
+  .selo-demo{bottom:82px;left:50%;right:auto;transform:translateX(-50%);padding:6px 10px;font-size:11px;white-space:nowrap}
+  .toast{bottom:92px}
+  .tabela.parcelas th:nth-child(2),.tabela.parcelas td:nth-child(2),.tabela.parcelas th:nth-child(4),.tabela.parcelas td:nth-child(4){display:none}
+  .tabela td,.tabela th{padding:12px 14px}
+}
+@media (max-width:420px){
+  .fatos{grid-template-columns:1fr 1fr}
+  .itens-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- vídeo de apresentação (?video=1): todas as telas uma embaixo da outra ---------- */
+body.video .vista{display:block;animation:none;padding-top:10px}
+body.video .vista + .vista{margin-top:26px;border-top:1px dashed var(--linha);padding-top:18px}
+body.video .abas,body.video .selo-demo{display:none}
+body.video main{padding-bottom:40px}
+body.video .toast{bottom:28px}
+
+/* ---------- menos movimento ---------- */
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Estúdio Ciranda: a mesma base do painel de eventos, com as cores do estúdio e as peças da agenda por horário. */
+:root{--verde:#8a4a5f;--verde-2:#6b3446;--verde-claro:#f5e8ec;--ouro:#c58b5e;--lateral:#3a2430}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.slot{border-radius:12px;padding:9px 10px;border:1px solid var(--linha);background:var(--cartao);text-align:left;cursor:pointer;min-width:0;display:block;width:100%}
+.slot b{display:block;font-size:13.5px}
+.slot span{display:block;font-size:11.5px;color:var(--tinta-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot.ok{background:var(--ok-claro);border-color:transparent}
+.slot.pre{background:#fdf3d8;border-color:#f0dc9c}
+.slot.livre{border:1.5px dashed #d9c9cf;background:transparent}
+.slot.livre b{color:var(--verde)}
+.slot.livre span{color:var(--suave)}
+.slot.novo{box-shadow:0 0 0 2px var(--verde)}
+.leg-slots{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--tinta-2);margin-top:12px}
+.leg-slots i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+.livre-hora{display:flex;align-items:center;gap:12px;padding:9px 12px;border:1.5px dashed #e3d6db;border-radius:12px;color:var(--suave);font-size:13px;margin-top:8px}
+.livre-hora b{color:var(--verde);font-weight:700;min-width:44px}
+.stories{background:linear-gradient(160deg,#3a2430,#8a4a5f);color:#fff;border-radius:16px;padding:18px 18px 16px;font-size:15px;line-height:1.55;white-space:pre-line}
+.vagas-num{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.vagas-num small{font-size:15px;font-weight:600;color:var(--suave);margin-left:6px;letter-spacing:0}
+.entrega-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.galeria{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--linha);border-radius:12px;font-size:13px;word-break:break-all}
+@media (max-width:760px){.slots{grid-template-columns:repeat(2,minmax(0,1fr))}.vagas-num{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="logo" href="#inicio"><span class="logo-ramo" data-icone="camera"></span><div><b>Estúdio Ciranda</b><small>Painel do estúdio</small></div></a>
+    <nav class="menu" id="menu"></nav>
+    <div class="link-agenda">
+      <strong><svg class="i" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>Agenda online</strong>
+      O link que você põe na bio para a cliente escolher o horário.
+      <code>estudiociranda.com.br/agendar</code>
+      <a href="/exemplos/agenda-fotografia" target="_blank" rel="noopener">Abrir a agenda online <svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+    <div class="quem" title="Quem está usando o painel">
+      <span class="av" id="quem-av"></span>
+      <div style="min-width:0;flex:1"><small>Usando o painel</small><b id="quem-nome" style="display:block;font-size:13px"></b></div>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <header class="topo site-header">
+      <a class="logo" href="#inicio"><span class="logo-ramo" data-icone="camera"></span><div><b>Estúdio Ciranda</b><small>Painel do estúdio</small></div></a>
+      <label class="busca"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="busca" type="search" placeholder="Buscar cliente, ensaio ou data" autocomplete="off"></label>
+      <span class="espaco"></span>
+      <button class="icone-botao" id="sino" aria-label="Avisos"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 20a1.9 1.9 0 0 0 3.4 0"/></svg><span class="ponto"></span></button>
+      <button class="botao primario" id="nova"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Marcar ensaio</span></button>
+      <span class="av eu" id="eu-av"></span>
+    </header>
+
+    <main id="conteudo">
+      <section class="vista" id="inicio" aria-labelledby="t-inicio"></section>
+      <section class="vista" id="agenda" aria-labelledby="t-agenda"></section>
+      <section class="vista" id="campanha" aria-labelledby="t-campanha"></section>
+      <section class="vista" id="clientes" aria-labelledby="t-clientes"></section>
+      <section class="vista" id="contratos" aria-labelledby="t-contratos"></section>
+      <section class="vista" id="financeiro" aria-labelledby="t-financeiro"></section>
+      <section class="vista" id="atendimento" aria-labelledby="t-atendimento"></section>
+    </main>
+  </div>
+</div>
+
+<nav class="abas" id="abas" aria-label="Menu"></nav>
+<div class="veu" id="veu"></div>
+<aside class="gaveta" id="gaveta" aria-modal="true" role="dialog" aria-label="Detalhes"></aside>
+<form class="modal cartao" id="modal" aria-modal="true" role="dialog" aria-labelledby="t-modal"></form>
+<div class="toast" id="toast" role="status" aria-live="polite"><i><svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span></span></div>
+<a class="selo-demo" href="/exemplos/fotografia"><i></i>Exemplo do Painel Renderiza · dados fictícios</a>
+
+<script src="visitas.js" data-pagina="painel-eventos"></script>
+<script src="dados-estudio-ciranda.js"></script>
+<script>
+(function () {
+  const C = window.CIRANDA;
+  const { HOJE, EQUIPE, ENSAIOS, SESSOES, PARCELAS, PEDIDOS, ORIGENS, ETAPAS_PEDIDO, ENTREGA, LISTA_ESPERA, NATAL_DIAS, NATAL_HORAS,
+    somar, mesmoDia, dias, chave, min, hora, moeda, dm, dataCurta, dataLonga, iniciais, haQuanto, emQuanto, MES, DS } = C;
+  const VIDEO = /[?&]video=1/.test(location.search);
+  if (VIDEO) document.body.classList.add("video");
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const guardar = (k, v) => { try { localStorage.setItem("renderiza-exemplo:estudio-ciranda:" + k, JSON.stringify(v)); } catch (e) {} };
+  const ler = (k, padrao) => { try { const v = localStorage.getItem("renderiza-exemplo:estudio-ciranda:" + k); return v ? JSON.parse(v) : padrao; } catch (e) { return padrao; } };
+
+  /* ---------- ícones ---------- */
+  const IC = {
+    inicio: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
+    agenda: '<rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/>',
+    campanha: '<path d="M12 2.5 14.6 8l6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 8.7l6-.7z"/>',
+    clientes: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2"/>',
+    contratos: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+    financeiro: '<path d="M19 7V5.5A1.5 1.5 0 0 0 17.5 4H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6"/><circle cx="16.5" cy="14" r="1.3"/>',
+    atendimento: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14.5h4"/>',
+    mais: '<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',
+    camera: '<path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.6"/>',
+    relogio: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    espera: '<path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9"/>',
+    galeria: '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/>',
+    sobe: '<path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+    x: '<path d="M18 6 6 18M6 6l12 12"/>',
+    ok: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    copiar: '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
+    esq: '<path d="m15 18-6-6 6-6"/>', dir: '<path d="m9 18 6-6-6-6"/>',
+    whatsapp: '<path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/>',
+    google: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    indicacao: '<path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2c0 5.6 8.8 11 8.8 11s8.8-5.4 8.8-11z"/>',
+    estrela: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>',
+  };
+  const ic = (n, est = "") => `<svg class="i" viewBox="0 0 24 24"${est ? ` style="${est}"` : ""}>${IC[n]}</svg>`;
+  document.querySelectorAll("[data-icone]").forEach(e => { e.innerHTML = ic(e.dataset.icone); });
+
+  const PESSOA = Object.fromEntries(EQUIPE.map(p => [p.id, p]));
+  const eu = PESSOA.lia;
+  const av = (id, cls = "") => { const p = PESSOA[id]; return p ? `<span class="av ${cls}" style="background:${p.cor}" title="${esc(p.nome)} · ${esc(p.papel)}">${iniciais(p.nome)}</span>` : ""; };
+  const pill = t => { const x = ENSAIOS[t]; return x ? `<span class="pill" style="color:${x.cor};background:${x.fundo}">${esc(x.nome)}</span>` : ""; };
+  const COR_ENTREGA = { agendado: ["#46534b", "#efeee8"], selecao: ["#9a6a12", "#fbf2cf"], edicao: ["#2f6fe0", "#e4edfd"], entregue: ["#1f7a4d", "#ddf3e7"] };
+  const pillEntrega = k => `<span class="entrega-pill" style="color:${COR_ENTREGA[k][0]};background:${COR_ENTREGA[k][1]}">${ENTREGA[k]}</span>`;
+  const COR_ETAPA = { novo: ["#c2410c", "#fdecdf"], orcamento: ["#2f6fe0", "#e4edfd"], aguardando_sinal: ["#9a6a12", "#fbf2cf"], fechado: ["#1f7a4d", "#ddf3e7"], perdido: ["#7d8a82", "#efeee8"] };
+  const pillEtapa = k => `<span class="pill" style="color:${COR_ETAPA[k][0]};background:${COR_ETAPA[k][1]}">${ETAPAS_PEDIDO[k]}</span>`;
+  const pct = s => (s.valor ? Math.round(s.pago / s.valor * 100) : 0);
+
+  /* ---------- dados vivos: ensaios marcados aqui e pré-reservas da agenda online deste navegador ---------- */
+  const doNavegador = VIDEO ? [] : C.pedidosDoNavegador();
+  const novas = [];
+  const daAgenda = doNavegador.map(p => {
+    const e = ENSAIOS[p.tipo];
+    return { id: p.id, tipo: p.tipo, data: p.data, ini: p.hora, fim: hora(min(p.hora) + e.dur), cliente: p.nome, status: "pre", resp: "duda", criada: new Date(p.quando),
+      natal: p.tipo === "natal", entrega: "agendado", prazo: somar(p.data, 15), valor: e.valor, pago: 0, contrato: "enviado", doNavegador: true, obs: p.obs || "" };
+  });
+  const sessoes = () => [...SESSOES, ...daAgenda, ...novas];
+  const parcelasDe = s => s.doNavegador || s.nova ? [{ sessao: s.id, rot: "Sinal (Pix)", valor: ENSAIOS[s.tipo].sinal, vence: somar(HOJE, 1), pago: !!s.sinalPago, pagoEm: s.sinalPago ? HOJE : null },
+    { sessao: s.id, rot: "Restante", valor: s.valor - ENSAIOS[s.tipo].sinal, vence: s.data, pago: false }] : PARCELAS.filter(p => p.sessao === s.id);
+  const todasParcelas = () => sessoes().flatMap(s => parcelasDe(s).map(p => ({ ...p, s })));
+  const etapas = VIDEO ? {} : ler("etapas", {});
+  const pedidos = () => [
+    ...doNavegador.map(p => ({ id: p.id, nome: p.nome, origem: "agenda", quando: p.quando, interesse: p.tipo, data: p.data, hora: p.hora,
+      msg: `Pré-reserva pela agenda online: ${ENSAIOS[p.tipo].nome}, ${dataCurta(p.data)} às ${p.hora}.${p.obs ? " " + p.obs : ""}`, status: etapas[p.id] || "aguardando_sinal", doNavegador: true })),
+    ...PEDIDOS.map(p => ({ ...p, status: etapas[p.id] || p.status })),
+  ].sort((a, b) => b.quando - a.quando);
+
+  /* ---------- menu ---------- */
+  const VISTAS = [["inicio", "Visão geral"], ["agenda", "Agenda"], ["campanha", "Campanha de Natal"], ["clientes", "Clientes e entregas"], ["contratos", "Contratos"], ["financeiro", "Financeiro"], ["atendimento", "Atendimento"]];
+  function montarMenu() {
+    const novos = pedidos().filter(p => p.status === "novo" || (p.doNavegador && p.status === "aguardando_sinal")).length;
+    $("#menu").innerHTML = VISTAS.map(([id, nome]) => `<a href="#${id}" data-v="${id}">${ic(id)}<span>${nome}</span>${id === "atendimento" && novos ? `<em class="num">${novos}</em>` : ""}</a>`).join("");
+    $("#abas").innerHTML = [["inicio", "Início"], ["agenda", "Agenda"], ["campanha", "Natal"], ["clientes", "Clientes"]].map(([id, n]) => `<a href="#${id}" data-v="${id}">${ic(id)}<span>${n}</span></a>`).join("") + `<button type="button" id="abas-mais">${ic("mais")}<span>Mais</span></button>`;
+    $("#quem-av").style.background = eu.cor; $("#quem-av").textContent = iniciais(eu.nome); $("#quem-nome").textContent = `${eu.curto} · ${eu.papel}`;
+    $("#eu-av").outerHTML = `<span class="av eu" id="eu-av" style="background:${eu.cor}">${iniciais(eu.nome)}</span>`;
+    marcarAtivo();
+  }
+  let atual = "inicio";
+  const marcarAtivo = () => document.querySelectorAll("[data-v]").forEach(a => a.classList.toggle("ativo", a.dataset.v === atual));
+  function mostrar(v, rolar = true) {
+    if (!VISTAS.some(x => x[0] === v)) v = "inicio";
+    atual = v;
+    if (!VIDEO && rolar) window.rzVisita?.("mudou_tela", { tela: v }, v);
+    if (!VIDEO) document.querySelectorAll(".vista").forEach(s => s.classList.toggle("ativa", s.id === v));
+    marcarAtivo();
+    if (rolar && !VIDEO) window.scrollTo({ top: 0 });
+  }
+  window.addEventListener("hashchange", () => mostrar(location.hash.slice(1)));
+
+  /* ---------- peças ---------- */
+  function itemSessao(s, comData = false) {
+    const t = ENSAIOS[s.tipo];
+    return `<div class="comp" data-abrir="${s.id}"><span class="hora">${s.ini}</span><span class="faixa" style="background:${t.cor}"></span><div style="min-width:0"><b>${esc(s.cliente)}</b><span>${t.nome}${comData ? " · " + dataCurta(s.data) : " · até " + s.fim}${s.status === "pre" ? " · esperando o sinal" : ""}</span></div></div>`;
+  }
+  function itemPedido(p) {
+    const o = ORIGENS[p.origem];
+    return `<div class="item ${p.doNavegador && Date.now() - p.quando < 120000 ? "novo-agora" : ""}" data-pedido="${p.id}"><span class="origem" style="background:${o.cor}">${ic(p.origem === "agenda" ? "estrela" : p.origem)}</span>
+      <div class="meio"><b>${esc(p.nome)}</b><span>${ENSAIOS[p.interesse].nome} · ${o.nome}</span></div>
+      <div class="fim">${pillEtapa(p.status)}<small>${haQuanto(p.quando)}</small></div></div>`;
+  }
+  function itemEntrega(s) {
+    const k = dias(HOJE, s.prazo);
+    return `<div class="item" data-abrir="${s.id}"><div class="data-bloco" style="background:${ENSAIOS[s.tipo].fundo};color:${ENSAIOS[s.tipo].cor}"><b>${s.prazo.getDate()}</b><small>${MES[s.prazo.getMonth()].slice(0, 3)}</small></div>
+      <div class="meio"><b>${esc(s.cliente)}</b><span>${ENSAIOS[s.tipo].nome} · fotografado ${dm(s.data)}</span></div>
+      <div class="fim">${pillEntrega(s.entrega)}<small>${k < 0 ? `<b style="color:var(--perigo)">prazo passou</b>` : k === 0 ? "prazo hoje" : `prazo em ${k} dia${k > 1 ? "s" : ""}`}</small></div></div>`;
+  }
+  const natal = () => sessoes().filter(s => s.tipo === "natal" && NATAL_DIAS.some(d => mesmoDia(d, s.data)));
+  const VAGAS = NATAL_DIAS.length * NATAL_HORAS.length;
+
+  /* ---------- 1. visão geral ---------- */
+  const mesDe = d => d.getFullYear() * 12 + d.getMonth();
+  function renderInicio() {
+    const hr = new Date().getHours();
+    const hoje = sessoes().filter(s => mesmoDia(s.data, HOJE)).sort((a, b) => a.ini.localeCompare(b.ini));
+    const prox = sessoes().filter(s => s.data > HOJE).sort((a, b) => a.data - b.data || a.ini.localeCompare(b.ini));
+    const semana = sessoes().filter(s => s.data >= HOJE && dias(HOJE, s.data) < 7);
+    const ps = todasParcelas();
+    const recebido = ps.filter(p => p.pago && p.pagoEm && mesDe(p.pagoEm) === mesDe(HOJE) && p.pagoEm <= HOJE).reduce((t, p) => t + p.valor, 0);
+    const sinais = ps.filter(p => !p.pago && p.rot.startsWith("Sinal"));
+    const ped = pedidos().filter(p => Date.now() - p.quando < 7 * 864e5);
+    const nt = natal(), ocup = nt.length, pre = nt.filter(s => s.status === "pre").length;
+    const entregas = sessoes().filter(s => s.entrega === "selecao" || s.entrega === "edicao").sort((a, b) => a.prazo - b.prazo).slice(0, 5);
+    const kpis = [
+      ["camera", "Ensaios nos próximos 7 dias", semana.length, `${semana.filter(s => s.status === "pre").length} esperando o sinal`],
+      ["financeiro", "Recebido no mês", moeda(recebido), `<span class="delta">${ic("sobe", "width:12px;height:12px")} 18%</span> sobre ${MES[(HOJE.getMonth() + 11) % 12]}`],
+      ["espera", "Sinais para receber", sinais.length, `${moeda(sinais.reduce((t, p) => t + p.valor, 0))} em pré-reservas`],
+      ["atendimento", "Pedidos na semana", ped.length, `${ped.filter(p => p.status === "novo").length} esperando resposta`],
+    ];
+    $("#inicio").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-inicio">${hr < 12 ? "Bom dia" : hr < 18 ? "Boa tarde" : "Boa noite"}, ${esc(eu.curto)} 👋</h2><p>${dataLonga(HOJE).replace(/^./, c => c.toUpperCase())}. ${hoje.length ? `Hoje tem ${hoje.length} ensaio${hoje.length > 1 ? "s" : ""} no estúdio.` : "Hoje não tem ensaio no estúdio."} ${prox[0] ? `Próximo: <b>${esc(prox[0].cliente)}</b>, ${emQuanto(prox[0].data)} às ${prox[0].ini}.` : ""}</p></div>
+        <div class="acoes"><a class="botao leve pequeno" href="/exemplos/agenda-fotografia" target="_blank" rel="noopener">${ic("estrela")}Agenda online</a></div></div>
+      <div class="grade g4">${kpis.map(([i, rot, val, det]) => `<div class="cartao kpi"><span class="rot"><i>${ic(i)}</i>${rot}</span><span class="valor">${val}</span><span class="det">${det}</span></div>`).join("")}</div>
+      <div class="grade g-73 mt">
+        <div class="cartao"><div class="cartao-cab"><h3>${hoje.length ? "Hoje no estúdio" : "Próximos ensaios"}</h3><a href="#agenda">Ver agenda</a></div>
+          <div class="cartao-corpo">${(hoje.length ? hoje.map(s => itemSessao(s)) : prox.slice(0, 5).map(s => itemSessao(s, true))).join("")}</div></div>
+        <div class="cartao"><div class="cartao-cab"><h3>Campanha de Natal</h3><a href="#campanha">Ver horários</a></div><div class="cartao-corpo">
+          <div class="vagas-num">${ocup}<small>de ${VAGAS} horários reservados</small></div>
+          <div class="barra" style="margin:12px 0 10px"><b style="width:${Math.round(ocup / VAGAS * 100)}%"></b></div>
+          <p style="color:var(--tinta-2)">Restam <b>${VAGAS - ocup} horários</b>. ${pre} esperando o sinal e ${LISTA_ESPERA.length} na lista de espera.</p>
+          <div class="secao-g" style="margin-top:14px"><h4>Pedidos que chegaram</h4><div class="lista">${pedidos().slice(0, 3).map(itemPedido).join("")}</div></div></div></div>
+      </div>
+      <div class="grade g2 mt">
+        <div class="cartao"><div class="cartao-cab"><h3>Entregas com prazo</h3><a href="#clientes">Ver todas</a></div><div class="cartao-corpo lista">${entregas.map(itemEntrega).join("")}</div></div>
+        <div class="cartao"><div class="cartao-cab"><h3>Ensaios do mês por tipo</h3></div><div class="cartao-corpo">${porTipo(sessoes().filter(s => mesDe(s.data) === mesDe(HOJE)), "qtd")}</div></div>
+      </div>`;
+  }
+  function porTipo(lista, modo) {
+    const linhas = Object.keys(ENSAIOS).map(t => { const l = lista.filter(s => s.tipo === t); return [t, l.length, l.reduce((a, s) => a + s.valor, 0)]; }).filter(x => x[1]).sort((a, b) => (modo === "qtd" ? b[1] - a[1] : b[2] - a[2]));
+    const mx = Math.max(1, ...linhas.map(x => (modo === "qtd" ? x[1] : x[2])));
+    return `<div class="rank">${linhas.map(([t, q, v], i) => `<div class="rank-l"><span class="pos">${i + 1}</span><b>${ENSAIOS[t].nome}</b><div class="barra"><b style="width:${Math.round((modo === "qtd" ? q : v) / mx * 100)}%;background:${ENSAIOS[t].cor}"></b></div><div class="dir"><b>${modo === "qtd" ? q : moeda(v)}</b><small>${modo === "qtd" ? (q > 1 ? "ensaios" : "ensaio") : q + (q > 1 ? " ensaios" : " ensaio")}</small></div></div>`).join("")}</div>`;
+  }
+
+  /* ---------- 2. agenda por horário ---------- */
+  let mesVisto = new Date(HOJE.getFullYear(), HOJE.getMonth(), 1), diaSel = HOJE, filtroTipo = "todos";
+  const doDia = d => sessoes().filter(s => mesmoDia(s.data, d)).sort((a, b) => a.ini.localeCompare(b.ini));
+  function horasLivres(d) {
+    if (d < HOJE) return [];
+    if (C.ehNatal(d)) return NATAL_HORAS.filter(h => !doDia(d).some(s => s.ini === h));
+    if (d.getDay() === 0 || d.getDay() === 1) return [];
+    const marc = doDia(d).map(s => [min(s.ini), min(s.fim)]);
+    return ["09:00", "10:30", "14:00", "16:00"].filter(h => !marc.some(([i, f]) => min(h) < f && i < min(h) + 60));
+  }
+  function renderAgenda() {
+    const ini = somar(mesVisto, -mesVisto.getDay()), cel = [];
+    for (let i = 0; i < 42; i++) {
+      const d = somar(ini, i);
+      if (i >= 35 && d.getMonth() !== mesVisto.getMonth()) break;
+      const its = doDia(d), mostra = its.slice(0, 3), apaga = s => filtroTipo !== "todos" && s.tipo !== filtroTipo;
+      cel.push(`<div class="dia ${d.getMonth() !== mesVisto.getMonth() ? "fora" : ""} ${d.getDay() === 0 || d.getDay() === 1 ? "fds" : ""} ${mesmoDia(d, HOJE) ? "hoje" : ""} ${mesmoDia(d, diaSel) ? "sel" : ""}" data-dia="${chave(d)}">
+        <span class="n">${d.getDate()}</span>
+        ${mostra.map(s => `<span class="ev ${s.status === "pre" ? "pre" : ""} ${apaga(s) ? "apagado" : ""}" style="background:${ENSAIOS[s.tipo].fundo};color:${ENSAIOS[s.tipo].cor};border-color:${ENSAIOS[s.tipo].cor}" data-abrir="${s.id}" title="${esc(s.cliente)}"><time>${s.ini.replace(":", "h").replace("h00", "h")}</time><em>${esc(s.cliente.split(" ")[0])}</em></span>`).join("")}
+        ${its.length > 3 ? `<span class="mais">+${its.length - 3}</span>` : ""}
+        <span class="pontos">${its.slice(0, 5).map(s => `<i class="ponto-ev ${apaga(s) ? "apagado" : ""}" style="background:${ENSAIOS[s.tipo].cor}"></i>`).join("")}</span></div>`);
+    }
+    const its = doDia(diaSel), livres = horasLivres(diaSel), fechado = diaSel.getDay() === 0 || diaSel.getDay() === 1;
+    $("#agenda").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-agenda">Agenda</h2><p>Os ensaios por horário: vários no mesmo dia, cada um no seu. Toque num dia para ver os horários livres.</p></div>
+        <div class="acoes"><button class="botao primario pequeno" data-acao="nova">${ic("x", "transform:rotate(45deg);width:16px;height:16px")}Marcar ensaio</button></div></div>
+      <div class="agenda-barra">
+        <div class="mes-nav"><button data-mes="-1" aria-label="Mês anterior">${ic("esq")}</button><b>${MES[mesVisto.getMonth()]} ${mesVisto.getFullYear()}</b><button data-mes="1" aria-label="Próximo mês">${ic("dir")}</button></div>
+        <button class="chip so-texto" data-mes="0">Hoje</button>
+        <div class="chips"><button class="chip so-texto ${filtroTipo === "todos" ? "ativo" : ""}" data-tipo="todos">Todos os ensaios</button>${Object.keys(ENSAIOS).map(t => `<button class="chip so-texto ${filtroTipo === t ? "ativo" : ""}" data-tipo="${t}"><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${ENSAIOS[t].cor};margin-right:6px"></i>${ENSAIOS[t].curto}</button>`).join("")}</div>
+      </div>
+      <div class="agenda-grade">
+        <div class="cartao cal"><div class="cal-sem">${DS.map(d => `<span>${d.slice(0, 3)}</span>`).join("")}</div><div class="cal-dias">${cel.join("")}</div></div>
+        <div class="cartao dia-painel"><div class="cartao-cab"><h3 style="text-transform:none">${esc(dataLonga(diaSel))}</h3><small style="color:var(--suave);font-weight:600">${emQuanto(diaSel)}</small></div>
+          <div class="cartao-corpo">${its.map(s => itemSessao(s)).join("")}
+          ${fechado ? `<p style="color:var(--suave)">Estúdio fechado (domingo e segunda), fora as datas de campanha.</p>` : ""}
+          ${C.ehNatal(diaSel) ? `<div class="dia-livre">${ic("campanha")}<span>Dia de mini sessões de Natal. <a href="#campanha">Ver o quadro de horários</a></span></div>` : ""}
+          ${livres.map(h => `<div class="livre-hora"><b>${h}</b><span>Horário livre${C.ehNatal(diaSel) ? " na campanha de Natal" : ""}: aparece na agenda online</span></div>`).join("")}
+          ${!its.length && !livres.length && !fechado ? `<p style="color:var(--suave)">${diaSel < HOJE ? "Nenhum ensaio neste dia." : "Dia cheio."}</p>` : ""}</div></div>
+      </div>`;
+  }
+
+  /* ---------- 3. campanha de Natal ---------- */
+  const textoStories = () => {
+    const livres = NATAL_DIAS.map(d => [d, horasLivres(d).length]).filter(x => x[1]);
+    return `🎄 Mini sessão de Natal no Estúdio Ciranda\n${livres.length ? `Restam só ${livres.reduce((t, x) => t + x[1], 0)} horários: ${livres.map(([d, q]) => `${DS[d.getDay()]} ${dm(d)} (${q})`).join(", ")}.` : "Agenda de Natal lotada! Entre na lista de espera."}\n30 minutos no cenário, 10 fotos editadas, ${moeda(ENSAIOS.natal.valor)}.\nEscolha o seu horário no link da bio ✨`;
+  };
+  function renderCampanha() {
+    const nt = natal(), pre = nt.filter(s => s.status === "pre"), conf = nt.filter(s => s.status !== "pre");
+    const fat = nt.length * ENSAIOS.natal.valor;
+    $("#campanha").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-campanha">Campanha de Natal</h2><p>Mini sessões de 30 minutos em ${NATAL_DIAS.length} dias. A cliente escolhe o horário pelo link, e o horário fica separado até o sinal pelo Pix.</p></div>
+        <div class="acoes"><a class="botao leve pequeno" href="/exemplos/agenda-fotografia#natal" target="_blank" rel="noopener">${ic("estrela")}Ver como a cliente vê</a></div></div>
+      <div class="grade g4">
+        <div class="cartao kpi"><span class="rot"><i>${ic("campanha")}</i>Horários reservados</span><span class="valor">${nt.length} de ${VAGAS}</span><span class="det">restam ${VAGAS - nt.length}</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("ok")}</i>Com sinal pago</span><span class="valor">${conf.length}</span><span class="det">${moeda(conf.length * ENSAIOS.natal.sinal)} já recebidos</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("relogio")}</i>Esperando o sinal</span><span class="valor">${pre.length}</span><span class="det">o horário fica separado por 24 h</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("espera")}</i>Lista de espera</span><span class="valor">${LISTA_ESPERA.length}</span><span class="det">avisadas se abrir horário</span></div>
+      </div>
+      ${NATAL_DIAS.map(d => `<div class="cartao mt"><div class="cartao-cab"><h3 style="text-transform:none">${esc(dataLonga(d))}</h3><small style="color:var(--suave);font-weight:600">${horasLivres(d).length} livre${horasLivres(d).length === 1 ? "" : "s"} · ${emQuanto(d)}</small></div><div class="cartao-corpo"><div class="slots">${NATAL_HORAS.map(h => {
+        const s = nt.find(x => mesmoDia(x.data, d) && x.ini === h);
+        return s ? `<button type="button" class="slot ${s.status === "pre" ? "pre" : "ok"} ${s.doNavegador ? "novo" : ""}" data-abrir="${s.id}"><b>${h}</b><span>${esc(s.cliente.split(" ")[0])}${s.status === "pre" ? " · sinal?" : ""}</span></button>`
+          : `<button type="button" class="slot livre" data-livre="${chave(d)} ${h}"><b>${h}</b><span>livre</span></button>`;
+      }).join("")}</div></div></div>`).join("")}
+      <div class="leg-slots"><span><i style="background:var(--ok-claro)"></i>Sinal pago</span><span><i style="background:#fdf3d8;border:1px solid #f0dc9c"></i>Esperando o sinal</span><span><i style="border:1.5px dashed #d9c9cf"></i>Livre na agenda online</span></div>
+      <div class="grade g2 mt">
+        <div class="cartao"><div class="cartao-cab"><h3>Texto pronto para o Stories</h3><button class="ver" data-acao="copiar">${ic("copiar", "width:14px;height:14px")} Copiar</button></div><div class="cartao-corpo"><div class="stories" id="stories">${esc(textoStories())}</div>
+          <p style="color:var(--suave);font-size:12.5px;margin-top:10px">O número de horários muda sozinho a cada reserva. Faturamento da campanha até agora: <b>${moeda(fat)}</b>.</p></div></div>
+        <div class="cartao"><div class="cartao-cab"><h3>Lista de espera</h3><small style="color:var(--suave);font-weight:600">por ordem de chegada</small></div><div class="cartao-corpo lista">${LISTA_ESPERA.map((p, i) => `<div class="item"><span class="origem" style="background:${ORIGENS[p.origem].cor}">${ic(p.origem === "agenda" ? "estrela" : p.origem)}</span><div class="meio"><b>${i + 1}. ${esc(p.nome)}</b><span>Quer ${esc(p.quer)} · ${haQuanto(p.quando)}</span></div><div class="fim"><button class="botao leve pequeno" data-acao="avisar" data-nome="${esc(p.nome)}">${ic("whatsapp", "width:14px;height:14px")}Avisar</button></div></div>`).join("")}</div></div>
+      </div>`;
+  }
+
+  /* ---------- 4. clientes e entregas ---------- */
+  let filtroCli = "andamento", buscaCli = "";
+  function renderClientes() {
+    const grupos = { andamento: s => s.entrega === "selecao" || s.entrega === "edicao", agendados: s => s.entrega === "agendado", entregues: s => s.entrega === "entregue", todos: () => true };
+    const nomes = { andamento: "Fotos em andamento", agendados: "A fotografar", entregues: "Entregues", todos: "Todos" };
+    const q = buscaCli.trim().toLowerCase();
+    const lista = sessoes().filter(grupos[filtroCli]).filter(s => !q || (s.cliente + " " + ENSAIOS[s.tipo].nome + " " + dm(s.data)).toLowerCase().includes(q))
+      .sort((a, b) => (filtroCli === "agendados" ? a.data - b.data : filtroCli === "andamento" ? a.prazo - b.prazo : b.data - a.data)).slice(0, 40);
+    $("#clientes").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-clientes">Clientes e entregas</h2><p>A ficha de cada cliente: o ensaio, os pagamentos e em que pé está a entrega das fotos.</p></div></div>
+      <div class="filtros"><label class="busca local"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="busca-cli" type="search" placeholder="Buscar cliente" value="${esc(buscaCli)}"></label>
+        <div class="chips">${Object.keys(nomes).map(k => `<button class="chip so-texto ${filtroCli === k ? "ativo" : ""}" data-filtro-cli="${k}">${nomes[k]} <b style="margin-left:4px;opacity:.7">${sessoes().filter(grupos[k]).length}</b></button>`).join("")}</div></div>
+      <div class="cartao" style="overflow-x:auto"><table class="tabela clientes"><thead><tr><th>Cliente</th><th>Ensaio</th><th>Pago</th><th>Entrega</th></tr></thead><tbody>
+        ${lista.map(s => `<tr data-abrir="${s.id}"><td class="nome"><b>${esc(s.cliente)}</b><small>${ENSAIOS[s.tipo].nome}</small></td><td>${esc(dataCurta(s.data))}, ${s.ini}</td>
+          <td><div class="pago-cel"><div class="barra"><b style="width:${pct(s)}%"></b></div><small>${moeda(s.pago)} de ${moeda(s.valor)}</small></div></td>
+          <td>${pillEntrega(s.entrega)}${s.entrega === "selecao" || s.entrega === "edicao" ? `<small style="display:block;color:var(--suave);margin-top:4px">prazo ${dm(s.prazo)}</small>` : ""}</td></tr>`).join("")}
+      </tbody></table>
+      <div class="cartoes-cli lista">${lista.map(s => s.entrega === "agendado" ? itemSessao(s, true) : itemEntrega(s)).join("")}</div>
+      ${lista.length ? "" : `<p style="padding:18px;color:var(--suave)">Ninguém aqui com esse filtro.</p>`}</div>`;
+  }
+
+  /* ---------- 5. contratos ---------- */
+  function renderContratos() {
+    const pedOrc = pedidos().filter(p => p.status === "orcamento");
+    const cols = [
+      ["orcamento", "Orçamento enviado", pedOrc.map(p => ({ nome: p.nome, tipo: p.interesse, linha: `${ORIGENS[p.origem].nome} · ${haQuanto(p.quando)}`, valor: ENSAIOS[p.interesse].valor, abrir: `data-pedido="${p.id}"` }))],
+      ["enviado", "Contrato enviado", sessoes().filter(s => s.status === "pre").map(s => ({ nome: s.cliente, tipo: s.tipo, linha: `${dataCurta(s.data)}, ${s.ini} · falta o aceite e o sinal`, valor: s.valor, abrir: `data-abrir="${s.id}"` }))],
+      ["aceito", "Contrato aceito", sessoes().filter(s => s.status === "confirmada" && s.data >= HOJE).sort((a, b) => a.data - b.data).slice(0, 12).map(s => ({ nome: s.cliente, tipo: s.tipo, linha: `${dataCurta(s.data)}, ${s.ini} · sinal pago`, valor: s.valor, abrir: `data-abrir="${s.id}"` }))],
+      ["feito", "Ensaio feito", sessoes().filter(s => s.entrega === "selecao" || s.entrega === "edicao").map(s => ({ nome: s.cliente, tipo: s.tipo, linha: `${ENTREGA[s.entrega]} · prazo ${dm(s.prazo)}`, valor: s.valor, abrir: `data-abrir="${s.id}"` }))],
+    ];
+    $("#contratos").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-contratos">Contratos</h2><p>Do orçamento à entrega. A cliente lê e aceita o contrato pelo link, no celular, sem papel.</p></div></div>
+      <div class="kanban">${cols.map(([k, nome, cards]) => `<div class="coluna"><div class="coluna-cab"><b>${nome}</b><span class="qtd">${cards.length}</span></div>
+        ${cards.map(c => `<div class="card" ${c.abrir}><b>${esc(c.nome)}</b><div class="linha">${pill(c.tipo)}</div><div class="linha"><small>${esc(c.linha)}</small></div><div class="valor">${moeda(c.valor)}</div></div>`).join("")}</div>`).join("")}</div>`;
+  }
+
+  /* ---------- 6. financeiro ---------- */
+  function renderFinanceiro() {
+    const ps = todasParcelas();
+    const recebido = ps.filter(p => p.pago && p.pagoEm && mesDe(p.pagoEm) === mesDe(HOJE) && p.pagoEm <= HOJE).reduce((t, p) => t + p.valor, 0);
+    const lim = somar(HOJE, 30);
+    const aReceber = ps.filter(p => !p.pago && p.vence <= lim && p.situacao !== "atrasada").reduce((t, p) => t + p.valor, 0);
+    const atrasadas = ps.filter(p => !p.pago && (p.situacao === "atrasada" || p.vence < HOJE));
+    const sinais = ps.filter(p => !p.pago && p.rot.startsWith("Sinal"));
+    const abertas = ps.filter(p => !p.pago && p.vence <= lim).sort((a, b) => (a.situacao === "atrasada" ? -1 : 0) - (b.situacao === "atrasada" ? -1 : 0) || a.vence - b.vence).slice(0, 14);
+    const meses = [];
+    for (let k = 5; k >= 0; k--) { const d = new Date(HOJE.getFullYear(), HOJE.getMonth() - k, 1); meses.push([MES[d.getMonth()].slice(0, 3), k === 0 ? recebido : Math.round(recebido * [0.58, 0.52, 0.66, 0.63, 0.85][5 - k] / 10) * 10]); }
+    const mx = Math.max(...meses.map(m => m[1]));
+    $("#financeiro").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-financeiro">Financeiro</h2><p>O sinal de cada ensaio, o restante e quem atrasou. É um controle: o Pix continua caindo na sua conta.</p></div></div>
+      <div class="grade g4">
+        <div class="cartao kpi"><span class="rot"><i>${ic("financeiro")}</i>Recebido no mês</span><span class="valor">${moeda(recebido)}</span><span class="det">sinais e restantes</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("relogio")}</i>A receber em 30 dias</span><span class="valor">${moeda(aReceber)}</span><span class="det">${abertas.length} pagamentos</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("espera")}</i>Sinais esperando</span><span class="valor">${sinais.length}</span><span class="det">${moeda(sinais.reduce((t, p) => t + p.valor, 0))} em pré-reservas</span></div>
+        <div class="cartao kpi"><span class="rot"><i>${ic("x")}</i>Atrasado</span><span class="valor" style="color:${atrasadas.length ? "var(--perigo)" : "inherit"}">${moeda(atrasadas.reduce((t, p) => t + p.valor, 0))}</span><span class="det">${atrasadas.length} pagamento${atrasadas.length === 1 ? "" : "s"}</span></div>
+      </div>
+      <div class="grade g-73 mt">
+        <div class="cartao" style="overflow-x:auto"><div class="cartao-cab"><h3>Pagamentos a receber</h3></div><table class="tabela parcelas"><thead><tr><th>Cliente</th><th>Pagamento</th><th class="num">Valor</th><th>Vence</th><th></th></tr></thead><tbody>
+          ${abertas.map(p => { const at = p.situacao === "atrasada" || p.vence < HOJE; return `<tr data-abrir="${p.s.id}"><td class="nome"><b>${esc(p.s.cliente)}</b><small>${ENSAIOS[p.s.tipo].nome}</small></td><td>${p.rot}</td><td class="num"><b>${moeda(p.valor)}</b></td><td>${dm(p.vence)}</td><td><span class="sit ${at ? "atrasada" : mesmoDia(p.vence, HOJE) ? "hoje" : "aberto"}">${at ? "Atrasado" : mesmoDia(p.vence, HOJE) ? "Vence hoje" : "A vencer"}</span></td></tr>`; }).join("")}
+        </tbody></table></div>
+        <div class="cartao"><div class="cartao-cab"><h3>Recebido por mês</h3></div><div class="cartao-corpo"><div class="rank">${meses.map(([m, v]) => `<div class="rank-l"><span class="pos" style="width:auto">${m}</span><b></b><div class="barra"><b style="width:${Math.round(v / mx * 100)}%"></b></div><div class="dir"><b>${moeda(v)}</b></div></div>`).join("")}</div>
+          <div class="secao-g" style="margin-top:16px"><h4>Faturamento do mês por tipo de ensaio</h4>${porTipo(sessoes().filter(s => mesDe(s.data) === mesDe(HOJE)), "valor")}</div></div></div>
+      </div>`;
+  }
+
+  /* ---------- 7. atendimento ---------- */
+  function renderAtendimento() {
+    const ps = pedidos();
+    const funil = ["novo", "orcamento", "aguardando_sinal", "fechado"].map(k => [k, ps.filter(p => p.status === k).length]);
+    $("#atendimento").innerHTML = `
+      <div class="vista-cab"><div><h2 id="t-atendimento">Atendimento</h2><p>Quem pediu pelo direct, pelo WhatsApp ou pela agenda online, num lugar só. Nenhum pedido fica sem resposta.</p></div></div>
+      <div class="funil">${funil.map(([k, q]) => `<div><small>${ETAPAS_PEDIDO[k]}</small><b>${q}</b></div>`).join("")}</div>
+      <div class="grade g-73 mt">
+        <div class="cartao"><div class="cartao-cab"><h3>Pedidos</h3></div><div class="cartao-corpo lista">${ps.map(itemPedido).join("")}</div></div>
+        <div class="cartao"><div class="cartao-cab"><h3>De onde vêm</h3></div><div class="cartao-corpo">${Object.keys(ORIGENS).map(o => { const q = ps.filter(p => p.origem === o).length; return q ? `<div class="item-bar"><small>${ORIGENS[o].nome}</small><b>${q}</b><span><i style="display:block;height:100%;border-radius:99px;width:${Math.round(q / ps.length * 100)}%;background:${ORIGENS[o].cor}"></i></span></div>` : ""; }).join("")}
+          <div class="dia-livre" style="margin-top:12px">${ic("espera")}<span>${LISTA_ESPERA.length} pessoas na lista de espera do Natal. <a href="#campanha">Ver a lista</a></span></div></div></div>
+      </div>`;
+  }
+
+  function renderTudo() { renderInicio(); renderAgenda(); renderCampanha(); renderClientes(); renderContratos(); renderFinanceiro(); renderAtendimento(); }
+
+  /* ---------- gaveta ---------- */
+  const veu = $("#veu"), gav = $("#gaveta");
+  let yAberta = 0;
+  function abrirGaveta(html) { gav.innerHTML = html; veu.classList.add("aberto"); gav.classList.add("aberta"); gav.querySelector(".fechar")?.focus({ preventScroll: true }); yAberta = scrollY; }
+  if (VIDEO) addEventListener("scroll", () => { if (gav.classList.contains("aberta") && Math.abs(scrollY - yAberta) > 60) fecharGaveta(); }, { passive: true });
+  function fecharGaveta() { veu.classList.remove("aberto"); gav.classList.remove("aberta"); }
+  veu.addEventListener("click", () => { fecharGaveta(); fecharModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { fecharGaveta(); fecharModal(); } });
+
+  const feitos = {};
+  function checklistDe(s) {
+    if (!feitos[s.id]) {
+      const passos = ["Contrato aceito pelo link", "Sinal pago pelo Pix", "Ensaio feito", "Cliente escolheu as fotos", "Fotos entregues"];
+      const n = s.status === "pre" ? 0 : { agendado: 2, selecao: 3, edicao: 4, entregue: 5 }[s.entrega];
+      feitos[s.id] = passos.map((t, i) => ({ t, ok: i < n }));
+    }
+    return feitos[s.id];
+  }
+  function abrirSessao(id) {
+    const s = sessoes().find(x => x.id === id); if (!s) return;
+    const e = ENSAIOS[s.tipo], ps = parcelasDe(s), prox = ps.find(p => !p.pago);
+    const galeria = "galeria.estudiociranda.com.br/" + s.cliente.split(" ")[0].toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") + "-" + dm(s.data).replace("/", "");
+    abrirGaveta(`<div class="gaveta-cab"><button class="fechar" aria-label="Fechar">${ic("x")}</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">${pill(s.tipo)}${s.status === "pre" ? pillEtapa("aguardando_sinal") : pillEntrega(s.entrega)}</div>
+        <h3>${esc(s.cliente)}</h3><p>${esc(dataLonga(s.data))}, ${s.ini} às ${s.fim} · ${emQuanto(s.data)}</p></div>
+      <div class="gaveta-corpo">
+        <div class="fatos"><div class="fato"><small>Ensaio</small><b>${e.nome}</b></div><div class="fato"><small>Entrega</small><b>${e.entrega}</b></div>
+          <div class="fato"><small>Valor</small><b>${moeda(s.valor)}</b></div><div class="fato"><small>Prazo das fotos</small><b>${dm(s.prazo)}</b></div></div>
+        ${s.obs ? `<div class="balao">${esc(s.obs)}</div>` : ""}
+        <div class="pagamento-res"><div class="topo-p"><small>Pago ${moeda(s.pago)} de ${moeda(s.valor)}</small><b>${pct(s)}%</b></div><div class="barra"><b style="width:${pct(s)}%"></b></div><small>${prox ? `${prox.rot}: ${moeda(prox.valor)}, vence ${dm(prox.vence)}` : "Tudo pago. 🎉"}</small></div>
+        <div class="secao-g"><h4>Pagamentos</h4>${ps.map(p => `<div class="parcela"><div><b>${p.rot}</b><small>${p.pago ? "pago " + dm(p.pagoEm) : "vence " + dm(p.vence)}</small></div><span class="sit ${p.pago ? "pago" : p.situacao === "atrasada" ? "atrasada" : "aberto"}">${p.pago ? "Pago" : p.situacao === "atrasada" ? "Atrasado" : "A vencer"}</span><b>${moeda(p.valor)}</b></div>`).join("")}</div>
+        <div class="secao-g"><h4>Do contrato à entrega</h4>${checklistDe(s).map((c, i) => `<div class="check ${c.ok ? "feito" : ""}" data-check="${s.id}:${i}"><i>${ic("ok", "width:14px;height:14px;stroke-width:3")}</i><span>${esc(c.t)}</span></div>`).join("")}</div>
+        ${s.entrega !== "agendado" ? `<div class="secao-g"><h4>Galeria das fotos</h4><div class="galeria">${ic("galeria")}<span>${galeria}</span></div><p style="color:var(--suave);font-size:12.5px;margin-top:6px">O painel guarda o link da galeria que você já usa.</p></div>` : ""}
+      </div>
+      <div class="gaveta-pe"><button class="botao leve" data-acao="zap">${ic("whatsapp")}WhatsApp</button>${s.status === "pre" ? `<button class="botao primario" data-sinal="${s.id}">Sinal recebido</button>` : s.entrega === "edicao" || s.entrega === "selecao" ? `<button class="botao primario" data-entregue="${s.id}">Marcar como entregue</button>` : `<button class="botao primario" data-acao="lembrete">Mandar lembrete</button>`}</div>`);
+  }
+  function abrirPedido(id) {
+    const p = pedidos().find(x => x.id === id); if (!p) return;
+    const o = ORIGENS[p.origem];
+    const livre = p.interesse === "natal" ? C.vagasNatal() : null;
+    abrirGaveta(`<div class="gaveta-cab"><button class="fechar" aria-label="Fechar">${ic("x")}</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">${pill(p.interesse)}${pillEtapa(p.status)}</div><h3>${esc(p.nome)}</h3><p>Chegou ${haQuanto(p.quando)} pelo ${o.nome}</p></div>
+      <div class="gaveta-corpo"><div class="balao">${esc(p.msg)}</div>
+        <div class="fatos"><div class="fato"><small>Interesse</small><b>${ENSAIOS[p.interesse].nome}</b></div><div class="fato"><small>Valor</small><b>${moeda(ENSAIOS[p.interesse].valor)}</b></div>
+          <div class="fato"><small>Sinal</small><b>${moeda(ENSAIOS[p.interesse].sinal)} no Pix</b></div><div class="fato"><small>Atendendo</small><b>${av("duda", "p")}Duda</b></div></div>
+        ${livre !== null ? `<div class="dia-livre">${ic("campanha")}<span>Campanha de Natal: restam ${livre} horários.</span></div>` : ""}
+        <div class="secao-g"><h4>Mudar a etapa</h4><div class="chips">${Object.keys(ETAPAS_PEDIDO).map(k => `<button class="chip so-texto ${p.status === k ? "ativo" : ""}" data-etapa="${p.id}:${k}">${ETAPAS_PEDIDO[k]}</button>`).join("")}</div></div></div>
+      <div class="gaveta-pe"><button class="botao leve" data-acao="zap">${ic("whatsapp")}Responder</button><button class="botao primario" data-acao="link-agenda">Mandar o link da agenda</button></div>`);
+  }
+  function abrirMais() {
+    abrirGaveta(`<div class="gaveta-cab"><button class="fechar" aria-label="Fechar">${ic("x")}</button><h3>Mais</h3><p>Tudo do painel do estúdio.</p></div>
+      <div class="gaveta-corpo"><div class="lista">${VISTAS.map(([v, n]) => `<a class="item" href="#${v}" data-fecha="1"><span class="origem" style="background:var(--verde-claro);color:var(--verde)">${ic(v)}</span><div class="meio"><b>${n}</b></div>${ic("dir")}</a>`).join("")}</div>
+        <a class="dia-livre" href="/exemplos/agenda-fotografia" target="_blank" rel="noopener">${ic("estrela")}<span>Abrir a agenda online que a cliente usa</span></a></div>`);
+  }
+
+  /* ---------- marcar ensaio ---------- */
+  const modal = $("#modal");
+  function opcoesHora(tipo, d) { const hs = C.horariosDoDia(tipo, d).filter(x => x.livre && !sessoes().some(s => mesmoDia(s.data, d) && s.ini === x.hora)); return hs.length ? hs.map(x => `<option>${x.hora}</option>`).join("") : `<option value="">Sem horário livre</option>`; }
+  function abrirModal(dataPadrao, tipoPadrao = "familia", horaPadrao = "") {
+    let d = dataPadrao && dataPadrao > HOJE ? dataPadrao : somar(HOJE, 1);
+    if (tipoPadrao !== "natal") while (d.getDay() === 0 || d.getDay() === 1 || C.ehNatal(d)) d = somar(d, 1);
+    modal.innerHTML = `<h3 id="t-modal">Marcar ensaio</h3><p class="sub">O horário sai da agenda online na hora.</p>
+      <div class="campo"><label for="n-nome">Cliente</label><input id="n-nome" required placeholder="Ex.: Mariana Souza" autocomplete="off"></div>
+      <div class="campo"><label for="n-tipo">Ensaio</label><select id="n-tipo">${Object.keys(ENSAIOS).map(t => `<option value="${t}" ${t === tipoPadrao ? "selected" : ""}>${ENSAIOS[t].nome} · ${moeda(ENSAIOS[t].valor)}</option>`).join("")}</select></div>
+      <div class="duas"><div class="campo"><label for="n-data">Data</label><input id="n-data" type="date" value="${chave(d)}" min="${chave(somar(HOJE, 1))}" required></div>
+        <div class="campo"><label for="n-hora">Horário</label><select id="n-hora">${opcoesHora(tipoPadrao, d)}</select></div></div>
+      <div style="display:flex;gap:8px;margin-top:6px"><button type="button" class="botao leve" data-acao="fechar-modal" style="flex:1">Cancelar</button><button class="botao primario" style="flex:1.4">Marcar</button></div>`;
+    if (horaPadrao) $("#n-hora").value = horaPadrao;
+    veu.classList.add("aberto"); modal.classList.add("aberto");
+    setTimeout(() => $("#n-nome")?.focus(), 60);
+  }
+  function fecharModal() { modal.classList.remove("aberto"); if (!gav.classList.contains("aberta")) veu.classList.remove("aberto"); }
+  modal.addEventListener("change", e => { if (e.target.id === "n-tipo" || e.target.id === "n-data") { const d = C.deChave($("#n-data").value); $("#n-hora").innerHTML = opcoesHora($("#n-tipo").value, d); } });
+  modal.addEventListener("submit", ev => {
+    ev.preventDefault();
+    const tipo = $("#n-tipo").value, d = C.deChave($("#n-data").value), h = $("#n-hora").value;
+    if (!h) { aviso("Esse dia não tem horário livre para esse ensaio. Escolha outro dia."); return; }
+    const e = ENSAIOS[tipo];
+    const s = { id: "x" + Date.now(), tipo, data: d, ini: h, fim: hora(min(h) + e.dur), cliente: $("#n-nome").value.trim() || "Nova cliente", status: "pre", resp: "lia", criada: HOJE,
+      natal: tipo === "natal", entrega: "agendado", prazo: somar(d, 15), valor: e.valor, pago: 0, contrato: "enviado", nova: true };
+    novas.push(s); fecharModal();
+    mesVisto = new Date(d.getFullYear(), d.getMonth(), 1); diaSel = d;
+    renderTudo(); location.hash = tipo === "natal" ? "campanha" : "agenda"; mostrar(tipo === "natal" ? "campanha" : "agenda");
+    aviso(`${s.cliente}: ${e.nome.replace(/^./, c => c.toLowerCase())} em ${dataCurta(d)}, ${h}. Falta o sinal de ${moeda(e.sinal)}.`);
+  });
+
+  /* ---------- aviso ---------- */
+  let tAviso = null;
+  function aviso(txt) { const t = $("#toast"); t.lastChild.textContent = txt; t.classList.add("ver"); clearTimeout(tAviso); tAviso = setTimeout(() => t.classList.remove("ver"), 3400); }
+
+  /* ---------- cliques ---------- */
+  document.addEventListener("click", ev => {
+    const alvo = ev.target;
+    if (alvo.closest("#abas-mais")) { abrirMais(); return; }
+    const ab = alvo.closest("[data-abrir]"); if (ab) { ev.stopPropagation(); abrirSessao(ab.dataset.abrir); return; }
+    const pd = alvo.closest("[data-pedido]"); if (pd) { abrirPedido(pd.dataset.pedido); return; }
+    if (alvo.closest(".fechar") || alvo.closest("[data-fecha]")) { fecharGaveta(); return; }
+    const ck = alvo.closest("[data-check]");
+    if (ck) { const [id, i] = ck.dataset.check.split(":"); const c = feitos[id][i]; c.ok = !c.ok; ck.classList.toggle("feito", c.ok); if (c.ok) aviso(`“${c.t}”: feito.`); return; }
+    const dia = alvo.closest("[data-dia]"); if (dia) { diaSel = C.deChave(dia.dataset.dia); renderAgenda(); return; }
+    const mesB = alvo.closest("[data-mes]");
+    if (mesB) { const k = Number(mesB.dataset.mes); mesVisto = k ? new Date(mesVisto.getFullYear(), mesVisto.getMonth() + k, 1) : new Date(HOJE.getFullYear(), HOJE.getMonth(), 1); if (!k) diaSel = HOJE; renderAgenda(); return; }
+    const tp = alvo.closest("[data-tipo]"); if (tp) { filtroTipo = tp.dataset.tipo; renderAgenda(); return; }
+    const fc = alvo.closest("[data-filtro-cli]"); if (fc) { filtroCli = fc.dataset.filtroCli; renderClientes(); return; }
+    const lv = alvo.closest("[data-livre]"); if (lv) { const [k, h] = lv.dataset.livre.split(" "); abrirModal(C.deChave(k), "natal", h); return; }
+    const et = alvo.closest("[data-etapa]");
+    if (et) { const [id, k] = et.dataset.etapa.split(":"); const p = pedidos().find(x => x.id === id); if (p) { etapas[id] = k; if (!VIDEO) guardar("etapas", etapas); renderTudo(); montarMenu(); abrirPedido(id); aviso(`${p.nome}: ${ETAPAS_PEDIDO[k].toLowerCase()}.`); } return; }
+    const si = alvo.closest("[data-sinal]");
+    if (si) { const s = sessoes().find(x => x.id === si.dataset.sinal); if (s) { s.status = "confirmada"; s.sinalPago = true; s.pago = ENSAIOS[s.tipo].sinal; delete feitos[s.id]; if (!s.doNavegador && !s.nova) { const p = PARCELAS.find(x => x.sessao === s.id && x.rot.startsWith("Sinal")); if (p) { p.pago = true; p.pagoEm = HOJE; } } renderTudo(); abrirSessao(s.id); aviso(`Sinal de ${s.cliente} recebido. O horário está confirmado.`); } return; }
+    const en = alvo.closest("[data-entregue]");
+    if (en) { const s = sessoes().find(x => x.id === en.dataset.entregue); if (s) { s.entrega = "entregue"; delete feitos[s.id]; renderTudo(); abrirSessao(s.id); aviso(`Fotos de ${s.cliente} entregues. Ela recebe o link da galeria no WhatsApp.`); } return; }
+    const ac = alvo.closest("[data-acao]");
+    if (ac) {
+      const a = ac.dataset.acao;
+      if (a === "nova") abrirModal(diaSel);
+      else if (a === "fechar-modal") fecharModal();
+      else if (a === "zap") aviso("Na versão de verdade, abre a conversa no WhatsApp.");
+      else if (a === "lembrete") { fecharGaveta(); aviso("Lembrete enviado: a cliente recebe o dia, o horário e o endereço do estúdio."); }
+      else if (a === "link-agenda") { fecharGaveta(); aviso("Na versão de verdade, vai o link da agenda online pelo WhatsApp para ela escolher o horário."); }
+      else if (a === "avisar") aviso(`Na versão de verdade, ${ac.dataset.nome.split(" ")[0]} recebe no WhatsApp que abriu um horário.`);
+      else if (a === "copiar") { try { navigator.clipboard?.writeText(textoStories()); } catch (e) { /* sem área de transferência */ } aviso("Texto copiado. É só colar no Stories."); }
+      return;
+    }
+  });
+  $("#nova").addEventListener("click", () => abrirModal(diaSel));
+  $("#sino").addEventListener("click", () => { const n = pedidos().filter(p => p.status === "novo").length, s = todasParcelas().filter(p => !p.pago && p.rot.startsWith("Sinal")).length; aviso(`${n} pedido${n === 1 ? "" : "s"} esperando resposta e ${s} sina${s === 1 ? "l" : "is"} para conferir no Pix.`); });
+  $("#busca").addEventListener("input", e => { buscaCli = e.target.value; filtroCli = "todos"; renderClientes(); if (atual !== "clientes") location.hash = "clientes"; });
+  document.addEventListener("input", e => { if (e.target.id === "busca-cli") { buscaCli = e.target.value; const pos = e.target.selectionStart; renderClientes(); const i = $("#busca-cli"); i.focus(); i.setSelectionRange(pos, pos); } });
+
+  /* ---------- começa ---------- */
+  montarMenu(); renderTudo();
+  mostrar(location.hash.slice(1) || "inicio", false);
+  const recente = doNavegador[0];
+  if (recente && Date.now() - recente.quando < 10 * 60000 && !VIDEO) setTimeout(() => aviso(`Pré-reserva nova pela agenda online: ${recente.nome}, ${ENSAIOS[recente.tipo].nome.replace(/^./, c => c.toLowerCase())} em ${dataCurta(recente.data)} às ${recente.hora}.`), 600);
+})();
+</script>
+</body>
+</html>

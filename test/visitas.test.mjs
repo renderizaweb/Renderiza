@@ -246,3 +246,12 @@ test("repassou: outro aparelho abriu a mesma demo", () => {
   assert.equal(resumoDasVisitas(grupos.slice().reverse()).aparelhos, 3);
   assert.equal(textoDoRepasse(grupos[0]), "");
 });
+
+test("fotografia: o card mostra o link do painel de fotografia, com o código do lead", () => {
+  const l = { codigo: "k3f9", segmento: "Fotografia" };
+  assert.equal(mostraPainel(l), true);
+  assert.equal(linkDoPainel(l), "https://www.renderizaweb.com.br/exemplos/fotografia?c=k3f9");
+  assert.equal(linkCurto(l), "renderizaweb.com.br/exemplos/fotografia?c=k3f9");
+  assert.equal(linkDoPainel({ codigo: "k3f9", segmento: "Eventos" }), "https://www.renderizaweb.com.br/exemplos?c=k3f9", "eventos continua no mesmo link");
+  assert.match(textoDoPasso({ evento: "mudou_tela", pagina: "painel-eventos", detalhe: { tela: "campanha" } }), /campanha de Natal/);
+});

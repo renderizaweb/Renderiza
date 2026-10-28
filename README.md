@@ -105,6 +105,14 @@ inventado, a **Villa Alecrim**:
   mais R$ 14,99 por mês; sem fidelidade; montagem grátis para quem fecha o site. Propostos e ainda por confirmar:
   +5 acessos por R$ 9,90/mês e cada espaço a mais por R$ 29/mês. O valor fica em `PRECO` no script de
   `exemplos/index.html` e nos textos da mesma página (o teste confere que batem).
+- **Fotografia (28/10/2026):** a mesma ideia para fotógrafas, com um estúdio inventado, o **Estúdio Ciranda**
+  (`exemplos/dados-estudio-ciranda.js`): `/exemplos/fotografia` (a página, com o mesmo `PRECO`),
+  `/exemplos/painel-fotografia` (agenda por horário, **campanha de Natal** com vagas, lista de espera e texto do
+  Stories, clientes e entregas, contratos, financeiro com sinal pelo Pix, atendimento) e `/exemplos/agenda-fotografia`
+  (a cliente escolhe o ensaio, o dia e o horário; o horário fica separado até o sinal; `#natal` abre direto na
+  campanha). No banco, contam como as páginas de eventos (`exemplos`, `painel-eventos`, `agenda-online`), porque a
+  tabela `visitas` só aceita essas. Nos leads com segmento Fotografia, o link do card é
+  `renderizaweb.com.br/exemplos/fotografia?c=<código>`. As imagens `exemplos/img/f-*.jpg` são capturas das páginas.
 - **Link por lead e quem abriu (22/10/2026):** cada lead tem um código curto (`leads.codigo`, 4 letras, nasce
   sozinho). Nos leads de eventos, o painel mostra o link `renderizaweb.com.br/exemplos?c=<código>` (botão
   **Copiar link do painel** no topo do lead e a seção **Painel Renderiza**). Quem abre esse link é contado:

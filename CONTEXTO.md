@@ -178,6 +178,9 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
   tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
   O sistema se chama **Painel Renderiza** ("Bastidor" foi recusado pelo Kaue em 21/10/2026: ninguém entende).
+- `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
+  inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads
+  de Fotografia mostra o link com o código. Galeria de fotos não entra (guarda só o link). Como funciona: README.
   O site é o que o cliente do espaço vê (pago uma vez); o painel é o que a equipe usa (mensalidade). Explicar
   sempre a diferença, sem supor que a pessoa já sabe. Preço na página: R$ 49/mês com 2 módulos e até 5 pessoas,
   R$ 14,99 por módulo a mais, sem fidelidade, montagem grátis com o site. Nunca chamar o valor inicial de "taxa

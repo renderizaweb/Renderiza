@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painel Renderiza · para fotografia</title>
+<meta name="description" content="Um painel para organizar os seus ensaios: agenda por horário, mini sessões de Natal com vagas, clientes, entregas e sinais pelo Pix num lugar só. R$ 49 por mês, sem fidelidade. Veja funcionando.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e2528">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.renderizaweb.com.br/exemplos/fotografia">
+<meta property="og:title" content="Painel Renderiza: organize os seus ensaios">
+<meta property="og:description" content="Agenda por horário, mini sessões de Natal com vagas, clientes, entregas e sinais pelo Pix num lugar só. R$ 49 por mês, sem fidelidade.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/f-painel.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fontes/geist.woff2) format("woff2")}
+:root{--fundo:#f1eee9;--fundo-2:#e8e4dd;--cartao:#fff;--escuro:#1e2528;--tinta:#1e2528;--suave:#5b6467;--enfase:#7a8386;--enfase-escuro:#b9bfc1;--linha:#d9d4cc;--zap:#1fa855;--zap-2:#178a45;--ok:#1f7a4d;--ok-claro:#e1f1e7;--ouro:#b8913f;--ouro-claro:#f6efdd}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cont{width:min(1120px,100% - 40px);margin:0 auto}
+
+.topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.marca{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:23px;letter-spacing:-.04em;text-decoration:none}
+.marca svg{width:27px;height:27px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 22px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .12s,background .15s,border-color .15s;white-space:nowrap}
+.botao:active{transform:scale(.98)}
+.botao.escuro{background:var(--escuro);color:#fff}
+.botao.escuro:hover{background:#0f1416}
+.botao.claro{background:transparent;border:1.5px solid var(--linha)}
+.botao.claro:hover{border-color:#bdb6ab}
+.botao.zap{background:var(--zap);color:#fff}
+.botao.zap:hover{background:var(--zap-2)}
+.botao.pequeno{height:42px;padding:0 16px;font-size:15px;border-radius:12px}
+
+/* abertura */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;padding:28px 0 64px}
+.olho{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-bottom:18px}
+.olho::before{content:"";width:26px;height:2px;background:var(--ouro)}
+h1{font-size:clamp(38px,5.2vw,60px);line-height:1.04;letter-spacing:-.045em;font-weight:700}
+h1 span,h2 span{color:var(--enfase)}
+.hero p.lide{font-size:19px;color:var(--suave);margin:20px 0 24px;max-width:40ch}
+.preco-topo{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:var(--cartao);border:1px solid var(--linha);margin-bottom:24px;max-width:460px;text-decoration:none}
+.preco-topo .valor{flex:none;font-size:15px;color:var(--suave);line-height:1.1}
+.preco-topo .valor b{display:block;font-size:30px;color:var(--tinta);letter-spacing:-.03em}
+.preco-topo span.txt{font-size:15px;color:var(--suave);line-height:1.4;border-left:1px solid var(--linha);padding-left:16px}
+.preco-topo span.txt b{color:var(--tinta)}
+.hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+.nota{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:var(--suave)}
+.nota i{width:8px;height:8px;border-radius:50%;background:var(--ouro);flex:none}
+.celular{justify-self:center;width:min(310px,100%);aspect-ratio:9/16;padding:10px;border-radius:44px;background:#151a1c;box-shadow:0 40px 90px -30px #151a1c99;position:relative}
+.celular img,.celular video{width:100%;height:100%;object-fit:cover;border-radius:35px;background:#0f261d}
+.celular .som{position:absolute;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;background:#000000a6;color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
+
+/* blocos */
+section.bloco{padding:64px 0}
+.bloco-cab{max-width:680px;margin-bottom:30px}
+h2{font-size:clamp(30px,3.6vw,42px);line-height:1.08;letter-spacing:-.035em;font-weight:700}
+.bloco-cab p{color:var(--suave);font-size:18px;margin-top:12px}
+
+/* o que é */
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ponto{padding:24px;border-radius:22px;background:var(--cartao);border:1px solid var(--linha)}
+.ponto i{width:42px;height:42px;border-radius:13px;background:var(--fundo-2);display:grid;place-items:center;margin-bottom:14px}
+.ponto b{display:block;font-size:18.5px;letter-spacing:-.02em;line-height:1.25}
+.ponto span{display:block;color:var(--suave);font-size:15.5px;margin-top:6px}
+.diferenca{margin-top:22px;padding:28px;border-radius:24px;background:var(--escuro);color:#fff}
+.diferenca h3{font-size:24px;letter-spacing:-.03em}
+.diferenca > p{color:var(--enfase-escuro);margin-top:6px;font-size:16px}
+.lados{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-top:20px}
+.lado{padding:20px;border-radius:18px;background:#ffffff0f;border:1px solid #ffffff1f}
+.lado small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e9d29b}
+.lado b{display:block;font-size:20px;margin:6px 0 6px;letter-spacing:-.02em}
+.lado span{display:block;color:#d4d9da;font-size:15.5px}
+.seta{display:grid;place-items:center;color:#e9d29b;font-size:13px;font-weight:600;text-align:center;line-height:1.3}
+.seta svg{width:28px;height:28px;margin:0 auto 4px}
+.diferenca .juntos{margin-top:18px;padding-top:16px;border-top:1px solid #3a4448;color:#d4d9da;font-size:15.5px}
+.diferenca .juntos b{color:#fff}
+
+/* módulos */
+.modulos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.modulo{display:flex;flex-direction:column;background:var(--cartao);border:1px solid var(--linha);border-radius:22px;overflow:hidden}
+.modulo figure{aspect-ratio:16/9;overflow:hidden;background:var(--fundo-2);border-bottom:1px solid var(--linha)}
+.modulo figure img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.modulo .txt{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.modulo h3{font-size:19px;letter-spacing:-.02em}
+.modulo p{color:var(--suave);font-size:15.5px}
+.modulo .links{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.modulo .ir{font-weight:600;font-size:15px;text-decoration:none}
+.modulo .det{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:999px;border:1.5px solid var(--linha);font-size:14px;font-weight:600}
+.modulo .det:hover{border-color:#bdb6ab}
+
+/* preço */
+.precos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.plano{border-radius:26px;background:var(--escuro);color:#fff;padding:32px}
+.plano small.rot{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--enfase-escuro)}
+.plano .grande{display:flex;align-items:baseline;gap:6px;margin:8px 0 18px}
+.plano .grande b{font-size:64px;font-weight:700;letter-spacing:-.05em;line-height:1}
+.plano .grande span{font-size:18px;color:var(--enfase-escuro)}
+.plano ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.plano li{display:flex;gap:12px;font-size:16.5px}
+.plano li svg{color:#9fd8b4;margin-top:2px}
+.plano .extras{margin-top:22px;padding-top:18px;border-top:1px solid #3a4448;display:flex;flex-direction:column;gap:10px;font-size:15.5px;color:#d4d9da}
+.plano .extras div{display:flex;justify-content:space-between;gap:14px}
+.plano .extras b{color:#fff;white-space:nowrap}
+.plano .extras b.verde{color:#9fd8b4}
+.conta{border-radius:26px;background:var(--cartao);border:1px solid var(--linha);padding:28px}
+.conta h3{font-size:21px;letter-spacing:-.02em}
+.conta > p{color:var(--suave);font-size:15.5px;margin:4px 0 16px}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod{position:relative}
+.mod-sel{width:100%;height:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px 40px 14px 14px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;transition:border-color .15s,box-shadow .15s,background .15s}
+.mod-sel:hover{border-color:#bdb6ab}
+.mod-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--fundo-2);color:var(--tinta);transition:background .15s,color .15s}
+.mod-txt b{display:block;font-size:15.5px;line-height:1.25}
+.mod-txt small{display:block;font-size:13px;color:var(--suave);line-height:1.35;margin-top:2px}
+.mod-txt em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700;padding:2px 8px;border-radius:7px;background:var(--fundo-2);color:var(--suave)}
+.mod-ok{position:absolute;right:12px;bottom:12px;width:22px;height:22px;border-radius:50%;border:2px solid #c3bcb0;display:grid;place-items:center;color:#fff;transition:all .15s}
+.mod-sel[aria-pressed=true]{border-color:var(--escuro);box-shadow:0 0 0 3px #1e25281a;background:#fbfaf7}
+.mod-sel[aria-pressed=true] .mod-ic{background:var(--escuro);color:#fff}
+.mod-sel[aria-pressed=true] .mod-ok{background:var(--escuro);border-color:var(--escuro)}
+.mod-sel[aria-pressed=true] em.inc{background:var(--ok-claro);color:var(--ok)}
+.mod-sel[aria-pressed=true] em.ext{background:var(--ouro-claro);color:#7a5a17}
+.mod-info{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--suave);transition:background .15s,color .15s}
+.mod-info:hover,.mod-info:focus-visible{background:var(--fundo-2);color:var(--tinta)}
+.aviso-site{display:flex;gap:10px;align-items:flex-start;margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--ouro-claro);color:#4c3d18;font-size:14.5px}
+.aviso-site[hidden]{display:none}
+.aviso-site svg{color:var(--ouro);margin-top:1px}
+/* janela de detalhes do módulo */
+.info-veu{position:fixed;inset:0;z-index:50;background:#0f141699;display:none;align-items:center;justify-content:center;padding:20px}
+.info-veu.aberto{display:flex;animation:aparece .2s ease}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.info{width:min(480px,100%);max-height:calc(100vh - 40px);overflow:auto;background:#fff;border-radius:24px;padding:26px;position:relative;box-shadow:0 30px 80px -20px #0008}
+.info .fechar{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:12px;background:var(--fundo-2);display:grid;place-items:center}
+.info-topo{display:flex;align-items:center;gap:14px;margin-right:44px}
+.info-topo .mod-ic{width:50px;height:50px;border-radius:15px;background:var(--escuro);color:#fff}
+.info-topo .mod-ic svg{width:24px;height:24px}
+.info-topo h3{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.info-topo small{display:block;color:var(--suave);font-size:14px;margin-top:2px}
+.info .resumo-mod{font-size:17px;line-height:1.45;margin:18px 0 4px}
+.info h4{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--suave);margin:18px 0 10px}
+.info ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.info li{display:flex;gap:10px;font-size:15.5px;line-height:1.45}
+.info li svg{color:var(--ok);margin-top:2px;width:18px;height:18px}
+.info .saber{margin-top:18px;padding:14px 16px;border-radius:16px;background:var(--ouro-claro);color:#4c3d18}
+.info .saber h4{margin:0 0 8px;color:#7a5a17}
+.info .saber li{font-size:15px}
+.info .saber li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--ouro);margin-top:9px}
+.acoes-info{display:flex;gap:10px;margin-top:20px}
+.acoes-info .botao{flex:1;height:48px;font-size:15px;padding:0 14px}
+.resultado{margin-top:20px;padding:18px 20px;border-radius:18px;background:var(--fundo)}
+.resultado .linha{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.resultado .linha span{color:var(--suave);font-size:15px}
+.resultado .linha b{font-size:34px;letter-spacing:-.04em}
+.resultado p{font-size:14px;color:var(--suave);margin-top:4px}
+.conta .botao{width:100%;margin-top:16px}
+
+/* perguntas */
+.perguntas{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+details{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:0 22px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 0;font-weight:600;font-size:16.5px;line-height:1.35}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:9px;background:var(--fundo-2);display:grid;place-items:center;font-size:18px;font-weight:500;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 20px;color:var(--suave);font-size:15.5px}
+
+.convite{margin:16px 0 72px;padding:52px;border-radius:30px;background:var(--escuro);color:#fff;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.convite h2 span{color:var(--enfase-escuro)}
+.convite p{color:var(--enfase-escuro);font-size:18px;margin-top:12px;max-width:46ch}
+footer{padding:0 0 48px;color:var(--suave);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{font-weight:600}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;gap:40px;padding-top:10px}
+  .tres,.modulos{grid-template-columns:1fr 1fr}
+  .precos,.perguntas{grid-template-columns:1fr}
+  .convite{grid-template-columns:1fr;padding:36px 28px}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  .cont{width:calc(100% - 32px)}
+  .topo{padding:14px 0}
+  .topo .botao span{display:none}
+  .topo .botao{width:46px;padding:0}
+  .hero p.lide{font-size:17px}
+  .hero .acoes .botao{flex:1}
+  .preco-topo{gap:14px;padding:14px 16px}
+  .preco-topo .valor b{font-size:26px}
+  .preco-topo span.txt{font-size:14px;padding-left:14px}
+  .celular{width:min(280px,82vw)}
+  section.bloco{padding:48px 0}
+  .tres,.modulos{grid-template-columns:1fr}
+  .diferenca{padding:22px}
+  .lados{grid-template-columns:1fr;gap:10px}
+  .seta{padding:2px 0}
+  .seta svg{transform:rotate(90deg)}
+  .plano,.conta{padding:24px}
+  .mods{grid-template-columns:1fr}
+  .info-veu{align-items:flex-end;padding:0}
+  .info{border-radius:24px 24px 0 0;max-height:88vh;padding:22px 20px max(20px,env(safe-area-inset-bottom))}
+  .acoes-info{flex-direction:column-reverse}
+  .acoes-info .botao{flex:none;height:50px}
+  .plano .grande b{font-size:56px}
+  details{padding:0 18px}
+  .convite{margin-bottom:56px}
+  .convite .botao{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="cont">
+  <header class="topo">
+    <a class="marca" href="/" aria-label="Renderiza"><svg viewBox="158 161 943 943" aria-hidden="true"><path fill="currentColor" d="M 693.5 198.3 C 613.8 240.3,564.2 343.4,578 438.5 C 588.9 513,625.4 575.6,676.8 607.3 C 724.6 636.9,773.6 644.7,864.3 637.1 C 914.9 632.8,940 632.3,966 635.1 C 1012.7 640,1051.7 655.4,1085.9 682.4 C 1093.2 688.1,1094.6 688.9,1095.8 687.6 C 1097.6 685.8,1093.5 677.2,1085.3 665.8 C 1057.3 626.8,1011.4 601.3,948 589.6 C 924.3 585.2,907.4 583.2,855.5 578.5 C 792.6 572.7,765.4 567.1,736.8 553.7 C 698.4 535.8,670.6 503,650.9 452.5 C 616.5 364.3,633.2 279.5,699.4 206 C 712.4 191.6,710.6 189.3,693.5 198.3 M 703.4 313.6 C 666.5 369.1,680.5 457.8,733 501.5 C 760.4 524.2,798.1 539.9,842 546.9 C 859.3 549.7,864.4 549.9,864.8 547.8 C 865 546.6,863.4 545.6,858.3 544 C 802 525.4,754.5 483.1,727.4 427.5 C 708.6 388.9,703.2 354.7,710.1 317 C 712.4 304.3,712.3 305,710.6 305 C 709.8 305,706.6 308.9,703.4 313.6 M 457 557.7 C 454 557.9,433.5 560.1,411.5 562.5 C 345.8 569.8,322.5 570.3,290.2 565 C 272.4 562.1,271.2 563.5,285.8 570.3 C 327.5 589.9,364.6 595.8,460 598 C 484.5 598.6,503.9 599.5,511 600.5 C 555.5 606.4,586.4 619.2,611.4 642 C 618.3 648.3,619.4 649,620.7 647.7 C 622.3 646.1,619.3 635.6,614.4 625.7 C 589.7 576.4,534.7 552.7,457 557.7 M 162.3 581.7 C 159.9 587.8,186.6 621.8,206 637.4 C 248.5 671.6,293 684.5,399.4 693.5 C 458 698.4,484.7 702.8,509 711.5 C 570.4 733.6,607.6 782.1,621.2 858 C 624.5 876.3,624.5 916.4,621.2 935.5 C 612.5 985.8,592.2 1027.4,559.6 1061.7 C 553 1068.7,551.7 1072,555.4 1072 C 558.7 1072,579.2 1060.5,589.5 1052.8 C 635.8 1018.3,667.8 963.4,680.2 897 C 683.2 880.6,683.5 837,680.7 820.5 C 670.6 762.5,651.6 723,617.1 689 C 586.6 658.8,550.3 641.5,500.9 633.8 C 480.4 630.7,433 630.6,391.5 633.8 C 350.5 636.9,332 637.4,314 636.1 C 254.1 631.6,208.7 615.6,172.5 586 C 164.7 579.6,163.3 579,162.3 581.7 M 656.3 628.7 C 654.1 629.5,654.9 632.8,659.9 643.5 C 679.7 685.4,717.2 707.9,770.6 709.7 C 792.1 710.4,801.2 709.5,846 701.9 C 889.5 694.5,900.2 693.1,920 692.3 C 947.1 691.3,980.2 695.6,1006.3 703.6 C 1009.9 704.7,1007.9 700.9,1003.3 698 C 984.5 685.9,954.2 674.8,929 670.6 C 906.1 666.8,868.3 665.9,832.4 668.1 C 747.8 673.5,705 664.5,664.3 632.8 C 660.8 630.2,657.9 628,657.8 628.1 C 657.6 628.1,656.9 628.4,656.3 628.7 M 402.1 725.8 C 399 726.8,402 728.9,411.8 732.4 C 512.4 769.2,567.5 861.6,548.1 961.1 C 545.4 975,547.5 975.4,555.5 962.6 C 580 923.2,586.7 872.6,572.9 831 C 554.9 776.7,506.6 741.2,434 729.1 C 421 726.9,404 725.2,402.1 725.8"/></svg>renderiza</a>
+    <a class="botao zap pequeno" href="https://wa.me/5511988697165?text=Oi!%20Vi%20o%20Painel%20Renderiza%20para%20fotografia%20e%20quero%20saber%20mais." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg><span>Falar no WhatsApp</span></a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="olho">Painel Renderiza · para fotografia</span>
+      <h1>Um painel para organizar <span>os seus ensaios.</span></h1>
+      <p class="lide">Os horários marcados, as clientes, os sinais pelo Pix e as entregas num lugar só. E uma agenda online onde a cliente escolhe o horário da mini sessão sem você responder uma por uma no direct.</p>
+      <a class="preco-topo" href="#precos"><span class="valor">a partir de<b>R$ 49/mês</b></span><span class="txt">Com <b>2 módulos</b> à sua escolha e até <b>5 pessoas</b> da equipe. Sem fidelidade.</span></a>
+      <div class="acoes">
+        <a class="botao escuro" href="/exemplos/painel-fotografia">Ver o painel funcionando <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="botao claro" href="#o-que-e">Como funciona</a>
+      </div>
+      <p class="nota"><i></i>O exemplo usa dados de um estúdio inventado, o Estúdio Ciranda. Pode clicar em tudo.</p>
+    </div>
+    <a class="celular" style="display:block" href="/exemplos/painel-fotografia#campanha" aria-label="Abrir a campanha de Natal no painel de exemplo">
+      <img src="/exemplos/img/f-cel.jpg" alt="A campanha de Natal no celular: horários reservados, esperando o sinal e livres" width="720" height="1280">
+    </a>
+  </section>
+</div>
+
+<section class="bloco" id="o-que-e" style="padding-top:16px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>O que é o <span>Painel Renderiza</span></h2><p>É um sistema na internet feito para o dia a dia do seu estúdio. Só você e quem trabalha com você entram, cada um com a sua senha.</p></div>
+    <div class="tres">
+      <div class="ponto"><i><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></i><b>Agenda por horário</b><span>Vários ensaios no mesmo dia, cada um no seu horário. Nada de horário marcado duas vezes porque a conversa ficou perdida no direct.</span></div>
+      <div class="ponto"><i><svg class="i" viewBox="0 0 24 24"><path d="M12 2.5 14.6 8l6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 8.7l6-.7z"/></svg></i><b>Campanhas com vagas</b><span>Mini sessão de Natal, Dia das Mães, smash: você abre os horários, a cliente reserva e o painel conta quantos restam.</span></div>
+      <div class="ponto"><i><svg class="i" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></i><b>No celular e no computador</b><span>Abre no navegador, sem instalar nada. Dá para deixar o ícone na tela do celular.</span></div>
+    </div>
+    <div class="diferenca">
+      <h3>É diferente do site</h3>
+      <p>Muita gente confunde, então vale explicar:</p>
+      <div class="lados">
+        <div class="lado"><small>O site</small><b>O que a sua cliente vê</b><span>A sua página no Google e no Instagram: o portfólio, as avaliações, os ensaios e o botão do WhatsApp. Qualquer pessoa abre.</span></div>
+        <div class="seta" aria-hidden="true"><div><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>o pedido<br>de horário chega</div></div>
+        <div class="lado"><small>O painel</small><b>O que você usa</b><span>O lugar onde você organiza o trabalho: agenda, clientes, contratos, sinais e entregas. Só entra quem tem senha.</span></div>
+      </div>
+      <p class="juntos"><b>Os dois se conversam:</b> quando a cliente escolhe um horário pelo site, a pré-reserva aparece no painel. A agenda online é a ponte: ela fica no site e manda os pedidos para o painel. E quem faz o site com a Renderiza não paga a montagem do painel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="modulos" style="padding-top:16px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Os módulos: <span>escolha o que você precisa</span></h2><p>O painel é dividido em partes, que a gente chama de módulos. Você escolhe quais quer usar. Veja cada um funcionando ou toque em Detalhes para saber o que ele inclui.</p></div>
+    <div class="modulos">
+      <div class="modulo"><a href="/exemplos/agenda-fotografia" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-agenda-online.jpg" alt="Agenda online: a cliente escolhe o ensaio, o dia e o horário" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Agenda online</h3><p>A cliente escolhe o ensaio e o horário pelo link da bio, a qualquer hora.</p><div class="links"><a class="ir" href="/exemplos/agenda-fotografia">Testar como cliente →</a><button type="button" class="det" data-info="agenda-online"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-fotografia#campanha" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-campanha.jpg" alt="Campanha de Natal: os horários das mini sessões, com sinal pago, esperando o sinal e livres" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Agenda do estúdio</h3><p>Os ensaios por horário e o quadro das mini sessões de Natal, com as vagas.</p><div class="links"><a class="ir" href="/exemplos/painel-fotografia#campanha">Ver funcionando →</a><button type="button" class="det" data-info="agenda"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-fotografia#clientes" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-clientes.jpg" alt="Clientes e entregas: o ensaio, o que foi pago e em que pé está a entrega" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Clientes e entregas</h3><p>A ficha de cada cliente: o ensaio, o pagamento e o prazo das fotos.</p><div class="links"><a class="ir" href="/exemplos/painel-fotografia#clientes">Ver funcionando →</a><button type="button" class="det" data-info="clientes"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-fotografia#contratos" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-contratos.jpg" alt="Contratos em colunas, do orçamento ao ensaio feito" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Contratos</h3><p>Do orçamento ao contrato aceito pela cliente no celular, sem papel.</p><div class="links"><a class="ir" href="/exemplos/painel-fotografia#contratos">Ver funcionando →</a><button type="button" class="det" data-info="contratos"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-fotografia#financeiro" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-financeiro.jpg" alt="Financeiro: recebido no mês, sinais esperando e pagamentos a receber" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Financeiro</h3><p>O sinal de cada ensaio, o restante e quem atrasou.</p><div class="links"><a class="ir" href="/exemplos/painel-fotografia#financeiro">Ver funcionando →</a><button type="button" class="det" data-info="financeiro"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+      <div class="modulo"><a href="/exemplos/painel-fotografia#atendimento" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-atendimento.jpg" alt="Atendimento: os pedidos do direct, do WhatsApp e da agenda online" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><h3>Atendimento</h3><p>Os pedidos do direct, do WhatsApp e da agenda online num lugar só.</p><div class="links"><a class="ir" href="/exemplos/painel-fotografia#atendimento">Ver funcionando →</a><button type="button" class="det" data-info="atendimento"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="precos" style="padding-top:16px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Quanto custa</h2><p>Um valor por mês, sem surpresa. Você começa com 2 módulos e coloca mais quando quiser.</p></div>
+    <div class="precos">
+      <div class="plano">
+        <small class="rot">Painel Renderiza</small>
+        <div class="grande"><b>R$ 49</b><span>por mês</span></div>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 módulos à sua escolha</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Até 5 pessoas (você, a assistente, quem edita), cada uma com a sua senha</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ajuda pelo WhatsApp quando precisar</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sem fidelidade: cancela quando quiser</li>
+        </ul>
+        <div class="extras">
+          <div><span>Cada módulo a mais</span><b>+ R$ 14,99 por mês</b></div>
+          <div><span>Montagem do painel, para quem faz o site com a Renderiza</span><b class="verde">grátis</b></div>
+        </div>
+      </div>
+      <div class="conta">
+        <h3>Faça a conta</h3>
+        <p>Toque nos módulos que você quer usar. No <b>i</b>, você vê o que cada um inclui.</p>
+        <div class="mods" id="mods"></div>
+        <div class="resultado" aria-live="polite">
+          <div class="linha"><span id="qtd">2 módulos</span><b id="total">R$ 49,00</b></div>
+          <p id="detalhe">por mês, com até 5 pessoas da equipe</p>
+        </div>
+        <p class="aviso-site" id="aviso-site" hidden><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg><span>A agenda online fica dentro do site, então vem junto com o site da Renderiza.</span></p>
+        <a class="botao zap" id="zap" href="#" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Quero começar com esses</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" style="padding-top:16px">
+  <div class="cont">
+    <div class="bloco-cab"><h2>Perguntas <span>que todo mundo faz</span></h2></div>
+    <div class="perguntas">
+      <details><summary>Preciso ter site para usar o painel?</summary><p>Só para a agenda online, porque ela fica dentro do site e vem junto com o site da Renderiza. Os outros módulos funcionam sem site. E quem faz o site com a Renderiza não paga a montagem do painel.</p></details>
+      <details><summary>Substitui a minha galeria de fotos?</summary><p>Não. O painel não guarda as fotos: ele guarda o link da galeria que você já usa e mostra em que pé está cada entrega (escolhendo as fotos, em edição, entregue) e o prazo.</p></details>
+      <details><summary>Funciona para mini sessão de Natal?</summary><p>Funciona. Você diz os dias e os horários, a agenda online mostra quantos restam, e a cliente reserva sozinha. O horário fica separado até o sinal, e quem não conseguiu vai para a lista de espera.</p></details>
+      <details><summary>O painel recebe o Pix?</summary><p>Não. O Pix continua caindo direto na sua conta. No painel você marca que o sinal chegou, e ele mostra o que falta receber e quem atrasou.</p></details>
+      <details><summary>Tem fidelidade ou multa para cancelar?</summary><p>Não. Você paga mês a mês e pode cancelar quando quiser. Se sair, leva os seus dados numa planilha.</p></details>
+      <details><summary>Posso mudar os módulos depois?</summary><p>Pode, quando quiser. Muita gente começa com a agenda e coloca o financeiro depois. O valor novo vale a partir da mensalidade seguinte.</p></details>
+      <details><summary>Como começa?</summary><p>Você chama no WhatsApp. A gente entende como você trabalha, monta o painel com os seus ensaios, os seus horários e os seus valores, e ensina a usar.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="cont">
+  <section class="convite">
+    <div><h2>Quer ver como ficaria <span>no seu estúdio?</span></h2><p>Conta como você marca os ensaios hoje que a gente mostra por onde começar.</p></div>
+    <a class="botao zap" href="https://wa.me/5511988697165?text=Oi!%20Vi%20o%20Painel%20Renderiza%20para%20fotografia%20e%20quero%20ver%20como%20ficaria%20no%20meu%20est%C3%BAdio." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>Chamar no WhatsApp</a>
+  </section>
+  <footer><span>O Estúdio Ciranda não existe: é um estúdio inventado para o exemplo. Nomes, datas e valores são fictícios. Quando o link vem da Renderiza, a página conta a visita (quando abriu e o que viu), para a gente saber se ajudou.</span><span><a href="/">Renderiza</a> · sites e sistemas para negócios</span></footer>
+</div>
+
+<div class="info-veu" id="info-veu"><div class="info" role="dialog" aria-modal="true" aria-labelledby="info-nome" id="info"></div></div>
+
+<script src="/exemplos/visitas.js" data-pagina="exemplos"></script>
+<script>
+(function () {
+  // Preço do Painel Renderiza (pedido do Kaue, 21/10/2026). Mudou aqui, mude também os textos da página.
+  const PRECO = { base: 49, inclusos: 2, extra: 14.99, acessos: 5 };
+  const ZAP = "5511988697165";
+  // Os módulos: o que aparece na conta e na janela de Detalhes (o que faz e o que é bom saber).
+  const MODULOS = [
+ {
+  "id": "agenda-online",
+  "nome": "Agenda online",
+  "curto": "A cliente escolhe o horário",
+  "resumo": "A cliente escolhe o ensaio, o dia e o horário pelo link da bio, a qualquer hora, sem esperar você responder no direct.",
+  "faz": [
+   "Mostra os horários livres de cada tipo de ensaio",
+   "Nas campanhas (mini sessão de Natal, Dia das Mães), mostra quantos horários restam",
+   "O horário fica separado até o sinal, e a pré-reserva chega no painel"
+  ],
+  "saber": [
+   "Fica dentro do site, então vem junto com o site da Renderiza.",
+   "É uma pré-reserva: quem confirma o horário é você, depois do sinal."
+  ],
+  "link": "/exemplos/agenda-fotografia",
+  "linktxt": "Testar como cliente",
+  "site": true,
+  "icone": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"16.5\" rx=\"2.5\"/><path d=\"M3 9.5h18M8 2.5v4M16 2.5v4M12 12.5v5.5M9.25 15.25h5.5\"/>"
+ },
+ {
+  "id": "agenda",
+  "nome": "Agenda do estúdio",
+  "curto": "Ensaios por horário e campanhas",
+  "resumo": "A agenda do estúdio por horário, com o quadro das campanhas de mini sessão.",
+  "faz": [
+   "Vários ensaios no mesmo dia, cada um no seu horário, com uma cor por tipo",
+   "Campanha de Natal num quadro só: sinal pago, esperando o sinal e livres",
+   "Lista de espera e o texto pronto para o Stories com os horários que restam"
+  ],
+  "saber": [
+   "É uma agenda própria do painel. A ligação com o Google Agenda não está incluída, mas dá para conversar."
+  ],
+  "link": "/exemplos/painel-fotografia#campanha",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"16.5\" rx=\"2.5\"/><path d=\"M3 9.5h18M8 2.5v4M16 2.5v4M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01\"/>"
+ },
+ {
+  "id": "clientes",
+  "nome": "Clientes e entregas",
+  "curto": "A ficha e o prazo das fotos",
+  "resumo": "Tudo o que foi combinado com cada cliente e em que pé está a entrega das fotos.",
+  "faz": [
+   "O ensaio, o valor, o sinal e o restante",
+   "A entrega: escolhendo as fotos, em edição ou entregue, com o prazo",
+   "O link da galeria que você já usa, guardado na ficha"
+  ],
+  "saber": [
+   "O painel não hospeda as fotos: elas continuam na sua galeria.",
+   "As conversas continuam no seu WhatsApp. No painel fica o registro do que foi combinado."
+  ],
+  "link": "/exemplos/painel-fotografia#clientes",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<circle cx=\"9\" cy=\"8\" r=\"3.5\"/><path d=\"M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5\"/><path d=\"M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2\"/>"
+ },
+ {
+  "id": "contratos",
+  "nome": "Contratos",
+  "curto": "A cliente aceita pelo celular",
+  "resumo": "A cliente lê e aceita o seu contrato pelo celular, sem imprimir nada.",
+  "faz": [
+   "O contrato vai para a cliente por um link",
+   "Ela lê e aceita no celular",
+   "O painel guarda a data, a hora e quem aceitou",
+   "Você vê quem está com orçamento, com contrato enviado e com contrato aceito"
+  ],
+  "saber": [
+   "É um termo de aceite digital: não usa certificado digital (como o e-CPF).",
+   "O texto do contrato é o seu. A Renderiza não escreve nem revisa contratos."
+  ],
+  "link": "/exemplos/painel-fotografia#contratos",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"/><path d=\"M14 3v5h5\"/><path d=\"m9 14.5 2 2 4-4\"/>"
+ },
+ {
+  "id": "financeiro",
+  "nome": "Financeiro",
+  "curto": "Sinal, restante e atrasos",
+  "resumo": "O controle do dinheiro do estúdio: os sinais, o que falta receber e quem atrasou.",
+  "faz": [
+   "O sinal e o restante de cada ensaio, com o vencimento",
+   "Você marca quando o Pix chega",
+   "O total do mês, os sinais esperando e o que está atrasado",
+   "Os ensaios que mais faturam"
+  ],
+  "saber": [
+   "É um controle: o painel não recebe pagamentos nem cobra a cliente. O Pix continua caindo na sua conta."
+  ],
+  "link": "/exemplos/painel-fotografia#financeiro",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M19 7V5.5A1.5 1.5 0 0 0 17.5 4H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6\"/><circle cx=\"16.5\" cy=\"14\" r=\"1.3\"/>"
+ },
+ {
+  "id": "atendimento",
+  "nome": "Atendimento",
+  "curto": "Todos os pedidos num lugar só",
+  "resumo": "Todo pedido de orçamento anotado num lugar só, para nenhum ficar sem resposta.",
+  "faz": [
+   "Cada pedido com o ensaio de interesse e de onde veio (direct, WhatsApp, Google)",
+   "Em que etapa está: novo, orçamento enviado, esperando o sinal",
+   "A lista de espera das campanhas"
+  ],
+  "saber": [
+   "As pré-reservas da agenda online entram sozinhas. As do direct e do WhatsApp, você anota no painel em poucos toques."
+  ],
+  "link": "/exemplos/painel-fotografia#atendimento",
+  "linktxt": "Ver funcionando",
+  "site": false,
+  "icone": "<path d=\"M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z\"/><path d=\"M8.5 11h7M8.5 14.5h4\"/>"
+ }
+];
+  let marcados = ["agenda-online", "agenda"];
+  const $ = s => document.querySelector(s);
+  const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const reais = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const svg = (p, t = 20) => `<svg class="i" viewBox="0 0 24 24" style="width:${t}px;height:${t}px">${p}</svg>`;
+  const OK = '<path d="M5 12.5l4.5 4.5L19 7.5"/>', INFO = '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>';
+  const mod = id => MODULOS.find(m => m.id === id);
+  const etiqueta = id => { const i = marcados.indexOf(id); return i < 0 ? ["", "+ " + reais(PRECO.extra) + "/mês"] : i < PRECO.inclusos ? ["inc", "no valor do plano"] : ["ext", "+ " + reais(PRECO.extra) + "/mês"]; };
+
+  function desenhar() {
+    $("#mods").innerHTML = MODULOS.map(m => {
+      const [cl, txt] = etiqueta(m.id);
+      return `<div class="mod"><button type="button" class="mod-sel" data-mod="${m.id}" aria-pressed="${marcados.includes(m.id)}"><span class="mod-ic">${svg(m.icone)}</span><span class="mod-txt"><b>${esc(m.nome)}</b><small>${esc(m.curto)}</small><em class="${cl}">${txt}</em></span><span class="mod-ok">${svg(OK, 13)}</span></button>
+        <button type="button" class="mod-info" data-info="${m.id}" aria-label="O que é ${esc(m.nome)}">${svg(INFO, 18)}</button></div>`;
+    }).join("");
+    const n = marcados.length, extras = Math.max(0, n - PRECO.inclusos), t = PRECO.base + extras * PRECO.extra;
+    $("#qtd").textContent = n === 1 ? "1 módulo" : n + " módulos";
+    $("#total").textContent = reais(t);
+    $("#detalhe").textContent = n < PRECO.inclusos
+      ? `por mês. Você ainda pode escolher mais ${PRECO.inclusos - n} sem pagar a mais.`
+      : extras ? `por mês: ${reais(PRECO.base)} do plano + ${extras} × ${reais(PRECO.extra)}, com até ${PRECO.acessos} pessoas da equipe`
+      : `por mês, com até ${PRECO.acessos} pessoas da equipe`;
+    $("#aviso-site").hidden = !marcados.some(id => mod(id).site);
+    const nomes = marcados.map(id => mod(id).nome);
+    const texto = `Oi! Vi o Painel Renderiza para fotografia e quero começar com ${nomes.length ? nomes.join(", ") : "os módulos que fizerem sentido"} (${reais(t)} por mês).`;
+    $("#zap").href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(texto);
+  }
+  function alternar(id) { marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id]; desenhar(); }
+
+  /* janela de detalhes */
+  const veu = $("#info-veu"), janela = $("#info");
+  let voltarPara = null;
+  function abrirInfo(id, origem) {
+    const m = mod(id), dentro = marcados.includes(id);
+    janela.innerHTML = `<button type="button" class="fechar" aria-label="Fechar">${svg('<path d="M18 6 6 18M6 6l12 12"/>')}</button>
+      <div class="info-topo"><span class="mod-ic">${svg(m.icone)}</span><div><h3 id="info-nome">${esc(m.nome)}</h3><small>${dentro ? "Está no seu plano" : "Módulo do Painel Renderiza"}</small></div></div>
+      <p class="resumo-mod">${esc(m.resumo)}</p>
+      <h4>O que dá para fazer</h4><ul>${m.faz.map(x => `<li>${svg(OK, 18)}<span>${esc(x)}</span></li>`).join("")}</ul>
+      <div class="saber"><h4>Bom saber</h4><ul>${m.saber.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
+      <div class="acoes-info"><a class="botao claro" href="${m.link}">${esc(m.linktxt)}</a><button type="button" class="botao escuro" data-alternar="${m.id}">${dentro ? "Tirar do plano" : "Colocar no plano"}</button></div>`;
+    voltarPara = origem || null;
+    window.rzVisita("viu_detalhes", { m: id }, id);
+    veu.classList.add("aberto"); document.body.style.overflow = "hidden";
+    janela.querySelector(".fechar").focus();
+  }
+  function fecharInfo() { veu.classList.remove("aberto"); document.body.style.overflow = ""; voltarPara?.focus?.(); }
+  veu.addEventListener("click", e => {
+    if (e.target === veu || e.target.closest(".fechar")) return fecharInfo();
+    const b = e.target.closest("[data-alternar]");
+    if (b) { const id = b.dataset.alternar; alternar(id); fecharInfo(); if (marcados.includes(id)) document.getElementById("precos").scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && veu.classList.contains("aberto")) fecharInfo(); });
+  document.addEventListener("click", e => {
+    const info = e.target.closest("[data-info]"); if (info) return abrirInfo(info.dataset.info, info);
+    const sel = e.target.closest("[data-mod]"); if (sel) alternar(sel.dataset.mod);
+  });
+  desenhar();
+
+  // Contador de visitas (exemplos/visitas.js): chegou nos preços, abriu um exemplo, clicou no WhatsApp.
+  const precos = document.getElementById("precos");
+  if ("IntersectionObserver" in window) new IntersectionObserver((itens, obs) => {
+    if (itens.some(i => i.isIntersecting)) { window.rzVisita("viu_precos", {}, ""); obs.disconnect(); }
+  }, { threshold: 0.35 }).observe(precos);
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href]"); if (!a) return;
+    const href = a.getAttribute("href");
+    const onde = a.closest(".topo") ? "topo" : a.closest("#precos") ? "precos" : a.closest(".convite") ? "convite" : a.closest("#modulos") ? "modulos" : a.closest(".hero") ? "topo" : a.closest(".info") ? "detalhes" : "pagina";
+    if (/wa\.me\//.test(href)) window.rzVisita("clicou_whatsapp", a.id === "zap" ? { onde, modulos: marcados, total: Number((PRECO.base + Math.max(0, marcados.length - PRECO.inclusos) * PRECO.extra).toFixed(2)) } : { onde });
+    else if (/^\/exemplos\/(painel-fotografia|agenda-fotografia)/.test(href)) window.rzVisita("abriu_exemplo", { qual: href.includes("agenda-fotografia") ? "agenda online" : (href.split("#")[1] || "painel"), onde });
+  });
+
+})();
+</script>
+</body>
+</html>

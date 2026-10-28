@@ -4,9 +4,10 @@
 // a linha do tempo de todos os leads (tela Atividade).
 
 export const SITE = "https://www.renderizaweb.com.br";
-/** O link vai para os leads de eventos (o painel de exemplo é de espaço de eventos). */
-export const mostraPainel = l => !!l && !!l.codigo && /event|buffet|festa|chácara|chacara|sítio|sitio/i.test(String(l.segmento || ""));
-export const linkDoPainel = l => (l && l.codigo ? `${SITE}/exemplos?c=${l.codigo}` : "");
+/** O link vai para os leads de eventos (o painel de exemplo é de espaço de eventos) e de fotografia (o do Estúdio Ciranda). */
+const DE_FOTOGRAFIA = /fotogra|est[úu]dio de foto/i;
+export const mostraPainel = l => !!l && !!l.codigo && (/event|buffet|festa|chácara|chacara|sítio|sitio/i.test(String(l.segmento || "")) || DE_FOTOGRAFIA.test(String(l.segmento || "")));
+export const linkDoPainel = l => (l && l.codigo ? `${SITE}/exemplos${DE_FOTOGRAFIA.test(String(l.segmento || "")) ? "/fotografia" : ""}?c=${l.codigo}` : "");
 export const linkCurto = l => linkDoPainel(l).replace(/^https:\/\/www\./, "");
 
 /** Os passos que a página manda (os mesmos da tabela visitas e da função registrar_visita do supabase/schema.sql). */
@@ -16,7 +17,7 @@ export const PAGINAS_CONTADAS = ["exemplos", "painel-eventos", "agenda-online", 
 export const daDemo = v => v.pagina === "demo";
 
 const MODULOS = { "agenda-online": "Agenda online", agenda: "Agenda da equipe", clientes: "Clientes", contratos: "Contratos", financeiro: "Financeiro", atendimento: "Atendimento" };
-const TELAS = { inicio: "a visão geral", agenda: "a agenda", clientes: "os clientes", contratos: "os contratos", financeiro: "o financeiro", atendimento: "o atendimento", equipe: "a equipe e acessos" };
+const TELAS = { inicio: "a visão geral", agenda: "a agenda", clientes: "os clientes", contratos: "os contratos", financeiro: "o financeiro", atendimento: "o atendimento", equipe: "a equipe e acessos", campanha: "a campanha de Natal" };
 const PAGINAS = { exemplos: "a página do painel", "painel-eventos": "o exemplo do painel", "agenda-online": "a agenda online de exemplo", demo: "a demo do site" };
 /** Outras páginas de uma demo (detalhe.sub do "abriu"). */
 const SUBPAGINAS = { natal: "a página de Natal da demo", "artes-instagram": "as artes para Instagram da demo" };

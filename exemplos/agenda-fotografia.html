@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda online · Estúdio Ciranda (exemplo)</title>
+<meta name="description" content="Exemplo de agenda online para fotografia: a cliente escolhe o ensaio, vê os horários livres e faz a pré-reserva. Dados fictícios, feito pela Renderiza.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3a2430">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agenda online para fotografia (exemplo)">
+<meta property="og:description" content="A cliente escolhe o ensaio e o horário pelo link, e o horário fica separado até o sinal. Demonstração com dados fictícios, feita pela Renderiza.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/f-agenda.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#f4f1e9;--cartao:#fff;--tinta:#17201b;--tinta-2:#46534b;--suave:#7d8a82;--linha:#e6e2d6;--linha-2:#f0ede4;
+  --verde:#8a4a5f;--verde-2:#6b3446;--verde-claro:#e2efe7;--ouro:#c58b5e;--ouro-claro:#f7efdb;--escuro:#3a2430;
+  --raio:20px;--fonte:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--serif:"Fraunces",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--fonte);font-size:15px;line-height:1.5;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.pagina{display:grid;grid-template-columns:minmax(340px,440px) minmax(0,1fr);min-height:100vh}
+/* lado da marca */
+.marca{position:sticky;top:0;height:100vh;background:var(--escuro);color:#e6efe9;padding:40px 44px;display:flex;flex-direction:column;gap:28px;overflow:hidden}
+.marca::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 100% 0%,#8a4a5f 0%,transparent 70%),radial-gradient(70% 50% at 0% 100%,#c58b5e33 0%,transparent 70%);pointer-events:none}
+.marca > *{position:relative}
+.ramos{position:absolute;right:-60px;bottom:-40px;width:340px;height:340px;color:#ffffff10;pointer-events:none}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo span{width:42px;height:42px;border-radius:13px;background:#ffffff17;display:grid;place-items:center}
+.logo b{display:block;font:italic 600 26px/1 var(--serif)}
+.logo small{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#a9c7b6}
+.marca h1{font:500 40px/1.08 var(--serif);letter-spacing:-.02em;color:#fff;margin-top:auto}
+.marca h1 em{font-style:italic;color:#f1d38f}
+.marca p.lide{color:#c4d8cc;font-size:15.5px;max-width:34ch}
+.vantagens{display:flex;flex-direction:column;gap:12px;list-style:none}
+.vantagens li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:#d9e6df}
+.vantagens li i{width:28px;height:28px;border-radius:9px;background:#ffffff14;display:grid;place-items:center;flex:none;color:#f1d38f}
+.resumo{border-radius:18px;background:#0000002b;border:1px solid #ffffff14;padding:16px 18px;display:none}
+.resumo.ver{display:block}
+.resumo h2{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a9c7b6;margin-bottom:10px}
+.resumo dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.resumo dt{color:#a9c7b6}
+.resumo dd{color:#fff;font-weight:600}
+.rodape-marca{font-size:12.5px;color:#8fb09e}
+.rodape-marca a{color:#f1d38f;font-weight:700;text-decoration:none}
+
+/* lado do pedido */
+.pedido{padding:40px clamp(20px,5vw,72px) 56px;display:flex;flex-direction:column;align-items:center}
+.pedido-in{width:100%;max-width:680px}
+.topo-cel{display:none}
+.selo{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--ouro-claro);color:#7a5a17;font-size:12.5px;font-weight:700;margin-bottom:18px;text-decoration:none}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--ouro)}
+.selo .curto{display:none}
+.passos{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.passos b{font-size:13px;font-weight:700;color:var(--suave);white-space:nowrap}
+.trilha{flex:1;height:6px;border-radius:999px;background:var(--linha);overflow:hidden}
+.trilha i{display:block;height:100%;width:25%;border-radius:inherit;background:var(--verde);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.voltar{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:13.5px;color:var(--tinta-2);padding:6px 8px 6px 2px;border-radius:9px}
+.voltar[hidden]{display:none}
+.cartao{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 1px 2px #17201b0d,0 20px 50px -30px #17201b40;padding:30px}
+.etapa{display:none;animation:entra .4s cubic-bezier(.2,.8,.2,1)}
+.etapa.ativa{display:block}
+@keyframes entra{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.etapa h2{font:600 30px/1.15 var(--serif);letter-spacing:-.02em}
+.etapa h2 em{font-style:italic;color:var(--verde)}
+.etapa > p.sub{color:var(--suave);margin:6px 0 22px}
+
+.festas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.festa{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 16px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;text-align:left;transition:all .18s}
+.festa:hover{border-color:#c9cfc4;transform:translateY(-2px)}
+.festa .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center}
+.festa b{font-size:15.5px}
+.festa small{color:var(--suave);font-size:12.5px;line-height:1.35}
+.festa.sel{border-color:var(--verde);background:#fbf5f7;box-shadow:0 0 0 3px #8a4a5f1f}
+
+.cal-topo{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-topo b{font-size:17px;text-transform:capitalize}
+.cal-topo button{width:40px;height:40px;border-radius:12px;border:1px solid var(--linha);display:grid;place-items:center;background:#fff}
+.cal-topo button:disabled{opacity:.35;cursor:default}
+.semana,.dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.semana span{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--suave);padding-bottom:4px}
+.d{aspect-ratio:1/1;max-height:64px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:700;font-size:15px;border:1.5px solid transparent;background:#f7f6f0;position:relative;transition:all .15s}
+.d small{font-size:9.5px;font-weight:700;letter-spacing:.02em;line-height:1}
+.d.livre{background:#fff;border-color:var(--linha)}
+.d.livre:hover{border-color:var(--verde)}
+.d.livre small{color:var(--verde)}
+.d.meio{background:var(--ouro-claro);color:#7a5a17}
+.d.cheio{background:#f0eeea;color:#b5b9b3;text-decoration:line-through;cursor:not-allowed}
+.d.passou,.d.vazio{background:transparent;color:#c9ccc6;cursor:default}
+.d.vazio{visibility:hidden}
+.d.sel{background:var(--verde);border-color:var(--verde);color:#fff}
+.d.sel small{color:#d5eadc}
+.leg{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--tinta-2);font-weight:600}
+.leg span{display:inline-flex;align-items:center;gap:7px}
+.leg i{width:14px;height:14px;border-radius:5px;border:1.5px solid var(--linha);background:#fff}
+.leg i.m{background:var(--ouro-claro);border-color:#ecdcb0}
+.leg i.c{background:#f0eeea;border-color:#f0eeea}
+.escolha-dia{margin-top:18px;padding:16px;border-radius:16px;background:#f7f6f0;display:none}
+.escolha-dia.ver{display:block;animation:entra .3s ease}
+.escolha-dia b.qual{display:block;font-size:16px;margin-bottom:10px}
+.periodos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.periodo{padding:14px;border-radius:14px;border:1.5px solid var(--linha);background:#fff;text-align:left;transition:all .15s}
+.periodo b{display:block}
+.periodo small{color:var(--suave);font-size:12.5px}
+.periodo.sel{border-color:var(--verde);box-shadow:0 0 0 3px #8a4a5f1f}
+.periodo:disabled{opacity:.45;cursor:not-allowed;text-decoration:line-through}
+.dica{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--tinta-2)}
+.dica svg{color:var(--ouro);margin-top:1px}
+
+.conv{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;border:1px solid var(--linha);margin-bottom:22px}
+.conv .num{font-size:30px;font-weight:800;letter-spacing:-.03em;min-width:3ch;text-align:center}
+.conv .num small{display:block;font-size:12px;font-weight:600;color:var(--suave);letter-spacing:0}
+.conv button{width:44px;height:44px;border-radius:13px;border:1px solid var(--linha);display:grid;place-items:center;background:#fff;font-size:22px;font-weight:600}
+.conv input[type=range]{flex:1;accent-color:var(--verde);height:28px}
+.rotulo{font-size:13px;font-weight:700;color:var(--tinta-2);margin:0 0 10px;display:block}
+.pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.pacote{padding:16px;border-radius:16px;border:1.5px solid var(--linha);background:#fff;text-align:left;display:flex;flex-direction:column;gap:8px;transition:all .15s;position:relative}
+.pacote b{font-size:16px}
+.pacote ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--tinta-2)}
+.pacote li{display:flex;gap:6px}
+.pacote li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--ouro);margin-top:7px}
+.pacote.sel{border-color:var(--verde);background:#fbf5f7;box-shadow:0 0 0 3px #8a4a5f1f}
+.pacote .fav{position:absolute;top:-10px;right:12px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--ouro);color:#fff;padding:3px 8px;border-radius:999px}
+.extras{display:flex;flex-wrap:wrap;gap:8px}
+.extra{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--linha);background:#fff;font-weight:600;font-size:13.5px;transition:all .15s}
+.extra i{width:18px;height:18px;border-radius:6px;border:1.5px solid #c9cec7;display:grid;place-items:center;color:#fff}
+.extra.sel{border-color:var(--verde);background:#fbf5f7}
+.extra.sel i{background:var(--verde);border-color:var(--verde)}
+
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo.cheio{grid-column:1/-1}
+.campo label{font-size:13px;font-weight:700;color:var(--tinta-2)}
+.campo input,.campo select,.campo textarea{border-radius:13px;border:1.5px solid var(--linha);padding:12px 14px;background:#fff;outline:0;transition:border .15s,box-shadow .15s}
+.campo textarea{resize:vertical;min-height:84px}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--verde);box-shadow:0 0 0 3px #8a4a5f1f}
+.campo .erro{display:none;font-size:12.5px;color:#c2410c;font-weight:600}
+.campo.invalido input{border-color:#e9a37f}
+.campo.invalido .erro{display:block}
+.troca{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:14px;background:#f7f6f0;cursor:pointer}
+.troca b{display:block;font-size:14.5px}
+.troca small{color:var(--suave);font-size:12.5px}
+.troca input{appearance:none;width:46px;height:28px;border-radius:999px;background:#d5d8d1;position:relative;flex:none;cursor:pointer;transition:background .2s}
+.troca input::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s}
+.troca input:checked{background:var(--verde)}
+.troca input:checked::after{transform:translateX(18px)}
+
+.acoes{display:flex;gap:10px;margin-top:26px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 22px;border-radius:15px;font-weight:700;font-size:15.5px;transition:all .15s;text-decoration:none}
+.botao.primario{flex:1;background:var(--verde);color:#fff;box-shadow:0 10px 24px -12px #8a4a5f}
+.botao.primario:hover{background:var(--verde-2)}
+.botao.primario:disabled{background:#b8c4bd;box-shadow:none;cursor:not-allowed}
+.botao.leve{border:1.5px solid var(--linha);background:#fff}
+
+.pronto{text-align:center;padding:8px 0}
+.selo-ok{width:84px;height:84px;margin:4px auto 18px;border-radius:50%;background:var(--verde-claro);display:grid;place-items:center;color:var(--verde);animation:pula .6s cubic-bezier(.2,1.4,.4,1)}
+.selo-ok svg{width:42px;height:42px;stroke-width:2.4}
+@keyframes pula{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.pronto h2{font-size:32px}
+.pronto p.sub{max-width:44ch;margin-left:auto;margin-right:auto}
+.ficha{text-align:left;margin:22px 0 0;border-radius:16px;border:1px solid var(--linha);overflow:hidden}
+.ficha div{display:flex;justify-content:space-between;gap:14px;padding:12px 16px;border-top:1px solid var(--linha-2);font-size:14px}
+.ficha div:first-child{border-top:0}
+.ficha span{color:var(--suave)}
+.ficha b{text-align:right}
+.demo-nota{margin-top:20px;padding:16px;border-radius:16px;background:var(--ouro-claro);text-align:left;display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#5d4713}
+.demo-nota a{font-weight:800;color:#5d4713}
+.pronto .acoes{flex-direction:column}
+.pronto .acoes .botao{flex:none}
+
+/* celular */
+@media (max-width:900px){
+  .pagina{display:block}
+  .marca{display:none}
+  .topo-cel{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));background:var(--escuro);color:#fff;position:sticky;top:0;z-index:5}
+  .topo-cel .logo span{width:34px;height:34px}
+  .topo-cel .logo b{font-size:21px}
+  .topo-cel .logo small{font-size:10px}
+  .capa{background:var(--escuro);color:#fff;padding:6px 16px 64px;position:relative;overflow:hidden}
+  .capa h1{font:500 31px/1.1 var(--serif);letter-spacing:-.02em}
+  .capa h1 em{font-style:italic;color:#f1d38f}
+  .capa p{color:#c4d8cc;font-size:14.5px;margin-top:8px}
+  .capa .ramos{width:220px;height:220px;right:-50px;bottom:-60px}
+  .pedido{padding:0 12px 40px;margin-top:-44px;position:relative}
+  .cartao{padding:20px 18px 22px;border-radius:22px}
+  .selo{margin:0 0 14px}
+  .selo .longo{display:none}.selo .curto{display:inline}
+  .etapa h2{font-size:25px}
+  .festas{grid-template-columns:1fr 1fr;gap:10px}
+  .festa{padding:14px}
+  .festa .ic{width:38px;height:38px}
+  .semana,.dias{gap:4px}
+  .d{border-radius:11px;font-size:14px}
+  .d small{font-size:8.5px}
+  .pacotes{grid-template-columns:1fr;gap:10px}
+  .pacote ul{flex-direction:row;flex-wrap:wrap;gap:4px 12px}
+  .campos{grid-template-columns:1fr}
+  .acoes{position:sticky;bottom:0;margin:22px -18px -22px;padding:12px 18px max(12px,env(safe-area-inset-bottom));background:#fffffff0;border-top:1px solid var(--linha-2);border-radius:0 0 22px 22px}
+  .pronto .acoes{position:static;margin:22px 0 0;padding:0;border:0;background:none}
+  .conv{gap:10px;padding:12px}
+  .conv input[type=range]{display:none}
+  .conv .num{flex:1}
+}
+@media (min-width:901px){.capa{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Estúdio Ciranda: a mesma base da agenda de eventos, com as cores do estúdio e os horários. */
+:root{--fundo:#f6f1ee;--linha:#e9dfdb;--linha-2:#f2ebe8;--verde:#8a4a5f;--verde-2:#6b3446;--verde-claro:#f5e8ec;--ouro:#c58b5e;--ouro-claro:#f8ece2;--escuro:#3a2430}
+.festa.sel{background:#fbf5f7;box-shadow:0 0 0 3px #8a4a5f22}
+.festa .preco{font-size:13px;font-weight:700;color:var(--tinta)}
+.festa .vagas{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#b3261e;background:#fbe4e2;padding:3px 9px;border-radius:999px}
+.periodos.horas{grid-template-columns:repeat(4,minmax(0,1fr))}
+.periodos.horas .periodo{padding:12px 8px;text-align:center}
+.restam{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:#fbe4e2;color:#8f1f18;font-weight:700;font-size:14px;margin-bottom:16px}
+.restam i{width:9px;height:9px;border-radius:50%;background:#b3261e;flex:0 0 auto;animation:pisca 1.6s infinite}
+@keyframes pisca{50%{opacity:.35}}
+.sinal{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:var(--ouro-claro);color:#6e4a2a;font-size:14px;margin-top:16px;text-align:left}
+.sinal svg{flex:0 0 auto;width:20px;height:20px;margin-top:1px}
+@media (max-width:900px){.periodos.horas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.restam i{animation:none}}
+</style>
+</head>
+<body>
+<header class="topo-cel">
+  <a class="logo" href="#"><span data-icone="camera"></span><div><b>Estúdio Ciranda</b><small>Fotografia de família</small></div></a>
+</header>
+<div class="capa"><svg class="ramos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5" data-ramo></svg><h1>Escolha o horário <em>do seu ensaio.</em></h1><p>Veja os horários livres e faça a pré-reserva. O horário fica separado até o sinal.</p></div>
+
+<div class="pagina">
+  <aside class="marca">
+    <svg class="ramos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5" data-ramo></svg>
+    <a class="logo" href="#"><span data-icone="camera"></span><div><b>Estúdio Ciranda</b><small>Fotografia de família</small></div></a>
+    <h1>Escolha o horário <em>do seu ensaio.</em></h1>
+    <p class="lide">Gestante, newborn, família e a mini sessão de Natal. Veja os horários livres e faça a pré-reserva em 1 minuto, sem esperar resposta no direct.</p>
+    <ul class="vantagens">
+      <li><i data-icone="agenda"></i><span>Horários livres de verdade, atualizados pelo estúdio</span></li>
+      <li><i data-icone="relogio"></i><span>O horário fica separado por 24 horas, até o sinal pelo Pix</span></li>
+      <li><i data-icone="whatsapp"></i><span>O estúdio confirma tudo com você pelo WhatsApp</span></li>
+    </ul>
+    <div class="resumo" id="resumo"><h2>A sua pré-reserva</h2><dl id="resumo-dl"></dl></div>
+    <p class="rodape-marca">Demonstração com dados fictícios, feita pela <a href="/exemplos/fotografia">Renderiza</a>.</p>
+  </aside>
+
+  <main class="pedido">
+    <div class="pedido-in">
+      <a class="selo" href="/exemplos/fotografia"><i></i><span class="longo">Exemplo da Agenda online do Painel Renderiza. O Estúdio Ciranda não existe.</span><span class="curto">Exemplo · estúdio fictício</span></a>
+      <div class="passos"><button class="voltar" id="voltar" type="button" hidden><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="m15 18-6-6 6-6"/></svg>Voltar</button><div class="trilha"><i id="trilha"></i></div><b id="passo-txt">Passo 1 de 3</b></div>
+      <form class="cartao" id="form" novalidate>
+        <section class="etapa ativa" data-etapa="1">
+          <h2>Qual é o <em>ensaio?</em></h2>
+          <p class="sub">Escolha o tipo de ensaio para ver os horários certos.</p>
+          <div class="festas" id="festas"></div>
+        </section>
+        <section class="etapa" data-etapa="2">
+          <h2>Escolha o <em>dia e o horário</em></h2>
+          <p class="sub" id="sub-data">Os dias com horário livre estão em branco. Toque num deles.</p>
+          <div class="restam" id="restam" hidden><i></i><span></span></div>
+          <div class="cal-topo"><button type="button" id="mes-ant" aria-label="Mês anterior"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><b id="mes-nome"></b><button type="button" id="mes-prox" aria-label="Próximo mês"><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          <div class="semana"><span>dom</span><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span></div>
+          <div class="dias" id="dias"></div>
+          <div class="leg"><span><i></i>Tem horário livre</span><span><i class="m"></i>Últimos horários</span><span><i class="c"></i>Sem horário</span></div>
+          <div class="escolha-dia" id="escolha-dia"><b class="qual" id="dia-nome"></b><div class="periodos horas" id="horas"></div></div>
+          <div class="acoes"><button type="button" class="botao primario" id="ir-3" disabled>Continuar</button></div>
+        </section>
+        <section class="etapa" data-etapa="3">
+          <h2>Para quem é a <em>pré-reserva?</em></h2>
+          <p class="sub">O Estúdio Ciranda fala com você pelo WhatsApp.</p>
+          <div class="campos">
+            <div class="campo cheio"><label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Ex.: Mariana Souza"><span class="erro">Escreva o seu nome.</span></div>
+            <div class="campo cheio"><label for="zap">WhatsApp</label><input id="zap" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="erro">Confira o número, com DDD.</span></div>
+            <div class="campo cheio"><label for="obs" id="obs-rot">Algo que a gente precise saber?</label><textarea id="obs" placeholder=""></textarea></div>
+          </div>
+          <div class="sinal" id="sinal-txt"></div>
+          <div class="acoes"><button class="botao primario" id="enviar">Fazer a pré-reserva</button></div>
+        </section>
+        <section class="etapa" data-etapa="4">
+          <div class="pronto">
+            <div class="selo-ok"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h2 id="pronto-titulo">Pronto!</h2>
+            <p class="sub" id="pronto-sub"></p>
+            <div class="ficha" id="ficha"></div>
+            <div class="demo-nota"><svg class="i" viewBox="0 0 24 24" style="color:#a0603a"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><span>Na demonstração, a sua pré-reserva acabou de chegar no painel do estúdio, com o horário já separado. <a href="/exemplos/painel-fotografia#atendimento">Ver como o estúdio recebe →</a></span></div>
+            <div class="acoes"><a class="botao primario" id="ver-painel" href="/exemplos/painel-fotografia#atendimento">Ver no painel do estúdio</a><button type="button" class="botao leve" id="de-novo">Fazer outra</button></div>
+          </div>
+        </section>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="visitas.js" data-pagina="agenda-online"></script>
+<script src="dados-estudio-ciranda.js"></script>
+<script>
+(function () {
+  const C = window.CIRANDA, { HOJE, ENSAIOS, NATAL_DIAS, somar, mesmoDia, chave, deChave, moeda, MES, dataLonga } = C;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const IC = {
+    ramo: '<path d="M12 21C12 13 12 8 12 3"/><path d="M12 7c-2.6-.2-4.2-1.6-4.8-3.8 2.5-.1 4.2 1.2 4.8 3.8zM12 7c2.6-.2 4.2-1.6 4.8-3.8-2.5-.1-4.2 1.2-4.8 3.8zM12 12c-3-.2-4.8-1.8-5.4-4.4 2.9-.1 4.8 1.4 5.4 4.4zM12 12c3-.2 4.8-1.8 5.4-4.4-2.9-.1-4.8 1.4-5.4 4.4z"/>',
+    camera: '<path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.6"/>',
+    agenda: '<rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/>',
+    relogio: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    whatsapp: '<path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/>',
+    natal: '<path d="M12 2.5 6 11h3l-4 6h14l-4-6h3z"/><path d="M12 17v4.5"/>',
+    gestante: '<circle cx="12" cy="4.5" r="2"/><path d="M10 21v-6.5L8.5 9.5c.4-1.3 1.8-2 3.5-2 1.4 0 2.4.8 2.7 1.9.9.4 2.3 1.6 2.3 3.6 0 1.8-1.3 3-3 3V21"/>',
+    newborn: '<circle cx="9" cy="10" r="4"/><path d="M13 12.5c2.5-.4 5 .6 6.5 2.8M4 18.5c1.8 1.6 4.4 2.5 7.5 2.5 3.8 0 7-1.4 8.5-3.5"/>',
+    familia: '<circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="7" r="2.6"/><circle cx="12" cy="12.5" r="2"/><path d="M2.5 20c.4-3.4 2.1-5.6 4.5-5.6s4 1.5 4.5 3.6M21.5 20c-.4-3.4-2.1-5.6-4.5-5.6s-4 1.5-4.5 3.6"/>',
+    acompanhamento: '<path d="M4 20h16M6 20v-5M10 20V11M14 20V8M18 20V4"/>',
+    smash: '<path d="M4 21h16M5 21v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7"/><path d="M5 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0M12 12V8"/><path d="M12 8c-1 0-1.6-.8-1.2-1.8L12 4l1.2 2.2c.4 1-.2 1.8-1.2 1.8z"/>',
+    pix: '<path d="m12 3 4.5 4.5L12 12 7.5 7.5zM12 12l4.5 4.5L12 21l-4.5-4.5zM3 12l4.5-4.5L12 12l-4.5 4.5zM12 12l4.5-4.5L21 12l-4.5 4.5z"/>',
+  };
+  const ic = n => `<svg class="i" viewBox="0 0 24 24">${IC[n]}</svg>`;
+  $$("[data-icone]").forEach(e => { e.innerHTML = ic(e.dataset.icone); });
+  $$("[data-ramo]").forEach(e => { e.innerHTML = IC.ramo; });
+
+  const ORDEM = ["natal", "gestante", "newborn", "familia", "acompanhamento", "smash"];
+  const OBS = { natal: "Ex.: vamos em 4, com um cachorro", gestante: "Ex.: estou de 30 semanas, quero fotos com o meu marido", newborn: "Ex.: data prevista do parto, nome do bebê", familia: "Ex.: 2 adultos e 2 crianças, de 3 e 7 anos", acompanhamento: "Ex.: idade do bebê", smash: "Ex.: tema da festa, data do aniversário" };
+  const ped = { tipo: null, data: null, hora: null };
+  let passo = 1, mes = new Date(HOJE.getFullYear(), HOJE.getMonth(), 1);
+  const LIMITE = new Date(HOJE.getFullYear(), HOJE.getMonth() + 3, 1);
+
+  function irPara(n) {
+    passo = n;
+    $$(".etapa").forEach(e => e.classList.toggle("ativa", Number(e.dataset.etapa) === n));
+    $("#trilha").style.width = Math.min(100, Math.round(n / 3 * 100)) + "%";
+    $("#passo-txt").textContent = n <= 3 ? `Passo ${n} de 3` : "Pré-reserva feita";
+    $("#voltar").hidden = n === 1 || n === 4;
+    if (n === 3) dados();
+    resumo();
+    if (n > 1) { const alvo = document.querySelector(".pedido-in"); const y = alvo.getBoundingClientRect().top + scrollY - 70; if (scrollY > y) scrollTo({ top: y, behavior: "smooth" }); }
+  }
+  $("#voltar").addEventListener("click", () => irPara(Math.max(1, passo - 1)));
+
+  /* 1. ensaio */
+  function ensaios() {
+    const vagas = C.vagasNatal();
+    $("#festas").innerHTML = ORDEM.map(id => { const e = ENSAIOS[id]; return `<button type="button" class="festa ${ped.tipo === id ? "sel" : ""}" data-ensaio="${id}"><span class="ic" style="background:${e.fundo};color:${e.cor}">${ic(id)}</span><b>${e.nome}</b><small>${esc(e.desc)}</small><span class="preco">${moeda(e.valor)}</span>${id === "natal" ? `<span class="vagas">${vagas ? `restam ${vagas} horários` : "esgotado"}</span>` : ""}</button>`; }).join("");
+  }
+  $("#festas").addEventListener("click", e => {
+    const b = e.target.closest("[data-ensaio]"); if (!b) return;
+    escolher(b.dataset.ensaio);
+  });
+  function escolher(tipo) {
+    ped.tipo = tipo; ped.data = null; ped.hora = null;
+    ensaios();
+    const primeiro = tipo === "natal" ? NATAL_DIAS[0] : somar(HOJE, 1);
+    mes = new Date(primeiro.getFullYear(), primeiro.getMonth(), 1);
+    $("#escolha-dia").classList.remove("ver"); $("#ir-3").disabled = true;
+    calendario();
+    setTimeout(() => irPara(2), 200);
+  }
+
+  /* 2. dia e horário */
+  function estado(d) {
+    if (d <= HOJE) return "passou";
+    const hs = C.horariosDoDia(ped.tipo, d), livres = hs.filter(x => x.livre).length;
+    if (!hs.length) return "vazio-dia";
+    if (!livres) return "cheio";
+    return livres <= 2 && hs.length > 2 ? "meio" : "livre";
+  }
+  function calendario() {
+    $("#mes-nome").textContent = MES[mes.getMonth()] + " " + mes.getFullYear();
+    $("#mes-ant").disabled = mes <= new Date(HOJE.getFullYear(), HOJE.getMonth(), 1);
+    $("#mes-prox").disabled = new Date(mes.getFullYear(), mes.getMonth() + 1, 1) >= LIMITE;
+    const cel = [];
+    for (let i = 0; i < mes.getDay(); i++) cel.push(`<span class="d vazio"></span>`);
+    for (let d = new Date(mes); d.getMonth() === mes.getMonth(); d = somar(d, 1)) {
+      const st = estado(d), sel = ped.data && mesmoDia(d, ped.data);
+      const livres = C.horariosDoDia(ped.tipo, d).filter(x => x.livre).length;
+      const cls = st === "vazio-dia" ? "passou" : st;
+      const rot = st === "livre" || st === "meio" ? `${livres} ${livres > 1 ? "livres" : "livre"}` : "";
+      cel.push(`<button type="button" class="d ${cls} ${sel ? "sel" : ""}" data-d="${chave(d)}" ${st === "livre" || st === "meio" ? "" : "disabled"} aria-label="${esc(dataLonga(d))}${rot ? ", " + rot : ""}">${d.getDate()}${rot ? `<small>${rot}</small>` : ""}</button>`);
+    }
+    $("#dias").innerHTML = cel.join("");
+    const natal = ped.tipo === "natal", vagas = C.vagasNatal();
+    $("#restam").hidden = !natal;
+    if (natal) $("#restam span").textContent = vagas ? `Mini sessão de Natal: restam ${vagas} horários em ${NATAL_DIAS.length} dias.` : "A mini sessão de Natal esgotou. Fale com o estúdio para entrar na lista de espera.";
+    $("#sub-data").textContent = natal ? "As mini sessões acontecem só nos dias marcados. Toque num deles para ver os horários." : "Os dias com horário livre estão em branco. Toque num deles.";
+  }
+  $("#mes-ant").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() - 1, 1); calendario(); });
+  $("#mes-prox").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() + 1, 1); calendario(); });
+  $("#dias").addEventListener("click", e => {
+    const b = e.target.closest("[data-d]"); if (!b || b.disabled) return;
+    ped.data = deChave(b.dataset.d); ped.hora = null;
+    calendario(); horas();
+  });
+  function horas() {
+    const hs = C.horariosDoDia(ped.tipo, ped.data);
+    $("#dia-nome").textContent = dataLonga(ped.data) + " de " + ped.data.getFullYear();
+    $("#horas").innerHTML = hs.map(x => `<button type="button" class="periodo ${ped.hora === x.hora ? "sel" : ""}" data-h="${x.hora}" ${x.livre ? "" : "disabled"}><b>${x.hora}</b><small>${x.livre ? "livre" : "reservado"}</small></button>`).join("");
+    $("#escolha-dia").classList.add("ver");
+    $("#ir-3").disabled = !ped.hora;
+    resumo();
+  }
+  $("#horas").addEventListener("click", e => { const b = e.target.closest("[data-h]"); if (!b || b.disabled) return; ped.hora = b.dataset.h; horas(); });
+  $("#ir-3").addEventListener("click", () => { if (ped.hora) irPara(3); });
+
+  /* 3. dados */
+  function dados() {
+    const e = ENSAIOS[ped.tipo];
+    $("#obs").placeholder = OBS[ped.tipo] || "";
+    $("#sinal-txt").innerHTML = `${ic("pix")}<span>O horário fica separado por 24 horas. Para confirmar, o sinal é de <b>${moeda(e.sinal)} pelo Pix</b>; o restante (${moeda(e.valor - e.sinal)}) é pago no dia do ensaio.</span>`;
+  }
+  $("#zap").addEventListener("input", e => {
+    const d = e.target.value.replace(/\D/g, "").slice(0, 11);
+    e.target.value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d;
+    e.target.closest(".campo").classList.remove("invalido");
+  });
+  $("#nome").addEventListener("input", e => e.target.closest(".campo").classList.remove("invalido"));
+  $("#form").addEventListener("submit", e => {
+    e.preventDefault();
+    if (passo !== 3) return;
+    const nome = $("#nome").value.trim(), zap = $("#zap").value.replace(/\D/g, "");
+    $("#nome").closest(".campo").classList.toggle("invalido", nome.length < 2);
+    $("#zap").closest(".campo").classList.toggle("invalido", zap.length < 10);
+    if (nome.length < 2 || zap.length < 10) { (nome.length < 2 ? $("#nome") : $("#zap")).focus(); return; }
+    // A demonstração não guarda o WhatsApp: só o que o painel de exemplo mostra.
+    C.guardarPedido({ id: "web-" + Date.now(), nome, tipo: ped.tipo, data: ped.data, hora: ped.hora, quando: Date.now(), obs: $("#obs").value.trim().slice(0, 200) });
+    window.rzVisita?.("pediu_reserva", { festa: ped.tipo });
+    const e2 = ENSAIOS[ped.tipo];
+    $("#pronto-titulo").textContent = `Pronto, ${nome.split(" ")[0]}!`;
+    $("#pronto-sub").textContent = `O seu horário está separado por 24 horas. O Estúdio Ciranda vai chamar você no WhatsApp com a chave Pix do sinal de ${moeda(e2.sinal)}.`;
+    $("#ficha").innerHTML = linhasResumo().map(([a, b]) => `<div><span>${a}</span><b>${esc(b)}</b></div>`).join("");
+    irPara(4);
+  });
+  $("#de-novo").addEventListener("click", () => {
+    Object.assign(ped, { tipo: null, data: null, hora: null });
+    $("#form").reset(); $("#escolha-dia").classList.remove("ver"); $("#ir-3").disabled = true;
+    ensaios(); irPara(1);
+  });
+
+  /* resumo (lado da marca) */
+  function linhasResumo() {
+    const l = [];
+    if (ped.tipo) l.push(["Ensaio", ENSAIOS[ped.tipo].nome]);
+    if (ped.data) l.push(["Dia", dataLonga(ped.data)]);
+    if (ped.hora) l.push(["Horário", ped.hora]);
+    if (ped.tipo) l.push(["Valor", `${moeda(ENSAIOS[ped.tipo].valor)} (sinal de ${moeda(ENSAIOS[ped.tipo].sinal)})`]);
+    return l;
+  }
+  function resumo() {
+    const l = linhasResumo();
+    $("#resumo").classList.toggle("ver", l.length > 0 && passo < 4);
+    $("#resumo-dl").innerHTML = l.map(([a, b]) => `<dt>${a}</dt><dd>${esc(b)}</dd>`).join("");
+  }
+
+  ensaios(); irPara(1);
+  if (location.hash === "#natal") escolher("natal");
+})();
+</script>
+</body>
+</html>

@@ -190,6 +190,28 @@ test("Painel Renderiza em /exemplos: o preço da conta é o mesmo dos textos da 
   assert.doesNotMatch(html, /taxa de (ativação|adesão|implantação)/i, "o valor inicial se chama montagem");
 });
 
+test("Painel Renderiza para fotografia (/exemplos/fotografia): as páginas vão ao ar, com o mesmo preço e os resguardos", () => {
+  const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("exemplos/"));
+  for (const d of ["exemplos/fotografia.html", "exemplos/painel-fotografia.html", "exemplos/agenda-fotografia.html", "exemplos/dados-estudio-ciranda.js"]) assert.ok(destinos.includes(d), d);
+  for (const [f, pagina] of [["painel-fotografia.html", "painel-eventos"], ["agenda-fotografia.html", "agenda-online"]]) {
+    const html = readFileSync(new URL("../exemplos/" + f, import.meta.url), "utf8");
+    assert.match(html, /<script src="dados-estudio-ciranda\.js"><\/script>/, f);
+    // a tabela visitas só aceita estas páginas: as de fotografia contam como o exemplo do painel e a agenda online
+    assert.match(html, new RegExp(`<script src="visitas\\.js" data-pagina="${pagina}"><\\/script>`), f);
+    assert.match(html, /<meta name="robots" content="noindex, nofollow">/, f);
+    assert.match(html, /fict[íi]cio/i, f + " avisa que os dados são fictícios");
+  }
+  const eventos = readFileSync(new URL("../exemplos/index.html", import.meta.url), "utf8");
+  const html = readFileSync(new URL("../exemplos/fotografia.html", import.meta.url), "utf8");
+  const preco = h => /const PRECO = \{[^}]*\}/.exec(h)[0];
+  assert.equal(preco(html), preco(eventos), "o mesmo preço do painel de eventos");
+  assert.match(html, /<script src="\/exemplos\/visitas\.js" data-pagina="exemplos"><\/script>/);
+  for (const [modulo, aviso] of [["agenda-online", "vem junto com o site"], ["agenda", "Google Agenda não está incluída"], ["clientes", "não hospeda as fotos"], ["contratos", "não usa certificado digital"], ["contratos", "não escreve nem revisa contratos"], ["financeiro", "não recebe pagamentos nem cobra a cliente"]])
+    assert.match(html, new RegExp(`"id": "${modulo}"[\\s\\S]*?"saber": \\[[^\\]]*${aviso}`), `${modulo}: ${aviso}`);
+  assert.doesNotMatch(html, /espaço de eventos|Villa Alecrim/, "nada do exemplo de eventos");
+  assert.doesNotMatch(html, /taxa de (ativação|adesão|implantação)/i);
+});
+
 test("flyers de Stories: só o PNG vai ao ar, em /flyer/<lead>.png", () => {
   const destinos = arquivosPublicados().map(([d]) => d.split("\\").join("/")).filter(d => d.startsWith("flyer/"));
   for (const d of destinos) assert.match(d, /^flyer\/[\w-]+\.png$/, d);
