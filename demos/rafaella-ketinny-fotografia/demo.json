@@ -1,0 +1,684 @@
+{
+ "pasta": "rafaella-ketinny-fotografia",
+ "marca": "Rafaella Ketinny Fotografia",
+ "titulo_nome": "Rafaella Ketinny",
+ "titulo_script": "fotografia",
+ "dona": "Rafaella",
+ "quem_sou": "Sou a Rafaella, da Rafaella Ketinny Fotografia",
+ "google": {
+  "coords": "-23.680981,-46.559984",
+  "fid": "0x94ce43e31b1188f9:0xbe7d3b6f3c9bda57",
+  "gid": "/g/11gj4kz3d2"
+ },
+ "google_nome": "Rafaella Ketinny Fotografia Newborn E Infantil",
+ "endereco_maps": "R. Luiz Ferreira da Silva, 466 - Parque Sao Diogo, São Bernardo do Campo - SP, 09732-610",
+ "google_nota": "5,0",
+ "google_total": "24",
+ "whatsapp": "5511958072397",
+ "instagram": "rafaellaketinnyfotografia",
+ "seguidores": "29,2 mil",
+ "slogan": "Cuido com carinho do amor da sua vida.",
+ "cores": {
+  "fundo": "#15110f",
+  "papel": "#1e1916",
+  "areia": "#211b18",
+  "linha": "#3a302a",
+  "tinta": "#f1e7de",
+  "tinta2": "#bfb0a3",
+  "rosa": "#d9a38f",
+  "acento": "#a85f4b",
+  "acento_escuro": "#8f4e3d",
+  "cafe": "#2a1a19"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "EB Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Montserrat",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Mrs Saint Delafield",
+    ""
+   ]
+  },
+  "tema": "escuro",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "botoes": "reto",
+  "ornamento": "✦",
+  "script_escala": 1.15,
+  "css": "h1 em,h2 em,h3 em{color:#e3a892}.abertura h1{letter-spacing:.08em;font-weight:400}.mosaico{gap:14px}.especialidades i{color:var(--rosa)}.review-tag,.eyebrow{color:#d9a38f}.rz-faixa,.rz-folha,.rz-pilula{font-family:system-ui,-apple-system,\"Segoe UI\",sans-serif}.marca-nome b{font-size:.98rem;letter-spacing:.16em}.nav{gap:clamp(12px,1.6vw,24px)}.nav a{letter-spacing:.14em}.topo-cta{white-space:nowrap;padding:10px 18px}"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-07 16h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 14h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 15h",
+   "2026-11-21 16h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-05 15h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Rafaella define os dela",
+  "mensagem": "Olá, Rafaella! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Rafaella Ketinny Fotografia | Newborn e infantil em São Bernardo do Campo",
+  "descricao": "Rafaella Ketinny Fotografia, no Parque São Diogo, em São Bernardo do Campo: newborn fine art, acompanhamento, smash the cake e infantil. Premiada; nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "São Bernardo do Campo · SP",
+   "frase": "Cuido com carinho do amor da sua vida.",
+   "intro": "Do newborn ao smash the cake, num estúdio aquecido e cheio de cenários, no Parque São Diogo, em São Bernardo do Campo. Fotógrafa premiada.",
+   "rotulos": [
+    "Newborn",
+    "Infantil",
+    "Smash"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Infantil",
+    "Irmãos",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/638994146_18381073618094043_4700569337039597315_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de tiara de flores dormindo de bruços",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_02.jpg",
+     "f": "p",
+     "alt": "Menina de 6 anos sorrindo com um buquê de flores rosa",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/658375287_18401085598146421_8413731749239108616_n.jpg",
+     "f": "l",
+     "alt": "Bebê de 1 ano vestida de fada no cenário de flores e balões",
+     "c": [
+      0.58,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Do newborn <em>ao smash the cake.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Rafaella. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/638994146_18381073618094043_4700569337039597315_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de tiara de flores dormindo de bruços",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619913675_18152481469429346_6600763318050247143_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida sorrindo de olhos abertos na manta branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619480200_18085474742332483_4327944154634884174_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no coração de madeira com rosas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619672705_18116403640717339_7642654646506684345_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida bocejando de laço lilás",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/651020288_18078628724099112_9093065512449939326_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho com as mãos no queixo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/621822691_18090142844082629_8340583328611005090_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no coração de lápis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619435969_18095337376819779_6915708297304807599_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo de tiara, com a mão no rosto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/620953636_18056504681343688_2836369824965704840_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido deitado sobre a Bíblia aberta",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/621196804_18064854431248718_1056657192503846931_n.jpg",
+      "f": "p",
+      "alt": "Bebê no carrinho branco cheio de rosas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdnLZqxDmIe_DdnLZqxDmIe_02.jpg",
+      "f": "l",
+      "alt": "Bebê no carrinho de madeira com o ursinho, entre flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/621402160_18201757072332487_4899495237540679511_n.jpg",
+      "f": "p",
+      "alt": "Bebê no carrinho vermelho com as luzinhas ao fundo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/622052437_18104157097696250_8193443350999877061_n.jpg",
+      "f": "l",
+      "alt": "Bebê de touca de ursinho na prateleira, entre os ursos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/622544800_18091773670816373_6863368686714612039_n.jpg",
+      "f": "p",
+      "alt": "Bebê fantasiado de elefante sentado no banquinho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619680412_18061292768308790_7370897477790396461_n.jpg",
+      "f": "p",
+      "alt": "Bebê de asas de fada entre balões e rosas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdLFah8jqmA_DdLFah8jqmA_00.jpg",
+      "f": "l",
+      "alt": "Bebê de chef de cozinha na panela",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdnLZqxDmIe_DdnLZqxDmIe_00.jpg",
+      "f": "l",
+      "alt": "Bebê sentada no chão com o ursinho, entre flores",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/658375287_18401085598146421_8413731749239108616_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano vestida de fada, com flores e balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/652602743_18087737629942980_3896101912765949483_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no smash do Mickey",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/652538721_18113747041588104_1643976564580928774_n.jpg",
+      "f": "l",
+      "alt": "Bebê no smash da Boo, de Monstros S.A.",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/649222402_18078615110525415_2022706303854544233_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo no smash de frutas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/650703365_18073322435191495_7120565556348477778_n.jpg",
+      "f": "l",
+      "alt": "Bebê de asas de fada, de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/656573722_18388479850085717_3952222681809265111_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano engatinhando em frente à cabaninha",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_00.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos abraçada ao ursinho, entre flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_04.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos espiando pela porta de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/626780538_18161434894421574_5508306334958451374_n.jpg",
+      "f": "l",
+      "alt": "Menino tocando violão para a irmã recém-nascida",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_02.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos sorrindo com um buquê de flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/650062383_18081942998029665_6322290798423348543_n.jpg",
+      "f": "p",
+      "alt": "Menina rindo ao lado da irmã recém-nascida",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_07.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos fazendo charme com as mãos no rosto",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619860621_18061858043305388_974551862322738648_n.jpg",
+      "f": "l",
+      "alt": "Menino sentado na poltrona com o ursão",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_05.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos deitada com o ursinho, sorrindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_03.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos cheirando as flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/postsflat/DdRkkrDkTmQ_DdRkkrDkTmQ_06.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos deitada no chão do cenário de flores",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/441139346_1478526876420628_1838457341974643458_n.jpg",
+    "f": "p",
+    "alt": "Rafaella Ketinny segurando um boneco de recém-nascido, no retrato de fotógrafa",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "p": [
+    "A Rafa fotografa recém-nascidos, bebês e crianças num estúdio no Parque São Diogo, em São Bernardo do Campo, e também atende newborn em domicílio. Na bio, cita o Prêmio Internacional Outstanding."
+   ],
+   "citacao": "Cuido com carinho do amor da sua vida.",
+   "citacao_quem": "Rafaella Ketinny, na bio do Instagram",
+   "p2": [
+    "O estúdio é higienizado e aquecido a 28 °C para os bebês. Nas avaliações, as famílias falam do capricho no tratamento das fotos, da entrega no prazo e de quem volta há anos: “já se foram 4 anos de acompanhamento”."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "24 avaliações no Google"
+    ],
+    [
+     "29,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "4.009",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro dia <em>aos 6 anos.</em>",
+   "p": "Os ensaios da Rafa:",
+   "fonte": "Bio, destaques e legendas da Rafaella no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "No estúdio ou em casa",
+     "p": "Estúdio aquecido a 28 °C e higienizado; também atende em domicílio."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Do newborn ao primeiro aninho, com um cenário a cada mês."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Mickey, Boo, fadinha: o cenário e o bolo combinando."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Para todas as idades",
+     "p": "Ensaios de crianças maiores, como o da Maitê, de 6 anos."
+    },
+    {
+     "nome": "Irmãos",
+     "sub": "Juntos",
+     "p": "O irmão tocando violão para a recém-nascida."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Natal e mais",
+     "p": "Ensaios temáticos; o de Natal está no destaque “Sorteio Natal”."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O primeiro Natal <em>do seu bebê.</em>",
+   "p": "A página de Natal 2026 já está pronta para a agenda do estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Rafa.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/gfotos/g00.jpg",
+    "f": "l",
+    "alt": "Menina de 4 anos de vestido azul no cenário de inverno da Frozen",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Cenário de inverno no estúdio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Flávia de Oliveira Silva",
+    "tag": "4 anos de acompanhamento",
+    "trecho": "Desde o nascimento do meu primogênito eu saio de SP pra fazer as fotos com a Rafa, já se foram 4 anos de acompanhamento"
+   },
+   {
+    "nome": "Lenna Benavides",
+    "tag": "Newborn e infantil",
+    "trecho": "Tem um capricho único no tratamento das fotos, entrega no prazo, e, apesar do volume de trabalhos, está sempre com um sorriso no rosto"
+   },
+   {
+    "nome": "Aline Taufenbach",
+    "tag": "Ensaios",
+    "trecho": "Já fiz vários ensaios com ela!!! Uma foto mais linda que a outra! Consegue pegar os momentos mais fofos das crianças!!"
+   },
+   {
+    "nome": "Ariane Brene Mendes",
+    "tag": "Infantil",
+    "trecho": "Ela é sensacional, minha filha é muito difícil para tirar foto e a Rafa tem expertise no que faz . Tirou fotos lindíssimas e foi certeira nos clicks !"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Parque São Diogo, em São Bernardo do Campo.",
+   "telefone": "(11) 95807-2397",
+   "endereco": [
+    "R. Luiz Ferreira da Silva, 466",
+    "Parque São Diogo",
+    "São Bernardo do Campo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Rafaella Ketinny Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@rafaellaketinnyfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Rafaella Ketinny Fotografia",
+  "descricao": "Ensaio de Natal 2026 com a Rafaella Ketinny, em São Bernardo do Campo: do recém-nascido à família, num estúdio aquecido. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h1": "O primeiro Natal <em>do seu bebê.</em>",
+   "citacao": "Cuido com carinho do amor da sua vida.",
+   "citacao_quem": "Rafaella Ketinny, na bio do Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/gfotos/g00.jpg",
+    "f": "l",
+    "alt": "Menina de 4 anos de vestido azul no cenário de inverno da Frozen",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Cenário de inverno no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal <em>no estúdio da Rafa.</em>",
+   "p": "O cenário de Natal 2026 ainda não foi postado: esta página fica pronta para quando a agenda abrir. O estúdio é aquecido e higienizado, e ela fotografa do recém-nascido à família toda, com o mesmo cuidado dos ensaios de newborn.",
+   "itens": [
+    "No estúdio, no Parque São Diogo, em São Bernardo do Campo.",
+    "Estúdio aquecido a 28 °C e higienizado.",
+    "Do recém-nascido à família toda.",
+    "Valores e detalhes pelo WhatsApp da Rafaella."
+   ],
+   "legenda_fotos": "O estúdio da Rafa: cenários de outros ensaios"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/619480200_18085474742332483_4327944154634884174_n.jpg",
+    "f": "p",
+    "alt": "Recém-nascida no coração de madeira com rosas",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/656573722_18388479850085717_3952222681809265111_n.jpg",
+    "f": "l",
+    "alt": "A cabaninha com flores do cenário de 1 ano",
+    "c": [
+     0.6,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/622052437_18104157097696250_8193443350999877061_n.jpg",
+    "f": "l",
+    "alt": "A prateleira com os ursinhos de pelúcia",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Em família",
+   "h2": "Natal <em>em família.</em>",
+   "nome": "Em família",
+   "p": "Ensaios de família e de irmãos no estúdio dela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/650062383_18081942998029665_6322290798423348543_n.jpg",
+     "f": "p",
+     "alt": "Menina rindo ao lado da irmã recém-nascida",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/gfotos/g02.jpg",
+     "f": "l",
+     "alt": "Quatro mulheres da família, de rosa, no cenário de flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/drive/624093228_18170513239382094_2181511380753059567_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de coroa dourada dormindo",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "comentario": "Demo Rafaella Ketinny Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Aline Taufenbach",
+    "tag": "Ensaios",
+    "trecho": "Já fiz vários ensaios com ela!!! Uma foto mais linda que a outra! Consegue pegar os momentos mais fofos das crianças!!"
+   },
+   {
+    "nome": "Ariane Brene Mendes",
+    "tag": "Infantil",
+    "trecho": "Ela é sensacional, minha filha é muito difícil para tirar foto e a Rafa tem expertise no que faz . Tirou fotos lindíssimas e foi certeira nos clicks !"
+   },
+   {
+    "nome": "Flávia de Oliveira Silva",
+    "tag": "4 anos de acompanhamento",
+    "trecho": "Desde o nascimento do meu primogênito eu saio de SP pra fazer as fotos com a Rafa, já se foram 4 anos de acompanhamento"
+   },
+   {
+    "nome": "Lenna Benavides",
+    "tag": "Newborn e infantil",
+    "trecho": "Tem um capricho único no tratamento das fotos, entrega no prazo, e, apesar do volume de trabalhos, está sempre com um sorriso no rosto"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Rafaella abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Rafaella define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Rafaella abre com o dia e a hora escritos."
+    ],
+    [
+     "A Rafaella confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Rafaella no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95807-2397), o mesmo do link da bio; as legendas antigas trazem outro número (98337-5717)",
+  "site": "só o Instagram; o Google aponta o @",
+  "situacao": "publicada em 28/10/2026 · `/demo/rafaella-ketinny-fotografia` e `/demo/rafaella-ketinny-fotografia/natal`",
+  "direcao": [
+   "Personalidade: fine art premiada. A única demo em tema escuro, como uma galeria: fundo quase preto, texto creme, rosé dourado, serifa clássica (EB Garamond), título em caixa alta espaçada e assinatura em letra cursiva, combinando com os fundos escuros e de madeira das fotos dela.",
+   "Sem logo em boa resolução: monograma RK e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo e a do rodapé são a bio (“Cuido com carinho do amor da sua vida”)."
+  ],
+  "demo": [
+   "Site: portfólio em 4 abas (Newborn, Mês a mês, Smash the cake, Infantil), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: pronta para a agenda dela; não há cenário de 2026 postado, e a página diz isso (usa fotos do estúdio).",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2021, em 1080 px), os carrosséis de setembro e outubro de 2026 (1440 px) e 3 fotos do Google.",
+   "Fora de propósito: os closes de detalhe (tecido, mãos, pés), o post da vacina, os bebês sem roupa e o carrossel patrocinado de acessórios (Mini Newborn).",
+   "A foto de quem fotografa é a dela com o recém-nascido no colo (a mesma da foto do perfil)."
+  ],
+  "textos": [
+   "Bio: “Cuido com carinho do amor da sua vida · Do Newborn ao Smash the cake · Prêmio Internacional Outstanding · Embaixadora”.",
+   "Legendas: “Estúdio higienizado e aquecido em 28°C”, “Newborn em estúdio ou domicílio”.",
+   "Avaliações do Google: 4 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "29 mil seguidores e embaixadora de marcas: pode ser grande demais para a oferta; avaliar antes de mandar.",
+   "Natal: nenhum cenário de 2026 postado; confirmar se ela vai abrir agenda de Natal.",
+   "O horário do estúdio não está no Google: a agenda de exemplo usa sábados."
+  ]
+ },
+ "video_local": "São Bernardo do Campo",
+ "marca_completa": "Rafaella Ketinny Fotografia",
+ "fone_link": "+5511958072397",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Rafaella! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/rafaella-ketinny-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Rafaella",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Rafaella, da Rafaella Ketinny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Rafaella, da Rafaella Ketinny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}
