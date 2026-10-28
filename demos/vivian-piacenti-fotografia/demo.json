@@ -1,0 +1,655 @@
+{
+ "pasta": "vivian-piacenti-fotografia",
+ "marca": "Estúdio Vivian Piacenti",
+ "titulo_nome": "Vivian Piacenti",
+ "titulo_script": "fotografia",
+ "dona": "Vivian",
+ "google": {
+  "coords": "-23.503346,-46.6720782",
+  "fid": "0x94cef9fa7ebd9359:0x430c20b80c103344",
+  "gid": "/g/11v9v84283"
+ },
+ "google_nome": "Estúdio Vivian Piacenti",
+ "endereco_maps": "Av. Dep. Emílio Carlos, 118 - Limão, São Paulo - SP, 02721-100",
+ "google_nota": "5,0",
+ "google_total": "86",
+ "whatsapp": "5511992619389",
+ "instagram": "estudiovivianpiacenti",
+ "seguidores": "8,1 mil",
+ "slogan": "Especialista em registrar amor.",
+ "cores": {
+  "fundo": "#fbf8f7",
+  "papel": "#fffefd",
+  "areia": "#f4ece9",
+  "linha": "#e8ddd9",
+  "tinta": "#2f2627",
+  "tinta2": "#6a5b5d",
+  "rosa": "#d4a1a6",
+  "acento": "#9b4f63",
+  "acento_escuro": "#7e3d4f",
+  "cafe": "#2b1f21"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 15h30",
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 15h30",
+   "2026-11-28 14h",
+   "2026-12-05 9h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-12 9h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Vivian define os dela",
+  "mensagem": "Olá, Vivian! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Estúdio Vivian Piacenti | Bebês, gestantes e aniversários no Limão, São Paulo",
+  "descricao": "Estúdio Vivian Piacenti, no bairro do Limão, zona norte de São Paulo: acompanhamento mensal do bebê, gestantes, aniversários e datas especiais. Mais de 2.600 ensaios. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia no Limão · São Paulo",
+   "frase": "Especialista em registrar amor.",
+   "intro": "Bebês, acompanhamento mensal, gestantes e aniversários no estúdio da Vivian, no bairro do Limão.",
+   "rotulos": [
+    "Mães e filhos",
+    "Bebês",
+    "Aniversários"
+   ],
+   "especialidades": [
+    "Acompanhamento mensal",
+    "Gestante",
+    "Aniversários",
+    "Páscoa",
+    "Dia das Mães",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/669871462_18333714178216537_8774167400681891577_n.jpg",
+     "f": "p",
+     "alt": "Mãe e avó beijando o bebê no colo",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658960036_18332154013216537_1750599024316117954_n.jpg",
+     "f": "p",
+     "alt": "Bebê de touca de coelho abraçado a um coelhinho de pelúcia",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/656850944_18330818287216537_8285143267124291473_n.jpg",
+     "f": "p",
+     "alt": "Bebê de tiara e vestido rosa no cenário de castelo",
+     "c": [
+      0.5,
+      0.55
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Cada fase, <em>um cenário.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Vivian. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658839641_18332154937216537_4431932798399998416_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentada de macacão branco em frente à casinha de coelhos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658094379_18332153872216537_6993180329989418430_n.jpg",
+      "f": "l",
+      "alt": "Bebê de touca de coelho com o coelhinho no colo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658875263_18332154202216537_6467095125566073849_n.jpg",
+      "f": "p",
+      "alt": "Menino de orelhas de coelho rindo ao lado do ovo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657634108_18332154763216537_5320218073951599491_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo dentro do ovo de Páscoa gigante",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658900720_18332154880216537_5576189261659159124_n.jpg",
+      "f": "p",
+      "alt": "Bebê dentro do ovo de Páscoa, em frente à casinha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657751345_18332153191216537_1009346524458616175_n.jpg",
+      "f": "l",
+      "alt": "Menino segurando uma cenoura de pelúcia",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658960036_18332154013216537_1750599024316117954_n.jpg",
+      "f": "p",
+      "alt": "Bebê de touca de coelho abraçado a um coelhinho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657699761_18332153416216537_4147110191935615860_n.jpg",
+      "f": "l",
+      "alt": "Bebê de bruços sorrindo no cenário de Páscoa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658416171_18332153287216537_2020878029031878792_n.jpg",
+      "f": "p",
+      "alt": "Menino dentro do ovo com a cenoura de pelúcia",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657328918_18331061773216537_7274839814763357391_n.jpg",
+      "f": "l",
+      "alt": "Bebê de orelhinhas dentro do ovo de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/659691895_18332153737216537_405496920560583283_n.jpg",
+      "f": "p",
+      "alt": "Bebê de boné e suspensório rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/658808300_18332154487216537_6069546633302486898_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentado em frente à casinha de coelhos",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "aniversarios",
+    "nome": "Aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/656850944_18330818287216537_8285143267124291473_n.jpg",
+      "f": "p",
+      "alt": "Bebê de tiara e vestido rosa no cenário de castelo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/652496719_18329596456216537_6500118795649162101_n.jpg",
+      "f": "l",
+      "alt": "Bebê de vestido azul no cenário de castelo com os ratinhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657547567_18331704937216537_3384645344792993871_n.jpg",
+      "f": "p",
+      "alt": "Menina de óculos e faixa de aniversariante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/655224106_18330818497216537_4020223806163688529_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo de coroa no cenário de castelo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657722159_18332123755216537_2025874830958125084_n.jpg",
+      "f": "p",
+      "alt": "Menina de 7 anos sentada no balão de coração",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/653916842_18329786461216537_9191585776150152645_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentada no cenário de castelo e abóbora",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/652693875_18329569240216537_6189179103371795105_n.jpg",
+      "f": "p",
+      "alt": "A mesa do bolo com balões coloridos e borboletas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/652647842_18329569480216537_1837391137932355391_n.jpg",
+      "f": "l",
+      "alt": "Menina de vestido colorido em frente ao painel de borboletas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/653581135_18329572432216537_3604369940810278338_n.jpg",
+      "f": "l",
+      "alt": "Bebês engatinhando na festa de 1 ano",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/656269798_18330594484216537_4126520165859579794_n.jpg",
+      "f": "l",
+      "alt": "Bebê de vestido rosa no cenário de castelo",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "maes",
+    "nome": "Mães e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/659042045_18332595532216537_3898918854245040879_n.jpg",
+      "f": "p",
+      "alt": "Mãe levantando o filho no colo no sofá do estúdio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/670597421_18333885910216537_6885208262298964015_n.jpg",
+      "f": "l",
+      "alt": "Mãe beijando o bebê no colo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/659304659_18332477293216537_8522950421109250439_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho sentados no tapete, lendo um livro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/669871462_18333714178216537_8774167400681891577_n.jpg",
+      "f": "p",
+      "alt": "Mãe e avó beijando o bebê no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/657563873_18330839581216537_4953728333079856087_n.jpg",
+      "f": "l",
+      "alt": "Pais com a bebê de vestido rosa na festa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/662032406_18332443252216537_3307160039501987463_n.jpg",
+      "f": "p",
+      "alt": "Mãe deitada no chão com o bebê no sofá",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/651907022_18329572255216537_329178894570281952_n.jpg",
+      "f": "l",
+      "alt": "Família com os dois filhos na festa de aniversário",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/drive/654876795_18334560649216537_5729438095634907665_n.jpg",
+    "f": "p",
+    "alt": "Vivian Piacenti deitada no sofá, com a câmera na mão",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "p": [
+    "A Vivian, a Vivi, já fez mais de 2.600 ensaios no estúdio dela, no bairro do Limão, na zona norte de São Paulo. Fotografa bebês no acompanhamento mensal, gestantes, aniversários e ensaios femininos, sempre com hora marcada."
+   ],
+   "citacao": "Especialista em registrar amor.",
+   "citacao_quem": "Vivian Piacenti, na bio do Instagram",
+   "p2": [
+    "Cada data tem cenário novo: a Páscoa com a casinha de coelhos, o Dia das Mães, o Natal. Nas avaliações, as famílias falam dos cenários, das ideias para as fotos e da paciência com os bebês."
+   ],
+   "numeros": [
+    [
+     "+2.600",
+     "ensaios realizados"
+    ],
+    [
+     "5,0",
+     "86 avaliações no Google"
+    ],
+    [
+     "8,1 mil",
+     "seguidores no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da revelação <em>aos 7 anos.</em>",
+   "p": "Os ensaios que a Vivian faz no estúdio:",
+   "fonte": "Bio e destaques da Vivian no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Revelação e gestante",
+     "sub": "A espera",
+     "p": "Da descoberta à reta final da gestação."
+    },
+    {
+     "nome": "Acompanhamento mensal",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê no estúdio, com o cenário da época: Páscoa, Dia das Mães, Natal."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "Do 1º aninho aos 7 anos",
+     "p": "Smash the cake, ensaio de aniversário e também a cobertura da festa."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Cenário novo a cada data",
+     "p": "Páscoa com a casinha de coelhos, Dia das Mães e Natal."
+    },
+    {
+     "nome": "Feminino e formatura",
+     "sub": "Para você",
+     "p": "Ensaios femininos e de formatura, com beca e canudo."
+    },
+    {
+     "nome": "+2.600 ensaios",
+     "sub": "A experiência",
+     "p": "Mais de 2.600 ensaios realizados, como conta a bio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O cenário de Natal <em>já está montado.</em>",
+   "p": "A árvore de laços vermelhos, os ursinhos e a lareira já estão no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Vivian.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DewW8uWDt2d__DewW8uWDt2d_03.jpg",
+    "f": "p",
+    "alt": "Família sentada em frente à lareira e à árvore de Natal",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Camila Pereira",
+    "tag": "Gestante e família",
+    "trecho": "Vivi é uma fotógrafa meiga, profissional e escolhe cenários lindos. Nos deixa a vontade, nos dá boas ideias para eternizar aqueles momentos tão lindos."
+   },
+   {
+    "nome": "Carolina Paes Simão",
+    "tag": "Gestante",
+    "trecho": "Fiz o meu ensaio gestante com a Vivian, e ela nos deixou super a vontade, os cenários são bonitos, e o resultado ficou maravilhoso. Amei as fotos."
+   },
+   {
+    "nome": "Amanda Cristina",
+    "tag": "Acompanhamento mensal",
+    "trecho": "faço acompanhamento mensal da minha bebê e cada ensaio um super desafio: escolher qual a foto ficar, pois todas ficam maravilhosas"
+   },
+   {
+    "nome": "Thaina Souza",
+    "tag": "Aniversário de 1 ano",
+    "trecho": "Ela fotografou o aniversário de 1 ano do meu filho e todos ficaram encantados com as fotos!"
+   },
+   {
+    "nome": "Mayara Silva",
+    "tag": "4 aninhos",
+    "trecho": "Excelente profissional, obrigada Vívian por registrar esse momento, os 4 aninhos do meu pequeno!"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp, só com hora marcada. O estúdio fica no bairro do Limão, na zona norte de São Paulo.",
+   "telefone": "(11) 99261-9389",
+   "endereco": [
+    "Av. Dep. Emílio Carlos, 118",
+    "Limão",
+    "São Paulo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Estúdio Vivian Piacenti (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@estudiovivianpiacenti) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Vivian Piacenti",
+  "descricao": "Natal 2026 no Estúdio Vivian Piacenti, no Limão, em São Paulo: ensaio de Natal em família no estúdio. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Um Natal feliz <em>e especial.</em>",
+   "citacao": "E eu espero que o ensaio de Natal de cada um que passar por aqui seja tão feliz e especial quanto foi o nosso.",
+   "citacao_quem": "Vivian Piacenti, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/De4G9ZvIO4___De4G9ZvIO4__00.jpg",
+    "f": "p",
+    "alt": "Pai e duas filhas abraçados em frente à árvore de Natal de laços vermelhos",
+    "c": [
+     0.5,
+     0.15
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O cenário <em>de 2026.</em>",
+   "p": "O cenário de Natal 2026 já está montado no estúdio, no Limão: a árvore com laços vermelhos, os ursinhos e os presentes, e a lareira com as meias. A Vivian inaugurou o cenário com o Natal da própria família.",
+   "itens": [
+    "No estúdio, no bairro do Limão.",
+    "Só com hora marcada.",
+    "Para a família toda: pais, filhos e avós.",
+    "Valores e detalhes pelo WhatsApp da Vivian."
+   ],
+   "legenda_fotos": "O cenário de Natal de 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/De2gUNVmSoM__De2gUNVmSoM_00.jpg",
+    "f": "p",
+    "alt": "Casal abraçado em frente à árvore de Natal e aos presentes vermelhos",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DewW8uWDt2d__DewW8uWDt2d_02.jpg",
+    "f": "p",
+    "alt": "Pai e filhas brincando ao lado da lareira com as meias de Natal",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DewW8uWDt2d__DewW8uWDt2d_01.jpg",
+    "f": "p",
+    "alt": "Pai e duas filhas sorrindo em frente à lareira",
+    "c": [
+     0.5,
+     0.35
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Os primeiros cliques <em>no cenário.</em>",
+   "nome": "Natal 2026",
+   "p": "O ensaio que inaugurou o cenário de Natal deste ano.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DewW8uWDt2d__DewW8uWDt2d_00.jpg",
+     "f": "p",
+     "alt": "Duas irmãs e o pai sentados na poltrona, rindo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DezHvBVICRW__DezHvBVICRW_00.jpg",
+     "f": "p",
+     "alt": "Pai entre as duas filhas em frente à árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/De2gUNVmSoM__De2gUNVmSoM_05.jpg",
+     "f": "p",
+     "alt": "Casal se beijando em frente à árvore de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/De4G9ZvIO4___De4G9ZvIO4__02.jpg",
+     "f": "p",
+     "alt": "Duas irmãs abraçadas em frente à árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/DezHvBVICRW__DezHvBVICRW_01.jpg",
+     "f": "p",
+     "alt": "Pai e filhas de branco e jeans em frente à árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/postsall/De4G9ZvIO4___De4G9ZvIO4__04.jpg",
+     "f": "p",
+     "alt": "Pai e filha rindo de costas um para o outro",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "comentario": "Demo Estúdio Vivian Piacenti: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Amanda Cristina",
+    "tag": "Acompanhamento mensal",
+    "trecho": "faço acompanhamento mensal da minha bebê e cada ensaio um super desafio: escolher qual a foto ficar, pois todas ficam maravilhosas"
+   },
+   {
+    "nome": "Thaina Souza",
+    "tag": "Aniversário de 1 ano",
+    "trecho": "Ela fotografou o aniversário de 1 ano do meu filho e todos ficaram encantados com as fotos!"
+   },
+   {
+    "nome": "Mayara Silva",
+    "tag": "4 aninhos",
+    "trecho": "Excelente profissional, obrigada Vívian por registrar esse momento, os 4 aninhos do meu pequeno!"
+   },
+   {
+    "nome": "Camila Pereira",
+    "tag": "Gestante e família",
+    "trecho": "Vivi é uma fotógrafa meiga, profissional e escolhe cenários lindos. Nos deixa a vontade, nos dá boas ideias para eternizar aqueles momentos tão lindos."
+   },
+   {
+    "nome": "Carolina Paes Simão",
+    "tag": "Gestante",
+    "trecho": "Fiz o meu ensaio gestante com a Vivian, e ela nos deixou super a vontade, os cenários são bonitos, e o resultado ficou maravilhoso. Amei as fotos."
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Vivian abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Vivian define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Vivian abre com o dia e a hora escritos."
+    ],
+    [
+     "A Vivian confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Vivian no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99261-9389), o mesmo das legendas do Instagram",
+  "site": "não tem: o Google aponta o Instagram; 20 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/vivian-piacenti-fotografia` e `/demo/vivian-piacenti-fotografia/natal`",
+  "direcao": [
+   "Portfólio claro e cheio de cor, como os cenários dela; a cor de destaque é um rosa queimado.",
+   "Sem logo público: o topo e o rodapé usam um monograma VP e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Especialista em registrar amor”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Bebês, Aniversários, Mães e família), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: o cenário montado (árvore de laços vermelhos e lareira), a agenda de exemplo e o ensaio que inaugurou o cenário.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (Páscoa, Dia das Mães e aniversários de 2026) e os posts de Natal 2026 (21 a 24/10).",
+   "O Natal 2026 é o ensaio da família dela (“esse foi nosso Natal”); o texto diz que ela inaugurou o cenário com a própria família.",
+   "A foto de quem fotografa é a dela com a câmera."
+  ],
+  "textos": [
+   "Bio: “Especialista em registrar amor”, Bebês, Acompanhamento Mensal, Gestantes, Feminino, Aniversários, “+ de 2.600 ensaios realizados”.",
+   "Legenda de 24/10: “espero que o ensaio de Natal de cada um que passar por aqui seja tão feliz e especial quanto foi o nosso”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "O Google não mostra o horário de atendimento; as legendas dizem “somente com hora marcada”.",
+   "Os horários de Natal são exemplo.",
+   "Confirmar se a família do Natal 2026 é a dela e se pode usar as fotos."
+  ]
+ },
+ "marca_completa": "Estúdio Vivian Piacenti",
+ "fone_link": "+5511992619389",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Vivian! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/vivian-piacenti-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Vivian",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Vivian, do Estúdio Vivian Piacenti. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Vivian, do Estúdio Vivian Piacenti. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

@@ -274,3 +274,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Studio Mila Werneck (fotógrafa)](demos/mila-werneck-fotografia) | Jardim Mutinga, Barueri | site + página do Especial de Natal (`/natal`, com fotos do estúdio) | pronta · 28/10/2026 (fotógrafos lote 1 · 4ª) |
 | [Fotografia Pri Diamantino (fotógrafa)](demos/pri-diamantino-fotografia) | Pirituba, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 5ª) |
 | [Estúdio Marília Rovaris Fotografia (fotógrafa)](demos/marilia-rovaris-fotografia) | Vila Carrão, São Paulo | site + página de Natal (`/natal`, com fotos do estúdio) | pronta · 28/10/2026 (fotógrafos lote 1 · 7ª da lista) |
+| [Estúdio Vivian Piacenti (fotógrafa)](demos/vivian-piacenti-fotografia) | Limão, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 8ª) |
