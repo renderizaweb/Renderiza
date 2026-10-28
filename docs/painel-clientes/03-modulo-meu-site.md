@@ -13,21 +13,22 @@ paga um valor adicional pela **versão final**.
    cores dentro do HTML. Ela nunca depende do painel.
 3. **Editar é serviço da mensalidade.** Enquanto a conta está conectada, o site mostra por cima a última versão
    publicada no painel.
-4. **Desconectou, voltou.** Atraso além da carência (P14) ou cancelamento: a conta é desconectada e o site volta
-   sozinho à versão inicial, sem ninguém mexer no site. As versões ficam guardadas pelo prazo dos termos;
+4. **Desconectou, voltou.** Não pagou ou cancelou: a Renderiza desliga a conta (ou o módulo) no painel
+   administrativo, à mão, e o site volta sozinho à versão inicial, sem ninguém mexer no site. As versões ficam guardadas pelo prazo dos termos;
    reconectou, a última volta.
-5. **Versão final é vendida à parte (P13).** A Renderiza gera o site com o conteúdo final embutido e sem o script
+5. **Versão final é vendida à parte** (valor: rodada 2 do `07`). A Renderiza gera o site com o conteúdo final embutido e sem o script
    do Meu site, e entrega no repositório do cliente. Daí em diante o site não depende mais do painel.
 6. **Padrão fechado.** Cores, botões, fontes e seções seguem o modelo do site; o cliente escolhe dentro das opções
    que o modelo oferece. Não é um construtor livre de site: é o que protege a qualidade e o "pacote fechado".
 7. **Só para site da Renderiza** feito com o modelo preparado (como a agenda online). Os sites já entregues
-   precisam ser adaptados antes (P16).
+   precisam ser adaptados antes, e só entram se o cliente quiser.
 8. **O site continua na conta do cliente** (decisão de 01/10/2026: domínio, GitHub e Vercel no nome dele). O site só
-   *consulta* o painel. É isso que garante o fallback e a regra da versão final (P17).
+   *consulta* a API do painel, que fica no domínio e no banco da Renderiza (confirmado em 28/10/2026). É isso que
+   garante o fallback e a regra da versão final.
 
 ## O que dá para mudar
 
-| O quê | Como | Na v1? (proposta, P15) |
+| O quê | Como | Na primeira versão? |
 |---|---|---|
 | Textos | títulos, subtítulos, parágrafos, rótulos. Um trecho entre `*asteriscos*` sai na cor de destaque, como os títulos das demos (`Decoração única <em>para a sua festa.</em>`) | sim |
 | Botões | rótulo; destino (WhatsApp com mensagem pronta, telefone, rota, link, seção da página); **posição entre as opções da seção** (ex.: abaixo do título, no fim da seção, fixo no rodapé do celular); mostrar ou esconder | sim |
@@ -74,7 +75,7 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
 5. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada em uma fração de
    segundo. Para diminuir: o script fica no começo da página e aplica as cores primeiro; e a última versão pode
    ficar guardada no navegador por até 24 horas, para aplicar na hora nas visitas seguintes (depois de uma
-   desconexão, no máximo 24 horas de atraso). **Validar na parada 7**, olhando no celular com internet lenta.
+   desconexão, no máximo 24 horas de atraso). **Validar na parada 4**, olhando no celular com internet lenta.
 
 ### Por que não "republicar o site" a cada edição
 
@@ -127,14 +128,14 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
 - **Publicar:** vira a versão no ar em até 1 minuto. Cada publicação fica no histórico, com quem publicou.
 - **Histórico:** voltar para qualquer versão publicada, ou **voltar para a versão inicial**.
 - Acesso como os outros módulos: "só vê" olha e faz prévia; "edita" pode publicar (ou: só o dono publica; decidir
-  na parada 7).
+  na tarefa T4.4).
 
 ## Situações do site
 
 | Situação | Quando | O que o endereço público responde | O que o site mostra |
 |---|---|---|---|
 | `conectado` | mensalidade em dia | a última versão publicada | a versão publicada (ou a inicial, se nunca publicou) |
-| `desconectado` | atraso além da carência ou cancelamento | "não encontrado" | a versão inicial |
+| `desconectado` | a Renderiza desligou a conta ou o módulo (não pagou, cancelou) | "não encontrado" | a versão inicial |
 | `versao_final` | o cliente comprou a versão final | "não encontrado" (o site novo já tem o conteúdo e não tem mais o script) | a versão final, embutida |
 
 ## Segurança
@@ -156,7 +157,8 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
 - Uma rotina para gerar a **versão final**: pega a versão inicial + a última publicada, embute tudo e tira o script.
 - As demos (`/demo/<pasta>`) não levam o script.
 
-## Em aberto (no `07`)
+## Decidido e em aberto
 
-P12 (preço), P13 (valor da versão final), P14 (carência), P15 (o que entra na v1), P16 (sites já entregues) e P17
-(o site continua na conta do cliente).
+- Preço: módulo como os outros (R$ 14,99, ou um dos 2 do plano). Decidido em 28/10/2026.
+- Desconexão: manual, pelo painel administrativo. Decidido em 28/10/2026.
+- Em aberto: o valor da versão final (rodada 2 do `07`).

@@ -7,11 +7,12 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 1 · Decisões de base.** Documentos escritos em 28/10/2026. Esperando as respostas da rodada 1 de
-> perguntas (7 perguntas curtas) em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Próxima ação, detalhes e diário de bordo:
-> [`01-trilho.md`](01-trilho.md).
+> **Parada 1 de 6 · Organização e infraestrutura.** Rodada 1 de perguntas respondida em 28/10/2026; esperando a
+> rodada 2 (7 perguntas curtas) em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Piloto: um espaço de
+> eventos, com meta de começar a usar por volta de 11/11/2026. Detalhes e diário de bordo: [`01-trilho.md`](01-trilho.md);
+> quem está fazendo o quê: [`tarefas.md`](tarefas.md).
 
-(Quem avançar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
+(Quem fechar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
 
 ## Não confundir os dois painéis
 
@@ -19,8 +20,8 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 |---|---|---|
 | Quem usa | Kaue e Milena | os clientes da Renderiza e as equipes deles |
 | Para quê | prospecção: leads, demos, ritmo, atividade | o dia a dia do negócio do cliente: agenda, clientes, contratos, financeiro, atendimento e o site |
-| Endereço | `renderizaweb.com.br/painel` | `painel.renderizaweb.com.br` (proposta, P2) |
-| Código | `painel/` | `painel-clientes/` (proposta, P23; ainda não existe) |
+| Endereço | `renderizaweb.com.br/painel` | domínio da Renderiza, a escolher na rodada 2 (ex.: `painel.renderizaweb.com.br`) |
+| Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na tarefa T1.5) |
 | Banco | Supabase `gxdwluswpczlfgvzxqvg` | um projeto Supabase **novo e separado** (proposta) |
 | Vitrine | — | `/exemplos` (eventos, Villa Alecrim) e `/exemplos/fotografia` (Estúdio Ciranda), com dados fictícios |
 
@@ -30,23 +31,26 @@ Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiz
 
 | Arquivo | O que tem | Quando ler |
 |---|---|---|
-| [`01-trilho.md`](01-trilho.md) | O trilho: as paradas da partida ao lançamento, o que fazer em cada uma, onde o trem está e o diário de bordo | sempre, primeiro |
-| [`02-produto.md`](02-produto.md) | O que vendemos: para quem, preço, módulos, o que cada um faz e não faz, promessas que a página já fez | antes de mexer em qualquer tela |
-| [`03-modulo-meu-site.md`](03-modulo-meu-site.md) | O módulo novo: editar o site pelo painel, com a versão inicial sempre de pé | paradas 6 e 7 |
-| [`04-arquitetura.md`](04-arquitetura.md) | Como fica de pé: Supabase, Vercel, domínio, e-mail, API pública, estrutura do código, planos gratuitos | paradas 2 a 7 |
-| [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md) | As tabelas, o isolamento entre clientes (RLS) e os acessos por módulo | paradas 3 a 7 |
-| [`06-privacidade-e-seguranca.md`](06-privacidade-e-seguranca.md) | LGPD, termos, backup, chaves e o que nunca fazer com dado de cliente | parada 8 (e sempre) |
-| [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md) | O que já foi decidido, o que decidi por padrão e as perguntas em aberto | antes de decidir qualquer coisa |
+| [`01-trilho.md`](01-trilho.md) | O trilho: as 6 paradas até o piloto, o que cada uma entrega, onde o trem está e o diário de bordo | sempre, primeiro |
+| [`tarefas.md`](tarefas.md) | O quadro de tarefas: cada tarefa, do que depende, o que pode alterar e quem está fazendo | antes de começar qualquer trabalho |
+| [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md) | As regras para várias sessões de IA trabalharem ao mesmo tempo sem se bater | antes de começar qualquer trabalho |
+| [`02-produto.md`](02-produto.md) | O que vendemos: para quem, preço, como a conta nasce e vive, módulos, painel administrativo, promessas que a página já fez | antes de mexer em qualquer tela |
+| [`03-modulo-meu-site.md`](03-modulo-meu-site.md) | O módulo novo: editar o site pelo painel, com a versão inicial sempre de pé | parada 4 |
+| [`04-arquitetura.md`](04-arquitetura.md) | Como fica de pé: Supabase, Vercel, domínio, e-mail, API pública, estrutura do código e o passo a passo das contas | paradas 1, 2 e 4 |
+| [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md) | O cliente no centro: como tudo se amarra no banco e na tela; as tabelas; os acessos por módulo | paradas 2 a 5 |
+| [`06-privacidade-e-seguranca.md`](06-privacidade-e-seguranca.md) | LGPD, termos, backup, chaves e o que nunca fazer com dado de cliente | parada 5 (e sempre) |
+| [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md) | A rodada de perguntas da vez, o que já foi decidido e o que vale por padrão | antes de decidir qualquer coisa |
 
 ## Como continuar o projeto (pessoa ou IA)
 
 1. Leia este README, o [trilho](01-trilho.md) e o documento da parada atual. As regras gerais da Renderiza valem
    aqui também: [`CONTEXTO.md`](../../CONTEXTO.md) e [`docs/como-trabalhamos.md`](../como-trabalhamos.md)
    (português, direto e curto; **não inventar nada**; nunca pedir senha ou chave pelo chat).
-2. Pegue o próximo item não feito da parada atual. Se ele depende de uma pergunta em aberto no `07`, pergunte:
-   não decida sozinho o que está marcado como "em aberto".
-3. Ao terminar um item: marque `[x]` no trilho, escreva uma linha no **diário de bordo** (data, o que foi feito,
-   quem fez) e, se chegou ao fim da parada, atualize "Onde o trem está" aqui e no trilho.
+2. Leia [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md): várias sessões trabalham ao mesmo tempo. Pegue
+   só a tarefa que a Renderiza indicou, marque-a no [quadro](tarefas.md) e mexa só no que ela permite. Se ela depende
+   de uma pergunta em aberto no `07`, pergunte: não decida sozinho.
+3. Ao entregar: pull request, quadro atualizado, uma linha no **diário de bordo** do trilho (data, o que foi feito,
+   quem fez) e, se a parada fechou, "Onde o trem está" atualizado aqui e no trilho.
 4. Decidiu algo novo (ou o Kaue e a Milena decidiram)? Registre no `07` com data e fonte.
 5. Mudou o plano? Mude o documento **no mesmo commit** do código. Documento desatualizado é bug.
 6. Nunca: dado real de cliente no repositório (nem em print, teste ou commit), chave secreta no front ou no chat,
@@ -66,5 +70,8 @@ Nos documentos desta pasta, "painel" sem mais nada é sempre o **Painel Renderiz
   sempre que o painel não responde ou a conta está desconectada.
 - **Versão final:** a última versão publicada no Meu site, "congelada" dentro do site, sem depender do painel.
   É vendida à parte para quem sai.
+- **Painel administrativo:** a área só da equipe Renderiza: contas, quem acessa, pagamentos, indicadores, ligar e
+  desligar módulos.
+- **Teste de 7 dias:** quem se cadastra sozinho usa grátis por 7 dias; a Renderiza aprova à mão.
 - **Montagem do painel:** o trabalho de criar a conta do cliente, cadastrar os pacotes, as datas já marcadas e a
   equipe, e ensinar a usar. Nunca chamar de "taxa de ativação, adesão ou implantação".
