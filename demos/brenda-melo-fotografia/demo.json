@@ -1,0 +1,686 @@
+{
+ "pasta": "brenda-melo-fotografia",
+ "marca": "Estúdio Brenda Melo Fotografia",
+ "titulo_nome": "Brenda Melo",
+ "titulo_script": "fotografia",
+ "dona": "Brenda",
+ "quem_sou": "Sou a Brenda, da Brenda Melo Fotografia",
+ "google": {
+  "coords": "-23.620224,-46.4815577",
+  "fid": "0x94ce695deb3d8f9d:0x10e805d813854f56",
+  "gid": "/g/11rj685bn3"
+ },
+ "google_nome": "Estúdio Brenda Melo Fotografia",
+ "endereco_maps": "R. Prof. Mendes Pimentel, 265 - Jardim Santa Adelia, São Paulo - SP, 03973-010",
+ "google_nota": "5,0",
+ "google_total": "55",
+ "whatsapp": "5511975281381",
+ "instagram": "brendamelofotografia",
+ "seguidores": "5,6 mil",
+ "slogan": "Fotografia afetiva.",
+ "cores": {
+  "fundo": "#fbf7f3",
+  "papel": "#fffdfa",
+  "areia": "#f3ebe3",
+  "linha": "#e7dcd1",
+  "tinta": "#2e2523",
+  "tinta2": "#685a55",
+  "rosa": "#d6a08f",
+  "acento": "#9c3f37",
+  "acento_escuro": "#7e3029",
+  "cafe": "#2a1d1b"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "13h",
+   "14h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 13h",
+   "2026-11-14 9h",
+   "2026-11-14 10h",
+   "2026-11-14 13h",
+   "2026-11-14 14h",
+   "2026-11-21 10h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 14h",
+   "2026-12-05 9h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 11h",
+   "2026-12-12 13h"
+  ],
+  "exemplo": "Horários de exemplo: a Brenda define os dela",
+  "mensagem": "Olá, Brenda! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Brenda Melo Fotografia | Smash the cake, bebês e família no Jardim Santa Adélia, São Paulo",
+  "descricao": "Brenda Melo Fotografia, no Jardim Santa Adélia, em São Paulo: especialista em smash the cake, com ensaios de bebês, família, Páscoa, Dia das Mães e Natal. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia no Jardim Santa Adélia · São Paulo",
+   "frase": "Especialista em smash the cake.",
+   "intro": "Smash the cake, bebês e família no estúdio da Brenda, no Jardim Santa Adélia: fotografia afetiva.",
+   "rotulos": [
+    "Smash the cake",
+    "Páscoa",
+    "Família"
+   ],
+   "especialidades": [
+    "Smash the cake",
+    "Gestante",
+    "Newborn",
+    "Páscoa",
+    "Dia das Mães",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470177638_18079862992601224_5963795243431037866_n.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido de tule rosa no cenário de 1 ano com balões",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470192734_18079863076601224_8832110109255586562_n.jpg",
+     "f": "p",
+     "alt": "Bebê de orelhas de coelho com a cesta de ovos de Páscoa",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/658766747_18353215828234756_2423203882675449928_n.webp",
+     "f": "p",
+     "alt": "Mãe com os dois filhos no colo, em frente ao neon Mãe",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Cada aninho, <em>uma festa.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Brenda. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470177638_18079862992601224_5963795243431037866_n.jpg",
+      "f": "p",
+      "alt": "Bebê de tule rosa no cenário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/Ddv8QOgEWtu__Ddv8QOgEWtu_03.jpg",
+      "f": "l",
+      "alt": "Menina de 2 anos sorrindo ao lado do bolo, no cenário de morangos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/656266515_18226442008309187_446960717236421644_n.webp",
+      "f": "p",
+      "alt": "Bebê com a mão no bolo no cenário do Rei Leão",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/655109234_18099613729943247_259135518794099570_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cenário de sereia com balões lilás",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470195434_18079862647601224_649591941247947204_n.jpg",
+      "f": "p",
+      "alt": "Bebê de tiara sentada no número One branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470176264_18079860838601224_4434830756389654521_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cenário de balões em tons pastel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470230593_18079861132601224_3777814651066139061_n.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido de tule em pé no cenário One",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470208273_18079861111601224_5274605696792712905_n.jpg",
+      "f": "l",
+      "alt": "Bebê comendo o bolo na tenda com balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470170593_18079861891601224_3291243208193774732_n.jpg",
+      "f": "p",
+      "alt": "Menino batendo palmas ao lado do bolo, balões azuis",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/653507512_18140467186500745_3426232364656988534_n.webp",
+      "f": "l",
+      "alt": "Menino sentado na cadeirinha do cenário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470190252_18079860925601224_8356873650441746005_n.jpg",
+      "f": "p",
+      "alt": "Menina de 7 anos segurando o bolo com a velinha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470209975_18079862884601224_2958711431450807197_n.jpg",
+      "f": "l",
+      "alt": "Bebê engatinhando no cenário de sol e balões amarelos",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e Páscoa",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470192734_18079863076601224_8832110109255586562_n.jpg",
+      "f": "p",
+      "alt": "Bebê de orelhas de coelho com a cesta de ovos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470208415_18079863877601224_4188141841498948014_n.jpg",
+      "f": "l",
+      "alt": "Irmãs de orelhas de coelho deitadas no tapete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470191355_18079862659601224_2121058572183488507_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido azul apoiada nas orelhas de coelho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470220070_18079863664601224_9188338120021399811_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470195521_18079863544601224_4942636894621312534_n.jpg",
+      "f": "p",
+      "alt": "Bebê de tiara de orelhas no pelego",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470214447_18079862722601224_9157604490954670699_n.jpg",
+      "f": "l",
+      "alt": "Irmãos segurando as orelhas de coelho e as cenouras",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470233386_18079862803601224_6399196125964996483_n.jpg",
+      "f": "p",
+      "alt": "Menina sentada com as orelhas de coelho de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470171069_18079863073601224_4836937693796001230_n.jpg",
+      "f": "l",
+      "alt": "Irmãos se abraçando na casinha de Páscoa",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e mães",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470157670_18079860889601224_3119745212610014319_n.jpg",
+      "f": "p",
+      "alt": "Mãe agachada com a filha de vestido de renda",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/669652808_18337648018169354_6630540600627170293_n.webp",
+      "f": "l",
+      "alt": "Pais sentados com o bebê engatinhando no tapete",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/654042136_18108086284835082_5754627506369662070_n.jpg",
+      "f": "p",
+      "alt": "Mãe gestante com a filha no colo, em frente ao neon Mãe",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/656227899_18077335607454437_2792278047710475480_n.jpg",
+      "f": "p",
+      "alt": "Mãe, filha e avó sorrindo juntas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/649547103_17948104653118499_138866054466888167_n.webp",
+      "f": "l",
+      "alt": "Pais e a bebê sentados no cenário de balões rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/654021618_18098627047780913_5018624388921237452_n.webp",
+      "f": "p",
+      "alt": "Mãe deitada com o filho na manta de tricô",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/657258834_18571212136021943_5812854991581504503_n.webp",
+      "f": "p",
+      "alt": "Mãe abraçando os dois filhos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/655578320_17989392794783028_817958308712093649_n.webp",
+      "f": "l",
+      "alt": "Pais e o filho com a placa do nome da irmã que vai chegar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/470228423_18079863784601224_6163585465622387638_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no colo, os dois rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/660678505_18583158964003501_5460533481962023936_n.webp",
+      "f": "p",
+      "alt": "Mãe e filho abraçados em frente ao neon Mãe",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/468185569_18037426355205506_7580833378274782809_n.jpg",
+      "f": "l",
+      "alt": "Pais e a filha na casinha branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/468012573_18037426223205506_700393052186097322_n.jpg",
+      "f": "p",
+      "alt": "Mãe sentada com a filha pequena no estúdio claro",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/drive/479985699_1544823272866485_4922148986225961084_n.jpg",
+    "f": "p",
+    "alt": "Brenda Melo sorrindo, com a câmera na mão",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Brenda é especialista em smash the cake e faz fotografia afetiva no estúdio dela, no Jardim Santa Adélia, na zona leste de São Paulo. Fotografa bebês, gestantes e famílias, com cenário novo para a Páscoa, o Dia das Mães e o Natal."
+   ],
+   "citacao": "Porque o Natal também é sobre isso: viver momentos que, um dia, nossos filhos vão lembrar com o mesmo carinho que nós lembramos dos nossos.",
+   "citacao_quem": "Brenda Melo, no Instagram",
+   "p2": [
+    "Com a Thais, ela também faz a cobertura das festas de aniversário. Nas avaliações do Google, as famílias falam da “ótima dupla”, do cuidado na preparação do cenário e de como os bebês ficam à vontade."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "55 avaliações no Google"
+    ],
+    [
+     "5,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "cenários de Natal em 2026"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>a cada aninho.</em>",
+   "p": "Os ensaios que a Brenda faz no estúdio:",
+   "fonte": "Bio, destaques e legendas da Brenda no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Casais e famílias esperando o bebê, no estúdio claro."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Recém-nascidos fotografados com cuidado, até gêmeas."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "A especialidade",
+     "p": "Balões, bolo e o número do aninho: do primeiro ao sétimo aniversário."
+    },
+    {
+     "nome": "Páscoa e Dia das Mães",
+     "sub": "Cenários especiais",
+     "p": "Coelhos, cenouras e a cesta de ovos; o neon “Mãe” no Dia das Mães."
+    },
+    {
+     "nome": "Festa infantil",
+     "sub": "Com a Thais",
+     "p": "A cobertura da festa de aniversário, para guardar o dia inteiro."
+    },
+    {
+     "nome": "Natal",
+     "sub": "De Volta ao Lar",
+     "p": "Em 2026, a cabana e a Cozinha dos Biscoitos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "De volta <em>ao lar.</em>",
+   "p": "A cabana e a Cozinha dos Biscoitos já estão no estúdio, e a temporada de Natal vai até 14 de dezembro. Escolha um horário e a mensagem chega pronta no WhatsApp da Brenda.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerxWNWlPLq__DerxWNWlPLq_01.jpg",
+    "f": "l",
+    "alt": "Família de avental fazendo biscoitos na Cozinha dos Biscoitos"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Lais Silva",
+    "tag": "Smash the cake",
+    "trecho": "Fizemos o smash the cake da minha filha e ficou surreal de tão lindo."
+   },
+   {
+    "nome": "Sara Liz Cavalcanti",
+    "tag": "Ensaio",
+    "trecho": "Foi tudo feito com muito amor, carinho, atenção, e isso faz toda diferença! Além disso, quanto profissionalismo, ein! As fotos ficaram impecáveis."
+   },
+   {
+    "nome": "Vitoria Pereira",
+    "tag": "Smash e festa",
+    "trecho": "Ótima dupla! amei o atendimento, meu bebê ficou super a vontade no smash cake, a cobertura a festa nem se fala, ótimas fotos"
+   },
+   {
+    "nome": "Pâmella Nascimento",
+    "tag": "Smash e aniversário",
+    "trecho": "Gente a Brenda é maravilhosa! Fizemos o Smash do meu caçula com ela a pouco mais de um ano atrás"
+   },
+   {
+    "nome": "Caroline Passos",
+    "tag": "Smash e festa de 1 ano",
+    "trecho": "Fiz o pacote do Smash the cake juntamente com a cobertura da festa de 1 ano do meu nenê, e só tenho elogios sobre os dois trabalhos."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Santa Adélia, na zona leste de São Paulo.",
+   "telefone": "(11) 97528-1381",
+   "endereco": [
+    "Rua Prof. Mendes Pimentel, 265",
+    "Jardim Santa Adélia",
+    "São Paulo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Estúdio Brenda Melo Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@brendamelofotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: De Volta ao Lar | Brenda Melo Fotografia",
+  "descricao": "Natal 2026 na Brenda Melo Fotografia, no Jardim Santa Adélia, em São Paulo: a cabana e a Cozinha dos Biscoitos. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · De Volta ao Lar",
+   "h1": "De volta <em>ao lar.</em>",
+   "citacao": "Porque o Natal também é sobre isso: viver momentos que, um dia, nossos filhos vão lembrar com o mesmo carinho que nós lembramos dos nossos.",
+   "citacao_quem": "Brenda Melo, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_01.jpg",
+    "f": "p",
+    "alt": "Família sentada na cabana, ao lado da árvore de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "A cabana, Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários, <em>muitas memórias.</em>",
+   "p": "O Natal 2026 tem dois cenários: a cabana, com a lareira, a árvore e a TV antiga, e a Cozinha dos Biscoitos, com o avental, a massa e as receitas de família. A temporada de ensaios vai de 20 de outubro a 14 de dezembro.",
+   "itens": [
+    "No estúdio, no Jardim Santa Adélia.",
+    "Momentos de brincadeira: amassar os biscoitos, ler no tapete.",
+    "Uma paleta de cores para combinar as roupas da família.",
+    "Valores e detalhes pelo WhatsApp da Brenda."
+   ],
+   "legenda_fotos": "A cabana e a Cozinha dos Biscoitos"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DenVqCeODai__DenVqCeODai_00.jpg",
+    "f": "p",
+    "alt": "Menina de vestido vermelho amassando a massa dos biscoitos",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerxWNWlPLq__DerxWNWlPLq_03.jpg",
+    "f": "l",
+    "alt": "Pai e filha na Cozinha dos Biscoitos, com a árvore ao lado",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_05.jpg",
+    "f": "p",
+    "alt": "Pai carregando a filha nas costas na cabana",
+    "c": [
+     0.5,
+     0.4
+    ]
+   }
+  ],
+  "agenda": {
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, das 9h às 15h, como o estúdio abre aos sábados (a temporada vai até 14 de dezembro). A Brenda define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Brenda abre com a mensagem pronta, com o dia e a hora.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Brenda abre com o dia e a hora escritos."
+    ],
+    [
+     "A Brenda confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "A primeira família <em>da temporada.</em>",
+   "nome": "Natal 2026",
+   "p": "Um dos primeiros ensaios nos cenários deste ano, na cabana e na cozinha.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_04.jpg",
+     "f": "p",
+     "alt": "Mãe e filha abraçadas, rindo, na cabana",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerxWNWlPLq__DerxWNWlPLq_04.jpg",
+     "f": "l",
+     "alt": "Mãe e filha amassando os biscoitos",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_09.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo no cavalinho de madeira",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerxWNWlPLq__DerxWNWlPLq_06.jpg",
+     "f": "l",
+     "alt": "Menina rindo enquanto prepara os biscoitos",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_10.jpg",
+     "f": "p",
+     "alt": "Menina deitada no tapete com o rosto nas mãos",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerxWNWlPLq__DerxWNWlPLq_09.jpg",
+     "f": "l",
+     "alt": "Família rindo junta na Cozinha dos Biscoitos",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_00.jpg",
+     "f": "p",
+     "alt": "Casal se beijando enquanto a filha abraça o ursinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/postsall/DerjyDzETrc__DerjyDzETrc_08.jpg",
+     "f": "p",
+     "alt": "Família deitada no tapete da cabana",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "comentario": "Demo Estúdio Brenda Melo Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Vitoria Pereira",
+    "tag": "Smash e festa",
+    "trecho": "Ótima dupla! amei o atendimento, meu bebê ficou super a vontade no smash cake, a cobertura a festa nem se fala, ótimas fotos"
+   },
+   {
+    "nome": "Pâmella Nascimento",
+    "tag": "Smash e aniversário",
+    "trecho": "Gente a Brenda é maravilhosa! Fizemos o Smash do meu caçula com ela a pouco mais de um ano atrás"
+   },
+   {
+    "nome": "Caroline Passos",
+    "tag": "Smash e festa de 1 ano",
+    "trecho": "Fiz o pacote do Smash the cake juntamente com a cobertura da festa de 1 ano do meu nenê, e só tenho elogios sobre os dois trabalhos."
+   },
+   {
+    "nome": "Lais Silva",
+    "tag": "Smash the cake",
+    "trecho": "Fizemos o smash the cake da minha filha e ficou surreal de tão lindo."
+   },
+   {
+    "nome": "Sara Liz Cavalcanti",
+    "tag": "Ensaio",
+    "trecho": "Foi tudo feito com muito amor, carinho, atenção, e isso faz toda diferença! Além disso, quanto profissionalismo, ein! As fotos ficaram impecáveis."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · De Volta ao Lar",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Brenda no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97528-1381); a bio do Instagram usa um link curto do WhatsApp (wa.me/message)",
+  "site": "não tem: o Google aponta o Instagram; brendamelo.com.br é de uma arquiteta (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/brenda-melo-fotografia` e `/demo/brenda-melo-fotografia/natal`",
+  "direcao": [
+   "Portfólio claro, com o vermelho da campanha de Natal dela; a cor de destaque é um vermelho terroso.",
+   "Sem logo em boa resolução: o topo e o rodapé usam um monograma BM e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Fotógrafa especialista em Smash The Cake”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Smash the cake, Bebês e Páscoa, Família e mães), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “De Volta ao Lar”: a cabana e a Cozinha dos Biscoitos, a temporada (20/10 a 14/12, da arte dela), a agenda de exemplo e a primeira família da temporada.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2024) e os posts de setembro e outubro de 2026 (aniversário de 2 anos e a campanha de Natal).",
+   "Fora de propósito: as artes com texto (Páscoa, pré-venda, “Agenda aberta”) e o carrossel “Destaque a sua empresa”.",
+   "A foto de quem fotografa é a dela com a câmera."
+  ],
+  "textos": [
+   "Bio: “Fotógrafa especialista em Smash The Cake”, “Fotografia Afetiva”, JD Santa Adélia.",
+   "Legendas dela: Natal 2026 “De Volta ao Lar”, a cabana (“viver momentos que, um dia, nossos filhos vão lembrar…”) e a Cozinha dos Biscoitos; a arte da temporada (20/10 a 14/12).",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho; várias citam a Thais (cobertura de festa)."
+  ],
+  "conferir": [
+   "A Thais é sócia ou parceira? O texto diz que ela faz a cobertura das festas com a Brenda.",
+   "A pré-venda do Natal acabou em 17/10; os horários da página são exemplo.",
+   "O WhatsApp da demo é o do Google; a bio usa um link curto."
+  ]
+ },
+ "marca_completa": "Estúdio Brenda Melo Fotografia",
+ "fone_link": "+5511975281381",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Brenda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/brenda-melo-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Brenda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Brenda, da Brenda Melo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Brenda, da Brenda Melo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}
