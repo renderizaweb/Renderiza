@@ -1,0 +1,681 @@
+{
+ "pasta": "camila-linhares-fotografia",
+ "marca": "Studio Camila Linhares",
+ "marca_completa": "Studio Camila Linhares Fotografia",
+ "titulo_nome": "Camila Linhares",
+ "titulo_script": "fotografia",
+ "dona": "Camila",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.653366,-46.7205372",
+  "fid": "0x94ce4f91821cb337:0xa3ab38dac98d4078",
+  "gid": "/g/11lfzcf0mr"
+ },
+ "google_nome": "Studio Camila Linhares",
+ "endereco_maps": "R. Pastor João Galdino de Lima, 66 - Sala 14 - Santo Amaro, São Paulo - SP",
+ "google_nota": "5,0",
+ "google_total": "124",
+ "verificado": "2026-10-28",
+ "whatsapp": "5511947346744",
+ "fone_link": "+5511947346744",
+ "instagram": "camilalinharesfotografia",
+ "seguidores": "6,3 mil",
+ "mensagem": "Olá, Camila! Vi o seu site e queria saber mais sobre os ensaios.",
+ "slogan": "Registrar hoje é guardar pra sempre.",
+ "cores": {
+  "fundo": "#fbf7f4",
+  "papel": "#fffdfb",
+  "areia": "#f4ece6",
+  "linha": "#eadfd6",
+  "tinta": "#33292a",
+  "tinta2": "#6e5d58",
+  "rosa": "#c4958a",
+  "acento": "#9a5b4b",
+  "acento_escuro": "#7c4639",
+  "cafe": "#2e2224"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "12h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 11h",
+   "2026-11-14 9h",
+   "2026-11-14 10h",
+   "2026-11-14 12h",
+   "2026-11-21 9h",
+   "2026-11-21 11h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 12h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 11h"
+  ],
+  "exemplo": "Horários de exemplo: a Camila define os dela",
+  "mensagem": "Olá, Camila! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Camila",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Camila, do Studio Camila Linhares. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Camila, do Studio Camila Linhares. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "site": {
+  "titulo": "Studio Camila Linhares | Fotografia afetiva de família em Santo Amaro, São Paulo",
+  "descricao": "Studio Camila Linhares, em Santo Amaro, São Paulo: fotografia afetiva de família, bebês, smash the cake, Dia das Mães, Natal e marca pessoal. Nota 5,0 no Google.",
+  "comentario": "Demo Studio Camila Linhares (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram dela (@camilalinharesfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Santo Amaro · São Paulo",
+   "frase": "Registrar hoje é guardar pra sempre.",
+   "intro": "Fotografia afetiva de família, bebês e smash the cake no estúdio da Camila, em Santo Amaro.",
+   "rotulos": [
+    "Família",
+    "Bebês",
+    "Smash the cake"
+   ],
+   "especialidades": [
+    "Família",
+    "Bebês",
+    "Smash the cake",
+    "Dia das Mães",
+    "Natal",
+    "Marca pessoal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/642174143_18564077122035225_3992402528164919696_n.webp",
+     "f": "p",
+     "alt": "Pai, mãe e filha abraçados no sofá do cenário verde",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623295739_18101021110851894_3225659475332542424_n.webp",
+     "f": "p",
+     "alt": "Bebê de macacão azul segurando os pezinhos",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623366964_18090974881975719_1811562498968816463_n.webp",
+     "f": "p",
+     "alt": "Menina de 3 anos com coroa ao lado do bolo e do balão de número 3",
+     "c": [
+      0.4,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>com afeto.</em>",
+   "p": "Ensaios feitos no estúdio da Camila. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/625195503_18096444089300181_166821500603705719_n.webp",
+      "f": "p",
+      "alt": "Pai beijando o bebê no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/619505722_17966528502031275_1145213912957956215_n.webp",
+      "f": "l",
+      "alt": "Pai, mãe e filha sentados no cenário de tijolinhos com guirlanda",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/626193269_18234503206307483_5693703686372403125_n.webp",
+      "f": "p",
+      "alt": "Mãe, pai e filho no sofá do cenário verde",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/622755290_18075222851371759_3405480506987412026_n.webp",
+      "f": "l",
+      "alt": "Pais com a bebê de vestido vermelho no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/655271432_18063060692392023_1076178392608340387_n.webp",
+      "f": "l",
+      "alt": "Mãe e filho deitados na cama do cenário, rindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/669855102_18593601250047619_1632546406580995737_n.webp",
+      "f": "p",
+      "alt": "Bebê sentado com o trenzinho de brinquedo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/626295464_18097323433916339_5471964594388825488_n.webp",
+      "f": "l",
+      "alt": "Família com o cachorro no cenário verde, entre as árvores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/postsall/DeILDM8kRFG__DeILDM8kRFG_00.jpg",
+      "f": "l",
+      "alt": "Pais e os dois filhos sentados no chão do estúdio branco",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/postsall/DeIKwUdEXMh__DeIKwUdEXMh_00.jpg",
+      "f": "p",
+      "alt": "Mãe segurando o bebê no colo, sorrindo",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623522481_18079641176353052_3565926815980379536_n.webp",
+      "f": "p",
+      "alt": "Bebê sorrindo sentado no fundo azul",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/652381694_18064721447660012_2526362380948899057_n.webp",
+      "f": "l",
+      "alt": "Bebê com morango na mão no cenário de frutas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/660310851_18583168762058893_1764016771286693105_n.webp",
+      "f": "p",
+      "alt": "Bebê deitado de macacão azul, sorrindo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/652055558_18137965864512398_1287450661691885572_n.webp",
+      "f": "p",
+      "alt": "Bebê com tiara vermelha comendo morango",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/670276457_18457270123111108_2420065533086500995_n.webp",
+      "f": "p",
+      "alt": "Bebê olhando para a câmera, de macacão azul",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623928538_18071585129612357_8398098463716176415_n.webp",
+      "f": "p",
+      "alt": "Menino de pijama de Natal de pé na cama do cenário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/656283285_18221804932314628_4656988796406223397_n.webp",
+      "f": "l",
+      "alt": "Bebê deitado de bruços na cama de tricô do cenário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623295739_18101021110851894_3225659475332542424_n.webp",
+      "f": "p",
+      "alt": "Bebê de macacão azul segurando os pezinhos",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/654003998_18104966953882689_3227027213154397740_n.webp",
+      "f": "p",
+      "alt": "Menina com o bolo no cenário de Alice no País das Maravilhas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/655618528_18059897486392046_5451276159476603551_n.webp",
+      "f": "p",
+      "alt": "Menino vestido de domador no cenário de circo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/618712790_17952244890068920_985165795113114368_n.webp",
+      "f": "l",
+      "alt": "Menina deitada abraçada ao bolo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/650739698_17963558981924447_1507105851460494516_n.webp",
+      "f": "p",
+      "alt": "Bebê com chantilly no rosto no cenário de circo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/656197551_18119599321624080_473327973736144937_n.webp",
+      "f": "p",
+      "alt": "Menina vestida de Alice no cenário com balões",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/625680069_18087183053122692_1715263954242588853_n.webp",
+      "f": "p",
+      "alt": "Menina de 3 anos ao lado do bolo e do balão de número 3",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623366964_18090974881975719_1811562498968816463_n.webp",
+      "f": "p",
+      "alt": "Menina de 3 anos com coroa, de braços abertos",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "marca",
+    "nome": "Marca pessoal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/618807231_17976034088971117_5389956202099459959_n.webp",
+      "f": "p",
+      "alt": "Mulher de camisa branca e braços cruzados, sorrindo",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/625146108_18084481018935572_7063173062579746437_n.webp",
+      "f": "l",
+      "alt": "Mulher sorrindo com as mãos perto do rosto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/622989614_18128823904520949_6525648170678346202_n.webp",
+      "f": "p",
+      "alt": "Duas sócias de branco e preto no fundo bege",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/630056471_18280504156303749_1183013828892961664_n.webp",
+      "f": "p",
+      "alt": "Mulher de cabelo cacheado com um pincel na mão",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/624711126_18091558063970837_1175125318181282202_n.webp",
+      "f": "p",
+      "alt": "Mulher de blazer preto sentada numa cadeira branca",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/651448416_17993967878924070_8496513522091130522_n.webp",
+      "f": "p",
+      "alt": "Mulher de blusa azul segurando um notebook",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/632442044_18442796395108636_4014402885034489764_n.webp",
+      "f": "l",
+      "alt": "Duas mulheres trabalhando no notebook, fundo bege",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/624478837_17938096331996768_4118471769754005257_n.webp",
+      "f": "p",
+      "alt": "Mulher segurando um pote e um pincel de maquiagem",
+      "pos": "50% 30%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/472288654_1658368928077334_7012748259851844499_n.jpg",
+    "f": "p",
+    "alt": "Camila Linhares sorrindo, com a câmera na mão",
+    "c": [
+     0.45,
+     0.5
+    ],
+    "box": [
+     0.04,
+     0.13,
+     0.96,
+     1.0
+    ]
+   },
+   "p": [
+    "A Camila fotografa famílias no estúdio dela, em Santo Amaro: bebês mês a mês, smash the cake, Dia das Mães, Natal e também retratos para quem quer mostrar o próprio trabalho. O jeito dela está na bio do Instagram: fotografia afetiva."
+   ],
+   "citacao": "Mais do que fotos… memórias que vão atravessar gerações.",
+   "citacao_quem": "Camila Linhares, no Instagram",
+   "p2": [
+    "Em 2026, ela viveu o outro lado: fotografou o primeiro ensaio da própria mãe, ao lado do filho. Nas avaliações do Google, quem passou pelo estúdio fala do atendimento, da paciência e do carinho com cada família."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "124 avaliações no Google"
+    ],
+    [
+     "6,3 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "874",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro mês <em>aos avós.</em>",
+   "p": "Os ensaios que a Camila faz no estúdio:",
+   "fonte": "Os ensaios que a Camila mostra no Instagram (@camilalinharesfotografia).",
+   "passos": [
+    {
+     "nome": "Bebês",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê registrados no estúdio, do primeiro sorriso aos primeiros passos."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O aniversário",
+     "p": "Cenário temático e bolo para comemorar: circo, Alice no País das Maravilhas, frutas."
+    },
+    {
+     "nome": "Família",
+     "sub": "Do casal aos avós",
+     "p": "A família inteira no estúdio, com os avós, as crianças e até o cachorro."
+    },
+    {
+     "nome": "Dia das Mães",
+     "sub": "Mães, filhos e gerações",
+     "p": "Mães com os filhos e com as próprias mães. Em 2026, a mãe da Camila fez o primeiro ensaio dela."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Cenário novo todo ano",
+     "p": "Em 2026, dois cenários no estúdio: os tijolinhos com a guirlanda e a sala verde com as árvores."
+    },
+    {
+     "nome": "Marca pessoal",
+     "sub": "Retratos para o trabalho",
+     "p": "Fotos para profissionais e empreendedoras mostrarem o próprio trabalho nas redes."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A magia do Natal <em>está na família.</em>",
+   "p": "Os cenários de Natal deste ano já estão no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Camila.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/624077199_18093014134945080_4493393252265835514_n.webp",
+    "f": "l",
+    "alt": "O cenário de Natal com as árvores, a parede verde e o sofá branco"
+   },
+   "legenda": "Cenário de Natal 2026 no estúdio"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Simone Aoyama",
+    "tag": "Atendimento",
+    "trecho": "Simplesmente perfeito, atendimento excelente!! Simpática, educada, um amorzinho de pessoa, fora a paciência muito maravilhosa"
+   },
+   {
+    "nome": "Josih Fialho.",
+    "tag": "Dedicação",
+    "trecho": "Uma profissional excelente, muito dedicada, trabalha com carisma, mostrando muito amor ao seu trabalho, e aos clientes."
+   },
+   {
+    "nome": "Rosana Santos",
+    "tag": "O estúdio",
+    "trecho": "Atendimento excelente, lugar limpo,arejado, fiquei encantada com tudo. Obrigada Camil pelo carinho de sempre."
+   },
+   {
+    "nome": "Anne Caroline",
+    "tag": "Atendimento e preço",
+    "trecho": "Maravilhosa ... atendendo excelente ..e um preço acessível .super indico o trabalho dela .parabéns"
+   },
+   {
+    "nome": "Tiago LOPES",
+    "tag": "Ensaio de fotos",
+    "trecho": "O trabalho da Camila Linhares é muito bom, eu já fiz um ensaio de fotos e gostei do resultado. Recomendo a todos!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica em Santo Amaro, em São Paulo.",
+   "telefone": "(11) 94734-6744",
+   "endereco": [
+    "Rua Pastor João Galdino de Lima, 66, sala 14",
+    "Santo Amaro",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Studio Camila Linhares",
+  "descricao": "Natal 2026 no Studio Camila Linhares, em Santo Amaro, São Paulo: ensaio de Natal em família no estúdio. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Studio Camila Linhares: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "A magia do Natal <em>está na família.</em>",
+   "citacao": "O tempo passa, os filhos crescem, os avós riem mais baixinho… mas as lembranças ficam. Cada abraço, cada olhar e cada risada merecem ser guardados para sempre.",
+   "citacao_quem": "Do Instagram da Camila, no Natal de 2025",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/622068788_18092084194821730_4201122279242940500_n.webp",
+    "f": "l",
+    "alt": "Família com o cachorro e a bebê na cama do cenário de Natal"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários <em>no estúdio.</em>",
+   "p": "Neste ano, o estúdio montou dois cenários de Natal: a parede de tijolinhos com a guirlanda e a cama de tricô, e a sala verde com as árvores e o sofá branco. Dá para fazer o ensaio da família inteira, com os avós e as crianças.",
+   "itens": [
+    "No estúdio, em Santo Amaro.",
+    "Para a família toda: avós, crianças e até o cachorro.",
+    "Pijama de Natal ou roupa vermelha e verde: as famílias combinam o look.",
+    "Valores e detalhes pelo WhatsApp da Camila."
+   ],
+   "legenda_fotos": "Os cenários de Natal de 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/627982534_18101261137873988_3395283501595912350_n.webp",
+    "f": "p",
+    "alt": "A cama de tricô com almofadas e o Papai Noel de pelúcia, sob a guirlanda"
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/628182825_18258338152290725_3181282655163005882_n.webp",
+    "f": "l",
+    "alt": "O cenário verde: duas árvores de Natal, o sofá branco e os presentes"
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/617347150_17964635847001636_4852164120549353185_n.webp",
+    "f": "l",
+    "alt": "Detalhe da árvore de Natal com a estrela xadrez"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Camila abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, das 9h às 13h, como o estúdio abre aos sábados. A Camila define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Camila abre com o dia e a hora escritos."
+    ],
+    [
+     "A Camila confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal no estúdio",
+   "h2": "Famílias <em>no cenário.</em>",
+   "nome": "Natal 2026",
+   "p": "Famílias que já fizeram o ensaio de Natal nos cenários deste ano.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/631612398_18411151462120927_1754911134789600264_n.webp",
+     "f": "l",
+     "alt": "Casal de pijama de Natal sentado na cama do cenário",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623928538_18071585129612357_8398098463716176415_n.webp",
+     "f": "p",
+     "alt": "Menino de pijama de Natal de pé na cama",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/658028000_18123530035524958_4228228093455435688_n.webp",
+     "f": "p",
+     "alt": "Bebê brincando com o trenzinho vermelho perto da árvore",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/622921229_18045544736507061_3373814849584641446_n.webp",
+     "f": "l",
+     "alt": "Menina de vestido verde sentada perto dos presentes",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/656283285_18221804932314628_4656988796406223397_n.webp",
+     "f": "l",
+     "alt": "Bebê deitado de bruços na cama de tricô",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/623462178_18076509173347161_1973273882908209077_n.webp",
+     "f": "l",
+     "alt": "Família de pijama de Natal na cama do cenário",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/640550261_18572963491058667_4714512313880919735_n.webp",
+     "f": "p",
+     "alt": "Urso de pelúcia de laço xadrez ao lado da cama",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/camila-linhares-fotografia/drive/658740443_18325554763266549_6573863940812202623_n.webp",
+     "f": "l",
+     "alt": "Pai, mãe e filho deitados de bruços, com o queixo nas mãos",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rosana Santos",
+    "tag": "O estúdio",
+    "trecho": "Atendimento excelente, lugar limpo,arejado, fiquei encantada com tudo. Obrigada Camil pelo carinho de sempre."
+   },
+   {
+    "nome": "Simone Aoyama",
+    "tag": "Atendimento",
+    "trecho": "Simplesmente perfeito, atendimento excelente!! Simpática, educada, um amorzinho de pessoa, fora a paciência muito maravilhosa"
+   },
+   {
+    "nome": "Tiago LOPES",
+    "tag": "Ensaio de fotos",
+    "trecho": "O trabalho da Camila Linhares é muito bom, eu já fiz um ensaio de fotos e gostei do resultado. Recomendo a todos!"
+   },
+   {
+    "nome": "Josih Fialho.",
+    "tag": "Dedicação",
+    "trecho": "Uma profissional excelente, muito dedicada, trabalha com carisma, mostrando muito amor ao seu trabalho, e aos clientes."
+   },
+   {
+    "nome": "Anne Caroline",
+    "tag": "Atendimento e preço",
+    "trecho": "Maravilhosa ... atendendo excelente ..e um preço acessível .super indico o trabalho dela .parabéns"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Camila no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google e o link wa.me da bio do Instagram (o mesmo número)",
+  "site": "não tem: sem link no Google; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/camila-linhares-fotografia` e `/demo/camila-linhares-fotografia/natal`",
+  "direcao": [
+   "Portfólio claro e quente, como o estúdio branco dela; a cor de destaque é um terracota rosado.",
+   "Sem logo público: o topo e o rodapé usam um monograma CL e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo e as citações são legendas dela no Instagram."
+  ],
+  "demo": [
+   "Site: portfólio em 4 abas (Família, Bebês, Smash the cake, Marca pessoal), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026: os dois cenários do estúdio, a agenda de exemplo (sábados, das 9h às 13h, como o estúdio abre) e as famílias que já fizeram o ensaio.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Todas do material dela no Instagram (pasta do Drive do lote 1): ensaios no estúdio.",
+   "Fora de propósito: bebês sem roupa na banheira e os posts em que ela aparece como cliente de outra fotógrafa (o Natal da família dela, de @clikjoy).",
+   "A foto de quem fotografa é a do perfil, com a câmera e o nome dela."
+  ],
+  "textos": [
+   "Bio do Instagram: “Fotografia Afetiva”, o endereço e o WhatsApp.",
+   "Legendas dela: “Registrar hoje é guardar pra sempre”, “Mais do que fotos… memórias que vão atravessar gerações” (o primeiro ensaio da mãe dela), “A magia do Natal está na família” e o texto do Natal de 2025.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Endereço: a bio do Instagram traz R. Pastor João Galdino de Lima, 66, sala 14 (Santo Amaro); o Google, Av. das Nações Unidas, 18801. A demo usa o da bio; confirmar com ela.",
+   "As avaliações visíveis no Google são antigas (4 a 6 anos); trocar por recentes se ela indicar.",
+   "Os horários de Natal são exemplo (sábados, 9h às 13h, o horário do estúdio no Google).",
+   "Marca pessoal: confirmar se ela quer essa aba no site de família."
+  ]
+ }
+}

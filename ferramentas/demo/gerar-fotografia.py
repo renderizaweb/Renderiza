@@ -36,6 +36,15 @@ MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', '
 DIAS_SEM = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo']
 
 
+def quem(cfg):
+    """Como o site chama a fotógrafa: o nome da marca no topo (nome + palavra em letra cursiva) e "a Ana"/"da Ana"
+    (demo.json: titulo_nome, titulo_script, quem_a, quem_da; o padrão sai de marca e dona)."""
+    dona = cfg.get('dona', 'Ana')
+    nome = cfg.get('titulo_nome') or re.sub(r'\s+fotografia$', '', cfg['marca'], flags=re.I)
+    a = cfg.get('quem_a', 'a ' + dona); da = cfg.get('quem_da', 'da ' + dona)
+    return {'nome': nome, 'script': cfg.get('titulo_script', 'fotografia'), 'a': a, 'A': a[:1].upper() + a[1:], 'da': da}
+
+
 def T(modelo, **kw):
     """Troca {{chave}} pelo valor (para os blocos grandes de HTML, CSS e JS, sem brigar com chaves de f-string)."""
     for k, v in kw.items():
@@ -583,7 +592,7 @@ def cabecalho(cfg, F, pagina, nav, cta):
     links = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in nav)
     return f'''<header class="site-header">
   <div class="container topo-in">
-    <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início"><img src="{simb[0]}" width="48" height="48" alt=""><span class="marca-nome"><b>Ana Carolina</b><i>fotografia</i></span></a>
+    <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início"><img src="{simb[0]}" width="48" height="48" alt=""><span class="marca-nome"><b>{esc(quem(cfg)["nome"])}</b><i>{esc(quem(cfg)["script"])}</i></span></a>
     <nav class="nav" aria-label="Seções">{links}</nav>
     <a class="botao topo-cta" {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
@@ -683,7 +692,8 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     hero1 = F.uri(h['fotos'][0], 0, 0, fmt='jpeg', q=78, tam=(1000, 1250))
     hero2 = F.uri(h['fotos'][1], 0, 0, q=66, tam=(600, 750))
     hero3 = F.uri(h['fotos'][2], 0, 0, q=66, tam=(600, 750))
-    nav = [('#portfolio', 'Portfólio', ''), ('#sobre', 'A Ana', ''), ('#ensaios', 'Ensaios', ''), ('#depoimentos', 'Depoimentos', ''), ('#natal', 'Natal 2026', ''), ('#contato', 'Contato', '')]
+    q = quem(cfg)
+    nav = [('#portfolio', 'Portfólio', ''), ('#sobre', q['A'], ''), ('#ensaios', 'Ensaios', ''), ('#depoimentos', 'Depoimentos', ''), ('#natal', 'Natal 2026', ''), ('#contato', 'Contato', '')]
     out = [head(cfg, F, s['titulo'], s['descricao'], s['comentario']), '<body class="pagina-site">', SIMBOLOS, faixa_rz(cfg, 'site'),
            cabecalho(cfg, F, 'site', nav, 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'),
            '<main id="inicio">']
@@ -696,7 +706,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     <div class="abertura-texto">
       <div class="abertura-topo">
         <p class="eyebrow">{esc(h["eyebrow"])}</p>
-        <h1 id="titulo-site">Ana Carolina <span class="script">fotografia</span></h1>
+        <h1 id="titulo-site">{esc(q["nome"])} <span class="script">{esc(q["script"])}</span></h1>
         <p class="frase">{esc(h["frase"])}</p>
       </div>
       <div class="abertura-baixo">
@@ -790,13 +800,13 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
         <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Estúdio</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">{esc(" · ".join(v["endereco"]))}</a></div></li>
         <li><svg aria-hidden="true"><use href="#relogio"/></svg><div><b>Atendimento</b><ul class="hours">{horas_html}</ul></div></li>
       </ul>
-      <a {wa_botao("Chamar a Ana no WhatsApp")}</a>
+      <a {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
     </div>
-    <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>Estúdio da Ana</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>Estúdio {esc(q["da"])}</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
 </section>''')
     out.append('</main>')
-    out.append(rodape(cfg, F, [('#portfolio', 'Portfólio', ''), ('#sobre', 'A Ana', ''), ('natal.html', 'Natal 2026', 'natal')]))
+    out.append(rodape(cfg, F, [('#portfolio', 'Portfólio', ''), ('#sobre', q['A'], ''), ('natal.html', 'Natal 2026', 'natal')]))
     out.append(lightbox())
     out.append(pilula_rz(cfg, 'site'))
     return out
@@ -806,7 +816,8 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
 def pagina_natal(cfg, F, google, horas, dias, total, livres):
     n = cfg['natal']; h = n['hero']
     capa = F.uri(h['foto'], 0, 0, fmt='jpeg', q=76, tam=(1500, 1000))
-    nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', 'Natal 2025', ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', 'O site da Ana', 'site')]
+    q = quem(cfg)
+    nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', n['galeria']['nome'], ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', 'O site ' + q['da'], 'site')]
     out = [head(cfg, F, n['titulo'], n['descricao'], n['comentario']), '<body class="pagina-natal">', SIMBOLOS, faixa_rz(cfg, 'natal'),
            cabecalho(cfg, F, 'natal', nav, 'href="#horarios"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher horário'),
            '<main id="inicio">']
@@ -874,7 +885,7 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
   </div>
 </section>''')
     out.append('</main>')
-    out.append(rodape(cfg, F, [('index.html', 'O site da Ana', 'site'), ('index.html#portfolio', 'Portfólio', 'site'), ('#horarios', 'Horários de Natal', '')]))
+    out.append(rodape(cfg, F, [('index.html', 'O site ' + q['da'], 'site'), ('index.html#portfolio', 'Portfólio', 'site'), ('#horarios', 'Horários de Natal', '')]))
     out.append(lightbox())
     out.append(pilula_rz(cfg, 'natal'))
     return out
