@@ -246,3 +246,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Espaço Reserva da Ilha (eventos)](demos/espaco-reserva-da-ilha) | Fazenda da Ilha, Embu-Guaçu | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
 | [Espaço Império Eventos (eventos)](demos/espaco-imperio-eventos) | Vossoroca, Votorantim | site | pronta · 16/10/2026 (eventos lote 3, vídeo no formato do Reels) |
 | [Mansão Jaraguá (eventos)](demos/mansao-jaragua) | Vila Clarice, São Paulo | site | pronta · 16/10/2026 (eventos lote 3, estilo gala, vídeo no formato do Reels) |
+| [Ana Carolina Fotografia (fotógrafa)](demos/ana-carolina-fotografia) | Jardim São Caetano, São Caetano do Sul | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 1ª, formato novo de portfólio com preço e prazo na demo, vídeo no formato do Reels) |

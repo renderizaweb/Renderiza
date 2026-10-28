@@ -1,0 +1,140 @@
+{
+ "demo": "ana-carolina-fotografia",
+ "url": "file:///home/user/renderiza/demos/ana-carolina-fotografia/index.html?video=1",
+ "formato": "reels",
+ "marca": "Ana Carolina Fotografia",
+ "local": "Jardim São Caetano · São Caetano do Sul",
+ "cores": {
+  "fundo": "#2f231d",
+  "fundo2": "#1c1410",
+  "acento": "#dcab94",
+  "claro": "#fbf5ee"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Jost"
+ },
+ "hora": "2026-10-22T11:00:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Ana Carolina",
+   "Fotografia"
+  ],
+  "frase": "Da gestação aos primeiros passos.",
+  "fotos": [
+   ".hero-photo img",
+   "#painel-newborn .g-item:nth-child(2) img",
+   "#painel-bebes .g-item:nth-child(2) img",
+   "#painel-familia .g-item:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Ana Carolina.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 3.6,
+   "legenda": "Hoje, quem procura uma fotógrafa *começa pelo celular.*",
+   "sub": "Quer ver as fotos, conhecer quem fotografa e saber o que as mães contam."
+  },
+  {
+   "rolar": "#portfolio .abas",
+   "alinhar": "topo",
+   "segura": 5.8,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": "#aba-newborn",
+     "clicar": true
+    },
+    {
+     "em": 1.7,
+     "tipo": "tocar",
+     "alvo": "#painel-newborn .g-item:nth-child(1)",
+     "clicar": true
+    },
+    {
+     "em": 3.0,
+     "tipo": "deslizar",
+     "alvo": ".lb-trilho",
+     "cartoes": 1
+    },
+    {
+     "em": 4.8,
+     "tipo": "tocar",
+     "alvo": ".lb-fechar",
+     "clicar": true
+    }
+   ],
+   "legenda": "Vê o portfólio *em tela cheia.*",
+   "sub": "Gestante, newborn, bebês e família: um toque abre a foto, e é só passar para o lado."
+  },
+  {
+   "rolar": ".sobre-foto",
+   "segura": 4.6,
+   "legenda": "Conhece *quem vai fotografar.*",
+   "sub": "A Ana fotografa famílias desde 2019, no estúdio dela em São Caetano do Sul.",
+   "alinhar": "topo",
+   "ajuste": -10
+  },
+  {
+   "rolar": "#depoimentos .avaliacoes-topo",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.8,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.3,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *as mães contam.*",
+   "sub": "Nota 5,0 em 78 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#natal h2",
+   "segura": 4.8,
+   "acoes": [
+    {
+     "em": 1.2,
+     "tipo": "tocar",
+     "alvo": "#natal .proximos li:nth-child(2) a",
+     "clicar": true
+    }
+   ],
+   "legenda": "Escolhe o horário *do ensaio de Natal.*",
+   "sub": "Um toque e a mensagem chega pronta no WhatsApp da Ana, com o dia e a hora.",
+   "alinhar": "topo"
+  },
+  {
+   "rolar": "#contato .canais",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 1.4,
+     "tipo": "tocar",
+     "alvo": "#contato .canais>li:first-child a"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O estúdio, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}
