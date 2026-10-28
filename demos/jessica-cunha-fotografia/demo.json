@@ -1,0 +1,644 @@
+{
+ "pasta": "jessica-cunha-fotografia",
+ "marca": "Estúdio Fotográfico Jessica Cunha",
+ "titulo_nome": "Jessica Cunha",
+ "titulo_script": "fotografia",
+ "dona": "Jessica",
+ "quem_sou": "Sou a Jessica, do Estúdio Fotográfico Jessica Cunha",
+ "google": {
+  "coords": "-23.4535922,-46.5691196",
+  "fid": "0x94cef5e575119459:0xd19c368f099fca1b",
+  "gid": "/g/11rd5vndzy"
+ },
+ "google_nome": "Estúdio Fotográfico Jessica Cunha",
+ "endereco_maps": "Av. Dona Eugênia Machado da Silva, 464 - Vila Galvão, Guarulhos - SP, 07071-070",
+ "google_nota": "5,0",
+ "google_total": "145",
+ "whatsapp": "5511937455244",
+ "instagram": "estudiofotograficojessicacunha",
+ "seguidores": "6,7 mil",
+ "slogan": "É sobre momentos que não voltam mais.",
+ "cores": {
+  "fundo": "#fbf9f6",
+  "papel": "#fffefc",
+  "areia": "#f3eee8",
+  "linha": "#e7e0d7",
+  "tinta": "#2a2523",
+  "tinta2": "#625a55",
+  "rosa": "#c9a98e",
+  "acento": "#8f2a2f",
+  "acento_escuro": "#74212a",
+  "cafe": "#261c1c"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "12h",
+   "13h"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 12h",
+   "2026-11-14 9h",
+   "2026-11-14 10h",
+   "2026-11-14 12h",
+   "2026-11-14 13h",
+   "2026-11-21 10h",
+   "2026-11-21 13h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 13h",
+   "2026-12-05 9h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 11h",
+   "2026-12-12 12h"
+  ],
+  "exemplo": "Horários de exemplo: a Jessica define os dela",
+  "mensagem": "Olá, Jessica! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Estúdio Fotográfico Jessica Cunha | Gestante, bebês e família na Vila Galvão, Guarulhos",
+  "descricao": "Estúdio Fotográfico Jessica Cunha, na Vila Galvão, em Guarulhos: ensaios de gestante, newborn, acompanhamento do bebê, aniversários e Natal, num estúdio branco e cheio de luz. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia na Vila Galvão · Guarulhos",
+   "frase": "É sobre momentos que não voltam mais.",
+   "intro": "Gestante, newborn, bebês e aniversários no estúdio da Jessica, na Vila Galvão, em Guarulhos.",
+   "rotulos": [
+    "Família",
+    "Bebês",
+    "Aniversários"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Aniversários",
+    "Marca pessoal",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/623916512_18164595949393317_2618386854673235553_n.jpg",
+     "f": "p",
+     "alt": "Mãe segurando a bebê no colo, sorrindo",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/624325194_18105366301783281_8548447089672859654_n.jpg",
+     "f": "l",
+     "alt": "Bebê sorrindo deitado no lençol branco",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_01.jpg",
+     "f": "p",
+     "alt": "Menina de 3 anos sorrindo com um buquê de flores",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Tudo branco, <em>cheio de luz.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Jessica. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/619790480_18092324609317098_7500710884547636245_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo sentado na cama branca",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/624835768_18100102732717005_2306341425563996875_n.jpg",
+      "f": "l",
+      "alt": "Bebê de laço branco deitada, olhando para a câmera",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/622050469_18128921533523996_6611524853560785612_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentado num cesto de palha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/626949572_18339080947243147_3529440665132343254_n.jpg",
+      "f": "l",
+      "alt": "Bebê de tiara de flores na manta bege",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/622098934_18103691989840386_8876386300876743284_n.jpg",
+      "f": "p",
+      "alt": "Bebê de body branco deitado, sorrindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/653451632_18111937765668497_9119988697202555486_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido rindo enrolado na manta",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/623272681_18077123132357435_5255764919338798118_n.jpg",
+      "f": "p",
+      "alt": "Bebê de preto deitado, com o pezinho para cima",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/622723519_18106338691779653_9194270016274864377_n.jpg",
+      "f": "p",
+      "alt": "Gêmeas de preto deitadas lado a lado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/631142735_18398544877198926_5533318811034760354_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentado na manta, perto da escadinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/624325194_18105366301783281_8548447089672859654_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo deitado no lençol branco",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/619502823_17958394380050579_5262864020438094261_n.jpg",
+      "f": "p",
+      "alt": "Gestante de preto em frente à janela",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/628093171_18430286539141292_7871647138850954509_n.jpg",
+      "f": "l",
+      "alt": "Mãe abraçando o recém-nascido no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/623916512_18164595949393317_2618386854673235553_n.jpg",
+      "f": "p",
+      "alt": "Mãe segurando a bebê no colo, sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/619777867_17991506342913782_3911827263520154604_n.jpg",
+      "f": "p",
+      "alt": "Casal testa com testa, em close",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/626213049_18085017647141331_7140012232954999281_n.jpg",
+      "f": "p",
+      "alt": "Mãe abraçando o filho no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/621585641_18088990889023302_9181886105200301989_n.jpg",
+      "f": "l",
+      "alt": "Pais com o bebê no colo, sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/626452279_18093134260799010_2652897269216945027_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda branca na luz da janela",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/625162044_18052384340439598_222863976548666570_n.jpg",
+      "f": "l",
+      "alt": "Pai com a mão na barriga da gestante",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/649175195_17938495533016080_1833704877854439443_n.jpg",
+      "f": "p",
+      "alt": "Irmãs de vestido branco de mãos dadas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/626857300_18067521773216684_2859325422251290737_n.jpg",
+      "f": "l",
+      "alt": "Pai agachado segurando o filho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/656185664_18186492172371982_5955391755836370134_n.jpg",
+      "f": "l",
+      "alt": "Gestante de branco perto da janela",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "aniversarios",
+    "nome": "Aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_04.jpg",
+      "f": "p",
+      "alt": "Menina de 3 anos dançando ao lado do balão de número 3",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_03.jpg",
+      "f": "p",
+      "alt": "Menina rindo com a mão no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_08.jpg",
+      "f": "l",
+      "alt": "Mãe e filha rindo rosto com rosto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_06.jpg",
+      "f": "p",
+      "alt": "Menina abraçada ao balão de número 3",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_09.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo com laço azul no cabelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_12.jpg",
+      "f": "p",
+      "alt": "Menina de pé ao lado do balão 3",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_11.jpg",
+      "f": "l",
+      "alt": "Pai e filha sorrindo juntos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91ENukSc2__De91ENukSc2_01.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo com um buquê de flores",
+      "pos": "50% 30%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/623665067_18051156683698136_2343610667574205923_n.jpg",
+    "f": "l",
+    "alt": "Jessica Cunha sorrindo no estúdio branco",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Jessica, a “Titia Je”, fotografa famílias no estúdio dela, na Vila Galvão, em Guarulhos: gestantes, recém-nascidos, o acompanhamento dos bebês e aniversários, num estúdio todo branco e cheio de luz."
+   ],
+   "citacao": "É sobre momentos que não voltam mais.",
+   "citacao_quem": "Jessica Cunha, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam que ela recebe as crianças pelo nome e deixa todo mundo à vontade, até quem nunca fez um ensaio. Também fotografa parto, marca pessoal, 15 anos e casamento civil."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "145 avaliações no Google"
+    ],
+    [
+     "6,7 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1.483",
+     "publicações no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da gestação <em>a cada aniversário.</em>",
+   "p": "Os ensaios que a Jessica faz:",
+   "fonte": "Bio, destaques e legendas da Jessica no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio branco, com a luz da janela."
+    },
+    {
+     "nome": "Parto e newborn",
+     "sub": "Os primeiros dias",
+     "p": "Do parto aos primeiros dias do bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê, sempre no mesmo estúdio claro."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "Do 1º aninho em diante",
+     "p": "Ensaios de aniversário e a festa."
+    },
+    {
+     "nome": "Para todas as idades",
+     "sub": "Marca pessoal e 15 anos",
+     "p": "Retratos de marca pessoal, 15 anos e casamento civil."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Memórias em Veludo",
+     "p": "O cenário de 2026, todo de veludo vermelho."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Memórias <em>em veludo.</em>",
+   "p": "O cenário de Natal 2026 já está no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Jessica.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De4LBAfxEV5__capa.jpg",
+    "f": "l",
+    "alt": "A guirlanda iluminada na cortina de veludo vermelho"
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Larissa Kerolli Soares Rodrigues",
+    "tag": "Família",
+    "trecho": "recebeu meus filhos os chamando pelo nome, achei incrível, durante as fotos foi paciente, cuidadosa e caprichosa, o ambiente estava lindo e o cenário para as fotos impecável."
+   },
+   {
+    "nome": "Maylenn Oliveira",
+    "tag": "Gestante e newborn",
+    "trecho": "Em Agosto 2026 realizei o ensaio gestante e amei a experiência, o cuidado, atendimento e sem dúvidas os registros através das fotos ficaram perfeitas!"
+   },
+   {
+    "nome": "Jack Firmo",
+    "tag": "Ensaio",
+    "trecho": "Eu nunca tinha feito uma sessão de fotos antes e estava um pouco insegura, mas ela conseguiu me deixar completamente à vontade durante todo o ensaio."
+   },
+   {
+    "nome": "Lucas Carneiro",
+    "tag": "3 anos",
+    "trecho": "Dessa vez foi os 3 anos do nosso príncipe e como sempre ela nos atendeu super bem, a decoração superou nossas expectativas, e as fotos nem se fale, ficaram maravilhosas."
+   },
+   {
+    "nome": "Carol Franco",
+    "tag": "Bebê",
+    "trecho": "Meu bebê é apaixonado por ela, em todas as fotos, ela proporcionou aconchego, zelo, dedicação e amor, tanto para o trabalho, quanto para nós !"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Galvão, em Guarulhos.",
+   "telefone": "(11) 93745-5244",
+   "endereco": [
+    "Av. Dona Eugênia Machado da Silva, 464",
+    "Vila Galvão",
+    "Guarulhos · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Estúdio Fotográfico Jessica Cunha (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@estudiofotograficojessicacunha) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Memórias em Veludo | Estúdio Fotográfico Jessica Cunha",
+  "descricao": "Natal 2026 no Estúdio Fotográfico Jessica Cunha, na Vila Galvão, em Guarulhos: o cenário Memórias em Veludo. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Memórias <em>em veludo.</em>",
+   "citacao": "É sobre momentos que não voltam mais.",
+   "citacao_quem": "Jessica Cunha, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De4d0oUAJ3K__capa.jpg",
+    "f": "p",
+    "alt": "Bebê sorrindo no cenário de Natal de veludo vermelho, com as luzes ao fundo",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O Natal <em>de veludo vermelho.</em>",
+   "p": "O cenário de Natal 2026 é todo de veludo vermelho: as cortinas, os presentes e o laço dourado, com a guirlanda e a árvore cheia de luzes. Os primeiros ensaios já foram postados em outubro.",
+   "itens": [
+    "No estúdio, na Vila Galvão, em Guarulhos.",
+    "Do recém-nascido à família toda.",
+    "O cenário de 2025 está nos destaques do Instagram dela.",
+    "Valores e detalhes pelo WhatsApp da Jessica."
+   ],
+   "legenda_fotos": "O cenário Memórias em Veludo"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De2Sf-PvI9R__capa.jpg",
+    "f": "p",
+    "alt": "Mulher de vermelho segurando uma bola de Natal gigante com laço dourado",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De4LBAfxEV5__capa.jpg",
+    "f": "l",
+    "alt": "A guirlanda iluminada na cortina de veludo vermelho",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De61LhJgrEs__capa.jpg",
+    "f": "p",
+    "alt": "Presentes de veludo vermelho com laço dourado sob a árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal no estúdio",
+   "h2": "Os primeiros <em>do ano.</em>",
+   "nome": "Natal 2026",
+   "p": "Os primeiros ensaios no cenário deste ano.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De4d0oUAJ3K__capa.jpg",
+     "f": "p",
+     "alt": "Bebê sorrindo no cenário de veludo vermelho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/864762924_18131963362754095_4047541234281785232_n.jpg",
+     "f": "p",
+     "alt": "Mulher de vermelho sentada em frente à árvore de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/postsall/De91UxIRS0L__capa.jpg",
+     "f": "p",
+     "alt": "Pezinhos do bebê no veludo vermelho, com as luzes ao fundo",
+     "pos": "50% 60%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/drive/503150650_1739251766987960_9133751978416390631_n.jpg",
+     "f": "p",
+     "alt": "Detalhe da rena dourada e do quadro Merry Christmas",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "comentario": "Demo Estúdio Fotográfico Jessica Cunha: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Jack Firmo",
+    "tag": "Ensaio",
+    "trecho": "Eu nunca tinha feito uma sessão de fotos antes e estava um pouco insegura, mas ela conseguiu me deixar completamente à vontade durante todo o ensaio."
+   },
+   {
+    "nome": "Lucas Carneiro",
+    "tag": "3 anos",
+    "trecho": "Dessa vez foi os 3 anos do nosso príncipe e como sempre ela nos atendeu super bem, a decoração superou nossas expectativas, e as fotos nem se fale, ficaram maravilhosas."
+   },
+   {
+    "nome": "Carol Franco",
+    "tag": "Bebê",
+    "trecho": "Meu bebê é apaixonado por ela, em todas as fotos, ela proporcionou aconchego, zelo, dedicação e amor, tanto para o trabalho, quanto para nós !"
+   },
+   {
+    "nome": "Larissa Kerolli Soares Rodrigues",
+    "tag": "Família",
+    "trecho": "recebeu meus filhos os chamando pelo nome, achei incrível, durante as fotos foi paciente, cuidadosa e caprichosa, o ambiente estava lindo e o cenário para as fotos impecável."
+   },
+   {
+    "nome": "Maylenn Oliveira",
+    "tag": "Gestante e newborn",
+    "trecho": "Em Agosto 2026 realizei o ensaio gestante e amei a experiência, o cuidado, atendimento e sem dúvidas os registros através das fotos ficaram perfeitas!"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Jessica abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Jessica define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Jessica abre com o dia e a hora escritos."
+    ],
+    [
+     "A Jessica confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Jessica no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 93745-5244); a bio leva ao Linktree",
+  "site": "só Linktree: o Google aponta linktr.ee/jessicacunhafotografia; 20 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/jessica-cunha-fotografia` e `/demo/jessica-cunha-fotografia/natal`",
+  "direcao": [
+   "Portfólio branco e luminoso, como o estúdio dela; a cor de destaque é o vermelho do veludo do Natal 2026.",
+   "Sem logo em boa resolução: o topo e o rodapé usam um monograma JC e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é uma legenda dela (“É sobre momentos que não voltam mais”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Bebês, Gestante e família, Aniversários), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Memórias em Veludo”: o cenário, a agenda de exemplo (sábados, das 9h às 14h, como o estúdio abre) e os primeiros ensaios.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2023) e os posts de outubro de 2026 (3 anos e Natal 2026; do Natal, só as capas, em 1080 px).",
+   "Fora de propósito: os cartões só com texto (Casamento civil, 15 anos, Marca pessoal) e os closes de mãos e pés.",
+   "A foto de quem fotografa é a do post em que ela se apresenta (“Oii, prazer! Sou a Jessica Cunha”)."
+  ],
+  "textos": [
+   "Bio: “NATAL Memórias em Veludo”, o endereço na Vila Galvão.",
+   "Legendas dela: “Sou a Jessica Cunha, mas também conhecida como Titia Je”, “É sobre momentos que não voltam mais”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "A mulher de vermelho no cenário de Natal parece ser a própria Jessica (lançamento do cenário): confirmar.",
+   "O levantamento do lote viu uma avaliação reclamando de atraso na agenda e na entrega: não está entre as visíveis agora.",
+   "Os horários de Natal são exemplo."
+  ]
+ },
+ "marca_completa": "Estúdio Fotográfico Jessica Cunha",
+ "fone_link": "+5511937455244",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Jessica! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/jessica-cunha-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Jessica",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Jessica, do Estúdio Fotográfico Jessica Cunha. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Jessica, do Estúdio Fotográfico Jessica Cunha. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}
