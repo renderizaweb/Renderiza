@@ -149,6 +149,9 @@ inventado, a **Villa Alecrim**:
 - `painel-eventos.html?video=1` põe todas as partes uma embaixo da outra, para o gravador rolar.
 - Imagens dos cartões e da prévia do link: `node ferramentas/exemplos/capturas.mjs` (depois de mudar os exemplos
   ou regravar o vídeo).
+- **O Painel Renderiza de verdade (28/10/2026):** o produto com login para os clientes (Supabase e Vercel, módulos,
+  agenda online ligada ao site e o módulo Meu site) está planejado em [`docs/painel-clientes/`](docs/painel-clientes/README.md):
+  o trilho com as paradas, onde o projeto está e as perguntas em aberto. Os exemplos acima são a especificação das telas.
 
 ## Flyer de Stories
 

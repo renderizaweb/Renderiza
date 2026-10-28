@@ -194,6 +194,10 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   Para os leads de eventos, mandar sempre o link com o código (**Copiar link do painel**, no lead): é ele que
   conta quem abriu (tabela `visitas`; README, "Exemplos de sistema"). O IP fica guardado para separar o cliente de
   nós; a página avisa no rodapé que conta a visita.
+- **Painel Renderiza de verdade (28/10/2026):** colocar no ar o painel para clientes (login, Supabase e Vercel nos
+  planos gratuitos, módulos reais, agenda online ligada ao site e o módulo novo **Meu site**, em que o cliente edita o
+  site e, desconectado, o site volta sozinho à versão inicial). Tudo em `docs/painel-clientes/`: comece pelo README de
+  lá; o trilho diz em que parada o projeto está. Não confundir com o painel interno (`painel/`, o Pipeline).
 
 ## Lote 2 (aprovado pelo Kaue em 29/09/2026): demos prontas (Dutra parada)
 
