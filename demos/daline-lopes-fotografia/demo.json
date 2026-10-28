@@ -1,0 +1,679 @@
+{
+ "pasta": "daline-lopes-fotografia",
+ "marca": "Daline Lopes Fotografia",
+ "titulo_nome": "Daline Lopes",
+ "titulo_script": "fotografia",
+ "dona": "Daline",
+ "quem_sou": "Sou a Daline, da Daline Lopes Fotografia",
+ "google": {
+  "coords": "-23.6563245,-46.8578143",
+  "fid": "0x94cfabbae3cad3b5:0x69546c9affea7cf0",
+  "gid": "/g/11wppn1fv9"
+ },
+ "google_nome": "Daline Lopes Fotografia",
+ "endereco_maps": "Estr. dos Orquidófilos, 307 - Sobreloja - Sl 03 - Chácaras Marajuara, Embu das Artes - SP, 06843-245",
+ "google_nota": "5,0",
+ "google_total": "31",
+ "whatsapp": "5511973728367",
+ "instagram": "dalinelopesfotografia",
+ "seguidores": "5.540",
+ "slogan": "Contar histórias e criar memórias.",
+ "cores": {
+  "fundo": "#fbf7f1",
+  "papel": "#fffdf9",
+  "areia": "#f4ece0",
+  "linha": "#e8ddcd",
+  "tinta": "#2a201b",
+  "tinta2": "#655850",
+  "rosa": "#c99a5b",
+  "acento": "#a3302a",
+  "acento_escuro": "#872621",
+  "cafe": "#2b1d18"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Playfair Display",
+    "ital,wght@0,400..700;1,400..700"
+   ],
+   "sans": [
+    "Josefin Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Pinyon Script",
+    ""
+   ]
+  },
+  "eyebrow": "losango",
+  "botoes": "reto",
+  "agenda": "bilhete",
+  "textura": "papel",
+  "ornamento": "✶",
+  "script_escala": 0.9,
+  "css": "body{font-size:1.1rem}.abertura h1{font-weight:600;letter-spacing:.04em}h2,h3{font-weight:500}.eyebrow,.nav a,.link,.aba{font-weight:600}.mosaico figure{outline:1px solid color-mix(in srgb,var(--rosa) 70%,transparent);outline-offset:5px}.mosaico{gap:16px}@media(max-width:760px){.abas{grid-template-columns:repeat(3,minmax(0,1fr))}}"
+ },
+ "horarios": {
+  "mensagem": "Olá, Daline! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal (Expresso Encantado ou Sonho de Natal). Ainda está livre?",
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 10h",
+   "2026-11-14 14h",
+   "2026-11-14 15h",
+   "2026-11-21 10h",
+   "2026-11-21 15h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 9h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 11h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Daline define os dela"
+ },
+ "site": {
+  "titulo": "Daline Lopes Fotografia | Gestante, smash, aniversários e família em Embu das Artes",
+  "descricao": "Daline Lopes Fotografia, em Embu das Artes: especialista em ensaio gestante, smash the cake, aniversários, 15 anos, família e eventos, com foto e vídeo. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia em Embu das Artes",
+   "frase": "Contar histórias e criar memórias.",
+   "intro": "Gestante, smash the cake, aniversários, 15 anos e família, no estúdio e nas ruas do centro histórico de Embu das Artes. Foto e vídeo.",
+   "rotulos": [
+    "Gestante",
+    "1º aninho",
+    "15 anos"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Smash the cake",
+    "Aniversários",
+    "15 anos",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/620337720_18091125829840815_4037015906719297886_n.jpg",
+     "f": "p",
+     "alt": "Casal de gestantes em frente à igreja branca do centro de Embu das Artes",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Ddl1SB-kZAt_Ddl1SB-kZAt_00.jpg",
+     "f": "l",
+     "alt": "Bebê de 1 ano sorrindo com a melancia no cenário verde",
+     "c": [
+      0.42,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649187942_18097200122484167_323664494243946016_n.jpg",
+     "f": "p",
+     "alt": "Menina de 15 anos de vestido azul com balões, no parque",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Histórias <em>que viram memória.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Daline. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/620337720_18091125829840815_4037015906719297886_n.jpg",
+      "f": "p",
+      "alt": "Casal de gestantes em frente à igreja branca do centro de Embu das Artes",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651163428_18196828348348846_716246479572065534_n.webp",
+      "f": "l",
+      "alt": "Gestante de vestido azul longo à beira do lago",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/626808209_18304579501279463_8106326983538946613_n.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu nas ruas coloridas do centro de Embu das Artes",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/641652399_18569324116038997_4293815898301870440_n.jpg",
+      "f": "p",
+      "alt": "Gestante de body preto no fundo rosado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649058644_18083685032255252_7878500557553065794_n.jpg",
+      "f": "p",
+      "alt": "Silhueta de gestante de chapéu",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/620267984_18084094150927089_1021292471688660121_n.jpg",
+      "f": "l",
+      "alt": "Casal deitado na grama com os sapatinhos do bebê em primeiro plano",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649743512_18040671590538359_1818534718812904693_n.webp",
+      "f": "p",
+      "alt": "Gestante de vestido azul com a cauda aberta no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/650671163_18093435515026004_6859556789717951384_n.jpg",
+      "f": "p",
+      "alt": "Casal de testa colada, ele com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651788414_18093924595843280_8125501487863375413_n.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu e body de renda no fundo rosado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/654206121_18316808410280540_6201835962451759079_n.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu, em preto e branco",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Ddl1SB-kZAt_Ddl1SB-kZAt_02.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano abraçado ao leão de pelúcia, no arco branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Ddl1SB-kZAt_Ddl1SB-kZAt_00.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano sorrindo com a melancia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/657890070_18412564543135175_3639441815406097972_n.webp",
+      "f": "p",
+      "alt": "Bebê com o rosto todo de bolo azul, no smash",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Dc_xoP4iTb8_Dc_xoP4iTb8_00.jpg",
+      "f": "l",
+      "alt": "Menina de 4 anos de chapéu de confeiteira com o bolo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/648975003_18070479623634923_8667566410476456576_n.webp",
+      "f": "p",
+      "alt": "Menino de 5 anos com o balão de número 5, no tema Mundo Bita",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/653576842_18111067123749947_536147704106351937_n.webp",
+      "f": "l",
+      "alt": "Menina rindo com um donut no olho, no cenário de doces",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/652749153_18113108146664205_459300707767277234_n.webp",
+      "f": "p",
+      "alt": "Menino sorrindo abraçado ao boneco do Mundo Bita",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Dc_xoP4iTb8_Dc_xoP4iTb8_08.jpg",
+      "f": "l",
+      "alt": "Menina de 4 anos com o pirulito, no cenário de doces",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e 15 anos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649187942_18097200122484167_323664494243946016_n.jpg",
+      "f": "p",
+      "alt": "Menina de 15 anos com balões brancos, no parque",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Dc_xoP4iTb8_Dc_xoP4iTb8_05.jpg",
+      "f": "l",
+      "alt": "Pais com a filha de 4 anos no cenário de doces",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/662245208_18393873715155244_3359216004030471544_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de 15 anos de vestido vermelho",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/Ddl1SB-kZAt_Ddl1SB-kZAt_06.jpg",
+      "f": "p",
+      "alt": "Pais brincando com o filho de 1 ano no estúdio branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/621149419_18086609327328054_1038220305465061834_n.jpg",
+      "f": "l",
+      "alt": "Moça com luzinhas nas mãos no fundo rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649224576_18059723102375616_6244749646920408066_n.jpg",
+      "f": "p",
+      "alt": "Pai beijando o recém-nascido, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651006905_18109540543693900_5943031903742576611_n.jpg",
+      "f": "p",
+      "alt": "Menina de 15 anos com os balões coloridos de 1 e 5",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649183152_18091320071112478_3800206700316999434_n.jpg",
+      "f": "l",
+      "alt": "Menina de 15 anos de vestido vermelho deitada no tecido vermelho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/626225491_18429795199137288_3257651881502990696_n.jpg",
+      "f": "p",
+      "alt": "Menina de 15 anos de vestido vermelho com balões prateados",
+      "pos": "50% 30%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/De92f4No5x6_De92f4No5x6_04.jpg",
+    "f": "p",
+    "alt": "Daline Lopes sorrindo com a câmera, ao lado da árvore de Natal",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "p": [
+    "A Daline fotografa e filma em Embu das Artes, num estúdio no Chácaras Marajuara e nas ruas do centro histórico da cidade. Na bio, ela se apresenta como especialista em ensaio gestante."
+   ],
+   "citacao": "Fotografia e vídeo com propósito: contar histórias e criar memórias.",
+   "citacao_quem": "Daline Lopes, na bio do Instagram",
+   "p2": [
+    "Nas avaliações, falam da sensibilidade dela e do estúdio acolhedor. Ela também fotografa festas e eventos, como os Insulinaços, que reúnem crianças e adultos com diabetes tipo 1."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "31 avaliações no Google"
+    ],
+    [
+     "5.540",
+     "seguidores no Instagram"
+    ],
+    [
+     "428",
+     "publicações no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Toda história <em>tem um começo.</em>",
+   "p": "Os ensaios da Daline, com foto e vídeo:",
+   "fonte": "Bio, destaques e legendas da Daline no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A especialidade",
+     "p": "No estúdio ou nas ruas coloridas do centro de Embu das Artes."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Os primeiros meses do bebê, um a um."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Bolo ou fruta: até um leão devorando a melancia."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "De todas as idades",
+     "p": "Dos 4 anos de confeiteira aos 15 anos no parque."
+    },
+    {
+     "nome": "Festas e eventos",
+     "sub": "Foto e vídeo",
+     "p": "Festas de aniversário e eventos, com foto e vídeo."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Duas experiências",
+     "p": "O Expresso Encantado e o Sonho de Natal."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Seu embarque <em>está liberado.</em>",
+   "p": "Duas experiências de Natal no estúdio: o Expresso Encantado, numa estação de trem antiga, e o Sonho de Natal, uma manhã de pijamas na cama. Escolha um horário e a mensagem chega pronta no WhatsApp da Daline.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/De92f4No5x6_De92f4No5x6_02.jpg",
+    "f": "p",
+    "alt": "A Daline sentada no banco da estação do Expresso Encantado",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   "legenda": "O Expresso Encantado, cenário de Natal 2026"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Caroline Damasceno",
+    "tag": "Ensaio no estúdio",
+    "trecho": "O estúdio é acolhedor, o atendimento é impecável e o resultado foi simplesmente emocionante."
+   },
+   {
+    "nome": "Marilia Beites",
+    "tag": "Festa de 1 ano",
+    "trecho": "Além de ser uma ótima profissional, ela é uma fofa, paciente, e faz tudo com muito carinho. Super recomendo!"
+   },
+   {
+    "nome": "Paulo Cesar de Siqueira",
+    "tag": "Eventos",
+    "trecho": "Daline é simplesmente mágica com sua câmera! Ela não apenas fotografa momentos — ela os transforma em poesia visual."
+   },
+   {
+    "nome": "Kaylane Silva",
+    "tag": "Ensaio",
+    "trecho": "Apenas palavras de sucesso a fotógrafa, trabalho lindo com muito amor. Sem dúvidas irei voltar a fazer mais fotos"
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Chácaras Marajuara, em Embu das Artes, em cima do CER.",
+   "telefone": "(11) 97372-8367",
+   "endereco": [
+    "Estr. dos Orquidófilos, 307, sala 3",
+    "Chácaras Marajuara",
+    "Embu das Artes · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Daline Lopes Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@dalinelopesfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Expresso Encantado | Daline Lopes Fotografia",
+  "descricao": "Natal 2026 com a Daline Lopes, em Embu das Artes: o Expresso Encantado, numa estação de trem antiga, e o Sonho de Natal, uma manhã de pijamas. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Embu das Artes",
+   "h1": "Expresso <em>Encantado.</em>",
+   "citacao": "Atenção, passageiros! O Expresso Encantado já está na estação! O próximo destino é o seu Natal.",
+   "citacao_quem": "Daline Lopes, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/De92f4No5x6_De92f4No5x6_00.jpg",
+    "f": "p",
+    "alt": "A Daline encostada no vagão vermelho do Expresso Encantado",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "legenda": "A Daline no Expresso Encantado, cenário de Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "As duas experiências",
+   "h2": "Estação de trem <em>ou manhã de pijamas.</em>",
+   "p": "O Expresso Encantado é uma viagem nostálgica pelas antigas estações ferroviárias: o vagão vermelho, a bilheteria, as malas e a passagem “Acredite”. O Sonho de Natal é um cenário clean e aconchegante, para registrar uma manhã de Natal de pijamas, abraços e brincadeiras na cama.",
+   "itens": [
+    "No estúdio, no Chácaras Marajuara, em Embu das Artes.",
+    "Expresso Encantado: a estação de trem, o cenário principal.",
+    "Sonho de Natal: a manhã de pijamas na cama.",
+    "Valores e detalhes pelo WhatsApp da Daline."
+   ],
+   "legenda_fotos": "Expresso Encantado e Sonho de Natal, os cenários de 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/De92f4No5x6_De92f4No5x6_03.jpg",
+    "f": "p",
+    "alt": "A Daline segurando a passagem “Acredite” do Expresso Encantado",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/De92f4No5x6_De92f4No5x6_05.jpg",
+    "f": "p",
+    "alt": "A fachada da estação, com a bilheteria e o relógio",
+    "c": [
+     0.5,
+     0.25
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/postsflat/DekNmato6O8_DekNmato6O8_05.jpg",
+    "f": "l",
+    "alt": "A cama do Sonho de Natal, com almofadas xadrez e guirlanda",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0,
+     0,
+     1,
+     0.41
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natais anteriores",
+   "h2": "Os Natais <em>da Daline.</em>",
+   "nome": "Natais anteriores",
+   "p": "Ensaios de Natal de outros anos, postados no Instagram dela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/650379877_18070224941222716_955378189790987940_n.jpg",
+     "f": "p",
+     "alt": "Menino de Papai Noel no trenó vermelho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/620429831_18068227625188744_186389535070326946_n.jpg",
+     "f": "l",
+     "alt": "Menina de laço vermelho deitada no tapete, com o Papai Noel de pelúcia",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651799398_18099549151748793_9066920975799058535_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido listrado sentada no trenó",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/627984771_18384175528157339_7646242741425122949_n.jpg",
+     "f": "l",
+     "alt": "Bebê de pijama vermelho dormindo no cesto de pelúcia",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651859572_18093632660105987_8935985246751021662_n.jpg",
+     "f": "p",
+     "alt": "Bebê de Papai Noel sentado no algodão",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/649226640_18058370453402641_5661714695743487481_n.jpg",
+     "f": "l",
+     "alt": "Família de vermelho sentada em frente à lareira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/651147161_18096411082991743_4488336269567473082_n.jpg",
+     "f": "p",
+     "alt": "Família de branco no cenário de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/drive/650665964_18114947263642969_8952126253559913897_n.jpg",
+     "f": "l",
+     "alt": "Menina de blusa de corações com o copo de leite, perto da árvore",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Prepare as malas <em>e venha embarcar.</em>",
+   "p": "Escolha um horário na agenda ou chame a Daline no WhatsApp para saber os valores."
+  },
+  "comentario": "Demo Daline Lopes Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Paulo Cesar de Siqueira",
+    "tag": "Eventos",
+    "trecho": "Daline é simplesmente mágica com sua câmera! Ela não apenas fotografa momentos — ela os transforma em poesia visual."
+   },
+   {
+    "nome": "Kaylane Silva",
+    "tag": "Ensaio",
+    "trecho": "Apenas palavras de sucesso a fotógrafa, trabalho lindo com muito amor. Sem dúvidas irei voltar a fazer mais fotos"
+   },
+   {
+    "nome": "Caroline Damasceno",
+    "tag": "Ensaio no estúdio",
+    "trecho": "O estúdio é acolhedor, o atendimento é impecável e o resultado foi simplesmente emocionante."
+   },
+   {
+    "nome": "Marilia Beites",
+    "tag": "Festa de 1 ano",
+    "trecho": "Além de ser uma ótima profissional, ela é uma fofa, paciente, e faz tudo com muito carinho. Super recomendo!"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Daline abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Daline define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Daline abre com o dia e a hora escritos."
+    ],
+    [
+     "A Daline confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97372-8367); a bio leva ao Linktree (“reserve seu horário”)",
+  "site": "só o Instagram: o Google aponta o @; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/daline-lopes-fotografia` e `/demo/daline-lopes-fotografia/natal`",
+  "direcao": [
+   "Personalidade: o Natal de trem dela levado para o site todo. Serifa clássica de cartaz (Playfair Display), sem serifa art déco de placa de estação (Josefin Sans), papel com textura, vermelho do vagão e dourado de latão; os dias da agenda de Natal viram passagens (picote e recortes nas bordas).",
+   "Sem logo em boa resolução (a marca d'água das fotos é pequena): monograma DL e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo e a do rodapé vêm da bio (“contar histórias e criar memórias”); a citação do Natal é a legenda do lançamento."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Gestante, Infantil, Família e 15 anos), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Expresso Encantado”: as duas experiências (a estação de trem e o Sonho de Natal), a agenda de exemplo em forma de passagem (sábados) e os Natais anteriores.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2020 a 2022), os carrosséis de setembro e outubro de 2026 (aniversários e o lançamento do Natal, até 4096 px) e 4 fotos do Google.",
+   "Fora de propósito: os slides com texto do lançamento do Natal (do Sonho de Natal, só o recorte da cama, sem texto), as fotos de equipe de empresa e os bebês sem roupa.",
+   "A foto de quem fotografa é do lançamento do Natal 2026 (a mesma da foto do perfil, de câmera na mão)."
+  ],
+  "textos": [
+   "Bio: “Especialista em Ensaio Gestante · Fotografia e vídeo com propósito: contar histórias e criar memórias”.",
+   "Legendas dela: “SEU EMBARQUE PARA O NATAL 2026 ESTÁ LIBERADO!”, “Atenção, passageiros! O Expresso Encantado já está na estação! O próximo destino é o seu Natal”, “Prepare as malas e venha embarcar nessa história com a gente!”.",
+   "Avaliações do Google: 4 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "O horário do estúdio não está no Google: a agenda de exemplo usa sábados, das 9h às 15h.",
+   "A bio diz especialista em gestante, mas os posts recentes são aniversários e smash: o site abre com gestante e mostra os dois.",
+   "Pedir fotos de clientes nos cenários de 2026 (por enquanto, só o lançamento com ela)."
+  ]
+ },
+ "marca_completa": "Daline Lopes Fotografia",
+ "fone_link": "+5511973728367",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Daline! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/daline-lopes-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Daline",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Daline, da Daline Lopes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Daline, da Daline Lopes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

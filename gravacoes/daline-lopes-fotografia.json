@@ -1,0 +1,140 @@
+{
+ "demo": "daline-lopes-fotografia",
+ "url": "file:///home/user/renderiza/demos/daline-lopes-fotografia/index.html?video=1",
+ "formato": "reels",
+ "marca": "Daline Lopes Fotografia",
+ "local": "Embu das Artes",
+ "cores": {
+  "fundo": "#2b1d18",
+  "fundo2": "#1b120f",
+  "acento": "#c99a5b",
+  "claro": "#fffdf9"
+ },
+ "fontes": {
+  "titulo": "Playfair Display",
+  "texto": "Josefin Sans"
+ },
+ "hora": "2026-10-28T11:00:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Prévia do site",
+  "chamada": "O novo site da",
+  "nome": [
+   "Daline Lopes",
+   "Fotografia"
+  ],
+  "frase": "Contar histórias e criar memórias.",
+  "fotos": [
+   ".hero-photo img",
+   "#painel-gestante .g-item:nth-child(2) img",
+   "#painel-infantil .g-item:nth-child(2) img",
+   "#painel-familia .g-item:nth-child(2) img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Tudo num lugar só,",
+  "destaque": "com a cara da Daline.",
+  "convite": "Gostou? É só responder esta mensagem."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 3.6,
+   "legenda": "Hoje, quem procura uma fotógrafa *começa pelo celular.*",
+   "sub": "Quer ver as fotos, conhecer quem fotografa e saber o que as famílias contam."
+  },
+  {
+   "rolar": "#portfolio .abas",
+   "alinhar": "topo",
+   "segura": 5.8,
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "tocar",
+     "alvo": "#aba-infantil",
+     "clicar": true
+    },
+    {
+     "em": 1.7,
+     "tipo": "tocar",
+     "alvo": "#painel-infantil .g-item:nth-child(1)",
+     "clicar": true
+    },
+    {
+     "em": 3.0,
+     "tipo": "deslizar",
+     "alvo": ".lb-trilho",
+     "cartoes": 1
+    },
+    {
+     "em": 4.8,
+     "tipo": "tocar",
+     "alvo": ".lb-fechar",
+     "clicar": true
+    }
+   ],
+   "legenda": "Vê o portfólio *em tela cheia.*",
+   "sub": "Gestante, Infantil e Família e 15 anos: um toque abre a foto, e é só passar para o lado."
+  },
+  {
+   "rolar": ".sobre-foto",
+   "segura": 4.6,
+   "legenda": "Conhece *quem vai fotografar.*",
+   "sub": "Gestante, smash e Natal de trem, em Embu das Artes.",
+   "alinhar": "topo",
+   "ajuste": -10
+  },
+  {
+   "rolar": "#depoimentos .avaliacoes-topo",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 0.8,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    },
+    {
+     "em": 2.3,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda": "E lê o que *as famílias contam.*",
+   "sub": "Nota 5,0 em 31 avaliações no Google, sem precisar procurar."
+  },
+  {
+   "rolar": "#natal h2",
+   "segura": 4.8,
+   "acoes": [
+    {
+     "em": 1.2,
+     "tipo": "tocar",
+     "alvo": "#natal .proximos li:nth-child(2) a",
+     "clicar": true
+    }
+   ],
+   "legenda": "Escolhe o horário *e embarca no Natal.*",
+   "sub": "Um toque e a mensagem chega pronta no WhatsApp da Daline, com o dia e a hora.",
+   "alinhar": "topo"
+  },
+  {
+   "rolar": "#contato .canais",
+   "segura": 4.6,
+   "acoes": [
+    {
+     "em": 1.4,
+     "tipo": "tocar",
+     "alvo": "#contato .canais>li:first-child a"
+    }
+   ],
+   "legenda": "Quando decide, *chama no WhatsApp com um toque.*",
+   "sub": "O estúdio, o horário e o caminho para chegar estão logo ali."
+  }
+ ]
+}

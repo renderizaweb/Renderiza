@@ -283,3 +283,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Vitória Mazo Fotografia (fotógrafa)](demos/vitoria-mazo-fotografia) | Arujazinho IV, Arujá | site + página de Natal (`/natal`, “Um Natal encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 14ª) |
 | [Studio Aizza Cardoso Fotografia (fotógrafa)](demos/aizza-cardoso-fotografia) | Dos Casas, São Bernardo do Campo | site + página de Natal (`/natal`, “Natal entre nós”) | pronta · 28/10/2026 (fotógrafos lote 1 · 15ª) |
 | [Tia Isa Fotografia (fotógrafa)](demos/tia-isa-fotografia) | Paulicéia, São Bernardo do Campo | site + página de Natal (`/natal`, “O Natal que vira porta-retrato”) | pronta · 28/10/2026 (fotógrafos lote 1 · 16ª) |
+| [Daline Lopes Fotografia (fotógrafa)](demos/daline-lopes-fotografia) | Chácaras Marajuara, Embu das Artes | site + página de Natal (`/natal`, “Expresso Encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 17ª) |
