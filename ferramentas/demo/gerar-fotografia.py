@@ -907,6 +907,20 @@ def ficha(cfg, horas, total, livres, F):
     return '\n'.join(linhas)
 
 
+def links_publicados(doc, pasta):
+    """No ar, a demo abre em /demo/<pasta> (sem barra no fim): um link relativo "natal.html" iria para /demo/natal.html,
+    que não existe. Os links entre as páginas viram absolutos (/demo/<pasta> e /demo/<pasta>/natal), com o arquivo
+    local em data-local; aberta do disco (validar, gravador de vídeo), um script troca de volta para o arquivo."""
+    def troca(m):
+        arquivo, ancora = m.group(1), m.group(2) or ''
+        destino = f'/demo/{pasta}' + ('' if arquivo == 'index' else '/' + arquivo)
+        return f'href="{destino}{ancora}" data-local="{arquivo}.html{ancora}"'
+    doc = re.sub(r'href="(index|natal)\.html(#[^"]*)?"', troca, doc)
+    local = ('<script>if(location.protocol==="file:")document.querySelectorAll("a[data-local]")'
+             '.forEach(function(a){a.setAttribute("href",a.getAttribute("data-local"))})</script>')
+    return doc.replace('</body>', local + '</body>', 1) if 'data-local=' in doc else doc
+
+
 def gerar(caminho):
     cfg = json.load(open(caminho, encoding='utf-8'))
     google = G.ler_google(cfg.get('google_json'))
@@ -917,7 +931,7 @@ def gerar(caminho):
     saidas = []
     for nome, fn, lista in (('index.html', pagina_site, cfg['site']['avaliacoes']), ('natal.html', pagina_natal, cfg['natal']['avaliacoes'])):
         antes = F.bytes
-        doc = fechar(cfg, fn(cfg, F, google, horas, dias, total, livres), google, horas, lista)
+        doc = links_publicados(fechar(cfg, fn(cfg, F, google, horas, dias, total, livres), google, horas, lista), cfg['pasta'])
         arq = os.path.join(pasta, nome); open(arq, 'w', encoding='utf-8').write(doc)
         print(f'{arq}: {len(doc) // 1024} KB (imagens novas: {(F.bytes - antes) // 1024} KB)')
         saidas.append(arq)

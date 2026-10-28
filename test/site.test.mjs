@@ -412,3 +412,17 @@ test("depoimentos em carrossel: lista rolável com rótulo, setas e pontos (seta
   const publicados = config.depoimentos.filter(d => d.publicar && d.texto).length;
   assert.equal((html.match(/aria-label="Ver depoimento \d+ de/g) || []).length, publicados);
 });
+
+test("demos com mais de uma página (fotógrafas): os links entre elas são absolutos, porque /demo/<pasta> abre sem barra no fim", async () => {
+  const { readdirSync, existsSync, readFileSync } = await import("node:fs");
+  const raiz = new URL("../demos/", import.meta.url);
+  for (const pasta of readdirSync(raiz)) {
+    for (const f of ["index.html", "natal.html"]) {
+      const arq = new URL(`${pasta}/${f}`, raiz);
+      if (!existsSync(new URL(`${pasta}/natal.html`, raiz)) || !existsSync(arq)) continue;
+      const html = readFileSync(arq, "utf8");
+      assert.doesNotMatch(html, /href="(index|natal)\.html/, `${pasta}/${f}: link relativo entre as páginas da demo`);
+      assert.match(html, new RegExp(`href="/demo/${pasta}/natal`), `${pasta}/${f}: sem o link absoluto para a página de Natal`);
+    }
+  }
+});
