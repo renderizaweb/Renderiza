@@ -1,0 +1,632 @@
+{
+ "pasta": "aline-fernandes-fotografia",
+ "marca": "Aline Fernandes Fotografia",
+ "titulo_nome": "Aline Fernandes",
+ "titulo_script": "fotografia",
+ "dona": "Aline",
+ "quem_sou": "Sou a Aline, da Aline Fernandes Fotografia",
+ "google": {
+  "coords": "-23.4620322,-46.5111416",
+  "fid": "0x94ce8b83aa5cc32f:0xd31281bdd6bd8a9a",
+  "gid": "/g/11v611vj0d"
+ },
+ "google_nome": "Aline Fernandes Fotografia",
+ "endereco_maps": "R. São Miguel, 68 - Vila Nossa Sra. de Fatima, Guarulhos - SP, 07132-470",
+ "google_nota": "5,0",
+ "google_total": "20",
+ "whatsapp": "5511953472889",
+ "instagram": "alinefernandesfoto",
+ "seguidores": "11,8 mil",
+ "slogan": "Quando eles ainda cabem na palma das nossas mãos.",
+ "cores": {
+  "fundo": "#fdfaf8",
+  "papel": "#ffffff",
+  "areia": "#f7efed",
+  "linha": "#ecdfdb",
+  "tinta": "#2c2427",
+  "tinta2": "#6a5d61",
+  "rosa": "#d6a2a7",
+  "acento": "#9c4a63",
+  "acento_escuro": "#833c53",
+  "cafe": "#2e2228"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Fraunces",
+    "ital,opsz,wght@0,9..144,300..600;1,9..144,300..600"
+   ],
+   "sans": [
+    "Nunito Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "arco",
+  "abas": "sublinhado",
+  "eyebrow": "ponto",
+  "jornada": "cartoes",
+  "natal_capa": "retrato",
+  "ornamento": "♡",
+  "script_escala": 0.92,
+  "css": "h1,h2,h3,h1 em,h2 em,h3 em{font-weight:400}.n-abertura .foto img{border-radius:999px 999px 0 0}#natal-2025 .galeria{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin-inline:auto}"
+ },
+ "site": {
+  "titulo": "Aline Fernandes Fotografia | Gestante, parto, newborn e primeiro ano em Guarulhos",
+  "descricao": "Aline Fernandes Fotografia, na Vila Fátima, em Guarulhos: ensaio de gestante, fotografia de parto, newborn, acompanhamento e smash the cake. Fotógrafa com cuidados de enfermagem. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia em Guarulhos",
+   "frase": "Da série: tia Aline viu nascer.",
+   "intro": "Gestante, parto, newborn e o primeiro ano do bebê, no estúdio da Vila Fátima, em Guarulhos. Fotógrafa com cuidados de enfermagem.",
+   "rotulos": [
+    "Newborn",
+    "Gestante",
+    "Primeiro ano"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Família"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/DeHt3CgFTs6_DeHt3CgFTs6_01.jpg",
+     "f": "p",
+     "alt": "Mãe beijando o recém-nascido enrolado no colo",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db_vNTqkWwu_Db_vNTqkWwu_02.jpg",
+     "f": "p",
+     "alt": "Gestante de camisa branca encostada na cortina, em preto e branco",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/656324496_18540701404066944_1257431085825265116_n.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido rosa rindo, sentada no estúdio",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Da barriga <em>ao primeiro aninho.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Aline. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/DeHt3CgFTs6_DeHt3CgFTs6_01.jpg",
+      "f": "p",
+      "alt": "Mãe beijando o recém-nascido no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/gfotos/g01.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de touca de ursinho dormindo com o ursinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db1P9U1GKEV_Db1P9U1GKEV_00.jpg",
+      "f": "p",
+      "alt": "Pai sorrindo com o recém-nascido no colo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/623719444_18112931314620378_2005428339057120204_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara dormindo abraçada à boneca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/639748919_18577707832039696_3951997655923019135_n.jpg",
+      "f": "p",
+      "alt": "Pai segurando a filha recém-nascida, em preto e branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/624291772_18127330420536127_2306551172920628434_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de laço vermelho dormindo nas mãos da mãe",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/654499158_18318402097253495_564363135669067732_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de óculos cor-de-rosa dormindo na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/640787549_18572318371013394_7407093764763513689_n.jpg",
+      "f": "l",
+      "alt": "Bebê de macacão azul dormindo com as mãos atrás da cabeça",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/DbY_gXDEk03_DbY_gXDEk03_01.jpg",
+      "f": "p",
+      "alt": "Pais e a filha beijando a barriga, em preto e branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db_vNTqkWwu_Db_vNTqkWwu_00.jpg",
+      "f": "p",
+      "alt": "Gestante de top preto segurando a barriga, em preto e branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/DdHHHpdjvA7_DdHHHpdjvA7_00.jpg",
+      "f": "p",
+      "alt": "Casal no estúdio, ele abraçando a gestante de branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/623961023_18255042175289696_3835993051757843195_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido rosê com a cauda esvoaçante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db_vNTqkWwu_Db_vNTqkWwu_04.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na cama do estúdio, em preto e branco",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/623924909_18129710962516628_5093243895910262278_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido lilás sorrindo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db_vNTqkWwu_Db_vNTqkWwu_01.jpg",
+      "f": "p",
+      "alt": "Gestante de jaqueta preta sorrindo, em preto e branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/620960908_18127028116472045_4191634117866985049_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido vinho com a filha",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "primeiro-ano",
+    "nome": "Primeiro ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/656324496_18540701404066944_1257431085825265116_n.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido rosa rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/642889967_18094848383001749_614993546702508023_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake da Mariana, com balões rosa e dourados",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/649232896_18090404327141654_429308780333455901_n.jpg",
+      "f": "p",
+      "alt": "Bebê de touca de coelho sorrindo na cadeira de vime",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/658411814_18574538806009653_5942299255770701363_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake da Alice, com balões dourados",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/649105423_18057193394434014_5655560992233791242_n.jpg",
+      "f": "p",
+      "alt": "Bebê de chapéu de festa no cenário de estrelas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/654583135_18119539606539357_4019227507927253830_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de vestido branco florido",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/658218872_18326021497247391_5171492642576243949_n.jpg",
+      "f": "l",
+      "alt": "Mesversário de formatura da Inaê, de beca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/657162697_18403082125181663_7989944189354839486_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake do Lucas, com o Mickey",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/436043411_1649094379229908_5804499283820223929_n.jpg",
+    "f": "p",
+    "alt": "Aline Fernandes sentada no estúdio, com a câmera na mão",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "p": [
+    "A Aline fotografa famílias em Guarulhos, no estúdio da Vila Fátima: gestantes, partos no hospital, recém-nascidos e o primeiro ano dos bebês. Na bio, ela se apresenta como fotógrafa com cuidados de enfermagem."
+   ],
+   "citacao": "Quando eles ainda cabem na palma das nossas mãos...",
+   "citacao_quem": "Aline Fernandes, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam que fizeram o ensaio de gestante, chamaram a Aline para o parto e voltaram com o bebê. É a série “tia Aline viu nascer”, que ela posta no Instagram."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "20 avaliações no Google"
+    ],
+    [
+     "11,8 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "728",
+     "publicações no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>ao colo.</em>",
+   "p": "Os ensaios que a Aline faz, na ordem em que a família vive:",
+   "fonte": "Bio, destaques e legendas da Aline no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio, sozinha, com o pai ou com os irmãos."
+    },
+    {
+     "nome": "Parto",
+     "sub": "No hospital",
+     "p": "A Aline chega antes e registra a chegada do bebê."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O recém-nascido no estúdio, com cuidados de enfermagem."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Os mesversários, até a formatura do primeiro ano."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Bolo, balões e o cenário montado para o aniversário."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Páscoa, Mães e Natal",
+     "p": "Ensaios temáticos ao longo do ano, nos destaques do Instagram."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O primeiro Natal <em>a gente nunca esquece.</em>",
+   "p": "Ensaio de Natal no estúdio da Vila Fátima, para o bebê e para a família toda. Escolha um horário e a mensagem chega pronta no WhatsApp da Aline.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/648231660_18056156618450046_8474552914059396605_n.jpg",
+    "f": "p",
+    "alt": "Menina de vestido branco e azul em frente às luzes de Natal",
+    "c": [
+     0.5,
+     0.27
+    ]
+   },
+   "legenda": "Natal no estúdio da Aline"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Stefane Oliveira",
+    "tag": "Natal",
+    "trecho": "Eu amei o meu ensaio de natal , agendei praticamente encima e mesmo assim ela conseguiu me entregar no dia , as fotos ficaram perfeitas."
+   },
+   {
+    "nome": "MARCELO FREITAS (Mar)",
+    "tag": "Parto",
+    "trecho": "Nos sentimos muito a vontade, sempre bem acolhidos e seguro pela Aline até a chegada do momento!!"
+   },
+   {
+    "nome": "Aline Graciela Sena Santos",
+    "tag": "Gestante e parto",
+    "trecho": "Fez o ensaio gestacional dos meus dois meninos e registrou no hospital o nascimento. Com toda certeza é a fotografa da nossa familia."
+   },
+   {
+    "nome": "Milena Nogueira",
+    "tag": "Gestante",
+    "trecho": "Ela fez o meu ensaio gestante com todo o carinho e atenção, as fotos ficaram lindas demais, nós amamos a experiência"
+   },
+   {
+    "nome": "Valeria Dafny",
+    "tag": "Ensaio",
+    "trecho": "Seu trabalho é maravilhoso! Dá pra ver o carinho e o talento em cada foto."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Fátima, em Guarulhos.",
+   "telefone": "(11) 95347-2889",
+   "endereco": [
+    "R. São Miguel, 68",
+    "Vila Nossa Sra. de Fátima",
+    "Guarulhos · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Aline Fernandes Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@alinefernandesfoto) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: o primeiro Natal | Aline Fernandes Fotografia",
+  "descricao": "Ensaio de Natal 2026 no estúdio da Aline Fernandes, na Vila Fátima, em Guarulhos: para o bebê e para a família. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h1": "O primeiro Natal <em>a gente nunca esquece.</em>",
+   "citacao": "Eu amei o meu ensaio de natal, agendei praticamente encima e mesmo assim ela conseguiu me entregar no dia.",
+   "citacao_quem": "Stefane Oliveira, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/661596243_18439136050184233_3682338929854413078_n.jpg",
+    "f": "p",
+    "alt": "Duas irmãs de vestido vermelho segurando bolas de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal no estúdio da Aline"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal <em>no estúdio.</em>",
+   "p": "O ensaio de Natal é no estúdio da Aline, na Vila Fátima, em Guarulhos: o primeiro Natal do recém-nascido, os irmãos juntos ou a família toda. O cenário de 2026 ainda não foi postado; o de 2025 está nos destaques do Instagram dela.",
+   "itens": [
+    "No estúdio da Vila Fátima, em Guarulhos.",
+    "Do recém-nascido à família toda.",
+    "O Natal 2025 está nos destaques do Instagram.",
+    "Valores e detalhes pelo WhatsApp da Aline."
+   ],
+   "legenda_fotos": "O estúdio da Aline, na Vila Fátima"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/Db_vNTqkWwu_Db_vNTqkWwu_04.jpg",
+    "f": "p",
+    "alt": "Gestante sentada na cama do estúdio, em preto e branco",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/gfotos/g01.jpg",
+    "f": "l",
+    "alt": "Recém-nascida de touca de ursinho dormindo",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/postsflat/DdHHHpdjvA7_DdHHHpdjvA7_00.jpg",
+    "f": "p",
+    "alt": "Casal abraçado no estúdio",
+    "c": [
+     0.5,
+     0.35
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natais de outros anos",
+   "h2": "Natal <em>no estúdio da Aline.</em>",
+   "nome": "Outros Natais",
+   "p": "Ensaios de Natal de outros anos, postados no Instagram dela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/643608130_18055287119466452_466418884263785333_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho fazendo coração com as mãos",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/drive/648231660_18056156618450046_8474552914059396605_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido branco e azul em frente às luzes de Natal",
+     "pos": "50% 30%"
+    }
+   ]
+  },
+  "comentario": "Demo Aline Fernandes Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Aline Graciela Sena Santos",
+    "tag": "Gestante e parto",
+    "trecho": "Fez o ensaio gestacional dos meus dois meninos e registrou no hospital o nascimento. Com toda certeza é a fotografa da nossa familia."
+   },
+   {
+    "nome": "Milena Nogueira",
+    "tag": "Gestante",
+    "trecho": "Ela fez o meu ensaio gestante com todo o carinho e atenção, as fotos ficaram lindas demais, nós amamos a experiência"
+   },
+   {
+    "nome": "Valeria Dafny",
+    "tag": "Ensaio",
+    "trecho": "Seu trabalho é maravilhoso! Dá pra ver o carinho e o talento em cada foto."
+   },
+   {
+    "nome": "Stefane Oliveira",
+    "tag": "Natal",
+    "trecho": "Eu amei o meu ensaio de natal , agendei praticamente encima e mesmo assim ela conseguiu me entregar no dia , as fotos ficaram perfeitas."
+   },
+   {
+    "nome": "MARCELO FREITAS (Mar)",
+    "tag": "Parto",
+    "trecho": "Nos sentimos muito a vontade, sempre bem acolhidos e seguro pela Aline até a chegada do momento!!"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Aline abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Aline define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Aline abre com o dia e a hora escritos."
+    ],
+    [
+     "A Aline confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Aline no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95347-2889), o mesmo do link da bio",
+  "site": "só o Instagram: o Google aponta o @; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/aline-fernandes-fotografia` e `/demo/aline-fernandes-fotografia/natal`",
+  "direcao": [
+   "Personalidade: “da barriga ao colo”. Formas em arco (as fotos do topo, a foto dela e a capa do Natal), serifa macia (Fraunces) e letra cursiva como a assinatura das fotos dela; branco e preto e branco, como o feed de 2026, com o rosa da marca d'água.",
+   "Sem logo em boa resolução: monograma AF em arco e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a série dela (“tia Aline viu nascer”); a do rodapé, uma legenda (“Quando eles ainda cabem na palma das nossas mãos”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Newborn, Gestante, Primeiro ano), quem fotografa, a jornada da gestação ao primeiro aninho (com o parto), avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “O primeiro Natal”: o ensaio no estúdio, a agenda de exemplo (sábados) e os Natais de outros anos.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2020 e 2021), os carrosséis de julho a outubro de 2026 (1440 px) e 2 fotos do Google.",
+   "Fora de propósito: bebês sem roupa e no banho (o carrossel do 1º aninho na banheira), as fotos do parto no centro cirúrgico, a arte com texto (“Agenda aberta”) e a paisagem de Guarapari.",
+   "A foto de quem fotografa é a dela sentada com a câmera (a mesma mulher do post “Felicidade e gratidão”, de câmera na mão)."
+  ],
+  "textos": [
+   "Bio: “Fotógrafa com Cuidados de Enfermagem”, Newborn, Gestantes, Bebê, Criança, Família; o endereço na Vila Fátima.",
+   "Legendas dela: “Da série tia Aline viu nascer...”, “Quando eles ainda cabem na palma das nossas mãos...”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Natal: não há fotos do Natal 2025 em boa resolução fora dos destaques; a página usa Natais de outros anos (posts de 2020) e fotos do estúdio, e diz isso. Pedir as fotos do Natal 2025 e do cenário de 2026.",
+   "“Cuidados de enfermagem” está na bio: confirmar como ela prefere que apareça.",
+   "Os horários de Natal são exemplo; no Google, o estúdio abre todos os dias, das 9h às 17h."
+  ]
+ },
+ "marca_completa": "Aline Fernandes Fotografia",
+ "fone_link": "+5511953472889",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Aline! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aline-fernandes-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Aline",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Aline, da Aline Fernandes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Aline, da Aline Fernandes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 10h",
+   "2026-11-14 14h",
+   "2026-11-14 15h",
+   "2026-11-21 10h",
+   "2026-11-21 15h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-12-05 9h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 11h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Aline define os dela",
+  "mensagem": "Olá, Aline! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ }
+}
