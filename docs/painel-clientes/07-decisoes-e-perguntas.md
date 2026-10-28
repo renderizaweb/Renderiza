@@ -4,22 +4,16 @@ O que **já foi decidido** (com data e fonte), o que segue **por padrão** até 
 rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2026). Resposta nova vira linha em
 "Decididas".
 
-## Rodada 2 (aberta, enviada em 28/10/2026)
+## Rodada 3 (aberta, enviada em 28/10/2026)
 
-1. **Domínio.** `renderiza.com.br` já tem dono (outra pessoa, desde 2017), então `painel.renderiza.com.br` não dá.
-   Qual destes: `painel.renderizaweb.com.br` (já é de vocês, sem custo), `painel.renderiza.app.br` ou
-   `painelrenderiza.com.br` (os dois apareciam livres)? Detalhe no [`04`](04-arquitetura.md).
-2. **Contas.** A IA não cria conta nem vê senha. Quem cria o Supabase, a Vercel e o serviço de e-mail (seguindo o
-   passo a passo do `04`), e com qual e-mail?
-3. **Site do piloto.** O piloto já tem site feito pela Renderiza, ou vai ter até começar? Qual é? Sem site, a
-   Agenda online e o Meu site não têm onde rodar no piloto.
-4. **Teste de 7 dias.** Quem se cadastra sozinho experimenta todos os módulos ou só 2? *Recomendo:* todos; na
-   aprovação, vocês deixam ligados os que a pessoa vai pagar.
-5. **Admin.** Quem da Renderiza entra no painel administrativo?
-6. **Versão final do Meu site.** Não está na página de venda: qual valor? "Depois" vale.
-7. **Juntar o trabalho das sessões.** Cada sessão entrega por pull request. Quem confere e junta na `main` (e
-   aplica as migrações no banco real): você, ou uma sessão "integradora"? *Recomendo:* uma sessão integradora, que
-   roda os testes, junta e aplica as migrações; você acompanha pelo diário de bordo.
+1. **Admin.** Quem da Renderiza entra no painel administrativo?
+2. **Versão final do Meu site.** Qual valor? "Depois" vale.
+3. **Juntar o trabalho das sessões.** Quem confere, junta na `main` e aplica as migrações no banco real: você, ou uma
+   sessão "integradora"? *Recomendo:* a integradora; você acompanha pelo diário de bordo.
+4. **Site do piloto.** Qual é o site, e onde está o código dele: numa pasta de `demos/` deste repositório ou no
+   repositório do cliente? (Serve para a tarefa T4.6, que liga o site ao painel quando o cliente quiser.)
+5. **Documentos na `main`.** Posso juntar estes documentos na `main` agora, para as outras sessões já começarem por
+   eles?
 
 ## Decididas
 
@@ -42,6 +36,10 @@ rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2
 | 28/10/2026 | **Cadastro sozinho com 7 dias grátis**; a Renderiza aprova à mão, com ou sem prazo; não pagou, a Renderiza desliga à mão (sem regra automática de dias). Contas também podem ser criadas pela Renderiza. | rodada 1 |
 | 28/10/2026 | **Trilho por paradas** (6), sem cronograma por dia. | rodada 1 |
 | 28/10/2026 | **Várias sessões de IA ao mesmo tempo**, com quadro de tarefas no repositório e regras para não se baterem (`08`, `tarefas.md`). | rodada 1 |
+| 28/10/2026 | Endereço do painel: **`painel.renderizaweb.com.br`** (o `renderiza.com.br` é de outra pessoa). | rodada 2 |
+| 28/10/2026 | A Renderiza cria as contas de infraestrutura (Supabase, Vercel, e-mail) com o próprio acesso de administrador. Contas de clientes nascem pelo painel administrativo (ou pelo cadastro), cada uma com a sua conta (tenant) no banco. | rodada 2 |
+| 28/10/2026 | O piloto já tem site feito pela Renderiza. **O site é do cliente e independente**; a ligação com o painel (agenda online, Meu site) entra quando o cliente quiser. | rodada 2 |
+| 28/10/2026 | **Teste de 7 dias:** a pessoa escolhe os módulos no cadastro; o prazo é um só, contado do início da conta (módulo ligado depois não ganha prazo novo); módulo caro de oferecer (ex.: com IA) fica bloqueado no teste; depois do teste, a pessoa entra mas os dados ficam bloqueados, com o aviso para fechar a mensalidade. | rodada 2 |
 
 ## Por padrão (vale até alguém vetar)
 
@@ -65,14 +63,19 @@ rodada da vez**. As perguntas vão em rodadas curtas e gerais (pedido de 28/10/2
 | D16 | `/exemplos` continua como vitrine com dados fictícios | é o link que vai para os leads |
 | D17 | Sites já entregues (Blulens, Lú Elegante) só entram no Meu site se quiserem | precisam ser adaptados |
 | D18 | "+5 pessoas" e "espaço a mais" ficam para depois do piloto | ainda são propostas |
+| D19 | Teste vencido ou conta desligada: os dados de quem pede saem numa planilha **pelo WhatsApp**, exportada pela Renderiza no admin (com registro) | cumpre a promessa "leva os seus dados numa planilha" sem liberar o painel |
+| D20 | Hoje todos os módulos ficam **liberados no teste** (nenhum usa IA ainda) | a marcação "só pago" existe para os módulos futuros |
 
 ## Para as próximas rodadas
 
 - CNPJ da Renderiza (entra nos termos de uso e na cobrança).
 - Montagem para quem não fez o site (com o cadastro sozinho, talvez nem precise).
 
-## Rodada 1 (respondida em 28/10/2026)
+## Rodadas respondidas
 
-Perguntas: endereço e nome; quem cuida do domínio e das contas; piloto e nicho; data; módulos do primeiro lote;
-mensalidade por Pix; preço do Meu site. As respostas estão em "Decididas" (linhas da rodada 1). A pergunta do domínio
-voltou na rodada 2, porque o `renderiza.com.br` já tem dono; a das contas voltou mais simples.
+- **Rodada 1 (28/10/2026):** endereço e nome; domínio e contas; piloto e nicho; data; módulos do primeiro lote;
+  mensalidade por Pix; preço do Meu site.
+- **Rodada 2 (28/10/2026):** domínio; quem cria as contas; site do piloto; teste de 7 dias. Ficaram para a rodada 3:
+  quem entra no admin, o valor da versão final e quem junta o trabalho das sessões.
+
+As respostas estão em "Decididas".

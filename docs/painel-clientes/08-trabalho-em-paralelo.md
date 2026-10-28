@@ -41,7 +41,7 @@ Para elas não se baterem, valem as regras abaixo. Toda sessão lê este arquivo
 - **Toda tabela nova chega com a RLS e o teste de isolamento** no mesmo pull request.
 - **Testes no banco local** (Postgres 16 do ambiente; rotina da T1.6) antes de abrir o pull request.
 - **Só migração que já está na `main` vai para o banco real, em ordem, e só uma pessoa ou sessão aplica** (definir
-  na rodada 2). Nenhuma sessão muda o banco real por conta própria, nem pelo painel do Supabase, nem pelo conector.
+  na rodada 3). Nenhuma sessão muda o banco real por conta própria, nem pelo painel do Supabase, nem pelo conector.
 - A parada 2 cria **o banco inteiro de uma vez** (T2.1 e T2.2). Assim os módulos da parada 3 quase não precisam de
   migração, e as que precisarem são pequenas e só da sua área.
 

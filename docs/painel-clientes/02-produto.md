@@ -24,7 +24,8 @@ assistente, quem edita as fotos), até 5 pessoas no plano.
 ## O site e o painel: sempre explicar a diferença
 
 - **O site** é o que o cliente final vê: fotos, avaliações, endereço, o botão do WhatsApp. Qualquer pessoa abre.
-  É pago uma vez, e o domínio e as contas dele são do cliente.
+  É pago uma vez, e o domínio e as contas dele são do cliente. **O site é independente:** funciona sozinho, e a
+  ligação com o painel (agenda online, Meu site) entra só quando o cliente quiser.
 - **O painel** é o que a equipe usa para organizar o trabalho. Só entra quem tem senha. É mensalidade, e fica no
   domínio e no banco da Renderiza.
 - **Os dois se conversam pela API do painel:** a agenda online fica no site e manda os pedidos para o painel; o Meu
@@ -38,9 +39,9 @@ assistente, quem edita as fotos), até 5 pessoas no plano.
 | Cada módulo a mais | **R$ 14,99 por mês** (o **Meu site** é um módulo como os outros) |
 | Fidelidade | nenhuma: cancela quando quiser e leva os dados numa planilha |
 | Montagem do painel para quem faz o site com a Renderiza | **grátis** |
-| Teste | **7 dias grátis** para quem se cadastra sozinho (decisão de 28/10/2026) |
+| Teste | **7 dias grátis** para quem se cadastra sozinho, contados do início, com os módulos que a pessoa escolher (menos os marcados como "só pago") |
 | Mais 5 pessoas · cada espaço a mais | R$ 9,90 · R$ 29 por mês: **propostos**, ficam para depois do piloto |
-| Versão final do site (para quem sai) | a definir (rodada 2) |
+| Versão final do site (para quem sai) | a definir (rodada 3) |
 
 O valor fica em `PRECO`, no script das páginas de venda; o teste `test/site.test.mjs` confere que os textos batem.
 A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão no painel administrativo.
@@ -52,13 +53,21 @@ A mensalidade, por enquanto, é paga por **Pix, por fora**, e registrada à mão
  conta criada pela Renderiza ─────────────────────────────────────────▶ ATIVA                       (não pagou)
 ```
 
-- **Cadastro sozinho:** a pessoa cria o login, o nome do negócio e o nicho, confirma o e-mail e entra no teste de 7
-  dias.
-- **Conta criada pela Renderiza** (como a do piloto): já nasce ativa, pelo painel administrativo.
-- **Aprovar:** a Renderiza confere e libera, com prazo ou sem prazo. Teste que vence sem aprovação: o painel avisa e só
-  deixa exportar os dados.
-- **Não pagou:** a Renderiza desliga a conta no admin (é manual, sem regra automática de dias). O painel avisa e só
-  deixa exportar; o site conectado volta à versão inicial. Pagou, religa e tudo volta.
+- **Cadastro sozinho:** a pessoa cria o login, o nome do negócio e o nicho, **escolhe os módulos que quer
+  experimentar**, confirma o e-mail e entra no teste.
+- **O teste é um só, de 7 dias, contados do início da conta.** Ligou outro módulo no 5º dia? Ele vale só até o fim
+  dos mesmos 7 dias, não ganha prazo novo.
+- **Módulo "só pago":** o que custa caro para a Renderiza oferecer de graça (ex.: um módulo futuro que use IA) fica
+  bloqueado no teste. A marcação é por módulo, no painel administrativo.
+- **Teste acabou:** a pessoa continua entrando, mas os dados ficam bloqueados e o painel mostra o aviso para fechar o
+  plano (a mensalidade). Nada é apagado: assinou, tudo volta como estava.
+- **Conta criada pela Renderiza** (como a do piloto): já nasce ativa, pelo painel administrativo, com a conta
+  (tenant) certa no banco.
+- **Aprovar:** a Renderiza confere e libera, com prazo ou sem prazo.
+- **Não pagou:** a Renderiza desliga a conta no admin (é manual, sem regra automática de dias). A pessoa entra, vê o
+  aviso e os dados ficam bloqueados; o site conectado volta à versão inicial. Pagou, religa e tudo volta.
+- **Os dados de quem sai:** a página promete "se sair, leva os seus dados numa planilha". Quem pede pelo WhatsApp
+  recebe a planilha da Renderiza (exportada pelo admin, com registro).
 
 ## As partes do painel
 

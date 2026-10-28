@@ -13,9 +13,9 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 1 · Organização e infraestrutura (esperando a rodada 2 de perguntas) |
-| **Próxima ação** | Responder a rodada 2 do [`07`](07-decisoes-e-perguntas.md) (domínio, quem cria as contas, site do piloto) |
-| **Pode começar já** | T1.5 (esqueleto da pasta) e T1.6 (banco local), que não dependem das respostas |
+| **Onde o trem está** | Parada 1 · Organização e infraestrutura |
+| **Próxima ação** | A Renderiza cria o Supabase, a Vercel e o e-mail (T1.2 a T1.4) e aponta `painel.renderizaweb.com.br` (T1.1); as sessões começam T1.5 e T1.6 |
+| **Em aberto** | rodada 3 do [`07`](07-decisoes-e-perguntas.md) (admin, versão final, quem junta o trabalho, qual é o site do piloto); nada disso trava a parada 1 |
 | **Última atualização** | 28/10/2026 |
 
 ## O mapa
@@ -51,8 +51,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 **Para quê:** deixar os trilhos assentados: o endereço com login no ar e tudo pronto para várias sessões
 trabalharem sem se bater.
 
-- Domínio escolhido e apontado para a Vercel.
-- Contas criadas por vocês, seguindo o passo a passo do [`04`](04-arquitetura.md): Supabase (projeto novo), Vercel
+- `painel.renderizaweb.com.br` apontado para a Vercel.
+- Contas criadas pela Renderiza, com o próprio acesso de administrador, seguindo o passo a passo do [`04`](04-arquitetura.md): Supabase (projeto novo), Vercel
   (projeto novo na pasta `painel-clientes/`) e serviço de e-mail com remetente no domínio.
 - Esqueleto da pasta `painel-clientes/`: casca vazia, rotas e **todos os módulos já registrados** (vazios), para
   ninguém precisar mexer em arquivo comum depois.
@@ -71,7 +71,8 @@ pegar uma tarefa do quadro e trabalhar no seu pedaço.
 - **O banco inteiro de uma vez:** todas as tabelas do `05`, com o cliente no centro, a RLS e os testes de
   isolamento (uma conta nunca vê a outra; "só vê" não edita; módulo desligado não aparece).
 - Dados de teste (Villa Alecrim e Estúdio Ciranda) no banco local.
-- **A casca:** login, cadastro com 7 dias grátis, convite da equipe, esqueci a senha, escolher a conta, menu com os
+- **A casca:** login, cadastro com 7 dias grátis (escolhe os módulos; teste vencido entra, mas com os dados
+  bloqueados e o aviso para assinar), convite da equipe, esqueci a senha, escolher a conta, menu com os
   módulos ligados (trancado para quem não tem acesso).
 - **As peças comuns**, tiradas dos exemplos: layout, gaveta de detalhes, tabela, calendário, avisos e o **"Para
   quem?"** (escolher ou criar o cliente), usado em todos os módulos.
@@ -108,7 +109,7 @@ inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) 
   mensagem pronta no WhatsApp.
 - **Meu site:** marcações nos geradores, script com fallback, editor no painel, prévia, publicar, histórico, voltar à
   versão inicial, desconectar e gerar a versão final.
-- O site do piloto conectado.
+- O site do piloto conectado (o site é dele e independente; a ligação entra quando ele quiser).
 
 **Chegou quando:** no site de teste e no do piloto, o pedido cai no painel em segundos; uma edição publicada aparece
 no site em até 1 minuto; e, com o painel desligado, o site abre normal com a versão inicial.
@@ -119,7 +120,7 @@ no site em até 1 minuto; e, com o painel desligado, o site abre normal com a ve
 **Referência:** [`02-produto.md`](02-produto.md) (painel administrativo) e [`06`](06-privacidade-e-seguranca.md).
 
 - **Painel administrativo:** contas (situação, teste de 7 dias, aprovar, prazo, desligar), ligar e desligar
-  módulos, pessoas e último acesso, pagamentos registrados à mão, indicadores gerais (só números) e entrar numa conta
+  módulos, marcar os módulos "só pago" (bloqueados no teste), pessoas e último acesso, pagamentos registrados à mão, indicadores gerais (só números) e entrar numa conta
   para ajudar (sempre registrado).
 - **Regras:** termos de uso e política de privacidade (rascunho + revisão), aceite no primeiro acesso, backup
   semanal com um teste de restauração, revisão de segurança.
@@ -152,6 +153,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | Rodada 2 respondida: endereço `painel.renderizaweb.com.br`; a Renderiza cria as contas com o próprio acesso; o site do piloto já existe e é independente; regras do teste de 7 dias. Rodada 3 aberta (4 perguntas e juntar os documentos na `main`). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Rodada 1 respondida: piloto de eventos, meta de 2 semanas, todos os módulos num lote só, painel administrativo com cadastro e 7 dias grátis, Pix à mão. Trilho refeito em 6 paradas; cliente no centro do banco; regras do trabalho em paralelo e quadro de tarefas criados. `renderiza.com.br` já tem dono (desde 2017). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Perguntas resumidas numa rodada 1 de 7. Planos do Supabase e da Vercel ficam com a Renderiza. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Documentos do produto escritos em `docs/painel-clientes/`. | Claude, a pedido da Renderiza |

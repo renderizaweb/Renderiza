@@ -65,7 +65,10 @@ CONTA (o espaço / o estúdio)
 - **Módulo desligado ninguém vê**, nem o dono. Quem liga e desliga é a Renderiza, no painel administrativo. Os dados
   ficam guardados; religou, voltam.
 - **O dono** tem tudo, incluindo Equipe e acessos, Configurações e publicar no Meu site.
-- **Conta desligada ou teste vencido:** o painel mostra o aviso e só deixa exportar os dados. Nada é apagado.
+- **Teste vencido ou conta desligada:** a pessoa entra, mas o banco não entrega nenhum dado da conta (a função `pode`
+  responde "não") e o painel mostra o aviso para fechar o plano. Nada é apagado; religou, tudo volta.
+- **Teste:** 7 dias contados da criação da conta (`teste_ate`), um prazo só para todos os módulos. Módulo marcado
+  como "só pago" (`modulos.liberado_no_teste = false`) fica bloqueado durante o teste.
 
 **O que todos da conta veem (com qualquer módulo):** o básico do cliente (nome e contato), porque o "Para quem?" e a
 agenda precisam; os serviços; as reservas e compromissos na agenda (sem valores).
@@ -92,7 +95,8 @@ create policy "financeiro: editar" on public.parcelas
 | Tabela | Para quê | Campos principais |
 |---|---|---|
 | `contas` | o negócio cliente | nome, nicho (`eventos`, `fotografia`), código público, logo, cores, WhatsApp, fuso, situação (`teste`, `ativa`, `desligada`, `cancelada`), teste até, ativa até (opcional), origem (`cadastro` ou `renderiza`) |
-| `contas_modulos` | o que está ligado | conta, módulo, ligado, desde, quem ligou |
+| `modulos` | o catálogo de módulos (o mesmo para todas as contas) | id, nome, preço, liberado no teste (sim/não; a Renderiza muda no admin) |
+| `contas_modulos` | o que está ligado em cada conta | conta, módulo, ligado, desde, quem ligou (no cadastro, os que a pessoa escolheu) |
 | `pessoas` | quem entra na conta | conta, usuário (`auth.users`), nome, papel ("Comercial"), cor, dono (sim/não), acessos (`{ "agenda": "editar", "financeiro": null, … }`), ativa, visto em |
 | `convites` | convite pendente | conta, e-mail, acessos, quem convidou, expira em |
 | `atividades` | histórico ("o que a equipe fez") | conta, pessoa, ação, tabela e id, cliente, resumo, quando |

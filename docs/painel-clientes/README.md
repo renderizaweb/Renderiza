@@ -7,10 +7,11 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 1 de 6 · Organização e infraestrutura.** Rodada 1 de perguntas respondida em 28/10/2026; esperando a
-> rodada 2 (7 perguntas curtas) em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Piloto: um espaço de
-> eventos, com meta de começar a usar por volta de 11/11/2026. Detalhes e diário de bordo: [`01-trilho.md`](01-trilho.md);
-> quem está fazendo o quê: [`tarefas.md`](tarefas.md).
+> **Parada 1 de 6 · Organização e infraestrutura.** Rodadas 1 e 2 respondidas em 28/10/2026. Endereço:
+> `painel.renderizaweb.com.br`. Piloto: um espaço de eventos que já tem site da Renderiza, com meta de começar a usar
+> por volta de 11/11/2026. A Renderiza cria as contas (Supabase, Vercel, e-mail) e as sessões começam pelas tarefas
+> T1.5 e T1.6. Rodada 3 de perguntas em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Detalhes e diário
+> de bordo: [`01-trilho.md`](01-trilho.md); quem está fazendo o quê: [`tarefas.md`](tarefas.md).
 
 (Quem fechar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
 
@@ -20,7 +21,7 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 |---|---|---|
 | Quem usa | Kaue e Milena | os clientes da Renderiza e as equipes deles |
 | Para quê | prospecção: leads, demos, ritmo, atividade | o dia a dia do negócio do cliente: agenda, clientes, contratos, financeiro, atendimento e o site |
-| Endereço | `renderizaweb.com.br/painel` | domínio da Renderiza, a escolher na rodada 2 (ex.: `painel.renderizaweb.com.br`) |
+| Endereço | `renderizaweb.com.br/painel` | `painel.renderizaweb.com.br` |
 | Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na tarefa T1.5) |
 | Banco | Supabase `gxdwluswpczlfgvzxqvg` | um projeto Supabase **novo e separado** (proposta) |
 | Vitrine | — | `/exemplos` (eventos, Villa Alecrim) e `/exemplos/fotografia` (Estúdio Ciranda), com dados fictícios |

@@ -109,7 +109,8 @@ painel-clientes/
 
 ## Passo a passo das contas (para vocês, parada 1)
 
-A IA não cria conta nem vê senha: estes passos são de vocês. Os nomes dos menus podem mudar; na dúvida, a sessão da
+Quem faz é a Renderiza, com o próprio acesso de administrador (decidido em 28/10/2026); a IA não cria conta nem vê
+senha. Os nomes dos menus podem mudar; na dúvida, a sessão da
 vez guia na tela.
 
 1. **Supabase** (T1.2): criar o projeto (nome "painel-renderiza", região South America · São Paulo, senha do banco
@@ -125,27 +126,20 @@ vez guia na tela.
 5. **Acesso das sessões:** o que uma sessão de IA precisar (ex.: aplicar migração) vai por variável de ambiente ou
    pelo conector do Supabase, nunca pelo chat.
 
-## Endereço e domínio (a escolher na rodada 2)
+## Endereço e domínio
+
+**Decidido em 28/10/2026: `painel.renderizaweb.com.br`.** O `renderizaweb.com.br` já é da Renderiza: é só criar o
+subdomínio no DNS, apontando para a Vercel, sem custo. O mesmo DNS recebe os registros do e-mail (SPF, DKIM, DMARC).
 
 O domínio do painel é da Renderiza; o site de cada cliente fica no domínio e nas contas dele e só consome a API do
-painel. Conferido no Registro.br em 28/10/2026:
-
-| Opção | Situação |
-|---|---|
-| `painel.renderizaweb.com.br` | o `renderizaweb.com.br` já é da Renderiza (no nome do Kaue): é só criar o subdomínio, sem custo |
-| `painel.renderiza.com.br` | **não dá:** o `renderiza.com.br` está registrado por outra pessoa desde 2017 (vence em 03/2027) |
-| `painel.renderiza.app.br` | o `renderiza.app.br` aparecia livre; `.app.br` é aberto a qualquer CPF ou CNPJ |
-| `painelrenderiza.com.br` | aparecia livre |
-
-Também já têm dono: `renderiza.com` e `renderiza.app`. Domínio novo custa por volta de R$ 40 por ano no Registro.br
-(conferir na hora). Em qualquer opção, o DNS do domínio escolhido recebe o apontamento para a Vercel e os registros
-do e-mail (SPF, DKIM, DMARC).
+painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra pessoa desde 2017; `renderiza.com` e
+`renderiza.app` também têm dono.)
 
 ## E-mail
 
 - Serviço de e-mail transacional com plano gratuito (ex.: Resend ou Brevo; conferir limites ao contratar), ligado
   ao Supabase Auth como SMTP próprio e usado pelas funções para o aviso de pedido novo.
-- Remetente no domínio do painel, ex.: `nao-responda@<domínio>`, com o nome "Painel Renderiza". Respostas para o
+- Remetente no domínio, ex.: `nao-responda@renderizaweb.com.br`, com o nome "Painel Renderiza". Respostas para o
   e-mail de atendimento da Renderiza.
 - Modelos em português, curtos, com o nome da conta ("A Villa Alecrim convidou você para o Painel Renderiza").
 

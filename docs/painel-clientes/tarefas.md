@@ -13,8 +13,8 @@ está no [trilho](01-trilho.md).
 
 | ID | Tarefa | Depende de | Mexe em | Situação | Sessão / branch |
 |---|---|---|---|---|---|
-| T1.1 | Domínio escolhido e apontado para a Vercel (vocês, com o passo a passo do `04`) | rodada 2 | DNS (fora do repositório) | livre | |
-| T1.2 | Projeto Supabase novo: região São Paulo, login com confirmação de e-mail, endereços do site (vocês, com o passo a passo) | — | painel do Supabase (fora do repositório) | livre | |
+| T1.1 | `painel.renderizaweb.com.br` apontado para a Vercel (a Renderiza, com o passo a passo do `04`) | T1.3 | DNS (fora do repositório) | livre | |
+| T1.2 | Projeto Supabase novo: região São Paulo, login com confirmação de e-mail, endereços do site (a Renderiza, com o passo a passo) | — | painel do Supabase (fora do repositório) | livre | |
 | T1.3 | Projeto Vercel novo na pasta `painel-clientes/`, variáveis públicas, build só quando a pasta muda | T1.5 | `vercel.json` | livre | |
 | T1.4 | Serviço de e-mail com remetente no domínio (SPF, DKIM, DMARC), ligado ao Supabase; modelos em português | T1.1, T1.2 | `supabase/emails/` | livre | |
 | T1.5 | Esqueleto da pasta: `index.html`, rotas, adaptador do Supabase, **todos os módulos e as áreas do admin já registrados (vazios)**, testes rodando | — | `index.html`, `src/app.js`, `src/rotas.js`, `src/modulos/index.js`, `src/admin/index.js`, `src/adaptadores/`, `test/` | livre | |
@@ -28,7 +28,7 @@ está no [trilho](01-trilho.md).
 | T2.1 | Migração base: contas, módulos, pessoas, convites, atividades, termos, equipe Renderiza; função `pode()`; RLS e testes de isolamento | T1.6 | `supabase/migrations/*_base.sql`, `supabase/testes/base*` | livre | |
 | T2.2 | Migração do negócio: clientes (com WhatsApp único), fichas, serviços, horários, campanhas, pedidos, reservas, valores, compromissos, parcelas, contratos, entregas, sites, pagamentos e entradas; situação calculada do cliente; RLS e testes | T2.1 | `supabase/migrations/*_negocio.sql`, `supabase/testes/negocio*` | livre | |
 | T2.3 | Semente: Villa Alecrim e Estúdio Ciranda no banco local, a partir dos arquivos de `exemplos/` | T2.2 | `supabase/semente/` | livre | |
-| T2.4 | Casca: entrar, cadastro com 7 dias grátis (escolhe o nicho), primeiro acesso pelo convite, esqueci a senha, escolher a conta, menu com módulos ligados e trancados | T1.7, T2.1 | `src/sessao.js`, `src/telas/` | livre | |
+| T2.4 | Casca: entrar, cadastro com 7 dias grátis (escolhe o nicho e os módulos; um prazo só, contado do início; teste vencido entra com os dados bloqueados e o aviso para assinar), primeiro acesso pelo convite, esqueci a senha, escolher a conta, menu com módulos ligados e trancados | T1.7, T2.1 | `src/sessao.js`, `src/telas/` | livre | |
 | T2.5 | Peças comuns dos exemplos (layout, gaveta, tabela, calendário, avisos, exportar CSV, **"Para quem?"**) e as palavras por nicho | T1.5 | `src/ui/`, `src/nichos/`, `estilo.css` | livre | |
 | T2.6 | Equipe e acessos: convidar, "só vê" ou "edita" por módulo, tirar acesso, limite de 5 | T2.4, T2.5 | `src/modulos/equipe/` | livre | |
 | T2.7 | Configurações do negócio e Serviços (pacotes ou ensaios, adicionais, horários, bloqueios, campanhas) | T2.2, T2.5 | `src/modulos/configuracoes/`, `src/modulos/servicos/` | livre | |
@@ -54,13 +54,13 @@ está no [trilho](01-trilho.md).
 | T4.3 | Meu site no site: contrato de conteúdo v1, marcações `data-rz` nos geradores, script com fallback, `virar-site.mjs` com o código da conta | T4.1 | `ferramentas/demo/gerar*.py`, `ferramentas/meu-site/`, `scripts/virar-site.mjs` | livre | |
 | T4.4 | Meu site no painel: editor por seção, imagens, rascunho, prévia, publicar, histórico, voltar à versão inicial | T4.3 | `src/modulos/meu-site/`, `api/publico/site/` | livre | |
 | T4.5 | Desconectar o site e gerar a versão final | T4.3 | `scripts/versao-final.mjs` | livre | |
-| T4.6 | Site do piloto preparado e conectado | T4.2, T4.3, rodada 2 | `demos/<piloto>/` ou o repositório do site dele | livre | |
+| T4.6 | Site do piloto ligado ao painel, quando ele quiser (o site é dele e independente) | T4.2, T4.3, rodada 3 | `demos/<piloto>/` ou o repositório do site dele | livre | |
 
 ## Parada 5 · Painel administrativo e regras (em paralelo)
 
 | ID | Tarefa | Depende de | Mexe em | Situação | Sessão / branch |
 |---|---|---|---|---|---|
-| T5.1 | Admin · Contas: lista, situação, cadastros novos, teste de 7 dias, aprovar, prazo, desligar; ligar e desligar módulos; criar conta à mão | T2.2, T2.5 | `src/admin/contas/` | livre | |
+| T5.1 | Admin · Contas: lista, situação, cadastros novos, teste de 7 dias, aprovar, prazo, desligar; ligar e desligar módulos; marcar módulo "só pago" (bloqueado no teste); criar conta à mão; exportar os dados de uma conta a pedido (com registro) | T2.2, T2.5 | `src/admin/contas/` | livre | |
 | T5.2 | Admin · Pessoas e acessos: quem entrou, quando, de qual conta; entrar numa conta para ajudar (registrado) | T2.2, T2.5 | `src/admin/pessoas/` | livre | |
 | T5.3 | Admin · Pagamentos: registrar o Pix do mês, quem pagou e quem não pagou | T2.2, T2.5 | `src/admin/pagamentos/` | livre | |
 | T5.4 | Admin · Indicadores: contas por situação, cadastros, pessoas ativas, uso por módulo, pedidos dos sites (só números) | T2.2, T2.5 | `src/admin/indicadores/`, migração própria (visões) | livre | |
@@ -83,4 +83,5 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Tarefa | Recado |
 |---|---|---|
+| 28/10/2026 | — | Rodada 2 respondida: T1.1 a T1.4 são da Renderiza (contas e DNS); endereço `painel.renderizaweb.com.br`. |
 | 28/10/2026 | — | Quadro criado. T1.5 e T1.6 podem começar já; o resto da parada 1 espera a rodada 2 do `07`. |
