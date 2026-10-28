@@ -1,0 +1,678 @@
+{
+ "pasta": "valeria-duarte-fotografia",
+ "marca": "Valéria Duarte Fotografia",
+ "titulo_nome": "Valéria Duarte",
+ "titulo_script": "fotografia",
+ "dona": "Valéria",
+ "google": {
+  "coords": "-23.4957229,-46.3161343",
+  "fid": "0x94ce7b53916f576b:0x1edbc9ac10a2a31a",
+  "gid": "/g/11xvxszxg9"
+ },
+ "google_nome": "Valéria Duarte Fotografia",
+ "endereco_maps": "Av. Miguel Badra, 1716 - Badra, Suzano - SP, 08690-010",
+ "google_nota": "5,0",
+ "google_total": "52",
+ "whatsapp": "5511974420637",
+ "instagram": "valeriaduartefotografa",
+ "seguidores": "2,9 mil",
+ "slogan": "Transformo sua gestação em lembranças eternas.",
+ "cores": {
+  "fundo": "#faf6f6",
+  "papel": "#fffdfd",
+  "areia": "#f2e9e9",
+  "linha": "#e6d9d9",
+  "tinta": "#2c2224",
+  "tinta2": "#66575a",
+  "rosa": "#cf8f99",
+  "acento": "#8e2c3c",
+  "acento_escuro": "#74222f",
+  "cafe": "#2a191c"
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 15h30",
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 15h30",
+   "2026-11-28 14h",
+   "2026-12-05 9h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-12 9h",
+   "2026-12-12 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Valéria define os dela",
+  "mensagem": "Olá, Valéria! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "site": {
+  "titulo": "Valéria Duarte Fotografia | Gestante, newborn e família em Suzano",
+  "descricao": "Valéria Duarte Fotografia, no Badra, em Suzano: ensaios de gestante, newborn, família, infantil e smash the cake. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "Fotografia em Suzano",
+   "frase": "Transformo sua gestação em lembranças eternas.",
+   "intro": "Gestante, newborn, família e infantil no estúdio da Valéria, no Badra, em Suzano.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Família",
+    "Smash the cake",
+    "Casal",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/546508514_18073027724514647_3995112806233834810_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido vinho sentada na gaiola de flores",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/553354308_18074905571514647_8987472958103175370_n.jpg",
+     "f": "p",
+     "alt": "Pais beijando a recém-nascida de tule rosa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_06.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido laranja engatinhando no cenário de balões",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "A gestação <em>em cada detalhe.</em>",
+   "eyebrow": "Portfólio",
+   "p": "Ensaios feitos por a Valéria. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/557628513_18076133921514647_1083473319002941170_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido azul royal com a cauda aberta",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/572498169_18079867550514647_8679002146650902526_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vinho no fundo vermelho, com flor no cabelo",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/559129801_18076131938514647_1315213052525612491_n.jpg",
+      "f": "p",
+      "alt": "Gestante de pink sentada na gaiola de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/557456620_18076131272514647_3948371493708765524_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vinho no fundo preto, com o vestido esvoaçante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/565009904_18077838149514647_6487647013181780093_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco no fundo marrom",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/573598370_18079866143514647_1497929223951986058_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul royal no fundo azul, de tiara",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/573062404_18079867172514647_3692791622539693795_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vinho sentada na gaiola de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/561093929_18076742516514647_1735489223908037425_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul ao ar livre, na gaiola de flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/569951536_18078977705514647_4816087758461191594_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vinho no parque, à beira do lago",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/568963269_18078902819514647_8805185250754910277_n.jpg",
+      "f": "p",
+      "alt": "Gestante com flores vermelhas no fundo pink",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/544104822_18073027853514647_4243146784828287276_n.jpg",
+      "f": "p",
+      "alt": "Gestante de calça branca sentada num cubo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/560311248_18076742873514647_1360454143859119279_n.jpg",
+      "f": "p",
+      "alt": "Gestante de pink na ponte vermelha do parque",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Casal e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/557605248_18076131641514647_8517586974400343384_n.jpg",
+      "f": "p",
+      "alt": "Casal sorrindo no fundo marrom, ele com a mão na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/565621925_18077838098514647_1297004167786013409_n.jpg",
+      "f": "p",
+      "alt": "Casal se olhando na gaiola de flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/gfotos/g03.jpg",
+      "f": "l",
+      "alt": "Casal se abraçando na praia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/545282806_18073028105514647_5550281587708280870_n.jpg",
+      "f": "p",
+      "alt": "Casal de marrom no fundo marrom",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/566347207_18078952331514647_3852402509059786456_n.jpg",
+      "f": "p",
+      "alt": "Gestante abraçada à filha pequena",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/552758556_18075046172514647_123653814695666587_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o marido e a filha na gaiola de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/571809542_18079482965514647_8694936575616872053_n.jpg",
+      "f": "p",
+      "alt": "Menina entregando uma rosa para a mãe gestante",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/566999881_18079216640514647_4926120406198167634_n.jpg",
+      "f": "p",
+      "alt": "Casal rindo, ela com as mãos na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/557517624_18076131410514647_7622148992514980179_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul com a filha no colo",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Bebês e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3PRY0EXQQ__De3PRY0EXQQ_00.jpg",
+      "f": "l",
+      "alt": "Menino de camisa do Palmeiras chutando a bola no cenário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_06.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido laranja engatinhando no cenário de balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3PRY0EXQQ__De3PRY0EXQQ_06.jpg",
+      "f": "l",
+      "alt": "Bebê sentado ao lado do bolo verde",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/553354308_18074905571514647_8987472958103175370_n.jpg",
+      "f": "p",
+      "alt": "Pais beijando a recém-nascida de tule rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3PRY0EXQQ__De3PRY0EXQQ_07.jpg",
+      "f": "l",
+      "alt": "Bebê com a mão no bolo, coberto de glacê verde",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_03.jpg",
+      "f": "p",
+      "alt": "Menino de 4 anos sorrindo com a camiseta da Bluey",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3PRY0EXQQ__De3PRY0EXQQ_03.jpg",
+      "f": "l",
+      "alt": "Pais com o bebê de camisa do Palmeiras",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/568866945_18078917171514647_2152571599411750201_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido azul pulando com uma rosa na mão",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/gfotos/g00.jpg",
+      "f": "l",
+      "alt": "Menino de 2 anos no cenário verde com dinossauro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_10.jpg",
+      "f": "p",
+      "alt": "Mãe beijando a filha de vestido laranja",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3PRY0EXQQ__De3PRY0EXQQ_05.jpg",
+      "f": "l",
+      "alt": "Irmãos sentados no cenário de futebol",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/572248827_18079873196514647_979706979869914942_n.jpg",
+      "f": "p",
+      "alt": "Menina de jardineira apoiada num cubo branco",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/753344050_18111878762514647_4298940819806482558_n.jpg",
+    "f": "p",
+    "alt": "Valéria Duarte sorrindo, com a câmera na mão",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Valéria fotografa gestantes, recém-nascidos, famílias e crianças no estúdio dela, no Badra, em Suzano. A especialidade está na bio: transformar a gestação em lembranças eternas, com os vestidos do acervo do estúdio."
+   ],
+   "citacao": "Transformo sua gestação em lembranças eternas.",
+   "citacao_quem": "Valéria Duarte, na bio do Instagram",
+   "p2": [
+    "Nas avaliações, as clientes chamam as sessões de humanizadas: ela dirige as poses, recebe a família inteira, cachorro também, e topa reproduzir as ideias de quem chega."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "52 avaliações no Google"
+    ],
+    [
+     "620",
+     "publicações no Instagram"
+    ],
+    [
+     "2,9 mil",
+     "seguidores no Instagram"
+    ]
+   ],
+   "eyebrow": "Quem fotografa",
+   "h2": "Quem está <em>atrás da câmera.</em>"
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da gestação <em>aos primeiros anos.</em>",
+   "p": "Os ensaios que a Valéria faz:",
+   "fonte": "Bio, destaques e legendas da Valéria no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A especialidade",
+     "p": "No estúdio, com os vestidos do acervo, ou ao ar livre, no parque e na praia."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O recém-nascido com os pais, no estúdio."
+    },
+    {
+     "nome": "Smash e aniversários",
+     "sub": "Do 1º aos 4 anos",
+     "p": "Temas como Bluey e Palmeiras, com bolo e balões."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo mundo junto",
+     "p": "Pais, filhos e até a cachorrinha da casa."
+    },
+    {
+     "nome": "Casal",
+     "sub": "Pré-wedding",
+     "p": "Ensaios de casal e pré-wedding, também na praia."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Laços de Natal 2026",
+     "p": "A campanha de Natal deste ano, no estúdio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Laços de Natal 2026",
+   "h2": "Laços <em>de Natal.</em>",
+   "p": "A campanha de Natal 2026 já começou no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Valéria.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/573613626_18079866284514647_7199071124407706391_n.jpg",
+    "f": "p",
+    "alt": "Gestante de vinho no fundo vermelho",
+    "c": [
+     0.5,
+     0.25
+    ]
+   },
+   "legenda": "No estúdio, em Suzano"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Dayane",
+    "tag": "Ensaio",
+    "trecho": "A Valéria é uma excelente profissional,uma pessoa querida,uma fofa .As sessões com ela é muito humanizada. Ela te deixa super a vontade,e confortável."
+   },
+   {
+    "nome": "Cleidiane Leme",
+    "tag": "Família",
+    "trecho": "Ela teve muita paciência com meus filhos, deixou a gente super a vontade, Amei cada detalhe. Profissional excelente!"
+   },
+   {
+    "nome": "Yone Silva",
+    "tag": "Família",
+    "trecho": "Tudo impecável a Valéria foi muito atenciosa comigo e com minha família, recebeu muito bem minha cachorrinha que também participou do ensaio."
+   },
+   {
+    "nome": "Rayane Rosa",
+    "tag": "Ensaio",
+    "trecho": "Além do resultado final ter ficado espetacular, a sua postura e direção durante o ensaio fizeram toda a diferença."
+   },
+   {
+    "nome": "Karoline Chagas",
+    "tag": "Pré-wedding",
+    "trecho": "Meu ensaio pré wedding foi perfeito, ela não mediu esforços pra fazer conforme eu sempre sonhei."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Badra, em Suzano.",
+   "telefone": "(11) 97442-0637",
+   "endereco": [
+    "Av. Miguel Badra, 1716",
+    "Badra",
+    "Suzano · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Valéria Duarte Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@valeriaduartefotografa) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Laços de Natal 2026 | Valéria Duarte Fotografia",
+  "descricao": "Laços de Natal 2026 na Valéria Duarte Fotografia, em Suzano: ensaio de Natal no estúdio para bebês, gestantes e famílias. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Valéria Duarte Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo; fotos do estúdio (as do Natal 2026 entram quando ela mandar). Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Laços de Natal 2026",
+   "h1": "Laços <em>de Natal.</em>",
+   "citacao": "Porque os filhos crescem, o tempo passa, mas as fotografias têm o poder de nos fazer reviver momentos que jamais voltarão.",
+   "citacao_quem": "Valéria Duarte, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_14.jpg",
+    "f": "p",
+    "alt": "Pais com os dois filhos no colo, no cenário de balões",
+    "c": [
+     0.5,
+     0.12
+    ]
+   },
+   "legenda": "No estúdio, em Suzano"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O Natal <em>da sua família.</em>",
+   "p": "O Natal 2026 já começou no estúdio: a campanha se chama Laços de Natal, e os primeiros ensaios aconteceram em outubro. Aqui ficam os horários para as famílias reservarem.",
+   "itens": [
+    "No estúdio, no Badra, em Suzano.",
+    "Para bebês, gestantes e a família toda.",
+    "Maquiagem para a mamãe, com a parceira do estúdio.",
+    "Valores e detalhes pelo WhatsApp da Valéria."
+   ],
+   "legenda_fotos": "Ensaios no estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/568649510_18078918710514647_8768353187257783939_n.jpg",
+    "f": "p",
+    "alt": "Menina sentada na gaiola de flores do estúdio",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/gfotos/g07.jpg",
+    "f": "p",
+    "alt": "Pais com os dois filhos no colo, no fundo claro",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/558926404_18076320317514647_7705869950330380607_n.jpg",
+    "f": "l",
+    "alt": "Pais e o filho rindo no cenário de balões",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "No estúdio",
+   "h2": "Famílias <em>no estúdio.</em>",
+   "nome": "No estúdio",
+   "p": "Famílias fotografadas pela Valéria em outubro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_11.jpg",
+     "f": "p",
+     "alt": "Pais com a filha de vestido laranja no colo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_13.jpg",
+     "f": "p",
+     "alt": "Família com o filho nos ombros do pai",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_12.jpg",
+     "f": "p",
+     "alt": "Pai sentado com os dois filhos no colo",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_09.jpg",
+     "f": "p",
+     "alt": "Mãe sentada com os dois filhos no cenário",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/drive/559003931_18076320011514647_8376606951135890767_n.jpg",
+     "f": "p",
+     "alt": "Pais com o filho no colo entre os balões coloridos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/postsall/De3ONTfEa2C__De3ONTfEa2C_00.jpg",
+     "f": "p",
+     "alt": "Irmãos deitados no chão com os balões",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Yone Silva",
+    "tag": "Família",
+    "trecho": "Tudo impecável a Valéria foi muito atenciosa comigo e com minha família, recebeu muito bem minha cachorrinha que também participou do ensaio."
+   },
+   {
+    "nome": "Rayane Rosa",
+    "tag": "Ensaio",
+    "trecho": "Além do resultado final ter ficado espetacular, a sua postura e direção durante o ensaio fizeram toda a diferença."
+   },
+   {
+    "nome": "Karoline Chagas",
+    "tag": "Pré-wedding",
+    "trecho": "Meu ensaio pré wedding foi perfeito, ela não mediu esforços pra fazer conforme eu sempre sonhei."
+   },
+   {
+    "nome": "Dayane",
+    "tag": "Ensaio",
+    "trecho": "A Valéria é uma excelente profissional,uma pessoa querida,uma fofa .As sessões com ela é muito humanizada. Ela te deixa super a vontade,e confortável."
+   },
+   {
+    "nome": "Cleidiane Leme",
+    "tag": "Família",
+    "trecho": "Ela teve muita paciência com meus filhos, deixou a gente super a vontade, Amei cada detalhe. Profissional excelente!"
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Valéria abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Valéria define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Valéria abre com o dia e a hora escritos."
+    ],
+    [
+     "A Valéria confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Laços de Natal 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Valéria no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97442-0637); a bio do Instagram usa um link curto do WhatsApp (wa.me/message)",
+  "site": "não tem: sem link no Google; 16 domínios testados (valeriaduarte.com é de outra pessoa) (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/valeria-duarte-fotografia` e `/demo/valeria-duarte-fotografia/natal`",
+  "direcao": [
+   "Portfólio com os vestidos fortes dos ensaios dela (vinho, azul royal, pink); a cor de destaque é um vinho.",
+   "Sem logo público: o topo e o rodapé usam um monograma VD e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo é a bio dela (“Transformo sua gestação em lembranças eternas”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Gestante, Casal e família, Bebês e aniversários), quem fotografa, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página “Laços de Natal 2026”: o ensaio, a agenda de exemplo e fotos de famílias no estúdio.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram dela: a pasta do Drive do lote 1 (posts de 2025, quase todos de gestante; a pasta se chama “valeriaeduardafotografia”, mas a página salva é do @valeriaduartefotografa), os posts de outubro de 2026 e o Perfil da Empresa no Google (praia e família).",
+   "Não há foto de Natal 2026 em boa resolução: o ensaio de Natal está só em Reels, com texto por cima. A página de Natal usa fotos do estúdio e diz isso.",
+   "A foto de quem fotografa é a dela com a câmera."
+  ],
+  "textos": [
+   "Bio: “Transformo sua gestação em lembranças eternas”, Gestante, Newborn, Família/Infantil, Suzano.",
+   "Legenda do Natal 2026 (26/10): “Laços de Natal” e “os filhos crescem, o tempo passa, mas as fotografias têm o poder de nos fazer reviver momentos que jamais voltarão”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho."
+  ],
+  "conferir": [
+   "Pedir as fotos do cenário de Natal 2026 (destaque “Natal 2026”).",
+   "Os horários de Natal são exemplo (sábados)."
+  ]
+ },
+ "marca_completa": "Valéria Duarte Fotografia",
+ "fone_link": "+5511974420637",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/google/google_demo.json",
+ "mensagem": "Olá, Valéria! Vi o seu site e queria saber mais sobre os ensaios.",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/valeria-duarte-fotografia/marca/favicon.png"
+ },
+ "renderiza": {
+  "ola": "Valéria",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Sou a Valéria, da Valéria Duarte Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Valéria, da Valéria Duarte Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ }
+}

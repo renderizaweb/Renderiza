@@ -277,3 +277,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Vivian Piacenti (fotógrafa)](demos/vivian-piacenti-fotografia) | Limão, São Paulo | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 8ª) |
 | [Estúdio Brenda Melo Fotografia (fotógrafa)](demos/brenda-melo-fotografia) | Jardim Santa Adélia, São Paulo | site + página de Natal (`/natal`, “De Volta ao Lar”) | pronta · 28/10/2026 (fotógrafos lote 1 · 9ª) |
 | [Roberta Turri Fotografia (fotógrafa)](demos/roberta-turri-fotografia) | Olímpico, São Caetano do Sul | site + página de Natal (`/natal`) | pronta · 28/10/2026 (fotógrafos lote 1 · 10ª) |
+| [Valéria Duarte Fotografia (fotógrafa)](demos/valeria-duarte-fotografia) | Badra, Suzano | site + página “Laços de Natal” (`/natal`, com fotos do estúdio) | pronta · 28/10/2026 (fotógrafos lote 1 · 11ª) |
