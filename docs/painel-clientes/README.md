@@ -7,8 +7,8 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 1 · Decisões de base.** Documentos escritos em 28/10/2026. Esperando as respostas das perguntas de
-> [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Próxima ação, detalhes e diário de bordo:
+> **Parada 1 · Decisões de base.** Documentos escritos em 28/10/2026. Esperando as respostas da rodada 1 de
+> perguntas (7 perguntas curtas) em [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md). Próxima ação, detalhes e diário de bordo:
 > [`01-trilho.md`](01-trilho.md).
 
 (Quem avançar uma parada atualiza este quadro e o painel de bordo do trilho no mesmo commit.)

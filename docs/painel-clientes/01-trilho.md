@@ -15,8 +15,8 @@ de privacidade publicadas e backup rodando.
 | | |
 |---|---|
 | **Onde o trem está** | Parada 1 · Decisões de base |
-| **Próxima ação** | Kaue e Milena respondem as perguntas do [`07`](07-decisoes-e-perguntas.md) (as que travam as paradas 1 e 2 primeiro) |
-| **Travado por** | P1 a P5, P9, P23 e P24 (para seguir para a parada 2); P6 e P8 (para as paradas 4 e 5) |
+| **Próxima ação** | Kaue e Milena respondem a rodada 1 de perguntas do [`07`](07-decisoes-e-perguntas.md) (7 perguntas curtas) |
+| **Travado por** | rodada 1 |
 | **Última atualização** | 28/10/2026 |
 
 ## O mapa
@@ -281,7 +281,8 @@ O começo é no gratuito do Supabase e da Vercel (decisão de 28/10/2026). Limit
 | **Vercel** | Hobby: **só uso pessoal e não comercial**; 100 deploys por dia; 1 milhão de chamadas de função | o primeiro cliente pagante (a regra de uso comercial) | Pro, US$ 20 por pessoa/mês, ou levar o front (que é estático de propósito) para o Cloudflare Pages |
 | **E-mail (SMTP)** | os planos gratuitos dos serviços de e-mail transacional (conferir na hora de contratar) | muitos convites e avisos de pedido por dia | o plano pago do mesmo serviço |
 
-Enquanto o Supabase estiver no gratuito, a cópia semanal da parada 8 é o único backup. Ver P26 no `07`.
+Enquanto o Supabase estiver no gratuito, a cópia semanal da parada 8 é o único backup. A hora de subir de plano é
+decisão da Renderiza (28/10/2026); esta tabela é só referência.
 
 ---
 
@@ -291,4 +292,5 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 28/10/2026 | 1 | Perguntas resumidas numa rodada 1 de 7; o resto segue a recomendação até alguém vetar. Planos ficam com a Renderiza. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Documentos do produto escritos em `docs/painel-clientes/` (trilho, produto, Meu site, arquitetura, dados, privacidade, decisões e perguntas). Perguntas enviadas. | Claude, a pedido da Renderiza |

@@ -16,6 +16,8 @@ e a pergunta ganha "Respondida em dd/mm".
 | 28/10/2026 | O Painel Renderiza vai ao ar de verdade, para clientes, com Supabase e Vercel, começando nos planos gratuitos (sobe de plano conforme a necessidade). | pedido de 28/10/2026 |
 | 28/10/2026 | Módulo novo de **atualização do site** (Meu site): o cliente edita botões, cores, textos, imagens e seções pelo painel; o site sempre tem fallback para a versão inicial; quem sai pode pagar à parte para ficar com a versão final. | pedido de 28/10/2026 |
 | 28/10/2026 | O projeto anda por um trilho de paradas documentado nesta pasta, atualizado a cada avanço, para qualquer pessoa ou IA continuar. | pedido de 28/10/2026 |
+| 28/10/2026 | Planos do Supabase e da Vercel (gratuito, quando subir, regras de uso): ficam com a Renderiza, que já tem o contexto. O projeto não pergunta mais sobre isso (era a P26). | resposta de 28/10/2026 |
+| 28/10/2026 | Perguntas em rodadas curtas e gerais; o detalhe segue a recomendação até alguém vetar. | resposta de 28/10/2026 |
 
 ## Decidi por padrão (podem vetar)
 
@@ -38,7 +40,33 @@ Escolhas técnicas para não travar o trem. Cada uma tem o motivo; vetou, vira p
 
 ## Perguntas em aberto
 
-Cada uma tem a minha recomendação, para dar para responder só com "ok" ou com o que mudar, e a parada que ela trava.
+As perguntas vão em **rodadas curtas**. O que não está na rodada da vez segue a recomendação até alguém vetar.
+
+### Rodada 1 (enviada em 28/10/2026)
+
+1. O painel fica em `painel.renderizaweb.com.br`, com o nome "Painel Renderiza"? (P1, P2)
+2. Quem cuida do domínio (DNS) hoje, e qual e-mail da empresa vai ser o dono das contas? (P3, P4)
+3. Já tem cliente para ser o piloto? Se não tiver, começo por eventos ou por fotografia? (P6, P7)
+4. Tem uma data em mente para o piloto começar a usar? (P9)
+5. Primeiros módulos: Agenda, Atendimento, Clientes e Agenda online. Pode ser? (P8)
+6. A mensalidade, no começo, cobrada por Pix e conferida à mão. Pode ser? (P18)
+7. Meu site: já tem ideia do preço do módulo e do valor da versão final? "Decido depois" vale. (P12, P13)
+
+### Seguindo a recomendação (vale até alguém vetar)
+
+P10 (os propostos ficam para depois), P14 (só leitura no 10º dia de atraso, site desconectado no 30º), P15 (o que
+entra no editor), P16 (sites já entregues só se quiserem), P17 (o site fica na conta do cliente), P19 (dados
+guardados 90 dias depois de cancelar), P20 (eu rascunho os termos; recomendo revisão de quem entende de LGPD), P21
+(contrato sem CPF por padrão), P22 (aviso de pedido por e-mail), P23 (código neste repositório), P24 (IA desenvolve,
+vocês revisam), P25 (os exemplos continuam como vitrine).
+
+### Para as próximas rodadas
+
+P5 (CNPJ, antes das paradas 8 e 9) e P11 (montagem para quem não fez o site, antes da parada 9).
+
+### Detalhe de cada pergunta
+
+A versão completa, com o motivo e a parada que cada uma trava. Serve de consulta.
 
 ### A. Nome, endereço e contas
 
@@ -109,7 +137,4 @@ Cada uma tem a minha recomendação, para dar para responder só com "ok" ou com
   acesso (GitHub, Supabase, Vercel)? *Trava:* parada 2.
 - **P25 · Exemplos.** Os `/exemplos` continuam como vitrine com dados fictícios? *Recomendo:* sim; mais adiante viram
   uma conta de demonstração dentro do painel real. *Trava:* parada 11.
-- **P26 · Planos.** No primeiro cliente pagante: Vercel Pro (US$ 20/mês) ou levar o front para o Cloudflare Pages
-  (o gratuito de lá não tem a regra de "não comercial"; conferir na hora)? E o Supabase Pro (US$ 25/mês, com backup
-  diário e sem pausa): no primeiro cliente pagante ou quando a receita cobrir? *Recomendo:* Vercel Pro ou Cloudflare
-  no primeiro pagante; Supabase Pro quando a receita do painel cobrir, com o backup semanal até lá. *Trava:* parada 11.
+- **P26 · Planos.** *Decidida em 28/10/2026:* fica com a Renderiza (ver "Decididas").
