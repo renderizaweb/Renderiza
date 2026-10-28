@@ -38,7 +38,8 @@ DIAS_SEM = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'doming
 
 def quem(cfg):
     """Como o site chama a fotógrafa: o nome da marca no topo (nome + palavra em letra cursiva) e "a Ana"/"da Ana"
-    (demo.json: titulo_nome, titulo_script, quem_a, quem_da; o padrão sai de marca e dona)."""
+    (demo.json: titulo_nome, titulo_script, quem_a, quem_da; o padrão sai de marca e dona). Para um estúdio de
+    duas sócias: quem_a "o Studio AC", quem_da "do Studio AC" e mapa_nome (o nome no mapa do contato)."""
     dona = cfg.get('dona', 'Ana')
     nome = cfg.get('titulo_nome') or re.sub(r'\s+fotografia$', '', cfg['marca'], flags=re.I)
     a = cfg.get('quem_a', 'a ' + dona); da = cfg.get('quem_da', 'da ' + dona)
@@ -497,7 +498,7 @@ ESTILO = {
 .aba small{font-family:var(--sans);font-size:.7rem;vertical-align:super}
 .aba[aria-selected="true"]{background:none;color:var(--acento)}
 .aba[aria-selected="true"]::after{content:"";display:block;height:1px;margin:2px 22% 0;background:currentColor}
-@media(max-width:760px){.abas{display:flex;justify-content:center;gap:2px 18px}.aba{padding:4px 2px 8px;font-size:1.32rem;letter-spacing:0}}''',
+@media(max-width:760px){.abas{display:flex;justify-content:center;gap:2px 14px}.aba{padding:4px 1px 8px;font-size:1.2rem;letter-spacing:0}.aba small{display:none}}''',
     ('botoes', 'reto'): '''
 .botao,.hora,.proximos a,.aba,.exemplo,.menu-botao,.arrow-button,.legenda-grade i{border-radius:2px}''',
     ('botoes', 'suave'): '''
@@ -664,7 +665,7 @@ def faixa_rz(cfg, pagina):
     nome = esc(cfg['renderiza'].get('ola', 'Ana'))
     return f'''<aside class="rz-faixa" aria-label="Recado da Renderiza">
   <div class="rz-in">
-    <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>{nome}, a Renderiza montou para você:</p>
+    <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>{nome}, a Renderiza montou para {esc(cfg["renderiza"].get("para", "você"))}:</p>
     {troca}
     <p class="rz-preco" style="margin:0"><span>Tudo incluso: <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> <small>(<span data-rz="nota">{esc(r["nota_preco"])}</span>)</small></span>
       <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
@@ -686,7 +687,7 @@ def pilula_rz(cfg, pagina):
     return f'''<button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha"><svg aria-hidden="true"><use href="#brilho"/></svg><b>Renderiza</b> <span data-rz="curta">{esc(r["preco_pix"])} · até {d[2]}/{d[1]}</span></button>
 <div class="rz-folha" id="rz-folha" role="dialog" aria-label="O que a Renderiza montou" hidden>
   <button class="rz-folha-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
-  <h2>{esc(r.get("ola", "Ana"))}, a Renderiza montou para você</h2>
+  <h2>{esc(r.get("ola", "Ana"))}, a Renderiza montou para {esc(r.get("para", "você"))}</h2>
   <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="index.html" data-pagina="site"{site_atual}>O seu site</a><a href="natal.html" data-pagina="natal"{natal_atual}>A sua página de Natal</a></nav>
   <p>Tudo incluso: <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>).</p>
   <p>Condição válida até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>, o dia em que esta demonstração sai do ar.</p>
@@ -757,7 +758,7 @@ def rodape(cfg, F, links):
     <small>© <span data-year>2026</span> {esc(cfg["marca"])} · {esc(" · ".join(v["endereco"]))}</small>
   </div>
 </footer>
-<a class="flutuante" data-whatsapp href="#" aria-label="Conversar com a {esc(cfg["dona"])} no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>'''
+<a class="flutuante" data-whatsapp href="#" aria-label="Conversar com {esc(quem(cfg)["a"])} no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>'''
 
 
 def galeria_html(F, gal, ativa):
@@ -926,7 +927,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
       </ul>
       <a {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
     </div>
-    <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>Estúdio {esc(q["da"])}</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>{esc(cfg.get("mapa_nome") or "Estúdio " + q["da"])}</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
 </section>''')
     out.append('</main>')
