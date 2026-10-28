@@ -281,3 +281,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Fotográfico Jessica Cunha (fotógrafa)](demos/jessica-cunha-fotografia) | Vila Galvão, Guarulhos | site + página de Natal (`/natal`, “Memórias em Veludo”) | pronta · 28/10/2026 (fotógrafos lote 1 · 12ª) |
 | [Aline Fernandes Fotografia (fotógrafa)](demos/aline-fernandes-fotografia) | Vila Fátima, Guarulhos | site + página de Natal (`/natal`, “O primeiro Natal”) | pronta · 28/10/2026 (fotógrafos lote 1 · 13ª) |
 | [Vitória Mazo Fotografia (fotógrafa)](demos/vitoria-mazo-fotografia) | Arujazinho IV, Arujá | site + página de Natal (`/natal`, “Um Natal encantado”) | pronta · 28/10/2026 (fotógrafos lote 1 · 14ª) |
+| [Studio Aizza Cardoso Fotografia (fotógrafa)](demos/aizza-cardoso-fotografia) | Dos Casas, São Bernardo do Campo | site + página de Natal (`/natal`, “Natal entre nós”) | pronta · 28/10/2026 (fotógrafos lote 1 · 15ª) |

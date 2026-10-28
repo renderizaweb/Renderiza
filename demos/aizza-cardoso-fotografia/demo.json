@@ -1,0 +1,693 @@
+{
+ "pasta": "aizza-cardoso-fotografia",
+ "marca": "Studio Aizza Cardoso Fotografia",
+ "titulo_nome": "Aizza Cardoso",
+ "titulo_script": "fotografia",
+ "dona": "Jackeline",
+ "quem_a": "o Studio",
+ "quem_da": "do Studio",
+ "mapa_nome": "Studio Aizza Cardoso",
+ "google": {
+  "coords": "-23.7438651,-46.5792087",
+  "fid": "0x94ce411042e885c9:0x4220462b0854b78",
+  "gid": "/g/11s9ghrtmp"
+ },
+ "google_nome": "Studio Aizza Cardoso Fotografia",
+ "endereco_maps": "R. Talismã, 71 - Dos Casas, São Bernardo do Campo - SP, 09841-560",
+ "google_nota": "5,0",
+ "google_total": "26",
+ "whatsapp": "5511987382898",
+ "instagram": "studio.acfotografia",
+ "seguidores": "4.698",
+ "slogan": "Criar, transmitir e emocionar.",
+ "mensagem": "Olá! Vi o site do Studio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#faf8f5",
+  "papel": "#ffffff",
+  "areia": "#f2ede7",
+  "linha": "#e5ded5",
+  "tinta": "#2a2522",
+  "tinta2": "#6a615a",
+  "rosa": "#c4ad95",
+  "acento": "#76563f",
+  "acento_escuro": "#5f4433",
+  "cafe": "#2a211c"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Bodoni Moda",
+    "ital,opsz,wght@0,6..96,400..600;1,6..96,400..600"
+   ],
+   "sans": [
+    "Manrope",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "topo": "centro",
+  "abertura": "faixa",
+  "botoes": "reto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 0.92,
+  "css": "h1,h2,h3,h1 em,h2 em,h3 em{font-weight:400}.abertura h1{letter-spacing:.08em}.especialidades i{font-size:1.2em}.dia-nome b,.numeros b,.contador b,.nota-google>b,.prova b,.passos li::before,.jornada li::before{font-variation-settings:\"opsz\" 11}"
+ },
+ "renderiza": {
+  "ola": "Jackeline e Júlia",
+  "para": "vocês",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-04",
+  "msg_garantir": "Olá! Somos do Studio Aizza Cardoso. Vimos o site e a página de Natal que a Renderiza montou para nós e queremos garantir o nosso (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Somos do Studio Aizza Cardoso. Vimos o site e a página de Natal que a Renderiza montou para nós e queríamos conversar sobre o valor."
+ },
+ "horarios": {
+  "horas": [
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h",
+   "17h"
+  ],
+  "exemplo": "Horários de exemplo: o Studio define os seus",
+  "mensagem": "Olá! Quero o horário de {data} ({semana}) às {hora} para o ensaio do Natal entre nós. Ainda está livre?",
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 15h",
+   "2026-11-07 17h",
+   "2026-11-14 10h",
+   "2026-11-14 14h",
+   "2026-11-14 15h",
+   "2026-11-14 17h",
+   "2026-11-21 14h",
+   "2026-11-21 16h",
+   "2026-11-21 17h",
+   "2026-11-28 11h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 11h",
+   "2026-12-05 15h",
+   "2026-12-05 16h",
+   "2026-12-12 10h",
+   "2026-12-12 11h",
+   "2026-12-12 15h"
+  ]
+ },
+ "site": {
+  "titulo": "Studio Aizza Cardoso Fotografia | Gestante, newborn e mesversário em São Bernardo do Campo",
+  "descricao": "Studio Aizza Cardoso Fotografia, no bairro Dos Casas, em São Bernardo do Campo: ensaio gestante, newborn, mesversário, smash the cake e família. Nota 5,0 no Google.",
+  "hero": {
+   "eyebrow": "São Bernardo do Campo",
+   "frase": "Criar, transmitir e emocionar.",
+   "intro": "Gestante, newborn, mesversário e família num estúdio claro, em branco e marrom, no bairro Dos Casas, em São Bernardo do Campo.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Mês a mês"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Mesversário",
+    "Smash the cake",
+    "Família",
+    "Pré-wedding"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/626006342_18153457384438138_7189013634343904145_n.jpg",
+     "f": "p",
+     "alt": "Casal no estúdio claro, ele beijando a testa da gestante",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/458303737_18291476767204173_1616403714741716287_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida sorrindo dormindo, com tiara de flores",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625638977_18090528410512449_8216906987101381034_n.jpg",
+     "f": "p",
+     "alt": "Bebê de 7 meses de laço rindo",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "h2": "Em branco, <em>marrom e luz.</em>",
+   "p": "Ensaios feitos no Studio. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "eyebrow": "Portfólio",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/458303737_18291476767204173_1616403714741716287_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida sorrindo dormindo, com tiara de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/457819569_18291477373204173_6215719549025912402_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida abraçada a um coração de crochê",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/457185681_18290824750204173_1189182776452600322_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo no cesto de palha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/624959921_18105003532800852_1381991377695700776_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tricô azul dormindo com o ursinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/622148876_17970914084842868_4334924837480484424_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo no cesto com o ursinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625039843_18318327772302178_9218816324633008525_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no cesto, entre os capins dos pampas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/627350943_18094414237768171_5840199152581200890_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de touca lilás na caminha branca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/626811479_18118715455579167_726865931227832718_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho dormindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/457557812_18291477037204173_5473988467946092058_n.jpg",
+      "f": "p",
+      "alt": "Irmão sorrindo deitado ao lado do recém-nascido",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/626006342_18153457384438138_7189013634343904145_n.jpg",
+      "f": "p",
+      "alt": "Casal no estúdio claro, ele beijando a testa da gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/623954164_18093145840795917_4699846914664684956_n.jpg",
+      "f": "p",
+      "alt": "Gestante de camisa branca e jeans sentada",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/gfotos/g02.jpg",
+      "f": "p",
+      "alt": "Mãe com a filha no colo, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/621173088_17994190406910940_28720781760596138_n.jpg",
+      "f": "p",
+      "alt": "Gestante de preto, em preto e branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/669779174_18542620504070639_5855577901893639687_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido vermelho no fundo claro",
+      "pos": "50% 30%",
+      "box": [
+       0.12,
+       0,
+       0.88,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/gfotos/g03.jpg",
+      "f": "p",
+      "alt": "Pais com a filha no colo, sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625049433_18083095930967470_1220983537652229111_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto, ele beijando a gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/655999194_18110504818751625_6428798835814528967_n.jpg",
+      "f": "p",
+      "alt": "Gestante de braço erguido, em preto e branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/gfotos/g04.jpg",
+      "f": "p",
+      "alt": "Avó, mãe e filha sentadas no cenário branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/624425306_17967087438007320_5756075563669435455_n.jpg",
+      "f": "p",
+      "alt": "Casal sentado no chão, ele abraçando a gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/640268253_18563084392021486_1711501158190074675_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto de rosto colado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/624852478_18220619695311169_5684005487161359209_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido vermelho com as mãos na cabeça",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "mesversario",
+    "nome": "Mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625638977_18090528410512449_8216906987101381034_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 7 meses de laço rindo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/456426085_18289986208204173_6682804615260862089_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cenário da bailarina, em rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/656864283_18044897759748882_1066877640207329177_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 6 meses de Jessie, de Toy Story",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625371887_18057667667669503_6412006652085296846_n.jpg",
+      "f": "l",
+      "alt": "Menina de 1 ano no cenário de margaridas e balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/624545120_17994924746740186_5417246289358166684_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no cenário de Toy Story",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/622277306_17893630536263198_3089419738254529351_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço vermelho sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/gfotos/g00.jpg",
+      "f": "p",
+      "alt": "Menina de 2 anos sentada no cubo, com balões claros",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/459907933_18293527096204173_9004909758051224833_n.jpg",
+      "f": "l",
+      "alt": "Bebê de jaqueta jeans no cenário de rock, com as guitarras",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/777352704_18385618288204173_6650014130779338789_n.jpg",
+    "f": "p",
+    "alt": "Jackeline Cardoso e Júlia, as sócias do Studio, sentadas juntas",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "Duas sócias, <em>um estúdio.</em>",
+   "p": [
+    "O Studio Aizza Cardoso fica no bairro Dos Casas, em São Bernardo do Campo, e é tocado por duas sócias, a Jackeline Cardoso e a Júlia: gestante, newborn, mesversário e família, num estúdio claro, em branco e marrom."
+   ],
+   "citacao": "Criar, transmitir e emocionar.",
+   "citacao_quem": "A bio do Studio, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias chamam as duas de “as meninas” e contam do cuidado com os bebês: a sala aquecida no dia frio, a paciência na hora de posicionar, o conforto em primeiro lugar."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "26 avaliações no Google"
+    ],
+    [
+     "4.698",
+     "seguidores no Instagram"
+    ],
+    [
+     "1.093",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do Studio:",
+   "fonte": "Bio, destaques e legendas do Studio no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Sozinha ou a dois, no fundo claro do estúdio."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Nos primeiros dias de vida, com o bebê aquecido e confortável."
+    },
+    {
+     "nome": "Mesversário",
+     "sub": "Mês a mês",
+     "p": "Um tema por mês: bailarina, Toy Story, rock."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Bolo, balões e o cenário do aniversário."
+    },
+    {
+     "nome": "Família",
+     "sub": "Amor de mãe",
+     "p": "Mães, filhos e avós juntos no mesmo retrato."
+    },
+    {
+     "nome": "Pré-wedding",
+     "sub": "A dois",
+     "p": "O ensaio do casal antes do casamento."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Natal <em>entre nós.</em>",
+   "p": "O cenário de Natal 2026 já está pronto no Studio, todo em branco e dourado, com a árvore, o sofá e a janela de neve. Escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625183192_18092089765821114_7989502635677253497_n.jpg",
+    "f": "p",
+    "alt": "Mãe erguendo a bebê no cenário de Natal branco",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   "legenda": "Natal 2024 no Studio"
+  },
+  "avaliacoes": [
+   {
+    "nome": "Lais Silva",
+    "tag": "Bebês",
+    "trecho": "fazem o ensaio ser um momento mágico, pensam sempre no melhor conforto para os bebês, e entregam resultados impecáveis."
+   },
+   {
+    "nome": "Laryssa Costa",
+    "tag": "Ensaio",
+    "trecho": "Fiz um ensaio ontem e estava muito frio, quando chegamos a sala estava aquecida (ganharam meu coração kk) As meninas são muito pacientes e ajudam demais na hora do posicionamento."
+   },
+   {
+    "nome": "Késia Mendes",
+    "tag": "Ensaios",
+    "trecho": "é incrível ver o trabalho de vocês, o amor e dedicação em cada click, o cuidado e o carinho durante as sessões de foto."
+   },
+   {
+    "nome": "Vitória Fernandes",
+    "tag": "Gestante e newborn",
+    "trecho": "Extremamente impecável, atendimento, ambiente. Profissionais atenciosas e competentes. Meu ensaio gestante, e newborn/ mês versario da minha filha ficaram perfeitos!"
+   },
+   {
+    "nome": "Pietra Cardoso",
+    "tag": "Família",
+    "trecho": "Ameii as fotos, a produção! Profissionais atenciosas, dedicadas, delicadas, superou minhas expectativas."
+   }
+  ],
+  "contato": {
+   "p": "Datas e orçamentos pelo WhatsApp. O Studio fica no bairro Dos Casas, em São Bernardo do Campo.",
+   "telefone": "(11) 98738-2898",
+   "endereco": [
+    "R. Talismã, 71",
+    "Dos Casas",
+    "São Bernardo do Campo · SP"
+   ],
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>"
+  },
+  "comentario": "Demo Studio Aizza Cardoso Fotografia (lote 1 de fotógrafos, 28/10/2026): arquivo único com as fotos dentro. Fotos do Instagram (@studio.acfotografia) e avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>"
+ },
+ "natal": {
+  "titulo": "Natal 2026: Natal entre nós | Studio Aizza Cardoso Fotografia",
+  "descricao": "Natal entre nós: o ensaio de Natal 2026 do Studio Aizza Cardoso, em São Bernardo do Campo, num cenário branco e dourado. Escolha o horário e chame no WhatsApp.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h1": "Natal <em>entre nós.</em>",
+   "citacao": "Por aqui o Natal já está pronto!",
+   "citacao_quem": "Studio Aizza Cardoso, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625183192_18092089765821114_7989502635677253497_n.jpg",
+    "f": "p",
+    "alt": "Mãe erguendo a bebê no cenário de Natal branco",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2024 no Studio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Branco, dourado <em>e aconchego.</em>",
+   "p": "O cenário de Natal 2026 é todo em branco e dourado: a árvore cheia de bolas brancas, o sofá com almofadas, a lareira e a janela com os pinheiros de neve. As fotos ao lado são do vídeo de lançamento, e a agenda já está aberta.",
+   "itens": [
+    "No Studio, no bairro Dos Casas, em São Bernardo do Campo.",
+    "Cenário em branco e dourado, com árvore, sofá e lareira.",
+    "Do recém-nascido à família toda.",
+    "Valores e detalhes pelo WhatsApp do Studio."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026, no vídeo de lançamento"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/quadros/natal_13.jpg",
+    "f": "p",
+    "alt": "O sofá branco com almofadas em frente à janela de neve, no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/quadros/natal_15.jpg",
+    "f": "p",
+    "alt": "A árvore de Natal com bolas brancas e douradas",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/quadros/natal_12.jpg",
+    "f": "p",
+    "alt": "Jackeline e Júlia no cenário de Natal 2026, entre a janela e a árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "Natal 2024",
+   "h2": "Os Natais <em>do Studio.</em>",
+   "nome": "Natal 2024",
+   "p": "Os dois cenários de 2024: o branco e o Baby de Natal, com a casinha vermelha.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/622277306_17893630536263198_3089419738254529351_n.jpg",
+     "f": "p",
+     "alt": "Bebê de laço vermelho sorrindo, no convite de Natal",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/622818306_17959266734898333_2009465954297439652_n.jpg",
+     "f": "l",
+     "alt": "Família sentada no tapete do cenário de Natal branco",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625029435_18092107304005145_8857761172067881227_n.jpg",
+     "f": "p",
+     "alt": "Detalhe das bolas e flores douradas da árvore",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/624631402_18036437195768844_2428685007206410942_n.jpg",
+     "f": "l",
+     "alt": "Bebê na casinha vermelha do cenário Baby de Natal",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/drive/625294577_18309490921262751_8252484099507371529_n.jpg",
+     "f": "l",
+     "alt": "Bebê sentada no algodão do cenário Baby de Natal",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "comentario": "Demo Studio Aizza Cardoso Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Késia Mendes",
+    "tag": "Ensaios",
+    "trecho": "é incrível ver o trabalho de vocês, o amor e dedicação em cada click, o cuidado e o carinho durante as sessões de foto."
+   },
+   {
+    "nome": "Vitória Fernandes",
+    "tag": "Gestante e newborn",
+    "trecho": "Extremamente impecável, atendimento, ambiente. Profissionais atenciosas e competentes. Meu ensaio gestante, e newborn/ mês versario da minha filha ficaram perfeitos!"
+   },
+   {
+    "nome": "Pietra Cardoso",
+    "tag": "Família",
+    "trecho": "Ameii as fotos, a produção! Profissionais atenciosas, dedicadas, delicadas, superou minhas expectativas."
+   },
+   {
+    "nome": "Lais Silva",
+    "tag": "Bebês",
+    "trecho": "fazem o ensaio ser um momento mágico, pensam sempre no melhor conforto para os bebês, e entregam resultados impecáveis."
+   },
+   {
+    "nome": "Laryssa Costa",
+    "tag": "Ensaio",
+    "trecho": "Fiz um ensaio ontem e estava muito frio, quando chegamos a sala estava aquecida (ganharam meu coração kk) As meninas são muito pacientes e ajudam demais na hora do posicionamento."
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp do Studio abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. O Studio define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp do Studio abre com o dia e a hora escritos."
+    ],
+    [
+     "O Studio confirma",
+     "Responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · São Bernardo do Campo",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame o Studio no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98738-2898), o mesmo do link da bio",
+  "site": "só o Instagram: o Google aponta o @; 18 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026)",
+  "situacao": "publicada em 28/10/2026 · `/demo/aizza-cardoso-fotografia` e `/demo/aizza-cardoso-fotografia/natal`",
+  "direcao": [
+   "Personalidade: editorial e limpa, como o feed (🤍🤎). Topo com o nome no centro e o menu embaixo, título em caixa alta, as três fotos em faixa, serifa de alto contraste (Bodoni Moda), botões retos e a paleta creme e chocolate.",
+   "O Studio é de duas sócias (Jackeline Cardoso e Júlia, “as meninas” nas avaliações): o site fala “o Studio”, e a faixa da Renderiza cumprimenta as duas.",
+   "Sem logo em boa resolução: monograma AC e o nome em letra cursiva, feitos para a demo.",
+   "A frase do topo e a do rodapé são a bio (“Criar, transmitir e emocionar”)."
+  ],
+  "demo": [
+   "Site: portfólio em 3 abas (Newborn, Gestante e família, Mês a mês), as duas sócias, os ensaios, avaliações do Google, o bloco do Natal e o contato com mapa.",
+   "Página de Natal 2026 “Natal entre nós” (o nome da campanha delas): o cenário branco e dourado, a agenda de exemplo (sábados, das 10h às 17h) e os cenários de 2024.",
+   "Camada da Renderiza: faixa no topo e pílula com o valor e o prazo; some no vídeo (?video=1)."
+  ],
+  "fotos": [
+   "Do Instagram: a pasta do Drive do lote 1 (posts de 2024), 5 fotos do Google e quadros do vídeo de lançamento do Natal 2026 (720 px).",
+   "Fora de propósito: as artes com texto (Natal 2024, montagem do 1 aninho), os bebês sem roupa e os closes de detalhe.",
+   "A foto de quem fotografa é a do perfil (as duas sócias); a Jackeline se apresenta no post do Dia da Fotografia."
+  ],
+  "textos": [
+   "Bio: “Criar, transmitir e emocionar · Gestante | Newborn | Infantil · São Bernardo do Campo”.",
+   "Legendas: “Por aqui o Natal já está pronto!”, “Natal entre nós · agenda aberta” (vídeo de 21/10), “O ensaio newborn é realizado nos primeiros dias de vida do bebê”.",
+   "Avaliações do Google: 5 visíveis sem login (todas 5 estrelas), com o nome e o trecho; a Lais cita “Jackeline e Júlia”."
+  ],
+  "conferir": [
+   "Quem é a Aizza do nome do Studio e como as sócias querem aparecer (a Júlia sem sobrenome).",
+   "A avaliação da Pietra Cardoso tem o mesmo sobrenome: se for da família, trocar por outra.",
+   "Pedir fotos dos ensaios de Natal 2026 (só há o vídeo de lançamento) e do Natal 2025.",
+   "Os horários de Natal são exemplo; no Google, o Studio abre de segunda a sábado, das 10h às 18h."
+  ]
+ },
+ "marca_completa": "Studio Aizza Cardoso Fotografia",
+ "fone_link": "+5511987382898",
+ "verificado": "2026-10-28",
+ "google_json": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/google/google_demo.json",
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-renderiza/781b91f9-94a8-51ba-99bd-4958a52a7d42/scratchpad/lote1/aizza-cardoso-fotografia/marca/favicon.png"
+ }
+}
