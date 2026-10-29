@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); o bloco F está livre | A, B, C, D e E: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco F (Início e exportar) **em andamento** desde 29/10 | A a F: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -209,6 +209,26 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 3 · bloco F (Início e exportar) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: 09 (Início: começa por "Para fazer agora": pedidos sem resposta, parcelas vencendo ou atrasadas,
+  contratos esperando aceite, o que tem hoje e amanhã, cada item com o botão do próximo passo; os números vêm
+  depois, compactos), 02 (Visão geral; exportar), 05 (atividades: "o que a equipe fez", cada um vê só o que pode;
+  "exportar tudo" junta tudo num zip, CSV que abre no Excel e no Google Planilhas), o exemplo (Visão geral: saudação
+  com o dia, os números de cada módulo, próximas festas, hoje, "O que a equipe fez").
+Plano (nesta ordem, cada parte com commit): 1. "Para fazer agora" (só o que a pessoa pode ver, o mais urgente
+  primeiro: atrasadas, pedidos novos, vence hoje, contratos esperando, hoje e amanhã), com "Responder", "Recebi",
+  "Lembrar" e "Ver"; 2. a saudação e os números compactos de cada módulo que a pessoa vê; 3. as próximas festas ou
+  ensaios e "O que a equipe fez" (as atividades em frases: "Rafael mandou o contrato para Isabela"); 4. exportar
+  tudo (src/telas/exportar.js): uma planilha CSV por assunto (clientes, pedidos, reservas, compromissos, parcelas,
+  contratos, entregas, serviços), num zip feito no navegador, só para o dono (no Início e em Configurações); 5.
+  teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/inicio/, src/telas/exportar.js. Fora disso, pequeno e com aviso: o botão de exportar em
+  Configurações.
 ```
 
 ```
