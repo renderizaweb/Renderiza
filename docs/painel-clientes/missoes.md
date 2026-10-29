@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes) e D (Financeiro) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos E e F estão livres | A, B, C e D: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes) e D (Financeiro) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco E (Contratos) **em andamento** desde 29/10; o bloco F está livre | A, B, C, D e E: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -209,6 +209,33 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 3 · bloco E (Contratos) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: 02 (Contratos: o contrato vai por um link, o cliente final lê e aceita no celular, o painel guarda a
+  data, a hora e quem aceitou; quem está com orçamento, contrato enviado e aceito; termo de aceite digital, sem
+  e-CPF; o texto é do cliente), 05 (modelos_contrato com campos; contratos: texto final congelado e a impressão
+  digital, situação, código do link, o registro do aceite; "aceito não muda"; publico_contrato e
+  publico_aceitar_contrato), 04 (/c/<código>, páginas sem login em publico/), 06 (o aceite é a prova: nome, data,
+  hora, IP, aparelho, a versão do texto), 07 (D14: sem CPF), 09 (resumo → aceite → dados do Pix; confirmação antes
+  de mandar; "Enviar contrato" na linha; compartilhar pelo celular), os exemplos (Contratos em colunas: orçamento,
+  enviado, aceito; "esperando o aceite há N dias"; "Lembrar do aceite").
+Plano (nesta ordem, cada parte com commit): 1. migração publico_contrato e publico_aceitar_contrato (o IP e o
+  aparelho vêm do próprio pedido, a impressão digital confere que o texto lido é o que foi aceito; só com a conta
+  liberada e Contratos ligado), com teste do banco; STG e depois produção; 2. a página pública /c/<código>
+  (publico/contrato/): o resumo, o texto, "Li e aceito" com nome e contato, depois os dados do Pix e "Imprimir";
+  3. a tela: lista pela situação (esperando aceite, orçamento, aceitos, cancelados) e as festas sem contrato com
+  "Fazer contrato"; ?contrato=<id>; 4. os modelos com os campos ({cliente}, {data}, {pacote}, {valor}…) e o
+  contrato novo da festa (?novo=contrato&reserva=<id>): o texto preenchido, salvar como orçamento ou mandar
+  (confirmação), o link pelo WhatsApp, copiar ou compartilhar; 5. a gaveta do contrato: o aceite registrado, o
+  texto, "Lembrar do aceite", editar antes do aceite, cancelar, imprimir; os dados do Pix (chave e nome) em
+  Configurações (contas.ajustes.pix, o dono); 6. teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/contratos/, publico/contrato/. Fora disso, pequeno e com aviso: a migração (supabase/
+  migrations/ e supabase/testes/), o rewrite de /c/ no vercel.json e no servidor local, o Pix em Configurações e o
+  "Mandar contrato" no "+".
 ```
 
 ```
