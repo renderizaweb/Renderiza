@@ -115,6 +115,7 @@ painel-clientes/
   | Confirmação de e-mail | ligada | ligada |
   | Troca de e-mail | confirmada no endereço atual e no novo | igual |
   | Validade dos links | 1 hora (`mailer_otp_exp`), convite inclusive | igual |
+  | Cadastro pela API | fechado (`disable_signup`) até a tela de cadastro com verificação contra robô (`06`) | fechado |
 
   Aplicado nos dois em 29/10/2026 e conferido lendo de volta e na prática, sem criar usuário: cadastro com senha
   de 7 caracteres volta `weak_password`; um link com endereço de retorno da lista volta para ele; qualquer outro

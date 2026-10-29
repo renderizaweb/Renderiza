@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 1 · Organização e infraestrutura |
-| **Próxima ação** | Missão 1: a Renderiza confere o login e o e-mail na produção (teste em [`missoes.md`](missoes.md)) e a missão fecha. A Missão 2 anda em paralelo (banco e telas) |
+| **Próxima ação** | Missão 1: dois detalhes ([`missoes.md`](missoes.md)): fechar o cadastro na produção, com o ok da Renderiza, e conferir o login numa prévia da Vercel. A Missão 2 pode começar (banco e telas) |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 1 | A Renderiza conferiu na produção: entrar, sair, "Esqueci a senha" e senha nova pelo e-mail em português. O cadastro pela API, que estava aberto a qualquer um, foi fechado no repositório e no STG; a produção espera o ok. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | E-mail pelo Brevo: domínio autenticado no DNS (DKIM e DMARC), SMTP nos dois projetos e os 5 e-mails do login em português aplicados no STG e na produção; um e-mail de verdade saiu pelo STG. Junto, a configuração do login pelo repositório foi para a `main`. Falta a Renderiza conferir na produção. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | Login (Auth) dos dois projetos configurado pelo repositório (`scripts/auth.mjs`): endereço do painel, endereços de retorno e senha mínima de 8, conferidos lendo de volta e na prática. Os 5 e-mails do login em português ficaram prontos (`supabase/emails/`), mas o Supabase grátis só aceita e-mail próprio com SMTP próprio: entram com o Brevo. Pronto para subir na branch `claude/clever-albattani-u37i0u`. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 | `painel.renderizaweb.com.br` no ar (CNAME no Registro.br para a Vercel, HTTPS ok). Falta da Missão 1: o Auth pela API e o Brevo. | Renderiza, com o Claude |

@@ -33,6 +33,10 @@ test("confirmação de e-mail ligada e troca de e-mail confirmada nos dois ender
   assert.equal(c.mailer_secure_email_change_enabled, true);
 });
 
+test("cadastro fechado nos dois projetos enquanto não há verificação contra robô (06)", () => {
+  for (const alvo of ["stg", "producao"]) assert.equal(configDesejada(alvo, emails).disable_signup, true);
+});
+
 test("os 5 e-mails, com assunto e corpo, nos dois projetos", () => {
   assert.deepEqual(EMAILS.map(e => e.tipo), ["confirmation", "invite", "recovery", "email_change", "magic_link"]);
   for (const alvo of ["stg", "producao"]) {
@@ -118,7 +122,7 @@ test("diferenças e nomes dos campos (sem mostrar o corpo dos e-mails)", () => {
 
 test("sem SMTP próprio, os e-mails esperam e o resto vale (o Supabase grátis recusa e-mail próprio)", () => {
   const c = semEmails(configDesejada("producao", emails));
-  assert.deepEqual(Object.keys(c).sort(), ["mailer_autoconfirm", "mailer_otp_exp", "mailer_secure_email_change_enabled", "password_min_length", "site_url", "uri_allow_list"]);
+  assert.deepEqual(Object.keys(c).sort(), ["disable_signup", "mailer_autoconfirm", "mailer_otp_exp", "mailer_secure_email_change_enabled", "password_min_length", "site_url", "uri_allow_list"]);
   assert.equal(Object.keys(configDesejada("producao", emails)).filter(ehCampoDeEmail).length, 10);
   assert.ok(!ehCampoDeEmail("mailer_otp_exp") && !ehCampoDeEmail("mailer_autoconfirm"));
 });

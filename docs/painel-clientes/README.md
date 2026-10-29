@@ -11,7 +11,8 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
 > começar a usar por volta de 11/11/2026. **Missão 1:** tudo no ar e na `main`: e-mail (Zoho para receber, Brevo
 > para enviar), Supabase (São Paulo), Vercel em `painel.renderizaweb.com.br` e o login configurado pelo repositório,
-> com os e-mails em português; falta só a Renderiza conferir na produção. **Missão 2 pode começar.** Detalhes e
+> com os e-mails em português, conferido na produção; faltam dois detalhes (fechar o cadastro na produção e conferir
+> uma prévia da Vercel). **Missão 2 pode começar.** Detalhes e
 > diário de bordo:
 > [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 

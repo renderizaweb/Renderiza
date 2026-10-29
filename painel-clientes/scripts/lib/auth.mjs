@@ -10,6 +10,9 @@ export const VALIDADE_DOS_LINKS = 3600; // os e-mails dizem "1 hora": mudou aqui
 
 /** O que vale nos dois projetos. */
 const COMUM = {
+  // Cadastro só pelo convite ou pela Renderiza, até existir a tela de cadastro com verificação contra robô (06):
+  // quem fizer essa tela liga a verificação aqui e abre o cadastro, STG primeiro.
+  disable_signup: true,
   password_min_length: 8, // o mesmo de SENHA_MINIMA em src/sessao.js
   mailer_autoconfirm: false, // a conta só entra depois de confirmar o e-mail
   mailer_secure_email_change_enabled: true, // troca de e-mail confirmada no endereço atual e no novo (o e-mail diz isso)
