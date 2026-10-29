@@ -19,7 +19,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
 (diga por quê em "Avisos"). Os caminhos de "Mexe em" são dentro de `painel-clientes/`, menos os que começam pela raiz.
 
-**Para colar ao abrir uma sessão:**
+**Para colar ao abrir uma sessão:** o texto completo está em [`prompt-de-sessao.md`](prompt-de-sessao.md). A versão curta:
 
 > Leia `docs/painel-clientes/README.md`, o `08-trabalho-em-paralelo.md` e o `missoes.md`. Sua missão é a Missão N
 > (bloco X, se houver).
