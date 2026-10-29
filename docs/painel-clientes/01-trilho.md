@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missão 3, bloco C (Atendimento) em andamento; os blocos A, B, D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
+| **Próxima ação** | Missão 3: bloco C (Atendimento) feito; os blocos A, B, D, E e F e a Missão 5 estão livres (sugestão: B, Agenda, que recebe o "Fechar" do Atendimento); a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -163,6 +163,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 3 | **Missão 3, bloco C (Atendimento) feito**, na `main` e na produção: a lista primeiro, o quadro por etapa no computador (arrastar com desfazer), a gaveta do pedido, anotar em poucos toques, "Fechar" vira reserva (confirmando a pré-reserva da agenda online), a lista de espera da fotografia e o pedido novo em tempo real. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | Missão 3 começou pelo bloco C (Atendimento), na branch `claude/painel-renderiza-setup-ztnrzy`. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 | Onboarding refeito como um trilho, a pedido da Renderiza (D33): boas-vindas com o roteiro, escolha que segue sozinha com check, a cor do nicho na tela, a pergunta "Você já tem site?" e "Montando o seu painel". Na produção. O `/api/config` passou a dizer o commit no ar (`versao`), depois de um deploy que não entrou sozinho. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 → 3, 4, 5 | **Parada 2 chegou (Missão 2 feita).** Bloco B (telas base) na `main`: casca, escolher a conta, convite (função do Supabase), cadastro com verificação contra robô (fecha até a Renderiza criar o Turnstile), onboarding de 5 telas, primeiros passos com a importação das datas, Equipe, Configurações e Serviços. O "chegou quando" testado no STG: um dono passou pelo onboarding, convidou uma pessoa só com a Agenda (só vê), ela entrou pelo celular, viu só a Agenda e o banco não a deixou editar; os testes de isolamento passam no local e no STG. A função do convite foi para a produção no mesmo dia, com o ok da Renderiza. | Claude, a pedido da Renderiza |

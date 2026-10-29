@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) desde 29/10; os blocos A, B, D, E e F estão livres | C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) **feito, na `main` e na produção** (29/10); os blocos A, B, D, E e F estão livres | C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,7 +212,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco C (Atendimento) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco C (Atendimento) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: o exemplo /exemplos/painel-eventos (Atendimento e a gaveta do pedido), 09 ("Atendimento": a lista
   primeiro, o funil recolhido; no computador, quadro em colunas por etapa, arrastar muda a etapa; desfazer;
   tempo real do pedido novo), 05 (pedidos, compromissos, lista_espera, fechar_pedido), 02 (Atendimento).
@@ -223,21 +223,24 @@ Plano (nesta ordem, cada parte com commit): 1. a lista (etapas em chips, busca, 
   data, tipo, convidados, origem; 4. "Fechar" vira reserva (fechar_pedido), confirmando a pré-reserva que a agenda
   online já criou; 5. lista de espera (fotografia, por campanha); 6. tempo real: pedido novo aparece sozinho, com
   aviso; 7. teste de ponta a ponta no STG e documentos.
-Feito (commit de7981e): 1, 2, 3 e o essencial de 4 e 5. src/modulos/atendimento/: index.js (lista com chips por
-  etapa, busca, o próximo passo na linha; "Como vão os pedidos" recolhido; no computador, Lista | Quadro, quadro por
-  etapa com arrastar e desfazer; ?novo=pedido e ?pedido=<id>), pedido.js (gaveta, mudar etapa otimista com
-  desfazer, Responder no WhatsApp leva o novo para "em conversa", Marcar visita = compromisso tipo visita, Perdido e
-  Reabrir, Fechar = fechar_pedido com pré-reserva ou confirmada), espera.js (lista de espera da fotografia, por
-  campanha, Chamar no WhatsApp, tirar com desfazer), logica.js (regras sem tela); test/atendimento.test.mjs.
-  Fora do "Mexe em", pequeno: src/ui/gaveta.js (opção foco "fechar") e estilo.css seção 17 (aviso feito).
-  Testado no STG (Villa Alecrim da semente): lista no celular, gaveta com "a data está livre", quadro no
-  computador, arrastar e desfazer, anotar pedido (cliente novo pelo "Para quem?") e fechar (pré-reserva 19h-3h).
-Falta: 4. confirmar a pré-reserva que a agenda online já criou ao fechar (hoje o fechar_pedido mantém a
-  reserva como estava: migração pequena); 6. tempo real (pedido novo aparece sozinho); 7. fotografia no navegador
-  (ensaios, horário, lista de espera), quem só vê, e os documentos (05, 10, avisos, diário).
-Próximo passo: a migração do fechar_pedido (local, STG, produção).
-Fora do "Mexe em" (src/modulos/atendimento/), pequeno, com aviso quando acontecer: o adaptador (tempo real), o
-  app.js (desmontar o módulo ao sair, para fechar o tempo real) e, se preciso, uma migração pequena no fechar_pedido.
+Feito (partes 1 a 7): src/modulos/atendimento/: index.js (lista com chips por etapa, busca, o próximo passo na
+  linha: Responder no novo, Fechar no orçamento; "Como vão os pedidos" recolhido; no computador, Lista | Quadro,
+  quadro por etapa com arrastar e desfazer; ?novo=pedido e ?pedido=<id>; tempo real), pedido.js (gaveta, mudar
+  etapa otimista com desfazer, Responder no WhatsApp leva o novo para "em conversa", Marcar visita = compromisso
+  tipo visita, Perdido e Reabrir, Fechar = fechar_pedido com pré-reserva ou confirmada; anotar pedido com "Para
+  quem?" primeiro), espera.js (lista de espera da fotografia, por campanha, Chamar no WhatsApp, tirar com
+  desfazer), logica.js (regras sem tela); test/atendimento.test.mjs (8 testes).
+  Banco: migração 20261029203000_fechar_pedido_confirma.sql (STG e produção; 05): fechar um pedido com
+  pré-reserva confirma a reserva que ele já tem. Teste 020 cobre.
+  Fora do "Mexe em", pequeno (avisos em "Avisos entre sessões"): adaptador (ouvir, tempo real), app.js (desmontar
+  o módulo ao sair), src/ui/gaveta.js (foco "fechar"), estilo.css seção 17; 04 e 10 em dia.
+Testado no STG (Villa Alecrim e Estúdio Ciranda da semente): lista no celular, gaveta com "a data está livre",
+  quadro no computador, arrastar e desfazer, anotar pedido (cliente novo pelo "Para quem?"), fechar (pré-reserva
+  19h-3h), fechar um pedido com pré-reserva como confirmada (sem criar outra), pedido novo entrando pelo banco
+  aparece sozinho em ~2 s com aviso, lista de espera da fotografia; quem só vê não tem nenhum botão e o banco não
+  deixa mudar etapa nem fechar. Testes: 124 do front, 9 arquivos do banco (local e STG). Dados de teste apagados.
+Ficou de fora (para os outros blocos): o número de pedidos novos no menu (badge da casca); "Ver na Agenda" leva a
+  /agenda?reserva=<id>, que a Agenda (3B) abre quando existir; a ficha do cliente é do 3A (/clientes?cliente=<id>).
 ```
 
 ```
@@ -488,6 +491,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
 | 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
 | 29/10/2026 | 2B → todas | **Para conferir o deploy da produção:** `curl -s https://painel.renderizaweb.com.br/api/config` mostra `versao` (o commit no ar). Se depois de uns 5 minutos ainda for o commit anterior, o deploy não entrou: um push novo que mude `painel-clientes/` destravou em 29/10 (o `a4f92d1` ficou parado; o `aabb9bc` entrou em 1 minuto). Commit só de documentos não faz deploy (o `ignoreCommand`). |
 | 29/10/2026 | 2B → 5 | **Onboarding em trilho (D33):** a resposta "Você já tem site?" fica em `contas.ajustes.onboarding.site` (`tenho`, `instagram` ou `nao`; `null` se não respondeu): bom para o Admin mostrar na conta (é um lead de site para a Renderiza). O tema do nicho é só do onboarding; dentro do painel, a cor da conta continua "depois" (`10`). |

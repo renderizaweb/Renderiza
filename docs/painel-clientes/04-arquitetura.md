@@ -152,6 +152,10 @@ painel-clientes/
   pode ser público, ex.: PDF de contrato aceito, se um dia for guardado).
 - **Tempo real:** para o Atendimento (pedido novo aparece na hora) e, se valer, o "online agora" da Equipe. O
   gratuito permite 200 conexões ao mesmo tempo.
+  **Como usar (29/10/2026, Missão 3C):** `banco.ouvir("pedidos", { filtro: "conta_id=eq.<id>", aoMudar })` no
+  adaptador (Supabase Realtime, com a RLS de quem está logado) devolve a função que para; o módulo devolve essa
+  função no fim do `montar(el, contexto)` e o `app.js` a chama quando a pessoa sai do módulo. A tabela precisa
+  estar na publicação `supabase_realtime` (hoje só `pedidos`).
 - **Ambientes:** os testes automáticos rodam num banco local (Postgres 16 do ambiente das sessões; ver
   `docs/atualizacao-por-ia.md`); depois, toda migração vai primeiro para o **STG** e só então para a **produção**
   (regras em `08`). Dados fictícios (Villa Alecrim, Estúdio Ciranda) só no local e no STG.

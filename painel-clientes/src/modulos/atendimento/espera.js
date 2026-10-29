@@ -45,7 +45,7 @@ export async function montarEspera(el, { banco, conta, nicho, pode, avisar }) {
       ${gruposDaEspera(linhas).map(g => `
         <section class="rz-secao">
           <div class="rz-secao-cabeca"><h2 class="rz-titulo-3">${escapar(g.campanha ? g.campanha.nome : "Geral")}</h2><span class="rz-texto-3">${g.linhas.length} na espera</span></div>
-          <ul class="rz-linhas rz-cartao">${g.linhas.map((l, i) => {
+          <ul class="rz-linhas rz-linhas--pedidos rz-cartao">${g.linhas.map((l, i) => {
             const numero = normalizarWhatsapp(l.clientes && l.clientes.whatsapp);
             return `<li class="rz-com-acao"><div class="rz-linha rz-linha--fixa">
                 <span class="rz-avatar rz-avatar--cliente" aria-hidden="true">${i + 1}</span>
