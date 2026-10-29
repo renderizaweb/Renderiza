@@ -142,3 +142,48 @@ test("adaptar: lê o corpo do (req, res), devolve JSON e esconde o erro interno"
   assert.equal(res2.statusCode, 502);
   assert.ok(!res2.texto.includes("segredo"));
 });
+
+// ---------- Meu site (Missão 4C) ----------
+import { tratar as site } from "../api/publico/site/[codigo]/index.js";
+import { tratar as previa } from "../api/publico/site/[codigo]/previa.js";
+import { tratar as imagem } from "../api/publico/imagens/[...caminho].js";
+
+test("site: a versão publicada com CORS e 60 s de cache; 404 quando não responde, com o mesmo cache", async () => {
+  const b = bancoFalso(() => ({ json: { esquema: 1, site: "villa-alecrim", versao: 3, secoes: {} } }));
+  const r = await site({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim", env: ENV }, b.buscar);
+  assert.equal(r.status, 200);
+  assert.equal(r.corpo.versao, 3);
+  assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
+  assert.match(r.cabecalhos["Cache-Control"], /s-maxage=60/);
+  assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "villa-alecrim" });
+  const nulo = await site({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
+  assert.equal(nulo.status, 404);
+  assert.equal((await site({ metodo: "GET", caminho: "/api/publico/site/Villa!", env: ENV })).status, 400);
+});
+
+test("prévia: só com o código da prévia, sem cache", async () => {
+  const b = bancoFalso(() => ({ json: { esquema: 1, site: "villa-alecrim", versao: 4, secoes: {} } }));
+  const ok = await previa({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim/previa", busca: new URLSearchParams("t=abc123def456ghi789"), env: ENV }, b.buscar);
+  assert.equal(ok.status, 200);
+  assert.equal(ok.cabecalhos["Cache-Control"], "no-store");
+  assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "villa-alecrim", p_previa: "abc123def456ghi789" });
+  assert.equal((await previa({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim/previa", busca: new URLSearchParams("t=CURTO"), env: ENV })).status, 400);
+  assert.equal((await previa({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim/previa", busca: new URLSearchParams("t=abc123def456ghi789"), env: ENV }, bancoFalso(() => ({ json: null })).buscar)).status, 404);
+});
+
+test("imagens: só .webp da pasta de uma conta, do Storage do projeto, com cache de 1 ano", async () => {
+  const chamadas = [];
+  const buscar = async url => { chamadas.push(url); return { ok: true, status: 200, arrayBuffer: async () => new Uint8Array([82, 73, 70, 70]).buffer }; };
+  const conta = "0d6f2c4e-1111-4222-8333-944445555666";
+  const r = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/topo-1a2b.webp`, env: ENV }, buscar);
+  assert.equal(r.status, 200);
+  assert.equal(r.cabecalhos["Content-Type"], "image/webp");
+  assert.match(r.cabecalhos["Cache-Control"], /max-age=31536000, immutable/);
+  assert.equal(chamadas[0], `${ENV.SUPABASE_URL}/storage/v1/object/public/site-imagens/${conta}/topo-1a2b.webp`);
+  for (const c of [`/api/publico/imagens/${conta}/x.png`, `/api/publico/imagens/${conta}/../segredo.webp`, "/api/publico/imagens/outra-pasta/x.webp", `/api/publico/imagens/${conta}/a/b.webp`]) {
+    assert.equal((await imagem({ metodo: "GET", caminho: c, env: ENV }, buscar)).status, 404, c);
+  }
+  assert.equal(chamadas.length, 1, "caminho estranho nem chega ao Storage");
+  const fora = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/nao.webp`, env: ENV }, async () => ({ ok: false, status: 400 }));
+  assert.equal(fora.status, 404);
+});

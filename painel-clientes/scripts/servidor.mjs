@@ -14,6 +14,9 @@ import { configDoAmbiente, responder } from "../api/config.js";
 import agendaPublica from "../api/publico/agenda/[codigo]/index.js";
 import pedidoPublico from "../api/publico/agenda/[codigo]/pedido.js";
 import saudePublica from "../api/publico/saude.js";
+import sitePublico from "../api/publico/site/[codigo]/index.js";
+import previaPublica from "../api/publico/site/[codigo]/previa.js";
+import imagemPublica from "../api/publico/imagens/[...caminho].js";
 
 const PASTA = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const PORTA = Number(process.env.PORT) || 5180;
@@ -55,6 +58,9 @@ createServer(async (req, res) => {
   if (caminho === "/api/publico/saude") return saudePublica(req, res, envDoPainel);
   if (/^\/api\/publico\/agenda\/[^/]+\/pedido\/?$/.test(caminho)) return pedidoPublico(req, res, envDoPainel);
   if (/^\/api\/publico\/agenda\/[^/]+\/?$/.test(caminho)) return agendaPublica(req, res, envDoPainel);
+  if (/^\/api\/publico\/site\/[^/]+\/previa\/?$/.test(caminho)) return previaPublica(req, res, envDoPainel);
+  if (/^\/api\/publico\/site\/[^/]+\/?$/.test(caminho)) return sitePublico(req, res, envDoPainel);
+  if (caminho.startsWith("/api/publico/imagens/")) return imagemPublica(req, res, envDoPainel);
 
   let arquivo = null;
   if (PUBLICAVEL.test(caminho)) {
