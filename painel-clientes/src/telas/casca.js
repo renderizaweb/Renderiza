@@ -228,7 +228,7 @@ function ligar(raiz, { conta, itens, sessao, banco, navegar }) {
 
   raiz.querySelectorAll("[data-novo]").forEach(b => b.addEventListener("click", abrirNovo));
   raiz.querySelectorAll("[data-mais]").forEach(b => b.addEventListener("click", abrirMais));
-  raiz.querySelectorAll("[data-buscar]").forEach(b => b.addEventListener("click", () => import("../ui/paleta.js").then(m => m.abrirPaleta({ sessao, navegar }))));
+  raiz.querySelectorAll("[data-buscar]").forEach(b => b.addEventListener("click", () => import("../ui/paleta.js").then(m => m.abrirPaleta({ sessao, banco, navegar }))));
 
   // Atalhos no computador (09): Ctrl+K ou "/" busca; N abre o "+". Ligados uma vez só.
   if (!teclasLigadas) {

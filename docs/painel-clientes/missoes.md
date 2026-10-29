@@ -213,7 +213,10 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
   carregarPessoa), src/ui/gaveta.js (gaveta, folha, confirmar), src/ui/aviso.js (aviso com desfazer), estilo.css
   seções 10 a 12, ícones novos; app.js e rotas.js com as telas novas e o contexto dos módulos (aviso); adaptador com
   cadastrar, funcao e enviarArquivo (aviso). Visto no Chromium contra o STG (computador e celular).
-Próximo passo: parte 3 (src/ui/para-quem.js e src/ui/paleta.js, que a casca já chama).
+3, as peças: src/ui/para-quem.js (busca, novo cliente, cartão do cliente), paleta.js (Ctrl+K), estados.js (vazio,
+  erro, esqueleto, comEstados), whatsapp.js, csv.js (exportar e ler), filtros.js (chips); estilo.css seção 13;
+  test/pecas.test.mjs.
+Próximo passo: parte 4 (Equipe, Configurações, Serviços).
 Teste no STG: um usuário temporário com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste),
   criado só para a sessão; a senha não fica no repositório. Apagar no fim.
 ```
