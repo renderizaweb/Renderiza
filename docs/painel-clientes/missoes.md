@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) **feito, na `main`** (29/10; o banco já na produção; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos A, B, D, E e F estão livres | C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) **feito, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco B (Agenda) **em andamento** desde 29/10; os blocos A, D, E e F estão livres | B e C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -209,6 +209,27 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 3 · bloco B (Agenda) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: os exemplos /exemplos/painel-eventos (Agenda: mês com as festas e o painel do dia; gaveta da festa com
+  resumo, checklist e histórico; nova reserva) e /exemplos/painel-fotografia (ensaios por horário, horários livres,
+  quadro da campanha com vagas, texto do Stories); 09 (celular: faixa da semana + lista do dia, o mês a um toque,
+  legenda e equipe no "Filtrar", tocar num dia vazio oferece "Reservar este dia"); 02 (Agenda da equipe/do estúdio:
+  cada pessoa pode ver só o que é dela); 05 (reservas, compromissos, bloqueios, campanhas, reservas_checklist,
+  reservas_adicionais; valores ficam fora, com Financeiro e Contratos).
+Plano (nesta ordem, cada parte com commit): 1. o calendário: no celular, a faixa da semana e a lista do dia, com o
+  mês a um toque; no computador, o mês e o painel do dia; reservas (cor do tipo ou do ensaio; pré-reserva
+  tracejada), compromissos, datas fechadas; "Filtrar" (quem cuida, tipo; "só o meu"); 2. a gaveta da reserva
+  (resumo, situação: confirmar, realizada, cancelar; checklist com desfazer; WhatsApp) e a do compromisso;
+  ?reserva=<id>; 3. reservar data ("+" e ?novo=reserva, tocar num dia vazio) com o conflito de horário, editar a
+  reserva, e marcar visita, degustação ou reunião (?novo=visita); 4. fotografia: o dia por horário com os horários
+  livres (horarios menos reservas e datas fechadas) e o quadro das campanhas com vagas e o texto do Stories;
+  5. teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/agenda/. Fora disso, pequeno e com aviso, se precisar.
 ```
 
 ```
