@@ -159,3 +159,34 @@ export function iniciais(nome) {
   return String(nome || "").replace(/[^\p{L}& ]/gu, "").split(/\s+|&/).filter(p => p.length > 1 && !/^(da|de|do|dos|das|e)$/i.test(p))
     .slice(0, 2).map(p => p[0].toUpperCase()).join("") || "?";
 }
+
+/**
+ * Lê uma data digitada: "14/03/2027", "14/3/27", "14/03" (a próxima, a partir de `hoje`), "2027-03-14".
+ * Devolve "aaaa-mm-dd" ou null.
+ */
+export function lerData(texto, hoje = dia(new Date())) {
+  const t = String(texto || "").trim();
+  let a, m, d;
+  let x = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (x) [, a, m, d] = x.map(Number);
+  else if ((x = t.match(/^(\d{1,2})[/.-](\d{1,2})(?:[/.-](\d{2}|\d{4}))?$/))) {
+    d = +x[1]; m = +x[2];
+    if (x[3]) a = x[3].length === 2 ? 2000 + +x[3] : +x[3];
+    else {
+      const [ha, hm, hd] = hoje.split("-").map(Number);
+      a = m < hm || (m === hm && d < hd) ? ha + 1 : ha;
+    }
+  } else return null;
+  const data = new Date(Date.UTC(a, m - 1, d));
+  if (data.getUTCFullYear() !== a || data.getUTCMonth() !== m - 1 || data.getUTCDate() !== d) return null;
+  return `${a}-${dois(m)}-${dois(d)}`;
+}
+
+/** Lê uma hora digitada: "19:30", "19h30", "19h", "9". Devolve "hh:mm" ou null. */
+export function lerHora(texto) {
+  const x = String(texto || "").trim().toLowerCase().match(/^(\d{1,2})(?:\s*(?:h|:)\s*(\d{2})?)?\s*(?:h|hs|horas)?$/);
+  if (!x) return null;
+  const h = +x[1], m = x[2] ? +x[2] : 0;
+  if (h > 23 || m > 59) return null;
+  return `${dois(h)}:${dois(m)}`;
+}

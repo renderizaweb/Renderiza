@@ -64,6 +64,13 @@ export function acoesRapidas(conta, pode) {
   return lista.filter(Boolean);
 }
 
+/** O sinal da conta: o logo, se tiver; senão, as iniciais. */
+function sinalDaConta(conta) {
+  return conta.logo
+    ? `<span class="rz-conta-sinal rz-conta-sinal--logo" aria-hidden="true"><img src="${escapar(conta.logo)}" alt=""></span>`
+    : `<span class="rz-conta-sinal" aria-hidden="true">${escapar(iniciais(conta.nome))}</span>`;
+}
+
 function avatar(pessoa, email, classe = "") {
   const nome = (pessoa && pessoa.nome) || email || "";
   const cor = pessoa && pessoa.cor ? ` style="--cor:${escapar(pessoa.cor)}"` : "";
@@ -111,13 +118,14 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
   const bloqueada = !conta.liberada;
   const etiqueta = ambiente && ambiente !== "production" ? `<span class="rz-etiqueta rz-etiqueta--alerta" title="Banco de teste, com dados fictícios">STG</span>` : "";
   const principais = itens.filter(i => i.grupo === "principal");
+  const fazAlgo = acoesRapidas(conta, (m, nivel) => sessao.pode(m, nivel)).length > 0; // só vê: sem o "+"
   const daConta = itens.filter(i => i.grupo === "conta");
 
   raiz.innerHTML = `
     <div class="rz-app${bloqueada ? " rz-app--bloqueada" : ""}">
       <aside class="rz-lateral" aria-label="Menu">
         <a class="rz-lateral-conta" href="/">
-          <span class="rz-conta-sinal" aria-hidden="true">${escapar(iniciais(conta.nome))}</span>
+          ${sinalDaConta(conta)}
           <span><b>${escapar(conta.nome)}</b><small>${escapar(n.nome)}</small></span>
         </a>
         ${bloqueada ? "" : `<nav class="rz-menu" aria-label="Módulos">
@@ -137,10 +145,10 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
       </aside>
       <div class="rz-area">
         <header class="rz-topo">
-          <a class="rz-topo-conta" href="/"><span class="rz-conta-sinal" aria-hidden="true">${escapar(iniciais(conta.nome))}</span><b>${escapar(conta.nome)}</b></a>
+          <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<b>${escapar(conta.nome)}</b></a>
           ${etiqueta}
           ${bloqueada ? "" : `<button class="rz-busca" type="button" data-buscar aria-label="Buscar (Ctrl+K)">${icone("buscar", { tamanho: 18 })}<span>Buscar cliente, data ou pedido</span><kbd>Ctrl K</kbd></button>
-          <button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>`}
+          ${fazAlgo ? `<button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>` : ""}`}
           <button class="rz-topo-quem" type="button" data-mais aria-label="Menu da conta">${avatar(pessoa, usuario.email)}</button>
         </header>
         ${avisoDoTeste(conta)}
@@ -150,7 +158,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
         ${barra.map(i => `<a href="${i.caminho}"${rota.tipo === "modulo" && rota.id === i.id ? ' aria-current="page"' : ""}>${icone(i.icone, { tamanho: 22 })}<span>${escapar(i.nome)}</span></a>`).join("")}
         <button type="button" data-mais>${icone("mais", { tamanho: 22 })}<span>Mais</span></button>
       </nav>
-      <button class="rz-fab" type="button" data-novo aria-label="Ações rápidas">${icone("adicionar", { tamanho: 26 })}</button>`}
+      ${fazAlgo ? `<button class="rz-fab" type="button" data-novo aria-label="Ações rápidas">${icone("adicionar", { tamanho: 26 })}</button>` : ""}`}
     </div>`;
 
   const conteudo = raiz.querySelector("#conteudo");

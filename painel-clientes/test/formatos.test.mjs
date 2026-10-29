@@ -73,3 +73,18 @@ test("palavras por nicho", () => {
   assert.equal(chaves(NICHOS.eventos.palavras), chaves(NICHOS.fotografia.palavras));
   assert.equal(chaves(NICHOS.eventos.modulos), chaves(NICHOS.fotografia.modulos));
 });
+
+test("ler data e hora digitadas", () => {
+  assert.equal(f.lerData("14/03/2027"), "2027-03-14");
+  assert.equal(f.lerData("14/3/27"), "2027-03-14");
+  assert.equal(f.lerData("2027-03-14"), "2027-03-14");
+  assert.equal(f.lerData("14/03", "2026-10-29"), "2027-03-14", "sem ano: a próxima");
+  assert.equal(f.lerData("15/11", "2026-10-29"), "2026-11-15");
+  assert.equal(f.lerData("31/02/2027"), null);
+  assert.equal(f.lerData("amanhã"), null);
+  assert.equal(f.lerHora("19:30"), "19:30");
+  assert.equal(f.lerHora("19h30"), "19:30");
+  assert.equal(f.lerHora("9h"), "09:00");
+  assert.equal(f.lerHora("9"), "09:00");
+  assert.equal(f.lerHora("25h"), null);
+});

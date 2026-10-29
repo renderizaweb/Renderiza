@@ -451,3 +451,27 @@ textarea.rz-entrada{min-height:112px;padding:var(--rz-3) var(--rz-4);line-height
 .rz-progresso{height:8px;border-radius:var(--rz-raio-pilula);background:var(--rz-gelo);overflow:hidden}
 .rz-progresso > span{display:block;height:100%;border-radius:inherit;background:var(--rz-sucesso);transition:width var(--rz-medio) var(--rz-curva)}
 input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+/* Escolher a cor (pessoas, tipos de festa, ensaios): a cor é dado da conta, a tela só mostra (var(--cor)). */
+.rz-cores{border:0;margin:0;padding:0}
+.rz-cores-lista{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.rz-cores-lista label{position:relative;width:var(--rz-alvo);height:var(--rz-alvo);display:grid;place-items:center;border-radius:50%;cursor:pointer}
+.rz-cores-lista label::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--cor);transition:transform var(--rz-rapido)}
+.rz-cores-lista input{position:absolute;opacity:0;pointer-events:none}
+.rz-cores-lista label:has(input:checked)::before{transform:scale(1.15);box-shadow:0 0 0 3px var(--rz-superficie),0 0 0 5px var(--cor)}
+.rz-cores-lista label:has(input:focus-visible){box-shadow:var(--rz-foco)}
+.rz-acessos-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.rz-conta-sinal--logo{background:var(--rz-superficie)!important;overflow:hidden}
+.rz-conta-sinal--logo img{width:100%;height:100%;object-fit:contain}
+.rz-logo-campo{display:flex;align-items:center;gap:var(--rz-4)}
+.rz-logo{flex:none;width:72px;height:72px;display:grid;place-items:center;overflow:hidden;border-radius:var(--rz-raio-g);border:1px solid var(--rz-linha);background:var(--rz-gelo);color:var(--rz-tinta-2);font-weight:700}
+.rz-logo img{width:100%;height:100%;object-fit:contain;background:var(--rz-superficie)}
+.rz-pilha-p{display:flex;flex-direction:column;gap:var(--rz-1)}
+.rz-fatos{display:grid;gap:var(--rz-4);margin:0}
+.rz-fatos dt{font-size:var(--rz-t-sm);color:var(--rz-tinta-3)}
+.rz-fatos dd{margin:2px 0 0;font-weight:500}
+@media (min-width:720px){.rz-fatos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rz-chips--quebra{flex-wrap:wrap;overflow:visible}
+label.rz-chip:has(input:checked){background:var(--rz-grafite);border-color:var(--rz-grafite);color:#fff}
+label.rz-chip:has(input:focus-visible){box-shadow:var(--rz-foco)}
+fieldset.rz-campo{min-width:0;margin:0;padding:0;border:0}
+fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}

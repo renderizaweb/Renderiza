@@ -216,7 +216,14 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
 3, as peças: src/ui/para-quem.js (busca, novo cliente, cartão do cliente), paleta.js (Ctrl+K), estados.js (vazio,
   erro, esqueleto, comEstados), whatsapp.js, csv.js (exportar e ler), filtros.js (chips); estilo.css seção 13;
   test/pecas.test.mjs.
-Próximo passo: parte 4 (Equipe, Configurações, Serviços).
+4: src/modulos/equipe/ (lista, convidar, acessos por módulo com desfazer, tirar e devolver o acesso, convites
+  esperando com reenviar e cancelar), src/modulos/configuracoes/ (nome, WhatsApp, fuso, logo em WebP no bucket
+  logos, o plano para consulta), src/modulos/servicos/ (abas por nicho: pacotes ou ensaios, tipos de festa,
+  adicionais, horários, datas fechadas ou folgas, campanhas; só vê fica sem botões), src/ui/campos.js;
+  test/modulos-base.test.mjs. Testado no Chromium contra o STG: mudar acesso e desfazer, pacote novo e desativado,
+  folga nova, apagada e desfeita; quem só vê não tem "+" nem lápis.
+Próximo passo: parte 5 (o convite: função do servidor e a tela /convite). Equipe já chama banco.funcao("convidar",
+  { convite, destino }) depois de gravar a linha em convites.
 Teste no STG: um usuário temporário com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste),
   criado só para a sessão; a senha não fica no repositório. Apagar no fim.
 ```
