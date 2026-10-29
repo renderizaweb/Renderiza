@@ -102,6 +102,36 @@ painel-clientes/
   vive"): **cadastro sozinho**, que cria a conta em teste de 7 dias (com verificação contra robô, ex.: Cloudflare
   Turnstile), ou **criada pela Renderiza** no Admin, com convite ao dono. O dono convida a equipe.
   Senha mínima de 8 caracteres. Mais adiante: entrar com o Google, verificação em duas etapas.
+- **Configuração do login, no repositório** (29/10/2026): nada se muda à mão no painel do Supabase. Os valores
+  ficam em `painel-clientes/scripts/lib/auth.mjs`, os e-mails em `painel-clientes/supabase/emails/`, e
+  `node scripts/auth.mjs` aplica pela API de gerenciamento (STG primeiro; produção com `--projeto <ref>`) e confere
+  lendo de volta. Sem argumento, só compara os dois projetos com o repositório.
+
+  | | Produção | STG |
+  |---|---|---|
+  | Endereço do painel (*Site URL*) | `https://painel.renderizaweb.com.br` | `http://localhost:5180` |
+  | Endereços de retorno | `https://painel.renderizaweb.com.br/**` e `https://renderiza-painel-clientes.vercel.app/**` | `http://localhost:5180/**` e `https://renderiza-painel-clientes-*.vercel.app/**` (as prévias) |
+  | Senha mínima | 8 | 8 |
+  | Confirmação de e-mail | ligada | ligada |
+  | Troca de e-mail | confirmada no endereço atual e no novo | igual |
+  | Validade dos links | 1 hora (`mailer_otp_exp`), convite inclusive | igual |
+
+  Aplicado nos dois em 29/10/2026 e conferido lendo de volta e na prática, sem criar usuário: cadastro com senha
+  de 7 caracteres volta `weak_password`; um link com endereço de retorno da lista volta para ele; qualquer outro
+  (outro domínio, o localhost ou as prévias na produção) cai no endereço do painel. O curinga das prévias aceita
+  qualquer projeto da Vercel cujo nome comece com `renderiza-painel-clientes-`; dá para fechar mais com o sufixo
+  do time da Vercel no fim do nome, se um dia o STG tiver algo além de dados fictícios.
+- **Os e-mails do login** (`supabase/emails/`, um arquivo por e-mail, o assunto é o `<title>`): confirmação de
+  cadastro, convite, recuperar a senha, troca de e-mail e link de acesso. Em português, no jeito da Renderiza, com
+  as cores do design system (`10`), sem imagem nem nada de fora, e com o link escrito embaixo do botão. Prévia no
+  navegador, com dados fictícios: `node scripts/auth.mjs previa`. **Esperam o SMTP próprio:** no plano grátis, o
+  Supabase recusa e-mail próprio com o envio padrão ("Email template modification is not available for free tier
+  projects using the default email provider"). Até o Brevo (Missão 1, item 4), os projetos mandam os e-mails padrão
+  do Supabase, em inglês; com o SMTP configurado, é só rodar `node scripts/auth.mjs stg` e depois a produção.
+- **Convite com o nome da conta:** o modelo usa `{{ .Data.nome_da_conta }}` (os dados do usuário convidado) quando
+  existe ("Villa Alecrim convidou você para o Painel Renderiza"); sem ele, "Você recebeu um convite". Quem envia o
+  convite (Missões 2 e 5) manda `data: { nome_da_conta }`. O Supabase escapa o HTML dos valores; no assunto não vai
+  variável (lá o escape apareceria como `&amp;`).
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.
@@ -149,9 +179,8 @@ vez guia na tela.
 
 1. **Supabase** (Missão 1): com o e-mail novo do Painel Renderiza, criar a conta e os dois projetos,
    `painel-renderiza-prod` e `painel-renderiza-stg` (região South America · São Paulo; senhas dos bancos num
-   gerenciador de senhas). Em cada um, em *Authentication*: ligar a confirmação de e-mail e cadastrar o endereço do
-   painel como *Site URL* e nos endereços de retorno (na produção, `painel.renderizaweb.com.br`; no STG, os endereços
-   de prévia da Vercel). Copiar a URL e a chave **pública** (`sb_publishable_…`) de cada um para a Vercel. As chaves
+   gerenciador de senhas). O login (*Authentication*: endereço do painel, endereços de retorno, senha mínima e
+   e-mails) não é feito à mão: vem do repositório, por `scripts/auth.mjs` (acima, em Supabase). Copiar a URL e a chave **pública** (`sb_publishable_…`) de cada um para a Vercel. As chaves
    secretas não saem do Supabase.
 2. **Vercel** (Missão 1): *Add New → Project*, importar o repositório `renderizaweb/Renderiza`, *Root Directory* =
    `painel-clientes`, framework *Other*. Em *Environment Variables*: `SUPABASE_URL` e `SUPABASE_ANON_KEY` duas vezes,
@@ -183,7 +212,9 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
   ao Supabase Auth como SMTP próprio e usado pelas funções para o aviso de pedido novo.
 - Remetente no domínio, ex.: `nao-responda@renderizaweb.com.br`, com o nome "Painel Renderiza". Respostas para o
   e-mail de atendimento da Renderiza.
-- Modelos em português, curtos, com o nome da conta ("A Villa Alecrim convidou você para o Painel Renderiza").
+- Modelos em português, curtos, com o nome da conta ("Villa Alecrim convidou você para o Painel Renderiza"): os do
+  login estão em `painel-clientes/supabase/emails/` e só entram nos projetos com o SMTP próprio (ver Supabase,
+  acima).
 
 ## API pública (o que os sites dos clientes chamam)
 

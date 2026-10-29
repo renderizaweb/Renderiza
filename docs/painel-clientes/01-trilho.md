@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 1 · Organização e infraestrutura |
-| **Próxima ação** | A Renderiza cria o projeto na Vercel (Missão 1); a Missão 2 começa em paralelo (banco e telas) |
+| **Próxima ação** | Missão 1: a Renderiza configura o Brevo (e-mail) nos dois projetos; depois, uma sessão aplica os e-mails do login (`scripts/auth.mjs`). A Missão 2 anda em paralelo (banco e telas) |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 1 | Login (Auth) dos dois projetos configurado pelo repositório (`scripts/auth.mjs`): endereço do painel, endereços de retorno e senha mínima de 8, conferidos lendo de volta e na prática. Os 5 e-mails do login em português ficaram prontos (`supabase/emails/`), mas o Supabase grátis só aceita e-mail próprio com SMTP próprio: entram com o Brevo. Pronto para subir na branch `claude/clever-albattani-u37i0u`. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 | `painel.renderizaweb.com.br` no ar (CNAME no Registro.br para a Vercel, HTTPS ok). Falta da Missão 1: o Auth pela API e o Brevo. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | Vercel no ar em `renderiza-painel-clientes.vercel.app` (as rotas davam 404: `cleanUrls` desligado). Design system (`10`, `src/ui/`) e telas de entrar, esqueci a senha e nova senha refeitas com a cara da Renderiza. Os exemplos seguem com dados fictícios. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 | Parte do Claude da Missão 1 juntada na `main` (branch `claude/clever-albattani-u37i0u`). Missão 2 liberada. O Auth dos projetos passa a ser feito por uma sessão pela API, depois da Vercel; o Brevo fica para antes do piloto. | Claude, a pedido da Renderiza |

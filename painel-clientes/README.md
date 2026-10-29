@@ -16,6 +16,9 @@ estático + `api/`). Tudo roda com o Node do ambiente.
 | `node scripts/migrar.mjs local` | banco local do zero + todas as migrações + `supabase/testes/` |
 | `node scripts/migrar.mjs stg` | testa no local e aplica no STG as que faltam |
 | `node scripts/migrar.mjs producao --projeto <ref>` | testa no local e aplica na produção o que já passou pelo STG |
+| `node scripts/auth.mjs` | o login (Auth) do STG e da produção comparado com o repositório (só lê) |
+| `node scripts/auth.mjs stg` · `producao --projeto <ref>` | aplica o login (endereços, senha, e-mails) e confere lendo de volta; STG primeiro |
+| `node scripts/auth.mjs previa` | grava os e-mails do login com dados fictícios, para abrir no navegador |
 
 As variáveis vêm do ambiente: `PAINEL_STG_*`, `PAINEL_PROD_*` e `PAINEL_SUPABASE_ACCESS_TOKEN`
 (`docs/painel-clientes/missoes.md`, Missão 1). As do Painel de prospecção (`SUPABASE_URL`, `SUPABASE_ANON_KEY`)
@@ -37,7 +40,8 @@ api/config.js              entrega a URL e a chave pública ao navegador (recusa
 supabase/migrations/       a estrutura do banco, em ordem (AAAAMMDDHHMMSS_assunto.sql, hora em UTC)
 supabase/testes/           testes do banco (SQL), rodam no local depois das migrações
 supabase/local/            a imitação do Supabase para o Postgres local (nunca vai para o STG nem para a produção)
-scripts/                   servidor local e migrações
+supabase/emails/           os e-mails do login (Supabase Auth), aplicados por scripts/auth.mjs
+scripts/                   servidor local, migrações (migrar.mjs) e login (auth.mjs; valores em lib/auth.mjs)
 test/                      testes do front (node --test)
 ```
 

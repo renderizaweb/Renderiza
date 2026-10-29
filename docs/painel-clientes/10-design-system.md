@@ -91,3 +91,7 @@ se passar no contraste com o branco (4,5:1). Grafite, papel, tinta e as cores de
   com o layout `acesso.js`.
 - A casca e os módulos vazios da Missão 1 ganharam as cores e a fonte, com classes provisórias (`estilo.css`,
   seção 10). O menu de verdade (barra de baixo no celular, menu lateral, "+") é da Missão 2, bloco B, com estas peças.
+- Os **e-mails do login** (`supabase/emails/`): papel no fundo, cartão branco, terracota só no botão, textos em
+  tinta, tinta-2 e tinta-3 (o rodapé, sobre o papel, em tinta-2 pelo contraste). E-mail não lê CSS de fora: as
+  cores vão escritas, e o teste (`test/auth.test.mjs`) só aceita as dos tokens `--rz-*`. A fonte é a Geist quando
+  o programa de e-mail tem, senão a do sistema.

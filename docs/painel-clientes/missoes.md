@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10), menos o Auth pela API, **em andamento** nesta sessão: aplicado no STG em 29/10 (endereços e senha de 8); falta a produção. Os e-mails esperam o SMTP (Brevo) | `claude/clever-albattani-u37i0u` (recomeçada da `main` em 29/10) |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10), menos o Auth pela API, **pronta para subir** (aplicado no STG e na produção em 29/10); os e-mails do login esperam o SMTP (Brevo, sua parte) | `claude/clever-albattani-u37i0u` (recomeçada da `main` em 29/10) |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: depende só da parte do Claude da Missão 1, que já está na `main` | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
@@ -35,12 +35,13 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 produção (`hxzsiiqhlqxuqkevskwb`) e STG (`qxcxllhmtodsptxffbhx`), que substituíram os primeiros, criados nos EUA e
 apagados; as variáveis do item 3, já com os projetos novos (conferidas pela sessão em 29/10). Falta: a Vercel
 (item 5). **Vercel e domínio no ar (29/10/2026):** `https://painel.renderizaweb.com.br` (e
-`renderiza-painel-clientes.vercel.app`), ambos na produção. Falta uma sessão configurar o Auth dos dois projetos
-pela API de gerenciamento: endereço do painel (produção: `https://painel.renderizaweb.com.br`), os endereços de
-retorno (o do painel e `http://localhost:5180`, com `/nova-senha`, que é onde o link de "Esqueci a senha" chega, e
-as prévias da Vercel no STG) e a senha mínima de 8. O envio (item 4, Brevo) fica para antes do piloto: até lá, o e-mail padrão do
-Supabase manda só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a
-Missão 2 cria com a semente.
+`renderiza-painel-clientes.vercel.app`), ambos na produção. **Auth pela API (29/10/2026, sessão):** endereço do
+painel, endereços de retorno e senha mínima de 8 aplicados nos dois projetos por `scripts/auth.mjs` (valores no
+`04`). Os e-mails do login em português estão prontos em `supabase/emails/`, mas o Supabase grátis só aceita e-mail
+próprio com SMTP próprio: eles entram quando o envio (item 4, Brevo) estiver configurado nos dois projetos; aí uma
+sessão roda `node scripts/auth.mjs stg` e depois a produção. Até lá, o e-mail padrão do Supabase (em inglês) manda
+só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a Missão 2 cria com a
+semente.
 
 1. Um e-mail só para tudo: `contato@renderizaweb.com.br`, numa caixa grátis do **Zoho Mail** (plano Forever Free).
    É o e-mail que os clientes recebem e o dono das contas abaixo. Os registros que o Zoho pedir vão no DNS do
@@ -183,33 +184,32 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 1 · parte do Claude · branch claude/clever-albattani-u37i0u (continua a claude/missao-1-trilhos-setup-wwahf8) · atualizada em 29/10 · PRONTA PARA SUBIR
-Feito: painel-clientes/ com o esqueleto: casca, rotas, 10 módulos e 5 partes do Admin registrados e vazios,
-  adaptador do Supabase, api/config.js, vercel.json (sem build, noindex, DENY, CSP, pula o deploy se a pasta não
-  mudou desde o último deploy), README. Banco local (imitação do Supabase no Postgres 16 + ajudantes de teste) e
-  scripts/migrar.mjs (local → STG → produção pela API de gerenciamento). Tela de login.
-  Em 29/10, depois que a Renderiza apagou os projetos dos EUA (produção wkwyhganenohmupcwthd, us-east-2; STG
-  vzrmepxoigoszqtoxtlo, us-west-2) e criou dois em São Paulo: variáveis PAINEL_* conferidas de novo (as 5
-  presentes, URLs no formato certo, as duas chaves são as publishable dos próprios projetos, nenhuma aponta para a
-  prospecção); pela API, produção "Painel Renderiza" (hxzsiiqhlqxuqkevskwb) e STG "Painel Renderiza STG"
-  (qxcxllhmtodsptxffbhx), os dois sa-east-1, ACTIVE_HEALTHY, Postgres 17; os refs antigos respondem 404.
-  Migração de teste reaplicada no STG novo e depois na produção nova. ignoreCommand do vercel.json trocado (04).
-Testado: npm test da pasta (32: rotas, sessão, config, esqueleto com o ignoreCommand num git temporário, migrações
-  e o banco local com RLS) e da raiz (160, com a main trazida); migrar.mjs local/stg/producao nos projetos novos,
-  a situação dos dois bancos e reaplicar sem nada a fazer; o comentário do schema public e o registro conferidos
-  nos dois; login no Chromium contra o STG novo: sem login vai a /entrar?volta=/agenda e senha errada volta "E-mail ou senha
-  incorretos." do Supabase novo. Antes (projetos dos EUA): entrar, recarregar, menu, Admin, voltar e sair.
-Ficou de fora (depende da Renderiza): Vercel, e-mail (Brevo) e o Auth dos projetos (os novos estão no padrão);
-  por isso o login ainda não foi testado em painel.renderizaweb.com.br nem numa prévia, e o e-mail de confirmação
-  não foi testado. O STG novo não tem usuário: o trilhos-m1@example.com era do STG apagado.
-Próximo passo (quando a Vercel existir): criar um usuário no STG (Authentication → Users), abrir a prévia da
-  branch e entrar; conferir que /src/... e /api/config respondem e que supabase/ e scripts/ não são publicados
-  (.vercelignore); conferir que um push só de documentos não gera deploy.
-Decisões no caminho: migração aplicada pela API de gerenciamento (POST /v1/projects/<ref>/database/query), que
-  roda tudo numa transação só, com registro em supabase_migrations.schema_migrations; endereços sem # (a Vercel
-  devolve o index.html); módulo = src/modulos/<id>/index.js com montar(el, contexto); Admin com 5 partes (as do
-  02, incluindo Módulos).
-Migrações aplicadas (STG / produção, projetos de São Paulo): 20261029003422_trilhos_teste (29/10 / 29/10).
+Missão 1 · parte do Claude (Auth) · branch claude/clever-albattani-u37i0u (recomeçada da main) · atualizada em 29/10 · PRONTA PARA SUBIR
+Antes (já na main): esqueleto, banco local, scripts/migrar.mjs, migração de teste no STG e na produção, design system
+  e telas de acesso.
+Feito: o login (Auth) dos dois projetos no repositório e aplicado pela API de gerenciamento.
+  scripts/auth.mjs (situação, stg, producao --projeto <ref>, previa) com a configuração em scripts/lib/auth.mjs:
+  site_url (produção https://painel.renderizaweb.com.br; STG http://localhost:5180), endereços de retorno (produção
+  só o painel e renderiza-painel-clientes.vercel.app; STG localhost:5180 e renderiza-painel-clientes-*.vercel.app),
+  senha mínima 8, confirmação de e-mail ligada, troca de e-mail confirmada nos dois endereços, links valendo 1 hora.
+  Os 5 e-mails em supabase/emails/ (confirmação, convite, recuperar a senha, troca de e-mail, link de acesso), em
+  português, com as cores dos tokens --rz-*. A conferência dos projetos saiu do migrar.mjs para scripts/lib/projetos.mjs.
+Aplicado: STG e produção em 29/10, conferidos lendo de volta (iguais ao repositório, menos os e-mails).
+Testado: npm test da pasta (53, com test/auth.test.mjs: endereços exatos, curingas, senha 8 = SENHA_MINIMA, os 5
+  e-mails com assunto, variáveis que existem, nada externo, só cores dos tokens, o mesmo layout nos 5, "1 hora" =
+  mailer_otp_exp, prévia escapando HTML) e da raiz (160); e-mails vistos no Chromium (390 e 1100 px); nos dois projetos,
+  sem criar usuário: senha de 7 volta weak_password; /auth/v1/verify com link falso volta para o endereço de retorno
+  da lista e manda qualquer outro para o site_url; as travas do script (produção sem --projeto e antes do STG).
+Ficou de fora (depende da Renderiza): os e-mails. O Supabase grátis recusa e-mail próprio sem SMTP próprio ("Email
+  template modification is not available for free tier projects using the default email provider"). O script já
+  pula os e-mails enquanto o projeto não tem SMTP e avisa.
+Próximo passo (depois do Brevo nos dois projetos): node scripts/auth.mjs stg, conferir um e-mail de verdade no STG
+  (ex.: convidar o contato@ em Authentication → Users), depois node scripts/auth.mjs producao --projeto
+  hxzsiiqhlqxuqkevskwb; registrar aqui e no 04.
+Decisões no caminho: assunto sem variável (o Supabase passa o assunto pelo html/template e escaparia & como &amp;);
+  convite com {{ .Data.nome_da_conta }} quando vier (aviso para a Missão 2); sem imagem nos e-mails (muitos
+  programas bloqueiam e o SVG da marca não abre no Gmail): a marca vai escrita.
+Migrações aplicadas: nenhuma nova (o Auth não é migração; fica no script).
 ```
 
 ## Migrações aplicadas
@@ -228,6 +228,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 1 | **Auth configurado pelo repositório** nos dois projetos (`scripts/auth.mjs`, valores no `04`): site_url, endereços de retorno (produção: só o painel e `renderiza-painel-clientes.vercel.app`; STG: `localhost:5180` e as prévias) e senha mínima de 8. Nada de mudar o Auth à mão no painel do Supabase: mude `scripts/lib/auth.mjs` e rode o script (STG primeiro). Os e-mails do login (`supabase/emails/`) esperam o SMTP próprio (Brevo): o Supabase grátis recusa e-mail próprio sem ele. |
+| 29/10/2026 | 1 · 2 | **Convite:** o e-mail usa `{{ .Data.nome_da_conta }}` quando existe ("Villa Alecrim convidou você…"). Ao convidar, mande `data: { nome_da_conta }`. O link do convite vale 1 hora (`mailer_otp_exp`, o mesmo de todos os links); se a tela de convite precisar de mais, mude no `scripts/lib/auth.mjs` e nos textos dos e-mails. |
 | 29/10/2026 | 1 | **Domínio no ar:** `painel.renderizaweb.com.br` aponta para a Vercel (CNAME no Registro.br) e responde em HTTPS com a produção. Use esse endereço na configuração do Auth. |
 | 29/10/2026 | 1 · 2B | **Design system e telas de acesso prontos** (na `main`): `src/ui/estilo.css` (tokens `--rz-*` e componentes `.rz-*`), `src/ui/icones.js`, `src/ui/formulario.js`, a fonte Geist em `src/ui/fontes/`, e as telas `/entrar`, `/esqueci-a-senha` e `/nova-senha` com o layout `src/telas/acesso.js`. O estilo saiu do `index.html`. Regras: [`10`](10-design-system.md). O bloco B da Missão 2 constrói em cima disso. |
 | 29/10/2026 | 1 | **Vercel no ar** (`renderiza-painel-clientes.vercel.app`, produção). No primeiro deploy, abrir `/entrar` direto dava 404: com `cleanUrls` ligado a Vercel ignora o rewrite para `/index.html`. Corrigido com `cleanUrls: false` (teste no `esqueleto.test.mjs`). |

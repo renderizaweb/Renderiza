@@ -11,7 +11,7 @@ Você vai trabalhar no Painel Renderiza: o sistema com login para os clientes da
 
 2. Onde estamos (29/10/2026):
 - Missão 1, a parte do Claude, já está na main: o esqueleto em painel-clientes/ (todos os módulos e o Admin registrados, vazios), o script de migrações scripts/migrar.mjs (local → STG → produção), a Vercel no ar em painel.renderizaweb.com.br (e renderiza-painel-clientes.vercel.app), o design system em src/ui/ e as telas de entrar, esqueci a senha e nova senha.
-- Falta da Missão 1: configurar o login do Supabase pela API (endereço do painel https://painel.renderizaweb.com.br, endereços de retorno com /nova-senha, senha mínima de 8) e o Brevo (e-mail), que fica para antes do piloto.
+- Falta da Missão 1: o Brevo (e-mail), que fica para antes do piloto. O login do Supabase já está configurado pelo repositório (scripts/auth.mjs: endereços e senha mínima de 8); os e-mails do login em português (supabase/emails/) entram com o Brevo, rodando o mesmo script.
 - Missão 2 liberada: bloco A (banco) e bloco B (telas). Outras sessões podem estar trabalhando nela.
 
 3. Antes de pegar qualquer trabalho:
