@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 4 | Missão 4, bloco B, juntado na `main` com o ok da Renderiza. O bloco A (API pública e agenda online) começa na mesma sessão e branch; o C vem depois dele. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 4 | **Missão 4, bloco B (Meu site no site), pronta para subir**, em paralelo com a Missão 2 (não depende do banco): contrato v1 fechado no `03`, o script com a versão inicial sempre de pé, as marcações nos geradores de eventos (visual das demos idêntico, pixel a pixel), o `virar-site.mjs` com o código do site, a versão final e um site de teste fictício, com 15 testes. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), pronto para subir: o banco inteiro do `05` (34 tabelas com RLS, `pode()`, histórico automático, Storage) em 6 migrações, aplicadas no STG e na produção, com os testes de isolamento passando no local e no STG; a semente (Villa Alecrim e Estúdio Ciranda) no STG. O bloco B (telas) pode começar. | Claude, a pedido da Renderiza |
