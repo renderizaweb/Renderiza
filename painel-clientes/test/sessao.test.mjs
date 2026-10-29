@@ -1,9 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { criarSessao, validarEntrada } from "../src/sessao.js";
+import { criarSessao, validarEntrada, validarEmail, validarSenhaNova, SENHA_MINIMA } from "../src/sessao.js";
 import { criarAdaptadorSupabase, traduzir } from "../src/adaptadores/supabase.js";
 
 // Um supabase-js de mentira: guarda a sessão e avisa os ouvintes, como o de verdade.
+const pedidos = [];
 function clienteFalso({ senhaCerta = "certa" } = {}) {
   let sessao = null;
   const ouvintes = [];
@@ -18,6 +19,12 @@ function clienteFalso({ senhaCerta = "certa" } = {}) {
         return { data: { session: sessao }, error: null };
       },
       async signOut() { sessao = null; avisar("SIGNED_OUT", null); return { error: null }; },
+      async resetPasswordForEmail(email, { redirectTo }) { pedidos.push({ email, redirectTo }); return { data: {}, error: null }; },
+      async updateUser({ password }) {
+        if (!sessao) return { data: null, error: { message: "Auth session missing!" } };
+        if (password === "igual12345") return { data: null, error: { message: "New password should be different from the old password." } };
+        return { data: { user: sessao.user }, error: null };
+      },
       onAuthStateChange(fn) { ouvintes.push(fn); return { data: { subscription: { unsubscribe() {} } } }; },
     },
     from: () => ({}),
@@ -71,4 +78,32 @@ test("traduz os erros comuns", () => {
 
 test("rpc devolve os dados", async () => {
   assert.equal(await (await adaptador()).rpc("qualquer", {}), 42);
+});
+
+test("validações de e-mail e de senha nova", () => {
+  assert.equal(validarEmail(""), "Digite o seu e-mail.");
+  assert.equal(validarEmail(" ana@villa.com "), null);
+  assert.equal(SENHA_MINIMA, 8);
+  assert.equal(validarSenhaNova(""), "Digite a senha nova.");
+  assert.equal(validarSenhaNova("1234567"), "A senha precisa ter pelo menos 8 caracteres.");
+  assert.equal(validarSenhaNova("12345678"), null);
+});
+
+test("esqueci a senha: valida o e-mail e manda o link para a tela /nova-senha", async () => {
+  const sessao = criarSessao(await adaptador());
+  await sessao.iniciar();
+  await assert.rejects(sessao.pedirNovaSenha("fulano", "https://painel/nova-senha"), { message: /não parece certo/ });
+  await sessao.pedirNovaSenha(" ana@villa.com ", "https://painel/nova-senha");
+  assert.deepEqual(pedidos.at(-1), { email: "ana@villa.com", redirectTo: "https://painel/nova-senha" });
+});
+
+test("nova senha: pede 8 caracteres, exige a sessão do link e traduz os erros", async () => {
+  const sessao = criarSessao(await adaptador());
+  await sessao.iniciar();
+  await assert.rejects(sessao.definirSenha("curta"), { message: "A senha precisa ter pelo menos 8 caracteres." });
+  await assert.rejects(sessao.definirSenha("novasenha1"), { message: /link não vale mais/ });
+  await sessao.entrar("ana@villa.com", "certa");
+  await assert.rejects(sessao.definirSenha("igual12345"), { message: "A senha nova precisa ser diferente da atual." });
+  await sessao.definirSenha("novasenha1");
+  assert.equal(sessao.logado(), true);
 });

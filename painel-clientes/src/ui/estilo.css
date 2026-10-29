@@ -1,0 +1,242 @@
+/* Design system do Painel Renderiza: tokens (--rz-*), base, componentes (.rz-*) e as telas de acesso.
+   Regras e exemplos: docs/painel-clientes/10-design-system.md. Mobile first: o padrão é o celular.
+   Arquivo comum: mudança só com aviso em docs/painel-clientes/missoes.md (08-trabalho-em-paralelo.md). */
+
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/src/ui/fontes/geist.woff2) format("woff2")}
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  /* Cor. A da Renderiza: o grafite dá a estrutura, o papel acalma, a terracota é a ÚNICA cor de destaque
+     (botão principal, link, foco, o que pede ação). As cores de situação só aparecem em situação. */
+  --rz-grafite:#1e2528; --rz-grafite-2:#2b3438; --rz-grafite-3:#151a1c;
+  --rz-gelo:#f1eee9;                 /* o branco quente do símbolo */
+  --rz-fundo:#f6f5f2;                /* fundo das telas */
+  --rz-superficie:#ffffff;           /* cartões, campos, gavetas */
+  --rz-superficie-2:#faf9f7;         /* faixas e cabeçalhos dentro de cartões */
+  --rz-tinta:#1e2528;                /* texto principal: 15,6:1 no branco */
+  --rz-tinta-2:#5b6467;              /* texto de apoio: 6,1:1 */
+  --rz-tinta-3:#6b7376;              /* legendas e marcas pequenas: 4,8:1 (nunca mais claro que isso em texto) */
+  --rz-linha:#e6e4df; --rz-linha-forte:#d3d0c9;
+  --rz-sobre-grafite:#b9bfc1;        /* texto de apoio sobre o grafite */
+  --rz-destaque:#b25134;             /* terracota: 5,1:1 no branco; texto branco nela: 5,1:1 */
+  --rz-destaque-escuro:#9a4429;      /* passar o mouse, texto sobre o fundo de destaque */
+  --rz-destaque-claro:#e8855e;       /* destaque sobre o grafite: 5,9:1 */
+  --rz-destaque-fundo:#f9ece6;
+  --rz-sucesso:#1f7a4d; --rz-sucesso-fundo:#e5f3ec;
+  --rz-alerta:#8a5a00;  --rz-alerta-fundo:#fbf0d9;
+  --rz-perigo:#b42318;  --rz-perigo-fundo:#fdeceb;
+  --rz-info:#2d5ea8;    --rz-info-fundo:#e8eff9;
+
+  /* Tipo. Geist (a fonte da marca, no próprio painel). Títulos em 600 com espaçamento negativo; texto em 400. */
+  --rz-fonte:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --rz-t-xs:.75rem; --rz-t-sm:.875rem; --rz-t-base:1rem; --rz-t-lg:1.125rem;
+  --rz-t-xl:1.375rem; --rz-t-2xl:1.75rem; --rz-t-3xl:2.25rem;
+
+  /* Espaço: base de 4 px. */
+  --rz-1:4px; --rz-2:8px; --rz-3:12px; --rz-4:16px; --rz-5:20px; --rz-6:24px;
+  --rz-8:32px; --rz-10:40px; --rz-12:48px; --rz-16:64px;
+
+  /* Forma e profundidade: cantos generosos, sombras discretas. */
+  --rz-raio-p:8px; --rz-raio:12px; --rz-raio-g:16px; --rz-raio-xg:24px; --rz-raio-pilula:999px;
+  --rz-sombra-1:0 1px 2px rgba(30,37,40,.06);
+  --rz-sombra-2:0 1px 2px rgba(30,37,40,.05),0 12px 32px -12px rgba(30,37,40,.18);
+  --rz-sombra-3:0 30px 70px -30px rgba(10,13,14,.6);
+  --rz-foco:0 0 0 3px rgba(178,81,52,.3);
+
+  /* Toque e movimento: alvo de 44 px, campos de 48 px; movimento curto e só para explicar. */
+  --rz-alvo:44px; --rz-campo:48px;
+  --rz-rapido:150ms; --rz-medio:240ms; --rz-curva:cubic-bezier(.2,.8,.2,1);
+
+  color-scheme:light;
+}
+
+/* ---------- 2. Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--rz-fundo);color:var(--rz-tinta);font-family:var(--rz-fonte);font-size:var(--rz-t-base);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+img,svg{display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+[hidden]{display:none!important}
+::selection{background:var(--rz-destaque);color:#fff}
+:focus-visible{outline:2px solid var(--rz-destaque);outline-offset:2px}
+[tabindex="-1"]:focus{outline:none}  /* títulos que recebem o foco ao trocar de tela (leitor de tela) */
+a{color:var(--rz-destaque);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--rz-destaque-escuro)}
+.rz-oculto{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---------- 3. Tipografia ---------- */
+.rz-titulo-1{font-size:clamp(1.75rem,1.4rem + 1.4vw,2.25rem);font-weight:600;line-height:1.1;letter-spacing:-.035em;text-wrap:balance}
+.rz-titulo-2{font-size:var(--rz-t-xl);font-weight:600;line-height:1.2;letter-spacing:-.025em}
+.rz-titulo-3{font-size:var(--rz-t-lg);font-weight:600;line-height:1.3;letter-spacing:-.015em}
+.rz-texto-2{color:var(--rz-tinta-2)}
+.rz-texto-3{color:var(--rz-tinta-3);font-size:var(--rz-t-sm)}
+.rz-pequeno{font-size:var(--rz-t-sm)}
+
+/* ---------- 4. Ícones ---------- */
+.rz-icone{flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- 5. Botões ---------- */
+.rz-botao{--cor:var(--rz-superficie);--tinta:var(--rz-tinta);--borda:var(--rz-linha-forte);
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:var(--rz-2);
+  min-height:var(--rz-alvo);padding:0 var(--rz-5);border:1px solid var(--borda);border-radius:var(--rz-raio);
+  background:var(--cor);color:var(--tinta);font-size:var(--rz-t-base);font-weight:600;line-height:1.1;
+  text-decoration:none;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:background-color var(--rz-rapido),border-color var(--rz-rapido),box-shadow var(--rz-rapido),transform var(--rz-rapido)}
+.rz-botao:hover{--borda:var(--rz-tinta-3);color:var(--tinta)}
+.rz-botao:active{transform:translateY(1px)}
+.rz-botao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-botao:disabled,.rz-botao[aria-disabled=true]{opacity:.55;cursor:not-allowed;transform:none}
+.rz-botao--primario{--cor:var(--rz-destaque);--tinta:#fff;--borda:var(--rz-destaque);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 1px 2px rgba(154,68,41,.25)}
+.rz-botao--primario:hover{--cor:var(--rz-destaque-escuro);--borda:var(--rz-destaque-escuro)}
+.rz-botao--escuro{--cor:var(--rz-grafite);--tinta:#fff;--borda:var(--rz-grafite)}
+.rz-botao--escuro:hover{--cor:var(--rz-grafite-2);--borda:var(--rz-grafite-2)}
+.rz-botao--fantasma{--cor:transparent;--borda:transparent;--tinta:var(--rz-tinta-2)}
+.rz-botao--fantasma:hover{--cor:rgba(30,37,40,.06);--borda:transparent;--tinta:var(--rz-tinta)}
+.rz-botao--perigo{--cor:var(--rz-perigo);--tinta:#fff;--borda:var(--rz-perigo)}
+.rz-botao--grande{min-height:var(--rz-campo)}
+.rz-botao--pequeno{min-height:36px;padding:0 var(--rz-3);font-size:var(--rz-t-sm);border-radius:var(--rz-raio-p)}
+.rz-botao--bloco{display:flex;width:100%}
+/* Ocupado: o botão ganha um giro e um texto de ação ("Entrando…"); não aceita outro toque. */
+.rz-botao[aria-busy=true],.rz-botao[aria-busy=true]:disabled{cursor:progress;opacity:.9}
+.rz-botao[aria-busy=true]::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:rz-girar .7s linear infinite}
+@keyframes rz-girar{to{transform:rotate(360deg)}}
+
+/* ---------- 6. Campos ---------- */
+.rz-pilha{display:flex;flex-direction:column;gap:var(--rz-5)}
+.rz-campo{display:flex;flex-direction:column;gap:var(--rz-2)}
+.rz-rotulo{display:flex;align-items:baseline;justify-content:space-between;gap:var(--rz-3);font-size:var(--rz-t-sm);font-weight:600;color:var(--rz-tinta)}
+.rz-rotulo a{font-weight:500;text-decoration:none}
+.rz-rotulo a:hover{text-decoration:underline}
+.rz-entrada{width:100%;min-height:var(--rz-campo);padding:0 var(--rz-4);border:1px solid var(--rz-linha-forte);border-radius:var(--rz-raio);
+  background:var(--rz-superficie);color:var(--rz-tinta);font-size:16px;/* 16 px: o iPhone não dá zoom */
+  transition:border-color var(--rz-rapido),box-shadow var(--rz-rapido)}
+.rz-entrada::placeholder{color:#9aa1a4}
+.rz-entrada:hover{border-color:var(--rz-tinta-3)}
+.rz-entrada:focus{outline:none;border-color:var(--rz-destaque);box-shadow:var(--rz-foco)}
+.rz-entrada[aria-invalid=true]{border-color:var(--rz-perigo)}
+.rz-entrada[aria-invalid=true]:focus{box-shadow:0 0 0 3px rgba(180,35,24,.2)}
+/* Preenchimento automático do navegador: sem o fundo amarelo ou azul, com o mesmo foco. */
+.rz-entrada:-webkit-autofill{-webkit-text-fill-color:var(--rz-tinta);box-shadow:0 0 0 1000px var(--rz-superficie) inset;caret-color:var(--rz-tinta)}
+.rz-entrada:-webkit-autofill:focus{box-shadow:0 0 0 1000px var(--rz-superficie) inset,var(--rz-foco)}
+.rz-ajuda{display:flex;align-items:center;gap:6px;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-erro-campo{display:flex;align-items:center;gap:6px;font-size:var(--rz-t-sm);font-weight:500;color:var(--rz-perigo)}
+.rz-com-acao{position:relative}
+.rz-com-acao .rz-entrada{padding-right:56px}
+.rz-acao-campo{position:absolute;top:50%;right:2px;transform:translateY(-50%);width:var(--rz-alvo);height:var(--rz-alvo);display:grid;place-items:center;
+  border:0;border-radius:var(--rz-raio-p);background:transparent;color:var(--rz-tinta-2);cursor:pointer;transition:color var(--rz-rapido),background-color var(--rz-rapido)}
+.rz-acao-campo:hover{color:var(--rz-tinta);background:rgba(30,37,40,.05)}
+.rz-acao-campo:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+/* Lista de requisitos que se marca enquanto a pessoa digita (ex.: senha com 8 caracteres). */
+.rz-requisitos{display:flex;flex-direction:column;gap:6px;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-requisitos li{display:flex;align-items:center;gap:8px;transition:color var(--rz-rapido)}
+.rz-requisitos li::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;border:1.5px solid var(--rz-linha-forte);transition:background-color var(--rz-rapido),border-color var(--rz-rapido)}
+.rz-requisitos li[data-ok=true]{color:var(--rz-sucesso)}
+.rz-requisitos li[data-ok=true]::before{border-color:var(--rz-sucesso);background:var(--rz-sucesso) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.3 2.3 4.7-4.9' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+/* ---------- 7. Avisos, etiquetas e cartões ---------- */
+.rz-alerta{display:flex;align-items:flex-start;gap:var(--rz-3);padding:var(--rz-3) var(--rz-4);border-radius:var(--rz-raio);
+  background:var(--rz-info-fundo);color:var(--rz-info);font-size:var(--rz-t-sm);line-height:1.45;animation:rz-surgir var(--rz-medio) var(--rz-curva)}
+.rz-alerta .rz-icone{margin-top:1px}
+.rz-alerta b{font-weight:600}
+.rz-alerta--erro{background:var(--rz-perigo-fundo);color:var(--rz-perigo)}
+.rz-alerta--sucesso{background:var(--rz-sucesso-fundo);color:var(--rz-sucesso)}
+.rz-alerta--aviso{background:var(--rz-alerta-fundo);color:var(--rz-alerta)}
+@keyframes rz-surgir{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.rz-etiqueta{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:var(--rz-raio-pilula);
+  background:var(--rz-gelo);color:var(--rz-tinta-2);font-size:var(--rz-t-xs);font-weight:600;line-height:1;white-space:nowrap}
+.rz-etiqueta::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+.rz-etiqueta--destaque{background:var(--rz-destaque-fundo);color:var(--rz-destaque-escuro)}
+.rz-etiqueta--alerta{background:var(--rz-alerta-fundo);color:var(--rz-alerta)}
+.rz-etiqueta--sucesso{background:var(--rz-sucesso-fundo);color:var(--rz-sucesso)}
+.rz-cartao{background:var(--rz-superficie);border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);box-shadow:var(--rz-sombra-1)}
+.rz-divisor{display:flex;align-items:center;gap:var(--rz-3);color:var(--rz-tinta-3);font-size:var(--rz-t-sm)}
+.rz-divisor::before,.rz-divisor::after{content:"";flex:1;height:1px;background:var(--rz-linha)}
+.rz-marca{display:inline-flex;align-items:center;gap:10px;color:inherit;font-weight:600;letter-spacing:-.02em;text-decoration:none;line-height:1}
+.rz-marca img{width:32px;height:32px;border-radius:9px}
+.rz-marca small{display:block;margin-top:3px;font-size:var(--rz-t-xs);font-weight:500;letter-spacing:0;opacity:.7}
+
+/* ---------- 8. Abrindo o painel (enquanto carrega) ---------- */
+.rz-abrindo{min-height:100vh;min-height:100dvh;display:grid;place-content:center;justify-items:center;gap:var(--rz-4);color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-abrindo img{width:48px;height:48px;border-radius:14px;animation:rz-respirar 1.6s var(--rz-curva) infinite alternate}
+@keyframes rz-respirar{from{opacity:.55;transform:scale(.96)}to{opacity:1;transform:none}}
+
+/* ---------- 9. Telas de acesso (entrar, esqueci a senha, nova senha; cadastro e convite na Missão 2) ---------- */
+.rz-acesso{min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(0,1fr);background:var(--rz-superficie)}
+.rz-acesso-painel{display:none}
+.rz-acesso-form{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;padding:max(var(--rz-4),env(safe-area-inset-top)) var(--rz-5) max(var(--rz-6),env(safe-area-inset-bottom))}
+.rz-acesso-topo{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo)}
+.rz-acesso-corpo{flex:1;display:flex;flex-direction:column;justify-content:flex-start;width:100%;max-width:400px;margin:0 auto;padding:clamp(32px,9vh,88px) 0 var(--rz-8)}
+.rz-acesso-cabeca{display:flex;flex-direction:column;gap:var(--rz-2);margin-bottom:var(--rz-8)}
+.rz-acesso-cabeca .rz-icone-grande{width:52px;height:52px;display:grid;place-items:center;margin-bottom:var(--rz-3);border-radius:var(--rz-raio-g);background:var(--rz-destaque-fundo);color:var(--rz-destaque)}
+.rz-acesso-pe{width:100%;max-width:400px;margin:0 auto;text-align:center;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-acesso-pe a{font-weight:600;text-decoration:none}
+.rz-acesso-pe a:hover{text-decoration:underline}
+.rz-acesso-voltar{display:inline-flex;align-items:center;gap:6px;min-height:var(--rz-alvo);color:var(--rz-tinta-2);font-size:var(--rz-t-sm);font-weight:500;text-decoration:none}
+.rz-acesso-voltar:hover{color:var(--rz-tinta)}
+.rz-acesso-acoes{display:flex;flex-direction:column;gap:var(--rz-3);margin-top:var(--rz-6)}
+
+/* O painel da marca, ao lado do formulário no computador. */
+@media (min-width:960px){
+  .rz-acesso{grid-template-columns:minmax(0,1.05fr) minmax(460px,1fr)}
+  .rz-acesso-form{padding:var(--rz-8) var(--rz-12)}
+  .rz-acesso-corpo{justify-content:center;padding:var(--rz-10) 0}
+  .rz-acesso-form .rz-acesso-topo .rz-marca{visibility:hidden}
+  .rz-acesso-painel{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:var(--rz-10);
+    padding:var(--rz-10) clamp(40px,5vw,72px);background:var(--rz-grafite);color:var(--rz-gelo)}
+  .rz-acesso-painel::before{content:"";position:absolute;z-index:-1;right:-18%;bottom:-28%;width:78%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(232,133,94,.32),rgba(232,133,94,0))}
+  .rz-acesso-painel::after{content:"";position:absolute;z-index:-1;left:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(241,238,233,.07),rgba(241,238,233,0))}
+  .rz-acesso-painel .rz-marca img{box-shadow:0 0 0 1px rgba(241,238,233,.16)}
+  .rz-chamada{display:flex;flex-direction:column;gap:var(--rz-4);max-width:30rem}
+  .rz-chamada h2{font-size:clamp(2.1rem,1.2rem + 1.9vw,2.9rem);font-weight:600;line-height:1.06;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+  .rz-chamada h2 span{color:var(--rz-destaque-claro)}
+  .rz-chamada p{color:var(--rz-sobre-grafite);font-size:var(--rz-t-lg);line-height:1.5;max-width:34ch}
+  .rz-previa{width:100%;max-width:440px;padding:var(--rz-3);border-radius:22px;background:rgba(255,255,255,.055);
+    border:1px solid rgba(241,238,233,.1);box-shadow:var(--rz-sombra-3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .rz-previa-cabeca{display:flex;align-items:center;justify-content:space-between;padding:var(--rz-2) var(--rz-3) var(--rz-3);font-size:var(--rz-t-sm);font-weight:600;color:#fff}
+  .rz-previa-cabeca span{font-weight:500;color:var(--rz-sobre-grafite)}
+  .rz-previa ul{display:flex;flex-direction:column;gap:6px}
+  .rz-previa li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:var(--rz-3);padding:10px var(--rz-3);
+    border-radius:14px;background:rgba(255,255,255,.045);animation:rz-entrar .6s var(--rz-curva) both}
+  .rz-previa li:nth-child(2){animation-delay:.08s}
+  .rz-previa li:nth-child(3){animation-delay:.16s}
+  .rz-previa-icone{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(241,238,233,.08);color:var(--rz-gelo)}
+  .rz-previa b{display:block;font-size:var(--rz-t-sm);font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rz-previa small{display:block;margin-top:2px;font-size:var(--rz-t-xs);color:var(--rz-sobre-grafite);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rz-previa-acao{min-height:28px;padding:0 10px;display:inline-flex;align-items:center;border-radius:var(--rz-raio-pilula);font-size:var(--rz-t-xs);font-weight:600;
+    background:rgba(232,133,94,.16);color:#f4b79c}
+  .rz-previa-acao--ok{background:rgba(143,212,176,.14);color:#9fdcbb}
+  .rz-acesso-creditos{font-size:var(--rz-t-sm);color:var(--rz-sobre-grafite)}
+}
+@keyframes rz-entrar{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- 10. Casca provisória (Missão 1) ----------
+   O menu e a casca de verdade (barra de baixo no celular, menu lateral, "+") são da Missão 2 (09-ux.md).
+   Até lá, estas classes mantêm o esqueleto e os módulos vazios com a cara da marca. */
+.titulo{font-size:var(--rz-t-2xl);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:var(--rz-2)}
+.suave{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.casca{display:flex;min-height:100vh}
+.menu{width:240px;flex:none;background:var(--rz-grafite);color:var(--rz-sobre-grafite);padding:var(--rz-5) var(--rz-3);display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.menu-marca{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;letter-spacing:-.02em;padding:0 var(--rz-3) var(--rz-5)}
+.menu-marca img{border-radius:8px;box-shadow:0 0 0 1px rgba(241,238,233,.16)}
+.menu a{color:inherit;text-decoration:none;padding:9px var(--rz-3);border-radius:10px;font-size:var(--rz-t-sm);font-weight:500;transition:background-color var(--rz-rapido),color var(--rz-rapido)}
+.menu a:hover{background:rgba(255,255,255,.06);color:#fff}
+.menu a[aria-current=page]{background:rgba(255,255,255,.1);color:#fff}
+.menu-grupo{margin:var(--rz-4) var(--rz-3) var(--rz-1);font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a9194}
+.menu-pe{margin-top:auto;padding:var(--rz-3) var(--rz-3) 0;display:flex;flex-direction:column;gap:var(--rz-2)}
+.menu-pe .suave{color:var(--rz-sobre-grafite);word-break:break-all}
+.menu-pe .rz-botao{--cor:transparent;--borda:rgba(241,238,233,.2);--tinta:#fff}
+.conteudo{flex:1;padding:var(--rz-8) var(--rz-6);min-width:0}
+.falha{max-width:480px;margin:15vh auto;padding:0 var(--rz-4);display:flex;flex-direction:column;gap:var(--rz-3);align-items:flex-start}
+@media (max-width:720px){
+  .casca{flex-direction:column}
+  .menu{width:auto;flex-direction:row;flex-wrap:wrap;gap:4px;padding:var(--rz-3);position:static;height:auto}
+  .menu-marca{width:100%;padding-bottom:var(--rz-2)}
+  .menu-grupo{width:100%;margin:var(--rz-2) var(--rz-3) 0}
+  .menu-pe{width:100%;flex-direction:row;align-items:center;justify-content:space-between}
+  .conteudo{padding:var(--rz-6) var(--rz-4)}
+}

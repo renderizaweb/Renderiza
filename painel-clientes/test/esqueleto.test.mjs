@@ -31,7 +31,9 @@ test("ids únicos e caminhos seguros", () => {
   const ids = MODULOS.map(m => m.id);
   assert.equal(new Set(ids).size, ids.length);
   for (const id of [...ids, ...AREAS_ADMIN.map(a => a.id)]) assert.match(id, /^[a-z][a-z-]*$/);
-  assert.ok(!ids.includes("admin") && !ids.includes("entrar"), "módulo não pode tomar o caminho do Admin ou do login");
+  for (const reservado of ["admin", "entrar", "esqueci-a-senha", "nova-senha", "cadastro", "convite"]) {
+    assert.ok(!ids.includes(reservado), `módulo não pode tomar o caminho /${reservado}`);
+  }
 });
 
 test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
@@ -83,11 +85,11 @@ test("o index.html não tem script embutido (a CSP bloquearia)", () => {
   assert.ok(scripts.length >= 1);
   for (const s of scripts) assert.equal(s[1].trim(), "", "script embutido: " + s[0].slice(0, 60));
   assert.doesNotMatch(html, /\son[a-z]+=/i, "atributo on…= embutido");
-  for (const arq of ["src/app.js", "src/telas/entrar.js"]) assert.doesNotMatch(readFileSync(new URL(arq, pasta), "utf8"), /\son[a-z]+="/i, arq);
+  for (const arq of ["src/app.js", "src/telas/entrar.js", "src/telas/esqueci-a-senha.js", "src/telas/nova-senha.js", "src/telas/acesso.js", "src/ui/formulario.js"]) assert.doesNotMatch(readFileSync(new URL(arq, pasta), "utf8"), /\son[a-z]+="/i, arq);
 });
 
 test("nenhuma chave nem URL de projeto no código do app", () => {
-  for (const arq of ["index.html", "src/app.js", "src/adaptadores/supabase.js", "src/sessao.js", "src/telas/entrar.js", "api/config.js"]) {
+  for (const arq of ["index.html", "src/app.js", "src/adaptadores/supabase.js", "src/sessao.js", "src/telas/entrar.js", "src/telas/esqueci-a-senha.js", "src/telas/nova-senha.js", "src/telas/acesso.js", "api/config.js"]) {
     const txt = readFileSync(new URL(arq, pasta), "utf8");
     assert.doesNotMatch(txt, /sb_(publishable|secret)_[A-Za-z0-9]/, arq);
     assert.doesNotMatch(txt, /sbp_[A-Za-z0-9]/, arq);

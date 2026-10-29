@@ -33,8 +33,10 @@ repositório. Por isso valem as regras abaixo. Toda sessão lê este arquivo ant
 - **Mexa só no que está em "Mexe em"** da sua missão ou bloco. Precisa mudar algo fora disso? Se for pequeno, faça e
   deixe um aviso; se for grande, pare e pergunte.
 - **Arquivos comuns têm dono.** O esqueleto (`src/app.js`, `src/rotas.js`, `src/modulos/index.js`,
-  `src/admin/index.js`) nasce na Missão 1 com todos os módulos já registrados; as peças comuns (`src/ui/`,
-  `src/nichos/`, `estilo.css`) nascem na Missão 2. Depois disso, mudança nesses arquivos só com aviso.
+  `src/admin/index.js`) nasce na Missão 1 com todos os módulos já registrados; o design system (`src/ui/`, com o
+  `src/ui/estilo.css`; regras no [`10`](10-design-system.md)) começou em 29/10 e cresce na Missão 2, junto com
+  `src/nichos/`. Mudança nesses arquivos só com aviso. Tela nova usa as peças `.rz-*` e os tokens `--rz-*`: nada de
+  cor, tamanho ou espaço solto no código.
 - **Um módulo, uma pasta** (`src/modulos/<nome>/`), usando as peças comuns; nada de copiar código de outro módulo.
 - **Commits pequenos**, com a missão no começo da mensagem ("M3 · agenda: semana no celular").
 - **Dados só fictícios** (Villa Alecrim, Estúdio Ciranda). Nunca dado real de cliente, nem em teste.

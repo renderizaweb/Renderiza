@@ -16,8 +16,8 @@ function escapar(texto) {
 }
 
 function mostrarFalha(mensagem) {
-  raiz.innerHTML = `<main class="falha"><h1 class="titulo">Não consegui abrir o painel</h1><p>${escapar(mensagem)}</p>
-    <button class="botao" type="button">Tentar de novo</button></main>`;
+  raiz.innerHTML = `<main class="falha"><h1 class="titulo">Não consegui abrir o painel</h1><p class="rz-texto-2">${escapar(mensagem)}</p>
+    <button class="rz-botao rz-botao--escuro" type="button">Tentar de novo</button></main>`;
   raiz.querySelector("button").addEventListener("click", () => location.reload());
 }
 
@@ -47,7 +47,7 @@ function desenharCasca(rota, sessao) {
         ${admin}
         <div class="menu-pe">
           <span class="suave">${escapar(usuario ? usuario.email : "")}</span>
-          <button class="botao" type="button" data-sair>Sair</button>
+          <button class="rz-botao rz-botao--pequeno" type="button" data-sair>Sair</button>
         </div>
       </nav>
       <main class="conteudo" id="conteudo"></main>
@@ -82,7 +82,7 @@ async function iniciar() {
       if (rota.tipo === "tela") {
         const tela = await TELAS[rota.id].carregar();
         if (minhaVez !== vez) return;
-        await tela.montar(raiz, { sessao, banco, ambiente: config.ambiente, aoEntrar: desenhar });
+        await tela.montar(raiz, { sessao, banco, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
         return;
       }
       const alvo = desenharCasca(rota, sessao);

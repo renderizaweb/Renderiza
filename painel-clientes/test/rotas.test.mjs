@@ -46,3 +46,12 @@ test("voltaSegura recusa endereço de fora", () => {
   assert.equal(voltaSegura("/agenda?dia=2"), "/agenda?dia=2");
   for (const v of ["", null, "agenda", "//x.com", "/\\x.com", "https://x.com", "javascript:alert(1)"]) assert.equal(voltaSegura(v), "/", String(v));
 });
+
+test("esqueci a senha: só sem login; nova senha: com ou sem login (o link do e-mail é que abre a sessão)", () => {
+  assert.deepEqual(lerRota("/esqueci-a-senha"), { tipo: "tela", id: "esqueciSenha" });
+  assert.deepEqual(lerRota("/nova-senha"), { tipo: "tela", id: "novaSenha" });
+  assert.deepEqual(decidir({ caminho: "/esqueci-a-senha", logado: false }), { rota: { tipo: "tela", id: "esqueciSenha" } });
+  assert.deepEqual(decidir({ caminho: "/esqueci-a-senha", logado: true }), { redirecionar: "/" });
+  assert.deepEqual(decidir({ caminho: "/nova-senha", logado: false }), { rota: { tipo: "tela", id: "novaSenha" } });
+  assert.deepEqual(decidir({ caminho: "/nova-senha", logado: true }), { rota: { tipo: "tela", id: "novaSenha" } });
+});

@@ -52,7 +52,8 @@ painel-clientes/
     modulos/inicio/  clientes/  agenda/  atendimento/  financeiro/  contratos/  meu-site/
             equipe/  configuracoes/  servicos/
     admin/                   Admin (só a equipe Renderiza): contas/ modulos/ pessoas/ pagamentos/ indicadores/
-    ui/                      peças dos exemplos: menu, abas, gaveta, tabela, calendário, avisos, "Para quem?"
+    ui/                      o design system (10): estilo.css (tokens e componentes), icones.js, formulario.js, fontes/;
+                             depois, as peças dos exemplos: menu, abas, gaveta, tabela, calendário, "Para quem?"
   publico/                   páginas sem login: aceite de contrato (/c/<código>), prévia
   api/config.js              entrega a URL e a chave pública ao navegador (Missão 1)
   api/publico/               funções da Vercel da API pública

@@ -45,6 +45,7 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
 | [`06-privacidade-e-seguranca.md`](06-privacidade-e-seguranca.md) | LGPD, termos, backup, chaves e o que nunca fazer com dado de cliente | parada 5 (e sempre) |
 | [`07-decisoes-e-perguntas.md`](07-decisoes-e-perguntas.md) | O que já foi decidido e o que vale por padrão | antes de decidir qualquer coisa |
 | [`09-ux.md`](09-ux.md) | A experiência: princípios, o que melhorar em cada tela do exemplo, onboarding, peças comuns, velocidade e referências | antes de desenhar qualquer tela |
+| [`10-design-system.md`](10-design-system.md) | As cores, o tipo, os espaços e as peças (`src/ui/`), com as regras de uso | antes de escrever qualquer tela |
 
 ## Como continuar o projeto (pessoa ou IA)
 

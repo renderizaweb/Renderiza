@@ -34,8 +34,10 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 `contato@renderizaweb.com.br` no Zoho (com os MX no Registro.br) e os dois projetos do Supabase em São Paulo,
 produção (`hxzsiiqhlqxuqkevskwb`) e STG (`qxcxllhmtodsptxffbhx`), que substituíram os primeiros, criados nos EUA e
 apagados; as variáveis do item 3, já com os projetos novos (conferidas pela sessão em 29/10). Falta: a Vercel
-(item 5). Depois dela, uma sessão configura o Auth dos dois projetos pela API de gerenciamento (endereço do painel e
-de retorno, senha mínima de 8). O envio (item 4, Brevo) fica para antes do piloto: até lá, o e-mail padrão do
+(item 5). Depois dela, uma sessão configura o Auth dos dois projetos pela API de gerenciamento: endereço do painel
+(por enquanto `https://renderiza-painel-clientes.vercel.app`; o domínio próprio fica para depois), os endereços de
+retorno (o do painel e `http://localhost:5180`, com `/nova-senha`, que é onde o link de "Esqueci a senha" chega, e
+as prévias da Vercel no STG) e a senha mínima de 8. O envio (item 4, Brevo) fica para antes do piloto: até lá, o e-mail padrão do
 Supabase manda só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a
 Missão 2 cria com a semente.
 
@@ -89,15 +91,17 @@ e-mail de confirmação chega; uma migração de teste passou pelo STG e pela pr
 - **Mexe em:** `supabase/migrations/`, `supabase/testes/`, `supabase/semente/`.
 
 **Bloco B · Telas base**
-- A casca: entrar, cadastro com 7 dias grátis, convite da equipe, esqueci a senha, escolher a conta, menu com os
-  módulos ligados (trancado sem acesso), aviso de teste vencido.
+- **Já feito (29/10/2026):** o design system (`src/ui/`, ver [`10`](10-design-system.md)) e as telas de entrar,
+  esqueci a senha e nova senha. O bloco B usa e amplia esse padrão (não começa outro).
+- A casca: cadastro com 7 dias grátis, convite da equipe, escolher a conta, menu com os módulos ligados (trancado
+  sem acesso), aviso de teste vencido, todos com o layout `src/telas/acesso.js` quando forem telas de acesso.
 - As peças comuns do `09`: barra de baixo e menu lateral, "+" ações rápidas, **"Para quem?"**, detalhes, filtros,
   desfazer, WhatsApp num toque, estados (vazio, erro, carregando), formulários, Ctrl+K, exportar CSV; as palavras
   por nicho.
 - O onboarding do `09` (5 telas) e os "Primeiros passos" no Início, com a importação das datas já marcadas.
 - Equipe e acessos, Configurações do negócio e Serviços (pacotes ou ensaios, adicionais, horários, bloqueios,
   campanhas).
-- **Mexe em:** `src/sessao.js`, `src/telas/`, `src/ui/`, `src/nichos/`, `estilo.css`, `src/modulos/equipe/`,
+- **Mexe em:** `src/sessao.js`, `src/telas/`, `src/ui/` (inclusive `src/ui/estilo.css`), `src/nichos/`, `src/modulos/equipe/`,
   `src/modulos/configuracoes/`, `src/modulos/servicos/`, `src/modulos/inicio/primeiros-passos.js`.
 
 **Pronta quando:** numa conta de teste no STG, o dono passa pelo onboarding, convida uma pessoa só com a Agenda (só
@@ -223,6 +227,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 1 · 2B | **Design system e telas de acesso prontos** (na `main`): `src/ui/estilo.css` (tokens `--rz-*` e componentes `.rz-*`), `src/ui/icones.js`, `src/ui/formulario.js`, a fonte Geist em `src/ui/fontes/`, e as telas `/entrar`, `/esqueci-a-senha` e `/nova-senha` com o layout `src/telas/acesso.js`. O estilo saiu do `index.html`. Regras: [`10`](10-design-system.md). O bloco B da Missão 2 constrói em cima disso. |
 | 29/10/2026 | 1 | **Vercel no ar** (`renderiza-painel-clientes.vercel.app`, produção). No primeiro deploy, abrir `/entrar` direto dava 404: com `cleanUrls` ligado a Vercel ignora o rewrite para `/index.html`. Corrigido com `cleanUrls: false` (teste no `esqueleto.test.mjs`). |
 | 29/10/2026 | 1 | **Supabase em São Paulo:** a Renderiza apagou os dois projetos dos EUA (produção `wkwyhganenohmupcwthd`, `us-east-2`; STG `vzrmepxoigoszqtoxtlo`, `us-west-2`) e criou dois em São Paulo (`sa-east-1`): produção `hxzsiiqhlqxuqkevskwb` e STG `qxcxllhmtodsptxffbhx`, com as variáveis `PAINEL_*` atualizadas (o token é o mesmo). A migração de teste foi reaplicada nos dois. Rodam Postgres 17 (o banco local é 16). O Auth dos dois está no padrão: *Site URL* `http://localhost:3000`, senha mínima 6, sem SMTP próprio. |
 | 29/10/2026 | 1 | **`vercel.json`:** o `ignoreCommand` agora compara o último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o commit atual, não só `HEAD^` com `HEAD`; sem SHA anterior ou com erro do git, faz o build (`04`, Vercel). |

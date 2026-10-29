@@ -16,6 +16,10 @@ export function traduzir(e) {
   const msg = String(e.message || e);
   if (/Invalid login credentials/i.test(msg)) return "E-mail ou senha incorretos.";
   if (/Email not confirmed/i.test(msg)) return "Seu e-mail ainda não foi confirmado. Abra o link que enviamos por e-mail.";
+  if (/should be different from the old password/i.test(msg)) return "A senha nova precisa ser diferente da atual.";
+  if (/Password should be at least/i.test(msg)) return "A senha precisa ter pelo menos 8 caracteres.";
+  if (/weak|pwned|leaked/i.test(msg) && /password/i.test(msg)) return "Essa senha é fácil de adivinhar. Escolha outra.";
+  if (/Auth session missing|session_not_found/i.test(msg)) return "O link não vale mais. Peça um novo em \"Esqueci a senha\".";
   if (e.status === 429 || /rate limit|too many requests/i.test(msg)) return "Muitas tentativas seguidas. Espere um pouco e tente de novo.";
   if (e.code === "PGRST116") return "Registro não encontrado. Ele pode ter sido excluído.";
   if (e.code === "42501" || /row-level security/i.test(msg)) return "Você não tem permissão para isso.";
@@ -60,6 +64,12 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
     },
     async sair() {
       await cliente.auth.signOut();
+    },
+    async pedirNovaSenha(email, destino) {
+      await resultado(cliente.auth.resetPasswordForEmail(email, { redirectTo: destino }));
+    },
+    async definirSenha(senha) {
+      await resultado(cliente.auth.updateUser({ password: senha }));
     },
     aoMudarSessao(fn) {
       const { data } = cliente.auth.onAuthStateChange((_evento, sessao) => fn(sessao));

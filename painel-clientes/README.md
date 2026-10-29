@@ -24,12 +24,13 @@ nunca são lidas aqui. No computador, podem ficar em `painel-clientes/.env.local
 ## Onde fica cada coisa
 
 ```
-index.html                 a casca (estilo mínimo da Missão 1; o estilo.css nasce na Missão 2)
+index.html                 a página única: liga o src/ui/estilo.css e o src/app.js (nenhum estilo ou script embutido)
 src/app.js                 carrega a configuração, abre a sessão e desenha a rota
 src/rotas.js               endereços: /entrar, /, /<módulo>, /admin/<parte>
 src/sessao.js              entrar, sair, quem está logado
 src/adaptadores/supabase.js
-src/telas/entrar.js        login
+src/telas/                 telas fora dos módulos: entrar, esqueci-a-senha, nova-senha (layout comum em acesso.js)
+src/ui/                    o design system: estilo.css, icones.js, formulario.js, fontes/ (docs/painel-clientes/10-design-system.md)
 src/modulos/index.js       o registro de todos os módulos; cada um em src/modulos/<id>/index.js
 src/admin/index.js         o registro das partes do Admin; cada uma em src/admin/<id>/index.js
 api/config.js              entrega a URL e a chave pública ao navegador (recusa chave secreta)

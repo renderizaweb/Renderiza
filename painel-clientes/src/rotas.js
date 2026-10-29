@@ -1,5 +1,7 @@
 // As rotas do painel (endereços de verdade, sem #; a Vercel devolve o index.html para todos, ver vercel.json).
 //   /entrar              tela de login (sem login)
+//   /esqueci-a-senha     pedir o link para criar uma senha nova (sem login)
+//   /nova-senha          onde o link do e-mail chega (com ou sem login: o link é que abre a sessão)
 //   /                    Início
 //   /<módulo>            um módulo de src/modulos/index.js
 //   /admin[/<parte>]     o Admin (src/admin/index.js)
@@ -8,9 +10,14 @@
 import { MODULOS } from "./modulos/index.js";
 import { AREAS_ADMIN } from "./admin/index.js";
 
-/** Telas fora dos módulos. A Missão 2 acrescenta cadastro, convite, esqueci a senha e escolher a conta. */
+/**
+ * Telas fora dos módulos. semLogin: só para quem não entrou (logado, volta para o painel). livre: abre com ou sem
+ * login (a própria tela decide). A Missão 2 acrescenta cadastro, convite e escolher a conta.
+ */
 export const TELAS = {
   entrar: { caminho: "/entrar", semLogin: true, carregar: () => import("./telas/entrar.js") },
+  esqueciSenha: { caminho: "/esqueci-a-senha", semLogin: true, carregar: () => import("./telas/esqueci-a-senha.js") },
+  novaSenha: { caminho: "/nova-senha", livre: true, carregar: () => import("./telas/nova-senha.js") },
 };
 
 export function lerRota(caminho) {
@@ -48,6 +55,7 @@ export function voltaSegura(volta) {
  */
 export function decidir({ caminho, busca = "", logado }) {
   const rota = lerRota(caminho);
+  if (rota.tipo === "tela" && TELAS[rota.id].livre) return { rota };
   const semLogin = rota.tipo === "tela" && TELAS[rota.id].semLogin;
   if (semLogin && logado) {
     return { redirecionar: voltaSegura(new URLSearchParams(busca).get("volta")) };
