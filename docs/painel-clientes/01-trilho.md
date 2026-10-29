@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 2 · Fundação: banco e casca |
-| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) pronto para subir (já no STG e na produção); bloco B (telas base) pode começar |
+| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) na `main` (STG e produção); bloco B (telas base) em andamento |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), pronto para subir: o banco inteiro do `05` (34 tabelas com RLS, `pode()`, histórico automático, Storage) em 6 migrações, aplicadas no STG e na produção, com os testes de isolamento passando no local e no STG; a semente (Villa Alecrim e Estúdio Ciranda) no STG. O bloco B (telas) pode começar. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 → 2 | **Parada 1 fechada (Missão 1 feita).** Cadastro pela API fechado também na produção, com o ok da Renderiza; a Renderiza conferiu o login numa prévia da Vercel (STG), com troca de senha (a prévia pede login na Vercel). O trem segue para a Parada 2: a Missão 2 pode começar. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | A Renderiza conferiu na produção: entrar, sair, "Esqueci a senha" e senha nova pelo e-mail em português. O cadastro pela API, que estava aberto a qualquer um, foi fechado no repositório e no STG; a produção espera o ok. | Renderiza, com o Claude |

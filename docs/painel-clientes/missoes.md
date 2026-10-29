@@ -10,7 +10,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **pronta para subir** (29/10; já no STG e na produção); bloco B (telas): **pode começar** | A: `claude/painel-renderiza-setup-ztnrzy` |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) desde 29/10, que não depende do banco; os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
@@ -199,7 +199,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · PRONTA PARA SUBIR
+Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · NA MAIN (29/10)
 Feito: o banco inteiro do 05, em 6 migrações (painel-clientes/supabase/migrations/), aplicadas no STG e na produção:
   20261029110000_contas_e_acesso: modulos (os 7 da página de venda), contas, pessoas, convites, contas_modulos,
     equipe_renderiza, acessos_suporte, termos_aceites; pode(), pode_algum(), minhas_contas(), cadastrar_conta(),
