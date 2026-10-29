@@ -223,8 +223,19 @@ Plano (nesta ordem, cada parte com commit): 1. a lista (etapas em chips, busca, 
   data, tipo, convidados, origem; 4. "Fechar" vira reserva (fechar_pedido), confirmando a pré-reserva que a agenda
   online já criou; 5. lista de espera (fotografia, por campanha); 6. tempo real: pedido novo aparece sozinho, com
   aviso; 7. teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
+Feito (commit de7981e): 1, 2, 3 e o essencial de 4 e 5. src/modulos/atendimento/: index.js (lista com chips por
+  etapa, busca, o próximo passo na linha; "Como vão os pedidos" recolhido; no computador, Lista | Quadro, quadro por
+  etapa com arrastar e desfazer; ?novo=pedido e ?pedido=<id>), pedido.js (gaveta, mudar etapa otimista com
+  desfazer, Responder no WhatsApp leva o novo para "em conversa", Marcar visita = compromisso tipo visita, Perdido e
+  Reabrir, Fechar = fechar_pedido com pré-reserva ou confirmada), espera.js (lista de espera da fotografia, por
+  campanha, Chamar no WhatsApp, tirar com desfazer), logica.js (regras sem tela); test/atendimento.test.mjs.
+  Fora do "Mexe em", pequeno: src/ui/gaveta.js (opção foco "fechar") e estilo.css seção 17 (aviso feito).
+  Testado no STG (Villa Alecrim da semente): lista no celular, gaveta com "a data está livre", quadro no
+  computador, arrastar e desfazer, anotar pedido (cliente novo pelo "Para quem?") e fechar (pré-reserva 19h-3h).
+Falta: 4. confirmar a pré-reserva que a agenda online já criou ao fechar (hoje o fechar_pedido mantém a
+  reserva como estava: migração pequena); 6. tempo real (pedido novo aparece sozinho); 7. fotografia no navegador
+  (ensaios, horário, lista de espera), quem só vê, e os documentos (05, 10, avisos, diário).
+Próximo passo: a migração do fechar_pedido (local, STG, produção).
 Fora do "Mexe em" (src/modulos/atendimento/), pequeno, com aviso quando acontecer: o adaptador (tempo real), o
   app.js (desmontar o módulo ao sair, para fechar o tempo real) e, se preciso, uma migração pequena no fechar_pedido.
 ```
