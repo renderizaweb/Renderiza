@@ -176,13 +176,13 @@ Migrações aplicadas (STG / produção): …
 Missão 1 · parte do Claude · branch claude/missao-1-trilhos-setup-wwahf8 · atualizada em 28/10 21h40 (Brasília)
 Feito: variáveis PAINEL_* conferidas; esqueleto de painel-clientes/ (casca, rotas, 10 módulos e 5 partes do
   Admin registrados e vazios, adaptador, api/config.js, vercel.json, 31 testes); banco local (imitação do
-  Supabase no Postgres 16) e scripts/migrar.mjs; migração de teste aplicada no STG.
-Falta: aplicar a migração de teste na produção; tela de login testada no servidor local contra o STG.
-Próximo passo: node scripts/migrar.mjs producao --projeto wkwyhganenohmupcwthd.
+  Supabase no Postgres 16) e scripts/migrar.mjs; migração de teste aplicada no STG e na produção.
+Falta: tela de login testada no servidor local contra o STG.
+Próximo passo: entrar com um usuário de teste do STG no servidor local (npm run dev).
 Decisões no caminho: migrações aplicadas pela API de gerenciamento (POST /v1/projects/<ref>/database/query),
   que roda tudo numa transação só (conferido no STG), registrando em supabase_migrations.schema_migrations;
   hora do nome do arquivo em UTC (como o supabase migration new).
-Migrações aplicadas (STG / produção): 20261029003422_trilhos_teste (28/10 / —).
+Migrações aplicadas (STG / produção): 20261029003422_trilhos_teste (28/10 / 28/10).
 ```
 
 ## Migrações aplicadas
@@ -192,7 +192,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
-| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8` | 28/10/2026 | — |
+| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8` | 28/10/2026 | 28/10/2026 |
 
 ## Avisos entre sessões
 
