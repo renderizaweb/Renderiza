@@ -1,0 +1,14 @@
+{
+  "name": "painel-clientes",
+  "private": true,
+  "type": "module",
+  "description": "Painel Renderiza: o sistema com login dos clientes da Renderiza (Supabase + Vercel). Documentação em docs/painel-clientes/.",
+  "scripts": {
+    "dev": "node scripts/servidor.mjs",
+    "test": "node --test test/*.test.mjs",
+    "migrar": "node scripts/migrar.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

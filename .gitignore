@@ -4,6 +4,8 @@ rascunhos/
 Thumbs.db
 # Gerada a cada publicação (npm run build / Vercel).
 publico/
+# ...menos as páginas sem login do Painel Renderiza (contrato, termos), que são código.
+!painel-clientes/publico/
 # Variáveis locais (URL e chave do Supabase, login da IA): nunca vão para o git.
 .env.local
 .env*.local

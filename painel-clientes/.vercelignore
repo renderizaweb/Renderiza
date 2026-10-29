@@ -1,0 +1,5 @@
+# Só o app vai para a Vercel: index.html, src/, publico/, api/ e o favicon.
+supabase/
+scripts/
+test/
+*.md
