@@ -11,16 +11,20 @@
 // - robots.txt e sitemap.xml liberam o Google (as demos da Renderiza ficam fora do Google; o site real não);
 // - cabeçalhos para Cloudflare Pages (_headers) e Vercel (vercel.json): serve nas duas hospedagens;
 // - com "painel" no site.json, entra o script do Meu site (ferramentas/meu-site/meu-site.js) com o código do site:
-//   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel).
+//   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel);
+// - com "painel": { "agenda": true }, entra a agenda online em /agenda/ (ferramentas/demo/agenda-online/), com um
+//   link na seção "Consulte a sua data": os dias livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp.
 //
 // site.json: { dominio, nome, corTema, favicon: { texto, cor }, previaCentro: [x, y] (0 a 1; onde centrar o
 //             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ],
-//             painel: { codigo } (opcional: o código do site no Painel Renderiza; "api" só para teste) }
+//             painel: { codigo, agenda, meuSite } (opcional: o código do site no Painel Renderiza; agenda: true liga a
+//             agenda online; meuSite: false deixa sem o script do Meu site; "api" = a base da API pública, só para teste) }
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { paginaDaAgenda, ligarNoSite } from '../ferramentas/demo/agenda-online/gerar.mjs';
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [pasta, saidaArg] = process.argv.slice(2);
@@ -94,15 +98,25 @@ const cabeca = [
 if (!html.includes('</title>')) throw new Error('index.html sem <title>');
 html = html.replace(/(<\/title>\n)/, `$1${cabeca}\n`);
 
-// 4b. Meu site: o script vai no fim do <head>, para pedir a versão publicada o quanto antes.
+// 4b. Painel Renderiza: a agenda online em /agenda/ e o script do Meu site no fim do <head> (para pedir a versão
+// publicada o quanto antes). "api" é a base da API pública (só para teste; o padrão é o painel).
 if (conf.painel) {
-  const { codigo, api } = conf.painel;
+  const { codigo, api, agenda = false, meuSite = true } = conf.painel;
   if (!/^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido (o mesmo formato da tabela sites)');
   if (api && !/^https?:\/\/[^\s"<>]+\/$/.test(api)) throw new Error('site.json: "painel.api" inválido (termina com /)');
-  const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
-  if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
   if (!html.includes('</head>')) throw new Error('index.html sem </head>');
-  html = html.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api)}"` : ''}>\n${js}  </script>\n</head>`);
+  if (agenda) {
+    fs.mkdirSync(path.join(saida, 'agenda'), { recursive: true });
+    fs.writeFileSync(path.join(saida, 'agenda', 'index.html'), paginaDaAgenda(html, { codigo, ...(api ? { api } : {}) }));
+    const r = ligarNoSite(html);
+    html = r.html;
+    if (!r.ligou) console.warn('Atenção: o site não tem a seção "Consulte a sua data"; a agenda está em /agenda/, sem link na página.');
+  }
+  if (meuSite) {
+    const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
+    if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
+    html = html.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
+  }
 }
 fs.writeFileSync(path.join(saida, 'index.html'), html);
 
@@ -141,13 +155,19 @@ Não tem build, banco de dados nem dependências. Qualquer hospedagem de site es
 - Texto: edite direto no \`index.html\`.
 - WhatsApp, Instagram e endereços: no fim do \`index.html\`, no bloco \`window.DEMO_CLIENT\`.
 - Foto: troque o arquivo em \`img/\` (mesmo nome) ou aponte o \`<img src>\` para um arquivo novo.
-${conf.painel ? `
+${conf.painel && conf.painel.meuSite !== false ? `
 ## Meu site (Painel Renderiza)
 
 O \`<script data-codigo="${conf.painel.codigo}">\` no fim do \`<head>\` liga o site ao Meu site: o que o cliente publica no
 Painel Renderiza aparece por cima do que está no \`index.html\`. Se o painel não responder, a conta for desconectada ou o
 script sair, o site mostra o \`index.html\` como está (a versão inicial). Não apague as marcações \`data-site-*\`: são
 elas que dizem ao script o que pode mudar.
+` : ''}${conf.painel && conf.painel.agenda ? `
+## Agenda online (Painel Renderiza)
+
+\`agenda/index.html\` é a agenda online: mostra os dias livres e manda o pedido de pré-reserva para o Painel
+Renderiza. Se o painel não responder, ela vira um botão de WhatsApp com a data escrita. O link para ela está na seção
+"Consulte a sua data".
 ` : ''}
 A cada alteração enviada para a branch principal, a hospedagem publica sozinha.
 
