@@ -79,6 +79,7 @@ export function criarSessao(adaptador, { armazenamento = armazenamentoDoNavegado
   let contas = null; // null = ainda não carregou
   let escolhida = null;
   let equipeRenderiza = false;
+  let erroAoAceitar = "";
   let pessoa = null; // a linha de public.pessoas da pessoa na conta escolhida (nome, cor, papel)
   let carregando = null;
   const ouvintes = new Set();
@@ -125,7 +126,8 @@ export function criarSessao(adaptador, { armazenamento = armazenamentoDoNavegado
     },
     async _carregarContas() {
       if (!this.logado()) { esquecerContas(); return []; }
-      try { await adaptador.rpc("aceitar_convites"); } catch (e) { if (e.rede) throw e; /* sem convite: segue */ }
+      erroAoAceitar = "";
+      try { await adaptador.rpc("aceitar_convites"); } catch (e) { if (e.rede) throw e; erroAoAceitar = e.message; /* a tela /convite mostra; segue */ }
       contas = (await adaptador.rpc("minhas_contas")) || [];
       try {
         const linhas = await adaptador.resultado(adaptador.tabela("equipe_renderiza").select("usuario_id").limit(1));
@@ -137,6 +139,8 @@ export function criarSessao(adaptador, { armazenamento = armazenamentoDoNavegado
       return contas;
     },
     contasCarregadas: () => contas !== null,
+    /** Por que o convite não virou acesso (ex.: a conta chegou ao limite do plano); vazio se deu certo. */
+    erroDoConvite: () => erroAoAceitar,
     contas: () => contas || [],
     conta: () => (contas || []).find(c => c.conta_id === escolhida) || null,
     eEquipeRenderiza: () => equipeRenderiza,
