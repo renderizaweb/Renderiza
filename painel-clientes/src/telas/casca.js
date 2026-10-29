@@ -58,6 +58,7 @@ export function acoesRapidas(conta, pode) {
     conta && conta.nicho === "eventos" && (pode("agenda", "editar") || pode("atendimento", "editar")) &&
       { id: "nova-visita", rotulo: "Marcar visita", icone: "relogio", caminho: "/agenda?novo=visita" },
     pode("financeiro", "editar") && { id: "novo-pagamento", rotulo: "Registrar pagamento", icone: "carteira", caminho: "/financeiro?novo=pagamento" },
+    pode("contratos", "editar") && { id: "novo-contrato", rotulo: "Mandar contrato", icone: "contrato", caminho: "/contratos?novo=contrato" },
     ["agenda", "atendimento", "clientes", "contratos", "financeiro"].some(m => pode(m, "editar")) &&
       { id: "novo-cliente", rotulo: "Novo cliente", icone: "clientes", caminho: pode("clientes", "ver") ? "/clientes?novo=cliente" : null },
   ];

@@ -757,8 +757,9 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 @media (min-width:520px){.rz-campos--tres{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .rz-numeros{margin-bottom:var(--rz-5)}
 .rz-numero--atencao dd{color:var(--rz-perigo)}
-/* no celular a etiqueta sai da linha da parcela (o texto já diz "atrasada há 2 dias"): o nome e o "Recebi" cabem */
-@media (max-width:519px){.rz-linhas--parcelas .rz-linha-fim{display:none}}
+/* lista com botão na linha ("Recebi", "Mandar"): no celular a etiqueta sai (o texto já diz "atrasada há 2 dias",
+   "esperando o aceite há 3 dias"), para o nome e o botão caberem */
+@media (max-width:519px){.rz-linhas--com-botao .rz-linha-fim{display:none}}
 .rz-serie-1{background:var(--rz-grafico-1)}
 .rz-serie-2{background:repeating-linear-gradient(135deg,var(--rz-grafico-2) 0 3px,color-mix(in srgb,var(--rz-grafico-2) 72%,var(--rz-superficie)) 3px 6px)}
 .rz-grafico{display:flex;flex-direction:column;gap:var(--rz-3);margin:0;min-width:0}
@@ -784,3 +785,20 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-grafico-tabela table{width:100%;margin-top:var(--rz-2);border-collapse:collapse;font-size:var(--rz-t-sm)}
 .rz-grafico-tabela th,.rz-grafico-tabela td{padding:6px var(--rz-2);border-bottom:1px solid var(--rz-linha);text-align:right}
 .rz-grafico-tabela th:first-child{text-align:left;font-weight:500}
+
+/* ---------- 21. Contratos (Missão 3, bloco E): o texto do cliente, o editor, a prova do aceite ----------
+   O texto é do cliente da Renderiza: mostrado como veio, com as quebras de linha. A página do link tem o seu
+   próprio arquivo (publico/contrato/contrato.css). */
+.rz-detalhes>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo);cursor:pointer;list-style:none;font-weight:600}
+.rz-detalhes>summary::-webkit-details-marker{display:none}
+.rz-detalhes>summary .rz-icone{color:var(--rz-tinta-3);transition:transform var(--rz-medio) var(--rz-curva)}
+.rz-detalhes[open]>summary .rz-icone{transform:rotate(180deg)}
+.rz-detalhes>summary:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-contrato-texto-painel{white-space:pre-wrap;overflow-wrap:anywhere;max-height:50vh;overflow:auto;padding:var(--rz-4);border:1px solid var(--rz-linha);
+  border-radius:var(--rz-raio);background:var(--rz-fundo);font-size:var(--rz-t-sm);line-height:1.6}
+.rz-contrato-editor{min-height:280px;font-size:var(--rz-t-sm);line-height:1.6;resize:vertical}
+.rz-contrato-prova{display:flex;flex-direction:column;gap:var(--rz-3);padding:var(--rz-4)}
+.rz-contrato-prova .rz-rotulo{justify-content:flex-start;gap:var(--rz-2);color:var(--rz-sucesso)}
+.rz-quebra{overflow-wrap:anywhere}
+.rz-campos-modelo{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.rz-campos-modelo button{font-family:inherit}

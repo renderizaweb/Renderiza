@@ -48,7 +48,7 @@ test("barra de baixo: Início e até três que a pessoa usa, Atendimento primeir
 
 test("o + mostra só o que a pessoa pode fazer", () => {
   const pode = conta => (m, n) => podeNaConta(conta, m, n);
-  assert.deepEqual(acoesRapidas(dono, pode(dono)).map(a => a.id), ["novo-pedido", "nova-reserva", "nova-visita", "novo-pagamento", "novo-cliente"]);
+  assert.deepEqual(acoesRapidas(dono, pode(dono)).map(a => a.id), ["novo-pedido", "nova-reserva", "nova-visita", "novo-pagamento", "novo-contrato", "novo-cliente"]);
   assert.deepEqual(acoesRapidas(carla, pode(carla)), [], "só vê: nada a fazer");
   assert.deepEqual(acoesRapidas(rafael, pode(rafael)).map(a => a.id), ["novo-pedido", "nova-reserva", "nova-visita", "novo-cliente"]);
   const foto = { ...dono, nicho: "fotografia" };

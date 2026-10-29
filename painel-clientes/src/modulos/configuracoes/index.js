@@ -38,7 +38,7 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
       <p class="rz-texto-2">Os dados ${escapar(n.palavras.daConta)} que aparecem no painel e nas mensagens.</p></div></header><div data-corpo></div>`;
   const corpo = el.querySelector("[data-corpo]");
 
-  const carregar = () => banco.resultado(banco.tabela("contas").select("id, nome, nicho, codigo, logo, whatsapp, fuso, situacao, teste_ate, ativa_ate, origem, limite_pessoas").eq("id", conta.conta_id).single());
+  const carregar = () => banco.resultado(banco.tabela("contas").select("id, nome, nicho, codigo, logo, whatsapp, fuso, situacao, teste_ate, ativa_ate, origem, limite_pessoas, ajustes").eq("id", conta.conta_id).single());
   const desenhar = c => {
     corpo.innerHTML = `
       <section class="rz-secao">
@@ -58,6 +58,16 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
           ${campoTexto({ id: "conta-whatsapp", nome: "whatsapp", rotulo: "WhatsApp", valor: telefone(c.whatsapp), tipo: "tel", teclado: "tel", opcional: true, placeholder: "(11) 98888-7777", ajuda: "O número que os clientes chamam. Vai nas mensagens prontas." })}
           ${campoSelecao({ id: "conta-fuso", nome: "fuso", rotulo: "Fuso horário", valor: c.fuso, opcoes: FUSOS.some(f => f.valor === c.fuso) ? FUSOS : [...FUSOS, { valor: c.fuso, rotulo: c.fuso }] })}
           <div><button class="rz-botao rz-botao--primario" type="submit">Salvar</button></div>
+        </form>
+      </section>
+      <section class="rz-secao">
+        <h2 class="rz-titulo-3">Pix</h2>
+        <form class="rz-cartao rz-cartao-corpo rz-pilha" id="form-pix" novalidate>
+          <div role="alert" hidden></div>
+          <p class="rz-texto-2">Aparece para o cliente depois que ele aceita o contrato, para pagar o sinal. O painel não recebe: o Pix cai direto na sua conta.</p>
+          ${campoTexto({ id: "pix-chave", nome: "chave", rotulo: "Chave Pix", valor: (c.ajustes && c.ajustes.pix && c.ajustes.pix.chave) || "", opcional: true, ajuda: "CPF, CNPJ, e-mail, celular ou a chave aleatória.", extra: { maxlength: 120 } })}
+          ${campoTexto({ id: "pix-nome", nome: "nome", rotulo: "Em nome de", valor: (c.ajustes && c.ajustes.pix && c.ajustes.pix.nome) || "", opcional: true, ajuda: "O nome que o banco mostra, para o cliente conferir.", extra: { maxlength: 120 } })}
+          <div><button class="rz-botao" type="submit">Salvar o Pix</button></div>
         </form>
       </section>
       <section class="rz-secao">
@@ -94,6 +104,26 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
       } catch (e) {
         ocupado(botao, false);
         avisoDoFormulario(form.querySelector("[role=alert]"), e.message);
+      }
+    });
+    // o Pix (Contratos, Missão 3E): em contas.ajustes.pix, sem apagar os outros ajustes
+    const formPix = corpo.querySelector("#form-pix");
+    formPix.addEventListener("submit", async ev => {
+      ev.preventDefault();
+      const d = lerFormulario(formPix);
+      const chave = String(d.chave || "").trim(), nome = String(d.nome || "").trim();
+      const { pix, ...outros } = c.ajustes || {};
+      const ajustes = chave ? { ...outros, pix: { chave, nome: nome || null } } : outros;
+      const botao = formPix.querySelector("[type=submit]");
+      ocupado(botao, true, "Salvando…");
+      try {
+        await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", c.id));
+        c.ajustes = ajustes;
+        ocupado(botao, false);
+        avisar(chave ? "Pix salvo. O cliente vê depois de aceitar o contrato." : "Pix tirado.");
+      } catch (e) {
+        ocupado(botao, false);
+        avisoDoFormulario(formPix.querySelector("[role=alert]"), e.message);
       }
     });
     corpo.querySelector("[data-arquivo]").addEventListener("change", async ev => {
