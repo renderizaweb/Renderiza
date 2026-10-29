@@ -7,6 +7,7 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/c/:codigo", "destination": "/publico/contrato/index.html" },
     { "source": "/((?!api/|src/|publico/).*)", "destination": "/index.html" }
   ],
   "headers": [

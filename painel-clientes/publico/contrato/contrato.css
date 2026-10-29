@@ -1,0 +1,49 @@
+/* A página do contrato (/c/<código>): no celular primeiro, uma coluna de leitura. Só tokens e peças do 10
+   (src/ui/estilo.css); o texto do contrato é o do cliente, mostrado como veio (quebras de linha mantidas). */
+.rz-contrato-pagina{background:var(--rz-fundo)}
+.rz-contrato{display:flex;flex-direction:column;gap:var(--rz-4);width:100%;max-width:640px;min-height:100vh;min-height:100dvh;margin:0 auto;
+  padding:max(var(--rz-5),env(safe-area-inset-top)) var(--rz-4) max(var(--rz-10),env(safe-area-inset-bottom))}
+.rz-contrato-carregando{margin:auto;color:var(--rz-tinta-3)}
+.rz-contrato-marca{display:flex;align-items:center;gap:var(--rz-3)}
+.rz-contrato-marca span:last-child{display:flex;flex-direction:column;line-height:1.25}
+.rz-contrato-marca small{font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-contrato-logo{display:grid;place-items:center;width:var(--rz-alvo);height:var(--rz-alvo);flex:none;overflow:hidden;border-radius:var(--rz-raio);
+  background:var(--rz-grafite);color:var(--rz-gelo);font-size:var(--rz-t-sm);font-weight:600}
+.rz-contrato-logo img{width:100%;height:100%;object-fit:contain;background:var(--rz-superficie)}
+.rz-contrato-cartao{display:flex;flex-direction:column;gap:var(--rz-4);padding:var(--rz-6) var(--rz-5);background:var(--rz-superficie);
+  border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);box-shadow:var(--rz-sombra-1)}
+.rz-contrato-passo{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--rz-destaque)}
+.rz-contrato-resumo{display:flex;flex-direction:column;margin:0;border-top:1px solid var(--rz-linha)}
+.rz-contrato-resumo div{display:flex;justify-content:space-between;align-items:baseline;gap:var(--rz-4);padding:var(--rz-3) 0;border-bottom:1px solid var(--rz-linha)}
+.rz-contrato-resumo dt{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-contrato-resumo dd{margin:0;font-weight:600;text-align:right}
+.rz-contrato-nota{font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-contrato-texto{white-space:pre-wrap;overflow-wrap:anywhere;font-size:var(--rz-t-base);line-height:1.65;max-height:60vh;overflow:auto;
+  padding:var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-fundo)}
+.rz-contrato-registro{font-size:var(--rz-t-xs);color:var(--rz-tinta-2);overflow-wrap:anywhere}
+.rz-contrato-registro code{font-size:var(--rz-t-xs)}
+.rz-contrato-aceite{padding-top:var(--rz-2)}
+.rz-contrato-li{display:flex;align-items:flex-start;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-2) 0;font-weight:500;cursor:pointer}
+.rz-contrato-li input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--rz-destaque)}
+.rz-contrato-voltar{align-self:center}
+.rz-contrato-icone{display:grid;place-items:center;width:56px;height:56px;border-radius:var(--rz-raio-g);background:var(--rz-destaque-fundo);color:var(--rz-destaque)}
+.rz-contrato-icone--ok{background:var(--rz-sucesso-fundo);color:var(--rz-sucesso)}
+.rz-contrato-icone--agora{animation:rz-marcar .34s var(--rz-curva)}
+.rz-contrato-fora{margin:auto 0;text-align:left}
+.rz-contrato-pix{display:flex;flex-direction:column;gap:var(--rz-3);padding:var(--rz-4);border-radius:var(--rz-raio);background:var(--rz-fundo)}
+.rz-contrato-valor{font-size:var(--rz-t-2xl);font-weight:600;letter-spacing:-.02em}
+.rz-contrato-chave{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3)}
+.rz-contrato-chave span{display:flex;flex-direction:column;min-width:0}
+.rz-contrato-chave b{overflow-wrap:anywhere}
+.rz-contrato-chave small{font-size:var(--rz-t-xs);color:var(--rz-tinta-2)}
+.rz-contrato-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:var(--rz-4)}
+.rz-contrato-impressao .rz-contrato-texto{max-height:none}
+/* imprimir ou salvar em PDF: o texto inteiro e o registro do aceite, sem botões */
+@media print{
+  .rz-contrato-pagina{background:none}
+  .rz-contrato{max-width:none;min-height:0;padding:0}
+  .rz-contrato-cartao{padding:0;border:0;box-shadow:none}
+  .rz-contrato-impressao[hidden]{display:flex!important}
+  .rz-contrato-texto{max-height:none;overflow:visible;border:0;padding:0;background:none}
+  .rz-contrato .rz-botao,.rz-contrato .rz-link,.rz-contrato-pix,.rz-contrato-icone,.rz-contrato-aceite,.rz-contrato-nota{display:none!important}
+}
