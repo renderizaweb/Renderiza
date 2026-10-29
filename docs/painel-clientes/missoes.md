@@ -12,7 +12,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) desde 29/10, que não depende do banco; os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) **pronta para subir** (29/10, na branch); os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
