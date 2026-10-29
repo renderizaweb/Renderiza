@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: contas e acessos) | |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: contas e acessos; parte do Claude: em andamento) | `claude/missao-1-trilhos-setup-wwahf8` |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | esperando a 1 | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
@@ -172,7 +172,15 @@ Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
 ```
 
-(nenhuma missão de sessão em andamento)
+```
+Missão 1 · parte do Claude · branch claude/missao-1-trilhos-setup-wwahf8 · atualizada em 29/10 (início)
+Feito: conferidas as 5 variáveis PAINEL_* (todas presentes; URLs batem com os projetos STG e produção do 04).
+Falta: esqueleto de painel-clientes/, banco local + script das migrações, migração de teste (local → STG →
+  produção), tela de login.
+Próximo passo: criar o esqueleto.
+Decisões no caminho: —
+Migrações aplicadas (STG / produção): nenhuma.
+```
 
 ## Migrações aplicadas
 
