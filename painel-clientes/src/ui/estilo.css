@@ -642,4 +642,4 @@ label.rz-chip input{position:absolute;opacity:0;pointer-events:none}
 .rz-linha--fixa{cursor:default}
 .rz-linhas--pedidos .rz-linha-texto small{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 /* no quadro, fechados e perdidos ficam mais estreitos: o que pede ação (as abertas) cabe na tela */
-.rz-quadro{grid-template-columns:repeat(var(--abertas,5),minmax(200px,1fr)) repeat(2,minmax(170px,.8fr));grid-auto-flow:row}
+.rz-quadro{grid-template-columns:repeat(var(--abertas,5),minmax(150px,1fr)) repeat(2,minmax(130px,.75fr));grid-auto-flow:row}
