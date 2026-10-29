@@ -68,6 +68,16 @@ export function configDesejada(alvo, emails) {
   return config;
 }
 
+export const ehCampoDeEmail = campo => /^mailer_(subjects|templates)_/.test(campo);
+
+/**
+ * Tudo menos os e-mails. No plano grátis, o Supabase só aceita e-mail próprio num projeto com SMTP próprio
+ * (o Brevo, Missão 1, item 4): até lá, os e-mails esperam e o resto já vale.
+ */
+export function semEmails(config) {
+  return Object.fromEntries(Object.entries(config).filter(([campo]) => !ehCampoDeEmail(campo)));
+}
+
 /** Tudo menos os endereços: o que é igual nos dois projetos e precisa ter passado pelo STG antes da produção. */
 export function semEnderecos(config) {
   const { site_url, uri_allow_list, ...resto } = config;
@@ -81,7 +91,7 @@ export function diferencas(desejada, atual) {
 
 /** Nome legível de um campo, sem mostrar o conteúdo dos e-mails. */
 export function rotulo(campo) {
-  const m = campo.match(/^mailer_(subjects|templates)_(.+?)(_content)?$/);
+  const m = ehCampoDeEmail(campo) && campo.match(/^mailer_(subjects|templates)_(.+?)(_content)?$/);
   const email = m && EMAILS.find(e => e.tipo === m[2]);
   if (email) return `e-mail "${email.nome}" (${m[1] === "subjects" ? "assunto" : "corpo"})`;
   return campo;

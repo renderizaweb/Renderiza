@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { EMAILS, ENDERECOS, VALIDADE_DOS_LINKS, lerEmails, configDesejada, semEnderecos, diferencas, rotulo, preencher, assuntoDe } from "../scripts/lib/auth.mjs";
+import { EMAILS, ENDERECOS, VALIDADE_DOS_LINKS, lerEmails, configDesejada, semEnderecos, semEmails, ehCampoDeEmail, diferencas, rotulo, preencher, assuntoDe } from "../scripts/lib/auth.mjs";
 import { SENHA_MINIMA } from "../src/sessao.js";
 
 const pasta = fileURLToPath(new URL("../supabase/emails/", import.meta.url));
@@ -114,4 +114,11 @@ test("diferenças e nomes dos campos (sem mostrar o corpo dos e-mails)", () => {
   assert.equal(rotulo("mailer_templates_invite_content"), 'e-mail "convite" (corpo)');
   assert.equal(rotulo("mailer_subjects_recovery"), 'e-mail "recuperar a senha" (assunto)');
   assert.equal(rotulo("site_url"), "site_url");
+});
+
+test("sem SMTP próprio, os e-mails esperam e o resto vale (o Supabase grátis recusa e-mail próprio)", () => {
+  const c = semEmails(configDesejada("producao", emails));
+  assert.deepEqual(Object.keys(c).sort(), ["mailer_autoconfirm", "mailer_otp_exp", "mailer_secure_email_change_enabled", "password_min_length", "site_url", "uri_allow_list"]);
+  assert.equal(Object.keys(configDesejada("producao", emails)).filter(ehCampoDeEmail).length, 10);
+  assert.ok(!ehCampoDeEmail("mailer_otp_exp") && !ehCampoDeEmail("mailer_autoconfirm"));
 });
