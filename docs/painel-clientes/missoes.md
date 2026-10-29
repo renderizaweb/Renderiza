@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10); falta a Vercel (você) e, depois dela, o Auth pela API (sessão) | `claude/clever-albattani-u37i0u` (continua a `claude/missao-1-trilhos-setup-wwahf8`) |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10), menos o Auth pela API, **em andamento** nesta sessão (Vercel no ar; Brevo fica para antes do piloto) | `claude/clever-albattani-u37i0u` (recomeçada da `main` em 29/10) |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: depende só da parte do Claude da Missão 1, que já está na `main` | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
