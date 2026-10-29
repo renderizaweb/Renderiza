@@ -963,6 +963,13 @@ button.lead-chip:hover{filter:brightness(.96)}
 .tipo-opcoes.tres{grid-template-columns:1fr}
 .lista-clientes{list-style:none;margin:0;padding:0;background:#fff;border:1px solid #dfe7e2;border-radius:11px;overflow:hidden}
 .lista-clientes li+li{border-top:1px solid #edf1ee}
+.cliente-item{display:flex;align-items:center}
+.abas-slot{min-width:0;max-width:100%}
+.cliente-item .cliente-linha{flex:1;min-width:0}
+.cliente-ig{flex:none;display:inline-grid;place-items:center;width:34px;height:34px;margin-right:14px;border-radius:999px;color:#9b3f6b;border:1px solid #ecd6e1;background:#fff}
+.cliente-ig:hover{background:#fbf1f6;border-color:#d9aec4}
+.cliente-ig:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.cliente-ig.vazio{border-color:transparent;background:none}
 .cliente-linha{width:100%;display:grid;grid-template-columns:minmax(0,1.3fr) 170px minmax(0,1.2fr);align-items:center;gap:14px;padding:13px 18px;text-align:left}
 .cliente-linha:hover{background:#f6faf7}
 .cliente-nome{display:grid;gap:2px;min-width:0}

@@ -7,7 +7,7 @@ import { h } from "./dom.js";
 import { icone } from "./icones.js";
 import { abrirJanela, aviso } from "./ui.js";
 import { criar } from "./acoes.js";
-import { novoLead, rotuloEtapa, nomeDoResultado } from "./modelo.js";
+import { novoLead, rotuloEtapa, nomeDoResultado, linkDoInstagram } from "./modelo.js";
 import { chaveDoNome } from "./ritmo.js";
 import { SITUACOES, situacaoDoCliente, proximaTarefa } from "./tarefas.js";
 
@@ -73,18 +73,23 @@ try { const s = localStorage.getItem("renderiza:clientes"); if (s === "" || SITU
  */
 export function criarTelaClientes(ctx) {
   // Barra fixa: o painel põe o campo de busca em buscaSlot (ao lado dos filtros); só filtros, ações e lista são redesenhados.
-  const abasSlot = h("div"), buscaSlot = h("div", { class: "busca-slot" }), acoesSlot = h("div", { class: "sheet-actions" }), listaSlot = h("div");
+  const abasSlot = h("div", { class: "abas-slot" }), buscaSlot = h("div", { class: "busca-slot" }), acoesSlot = h("div", { class: "sheet-actions" }), listaSlot = h("div");
   const barra = h("div", { class: "sheet-toolbar" }, h("div", { class: "barra-esquerda" }, abasSlot, buscaSlot), acoesSlot);
   function linha(l, tarefas) {
     const s = situacaoDoCliente(l);
     const prox = proximaTarefa(tarefas, l.id);
     const local = [l.cidade, l.segmento].map(x => String(x || "").trim()).filter(Boolean).join(" · ");
-    return h("li", {},
+    // Atalho para o perfil (para seguir com o Instagram da Renderiza): link de verdade, abre em outra aba no clique
+    // ou com o botão do meio, sem abrir os detalhes do cliente.
+    const ig = linkDoInstagram(l.instagram);
+    return h("li", { class: "cliente-item" },
       h("button", { type: "button", class: "cliente-linha", onclick: () => ctx.abrirLead(l.id) },
         h("span", { class: "cliente-nome" }, h("strong", { text: l.empresa || "Sem nome" }), local ? h("small", { text: local }) : null),
         h("span", { class: "situacao " + s, text: nomeDaSituacao(l) }),
         h("span", { class: "cliente-proxima" + (prox ? "" : " vazia") },
-          prox ? [icone("calendario", 13), h("span", { text: (prox.dia ? dm(prox.dia) + " · " : "") + prox.titulo })] : "Sem tarefa")));
+          prox ? [icone("calendario", 13), h("span", { text: (prox.dia ? dm(prox.dia) + " · " : "") + prox.titulo })] : "Sem tarefa")),
+      ig ? h("a", { class: "cliente-ig", href: ig, target: "_blank", rel: "noopener noreferrer", title: "Abrir o Instagram em outra aba", "aria-label": "Instagram de " + (l.empresa || "cliente") }, icone("instagram", 16))
+        : h("span", { class: "cliente-ig vazio", title: "Sem Instagram no cadastro" }));
   }
 
   function render() {

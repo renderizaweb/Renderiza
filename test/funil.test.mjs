@@ -78,3 +78,16 @@ test("o banco aceita exatamente as etapas e os resultados do painel", () => {
   assert.deepEqual(lista(/v_etapas text\[\] := array\[([^\]]*)\]/), ids, "a função da IA usa a mesma lista");
   assert.deepEqual(lista(/etapa\s+text not null default 'a_trabalhar'\s+check \(etapa in \(([^)]*)\)\)/), ids, "e a tabela criada do zero também");
 });
+
+test("Clientes: o atalho do Instagram aceita @perfil, perfil e link; site de fora não vira Instagram", async () => {
+  const { linkDoInstagram } = await import("../painel/src/modelo.js");
+  assert.equal(linkDoInstagram("@oticanina"), "https://www.instagram.com/oticanina/");
+  assert.equal(linkDoInstagram("studio.acfotografia"), "", "com ponto e sem @ pode ser site: fica de fora");
+  assert.equal(linkDoInstagram("@studio.acfotografia"), "https://www.instagram.com/studio.acfotografia/");
+  assert.equal(linkDoInstagram("tiaisa_foto"), "https://www.instagram.com/tiaisa_foto/");
+  assert.equal(linkDoInstagram("https://www.instagram.com/casarabello/?hl=pt"), "https://www.instagram.com/casarabello/");
+  assert.equal(linkDoInstagram("instagram.com/villalaferia"), "https://www.instagram.com/villalaferia/");
+  assert.equal(linkDoInstagram("https://instagram.com/p/ABC123/"), "", "link de post não é perfil");
+  assert.equal(linkDoInstagram("https://oticablulens01.com.br"), "");
+  assert.equal(linkDoInstagram(""), "");
+});
