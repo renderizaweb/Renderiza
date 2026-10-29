@@ -228,6 +228,8 @@ Ficou de fora (é de outras missões): as funções públicas publico_* (agenda 
   Meu site antes de publicar (Missão 4) e quem publica no Meu site (Missão 4 decide).
 Decisões no caminho: no 07, D21 a D27. Migração aplicada não se edita: as correções vieram em migrações novas.
 Migrações aplicadas (STG / produção): as 6, nos dois, em 29/10. Semente só no STG.
+Pedidos do bloco B ao banco (regra nova da main): chegam em "Avisos entre sessões"; quem continuar o bloco A atende
+  com migração nova (nunca editando as aplicadas), STG primeiro, nesta mesma branch.
 ```
 
 ```
