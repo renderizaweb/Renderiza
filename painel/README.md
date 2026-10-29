@@ -115,6 +115,9 @@ O painel abre aqui (outra tela só pelo endereço, ex.: `/painel#pipeline`).
   A busca do topo procura por nome, WhatsApp, Instagram e cidade.
 - Cada linha mostra a situação e a próxima tarefa. Clicar abre os detalhes (tarefas, andamento,
   interações e contato).
+- No fim da linha, o botão do **Instagram** (29/10/2026, para seguir os clientes com o Instagram da Renderiza)
+  abre o perfil em outra aba, no clique ou com o botão do meio, sem abrir os detalhes. Aceita `@perfil`,
+  `perfil` ou o link do perfil (`linkDoInstagram`, em `src/modelo.js`); quem não tem Instagram fica sem o botão.
 - **Novo cliente**: nome, WhatsApp (opcional) e onde fica: fora do funil, no funil (entra em "Leads a
   trabalhar") ou já é cliente (entra como ganho).
 - **Fora do funil** (`leads.fora_do_funil`): para relacionamento com quem não passou pelo funil, como

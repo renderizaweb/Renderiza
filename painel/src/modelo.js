@@ -78,6 +78,18 @@ export const CANAIS_CONTATO = [
 
 const nomePor = lista => id => (lista.find(x => x.id === id) || {}).nome || "";
 /** Nome curto da etapa ("Sem resposta"); id antigo sai com o nome antigo ("Em conversa"). */
+/**
+ * Endereço do perfil no Instagram a partir do campo "Instagram ou site": "@perfil", "perfil",
+ * "instagram.com/perfil" ou o link completo. Site que não é do Instagram (ou vazio) dá "".
+ */
+export function linkDoInstagram(valor) {
+  const s = String(valor || "").trim();
+  if (!s) return "";
+  const m = /^(?:https?:\/\/)?(?:www\.|m\.)?instagram\.com\/([A-Za-z0-9._]+)/i.exec(s);
+  const perfil = m ? m[1] : /^@?[A-Za-z0-9._]+$/.test(s) && (s.startsWith("@") || !s.includes(".")) ? s.replace(/^@/, "") : "";
+  return perfil && !/^(p|reel|reels|stories|explore)$/i.test(perfil) ? `https://www.instagram.com/${perfil}/` : "";
+}
+
 export const nomeDaEtapa = id => nomePor(ETAPAS)(id) || ETAPAS_ANTIGAS[id] || "";
 export const nomeDoResultado = nomePor(RESULTADOS);
 export const nomeDoCanal = nomePor(CANAIS);
