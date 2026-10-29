@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: Auth, Brevo e Vercel); parte do Claude **pronta para subir** | `claude/missao-1-trilhos-setup-wwahf8` |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: Auth, Brevo e Vercel); parte do Claude **em andamento** (migração de teste nos projetos novos de São Paulo) | `claude/clever-albattani-u37i0u` (continua a `claude/missao-1-trilhos-setup-wwahf8`) |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | esperando a 1 | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
@@ -175,7 +175,9 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 1 · parte do Claude · branch claude/missao-1-trilhos-setup-wwahf8 · atualizada em 29/10 · PRONTA PARA SUBIR
+Missão 1 · parte do Claude · branch claude/clever-albattani-u37i0u (continua a claude/missao-1-trilhos-setup-wwahf8) · atualizada em 29/10 · EM ANDAMENTO
+Agora: a Renderiza trocou os projetos dos EUA por dois novos em São Paulo; migração de teste reaplicada no STG novo
+  (qxcxllhmtodsptxffbhx); falta a produção nova (hxzsiiqhlqxuqkevskwb), o ignoreCommand do vercel.json e os documentos.
 Feito: variáveis PAINEL_* conferidas (as 5 presentes; URLs batem com os projetos). painel-clientes/ com o
   esqueleto: casca, rotas, 10 módulos e 5 partes do Admin registrados e vazios, adaptador do Supabase,
   api/config.js, vercel.json (sem build, noindex, DENY, CSP, pula o build se a pasta não mudou), README.
@@ -204,7 +206,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
-| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8` | 29/10/2026 | 29/10/2026 |
+| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8`, reaplicada pela `claude/clever-albattani-u37i0u` | 29/10/2026 (`qxcxllhmtodsptxffbhx`, São Paulo) | falta no projeto novo |
 
 ## Avisos entre sessões
 
