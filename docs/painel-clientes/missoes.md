@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: contas e acessos; parte do Claude: em andamento) | `claude/missao-1-trilhos-setup-wwahf8` |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: Auth, Brevo e Vercel); parte do Claude **pronta para subir** | `claude/missao-1-trilhos-setup-wwahf8` |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | esperando a 1 | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
@@ -32,7 +32,9 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 **Sua parte** (fora do repositório; passo a passo no [`04`](04-arquitetura.md)). Feito em 28 e 29/10/2026: o
 `contato@renderizaweb.com.br` no Zoho (com os MX no Registro.br) e os dois projetos do Supabase, produção
-(`wkwyhganenohmupcwthd`) e STG (`vzrmepxoigoszqtoxtlo`). Falta: as variáveis do item 3, o envio (item 4) e a Vercel (item 5).
+(`wkwyhganenohmupcwthd`) e STG (`vzrmepxoigoszqtoxtlo`); as variáveis do item 3 (conferidas pela sessão em 29/10).
+Falta: o Auth dos dois projetos (*Authentication*: endereço do painel, senha mínima de 8; ver o `04`), o envio
+(item 4) e a Vercel (item 5).
 
 1. Um e-mail só para tudo: `contato@renderizaweb.com.br`, numa caixa grátis do **Zoho Mail** (plano Forever Free).
    É o e-mail que os clientes recebem e o dono das contas abaixo. Os registros que o Zoho pedir vão no DNS do
@@ -173,16 +175,26 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 1 · parte do Claude · branch claude/missao-1-trilhos-setup-wwahf8 · atualizada em 28/10 21h40 (Brasília)
-Feito: variáveis PAINEL_* conferidas; esqueleto de painel-clientes/ (casca, rotas, 10 módulos e 5 partes do
-  Admin registrados e vazios, adaptador, api/config.js, vercel.json, 31 testes); banco local (imitação do
-  Supabase no Postgres 16) e scripts/migrar.mjs; migração de teste aplicada no STG e na produção.
-Falta: tela de login testada no servidor local contra o STG.
-Próximo passo: entrar com um usuário de teste do STG no servidor local (npm run dev).
-Decisões no caminho: migrações aplicadas pela API de gerenciamento (POST /v1/projects/<ref>/database/query),
-  que roda tudo numa transação só (conferido no STG), registrando em supabase_migrations.schema_migrations;
-  hora do nome do arquivo em UTC (como o supabase migration new).
-Migrações aplicadas (STG / produção): 20261029003422_trilhos_teste (28/10 / 28/10).
+Missão 1 · parte do Claude · branch claude/missao-1-trilhos-setup-wwahf8 · atualizada em 29/10 · PRONTA PARA SUBIR
+Feito: variáveis PAINEL_* conferidas (as 5 presentes; URLs batem com os projetos). painel-clientes/ com o
+  esqueleto: casca, rotas, 10 módulos e 5 partes do Admin registrados e vazios, adaptador do Supabase,
+  api/config.js, vercel.json (sem build, noindex, DENY, CSP, pula o build se a pasta não mudou), README.
+  Banco local (imitação do Supabase no Postgres 16 + ajudantes de teste) e scripts/migrar.mjs
+  (local → STG → produção pela API de gerenciamento). Migração de teste aplicada no STG e na produção.
+  Tela de login funcionando no servidor local contra o STG.
+Testado: npm test (31 testes: rotas, sessão, config, esqueleto, migrações e o banco local com RLS); migrar.mjs
+  local/stg/producao, as travas (produção sem STG recusada; reaplicar não faz nada) e a situação dos dois bancos;
+  login no Chromium (computador e celular): sem login vai ao /entrar e volta para onde ia, senha errada, entrar,
+  recarregar, menu, voltar do navegador, Admin, página não encontrada e sair.
+Ficou de fora (depende da Renderiza): Vercel, e-mail (Brevo) e o Auth dos projetos; por isso o login ainda não foi
+  testado em painel.renderizaweb.com.br nem numa prévia, e o e-mail de confirmação não foi testado.
+Próximo passo (quando a Vercel existir): abrir a prévia da branch e entrar com um usuário do STG; conferir que
+  /src/... e /api/config respondem e que supabase/ e scripts/ não são publicados (.vercelignore).
+Decisões no caminho: migração aplicada pela API de gerenciamento (POST /v1/projects/<ref>/database/query), que
+  roda tudo numa transação só (conferido no STG), com registro em supabase_migrations.schema_migrations;
+  endereços sem # (a Vercel devolve o index.html); módulo = src/modulos/<id>/index.js com montar(el, contexto);
+  Admin com 5 partes (as do 02, incluindo Módulos); usuário de teste no STG: trilhos-m1@example.com.
+Migrações aplicadas (STG / produção): 20261029003422_trilhos_teste (29/10 / 29/10).
 ```
 
 ## Migrações aplicadas
@@ -192,7 +204,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
-| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8` | 28/10/2026 | 28/10/2026 |
+| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8` | 29/10/2026 | 29/10/2026 |
 
 ## Avisos entre sessões
 
@@ -201,6 +213,10 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 1 | **Supabase:** os dois projetos estão em regiões dos EUA (STG `us-west-2`, produção `us-east-2`), não em São Paulo como o `04` previa; e rodam Postgres 17 (o banco local é 16). Decidir com a Renderiza se recria antes de ter dados (hoje só a migração de teste). O Auth dos dois está no padrão: *Site URL* `http://localhost:3000`, senha mínima 6, sem SMTP próprio. |
+| 29/10/2026 | 1 | **Esqueleto:** cada módulo e cada parte do Admin já tem `index.js` vazio na sua pasta, com `montar(el, contexto)`: quem constrói substitui. O Admin tem também a parte `modulos/` (do `02`). A rota `/admin` ainda não tem trava (as partes não leem nada); a trava vem com `equipe_renderiza` e a RLS (Missões 2 e 5). |
+| 29/10/2026 | 1 | **`.gitignore` da raiz** ignorava toda pasta `publico/`, inclusive a futura `painel-clientes/publico/` (contrato, termos). Corrigido com `!painel-clientes/publico/`. |
+| 29/10/2026 | 1 | **STG:** usuário de teste `trilhos-m1@example.com` (confirmado, sem conta nem dados), criado para testar o login. A senha não fica no repositório; para outro teste, crie um usuário em *Authentication → Users* do STG. |
 | 28/10/2026 | — | O trabalho passou de tarefas para 6 missões, uma por parada (este arquivo). Acesso das sessões ao Supabase novo pelas variáveis `PAINEL_*` (Missão 1). |
 | 28/10/2026 | — | UX: [`09-ux.md`](09-ux.md) é a referência das telas junto com os exemplos. |
 | 28/10/2026 | — | Supabase: conta nova com `painel-renderiza-prod` e `painel-renderiza-stg`; migração sempre no STG antes da produção. O projeto de hoje é do Painel de prospecção e não se toca. |

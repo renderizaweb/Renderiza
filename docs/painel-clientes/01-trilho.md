@@ -16,9 +16,9 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 1 · Organização e infraestrutura |
-| **Próxima ação** | Missão 1: a Renderiza cria o e-mail, o Supabase (produção e STG), as variáveis `PAINEL_*`, o serviço de e-mail e a Vercel; uma sessão cria o esqueleto da pasta |
+| **Próxima ação** | Missão 1: a Renderiza configura o Auth dos dois projetos, o e-mail (Brevo) e a Vercel; o esqueleto, as migrações e o login da sessão estão prontos para subir (branch `claude/missao-1-trilhos-setup-wwahf8`) |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
-| **Última atualização** | 28/10/2026 |
+| **Última atualização** | 29/10/2026 |
 
 ## O mapa
 
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 1 | Missão 1, parte da sessão, pronta para subir: `painel-clientes/` com o esqueleto (todos os módulos e o Admin registrados), banco local e `scripts/migrar.mjs`; migração de teste aplicada no STG e na produção; login funcionando no servidor local contra o STG. Os projetos do Supabase estão nos EUA, não em São Paulo (aviso em `missoes.md`). | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 | E-mail `contato@renderizaweb.com.br` no Zoho (MX no Registro.br) e Supabase novo criado com ele: produção `wkwyhganenohmupcwthd` e STG `vzrmepxoigoszqtoxtlo`. | Renderiza, com o Claude |
 | 28/10/2026 | 1 | O trabalho passou de tarefas para 6 missões, uma por parada (`missoes.md`), com o texto pronto para abrir cada sessão. Acesso das sessões ao Supabase novo pelas variáveis `PAINEL_*` do ambiente. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Pesquisa de UX: `09-ux.md` (princípios, melhorias em cada tela do exemplo, onboarding de 5 telas, peças comuns, velocidade, referências). Nova tarefa T2.8 (onboarding). | Claude, a pedido da Renderiza |

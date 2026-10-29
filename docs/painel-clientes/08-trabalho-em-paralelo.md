@@ -52,8 +52,9 @@ Painel de prospecção (variáveis `SUPABASE_URL` e `SUPABASE_ANON_KEY`) nunca �
    usa o STG). Só então aplique na produção.
 4. **Antes de aplicar, confira o que já está no banco** e a tabela "Migrações aplicadas" de `missoes.md`. Se o banco
    tem uma migração que você não tem, traga a branch dela antes de seguir.
-5. **Aplique pelo caminho que registra a migração no próprio banco** (o script da Missão 1 ou o `supabase db push`),
-   uma de cada vez, em ordem. Confira duas vezes em qual projeto está.
+5. **Aplique pelo caminho que registra a migração no próprio banco** (o script da Missão 1,
+   `painel-clientes/scripts/migrar.mjs`, ou o `supabase db push`), uma de cada vez, em ordem. Confira duas vezes em
+   qual projeto está (o script pede `--projeto <ref>` para a produção). Como usar: `painel-clientes/README.md`.
 6. **Logo depois de aplicar:** push da branch com o arquivo e a linha em "Migrações aplicadas" (STG e produção).
 7. **Migração aplicada nunca é editada** (nem no STG). Precisa mudar? Migração nova.
 8. **Nada destrutivo na produção sem a Renderiza dizer "pode":** apagar tabela ou coluna com dados, `delete` ou

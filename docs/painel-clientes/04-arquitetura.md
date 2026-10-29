@@ -51,14 +51,17 @@ painel-clientes/
     modulos/index.js         o registro de todos os módulos (nasce completo na Missão 1)
     modulos/inicio/  clientes/  agenda/  atendimento/  financeiro/  contratos/  meu-site/
             equipe/  configuracoes/  servicos/
-    admin/                   Admin (só a equipe Renderiza): contas/ pessoas/ pagamentos/ indicadores/
+    admin/                   Admin (só a equipe Renderiza): contas/ modulos/ pessoas/ pagamentos/ indicadores/
     ui/                      peças dos exemplos: menu, abas, gaveta, tabela, calendário, avisos, "Para quem?"
   publico/                   páginas sem login: aceite de contrato (/c/<código>), prévia
+  api/config.js              entrega a URL e a chave pública ao navegador (Missão 1)
   api/publico/               funções da Vercel da API pública
   supabase/migrations/       a estrutura do banco, em ordem
   supabase/testes/           testes de RLS e das funções
+  supabase/local/            a imitação do Supabase para o banco local de testes
+  scripts/                   servidor local (npm run dev) e migrações (scripts/migrar.mjs)
   test/                      testes do front (node --test) e fluxos (Playwright)
-  vercel.json
+  vercel.json  .vercelignore
 ```
 
 - Por que no mesmo repositório: os documentos, os exemplos (que são a especificação das telas) e os geradores de
@@ -81,6 +84,10 @@ painel-clientes/
 | `gxdwluswpczlfgvzxqvg` (o de hoje) | a conta atual da Renderiza | **Painel de prospecção** (`painel/`). Não muda nada e não entra neste projeto. |
 | `painel-renderiza-prod` · `wkwyhganenohmupcwthd` (`https://wkwyhganenohmupcwthd.supabase.co`) | **conta nova**, criada com `contato@renderizaweb.com.br` | **Produção** do Painel Renderiza: clientes reais. |
 | `painel-renderiza-stg` · `vzrmepxoigoszqtoxtlo` (`https://vzrmepxoigoszqtoxtlo.supabase.co`) | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
+
+> Conferido pela sessão da Missão 1 em 29/10/2026, pela API do Supabase: os projetos se chamam "Painel Renderiza"
+> (produção, região `us-east-2`) e "Painel Renderiza STG" (região `us-west-2`), com Postgres 17. A região não é a
+> de São Paulo prevista abaixo; aviso em `missoes.md`.
 
 - O plano gratuito permite 2 projetos ativos por pessoa dona ou admin, somando todas as organizações dela. Por isso o
   login da conta atual **não** entra como dono ou admin na conta nova (senão os limites se somam).
@@ -112,7 +119,8 @@ painel-clientes/
 
 - **Projeto novo** apontando para `painel-clientes/`, sem framework, sem passo de build (ou um mínimo, se precisar).
 - "Pular build quando a pasta não mudou" ligado: a `main` recebe muitos commits de demos e o Hobby tem 100 deploys
-  por dia.
+  por dia. Já vem no `painel-clientes/vercel.json` (`ignoreCommand`), junto com os cabeçalhos abaixo; o
+  `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
   entregar a secreta). A chave secreta só entra se uma função do servidor precisar, nunca no front.
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),

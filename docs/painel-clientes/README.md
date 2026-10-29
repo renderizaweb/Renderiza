@@ -9,8 +9,9 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 > **Parada 1 de 6 · Organização e infraestrutura.** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
-> começar a usar por volta de 11/11/2026. **Missão 1 em andamento:** a Renderiza cria as contas e os acessos
-> (Supabase, Vercel, e-mail); uma sessão já pode criar o esqueleto da pasta. Detalhes e diário de bordo:
+> começar a usar por volta de 11/11/2026. **Missão 1 em andamento:** e-mail, Supabase e variáveis prontos; falta a
+> Renderiza configurar o Auth, o envio (Brevo) e a Vercel. A parte da sessão (esqueleto, migrações e login) está
+> pronta para subir. Detalhes e diário de bordo:
 > [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 
 (Quem fechar uma missão atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
@@ -22,7 +23,7 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 | Quem usa | Kaue e Milena | os clientes da Renderiza e as equipes deles |
 | Para quê | prospecção: leads, demos, ritmo, atividade | o dia a dia do negócio do cliente: agenda, clientes, contratos, financeiro, atendimento e o site |
 | Endereço | `renderizaweb.com.br/painel` | `painel.renderizaweb.com.br` |
-| Código | `painel/` | `painel-clientes/` (ainda não existe; nasce na Missão 1) |
+| Código | `painel/` | `painel-clientes/` (esqueleto da Missão 1) |
 | Banco | Supabase `gxdwluswpczlfgvzxqvg` (conta atual) | conta nova do Supabase com dois projetos: `painel-renderiza-prod` (produção) e `painel-renderiza-stg` (STG) |
 | Vitrine | — | `/exemplos` (eventos, Villa Alecrim) e `/exemplos/fotografia` (Estúdio Ciranda), com dados fictícios |
 
