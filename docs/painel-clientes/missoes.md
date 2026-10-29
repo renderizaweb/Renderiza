@@ -210,10 +210,10 @@ Feito (no repositório, testado no banco local): 4 migrações em painel-cliente
   Testes em supabase/testes/010, 020, 030 e 090 (isolamento em todas as tabelas, só vê × edita, valores escondidos,
   teste vencido, módulo desligado, "só pago", suporte, convite, cadastro, histórico, Meu site, Admin, arquivos e as
   regras gerais: RLS em tudo, anon sem tabela, search_path fixo).
-Falta: aplicar no STG e conferir lá; a semente (supabase/semente/) no local e no STG; produção; atualizar o 05.
-Próximo passo: node scripts/migrar.mjs stg.
+Falta: conferir no STG (node supabase/testes/no-stg.mjs); a semente (supabase/semente/) no local e no STG; produção; atualizar o 05.
+Próximo passo: node supabase/testes/no-stg.mjs e a semente.
 Decisões no caminho: ver "Avisos" (bloco A) quando a parte estiver pronta.
-Migrações aplicadas (STG / produção): nenhuma ainda.
+Migrações aplicadas (STG / produção): as 4 no STG em 29/10; produção ainda não.
 ```
 
 ```
@@ -256,6 +256,10 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
 | `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8`, reaplicada pela `claude/clever-albattani-u37i0u` | 29/10/2026 (`qxcxllhmtodsptxffbhx`, São Paulo) | 29/10/2026 (`hxzsiiqhlqxuqkevskwb`, São Paulo) |
+| `20261029110000_contas_e_acesso.sql` (contas, pessoas, convites, módulos, `pode()`) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
+| `20261029110100_negocio_e_dia_a_dia.sql` (serviços e o dia a dia, com o cliente no centro) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
+| `20261029110200_historico_site_e_admin.sql` (histórico, Meu site, Admin, tempo real dos pedidos) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
+| `20261029110300_armazenamento.sql` (buckets e políticas do Storage) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
 
 ## Avisos entre sessões
 
