@@ -10,7 +10,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main`; falta a Renderiza publicar a função do convite na produção | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | pode começar (a 2 está na `main`) | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
@@ -258,8 +258,9 @@ O e-mail de verdade não foi testado: o link do convite foi gerado no banco e a 
   teste da tela (a função em si foi testada à parte no STG). Usuários e contas de teste apagados; semente rodada.
 Depois de trazer a main (Missão 4): o logo das Configurações dava 403 (aviso da 4C); resolvido pela migração
   20261029190000_armazenamento_leitura.sql (bloco A, STG e produção) e conferido pela tela no STG.
-Falta (da Renderiza): publicar a função convidar na produção (node supabase/functions/publicar.mjs producao
-  --projeto <ref>; a sessão não teve permissão); criar o Turnstile para abrir o cadastro (D30, 04).
+Função convidar na produção desde 29/10 (com o ok da Renderiza; publicada sozinha com --so convidar, sem
+  republicar a avisar-pedido): sem login dá 401, conferido sem mandar e-mail. Falta (da Renderiza): criar o
+  Turnstile para abrir o cadastro (D30, 04) e testar um convite com um e-mail de verdade.
 ```
 
 ```
@@ -449,6 +450,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 2B → todas | **Função `convidar` na produção** (versão 1), com o ok da Renderiza. O `publicar.mjs` ganhou `--so <nome>` para publicar uma função só, sem republicar as outras (a `avisar-pedido` ficou como estava). |
 | 29/10/2026 | 2A → 4C, 2B | **Logo e imagens: resolvido no banco** (o aviso da 4C sobre o logo). Era pior: com "upsert", até o primeiro envio do logo dava 403, e "tirar" não funcionava. A migração `20261029190000_armazenamento_leitura.sql` (STG e produção) deixa ler pela API quem é da conta (`logos`) e quem vê o Meu site (`site-imagens`); os buckets já eram públicos. Conferido no STG pela tela Configurações (enviar e trocar) e pela API (apagar). O `{ trocar: false }` do Meu site continua valendo. |
 | 29/10/2026 | 2B → 3, 4, 5 | **Telas base na `main`.** Para quem constrói módulo: o contexto (`src/app.js`) traz `conta` (de `minhas_contas`: `dono`, `acessos`, `modulos`, `ajustes`, `liberada`), `nicho` (`src/nichos/`: as palavras), `pessoa`, `pode(módulo, nível)`, `avisar` e `navegar`; as peças estão no [`10`](10-design-system.md) (gaveta, "Para quem?", estados, linhas, chips, campos, CSV). O "+" leva a `/<módulo>?novo=pedido|reserva|visita|pagamento|cliente`: cada módulo abre o formulário quando vê o `?novo=`. **3F:** `src/modulos/inicio/index.js` só monta os primeiros passos no topo (`primeiros-passos.js`, do bloco B); mantenha essa chamada. **4:** o item "copiar o link da agenda online" dos primeiros passos entra quando o link existir (D31). **5:** o Admin convida o dono pela mesma função `convidar` (lê o convite com o login de quem chama; a equipe Renderiza pode). |
 | 29/10/2026 | 2B → 1 | **Fora do "Mexe em" do bloco B, pequeno, para o cadastro (D30):** `api/config.js` entrega `cadastroAberto` e `turnstile` quando existe `TURNSTILE_SITE_KEY`; `scripts/servidor.mjs` lê `PAINEL_STG_TURNSTILE_SITE_KEY`; a CSP do `vercel.json` ganhou `challenges.cloudflare.com` (script e frame), com o `test/esqueleto.test.mjs` acompanhando. Para abrir o cadastro: criar o site no Turnstile, a secreta no Auth dos dois projetos, a pública na Vercel e tirar o `disable_signup` (STG primeiro). |
