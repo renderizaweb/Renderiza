@@ -10,8 +10,8 @@ Você vai trabalhar no Painel Renderiza: o sistema com login para os clientes da
 1. Antes de tudo, rode git fetch origin e leia, nesta ordem: docs/painel-clientes/README.md, 01-trilho.md, 08-trabalho-em-paralelo.md e missoes.md. Depois leia os documentos que a sua missão citar: 02 (produto), 03 (Meu site), 04 (arquitetura), 05 (dados e permissões, com o cliente no centro), 06 (privacidade), 09 (UX) e 10 (design system).
 
 2. Onde estamos (29/10/2026):
-- Missão 1, a parte do Claude, já está na main: o esqueleto em painel-clientes/ (todos os módulos e o Admin registrados, vazios), o script de migrações scripts/migrar.mjs (local → STG → produção), a Vercel no ar em renderiza-painel-clientes.vercel.app, o design system em src/ui/ e as telas de entrar, esqueci a senha e nova senha.
-- Falta da Missão 1: configurar o login do Supabase pela API (endereço do painel, endereços de retorno com /nova-senha, senha mínima de 8), o domínio próprio e o Brevo (e-mail), que fica para antes do piloto.
+- Missão 1, a parte do Claude, já está na main: o esqueleto em painel-clientes/ (todos os módulos e o Admin registrados, vazios), o script de migrações scripts/migrar.mjs (local → STG → produção), a Vercel no ar em painel.renderizaweb.com.br (e renderiza-painel-clientes.vercel.app), o design system em src/ui/ e as telas de entrar, esqueci a senha e nova senha.
+- Falta da Missão 1: configurar o login do Supabase pela API (endereço do painel https://painel.renderizaweb.com.br, endereços de retorno com /nova-senha, senha mínima de 8) e o Brevo (e-mail), que fica para antes do piloto.
 - Missão 2 liberada: bloco A (banco) e bloco B (telas). Outras sessões podem estar trabalhando nela.
 
 3. Antes de pegar qualquer trabalho:

@@ -34,8 +34,9 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 `contato@renderizaweb.com.br` no Zoho (com os MX no Registro.br) e os dois projetos do Supabase em São Paulo,
 produção (`hxzsiiqhlqxuqkevskwb`) e STG (`qxcxllhmtodsptxffbhx`), que substituíram os primeiros, criados nos EUA e
 apagados; as variáveis do item 3, já com os projetos novos (conferidas pela sessão em 29/10). Falta: a Vercel
-(item 5). Depois dela, uma sessão configura o Auth dos dois projetos pela API de gerenciamento: endereço do painel
-(por enquanto `https://renderiza-painel-clientes.vercel.app`; o domínio próprio fica para depois), os endereços de
+(item 5). **Vercel e domínio no ar (29/10/2026):** `https://painel.renderizaweb.com.br` (e
+`renderiza-painel-clientes.vercel.app`), ambos na produção. Falta uma sessão configurar o Auth dos dois projetos
+pela API de gerenciamento: endereço do painel (produção: `https://painel.renderizaweb.com.br`), os endereços de
 retorno (o do painel e `http://localhost:5180`, com `/nova-senha`, que é onde o link de "Esqueci a senha" chega, e
 as prévias da Vercel no STG) e a senha mínima de 8. O envio (item 4, Brevo) fica para antes do piloto: até lá, o e-mail padrão do
 Supabase manda só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a
@@ -227,6 +228,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 1 | **Domínio no ar:** `painel.renderizaweb.com.br` aponta para a Vercel (CNAME no Registro.br) e responde em HTTPS com a produção. Use esse endereço na configuração do Auth. |
 | 29/10/2026 | 1 · 2B | **Design system e telas de acesso prontos** (na `main`): `src/ui/estilo.css` (tokens `--rz-*` e componentes `.rz-*`), `src/ui/icones.js`, `src/ui/formulario.js`, a fonte Geist em `src/ui/fontes/`, e as telas `/entrar`, `/esqueci-a-senha` e `/nova-senha` com o layout `src/telas/acesso.js`. O estilo saiu do `index.html`. Regras: [`10`](10-design-system.md). O bloco B da Missão 2 constrói em cima disso. |
 | 29/10/2026 | 1 | **Vercel no ar** (`renderiza-painel-clientes.vercel.app`, produção). No primeiro deploy, abrir `/entrar` direto dava 404: com `cleanUrls` ligado a Vercel ignora o rewrite para `/index.html`. Corrigido com `cleanUrls: false` (teste no `esqueleto.test.mjs`). |
 | 29/10/2026 | 1 | **Supabase em São Paulo:** a Renderiza apagou os dois projetos dos EUA (produção `wkwyhganenohmupcwthd`, `us-east-2`; STG `vzrmepxoigoszqtoxtlo`, `us-west-2`) e criou dois em São Paulo (`sa-east-1`): produção `hxzsiiqhlqxuqkevskwb` e STG `qxcxllhmtodsptxffbhx`, com as variáveis `PAINEL_*` atualizadas (o token é o mesmo). A migração de teste foi reaplicada nos dois. Rodam Postgres 17 (o banco local é 16). O Auth dos dois está no padrão: *Site URL* `http://localhost:3000`, senha mínima 6, sem SMTP próprio. |
