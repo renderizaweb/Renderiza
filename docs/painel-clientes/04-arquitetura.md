@@ -58,6 +58,7 @@ painel-clientes/
   api/config.js              entrega a URL e a chave pública ao navegador (Missão 1)
   api/publico/               funções da Vercel da API pública
   supabase/migrations/       a estrutura do banco, em ordem
+  supabase/functions/        funções do Supabase (Deno), como o envio do convite; publicar.mjs
   supabase/testes/           testes de RLS e das funções
   supabase/local/            a imitação do Supabase para o banco local de testes
   scripts/                   servidor local (npm run dev) e migrações (scripts/migrar.mjs)
@@ -133,6 +134,15 @@ painel-clientes/
   existe ("Villa Alecrim convidou você para o Painel Renderiza"); sem ele, "Você recebeu um convite". Quem envia o
   convite (Missões 2 e 5) manda `data: { nome_da_conta }`. O Supabase escapa o HTML dos valores; no assunto não vai
   variável (lá o escape apareceria como `&amp;`).
+- **Envio do convite** (29/10/2026, D28): a tela Equipe grava a linha em `convites` e chama a função do Supabase
+  `convidar` (`painel-clientes/supabase/functions/convidar/`, Deno; a lógica em `logica.js`, testada em
+  `test/convite.test.mjs`). A função confere o login, lê o convite **com o login de quem chamou** (se a RLS não deixa,
+  não manda nada), só aceita voltar para `/convite` do próprio painel e manda: e-mail sem login → o convite do Auth
+  (`data: { nome_da_conta, nome }`), que leva a `/convite` para criar a senha; e-mail que já tem login → o link de
+  acesso, direto para o painel. Ao entrar, `aceitar_convites()` transforma o convite em pessoa da conta. A chave
+  secreta fica no ambiente da função (`SUPABASE_SECRET_KEYS`, posta pelo Supabase); `verify_jwt` desligado porque a
+  função confere o login sozinha (`auth.getUser`). Publicar: `node supabase/functions/publicar.mjs stg` e depois
+  `producao --projeto <ref>`; sem argumento, lista o que está publicado.
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.

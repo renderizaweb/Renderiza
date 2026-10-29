@@ -222,10 +222,16 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
   adicionais, horários, datas fechadas ou folgas, campanhas; só vê fica sem botões), src/ui/campos.js;
   test/modulos-base.test.mjs. Testado no Chromium contra o STG: mudar acesso e desfazer, pacote novo e desativado,
   folga nova, apagada e desfeita; quem só vê não tem "+" nem lápis.
-Próximo passo: parte 5 (o convite: função do servidor e a tela /convite). Equipe já chama banco.funcao("convidar",
-  { convite, destino }) depois de gravar a linha em convites.
-Teste no STG: um usuário temporário com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste),
-  criado só para a sessão; a senha não fica no repositório. Apagar no fim.
+5: supabase/functions/convidar/ (função do Supabase que manda o convite; D28 no 07, 04), publicar.mjs, a tela
+  /convite (src/telas/convite.js: nome e senha, entra na conta do convite; link vencido e conta no limite do plano
+  dizem o motivo), sessao.erroDoConvite(); test/convite.test.mjs. Função publicada no STG (versão 1); na produção
+  ainda não (falta a permissão para publicar). Testado no STG sem mandar e-mail: o link de convite (gerado no
+  banco, igual ao do e-mail) aberto no celular leva a /convite, a pessoa cria a senha e entra só com Início, Agenda
+  e Mais, sem "+"; a função barra sem login (401), convite de outra conta (404), vencido (409), endereço de fora (400).
+Próximo passo: parte 6 (onboarding /comecar e cadastro /cadastro).
+Teste no STG: usuários temporários com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste;
+  lia-convite@villa-alecrim.teste, só a Agenda, só vê), criados só para a sessão; as senhas não ficam no
+  repositório. A Villa Alecrim está com limite 6 no STG durante o teste. Apagar os dois e rodar a semente no fim.
 ```
 
 ```
@@ -320,6 +326,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 2B → 1, 5 | **Convite pronto** (D28 no `07`, `04`): a função do Supabase `convidar` (`painel-clientes/supabase/functions/`, pasta nova) manda o e-mail; publicar com `node supabase/functions/publicar.mjs stg` e `producao --projeto <ref>`. Publicada no STG; **na produção ainda não**. A tela `/convite` recebe o link. Fora do "Mexe em" do bloco B, pequeno e combinado com a Missão 1: `src/adaptadores/supabase.js` ganhou `cadastrar`, `funcao`, `enviarArquivo` e `urlPublica`; `src/app.js` e `src/rotas.js`, as telas novas (`/cadastro`, `/convite`, `/contas`, `/comecar`) e o contexto dos módulos (`conta`, `nicho`, `pessoa`, `pode`, `avisar`). Testes novos em `painel-clientes/test/`. A Missão 5 (Admin) convida o dono pela mesma função. |
 | 29/10/2026 | 2A → todas | **O banco inteiro está no STG e na produção** (`05` descreve tudo). Para quem constrói: (1) quem decide o acesso é `pode(conta, módulo, 'ver' ou 'editar')`; a tela só esconde o que o banco já não entrega. (2) **Tabela nova** precisa de RLS e de `revoke all ... from anon`: o teste `supabase/testes/090_regras_gerais.sql` falha se faltar. (3) **Função aberta ao visitante** só com o nome `publico_*` (o mesmo teste confere); as outras com `revoke execute ... from public, anon`. (4) O histórico (`atividades`) é automático nas tabelas do dia a dia; tabela nova que precise dele ganha o gatilho `historico` (ver a migração `20261029110200`). (5) Testes do banco também rodam no STG: `node supabase/testes/no-stg.mjs`. |
 | 29/10/2026 | 2A → 2B | **Para as telas:** `minhas_contas()` (escolher a conta e o menu: `liberada = false` é o aviso de teste vencido ou conta desligada; `modulos` são os ligados), `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` (um teste por pessoa), `aceitar_convites()` (chamar logo depois de entrar), `registrar_entrada(conta, aparelho)` (ao entrar numa conta). Convite = linha em `convites` (só o dono grava) + o e-mail pelo servidor com `data: { nome_da_conta }`. Preferências: `pessoas.preferencias` (de cada um) e `contas.ajustes` (da conta: ordem do menu, primeiros passos escondidos). Onboarding de eventos: "Que festas vocês fazem?" cria `tipos_reserva` (D21, `09`). Equipe e Configurações são só do dono (D22); limite de 5 pessoas ativas no banco. Logo em `logos/<id da conta>/…`. |
 | 29/10/2026 | 2A → 3, 4, 5 | **Já no banco para as missões seguintes:** `fechar_pedido()`, `juntar_clientes()` e `situacao(cliente)` (3A, 3C); o aceite do contrato grava `aceito_*` só por uma função `publico_*` (3E); `sites`, `sites_versoes`, `sites_previas`, o bucket `site-imagens` (só WebP, 2 MB) e os pedidos no tempo real (4); `equipe_renderiza` (vazia: a Renderiza cadastra quem entra no Admin, direto no banco), `acessos_suporte`, `pagamentos`, `entradas` e `admin_indicadores()` (5A). |
