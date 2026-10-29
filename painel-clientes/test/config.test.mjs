@@ -36,3 +36,9 @@ test("cadastro: só abre com a chave pública da verificação contra robô", ()
   assert.equal(aberto.cadastroAberto, true);
   assert.equal(aberto.turnstile, "0x4AAAAAAAteste");
 });
+
+test("diz o commit que está no ar, quando a Vercel informa", () => {
+  const r = configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz", VERCEL_GIT_COMMIT_SHA: "a4f92d1c0ffee" });
+  assert.equal(r.corpo.versao, "a4f92d1");
+  assert.equal(configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz" }).corpo.versao, undefined);
+});

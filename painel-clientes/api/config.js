@@ -30,6 +30,9 @@ export function configDoAmbiente(env) {
   }
   // "production" na Vercel; nos outros casos o painel mostra uma etiqueta para ninguém confundir com a produção.
   const corpo = { supabaseUrl, supabaseAnonKey, ambiente: env.VERCEL_ENV || "" };
+  // o commit que está no ar (a Vercel põe no ambiente): para conferir de fora se o deploy entrou
+  const versao = String(env.VERCEL_GIT_COMMIT_SHA || "").slice(0, 7);
+  if (versao) corpo.versao = versao;
   // Cadastro sozinho (Missão 2): só abre com a verificação contra robô (06). TURNSTILE_SITE_KEY é a chave PÚBLICA do
   // site no Cloudflare Turnstile; a secreta fica no Auth do Supabase. Sem ela, a tela de cadastro leva ao WhatsApp.
   const turnstile = String(env.TURNSTILE_SITE_KEY || "").trim();
