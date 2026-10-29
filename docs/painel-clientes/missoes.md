@@ -188,9 +188,9 @@ Feito: painel-clientes/ com o esqueleto: casca, rotas, 10 módulos e 5 partes do
   (qxcxllhmtodsptxffbhx), os dois sa-east-1, ACTIVE_HEALTHY, Postgres 17; os refs antigos respondem 404.
   Migração de teste reaplicada no STG novo e depois na produção nova. ignoreCommand do vercel.json trocado (04).
 Testado: npm test da pasta (32: rotas, sessão, config, esqueleto com o ignoreCommand num git temporário, migrações
-  e o banco local com RLS) e da raiz (159); migrar.mjs local/stg/producao nos projetos novos, a situação dos dois
-  bancos e reaplicar sem nada a fazer; o comentário do schema public e o registro conferidos nos dois; login no
-  Chromium contra o STG novo: sem login vai a /entrar?volta=/agenda e senha errada volta "E-mail ou senha
+  e o banco local com RLS) e da raiz (160, com a main trazida); migrar.mjs local/stg/producao nos projetos novos,
+  a situação dos dois bancos e reaplicar sem nada a fazer; o comentário do schema public e o registro conferidos
+  nos dois; login no Chromium contra o STG novo: sem login vai a /entrar?volta=/agenda e senha errada volta "E-mail ou senha
   incorretos." do Supabase novo. Antes (projetos dos EUA): entrar, recarregar, menu, Admin, voltar e sair.
 Ficou de fora (depende da Renderiza): Vercel, e-mail (Brevo) e o Auth dos projetos (os novos estão no padrão);
   por isso o login ainda não foi testado em painel.renderizaweb.com.br nem numa prévia, e o e-mail de confirmação
