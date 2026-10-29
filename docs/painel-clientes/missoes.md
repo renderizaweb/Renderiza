@@ -114,6 +114,8 @@ e-mail de confirmação chega; uma migração de teste passou pelo STG e pela pr
   campanhas).
 - **Cadastro e convite** dependem do servidor e de chaves que a Renderiza põe (ver "Avisos", 29/10): o cadastro
   está fechado pela API até existir a verificação contra robô.
+- **O banco é do bloco A.** O bloco B não cria migração: testa no local com as migrações da branch do bloco A
+  (traga a branch) e, se precisar de algo no banco, pede ao bloco A num aviso em "Avisos entre sessões".
 - **Mexe em:** `src/sessao.js`, `src/telas/`, `src/ui/` (inclusive `src/ui/estilo.css`), `src/nichos/`, `src/modulos/equipe/`,
   `src/modulos/configuracoes/`, `src/modulos/servicos/`, `src/modulos/inicio/primeiros-passos.js`; em
   `scripts/lib/auth.mjs` e `supabase/emails/`, só o que o cadastro e o convite pedirem (aplicando com
