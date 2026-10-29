@@ -1,7 +1,10 @@
 // O esqueleto da Missão 1: todos os módulos e o Admin registrados, cada um com a sua pasta e um `montar`.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { tmpdir } from "node:os";
+import { execFileSync, spawnSync } from "node:child_process";
 import { MODULOS } from "../src/modulos/index.js";
 import { AREAS_ADMIN } from "../src/admin/index.js";
 
@@ -45,6 +48,33 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.ok(v.rewrites.some(r => r.destination === "/index.html"));
 });
 
+// Na Vercel, o ignoreCommand saindo com 0 pula o deploy; com qualquer outro código, faz o build.
+test("vercel.json: pula o deploy só se a pasta não mudou desde o último deploy", () => {
+  const { ignoreCommand } = JSON.parse(readFileSync(new URL("vercel.json", pasta), "utf8"));
+  const repo = mkdtempSync(join(tmpdir(), "painel-ignore-"));
+  try {
+    const git = (...a) => execFileSync("git", ["-c", "user.name=Teste", "-c", "user.email=teste@example.com", "-c", "commit.gpgsign=false", ...a], { cwd: repo, encoding: "utf8" }).trim();
+    const commit = (arquivo, texto) => {
+      mkdirSync(join(repo, dirname(arquivo)), { recursive: true });
+      writeFileSync(join(repo, arquivo), texto);
+      git("add", "-A");
+      git("commit", "-q", "-m", arquivo);
+      return git("rev-parse", "HEAD");
+    };
+    git("init", "-q");
+    const inicio = commit("painel-clientes/index.html", "1");
+    const painelMudou = commit("painel-clientes/index.html", "2");
+    commit("docs/painel-clientes/missoes.md", "só documento");
+    const codigo = anterior => spawnSync("sh", ["-c", ignoreCommand], { cwd: join(repo, "painel-clientes"), env: { ...process.env, VERCEL_GIT_PREVIOUS_SHA: anterior } }).status;
+    assert.equal(codigo(painelMudou), 0, "depois do último deploy só mudou documento: pula");
+    assert.notEqual(codigo(inicio), 0, "a pasta mudou num commit antes do último: faz o build");
+    assert.notEqual(codigo(""), 0, "sem deploy anterior na branch: faz o build");
+    assert.notEqual(codigo("0123456789abcdef0123456789abcdef01234567"), 0, "SHA fora do clone (erro do git): faz o build");
+  } finally {
+    rmSync(repo, { recursive: true, force: true });
+  }
+});
+
 test("o index.html não tem script embutido (a CSP bloquearia)", () => {
   const html = readFileSync(new URL("index.html", pasta), "utf8");
   const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)];
@@ -60,7 +90,7 @@ test("nenhuma chave nem URL de projeto no código do app", () => {
     assert.doesNotMatch(txt, /sb_(publishable|secret)_[A-Za-z0-9]/, arq);
     assert.doesNotMatch(txt, /sbp_[A-Za-z0-9]/, arq);
     assert.doesNotMatch(txt, /eyJ[A-Za-z0-9_-]{20,}/, arq);
-    assert.doesNotMatch(txt, /(wkwyhganenohmupcwthd|vzrmepxoigoszqtoxtlo)/, arq);
+    assert.doesNotMatch(txt, /(hxzsiiqhlqxuqkevskwb|qxcxllhmtodsptxffbhx|[a-z0-9]{20}\.supabase\.co)/, arq);
   }
   assert.ok(existsSync(new URL(".vercelignore", pasta)));
 });

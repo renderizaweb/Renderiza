@@ -121,6 +121,14 @@ painel-clientes/
 - "Pular build quando a pasta não mudou" ligado: a `main` recebe muitos commits de demos e o Hobby tem 100 deploys
   por dia. Já vem no `painel-clientes/vercel.json` (`ignoreCommand`), junto com os cabeçalhos abaixo; o
   `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado.
+- **Como o `ignoreCommand` decide** (29/10/2026):
+  `[ -n "$VERCEL_GIT_PREVIOUS_SHA" ] && git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- ./`. Compara o commit
+  do último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o atual, só dentro de `painel-clientes/`. Na Vercel,
+  sair com 0 pula o deploy e qualquer outro código faz o build: nada mudou na pasta → pula; sem SHA anterior
+  (primeiro deploy da branch) ou com erro do git (ex.: o SHA não está no clone) → sai com código diferente de 0 e
+  o build acontece. Antes comparava só `HEAD^` com `HEAD` e pulava o deploy quando o último commit mexia só em
+  documentos, mesmo que um commit anterior do mesmo push tivesse mudado o painel. Os casos estão em
+  `painel-clientes/test/esqueleto.test.mjs`.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
   entregar a secreta). A chave secreta só entra se uma função do servidor precisar, nunca no front.
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
