@@ -314,6 +314,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029110300_armazenamento.sql` (buckets e políticas do Storage) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029112300_regras_sem_visitante.sql` (funções de regra fechadas ao visitante; aviso do Supabase) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029112900_apagar_conta_inteira.sql` (apagar uma conta inteira sem erro; achado pela semente) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029135228_publico_agenda.sql` (agenda online: `publico_disponibilidade`, `publico_pedido`, `publico_tentativas`) | 4A | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | — |
 
 ## Avisos entre sessões
 
