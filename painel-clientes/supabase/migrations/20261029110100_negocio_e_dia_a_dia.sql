@@ -539,6 +539,8 @@ begin
       criado_em = least(a.criado_em, b.criado_em)
   where id = a.id;
   delete from public.clientes where id = b.id;
+  -- o histórico (public.atividades, migração 3) passa a contar a história na ficha que fica
+  update public.atividades set cliente_id = a.id where conta_id = a.conta_id and cliente_id = b.id;
   return a.id;
 end $$;
 
