@@ -197,6 +197,26 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
+Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Feito (no repositório, testado no banco local): 4 migrações em painel-clientes/supabase/migrations/
+  20261029110000_contas_e_acesso (modulos, contas, pessoas, convites, contas_modulos, equipe_renderiza,
+    acessos_suporte, termos_aceites; pode(), pode_algum(), minhas_contas(), cadastrar_conta(), aceitar_convites())
+  20261029110100_negocio_e_dia_a_dia (tipos_reserva, servicos, adicionais, horarios, bloqueios, campanhas, clientes,
+    clientes_fichas, pedidos, reservas, reservas_adicionais, reservas_valores, reservas_checklist, compromissos,
+    lista_espera, parcelas, modelos_contrato, contratos, entregas; situacao(cliente), fechar_pedido(), juntar_clientes())
+  20261029110200_historico_site_e_admin (atividades por gatilho, sites, sites_versoes, sites_previas, entradas,
+    pagamentos, erros_front; registrar_entrada(), admin_indicadores(); pedidos no tempo real)
+  20261029110300_armazenamento (buckets logos, site-imagens, privado e as políticas)
+  Testes em supabase/testes/010, 020, 030 e 090 (isolamento em todas as tabelas, só vê × edita, valores escondidos,
+  teste vencido, módulo desligado, "só pago", suporte, convite, cadastro, histórico, Meu site, Admin, arquivos e as
+  regras gerais: RLS em tudo, anon sem tabela, search_path fixo).
+Falta: aplicar no STG e conferir lá; a semente (supabase/semente/) no local e no STG; produção; atualizar o 05.
+Próximo passo: node scripts/migrar.mjs stg.
+Decisões no caminho: ver "Avisos" (bloco A) quando a parte estiver pronta.
+Migrações aplicadas (STG / produção): nenhuma ainda.
+```
+
+```
 Missão 1 · parte do Claude (Auth) · branch claude/clever-albattani-u37i0u (recomeçada da main) · atualizada em 29/10 · NA MAIN
 Antes (já na main): esqueleto, banco local, scripts/migrar.mjs, migração de teste no STG e na produção, design system
   e telas de acesso.
