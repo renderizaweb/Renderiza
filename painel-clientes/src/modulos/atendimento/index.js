@@ -75,7 +75,7 @@ export async function montar(el, contexto) {
   function desenharQuadro(alvo) {
     const busca = filtrar(ctx.pedidos, { etapa: "todas", busca: filtro.busca });
     const colunas = [...etapasDoNicho(nicho.id)];
-    alvo.innerHTML = `<div class="rz-quadro" role="list" aria-label="Pedidos por etapa">${colunas.map(e => {
+    alvo.innerHTML = `<div class="rz-quadro" role="list" aria-label="Pedidos por etapa" style="--abertas:${colunas.filter(e => e.aberta).length}">${colunas.map(e => {
       let doEstagio = busca.filter(p => p.etapa === e.id).sort((a, b) => Date.parse(b.criado_em) - Date.parse(a.criado_em));
       const total = doEstagio.length;
       if (!e.aberta) doEstagio = doEstagio.slice(0, 6); // fechados e perdidos: só os mais recentes
