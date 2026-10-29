@@ -165,6 +165,8 @@ painel-clientes/
   o build acontece. Antes comparava só `HEAD^` com `HEAD` e pulava o deploy quando o último commit mexia só em
   documentos, mesmo que um commit anterior do mesmo push tivesse mudado o painel. Os casos estão em
   `painel-clientes/test/esqueleto.test.mjs`.
+- **Prévias pedem login na Vercel** (a proteção padrão das prévias; conferido em 29/10/2026): só quem é do time da
+  Vercel abre. As sessões não abrem prévias: testam no `localhost:5180` contra o STG, e a Renderiza confere a prévia.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
   entregar a secreta). A chave secreta só entra se uma função do servidor precisar, nunca no front.
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),

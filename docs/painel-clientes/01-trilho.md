@@ -15,8 +15,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 1 · Organização e infraestrutura |
-| **Próxima ação** | Missão 1: dois detalhes ([`missoes.md`](missoes.md)): fechar o cadastro na produção, com o ok da Renderiza, e conferir o login numa prévia da Vercel. A Missão 2 pode começar (banco e telas) |
+| **Onde o trem está** | Parada 2 · Fundação: banco e casca |
+| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) e bloco B (telas base), em uma ou duas sessões |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -25,7 +25,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 ```
                                                        ┏━━ [3] MÓDULOS DO DIA A DIA ━━━━┓
  PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ━━━━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
-   ✅        E INFRA 🚂         BANCO E CASCA          ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
+   ✅        E INFRA ✅         BANCO E CASCA 🚂       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -48,7 +48,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 - Experiência com Supabase + Vercel no painel de prospecção (login, RLS, funções públicas, middleware).
 - Geradores de site (`ferramentas/demo/gerar*.py`) e a conversão de demo em site do cliente (`scripts/virar-site.mjs`).
 
-## Parada 1 · Organização e infraestrutura 🚂
+## Parada 1 · Organização e infraestrutura ✅
 
 **Para quê:** deixar os trilhos assentados: o endereço com login no ar e tudo pronto para várias sessões
 trabalharem sem se bater.
@@ -63,9 +63,9 @@ trabalharem sem se bater.
 - Tela de login mínima no ar.
 
 **Chegou quando:** o login funciona no endereço escolhido, o e-mail de confirmação chega, e uma migração de teste
-passou pelo STG e pela produção.
+passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé: Missão 1 em [`missoes.md`](missoes.md)).
 
-## Parada 2 · Fundação: banco e casca ⬜
+## Parada 2 · Fundação: banco e casca 🚂
 
 **Para quê:** o esqueleto que todos os módulos usam. Depois dela, os módulos andam em paralelo.
 **Referência:** [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md), [`09-ux.md`](09-ux.md) e os exemplos.
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 1 → 2 | **Parada 1 fechada (Missão 1 feita).** Cadastro pela API fechado também na produção, com o ok da Renderiza; a Renderiza conferiu o login numa prévia da Vercel (STG), com troca de senha (a prévia pede login na Vercel). O trem segue para a Parada 2: a Missão 2 pode começar. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | A Renderiza conferiu na produção: entrar, sair, "Esqueci a senha" e senha nova pelo e-mail em português. O cadastro pela API, que estava aberto a qualquer um, foi fechado no repositório e no STG; a produção espera o ok. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | E-mail pelo Brevo: domínio autenticado no DNS (DKIM e DMARC), SMTP nos dois projetos e os 5 e-mails do login em português aplicados no STG e na produção; um e-mail de verdade saiu pelo STG. Junto, a configuração do login pelo repositório foi para a `main`. Falta a Renderiza conferir na produção. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | Login (Auth) dos dois projetos configurado pelo repositório (`scripts/auth.mjs`): endereço do painel, endereços de retorno e senha mínima de 8, conferidos lendo de volta e na prática. Os 5 e-mails do login em português ficaram prontos (`supabase/emails/`), mas o Supabase grátis só aceita e-mail próprio com SMTP próprio: entram com o Brevo. Pronto para subir na branch `claude/clever-albattani-u37i0u`. | Claude, a pedido da Renderiza |

@@ -51,7 +51,7 @@ Painel de prospecção (variáveis `SUPABASE_URL` e `SUPABASE_ANON_KEY`) nunca �
    `AAAAMMDDHHMMSS_assunto.sql` (data e hora no nome: duas sessões nunca criam o mesmo número).
 2. **Teste antes, no banco local**, incluindo a RLS e o teste de isolamento de toda tabela nova.
 3. **Sempre STG primeiro, produção depois.** Aplicou no STG, confira que funciona lá (a prévia da branch na Vercel
-   usa o STG). Só então aplique na produção.
+   usa o STG; ela pede login na Vercel, então quem abre é a Renderiza; a sessão testa no `localhost:5180`). Só então aplique na produção.
 4. **Antes de aplicar, confira o que já está no banco** e a tabela "Migrações aplicadas" de `missoes.md`. Se o banco
    tem uma migração que você não tem, traga a branch dela antes de seguir.
 5. **Aplique pelo caminho que registra a migração no próprio banco** (o script da Missão 1,
