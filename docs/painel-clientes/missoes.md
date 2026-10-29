@@ -9,8 +9,8 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento** (sua parte: Auth, Brevo e Vercel); parte do Claude **pronta para subir** | `claude/clever-albattani-u37i0u` (continua a `claude/missao-1-trilhos-setup-wwahf8`) |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | esperando a 1 | |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10); falta a Vercel (você) e, depois dela, o Auth pela API (sessão) | `claude/clever-albattani-u37i0u` (continua a `claude/missao-1-trilhos-setup-wwahf8`) |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: depende só da parte do Claude da Missão 1, que já está na `main` | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
@@ -33,9 +33,11 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 **Sua parte** (fora do repositório; passo a passo no [`04`](04-arquitetura.md)). Feito em 28 e 29/10/2026: o
 `contato@renderizaweb.com.br` no Zoho (com os MX no Registro.br) e os dois projetos do Supabase em São Paulo,
 produção (`hxzsiiqhlqxuqkevskwb`) e STG (`qxcxllhmtodsptxffbhx`), que substituíram os primeiros, criados nos EUA e
-apagados; as variáveis do item 3, já com os projetos novos (conferidas pela sessão em 29/10). Falta: o Auth dos
-dois projetos (*Authentication*: endereço do painel, senha mínima de 8; ver o `04`), o envio (item 4) e a Vercel
-(item 5).
+apagados; as variáveis do item 3, já com os projetos novos (conferidas pela sessão em 29/10). Falta: a Vercel
+(item 5). Depois dela, uma sessão configura o Auth dos dois projetos pela API de gerenciamento (endereço do painel e
+de retorno, senha mínima de 8). O envio (item 4, Brevo) fica para antes do piloto: até lá, o e-mail padrão do
+Supabase manda só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a
+Missão 2 cria com a semente.
 
 1. Um e-mail só para tudo: `contato@renderizaweb.com.br`, numa caixa grátis do **Zoho Mail** (plano Forever Free).
    É o e-mail que os clientes recebem e o dono das contas abaixo. Os registros que o Zoho pedir vão no DNS do

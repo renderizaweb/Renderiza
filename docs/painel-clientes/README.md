@@ -9,9 +9,9 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 > **Parada 1 de 6 · Organização e infraestrutura.** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
-> começar a usar por volta de 11/11/2026. **Missão 1 em andamento:** e-mail, Supabase e variáveis prontos; falta a
-> Renderiza configurar o Auth, o envio (Brevo) e a Vercel. A parte da sessão (esqueleto, migrações e login) está
-> pronta para subir. Detalhes e diário de bordo:
+> começar a usar por volta de 11/11/2026. **Missão 1:** e-mail, Supabase (São Paulo), variáveis e a parte da sessão
+> (esqueleto, migrações e login) prontos e na `main`; falta a Vercel. **Missão 2 pode começar.** Detalhes e diário
+> de bordo:
 > [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 
 (Quem fechar uma missão atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
