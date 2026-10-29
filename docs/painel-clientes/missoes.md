@@ -223,6 +223,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 1 | **Vercel no ar** (`renderiza-painel-clientes.vercel.app`, produção). No primeiro deploy, abrir `/entrar` direto dava 404: com `cleanUrls` ligado a Vercel ignora o rewrite para `/index.html`. Corrigido com `cleanUrls: false` (teste no `esqueleto.test.mjs`). |
 | 29/10/2026 | 1 | **Supabase em São Paulo:** a Renderiza apagou os dois projetos dos EUA (produção `wkwyhganenohmupcwthd`, `us-east-2`; STG `vzrmepxoigoszqtoxtlo`, `us-west-2`) e criou dois em São Paulo (`sa-east-1`): produção `hxzsiiqhlqxuqkevskwb` e STG `qxcxllhmtodsptxffbhx`, com as variáveis `PAINEL_*` atualizadas (o token é o mesmo). A migração de teste foi reaplicada nos dois. Rodam Postgres 17 (o banco local é 16). O Auth dos dois está no padrão: *Site URL* `http://localhost:3000`, senha mínima 6, sem SMTP próprio. |
 | 29/10/2026 | 1 | **`vercel.json`:** o `ignoreCommand` agora compara o último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o commit atual, não só `HEAD^` com `HEAD`; sem SHA anterior ou com erro do git, faz o build (`04`, Vercel). |
 | 29/10/2026 | 1 | **Esqueleto:** cada módulo e cada parte do Admin já tem `index.js` vazio na sua pasta, com `montar(el, contexto)`: quem constrói substitui. O Admin tem também a parte `modulos/` (do `02`). A rota `/admin` ainda não tem trava (as partes não leem nada); a trava vem com `equipe_renderiza` e a RLS (Missões 2 e 5). |

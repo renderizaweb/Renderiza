@@ -122,7 +122,9 @@ painel-clientes/
 - **Projeto novo** apontando para `painel-clientes/`, sem framework, sem passo de build (ou um mínimo, se precisar).
 - "Pular build quando a pasta não mudou" ligado: a `main` recebe muitos commits de demos e o Hobby tem 100 deploys
   por dia. Já vem no `painel-clientes/vercel.json` (`ignoreCommand`), junto com os cabeçalhos abaixo; o
-  `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado.
+  `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado. O `cleanUrls` fica **desligado**: ligado, a Vercel
+  ignora o rewrite para o `index.html` e as rotas do app (`/entrar`, `/agenda`) dão 404 quando abertas direto
+  (conferido no primeiro deploy, 29/10/2026).
 - **Como o `ignoreCommand` decide** (29/10/2026):
   `[ -n "$VERCEL_GIT_PREVIOUS_SHA" ] && git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- ./`. Compara o commit
   do último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o atual, só dentro de `painel-clientes/`. Na Vercel,

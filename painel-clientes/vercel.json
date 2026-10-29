@@ -4,7 +4,7 @@
   "installCommand": "",
   "buildCommand": "",
   "ignoreCommand": "[ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- ./",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
     { "source": "/((?!api/|src/|publico/).*)", "destination": "/index.html" }

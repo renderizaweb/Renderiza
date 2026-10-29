@@ -46,6 +46,8 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.match(valor("Content-Security-Policy"), /script-src 'self' https:\/\/cdn\.jsdelivr\.net;/);
   assert.match(valor("Content-Security-Policy"), /connect-src 'self' https:\/\/\*\.supabase\.co wss:\/\/\*\.supabase\.co;/);
   assert.ok(v.rewrites.some(r => r.destination === "/index.html"));
+  // Com cleanUrls ligado, a Vercel ignora o rewrite para /index.html e as rotas do app (/entrar, /agenda) dão 404.
+  assert.equal(v.cleanUrls, false);
 });
 
 // Na Vercel, o ignoreCommand saindo com 0 pula o deploy; com qualquer outro código, faz o build.
