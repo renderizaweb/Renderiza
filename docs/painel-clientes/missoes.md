@@ -10,7 +10,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **em andamento**: bloco A (banco) desde 29/10; bloco B livre | A: `claude/painel-renderiza-setup-ztnrzy` |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **pronta para subir** (29/10; já no STG e na produção); bloco B (telas): **pode começar** | A: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
@@ -197,23 +197,35 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
-Feito (no repositório, testado no banco local): 4 migrações em painel-clientes/supabase/migrations/
-  20261029110000_contas_e_acesso (modulos, contas, pessoas, convites, contas_modulos, equipe_renderiza,
-    acessos_suporte, termos_aceites; pode(), pode_algum(), minhas_contas(), cadastrar_conta(), aceitar_convites())
-  20261029110100_negocio_e_dia_a_dia (tipos_reserva, servicos, adicionais, horarios, bloqueios, campanhas, clientes,
+Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · PRONTA PARA SUBIR
+Feito: o banco inteiro do 05, em 6 migrações (painel-clientes/supabase/migrations/), aplicadas no STG e na produção:
+  20261029110000_contas_e_acesso: modulos (os 7 da página de venda), contas, pessoas, convites, contas_modulos,
+    equipe_renderiza, acessos_suporte, termos_aceites; pode(), pode_algum(), minhas_contas(), cadastrar_conta(),
+    aceitar_convites(); travas (último dono, limite de pessoas, o dono não muda situação/prazo/código).
+  20261029110100_negocio_e_dia_a_dia: tipos_reserva, servicos, adicionais, horarios, bloqueios, campanhas, clientes,
     clientes_fichas, pedidos, reservas, reservas_adicionais, reservas_valores, reservas_checklist, compromissos,
-    lista_espera, parcelas, modelos_contrato, contratos, entregas; situacao(cliente), fechar_pedido(), juntar_clientes())
-  20261029110200_historico_site_e_admin (atividades por gatilho, sites, sites_versoes, sites_previas, entradas,
-    pagamentos, erros_front; registrar_entrada(), admin_indicadores(); pedidos no tempo real)
-  20261029110300_armazenamento (buckets logos, site-imagens, privado e as políticas)
-  Testes em supabase/testes/010, 020, 030 e 090 (isolamento em todas as tabelas, só vê × edita, valores escondidos,
-  teste vencido, módulo desligado, "só pago", suporte, convite, cadastro, histórico, Meu site, Admin, arquivos e as
-  regras gerais: RLS em tudo, anon sem tabela, search_path fixo).
-Falta: atualizar o 05, os avisos e o 07; marcar pronta para subir.
-Próximo passo: documentos.
-Decisões no caminho: ver "Avisos" (bloco A) quando a parte estiver pronta.
-Migrações aplicadas (STG / produção): as 6 no STG e na produção em 29/10 (testes do banco passam no STG: node supabase/testes/no-stg.mjs). Semente só no STG.
+    lista_espera, parcelas, modelos_contrato, contratos, entregas; chaves compostas com a conta; situacao(cliente),
+    fechar_pedido(), juntar_clientes(); contrato com hash e congelado no aceite.
+  20261029110200_historico_site_e_admin: atividades (gatilhos, sem valores), sites, sites_versoes, sites_previas,
+    entradas, pagamentos, erros_front; registrar_entrada(), admin_indicadores(); pedidos no tempo real.
+  20261029110300_armazenamento: buckets logos, site-imagens e privado, com as políticas por pasta da conta.
+  20261029112300_regras_sem_visitante: funções de regra fechadas ao visitante (aviso do Supabase no STG).
+  20261029112900_apagar_conta_inteira: apagar uma conta inteira sem erro (achado pela semente).
+  A semente (supabase/semente/semente.mjs): Villa Alecrim e Estúdio Ciranda lidos de exemplos/dados-*.js, no local e
+  no STG (no STG desde 29/10: 2 contas, 6 pessoas, 24 festas, 82 ensaios, 287 parcelas); contato@ é o dono das duas.
+  Testes em supabase/testes/ (010, 020, 030, 090) e o script no-stg.mjs, que roda os mesmos testes no STG e desfaz.
+  Documentos: 05 (o banco como está, as funções), 07 (D21 a D27), 09 (o onboarding de eventos cria os tipos de festa).
+Testado: npm test da pasta (56, com os testes do banco e test/semente.test.mjs); node scripts/migrar.mjs local
+  (6 arquivos de teste); os mesmos 6 no STG (node supabase/testes/no-stg.mjs: tudo passa e nada fica); a semente
+  duas vezes seguidas no local e uma no STG, conferida entrando como cada pessoa por SQL (o dono vê as duas contas;
+  Rafael não vê parcelas mas vê valores pelos Contratos; Léo não vê valores, contratos nem pedidos; Duda não vê a
+  Villa); na produção: 34 tabelas, todas com RLS, o visitante sem acesso a nenhuma, nenhuma conta; avisos de
+  segurança do Supabase nos dois: só os esperados (abaixo).
+Ficou de fora (é de outras missões): as funções públicas publico_* (agenda online e Meu site na Missão 4; aceite do
+  contrato na Missão 3, bloco E), o envio do convite (servidor com a chave secreta, bloco B), a validação do JSON do
+  Meu site antes de publicar (Missão 4) e quem publica no Meu site (Missão 4 decide).
+Decisões no caminho: no 07, D21 a D27. Migração aplicada não se edita: as correções vieram em migrações novas.
+Migrações aplicadas (STG / produção): as 6, nos dois, em 29/10. Semente só no STG.
 ```
 
 ```
@@ -270,6 +282,12 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 2A → todas | **O banco inteiro está no STG e na produção** (`05` descreve tudo). Para quem constrói: (1) quem decide o acesso é `pode(conta, módulo, 'ver' ou 'editar')`; a tela só esconde o que o banco já não entrega. (2) **Tabela nova** precisa de RLS e de `revoke all ... from anon`: o teste `supabase/testes/090_regras_gerais.sql` falha se faltar. (3) **Função aberta ao visitante** só com o nome `publico_*` (o mesmo teste confere); as outras com `revoke execute ... from public, anon`. (4) O histórico (`atividades`) é automático nas tabelas do dia a dia; tabela nova que precise dele ganha o gatilho `historico` (ver a migração `20261029110200`). (5) Testes do banco também rodam no STG: `node supabase/testes/no-stg.mjs`. |
+| 29/10/2026 | 2A → 2B | **Para as telas:** `minhas_contas()` (escolher a conta e o menu: `liberada = false` é o aviso de teste vencido ou conta desligada; `modulos` são os ligados), `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` (um teste por pessoa), `aceitar_convites()` (chamar logo depois de entrar), `registrar_entrada(conta, aparelho)` (ao entrar numa conta). Convite = linha em `convites` (só o dono grava) + o e-mail pelo servidor com `data: { nome_da_conta }`. Preferências: `pessoas.preferencias` (de cada um) e `contas.ajustes` (da conta: ordem do menu, primeiros passos escondidos). Onboarding de eventos: "Que festas vocês fazem?" cria `tipos_reserva` (D21, `09`). Equipe e Configurações são só do dono (D22); limite de 5 pessoas ativas no banco. Logo em `logos/<id da conta>/…`. |
+| 29/10/2026 | 2A → 3, 4, 5 | **Já no banco para as missões seguintes:** `fechar_pedido()`, `juntar_clientes()` e `situacao(cliente)` (3A, 3C); o aceite do contrato grava `aceito_*` só por uma função `publico_*` (3E); `sites`, `sites_versoes`, `sites_previas`, o bucket `site-imagens` (só WebP, 2 MB) e os pedidos no tempo real (4); `equipe_renderiza` (vazia: a Renderiza cadastra quem entra no Admin, direto no banco), `acessos_suporte`, `pagamentos`, `entradas` e `admin_indicadores()` (5A). |
+| 29/10/2026 | 2A | **Semente no STG:** `contato@renderizaweb.com.br` é o dono da Villa Alecrim e do Estúdio Ciranda (entra pelo "Esqueci a senha"); a equipe são usuários fictícios sem senha (`@villa-alecrim.teste`, `@estudio-ciranda.teste`), para a RLS ter quem testar. As datas saem do dia em que a semente rodou: para renovar, `node supabase/semente/semente.mjs stg` (apaga as duas contas de teste e grava de novo). |
+| 29/10/2026 | 2A → 5B | **Avisos do Supabase que ficaram** (nos dois projetos): `authenticated_security_definer_function_executable` (as funções que o painel chama: esperado); `auth_leaked_password_protection` (a checagem de senha vazada do Auth está desligada; é configuração do Auth, para a revisão de segurança); e, de desempenho, políticas repetidas por tabela (uma para ver e outra para editar) e chaves sem índice próprio, que só pesam com muito dado. |
+| 29/10/2026 | 2A | **Fora do "Mexe em" do bloco A, pequeno:** `painel-clientes/test/semente.test.mjs` (novo) e duas linhas na tabela de comandos de `painel-clientes/README.md`. |
 | 29/10/2026 | 1 · 2 | **Missão 1 feita; a Missão 2 pode começar.** Três coisas que a Missão 2 vai encontrar: (1) **prévias da Vercel pedem login na Vercel**: a sessão não abre prévia; testa no `localhost:5180` contra o STG (`npm run dev` na pasta `painel-clientes/`) e pede à Renderiza para conferir a prévia. (2) **Convidar** (`auth.admin.inviteUserByEmail`) só funciona com a chave secreta do Supabase, que nunca vai ao front (`04`): o convite sai de uma função do servidor; a sessão escolhe o caminho, registra no `07` e pede à Renderiza para pôr a chave onde for preciso (nunca pelo chat). (3) **Abrir o cadastro** pede a verificação contra robô (ex.: Cloudflare Turnstile): a chave do site é pública e vai no front; a secreta, a Renderiza põe no Supabase; só então `disable_signup: false`, STG primeiro. |
 | 29/10/2026 | 1 · 2B | **Cadastro fechado** pela API (`disable_signup` em `scripts/lib/auth.mjs`), no STG e na produção desde 29/10. O `06` só aceita cadastro aberto com verificação contra robô, e o cadastro estava aberto a qualquer um com a chave pública (que vai para o navegador), mandando e-mail do nosso domínio para qualquer endereço. Convite, "Esqueci a senha" e usuário criado pela Renderiza seguem funcionando. Quem fizer a tela de cadastro com 7 dias grátis (Missão 2, bloco B) liga a verificação contra robô no Auth (ex.: Cloudflare Turnstile) no mesmo arquivo e abre o cadastro, STG primeiro. |
 | 29/10/2026 | 1 | **E-mail pelo Brevo nos dois projetos** e os e-mails do login em português aplicados (`scripts/auth.mjs`). Limites: o Supabase manda até 30 e-mails por hora por projeto (`rate_limit_email_sent`) e o Brevo grátis, 300 por dia na conta toda (STG e produção juntos): nada de laço que dispare e-mail em teste. No STG ficou o usuário `contato@renderizaweb.com.br`, confirmado e com senha aleatória (foi o teste do envio; para entrar, "Esqueci a senha"); a semente da Missão 2 pode apagar ou reaproveitar. Detalhes no `04` (E-mail). |
