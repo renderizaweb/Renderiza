@@ -12,7 +12,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: a Missão 1 está feita e na `main` | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) desde 29/10, que não depende do banco; os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) **pronta para subir** (29/10); os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
@@ -152,6 +152,10 @@ vezes, e cada módulo faz o que o exemplo mostra.
 | B · Meu site no site | contrato de conteúdo v1, marcações `data-rz` nos geradores, script com fallback, `virar-site.mjs` com o código da conta, versão final | raiz `ferramentas/demo/gerar*.py`, raiz `ferramentas/meu-site/`, raiz `scripts/virar-site.mjs`, raiz `scripts/versao-final.mjs` |
 | C · Meu site no painel | editor por seção, imagens, rascunho, prévia, publicar, histórico, voltar à versão inicial, desconectar | `src/modulos/meu-site/`, `api/publico/site/` |
 
+**Bloco B feito (29/10/2026):** o contrato v1, o script, as marcações e a versão final estão no [`03`](03-modulo-meu-site.md)
+(seção "O que o painel entrega" é o que os blocos A e C precisam cumprir). O site de teste já existe (`node
+test/site-teste/montar.mjs`).
+
 Tudo provado num **site de teste** gerado de uma demo de eventos (`test/site-teste/`); quando o site do piloto
 existir e ele quiser, o mesmo vale para ele.
 
@@ -230,6 +234,34 @@ Decisões no caminho: assunto sem variável (o Supabase passa o assunto pelo htm
 Migrações aplicadas: nenhuma nova (o Auth não é migração; fica no script).
 ```
 
+```
+Missão 4 · bloco B (Meu site no site) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · PRONTA PARA SUBIR
+Feito: contrato de conteúdo v1 fechado (03, "O formato do conteúdo"); ferramentas/meu-site/meu-site.js (o script que vai
+  no site: pede a versão publicada com 1,5 s de espera, guarda 24 h no navegador, prévia por ?rz-previa=, volta à
+  inicial no 404; e a biblioteca validar/aplicar/extrair); marcações data-site-* em ferramentas/demo/gerar.py e
+  gerar-eventos.py (+ --saida); runtime.js com window.DEMO_RUNTIME; scripts/virar-site.mjs com "painel": { codigo }
+  (e aceitando uma pasta); scripts/versao-final.mjs; ferramentas/meu-site/extrair.mjs (conteúdo inicial = mapa do
+  site); site de teste test/site-teste/ (Villa Alecrim, fictícia, fotos desenhadas na hora); CONTEXTO.md avisa as
+  sessões das demos.
+Testado: test/meu-site.test.mjs (15, no npm test da raiz: 175 passam): validação, destaque, destinos, iniciais;
+  no Chromium, o site de teste com o painel imitado: fora do ar/500/JSON ruim/404 = inicial sem erro; versão
+  publicada (textos, botões, imagens, listas com ícone mantido, seção escondida, avaliações, contato e carrossel
+  refeito); texto com HTML entra como texto; imagem de fora e link javascript: recusados; demora de 2,2 s não
+  muda a página e fica guardada; 24 h; 404 apaga a guardada; guardada → painel sem sobra; prévia; extrair →
+  aplicar não muda nada; versão final sem script, offline, com imagem baixada. Visual das demos: capturas antes e
+  depois idênticas pixel a pixel (390 e 1280 px), nos estilos comum e gala e numa variação com grade, foto
+  horizontal e estilos de ótica. painel-clientes: 54 passam (não mexi lá).
+Ficou de fora (anotado no 03): cores e ordem das seções, posição dos botões, endereço e horário, a mensagem da
+  consulta de data, e as marcações nos geradores de fotografia e odonto (quando houver cliente desses nichos).
+Próximo passo (blocos A e C): a API pública e as imagens como em 03, "O que o painel entrega"; a montagem guarda o
+  extrair.mjs em sites.conteudo_inicial; o editor valida com a mesma validar().
+Decisões no caminho: marcações data-site-* (data-rz já é usado pela faixa de preço das demos de fotografia);
+  rótulo de botão como texto direto, sem <span> (há CSS de span nos botões e mudava o tamanho da letra); destaque
+  só nos títulos; um campo inválido descarta a versão inteira; resposta depois de 1,5 s só vai para o cache;
+  avaliações e contato pelo DEMO_CLIENT do runtime (na versão final, gravados no texto do script).
+Migrações aplicadas: nenhuma (não mexe no banco).
+```
+
 ## Migrações aplicadas
 
 Uma linha por migração; marque a data em cada banco logo depois de aplicar (regras em `08`: sempre STG primeiro).
@@ -246,6 +278,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 4B → 2A, 4A, 4C | **Meu site no site pronto** (contrato v1 no `03`). Para o painel cumprir: (1) `GET /api/publico/site/<código>` com o JSON do contrato (o `conteudo` da última publicada + `esquema`, `site`, `versao`, `publicado_em`), `404` para desconectado/versão final, **`Access-Control-Allow-Origin: *`** e `Cache-Control: public, max-age=0, s-maxage=60`; (2) a prévia em `/api/publico/site/<código>/previa?t=<sites_previas.codigo>`, `no-store`; (3) **imagens servidas pelo domínio do painel** (o script recusa outro endereço; ex.: rewrite `/imagens/sites/…` para o Storage `site-imagens`); (4) `sites.conteudo_inicial` = a saída de `node ferramentas/meu-site/extrair.mjs <index.html>`; (5) validar com a mesma `validar()` de `ferramentas/meu-site/meu-site.js`: a Vercel publica só `painel-clientes/`, então o painel guarda uma cópia e um teste confere que é igual. O formato de `sites`, `sites_versoes` e `sites_previas` do bloco A já bate com isso. |
+| 29/10/2026 | 4B → demos | **Geradores com as marcações do Meu site** (`data-site-*` em `gerar.py` e `gerar-eventos.py`): o visual não muda (conferido pixel a pixel), mas não apague nem renomeie. O `runtime.js` expõe `window.DEMO_RUNTIME`. Rótulo de botão é texto direto dentro do `<a>`, sem `<span>`. |
 | 29/10/2026 | 1 · 2 | **Missão 1 feita; a Missão 2 pode começar.** Três coisas que a Missão 2 vai encontrar: (1) **prévias da Vercel pedem login na Vercel**: a sessão não abre prévia; testa no `localhost:5180` contra o STG (`npm run dev` na pasta `painel-clientes/`) e pede à Renderiza para conferir a prévia. (2) **Convidar** (`auth.admin.inviteUserByEmail`) só funciona com a chave secreta do Supabase, que nunca vai ao front (`04`): o convite sai de uma função do servidor; a sessão escolhe o caminho, registra no `07` e pede à Renderiza para pôr a chave onde for preciso (nunca pelo chat). (3) **Abrir o cadastro** pede a verificação contra robô (ex.: Cloudflare Turnstile): a chave do site é pública e vai no front; a secreta, a Renderiza põe no Supabase; só então `disable_signup: false`, STG primeiro. |
 | 29/10/2026 | 1 · 2B | **Cadastro fechado** pela API (`disable_signup` em `scripts/lib/auth.mjs`), no STG e na produção desde 29/10. O `06` só aceita cadastro aberto com verificação contra robô, e o cadastro estava aberto a qualquer um com a chave pública (que vai para o navegador), mandando e-mail do nosso domínio para qualquer endereço. Convite, "Esqueci a senha" e usuário criado pela Renderiza seguem funcionando. Quem fizer a tela de cadastro com 7 dias grátis (Missão 2, bloco B) liga a verificação contra robô no Auth (ex.: Cloudflare Turnstile) no mesmo arquivo e abre o cadastro, STG primeiro. |
 | 29/10/2026 | 1 | **E-mail pelo Brevo nos dois projetos** e os e-mails do login em português aplicados (`scripts/auth.mjs`). Limites: o Supabase manda até 30 e-mails por hora por projeto (`rate_limit_email_sent`) e o Brevo grátis, 300 por dia na conta toda (STG e produção juntos): nada de laço que dispare e-mail em teste. No STG ficou o usuário `contato@renderizaweb.com.br`, confirmado e com senha aleatória (foi o teste do envio; para entrar, "Esqueci a senha"); a semente da Missão 2 pode apagar ou reaproveitar. Detalhes no `04` (E-mail). |

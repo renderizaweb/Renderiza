@@ -97,7 +97,7 @@ html = html.replace(/(<\/title>\n)/, `$1${cabeca}\n`);
 // 4b. Meu site: o script vai no fim do <head>, para pedir a versão publicada o quanto antes.
 if (conf.painel) {
   const { codigo, api } = conf.painel;
-  if (!/^[a-z0-9][a-z0-9-]{0,40}$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido');
+  if (!/^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido (o mesmo formato da tabela sites)');
   if (api && !/^https?:\/\/[^\s"<>]+\/$/.test(api)) throw new Error('site.json: "painel.api" inválido (termina com /)');
   const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
   if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
