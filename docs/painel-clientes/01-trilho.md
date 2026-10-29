@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missão 3: blocos C (Atendimento) e B (Agenda) feitos; os blocos A, D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
+| **Próxima ação** | Missão 3: blocos C (Atendimento) e B (Agenda) feitos; bloco A (Clientes) em andamento; os blocos D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 

@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento) e B (Agenda) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos A, D, E e F estão livres | B e C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento) e B (Agenda) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco A (Clientes) **em andamento** desde 29/10; os blocos D, E e F estão livres | A, B e C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -209,6 +209,24 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 3 · bloco A (Clientes) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: 05 ("O cliente no centro": situação calculada, uma pessoa um cliente, juntar, arquivar, a ficha como
+  linha do tempo, só o que a pessoa pode ver), 02 (Clientes / Clientes e entregas: a entrega com o prazo e o link
+  da galeria, sem guardar fotos), os exemplos (a lista de clientes; na fotografia, "Clientes e entregas" com o
+  prazo de cada entrega).
+Plano (nesta ordem, cada parte com commit): 1. a lista (chips pela situação: com reserva, interessados, já
+  fizeram, não fecharam, arquivados; busca; a próxima reserva na linha); 2. a ficha (gaveta): contatos com
+  WhatsApp, a linha do tempo (pedidos, reservas, compromissos, contratos, parcelas, entregas e o histórico, cada
+  um abrindo o seu módulo, só o que a pessoa vê), editar (contato e a ficha completa: observações, endereço);
+  ?cliente=<id> e ?novo=cliente; 3. juntar clientes (juntar_clientes) e arquivar com desfazer; 4. fotografia:
+  as entregas (escolhendo, em edição, entregue), com o prazo e o link da galeria, e começar a entrega de um
+  ensaio feito; 5. teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/clientes/. Fora disso, pequeno e com aviso, se precisar.
 ```
 
 ```
