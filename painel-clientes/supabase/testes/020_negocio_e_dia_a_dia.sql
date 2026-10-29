@@ -314,3 +314,26 @@ select testes.afirmar((select arquivado_em is not null from public.clientes wher
 update public.entregas set situacao = 'entregue', link_galeria = 'https://galeria.exemplo.teste/juliana' where conta_id = (select ciranda from _c);
 select testes.afirmar((select entregue_em = current_date from public.entregas where conta_id = (select ciranda from _c)), 'entregue: a data fica registrada');
 select pg_temp.erro_com($$update public.entregas set link_galeria = 'javascript:alert(1)'$$, 'entregas_link_galeria_check', 'o link da galeria é só https');
+
+-- ---------- adicional vendido não se apaga (a conferência é no fim da transação) ----------
+select pg_temp.erro_com($t$do $x$ begin delete from public.adicionais where conta_id = (select ciranda from _c); set constraints all immediate; end $x$ $t$,
+  'foreign key', 'adicional que está numa reserva não se apaga');
+
+-- ---------- apagar a conta inteira (conta cancelada, depois dos 90 dias; ou a semente) ----------
+-- Com tudo ligado: responsáveis, quem marcou o checklist, adicionais, convites e histórico com pessoa.
+update public.reservas set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa'), producao_id = (select id from public.pessoas where nome = 'Léo Santos') where conta_id = (select villa from _c);
+update public.pedidos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa') where conta_id = (select villa from _c);
+update public.compromissos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa') where conta_id = (select villa from _c);
+insert into public.convites (conta_id, email, convidado_por) select villa, 'nova@outro.teste', (select id from public.pessoas where nome = 'Marina Alves') from _c;
+select testes.afirmar((select count(*) from public.reservas_checklist where feito_por is not null and conta_id = (select villa from _c)) >= 1, 'há checklist marcado por alguém');
+select testes.afirmar((select count(*) from public.reservas_adicionais where conta_id = (select villa from _c)) >= 1, 'há adicional vendido');
+select set_config('request.jwt.claims', '', true);
+delete from public.contas where id = (select villa from _c);
+select testes.afirmar(
+  (select string_agg(nome, ', ') from _tabelas, _c where pg_temp.contar(nome, villa) > 0) is null
+  and not exists (select 1 from public.pessoas where conta_id = (select villa from _c))
+  and not exists (select 1 from public.atividades where conta_id = (select villa from _c)),
+  'apagar a conta apaga tudo dela, sem erro, e não deixa nada para trás');
+select testes.afirmar(
+  (select string_agg(nome, ', ') from _tabelas, _c where pg_temp.contar(nome, ciranda) = 0) is null,
+  'a outra conta fica inteira');
