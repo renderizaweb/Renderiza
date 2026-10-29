@@ -77,6 +77,7 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 | D25 | **Histórico gravado pelo banco** (gatilhos), com o nome das colunas e as mudanças de etapa e situação, **nunca valores**; cada um vê o histórico do que pode ver | nenhuma tela esquece de registrar; ninguém grava histórico falso; o valor não vaza pelo histórico (29/10/2026, Missão 2A) |
 | D26 | **Origem e etapa:** origem ganha `outro` (telefone, passou na porta); etapa ganha `em_conversa` (está no exemplo de eventos) | o exemplo é a especificação (D10) (29/10/2026, Missão 2A) |
 | D27 | **Limite de pessoas no banco** (`contas.limite_pessoas`, 5): a Renderiza muda quando vender mais pessoas (D18) | `02`: até 5 pessoas no plano (29/10/2026, Missão 2A) |
+| D28 | **O e-mail do convite sai de uma função do Supabase** (Edge Function `convidar`), não da Vercel: o dono grava o convite (a RLS decide quem pode) e a função, lendo o convite com o login de quem chamou, manda o convite do Auth ou, para quem já tem login, o link de acesso. A chave secreta fica só no ambiente da função (o Supabase põe lá); publicar com `supabase/functions/publicar.mjs`, STG primeiro | ninguém copia a chave secreta para a Vercel; a função fica ao lado do Auth que manda o e-mail (29/10/2026, Missão 2B) |
 
 ## Ideias guardadas (para o futuro, sem data)
 

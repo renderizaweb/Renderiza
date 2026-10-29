@@ -9,18 +9,19 @@ import { validarEmail } from "../sessao.js";
 import { icone } from "../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado, ligarMostrarSenha, ligarAvisoCapsLock } from "../ui/formulario.js";
 
-const WHATSAPP = "https://wa.me/5511988697165?text=" + encodeURIComponent("Oi! Quero conhecer o Painel Renderiza.");
+import { linkDaRenderiza } from "./renderiza.js";
 
-function rodape() {
-  if (TELAS.cadastro) return `Ainda não usa o Painel Renderiza? <a href="${TELAS.cadastro.caminho}">Teste 7 dias grátis</a>`;
-  return `Ainda não usa o Painel Renderiza? <a href="${WHATSAPP}" target="_blank" rel="noopener">Fale com a gente</a>`;
+// O cadastro sozinho só aparece quando está aberto (com a verificação contra robô; /api/config diz).
+function rodape(config) {
+  if (config && config.cadastroAberto) return `Ainda não usa o Painel Renderiza? <a href="${TELAS.cadastro.caminho}">Teste 7 dias grátis</a>`;
+  return `Ainda não usa o Painel Renderiza? <a href="${linkDaRenderiza()}" target="_blank" rel="noopener">Fale com a gente</a>`;
 }
 
-export async function montar(el, { sessao, aoEntrar, ambiente }) {
+export async function montar(el, { sessao, aoEntrar, ambiente, config }) {
   const emailInicial = new URLSearchParams(location.search).get("email") || "";
   el.innerHTML = telaDeAcesso({
     ambiente,
-    rodape: rodape(),
+    rodape: rodape(config),
     conteudo: `
       <div class="rz-acesso-cabeca">
         <h1 class="rz-titulo-1">Entrar</h1>
