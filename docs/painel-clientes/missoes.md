@@ -199,6 +199,19 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
+Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Plano (nesta ordem, cada parte com commit): 1. palavras por nicho (src/nichos/) e formatos (src/ui/formatos.js);
+  2. a casca de verdade: sessão com a conta escolhida (minhas_contas), escolher a conta, menu lateral e barra de
+  baixo só com os módulos ligados (trancado sem acesso), aviso de teste e tela de teste vencido, registrar_entrada,
+  aceitar_convites; 3. peças comuns em src/ui/ (aviso com desfazer, gaveta, folha do "+", estados, "Para quem?",
+  WhatsApp, CSV, paleta Ctrl+K); 4. Equipe e acessos, Configurações, Serviços; 5. o convite (função do servidor e a
+  tela /convite); 6. onboarding (/comecar) e cadastro (/cadastro, pronto para a verificação contra robô); 7. primeiros
+  passos no Início, com a importação das datas; 8. teste de ponta a ponta no localhost contra o STG.
+Feito: nada ainda.
+Próximo passo: parte 1.
+```
+
+```
 Missão 2 · bloco A (banco) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · NA MAIN (29/10)
 Feito: o banco inteiro do 05, em 6 migrações (painel-clientes/supabase/migrations/), aplicadas no STG e na produção:
   20261029110000_contas_e_acesso: modulos (os 7 da página de venda), contas, pessoas, convites, contas_modulos,
