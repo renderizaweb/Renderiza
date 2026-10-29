@@ -89,8 +89,9 @@ function avisoDoTeste(conta) {
   const dias = diasDeTeste(conta);
   if (dias === null || !conta.liberada) return "";
   const texto = dias <= 1 ? "Último dia do teste grátis." : `Teste grátis: faltam ${dias} dias.`;
+  // fechar o plano é com o dono; a equipe só fica sabendo do prazo
   return `<div class="rz-faixa-teste" role="status">${icone("relogio", { tamanho: 16 })}<span>${texto}</span>
-    <a href="${linkDaRenderiza(`Oi! Quero fechar o plano do Painel Renderiza para ${conta.nome}.`)}" target="_blank" rel="noopener">Fechar o plano</a></div>`;
+    ${conta.dono ? `<a href="${linkDaRenderiza(`Oi! Quero fechar o plano do Painel Renderiza para ${conta.nome}.`)}" target="_blank" rel="noopener">Fechar o plano</a>` : ""}</div>`;
 }
 
 /** O conteúdo quando a conta está bloqueada (teste vencido, desligada, prazo vencido): o banco não entrega nada. */
