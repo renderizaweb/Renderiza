@@ -236,7 +236,9 @@ export async function montar(el, contexto) {
   // ?novo=pedido (o "+" das ações rápidas) e ?pedido=<id> (um link para o pedido)
   if (params.get("novo") === "pedido" || params.get("pedido")) history.replaceState(history.state, "", location.pathname);
   if (params.get("novo") === "pedido" && edita) {
-    const novo = await anotarPedido(ctx);
+    // ?cliente=<id>: veio da ficha do cliente, que já sabe de quem é
+    const jaEscolhido = params.get("cliente") ? await banco.resultado(banco.tabela("clientes").select("id, nome, whatsapp, email, instagram").eq("id", params.get("cliente")).maybeSingle()).catch(() => null) : null;
+    const novo = await anotarPedido(ctx, { cliente: jaEscolhido });
     if (novo) { ctx.pedidos.unshift(novo); desenhar(); }
   } else if (params.get("pedido")) {
     const p = ctx.pedidos.find(x => x.id === params.get("pedido"));

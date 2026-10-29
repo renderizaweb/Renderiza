@@ -735,3 +735,14 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-legenda span{display:inline-flex;align-items:center;gap:6px}
 .rz-legenda i{display:inline-block;width:14px;height:14px;border-radius:4px;min-height:0;padding:0}
 .rz-cartao-corpo>.rz-secao-cabeca{margin-bottom:var(--rz-3)}
+
+/* ---------- 19. Clientes (Missão 3, bloco A; 05): a ficha como linha do tempo ---------- */
+.rz-tempo{list-style:none;margin:var(--rz-2) 0 0;padding:0;display:flex;flex-direction:column}
+.rz-tempo li{position:relative}
+.rz-tempo li:not(:last-child)::after{content:"";position:absolute;left:15px;top:44px;bottom:-6px;width:2px;background:var(--rz-linha)}
+.rz-tempo-item{display:flex;align-items:center;gap:var(--rz-3);min-height:56px;padding:var(--rz-2) 0;color:var(--rz-tinta);text-decoration:none}
+.rz-tempo-item:hover .rz-linha-texto b{text-decoration:underline}
+.rz-tempo-item:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-tempo-icone{position:relative;z-index:1;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--rz-gelo);color:var(--rz-tinta-2)}
+.rz-acoes-ficha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.rz-texto-perigo{color:var(--rz-perigo);font-weight:600}

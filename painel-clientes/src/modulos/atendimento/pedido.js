@@ -246,9 +246,9 @@ export function marcarVisita(p, ctx) {
 }
 
 /** Anotar pedido (o "+ Novo pedido"): primeiro "Para quem?", depois o que a pessoa pediu. Resolve com o pedido criado. */
-export async function anotarPedido(ctx) {
+export async function anotarPedido(ctx, { cliente: jaEscolhido = null } = {}) {
   const { banco, conta, nicho, avisar, equipe, pessoa } = ctx;
-  let cliente = await abrirParaQuem({ banco, conta, titulo: "Pedido de quem?" });
+  let cliente = jaEscolhido || await abrirParaQuem({ banco, conta, titulo: "Pedido de quem?" });
   if (!cliente) return null;
   const eventos = nicho.id === "eventos";
   const tabela = eventos ? "tipos_reserva" : "servicos";

@@ -66,6 +66,8 @@ async function iniciar() {
   async function desenhar() {
     const minhaVez = ++vez;
     if (desmontar) { try { desmontar(); } catch (e) { /* sair nunca trava a próxima tela */ } desmontar = null; }
+    // trocar de tela fecha as gavetas e folhas abertas (um link de dentro da gaveta leva a outra tela)
+    for (const janela of document.querySelectorAll("dialog.rz-janela")) { try { janela.close(); } catch (e) { /* já fechada */ } janela.remove(); }
     const decisao = decidir({ caminho: location.pathname, busca: location.search, logado: sessao.logado() });
     if (decisao.redirecionar) return navegar(decisao.redirecionar, { substituir: true });
     const { rota } = decisao;

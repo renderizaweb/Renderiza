@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento) e B (Agenda) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco A (Clientes) **em andamento** desde 29/10; os blocos D, E e F estão livres | A, B e C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda) e A (Clientes) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos D, E e F estão livres | A, B e C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,7 +212,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco A (Clientes) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco A (Clientes) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: 05 ("O cliente no centro": situação calculada, uma pessoa um cliente, juntar, arquivar, a ficha como
   linha do tempo, só o que a pessoa pode ver), 02 (Clientes / Clientes e entregas: a entrega com o prazo e o link
   da galeria, sem guardar fotos), os exemplos (a lista de clientes; na fotografia, "Clientes e entregas" com o
@@ -224,9 +224,25 @@ Plano (nesta ordem, cada parte com commit): 1. a lista (chips pela situação: c
   ?cliente=<id> e ?novo=cliente; 3. juntar clientes (juntar_clientes) e arquivar com desfazer; 4. fotografia:
   as entregas (escolhendo, em edição, entregue), com o prazo e o link da galeria, e começar a entrega de um
   ensaio feito; 5. teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: src/modulos/clientes/. Fora disso, pequeno e com aviso, se precisar.
+Feito (partes 1 a 5): src/modulos/clientes/: index.js (lista com chips pela situação do banco: todos, com
+  reserva, interessado, já fez, não fechou, arquivados; busca por nome, WhatsApp, e-mail ou Instagram; a próxima
+  ou a última reserva na linha; ?cliente=<id>, ?novo=cliente; na fotografia, as abas Clientes e Entregas),
+  ficha.js (gaveta: contatos com WhatsApp, anotações e endereço (clientes_fichas), a linha do tempo com pedidos,
+  reservas, compromissos, contrato, pagamentos (as parcelas de cada reserva viram um item: "7 de 9 pagas, próxima
+  vence…") e entregas, cada item abrindo o seu módulo e só o que a pessoa vê; editar e novo; juntar com outro
+  cliente (juntar_clientes, com confirmação); arquivar e tirar do arquivo com desfazer; apagar só quem não tem
+  história; "Novo pedido" já com o cliente), entregas.js (fotografia: em andamento pelo prazo, entregues, os
+  ensaios feitos sem entrega com "Começar a entrega" (prazo de 30 dias, editável), em que pé está com desfazer,
+  "Entregue" pede o link da galeria e oferece o WhatsApp), logica.js; test/clientes.test.mjs (5 testes).
+  CPF ficou de fora da tela de propósito (D14: o aceite é sem CPF; só se o contrato do cliente pedir).
+  Fora do "Mexe em", pequeno: src/app.js (trocar de tela fecha as gavetas abertas: um link de dentro da gaveta
+  deixava ela aberta por cima da tela nova), src/modulos/atendimento/ (?novo=pedido&cliente=<id> pula o "Para
+  quem?"), estilo.css seção 19.
+Testado no STG (Villa Alecrim e Estúdio Ciranda): lista com 32 clientes por situação, ficha da Juliana & Pedro
+  (festa, reunião, pagamentos quitados, contrato aceito, pedido), novo cliente com anotação, juntar dois
+  clientes de teste, arquivar e desfazer, apagar (só sem história), "Novo pedido" da ficha abrindo o
+  Atendimento já com o cliente, entregas da fotografia (começar, "Entregue" sem link é barrado, com link entra,
+  desfazer); quem só vê não tem nenhum botão. Testes: 137 do front. Dados de teste apagados, semente rodada.
 ```
 
 ```
@@ -548,6 +564,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3A → 3D, 3E, 3F, todas | **Clientes pronto (na `main`).** A ficha leva a **`/financeiro?reserva=<id>`** e **`/financeiro?cliente=<id>`** (os pagamentos), **`/contratos?contrato=<id>`** e **`/clientes?aba=entregas&entrega=<id>`**: o Financeiro (3D) e Contratos (3E) abrem o detalhe ao ver esses parâmetros. Clientes abre **`/clientes?cliente=<id>`** e **`?novo=cliente`**; o Atendimento aceita **`?novo=pedido&cliente=<id>`** (pula o "Para quem?"). **`src/app.js` mudou (pequeno):** trocar de tela fecha as gavetas e folhas abertas (antes, um link de dentro da gaveta deixava ela por cima da tela nova). |
 | 29/10/2026 | 3B → 3A, 3D, 3F | **Agenda pronta (na `main`).** (1) A gaveta da festa leva a **`/financeiro?reserva=<id>`** ("Ver os pagamentos", só para quem tem Financeiro) e a **`/clientes?cliente=<id>`**: o Financeiro (3D) e Clientes (3A) abrem o detalhe ao ver esses parâmetros. (2) A Agenda abre **`/agenda?reserva=<id>`** e **`/agenda?dia=aaaa-mm-dd`**: use nos links do Início (3F) e da ficha (3A). (3) O nome do negócio com a preposição certa ("do espaço Villa Alecrim", "no Estúdio Ciranda") é `doNegocio(nome, nicho, "do")` de `src/nichos/index.js`: use nas mensagens prontas. (4) Conflito de horário e "horário livre" seguem a regra da agenda online (`seguraHorario` e `horariosLivres` em `src/modulos/agenda/logica.js`); sem acesso ao Atendimento, a Agenda trata toda pré-reserva como segurando a data (não sabe se veio da agenda online). |
 | 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do `b4cee64` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento novo (o banco dele já está lá e é compatível com a tela antiga). |
 | 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
