@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda) e A (Clientes) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco D (Financeiro) **em andamento** desde 29/10; os blocos E e F estão livres | A, B, C e D: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes) e D (Financeiro) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos E e F estão livres | A, B, C e D: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,21 +212,36 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco D (Financeiro) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco D (Financeiro) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: 02 (Financeiro: parcelas e sinal de cada festa ou ensaio, dar baixa, total do mês, a receber,
   atrasados, o que mais vende; é controle, não cobra), 09 (marcar pago com desfazer, atualização otimista;
   WhatsApp para lembrete e cobrança), 05 (parcelas, reservas_valores; "na reserva, Lançar parcelas"), o exemplo de
   eventos (Financeiro: os números do mês, receita mês a mês, próximas parcelas e entradas, o que mais vende).
-Plano (nesta ordem, cada parte com commit): 1. a visão do mês (recebido, falta receber no mês, a receber em 30
-  dias, atrasadas) e a lista de parcelas (a receber, atrasadas, recebidas; busca), com "Recebi" (forma e data) e
-  desfazer; 2. a gaveta da parcela (editar, desfazer o recebimento, apagar a que não foi paga) e o lembrete no
-  WhatsApp; 3. a festa no Financeiro (?reserva=<id>): valor total, sinal e desconto (reservas_valores), as
-  parcelas dela e "Lançar parcelas" (o sinal e o resto em vezes até a data); ?cliente=<id>, ?parcela=<id>; 4.
-  registrar pagamento pelo "+" (?novo=pagamento): "Para quem?", a festa, o valor, já recebido ou a vencer; 5. a
-  receita mês a mês e o que mais vende; 6. teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: src/modulos/financeiro/. Fora disso, pequeno e com aviso, se precisar.
+Plano (nesta ordem): 1. a visão do mês e a lista de parcelas com "Recebi" e desfazer; 2. a gaveta da parcela e o
+  lembrete no WhatsApp; 3. a festa no Financeiro (?reserva=<id>) com "Lançar parcelas"; 4. registrar pagamento
+  pelo "+" (?novo=pagamento); 5. a receita mês a mês e o que mais vende; 6. teste de ponta a ponta no STG e
+  documentos.
+Feito (partes 1 a 6): src/modulos/financeiro/: index.js (os números do mês: recebido no mês, falta receber no mês,
+  a receber em 30 dias, atrasadas; a lista com chips a receber, atrasadas, recebidas, todas; busca por cliente ou
+  descrição; filtro por cliente; "Recebi" na linha; recolhido, "Mês a mês e o que mais vende": barras empilhadas
+  recebido e a receber de 5 meses atrás a 2 à frente, com dica ao passar o mouse ou focar e "Ver em tabela", e o
+  que mais vende pelo tipo de festa ou ensaio (reservas_valores); ?reserva=<id>, ?parcela=<id>, ?cliente=<id>,
+  ?novo=pagamento), parcela.js (a gaveta: vencimento e situação, o lembrete pronto com "Lembrar no WhatsApp" (só
+  com número) e "Copiar mensagem", ver a festa, ver o cliente, "Recebi" (forma e data) com desfazer, "Não recebi"
+  com desfazer, editar, apagar a que não foi paga com desfazer; o formulário de parcela nova, editar e registrar
+  pagamento, com "Para quem?" e a festa), festa.js (a festa no Financeiro: valor total, sinal e desconto em
+  reservas_valores, sugeridos pelo pacote ou ensaio de Serviços quando ainda não têm; total, recebido e falta;
+  as parcelas dela; "Lançar parcelas": o sinal primeiro e o resto em vezes, mês a mês, com a prévia antes de
+  gravar; parcela avulsa), logica.js; test/financeiro.test.mjs (7 testes).
+  Regras do "Lançar parcelas" (logica.js, planoDeParcelas): os centavos que sobram vão na última; dia 31 vira o
+  último dia do mês; no máximo 48 vezes; sinal maior que o total vira só o sinal.
+  Fora do "Mexe em", pequeno: estilo.css (seção 20 e os tokens --rz-grafico-1 e -2, validados pelo guia de
+  gráficos; .rz-link agora alinha o ícone com o texto, o que também consertou os links da gaveta da Agenda).
+Testado no STG (Villa Alecrim, desktop; Estúdio Ciranda, celular 390 px): números do mês, "Recebi" e desfazer,
+  "Não recebi" e desfazer, a festa da Clínica Bem Viver com valores salvos e "Lançar parcelas" (sinal de R$ 5.000
+  e 3 de R$ 4.333,33/34), registrar pagamento pelo "+" (Valentina Rocha, R$ 150,50), o lembrete com o link do
+  WhatsApp, o mês a mês e o que mais vende; quem só vê o Financeiro não tem nenhum botão de mudar; no celular,
+  sem rolagem para o lado. Testes: 144 do front. Dados de teste apagados, semente rodada.
 ```
 
 ```
@@ -582,9 +597,10 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3D → 3E, 3F, todas | **Financeiro pronto (na `main`).** (1) **3E**: a festa no Financeiro (`/financeiro?reserva=<id>`) grava o valor total, o sinal e o desconto em `reservas_valores` (quem tem Contratos também edita): o contrato pode ler dali e levar de volta com o mesmo link; as parcelas são lançadas pelo Financeiro ("Lançar parcelas"). (2) **3F**: os números do mês saem de `resumo(parcelas, hoje)` em `src/modulos/financeiro/logica.js` (recebido no mês, falta no mês, a receber em 30 dias, atrasadas); "Registrar pagamento" é `/financeiro?novo=pagamento`, uma parcela é `/financeiro?parcela=<id>`. (3) **Todas**: com a chave estrangeira composta (`conta_id` + `reserva_id`), o banco devolve `reservas_valores` dentro de `reservas` como **lista**, não objeto (pegue o `[0]`). (4) `.rz-link` agora é `inline-flex` (ícone e texto na mesma linha); `--rz-grafico-1` e `-2` são as cores de gráfico (10). |
 | 29/10/2026 | 3A → 3D, 3E, 3F, todas | **Clientes pronto (na `main`).** A ficha leva a **`/financeiro?reserva=<id>`** e **`/financeiro?cliente=<id>`** (os pagamentos), **`/contratos?contrato=<id>`** e **`/clientes?aba=entregas&entrega=<id>`**: o Financeiro (3D) e Contratos (3E) abrem o detalhe ao ver esses parâmetros. Clientes abre **`/clientes?cliente=<id>`** e **`?novo=cliente`**; o Atendimento aceita **`?novo=pedido&cliente=<id>`** (pula o "Para quem?"). **`src/app.js` mudou (pequeno):** trocar de tela fecha as gavetas e folhas abertas (antes, um link de dentro da gaveta deixava ela por cima da tela nova). |
 | 29/10/2026 | 3B → 3A, 3D, 3F | **Agenda pronta (na `main`).** (1) A gaveta da festa leva a **`/financeiro?reserva=<id>`** ("Ver os pagamentos", só para quem tem Financeiro) e a **`/clientes?cliente=<id>`**: o Financeiro (3D) e Clientes (3A) abrem o detalhe ao ver esses parâmetros. (2) A Agenda abre **`/agenda?reserva=<id>`** e **`/agenda?dia=aaaa-mm-dd`**: use nos links do Início (3F) e da ficha (3A). (3) O nome do negócio com a preposição certa ("do espaço Villa Alecrim", "no Estúdio Ciranda") é `doNegocio(nome, nicho, "do")` de `src/nichos/index.js`: use nas mensagens prontas. (4) Conflito de horário e "horário livre" seguem a regra da agenda online (`seguraHorario` e `horariosLivres` em `src/modulos/agenda/logica.js`); sem acesso ao Atendimento, a Agenda trata toda pré-reserva como segurando a data (não sabe se veio da agenda online). |
-| 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do `b4cee64` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento novo (o banco dele já está lá e é compatível com a tela antiga). |
+| 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do último commit da `main` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento, a Agenda, Clientes e o Financeiro novos (o banco deles já está lá e é compatível com a tela antiga). Ainda parado no fim do bloco D (`aabb9bc`). |
 | 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
 | 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
 | 29/10/2026 | 2B → todas | **Para conferir o deploy da produção:** `curl -s https://painel.renderizaweb.com.br/api/config` mostra `versao` (o commit no ar). Se depois de uns 5 minutos ainda for o commit anterior, o deploy não entrou: um push novo que mude `painel-clientes/` destravou em 29/10 (o `a4f92d1` ficou parado; o `aabb9bc` entrou em 1 minuto). Commit só de documentos não faz deploy (o `ignoreCommand`). |
