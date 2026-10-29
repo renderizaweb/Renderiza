@@ -10,10 +10,10 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main`; falta a Renderiza publicar a função do convite na produção | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | pode começar (a 2 está na `main`) | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) desde 29/10, que não depende do banco; os blocos A e C esperam a 2 | B: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -199,7 +199,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · PRONTA, NA MAIN
 Plano (nesta ordem, cada parte com commit): 1. palavras por nicho (src/nichos/) e formatos (src/ui/formatos.js);
   2. a casca de verdade: sessão com a conta escolhida (minhas_contas), escolher a conta, menu lateral e barra de
   baixo só com os módulos ligados (trancado sem acesso), aviso de teste e tela de teste vencido, registrar_entrada,
@@ -228,10 +228,23 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
   ainda não (falta a permissão para publicar). Testado no STG sem mandar e-mail: o link de convite (gerado no
   banco, igual ao do e-mail) aberto no celular leva a /convite, a pessoa cria a senha e entra só com Início, Agenda
   e Mais, sem "+"; a função barra sem login (401), convite de outra conta (404), vencido (409), endereço de fora (400).
-Próximo passo: parte 6 (onboarding /comecar e cadastro /cadastro).
-Teste no STG: usuários temporários com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste;
-  lia-convite@villa-alecrim.teste, só a Agenda, só vê), criados só para a sessão; as senhas não ficam no
-  repositório. A Villa Alecrim está com limite 6 no STG durante o teste. Apagar os dois e rodar a semente no fim.
+6: /comecar (src/telas/comecar.js: nicho, nome e WhatsApp com máscara, módulos na ordem do menu, tipos de festa
+  com cor ou ensaios com duração; respostas no aparelho; a conta nasce no fim, D29) e /cadastro (src/telas/cadastro.js
+  com o Cloudflare Turnstile; sem a chave, leva ao WhatsApp; D30); api/config.js entrega cadastroAberto; CSP com o
+  Turnstile; test/onboarding.test.mjs. 7: src/modulos/inicio/primeiros-passos.js (4 itens que se marcam pelo banco,
+  esconder com desfazer, importar datas digitando ou por CSV, D31); test/primeiros-passos.test.mjs.
+8, ponta a ponta no localhost contra o STG (Chromium, celular e computador): um usuário novo passou pelo onboarding
+  de eventos e outro pelo de fotografia (contas em teste de 7 dias, módulos e ordem do menu, tipos de festa com cor,
+  ensaios com duração); o dono importou datas digitando e por CSV (fuso, duração, tipo pelo nome); convidou em
+  Equipe uma pessoa só com a Agenda (só vê); ela abriu o link no celular, criou a senha e entrou só com Início,
+  Agenda e Mais, sem "+"; com o login dela, o banco não deixa criar, mudar nem apagar festa, nem criar tipo, nem
+  ver valores, pedidos, contratos ou outra conta, nem se dar acesso. Testes do banco: local e STG passando (o 010
+  olhava todos os convites do STG; corrigido). npm test: 93 passando. O /cadastro aberto foi visto com a chave de
+  teste da Cloudflare (sem cadastrar: o STG segue com o cadastro fechado).
+O e-mail de verdade não foi testado: o link do convite foi gerado no banco e a chamada da função, interceptada no
+  teste da tela (a função em si foi testada à parte no STG). Usuários e contas de teste apagados; semente rodada.
+Falta (da Renderiza): publicar a função convidar na produção (node supabase/functions/publicar.mjs producao
+  --projeto <ref>; a sessão não teve permissão); criar o Turnstile para abrir o cadastro (D30, 04).
 ```
 
 ```
@@ -326,6 +339,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 2B → 3, 4, 5 | **Telas base na `main`.** Para quem constrói módulo: o contexto (`src/app.js`) traz `conta` (de `minhas_contas`: `dono`, `acessos`, `modulos`, `ajustes`, `liberada`), `nicho` (`src/nichos/`: as palavras), `pessoa`, `pode(módulo, nível)`, `avisar` e `navegar`; as peças estão no [`10`](10-design-system.md) (gaveta, "Para quem?", estados, linhas, chips, campos, CSV). O "+" leva a `/<módulo>?novo=pedido|reserva|visita|pagamento|cliente`: cada módulo abre o formulário quando vê o `?novo=`. **3F:** `src/modulos/inicio/index.js` só monta os primeiros passos no topo (`primeiros-passos.js`, do bloco B); mantenha essa chamada. **4:** o item "copiar o link da agenda online" dos primeiros passos entra quando o link existir (D31). **5:** o Admin convida o dono pela mesma função `convidar` (lê o convite com o login de quem chama; a equipe Renderiza pode). |
+| 29/10/2026 | 2B → 1 | **Fora do "Mexe em" do bloco B, pequeno, para o cadastro (D30):** `api/config.js` entrega `cadastroAberto` e `turnstile` quando existe `TURNSTILE_SITE_KEY`; `scripts/servidor.mjs` lê `PAINEL_STG_TURNSTILE_SITE_KEY`; a CSP do `vercel.json` ganhou `challenges.cloudflare.com` (script e frame), com o `test/esqueleto.test.mjs` acompanhando. Para abrir o cadastro: criar o site no Turnstile, a secreta no Auth dos dois projetos, a pública na Vercel e tirar o `disable_signup` (STG primeiro). |
 | 29/10/2026 | 2B → 1, 5 | **Convite pronto** (D28 no `07`, `04`): a função do Supabase `convidar` (`painel-clientes/supabase/functions/`, pasta nova) manda o e-mail; publicar com `node supabase/functions/publicar.mjs stg` e `producao --projeto <ref>`. Publicada no STG; **na produção ainda não**. A tela `/convite` recebe o link. Fora do "Mexe em" do bloco B, pequeno e combinado com a Missão 1: `src/adaptadores/supabase.js` ganhou `cadastrar`, `funcao`, `enviarArquivo` e `urlPublica`; `src/app.js` e `src/rotas.js`, as telas novas (`/cadastro`, `/convite`, `/contas`, `/comecar`) e o contexto dos módulos (`conta`, `nicho`, `pessoa`, `pode`, `avisar`). Testes novos em `painel-clientes/test/`. A Missão 5 (Admin) convida o dono pela mesma função. |
 | 29/10/2026 | 2A → todas | **O banco inteiro está no STG e na produção** (`05` descreve tudo). Para quem constrói: (1) quem decide o acesso é `pode(conta, módulo, 'ver' ou 'editar')`; a tela só esconde o que o banco já não entrega. (2) **Tabela nova** precisa de RLS e de `revoke all ... from anon`: o teste `supabase/testes/090_regras_gerais.sql` falha se faltar. (3) **Função aberta ao visitante** só com o nome `publico_*` (o mesmo teste confere); as outras com `revoke execute ... from public, anon`. (4) O histórico (`atividades`) é automático nas tabelas do dia a dia; tabela nova que precise dele ganha o gatilho `historico` (ver a migração `20261029110200`). (5) Testes do banco também rodam no STG: `node supabase/testes/no-stg.mjs`. |
 | 29/10/2026 | 2A → 2B | **Para as telas:** `minhas_contas()` (escolher a conta e o menu: `liberada = false` é o aviso de teste vencido ou conta desligada; `modulos` são os ligados), `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` (um teste por pessoa), `aceitar_convites()` (chamar logo depois de entrar), `registrar_entrada(conta, aparelho)` (ao entrar numa conta). Convite = linha em `convites` (só o dono grava) + o e-mail pelo servidor com `data: { nome_da_conta }`. Preferências: `pessoas.preferencias` (de cada um) e `contas.ajustes` (da conta: ordem do menu, primeiros passos escondidos). Onboarding de eventos: "Que festas vocês fazem?" cria `tipos_reserva` (D21, `09`). Equipe e Configurações são só do dono (D22); limite de 5 pessoas ativas no banco. Logo em `logos/<id da conta>/…`. |

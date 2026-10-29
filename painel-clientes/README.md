@@ -21,6 +21,7 @@ estático + `api/`). Tudo roda com o Node do ambiente.
 | `node scripts/auth.mjs` | o login (Auth) do STG e da produção comparado com o repositório (só lê) |
 | `node scripts/auth.mjs stg` · `producao --projeto <ref>` | aplica o login (endereços, senha, e-mails) e confere lendo de volta; STG primeiro |
 | `node scripts/auth.mjs previa` | grava os e-mails do login com dados fictícios, para abrir no navegador |
+| `node supabase/functions/publicar.mjs` · `stg` · `producao --projeto <ref>` | as funções do Supabase (o envio do convite): situação, ou publicar; STG primeiro |
 
 As variáveis vêm do ambiente: `PAINEL_STG_*`, `PAINEL_PROD_*` e `PAINEL_SUPABASE_ACCESS_TOKEN`
 (`docs/painel-clientes/missoes.md`, Missão 1). As do Painel de prospecção (`SUPABASE_URL`, `SUPABASE_ANON_KEY`)

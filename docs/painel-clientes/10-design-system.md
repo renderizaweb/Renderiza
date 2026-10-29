@@ -70,9 +70,27 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | Ícone | `icone("nome")` | sempre com texto ao lado ou `aria-label` no botão |
 | Abrindo | `.rz-abrindo` | a tela enquanto o painel carrega (já no `index.html`) |
 | Telas de acesso | `telaDeAcesso()` em `src/telas/acesso.js` | uma coluna no celular; no computador, o painel da marca ao lado. Cadastro e convite (Missão 2) usam o mesmo layout |
+| Casca | `montarCasca()` em `src/telas/casca.js`; `.rz-lateral`, `.rz-topo`, `.rz-barra`, `.rz-fab`, `.rz-faixa-teste` | menu lateral no computador, barra de baixo (até 5) e "+" no celular; só módulos ligados, o resto trancado com cadeado; o "+" e o "Novo" só para quem edita algo |
+| Gaveta, folha, confirmar | `abrirGaveta`, `abrirFolha`, `confirmar` em `src/ui/gaveta.js` (`<dialog>`) | gaveta: detalhes e formulários (tela cheia no celular, ações fixas embaixo); folha: lista curta de ações; `confirmar` só para o que não volta atrás |
+| Aviso embaixo | `avisar(texto, { desfazer })` em `src/ui/aviso.js`; `.rz-aviso` | 4 s; com "Desfazer", 7 s (e não some com o mouse em cima) |
+| Estados | `vazio`, `erro`, `esqueleto`, `comEstados` em `src/ui/estados.js` | vazio ensina e oferece a ação; erro diz o que fazer; esqueleto só se passar de 1 s |
+| Cabeça de página e seções | `.rz-cabeca` (`-titulos`, `-acoes`), `.rz-secao` | título à esquerda, ação principal à direita (quebra no celular) |
+| Linha de lista | `.rz-linhas` > `.rz-linha` (`-texto`, `-fim`), `.rz-cor`, `.rz-avatar` | primeira linha: o nome; segunda: o que decide; a ação mais provável na ponta |
+| Chips e abas | `.rz-chips` (`--quebra` para várias linhas), `.rz-chip[aria-pressed]`; `.rz-abas` | chips para filtros e escolhas rápidas; abas para partes de um módulo |
+| Opções em cartão | `.rz-opcoes` > `label.rz-opcao` (`-icone`, `-texto`, `-marca`) com `input` radio ou checkbox | onboarding (nicho, módulos): uma por linha, grande para o polegar |
+| Campos prontos | `campoTexto`, `campoArea`, `campoSelecao`, `interruptor`, `segmentos`, `escolherCor`, `lerFormulario` em `src/ui/campos.js` | rótulo, ajuda, "(opcional)" e o lugar do erro já vêm; cores das pessoas e dos tipos só da lista `CORES` |
+| "Para quem?" | `abrirParaQuem`, `novoCliente`, `abrirCliente` em `src/ui/para-quem.js` | busca por nome ou WhatsApp, recentes primeiro, "+ novo cliente" ali mesmo (o mesmo WhatsApp é o mesmo cliente) |
+| Paleta | `abrirPaleta` em `src/ui/paleta.js` (Ctrl+K ou "/") | acha módulo, cliente e ação; recentes primeiro |
+| WhatsApp, CSV, filtros | `src/ui/whatsapp.js`, `src/ui/csv.js` (`baixarCsv`, `lerCsv`), `src/ui/filtros.js` | CSV com ";" e BOM (abre certo no Excel), protegido contra fórmula |
+| Progresso | `.rz-progresso > span` | onboarding ("2 de 5") e primeiros passos |
+| Onboarding | `.rz-passo-topo`, `.rz-passo-cabeca`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`) | uma pergunta por tela, "voltar" sempre à mão, "Pular" onde dá |
+| Primeiros passos | `.rz-passos`, `.rz-passo[data-feito]`, `.rz-passo-marca` (`src/modulos/inicio/primeiros-passos.js`) | cartão no topo do Início, só para o dono; no celular, o botão desce para baixo do texto |
 
 Ícones disponíveis: `olho`, `olhoFechado`, `alerta`, `ok`, `okCirculo`, `carta`, `cadeado`, `maiusculas`, `voltar`, `seta`,
-`relogio`, `conversa`, `carteira`, `contrato`, `agenda`.
+`relogio`, `conversa`, `carteira`, `contrato`, `agenda`; do menu e das ações (Missão 2): `inicio`, `clientes`, `site`,
+`servicos`, `equipe`, `configuracoes`, `admin`, `mais`, `adicionar`, `buscar`, `fechar`, `sair`, `trocar`, `whatsapp`,
+`copiar`, `baixar`, `editar`, `lixo`, `desfazer`, `telefone`, `link`, `imagem`, `filtro`, `estrela`, `setaBaixo`,
+`importar`; do nicho: `festa`, `camera`. A lista certa é sempre `ICONES` em `src/ui/icones.js`.
 
 ## Escrever na tela
 
@@ -89,8 +107,9 @@ se passar no contraste com o branco (4,5:1). Grafite, papel, tinta e as cores de
 
 - **Entrar** (`src/telas/entrar.js`), **Esqueci a senha** (`esqueci-a-senha.js`) e **Nova senha** (`nova-senha.js`),
   com o layout `acesso.js`.
-- A casca e os módulos vazios da Missão 1 ganharam as cores e a fonte, com classes provisórias (`estilo.css`,
-  seção 10). O menu de verdade (barra de baixo no celular, menu lateral, "+") é da Missão 2, bloco B, com estas peças.
+- **Missão 2, bloco B:** a casca (menu lateral, barra de baixo, "+", busca, faixa do teste), escolher a conta,
+  cadastro, convite e onboarding (com `acesso.js`), Equipe e acessos, Configurações, Serviços e os primeiros passos
+  do Início, todos com as peças acima (`estilo.css`, seções 10 a 15).
 - Os **e-mails do login** (`supabase/emails/`): papel no fundo, cartão branco, terracota só no botão, textos em
   tinta, tinta-2 e tinta-3 (o rodapé, sobre o papel, em tinta-2 pelo contraste). E-mail não lê CSS de fora: as
   cores vão escritas, e o teste (`test/auth.test.mjs`) só aceita as dos tokens `--rz-*`. A fonte é a Geist quando

@@ -179,6 +179,11 @@ painel-clientes/
   Vercel abre. As sessões não abrem prévias: testam no `localhost:5180` contra o STG, e a Renderiza confere a prévia.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
   entregar a secreta). A chave secreta só entra se uma função do servidor precisar, nunca no front.
+- **Cadastro (D30):** quando a Renderiza criar o site no Cloudflare Turnstile, a chave **pública** vai na Vercel como
+  `TURNSTILE_SITE_KEY` (o `/api/config` entrega `cadastroAberto` e a chave; no local, `PAINEL_STG_TURNSTILE_SITE_KEY`)
+  e a **secreta** no Auth do Supabase (Attack Protection → Turnstile), nos dois projetos; aí o `disable_signup` sai
+  de `scripts/lib/auth.mjs` (STG primeiro). A CSP já deixa o script e o frame de `challenges.cloudflare.com`. Testado
+  no local com a chave de teste da Cloudflare (`1x00000000000000000000AA`, que sempre passa).
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
   política de conteúdo (CSP) restringindo de onde vêm scripts.
 - **Plano:** a escolha e a hora de subir de plano ficam com a Renderiza (28/10/2026). O front é estático para poder

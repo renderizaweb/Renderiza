@@ -15,8 +15,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 2 · Fundação: banco e casca |
-| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) na `main` (STG e produção); bloco B (telas base) em andamento |
+| **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
+| **Próxima ação** | Missões 3, 4 e 5 ([`missoes.md`](missoes.md)); da Renderiza: publicar a função do convite na produção e, quando quiser abrir o cadastro, o Turnstile (D30) |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -25,7 +25,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 ```
                                                        ┏━━ [3] MÓDULOS DO DIA A DIA ━━━━┓
  PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ━━━━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
-   ✅        E INFRA ✅         BANCO E CASCA 🚂       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
+   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -65,7 +65,7 @@ trabalharem sem se bater.
 **Chegou quando:** o login funciona no endereço escolhido, o e-mail de confirmação chega, e uma migração de teste
 passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé: Missão 1 em [`missoes.md`](missoes.md)).
 
-## Parada 2 · Fundação: banco e casca 🚂
+## Parada 2 · Fundação: banco e casca ✅
 
 **Para quê:** o esqueleto que todos os módulos usam. Depois dela, os módulos andam em paralelo.
 **Referência:** [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md), [`09-ux.md`](09-ux.md) e os exemplos.
@@ -86,7 +86,7 @@ passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé:
 **Chegou quando:** numa conta de teste, o dono convida uma pessoa e dá a ela só a Agenda (só vê); ela entra pelo
 celular, vê só a Agenda e não consegue editar; os testes de isolamento passam.
 
-## Parada 3 · Módulos do dia a dia ⬜ (em paralelo)
+## Parada 3 · Módulos do dia a dia 🚂 (em paralelo)
 
 **Para quê:** cada módulo fazendo de verdade o que o exemplo mostra, amarrado ao cliente.
 **Referência:** [`02-produto.md`](02-produto.md), [`05`](05-dados-e-permissoes.md) e os exemplos.
@@ -102,7 +102,7 @@ celular, vê só a Agenda e não consegue editar; os testes de isolamento passam
 **Chegou quando:** cada módulo faz, no painel real, tudo o que o exemplo mostra, e uma festa percorre o caminho
 inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) sem digitar nada duas vezes.
 
-## Parada 4 · Ponte com o site ⬜ (em paralelo)
+## Parada 4 · Ponte com o site 🚂 (em paralelo)
 
 **Para quê:** o site do cliente conversar com o painel, sempre com o site de pé se o painel cair.
 **Referência:** [`03-modulo-meu-site.md`](03-modulo-meu-site.md) e [`04`](04-arquitetura.md) (API pública).
@@ -119,7 +119,7 @@ inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) 
 **Chegou quando:** no site de teste, o pedido cai no painel em segundos; uma edição publicada aparece
 no site em até 1 minuto; e, com o painel desligado, o site abre normal com a versão inicial.
 
-## Parada 5 · Admin e regras ⬜ (em paralelo)
+## Parada 5 · Admin e regras 🚂 (em paralelo)
 
 **Para quê:** a Renderiza enxergar e controlar a plataforma, e o painel poder guardar dado de cliente com segurança.
 **Referência:** [`02-produto.md`](02-produto.md) (Admin) e [`06`](06-privacidade-e-seguranca.md).
@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 2 → 3, 4, 5 | **Parada 2 chegou (Missão 2 feita).** Bloco B (telas base) na `main`: casca, escolher a conta, convite (função do Supabase), cadastro com verificação contra robô (fecha até a Renderiza criar o Turnstile), onboarding de 5 telas, primeiros passos com a importação das datas, Equipe, Configurações e Serviços. O "chegou quando" testado no STG: um dono passou pelo onboarding, convidou uma pessoa só com a Agenda (só vê), ela entrou pelo celular, viu só a Agenda e o banco não a deixou editar; os testes de isolamento passam no local e no STG. Falta a Renderiza publicar a função do convite na produção. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), pronto para subir: o banco inteiro do `05` (34 tabelas com RLS, `pode()`, histórico automático, Storage) em 6 migrações, aplicadas no STG e na produção, com os testes de isolamento passando no local e no STG; a semente (Villa Alecrim e Estúdio Ciranda) no STG. O bloco B (telas) pode começar. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 → 2 | **Parada 1 fechada (Missão 1 feita).** Cadastro pela API fechado também na produção, com o ok da Renderiza; a Renderiza conferiu o login numa prévia da Vercel (STG), com troca de senha (a prévia pede login na Vercel). O trem segue para a Parada 2: a Missão 2 pode começar. | Renderiza, com o Claude |
