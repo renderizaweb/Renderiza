@@ -292,6 +292,7 @@ export async function anotarPedido(ctx) {
       ocupado(botao, true, "Anotando…");
       try {
         const linha = linhaDoNovoPedido(d, { contaId: conta.conta_id, cliente, idNicho: nicho.id, responsavel: d.responsavel || (equipe.length <= 1 && pessoa ? pessoa.id : null) });
+        ctx.anotouEm = Date.now(); // o tempo real não avisa de novo o que a pessoa acabou de anotar
         criado = await banco.resultado(banco.tabela("pedidos").insert(linha).select(COLUNAS).single());
         j.fechar();
         avisar(`Pedido de ${cliente.nome} anotado.`);

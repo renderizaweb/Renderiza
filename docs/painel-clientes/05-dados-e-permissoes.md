@@ -35,7 +35,8 @@ CONTA (o espaço / o estúdio)
    não é número e o 55 do Brasil); juntar é `juntar_clientes(fica, sai)`.
 3. **Do pedido à reserva sem digitar de novo.** "Fechar" no Atendimento cria a reserva com o cliente, a data, o
    serviço e os convidados do pedido; o pedido guarda o link da reserva. No banco: `fechar_pedido(pedido, inicio,
-   fim)`; se o pedido já tinha a data separada (reserva), só fecha.
+   fim, situacao)`; se o pedido já tinha a data separada (a pré-reserva da agenda online), fecha usando essa
+   reserva: confirma (ou mantém a pré-reserva) e ajusta a data, sem criar outra.
 4. **A reserva é o centro do que foi vendido.** Valores, parcelas, contrato e entrega pendem dela (e, por ela, do
    cliente). Parcela sem reserva é permitida, mas sempre com cliente.
 5. **A situação do cliente é calculada, nunca digitada:**

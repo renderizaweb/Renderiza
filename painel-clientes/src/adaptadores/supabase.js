@@ -84,6 +84,16 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
     tabela: nome => cliente.from(nome),
     rpc: (funcao, args) => resultado(cliente.rpc(funcao, args)),
     resultado,
+    /**
+     * Tempo real (Supabase Realtime; 09: só onde muda o dia a dia, como o pedido novo). Avisa das mudanças numa
+     * tabela, com a RLS de quem está logado. `filtro`: ex. "conta_id=eq.<id>". Devolve a função que para de ouvir.
+     */
+    ouvir(tabela, { filtro, aoMudar }) {
+      const canal = cliente.channel(`rz-${tabela}-${Math.random().toString(36).slice(2, 10)}`)
+        .on("postgres_changes", { event: "*", schema: "public", table: tabela, ...(filtro ? { filter: filtro } : {}) }, aoMudar)
+        .subscribe();
+      return () => { cliente.removeChannel(canal); };
+    },
     /** Uma função do servidor (Supabase Edge Functions), com o login de quem chama. */
     async funcao(nome, corpo) {
       let r;

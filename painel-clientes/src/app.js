@@ -61,9 +61,11 @@ async function iniciar() {
     desenhar();
   };
   const entradas = new Set(); // contas em que a entrada já foi registrada nesta visita
+  let desmontar = null; // o que o módulo aberto devolveu para fechar ao sair (ex.: o tempo real do Atendimento)
 
   async function desenhar() {
     const minhaVez = ++vez;
+    if (desmontar) { try { desmontar(); } catch (e) { /* sair nunca trava a próxima tela */ } desmontar = null; }
     const decisao = decidir({ caminho: location.pathname, busca: location.search, logado: sessao.logado() });
     if (decisao.redirecionar) return navegar(decisao.redirecionar, { substituir: true });
     const { rota } = decisao;
@@ -108,10 +110,12 @@ async function iniciar() {
 
       const parte = await (rota.tipo === "admin" ? acharAreaAdmin(rota.id) : acharModulo(rota.id)).carregar();
       if (minhaVez !== vez) return;
-      await parte.montar(conteudo, {
+      const saida = await parte.montar(conteudo, {
         banco, sessao, navegar, conta, nicho: nicho(conta.nicho), pessoa: sessao.pessoa(),
         pode: (modulo, nivel) => sessao.pode(modulo, nivel), avisar, ambiente: config.ambiente,
       });
+      // montar(el, contexto) pode devolver uma função: ela roda quando a pessoa sai do módulo
+      if (typeof saida === "function") { if (minhaVez === vez) desmontar = saida; else saida(); }
       if (minhaVez === vez) focarConteudo(conteudo);
     } catch (e) {
       if (minhaVez === vez) mostrarFalha(e.message);

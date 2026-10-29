@@ -212,6 +212,27 @@ export async function montar(el, contexto) {
 
   await comEstados(corpo, { carregar, desenhar: usar, linhas: 6 });
 
+  // tempo real (09): o pedido novo da agenda online (ou de outra pessoa da equipe) aparece sozinho
+  let pendente = null;
+  const parar = banco.ouvir ? banco.ouvir("pedidos", {
+    filtro: `conta_id=eq.${conta.conta_id}`,
+    aoMudar: async ({ eventType, new: novo, old }) => {
+      if (eventType === "DELETE") { ctx.pedidos = ctx.pedidos.filter(p => p.id !== old.id); return desenhar(); }
+      const id = novo && novo.id;
+      if (!id) return;
+      try {
+        const linha = await banco.resultado(banco.tabela("pedidos").select(COLUNAS).eq("id", id).maybeSingle());
+        if (!linha || !el.isConnected) return;
+        const i = ctx.pedidos.findIndex(p => p.id === id);
+        if (i >= 0) ctx.pedidos[i] = Object.assign(ctx.pedidos[i], linha); else ctx.pedidos.unshift(linha);
+        clearTimeout(pendente);
+        pendente = setTimeout(desenhar, 150); // várias mudanças juntas desenham uma vez
+        const acabeiDeAnotar = Date.now() - (ctx.anotouEm || 0) < 8000 && linha.origem !== "agenda_online";
+        if (eventType === "INSERT" && i < 0 && !acabeiDeAnotar) avisar(`Pedido novo: ${(linha.clientes && linha.clientes.nome) || "cliente"}${linha.origem === "agenda_online" ? ", pela agenda online" : ""}.`);
+      } catch (e) { /* a lista se acerta no próximo carregamento */ }
+    },
+  }) : null;
+
   // ?novo=pedido (o "+" das ações rápidas) e ?pedido=<id> (um link para o pedido)
   if (params.get("novo") === "pedido" || params.get("pedido")) history.replaceState(history.state, "", location.pathname);
   if (params.get("novo") === "pedido" && edita) {
@@ -221,6 +242,7 @@ export async function montar(el, contexto) {
     const p = ctx.pedidos.find(x => x.id === params.get("pedido"));
     if (p) abrirPedido(p, ctx);
   }
+  return () => { clearTimeout(pendente); if (parar) parar(); };
 }
 
 function vistaEscolha(vista) {
