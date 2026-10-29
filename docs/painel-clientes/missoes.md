@@ -12,7 +12,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B (Meu site no site) **na `main`** (29/10); bloco A (API pública e agenda online) **em andamento** desde 29/10, na mesma sessão; o C depois do A | A e B: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B **na `main`** (29/10); bloco A **na `main`** e no STG (29/10), falta a produção (espera o ok da Renderiza) e a chave do Brevo na função; o C em seguida, na mesma sessão | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
@@ -151,6 +151,11 @@ vezes, e cada módulo faz o que o exemplo mostra.
 | A · API e agenda online | API pública (código do site, saúde, limites, antirrobô), disponibilidade, pedido que acha ou cria o cliente, aviso por e-mail, fallback para o WhatsApp, a peça da agenda nos geradores | `api/publico/`, raiz `ferramentas/demo/agenda-online/` |
 | B · Meu site no site | contrato de conteúdo v1, marcações `data-rz` nos geradores, script com fallback, `virar-site.mjs` com o código da conta, versão final | raiz `ferramentas/demo/gerar*.py`, raiz `ferramentas/meu-site/`, raiz `scripts/virar-site.mjs`, raiz `scripts/versao-final.mjs` |
 | C · Meu site no painel | editor por seção, imagens, rascunho, prévia, publicar, histórico, voltar à versão inicial, desconectar | `src/modulos/meu-site/`, `api/publico/site/` |
+
+**Bloco A feito (29/10/2026), menos a produção:** a API pública, as funções do banco da agenda online, a página
+`/agenda/` no site do cliente e o aviso por e-mail ao dono (detalhes no [`04`](04-arquitetura.md), "API pública", e
+no [`05`](05-dados-e-permissoes.md), "Funções públicas"). No STG, a Villa Alecrim da semente ganhou o site
+`villa-alecrim` (domínios `villa-alecrim.teste` e `localhost`), para testar a agenda de verdade.
 
 **Bloco B feito (29/10/2026):** o contrato v1, o script, as marcações e a versão final estão no [`03`](03-modulo-meu-site.md)
 (seção "O que o painel entrega" é o que os blocos A e C precisam cumprir). O site de teste já existe (`node
@@ -300,6 +305,31 @@ Decisões no caminho: marcações data-site-* (data-rz já é usado pela faixa d
 Migrações aplicadas: nenhuma (não mexe no banco).
 ```
 
+```
+Missão 4 · bloco A (API pública e agenda online) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · NA MAIN (falta a produção)
+Feito: migrações 20261029135228_publico_agenda (publico_disponibilidade, publico_pedido, publico_tentativas e ajudantes
+  fechados ao visitante) e 20261029141139_aviso_de_pedido (aviso_do_pedido, pedidos_avisos); API na Vercel em
+  painel-clientes/api/publico/ (agenda, pedido, saude; _comum.js) servida também pelo npm run dev; vercel.json com a API
+  pública fora do no-store; .gitignore da raiz ignorava api/publico/ (exceção posta); função do Supabase
+  supabase/functions/avisar-pedido (index.js + logica.js); a página /agenda/ (ferramentas/demo/agenda-online/: modelo
+  agenda.html e gerar.mjs) e o virar-site.mjs com "painel": { "agenda": true } (link na seção de consulta; "meuSite":
+  false; "api" passou a ser a base da API pública); site de teste com a agenda ligada.
+Aplicado: as duas migrações no STG (29/10); avisar-pedido publicada no STG (versão 1, com uma cópia temporária do
+  publicar.mjs da 2B, que entra na main com ela); no STG, o site villa-alecrim para a Villa Alecrim da semente.
+Testado: supabase/testes 040 e 041 (local e STG); painel-clientes/test publico (11) e avisar-pedido (6); raiz
+  test/agenda-online (5, no navegador com a API imitada); de ponta a ponta no STG pelo npm run dev: disponibilidade
+  real, pedido gravado com a pré-reserva, turno repetido = ocupada, outro domínio = 403, aviso registrado; a página
+  /agenda/ contra o STG no celular e no computador (festa → data → turno → convidados → pacote → contato → pronto) e
+  fora do ar (vira WhatsApp). No STG ficaram 3 pedidos de teste na Villa Alecrim ("pode apagar" na mensagem).
+Falta (depende da Renderiza): o ok ("pode") para aplicar as duas migrações e publicar avisar-pedido na produção; a
+  chave de API do Brevo (BREVO_API_KEY) nos segredos das funções dos dois projetos.
+Ficou para depois: a agenda da fotografia (horários e campanhas com vagas, lista de espera): quando houver cliente
+  de fotografia com agenda online; hoje a página e a função atendem eventos (turnos por dia).
+Decisões no caminho: 07, 29/10 (agenda online). O aviso marca o pedido como avisado mesmo sem a chave do Brevo (não
+  reenvia depois).
+Migrações aplicadas (STG / produção): 20261029135228_publico_agenda (29/10 / —), 20261029141139_aviso_de_pedido (29/10 / —).
+```
+
 ## Migrações aplicadas
 
 Uma linha por migração; marque a data em cada banco logo depois de aplicar (regras em `08`: sempre STG primeiro).
@@ -324,6 +354,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 4A → 3B, 3C, 2B | **Pedidos da agenda online já chegam no banco** (STG): `pedidos.origem = 'agenda_online'`, etapa `novo`, com `reserva_id` de uma reserva `pre_reserva` (que segura a data por 48 horas no site). O Atendimento e a Agenda mostram como qualquer pedido e reserva; "Fechar" (`fechar_pedido`) usa a reserva que já existe. Para testar: `npm run dev` e a página `/agenda/` do site de teste (`node test/site-teste/montar.mjs --api http://localhost:5180/api/publico/`), ou direto pela API. |
+| 29/10/2026 | 4A → 2B | **`supabase/functions/avisar-pedido/`** é a segunda função do Supabase, ao lado da `convidar`: o `publicar.mjs` da 2B publica as duas (já publiquei a `avisar-pedido` no STG com uma cópia dele, sem commit). |
 | 29/10/2026 | 4A → 2B e todas | **Migração nova no STG:** `20261029135228_publico_agenda.sql` (agenda online), na `main`. Antes de aplicar a sua, traga a `main` (08, regra 4). A produção ainda não tem: espera o ok da Renderiza. Tabela nova `publico_tentativas` (só para os limites da agenda online, sem dado de pessoa). |
 | 29/10/2026 | 4A → 2A/2B | **`node supabase/testes/no-stg.mjs`: o `010_contas_e_acesso.sql` falha no STG** ("more than one row returned by a subquery"): a linha 107 busca `pessoas where nome = 'Rafael Teste'` sem filtrar a conta, e a semente tem outra pessoa com esse nome. No local passa. Sugestão: filtrar pela conta do teste, como os outros. Não mexi (é da 2A). |
 | 29/10/2026 | 4B → 2A, 4A, 4C | **Meu site no site pronto** (contrato v1 no `03`). Para o painel cumprir: (1) `GET /api/publico/site/<código>` com o JSON do contrato (o `conteudo` da última publicada + `esquema`, `site`, `versao`, `publicado_em`), `404` para desconectado/versão final, **`Access-Control-Allow-Origin: *`** e `Cache-Control: public, max-age=0, s-maxage=60`; (2) a prévia em `/api/publico/site/<código>/previa?t=<sites_previas.codigo>`, `no-store`; (3) **imagens servidas pelo domínio do painel** (o script recusa outro endereço; ex.: rewrite `/imagens/sites/…` para o Storage `site-imagens`); (4) `sites.conteudo_inicial` = a saída de `node ferramentas/meu-site/extrair.mjs <index.html>`; (5) validar com a mesma `validar()` de `ferramentas/meu-site/meu-site.js`: a Vercel publica só `painel-clientes/`, então o painel guarda uma cópia e um teste confere que é igual. O formato de `sites`, `sites_versoes` e `sites_previas` do bloco A já bate com isso. |

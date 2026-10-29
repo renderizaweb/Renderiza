@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 4 | **Missão 4, bloco A (API pública e agenda online), na `main` e no STG:** os dias livres e o pedido com pré-reserva de 48 horas pelo banco, a API na Vercel, a página `/agenda/` no site do cliente (com a cara do site e WhatsApp quando o painel não responde) e o aviso ao dono por e-mail. Conferido de ponta a ponta no STG. Falta o ok para a produção e a chave do Brevo na função. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 4 | Missão 4, bloco B, juntado na `main` com o ok da Renderiza. O bloco A (API pública e agenda online) começa na mesma sessão e branch; o C vem depois dele. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 4 | **Missão 4, bloco B (Meu site no site), pronta para subir**, em paralelo com a Missão 2 (não depende do banco): contrato v1 fechado no `03`, o script com a versão inicial sempre de pé, as marcações nos geradores de eventos (visual das demos idêntico, pixel a pixel), o `virar-site.mjs` com o código do site, a versão final e um site de teste fictício, com 15 testes. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |

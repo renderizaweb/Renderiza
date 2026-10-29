@@ -157,7 +157,9 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
    WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
    **Com o Meu site do Painel Renderiza** (só se o cliente quiser): `"painel": { "codigo": "<código do site no
    painel>" }` no `site.json` embute o script que mostra o que o cliente publica no painel, sempre com a versão do
-   `index.html` de reserva. A versão final (vendida à parte) sai com `node scripts/versao-final.mjs`. Os geradores das
+   `index.html` de reserva. Com `"agenda": true` no mesmo `"painel"`, o site ganha a agenda online em `/agenda/` (os dias
+   livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp). A versão final (vendida à parte) sai com
+   `node scripts/versao-final.mjs`. Os geradores das
    demos já marcam o que é editável (`data-site-*`, sem mudar nada no visual): não apague essas marcações. Detalhes:
    `docs/painel-clientes/03-modulo-meu-site.md`.
 3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no

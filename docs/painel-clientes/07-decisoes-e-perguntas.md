@@ -10,6 +10,7 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 
 | Data | Decisão | Quem / fonte |
 |---|---|---|
+| 29/10/2026 | **Agenda online (Missão 4A):** é a página `/agenda/` do site do cliente, no desenho do exemplo, com a cara do site; sem o painel, vira WhatsApp com a data escrita. A pré-reserva segura a data por 48 horas (o que o exemplo promete); depois, sem confirmação, a data volta a aparecer livre no site e a reserva fica no painel para a equipe decidir. Limites: 5 pedidos por hora do mesmo endereço, 3 por dia do mesmo WhatsApp, 20 por hora na conta. O aviso ao dono sai por e-mail pela função do Supabase `avisar-pedido`, uma vez só por pedido (a chave do Brevo fica nela, como no convite, D28). | Missão 4A, padrão do exemplo e do `02` |
 | 01/10/2026 | O site do cliente fica no domínio e nas contas do cliente. | Kaue · `CONTEXTO.md` |
 | 21/10/2026 | O nome é **Painel Renderiza** ("Bastidor" recusado: ninguém entende). | Kaue · `CONTEXTO.md` |
 | 21/10/2026 | Preço: R$ 49/mês com 2 módulos e até 5 pessoas; R$ 14,99 por módulo a mais; sem fidelidade; montagem grátis para quem faz o site. | Kaue · `README.md` |
