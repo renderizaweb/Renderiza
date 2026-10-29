@@ -119,6 +119,11 @@ inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) 
 **Chegou quando:** no site de teste, o pedido cai no painel em segundos; uma edição publicada aparece
 no site em até 1 minuto; e, com o painel desligado, o site abre normal com a versão inicial.
 
+**Situação (29/10/2026):** as três provas passaram no STG (Missão 4, blocos A, B e C), e o banco e a função do aviso
+estão na produção. Falta: a chave do Brevo na função do aviso e subir a tela do Meu site para a `main` junto com a
+Missão 2, bloco B (ver a nota de passagem do bloco C em [`missoes.md`](missoes.md)). Desconectar fica no Admin
+(Parada 5).
+
 ## Parada 5 · Admin e regras 🚂 (em paralelo)
 
 **Para quê:** a Renderiza enxergar e controlar a plataforma, e o painel poder guardar dado de cliente com segurança.
@@ -159,6 +164,11 @@ Uma linha por avanço. O mais novo em cima.
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
 | 29/10/2026 | 2 → 3, 4, 5 | **Parada 2 chegou (Missão 2 feita).** Bloco B (telas base) na `main`: casca, escolher a conta, convite (função do Supabase), cadastro com verificação contra robô (fecha até a Renderiza criar o Turnstile), onboarding de 5 telas, primeiros passos com a importação das datas, Equipe, Configurações e Serviços. O "chegou quando" testado no STG: um dono passou pelo onboarding, convidou uma pessoa só com a Agenda (só vê), ela entrou pelo celular, viu só a Agenda e o banco não a deixou editar; os testes de isolamento passam no local e no STG. Falta a Renderiza publicar a função do convite na produção. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 4 | Missão 4 na produção, com o "pode" da Renderiza: as 3 migrações (agenda online, aviso de pedido e Meu site) e a função `avisar-pedido`; conferido só lendo, no banco e na API do endereço oficial. Falta a chave do Brevo na função. | Claude, com o ok da Renderiza |
+| 29/10/2026 | 4 | **Missão 4, bloco C (Meu site no painel), pronta:** o servidor (versão publicada, prévia e fotos pela API) na `main` e no STG; o editor (partes do site, fotos, rascunho, prévia, publicar, versões, voltar ao entregue) na branch, em cima da Missão 2B, que ainda não terminou: sobe com ela. Conferido de ponta a ponta no STG: a edição publicada aparece no site de teste. Com isso, as três provas da Parada 4 passaram no STG; falta a produção. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 4 | **Missão 4, bloco A (API pública e agenda online), na `main` e no STG:** os dias livres e o pedido com pré-reserva de 48 horas pelo banco, a API na Vercel, a página `/agenda/` no site do cliente (com a cara do site e WhatsApp quando o painel não responde) e o aviso ao dono por e-mail. Conferido de ponta a ponta no STG. Falta o ok para a produção e a chave do Brevo na função. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 4 | Missão 4, bloco B, juntado na `main` com o ok da Renderiza. O bloco A (API pública e agenda online) começa na mesma sessão e branch; o C vem depois dele. | Claude, com o ok da Renderiza |
+| 29/10/2026 | 4 | **Missão 4, bloco B (Meu site no site), pronta para subir**, em paralelo com a Missão 2 (não depende do banco): contrato v1 fechado no `03`, o script com a versão inicial sempre de pé, as marcações nos geradores de eventos (visual das demos idêntico, pixel a pixel), o `virar-site.mjs` com o código do site, a versão final e um site de teste fictício, com 15 testes. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 2 | Missão 2, bloco A (banco), pronto para subir: o banco inteiro do `05` (34 tabelas com RLS, `pode()`, histórico automático, Storage) em 6 migrações, aplicadas no STG e na produção, com os testes de isolamento passando no local e no STG; a semente (Villa Alecrim e Estúdio Ciranda) no STG. O bloco B (telas) pode começar. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 → 2 | **Parada 1 fechada (Missão 1 feita).** Cadastro pela API fechado também na produção, com o ok da Renderiza; a Renderiza conferiu o login numa prévia da Vercel (STG), com troca de senha (a prévia pede login na Vercel). O trem segue para a Parada 2: a Missão 2 pode começar. | Renderiza, com o Claude |

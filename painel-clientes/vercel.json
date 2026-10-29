@@ -21,7 +21,7 @@
       ]
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api/((?!publico/).*)",
       "headers": [{ "key": "Cache-Control", "value": "no-store" }]
     }
   ]

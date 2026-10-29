@@ -49,8 +49,8 @@ update public.atividades set acao = 'apagou';
 reset role;
 select testes.afirmar(
   (select count(*) from public.atividades where conta_id = (select villa from _c) and tabela = 'pedidos') = 2
-  and (select pessoa_id = (select id from public.pessoas where nome = 'Rafael Teste') and modulo = 'atendimento' and acao = 'criou'
-       and cliente_id = (select id from public.clientes where nome = 'Patrícia Teste')
+  and (select pessoa_id = (select id from public.pessoas where nome = 'Rafael Teste' and conta_id = (select villa from _c)) and modulo = 'atendimento' and acao = 'criou'
+       and cliente_id = (select id from public.clientes where nome = 'Patrícia Teste' and conta_id = (select villa from _c))
        from public.atividades where conta_id = (select villa from _c) and tabela = 'pedidos' and acao = 'criou'),
   'histórico: quem criou o pedido, de qual cliente, em qual módulo; a mudança sem efeito não conta');
 select testes.afirmar(

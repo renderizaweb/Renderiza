@@ -155,12 +155,20 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
    `demos/lu-elegante-modas/site.json`.
 2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
    WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
+   **Com o Meu site do Painel Renderiza** (só se o cliente quiser): `"painel": { "codigo": "<código do site no
+   painel>" }` no `site.json` embute o script que mostra o que o cliente publica no painel, sempre com a versão do
+   `index.html` de reserva. Com `"agenda": true` no mesmo `"painel"`, o site ganha a agenda online em `/agenda/` (os dias
+   livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp). A versão final (vendida à parte) sai com
+   `node scripts/versao-final.mjs`. No painel, o site é cadastrado com o conteúdo inicial que sai de
+   `node ferramentas/meu-site/extrair.mjs ../sites/<domínio>/index.html` (o mapa do que o cliente pode editar). Os geradores das
+   demos já marcam o que é editável (`data-site-*`, sem mudar nada no visual): não apague essas marcações. Detalhes:
+   `docs/painel-clientes/03-modulo-meu-site.md`.
 3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no
    Registro.br no CPF/CNPJ dele. A Renderiza só faz o site; nada do cliente fica hospedado ou guardado na
    Renderiza. O Kaue entrega os acessos ao cliente, que pode passar a qualquer dev no futuro.
-4. Para eu enviar o site: o cliente cria o repositório vazio, convida o GitHub do Kaue como colaborador
-   e instala o app do Claude só nesse repositório (acesso temporário, removido depois). Plano B: o Kaue
-   sobe o .zip pela tela do GitHub (Add file > Upload files).
+4. Acessos (ajuste da Renderiza, 29/10/2026): o cliente não mexe no GitHub. Se ele já tem as contas, passa os
+   acessos à Renderiza, que cria o repositório e publica. Se não tem, a Renderiza cria um Gmail de dev só para o
+   site dele e faz tudo nessa conta (GitHub, Vercel). Os acessos ficam com o cliente no fim, como no item 3.
 5. Vercel: importar o repositório (preset Other, sem build), adicionar o domínio e criar no Registro.br os
    DNS que a Vercel mostrar. Atenção: a Vercel gratuita (Hobby) proíbe uso comercial, mesmo na conta do
    cliente; se der problema, o mesmo repositório publica no Cloudflare Pages sem mudar nada.

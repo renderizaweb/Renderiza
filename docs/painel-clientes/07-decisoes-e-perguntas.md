@@ -10,6 +10,8 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 
 | Data | Decisão | Quem / fonte |
 |---|---|---|
+| 29/10/2026 | **Meu site no painel (Missão 4C):** quem tem "edita" no Meu site (o dono ou quem ele deixar) muda, faz prévia e publica; "só vê" só olha (o `03` deixava para a Missão 4 decidir). O rascunho grava ao tocar em "Salvar no rascunho" (com "Desfazer"), não a cada tecla. As fotos são reduzidas e convertidas para WebP no aparelho e servidas pelo endereço do painel. "Usar esta" e "Voltar ao site como foi entregue" vão para o rascunho; só publicar muda o site. Desconectar fica com a Renderiza, pelo Admin (decidido em 28/10). | Missão 4C, padrão dos outros módulos (`02`) |
+| 29/10/2026 | **Agenda online (Missão 4A):** é a página `/agenda/` do site do cliente, no desenho do exemplo, com a cara do site; sem o painel, vira WhatsApp com a data escrita. A pré-reserva segura a data por 48 horas (o que o exemplo promete); depois, sem confirmação, a data volta a aparecer livre no site e a reserva fica no painel para a equipe decidir. Limites: 5 pedidos por hora do mesmo endereço, 3 por dia do mesmo WhatsApp, 20 por hora na conta. O aviso ao dono sai por e-mail pela função do Supabase `avisar-pedido`, uma vez só por pedido (a chave do Brevo fica nela, como no convite, D28). | Missão 4A, padrão do exemplo e do `02` |
 | 01/10/2026 | O site do cliente fica no domínio e nas contas do cliente. | Kaue · `CONTEXTO.md` |
 | 21/10/2026 | O nome é **Painel Renderiza** ("Bastidor" recusado: ninguém entende). | Kaue · `CONTEXTO.md` |
 | 21/10/2026 | Preço: R$ 49/mês com 2 módulos e até 5 pessoas; R$ 14,99 por módulo a mais; sem fidelidade; montagem grátis para quem faz o site. | Kaue · `README.md` |
@@ -81,6 +83,15 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 | D30 | **O cadastro abre com o Cloudflare Turnstile:** a chave pública vai na Vercel (`TURNSTILE_SITE_KEY`), a secreta no Auth do Supabase; sem a chave pública, `/cadastro` leva ao WhatsApp da Renderiza. O e-mail de confirmação leva ao onboarding (`/comecar`) | `06`: cadastro aberto só com verificação contra robô; o Turnstile é grátis e o Supabase já aceita (29/10/2026, Missão 2B) |
 | D31 | **Primeiros passos só para o dono**, escondidos em `contas.ajustes.primeiros_passos_escondidos`. Na importação das datas: data sem ano é a próxima; sem hora, o horário do nicho (festa às 19h, ensaio às 9h); o mesmo WhatsApp é o mesmo cliente; data que já passou entra como realizada; até 500 por vez. O item "copiar o link da agenda online" espera a Missão 4 | o `09` e o "teste das 5 tarefas" (29/10/2026, Missão 2B) |
 | D32 | **"Fechar o plano" só para o dono**; a equipe vê só o prazo do teste | quem fecha o plano é o dono (29/10/2026, Missão 2B) |
+
+## Ideias guardadas (para o futuro, sem data)
+
+Não são decisões nem trabalho de nenhuma missão: só para não se perderem. Quem for fazer decide antes, aqui.
+
+| Data | Ideia | O que pesar antes |
+|---|---|---|
+| 29/10/2026 | **O painel cria e publica o site:** a pessoa entra, cria o acesso, paga, monta o site e publica com domínio próprio, tudo pelo painel. | GitHub e Vercel têm API, então dá para automatizar boa parte; o registro do domínio é a parte mais difícil. Hoje o site fica nas contas do cliente (01/10/2026): isso pede que ele autorize o painel nas contas dele, ou que o site passe a ficar com a Renderiza. |
+| 29/10/2026 | **Domínio padrão da Renderiza** para quem não quer pagar domínio: um domínio curto da Renderiza, e o site do cliente num endereço com o nome da loja na frente (ex.: `mansaojesilva.<domínio curto>`), criado por um botão no painel, sem nada do cliente na parte de domínio. | O nome do domínio, a escolher: curto e que faça sentido (algo como "ev" para eventos). O site ficaria hospedado com a Renderiza, diferente da regra de hoje (o site nas contas do cliente), o que mexe na versão final e no "site é do cliente" (`03`). |
 
 ## Rodadas de perguntas respondidas
 

@@ -252,20 +252,40 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
 
 ## API pública (o que os sites dos clientes chamam)
 
-| Método | Caminho (proposta) | Quem chama | O que faz |
+| Método | Caminho | Quem chama | O que faz |
 |---|---|---|---|
-| GET | `/api/publico/agenda/<código>?de=…&ate=…` | agenda online | dias ou horários livres e vagas de campanha; nada de nomes |
-| POST | `/api/publico/agenda/<código>/pedido` | agenda online | cria o pedido no Atendimento e separa a data ou o horário |
-| GET | `/api/publico/site/<código>` | script do Meu site | a versão publicada (cache de ~60 s); "não encontrado" se desconectado |
-| GET | `/api/publico/site/<código>/previa?t=…` | prévia do Meu site | o rascunho, sem cache, com código que expira |
+| GET | `/api/publico/agenda/<código>?de=…&ate=…` (feito, 29/10/2026) | agenda online | os dias com turno e se cada um está livre (até 62 dias por pedido, uns 15 meses à frente), mais tipos de festa, pacotes e adicionais, sem preço e sem nome; `404` se o site não responde |
+| POST | `/api/publico/agenda/<código>/pedido` (feito) | agenda online | o pedido no Atendimento e a pré-reserva na Agenda (a data fica separada por 48 horas); `201`, ou `409` (data pega), `422` (dado, com o campo), `429` (limite), `403` (outro domínio), `404` |
+| GET | `/api/publico/site/<código>` (feito, 29/10/2026) | script do Meu site | a versão publicada (cache de ~60 s); "não encontrado" se desconectado, versão final, conta não liberada ou módulo desligado |
+| GET | `/api/publico/site/<código>/previa?t=…` (feito) | prévia do Meu site | o rascunho, sem cache, com código que expira |
+| GET | `/api/publico/imagens/<id da conta>/<arquivo>.webp` (feito) | site do cliente | a foto enviada pelo Meu site, do Storage público `site-imagens` (cache de 1 ano: cada envio ganha nome novo) |
 | GET e POST | `/c/<código-do-contrato>` | cliente final | ler e aceitar o contrato |
-| GET | `/api/publico/saude` | aviso automático | responde se o painel e o banco estão de pé |
+| GET | `/api/publico/saude` (feito) | aviso automático | responde se o painel e o banco estão de pé (`200` ou `503`) |
 
-- `<código>` é o código público do site da conta (curto, pode ser trocado), nunca o id interno.
-- Os GET podem ser chamados de qualquer lugar; o POST do pedido só aceita os domínios cadastrados no site da
-  conta e tem limite por endereço e campo-isca contra robô.
-- Por dentro, as funções chamam funções do banco com a chave pública (`publico_disponibilidade`,
-  `publico_pedido`, `publico_site`), que fazem as checagens e devolvem só o necessário.
+- `<código>` é o código do site da conta (`sites.codigo`, curto, pode ser trocado), nunca o id interno.
+- **Como está feita (29/10/2026, Missão 4A):** funções da Vercel em `painel-clientes/api/publico/` (o que é comum em
+  `_comum.js`: o "_" faz a Vercel não publicar como função), testadas em `test/publico.test.mjs`; o servidor local
+  (`npm run dev`) serve as mesmas. Chamam o banco com a **chave pública** (`apikey`, sem login), conferida como no
+  `/api/config`: quem decide o que sai são as funções `publico_*` do banco (`05`). CORS aberto
+  (`Access-Control-Allow-Origin: *`, sem login), e o `vercel.json` deixa `/api/publico/` fora do `no-store`: a agenda
+  tem cache de 20 s na rede (o pedido confere a data de novo).
+- **Contra robô e repetição:** no pedido, o campo-isca (`website`) e o tempo mínimo (3 s desde que a agenda abriu)
+  fingem que deu certo, sem gravar. O banco só aceita os domínios do site (`sites.dominios`, com ou sem `www.`, pelo
+  `Origin`) e limita 5 pedidos por hora do mesmo endereço (embaralhado por site e por dia: o endereço não é
+  guardado), 3 por dia do mesmo WhatsApp e 20 por hora na conta.
+- **Aviso ao dono por e-mail** (D15): depois de gravar, a API chama a função do Supabase `avisar-pedido`
+  (`painel-clientes/supabase/functions/avisar-pedido/`, Deno; a lógica em `logica.js`, testada em
+  `test/avisar-pedido.test.mjs`). Ela pega no banco o que vai no e-mail (`aviso_do_pedido`, só com a chave secreta:
+  uma vez só por pedido, só da agenda online, nos primeiros 15 minutos) e manda aos donos da conta pelo Brevo, no
+  jeito dos e-mails do login ("[STG]" no assunto quando vem do STG). Precisa de **`BREVO_API_KEY`** no ambiente da
+  função (Supabase → Edge Functions → Secrets, nos dois projetos; uma chave de API do Brevo, não a SMTP); sem ela,
+  não manda nada e o pedido segue no painel. Publicar: `node supabase/functions/publicar.mjs stg` e depois a produção.
+- **A agenda online no site do cliente:** a página `/agenda/` (`ferramentas/demo/agenda-online/`, o desenho do
+  exemplo aprovado), gerada pelo `scripts/virar-site.mjs` com `"painel": { "codigo", "agenda": true }` no
+  `site.json`, com as cores, as fontes, a marca e o WhatsApp do próprio site, e um link na seção "Consulte a sua
+  data". Painel fora do ar, site desligado, limite ou falha no envio: a página vira um botão de WhatsApp com a data
+  escrita. Hoje para eventos (turnos por dia); a fotografia (horários e campanhas com vagas) vem quando houver
+  cliente de fotografia com agenda online.
 
 ## Acompanhamento
 

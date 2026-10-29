@@ -62,21 +62,32 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
  └──────────────────────────────────────────┘        └─────────────────────────────────┘
 ```
 
-1. **O gerador marca o que é editável.** Os geradores (`ferramentas/demo/gerar*.py`) passam a pôr no HTML
-   marcações como `data-rz="topo.titulo"`, `data-rz-botao="topo.botao1"`, `data-rz-img="sobre.foto"`,
-   `data-rz-lista="depoimentos"` e `data-rz-secao="galeria"`, e as cores viram variáveis de CSS
-   (`--rz-principal`, `--rz-destaque`). Uma demo sem marcação continua funcionando igual.
-2. **O script pede a versão publicada** ao abrir a página, num endereço **da Renderiza** (nunca direto o do
-   Supabase, para poder trocar o que está atrás sem mexer em nenhum site), com tempo-limite curto (proposta: 1,5 s).
-3. **Veio a resposta:** aplica só o que está nela. Texto entra como texto (nunca como HTML), links só dos tipos
-   permitidos, imagens só do endereço de imagens do painel, cores só em formato de cor. **Qualquer erro, demora
-   ou "não encontrado": não faz nada.**
-4. **Cache:** a resposta fica em cache na rede por uns 60 segundos. A maioria das visitas nem chega ao banco (bom
-   para o plano gratuito), e uma publicação aparece em até 1 minuto.
-5. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada em uma fração de
-   segundo. Para diminuir: o script fica no começo da página e aplica as cores primeiro; e a última versão pode
-   ficar guardada no navegador por até 24 horas, para aplicar na hora nas visitas seguintes (depois de uma
-   desconexão, no máximo 24 horas de atraso). **Validar na parada 4**, olhando no celular com internet lenta.
+**Feito em 29/10/2026 (Missão 4, bloco B):** o script, as marcações nos geradores de eventos (e na base comum das
+óticas), o `virar-site.mjs` com o código do site e a versão final. Os arquivos estão em `ferramentas/meu-site/`
+(o script e a biblioteca), `scripts/virar-site.mjs` e `scripts/versao-final.mjs`. O site de teste fica em
+`test/site-teste/`, com dados fictícios, e os testes em `test/meu-site.test.mjs`.
+
+1. **O gerador marca o que é editável** (`ferramentas/demo/gerar.py` e `gerar-eventos.py`), com marcações
+   `data-site-*` (abaixo, em "O que cada site deixa editar"). Elas não mudam nada no visual: conferido pixel a pixel,
+   no celular e no computador, nos estilos comum e "gala". O nome é `data-site` porque as demos de fotografia já
+   usam `data-rz` para a faixa de preço da Renderiza.
+2. **O script vai no fim do `<head>`** do site do cliente, embutido pelo `virar-site.mjs` quando o `site.json` tem
+   `"painel": { "codigo": "<código do site>" }`. Ele pede a versão publicada num endereço **da Renderiza** (nunca
+   direto o do Supabase), `https://painel.renderizaweb.com.br/api/publico/site/<código>`.
+3. **Veio a resposta em até 1,5 s:** aplica só o que está nela, por cima da versão inicial. Texto entra como texto
+   (nunca como HTML), links só dos tipos permitidos, imagens só do endereço do painel. Um campo inválido descarta a
+   versão inteira. **Erro, demora ou resposta inválida: não faz nada. "Não encontrado": volta à inicial** e esquece
+   a guardada.
+4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. A resposta que chega
+   depois de 1,5 s não muda a página aberta, mas fica guardada para a próxima visita. Se a do painel for diferente
+   da guardada, a página volta à inicial e aplica a nova, sem sobrar nada da guardada.
+5. **Cache na rede de uns 60 segundos** (no endereço do painel): a maioria das visitas nem chega ao banco, e uma
+   publicação aparece em até 1 minuto.
+6. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada assim que a página termina
+   de carregar. Nas visitas seguintes, a versão guardada entra no mesmo momento. **Validar no piloto**, no celular
+   com internet lenta.
+7. **Prévia:** `https://<site>/?rz-previa=<código da prévia>` pede `/api/publico/site/<código>/previa?t=<código da
+   prévia>`, sem cache e sem guardar nada, e mostra no canto o aviso "Prévia do rascunho".
 
 ### Por que não "republicar o site" a cada edição
 
@@ -86,10 +97,11 @@ publicações dele, e bastaria voltar uma publicação antiga na Vercel para fic
 Renderiza precisaria de acesso permanente para publicar no projeto do cliente. A consulta ao painel mantém as
 regras 3, 4 e 5 simples. Se o piscar incomodar de verdade, dá para reabrir essa discussão (registrar no `07`).
 
-## O formato do conteúdo (contrato v1, proposta)
+## O formato do conteúdo (contrato v1)
 
-O painel guarda e o site recebe um JSON. O site aplica o que entende e ignora o resto, então o formato pode
-crescer sem quebrar sites antigos (`esquema` diz a versão).
+Fechado em 29/10/2026 (Missão 4, bloco B). É o que o painel guarda, o que a API entrega e o que o script aplica. O
+site aplica o que entende e ignora o resto: o formato pode crescer sem quebrar sites antigos (`esquema` diz a
+versão). A regra que vale é a de `validar()` em `ferramentas/meu-site/meu-site.js`, a mesma no site e no painel.
 
 ```json
 {
@@ -97,39 +109,113 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
   "site": "villa-alecrim",
   "versao": 7,
   "publicado_em": "2026-11-20T14:03:00-03:00",
-  "cores": { "principal": "#2d6a4f", "destaque": "#b4542f" },
-  "ordem": ["topo", "sobre", "galeria", "pacotes", "depoimentos", "contato"],
   "secoes": {
-    "topo": {
-      "visivel": true,
-      "textos": { "titulo": "Casamentos e 15 anos *no meio do verde.*", "subtitulo": "…" },
-      "botoes": { "botao1": { "rotulo": "Consultar uma data", "acao": "whatsapp", "mensagem": "Olá! Vim pelo site…", "posicao": "abaixo-do-titulo" } },
-      "imagens": { "fundo": { "src": "https://…/sites/villa-alecrim/topo-1a2b3c.webp", "alt": "Salão montado para casamento" } }
+    "inicio": {
+      "textos": { "titulo": "Casamentos e 15 anos *no meio do verde.*", "texto": "…" },
+      "botoes": { "botao": { "rotulo": "Consultar uma data", "acao": "whatsapp", "mensagem": "Olá! Vim pelo site…" } },
+      "imagens": { "foto": { "src": "https://painel.renderizaweb.com.br/imagens/sites/villa-alecrim/topo-1a2b3c.webp", "alt": "Salão montado para casamento" } }
     },
-    "depoimentos": {
-      "visivel": true,
-      "itens": [{ "nome": "Ana", "texto": "…" }]
-    },
-    "galeria": { "visivel": false }
-  }
+    "espaco": { "listas": { "fotos": [{ "de": 2 }, { "de": 0, "imagens": { "foto": { "alt": "Salão principal" } } }] } },
+    "depoimentos": { "listas": { "avaliacoes": [{ "textos": { "nome": "Ana", "texto": "…", "tag": "Casamento" } }] } },
+    "festas": { "visivel": false }
+  },
+  "contato": { "whatsapp": "5511900000000", "mensagem": "Olá! Vim pelo site da Villa Alecrim.", "instagram": "villa.alecrim", "telefone": "5511900000000" }
 }
 ```
 
-- Seção ou campo que não aparece no JSON fica como na versão inicial.
-- O conteúdo inicial de cada site é cadastrado no painel na montagem, a partir do próprio site entregue (o HTML é
-  a fonte da verdade; o `demo.json` ajuda, mas aponta para fotos de pastas de trabalho que não estão no
-  repositório). Assim o editor abre mostrando exatamente o que está no ar.
-- O banco valida o JSON antes de publicar (tamanhos, tipos, links permitidos).
+- **Por cima da inicial:** seção, campo ou item que não aparece no JSON fica como está no HTML. Conteúdo vazio
+  (`"secoes": {}`) é a versão inicial.
+- **Seção** (`secoes.<seção>`): `visivel` (`false` esconde a seção e os links do menu que levam a ela; o `inicio`
+  não some), `textos`, `botoes`, `imagens` e `listas`, cada um por nome de campo. Os nomes têm letras minúsculas,
+  números e hífen.
+- **Texto:** até 600 caracteres. `*trecho*` sai em destaque só nos títulos; nos outros, os asteriscos saem.
+  Texto vazio esconde o elemento.
+- **Botão:** `rotulo` (até 60), `visivel` e `acao`, com `destino` e `mensagem` quando precisa:
+  - `whatsapp` usa o número do contato e `mensagem` (ou a do contato);
+  - `telefone` usa `destino` com 55 e DDD, ou o telefone do contato;
+  - `link` aceita só `https://`;
+  - `secao` aponta para o id de uma seção da página;
+  - `rota` usa um endereço e vira um link do Google Maps;
+  - `instagram` usa um usuário, ou o do contato;
+  - `email` usa um endereço.
+  Destino inválido descarta a versão. O ícone e a seta do botão não mudam.
+- **Imagem:** `src` e `alt` (até 200). O site só aceita `src` do mesmo endereço da API, `painel.renderizaweb.com.br`.
+  Caminhos do próprio site (`/img/…`, os da versão inicial) passam na validação, mas não mudam nada.
+- **Lista** (até 60 itens): cada item nasce de um item da versão inicial, `de` (a posição, começando em 0; sem `de`,
+  o primeiro). Ele mantém o que não é editável, como o ícone de cada item da estrutura. Os campos ficam em `textos`
+  e `imagens`, e `"visivel": false` tira o item. A ordem do JSON é a ordem na página.
+- **Avaliações** (`depoimentos.avaliacoes`): itens com `textos.nome`, `textos.texto` e `textos.tag`; as iniciais
+  saem do nome.
+- **Contato:** `whatsapp` e `telefone` (só números, com 55 e DDD), `mensagem` (a do WhatsApp, até 500) e
+  `instagram` (o usuário). Ele troca todos os botões de WhatsApp e Instagram da página, e o número escrito em
+  "Como chegar".
+- **Reservado:** `cores` e `ordem` (logo depois, ver "O que dá para mudar"): o script de hoje ignora. O conteúdo
+  inicial já traz `ordem` (a lista das seções na ordem da página), porque o banco guarda as chaves do JSON em outra
+  ordem; o editor do painel lista as seções por ela.
+
+### O que cada site deixa editar
+
+O mapa de um site é o próprio conteúdo inicial dele: `node ferramentas/meu-site/extrair.mjs <index.html>` devolve,
+no formato acima, todos os campos marcados com o valor que está no ar (é o `conteudo_inicial` da tabela `sites`, com
+que o editor abre). Nos sites de eventos, hoje:
+
+| Seção | Textos | Botões | Imagens | Listas |
+|---|---|---|---|---|
+| `cabecalho` (topo e menu) | `aviso` (a faixa de cima) | `botao` | | |
+| `inicio` | `eyebrow`, `titulo`, `texto`, `selo` | `botao`, `link` | `foto` | |
+| `sobre` | `eyebrow`, `titulo`, `legenda` | | `foto`, `foto2` | `paragrafos` (`texto`), `numeros` (`valor`, `texto`) |
+| uma por galeria (ex.: `espaco`, `festas`) | `eyebrow`, `titulo`, `texto` | | | `fotos` (`foto`, `legenda` onde houver) |
+| `estrutura` | `eyebrow`, `titulo`, `texto` | | | `itens` (`texto`) |
+| `atendimento` | `eyebrow`, `titulo`, `legenda` | `botao` | `foto`, `foto2` | `passos` (`texto`) |
+| `depoimentos` | `eyebrow`, `titulo` | | | `avaliacoes` (`nome`, `texto`, `tag`) |
+| `consulta` | `eyebrow`, `titulo`, `texto`, `botao` | | | `tipos` (`texto`) |
+| `instagram` | `eyebrow`, `titulo`, `texto` | `botao`, `chip`, `link` | `foto` | |
+| `visite` | `titulo` | `botao` | | |
+| `rodape` | `slogan` | | | |
+
+Ficam para depois:
+- **cores e ordem das seções:** a base das demos deriva as cores de duas, então trocar pede mexer no gerador;
+- **posição dos botões;**
+- **endereço e horário**, que mexem nos dados para o Google;
+- **a mensagem pronta da consulta de data;**
+- **as marcações nos geradores de fotografia e odonto:** entram quando o primeiro cliente desses nichos quiser o
+  Meu site, com o mesmo padrão.
+
+### O que o painel entrega (blocos A e C da Missão 4)
+
+| | |
+|---|---|
+| `GET /api/publico/site/<código>` | `200` com o JSON acima (o `conteudo` da última versão publicada, mais `esquema`, `site` = o código, `versao` = o número e `publicado_em`); `404` se o site não existe, está `desconectado` ou em `versao_final`. Cabeçalhos: `Access-Control-Allow-Origin: *` (o site do cliente está em outro domínio) e `Cache-Control: public, max-age=0, s-maxage=60` |
+| `GET /api/publico/site/<código>/previa?t=<código da prévia>` | o rascunho, no mesmo formato, enquanto a prévia não expira (`sites_previas`); `404` depois. `Cache-Control: no-store` e o mesmo CORS |
+| Imagens | servidas em `https://painel.renderizaweb.com.br/api/publico/imagens/<id da conta>/<arquivo>.webp` (o Storage público `site-imagens`, cache de 1 ano; cada foto enviada ganha um nome novo): o script recusa imagem de outro endereço |
+| Validação | antes de publicar, a mesma `validar()` (o arquivo é um só; o painel usa uma cópia conferida por teste, porque a Vercel publica só a pasta `painel-clientes/`) |
 
 ## No painel (o que o cliente vê)
 
-- **Meu site** no menu: a lista das seções do site, cada uma com a miniatura e "editar".
-- Editar uma seção abre um formulário simples com os campos daquela seção. O rascunho é salvo sozinho.
-- **Ver no meu site:** abre o site de verdade em modo prévia (um link com código que expira) mostrando o rascunho.
-- **Publicar:** vira a versão no ar em até 1 minuto. Cada publicação fica no histórico, com quem publicou.
-- **Histórico:** voltar para qualquer versão publicada, ou **voltar para a versão inicial**.
-- Acesso como os outros módulos: "só vê" olha e faz prévia; "edita" pode publicar (ou: só o dono publica; decidir
-  na Missão 4).
+Feito em 29/10/2026 (Missão 4C), em `painel-clientes/src/modulos/meu-site/` (as regras sem tela em `conteudo.js`,
+testadas em `test/meu-site.test.mjs`). **Até a Missão 2B subir, essa tela está só na branch
+`claude/painel-renderiza-roadmap-jfhmpp`** (ela usa a casca da 2B; ver a nota de passagem do bloco C em
+[`missoes.md`](missoes.md)).
+
+- **Meu site** no menu: o que está no ar (versão, quando e quem publicou), a lista das partes do site na ordem da
+  página (nome e resumo; "Não publicado" no que mudou; "Escondida") e "Contato e WhatsApp".
+- Cada parte abre uma gaveta com os campos dela: textos (o destaque entre asteriscos), botões (rótulo, ação e
+  destino), fotos ("Trocar a foto": reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB, e
+  a descrição), listas (subir, descer, tirar, adicionar; o item novo nasce do primeiro) e "esta parte aparece no
+  site" (a capa não some). **"Salvar no rascunho"** grava (com "Desfazer"), sem salvar a cada tecla; salvar espera a
+  foto que ainda está subindo. Antes de gravar, a mesma `validar()` do site.
+- **Ver no meu site:** cria um código de prévia e abre o site de verdade com `?rz-previa=` (a faixa "Prévia do
+  rascunho" aparece no alto); quem não tem o código continua vendo o publicado.
+- **Publicar:** o rascunho vira a versão no ar (o site vê em até 1 minuto). Cada publicação fica em "Versões
+  publicadas", com quem publicou.
+- **Usar esta** (numa versão antiga) e **Voltar ao site como foi entregue** levam aquilo para o rascunho; publicar
+  é que vale.
+- **Acesso:** quem tem "edita" no Meu site (o dono ou quem ele deixar) muda, faz prévia e publica; quem tem "só vê"
+  olha a lista e as versões, sem botões (decidido em 29/10/2026, `07`).
+- **Desconectar** é da Renderiza, pelo Admin (Missão 5): muda `sites.situacao`; o painel avisa que o site está
+  desconectado ou com a versão final, e a API passa a responder "não encontrado".
+- **Na montagem do site**, a Renderiza grava em `sites.conteudo_inicial` a saída do `extrair.mjs` (é o mapa do que
+  dá para editar); sem ele, a tela diz que o conteúdo ainda não foi cadastrado.
 
 ## Situações do site
 
@@ -149,14 +235,20 @@ crescer sem quebrar sites antigos (`esquema` diz a versão).
   conta (o gratuito do Supabase tem 1 GB de arquivos no total).
 - O cliente garante nos termos que tem autorização para as fotos e os depoimentos que publicar (`06`).
 
-## O que muda no que já existe
+## O que mudou no que já existe (29/10/2026)
 
-- `ferramentas/demo/gerar.py`, `gerar-eventos.py`, `gerar-fotografia.py`, `gerar-odonto.py`: emitir as marcações
-  `data-rz` e as variáveis de cor. Sem mudar o visual das demos.
-- `scripts/virar-site.mjs`: quando o `site.json` tiver `"painel": { "codigo": "…" }`, embutir o script do Meu site
-  (e da agenda online) com o código da conta. Sem esse campo, o site sai como hoje.
-- Uma rotina para gerar a **versão final**: pega a versão inicial + a última publicada, embute tudo e tira o script.
-- As demos (`/demo/<pasta>`) não levam o script.
+- `ferramentas/demo/gerar.py` e `gerar-eventos.py` emitem as marcações `data-site-*`, sem mudar o visual. O
+  `runtime.js` das demos expõe `window.DEMO_RUNTIME` (`links`, `avaliacoes`, `carrosseis`), para o script refazer o
+  que depende do conteúdo. A fotografia e a odonto ficam para depois (acima).
+- `scripts/virar-site.mjs`: com `"painel": { "codigo": "…" }` no `site.json`, embute o script do Meu site
+  (`data-codigo`); sem esse campo, o site sai como antes. O README do site explica o script.
+- **Versão final:** `node scripts/versao-final.mjs <pasta-do-site> <conteudo.json>`. Ela:
+  - baixa as imagens publicadas para `img/`;
+  - embute o conteúdo no HTML, inclusive o contato e as avaliações;
+  - tira o script e as marcações.
+
+  O site que sai não pede nada ao painel.
+- As demos (`/demo/<pasta>`) não levam o script, e os `/exemplos` não mudam.
 
 ## Decidido e em aberto
 

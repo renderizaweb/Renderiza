@@ -104,8 +104,8 @@ update public.pessoas set cor = '#2f6fe0', preferencias = '{"menu": "curto"}' wh
 update public.pessoas set acessos = '{}' where nome = 'Bia Teste';
 update public.contas set nome = 'Invadida';
 reset role;
-select testes.afirmar((select cor from public.pessoas where nome = 'Rafael Teste') = '#2f6fe0', 'Rafael muda a própria cor e as preferências');
-select testes.afirmar((select acessos ->> 'financeiro' from public.pessoas where nome = 'Bia Teste') = 'editar', 'Rafael não muda a Bia');
+select testes.afirmar((select cor from public.pessoas where nome = 'Rafael Teste' and conta_id = (select villa from _c)) = '#2f6fe0', 'Rafael muda a própria cor e as preferências');
+select testes.afirmar((select acessos ->> 'financeiro' from public.pessoas where nome = 'Bia Teste' and conta_id = (select villa from _c)) = 'editar', 'Rafael não muda a Bia');
 select testes.afirmar((select nome from public.contas where id = (select villa from _c)) = 'Villa Alecrim Eventos', 'Rafael não muda a conta');
 
 select testes.entrar_como((select bia from _u));

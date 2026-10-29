@@ -218,9 +218,39 @@ Só estas, cada uma devolvendo o mínimo: `publico_disponibilidade(código, de, 
 `publico_contrato(código)` e `publico_aceitar_contrato(código, nome, …)`. Nenhuma devolve nome, telefone ou valor
 de cliente final, a não ser o contrato para quem tem o código dele.
 
-Ainda não existem no banco: cada uma nasce na missão que a usa (agenda online e Meu site na Missão 4; o aceite do
-contrato na Missão 3, bloco E), numa migração pequena, com o nome começando por `publico_` (o teste
-`supabase/testes/090_regras_gerais.sql` só deixa essas abertas ao visitante).
+Cada uma nasce na missão que a usa (agenda online e Meu site na Missão 4; o aceite do contrato na Missão 3, bloco
+E), numa migração pequena, com o nome começando por `publico_` (o teste `supabase/testes/090_regras_gerais.sql` só
+deixa essas abertas ao visitante).
+
+**Já no banco (29/10/2026, Missão 4A, migrações `…135228_publico_agenda` e `…141139_aviso_de_pedido`):**
+- `publico_disponibilidade(código, de, até)`: os dias com turno (`horarios` do dia da semana) e se cada turno está
+  livre, mais tipos, pacotes da agenda online e adicionais, sem preço. Livre = sem bloqueio no dia e sem reserva que
+  segure o período. **Seguram a data:** reserva confirmada ou realizada; pré-reserva feita pela equipe; e a
+  pré-reserva da agenda online **só nas primeiras 48 horas** (depois, sem confirmação, a data volta a aparecer livre no
+  site; a reserva continua no painel para a equipe decidir). Turno que passa da meia-noite (fim antes do início) vai
+  até o dia seguinte; sem fim, 1 hora.
+- `publico_pedido(código, dados, domínio, endereço)`: acha ou cria o cliente pelo WhatsApp (o nome que já estava no
+  painel fica; o e-mail entra se não havia), cria o pedido (`origem = agenda_online`, etapa `novo`, a mensagem com o
+  turno, os convidados, os adicionais, "quer visitar" e o recado) e a pré-reserva ligada a ele (com os adicionais e o
+  checklist do tipo). Confere o domínio, os dados e os limites (ver `04`) e trava o dia da conta enquanto grava, para
+  dois pedidos não levarem o mesmo turno.
+- Só respondem quando o site está **conectado**, a conta **liberada** e o módulo **Agenda online ligado** (no teste,
+  liberado no teste); senão, nada (`404` na API).
+- Tabelas de apoio, sem dado de pessoa e fechadas ao app (só as funções gravam): `publico_tentativas` (o endereço
+  embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
+- `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
+
+**Já no banco (29/10/2026, Missão 4C, migração `…141746_publico_site`, no STG):**
+- `publico_site(código)`: a última versão publicada no formato do contrato v1 (`03`), com `esquema`, `site`, `versao`
+  e `publicado_em` por cima do que veio no conteúdo; nunca publicou = conteúdo vazio, versão 0 (o site fica na
+  inicial).
+- `publico_previa(código, código da prévia)`: o rascunho da prévia, enquanto `sites_previas.expira_em` não passou.
+- As duas só respondem com o site **conectado**, a conta **liberada** e o módulo **Meu site ligado**; senão, nada
+  (`404` na API, e o site volta à versão inicial).
+- O painel grava direto, pela RLS de quem tem "edita" no Meu site: o rascunho (`sites_versoes`, um por site), a
+  publicação (o rascunho vira `publicada`, com número, data e quem) e a prévia (`sites_previas`). As fotos vão para
+  `site-imagens/<id da conta>/` sem trocar arquivo (não há política de leitura nos buckets públicos, e o Storage só
+  troca com ela).
 
 ## Exportação e apagamento
 

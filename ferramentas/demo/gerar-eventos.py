@@ -8,7 +8,8 @@
 #       convidados abrem o WhatsApp do lugar com a mensagem pronta (sem preço, sem promessa).
 #   "estilo": "gala" (opcional): visual elegante de revista para casamento, 15 anos e formatura (ver GALA abaixo).
 # O resto do JSON é o do gerar.py ("estilos": null, carrosséis com ids próprios, ex.: "espaco" e "festas").
-# Uso: python3 gerar-eventos.py demos/<pasta>/demo.json   ->  demos/<pasta>/index.html e ficha.md
+# As seções do nicho também levam as marcações data-site-* do Meu site (ver gerar.py).
+# Uso: python3 gerar-eventos.py demos/<pasta>/demo.json [--saida <arquivo.html>]   ->  demos/<pasta>/index.html e ficha.md
 #   Depois: node validar.mjs <index.html absoluto> <pasta_capturas>
 import html, json, os, re, sys, urllib.parse
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -158,34 +159,34 @@ GALA = (
 
 def estrutura_html(e):
     col = ' estrutura-grid--3' if len(e['itens']) % 4 and len(e['itens']) % 3 == 0 else ''
-    itens = ''.join(f'<li><svg viewBox="0 0 24 24" aria-hidden="true">{ICONES.get(ic, ICONES["estrela"])}</svg><strong>{esc(t)}</strong></li>' for ic, t in e['itens'])
+    itens = ''.join(f'<li data-site-item><svg viewBox="0 0 24 24" aria-hidden="true">{ICONES.get(ic, ICONES["estrela"])}</svg><strong data-site-campo="texto">{esc(t)}</strong></li>' for ic, t in e['itens'])
     return f'''
-    <section class="section estrutura-section" id="estrutura" aria-labelledby="estrutura-heading">
+    <section class="section estrutura-section" id="estrutura" data-site-secao="estrutura" aria-labelledby="estrutura-heading">
       <div class="container">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">{esc(e.get("eyebrow", "Estrutura"))}</p><h2 id="estrutura-heading">{e["h2"]}</h2></div>
-          <p>{esc(e["p"])}</p>
+          <div><p class="eyebrow" data-site="estrutura.eyebrow">{esc(e.get("eyebrow", "Estrutura"))}</p><h2 id="estrutura-heading" data-site="estrutura.titulo">{e["h2"]}</h2></div>
+          <p data-site="estrutura.texto">{esc(e["p"])}</p>
         </div>
-        <ul class="estrutura-grid{col} reveal" aria-label="O que o espaço oferece">{itens}</ul>
+        <ul class="estrutura-grid{col} reveal" data-site-lista="estrutura.itens" aria-label="O que o espaço oferece">{itens}</ul>
       </div>
     </section>'''
 
 def consulta_html(c, whatsapp, marca):
-    tipos = ''.join(f'<option>{esc(t)}</option>' for t in c['tipos'])
+    tipos = ''.join(f'<option data-site-item data-site-campo="texto">{esc(t)}</option>' for t in c['tipos'])
     inicio = c.get('mensagem_inicio', f'Olá! Vim pelo site da {marca} e queria consultar uma data.')
     return f'''
-    <section class="section consulta-section" id="consulta" aria-labelledby="consulta-heading">
+    <section class="section consulta-section" id="consulta" data-site-secao="consulta" aria-labelledby="consulta-heading">
       <div class="container consulta-grid">
         <div class="consulta-copy reveal">
-          <p class="eyebrow">Consultar uma data</p>
-          <h2 id="consulta-heading">{c["h2"]}</h2>
-          <p>{esc(c["p"])}</p>
+          <p class="eyebrow" data-site="consulta.eyebrow">Consultar uma data</p>
+          <h2 id="consulta-heading" data-site="consulta.titulo">{c["h2"]}</h2>
+          <p data-site="consulta.texto">{esc(c["p"])}</p>
         </div>
         <form class="consulta-form reveal" data-consulta novalidate>
           <label>Data da festa<input type="date" name="data" required></label>
-          <label>Tipo de festa<select name="tipo">{tipos}</select></label>
+          <label>Tipo de festa<select name="tipo" data-site-lista="consulta.tipos">{tipos}</select></label>
           <label>Convidados (aproximado)<input type="number" name="convidados" min="10" max="2000" step="10" inputmode="numeric" placeholder="ex.: 80"></label>
-          <button class="button button--mustard" type="submit"><svg aria-hidden="true"><use href="#whats"/></svg>Consultar no WhatsApp</button>
+          <button class="button button--mustard" type="submit"><svg aria-hidden="true"><use href="#whats"/></svg><span data-site="consulta.botao">Consultar no WhatsApp</span></button>
           <small>A mensagem já vai pronta com o dia, o tipo de festa e o número de convidados.</small>
         </form>
       </div>
@@ -205,14 +206,14 @@ def consulta_html(c, whatsapp, marca):
 }})();
     </script>'''
 
-def gerar(caminho):
+def gerar(caminho, saida=None):
     cfg = json.load(open(caminho, encoding='utf-8'))
     cfg.setdefault('estilos', None)
     gala = cfg.get('estilo') == 'gala'
     cfg['css_extra'] = CSS + (GALA if gala else '') + cfg.get('css_extra', '')
     tmp = caminho + '.tmp.json'
     json.dump(cfg, open(tmp, 'w', encoding='utf-8'), ensure_ascii=False)
-    try: saida = G.gerar(tmp)
+    try: saida = G.gerar(tmp, saida)
     finally: os.remove(tmp)
     doc = open(saida, encoding='utf-8').read()
     if gala:
@@ -232,4 +233,5 @@ def gerar(caminho):
     return saida
 
 if __name__ == '__main__':
-    gerar(sys.argv[1])
+    args = sys.argv[1:]
+    gerar(args[0], args[args.index('--saida') + 1] if '--saida' in args else None)
