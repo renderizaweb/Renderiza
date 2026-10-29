@@ -124,10 +124,10 @@ painel-clientes/
 - **Os e-mails do login** (`supabase/emails/`, um arquivo por e-mail, o assunto é o `<title>`): confirmação de
   cadastro, convite, recuperar a senha, troca de e-mail e link de acesso. Em português, no jeito da Renderiza, com
   as cores do design system (`10`), sem imagem nem nada de fora, e com o link escrito embaixo do botão. Prévia no
-  navegador, com dados fictícios: `node scripts/auth.mjs previa`. **Esperam o SMTP próprio:** no plano grátis, o
+  navegador, com dados fictícios: `node scripts/auth.mjs previa`. Só entram com SMTP próprio: no plano grátis, o
   Supabase recusa e-mail próprio com o envio padrão ("Email template modification is not available for free tier
-  projects using the default email provider"). Até o Brevo (Missão 1, item 4), os projetos mandam os e-mails padrão
-  do Supabase, em inglês; com o SMTP configurado, é só rodar `node scripts/auth.mjs stg` e depois a produção.
+  projects using the default email provider"). **Aplicados nos dois projetos em 29/10/2026**, com o Brevo (abaixo,
+  em E-mail).
 - **Convite com o nome da conta:** o modelo usa `{{ .Data.nome_da_conta }}` (os dados do usuário convidado) quando
   existe ("Villa Alecrim convidou você para o Painel Renderiza"); sem ele, "Você recebeu um convite". Quem envia o
   convite (Missões 2 e 5) manda `data: { nome_da_conta }`. O Supabase escapa o HTML dos valores; no assunto não vai
@@ -208,10 +208,26 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
 
 ## E-mail
 
-- Serviço de e-mail transacional com plano gratuito (ex.: Resend ou Brevo; conferir limites ao contratar), ligado
-  ao Supabase Auth como SMTP próprio e usado pelas funções para o aviso de pedido novo.
-- Remetente no domínio, ex.: `nao-responda@renderizaweb.com.br`, com o nome "Painel Renderiza". Respostas para o
-  e-mail de atendimento da Renderiza.
+- Dois serviços, um domínio: o **Zoho Mail** recebe (`contato@renderizaweb.com.br`, MX no Registro.br) e o
+  **Brevo** envia o que o painel manda (plano grátis, conta do `contato@`). Configurado em 29/10/2026.
+- **Brevo ligado ao Supabase Auth** como SMTP próprio nos dois projetos: `smtp-relay.brevo.com`, porta 587, com o
+  login e a chave SMTP do Brevo (só no Supabase e no Brevo; nunca no repositório nem no chat). Remetente
+  `nao-responda@renderizaweb.com.br`, com o nome "Painel Renderiza" (no STG, "Painel Renderiza (Teste)"). As funções
+  usam o mesmo Brevo para o aviso de pedido novo.
+- **DNS do Brevo** (Registro.br): `TXT brevo-code:…` na raiz (prova que o domínio é nosso), os CNAME
+  `brevo1._domainkey` e `brevo2._domainkey` (DKIM, a assinatura) e `TXT _dmarc` com `v=DMARC1; p=none;
+  rua=mailto:rua@dmarc.brevo.com`. O SPF segue só com o Zoho (`v=spf1 include:zohomail.com ~all`): o Brevo autentica
+  pelo DKIM e não precisa entrar nele. Sem subdomínio de marca para os links (opcional, ficou de fora).
+- **Cuidados com o Brevo:**
+  - **Trava de IPs desligada para as chaves SMTP** (*Segurança → IPs autorizados*). Ela vem ligada e recusa o
+    Supabase ("5.7.1 Unauthorized IP address"), que envia de IPs que mudam. Para as chaves de API, segue como está.
+  - **A chave SMTP ("Painel Renderiza") vence em 28/10/2027** e também depois de 90 dias sem uso. Trocar antes:
+    gerar outra no Brevo e colar nos dois projetos (*Authentication → Emails → SMTP Settings*). Se os e-mails
+    pararem de chegar, é a primeira coisa a olhar.
+  - **Limites:** o Brevo grátis manda 300 e-mails por dia na conta toda (STG e produção juntos), e o Supabase, 30 por
+    hora por projeto. Bastam para o piloto; com mais clientes, rever.
+- O Supabase não deixa escolher o endereço de resposta: quem responder a um e-mail do painel escreve para
+  `nao-responda@`, que só chega a alguém se for um alias do `contato@` no Zoho.
 - Modelos em português, curtos, com o nome da conta ("Villa Alecrim convidou você para o Painel Renderiza"): os do
   login estão em `painel-clientes/supabase/emails/` e só entram nos projetos com o SMTP próprio (ver Supabase,
   acima).

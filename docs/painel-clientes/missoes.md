@@ -9,7 +9,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
-| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: parte do Claude **na `main`** (29/10), menos o Auth pela API, **pronta para subir** (aplicado no STG e na produção em 29/10); os e-mails do login esperam o SMTP (Brevo, sua parte) | `claude/clever-albattani-u37i0u` (recomeçada da `main` em 29/10) |
+| 1 · Trilhos | 1 | você + 1 sessão | **em andamento**: tudo no ar e na `main` (29/10): Supabase, Vercel e domínio, login pelo repositório e e-mail pelo Brevo, com os e-mails em português; falta só você conferir o login e o e-mail na produção (teste no fim da Missão 1) | `claude/clever-albattani-u37i0u` e `claude/painel-renderiza-roadmap-jfhmpp` |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: depende só da parte do Claude da Missão 1, que já está na `main` | |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
@@ -37,11 +37,14 @@ apagados; as variáveis do item 3, já com os projetos novos (conferidas pela se
 (item 5). **Vercel e domínio no ar (29/10/2026):** `https://painel.renderizaweb.com.br` (e
 `renderiza-painel-clientes.vercel.app`), ambos na produção. **Auth pela API (29/10/2026, sessão):** endereço do
 painel, endereços de retorno e senha mínima de 8 aplicados nos dois projetos por `scripts/auth.mjs` (valores no
-`04`). Os e-mails do login em português estão prontos em `supabase/emails/`, mas o Supabase grátis só aceita e-mail
-próprio com SMTP próprio: eles entram quando o envio (item 4, Brevo) estiver configurado nos dois projetos; aí uma
-sessão roda `node scripts/auth.mjs stg` e depois a produção. Até lá, o e-mail padrão do Supabase (em inglês) manda
-só para quem é da conta (o `contato@`), o que basta para os testes. Usuários de teste no STG: a Missão 2 cria com a
-semente.
+`04`). **Brevo (29/10/2026):** domínio autenticado no DNS, SMTP nos dois projetos e os 5 e-mails do login em
+português aplicados (`node scripts/auth.mjs stg` e depois a produção); um e-mail de verdade saiu pelo STG. Detalhes e
+cuidados no `04` (E-mail). Usuários de teste no STG: a Missão 2 cria com a semente.
+
+**Falta só conferir na produção (você, 2 minutos):** no Supabase da produção, *Authentication → Users → Add user →
+Create new user* com o `contato@renderizaweb.com.br`, uma senha sua e *Auto confirm user* marcado; entrar em
+`painel.renderizaweb.com.br`; sair, "Esqueci a senha", abrir o e-mail no Zoho (em português, de "Painel Renderiza") e
+criar a senha nova pelo link. Deu certo: a Missão 1 está feita.
 
 1. Um e-mail só para tudo: `contato@renderizaweb.com.br`, numa caixa grátis do **Zoho Mail** (plano Forever Free).
    É o e-mail que os clientes recebem e o dono das contas abaixo. Os registros que o Zoho pedir vão no DNS do
@@ -62,7 +65,8 @@ semente.
 4. Envio automático do painel pelo **Brevo** (plano grátis, conta criada com `contato@renderizaweb.com.br`):
    adicionar o domínio `renderizaweb.com.br` no Brevo, pôr no DNS os registros que ele mostrar e copiar os dados de
    SMTP para os dois projetos do Supabase (*Authentication → SMTP*), com remetente
-   `nao-responda@renderizaweb.com.br`, nome "Painel Renderiza" e respostas para `contato@`.
+   `nao-responda@renderizaweb.com.br`, nome "Painel Renderiza" e respostas para `contato@`. **Feito em 29/10/2026**
+   (no STG, o nome é "Painel Renderiza (Teste)"); o que ficou configurado está no `04`, em E-mail.
 5. Depois que a sessão criar a pasta: projeto novo na Vercel (pasta `painel-clientes`, chaves da produção em
    *Production* e do STG em *Preview*) e o `painel.renderizaweb.com.br` apontado para ela.
 
@@ -184,7 +188,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 1 · parte do Claude (Auth) · branch claude/clever-albattani-u37i0u (recomeçada da main) · atualizada em 29/10 · PRONTA PARA SUBIR
+Missão 1 · parte do Claude (Auth) · branch claude/clever-albattani-u37i0u (recomeçada da main) · atualizada em 29/10 · NA MAIN
 Antes (já na main): esqueleto, banco local, scripts/migrar.mjs, migração de teste no STG e na produção, design system
   e telas de acesso.
 Feito: o login (Auth) dos dois projetos no repositório e aplicado pela API de gerenciamento.
@@ -200,12 +204,11 @@ Testado: npm test da pasta (53, com test/auth.test.mjs: endereços exatos, curin
   mailer_otp_exp, prévia escapando HTML) e da raiz (160); e-mails vistos no Chromium (390 e 1100 px); nos dois projetos,
   sem criar usuário: senha de 7 volta weak_password; /auth/v1/verify com link falso volta para o endereço de retorno
   da lista e manda qualquer outro para o site_url; as travas do script (produção sem --projeto e antes do STG).
-Ficou de fora (depende da Renderiza): os e-mails. O Supabase grátis recusa e-mail próprio sem SMTP próprio ("Email
-  template modification is not available for free tier projects using the default email provider"). O script já
-  pula os e-mails enquanto o projeto não tem SMTP e avisa.
-Próximo passo (depois do Brevo nos dois projetos): node scripts/auth.mjs stg, conferir um e-mail de verdade no STG
-  (ex.: convidar o contato@ em Authentication → Users), depois node scripts/auth.mjs producao --projeto
-  hxzsiiqhlqxuqkevskwb; registrar aqui e no 04.
+E-mails (29/10, depois do Brevo, pela sessão claude/painel-renderiza-roadmap-jfhmpp): node scripts/auth.mjs stg e
+  depois producao --projeto hxzsiiqhlqxuqkevskwb; os dois iguais ao repositório, lendo de volta. Um cadastro do
+  contato@ no STG mandou o e-mail de confirmação pelo Brevo (o primeiro envio falhou com "5.7.1 Unauthorized IP
+  address": a trava de IPs do Brevo, desligada para as chaves SMTP; ver 04).
+Próximo passo: a Renderiza conferir o login e o e-mail na produção (teste acima, na Missão 1).
 Decisões no caminho: assunto sem variável (o Supabase passa o assunto pelo html/template e escaparia & como &amp;);
   convite com {{ .Data.nome_da_conta }} quando vier (aviso para a Missão 2); sem imagem nos e-mails (muitos
   programas bloqueiam e o SVG da marca não abre no Gmail): a marca vai escrita.
@@ -228,7 +231,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
-| 29/10/2026 | 1 | **Auth configurado pelo repositório** nos dois projetos (`scripts/auth.mjs`, valores no `04`): site_url, endereços de retorno (produção: só o painel e `renderiza-painel-clientes.vercel.app`; STG: `localhost:5180` e as prévias) e senha mínima de 8. Nada de mudar o Auth à mão no painel do Supabase: mude `scripts/lib/auth.mjs` e rode o script (STG primeiro). Os e-mails do login (`supabase/emails/`) esperam o SMTP próprio (Brevo): o Supabase grátis recusa e-mail próprio sem ele. |
+| 29/10/2026 | 1 | **E-mail pelo Brevo nos dois projetos** e os e-mails do login em português aplicados (`scripts/auth.mjs`). Limites: o Supabase manda até 30 e-mails por hora por projeto (`rate_limit_email_sent`) e o Brevo grátis, 300 por dia na conta toda (STG e produção juntos): nada de laço que dispare e-mail em teste. No STG ficou o usuário `contato@renderizaweb.com.br`, sem confirmar e com senha aleatória (foi o teste do envio); a semente da Missão 2 pode apagar ou reaproveitar. Detalhes no `04` (E-mail). |
+| 29/10/2026 | 1 | **Auth configurado pelo repositório** nos dois projetos (`scripts/auth.mjs`, valores no `04`): site_url, endereços de retorno (produção: só o painel e `renderiza-painel-clientes.vercel.app`; STG: `localhost:5180` e as prévias) e senha mínima de 8. Nada de mudar o Auth à mão no painel do Supabase: mude `scripts/lib/auth.mjs` e rode o script (STG primeiro). Os e-mails do login (`supabase/emails/`) também vêm do repositório: mudou um, rode o script de novo (só funciona com o SMTP próprio, já ligado). |
 | 29/10/2026 | 1 · 2 | **Convite:** o e-mail usa `{{ .Data.nome_da_conta }}` quando existe ("Villa Alecrim convidou você…"). Ao convidar, mande `data: { nome_da_conta }`. O link do convite vale 1 hora (`mailer_otp_exp`, o mesmo de todos os links); se a tela de convite precisar de mais, mude no `scripts/lib/auth.mjs` e nos textos dos e-mails. |
 | 29/10/2026 | 1 | **Domínio no ar:** `painel.renderizaweb.com.br` aponta para a Vercel (CNAME no Registro.br) e responde em HTTPS com a produção. Use esse endereço na configuração do Auth. |
 | 29/10/2026 | 1 · 2B | **Design system e telas de acesso prontos** (na `main`): `src/ui/estilo.css` (tokens `--rz-*` e componentes `.rz-*`), `src/ui/icones.js`, `src/ui/formulario.js`, a fonte Geist em `src/ui/fontes/`, e as telas `/entrar`, `/esqueci-a-senha` e `/nova-senha` com o layout `src/telas/acesso.js`. O estilo saiu do `index.html`. Regras: [`10`](10-design-system.md). O bloco B da Missão 2 constrói em cima disso. |
