@@ -210,10 +210,10 @@ Feito (no repositório, testado no banco local): 4 migrações em painel-cliente
   Testes em supabase/testes/010, 020, 030 e 090 (isolamento em todas as tabelas, só vê × edita, valores escondidos,
   teste vencido, módulo desligado, "só pago", suporte, convite, cadastro, histórico, Meu site, Admin, arquivos e as
   regras gerais: RLS em tudo, anon sem tabela, search_path fixo).
-Falta: a semente no STG (no local já roda: node supabase/semente/semente.mjs local); produção; atualizar o 05.
-Próximo passo: node supabase/semente/semente.mjs stg.
+Falta: atualizar o 05, os avisos e o 07; marcar pronta para subir.
+Próximo passo: documentos.
 Decisões no caminho: ver "Avisos" (bloco A) quando a parte estiver pronta.
-Migrações aplicadas (STG / produção): as 6 no STG em 29/10 (testes do banco passam lá: node supabase/testes/no-stg.mjs); produção ainda não.
+Migrações aplicadas (STG / produção): as 6 no STG e na produção em 29/10 (testes do banco passam no STG: node supabase/testes/no-stg.mjs). Semente só no STG.
 ```
 
 ```
@@ -256,12 +256,12 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
 | `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8`, reaplicada pela `claude/clever-albattani-u37i0u` | 29/10/2026 (`qxcxllhmtodsptxffbhx`, São Paulo) | 29/10/2026 (`hxzsiiqhlqxuqkevskwb`, São Paulo) |
-| `20261029110000_contas_e_acesso.sql` (contas, pessoas, convites, módulos, `pode()`) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
-| `20261029110100_negocio_e_dia_a_dia.sql` (serviços e o dia a dia, com o cliente no centro) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
-| `20261029110200_historico_site_e_admin.sql` (histórico, Meu site, Admin, tempo real dos pedidos) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
-| `20261029110300_armazenamento.sql` (buckets e políticas do Storage) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
-| `20261029112300_regras_sem_visitante.sql` (funções de regra fechadas ao visitante; aviso do Supabase) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
-| `20261029112900_apagar_conta_inteira.sql` (apagar uma conta inteira sem erro; achado pela semente) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | — |
+| `20261029110000_contas_e_acesso.sql` (contas, pessoas, convites, módulos, `pode()`) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029110100_negocio_e_dia_a_dia.sql` (serviços e o dia a dia, com o cliente no centro) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029110200_historico_site_e_admin.sql` (histórico, Meu site, Admin, tempo real dos pedidos) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029110300_armazenamento.sql` (buckets e políticas do Storage) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029112300_regras_sem_visitante.sql` (funções de regra fechadas ao visitante; aviso do Supabase) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029112900_apagar_conta_inteira.sql` (apagar uma conta inteira sem erro; achado pela semente) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 
 ## Avisos entre sessões
 
