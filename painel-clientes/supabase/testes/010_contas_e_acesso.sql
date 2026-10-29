@@ -187,7 +187,7 @@ select testes.afirmar(public.pode((select villa from _c), 'agenda', 'ver') and n
 select testes.afirmar(not public.pode((select villa from _c), 'clientes', 'ver'), 'convidada não vê Clientes');
 select testes.afirmar((select nome from public.pessoas where usuario_id = (select nova from _u)) = 'Nova', 'a pessoa nasce com o nome do convite');
 reset role;
-select testes.afirmar((select aceito_em is not null and pessoa_id is not null from public.convites), 'convite marcado como aceito');
+select testes.afirmar((select aceito_em is not null and pessoa_id is not null from public.convites where conta_id = (select villa from _c)), 'convite marcado como aceito');
 
 -- convite vencido não vale
 insert into public.convites (conta_id, email, expira_em) select ciranda, 'nova@outro.teste', now() - interval '1 minute' from _c;
