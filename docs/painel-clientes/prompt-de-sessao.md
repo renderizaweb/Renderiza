@@ -11,7 +11,7 @@ Você vai trabalhar no Painel Renderiza: o sistema com login para os clientes da
 
 2. Onde estamos (29/10/2026):
 - Missão 1 feita e na main: e-mail (Zoho recebe, Brevo envia), Supabase em São Paulo (produção e STG), a Vercel em painel.renderizaweb.com.br (e renderiza-painel-clientes.vercel.app), o esqueleto em painel-clientes/ (todos os módulos e o Admin registrados, vazios), o script de migrações scripts/migrar.mjs (local → STG → produção), o login configurado pelo repositório (scripts/auth.mjs: endereços, senha mínima de 8, os e-mails do login em português em supabase/emails/ e o cadastro pela API fechado até existir a verificação contra robô), o design system em src/ui/ e as telas de entrar, esqueci a senha e nova senha.
-- Missão 2 liberada: bloco A (banco) e bloco B (telas). Outras sessões podem estar trabalhando nela. Leia os "Avisos entre sessões" de missoes.md antes: prévias da Vercel pedem login (teste no localhost:5180 contra o STG), o convite precisa da chave secreta num servidor e o cadastro só abre com a verificação contra robô.
+- Missão 2: o bloco A (banco) está feito e na main (o banco inteiro do 05 no STG e na produção, a semente da Villa Alecrim e do Estúdio Ciranda no STG); o bloco B (telas) em andamento. Outras sessões podem estar trabalhando nas missões. Leia os "Avisos entre sessões" de missoes.md antes: prévias da Vercel pedem login (teste no localhost:5180 contra o STG), o convite precisa da chave secreta num servidor e o cadastro só abre com a verificação contra robô.
 
 3. Antes de pegar qualquer trabalho:
 - Em missoes.md, confira a tabela "Situação", as "Notas de passagem", "Migrações aplicadas" e "Avisos entre sessões"; rode também git branch -r.

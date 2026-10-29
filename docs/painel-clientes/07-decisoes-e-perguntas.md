@@ -69,6 +69,22 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 | D18 | "+5 pessoas" e "espaço a mais" ficam para depois do piloto | ainda são propostas |
 | D19 | Teste vencido ou conta desligada: os dados de quem pede saem numa planilha **pelo WhatsApp**, exportada pela Renderiza no admin (com registro) | cumpre a promessa "leva os seus dados numa planilha" sem liberar o painel |
 | D20 | Hoje todos os módulos ficam **liberados no teste** (nenhum usa IA ainda) | a marcação "só pago" existe para os módulos futuros |
+| D21 | **Tipos de festa em tabela própria** (`tipos_reserva`), separados dos pacotes (`servicos`); o **checklist é da festa** (`reservas_checklist`), não da ficha do cliente | o exemplo de eventos tem as duas coisas (cor por tipo de festa e pacote) e o checklist fica na festa (29/10/2026, Missão 2A) |
+| D22 | **Equipe e Configurações só o dono**; Início e Serviços todos veem; editar Serviços pede acesso; quem edita qualquer módulo cria cliente (o "Para quem?") | `05`: "o dono tem tudo, incluindo Equipe e acessos, Configurações" (29/10/2026, Missão 2A) |
+| D23 | **O teste de 7 dias é um por pessoa:** quem já é dono de uma conta criada pelo cadastro não cria outra pelo cadastro | `02`: "o teste é um só" (29/10/2026, Missão 2A) |
+| D24 | **Suporte da Renderiza** com nível ("ver" ou "editar") e no máximo 8 horas por entrada, só encurtável; o dono vê o registro | `06`: entrar na conta sempre registrado e visível para o dono (29/10/2026, Missão 2A) |
+| D25 | **Histórico gravado pelo banco** (gatilhos), com o nome das colunas e as mudanças de etapa e situação, **nunca valores**; cada um vê o histórico do que pode ver | nenhuma tela esquece de registrar; ninguém grava histórico falso; o valor não vaza pelo histórico (29/10/2026, Missão 2A) |
+| D26 | **Origem e etapa:** origem ganha `outro` (telefone, passou na porta); etapa ganha `em_conversa` (está no exemplo de eventos) | o exemplo é a especificação (D10) (29/10/2026, Missão 2A) |
+| D27 | **Limite de pessoas no banco** (`contas.limite_pessoas`, 5): a Renderiza muda quando vender mais pessoas (D18) | `02`: até 5 pessoas no plano (29/10/2026, Missão 2A) |
+
+## Ideias guardadas (para o futuro, sem data)
+
+Não são decisões nem trabalho de nenhuma missão: só para não se perderem. Quem for fazer decide antes, aqui.
+
+| Data | Ideia | O que pesar antes |
+|---|---|---|
+| 29/10/2026 | **O painel cria e publica o site:** a pessoa entra, cria o acesso, paga, monta o site e publica com domínio próprio, tudo pelo painel. | GitHub e Vercel têm API, então dá para automatizar boa parte; o registro do domínio é a parte mais difícil. Hoje o site fica nas contas do cliente (01/10/2026): isso pede que ele autorize o painel nas contas dele, ou que o site passe a ficar com a Renderiza. |
+| 29/10/2026 | **Domínio padrão da Renderiza** para quem não quer pagar domínio: um domínio curto da Renderiza, e o site do cliente num endereço com o nome da loja na frente (ex.: `mansaojesilva.<domínio curto>`), criado por um botão no painel, sem nada do cliente na parte de domínio. | O nome do domínio, a escolher: curto e que faça sentido (algo como "ev" para eventos). O site ficaria hospedado com a Renderiza, diferente da regra de hoje (o site nas contas do cliente), o que mexe na versão final e no "site é do cliente" (`03`). |
 
 ## Rodadas de perguntas respondidas
 

@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 2 · Fundação: banco e casca |
-| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) e bloco B (telas base), em uma ou duas sessões |
+| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) na `main` (STG e produção); bloco B (telas base) em andamento |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -159,6 +159,8 @@ Uma linha por avanço. O mais novo em cima.
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
 | 29/10/2026 | 4 | **Missão 4, bloco B (Meu site no site), pronta para subir**, em paralelo com a Missão 2 (não depende do banco): contrato v1 fechado no `03`, o script com a versão inicial sempre de pé, as marcações nos geradores de eventos (visual das demos idêntico, pixel a pixel), o `virar-site.mjs` com o código do site, a versão final e um site de teste fictício, com 15 testes. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 2 | Missão 2, bloco A (banco), juntado na `main`. O bloco B (telas base) começa na mesma sessão e branch. | Claude, com o ok da Renderiza |
+| 29/10/2026 | 2 | Missão 2, bloco A (banco), pronto para subir: o banco inteiro do `05` (34 tabelas com RLS, `pode()`, histórico automático, Storage) em 6 migrações, aplicadas no STG e na produção, com os testes de isolamento passando no local e no STG; a semente (Villa Alecrim e Estúdio Ciranda) no STG. O bloco B (telas) pode começar. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 1 → 2 | **Parada 1 fechada (Missão 1 feita).** Cadastro pela API fechado também na produção, com o ok da Renderiza; a Renderiza conferiu o login numa prévia da Vercel (STG), com troca de senha (a prévia pede login na Vercel). O trem segue para a Parada 2: a Missão 2 pode começar. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | A Renderiza conferiu na produção: entrar, sair, "Esqueci a senha" e senha nova pelo e-mail em português. O cadastro pela API, que estava aberto a qualquer um, foi fechado no repositório e no STG; a produção espera o ok. | Renderiza, com o Claude |
 | 29/10/2026 | 1 | E-mail pelo Brevo: domínio autenticado no DNS (DKIM e DMARC), SMTP nos dois projetos e os 5 e-mails do login em português aplicados no STG e na produção; um e-mail de verdade saiu pelo STG. Junto, a configuração do login pelo repositório foi para a `main`. Falta a Renderiza conferir na produção. | Renderiza, com o Claude |

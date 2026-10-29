@@ -163,9 +163,9 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
 3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no
    Registro.br no CPF/CNPJ dele. A Renderiza só faz o site; nada do cliente fica hospedado ou guardado na
    Renderiza. O Kaue entrega os acessos ao cliente, que pode passar a qualquer dev no futuro.
-4. Para eu enviar o site: o cliente cria o repositório vazio, convida o GitHub do Kaue como colaborador
-   e instala o app do Claude só nesse repositório (acesso temporário, removido depois). Plano B: o Kaue
-   sobe o .zip pela tela do GitHub (Add file > Upload files).
+4. Acessos (ajuste da Renderiza, 29/10/2026): o cliente não mexe no GitHub. Se ele já tem as contas, passa os
+   acessos à Renderiza, que cria o repositório e publica. Se não tem, a Renderiza cria um Gmail de dev só para o
+   site dele e faz tudo nessa conta (GitHub, Vercel). Os acessos ficam com o cliente no fim, como no item 3.
 5. Vercel: importar o repositório (preset Other, sem build), adicionar o domínio e criar no Registro.br os
    DNS que a Vercel mostrar. Atenção: a Vercel gratuita (Hobby) proíbe uso comercial, mesmo na conta do
    cliente; se der problema, o mesmo repositório publica no Cloudflare Pages sem mudar nada.

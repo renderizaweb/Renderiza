@@ -16,6 +16,8 @@ estático + `api/`). Tudo roda com o Node do ambiente.
 | `node scripts/migrar.mjs local` | banco local do zero + todas as migrações + `supabase/testes/` |
 | `node scripts/migrar.mjs stg` | testa no local e aplica no STG as que faltam |
 | `node scripts/migrar.mjs producao --projeto <ref>` | testa no local e aplica na produção o que já passou pelo STG |
+| `node supabase/testes/no-stg.mjs` | roda os testes do banco no STG, numa transação desfeita no fim (nada fica gravado) |
+| `node supabase/semente/semente.mjs local` · `stg` | a semente de teste (Villa Alecrim e Estúdio Ciranda, dos exemplos) num banco local à parte ou no STG; nunca na produção |
 | `node scripts/auth.mjs` | o login (Auth) do STG e da produção comparado com o repositório (só lê) |
 | `node scripts/auth.mjs stg` · `producao --projeto <ref>` | aplica o login (endereços, senha, e-mails) e confere lendo de volta; STG primeiro |
 | `node scripts/auth.mjs previa` | grava os e-mails do login com dados fictícios, para abrir no navegador |
@@ -38,7 +40,8 @@ src/modulos/index.js       o registro de todos os módulos; cada um em src/modul
 src/admin/index.js         o registro das partes do Admin; cada uma em src/admin/<id>/index.js
 api/config.js              entrega a URL e a chave pública ao navegador (recusa chave secreta)
 supabase/migrations/       a estrutura do banco, em ordem (AAAAMMDDHHMMSS_assunto.sql, hora em UTC)
-supabase/testes/           testes do banco (SQL), rodam no local depois das migrações
+supabase/testes/           testes do banco (SQL), rodam no local depois das migrações (e no STG com no-stg.mjs)
+supabase/semente/          a semente de teste (lê exemplos/dados-*.js)
 supabase/local/            a imitação do Supabase para o Postgres local (nunca vai para o STG nem para a produção)
 supabase/emails/           os e-mails do login (Supabase Auth), aplicados por scripts/auth.mjs
 scripts/                   servidor local, migrações (migrar.mjs) e login (auth.mjs; valores em lib/auth.mjs)
