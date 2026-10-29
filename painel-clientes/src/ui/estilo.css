@@ -475,3 +475,18 @@ label.rz-chip:has(input:checked){background:var(--rz-grafite);border-color:var(-
 label.rz-chip:has(input:focus-visible){box-shadow:var(--rz-foco)}
 fieldset.rz-campo{min-width:0;margin:0;padding:0;border:0}
 fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}
+
+/* ---------- 14. Onboarding (/comecar; 09): passo "2 de 5", cartões, chips que quebram linha, duração ---------- */
+.rz-passo-topo{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);margin-bottom:var(--rz-2)}
+.rz-passo-topo .rz-acesso-voltar{border:0;background:none;padding:0;cursor:pointer;font:inherit;font-size:var(--rz-t-sm);font-weight:500}
+.rz-passo-cabeca{margin-top:var(--rz-6);margin-bottom:var(--rz-6)}
+.rz-com-botao{display:flex;gap:var(--rz-2)}
+.rz-com-botao .rz-entrada{flex:1;min-width:0}
+.rz-com-botao .rz-botao{flex:none}
+.rz-duracoes{display:flex;flex-direction:column;gap:var(--rz-2);min-width:0;margin:0;padding:0;border:0}
+.rz-duracao{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo)}
+.rz-duracao span{font-weight:500}
+.rz-duracao .rz-entrada{width:auto;min-width:112px}
+.rz-chip .rz-cor{margin-right:2px}
+.rz-robo{min-height:65px}
+.rz-duracoes legend{padding:0}

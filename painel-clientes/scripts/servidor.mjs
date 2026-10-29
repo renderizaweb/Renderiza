@@ -32,6 +32,7 @@ const prefixo = banco === "stg" ? "PAINEL_STG" : "PAINEL_PROD";
 const envDoPainel = {
   SUPABASE_URL: process.env[prefixo + "_SUPABASE_URL"],
   SUPABASE_ANON_KEY: process.env[prefixo + "_SUPABASE_ANON_KEY"],
+  TURNSTILE_SITE_KEY: process.env[prefixo + "_TURNSTILE_SITE_KEY"], // a pública; só quando o cadastro abrir
   VERCEL_ENV: banco === "stg" ? "development" : "local · produção",
 };
 

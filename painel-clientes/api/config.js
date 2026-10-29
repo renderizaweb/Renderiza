@@ -29,7 +29,12 @@ export function configDoAmbiente(env) {
     return { status: 500, corpo: { erro: "Essa URL é do banco do Painel de prospecção, não do Painel Renderiza." } };
   }
   // "production" na Vercel; nos outros casos o painel mostra uma etiqueta para ninguém confundir com a produção.
-  return { status: 200, corpo: { supabaseUrl, supabaseAnonKey, ambiente: env.VERCEL_ENV || "" } };
+  const corpo = { supabaseUrl, supabaseAnonKey, ambiente: env.VERCEL_ENV || "" };
+  // Cadastro sozinho (Missão 2): só abre com a verificação contra robô (06). TURNSTILE_SITE_KEY é a chave PÚBLICA do
+  // site no Cloudflare Turnstile; a secreta fica no Auth do Supabase. Sem ela, a tela de cadastro leva ao WhatsApp.
+  const turnstile = String(env.TURNSTILE_SITE_KEY || "").trim();
+  if (turnstile) Object.assign(corpo, { cadastroAberto: true, turnstile });
+  return { status: 200, corpo };
 }
 
 export function responder(res, { status, corpo }) {
