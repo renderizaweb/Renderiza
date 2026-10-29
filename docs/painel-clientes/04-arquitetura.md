@@ -175,6 +175,10 @@ painel-clientes/
   o build acontece. Antes comparava só `HEAD^` com `HEAD` e pulava o deploy quando o último commit mexia só em
   documentos, mesmo que um commit anterior do mesmo push tivesse mudado o painel. Os casos estão em
   `painel-clientes/test/esqueleto.test.mjs`.
+- **Qual commit está no ar** (29/10/2026): `GET /api/config` devolve `versao` (os 7 primeiros caracteres do
+  `VERCEL_GIT_COMMIT_SHA`). Dá para conferir de qualquer lugar, sem entrar na Vercel:
+  `curl -s https://painel.renderizaweb.com.br/api/config` e olhar o `versao`. Em 29/10, um push na `main` (o
+  `a4f92d1`) não chegou à produção em 25 minutos, sem motivo visível daqui; o push seguinte entrou em 1 minuto.
 - **Prévias pedem login na Vercel** (a proteção padrão das prévias; conferido em 29/10/2026): só quem é do time da
   Vercel abre. As sessões não abrem prévias: testam no `localhost:5180` contra o STG, e a Renderiza confere a prévia.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
