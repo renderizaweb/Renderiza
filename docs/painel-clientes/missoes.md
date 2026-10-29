@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda) e A (Clientes) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos D, E e F estão livres | A, B e C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda) e A (Clientes) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco D (Financeiro) **em andamento** desde 29/10; os blocos E e F estão livres | A, B, C e D: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -209,6 +209,24 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 3 · bloco D (Financeiro) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: 02 (Financeiro: parcelas e sinal de cada festa ou ensaio, dar baixa, total do mês, a receber,
+  atrasados, o que mais vende; é controle, não cobra), 09 (marcar pago com desfazer, atualização otimista;
+  WhatsApp para lembrete e cobrança), 05 (parcelas, reservas_valores; "na reserva, Lançar parcelas"), o exemplo de
+  eventos (Financeiro: os números do mês, receita mês a mês, próximas parcelas e entradas, o que mais vende).
+Plano (nesta ordem, cada parte com commit): 1. a visão do mês (recebido, falta receber no mês, a receber em 30
+  dias, atrasadas) e a lista de parcelas (a receber, atrasadas, recebidas; busca), com "Recebi" (forma e data) e
+  desfazer; 2. a gaveta da parcela (editar, desfazer o recebimento, apagar a que não foi paga) e o lembrete no
+  WhatsApp; 3. a festa no Financeiro (?reserva=<id>): valor total, sinal e desconto (reservas_valores), as
+  parcelas dela e "Lançar parcelas" (o sinal e o resto em vezes até a data); ?cliente=<id>, ?parcela=<id>; 4.
+  registrar pagamento pelo "+" (?novo=pagamento): "Para quem?", a festa, o valor, já recebido ou a vencer; 5. a
+  receita mês a mês e o que mais vende; 6. teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/financeiro/. Fora disso, pequeno e com aviso, se precisar.
 ```
 
 ```
