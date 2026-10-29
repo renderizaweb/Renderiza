@@ -490,3 +490,20 @@ fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}
 .rz-chip .rz-cor{margin-right:2px}
 .rz-robo{min-height:65px}
 .rz-duracoes legend{padding:0}
+
+/* ---------- 15. Primeiros passos no Início e a importação das datas (09) ---------- */
+.rz-passos{display:flex;flex-direction:column;gap:var(--rz-4);padding:var(--rz-5);margin-bottom:var(--rz-8)}
+.rz-passos-cabeca{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--rz-3)}
+.rz-passos-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rz-passo{display:flex;align-items:center;gap:var(--rz-3);min-height:64px;padding:var(--rz-3) 0;border-top:1px solid var(--rz-linha)}
+.rz-passo .rz-linha-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rz-passo .rz-linha-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-passo .rz-botao{flex:none}
+.rz-passo[data-feito=true] .rz-linha-texto b{color:var(--rz-tinta-2);text-decoration:line-through;text-decoration-color:var(--rz-linha-forte)}
+.rz-passo-marca{flex:none;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--rz-linha-forte);color:#fff}
+.rz-passo[data-feito=true] .rz-passo-marca{background:var(--rz-sucesso);border-color:var(--rz-sucesso)}
+@media (max-width:519px){.rz-passo{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:var(--rz-3);row-gap:var(--rz-2)}.rz-passo .rz-botao{grid-column:2;justify-self:start}.rz-passo-marca{align-self:start;margin-top:2px}}
+.rz-importar-lista{max-height:320px;overflow:auto;list-style:none;margin:0;padding:0;border:1px solid var(--rz-linha);border-radius:var(--rz-raio)}
+.rz-importar-lista .rz-linha{cursor:default;min-height:52px;padding:var(--rz-2) var(--rz-4)}
+.rz-passo .rz-linha-texto b,.rz-passo .rz-linha-texto small{white-space:normal}
+.rz-importar-erros{margin:var(--rz-1) 0 0;padding-left:var(--rz-5);font-size:var(--rz-t-sm)}
