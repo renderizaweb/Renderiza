@@ -2,6 +2,10 @@
 //   /entrar              tela de login (sem login)
 //   /esqueci-a-senha     pedir o link para criar uma senha nova (sem login)
 //   /nova-senha          onde o link do e-mail chega (com ou sem login: o link é que abre a sessão)
+//   /cadastro            teste de 7 dias grátis (sem login)
+//   /convite             onde o link do convite chega (o link abre a sessão; a pessoa cria a senha)
+//   /contas              escolher a conta (quem é de mais de uma)
+//   /comecar             o onboarding: as 5 perguntas que criam a conta (09)
 //   /                    Início
 //   /<módulo>            um módulo de src/modulos/index.js
 //   /admin[/<parte>]     o Admin (src/admin/index.js)
@@ -11,13 +15,17 @@ import { MODULOS } from "./modulos/index.js";
 import { AREAS_ADMIN } from "./admin/index.js";
 
 /**
- * Telas fora dos módulos. semLogin: só para quem não entrou (logado, volta para o painel). livre: abre com ou sem
- * login (a própria tela decide). A Missão 2 acrescenta cadastro, convite e escolher a conta.
+ * Telas fora dos módulos (sem o menu). semLogin: só para quem não entrou (logado, volta para o painel). livre: abre
+ * com ou sem login (a própria tela decide). As outras pedem login.
  */
 export const TELAS = {
   entrar: { caminho: "/entrar", semLogin: true, carregar: () => import("./telas/entrar.js") },
   esqueciSenha: { caminho: "/esqueci-a-senha", semLogin: true, carregar: () => import("./telas/esqueci-a-senha.js") },
   novaSenha: { caminho: "/nova-senha", livre: true, carregar: () => import("./telas/nova-senha.js") },
+  cadastro: { caminho: "/cadastro", semLogin: true, carregar: () => import("./telas/cadastro.js") },
+  convite: { caminho: "/convite", livre: true, carregar: () => import("./telas/convite.js") },
+  contas: { caminho: "/contas", carregar: () => import("./telas/contas.js") },
+  comecar: { caminho: "/comecar", carregar: () => import("./telas/comecar.js") },
 };
 
 export function lerRota(caminho) {

@@ -71,6 +71,10 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
     async definirSenha(senha) {
       await resultado(cliente.auth.updateUser({ password: senha }));
     },
+    /** Cadastro sozinho (Missão 2): o e-mail de confirmação leva a `destino`. `captcha`: o token da verificação contra robô. */
+    async cadastrar(email, senha, { destino, captcha, dados } = {}) {
+      return resultado(cliente.auth.signUp({ email, password: senha, options: { emailRedirectTo: destino, captchaToken: captcha, data: dados } }));
+    },
     aoMudarSessao(fn) {
       const { data } = cliente.auth.onAuthStateChange((_evento, sessao) => fn(sessao));
       return () => data.subscription.unsubscribe();
@@ -80,5 +84,23 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
     tabela: nome => cliente.from(nome),
     rpc: (funcao, args) => resultado(cliente.rpc(funcao, args)),
     resultado,
+    /** Uma função do servidor (Supabase Edge Functions), com o login de quem chama. */
+    async funcao(nome, corpo) {
+      let r;
+      try { r = await cliente.functions.invoke(nome, { body: corpo }); } catch (e) { throw erro(e); }
+      if (r.error) {
+        // a função responde { erro: "..." } em português; o supabase-js guarda a resposta em error.context
+        let mensagem = r.error.message;
+        try { const j = await r.error.context.json(); if (j && j.erro) mensagem = j.erro; } catch (e) { /* sem corpo */ }
+        throw erro({ ...r.error, message: mensagem, code: "P0001" });
+      }
+      return r.data;
+    },
+    /** Envia um arquivo ao Storage (`bucket/caminho`, trocando o que houver) e devolve o endereço público. */
+    async enviarArquivo(bucket, caminho, arquivo, tipo) {
+      await resultado(cliente.storage.from(bucket).upload(caminho, arquivo, { upsert: true, contentType: tipo, cacheControl: "3600" }));
+      return cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl;
+    },
+    urlPublica: (bucket, caminho) => cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl,
   };
 }

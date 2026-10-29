@@ -207,8 +207,15 @@ Plano (nesta ordem, cada parte com commit): 1. palavras por nicho (src/nichos/) 
   WhatsApp, CSV, paleta Ctrl+K); 4. Equipe e acessos, Configurações, Serviços; 5. o convite (função do servidor e a
   tela /convite); 6. onboarding (/comecar) e cadastro (/cadastro, pronto para a verificação contra robô); 7. primeiros
   passos no Início, com a importação das datas; 8. teste de ponta a ponta no localhost contra o STG.
-Feito: nada ainda.
-Próximo passo: parte 1.
+Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: src/telas/casca.js (menu lateral,
+  barra de baixo, "+", busca, aviso de teste, bloqueio), src/telas/contas.js (escolher a conta; sem conta leva a
+  /comecar), src/sessao.js (carregarContas com aceitar_convites, conta escolhida guardada no aparelho, podeNaConta,
+  carregarPessoa), src/ui/gaveta.js (gaveta, folha, confirmar), src/ui/aviso.js (aviso com desfazer), estilo.css
+  seções 10 a 12, ícones novos; app.js e rotas.js com as telas novas e o contexto dos módulos (aviso); adaptador com
+  cadastrar, funcao e enviarArquivo (aviso). Visto no Chromium contra o STG (computador e celular).
+Próximo passo: parte 3 (src/ui/para-quem.js e src/ui/paleta.js, que a casca já chama).
+Teste no STG: um usuário temporário com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste),
+  criado só para a sessão; a senha não fica no repositório. Apagar no fim.
 ```
 
 ```

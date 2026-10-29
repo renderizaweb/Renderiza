@@ -1,19 +1,24 @@
 // A casca do painel: carrega a configuração, abre a sessão e desenha a rota da vez.
-// Esqueleto da Missão 1: menu simples com todos os módulos; a Missão 2 troca pelo menu de verdade (src/ui/),
-// mostrando só os módulos ligados e trancando os sem acesso. Arquivo comum: mudança só com aviso em missoes.md.
+// Missão 1: o esqueleto. Missão 2 (bloco B): depois de entrar, as contas da pessoa (aceitando os convites), a conta
+// escolhida e a casca de verdade (src/telas/casca.js), que mostra só os módulos ligados e tranca os sem acesso.
+// Arquivo comum: mudança só com aviso em missoes.md.
+//
+// Cada módulo recebe em montar(el, contexto):
+//   banco, sessao, navegar(caminho), conta (a linha de minhas_contas), nicho (src/nichos/), pessoa (a própria),
+//   pode(módulo, nível) (espelho da regra do banco), avisar(texto, opções) (src/ui/aviso.js), ambiente.
 
 import { criarAdaptadorSupabase } from "./adaptadores/supabase.js";
 import { criarSessao } from "./sessao.js";
-import { decidir, caminhoDe, TELAS } from "./rotas.js";
-import { MODULOS, acharModulo } from "./modulos/index.js";
-import { AREAS_ADMIN, acharAreaAdmin } from "./admin/index.js";
+import { decidir, TELAS } from "./rotas.js";
+import { acharModulo } from "./modulos/index.js";
+import { acharAreaAdmin } from "./admin/index.js";
+import { montarCasca, conteudoSemAcesso, avisarTrancado } from "./telas/casca.js";
+import { nicho } from "./nichos/index.js";
+import { avisar } from "./ui/aviso.js";
+import { escapar } from "./ui/formulario.js";
 
 const raiz = document.getElementById("app");
 let vez = 0; // cada desenho ganha um número; um desenho antigo que termina depois não sobrescreve o novo
-
-function escapar(texto) {
-  return String(texto).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-}
 
 function mostrarFalha(mensagem) {
   raiz.innerHTML = `<main class="falha"><h1 class="titulo">Não consegui abrir o painel</h1><p class="rz-texto-2">${escapar(mensagem)}</p>
@@ -33,26 +38,10 @@ async function carregarConfig() {
   return corpo;
 }
 
-function desenharCasca(rota, sessao) {
-  const ativo = item => (rota.tipo === item.tipo && rota.id === item.id ? ' aria-current="page"' : "");
-  const links = MODULOS.map(m => `<a href="${caminhoDe({ tipo: "modulo", id: m.id })}"${ativo({ tipo: "modulo", id: m.id })}>${escapar(m.nome)}</a>`).join("");
-  const admin = AREAS_ADMIN.map(a => `<a href="${caminhoDe({ tipo: "admin", id: a.id })}"${ativo({ tipo: "admin", id: a.id })}>${escapar(a.nome)}</a>`).join("");
-  const usuario = sessao.usuario();
-  raiz.innerHTML = `
-    <div class="casca">
-      <nav class="menu" aria-label="Menu">
-        <div class="menu-marca"><img src="/favicon.svg" alt="" width="28" height="28"><span>Painel Renderiza</span></div>
-        ${links}
-        <p class="menu-grupo">Admin</p>
-        ${admin}
-        <div class="menu-pe">
-          <span class="suave">${escapar(usuario ? usuario.email : "")}</span>
-          <button class="rz-botao rz-botao--pequeno" type="button" data-sair>Sair</button>
-        </div>
-      </nav>
-      <main class="conteudo" id="conteudo"></main>
-    </div>`;
-  return raiz.querySelector("#conteudo");
+/** Leva o foco ao título do conteúdo novo (o leitor de tela anuncia onde a pessoa chegou). */
+function focarConteudo(el) {
+  const h1 = el.querySelector("h1");
+  if (h1) { h1.tabIndex = -1; h1.focus({ preventScroll: true }); }
 }
 
 async function iniciar() {
@@ -71,6 +60,7 @@ async function iniciar() {
     history[substituir ? "replaceState" : "pushState"]({}, "", caminho);
     desenhar();
   };
+  const entradas = new Set(); // contas em que a entrada já foi registrada nesta visita
 
   async function desenhar() {
     const minhaVez = ++vez;
@@ -79,27 +69,56 @@ async function iniciar() {
     const { rota } = decisao;
 
     try {
+      if (sessao.logado() && !sessao.contasCarregadas()) await sessao.carregarContas();
+      if (minhaVez !== vez) return;
+
       if (rota.tipo === "tela") {
         const tela = await TELAS[rota.id].carregar();
         if (minhaVez !== vez) return;
-        await tela.montar(raiz, { sessao, banco, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
+        await tela.montar(raiz, { sessao, banco, config, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
         return;
       }
-      const alvo = desenharCasca(rota, sessao);
-      if (rota.tipo === "nao-encontrada") {
-        alvo.innerHTML = '<h1 class="titulo">Página não encontrada</h1><p><a href="/">Voltar ao início</a></p>';
-        return;
+
+      // Daqui em diante, dentro de uma conta.
+      const conta = sessao.conta();
+      if (!conta) {
+        const volta = location.pathname + location.search;
+        return navegar(TELAS.contas.caminho + (volta !== "/" ? "?volta=" + encodeURIComponent(volta) : ""), { substituir: true });
       }
-      const item = rota.tipo === "admin" ? acharAreaAdmin(rota.id) : acharModulo(rota.id);
-      const parte = await item.carregar();
+      if (!entradas.has(conta.conta_id)) { entradas.add(conta.conta_id); sessao.registrarEntrada(); }
+      await sessao.carregarPessoa();
       if (minhaVez !== vez) return;
-      await parte.montar(alvo, { banco, sessao, navegar });
+
+      const { conteudo, bloqueada, itens } = montarCasca(raiz, { rota, sessao, banco, navegar, ambiente: config.ambiente });
+      if (bloqueada) return focarConteudo(conteudo);
+
+      const naoEncontrada = () => {
+        conteudo.innerHTML = '<section class="rz-bloqueio"><h1 class="rz-titulo-1">Página não encontrada</h1><p class="rz-texto-2">O endereço pode ter mudado.</p><div class="rz-bloqueio-acoes"><a class="rz-botao rz-botao--grande" href="/">Voltar ao Início</a></div></section>';
+        focarConteudo(conteudo);
+      };
+      if (rota.tipo === "nao-encontrada") return naoEncontrada();
+      if (rota.tipo === "admin" && !sessao.eEquipeRenderiza()) return naoEncontrada();
+      if (rota.tipo === "modulo") {
+        const item = itens.find(i => i.id === rota.id);
+        if (!item || item.estado !== "livre") {
+          conteudoSemAcesso(conteudo, item, conta);
+          return focarConteudo(conteudo);
+        }
+      }
+
+      const parte = await (rota.tipo === "admin" ? acharAreaAdmin(rota.id) : acharModulo(rota.id)).carregar();
+      if (minhaVez !== vez) return;
+      await parte.montar(conteudo, {
+        banco, sessao, navegar, conta, nicho: nicho(conta.nicho), pessoa: sessao.pessoa(),
+        pode: (modulo, nivel) => sessao.pode(modulo, nivel), avisar, ambiente: config.ambiente,
+      });
+      if (minhaVez === vez) focarConteudo(conteudo);
     } catch (e) {
       if (minhaVez === vez) mostrarFalha(e.message);
     }
   }
 
-  // Links internos navegam sem recarregar a página.
+  // Links internos navegam sem recarregar a página; sair e trocar de conta valem de qualquer lugar.
   document.addEventListener("click", evento => {
     const sair = evento.target.closest("[data-sair]");
     if (sair) {
@@ -107,8 +126,17 @@ async function iniciar() {
       sessao.sair().finally(() => navegar(TELAS.entrar.caminho, { substituir: true }));
       return;
     }
+    if (evento.target.closest("[data-trocar-conta]")) {
+      navegar(TELAS.contas.caminho + "?trocar=1");
+      return;
+    }
     const link = evento.target.closest("a[href]");
     if (!link || link.target || link.origin !== location.origin || evento.metaKey || evento.ctrlKey || evento.shiftKey) return;
+    if (link.dataset.trancado) {
+      evento.preventDefault();
+      avisarTrancado(link.dataset.trancado);
+      return;
+    }
     if (link.pathname.startsWith("/publico/") || link.pathname.startsWith("/api/")) return;
     evento.preventDefault();
     navegar(link.pathname + link.search);
