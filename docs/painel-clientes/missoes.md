@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | pode começar (a 2 está na `main`) | |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) desde 29/10; os blocos A, B, D, E e F estão livres | C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,7 +212,25 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · PRONTA, NA MAIN
+Missão 3 · bloco C (Atendimento) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: o exemplo /exemplos/painel-eventos (Atendimento e a gaveta do pedido), 09 ("Atendimento": a lista
+  primeiro, o funil recolhido; no computador, quadro em colunas por etapa, arrastar muda a etapa; desfazer;
+  tempo real do pedido novo), 05 (pedidos, compromissos, lista_espera, fechar_pedido), 02 (Atendimento).
+Plano (nesta ordem, cada parte com commit): 1. a lista (etapas em chips, busca, "De onde vêm" e o funil
+  recolhidos) e, no computador, o quadro por etapa com arrastar (mudar etapa com desfazer); 2. a gaveta do pedido
+  (mensagem, data desejada e se está livre, convidados, tipo ou ensaio, quem atende, etapa, Responder no WhatsApp,
+  Marcar visita, Perdido); 3. anotar pedido em poucos toques (o "+ Novo pedido" e ?novo=pedido): "Para quem?",
+  data, tipo, convidados, origem; 4. "Fechar" vira reserva (fechar_pedido), confirmando a pré-reserva que a agenda
+  online já criou; 5. lista de espera (fotografia, por campanha); 6. tempo real: pedido novo aparece sozinho, com
+  aviso; 7. teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Fora do "Mexe em" (src/modulos/atendimento/), pequeno, com aviso quando acontecer: o adaptador (tempo real), o
+  app.js (desmontar o módulo ao sair, para fechar o tempo real) e, se preciso, uma migração pequena no fechar_pedido.
+```
+
+```
+Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITA, NA MAIN E NA PRODUÇÃO
 Plano (nesta ordem, cada parte com commit): 1. palavras por nicho (src/nichos/) e formatos (src/ui/formatos.js);
   2. a casca de verdade: sessão com a conta escolhida (minhas_contas), escolher a conta, menu lateral e barra de
   baixo só com os módulos ligados (trancado sem acesso), aviso de teste e tela de teste vencido, registrar_entrada,
@@ -261,6 +279,14 @@ Depois de trazer a main (Missão 4): o logo das Configurações dava 403 (aviso 
 Função convidar na produção desde 29/10 (com o ok da Renderiza; publicada sozinha com --so convidar, sem
   republicar a avisar-pedido): sem login dá 401, conferido sem mandar e-mail. Falta (da Renderiza): criar o
   Turnstile para abrir o cadastro (D30, 04) e testar um convite com um e-mail de verdade.
+Depois de pronta, a pedido da Renderiza (29/10): o onboarding virou um trilho (D33; 09, "Como ficou, um trilho";
+  10, "Tema do nicho"): boas-vindas com o roteiro, escolha única que segue sozinha com check e animação, a cor do
+  nicho na tela (verde dos eventos, vinho da fotografia, dos exemplos), a pergunta nova "Você já tem site?"
+  (contas.ajustes.onboarding.site) e "Montando o seu painel" com um check por parte. Arquivos: src/telas/comecar.js
+  (reescrito), src/telas/acesso.js (painelDaMarca, temaDoNicho), estilo.css seções 1 (tokens do nicho) e 16;
+  test/onboarding.test.mjs. Testado no STG: eventos no celular e fotografia no computador, do zero ao Início.
+  /api/config passou a dizer o commit no ar (versao; 04, Vercel): o push a4f92d1 não chegou à produção em 25
+  minutos, o seguinte (aabb9bc) entrou em 1 minuto. Na produção: aabb9bc em diante.
 ```
 
 ```

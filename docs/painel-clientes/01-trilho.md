@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missões 3, 4 e 5 ([`missoes.md`](missoes.md)); da Renderiza: quando quiser abrir o cadastro, o Turnstile (D30) |
+| **Próxima ação** | Missão 3, bloco C (Atendimento) em andamento; os blocos A, B, D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -163,6 +163,8 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 3 | Missão 3 começou pelo bloco C (Atendimento), na branch `claude/painel-renderiza-setup-ztnrzy`. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 2 | Onboarding refeito como um trilho, a pedido da Renderiza (D33): boas-vindas com o roteiro, escolha que segue sozinha com check, a cor do nicho na tela, a pergunta "Você já tem site?" e "Montando o seu painel". Na produção. O `/api/config` passou a dizer o commit no ar (`versao`), depois de um deploy que não entrou sozinho. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 2 → 3, 4, 5 | **Parada 2 chegou (Missão 2 feita).** Bloco B (telas base) na `main`: casca, escolher a conta, convite (função do Supabase), cadastro com verificação contra robô (fecha até a Renderiza criar o Turnstile), onboarding de 5 telas, primeiros passos com a importação das datas, Equipe, Configurações e Serviços. O "chegou quando" testado no STG: um dono passou pelo onboarding, convidou uma pessoa só com a Agenda (só vê), ela entrou pelo celular, viu só a Agenda e o banco não a deixou editar; os testes de isolamento passam no local e no STG. A função do convite foi para a produção no mesmo dia, com o ok da Renderiza. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 4 | Missão 4 na produção, com o "pode" da Renderiza: as 3 migrações (agenda online, aviso de pedido e Meu site) e a função `avisar-pedido`; conferido só lendo, no banco e na API do endereço oficial. Falta a chave do Brevo na função. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 4 | **Missão 4, bloco C (Meu site no painel), pronta:** o servidor (versão publicada, prévia e fotos pela API) na `main` e no STG; o editor (partes do site, fotos, rascunho, prévia, publicar, versões, voltar ao entregue) na branch, em cima da Missão 2B, que ainda não terminou: sobe com ela. Conferido de ponta a ponta no STG: a edição publicada aparece no site de teste. Com isso, as três provas da Parada 4 passaram no STG; falta a produção. | Claude, a pedido da Renderiza |
