@@ -1,17 +1,21 @@
 // Transforma uma demo aprovada em site de cliente, pronto para ter repositório e domínio próprios.
 //
 // Uso: node scripts/virar-site.mjs <pasta-da-demo> [pasta-de-saida]
-//      (lê demos/<pasta>/index.html e demos/<pasta>/site.json; a saída padrão é ../sites/<domínio>)
+//      (lê demos/<pasta>/index.html e demos/<pasta>/site.json, ou de qualquer pasta com esses dois arquivos, como o
+//      test/site-teste; a saída padrão é ../sites/<domínio>)
 //
 // O que muda em relação à demo:
 // - as fotos saem de dentro do HTML e viram arquivos em img/ (página mais leve, cache, Google Imagens);
 // - entram endereço oficial (canonical), prévia para WhatsApp/redes (og:*), ícone da aba e dados
 //   estruturados da empresa (schema.org) a partir do site.json;
 // - robots.txt e sitemap.xml liberam o Google (as demos da Renderiza ficam fora do Google; o site real não);
-// - cabeçalhos para Cloudflare Pages (_headers) e Vercel (vercel.json): serve nas duas hospedagens.
+// - cabeçalhos para Cloudflare Pages (_headers) e Vercel (vercel.json): serve nas duas hospedagens;
+// - com "painel" no site.json, entra o script do Meu site (ferramentas/meu-site/meu-site.js) com o código do site:
+//   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel).
 //
 // site.json: { dominio, nome, corTema, favicon: { texto, cor }, previaCentro: [x, y] (0 a 1; onde centrar o
-//             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ] }
+//             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ],
+//             painel: { codigo } (opcional: o código do site no Painel Renderiza; "api" só para teste) }
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -21,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [pasta, saidaArg] = process.argv.slice(2);
 if (!pasta) { console.error('Uso: node scripts/virar-site.mjs <pasta-da-demo> [pasta-de-saida]'); process.exit(1); }
-const dirDemo = path.join(raiz, 'demos', pasta);
+const dirDemo = /[\\/]/.test(pasta) ? path.resolve(pasta) : path.join(raiz, 'demos', pasta);
 const conf = JSON.parse(fs.readFileSync(path.join(dirDemo, 'site.json'), 'utf8'));
 if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(conf.dominio || '')) throw new Error('site.json: "dominio" inválido');
 const url = `https://${conf.dominio}/`;
@@ -89,6 +93,17 @@ const cabeca = [
 ].map(l => '  ' + l).join('\n');
 if (!html.includes('</title>')) throw new Error('index.html sem <title>');
 html = html.replace(/(<\/title>\n)/, `$1${cabeca}\n`);
+
+// 4b. Meu site: o script vai no fim do <head>, para pedir a versão publicada o quanto antes.
+if (conf.painel) {
+  const { codigo, api } = conf.painel;
+  if (!/^[a-z0-9][a-z0-9-]{0,40}$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido');
+  if (api && !/^https?:\/\/[^\s"<>]+\/$/.test(api)) throw new Error('site.json: "painel.api" inválido (termina com /)');
+  const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
+  if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
+  if (!html.includes('</head>')) throw new Error('index.html sem </head>');
+  html = html.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api)}"` : ''}>\n${js}  </script>\n</head>`);
+}
 fs.writeFileSync(path.join(saida, 'index.html'), html);
 
 // 5. Google, cabeçalhos e instruções.
@@ -126,7 +141,14 @@ Não tem build, banco de dados nem dependências. Qualquer hospedagem de site es
 - Texto: edite direto no \`index.html\`.
 - WhatsApp, Instagram e endereços: no fim do \`index.html\`, no bloco \`window.DEMO_CLIENT\`.
 - Foto: troque o arquivo em \`img/\` (mesmo nome) ou aponte o \`<img src>\` para um arquivo novo.
+${conf.painel ? `
+## Meu site (Painel Renderiza)
 
+O \`<script data-codigo="${conf.painel.codigo}">\` no fim do \`<head>\` liga o site ao Meu site: o que o cliente publica no
+Painel Renderiza aparece por cima do que está no \`index.html\`. Se o painel não responder, a conta for desconectada ou o
+script sair, o site mostra o \`index.html\` como está (a versão inicial). Não apague as marcações \`data-site-*\`: são
+elas que dizem ao script o que pode mudar.
+` : ''}
 A cada alteração enviada para a branch principal, a hospedagem publica sozinha.
 
 ## Publicação (Vercel)

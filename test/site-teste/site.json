@@ -1,0 +1,7 @@
+{
+  "dominio": "villa-alecrim.teste",
+  "nome": "Villa Alecrim Eventos",
+  "corTema": "#1b3326",
+  "favicon": { "texto": "V", "cor": "#1b3326" },
+  "painel": { "codigo": "villa-alecrim" }
+}

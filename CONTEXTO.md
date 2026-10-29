@@ -155,6 +155,11 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
    `demos/lu-elegante-modas/site.json`.
 2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
    WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
+   **Com o Meu site do Painel Renderiza** (só se o cliente quiser): `"painel": { "codigo": "<código do site no
+   painel>" }` no `site.json` embute o script que mostra o que o cliente publica no painel, sempre com a versão do
+   `index.html` de reserva. A versão final (vendida à parte) sai com `node scripts/versao-final.mjs`. Os geradores das
+   demos já marcam o que é editável (`data-site-*`, sem mudar nada no visual): não apague essas marcações. Detalhes:
+   `docs/painel-clientes/03-modulo-meu-site.md`.
 3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no
    Registro.br no CPF/CNPJ dele. A Renderiza só faz o site; nada do cliente fica hospedado ou guardado na
    Renderiza. O Kaue entrega os acessos ao cliente, que pode passar a qualquer dev no futuro.

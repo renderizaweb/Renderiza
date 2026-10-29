@@ -14,6 +14,10 @@
 # Básico bem feito (pouca foto boa): carrosseis = []; estilos sem "solar" (fica o card de grau + formato
 #   de rosto) e cada card aceita "titulo"/"rotulo" (ex.: "Óculos 2 em 1"); insta sem "foto" (só texto e
 #   botão); atendimento com "formato": "paisagem" para foto de grupo (equipe) sem cortar ninguém.
+# Meu site (Painel Renderiza): o que o cliente pode editar leva as marcações data-site-* (seção, texto, botão, imagem,
+#   lista). Não mudam o visual (conferido pixel a pixel) nem o que a demo faz; não apague nem renomeie: são o contrato com
+#   os sites já entregues (docs/painel-clientes/03-modulo-meu-site.md, ferramentas/meu-site/). Rótulo de botão fica como
+#   texto direto dentro do <a> (sem <span> em volta: há CSS de span nos botões).
 import base64, colorsys, html, io, json, os, re, sys
 from PIL import Image, ImageFilter, ImageOps
 
@@ -253,42 +257,42 @@ def corpo(cfg, fotos, google):
                    else f'<span class="hero-note"><span class="note-dot" aria-hidden="true"></span>{h.get("nota", "")}</span>')
     marquee = ''.join(f'<span>{esc(x)}</span><i>✦</i>' for x in cfg['marquee'])
     s = cfg['sobre']
-    pol_sobre = (f'<figure class="polaroid story-polaroid"><img src="{img("sobre_pol", s["pol"])}" width="420" height="479" loading="lazy" alt="{esc(s["pol_alt"])}"><figcaption>{esc(s["pol_cap"])}</figcaption></figure>'
+    pol_sobre = (f'<figure class="polaroid story-polaroid"><img data-site-img="sobre.foto2" src="{img("sobre_pol", s["pol"])}" width="420" height="479" loading="lazy" alt="{esc(s["pol_alt"])}"><figcaption data-site="sobre.legenda">{esc(s["pol_cap"])}</figcaption></figure>'
                  if s.get('pol') else '')
     # nota abaixo de 5,0 (4,9, 4,8...) não aparece: ficam as estrelas e o número de avaliações
     nota = mostrar_nota(cfg)
     lista_stats = [(v, t) for v, t in s['stats'] if nota or v != '{nota}']
-    stats = ''.join(f'<div class="stat"><strong{" data-rating" if v == "{nota}" else ""}>{esc(cfg["google_nota"] if v == "{nota}" else v)}</strong><span>{esc(t)}</span></div>' for v, t in lista_stats)
+    stats = ''.join(f'<div class="stat" data-site-item><strong data-site-campo="valor"{" data-rating" if v == "{nota}" else ""}>{esc(cfg["google_nota"] if v == "{nota}" else v)}</strong><span data-site-campo="texto">{esc(t)}</span></div>' for v, t in lista_stats)
     total = esc(cfg['google_total'])
     out = [SIMBOLOS, '  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>',
-      f'  <div class="topline"><div class="container"><span>{esc(cfg["topline"])}</span><a class="topline-rating" href="#depoimentos"><span class="stars" aria-hidden="true">★★★★★</span> ' + (f'<span data-rating>{esc(cfg["google_nota"])}</span> no Google' if nota else f'{total} avaliações no Google') + '</a></div></div>',
-      f'''  <header class="site-header">
+      f'  <div class="topline"><div class="container"><span data-site="cabecalho.aviso">{esc(cfg["topline"])}</span><a class="topline-rating" href="#depoimentos"><span class="stars" aria-hidden="true">★★★★★</span> ' + (f'<span data-rating>{esc(cfg["google_nota"])}</span> no Google' if nota else f'{total} avaliações no Google') + '</a></div></div>',
+      f'''  <header class="site-header" data-site-secao="cabecalho">
     <div class="container header-inner">
       <a class="logo" href="#inicio" aria-label="{esc(mc)}, início">{logo_mark}<span class="logo-text"><b>{esc(ml)}</b><small>{esc(sub)}</small></span></a>
       <nav class="desktop-nav" aria-label="Navegação principal">{nav}</nav>
-      <a class="button header-cta" data-whatsapp href="#">{esc(cfg.get("cta_topo", "Fale com a gente"))} <span aria-hidden="true">↗</span></a>
+      <a class="button header-cta" data-whatsapp data-site-botao="cabecalho.botao" href="#">{esc(cfg.get("cta_topo", "Fale com a gente"))} <span aria-hidden="true">↗</span></a>
       <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
     <nav class="mobile-nav" id="menu-mobile" aria-label="Navegação para celular" hidden>{nav}<a data-whatsapp href="#">Falar no WhatsApp ↗</a></nav>
   </header>''',
       f'''  <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-heading">
+    <section class="hero" id="inicio" data-site-secao="inicio" aria-labelledby="hero-heading">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="small-line" aria-hidden="true"></span> {esc(h["eyebrow"])}</p>
-          <h1 id="hero-heading">{h["h1"]}</h1>
-          <p class="hero-intro">{esc(h["intro"])}</p>
+          <p class="eyebrow"><span class="small-line" aria-hidden="true"></span> <span data-site="inicio.eyebrow">{esc(h["eyebrow"])}</span></p>
+          <h1 id="hero-heading" data-site="inicio.titulo">{h["h1"]}</h1>
+          <p class="hero-intro" data-site="inicio.texto">{esc(h["intro"])}</p>
           <div class="hero-actions">
-            <a class="button button--mustard" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
-            <a class="text-link text-link--light" href="#{h.get("alvo") or (cfg["carrosseis"][0]["id"] if cfg["carrosseis"] else "estilos")}">{esc(h.get("link", "Ver a vitrine"))} <span aria-hidden="true">↓</span></a>
+            <a class="button button--mustard" data-whatsapp data-site-botao="inicio.botao" href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
+            <a class="text-link text-link--light" data-site-botao="inicio.link" href="#{h.get("alvo") or (cfg["carrosseis"][0]["id"] if cfg["carrosseis"] else "estilos")}">{esc(h.get("link", "Ver a vitrine"))} <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-proof">
             <a class="proof-google" href="#depoimentos">{f'<span class="hero-proof-score" data-rating>{esc(cfg["google_nota"])}</span>' if nota else ''}<span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="proof-caption">{esc(cfg["google_total"])} avaliações no Google</span></span></a>
-            <a class="proof-badge" href="#sobre"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(h["selo"])}</a>
+            <a class="proof-badge" href="#sobre"><svg aria-hidden="true"><use href="#spark"/></svg><span data-site="inicio.selo">{esc(h["selo"])}</span></a>
           </div>
         </div>
         <div class="hero-visual">
-          <figure class="hero-photo"><img src="{img("hero", h["foto"])}" width="800" height="960" alt="{esc(h["alt"])}" fetchpriority="high"></figure>
+          <figure class="hero-photo"><img data-site-img="inicio.foto" src="{img("hero", h["foto"])}" width="800" height="960" alt="{esc(h["alt"])}" fetchpriority="high"></figure>
           <a class="address-tag" data-maps href="#" target="_blank" rel="noopener noreferrer"><span class="tag-icon" aria-hidden="true"><svg><use href="#pin"/></svg></span><span><strong>{esc(end[0])}</strong><small>{esc(end[1])}</small></span></a>
         </div>
       </div>
@@ -302,51 +306,51 @@ def corpo(cfg, fotos, google):
       </div>
     </div>
 
-    <section class="section story-section" id="sobre" aria-labelledby="story-heading">
+    <section class="section story-section" id="sobre" data-site-secao="sobre" aria-labelledby="story-heading">
       <div class="container story-grid">
         <div class="story-photos reveal">
-          <figure class="story-main"><img src="{img("sobre", s["foto"])}" width="576" height="720" loading="lazy" alt="{esc(s["alt"])}"></figure>
+          <figure class="story-main"><img data-site-img="sobre.foto" src="{img("sobre", s["foto"])}" width="576" height="720" loading="lazy" alt="{esc(s["alt"])}"></figure>
           {pol_sobre}
         </div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">{esc(s["eyebrow"])}</p>
-          <h2 id="story-heading">{s["h2"]}</h2>
-          {"".join(f"<p>{esc(p)}</p>" for p in s["p"])}
-          <div class="stats{" stats--2" if len(lista_stats) == 2 else ""}">{stats}</div>
+        <div class="story-copy reveal" data-site-lista="sobre.paragrafos">
+          <p class="eyebrow" data-site="sobre.eyebrow">{esc(s["eyebrow"])}</p>
+          <h2 id="story-heading" data-site="sobre.titulo">{s["h2"]}</h2>
+          {"".join(f'<p data-site-item data-site-campo="texto">{esc(p)}</p>' for p in s["p"])}
+          <div class="stats{" stats--2" if len(lista_stats) == 2 else ""}" data-site-lista="sobre.numeros">{stats}</div>
         </div>
       </div>
     </section>''']
     for k, car in enumerate(cfg['carrosseis']):
         if car.get('formato') == 'grade':
             itens = ''.join(
-                f'<li><figure class="vitrine-card"><img src="{fotos.uri({"q": 76, **it["foto"]}, (560, 560), car["id"] + str(n))}" width="560" height="560" loading="lazy" alt="{esc(it["alt"])}">'
-                + (f'<figcaption>{esc(it["cap"])}</figcaption>' if it.get('cap') else '') + '</figure></li>'
+                f'<li data-site-item><figure class="vitrine-card"><img data-site-campo="foto" src="{fotos.uri({"q": 76, **it["foto"]}, (560, 560), car["id"] + str(n))}" width="560" height="560" loading="lazy" alt="{esc(it["alt"])}">'
+                + (f'<figcaption data-site-campo="legenda">{esc(it["cap"])}</figcaption>' if it.get('cap') else '') + '</figure></li>'
                 for n, it in enumerate(car['itens'], 1))
             out.append(f'''
-    <section class="section gallery-section" id="{car["id"]}" aria-labelledby="{car["id"]}-heading">
+    <section class="section gallery-section" id="{car["id"]}" data-site-secao="{car["id"]}" aria-labelledby="{car["id"]}-heading">
       <div class="container">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">{esc(car["eyebrow"])}</p><h2 id="{car["id"]}-heading">{car["h2"]}</h2></div>
-          <p>{esc(car["p"])}</p>
+          <div><p class="eyebrow" data-site="{car["id"]}.eyebrow">{esc(car["eyebrow"])}</p><h2 id="{car["id"]}-heading" data-site="{car["id"]}.titulo">{car["h2"]}</h2></div>
+          <p data-site="{car["id"]}.texto">{esc(car["p"])}</p>
         </div>
-        <ul class="vitrine-grade reveal" aria-label="{esc(car["rotulo"])}">{itens}</ul>
+        <ul class="vitrine-grade reveal" data-site-lista="{car["id"]}.fotos" aria-label="{esc(car["rotulo"])}">{itens}</ul>
       </div>
     </section>''')
             continue
         tam = FORMATOS[car.get('formato', 'quadrado')]
         itens = ''.join(
-            f'<li><figure class="vitrine-card"><img src="{fotos.uri({"q": 70, **it["foto"]}, tam, car["id"] + str(n))}" width="{tam[0]}" height="{tam[1]}" loading="lazy" alt="{esc(it["alt"])}">'
-            + (f'<figcaption>{esc(it["cap"])}</figcaption>' if it.get('cap') else '') + '</figure></li>\n            '
+            f'<li data-site-item><figure class="vitrine-card"><img data-site-campo="foto" src="{fotos.uri({"q": 70, **it["foto"]}, tam, car["id"] + str(n))}" width="{tam[0]}" height="{tam[1]}" loading="lazy" alt="{esc(it["alt"])}">'
+            + (f'<figcaption data-site-campo="legenda">{esc(it["cap"])}</figcaption>' if it.get('cap') else '') + '</figure></li>\n            '
             for n, it in enumerate(car['itens'], 1))
         out.append(f'''
-    <section class="section gallery-section" id="{car["id"]}" aria-labelledby="{car["id"]}-heading">
+    <section class="section gallery-section" id="{car["id"]}" data-site-secao="{car["id"]}" aria-labelledby="{car["id"]}-heading">
       <div class="container">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">{esc(car["eyebrow"])}</p><h2 id="{car["id"]}-heading">{car["h2"]}</h2></div>
-          <p>{esc(car["p"])}</p>
+          <div><p class="eyebrow" data-site="{car["id"]}.eyebrow">{esc(car["eyebrow"])}</p><h2 id="{car["id"]}-heading" data-site="{car["id"]}.titulo">{car["h2"]}</h2></div>
+          <p data-site="{car["id"]}.texto">{esc(car["p"])}</p>
         </div>
         <div class="carousel carousel--light reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="{esc(car["rotulo"])}">
-          <ul class="carousel-track gallery-track gallery-track--{car.get("formato", "quadrado")}" id="{car["id"]}-track" tabindex="0" aria-label="{esc(car["rotulo"])}; use as setas para navegar">
+          <ul class="carousel-track gallery-track gallery-track--{car.get("formato", "quadrado")}" id="{car["id"]}-track" data-site-lista="{car["id"]}.fotos" tabindex="0" aria-label="{esc(car["rotulo"])}; use as setas para navegar">
             {itens}</ul>
           <div class="carousel-footer"><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="{car["id"]}-track" aria-label="Fotos anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="{car["id"]}-track" aria-label="Próximas fotos">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
         </div>
@@ -361,11 +365,11 @@ def corpo(cfg, fotos, google):
             <div class="style-description"><div><h3>{esc(c.get("titulo", t))}</h3><p>{esc(c["texto"])}</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
           </a>''' for k, c, t, r in cards)
     if cards: out.append(f'''
-    <section class="section styles-section" id="estilos" aria-labelledby="styles-heading">
+    <section class="section styles-section" id="estilos" data-site-secao="estilos" aria-labelledby="styles-heading">
       <div class="container">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">{esc(e.get("eyebrow", "Qual é a sua?"))}</p><h2 id="styles-heading">{e.get("h2", "Tem um estilo que é <em>a sua cara.</em>")}</h2></div>
-          <p>{esc(e["p"])}</p>
+          <div><p class="eyebrow" data-site="estilos.eyebrow">{esc(e.get("eyebrow", "Qual é a sua?"))}</p><h2 id="styles-heading" data-site="estilos.titulo">{e.get("h2", "Tem um estilo que é <em>a sua cara.</em>")}</h2></div>
+          <p data-site="estilos.texto">{esc(e["p"])}</p>
         </div>
         <div class="styles-grid{" styles-grid--dois" if len(cards) == 1 else ""}">{cards_html}
           {FACES.replace("03 / SEU ROSTO", f"0{len(cards) + 1} / SEU ROSTO")}
@@ -373,23 +377,23 @@ def corpo(cfg, fotos, google):
       </div>
     </section>''')
     a = cfg['atendimento']
-    pol_at = (f'<figure class="polaroid experience-polaroid"><img src="{img("atend_pol", a["pol"])}" width="420" height="504" loading="lazy" alt="{esc(a["pol_alt"])}"><figcaption>{esc(a["pol_cap"])}</figcaption></figure>'
+    pol_at = (f'<figure class="polaroid experience-polaroid"><img data-site-img="atendimento.foto2" src="{img("atend_pol", a["pol"])}" width="420" height="504" loading="lazy" alt="{esc(a["pol_alt"])}"><figcaption data-site="atendimento.legenda">{esc(a["pol_cap"])}</figcaption></figure>'
               if a.get('pol') else '')
     card = (f'<a class="exam-card" data-whatsapp href="#"><strong><svg aria-hidden="true"><use href="#eye"/></svg>{esc(a["card"][0])}</strong>{esc(a["card"][1])} <span>Ver ↗</span></a>'
             if a.get('card') else '')
     out.append(f'''
-    <section class="section experience-section" id="atendimento" aria-labelledby="experience-heading">
+    <section class="section experience-section" id="atendimento" data-site-secao="atendimento" aria-labelledby="experience-heading">
       <div class="container experience-grid">
         <div class="experience-copy reveal">
-          <p class="eyebrow">{esc(a["eyebrow"])}</p>
-          <h2 id="experience-heading">{a["h2"]}</h2>
-          <ol class="steps">{"".join(f"<li><strong>{esc(p)}</strong></li>" for p in a["passos"])}</ol>
-          <div class="experience-actions"><a class="button" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>{esc(a.get("botao", "Falar no WhatsApp"))}</a></div>
+          <p class="eyebrow" data-site="atendimento.eyebrow">{esc(a["eyebrow"])}</p>
+          <h2 id="experience-heading" data-site="atendimento.titulo">{a["h2"]}</h2>
+          <ol class="steps" data-site-lista="atendimento.passos">{"".join(f'<li data-site-item><strong data-site-campo="texto">{esc(p)}</strong></li>' for p in a["passos"])}</ol>
+          <div class="experience-actions"><a class="button" data-whatsapp data-site-botao="atendimento.botao" href="#"><svg aria-hidden="true"><use href="#whats"/></svg>{esc(a.get("botao", "Falar no WhatsApp"))}</a></div>
         </div>
         <div class="experience-photos reveal">
-          {f'<figure class="experience-main experience-main--paisagem"><img src="{img("atend_paisagem", a["foto"])}" width="720" height="540" loading="lazy" alt="{esc(a["alt"])}"></figure>'
+          {f'<figure class="experience-main experience-main--paisagem"><img data-site-img="atendimento.foto" src="{img("atend_paisagem", a["foto"])}" width="720" height="540" loading="lazy" alt="{esc(a["alt"])}"></figure>'
            if a.get("formato") == "paisagem" else
-           f'<figure class="experience-main"><img src="{img("atend", a["foto"])}" width="640" height="640" loading="lazy" alt="{esc(a["alt"])}"></figure>'}
+           f'<figure class="experience-main"><img data-site-img="atendimento.foto" src="{img("atend", a["foto"])}" width="640" height="640" loading="lazy" alt="{esc(a["alt"])}"></figure>'}
           {pol_at}
           {card}
         </div>
@@ -397,14 +401,14 @@ def corpo(cfg, fotos, google):
     </section>''')
     r = cfg['avaliacoes_secao']
     out.append(f'''
-    <section class="section reviews-section" id="depoimentos" aria-labelledby="reviews-heading">
+    <section class="section reviews-section" id="depoimentos" data-site-secao="depoimentos" aria-labelledby="reviews-heading">
       <div class="container">
         <div class="reviews-heading reveal">
-          <div><p class="eyebrow">{esc(r.get("eyebrow", "Quem conhece, conta"))}</p><h2 id="reviews-heading">{r["h2"]}</h2></div>
+          <div><p class="eyebrow" data-site="depoimentos.eyebrow">{esc(r.get("eyebrow", "Quem conhece, conta"))}</p><h2 id="reviews-heading" data-site="depoimentos.titulo">{r["h2"]}</h2></div>
           <a class="google-score" data-reviews-link href="#" target="_blank" rel="noopener noreferrer">{f'<strong data-rating>{esc(cfg["google_nota"])}</strong>' if nota else ''}<span><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span>{esc(cfg["google_total"])} avaliações no Google</span><small>Ler todas <span aria-hidden="true">↗</span></small></span></a>
         </div>
         <div class="carousel review-carousel" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes">
-          <ul class="carousel-track reviews-track" id="reviews-track" tabindex="0" aria-label="Avaliações; use as setas para navegar" data-reviews></ul>
+          <ul class="carousel-track reviews-track" id="reviews-track" tabindex="0" aria-label="Avaliações; use as setas para navegar" data-reviews data-site-lista="depoimentos.avaliacoes" data-site-runtime="avaliacoes"></ul>
           <div class="carousel-footer"><a class="text-link text-link--light review-write" data-review-write href="#" target="_blank" rel="noopener noreferrer">Já é cliente? Avalie no Google <span aria-hidden="true">↗</span></a><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="reviews-track" aria-label="Avaliações anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="reviews-track" aria-label="Próximas avaliações">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
         </div>
       </div>
@@ -413,18 +417,18 @@ def corpo(cfg, fotos, google):
     i = cfg['insta']; ig = cfg['instagram']
     midia = f'''
         <div class="insta-media reveal">
-          <div class="insta-photo"><img src="{img("insta", i["foto"])}" width="600" height="750" loading="lazy" alt="{esc(i["alt"])}"></div>
+          <div class="insta-photo"><img data-site-img="instagram.foto" src="{img("insta", i["foto"])}" width="600" height="750" loading="lazy" alt="{esc(i["alt"])}"></div>
           <a class="insta-chip insta-chip--ig" data-instagram href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>@{esc(ig)}</a>
-          <a class="insta-chip insta-chip--ship" data-whatsapp href="#"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(i.get("chip", "Peça pelo WhatsApp"))}</a>
+          <a class="insta-chip insta-chip--ship" data-whatsapp data-site-botao="instagram.chip" href="#"><svg aria-hidden="true"><use href="#spark"/></svg>{esc(i.get("chip", "Peça pelo WhatsApp"))}</a>
         </div>''' if i.get('foto') else ''
     out.append(f'''
-    <section class="section insta-section" id="instagram" aria-labelledby="insta-heading">
+    <section class="section insta-section" id="instagram" data-site-secao="instagram" aria-labelledby="insta-heading">
       <div class="container insta-grid{"" if midia else " insta-grid--solo"}">
         <div class="insta-copy reveal">
-          <p class="eyebrow">@{esc(ig)}{" · " + esc(i["seguidores"]) if i.get("seguidores") else ""}</p>
-          <h2 id="insta-heading">Acompanhe no <em>Instagram.</em></h2>
-          <p>{esc(i["p"])}</p>
-          <div class="insta-actions"><a class="button" data-instagram href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>Seguir no Instagram</a><a class="text-link" data-whatsapp href="#">Tirar uma dúvida <span aria-hidden="true">↗</span></a></div>
+          <p class="eyebrow" data-site="instagram.eyebrow">@{esc(ig)}{" · " + esc(i["seguidores"]) if i.get("seguidores") else ""}</p>
+          <h2 id="insta-heading" data-site="instagram.titulo">Acompanhe no <em>Instagram.</em></h2>
+          <p data-site="instagram.texto">{esc(i["p"])}</p>
+          <div class="insta-actions"><a class="button" data-instagram data-site-botao="instagram.botao" href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#insta"/></svg>Seguir no Instagram</a><a class="text-link" data-whatsapp data-site-botao="instagram.link" href="#">Tirar uma dúvida <span aria-hidden="true">↗</span></a></div>
         </div>{midia}
       </div>
     </section>''')
@@ -436,7 +440,7 @@ def corpo(cfg, fotos, google):
         bloco_h = f'<p class="visit-note"><svg aria-hidden="true"><use href="#clock"/></svg>{esc(v.get("nota", "Horário: confirme pelo WhatsApp."))}</p>'
     fone = f'<span>{esc(v.get("rotulo_fone", "Telefone"))} <a data-phone href="#">{esc(v["telefone"])}</a></span>' if v.get('telefone') else ''
     out.append(f'''
-    <section class="visit-section" id="visite" aria-labelledby="visit-heading">
+    <section class="visit-section" id="visite" data-site-secao="visite" aria-labelledby="visit-heading">
       <div class="container visit-grid">
         <div class="map-card reveal">
           <div class="map-fallback" aria-hidden="true"><svg><use href="#pin"/></svg><span>{esc(end[0])}<br>{esc(end[1])}</span></div>
@@ -445,19 +449,19 @@ def corpo(cfg, fotos, google):
         </div>
         <div class="visit-copy reveal">
           <p class="eyebrow">Como chegar</p>
-          <h2 id="visit-heading">{v["h2"]}</h2>
+          <h2 id="visit-heading" data-site="visite.titulo">{v["h2"]}</h2>
           {bloco_h}
           <address><strong>{esc(mc)}</strong><span>{"<br>".join(esc(x) for x in v["endereco"])}</span>{fone}</address>
-          <div class="visit-actions"><a class="button button--mustard" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a><a class="text-link" data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar <span aria-hidden="true">↗</span></a></div>
+          <div class="visit-actions"><a class="button button--mustard" data-whatsapp data-site-botao="visite.botao" href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a><a class="text-link" data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar <span aria-hidden="true">↗</span></a></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" data-site-secao="rodape">
     <div class="container footer-top">
       <a class="logo" href="#inicio" aria-label="{esc(mc)}, voltar ao início">{logo_mark}<span class="logo-text"><b>{esc(ml)}</b><small>{esc(sub)}</small></span></a>
-      <p class="footer-slogan">{esc(cfg["slogan"])}</p>
+      <p class="footer-slogan" data-site="rodape.slogan">{esc(cfg["slogan"])}</p>
       <nav class="footer-links" aria-label="Links da {esc(m)}"><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a><a data-reviews-link href="#" target="_blank" rel="noopener noreferrer">Avaliações</a><a data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar</a></nav>
     </div>
     <div class="container footer-bottom"><span>© <span data-year>2026</span> {esc(mc)}</span><span>{esc(" · ".join(v["endereco"]))}</span></div>

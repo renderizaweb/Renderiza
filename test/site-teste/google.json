@@ -1,0 +1,9 @@
+{
+  "_sobre": "Avaliações e horário fictícios, no formato que o gerar.py lê.",
+  "horas": ["segunda-feira09:00–18:00", "terça-feira09:00–18:00", "quarta-feira09:00–18:00", "quinta-feira09:00–18:00", "sexta-feira09:00–18:00", "sábado09:00–14:00", "domingoFechado"],
+  "avaliacoes": [
+    { "t": "Ana Souza\n3 avaliações\n2 meses atrás\nCasamento perfeito, equipe atenciosa do começo ao fim. O jardim ficou lindo à noite.", "nota": "5 estrelas" },
+    { "t": "Bruno Lima\n1 avaliação\n3 meses atrás\nA festa de 15 anos da minha filha foi incrível. Espaço limpo e bem cuidado.", "nota": "5 estrelas" },
+    { "t": "Carla Dias\n5 avaliações\n1 mês atrás\nLugar bonito, comida ótima e preço justo. Recomendo.", "nota": "5 estrelas" }
+  ]
+}

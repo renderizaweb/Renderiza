@@ -1,0 +1,100 @@
+{
+  "_sobre": "Site de teste do Meu site (Missão 4 do Painel Renderiza). Tudo aqui é fictício, como os /exemplos: a Villa Alecrim não existe. As fotos são desenhadas na hora por montar.mjs.",
+  "pasta": "site-teste",
+  "estilos": null,
+  "whatsapp": "5511900000000",
+  "fone_link": "+5511900000000",
+  "google": { "coords": "-22.9,-47.06", "fid": "0x0:0x1a2b3c", "gid": "/g/11teste" },
+  "endereco_maps": "Estrada do Alecrim, 100, Cidade Exemplo - SP",
+  "google_nota": "5,0",
+  "google_total": "48",
+  "verificado": "2026-10-29",
+  "instagram": "villa.alecrim.teste",
+  "marca": "Villa Alecrim",
+  "marca_completa": "Villa Alecrim Eventos",
+  "logo_sub": "Espaço de eventos",
+  "titulo": "Villa Alecrim · espaço de eventos (site de teste)",
+  "descricao": "Site de teste do Painel Renderiza, com dados fictícios. Nota 5,0 no Google.",
+  "comentario": "Site de teste do Meu site, com dados fictícios",
+  "fonte": "Lora",
+  "cores": { "escuro": "#1b3326", "acento": "#e8a87c" },
+  "topline": "Casamentos, 15 anos e aniversários · site de teste",
+  "nav": [["#sobre", "O espaço"], ["#espaco", "Fotos"], ["#estrutura", "Estrutura"], ["#depoimentos", "Avaliações"], ["#consulta", "Consultar data"], ["#visite", "Como chegar"]],
+  "cta_topo": "Consultar uma data",
+  "hero": {
+    "eyebrow": "Espaço de eventos no interior",
+    "h1": "Festas e casamentos <em>no meio do verde.</em>",
+    "intro": "Salão, jardim e piscina num lugar só, com a equipe da casa cuidando de cada detalhe.",
+    "selo": "10 anos de festas",
+    "link": "Ver o espaço",
+    "alvo": "espaco",
+    "foto": { "arquivo": "fotos/topo.jpg" },
+    "alt": "Salão montado para um casamento"
+  },
+  "endereco": ["Estrada do Alecrim, 100", "Cidade Exemplo - SP"],
+  "dias_curto": "seg a sáb",
+  "marquee": ["Casamentos", "15 anos", "Aniversários", "Formaturas"],
+  "sobre": {
+    "eyebrow": "Sobre a casa",
+    "h2": "Um sítio de família <em>feito para receber.</em>",
+    "p": ["A Villa Alecrim nasceu das festas da família e virou espaço de eventos.", "Hoje recebe casamentos, 15 anos e aniversários de até 300 convidados."],
+    "stats": [["{nota}", "nota no Google"], ["300", "convidados"]],
+    "foto": { "arquivo": "fotos/sobre.jpg" },
+    "alt": "Jardim da Villa Alecrim",
+    "pol": { "arquivo": "fotos/sobre-pol.jpg" },
+    "pol_alt": "Mesa de doces",
+    "pol_cap": "Mesa de doces"
+  },
+  "carrosseis": [
+    {
+      "id": "espaco", "eyebrow": "O espaço", "h2": "Cada canto <em>pronto para a festa.</em>", "p": "Salão, jardim, piscina e área coberta.",
+      "rotulo": "Fotos do espaço", "formato": "paisagem",
+      "itens": [
+        { "foto": { "arquivo": "fotos/espaco-1.jpg" }, "alt": "Salão principal" },
+        { "foto": { "arquivo": "fotos/espaco-2.jpg" }, "alt": "Jardim" },
+        { "foto": { "arquivo": "fotos/espaco-3.jpg" }, "alt": "Piscina" },
+        { "foto": { "arquivo": "fotos/espaco-4.jpg" }, "alt": "Área coberta" }
+      ]
+    },
+    {
+      "id": "festas", "eyebrow": "Festas", "h2": "Festas que <em>já passaram por aqui.</em>", "p": "Casamentos, 15 anos e aniversários.",
+      "rotulo": "Fotos de festas", "formato": "quadrado",
+      "itens": [
+        { "foto": { "arquivo": "fotos/festa-1.jpg" }, "alt": "Casamento no jardim", "cap": "Casamento" },
+        { "foto": { "arquivo": "fotos/festa-2.jpg" }, "alt": "Festa de 15 anos no salão", "cap": "15 anos" },
+        { "foto": { "arquivo": "fotos/festa-3.jpg" }, "alt": "Aniversário na área coberta", "cap": "Aniversário" }
+      ]
+    }
+  ],
+  "estrutura": {
+    "eyebrow": "Estrutura", "h2": "O que tem <em>na casa.</em>", "p": "Só o que existe de verdade.",
+    "itens": [["salao", "Salão para 300 pessoas"], ["piscina", "Piscina"], ["cozinha", "Cozinha equipada"], ["estacionamento", "Estacionamento"]]
+  },
+  "atendimento": {
+    "eyebrow": "Como funciona",
+    "h2": "Da primeira conversa <em>até a festa.</em>",
+    "passos": ["Você consulta a data", "A gente mostra o espaço", "Fecha o pacote", "Faz a festa"],
+    "botao": "Consultar uma data",
+    "foto": { "arquivo": "fotos/atendimento.jpg" },
+    "alt": "Equipe da casa"
+  },
+  "avaliacoes_secao": { "h2": "Quem fez festa aqui <em>recomenda.</em>" },
+  "avaliacoes": [
+    { "nome": "Ana Souza", "tag": "Casamento" },
+    { "nome": "Bruno Lima", "tag": "15 anos" },
+    { "nome": "Carla Dias", "tag": "Aniversário" }
+  ],
+  "insta": {
+    "seguidores": "2 mil seguidores", "p": "Fotos das festas e das datas livres.",
+    "foto": { "arquivo": "fotos/insta.jpg" }, "alt": "Foto do Instagram", "chip": "Consulte uma data"
+  },
+  "consulta": {
+    "h2": "Consulte <em>a sua data.</em>", "p": "Diga o dia, o tipo de festa e os convidados.",
+    "tipos": ["Casamento", "15 anos", "Aniversário", "Outro"],
+    "mensagem_inicio": "Olá! Vim pelo site da Villa Alecrim e queria consultar uma data."
+  },
+  "visita": { "h2": "Venha <em>conhecer.</em>", "endereco": ["Estrada do Alecrim, 100", "Cidade Exemplo - SP"], "telefone": "(11) 90000-0000", "rotulo_fone": "WhatsApp" },
+  "slogan": "Festas no meio do verde.",
+  "mensagem": "Olá! Vim pelo site da Villa Alecrim.",
+  "google_nome": "Villa Alecrim Eventos"
+}

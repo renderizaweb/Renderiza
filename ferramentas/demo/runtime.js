@@ -7,15 +7,18 @@
   const escapeHTML = value => String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
 
   // Links e dados centralizados no DEMO_CLIENT.
-  $$("[data-rating]").forEach(el => el.textContent = client.rating);
-  $$("[data-review-total]").forEach(el => el.textContent = client.reviewTotal);
-  $$("[data-whatsapp]").forEach(el => { el.href = client.whatsapp; el.target = "_blank"; el.rel = "noopener noreferrer"; });
-  $$("[data-instagram]").forEach(el => el.href = client.instagram);
-  $$("[data-maps]").forEach(el => el.href = client.maps);
-  $$("[data-directions]").forEach(el => el.href = client.directions);
-  $$("[data-reviews-link]").forEach(el => el.href = client.reviewsUrl);
-  $$("[data-review-write]").forEach(el => el.href = client.writeReviewUrl);
-  $$("[data-phone]").forEach(el => el.href = "tel:" + client.phone);
+  const links = () => {
+    $$("[data-rating]").forEach(el => el.textContent = client.rating);
+    $$("[data-review-total]").forEach(el => el.textContent = client.reviewTotal);
+    $$("[data-whatsapp]").forEach(el => { el.href = client.whatsapp; el.target = "_blank"; el.rel = "noopener noreferrer"; });
+    $$("[data-instagram]").forEach(el => el.href = client.instagram);
+    $$("[data-maps]").forEach(el => el.href = client.maps);
+    $$("[data-directions]").forEach(el => el.href = client.directions);
+    $$("[data-reviews-link]").forEach(el => el.href = client.reviewsUrl);
+    $$("[data-review-write]").forEach(el => el.href = client.writeReviewUrl);
+    $$("[data-phone]").forEach(el => el.href = "tel:" + client.phone);
+  };
+  links();
   const year = $("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 
@@ -72,12 +75,13 @@
   }
 
   // Avaliações.
-  $("[data-reviews]").innerHTML = client.reviews.map(r => {
+  const avaliacoes = () => $("[data-reviews]").innerHTML = client.reviews.map(r => {
     const long = r.quote.length > 130 ? "is-long" : "";
     return '<li><article class="review-card"><div class="review-card-top"><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="review-tag">' + escapeHTML(r.tag) + '</span></div>' +
       '<blockquote class="' + long + '">“' + escapeHTML(r.quote) + '”</blockquote>' +
       '<div class="review-person"><span class="review-avatar" aria-hidden="true">' + escapeHTML(r.initials) + '</span><div><strong>' + escapeHTML(r.name) + '</strong><a href="' + escapeHTML(client.reviewsUrl) + '" target="_blank" rel="noopener noreferrer">Avaliação no Google ↗</a></div></div></article></li>';
   }).join("");
+  avaliacoes();
 
   // Formato de rosto.
   const tool = $("[data-face-tool]");
@@ -95,6 +99,7 @@
 
   // Carrossel.
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const medidas = [];
   $$("[data-carousel]").forEach(root => {
     const track = $(".carousel-track", root), prev = $("[data-prev]", root), next = $("[data-next]", root), dots = $("[data-dots]", root), status = $("[data-status]", root);
     let stops = [0], active = 0, frame = 0;
@@ -133,6 +138,7 @@
     track.addEventListener("scroll", () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
     if ("ResizeObserver" in window) new ResizeObserver(measure).observe(track); else window.addEventListener("resize", measure);
     measure();
+    medidas.push(measure);
   });
 
   // Animação de entrada.
@@ -155,4 +161,7 @@
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { closeMenu(); menuButton.focus(); } });
   document.addEventListener("click", e => { if (!menu.hidden && !e.target.closest(".site-header")) closeMenu(); });
   window.matchMedia("(min-width: 981px)").addEventListener("change", e => { if (e.matches) closeMenu(); });
+
+  // O Meu site (Painel Renderiza) troca o conteúdo depois que a página abre e pede para refazer o que depende dele.
+  window.DEMO_RUNTIME = { links, avaliacoes, carrosseis: () => medidas.forEach(m => m()) };
 })();
