@@ -164,10 +164,19 @@ insert into storage.objects (bucket_id, name) select 'site-imagens', villa || '/
 select pg_temp.erro_com($$insert into storage.objects (bucket_id, name) select 'logos', ciranda || '/logo.webp' from _c$$, 'row-level security', 'não envia arquivo na pasta de outra conta');
 select pg_temp.erro_com($$insert into storage.objects (bucket_id, name) values ('logos', 'solto.webp')$$, 'row-level security', 'arquivo fora da pasta de uma conta');
 select pg_temp.erro_com($$insert into storage.objects (bucket_id, name) select 'privado', villa || '/contrato.pdf' from _c$$, 'row-level security', 'o bucket privado não aceita nada pelo app');
+-- trocar e tirar pela API pedem ler o arquivo (o logo das Configurações vai com "upsert")
+with trocado as (update storage.objects set metadata = '{"trocado": true}' where bucket_id = 'logos' and name = (select villa || '/logo.webp' from _c) returning 1)
+select testes.afirmar(count(*) = 1, 'o dono troca o próprio logo (lê, então troca)') from trocado;
+reset role;
+select testes.entrar_como((select lia from _u));
+select testes.afirmar((select count(*) from storage.objects where name like (select villa || '/%' from _c)) = 0, 'outra conta não lê os arquivos da Villa pela API');
 reset role;
 select testes.entrar_como((select rafael from _u));
 select pg_temp.erro_com($$insert into storage.objects (bucket_id, name) select 'logos', villa || '/outro.webp' from _c$$, 'row-level security', 'só o dono troca o logo');
 select pg_temp.erro_com($$insert into storage.objects (bucket_id, name) select 'site-imagens', villa || '/x.webp' from _c$$, 'row-level security', 'Meu site (só vê) não envia imagem');
+select testes.afirmar((select count(*) from storage.objects where bucket_id in ('logos', 'site-imagens')) = 2, 'quem é da conta lê o logo; quem vê o Meu site, as imagens');
+with trocado as (update storage.objects set metadata = '{}' where bucket_id = 'logos' returning 1)
+select testes.afirmar(count(*) = 0, 'quem não é dono não troca o logo') from trocado;
 reset role;
 select testes.afirmar(
   (select public and file_size_limit = 2097152 and allowed_mime_types = array['image/webp'] from storage.buckets where id = 'site-imagens')
