@@ -10,7 +10,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **pode começar**: a Missão 1 está feita e na `main` | |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **em andamento**: bloco A (banco) desde 29/10; bloco B livre | A: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | esperando a 2 | |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
