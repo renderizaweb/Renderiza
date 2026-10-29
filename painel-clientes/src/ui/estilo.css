@@ -37,6 +37,8 @@
   --rz-fotografia-lateral:#3a2430; --rz-fotografia-brilho:rgba(227,169,187,.28); --rz-fotografia-foco:rgba(138,74,95,.3);
   --rz-fotografia-acao:rgba(227,169,187,.16); --rz-fotografia-acao-texto:#f0c6d3;
   /* o painel da marca (telas de acesso): grafite e terracota, ou as do nicho */
+  /* Gráficos (Financeiro): as duas séries, validadas pelo guia de dados (contraste, daltonismo, separação) */
+  --rz-grafico-1:#b25134; --rz-grafico-2:#2f78a8;
   --rz-lateral:var(--rz-grafite); --rz-brilho:rgba(232,133,94,.32); --rz-previa-acao:rgba(232,133,94,.16); --rz-previa-acao-texto:#f4b79c;
 
   /* Tipo. Geist (a fonte da marca, no próprio painel). Títulos em 600 com espaçamento negativo; texto em 400. */
@@ -233,7 +235,8 @@ a:hover{color:var(--rz-destaque-escuro)}
 .suave{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
 .falha{max-width:480px;margin:15vh auto;padding:0 var(--rz-4);display:flex;flex-direction:column;gap:var(--rz-3);align-items:flex-start}
 .rz-icone-grande{width:52px;height:52px;display:grid;place-items:center;margin-bottom:var(--rz-3);border-radius:var(--rz-raio-g);background:var(--rz-destaque-fundo);color:var(--rz-destaque)}
-.rz-link{padding:0;border:0;background:none;color:var(--rz-destaque);font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.rz-link{display:inline-flex;align-items:center;gap:var(--rz-1);padding:0;border:0;background:none;color:var(--rz-destaque);font:inherit;font-weight:600;text-align:left;cursor:pointer;text-decoration:none}
+.rz-pilha-p>.rz-link{align-self:flex-start}
 .rz-link:hover{color:var(--rz-destaque-escuro);text-decoration:underline}
 .rz-acesso-nota{margin-top:var(--rz-6)}
 kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:1px solid var(--rz-linha-forte);border-radius:6px;background:var(--rz-superficie-2);color:var(--rz-tinta-3);font:500 var(--rz-t-xs)/1 var(--rz-fonte)}
@@ -746,3 +749,38 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-tempo-icone{position:relative;z-index:1;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--rz-gelo);color:var(--rz-tinta-2)}
 .rz-acoes-ficha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
 .rz-texto-perigo{color:var(--rz-perigo);font-weight:600}
+
+/* ---------- 20. Financeiro (Missão 3, bloco D): os números do mês e o gráfico mês a mês ----------
+   Barras de até 24 px, 4 px arredondado no topo e reto na base, 2 px de vão entre as partes; legenda sempre (duas
+   séries), valor só no mês atual, a dica ao passar o mouse ou focar, e a tabela com os números. */
+.rz-campos--tres{display:grid;gap:var(--rz-3)}
+@media (min-width:520px){.rz-campos--tres{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rz-numeros{margin-bottom:var(--rz-5)}
+.rz-numero--atencao dd{color:var(--rz-perigo)}
+/* no celular a etiqueta sai da linha da parcela (o texto já diz "atrasada há 2 dias"): o nome e o "Recebi" cabem */
+@media (max-width:519px){.rz-linhas--parcelas .rz-linha-fim{display:none}}
+.rz-serie-1{background:var(--rz-grafico-1)}
+.rz-serie-2{background:repeating-linear-gradient(135deg,var(--rz-grafico-2) 0 3px,color-mix(in srgb,var(--rz-grafico-2) 72%,var(--rz-superficie)) 3px 6px)}
+.rz-grafico{display:flex;flex-direction:column;gap:var(--rz-3);margin:0;min-width:0}
+.rz-grafico figcaption{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--rz-2)}
+.rz-grafico-legenda{display:flex;gap:var(--rz-4);font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-grafico-legenda i,.rz-grafico-dica i{display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:3px;vertical-align:-1px}
+.rz-grafico-area{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--rz-2);height:220px}
+.rz-grafico-eixo{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 22px;font-size:var(--rz-t-xs);color:var(--rz-tinta-3);text-align:right;line-height:1}
+.rz-grafico-barras{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);padding-bottom:22px}
+.rz-grafico-grade{position:absolute;left:0;right:0;height:1px;bottom:calc(22px + (100% - 22px) * var(--f));background:var(--rz-linha)}
+.rz-grafico-coluna{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;outline:none}
+.rz-grafico-coluna:focus-visible{box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-grafico-pilha{position:relative;display:flex;flex-direction:column;gap:2px;width:min(24px,60%);height:calc(100% * var(--f))}
+.rz-grafico-pilha>span{min-height:2px}
+.rz-grafico-pilha>span:first-of-type{border-radius:4px 4px 0 0}
+.rz-grafico-valor{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:var(--rz-t-xs);font-weight:600;color:var(--rz-tinta);white-space:nowrap}
+.rz-grafico-mes{position:absolute;bottom:-20px;font-size:var(--rz-t-xs);color:var(--rz-tinta-3)}
+.rz-grafico-coluna--atual .rz-grafico-mes{font-weight:600;color:var(--rz-tinta)}
+.rz-grafico-dica{display:none;position:absolute;z-index:5;bottom:calc(100% - 20px);left:50%;transform:translateX(-50%);flex-direction:column;gap:2px;padding:var(--rz-2) var(--rz-3);
+  border-radius:var(--rz-raio);background:var(--rz-grafite);color:#fff;font-size:var(--rz-t-xs);white-space:nowrap;box-shadow:var(--rz-sombra-2);pointer-events:none}
+.rz-grafico-coluna:hover .rz-grafico-dica,.rz-grafico-coluna:focus-visible .rz-grafico-dica{display:flex}
+.rz-grafico-tabela summary{cursor:pointer;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-grafico-tabela table{width:100%;margin-top:var(--rz-2);border-collapse:collapse;font-size:var(--rz-t-sm)}
+.rz-grafico-tabela th,.rz-grafico-tabela td{padding:6px var(--rz-2);border-bottom:1px solid var(--rz-linha);text-align:right}
+.rz-grafico-tabela th:first-child{text-align:left;font-weight:500}
