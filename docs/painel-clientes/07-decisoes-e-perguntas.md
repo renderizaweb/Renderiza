@@ -83,6 +83,7 @@ de proposta, como subir para a `main`). Dúvida nova só quando ela travar uma m
 | D30 | **O cadastro abre com o Cloudflare Turnstile:** a chave pública vai na Vercel (`TURNSTILE_SITE_KEY`), a secreta no Auth do Supabase; sem a chave pública, `/cadastro` leva ao WhatsApp da Renderiza. O e-mail de confirmação leva ao onboarding (`/comecar`) | `06`: cadastro aberto só com verificação contra robô; o Turnstile é grátis e o Supabase já aceita (29/10/2026, Missão 2B) |
 | D31 | **Primeiros passos só para o dono**, escondidos em `contas.ajustes.primeiros_passos_escondidos`. Na importação das datas: data sem ano é a próxima; sem hora, o horário do nicho (festa às 19h, ensaio às 9h); o mesmo WhatsApp é o mesmo cliente; data que já passou entra como realizada; até 500 por vez. O item "copiar o link da agenda online" espera a Missão 4 | o `09` e o "teste das 5 tarefas" (29/10/2026, Missão 2B) |
 | D32 | **"Fechar o plano" só para o dono**; a equipe vê só o prazo do teste | quem fecha o plano é o dono (29/10/2026, Missão 2B) |
+| D33 | **Onboarding como trilho:** boas-vindas com o roteiro, escolha única que segue sozinha (com "Voltar"), a cor do nicho na tela (verde dos eventos, vinho da fotografia, dos exemplos) e "Montando o seu painel" com um check por parte. Pergunta nova: **"Você já tem site?"**, guardada em `contas.ajustes.onboarding.site` | pedido da Renderiza (29/10/2026): a primeira impressão faz diferença; saber quem já tem site interessa à Renderiza e ao painel (agenda online, Meu site) (Missão 2B) |
 
 ## Ideias guardadas (para o futuro, sem data)
 

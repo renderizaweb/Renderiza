@@ -83,7 +83,7 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | Paleta | `abrirPaleta` em `src/ui/paleta.js` (Ctrl+K ou "/") | acha módulo, cliente e ação; recentes primeiro |
 | WhatsApp, CSV, filtros | `src/ui/whatsapp.js`, `src/ui/csv.js` (`baixarCsv`, `lerCsv`), `src/ui/filtros.js` | CSV com ";" e BOM (abre certo no Excel), protegido contra fórmula |
 | Progresso | `.rz-progresso > span` | onboarding ("2 de 5") e primeiros passos |
-| Onboarding | `.rz-passo-topo`, `.rz-passo-cabeca`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`) | uma pergunta por tela, "voltar" sempre à mão, "Pular" onde dá |
+| Onboarding (trilho) | `.rz-palco` (`.rz-sai`, `.rz-entra` e as de voltar), `button.rz-opcao[aria-pressed]`, `.rz-trilho`, `.rz-roteiro`, `.rz-montagem`, `.rz-passo-topo`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`; seção 16) | boas-vindas com o roteiro; escolha única segue sozinha com o check (`rz-marcar`); passos entram e saem de lado; a montagem marca cada parte enquanto acontece; "reduzir movimento" zera as animações |
 | Primeiros passos | `.rz-passos`, `.rz-passo[data-feito]`, `.rz-passo-marca` (`src/modulos/inicio/primeiros-passos.js`) | cartão no topo do Início, só para o dono; no celular, o botão desce para baixo do texto |
 
 Ícones disponíveis: `olho`, `olhoFechado`, `alerta`, `ok`, `okCirculo`, `carta`, `cadeado`, `maiusculas`, `voltar`, `seta`,
@@ -91,6 +91,15 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 `servicos`, `equipe`, `configuracoes`, `admin`, `mais`, `adicionar`, `buscar`, `fechar`, `sair`, `trocar`, `whatsapp`,
 `copiar`, `baixar`, `editar`, `lixo`, `desfazer`, `telefone`, `link`, `imagem`, `filtro`, `estrela`, `setaBaixo`,
 `importar`; do nicho: `festa`, `camera`. A lista certa é sempre `ICONES` em `src/ui/icones.js`.
+
+## Tema do nicho
+
+No onboarding, a escolha do nicho troca **só o destaque** (`--rz-destaque` e as variações) e o painel da marca: a
+classe `rz-tema-eventos` ou `rz-tema-fotografia` na raiz da tela (`temaDoNicho` em `src/telas/acesso.js`). As cores
+são as dos exemplos: eventos `--rz-eventos` (verde, painel `--rz-eventos-lateral`), fotografia `--rz-fotografia`
+(vinho, painel `--rz-fotografia-lateral`), todas em tokens no `estilo.css` (seção 1) e com o contraste conferido
+(texto branco no destaque: 6,4:1 e 6,5:1). Grafite, papel, tinta e as cores de situação não mudam. Dentro do painel
+continua a terracota até existir a cor da conta (abaixo).
 
 ## Escrever na tela
 

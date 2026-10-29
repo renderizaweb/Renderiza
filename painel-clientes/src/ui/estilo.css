@@ -27,6 +27,18 @@
   --rz-perigo:#b42318;  --rz-perigo-fundo:#fdeceb;
   --rz-info:#2d5ea8;    --rz-info-fundo:#e8eff9;
 
+  /* Tema do nicho (onboarding; 10, "Tema do nicho"): as cores dos exemplos /exemplos/painel-eventos e
+     /exemplos/painel-fotografia. Texto branco no destaque: eventos 6,4:1, fotografia 6,5:1; o "claro" sobre o
+     painel escuro do nicho: 6,1:1 e 7,2:1. */
+  --rz-eventos:#2d6a4f; --rz-eventos-escuro:#1f4d39; --rz-eventos-claro:#7fc4a0; --rz-eventos-fundo:#e2efe7;
+  --rz-eventos-lateral:#173a2f; --rz-eventos-brilho:rgba(127,196,160,.3); --rz-eventos-foco:rgba(45,106,79,.3);
+  --rz-eventos-acao:rgba(127,196,160,.16); --rz-eventos-acao-texto:#a9dcc0;
+  --rz-fotografia:#8a4a5f; --rz-fotografia-escuro:#6e3a4c; --rz-fotografia-claro:#e3a9bb; --rz-fotografia-fundo:#f5e8ec;
+  --rz-fotografia-lateral:#3a2430; --rz-fotografia-brilho:rgba(227,169,187,.28); --rz-fotografia-foco:rgba(138,74,95,.3);
+  --rz-fotografia-acao:rgba(227,169,187,.16); --rz-fotografia-acao-texto:#f0c6d3;
+  /* o painel da marca (telas de acesso): grafite e terracota, ou as do nicho */
+  --rz-lateral:var(--rz-grafite); --rz-brilho:rgba(232,133,94,.32); --rz-previa-acao:rgba(232,133,94,.16); --rz-previa-acao-texto:#f4b79c;
+
   /* Tipo. Geist (a fonte da marca, no próprio painel). Títulos em 600 com espaçamento negativo; texto em 400. */
   --rz-fonte:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --rz-t-xs:.75rem; --rz-t-sm:.875rem; --rz-t-base:1rem; --rz-t-lg:1.125rem;
@@ -45,7 +57,7 @@
 
   /* Toque e movimento: alvo de 44 px, campos de 48 px; movimento curto e só para explicar. */
   --rz-alvo:44px; --rz-campo:48px;
-  --rz-rapido:150ms; --rz-medio:240ms; --rz-curva:cubic-bezier(.2,.8,.2,1);
+  --rz-rapido:150ms; --rz-medio:240ms; --rz-lento:420ms; --rz-curva:cubic-bezier(.2,.8,.2,1);
 
   color-scheme:light;
 }
@@ -185,9 +197,9 @@ a:hover{color:var(--rz-destaque-escuro)}
   .rz-acesso-corpo{justify-content:center;padding:var(--rz-10) 0}
   .rz-acesso-form .rz-acesso-topo .rz-marca{visibility:hidden}
   .rz-acesso-painel{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:var(--rz-10);
-    padding:var(--rz-10) clamp(40px,5vw,72px);background:var(--rz-grafite);color:var(--rz-gelo)}
+    padding:var(--rz-10) clamp(40px,5vw,72px);background:var(--rz-lateral);color:var(--rz-gelo);transition:background-color var(--rz-lento) ease}
   .rz-acesso-painel::before{content:"";position:absolute;z-index:-1;right:-18%;bottom:-28%;width:78%;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(closest-side,rgba(232,133,94,.32),rgba(232,133,94,0))}
+    background:radial-gradient(closest-side,var(--rz-brilho),transparent)}
   .rz-acesso-painel::after{content:"";position:absolute;z-index:-1;left:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;
     background:radial-gradient(closest-side,rgba(241,238,233,.07),rgba(241,238,233,0))}
   .rz-acesso-painel .rz-marca img{box-shadow:0 0 0 1px rgba(241,238,233,.16)}
@@ -208,7 +220,8 @@ a:hover{color:var(--rz-destaque-escuro)}
   .rz-previa b{display:block;font-size:var(--rz-t-sm);font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .rz-previa small{display:block;margin-top:2px;font-size:var(--rz-t-xs);color:var(--rz-sobre-grafite);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .rz-previa-acao{min-height:28px;padding:0 10px;display:inline-flex;align-items:center;border-radius:var(--rz-raio-pilula);font-size:var(--rz-t-xs);font-weight:600;
-    background:rgba(232,133,94,.16);color:#f4b79c}
+    background:var(--rz-previa-acao);color:var(--rz-previa-acao-texto)}
+  .rz-painel-da-marca{display:flex;flex-direction:column;gap:var(--rz-10)}
   .rz-previa-acao--ok{background:rgba(143,212,176,.14);color:#9fdcbb}
   .rz-acesso-creditos{font-size:var(--rz-t-sm);color:var(--rz-sobre-grafite)}
 }
@@ -507,3 +520,66 @@ fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}
 .rz-importar-lista .rz-linha{cursor:default;min-height:52px;padding:var(--rz-2) var(--rz-4)}
 .rz-passo .rz-linha-texto b,.rz-passo .rz-linha-texto small{white-space:normal}
 .rz-importar-erros{margin:var(--rz-1) 0 0;padding-left:var(--rz-5);font-size:var(--rz-t-sm)}
+
+/* ---------- 16. Trilho de boas-vindas (onboarding, /comecar; 09) ----------
+   Tema do nicho: só troca o destaque e o painel da marca. Escolha única: o cartão marca com um check e a tela
+   segue sozinha. Passos entram e saem de lado (para trás, ao contrário). "Reduzir movimento" já zera tudo (seção 2). */
+.rz-tema-eventos{--rz-destaque:var(--rz-eventos);--rz-destaque-escuro:var(--rz-eventos-escuro);--rz-destaque-claro:var(--rz-eventos-claro);
+  --rz-destaque-fundo:var(--rz-eventos-fundo);--rz-foco:0 0 0 3px var(--rz-eventos-foco);--rz-lateral:var(--rz-eventos-lateral);
+  --rz-brilho:var(--rz-eventos-brilho);--rz-previa-acao:var(--rz-eventos-acao);--rz-previa-acao-texto:var(--rz-eventos-acao-texto)}
+.rz-tema-fotografia{--rz-destaque:var(--rz-fotografia);--rz-destaque-escuro:var(--rz-fotografia-escuro);--rz-destaque-claro:var(--rz-fotografia-claro);
+  --rz-destaque-fundo:var(--rz-fotografia-fundo);--rz-foco:0 0 0 3px var(--rz-fotografia-foco);--rz-lateral:var(--rz-fotografia-lateral);
+  --rz-brilho:var(--rz-fotografia-brilho);--rz-previa-acao:var(--rz-fotografia-acao);--rz-previa-acao-texto:var(--rz-fotografia-acao-texto)}
+.rz-acesso .rz-botao,.rz-acesso .rz-opcao,.rz-acesso .rz-opcao-icone,.rz-acesso .rz-opcao-marca,.rz-trilho span{transition:background-color var(--rz-lento),border-color var(--rz-lento),color var(--rz-lento),box-shadow var(--rz-rapido)}
+
+/* passos que entram e saem */
+.rz-palco{display:flex;flex-direction:column}
+.rz-palco.rz-sai{animation:rz-sair .22s ease-in both}
+.rz-palco.rz-sai-voltando{animation:rz-sair-voltando .22s ease-in both}
+.rz-palco.rz-entra,.rz-painel-da-marca.rz-entra{animation:rz-entrar-lado .34s var(--rz-curva) both}
+.rz-palco.rz-entra-voltando{animation:rz-entrar-voltando .34s var(--rz-curva) both}
+@keyframes rz-sair{to{opacity:0;transform:translateX(-28px)}}
+@keyframes rz-sair-voltando{to{opacity:0;transform:translateX(28px)}}
+@keyframes rz-entrar-lado{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes rz-entrar-voltando{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+
+/* escolha única: cartão-botão que marca com um check */
+button.rz-opcao{width:100%;font:inherit;color:inherit;text-align:left}
+button.rz-opcao .rz-opcao-marca{border-radius:50%}
+button.rz-opcao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-opcao[aria-pressed=true]{border-color:var(--rz-destaque);background:var(--rz-destaque-fundo);box-shadow:0 0 0 1px var(--rz-destaque)}
+.rz-opcao[aria-pressed=true] .rz-opcao-icone{background:var(--rz-superficie);color:var(--rz-destaque)}
+.rz-opcao[aria-pressed=true] .rz-opcao-marca{background:var(--rz-destaque);border-color:var(--rz-destaque);color:#fff;animation:rz-marcar .34s var(--rz-curva)}
+@keyframes rz-marcar{0%{transform:scale(.4)}60%{transform:scale(1.18)}100%{transform:none}}
+
+/* o trilho no topo de cada pergunta */
+.rz-trilho{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:var(--rz-1)}
+.rz-trilho span{height:5px;border-radius:var(--rz-raio-pilula);background:var(--rz-linha)}
+.rz-trilho span[data-estado=feito]{background:var(--rz-destaque)}
+.rz-trilho span[data-estado=agora]{background:linear-gradient(90deg,var(--rz-destaque) 50%,var(--rz-linha) 50%)}
+.rz-centro{text-align:center}
+
+/* o roteiro das boas-vindas e a montagem: uma linha que liga os passos */
+.rz-roteiro{list-style:none;margin:0 0 var(--rz-2);padding:0;display:flex;flex-direction:column}
+.rz-roteiro li{position:relative;display:flex;align-items:center;gap:var(--rz-3);min-height:56px;animation:rz-entrar .5s var(--rz-curva) both;animation-delay:calc(var(--i,0) * 70ms)}
+.rz-roteiro li:not(:last-child)::after{content:"";position:absolute;left:15px;top:44px;bottom:-12px;width:2px;border-radius:2px;background:var(--rz-linha)}
+.rz-roteiro-marca{position:relative;z-index:1;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;
+  background:var(--rz-destaque-fundo);color:var(--rz-destaque-escuro);font-size:var(--rz-t-sm);font-weight:600}
+.rz-roteiro-texto{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rz-roteiro-texto b{font-weight:600}
+.rz-roteiro-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-montagem li{animation:none}
+.rz-montagem .rz-roteiro-marca{background:var(--rz-gelo);color:transparent}
+.rz-montagem li[data-estado=espera]{opacity:.45}
+.rz-montagem li[data-estado=andando] .rz-roteiro-marca::before{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid var(--rz-destaque);border-right-color:transparent;animation:rz-girar .7s linear infinite}
+.rz-montagem li[data-estado=feito] .rz-roteiro-marca{background:var(--rz-destaque);color:#fff;animation:rz-marcar .34s var(--rz-curva)}
+.rz-montagem li[data-estado=feito]:not(:last-child)::after{background:var(--rz-destaque)}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca{background:var(--rz-perigo-fundo);color:var(--rz-perigo)}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca svg{display:none}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca::before{content:"!";font-weight:700}
+/* o tema também no celular: um brilho da cor do nicho no topo da tela (some e aparece devagar) */
+.rz-acesso-form{position:relative;isolation:isolate}
+.rz-acesso-form::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:320px;pointer-events:none;
+  background:linear-gradient(180deg,var(--rz-destaque-fundo),transparent);opacity:0;transition:opacity var(--rz-lento)}
+.rz-tema-eventos .rz-acesso-form::before,.rz-tema-fotografia .rz-acesso-form::before{opacity:1}
+.rz-acesso .rz-chip[aria-pressed=true]{background:var(--rz-destaque);border-color:var(--rz-destaque);color:#fff}
