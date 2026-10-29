@@ -177,7 +177,7 @@ Migrações aplicadas (STG / produção): …
 ```
 Missão 1 · parte do Claude · branch claude/clever-albattani-u37i0u (continua a claude/missao-1-trilhos-setup-wwahf8) · atualizada em 29/10 · EM ANDAMENTO
 Agora: a Renderiza trocou os projetos dos EUA por dois novos em São Paulo; migração de teste reaplicada no STG novo
-  (qxcxllhmtodsptxffbhx); falta a produção nova (hxzsiiqhlqxuqkevskwb), o ignoreCommand do vercel.json e os documentos.
+  (qxcxllhmtodsptxffbhx) e na produção nova (hxzsiiqhlqxuqkevskwb); falta o ignoreCommand do vercel.json e os documentos.
 Feito: variáveis PAINEL_* conferidas (as 5 presentes; URLs batem com os projetos). painel-clientes/ com o
   esqueleto: casca, rotas, 10 módulos e 5 partes do Admin registrados e vazios, adaptador do Supabase,
   api/config.js, vercel.json (sem build, noindex, DENY, CSP, pula o build se a pasta não mudou), README.
@@ -206,7 +206,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 
 | Arquivo | Missão | Branch | STG | Produção |
 |---|---|---|---|---|
-| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8`, reaplicada pela `claude/clever-albattani-u37i0u` | 29/10/2026 (`qxcxllhmtodsptxffbhx`, São Paulo) | falta no projeto novo |
+| `20261029003422_trilhos_teste.sql` (teste, só o comentário do schema `public`) | 1 | `claude/missao-1-trilhos-setup-wwahf8`, reaplicada pela `claude/clever-albattani-u37i0u` | 29/10/2026 (`qxcxllhmtodsptxffbhx`, São Paulo) | 29/10/2026 (`hxzsiiqhlqxuqkevskwb`, São Paulo) |
 
 ## Avisos entre sessões
 
