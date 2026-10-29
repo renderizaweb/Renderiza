@@ -12,7 +12,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **em andamento**: bloco B **na `main`** (29/10); bloco A **na `main`** e no STG (29/10), falta a produção (espera o ok da Renderiza) e a chave do Brevo na função; o C em seguida, na mesma sessão | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir e a produção** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Falta o ok da Renderiza para a produção (3 migrações e a função `avisar-pedido`) e a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
@@ -160,6 +160,10 @@ no [`05`](05-dados-e-permissoes.md), "Funções públicas"). No STG, a Villa Ale
 **Bloco B feito (29/10/2026):** o contrato v1, o script, as marcações e a versão final estão no [`03`](03-modulo-meu-site.md)
 (seção "O que o painel entrega" é o que os blocos A e C precisam cumprir). O site de teste já existe (`node
 test/site-teste/montar.mjs`).
+
+**Bloco C feito (29/10/2026), menos a produção:** o servidor (as funções `publico_site` e `publico_previa`, a API do
+site, da prévia e das imagens) está na `main` e no STG; o editor no painel está na branch (veja a nota de passagem).
+Como funciona: [`03`](03-modulo-meu-site.md), "No painel".
 
 Tudo provado num **site de teste** gerado de uma demo de eventos (`test/site-teste/`); quando o site do piloto
 existir e ele quiser, o mesmo vale para ele.
@@ -330,6 +334,40 @@ Decisões no caminho: 07, 29/10 (agenda online). O aviso marca o pedido como avi
 Migrações aplicadas (STG / produção): 20261029135228_publico_agenda (29/10 / —), 20261029141139_aviso_de_pedido (29/10 / —).
 ```
 
+```
+Missão 4 · bloco C (Meu site no painel) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · SERVIDOR NA MAIN; TELA SÓ NA BRANCH
+Onde está cada parte (importante):
+  - Na main (commit 76b51e0): migração 20261029141746_publico_site, teste 042, api/publico/site/[codigo]/ (index e
+    previa), api/publico/imagens/[...caminho].js, rotas no scripts/servidor.mjs, 3 testes em test/publico.test.mjs.
+  - Só na branch claude/painel-renderiza-roadmap-jfhmpp (commit 1505a3b e os de documento depois dele): o editor,
+    src/modulos/meu-site/ (index.js, conteudo.js e a cópia meu-site.js) e test/meu-site.test.mjs; o "ordem" no
+    extrair (ferramentas/meu-site/meu-site.js e test/meu-site.test.mjs da raiz); o { trocar } no enviarArquivo
+    (src/adaptadores/supabase.js). Esta branch JÁ TRAZ a 2B inteira até cbe0c3b (merge ec93516), porque o editor
+    usa a casca e as peças dela (gaveta, campos, avisos, estados) e o teste do esqueleto importa todos os módulos.
+Como subir: quando a 2B (claude/painel-renderiza-setup-ztnrzy) for para a main, junte esta branch na main logo
+  depois (git merge; só ela mexe em src/modulos/meu-site/, e os outros arquivos da 2B que ela toca são os dois acima).
+  Se a 2B mudar a gaveta, os campos ou o enviarArquivo antes disso, rode o npm test do painel e o teste de ponta a
+  ponta abaixo. Não suba esta branch para a main antes da 2B: levaria a 2B pela metade.
+Feito: o editor por seção (03, "No painel"): lista na ordem da página com "Não publicado"; gaveta com textos, botões,
+  fotos (WebP no aparelho, nome novo a cada envio, endereço do painel), listas e "aparece no site"; contato e
+  WhatsApp; salvar no rascunho com desfazer (espera a foto que está subindo); prévia; publicar; versões com "Usar
+  esta"; voltar ao site como foi entregue; "só vê" sem botões; avisos de desconectado e versão final.
+Testado: painel-clientes npm test 110 passam (8 do meu-site, um confere a cópia da validar()); raiz 180 passam; de
+  ponta a ponta no STG pelo npm run dev com um usuário temporário que só tinha "edita" no Meu site (apagado depois):
+  12 seções na ordem; título e foto novos → rascunho → publicar → a API devolve a versão nova, a foto sai pelo
+  /api/publico/imagens (200, image/webp, cache de 1 ano) e o site de teste (test/site-teste, servido local) mostra
+  as duas; prévia com código mostra o rascunho só para quem tem o link; voltar ao entregue + publicar → o site
+  volta ao original; "só vê" sem publicar nem editar; celular (390 px) e computador. Nenhum erro de script.
+No STG ficou: o conteudo_inicial do site villa-alecrim (do extrair, com "ordem") e 6 versões publicadas de teste
+  (a última = o site como foi entregue), sem autor (o usuário temporário foi apagado). Pode apagar.
+Falta (depende da Renderiza): o ok ("pode") para a migração publico_site na produção (com as duas da 4A).
+Ficou de fora: miniatura de cada seção na lista (o 03 pedia; as fotos da versão inicial ficam no domínio do site,
+  que no começo não existe: entra quando o piloto tiver site); limpar do Storage as fotos que nenhuma versão usa
+  (o gratuito tem 1 GB; rever quando houver clientes); mudar a ordem das seções e as cores (03, "Ficam para depois").
+Decisões no caminho: 07, 29/10 (Meu site no painel). Salvar com botão, não a cada tecla.
+Migrações aplicadas (STG / produção): 20261029141746_publico_site (29/10 / —).
+```
+
 ## Migrações aplicadas
 
 Uma linha por migração; marque a data em cada banco logo depois de aplicar (regras em `08`: sempre STG primeiro).
@@ -355,6 +393,9 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 4C → 2B | **O envio do logo (Configurações) deve falhar** com "new row violates row-level security policy": o Storage só deixa **trocar** arquivo (`upsert: true`, o padrão do `enviarArquivo`) com uma política de **leitura** (`select`) no bucket, e `logos` e `site-imagens` só têm as de enviar, trocar e tirar. Conferido no STG com `site-imagens` (mesmas regras): sem trocar passa, trocando dá 403. O Meu site já envia com `{ trocar: false }` (nome novo a cada foto). Para o logo: ou nome novo a cada envio (e tirar o antigo), ou uma migração com a política de leitura da pasta da conta (`pode(conta_da_pasta(name), 'configuracoes', 'ver')`). Não mexi (é da 2B). |
+| 29/10/2026 | 4C → 2B | **O editor do Meu site está na branch `claude/painel-renderiza-roadmap-jfhmpp`, em cima da 2B** (merge até `cbe0c3b`). Dois arquivos da 2B mudaram lá, pequenos: `src/modulos/meu-site/index.js` (era o vazio do esqueleto; agora é o editor) e `src/adaptadores/supabase.js` (`enviarArquivo` ganhou o 5º parâmetro `{ trocar = true }`, sem mudar quem já chama). Quando a 2B for para a `main`, essa branch vai logo depois (nota de passagem do bloco C). |
+| 29/10/2026 | 4C → 5 | **Para o Admin:** desconectar o Meu site é mudar `sites.situacao` para `desconectado` (ou `versao_final` depois de entregar a versão final): a API para de responder e o site volta à versão inicial. Ao cadastrar o site de um cliente, gravar em `sites.conteudo_inicial` a saída de `node ferramentas/meu-site/extrair.mjs <index.html>` (com `ordem`, a ordem das seções), senão o editor diz que o conteúdo não foi cadastrado. |
 | 29/10/2026 | 4A → 3B, 3C, 2B | **Pedidos da agenda online já chegam no banco** (STG): `pedidos.origem = 'agenda_online'`, etapa `novo`, com `reserva_id` de uma reserva `pre_reserva` (que segura a data por 48 horas no site). O Atendimento e a Agenda mostram como qualquer pedido e reserva; "Fechar" (`fechar_pedido`) usa a reserva que já existe. Para testar: `npm run dev` e a página `/agenda/` do site de teste (`node test/site-teste/montar.mjs --api http://localhost:5180/api/publico/`), ou direto pela API. |
 | 29/10/2026 | 4A → 2B | **`supabase/functions/avisar-pedido/`** é a segunda função do Supabase, ao lado da `convidar`: o `publicar.mjs` da 2B publica as duas (já publiquei a `avisar-pedido` no STG com uma cópia dele, sem commit). |
 | 29/10/2026 | 4A → 2B e todas | **Migração nova no STG:** `20261029135228_publico_agenda.sql` (agenda online), na `main`. Antes de aplicar a sua, traga a `main` (08, regra 4). A produção ainda não tem: espera o ok da Renderiza. Tabela nova `publico_tentativas` (só para os limites da agenda online, sem dado de pessoa). |

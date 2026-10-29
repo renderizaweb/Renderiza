@@ -421,6 +421,8 @@
     });
     c.contato = {};
     ["whatsapp", "mensagem", "telefone", "instagram"].forEach(function (k) { if (cliente[k] !== undefined) c.contato[k] = cliente[k]; });
+    // a ordem das seções na página: o banco (jsonb) guarda as chaves de "secoes" em outra ordem, e o editor lista por esta
+    c.ordem = Object.keys(c.secoes);
     return c;
   }
 
