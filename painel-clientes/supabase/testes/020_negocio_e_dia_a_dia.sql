@@ -60,22 +60,22 @@ create temporary table _u as select
 grant select on _u to anon, authenticated;
 
 insert into public.contas (nome, nicho, codigo, situacao, origem) values
-  ('Villa Alecrim', 'eventos', 'villa-alecrim', 'ativa', 'renderiza'),
-  ('Estúdio Ciranda', 'fotografia', 'estudio-ciranda', 'ativa', 'renderiza');
+  ('Villa Alecrim', 'eventos', 't-villa-alecrim', 'ativa', 'renderiza'),
+  ('Estúdio Ciranda', 'fotografia', 't-estudio-ciranda', 'ativa', 'renderiza');
 create temporary table _c as select
-  (select id from public.contas where codigo = 'villa-alecrim') as villa,
-  (select id from public.contas where codigo = 'estudio-ciranda') as ciranda;
+  (select id from public.contas where codigo = 't-villa-alecrim') as villa,
+  (select id from public.contas where codigo = 't-estudio-ciranda') as ciranda;
 grant select on _c to anon, authenticated;
 insert into public.contas_modulos (conta_id, modulo_id)
   select conta, m from _c, unnest(array[villa, ciranda]) as conta, unnest(array['agenda', 'atendimento', 'clientes', 'contratos', 'financeiro']) as m;
 
 insert into public.pessoas (conta_id, usuario_id, nome, dono, acessos) values
-  ((select villa from _c), (select marina from _u), 'Marina Alves', true, '{}'),
-  ((select villa from _c), (select rafael from _u), 'Rafael Costa', false, '{"agenda": "editar", "atendimento": "editar", "clientes": "editar", "contratos": "editar", "financeiro": null}'),
-  ((select villa from _c), (select bia from _u), 'Beatriz Lima', false, '{"agenda": "ver", "clientes": "ver", "financeiro": "editar"}'),
-  ((select villa from _c), (select leo from _u), 'Léo Santos', false, '{"agenda": "editar", "clientes": "ver"}'),
+  ((select villa from _c), (select marina from _u), 'Marina Teste', true, '{}'),
+  ((select villa from _c), (select rafael from _u), 'Rafael Teste', false, '{"agenda": "editar", "atendimento": "editar", "clientes": "editar", "contratos": "editar", "financeiro": null}'),
+  ((select villa from _c), (select bia from _u), 'Bia Teste', false, '{"agenda": "ver", "clientes": "ver", "financeiro": "editar"}'),
+  ((select villa from _c), (select leo from _u), 'Léo Teste', false, '{"agenda": "editar", "clientes": "ver"}'),
   ((select villa from _c), (select carla from _u), 'Carla Dias', false, '{"agenda": "ver"}'),
-  ((select ciranda from _c), (select lia from _u), 'Lia Moreno', true, '{}');
+  ((select ciranda from _c), (select lia from _u), 'Lia Teste', true, '{}');
 
 select pg_temp.montar((select villa from _c), 1);
 select pg_temp.montar((select ciranda from _c), 2);
@@ -159,7 +159,7 @@ select pg_temp.erro_com($$insert into public.servicos (conta_id, nome) select vi
 reset role;
 select testes.afirmar((select observacoes from public.clientes_fichas where conta_id = (select villa from _c)) = 'Quer cerimônia no jardim', 'Léo só vê a ficha: não muda');
 select testes.afirmar(
-  (select feito_por = (select id from public.pessoas where nome = 'Léo Santos') and feito_em is not null
+  (select feito_por = (select id from public.pessoas where nome = 'Léo Teste') and feito_em is not null
    from public.reservas_checklist where conta_id = (select villa from _c) and ordem = 1),
   'checklist: Léo marca e fica registrado quem marcou');
 select testes.afirmar((select count(*) from public.bloqueios where motivo = 'Folga') = 1, 'Agenda (edita) fecha uma data');
@@ -240,7 +240,7 @@ reset role;
 insert into public.pedidos (conta_id, cliente_id, servico_id, tipo_id, convidados, etapa)
   select villa, (select id from public.clientes where nome = 'Só pediu'), (select id from public.servicos where conta_id = villa),
          (select id from public.tipos_reserva where conta_id = villa), 120, 'orcamento_enviado' from _c;
-create temporary table _ped as select id from public.pedidos where etapa = 'orcamento_enviado';
+create temporary table _ped as select id from public.pedidos where etapa = 'orcamento_enviado' and conta_id = (select villa from _c);
 grant select on _ped to authenticated;
 select testes.entrar_como((select leo from _u));
 select pg_temp.erro_com($$select public.fechar_pedido((select id from _ped), now() + interval '90 days', now() + interval '90 days 6 hours')$$,
@@ -312,7 +312,7 @@ select testes.afirmar((select arquivado_em is not null from public.clientes wher
 
 -- ---------- entregas ----------
 update public.entregas set situacao = 'entregue', link_galeria = 'https://galeria.exemplo.teste/juliana' where conta_id = (select ciranda from _c);
-select testes.afirmar((select entregue_em = current_date from public.entregas where conta_id = (select ciranda from _c)), 'entregue: a data fica registrada');
+select testes.afirmar((select entregue_em = (now() at time zone 'America/Sao_Paulo')::date from public.entregas where conta_id = (select ciranda from _c)), 'entregue: a data (no fuso da conta) fica registrada');
 select pg_temp.erro_com($$update public.entregas set link_galeria = 'javascript:alert(1)'$$, 'entregas_link_galeria_check', 'o link da galeria é só https');
 
 -- ---------- adicional vendido não se apaga (a conferência é no fim da transação) ----------
@@ -321,10 +321,10 @@ select pg_temp.erro_com($t$do $x$ begin delete from public.adicionais where cont
 
 -- ---------- apagar a conta inteira (conta cancelada, depois dos 90 dias; ou a semente) ----------
 -- Com tudo ligado: responsáveis, quem marcou o checklist, adicionais, convites e histórico com pessoa.
-update public.reservas set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa'), producao_id = (select id from public.pessoas where nome = 'Léo Santos') where conta_id = (select villa from _c);
-update public.pedidos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa') where conta_id = (select villa from _c);
-update public.compromissos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Costa') where conta_id = (select villa from _c);
-insert into public.convites (conta_id, email, convidado_por) select villa, 'nova@outro.teste', (select id from public.pessoas where nome = 'Marina Alves') from _c;
+update public.reservas set responsavel_id = (select id from public.pessoas where nome = 'Rafael Teste'), producao_id = (select id from public.pessoas where nome = 'Léo Teste') where conta_id = (select villa from _c);
+update public.pedidos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Teste') where conta_id = (select villa from _c);
+update public.compromissos set responsavel_id = (select id from public.pessoas where nome = 'Rafael Teste') where conta_id = (select villa from _c);
+insert into public.convites (conta_id, email, convidado_por) select villa, 'nova@outro.teste', (select id from public.pessoas where nome = 'Marina Teste') from _c;
 select testes.afirmar((select count(*) from public.reservas_checklist where feito_por is not null and conta_id = (select villa from _c)) >= 1, 'há checklist marcado por alguém');
 select testes.afirmar((select count(*) from public.reservas_adicionais where conta_id = (select villa from _c)) >= 1, 'há adicional vendido');
 select set_config('request.jwt.claims', '', true);

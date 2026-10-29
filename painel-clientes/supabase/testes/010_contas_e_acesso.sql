@@ -26,11 +26,11 @@ create temporary table _u as select
 grant select on _u to anon, authenticated;
 
 insert into public.contas (nome, nicho, codigo, situacao, origem) values
-  ('Villa Alecrim', 'eventos', 'villa-alecrim', 'ativa', 'renderiza'),
-  ('Estúdio Ciranda', 'fotografia', 'estudio-ciranda', 'ativa', 'renderiza');
+  ('Villa Alecrim', 'eventos', 't-villa-alecrim', 'ativa', 'renderiza'),
+  ('Estúdio Ciranda', 'fotografia', 't-estudio-ciranda', 'ativa', 'renderiza');
 create temporary table _c as select
-  (select id from public.contas where codigo = 'villa-alecrim') as villa,
-  (select id from public.contas where codigo = 'estudio-ciranda') as ciranda;
+  (select id from public.contas where codigo = 't-villa-alecrim') as villa,
+  (select id from public.contas where codigo = 't-estudio-ciranda') as ciranda;
 grant select on _c to anon, authenticated;
 
 insert into public.contas_modulos (conta_id, modulo_id)
@@ -39,10 +39,10 @@ insert into public.contas_modulos (conta_id, modulo_id)
   select ciranda, m from _c, unnest(array['agenda', 'clientes']) as m;
 
 insert into public.pessoas (conta_id, usuario_id, nome, dono, acessos) values
-  ((select villa from _c), (select marina from _u), 'Marina Alves', true, '{}'),
-  ((select villa from _c), (select rafael from _u), 'Rafael Costa', false, '{"agenda": "editar", "atendimento": "editar", "clientes": "editar", "contratos": "editar", "financeiro": null}'),
-  ((select villa from _c), (select bia from _u), 'Beatriz Lima', false, '{"agenda": "ver", "clientes": "ver", "financeiro": "editar"}'),
-  ((select ciranda from _c), (select lia from _u), 'Lia Moreno', true, '{}');
+  ((select villa from _c), (select marina from _u), 'Marina Teste', true, '{}'),
+  ((select villa from _c), (select rafael from _u), 'Rafael Teste', false, '{"agenda": "editar", "atendimento": "editar", "clientes": "editar", "contratos": "editar", "financeiro": null}'),
+  ((select villa from _c), (select bia from _u), 'Bia Teste', false, '{"agenda": "ver", "clientes": "ver", "financeiro": "editar"}'),
+  ((select ciranda from _c), (select lia from _u), 'Lia Teste', true, '{}');
 insert into public.equipe_renderiza (usuario_id, nome) values ((select renata from _u), 'Renata');
 
 -- ---------- sem login ----------
@@ -78,13 +78,13 @@ select pg_temp.erro_com($$update public.contas set codigo = 'outro-codigo' where
 select pg_temp.erro_com($$insert into public.contas_modulos (conta_id, modulo_id) select villa, 'meu-site' from _c$$, 'row-level security', 'dono não liga módulo');
 select pg_temp.erro_com($$insert into public.contas (nome, nicho, codigo) values ('Outra', 'eventos', 'outra-conta')$$, 'row-level security', 'dono não cria conta pelo app');
 -- equipe: muda os acessos da Bia; não deixa a conta sem dono
-update public.pessoas set acessos = '{"agenda": "ver", "clientes": "ver", "financeiro": "editar", "contratos": "ver"}' where nome = 'Beatriz Lima';
-select testes.afirmar((select acessos ->> 'contratos' from public.pessoas where nome = 'Beatriz Lima') = 'ver', 'dono muda os acessos da equipe');
-select pg_temp.erro_com($$update public.pessoas set dono = false where nome = 'Marina Alves'$$, 'pelo menos um dono', 'o último dono não deixa de ser dono');
-select pg_temp.erro_com($$update public.pessoas set ativa = false where nome = 'Marina Alves'$$, 'pelo menos um dono', 'o último dono não sai');
-delete from public.pessoas where nome = 'Rafael Costa';
+update public.pessoas set acessos = '{"agenda": "ver", "clientes": "ver", "financeiro": "editar", "contratos": "ver"}' where nome = 'Bia Teste';
+select testes.afirmar((select acessos ->> 'contratos' from public.pessoas where nome = 'Bia Teste') = 'ver', 'dono muda os acessos da equipe');
+select pg_temp.erro_com($$update public.pessoas set dono = false where nome = 'Marina Teste'$$, 'pelo menos um dono', 'o último dono não deixa de ser dono');
+select pg_temp.erro_com($$update public.pessoas set ativa = false where nome = 'Marina Teste'$$, 'pelo menos um dono', 'o último dono não sai');
+delete from public.pessoas where nome = 'Rafael Teste';
 reset role;
-select testes.afirmar((select count(*) from public.pessoas where nome = 'Rafael Costa') = 1, 'dono não apaga pessoa (tira o acesso com ativa = false)');
+select testes.afirmar((select count(*) from public.pessoas where nome = 'Rafael Teste') = 1, 'dono não apaga pessoa (tira o acesso com ativa = false)');
 
 -- ---------- quem tem acesso por módulo ----------
 select testes.entrar_como((select rafael from _u));
@@ -98,14 +98,14 @@ select testes.afirmar(public.pode((select villa from _c), 'inicio', 'ver'), 'tod
 select testes.afirmar((select count(*) from public.pessoas) = 3, 'Rafael vê a equipe da conta');
 select testes.afirmar((select count(*) from public.convites) = 0, 'Rafael não vê convites');
 select pg_temp.erro_com($$insert into public.convites (conta_id, email) select villa, 'x@outro.teste' from _c$$, 'row-level security', 'Rafael não convida');
-select pg_temp.erro_com($$update public.pessoas set acessos = '{"financeiro": "editar"}' where nome = 'Rafael Costa'$$, 'Só o dono muda os acessos', 'Rafael não muda os próprios acessos');
-select pg_temp.erro_com($$update public.pessoas set dono = true where nome = 'Rafael Costa'$$, 'Só o dono muda os acessos', 'Rafael não se faz dono');
-update public.pessoas set cor = '#2f6fe0', preferencias = '{"menu": "curto"}' where nome = 'Rafael Costa';
-update public.pessoas set acessos = '{}' where nome = 'Beatriz Lima';
+select pg_temp.erro_com($$update public.pessoas set acessos = '{"financeiro": "editar"}' where nome = 'Rafael Teste'$$, 'Só o dono muda os acessos', 'Rafael não muda os próprios acessos');
+select pg_temp.erro_com($$update public.pessoas set dono = true where nome = 'Rafael Teste'$$, 'Só o dono muda os acessos', 'Rafael não se faz dono');
+update public.pessoas set cor = '#2f6fe0', preferencias = '{"menu": "curto"}' where nome = 'Rafael Teste';
+update public.pessoas set acessos = '{}' where nome = 'Bia Teste';
 update public.contas set nome = 'Invadida';
 reset role;
-select testes.afirmar((select cor from public.pessoas where nome = 'Rafael Costa') = '#2f6fe0', 'Rafael muda a própria cor e as preferências');
-select testes.afirmar((select acessos ->> 'financeiro' from public.pessoas where nome = 'Beatriz Lima') = 'editar', 'Rafael não muda a Bia');
+select testes.afirmar((select cor from public.pessoas where nome = 'Rafael Teste') = '#2f6fe0', 'Rafael muda a própria cor e as preferências');
+select testes.afirmar((select acessos ->> 'financeiro' from public.pessoas where nome = 'Bia Teste') = 'editar', 'Rafael não muda a Bia');
 select testes.afirmar((select nome from public.contas where id = (select villa from _c)) = 'Villa Alecrim Eventos', 'Rafael não muda a conta');
 
 select testes.entrar_como((select bia from _u));
@@ -151,7 +151,8 @@ select testes.afirmar(not exists (select 1 from public.minhas_contas() as m wher
 reset role;
 update public.modulos set liberado_no_teste = true where id = 'financeiro';
 
-update public.contas set situacao = 'ativa', ativa_ate = current_date - 1 where id = (select villa from _c);
+-- o prazo vale no fuso da conta (São Paulo), não no do servidor
+update public.contas set situacao = 'ativa', ativa_ate = (now() at time zone 'America/Sao_Paulo')::date - 1 where id = (select villa from _c);
 select testes.entrar_como((select marina from _u));
 select testes.afirmar(not public.pode((select villa from _c), 'inicio', 'ver'), 'ativa com prazo vencido: bloqueada');
 reset role;
@@ -218,9 +219,9 @@ reset role;
 
 -- ---------- Admin (equipe Renderiza) ----------
 select testes.entrar_como((select renata from _u));
-select testes.afirmar((select count(*) from public.contas) = 3, 'Renderiza vê todas as contas');
+select testes.afirmar((select count(*) from public.contas where id in ((select villa from _c), (select ciranda from _c), (select id from _nova))) = 3, 'Renderiza vê todas as contas');
 select testes.afirmar((select count(*) from public.pessoas) >= 6, 'Renderiza vê as pessoas');
-select testes.afirmar((select count(*) from public.equipe_renderiza) = 1, 'Renderiza vê a própria equipe');
+select testes.afirmar((select count(*) from public.equipe_renderiza) >= 1, 'Renderiza vê a própria equipe');
 select testes.afirmar(not public.pode((select villa from _c), 'clientes', 'ver'), 'Renderiza não vê os dados da conta sem suporte');
 update public.contas set situacao = 'ativa', ativa_ate = current_date + 30 where id = (select id from _nova);
 select testes.afirmar((select situacao from public.contas where id = (select id from _nova)) = 'ativa', 'Renderiza aprova a conta');
@@ -261,6 +262,6 @@ select testes.afirmar((select count(*) from public.termos_aceites) = 0, 'aceites
 reset role;
 
 -- ---------- apagar a conta leva tudo junto (só pelo banco) ----------
-select pg_temp.erro_com($$delete from public.pessoas where nome = 'Lia Moreno'$$, 'pelo menos um dono', 'nem o banco apaga o último dono de uma conta que existe');
+select pg_temp.erro_com($$delete from public.pessoas where nome = 'Lia Teste'$$, 'pelo menos um dono', 'nem o banco apaga o último dono de uma conta que existe');
 delete from public.contas where id = (select ciranda from _c);
 select testes.afirmar((select count(*) from public.pessoas where conta_id = (select ciranda from _c)) = 0, 'apagar a conta apaga as pessoas dela');
