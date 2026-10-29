@@ -2,6 +2,7 @@
 // da conta; os instantes do banco (timestamptz) viram dia e hora pelo fuso (src/ui/formatos.js).
 
 import { dia, hora, somarDias, instanteNoFuso, dataCurta } from "../../ui/formatos.js";
+import { doNegocio } from "../../nichos/index.js";
 
 /** As situações da reserva (05), com o tom da etiqueta (.rz-etiqueta--tom). Cancelada não segura a data. */
 export const SITUACOES = {
@@ -145,12 +146,12 @@ export function resumoDaCampanha(campanha, reservas) {
 }
 
 /** O texto pronto para o Stories, com os horários que restam por dia (09; exemplo de fotografia). */
-export function textoDoStories({ campanha, livresPorDia, conta, servico, fuso }) {
+export function textoDoStories({ campanha, livresPorDia, conta, nicho, servico, fuso }) {
   const comVaga = livresPorDia.filter(x => x.livres > 0);
   const restam = comVaga.reduce((t, x) => t + x.livres, 0);
   const dias = comVaga.map(x => `${dataCurta(instanteNoFuso(x.dia, "12:00", fuso), fuso)} (${x.livres})`).join(", ");
   return [
-    `${campanha.nome}${conta && conta.nome ? ` no ${conta.nome}` : ""}`,
+    `${campanha.nome}${conta && conta.nome && nicho ? ` ${doNegocio(conta.nome, nicho, "no")}` : ""}`,
     restam ? `Restam ${restam === 1 ? "só 1 horário" : `só ${restam} horários`}: ${dias}.` : "Agenda lotada! Entre na lista de espera.",
     servico && servico.duracao_min ? `${servico.duracao_min} minutos${servico.entrega ? `, ${servico.entrega}` : ""}.` : "",
     "Escolha o seu horário no link da bio.",

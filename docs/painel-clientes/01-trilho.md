@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missão 3: bloco C (Atendimento) feito; bloco B (Agenda) em andamento; os blocos A, D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
+| **Próxima ação** | Missão 3: blocos C (Atendimento) e B (Agenda) feitos; os blocos A, D, E e F e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -163,6 +163,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 3 | **Missão 3, bloco B (Agenda) feito**, na `main` (a produção espera o deploy destravar): a semana e o mês, o painel do dia, a gaveta da festa com o checklist, reservar com o aviso de conflito de horário, os compromissos, os horários livres da fotografia e o quadro das campanhas com o texto do Stories. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | Missão 3, bloco B (Agenda) começou, na mesma branch. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco C (Atendimento) feito**, na `main` (a produção espera o deploy da Vercel destravar): a lista primeiro, o quadro por etapa no computador (arrastar com desfazer), a gaveta do pedido, anotar em poucos toques, "Fechar" vira reserva (confirmando a pré-reserva da agenda online), a lista de espera da fotografia e o pedido novo em tempo real. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | Missão 3 começou pelo bloco C (Atendimento), na branch `claude/painel-renderiza-setup-ztnrzy`. | Claude, a pedido da Renderiza |

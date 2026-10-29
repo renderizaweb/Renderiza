@@ -2,6 +2,9 @@
 // Etapas e origens são as do banco (05, pedidos); os nomes e o tom da etiqueta são do painel (09, exemplo de eventos).
 
 import { dia, dataCurta, hora, haQuanto, instanteNoFuso, somarDias, normalizarWhatsapp } from "../../ui/formatos.js";
+import { doNegocio } from "../../nichos/index.js";
+
+export { doNegocio };
 
 /** As etapas, na ordem do funil. `aberta`: ainda pede atendimento. `tom`: a etiqueta (.rz-etiqueta--tom). `soEventos`: só no nicho de eventos. */
 export const ETAPAS = [
@@ -92,17 +95,6 @@ export function deOndeVem(pedidos, { dias = 90, agora = Date.now() } = {}) {
   for (const p of pedidos) if (Date.parse(p.criado_em) >= desde) conta[p.origem] = (conta[p.origem] || 0) + 1;
   const total = Object.values(conta).reduce((a, b) => a + b, 0);
   return ORIGENS.filter(o => conta[o.id]).map(o => ({ ...o, n: conta[o.id], pct: Math.round((conta[o.id] / total) * 100) })).sort((a, b) => b.n - a.n);
-}
-
-/**
- * O nome do negócio com a preposição certa, sem adivinhar o gênero do nome: pela palavra do nicho ("espaço",
- * "estúdio"). "do espaço Villa Alecrim", "no Estúdio Ciranda" (quando o nome já começa com a palavra).
- */
-export function doNegocio(nomeDaConta, nicho, preposicao = "do") {
-  const nome = String(nomeDaConta || "").trim();
-  const palavra = nicho.palavras.conta;
-  if (!nome) return `${preposicao} ${palavra}`;
-  return semAcento(nome).startsWith(semAcento(palavra)) ? `${preposicao} ${nome}` : `${preposicao} ${palavra} ${nome}`;
 }
 
 /** A mensagem pronta do "Responder": de quem atende, pelo nome da conta, citando o que a pessoa pediu. */

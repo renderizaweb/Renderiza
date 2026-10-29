@@ -16,3 +16,16 @@ export function nomeDoModulo(idNicho, modulo, nomePadrao) {
   const m = nicho(idNicho).modulos[modulo];
   return (m && m.nome) || nomePadrao;
 }
+
+const semAcento = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+/**
+ * O nome do negócio com a preposição certa, sem adivinhar o gênero do nome: pela palavra do nicho ("espaço",
+ * "estúdio", ambas masculinas). "do espaço Villa Alecrim", "no Estúdio Ciranda" (o nome já começa com a palavra).
+ */
+export function doNegocio(nomeDaConta, n, preposicao = "do") {
+  const nome = String(nomeDaConta || "").trim();
+  const palavra = n.palavras.conta;
+  if (!nome) return `${preposicao} ${palavra}`;
+  return semAcento(nome).startsWith(semAcento(palavra)) ? `${preposicao} ${nome}` : `${preposicao} ${palavra} ${nome}`;
+}

@@ -40,7 +40,7 @@ export async function montarCampanhas(el, ctx) {
       const dias = [...(c.dias || [])].sort();
       const doDia = d => dados.reservas.filter(r => r.campanha_id === c.id && r.situacao !== "cancelada" && dia(new Date(r.inicio), fuso) === d);
       const livresPorDia = dias.filter(d => d >= hoje).map(d => ({ dia: d, livres: horariosLivres({ d, horarios: [], campanha: c, reservas: dados.reservas, duracao, fuso }).length }));
-      const stories = textoDoStories({ campanha: c, livresPorDia, conta, servico, fuso });
+      const stories = textoDoStories({ campanha: c, livresPorDia, conta, nicho: ctx.nicho, servico, fuso });
       const naEspera = dados.espera.filter(x => x.campanha_id === c.id).length;
       return `<section class="rz-secao">
         <div class="rz-secao-cabeca"><h2 class="rz-titulo-2">${escapar(c.nome)}</h2><span class="rz-texto-3">${dias.length} ${dias.length === 1 ? "dia" : "dias"}${servico ? ` · ${escapar(servico.nome)}, ${duracao} min` : ""}</span></div>

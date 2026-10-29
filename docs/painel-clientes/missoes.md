@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: bloco C (Atendimento) **feito, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco B (Agenda) **em andamento** desde 29/10; os blocos A, D, E e F estão livres | B e C: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento) e B (Agenda) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); os blocos A, D, E e F estão livres | B e C: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,7 +212,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco B (Agenda) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco B (Agenda) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: os exemplos /exemplos/painel-eventos (Agenda: mês com as festas e o painel do dia; gaveta da festa com
   resumo, checklist e histórico; nova reserva) e /exemplos/painel-fotografia (ensaios por horário, horários livres,
   quadro da campanha com vagas, texto do Stories); 09 (celular: faixa da semana + lista do dia, o mês a um toque,
@@ -227,9 +227,27 @@ Plano (nesta ordem, cada parte com commit): 1. o calendário: no celular, a faix
   reserva, e marcar visita, degustação ou reunião (?novo=visita); 4. fotografia: o dia por horário com os horários
   livres (horarios menos reservas e datas fechadas) e o quadro das campanhas com vagas e o texto do Stories;
   5. teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: src/modulos/agenda/. Fora disso, pequeno e com aviso, se precisar.
+Feito (partes 1 a 5): src/modulos/agenda/: index.js (celular: faixa da semana e a lista do dia, o mês a um
+  toque; computador: o mês e o painel do dia; pré-reserva tracejada, datas fechadas, "Dia livre: já aparece na
+  agenda online", "Reservar este dia"; "Filtrar" com quem cuida e "Só o meu", o que mostrar (a legenda) e
+  canceladas; ?reserva=<id>, ?novo=reserva, ?novo=visita, ?dia=aaaa-mm-dd), reserva.js (gaveta: resumo sem
+  valores, adicionais, situação confirmar/realizada/cancelar com desfazer, checklist com marcar, pôr e tirar;
+  reservar e editar com "Para quem?", turnos do dia, duração do ensaio, adicionais, e o conflito de horário e a
+  data fechada avisando antes de gravar: "Reservar mesmo assim"), compromisso.js (visita, degustação, reunião,
+  outro: marcar, editar, desmarcar com desfazer), campanhas.js (fotografia: reservados, com sinal, esperando o
+  sinal, lista de espera; o quadro de horários por dia, livre vira "Marcar"; o texto do Stories que muda
+  sozinho), logica.js (regras sem tela); test/agenda.test.mjs (8 testes).
+  Fora do "Mexe em", pequeno: src/nichos/index.js (doNegocio, o nome do negócio com a preposição certa; o
+  Atendimento passou a usar dali) e estilo.css seção 18.
+Testado no STG (Villa Alecrim e Estúdio Ciranda da semente): semana e mês no celular, mês no computador, gaveta
+  com checklist (marcar e desmarcar), Filtrar, reservar num dia ocupado (avisa "Esse horário já tem: Juliana &
+  Pedro (19h às 3h)" e deixa reservar mesmo assim), cancelar com desfazer, marcar e desmarcar visita, o dia da
+  fotografia com os horários livres, o dia de campanha com os horários da campanha, o quadro da campanha (24 de
+  30) e o Stories; ?reserva= (do Atendimento) abre a festa; ?novo=reserva abre o "Para quem?"; quem só vê não
+  tem nenhum botão e o checklist fica travado. Testes: 132 do front. Dados de teste apagados, semente rodada.
+Ficou de fora (para os outros blocos): os valores e as parcelas da festa (Financeiro, 3D: o link "Ver os
+  pagamentos" leva a /financeiro?reserva=<id>); o histórico da festa (a tabela atividades já grava; quem fizer a
+  ficha do cliente, 3A, ou o Início, 3F, mostra); editar as campanhas é em Serviços (já existe).
 ```
 
 ```
@@ -512,6 +530,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3B → 3A, 3D, 3F | **Agenda pronta (na `main`).** (1) A gaveta da festa leva a **`/financeiro?reserva=<id>`** ("Ver os pagamentos", só para quem tem Financeiro) e a **`/clientes?cliente=<id>`**: o Financeiro (3D) e Clientes (3A) abrem o detalhe ao ver esses parâmetros. (2) A Agenda abre **`/agenda?reserva=<id>`** e **`/agenda?dia=aaaa-mm-dd`**: use nos links do Início (3F) e da ficha (3A). (3) O nome do negócio com a preposição certa ("do espaço Villa Alecrim", "no Estúdio Ciranda") é `doNegocio(nome, nicho, "do")` de `src/nichos/index.js`: use nas mensagens prontas. (4) Conflito de horário e "horário livre" seguem a regra da agenda online (`seguraHorario` e `horariosLivres` em `src/modulos/agenda/logica.js`); sem acesso ao Atendimento, a Agenda trata toda pré-reserva como segurando a data (não sabe se veio da agenda online). |
 | 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do `b4cee64` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento novo (o banco dele já está lá e é compatível com a tela antiga). |
 | 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
 | 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
