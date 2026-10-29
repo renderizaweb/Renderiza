@@ -240,6 +240,18 @@ deixa essas abertas ao visitante).
   embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
 - `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
 
+**Já no banco (29/10/2026, Missão 4C, migração `…141746_publico_site`, no STG):**
+- `publico_site(código)`: a última versão publicada no formato do contrato v1 (`03`), com `esquema`, `site`, `versao`
+  e `publicado_em` por cima do que veio no conteúdo; nunca publicou = conteúdo vazio, versão 0 (o site fica na
+  inicial).
+- `publico_previa(código, código da prévia)`: o rascunho da prévia, enquanto `sites_previas.expira_em` não passou.
+- As duas só respondem com o site **conectado**, a conta **liberada** e o módulo **Meu site ligado**; senão, nada
+  (`404` na API, e o site volta à versão inicial).
+- O painel grava direto, pela RLS de quem tem "edita" no Meu site: o rascunho (`sites_versoes`, um por site), a
+  publicação (o rascunho vira `publicada`, com número, data e quem) e a prévia (`sites_previas`). As fotos vão para
+  `site-imagens/<id da conta>/` sem trocar arquivo (não há política de leitura nos buckets públicos, e o Storage só
+  troca com ela).
+
 ## Exportação e apagamento
 
 - Cada módulo exporta CSV (abre no Excel e no Google Planilhas); "exportar tudo" junta tudo num zip.

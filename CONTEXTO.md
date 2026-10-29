@@ -159,7 +159,8 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
    painel>" }` no `site.json` embute o script que mostra o que o cliente publica no painel, sempre com a versão do
    `index.html` de reserva. Com `"agenda": true` no mesmo `"painel"`, o site ganha a agenda online em `/agenda/` (os dias
    livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp). A versão final (vendida à parte) sai com
-   `node scripts/versao-final.mjs`. Os geradores das
+   `node scripts/versao-final.mjs`. No painel, o site é cadastrado com o conteúdo inicial que sai de
+   `node ferramentas/meu-site/extrair.mjs ../sites/<domínio>/index.html` (o mapa do que o cliente pode editar). Os geradores das
    demos já marcam o que é editável (`data-site-*`, sem mudar nada no visual): não apague essas marcações. Detalhes:
    `docs/painel-clientes/03-modulo-meu-site.md`.
 3. Tudo fica nas contas do **cliente** (decisão do Kaue, 01/10/2026): Gmail, GitHub, Vercel e domínio no

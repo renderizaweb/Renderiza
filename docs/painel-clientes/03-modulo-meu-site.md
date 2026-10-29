@@ -149,7 +149,9 @@ versão). A regra que vale é a de `validar()` em `ferramentas/meu-site/meu-site
 - **Contato:** `whatsapp` e `telefone` (só números, com 55 e DDD), `mensagem` (a do WhatsApp, até 500) e
   `instagram` (o usuário). Ele troca todos os botões de WhatsApp e Instagram da página, e o número escrito em
   "Como chegar".
-- **Reservado:** `cores` e `ordem` (logo depois, ver "O que dá para mudar"): o script de hoje ignora.
+- **Reservado:** `cores` e `ordem` (logo depois, ver "O que dá para mudar"): o script de hoje ignora. O conteúdo
+  inicial já traz `ordem` (a lista das seções na ordem da página), porque o banco guarda as chaves do JSON em outra
+  ordem; o editor do painel lista as seções por ela.
 
 ### O que cada site deixa editar
 
@@ -185,18 +187,35 @@ Ficam para depois:
 |---|---|
 | `GET /api/publico/site/<código>` | `200` com o JSON acima (o `conteudo` da última versão publicada, mais `esquema`, `site` = o código, `versao` = o número e `publicado_em`); `404` se o site não existe, está `desconectado` ou em `versao_final`. Cabeçalhos: `Access-Control-Allow-Origin: *` (o site do cliente está em outro domínio) e `Cache-Control: public, max-age=0, s-maxage=60` |
 | `GET /api/publico/site/<código>/previa?t=<código da prévia>` | o rascunho, no mesmo formato, enquanto a prévia não expira (`sites_previas`); `404` depois. `Cache-Control: no-store` e o mesmo CORS |
-| Imagens | servidas em `https://painel.renderizaweb.com.br/…` (ex.: `/imagens/sites/<código>/<arquivo>`, apontando para o Storage público `site-imagens`): o script recusa imagem de outro endereço |
+| Imagens | servidas em `https://painel.renderizaweb.com.br/api/publico/imagens/<id da conta>/<arquivo>.webp` (o Storage público `site-imagens`, cache de 1 ano; cada foto enviada ganha um nome novo): o script recusa imagem de outro endereço |
 | Validação | antes de publicar, a mesma `validar()` (o arquivo é um só; o painel usa uma cópia conferida por teste, porque a Vercel publica só a pasta `painel-clientes/`) |
 
 ## No painel (o que o cliente vê)
 
-- **Meu site** no menu: a lista das seções do site, cada uma com a miniatura e "editar".
-- Editar uma seção abre um formulário simples com os campos daquela seção. O rascunho é salvo sozinho.
-- **Ver no meu site:** abre o site de verdade em modo prévia (um link com código que expira) mostrando o rascunho.
-- **Publicar:** vira a versão no ar em até 1 minuto. Cada publicação fica no histórico, com quem publicou.
-- **Histórico:** voltar para qualquer versão publicada, ou **voltar para a versão inicial**.
-- Acesso como os outros módulos: "só vê" olha e faz prévia; "edita" pode publicar (ou: só o dono publica; decidir
-  na Missão 4).
+Feito em 29/10/2026 (Missão 4C), em `painel-clientes/src/modulos/meu-site/` (as regras sem tela em `conteudo.js`,
+testadas em `test/meu-site.test.mjs`). **Até a Missão 2B subir, essa tela está só na branch
+`claude/painel-renderiza-roadmap-jfhmpp`** (ela usa a casca da 2B; ver a nota de passagem do bloco C em
+[`missoes.md`](missoes.md)).
+
+- **Meu site** no menu: o que está no ar (versão, quando e quem publicou), a lista das partes do site na ordem da
+  página (nome e resumo; "Não publicado" no que mudou; "Escondida") e "Contato e WhatsApp".
+- Cada parte abre uma gaveta com os campos dela: textos (o destaque entre asteriscos), botões (rótulo, ação e
+  destino), fotos ("Trocar a foto": reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB, e
+  a descrição), listas (subir, descer, tirar, adicionar; o item novo nasce do primeiro) e "esta parte aparece no
+  site" (a capa não some). **"Salvar no rascunho"** grava (com "Desfazer"), sem salvar a cada tecla; salvar espera a
+  foto que ainda está subindo. Antes de gravar, a mesma `validar()` do site.
+- **Ver no meu site:** cria um código de prévia e abre o site de verdade com `?rz-previa=` (a faixa "Prévia do
+  rascunho" aparece no alto); quem não tem o código continua vendo o publicado.
+- **Publicar:** o rascunho vira a versão no ar (o site vê em até 1 minuto). Cada publicação fica em "Versões
+  publicadas", com quem publicou.
+- **Usar esta** (numa versão antiga) e **Voltar ao site como foi entregue** levam aquilo para o rascunho; publicar
+  é que vale.
+- **Acesso:** quem tem "edita" no Meu site (o dono ou quem ele deixar) muda, faz prévia e publica; quem tem "só vê"
+  olha a lista e as versões, sem botões (decidido em 29/10/2026, `07`).
+- **Desconectar** é da Renderiza, pelo Admin (Missão 5): muda `sites.situacao`; o painel avisa que o site está
+  desconectado ou com a versão final, e a API passa a responder "não encontrado".
+- **Na montagem do site**, a Renderiza grava em `sites.conteudo_inicial` a saída do `extrair.mjs` (é o mapa do que
+  dá para editar); sem ele, a tela diz que o conteúdo ainda não foi cadastrado.
 
 ## Situações do site
 
