@@ -28,7 +28,7 @@ a{color:var(--verde)}
 :focus-visible{outline:2px solid var(--verde);outline-offset:2px}
 .titulo{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
 .suave{color:var(--suave);font-size:.875rem}
-.botao{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--linha);background:var(--cartao);font-weight:600;cursor:pointer}
+.botao{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--linha);background:var(--cartao);color:var(--tinta);font-weight:600;cursor:pointer}
 .botao:disabled{opacity:.6;cursor:default}
 .botao-primario{background:var(--verde);border-color:var(--verde);color:#fff}
 .botao-primario:hover:not(:disabled){background:var(--verde-2)}
@@ -45,19 +45,19 @@ a{color:var(--verde)}
 .entrar-erro{background:var(--perigo-claro);color:var(--perigo);border-radius:12px;padding:10px 12px;font-size:.875rem}
 
 .casca{display:flex;min-height:100vh}
-.menu{width:230px;flex:none;background:var(--lateral);color:#d7e5dd;padding:20px 12px;display:flex;flex-direction:column;gap:2px}
+.menu{width:230px;flex:none;background:var(--lateral);color:#d7e5dd;padding:20px 12px;display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;overflow-y:auto}
 .menu-marca{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;padding:0 10px 16px}
 .menu-marca img{border-radius:8px}
-.menu a{color:inherit;text-decoration:none;padding:9px 10px;border-radius:10px}
+.menu a{color:inherit;text-decoration:none;padding:7px 10px;border-radius:10px}
 .menu a:hover,.menu a[aria-current=page]{background:rgba(255,255,255,.1);color:#fff}
 .menu-grupo{margin:14px 10px 4px;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#9fb8aa}
-.menu-pe{margin-top:auto;padding:12px 10px 0;display:flex;flex-direction:column;gap:8px}
+.menu-pe{margin-top:auto;padding:10px 10px 0;display:flex;flex-direction:column;gap:6px}
 .menu-pe .suave{color:#9fb8aa;word-break:break-all}
 .conteudo{flex:1;padding:28px 24px;min-width:0}
 .falha{max-width:480px;margin:15vh auto;padding:0 16px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 @media (max-width:720px){
   .casca{flex-direction:column}
-  .menu{width:auto;flex-direction:row;flex-wrap:wrap;gap:4px;padding:12px}
+  .menu{width:auto;flex-direction:row;flex-wrap:wrap;gap:4px;padding:12px;position:static;height:auto}
   .menu-marca{width:100%;padding-bottom:8px}
   .menu-grupo{width:100%;margin:8px 10px 0}
   .menu-pe{width:100%;flex-direction:row;align-items:center;justify-content:space-between}

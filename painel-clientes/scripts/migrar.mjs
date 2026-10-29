@@ -27,13 +27,13 @@ const comando = args.find(a => !a.startsWith("--")) || "situacao";
 const opcao = nome => args.includes("--" + nome);
 const valorDe = nome => (args.includes("--" + nome) ? args[args.indexOf("--" + nome) + 1] : undefined);
 
-const dia = () => new Date().toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
+const dia = () => new Date().toLocaleDateString("pt-BR");
 
 // ---------- os dois bancos remotos ----------
 
 const ALVOS = {
-  stg: { nome: "STG", variavel: "PAINEL_STG_SUPABASE_URL" },
-  producao: { nome: "PRODUÇÃO", variavel: "PAINEL_PROD_SUPABASE_URL" },
+  stg: { nome: "STG", o: "o STG", no: "no STG", variavel: "PAINEL_STG_SUPABASE_URL" },
+  producao: { nome: "PRODUÇÃO", o: "a produção", no: "na produção", variavel: "PAINEL_PROD_SUPABASE_URL" },
 };
 
 function refDo(alvo) {
@@ -113,7 +113,7 @@ async function situacao() {
   for (const m of migracoes) console.log(`${m.arquivo}\n   STG: ${marca("stg", m)} · produção: ${marca("producao", m)}`);
   if (!migracoes.length) console.log("(nenhuma migração em supabase/migrations/)");
   for (const alvo of ["stg", "producao"]) {
-    for (const d of colunas[alvo].desconhecidas) console.log(`\nAtenção: o ${ALVOS[alvo].nome} tem ${d.versao}_${d.nome}, que não está nesta branch. Traga a branch dela antes de aplicar (08, regra 4).`);
+    for (const d of colunas[alvo].desconhecidas) console.log(`\nAtenção: ${ALVOS[alvo].o} tem ${d.versao}_${d.nome}, que não está nesta branch. Traga a branch dela antes de aplicar (08, regra 4).`);
   }
 }
 
@@ -139,11 +139,11 @@ async function aplicar(alvo) {
 
   const aplicadas = await aplicadasNo(p.ref);
   const { pendentes, desconhecidas, editadas, foraDeOrdem } = comparar(migracoes, aplicadas);
-  if (desconhecidas.length) throw new Error(`O ${ALVOS[alvo].nome} tem migração que esta branch não tem: ${desconhecidas.map(d => d.versao + "_" + d.nome).join(", ")}. Traga a branch dela antes de seguir (08, regra 4).`);
-  if (editadas.length) throw new Error(`Migração editada depois de aplicada no ${ALVOS[alvo].nome}: ${editadas.map(m => m.arquivo).join(", ")}. Aplicada nunca se edita: crie uma nova (08, regra 7).`);
-  if (foraDeOrdem.length) throw new Error(`Migração mais antiga que a última aplicada no ${ALVOS[alvo].nome}: ${foraDeOrdem.map(m => m.arquivo).join(", ")}. Renomeie com a data e hora de agora antes de aplicar.`);
+  if (desconhecidas.length) throw new Error(`${ALVOS[alvo].o[0].toUpperCase() + ALVOS[alvo].o.slice(1)} tem migração que esta branch não tem: ${desconhecidas.map(d => d.versao + "_" + d.nome).join(", ")}. Traga a branch dela antes de seguir (08, regra 4).`);
+  if (editadas.length) throw new Error(`Migração editada depois de aplicada ${ALVOS[alvo].no}: ${editadas.map(m => m.arquivo).join(", ")}. Aplicada nunca se edita: crie uma nova (08, regra 7).`);
+  if (foraDeOrdem.length) throw new Error(`Migração mais antiga que a última aplicada ${ALVOS[alvo].no}: ${foraDeOrdem.map(m => m.arquivo).join(", ")}. Renomeie com a data e hora de agora antes de aplicar.`);
   if (!pendentes.length) {
-    console.log(`2. Nada a aplicar: o ${ALVOS[alvo].nome} já tem todas as ${aplicadas.length} migração(ões).`);
+    console.log(`2. Nada a aplicar: ${ALVOS[alvo].o} já tem todas as ${aplicadas.length} migração(ões).`);
     return;
   }
 
@@ -158,7 +158,7 @@ async function aplicar(alvo) {
     }
   }
 
-  console.log(`2. A aplicar no ${ALVOS[alvo].nome}, em ordem: ${pendentes.map(m => m.arquivo).join(", ")}`);
+  console.log(`2. A aplicar ${ALVOS[alvo].no}, em ordem: ${pendentes.map(m => m.arquivo).join(", ")}`);
   if (simular) {
     console.log("   (--simular: nada foi aplicado)");
     return;
@@ -167,10 +167,10 @@ async function aplicar(alvo) {
     try {
       await consultar(p.ref, sqlDeAplicacao(m));
     } catch (e) {
-      throw new Error(`${m.arquivo} falhou no ${ALVOS[alvo].nome} e nada dela ficou gravado (transação):\n${e.message}`);
+      throw new Error(`${m.arquivo} falhou ${ALVOS[alvo].no} e nada dela ficou gravado (transação):\n${e.message}`);
     }
     const depois = await aplicadasNo(p.ref);
-    if (!depois.some(a => a.versao === m.versao && a.sql === m.sql)) throw new Error(`${m.arquivo}: aplicada, mas o registro não confere no ${ALVOS[alvo].nome}. Pare e confira.`);
+    if (!depois.some(a => a.versao === m.versao && a.sql === m.sql)) throw new Error(`${m.arquivo}: aplicada, mas o registro não confere ${ALVOS[alvo].no}. Pare e confira.`);
     console.log(`   ok  ${m.arquivo} (registrada em supabase_migrations.schema_migrations)`);
   }
   console.log(`\n3. Agora (08, regra 6): push da branch e, em "Migrações aplicadas" de docs/painel-clientes/missoes.md, a data ${dia()} na coluna ${alvo === "stg" ? "STG" : "Produção"}:`);
