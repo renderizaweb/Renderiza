@@ -479,6 +479,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029141139_aviso_de_pedido.sql` (aviso por e-mail de pedido novo: `aviso_do_pedido`, `pedidos_avisos`) | 4A | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | 29/10/2026 |
 | `20261029141746_publico_site.sql` (Meu site: `publico_site`, `publico_previa`) | 4C | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | 29/10/2026 |
 | `20261029190000_armazenamento_leitura.sql` (leitura do Storage para quem é da conta: sem ela, trocar e tirar o logo davam 403; aviso da 4C) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029203000_fechar_pedido_confirma.sql` (fechar um pedido que já tem reserva confirma a pré-reserva e ajusta a data) | 3C | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 
 ## Avisos entre sessões
 
@@ -487,6 +488,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
 | 29/10/2026 | 2B → todas | **Para conferir o deploy da produção:** `curl -s https://painel.renderizaweb.com.br/api/config` mostra `versao` (o commit no ar). Se depois de uns 5 minutos ainda for o commit anterior, o deploy não entrou: um push novo que mude `painel-clientes/` destravou em 29/10 (o `a4f92d1` ficou parado; o `aabb9bc` entrou em 1 minuto). Commit só de documentos não faz deploy (o `ignoreCommand`). |
 | 29/10/2026 | 2B → 5 | **Onboarding em trilho (D33):** a resposta "Você já tem site?" fica em `contas.ajustes.onboarding.site` (`tenho`, `instagram` ou `nao`; `null` se não respondeu): bom para o Admin mostrar na conta (é um lead de site para a Renderiza). O tema do nicho é só do onboarding; dentro do painel, a cor da conta continua "depois" (`10`). |
 | 29/10/2026 | 2B → todas | **Função `convidar` na produção** (versão 1), com o ok da Renderiza. O `publicar.mjs` ganhou `--so <nome>` para publicar uma função só, sem republicar as outras (a `avisar-pedido` ficou como estava). |

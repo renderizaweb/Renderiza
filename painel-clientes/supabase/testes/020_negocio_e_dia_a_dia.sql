@@ -256,6 +256,30 @@ select testes.afirmar(
   'fechar: a reserva nasce com o cliente, o serviço, o tipo e os convidados; o pedido guarda o link');
 select testes.afirmar((select count(*) from public.reservas_checklist where reserva_id = (select id from _res)) = 2, 'a reserva nova ganha o checklist do tipo');
 
+-- fechar um pedido que já tem reserva (a pré-reserva da agenda online): confirma e ajusta a data
+insert into public.pedidos (conta_id, cliente_id, origem, etapa)
+  select villa, (select id from public.clientes where nome = 'Só pediu'), 'agenda_online', 'em_conversa' from _c;
+create temporary table _ped2 as select id from public.pedidos where etapa = 'em_conversa' and origem = 'agenda_online' and conta_id = (select villa from _c);
+grant select on _ped2 to authenticated;
+insert into public.reservas (conta_id, cliente_id, pedido_id, inicio, fim, situacao)
+  select p.conta_id, p.cliente_id, p.id, now() + interval '120 days', now() + interval '120 days 5 hours', 'pre_reserva' from public.pedidos p where p.id = (select id from _ped2);
+update public.pedidos set reserva_id = (select id from public.reservas where pedido_id = (select id from _ped2)) where id = (select id from _ped2);
+select testes.entrar_como((select rafael from _u));
+select pg_temp.erro_com($$select public.fechar_pedido((select id from _ped2), now(), null, 'confirmada')$$, 'Diga a data e o horário', 'fechar: começo sem fim não vale');
+select public.fechar_pedido((select id from _ped2), null, null, 'confirmada');
+reset role;
+select testes.afirmar(
+  (select r.situacao = 'confirmada' and p.etapa = 'fechado' and p.reserva_id = r.id and r.inicio > now() + interval '119 days'
+   from public.pedidos p join public.reservas r on r.id = p.reserva_id where p.id = (select id from _ped2)),
+  'fechar com pré-reserva: confirma a reserva que o pedido já tem, sem criar outra');
+select testes.afirmar((select count(*) from public.reservas where pedido_id = (select id from _ped2)) = 1, 'fechar com reserva não cria outra');
+select testes.entrar_como((select rafael from _u));
+select public.fechar_pedido((select id from _ped2), now() + interval '130 days', now() + interval '130 days 6 hours', 'pre_reserva');
+reset role;
+select testes.afirmar(
+  (select r.situacao = 'confirmada' and r.inicio > now() + interval '129 days' from public.pedidos p join public.reservas r on r.id = p.reserva_id where p.id = (select id from _ped2)),
+  'fechar de novo muda a data, mas não volta a confirmada para pré-reserva');
+
 -- ---------- o contrato congelado ----------
 select testes.afirmar(
   (select hash = encode(sha256(convert_to(texto, 'UTF8')), 'hex') from public.contratos where conta_id = (select villa from _c)),

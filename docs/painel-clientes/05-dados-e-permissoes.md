@@ -192,7 +192,7 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 | `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` | cadastro com 7 dias grátis | cria a conta em teste, a pessoa como dona e os módulos escolhidos; o teste é um só (quem já é dono de uma conta do cadastro não cria outra); pede o e-mail confirmado |
 | `aceitar_convites()` | logo depois de entrar | os convites válidos do e-mail logado viram pessoa da conta |
 | `registrar_entrada(conta, aparelho)` | ao entrar numa conta | a entrada (Admin) e o "visto em" |
-| `fechar_pedido(pedido, inicio, fim, situacao)` | Atendimento | o pedido vira reserva (regra 3) |
+| `fechar_pedido(pedido, inicio, fim, situacao)` | Atendimento | o pedido vira reserva (regra 3); se já tem reserva (a pré-reserva da agenda online), confirma ou mantém a pré-reserva e ajusta a data, sem criar outra (29/10, Missão 3C) |
 | `juntar_clientes(fica, sai)` | Clientes | leva tudo de uma ficha para a outra (regra 2) |
 | `situacao(cliente)` | todos | a situação calculada (regra 5) |
 | `admin_indicadores()` | Admin | os números |
