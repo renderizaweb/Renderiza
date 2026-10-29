@@ -256,6 +256,8 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
   teste da Cloudflare (sem cadastrar: o STG segue com o cadastro fechado).
 O e-mail de verdade não foi testado: o link do convite foi gerado no banco e a chamada da função, interceptada no
   teste da tela (a função em si foi testada à parte no STG). Usuários e contas de teste apagados; semente rodada.
+Depois de trazer a main (Missão 4): o logo das Configurações dava 403 (aviso da 4C); resolvido pela migração
+  20261029190000_armazenamento_leitura.sql (bloco A, STG e produção) e conferido pela tela no STG.
 Falta (da Renderiza): publicar a função convidar na produção (node supabase/functions/publicar.mjs producao
   --projeto <ref>; a sessão não teve permissão); criar o Turnstile para abrir o cadastro (D30, 04).
 ```
