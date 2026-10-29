@@ -308,6 +308,8 @@ test("extrair: o conteúdo inicial sai no formato do contrato, válido, e aplic�
   assert.equal(r.c.secoes.inicio.textos.titulo, "Festas e casamentos *no meio do verde.*");
   assert.deepEqual(r.c.secoes.inicio.botoes.link, { rotulo: "Ver o espaço", acao: "secao", destino: "espaco" });
   assert.equal(r.c.secoes.espaco.listas.fotos.length, 4);
+  assert.deepEqual(r.c.ordem, Object.keys(r.c.secoes), "a ordem das seções vai junto (o jsonb do banco reordena as chaves)");
+  assert.equal(r.c.ordem[0], "cabecalho");
   assert.equal(r.c.secoes.depoimentos.listas.avaliacoes[0].textos.nome, "Ana Souza");
   assert.deepEqual(r.c.contato, { whatsapp: "5511900000000", mensagem: "Olá! Vim pelo site da Villa Alecrim.", telefone: "5511900000000", instagram: "villa.alecrim.teste" });
   assert.deepEqual({ ...(await inicial(pagina)), whatsapp: undefined }, { ...ORIGINAL, whatsapp: undefined });

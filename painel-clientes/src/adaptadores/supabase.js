@@ -96,9 +96,11 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
       }
       return r.data;
     },
-    /** Envia um arquivo ao Storage (`bucket/caminho`, trocando o que houver) e devolve o endereço público. */
-    async enviarArquivo(bucket, caminho, arquivo, tipo) {
-      await resultado(cliente.storage.from(bucket).upload(caminho, arquivo, { upsert: true, contentType: tipo, cacheControl: "3600" }));
+    /** Envia um arquivo ao Storage (`bucket/caminho`, trocando o que houver) e devolve o endereço público.
+     *  `trocar: false` só cria: trocar (upsert) o Storage só deixa com uma política de leitura (select), que os
+     *  buckets públicos não têm; o Meu site não precisa, porque cada foto ganha um nome novo. */
+    async enviarArquivo(bucket, caminho, arquivo, tipo, { trocar = true } = {}) {
+      await resultado(cliente.storage.from(bucket).upload(caminho, arquivo, { upsert: trocar, contentType: tipo, cacheControl: "3600" }));
       return cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl;
     },
     urlPublica: (bucket, caminho) => cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl,
