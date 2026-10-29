@@ -52,7 +52,7 @@ select pg_temp.erro_com('select count(*) from public.pessoas', 'permission denie
 select pg_temp.erro_com('select count(*) from public.modulos', 'permission denied', 'visitante não lê o catálogo');
 select pg_temp.erro_com('select * from public.minhas_contas()', 'permission denied', 'visitante não chama minhas_contas');
 select pg_temp.erro_com($$select public.cadastrar_conta('X', 'eventos')$$, 'permission denied', 'visitante não cadastra conta');
-select testes.afirmar(not public.pode((select villa from _c), 'inicio', 'ver'), 'visitante: pode() diz não');
+select pg_temp.erro_com($$select public.pode((select villa from _c), 'inicio', 'ver')$$, 'permission denied', 'visitante nem chama as funções de regra');
 reset role;
 
 -- ---------- o dono ----------

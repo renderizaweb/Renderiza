@@ -22,11 +22,9 @@ select testes.afirmar(
 
 select testes.afirmar(
   (select string_agg(p.proname, ', ') from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-   where n.nspname = 'public' and p.prosecdef and p.prorettype <> 'trigger'::regtype
-     and has_function_privilege('anon', p.oid, 'execute')
-     and p.proname not in ('pode', 'pode_algum', 'edita_algum', 'eh_membro', 'eh_equipe_renderiza', 'conta_liberada', 'em_suporte',
-                           'minha_pessoa', 'pessoas_ativas', 'donos_ativos')) is null,
-  'as funções security definer que fazem algo pedem login (as de regra só dizem sim ou não)');
+   where n.nspname = 'public' and p.prosecdef and has_function_privilege('anon', p.oid, 'execute')
+     and p.proname not like 'publico\_%') is null,
+  'nenhuma função security definer fica aberta ao visitante, a não ser as públicas (publico_*, Missões 3 e 4)');
 
 -- Nenhuma visão em public roda com os direitos do dono (passaria por cima da RLS).
 select testes.afirmar(
