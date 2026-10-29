@@ -14,7 +14,8 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { lerMigracoes, comparar, perigosos, problemas, sqlDeAplicacao, SQL_TEM_REGISTRO, SQL_DO_REGISTRO, linhaDoQuadro } from "./lib/migracoes.mjs";
-import { consultar, projeto, refDaUrl, PROJETO_DA_PROSPECCAO } from "./lib/supabase-api.mjs";
+import { consultar } from "./lib/supabase-api.mjs";
+import { ALVOS, refDo, conferirProjeto, exigirConfirmacaoDaProducao } from "./lib/projetos.mjs";
 import * as local from "./lib/banco-local.mjs";
 
 const PASTA = resolve(fileURLToPath(new URL("..", import.meta.url)));
@@ -29,32 +30,7 @@ const valorDe = nome => (args.includes("--" + nome) ? args[args.indexOf("--" + n
 
 const dia = () => new Date().toLocaleDateString("pt-BR");
 
-// ---------- os dois bancos remotos ----------
-
-const ALVOS = {
-  stg: { nome: "STG", o: "o STG", no: "no STG", variavel: "PAINEL_STG_SUPABASE_URL" },
-  producao: { nome: "PRODUÇÃO", o: "a produção", no: "na produção", variavel: "PAINEL_PROD_SUPABASE_URL" },
-};
-
-function refDo(alvo) {
-  const { variavel } = ALVOS[alvo];
-  const ref = refDaUrl(process.env[variavel]);
-  if (!ref) throw new Error(`${variavel} ausente ou fora do formato https://<ref>.supabase.co.`);
-  if (ref === PROJETO_DA_PROSPECCAO) throw new Error(`${variavel} aponta para o banco do Painel de prospecção. Pare e confira o ambiente.`);
-  return ref;
-}
-
-/** Confere duas vezes o projeto: o ref vem da variável e o nome vem do próprio Supabase. */
-async function conferirProjeto(alvo) {
-  const ref = refDo(alvo);
-  const outro = refDo(alvo === "stg" ? "producao" : "stg");
-  if (ref === outro) throw new Error("PAINEL_STG_SUPABASE_URL e PAINEL_PROD_SUPABASE_URL apontam para o mesmo projeto.");
-  const p = await projeto(ref);
-  const pareceStg = /\bstg\b/i.test(p.name);
-  if (alvo === "stg" && !pareceStg) throw new Error(`O projeto ${ref} ("${p.name}") não parece ser o STG.`);
-  if (alvo === "producao" && pareceStg) throw new Error(`O projeto ${ref} ("${p.name}") parece ser o STG, não a produção.`);
-  return { ref, nome: p.name, regiao: p.region, situacao: p.status };
-}
+// ---------- os dois bancos remotos (ALVOS, refDo e conferirProjeto em lib/projetos.mjs) ----------
 
 async function aplicadasNo(ref) {
   const [{ existe }] = await consultar(ref, SQL_TEM_REGISTRO, { somenteLeitura: true });
@@ -126,12 +102,7 @@ async function testarLocal() {
 async function aplicar(alvo) {
   const simular = opcao("simular");
   const p = await conferirProjeto(alvo);
-  if (alvo === "producao") {
-    const confirmado = valorDe("projeto");
-    if (confirmado !== p.ref) {
-      throw new Error(`Para aplicar na produção, confirme o projeto: --projeto ${p.ref} ("${p.nome}"). Confira duas vezes (08, regra 5).`);
-    }
-  }
+  if (alvo === "producao") exigirConfirmacaoDaProducao(p, valorDe("projeto"));
   console.log(`Alvo: ${ALVOS[alvo].nome} · ${p.nome} (${p.ref}, ${p.regiao}, ${p.situacao})`);
 
   const { migracoes, testes } = testarNoLocal();

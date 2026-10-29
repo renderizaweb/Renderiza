@@ -40,6 +40,22 @@ export function refDaUrl(url) {
 
 export const projeto = ref => chamar(`/projects/${ref}`);
 
+function semProspeccao(ref) {
+  if (ref === PROJETO_DA_PROSPECCAO) throw new Error("Esse é o projeto do Painel de prospecção: nunca é tocado.");
+}
+
+/** A configuração do Auth (login) do projeto. Traz campos secretos (ex.: smtp_pass): nunca imprima inteira. */
+export function configDoAuth(ref) {
+  semProspeccao(ref);
+  return chamar(`/projects/${ref}/config/auth`);
+}
+
+/** Muda só os campos enviados da configuração do Auth. */
+export function mudarConfigDoAuth(ref, campos) {
+  semProspeccao(ref);
+  return chamar(`/projects/${ref}/config/auth`, { metodo: "PATCH", corpo: campos });
+}
+
 /** Roda SQL no banco do projeto. Várias instruções rodam numa transação só (conferido no STG em 29/10/2026). */
 export function consultar(ref, sql, { somenteLeitura = false } = {}) {
   if (ref === PROJETO_DA_PROSPECCAO) throw new Error("Esse é o banco do Painel de prospecção: nunca é tocado.");
