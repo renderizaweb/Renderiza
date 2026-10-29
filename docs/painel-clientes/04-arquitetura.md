@@ -79,8 +79,8 @@ painel-clientes/
 | Projeto | Conta do Supabase | Para quê |
 |---|---|---|
 | `gxdwluswpczlfgvzxqvg` (o de hoje) | a conta atual da Renderiza | **Painel de prospecção** (`painel/`). Não muda nada e não entra neste projeto. |
-| `painel-renderiza-prod` | **conta nova**, com um e-mail próprio do Painel Renderiza | **Produção** do Painel Renderiza: clientes reais. |
-| `painel-renderiza-stg` | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
+| `painel-renderiza-prod` · `wkwyhganenohmupcwthd` (`https://wkwyhganenohmupcwthd.supabase.co`) | **conta nova**, criada com `contato@renderizaweb.com.br` | **Produção** do Painel Renderiza: clientes reais. |
+| `painel-renderiza-stg` · `vzrmepxoigoszqtoxtlo` (`https://vzrmepxoigoszqtoxtlo.supabase.co`) | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
 
 - O plano gratuito permite 2 projetos ativos por pessoa dona ou admin, somando todas as organizações dela. Por isso o
   login da conta atual **não** entra como dono ou admin na conta nova (senão os limites se somam).

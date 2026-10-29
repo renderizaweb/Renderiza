@@ -30,7 +30,9 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 
 **Para quê:** os acessos e a base no ar, para as outras missões terem onde trabalhar.
 
-**Sua parte** (fora do repositório; passo a passo no [`04`](04-arquitetura.md)):
+**Sua parte** (fora do repositório; passo a passo no [`04`](04-arquitetura.md)). Feito em 28 e 29/10/2026: o
+`contato@renderizaweb.com.br` no Zoho (com os MX no Registro.br) e os dois projetos do Supabase, produção
+(`wkwyhganenohmupcwthd`) e STG (`vzrmepxoigoszqtoxtlo`). Falta: as variáveis do item 3, o envio (item 4) e a Vercel (item 5).
 
 1. Um e-mail só para tudo: `contato@renderizaweb.com.br`, numa caixa grátis do **Zoho Mail** (plano Forever Free).
    É o e-mail que os clientes recebem e o dono das contas abaixo. Os registros que o Zoho pedir vão no DNS do

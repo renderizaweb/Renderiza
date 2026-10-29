@@ -158,6 +158,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 1 | E-mail `contato@renderizaweb.com.br` no Zoho (MX no Registro.br) e Supabase novo criado com ele: produção `wkwyhganenohmupcwthd` e STG `vzrmepxoigoszqtoxtlo`. | Renderiza, com o Claude |
 | 28/10/2026 | 1 | O trabalho passou de tarefas para 6 missões, uma por parada (`missoes.md`), com o texto pronto para abrir cada sessão. Acesso das sessões ao Supabase novo pelas variáveis `PAINEL_*` do ambiente. | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Pesquisa de UX: `09-ux.md` (princípios, melhorias em cada tela do exemplo, onboarding de 5 telas, peças comuns, velocidade, referências). Nova tarefa T2.8 (onboarding). | Claude, a pedido da Renderiza |
 | 28/10/2026 | 1 | Supabase do Painel Renderiza numa conta nova, com produção e STG; o projeto de hoje fica só com o Painel de prospecção. Nomes fixados: Painel de prospecção, Painel Renderiza e Admin. | Claude, a pedido da Renderiza |
