@@ -82,12 +82,14 @@ painel-clientes/
 | Projeto | Conta do Supabase | Para quê |
 |---|---|---|
 | `gxdwluswpczlfgvzxqvg` (o de hoje) | a conta atual da Renderiza | **Painel de prospecção** (`painel/`). Não muda nada e não entra neste projeto. |
-| `painel-renderiza-prod` · `wkwyhganenohmupcwthd` (`https://wkwyhganenohmupcwthd.supabase.co`) | **conta nova**, criada com `contato@renderizaweb.com.br` | **Produção** do Painel Renderiza: clientes reais. |
-| `painel-renderiza-stg` · `vzrmepxoigoszqtoxtlo` (`https://vzrmepxoigoszqtoxtlo.supabase.co`) | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
+| `painel-renderiza-prod` · `hxzsiiqhlqxuqkevskwb` (`https://hxzsiiqhlqxuqkevskwb.supabase.co`) | **conta nova**, criada com `contato@renderizaweb.com.br` | **Produção** do Painel Renderiza: clientes reais. |
+| `painel-renderiza-stg` · `qxcxllhmtodsptxffbhx` (`https://qxcxllhmtodsptxffbhx.supabase.co`) | a mesma conta nova | **STG** (homologação): dados fictícios, onde tudo é testado antes de ir para a produção. |
 
 > Conferido pela sessão da Missão 1 em 29/10/2026, pela API do Supabase: os projetos se chamam "Painel Renderiza"
-> (produção, região `us-east-2`) e "Painel Renderiza STG" (região `us-west-2`), com Postgres 17. A região não é a
-> de São Paulo prevista abaixo; aviso em `missoes.md`.
+> (produção) e "Painel Renderiza STG", os dois na região São Paulo (`sa-east-1`), com Postgres 17 (o banco local
+> dos testes é 16). São os segundos projetos: os primeiros (produção `wkwyhganenohmupcwthd` e STG
+> `vzrmepxoigoszqtoxtlo`) tinham nascido nos EUA (`us-east-2` e `us-west-2`) e foram apagados pela Renderiza em
+> 29/10/2026, quando só tinham a migração de teste.
 
 - O plano gratuito permite 2 projetos ativos por pessoa dona ou admin, somando todas as organizações dela. Por isso o
   login da conta atual **não** entra como dono ou admin na conta nova (senão os limites se somam).
