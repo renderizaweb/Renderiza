@@ -11,7 +11,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes) e D (Financeiro) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco E (Contratos) **em andamento** desde 29/10; o bloco F está livre | A, B, C, D e E: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); o bloco F está livre | A, B, C, D e E: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
@@ -212,30 +212,42 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco E (Contratos) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco E (Contratos) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: 02 (Contratos: o contrato vai por um link, o cliente final lê e aceita no celular, o painel guarda a
-  data, a hora e quem aceitou; quem está com orçamento, contrato enviado e aceito; termo de aceite digital, sem
-  e-CPF; o texto é do cliente), 05 (modelos_contrato com campos; contratos: texto final congelado e a impressão
-  digital, situação, código do link, o registro do aceite; "aceito não muda"; publico_contrato e
-  publico_aceitar_contrato), 04 (/c/<código>, páginas sem login em publico/), 06 (o aceite é a prova: nome, data,
-  hora, IP, aparelho, a versão do texto), 07 (D14: sem CPF), 09 (resumo → aceite → dados do Pix; confirmação antes
-  de mandar; "Enviar contrato" na linha; compartilhar pelo celular), os exemplos (Contratos em colunas: orçamento,
-  enviado, aceito; "esperando o aceite há N dias"; "Lembrar do aceite").
-Plano (nesta ordem, cada parte com commit): 1. migração publico_contrato e publico_aceitar_contrato (o IP e o
-  aparelho vêm do próprio pedido, a impressão digital confere que o texto lido é o que foi aceito; só com a conta
-  liberada e Contratos ligado), com teste do banco; STG e depois produção; 2. a página pública /c/<código>
-  (publico/contrato/): o resumo, o texto, "Li e aceito" com nome e contato, depois os dados do Pix e "Imprimir";
-  3. a tela: lista pela situação (esperando aceite, orçamento, aceitos, cancelados) e as festas sem contrato com
-  "Fazer contrato"; ?contrato=<id>; 4. os modelos com os campos ({cliente}, {data}, {pacote}, {valor}…) e o
-  contrato novo da festa (?novo=contrato&reserva=<id>): o texto preenchido, salvar como orçamento ou mandar
-  (confirmação), o link pelo WhatsApp, copiar ou compartilhar; 5. a gaveta do contrato: o aceite registrado, o
-  texto, "Lembrar do aceite", editar antes do aceite, cancelar, imprimir; os dados do Pix (chave e nome) em
-  Configurações (contas.ajustes.pix, o dono); 6. teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: src/modulos/contratos/, publico/contrato/. Fora disso, pequeno e com aviso: a migração (supabase/
-  migrations/ e supabase/testes/), o rewrite de /c/ no vercel.json e no servidor local, o Pix em Configurações e o
-  "Mandar contrato" no "+".
+  data, a hora e quem aceitou; termo de aceite digital, sem e-CPF; o texto é do cliente), 05 (modelos_contrato,
+  contratos, "aceito não muda", as funções públicas), 04 (/c/<código>), 06 (a prova do aceite), 07 (D14: sem CPF),
+  09 (resumo → aceite → dados do Pix; confirmação antes de mandar), os exemplos (Contratos: orçamento, enviado,
+  aceito; "esperando o aceite há N dias"; "Lembrar do aceite").
+Plano (nesta ordem): 1. a migração do aceite; 2. a página pública /c/<código>; 3. a lista; 4. os modelos e o
+  contrato novo; 5. a gaveta e o Pix em Configurações; 6. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 6):
+  Banco: migração 20261029220000_publico_contrato.sql (STG e produção; 05, "Funções públicas"):
+  publico_contrato(código) e publico_aceitar_contrato(código, nome, contato, impressão). O IP e o aparelho vêm do
+  pedido (cabeçalhos), a impressão digital confere que o texto lido é o aceito, o Pix só sai depois do aceite.
+  Teste do banco supabase/testes/043_publico_contrato.sql.
+  Página do link: publico/contrato/ (index.html, contrato.js, logica.js, contrato.css): o resumo do que foi
+  contratado → o texto com "Li e aceito" (nome completo e WhatsApp ou e-mail) → pronto, com os dados do Pix,
+  "Mandar o comprovante" (WhatsApp do negócio) e "Imprimir ou salvar em PDF" (o texto e o registro do aceite com a
+  impressão digital). O botão de voltar do celular volta ao resumo. Link que não vale: "Este link não está valendo".
+  Painel: src/modulos/contratos/: index.js (chips esperando o aceite, orçamento, sem contrato, aceitos,
+  cancelados; o que pede ação abre primeiro; "Mandar", "Lembrar" e "Fazer contrato" na linha; avisos de modelo e
+  de Pix; ?contrato=<id>, ?novo=contrato[&reserva=<id>]), contrato.js (contrato novo: "Para quem?", a festa ou
+  ensaio, o modelo com os campos trocados e o texto editável; campo sem valor avisa e não deixa mandar; salvar como
+  orçamento ou mandar com confirmação; o link com WhatsApp, copiar e compartilhar; a gaveta com o aceite
+  registrado, o texto, editar antes do aceite, cancelar e abrir o link), modelos.js (o texto do cliente com os
+  campos num toque: {cliente}, {data}, {data_extenso}, {horario}, {tipo}, {pacote}, {convidados}, {adicionais},
+  {valor}, {sinal}, {desconto}, {endereco}, {cpf}, {negocio}, {hoje}), logica.js; test/contratos.test.mjs (5) e
+  test/contrato-publico.test.mjs (5).
+  Fora do "Mexe em", pequeno: a migração e o teste do banco; vercel.json (o rewrite de /c/, antes do app) e
+  scripts/servidor.mjs; Configurações (o Pix em contas.ajustes.pix, só o dono); o "+" (src/telas/casca.js) ganhou
+  "Mandar contrato" (e test/casca.test.mjs); estilo.css seção 21 e .rz-linhas--com-botao (era
+  .rz-linhas--parcelas, agora também em Contratos).
+Testado no STG (Villa Alecrim, desktop; Estúdio Ciranda, celular 390 px): "Fazer contrato" da festa da Paula &
+  Henrique com o modelo preenchido, salvar como orçamento, mandar (confirmação, link, mensagem), o cliente abrir o
+  link no celular, ler e aceitar, e o painel mostrar aceito com nome, contato, data, IP e aparelho; editar um
+  enviado; cancelar; campo {sinal} sem valor segura o "mandar"; modelo novo com campos num toque; ?contrato= pela
+  ficha do cliente; o Pix em Configurações e na página depois do aceite; quem só vê não tem botões; link errado.
+  Testes: 154 do front e 10 arquivos do banco (local e STG). Dados de teste apagados, semente rodada.
 ```
 
 ```
@@ -625,10 +637,11 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3E → 3F, 5, todas | **Contratos pronto (na `main`).** (1) **3F**: "contratos esperando aceite" (09) são os `contratos` com `situacao = 'enviado'` (há quantos dias: `enviado_em`); a tela abre um contrato com **`/contratos?contrato=<id>`** e um novo com **`/contratos?novo=contrato[&reserva=<id>]`**. (2) **5B (revisão de segurança)**: as funções públicas novas são `publico_contrato` e `publico_aceitar_contrato` (05); a página `/c/<código>` chama o banco direto com a chave pública. (3) **Todas**: o Pix da conta fica em `contas.ajustes.pix` (`chave`, `nome`), editado em Configurações (só o dono); o Financeiro pode usar no lembrete. (4) O rewrite de `/c/:codigo` é o **primeiro** do `vercel.json` (antes do app); quem mexer nos rewrites mantém a ordem. (5) `.rz-linhas--parcelas` virou **`.rz-linhas--com-botao`** (10). |
 | 29/10/2026 | 3D → 3E, 3F, todas | **Financeiro pronto (na `main`).** (1) **3E**: a festa no Financeiro (`/financeiro?reserva=<id>`) grava o valor total, o sinal e o desconto em `reservas_valores` (quem tem Contratos também edita): o contrato pode ler dali e levar de volta com o mesmo link; as parcelas são lançadas pelo Financeiro ("Lançar parcelas"). (2) **3F**: os números do mês saem de `resumo(parcelas, hoje)` em `src/modulos/financeiro/logica.js` (recebido no mês, falta no mês, a receber em 30 dias, atrasadas); "Registrar pagamento" é `/financeiro?novo=pagamento`, uma parcela é `/financeiro?parcela=<id>`. (3) **Todas**: com a chave estrangeira composta (`conta_id` + `reserva_id`), o banco devolve `reservas_valores` dentro de `reservas` como **lista**, não objeto (pegue o `[0]`). (4) `.rz-link` agora é `inline-flex` (ícone e texto na mesma linha); `--rz-grafico-1` e `-2` são as cores de gráfico (10). |
 | 29/10/2026 | 3A → 3D, 3E, 3F, todas | **Clientes pronto (na `main`).** A ficha leva a **`/financeiro?reserva=<id>`** e **`/financeiro?cliente=<id>`** (os pagamentos), **`/contratos?contrato=<id>`** e **`/clientes?aba=entregas&entrega=<id>`**: o Financeiro (3D) e Contratos (3E) abrem o detalhe ao ver esses parâmetros. Clientes abre **`/clientes?cliente=<id>`** e **`?novo=cliente`**; o Atendimento aceita **`?novo=pedido&cliente=<id>`** (pula o "Para quem?"). **`src/app.js` mudou (pequeno):** trocar de tela fecha as gavetas e folhas abertas (antes, um link de dentro da gaveta deixava ela por cima da tela nova). |
 | 29/10/2026 | 3B → 3A, 3D, 3F | **Agenda pronta (na `main`).** (1) A gaveta da festa leva a **`/financeiro?reserva=<id>`** ("Ver os pagamentos", só para quem tem Financeiro) e a **`/clientes?cliente=<id>`**: o Financeiro (3D) e Clientes (3A) abrem o detalhe ao ver esses parâmetros. (2) A Agenda abre **`/agenda?reserva=<id>`** e **`/agenda?dia=aaaa-mm-dd`**: use nos links do Início (3F) e da ficha (3A). (3) O nome do negócio com a preposição certa ("do espaço Villa Alecrim", "no Estúdio Ciranda") é `doNegocio(nome, nicho, "do")` de `src/nichos/index.js`: use nas mensagens prontas. (4) Conflito de horário e "horário livre" seguem a regra da agenda online (`seguraHorario` e `horariosLivres` em `src/modulos/agenda/logica.js`); sem acesso ao Atendimento, a Agenda trata toda pré-reserva como segurando a data (não sabe se veio da agenda online). |
-| 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do último commit da `main` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento, a Agenda, Clientes e o Financeiro novos (o banco deles já está lá e é compatível com a tela antiga). Ainda parado no fim do bloco D (`aabb9bc`). |
+| 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do último commit da `main` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento, a Agenda, Clientes, o Financeiro e Contratos novos (o banco deles já está lá e é compatível com a tela antiga). Ainda parado no fim do bloco E (`aabb9bc`). |
 | 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
 | 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
 | 29/10/2026 | 2B → todas | **Para conferir o deploy da produção:** `curl -s https://painel.renderizaweb.com.br/api/config` mostra `versao` (o commit no ar). Se depois de uns 5 minutos ainda for o commit anterior, o deploy não entrou: um push novo que mude `painel-clientes/` destravou em 29/10 (o `a4f92d1` ficou parado; o `aabb9bc` entrou em 1 minuto). Commit só de documentos não faz deploy (o `ignoreCommand`). |

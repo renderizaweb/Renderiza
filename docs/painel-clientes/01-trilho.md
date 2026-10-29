@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missão 3: blocos C (Atendimento), B (Agenda), A (Clientes) e D (Financeiro) feitos; bloco E (Contratos) em andamento; o bloco F (Início) e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
+| **Próxima ação** | Missão 3: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) feitos; o bloco F (Início e exportar) e a Missão 5 estão livres; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -165,6 +165,7 @@ Uma linha por avanço. O mais novo em cima.
 |---|---|---|---|
 | 29/10/2026 | 3 | **Missão 3, bloco A (Clientes) feito**, na `main` (a produção espera o deploy destravar): a lista pela situação, a ficha como linha do tempo, juntar e arquivar, e as entregas das fotos na fotografia. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco D (Financeiro) feito**, na `main` (a produção espera o deploy destravar): os números do mês, as parcelas com "Recebi" e desfazer, o lembrete no WhatsApp, a festa com "Lançar parcelas", registrar pagamento, o mês a mês e o que mais vende. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | **Missão 3, bloco E (Contratos) feito**, na `main` (a produção espera o deploy destravar; o banco do aceite já está na produção): o contrato sai do modelo com os dados da festa, vai por link, o cliente lê e aceita no celular e o painel guarda quem, quando, IP e aparelho; depois do aceite, os dados do Pix. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco B (Agenda) feito**, na `main` (a produção espera o deploy destravar): a semana e o mês, o painel do dia, a gaveta da festa com o checklist, reservar com o aviso de conflito de horário, os compromissos, os horários livres da fotografia e o quadro das campanhas com o texto do Stories. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | Missão 3, bloco B (Agenda) começou, na mesma branch. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco C (Atendimento) feito**, na `main` (a produção espera o deploy da Vercel destravar): a lista primeiro, o quadro por etapa no computador (arrastar com desfazer), a gaveta do pedido, anotar em poucos toques, "Fechar" vira reserva (confirmando a pré-reserva da agenda online), a lista de espera da fotografia e o pedido novo em tempo real. Testado no STG. | Claude, a pedido da Renderiza |

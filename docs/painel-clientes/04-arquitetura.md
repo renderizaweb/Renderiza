@@ -267,7 +267,7 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
 | GET | `/api/publico/site/<código>` (feito, 29/10/2026) | script do Meu site | a versão publicada (cache de ~60 s); "não encontrado" se desconectado, versão final, conta não liberada ou módulo desligado |
 | GET | `/api/publico/site/<código>/previa?t=…` (feito) | prévia do Meu site | o rascunho, sem cache, com código que expira |
 | GET | `/api/publico/imagens/<id da conta>/<arquivo>.webp` (feito) | site do cliente | a foto enviada pelo Meu site, do Storage público `site-imagens` (cache de 1 ano: cada envio ganha nome novo) |
-| GET e POST | `/c/<código-do-contrato>` | cliente final | ler e aceitar o contrato |
+| GET e POST | `/c/<código-do-contrato>` (feito, 29/10/2026) | cliente final | ler e aceitar o contrato: a página `publico/contrato/` (o primeiro rewrite do `vercel.json`; no servidor local também) fala direto com o banco pela chave pública (`publico_contrato` e `publico_aceitar_contrato`, `05`); sem API da Vercel no meio |
 | GET | `/api/publico/saude` (feito) | aviso automático | responde se o painel e o banco estão de pé (`200` ou `503`) |
 
 - `<código>` é o código do site da conta (`sites.codigo`, curto, pode ser trocado), nunca o id interno.

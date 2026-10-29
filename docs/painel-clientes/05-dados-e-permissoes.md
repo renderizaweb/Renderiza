@@ -241,6 +241,19 @@ deixa essas abertas ao visitante).
   embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
 - `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
 
+**Já no banco (29/10/2026, Missão 3E, migração `…220000_publico_contrato`, STG e produção):**
+- `publico_contrato(código)`: o contrato **enviado** (conta liberada e Contratos ligado) ou **aceito** (este
+  continua aparecendo mesmo com o módulo desligado: é a prova). Devolve o texto, a impressão digital (`impressao`,
+  o hash), a situação, quem aceitou e quando, o negócio (nome, nicho, logo, WhatsApp, fuso), o resumo (cliente,
+  tipo, pacote, início e fim, convidados, adicionais, valor total, desconto, sinal) e, **só depois do aceite**, o
+  Pix (`contas.ajustes.pix`: `chave` e `nome`, que o dono põe em Configurações). Orçamento, cancelado ou código
+  errado: `null`.
+- `publico_aceitar_contrato(código, nome, contato, impressão)`: grava o aceite (situação `aceito`, data e hora,
+  nome, contato). **O IP e o aparelho vêm do próprio pedido** (`cf-connecting-ip` ou o primeiro do
+  `x-forwarded-for`, e o `user-agent`), não de quem chama. A impressão tem de ser a do texto atual (`erro: mudou`
+  se o texto mudou depois que a página abriu). Devolve `{ ok, contrato }` ou `{ ok: false, erro: fora | dados
+  (campo) | mudou }`. Aceitar de novo não troca quem aceitou.
+
 **Já no banco (29/10/2026, Missão 4C, migração `…141746_publico_site`, no STG):**
 - `publico_site(código)`: a última versão publicada no formato do contrato v1 (`03`), com `esquema`, `site`, `versao`
   e `publicado_em` por cima do que veio no conteúdo; nunca publicou = conteúdo vazio, versão 0 (o site fica na
