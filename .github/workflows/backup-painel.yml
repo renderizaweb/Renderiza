@@ -1,0 +1,68 @@
+# Backup semanal do Painel Renderiza (Missão 5B; docs/painel-clientes/06-privacidade-e-seguranca.md, "Backup"; D11).
+# Toda segunda de madrugada: lê o banco da produção pela API de gerenciamento do Supabase (só leitura), junta as
+# tabelas, os logins, o registro do Storage e as imagens num arquivo cifrado (BACKUP_SENHA), guarda como artefato
+# por 90 dias e testa a restauração num Postgres vazio (as migrações do repositório, os dados, as contagens).
+# Os segredos ficam em Settings → Secrets and variables → Actions (nunca no código): PAINEL_SUPABASE_ACCESS_TOKEN,
+# PAINEL_STG_SUPABASE_URL, PAINEL_PROD_SUPABASE_URL e BACKUP_SENHA. A senha também fica guardada com a Renderiza,
+# fora do GitHub: sem ela, o backup não abre.
+
+name: Backup do Painel Renderiza
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # segunda, 6h17 UTC (3h17 em Brasília)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backup-painel
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: so-para-o-teste-de-restauracao
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PAINEL_SUPABASE_ACCESS_TOKEN: ${{ secrets.PAINEL_SUPABASE_ACCESS_TOKEN }}
+      PAINEL_STG_SUPABASE_URL: ${{ secrets.PAINEL_STG_SUPABASE_URL }}
+      PAINEL_PROD_SUPABASE_URL: ${{ secrets.PAINEL_PROD_SUPABASE_URL }}
+      BACKUP_SENHA: ${{ secrets.BACKUP_SENHA }}
+      PAINEL_LOCAL_PG: postgres://postgres:so-para-o-teste-de-restauracao@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Backup da produção (cifrado)
+        working-directory: painel-clientes
+        run: |
+          REF="$(node -e 'console.log(new URL(process.env.PAINEL_PROD_SUPABASE_URL).hostname.split(".")[0])')"
+          node scripts/backup.mjs producao --projeto "$REF" --saida ../backup
+
+      - name: Guardar o backup (cifrado, 90 dias)
+        uses: actions/upload-artifact@v4
+        with:
+          name: backup-painel-${{ github.run_number }}
+          path: backup/*.rzbk
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Teste de restauração (banco vazio, migrações, dados, contagens)
+        working-directory: painel-clientes
+        run: node scripts/restaurar-backup.mjs ../backup/*.rzbk
