@@ -288,6 +288,13 @@ export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar 
   const passos = passosDaConta(conta, feitos);
   const prontos = passos.filter(p => p.feito).length;
   const todos = prontos === passos.length;
+  // tudo feito: o "Pronto" aparece uma vez (a comemoração) e depois some sozinho (Missão 7, bloco A: o exemplo não tem)
+  const chave = `rz-passos-prontos-${conta.conta_id}`;
+  if (todos) {
+    let jaViu = false;
+    try { jaViu = localStorage.getItem(chave) === "1"; localStorage.setItem(chave, "1"); } catch (e) { /* sem armazenamento: mostra */ }
+    if (jaViu) { el.innerHTML = ""; return; }
+  }
   el.innerHTML = `
     <section class="rz-cartao rz-passos" aria-labelledby="passos-titulo">
       <div class="rz-passos-cabeca">

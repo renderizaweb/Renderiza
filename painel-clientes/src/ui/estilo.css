@@ -855,3 +855,7 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-usuario-do-convite{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);padding:var(--rz-3) var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie)}
 .rz-usuario-do-convite b{font-size:var(--rz-t-lg);font-weight:600;letter-spacing:.01em;color:var(--rz-tinta);overflow-wrap:anywhere}
 .rz-acoes-linha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+/* a casca na cor do negócio (o tema do nicho, como no onboarding e nos exemplos; cara-dos-exemplos.md, G1, G2, G6) */
+.rz-topo-nome{display:flex;flex-direction:column;min-width:0;line-height:1.15}
+.rz-topo-nome small{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rz-destaque)}
+@media (min-width:960px){.rz-app.rz-tema-eventos .rz-lateral,.rz-app.rz-tema-fotografia .rz-lateral{background:var(--rz-lateral)}}

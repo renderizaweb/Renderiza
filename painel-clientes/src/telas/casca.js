@@ -8,6 +8,7 @@ import { MODULOS } from "../modulos/index.js";
 import { caminhoDe } from "../rotas.js";
 import { estadoDoModulo, diasDeTeste } from "../sessao.js";
 import { nicho } from "../nichos/index.js";
+import { temaDoNicho } from "./acesso.js";
 import { icone } from "../ui/icones.js";
 import { escapar } from "../ui/formulario.js";
 import { iniciais, hora } from "../ui/formatos.js";
@@ -124,11 +125,11 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
   const daConta = itens.filter(i => i.grupo === "conta");
 
   raiz.innerHTML = `
-    <div class="rz-app${bloqueada ? " rz-app--bloqueada" : ""}">
+    <div class="rz-app ${temaDoNicho(conta.nicho)}${bloqueada ? " rz-app--bloqueada" : ""}">
       <aside class="rz-lateral" aria-label="Menu">
         <a class="rz-lateral-conta" href="/">
           ${sinalDaConta(conta)}
-          <span><b>${escapar(conta.nome)}</b><small>${escapar(n.nome)}</small></span>
+          <span><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span>
         </a>
         ${bloqueada ? "" : `<nav class="rz-menu" aria-label="Módulos">
           ${principais.map(i => linkDoMenu(i, rota)).join("")}
@@ -147,7 +148,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
       </aside>
       <div class="rz-area">
         <header class="rz-topo">
-          <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<b>${escapar(conta.nome)}</b></a>
+          <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<span class="rz-topo-nome"><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span></a>
           ${etiqueta}
           ${bloqueada ? "" : `<button class="rz-busca" type="button" data-buscar aria-label="Buscar (Ctrl+K)">${icone("buscar", { tamanho: 18 })}<span>Buscar cliente, data ou pedido</span><kbd>Ctrl K</kbd></button>
           ${fazAlgo ? `<button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>` : ""}`}
