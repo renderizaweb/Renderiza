@@ -12,10 +12,11 @@ test("lê as rotas do app", () => {
   assert.deepEqual(lerRota("/entrar"), { tipo: "tela", id: "entrar" });
   assert.deepEqual(lerRota("/admin"), { tipo: "admin", id: "contas" });
   assert.deepEqual(lerRota("/admin/pagamentos"), { tipo: "admin", id: "pagamentos" });
+  assert.deepEqual(lerRota("/boas-vindas/a1b2c3"), { tipo: "tela", id: "boasVindas", codigo: "a1b2c3" }, "o convite por link (D42)");
 });
 
 test("o que não existe é página não encontrada", () => {
-  for (const c of ["/inicio", "/xyz", "/agenda/semana/2", "/admin/xyz", "/entrar/de-novo", "/admin/contas/1/2"]) {
+  for (const c of ["/inicio", "/xyz", "/agenda/semana/2", "/admin/xyz", "/entrar/de-novo", "/admin/contas/1/2", "/boas-vindas/a/b"]) {
     assert.equal(lerRota(c).tipo, "nao-encontrada", c);
   }
 });

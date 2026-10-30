@@ -4,6 +4,7 @@
 //   /nova-senha          onde o link do e-mail chega (com ou sem login: o link é que abre a sessão)
 //   /cadastro            teste de 7 dias grátis (sem login)
 //   /convite             onde o link do convite chega (o link abre a sessão; a pessoa cria a senha)
+//   /boas-vindas/<código> o convite por link do WhatsApp (Missão 7, D42): a pessoa cria a senha e entra
 //   /contas              escolher a conta (quem é de mais de uma)
 //   /comecar             o onboarding: as 5 perguntas que criam a conta (09)
 //   /                    Início
@@ -24,6 +25,7 @@ export const TELAS = {
   novaSenha: { caminho: "/nova-senha", livre: true, carregar: () => import("./telas/nova-senha.js") },
   cadastro: { caminho: "/cadastro", semLogin: true, carregar: () => import("./telas/cadastro.js") },
   convite: { caminho: "/convite", livre: true, carregar: () => import("./telas/convite.js") },
+  boasVindas: { caminho: "/boas-vindas", livre: true, comCodigo: true, carregar: () => import("./telas/boas-vindas.js") },
   contas: { caminho: "/contas", carregar: () => import("./telas/contas.js") },
   comecar: { caminho: "/comecar", carregar: () => import("./telas/comecar.js") },
 };
@@ -37,8 +39,9 @@ export function lerRota(caminho) {
     const id = segunda || AREAS_ADMIN[0].id;
     return AREAS_ADMIN.some(a => a.id === id) ? { tipo: "admin", id } : { tipo: "nao-encontrada" };
   }
-  if (segunda) return { tipo: "nao-encontrada" };
   const tela = Object.entries(TELAS).find(([, t]) => t.caminho === "/" + primeira);
+  // telas com um código no endereço (/boas-vindas/<código>): só elas aceitam a segunda parte
+  if (segunda) return tela && tela[1].comCodigo ? { tipo: "tela", id: tela[0], codigo: segunda } : { tipo: "nao-encontrada" };
   if (tela) return { tipo: "tela", id: tela[0] };
   if (primeira !== "inicio" && MODULOS.some(m => m.id === primeira)) return { tipo: "modulo", id: primeira };
   return { tipo: "nao-encontrada" };

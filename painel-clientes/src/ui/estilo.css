@@ -849,3 +849,8 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
    Os documentos (/termos e /privacidade) têm o arquivo deles: publico/termos/documento.css, só com tokens. */
 .rz-aceite-termos{display:flex;align-items:flex-start;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-2) 0;font-weight:500;cursor:pointer}
 .rz-aceite-termos input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--rz-destaque)}
+
+/* ---------- 25. Onboarding com IA (Missão 7): o convite por link ----------
+   /boas-vindas/<código> (src/telas/boas-vindas.js): o usuário que a Renderiza criou, à vista, antes da senha. */
+.rz-usuario-do-convite{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);padding:var(--rz-3) var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie)}
+.rz-usuario-do-convite b{font-size:var(--rz-t-lg);font-weight:600;letter-spacing:.01em;color:var(--rz-tinta);overflow-wrap:anywhere}

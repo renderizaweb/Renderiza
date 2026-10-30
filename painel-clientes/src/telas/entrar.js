@@ -1,11 +1,12 @@
-// Entrar: e-mail e senha, e nada além do necessário (09-ux.md, onboarding passo 1; 10-design-system.md).
+// Entrar: e-mail (ou o usuário de quem chegou pelo link do WhatsApp, D42) e senha, e nada além do necessário (09-ux.md,
+// onboarding passo 1; 10-design-system.md).
 // - erros no próprio campo, ditos em português; o erro do servidor vai no aviso do formulário;
 // - mostrar a senha, aviso de Caps Lock, botão que diz "Entrando…" e não aceita dois toques;
 // - "Esqueci a senha" leva o e-mail já digitado; quem ainda não usa encontra o caminho no rodapé.
 
 import { telaDeAcesso } from "./acesso.js";
 import { TELAS } from "../rotas.js";
-import { validarEmail } from "../sessao.js";
+import { validarEntrada } from "../sessao.js";
 import { icone } from "../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado, ligarMostrarSenha, ligarAvisoCapsLock } from "../ui/formulario.js";
 
@@ -30,9 +31,9 @@ export async function montar(el, { sessao, aoEntrar, ambiente, config }) {
       <form class="rz-pilha" novalidate>
         <div role="alert" hidden></div>
         <div class="rz-campo">
-          <label class="rz-rotulo" for="entrar-email">E-mail</label>
-          <input id="entrar-email" class="rz-entrada" name="email" type="email" autocomplete="username" inputmode="email"
-            autocapitalize="none" spellcheck="false" enterkeyhint="next" placeholder="voce@seunegocio.com.br" value="${escapar(emailInicial)}">
+          <label class="rz-rotulo" for="entrar-email">E-mail ou usuário</label>
+          <input id="entrar-email" class="rz-entrada" name="email" type="text" autocomplete="username" inputmode="email"
+            autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder="voce@seunegocio.com.br" value="${escapar(emailInicial)}">
           <p class="rz-erro-campo" hidden></p>
         </div>
         <div class="rz-campo">
@@ -70,7 +71,7 @@ export async function montar(el, { sessao, aoEntrar, ambiente, config }) {
     evento.preventDefault();
     if (botao.disabled) return;
     avisoDoFormulario(aviso, "");
-    const problemaEmail = validarEmail(email.value);
+    const problemaEmail = validarEntrada(email.value, "-"); // só o e-mail ou usuário; a senha, abaixo
     const problemaSenha = senha.value ? null : "Digite a sua senha.";
     erroNoCampo(email, problemaEmail);
     erroNoCampo(senha, problemaSenha);

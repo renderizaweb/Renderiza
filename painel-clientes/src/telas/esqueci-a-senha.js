@@ -1,10 +1,12 @@
 // Esqueci a senha: a pessoa digita o e-mail e recebe um link para criar uma senha nova (tela /nova-senha).
 // A resposta é sempre a mesma, exista a conta ou não: ninguém descobre por aqui quem tem conta.
 // O e-mail sai pelo Supabase; até o Brevo entrar (Missão 1, item 4), só chega para quem é da conta do Supabase.
+// Quem entra com usuário (o convite por link, D42) não tem e-mail para receber: pede um link novo à Renderiza.
 
 import { telaDeAcesso, focarTitulo } from "./acesso.js";
 import { TELAS } from "../rotas.js";
 import { validarEmail } from "../sessao.js";
+import { linkDaRenderiza } from "./renderiza.js";
 import { icone } from "../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../ui/formulario.js";
 
@@ -15,7 +17,26 @@ export async function montar(el, { sessao, ambiente }) {
   const voltar = { href: TELAS.entrar.caminho, texto: "Voltar para entrar" };
   const linkDeVolta = () => location.origin + TELAS.novaSenha.caminho;
 
+  // quem entra com usuário: o link novo vem da Renderiza, pelo WhatsApp
+  function semEmail(usuario) {
+    el.innerHTML = telaDeAcesso({
+      ambiente,
+      voltar,
+      conteudo: `
+        <div class="rz-acesso-cabeca">
+          <span class="rz-icone-grande">${icone("cadeado", { tamanho: 24 })}</span>
+          <h1 class="rz-titulo-1">Esqueceu a senha?</h1>
+          <p class="rz-texto-2">Quem entra com usuário recebe um link novo da Renderiza, pelo WhatsApp, para criar uma senha nova.</p>
+        </div>
+        <div class="rz-acesso-acoes">
+          <a class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" href="${linkDaRenderiza(`Oi! Esqueci a senha do Painel Renderiza (usuário ${usuario}). Pode me mandar um link novo?`)}" target="_blank" rel="noopener">${icone("whatsapp")}Pedir um link novo</a>
+        </div>`,
+    });
+    focarTitulo(el);
+  }
+
   function pedir() {
+    if (emailInicial && !emailInicial.includes("@")) return semEmail(emailInicial.trim().toLowerCase());
     el.innerHTML = telaDeAcesso({
       ambiente,
       voltar,

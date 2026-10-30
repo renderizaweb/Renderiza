@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { criarSessao, validarEntrada, validarEmail, validarSenhaNova, SENHA_MINIMA } from "../src/sessao.js";
+import { criarSessao, validarEntrada, validarEmail, validarSenhaNova, SENHA_MINIMA, emailDeEntrada, usuarioDoEmail } from "../src/sessao.js";
 import { criarAdaptadorSupabase, traduzir } from "../src/adaptadores/supabase.js";
 
 // Um supabase-js de mentira: guarda a sessão e avisa os ouvintes, como o de verdade.
@@ -34,9 +34,12 @@ function clienteFalso({ senhaCerta = "certa" } = {}) {
 
 const adaptador = opcoes => criarAdaptadorSupabase({ url: "https://x.supabase.co", chave: "sb_publishable_x", createClient: () => clienteFalso(opcoes) });
 
-test("validarEntrada pede e-mail e senha", () => {
-  assert.equal(validarEntrada("", "x"), "Digite o seu e-mail.");
-  assert.match(validarEntrada("fulano", "x"), /não parece certo/);
+test("validarEntrada pede e-mail (ou usuário) e senha", () => {
+  assert.equal(validarEntrada("", "x"), "Digite o seu e-mail ou usuário.");
+  assert.match(validarEntrada("fulano@", "x"), /não parece certo/);
+  assert.equal(validarEntrada("espacojardim", "x"), null, "o usuário do convite por link (D42)");
+  assert.match(validarEntrada("fu", "x"), /usuário não parece certo/);
+  assert.match(validarEntrada("Com Espaço", "x"), /usuário não parece certo/);
   assert.equal(validarEntrada("ana@villa.com", ""), "Digite a sua senha.");
   assert.equal(validarEntrada(" ana@villa.com ", "x"), null);
 });
@@ -106,4 +109,11 @@ test("nova senha: pede 8 caracteres, exige a sessão do link e traduz os erros",
   await assert.rejects(sessao.definirSenha("igual12345"), { message: "A senha nova precisa ser diferente da atual." });
   await sessao.definirSenha("novasenha1");
   assert.equal(sessao.logado(), true);
+});
+
+test("o usuário do convite por link vira o e-mail interno do login, e volta para mostrar", () => {
+  assert.equal(emailDeEntrada(" EspacoJardim "), "espacojardim@acesso.renderizaweb.com.br");
+  assert.equal(emailDeEntrada("ana@villa.com"), "ana@villa.com");
+  assert.equal(usuarioDoEmail("espacojardim@acesso.renderizaweb.com.br"), "espacojardim");
+  assert.equal(usuarioDoEmail("ana@villa.com"), null);
 });

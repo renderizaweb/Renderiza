@@ -13,9 +13,34 @@ export function validarEmail(email) {
   return null;
 }
 
+/**
+ * Acesso sem e-mail (Missão 7, D42): quem chega pelo link do WhatsApp entra com um usuário (ex.: espacojardim). Por
+ * baixo, o login é o endereço interno <usuario>@acesso.renderizaweb.com.br, que não recebe e-mail.
+ */
+export const DOMINIO_DO_USUARIO = "acesso.renderizaweb.com.br";
+export const FORMATO_DO_USUARIO = /^[a-z0-9][a-z0-9._-]{2,29}$/;
+
+/** O que a pessoa digitou em "e-mail ou usuário" vira o e-mail do login. */
+export function emailDeEntrada(valor) {
+  const v = String(valor || "").trim();
+  return v.includes("@") ? v : `${v.toLowerCase()}@${DOMINIO_DO_USUARIO}`;
+}
+
+/** O usuário, quando o e-mail é o interno (para mostrar "espacojardim" em vez do endereço interno); senão, null. */
+export function usuarioDoEmail(email) {
+  const e = String(email || "").toLowerCase();
+  return e.endsWith("@" + DOMINIO_DO_USUARIO) ? e.slice(0, -(DOMINIO_DO_USUARIO.length + 1)) : null;
+}
+
 export function validarEntrada(email, senha) {
-  const problema = validarEmail(email);
-  if (problema) return problema;
+  const v = String(email || "").trim();
+  if (!v) return "Digite o seu e-mail ou usuário.";
+  if (v.includes("@")) {
+    const problema = validarEmail(v);
+    if (problema) return problema;
+  } else if (!FORMATO_DO_USUARIO.test(v.toLowerCase())) {
+    return "Esse usuário não parece certo. Confira.";
+  }
   if (!senha) return "Digite a sua senha.";
   return null;
 }
@@ -105,7 +130,7 @@ export function criarSessao(adaptador, { armazenamento = armazenamentoDoNavegado
     async entrar(email, senha) {
       const problema = validarEntrada(email, senha);
       if (problema) throw new Error(problema);
-      await adaptador.entrar(String(email).trim(), senha);
+      await adaptador.entrar(emailDeEntrada(email), senha);
       atual = await adaptador.sessao();
       return atual;
     },
