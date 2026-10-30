@@ -182,6 +182,10 @@ painel-clientes/
   → 1, o build acontece. O `|| exit 1` é o que transforma o erro do git em 1. Antes comparava só `HEAD^` com `HEAD`
   e pulava o deploy quando o último commit mexia só em documentos, mesmo que um commit anterior do mesmo push tivesse
   mudado o painel. Os casos estão em `painel-clientes/test/esqueleto.test.mjs`.
+- **As branches das sessões não fazem deploy do painel** (`"git": { "deploymentEnabled": { "claude/*": false } }`,
+  30/10/2026): cada commit fazia 4 builds (painel e site, na branch e na `main`) e o plano grátis bateu o limite de
+  builds (`build-rate-limit`), deixando um deploy de produção sem sair. As sessões testam no `localhost` contra o
+  STG; só a `main` publica.
 - **O clone da Vercel é raso** (só os últimos 10 commits; conferido em 30/10/2026). Sem o `|| exit 1`, bastaram 11
   commits na `main` depois do último deploy bom (`aabb9bc`, 29/10) para o SHA anterior sair do clone: o `git diff`
   saía com 128 ("bad object") e todo deploy de produção falhava no passo "ignore", sem nunca andar (o SHA anterior

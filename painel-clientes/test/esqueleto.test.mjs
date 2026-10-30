@@ -54,6 +54,11 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.equal(v.cleanUrls, false);
 });
 
+test("as branches das sessões (claude/*) não fazem deploy do painel: o plano grátis tem limite de builds", () => {
+  const v = JSON.parse(readFileSync(new URL("vercel.json", pasta), "utf8"));
+  assert.equal(v.git.deploymentEnabled["claude/*"], false);
+});
+
 // Na Vercel, o ignoreCommand saindo com 0 pula o deploy e com 1 faz o build; com outro código (ex.: 128, erro do git)
 // o deploy falha (ERROR). Por isso o build tem de sair com 1, nunca só "diferente de 0".
 test("vercel.json: pula o deploy só se a pasta não mudou desde o último deploy", () => {

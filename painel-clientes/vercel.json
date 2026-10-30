@@ -4,6 +4,7 @@
   "installCommand": "",
   "buildCommand": "",
   "ignoreCommand": "[ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- ./ || exit 1",
+  "git": { "deploymentEnabled": { "claude/*": false } },
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
