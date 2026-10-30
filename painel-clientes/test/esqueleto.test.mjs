@@ -54,7 +54,8 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.equal(v.cleanUrls, false);
 });
 
-// Na Vercel, o ignoreCommand saindo com 0 pula o deploy; com qualquer outro código, faz o build.
+// Na Vercel, o ignoreCommand saindo com 0 pula o deploy e com 1 faz o build; com outro código (ex.: 128, erro do git)
+// o deploy falha (ERROR). Por isso o build tem de sair com 1, nunca só "diferente de 0".
 test("vercel.json: pula o deploy só se a pasta não mudou desde o último deploy", () => {
   const { ignoreCommand } = JSON.parse(readFileSync(new URL("vercel.json", pasta), "utf8"));
   const repo = mkdtempSync(join(tmpdir(), "painel-ignore-"));
@@ -73,9 +74,9 @@ test("vercel.json: pula o deploy só se a pasta não mudou desde o último deplo
     commit("docs/painel-clientes/missoes.md", "só documento");
     const codigo = anterior => spawnSync("sh", ["-c", ignoreCommand], { cwd: join(repo, "painel-clientes"), env: { ...process.env, VERCEL_GIT_PREVIOUS_SHA: anterior } }).status;
     assert.equal(codigo(painelMudou), 0, "depois do último deploy só mudou documento: pula");
-    assert.notEqual(codigo(inicio), 0, "a pasta mudou num commit antes do último: faz o build");
-    assert.notEqual(codigo(""), 0, "sem deploy anterior na branch: faz o build");
-    assert.notEqual(codigo("0123456789abcdef0123456789abcdef01234567"), 0, "SHA fora do clone (erro do git): faz o build");
+    assert.equal(codigo(inicio), 1, "a pasta mudou num commit antes do último: faz o build");
+    assert.equal(codigo(""), 1, "sem deploy anterior na branch: faz o build");
+    assert.equal(codigo("0123456789abcdef0123456789abcdef01234567"), 1, "SHA fora do clone (erro do git): faz o build, sem falhar");
   } finally {
     rmSync(repo, { recursive: true, force: true });
   }

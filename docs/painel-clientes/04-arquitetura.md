@@ -172,13 +172,17 @@ painel-clientes/
   ignora o rewrite para o `index.html` e as rotas do app (`/entrar`, `/agenda`) dão 404 quando abertas direto
   (conferido no primeiro deploy, 29/10/2026).
 - **Como o `ignoreCommand` decide** (29/10/2026):
-  `[ -n "$VERCEL_GIT_PREVIOUS_SHA" ] && git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- ./`. Compara o commit
-  do último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o atual, só dentro de `painel-clientes/`. Na Vercel,
-  sair com 0 pula o deploy e qualquer outro código faz o build: nada mudou na pasta → pula; sem SHA anterior
-  (primeiro deploy da branch) ou com erro do git (ex.: o SHA não está no clone) → sai com código diferente de 0 e
-  o build acontece. Antes comparava só `HEAD^` com `HEAD` e pulava o deploy quando o último commit mexia só em
-  documentos, mesmo que um commit anterior do mesmo push tivesse mudado o painel. Os casos estão em
-  `painel-clientes/test/esqueleto.test.mjs`.
+  `[ -n "$VERCEL_GIT_PREVIOUS_SHA" ] && git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- ./ || exit 1`. Compara
+  o commit do último deploy da branch (`VERCEL_GIT_PREVIOUS_SHA`) com o atual, só dentro de `painel-clientes/`. Na
+  Vercel, sair com 0 pula o deploy, com 1 faz o build e **com qualquer outro código o deploy falha** (ERROR no passo
+  "ignore"): nada mudou na pasta → 0, pula; mudou, sem SHA anterior (primeiro deploy da branch) ou com erro do git
+  → 1, o build acontece. O `|| exit 1` é o que transforma o erro do git em 1. Antes comparava só `HEAD^` com `HEAD`
+  e pulava o deploy quando o último commit mexia só em documentos, mesmo que um commit anterior do mesmo push tivesse
+  mudado o painel. Os casos estão em `painel-clientes/test/esqueleto.test.mjs`.
+- **O clone da Vercel é raso** (só os últimos 10 commits; conferido em 30/10/2026). Sem o `|| exit 1`, bastaram 11
+  commits na `main` depois do último deploy bom (`aabb9bc`, 29/10) para o SHA anterior sair do clone: o `git diff`
+  saía com 128 ("bad object") e todo deploy de produção falhava no passo "ignore", sem nunca andar (o SHA anterior
+  continua sendo o do último deploy bom).
 - **Qual commit está no ar** (29/10/2026): `GET /api/config` devolve `versao` (os 7 primeiros caracteres do
   `VERCEL_GIT_COMMIT_SHA`). Dá para conferir de qualquer lugar, sem entrar na Vercel:
   `curl -s https://painel.renderizaweb.com.br/api/config` e olhar o `versao`. Em 29/10, um push na `main` (o
