@@ -1,12 +1,14 @@
 // Função "assistente" (Supabase Edge Function, Deno; Missão 7, bloco D): a IA do onboarding. A lógica mora em
-// logica.js; aqui só o Supabase, o SDK da Anthropic e o Deno. A chave da Anthropic fica só no ambiente da função
-// (segredo ANTHROPIC_API_KEY, posto pela Renderiza no Supabase); sem ela, a função responde "sem IA" e o painel segue o
-// roteiro fixo. O modelo vem de IA_MODELO (padrão: claude-opus-5-5).
+// logica.js; aqui só o Supabase, os SDKs oficiais dos fornecedores e o Deno. A chave fica só no ambiente da função
+// (segredos postos pela Renderiza no Supabase): OPENAI_API_KEY (o padrão, D52) ou ANTHROPIC_API_KEY. Com as duas,
+// IA_FORNECEDOR escolhe ("openai" ou "anthropic"); sem nenhuma, a função responde "sem IA" e o painel segue o roteiro
+// fixo. O modelo vem de IA_MODELO (padrão: gpt-5.4-mini na OpenAI, claude-opus-5-5 na Anthropic).
 // Publicar: node supabase/functions/publicar.mjs stg --so assistente (e producao), STG primeiro.
 
 import { createClient } from "npm:@supabase/supabase-js@2.117.1";
 import Anthropic from "npm:@anthropic-ai/sdk@1.3.0";
-import { atender, MODELO_PADRAO, TETO_PADRAO } from "./logica.js";
+import OpenAI from "npm:openai@7.45.1";
+import { atender, paraOpenAI, paraAnthropic, MODELOS_PADRAO, TETO_PADRAO } from "./logica.js";
 
 const URL_DO_PROJETO = Deno.env.get("SUPABASE_URL");
 
@@ -22,13 +24,24 @@ function chave(nova, antiga) {
 }
 const SECRETA = chave("SUPABASE_SECRET_KEYS", "SUPABASE_SERVICE_ROLE_KEY");
 const admin = createClient(URL_DO_PROJETO, SECRETA, { auth: { persistSession: false, autoRefreshToken: false } });
-const CHAVE_DA_IA = Deno.env.get("ANTHROPIC_API_KEY");
-const MODELO = Deno.env.get("IA_MODELO") || MODELO_PADRAO;
-// o painel desiste em poucos segundos e segue o roteiro fixo; aqui, um limite um pouco maior e uma nova tentativa
-const claude = CHAVE_DA_IA ? new Anthropic({ apiKey: CHAVE_DA_IA, timeout: 20000, maxRetries: 1 }) : null;
+/** O fornecedor da IA pela chave que estiver no ambiente (ou por IA_FORNECEDOR, com as duas). */
+function iaDoAmbiente() {
+  const chaves = { openai: Deno.env.get("OPENAI_API_KEY"), anthropic: Deno.env.get("ANTHROPIC_API_KEY") };
+  const pedido = Deno.env.get("IA_FORNECEDOR");
+  const fornecedor = chaves[pedido] ? pedido : chaves.openai ? "openai" : chaves.anthropic ? "anthropic" : null;
+  if (!fornecedor) return null;
+  const modelo = Deno.env.get("IA_MODELO") || MODELOS_PADRAO[fornecedor];
+  // o painel desiste em poucos segundos e segue o roteiro fixo; aqui, um limite um pouco maior e uma nova tentativa
+  if (fornecedor === "openai") {
+    const cliente = new OpenAI({ apiKey: chaves.openai, timeout: 20000, maxRetries: 1 });
+    return { fornecedor, modelo, chamar: p => cliente.responses.create(paraOpenAI(p, modelo)) };
+  }
+  const cliente = new Anthropic({ apiKey: chaves.anthropic, timeout: 20000, maxRetries: 1 });
+  return { fornecedor, modelo, chamar: p => cliente.messages.create(paraAnthropic(p, modelo)) };
+}
 
 const deps = {
-  temChave: !!claude,
+  ia: iaDoAmbiente(),
   async usuarioDoToken(token) {
     const { data, error } = await admin.auth.getUser(token);
     if (error) throw error;
@@ -41,7 +54,7 @@ const deps = {
       admin.from("contas").select("id, nome, nicho").eq("id", contaId).single(),
       admin.from("contas_contexto").select("dados, conversa").eq("conta_id", contaId).maybeSingle(),
     ]);
-    return conta ? { conta, contexto, modelo: MODELO } : null;
+    return conta ? { conta, contexto } : null;
   },
   async gasto(contaId) {
     const desde = new Date(Date.now() - 3600000).toISOString();
@@ -52,7 +65,6 @@ const deps = {
     ]);
     return { usd: (uso || []).reduce((s, x) => s + Number(x.custo_usd || 0), 0), teto: teto ? Number(teto.teto_usd) : TETO_PADRAO, naHora: count || 0 };
   },
-  claude: pedido => claude.messages.create(pedido),
   async registrar(uso) {
     const { error } = await admin.from("ia_uso").insert(uso);
     if (error) throw error;

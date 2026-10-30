@@ -1,8 +1,10 @@
-// A lógica da função "assistente" (a IA do onboarding; Missão 7, bloco D; D43, D45, D46, D49), sem nada do Deno:
-// testada em test/assistente.test.mjs. Quem chama é o painel, com o login do dono. A função confere o login e a conta,
-// o teto de gasto, monta o pedido ao Claude (o roteiro fixo e o contexto da conta em cache), valida a resposta e
-// registra o uso e o custo. A IA só propõe: nada é gravado aqui. Qualquer problema (sem chave, teto, demora, resposta
-// fora do formato) devolve { ok: false, fallback: true }, e o painel segue o roteiro fixo, sem a pessoa perceber.
+// A lógica da função "assistente" (a IA do onboarding; Missão 7, bloco D; D43, D45, D46, D49, D52), sem nada do
+// Deno: testada em test/assistente.test.mjs. Quem chama é o painel, com o login do dono. A função confere o login e a
+// conta, o teto de gasto, monta o pedido (o roteiro fixo e o contexto da conta primeiro, iguais a cada pergunta, para
+// o cache), valida a resposta e registra o uso e o custo. O pedido é neutro e vira o de cada fornecedor aqui:
+// a OpenAI (o padrão, D52: a chave que a Renderiza já tem) ou a Anthropic. A IA só propõe: nada é gravado aqui.
+// Qualquer problema (sem chave, teto, demora, resposta fora do formato) devolve { ok: false, fallback: true }, e o
+// painel segue o roteiro fixo, sem a pessoa perceber.
 
 const ORIGENS = [
   /^https:\/\/painel\.renderizaweb\.com\.br$/,
@@ -11,9 +13,20 @@ const ORIGENS = [
 ];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-export const MODELO_PADRAO = "claude-opus-5-5";
-/** Preço por milhão de tokens, em dólar (D45): entrada, saída, cache lido e cache escrito (5 minutos). */
-export const PRECOS = { "claude-opus-5-5": { entrada: 4, saida: 20, cacheLido: 0.2, cacheEscrito: 5 } };
+/** O modelo de cada fornecedor quando IA_MODELO não diz outro. */
+export const MODELOS_PADRAO = { openai: "gpt-5.4-mini", anthropic: "claude-opus-5-5" };
+/**
+ * Preço por milhão de tokens, em dólar: entrada, saída, cache lido e cache escrito. OpenAI (developers.openai.com,
+ * "Pricing", conferido em 30/10/2026; o cache dela não cobra a escrita à parte) e Anthropic (D45).
+ */
+export const PRECOS = {
+  "gpt-5.4-mini": { entrada: 0.75, saida: 4.5, cacheLido: 0.075, cacheEscrito: 0.75 },
+  "gpt-5.4": { entrada: 2.5, saida: 15, cacheLido: 0.25, cacheEscrito: 2.5 },
+  "gpt-5.4-nano": { entrada: 0.2, saida: 1.25, cacheLido: 0.02, cacheEscrito: 0.2 },
+  "claude-opus-5-5": { entrada: 4, saida: 20, cacheLido: 0.2, cacheEscrito: 5 },
+};
+/** Modelo sem preço conhecido: conta pelo mais caro da lista, para o teto nunca ficar folgado. */
+const PRECO_DESCONHECIDO = PRECOS["claude-opus-5-5"];
 export const TETO_PADRAO = 3;
 export const CHAMADAS_POR_HORA = 80;
 
@@ -26,12 +39,11 @@ export function cabecalhosCors(origem) {
   };
 }
 
-/** O custo da chamada em dólar, pelo `usage` da resposta. */
-export function custo(usage, modelo = MODELO_PADRAO) {
-  const p = PRECOS[modelo] || PRECOS[MODELO_PADRAO];
-  const u = usage || {};
-  return ((u.input_tokens || 0) * p.entrada + (u.output_tokens || 0) * p.saida
-    + (u.cache_read_input_tokens || 0) * p.cacheLido + (u.cache_creation_input_tokens || 0) * p.cacheEscrito) / 1e6;
+/** O custo da chamada em dólar, pelo uso já traduzido: { entrada (sem o cache), saida, cache_lido, cache_escrito }. */
+export function custo(uso, modelo) {
+  const p = PRECOS[modelo] || PRECO_DESCONHECIDO;
+  const u = uso || {};
+  return ((u.entrada || 0) * p.entrada + (u.saida || 0) * p.saida + (u.cache_lido || 0) * p.cacheLido + (u.cache_escrito || 0) * p.cacheEscrito) / 1e6;
 }
 
 const curto = (v, max) => (typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, max) : "");
@@ -110,25 +122,65 @@ Tarefa: escolha, entre os assuntos que faltam, o que faz mais sentido perguntar 
 
 export const TAREFAS = { proxima_pergunta: PROXIMA_PERGUNTA };
 
-/** O pedido ao Claude: o roteiro e o contexto da conta em cache (iguais a cada pergunta), a pergunta da vez embaixo. */
-export function montarPedido(tarefa, entrada, { conta, contexto, modelo = MODELO_PADRAO }) {
+/** O pedido, neutro: o roteiro da tarefa e o contexto da conta (iguais a cada pergunta: vão primeiro, para o cache), a pergunta da vez e o esquema da resposta. */
+export function montarPedido(tarefa, entrada, { conta, contexto }) {
   const t = TAREFAS[tarefa];
+  return { tarefa, sistema: t.sistema, contexto: textoDoContexto({ conta, contexto }), mensagem: t.mensagem(entrada), esquema: t.esquema, maximo: t.maximo };
+}
+
+/** Para a OpenAI (Responses API): o roteiro e o contexto como mensagens de sistema, a saída em JSON pelo esquema (strict), sem guardar a conversa lá (store: false). */
+export function paraOpenAI(p, modelo) {
   return {
     model: modelo,
-    max_tokens: t.maximo,
-    system: [
-      { type: "text", text: t.sistema },
-      { type: "text", text: textoDoContexto({ conta, contexto }), cache_control: { type: "ephemeral" } },
+    input: [
+      { role: "system", content: p.sistema },
+      { role: "system", content: p.contexto },
+      { role: "user", content: p.mensagem },
     ],
-    messages: [{ role: "user", content: t.mensagem(entrada) }],
-    output_config: { effort: "low", format: { type: "json_schema", schema: t.esquema } },
+    text: { format: { type: "json_schema", name: p.tarefa, strict: true, schema: p.esquema } },
+    reasoning: { effort: "low" },
+    max_output_tokens: p.maximo,
+    store: false,
+  };
+}
+
+/** Para a Anthropic (Messages API): o roteiro e o contexto em cache, a saída em JSON pelo esquema. */
+export function paraAnthropic(p, modelo) {
+  return {
+    model: modelo,
+    max_tokens: p.maximo,
+    system: [{ type: "text", text: p.sistema }, { type: "text", text: p.contexto, cache_control: { type: "ephemeral" } }],
+    messages: [{ role: "user", content: p.mensagem }],
+    output_config: { effort: "low", format: { type: "json_schema", schema: p.esquema } },
+  };
+}
+
+/** A resposta de cada fornecedor, traduzida: { texto, recusou, uso: { entrada, saida, cache_lido, cache_escrito } }. */
+export function lerResposta(fornecedor, r) {
+  r = r || {};
+  if (fornecedor === "openai") {
+    const conteudo = (r.output || []).filter(o => o.type === "message").flatMap(o => o.content || []);
+    const u = r.usage || {};
+    const lidos = (u.input_tokens_details && u.input_tokens_details.cached_tokens) || 0;
+    return {
+      texto: r.status === "completed" ? (conteudo.find(c => c.type === "output_text") || {}).text || "" : "",
+      recusou: conteudo.some(c => c.type === "refusal"),
+      // na OpenAI, os tokens do cache já estão dentro de input_tokens
+      uso: { entrada: Math.max(0, (u.input_tokens || 0) - lidos), saida: u.output_tokens || 0, cache_lido: lidos, cache_escrito: 0 },
+    };
+  }
+  const u = r.usage || {};
+  return {
+    texto: r.stop_reason === "end_turn" ? ((r.content || []).find(b => b.type === "text") || {}).text || "" : "",
+    recusou: r.stop_reason === "refusal",
+    uso: { entrada: u.input_tokens || 0, saida: u.output_tokens || 0, cache_lido: u.cache_read_input_tokens || 0, cache_escrito: u.cache_creation_input_tokens || 0 },
   };
 }
 
 /**
- * Atende o pedido. `deps`: { temChave, usuarioDoToken(token), podeUsar(usuarioId, contaId) → { conta, contexto } | null,
- * gasto(contaId) → { usd, teto, naHora }, claude(pedido) → resposta, registrar(uso) }.
- * Devolve { status, corpo, headers }.
+ * Atende o pedido. `deps`: { ia: { fornecedor, modelo, chamar(pedidoNeutro) → resposta do fornecedor } | null (sem
+ * chave), usuarioDoToken(token), podeUsar(usuarioId, contaId) → { conta, contexto } | null, gasto(contaId) →
+ * { usd, teto, naHora }, registrar(uso) }. Devolve { status, corpo, headers }.
  */
 export async function atender({ metodo, origem, token, corpo }, deps) {
   const headers = cabecalhosCors(origem);
@@ -146,32 +198,30 @@ export async function atender({ metodo, origem, token, corpo }, deps) {
   if (!TAREFAS[tarefa].entradaValida(entrada)) return responder(400, { erro: "Pedido fora do formato." });
   const daConta = await deps.podeUsar(usuario.id, contaId);
   if (!daConta) return responder(403, { erro: "Só o dono da conta usa o assistente." });
-  if (!deps.temChave) return semIa("sem_ia");
+  if (!deps.ia) return semIa("sem_ia");
 
   const g = await deps.gasto(contaId);
   if (g.usd >= g.teto) return semIa("teto");
   if (g.naHora >= CHAMADAS_POR_HORA) return semIa("limite");
 
   const pedido = montarPedido(tarefa, entrada, daConta);
-  const uso = { conta_id: contaId, usuario_id: usuario.id, tarefa, modelo: pedido.model };
+  const { fornecedor, modelo } = deps.ia;
+  const uso = { conta_id: contaId, usuario_id: usuario.id, tarefa, modelo };
   let resposta;
   try {
-    resposta = await deps.claude(pedido);
+    resposta = await deps.ia.chamar(pedido);
   } catch (e) {
     await deps.registrar({ ...uso, resultado: "falhou" }).catch(() => {});
     return semIa("falhou");
   }
-  const u = resposta.usage || {};
-  const medido = { ...uso, entrada: u.input_tokens || 0, saida: u.output_tokens || 0, cache_lido: u.cache_read_input_tokens || 0, cache_escrito: u.cache_creation_input_tokens || 0, custo_usd: custo(u, pedido.model) };
-  if (resposta.stop_reason === "refusal") {
+  const lida = lerResposta(fornecedor, resposta);
+  const medido = { ...uso, ...lida.uso, custo_usd: custo(lida.uso, modelo) };
+  if (lida.recusou) {
     await deps.registrar({ ...medido, resultado: "recusou" }).catch(() => {});
     return semIa("recusou");
   }
   let proposta = null;
-  try {
-    const bloco = (resposta.content || []).find(b => b.type === "text");
-    proposta = TAREFAS[tarefa].validar(JSON.parse(bloco.text), entrada);
-  } catch (e) { proposta = null; }
+  try { proposta = TAREFAS[tarefa].validar(JSON.parse(lida.texto), entrada); } catch (e) { proposta = null; }
   await deps.registrar({ ...medido, resultado: proposta ? "ok" : "invalido" }).catch(() => {});
   return proposta ? responder(200, { ok: true, resultado: proposta }) : semIa("invalido");
 }

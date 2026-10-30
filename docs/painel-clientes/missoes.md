@@ -291,9 +291,10 @@ Feito (bloco D, na branch, no STG): a função supabase/functions/assistente (lo
   assunto) e registra o custo. Qualquer problema devolve { fallback: true } e o painel segue o roteiro fixo. Tarefa
   pronta: "proxima_pergunta" (o bloco E usa). No Admin, na gaveta da conta: o gasto, as chamadas e "Mudar o teto".
   Conferido no STG: sem a chave, responde "sem IA"; sem login, 401.
-Falta (bloco D): a chave da Anthropic (da Renderiza: o segredo ANTHROPIC_API_KEY nas funções do Supabase, STG e
-  produção; nunca no código nem no chat) e medir o custo de verdade no STG com ela (a estimativa do 11 é US$ 0,30 por
-  conta). A política ganha a Anthropic junto com o bloco E (D49), que é quando a IA aparece na tela.
+Mudou depois (D52, 30/10): a IA é a da OpenAI (gpt-5.4-mini), com a chave que a Renderiza já tem; a função fala com
+  as duas (a chave posta escolhe) e a política e os termos citam a OpenAI. Função no STG, versão 2.
+Falta (bloco D): a chave (da Renderiza: o segredo OPENAI_API_KEY nas funções do Supabase, STG e produção, em
+  Edge Functions > Secrets; nunca no código nem no chat) e medir o custo de verdade no STG com ela.
 Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/telas/montar/index.js, o roteiro em
   roteiro.js, testado em test/montar.test.mjs). A conta criada no Admin nasce com ajustes.onboarding.pendente, e o
   Início leva o dono para lá depois dos termos. No visual do onboarding (D33), na cor do negócio: a abertura pelo
@@ -307,7 +308,7 @@ Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/te
   e os termos na versão 31/10/2026 (a Anthropic, a demo e a conversa de boas-vindas; o que mudou está no
   termos-referencias.md, 1b). O piloto, passo 2, passa pela conversa inteira (9/9; a varredura 9/9).
 Falta (bloco E): o e-mail opcional no fim da conversa (precisa da chave do Brevo nas funções, para mandar o código e
-  o link de senha nova); medir a conversa com a IA de verdade no STG quando a chave da Anthropic existir; a
+  o link de senha nova); medir a conversa com a IA de verdade no STG quando a chave da OpenAI estiver posta; a
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
 Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
   tudo. A tela só entra no ar quando a Vercel publicar (o deploy está no limite diário; ver o aviso de 30/10).
@@ -887,6 +888,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 7D → todas | **A IA agora é a da OpenAI (D52)**: a função `assistente` usa `OPENAI_API_KEY` (padrão `gpt-5.4-mini`) e ainda sabe falar com a Anthropic. A política e os termos (versão 31/10, ainda não no ar) citam a OpenAI. |
 | 30/10/2026 | 7G → todas | **Parte nova no Admin: "Onboarding"** (`src/admin/index.js`, arquivo comum; logo depois de Contas). A função pública nova `publico_convite_aberto` (o teste 090 aceita porque começa com `publico_`). |
 | 30/10/2026 | 7 → Renderiza, todas | **A Vercel está no limite diário de deploys** ("Deployment rate limited — retry in 24 hours", nos dois projetos, desde a tarde de 30/10). O banco e as funções da Missão 7 (A a E) já estão na produção; a tela entra quando a Vercel voltar a publicar (o próximo push na `main` depois do limite, ou "Redeploy" no painel da Vercel). O que gasta a cota: o projeto do site publica a cada push em qualquer branch. A correção é a regra no `vercel.json` da raiz (sem deploy das branches `claude/*` e só quando o site muda), que espera o "pode" da Renderiza. Até lá, push na branch com moderação. |
 | 30/10/2026 | 7E → todas | **Termos e política na versão 31/10/2026** (`VERSAO_DOS_TERMOS`): quem entra vê o aceite de novo (os fluxos já aceitam sozinhos). **Rota nova `/montar`** (`src/rotas.js`, arquivo comum) e o Início manda para lá a conta com `ajustes.onboarding.pendente` (só as criadas pelo Admin a partir de agora; as sementes e as do cadastro não têm). Seção 27 no `estilo.css`. |

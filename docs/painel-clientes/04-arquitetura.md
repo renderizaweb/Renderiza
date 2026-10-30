@@ -160,10 +160,12 @@ painel-clientes/
   (`convite_pode_usar_login`, no banco ao gravar e na função ao aceitar); um convite pendente por usuário. Entrar
   aceita "e-mail ou usuário" (`emailDeEntrada` em `src/sessao.js`). O e-mail para recuperar a senha sozinho entra no
   bloco E (até lá, quem esqueceu pede um link novo à Renderiza ou ao dono).
-- **A IA do onboarding** (Missão 7, bloco D; D45, D46, D49): a função `assistente` (`supabase/functions/assistente/`;
-  a lógica em `logica.js`, testada em `test/assistente.test.mjs`) é o único lugar que fala com o Claude, pelo SDK
-  oficial (`npm:@anthropic-ai/sdk`), com a chave só no ambiente dela (segredo `ANTHROPIC_API_KEY`; modelo em
-  `IA_MODELO`, padrão `claude-opus-5-5`). O painel chama com o login do dono e uma **tarefa** (hoje,
+- **A IA do onboarding** (Missão 7, bloco D; D45, D46, D49, D52): a função `assistente` (`supabase/functions/assistente/`;
+  a lógica em `logica.js`, testada em `test/assistente.test.mjs`) é o único lugar que fala com a IA, pelos SDKs
+  oficiais, com a chave só no ambiente dela: `OPENAI_API_KEY` (o padrão, D52; a Responses API, modelo `gpt-5.4-mini`,
+  `store: false`) ou `ANTHROPIC_API_KEY` (`claude-opus-5-5`); com as duas, `IA_FORNECEDOR` escolhe, e `IA_MODELO`
+  troca o modelo. O pedido é montado neutro e traduzido para cada fornecedor (`paraOpenAI`, `paraAnthropic`,
+  `lerResposta`); o preço de cada modelo fica em `PRECOS`. O painel chama com o login do dono e uma **tarefa** (hoje,
   `proxima_pergunta`); a função confere o login, o teto da conta (`ia_contas`, padrão US$ 3) e o limite por hora,
   manda o roteiro e o contexto da conta (`contas_contexto`) em cache e pede a saída em JSON pelo esquema da tarefa
   (`output_config.format`), confere a resposta contra o roteiro e registra os tokens e o custo em `ia_uso` (sem o

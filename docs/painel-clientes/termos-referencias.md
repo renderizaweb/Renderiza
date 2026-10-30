@@ -30,7 +30,7 @@ transferência internacional, e o país da conta Zoho.
 
 ## 1b. Versão de 31/10/2026 (Missão 7): o que mudou, para a Renderiza conferir
 
-A IA da conversa de boas-vindas (D45, D49) e a conta que nasce da demo (D41, D51) mudaram o que o painel trata, então
+A IA da conversa de boas-vindas (D45, D49, D52) e a conta que nasce da demo (D41, D51) mudaram o que o painel trata, então
 a política e os termos ganharam uma versão nova **antes do primeiro cliente de verdade**. Assim, quem entra a partir
 de agora já aceita com isso, e a regra dos 30 dias de aviso (termos, cláusula 18) não pega ninguém no meio. Quem já
 tinha aceitado a de 30/10 (só contas de teste) vê o aceite de novo no próximo acesso. O que entrou:
@@ -42,12 +42,13 @@ tinha aceitado a de 30/10 (só contas de teste) vê o aceite de novo no próximo
   conversa de venda da Renderiza com o negócio pode ficar guardada (fechada).
 - **Política, seção 4 (para quê):** "Montar o painel na conversa de boas-vindas (...) com a ajuda de uma IA", com
   base na execução do contrato.
-- **Política, seção 5 (com quem):** a **Anthropic** (Estados Unidos), a IA, recebe as respostas e o que a
-  Renderiza sabia do negócio; pelo contrato dela, não usa para treinar a IA. A seção 6 (dados fora do Brasil) já
-  cobre o envio aos Estados Unidos.
+- **Política, seção 5 (com quem):** a **OpenAI** (Estados Unidos), a IA (D52: a chave que a Renderiza já tem),
+  recebe as respostas e o que a Renderiza sabia do negócio; pelas regras dela para empresas, não usa para treinar a
+  IA, e o painel pede `store: false` (a conversa não fica guardada lá). A seção 6 (dados fora do Brasil) já cobre o
+  envio aos Estados Unidos. Se um dia a IA for a da Anthropic (a função já sabe falar com as duas), esta linha muda.
 - **Política, seção 13 (decisões automáticas):** a IA só escolhe a próxima pergunta e o jeito de escrever, entre as
   opções do roteiro; nada entra sem o toque da pessoa.
-- **Termos, cláusula 3 (o serviço):** "A IA do painel": só sugere, pode errar, quem decide é o Cliente.
+- **Termos, cláusula 3 (o serviço):** "A IA do painel" (da OpenAI): só sugere, pode errar, quem decide é o Cliente.
 
 ## 2. Decisões de negócio que estão nos textos (confirme ou mude)
 

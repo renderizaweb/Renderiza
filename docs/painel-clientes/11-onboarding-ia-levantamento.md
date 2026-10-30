@@ -68,6 +68,7 @@ para a Renderiza no Admin, com a mensagem pronta.
 
 ## A IA (D45 a D49)
 
+- **Mudou em 30/10 (D52):** a IA é a da OpenAI (`gpt-5.4-mini`), com a chave que a Renderiza já tem; a função fala também com a Anthropic. O resto abaixo vale igual.
 - Claude (Anthropic), chamado só por uma função do Supabase, com a chave no ambiente dela. Modelo padrão Claude
   Opus 5.5; a troca por um mais barato é decisão da Renderiza, depois de medir no STG.
 - Saída em JSON validado; o roteiro e o contexto da demo ficam em cache (mais barato a cada pergunta); limite por
