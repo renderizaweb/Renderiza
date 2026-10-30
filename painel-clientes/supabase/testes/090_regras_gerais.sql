@@ -26,6 +26,15 @@ select testes.afirmar(
      and p.proname not like 'publico\_%') is null,
   'nenhuma função security definer fica aberta ao visitante, a não ser as públicas (publico_*, Missões 3 e 4)');
 
+-- Revisão de segurança (Missão 5B, migração 20261030150000): nem as auxiliares nem as de gatilho. Função nova
+-- precisa de "revoke execute ... from public, anon" (e "grant ... to authenticated" se o painel chama).
+select testes.afirmar(
+  (select string_agg(p.proname, ', ') from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+   where n.nspname = 'public' and has_function_privilege('anon', p.oid, 'execute')
+     and p.proname not like 'publico\_%'
+     and not exists (select 1 from pg_depend d where d.classid = 'pg_proc'::regclass and d.objid = p.oid and d.deptype = 'e')) is null,
+  'o visitante (anon) só executa as funções públicas (publico_*)');
+
 -- Nenhuma visão em public roda com os direitos do dono (passaria por cima da RLS).
 select testes.afirmar(
   (select string_agg(c.relname, ', ') from pg_class c join pg_namespace n on n.oid = c.relnamespace

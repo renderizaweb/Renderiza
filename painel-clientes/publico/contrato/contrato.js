@@ -65,7 +65,7 @@ function resumo(c) {
       ${cab.sub ? `<p class="rz-texto-2">${escapar(cab.sub)}</p>` : ""}
       <dl class="rz-contrato-resumo">${linhasDoResumo(c).map(([r, v]) => `<div><dt>${escapar(r)}</dt><dd>${escapar(v)}</dd></div>`).join("")}</dl>
       <button class="rz-botao rz-botao--primario rz-botao--bloco" type="button" data-ler>Ler o contrato ${icone("seta", { tamanho: 18 })}</button>
-      <p class="rz-contrato-nota">Leia com calma. Ao aceitar, ficam guardados o seu nome, a data, a hora e o aparelho, como prova do aceite.</p>
+      <p class="rz-contrato-nota">Leia com calma. Ao aceitar, ficam guardados o seu nome, a data, a hora, o endereço de internet e o aparelho, como prova do aceite. <a href="/privacidade" target="_blank" rel="noopener">Como os dados são cuidados</a>.</p>
     </section>`;
   raiz.querySelector("[data-ler]").addEventListener("click", () => { history.pushState({ passo: "ler" }, ""); ler(c); });
 }
