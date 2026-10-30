@@ -90,6 +90,26 @@ export function numeros({ reservasDoMes = [], pedidosDaSemana = [], resumoFinanc
   return lista.slice(0, 4);
 }
 
+/**
+ * Como está cada uma das próximas (o exemplo, "Próximos eventos"; Missão 7, bloco A): a etiqueta e o quanto já foi
+ * pago. Usa o que vier junto da reserva (contratos, parcelas, reservas_valores), que só vem para quem vê Contratos ou
+ * Financeiro. Devolve { etiqueta: { texto, tom } | null, pago: "86% pago" | "" }.
+ */
+export function comoEstaAProxima(r) {
+  const lista = v => (Array.isArray(v) ? v : v ? [v] : []);
+  const valores = lista(r.reservas_valores)[0];
+  const total = valores ? Number(valores.valor_total || 0) - Number(valores.desconto || 0) : 0;
+  const pagas = lista(r.parcelas).filter(p => p.pago_em).reduce((s, p) => s + Number(p.valor || 0), 0);
+  const pct = total > 0 ? Math.min(100, Math.floor((pagas / total) * 100)) : null;
+  const contratos = lista(r.contratos).map(c => c.situacao);
+  let etiqueta = null;
+  if (pct === 100) etiqueta = { texto: "Quitado", tom: "sucesso" };
+  else if (contratos.includes("aceito")) etiqueta = { texto: "Contrato aceito", tom: "sucesso" };
+  else if (contratos.includes("enviado")) etiqueta = { texto: "Esperando o aceite", tom: "alerta" };
+  else if (r.situacao === "pre_reserva") etiqueta = { texto: "Pré-reserva", tom: "info" };
+  return { etiqueta, pago: pct != null && pct < 100 ? `${pct}% pago` : "" };
+}
+
 const primeiro = nome => String(nome || "").trim().split(/\s+/)[0];
 
 /**

@@ -886,3 +886,7 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-resumo--aberto>.rz-resumo-corpo{padding-top:var(--rz-5)}
 .rz-tema-eventos{--rz-grafico-1:var(--rz-eventos-grafico-1);--rz-grafico-2:var(--rz-eventos-grafico-2)}
 .rz-tema-fotografia{--rz-grafico-1:var(--rz-fotografia-grafico-1);--rz-grafico-2:var(--rz-fotografia-grafico-2)}
+/* A2: na Agenda, a legenda das cores à vista (o esconder tipos continua no "Filtrar") */
+.rz-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-1) var(--rz-4);margin:calc(-1 * var(--rz-1)) 0 var(--rz-4);font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-legenda li{display:inline-flex;align-items:center;gap:var(--rz-2)}
+.rz-legenda li[data-escondida=true]{opacity:.45;text-decoration:line-through}

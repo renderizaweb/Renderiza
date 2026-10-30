@@ -2,7 +2,7 @@
 // equipe fez" em frases.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { saudacao, paraFazerAgora, numeros, frase } from "../src/modulos/inicio/logica.js";
+import { saudacao, paraFazerAgora, numeros, frase, comoEstaAProxima } from "../src/modulos/inicio/logica.js";
 import { nicho } from "../src/nichos/index.js";
 
 const SP = "America/Sao_Paulo";
@@ -81,4 +81,16 @@ test("o que a equipe fez: frases sem valores, com quem fez", () => {
   assert.equal(frase({ tabela: "reservas", acao: "criou", detalhe: {} }, { nicho: nicho("fotografia"), cliente: "Ana", pessoa: "Duda" }).texto, "reservou o ensaio de Ana");
   assert.equal(f({ tabela: "clientes", acao: "mudou", detalhe: { arquivado: true } }).texto, "arquivou Isabela Martins");
   assert.deepEqual(f({ tabela: "compromissos", acao: "criou", detalhe: {}, pelo_suporte: true }, { pessoa: null }), { quem: "Suporte da Renderiza", texto: "marcou um compromisso com Isabela Martins" });
+});
+
+test("as próximas: a etiqueta (quitado, contrato, pré-reserva) e o quanto já foi pago", () => {
+  const valores = [{ valor_total: 10000, desconto: 0 }];
+  const pago = (...vs) => vs.map(v => ({ valor: v, pago_em: "2026-10-01" }));
+  assert.deepEqual(comoEstaAProxima({ reservas_valores: valores, parcelas: [...pago(3000, 5600), { valor: 1400, pago_em: null }], contratos: [{ situacao: "aceito" }] }),
+    { etiqueta: { texto: "Contrato aceito", tom: "sucesso" }, pago: "86% pago" });
+  assert.deepEqual(comoEstaAProxima({ reservas_valores: valores, parcelas: pago(10000), contratos: [] }), { etiqueta: { texto: "Quitado", tom: "sucesso" }, pago: "" });
+  assert.equal(comoEstaAProxima({ contratos: [{ situacao: "cancelado" }, { situacao: "enviado" }] }).etiqueta.texto, "Esperando o aceite");
+  assert.equal(comoEstaAProxima({ situacao: "pre_reserva" }).etiqueta.texto, "Pré-reserva");
+  assert.deepEqual(comoEstaAProxima({ situacao: "confirmada" }), { etiqueta: null, pago: "" }, "sem Financeiro nem Contratos: nada");
+  assert.equal(comoEstaAProxima({ reservas_valores: { valor_total: 1000, desconto: 200 }, parcelas: pago(400) }).pago, "50% pago", "o desconto sai do total");
 });

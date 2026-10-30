@@ -1,6 +1,7 @@
 // Módulo Agenda (Missão 3, bloco B): a agenda da equipe (eventos) ou do estúdio (fotografia). Referência: os exemplos
-// e o 09 ("Agenda (celular)": a faixa da semana e a lista do dia, com o mês a um toque; legenda e equipe no
-// "Filtrar"; tocar num dia vazio oferece "Reservar este dia"). No computador, o mês e o painel do dia, lado a lado.
+// e o 09 ("Agenda (celular)"). Desde a Missão 7 (bloco A), como o exemplo: abre no mês também no celular, com a lista
+// do dia embaixo, e a legenda das cores à vista; a equipe e o esconder tipos ficam no "Filtrar"; tocar num dia vazio
+// oferece "Reservar este dia". No computador, o mês e o painel do dia, lado a lado.
 // A reserva mora em reserva.js; os compromissos, em compromisso.js; as campanhas (fotografia), em campanhas.js; as
 // regras sem tela, em logica.js. Quem só vê não tem botões (o banco também não deixa).
 
@@ -127,7 +128,17 @@ export async function montar(el, contexto) {
   const nomeDe = id => (ctx.equipe.find(p => p.id === id) || {}).nome || "";
   const filtroAtivo = () => !!filtro.pessoa || filtro.escondidas.length > 0 || filtro.canceladas;
 
+  /** Os tipos do que está carregado (a legenda e o "O que mostrar" do Filtrar), na ordem em que aparecem. */
+  function categorias() {
+    const todos = [...dados.reservas.filter(r => filtro.canceladas || r.situacao !== "cancelada").map(r => itemDaReserva(r, fuso)), ...dados.compromissos.map(c => itemDoCompromisso(c, fuso))];
+    const lista = [];
+    for (const it of todos) if (!lista.some(c => c.id === it.categoria)) lista.push({ id: it.categoria, nome: it.tipo === "compromisso" ? it.sub : (it.sub || "Sem tipo"), cor: it.cor, compromisso: it.tipo === "compromisso" });
+    return lista;
+  }
+  const corDe = c => `<span class="rz-cor${c.compromisso ? " rz-ponto-compromisso" : ""}"${c.cor ? ` style="--cor:${escapar(c.cor)}"` : ""}></span>`;
+
   function desenhar() {
+    const legenda = categorias();
     corpo.innerHTML = `
       <div class="rz-agenda-barra">
         <div class="rz-mes-nav"><button class="rz-botao rz-botao--fantasma rz-botao--pequeno" type="button" data-mes="-1" aria-label="Mês anterior">${icone("voltar", { tamanho: 18 })}</button>
@@ -137,6 +148,7 @@ export async function montar(el, contexto) {
         <div class="rz-segmentos rz-so-celular" role="group" aria-label="Ver"><button type="button" data-vista="semana" aria-pressed="${vistaCelular === "semana"}">Semana</button><button type="button" data-vista="mes" aria-pressed="${vistaCelular === "mes"}">Mês</button></div>
         <button class="rz-botao rz-botao--pequeno" type="button" data-filtrar aria-pressed="${filtroAtivo()}">${icone("filtro", { tamanho: 16 })}Filtrar${filtroAtivo() ? " ·" : ""}</button>
       </div>
+      ${legenda.length ? `<ul class="rz-legenda" aria-label="O que cada cor quer dizer">${legenda.map(c => `<li${filtro.escondidas.includes(c.id) ? ' data-escondida="true"' : ""}>${corDe(c)}${escapar(c.nome)}</li>`).join("")}</ul>` : ""}
       <div class="rz-agenda" data-vista="${vistaCelular}">
         <div class="rz-agenda-calendario">${semanaHtml()}${gradeHtml()}</div>
         ${painelDoDia()}
@@ -195,9 +207,7 @@ export async function montar(el, contexto) {
 
   // ---------- o "Filtrar": quem cuida, o que mostrar (a legenda), canceladas ----------
   function abrirFiltro() {
-    const todos = [...dados.reservas.map(r => itemDaReserva(r, fuso)), ...dados.compromissos.map(c => itemDoCompromisso(c, fuso))];
-    const categorias = [];
-    for (const it of todos) if (!categorias.some(c => c.id === it.categoria)) categorias.push({ id: it.categoria, nome: it.tipo === "compromisso" ? it.sub : (it.sub || "Sem tipo"), cor: it.cor, compromisso: it.tipo === "compromisso" });
+    const tipos = categorias();
     const folha = abrirFolha({
       titulo: "Filtrar",
       corpo: `<div class="rz-pilha">
@@ -207,8 +217,8 @@ export async function montar(el, contexto) {
               ${pessoa ? `<button class="rz-chip" type="button" data-pessoa="${escapar(pessoa.id)}" aria-pressed="${filtro.pessoa === pessoa.id}">Só o meu</button>` : ""}
               ${ctx.equipe.filter(p => !pessoa || p.id !== pessoa.id).map(p => `<button class="rz-chip" type="button" data-pessoa="${escapar(p.id)}" aria-pressed="${filtro.pessoa === p.id}">${escapar(p.nome)}</button>`).join("")}
             </div></fieldset>
-          ${categorias.length ? `<fieldset class="rz-campo"><legend class="rz-rotulo">O que mostrar</legend>
-            <div class="rz-chips rz-chips--quebra" role="group">${categorias.map(c => `<button class="rz-chip" type="button" data-categoria="${escapar(c.id)}" aria-pressed="${!filtro.escondidas.includes(c.id)}"><span class="rz-cor${c.compromisso ? " rz-ponto-compromisso" : ""}"${c.cor ? ` style="--cor:${escapar(c.cor)}"` : ""}></span>${escapar(c.nome)}</button>`).join("")}</div></fieldset>` : ""}
+          ${tipos.length ? `<fieldset class="rz-campo"><legend class="rz-rotulo">O que mostrar</legend>
+            <div class="rz-chips rz-chips--quebra" role="group">${tipos.map(c => `<button class="rz-chip" type="button" data-categoria="${escapar(c.id)}" aria-pressed="${!filtro.escondidas.includes(c.id)}">${corDe(c)}${escapar(c.nome)}</button>`).join("")}</div></fieldset>` : ""}
           ${interruptor({ nome: "canceladas", rotulo: "Mostrar as canceladas", marcado: filtro.canceladas })}
         </div>`,
       rodape: `<button class="rz-botao" type="button" data-limpar>Limpar</button><button class="rz-botao rz-botao--primario" type="button" data-fechar>Ver a agenda</button>`,

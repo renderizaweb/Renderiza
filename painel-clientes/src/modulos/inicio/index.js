@@ -5,7 +5,7 @@
 // As regras sem tela: logica.js.
 
 import { montarPrimeirosPassos } from "./primeiros-passos.js";
-import { saudacao, paraFazerAgora, numeros, frase } from "./logica.js";
+import { saudacao, paraFazerAgora, numeros, frase, comoEstaAProxima } from "./logica.js";
 import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
 import { comEstados } from "../../ui/estados.js";
@@ -16,6 +16,13 @@ import { COLUNAS_CONTRATO, compartilhar } from "../contratos/contrato.js";
 import { exportarTudo } from "../../telas/exportar.js";
 
 const MAXIMO = 8;
+
+/** A ponta direita de cada próxima: a etiqueta (quitado, contrato, pré-reserva) e o "% pago" (comoEstaAProxima). */
+function fimDaProxima(r) {
+  const { etiqueta, pago } = comoEstaAProxima(r);
+  if (!etiqueta && !pago) return "";
+  return `<span class="rz-linha-fim">${etiqueta ? `<span class="rz-etiqueta rz-etiqueta--${etiqueta.tom}">${escapar(etiqueta.texto)}</span>` : ""}${pago ? `<span class="rz-linha-quando">${escapar(pago)}</span>` : ""}</span>`;
+}
 
 export async function montar(el, contexto) {
   const { banco, conta, nicho, pode, avisar, navegar, pessoa } = contexto;
@@ -68,7 +75,7 @@ export async function montar(el, contexto) {
           <div class="rz-secao-cabeca"><h2 class="rz-titulo-3" id="proximas-titulo">Próxim${nicho.id === "eventos" ? "as" : "os"} ${escapar(nicho.palavras.reservas)}</h2><a class="rz-link" href="/agenda">Ver a agenda</a></div>
           ${proximas.length ? `<ul class="rz-linhas rz-cartao">${proximas.map(r => `<li><a class="rz-linha" href="/agenda?reserva=${escapar(r.id)}">
               <span class="rz-data-bloco" aria-hidden="true"><b>${escapar(String(partes(new Date(r.inicio), fuso).dia))}</b><small>${escapar(dataCurta(new Date(r.inicio), fuso).slice(0, 3))}</small></span>
-              <span class="rz-linha-texto"><b>${escapar((r.clientes && r.clientes.nome) || r.titulo || "Cliente")}</b><small>${escapar([(r.tipos_reserva && r.tipos_reserva.nome) || (r.servicos && r.servicos.nome), `${dataCurta(new Date(r.inicio), fuso)}, ${hora(new Date(r.inicio), fuso)}`, r.situacao === "pre_reserva" ? "pré-reserva" : ""].filter(Boolean).join(" · "))}</small></span></a></li>`).join("")}</ul>`
+              <span class="rz-linha-texto"><b>${escapar((r.clientes && r.clientes.nome) || r.titulo || "Cliente")}</b><small>${escapar([(r.tipos_reserva && r.tipos_reserva.nome) || (r.servicos && r.servicos.nome), `${dataCurta(new Date(r.inicio), fuso)}, ${hora(new Date(r.inicio), fuso)}`].filter(Boolean).join(" · "))}</small></span>${fimDaProxima(r)}</a></li>`).join("")}</ul>`
             : `<p class="rz-texto-2">Nada marcado pela frente.</p>`}
         </section>
         <section class="rz-secao" aria-labelledby="equipe-titulo">
@@ -106,7 +113,7 @@ export async function montar(el, contexto) {
       ve("contratos") ? vazio(banco.resultado(banco.tabela("contratos").select(COLUNAS_CONTRATO).eq("conta_id", conta.conta_id).or(`situacao.eq.enviado,aceito_em.gte.${mesIni}`).limit(1000))) : nada,
       vazio(banco.resultado(banco.tabela("reservas").select("id, inicio, situacao").eq("conta_id", conta.conta_id).gte("inicio", mesIni).lt("inicio", mesFim).limit(2000))),
       vazio(banco.resultado(banco.tabela("reservas").select("id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).neq("situacao", "cancelada").order("inicio"))),
-      vazio(banco.resultado(banco.tabela("reservas").select("id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)").eq("conta_id", conta.conta_id).gte("fim", agora.toISOString()).neq("situacao", "cancelada").order("inicio").limit(5))),
+      vazio(banco.resultado(banco.tabela("reservas").select(`id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)${ve("contratos") ? ", contratos(situacao)" : ""}${ve("financeiro") ? ", parcelas(valor, pago_em), reservas_valores(valor_total, desconto)" : ""}`).eq("conta_id", conta.conta_id).gte("fim", agora.toISOString()).neq("situacao", "cancelada").order("inicio").limit(5))),
       vazio(banco.resultado(banco.tabela("compromissos").select("id, tipo, titulo, inicio, clientes(id, nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).order("inicio"))),
       vazio(banco.resultado(banco.tabela("atividades").select("id, acao, tabela, cliente_id, reserva_id, modulo, mudou, detalhe, quando, pelo_suporte, pessoas(nome)").eq("conta_id", conta.conta_id).order("quando", { ascending: false }).limit(12))),
     ]);

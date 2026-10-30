@@ -29,7 +29,7 @@ exemplo) · ⚪ depois (precisa de função nova)
 |---|---|---|---|---|
 | I1 | começa pelos 4 números (com a tendência "↗ 12%"), depois "Próximos eventos" e "Hoje" | começa por "Para fazer agora", depois os números | o `09` decidiu "Para fazer agora" primeiro. Manter (recomendo: é o que vende o painel) ou voltar ao exemplo? | 🟡 |
 | I2 | sem o cartão dos primeiros passos | o cartão "Pronto: o painel está montado" fica até tocar em "Fechar" | sumir sozinho quando os passos estão todos feitos | ✅ |
-| I3 | "Próximos eventos" com a situação do contrato ("Assinado", "Quitado") e o quanto já foi pago ("86% pago") | o nome, o tipo e a data | pôr a etiqueta e o "% pago" (quem tem Financeiro ou Contratos) | 🟢 |
+| I3 | "Próximos eventos" com a situação do contrato ("Assinado", "Quitado") e o quanto já foi pago ("86% pago") | o nome, o tipo e a data | pôr a etiqueta e o "% pago" (quem tem Financeiro ou Contratos) | ✅ |
 | I4 | "Sábados reservados": a ocupação dos próximos meses em barras | não tem | depois: a ocupação por mês | ⚪ |
 
 ## Agenda
@@ -39,7 +39,7 @@ exemplo) · ⚪ depois (precisa de função nova)
 | # | Exemplo | Painel hoje | Proposta | |
 |---|---|---|---|---|
 | A1 | no celular, abre no **mês**, com os pontinhos de cada dia e a lista do dia embaixo | no celular, abre na semana (decisão do `09`), com "Mês" num toque | abrir no mês também no celular, como o exemplo | ✅ |
-| A2 | a legenda das cores dos tipos e as pessoas da equipe à vista, em chips | um botão "Filtrar" | a legenda à vista; as pessoas no "Filtrar" | 🟢 |
+| A2 | a legenda das cores dos tipos e as pessoas da equipe à vista, em chips | um botão "Filtrar" | a legenda à vista; as pessoas no "Filtrar" | ✅ |
 | A3 | um botão: "Reservar data" (fotografia: "Marcar ensaio") | dois: "Marcar visita" e "Reservar data" | manter os dois (o "Marcar visita" é uma das 5 tarefas do `09`) | 🟡 |
 
 ![Agenda do estúdio no celular](img/cara-dos-exemplos/fotografia-agenda-cel.jpg)
