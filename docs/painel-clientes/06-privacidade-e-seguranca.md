@@ -40,7 +40,7 @@ Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copi
 - **Aceite registrado:** no primeiro acesso, a pessoa aceita a versão vigente dos termos; mudou a versão, aceita de
   novo.
 
-**Revisados em 30/10/2026, a pedido da Renderiza (que valida):** o que falta preencher, as decisões embutidas e as referências estão em [`termos-referencias.md`](termos-referencias.md). **Feito na Missão 5B (30/10/2026):** os termos em `/termos` e a política em `/privacidade` (`publico/termos/` e
+**Reescritos e validados pela Renderiza em 30/10/2026:** as escolhas, as decisões embutidas e as referências estão em [`termos-referencias.md`](termos-referencias.md). **Feito na Missão 5B (30/10/2026):** os termos em `/termos` e a política em `/privacidade` (`publico/termos/` e
 `publico/privacidade/`), **rascunhos com a etiqueta "Rascunho em revisão"**: o que a revisão precisa decidir está
 marcado em amarelo (razão social, CNPJ e endereço, foro, encarregado de dados, limite de responsabilidade, aviso de
 mudança de preço, quanto tempo a cópia de segurança dura depois do apagamento, cláusulas dos fornecedores de fora do

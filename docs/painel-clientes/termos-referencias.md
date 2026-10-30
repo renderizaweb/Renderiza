@@ -1,8 +1,8 @@
 # Termos e privacidade: o que validar e de onde veio
 
 Os **Termos de uso e de prestação de serviço** (`/termos`) e a **Política de privacidade** (`/privacidade`) foram
-reescritos em 30/10/2026, a pedido da Renderiza, que valida. Este arquivo diz o que falta preencher, quais decisões
-de negócio estão dentro deles e em que lei ou norma cada ponto se apoia. Arquivos: `painel-clientes/publico/termos/`
+reescritos e validados pela Renderiza em 30/10/2026. Este arquivo diz o que foi escolhido, quais decisões de negócio
+estão dentro deles e em que lei ou norma cada ponto se apoia. Arquivos: `painel-clientes/publico/termos/`
 e `painel-clientes/publico/privacidade/`.
 
 **Objetivo dos textos:** cuidar do cliente (clareza, sem armadilha, sair quando quiser levando os dados) e proteger
@@ -12,24 +12,21 @@ a Renderiza (papéis da LGPD bem divididos, limite de responsabilidade, regras d
 > 30/10/2026. Antes de crescer (muitas contas, cliente grande), vale uma leitura única por advogado de direito
 > digital: é barato perto do que os textos protegem.
 
-## 1. O que falta preencher (em amarelo nas páginas)
+## 1. Validados pela Renderiza (30/10/2026)
 
-| Onde | O quê | Sugestão |
-|---|---|---|
-| Termos 1 e Política 1 | razão social, CNPJ e endereço da Renderiza | os do cartão CNPJ |
-| Termos 6 | dia do vencimento do Pix | 10 |
-| Termos 6 | aviso antes de mudar o preço (fora o reajuste anual) | 30 dias |
-| Termos 7 | conta desligada por falta de pagamento vira cancelada depois de | 90 dias |
-| Termos 15 | dias e horário do suporte | ex.: segunda a sexta, 9h às 18h |
-| Termos 20 | cidade/UF do foro | a da sede (o CPC exige ligação com a sede ou o domicílio de uma parte) |
-| Termos 21 | WhatsApp da Renderiza | |
-| Política 5 | país da conta Zoho | ver em Zoho → configurações da conta (o centro de dados aparece lá) |
-| Política 6 | mecanismo de transferência internacional de cada fornecedor | conferir nos acordos de dados (DPA) da Supabase, Vercel, Brevo, Zoho e GitHub se citam as cláusulas-padrão da ANPD ou outro mecanismo |
-| Política 14 | encarregado ou canal | se a Renderiza for ME ou EPP, basta o canal (já está o contato@); se não, nomear o encarregado |
+A Renderiza leu e validou os dois textos em 30/10/2026, com estas escolhas:
 
-Com tudo preenchido e lido, uma sessão: tira a etiqueta "Rascunho em revisão", troca a versão para a data da
-validação (`data-versao` nas duas páginas e `VERSAO_DOS_TERMOS` em `src/telas/termos.js`) e sobe. Todo mundo
-aceita de novo no próximo acesso.
+- **Sem dados de empresa por enquanto** (decisão e responsabilidade da Renderiza): os textos identificam a Renderiza
+  pelo site (renderizaweb.com.br), pelo e-mail e pelo WhatsApp. Quando houver CNPJ, uma sessão acrescenta razão
+  social, CNPJ e endereço na cláusula 1 dos termos e na seção 1 da política (com versão nova).
+- **Menos burocracia, sem perder o resguardo:** o vencimento é o combinado na contratação; mudança de preço com 30
+  dias de aviso (sem índice fixo); suporte em horário comercial; foro do domicílio da Renderiza.
+- **Canal de privacidade:** o contato@ (agente de tratamento de pequeno porte, sem encarregado nomeado; Resolução
+  CD/ANPD nº 2/2022, art. 11).
+- A etiqueta "Rascunho em revisão" saiu; a versão é a de 30/10/2026.
+
+Ficou como cuidado para depois, sem travar nada: conferir nos acordos de dados (DPA) dos fornecedores o mecanismo de
+transferência internacional, e o país da conta Zoho.
 
 ## 2. Decisões de negócio que estão nos textos (confirme ou mude)
 
@@ -37,7 +34,7 @@ aceita de novo no próximo acesso.
 |---|---|---|
 | Termos 9 (Meu site) | o site é um produto à parte e é do cliente; o Meu site é um serviço da mensalidade; **saiu, desligou o módulo ou não pagou: o site volta sozinho à versão inicial**; as mudanças do Meu site não fazem parte do site entregue | o pedido da Renderiza (30/10) e a regra do `03` |
 | Termos 9.4 (versão final) | levar as mudanças para os arquivos do site é **serviço cobrado à parte**, com orçamento próprio, pedido enquanto a conta existe ou até 90 dias depois de desligar ou cancelar | depois disso as versões são apagadas (prazo da cláusula 8) |
-| Termos 6 | reajuste uma vez por ano pelo IPCA; outras mudanças com aviso; quem não concordar cancela sem custo | protege a Renderiza da inflação sem prender o cliente |
+| Termos 6 | mudança de preço com 30 dias de aviso; quem não concordar cancela sem custo | a Renderiza pode corrigir o preço sem prender o cliente |
 | Termos 8 | cancelamento vale no fim do mês pago, sem devolução proporcional; a Renderiza pode encerrar com 30 dias de aviso | regra simples e justa para os dois lados |
 | Termos 12.3 | a Renderiza avisa o cliente de um incidente em até 2 dias úteis | o cliente (controlador) tem 3 dias úteis para avisar a ANPD (Res. 15/2024) |
 | Termos 17 | a Renderiza não responde por danos indiretos (lucros cessantes, perda de chance); **teto = mensalidades pagas nos últimos 12 meses**; não vale para dolo ou culpa grave | ver a seção 3 |
@@ -58,7 +55,7 @@ aceita de novo no próximo acesso.
   proíbe: há saída sem multa, aviso antes de mudar preço e termos, os dados vão embora com o cliente e o foro do
   cliente vale quando a lei garantir.
 - **Foro:** desde a Lei 14.879/2024, a eleição de foro só vale se tiver ligação com o domicílio de uma das partes
-  ou com o local da obrigação (CPC, art. 63, § 1º). Por isso o foro é o da sede da Renderiza.
+  ou com o local da obrigação (CPC, art. 63, § 1º). Por isso o foro é o do domicílio da Renderiza.
 - **Aceite eletrônico:** o contrato pode ser feito por meio eletrônico (Código Civil, art. 107; MP 2.200-2/2001,
   art. 10, § 2º). O painel guarda quem aceitou, a versão, a data, a hora e o aparelho.
 - **Papéis da LGPD:** sobre os dados dos clientes finais, o cliente é o controlador e a Renderiza a operadora

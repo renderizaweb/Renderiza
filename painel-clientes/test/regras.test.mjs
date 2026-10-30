@@ -25,7 +25,7 @@ test("a mesma versão nas duas páginas e na tela do aceite", () => {
     assert.ok(html.includes(`Versão de ${d}/${m}/${a}`), "a data escrita bate com a versão");
     assert.doesNotMatch(html, /<script(?![^>]*\bsrc=)[^>]*>/, "sem script embutido (a CSP bloquearia)");
     assert.match(html, /noindex/);
-    assert.match(html, /Rascunho em revisão/, "rascunho até a revisão de LGPD (D12)");
+    assert.doesNotMatch(html, /Rascunho em revisão|rz-doc-revisar/, "validados pela Renderiza em 30/10/2026: nada a preencher, sem etiqueta de rascunho");
   }
 });
 
