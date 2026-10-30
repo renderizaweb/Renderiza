@@ -15,7 +15,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
-| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **esperando a aprovação da Renderiza**: levantamento feito em 30/10 (D40 a D50, [`11`](11-onboarding-ia-levantamento.md)); nenhum código antes do ok | |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): bloco B (convite por link) primeiro, depois o A (a cara dos exemplos); os outros blocos livres, na ordem do `missoes.md` | B e A: `claude/painel-renderiza-setup-ztnrzy` |
 | 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -243,6 +243,28 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 7 · blocos B e A · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
+Referência: 11 (o caminho da pessoa), D40 a D50 (07), D33 (o visual do onboarding), D42 (acesso sem e-mail).
+Plano do bloco B (nesta ordem, cada parte com commit):
+  B1. Banco: convites por link (convites.usuario, convites.link_codigo, convites.link_usado_em); a função pública
+      publico_convite(código) (o nome do negócio, o nicho e o usuário, para a tela de boas-vindas); o e-mail interno
+      <usuario>@acesso.renderizaweb.com.br (não recebe e-mail), que faz o aceitar_convites de hoje funcionar igual.
+  B2. Função do Supabase aceitar-convite (com a chave secreta): confere o link (não usado, não vencido, não
+      cancelado), cria o login com a senha, marca o link como usado; o painel entra em seguida.
+  B3. Telas: /boas-vindas/<código> ("Olá, Espaço X! Crie uma senha", um campo, o usuário à vista) e entrar com
+      "e-mail ou usuário".
+  B4. Admin: criar conta com "link pelo WhatsApp" (o usuário sugerido pelo nome), copiar a mensagem pronta, abrir o
+      WhatsApp do negócio; na gaveta da conta, copiar o link e gerar um novo.
+  B5. Fluxo do piloto começando pelo link; documentos.
+  Depois (B6): o e-mail opcional para recuperar a senha (Configurações) e a equipe convidada por link.
+Plano do bloco A: a lista de diferenças, tela a tela, entre o painel e /exemplos (eventos e fotografia, celular e
+  computador), com prints, para a Renderiza escolher; depois, ajustar o que for claro.
+Feito: nada ainda (começa agora).
+Próximo passo: B1.
+Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
 ```
