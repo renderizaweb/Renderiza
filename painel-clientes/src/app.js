@@ -83,6 +83,19 @@ async function iniciar() {
         return;
       }
 
+      // O Admin (só a equipe Renderiza; Missão 5A): a casca dele, sem conta escolhida (quem é da Renderiza pode não
+      // ser de nenhuma conta). Quem não é da equipe segue o caminho normal e cai em "Página não encontrada".
+      if (rota.tipo === "admin" && sessao.eEquipeRenderiza()) {
+        const { montarCascaAdmin } = await import("./admin/casca.js");
+        const parte = await acharAreaAdmin(rota.id).carregar();
+        if (minhaVez !== vez) return;
+        const conteudo = montarCascaAdmin(raiz, { rota, sessao, ambiente: config.ambiente });
+        const saida = await parte.montar(conteudo, { banco, sessao, navegar, avisar, ambiente: config.ambiente });
+        if (typeof saida === "function") { if (minhaVez === vez) desmontar = saida; else saida(); }
+        if (minhaVez === vez) focarConteudo(conteudo);
+        return;
+      }
+
       // Daqui em diante, dentro de uma conta.
       const conta = sessao.conta();
       if (!conta) {

@@ -10,7 +10,7 @@ import { estadoDoModulo, diasDeTeste } from "../sessao.js";
 import { nicho } from "../nichos/index.js";
 import { icone } from "../ui/icones.js";
 import { escapar } from "../ui/formulario.js";
-import { iniciais } from "../ui/formatos.js";
+import { iniciais, hora } from "../ui/formatos.js";
 import { abrirFolha } from "../ui/gaveta.js";
 import { avisar } from "../ui/aviso.js";
 import { linkDaRenderiza } from "./renderiza.js";
@@ -154,6 +154,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
           <button class="rz-topo-quem" type="button" data-mais aria-label="Menu da conta">${avatar(pessoa, usuario.email)}</button>
         </header>
         ${avisoDoTeste(conta)}
+        ${conta.suporte_ate ? `<div class="rz-faixa-suporte" role="status">${icone("admin", { tamanho: 16 })}<span>Você está ajudando em ${escapar(conta.nome)} (suporte da Renderiza, registrado) até ${escapar(hora(new Date(conta.suporte_ate)))}.</span><button class="rz-link" type="button" data-encerrar-suporte>Encerrar e voltar ao Admin</button></div>` : ""}
         <main id="conteudo" class="rz-principal" tabindex="-1"></main>
       </div>
       ${bloqueada ? "" : `<nav class="rz-barra" aria-label="Menu principal">
@@ -236,6 +237,16 @@ function ligar(raiz, { conta, itens, sessao, banco, navegar }) {
     });
   };
 
+  // a Renderiza ajudando (Missão 5A): encerrar o suporte agora e voltar ao Admin (o registro fica, com o fim de agora)
+  raiz.querySelector("[data-encerrar-suporte]")?.addEventListener("click", async () => {
+    try {
+      const { encerrarSuporte } = await import("../admin/suporte.js");
+      await encerrarSuporte(banco, conta.conta_id);
+      await sessao.carregarContas();
+      avisar("Suporte encerrado.");
+      navegar("/admin/contas");
+    } catch (e) { avisar(e.message, { tipo: "erro" }); }
+  });
   raiz.querySelectorAll("[data-novo]").forEach(b => b.addEventListener("click", abrirNovo));
   raiz.querySelectorAll("[data-mais]").forEach(b => b.addEventListener("click", abrirMais));
   raiz.querySelectorAll("[data-buscar]").forEach(b => b.addEventListener("click", () => import("../ui/paleta.js").then(m => m.abrirPaleta({ sessao, banco, navegar }))));

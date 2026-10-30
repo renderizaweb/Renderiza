@@ -822,3 +822,21 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-inicio-colunas{display:grid;grid-template-columns:minmax(0,1fr);gap:0 var(--rz-6)}
 @media (min-width:960px){.rz-inicio-colunas{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .rz-exportar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--rz-4)}
+
+/* ---------- 23. Admin (Missão 5A; 02): a casca do Admin, os módulos, o mês dos pagamentos e a faixa do suporte ----------
+   A casca é a do painel (seção 10) com as partes do Admin no menu; no computador, "Painel" e "Sair" ficam só no menu
+   lateral. A faixa do suporte aparece no painel da conta enquanto a Renderiza está ajudando (acessos_suporte). */
+@media (min-width:960px){.rz-admin-voltar,.rz-admin-sair{display:none}}
+.rz-admin-modulo{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--rz-2);padding-bottom:var(--rz-3);border-bottom:1px solid var(--rz-linha)}
+.rz-admin-modulo:last-child{padding-bottom:0;border-bottom:0}
+.rz-admin-modulo .rz-progresso{margin-top:var(--rz-2)}
+@media (min-width:720px){.rz-admin-modulo{grid-template-columns:minmax(0,1fr) 280px;align-items:center;gap:var(--rz-6)}}
+.rz-linhas--contas .rz-linha-fim{flex-direction:column;align-items:flex-end;gap:2px}
+.rz-linhas--contas .rz-linha-fim small{font-size:var(--rz-t-xs);color:var(--rz-tinta-3)}
+.rz-mes-navegar{display:flex;align-items:center;gap:var(--rz-2);margin-bottom:var(--rz-4)}
+.rz-mes-navegar .rz-botao{width:var(--rz-alvo);padding:0}
+.rz-tabela-simples{width:100%;border-collapse:collapse;font-size:var(--rz-t-sm)}
+.rz-tabela-simples th,.rz-tabela-simples td{padding:var(--rz-2) var(--rz-3);border-bottom:1px solid var(--rz-linha);text-align:left}
+.rz-tabela-simples th{color:var(--rz-tinta-2);font-weight:600}
+.rz-faixa-suporte{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px var(--rz-3);padding:6px var(--rz-4);background:var(--rz-alerta-fundo);color:var(--rz-alerta);font-size:var(--rz-t-sm);font-weight:500}
+.rz-faixa-suporte .rz-link{color:inherit;text-decoration:underline}

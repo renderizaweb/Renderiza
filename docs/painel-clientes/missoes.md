@@ -675,6 +675,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029190000_armazenamento_leitura.sql` (leitura do Storage para quem é da conta: sem ela, trocar e tirar o logo davam 403; aviso da 4C) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029203000_fechar_pedido_confirma.sql` (fechar um pedido que já tem reserva confirma a pré-reserva e ajusta a data) | 3C | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029220000_publico_contrato.sql` (o aceite do contrato pelo link: `publico_contrato` e `publico_aceitar_contrato`) | 3E | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261030120000_minhas_contas_suporte.sql` (Admin: minhas_contas traz a conta em que a Renderiza está em suporte) | 5A | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
 
 ## Avisos entre sessões
 
