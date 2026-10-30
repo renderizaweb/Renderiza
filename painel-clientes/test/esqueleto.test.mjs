@@ -17,7 +17,7 @@ test("todos os módulos do 04 estão registrados", () => {
 });
 
 test("todas as partes do Admin estão registradas", () => {
-  assert.deepEqual(AREAS_ADMIN.map(a => a.id), ["contas", "modulos", "pessoas", "pagamentos", "indicadores"]);
+  assert.deepEqual(AREAS_ADMIN.map(a => a.id), ["contas", "onboarding", "modulos", "pessoas", "pagamentos", "indicadores"]);
 });
 
 test("cada módulo e cada parte do Admin carrega e tem montar()", async () => {

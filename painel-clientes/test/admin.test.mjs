@@ -71,6 +71,6 @@ test("prazo, aparelho, usando agora e último acesso", () => {
 });
 
 test("as partes do Admin têm ícone e caminho", () => {
-  assert.deepEqual(AREAS_ADMIN.map(a => a.id), ["contas", "modulos", "pessoas", "pagamentos", "indicadores"]);
+  assert.deepEqual(AREAS_ADMIN.map(a => a.id), ["contas", "onboarding", "modulos", "pessoas", "pagamentos", "indicadores"]);
   assert.ok(AREAS_ADMIN.every(a => a.icone && a.nome && typeof a.carregar === "function"));
 });

@@ -311,7 +311,18 @@ Falta (bloco E): o e-mail opcional no fim da conversa (precisa da chave do Brevo
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
 Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
   tudo. A tela só entra no ar quando a Vercel publicar (o deploy está no limite diário; ver o aviso de 30/10).
-Próximo passo: os blocos F (trazer o que tem) e G (o acompanhamento no Admin).
+Feito (bloco G, na branch, no STG): a migração 20261030270000 (onboarding_eventos: o link aberto pela função
+  pública publico_convite_aberto, uma vez a cada 10 minutos; a conversa começada, cada pergunta pelo assunto,
+  terminada ou adiada, registradas pelo dono; admin_onboarding: as contas da Renderiza dos últimos 60 dias, com as
+  etapas e os marcos). No Admin, a parte nova "Onboarding" (src/admin/onboarding/; as regras em logica.js, testadas
+  em test/admin-onboarding.test.mjs): o funil (convidadas, abriram o link, criaram a senha, fizeram a conversa,
+  confiantes), cada conta com a etapa, há quanto tempo, os marcos e "Travou" (48 h no convite; 24 h no link, na
+  senha e na conversa; 72 h nos marcos), e "Mandar mensagem" com o texto certo para a etapa no WhatsApp do negócio.
+  Os marcos: 1º pedido, 1ª reserva, contrato mandado, equipe convidada (não vale para quem respondeu "só eu"), agenda
+  online (bônus) e 3 dias de uso (pelo histórico do que a equipe fez; os registros de acesso não entram). Confiante:
+  cumpriu os que valem. Testes 208 e fluxos 18/18.
+Próximo passo: o bloco F (trazer o que tem: o leitor com IA de fotos, PDFs e planilhas, com a conferência em lote;
+  precisa da chave da Anthropic para testar de verdade) e o e-mail opcional no fim da conversa (precisa do Brevo).
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
@@ -867,6 +878,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (e o catálogo: 60 demos) |
 | `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `assistente`, sem a chave) |
 | `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
+| `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
 
 ## Avisos entre sessões
 
@@ -875,6 +887,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 7G → todas | **Parte nova no Admin: "Onboarding"** (`src/admin/index.js`, arquivo comum; logo depois de Contas). A função pública nova `publico_convite_aberto` (o teste 090 aceita porque começa com `publico_`). |
 | 30/10/2026 | 7 → Renderiza, todas | **A Vercel está no limite diário de deploys** ("Deployment rate limited — retry in 24 hours", nos dois projetos, desde a tarde de 30/10). O banco e as funções da Missão 7 (A a E) já estão na produção; a tela entra quando a Vercel voltar a publicar (o próximo push na `main` depois do limite, ou "Redeploy" no painel da Vercel). O que gasta a cota: o projeto do site publica a cada push em qualquer branch. A correção é a regra no `vercel.json` da raiz (sem deploy das branches `claude/*` e só quando o site muda), que espera o "pode" da Renderiza. Até lá, push na branch com moderação. |
 | 30/10/2026 | 7E → todas | **Termos e política na versão 31/10/2026** (`VERSAO_DOS_TERMOS`): quem entra vê o aceite de novo (os fluxos já aceitam sozinhos). **Rota nova `/montar`** (`src/rotas.js`, arquivo comum) e o Início manda para lá a conta com `ajustes.onboarding.pendente` (só as criadas pelo Admin a partir de agora; as sementes e as do cadastro não têm). Seção 27 no `estilo.css`. |
 | 30/10/2026 | 7A → todas | **A casca e o `estilo.css` mudaram (a cara dos exemplos):** o tema do nicho vale dentro do painel (`.rz-app.rz-tema-eventos`/`-fotografia`: o destaque, a barra lateral e os gráficos na cor do negócio); o `.rz-fab` saiu (o "+" do celular agora é o `.rz-topo-mais`, no topo, com `data-novo`); a Agenda abre no mês também no celular; seções 25 e 26 novas no `estilo.css`; ícones novos `instagram`, `globo`, `coracao`. Quem desenhar tela nova: use `--rz-destaque` (nunca a terracota direto), que o tema troca sozinho. |

@@ -78,6 +78,8 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     return;
   }
 
+  // o link foi aberto (o acompanhamento no Admin; Missão 7, bloco G): sem esperar, e sem atrapalhar se falhar
+  banco.rpc("publico_convite_aberto", { p_codigo: codigo }).catch(() => {});
   const de_novo = !!convite.ja_tem_acesso;
   el.innerHTML = telaDeAcesso({
     ambiente,

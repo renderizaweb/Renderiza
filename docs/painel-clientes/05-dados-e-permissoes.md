@@ -134,6 +134,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 | `demos` | o catálogo das demos de eventos e fotografia (Missão 7, D51) | a pasta (chave), o nicho, o nome e os dados que o painel e a IA usam (sem o nome de quem avaliou). Gravado por `scripts/demos.mjs`; só a Renderiza vê |
 | `contas_contexto` | de onde a conta veio (Missão 7, D41) | a demo, o que ela sabia (dados) e a conversa com o lead colada pela Renderiza. Só a Renderiza e a IA (pelo servidor); o dono não vê |
 | `ia_contas` | o teto da IA por conta (D46) | o teto em dólar (sem linha: US$ 3). Só a Renderiza |
+| `onboarding_eventos` | os passos do onboarding (D47) | a conta, o evento (link aberto, conversa começada, pergunta, terminada, adiada), o assunto da pergunta (sem a resposta) e quando. Só a Renderiza lê; o dono registra a conversa; o link aberto vem por `publico_convite_aberto` |
 | `ia_uso` | cada chamada à IA (D45) | a conta, quem, a tarefa, o modelo, os tokens, o custo em dólar e como terminou (ok, inválido, recusou, falhou), sem o conteúdo. Só a Renderiza vê; a função grava |
 | `termos_aceites` | aceite dos termos de uso | usuário (o login: vale para todas as contas dele), versão, quando, aparelho. A versão é a data dos documentos (`VERSAO_DOS_TERMOS` em `src/telas/termos.js`, a mesma do `data-versao` de `/termos` e `/privacidade`): versão nova, o painel pede o aceite de novo (Missão 5B, D35). Cada um grava e lê só o próprio aceite |
 | `atividades` | histórico ("o que a equipe fez" e a linha do tempo do cliente) | pessoa (ou o sistema), pelo suporte, ação (`criou`, `mudou`, `apagou`), tabela e id, cliente, reserva, módulo (quem vê), colunas que mudaram, detalhe (`{"etapa": [antes, depois]}`, `{"pago": true}`), quando. Gravada só pelos gatilhos, sem valores |
@@ -200,6 +201,9 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 | `publico_convite(código)` | a tela de boas-vindas (visitante) | o negócio, o nicho, o usuário e se ele já tem login; ou por que o link não vale (usado, vencido); nada se não existe (Missão 7) |
 | `usuario_disponivel(usuário)` | Admin e Equipe, ao criar o convite por link | o usuário está livre (sem login e sem convite pendente) |
 | `convite_pode_usar_login(conta, e-mail, pela_renderiza)` | o banco, ao gravar o convite por link, e a função `aceitar-convite` | o link pode criar ou trocar a senha desse login: não existe, foi a Renderiza, ou a pessoa só está nesta conta |
+| `publico_convite_aberto(código)` | a tela de boas-vindas (visitante) | registra que o link foi aberto (uma vez a cada 10 minutos por conta, só se o link vale) |
+| `admin_onboarding()` | Admin · Onboarding | as contas da Renderiza dos últimos 60 dias, com as etapas (convite, link, senha, conversa) e os marcos da primeira semana |
+| `contexto_da_minha_conta(conta)` | a conversa de boas-vindas | o que a demo sabia da conta, sem a conversa colada; só o dono |
 | `login_do_email(e-mail)` | só a função `aceitar-convite` | o login com esse e-mail, se existe |
 | `registrar_entrada(conta, aparelho)` | ao entrar numa conta | a entrada (Admin) e o "visto em" |
 | `fechar_pedido(pedido, inicio, fim, situacao)` | Atendimento | o pedido vira reserva (regra 3); se já tem reserva (a pré-reserva da agenda online), confirma ou mantém a pré-reserva e ajusta a data, sem criar outra (29/10, Missão 3C) |

@@ -7,6 +7,7 @@
 
 export const AREAS_ADMIN = [
   { id: "contas", nome: "Contas", icone: "inicio", carregar: () => import("./contas/index.js") },
+  { id: "onboarding", nome: "Onboarding", icone: "estrela", carregar: () => import("./onboarding/index.js") },
   { id: "modulos", nome: "Módulos", icone: "servicos", carregar: () => import("./modulos/index.js") },
   { id: "pessoas", nome: "Pessoas e acessos", curto: "Pessoas", icone: "equipe", carregar: () => import("./pessoas/index.js") },
   { id: "pagamentos", nome: "Pagamentos", icone: "carteira", carregar: () => import("./pagamentos/index.js") },

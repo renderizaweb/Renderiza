@@ -66,6 +66,8 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   const pessoa = sessao.pessoa ? sessao.pessoa() : null;
   const primeiroNome = String((pessoa && pessoa.nome) || (usuario.user_metadata && usuario.user_metadata.nome) || "").trim().split(/\s+/)[0];
   const total = assuntosDoNicho(n.id).length;
+  // cada passo fica registrado para o acompanhamento no Admin (bloco G): sem esperar, e sem atrapalhar se falhar
+  const registrar = (evento, detalhe = null) => { banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
 
   el.innerHTML = telaDeAcesso({
     ambiente,
@@ -207,6 +209,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     const q = estado.atual;
     estado.respostas.push({ assunto: q.assunto, pergunta: q.pergunta, resposta: rotulo, valor });
     salvar();
+    registrar("pergunta", q.assunto);
     const [seguinte] = await Promise.all([proxima(), esperar(PAUSA_DO_CHECK)]);
     estado.atual = seguinte.atual;
     estado.comentario = seguinte.comentario;
@@ -259,6 +262,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         conta.ajustes = ajustes;
       });
       await etapa("pronto", () => sessao.carregarContas());
+      registrar("conversa_terminou");
       esquecer(conta.conta_id);
       await esperar(250);
       navegar("/", { substituir: true });
@@ -269,7 +273,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   }
 
   const ligar = {
-    abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => trocar("confirma")); },
+    abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => { registrar("conversa_comecou"); trocar("confirma"); }); },
     confirma() {
       palco.querySelector("[data-certo]").addEventListener("click", () => trocar("tipos"));
       palco.querySelector("[data-corrigir]").addEventListener("click", () => trocar("corrige"));
@@ -346,6 +350,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     ocupado(e.currentTarget, true, "Abrindo…");
     const antes = conta.ajustes || {};
     const ajustes = { ...antes, onboarding: { ...(antes.onboarding || {}), pendente: false, adiado: true } };
+    registrar("conversa_adiada");
     await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id)).catch(() => null);
     conta.ajustes = ajustes;
     await sessao.carregarContas().catch(() => null);

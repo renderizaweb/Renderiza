@@ -174,6 +174,10 @@ painel-clientes/
   que a demo sabia por `contexto_da_minha_conta` (sem a conversa colada), confirma num toque, faz as perguntas do
   roteiro (`roteiro.js`) pedindo a próxima à função `assistente` (no máximo 5 segundos; senão, o roteiro fixo) e, no
   fim, grava os dados confirmados, os tipos, a ordem do menu pelo objetivo e o perfil (`ajustes.onboarding`).
+- **O acompanhamento até a confiança** (Missão 7, bloco G; D47): os passos do onboarding em `onboarding_eventos`
+  (o link aberto pela função pública `publico_convite_aberto`; a conversa, pelo dono) e, no Admin, a parte
+  "Onboarding" (`src/admin/onboarding/`), que lê `admin_onboarding()`: a etapa de cada conta, quem travou, os marcos
+  da primeira semana e a mensagem pronta para o WhatsApp do negócio.
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.
