@@ -826,9 +826,9 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030120000_minhas_contas_suporte.sql` (Admin: minhas_contas traz a conta em que a Renderiza está em suporte) | 5A | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com o "pode" da Renderiza) |
 | `20261030150000_funcoes_sem_visitante.sql` (revisão de segurança: o visitante só executa as funções `publico_*`) | 5B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030200000_registros_de_acesso.sql` (Marco Civil, art. 15: data, hora e IP de cada entrada, 6 meses, sob sigilo) | 5B (revisão dos termos) | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
-| `20261030220000_convite_por_link.sql` (convite por link no WhatsApp: usuário, código, `publico_convite`, `usuario_disponivel`) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (vai junto com a tela e a função, ao fim do bloco B) |
-| `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (junto com a de cima) |
-| `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (junto com as de cima, antes da função) |
+| `20261030220000_convite_por_link.sql` (convite por link no WhatsApp: usuário, código, `publico_convite`, `usuario_disponivel`) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 | |
+| `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
+| `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `aceitar-convite` na produção) |
 
 ## Avisos entre sessões
 
