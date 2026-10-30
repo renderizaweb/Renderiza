@@ -38,6 +38,7 @@ const prefixo = banco === "stg" ? "PAINEL_STG" : "PAINEL_PROD";
 const envDoPainel = {
   SUPABASE_URL: process.env[prefixo + "_SUPABASE_URL"],
   SUPABASE_ANON_KEY: process.env[prefixo + "_SUPABASE_ANON_KEY"],
+  TURNSTILE_SITE_KEY: process.env[prefixo + "_TURNSTILE_SITE_KEY"], // a pública; só quando o cadastro abrir
   VERCEL_ENV: banco === "stg" ? "development" : "local · produção",
 };
 
@@ -63,7 +64,9 @@ createServer(async (req, res) => {
   if (caminho.startsWith("/api/publico/imagens/")) return imagemPublica(req, res, envDoPainel);
 
   let arquivo = null;
-  if (PUBLICAVEL.test(caminho)) {
+  if (/^\/c\/[^/]+\/?$/.test(caminho)) {
+    arquivo = join(PASTA, "publico", "contrato", "index.html"); // o aceite do contrato (o primeiro rewrite do vercel.json)
+  } else if (PUBLICAVEL.test(caminho)) {
     const alvo = resolve(PASTA, "." + caminho);
     if (alvo.startsWith(PASTA + sep) && existsSync(alvo)) arquivo = alvo;
   } else if (ROTA_DO_APP.test(caminho)) {

@@ -84,6 +84,16 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
     tabela: nome => cliente.from(nome),
     rpc: (funcao, args) => resultado(cliente.rpc(funcao, args)),
     resultado,
+    /**
+     * Tempo real (Supabase Realtime; 09: só onde muda o dia a dia, como o pedido novo). Avisa das mudanças numa
+     * tabela, com a RLS de quem está logado. `filtro`: ex. "conta_id=eq.<id>". Devolve a função que para de ouvir.
+     */
+    ouvir(tabela, { filtro, aoMudar }) {
+      const canal = cliente.channel(`rz-${tabela}-${Math.random().toString(36).slice(2, 10)}`)
+        .on("postgres_changes", { event: "*", schema: "public", table: tabela, ...(filtro ? { filter: filtro } : {}) }, aoMudar)
+        .subscribe();
+      return () => { cliente.removeChannel(canal); };
+    },
     /** Uma função do servidor (Supabase Edge Functions), com o login de quem chama. */
     async funcao(nome, corpo) {
       let r;
@@ -97,8 +107,8 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
       return r.data;
     },
     /** Envia um arquivo ao Storage (`bucket/caminho`, trocando o que houver) e devolve o endereço público.
-     *  `trocar: false` só cria: trocar (upsert) o Storage só deixa com uma política de leitura (select), que os
-     *  buckets públicos não têm; o Meu site não precisa, porque cada foto ganha um nome novo. */
+     *  `trocar: false` só cria, nunca troca: o Meu site usa, porque cada foto ganha um nome novo e o site guarda a
+     *  imagem por 1 ano (trocar o conteúdo de um endereço deixaria a foto velha nos navegadores). */
     async enviarArquivo(bucket, caminho, arquivo, tipo, { trocar = true } = {}) {
       await resultado(cliente.storage.from(bucket).upload(caminho, arquivo, { upsert: trocar, contentType: tipo, cacheControl: "3600" }));
       return cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl;

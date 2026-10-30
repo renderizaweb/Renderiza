@@ -45,7 +45,9 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.equal(valor("X-Robots-Tag"), "noindex, nofollow");
   assert.equal(valor("X-Frame-Options"), "DENY");
   assert.match(valor("Content-Security-Policy"), /frame-ancestors 'none'/);
-  assert.match(valor("Content-Security-Policy"), /script-src 'self' https:\/\/cdn\.jsdelivr\.net;/);
+  // scripts: o supabase-js (jsDelivr) e a verificação contra robô do cadastro (Cloudflare Turnstile, que abre num frame)
+  assert.match(valor("Content-Security-Policy"), /script-src 'self' https:\/\/cdn\.jsdelivr\.net https:\/\/challenges\.cloudflare\.com;/);
+  assert.match(valor("Content-Security-Policy"), /frame-src https:\/\/challenges\.cloudflare\.com;/);
   assert.match(valor("Content-Security-Policy"), /connect-src 'self' https:\/\/\*\.supabase\.co wss:\/\/\*\.supabase\.co;/);
   assert.ok(v.rewrites.some(r => r.destination === "/index.html"));
   // Com cleanUrls ligado, a Vercel ignora o rewrite para /index.html e as rotas do app (/entrar, /agenda) dão 404.

@@ -39,6 +39,7 @@ o tipo, os espaços e as peças. Quem cria uma peça nova põe no `src/ui/` e an
 | `--rz-destaque` | `#b25134` | **a terracota**: botão principal, link, foco. 5,1:1 no branco |
 | `--rz-destaque-escuro` / `-claro` / `-fundo` | `#9a4429` / `#e8855e` / `#f9ece6` | passar o mouse / destaque sobre o grafite / fundo de ícone e etiqueta |
 | `--rz-sucesso` · `--rz-alerta` · `--rz-perigo` · `--rz-info` (+ `-fundo`) | verde · âmbar · vermelho · azul | **só para situação** (pago, vencendo, erro, aviso), nunca para enfeitar |
+| `--rz-grafico-1` · `--rz-grafico-2` | `#b25134` · `#2f78a8` | **só em gráfico**, nesta ordem (1ª série, 2ª série; a 2ª vai com textura). Validadas (contraste, daltonismo, separação) no fundo claro |
 
 **Tipo:** Geist (`--rz-fonte`). Tamanhos `--rz-t-xs` (12) · `sm` (14) · `base` (16) · `lg` (18) · `xl` (22) · `2xl` (28)
 · `3xl` (36). Títulos em 600 com espaçamento negativo (`.rz-titulo-1`, `-2`, `-3`); texto em 400; apoio em
@@ -70,9 +71,42 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | Ícone | `icone("nome")` | sempre com texto ao lado ou `aria-label` no botão |
 | Abrindo | `.rz-abrindo` | a tela enquanto o painel carrega (já no `index.html`) |
 | Telas de acesso | `telaDeAcesso()` em `src/telas/acesso.js` | uma coluna no celular; no computador, o painel da marca ao lado. Cadastro e convite (Missão 2) usam o mesmo layout |
+| Casca | `montarCasca()` em `src/telas/casca.js`; `.rz-lateral`, `.rz-topo`, `.rz-barra`, `.rz-fab`, `.rz-faixa-teste` | menu lateral no computador, barra de baixo (até 5) e "+" no celular; só módulos ligados, o resto trancado com cadeado; o "+" e o "Novo" só para quem edita algo |
+| Gaveta, folha, confirmar | `abrirGaveta`, `abrirFolha`, `confirmar` em `src/ui/gaveta.js` (`<dialog>`) | gaveta: detalhes e formulários (tela cheia no celular, ações fixas embaixo); folha: lista curta de ações; `confirmar` só para o que não volta atrás |
+| Aviso embaixo | `avisar(texto, { desfazer })` em `src/ui/aviso.js`; `.rz-aviso` | 4 s; com "Desfazer", 7 s (e não some com o mouse em cima) |
+| Estados | `vazio`, `erro`, `esqueleto`, `comEstados` em `src/ui/estados.js` | vazio ensina e oferece a ação; erro diz o que fazer; esqueleto só se passar de 1 s |
+| Cabeça de página e seções | `.rz-cabeca` (`-titulos`, `-acoes`), `.rz-secao` | título à esquerda, ação principal à direita (quebra no celular) |
+| Linha de lista | `.rz-linhas` > `.rz-linha` (`-texto`, `-fim`), `.rz-cor`, `.rz-avatar` | primeira linha: o nome; segunda: o que decide; a ação mais provável na ponta |
+| Chips e abas | `.rz-chips` (`--quebra` para várias linhas), `.rz-chip[aria-pressed]`; `.rz-abas` | chips para filtros e escolhas rápidas; abas para partes de um módulo |
+| Opções em cartão | `.rz-opcoes` > `label.rz-opcao` (`-icone`, `-texto`, `-marca`) com `input` radio ou checkbox | onboarding (nicho, módulos): uma por linha, grande para o polegar |
+| Campos prontos | `campoTexto`, `campoArea`, `campoSelecao`, `interruptor`, `segmentos`, `escolherCor`, `lerFormulario` em `src/ui/campos.js` | rótulo, ajuda, "(opcional)" e o lugar do erro já vêm; cores das pessoas e dos tipos só da lista `CORES` |
+| "Para quem?" | `abrirParaQuem`, `novoCliente`, `abrirCliente` em `src/ui/para-quem.js` | busca por nome ou WhatsApp, recentes primeiro, "+ novo cliente" ali mesmo (o mesmo WhatsApp é o mesmo cliente) |
+| Paleta | `abrirPaleta` em `src/ui/paleta.js` (Ctrl+K ou "/") | acha módulo, cliente e ação; recentes primeiro |
+| WhatsApp, CSV, filtros | `src/ui/whatsapp.js`, `src/ui/csv.js` (`baixarCsv`, `lerCsv`), `src/ui/filtros.js` | CSV com ";" e BOM (abre certo no Excel), protegido contra fórmula |
+| Progresso | `.rz-progresso > span` | onboarding ("2 de 5") e primeiros passos |
+| Onboarding (trilho) | `.rz-palco` (`.rz-sai`, `.rz-entra` e as de voltar), `button.rz-opcao[aria-pressed]`, `.rz-trilho`, `.rz-roteiro`, `.rz-montagem`, `.rz-passo-topo`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`; seção 16) | boas-vindas com o roteiro; escolha única segue sozinha com o check (`rz-marcar`); passos entram e saem de lado; a montagem marca cada parte enquanto acontece; "reduzir movimento" zera as animações |
+| Atendimento (seção 17) | `.rz-barra-ferramentas` (busca `.rz-campo-busca` + chips), `.rz-linhas--pedidos` (segunda linha quebra em duas), `li.rz-com-acao` (linha com o botão do próximo passo), `details.rz-resumo` (funil `.rz-funil` e `.rz-origens`, recolhidos), `.rz-quadro` > `.rz-coluna` (`[data-sobre]` ao arrastar) > `.rz-cartao-pedido`, `.rz-balao` (a mensagem do cliente), `.rz-escolhido`, `label.rz-chip` com rádio, `.rz-segmentos button[aria-pressed]` (Lista e Quadro), `.rz-so-computador` | o quadro só no computador; quem só vê não arrasta; mudar etapa é otimista com desfazer |
+| Agenda (seção 18) | `.rz-agenda[data-vista=semana\|mes]` > `.rz-semana` (`.rz-dia-curto`) e `.rz-mes` (`.rz-dia`, `--fora`, `--hoje`, `--fechado`, `.rz-dia-item` com `--pre` e `--compromisso`, `.rz-dia-pontos`), `.rz-painel-dia`, `.rz-item-agenda`, `.rz-livres`, `.rz-checklist` > `.rz-check[aria-pressed]`, `.rz-horarios` > `.rz-horario--ok\|pre\|livre`, `.rz-legenda`, `.rz-alerta--info`, `.rz-so-celular`, `.rz-girar` (a seta "voltar" virada para a frente) | a cor da festa ou do ensaio é dado da conta (`--cor`); a pré-reserva é tracejada; no celular a semana, no computador o mês |
+| Clientes (seção 19) | `.rz-tempo` > `.rz-tempo-item` (`.rz-tempo-icone` e a linha que liga os itens), `.rz-acoes-ficha`, `.rz-texto-perigo` (prazo que passou) | a ficha é a linha do tempo do cliente (05); cada item é um link para o seu módulo |
+| Financeiro (seção 20) | `.rz-numeros` (os números do mês, com `.rz-numero--atencao` para atrasadas), `.rz-campos--tres`, `.rz-linhas--com-botao` (lista com botão na linha: no celular a etiqueta sai; também em Contratos), `.rz-grafico` (barras empilhadas: `.rz-serie-1` cheia, `.rz-serie-2` com textura; eixo, grade, `.rz-grafico-dica` ao passar o mouse ou focar, `.rz-grafico-tabela` com os números) | gráfico pelo guia de dados: barras finas com a ponta arredondada, valor escrito só no mês atual, legenda sempre, a tabela para quem não enxerga as cores |
+| Contratos (seção 21) | `.rz-detalhes` (o texto recolhido, com a seta), `.rz-contrato-texto-painel` (o texto do cliente como veio, com as quebras de linha), `.rz-contrato-editor`, `.rz-contrato-prova` (o aceite registrado), `.rz-campos-modelo`, `.rz-quebra`. A página do link (`/c/<código>`) tem o seu arquivo: `publico/contrato/contrato.css`, só com tokens | o texto é do cliente: o painel não formata nem revisa; na impressão, o texto inteiro e o registro do aceite, sem botões |
+| Gaveta de detalhes | `abrirGaveta({ …, foco: "fechar" })` | para detalhes: o foco vai para o "fechar", não para o primeiro campo (no celular, não abre o teclado) |
+| Primeiros passos | `.rz-passos`, `.rz-passo[data-feito]`, `.rz-passo-marca` (`src/modulos/inicio/primeiros-passos.js`) | cartão no topo do Início, só para o dono; no celular, o botão desce para baixo do texto |
 
 Ícones disponíveis: `olho`, `olhoFechado`, `alerta`, `ok`, `okCirculo`, `carta`, `cadeado`, `maiusculas`, `voltar`, `seta`,
-`relogio`, `conversa`, `carteira`, `contrato`, `agenda`.
+`relogio`, `conversa`, `carteira`, `contrato`, `agenda`; do menu e das ações (Missão 2): `inicio`, `clientes`, `site`,
+`servicos`, `equipe`, `configuracoes`, `admin`, `mais`, `adicionar`, `buscar`, `fechar`, `sair`, `trocar`, `whatsapp`,
+`copiar`, `baixar`, `editar`, `lixo`, `desfazer`, `telefone`, `link`, `imagem`, `filtro`, `estrela`, `setaBaixo`,
+`importar`; do nicho: `festa`, `camera`. A lista certa é sempre `ICONES` em `src/ui/icones.js`.
+
+## Tema do nicho
+
+No onboarding, a escolha do nicho troca **só o destaque** (`--rz-destaque` e as variações) e o painel da marca: a
+classe `rz-tema-eventos` ou `rz-tema-fotografia` na raiz da tela (`temaDoNicho` em `src/telas/acesso.js`). As cores
+são as dos exemplos: eventos `--rz-eventos` (verde, painel `--rz-eventos-lateral`), fotografia `--rz-fotografia`
+(vinho, painel `--rz-fotografia-lateral`), todas em tokens no `estilo.css` (seção 1) e com o contraste conferido
+(texto branco no destaque: 6,4:1 e 6,5:1). Grafite, papel, tinta e as cores de situação não mudam. Dentro do painel
+continua a terracota até existir a cor da conta (abaixo).
 
 ## Escrever na tela
 
@@ -89,8 +123,9 @@ se passar no contraste com o branco (4,5:1). Grafite, papel, tinta e as cores de
 
 - **Entrar** (`src/telas/entrar.js`), **Esqueci a senha** (`esqueci-a-senha.js`) e **Nova senha** (`nova-senha.js`),
   com o layout `acesso.js`.
-- A casca e os módulos vazios da Missão 1 ganharam as cores e a fonte, com classes provisórias (`estilo.css`,
-  seção 10). O menu de verdade (barra de baixo no celular, menu lateral, "+") é da Missão 2, bloco B, com estas peças.
+- **Missão 2, bloco B:** a casca (menu lateral, barra de baixo, "+", busca, faixa do teste), escolher a conta,
+  cadastro, convite e onboarding (com `acesso.js`), Equipe e acessos, Configurações, Serviços e os primeiros passos
+  do Início, todos com as peças acima (`estilo.css`, seções 10 a 15).
 - Os **e-mails do login** (`supabase/emails/`): papel no fundo, cartão branco, terracota só no botão, textos em
   tinta, tinta-2 e tinta-3 (o rodapé, sobre o papel, em tinta-2 pelo contraste). E-mail não lê CSS de fora: as
   cores vão escritas, e o teste (`test/auth.test.mjs`) só aceita as dos tokens `--rz-*`. A fonte é a Geist quando

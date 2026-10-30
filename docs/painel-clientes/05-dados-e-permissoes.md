@@ -35,7 +35,8 @@ CONTA (o espaço / o estúdio)
    não é número e o 55 do Brasil); juntar é `juntar_clientes(fica, sai)`.
 3. **Do pedido à reserva sem digitar de novo.** "Fechar" no Atendimento cria a reserva com o cliente, a data, o
    serviço e os convidados do pedido; o pedido guarda o link da reserva. No banco: `fechar_pedido(pedido, inicio,
-   fim)`; se o pedido já tinha a data separada (reserva), só fecha.
+   fim, situacao)`; se o pedido já tinha a data separada (a pré-reserva da agenda online), fecha usando essa
+   reserva: confirma (ou mantém a pré-reserva) e ajusta a data, sem criar outra.
 4. **A reserva é o centro do que foi vendido.** Valores, parcelas, contrato e entrega pendem dela (e, por ela, do
    cliente). Parcela sem reserva é permitida, mas sempre com cliente.
 5. **A situação do cliente é calculada, nunca digitada:**
@@ -192,7 +193,7 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 | `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` | cadastro com 7 dias grátis | cria a conta em teste, a pessoa como dona e os módulos escolhidos; o teste é um só (quem já é dono de uma conta do cadastro não cria outra); pede o e-mail confirmado |
 | `aceitar_convites()` | logo depois de entrar | os convites válidos do e-mail logado viram pessoa da conta |
 | `registrar_entrada(conta, aparelho)` | ao entrar numa conta | a entrada (Admin) e o "visto em" |
-| `fechar_pedido(pedido, inicio, fim, situacao)` | Atendimento | o pedido vira reserva (regra 3) |
+| `fechar_pedido(pedido, inicio, fim, situacao)` | Atendimento | o pedido vira reserva (regra 3); se já tem reserva (a pré-reserva da agenda online), confirma ou mantém a pré-reserva e ajusta a data, sem criar outra (29/10, Missão 3C) |
 | `juntar_clientes(fica, sai)` | Clientes | leva tudo de uma ficha para a outra (regra 2) |
 | `situacao(cliente)` | todos | a situação calculada (regra 5) |
 | `admin_indicadores()` | Admin | os números |
@@ -239,6 +240,19 @@ deixa essas abertas ao visitante).
 - Tabelas de apoio, sem dado de pessoa e fechadas ao app (só as funções gravam): `publico_tentativas` (o endereço
   embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
 - `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
+
+**Já no banco (29/10/2026, Missão 3E, migração `…220000_publico_contrato`, STG e produção):**
+- `publico_contrato(código)`: o contrato **enviado** (conta liberada e Contratos ligado) ou **aceito** (este
+  continua aparecendo mesmo com o módulo desligado: é a prova). Devolve o texto, a impressão digital (`impressao`,
+  o hash), a situação, quem aceitou e quando, o negócio (nome, nicho, logo, WhatsApp, fuso), o resumo (cliente,
+  tipo, pacote, início e fim, convidados, adicionais, valor total, desconto, sinal) e, **só depois do aceite**, o
+  Pix (`contas.ajustes.pix`: `chave` e `nome`, que o dono põe em Configurações). Orçamento, cancelado ou código
+  errado: `null`.
+- `publico_aceitar_contrato(código, nome, contato, impressão)`: grava o aceite (situação `aceito`, data e hora,
+  nome, contato). **O IP e o aparelho vêm do próprio pedido** (`cf-connecting-ip` ou o primeiro do
+  `x-forwarded-for`, e o `user-agent`), não de quem chama. A impressão tem de ser a do texto atual (`erro: mudou`
+  se o texto mudou depois que a página abriu). Devolve `{ ok, contrato }` ou `{ ok: false, erro: fora | dados
+  (campo) | mudou }`. Aceitar de novo não troca quem aceitou.
 
 **Já no banco (29/10/2026, Missão 4C, migração `…141746_publico_site`, no STG):**
 - `publico_site(código)`: a última versão publicada no formato do contrato v1 (`03`), com `esquema`, `site`, `versao`

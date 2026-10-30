@@ -15,32 +15,56 @@ export function etiquetaDoAmbiente(ambiente) {
 
 const marca = '<span class="rz-marca"><img src="/favicon.svg" alt="" width="32" height="32"><span>Painel Renderiza</span></span>';
 
-// O que tem lá dentro, em três linhas. Dados fictícios, como os de /exemplos (Villa Alecrim).
-const PREVIA = `
-  <div class="rz-previa" aria-hidden="true">
-    <div class="rz-previa-cabeca">Para fazer agora <span>hoje</span></div>
-    <ul>
-      <li><span class="rz-previa-icone">${icone("conversa")}</span><span><b>Responder o pedido da Juliana</b><small>Casamento · sáb, 14/03 · 120 convidados</small></span><span class="rz-previa-acao">Novo</span></li>
-      <li><span class="rz-previa-icone">${icone("carteira")}</span><span><b>Sinal da Ana Beatriz</b><small>R$ 1.900 · vence hoje</small></span><span class="rz-previa-acao">Receber</span></li>
-      <li><span class="rz-previa-icone">${icone("contrato")}</span><span><b>Contrato aceito</b><small>Nexa Tecnologia · confraternização</small></span><span class="rz-previa-acao rz-previa-acao--ok">Pronto</span></li>
-    </ul>
-  </div>`;
+// O que tem lá dentro, em três linhas. Dados fictícios, como os de /exemplos (Villa Alecrim e Estúdio Ciranda).
+// No onboarding, a prévia e a frase mudam com o nicho que a pessoa escolhe (painelDaMarca).
+const PREVIAS = {
+  eventos: [
+    ["conversa", "Responder o pedido da Juliana", "Casamento · sáb, 14/03 · 120 convidados", "Novo"],
+    ["carteira", "Sinal da Ana Beatriz", "R$ 1.900 · vence hoje", "Receber"],
+    ["contrato", "Contrato aceito", "Nexa Tecnologia · confraternização", "Pronto"],
+  ],
+  fotografia: [
+    ["conversa", "Responder o pedido da Carol", "Newborn · ter, 17/03 · 9h", "Novo"],
+    ["carteira", "Sinal da Mariana", "R$ 250 · ensaio gestante · vence hoje", "Receber"],
+    ["imagem", "Fotos entregues", "Ensaio de família · Souza", "Pronto"],
+  ],
+};
+const CHAMADAS = {
+  eventos: ["As festas do seu espaço,", "num lugar só.", "Datas, visitas, pedidos, contratos e pagamentos, no celular e no computador."],
+  fotografia: ["Os ensaios do seu estúdio,", "num lugar só.", "Agenda, pedidos, contratos, sinais e entregas, no celular e no computador."],
+  "": ["O dia a dia do seu negócio,", "num lugar só.", "Agenda, pedidos, contratos e pagamentos, no celular e no computador."],
+};
+
+/** O conteúdo do painel da marca (só no computador): a frase e a prévia, do nicho quando já se sabe. */
+export function painelDaMarca(nicho = "") {
+  const [antes, destaque, texto] = CHAMADAS[nicho] || CHAMADAS[""];
+  const linhas = PREVIAS[nicho] || PREVIAS.eventos;
+  return `
+    <div class="rz-chamada">
+      <h2>${antes} <span>${destaque}</span></h2>
+      <p>${texto}</p>
+    </div>
+    <div class="rz-previa" aria-hidden="true">
+      <div class="rz-previa-cabeca">Para fazer agora <span>hoje</span></div>
+      <ul>${linhas.map(([ic, titulo, sub, acao], i) => `<li><span class="rz-previa-icone">${icone(ic)}</span><span><b>${titulo}</b><small>${sub}</small></span><span class="rz-previa-acao${i === 2 ? " rz-previa-acao--ok" : ""}">${acao}</span></li>`).join("")}</ul>
+    </div>`;
+}
+
+/** A classe do tema do nicho (cor de destaque e do painel da marca; 10, "Tema do nicho"). */
+export const temaDoNicho = nicho => (["eventos", "fotografia"].includes(nicho) ? `rz-tema-${nicho}` : "");
 
 /**
  * Monta a tela. `conteudo` é o HTML do formulário (cabeça + form); `rodape`, o HTML embaixo dele;
- * `voltar`, um link opcional no topo ({ href, texto }).
+ * `voltar`, um link opcional no topo ({ href, texto }); `nicho`, o tema e o painel da marca do nicho.
  */
-export function telaDeAcesso({ ambiente, conteudo, rodape = "", voltar = null }) {
+export function telaDeAcesso({ ambiente, conteudo, rodape = "", voltar = null, nicho = "" }) {
   const etiqueta = etiquetaDoAmbiente(ambiente);
+  const tema = temaDoNicho(nicho);
   return `
-    <div class="rz-acesso">
+    <div class="rz-acesso${tema ? " " + tema : ""}">
       <aside class="rz-acesso-painel">
         ${marca}
-        <div class="rz-chamada">
-          <h2>O dia a dia do seu negócio, <span>num lugar só.</span></h2>
-          <p>Agenda, pedidos, contratos e pagamentos, no celular e no computador.</p>
-        </div>
-        ${PREVIA}
+        <div class="rz-painel-da-marca" data-painel-da-marca>${painelDaMarca(nicho)}</div>
         <p class="rz-acesso-creditos">Feito pela Renderiza · sites e sistemas para negócios</p>
       </aside>
       <main class="rz-acesso-form">

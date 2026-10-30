@@ -85,7 +85,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     if (botao.disabled) return;
     avisoDoFormulario(aviso, "");
     const problemaNome = nome.value.trim() ? null : "Digite o seu nome.";
-    const problemaSenha = validarSenhaNova(senha.value);
+    const problemaSenha = senha.value ? validarSenhaNova(senha.value) : "Crie uma senha.";
     erroNoCampo(nome, problemaNome);
     erroNoCampo(senha, problemaSenha);
     if (problemaNome || problemaSenha) return (problemaNome ? nome : senha).focus();

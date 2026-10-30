@@ -7,7 +7,7 @@
 import { icone } from "./icones.js";
 import { escapar } from "./formulario.js";
 
-function abrir(tipo, { titulo, subtitulo = "", corpo = "", rodape = "", rotulo, aoFechar } = {}) {
+function abrir(tipo, { titulo, subtitulo = "", corpo = "", rodape = "", rotulo, aoFechar, foco = "campo" } = {}) {
   const quemAbriu = document.activeElement;
   const janela = document.createElement("dialog");
   janela.className = `rz-janela rz-janela--${tipo}`;
@@ -38,7 +38,8 @@ function abrir(tipo, { titulo, subtitulo = "", corpo = "", rodape = "", rotulo, 
     if (e.target === janela || e.target.closest("[data-fechar]")) fechar();
   });
   janela.showModal();
-  const primeiro = janela.querySelector("[autofocus], .rz-janela-corpo input, .rz-janela-corpo select, .rz-janela-corpo textarea");
+  // foco "campo": o primeiro campo (formulários); "fechar": o botão de fechar (detalhes, para não abrir o teclado)
+  const primeiro = foco === "fechar" ? null : janela.querySelector("[autofocus], .rz-janela-corpo input, .rz-janela-corpo select, .rz-janela-corpo textarea");
   (primeiro || janela.querySelector("[data-fechar]")).focus({ preventScroll: true });
   return { el: janela, corpo: janela.querySelector(".rz-janela-corpo"), pe: janela.querySelector(".rz-janela-pe"), fechar };
 }

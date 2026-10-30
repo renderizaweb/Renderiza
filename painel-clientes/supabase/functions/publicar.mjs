@@ -4,6 +4,7 @@
 //   node supabase/functions/publicar.mjs              situação: as funções publicadas no STG e na produção (só lê)
 //   node supabase/functions/publicar.mjs stg          publica todas no STG
 //   node supabase/functions/publicar.mjs producao --projeto <ref da produção>
+//   … --so <nome>                                 só uma função (ex.: --so convidar), sem republicar as outras
 //
 // A chave secreta não passa por aqui: o Supabase a põe no ambiente da função (SUPABASE_SECRET_KEYS).
 
@@ -42,7 +43,7 @@ async function publicar(ref, nome) {
 
 async function principal() {
   const args = process.argv.slice(2);
-  const alvo = args.find(a => !a.startsWith("--"));
+  const alvo = args.find((a, i) => !a.startsWith("--") && !["--projeto", "--so"].includes(args[i - 1]));
   if (!alvo) {
     for (const a of ["stg", "producao"]) {
       const p = await conferirProjeto(a);
@@ -52,16 +53,19 @@ async function principal() {
     return;
   }
   if (!ALVOS[alvo]) throw new Error("Use stg ou producao --projeto <ref>.");
+  const so = args.includes("--so") ? args[args.indexOf("--so") + 1] : null;
+  if (so && !FUNCOES.includes(so)) throw new Error(`Não existe a função "${so}" em supabase/functions/.`);
+  const funcoes = so ? [so] : FUNCOES;
   const p = await conferirProjeto(alvo);
   if (alvo === "producao") {
     exigirConfirmacaoDaProducao(p, args[args.indexOf("--projeto") + 1]);
     const stg = await conferirProjeto("stg");
     const noStg = new Set((await chamar(`/projects/${stg.ref}/functions`)).map(f => f.slug));
-    const faltam = FUNCOES.filter(f => !noStg.has(f));
+    const faltam = funcoes.filter(f => !noStg.has(f));
     if (faltam.length) throw new Error(`Ainda não publicada no STG: ${faltam.join(", ")}. Sempre STG primeiro.`);
   }
   console.log(`Alvo: ${ALVOS[alvo].nome} · ${p.nome} (${p.ref})`);
-  for (const nome of FUNCOES) {
+  for (const nome of funcoes) {
     const r = await publicar(p.ref, nome);
     console.log(`   ok  ${nome} (versão ${r.version}, ${r.status})`);
   }

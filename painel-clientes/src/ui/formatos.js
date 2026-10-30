@@ -120,6 +120,16 @@ export function telefone(texto) {
   return d;
 }
 
+/** Máscara enquanto a pessoa digita: "(11", "(11) 9888", "(11) 98888-7777" (até 11 números). */
+export function mascaraTelefone(texto) {
+  const d = String(texto ?? "").replace(/\D/g, "").slice(0, 11);
+  if (!d) return "";
+  if (d.length <= 2) return `(${d}`;
+  const meio = d.length === 11 ? 7 : 6;
+  if (d.length <= meio) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, meio)}-${d.slice(meio)}`;
+}
+
 /** O WhatsApp parece certo (DDD + número)? */
 export function whatsappValido(texto) {
   const d = normalizarWhatsapp(texto);

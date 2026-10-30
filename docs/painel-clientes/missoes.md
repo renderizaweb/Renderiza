@@ -10,10 +10,10 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | Missão | Parada | Quem | Situação | Sessão / branch |
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
-| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | bloco A (banco): **na `main`** (29/10; no STG e na produção); bloco B (telas): **em andamento** desde 29/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | esperando a 2 | |
+| 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco F (Início e exportar) **em andamento** desde 29/10 | A a F: `claude/painel-renderiza-setup-ztnrzy` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | esperando a 2 | |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -212,7 +212,204 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco F (Início e exportar) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Referência: 09 (Início: começa por "Para fazer agora": pedidos sem resposta, parcelas vencendo ou atrasadas,
+  contratos esperando aceite, o que tem hoje e amanhã, cada item com o botão do próximo passo; os números vêm
+  depois, compactos), 02 (Visão geral; exportar), 05 (atividades: "o que a equipe fez", cada um vê só o que pode;
+  "exportar tudo" junta tudo num zip, CSV que abre no Excel e no Google Planilhas), o exemplo (Visão geral: saudação
+  com o dia, os números de cada módulo, próximas festas, hoje, "O que a equipe fez").
+Plano (nesta ordem, cada parte com commit): 1. "Para fazer agora" (só o que a pessoa pode ver, o mais urgente
+  primeiro: atrasadas, pedidos novos, vence hoje, contratos esperando, hoje e amanhã), com "Responder", "Recebi",
+  "Lembrar" e "Ver"; 2. a saudação e os números compactos de cada módulo que a pessoa vê; 3. as próximas festas ou
+  ensaios e "O que a equipe fez" (as atividades em frases: "Rafael mandou o contrato para Isabela"); 4. exportar
+  tudo (src/telas/exportar.js): uma planilha CSV por assunto (clientes, pedidos, reservas, compromissos, parcelas,
+  contratos, entregas, serviços), num zip feito no navegador, só para o dono (no Início e em Configurações); 5.
+  teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/modulos/inicio/, src/telas/exportar.js. Fora disso, pequeno e com aviso: o botão de exportar em
+  Configurações.
+```
+
+```
+Missão 3 · bloco E (Contratos) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
+Referência: 02 (Contratos: o contrato vai por um link, o cliente final lê e aceita no celular, o painel guarda a
+  data, a hora e quem aceitou; termo de aceite digital, sem e-CPF; o texto é do cliente), 05 (modelos_contrato,
+  contratos, "aceito não muda", as funções públicas), 04 (/c/<código>), 06 (a prova do aceite), 07 (D14: sem CPF),
+  09 (resumo → aceite → dados do Pix; confirmação antes de mandar), os exemplos (Contratos: orçamento, enviado,
+  aceito; "esperando o aceite há N dias"; "Lembrar do aceite").
+Plano (nesta ordem): 1. a migração do aceite; 2. a página pública /c/<código>; 3. a lista; 4. os modelos e o
+  contrato novo; 5. a gaveta e o Pix em Configurações; 6. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 6):
+  Banco: migração 20261029220000_publico_contrato.sql (STG e produção; 05, "Funções públicas"):
+  publico_contrato(código) e publico_aceitar_contrato(código, nome, contato, impressão). O IP e o aparelho vêm do
+  pedido (cabeçalhos), a impressão digital confere que o texto lido é o aceito, o Pix só sai depois do aceite.
+  Teste do banco supabase/testes/043_publico_contrato.sql.
+  Página do link: publico/contrato/ (index.html, contrato.js, logica.js, contrato.css): o resumo do que foi
+  contratado → o texto com "Li e aceito" (nome completo e WhatsApp ou e-mail) → pronto, com os dados do Pix,
+  "Mandar o comprovante" (WhatsApp do negócio) e "Imprimir ou salvar em PDF" (o texto e o registro do aceite com a
+  impressão digital). O botão de voltar do celular volta ao resumo. Link que não vale: "Este link não está valendo".
+  Painel: src/modulos/contratos/: index.js (chips esperando o aceite, orçamento, sem contrato, aceitos,
+  cancelados; o que pede ação abre primeiro; "Mandar", "Lembrar" e "Fazer contrato" na linha; avisos de modelo e
+  de Pix; ?contrato=<id>, ?novo=contrato[&reserva=<id>]), contrato.js (contrato novo: "Para quem?", a festa ou
+  ensaio, o modelo com os campos trocados e o texto editável; campo sem valor avisa e não deixa mandar; salvar como
+  orçamento ou mandar com confirmação; o link com WhatsApp, copiar e compartilhar; a gaveta com o aceite
+  registrado, o texto, editar antes do aceite, cancelar e abrir o link), modelos.js (o texto do cliente com os
+  campos num toque: {cliente}, {data}, {data_extenso}, {horario}, {tipo}, {pacote}, {convidados}, {adicionais},
+  {valor}, {sinal}, {desconto}, {endereco}, {cpf}, {negocio}, {hoje}), logica.js; test/contratos.test.mjs (5) e
+  test/contrato-publico.test.mjs (5).
+  Fora do "Mexe em", pequeno: a migração e o teste do banco; vercel.json (o rewrite de /c/, antes do app) e
+  scripts/servidor.mjs; Configurações (o Pix em contas.ajustes.pix, só o dono); o "+" (src/telas/casca.js) ganhou
+  "Mandar contrato" (e test/casca.test.mjs); estilo.css seção 21 e .rz-linhas--com-botao (era
+  .rz-linhas--parcelas, agora também em Contratos).
+Testado no STG (Villa Alecrim, desktop; Estúdio Ciranda, celular 390 px): "Fazer contrato" da festa da Paula &
+  Henrique com o modelo preenchido, salvar como orçamento, mandar (confirmação, link, mensagem), o cliente abrir o
+  link no celular, ler e aceitar, e o painel mostrar aceito com nome, contato, data, IP e aparelho; editar um
+  enviado; cancelar; campo {sinal} sem valor segura o "mandar"; modelo novo com campos num toque; ?contrato= pela
+  ficha do cliente; o Pix em Configurações e na página depois do aceite; quem só vê não tem botões; link errado.
+  Testes: 154 do front e 10 arquivos do banco (local e STG). Dados de teste apagados, semente rodada.
+```
+
+```
+Missão 3 · bloco D (Financeiro) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
+Referência: 02 (Financeiro: parcelas e sinal de cada festa ou ensaio, dar baixa, total do mês, a receber,
+  atrasados, o que mais vende; é controle, não cobra), 09 (marcar pago com desfazer, atualização otimista;
+  WhatsApp para lembrete e cobrança), 05 (parcelas, reservas_valores; "na reserva, Lançar parcelas"), o exemplo de
+  eventos (Financeiro: os números do mês, receita mês a mês, próximas parcelas e entradas, o que mais vende).
+Plano (nesta ordem): 1. a visão do mês e a lista de parcelas com "Recebi" e desfazer; 2. a gaveta da parcela e o
+  lembrete no WhatsApp; 3. a festa no Financeiro (?reserva=<id>) com "Lançar parcelas"; 4. registrar pagamento
+  pelo "+" (?novo=pagamento); 5. a receita mês a mês e o que mais vende; 6. teste de ponta a ponta no STG e
+  documentos.
+Feito (partes 1 a 6): src/modulos/financeiro/: index.js (os números do mês: recebido no mês, falta receber no mês,
+  a receber em 30 dias, atrasadas; a lista com chips a receber, atrasadas, recebidas, todas; busca por cliente ou
+  descrição; filtro por cliente; "Recebi" na linha; recolhido, "Mês a mês e o que mais vende": barras empilhadas
+  recebido e a receber de 5 meses atrás a 2 à frente, com dica ao passar o mouse ou focar e "Ver em tabela", e o
+  que mais vende pelo tipo de festa ou ensaio (reservas_valores); ?reserva=<id>, ?parcela=<id>, ?cliente=<id>,
+  ?novo=pagamento), parcela.js (a gaveta: vencimento e situação, o lembrete pronto com "Lembrar no WhatsApp" (só
+  com número) e "Copiar mensagem", ver a festa, ver o cliente, "Recebi" (forma e data) com desfazer, "Não recebi"
+  com desfazer, editar, apagar a que não foi paga com desfazer; o formulário de parcela nova, editar e registrar
+  pagamento, com "Para quem?" e a festa), festa.js (a festa no Financeiro: valor total, sinal e desconto em
+  reservas_valores, sugeridos pelo pacote ou ensaio de Serviços quando ainda não têm; total, recebido e falta;
+  as parcelas dela; "Lançar parcelas": o sinal primeiro e o resto em vezes, mês a mês, com a prévia antes de
+  gravar; parcela avulsa), logica.js; test/financeiro.test.mjs (7 testes).
+  Regras do "Lançar parcelas" (logica.js, planoDeParcelas): os centavos que sobram vão na última; dia 31 vira o
+  último dia do mês; no máximo 48 vezes; sinal maior que o total vira só o sinal.
+  Fora do "Mexe em", pequeno: estilo.css (seção 20 e os tokens --rz-grafico-1 e -2, validados pelo guia de
+  gráficos; .rz-link agora alinha o ícone com o texto, o que também consertou os links da gaveta da Agenda).
+Testado no STG (Villa Alecrim, desktop; Estúdio Ciranda, celular 390 px): números do mês, "Recebi" e desfazer,
+  "Não recebi" e desfazer, a festa da Clínica Bem Viver com valores salvos e "Lançar parcelas" (sinal de R$ 5.000
+  e 3 de R$ 4.333,33/34), registrar pagamento pelo "+" (Valentina Rocha, R$ 150,50), o lembrete com o link do
+  WhatsApp, o mês a mês e o que mais vende; quem só vê o Financeiro não tem nenhum botão de mudar; no celular,
+  sem rolagem para o lado. Testes: 144 do front. Dados de teste apagados, semente rodada.
+```
+
+```
+Missão 3 · bloco A (Clientes) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
+Referência: 05 ("O cliente no centro": situação calculada, uma pessoa um cliente, juntar, arquivar, a ficha como
+  linha do tempo, só o que a pessoa pode ver), 02 (Clientes / Clientes e entregas: a entrega com o prazo e o link
+  da galeria, sem guardar fotos), os exemplos (a lista de clientes; na fotografia, "Clientes e entregas" com o
+  prazo de cada entrega).
+Plano (nesta ordem, cada parte com commit): 1. a lista (chips pela situação: com reserva, interessados, já
+  fizeram, não fecharam, arquivados; busca; a próxima reserva na linha); 2. a ficha (gaveta): contatos com
+  WhatsApp, a linha do tempo (pedidos, reservas, compromissos, contratos, parcelas, entregas e o histórico, cada
+  um abrindo o seu módulo, só o que a pessoa vê), editar (contato e a ficha completa: observações, endereço);
+  ?cliente=<id> e ?novo=cliente; 3. juntar clientes (juntar_clientes) e arquivar com desfazer; 4. fotografia:
+  as entregas (escolhendo, em edição, entregue), com o prazo e o link da galeria, e começar a entrega de um
+  ensaio feito; 5. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 5): src/modulos/clientes/: index.js (lista com chips pela situação do banco: todos, com
+  reserva, interessado, já fez, não fechou, arquivados; busca por nome, WhatsApp, e-mail ou Instagram; a próxima
+  ou a última reserva na linha; ?cliente=<id>, ?novo=cliente; na fotografia, as abas Clientes e Entregas),
+  ficha.js (gaveta: contatos com WhatsApp, anotações e endereço (clientes_fichas), a linha do tempo com pedidos,
+  reservas, compromissos, contrato, pagamentos (as parcelas de cada reserva viram um item: "7 de 9 pagas, próxima
+  vence…") e entregas, cada item abrindo o seu módulo e só o que a pessoa vê; editar e novo; juntar com outro
+  cliente (juntar_clientes, com confirmação); arquivar e tirar do arquivo com desfazer; apagar só quem não tem
+  história; "Novo pedido" já com o cliente), entregas.js (fotografia: em andamento pelo prazo, entregues, os
+  ensaios feitos sem entrega com "Começar a entrega" (prazo de 30 dias, editável), em que pé está com desfazer,
+  "Entregue" pede o link da galeria e oferece o WhatsApp), logica.js; test/clientes.test.mjs (5 testes).
+  CPF ficou de fora da tela de propósito (D14: o aceite é sem CPF; só se o contrato do cliente pedir).
+  Fora do "Mexe em", pequeno: src/app.js (trocar de tela fecha as gavetas abertas: um link de dentro da gaveta
+  deixava ela aberta por cima da tela nova), src/modulos/atendimento/ (?novo=pedido&cliente=<id> pula o "Para
+  quem?"), estilo.css seção 19.
+Testado no STG (Villa Alecrim e Estúdio Ciranda): lista com 32 clientes por situação, ficha da Juliana & Pedro
+  (festa, reunião, pagamentos quitados, contrato aceito, pedido), novo cliente com anotação, juntar dois
+  clientes de teste, arquivar e desfazer, apagar (só sem história), "Novo pedido" da ficha abrindo o
+  Atendimento já com o cliente, entregas da fotografia (começar, "Entregue" sem link é barrado, com link entra,
+  desfazer); quem só vê não tem nenhum botão. Testes: 137 do front. Dados de teste apagados, semente rodada.
+```
+
+```
+Missão 3 · bloco B (Agenda) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
+Referência: os exemplos /exemplos/painel-eventos (Agenda: mês com as festas e o painel do dia; gaveta da festa com
+  resumo, checklist e histórico; nova reserva) e /exemplos/painel-fotografia (ensaios por horário, horários livres,
+  quadro da campanha com vagas, texto do Stories); 09 (celular: faixa da semana + lista do dia, o mês a um toque,
+  legenda e equipe no "Filtrar", tocar num dia vazio oferece "Reservar este dia"); 02 (Agenda da equipe/do estúdio:
+  cada pessoa pode ver só o que é dela); 05 (reservas, compromissos, bloqueios, campanhas, reservas_checklist,
+  reservas_adicionais; valores ficam fora, com Financeiro e Contratos).
+Plano (nesta ordem, cada parte com commit): 1. o calendário: no celular, a faixa da semana e a lista do dia, com o
+  mês a um toque; no computador, o mês e o painel do dia; reservas (cor do tipo ou do ensaio; pré-reserva
+  tracejada), compromissos, datas fechadas; "Filtrar" (quem cuida, tipo; "só o meu"); 2. a gaveta da reserva
+  (resumo, situação: confirmar, realizada, cancelar; checklist com desfazer; WhatsApp) e a do compromisso;
+  ?reserva=<id>; 3. reservar data ("+" e ?novo=reserva, tocar num dia vazio) com o conflito de horário, editar a
+  reserva, e marcar visita, degustação ou reunião (?novo=visita); 4. fotografia: o dia por horário com os horários
+  livres (horarios menos reservas e datas fechadas) e o quadro das campanhas com vagas e o texto do Stories;
+  5. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 5): src/modulos/agenda/: index.js (celular: faixa da semana e a lista do dia, o mês a um
+  toque; computador: o mês e o painel do dia; pré-reserva tracejada, datas fechadas, "Dia livre: já aparece na
+  agenda online", "Reservar este dia"; "Filtrar" com quem cuida e "Só o meu", o que mostrar (a legenda) e
+  canceladas; ?reserva=<id>, ?novo=reserva, ?novo=visita, ?dia=aaaa-mm-dd), reserva.js (gaveta: resumo sem
+  valores, adicionais, situação confirmar/realizada/cancelar com desfazer, checklist com marcar, pôr e tirar;
+  reservar e editar com "Para quem?", turnos do dia, duração do ensaio, adicionais, e o conflito de horário e a
+  data fechada avisando antes de gravar: "Reservar mesmo assim"), compromisso.js (visita, degustação, reunião,
+  outro: marcar, editar, desmarcar com desfazer), campanhas.js (fotografia: reservados, com sinal, esperando o
+  sinal, lista de espera; o quadro de horários por dia, livre vira "Marcar"; o texto do Stories que muda
+  sozinho), logica.js (regras sem tela); test/agenda.test.mjs (8 testes).
+  Fora do "Mexe em", pequeno: src/nichos/index.js (doNegocio, o nome do negócio com a preposição certa; o
+  Atendimento passou a usar dali) e estilo.css seção 18.
+Testado no STG (Villa Alecrim e Estúdio Ciranda da semente): semana e mês no celular, mês no computador, gaveta
+  com checklist (marcar e desmarcar), Filtrar, reservar num dia ocupado (avisa "Esse horário já tem: Juliana &
+  Pedro (19h às 3h)" e deixa reservar mesmo assim), cancelar com desfazer, marcar e desmarcar visita, o dia da
+  fotografia com os horários livres, o dia de campanha com os horários da campanha, o quadro da campanha (24 de
+  30) e o Stories; ?reserva= (do Atendimento) abre a festa; ?novo=reserva abre o "Para quem?"; quem só vê não
+  tem nenhum botão e o checklist fica travado. Testes: 132 do front. Dados de teste apagados, semente rodada.
+Ficou de fora (para os outros blocos): os valores e as parcelas da festa (Financeiro, 3D: o link "Ver os
+  pagamentos" leva a /financeiro?reserva=<id>); o histórico da festa (a tabela atividades já grava; quem fizer a
+  ficha do cliente, 3A, ou o Início, 3F, mostra); editar as campanhas é em Serviços (já existe).
+```
+
+```
+Missão 3 · bloco C (Atendimento) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
+Referência: o exemplo /exemplos/painel-eventos (Atendimento e a gaveta do pedido), 09 ("Atendimento": a lista
+  primeiro, o funil recolhido; no computador, quadro em colunas por etapa, arrastar muda a etapa; desfazer;
+  tempo real do pedido novo), 05 (pedidos, compromissos, lista_espera, fechar_pedido), 02 (Atendimento).
+Plano (nesta ordem, cada parte com commit): 1. a lista (etapas em chips, busca, "De onde vêm" e o funil
+  recolhidos) e, no computador, o quadro por etapa com arrastar (mudar etapa com desfazer); 2. a gaveta do pedido
+  (mensagem, data desejada e se está livre, convidados, tipo ou ensaio, quem atende, etapa, Responder no WhatsApp,
+  Marcar visita, Perdido); 3. anotar pedido em poucos toques (o "+ Novo pedido" e ?novo=pedido): "Para quem?",
+  data, tipo, convidados, origem; 4. "Fechar" vira reserva (fechar_pedido), confirmando a pré-reserva que a agenda
+  online já criou; 5. lista de espera (fotografia, por campanha); 6. tempo real: pedido novo aparece sozinho, com
+  aviso; 7. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 7): src/modulos/atendimento/: index.js (lista com chips por etapa, busca, o próximo passo na
+  linha: Responder no novo, Fechar no orçamento; "Como vão os pedidos" recolhido; no computador, Lista | Quadro,
+  quadro por etapa com arrastar e desfazer; ?novo=pedido e ?pedido=<id>; tempo real), pedido.js (gaveta, mudar
+  etapa otimista com desfazer, Responder no WhatsApp leva o novo para "em conversa", Marcar visita = compromisso
+  tipo visita, Perdido e Reabrir, Fechar = fechar_pedido com pré-reserva ou confirmada; anotar pedido com "Para
+  quem?" primeiro), espera.js (lista de espera da fotografia, por campanha, Chamar no WhatsApp, tirar com
+  desfazer), logica.js (regras sem tela); test/atendimento.test.mjs (8 testes).
+  Banco: migração 20261029203000_fechar_pedido_confirma.sql (STG e produção; 05): fechar um pedido com
+  pré-reserva confirma a reserva que ele já tem. Teste 020 cobre.
+  Fora do "Mexe em", pequeno (avisos em "Avisos entre sessões"): adaptador (ouvir, tempo real), app.js (desmontar
+  o módulo ao sair), src/ui/gaveta.js (foco "fechar"), estilo.css seção 17; 04 e 10 em dia.
+Testado no STG (Villa Alecrim e Estúdio Ciranda da semente): lista no celular, gaveta com "a data está livre",
+  quadro no computador, arrastar e desfazer, anotar pedido (cliente novo pelo "Para quem?"), fechar (pré-reserva
+  19h-3h), fechar um pedido com pré-reserva como confirmada (sem criar outra), pedido novo entrando pelo banco
+  aparece sozinho em ~2 s com aviso, lista de espera da fotografia; quem só vê não tem nenhum botão e o banco não
+  deixa mudar etapa nem fechar. Testes: 124 do front, 9 arquivos do banco (local e STG). Dados de teste apagados.
+Ficou de fora (para os outros blocos): o número de pedidos novos no menu (badge da casca); "Ver na Agenda" leva a
+  /agenda?reserva=<id>, que a Agenda (3B) abre quando existir; a ficha do cliente é do 3A (/clientes?cliente=<id>).
+```
+
+```
+Missão 2 · bloco B (telas base) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITA, NA MAIN E NA PRODUÇÃO
 Plano (nesta ordem, cada parte com commit): 1. palavras por nicho (src/nichos/) e formatos (src/ui/formatos.js);
   2. a casca de verdade: sessão com a conta escolhida (minhas_contas), escolher a conta, menu lateral e barra de
   baixo só com os módulos ligados (trancado sem acesso), aviso de teste e tela de teste vencido, registrar_entrada,
@@ -241,10 +438,34 @@ Feito: 1 (src/nichos/, src/ui/formatos.js, test/formatos.test.mjs). 2, a casca: 
   ainda não (falta a permissão para publicar). Testado no STG sem mandar e-mail: o link de convite (gerado no
   banco, igual ao do e-mail) aberto no celular leva a /convite, a pessoa cria a senha e entra só com Início, Agenda
   e Mais, sem "+"; a função barra sem login (401), convite de outra conta (404), vencido (409), endereço de fora (400).
-Próximo passo: parte 6 (onboarding /comecar e cadastro /cadastro).
-Teste no STG: usuários temporários com senha (dono-sessao@villa-alecrim.teste, dono das duas contas de teste;
-  lia-convite@villa-alecrim.teste, só a Agenda, só vê), criados só para a sessão; as senhas não ficam no
-  repositório. A Villa Alecrim está com limite 6 no STG durante o teste. Apagar os dois e rodar a semente no fim.
+6: /comecar (src/telas/comecar.js: nicho, nome e WhatsApp com máscara, módulos na ordem do menu, tipos de festa
+  com cor ou ensaios com duração; respostas no aparelho; a conta nasce no fim, D29) e /cadastro (src/telas/cadastro.js
+  com o Cloudflare Turnstile; sem a chave, leva ao WhatsApp; D30); api/config.js entrega cadastroAberto; CSP com o
+  Turnstile; test/onboarding.test.mjs. 7: src/modulos/inicio/primeiros-passos.js (4 itens que se marcam pelo banco,
+  esconder com desfazer, importar datas digitando ou por CSV, D31); test/primeiros-passos.test.mjs.
+8, ponta a ponta no localhost contra o STG (Chromium, celular e computador): um usuário novo passou pelo onboarding
+  de eventos e outro pelo de fotografia (contas em teste de 7 dias, módulos e ordem do menu, tipos de festa com cor,
+  ensaios com duração); o dono importou datas digitando e por CSV (fuso, duração, tipo pelo nome); convidou em
+  Equipe uma pessoa só com a Agenda (só vê); ela abriu o link no celular, criou a senha e entrou só com Início,
+  Agenda e Mais, sem "+"; com o login dela, o banco não deixa criar, mudar nem apagar festa, nem criar tipo, nem
+  ver valores, pedidos, contratos ou outra conta, nem se dar acesso. Testes do banco: local e STG passando (o 010
+  olhava todos os convites do STG; corrigido). npm test: 93 passando. O /cadastro aberto foi visto com a chave de
+  teste da Cloudflare (sem cadastrar: o STG segue com o cadastro fechado).
+O e-mail de verdade não foi testado: o link do convite foi gerado no banco e a chamada da função, interceptada no
+  teste da tela (a função em si foi testada à parte no STG). Usuários e contas de teste apagados; semente rodada.
+Depois de trazer a main (Missão 4): o logo das Configurações dava 403 (aviso da 4C); resolvido pela migração
+  20261029190000_armazenamento_leitura.sql (bloco A, STG e produção) e conferido pela tela no STG.
+Função convidar na produção desde 29/10 (com o ok da Renderiza; publicada sozinha com --so convidar, sem
+  republicar a avisar-pedido): sem login dá 401, conferido sem mandar e-mail. Falta (da Renderiza): criar o
+  Turnstile para abrir o cadastro (D30, 04) e testar um convite com um e-mail de verdade.
+Depois de pronta, a pedido da Renderiza (29/10): o onboarding virou um trilho (D33; 09, "Como ficou, um trilho";
+  10, "Tema do nicho"): boas-vindas com o roteiro, escolha única que segue sozinha com check e animação, a cor do
+  nicho na tela (verde dos eventos, vinho da fotografia, dos exemplos), a pergunta nova "Você já tem site?"
+  (contas.ajustes.onboarding.site) e "Montando o seu painel" com um check por parte. Arquivos: src/telas/comecar.js
+  (reescrito), src/telas/acesso.js (painelDaMarca, temaDoNicho), estilo.css seções 1 (tokens do nicho) e 16;
+  test/onboarding.test.mjs. Testado no STG: eventos no celular e fotografia no computador, do zero ao Início.
+  /api/config passou a dizer o commit no ar (versao; 04, Vercel): o push a4f92d1 não chegou à produção em 25
+  minutos, o seguinte (aabb9bc) entrou em 1 minuto. Na produção: aabb9bc em diante.
 ```
 
 ```
@@ -425,6 +646,9 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029135228_publico_agenda.sql` (agenda online: `publico_disponibilidade`, `publico_pedido`, `publico_tentativas`) | 4A | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | 29/10/2026 |
 | `20261029141139_aviso_de_pedido.sql` (aviso por e-mail de pedido novo: `aviso_do_pedido`, `pedidos_avisos`) | 4A | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | 29/10/2026 |
 | `20261029141746_publico_site.sql` (Meu site: `publico_site`, `publico_previa`) | 4C | `claude/painel-renderiza-roadmap-jfhmpp` | 29/10/2026 | 29/10/2026 |
+| `20261029190000_armazenamento_leitura.sql` (leitura do Storage para quem é da conta: sem ela, trocar e tirar o logo davam 403; aviso da 4C) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029203000_fechar_pedido_confirma.sql` (fechar um pedido que já tem reserva confirma a pré-reserva e ajusta a data) | 3C | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
+| `20261029220000_publico_contrato.sql` (o aceite do contrato pelo link: `publico_contrato` e `publico_aceitar_contrato`) | 3E | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 
 ## Avisos entre sessões
 
@@ -433,6 +657,20 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 3E → 3F, 5, todas | **Contratos pronto (na `main`).** (1) **3F**: "contratos esperando aceite" (09) são os `contratos` com `situacao = 'enviado'` (há quantos dias: `enviado_em`); a tela abre um contrato com **`/contratos?contrato=<id>`** e um novo com **`/contratos?novo=contrato[&reserva=<id>]`**. (2) **5B (revisão de segurança)**: as funções públicas novas são `publico_contrato` e `publico_aceitar_contrato` (05); a página `/c/<código>` chama o banco direto com a chave pública. (3) **Todas**: o Pix da conta fica em `contas.ajustes.pix` (`chave`, `nome`), editado em Configurações (só o dono); o Financeiro pode usar no lembrete. (4) O rewrite de `/c/:codigo` é o **primeiro** do `vercel.json` (antes do app); quem mexer nos rewrites mantém a ordem. (5) `.rz-linhas--parcelas` virou **`.rz-linhas--com-botao`** (10). |
+| 29/10/2026 | 3D → 3E, 3F, todas | **Financeiro pronto (na `main`).** (1) **3E**: a festa no Financeiro (`/financeiro?reserva=<id>`) grava o valor total, o sinal e o desconto em `reservas_valores` (quem tem Contratos também edita): o contrato pode ler dali e levar de volta com o mesmo link; as parcelas são lançadas pelo Financeiro ("Lançar parcelas"). (2) **3F**: os números do mês saem de `resumo(parcelas, hoje)` em `src/modulos/financeiro/logica.js` (recebido no mês, falta no mês, a receber em 30 dias, atrasadas); "Registrar pagamento" é `/financeiro?novo=pagamento`, uma parcela é `/financeiro?parcela=<id>`. (3) **Todas**: com a chave estrangeira composta (`conta_id` + `reserva_id`), o banco devolve `reservas_valores` dentro de `reservas` como **lista**, não objeto (pegue o `[0]`). (4) `.rz-link` agora é `inline-flex` (ícone e texto na mesma linha); `--rz-grafico-1` e `-2` são as cores de gráfico (10). |
+| 29/10/2026 | 3A → 3D, 3E, 3F, todas | **Clientes pronto (na `main`).** A ficha leva a **`/financeiro?reserva=<id>`** e **`/financeiro?cliente=<id>`** (os pagamentos), **`/contratos?contrato=<id>`** e **`/clientes?aba=entregas&entrega=<id>`**: o Financeiro (3D) e Contratos (3E) abrem o detalhe ao ver esses parâmetros. Clientes abre **`/clientes?cliente=<id>`** e **`?novo=cliente`**; o Atendimento aceita **`?novo=pedido&cliente=<id>`** (pula o "Para quem?"). **`src/app.js` mudou (pequeno):** trocar de tela fecha as gavetas e folhas abertas (antes, um link de dentro da gaveta deixava ela por cima da tela nova). |
+| 29/10/2026 | 3B → 3A, 3D, 3F | **Agenda pronta (na `main`).** (1) A gaveta da festa leva a **`/financeiro?reserva=<id>`** ("Ver os pagamentos", só para quem tem Financeiro) e a **`/clientes?cliente=<id>`**: o Financeiro (3D) e Clientes (3A) abrem o detalhe ao ver esses parâmetros. (2) A Agenda abre **`/agenda?reserva=<id>`** e **`/agenda?dia=aaaa-mm-dd`**: use nos links do Início (3F) e da ficha (3A). (3) O nome do negócio com a preposição certa ("do espaço Villa Alecrim", "no Estúdio Ciranda") é `doNegocio(nome, nicho, "do")` de `src/nichos/index.js`: use nas mensagens prontas. (4) Conflito de horário e "horário livre" seguem a regra da agenda online (`seguraHorario` e `horariosLivres` em `src/modulos/agenda/logica.js`); sem acesso ao Atendimento, a Agenda trata toda pré-reserva como segurando a data (não sabe se veio da agenda online). |
+| 29/10/2026 | 3C → Renderiza, todas | **Deploy da produção parado desde as 20h40 (UTC):** três pushes na `main` (`a740cea`, `ae4a698`, `b4cee64`) não chegaram; o `/api/config` continua em `aabb9bc`. Às 19h40 um push novo tinha destravado; agora não. Causa provável: o limite do plano grátis da Vercel (100 deploys por dia, somando as prévias de cada branch). Para destravar: na Vercel, projeto `renderiza-painel-clientes`, Deployments, olhar o do último commit da `main` e, se for limite, esperar e clicar em Redeploy. Enquanto isso, a produção não tem o Atendimento, a Agenda, Clientes, o Financeiro e Contratos novos (o banco deles já está lá e é compatível com a tela antiga). Ainda parado no fim do bloco E (`aabb9bc`). |
+| 29/10/2026 | 3C → 3A, 3B, 3F, 1 | **Atendimento pronto (na `main`).** Para os outros blocos: (1) **tempo real**: `banco.ouvir(tabela, { filtro, aoMudar })` devolve a função que para; devolva-a no fim do `montar` e o `app.js` chama ao sair (04, "Tempo real"); (2) o Atendimento leva a **`/agenda?reserva=<id>`** ("Ver na Agenda") e a **`/clientes?cliente=<id>`** (o "Ver o cliente"): a Agenda (3B) e Clientes (3A) abrem o detalhe quando virem esses parâmetros; (3) **visita** marcada no Atendimento vira `compromissos` tipo `visita` com `pedido_id` e `cliente_id`: a Agenda mostra; (4) **3F**: o "Anotar o primeiro pedido" dos primeiros passos já funciona (`/atendimento?novo=pedido`); o número de pedidos novos no menu (badge) ficou para quem mexer na casca. Fora do "Mexe em" do 3C, pequeno: `src/adaptadores/supabase.js` (`ouvir`), `src/app.js` (desmontar), `src/ui/gaveta.js` (`foco: "fechar"`), `estilo.css` seção 17. |
+| 29/10/2026 | 3C → 3B, 4A | **`fechar_pedido` mudou** (migração `20261029203000`, STG e produção; `05`): se o pedido já tem reserva (a pré-reserva da agenda online), "Fechar" confirma (ou mantém pré-reserva, como a pessoa escolher) e ajusta a data e o horário, sem criar outra reserva. Antes, a pré-reserva ficava como estava e vencia em 48 horas. Reserva cancelada ou realizada não muda. |
+| 29/10/2026 | 2B → todas | **Para conferir o deploy da produção:** `curl -s https://painel.renderizaweb.com.br/api/config` mostra `versao` (o commit no ar). Se depois de uns 5 minutos ainda for o commit anterior, o deploy não entrou: um push novo que mude `painel-clientes/` destravou em 29/10 (o `a4f92d1` ficou parado; o `aabb9bc` entrou em 1 minuto). Commit só de documentos não faz deploy (o `ignoreCommand`). |
+| 29/10/2026 | 2B → 5 | **Onboarding em trilho (D33):** a resposta "Você já tem site?" fica em `contas.ajustes.onboarding.site` (`tenho`, `instagram` ou `nao`; `null` se não respondeu): bom para o Admin mostrar na conta (é um lead de site para a Renderiza). O tema do nicho é só do onboarding; dentro do painel, a cor da conta continua "depois" (`10`). |
+| 29/10/2026 | 2B → todas | **Função `convidar` na produção** (versão 1), com o ok da Renderiza. O `publicar.mjs` ganhou `--so <nome>` para publicar uma função só, sem republicar as outras (a `avisar-pedido` ficou como estava). |
+| 29/10/2026 | 2A → 4C, 2B | **Logo e imagens: resolvido no banco** (o aviso da 4C sobre o logo). Era pior: com "upsert", até o primeiro envio do logo dava 403, e "tirar" não funcionava. A migração `20261029190000_armazenamento_leitura.sql` (STG e produção) deixa ler pela API quem é da conta (`logos`) e quem vê o Meu site (`site-imagens`); os buckets já eram públicos. Conferido no STG pela tela Configurações (enviar e trocar) e pela API (apagar). O `{ trocar: false }` do Meu site continua valendo. |
+| 29/10/2026 | 2B → 3, 4, 5 | **Telas base na `main`.** Para quem constrói módulo: o contexto (`src/app.js`) traz `conta` (de `minhas_contas`: `dono`, `acessos`, `modulos`, `ajustes`, `liberada`), `nicho` (`src/nichos/`: as palavras), `pessoa`, `pode(módulo, nível)`, `avisar` e `navegar`; as peças estão no [`10`](10-design-system.md) (gaveta, "Para quem?", estados, linhas, chips, campos, CSV). O "+" leva a `/<módulo>?novo=pedido|reserva|visita|pagamento|cliente`: cada módulo abre o formulário quando vê o `?novo=`. **3F:** `src/modulos/inicio/index.js` só monta os primeiros passos no topo (`primeiros-passos.js`, do bloco B); mantenha essa chamada. **4:** o item "copiar o link da agenda online" dos primeiros passos entra quando o link existir (D31). **5:** o Admin convida o dono pela mesma função `convidar` (lê o convite com o login de quem chama; a equipe Renderiza pode). |
+| 29/10/2026 | 2B → 1 | **Fora do "Mexe em" do bloco B, pequeno, para o cadastro (D30):** `api/config.js` entrega `cadastroAberto` e `turnstile` quando existe `TURNSTILE_SITE_KEY`; `scripts/servidor.mjs` lê `PAINEL_STG_TURNSTILE_SITE_KEY`; a CSP do `vercel.json` ganhou `challenges.cloudflare.com` (script e frame), com o `test/esqueleto.test.mjs` acompanhando. Para abrir o cadastro: criar o site no Turnstile, a secreta no Auth dos dois projetos, a pública na Vercel e tirar o `disable_signup` (STG primeiro). |
+| 29/10/2026 | 2B → 1, 5 | **Convite pronto** (D28 no `07`, `04`): a função do Supabase `convidar` (`painel-clientes/supabase/functions/`, pasta nova) manda o e-mail; publicar com `node supabase/functions/publicar.mjs stg` e `producao --projeto <ref>`. Publicada no STG; **na produção ainda não**. A tela `/convite` recebe o link. Fora do "Mexe em" do bloco B, pequeno e combinado com a Missão 1: `src/adaptadores/supabase.js` ganhou `cadastrar`, `funcao`, `enviarArquivo` e `urlPublica`; `src/app.js` e `src/rotas.js`, as telas novas (`/cadastro`, `/convite`, `/contas`, `/comecar`) e o contexto dos módulos (`conta`, `nicho`, `pessoa`, `pode`, `avisar`). Testes novos em `painel-clientes/test/`. A Missão 5 (Admin) convida o dono pela mesma função. |
 | 29/10/2026 | 4 → 2B e todas | **Produção recebeu as 3 migrações da Missão 4** (`…135228_publico_agenda`, `…141139_aviso_de_pedido`, `…141746_publico_site`) e a função `avisar-pedido`, publicada sozinha: a `convidar` (2B) **continua fora da produção**, como estava. Quem rodar `node supabase/functions/publicar.mjs producao` publica as duas: só faça quando a 2B quiser a `convidar` na produção. |
 | 29/10/2026 | 4C → 2B | **O envio do logo (Configurações) deve falhar** com "new row violates row-level security policy": o Storage só deixa **trocar** arquivo (`upsert: true`, o padrão do `enviarArquivo`) com uma política de **leitura** (`select`) no bucket, e `logos` e `site-imagens` só têm as de enviar, trocar e tirar. Conferido no STG com `site-imagens` (mesmas regras): sem trocar passa, trocando dá 403. O Meu site já envia com `{ trocar: false }` (nome novo a cada foto). Para o logo: ou nome novo a cada envio (e tirar o antigo), ou uma migração com a política de leitura da pasta da conta (`pode(conta_da_pasta(name), 'configuracoes', 'ver')`). Não mexi (é da 2B). |
 | 29/10/2026 | 4C → 2B | **O editor do Meu site está na branch `claude/painel-renderiza-roadmap-jfhmpp`, em cima da 2B** (merge até `cbe0c3b`). Dois arquivos da 2B mudaram lá, pequenos: `src/modulos/meu-site/index.js` (era o vazio do esqueleto; agora é o editor) e `src/adaptadores/supabase.js` (`enviarArquivo` ganhou o 5º parâmetro `{ trocar = true }`, sem mudar quem já chama). Quando a 2B for para a `main`, essa branch vai logo depois (nota de passagem do bloco C). |
@@ -443,7 +681,6 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 | 29/10/2026 | 4A → 2A/2B | **`node supabase/testes/no-stg.mjs`: o `010_contas_e_acesso.sql` falha no STG** ("more than one row returned by a subquery"): a linha 107 busca `pessoas where nome = 'Rafael Teste'` sem filtrar a conta, e a semente tem outra pessoa com esse nome. No local passa. Sugestão: filtrar pela conta do teste, como os outros. Não mexi (é da 2A). |
 | 29/10/2026 | 4B → 2A, 4A, 4C | **Meu site no site pronto** (contrato v1 no `03`). Para o painel cumprir: (1) `GET /api/publico/site/<código>` com o JSON do contrato (o `conteudo` da última publicada + `esquema`, `site`, `versao`, `publicado_em`), `404` para desconectado/versão final, **`Access-Control-Allow-Origin: *`** e `Cache-Control: public, max-age=0, s-maxage=60`; (2) a prévia em `/api/publico/site/<código>/previa?t=<sites_previas.codigo>`, `no-store`; (3) **imagens servidas pelo domínio do painel** (o script recusa outro endereço; ex.: rewrite `/imagens/sites/…` para o Storage `site-imagens`); (4) `sites.conteudo_inicial` = a saída de `node ferramentas/meu-site/extrair.mjs <index.html>`; (5) validar com a mesma `validar()` de `ferramentas/meu-site/meu-site.js`: a Vercel publica só `painel-clientes/`, então o painel guarda uma cópia e um teste confere que é igual. O formato de `sites`, `sites_versoes` e `sites_previas` do bloco A já bate com isso. |
 | 29/10/2026 | 4B → demos | **Geradores com as marcações do Meu site** (`data-site-*` em `gerar.py` e `gerar-eventos.py`): o visual não muda (conferido pixel a pixel), mas não apague nem renomeie. O `runtime.js` expõe `window.DEMO_RUNTIME`. Rótulo de botão é texto direto dentro do `<a>`, sem `<span>`. |
-| 29/10/2026 | 2B → 1, 5 | **Convite pronto** (D28 no `07`, `04`): a função do Supabase `convidar` (`painel-clientes/supabase/functions/`, pasta nova) manda o e-mail; publicar com `node supabase/functions/publicar.mjs stg` e `producao --projeto <ref>`. Publicada no STG; **na produção ainda não**. A tela `/convite` recebe o link. Fora do "Mexe em" do bloco B, pequeno e combinado com a Missão 1: `src/adaptadores/supabase.js` ganhou `cadastrar`, `funcao`, `enviarArquivo` e `urlPublica`; `src/app.js` e `src/rotas.js`, as telas novas (`/cadastro`, `/convite`, `/contas`, `/comecar`) e o contexto dos módulos (`conta`, `nicho`, `pessoa`, `pode`, `avisar`). Testes novos em `painel-clientes/test/`. A Missão 5 (Admin) convida o dono pela mesma função. |
 | 29/10/2026 | 2A → todas | **O banco inteiro está no STG e na produção** (`05` descreve tudo). Para quem constrói: (1) quem decide o acesso é `pode(conta, módulo, 'ver' ou 'editar')`; a tela só esconde o que o banco já não entrega. (2) **Tabela nova** precisa de RLS e de `revoke all ... from anon`: o teste `supabase/testes/090_regras_gerais.sql` falha se faltar. (3) **Função aberta ao visitante** só com o nome `publico_*` (o mesmo teste confere); as outras com `revoke execute ... from public, anon`. (4) O histórico (`atividades`) é automático nas tabelas do dia a dia; tabela nova que precise dele ganha o gatilho `historico` (ver a migração `20261029110200`). (5) Testes do banco também rodam no STG: `node supabase/testes/no-stg.mjs`. |
 | 29/10/2026 | 2A → 2B | **Para as telas:** `minhas_contas()` (escolher a conta e o menu: `liberada = false` é o aviso de teste vencido ou conta desligada; `modulos` são os ligados), `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` (um teste por pessoa), `aceitar_convites()` (chamar logo depois de entrar), `registrar_entrada(conta, aparelho)` (ao entrar numa conta). Convite = linha em `convites` (só o dono grava) + o e-mail pelo servidor com `data: { nome_da_conta }`. Preferências: `pessoas.preferencias` (de cada um) e `contas.ajustes` (da conta: ordem do menu, primeiros passos escondidos). Onboarding de eventos: "Que festas vocês fazem?" cria `tipos_reserva` (D21, `09`). Equipe e Configurações são só do dono (D22); limite de 5 pessoas ativas no banco. Logo em `logos/<id da conta>/…`. |
 | 29/10/2026 | 2A → 3, 4, 5 | **Já no banco para as missões seguintes:** `fechar_pedido()`, `juntar_clientes()` e `situacao(cliente)` (3A, 3C); o aceite do contrato grava `aceito_*` só por uma função `publico_*` (3E); `sites`, `sites_versoes`, `sites_previas`, o bucket `site-imagens` (só WebP, 2 MB) e os pedidos no tempo real (4); `equipe_renderiza` (vazia: a Renderiza cadastra quem entra no Admin, direto no banco), `acessos_suporte`, `pagamentos`, `entradas` e `admin_indicadores()` (5A). |

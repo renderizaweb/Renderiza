@@ -58,6 +58,7 @@ export function acoesRapidas(conta, pode) {
     conta && conta.nicho === "eventos" && (pode("agenda", "editar") || pode("atendimento", "editar")) &&
       { id: "nova-visita", rotulo: "Marcar visita", icone: "relogio", caminho: "/agenda?novo=visita" },
     pode("financeiro", "editar") && { id: "novo-pagamento", rotulo: "Registrar pagamento", icone: "carteira", caminho: "/financeiro?novo=pagamento" },
+    pode("contratos", "editar") && { id: "novo-contrato", rotulo: "Mandar contrato", icone: "contrato", caminho: "/contratos?novo=contrato" },
     ["agenda", "atendimento", "clientes", "contratos", "financeiro"].some(m => pode(m, "editar")) &&
       { id: "novo-cliente", rotulo: "Novo cliente", icone: "clientes", caminho: pode("clientes", "ver") ? "/clientes?novo=cliente" : null },
   ];
@@ -89,8 +90,9 @@ function avisoDoTeste(conta) {
   const dias = diasDeTeste(conta);
   if (dias === null || !conta.liberada) return "";
   const texto = dias <= 1 ? "Último dia do teste grátis." : `Teste grátis: faltam ${dias} dias.`;
+  // fechar o plano é com o dono; a equipe só fica sabendo do prazo
   return `<div class="rz-faixa-teste" role="status">${icone("relogio", { tamanho: 16 })}<span>${texto}</span>
-    <a href="${linkDaRenderiza(`Oi! Quero fechar o plano do Painel Renderiza para ${conta.nome}.`)}" target="_blank" rel="noopener">Fechar o plano</a></div>`;
+    ${conta.dono ? `<a href="${linkDaRenderiza(`Oi! Quero fechar o plano do Painel Renderiza para ${conta.nome}.`)}" target="_blank" rel="noopener">Fechar o plano</a>` : ""}</div>`;
 }
 
 /** O conteúdo quando a conta está bloqueada (teste vencido, desligada, prazo vencido): o banco não entrega nada. */

@@ -15,8 +15,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 2 · Fundação: banco e casca |
-| **Próxima ação** | Missão 2 ([`missoes.md`](missoes.md)): bloco A (banco) na `main` (STG e produção); bloco B (telas base) em andamento |
+| **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
+| **Próxima ação** | Missão 3: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) feitos; bloco F (Início e exportar) em andamento; a Missão 5 está livre; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
@@ -25,7 +25,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 ```
                                                        ┏━━ [3] MÓDULOS DO DIA A DIA ━━━━┓
  PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ━━━━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
-   ✅        E INFRA ✅         BANCO E CASCA 🚂       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
+   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -65,7 +65,7 @@ trabalharem sem se bater.
 **Chegou quando:** o login funciona no endereço escolhido, o e-mail de confirmação chega, e uma migração de teste
 passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé: Missão 1 em [`missoes.md`](missoes.md)).
 
-## Parada 2 · Fundação: banco e casca 🚂
+## Parada 2 · Fundação: banco e casca ✅
 
 **Para quê:** o esqueleto que todos os módulos usam. Depois dela, os módulos andam em paralelo.
 **Referência:** [`05-dados-e-permissoes.md`](05-dados-e-permissoes.md), [`09-ux.md`](09-ux.md) e os exemplos.
@@ -86,7 +86,7 @@ passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé:
 **Chegou quando:** numa conta de teste, o dono convida uma pessoa e dá a ela só a Agenda (só vê); ela entra pelo
 celular, vê só a Agenda e não consegue editar; os testes de isolamento passam.
 
-## Parada 3 · Módulos do dia a dia ⬜ (em paralelo)
+## Parada 3 · Módulos do dia a dia 🚂 (em paralelo)
 
 **Para quê:** cada módulo fazendo de verdade o que o exemplo mostra, amarrado ao cliente.
 **Referência:** [`02-produto.md`](02-produto.md), [`05`](05-dados-e-permissoes.md) e os exemplos.
@@ -102,7 +102,7 @@ celular, vê só a Agenda e não consegue editar; os testes de isolamento passam
 **Chegou quando:** cada módulo faz, no painel real, tudo o que o exemplo mostra, e uma festa percorre o caminho
 inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) sem digitar nada duas vezes.
 
-## Parada 4 · Ponte com o site ⬜ (em paralelo)
+## Parada 4 · Ponte com o site 🚂 (em paralelo)
 
 **Para quê:** o site do cliente conversar com o painel, sempre com o site de pé se o painel cair.
 **Referência:** [`03-modulo-meu-site.md`](03-modulo-meu-site.md) e [`04`](04-arquitetura.md) (API pública).
@@ -124,7 +124,7 @@ estão na produção. Falta: a chave do Brevo na função do aviso e subir a tel
 Missão 2, bloco B (ver a nota de passagem do bloco C em [`missoes.md`](missoes.md)). Desconectar fica no Admin
 (Parada 5).
 
-## Parada 5 · Admin e regras ⬜ (em paralelo)
+## Parada 5 · Admin e regras 🚂 (em paralelo)
 
 **Para quê:** a Renderiza enxergar e controlar a plataforma, e o painel poder guardar dado de cliente com segurança.
 **Referência:** [`02-produto.md`](02-produto.md) (Admin) e [`06`](06-privacidade-e-seguranca.md).
@@ -163,6 +163,15 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 3 | **Missão 3, bloco A (Clientes) feito**, na `main` (a produção espera o deploy destravar): a lista pela situação, a ficha como linha do tempo, juntar e arquivar, e as entregas das fotos na fotografia. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | **Missão 3, bloco D (Financeiro) feito**, na `main` (a produção espera o deploy destravar): os números do mês, as parcelas com "Recebi" e desfazer, o lembrete no WhatsApp, a festa com "Lançar parcelas", registrar pagamento, o mês a mês e o que mais vende. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | **Missão 3, bloco E (Contratos) feito**, na `main` (a produção espera o deploy destravar; o banco do aceite já está na produção): o contrato sai do modelo com os dados da festa, vai por link, o cliente lê e aceita no celular e o painel guarda quem, quando, IP e aparelho; depois do aceite, os dados do Pix. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | **Missão 3, bloco B (Agenda) feito**, na `main` (a produção espera o deploy destravar): a semana e o mês, o painel do dia, a gaveta da festa com o checklist, reservar com o aviso de conflito de horário, os compromissos, os horários livres da fotografia e o quadro das campanhas com o texto do Stories. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | Missão 3, bloco B (Agenda) começou, na mesma branch. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | **Missão 3, bloco C (Atendimento) feito**, na `main` (a produção espera o deploy da Vercel destravar): a lista primeiro, o quadro por etapa no computador (arrastar com desfazer), a gaveta do pedido, anotar em poucos toques, "Fechar" vira reserva (confirmando a pré-reserva da agenda online), a lista de espera da fotografia e o pedido novo em tempo real. Testado no STG. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 3 | Missão 3 começou pelo bloco C (Atendimento), na branch `claude/painel-renderiza-setup-ztnrzy`. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 2 | Onboarding refeito como um trilho, a pedido da Renderiza (D33): boas-vindas com o roteiro, escolha que segue sozinha com check, a cor do nicho na tela, a pergunta "Você já tem site?" e "Montando o seu painel". Na produção. O `/api/config` passou a dizer o commit no ar (`versao`), depois de um deploy que não entrou sozinho. | Claude, a pedido da Renderiza |
+| 29/10/2026 | 2 → 3, 4, 5 | **Parada 2 chegou (Missão 2 feita).** Bloco B (telas base) na `main`: casca, escolher a conta, convite (função do Supabase), cadastro com verificação contra robô (fecha até a Renderiza criar o Turnstile), onboarding de 5 telas, primeiros passos com a importação das datas, Equipe, Configurações e Serviços. O "chegou quando" testado no STG: um dono passou pelo onboarding, convidou uma pessoa só com a Agenda (só vê), ela entrou pelo celular, viu só a Agenda e o banco não a deixou editar; os testes de isolamento passam no local e no STG. A função do convite foi para a produção no mesmo dia, com o ok da Renderiza. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 4 | Missão 4 na produção, com o "pode" da Renderiza: as 3 migrações (agenda online, aviso de pedido e Meu site) e a função `avisar-pedido`; conferido só lendo, no banco e na API do endereço oficial. Falta a chave do Brevo na função. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 4 | **Missão 4, bloco C (Meu site no painel), pronta:** o servidor (versão publicada, prévia e fotos pela API) na `main` e no STG; o editor (partes do site, fotos, rascunho, prévia, publicar, versões, voltar ao entregue) na branch, em cima da Missão 2B, que ainda não terminou: sobe com ela. Conferido de ponta a ponta no STG: a edição publicada aparece no site de teste. Com isso, as três provas da Parada 4 passaram no STG; falta a produção. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 4 | **Missão 4, bloco A (API pública e agenda online), na `main` e no STG:** os dias livres e o pedido com pré-reserva de 48 horas pelo banco, a API na Vercel, a página `/agenda/` no site do cliente (com a cara do site e WhatsApp quando o painel não responde) e o aviso ao dono por e-mail. Conferido de ponta a ponta no STG. Falta o ok para a produção e a chave do Brevo na função. | Claude, a pedido da Renderiza |

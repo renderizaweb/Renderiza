@@ -28,3 +28,17 @@ test("avisa quando falta variável", () => {
   assert.equal(configDoAmbiente({}).status, 500);
   assert.equal(configDoAmbiente({ SUPABASE_URL: URL_STG }).status, 500);
 });
+
+test("cadastro: só abre com a chave pública da verificação contra robô", () => {
+  const fechado = configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz" }).corpo;
+  assert.equal(fechado.cadastroAberto, undefined);
+  const aberto = configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz", TURNSTILE_SITE_KEY: "0x4AAAAAAAteste" }).corpo;
+  assert.equal(aberto.cadastroAberto, true);
+  assert.equal(aberto.turnstile, "0x4AAAAAAAteste");
+});
+
+test("diz o commit que está no ar, quando a Vercel informa", () => {
+  const r = configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz", VERCEL_GIT_COMMIT_SHA: "a4f92d1c0ffee" });
+  assert.equal(r.corpo.versao, "a4f92d1");
+  assert.equal(configDoAmbiente({ SUPABASE_URL: URL_STG, SUPABASE_ANON_KEY: "sb_publishable_xyz" }).corpo.versao, undefined);
+});

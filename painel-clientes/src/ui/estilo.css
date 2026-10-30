@@ -27,6 +27,20 @@
   --rz-perigo:#b42318;  --rz-perigo-fundo:#fdeceb;
   --rz-info:#2d5ea8;    --rz-info-fundo:#e8eff9;
 
+  /* Tema do nicho (onboarding; 10, "Tema do nicho"): as cores dos exemplos /exemplos/painel-eventos e
+     /exemplos/painel-fotografia. Texto branco no destaque: eventos 6,4:1, fotografia 6,5:1; o "claro" sobre o
+     painel escuro do nicho: 6,1:1 e 7,2:1. */
+  --rz-eventos:#2d6a4f; --rz-eventos-escuro:#1f4d39; --rz-eventos-claro:#7fc4a0; --rz-eventos-fundo:#e2efe7;
+  --rz-eventos-lateral:#173a2f; --rz-eventos-brilho:rgba(127,196,160,.3); --rz-eventos-foco:rgba(45,106,79,.3);
+  --rz-eventos-acao:rgba(127,196,160,.16); --rz-eventos-acao-texto:#a9dcc0;
+  --rz-fotografia:#8a4a5f; --rz-fotografia-escuro:#6e3a4c; --rz-fotografia-claro:#e3a9bb; --rz-fotografia-fundo:#f5e8ec;
+  --rz-fotografia-lateral:#3a2430; --rz-fotografia-brilho:rgba(227,169,187,.28); --rz-fotografia-foco:rgba(138,74,95,.3);
+  --rz-fotografia-acao:rgba(227,169,187,.16); --rz-fotografia-acao-texto:#f0c6d3;
+  /* o painel da marca (telas de acesso): grafite e terracota, ou as do nicho */
+  /* Gráficos (Financeiro): as duas séries, validadas pelo guia de dados (contraste, daltonismo, separação) */
+  --rz-grafico-1:#b25134; --rz-grafico-2:#2f78a8;
+  --rz-lateral:var(--rz-grafite); --rz-brilho:rgba(232,133,94,.32); --rz-previa-acao:rgba(232,133,94,.16); --rz-previa-acao-texto:#f4b79c;
+
   /* Tipo. Geist (a fonte da marca, no próprio painel). Títulos em 600 com espaçamento negativo; texto em 400. */
   --rz-fonte:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --rz-t-xs:.75rem; --rz-t-sm:.875rem; --rz-t-base:1rem; --rz-t-lg:1.125rem;
@@ -45,7 +59,7 @@
 
   /* Toque e movimento: alvo de 44 px, campos de 48 px; movimento curto e só para explicar. */
   --rz-alvo:44px; --rz-campo:48px;
-  --rz-rapido:150ms; --rz-medio:240ms; --rz-curva:cubic-bezier(.2,.8,.2,1);
+  --rz-rapido:150ms; --rz-medio:240ms; --rz-lento:420ms; --rz-curva:cubic-bezier(.2,.8,.2,1);
 
   color-scheme:light;
 }
@@ -185,9 +199,9 @@ a:hover{color:var(--rz-destaque-escuro)}
   .rz-acesso-corpo{justify-content:center;padding:var(--rz-10) 0}
   .rz-acesso-form .rz-acesso-topo .rz-marca{visibility:hidden}
   .rz-acesso-painel{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:var(--rz-10);
-    padding:var(--rz-10) clamp(40px,5vw,72px);background:var(--rz-grafite);color:var(--rz-gelo)}
+    padding:var(--rz-10) clamp(40px,5vw,72px);background:var(--rz-lateral);color:var(--rz-gelo);transition:background-color var(--rz-lento) ease}
   .rz-acesso-painel::before{content:"";position:absolute;z-index:-1;right:-18%;bottom:-28%;width:78%;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(closest-side,rgba(232,133,94,.32),rgba(232,133,94,0))}
+    background:radial-gradient(closest-side,var(--rz-brilho),transparent)}
   .rz-acesso-painel::after{content:"";position:absolute;z-index:-1;left:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;
     background:radial-gradient(closest-side,rgba(241,238,233,.07),rgba(241,238,233,0))}
   .rz-acesso-painel .rz-marca img{box-shadow:0 0 0 1px rgba(241,238,233,.16)}
@@ -208,7 +222,8 @@ a:hover{color:var(--rz-destaque-escuro)}
   .rz-previa b{display:block;font-size:var(--rz-t-sm);font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .rz-previa small{display:block;margin-top:2px;font-size:var(--rz-t-xs);color:var(--rz-sobre-grafite);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .rz-previa-acao{min-height:28px;padding:0 10px;display:inline-flex;align-items:center;border-radius:var(--rz-raio-pilula);font-size:var(--rz-t-xs);font-weight:600;
-    background:rgba(232,133,94,.16);color:#f4b79c}
+    background:var(--rz-previa-acao);color:var(--rz-previa-acao-texto)}
+  .rz-painel-da-marca{display:flex;flex-direction:column;gap:var(--rz-10)}
   .rz-previa-acao--ok{background:rgba(143,212,176,.14);color:#9fdcbb}
   .rz-acesso-creditos{font-size:var(--rz-t-sm);color:var(--rz-sobre-grafite)}
 }
@@ -220,7 +235,8 @@ a:hover{color:var(--rz-destaque-escuro)}
 .suave{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
 .falha{max-width:480px;margin:15vh auto;padding:0 var(--rz-4);display:flex;flex-direction:column;gap:var(--rz-3);align-items:flex-start}
 .rz-icone-grande{width:52px;height:52px;display:grid;place-items:center;margin-bottom:var(--rz-3);border-radius:var(--rz-raio-g);background:var(--rz-destaque-fundo);color:var(--rz-destaque)}
-.rz-link{padding:0;border:0;background:none;color:var(--rz-destaque);font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.rz-link{display:inline-flex;align-items:center;gap:var(--rz-1);padding:0;border:0;background:none;color:var(--rz-destaque);font:inherit;font-weight:600;text-align:left;cursor:pointer;text-decoration:none}
+.rz-pilha-p>.rz-link{align-self:flex-start}
 .rz-link:hover{color:var(--rz-destaque-escuro);text-decoration:underline}
 .rz-acesso-nota{margin-top:var(--rz-6)}
 kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:1px solid var(--rz-linha-forte);border-radius:6px;background:var(--rz-superficie-2);color:var(--rz-tinta-3);font:500 var(--rz-t-xs)/1 var(--rz-fonte)}
@@ -475,3 +491,314 @@ label.rz-chip:has(input:checked){background:var(--rz-grafite);border-color:var(-
 label.rz-chip:has(input:focus-visible){box-shadow:var(--rz-foco)}
 fieldset.rz-campo{min-width:0;margin:0;padding:0;border:0}
 fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}
+
+/* ---------- 14. Onboarding (/comecar; 09): passo "2 de 5", cartões, chips que quebram linha, duração ---------- */
+.rz-passo-topo{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);margin-bottom:var(--rz-2)}
+.rz-passo-topo .rz-acesso-voltar{border:0;background:none;padding:0;cursor:pointer;font:inherit;font-size:var(--rz-t-sm);font-weight:500}
+.rz-passo-cabeca{margin-top:var(--rz-6);margin-bottom:var(--rz-6)}
+.rz-com-botao{display:flex;gap:var(--rz-2)}
+.rz-com-botao .rz-entrada{flex:1;min-width:0}
+.rz-com-botao .rz-botao{flex:none}
+.rz-duracoes{display:flex;flex-direction:column;gap:var(--rz-2);min-width:0;margin:0;padding:0;border:0}
+.rz-duracao{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo)}
+.rz-duracao span{font-weight:500}
+.rz-duracao .rz-entrada{width:auto;min-width:112px}
+.rz-chip .rz-cor{margin-right:2px}
+.rz-robo{min-height:65px}
+.rz-duracoes legend{padding:0}
+
+/* ---------- 15. Primeiros passos no Início e a importação das datas (09) ---------- */
+.rz-passos{display:flex;flex-direction:column;gap:var(--rz-4);padding:var(--rz-5);margin-bottom:var(--rz-8)}
+.rz-passos-cabeca{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--rz-3)}
+.rz-passos-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rz-passo{display:flex;align-items:center;gap:var(--rz-3);min-height:64px;padding:var(--rz-3) 0;border-top:1px solid var(--rz-linha)}
+.rz-passo .rz-linha-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rz-passo .rz-linha-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-passo .rz-botao{flex:none}
+.rz-passo[data-feito=true] .rz-linha-texto b{color:var(--rz-tinta-2);text-decoration:line-through;text-decoration-color:var(--rz-linha-forte)}
+.rz-passo-marca{flex:none;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--rz-linha-forte);color:#fff}
+.rz-passo[data-feito=true] .rz-passo-marca{background:var(--rz-sucesso);border-color:var(--rz-sucesso)}
+@media (max-width:519px){.rz-passo{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:var(--rz-3);row-gap:var(--rz-2)}.rz-passo .rz-botao{grid-column:2;justify-self:start}.rz-passo-marca{align-self:start;margin-top:2px}}
+.rz-importar-lista{max-height:320px;overflow:auto;list-style:none;margin:0;padding:0;border:1px solid var(--rz-linha);border-radius:var(--rz-raio)}
+.rz-importar-lista .rz-linha{cursor:default;min-height:52px;padding:var(--rz-2) var(--rz-4)}
+.rz-passo .rz-linha-texto b,.rz-passo .rz-linha-texto small{white-space:normal}
+.rz-importar-erros{margin:var(--rz-1) 0 0;padding-left:var(--rz-5);font-size:var(--rz-t-sm)}
+
+/* ---------- 16. Trilho de boas-vindas (onboarding, /comecar; 09) ----------
+   Tema do nicho: só troca o destaque e o painel da marca. Escolha única: o cartão marca com um check e a tela
+   segue sozinha. Passos entram e saem de lado (para trás, ao contrário). "Reduzir movimento" já zera tudo (seção 2). */
+.rz-tema-eventos{--rz-destaque:var(--rz-eventos);--rz-destaque-escuro:var(--rz-eventos-escuro);--rz-destaque-claro:var(--rz-eventos-claro);
+  --rz-destaque-fundo:var(--rz-eventos-fundo);--rz-foco:0 0 0 3px var(--rz-eventos-foco);--rz-lateral:var(--rz-eventos-lateral);
+  --rz-brilho:var(--rz-eventos-brilho);--rz-previa-acao:var(--rz-eventos-acao);--rz-previa-acao-texto:var(--rz-eventos-acao-texto)}
+.rz-tema-fotografia{--rz-destaque:var(--rz-fotografia);--rz-destaque-escuro:var(--rz-fotografia-escuro);--rz-destaque-claro:var(--rz-fotografia-claro);
+  --rz-destaque-fundo:var(--rz-fotografia-fundo);--rz-foco:0 0 0 3px var(--rz-fotografia-foco);--rz-lateral:var(--rz-fotografia-lateral);
+  --rz-brilho:var(--rz-fotografia-brilho);--rz-previa-acao:var(--rz-fotografia-acao);--rz-previa-acao-texto:var(--rz-fotografia-acao-texto)}
+.rz-acesso .rz-botao,.rz-acesso .rz-opcao,.rz-acesso .rz-opcao-icone,.rz-acesso .rz-opcao-marca,.rz-trilho span{transition:background-color var(--rz-lento),border-color var(--rz-lento),color var(--rz-lento),box-shadow var(--rz-rapido)}
+
+/* passos que entram e saem */
+.rz-palco{display:flex;flex-direction:column}
+.rz-palco.rz-sai{animation:rz-sair .22s ease-in both}
+.rz-palco.rz-sai-voltando{animation:rz-sair-voltando .22s ease-in both}
+.rz-palco.rz-entra,.rz-painel-da-marca.rz-entra{animation:rz-entrar-lado .34s var(--rz-curva) both}
+.rz-palco.rz-entra-voltando{animation:rz-entrar-voltando .34s var(--rz-curva) both}
+@keyframes rz-sair{to{opacity:0;transform:translateX(-28px)}}
+@keyframes rz-sair-voltando{to{opacity:0;transform:translateX(28px)}}
+@keyframes rz-entrar-lado{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes rz-entrar-voltando{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+
+/* escolha única: cartão-botão que marca com um check */
+button.rz-opcao{width:100%;font:inherit;color:inherit;text-align:left}
+button.rz-opcao .rz-opcao-marca{border-radius:50%}
+button.rz-opcao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-opcao[aria-pressed=true]{border-color:var(--rz-destaque);background:var(--rz-destaque-fundo);box-shadow:0 0 0 1px var(--rz-destaque)}
+.rz-opcao[aria-pressed=true] .rz-opcao-icone{background:var(--rz-superficie);color:var(--rz-destaque)}
+.rz-opcao[aria-pressed=true] .rz-opcao-marca{background:var(--rz-destaque);border-color:var(--rz-destaque);color:#fff;animation:rz-marcar .34s var(--rz-curva)}
+@keyframes rz-marcar{0%{transform:scale(.4)}60%{transform:scale(1.18)}100%{transform:none}}
+
+/* o trilho no topo de cada pergunta */
+.rz-trilho{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:var(--rz-1)}
+.rz-trilho span{height:5px;border-radius:var(--rz-raio-pilula);background:var(--rz-linha)}
+.rz-trilho span[data-estado=feito]{background:var(--rz-destaque)}
+.rz-trilho span[data-estado=agora]{background:linear-gradient(90deg,var(--rz-destaque) 50%,var(--rz-linha) 50%)}
+.rz-centro{text-align:center}
+
+/* o roteiro das boas-vindas e a montagem: uma linha que liga os passos */
+.rz-roteiro{list-style:none;margin:0 0 var(--rz-2);padding:0;display:flex;flex-direction:column}
+.rz-roteiro li{position:relative;display:flex;align-items:center;gap:var(--rz-3);min-height:56px;animation:rz-entrar .5s var(--rz-curva) both;animation-delay:calc(var(--i,0) * 70ms)}
+.rz-roteiro li:not(:last-child)::after{content:"";position:absolute;left:15px;top:44px;bottom:-12px;width:2px;border-radius:2px;background:var(--rz-linha)}
+.rz-roteiro-marca{position:relative;z-index:1;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;
+  background:var(--rz-destaque-fundo);color:var(--rz-destaque-escuro);font-size:var(--rz-t-sm);font-weight:600}
+.rz-roteiro-texto{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rz-roteiro-texto b{font-weight:600}
+.rz-roteiro-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-montagem li{animation:none}
+.rz-montagem .rz-roteiro-marca{background:var(--rz-gelo);color:transparent}
+.rz-montagem li[data-estado=espera]{opacity:.45}
+.rz-montagem li[data-estado=andando] .rz-roteiro-marca::before{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid var(--rz-destaque);border-right-color:transparent;animation:rz-girar .7s linear infinite}
+.rz-montagem li[data-estado=feito] .rz-roteiro-marca{background:var(--rz-destaque);color:#fff;animation:rz-marcar .34s var(--rz-curva)}
+.rz-montagem li[data-estado=feito]:not(:last-child)::after{background:var(--rz-destaque)}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca{background:var(--rz-perigo-fundo);color:var(--rz-perigo)}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca svg{display:none}
+.rz-montagem li[data-estado=erro] .rz-roteiro-marca::before{content:"!";font-weight:700}
+/* o tema também no celular: um brilho da cor do nicho no topo da tela (some e aparece devagar) */
+.rz-acesso-form{position:relative;isolation:isolate}
+.rz-acesso-form::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:320px;pointer-events:none;
+  background:linear-gradient(180deg,var(--rz-destaque-fundo),transparent);opacity:0;transition:opacity var(--rz-lento)}
+.rz-tema-eventos .rz-acesso-form::before,.rz-tema-fotografia .rz-acesso-form::before{opacity:1}
+.rz-acesso .rz-chip[aria-pressed=true]{background:var(--rz-destaque);border-color:var(--rz-destaque);color:#fff}
+
+/* ---------- 17. Atendimento (Missão 3, bloco C; 09): lista primeiro, quadro por etapa no computador ---------- */
+.rz-barra-ferramentas{display:flex;flex-wrap:wrap;align-items:center;gap:var(--rz-3);margin-bottom:var(--rz-4)}
+.rz-barra-ferramentas .rz-campo-busca{flex:1 1 220px;min-width:0}
+.rz-barra-ferramentas .rz-chips{flex:1 1 100%}
+.rz-linha .rz-linha-acao{flex:none}
+.rz-linha-quando{font-size:var(--rz-t-xs);color:var(--rz-tinta-3);white-space:nowrap}
+.rz-linha-fim{flex-direction:column;align-items:flex-end;gap:4px}
+@media (min-width:720px){.rz-linha-fim{flex-direction:row;align-items:center;gap:var(--rz-3)}}
+/* resumo recolhido (o funil e de onde vêm; 09: depois da lista) */
+.rz-resumo{margin-top:var(--rz-6)}
+.rz-resumo>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-3) var(--rz-5);cursor:pointer;list-style:none;font-weight:600}
+.rz-resumo>summary::-webkit-details-marker{display:none}
+.rz-resumo>summary .rz-icone{transition:transform var(--rz-medio) var(--rz-curva);color:var(--rz-tinta-3)}
+.rz-resumo[open]>summary .rz-icone{transform:rotate(180deg)}
+.rz-resumo>summary:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-g)}
+.rz-resumo-corpo{display:grid;gap:var(--rz-6);padding:0 var(--rz-5) var(--rz-5)}
+@media (min-width:960px){.rz-resumo-corpo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
+.rz-funil{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--rz-3);margin:0}
+.rz-funil div{padding:var(--rz-3) var(--rz-4);border-radius:var(--rz-raio);background:var(--rz-superficie-2);border:1px solid var(--rz-linha)}
+.rz-funil dt{font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-funil dd{margin:2px 0 0;font-size:var(--rz-t-2xl);font-weight:600;letter-spacing:-.02em}
+.rz-funil small{display:block;font-size:var(--rz-t-xs);color:var(--rz-tinta-3)}
+.rz-origens{display:flex;flex-direction:column;gap:var(--rz-2);list-style:none;margin:0;padding:0}
+.rz-origens li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px var(--rz-3);font-size:var(--rz-t-sm)}
+.rz-origens b{font-weight:600}
+.rz-origens .rz-progresso{grid-column:1/-1;height:6px}
+.rz-origens .rz-progresso>span{background:var(--rz-destaque)}
+/* o quadro (computador): uma coluna por etapa; arrastar o cartão muda a etapa */
+.rz-quadro{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);gap:var(--rz-3);overflow-x:auto;padding-bottom:var(--rz-2);align-items:start}
+.rz-coluna{display:flex;flex-direction:column;gap:var(--rz-2);min-height:200px;padding:var(--rz-3);border-radius:var(--rz-raio-g);background:var(--rz-gelo);transition:box-shadow var(--rz-rapido),background-color var(--rz-rapido)}
+.rz-coluna[data-sobre=true]{background:var(--rz-destaque-fundo);box-shadow:inset 0 0 0 2px var(--rz-destaque)}
+.rz-coluna-cabeca{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-2);padding:0 var(--rz-1) var(--rz-1);font-size:var(--rz-t-sm);font-weight:600}
+.rz-coluna-cabeca span{color:var(--rz-tinta-3);font-weight:500}
+.rz-cartao-pedido{display:flex;flex-direction:column;gap:4px;width:100%;padding:var(--rz-3);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie);
+  box-shadow:var(--rz-sombra-1);font:inherit;color:inherit;text-align:left;cursor:grab}
+.rz-cartao-pedido:hover{border-color:var(--rz-linha-forte)}
+.rz-cartao-pedido:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-cartao-pedido[aria-grabbed=true]{opacity:.5;cursor:grabbing}
+.rz-cartao-pedido b{font-weight:600}
+.rz-cartao-pedido small{font-size:var(--rz-t-xs);color:var(--rz-tinta-2)}
+.rz-coluna-vazia{padding:var(--rz-4) var(--rz-2);text-align:center;font-size:var(--rz-t-sm);color:var(--rz-tinta-3)}
+/* a gaveta do pedido */
+.rz-balao{padding:var(--rz-3) var(--rz-4);border-radius:var(--rz-raio-g) var(--rz-raio-g) var(--rz-raio-g) var(--rz-1);background:var(--rz-gelo);white-space:pre-wrap;overflow-wrap:anywhere}
+.rz-etiquetas{display:flex;flex-wrap:wrap;gap:6px}
+.rz-escolhido{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);padding:var(--rz-3) var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio)}
+label.rz-chip{position:relative;cursor:pointer}
+label.rz-chip input{position:absolute;opacity:0;pointer-events:none}
+.rz-linhas>li.rz-com-acao{display:flex;align-items:center;gap:var(--rz-2);padding-right:var(--rz-4)}
+.rz-com-acao>.rz-linha{flex:1;min-width:0}
+@media (max-width:959px){.rz-so-computador{display:none!important}}
+.rz-segmentos button{display:inline-flex;align-items:center;min-height:34px;padding:0 var(--rz-3);border:0;border-radius:var(--rz-raio-p);background:transparent;color:var(--rz-tinta-2);font:inherit;font-size:var(--rz-t-sm);font-weight:600;cursor:pointer;white-space:nowrap}
+.rz-segmentos button[aria-pressed=true]{background:var(--rz-superficie);color:var(--rz-tinta);box-shadow:var(--rz-sombra-1)}
+.rz-segmentos button:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-estado-curto{padding:var(--rz-8) var(--rz-4);text-align:center;color:var(--rz-tinta-3)}
+.rz-acoes-direita{justify-content:flex-end;margin-bottom:var(--rz-4)}
+.rz-linha--fixa{cursor:default}
+.rz-linhas--pedidos .rz-linha-texto small{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+/* no quadro, fechados e perdidos ficam mais estreitos: o que pede ação (as abertas) cabe na tela */
+.rz-quadro{grid-template-columns:repeat(var(--abertas,5),minmax(150px,1fr)) repeat(2,minmax(130px,.75fr));grid-auto-flow:row}
+
+/* ---------- 18. Agenda (Missão 3, bloco B; 09): celular, faixa da semana + lista do dia; computador, mês + dia ----------
+   A cor de cada festa ou ensaio é dado da conta (--cor, do tipo de festa ou do ensaio); o resto, tokens. */
+.rz-alerta--info{background:var(--rz-info-fundo);color:var(--rz-info)}
+.rz-girar .rz-icone{transform:rotate(180deg)}
+@media (min-width:960px){.rz-so-celular{display:none!important}}
+.rz-agenda-barra{display:flex;flex-wrap:wrap;align-items:center;gap:var(--rz-2) var(--rz-3);margin-bottom:var(--rz-4)}
+.rz-mes-nav{display:flex;align-items:center;gap:var(--rz-1);margin-right:auto}
+.rz-mes-nav b{min-width:9.5em;text-align:center;font-weight:600}
+.rz-agenda{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--rz-4)}
+@media (min-width:960px){.rz-agenda{grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);align-items:start}}
+/* a faixa da semana (só no celular, na vista Semana) */
+.rz-semana{display:flex;align-items:center;gap:var(--rz-1)}
+.rz-semana-dias{flex:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.rz-dia-curto{display:flex;flex-direction:column;align-items:center;gap:2px;min-height:64px;padding:var(--rz-2) 0;border:0;border-radius:var(--rz-raio);background:transparent;color:var(--rz-tinta);font:inherit;cursor:pointer}
+.rz-dia-curto small{font-size:var(--rz-t-xs);color:var(--rz-tinta-3);text-transform:capitalize}
+.rz-dia-curto b{font-size:var(--rz-t-lg);font-weight:600}
+.rz-dia-curto.rz-dia--hoje b{color:var(--rz-destaque)}
+.rz-dia-curto[aria-pressed=true]{background:var(--rz-grafite);color:#fff}
+.rz-dia-curto[aria-pressed=true] small,.rz-dia-curto[aria-pressed=true].rz-dia--hoje b{color:#fff}
+.rz-dia-curto:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+/* o mês */
+.rz-mes{border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-superficie);overflow:hidden}
+.rz-mes-semana,.rz-mes-dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.rz-mes-semana span{padding:var(--rz-2) 0;text-align:center;font-size:var(--rz-t-xs);font-weight:600;color:var(--rz-tinta-3);text-transform:capitalize;border-bottom:1px solid var(--rz-linha)}
+.rz-dia{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:3px;min-width:0;min-height:52px;padding:6px;border:0;border-right:1px solid var(--rz-linha);border-bottom:1px solid var(--rz-linha);background:var(--rz-superficie);color:var(--rz-tinta);font:inherit;text-align:left;cursor:pointer}
+.rz-mes-dias .rz-dia:nth-child(7n){border-right:0}
+.rz-dia:hover{background:var(--rz-superficie-2)}
+.rz-dia:focus-visible{outline:none;box-shadow:inset var(--rz-foco)}
+.rz-dia[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--rz-destaque)}
+.rz-dia--fora{background:var(--rz-fundo);color:var(--rz-tinta-3)}
+.rz-dia--fechado{background:repeating-linear-gradient(135deg,var(--rz-gelo) 0 6px,var(--rz-superficie) 6px 12px)}
+.rz-dia-n{font-size:var(--rz-t-sm);font-weight:600}
+.rz-dia--hoje .rz-dia-n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--rz-destaque);color:#fff}
+.rz-dia-itens{display:none;flex-direction:column;gap:2px;min-width:0}
+.rz-dia-item{display:block;padding:1px 6px;border-left:3px solid var(--cor,var(--rz-tinta-3));border-radius:4px;background:color-mix(in srgb,var(--cor,var(--rz-tinta-3)) 12%,var(--rz-superficie));font-size:var(--rz-t-xs);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rz-dia-item time{font-weight:600;margin-right:4px}
+.rz-dia-item--pre{border-left-style:dashed;background:var(--rz-superficie)}
+.rz-dia-item--compromisso{--cor:var(--rz-info)}
+.rz-dia-mais{font-size:var(--rz-t-xs);font-weight:600;color:var(--rz-tinta-2)}
+.rz-dia-pontos{display:flex;gap:3px;justify-content:center;min-height:6px}
+.rz-dia-pontos i,.rz-item-agenda-cor{background:var(--cor,var(--rz-tinta-3))}
+.rz-dia-pontos i{width:6px;height:6px;border-radius:50%}
+.rz-ponto-compromisso{--cor:var(--rz-info)}
+.rz-agenda[data-vista=semana] .rz-mes{display:none}
+.rz-agenda[data-vista=mes] .rz-semana{display:none}
+@media (min-width:960px){
+  .rz-agenda .rz-semana{display:none}
+  .rz-agenda[data-vista] .rz-mes{display:block}
+  .rz-dia{min-height:104px}
+  .rz-dia-itens{display:flex}
+  .rz-dia-pontos{display:none}
+}
+/* o painel do dia */
+.rz-painel-dia{display:flex;flex-direction:column;gap:var(--rz-3);padding:var(--rz-4) var(--rz-5)}
+.rz-painel-dia-cabeca{display:flex;align-items:baseline;justify-content:space-between;gap:var(--rz-3);flex-wrap:wrap}
+.rz-painel-dia-cabeca h2,.rz-painel-dia-cabeca h3{text-transform:none}
+.rz-painel-dia .rz-linha{padding-left:0;padding-right:0}
+.rz-item-agenda-hora{flex:none;display:flex;flex-direction:column;width:3.4em;font-size:var(--rz-t-sm)}
+.rz-item-agenda-hora b{font-weight:600}
+.rz-item-agenda-hora small{color:var(--rz-tinta-3)}
+.rz-item-agenda-cor{flex:none;width:4px;align-self:stretch;border-radius:2px}
+.rz-item-agenda--cancelado{opacity:.55}
+.rz-item-agenda--cancelado b{text-decoration:line-through}
+.rz-livres{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--rz-2)}
+.rz-livres li{display:flex;align-items:center;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-2) var(--rz-3);border:1.5px dashed var(--rz-linha-forte);border-radius:var(--rz-raio)}
+.rz-livres li span{flex:1;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+/* o checklist da reserva */
+.rz-checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rz-checklist li{display:flex;align-items:center;gap:var(--rz-2);border-top:1px solid var(--rz-linha)}
+.rz-checklist li:first-child{border-top:0}
+.rz-check{flex:1;display:flex;align-items:center;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-2) 0;border:0;background:none;color:var(--rz-tinta);font:inherit;text-align:left;cursor:pointer}
+.rz-check:disabled{cursor:default}
+.rz-check:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-check-marca{flex:none;width:22px;height:22px;display:grid;place-items:center;border:1.5px solid var(--rz-linha-forte);border-radius:7px;color:transparent}
+.rz-check[aria-pressed=true] .rz-check-marca{background:var(--rz-sucesso);border-color:var(--rz-sucesso);color:#fff;animation:rz-marcar .3s var(--rz-curva)}
+.rz-check[aria-pressed=true] span:last-child{color:var(--rz-tinta-2);text-decoration:line-through;text-decoration-color:var(--rz-linha-forte)}
+/* campanhas (fotografia): o quadro de horários */
+.rz-campanha-dia{display:flex;flex-direction:column;gap:var(--rz-3);padding:var(--rz-4) var(--rz-5);margin-top:var(--rz-3)}
+.rz-horarios{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:var(--rz-2)}
+.rz-horario{display:flex;flex-direction:column;gap:2px;min-height:52px;padding:var(--rz-2) var(--rz-3);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie);color:var(--rz-tinta);font:inherit;font-size:var(--rz-t-sm);text-align:left}
+button.rz-horario{cursor:pointer}
+button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-horario b{font-weight:600}
+.rz-horario span{font-size:var(--rz-t-xs);color:var(--rz-tinta-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rz-horario--ok{background:var(--rz-sucesso-fundo);border-color:transparent}
+.rz-horario--pre{background:var(--rz-alerta-fundo);border-color:transparent}
+.rz-horario--livre{border:1.5px dashed var(--rz-linha-forte);background:transparent}
+.rz-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-4);margin:var(--rz-3) 0;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-legenda span{display:inline-flex;align-items:center;gap:6px}
+.rz-legenda i{display:inline-block;width:14px;height:14px;border-radius:4px;min-height:0;padding:0}
+.rz-cartao-corpo>.rz-secao-cabeca{margin-bottom:var(--rz-3)}
+
+/* ---------- 19. Clientes (Missão 3, bloco A; 05): a ficha como linha do tempo ---------- */
+.rz-tempo{list-style:none;margin:var(--rz-2) 0 0;padding:0;display:flex;flex-direction:column}
+.rz-tempo li{position:relative}
+.rz-tempo li:not(:last-child)::after{content:"";position:absolute;left:15px;top:44px;bottom:-6px;width:2px;background:var(--rz-linha)}
+.rz-tempo-item{display:flex;align-items:center;gap:var(--rz-3);min-height:56px;padding:var(--rz-2) 0;color:var(--rz-tinta);text-decoration:none}
+.rz-tempo-item:hover .rz-linha-texto b{text-decoration:underline}
+.rz-tempo-item:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-tempo-icone{position:relative;z-index:1;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--rz-gelo);color:var(--rz-tinta-2)}
+.rz-acoes-ficha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.rz-texto-perigo{color:var(--rz-perigo);font-weight:600}
+
+/* ---------- 20. Financeiro (Missão 3, bloco D): os números do mês e o gráfico mês a mês ----------
+   Barras de até 24 px, 4 px arredondado no topo e reto na base, 2 px de vão entre as partes; legenda sempre (duas
+   séries), valor só no mês atual, a dica ao passar o mouse ou focar, e a tabela com os números. */
+.rz-campos--tres{display:grid;gap:var(--rz-3)}
+@media (min-width:520px){.rz-campos--tres{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rz-numeros{margin-bottom:var(--rz-5)}
+.rz-numero--atencao dd{color:var(--rz-perigo)}
+/* lista com botão na linha ("Recebi", "Mandar"): no celular a etiqueta sai (o texto já diz "atrasada há 2 dias",
+   "esperando o aceite há 3 dias"), para o nome e o botão caberem */
+@media (max-width:519px){.rz-linhas--com-botao .rz-linha-fim{display:none}}
+.rz-serie-1{background:var(--rz-grafico-1)}
+.rz-serie-2{background:repeating-linear-gradient(135deg,var(--rz-grafico-2) 0 3px,color-mix(in srgb,var(--rz-grafico-2) 72%,var(--rz-superficie)) 3px 6px)}
+.rz-grafico{display:flex;flex-direction:column;gap:var(--rz-3);margin:0;min-width:0}
+.rz-grafico figcaption{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--rz-2)}
+.rz-grafico-legenda{display:flex;gap:var(--rz-4);font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-grafico-legenda i,.rz-grafico-dica i{display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:3px;vertical-align:-1px}
+.rz-grafico-area{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--rz-2);height:220px}
+.rz-grafico-eixo{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 22px;font-size:var(--rz-t-xs);color:var(--rz-tinta-3);text-align:right;line-height:1}
+.rz-grafico-barras{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);padding-bottom:22px}
+.rz-grafico-grade{position:absolute;left:0;right:0;height:1px;bottom:calc(22px + (100% - 22px) * var(--f));background:var(--rz-linha)}
+.rz-grafico-coluna{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;outline:none}
+.rz-grafico-coluna:focus-visible{box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-grafico-pilha{position:relative;display:flex;flex-direction:column;gap:2px;width:min(24px,60%);height:calc(100% * var(--f))}
+.rz-grafico-pilha>span{min-height:2px}
+.rz-grafico-pilha>span:first-of-type{border-radius:4px 4px 0 0}
+.rz-grafico-valor{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:var(--rz-t-xs);font-weight:600;color:var(--rz-tinta);white-space:nowrap}
+.rz-grafico-mes{position:absolute;bottom:-20px;font-size:var(--rz-t-xs);color:var(--rz-tinta-3)}
+.rz-grafico-coluna--atual .rz-grafico-mes{font-weight:600;color:var(--rz-tinta)}
+.rz-grafico-dica{display:none;position:absolute;z-index:5;bottom:calc(100% - 20px);left:50%;transform:translateX(-50%);flex-direction:column;gap:2px;padding:var(--rz-2) var(--rz-3);
+  border-radius:var(--rz-raio);background:var(--rz-grafite);color:#fff;font-size:var(--rz-t-xs);white-space:nowrap;box-shadow:var(--rz-sombra-2);pointer-events:none}
+.rz-grafico-coluna:hover .rz-grafico-dica,.rz-grafico-coluna:focus-visible .rz-grafico-dica{display:flex}
+.rz-grafico-tabela summary{cursor:pointer;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-grafico-tabela table{width:100%;margin-top:var(--rz-2);border-collapse:collapse;font-size:var(--rz-t-sm)}
+.rz-grafico-tabela th,.rz-grafico-tabela td{padding:6px var(--rz-2);border-bottom:1px solid var(--rz-linha);text-align:right}
+.rz-grafico-tabela th:first-child{text-align:left;font-weight:500}
+
+/* ---------- 21. Contratos (Missão 3, bloco E): o texto do cliente, o editor, a prova do aceite ----------
+   O texto é do cliente da Renderiza: mostrado como veio, com as quebras de linha. A página do link tem o seu
+   próprio arquivo (publico/contrato/contrato.css). */
+.rz-detalhes>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo);cursor:pointer;list-style:none;font-weight:600}
+.rz-detalhes>summary::-webkit-details-marker{display:none}
+.rz-detalhes>summary .rz-icone{color:var(--rz-tinta-3);transition:transform var(--rz-medio) var(--rz-curva)}
+.rz-detalhes[open]>summary .rz-icone{transform:rotate(180deg)}
+.rz-detalhes>summary:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio-p)}
+.rz-contrato-texto-painel{white-space:pre-wrap;overflow-wrap:anywhere;max-height:50vh;overflow:auto;padding:var(--rz-4);border:1px solid var(--rz-linha);
+  border-radius:var(--rz-raio);background:var(--rz-fundo);font-size:var(--rz-t-sm);line-height:1.6}
+.rz-contrato-editor{min-height:280px;font-size:var(--rz-t-sm);line-height:1.6;resize:vertical}
+.rz-contrato-prova{display:flex;flex-direction:column;gap:var(--rz-3);padding:var(--rz-4)}
+.rz-contrato-prova .rz-rotulo{justify-content:flex-start;gap:var(--rz-2);color:var(--rz-sucesso)}
+.rz-quebra{overflow-wrap:anywhere}
+.rz-campos-modelo{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.rz-campos-modelo button{font-family:inherit}

@@ -152,6 +152,10 @@ painel-clientes/
   pode ser público, ex.: PDF de contrato aceito, se um dia for guardado).
 - **Tempo real:** para o Atendimento (pedido novo aparece na hora) e, se valer, o "online agora" da Equipe. O
   gratuito permite 200 conexões ao mesmo tempo.
+  **Como usar (29/10/2026, Missão 3C):** `banco.ouvir("pedidos", { filtro: "conta_id=eq.<id>", aoMudar })` no
+  adaptador (Supabase Realtime, com a RLS de quem está logado) devolve a função que para; o módulo devolve essa
+  função no fim do `montar(el, contexto)` e o `app.js` a chama quando a pessoa sai do módulo. A tabela precisa
+  estar na publicação `supabase_realtime` (hoje só `pedidos`).
 - **Ambientes:** os testes automáticos rodam num banco local (Postgres 16 do ambiente das sessões; ver
   `docs/atualizacao-por-ia.md`); depois, toda migração vai primeiro para o **STG** e só então para a **produção**
   (regras em `08`). Dados fictícios (Villa Alecrim, Estúdio Ciranda) só no local e no STG.
@@ -175,10 +179,19 @@ painel-clientes/
   o build acontece. Antes comparava só `HEAD^` com `HEAD` e pulava o deploy quando o último commit mexia só em
   documentos, mesmo que um commit anterior do mesmo push tivesse mudado o painel. Os casos estão em
   `painel-clientes/test/esqueleto.test.mjs`.
+- **Qual commit está no ar** (29/10/2026): `GET /api/config` devolve `versao` (os 7 primeiros caracteres do
+  `VERCEL_GIT_COMMIT_SHA`). Dá para conferir de qualquer lugar, sem entrar na Vercel:
+  `curl -s https://painel.renderizaweb.com.br/api/config` e olhar o `versao`. Em 29/10, um push na `main` (o
+  `a4f92d1`) não chegou à produção em 25 minutos, sem motivo visível daqui; o push seguinte entrou em 1 minuto.
 - **Prévias pedem login na Vercel** (a proteção padrão das prévias; conferido em 29/10/2026): só quem é do time da
   Vercel abre. As sessões não abrem prévias: testam no `localhost:5180` contra o STG, e a Renderiza confere a prévia.
 - **Variáveis:** `SUPABASE_URL` e `SUPABASE_ANON_KEY` (a pública, como no `api/config.js` de hoje, que se recusa a
   entregar a secreta). A chave secreta só entra se uma função do servidor precisar, nunca no front.
+- **Cadastro (D30):** quando a Renderiza criar o site no Cloudflare Turnstile, a chave **pública** vai na Vercel como
+  `TURNSTILE_SITE_KEY` (o `/api/config` entrega `cadastroAberto` e a chave; no local, `PAINEL_STG_TURNSTILE_SITE_KEY`)
+  e a **secreta** no Auth do Supabase (Attack Protection → Turnstile), nos dois projetos; aí o `disable_signup` sai
+  de `scripts/lib/auth.mjs` (STG primeiro). A CSP já deixa o script e o frame de `challenges.cloudflare.com`. Testado
+  no local com a chave de teste da Cloudflare (`1x00000000000000000000AA`, que sempre passa).
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
   política de conteúdo (CSP) restringindo de onde vêm scripts.
 - **Plano:** a escolha e a hora de subir de plano ficam com a Renderiza (28/10/2026). O front é estático para poder
@@ -254,7 +267,7 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
 | GET | `/api/publico/site/<código>` (feito, 29/10/2026) | script do Meu site | a versão publicada (cache de ~60 s); "não encontrado" se desconectado, versão final, conta não liberada ou módulo desligado |
 | GET | `/api/publico/site/<código>/previa?t=…` (feito) | prévia do Meu site | o rascunho, sem cache, com código que expira |
 | GET | `/api/publico/imagens/<id da conta>/<arquivo>.webp` (feito) | site do cliente | a foto enviada pelo Meu site, do Storage público `site-imagens` (cache de 1 ano: cada envio ganha nome novo) |
-| GET e POST | `/c/<código-do-contrato>` | cliente final | ler e aceitar o contrato |
+| GET e POST | `/c/<código-do-contrato>` (feito, 29/10/2026) | cliente final | ler e aceitar o contrato: a página `publico/contrato/` (o primeiro rewrite do `vercel.json`; no servidor local também) fala direto com o banco pela chave pública (`publico_contrato` e `publico_aceitar_contrato`, `05`); sem API da Vercel no meio |
 | GET | `/api/publico/saude` (feito) | aviso automático | responde se o painel e o banco estão de pé (`200` ou `503`) |
 
 - `<código>` é o código do site da conta (`sites.codigo`, curto, pode ser trocado), nunca o id interno.
