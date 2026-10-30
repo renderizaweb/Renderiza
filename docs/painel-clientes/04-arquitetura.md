@@ -160,6 +160,15 @@ painel-clientes/
   (`convite_pode_usar_login`, no banco ao gravar e na função ao aceitar); um convite pendente por usuário. Entrar
   aceita "e-mail ou usuário" (`emailDeEntrada` em `src/sessao.js`). O e-mail para recuperar a senha sozinho entra no
   bloco E (até lá, quem esqueceu pede um link novo à Renderiza ou ao dono).
+- **A IA do onboarding** (Missão 7, bloco D; D45, D46, D49): a função `assistente` (`supabase/functions/assistente/`;
+  a lógica em `logica.js`, testada em `test/assistente.test.mjs`) é o único lugar que fala com o Claude, pelo SDK
+  oficial (`npm:@anthropic-ai/sdk`), com a chave só no ambiente dela (segredo `ANTHROPIC_API_KEY`; modelo em
+  `IA_MODELO`, padrão `claude-opus-5-5`). O painel chama com o login do dono e uma **tarefa** (hoje,
+  `proxima_pergunta`); a função confere o login, o teto da conta (`ia_contas`, padrão US$ 3) e o limite por hora,
+  manda o roteiro e o contexto da conta (`contas_contexto`) em cache e pede a saída em JSON pelo esquema da tarefa
+  (`output_config.format`), confere a resposta contra o roteiro e registra os tokens e o custo em `ia_uso` (sem o
+  conteúdo). A IA só propõe: nada é gravado pela função. Sem chave, no teto, com demora ou resposta fora do formato,
+  responde `{ ok: false, fallback: true, motivo }` e o painel segue o roteiro fixo.
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.

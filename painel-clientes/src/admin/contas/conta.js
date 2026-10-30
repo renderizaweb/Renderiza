@@ -9,7 +9,7 @@ import { abrirGaveta, abrirFolha, confirmar } from "../../ui/gaveta.js";
 import { icone } from "../../ui/icones.js";
 import { escapar, ocupado } from "../../ui/formulario.js";
 import { campoTexto, campoSelecao, campoArea, interruptor, lerFormulario } from "../../ui/campos.js";
-import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso } from "../../ui/formatos.js";
+import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso, lerValor } from "../../ui/formatos.js";
 import { nicho } from "../../nichos/index.js";
 import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora } from "../logica.js";
 import { abrirPagamento } from "../pagamentos/pagamento.js";
@@ -53,12 +53,18 @@ export async function abrirConta(c, ctx) {
   const { banco, avisar, catalogo } = ctx;
   const n = nicho(c.nicho);
   const e = estadoDaConta(c);
-  const [convites, pagamentos, suportes, contexto] = await Promise.all([
+  const [convites, pagamentos, suportes, contexto, iaUso, iaConta] = await Promise.all([
     banco.resultado(banco.tabela("convites").select("id, email, nome, dono, acessos, usuario, link_codigo, link_usado_em, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
     banco.resultado(banco.tabela("pagamentos").select("id, mes, valor, pago_em, observacao").eq("conta_id", c.id).order("mes", { ascending: false }).limit(6)).catch(() => []),
     banco.resultado(banco.tabela("acessos_suporte").select("id, motivo, nivel, inicio, fim").eq("conta_id", c.id).order("inicio", { ascending: false }).limit(5)).catch(() => []),
     banco.resultado(banco.tabela("contas_contexto").select("demo, conversa, demos(nome)").eq("conta_id", c.id).maybeSingle()).catch(() => null),
+    banco.resultado(banco.tabela("ia_uso").select("custo_usd").eq("conta_id", c.id)).catch(() => []),
+    banco.resultado(banco.tabela("ia_contas").select("teto_usd").eq("conta_id", c.id).maybeSingle()).catch(() => null),
   ]);
+  // a IA do onboarding (Missão 7, bloco D; D46): o gasto em dólar e o teto da conta (sem linha: US$ 3)
+  const dolar = v => `US$ ${Number(v).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const iaGasto = iaUso.reduce((s, x) => s + Number(x.custo_usd || 0), 0);
+  const iaTeto = iaConta ? Number(iaConta.teto_usd) : 3;
   const dono = c.donos[0];
   const acoesDaSituacao = c.situacao === "teste"
     ? `<button class="rz-botao rz-botao--primario" type="button" data-aprovar>${icone("ok")}Aprovar</button><button class="rz-botao" type="button" data-prazo-teste>${icone("relogio")}Mudar o fim do teste</button>`
@@ -78,6 +84,7 @@ export async function abrirConta(c, ctx) {
           <div><dt>Pessoas</dt><dd>${c.ativas} de ${c.limite_pessoas}</dd></div>
           <div><dt>Último acesso</dt><dd>${escapar(ultimoAcesso([c.vistoEm]))}</dd></div>
           ${c.whatsapp ? `<div><dt>WhatsApp</dt><dd><a href="${escapar(linkWhatsapp(c.whatsapp))}" target="_blank" rel="noopener">${escapar(telefone(c.whatsapp))}</a></dd></div>` : ""}
+          <div><dt>IA no onboarding</dt><dd>${escapar(dolar(iaGasto))} de ${escapar(dolar(iaTeto))} · ${iaUso.length} ${iaUso.length === 1 ? "chamada" : "chamadas"}<br><button class="rz-link" type="button" data-teto-ia>Mudar o teto</button></dd></div>
           ${contexto && contexto.demo ? `<div><dt>Veio da demo</dt><dd><a href="https://renderizaweb.com.br/demo/${escapar(contexto.demo)}" target="_blank" rel="noopener">${escapar((contexto.demos && contexto.demos.nome) || contexto.demo)}</a></dd></div>` : ""}
         </dl>
         <div class="rz-acoes-ficha">${acoesDaSituacao}</div>
@@ -138,6 +145,26 @@ export async function abrirConta(c, ctx) {
     const ate = await escolherPrazo({ titulo: `O prazo de ${c.nome}`, texto: "Até quando a conta fica ativa. Sem prazo: até alguém desligar.", botao: "Salvar" });
     if (ate === undefined) return;
     mudar({ ativa_ate: ate }, ate ? `${c.nome}: ativa até ${dataNumerica(new Date(ate + "T12:00:00Z"))}.` : `${c.nome}: ativa, sem prazo.`);
+  });
+  el.querySelector("[data-teto-ia]")?.addEventListener("click", () => {
+    const folha = abrirFolha({
+      titulo: "O teto da IA",
+      corpo: `<form class="rz-pilha" novalidate id="form-teto-ia">
+          <p class="rz-texto-2">Quanto a IA do onboarding pode gastar nesta conta, somando tudo. Chegou no teto, a conversa segue sem a IA (o roteiro fixo). Já gastou ${escapar(dolar(iaGasto))}.</p>
+          ${campoTexto({ id: "teto-ia", nome: "teto", rotulo: "Teto em dólar", teclado: "decimal", valor: String(iaTeto).replace(".", ",") })}
+        </form>`,
+      rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-teto-ia">Salvar</button>`,
+    });
+    folha.el.querySelector("form").addEventListener("submit", async ev => {
+      ev.preventDefault();
+      const teto = lerValor(ev.currentTarget.teto.value);
+      if (teto == null || teto > 1000) return avisar("Digite um valor entre 0 e 1.000.", { tipo: "erro" });
+      try {
+        await banco.resultado(banco.tabela("ia_contas").upsert({ conta_id: c.id, teto_usd: teto }, { onConflict: "conta_id" }));
+        folha.fechar();
+        avisar(`${c.nome}: teto da IA em ${dolar(teto)}.`);
+      } catch (er) { avisar(er.message, { tipo: "erro" }); }
+    });
   });
   el.querySelector("[data-desligar]")?.addEventListener("click", async () => {
     const ok = await confirmar({ titulo: `Desligar ${c.nome}?`, texto: "A equipe entra, mas vê só o aviso para falar com a Renderiza, e o site conectado volta à versão inicial. Nada é apagado: religou, tudo volta.", sim: "Desligar", nao: "Voltar", perigo: true });

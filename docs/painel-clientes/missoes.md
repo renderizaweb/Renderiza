@@ -283,8 +283,18 @@ Feito (bloco C, na branch, no STG): o catálogo das demos (migração 2026103024
   demo (9/9 no STG).
   Na produção em 30/10: a migração e o catálogo (60 demos), e a main. Demo nova: node scripts/demos.mjs stg e
   producao --projeto <ref>.
-Próximo passo: o bloco D (a IA no servidor), depois o E (a conversa de onboarding, que já tem a demo e a conversa
-  para usar).
+Feito (bloco D, na branch, no STG): a função supabase/functions/assistente (logica.js testada em
+  test/assistente.test.mjs; publicada no STG, versão 1) e a migração 20261030250000 (ia_uso: cada chamada com os
+  tokens e o custo, sem o conteúdo; ia_contas: o teto, padrão US$ 3). A função confere o login (só o dono), o teto e
+  80 chamadas por hora, manda ao Claude (Opus 5.5, esforço baixo, saída em JSON pelo esquema, o roteiro e o contexto
+  da conta em cache, a conversa colada marcada como dado), confere a resposta contra o roteiro (só as opções do
+  assunto) e registra o custo. Qualquer problema devolve { fallback: true } e o painel segue o roteiro fixo. Tarefa
+  pronta: "proxima_pergunta" (o bloco E usa). No Admin, na gaveta da conta: o gasto, as chamadas e "Mudar o teto".
+  Conferido no STG: sem a chave, responde "sem IA"; sem login, 401.
+Falta (bloco D): a chave da Anthropic (da Renderiza: o segredo ANTHROPIC_API_KEY nas funções do Supabase, STG e
+  produção; nunca no código nem no chat) e medir o custo de verdade no STG com ela (a estimativa do 11 é US$ 0,30 por
+  conta). A política ganha a Anthropic junto com o bloco E (D49), que é quando a IA aparece na tela.
+Próximo passo: o bloco E (a conversa de onboarding, com a demo, a conversa e a função assistente).
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
@@ -838,6 +848,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `aceitar-convite` na produção) |
 | `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (e o catálogo: 60 demos) |
+| `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
 
 ## Avisos entre sessões
 
