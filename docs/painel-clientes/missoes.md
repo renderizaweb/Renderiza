@@ -15,7 +15,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
-| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): bloco B (convite por link) primeiro, depois o A (a cara dos exemplos); os outros blocos livres, na ordem do `missoes.md` | B e A: `claude/painel-renderiza-setup-ztnrzy` |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): bloco A feito (os 🟢; os 🟡 com a Renderiza), bloco B feito até o B5 (falta o B6 e subir para a produção); os outros blocos livres, na ordem do `missoes.md` | B e A: `claude/painel-renderiza-setup-ztnrzy` |
 | 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -248,22 +248,27 @@ Migrações aplicadas (STG / produção): …
 ```
 Missão 7 · blocos B e A · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
 Referência: 11 (o caminho da pessoa), D40 a D50 (07), D33 (o visual do onboarding), D42 (acesso sem e-mail).
-Plano do bloco B (nesta ordem, cada parte com commit):
-  B1. Banco: convites por link (convites.usuario, convites.link_codigo, convites.link_usado_em); a função pública
-      publico_convite(código) (o nome do negócio, o nicho e o usuário, para a tela de boas-vindas); o e-mail interno
-      <usuario>@acesso.renderizaweb.com.br (não recebe e-mail), que faz o aceitar_convites de hoje funcionar igual.
-  B2. Função do Supabase aceitar-convite (com a chave secreta): confere o link (não usado, não vencido, não
-      cancelado), cria o login com a senha, marca o link como usado; o painel entra em seguida.
-  B3. Telas: /boas-vindas/<código> ("Olá, Espaço X! Crie uma senha", um campo, o usuário à vista) e entrar com
-      "e-mail ou usuário".
-  B4. Admin: criar conta com "link pelo WhatsApp" (o usuário sugerido pelo nome), copiar a mensagem pronta, abrir o
-      WhatsApp do negócio; na gaveta da conta, copiar o link e gerar um novo.
-  B5. Fluxo do piloto começando pelo link; documentos.
-  Depois (B6): o e-mail opcional para recuperar a senha (Configurações) e a equipe convidada por link.
-Plano do bloco A: a lista de diferenças, tela a tela, entre o painel e /exemplos (eventos e fotografia, celular e
-  computador), com prints, para a Renderiza escolher; depois, ajustar o que for claro.
-Feito: nada ainda (começa agora).
-Próximo passo: B1.
+Feito (bloco B, na branch, ainda NÃO na main nem na produção):
+  B1. Migrações 20261030220000_convite_por_link e 20261030223000_login_do_convite (só no STG): convites.usuario,
+      link_codigo (32 letras e números, único), link_usado_em; publico_convite(código) para a tela; usuario_disponivel;
+      login_do_email (só a função). E-mail interno <usuario>@acesso.renderizaweb.com.br (não recebe e-mail).
+  B2. Função supabase/functions/aceitar-convite (logica.js testada em test/convite-link.test.mjs; publicada no STG,
+      versão 1): confere o link, cria o login (ou troca a senha de quem já tem o usuário), marca o link.
+  B3. src/telas/boas-vindas.js (/boas-vindas/<código>, no lugar do "src/telas/convite.js" da tabela) e entrar com
+      "e-mail ou usuário" (src/sessao.js: emailDeEntrada, usuarioDoEmail).
+  B4. Admin: conta nova com "link pelo WhatsApp" (src/admin/contas/nova.js) e, na conta, mandar o link, gerar um novo
+      e "link para senha nova" (conta.js); a peça comum src/ui/convite-link.js (a folha com a mensagem pronta).
+  B5. O fluxo do piloto começa pelo link (test/fluxos/piloto.fluxo.mjs): 9/9 e a varredura 9/9 no STG em 30/10.
+Feito (bloco A, na branch): a lista em cara-dos-exemplos.md e TODOS os itens 🟢 (✅ G1, G2, G3, G6 cor, I2, I3, A1,
+  A2, T1, T2, F1). Ficam com a Renderiza os 🟡 (G5 abas de baixo, I1 ordem do Início, A3 os dois botões, F2 ticket
+  médio) e para depois os ⚪ (G4 avisos, G6 cartão da agenda online, I4 ocupação por mês).
+Falta (bloco B):
+  B6. O e-mail opcional para recuperar a senha (Configurações; quem entrou por usuário) e o dono convidar a equipe
+      por link (src/modulos/equipe/, reaproveitando src/ui/convite-link.js).
+  Subir o B para a produção, nesta ordem: (1) as 2 migrações na produção (não destrutivas), (2)
+      node supabase/functions/publicar.mjs producao --projeto <ref> --so aceitar-convite, (3) juntar a branch na main
+      (a Vercel publica; conferir /api/config), (4) npm run conferir-producao, (5) a tabela de migrações abaixo.
+Próximo passo: B6; depois subir o B (acima). Os blocos C a G seguem livres, na ordem da tabela.
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
@@ -823,6 +828,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 7A → todas | **A casca e o `estilo.css` mudaram (a cara dos exemplos):** o tema do nicho vale dentro do painel (`.rz-app.rz-tema-eventos`/`-fotografia`: o destaque, a barra lateral e os gráficos na cor do negócio); o `.rz-fab` saiu (o "+" do celular agora é o `.rz-topo-mais`, no topo, com `data-novo`); a Agenda abre no mês também no celular; seções 25 e 26 novas no `estilo.css`; ícones novos `instagram`, `globo`, `coracao`. Quem desenhar tela nova: use `--rz-destaque` (nunca a terracota direto), que o tema troca sozinho. |
 | 30/10/2026 | 7 (levantamento) → Renderiza, todas | **Parada 7 levantada e Missão 7 escrita** (blocos A a G, com "Mexe em"): D40 a D50 no `07`, o caminho e o roteiro no [`11`](11-onboarding-ia-levantamento.md), a parada no trilho. **Esperando a aprovação da Renderiza: nenhum código antes do ok.** Parada 8 (IA no dia a dia) só marcada, com levantamento depois. |
 | 30/10/2026 | Renderiza → próxima sessão | **Próximo assunto: Parada 7, onboarding com IA** (o lead popular o painel sem digitar um a um; plug and play). Ainda **sem missão**: primeiro uma sessão faz o levantamento com a Renderiza a partir de [`11-onboarding-ia-levantamento.md`](11-onboarding-ia-levantamento.md) (problema, ideias, perguntas) e, decidido, escreve a Parada 7 no trilho e as missões aqui. |
 | 30/10/2026 | 5B (termos, ajustes) → Renderiza, todas | **Termos ajustados depois de uma análise externa** (o que entrou e o que não: [`termos-referencias.md`](termos-referencias.md), seção 3): a versão final do Meu site custa **no máximo 3 mensalidades** e sai em 10 dias úteis (D37, `03`); exportação a pedido em 2 dias úteis; incidente avisado em 24 horas; desconto proporcional se o painel ficar fora mais de 24 horas por falha nossa; arrependimento quando o CDC garantir. A tela do Meu site ganhou o aviso da regra da saída (fora do "Mexe em", pequeno: `src/modulos/meu-site/index.js`). **Para a Renderiza: o backup prometido nos termos ainda não rodou nenhuma vez** (faltam os segredos no GitHub; aviso da 5B). |
