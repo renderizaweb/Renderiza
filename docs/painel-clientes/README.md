@@ -48,6 +48,7 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
 | [`09-ux.md`](09-ux.md) | A experiência: princípios, o que melhorar em cada tela do exemplo, onboarding, peças comuns, velocidade e referências | antes de desenhar qualquer tela |
 | [`prompt-de-sessao.md`](prompt-de-sessao.md) | O texto para colar ao abrir uma sessão nova do Claude (lê a documentação, confere o que está em andamento, segue as regras) | ao abrir qualquer sessão |
 | [`10-design-system.md`](10-design-system.md) | As cores, o tipo, os espaços e as peças (`src/ui/`), com as regras de uso | antes de escrever qualquer tela |
+| [`11-onboarding-ia-levantamento.md`](11-onboarding-ia-levantamento.md) | Parada 7 (onboarding com IA, plug and play): o problema, as ideias e as perguntas, **nada decidido** | ao fazer o levantamento da Parada 7 |
 | [`termos-referencias.md`](termos-referencias.md) | Os termos de uso e a política de privacidade: o que falta preencher, as decisões que estão neles e as leis e normas de cada ponto | antes de mexer nos termos ou na política |
 | [`roteiro-do-piloto.md`](roteiro-do-piloto.md) | O passo a passo para a Renderiza simular o piloto na produção, com as 5 tarefas | parada 6 |
 
