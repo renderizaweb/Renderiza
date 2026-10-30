@@ -32,6 +32,10 @@ test("funil dos 30 dias e de onde vêm (90 dias)", () => {
   const f = funil(pedidos, { agora, idNicho: "eventos" });
   assert.deepEqual(f.map(l => [l.id, l.n]), [["pedidos", 4], ["visita", 3], ["orcamento", 2], ["fechado", 1]]);
   assert.equal(f[1].pct, 75);
+  assert.equal(f[1].sub, "75% dos pedidos");
+  assert.equal(f[2].sub, "67% das visitas");
+  assert.equal(f[0].sub, "+3 que no mês anterior", "o de 40 dias atrás conta nos 30 dias antes");
+  assert.equal(funil([ped("x", "novo"), ped("y", "novo", { criado_em: h(24 * 35) })], { agora, idNicho: "eventos" })[0].sub, "igual ao mês anterior");
   assert.ok(!funil(pedidos, { agora, idNicho: "fotografia" }).some(l => l.id === "visita"));
   const o = deOndeVem(pedidos, { agora });
   assert.equal(o[0].id, "whatsapp");

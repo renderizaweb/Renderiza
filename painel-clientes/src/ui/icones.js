@@ -44,6 +44,10 @@ const DESENHOS = {
   filtro: '<path d="M4 5.5h16l-6.2 7.3v5.4l-3.6 1.8v-7.2z"/>',
   estrela: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/>',
   setaBaixo: '<path d="M6 9.5l6 6 6-6"/>',
+  // de onde veio o pedido (Atendimento; os do exemplo)
+  instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/>',
+  globo: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  coracao: '<path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2c0 5.6 8.8 11 8.8 11s8.8-5.4 8.8-11z"/>',
   // onboarding: o nicho
   festa: '<path d="M4 20.5l4.5-12 7 7-11.5 5z"/><path d="M14 3.5c.3 1.6-.3 2.9-1.8 3.8M19.5 10c-1.6-.3-2.9.3-3.8 1.8M17 4.5v.1M20.5 7v.1M11 2.5v.1"/>',
   camera: '<path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2.5h6L16.5 6h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5"/>',

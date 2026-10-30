@@ -39,6 +39,12 @@
   /* o painel da marca (telas de acesso): grafite e terracota, ou as do nicho */
   /* Gráficos (Financeiro): as duas séries, validadas pelo guia de dados (contraste, daltonismo, separação) */
   --rz-grafico-1:#b25134; --rz-grafico-2:#2f78a8;
+  /* e as do tema do nicho (a cor do negócio na série principal), também validadas: eventos verde e âmbar (o âmbar
+     sempre com a textura, que já é da série 2), fotografia vinho e azul */
+  --rz-eventos-grafico-1:#2f8a5b; --rz-eventos-grafico-2:#c27a1e;
+  --rz-fotografia-grafico-1:#a64d6d; --rz-fotografia-grafico-2:#2f78a8;
+  /* De onde veio o pedido (Atendimento): as cores do exemplo, só no fundo do ícone (branco nelas: 3,3:1 ou mais) */
+  --rz-origem-whatsapp:#1f9d55; --rz-origem-instagram:#c13584; --rz-origem-indicacao:#9a6a12; --rz-origem-google:#2f6fe0;
   --rz-lateral:var(--rz-grafite); --rz-brilho:rgba(232,133,94,.32); --rz-previa-acao:rgba(232,133,94,.16); --rz-previa-acao-texto:#f4b79c;
 
   /* Tipo. Geist (a fonte da marca, no próprio painel). Títulos em 600 com espaçamento negativo; texto em 400. */
@@ -865,3 +871,18 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-topo-mais:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-app.rz-tema-eventos .rz-topo .rz-conta-sinal,.rz-app.rz-tema-fotografia .rz-topo .rz-conta-sinal{background:var(--rz-destaque-escuro)}
 @media (min-width:960px){.rz-topo-mais{display:none}}
+
+/* ---------- 26. A cara dos exemplos (Missão 7, bloco A; cara-dos-exemplos.md) ----------
+   T2: cada pedido com o ícone colorido de onde veio. T1: o funil em cima (.rz-funil.rz-numeros, como no Início). */
+.rz-origem{flex:none;width:40px;height:40px;border-radius:var(--rz-raio);display:grid;place-items:center;color:#fff;background:var(--rz-tinta-3)}
+.rz-origem--whatsapp{background:var(--rz-origem-whatsapp)}
+.rz-origem--instagram{background:var(--rz-origem-instagram)}
+.rz-origem--agenda_online{background:var(--rz-destaque)}
+.rz-origem--indicacao{background:var(--rz-origem-indicacao)}
+.rz-origem--google{background:var(--rz-origem-google)}
+.rz-funil-topo{margin-bottom:var(--rz-4)}
+/* F1: no Financeiro, o gráfico à vista logo depois dos números (não recolhido) */
+.rz-resumo--aberto{margin:0 0 var(--rz-5)}
+.rz-resumo--aberto>.rz-resumo-corpo{padding-top:var(--rz-5)}
+.rz-tema-eventos{--rz-grafico-1:var(--rz-eventos-grafico-1);--rz-grafico-2:var(--rz-eventos-grafico-2)}
+.rz-tema-fotografia{--rz-grafico-1:var(--rz-fotografia-grafico-1);--rz-grafico-2:var(--rz-fotografia-grafico-2)}

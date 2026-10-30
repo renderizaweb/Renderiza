@@ -39,7 +39,7 @@ o tipo, os espaços e as peças. Quem cria uma peça nova põe no `src/ui/` e an
 | `--rz-destaque` | `#b25134` | **a terracota**: botão principal, link, foco. 5,1:1 no branco |
 | `--rz-destaque-escuro` / `-claro` / `-fundo` | `#9a4429` / `#e8855e` / `#f9ece6` | passar o mouse / destaque sobre o grafite / fundo de ícone e etiqueta |
 | `--rz-sucesso` · `--rz-alerta` · `--rz-perigo` · `--rz-info` (+ `-fundo`) | verde · âmbar · vermelho · azul | **só para situação** (pago, vencendo, erro, aviso), nunca para enfeitar |
-| `--rz-grafico-1` · `--rz-grafico-2` | `#b25134` · `#2f78a8` | **só em gráfico**, nesta ordem (1ª série, 2ª série; a 2ª vai com textura). Validadas (contraste, daltonismo, separação) no fundo claro |
+| `--rz-grafico-1` · `--rz-grafico-2` | `#b25134` · `#2f78a8` | **só em gráfico**, nesta ordem (1ª série, 2ª série; a 2ª vai com textura). Validadas (contraste, daltonismo, separação) no fundo claro. No tema do nicho viram `--rz-eventos-grafico-1/2` (`#2f8a5b` · `#c27a1e`) e `--rz-fotografia-grafico-1/2` (`#a64d6d` · `#2f78a8`), também validadas |
 
 **Tipo:** Geist (`--rz-fonte`). Tamanhos `--rz-t-xs` (12) · `sm` (14) · `base` (16) · `lg` (18) · `xl` (22) · `2xl` (28)
 · `3xl` (36). Títulos em 600 com espaçamento negativo (`.rz-titulo-1`, `-2`, `-3`); texto em 400; apoio em
@@ -71,7 +71,7 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | Ícone | `icone("nome")` | sempre com texto ao lado ou `aria-label` no botão |
 | Abrindo | `.rz-abrindo` | a tela enquanto o painel carrega (já no `index.html`) |
 | Telas de acesso | `telaDeAcesso()` em `src/telas/acesso.js` | uma coluna no celular; no computador, o painel da marca ao lado. Cadastro e convite (Missão 2) usam o mesmo layout |
-| Casca | `montarCasca()` em `src/telas/casca.js`; `.rz-lateral`, `.rz-topo`, `.rz-barra`, `.rz-fab`, `.rz-faixa-teste` | menu lateral no computador, barra de baixo (até 5) e "+" no celular; só módulos ligados, o resto trancado com cadeado; o "+" e o "Novo" só para quem edita algo |
+| Casca | `montarCasca()` em `src/telas/casca.js`; `.rz-lateral`, `.rz-topo`, `.rz-barra`, `.rz-topo-mais`, `.rz-faixa-teste` | menu lateral no computador, barra de baixo (até 5) e o "+" no topo do celular, ao lado do nome (Missão 7, bloco A: o flutuante cobria botões da lista); só módulos ligados, o resto trancado com cadeado; o "+" e o "Novo" só para quem edita algo |
 | Gaveta, folha, confirmar | `abrirGaveta`, `abrirFolha`, `confirmar` em `src/ui/gaveta.js` (`<dialog>`) | gaveta: detalhes e formulários (tela cheia no celular, ações fixas embaixo); folha: lista curta de ações; `confirmar` só para o que não volta atrás |
 | Aviso embaixo | `avisar(texto, { desfazer })` em `src/ui/aviso.js`; `.rz-aviso` | 4 s; com "Desfazer", 7 s (e não some com o mouse em cima) |
 | Estados | `vazio`, `erro`, `esqueleto`, `comEstados` em `src/ui/estados.js` | vazio ensina e oferece a ação; erro diz o que fazer; esqueleto só se passar de 1 s |
@@ -85,11 +85,11 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | WhatsApp, CSV, filtros | `src/ui/whatsapp.js`, `src/ui/csv.js` (`baixarCsv`, `lerCsv`), `src/ui/filtros.js` | CSV com ";" e BOM (abre certo no Excel), protegido contra fórmula |
 | Progresso | `.rz-progresso > span` | onboarding ("2 de 5") e primeiros passos |
 | Onboarding (trilho) | `.rz-palco` (`.rz-sai`, `.rz-entra` e as de voltar), `button.rz-opcao[aria-pressed]`, `.rz-trilho`, `.rz-roteiro`, `.rz-montagem`, `.rz-passo-topo`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`; seção 16) | boas-vindas com o roteiro; escolha única segue sozinha com o check (`rz-marcar`); passos entram e saem de lado; a montagem marca cada parte enquanto acontece; "reduzir movimento" zera as animações |
-| Atendimento (seção 17) | `.rz-barra-ferramentas` (busca `.rz-campo-busca` + chips), `.rz-linhas--pedidos` (segunda linha quebra em duas), `li.rz-com-acao` (linha com o botão do próximo passo), `details.rz-resumo` (funil `.rz-funil` e `.rz-origens`, recolhidos), `.rz-quadro` > `.rz-coluna` (`[data-sobre]` ao arrastar) > `.rz-cartao-pedido`, `.rz-balao` (a mensagem do cliente), `.rz-escolhido`, `label.rz-chip` com rádio, `.rz-segmentos button[aria-pressed]` (Lista e Quadro), `.rz-so-computador` | o quadro só no computador; quem só vê não arrasta; mudar etapa é otimista com desfazer |
+| Atendimento (seção 17) | `.rz-barra-ferramentas` (busca `.rz-campo-busca` + chips), `.rz-linhas--pedidos` (segunda linha quebra em duas), `li.rz-com-acao` (linha com o botão do próximo passo), o funil dos 30 dias em cima (`.rz-funil.rz-numeros.rz-funil-topo`, como os números do Início), `.rz-origem.rz-origem--<origem>` (o ícone colorido de onde veio, no lugar das iniciais; cores `--rz-origem-*`), `details.rz-resumo` (`.rz-origens`, recolhido), `.rz-quadro` > `.rz-coluna` (`[data-sobre]` ao arrastar) > `.rz-cartao-pedido`, `.rz-balao` (a mensagem do cliente), `.rz-escolhido`, `label.rz-chip` com rádio, `.rz-segmentos button[aria-pressed]` (Lista e Quadro), `.rz-so-computador` | o quadro só no computador; quem só vê não arrasta; mudar etapa é otimista com desfazer |
 | Agenda (seção 18) | `.rz-agenda[data-vista=semana\|mes]` > `.rz-semana` (`.rz-dia-curto`) e `.rz-mes` (`.rz-dia`, `--fora`, `--hoje`, `--fechado`, `.rz-dia-item` com `--pre` e `--compromisso`, `.rz-dia-pontos`), `.rz-painel-dia`, `.rz-item-agenda`, `.rz-livres`, `.rz-checklist` > `.rz-check[aria-pressed]`, `.rz-horarios` > `.rz-horario--ok\|pre\|livre`, `.rz-legenda`, `.rz-alerta--info`, `.rz-so-celular`, `.rz-girar` (a seta "voltar" virada para a frente) | a cor da festa ou do ensaio é dado da conta (`--cor`); a pré-reserva é tracejada; no celular a semana, no computador o mês |
 | Clientes (seção 19) | `.rz-tempo` > `.rz-tempo-item` (`.rz-tempo-icone` e a linha que liga os itens), `.rz-acoes-ficha`, `.rz-texto-perigo` (prazo que passou) | a ficha é a linha do tempo do cliente (05); cada item é um link para o seu módulo |
 | Título com valor | `<b class="rz-titulo-valor"><span>nome</span><span>· R$ 5.400</span></b>` dentro de `.rz-linha-texto` (Missão 6) | no celular, o nome é cortado e o valor fica sempre à vista (Financeiro, a festa, "Para fazer agora") |
-| Financeiro (seção 20) | `.rz-numeros` (os números do mês, com `.rz-numero--atencao` para atrasadas), `.rz-campos--tres`, `.rz-linhas--com-botao` (lista com botão na linha: no celular a etiqueta sai; também em Contratos), `.rz-grafico` (barras empilhadas: `.rz-serie-1` cheia, `.rz-serie-2` com textura; eixo, grade, `.rz-grafico-dica` ao passar o mouse ou focar, `.rz-grafico-tabela` com os números) | gráfico pelo guia de dados: barras finas com a ponta arredondada, valor escrito só no mês atual, legenda sempre, a tabela para quem não enxerga as cores |
+| Financeiro (seção 20) | `.rz-numeros` (os números do mês, com `.rz-numero--atencao` para atrasadas), `.rz-campos--tres`, `.rz-linhas--com-botao` (lista com botão na linha: no celular a etiqueta sai; também em Contratos), `.rz-resumo--aberto` (o gráfico e o que mais vende à vista logo depois dos números), `.rz-grafico` (barras empilhadas: `.rz-serie-1` cheia, `.rz-serie-2` com textura; eixo, grade, `.rz-grafico-dica` ao passar o mouse ou focar, `.rz-grafico-tabela` com os números) | gráfico pelo guia de dados: barras finas com a ponta arredondada, valor escrito só no mês atual, legenda sempre, a tabela para quem não enxerga as cores |
 | Contratos (seção 21) | `.rz-detalhes` (o texto recolhido, com a seta), `.rz-contrato-texto-painel` (o texto do cliente como veio, com as quebras de linha), `.rz-contrato-editor`, `.rz-contrato-prova` (o aceite registrado), `.rz-campos-modelo`, `.rz-quebra`. A página do link (`/c/<código>`) tem o seu arquivo: `publico/contrato/contrato.css`, só com tokens | o texto é do cliente: o painel não formata nem revisa; na impressão, o texto inteiro e o registro do aceite, sem botões |
 | Início (seção 22) | `.rz-fazer-icone` (com o tom: `--perigo`, `--alerta`, `--destaque`, `--sucesso`), `.rz-data-bloco` (o dia nas próximas), `.rz-avatar--tempo`, `.rz-inicio-colunas` (duas colunas no computador), `.rz-numero-link`, `.rz-exportar` | "Para fazer agora" primeiro (09); o tom do ícone diz a urgência, a frase diz o quê |
 | Admin (seção 23) | a casca do Admin é a do painel (seção 10) com as partes no menu (`src/admin/casca.js`); `.rz-admin-modulo`, `.rz-linhas--contas`, `.rz-mes-navegar`, `.rz-tabela-simples`, `.rz-faixa-suporte` (no painel da conta, enquanto a Renderiza está ajudando) | só para a equipe Renderiza; o painel do cliente não muda |
@@ -101,7 +101,7 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 `relogio`, `conversa`, `carteira`, `contrato`, `agenda`; do menu e das ações (Missão 2): `inicio`, `clientes`, `site`,
 `servicos`, `equipe`, `configuracoes`, `admin`, `mais`, `adicionar`, `buscar`, `fechar`, `sair`, `trocar`, `whatsapp`,
 `copiar`, `baixar`, `editar`, `lixo`, `desfazer`, `telefone`, `link`, `imagem`, `filtro`, `estrela`, `setaBaixo`,
-`importar`; do nicho: `festa`, `camera`. A lista certa é sempre `ICONES` em `src/ui/icones.js`.
+`importar`; do nicho: `festa`, `camera`; de onde veio o pedido (Missão 7): `instagram`, `globo`, `coracao`. A lista certa é sempre `ICONES` em `src/ui/icones.js`.
 
 ## Tema do nicho
 
@@ -109,8 +109,9 @@ No onboarding, a escolha do nicho troca **só o destaque** (`--rz-destaque` e as
 classe `rz-tema-eventos` ou `rz-tema-fotografia` na raiz da tela (`temaDoNicho` em `src/telas/acesso.js`). As cores
 são as dos exemplos: eventos `--rz-eventos` (verde, painel `--rz-eventos-lateral`), fotografia `--rz-fotografia`
 (vinho, painel `--rz-fotografia-lateral`), todas em tokens no `estilo.css` (seção 1) e com o contraste conferido
-(texto branco no destaque: 6,4:1 e 6,5:1). Grafite, papel, tinta e as cores de situação não mudam. Dentro do painel
-continua a terracota até existir a cor da conta (abaixo).
+(texto branco no destaque: 6,4:1 e 6,5:1). Grafite, papel, tinta e as cores de situação não mudam. Desde a Missão 7 (bloco A,
+[`cara-dos-exemplos.md`](cara-dos-exemplos.md)) o tema vale também **dentro do painel**: a casca põe a classe no
+`.rz-app` pelo nicho da conta, e a barra lateral do computador fica na cor escura do tema (`--rz-lateral`).
 
 ## Escrever na tela
 

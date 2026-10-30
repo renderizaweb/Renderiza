@@ -1,6 +1,7 @@
 // Módulo Financeiro (Missão 3, bloco D): controle do que entra (02: não recebe nem cobra). Os números do mês, as
 // parcelas (a receber, atrasadas, recebidas) com "Recebi" e desfazer, a festa vista pelo dinheiro (festa.js),
-// registrar pagamento pelo "+", e, recolhidos, a receita mês a mês e o que mais vende. A parcela mora em
+// registrar pagamento pelo "+", e, à vista logo depois dos números (como o exemplo, Missão 7 bloco A), a receita
+// mês a mês e o que mais vende. A parcela mora em
 // parcela.js; as regras sem tela, em logica.js. Quem só vê não tem botões (o banco também não deixa).
 
 import { icone } from "../../ui/icones.js";
@@ -84,6 +85,10 @@ export async function montar(el, contexto) {
         <div><dt>A receber em 30 dias</dt><dd>${escapar(moeda(r.aReceber30))}</dd><small>${r.quantasEm30} ${r.quantasEm30 === 1 ? "parcela" : "parcelas"}</small></div>
         <div${r.quantasAtrasadas ? ' class="rz-numero--atencao"' : ""}><dt>Atrasadas</dt><dd>${escapar(moeda(r.atrasadas))}</dd><small>${r.quantasAtrasadas ? `${r.quantasAtrasadas} ${r.quantasAtrasadas === 1 ? "parcela" : "parcelas"}` : "nenhuma"}</small></div>
       </dl>
+      ${dados.parcelas.length ? `<section class="rz-cartao rz-resumo rz-resumo--aberto" aria-label="Mês a mês e o que mais vende">
+        <div class="rz-resumo-corpo">${grafico()}
+          <div><p class="rz-rotulo">O que mais vende</p>${vendidos.length ? `<ul class="rz-origens">${vendidos.slice(0, 6).map(v => `<li><span>${escapar(v.nome)} <span class="rz-texto-3">· ${v.n}</span></span><b>${escapar(compacto(v.total))}</b><span class="rz-progresso" aria-hidden="true"><span style="width:${vendidos[0].total ? Math.round((v.total / vendidos[0].total) * 100) : 0}%"></span></span></li>`).join("")}</ul>` : `<p class="rz-texto-3">Aparece quando as reservas tiverem valor.</p>`}</div>
+        </div></section>` : ""}
       <div class="rz-barra-ferramentas">
         <input class="rz-entrada rz-campo-busca" type="search" placeholder="Buscar por cliente ou descrição" aria-label="Buscar parcela" value="${escapar(filtro.busca)}" data-busca>
         ${nomeDoFiltro ? `<button class="rz-chip" type="button" data-tirar-cliente aria-pressed="true">${escapar(nomeDoFiltro.nome)} ${icone("fechar", { tamanho: 14 })}</button>` : ""}
@@ -91,15 +96,11 @@ export async function montar(el, contexto) {
       </div>
       <div data-lista>${!dados.parcelas.length ? vazio({ icone: "carteira", titulo: "Nenhuma parcela ainda", texto: `Na ${nicho.palavras.reserva === "festa" ? "festa" : "reserva"}, ponha o valor e use "Lançar parcelas": o sinal e o resto em vezes. Ou registre um pagamento que já entrou.`, acao: edita ? { rotulo: "Registrar pagamento", dado: "registrar" } : null })
         : lista.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${lista.slice(0, 200).map(linha).join("")}</ul>` : `<p class="rz-estado-curto">${filtro.busca ? "Nada com essa busca." : "Nada aqui."}</p>`}</div>
-      ${dados.parcelas.length ? `<details class="rz-cartao rz-resumo"${desenhar.aberto ? " open" : ""}><summary>Mês a mês e o que mais vende ${icone("setaBaixo", { tamanho: 18 })}</summary>
-        <div class="rz-resumo-corpo">${grafico()}
-          <div><p class="rz-rotulo">O que mais vende</p>${vendidos.length ? `<ul class="rz-origens">${vendidos.slice(0, 6).map(v => `<li><span>${escapar(v.nome)} <span class="rz-texto-3">· ${v.n}</span></span><b>${escapar(compacto(v.total))}</b><span class="rz-progresso" aria-hidden="true"><span style="width:${vendidos[0].total ? Math.round((v.total / vendidos[0].total) * 100) : 0}%"></span></span></li>`).join("")}</ul>` : `<p class="rz-texto-3">Aparece quando as reservas tiverem valor.</p>`}</div>
-        </div></details>` : ""}`;
+`;
     const busca = corpo.querySelector("[data-busca]");
     busca.addEventListener("input", () => { filtro.busca = busca.value; const l = filtrarParcelas(dados.parcelas, { ...filtro, hoje }); corpo.querySelector("[data-lista]").innerHTML = l.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${l.slice(0, 200).map(linha).join("")}</ul>` : `<p class="rz-estado-curto">Nada com essa busca.</p>`; });
     const grupo = corpo.querySelector(".rz-barra-ferramentas .rz-chips");
     if (grupo) ligarChips(grupo, v => { filtro.grupo = v; desenhar(); });
-    corpo.querySelector("details.rz-resumo")?.addEventListener("toggle", e => { desenhar.aberto = e.target.open; });
   }
 
   const carregar = async () => {

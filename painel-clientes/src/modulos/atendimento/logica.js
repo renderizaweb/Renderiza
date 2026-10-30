@@ -18,13 +18,14 @@ export const ETAPAS = [
 ];
 export const ETAPA = Object.fromEntries(ETAPAS.map(e => [e.id, e]));
 
+/** As origens. `icone`: o da linha do pedido (.rz-origem--<id>, a cor de cada uma, como no exemplo). */
 export const ORIGENS = [
-  { id: "whatsapp", nome: "WhatsApp", por: "pelo WhatsApp" },
-  { id: "instagram", nome: "Instagram", por: "pelo Instagram" },
-  { id: "agenda_online", nome: "Agenda online", por: "pela agenda online" },
-  { id: "indicacao", nome: "Indicação", por: "por indicação" },
-  { id: "google", nome: "Google", por: "pelo Google" },
-  { id: "outro", nome: "Outro", por: "" },
+  { id: "whatsapp", nome: "WhatsApp", por: "pelo WhatsApp", icone: "whatsapp" },
+  { id: "instagram", nome: "Instagram", por: "pelo Instagram", icone: "instagram" },
+  { id: "agenda_online", nome: "Agenda online", por: "pela agenda online", icone: "estrela" },
+  { id: "indicacao", nome: "Indicação", por: "por indicação", icone: "coracao" },
+  { id: "google", nome: "Google", por: "pelo Google", icone: "globo" },
+  { id: "outro", nome: "Outro", por: "", icone: "conversa" },
 ];
 export const ORIGEM = Object.fromEntries(ORIGENS.map(o => [o.id, o]));
 
@@ -78,14 +79,22 @@ export const chegou = (p, agora = Date.now()) => `Chegou ${haQuanto(new Date(p.c
 export function funil(pedidos, { dias = 30, agora = Date.now(), idNicho } = {}) {
   const desde = agora - dias * 864e5;
   const doPeriodo = pedidos.filter(p => Date.parse(p.criado_em) >= desde);
+  const antes = pedidos.filter(p => Date.parse(p.criado_em) >= desde - dias * 864e5 && Date.parse(p.criado_em) < desde).length;
   const passou = (p, ids) => ids.includes(p.etapa);
   const linhas = [
-    { id: "pedidos", nome: "Pedidos", n: doPeriodo.length },
-    idNicho === "eventos" && { id: "visita", nome: "Visitaram", n: doPeriodo.filter(p => passou(p, ["visita_marcada", "orcamento_enviado", "aguardando_sinal", "fechado"])).length },
-    { id: "orcamento", nome: "Receberam orçamento", n: doPeriodo.filter(p => passou(p, ["orcamento_enviado", "aguardando_sinal", "fechado"])).length },
+    { id: "pedidos", nome: `Pedidos em ${dias} dias`, n: doPeriodo.length, dos: "dos pedidos" },
+    idNicho === "eventos" && { id: "visita", nome: "Visitaram o espaço", n: doPeriodo.filter(p => passou(p, ["visita_marcada", "orcamento_enviado", "aguardando_sinal", "fechado"])).length, dos: "das visitas" },
+    { id: "orcamento", nome: "Receberam orçamento", n: doPeriodo.filter(p => passou(p, ["orcamento_enviado", "aguardando_sinal", "fechado"])).length, dos: "dos orçamentos" },
     { id: "fechado", nome: "Fecharam", n: doPeriodo.filter(p => p.etapa === "fechado").length },
   ].filter(Boolean);
-  return linhas.map((l, i) => ({ ...l, de: i ? linhas[i - 1].n : null, pct: i && linhas[i - 1].n ? Math.round((l.n / linhas[i - 1].n) * 100) : null }));
+  const comparado = d => (d > 0 ? `+${d} que no mês anterior` : d < 0 ? `−${-d} que no mês anterior` : "igual ao mês anterior");
+  return linhas.map((l, i) => {
+    const de = i ? linhas[i - 1].n : null;
+    const pct = i && de ? Math.round((l.n / de) * 100) : null;
+    // a linha de baixo: a primeira compara com o período anterior; as outras, quanto passou da etapa de cima
+    const sub = !i ? comparado(l.n - antes) : pct != null ? `${pct}% ${linhas[i - 1].dos}` : "";
+    return { id: l.id, nome: l.nome, n: l.n, de, pct, sub };
+  });
 }
 
 /** De onde vêm os pedidos dos últimos `dias`: [{ id, nome, n, pct }], do que mais traz para o que menos traz. */

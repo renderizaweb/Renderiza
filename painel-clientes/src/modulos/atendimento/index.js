@@ -1,6 +1,7 @@
 // Módulo Atendimento (Missão 3, bloco C): todo pedido de orçamento num lugar só (02). Referência: o exemplo de
-// eventos e o 09 ("Atendimento"): a lista primeiro, com o próximo passo na linha; o funil e "De onde vêm"
-// recolhidos depois dela; no computador, o quadro em colunas por etapa (arrastar muda a etapa, com desfazer).
+// eventos e o 09 ("Atendimento"): o funil dos 30 dias em cima (como o exemplo, Missão 7 bloco A), a lista com o
+// ícone de onde veio e o próximo passo na linha; "De onde vêm" recolhido depois dela; no computador, o quadro em
+// colunas por etapa (arrastar muda a etapa, com desfazer).
 // O que se faz num pedido mora em pedido.js; as regras sem tela, em logica.js. A lista de espera (fotografia), em
 // espera.js. Quem só vê não tem botões nem arrastar (o banco também não deixa).
 
@@ -8,8 +9,8 @@ import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { chips, ligarChips } from "../../ui/filtros.js";
-import { iniciais, haQuanto, linkWhatsapp } from "../../ui/formatos.js";
-import { ETAPA, etapasDoNicho, chipsDaLista, filtrar, resumoDoPedido, funil, deOndeVem, mensagemDeResposta, whatsappDoCliente } from "./logica.js";
+import { haQuanto, linkWhatsapp } from "../../ui/formatos.js";
+import { ETAPA, ORIGEM, etapasDoNicho, chipsDaLista, filtrar, resumoDoPedido, funil, deOndeVem, mensagemDeResposta, whatsappDoCliente } from "./logica.js";
 import { COLUNAS, etiquetaDaEtapa, abrirPedido, abrirFechar, anotarPedido, mudarEtapa } from "./pedido.js";
 
 const CHAVE_DA_VISTA = "painel-renderiza:atendimento:vista";
@@ -55,7 +56,7 @@ export async function montar(el, contexto) {
     if (edita && novo && numero) acao = `<a class="rz-botao rz-botao--pequeno rz-linha-acao" href="${escapar(linkWhatsapp(numero, mensagemDeResposta(p, { conta, pessoa, nicho, fuso })))}" target="_blank" rel="noopener" data-responder="${escapar(p.id)}">${icone("whatsapp", { tamanho: 16 })}Responder</a>`;
     else if (edita && ["orcamento_enviado", "aguardando_sinal"].includes(p.etapa)) acao = `<button class="rz-botao rz-botao--pequeno rz-linha-acao" type="button" data-fechar-pedido="${escapar(p.id)}">Fechar</button>`;
     return `<li class="rz-com-acao"><button class="rz-linha" type="button" data-pedido="${escapar(p.id)}">
-        <span class="rz-avatar rz-avatar--cliente" aria-hidden="true">${escapar(iniciais((p.clientes && p.clientes.nome) || "?"))}</span>
+        ${iconeDaOrigem(p.origem)}
         <span class="rz-linha-texto"><b>${escapar((p.clientes && p.clientes.nome) || "Cliente")}</b><small>${escapar(resumoDoPedido(p, nicho, { fuso }))}</small></span>
         <span class="rz-linha-fim">${etiquetaDaEtapa(p.etapa)}<span class="rz-linha-quando">${escapar(haQuanto(new Date(p.criado_em)))}</span></span>
       </button>${acao}</li>`;
@@ -89,16 +90,20 @@ export async function montar(el, contexto) {
     }).join("")}</div>`;
   }
 
-  function desenharResumo(alvo) {
+  function desenharFunil(alvo) {
     const f = funil(ctx.pedidos, { idNicho: nicho.id });
+    alvo.innerHTML = ctx.pedidos.length
+      ? `<dl class="rz-funil rz-numeros rz-funil-topo" aria-label="Como vão os pedidos">${f.map(l => `<div><dt>${escapar(l.nome)}</dt><dd>${l.n}</dd>${l.sub ? `<small>${escapar(l.sub)}</small>` : ""}</div>`).join("")}</dl>`
+      : "";
+  }
+
+  function desenharResumo(alvo) {
     const origens = deOndeVem(ctx.pedidos);
     alvo.innerHTML = ctx.pedidos.length ? `
       <details class="rz-cartao rz-resumo">
-        <summary>Como vão os pedidos ${icone("setaBaixo", { tamanho: 18 })}</summary>
+        <summary>De onde vêm os pedidos ${icone("setaBaixo", { tamanho: 18 })}</summary>
         <div class="rz-resumo-corpo">
-          <div><p class="rz-rotulo">Últimos 30 dias</p>
-            <dl class="rz-funil">${f.map(l => `<div><dt>${escapar(l.nome)}</dt><dd>${l.n}</dd>${l.pct != null ? `<small>${l.pct}% de ${l.de}</small>` : ""}</div>`).join("")}</dl></div>
-          <div><p class="rz-rotulo">De onde vêm (90 dias)</p>
+          <div><p class="rz-rotulo">Últimos 90 dias</p>
             <ul class="rz-origens">${origens.map(o => `<li><span>${escapar(o.nome)}</span><b>${o.pct}%</b><span class="rz-progresso" aria-hidden="true"><span style="width:${o.pct}%"></span></span></li>`).join("") || `<li class="rz-texto-3">Ainda sem pedidos no período.</li>`}</ul>
             ${origens.some(o => o.id === "agenda_online") ? `<p class="rz-texto-3">${icone("estrela", { tamanho: 16 })} A agenda online trouxe ${origens.find(o => o.id === "agenda_online").n} pedidos sem ninguém precisar responder na hora.</p>` : ""}</div>
         </div>
@@ -109,6 +114,7 @@ export async function montar(el, contexto) {
     const quadro = vista === "quadro" && computador();
     const resumoAberto = corpo.querySelector("details.rz-resumo")?.open;
     corpo.innerHTML = `
+      <div data-funil></div>
       <div class="rz-barra-ferramentas">
         <input class="rz-entrada rz-campo-busca" type="search" placeholder="Buscar por nome ou WhatsApp" aria-label="Buscar pedido" value="${escapar(filtro.busca)}" data-busca>
         ${quadro ? "" : chips({ rotulo: "Etapa", opcoes: chipsDaLista(ctx.pedidos, nicho.id), ativo: filtro.etapa })}
@@ -117,6 +123,7 @@ export async function montar(el, contexto) {
       <div data-resumo></div>`;
     const alvo = corpo.querySelector("[data-pedidos]");
     if (quadro) desenharQuadro(alvo); else desenharLista(alvo);
+    desenharFunil(corpo.querySelector("[data-funil]"));
     desenharResumo(corpo.querySelector("[data-resumo]"));
     if (resumoAberto) corpo.querySelector("details.rz-resumo").open = true;
     const busca = corpo.querySelector("[data-busca]");
@@ -245,6 +252,12 @@ export async function montar(el, contexto) {
     if (p) abrirPedido(p, ctx);
   }
   return () => { clearTimeout(pendente); if (parar) parar(); };
+}
+
+/** O ícone colorido de onde veio o pedido (o nome da origem já está na segunda linha). */
+function iconeDaOrigem(origem) {
+  const o = ORIGEM[origem] || ORIGEM.outro;
+  return `<span class="rz-origem rz-origem--${o.id}" aria-hidden="true">${icone(o.icone, { tamanho: 20 })}</span>`;
 }
 
 function vistaEscolha(vista) {

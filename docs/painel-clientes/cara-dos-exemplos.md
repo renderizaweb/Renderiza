@@ -48,14 +48,14 @@ exemplo) · ⚪ depois (precisa de função nova)
 
 | # | Exemplo | Painel hoje | Proposta | |
 |---|---|---|---|---|
-| T1 | começa pelo funil em números (pedidos em 30 dias, visitaram, receberam orçamento, fecharam) | o funil fica recolhido embaixo ("Como vão os pedidos") | o funil em cima, compacto | 🟢 |
-| T2 | cada pedido com o ícone da origem, colorido (WhatsApp, Instagram, site, indicação) | as iniciais do nome | o ícone da origem | 🟢 |
+| T1 | começa pelo funil em números (pedidos em 30 dias, visitaram, receberam orçamento, fecharam) | o funil fica recolhido embaixo ("Como vão os pedidos") | o funil em cima, compacto | ✅ |
+| T2 | cada pedido com o ícone da origem, colorido (WhatsApp, Instagram, site, indicação) | as iniciais do nome | o ícone da origem | ✅ |
 
 ## Financeiro
 
 | # | Exemplo | Painel hoje | Proposta | |
 |---|---|---|---|---|
-| F1 | o gráfico "Receita por mês" à vista, logo depois dos números; "Vendas por pacote" | o gráfico e "o que mais vende" recolhidos embaixo | o gráfico à vista (aberto) | 🟢 |
+| F1 | o gráfico "Receita por mês" à vista, logo depois dos números; "Vendas por pacote" | o gráfico e "o que mais vende" recolhidos embaixo | o gráfico à vista (aberto) | ✅ |
 | F2 | "Ticket médio" e "Em atraso" (com o nome) nos números | "Falta receber no mês" e "Atrasadas" | trocar "Falta receber no mês" por "Ticket médio" quando o mês já está todo recebido | 🟡 |
 
 ## Como foi comparado
