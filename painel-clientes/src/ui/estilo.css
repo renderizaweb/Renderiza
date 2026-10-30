@@ -890,3 +890,9 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-1) var(--rz-4);margin:calc(-1 * var(--rz-1)) 0 var(--rz-4);font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
 .rz-legenda li{display:inline-flex;align-items:center;gap:var(--rz-2)}
 .rz-legenda li[data-escondida=true]{opacity:.45;text-decoration:line-through}
+/* ---------- 27. A conversa de boas-vindas (/montar; Missão 7, bloco E) ----------
+   O visual do onboarding (seções 14 e 16); a reação curta da IA à última resposta, em cima da pergunta. */
+.rz-montar-comentario{display:flex;align-items:center;gap:var(--rz-2);margin:var(--rz-4) 0 calc(-1 * var(--rz-3));color:var(--rz-destaque-escuro);font-size:var(--rz-t-sm);font-weight:500;animation:rz-surgir var(--rz-medio) var(--rz-curva)}
+.rz-montar-comentario .rz-icone{flex:none}
+.rz-montar-progresso{height:6px}
+.rz-montar-progresso>span{background:var(--rz-destaque)}

@@ -169,6 +169,11 @@ painel-clientes/
   (`output_config.format`), confere a resposta contra o roteiro e registra os tokens e o custo em `ia_uso` (sem o
   conteúdo). A IA só propõe: nada é gravado pela função. Sem chave, no teto, com demora ou resposta fora do formato,
   responde `{ ok: false, fallback: true, motivo }` e o painel segue o roteiro fixo.
+- **A conversa de boas-vindas** (Missão 7, bloco E; D43, D44): `/montar` (`src/telas/montar/`), para o dono de
+  conta criada no Admin (que nasce com `ajustes.onboarding.pendente`); o Início leva para lá depois dos termos. Lê o
+  que a demo sabia por `contexto_da_minha_conta` (sem a conversa colada), confirma num toque, faz as perguntas do
+  roteiro (`roteiro.js`) pedindo a próxima à função `assistente` (no máximo 5 segundos; senão, o roteiro fixo) e, no
+  fim, grava os dados confirmados, os tipos, a ordem do menu pelo objetivo e o perfil (`ajustes.onboarding`).
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.

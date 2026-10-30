@@ -9,6 +9,7 @@ import { escapar, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
 import { abrirGaveta } from "../../ui/gaveta.js";
 import { segmentos } from "../../ui/campos.js";
 import { lerCsv, baixarCsv } from "../../ui/csv.js";
+import { montarAdiado } from "../../telas/montar/roteiro.js";
 import { FUSO_PADRAO, dia, dataCurta, hora, instanteNoFuso, lerData, lerHora, normalizarWhatsapp, whatsappValido } from "../../ui/formatos.js";
 
 export const MAXIMO_DA_IMPORTACAO = 500;
@@ -17,7 +18,11 @@ export const MAXIMO_DA_IMPORTACAO = 500;
 export function passosDaConta(conta, feitos = {}) {
   const n = acharNicho(conta.nicho);
   const ligado = id => (conta.modulos || []).includes(id);
+  const perfil = (conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.perfil) || {};
   return [
+    // a conversa de boas-vindas ficou para depois (Missão 7, bloco E)
+    montarAdiado(conta) && { id: "montar", titulo: "Terminar de montar o painel", texto: "Umas perguntas de um toque, e o painel fica com a cara do seu negócio.",
+      feito: false, acao: { href: "/montar", rotulo: "Continuar" } },
     // a conta criada pelo Admin nasce sem nenhum (a do cadastro já vem com os da pergunta do nicho)
     feitos.semServicos
       ? { id: "valores", titulo: `Cadastrar os seus ${n.palavras.servicos}, com os valores`, texto: "Para os orçamentos, os contratos e o Financeiro saírem certos.",
@@ -28,7 +33,8 @@ export function passosDaConta(conta, feitos = {}) {
       texto: "De uma planilha, ou digitando rápido: uma data e um nome por linha.", feito: !!feitos.reservas, acao: { importar: true, rotulo: "Trazer as datas" } },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
       feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" } },
-    { id: "equipe", titulo: "Convidar alguém da equipe", texto: "Cada pessoa vê só o que você liberar.",
+    // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo
+    perfil.tamanho !== "so_eu" && { id: "equipe", titulo: "Convidar alguém da equipe", texto: "Cada pessoa vê só o que você liberar.",
       feito: !!feitos.equipe, acao: { href: "/equipe", rotulo: "Convidar" } },
   ].filter(Boolean);
 }

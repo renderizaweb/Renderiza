@@ -109,6 +109,8 @@ export function abrirNovaConta(ctx) {
       conta = await banco.resultado(banco.tabela("contas").insert({
         nome: d.nome.trim(), nicho: d.nicho, codigo: d.codigo, whatsapp: normalizarWhatsapp(d.whatsapp) || null,
         situacao: "ativa", origem: "renderiza", ativa_ate: prazoAte(d.prazo, dia(new Date())),
+        // o dono começa pela conversa de boas-vindas (/montar; Missão 7, bloco E)
+        ajustes: { onboarding: { pendente: true } },
       }).select("id, nome").single());
       await banco.resultado(banco.tabela("contas_modulos").insert(modulos.map(m => ({ conta_id: conta.id, modulo_id: m }))));
       const daDemo = demos.find(v => v.pasta === d.demo);

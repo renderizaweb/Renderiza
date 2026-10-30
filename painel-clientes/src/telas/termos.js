@@ -8,7 +8,7 @@ import { avisoDoFormulario, ocupado } from "../ui/formulario.js";
 import { telaDeAcesso, focarTitulo } from "./acesso.js";
 
 /** A versão de agora: a mesma de publico/termos/ e publico/privacidade/ (data-versao). Mudou o texto de verdade, muda aqui. */
-export const VERSAO_DOS_TERMOS = "2026-10-30";
+export const VERSAO_DOS_TERMOS = "2026-10-31";
 const dataDaVersao = v => `${v.slice(8, 10)}/${v.slice(5, 7)}/${v.slice(0, 4)}`;
 
 /** Já aceitou a versão de agora? E alguma antes (para dizer "mudaram")? */

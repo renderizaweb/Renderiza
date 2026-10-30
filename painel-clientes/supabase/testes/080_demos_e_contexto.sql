@@ -37,3 +37,14 @@ reset role;
 -- apagar a demo do catálogo não apaga o contexto da conta
 delete from public.demos where pasta = 'espaco-teste-demo';
 select testes.afirmar((select demo is null and dados ? 'tipos' from public.contas_contexto where conta_id = (select conta from _c)), 'sem a demo, o contexto fica com o que ela sabia');
+
+-- a conversa de boas-vindas (migração 20261030260000): o dono lê o que a demo sabia, nunca a conversa
+insert into public.contas_contexto (conta_id, dados, conversa) select conta, '{"tipos":["Casamento"],"whatsapp":"11999990000"}', 'Lead: segredo da conversa.' from _c
+  on conflict (conta_id) do update set dados = excluded.dados, conversa = excluded.conversa;
+select testes.entrar_como((select dono from _u));
+select testes.afirmar((select public.contexto_da_minha_conta((select conta from _c)) ->> 'whatsapp') = '11999990000', 'o dono lê o que a demo sabia');
+select testes.afirmar(position('segredo' in coalesce(public.contexto_da_minha_conta((select conta from _c))::text, '')) = 0, 'e não a conversa colada');
+reset role;
+select testes.entrar_como((select renderiza from _u));
+select testes.afirmar(public.contexto_da_minha_conta(gen_random_uuid()) is null, 'de conta que não é dele: nada');
+reset role;

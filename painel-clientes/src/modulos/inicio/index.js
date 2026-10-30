@@ -5,6 +5,8 @@
 // As regras sem tela: logica.js.
 
 import { montarPrimeirosPassos } from "./primeiros-passos.js";
+import { precisaMontar } from "../../telas/montar/roteiro.js";
+import { TELAS } from "../../rotas.js";
 import { saudacao, paraFazerAgora, numeros, frase, comoEstaAProxima } from "./logica.js";
 import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
@@ -26,6 +28,8 @@ function fimDaProxima(r) {
 
 export async function montar(el, contexto) {
   const { banco, conta, nicho, pode, avisar, navegar, pessoa } = contexto;
+  // a conta que a Renderiza criou começa pela conversa de boas-vindas (Missão 7, bloco E)
+  if (precisaMontar(conta)) return navegar(TELAS.montar.caminho, { substituir: true });
   const fuso = conta.fuso || undefined;
   const agora = new Date();
   const hoje = dia(agora, fuso);
