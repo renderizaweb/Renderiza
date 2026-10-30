@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node scripts/servidor.mjs",
     "test": "node --test test/*.test.mjs",
-    "migrar": "node scripts/migrar.mjs"
+    "migrar": "node scripts/migrar.mjs",
+    "fluxos": "node --test --test-concurrency=1 test/fluxos/*.fluxo.mjs"
   },
   "engines": {
     "node": ">=18"

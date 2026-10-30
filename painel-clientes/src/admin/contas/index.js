@@ -63,13 +63,15 @@ export async function montar(el, contexto) {
   const carregar = () => carregarContas(banco);
   async function atualizar() { try { dados = await carregar(); desenhar(); } catch (e) { avisar(e.message, { tipo: "erro" }); } }
 
-  el.addEventListener("click", e => {
-    if (e.target.closest("[data-nova], [data-acao=nova]")) return abrirNovaConta({ ...ctx, catalogo: dados.catalogo });
+  let carregou = null; // a primeira carga: "Criar conta" antes dela abria o formulário sem os módulos
+  el.addEventListener("click", async e => {
+    if (e.target.closest("[data-nova], [data-acao=nova]")) { await carregou; return abrirNovaConta({ ...ctx, catalogo: dados.catalogo }); }
     const b = e.target.closest("[data-conta]");
     if (b && corpo.contains(b)) { const c = dados.contas.find(x => x.id === b.dataset.conta); if (c) abrirConta(c, { ...ctx, catalogo: dados.catalogo }); }
   });
 
-  await comEstados(corpo, { carregar, desenhar: d => { dados = d; desenhar(); }, linhas: 6 });
+  carregou = comEstados(corpo, { carregar, desenhar: d => { dados = d; desenhar(); }, linhas: 6 });
+  await carregou;
 
   // ?conta=<id> (dos Pagamentos e de Pessoas), ?nova=1
   if (params.has("conta") || params.has("nova")) history.replaceState(history.state, "", location.pathname);
