@@ -10,6 +10,9 @@ test("os itens seguem os módulos ligados e o que o banco já tem", () => {
   assert.deepEqual(passosDaConta(conta).map(p => p.id), ["valores", "datas", "pedido", "equipe"]);
   assert.match(passosDaConta(conta)[0].titulo, /pacotes/);
   assert.match(passosDaConta({ nicho: "fotografia", modulos: [] })[0].titulo, /tipos de ensaio/);
+  const semNenhum = passosDaConta(conta, { semServicos: true })[0];
+  assert.match(semNenhum.titulo, /^Cadastrar os seus pacotes, com os valores/, "a conta criada pelo Admin começa sem pacotes");
+  assert.equal(semNenhum.acao.rotulo, "Cadastrar");
   assert.deepEqual(passosDaConta({ nicho: "eventos", modulos: ["contratos"] }).map(p => p.id), ["valores", "equipe"], "sem Agenda nem Atendimento, não importa datas");
   const feitos = passosDaConta(conta, { reservas: true, equipe: true }).filter(p => p.feito).map(p => p.id);
   assert.deepEqual(feitos, ["datas", "equipe"]);

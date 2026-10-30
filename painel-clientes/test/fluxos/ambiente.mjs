@@ -77,6 +77,24 @@ export async function limpar(banco) {
     delete from auth.users where email like ${q(`%@${DOMINIO}`)};`);
 }
 
+/** Sobras de execuções interrompidas (mais de 2 horas): contas t-fluxo-*, pessoas e logins @fluxo-*.teste. */
+export async function limparSobras(banco) {
+  const velhos = `(select id from auth.users where email like '%@fluxo-%.teste' and created_at < now() - interval '2 hours')`;
+  await banco.sql(`
+    delete from public.contas where codigo like 't-fluxo-%' and criado_em < now() - interval '2 hours';
+    delete from public.acessos_suporte where usuario_id in ${velhos};
+    delete from public.equipe_renderiza where usuario_id in ${velhos};
+    delete from public.pessoas where usuario_id in ${velhos};
+    delete from auth.users where id in ${velhos};`);
+}
+
+/** Põe o login como pessoa de uma conta que já existe (as da semente), como dono ou com os acessos dados. */
+export async function porNaConta(banco, endereco, codigo, { dono = false, acessos = {}, nome = "Pessoa do fluxo" } = {}) {
+  await banco.sql(`insert into public.pessoas (conta_id, usuario_id, nome, email, dono, acessos)
+    select c.id, (select id from auth.users where email = ${q(endereco)}), ${q(nome)}, ${q(endereco)}, ${dono}, ${q(JSON.stringify(acessos))}::jsonb
+    from public.contas c where c.codigo = ${q(codigo)}`);
+}
+
 /** Liga o servidor do painel (STG) numa porta própria. Devolve { url, parar }. */
 export async function ligarServidor(porta = 5190 + Math.floor(Math.random() * 50)) {
   const filho = spawn(process.execPath, ["scripts/servidor.mjs"], { cwd: PASTA, env: { ...process.env, PORT: String(porta) }, stdio: "ignore" });

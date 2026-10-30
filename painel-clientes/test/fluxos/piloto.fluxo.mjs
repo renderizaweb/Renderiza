@@ -91,7 +91,8 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
     await passo("2. o dono entra pelo celular, aceita os termos e vê os primeiros passos", async () => {
       dono.senha = await A.criarLogin(banco, dono.email, "Dono do Fluxo");
       pDono = await (await navegador.newContext(CELULAR)).newPage();
-      erros.push(A.vigiar(pDono));
+      erros.push(A.vigiar(pDono, [/functions\/v1\/convidar/]));
+      await pDono.route(/functions\/v1\/convidar/, r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' }));
       c = A.contador(pDono);
       tela = pDono;
       await A.entrar(pDono, srv.url, dono.email, dono.senha);
@@ -232,6 +233,64 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       const [ct] = await banco.sql(`select situacao, aceito_nome, aceito_ip is not null as tem_ip from public.contratos where conta_id = ${A.q(contaId)}`);
       assert.deepEqual(ct, { situacao: "aceito", aceito_nome: CLIENTE.nome, tem_ip: true });
       tela = pDono;
+    });
+
+    await passo("6. a equipe: alguém que só vê a agenda, os pedidos e os clientes entra e não muda nada", async () => {
+      await pDono.goto(`${srv.url}/equipe`, { waitUntil: "networkidle" });
+      await visivel(pDono, "main button:has-text('Convidar')").click();
+      const g = gaveta(pDono);
+      await g.locator("#convite-email").fill(ve.email);
+      await g.locator("#convite-nome").fill("Ana Só Vê");
+      for (const [modulo, nivel] of [["agenda", "Só vê"], ["clientes", "Só vê"], ["atendimento", "Só vê"], ["financeiro", "Sem acesso"], ["contratos", "Sem acesso"]])
+        await g.locator(`label:has(input[name=acesso-${modulo}]):has-text("${nivel}")`).click();
+      await g.locator("button:has-text('Mandar o convite')").click();
+      await pDono.waitForSelector("#convite-email", { state: "detached" });
+      ve.senha = await A.criarLogin(banco, ve.email, "Ana Só Vê");
+      const pVe = await (await navegador.newContext(CELULAR)).newPage();
+      erros.push(A.vigiar(pVe));
+      tela = pVe;
+      await A.entrar(pVe, srv.url, ve.email, ve.senha);
+      const [pessoa] = await banco.sql(`select dono, acessos from public.pessoas p join auth.users u on u.id = p.usuario_id where u.email = ${A.q(ve.email)} and p.conta_id = ${A.q(contaId)}`);
+      assert.equal(pessoa.dono, false, "entrou pelo convite como equipe");
+      await pVe.goto(`${srv.url}/atendimento`, { waitUntil: "networkidle" });
+      await pVe.click("[data-chip=fechado]");
+      await pVe.waitForSelector(`[data-pedidos] .rz-linha:has-text("${CLIENTE.nome}") >> visible=true`);
+      assert.equal(await pVe.locator("main [data-anotar] >> visible=true").count(), 0, "quem só vê não anota pedido");
+      await pVe.goto(`${srv.url}/agenda?dia=${D.festa}`, { waitUntil: "networkidle" });
+      assert.equal(await pVe.locator("main button:has-text('Reservar data') >> visible=true").count(), 0, "quem só vê não reserva data");
+      const texto = await pVe.locator("body").innerText();
+      assert.doesNotMatch(texto, /Financeiro|Contratos/, "sem acesso, o Financeiro e Contratos nem aparecem no menu");
+      await pVe.goto(`${srv.url}/financeiro`, { waitUntil: "networkidle" });
+      assert.doesNotMatch(await pVe.locator("main").innerText(), /3\.000|12\.000/, "e os valores não aparecem nem pelo endereço");
+      tela = pDono;
+    });
+
+    await passo("7. a Renderiza registra o Pix da mensalidade, vê os números e entra para ajudar (com registro)", async () => {
+      tela = pAdm;
+      await pAdm.goto(`${srv.url}/admin`, { waitUntil: "networkidle" });
+      await pAdm.click("[data-chip=todas]");
+      const linha = pAdm.locator(`[data-lista] .rz-linha:has-text("${NOME_DA_CONTA}")`);
+      assert.match(await linha.innerText(), /2 pessoas/, "o dono e a pessoa da equipe");
+      await linha.click();
+      await pAdm.click("dialog[open] [data-pagar]");
+      assert.equal(await pAdm.inputValue("#pg-valor"), "93,97", "o Pix sugerido é a mensalidade da conta");
+      await pAdm.click("dialog[open] [type=submit]");
+      await pAdm.waitForSelector("#pg-valor", { state: "detached" });
+      await linha.click();
+      await pAdm.click("dialog[open] [data-entrar]");
+      await pAdm.fill("#sup-motivo", "Teste do fluxo: conferir a agenda com o dono");
+      await pAdm.click("dialog[open] [type=submit]");
+      await pAdm.waitForSelector(".rz-faixa-suporte");
+      await pAdm.goto(`${srv.url}/agenda?dia=${D.festa}`, { waitUntil: "networkidle" });
+      assert.match(await pAdm.locator("main").innerText(), /Juliana/, "em suporte, a Renderiza vê a agenda da conta");
+      await pAdm.click("[data-encerrar-suporte]");
+      await pAdm.waitForURL(/\/admin/);
+      const [r] = await banco.sql(`select
+        (select count(*)::int from public.pagamentos where conta_id = ${A.q(contaId)} and valor = 93.97) as pix,
+        (select count(*)::int from public.acessos_suporte where conta_id = ${A.q(contaId)} and fim <= now()) as suporte_encerrado`);
+      assert.deepEqual(r, { pix: 1, suporte_encerrado: 1 });
+      await pAdm.goto(`${srv.url}/admin/indicadores`, { waitUntil: "networkidle" });
+      assert.doesNotMatch(await pAdm.locator("main").innerText(), /Juliana/, "os indicadores são só números, sem nome de cliente");
     });
 
   } finally {

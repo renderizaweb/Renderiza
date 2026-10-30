@@ -18,8 +18,12 @@ export function passosDaConta(conta, feitos = {}) {
   const n = acharNicho(conta.nicho);
   const ligado = id => (conta.modulos || []).includes(id);
   return [
-    { id: "valores", titulo: `Pôr os valores dos seus ${n.palavras.servicos}`, texto: "Para os orçamentos e o Financeiro saírem certos.",
-      feito: !!feitos.valores, acao: { href: "/servicos", rotulo: "Pôr os valores" } },
+    // a conta criada pelo Admin nasce sem nenhum (a do cadastro já vem com os da pergunta do nicho)
+    feitos.semServicos
+      ? { id: "valores", titulo: `Cadastrar os seus ${n.palavras.servicos}, com os valores`, texto: "Para os orçamentos, os contratos e o Financeiro saírem certos.",
+        feito: false, acao: { href: "/servicos", rotulo: "Cadastrar" } }
+      : { id: "valores", titulo: `Pôr os valores dos seus ${n.palavras.servicos}`, texto: "Para os orçamentos e o Financeiro saírem certos.",
+        feito: !!feitos.valores, acao: { href: "/servicos", rotulo: "Pôr os valores" } },
     (ligado("agenda") || ligado("atendimento")) && { id: "datas", titulo: "Trazer as datas que já estão marcadas",
       texto: "De uma planilha, ou digitando rápido: uma data e um nome por linha.", feito: !!feitos.reservas, acao: { importar: true, rotulo: "Trazer as datas" } },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
@@ -266,14 +270,15 @@ export function abrirImportacao({ banco, conta }) {
 
 async function lerFeitos(banco, contaId) {
   const existe = consulta => banco.resultado(consulta.limit(1)).then(l => l.length > 0).catch(() => false);
-  const [valores, reservas, pedidos, pessoas, convites] = await Promise.all([
+  const [valores, servicos, reservas, pedidos, pessoas, convites] = await Promise.all([
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId).not("valor", "is", null)),
+    existe(banco.tabela("servicos").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("reservas").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("pedidos").select("id").eq("conta_id", contaId)),
     banco.resultado(banco.tabela("pessoas").select("id").eq("conta_id", contaId).limit(2)).then(l => l.length > 1).catch(() => false),
     existe(banco.tabela("convites").select("id").eq("conta_id", contaId).is("aceito_em", null).is("cancelado_em", null)),
   ]);
-  return { valores, reservas, pedidos, equipe: pessoas || convites };
+  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites };
 }
 
 /** Monta o cartão dentro de `el` (some sozinho para quem não é dono ou escondeu). */
