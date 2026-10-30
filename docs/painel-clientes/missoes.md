@@ -1,6 +1,6 @@
 # Missões
 
-O trabalho anda por **6 missões, uma por parada do [trilho](01-trilho.md)**. Uma missão é o que se entrega a uma
+O trabalho anda por **missões, uma por parada do [trilho](01-trilho.md)**. Uma missão é o que se entrega a uma
 sessão do Claude ("sua missão é a Missão 2"). As missões 3, 4 e 5 andam ao mesmo tempo e, para acelerar, podem ser
 divididas em mais de uma sessão pelos **blocos** de cada uma. As regras de como as sessões trabalham (e continuam o
 trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-em-paralelo.md).
@@ -15,6 +15,8 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **esperando a aprovação da Renderiza**: levantamento feito em 30/10 (D40 a D50, [`11`](11-onboarding-ia-levantamento.md)); nenhum código antes do ok | |
+| 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
 (diga por quê em "Avisos"). Os caminhos de "Mexe em" são dentro de `painel-clientes/`, menos os que começam pela raiz.
@@ -194,6 +196,38 @@ números; um backup foi restaurado com sucesso; os termos são aceitos no primei
 - **Mexe em:** `test/fluxos/` e o que as correções pedirem (avisar no quadro).
 
 **🏁 Destino:** o piloto usa o painel no dia a dia, com todos os módulos, sem precisar de ajuda.
+
+## Missão 7 · Onboarding com IA, do convite até a confiança
+
+**Para quê:** o lead que vem da demo começar a usar em minutos, com o painel montado do jeito do negócio dele, sem
+digitar nada um a um, e seguir acompanhado até usar sozinho.
+**Referência:** [`11`](11-onboarding-ia-levantamento.md) (o caminho da pessoa, o roteiro do que extrair, os marcos),
+D40 a D50 no [`07`](07-decisoes-e-perguntas.md), D33 (o visual do onboarding), `03` (Meu site), `06` (privacidade).
+
+| Bloco | O que entrega | Mexe em |
+|---|---|---|
+| A · A cara dos exemplos | o painel igual à experiência validada em `/exemplos/eventos` e `/exemplos/fotografia`, no celular e no computador. Começa por uma lista de diferenças, tela a tela, para a Renderiza escolher o que entra | `src/ui/estilo.css` (só o visual), `src/telas/casca.js`, `src/modulos/*/` (só a apresentação, nenhuma regra) |
+| B · Convite por link e acesso sem e-mail | o Admin gera o convite (o usuário, o link de uso único por 7 dias, "copiar para o WhatsApp"); a tela "Olá, Espaço X, crie uma senha"; entrar com usuário ou e-mail; o e-mail opcional depois; "gerar link novo" no Admin; o dono convida a equipe do mesmo jeito (D42) | `src/admin/contas/`, `src/telas/convite.js`, `src/telas/entrar.js`, `supabase/functions/` (criar o login do convite), uma migração (o convite por link e o usuário) |
+| C · A conta nasce da demo | no Admin, escolher a demo do lead e colar o histórico da conversa; a conta nasce com o que a demo tem (nome, nicho, WhatsApp, Instagram, endereço, cores, logo, horários, tipos, avaliações), e o contexto fica guardado, fechado, para a IA (D41) | `src/admin/contas/nova.js`, `api/` (ler a `demo.json` do site, no servidor), uma migração (o contexto da conta) |
+| D · A IA no servidor | a função do Supabase que fala com o Claude (a chave só no ambiente dela): o roteiro, a saída em JSON validado, o cache, o limite por conta, o registro de uso e custo, o roteiro fixo quando a IA falha; a política e os termos com o fornecedor de IA (D45, D46, D49) | `supabase/functions/assistente/` (nova), uma migração (uso e custo), `publico/privacidade/`, `publico/termos/` |
+| E · A conversa de onboarding | `/comecar` refeito com a IA por trás, no mesmo visual (cartões, toque e segue, animação): confirmações de um toque, perguntas com opções, "mande o que tiver" opcional; no fim, o painel montado e o plano para começar no Início (D43, D44) | `src/telas/comecar.js` (ou uma pasta `src/telas/onboarding/`), `src/modulos/inicio/primeiros-passos.js` |
+| F · Trazer o que tem | o leitor com IA (fotos, PDFs, prints e planilhas viram pacotes, datas, clientes e modelo de contrato), com a conferência em lote (desmarca, corrige, grava); sem IA: contatos (.vcf), Google Agenda (.ics), planilha de clientes; "pedir à Renderiza" no Admin, com a mesma ferramenta (D48) | `src/telas/trazer/` (nova), `src/modulos/inicio/` (as importações), `src/admin/` (pedir à Renderiza) |
+| G · Acompanhamento até a confiança | cada passo registrado (link aberto, senha criada, cada pergunta, arquivos, primeiro uso); no Admin, o funil, os marcos da primeira semana, quem travou e onde, com a mensagem pronta de WhatsApp (D47) | `src/admin/onboarding/` (nova parte do Admin), uma migração (os eventos e os marcos) |
+
+**Ordem:** A pode começar já (não depende de nada). B → C → D → E → F, nessa ordem. G começa depois do B (registra
+desde o convite). Até 4 sessões em paralelo: A; B e C; D e E; F e G.
+
+**Testes:** o fluxo do piloto (`test/fluxos/piloto.fluxo.mjs`) passa a começar pelo convite por link e pela conversa;
+a IA é imitada nos fluxos (resposta gravada), e uma chamada de verdade roda só no STG, à mão, para medir o custo.
+
+**Pronta quando:** um lead de demo recebe o link no WhatsApp, cria a senha e, em poucos minutos, sai do onboarding
+com o painel montado (dados confirmados, tipos, pacotes com preço e o que tinha de datas e clientes), sem digitar um a
+um. A Renderiza vê cada passo no Admin, e a conta cumpre os marcos da primeira semana sem precisar de ajuda.
+
+## Missão 8 · IA no dia a dia
+
+**Para quê:** a IA ajudar no uso diário (colar a conversa do cliente e virar pedido, sugestões nas telas, respostas
+prontas). **Ainda sem blocos:** levantamento próprio com a Renderiza depois da Missão 7 (D40).
 
 ---
 
@@ -765,6 +799,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 7 (levantamento) → Renderiza, todas | **Parada 7 levantada e Missão 7 escrita** (blocos A a G, com "Mexe em"): D40 a D50 no `07`, o caminho e o roteiro no [`11`](11-onboarding-ia-levantamento.md), a parada no trilho. **Esperando a aprovação da Renderiza: nenhum código antes do ok.** Parada 8 (IA no dia a dia) só marcada, com levantamento depois. |
 | 30/10/2026 | Renderiza → próxima sessão | **Próximo assunto: Parada 7, onboarding com IA** (o lead popular o painel sem digitar um a um; plug and play). Ainda **sem missão**: primeiro uma sessão faz o levantamento com a Renderiza a partir de [`11-onboarding-ia-levantamento.md`](11-onboarding-ia-levantamento.md) (problema, ideias, perguntas) e, decidido, escreve a Parada 7 no trilho e as missões aqui. |
 | 30/10/2026 | 5B (termos, ajustes) → Renderiza, todas | **Termos ajustados depois de uma análise externa** (o que entrou e o que não: [`termos-referencias.md`](termos-referencias.md), seção 3): a versão final do Meu site custa **no máximo 3 mensalidades** e sai em 10 dias úteis (D37, `03`); exportação a pedido em 2 dias úteis; incidente avisado em 24 horas; desconto proporcional se o painel ficar fora mais de 24 horas por falha nossa; arrependimento quando o CDC garantir. A tela do Meu site ganhou o aviso da regra da saída (fora do "Mexe em", pequeno: `src/modulos/meu-site/index.js`). **Para a Renderiza: o backup prometido nos termos ainda não rodou nenhuma vez** (faltam os segredos no GitHub; aviso da 5B). |
 | 30/10/2026 | 5B (revisão dos termos) → Renderiza, todas | **Termos de uso e política de privacidade reescritos** e **validados pela Renderiza em 30/10** (sem dados de empresa por enquanto, por escolha dela; quando houver CNPJ, entra na cláusula 1 com versão nova). As escolhas, as decisões embutidas (D37 a D39) e as referências estão em [`termos-referencias.md`](termos-referencias.md). **Para todas:** (a) o Meu site está nos termos (cláusula 9): saiu, volta à versão inicial; versão final é serviço à parte; (b) a tabela nova `registros_de_acesso` (Marco Civil) é fechada: não leia nem exponha; (c) a tela do aceite diz "li a política", não "aceito a política"; (d) quem fizer uma rotina de apagar contas canceladas precisa guardar o registro do aceite dos termos (apagar o login hoje apaga o aceite). |

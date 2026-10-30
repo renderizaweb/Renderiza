@@ -1,66 +1,88 @@
-# Parada 7 · Onboarding com IA (levantamento, nada decidido)
+# Parada 7 · Onboarding com IA, do convite até a confiança
 
-Rascunho da conversa de 30/10/2026 entre a Renderiza e a sessão da Missão 4. **Nada aqui está decidido.** Serve de
-ponto de partida para a sessão que vai fazer o levantamento com a Renderiza e, no fim, escrever a Parada 7 no
-[`01-trilho.md`](01-trilho.md) e as missões no [`missoes.md`](missoes.md).
+Levantamento feito com a Renderiza em 30/10/2026. **Decidido:** D40 a D50 no [`07`](07-decisoes-e-perguntas.md); a
+parada no [`01-trilho.md`](01-trilho.md); a Missão 7 (blocos e "Mexe em") no [`missoes.md`](missoes.md). Este arquivo é
+a referência de **como** a experiência funciona e **o que** o onboarding extrai.
 
 ## O problema
 
-Um lead que vira cliente precisa ver o painel com a cara do negócio dele: clientes, pacotes e preços, datas já
-marcadas, contrato. **Ninguém vai digitar isso um a um**, e sem isso o painel não vende. A Renderiza não quer que o
-lead leve dias para começar e desista no meio: **tem que ser plug and play.** Ela também não sabe ainda o que os
-leads têm em mãos (agenda de papel? planilha? só o WhatsApp?) nem se vão ter tudo de uma vez.
+Um lead que vira cliente precisa ver o painel com a cara do negócio dele (clientes, pacotes e preços, datas já
+marcadas, contrato), e ninguém vai digitar isso um a um. Tem que ser plug and play e **encantar**: quem não tem nada
+começa em minutos; quem tem muito (planilhas, outro sistema, agenda de papel) traz tudo sem sofrer.
 
-## O que já existe (não refazer)
+## O caminho da pessoa
 
-- Onboarding em trilho (D33, `/comecar`) e os Primeiros passos no Início (`src/modulos/inicio/primeiros-passos.js`),
-  com a importação das datas já marcadas: "digitar rápido" (uma data e um nome por linha) ou planilha CSV.
-- O Admin (Missão 5A) cria a conta; ela nasce sem pacotes nem tipos de festa (os Primeiros passos pedem).
-- A demo de cada lead (`demos/<pasta>/demo.json`) já tem: nome, WhatsApp, Instagram, endereço, cores, horário,
-  tipos de festa (`consulta.tipos`), estrutura, avaliações, textos e fotos. **Não tem pacotes nem preços.**
-- Exportar tudo (zip de CSVs) e o Meu site (o site da demo pode virar site ligado ao painel; `03`).
+1. **Demonstração** (como hoje): a Renderiza manda a demo do lead e os exemplos (`/exemplos/eventos`,
+   `/exemplos/fotografia`).
+2. **Convite:** quem se interessa recebe pelo WhatsApp um link que a Renderiza gera no Admin. Ele está ligado à demo e
+   ao histórico da conversa colado, e vale uma vez, por 7 dias (D41, D42).
+3. **Primeiro minuto:** "Olá, Espaço Jardim! Você recebeu um convite. Crie uma senha." É um campo só, com o usuário à
+   vista. O teste de 7 dias começa aqui.
+4. **A conversa (onboarding):** cartões no visual de hoje (D33), com a IA escolhendo a próxima pergunta. Primeiro,
+   confirmações de um toque com o que a demo já sabe; depois, perguntas com opções; no meio, "mande o que tiver",
+   que pode ficar para depois (D43, D44).
+5. **O painel montado:** a pessoa termina com os dados conferidos, os tipos de festa ou ensaio, os pacotes com preço,
+   os horários, o Pix e o que tiver mandado de datas, clientes e contrato.
+6. **O plano para começar** (no Início): o que falta, personalizado pelas respostas. Para cada item: "trazer agora",
+   "mandar para a IA" ou "pedir à Renderiza" (D44, D48).
+7. **Acompanhamento:** a Renderiza vê no Admin cada passo, quem travou e onde, e tem uma mensagem pronta para
+   destravar. A conta fica **confiante** quando cumpre os marcos da primeira semana (D47).
 
-## Ideias levantadas (para discutir, não decididas)
+## O roteiro do que extrair (o máximo, sem travar)
 
-| Dado | Onde costuma estar | Como poderia entrar |
+**Da demo (só confirmar, um toque cada):** nome do negócio; nicho (eventos ou fotografia); cidade e endereço;
+WhatsApp; Instagram; cores e logo; horário de funcionamento; tipos de festa ou de ensaio; estrutura (salão, área
+externa, capacidade); avaliações do Google (nota e total); se já tem site (a demo pode virar site, `03`).
+
+**Perguntas com opções (sempre com "pular"):**
+
+| Assunto | Exemplo de pergunta | Para que serve |
 |---|---|---|
-| Nome, contato, endereço, cores, tipos de festa, estrutura, avaliações | na demo que a Renderiza fez | sem IA: a conta nasce da demo |
-| Pacotes e preços | PDF ou arte do orçamento mandado no WhatsApp | IA lê o arquivo ou o print |
-| Datas marcadas | agenda de papel, Google Agenda, planilha | foto → IA; Google Agenda → arquivo .ics; planilha → já existe |
-| Clientes | contatos do celular, conversas do WhatsApp | contatos (.vcf) sem IA; prints de conversa → IA |
-| Contrato | modelo em Word ou PDF | IA vira modelo com campos |
+| Quem está falando | dona ou dono, sócio, gerente, outro | o tom e quem é dono no painel |
+| Tamanho | só eu, 2 a 3 pessoas, 4 ou mais | sugerir convidar a equipe |
+| Volume | festas ou ensaios por mês: até 4, 5 a 15, mais de 15 | o que mostrar primeiro no Início |
+| Porte do evento | até 50, 50 a 150, 150 a 300, mais de 300 convidados | os pacotes sugeridos |
+| Faixa de preço | ticket médio por faixa | os pacotes sugeridos e o Financeiro |
+| De onde vêm os pedidos | WhatsApp, Instagram, indicação, site | o Atendimento e a agenda online |
+| Como organiza hoje | caderno, planilha, Google Agenda, outro sistema, de cabeça | o jeito de trazer as datas |
+| Pacotes | já tem com preço, tem num PDF ou arte, ainda não tem | ler o arquivo ou montar com a IA |
+| Clientes | tem lista, tem só no celular, começa do zero | a planilha, os contatos (.vcf) ou nada |
+| Datas marcadas | quantas pela frente; onde estão | importar agora ou depois |
+| Contrato | tem modelo em Word ou PDF, não tem | virar modelo com campos, ou um modelo base |
+| Sinal e pagamento | cobra sinal? quanto? parcela o resto? | as parcelas sugeridas e o Pix |
+| Objetivo principal | não perder pedido, organizar a agenda, controlar o dinheiro, vender mais | a ordem do menu e o plano para começar |
 
-- **A. Conta nasce da demo** (Admin: "Criar conta a partir da demo"): zero esforço do lead, sem IA.
-- **B. "Mande o que você tiver"**: arrasta fotos, PDFs, prints e planilhas; a IA propõe pacotes, datas e clientes;
-  uma tela de conferência em lote (desmarca o errado, corrige, grava). **A IA nunca grava sozinha.**
-- **C. "A Renderiza monta para você"**: a mesma ferramenta no Admin; o lead manda tudo no WhatsApp e a equipe monta.
-- **D. No dia a dia, "colar conversa"**: no Atendimento, cola a mensagem do cliente e a IA cria o pedido preenchido.
-- Para o plug and play: começar a usar no primeiro minuto e completar aos poucos ("traga quando tiver"), sem etapa
-  obrigatória que trave.
-- **Instagram e WhatsApp automáticos:** sem caminho oficial simples (API do Instagram pede app aprovado pela Meta;
-  a oficial do WhatsApp tem custo e aprovação). As ideias acima não dependem deles.
+**"Mande o que tiver"** (opcional, a IA lê e propõe, a pessoa confere): fotos ou PDF do orçamento (pacotes e
+preços), foto da agenda de papel (datas), prints de conversas (clientes), planilhas (clientes, datas), o contrato em
+Word ou PDF (modelo com campos). Sem IA: contatos do celular (.vcf), Google Agenda (.ics), planilha CSV.
 
-**Cuidados:** os dados dos clientes do lead passariam por um fornecedor de IA (a política de privacidade precisa
-dizer; os termos estão sendo ajustados agora, 5B); a chave da IA fica no servidor (função do Supabase, como a do
-Brevo); limite de uso por conta para o custo não fugir; a IA só propõe.
+**O que o painel entrega no fim:** a conta com o perfil confirmado; os módulos e a ordem do menu pelo objetivo; tipos
+de festa ou ensaio; pacotes com preço e sinal; horários; Pix; o que veio de datas, clientes e contrato; e o plano para
+começar com o que faltou.
 
-**Rascunho de missões** (a sessão do levantamento confirma ou refaz): 7A conta a partir da demo · 7B leitor com IA e
-tela de conferência · 7C importações sem IA (contatos, Google Agenda, planilha de clientes) · 7D onboarding refeito
-("o que você tem aí?" e "a Renderiza monta") · 7E colar conversa → pedido.
+## Os marcos da confiança (primeira semana)
 
-## Perguntas para a Renderiza (a sessão faz, uma ou duas por vez, curtas)
+Primeiro pedido anotado; primeira reserva; primeiro contrato mandado; equipe convidada (se tiver equipe); agenda
+online ligada (se tiver site); uso em pelo menos 3 dias diferentes. Cumpriu: a conta está confiante. Parou: aparece
+para a Renderiza no Admin, com a mensagem pronta.
 
-1. Como o lead chega ao painel hoje: sempre pela demo da prospecção? Em que momento da venda o painel é entregue?
-2. O que é o mínimo para ele já usar no primeiro dia (ex.: pacotes e datas marcadas)? O resto pode vir depois?
-3. Quem monta primeiro: o lead sozinho, a Renderiza (quanto tempo da equipe por conta é aceitável?) ou os dois?
-4. O que os leads costumam ter (dá para perguntar a 2 ou 3 leads reais, sem trazer dado deles para o repositório)?
-5. Só eventos primeiro, ou fotografia junto?
-6. Quanto pode custar a IA por conta (por mês ou só na entrada)?
-7. Pode pôr o uso de IA nos termos e na política agora?
-8. O "colar conversa" do dia a dia entra já ou depois do onboarding?
+## A IA (D45 a D49)
 
-## Como fechar
+- Claude (Anthropic), chamado só por uma função do Supabase, com a chave no ambiente dela. Modelo padrão Claude
+  Opus 5.5; a troca por um mais barato é decisão da Renderiza, depois de medir no STG.
+- Saída em JSON validado; o roteiro e o contexto da demo ficam em cache (mais barato a cada pergunta); limite por
+  conta (começa em US$ 3 na entrada) e registro de uso e custo, que o Admin mostra.
+- Estimativa, a medir: a conversa do onboarding, uns US$ 0,30 por conta; ler um arquivo, uns US$ 0,05 a 0,10 por
+  página ou imagem.
+- A IA só propõe: nada é gravado sem o toque da pessoa. Se ela falhar ou demorar, segue o roteiro fixo.
+- Privacidade: a política e os termos ganham o fornecedor antes de ligar na produção; os arquivos lidos não ficam
+  guardados.
 
-Com as respostas: registrar as decisões no `07`, escrever a Parada 7 no `01-trilho.md` (para quê, o que entrega,
-"chegou quando") e as missões com blocos e "Mexe em" no `missoes.md`, e apagar deste arquivo o que virou decisão
-(ou marcar como decidido).
+## Fora da Parada 7
+
+- **Parada 8 · IA no dia a dia** (levantamento próprio): colar a conversa do cliente e virar pedido, sugestões nas
+  telas, respostas prontas.
+- **Instagram e WhatsApp automáticos:** sem caminho oficial simples (a API do Instagram pede app aprovado pela Meta;
+  a oficial do WhatsApp tem custo e aprovação).
+- **Cadastro aberto para quem não veio de demo:** continua como está (D30). A conversa com IA serve para ele também
+  quando for aberto (sem demo, a IA pergunta o que a demo responderia).
