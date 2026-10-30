@@ -21,7 +21,8 @@ function datas() {
   const d = new Date(); d.setMonth(d.getMonth() + 8); d.setDate(d.getDate() + ((6 - d.getDay() + 7) % 7));
   const v = new Date(); v.setDate(v.getDate() + 10); if (v.getDay() === 0) v.setDate(v.getDate() + 1);
   const iso = x => `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`;
-  return { festa: iso(d), visita: iso(v) };
+  const br = (meses, dia) => { const x = new Date(); x.setMonth(x.getMonth() + meses, dia); return `${String(x.getDate()).padStart(2, "0")}/${String(x.getMonth() + 1).padStart(2, "0")}/${x.getFullYear()}`; };
+  return { festa: iso(d), visita: iso(v), marcadas: [br(3, 12), br(4, 20)] };
 }
 
 /** O botão visível dentro da tela (no celular, o "+" do topo do computador fica escondido). */
@@ -139,6 +140,20 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       assert.deepEqual(r, { tipos: 1, pacotes: 1, pix: "pix-ficticio@fluxo.teste", modelos: 1 });
     });
 
+    await passo("3b. o dono traz as festas que já estavam marcadas (digitando rápido)", async () => {
+      await pDono.goto(`${srv.url}/`, { waitUntil: "networkidle" });
+      await visivel(pDono, ".rz-passos :is(a,button):has-text('Trazer as datas')").click();
+      await pDono.fill("#importar-texto", `${D.marcadas[0]} 19h Carla Fluxo Teste (11) 90000-0202\n${D.marcadas[1]} Bruno e Lia Fluxo Teste`);
+      await pDono.waitForSelector("dialog[open] [data-trazer]:not([disabled])");
+      assert.match(await pDono.locator("dialog[open] [data-previa]").innerText(), /2 datas/);
+      await pDono.click("dialog[open] [data-trazer]");
+      await pDono.waitForSelector("#importar-texto", { state: "detached" });
+      const [r] = await banco.sql(`select count(*)::int as reservas, count(distinct cliente_id)::int as clientes from public.reservas where conta_id = ${A.q(contaId)}`);
+      assert.deepEqual(r, { reservas: 2, clientes: 2 }, "as duas festas entraram na agenda, cada uma com o seu cliente");
+      await pDono.goto(`${srv.url}/`, { waitUntil: "networkidle" });
+      assert.match(await pDono.locator(".rz-passos").innerText(), /2 de 4 feitos/, "os pacotes (passo 3) e as datas se marcam sozinhos");
+    });
+
     await passo("4. as 5 tarefas do 09, no celular", async () => {
       const linhaDoPedido = () => pDono.locator(`[data-pedidos] .rz-linha:has-text("${CLIENTE.nome}") >> visible=true`).first();
 
@@ -179,7 +194,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         await c.tocar("dialog[open] [data-confirmar]");
         await pDono.waitForSelector("[data-fechar-form]", { state: "detached" });
       });
-      const [reserva] = await banco.sql(`select r.id, r.situacao, (select nome from public.servicos where id = r.servico_id) as pacote, (select etapa from public.pedidos where id = ${A.q(pedido.id)}) as etapa from public.reservas r where r.conta_id = ${A.q(contaId)}`);
+      const [reserva] = await banco.sql(`select r.id, r.situacao, (select nome from public.servicos where id = r.servico_id) as pacote, (select etapa from public.pedidos where id = ${A.q(pedido.id)}) as etapa from public.reservas r where r.conta_id = ${A.q(contaId)} and r.pedido_id = ${A.q(pedido.id)}`);
       assert.equal(reserva.etapa, "fechado");
       assert.equal(reserva.pacote, "Pacote Jardim", "o pacote escolhido no fechar foi para a festa");
       assert.ok(["confirmada", "pre_reserva"].includes(reserva.situacao), reserva.situacao);

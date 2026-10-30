@@ -12,6 +12,8 @@ estático + `api/`). Tudo roda com o Node do ambiente.
 |---|---|
 | `npm run dev` | servidor local em `http://localhost:5180`, contra o banco **STG** (`-- --banco producao` para a produção) |
 | `npm test` | testes do front e do banco local (`node --test`) |
+| `npm run fluxos` | os fluxos de ponta a ponta no navegador, contra o **STG** (`test/fluxos/`: o caminho do piloto e a varredura de todas as telas; uns 13 minutos; criam e apagam os próprios dados) |
+| `npm run conferir-producao` | depois de um deploy: a produção, **só leitura** (o commit no ar é a `main`, cabeçalhos, páginas sem login) |
 | `node scripts/migrar.mjs` | situação das migrações no STG e na produção (só lê) |
 | `node scripts/migrar.mjs local` | banco local do zero + todas as migrações + `supabase/testes/` |
 | `node scripts/migrar.mjs stg` | testa no local e aplica no STG as que faltam |

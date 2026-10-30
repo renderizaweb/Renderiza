@@ -320,6 +320,16 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
   aplicação do Meu site (`node --test`).
 - **Fluxos (Playwright):** convite e primeiro acesso, pedido pela agenda online até o Atendimento, publicar no Meu
   site e ver no site de teste, site com o painel desligado.
+- **Fluxos de ponta a ponta no STG (Missão 6, `test/fluxos/`, `npm run fluxos`):** o painel de verdade num Chromium,
+  servido numa porta própria contra o STG, com logins e conta temporários (`@fluxo-<marca>.teste`, `t-fluxo-<marca>`)
+  que o próprio fluxo cria e apaga (as sobras de uma execução interrompida saem na seguinte, depois de 2 horas).
+  `piloto.fluxo.mjs`: o caminho do piloto (Admin cria a conta → o dono entra e arruma o básico → traz as datas → as 5
+  tarefas do `09` contando os toques → a cliente aceita pelo link → a equipe "só vê" → o Admin). `varredura.fluxo.mjs`:
+  todas as telas com os dados da semente, dono, "edita" e "só vê", celular e computador, e o Admin. Quando um passo
+  falha, o print e os campos da tela vão para uma pasta temporária (o caminho sai no erro). Sem as variáveis
+  `PAINEL_*` ou o Playwright, pulam. Não rodam no `npm test` (são lentos: uns 3 e 10 minutos).
+- **Produção depois do deploy (`npm run conferir-producao`), só leitura:** o commit no ar é a `main`, os cabeçalhos,
+  a API pública e as páginas sem login abrindo sem erro no celular.
 - **Backup (Missão 5B):** `test/backup.test.mjs` (cifrar e decifrar, senha errada, ler o banco em lotes, as
   imagens, o SQL da restauração, o workflow); toda semana o GitHub Actions restaura o backup da produção num Postgres vazio e confere as
   contagens (`06`, "Backup").

@@ -145,7 +145,7 @@ que é da Renderiza: o deploy da Vercel voltar a andar (a tela do Admin e a dos 
 segredos do backup no GitHub (e rodar uma vez) e a revisão dos termos por alguém de LGPD (ver "Avisos" em
 [`missoes.md`](missoes.md)).
 
-## Parada 6 · Piloto no ar ⬜
+## Parada 6 · Piloto no ar 🚂
 
 **Para quê:** o primeiro cliente real usando.
 
@@ -155,6 +155,12 @@ segredos do backup no GitHub (e rodar uma vez) e a revisão dos termos por algu�
 - Primeira semana acompanhada de perto, com as correções na hora.
 
 **🏁 Destino alcançado quando:** o piloto usa o painel no dia a dia, com todos os módulos, sem precisar de ajuda.
+
+**Situação (30/10/2026):** o piloto é a própria Renderiza, simulando com mais uma pessoa
+([`roteiro-do-piloto.md`](roteiro-do-piloto.md)). A parte da sessão anda: o fluxo de ponta a ponta roda sozinho no
+STG (`npm run fluxos`: a conta criada pelo Admin, as datas trazidas, as 5 tarefas do `09`, o aceite do contrato, a
+equipe "só vê", o Admin), a varredura passa por todas as telas, e a produção é conferida depois de cada deploy, só
+leitura (`npm run conferir-producao`). Falta a Renderiza rodar o roteiro e mandar o que travou.
 
 ## Depois do destino
 
