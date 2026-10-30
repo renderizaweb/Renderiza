@@ -15,17 +15,17 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Paradas 3, 4 e 5, em paralelo (a 2 chegou em 29/10/2026) |
-| **Próxima ação** | Missão 3: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) feitos; bloco F (Início e exportar) em andamento; a Missão 5 está livre; a Missão 4 junta o editor do Meu site ([`missoes.md`](missoes.md)). Da Renderiza: o Turnstile, quando quiser abrir o cadastro (D30), e a chave do Brevo na função do aviso de pedido |
+| **Onde o trem está** | Parada 5 · Admin e regras (as paradas 3 e 4 chegaram em 29/10/2026) |
+| **Próxima ação** | Missão 5 (Admin e regras), livre ([`missoes.md`](missoes.md)). Da Renderiza: a varredura geral do que já está na `main`, a chave do Brevo na função do aviso de pedido, conferir o deploy da produção na Vercel e o Turnstile, quando quiser abrir o cadastro (D30) |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 29/10/2026 |
 
 ## O mapa
 
 ```
-                                                       ┏━━ [3] MÓDULOS DO DIA A DIA ━━━━┓
- PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ━━━━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
-   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ━━━━━━━━━━┛
+                                                       ┏━━ [3] MÓDULOS DO DIA A DIA ✅ ━┓
+ PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ✅ ━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
+   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS 🚂 ━━━━━━━┛
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -86,7 +86,7 @@ passou pelo STG e pela produção. **Chegou em 29/10/2026** (o que ficou de pé:
 **Chegou quando:** numa conta de teste, o dono convida uma pessoa e dá a ela só a Agenda (só vê); ela entra pelo
 celular, vê só a Agenda e não consegue editar; os testes de isolamento passam.
 
-## Parada 3 · Módulos do dia a dia 🚂 (em paralelo)
+## Parada 3 · Módulos do dia a dia ✅ (em paralelo)
 
 **Para quê:** cada módulo fazendo de verdade o que o exemplo mostra, amarrado ao cliente.
 **Referência:** [`02-produto.md`](02-produto.md), [`05`](05-dados-e-permissoes.md) e os exemplos.
@@ -102,7 +102,7 @@ celular, vê só a Agenda e não consegue editar; os testes de isolamento passam
 **Chegou quando:** cada módulo faz, no painel real, tudo o que o exemplo mostra, e uma festa percorre o caminho
 inteiro (pedido → cliente → reserva → contrato aceito → parcelas pagas) sem digitar nada duas vezes.
 
-## Parada 4 · Ponte com o site 🚂 (em paralelo)
+## Parada 4 · Ponte com o site ✅ (em paralelo)
 
 **Para quê:** o site do cliente conversar com o painel, sempre com o site de pé se o painel cair.
 **Referência:** [`03-modulo-meu-site.md`](03-modulo-meu-site.md) e [`04`](04-arquitetura.md) (API pública).
@@ -163,6 +163,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 29/10/2026 | 3 e 4 | **Paradas 3 e 4 chegaram.** O bloco F da Missão 3 (Início e exportar), que parou no limite da sessão dele, foi terminado e subido pela sessão da Missão 4, junto com o editor do Meu site. Tudo na `main`, conferido de ponta a ponta no STG como dono. A semente da Villa ganhou o site de teste e o Meu site. Próxima: a Missão 5. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco A (Clientes) feito**, na `main` (a produção espera o deploy destravar): a lista pela situação, a ficha como linha do tempo, juntar e arquivar, e as entregas das fotos na fotografia. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco D (Financeiro) feito**, na `main` (a produção espera o deploy destravar): os números do mês, as parcelas com "Recebi" e desfazer, o lembrete no WhatsApp, a festa com "Lançar parcelas", registrar pagamento, o mês a mês e o que mais vende. Testado no STG. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco E (Contratos) feito**, na `main` (a produção espera o deploy destravar; o banco do aceite já está na produção): o contrato sai do modelo com os dados da festa, vai por link, o cliente lê e aceita no celular e o painel guarda quem, quando, IP e aparelho; depois do aceite, os dados do Pix. Testado no STG. | Claude, a pedido da Renderiza |

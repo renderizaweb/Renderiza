@@ -11,8 +11,8 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 |---|---|---|---|---|
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **em andamento**: blocos C (Atendimento), B (Agenda), A (Clientes), D (Financeiro) e E (Contratos) **feitos, na `main`** (29/10; a tela espera o deploy da Vercel destravar, ver "Avisos"); bloco F (Início e exportar) **em andamento** desde 29/10 | A a F: `claude/painel-renderiza-setup-ztnrzy` |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **pronta, falta subir a tela do C** (29/10): A, B e o servidor do C **na `main`**; a tela do C (o editor) **só na branch**, porque está em cima da 2B, que ainda não terminou: sobe com ela ou logo depois (nota de passagem do bloco C). Na produção desde 29/10 (3 migrações e a função `avisar-pedido`); falta a chave do Brevo na função | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | pode começar (a 2 está na `main`) | |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
@@ -212,7 +212,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 3 · bloco F (Início e exportar) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · EM ANDAMENTO
+Missão 3 · bloco F (Início e exportar) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 29/10 · FEITO, NA MAIN
 Referência: 09 (Início: começa por "Para fazer agora": pedidos sem resposta, parcelas vencendo ou atrasadas,
   contratos esperando aceite, o que tem hoje e amanhã, cada item com o botão do próximo passo; os números vêm
   depois, compactos), 02 (Visão geral; exportar), 05 (atividades: "o que a equipe fez", cada um vê só o que pode;
@@ -225,8 +225,14 @@ Plano (nesta ordem, cada parte com commit): 1. "Para fazer agora" (só o que a p
   tudo (src/telas/exportar.js): uma planilha CSV por assunto (clientes, pedidos, reservas, compromissos, parcelas,
   contratos, entregas, serviços), num zip feito no navegador, só para o dono (no Início e em Configurações); 5.
   teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
+Feito: partes 1 a 4 pela sessão do bloco (commits fc8e5a1 e 3584c03; ela parou no limite antes da parte 5); a
+  parte 5 pela sessão da Missão 4 (branch claude/painel-renderiza-roadmap-jfhmpp), que juntou e subiu para a main.
+Testado: painel npm test 169 passam (inicio e exportar entre eles), raiz 180; de ponta a ponta no STG pelo npm run
+  dev, como dono (usuário temporário, apagado): Início com "Para fazer agora", "Próximas festas", "O que a equipe fez"
+  e "Seus dados"; "Exportar tudo" baixou painel-villa-alecrim-<data>.zip com 34 arquivos (CSVs, um .txt por contrato,
+  LEIA-ME); os 8 módulos abrem com os dados da semente, sem erro de script.
+Não testado aqui: "Recebi", "Lembrar" e "Responder" clicando no Início (têm teste da lógica em test/inicio.test.mjs);
+  fica para a varredura geral da Renderiza.
 Mexe em: src/modulos/inicio/, src/telas/exportar.js. Fora disso, pequeno e com aviso: o botão de exportar em
   Configurações.
 ```
@@ -596,19 +602,14 @@ Migrações aplicadas (STG / produção): 20261029135228_publico_agenda (29/10 /
 ```
 
 ```
-Missão 4 · bloco C (Meu site no painel) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · SERVIDOR NA MAIN E NA PRODUÇÃO; TELA SÓ NA BRANCH
-Onde está cada parte (importante):
-  - Na main (commit 76b51e0): migração 20261029141746_publico_site, teste 042, api/publico/site/[codigo]/ (index e
-    previa), api/publico/imagens/[...caminho].js, rotas no scripts/servidor.mjs, 3 testes em test/publico.test.mjs.
-  - Só na branch claude/painel-renderiza-roadmap-jfhmpp (commit 1505a3b e os de documento depois dele): o editor,
-    src/modulos/meu-site/ (index.js, conteudo.js e a cópia meu-site.js) e test/meu-site.test.mjs; o "ordem" no
-    extrair (ferramentas/meu-site/meu-site.js e test/meu-site.test.mjs da raiz); o { trocar } no enviarArquivo
-    (src/adaptadores/supabase.js). Esta branch JÁ TRAZ a 2B inteira até cbe0c3b (merge ec93516), porque o editor
-    usa a casca e as peças dela (gaveta, campos, avisos, estados) e o teste do esqueleto importa todos os módulos.
-Como subir: quando a 2B (claude/painel-renderiza-setup-ztnrzy) for para a main, junte esta branch na main logo
-  depois (git merge; só ela mexe em src/modulos/meu-site/, e os outros arquivos da 2B que ela toca são os dois acima).
-  Se a 2B mudar a gaveta, os campos ou o enviarArquivo antes disso, rode o npm test do painel e o teste de ponta a
-  ponta abaixo. Não suba esta branch para a main antes da 2B: levaria a 2B pela metade.
+Missão 4 · bloco C (Meu site no painel) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · FEITO, NA MAIN (banco na produção)
+Onde está: tudo na main (29/10). O servidor: migração 20261029141746_publico_site, teste 042,
+  api/publico/site/[codigo]/ (index e previa), api/publico/imagens/[...caminho].js. O editor: src/modulos/meu-site/
+  (index.js, conteudo.js e a cópia meu-site.js) e test/meu-site.test.mjs; o { trocar } no enviarArquivo
+  (src/adaptadores/supabase.js). A semente põe na Villa Alecrim o Meu site e o site villa-alecrim (para testar no STG
+  e numa prévia: entrar como dono da Villa e abrir Meu site).
+Conferido de novo na casca final (depois da 2B e da Missão 3): editar, foto, publicar, a API e o site de teste, e
+  voltar ao entregue. A miniatura da foto enviada passou a ser data: (a CSP do painel bloqueia blob:).
 Feito: o editor por seção (03, "No painel"): lista na ordem da página com "Não publicado"; gaveta com textos, botões,
   fotos (WebP no aparelho, nome novo a cada envio, endereço do painel), listas e "aparece no site"; contato e
   WhatsApp; salvar no rascunho com desfazer (espera a foto que está subindo); prévia; publicar; versões com "Usar
@@ -657,6 +658,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 29/10/2026 | 4C → 2A, todas | **Semente com a ponte da Missão 4:** a Villa Alecrim ganhou o módulo Meu site e o site `villa-alecrim` (domínios `villa-alecrim.teste` e `localhost`, conteúdo inicial em `test/site-teste/conteudo-inicial.json`). Rodar a semente de novo apagava os dois (aconteceu às 21h05 de 29/10). No STG eu só inseri os dois, sem rodar a semente (não apaguei nada). `test/semente.test.mjs`: o teste de "só e-mails fictícios" agora pede algo antes do @ (o `@villa.alecrim.teste` do site de teste é o Instagram, não e-mail). |
+| 29/10/2026 | 4C → Renderiza | **O deploy da produção continuava parado às 21h40 (Brasília) de 29/10:** o `/api/config` dizia `aabb9bc` (16h40) e os arquivos no ar (Atendimento, Contratos, Agenda) eram os desse commit, conferidos um a um. As horas do aviso abaixo são UTC (20h40 UTC = 17h40 em Brasília). |
 | 29/10/2026 | 3E → 3F, 5, todas | **Contratos pronto (na `main`).** (1) **3F**: "contratos esperando aceite" (09) são os `contratos` com `situacao = 'enviado'` (há quantos dias: `enviado_em`); a tela abre um contrato com **`/contratos?contrato=<id>`** e um novo com **`/contratos?novo=contrato[&reserva=<id>]`**. (2) **5B (revisão de segurança)**: as funções públicas novas são `publico_contrato` e `publico_aceitar_contrato` (05); a página `/c/<código>` chama o banco direto com a chave pública. (3) **Todas**: o Pix da conta fica em `contas.ajustes.pix` (`chave`, `nome`), editado em Configurações (só o dono); o Financeiro pode usar no lembrete. (4) O rewrite de `/c/:codigo` é o **primeiro** do `vercel.json` (antes do app); quem mexer nos rewrites mantém a ordem. (5) `.rz-linhas--parcelas` virou **`.rz-linhas--com-botao`** (10). |
 | 29/10/2026 | 3D → 3E, 3F, todas | **Financeiro pronto (na `main`).** (1) **3E**: a festa no Financeiro (`/financeiro?reserva=<id>`) grava o valor total, o sinal e o desconto em `reservas_valores` (quem tem Contratos também edita): o contrato pode ler dali e levar de volta com o mesmo link; as parcelas são lançadas pelo Financeiro ("Lançar parcelas"). (2) **3F**: os números do mês saem de `resumo(parcelas, hoje)` em `src/modulos/financeiro/logica.js` (recebido no mês, falta no mês, a receber em 30 dias, atrasadas); "Registrar pagamento" é `/financeiro?novo=pagamento`, uma parcela é `/financeiro?parcela=<id>`. (3) **Todas**: com a chave estrangeira composta (`conta_id` + `reserva_id`), o banco devolve `reservas_valores` dentro de `reservas` como **lista**, não objeto (pegue o `[0]`). (4) `.rz-link` agora é `inline-flex` (ícone e texto na mesma linha); `--rz-grafico-1` e `-2` são as cores de gráfico (10). |
 | 29/10/2026 | 3A → 3D, 3E, 3F, todas | **Clientes pronto (na `main`).** A ficha leva a **`/financeiro?reserva=<id>`** e **`/financeiro?cliente=<id>`** (os pagamentos), **`/contratos?contrato=<id>`** e **`/clientes?aba=entregas&entrega=<id>`**: o Financeiro (3D) e Contratos (3E) abrem o detalhe ao ver esses parâmetros. Clientes abre **`/clientes?cliente=<id>`** e **`?novo=cliente`**; o Atendimento aceita **`?novo=pedido&cliente=<id>`** (pula o "Para quem?"). **`src/app.js` mudou (pequeno):** trocar de tela fecha as gavetas e folhas abertas (antes, um link de dentro da gaveta deixava ela por cima da tela nova). |
@@ -672,8 +675,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 | 29/10/2026 | 2B → 1 | **Fora do "Mexe em" do bloco B, pequeno, para o cadastro (D30):** `api/config.js` entrega `cadastroAberto` e `turnstile` quando existe `TURNSTILE_SITE_KEY`; `scripts/servidor.mjs` lê `PAINEL_STG_TURNSTILE_SITE_KEY`; a CSP do `vercel.json` ganhou `challenges.cloudflare.com` (script e frame), com o `test/esqueleto.test.mjs` acompanhando. Para abrir o cadastro: criar o site no Turnstile, a secreta no Auth dos dois projetos, a pública na Vercel e tirar o `disable_signup` (STG primeiro). |
 | 29/10/2026 | 2B → 1, 5 | **Convite pronto** (D28 no `07`, `04`): a função do Supabase `convidar` (`painel-clientes/supabase/functions/`, pasta nova) manda o e-mail; publicar com `node supabase/functions/publicar.mjs stg` e `producao --projeto <ref>`. Publicada no STG; **na produção ainda não**. A tela `/convite` recebe o link. Fora do "Mexe em" do bloco B, pequeno e combinado com a Missão 1: `src/adaptadores/supabase.js` ganhou `cadastrar`, `funcao`, `enviarArquivo` e `urlPublica`; `src/app.js` e `src/rotas.js`, as telas novas (`/cadastro`, `/convite`, `/contas`, `/comecar`) e o contexto dos módulos (`conta`, `nicho`, `pessoa`, `pode`, `avisar`). Testes novos em `painel-clientes/test/`. A Missão 5 (Admin) convida o dono pela mesma função. |
 | 29/10/2026 | 4 → 2B e todas | **Produção recebeu as 3 migrações da Missão 4** (`…135228_publico_agenda`, `…141139_aviso_de_pedido`, `…141746_publico_site`) e a função `avisar-pedido`, publicada sozinha: a `convidar` (2B) **continua fora da produção**, como estava. Quem rodar `node supabase/functions/publicar.mjs producao` publica as duas: só faça quando a 2B quiser a `convidar` na produção. |
-| 29/10/2026 | 4C → 2B | **O envio do logo (Configurações) deve falhar** com "new row violates row-level security policy": o Storage só deixa **trocar** arquivo (`upsert: true`, o padrão do `enviarArquivo`) com uma política de **leitura** (`select`) no bucket, e `logos` e `site-imagens` só têm as de enviar, trocar e tirar. Conferido no STG com `site-imagens` (mesmas regras): sem trocar passa, trocando dá 403. O Meu site já envia com `{ trocar: false }` (nome novo a cada foto). Para o logo: ou nome novo a cada envio (e tirar o antigo), ou uma migração com a política de leitura da pasta da conta (`pode(conta_da_pasta(name), 'configuracoes', 'ver')`). Não mexi (é da 2B). |
-| 29/10/2026 | 4C → 2B | **O editor do Meu site está na branch `claude/painel-renderiza-roadmap-jfhmpp`, em cima da 2B** (merge até `cbe0c3b`). Dois arquivos da 2B mudaram lá, pequenos: `src/modulos/meu-site/index.js` (era o vazio do esqueleto; agora é o editor) e `src/adaptadores/supabase.js` (`enviarArquivo` ganhou o 5º parâmetro `{ trocar = true }`, sem mudar quem já chama). Quando a 2B for para a `main`, essa branch vai logo depois (nota de passagem do bloco C). |
+| 29/10/2026 | 4C → 2B | (**Resolvido pela 2A**, migração `20261029190000`.) **O envio do logo (Configurações) deve falhar** com "new row violates row-level security policy": o Storage só deixa **trocar** arquivo (`upsert: true`, o padrão do `enviarArquivo`) com uma política de **leitura** (`select`) no bucket, e `logos` e `site-imagens` só têm as de enviar, trocar e tirar. Conferido no STG com `site-imagens` (mesmas regras): sem trocar passa, trocando dá 403. O Meu site já envia com `{ trocar: false }` (nome novo a cada foto). Para o logo: ou nome novo a cada envio (e tirar o antigo), ou uma migração com a política de leitura da pasta da conta (`pode(conta_da_pasta(name), 'configuracoes', 'ver')`). Não mexi (é da 2B). |
+| 29/10/2026 | 4C → 2B | (**Já na `main`**, 29/10.) **O editor do Meu site está na branch `claude/painel-renderiza-roadmap-jfhmpp`, em cima da 2B** (merge até `cbe0c3b`). Dois arquivos da 2B mudaram lá, pequenos: `src/modulos/meu-site/index.js` (era o vazio do esqueleto; agora é o editor) e `src/adaptadores/supabase.js` (`enviarArquivo` ganhou o 5º parâmetro `{ trocar = true }`, sem mudar quem já chama). Quando a 2B for para a `main`, essa branch vai logo depois (nota de passagem do bloco C). |
 | 29/10/2026 | 4C → 5 | **Para o Admin:** desconectar o Meu site é mudar `sites.situacao` para `desconectado` (ou `versao_final` depois de entregar a versão final): a API para de responder e o site volta à versão inicial. Ao cadastrar o site de um cliente, gravar em `sites.conteudo_inicial` a saída de `node ferramentas/meu-site/extrair.mjs <index.html>` (com `ordem`, a ordem das seções), senão o editor diz que o conteúdo não foi cadastrado. |
 | 29/10/2026 | 4A → 3B, 3C, 2B | **Pedidos da agenda online já chegam no banco** (STG): `pedidos.origem = 'agenda_online'`, etapa `novo`, com `reserva_id` de uma reserva `pre_reserva` (que segura a data por 48 horas no site). O Atendimento e a Agenda mostram como qualquer pedido e reserva; "Fechar" (`fechar_pedido`) usa a reserva que já existe. Para testar: `npm run dev` e a página `/agenda/` do site de teste (`node test/site-teste/montar.mjs --api http://localhost:5180/api/publico/`), ou direto pela API. |
 | 29/10/2026 | 4A → 2B | **`supabase/functions/avisar-pedido/`** é a segunda função do Supabase, ao lado da `convidar`: o `publicar.mjs` da 2B publica as duas (já publiquei a `avisar-pedido` no STG com uma cópia dele, sem commit). |

@@ -193,9 +193,8 @@ Ficam para depois:
 ## No painel (o que o cliente vê)
 
 Feito em 29/10/2026 (Missão 4C), em `painel-clientes/src/modulos/meu-site/` (as regras sem tela em `conteudo.js`,
-testadas em `test/meu-site.test.mjs`). **Até a Missão 2B subir, essa tela está só na branch
-`claude/painel-renderiza-roadmap-jfhmpp`** (ela usa a casca da 2B; ver a nota de passagem do bloco C em
-[`missoes.md`](missoes.md)).
+testadas em `test/meu-site.test.mjs`); na `main` desde 29/10/2026. No STG, a Villa Alecrim da semente tem o Meu
+site ligado e o site de teste `villa-alecrim` cadastrado.
 
 - **Meu site** no menu: o que está no ar (versão, quando e quem publicou), a lista das partes do site na ordem da
   página (nome e resumo; "Não publicado" no que mudou; "Escondida") e "Contato e WhatsApp".
