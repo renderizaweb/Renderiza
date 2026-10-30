@@ -16,9 +16,9 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 5 · Admin e regras (as paradas 3 e 4 chegaram em 29/10/2026) |
-| **Próxima ação** | Missão 5 (Admin e regras), livre ([`missoes.md`](missoes.md)). Da Renderiza: a varredura geral do que já está na `main`, a chave do Brevo na função do aviso de pedido, conferir o deploy da produção na Vercel e o Turnstile, quando quiser abrir o cadastro (D30) |
+| **Próxima ação** | Missão 5 (Admin e regras), livre ([`missoes.md`](missoes.md)). Da Renderiza: a chave do Brevo na função do aviso de pedido; apagar o `VERCEL_TOKEN` (Vercel e variáveis do ambiente); conferir por que os pushes não geram deploy na Vercel (aviso de 30/10); o ok para a regra no `vercel.json` da raiz; o Turnstile, quando quiser abrir o cadastro (D30); e a varredura geral e o teste do Meu site na produção, depois das próximas missões |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
-| **Última atualização** | 29/10/2026 |
+| **Última atualização** | 30/10/2026 |
 
 ## O mapa
 

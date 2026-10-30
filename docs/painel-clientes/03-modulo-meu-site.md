@@ -216,6 +216,25 @@ site ligado e o site de teste `villa-alecrim` cadastrado.
 - **Na montagem do site**, a Renderiza grava em `sites.conteudo_inicial` a saída do `extrair.mjs` (é o mapa do que
   dá para editar); sem ele, a tela diz que o conteúdo ainda não foi cadastrado.
 
+### Ligar um site a uma conta (hoje, até o Admin da Missão 5 ter a tela)
+
+Uma sessão faz, nesta ordem:
+1. **O site sai do gerador atual.** As demos geradas antes de 29/10/2026 não têm as marcações `data-site-*`: gere de
+   novo a partir do `demo.json`, sem mexer na demo (`python3 ferramentas/demo/gerar-eventos.py demos/<pasta>/demo.json
+   --saida <pasta-nova>/index.html`; óticas: `gerar.py`). Fotografia e odonto ainda não têm marcações.
+2. **O site com o script:** no `site.json`, `"painel": { "codigo": "<código>" }` (e `"agenda": true` para a agenda
+   online); `npm run site -- <pasta>`. O código é o do site no painel; pode ser o da conta (`contas.codigo`).
+3. **O site no ar** (Vercel do cliente, como sempre; para teste, um `….vercel.app`).
+4. **O cadastro no banco** (na produção, só com o "pode" da Renderiza): uma linha em `sites` com `conta_id`,
+   `codigo`, `dominios` (os endereços do site, sem `https://`) e `conteudo_inicial` = a saída de `node
+   ferramentas/meu-site/extrair.mjs <pasta-do-site>/index.html`; e o módulo `meu-site` ligado em `contas_modulos`.
+5. **Conferir:** `GET /api/publico/site/<código>` responde (versão 0 até a primeira publicação), e o Meu site da conta
+   lista as partes do site.
+
+Em 30/10/2026 a produção tem uma conta só, "Espaço de teste" (código `espaco-de-teste-7882`, dono
+`contato@renderizaweb.com.br`), com o Meu site ligado e sem site: a Renderiza deixou o teste do Meu site na produção
+para depois das próximas missões.
+
 ## Situações do site
 
 | Situação | Quando | O que o endereço público responde | O que o site mostra |

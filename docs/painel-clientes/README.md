@@ -7,12 +7,12 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 2 de 6 · Fundação: banco e casca.** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
+> **Parada 5 de 6 · Admin e regras (as paradas 1 a 4 chegaram).** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
 > começar a usar por volta de 11/11/2026. **Missão 1 feita (29/10/2026):** e-mail (Zoho recebe, Brevo envia),
 > Supabase em São Paulo (produção e STG), Vercel em `painel.renderizaweb.com.br`, login configurado pelo repositório
 > (e-mails em português, cadastro fechado até a verificação contra robô), esqueleto, migrações, design system e telas
-> de acesso, tudo na `main` e conferido. **Missão 2 feita (29/10/2026):** o banco inteiro ([`05`](05-dados-e-permissoes.md)) e as telas base (casca, convite, cadastro, onboarding, Equipe, Configurações, Serviços) na `main`. **Agora: Missões 3, 4 e 5, em paralelo** (da 3, o Atendimento, a Agenda, Clientes, o Financeiro e Contratos estão feitos). Detalhes e diário de bordo:
+> de acesso, tudo na `main` e conferido. **Missão 2 feita (29/10/2026):** o banco inteiro ([`05`](05-dados-e-permissoes.md)) e as telas base (casca, convite, cadastro, onboarding, Equipe, Configurações, Serviços) na `main`. **Missões 3 e 4 feitas (29/10/2026):** os módulos do dia a dia (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) e a ponte com o site (API pública, agenda online, Meu site), na `main` e na produção (30/10, `64c9d8d`). **Agora: a Missão 5** (Admin e regras); depois, o piloto. Detalhes e diário de bordo:
 > [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 
 (Quem fechar uma missão atualiza este quadro e o painel de bordo do trilho no mesmo commit.)
