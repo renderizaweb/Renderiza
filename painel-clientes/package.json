@@ -7,7 +7,8 @@
     "dev": "node scripts/servidor.mjs",
     "test": "node --test test/*.test.mjs",
     "migrar": "node scripts/migrar.mjs",
-    "fluxos": "node --test --test-concurrency=1 test/fluxos/*.fluxo.mjs"
+    "fluxos": "node --test --test-concurrency=1 test/fluxos/*.fluxo.mjs",
+    "conferir-producao": "node --test test/fluxos/producao.conferir.mjs"
   },
   "engines": {
     "node": ">=18"
