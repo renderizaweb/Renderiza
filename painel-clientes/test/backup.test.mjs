@@ -75,4 +75,8 @@ test("o workflow semanal: segredos pelo GitHub, artefato de 90 dias e o teste de
   assert.match(y, /scripts\/restaurar-backup\.mjs/);
   assert.match(y, /permissions:\n  contents: read/);
   assert.doesNotMatch(y, /sbp_|sb_secret_|eyJ/, "nenhuma chave no arquivo");
+  // sem os segredos, termina com aviso em vez de falhar; com eles, todo passo roda
+  assert.match(y, /id: segredos/);
+  const passos = y.split("\n      - ").slice(2);
+  assert.ok(passos.length >= 5 && passos.every(p => p.includes("if: steps.segredos.outputs.ok == 'true'")), "todo passo depois da conferência depende dos segredos");
 });

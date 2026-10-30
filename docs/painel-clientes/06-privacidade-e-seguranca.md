@@ -89,6 +89,8 @@ em `ferramentas/demo/agenda-online/`, fora da Missão 5; ver "Avisos" em `missoe
   banco não fica em lugar nenhum): as tabelas de `public`, os logins (`auth.users` e `auth.identities`), o registro
   do Storage e as imagens dos buckets públicos. Tudo vai num arquivo `.rzbk` comprimido e cifrado (AES-256-GCM, chave
   pela scrypt da `BACKUP_SENHA`), guardado como **artefato da execução por 90 dias**. O log só mostra contagens.
+  Enquanto os segredos não estão cadastrados no GitHub, a execução termina com o aviso "Backup não feito", sem ficar
+  vermelha: nesse tempo, **não há backup**.
 - **Onde:** no artefato do GitHub Actions. O repositório é público, então qualquer pessoa logada no GitHub consegue
   baixar o arquivo: **ele só vale porque está cifrado**. A `BACKUP_SENHA` precisa ser longa e aleatória (ex.:
   `openssl rand -base64 32`) e ficar guardada também fora do GitHub, com a Renderiza: sem ela, o backup não abre.

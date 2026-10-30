@@ -43,19 +43,34 @@ jobs:
       BACKUP_SENHA: ${{ secrets.BACKUP_SENHA }}
       PAINEL_LOCAL_PG: postgres://postgres:so-para-o-teste-de-restauracao@localhost:5432/postgres
     steps:
+      # Sem os segredos (ainda não cadastrados), o backup não roda: a execução termina com um aviso, sem ficar vermelha.
+      - name: Conferir os segredos
+        id: segredos
+        run: |
+          if [ -n "$PAINEL_SUPABASE_ACCESS_TOKEN" ] && [ -n "$PAINEL_PROD_SUPABASE_URL" ] && [ -n "$BACKUP_SENHA" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Backup não feito: faltam os segredos PAINEL_SUPABASE_ACCESS_TOKEN, PAINEL_PROD_SUPABASE_URL e BACKUP_SENHA (Settings → Secrets and variables → Actions)."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.segredos.outputs.ok == 'true'
 
       - uses: actions/setup-node@v4
+        if: steps.segredos.outputs.ok == 'true'
         with:
           node-version: 22
 
       - name: Backup da produção (cifrado)
+        if: steps.segredos.outputs.ok == 'true'
         working-directory: painel-clientes
         run: |
           REF="$(node -e 'console.log(new URL(process.env.PAINEL_PROD_SUPABASE_URL).hostname.split(".")[0])')"
           node scripts/backup.mjs producao --projeto "$REF" --saida ../backup
 
       - name: Guardar o backup (cifrado, 90 dias)
+        if: steps.segredos.outputs.ok == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: backup-painel-${{ github.run_number }}
@@ -64,5 +79,6 @@ jobs:
           if-no-files-found: error
 
       - name: Teste de restauração (banco vazio, migrações, dados, contagens)
+        if: steps.segredos.outputs.ok == 'true'
         working-directory: painel-clientes
         run: node scripts/restaurar-backup.mjs ../backup/*.rzbk
