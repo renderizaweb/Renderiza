@@ -228,9 +228,23 @@ Plano (nesta ordem, cada parte com commit):
      5 tarefas, o caminho inteiro e onde anotar o que travou.
   4. Produção depois do deploy: só leitura (versão, páginas, cabeçalhos, funções públicas).
   5. Documentos (missoes, trilho, 09 com o resultado das 5 tarefas, avisos).
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: test/fluxos/ e o que as correções pedirem (com aviso).
+Feito:
+  1. test/fluxos/ (npm run fluxos): ambiente.mjs (servidor numa porta própria, logins e conta temporários, limpeza,
+     retrato da tela quando um passo falha) e piloto.fluxo.mjs, verde no STG: Admin cria a conta → o dono entra pelo
+     celular e aceita os termos → arruma tipo de festa, pacote, Pix e modelo → as 5 tarefas (toques do robô: anotar
+     5, visita 3, fechar 4, pagamento 3, contrato 4) → a cliente aceita pelo link e vê o Pix → a equipe "só vê" entra
+     e não muda nada → a Renderiza registra o Pix da mensalidade e entra para ajudar.
+  Correções achadas: (a) Admin · Criar conta tocado antes da lista carregar abria sem os módulos; (b) o pedido
+     anotado à mão não tinha pacote, e o contrato de uma festa recém-fechada só saía passando pela Agenda e pelo
+     Financeiro: Fechar ganhou o Pacote (eventos) e o contrato, "Usar os valores do pacote"; (c) Primeiros passos
+     da conta criada pelo Admin (sem pacotes): "Cadastrar os seus pacotes, com os valores".
+  3. docs/painel-clientes/roteiro-do-piloto.md (o passo a passo da simulação na produção).
+Em andamento: 2. a varredura (test/fluxos/varredura.fluxo.mjs: todas as telas, Villa e Ciranda, dono, edita e só
+  vê, celular e computador, e o Admin).
+Próximo passo: terminar a varredura e corrigir o que ela achar; depois 4 (produção, só leitura, quando o deploy
+  andar) e 5.
+Mexe em: test/fluxos/ e o que as correções pedirem (com aviso). Fora disso até agora, pequeno: src/admin/contas/
+  index.js, src/modulos/atendimento/pedido.js, src/modulos/contratos/contrato.js, src/modulos/inicio/primeiros-passos.js.
 ```
 
 ```
