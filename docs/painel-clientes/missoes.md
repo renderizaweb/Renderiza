@@ -281,8 +281,8 @@ Feito (bloco C, na branch, no STG): o catálogo das demos (migração 2026103024
   colada; só a Renderiza). No Admin, "Veio de uma demo?" preenche o nome, o tipo, o código, o WhatsApp e o dono, e a
   conversa vai junto; na gaveta da conta, de qual demo veio e a conversa para editar. O piloto, passo 1, começa pela
   demo (9/9 no STG).
-Falta (bloco C): a migração e o catálogo na produção (node scripts/migrar.mjs producao --projeto <ref>; node
-  scripts/demos.mjs producao --projeto <ref>), junto com a main.
+  Na produção em 30/10: a migração e o catálogo (60 demos), e a main. Demo nova: node scripts/demos.mjs stg e
+  producao --projeto <ref>.
 Próximo passo: o bloco D (a IA no servidor), depois o E (a conversa de onboarding, que já tem a demo e a conversa
   para usar).
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
@@ -837,7 +837,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030220000_convite_por_link.sql` (convite por link no WhatsApp: usuário, código, `publico_convite`, `usuario_disponivel`) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 | |
 | `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `aceitar-convite` na produção) |
-| `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
+| `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (e o catálogo: 60 demos) |
 
 ## Avisos entre sessões
 
