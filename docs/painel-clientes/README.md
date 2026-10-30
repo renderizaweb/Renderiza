@@ -7,12 +7,12 @@ Vercel, e para qualquer pessoa ou IA tocar o projeto a partir de onde ele parou.
 
 ## Onde o trem está agora
 
-> **Parada 5 de 6 · Admin e regras (as paradas 1 a 4 chegaram).** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
+> **Parada 6 de 6 · Piloto (as paradas 1 a 5 chegaram).** Decisões fechadas em 28/10/2026, sem perguntas em aberto.
 > Endereço: `painel.renderizaweb.com.br`. Piloto: um espaço de eventos (o site dele ainda vai ser feito), com meta de
 > começar a usar por volta de 11/11/2026. **Missão 1 feita (29/10/2026):** e-mail (Zoho recebe, Brevo envia),
 > Supabase em São Paulo (produção e STG), Vercel em `painel.renderizaweb.com.br`, login configurado pelo repositório
 > (e-mails em português, cadastro fechado até a verificação contra robô), esqueleto, migrações, design system e telas
-> de acesso, tudo na `main` e conferido. **Missão 2 feita (29/10/2026):** o banco inteiro ([`05`](05-dados-e-permissoes.md)) e as telas base (casca, convite, cadastro, onboarding, Equipe, Configurações, Serviços) na `main`. **Missões 3 e 4 feitas (29/10/2026):** os módulos do dia a dia (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) e a ponte com o site (API pública, agenda online, Meu site), na `main` e na produção (30/10, `64c9d8d`). **Agora: a Missão 5** (Admin e regras); depois, o piloto. Detalhes e diário de bordo:
+> de acesso, tudo na `main` e conferido. **Missão 2 feita (29/10/2026):** o banco inteiro ([`05`](05-dados-e-permissoes.md)) e as telas base (casca, convite, cadastro, onboarding, Equipe, Configurações, Serviços) na `main`. **Missões 3 e 4 feitas (29/10/2026):** os módulos do dia a dia (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) e a ponte com o site (API pública, agenda online, Meu site), na `main` e na produção (30/10, `64c9d8d`). **Missão 5 feita (30/10/2026):** o Admin e as regras (termos e política em rascunho para revisão, o aceite no primeiro acesso, o backup semanal cifrado com teste de restauração e a revisão de segurança) na `main`; na produção, falta o que é da Renderiza (avisos de 30/10 em [`missoes.md`](missoes.md)). **Agora: o piloto** (Missão 6). Detalhes e diário de bordo:
 > [`01-trilho.md`](01-trilho.md); as missões: [`missoes.md`](missoes.md).
 
 (Quem fechar uma missão atualiza este quadro e o painel de bordo do trilho no mesmo commit.)

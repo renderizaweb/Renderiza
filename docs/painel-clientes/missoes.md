@@ -13,7 +13,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) **feito, na `main`** (30/10; a migração dele na produção espera o "pode", ver "Avisos"); bloco B (Regras) **em andamento** desde 30/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**; falta só o que é da Renderiza: o "pode" para as duas migrações na produção, alguém na equipe Renderiza da produção, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -212,25 +212,39 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 5 · bloco B (Regras) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
-Referência: 06 (os documentos que precisam existir: termos de uso e política de privacidade; o aceite registrado no
-  primeiro acesso, de novo quando a versão muda; segurança: RLS, chaves, funções públicas, cabeçalhos, uploads;
-  backup semanal cifrado, fora do Supabase e do repositório, e um teste de restauração), 07 (D11 backup semanal,
-  D12 a IA rascunha e alguém de LGPD revisa, D13 90 dias de guarda), 02 (preço, sem fidelidade, os dados de quem
-  sai), 05 (termos_aceites).
-Plano (nesta ordem, cada parte com commit): 1. os termos de uso (/termos) e a política de privacidade
-  (/privacidade), rascunhos para revisão, em publico/, com a versão no topo; 2. o aceite no primeiro acesso (tela
-  depois de entrar, grava em termos_aceites com a versão e o aparelho; mudou a versão, pede de novo); 3. o backup
-  semanal da produção (um script que lê o banco pela API de gerenciamento, junta as tabelas, os logins e as imagens
-  num arquivo cifrado) e o teste de restauração (aplica as migrações num banco vazio, põe os dados e confere as
-  contagens), rodando no GitHub Actions (raiz .github/workflows/backup-painel.yml); restaurar de verdade um backup do
-  STG; 4. a revisão de segurança (RLS em toda tabela, funções públicas, chaves, cabeçalhos, uploads), com o que for
-  pequeno corrigido e o resto avisado; 5. documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: publico/termos/, publico/privacidade/, raiz .github/workflows/backup-painel.yml. Fora disso, pequeno e com
-  aviso: a tela do aceite (src/telas/), o app (pedir o aceite antes do painel), os rewrites de /termos e
-  /privacidade, scripts/ do backup e o que a revisão de segurança pedir.
+Missão 5 · bloco B (Regras) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · FEITO, NA MAIN
+Referência: 06 (documentos, segurança, backup), 07 (D11, D12, D13; novas D34 backup, D35 termos, D36 funções do
+  visitante), 02 (preço, sem fidelidade, os dados de quem sai), 05 (termos_aceites).
+Plano (nesta ordem, cada parte com commit): 1. termos e política; 2. o aceite no primeiro acesso; 3. o backup
+  semanal e o teste de restauração; 4. a revisão de segurança; 5. documentos.
+Feito (partes 1 a 5):
+  1. publico/termos/ (/termos) e publico/privacidade/ (/privacidade), rascunhos com "Rascunho em revisão" e o que a
+     revisão decide marcado em amarelo (razão social, CNPJ, foro, encarregado de dados, limite de responsabilidade,
+     aviso de mudança de preço, prazo da cópia depois do apagamento, fornecedores de fora); documento.css só com
+     tokens. Rewrites no vercel.json e no scripts/servidor.mjs (depois do /c/, antes do app).
+  2. src/telas/termos.js (VERSAO_DOS_TERMOS = "2026-10-30"; "Antes de começar" ou "Os termos mudaram"; grava
+     termos_aceites com a versão e o aparelho); src/app.js pede o aceite depois de entrar, antes do painel e do
+     Admin (D35); estilo.css seção 24; test/regras.test.mjs.
+  3. scripts/lib/backup.mjs (formato RZBK1, ler o banco em lotes, imagens, SQL da restauração), scripts/backup.mjs,
+     scripts/restaurar-backup.mjs, raiz .github/workflows/backup-painel.yml (segunda 3h17, manual também; artefato de
+     90 dias; restaura num Postgres vazio e confere), test/backup.test.mjs (D34).
+  4. Revisão de segurança (tabela no 06): RLS, visitante, funções, chaves, Auth, cabeçalhos da produção, uploads,
+     biblioteca de fora. Corrigido: migração 20261030150000_funcoes_sem_visitante.sql (o visitante só executa
+     publico_*; D36) e o teste 090 cobrindo; a página do contrato diz que o IP é guardado e aponta a política.
+     Avisado: SRI da biblioteca do Supabase, limite de tentativas no contrato, Turnstile, aviso na agenda online.
+  5. 04, 05, 06, 07, 10, 01-trilho, README.
+Testado: painel npm test 185, raiz 182; banco 11 arquivos (local e STG). No STG pelo npm run dev: /termos e
+  /privacidade no computador e no celular (390 px, sem rolar para o lado); o aceite com usuário temporário (sem
+  marcar avisa; aceitou, abre o painel e não pede de novo; com aceite antigo, "Os termos mudaram"); depois da
+  migração, o painel inteiro abre como dono (8 telas, sem erro), o visitante segue usando publico_site e
+  publico_disponibilidade (200) e leva "permission denied" nas auxiliares; a nota do contrato no celular. Backup do
+  STG feito (40 tabelas, 1.041 linhas, 9 imagens) e restaurado num banco vazio: as contagens e as imagens batem;
+  senha errada não abre. Usuários de teste apagados.
+Não testado aqui: o workflow rodando no GitHub (precisa dos segredos; ver "Avisos"); o backup da produção.
+Fora do "Mexe em", pequeno: src/telas/termos.js, src/app.js, vercel.json, scripts/servidor.mjs, scripts/ do backup,
+  estilo.css seção 24, publico/contrato/contrato.js (a nota), a migração e o teste 090.
+Migrações: 20261030150000_funcoes_sem_visitante.sql no STG; na produção vai junto com a 20261030120000 (a do Admin),
+  que espera o "pode".
 ```
 
 ```
@@ -706,6 +720,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029203000_fechar_pedido_confirma.sql` (fechar um pedido que já tem reserva confirma a pré-reserva e ajusta a data) | 3C | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029220000_publico_contrato.sql` (o aceite do contrato pelo link: `publico_contrato` e `publico_aceitar_contrato`) | 3E | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261030120000_minhas_contas_suporte.sql` (Admin: minhas_contas traz a conta em que a Renderiza está em suporte) | 5A | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (espera o "pode": `drop` de função) |
+| `20261030150000_funcoes_sem_visitante.sql` (revisão de segurança: o visitante só executa as funções `publico_*`) | 5B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (não é destrutiva, mas as migrações entram em ordem: vai junto com a `…120000`, depois do "pode") |
 
 ## Avisos entre sessões
 
@@ -714,6 +729,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 5B → Renderiza, todas | **Regras prontas (na `main`); Missão 5 feita.** Para a Renderiza: (1) **"Pode" para a produção:** um comando só aplica as duas migrações da Missão 5 (a do Admin, que faz `drop` e `create` de uma função sem apagar dado, e a da revisão de segurança): `node scripts/migrar.mjs producao --projeto hxzsiiqhlqxuqkevskwb --pode-destrutivo`. (2) **Backup:** em GitHub → Settings → Secrets and variables → Actions, criar `PAINEL_SUPABASE_ACCESS_TOKEN` (o token da API do Supabase), `PAINEL_STG_SUPABASE_URL`, `PAINEL_PROD_SUPABASE_URL` e `BACKUP_SENHA` (longa e aleatória, ex.: `openssl rand -base64 32`; **guardar também fora do GitHub**: sem ela, o backup não abre). Depois, em Actions → "Backup do Painel Renderiza" → Run workflow, rodar uma vez e ver ficar verde. **O repositório é público:** qualquer pessoa logada no GitHub baixa o artefato; ele só vale porque está cifrado (D34). (3) **Termos e política** (`/termos`, `/privacidade`): rascunhos; alguém de LGPD revisa o que está em amarelo antes do primeiro cliente pagante (D12). Mudou o texto de verdade: nova data em `data-versao` das duas páginas e em `VERSAO_DOS_TERMOS` (`src/telas/termos.js`), e todo mundo aceita de novo. (4) Ainda valem: alguém na `equipe_renderiza` da produção (aviso da 5A), a chave do Brevo, o Turnstile. **Para todas:** (a) **toda função nova** em `public` leva `revoke execute … from public, anon` (e `grant … to authenticated` se o painel chama), fora as `publico_*`; senão o teste `090` falha (D36). (b) Depois de entrar, quem não aceitou a versão de agora dos termos vê a tela do aceite antes do painel e do Admin: usuário de teste novo passa por ela. (c) **Aviso na agenda online (06), para quem mexer em `ferramentas/demo/agenda-online/agenda.html`** (fora da Missão 5): uma linha perto do botão de enviar, ex.: "Seus dados vão para o <negócio>, que usa o Painel Renderiza para organizar os pedidos. Como cuidamos deles: painel.renderizaweb.com.br/privacidade". (d) Rewrites: `/termos` e `/privacidade` vêm depois do `/c/` e antes do app. |
 | 30/10/2026 | 5A → Renderiza, todas | **Admin pronto (na `main`).** (1) **Ninguém está na equipe Renderiza na produção** (`equipe_renderiza` vazia), então ninguém abre o Admin lá. Quem a Renderiza quiser como admin entra uma vez no painel e depois, no Supabase da produção (SQL Editor): `insert into public.equipe_renderiza (usuario_id, nome) select id, 'Nome' from auth.users where email = 'e-mail@da.pessoa';`. Quem é da equipe e não é de nenhuma conta cai direto no Admin. (2) **A migração `20261030120000_minhas_contas_suporte.sql` está no STG; na produção, espera o "pode"**: ela faz `drop` e `create` da função `minhas_contas` (nenhum dado é apagado), e o `scripts/migrar.mjs` trava todo `drop` na produção (08, regra 8). Com o "pode": `node scripts/migrar.mjs producao --projeto hxzsiiqhlqxuqkevskwb --pode-destrutivo`. Sem ela, o Admin funciona, menos o "Entrar para ajudar" (a conta não abre). (3) `minhas_contas()` ganhou a coluna `suporte_ate` (05). (4) Fora do `src/admin/`, pequeno: `src/app.js` (rota do Admin sem conta), `src/telas/contas.js`, `src/sessao.js` (`carregarPessoa` sem `pessoa_id`), `src/telas/casca.js` (a faixa do suporte), `estilo.css` seção 23. |
 | 30/10/2026 | 4 → 3F, todas | **O bloco F da Missão 3 (Início e exportar) está terminado e na `main`**, junto com a correção do "Pacote" na Agenda: a sessão do bloco parou no limite, e a da Missão 4 testou de ponta a ponta no STG, documentou e subiu. **Missões 3 e 4 feitas; a próxima é a 5.** Quem tiver branch antiga (`claude/painel-renderiza-setup-ztnrzy`), traga a `main` antes de mexer. |
 | 30/10/2026 | Vercel → todas | **A produção do painel está no `64c9d8d` por um deploy feito pela API** (conferido: `/api/config` e os arquivos no ar iguais aos da `main`). **Os pushes não estão gerando deploy** desde o `e531d90` (22h36 de 29/10, Brasília), nos dois projetos: a Vercel nem registra o push; conta sem bloqueio, limite e espaço descartados, GitHub ligado. O projeto do painel tem `createDeployments: "disabled"` (o `renderiza`, `enabled`). Enquanto isso: depois de um push na `main`, conferir o `versao` do `/api/config`; se não andar, alguém com token da Vercel cria o deploy da `main` pela API (ou por um Deploy Hook). A Renderiza confere o ícone da Vercel no commit no GitHub e, na Vercel, `renderiza-painel-clientes` → Settings → Git. Produção tem uma conta só, "Espaço de teste" (eventos, em teste), com o Meu site ligado e **nenhum site cadastrado**. |

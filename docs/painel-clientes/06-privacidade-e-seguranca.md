@@ -40,6 +40,15 @@ Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copi
 - **Aceite registrado:** no primeiro acesso, a pessoa aceita a versão vigente dos termos; mudou a versão, aceita de
   novo.
 
+**Feito na Missão 5B (30/10/2026):** os termos em `/termos` e a política em `/privacidade` (`publico/termos/` e
+`publico/privacidade/`), **rascunhos com a etiqueta "Rascunho em revisão"**: o que a revisão precisa decidir está
+marcado em amarelo (razão social, CNPJ e endereço, foro, encarregado de dados, limite de responsabilidade, aviso de
+mudança de preço, quanto tempo a cópia de segurança dura depois do apagamento, cláusulas dos fornecedores de fora do
+Brasil). O aceite: depois de entrar, antes do painel e do Admin, a tela "Antes de começar" (ou "Os termos mudaram")
+com os dois links e "Li e aceito"; grava em `termos_aceites` a versão e o aparelho (D35). A página do contrato
+(`/c/<código>`) diz o que fica guardado e aponta a política. **Falta:** o aviso na agenda online (o formulário fica
+em `ferramentas/demo/agenda-online/`, fora da Missão 5; ver "Avisos" em `missoes.md`).
+
 ## Segurança: o que garante
 
 - **RLS em toda tabela**, com teste de isolamento obrigatório para cada tabela nova (`05`).
@@ -56,13 +65,40 @@ Nunca entram: número de cartão, senha de terceiros, conversas do WhatsApp copi
 - **Contas da Renderiza** (Supabase, Vercel, domínio, e-mail, GitHub) com verificação em duas etapas e pelo menos
   duas pessoas com acesso de dono.
 
+### Revisão de segurança (Missão 5B, 30/10/2026; STG e produção iguais)
+
+| O quê | Como está | O que foi feito |
+|---|---|---|
+| RLS | ligada em todas as tabelas de `public`; `pedidos_avisos` e `publico_tentativas` sem política nenhuma (fechadas de propósito: só as funções mexem) | nada; o teste `090` já pegava tabela nova sem RLS |
+| Visitante (`anon`) nas tabelas | nenhum acesso direto a tabela ou visão; visões só com `security_invoker` | nada |
+| Funções que o visitante executa | só as públicas (`publico_*`) eram para ser; as auxiliares e as de gatilho ainda estavam abertas pela API (`/rest/v1/rpc/...`), sem dar dado nenhum | **fechadas** (migração `20261030150000`); o `090` agora falha com função nova aberta ao visitante |
+| Funções `security definer` | todas com `search_path` fixo | nada |
+| Chaves | só a chave pública vai para o navegador (`/api/config`, sem cache); nenhuma chave ou senha no repositório (conferido com `git grep`); a chave secreta só nas funções do Supabase | nada |
+| Login (Auth) | cadastro fechado, senha de no mínimo 8, confirmação de e-mail, troca do token de sessão ligada; verificação contra robô desligada (o cadastro está fechado) | ligar o Turnstile ao abrir o cadastro (D30) |
+| Cabeçalhos (produção) | CSP, HSTS de 2 anos, `nosniff`, sem abrir dentro de outro site (`DENY`), `Referrer-Policy`, `X-Robots-Tag: noindex` | nada |
+| Uploads (Storage) | `logos` 1 MB (PNG, JPEG, WebP), `site-imagens` 2 MB (só WebP), `privado` 10 MB (só PDF, sem política: fechado); enviar, trocar e tirar só para quem entrou e pode | nada |
+| Biblioteca de fora | a do Supabase vem do jsDelivr com a versão fixa (`@2.117.1`), sem conferência de integridade (SRI) | fica para depois: pôr o `integrity` ou servir a biblioteca do próprio painel |
+| Páginas públicas | agenda online: formato conferido no banco, 5 pedidos por hora por endereço (`429`) e só do domínio do site (`403`). Contrato: o código do link é longo e aleatório (não dá para adivinhar), o formato é conferido no banco e o aceite vale uma vez só; não tem limite de tentativas (a página chama o banco direto) | o limite no contrato fica para depois, se aparecer abuso |
+
 ## Backup
 
 - O plano gratuito do Supabase **não faz backup**. Até subir para o Pro (que guarda 7 dias de backup diário):
-  cópia automática **semanal** do banco (GitHub Actions com `pg_dump`), **cifrada**, guardada num lugar privado
-  fora do Supabase e fora do repositório (onde: decidir na Missão 5).
-- As imagens do Storage entram na mesma rotina (ou têm cópia própria).
-- **Backup que nunca foi restaurado não conta:** restaurar num banco de teste na Missão 5 e a cada 3 meses.
+  cópia automática **semanal** do banco, **cifrada**, fora do Supabase e fora do repositório.
+- **Como ficou (Missão 5B, D34):** toda segunda às 3h17 (Brasília), o GitHub Actions
+  (`.github/workflows/backup-painel.yml`) lê a produção pela API de gerenciamento do Supabase, só leitura (a senha do
+  banco não fica em lugar nenhum): as tabelas de `public`, os logins (`auth.users` e `auth.identities`), o registro
+  do Storage e as imagens dos buckets públicos. Tudo vai num arquivo `.rzbk` comprimido e cifrado (AES-256-GCM, chave
+  pela scrypt da `BACKUP_SENHA`), guardado como **artefato da execução por 90 dias**. O log só mostra contagens.
+- **Onde:** no artefato do GitHub Actions. O repositório é público, então qualquer pessoa logada no GitHub consegue
+  baixar o arquivo: **ele só vale porque está cifrado**. A `BACKUP_SENHA` precisa ser longa e aleatória (ex.:
+  `openssl rand -base64 32`) e ficar guardada também fora do GitHub, com a Renderiza: sem ela, o backup não abre.
+- As imagens dos buckets públicos (`logos`, `site-imagens`) entram no mesmo arquivo, com o `sha256` de cada uma. O
+  bucket `privado` (PDFs) fica de fora: hoje não tem nenhum arquivo, nem no STG nem na produção; quem passar a usar
+  põe o download dele no backup (`scripts/lib/backup.mjs`).
+- **Backup que nunca foi restaurado não conta:** a mesma execução restaura o arquivo num Postgres vazio (as
+  migrações do repositório, os dados, as contagens e as imagens conferidas), toda semana. Na mão:
+  `node scripts/restaurar-backup.mjs <arquivo>` (com `BACKUP_SENHA` e `PAINEL_LOCAL_PG` no ambiente). Restaurado de
+  verdade em 30/10/2026: um backup do STG (40 tabelas, 1.041 linhas, 9 imagens) voltou inteiro num banco vazio.
 
 ## Se algo der errado (incidente)
 

@@ -15,8 +15,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 5 · Admin e regras (as paradas 3 e 4 chegaram em 29/10/2026) |
-| **Próxima ação** | Missão 5 (Admin e regras): bloco A (Admin) feito, o B (Regras) em andamento desde 30/10 ([`missoes.md`](missoes.md)). Da Renderiza para o Admin: pôr quem vai ser admin em `equipe_renderiza` na produção e o "pode" para a migração da `minhas_contas` (aviso de 30/10). Da Renderiza: a chave do Brevo na função do aviso de pedido; apagar o `VERCEL_TOKEN` (Vercel e variáveis do ambiente); conferir por que os pushes não geram deploy na Vercel (aviso de 30/10); o ok para a regra no `vercel.json` da raiz; o Turnstile, quando quiser abrir o cadastro (D30); e a varredura geral e o teste do Meu site na produção, depois das próximas missões |
+| **Onde o trem está** | Parada 6 · Piloto (a parada 5 chegou em 30/10/2026; as 3 e 4, em 29/10/2026) |
+| **Próxima ação** | Missão 6 (Piloto), que começa pela Renderiza ([`missoes.md`](missoes.md)). Da Renderiza, para a Missão 5 valer na produção: o "pode" para as duas migrações dela (um comando, no aviso da 5B), pôr quem vai ser admin em `equipe_renderiza`, os segredos do backup no GitHub e rodar o backup uma vez, e a revisão dos termos e da política por alguém de LGPD (avisos de 30/10). Da Renderiza: a chave do Brevo na função do aviso de pedido; apagar o `VERCEL_TOKEN` (Vercel e variáveis do ambiente); conferir por que os pushes não geram deploy na Vercel (aviso de 30/10); o ok para a regra no `vercel.json` da raiz; o Turnstile, quando quiser abrir o cadastro (D30); e a varredura geral e o teste do Meu site na produção, depois das próximas missões |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 30/10/2026 |
 
@@ -24,8 +24,8 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 ```
                                                        ┏━━ [3] MÓDULOS DO DIA A DIA ✅ ━┓
- PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ✅ ━━━━━╋━━ [6] PILOTO ━━ 🏁 DESTINO
-   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS 🚂 ━━━━━━━┛
+ PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ✅ ━━━━━╋━━ [6] PILOTO 🚂 ━━ 🏁 DESTINO
+   ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ✅ ━━━━━━━┛
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -124,7 +124,7 @@ estão na produção. Falta: a chave do Brevo na função do aviso e subir a tel
 Missão 2, bloco B (ver a nota de passagem do bloco C em [`missoes.md`](missoes.md)). Desconectar fica no Admin
 (Parada 5).
 
-## Parada 5 · Admin e regras 🚂 (em paralelo)
+## Parada 5 · Admin e regras ✅ (em paralelo)
 
 **Para quê:** a Renderiza enxergar e controlar a plataforma, e o painel poder guardar dado de cliente com segurança.
 **Referência:** [`02-produto.md`](02-produto.md) (Admin) e [`06`](06-privacidade-e-seguranca.md).
@@ -137,6 +137,12 @@ Missão 2, bloco B (ver a nota de passagem do bloco C em [`missoes.md`](missoes.
 
 **Chegou quando:** a Renderiza cria a conta do piloto pelo admin, liga os módulos, registra um pagamento e vê os
 números; um backup foi restaurado com sucesso; os termos são aceitos no primeiro acesso.
+
+**Situação (30/10/2026):** as três provas passaram no STG (Missão 5, blocos A e B, na `main`): uma conta criada pelo
+Admin, com módulos, Pix e números; um backup do STG restaurado inteiro num banco vazio; os termos aceitos no primeiro
+acesso. Na produção, falta o que é da Renderiza: o "pode" para as duas migrações da Missão 5, alguém na equipe
+Renderiza, os segredos do backup no GitHub (e rodar uma vez), a revisão dos termos por alguém de LGPD e o deploy da
+Vercel voltar a andar (ver "Avisos" em [`missoes.md`](missoes.md)).
 
 ## Parada 6 · Piloto no ar ⬜
 
@@ -163,6 +169,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 30/10/2026 | 5 | **Missão 5, bloco B (Regras) feito, e com ele a Missão 5**, na `main`: termos de uso e política de privacidade (rascunhos para revisão) em `/termos` e `/privacidade`, o aceite no primeiro acesso, o backup semanal cifrado com o teste de restauração (GitHub Actions) e a revisão de segurança (o visitante só executa as funções públicas). Backup do STG restaurado num banco vazio. Falta, da Renderiza: o "pode" para as migrações, os segredos do backup no GitHub, a revisão dos termos. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 5 | **Missão 5, bloco A (Admin) feito**, na `main`: contas (aprovar, prazo, desligar, religar, criar à mão com o convite do dono), módulos e "só pago", pessoas e entradas, pagamentos por Pix, indicadores, entrar para ajudar e exportar a pedido (com registro). Testado no STG. Falta, da Renderiza: quem é admin na produção e o "pode" para a migração. | Claude, a pedido da Renderiza |
 | 29/10/2026 | 3 e 4 | **Paradas 3 e 4 chegaram.** O bloco F da Missão 3 (Início e exportar), que parou no limite da sessão dele, foi terminado e subido pela sessão da Missão 4, junto com o editor do Meu site. Tudo na `main`, conferido de ponta a ponta no STG como dono. A semente da Villa ganhou o site de teste e o Meu site. Próxima: a Missão 5. | Claude, com o ok da Renderiza |
 | 29/10/2026 | 3 | **Missão 3, bloco A (Clientes) feito**, na `main` (a produção espera o deploy destravar): a lista pela situação, a ficha como linha do tempo, juntar e arquivar, e as entregas das fotos na fotografia. Testado no STG. | Claude, a pedido da Renderiza |

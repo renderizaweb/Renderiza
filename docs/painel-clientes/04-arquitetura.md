@@ -46,7 +46,7 @@ painel-clientes/
   src/
     app.js  rotas.js  sessao.js
     adaptadores/supabase.js  supabase-js por CDN, versão fixa (como painel/src/adaptadores/supabase.js)
-    telas/                   entrar, cadastro, convite, escolher a conta, exportar
+    telas/                   entrar, cadastro, convite, escolher a conta, exportar, aceite dos termos
     nichos/eventos.js  nichos/fotografia.js
     modulos/index.js         o registro de todos os módulos (nasce completo na Missão 1)
     modulos/inicio/  clientes/  agenda/  atendimento/  financeiro/  contratos/  meu-site/
@@ -54,14 +54,17 @@ painel-clientes/
     admin/                   Admin (só a equipe Renderiza): contas/ modulos/ pessoas/ pagamentos/ indicadores/
     ui/                      o design system (10): estilo.css (tokens e componentes), icones.js, formulario.js, fontes/;
                              depois, as peças dos exemplos: menu, abas, gaveta, tabela, calendário, "Para quem?"
-  publico/                   páginas sem login: aceite de contrato (/c/<código>), prévia
+  publico/                   páginas sem login: aceite de contrato (/c/<código>), termos (/termos), privacidade
+                             (/privacidade)
   api/config.js              entrega a URL e a chave pública ao navegador (Missão 1)
   api/publico/               funções da Vercel da API pública
   supabase/migrations/       a estrutura do banco, em ordem
   supabase/functions/        funções do Supabase (Deno), como o envio do convite; publicar.mjs
   supabase/testes/           testes de RLS e das funções
   supabase/local/            a imitação do Supabase para o banco local de testes
-  scripts/                   servidor local (npm run dev) e migrações (scripts/migrar.mjs)
+  scripts/                   servidor local (npm run dev), migrações (scripts/migrar.mjs), backup e restauração
+                             (scripts/backup.mjs, scripts/restaurar-backup.mjs; o agendamento é o
+                             .github/workflows/backup-painel.yml da raiz)
   test/                      testes do front (node --test) e fluxos (Playwright)
   vercel.json  .vercelignore
 ```
@@ -197,7 +200,11 @@ painel-clientes/
   de `scripts/lib/auth.mjs` (STG primeiro). A CSP já deixa o script e o frame de `challenges.cloudflare.com`. Testado
   no local com a chave de teste da Cloudflare (`1x00000000000000000000AA`, que sempre passa).
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
-  política de conteúdo (CSP) restringindo de onde vêm scripts.
+  política de conteúdo (CSP) restringindo de onde vêm scripts. Conferidos na produção na revisão de segurança
+  (30/10/2026, `06`).
+- **Rewrites, nesta ordem** (`vercel.json`; o `scripts/servidor.mjs` imita): `/c/:codigo` (o contrato),
+  `/termos` e `/privacidade` (os documentos, Missão 5B), e por último o app (`index.html`). Quem acrescentar um
+  rewrite põe antes do app.
 - **Plano:** a escolha e a hora de subir de plano ficam com a Renderiza (28/10/2026). O front é estático para poder
   trocar de hospedagem sem reescrever, se um dia fizer sentido.
 
@@ -313,3 +320,6 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
   aplicação do Meu site (`node --test`).
 - **Fluxos (Playwright):** convite e primeiro acesso, pedido pela agenda online até o Atendimento, publicar no Meu
   site e ver no site de teste, site com o painel desligado.
+- **Backup (Missão 5B):** `test/backup.test.mjs` (cifrar e decifrar, senha errada, ler o banco em lotes, as
+  imagens, o SQL da restauração, o workflow); toda semana o GitHub Actions restaura o backup da produção num Postgres vazio e confere as
+  contagens (`06`, "Backup").

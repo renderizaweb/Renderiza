@@ -131,7 +131,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 | `contas_modulos` | o que está ligado em cada conta | conta, módulo, ligado, desde, quem ligou (no cadastro, os que a pessoa escolheu) |
 | `pessoas` | quem entra na conta | conta, usuário (`auth.users`), nome, e-mail, papel ("Comercial"), cor, dono (sim/não), acessos (`{ "agenda": "editar", "financeiro": null, … }`), ativa (tirar o acesso = `false`), visto em, preferências (de cada pessoa) |
 | `convites` | convite pendente | conta, e-mail, nome, papel, cor, dono (sim/não), acessos, quem convidou, expira em (7 dias), aceito em, cancelado em. Vira pessoa quando o convidado entra e chama `aceitar_convites()` |
-| `termos_aceites` | aceite dos termos de uso | usuário (o login: vale para todas as contas dele), versão, quando, aparelho |
+| `termos_aceites` | aceite dos termos de uso | usuário (o login: vale para todas as contas dele), versão, quando, aparelho. A versão é a data dos documentos (`VERSAO_DOS_TERMOS` em `src/telas/termos.js`, a mesma do `data-versao` de `/termos` e `/privacidade`): versão nova, o painel pede o aceite de novo (Missão 5B, D35). Cada um grava e lê só o próprio aceite |
 | `atividades` | histórico ("o que a equipe fez" e a linha do tempo do cliente) | pessoa (ou o sistema), pelo suporte, ação (`criou`, `mudou`, `apagou`), tabela e id, cliente, reserva, módulo (quem vê), colunas que mudaram, detalhe (`{"etapa": [antes, depois]}`, `{"pago": true}`), quando. Gravada só pelos gatilhos, sem valores |
 
 **O negócio**
@@ -221,7 +221,9 @@ de cliente final, a não ser o contrato para quem tem o código dele.
 
 Cada uma nasce na missão que a usa (agenda online e Meu site na Missão 4; o aceite do contrato na Missão 3, bloco
 E), numa migração pequena, com o nome começando por `publico_` (o teste `supabase/testes/090_regras_gerais.sql` só
-deixa essas abertas ao visitante).
+deixa essas abertas ao visitante). Desde a revisão de segurança (Missão 5B, migração `…150000_funcoes_sem_visitante`)
+vale para **toda** função de `public`, inclusive as auxiliares e as de gatilho: função nova leva
+`revoke execute … from public, anon` (e `grant … to authenticated` se o painel chama), senão o `090` falha.
 
 **Já no banco (29/10/2026, Missão 4A, migrações `…135228_publico_agenda` e `…141139_aviso_de_pedido`):**
 - `publico_disponibilidade(código, de, até)`: os dias com turno (`horarios` do dia da semana) e se cada turno está
