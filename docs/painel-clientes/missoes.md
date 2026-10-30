@@ -15,7 +15,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
-| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): bloco A feito (os 🟢; os 🟡 com a Renderiza), bloco B feito até o B5 (falta o B6 e subir para a produção); os outros blocos livres, na ordem do `missoes.md` | B e A: `claude/painel-renderiza-setup-ztnrzy` |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): **A, B, C, D, E e G feitos e na produção** (banco e funções; a tela espera a Vercel voltar a publicar). Falta: o **F** (trazer o que tem, com o leitor de IA), o e-mail opcional no fim da conversa (Brevo) e medir a IA de verdade (a chave da Anthropic) | B e A: `claude/painel-renderiza-setup-ztnrzy` |
 | 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -246,7 +246,7 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 7 · blocos B e A · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
+Missão 7 · blocos A, B, C, D, E e G · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10, 20h · EM ANDAMENTO (falta o F)
 Referência: 11 (o caminho da pessoa), D40 a D50 (07), D33 (o visual do onboarding), D42 (acesso sem e-mail).
 Feito (bloco B, na branch, ainda NÃO na main nem na produção):
   B1. Migrações 20261030220000_convite_por_link e 20261030223000_login_do_convite (só no STG): convites.usuario,
