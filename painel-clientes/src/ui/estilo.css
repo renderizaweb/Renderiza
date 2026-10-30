@@ -802,3 +802,23 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-quebra{overflow-wrap:anywhere}
 .rz-campos-modelo{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
 .rz-campos-modelo button{font-family:inherit}
+
+/* ---------- 22. Início (Missão 3, bloco F; 09): "Para fazer agora", os números, as próximas e "O que a equipe fez" ----------
+   Cada item do "Para fazer agora" leva um ícone com o tom da urgência (atrasada, novo, vence, hoje) e o botão do
+   próximo passo; no computador, as próximas e o que a equipe fez ficam lado a lado. */
+.rz-fazer-icone{width:32px;height:32px}
+.rz-fazer-icone--perigo{background:var(--rz-perigo-fundo);color:var(--rz-perigo)}
+.rz-fazer-icone--alerta{background:var(--rz-alerta-fundo);color:var(--rz-alerta)}
+.rz-fazer-icone--destaque{background:var(--rz-destaque-fundo);color:var(--rz-destaque)}
+.rz-fazer-icone--sucesso{background:var(--rz-sucesso-fundo);color:var(--rz-sucesso)}
+.rz-linhas a.rz-linha{color:inherit;text-decoration:none}
+.rz-numero-link{color:inherit;text-decoration:none}
+.rz-numero-link:hover{text-decoration:underline}
+.rz-data-bloco{flex:none;width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--rz-1) 0;border-radius:var(--rz-raio);background:var(--rz-gelo);line-height:1.1}
+.rz-data-bloco b{font-size:var(--rz-t-lg);font-weight:600}
+.rz-data-bloco small{font-size:var(--rz-t-xs);color:var(--rz-tinta-2)}
+.rz-avatar--tempo{width:32px;height:32px}
+.rz-peso-normal{font-weight:400}
+.rz-inicio-colunas{display:grid;grid-template-columns:minmax(0,1fr);gap:0 var(--rz-6)}
+@media (min-width:960px){.rz-inicio-colunas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rz-exportar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--rz-4)}
