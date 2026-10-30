@@ -309,8 +309,9 @@ Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/te
 Falta (bloco E): o e-mail opcional no fim da conversa (precisa da chave do Brevo nas funções, para mandar o código e
   o link de senha nova); medir a conversa com a IA de verdade no STG quando a chave da Anthropic existir; a
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
-Próximo passo: subir D e E para a produção (as migrações 20261030250000 e 20261030260000, a função assistente, a
-  main); depois os blocos F (trazer o que tem) e G (o acompanhamento no Admin).
+Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
+  tudo. A tela só entra no ar quando a Vercel publicar (o deploy está no limite diário; ver o aviso de 30/10).
+Próximo passo: os blocos F (trazer o que tem) e G (o acompanhamento no Admin).
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
@@ -864,8 +865,8 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `aceitar-convite` na produção) |
 | `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (e o catálogo: 60 demos) |
-| `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
-| `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
+| `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `assistente`, sem a chave) |
+| `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 
 ## Avisos entre sessões
 
@@ -874,6 +875,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 7 → Renderiza, todas | **A Vercel está no limite diário de deploys** ("Deployment rate limited — retry in 24 hours", nos dois projetos, desde a tarde de 30/10). O banco e as funções da Missão 7 (A a E) já estão na produção; a tela entra quando a Vercel voltar a publicar (o próximo push na `main` depois do limite, ou "Redeploy" no painel da Vercel). O que gasta a cota: o projeto do site publica a cada push em qualquer branch. A correção é a regra no `vercel.json` da raiz (sem deploy das branches `claude/*` e só quando o site muda), que espera o "pode" da Renderiza. Até lá, push na branch com moderação. |
 | 30/10/2026 | 7E → todas | **Termos e política na versão 31/10/2026** (`VERSAO_DOS_TERMOS`): quem entra vê o aceite de novo (os fluxos já aceitam sozinhos). **Rota nova `/montar`** (`src/rotas.js`, arquivo comum) e o Início manda para lá a conta com `ajustes.onboarding.pendente` (só as criadas pelo Admin a partir de agora; as sementes e as do cadastro não têm). Seção 27 no `estilo.css`. |
 | 30/10/2026 | 7A → todas | **A casca e o `estilo.css` mudaram (a cara dos exemplos):** o tema do nicho vale dentro do painel (`.rz-app.rz-tema-eventos`/`-fotografia`: o destaque, a barra lateral e os gráficos na cor do negócio); o `.rz-fab` saiu (o "+" do celular agora é o `.rz-topo-mais`, no topo, com `data-novo`); a Agenda abre no mês também no celular; seções 25 e 26 novas no `estilo.css`; ícones novos `instagram`, `globo`, `coracao`. Quem desenhar tela nova: use `--rz-destaque` (nunca a terracota direto), que o tema troca sozinho. |
 | 30/10/2026 | 7 (levantamento) → Renderiza, todas | **Parada 7 levantada e Missão 7 escrita** (blocos A a G, com "Mexe em"): D40 a D50 no `07`, o caminho e o roteiro no [`11`](11-onboarding-ia-levantamento.md), a parada no trilho. **Esperando a aprovação da Renderiza: nenhum código antes do ok.** Parada 8 (IA no dia a dia) só marcada, com levantamento depois. |
