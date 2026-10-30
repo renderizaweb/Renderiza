@@ -1,6 +1,8 @@
 // Admin · a gaveta da conta (Missão 5A; 02, "Como a conta nasce e vive"): a situação e o prazo, aprovar (com ou sem
 // prazo), dar prazo, desligar e religar; os módulos da conta (ligar e desligar); as pessoas e os convites; os
 // pagamentos; entrar para ajudar e exportar os dados a pedido (suporte.js). Desligar pede confirmação (09, regra 4).
+// Convite por link (Missão 7, D42): quem entra com usuário aparece pelo usuário; o link esperando tem "Mandar o
+// link" e "Gerar link novo"; quem já entrou com usuário e esqueceu a senha ganha um "Link para senha nova".
 // `ctx`: { banco, sessao, navegar, avisar, recarregar, catalogo }.
 
 import { abrirGaveta, abrirFolha, confirmar } from "../../ui/gaveta.js";
@@ -12,6 +14,11 @@ import { nicho } from "../../nichos/index.js";
 import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora } from "../logica.js";
 import { abrirPagamento } from "../pagamentos/pagamento.js";
 import { entrarParaAjudar, exportarAPedido } from "../suporte.js";
+import { usuarioDoEmail } from "../../sessao.js";
+import { novoCodigoDeLink, linkDoConvite, abrirMandarConvite } from "../../ui/convite-link.js";
+
+/** O e-mail para mostrar: o usuário, quando é o endereço interno do convite por link. */
+const quem = email => { const u = usuarioDoEmail(email); return u ? `usuário ${u}` : email || ""; };
 
 const PRAZOS = [{ valor: "sem", rotulo: "Sem prazo" }, { valor: "30", rotulo: "30 dias" }, { valor: "90", rotulo: "90 dias" }, { valor: "365", rotulo: "1 ano" }, { valor: "data", rotulo: "Até uma data…" }];
 
@@ -47,7 +54,7 @@ export async function abrirConta(c, ctx) {
   const n = nicho(c.nicho);
   const e = estadoDaConta(c);
   const [convites, pagamentos, suportes] = await Promise.all([
-    banco.resultado(banco.tabela("convites").select("id, email, nome, dono, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
+    banco.resultado(banco.tabela("convites").select("id, email, nome, dono, acessos, usuario, link_codigo, link_usado_em, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
     banco.resultado(banco.tabela("pagamentos").select("id, mes, valor, pago_em, observacao").eq("conta_id", c.id).order("mes", { ascending: false }).limit(6)).catch(() => []),
     banco.resultado(banco.tabela("acessos_suporte").select("id, motivo, nivel, inicio, fim").eq("conta_id", c.id).order("inicio", { ascending: false }).limit(5)).catch(() => []),
   ]);
@@ -66,7 +73,7 @@ export async function abrirConta(c, ctx) {
         <div class="rz-etiquetas"><span class="rz-etiqueta${e.tom ? ` rz-etiqueta--${e.tom}` : ""}">${escapar(e.nome)}</span>${e.sub ? `<span class="rz-texto-3">${escapar(e.sub)}</span>` : ""}</div>
         <dl class="rz-fatos">
           <div><dt>Criada</dt><dd>${escapar(dataNumerica(new Date(c.criado_em)))} · ${c.origem === "cadastro" ? "pelo cadastro" : "pela Renderiza"}</dd></div>
-          <div><dt>Dono</dt><dd>${dono ? `${escapar(dono.nome)}<br><small class="rz-texto-3">${escapar(dono.email || "")}</small>` : "ainda sem dono (convite)"}</dd></div>
+          <div><dt>Dono</dt><dd>${dono ? `${escapar(dono.nome)}<br><small class="rz-texto-3">${escapar(quem(dono.email))}</small>` : "ainda sem dono (convite)"}</dd></div>
           <div><dt>Pessoas</dt><dd>${c.ativas} de ${c.limite_pessoas}</dd></div>
           <div><dt>Último acesso</dt><dd>${escapar(ultimoAcesso([c.vistoEm]))}</dd></div>
           ${c.whatsapp ? `<div><dt>WhatsApp</dt><dd><a href="${escapar(linkWhatsapp(c.whatsapp))}" target="_blank" rel="noopener">${escapar(telefone(c.whatsapp))}</a></dd></div>` : ""}
@@ -79,10 +86,13 @@ export async function abrirConta(c, ctx) {
         </section>
 
         <section class="rz-pilha-p"><h3 class="rz-titulo-3">Pessoas</h3>
-          <ul class="rz-linhas rz-cartao">${c.pessoas.map(p => `<li><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><b>${escapar(p.nome)}${p.dono ? " · dono" : ""}</b><small>${escapar([p.email, p.ativa ? (usandoAgora(p.visto_em) ? "usando agora" : ultimoAcesso([p.visto_em])) : "sem acesso"].filter(Boolean).join(" · "))}</small></span></div></li>`).join("")
+          <ul class="rz-linhas rz-cartao">${c.pessoas.map(p => `<li class="rz-com-acao"><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><b>${escapar(p.nome)}${p.dono ? " · dono" : ""}</b><small>${escapar([quem(p.email), p.ativa ? (usandoAgora(p.visto_em) ? "usando agora" : ultimoAcesso([p.visto_em])) : "sem acesso"].filter(Boolean).join(" · "))}</small></span></div>
+              ${p.ativa && usuarioDoEmail(p.email) ? `<button class="rz-botao rz-botao--pequeno" type="button" data-senha-nova="${escapar(p.id)}">${icone("cadeado", { tamanho: 16 })}Link para senha nova</button>` : ""}</li>`).join("")
             || `<li><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><small>Ninguém entrou ainda.</small></span></div></li>`}</ul>
-          ${convites.length ? `<p class="rz-texto-3">Convite esperando: ${convites.map(x => `${escapar(x.nome || x.email)} (${escapar(x.email)}${x.dono ? ", dono" : ""}, vence ${escapar(dataNumerica(new Date(x.expira_em)))})`).join("; ")}.</p>` : ""}
-          ${convites.length ? `<button class="rz-botao rz-botao--pequeno" type="button" data-reenviar="${escapar(convites[0].id)}">${icone("carta", { tamanho: 16 })}Mandar o convite de novo</button>` : ""}
+          ${convites.map(x => `<div class="rz-pilha-p"><p class="rz-texto-3">${x.usuario ? "Link esperando" : "Convite esperando"}: ${escapar(x.nome || quem(x.email))} (${escapar(quem(x.email))}${x.dono ? ", dono" : ""}, ${x.link_usado_em ? "link já usado" : `vence ${escapar(dataNumerica(new Date(x.expira_em)))}`})</p>
+            <div class="rz-acoes-linha">${x.usuario
+              ? `<button class="rz-botao rz-botao--pequeno" type="button" data-mandar-link="${escapar(x.id)}">${icone("whatsapp", { tamanho: 16 })}Mandar o link</button><button class="rz-botao rz-botao--pequeno" type="button" data-link-novo="${escapar(x.id)}">${icone("trocar", { tamanho: 16 })}Gerar link novo</button>`
+              : `<button class="rz-botao rz-botao--pequeno" type="button" data-reenviar="${escapar(x.id)}">${icone("carta", { tamanho: 16 })}Mandar o convite de novo</button>`}</div></div>`).join("")}
         </section>
 
         <section class="rz-pilha-p"><div class="rz-secao-cabeca"><h3 class="rz-titulo-3">Pagamentos</h3><button class="rz-botao rz-botao--pequeno" type="button" data-pagar>${icone("carteira", { tamanho: 16 })}Registrar Pix</button></div>
@@ -142,6 +152,37 @@ export async function abrirConta(c, ctx) {
       ctx.recarregar();
     } catch (er) { caixa.checked = !caixa.checked; avisar(er.message, { tipo: "erro" }); }
     caixa.disabled = false;
+  });
+  // convite por link: mandar o link, gerar um novo (o antigo deixa de valer), o link para senha nova
+  const mandar = (x, novaSenha = false) => abrirMandarConvite({ numero: c.whatsapp, nome: x.nome, negocio: c.nome, usuario: x.usuario, link: linkDoConvite(x.link_codigo), novaSenha });
+  el.addEventListener("click", async ev => {
+    const b = ev.target.closest("[data-mandar-link], [data-link-novo], [data-senha-nova]");
+    if (!b) return;
+    if (b.dataset.mandarLink) {
+      const x = convites.find(v => v.id === b.dataset.mandarLink);
+      if (x && x.link_usado_em) return avisar("Esse link já foi usado. Gere um link novo.", { tipo: "erro" });
+      if (x) mandar(x);
+      return;
+    }
+    ocupado(b, true, "Gerando…");
+    try {
+      const novo = { link_codigo: novoCodigoDeLink(), expira_em: new Date(Date.now() + 7 * 86400000).toISOString() };
+      if (b.dataset.linkNovo) {
+        const x = convites.find(v => v.id === b.dataset.linkNovo);
+        await banco.resultado(banco.tabela("convites").update(novo).eq("id", x.id));
+        Object.assign(x, novo, { link_usado_em: null });
+        mandar(x);
+      } else {
+        const p = c.pessoas.find(v => v.id === b.dataset.senhaNova);
+        const usuario = usuarioDoEmail(p.email);
+        // o convite leva os mesmos acessos: ao entrar de novo, nada muda na conta (aceitar_convites)
+        const pendente = convites.find(v => v.email === p.email);
+        if (pendente) await banco.resultado(banco.tabela("convites").update(novo).eq("id", pendente.id));
+        else await banco.resultado(banco.tabela("convites").insert({ conta_id: c.id, email: p.email, nome: p.nome, dono: p.dono, acessos: p.acessos || {}, usuario, ...novo }));
+        mandar({ nome: p.nome, usuario, link_codigo: novo.link_codigo }, true);
+      }
+    } catch (er) { avisar(er.message, { tipo: "erro" }); }
+    ocupado(b, false);
   });
   el.querySelector("[data-reenviar]")?.addEventListener("click", async ev => {
     const b = ev.currentTarget;

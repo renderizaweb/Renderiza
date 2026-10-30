@@ -854,3 +854,4 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
    /boas-vindas/<código> (src/telas/boas-vindas.js): o usuário que a Renderiza criou, à vista, antes da senha. */
 .rz-usuario-do-convite{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);padding:var(--rz-3) var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie)}
 .rz-usuario-do-convite b{font-size:var(--rz-t-lg);font-weight:600;letter-spacing:.01em;color:var(--rz-tinta);overflow-wrap:anywhere}
+.rz-acoes-linha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}

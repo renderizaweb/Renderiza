@@ -1,5 +1,6 @@
 // O piloto de ponta a ponta (Missão 6; 01, Parada 6; 09, "Teste das 5 tarefas"), no painel de verdade, contra o STG:
-// a Renderiza cria a conta pelo Admin; o dono entra pelo celular, aceita os termos e arruma o básico (tipo de festa,
+// a Renderiza cria a conta pelo Admin e gera o link do WhatsApp (Missão 7, D42); o dono abre o link no celular, cria a
+// senha, aceita os termos e arruma o básico (tipo de festa,
 // pacote, Pix, modelo de contrato); faz as 5 tarefas do 09 contando os toques (anotar um pedido do WhatsApp, marcar
 // uma visita, fechar a reserva, registrar um pagamento, mandar o contrato); o cliente aceita o contrato pelo link; a
 // equipe "só vê" entra e não consegue mudar nada; a Renderiza registra o Pix da mensalidade e entra para ajudar.
@@ -78,25 +79,43 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       }
       assert.match(await f.locator("[data-preco]").innerText(), /93,97/, "R$ 49 com 2 módulos e R$ 14,99 por módulo a mais");
       await f.getByLabel("Nome do dono").fill("Dono do Fluxo");
-      await f.getByLabel("E-mail do dono").fill(dono.email);
+      // o convite por link no WhatsApp é o padrão; o usuário sai do nome, e o fluxo usa um só dele
+      assert.equal(await f.locator("#nc-usuario").inputValue(), "espacojardimdofluxo", "o usuário sugerido pelo nome");
+      await f.locator("#nc-usuario").fill(A.USUARIO);
       await pAdm.click("button[form=form-nova-conta]");
       await pAdm.waitForSelector("#form-nova-conta", { state: "detached" });
       assert.match(await A.aviso(pAdm), /criada/);
+      // a folha "Mandar o acesso": a mensagem pronta com o link e o usuário
+      const folha = pAdm.locator("dialog[open]").last();
+      await folha.locator("[data-mensagem]").waitFor();
+      assert.match(await folha.locator("[data-mensagem]").innerText(), new RegExp(`Seu usuário: ${A.USUARIO}`));
+      dono.link = await folha.locator("button:has-text('Copiar só o link')").getAttribute("data-copiar");
+      assert.match(dono.link, /\/boas-vindas\/[a-z0-9]{32}$/);
+      await folha.locator("button:has-text('Pronto')").click();
       const [conta] = await banco.sql(`select id, situacao, origem from public.contas where codigo = ${A.q(A.CODIGO)}`);
       assert.deepEqual([conta.situacao, conta.origem], ["ativa", "renderiza"]);
       contaId = conta.id;
-      const [{ n }] = await banco.sql(`select count(*)::int as n from public.convites where conta_id = ${A.q(contaId)} and dono and email = ${A.q(dono.email)}`);
-      assert.equal(n, 1, "o convite do dono foi gravado");
+      const [{ n }] = await banco.sql(`select count(*)::int as n from public.convites where conta_id = ${A.q(contaId)} and dono and usuario = ${A.q(A.USUARIO)}`);
+      assert.equal(n, 1, "o convite por link do dono foi gravado");
     });
 
-    await passo("2. o dono entra pelo celular, aceita os termos e vê os primeiros passos", async () => {
-      dono.senha = await A.criarLogin(banco, dono.email, "Dono do Fluxo");
+    await passo("2. o dono abre o link no celular, cria a senha, aceita os termos e vê os primeiros passos", async () => {
+      dono.email = `${A.USUARIO}@acesso.renderizaweb.com.br`;
+      dono.senha = "jardim-do-fluxo-2026";
       pDono = await (await navegador.newContext(CELULAR)).newPage();
       erros.push(A.vigiar(pDono, [/functions\/v1\/convidar/]));
       await pDono.route(/functions\/v1\/convidar/, r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' }));
       c = A.contador(pDono);
       tela = pDono;
-      await A.entrar(pDono, srv.url, dono.email, dono.senha);
+      await pDono.goto(dono.link.replace(/^https?:\/\/[^/]+/, srv.url), { waitUntil: "networkidle" });
+      assert.match(await pDono.locator("h1").innerText(), new RegExp(`Olá, ${NOME_DA_CONTA}!`), "a boas-vindas pelo nome do espaço");
+      assert.equal(await pDono.locator(".rz-usuario-do-convite b").innerText(), A.USUARIO);
+      await pDono.fill("#bv-senha", dono.senha);
+      await pDono.click("[data-boas-vindas] [type=submit]");
+      await pDono.waitForSelector("[data-aceite-termos]", { timeout: 20000 });
+      await pDono.check("[data-aceite-termos] [name=li]");
+      await pDono.click("[data-aceite-termos] [type=submit]");
+      await pDono.waitForSelector("[data-aceite-termos]", { state: "detached", timeout: 15000 });
       const [{ n }] = await banco.sql(`select count(*)::int as n from public.termos_aceites a join auth.users u on u.id = a.usuario_id where u.email = ${A.q(dono.email)}`);
       assert.equal(n, 1, "o aceite dos termos ficou registrado");
       await pDono.waitForSelector(".rz-passos");

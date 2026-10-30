@@ -75,3 +75,23 @@ test("só POST; CORS só para o painel (e o localhost de qualquer porta, para os
   assert.equal(cabecalhosCors("http://localhost:5203")["Access-Control-Allow-Origin"], "http://localhost:5203");
   assert.equal(cabecalhosCors("https://golpe.com")["Access-Control-Allow-Origin"], "https://painel.renderizaweb.com.br");
 });
+
+// A peça do Admin (e da Equipe): src/ui/convite-link.js
+import { novoCodigoDeLink, usuarioDoNome, usuarioValido, emailDoUsuario, linkDoConvite, mensagemDoConvite } from "../src/ui/convite-link.js";
+
+test("o código do link, o usuário sugerido pelo nome e a mensagem pronta", () => {
+  const codigo = novoCodigoDeLink();
+  assert.match(codigo, /^[a-z0-9]{32}$/, "o formato que o banco aceita");
+  assert.notEqual(codigo, novoCodigoDeLink(), "sorteado a cada vez");
+  assert.equal(usuarioDoNome("Espaço Jardim & Cia."), "espacojardimcia");
+  assert.equal(usuarioDoNome("Villa Alecrim Eventos e Festas Ltda"), "villaalecrimeventose", "até 20");
+  assert.equal(usuarioDoNome("Zé"), "", "curto demais: a Renderiza escolhe");
+  assert.ok(usuarioValido("espacojardim") && !usuarioValido("Espaço") && !usuarioValido("ab"));
+  assert.equal(emailDoUsuario("espacojardim"), "espacojardim@acesso.renderizaweb.com.br");
+  assert.equal(linkDoConvite("abc", "https://painel.renderizaweb.com.br"), "https://painel.renderizaweb.com.br/boas-vindas/abc");
+  const m = mensagemDoConvite({ nome: "Marina Alves", negocio: "Espaço Jardim", usuario: "espacojardim", link: "https://x/boas-vindas/abc" });
+  assert.match(m, /^Oi, Marina!/);
+  assert.match(m, /https:\/\/x\/boas-vindas\/abc/);
+  assert.match(m, /Seu usuário: espacojardim/);
+  assert.match(mensagemDoConvite({ usuario: "u1u", link: "L", novaSenha: true }), /senha nova.*\n?.*L/s);
+});

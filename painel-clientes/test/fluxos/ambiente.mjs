@@ -34,6 +34,9 @@ export const MARCA = process.env.FLUXO_MARCA || Date.now().toString(36).slice(-6
 export const DOMINIO = `fluxo-${MARCA}.teste`;
 export const CODIGO = `t-fluxo-${MARCA}`;
 export const email = nome => `${nome}@${DOMINIO}`;
+/** O usuário do convite por link desta execução (Missão 7, D42): o login dele é <usuário>@acesso.renderizaweb.com.br. */
+export const USUARIO = ("tfluxo" + MARCA).replace(/[^a-z0-9]/g, "").slice(0, 24);
+const LOGINS_DE_USUARIO = `email like 'tfluxo%@acesso.renderizaweb.com.br'`;
 
 /** Texto como literal do Postgres. */
 export const q = v => `'${String(v).replace(/'/g, "''")}'`;
@@ -74,7 +77,9 @@ export async function limpar(banco) {
     delete from public.acessos_suporte where usuario_id in ${deles};
     delete from public.equipe_renderiza where usuario_id in ${deles};
     delete from public.pessoas where usuario_id in ${deles};
-    delete from auth.users where email like ${q(`%@${DOMINIO}`)};`);
+    delete from auth.users where email like ${q(`%@${DOMINIO}`)};
+    delete from public.pessoas where usuario_id in (select id from auth.users where email = ${q(`${USUARIO}@acesso.renderizaweb.com.br`)});
+    delete from auth.users where email = ${q(`${USUARIO}@acesso.renderizaweb.com.br`)};`);
 }
 
 /** Sobras de execuções interrompidas (mais de 2 horas): contas t-fluxo-*, pessoas e logins @fluxo-*.teste. */
@@ -85,7 +90,9 @@ export async function limparSobras(banco) {
     delete from public.acessos_suporte where usuario_id in ${velhos};
     delete from public.equipe_renderiza where usuario_id in ${velhos};
     delete from public.pessoas where usuario_id in ${velhos};
-    delete from auth.users where id in ${velhos};`);
+    delete from auth.users where id in ${velhos};
+    delete from public.pessoas where usuario_id in (select id from auth.users where ${LOGINS_DE_USUARIO} and created_at < now() - interval '2 hours');
+    delete from auth.users where ${LOGINS_DE_USUARIO} and created_at < now() - interval '2 hours';`);
 }
 
 /** Põe o login como pessoa de uma conta que já existe (as da semente), como dono ou com os acessos dados. */
