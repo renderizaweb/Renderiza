@@ -29,7 +29,7 @@ export function paraFazerAgora({ pedidos = [], parcelas = [], contratos = [], re
   const abertas = parcelas.filter(p => !p.pago_em);
   for (const p of abertas.filter(p => p.vence_em < hoje).sort((a, b) => a.vence_em.localeCompare(b.vence_em))) {
     const n = diasEntre(p.vence_em, hoje);
-    itens.push({ id: `parcela-${p.id}`, tipo: "parcela", icone: "carteira", tom: "perigo", titulo: `${nomeDe(p)} · ${moeda(p.valor)}`,
+    itens.push({ id: `parcela-${p.id}`, tipo: "parcela", icone: "carteira", tom: "perigo", titulo: `${nomeDe(p)} · ${moeda(p.valor)}`, nome: nomeDe(p), valor: moeda(p.valor),
       sub: `${p.descricao} · atrasada ${n === 1 ? "desde ontem" : `há ${n} dias`}`, acao: { rotulo: "Recebi", tipo: "recebi", id: p.id }, href: `/financeiro?parcela=${p.id}` });
   }
   for (const p of pedidos.filter(p => p.etapa === "novo").sort((a, b) => Date.parse(a.criado_em) - Date.parse(b.criado_em))) {
@@ -39,7 +39,7 @@ export function paraFazerAgora({ pedidos = [], parcelas = [], contratos = [], re
       acao: { rotulo: "Responder", tipo: "abrir", id: p.id }, href: `/atendimento?pedido=${p.id}` });
   }
   for (const p of abertas.filter(p => p.vence_em === hoje || p.vence_em === amanha).sort((a, b) => a.vence_em.localeCompare(b.vence_em))) {
-    itens.push({ id: `parcela-${p.id}`, tipo: "parcela", icone: "carteira", tom: "alerta", titulo: `${nomeDe(p)} · ${moeda(p.valor)}`,
+    itens.push({ id: `parcela-${p.id}`, tipo: "parcela", icone: "carteira", tom: "alerta", titulo: `${nomeDe(p)} · ${moeda(p.valor)}`, nome: nomeDe(p), valor: moeda(p.valor),
       sub: `${p.descricao} · vence ${p.vence_em === hoje ? "hoje" : "amanhã"}`, acao: { rotulo: "Recebi", tipo: "recebi", id: p.id }, href: `/financeiro?parcela=${p.id}` });
   }
   for (const c of contratos.filter(c => c.situacao === "enviado").sort((a, b) => Date.parse(a.enviado_em || a.criado_em) - Date.parse(b.enviado_em || b.criado_em))) {

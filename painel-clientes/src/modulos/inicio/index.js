@@ -46,7 +46,7 @@ export async function montar(el, contexto) {
       : it.acao && it.acao.tipo === "lembrar" && !pode("contratos", "editar") ? { rotulo: "Ver", tipo: "ir" } : it.acao;
     return `<li class="rz-com-acao"><a class="rz-linha" href="${escapar(it.href)}">
         <span class="rz-tempo-icone rz-fazer-icone${it.tom ? ` rz-fazer-icone--${it.tom}` : ""}" aria-hidden="true">${icone(it.icone, { tamanho: 16 })}</span>
-        <span class="rz-linha-texto"><b>${escapar(it.titulo)}</b><small>${escapar(it.sub)}</small></span></a>
+        <span class="rz-linha-texto">${it.valor ? `<b class="rz-titulo-valor"><span>${escapar(it.nome)}</span><span>· ${escapar(it.valor)}</span></b>` : `<b>${escapar(it.titulo)}</b>`}<small>${escapar(it.sub)}</small></span></a>
         ${acao ? `<button class="rz-botao rz-botao--pequeno" type="button" data-fazer="${escapar(it.id)}">${acao.tipo === "recebi" ? icone("ok", { tamanho: 16 }) : acao.tipo === "lembrar" ? icone("whatsapp", { tamanho: 16 }) : ""}${escapar(acao.rotulo)}</button>` : ""}</li>`;
   };
 

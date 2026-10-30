@@ -386,6 +386,10 @@ button.rz-linha:hover,a.rz-linha:hover{background:var(--rz-superficie-2)}
 .rz-linha-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .rz-linha-texto b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rz-linha-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* título com valor ("Nome · R$ 5.400"): no celular, corta o nome, nunca o valor */
+.rz-linha-texto b.rz-titulo-valor{display:flex;gap:var(--rz-1)}
+.rz-titulo-valor>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.rz-titulo-valor>span+span{flex:none}
 .rz-linha-fim{display:flex;align-items:center;gap:var(--rz-2);flex:none;color:var(--rz-tinta-3)}
 .rz-cor{flex:none;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--rz-linha-forte));box-shadow:0 0 0 3px color-mix(in srgb,var(--cor,var(--rz-linha-forte)) 18%,transparent)}
 .rz-avatar--cliente{background:var(--rz-gelo);color:var(--rz-tinta-2)}

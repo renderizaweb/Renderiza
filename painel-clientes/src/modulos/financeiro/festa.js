@@ -59,7 +59,7 @@ export async function abrirFesta(reservaId, ctx) {
       </dl>` : ""}
       <section><div class="rz-secao-cabeca"><h3 class="rz-titulo-3">Parcelas</h3>${editaParcelas && v.valor_total != null && lancado < total - 0.009 ? `<button class="rz-botao rz-botao--primario rz-botao--pequeno" type="button" data-lancar>Lançar parcelas</button>` : ""}</div>
         ${parcelas.length ? `<ul class="rz-linhas">${parcelas.map(p => `<li class="rz-com-acao"><button class="rz-linha" type="button" data-parcela="${escapar(p.id)}">
-            <span class="rz-linha-texto"><b>${escapar(p.descricao)} · ${escapar(moeda(p.valor))}</b><small>${escapar(textoDoVencimento(p, hoje, fuso))}</small></span>
+            <span class="rz-linha-texto"><b class="rz-titulo-valor"><span>${escapar(p.descricao)}</span><span>· ${escapar(moeda(p.valor))}</span></b><small>${escapar(textoDoVencimento(p, hoje, fuso))}</small></span>
             <span class="rz-linha-fim">${etiquetaDaParcela(p, hoje)}</span></button>
             ${editaParcelas && !p.pago_em ? `<button class="rz-botao rz-botao--pequeno" type="button" data-recebi="${escapar(p.id)}">Recebi</button>` : ""}</li>`).join("")}</ul>`
           : `<p class="rz-texto-2">${v.valor_total == null ? "Ponha o valor total para lançar as parcelas." : "Nenhuma parcela ainda."}</p>`}

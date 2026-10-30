@@ -39,7 +39,7 @@ export async function montar(el, contexto) {
   const corpo = el.querySelector("[data-corpo]");
 
   const linha = p => `<li class="rz-com-acao"><button class="rz-linha" type="button" data-parcela="${escapar(p.id)}">
-      <span class="rz-linha-texto"><b>${escapar((p.clientes && p.clientes.nome) || "Cliente")} · ${escapar(moeda(p.valor))}</b><small>${escapar([p.descricao, daReserva(p.reservas, fuso), textoDoVencimento(p, hoje, fuso)].filter(Boolean).join(" · "))}</small></span>
+      <span class="rz-linha-texto"><b class="rz-titulo-valor"><span>${escapar((p.clientes && p.clientes.nome) || "Cliente")}</span><span>· ${escapar(moeda(p.valor))}</span></b><small>${escapar([p.descricao, daReserva(p.reservas, fuso), textoDoVencimento(p, hoje, fuso)].filter(Boolean).join(" · "))}</small></span>
       <span class="rz-linha-fim">${etiquetaDaParcela(p, hoje)}</span></button>
       ${edita && !p.pago_em ? `<button class="rz-botao rz-botao--pequeno" type="button" data-recebi="${escapar(p.id)}">${icone("ok", { tamanho: 16 })}Recebi</button>` : ""}</li>`;
 

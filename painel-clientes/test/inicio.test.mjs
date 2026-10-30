@@ -40,6 +40,7 @@ test("para fazer agora: atrasadas, pedidos novos, vence hoje ou amanhã, contrat
   const porId = Object.fromEntries(itens.map(i => [i.id, i]));
   assert.equal(porId["parcela-p1"].sub, "Parcela 2/3 · atrasada há 9 dias");
   assert.deepEqual(porId["parcela-p1"].acao, { rotulo: "Recebi", tipo: "recebi", id: "p1" });
+  assert.ok(porId["parcela-p1"].nome && /^R\$/.test(porId["parcela-p1"].valor), "o nome e o valor separados: no celular, corta o nome, nunca o valor");
   assert.match(porId["pedido-n1"].sub, /^chegou ontem · pela agenda online · para \S+, 12\/12$/);
   assert.equal(porId["pedido-n1"].href, "/atendimento?pedido=n1");
   assert.equal(porId["parcela-p3"].sub, "Restante · vence amanhã");
