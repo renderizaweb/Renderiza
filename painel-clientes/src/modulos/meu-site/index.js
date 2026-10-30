@@ -104,6 +104,8 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
     const situacao = site.situacao === "conectado" ? "" : `<p class="rz-alerta rz-alerta--aviso" role="note">${icone("alerta", { tamanho: 18 })}<span>${site.situacao === "versao_final"
       ? "Este site já recebeu a versão final: ele não depende mais do painel e as mudanças daqui não aparecem nele."
       : "O site está desconectado do painel: ele mostra a versão inicial. Para voltar, fale com a Renderiza."}</span></p>`;
+    // a regra da saída, à vista de quem publica (termos, cláusula 9; D37): o cliente sabe antes, não depois
+    const regra = site.situacao === "conectado" && edita ? `<p class="rz-alerta rz-alerta--info" role="note">${icone("alerta", { tamanho: 18 })}<span>Bom saber: o que você publica aqui aparece no site enquanto o Meu site estiver ativo. Se ele for desligado ou o painel cancelado, o site volta à versão entregue. Para manter as mudanças nos arquivos do site, a Renderiza faz a versão final, por até 3 mensalidades. <a href="/termos#site" target="_blank" rel="noopener">Ver nos termos</a></span></p>` : "";
     const estado = p ? `No ar: versão ${p.numero}, publicada em ${escapar(quando(p.publicada_em))}${nomes[p.pessoa_id] ? ` por ${escapar(nomes[p.pessoa_id])}` : ""}.`
       : "No ar: o site como foi entregue.";
     const linhaSecao = id => {
@@ -117,7 +119,7 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
       <small>${escapar([c.whatsapp ? telefone(c.whatsapp.replace(/^55/, "")) : "", c.instagram ? "@" + c.instagram : ""].filter(Boolean).join(" · ") || "Sem contato")}</small></span>
       <span class="rz-linha-fim">${!igual(a.contato, ar.contato) ? etiqueta("Não publicado", "alerta") : ""}</span>${edita ? `${icone("editar", { tamanho: 18, classe: "rz-texto-3" })}</button>` : "</div>"}</li>`;
     corpo.innerHTML = `
-      ${situacao}
+      ${situacao}${regra}
       ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê o Meu site. Quem muda e publica é o dono ou quem ele deixar.</span></p>` : ""}
       <p class="rz-texto-2" data-estado style="margin-bottom:var(--rz-6)">${estado}${pendente() ? ` ${etiqueta("Há mudanças no rascunho", "alerta")}` : ""}</p>
       <section class="rz-secao"><h2 class="rz-titulo-3">As partes do site</h2>

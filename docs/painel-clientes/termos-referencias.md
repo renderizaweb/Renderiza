@@ -33,16 +33,36 @@ transferência internacional, e o país da conta Zoho.
 | Cláusula | O que diz | Por quê |
 |---|---|---|
 | Termos 9 (Meu site) | o site é um produto à parte e é do cliente; o Meu site é um serviço da mensalidade; **saiu, desligou o módulo ou não pagou: o site volta sozinho à versão inicial**; as mudanças do Meu site não fazem parte do site entregue | o pedido da Renderiza (30/10) e a regra do `03` |
-| Termos 9.4 (versão final) | levar as mudanças para os arquivos do site é **serviço cobrado à parte**, com orçamento próprio, pedido enquanto a conta existe ou até 90 dias depois de desligar ou cancelar | depois disso as versões são apagadas (prazo da cláusula 8) |
+| Termos 9.4 (versão final) | levar as mudanças para os arquivos do site é **serviço cobrado à parte, de no máximo 3 mensalidades**, entregue em até 10 dias úteis, com a última versão publicada como está; pedido enquanto a conta existe ou até 90 dias depois de desligar ou cancelar | preço previsível evita a disputa "fiquei refém"; depois de 90 dias as versões são apagadas |
 | Termos 6 | mudança de preço com 30 dias de aviso; quem não concordar cancela sem custo | a Renderiza pode corrigir o preço sem prender o cliente |
 | Termos 8 | cancelamento vale no fim do mês pago, sem devolução proporcional; a Renderiza pode encerrar com 30 dias de aviso | regra simples e justa para os dois lados |
-| Termos 12.3 | a Renderiza avisa o cliente de um incidente em até 2 dias úteis | o cliente (controlador) tem 3 dias úteis para avisar a ANPD (Res. 15/2024) |
+| Termos 12.3 | a Renderiza avisa o cliente de um incidente em até 24 horas depois de confirmar que os dados dele foram afetados | o cliente (controlador) tem 3 dias úteis para avisar a ANPD (Res. 15/2024) |
+| Termos 8 | cancelamento confirmado por escrito, com a data; exportação a pedido em até 2 dias úteis; arrependimento em 7 dias quando o CDC garantir | evita a briga mais comum (o que vale e quando) |
+| Termos 16 | fora do ar mais de 24 horas seguidas por falha da Renderiza: desconto proporcional na mensalidade seguinte; o backup recupera até a última cópia | promessa realista, que a Renderiza consegue cumprir |
 | Termos 17 | a Renderiza não responde por danos indiretos (lucros cessantes, perda de chance); **teto = mensalidades pagas nos últimos 12 meses**; não vale para dolo ou culpa grave | ver a seção 3 |
 | Termos 17 | o cliente ressarce a Renderiza quando ela for cobrada por conteúdo ou dados que ele pôs sem base legal | direito de regresso (LGPD, art. 42, § 4º) |
 | Termos 18 | mudança de verdade nos termos: 30 dias de aviso e novo aceite | segurança para os dois lados |
 | Política 7 | registros de acesso (data, hora e IP) por 6 meses | obrigação do Marco Civil, art. 15 (implementado em 30/10, ver a seção 4) |
 
-## 3. Por que as cláusulas de proteção foram escritas assim
+## 3. A análise externa de 30/10/2026: o que entrou e o que não
+
+Um agente revisou os termos dos dois lados (cliente e Renderiza). Pedido da Renderiza: aproveitar o que procede,
+sem burocracia.
+
+| Ponto da análise | O que foi feito |
+|---|---|
+| Versão final sem preço definido (cliente "refém") | **entrou:** teto de 3 mensalidades, entrega em 10 dias úteis, a última versão como está; aviso na tela do Meu site |
+| Limite de indenização contestável (CDC) | **entrou, curto:** o limite fica, e o texto diz que valem as garantias do CDC quando o cliente for consumidor. Não se confia no limite como proteção absoluta: a proteção é o serviço funcionar e a saída ser clara |
+| Exportação sem prazo | **entrou:** 2 dias úteis (o Admin exporta na hora) |
+| Indisponibilidade sem regra | **entrou, simples:** desconto proporcional acima de 24 horas por falha da Renderiza; manutenção fora do horário comercial quando possível. Sem SLA nem classificação de incidentes (exagero para dezenas de clientes) |
+| Incidente em 2 dias úteis | **entrou:** 24 horas depois de confirmar |
+| Arrependimento (CDC, art. 49) | **entrou, uma linha:** 7 dias, devolve o que pagou, quando a lei garantir |
+| Cancelamento sem confirmação | **entrou como regra de texto:** a Renderiza confirma por escrito, com a data; sem comprovante gerado pelo painel (não precisa) |
+| Identificação da empresa (CNPJ, endereço) | **não entrou, por decisão da Renderiza** (ainda sem CNPJ); entra quando houver |
+| Backup prometido x backup real | **procede e é o ponto mais sério:** o workflow existe, mas **ainda não rodou** (faltam os segredos no GitHub). O texto ficou, e a Renderiza precisa cadastrar os segredos para a promessa valer |
+| Política operacional de backup, SLA, classificação de incidentes | **não entrou:** a cláusula 16 já diz a frequência e o limite da recuperação; o resto é burocracia para o tamanho de hoje |
+
+## 4. Por que as cláusulas de proteção foram escritas assim
 
 - **Contrato entre empresas:** o Código Civil (art. 421-A) presume os contratos empresariais paritários e manda
   respeitar a divisão de riscos combinada. É o que sustenta o limite de responsabilidade.
@@ -69,19 +89,21 @@ transferência internacional, e o país da conta Zoho.
   art. 20). A Renderiza tira do ar por ordem judicial (Marco Civil, art. 19) ou diante de conteúdo claramente
   ilícito.
 
-## 4. O que mudou no sistema por causa dos textos
+## 5. O que mudou no sistema por causa dos textos
 
 - **Registros de acesso do Marco Civil** (migração `20261030200000_registros_de_acesso.sql`, local, STG e
   produção): cada entrada no painel grava a data, a hora e o IP numa tabela fechada (ninguém lê pela API), apagada
   depois de 6 meses. Antes, o IP não era guardado.
 - A tela do aceite separa "aceito os termos" de "li a política".
+- A tela do Meu site avisa, a quem publica, que as mudanças valem enquanto o módulo estiver ativo e que a versão
+  final custa até 3 mensalidades.
 - **A fazer, fora deste trabalho:**
   - o aviso curto de privacidade no formulário da agenda online. Ele fica em `ferramentas/demo/agenda-online/`,
     que só muda com o ok da Renderiza (as demos);
   - quando existir uma rotina de apagar contas canceladas, ela deve guardar o registro do aceite dos termos (hoje,
     apagar o login apaga o aceite junto).
 
-## 5. Referências (conferidas em 30/10/2026)
+## 6. Referências (conferidas em 30/10/2026)
 
 - **LGPD**, Lei nº 13.709/2018: arts. 5º, 7º, 14, 15, 16, 18, 19, 33, 39, 41, 42, 46 e 48.
 - **Marco Civil da Internet**, Lei nº 12.965/2014: art. 5º, VIII, e art. 15 (6 meses de registros de acesso);

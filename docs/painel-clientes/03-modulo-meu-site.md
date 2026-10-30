@@ -16,7 +16,9 @@ paga um valor adicional pela **versão final**.
 4. **Desconectou, voltou.** Não pagou ou cancelou: a Renderiza desliga a conta (ou o módulo) no painel
    administrativo, à mão, e o site volta sozinho à versão inicial, sem ninguém mexer no site. As versões ficam guardadas pelo prazo dos termos;
    reconectou, a última volta.
-5. **Versão final é vendida à parte** (valor combinado na proposta de cada cliente, fora do painel). A Renderiza gera o site com o conteúdo final embutido e sem o script
+5. **Versão final é vendida à parte**: no máximo 3 mensalidades do plano do cliente, entregue em até 10 dias úteis
+   depois do pagamento, com a última versão publicada como está; pedida enquanto a conta existe ou até 90 dias depois
+   (termos, cláusula 9.4; D37, 30/10/2026). A tela do Meu site avisa essa regra a quem publica. A Renderiza gera o site com o conteúdo final embutido e sem o script
    do Meu site, e entrega no repositório do cliente. Daí em diante o site não depende mais do painel.
 6. **Padrão fechado.** Cores, botões, fontes e seções seguem o modelo do site; o cliente escolhe dentro das opções
    que o modelo oferece. Não é um construtor livre de site: é o que protege a qualidade e o "pacote fechado".
@@ -272,4 +274,5 @@ para depois das próximas missões.
 
 - Preço: módulo como os outros (R$ 14,99, ou um dos 2 do plano). Decidido em 28/10/2026.
 - Desconexão: manual, pelo Admin. Decidido em 28/10/2026.
-- Valor da versão final: combinado na proposta de cada cliente, fora do painel. Decidido em 28/10/2026.
+- Valor da versão final: no máximo 3 mensalidades do plano do cliente, entrega em até 10 dias úteis (termos, 9.4).
+  Decidido em 30/10/2026 (antes, "combinado na proposta", de 28/10/2026).

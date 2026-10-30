@@ -34,7 +34,8 @@ test("os termos dizem o que a página de venda e os documentos já prometem", ()
   const [, base, inclusos, extra, acessos] = /const PRECO = \{ base: (\d+), inclusos: (\d+), extra: ([\d.]+), acessos: (\d+) \}/.exec(venda);
   assert.ok(termos.includes(`R$ ${base} por mês`) && termos.includes(`com ${inclusos} módulos`) && termos.includes(`R$ ${extra.replace(".", ",")} por mês`) && termos.includes(`até ${acessos} pessoas`));
   for (const frase of ["7 dias de graça", "90 dias", "no máximo 8 horas", "operadora", "controlador", "versão inicial", "não escreve nem revisa contrato", "Exportar tudo",
-    "o site volta sozinho a mostrar a versão inicial", "cobrada à parte", "não fazem parte do site entregue", "art. 39", "art. 421-A", "art. 63"]) {
+    "o site volta sozinho a mostrar a versão inicial", "cobrada à parte", "não fazem parte do site entregue", "art. 39", "art. 421-A", "art. 63",
+    "3 mensalidades", "10 dias úteis", "art. 49", "em até 24 horas", "em até 2 dias úteis", "desconto proporcional"]) {
     assert.ok(termos.includes(frase), `os termos falam de: ${frase}`);
   }
   for (const frase of ["Supabase", "Vercel", "Brevo", "GitHub", "1 dia", "90 dias", "ANPD", "primeiro nome", "6 meses", "art. 7º, V", "art. 18", "art. 33"]) {
