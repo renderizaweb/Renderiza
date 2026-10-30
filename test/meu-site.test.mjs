@@ -310,6 +310,8 @@ test("extrair: o conteúdo inicial sai no formato do contrato, válido, e aplic�
   assert.equal(r.c.secoes.espaco.listas.fotos.length, 4);
   assert.deepEqual(r.c.ordem, Object.keys(r.c.secoes), "a ordem das seções vai junto (o jsonb do banco reordena as chaves)");
   assert.equal(r.c.ordem[0], "cabecalho");
+  assert.deepEqual(r.c, JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "site-teste", "conteudo-inicial.json"), "utf8")),
+    "o conteúdo inicial da semente do painel (test/site-teste/conteudo-inicial.json) é o que o extrair tira hoje: se mudou, grave de novo com o extrair.mjs");
   assert.equal(r.c.secoes.depoimentos.listas.avaliacoes[0].textos.nome, "Ana Souza");
   assert.deepEqual(r.c.contato, { whatsapp: "5511900000000", mensagem: "Olá! Vim pelo site da Villa Alecrim.", telefone: "5511900000000", instagram: "villa.alecrim.teste" });
   assert.deepEqual({ ...(await inicial(pagina)), whatsapp: undefined }, { ...ORIGINAL, whatsapp: undefined });

@@ -11,7 +11,8 @@ test("semente: ids fixos (rodar de novo substitui) e nada de produção", () => 
   const { sql, resumo } = gerarSql();
   assert.ok(resumo.villa.festas > 0 && resumo.ciranda.ensaios > 0);
   assert.match(sql, /^delete from public\.contas where id in/m, "começa apagando as duas contas de teste");
-  assert.doesNotMatch(sql, /@(?!villa-alecrim\.teste|estudio-ciranda\.teste)[a-z0-9.-]+\.[a-z]+/i, "só e-mails fictícios sem o dono do STG");
+  // e-mail = algo@domínio (o "@villa.alecrim.teste" do site de teste é o Instagram, sem nada antes do @)
+  assert.doesNotMatch(sql, /[a-z0-9._%+-]@(?!villa-alecrim\.teste|estudio-ciranda\.teste)[a-z0-9.-]+\.[a-z]+/i, "só e-mails fictícios sem o dono do STG");
   const r = spawnSync(process.execPath, [new URL("../supabase/semente/semente.mjs", import.meta.url).pathname, "producao"], { encoding: "utf8" });
   assert.notEqual(r.status, 0, "não existe semente para a produção");
 });

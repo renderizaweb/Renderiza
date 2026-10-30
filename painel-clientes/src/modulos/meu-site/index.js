@@ -257,7 +257,9 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
       bloco.querySelector('input[type="hidden"]').value = src;
       const mini = bloco.querySelector("[data-miniatura]");
       const img = document.createElement("img");
-      img.src = URL.createObjectURL(blob); img.alt = ""; img.setAttribute("style", MINIATURA); img.dataset.miniatura = "";
+      // data: e não blob: (a CSP do painel só aceita imagem de data: e https:)
+      img.src = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });
+      img.alt = ""; img.setAttribute("style", MINIATURA); img.dataset.miniatura = "";
       mini.replaceWith(img);
     } catch (e) {
       avisar(e.message || "A foto não subiu. Tente de novo.", { tipo: "erro" });

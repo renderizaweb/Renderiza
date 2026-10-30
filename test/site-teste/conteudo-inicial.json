@@ -1,0 +1,412 @@
+{
+  "esquema": 1,
+  "secoes": {
+    "cabecalho": {
+      "visivel": true,
+      "textos": {
+        "aviso": "Casamentos, 15 anos e aniversários · site de teste"
+      },
+      "botoes": {
+        "botao": {
+          "rotulo": "Consultar uma data",
+          "acao": "whatsapp"
+        }
+      }
+    },
+    "inicio": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Espaço de eventos no interior",
+        "titulo": "Festas e casamentos *no meio do verde.*",
+        "texto": "Salão, jardim e piscina num lugar só, com a equipe da casa cuidando de cada detalhe.",
+        "selo": "10 anos de festas"
+      },
+      "imagens": {
+        "foto": {
+          "src": "/img/salao-montado-para-um-casamento-105b4d7e.jpg",
+          "alt": "Salão montado para um casamento"
+        }
+      },
+      "botoes": {
+        "botao": {
+          "rotulo": "Chamar no WhatsApp",
+          "acao": "whatsapp"
+        },
+        "link": {
+          "rotulo": "Ver o espaço",
+          "acao": "secao",
+          "destino": "espaco"
+        }
+      }
+    },
+    "sobre": {
+      "visivel": true,
+      "textos": {
+        "legenda": "Mesa de doces",
+        "eyebrow": "Sobre a casa",
+        "titulo": "Um sítio de família *feito para receber.*"
+      },
+      "imagens": {
+        "foto": {
+          "src": "/img/jardim-da-villa-alecrim-564f00a6.jpg",
+          "alt": "Jardim da Villa Alecrim"
+        },
+        "foto2": {
+          "src": "/img/mesa-de-doces-c5785451.jpg",
+          "alt": "Mesa de doces"
+        }
+      },
+      "listas": {
+        "paragrafos": [
+          {
+            "de": 0,
+            "textos": {
+              "texto": "A Villa Alecrim nasceu das festas da família e virou espaço de eventos."
+            }
+          },
+          {
+            "de": 1,
+            "textos": {
+              "texto": "Hoje recebe casamentos, 15 anos e aniversários de até 300 convidados."
+            }
+          }
+        ],
+        "numeros": [
+          {
+            "de": 0,
+            "textos": {
+              "valor": "5,0",
+              "texto": "nota no Google"
+            }
+          },
+          {
+            "de": 1,
+            "textos": {
+              "valor": "300",
+              "texto": "convidados"
+            }
+          }
+        ]
+      }
+    },
+    "espaco": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "O espaço",
+        "titulo": "Cada canto *pronto para a festa.*",
+        "texto": "Salão, jardim, piscina e área coberta."
+      },
+      "listas": {
+        "fotos": [
+          {
+            "de": 0,
+            "imagens": {
+              "foto": {
+                "src": "/img/salao-principal-a9dbd6c8.jpg",
+                "alt": "Salão principal"
+              }
+            }
+          },
+          {
+            "de": 1,
+            "imagens": {
+              "foto": {
+                "src": "/img/jardim-797b8662.jpg",
+                "alt": "Jardim"
+              }
+            }
+          },
+          {
+            "de": 2,
+            "imagens": {
+              "foto": {
+                "src": "/img/piscina-99e55d2d.jpg",
+                "alt": "Piscina"
+              }
+            }
+          },
+          {
+            "de": 3,
+            "imagens": {
+              "foto": {
+                "src": "/img/area-coberta-9bda46f0.jpg",
+                "alt": "Área coberta"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "festas": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Festas",
+        "titulo": "Festas que *já passaram por aqui.*",
+        "texto": "Casamentos, 15 anos e aniversários."
+      },
+      "listas": {
+        "fotos": [
+          {
+            "de": 0,
+            "imagens": {
+              "foto": {
+                "src": "/img/casamento-no-jardim-ee89c14a.jpg",
+                "alt": "Casamento no jardim"
+              }
+            },
+            "textos": {
+              "legenda": "Casamento"
+            }
+          },
+          {
+            "de": 1,
+            "imagens": {
+              "foto": {
+                "src": "/img/festa-de-15-anos-no-salao-6b77d4f4.jpg",
+                "alt": "Festa de 15 anos no salão"
+              }
+            },
+            "textos": {
+              "legenda": "15 anos"
+            }
+          },
+          {
+            "de": 2,
+            "imagens": {
+              "foto": {
+                "src": "/img/aniversario-na-area-coberta-1fce484d.jpg",
+                "alt": "Aniversário na área coberta"
+              }
+            },
+            "textos": {
+              "legenda": "Aniversário"
+            }
+          }
+        ]
+      }
+    },
+    "estrutura": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Estrutura",
+        "titulo": "O que tem *na casa.*",
+        "texto": "Só o que existe de verdade."
+      },
+      "listas": {
+        "itens": [
+          {
+            "de": 0,
+            "textos": {
+              "texto": "Salão para 300 pessoas"
+            }
+          },
+          {
+            "de": 1,
+            "textos": {
+              "texto": "Piscina"
+            }
+          },
+          {
+            "de": 2,
+            "textos": {
+              "texto": "Cozinha equipada"
+            }
+          },
+          {
+            "de": 3,
+            "textos": {
+              "texto": "Estacionamento"
+            }
+          }
+        ]
+      }
+    },
+    "atendimento": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Como funciona",
+        "titulo": "Da primeira conversa *até a festa.*"
+      },
+      "imagens": {
+        "foto": {
+          "src": "/img/equipe-da-casa-59884fbd.jpg",
+          "alt": "Equipe da casa"
+        }
+      },
+      "botoes": {
+        "botao": {
+          "rotulo": "Consultar uma data",
+          "acao": "whatsapp"
+        }
+      },
+      "listas": {
+        "passos": [
+          {
+            "de": 0,
+            "textos": {
+              "texto": "Você consulta a data"
+            }
+          },
+          {
+            "de": 1,
+            "textos": {
+              "texto": "A gente mostra o espaço"
+            }
+          },
+          {
+            "de": 2,
+            "textos": {
+              "texto": "Fecha o pacote"
+            }
+          },
+          {
+            "de": 3,
+            "textos": {
+              "texto": "Faz a festa"
+            }
+          }
+        ]
+      }
+    },
+    "depoimentos": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Quem conhece, conta",
+        "titulo": "Quem fez festa aqui *recomenda.*"
+      },
+      "listas": {
+        "avaliacoes": [
+          {
+            "textos": {
+              "nome": "Ana Souza",
+              "texto": "Casamento perfeito, equipe atenciosa do começo ao fim. O jardim ficou lindo à noite.",
+              "tag": "Casamento"
+            }
+          },
+          {
+            "textos": {
+              "nome": "Bruno Lima",
+              "texto": "A festa de 15 anos da minha filha foi incrível. Espaço limpo e bem cuidado.",
+              "tag": "15 anos"
+            }
+          },
+          {
+            "textos": {
+              "nome": "Carla Dias",
+              "texto": "Lugar bonito, comida ótima e preço justo. Recomendo.",
+              "tag": "Aniversário"
+            }
+          }
+        ]
+      }
+    },
+    "consulta": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "Consultar uma data",
+        "titulo": "Consulte *a sua data.*",
+        "texto": "Diga o dia, o tipo de festa e os convidados.",
+        "botao": "Consultar no WhatsApp"
+      },
+      "botoes": {
+        "agenda": {
+          "rotulo": "Ver as datas livres e pedir a pré-reserva"
+        }
+      },
+      "listas": {
+        "tipos": [
+          {
+            "de": 0,
+            "textos": {
+              "texto": "Casamento"
+            }
+          },
+          {
+            "de": 1,
+            "textos": {
+              "texto": "15 anos"
+            }
+          },
+          {
+            "de": 2,
+            "textos": {
+              "texto": "Aniversário"
+            }
+          },
+          {
+            "de": 3,
+            "textos": {
+              "texto": "Outro"
+            }
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "visivel": true,
+      "textos": {
+        "eyebrow": "@villa.alecrim.teste · 2 mil seguidores",
+        "titulo": "Acompanhe no *Instagram.*",
+        "texto": "Fotos das festas e das datas livres."
+      },
+      "imagens": {
+        "foto": {
+          "src": "/img/foto-do-instagram-2e22757a.jpg",
+          "alt": "Foto do Instagram"
+        }
+      },
+      "botoes": {
+        "botao": {
+          "rotulo": "Seguir no Instagram",
+          "acao": "instagram"
+        },
+        "link": {
+          "rotulo": "Tirar uma dúvida",
+          "acao": "whatsapp"
+        },
+        "chip": {
+          "rotulo": "Consulte uma data",
+          "acao": "whatsapp"
+        }
+      }
+    },
+    "visite": {
+      "visivel": true,
+      "textos": {
+        "titulo": "Venha *conhecer.*"
+      },
+      "botoes": {
+        "botao": {
+          "rotulo": "Chamar no WhatsApp",
+          "acao": "whatsapp"
+        }
+      }
+    },
+    "rodape": {
+      "visivel": true,
+      "textos": {
+        "slogan": "Festas no meio do verde."
+      }
+    }
+  },
+  "contato": {
+    "whatsapp": "5511900000000",
+    "mensagem": "Olá! Vim pelo site da Villa Alecrim.",
+    "telefone": "5511900000000",
+    "instagram": "villa.alecrim.teste"
+  },
+  "ordem": [
+    "cabecalho",
+    "inicio",
+    "sobre",
+    "espaco",
+    "festas",
+    "estrutura",
+    "atendimento",
+    "depoimentos",
+    "consulta",
+    "instagram",
+    "visite",
+    "rodape"
+  ]
+}

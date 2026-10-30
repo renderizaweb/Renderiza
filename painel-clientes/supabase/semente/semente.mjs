@@ -64,6 +64,8 @@ function inserir(tabela, linhas) {
   return `insert into public.${tabela} (${colunas.join(", ")}) values\n${valores};\n`;
 }
 
+const SITE_DE_TESTE = JSON.parse(readFileSync(join(RAIZ, "test", "site-teste", "conteudo-inicial.json"), "utf8"));
+
 const ORIGEM = { agenda: "agenda_online", whatsapp: "whatsapp", instagram: "instagram", google: "google", indicacao: "indicacao" };
 const FORMA = { Pix: "pix", Boleto: "boleto", "Cartão": "cartao" };
 
@@ -96,7 +98,11 @@ function villa(V) {
   const HOJE = V.HOJE;
 
   sql.push(inserir("contas", [{ id: q(conta), nome: q("Villa Alecrim"), nicho: q("eventos"), codigo: q("villa-alecrim"), cores: json({ principal: "#2d6a4f" }), situacao: q("ativa"), origem: q("renderiza") }]));
-  sql.push(inserir("contas_modulos", ["agenda-online", "agenda", "atendimento", "clientes", "contratos", "financeiro"].map(m => ({ conta_id: q(conta), modulo_id: q(m) }))));
+  sql.push(inserir("contas_modulos", ["agenda-online", "agenda", "atendimento", "clientes", "contratos", "financeiro", "meu-site"].map(m => ({ conta_id: q(conta), modulo_id: q(m) }))));
+  // O site de teste da Missão 4 (test/site-teste, fictício): a agenda online e o Meu site respondem por ele. O conteúdo
+  // inicial é o que o extrair.mjs tira do site de teste (o teste da raiz confere que segue igual).
+  sql.push(inserir("sites", [{ id: q(uid("site:villa-alecrim")), conta_id: q(conta), codigo: q("villa-alecrim"),
+    dominios: arr(["villa-alecrim.teste", "localhost"]), conteudo_inicial: json(SITE_DE_TESTE) }]));
 
   const visto = t => (t === "online agora" ? "now()" : /há (\d+) min/.test(t) ? `now() - interval '${t.match(/\d+/)[0]} minutes'` : /há (\d+) h/.test(t) ? `now() - interval '${t.match(/\d+/)[0]} hours'` : "null");
   sql.push(inserir("pessoas", V.EQUIPE.map((p, i) => {
