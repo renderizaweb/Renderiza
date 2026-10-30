@@ -193,11 +193,13 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
   const eventos = nicho.id === "eventos";
   let cliente = reserva ? reserva.clientes : await abrirParaQuem({ banco, conta, titulo: eventos ? "A festa é de quem?" : "O ensaio é de quem?" });
   if (!cliente) return null;
-  const [tipos, horarios, adicionais, escolhidos] = await Promise.all([
+  const [tipos, horarios, adicionais, escolhidos, pacotes] = await Promise.all([
     banco.resultado(banco.tabela(eventos ? "tipos_reserva" : "servicos").select(eventos ? "id, nome" : "id, nome, duracao_min").eq("conta_id", conta.conta_id).eq("ativo", true).order("ordem").order("nome")).catch(() => []),
     banco.resultado(banco.tabela("horarios").select("dia_semana, inicio, fim, nome, servico_id").eq("conta_id", conta.conta_id)).catch(() => []),
     eventos ? banco.resultado(banco.tabela("adicionais").select("id, nome").eq("conta_id", conta.conta_id).eq("ativo", true).order("ordem").order("nome")).catch(() => []) : [],
     reserva && eventos ? banco.resultado(banco.tabela("reservas_adicionais").select("adicional_id").eq("reserva_id", reserva.id)).catch(() => []) : [],
+    // eventos: o pacote da festa (Serviços); é dele que o Financeiro sugere o valor e o contrato tira o {pacote}
+    eventos ? banco.resultado(banco.tabela("servicos").select("id, nome").eq("conta_id", conta.conta_id).eq("ativo", true).order("ordem").order("nome")).catch(() => []) : [],
   ]);
   const it = reserva ? itemDaReserva(reserva, fuso) : null;
   const paraCampo = t => { const m = String(t || "").match(/^(\d{1,2})h(\d{2})?$/); return m ? `${m[1].padStart(2, "0")}:${m[2] || "00"}` : ""; };
@@ -222,6 +224,7 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
             ${campoTexto({ id: "res-fim", nome: "fim", rotulo: "Termina", tipo: "time", valor: valores.fim, opcional: !eventos })}
           </div>
           ${tipos.length ? campoSelecao({ id: "res-tipo", nome: eventos ? "tipo_id" : "servico_id", rotulo: eventos ? "Tipo de festa" : "Ensaio", valor: (eventos ? valores.tipo_id : valores.servico_id) || (campanha && campanha.servico_id) || "", opcoes: [{ valor: "", rotulo: "A definir" }, ...tipos.map(t => ({ valor: t.id, rotulo: t.nome }))] }) : ""}
+          ${eventos && pacotes.length ? campoSelecao({ id: "res-pacote", nome: "servico_id", rotulo: "Pacote", valor: valores.servico_id || "", opcoes: [{ valor: "", rotulo: "A definir" }, ...pacotes.map(t => ({ valor: t.id, rotulo: t.nome }))] }) : ""}
           ${eventos ? campoTexto({ id: "res-conv", nome: "convidados", rotulo: "Convidados", teclado: "numeric", valor: valores.convidados || "", opcional: true, placeholder: "Ex.: 120" }) : ""}
           ${campoTexto({ id: "res-titulo", nome: "titulo", rotulo: eventos ? "Nome da festa" : "Título", valor: valores.titulo || "", opcional: true, placeholder: eventos ? "Ex.: 50 anos da Sônia (quando não é o nome do cliente)" : "Ex.: Família Souza" })}
           ${reserva ? "" : `<fieldset class="rz-campo"><legend class="rz-rotulo">Como fica na agenda</legend>

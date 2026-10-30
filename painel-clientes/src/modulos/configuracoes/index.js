@@ -9,6 +9,7 @@ import { campoTexto, campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { comEstados } from "../../ui/estados.js";
 import { nicho as nichoDe } from "../../nichos/index.js";
 import { linkDaRenderiza } from "../../telas/renderiza.js";
+import { exportarTudo } from "../../telas/exportar.js";
 
 export const FUSOS = [
   { valor: "America/Sao_Paulo", rotulo: "Horário de Brasília (SP, RJ, MG, Sul, Nordeste, GO, DF)" },
@@ -71,6 +72,13 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
         </form>
       </section>
       <section class="rz-secao">
+        <h2 class="rz-titulo-3">Seus dados</h2>
+        <div class="rz-cartao rz-cartao-corpo rz-exportar">
+          <p class="rz-texto-2">Uma planilha por assunto (clientes, pedidos, ${escapar(n.palavras.reservas)}, pagamentos, contratos…) num arquivo .zip. Abre no Excel e no Google Planilhas.</p>
+          <button class="rz-botao" type="button" data-exportar>${icone("baixar", { tamanho: 18 })}Exportar tudo</button>
+        </div>
+      </section>
+      <section class="rz-secao">
         <h2 class="rz-titulo-3">O plano</h2>
         <dl class="rz-cartao rz-cartao-corpo rz-fatos">
           <div><dt>Situação</dt><dd>${escapar(SITUACAO[c.situacao] || c.situacao)}${c.situacao === "teste" ? ` até ${escapar(dataNumerica(c.teste_ate))}` : c.ativa_ate ? ` até ${escapar(dataNumerica(c.ativa_ate + "T12:00:00Z"))}` : ""}</dd></div>
@@ -105,6 +113,12 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
         ocupado(botao, false);
         avisoDoFormulario(form.querySelector("[role=alert]"), e.message);
       }
+    });
+    // exportar tudo (Missão 3F, src/telas/exportar.js)
+    corpo.querySelector("[data-exportar]").addEventListener("click", async ev => {
+      const b = ev.currentTarget;
+      b.disabled = true;
+      try { await exportarTudo({ banco, conta: { ...conta, fuso: c.fuso }, nicho: n, avisar }); } catch (e) { avisar(e.message, { tipo: "erro" }); } finally { b.disabled = false; }
     });
     // o Pix (Contratos, Missão 3E): em contas.ajustes.pix, sem apagar os outros ajustes
     const formPix = corpo.querySelector("#form-pix");

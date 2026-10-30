@@ -137,7 +137,8 @@ async function iniciar() {
       return;
     }
     const link = evento.target.closest("a[href]");
-    if (!link || link.target || link.origin !== location.origin || evento.metaKey || evento.ctrlKey || evento.shiftKey) return;
+    // download (o "Exportar tudo") e blob: não são telas do painel
+    if (!link || link.target || link.hasAttribute("download") || link.protocol !== location.protocol || link.origin !== location.origin || evento.metaKey || evento.ctrlKey || evento.shiftKey) return;
     if (link.dataset.trancado) {
       evento.preventDefault();
       avisarTrancado(link.dataset.trancado);

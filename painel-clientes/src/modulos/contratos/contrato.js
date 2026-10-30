@@ -193,7 +193,7 @@ export async function abrirFormContrato(ctx, { contrato = null, texto = "", clie
   const mostrarFalta = () => {
     const falta = camposNoTexto(area.value);
     form.querySelector("[data-falta]").innerHTML = falta.length
-      ? `<p class="rz-alerta rz-alerta--aviso">${icone("alerta", { tamanho: 18 })}<span>Sem valor ainda: ${falta.map(f => `<b>{${escapar(f)}}</b> (${escapar(nomeDoCampo(f))})`).join(", ")}. Escreva no texto ou complete ${escapar(nicho.palavras.aReserva)} (no Financeiro, os valores).</span></p>`
+      ? `<p class="rz-alerta rz-alerta--aviso">${icone("alerta", { tamanho: 18 })}<span>Sem valor ainda: ${falta.map(f => `<b>{${escapar(f)}}</b> (${escapar(nomeDoCampo(f))})`).join(", ")}. Escreva no texto ou complete ${escapar(nicho.palavras.aReserva)} (na Agenda, ${nicho.id === "eventos" ? "o pacote" : "o ensaio"}; no Financeiro, os valores).</span></p>`
       : "";
   };
   async function preencher() {
