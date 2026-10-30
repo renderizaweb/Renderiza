@@ -189,7 +189,7 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 
 | Função | Quem usa | O que faz |
 |---|---|---|
-| `minhas_contas()` | casca (escolher a conta, menu) | as contas da pessoa: nome, nicho, situação, liberada (ou o aviso), acessos dela e os módulos ligados |
+| `minhas_contas()` | casca (escolher a conta, menu) | as contas da pessoa: nome, nicho, situação, liberada (ou o aviso), acessos dela e os módulos ligados. Para a equipe Renderiza, também a conta em que está em suporte registrado (`suporte_ate`: até quando; `pessoa_id` nulo; liberada; os acessos no nível do suporte, "editar" vale como dono), para "entrar para ajudar" abrir o painel da conta (30/10, Missão 5A, migração `…120000`) |
 | `cadastrar_conta(nome, nicho, whatsapp, modulos, meu_nome)` | cadastro com 7 dias grátis | cria a conta em teste, a pessoa como dona e os módulos escolhidos; o teste é um só (quem já é dono de uma conta do cadastro não cria outra); pede o e-mail confirmado |
 | `aceitar_convites()` | logo depois de entrar | os convites válidos do e-mail logado viram pessoa da conta |
 | `registrar_entrada(conta, aparelho)` | ao entrar numa conta | a entrada (Admin) e o "visto em" |

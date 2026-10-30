@@ -27,6 +27,9 @@ export async function montar(el, { sessao, navegar, ambiente }) {
     return navegar(volta, { substituir: true });
   }
 
+  // quem é da Renderiza e não é de nenhuma conta vai para o Admin (Missão 5A), não para o "criar a conta"
+  if (!contas.length && sessao.eEquipeRenderiza()) return navegar("/admin", { substituir: true });
+
   if (!contas.length) {
     el.innerHTML = telaDeAcesso({
       ambiente,

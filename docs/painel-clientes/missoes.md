@@ -13,7 +13,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) desde 30/10; o bloco B (Regras) vem logo depois, na mesma sessão | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) **feito, na `main`** (30/10; a migração dele na produção espera o "pode", ver "Avisos"); bloco B (Regras) em seguida, na mesma sessão | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -212,26 +212,34 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 5 · bloco A (Admin) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
-Referência: 02 (Admin: Contas, Módulos, Pessoas e acessos, Pagamentos, Indicadores; como a conta nasce e vive:
-  teste, aprovar, prazo, desligar, religar, criar à mão; "só pago"; os dados de quem sai, exportados pelo Admin com
-  registro), 05 (equipe_renderiza, entradas, pagamentos, acessos_suporte, admin_indicadores; a Renderiza vê contas,
-  pessoas, módulos, entradas e pagamentos, mas não os dados das contas, a não ser em suporte registrado), 06, 07
-  (D19: a planilha de quem sai, exportada pela Renderiza, com registro).
-Plano (nesta ordem, cada parte com commit): 1. a casca do Admin (as 5 partes no menu; abre sem conta escolhida,
-  porque a pessoa da Renderiza pode não ser de nenhuma conta) e a migração que faz minhas_contas() trazer a conta em
-  que a Renderiza está ajudando (suporte registrado), para "entrar para ajudar" abrir o painel da conta; 2. Contas:
-  a lista pela situação (para aprovar, em teste, ativas, desligadas), a gaveta (aprovar com ou sem prazo, prazo,
-  desligar, religar, os módulos da conta, as pessoas, os pagamentos), criar uma conta à mão (já ativa, com o
-  convite para o dono pela função convidar), entrar para ajudar (motivo, nível, até 8 horas) e exportar os dados a
-  pedido (o suporte com o motivo é o registro); 3. Módulos: o catálogo, "só pago" e quantas contas usam; 4. Pessoas
-  e acessos: quem entrou, quando e em qual conta, quem está usando agora, e o registro do suporte; 5. Pagamentos: o
-  mês, quem pagou e quem não pagou, registrar o Pix (valor sugerido pelo plano); 6. Indicadores (só números); 7.
-  teste de ponta a ponta no STG e documentos.
-Feito: nada ainda (começa agora).
-Próximo passo: parte 1.
-Mexe em: src/admin/. Fora disso, pequeno e com aviso: src/app.js (o Admin abre sem conta), a migração de
-  minhas_contas e o teste do banco.
+Missão 5 · bloco A (Admin) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · FEITO, NA MAIN
+Referência: 02 (Admin; como a conta nasce e vive), 05 (as tabelas e funções do Admin), 06, 07 (D19).
+Plano (nesta ordem): 1. a casca do Admin e minhas_contas com o suporte; 2. Contas; 3. Módulos; 4. Pessoas e
+  acessos; 5. Pagamentos; 6. Indicadores; 7. teste de ponta a ponta no STG e documentos.
+Feito (partes 1 a 7): src/admin/: casca.js (o menu com as 5 partes; no celular, a barra de baixo; abre sem conta
+  escolhida), dados.js (as contas com pessoas, donos, módulos ligados e o último acesso), logica.js (a situação em
+  palavras, os grupos, o código público, a mensalidade sugerida, os pagamentos do mês, o aparelho), suporte.js
+  (entrar para ajudar: motivo, "só ver" ou "ver e editar", 1 a 8 horas, e abre o painel da conta; exportar a
+  pedido: suporte "só ver" com o motivo, o .zip do src/telas/exportar.js e o suporte encerrado; encerrar),
+  contas/ (a lista pela situação: para aprovar, ativas, em teste, desligadas, todas; a gaveta: aprovar com ou sem
+  prazo, mudar o fim do teste, dar prazo, desligar com confirmação, religar, os módulos da conta, as pessoas e os
+  convites com "mandar de novo", os pagamentos, o registro do suporte; criar conta à mão: já ativa, os módulos com
+  a mensalidade, o código sugerido pelo nome, o convite do dono pela função convidar), modulos/ (o catálogo, quantas
+  contas usam e o "só pago"), pessoas/ (usando agora, as entradas com o aparelho, o suporte com "Encerrar"),
+  pagamentos/ (o mês com as setas, quem pagou e quem falta, "Registrar Pix" com o valor do plano), indicadores/
+  (só números: admin_indicadores); test/admin.test.mjs (7).
+  Banco: migração 20261030120000_minhas_contas_suporte.sql (STG; na produção espera o "pode", ver "Avisos"):
+  minhas_contas() traz a conta em suporte; teste supabase/testes/050_admin_suporte.sql.
+  Fora do "Mexe em", pequeno: src/app.js (o Admin abre com a casca dele, sem conta), src/telas/contas.js (quem é da
+  Renderiza e não é de nenhuma conta vai para o Admin), src/sessao.js (sem pessoa em suporte, não busca), src/telas/
+  casca.js (a faixa "Você está ajudando em…" com "Encerrar e voltar ao Admin"), estilo.css seção 23.
+Testado no STG (usuário temporário da equipe Renderiza, sem conta; computador e celular 390 px): entrar cai no
+  Admin; criar a conta "Adm Espaço da Sessão" (código sugerido, mensalidade R$ 63,99 com 3 módulos, o convite do
+  dono: a chamada da função interceptada no teste, para não mandar e-mail a endereço fictício), ligar o
+  Atendimento, registrar o Pix (R$ 78,98 sugerido com 4 módulos), dar prazo de 90 dias, desligar e religar; Módulos,
+  Pessoas, Pagamentos (1 pagou, 2 faltam) e Indicadores; entrar para ajudar na Villa (a faixa, os 32 clientes
+  "só vê", encerrar e voltar ao Admin); exportar a pedido os dados do Estúdio Ciranda (o .zip com as planilhas).
+  Testes: 176 do front; 11 arquivos do banco (local e STG). Conta, usuário e registros de teste apagados.
 ```
 
 ```
@@ -675,7 +683,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261029190000_armazenamento_leitura.sql` (leitura do Storage para quem é da conta: sem ela, trocar e tirar o logo davam 403; aviso da 4C) | 2A | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029203000_fechar_pedido_confirma.sql` (fechar um pedido que já tem reserva confirma a pré-reserva e ajusta a data) | 3C | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
 | `20261029220000_publico_contrato.sql` (o aceite do contrato pelo link: `publico_contrato` e `publico_aceitar_contrato`) | 3E | `claude/painel-renderiza-setup-ztnrzy` | 29/10/2026 | 29/10/2026 |
-| `20261030120000_minhas_contas_suporte.sql` (Admin: minhas_contas traz a conta em que a Renderiza está em suporte) | 5A | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
+| `20261030120000_minhas_contas_suporte.sql` (Admin: minhas_contas traz a conta em que a Renderiza está em suporte) | 5A | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — (espera o "pode": `drop` de função) |
 
 ## Avisos entre sessões
 
@@ -684,6 +692,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 30/10/2026 | 5A → Renderiza, todas | **Admin pronto (na `main`).** (1) **Ninguém está na equipe Renderiza na produção** (`equipe_renderiza` vazia), então ninguém abre o Admin lá. Quem a Renderiza quiser como admin entra uma vez no painel e depois, no Supabase da produção (SQL Editor): `insert into public.equipe_renderiza (usuario_id, nome) select id, 'Nome' from auth.users where email = 'e-mail@da.pessoa';`. Quem é da equipe e não é de nenhuma conta cai direto no Admin. (2) **A migração `20261030120000_minhas_contas_suporte.sql` está no STG; na produção, espera o "pode"**: ela faz `drop` e `create` da função `minhas_contas` (nenhum dado é apagado), e o `scripts/migrar.mjs` trava todo `drop` na produção (08, regra 8). Com o "pode": `node scripts/migrar.mjs producao --projeto hxzsiiqhlqxuqkevskwb --pode-destrutivo`. Sem ela, o Admin funciona, menos o "Entrar para ajudar" (a conta não abre). (3) `minhas_contas()` ganhou a coluna `suporte_ate` (05). (4) Fora do `src/admin/`, pequeno: `src/app.js` (rota do Admin sem conta), `src/telas/contas.js`, `src/sessao.js` (`carregarPessoa` sem `pessoa_id`), `src/telas/casca.js` (a faixa do suporte), `estilo.css` seção 23. |
 | 30/10/2026 | 4 → 3F, todas | **O bloco F da Missão 3 (Início e exportar) está terminado e na `main`**, junto com a correção do "Pacote" na Agenda: a sessão do bloco parou no limite, e a da Missão 4 testou de ponta a ponta no STG, documentou e subiu. **Missões 3 e 4 feitas; a próxima é a 5.** Quem tiver branch antiga (`claude/painel-renderiza-setup-ztnrzy`), traga a `main` antes de mexer. |
 | 30/10/2026 | Vercel → todas | **A produção do painel está no `64c9d8d` por um deploy feito pela API** (conferido: `/api/config` e os arquivos no ar iguais aos da `main`). **Os pushes não estão gerando deploy** desde o `e531d90` (22h36 de 29/10, Brasília), nos dois projetos: a Vercel nem registra o push; conta sem bloqueio, limite e espaço descartados, GitHub ligado. O projeto do painel tem `createDeployments: "disabled"` (o `renderiza`, `enabled`). Enquanto isso: depois de um push na `main`, conferir o `versao` do `/api/config`; se não andar, alguém com token da Vercel cria o deploy da `main` pela API (ou por um Deploy Hook). A Renderiza confere o ícone da Vercel no commit no GitHub e, na Vercel, `renderiza-painel-clientes` → Settings → Git. Produção tem uma conta só, "Espaço de teste" (eventos, em teste), com o Meu site ligado e **nenhum site cadastrado**. |
 | 30/10/2026 | Vercel → Renderiza, todas | **Limpeza feita, e a causa real do deploy parado era outra.** (1) `node scripts/limpar-deploys-vercel.mjs renderiza --apagar`: 156 deploys apagados; o projeto `renderiza` ficou com 4 (o que está no ar e os 3 de produção antes dele, todos de 29/10). **A Renderiza já pode apagar o `VERCEL_TOKEN`** (e tirar das variáveis do ambiente); ele não era só do projeto: também lia o `renderiza-painel-clientes`. (2) Mesmo depois, o `/api/config` seguia em `aabb9bc`: os 3 deploys de produção do painel depois dele (`092adfd`, `7321ebe`, `e531d90`) deram **ERROR no passo "ignore"**, não por espaço nem por limite: o `ignoreCommand` saía com 128 (`fatal: bad object aabb9bc…`), porque o clone da Vercel só tem os últimos 10 commits e o `aabb9bc` ficou de fora; na Vercel, só 1 faz o build (outro código falha). Sem correção, não destravaria nunca. (3) **Corrigido** com `|| exit 1` no fim do `ignoreCommand` (`painel-clientes/vercel.json`; teste agora pede 1, não só "diferente de 0"; `04`, Vercel). Chegando na `main`, o próprio push faz o build da produção; conferir o `versao` do `/api/config`. (4) O `ignoreCommand` proposto para o `vercel.json` da raiz (aviso abaixo) precisa do mesmo `|| exit 1`. |

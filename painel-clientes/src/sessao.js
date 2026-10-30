@@ -148,7 +148,7 @@ export function criarSessao(adaptador, { armazenamento = armazenamentoDoNavegado
     /** Nome, cor e papel da pessoa na conta escolhida (para o avatar e o "visto em"). */
     async carregarPessoa() {
       const c = this.conta();
-      if (!c) { pessoa = null; return null; }
+      if (!c || !c.pessoa_id) { pessoa = null; return null; } // sem pessoa: a Renderiza em suporte (Missão 5A)
       if (pessoa && pessoa.id === c.pessoa_id) return pessoa;
       try {
         pessoa = await adaptador.resultado(adaptador.tabela("pessoas").select("id, nome, cor, papel, email, preferencias").eq("id", c.pessoa_id).maybeSingle());
