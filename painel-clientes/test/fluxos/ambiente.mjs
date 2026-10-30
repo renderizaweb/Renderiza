@@ -8,6 +8,9 @@ import { spawn } from "node:child_process";
 import { randomBytes } from "node:crypto";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+import { mkdirSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { consultar } from "../../scripts/lib/supabase-api.mjs";
 import { conferirProjeto } from "../../scripts/lib/projetos.mjs";
 
@@ -141,4 +144,16 @@ export async function aviso(pagina) {
 /** A página rola para o lado? (no celular, não pode) */
 export function rolaParaOLado(pagina) {
   return pagina.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
+}
+
+/** Quando um passo falha: o print da tela e os campos da gaveta aberta, numa pasta temporária (fora do repositório). */
+export async function retrato(pagina, nome) {
+  if (!pagina || pagina.isClosed()) return null;
+  const pasta = join(tmpdir(), `fluxos-${MARCA}`);
+  mkdirSync(pasta, { recursive: true });
+  const arquivo = join(pasta, `${nome.replace(/[^a-z0-9]+/gi, "-").slice(0, 60)}.png`);
+  await pagina.screenshot({ path: arquivo, fullPage: true }).catch(() => {});
+  const campos = await pagina.locator("dialog[open]").last().evaluate(el => [...el.querySelectorAll("input, select, textarea, button")]
+    .map(x => `${x.tagName.toLowerCase()}${x.id ? "#" + x.id : ""}${x.name ? `[name=${x.name}]` : ""} ${(x.labels && x.labels[0] ? x.labels[0].innerText : x.innerText || "").replace(/\s+/g, " ").trim().slice(0, 40)}`)).catch(() => []);
+  return { arquivo, url: pagina.url(), campos };
 }

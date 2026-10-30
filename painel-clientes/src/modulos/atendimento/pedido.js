@@ -152,7 +152,7 @@ export function abrirPedido(p, ctx) {
 
 /** "Fechar": vira reserva (fechar_pedido). Pré-reserva (falta o sinal) ou confirmada. */
 export function abrirFechar(p, ctx) {
-  const { banco, nicho, avisar, fuso } = ctx;
+  const { banco, conta, nicho, avisar, fuso } = ctx;
   const sugestao = horarioParaFechar(p, nicho);
   const fimSugerido = sugestao.data ? hora(new Date(instanteNoFuso(sugestao.data, sugestao.inicio, fuso).getTime() + sugestao.duracao * 60000), fuso) : "";
   const paraHorario = t => { const m = String(t).match(/^(\d{1,2})h(\d{2})?$/); return m ? `${m[1].padStart(2, "0")}:${m[2] || "00"}` : ""; };
@@ -166,6 +166,7 @@ export function abrirFechar(p, ctx) {
           ${campoTexto({ id: "fechar-inicio", nome: "inicio", rotulo: "Começa", tipo: "time", valor: sugestao.inicio })}
           ${campoTexto({ id: "fechar-fim", nome: "fim", rotulo: "Termina", tipo: "time", valor: paraHorario(fimSugerido) })}
         </div>
+        <div data-pacote></div>
         <fieldset class="rz-campo"><legend class="rz-rotulo">Como fica na agenda</legend>
           <div class="rz-opcoes">
             <label class="rz-opcao"><input type="radio" name="situacao" value="pre_reserva" checked><span class="rz-opcao-texto"><b>Pré-reserva</b><small>Segura a data enquanto o sinal não chega.</small></span><span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></label>
@@ -177,6 +178,14 @@ export function abrirFechar(p, ctx) {
   });
   const form = folha.corpo.querySelector("form");
   const botao = folha.el.querySelector("[data-confirmar]");
+  // Eventos: o pacote já no fechar (o pedido anotado à mão não tem); vai para a festa, e o contrato e o Financeiro
+  // saem com ele (Missão 6, o teste das 5 tarefas). Sem pacote em Serviços, o campo nem aparece.
+  if (nicho.id === "eventos") {
+    banco.resultado(banco.tabela("servicos").select("id, nome").eq("conta_id", conta.conta_id).eq("ativo", true).order("nome")).then(pacotes => {
+      if (!pacotes.length || !form.isConnected) return;
+      form.querySelector("[data-pacote]").innerHTML = campoSelecao({ id: "fechar-pacote", nome: "servico_id", rotulo: "Pacote", valor: p.servico_id || "", opcoes: [{ valor: "", rotulo: "A definir" }, ...pacotes.map(x => ({ valor: x.id, rotulo: x.nome }))] });
+    }).catch(() => {});
+  }
   botao.addEventListener("click", async () => {
     const d = lerFormulario(form);
     erroNoCampo(form.data, d.data ? "" : "Escolha a data.");
@@ -191,6 +200,10 @@ export function abrirFechar(p, ctx) {
     const { inicio, fim } = instantesDaReserva({ data: d.data, inicio: d.inicio, duracao }, fuso);
     ocupado(botao, true, "Fechando…");
     try {
+      if (form.servico_id && (d.servico_id || null) !== (p.servico_id || null)) {
+        await banco.resultado(banco.tabela("pedidos").update({ servico_id: d.servico_id || null }).eq("id", p.id));
+        p.servico_id = d.servico_id || null;
+      }
       const reserva = await banco.rpc("fechar_pedido", { pedido: p.id, inicio, fim, situacao: d.situacao || "pre_reserva" });
       p.etapa = "fechado";
       p.reserva_id = reserva;

@@ -9,7 +9,7 @@ import { icone } from "../../ui/icones.js";
 import { escapar, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
 import { campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { ligarCopiar } from "../../ui/whatsapp.js";
-import { dataCurta, dataNumerica, hora, haQuanto, linkWhatsapp, normalizarWhatsapp } from "../../ui/formatos.js";
+import { dataCurta, dataNumerica, hora, haQuanto, linkWhatsapp, moeda, normalizarWhatsapp } from "../../ui/formatos.js";
 import { SITUACOES, CAMPOS, valoresDosCampos, preencherModelo, camposNoTexto, linkDoContrato, mensagemDoContrato, mensagemDeLembrete } from "./logica.js";
 
 export const COLUNAS_CONTRATO = "id, cliente_id, reserva_id, modelo_id, situacao, codigo, hash, enviado_em, aceito_em, aceito_nome, aceito_contato, "
@@ -145,7 +145,7 @@ export async function abrirContrato(c, ctx) {
 /** Os dados da festa ou ensaio que preenchem os campos. */
 async function dadosDaReserva(banco, reservaId, cliente) {
   const [r, valores, adicionais, ficha] = await Promise.all([
-    banco.resultado(banco.tabela("reservas").select("id, inicio, fim, convidados, titulo, tipos_reserva(nome), servicos(nome)").eq("id", reservaId).maybeSingle()).catch(() => null),
+    banco.resultado(banco.tabela("reservas").select("id, inicio, fim, convidados, titulo, tipos_reserva(nome), servicos(nome, valor, sinal)").eq("id", reservaId).maybeSingle()).catch(() => null),
     banco.resultado(banco.tabela("reservas_valores").select("valor_total, sinal, desconto").eq("reserva_id", reservaId).maybeSingle()).catch(() => null),
     banco.resultado(banco.tabela("reservas_adicionais").select("adicionais(nome)").eq("reserva_id", reservaId)).catch(() => []),
     cliente ? banco.resultado(banco.tabela("clientes_fichas").select("endereco, cpf").eq("cliente_id", cliente.id).maybeSingle()).catch(() => null) : null,
@@ -172,6 +172,7 @@ export async function abrirFormContrato(ctx, { contrato = null, texto = "", clie
   const reservaInicial = contrato ? contrato.reserva_id : reserva || (reservas.find(r => Date.parse(r.inicio) >= Date.now()) || reservas[0] || {}).id || "";
   const modeloInicial = contrato ? contrato.modelo_id || "" : (modelos[0] || {}).id || "";
   let valores = {};
+  let daReservaAtual = null; // os dados da festa ou ensaio escolhido (para "Usar os valores do pacote")
 
   const j = abrirGaveta({
     titulo: contrato ? "Editar o contrato" : "Novo contrato",
@@ -190,15 +191,37 @@ export async function abrirFormContrato(ctx, { contrato = null, texto = "", clie
   });
   const form = j.el.querySelector("form");
   const area = form.texto;
+  // Faltam os valores e o pacote (ou ensaio) tem preço em Serviços: um toque grava os valores dele na festa, como o
+  // Financeiro sugere (Missão 6: sem isso, mandar o contrato de uma festa recém-fechada pedia passar pelo Financeiro).
+  const pacoteComValor = () => {
+    const s = daReservaAtual && daReservaAtual.reserva && daReservaAtual.reserva.servicos;
+    return !daReservaAtual?.valores && s && Number(s.valor) > 0 ? s : null;
+  };
   const mostrarFalta = () => {
     const falta = camposNoTexto(area.value);
+    const pacote = falta.some(f => f === "valor" || f === "sinal") ? pacoteComValor() : null;
     form.querySelector("[data-falta]").innerHTML = falta.length
-      ? `<p class="rz-alerta rz-alerta--aviso">${icone("alerta", { tamanho: 18 })}<span>Sem valor ainda: ${falta.map(f => `<b>{${escapar(f)}}</b> (${escapar(nomeDoCampo(f))})`).join(", ")}. Escreva no texto ou complete ${escapar(nicho.palavras.aReserva)} (na Agenda, ${nicho.id === "eventos" ? "o pacote" : "o ensaio"}; no Financeiro, os valores).</span></p>`
+      ? `<div class="rz-alerta rz-alerta--aviso">${icone("alerta", { tamanho: 18 })}<span>Sem valor ainda: ${falta.map(f => `<b>{${escapar(f)}}</b> (${escapar(nomeDoCampo(f))})`).join(", ")}. Escreva no texto ou complete ${escapar(nicho.palavras.aReserva)} (na Agenda, ${nicho.id === "eventos" ? "o pacote" : "o ensaio"}; no Financeiro, os valores).${pacote ? `<br><button class="rz-link" type="button" data-usar-pacote>Usar os valores ${nicho.id === "eventos" ? "do pacote" : "do ensaio"}: ${escapar(moeda(Number(pacote.valor)))}${Number(pacote.sinal) > 0 ? `, sinal de ${escapar(moeda(Number(pacote.sinal)))}` : ""}</button>` : ""}</span></div>`
       : "";
   };
+  form.querySelector("[data-falta]").addEventListener("click", async e => {
+    const b = e.target.closest("[data-usar-pacote]");
+    const pacote = pacoteComValor();
+    if (!b || !pacote) return;
+    ocupado(b, true, "Gravando…");
+    try {
+      const novo = { valor_total: Number(pacote.valor), sinal: Number(pacote.sinal) > 0 ? Number(pacote.sinal) : null };
+      await banco.resultado(banco.tabela("reservas_valores").upsert({ reserva_id: daReservaAtual.reserva.id, conta_id: conta.conta_id, ...novo }));
+      daReservaAtual = { ...daReservaAtual, valores: novo };
+      valores = valoresDosCampos({ ...daReservaAtual, cliente: quem, conta, fuso });
+      area.value = preencherModelo(area.value, valores).texto; // só os campos que faltavam: o que foi escrito fica
+      mostrarFalta();
+    } catch (erro) { ocupado(b, false); avisoDoFormulario(form.querySelector("[role=alert]"), erro.message); }
+  });
   async function preencher() {
     const reservaId = form.reserva_id ? form.reserva_id.value : "";
     const d = reservaId ? await dadosDaReserva(banco, reservaId, quem) : { reserva: null, valores: null, adicionais: [], ficha: null };
+    daReservaAtual = d;
     valores = valoresDosCampos({ ...d, cliente: quem, conta, fuso });
     const modelo = modelos.find(m => m.id === (form.modelo_id ? form.modelo_id.value : ""));
     if (modelo) area.value = preencherModelo(modelo.texto, valores).texto;

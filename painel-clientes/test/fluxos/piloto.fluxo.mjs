@@ -36,9 +36,15 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
   const tarefas = [];
   const erros = [];
   let quebrou = false;
+  let tela = null; // a página do passo, para o retrato se ele falhar
   const passo = (nome, fn) => t.test(nome, async s => {
     if (quebrou) return s.skip("um passo anterior falhou");
-    try { await fn(s); } catch (e) { quebrou = true; throw e; }
+    try { await fn(s); } catch (e) {
+      quebrou = true;
+      const r = await A.retrato(tela, nome);
+      if (r) e.message += `\n    tela: ${r.url}\n    print: ${r.arquivo}\n    campos: ${r.campos.join(" | ")}`;
+      throw e;
+    }
   });
   /** Uma das 5 tarefas: conta os toques, o que foi digitado e o tempo do robô (o de gente é no roteiro do piloto). */
   const tarefa = async (nome, c, fn) => {
@@ -58,6 +64,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       erros.push(A.vigiar(pAdm, [/functions\/v1\/convidar/]));
       // o e-mail do convite não sai no fluxo: a chamada à função convidar é respondida aqui
       await pAdm.route(/functions\/v1\/convidar/, r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' }));
+      tela = pAdm;
       await A.entrar(pAdm, srv.url, adm.email, adm.senha);
       assert.equal(new URL(pAdm.url()).pathname, "/admin", "quem é da Renderiza e não tem conta cai no Admin");
       await pAdm.click("[data-nova]");
@@ -86,6 +93,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       pDono = await (await navegador.newContext(CELULAR)).newPage();
       erros.push(A.vigiar(pDono));
       c = A.contador(pDono);
+      tela = pDono;
       await A.entrar(pDono, srv.url, dono.email, dono.senha);
       const [{ n }] = await banco.sql(`select count(*)::int as n from public.termos_aceites a join auth.users u on u.id = a.usuario_id where u.email = ${A.q(dono.email)}`);
       assert.equal(n, 1, "o aceite dos termos ficou registrado");
@@ -119,7 +127,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       await visivel(pDono, "main :is(a,button):has-text('Fazer o modelo')").click();
       const m = gaveta(pDono);
       await m.getByLabel("Nome do modelo").fill("Contrato de locação");
-      await m.getByLabel("O texto").fill("CONTRATO DE LOCAÇÃO\n\nContratante: {cliente}, CPF {cpf}.\nEvento: {tipo} em {data_extenso}, {horario}, para {convidados} convidados.\nPacote: {pacote}. Valor total: {valor}. Sinal: {sinal}.\n\n{negocio}, {hoje}.");
+      await m.getByLabel("O texto").fill("CONTRATO DE LOCAÇÃO\n\nContratante: {cliente}.\nEvento: {tipo} em {data_extenso}, {horario}, para {convidados} convidados.\nPacote: {pacote}. Valor total: {valor}. Sinal: {sinal}.\n\n{negocio}, {hoje}.");
       await m.locator("button:has-text('Salvar')").click();
       await pDono.waitForTimeout(800);
       const [r] = await banco.sql(`select
@@ -129,6 +137,103 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         (select count(*)::int from public.modelos_contrato where conta_id = ${A.q(contaId)}) as modelos`);
       assert.deepEqual(r, { tipos: 1, pacotes: 1, pix: "pix-ficticio@fluxo.teste", modelos: 1 });
     });
+
+    await passo("4. as 5 tarefas do 09, no celular", async () => {
+      const linhaDoPedido = () => pDono.locator(`[data-pedidos] .rz-linha:has-text("${CLIENTE.nome}") >> visible=true`).first();
+
+      await tarefa("anotar um pedido do WhatsApp", c, async () => {
+        await pDono.goto(`${srv.url}/atendimento`, { waitUntil: "networkidle" });
+        await c.tocar(visivel(pDono, "main [data-anotar]"));
+        await c.digitar("#pq-busca", CLIENTE.nome);
+        await c.tocar("dialog[open] [data-novo-cliente]");
+        await c.digitar("#pq-whats", CLIENTE.whatsapp);
+        await c.tocar("dialog[open] [data-novo] [type=submit]");
+        await pDono.waitForSelector("#form-novo-pedido");
+        await c.digitar("#novo-data", D.festa);
+        await c.digitar("#novo-conv", "120");
+        await c.escolher("#novo-tipo", { label: "Casamento" });
+        await c.tocar("button[form=form-novo-pedido]");
+        await pDono.waitForSelector("#form-novo-pedido", { state: "detached" });
+      });
+      const [pedido] = await banco.sql(`select p.id, p.etapa, p.origem, p.data_desejada::text as data from public.pedidos p join public.clientes cl on cl.id = p.cliente_id where cl.nome = ${A.q(CLIENTE.nome)} and p.conta_id = ${A.q(contaId)}`);
+      assert.ok(pedido, "o pedido foi gravado");
+      assert.equal(pedido.data, D.festa);
+
+      await tarefa("marcar uma visita", c, async () => {
+        await c.tocar(linhaDoPedido());
+        await c.tocar("dialog[open] [data-visita]");
+        await c.digitar("#visita-data", D.visita);
+        await c.digitar("#visita-hora", "15:00");
+        await c.tocar("dialog[open] [data-confirmar]");
+        await pDono.waitForSelector("#visita-data", { state: "detached" });
+      });
+      const [visita] = await banco.sql(`select (select etapa from public.pedidos where id = ${A.q(pedido.id)}) as etapa, (select count(*)::int from public.compromissos where conta_id = ${A.q(contaId)} and tipo = 'visita') as visitas`);
+      assert.deepEqual(visita, { etapa: "visita_marcada", visitas: 1 });
+
+      await tarefa("fechar a reserva", c, async () => {
+        await c.tocar(linhaDoPedido());
+        await c.tocar("dialog[open] [data-fechar-pedido]");
+        await pDono.waitForSelector("#fechar-pacote");
+        await c.escolher("#fechar-pacote", { label: "Pacote Jardim" });
+        await c.tocar("dialog[open] [data-confirmar]");
+        await pDono.waitForSelector("[data-fechar-form]", { state: "detached" });
+      });
+      const [reserva] = await banco.sql(`select r.id, r.situacao, (select nome from public.servicos where id = r.servico_id) as pacote, (select etapa from public.pedidos where id = ${A.q(pedido.id)}) as etapa from public.reservas r where r.conta_id = ${A.q(contaId)}`);
+      assert.equal(reserva.etapa, "fechado");
+      assert.equal(reserva.pacote, "Pacote Jardim", "o pacote escolhido no fechar foi para a festa");
+      assert.ok(["confirmada", "pre_reserva"].includes(reserva.situacao), reserva.situacao);
+
+      await tarefa("registrar um pagamento", c, async () => {
+        await pDono.goto(`${srv.url}/financeiro`, { waitUntil: "networkidle" });
+        await c.tocar(visivel(pDono, "main :is(a,button):has-text('Registrar pagamento')"));
+        await c.digitar("#pq-busca", "Juliana");
+        await c.tocar(pDono.locator(`dialog[open] :is(button,a):has-text("${CLIENTE.nome}")`).first());
+        await pDono.waitForSelector("#parc-valor");
+        await c.digitar("#parc-desc", "Sinal");
+        await c.digitar("#parc-valor", "3000");
+        await c.tocar("dialog[open] button:has-text('Registrar')");
+        await pDono.waitForSelector("#parc-valor", { state: "detached" });
+      });
+      const [pago] = await banco.sql(`select count(*)::int as n, sum(valor)::int as total from public.parcelas where conta_id = ${A.q(contaId)} and reserva_id = ${A.q(reserva.id)} and pago_em is not null`);
+      assert.deepEqual(pago, { n: 1, total: 3000 }, "o sinal entrou como pago, na festa certa");
+
+      let link;
+      await tarefa("mandar o contrato", c, async () => {
+        await pDono.goto(`${srv.url}/contratos`, { waitUntil: "networkidle" });
+        await c.tocar(visivel(pDono, `main li:has-text("${CLIENTE.nome}") [data-fazer]`));
+        await pDono.waitForSelector("#ct-texto");
+        await c.tocar("dialog[open] [data-usar-pacote]");
+        await pDono.waitForFunction(() => !document.querySelector("dialog[open] [data-falta]").textContent.trim());
+        await c.tocar("dialog[open] [data-mandar]");
+        await c.tocar("dialog[open] [data-sim]");
+        await pDono.waitForSelector("#ct-link");
+        link = await pDono.inputValue("#ct-link");
+      });
+      assert.match(link, /\/c\/[a-z0-9]{16,}/);
+      const [valores] = await banco.sql(`select valor_total::int as total, sinal::int as sinal from public.reservas_valores where reserva_id = ${A.q(reserva.id)}`);
+      assert.deepEqual(valores, { total: 12000, sinal: 3000 }, "os valores do pacote foram para a festa (o Financeiro vê os mesmos)");
+    });
+
+    await passo("5. a cliente aceita o contrato pelo link, no celular, sem login", async () => {
+      const link = await pDono.inputValue("#ct-link");
+      const pCli = await (await navegador.newContext(CELULAR)).newPage();
+      erros.push(A.vigiar(pCli));
+      tela = pCli;
+      await pCli.goto(link.replace(/^https?:\/\/[^/]+/, srv.url), { waitUntil: "networkidle" });
+      assert.match(await pCli.locator(".rz-contrato-resumo").innerText(), /Casamento/);
+      await pCli.click("[data-ler]");
+      await pCli.fill("#ac-nome", CLIENTE.nome);
+      await pCli.fill("#ac-contato", "(11) 90000-0101");
+      await pCli.check("[name=li]");
+      await pCli.click("[data-aceite] [type=submit]");
+      await pCli.waitForSelector("#ct-pronto");
+      assert.match(await pCli.locator("h1").first().innerText(), /Contrato aceito/);
+      assert.match(await pCli.locator("main").innerText(), /pix-ficticio@fluxo\.teste/, "depois do aceite, a cliente vê o Pix do espaço");
+      const [ct] = await banco.sql(`select situacao, aceito_nome, aceito_ip is not null as tem_ip from public.contratos where conta_id = ${A.q(contaId)}`);
+      assert.deepEqual(ct, { situacao: "aceito", aceito_nome: CLIENTE.nome, tem_ip: true });
+      tela = pDono;
+    });
+
   } finally {
     await navegador.close();
     srv.parar();
