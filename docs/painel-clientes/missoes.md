@@ -14,7 +14,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
+| 6 · Piloto | 6 | você + 1 sessão | **em andamento** desde 30/10: a parte da sessão (fluxos, varredura, correções, o roteiro do piloto); o piloto é a própria Renderiza simulando, depois do deploy | `claude/painel-renderiza-setup-ztnrzy` |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
 (diga por quê em "Avisos"). Os caminhos de "Mexe em" são dentro de `painel-clientes/`, menos os que começam pela raiz.
@@ -209,6 +209,28 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 6 · Piloto (parte da sessão) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
+Combinado com a Renderiza (30/10): o piloto é ela mesma, com mais uma pessoa, simulando o uso. A sessão faz tudo no
+  STG (o npm run dev roda o código da main), sem esperar o deploy da Vercel; na produção, só leitura (gravar e apagar
+  dado de teste lá só com o "pode" da Renderiza).
+Referência: 09 (o teste das 5 tarefas: anotar um pedido do WhatsApp, marcar uma visita, fechar a reserva, registrar um
+  pagamento, mandar o contrato; cada uma em menos de 30 s, sem ajuda), 01 (Parada 6), 02, 05, 06.
+Plano (nesta ordem, cada parte com commit):
+  1. test/fluxos/: os fluxos de ponta a ponta (Playwright) contra o STG, com usuários temporários que o próprio fluxo
+     cria e apaga: as 5 tarefas no celular (com o número de toques), o caminho inteiro (pedido → reserva → valores e
+     parcelas → contrato → aceite pelo link → parcelas pagas), os papéis ("só vê", sem acesso), o Admin. npm run fluxos.
+  2. Varredura geral no STG: todas as telas, eventos e fotografia, dono, "edita" e "só vê", computador e celular;
+     erro de script, chamada que falha, texto cortado, tela que rola para o lado. Corrigir o que achar.
+  3. O roteiro do piloto para a Renderiza (docs/painel-clientes/roteiro-do-piloto.md): montar a conta pelo Admin, as
+     5 tarefas, o caminho inteiro e onde anotar o que travou.
+  4. Produção depois do deploy: só leitura (versão, páginas, cabeçalhos, funções públicas).
+  5. Documentos (missoes, trilho, 09 com o resultado das 5 tarefas, avisos).
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: test/fluxos/ e o que as correções pedirem (com aviso).
 ```
 
 ```
