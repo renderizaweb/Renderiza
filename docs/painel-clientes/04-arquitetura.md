@@ -146,6 +146,20 @@ painel-clientes/
   secreta fica no ambiente da função (`SUPABASE_SECRET_KEYS`, posta pelo Supabase); `verify_jwt` desligado porque a
   função confere o login sozinha (`auth.getUser`). Publicar: `node supabase/functions/publicar.mjs stg` e depois
   `producao --projeto <ref>`; sem argumento, lista o que está publicado.
+- **Convite por link e acesso sem e-mail** (Missão 7, bloco B; D42): o padrão no Admin (a conta nova) e na Equipe. A
+  Renderiza ou o dono escolhe um **usuário** (ex.: `espacojardim`, `rafael.villaalecrim`); o login por baixo é
+  `<usuário>@acesso.renderizaweb.com.br`, um endereço interno que não recebe e-mail. O convite ganha um código de 32
+  letras e números e vira o link `/boas-vindas/<código>` (`src/telas/boas-vindas.js`), que vale uma vez, por 7 dias,
+  e vai pelo WhatsApp com a mensagem pronta (`src/ui/convite-link.js`). A tela lê o convite por
+  `publico_convite(código)` (o negócio, o nicho, o usuário; sem e-mail) e manda a senha para a função
+  `aceitar-convite` (`supabase/functions/aceitar-convite/`; a lógica em `logica.js`, testada em
+  `test/convite-link.test.mjs`; sem login, `verify_jwt` desligado), que marca o link, cria o login (ou troca a senha
+  de quem já tem o usuário: o "link para a senha nova") e devolve o e-mail interno; o painel entra em seguida e o
+  `aceitar_convites()` de sempre põe a pessoa na conta. **Segurança** (migração `…233000`): o link só troca a senha de
+  quem já tem login se foi gerado pela Renderiza (`pela_renderiza`) ou se a pessoa só está na conta de quem gerou
+  (`convite_pode_usar_login`, no banco ao gravar e na função ao aceitar); um convite pendente por usuário. Entrar
+  aceita "e-mail ou usuário" (`emailDeEntrada` em `src/sessao.js`). O e-mail para recuperar a senha sozinho entra no
+  bloco E (até lá, quem esqueceu pede um link novo à Renderiza ou ao dono).
 - **Admin:** mesma aplicação, área `/admin`, só para quem está em `equipe_renderiza`. As regras do
   banco deixam essa equipe ver as contas, as pessoas, os pagamentos e os números, mas **não** os dados dos clientes
   finais; para isso, só "entrar na conta para ajudar", que fica registrado.
