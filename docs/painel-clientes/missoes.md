@@ -14,7 +14,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: o deploy da Vercel voltar a andar, os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 6 · Piloto | 6 | você + 1 sessão | **em andamento** desde 30/10: a parte da sessão (fluxos, varredura, correções, o roteiro do piloto); o piloto é a própria Renderiza simulando, depois do deploy | `claude/painel-renderiza-setup-ztnrzy` |
+| 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
 (diga por quê em "Avisos"). Os caminhos de "Mexe em" são dentro de `painel-clientes/`, menos os que começam pela raiz.
@@ -212,39 +212,35 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 6 · Piloto (parte da sessão) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
-Combinado com a Renderiza (30/10): o piloto é ela mesma, com mais uma pessoa, simulando o uso. A sessão faz tudo no
-  STG (o npm run dev roda o código da main), sem esperar o deploy da Vercel; na produção, só leitura (gravar e apagar
-  dado de teste lá só com o "pode" da Renderiza).
-Referência: 09 (o teste das 5 tarefas: anotar um pedido do WhatsApp, marcar uma visita, fechar a reserva, registrar um
-  pagamento, mandar o contrato; cada uma em menos de 30 s, sem ajuda), 01 (Parada 6), 02, 05, 06.
-Plano (nesta ordem, cada parte com commit):
-  1. test/fluxos/: os fluxos de ponta a ponta (Playwright) contra o STG, com usuários temporários que o próprio fluxo
-     cria e apaga: as 5 tarefas no celular (com o número de toques), o caminho inteiro (pedido → reserva → valores e
-     parcelas → contrato → aceite pelo link → parcelas pagas), os papéis ("só vê", sem acesso), o Admin. npm run fluxos.
-  2. Varredura geral no STG: todas as telas, eventos e fotografia, dono, "edita" e "só vê", computador e celular;
-     erro de script, chamada que falha, texto cortado, tela que rola para o lado. Corrigir o que achar.
-  3. O roteiro do piloto para a Renderiza (docs/painel-clientes/roteiro-do-piloto.md): montar a conta pelo Admin, as
-     5 tarefas, o caminho inteiro e onde anotar o que travou.
-  4. Produção depois do deploy: só leitura (versão, páginas, cabeçalhos, funções públicas).
-  5. Documentos (missoes, trilho, 09 com o resultado das 5 tarefas, avisos).
-Feito:
-  1. test/fluxos/ (npm run fluxos): ambiente.mjs (servidor numa porta própria, logins e conta temporários, limpeza,
-     retrato da tela quando um passo falha) e piloto.fluxo.mjs, verde no STG: Admin cria a conta → o dono entra pelo
-     celular e aceita os termos → arruma tipo de festa, pacote, Pix e modelo → as 5 tarefas (toques do robô: anotar
-     5, visita 3, fechar 4, pagamento 3, contrato 4) → a cliente aceita pelo link e vê o Pix → a equipe "só vê" entra
-     e não muda nada → a Renderiza registra o Pix da mensalidade e entra para ajudar.
-  Correções achadas: (a) Admin · Criar conta tocado antes da lista carregar abria sem os módulos; (b) o pedido
-     anotado à mão não tinha pacote, e o contrato de uma festa recém-fechada só saía passando pela Agenda e pelo
-     Financeiro: Fechar ganhou o Pacote (eventos) e o contrato, "Usar os valores do pacote"; (c) Primeiros passos
-     da conta criada pelo Admin (sem pacotes): "Cadastrar os seus pacotes, com os valores".
-  3. docs/painel-clientes/roteiro-do-piloto.md (o passo a passo da simulação na produção).
-Em andamento: 2. a varredura (test/fluxos/varredura.fluxo.mjs: todas as telas, Villa e Ciranda, dono, edita e só
-  vê, celular e computador, e o Admin).
-Próximo passo: terminar a varredura e corrigir o que ela achar; depois 4 (produção, só leitura, quando o deploy
-  andar) e 5.
-Mexe em: test/fluxos/ e o que as correções pedirem (com aviso). Fora disso até agora, pequeno: src/admin/contas/
-  index.js, src/modulos/atendimento/pedido.js, src/modulos/contratos/contrato.js, src/modulos/inicio/primeiros-passos.js.
+Missão 6 · Piloto (parte da sessão) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · PARTE DA SESSÃO FEITA, NA MAIN
+Combinado com a Renderiza (30/10): o piloto é ela mesma, com mais uma pessoa, simulando o uso na produção. A sessão
+  faz tudo no STG (o npm run dev roda o código da main); na produção, só leitura (gravar e apagar dado de teste lá
+  só com o "pode" da Renderiza).
+Referência: 09 (o teste das 5 tarefas), 01 (Parada 6), 02, 05, 06.
+Feito (partes 1 a 5):
+  1. test/fluxos/ (npm run fluxos): ambiente.mjs (servidor numa porta própria; logins e conta temporários
+     @fluxo-<marca>.teste e t-fluxo-<marca>, apagados no fim e, se a execução cair, na seguinte; o retrato da tela
+     quando um passo falha) e piloto.fluxo.mjs, verde no STG (9 de 9, uns 2 min): Admin cria a conta → o dono entra
+     pelo celular e aceita os termos → arruma tipo de festa, pacote, Pix e modelo → traz as datas já marcadas → as 5
+     tarefas (toques do robô: anotar 5, visita 3, fechar 4, pagamento 3, contrato 4) → a cliente aceita pelo link e
+     vê o Pix → a equipe "só vê" entra e não muda nada → a Renderiza registra o Pix da mensalidade e entra para ajudar.
+  2. varredura.fluxo.mjs, verde no STG (9 de 9, uns 10 min): Villa e Ciranda, dono, "edita" e "só vê", celular e
+     computador, e o Admin; FLUXO_PRINTS=1 guarda o print de cada tela (olhados um a um).
+  3. docs/painel-clientes/roteiro-do-piloto.md (o passo a passo da simulação na produção, com onde anotar).
+  4. producao.conferir.mjs (npm run conferir-producao), só leitura: verde na produção.
+  5. 04 (Testes), 09 (o caminho mais curto das 5 tarefas), 10 (.rz-titulo-valor), trilho, README do painel.
+Correções (cada uma com teste ou no fluxo): (a) Admin · Criar conta tocado antes da lista carregar abria sem os
+  módulos; (b) Fechar (eventos) ganhou o Pacote; (c) o contrato, "Usar os valores do pacote" (antes, a festa
+  recém-fechada só mandava contrato depois de passar pela Agenda e pelo Financeiro); (d) Primeiros passos da conta
+  criada pelo Admin, que nasce sem pacotes: "Cadastrar os seus pacotes, com os valores"; (e) no celular, o valor da
+  parcela era cortado no fim da linha ("Nome · R$…"); agora o nome é cortado e o valor fica.
+Falta (da Renderiza): rodar o roteiro do piloto com mais uma pessoa e mandar o que travou; depois, uma sessão corrige
+  e mede os tempos das 5 tarefas no 09. "Acompanhar a primeira semana" começa quando o uso começar.
+Não testado aqui: o e-mail do convite de verdade (no fluxo, a chamada à função convidar é respondida pelo teste; a
+  função está na produção desde 29/10); o Meu site e a agenda online no fluxo do piloto (têm os testes da Missão 4).
+Mexe em: test/fluxos/ e o que as correções pedirem. Fora disso, pequeno: src/admin/contas/index.js,
+  src/modulos/atendimento/pedido.js, src/modulos/contratos/contrato.js, src/modulos/inicio/ (primeiros-passos.js,
+  logica.js, index.js), src/modulos/financeiro/ (index.js, festa.js), estilo.css (.rz-titulo-valor), package.json.
 ```
 
 ```
@@ -768,7 +764,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
-| 30/10/2026 | 5B → Renderiza, todas | **Regras prontas (na `main`); Missão 5 feita.** Para a Renderiza: (1) ~~"Pode" para a produção~~ **feito em 30/10**: as duas migrações da Missão 5 estão na produção, e o `contato@renderizaweb.com.br` está na `equipe_renderiza` de lá (o Admin aparece no menu dele quando o deploy andar). Para pôr mais alguém, o SQL do aviso da 5A. (2) **Backup:** em GitHub → Settings → Secrets and variables → Actions, criar `PAINEL_SUPABASE_ACCESS_TOKEN` (o token da API do Supabase), `PAINEL_STG_SUPABASE_URL`, `PAINEL_PROD_SUPABASE_URL` e `BACKUP_SENHA` (longa e aleatória, ex.: `openssl rand -base64 32`; **guardar também fora do GitHub**: sem ela, o backup não abre). Depois, em Actions → "Backup do Painel Renderiza" → Run workflow, rodar uma vez e ver ficar verde. Enquanto os segredos não existem, a execução de segunda termina com um aviso ("Backup não feito"), sem ficar vermelha: **sem os segredos, não tem backup**. **O repositório é público:** qualquer pessoa logada no GitHub baixa o artefato; ele só vale porque está cifrado (D34). (3) **Termos e política** (`/termos`, `/privacidade`): rascunhos; alguém de LGPD revisa o que está em amarelo antes do primeiro cliente pagante (D12). Mudou o texto de verdade: nova data em `data-versao` das duas páginas e em `VERSAO_DOS_TERMOS` (`src/telas/termos.js`), e todo mundo aceita de novo. (4) Ainda valem: **o deploy da Vercel parado** (a produção segue em `64c9d8d`, sem o Admin, os termos e o que veio depois: na Vercel, `renderiza-painel-clientes` → Settings → Git, religar o repositório; ou criar um Deploy Hook da `main` e pôr a URL nas variáveis do ambiente das sessões), a chave do Brevo, o Turnstile. **Para todas:** (a) **toda função nova** em `public` leva `revoke execute … from public, anon` (e `grant … to authenticated` se o painel chama), fora as `publico_*`; senão o teste `090` falha (D36). (b) Depois de entrar, quem não aceitou a versão de agora dos termos vê a tela do aceite antes do painel e do Admin: usuário de teste novo passa por ela. (c) **Aviso na agenda online (06), para quem mexer em `ferramentas/demo/agenda-online/agenda.html`** (fora da Missão 5): uma linha perto do botão de enviar, ex.: "Seus dados vão para o <negócio>, que usa o Painel Renderiza para organizar os pedidos. Como cuidamos deles: painel.renderizaweb.com.br/privacidade". (d) Rewrites: `/termos` e `/privacidade` vêm depois do `/c/` e antes do app. |
+| 30/10/2026 | 6 → Renderiza, todas | **Missão 6, a parte da sessão, na `main`.** Para a Renderiza: (1) o passo a passo da simulação está em [`roteiro-do-piloto.md`](roteiro-do-piloto.md) (uns 40 minutos, na produção, com clientes inventados); mande o que travou. (2) Depois de cada deploy: `npm run conferir-producao` (em `painel-clientes/`) confere a produção sem gravar nada. Para todas: (a) **`npm run fluxos`** roda o caminho do piloto e a varredura de todas as telas no STG (uns 13 minutos; criam e apagam os próprios dados): rode antes de subir mudança de tela. (b) **Fechar** (Atendimento, eventos) agora tem o campo Pacote, e o contrato tem **"Usar os valores do pacote"** (grava em `reservas_valores`, como o Financeiro sugere). (c) Título com valor numa linha: use `.rz-titulo-valor` (10), para o valor não sumir no celular. (d) A conta criada pelo Admin nasce sem pacotes nem tipos de festa: os Primeiros passos pedem para cadastrar. |
+| 30/10/2026 | 5B → Renderiza, todas | **Regras prontas (na `main`); Missão 5 feita.** Para a Renderiza: (1) ~~"Pode" para a produção~~ **feito em 30/10**: as duas migrações da Missão 5 estão na produção, e o `contato@renderizaweb.com.br` está na `equipe_renderiza` de lá (o Admin aparece no menu dele quando o deploy andar). Para pôr mais alguém, o SQL do aviso da 5A. (2) **Backup:** em GitHub → Settings → Secrets and variables → Actions, criar `PAINEL_SUPABASE_ACCESS_TOKEN` (o token da API do Supabase), `PAINEL_STG_SUPABASE_URL`, `PAINEL_PROD_SUPABASE_URL` e `BACKUP_SENHA` (longa e aleatória, ex.: `openssl rand -base64 32`; **guardar também fora do GitHub**: sem ela, o backup não abre). Depois, em Actions → "Backup do Painel Renderiza" → Run workflow, rodar uma vez e ver ficar verde. Enquanto os segredos não existem, a execução de segunda termina com um aviso ("Backup não feito"), sem ficar vermelha: **sem os segredos, não tem backup**. **O repositório é público:** qualquer pessoa logada no GitHub baixa o artefato; ele só vale porque está cifrado (D34). (3) **Termos e política** (`/termos`, `/privacidade`): rascunhos; alguém de LGPD revisa o que está em amarelo antes do primeiro cliente pagante (D12). Mudou o texto de verdade: nova data em `data-versao` das duas páginas e em `VERSAO_DOS_TERMOS` (`src/telas/termos.js`), e todo mundo aceita de novo. (4) Ainda valem: ~~o deploy da Vercel parado~~ (**voltou em 30/10**: a produção recebeu o `fff69ae` e o push seguinte), a chave do Brevo, o Turnstile. **Para todas:** (a) **toda função nova** em `public` leva `revoke execute … from public, anon` (e `grant … to authenticated` se o painel chama), fora as `publico_*`; senão o teste `090` falha (D36). (b) Depois de entrar, quem não aceitou a versão de agora dos termos vê a tela do aceite antes do painel e do Admin: usuário de teste novo passa por ela. (c) **Aviso na agenda online (06), para quem mexer em `ferramentas/demo/agenda-online/agenda.html`** (fora da Missão 5): uma linha perto do botão de enviar, ex.: "Seus dados vão para o <negócio>, que usa o Painel Renderiza para organizar os pedidos. Como cuidamos deles: painel.renderizaweb.com.br/privacidade". (d) Rewrites: `/termos` e `/privacidade` vêm depois do `/c/` e antes do app. |
 | 30/10/2026 | 5A → Renderiza, todas | **Admin pronto (na `main`).** (1) **Ninguém está na equipe Renderiza na produção** (`equipe_renderiza` vazia), então ninguém abre o Admin lá. Quem a Renderiza quiser como admin entra uma vez no painel e depois, no Supabase da produção (SQL Editor): `insert into public.equipe_renderiza (usuario_id, nome) select id, 'Nome' from auth.users where email = 'e-mail@da.pessoa';`. Quem é da equipe e não é de nenhuma conta cai direto no Admin. (2) **A migração `20261030120000_minhas_contas_suporte.sql` está no STG; na produção, espera o "pode"**: ela faz `drop` e `create` da função `minhas_contas` (nenhum dado é apagado), e o `scripts/migrar.mjs` trava todo `drop` na produção (08, regra 8). Com o "pode": `node scripts/migrar.mjs producao --projeto hxzsiiqhlqxuqkevskwb --pode-destrutivo`. Sem ela, o Admin funciona, menos o "Entrar para ajudar" (a conta não abre). (3) `minhas_contas()` ganhou a coluna `suporte_ate` (05). (4) Fora do `src/admin/`, pequeno: `src/app.js` (rota do Admin sem conta), `src/telas/contas.js`, `src/sessao.js` (`carregarPessoa` sem `pessoa_id`), `src/telas/casca.js` (a faixa do suporte), `estilo.css` seção 23. |
 | 30/10/2026 | 4 → 3F, todas | **O bloco F da Missão 3 (Início e exportar) está terminado e na `main`**, junto com a correção do "Pacote" na Agenda: a sessão do bloco parou no limite, e a da Missão 4 testou de ponta a ponta no STG, documentou e subiu. **Missões 3 e 4 feitas; a próxima é a 5.** Quem tiver branch antiga (`claude/painel-renderiza-setup-ztnrzy`), traga a `main` antes de mexer. |
 | 30/10/2026 | Vercel → todas | **A produção do painel está no `64c9d8d` por um deploy feito pela API** (conferido: `/api/config` e os arquivos no ar iguais aos da `main`). **Os pushes não estão gerando deploy** desde o `e531d90` (22h36 de 29/10, Brasília), nos dois projetos: a Vercel nem registra o push; conta sem bloqueio, limite e espaço descartados, GitHub ligado. O projeto do painel tem `createDeployments: "disabled"` (o `renderiza`, `enabled`). Enquanto isso: depois de um push na `main`, conferir o `versao` do `/api/config`; se não andar, alguém com token da Vercel cria o deploy da `main` pela API (ou por um Deploy Hook). A Renderiza confere o ícone da Vercel no commit no GitHub e, na Vercel, `renderiza-painel-clientes` → Settings → Git. Produção tem uma conta só, "Espaço de teste" (eventos, em teste), com o Meu site ligado e **nenhum site cadastrado**. |
