@@ -16,7 +16,7 @@ exemplo) · ⚪ depois (precisa de função nova)
 |---|---|---|---|---|
 | G1 | a **cor do negócio** em tudo: botões, aba ativa, "+", o dia de hoje, a barra do computador (o verde da Villa, o vinho do estúdio) | a terracota da Renderiza em tudo, em toda conta | o tema do nicho na casca (as cores que o onboarding já usa, D33) | ✅ |
 | G2 | no topo, o nome do negócio com "Painel do espaço" ou "Painel do estúdio" embaixo, e o logo | as iniciais e o nome | o nome com a linha de baixo, e o logo quando a conta tem | ✅ |
-| G3 | no celular, o **"+" no topo**, ao lado do nome | o "+" flutuante embaixo, à direita, que cobre botões da lista ("Recebi", um chip) | o "+" no topo, no celular | 🟢 |
+| G3 | no celular, o **"+" no topo**, ao lado do nome | o "+" flutuante embaixo, à direita, que cobre botões da lista ("Recebi", um chip) | o "+" no topo, no celular | ✅ |
 | G4 | o sino de avisos no topo | a busca no topo | depois: os avisos (pedido novo, parcela vencendo) | ⚪ |
 | G5 | abas de baixo, eventos: Início, Agenda, Clientes, Financeiro, Mais (fotografia: Início, Agenda, Natal, Clientes, Mais) | Início, Atendimento, Agenda, Clientes, Mais | o `09` pôs o Atendimento em segundo ("Barra de baixo"). Manter ou voltar ao exemplo? | 🟡 |
 | G6 | no computador, a barra lateral na cor do negócio, com o cartão "Agenda online" (o link para mandar) | a barra lateral grafite | a barra na cor escura do tema (com o G1); o cartão da agenda online depois | ✅ cor · ⚪ cartão |
@@ -38,7 +38,7 @@ exemplo) · ⚪ depois (precisa de função nova)
 
 | # | Exemplo | Painel hoje | Proposta | |
 |---|---|---|---|---|
-| A1 | no celular, abre no **mês**, com os pontinhos de cada dia e a lista do dia embaixo | no celular, abre na semana (decisão do `09`), com "Mês" num toque | abrir no mês também no celular, como o exemplo | 🟢 |
+| A1 | no celular, abre no **mês**, com os pontinhos de cada dia e a lista do dia embaixo | no celular, abre na semana (decisão do `09`), com "Mês" num toque | abrir no mês também no celular, como o exemplo | ✅ |
 | A2 | a legenda das cores dos tipos e as pessoas da equipe à vista, em chips | um botão "Filtrar" | a legenda à vista; as pessoas no "Filtrar" | 🟢 |
 | A3 | um botão: "Reservar data" (fotografia: "Marcar ensaio") | dois: "Marcar visita" e "Reservar data" | manter os dois (o "Marcar visita" é uma das 5 tarefas do `09`) | 🟡 |
 

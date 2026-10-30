@@ -859,3 +859,9 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-topo-nome{display:flex;flex-direction:column;min-width:0;line-height:1.15}
 .rz-topo-nome small{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rz-destaque)}
 @media (min-width:960px){.rz-app.rz-tema-eventos .rz-lateral,.rz-app.rz-tema-fotografia .rz-lateral{background:var(--rz-lateral)}}
+/* no celular, o "+" no topo, ao lado do nome, como o exemplo (cara-dos-exemplos.md, G3): o flutuante cobria a lista */
+.rz-topo-mais{flex:none;width:40px;height:40px;display:grid;place-items:center;padding:0;border:0;border-radius:var(--rz-raio);background:var(--rz-destaque);color:#fff;cursor:pointer;box-shadow:var(--rz-sombra-1)}
+.rz-topo-mais:hover{background:var(--rz-destaque-escuro)}
+.rz-topo-mais:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-app.rz-tema-eventos .rz-topo .rz-conta-sinal,.rz-app.rz-tema-fotografia .rz-topo .rz-conta-sinal{background:var(--rz-destaque-escuro)}
+@media (min-width:960px){.rz-topo-mais{display:none}}

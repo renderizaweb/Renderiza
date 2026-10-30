@@ -151,7 +151,8 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
           <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<span class="rz-topo-nome"><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span></a>
           ${etiqueta}
           ${bloqueada ? "" : `<button class="rz-busca" type="button" data-buscar aria-label="Buscar (Ctrl+K)">${icone("buscar", { tamanho: 18 })}<span>Buscar cliente, data ou pedido</span><kbd>Ctrl K</kbd></button>
-          ${fazAlgo ? `<button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>` : ""}`}
+          ${fazAlgo ? `<button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>
+          <button class="rz-topo-mais" type="button" data-novo aria-label="Ações rápidas">${icone("adicionar", { tamanho: 22 })}</button>` : ""}`}
           <button class="rz-topo-quem" type="button" data-mais aria-label="Menu da conta">${avatar(pessoa, usuario.email)}</button>
         </header>
         ${avisoDoTeste(conta)}
@@ -162,7 +163,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
         ${barra.map(i => `<a href="${i.caminho}"${rota.tipo === "modulo" && rota.id === i.id ? ' aria-current="page"' : ""}>${icone(i.icone, { tamanho: 22 })}<span>${escapar(i.nome)}</span></a>`).join("")}
         <button type="button" data-mais>${icone("mais", { tamanho: 22 })}<span>Mais</span></button>
       </nav>
-      ${fazAlgo ? `<button class="rz-fab" type="button" data-novo aria-label="Ações rápidas">${icone("adicionar", { tamanho: 26 })}</button>` : ""}`}
+`}
     </div>`;
 
   const conteudo = raiz.querySelector("#conteudo");

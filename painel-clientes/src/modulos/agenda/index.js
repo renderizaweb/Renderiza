@@ -31,7 +31,7 @@ export async function montar(el, contexto) {
   const aba = fotografia && params.get("aba") === "campanhas" ? "campanhas" : "agenda";
   let diaSel = DIA.test(params.get("dia") || "") ? params.get("dia") : hoje;
   let mes = primeiroDoMes(diaSel);
-  let vistaCelular = "semana";
+  let vistaCelular = "mes"; // como o exemplo validado (cara-dos-exemplos.md, A1): o mês, com o dia embaixo
   const filtro = { pessoa: null, escondidas: [], canceladas: false };
   let dados = { reservas: [], compromissos: [], bloqueios: [], horarios: [], campanhas: [], de: "", ate: "" };
   const ctx = { banco, conta, nicho, pode, avisar, navegar, pessoa, fuso, hoje, equipe: [], aoMudar: () => desenhar(), recarregar: d => atualizar(d), abrirReservaPorId: id => abrirPorId(id), origemDoPedido: () => null };
@@ -253,7 +253,6 @@ export async function montar(el, contexto) {
     const d = alvo.closest("[data-dia]");
     if (d) {
       irPara(d.dataset.dia);
-      if (vistaCelular === "mes" && window.matchMedia("(max-width: 959px)").matches) { vistaCelular = "semana"; desenhar(); }
       corpo.querySelector(".rz-painel-dia")?.scrollIntoView({ block: "nearest", behavior: "smooth" });
       return;
     }
