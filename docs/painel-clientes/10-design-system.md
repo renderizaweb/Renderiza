@@ -111,7 +111,7 @@ são as dos exemplos: eventos `--rz-eventos` (verde, painel `--rz-eventos-latera
 (vinho, painel `--rz-fotografia-lateral`), todas em tokens no `estilo.css` (seção 1) e com o contraste conferido
 (texto branco no destaque: 6,4:1 e 6,5:1). Grafite, papel, tinta e as cores de situação não mudam. Desde a Missão 7 (bloco A,
 [`cara-dos-exemplos.md`](cara-dos-exemplos.md)) o tema vale também **dentro do painel**: a casca põe a classe no
-`.rz-app` pelo nicho da conta, e a barra lateral do computador fica na cor escura do tema (`--rz-lateral`).
+`.rz-app` e no `<body>` (para as gavetas, folhas e avisos, que abrem fora da casca; o `app.js` tira a cada tela) pelo nicho da conta, e a barra lateral do computador fica na cor escura do tema (`--rz-lateral`).
 
 ## Escrever na tela
 

@@ -36,6 +36,8 @@ export const CODIGO = `t-fluxo-${MARCA}`;
 export const email = nome => `${nome}@${DOMINIO}`;
 /** O usuário do convite por link desta execução (Missão 7, D42): o login dele é <usuário>@acesso.renderizaweb.com.br. */
 export const USUARIO = ("tfluxo" + MARCA).replace(/[^a-z0-9]/g, "").slice(0, 24);
+/** E o de alguém da equipe, que o dono convida pelo link (Equipe). */
+export const USUARIO_EQUIPE = ("tfluxoeq" + MARCA).replace(/[^a-z0-9]/g, "").slice(0, 26);
 const LOGINS_DE_USUARIO = `email like 'tfluxo%@acesso.renderizaweb.com.br'`;
 
 /** Texto como literal do Postgres. */
@@ -78,8 +80,8 @@ export async function limpar(banco) {
     delete from public.equipe_renderiza where usuario_id in ${deles};
     delete from public.pessoas where usuario_id in ${deles};
     delete from auth.users where email like ${q(`%@${DOMINIO}`)};
-    delete from public.pessoas where usuario_id in (select id from auth.users where email = ${q(`${USUARIO}@acesso.renderizaweb.com.br`)});
-    delete from auth.users where email = ${q(`${USUARIO}@acesso.renderizaweb.com.br`)};`);
+    delete from public.pessoas where usuario_id in (select id from auth.users where email in (${q(`${USUARIO}@acesso.renderizaweb.com.br`)}, ${q(`${USUARIO_EQUIPE}@acesso.renderizaweb.com.br`)}));
+    delete from auth.users where email in (${q(`${USUARIO}@acesso.renderizaweb.com.br`)}, ${q(`${USUARIO_EQUIPE}@acesso.renderizaweb.com.br`)});`);
 }
 
 /** Sobras de execuções interrompidas (mais de 2 horas): contas t-fluxo-*, pessoas e logins @fluxo-*.teste. */

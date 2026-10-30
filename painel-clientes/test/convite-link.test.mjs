@@ -92,7 +92,7 @@ test("só POST; CORS só para o painel (e o localhost de qualquer porta, para os
 });
 
 // A peça do Admin (e da Equipe): src/ui/convite-link.js
-import { novoCodigoDeLink, usuarioDoNome, usuarioValido, emailDoUsuario, linkDoConvite, mensagemDoConvite } from "../src/ui/convite-link.js";
+import { novoCodigoDeLink, usuarioDoNome, usuarioDaPessoa, usuarioValido, emailDoUsuario, linkDoConvite, mensagemDoConvite } from "../src/ui/convite-link.js";
 
 test("o código do link, o usuário sugerido pelo nome e a mensagem pronta", () => {
   const codigo = novoCodigoDeLink();
@@ -102,6 +102,10 @@ test("o código do link, o usuário sugerido pelo nome e a mensagem pronta", () 
   assert.equal(usuarioDoNome("Villa Alecrim Eventos e Festas Ltda"), "villaalecrimeventose", "até 20");
   assert.equal(usuarioDoNome("Zé"), "", "curto demais: a Renderiza escolhe");
   assert.ok(usuarioValido("espacojardim") && !usuarioValido("Espaço") && !usuarioValido("ab"));
+  assert.equal(usuarioDaPessoa("Rafael Costa", "Villa Alecrim"), "rafael.villaalecrim", "a equipe: o primeiro nome e o negócio");
+  assert.equal(usuarioDaPessoa("Léo", "Estúdio Ciranda Fotografia Infantil"), "leo.estudiociranda");
+  assert.ok(usuarioValido(usuarioDaPessoa("Maximiliano Alexandre", "Espaço de Festas Jardim Encantado")), "cabe no formato (até 30)");
+  assert.equal(usuarioDaPessoa("", "Villa"), "", "sem nome, sem sugestão");
   assert.equal(emailDoUsuario("espacojardim"), "espacojardim@acesso.renderizaweb.com.br");
   assert.equal(linkDoConvite("abc", "https://painel.renderizaweb.com.br"), "https://painel.renderizaweb.com.br/boas-vindas/abc");
   const m = mensagemDoConvite({ nome: "Marina Alves", negocio: "Espaço Jardim", usuario: "espacojardim", link: "https://x/boas-vindas/abc" });

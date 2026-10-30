@@ -124,6 +124,9 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
   const fazAlgo = acoesRapidas(conta, (m, nivel) => sessao.pode(m, nivel)).length > 0; // só vê: sem o "+"
   const daConta = itens.filter(i => i.grupo === "conta");
 
+  // o tema vale também para o que abre fora da casca (gavetas, folhas e avisos vão para o <body>); o app.js tira a
+  // cada tela, e as telas de acesso ficam neutras
+  if (temaDoNicho(conta.nicho)) document.body.classList.add(temaDoNicho(conta.nicho));
   raiz.innerHTML = `
     <div class="rz-app ${temaDoNicho(conta.nicho)}${bloqueada ? " rz-app--bloqueada" : ""}">
       <aside class="rz-lateral" aria-label="Menu">

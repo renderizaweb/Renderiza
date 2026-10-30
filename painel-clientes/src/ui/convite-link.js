@@ -23,6 +23,18 @@ export function usuarioDoNome(nome) {
   return u.length >= 3 ? u : "";
 }
 
+/**
+ * O usuário sugerido para alguém da equipe: o primeiro nome e as duas primeiras palavras do negócio ("Rafael",
+ * "Villa Alecrim Eventos" → "rafael.villaalecrim"; "de", "da", "e"… não contam).
+ */
+export function usuarioDaPessoa(nome, negocio) {
+  const limpo = v => String(v || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  const primeiro = limpo(String(nome || "").trim().split(/\s+/)[0]).slice(0, 14);
+  const deQuem = String(negocio || "").split(/\s+/).map(limpo).filter(w => w.length > 2).slice(0, 2).join("").slice(0, 15);
+  const u = [primeiro, deQuem].filter(Boolean).join(".");
+  return primeiro && u.length >= 3 ? u : "";
+}
+
 export const usuarioValido = u => FORMATO_DO_USUARIO.test(String(u || ""));
 export const emailDoUsuario = u => `${u}@${DOMINIO_DO_USUARIO}`;
 export const linkDoConvite = (codigo, origem = location.origin) => `${origem}/boas-vindas/${codigo}`;

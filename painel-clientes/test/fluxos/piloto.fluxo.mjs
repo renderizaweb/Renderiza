@@ -269,21 +269,36 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       tela = pDono;
     });
 
-    await passo("6. a equipe: alguém que só vê a agenda, os pedidos e os clientes entra e não muda nada", async () => {
+    await passo("6. a equipe: o dono convida pelo link alguém que só vê a agenda, os pedidos e os clientes; a pessoa entra e não muda nada", async () => {
       await pDono.goto(`${srv.url}/equipe`, { waitUntil: "networkidle" });
       await visivel(pDono, "main button:has-text('Convidar')").click();
       const g = gaveta(pDono);
-      await g.locator("#convite-email").fill(ve.email);
       await g.locator("#convite-nome").fill("Ana Só Vê");
+      assert.equal(await g.locator("#convite-usuario").inputValue(), "ana.espacojardim", "o usuário sai do nome e do negócio");
+      await g.locator("#convite-usuario").fill(A.USUARIO_EQUIPE);
       for (const [modulo, nivel] of [["agenda", "Só vê"], ["clientes", "Só vê"], ["atendimento", "Só vê"], ["financeiro", "Sem acesso"], ["contratos", "Sem acesso"]])
         await g.locator(`label:has(input[name=acesso-${modulo}]):has-text("${nivel}")`).click();
-      await g.locator("button:has-text('Mandar o convite')").click();
-      await pDono.waitForSelector("#convite-email", { state: "detached" });
-      ve.senha = await A.criarLogin(banco, ve.email, "Ana Só Vê");
+      await g.locator("button:has-text('Criar o convite')").click();
+      const folha = pDono.locator("dialog[open]:has([data-mensagem])");
+      await folha.waitFor();
+      assert.match(await folha.locator("[data-mensagem]").innerText(), new RegExp(`Oi, Ana!.*\\n.*Seu usuário: ${A.USUARIO_EQUIPE}`, "s"), "a mensagem pronta, com o usuário");
+      const link = await folha.locator("button:has-text('Copiar só o link')").getAttribute("data-copiar");
+      await folha.locator("button:has-text('Pronto')").click();
+      await pDono.waitForSelector(`main :text("usuário ${A.USUARIO_EQUIPE}")`);
+      ve.email = `${A.USUARIO_EQUIPE}@acesso.renderizaweb.com.br`;
+      ve.senha = "so-ve-do-fluxo-2026";
       const pVe = await (await navegador.newContext(CELULAR)).newPage();
       erros.push(A.vigiar(pVe));
       tela = pVe;
-      await A.entrar(pVe, srv.url, ve.email, ve.senha);
+      await pVe.goto(link.replace(/^https?:\/\/[^/]+/, srv.url), { waitUntil: "networkidle" });
+      assert.match(await pVe.locator("h1").innerText(), new RegExp(`Olá, ${NOME_DA_CONTA}!`), "a pessoa da equipe também é recebida pelo nome do espaço");
+      await pVe.fill("#bv-senha", ve.senha);
+      await pVe.click("[data-boas-vindas] [type=submit]");
+      await pVe.waitForSelector("[data-aceite-termos]", { timeout: 20000 });
+      await pVe.check("[data-aceite-termos] [name=li]");
+      await pVe.click("[data-aceite-termos] [type=submit]");
+      await pVe.waitForSelector("[data-aceite-termos]", { state: "detached", timeout: 15000 });
+      await pVe.waitForSelector("h1");
       const [pessoa] = await banco.sql(`select dono, acessos from public.pessoas p join auth.users u on u.id = p.usuario_id where u.email = ${A.q(ve.email)} and p.conta_id = ${A.q(contaId)}`);
       assert.equal(pessoa.dono, false, "entrou pelo convite como equipe");
       await pVe.goto(`${srv.url}/atendimento`, { waitUntil: "networkidle" });

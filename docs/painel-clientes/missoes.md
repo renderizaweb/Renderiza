@@ -210,7 +210,7 @@ D40 a D50 no [`07`](07-decisoes-e-perguntas.md), D33 (o visual do onboarding), `
 | B · Convite por link e acesso sem e-mail | o Admin gera o convite (o usuário, o link de uso único por 7 dias, "copiar para o WhatsApp"); a tela "Olá, Espaço X, crie uma senha"; entrar com usuário ou e-mail; o e-mail opcional depois; "gerar link novo" no Admin; o dono convida a equipe do mesmo jeito (D42) | `src/admin/contas/`, `src/telas/convite.js`, `src/telas/entrar.js`, `supabase/functions/` (criar o login do convite), uma migração (o convite por link e o usuário) |
 | C · A conta nasce da demo | no Admin, escolher a demo do lead e colar o histórico da conversa; a conta nasce com o que a demo tem (nome, nicho, WhatsApp, Instagram, endereço, cores, logo, horários, tipos, avaliações), e o contexto fica guardado, fechado, para a IA (D41) | `src/admin/contas/nova.js`, `api/` (ler a `demo.json` do site, no servidor), uma migração (o contexto da conta) |
 | D · A IA no servidor | a função do Supabase que fala com o Claude (a chave só no ambiente dela): o roteiro, a saída em JSON validado, o cache, o limite por conta, o registro de uso e custo, o roteiro fixo quando a IA falha; a política e os termos com o fornecedor de IA (D45, D46, D49) | `supabase/functions/assistente/` (nova), uma migração (uso e custo), `publico/privacidade/`, `publico/termos/` |
-| E · A conversa de onboarding | `/comecar` refeito com a IA por trás, no mesmo visual (cartões, toque e segue, animação): confirmações de um toque, perguntas com opções, "mande o que tiver" opcional; no fim, o painel montado e o plano para começar no Início (D43, D44) | `src/telas/comecar.js` (ou uma pasta `src/telas/onboarding/`), `src/modulos/inicio/primeiros-passos.js` |
+| E · A conversa de onboarding | `/comecar` refeito com a IA por trás, no mesmo visual (cartões, toque e segue, animação): confirmações de um toque, perguntas com opções, "mande o que tiver" opcional; no fim, o painel montado e o plano para começar no Início (D43, D44); e o **e-mail opcional** para recuperar a senha sozinha (D42; veio do B6: o usuário continua entrando, então o e-mail fica guardado à parte, confirmado por um código, e o "Esqueci a senha" manda o link para ele por uma função com o Brevo) | `src/telas/comecar.js` (ou uma pasta `src/telas/onboarding/`), `src/modulos/inicio/primeiros-passos.js` |
 | F · Trazer o que tem | o leitor com IA (fotos, PDFs, prints e planilhas viram pacotes, datas, clientes e modelo de contrato), com a conferência em lote (desmarca, corrige, grava); sem IA: contatos (.vcf), Google Agenda (.ics), planilha de clientes; "pedir à Renderiza" no Admin, com a mesma ferramenta (D48) | `src/telas/trazer/` (nova), `src/modulos/inicio/` (as importações), `src/admin/` (pedir à Renderiza) |
 | G · Acompanhamento até a confiança | cada passo registrado (link aberto, senha criada, cada pergunta, arquivos, primeiro uso); no Admin, o funil, os marcos da primeira semana, quem travou e onde, com a mensagem pronta de WhatsApp (D47) | `src/admin/onboarding/` (nova parte do Admin), uma migração (os eventos e os marcos) |
 
@@ -262,13 +262,21 @@ Feito (bloco B, na branch, ainda NÃO na main nem na produção):
 Feito (bloco A, na branch): a lista em cara-dos-exemplos.md e TODOS os itens 🟢 (✅ G1, G2, G3, G6 cor, I2, I3, A1,
   A2, T1, T2, F1). Ficam com a Renderiza os 🟡 (G5 abas de baixo, I1 ordem do Início, A3 os dois botões, F2 ticket
   médio) e para depois os ⚪ (G4 avisos, G6 cartão da agenda online, I4 ocupação por mês).
+  B6. A equipe por link: o dono convida pela Equipe ("Link no WhatsApp", o padrão; o usuário sai do nome e do
+      negócio, ex. rafael.villaalecrim), manda de novo, gera link novo e o "link para a senha nova" de quem esqueceu
+      (só de quem está só na conta dele; senão, a Renderiza). O piloto, passo 6, entra por esse link (9/9 no STG).
+  Segurança (achada no caminho, antes de subir): a migração 20261030233000 e a função aceitar-convite versão 2 no
+      STG. O link de um usuário que já tem login troca a senha dele; agora só vale se foi a Renderiza ou se a pessoa
+      só está na conta de quem gerou; um convite pendente por usuário; o link é marcado antes de mexer no login.
+  As gavetas, folhas e avisos agora também ficam na cor do negócio (a casca põe o tema no <body>).
+  O e-mail opcional (a outra metade do B6) passou para o bloco E: o usuário continua entrando, então o e-mail vai
+      à parte, confirmado por código, e o "Esqueci a senha" manda o link por uma função com o Brevo (a chave do Brevo
+      nas funções está com a Renderiza).
 Falta (bloco B):
-  B6. O e-mail opcional para recuperar a senha (Configurações; quem entrou por usuário) e o dono convidar a equipe
-      por link (src/modulos/equipe/, reaproveitando src/ui/convite-link.js).
-  Subir o B para a produção, nesta ordem: (1) as 2 migrações na produção (não destrutivas), (2)
+  Subir o B para a produção, nesta ordem: (1) as 3 migrações na produção (não destrutivas), (2)
       node supabase/functions/publicar.mjs producao --projeto <ref> --so aceitar-convite, (3) juntar a branch na main
       (a Vercel publica; conferir /api/config), (4) npm run conferir-producao, (5) a tabela de migrações abaixo.
-Próximo passo: B6; depois subir o B (acima). Os blocos C a G seguem livres, na ordem da tabela.
+Próximo passo: subir o B (acima). Depois, os blocos C a G, na ordem da tabela.
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
