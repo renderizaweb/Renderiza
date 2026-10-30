@@ -17,7 +17,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 |---|---|
 | **Onde o trem está** | Parada 6 · Piloto (a parada 5 chegou em 30/10/2026; as 3 e 4, em 29/10/2026) |
 | **Próxima ação** | A Renderiza simula o piloto seguindo o [`roteiro-do-piloto.md`](roteiro-do-piloto.md) e manda o que travou (a parte da sessão da Missão 6 está feita, na `main`; o deploy da Vercel voltou a andar em 30/10 e a produção está conferida). Ainda da Renderiza, sem travar a simulação: os segredos do backup no GitHub e rodar o backup uma vez (antes de dado de verdade entrar), a revisão dos termos e da política por alguém de LGPD (antes do primeiro cliente pagante), a chave do Brevo na função do aviso de pedido, apagar o `VERCEL_TOKEN` se ainda existir, o ok para a regra no `vercel.json` da raiz e o Turnstile, quando quiser abrir o cadastro (D30) |
-| **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md). A Parada 7 está levantada (D40 a D50) e a Missão 7 escrita, **esperando a aprovação da Renderiza** para começar o código |
+| **Em aberto** | os 🟡 da [`cara-dos-exemplos.md`](cara-dos-exemplos.md) (as abas de baixo, a ordem do Início, os dois botões da Agenda, o ticket médio): a Renderiza decide quando quiser, sem travar. A Missão 7 está em andamento (A e B feitos; C a G pela frente) |
 | **Última atualização** | 30/10/2026 |
 
 ## O mapa
@@ -27,7 +27,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
  PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ✅ ━━━━━╋━━ [6] PILOTO 🚂 ━━ 🏁 DESTINO
    ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ✅ ━━━━━━━┛
 
- 🏁 ━━ [7] ONBOARDING COM IA ⬜ ━━ [8] IA NO DIA A DIA ⬜
+ 🏁 ━━ [7] ONBOARDING COM IA 🚂 ━━ [8] IA NO DIA A DIA ⬜
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -166,7 +166,7 @@ STG (`npm run fluxos`: a conta criada pelo Admin, as datas trazidas, as 5 tarefa
 equipe "só vê", o Admin), a varredura passa por todas as telas, e a produção é conferida depois de cada deploy, só
 leitura (`npm run conferir-producao`). Falta a Renderiza rodar o roteiro e mandar o que travou.
 
-## Parada 7 · Onboarding com IA, do convite até a confiança ⬜
+## Parada 7 · Onboarding com IA, do convite até a confiança 🚂 (em andamento, junto do piloto)
 
 **Para quê:** o lead que vem da demo começar a usar em minutos, com o painel montado do jeito do negócio dele, sem
 digitar nada um a um, e seguir até estar usando sozinho. **Referência:** [`11`](11-onboarding-ia-levantamento.md)
@@ -203,6 +203,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 30/10/2026 | 7 | **Missão 7, blocos A e B, na `main` e na produção:** o painel com a cara dos exemplos (a cor do negócio em tudo, o "+" no topo do celular, a Agenda no mês com a legenda, o funil e o ícone de origem no Atendimento, o gráfico à vista no Financeiro, as próximas com o contrato e o "% pago"; lista em [`cara-dos-exemplos.md`](cara-dos-exemplos.md), os 🟡 com a Renderiza) e o **convite por link no WhatsApp** (a conta nova no Admin e a equipe pelo dono: usuário e só a senha, entrar com usuário ou e-mail, link novo e senha nova). Uma porta de segurança achada e fechada antes de subir (o link não toma o acesso de outra pessoa). Fluxos 18/18 no STG. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 7 | **Parada 7 levantada** com a Renderiza: onboarding com IA do convite até a confiança (entrada pela demo, link no WhatsApp, só senha, conversa com IA no visual de hoje, o máximo sem travar, acompanhamento com marcos). Decisões D40 a D50; Missão 7 escrita, esperando aprovação. Parada 8 (IA no dia a dia) marcada para levantamento depois. | Claude, com a Renderiza |
 | 30/10/2026 | 6 | **Missão 6, a parte da sessão, na `main`:** o caminho do piloto e a varredura de todas as telas rodam sozinhos no STG (`npm run fluxos`, verdes), a produção é conferida só lendo (`npm run conferir-producao`, verde), e o roteiro da simulação está pronto ([`roteiro-do-piloto.md`](roteiro-do-piloto.md)). Cinco correções achadas no caminho (o pacote no fechar, "Usar os valores do pacote" no contrato, o valor da parcela cortado no celular, Criar conta no Admin, Primeiros passos sem pacote). Falta a Renderiza simular. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 5 | **Missão 5 no banco da produção** (com o "pode" da Renderiza): as duas migrações aplicadas e conferidas; `contato@renderizaweb.com.br` na equipe Renderiza. O backup no GitHub espera os segredos sem ficar vermelho. A tela segue esperando o deploy da Vercel voltar a andar. | Claude, a pedido da Renderiza |
