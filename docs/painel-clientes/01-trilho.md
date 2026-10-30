@@ -16,7 +16,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 | | |
 |---|---|
 | **Onde o trem está** | Parada 5 · Admin e regras (as paradas 3 e 4 chegaram em 29/10/2026) |
-| **Próxima ação** | Missão 5 (Admin e regras): bloco A (Admin) feito, o B (Regras) em andamento ([`missoes.md`](missoes.md)). Da Renderiza para o Admin: pôr quem vai ser admin em `equipe_renderiza` na produção e o "pode" para a migração da `minhas_contas` (aviso de 30/10). Da Renderiza: a chave do Brevo na função do aviso de pedido; apagar o `VERCEL_TOKEN` (Vercel e variáveis do ambiente); conferir por que os pushes não geram deploy na Vercel (aviso de 30/10); o ok para a regra no `vercel.json` da raiz; o Turnstile, quando quiser abrir o cadastro (D30); e a varredura geral e o teste do Meu site na produção, depois das próximas missões |
+| **Próxima ação** | Missão 5 (Admin e regras): bloco A (Admin) feito, o B (Regras) em andamento desde 30/10 ([`missoes.md`](missoes.md)). Da Renderiza para o Admin: pôr quem vai ser admin em `equipe_renderiza` na produção e o "pode" para a migração da `minhas_contas` (aviso de 30/10). Da Renderiza: a chave do Brevo na função do aviso de pedido; apagar o `VERCEL_TOKEN` (Vercel e variáveis do ambiente); conferir por que os pushes não geram deploy na Vercel (aviso de 30/10); o ok para a regra no `vercel.json` da raiz; o Turnstile, quando quiser abrir o cadastro (D30); e a varredura geral e o teste do Meu site na produção, depois das próximas missões |
 | **Em aberto** | nada: nenhuma pergunta pendente no [`07`](07-decisoes-e-perguntas.md) |
 | **Última atualização** | 30/10/2026 |
 

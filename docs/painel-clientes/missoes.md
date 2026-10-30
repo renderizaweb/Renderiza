@@ -13,7 +13,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) **feito, na `main`** (30/10; a migração dele na produção espera o "pode", ver "Avisos"); bloco B (Regras) em seguida, na mesma sessão | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) **feito, na `main`** (30/10; a migração dele na produção espera o "pode", ver "Avisos"); bloco B (Regras) **em andamento** desde 30/10 | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -209,6 +209,28 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 5 · bloco B (Regras) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
+Referência: 06 (os documentos que precisam existir: termos de uso e política de privacidade; o aceite registrado no
+  primeiro acesso, de novo quando a versão muda; segurança: RLS, chaves, funções públicas, cabeçalhos, uploads;
+  backup semanal cifrado, fora do Supabase e do repositório, e um teste de restauração), 07 (D11 backup semanal,
+  D12 a IA rascunha e alguém de LGPD revisa, D13 90 dias de guarda), 02 (preço, sem fidelidade, os dados de quem
+  sai), 05 (termos_aceites).
+Plano (nesta ordem, cada parte com commit): 1. os termos de uso (/termos) e a política de privacidade
+  (/privacidade), rascunhos para revisão, em publico/, com a versão no topo; 2. o aceite no primeiro acesso (tela
+  depois de entrar, grava em termos_aceites com a versão e o aparelho; mudou a versão, pede de novo); 3. o backup
+  semanal da produção (um script que lê o banco pela API de gerenciamento, junta as tabelas, os logins e as imagens
+  num arquivo cifrado) e o teste de restauração (aplica as migrações num banco vazio, põe os dados e confere as
+  contagens), rodando no GitHub Actions (raiz .github/workflows/backup-painel.yml); restaurar de verdade um backup do
+  STG; 4. a revisão de segurança (RLS em toda tabela, funções públicas, chaves, cabeçalhos, uploads), com o que for
+  pequeno corrigido e o resto avisado; 5. documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: publico/termos/, publico/privacidade/, raiz .github/workflows/backup-painel.yml. Fora disso, pequeno e com
+  aviso: a tela do aceite (src/telas/), o app (pedir o aceite antes do painel), os rewrites de /termos e
+  /privacidade, scripts/ do backup e o que a revisão de segurança pedir.
 ```
 
 ```
