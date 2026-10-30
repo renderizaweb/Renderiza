@@ -8,7 +8,7 @@
 import { abrirGaveta, abrirFolha, confirmar } from "../../ui/gaveta.js";
 import { icone } from "../../ui/icones.js";
 import { escapar, ocupado } from "../../ui/formulario.js";
-import { campoTexto, campoSelecao, interruptor, lerFormulario } from "../../ui/campos.js";
+import { campoTexto, campoSelecao, campoArea, interruptor, lerFormulario } from "../../ui/campos.js";
 import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso } from "../../ui/formatos.js";
 import { nicho } from "../../nichos/index.js";
 import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora } from "../logica.js";
@@ -53,10 +53,11 @@ export async function abrirConta(c, ctx) {
   const { banco, avisar, catalogo } = ctx;
   const n = nicho(c.nicho);
   const e = estadoDaConta(c);
-  const [convites, pagamentos, suportes] = await Promise.all([
+  const [convites, pagamentos, suportes, contexto] = await Promise.all([
     banco.resultado(banco.tabela("convites").select("id, email, nome, dono, acessos, usuario, link_codigo, link_usado_em, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
     banco.resultado(banco.tabela("pagamentos").select("id, mes, valor, pago_em, observacao").eq("conta_id", c.id).order("mes", { ascending: false }).limit(6)).catch(() => []),
     banco.resultado(banco.tabela("acessos_suporte").select("id, motivo, nivel, inicio, fim").eq("conta_id", c.id).order("inicio", { ascending: false }).limit(5)).catch(() => []),
+    banco.resultado(banco.tabela("contas_contexto").select("demo, conversa, demos(nome)").eq("conta_id", c.id).maybeSingle()).catch(() => null),
   ]);
   const dono = c.donos[0];
   const acoesDaSituacao = c.situacao === "teste"
@@ -77,8 +78,15 @@ export async function abrirConta(c, ctx) {
           <div><dt>Pessoas</dt><dd>${c.ativas} de ${c.limite_pessoas}</dd></div>
           <div><dt>Último acesso</dt><dd>${escapar(ultimoAcesso([c.vistoEm]))}</dd></div>
           ${c.whatsapp ? `<div><dt>WhatsApp</dt><dd><a href="${escapar(linkWhatsapp(c.whatsapp))}" target="_blank" rel="noopener">${escapar(telefone(c.whatsapp))}</a></dd></div>` : ""}
+          ${contexto && contexto.demo ? `<div><dt>Veio da demo</dt><dd><a href="https://renderizaweb.com.br/demo/${escapar(contexto.demo)}" target="_blank" rel="noopener">${escapar((contexto.demos && contexto.demos.nome) || contexto.demo)}</a></dd></div>` : ""}
         </dl>
         <div class="rz-acoes-ficha">${acoesDaSituacao}</div>
+
+        <details class="rz-cartao rz-resumo"><summary>A conversa com o lead${contexto && contexto.conversa ? " (guardada)" : ""} ${icone("setaBaixo", { tamanho: 18 })}</summary>
+          <form class="rz-pilha-p rz-resumo-corpo" data-conversa>
+            ${campoArea({ id: "ct-conversa", nome: "conversa", rotulo: "Para a IA montar o painel", opcional: true, linhas: 5, valor: (contexto && contexto.conversa) || "", placeholder: "Cole aqui o que vocês conversaram no WhatsApp.", ajuda: "Só a Renderiza vê. O dono não vê." })}
+            <div><button class="rz-botao rz-botao--pequeno" type="submit">Salvar a conversa</button></div>
+          </form></details>
 
         <section class="rz-pilha-p"><h3 class="rz-titulo-3">Módulos</h3>
           <p class="rz-texto-3">Ligou ou desligou, vale na hora. No plano: 2 módulos; cada um a mais entra na mensalidade seguinte.</p>
@@ -152,6 +160,18 @@ export async function abrirConta(c, ctx) {
       ctx.recarregar();
     } catch (er) { caixa.checked = !caixa.checked; avisar(er.message, { tipo: "erro" }); }
     caixa.disabled = false;
+  });
+  // a conversa com o lead (contas_contexto; Missão 7, bloco C): só a Renderiza
+  j.el.querySelector("[data-conversa]").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const b = ev.currentTarget.querySelector("[type=submit]");
+    const conversa = String(ev.currentTarget.conversa.value || "").trim();
+    ocupado(b, true, "Salvando…");
+    try {
+      await banco.resultado(banco.tabela("contas_contexto").upsert({ conta_id: c.id, conversa: conversa || null }, { onConflict: "conta_id" }));
+      avisar(conversa ? "Conversa guardada." : "Conversa apagada.");
+    } catch (er) { avisar(er.message, { tipo: "erro" }); }
+    ocupado(b, false);
   });
   // convite por link: mandar o link, gerar um novo (o antigo deixa de valer), o link para senha nova
   const mandar = (x, novaSenha = false) => abrirMandarConvite({ numero: c.whatsapp, nome: x.nome, negocio: c.nome, usuario: x.usuario, link: linkDoConvite(x.link_codigo), novaSenha });

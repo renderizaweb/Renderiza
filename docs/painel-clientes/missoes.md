@@ -208,7 +208,7 @@ D40 a D50 no [`07`](07-decisoes-e-perguntas.md), D33 (o visual do onboarding), `
 |---|---|---|
 | A · A cara dos exemplos | o painel igual à experiência validada em `/exemplos/eventos` e `/exemplos/fotografia`, no celular e no computador. Começa por uma lista de diferenças, tela a tela, para a Renderiza escolher o que entra | `src/ui/estilo.css` (só o visual), `src/telas/casca.js`, `src/modulos/*/` (só a apresentação, nenhuma regra) |
 | B · Convite por link e acesso sem e-mail | o Admin gera o convite (o usuário, o link de uso único por 7 dias, "copiar para o WhatsApp"); a tela "Olá, Espaço X, crie uma senha"; entrar com usuário ou e-mail; o e-mail opcional depois; "gerar link novo" no Admin; o dono convida a equipe do mesmo jeito (D42) | `src/admin/contas/`, `src/telas/convite.js`, `src/telas/entrar.js`, `supabase/functions/` (criar o login do convite), uma migração (o convite por link e o usuário) |
-| C · A conta nasce da demo | no Admin, escolher a demo do lead e colar o histórico da conversa; a conta nasce com o que a demo tem (nome, nicho, WhatsApp, Instagram, endereço, cores, logo, horários, tipos, avaliações), e o contexto fica guardado, fechado, para a IA (D41) | `src/admin/contas/nova.js`, `api/` (ler a `demo.json` do site, no servidor), uma migração (o contexto da conta) |
+| C · A conta nasce da demo | no Admin, escolher a demo do lead e colar o histórico da conversa; a conta nasce com o que a demo tem (nome, nicho, WhatsApp, Instagram, endereço, cores, logo, horários, tipos, avaliações), e o contexto fica guardado, fechado, para a IA (D41) | `src/admin/contas/nova.js` e `conta.js`, `scripts/demos.mjs` e `scripts/lib/demos.mjs` (o catálogo das demos no banco, D51: o site não publica o `demo.json`), uma migração (o catálogo e o contexto da conta) |
 | D · A IA no servidor | a função do Supabase que fala com o Claude (a chave só no ambiente dela): o roteiro, a saída em JSON validado, o cache, o limite por conta, o registro de uso e custo, o roteiro fixo quando a IA falha; a política e os termos com o fornecedor de IA (D45, D46, D49) | `supabase/functions/assistente/` (nova), uma migração (uso e custo), `publico/privacidade/`, `publico/termos/` |
 | E · A conversa de onboarding | `/comecar` refeito com a IA por trás, no mesmo visual (cartões, toque e segue, animação): confirmações de um toque, perguntas com opções, "mande o que tiver" opcional; no fim, o painel montado e o plano para começar no Início (D43, D44); e o **e-mail opcional** para recuperar a senha sozinha (D42; veio do B6: o usuário continua entrando, então o e-mail fica guardado à parte, confirmado por um código, e o "Esqueci a senha" manda o link para ele por uma função com o Brevo) | `src/telas/comecar.js` (ou uma pasta `src/telas/onboarding/`), `src/modulos/inicio/primeiros-passos.js` |
 | F · Trazer o que tem | o leitor com IA (fotos, PDFs, prints e planilhas viram pacotes, datas, clientes e modelo de contrato), com a conferência em lote (desmarca, corrige, grava); sem IA: contatos (.vcf), Google Agenda (.ics), planilha de clientes; "pedir à Renderiza" no Admin, com a mesma ferramenta (D48) | `src/telas/trazer/` (nova), `src/modulos/inicio/` (as importações), `src/admin/` (pedir à Renderiza) |
@@ -276,7 +276,15 @@ Falta (bloco B):
   Subir o B para a produção, nesta ordem: (1) as 3 migrações na produção (não destrutivas), (2)
       node supabase/functions/publicar.mjs producao --projeto <ref> --so aceitar-convite, (3) juntar a branch na main
       (a Vercel publica; conferir /api/config), (4) npm run conferir-producao, (5) a tabela de migrações abaixo.
-Próximo passo: subir o B (acima). Depois, os blocos C a G, na ordem da tabela.
+Feito (bloco C, na branch, no STG): o catálogo das demos (migração 20261030240000; scripts/demos.mjs grava as 40
+  de eventos e as 20 de fotografia; D51) e o contexto da conta (contas_contexto: a demo, o que ela sabia e a conversa
+  colada; só a Renderiza). No Admin, "Veio de uma demo?" preenche o nome, o tipo, o código, o WhatsApp e o dono, e a
+  conversa vai junto; na gaveta da conta, de qual demo veio e a conversa para editar. O piloto, passo 1, começa pela
+  demo (9/9 no STG).
+Falta (bloco C): a migração e o catálogo na produção (node scripts/migrar.mjs producao --projeto <ref>; node
+  scripts/demos.mjs producao --projeto <ref>), junto com a main.
+Próximo passo: o bloco D (a IA no servidor), depois o E (a conversa de onboarding, que já tem a demo e a conversa
+  para usar).
 Mexe em: o do bloco B e o do bloco A (tabela da Missão 7).
 ```
 
@@ -829,6 +837,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030220000_convite_por_link.sql` (convite por link no WhatsApp: usuário, código, `publico_convite`, `usuario_disponivel`) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 | |
 | `20261030223000_login_do_convite.sql` (`login_do_email`, só para a função aceitar-convite) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030233000_convite_por_link_seguro.sql` (o link não toma o acesso de outra pessoa: `pela_renderiza`, `convite_pode_usar_login`, um convite pendente por usuário) | 7B | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `aceitar-convite` na produção) |
+| `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
 
 ## Avisos entre sessões
 

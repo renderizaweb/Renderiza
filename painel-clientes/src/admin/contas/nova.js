@@ -2,14 +2,17 @@
 // o nicho, o código público (sai do nome, dá para mudar), o WhatsApp, os módulos, o prazo e o dono: a conta nasce
 // ativa, com os módulos ligados. O dono entra de um de dois jeitos (Missão 7, D42): pelo **link no WhatsApp**, com o
 // usuário que sai do nome (o padrão: quase ninguém passa e-mail), ou pelo convite por e-mail (a função "convidar").
+// A conta pode nascer da demo do lead (Missão 7, bloco C; D41, D51): escolher a demo preenche o nome, o tipo, o
+// código, o WhatsApp e o dono; a demo, o que ela sabia e a conversa colada ficam em contas_contexto (só a Renderiza e
+// a IA veem). O catálogo das demos vem de scripts/demos.mjs.
 // `ctx`: { banco, avisar, recarregar, catalogo }.
 
 import { abrirGaveta } from "../../ui/gaveta.js";
 import { icone } from "../../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
-import { campoTexto, campoSelecao, segmentos, lerFormulario } from "../../ui/campos.js";
+import { campoTexto, campoSelecao, campoArea, segmentos, lerFormulario } from "../../ui/campos.js";
 import { novoCodigoDeLink, usuarioDoNome, usuarioValido, emailDoUsuario, linkDoConvite, abrirMandarConvite } from "../../ui/convite-link.js";
-import { dia, normalizarWhatsapp, whatsappValido } from "../../ui/formatos.js";
+import { dia, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { NICHOS } from "../../nichos/index.js";
 import { codigoDoNome, codigoValido, prazoAte, mensalidadeSugerida, moeda } from "../logica.js";
 
@@ -23,6 +26,7 @@ export function abrirNovaConta(ctx) {
     subtitulo: "Já nasce ativa. O dono recebe o link no WhatsApp (ou o convite por e-mail) para criar a senha.",
     corpo: `<form class="rz-pilha" novalidate id="form-nova-conta">
         <div role="alert" hidden></div>
+        ${campoSelecao({ id: "nc-demo", nome: "demo", rotulo: "Veio de uma demo?", opcional: true, ajuda: "Escolha a demo do lead: a conta já nasce com o que ela sabe.", opcoes: [{ valor: "", rotulo: "Carregando as demos…" }] })}
         ${campoTexto({ id: "nc-nome", nome: "nome", rotulo: "Nome do negócio", placeholder: "Ex.: Villa Alecrim", extra: { maxlength: 120 } })}
         ${campoSelecao({ id: "nc-nicho", nome: "nicho", rotulo: "Tipo de negócio", valor: "eventos", opcoes: Object.values(NICHOS).map(x => ({ valor: x.id, rotulo: x.nome })) })}
         ${campoTexto({ id: "nc-codigo", nome: "codigo", rotulo: "Código público", ajuda: "Vai no endereço do site e da agenda online. Letras minúsculas, números e hífen.", extra: { maxlength: 40, autocapitalize: "off", spellcheck: "false" } })}
@@ -35,6 +39,7 @@ export function abrirNovaConta(ctx) {
           ${segmentos({ nome: "jeito", rotulo: "Como o dono entra", valor: "link", opcoes: [{ valor: "link", rotulo: "Link no WhatsApp" }, { valor: "email", rotulo: "Convite por e-mail" }] })}</fieldset>
         <div data-jeito="link">${campoTexto({ id: "nc-usuario", nome: "usuario", rotulo: "Usuário do dono", ajuda: "Com ele e a senha, o dono entra. Sai do nome; dá para mudar.", extra: { maxlength: 30, autocapitalize: "off", spellcheck: "false" } })}</div>
         <div data-jeito="email" hidden>${campoTexto({ id: "nc-dono-email", nome: "dono_email", rotulo: "E-mail do dono", tipo: "email", teclado: "email", extra: { maxlength: 120, autocomplete: "off" } })}</div>
+        ${campoArea({ id: "nc-conversa", nome: "conversa", rotulo: "A conversa com o lead", opcional: true, linhas: 4, placeholder: "Cole aqui o que vocês conversaram no WhatsApp.", ajuda: "Fica só com a Renderiza. Ajuda a IA a montar o painel do jeito do negócio (o que ele contou, o que pediu)." })}
       </form>`,
     rodape: `<button class="rz-botao" type="button" data-fechar>Cancelar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-nova-conta">${icone("ok")}Criar a conta</button>`,
   });
@@ -54,6 +59,23 @@ export function abrirNovaConta(ctx) {
     if (!usuarioMexido) form.usuario.value = usuarioDoNome(form.nome.value);
   });
   form.codigo.addEventListener("input", () => { codigoMexido = true; });
+  // as demos (só a Renderiza vê): escolher uma preenche o que ela sabe; dá para mudar tudo depois
+  let demos = [];
+  banco.resultado(banco.tabela("demos").select("pasta, nicho, nome, dados").order("nome")).then(lista => {
+    demos = lista;
+    form.demo.innerHTML = `<option value="">Não veio de demo</option>${["eventos", "fotografia"].map(ni => `<optgroup label="${escapar(NICHOS[ni].nome)}">${lista.filter(x => x.nicho === ni).map(x => `<option value="${escapar(x.pasta)}">${escapar(x.nome)}</option>`).join("")}</optgroup>`).join("")}`;
+  }).catch(() => { form.demo.innerHTML = `<option value="">Não deu para carregar as demos</option>`; });
+  form.demo.addEventListener("change", () => {
+    const x = demos.find(v => v.pasta === form.demo.value);
+    if (!x) return;
+    const dd = x.dados || {};
+    form.nome.value = x.nome;
+    form.nicho.value = x.nicho;
+    if (codigoValido(x.pasta)) { form.codigo.value = x.pasta; codigoMexido = true; } else if (!codigoMexido) form.codigo.value = codigoDoNome(x.nome);
+    if (dd.whatsapp) form.whatsapp.value = telefone(dd.whatsapp);
+    if (dd.dono && !form.dono_nome.value) form.dono_nome.value = dd.dono;
+    if (!usuarioMexido) form.usuario.value = usuarioDoNome(x.nome);
+  });
   form.usuario.addEventListener("input", () => { usuarioMexido = true; });
 
   form.addEventListener("submit", async ev => {
@@ -89,6 +111,11 @@ export function abrirNovaConta(ctx) {
         situacao: "ativa", origem: "renderiza", ativa_ate: prazoAte(d.prazo, dia(new Date())),
       }).select("id, nome").single());
       await banco.resultado(banco.tabela("contas_modulos").insert(modulos.map(m => ({ conta_id: conta.id, modulo_id: m }))));
+      const daDemo = demos.find(v => v.pasta === d.demo);
+      const conversa = String(d.conversa || "").trim();
+      if (daDemo || conversa) {
+        await banco.resultado(banco.tabela("contas_contexto").insert({ conta_id: conta.id, demo: daDemo ? daDemo.pasta : null, dados: daDemo ? daDemo.dados : {}, conversa: conversa || null }));
+      }
       if (porLink) {
         const codigo = novoCodigoDeLink();
         await banco.resultado(banco.tabela("convites").insert({ conta_id: conta.id, email, nome: d.dono_nome.trim(), dono: true, usuario, link_codigo: codigo }));

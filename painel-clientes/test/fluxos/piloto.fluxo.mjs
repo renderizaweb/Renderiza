@@ -71,6 +71,14 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       assert.equal(new URL(pAdm.url()).pathname, "/admin", "quem é da Renderiza e não tem conta cai no Admin");
       await pAdm.click("[data-nova]");
       const f = pAdm.locator("#form-nova-conta");
+      // a conta pode nascer da demo do lead (Missão 7, bloco C): escolher a demo preenche o que ela sabe
+      await f.locator("#nc-demo option[value=espaco-lira]").waitFor({ state: "attached" });
+      await f.locator("#nc-demo").selectOption("espaco-lira");
+      assert.equal(await f.getByLabel("Nome do negócio").inputValue(), "Espaço Lira", "o nome vem da demo");
+      assert.equal(await f.getByLabel("Código público").inputValue(), "espaco-lira", "o código é o da demo");
+      assert.match(await f.locator("#nc-whats").inputValue(), /^\(11\) 9/, "o WhatsApp vem da demo");
+      await f.locator("#nc-conversa").fill("Lead do fluxo: quer ver a agenda das festas de 15 anos.");
+      // o fluxo segue com o nome e o código dele (os dados da demo são públicos, mas a conta do teste é outra)
       await f.getByLabel("Nome do negócio").fill(NOME_DA_CONTA);
       await f.getByLabel("Código público").fill(A.CODIGO);
       for (const m of ["agenda", "atendimento", "clientes", "financeiro", "contratos"]) {
@@ -90,6 +98,9 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       await folha.locator("[data-mensagem]").waitFor();
       assert.match(await folha.locator("[data-mensagem]").innerText(), new RegExp(`Seu usuário: ${A.USUARIO}`));
       dono.link = await folha.locator("button:has-text('Copiar só o link')").getAttribute("data-copiar");
+      const [ctxDaConta] = await banco.sql(`select x.demo, x.conversa, x.dados ->> 'nome' as nome from public.contas_contexto x join public.contas c on c.id = x.conta_id where c.codigo = ${A.q(A.CODIGO)}`);
+      assert.deepEqual([ctxDaConta.demo, ctxDaConta.nome], ["espaco-lira", "Espaço Lira"], "a demo e o que ela sabia ficam no contexto da conta");
+      assert.match(ctxDaConta.conversa, /15 anos/, "a conversa colada fica guardada");
       assert.match(dono.link, /\/boas-vindas\/[a-z0-9]{32}$/);
       await folha.locator("button:has-text('Pronto')").click();
       const [conta] = await banco.sql(`select id, situacao, origem from public.contas where codigo = ${A.q(A.CODIGO)}`);
