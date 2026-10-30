@@ -13,7 +13,7 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | **livre: é a próxima** (a 2, a 3 e a 4 estão na `main`) | |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | **em andamento**: bloco A (Admin) desde 30/10; o bloco B (Regras) vem logo depois, na mesma sessão | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | esperando a 3, 4 e 5 | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -209,6 +209,29 @@ Falta: …
 Próximo passo: …
 Decisões no caminho: …
 Migrações aplicadas (STG / produção): …
+```
+
+```
+Missão 5 · bloco A (Admin) · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10 · EM ANDAMENTO
+Referência: 02 (Admin: Contas, Módulos, Pessoas e acessos, Pagamentos, Indicadores; como a conta nasce e vive:
+  teste, aprovar, prazo, desligar, religar, criar à mão; "só pago"; os dados de quem sai, exportados pelo Admin com
+  registro), 05 (equipe_renderiza, entradas, pagamentos, acessos_suporte, admin_indicadores; a Renderiza vê contas,
+  pessoas, módulos, entradas e pagamentos, mas não os dados das contas, a não ser em suporte registrado), 06, 07
+  (D19: a planilha de quem sai, exportada pela Renderiza, com registro).
+Plano (nesta ordem, cada parte com commit): 1. a casca do Admin (as 5 partes no menu; abre sem conta escolhida,
+  porque a pessoa da Renderiza pode não ser de nenhuma conta) e a migração que faz minhas_contas() trazer a conta em
+  que a Renderiza está ajudando (suporte registrado), para "entrar para ajudar" abrir o painel da conta; 2. Contas:
+  a lista pela situação (para aprovar, em teste, ativas, desligadas), a gaveta (aprovar com ou sem prazo, prazo,
+  desligar, religar, os módulos da conta, as pessoas, os pagamentos), criar uma conta à mão (já ativa, com o
+  convite para o dono pela função convidar), entrar para ajudar (motivo, nível, até 8 horas) e exportar os dados a
+  pedido (o suporte com o motivo é o registro); 3. Módulos: o catálogo, "só pago" e quantas contas usam; 4. Pessoas
+  e acessos: quem entrou, quando e em qual conta, quem está usando agora, e o registro do suporte; 5. Pagamentos: o
+  mês, quem pagou e quem não pagou, registrar o Pix (valor sugerido pelo plano); 6. Indicadores (só números); 7.
+  teste de ponta a ponta no STG e documentos.
+Feito: nada ainda (começa agora).
+Próximo passo: parte 1.
+Mexe em: src/admin/. Fora disso, pequeno e com aviso: src/app.js (o Admin abre sem conta), a migração de
+  minhas_contas e o teste do banco.
 ```
 
 ```
