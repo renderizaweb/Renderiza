@@ -37,8 +37,12 @@ export function traduzirErro(e) {
 }
 
 /**
- * Atende o pedido. `deps`: { convite(codigo), loginDoEmail(email), criarLogin(email, senha, nome), trocarSenha(id, senha),
- * marcarUsado(idDoConvite) }. Devolve { status, corpo, headers }; no sucesso, o e-mail interno para o painel entrar.
+ * Atende o pedido. `deps`: { convite(codigo), loginDoEmail(email), podeUsarLogin(convite), criarLogin(email, senha,
+ * nome), trocarSenha(id, senha), marcarUsado(idDoConvite) → true se marcou agora, desmarcar(idDoConvite) }. Devolve
+ * { status, corpo, headers }; no sucesso, o e-mail interno para o painel entrar.
+ * O link é marcado antes de mexer no login (dois toques ao mesmo tempo não usam o mesmo link duas vezes) e desmarcado
+ * se o login falhar. Trocar a senha de quem já tem login só vale se o convite pode (migração 20261030233000: a
+ * Renderiza, ou o dono para quem só está na conta dele).
  */
 export async function atender({ metodo, origem, corpo, agora = Date.now() }, deps) {
   const headers = cabecalhosCors(origem);
@@ -53,17 +57,24 @@ export async function atender({ metodo, origem, corpo, agora = Date.now() }, dep
   if (problema) return responder(400, { erro: problema, campo: "senha" });
 
   const convite = await deps.convite(codigo);
+  const usado = () => responder(409, { erro: `Este link já foi usado. Entre com o usuário ${convite.usuario} e a sua senha.`, motivo: "usado" });
   if (!convite || convite.cancelado_em) return responder(404, { erro: "Este link não vale. Peça um novo a quem mandou." });
-  if (convite.link_usado_em) return responder(409, { erro: `Este link já foi usado. Entre com o usuário ${convite.usuario} e a sua senha.`, motivo: "usado" });
+  if (convite.link_usado_em) return usado();
   if (Date.parse(convite.expira_em) <= agora) return responder(410, { erro: "Este link venceu. Peça um novo a quem mandou.", motivo: "vencido" });
 
+  let marcou = false;
   try {
     const id = await deps.loginDoEmail(convite.email);
+    if (id && !(await deps.podeUsarLogin(convite))) {
+      return responder(403, { erro: "Este link não pode trocar a senha desse usuário. Peça um link novo à Renderiza.", motivo: "outra_pessoa" });
+    }
+    marcou = await deps.marcarUsado(convite.id);
+    if (!marcou) return usado();
     if (id) await deps.trocarSenha(id, senha);
     else await deps.criarLogin(convite.email, senha, convite.nome || convite.usuario);
-    await deps.marcarUsado(convite.id);
     return responder(200, { email: convite.email, usuario: convite.usuario, novo: !id });
   } catch (e) {
+    if (marcou) await deps.desmarcar(convite.id).catch(() => {});
     return responder(502, { erro: traduzirErro(e) });
   }
 }

@@ -9,15 +9,17 @@ const CODIGO = "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6";
 const agora = Date.parse("2026-10-30T12:00:00Z");
 const CONVITE = { id: "c1", email: "espacojardim@acesso.renderizaweb.com.br", usuario: "espacojardim", nome: "Dona Jardim", expira_em: "2026-11-06T12:00:00Z", link_usado_em: null, cancelado_em: null };
 
-function deps({ convite = CONVITE, login = null, falhar = null } = {}) {
+function deps({ convite = CONVITE, login = null, falhar = null, pode = true, marca = true } = {}) {
   const chamadas = [];
   return {
     chamadas,
     convite: async codigo => (codigo === CODIGO ? convite : null),
     loginDoEmail: async email => { chamadas.push(["login?", email]); return login; },
+    podeUsarLogin: async c => { chamadas.push(["pode?", c.id]); return pode; },
     criarLogin: async (email, senha, nome) => { chamadas.push(["criar", email, senha, nome]); if (falhar) throw falhar; },
     trocarSenha: async (id, senha) => { chamadas.push(["trocar", id, senha]); if (falhar) throw falhar; },
-    marcarUsado: async id => { chamadas.push(["usado", id]); },
+    marcarUsado: async id => { chamadas.push(["usado", id]); return marca; },
+    desmarcar: async id => { chamadas.push(["desmarcar", id]); },
   };
 }
 const pedido = corpo => ({ metodo: "POST", origem: "https://painel.renderizaweb.com.br", corpo, agora });
@@ -27,7 +29,7 @@ test("link válido e login novo: cria com o e-mail interno e a senha, marca o li
   const r = await atender(pedido({ codigo: CODIGO, senha: "jardim2026" }), d);
   assert.equal(r.status, 200);
   assert.deepEqual(r.corpo, { email: CONVITE.email, usuario: "espacojardim", novo: true });
-  assert.deepEqual(d.chamadas, [["login?", CONVITE.email], ["criar", CONVITE.email, "jardim2026", "Dona Jardim"], ["usado", "c1"]]);
+  assert.deepEqual(d.chamadas, [["login?", CONVITE.email], ["usado", "c1"], ["criar", CONVITE.email, "jardim2026", "Dona Jardim"]], "marca o link antes de criar");
 });
 
 test("quem já tem o usuário (link novo de quem esqueceu): troca a senha, não cria outro", async () => {
@@ -35,7 +37,20 @@ test("quem já tem o usuário (link novo de quem esqueceu): troca a senha, não 
   const r = await atender(pedido({ codigo: CODIGO, senha: "outrasenha9" }), d);
   assert.equal(r.status, 200);
   assert.equal(r.corpo.novo, false);
-  assert.deepEqual(d.chamadas.map(c => c[0]), ["login?", "trocar", "usado"]);
+  assert.deepEqual(d.chamadas.map(c => c[0]), ["login?", "pode?", "usado", "trocar"]);
+});
+
+test("segurança: o link não troca a senha de quem é de outra conta; dois toques ao mesmo tempo usam o link uma vez só", async () => {
+  const outra = deps({ login: "u-999", pode: false });
+  const r = await atender(pedido({ codigo: CODIGO, senha: "tomeiconta1" }), outra);
+  assert.equal(r.status, 403);
+  assert.deepEqual(outra.chamadas.map(c => c[0]), ["login?", "pode?"], "nem marca, nem troca");
+  const segundo = deps({ marca: false });
+  assert.equal((await atender(pedido({ codigo: CODIGO, senha: "jardim2026" }), segundo)).status, 409);
+  assert.ok(!segundo.chamadas.some(c => c[0] === "criar"), "quem chegou depois não cria nada");
+  const falhou = deps({ falhar: new Error("qualquer") });
+  await atender(pedido({ codigo: CODIGO, senha: "jardim2026" }), falhou);
+  assert.deepEqual(falhou.chamadas.at(-1), ["desmarcar", "c1"], "se o login falha, o link volta a valer");
 });
 
 test("link usado, vencido, cancelado ou que não existe: não cria nada e diz o porquê", async () => {

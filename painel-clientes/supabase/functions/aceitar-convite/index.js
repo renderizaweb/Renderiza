@@ -22,7 +22,7 @@ const admin = createClient(URL_DO_PROJETO, SECRETA, { auth: { persistSession: fa
 const deps = {
   async convite(codigo) {
     const { data, error } = await admin.from("convites")
-      .select("id, email, usuario, nome, link_usado_em, aceito_em, cancelado_em, expira_em").eq("link_codigo", codigo).maybeSingle();
+      .select("id, conta_id, email, usuario, nome, pela_renderiza, link_usado_em, aceito_em, cancelado_em, expira_em").eq("link_codigo", codigo).maybeSingle();
     if (error) throw error;
     return data;
   },
@@ -30,6 +30,11 @@ const deps = {
     const { data, error } = await admin.rpc("login_do_email", { p_email: email });
     if (error) throw error;
     return data;
+  },
+  async podeUsarLogin(c) {
+    const { data, error } = await admin.rpc("convite_pode_usar_login", { p_conta: c.conta_id, p_email: c.email, p_pela_renderiza: !!c.pela_renderiza });
+    if (error) throw error;
+    return data === true;
   },
   async criarLogin(email, senha, nome) {
     const { error } = await admin.auth.admin.createUser({ email, password: senha, email_confirm: true, user_metadata: { nome } });
@@ -40,7 +45,12 @@ const deps = {
     if (error) throw error;
   },
   async marcarUsado(id) {
-    const { error } = await admin.from("convites").update({ link_usado_em: new Date().toISOString() }).eq("id", id).is("link_usado_em", null);
+    const { data, error } = await admin.from("convites").update({ link_usado_em: new Date().toISOString() }).eq("id", id).is("link_usado_em", null).select("id");
+    if (error) throw error;
+    return data.length === 1;
+  },
+  async desmarcar(id) {
+    const { error } = await admin.from("convites").update({ link_usado_em: null }).eq("id", id);
     if (error) throw error;
   },
 };
