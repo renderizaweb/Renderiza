@@ -178,6 +178,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 |---|---|
 | `equipe_renderiza` | quem entra no Admin (a Renderiza cadastra direto no banco) |
 | `entradas` | cada entrada numa conta (`registrar_entrada`): quem, conta, quando, aparelho (para "quem loga, quem está acessando"); no máximo uma a cada 30 minutos por pessoa e conta |
+| `registros_de_acesso` | Marco Civil, art. 15 (30/10/2026): quem, conta, quando e o IP de cada entrada, gravados por `registrar_entrada` junto com a entrada; **ninguém lê pela API** (RLS sem política; só o dono do banco, para ordem judicial); sem chave estrangeira, para não sumir antes do prazo; apagados depois de 6 meses |
 | `pagamentos` | o Pix de cada mês, registrado à mão: conta, mês de referência (dia 1), valor, pago em, observação, quem registrou |
 | `acessos_suporte` | cada vez que a Renderiza entrou numa conta para ajudar: quem, por quê, nível, de quando até quando |
 | `admin_indicadores()` | contas por situação e por nicho, cadastros por semana, pessoas ativas em 7 e 30 dias, uso por módulo (registros criados em 30 dias), módulos ligados, pedidos que vieram dos sites. **Só números:** nada de nome ou contato de cliente final |

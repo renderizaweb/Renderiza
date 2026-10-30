@@ -34,7 +34,7 @@ export function montar(raiz, { banco, ambiente, antes = false, aoAceitar }) {
           <li><a href="/termos" target="_blank" rel="noopener">${icone("contrato")}<span>Termos de uso</span>${icone("seta", { tamanho: 18 })}</a></li>
           <li><a href="/privacidade" target="_blank" rel="noopener">${icone("cadeado")}<span>Política de privacidade</span>${icone("seta", { tamanho: 18 })}</a></li>
         </ul>
-        <label class="rz-aceite-termos"><input type="checkbox" name="li"><span>Li e aceito os termos de uso e a política de privacidade.</span></label>
+        <label class="rz-aceite-termos"><input type="checkbox" name="li"><span>Li e aceito os termos de uso, e li a política de privacidade.</span></label>
         <p class="rz-erro-campo" data-erro hidden></p>
         <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="submit">Continuar</button>
       </form>`,

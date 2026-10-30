@@ -9,9 +9,10 @@
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/src/ui/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Política de privacidade do Painel Renderiza (Missão 5B; 06). RASCUNHO para revisão de quem entende de LGPD (D12).
-     Vale para o painel (as pessoas das equipes) e para a parte pública (agenda online, aceite de contrato, sites
-     conectados). A versão anda junto com a dos termos (src/telas/termos.js). -->
+<!-- Política de privacidade do Painel Renderiza (Missão 5B; 06; revisão de 30/10/2026 a pedido da Renderiza, que
+     valida; referências em docs/painel-clientes/termos-referencias.md). Vale para o painel (as pessoas das equipes)
+     e para a parte pública (agenda online, aceite de contrato, sites conectados). A versão anda junto com a dos
+     termos (src/telas/termos.js). O que está em <mark class="rz-doc-revisar"> é decisão da Renderiza. -->
 <link rel="stylesheet" href="/src/ui/estilo.css">
 <link rel="stylesheet" href="/publico/termos/documento.css">
 </head>
@@ -21,113 +22,166 @@
   <h1 class="rz-titulo-1">Política de privacidade</h1>
   <p class="rz-doc-versao"><span>Versão de 30/10/2026</span><span class="rz-etiqueta rz-etiqueta--alerta">Rascunho em revisão</span></p>
 
+  <p class="rz-doc-resumo"><b>Em poucas palavras:</b> guardamos só o que o painel precisa para funcionar. Não vendemos dados, não fazemos propaganda com eles e não usamos ferramentas de rastreamento. Os dados dos clientes de cada negócio são decididos pelo próprio negócio; a Renderiza só guarda e trata em nome dele. Você pode pedir para ver, corrigir ou apagar os seus dados pelo <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a>.</p>
+
   <nav class="rz-doc-indice" aria-label="Neste documento"><b>Neste documento</b>
     <ol>
-      <li><a href="#quem">Quem somos</a></li>
+      <li><a href="#quem">Quem somos e para quem vale</a></li>
       <li><a href="#papeis">Quem decide sobre cada dado</a></li>
-      <li><a href="#dados">Que dados entram</a></li>
-      <li><a href="#para-que">Para quê</a></li>
-      <li><a href="#com-quem">Com quem</a></li>
+      <li><a href="#dados">Que dados tratamos</a></li>
+      <li><a href="#para-que">Para quê, e com que base na lei</a></li>
+      <li><a href="#com-quem">Com quem compartilhamos</a></li>
+      <li><a href="#exterior">Dados fora do Brasil</a></li>
       <li><a href="#tempo">Por quanto tempo</a></li>
       <li><a href="#seguranca">Segurança</a></li>
+      <li><a href="#incidentes">Se algo der errado</a></li>
       <li><a href="#navegador">O que fica no seu navegador</a></li>
-      <li><a href="#direitos">Os seus direitos</a></li>
-      <li><a href="#criancas">Crianças</a></li>
-      <li><a href="#mudancas">Mudanças</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#direitos">Os seus direitos e como pedir</a></li>
+      <li><a href="#criancas">Crianças e adolescentes</a></li>
+      <li><a href="#automaticas">Decisões automáticas</a></li>
+      <li><a href="#encarregado">Canal de privacidade</a></li>
+      <li><a href="#mudancas">Mudanças nesta política</a></li>
     </ol>
   </nav>
 
-  <section id="quem"><h2 class="rz-titulo-2">1. Quem somos</h2>
-    <p>A Renderiza faz sites para negócios e oferece o Painel Renderiza (<a href="/">painel.renderizaweb.com.br</a>), o sistema em que o negócio organiza agenda, clientes, atendimento, contratos e financeiro. Esta política explica que dados o painel guarda, para quê, com quem e por quanto tempo.</p>
+  <section id="quem"><h2 class="rz-titulo-2">1. Quem somos e para quem vale</h2>
+    <p>A Renderiza (<mark class="rz-doc-revisar">[razão social]</mark>, CNPJ <mark class="rz-doc-revisar">[00.000.000/0000-00]</mark>, <mark class="rz-doc-revisar">[endereço, cidade/UF]</mark>) faz sites para negócios e oferece o Painel Renderiza (<a href="/">painel.renderizaweb.com.br</a>). O painel é o sistema em que o negócio organiza agenda, clientes, atendimento, contratos e financeiro.</p>
+    <p>Esta política vale para quem usa o painel (o dono e a equipe de cada negócio) e para quem usa as partes públicas: a agenda online de um site, o link de um contrato e os sites ligados ao painel. Ela segue a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018, a LGPD) e o Marco Civil da Internet (Lei nº 12.965/2014).</p>
   </section>
 
   <section id="papeis"><h2 class="rz-titulo-2">2. Quem decide sobre cada dado</h2>
     <ul>
-      <li><b>Dados de quem usa o painel</b> (o dono e a equipe de cada negócio): a Renderiza é a <b>controladora</b>.</li>
-      <li><b>Dados dos clientes dos negócios</b> (quem pede uma data, faz a festa, marca o ensaio ou aceita um contrato): o negócio é o <b>controlador</b>, e a Renderiza é a <b>operadora</b>, que guarda e trata esses dados em nome dele, só para o painel funcionar. Pedido sobre esses dados ("quero ver ou apagar") vai para o negócio; a Renderiza ajuda.</li>
+      <li><b>Dados de quem usa o painel</b> (o dono e a equipe), de cobrança da mensalidade e de acesso: a Renderiza é a <b>controladora</b>, quem decide sobre eles.</li>
+      <li><b>Dados dos clientes de cada negócio</b> (quem pede uma data, faz a festa, marca o ensaio ou aceita um contrato): o negócio é o <b>controlador</b>, e a Renderiza é a <b>operadora</b>. Ela guarda e trata esses dados em nome do negócio, só para o painel funcionar, conforme os <a href="/termos">Termos de uso</a> (cláusula 12). O que o negócio anota e para quê é decisão dele. Pedidos sobre esses dados ("quero ver ou apagar") vão para o negócio, e a Renderiza ajuda.</li>
     </ul>
   </section>
 
-  <section id="dados"><h2 class="rz-titulo-2">3. Que dados entram</h2>
+  <section id="dados"><h2 class="rz-titulo-2">3. Que dados tratamos</h2>
     <table>
       <thead><tr><th scope="col">De quem</th><th scope="col">O quê</th></tr></thead>
       <tbody>
-        <tr><td>Quem usa o painel</td><td>nome, e-mail, papel na equipe, o que fez no painel (o histórico grava o que mudou, não os valores), quando entrou e de que aparelho</td></tr>
-        <tr><td>Clientes dos negócios</td><td>nome, WhatsApp, e-mail, Instagram, data e tipo da festa ou do ensaio, convidados, valores e o que foi combinado; CPF e endereço só se o contrato do negócio pedir</td></tr>
-        <tr><td>Quem aceita um contrato pelo link</td><td>nome e contato digitados, data, hora, endereço de internet (IP), aparelho e a impressão digital do texto aceito: é a prova do aceite</td></tr>
-        <tr><td>Quem pede uma data pela agenda online</td><td>nome, WhatsApp, e-mail (se quiser), data desejada, tipo, convidados e o recado. O endereço de internet é usado, embaralhado, só para limitar abusos, e apagado em 1 dia</td></tr>
-        <tr><td>Meu site</td><td>os textos, fotos e depoimentos que o negócio publica no site dele</td></tr>
+        <tr><td>Quem usa o painel</td><td>nome, e-mail, papel na equipe e o que cada pessoa pode ver. Também o que fez no painel: o histórico grava o que mudou, não os valores.</td></tr>
+        <tr><td>Acesso ao painel</td><td>quando cada pessoa entrou, de que aparelho e de que endereço de internet (IP)</td></tr>
+        <tr><td>Cobrança da mensalidade</td><td>o mês, o valor e a data do Pix registrado. O painel não guarda dados bancários.</td></tr>
+        <tr><td>Aceite destes documentos</td><td>quem aceitou, a versão, a data, a hora e o aparelho</td></tr>
+        <tr><td>Clientes dos negócios (em nome do negócio)</td><td>nome, WhatsApp, e-mail, Instagram, data e tipo da festa ou do ensaio, convidados, valores e o que foi combinado. CPF e endereço só se o contrato do negócio pedir.</td></tr>
+        <tr><td>Quem aceita um contrato pelo link (em nome do negócio)</td><td>nome e contato digitados, data, hora, endereço de internet (IP), aparelho e a impressão digital do texto aceito: é a prova do aceite</td></tr>
+        <tr><td>Quem pede uma data pela agenda online (em nome do negócio)</td><td>nome, WhatsApp, e-mail (se a pessoa quiser), data desejada, tipo, convidados e o recado. O endereço de internet é usado embaralhado, só para limitar abusos, e apagado em 1 dia.</td></tr>
+        <tr><td>Meu site (em nome do negócio)</td><td>os textos, fotos e depoimentos que o negócio publica no site dele</td></tr>
+        <tr><td>Suporte</td><td>o que a pessoa conta pelo WhatsApp ou pelo e-mail para pedir ajuda, e o registro de quando a Renderiza entrou numa conta para ajudar (quem, quando, por quê)</td></tr>
       </tbody>
     </table>
-    <p>O painel <b>não</b> guarda número de cartão, senha de terceiros, conversas inteiras do WhatsApp nem as fotos dos ensaios (a galeria fica fora do painel).</p>
+    <p>O painel <b>não</b> guarda número de cartão, senha de terceiros, conversas inteiras do WhatsApp nem as fotos dos ensaios (a galeria fica fora do painel). Não usamos ferramentas de análise de navegação nem de propaganda.</p>
   </section>
 
-  <section id="para-que"><h2 class="rz-titulo-2">4. Para quê</h2>
-    <ul>
-      <li>Fazer o painel funcionar: entrar, organizar a agenda, os pedidos, os contratos e os pagamentos do negócio.</li>
-      <li>Mandar os e-mails do serviço (convite, troca de senha, aviso de pedido novo).</li>
-      <li>Registrar o aceite de contrato e o aceite destes documentos, como prova.</li>
-      <li>Segurança e suporte: saber quem entrou e quando, e registrar quando a Renderiza entra numa conta para ajudar.</li>
-      <li>Números gerais do serviço (quantas contas, quantos pedidos): só contagens, nunca nome ou contato de cliente de negócio.</li>
-    </ul>
+  <section id="para-que"><h2 class="rz-titulo-2">4. Para quê, e com que base na lei</h2>
+    <table>
+      <thead><tr><th scope="col">Para quê</th><th scope="col">Base na LGPD</th></tr></thead>
+      <tbody>
+        <tr><td>Criar a conta, deixar entrar, fazer o painel funcionar e cobrar a mensalidade</td><td>execução do contrato (art. 7º, V)</td></tr>
+        <tr><td>Mandar os e-mails do serviço (convite, troca de senha, aviso de pedido novo, avisos sobre a conta)</td><td>execução do contrato (art. 7º, V)</td></tr>
+        <tr><td>Guardar os registros de acesso por 6 meses; cumprir obrigações fiscais e ordens de autoridade</td><td>obrigação legal (art. 7º, II; Marco Civil, art. 15)</td></tr>
+        <tr><td>Guardar a prova dos aceites (destes documentos e dos contratos aceitos pelo link) e se defender em processo</td><td>exercício regular de direitos (art. 7º, VI)</td></tr>
+        <tr><td>Segurança: limitar abusos, registrar quem entrou e quando a Renderiza entra numa conta para ajudar</td><td>legítimo interesse (art. 7º, IX), com o mínimo de dados</td></tr>
+        <tr><td>Suporte e melhorias do painel; números gerais do serviço (quantas contas, quantos pedidos), sempre sem nome nem contato</td><td>legítimo interesse (art. 7º, IX)</td></tr>
+        <tr><td>Os dados dos clientes dos negócios</td><td>a base é a do negócio, que é o controlador. A Renderiza trata esses dados só como operadora (art. 39).</td></tr>
+      </tbody>
+    </table>
     <p>A Renderiza não vende dados, não usa os dados dos clientes dos negócios para propaganda e não manda mensagem para eles.</p>
   </section>
 
-  <section id="com-quem"><h2 class="rz-titulo-2">5. Com quem</h2>
-    <p>Só com os serviços que fazem o painel funcionar, cada um com a sua parte:</p>
+  <section id="com-quem"><h2 class="rz-titulo-2">5. Com quem compartilhamos</h2>
+    <p>Só com os fornecedores que fazem o painel funcionar, cada um para a sua parte e com contrato que os obriga a proteger os dados:</p>
     <table>
-      <thead><tr><th scope="col">Serviço</th><th scope="col">Para quê</th></tr></thead>
+      <thead><tr><th scope="col">Fornecedor</th><th scope="col">Para quê</th><th scope="col">Onde</th></tr></thead>
       <tbody>
-        <tr><td>Supabase</td><td>o banco de dados, o login e as imagens (servidores em São Paulo)</td></tr>
-        <tr><td>Vercel</td><td>a hospedagem das telas do painel e das páginas públicas</td></tr>
-        <tr><td>Brevo</td><td>o envio dos e-mails do serviço</td></tr>
-        <tr><td>Zoho</td><td>a caixa de e-mail da Renderiza (o contato)</td></tr>
-        <tr><td>jsDelivr</td><td>entrega ao navegador a biblioteca do Supabase usada pelas telas</td></tr>
-        <tr><td>Cloudflare Turnstile</td><td>a verificação contra robô no cadastro, quando o cadastro aberto estiver ligado</td></tr>
-        <tr><td>GitHub</td><td>guarda a cópia de segurança semanal, cifrada (sem a senha, ninguém lê)</td></tr>
+        <tr><td>Supabase</td><td>o banco de dados, o login e as imagens</td><td>servidores em São Paulo; empresa nos Estados Unidos</td></tr>
+        <tr><td>Vercel</td><td>a hospedagem das telas do painel, das páginas públicas e da API usada pelos sites</td><td>Estados Unidos e rede global</td></tr>
+        <tr><td>Brevo</td><td>o envio dos e-mails do serviço</td><td>União Europeia (França)</td></tr>
+        <tr><td>Zoho</td><td>a caixa de e-mail da Renderiza (o contato e o suporte)</td><td><mark class="rz-doc-revisar">[conferir o país da conta Zoho]</mark></td></tr>
+        <tr><td>jsDelivr</td><td>entrega ao navegador a biblioteca do Supabase usada pelas telas (recebe o endereço de internet de quem abre o painel)</td><td>rede global</td></tr>
+        <tr><td>Cloudflare Turnstile</td><td>a verificação contra robô no cadastro, quando o cadastro aberto estiver ligado</td><td>rede global</td></tr>
+        <tr><td>GitHub</td><td>guarda a cópia de segurança semanal, cifrada (sem a senha, ninguém lê)</td><td>Estados Unidos</td></tr>
       </tbody>
     </table>
-    <p>Alguns desses serviços ficam fora do Brasil; a transferência segue a LGPD. <mark class="rz-doc-revisar">[Conferir na revisão as cláusulas de cada fornecedor.]</mark> Fora deles, dados só saem por ordem da Justiça ou da autoridade, nos termos da lei.</p>
+    <p>Quando você toca em "mandar pelo WhatsApp" no painel, o painel só abre o <b>seu</b> WhatsApp com a mensagem pronta: quem envia é você, pela sua conta, e o painel não passa dados ao WhatsApp.</p>
+    <p>Fora desses casos, dados só saem por ordem judicial ou pedido de autoridade com base na lei, ou para a Renderiza se defender em processo. Se a Renderiza for comprada ou se juntar a outra empresa, os dados seguem com o serviço, com as mesmas proteções, e você é avisado.</p>
   </section>
 
-  <section id="tempo"><h2 class="rz-titulo-2">6. Por quanto tempo</h2>
-    <ul>
-      <li>Enquanto a conta do negócio existir.</li>
-      <li>Conta cancelada: <b>90 dias</b>, para o caso de voltar; depois, tudo é apagado, com as imagens. A cópia de segurança cifrada mais antiga some em até <mark class="rz-doc-revisar">[90 dias]</mark> depois disso.</li>
-      <li>O aceite de um contrato fica com o contrato, enquanto ele existir na conta.</li>
-      <li>O endereço de internet embaralhado da agenda online: 1 dia.</li>
-    </ul>
+  <section id="exterior"><h2 class="rz-titulo-2">6. Dados fora do Brasil</h2>
+    <p>O banco de dados fica em São Paulo, mas alguns fornecedores estão fora do Brasil. Esse envio segue o art. 33 da LGPD e a Resolução CD/ANPD nº 19/2024, com as garantias contratuais que cada fornecedor oferece. <mark class="rz-doc-revisar">[Conferir, fornecedor por fornecedor, o mecanismo de transferência: as cláusulas-padrão da ANPD ou outro reconhecido.]</mark></p>
   </section>
 
-  <section id="seguranca"><h2 class="rz-titulo-2">7. Segurança</h2>
+  <section id="tempo"><h2 class="rz-titulo-2">7. Por quanto tempo</h2>
+    <table>
+      <thead><tr><th scope="col">O quê</th><th scope="col">Quanto tempo</th></tr></thead>
+      <tbody>
+        <tr><td>Os dados da conta e o que o negócio pôs no painel</td><td>enquanto a conta existir</td></tr>
+        <tr><td>Conta cancelada</td><td><b>90 dias</b>, para o caso de voltar; depois, tudo é apagado, com as imagens</td></tr>
+        <tr><td>Cópias de segurança cifradas</td><td>até 90 dias, substituídas toda semana</td></tr>
+        <tr><td>Registros de acesso ao painel (data, hora e IP)</td><td><b>6 meses</b>, como manda o Marco Civil da Internet (art. 15), sob sigilo</td></tr>
+        <tr><td>Registro dos aceites destes documentos</td><td>enquanto a conta existir e, depois, só o necessário para defesa em processo, pelos prazos da lei</td></tr>
+        <tr><td>Pagamentos da mensalidade</td><td>pelo prazo da lei fiscal</td></tr>
+        <tr><td>Aceite de um contrato pelo link</td><td>com o contrato, enquanto ele existir na conta do negócio</td></tr>
+        <tr><td>Endereço de internet embaralhado da agenda online</td><td>1 dia</td></tr>
+      </tbody>
+    </table>
+    <p>Terminado o prazo, os dados são apagados ou anonimizados, a não ser que a lei mande ou permita guardar (LGPD, art. 16).</p>
+  </section>
+
+  <section id="seguranca"><h2 class="rz-titulo-2">8. Segurança</h2>
     <ul>
-      <li>Cada negócio só enxerga a própria conta, e cada pessoa só os módulos que o dono liberou: quem garante é o próprio banco de dados, não só a tela.</li>
-      <li>A senha é guardada pelo serviço de login (Supabase), cifrada; ninguém da Renderiza vê.</li>
+      <li>Cada negócio só enxerga a própria conta, e cada pessoa só os módulos que o dono liberou. Quem garante isso é o próprio banco de dados, não só a tela.</li>
+      <li>Tudo trafega cifrado (HTTPS). A senha é guardada cifrada pelo serviço de login (Supabase), e ninguém da Renderiza vê.</li>
       <li>A equipe da Renderiza não vê os dados dos clientes dos negócios. Para ajudar, entra numa conta por no máximo 8 horas, com registro de quem, quando e por quê, que o dono vê.</li>
-      <li>Cópia de segurança semanal, cifrada, guardada fora do banco, e testada.</li>
-      <li>Se algo der errado com dados pessoais, a Renderiza avisa os negócios afetados o quanto antes, para que eles avisem quem precisar, como a lei pede.</li>
+      <li>As chaves de acesso ficam só nos servidores, nunca nas telas. O painel não abre dentro de outro site e fica fora do Google.</li>
+      <li>Há cópia de segurança semanal, cifrada, guardada fora do banco e testada.</li>
     </ul>
   </section>
 
-  <section id="navegador"><h2 class="rz-titulo-2">8. O que fica no seu navegador</h2>
-    <p>O painel guarda no navegador só o que precisa para você continuar entrado e a conta que escolheu. Não usa cookies de propaganda nem ferramentas de rastreamento.</p>
+  <section id="incidentes"><h2 class="rz-titulo-2">9. Se algo der errado</h2>
+    <p>Se acontecer um incidente de segurança que possa trazer risco ou dano relevante:</p>
+    <ul>
+      <li>sobre os dados de quem usa o painel, a Renderiza comunica a ANPD e as pessoas afetadas nos prazos da lei (LGPD, art. 48; Resolução CD/ANPD nº 15/2024);</li>
+      <li>sobre os dados dos clientes de um negócio, a Renderiza avisa o negócio sem demora injustificada, para que ele, como controlador, faça as comunicações que cabem a ele.</li>
+    </ul>
+    <p>Em qualquer caso, a Renderiza age para conter o problema e registra o que aconteceu.</p>
   </section>
 
-  <section id="direitos"><h2 class="rz-titulo-2">9. Os seus direitos</h2>
-    <p>Pela LGPD, você pode pedir para saber se tratamos dados seus, ver, corrigir, levar para outro serviço ou apagar, saber com quem foram compartilhados e revogar um consentimento. Quem usa o painel pede à Renderiza pelo contato abaixo. Quem é cliente de um negócio pede ao próprio negócio, que é quem decide sobre esses dados; a Renderiza ajuda o negócio a responder. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+  <section id="navegador"><h2 class="rz-titulo-2">10. O que fica no seu navegador</h2>
+    <p>O painel guarda no navegador só o necessário: o acesso que mantém você conectado, a conta que você escolheu e algumas preferências de tela, como a vista do Atendimento. Não usa cookies de propaganda nem de rastreamento. Os sites ligados ao Meu site guardam no navegador de quem visita uma cópia do conteúdo publicado, para abrir mais rápido, sem nenhum dado pessoal.</p>
   </section>
 
-  <section id="criancas"><h2 class="rz-titulo-2">10. Crianças</h2>
-    <p>O painel não é usado por crianças. Quando um negócio atende crianças (newborn, aniversário, ensaio infantil), a orientação é anotar no máximo o primeiro nome, quando ajudar no atendimento, e sempre no melhor interesse da criança.</p>
+  <section id="direitos"><h2 class="rz-titulo-2">11. Os seus direitos e como pedir</h2>
+    <p>Pela LGPD (art. 18), você pode pedir:</p>
+    <ul>
+      <li>confirmação de que tratamos dados seus e acesso a eles;</li>
+      <li>correção de dados incompletos, errados ou desatualizados;</li>
+      <li>anonimização, bloqueio ou eliminação do que for desnecessário, excessivo ou tratado em desacordo com a lei;</li>
+      <li>portabilidade a outro serviço;</li>
+      <li>informação sobre com quem compartilhamos;</li>
+      <li>revisão de decisões tomadas só por meio automático (o painel não toma; cláusula 13);</li>
+      <li>oposição a um tratamento feito em desacordo com a lei.</li>
+    </ul>
+    <p><b>Quem usa o painel</b> pede à Renderiza pelo <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a>. Para proteger você, podemos pedir que confirme que é você. Respondemos em até 15 dias (LGPD, art. 19). Alguns dados podem continuar guardados mesmo depois do pedido, quando a lei manda ou permite (cláusula 7).</p>
+    <p><b>Quem é cliente de um negócio</b> pede ao próprio negócio, que é quem decide sobre esses dados. Se o pedido chegar à Renderiza, ela encaminha ao negócio e ajuda a responder.</p>
+    <p>Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD), pelo site gov.br/anpd.</p>
   </section>
 
-  <section id="mudancas"><h2 class="rz-titulo-2">11. Mudanças</h2>
-    <p>Quando esta política mudar de verdade, a versão nova ganha uma data nova e quem usa o painel vê e aceita de novo no próximo acesso.</p>
+  <section id="criancas"><h2 class="rz-titulo-2">12. Crianças e adolescentes</h2>
+    <p>O painel é para adultos que trabalham no negócio. Quando um negócio atende crianças (newborn, aniversário, ensaio infantil), a orientação é anotar no máximo o primeiro nome, quando ajudar no atendimento, e sempre no melhor interesse da criança (LGPD, art. 14). Os dados de contato são os do responsável.</p>
   </section>
 
-  <section id="contato"><h2 class="rz-titulo-2">12. Contato</h2>
-    <p>Renderiza · <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a>. <mark class="rz-doc-revisar">[Encarregado pelo tratamento de dados (DPO), razão social e CNPJ: a preencher na revisão.]</mark></p>
+  <section id="automaticas"><h2 class="rz-titulo-2">13. Decisões automáticas</h2>
+    <p>O painel não toma decisões sobre pessoas só por meio automático e não cria perfis de ninguém. As sugestões que ele mostra (um horário livre, um valor de pacote) são só sugestões: quem decide é o negócio.</p>
+  </section>
+
+  <section id="encarregado"><h2 class="rz-titulo-2">14. Canal de privacidade</h2>
+    <p>Para qualquer assunto de privacidade, inclusive comunicações da ANPD: <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a>. <mark class="rz-doc-revisar">[Se a Renderiza for microempresa ou empresa de pequeno porte, este canal atende a LGPD sem nomear encarregado (Resolução CD/ANPD nº 2/2022, art. 11). Se não for, pôr aqui o nome do encarregado (Resolução CD/ANPD nº 18/2024).]</mark></p>
+  </section>
+
+  <section id="mudancas"><h2 class="rz-titulo-2">15. Mudanças nesta política</h2>
+    <p>Quando esta política mudar de verdade, a versão nova ganha uma data nova, é avisada a quem usa o painel e aparece para leitura no próximo acesso. Se mudar a lista de fornecedores que tratam os dados dos clientes dos negócios, a mudança aparece aqui antes de valer.</p>
   </section>
 
   <p class="rz-doc-pe">Veja também os <a href="/termos">Termos de uso</a>.</p>

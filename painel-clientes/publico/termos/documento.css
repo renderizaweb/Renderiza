@@ -11,6 +11,9 @@
 .rz-doc-indice a{text-decoration:none}
 .rz-doc section{margin-bottom:var(--rz-8);scroll-margin-top:var(--rz-4)}
 .rz-doc h2{margin-bottom:var(--rz-3)}
+.rz-doc h3{margin:var(--rz-5) 0 var(--rz-2)}
+.rz-doc ul ul{margin-top:var(--rz-1)}
+.rz-doc-resumo{margin-bottom:var(--rz-6);padding:var(--rz-4) var(--rz-5);border-left:3px solid var(--rz-destaque);border-radius:var(--rz-raio);background:var(--rz-superficie)}
 .rz-doc p,.rz-doc li{color:var(--rz-tinta)}
 .rz-doc p+p{margin-top:var(--rz-3)}
 .rz-doc ul{margin:var(--rz-2) 0 0;padding-left:var(--rz-5)}

@@ -33,10 +33,11 @@ test("os termos dizem o que a página de venda e os documentos já prometem", ()
   const venda = ler("../../exemplos/index.html");
   const [, base, inclusos, extra, acessos] = /const PRECO = \{ base: (\d+), inclusos: (\d+), extra: ([\d.]+), acessos: (\d+) \}/.exec(venda);
   assert.ok(termos.includes(`R$ ${base} por mês`) && termos.includes(`com ${inclusos} módulos`) && termos.includes(`R$ ${extra.replace(".", ",")} por mês`) && termos.includes(`até ${acessos} pessoas`));
-  for (const frase of ["7 dias de graça", "90 dias", "no máximo 8 horas", "operadora", "controlador", "versão inicial", "não escreve nem revisa contrato", "Exportar tudo"]) {
+  for (const frase of ["7 dias de graça", "90 dias", "no máximo 8 horas", "operadora", "controlador", "versão inicial", "não escreve nem revisa contrato", "Exportar tudo",
+    "o site volta sozinho a mostrar a versão inicial", "cobrada à parte", "não fazem parte do site entregue", "art. 39", "art. 421-A", "art. 63"]) {
     assert.ok(termos.includes(frase), `os termos falam de: ${frase}`);
   }
-  for (const frase of ["Supabase", "Vercel", "Brevo", "GitHub", "1 dia", "90 dias", "ANPD", "primeiro nome"]) {
+  for (const frase of ["Supabase", "Vercel", "Brevo", "GitHub", "1 dia", "90 dias", "ANPD", "primeiro nome", "6 meses", "art. 7º, V", "art. 18", "art. 33"]) {
     assert.ok(privacidade.includes(frase), `a política fala de: ${frase}`);
   }
 });
@@ -46,5 +47,6 @@ test("a tela do aceite leva aos dois documentos e grava a versão", () => {
   assert.match(tela, /href="\/termos"/);
   assert.match(tela, /href="\/privacidade"/);
   assert.match(tela, /termos_aceites/);
+  assert.match(tela, /Li e aceito os termos de uso, e li a política de privacidade/, "a política informa: não pede consentimento");
   assert.match(ler("../src/app.js"), /situacaoDoAceite/);
 });

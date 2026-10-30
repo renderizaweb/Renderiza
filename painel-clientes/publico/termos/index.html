@@ -9,131 +9,278 @@
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/src/ui/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Termos de uso do Painel Renderiza (Missão 5B; 06, "Documentos que precisam existir"). RASCUNHO para revisão de
-     quem entende de LGPD e de contratos (D12). A versão (data-versao) é a mesma de src/telas/termos.js: mudou o
-     texto de verdade, muda a versão, e todo mundo aceita de novo no próximo acesso. -->
+<!-- Termos de uso e de prestação de serviço do Painel Renderiza (Missão 5B; 06; revisão de 30/10/2026 a pedido da
+     Renderiza, que valida; referências em docs/painel-clientes/termos-referencias.md). A versão (data-versao) é a
+     mesma de src/telas/termos.js: mudou o texto de verdade, muda a versão, e todo mundo aceita de novo no próximo
+     acesso. O que está em <mark class="rz-doc-revisar"> é decisão da Renderiza, a preencher antes de tirar a etiqueta
+     "Rascunho em revisão". -->
 <link rel="stylesheet" href="/src/ui/estilo.css">
 <link rel="stylesheet" href="/publico/termos/documento.css">
 </head>
 <body class="rz-doc-pagina">
 <main class="rz-doc" data-versao="2026-10-30">
   <a class="rz-doc-marca" href="/"><span class="rz-conta-sinal" aria-hidden="true">R</span>Painel Renderiza</a>
-  <h1 class="rz-titulo-1">Termos de uso</h1>
+  <h1 class="rz-titulo-1">Termos de uso e de prestação de serviço</h1>
   <p class="rz-doc-versao"><span>Versão de 30/10/2026</span><span class="rz-etiqueta rz-etiqueta--alerta">Rascunho em revisão</span></p>
+
+  <p class="rz-doc-resumo"><b>Em poucas palavras:</b> o painel é um serviço por assinatura mensal, sem fidelidade. Os dados do seu negócio são seus e você leva tudo numa planilha quando quiser. O <b>site</b> é um produto à parte, que é seu; o <b>Meu site</b> é um serviço do painel para editar o site. Se o Meu site deixar de estar ativo, o site volta para a <b>versão inicial</b>; levar as mudanças para o site é um serviço cobrado à parte. Sobre os dados dos seus clientes, você decide (controlador) e a Renderiza guarda e trata em seu nome (operadora). O resumo não substitui o texto abaixo.</p>
 
   <nav class="rz-doc-indice" aria-label="Neste documento"><b>Neste documento</b>
     <ol>
-      <li><a href="#o-que-e">O que é o painel</a></li>
+      <li><a href="#partes">Quem são as partes</a></li>
+      <li><a href="#definicoes">Palavras usadas aqui</a></li>
+      <li><a href="#servico">O que é o serviço</a></li>
       <li><a href="#conta">A conta e a equipe</a></li>
       <li><a href="#teste">O teste grátis</a></li>
-      <li><a href="#preco">Preço e pagamento</a></li>
+      <li><a href="#preco">Preço, pagamento e reajuste</a></li>
       <li><a href="#atraso">Atraso e conta desligada</a></li>
-      <li><a href="#cancelar">Cancelar e levar os dados</a></li>
-      <li><a href="#clientes">Os dados dos seus clientes</a></li>
-      <li><a href="#seu">O que é seu</a></li>
-      <li><a href="#site">Meu site e agenda online</a></li>
-      <li><a href="#suporte">Suporte</a></li>
+      <li><a href="#cancelar">Cancelamento e os seus dados</a></li>
+      <li><a href="#site">O site e o Meu site</a></li>
+      <li><a href="#agenda">A agenda online</a></li>
+      <li><a href="#contratos">Os contratos que você manda pelo painel</a></li>
+      <li><a href="#dados">Proteção de dados (LGPD)</a></li>
+      <li><a href="#propriedade">O que é de quem</a></li>
       <li><a href="#uso">Uso correto</a></li>
-      <li><a href="#limites">Funcionamento e limites</a></li>
+      <li><a href="#suporte">Suporte e acesso da Renderiza à conta</a></li>
+      <li><a href="#funcionamento">Funcionamento, manutenção e cópias de segurança</a></li>
+      <li><a href="#responsabilidade">Responsabilidades e limites</a></li>
       <li><a href="#mudancas">Mudanças nestes termos</a></li>
+      <li><a href="#gerais">Disposições gerais</a></li>
+      <li><a href="#foro">Lei aplicável e foro</a></li>
       <li><a href="#contato">Contato</a></li>
     </ol>
   </nav>
 
-  <section id="o-que-e"><h2 class="rz-titulo-2">1. O que é o painel</h2>
-    <p>O Painel Renderiza é um sistema na internet, feito pela Renderiza, para o dia a dia de um negócio: agenda, clientes, atendimento, contratos, financeiro e, para quem tem site feito pela Renderiza, a agenda online e o Meu site. Abre no navegador, no celular ou no computador, sem instalar nada.</p>
-    <p>Ao criar uma conta, entrar por um convite ou continuar usando o painel depois de uma versão nova destes termos, você concorda com eles.</p>
+  <section id="partes"><h2 class="rz-titulo-2">1. Quem são as partes</h2>
+    <p>Estes termos são o contrato entre:</p>
+    <ul>
+      <li><b>Renderiza:</b> <mark class="rz-doc-revisar">[razão social]</mark>, CNPJ <mark class="rz-doc-revisar">[00.000.000/0000-00]</mark>, com sede em <mark class="rz-doc-revisar">[endereço completo, cidade/UF]</mark>, que oferece o Painel Renderiza (<a href="/">painel.renderizaweb.com.br</a>); e</li>
+      <li><b>Cliente:</b> a pessoa ou empresa que contrata o painel para o próprio negócio (o espaço, o estúdio), representada por quem cria a conta ou aceita o convite de dono.</li>
+    </ul>
+    <p>Quem aceita estes termos em nome do Cliente declara que tem poderes para isso. As pessoas da equipe que o Cliente convida usam o painel sob estes termos, mas as obrigações de pagamento e as decisões sobre os dados do negócio são do Cliente.</p>
+    <p>O aceite é feito no painel, marcando "Li e aceito", e vale como assinatura: a lei admite o contrato por meio eletrônico (Código Civil, art. 107; Medida Provisória nº 2.200-2/2001, art. 10, § 2º). O painel guarda quem aceitou, a versão, a data, a hora e o aparelho.</p>
   </section>
 
-  <section id="conta"><h2 class="rz-titulo-2">2. A conta e a equipe</h2>
+  <section id="definicoes"><h2 class="rz-titulo-2">2. Palavras usadas aqui</h2>
     <ul>
-      <li>A <b>conta</b> é o negócio (o espaço, o estúdio). Quem cria a conta, ou quem a Renderiza indica ao criá-la, é o <b>dono</b>.</li>
-      <li>O dono convida as pessoas da equipe (até 5 pessoas ativas no plano) e decide o que cada uma vê ou edita. Cada pessoa entra com o próprio e-mail e a própria senha, que não devem ser compartilhados.</li>
-      <li>O dono responde pelo que a equipe faz no painel e pelos acessos que dá. A conta sempre tem pelo menos um dono.</li>
-      <li>As informações de cadastro (nome do negócio, e-mail, WhatsApp) devem ser verdadeiras e ficar atualizadas.</li>
+      <li><b>Painel:</b> o sistema na internet em que o Cliente organiza o negócio (agenda, atendimento, clientes, contratos, financeiro e os demais módulos).</li>
+      <li><b>Conta:</b> o espaço do negócio dentro do painel. <b>Dono</b> é quem responde pela conta; <b>equipe</b> são as pessoas que o dono convida.</li>
+      <li><b>Módulo:</b> cada parte do painel que pode ser ligada ou desligada (Agenda, Atendimento, Clientes, Contratos, Financeiro, Agenda online, Meu site e os que vierem).</li>
+      <li><b>Site:</b> o site do negócio feito pela Renderiza e contratado à parte, com proposta e pagamento próprios.</li>
+      <li><b>Meu site:</b> o módulo do painel que permite editar o site dentro do padrão dele.</li>
+      <li><b>Versão inicial:</b> o site como foi entregue na conclusão do projeto, conforme a proposta do site. Ela fica gravada no próprio site.</li>
+      <li><b>Versão publicada:</b> as mudanças feitas pelo Meu site e publicadas pelo Cliente. Ficam guardadas nos servidores da Renderiza, e não no site.</li>
+      <li><b>Versão final:</b> o site com as mudanças do Meu site incorporadas aos arquivos dele, entregue como serviço à parte (cláusula 9).</li>
+      <li><b>Dados do Cliente:</b> o que o Cliente e a equipe dele põem no painel. <b>Clientes finais</b> são os clientes do Cliente (quem faz a festa, quem marca o ensaio, quem aceita um contrato).</li>
     </ul>
   </section>
 
-  <section id="teste"><h2 class="rz-titulo-2">3. O teste grátis</h2>
+  <section id="servico"><h2 class="rz-titulo-2">3. O que é o serviço</h2>
+    <ul>
+      <li>A Renderiza dá ao Cliente o direito de usar o painel pela internet, enquanto a conta estiver ativa, de forma não exclusiva e intransferível. Não há venda nem cessão do programa.</li>
+      <li>O painel abre no navegador, no celular ou no computador, e precisa de internet. A Renderiza pode melhorar, mudar ou tirar funções para manter o serviço seguro e atualizado. Se tirar uma função que o Cliente usa e paga, avisa antes, e o Cliente pode cancelar sem custo.</li>
+      <li><b>O painel é uma ferramenta de organização.</b> Ele não recebe nem cobra pagamentos dos clientes finais (o Pix, o boleto e o cartão continuam indo direto para o Cliente). Também não é assessoria jurídica, contábil ou fiscal, e não garante vendas nem resultados.</li>
+    </ul>
+  </section>
+
+  <section id="conta"><h2 class="rz-titulo-2">4. A conta e a equipe</h2>
+    <ul>
+      <li>As informações de cadastro (nome do negócio, e-mail, WhatsApp) devem ser verdadeiras e ficar atualizadas. O e-mail do dono é o canal oficial de avisos.</li>
+      <li>O dono convida a equipe (até 5 pessoas ativas no plano) e decide o que cada uma vê ou edita. Cada pessoa entra com o próprio e-mail e a própria senha, que não devem ser compartilhados. A conta sempre tem pelo menos um dono.</li>
+      <li>O Cliente responde pelo que a equipe faz no painel e pelos acessos que dá. Se suspeitar de uso indevido, deve trocar a senha e avisar a Renderiza.</li>
+      <li>Para proteger o Cliente e o serviço, a Renderiza pode bloquear um acesso suspeito e avisa o dono.</li>
+    </ul>
+  </section>
+
+  <section id="teste"><h2 class="rz-titulo-2">5. O teste grátis</h2>
     <ul>
       <li>Quem se cadastra sozinho usa o painel <b>7 dias de graça</b>, contados da criação da conta, com os módulos que escolher (menos os marcados como "só pago"). O teste é um por pessoa.</li>
-      <li>Ligou outro módulo durante o teste? Ele vale só até o fim dos mesmos 7 dias.</li>
-      <li>Acabou o teste, a pessoa continua entrando, mas os dados ficam bloqueados até o plano ser fechado. Nada é apagado nesse momento; o que acontece depois está em <a href="#cancelar">Cancelar e levar os dados</a>.</li>
+      <li>Um módulo ligado durante o teste vale até o fim dos mesmos 7 dias.</li>
+      <li>Quando o teste acaba, a pessoa continua entrando, mas os dados ficam bloqueados até o plano ser fechado. Nada é apagado nesse momento; o que acontece depois está na cláusula 8.</li>
+      <li>A conta criada pela Renderiza já nasce ativa, sem teste.</li>
     </ul>
   </section>
 
-  <section id="preco"><h2 class="rz-titulo-2">4. Preço e pagamento</h2>
+  <section id="preco"><h2 class="rz-titulo-2">6. Preço, pagamento e reajuste</h2>
     <ul>
-      <li>O plano custa <b>R$ 49 por mês</b>, com 2 módulos à escolha e até 5 pessoas. Cada módulo a mais custa <b>R$ 14,99 por mês</b> (o Meu site é um módulo como os outros).</li>
-      <li>A mensalidade é paga por <b>Pix</b>, todo mês, e registrada pela Renderiza. Não há fidelidade nem multa para sair.</li>
-      <li>Dá para mudar os módulos quando quiser: o valor novo vale a partir da mensalidade seguinte.</li>
-      <li>A montagem do painel é grátis para quem faz o site com a Renderiza. Mudança de preço é avisada com antecedência de <mark class="rz-doc-revisar">[30 dias, a confirmar na revisão]</mark> e vale a partir da mensalidade seguinte ao aviso.</li>
+      <li>O plano custa <b>R$ 49 por mês</b>, com 2 módulos à escolha e até 5 pessoas. Cada módulo a mais custa <b>R$ 14,99 por mês</b>. O Meu site é um módulo como os outros.</li>
+      <li>A mensalidade é paga por <b>Pix</b>, todo mês, até o dia <mark class="rz-doc-revisar">[dia do vencimento, ex.: 10]</mark>, e a Renderiza registra o pagamento. <b>Não há fidelidade nem multa para sair.</b></li>
+      <li>O Cliente pode mudar os módulos quando quiser. O valor novo vale a partir da mensalidade seguinte. Não há devolução proporcional de mês já pago.</li>
+      <li>A montagem do painel é grátis para quem faz o site com a Renderiza. Serviços fora do painel (como a versão final do site, mudanças de layout ou páginas novas no site) são orçados à parte.</li>
+      <li><b>Reajuste:</b> os valores podem ser corrigidos uma vez a cada 12 meses pelo IPCA (IBGE) acumulado no período. Qualquer outra mudança de preço é avisada com pelo menos <mark class="rz-doc-revisar">[30 dias]</mark> de antecedência e vale a partir da mensalidade seguinte ao prazo do aviso. Quem não concordar pode cancelar antes, sem custo.</li>
     </ul>
   </section>
 
-  <section id="atraso"><h2 class="rz-titulo-2">5. Atraso e conta desligada</h2>
-    <p>Sem o pagamento do mês, a Renderiza avisa e pode desligar a conta. Conta desligada: a equipe entra, vê o aviso para falar com a Renderiza e os dados ficam bloqueados; o site conectado volta à versão inicial. Nada é apagado: pagou, a Renderiza religa e tudo volta como estava.</p>
-  </section>
-
-  <section id="cancelar"><h2 class="rz-titulo-2">6. Cancelar e levar os dados</h2>
+  <section id="atraso"><h2 class="rz-titulo-2">7. Atraso e conta desligada</h2>
     <ul>
-      <li>Você cancela quando quiser, pelo WhatsApp ou pelo e-mail da Renderiza.</li>
-      <li>Enquanto a conta funciona, o dono baixa tudo a qualquer hora em "Exportar tudo" (uma planilha por assunto, num arquivo .zip). Com a conta desligada, cancelada ou com o teste vencido, a Renderiza manda a planilha a pedido do dono; esse pedido fica registrado.</li>
-      <li>Depois do cancelamento, os dados ficam guardados por <b>90 dias</b>, para o caso de você voltar, e então são apagados, com as imagens. Cópias de segurança cifradas podem durar até <mark class="rz-doc-revisar">[90 dias]</mark> a mais, até serem substituídas.</li>
+      <li>Sem o pagamento do mês, a Renderiza avisa o dono. Se o atraso continuar, a Renderiza pode <b>desligar a conta</b>.</li>
+      <li>Com a conta desligada, a equipe entra e vê o aviso para falar com a Renderiza, mas os dados ficam bloqueados. O site ligado ao Meu site volta a mostrar a versão inicial (cláusula 9), e a agenda online para de receber pedidos.</li>
+      <li>Nada é apagado enquanto a conta está desligada: pagou, a Renderiza religa e tudo volta como estava.</li>
+      <li>Conta desligada por falta de pagamento há mais de <mark class="rz-doc-revisar">[90 dias]</mark> é tratada como cancelada, e os dados seguem a cláusula 8. A Renderiza avisa antes de apagar.</li>
     </ul>
   </section>
 
-  <section id="clientes"><h2 class="rz-titulo-2">7. Os dados dos seus clientes</h2>
-    <p>Pela Lei Geral de Proteção de Dados (LGPD), o seu negócio é o <b>controlador</b> dos dados dos seus clientes (quem faz a festa, quem marca o ensaio): é você quem decide o que anotar sobre eles. A Renderiza é a <b>operadora</b>: guarda e trata esses dados em seu nome, só para o painel funcionar, e não usa para nada além disso.</p>
+  <section id="cancelar"><h2 class="rz-titulo-2">8. Cancelamento e os seus dados</h2>
     <ul>
-      <li>Anote só o necessário. CPF e endereço, só se o seu contrato pedir. Nada de dado sensível sem necessidade (saúde, religião e afins), nem conversa do WhatsApp copiada inteira, número de cartão ou senha de terceiros.</li>
-      <li>De crianças (newborn, aniversário, ensaio infantil), no máximo o primeiro nome, quando ajudar no atendimento.</li>
-      <li>Quando um cliente seu pedir para ver, corrigir ou apagar os dados dele, quem responde é você; a Renderiza ajuda com a exportação ou o apagamento.</li>
-      <li>Como a Renderiza cuida desses dados está na <a href="/privacidade">Política de privacidade</a>.</li>
+      <li><b>O Cliente cancela quando quiser,</b> pelo WhatsApp ou pelo e-mail da Renderiza. O cancelamento vale no fim do mês já pago.</li>
+      <li>A Renderiza também pode encerrar o serviço avisando com pelo menos 30 dias de antecedência. O encerramento é imediato só se o Cliente descumprir estes termos de forma grave (cláusula 14) ou se a lei ou uma ordem de autoridade exigir.</li>
+      <li><b>Levar os dados:</b> enquanto a conta funciona, o dono baixa tudo a qualquer hora em <b>"Exportar tudo"</b> (uma planilha por assunto, num arquivo .zip que abre no Excel e no Google Planilhas). Com a conta desligada, cancelada ou com o teste vencido, a Renderiza manda a planilha a pedido do dono, e o pedido fica registrado.</li>
+      <li><b>Guarda e apagamento:</b> depois do cancelamento, os dados ficam guardados por <b>90 dias</b>, para o caso de o Cliente voltar, e então são apagados, com as imagens. As cópias de segurança cifradas são substituídas em até 90 dias depois disso.</li>
+      <li>Ficam guardados por mais tempo só os registros que a lei manda ou permite guardar: os registros de acesso ao painel por 6 meses (Marco Civil da Internet, art. 15), o registro dos aceites destes termos e o que for preciso para cumprir obrigação legal ou para defesa em processo (LGPD, arts. 7º, VI, e 16, I).</li>
     </ul>
   </section>
 
-  <section id="seu"><h2 class="rz-titulo-2">8. O que é seu</h2>
+  <section id="site"><h2 class="rz-titulo-2">9. O site e o Meu site</h2>
+    <h3 class="rz-titulo-3">9.1 O site é uma coisa, o Meu site é outra</h3>
     <ul>
-      <li>Os seus dados, textos, contratos, fotos e logos continuam seus. A Renderiza só usa o que for preciso para o painel e o site funcionarem.</li>
-      <li>Você garante que tem autorização de quem aparece nas fotos e nos depoimentos que publica pelo Meu site.</li>
-      <li><b>Contratos:</b> o texto é seu; a Renderiza não escreve nem revisa contrato. O aceite pelo link é um termo de aceite digital, sem certificado digital (e-CPF): o painel guarda o nome e o contato de quem aceitou, a data, a hora, o endereço de internet (IP), o aparelho e a impressão digital do texto aceito.</li>
-      <li>O painel é controle: ele não recebe pagamentos nem cobra os seus clientes. O Pix e o boleto continuam caindo direto na sua conta.</li>
+      <li>O <b>site</b> é contratado à parte, com proposta e pagamento próprios. Ele é do Cliente e fica nas contas dele (domínio, hospedagem e código no nome do Cliente), como diz a proposta. Estes termos não mudam a proposta do site.</li>
+      <li>O <b>Meu site</b> é um serviço do painel, pago na mensalidade, que só existe para site feito pela Renderiza no modelo preparado para ele. Ele permite editar o site <b>dentro do padrão do modelo</b>: textos, botões, cores, imagens, galeria, depoimentos e seções. Não é um construtor livre: layout novo, páginas novas e funções novas no site são serviços à parte.</li>
     </ul>
-  </section>
-
-  <section id="site"><h2 class="rz-titulo-2">9. Meu site e agenda online</h2>
+    <h3 class="rz-titulo-3">9.2 Enquanto o Meu site está ativo</h3>
     <ul>
-      <li>Só existem para site feito pela Renderiza. O Meu site edita o site dentro do padrão dele (textos, botões, cores, imagens e seções); não é um construtor livre.</li>
-      <li>O site guarda a <b>versão inicial</b>, a entregue na venda: se o painel não responder, ou se a conta for desligada ou desconectada, o site abre sozinho com ela.</li>
-      <li>A <b>versão final</b> do site, para quem sai, é combinada na proposta de cada cliente, fora do painel.</li>
-      <li>Os pedidos que chegam pela agenda online caem no painel; os dados de quem pede seguem estes termos e a política de privacidade.</li>
+      <li>O site mostra a <b>versão publicada</b> pelo Cliente no painel. Essa versão fica guardada nos servidores da Renderiza e é aplicada por cima da versão inicial a cada visita. Ela não é gravada nos arquivos do site.</li>
+      <li>Se o painel ficar fora do ar, o site continua de pé e mostra a versão inicial até o painel voltar.</li>
     </ul>
-  </section>
-
-  <section id="suporte"><h2 class="rz-titulo-2">10. Suporte</h2>
-    <p>O suporte é pelo WhatsApp e pelo e-mail da Renderiza. Para ajudar, a equipe da Renderiza pode entrar na sua conta por um tempo curto (no máximo 8 horas por vez), sempre com registro de quem entrou, quando e por quê; o dono vê esse registro. Fora disso, a Renderiza não vê os dados dos seus clientes.</p>
-  </section>
-
-  <section id="uso"><h2 class="rz-titulo-2">11. Uso correto</h2>
-    <p>Não é permitido usar o painel para mandar propaganda não pedida, guardar dados de quem não é seu cliente, tentar entrar em contas que não são suas, testar falhas de segurança sem combinar com a Renderiza ou atrapalhar o funcionamento do serviço. Nesses casos, a Renderiza pode suspender o acesso e avisa o dono.</p>
-  </section>
-
-  <section id="limites"><h2 class="rz-titulo-2">12. Funcionamento e limites</h2>
+    <h3 class="rz-titulo-3">9.3 Se o Meu site deixar de estar ativo</h3>
     <ul>
-      <li>A Renderiza trabalha para o painel ficar no ar e guarda uma cópia de segurança semanal, cifrada. Ainda assim, pode haver interrupções (manutenção, falha de um fornecedor, internet).</li>
-      <li>Mantenha também a sua cópia: "Exportar tudo" está sempre à mão para o dono.</li>
-      <li><mark class="rz-doc-revisar">[Limite de responsabilidade: a definir na revisão jurídica.]</mark></li>
+      <li>Se o Meu site deixar de estar ativo, <b>o site volta sozinho a mostrar a versão inicial</b>. Isso acontece com o cancelamento do painel, com o desligamento do módulo, com a falta de pagamento ou com o encerramento do serviço.</li>
+      <li>As mudanças feitas pelo Meu site <b>deixam de aparecer</b> e <b>não fazem parte do site entregue</b>. Elas não são passadas para o site automaticamente, nem pertencem à versão inicial.</li>
+      <li>Se o Cliente voltar enquanto as versões estão guardadas (cláusula 8), a última versão publicada volta a aparecer.</li>
+    </ul>
+    <h3 class="rz-titulo-3">9.4 A versão final: um serviço à parte</h3>
+    <ul>
+      <li>Se quiser ficar com as mudanças feitas pelo Meu site, o Cliente pode contratar a <b>versão final</b>. Nela, a Renderiza incorpora ao site, nos arquivos dele, as mudanças da última versão publicada. Depois disso, o site não depende mais do painel.</li>
+      <li>A versão final é <b>cobrada à parte</b>, com orçamento, valor e prazo próprios, combinados antes. Ela não está incluída na mensalidade nem no valor do site.</li>
+      <li>Ela pode ser pedida enquanto a conta estiver ativa ou enquanto as versões estiverem guardadas depois do desligamento ou do cancelamento (cláusula 8). Depois desse prazo, as versões são apagadas e não dá para recuperá-las.</li>
+    </ul>
+    <h3 class="rz-titulo-3">9.5 O que o Cliente publica</h3>
+    <ul>
+      <li>O Cliente é o responsável pelos textos, fotos, logos, depoimentos e links que publica pelo Meu site. Ele garante que tem o direito de usar cada um e a autorização de quem aparece nas fotos e nos depoimentos (Lei nº 9.610/1998; Código Civil, art. 20).</li>
+      <li>Por ordem judicial (Marco Civil da Internet, art. 19), ou diante de conteúdo claramente ilícito, a Renderiza pode tirar uma publicação do ar e avisa o Cliente.</li>
+      <li>A hospedagem e o domínio do site são do Cliente. A Renderiza não responde por eles nem pelo que acontecer nas contas do Cliente em outros serviços.</li>
     </ul>
   </section>
 
-  <section id="mudancas"><h2 class="rz-titulo-2">13. Mudanças nestes termos</h2>
-    <p>Quando estes termos mudarem de verdade, a versão nova ganha uma data nova e o painel pede o aceite de novo no próximo acesso. Correção de escrita que não muda o sentido não muda a versão.</p>
+  <section id="agenda"><h2 class="rz-titulo-2">10. A agenda online</h2>
+    <ul>
+      <li>Só existe para site feito pela Renderiza. Os pedidos que chegam por ela caem no painel, e a data fica separada como pré-reserva por 48 horas, até o Cliente responder.</li>
+      <li>Responder, confirmar ou recusar cada pedido é com o Cliente. A Renderiza não fala com os clientes finais em nome dele.</li>
+      <li>Os dados de quem pede uma data são dados de clientes finais: seguem a cláusula 12 e a <a href="/privacidade">Política de privacidade</a>.</li>
+    </ul>
   </section>
 
-  <section id="contato"><h2 class="rz-titulo-2">14. Contato</h2>
-    <p>Renderiza · <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a> · <mark class="rz-doc-revisar">[razão social, CNPJ e endereço: a preencher na revisão]</mark>.</p>
-    <p><mark class="rz-doc-revisar">[Foro: a definir na revisão.]</mark></p>
+  <section id="contratos"><h2 class="rz-titulo-2">11. Os contratos que você manda pelo painel</h2>
+    <ul>
+      <li>O texto do contrato é do Cliente: a Renderiza <b>não escreve nem revisa contrato</b> e não é parte dos contratos entre o Cliente e os clientes finais.</li>
+      <li>O aceite pelo link é um termo de aceite eletrônico, sem certificado digital (e-CPF). O painel guarda o nome e o contato digitados, a data, a hora, o endereço de internet (IP), o aparelho e a impressão digital (SHA-256) do texto aceito. Se esse registro é suficiente para o caso concreto, quem avalia é o Cliente. Para contratos que a lei exige de outra forma, o Cliente usa a forma exigida.</li>
+    </ul>
+  </section>
+
+  <section id="dados"><h2 class="rz-titulo-2">12. Proteção de dados (LGPD)</h2>
+    <p>Esta cláusula é o acordo de tratamento de dados entre o Cliente e a Renderiza, nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018, a LGPD). Como a Renderiza cuida dos dados de quem usa o painel está na <a href="/privacidade">Política de privacidade</a>.</p>
+    <h3 class="rz-titulo-3">12.1 Quem decide</h3>
+    <ul>
+      <li>Sobre os dados dos clientes finais, o Cliente é o <b>controlador</b>: é ele quem decide o que anotar e para quê. A Renderiza é a <b>operadora</b>: trata esses dados em nome do Cliente, só para o painel funcionar (LGPD, art. 5º, VI e VII).</li>
+      <li>Sobre os dados de quem usa o painel (o dono e a equipe), de cobrança e de acesso, a Renderiza é a controladora.</li>
+    </ul>
+    <h3 class="rz-titulo-3">12.2 O que o Cliente garante</h3>
+    <ul>
+      <li>Que tem base legal para tratar os dados que põe no painel (normalmente, a execução do contrato com o próprio cliente; LGPD, art. 7º, V) e que informa os clientes finais de como usa os dados deles.</li>
+      <li>Que anota só o necessário: CPF e endereço só se o contrato dele pedir. Nada de dado sensível sem necessidade (saúde, religião e afins), nem conversa de WhatsApp copiada inteira, número de cartão ou senha de terceiros. De crianças, no máximo o primeiro nome, e sempre no melhor interesse delas (LGPD, art. 14).</li>
+      <li>Que responde aos pedidos dos clientes finais sobre os dados deles (ver, corrigir, apagar), como controlador.</li>
+    </ul>
+    <h3 class="rz-titulo-3">12.3 O que a Renderiza garante, como operadora</h3>
+    <ul>
+      <li>Tratar os dados dos clientes finais só conforme as instruções do Cliente, que são estes termos e o uso que o Cliente faz do painel. Se uma instrução contrariar a lei, a Renderiza avisa (LGPD, art. 39).</li>
+      <li>Não usar esses dados para nada além do painel: não vende, não usa para propaganda, não manda mensagem aos clientes finais e não cruza dados de um Cliente com os de outro.</li>
+      <li>Manter medidas de segurança adequadas (LGPD, art. 46), descritas na Política de privacidade, e sigilo de todos que acessam os dados.</li>
+      <li>Usar só os fornecedores (suboperadores) listados na Política de privacidade, cada um para a sua parte. O Cliente autoriza esse uso. Troca ou inclusão de fornecedor que trate esses dados é publicada na Política com antecedência.</li>
+      <li>Avisar o Cliente <b>sem demora injustificada, em até 2 dias úteis</b> depois de saber de um incidente de segurança que afete os dados dele, com o que se sabe até ali, e ajudar o Cliente a cumprir a comunicação que cabe a ele como controlador (LGPD, art. 48; Resolução CD/ANPD nº 15/2024).</li>
+      <li>Ajudar o Cliente a atender os pedidos dos clientes finais com a exportação ou o apagamento, e encaminhar a ele os pedidos que chegarem à Renderiza.</li>
+      <li>No fim do contrato, devolver os dados (pela exportação) e apagá-los nos prazos da cláusula 8 (LGPD, arts. 15 e 16).</li>
+    </ul>
+    <h3 class="rz-titulo-3">12.4 Responsabilidade entre as partes</h3>
+    <p>Cada parte responde pelo que lhe cabe. A operadora responde quando descumpre a lei ou não segue as instruções lícitas do controlador (LGPD, art. 42, § 1º, I). Quem pagar uma indenização por culpa da outra parte pode cobrar dela o que pagou, na medida da participação de cada uma (LGPD, art. 42, § 4º).</p>
+  </section>
+
+  <section id="propriedade"><h2 class="rz-titulo-2">13. O que é de quem</h2>
+    <ul>
+      <li><b>Do Cliente:</b> os Dados do Cliente, os textos, os contratos, as fotos e os logos dele. A Renderiza só usa esse conteúdo para prestar o serviço (guardar, mostrar no painel, servir ao site) enquanto a conta existir e pelos prazos da cláusula 8.</li>
+      <li><b>Da Renderiza:</b> o painel, o código, as telas, os modelos de site preparados para o Meu site, a marca "Renderiza" e a documentação (Leis nº 9.609/1998 e 9.610/1998). O site entregue ao Cliente segue o que diz a proposta do site.</li>
+      <li>Sugestões que o Cliente mandar sobre o painel podem ser usadas para melhorá-lo, sem obrigação de pagamento.</li>
+      <li>A Renderiza pode usar números gerais do serviço (quantas contas, quantos pedidos), sempre sem identificar o Cliente nem os clientes finais.</li>
+    </ul>
+  </section>
+
+  <section id="uso"><h2 class="rz-titulo-2">14. Uso correto</h2>
+    <p>Não é permitido usar o painel para:</p>
+    <ul>
+      <li>mandar propaganda não pedida ou guardar dados de quem não é cliente nem pediu contato;</li>
+      <li>publicar conteúdo ilícito, ofensivo ou que viole direito de outra pessoa;</li>
+      <li>tentar entrar em contas que não são suas, testar falhas de segurança sem combinar com a Renderiza, copiar o painel ou extrair dados em massa por robô;</li>
+      <li>atrapalhar o funcionamento do serviço ou revender o acesso.</li>
+    </ul>
+    <p>Nesses casos, a Renderiza pode suspender o acesso de imediato e avisa o dono. Se a violação for grave ou repetida, pode encerrar a conta (cláusula 8).</p>
+  </section>
+
+  <section id="suporte"><h2 class="rz-titulo-2">15. Suporte e acesso da Renderiza à conta</h2>
+    <ul>
+      <li>O suporte é pelo WhatsApp e pelo e-mail da Renderiza, em horário comercial <mark class="rz-doc-revisar">[dias e horário do suporte]</mark>.</li>
+      <li>Para ajudar, a equipe da Renderiza pode entrar na conta do Cliente por pouco tempo: <b>no máximo 8 horas</b> por vez, com registro de quem entrou, quando e por quê, que o dono vê. Fora isso, a Renderiza não vê os dados dos clientes finais.</li>
+    </ul>
+  </section>
+
+  <section id="funcionamento"><h2 class="rz-titulo-2">16. Funcionamento, manutenção e cópias de segurança</h2>
+    <ul>
+      <li>A Renderiza trabalha para o painel ficar no ar, mas não garante funcionamento sem nenhuma interrupção. Pode haver manutenção (avisada antes, quando for programada), falha de fornecedor ou de internet.</li>
+      <li>A Renderiza faz uma cópia de segurança semanal, cifrada e testada. Mesmo assim, o Cliente deve manter a própria cópia: o "Exportar tudo" está sempre à mão para o dono.</li>
+    </ul>
+  </section>
+
+  <section id="responsabilidade"><h2 class="rz-titulo-2">17. Responsabilidades e limites</h2>
+    <p>Estes termos são um contrato entre empresas, com riscos divididos de forma consciente e com um preço que reflete essa divisão (Código Civil, art. 421-A). Por isso:</p>
+    <ul>
+      <li><b>A Renderiza não responde por:</b>
+        <ul>
+          <li>decisões do Cliente tomadas com base no painel;</li>
+          <li>o conteúdo que o Cliente ou a equipe põem no painel ou publicam no site;</li>
+          <li>os contratos e os pagamentos entre o Cliente e os clientes finais;</li>
+          <li>uso indevido das senhas do Cliente;</li>
+          <li>falhas de internet, de aparelhos ou de serviços de terceiros que não estão sob controle dela, ou caso fortuito e força maior (Código Civil, art. 393);</li>
+          <li>dados que o Cliente não exportou dentro dos prazos da cláusula 8.</li>
+        </ul>
+      </li>
+      <li><b>A Renderiza não responde por danos indiretos,</b> como lucros cessantes, perda de chance, perda de negócio ou de reputação.</li>
+      <li><b>Limite:</b> se a Renderiza tiver de indenizar o Cliente por qualquer motivo ligado a estes termos, o total fica limitado ao que o Cliente pagou de mensalidade nos 12 meses anteriores ao fato.</li>
+      <li>Os limites acima <b>não valem</b> em caso de dolo ou culpa grave, nem quando a lei não permitir limitar.</li>
+      <li><b>O Cliente responde</b> pelo uso que ele e a equipe fazem do painel, pelo que publicam e pelos dados que tratam sem base legal. Se a Renderiza for cobrada por terceiros ou por autoridade por causa disso, o Cliente a ressarce do que ela pagar, inclusive custos de defesa razoáveis, assegurado ao Cliente o direito de participar da defesa.</li>
+    </ul>
+  </section>
+
+  <section id="mudancas"><h2 class="rz-titulo-2">18. Mudanças nestes termos</h2>
+    <ul>
+      <li>Quando estes termos mudarem de verdade, a versão nova ganha uma data nova. Ela é avisada por e-mail ao dono e no painel com pelo menos <b>30 dias</b> de antecedência, salvo quando a lei ou uma autoridade exigir mudança antes.</li>
+      <li>No próximo acesso, o painel pede o aceite da versão nova. Quem não concordar pode cancelar antes de ela valer, sem multa.</li>
+      <li>Correção de escrita que não muda o sentido não muda a versão.</li>
+    </ul>
+  </section>
+
+  <section id="gerais"><h2 class="rz-titulo-2">19. Disposições gerais</h2>
+    <ul>
+      <li>Estes termos, a <a href="/privacidade">Política de privacidade</a> e, para o site, a proposta do site formam o acordo completo entre as partes sobre o painel. Naquilo que tratar especificamente do site, a proposta do site prevalece.</li>
+      <li>Tolerar um descumprimento não é renunciar ao direito. Se uma cláusula for considerada inválida, as outras continuam valendo.</li>
+      <li>Não há vínculo de emprego, sociedade ou representação entre as partes.</li>
+      <li>A Renderiza pode transferir este contrato a uma empresa que suceda o serviço, mantidas as mesmas condições, e avisa o Cliente. O Cliente pode transferir a conta para outra pessoa ou empresa com o acordo da Renderiza.</li>
+      <li>Os avisos ao Cliente vão para o e-mail do dono e aparecem no painel. Os avisos à Renderiza vão para o e-mail da cláusula 21.</li>
+    </ul>
+  </section>
+
+  <section id="foro"><h2 class="rz-titulo-2">20. Lei aplicável e foro</h2>
+    <p>Estes termos seguem as leis do Brasil. As partes tentam resolver qualquer divergência conversando. Se não der, fica eleito o foro da comarca de <mark class="rz-doc-revisar">[cidade/UF da sede da Renderiza]</mark>, onde a Renderiza tem sede (Código de Processo Civil, art. 63, § 1º). Quando a lei garantir ao Cliente o foro do próprio domicílio, vale o que a lei garantir.</p>
+  </section>
+
+  <section id="contato"><h2 class="rz-titulo-2">21. Contato</h2>
+    <p>Renderiza · <a href="mailto:contato@renderizaweb.com.br">contato@renderizaweb.com.br</a> · WhatsApp <mark class="rz-doc-revisar">[número]</mark>.</p>
   </section>
 
   <p class="rz-doc-pe">Veja também a <a href="/privacidade">Política de privacidade</a>.</p>
