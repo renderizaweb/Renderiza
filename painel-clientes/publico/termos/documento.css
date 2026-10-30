@@ -1,0 +1,24 @@
+/* Os documentos públicos do painel (/termos e /privacidade; Missão 5B): uma coluna de leitura, no celular primeiro.
+   Só tokens e peças do 10 (src/ui/estilo.css). */
+.rz-doc-pagina{background:var(--rz-fundo)}
+.rz-doc{width:100%;max-width:720px;margin:0 auto;padding:max(var(--rz-6),env(safe-area-inset-top)) var(--rz-4) max(var(--rz-12),env(safe-area-inset-bottom));line-height:1.65}
+.rz-doc-marca{display:flex;align-items:center;gap:var(--rz-2);margin-bottom:var(--rz-8);color:var(--rz-tinta);font-weight:600;text-decoration:none}
+.rz-doc-marca .rz-conta-sinal{width:32px;height:32px}
+.rz-doc h1{margin-bottom:var(--rz-2)}
+.rz-doc-versao{display:flex;flex-wrap:wrap;gap:var(--rz-2);align-items:center;margin-bottom:var(--rz-6);color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+.rz-doc-indice{margin:0 0 var(--rz-8);padding:var(--rz-4) var(--rz-5);border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-superficie)}
+.rz-doc-indice ol{margin:var(--rz-2) 0 0;padding-left:var(--rz-5);columns:2 220px;column-gap:var(--rz-6)}
+.rz-doc-indice a{text-decoration:none}
+.rz-doc section{margin-bottom:var(--rz-8);scroll-margin-top:var(--rz-4)}
+.rz-doc h2{margin-bottom:var(--rz-3)}
+.rz-doc p,.rz-doc li{color:var(--rz-tinta)}
+.rz-doc p+p{margin-top:var(--rz-3)}
+.rz-doc ul{margin:var(--rz-2) 0 0;padding-left:var(--rz-5)}
+.rz-doc li+li{margin-top:var(--rz-1)}
+.rz-doc table{width:100%;margin-top:var(--rz-3);border-collapse:collapse;font-size:var(--rz-t-sm)}
+.rz-doc th,.rz-doc td{padding:var(--rz-2) var(--rz-3);border-bottom:1px solid var(--rz-linha);text-align:left;vertical-align:top}
+.rz-doc th{color:var(--rz-tinta-2);font-weight:600}
+.rz-doc-revisar{padding:0 var(--rz-1);border-radius:var(--rz-raio-p);background:var(--rz-alerta-fundo);color:var(--rz-alerta);font-weight:600}
+.rz-doc-pe{margin-top:var(--rz-10);padding-top:var(--rz-5);border-top:1px solid var(--rz-linha);color:var(--rz-tinta-2);font-size:var(--rz-t-sm)}
+@media (max-width:519px){.rz-doc table{display:block;overflow-x:auto}}
+@media print{.rz-doc-pagina{background:none}.rz-doc{max-width:none;padding:0}.rz-doc-indice{display:none}}

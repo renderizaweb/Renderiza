@@ -66,6 +66,8 @@ createServer(async (req, res) => {
   let arquivo = null;
   if (/^\/c\/[^/]+\/?$/.test(caminho)) {
     arquivo = join(PASTA, "publico", "contrato", "index.html"); // o aceite do contrato (o primeiro rewrite do vercel.json)
+  } else if (caminho === "/termos" || caminho === "/privacidade") {
+    arquivo = join(PASTA, "publico", caminho.slice(1), "index.html"); // os documentos (os rewrites seguintes do vercel.json)
   } else if (PUBLICAVEL.test(caminho)) {
     const alvo = resolve(PASTA, "." + caminho);
     if (alvo.startsWith(PASTA + sep) && existsSync(alvo)) arquivo = alvo;

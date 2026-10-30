@@ -8,6 +8,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/c/:codigo", "destination": "/publico/contrato/index.html" },
+    { "source": "/termos", "destination": "/publico/termos/index.html" },
+    { "source": "/privacidade", "destination": "/publico/privacidade/index.html" },
     { "source": "/((?!api/|src/|publico/).*)", "destination": "/index.html" }
   ],
   "headers": [

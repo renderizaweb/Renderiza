@@ -62,6 +62,7 @@ async function iniciar() {
   };
   const entradas = new Set(); // contas em que a entrada já foi registrada nesta visita
   let desmontar = null; // o que o módulo aberto devolveu para fechar ao sair (ex.: o tempo real do Atendimento)
+  let termosDe = null; // quem já aceitou a versão de agora dos termos nesta visita (Missão 5B)
 
   async function desenhar() {
     const minhaVez = ++vez;
@@ -81,6 +82,20 @@ async function iniciar() {
         if (minhaVez !== vez) return;
         await tela.montar(raiz, { sessao, banco, config, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
         return;
+      }
+
+      // Os termos (Missão 5B): quem ainda não aceitou a versão de agora aceita antes do painel e do Admin. Sem resposta
+      // do banco, segue (o aceite volta a ser pedido na próxima vez; um erro de rede não tranca ninguém do lado de fora).
+      const eu = (sessao.usuario() || {}).id;
+      if (eu && termosDe !== eu) {
+        const termos = await import("./telas/termos.js");
+        const s = await termos.situacaoDoAceite(banco).catch(() => null);
+        if (minhaVez !== vez) return;
+        if (s && !s.aceitou) {
+          termos.montar(raiz, { banco, ambiente: config.ambiente, antes: s.antes, aoAceitar: () => { termosDe = eu; desenhar(); } });
+          return;
+        }
+        if (s) termosDe = eu;
       }
 
       // O Admin (só a equipe Renderiza; Missão 5A): a casca dele, sem conta escolhida (quem é da Renderiza pode não
