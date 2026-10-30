@@ -878,7 +878,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030240000_demos_e_contexto.sql` (o catálogo das demos e o contexto da conta: a demo, o que ela sabia e a conversa com o lead; só a Renderiza) | 7C | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (e o catálogo: 60 demos) |
 | `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `assistente`, sem a chave) |
 | `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
-| `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | — |
+| `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 
 ## Avisos entre sessões
 
