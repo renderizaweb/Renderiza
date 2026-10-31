@@ -3,34 +3,50 @@
 O piloto (Missão 6) é a própria Renderiza usando o painel como se fosse um espaço de eventos, com mais uma pessoa
 fazendo o papel da equipe. Este roteiro diz o que fazer, em que ordem, e onde anotar o que travar. Leva uns 40
 minutos. Tudo na produção (`painel.renderizaweb.com.br`), **com clientes inventados**: nada de nome ou telefone de
-cliente de verdade.
+cliente de verdade. Atualizado em 31/10 para o caminho da Missão 7: o convite pelo link do WhatsApp, a conversa de
+boas-vindas (com a IA) e o acompanhamento no Admin.
 
 Os mesmos passos rodam sozinhos no STG a cada mudança: `npm run fluxos` (em `painel-clientes/test/fluxos/`).
 
 ## Antes de começar
 
-- [ ] **O deploy andou:** abra `https://painel.renderizaweb.com.br/api/config`; o `versao` não pode ser `64c9d8d`.
+- [ ] **O deploy andou:** abra `https://painel.renderizaweb.com.br/api/config`; o `versao` tem que ser o último
+  commit da `main` (ou mais novo que `e3732a3`).
 - [ ] **Quem é quem:**
   - **Renderiza** entra com `contato@renderizaweb.com.br`, que já é admin. Não lembra a senha? Use "Esqueci a senha"
     na tela de entrar.
-  - **Dono do espaço** é um e-mail de vocês que **não seja** o `contato@`: o convite chega nele.
-  - **Equipe** é um terceiro e-mail, ou um "+" no Gmail (ex.: `seunome+equipe@gmail.com`), se for Gmail.
+  - **Dono do espaço** não precisa de e-mail: recebe um **usuário** e um link pelo WhatsApp (o seu número serve).
+  - **Equipe** também entra por link: o dono escolhe o usuário dela.
 - [ ] Os dois celulares à mão, com o painel aberto no navegador. Dá para pôr na tela de início: no menu do
   navegador, "Adicionar à tela de início".
 
 ## 1. A Renderiza monta a conta (no computador)
 
-1. Entre com o `contato@`. Aparecem os termos: leia por cima e aceite.
-2. No menu, **Admin** → **Criar conta**: um nome inventado (ex.: "Espaço Jardim Piloto"), tipo "Espaço de eventos",
-   os módulos Agenda, Atendimento, Clientes, Financeiro e Contratos, e o nome e o e-mail do dono.
-3. Confira: a conta aparece em "Ativas", com o convite pendente.
+1. Entre com o `contato@`. Aparecem os termos (versão de 31/10): leia por cima e aceite.
+2. No menu, **Admin** → **Criar conta**.
+   - **Veio de uma demo?** Escolha uma demo de eventos (ex.: "Espaço Lira"): o nome, o código, o WhatsApp e o tipo
+     vêm sozinhos. **Troque o nome** por um inventado (ex.: "Espaço Jardim Piloto") e o código também (ex.:
+     `espaco-jardim-piloto`), e ponha o **seu** WhatsApp no lugar do da demo.
+   - Os módulos Agenda, Atendimento, Clientes, Financeiro e Contratos, e o nome do dono.
+   - **Como o dono entra:** "Link no WhatsApp" (já vem marcado); o usuário sai do nome.
+   - **A conversa com o lead** (opcional): cole uma conversa inventada (ex.: "Faço muito casamento e 15 anos, mas me
+     perco nas datas e no que já recebi"). A IA usa isso para escolher as perguntas.
+3. Ao criar, abre a folha **"Mandar o acesso"**, com a mensagem pronta: toque em "Abrir o WhatsApp" e mande para você
+   mesmo (ou "Copiar só o link").
+4. Confira: em **Admin → Onboarding**, a conta aparece como "Convite mandado".
 
 ## 2. O dono entra (no celular)
 
-1. O convite chega no e-mail do dono (olhe também o spam). Toque no link, crie a senha e aceite os termos.
-2. O painel abre no **Início**, com os **Primeiros passos**.
-3. Arrume o básico:
-   - **Mais → Serviços → Tipos de festa:** "Casamento" e "15 anos".
+1. Abra o link no celular: "Olá, Espaço Jardim Piloto!", com o usuário à vista. Crie a senha (um campo) e aceite os
+   termos.
+2. Começa a **conversa de boas-vindas**:
+   - "É isso mesmo?": confira o nome e o WhatsApp (corrija se quiser).
+   - Os tipos de festa já vêm marcados: deixe "Casamento" e "15 anos".
+   - As perguntas de um toque (umas 11). A IA escolhe a ordem e o jeito de perguntar; repare se o texto faz sentido
+     com a conversa que você colou. Cada resposta leva uns 3 segundos. Dá para "Pular" qualquer uma e "Fazer depois".
+   - "Tem orçamento, contrato ou lista de clientes?" → "Montar o meu painel": os checks e o Início.
+3. O painel abre no **Início**, com os **Primeiros passos** e o menu na ordem do que você disse que mais ajuda.
+4. Arrume o básico:
    - **Serviços → Pacotes:** um pacote com valor, sinal e convidados (ex.: "Pacote Jardim", R$ 12.000, sinal de
      R$ 3.000, 150 convidados).
    - **Mais → Configurações:** o WhatsApp do espaço e uma chave Pix inventada.
@@ -59,14 +75,17 @@ confunde.
 - [ ] **O cliente aceita:** abra o link do contrato num celular **sem entrar no painel** (ou numa aba anônima), leia,
   preencha nome e contato e aceite. Depois do aceite, aparece o Pix do espaço. No painel, o contrato vira "Aceito".
 - [ ] **As parcelas:** Financeiro → a festa → **Lançar parcelas** (o resto em vezes) → na data, **Recebi**.
-- [ ] **A equipe:** o dono vai em **Mais → Equipe** → Convidar, com o terceiro e-mail, "Só vê" na Agenda e no
-  Atendimento e "Sem acesso" no Financeiro e em Contratos. Quem recebeu entra e confere que vê os pedidos e a agenda,
-  mas não anota, não reserva e não vê valores.
+- [ ] **A equipe:** o dono vai em **Mais → Equipe** → Convidar ("Link no WhatsApp"), com um nome inventado, "Só vê"
+  na Agenda e no Atendimento e "Sem acesso" no Financeiro e em Contratos, e manda o link para o outro celular. Quem
+  recebeu cria a senha e confere que vê os pedidos e a agenda, mas não anota, não reserva e não vê valores.
 - [ ] **Início:** "Para fazer agora" mostra o que pede ação (pedido sem resposta, parcela vencendo, contrato
   esperando).
 - [ ] **Exportar tudo** (Início, embaixo): baixa um `.zip` que abre no Excel.
 - [ ] **A Renderiza no Admin:** registra o Pix da mensalidade da conta (Pagamentos), vê os Indicadores (só números)
   e usa "Entrar para ajudar" na conta: aparece a faixa "Você está ajudando…"; depois, "Encerrar".
+- [ ] **O acompanhamento:** em **Admin → Onboarding**, a conta passou pelas etapas (abriu o link, criou a senha, fez a
+  conversa) e os marcos vão se acendendo (1º pedido, 1ª reserva, contrato mandado, equipe). Na gaveta da conta (Admin
+  → Contas), "IA no onboarding" mostra o quanto a conversa gastou (uns US$ 0,01 a 0,02).
 
 ## 5. Onde anotar
 
