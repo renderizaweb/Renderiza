@@ -144,6 +144,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         ${q.opcoes.map(o => `<button class="rz-opcao" type="button" data-resposta="${escapar(o.valor)}" aria-pressed="false">
           <span class="rz-opcao-texto"><b>${escapar(o.rotulo)}</b></span><span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></button>`).join("")}
       </div>
+      <p class="rz-texto-3 rz-montar-preparando" data-preparando role="status" hidden>Preparando a próxima pergunta…</p>
       <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-pular>Pular</button>`;
     },
 
@@ -210,7 +211,13 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     estado.respostas.push({ assunto: q.assunto, pergunta: q.pergunta, resposta: rotulo, valor });
     salvar();
     registrar("pergunta", q.assunto);
+    // se a IA demorar, a pessoa vê que a próxima está vindo (e não acha que travou)
+    const aviso = setTimeout(() => {
+      const p = palco.querySelector("[data-preparando]");
+      if (p) p.hidden = false;
+    }, PAUSA_DO_CHECK + 300);
     const [seguinte] = await Promise.all([proxima(), esperar(PAUSA_DO_CHECK)]);
+    clearTimeout(aviso);
     estado.atual = seguinte.atual;
     estado.comentario = seguinte.comentario;
     trocar(estado.atual ? "pergunta" : "arquivos");

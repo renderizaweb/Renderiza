@@ -293,8 +293,12 @@ Feito (bloco D, na branch, no STG): a função supabase/functions/assistente (lo
   Conferido no STG: sem a chave, responde "sem IA"; sem login, 401.
 Mudou depois (D52, 30/10): a IA é a da OpenAI (gpt-5.4-mini), com a chave que a Renderiza já tem; a função fala com
   as duas (a chave posta escolhe) e a política e os termos citam a OpenAI. Função no STG, versão 2.
-Falta (bloco D): a chave (da Renderiza: o segredo OPENAI_API_KEY nas funções do Supabase, STG e produção, em
-  Edge Functions > Secrets; nunca no código nem no chat) e medir o custo de verdade no STG com ela.
+A chave OPENAI_API_KEY está nos dois projetos (a Renderiza pôs em 31/10). Medido no STG em 31/10: cada pergunta custa
+  US$ 0,0006 a 0,0016 (o cache da OpenAI pega o roteiro e o contexto a partir da segunda), então a conversa inteira
+  sai uns US$ 0,01 a 0,02; cada resposta leva uns 3,2 s (4,8 s na primeira, com a função fria). O esforço "low" fica:
+  "minimal" o gpt-5.4-mini recusa, e "none" não ganhou tempo e escreveu pior. A função busca a conta e o gasto no
+  banco ao mesmo tempo, e a tela mostra "Preparando a próxima pergunta…" se a espera passar de um instante. O piloto
+  passa inteiro com a IA de verdade (9/9).
 Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/telas/montar/index.js, o roteiro em
   roteiro.js, testado em test/montar.test.mjs). A conta criada no Admin nasce com ajustes.onboarding.pendente, e o
   Início leva o dono para lá depois dos termos. No visual do onboarding (D33), na cor do negócio: a abertura pelo
@@ -308,7 +312,7 @@ Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/te
   e os termos na versão 31/10/2026 (a Anthropic, a demo e a conversa de boas-vindas; o que mudou está no
   termos-referencias.md, 1b). O piloto, passo 2, passa pela conversa inteira (9/9; a varredura 9/9).
 Falta (bloco E): o e-mail opcional no fim da conversa (precisa da chave do Brevo nas funções, para mandar o código e
-  o link de senha nova); medir a conversa com a IA de verdade no STG quando a chave da OpenAI estiver posta; a
+  o link de senha nova);  a
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
 Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
   tudo. A tela só entra no ar quando a Vercel publicar (o deploy está no limite diário; ver o aviso de 30/10).

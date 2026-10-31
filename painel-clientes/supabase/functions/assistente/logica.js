@@ -196,11 +196,11 @@ export async function atender({ metodo, origem, token, corpo }, deps) {
   const entrada = corpo && corpo.entrada;
   if (!UUID.test(contaId) || !TAREFAS[tarefa]) return responder(400, { erro: "Pedido fora do formato." });
   if (!TAREFAS[tarefa].entradaValida(entrada)) return responder(400, { erro: "Pedido fora do formato." });
-  const daConta = await deps.podeUsar(usuario.id, contaId);
+  // a conta e o gasto ao mesmo tempo (cada ida ao banco conta na espera da pessoa); o gasto só vale se for o dono
+  const [daConta, g] = await Promise.all([deps.podeUsar(usuario.id, contaId), deps.ia ? deps.gasto(contaId) : null]);
   if (!daConta) return responder(403, { erro: "Só o dono da conta usa o assistente." });
   if (!deps.ia) return semIa("sem_ia");
 
-  const g = await deps.gasto(contaId);
   if (g.usd >= g.teto) return semIa("teto");
   if (g.naHora >= CHAMADAS_POR_HORA) return semIa("limite");
 

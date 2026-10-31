@@ -896,3 +896,4 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-montar-comentario .rz-icone{flex:none}
 .rz-montar-progresso{height:6px}
 .rz-montar-progresso>span{background:var(--rz-destaque)}
+.rz-montar-preparando{text-align:center;animation:rz-surgir var(--rz-medio) var(--rz-curva)}

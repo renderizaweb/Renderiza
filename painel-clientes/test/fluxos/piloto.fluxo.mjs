@@ -151,7 +151,9 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         if (proxima === "arquivos") break;
         const pergunta = (await pDono.locator("h1").innerText()).trim();
         respondidas.push(pergunta);
-        const escolha = /Quantas pessoas trabalham/.test(pergunta) ? pDono.locator("[data-resposta=\"2_3\"]") : pDono.locator("[data-resposta]").first();
+        // com a IA ligada no STG, a pergunta pode vir com outras palavras: o valor da opção é o que não muda
+        const equipe = pDono.locator("[data-resposta=\"2_3\"]");
+        const escolha = (await equipe.count()) ? equipe : pDono.locator("[data-resposta]").first();
         await escolha.click();
         await pDono.waitForFunction(p => (document.querySelector("h1") || {}).innerText !== p, pergunta, { timeout: 15000 });
       }

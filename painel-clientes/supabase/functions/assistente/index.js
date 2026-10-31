@@ -48,13 +48,13 @@ const deps = {
     return data.user;
   },
   async podeUsar(usuarioId, contaId) {
-    const { data: pessoa } = await admin.from("pessoas").select("id").eq("conta_id", contaId).eq("usuario_id", usuarioId).eq("ativa", true).eq("dono", true).maybeSingle();
-    if (!pessoa) return null;
-    const [{ data: conta }, { data: contexto }] = await Promise.all([
-      admin.from("contas").select("id, nome, nicho").eq("id", contaId).single(),
+    // as três ao mesmo tempo: a espera é da pessoa; sem ser o dono, o resto é descartado
+    const [{ data: pessoa }, { data: conta }, { data: contexto }] = await Promise.all([
+      admin.from("pessoas").select("id").eq("conta_id", contaId).eq("usuario_id", usuarioId).eq("ativa", true).eq("dono", true).maybeSingle(),
+      admin.from("contas").select("id, nome, nicho").eq("id", contaId).maybeSingle(),
       admin.from("contas_contexto").select("dados, conversa").eq("conta_id", contaId).maybeSingle(),
     ]);
-    return conta ? { conta, contexto } : null;
+    return pessoa && conta ? { conta, contexto } : null;
   },
   async gasto(contaId) {
     const desde = new Date(Date.now() - 3600000).toISOString();
