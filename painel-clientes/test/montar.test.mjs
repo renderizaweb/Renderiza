@@ -2,23 +2,35 @@
 // o perfil e a ordem do menu pelo objetivo. Dados fictícios.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ASSUNTOS, assuntosDoNicho, restantes, proximaFixa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher } from "../src/telas/montar/roteiro.js";
+import { ASSUNTOS, assuntosDoNicho, perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher } from "../src/telas/montar/roteiro.js";
 import { TAREFAS } from "../supabase/functions/assistente/logica.js";
 
-test("o roteiro: o porte é só dos eventos; a pergunta no jeito do nicho; o que falta e a próxima sem a IA", () => {
-  assert.ok(assuntosDoNicho("eventos").some(a => a.assunto === "porte"));
-  assert.ok(!assuntosDoNicho("fotografia").some(a => a.assunto === "porte"));
-  assert.match(assuntosDoNicho("fotografia").find(a => a.assunto === "volume").pergunta, /ensaios/);
-  const respostas = [{ assunto: "quem", valor: "dono" }, { assunto: "objetivo", valor: null }];
-  assert.equal(restantes("eventos", respostas).length, ASSUNTOS.length - 2, "respondido ou pulado, sai");
-  assert.equal(proximaFixa("eventos", respostas).assunto, "tamanho");
-  assert.equal(proximaFixa("eventos", ASSUNTOS.map(a => ({ assunto: a.assunto, valor: "x" }))), null);
-  assert.deepEqual(perfilDasRespostas(respostas), { quem: "dono" }, "o pulado não entra no perfil");
+test("o roteiro: 5 perguntas na conversa (as que mudam o painel na hora); as outras ficam para depois", () => {
+  assert.deepEqual(assuntosDoNicho("eventos").map(a => a.assunto), ["objetivo", "tamanho", "organiza", "pacotes", "contrato"]);
+  assert.equal(assuntosDoNicho("fotografia").length, 5);
+  assert.ok(assuntosDoNicho("eventos", { todos: true }).some(a => a.assunto === "porte"), "o porte fica guardado, só para eventos");
+  assert.ok(!assuntosDoNicho("fotografia", { todos: true }).some(a => a.assunto === "porte"));
+  assert.match(assuntosDoNicho("fotografia", { todos: true }).find(a => a.assunto === "volume").pergunta, /ensaios/);
+  assert.deepEqual(perfilDasRespostas([{ assunto: "objetivo", valor: "agenda" }, { assunto: "tamanho", valor: null }]), { objetivo: "agenda" }, "o pulado não entra no perfil");
+});
+
+test("as perguntas da conversa: as da IA na ordem dela, completadas com as do roteiro; sem a IA, as do roteiro", () => {
+  const daIa = [
+    { assunto: "pacotes", pergunta: "Os pacotes do Espaço Lira já têm preço?", opcoes: [{ valor: "com_preco", rotulo: "Sim", reacao: "Ótimo." }, { valor: "nao", rotulo: "Ainda não", reacao: "A gente monta junto." }] },
+    { assunto: "inventado", pergunta: "?", opcoes: [{ valor: "a", rotulo: "a" }, { valor: "b", rotulo: "b" }] },
+    { assunto: "pacotes", pergunta: "de novo", opcoes: [{ valor: "nao", rotulo: "x" }, { valor: "com_preco", rotulo: "y" }] },
+  ];
+  const lista = perguntasDaConversa("eventos", daIa);
+  assert.deepEqual(lista.map(p => p.assunto), ["pacotes", "objetivo", "tamanho", "organiza", "contrato"]);
+  assert.equal(lista[0].opcoes[1].reacao, "A gente monta junto.");
+  assert.deepEqual(perguntasDaConversa("eventos", null).map(p => p.assunto), assuntosDoNicho("eventos").map(p => p.assunto));
+  assert.match(perguntasDaConversa("eventos", null)[0].opcoes[1].reacao, /começa pela Agenda/, "sem a IA, a reação é o que o painel faz com a resposta");
+  assert.match(lista[1].opcoes[0].reacao, /Atendimento/, "a que a IA não mandou também vem com a reação do roteiro");
+  for (const a of assuntosDoNicho("eventos")) for (const o of a.opcoes) assert.ok(o.efeito && o.efeito.length <= 100, `${a.assunto}/${o.valor} tem o efeito`);
 });
 
 test("o que o painel manda para a IA cabe no formato que a função aceita", () => {
-  const entrada = { respostas: [{ assunto: "quem", pergunta: "Quem?", resposta: "Sou a dona" }], restantes: restantes("eventos", []) };
-  assert.ok(TAREFAS.proxima_pergunta.entradaValida(entrada));
+  assert.ok(TAREFAS.perguntas.entradaValida({ perguntas: assuntosDoNicho("eventos") }));
   for (const a of ASSUNTOS) assert.match(a.assunto, /^[a-z_]{2,30}$/);
 });
 

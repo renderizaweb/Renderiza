@@ -155,16 +155,18 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         const equipe = pDono.locator("[data-resposta=\"2_3\"]");
         const escolha = (await equipe.count()) ? equipe : pDono.locator("[data-resposta]").first();
         await escolha.click();
+        // o toque responde na hora: o check e a reação (o que o painel faz com a resposta), sem esperar a rede
+        await pDono.waitForSelector("[data-reacao]:not([hidden])", { timeout: 1500 });
         await pDono.waitForFunction(p => (document.querySelector("h1") || {}).innerText !== p, pergunta, { timeout: 15000 });
       }
-      assert.equal(respondidas.length, 11, "as 11 perguntas do roteiro de eventos, uma por vez");
+      assert.equal(respondidas.length, 5, "as 5 perguntas da conversa, uma por vez");
       await pDono.click("button:has-text('Montar o meu painel')");
       await pDono.waitForURL(u => new URL(u).pathname === "/", { timeout: 30000 });
       await pDono.waitForSelector(".rz-passos");
       const [conta] = await banco.sql(`select ajustes -> 'onboarding' as o, (select count(*)::int from public.tipos_reserva t where t.conta_id = c.id) as tipos from public.contas c where c.codigo = ${A.q(A.CODIGO)}`);
       assert.equal(conta.o.pendente, false, "a conversa não volta a aparecer");
       assert.equal(conta.o.perfil.tamanho, "2_3");
-      assert.equal(Object.keys(conta.o.perfil).length, 11, "o perfil com as 11 respostas");
+      assert.equal(Object.keys(conta.o.perfil).length, 5, "o perfil com as 5 respostas");
       assert.equal(conta.tipos, 1, "só o tipo que ficou marcado");
       assert.match(await pDono.locator("h1").first().innerText(), /Dono/, "o Início cumprimenta pelo nome");
       assert.match(await pDono.locator(".rz-passos").innerText(), /0 de 5 feitos/, "com o e-mail para recuperar a senha (quem entra com usuário)");

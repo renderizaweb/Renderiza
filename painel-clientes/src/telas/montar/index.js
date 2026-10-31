@@ -1,9 +1,12 @@
 // A conversa de boas-vindas (/montar; Missão 7, bloco E; D43, D44): quem chega pelo convite já tem a conta (a
 // Renderiza criou, muitas vezes a partir da demo), e aqui o painel fica com a cara do negócio, no visual do onboarding
 // de sempre (D33: um cartão por vez, toque e segue, a animação). Nesta ordem: a abertura pelo nome do negócio;
-// "É isso mesmo?" (o que a demo já sabe, confirmado num toque); os tipos de festa ou os ensaios já marcados; as
-// perguntas do roteiro (src/telas/montar/roteiro.js), com a IA escolhendo a próxima e o tom (a função "assistente")
-// e o roteiro fixo quando a IA não responde a tempo; "Mande o que tiver"; e a montagem, com os checks, até o Início.
+// "É isso mesmo?" (o que a demo já sabe, confirmado num toque); os tipos de festa ou os ensaios já marcados; as 5
+// perguntas do roteiro (src/telas/montar/roteiro.js); "Mande o que tiver"; e a montagem, com os checks, até o Início.
+// A IA (a função "assistente", tarefa "perguntas") prepara as perguntas de uma vez, na ordem e no tom do negócio, com
+// a reação de cada opção, assim que a conversa abre: quando a pessoa chega nelas, já estão prontas, e cada toque passa
+// na hora (a Renderiza testou em 31/10: uma chamada por pergunta deixava 3 segundos parados). Se a IA ainda não
+// terminou, um esqueleto "Preparando as suas perguntas…"; se não responder a tempo, o roteiro fixo.
 // Nada é gravado sem o toque da pessoa. O progresso fica no aparelho (dá para fechar e voltar), e "Fazer depois"
 // deixa um passo no Início. Só o dono passa por aqui; a conta marca contas.ajustes.onboarding.pendente (o Admin põe).
 
@@ -14,13 +17,14 @@ import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formu
 import { mascaraTelefone, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { campoTexto, CORES } from "../../ui/campos.js";
 import { linkDaRenderiza } from "../renderiza.js";
-import { restantes, proximaFixa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho } from "./roteiro.js";
+import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho } from "./roteiro.js";
 
-export const VERSAO = 1;
-const PAUSA_DO_CHECK = 520;
+export const VERSAO = 2; // 2: as 5 perguntas preparadas de uma vez (o progresso guardado da versão 1 é descartado)
+/** O check e a reação à vista antes da próxima pergunta entrar. */
+const PAUSA_DA_REACAO = 1400;
 const MINIMO_POR_ETAPA = 450;
-/** Quanto a tela espera a IA antes de seguir o roteiro fixo (D43: se ela demorar, ninguém percebe). */
-export const ESPERA_DA_IA = 5000;
+/** Quanto a tela espera a IA, a partir da hora em que a pessoa chega nas perguntas, antes de seguir o roteiro fixo. */
+export const ESPERA_DA_IA = 6000;
 
 const esperar = ms => new Promise(r => setTimeout(r, ms));
 const fimDaAnimacao = (el, limite) => new Promise(r => {
@@ -33,7 +37,7 @@ const comPrazo = (promessa, ms) => Promise.race([promessa, esperar(ms).then(() =
 
 
 const chave = contaId => `painel-renderiza:montar:${contaId}`;
-const estadoInicial = () => ({ versao: VERSAO, passo: "abertura", respostas: [], atual: null, comentario: "", tipos: null, corrigido: null, semIa: false, viaIa: 0 });
+const estadoInicial = () => ({ versao: VERSAO, passo: "abertura", respostas: [], perguntas: null, viaIa: false, tipos: null, corrigido: null });
 function ler(contaId) {
   try {
     const s = JSON.parse(localStorage.getItem(chave(contaId)) || "null");
@@ -66,6 +70,24 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   const pessoa = sessao.pessoa ? sessao.pessoa() : null;
   const primeiroNome = String((pessoa && pessoa.nome) || (usuario.user_metadata && usuario.user_metadata.nome) || "").trim().split(/\s+/)[0];
   const total = assuntosDoNicho(n.id).length;
+  // as perguntas: pedidas à IA já na abertura (enquanto a pessoa confere os dados e os tipos); null = ainda não vieram
+  let preparando = null;
+  function preparar() {
+    if (estado.perguntas) return Promise.resolve(estado.perguntas);
+    if (!preparando) {
+      preparando = banco.funcao("assistente", { conta: conta.conta_id, tarefa: "perguntas", entrada: { perguntas: assuntosDoNicho(n.id) } })
+        .then(r => (r && r.ok && r.resultado ? r.resultado.perguntas : null)).catch(() => null);
+    }
+    return preparando;
+  }
+  /** As perguntas para usar agora: as da IA, se vierem a tempo; senão, as do roteiro (e não pergunta de novo). */
+  async function perguntasProntas(limite) {
+    const daIa = await comPrazo(preparar(), limite);
+    estado.viaIa = !!(daIa && daIa.length);
+    estado.perguntas = perguntasDaConversa(n.id, daIa);
+    salvar();
+    return estado.perguntas;
+  }
   // cada passo fica registrado para o acompanhamento no Admin (bloco G): sem esperar, e sem atrapalhar se falhar
   const registrar = (evento, detalhe = null) => { banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
 
@@ -134,17 +156,20 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="submit">Confirmar</button>
       </form>`,
 
+    preparando: () => `
+      ${cabeca("Preparando as suas perguntas…", `A gente está lendo o que já sabe ${escapar(n.palavras.daConta)} para perguntar só o que importa.`)}
+      <div class="rz-montar-esqueleto" aria-hidden="true"><span></span><span></span><span></span></div>`,
+
     pergunta: () => {
-      const q = estado.atual;
+      const q = estado.perguntas[estado.respostas.length];
       return `
       ${trilho(estado.respostas.length)}
-      ${estado.comentario ? `<p class="rz-montar-comentario" role="status">${icone("estrela", { tamanho: 16 })}${escapar(estado.comentario)}</p>` : ""}
       ${cabeca(escapar(q.pergunta))}
       <div class="rz-opcoes" role="group" aria-label="${escapar(q.pergunta)}">
         ${q.opcoes.map(o => `<button class="rz-opcao" type="button" data-resposta="${escapar(o.valor)}" aria-pressed="false">
           <span class="rz-opcao-texto"><b>${escapar(o.rotulo)}</b></span><span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></button>`).join("")}
       </div>
-      <p class="rz-texto-3 rz-montar-preparando" data-preparando role="status" hidden>Preparando a próxima pergunta…</p>
+      <p class="rz-montar-reacao" data-reacao role="status" aria-live="polite" hidden></p>
       <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-pular>Pular</button>`;
     },
 
@@ -184,43 +209,25 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     andando = false;
   }
   function desenhar() {
-    if (estado.passo === "pergunta" && !estado.atual) estado.passo = "arquivos";
+    if (estado.passo === "pergunta" && (!estado.perguntas || estado.respostas.length >= estado.perguntas.length)) estado.passo = estado.perguntas ? "arquivos" : "tipos";
     palco.innerHTML = telas[estado.passo]();
     focarTitulo(palco);
     (ligar[estado.passo] || (() => {}))();
   }
 
-  /** A próxima pergunta: a da IA, se ela responder a tempo e dentro do roteiro; senão, a do roteiro fixo. */
-  async function proxima() {
-    const falta = restantes(n.id, estado.respostas);
-    if (!falta.length) return { atual: null, comentario: "" };
-    if (!estado.semIa) {
-      const r = await comPrazo(banco.funcao("assistente", {
-        conta: conta.conta_id, tarefa: "proxima_pergunta",
-        entrada: { respostas: estado.respostas.filter(x => x.valor).map(x => ({ assunto: x.assunto, pergunta: x.pergunta, resposta: x.resposta })), restantes: falta },
-      }).catch(() => null), ESPERA_DA_IA);
-      if (r && r.ok && r.resultado) { estado.viaIa++; return { atual: r.resultado, comentario: r.resultado.comentario || "" }; }
-      // sem a IA na conta (sem chave, no teto): não pergunta de novo nesta conversa
-      if (r && ["sem_ia", "teto", "limite"].includes(r.motivo)) estado.semIa = true;
-    }
-    return { atual: proximaFixa(n.id, estado.respostas), comentario: "" };
-  }
-
-  async function responder(valor, rotulo) {
-    const q = estado.atual;
-    estado.respostas.push({ assunto: q.assunto, pergunta: q.pergunta, resposta: rotulo, valor });
+  /** Responde (ou pula) a pergunta da vez: o check e a reação na hora, e a próxima entra sem esperar nada. */
+  async function responder(opcao) {
+    const q = estado.perguntas[estado.respostas.length];
+    estado.respostas.push({ assunto: q.assunto, pergunta: q.pergunta, resposta: opcao ? opcao.rotulo : "", valor: opcao ? opcao.valor : null });
     salvar();
-    registrar("pergunta", q.assunto);
-    // se a IA demorar, a pessoa vê que a próxima está vindo (e não acha que travou)
-    const aviso = setTimeout(() => {
-      const p = palco.querySelector("[data-preparando]");
-      if (p) p.hidden = false;
-    }, PAUSA_DO_CHECK + 300);
-    const [seguinte] = await Promise.all([proxima(), esperar(PAUSA_DO_CHECK)]);
-    clearTimeout(aviso);
-    estado.atual = seguinte.atual;
-    estado.comentario = seguinte.comentario;
-    trocar(estado.atual ? "pergunta" : "arquivos");
+    if (opcao) {
+      registrar("pergunta", q.assunto);
+      const reacao = palco.querySelector("[data-reacao]");
+      reacao.innerHTML = `${icone("ok", { tamanho: 16 })}<span>${escapar(opcao.reacao || "Anotado!")}</span>`;
+      reacao.hidden = false;
+      await esperar(PAUSA_DA_REACAO);
+    }
+    trocar(estado.respostas.length < estado.perguntas.length ? "pergunta" : "arquivos");
   }
 
   async function terminar() {
@@ -263,7 +270,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         const ajustes = {
           ...antes,
           ordem_menu: ordemDoMenu(perfil.objetivo, conta.modulos || [], antes.ordem_menu || []),
-          onboarding: { ...(antes.onboarding || {}), pendente: false, feito_em: new Date().toISOString(), perfil, via_ia: estado.viaIa },
+          onboarding: { ...(antes.onboarding || {}), pendente: false, feito_em: new Date().toISOString(), perfil, via_ia: !!estado.viaIa },
         };
         await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id));
         conta.ajustes = ajustes;
@@ -280,7 +287,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   }
 
   const ligar = {
-    abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => { registrar("conversa_comecou"); trocar("confirma"); }); },
+    abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => { registrar("conversa_comecou"); preparar(); trocar("confirma"); }); },
     confirma() {
       palco.querySelector("[data-certo]").addEventListener("click", () => trocar("tipos"));
       palco.querySelector("[data-corrigir]").addEventListener("click", () => trocar("corrige"));
@@ -318,31 +325,27 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       form.outro.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); adicionar(); } });
       form.addEventListener("submit", async e => {
         e.preventDefault();
-        const botao = form.querySelector("[type=submit]");
-        ocupado(botao, true, "Um instante…");
-        const primeira = await proxima();
-        estado.atual = primeira.atual;
-        estado.comentario = primeira.comentario;
-        trocar(estado.atual ? "pergunta" : "arquivos");
+        if (estado.perguntas) return trocar("pergunta");
+        // as perguntas quase sempre já vieram (foram pedidas na abertura); se não, o esqueleto enquanto chegam
+        const prontas = await comPrazo(preparar(), 150);
+        if (!prontas) await trocar("preparando");
+        await perguntasProntas(ESPERA_DA_IA);
+        trocar("pergunta");
       });
     },
     pergunta() {
       let escolhendo = false;
+      const q = estado.perguntas[estado.respostas.length];
       palco.querySelectorAll("[data-resposta]").forEach(b => b.addEventListener("click", () => {
         if (escolhendo || andando) return;
         escolhendo = true;
         palco.querySelectorAll("[data-resposta]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-        responder(b.dataset.resposta, b.querySelector("b").textContent);
+        responder(q.opcoes.find(o => o.valor === b.dataset.resposta));
       }));
-      palco.querySelector("[data-pular]").addEventListener("click", async e => {
+      palco.querySelector("[data-pular]").addEventListener("click", () => {
         if (escolhendo || andando) return;
         escolhendo = true;
-        ocupado(e.currentTarget, true, "Pulando…");
-        estado.respostas.push({ assunto: estado.atual.assunto, pergunta: estado.atual.pergunta, resposta: "", valor: null });
-        const seguinte = await proxima();
-        estado.atual = seguinte.atual;
-        estado.comentario = "";
-        trocar(estado.atual ? "pergunta" : "arquivos");
+        responder(null);
       });
     },
     arquivos() { palco.querySelector("[data-seguir]").addEventListener("click", () => trocar("montagem")); },
@@ -365,5 +368,8 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   });
 
   if (estado.passo === "montagem") estado.passo = "arquivos"; // a montagem recomeça pelo último cartão
+  if (estado.passo === "preparando") estado.passo = "tipos";
+  // as perguntas começam a ser preparadas já agora (a pessoa ainda vai conferir os dados e os tipos)
+  if (!estado.perguntas && estado.passo !== "arquivos") preparar();
   desenhar();
 }

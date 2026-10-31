@@ -891,9 +891,13 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-legenda li{display:inline-flex;align-items:center;gap:var(--rz-2)}
 .rz-legenda li[data-escondida=true]{opacity:.45;text-decoration:line-through}
 /* ---------- 27. A conversa de boas-vindas (/montar; Missão 7, bloco E) ----------
-   O visual do onboarding (seções 14 e 16); a reação curta da IA à última resposta, em cima da pergunta. */
-.rz-montar-comentario{display:flex;align-items:center;gap:var(--rz-2);margin:var(--rz-4) 0 calc(-1 * var(--rz-3));color:var(--rz-destaque-escuro);font-size:var(--rz-t-sm);font-weight:500;animation:rz-surgir var(--rz-medio) var(--rz-curva)}
-.rz-montar-comentario .rz-icone{flex:none}
+   O visual do onboarding (seções 14 e 16). */
 .rz-montar-progresso{height:6px}
 .rz-montar-progresso>span{background:var(--rz-destaque)}
-.rz-montar-preparando{text-align:center;animation:rz-surgir var(--rz-medio) var(--rz-curva)}
+/* A conversa de boas-vindas, rápida (31/10): a reação na hora do toque e o esqueleto enquanto as perguntas chegam */
+.rz-montar-reacao{display:flex;align-items:flex-start;gap:var(--rz-2);margin:var(--rz-3) 0 0;padding:var(--rz-3) var(--rz-4);border-radius:var(--rz-raio);background:var(--rz-destaque-fundo);color:var(--rz-destaque-escuro);font-weight:500;animation:rz-surgir var(--rz-medio) var(--rz-curva)}
+.rz-montar-reacao .rz-icone{flex:none;margin-top:2px}
+.rz-montar-esqueleto{display:flex;flex-direction:column;gap:var(--rz-3)}
+.rz-montar-esqueleto span{height:64px;border-radius:var(--rz-raio-g);background:linear-gradient(90deg,var(--rz-gelo),var(--rz-superficie-2),var(--rz-gelo));background-size:200% 100%;animation:rz-brilho 1.4s linear infinite}
+.rz-montar-esqueleto span:nth-child(2){animation-delay:.15s}
+.rz-montar-esqueleto span:nth-child(3){animation-delay:.3s}

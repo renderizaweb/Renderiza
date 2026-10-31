@@ -42,8 +42,9 @@ Os mesmos passos rodam sozinhos no STG a cada mudança: `npm run fluxos` (em `pa
 2. Começa a **conversa de boas-vindas**:
    - "É isso mesmo?": confira o nome e o WhatsApp (corrija se quiser).
    - Os tipos de festa já vêm marcados: deixe "Casamento" e "15 anos".
-   - As perguntas de um toque (umas 11). A IA escolhe a ordem e o jeito de perguntar; repare se o texto faz sentido
-     com a conversa que você colou. Cada resposta leva uns 3 segundos. Dá para "Pular" qualquer uma e "Fazer depois".
+   - 5 perguntas de um toque. A IA prepara todas enquanto você confere os dados (a ordem e o jeito de perguntar, pela
+     conversa que você colou); cada toque responde na hora, com o check e uma frase do que o painel faz com a sua
+     resposta. Dá para "Pular" qualquer uma e "Fazer depois".
    - "Tem orçamento, contrato ou lista de clientes?" → "Montar o meu painel": os checks e o Início.
 3. O painel abre no **Início**, com os **Primeiros passos** e o menu na ordem do que você disse que mais ajuda.
 4. Arrume o básico:

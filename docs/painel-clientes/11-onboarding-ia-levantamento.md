@@ -36,6 +36,10 @@ externa, capacidade); avaliações do Google (nota e total); se já tem site (a 
 
 **Perguntas com opções (sempre com "pular"):**
 
+> **31/10, depois do teste da Renderiza:** a conversa de boas-vindas pergunta só 5 (o objetivo, o tamanho, onde ficam
+> as datas, os pacotes e o contrato), preparadas de uma vez pela IA e respondidas na hora. As outras da tabela ficam
+> guardadas no roteiro (`src/telas/montar/roteiro.js`, `depois: true`) para entrarem depois, quando fizerem sentido.
+
 | Assunto | Exemplo de pergunta | Para que serve |
 |---|---|---|
 | Quem está falando | dona ou dono, sócio, gerente, outro | o tom e quem é dono no painel |

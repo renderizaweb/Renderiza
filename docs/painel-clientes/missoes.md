@@ -318,6 +318,14 @@ Feito em 31/10 (com a chave do Brevo nas funções, posta pela Renderiza): o e-m
   aceita o usuário e manda o link para esse e-mail (a resposta é sempre a mesma; sem e-mail, o WhatsApp da
   Renderiza). O aviso de pedido novo deixou de ir para o e-mail interno e vai para o de recuperação do dono. O aviso
   de pedido novo da agenda online saiu de verdade no STG (Brevo aceitou). Fluxos 18/18.
+Mudou em 31/10, depois do teste da Renderiza ("muitas perguntas" e "parece que travou" a cada toque): a conversa
+  tem 5 perguntas (objetivo, tamanho, onde ficam as datas, pacotes, contrato; as outras 6 ficam guardadas no roteiro,
+  com depois: true, para entrarem quando fizerem sentido). A IA (tarefa "perguntas" da função assistente) prepara as
+  5 de uma vez, na ordem e no tom do negócio, com a reação de cada opção, e é pedida já na abertura: quando a pessoa
+  chega nelas, estão prontas (uns 6 s em segundo plano, US$ 0,004). Cada toque mostra o check e a reação na hora (o
+  que o painel faz com a resposta, o "efeito" de cada opção no roteiro, que também é a reação sem a IA) e a próxima
+  entra em 1,4 s; se a IA ainda não terminou, um esqueleto "Preparando as suas perguntas…" (no máximo 6 s, depois o
+  roteiro fixo). A tarefa antiga, uma chamada por pergunta, saiu. Piloto 9/9.
 Falta (bloco E):  a
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
 Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
