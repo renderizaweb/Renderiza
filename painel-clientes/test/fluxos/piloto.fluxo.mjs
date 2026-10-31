@@ -167,7 +167,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       assert.equal(Object.keys(conta.o.perfil).length, 11, "o perfil com as 11 respostas");
       assert.equal(conta.tipos, 1, "só o tipo que ficou marcado");
       assert.match(await pDono.locator("h1").first().innerText(), /Dono/, "o Início cumprimenta pelo nome");
-      assert.match(await pDono.locator(".rz-passos").innerText(), /0 de 4 feitos/);
+      assert.match(await pDono.locator(".rz-passos").innerText(), /0 de 5 feitos/, "com o e-mail para recuperar a senha (quem entra com usuário)");
       assert.equal(await A.rolaParaOLado(pDono), false, "o Início não rola para o lado no celular");
     });
 
@@ -213,7 +213,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
       const [r] = await banco.sql(`select count(*)::int as reservas, count(distinct cliente_id)::int as clientes from public.reservas where conta_id = ${A.q(contaId)}`);
       assert.deepEqual(r, { reservas: 2, clientes: 2 }, "as duas festas entraram na agenda, cada uma com o seu cliente");
       await pDono.goto(`${srv.url}/`, { waitUntil: "networkidle" });
-      assert.match(await pDono.locator(".rz-passos").innerText(), /2 de 4 feitos/, "os pacotes (passo 3) e as datas se marcam sozinhos");
+      assert.match(await pDono.locator(".rz-passos").innerText(), /2 de 5 feitos/, "os pacotes (passo 3) e as datas se marcam sozinhos");
     });
 
     await passo("4. as 5 tarefas do 09, no celular", async () => {

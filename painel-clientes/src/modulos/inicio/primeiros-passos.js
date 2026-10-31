@@ -10,6 +10,7 @@ import { abrirGaveta } from "../../ui/gaveta.js";
 import { segmentos } from "../../ui/campos.js";
 import { lerCsv, baixarCsv } from "../../ui/csv.js";
 import { montarAdiado } from "../../telas/montar/roteiro.js";
+import { abrirEmailDeRecuperacao } from "../../ui/email-de-recuperacao.js";
 import { FUSO_PADRAO, dia, dataCurta, hora, instanteNoFuso, lerData, lerHora, normalizarWhatsapp, whatsappValido } from "../../ui/formatos.js";
 
 export const MAXIMO_DA_IMPORTACAO = 500;
@@ -36,6 +37,9 @@ export function passosDaConta(conta, feitos = {}) {
     // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo
     perfil.tamanho !== "so_eu" && { id: "equipe", titulo: "Convidar alguém da equipe", texto: "Cada pessoa vê só o que você liberar.",
       feito: !!feitos.equipe, acao: { href: "/equipe", rotulo: "Convidar" } },
+    // quem entra com usuário (o convite por link) pode pôr um e-mail para recuperar a senha sozinho (D42)
+    feitos.comUsuario && { id: "email", titulo: "Pôr um e-mail para recuperar a senha", texto: "Se esquecer a senha, o link chega nele na hora.",
+      feito: !!feitos.emailRecuperacao, acao: { email: true, rotulo: "Pôr o e-mail" } },
   ].filter(Boolean);
 }
 
@@ -274,7 +278,7 @@ export function abrirImportacao({ banco, conta }) {
 
 // ---------- o cartão no Início ----------
 
-async function lerFeitos(banco, contaId) {
+async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
   const existe = consulta => banco.resultado(consulta.limit(1)).then(l => l.length > 0).catch(() => false);
   const [valores, servicos, reservas, pedidos, pessoas, convites] = await Promise.all([
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId).not("valor", "is", null)),
@@ -284,13 +288,15 @@ async function lerFeitos(banco, contaId) {
     banco.resultado(banco.tabela("pessoas").select("id").eq("conta_id", contaId).limit(2)).then(l => l.length > 1).catch(() => false),
     existe(banco.tabela("convites").select("id").eq("conta_id", contaId).is("aceito_em", null).is("cancelado_em", null)),
   ]);
-  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites };
+  const recuperacao = comUsuario ? await banco.rpc("meu_email_de_recuperacao").catch(() => null) : null;
+  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
 }
 
 /** Monta o cartão dentro de `el` (some sozinho para quem não é dono ou escondeu). */
-export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar }) {
+export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar, pessoa }) {
   if (!conta || !conta.dono || (conta.ajustes && conta.ajustes.primeiros_passos_escondidos)) { el.innerHTML = ""; return; }
-  const feitos = await lerFeitos(banco, conta.conta_id);
+  const comUsuario = /@acesso\.renderizaweb\.com\.br$/.test(String((pessoa && pessoa.email) || ""));
+  const feitos = await lerFeitos(banco, conta.conta_id, { comUsuario });
   const passos = passosDaConta(conta, feitos);
   const prontos = passos.filter(p => p.feito).length;
   const todos = prontos === passos.length;
@@ -317,16 +323,20 @@ export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar 
           <span class="rz-linha-texto"><b>${escapar(p.titulo)}</b><small>${p.feito ? "Feito" : escapar(p.texto)}</small></span>
           ${p.feito ? "" : p.acao.importar
             ? `<button class="rz-botao" type="button" data-importar>${escapar(p.acao.rotulo)}</button>`
+            : p.acao.email ? `<button class="rz-botao" type="button" data-email-recuperacao>${escapar(p.acao.rotulo)}</button>`
             : `<a class="rz-botao" href="${p.acao.href}">${escapar(p.acao.rotulo)}</a>`}
         </li>`).join("")}
       </ol>
     </section>`;
 
+  el.querySelector("[data-email-recuperacao]")?.addEventListener("click", () => abrirEmailDeRecuperacao({
+    banco, avisar, aoMudar: () => montarPrimeirosPassos(el, { banco, conta, navegar, avisar, pessoa }).catch(() => null),
+  }));
   const importar = el.querySelector("[data-importar]");
   if (importar) importar.addEventListener("click", async () => {
     const total = await abrirImportacao({ banco, conta });
     if (!total) return;
-    await montarPrimeirosPassos(el, { banco, conta, navegar, avisar }).catch(() => null);
+    await montarPrimeirosPassos(el, { banco, conta, navegar, avisar, pessoa }).catch(() => null);
     avisar(`${total === 1 ? "1 data trazida" : `${total} datas trazidas`} para a Agenda.`);
   });
   el.querySelector("[data-esconder]").addEventListener("click", async () => {
@@ -340,7 +350,7 @@ export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar 
       el.innerHTML = "";
       avisar("Primeiros passos escondidos.", {
         desfazer: async () => {
-          try { await mudar(antes); montarPrimeirosPassos(el, { banco, conta, navegar, avisar }); }
+          try { await mudar(antes); montarPrimeirosPassos(el, { banco, conta, navegar, avisar, pessoa }); }
           catch (e) { avisar(e.message, { tipo: "erro" }); }
         },
       });

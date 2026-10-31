@@ -158,8 +158,10 @@ painel-clientes/
   `aceitar_convites()` de sempre põe a pessoa na conta. **Segurança** (migração `…233000`): o link só troca a senha de
   quem já tem login se foi gerado pela Renderiza (`pela_renderiza`) ou se a pessoa só está na conta de quem gerou
   (`convite_pode_usar_login`, no banco ao gravar e na função ao aceitar); um convite pendente por usuário. Entrar
-  aceita "e-mail ou usuário" (`emailDeEntrada` em `src/sessao.js`). O e-mail para recuperar a senha sozinho entra no
-  bloco E (até lá, quem esqueceu pede um link novo à Renderiza ou ao dono).
+  aceita "e-mail ou usuário" (`emailDeEntrada` em `src/sessao.js`). O e-mail para recuperar a senha (31/10): a função
+  `email-de-recuperacao` guarda um e-mail confirmado por código (tabela `emails_de_recuperacao`, só ela lê e grava),
+  e o "Esqueci a senha" com o usuário manda para ele o link do Supabase (`generateLink`, tipo recovery) pelo Brevo;
+  sem e-mail, o WhatsApp da Renderiza.
 - **A IA do onboarding** (Missão 7, bloco D; D45, D46, D49, D52): a função `assistente` (`supabase/functions/assistente/`;
   a lógica em `logica.js`, testada em `test/assistente.test.mjs`) é o único lugar que fala com a IA, pelos SDKs
   oficiais, com a chave só no ambiente dela: `OPENAI_API_KEY` (o padrão, D52; a Responses API, modelo `gpt-5.4-mini`,

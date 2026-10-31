@@ -1,38 +1,60 @@
 // Esqueci a senha: a pessoa digita o e-mail e recebe um link para criar uma senha nova (tela /nova-senha).
 // A resposta é sempre a mesma, exista a conta ou não: ninguém descobre por aqui quem tem conta.
-// O e-mail sai pelo Supabase; até o Brevo entrar (Missão 1, item 4), só chega para quem é da conta do Supabase.
-// Quem entra com usuário (o convite por link, D42) não tem e-mail para receber: pede um link novo à Renderiza.
+// O e-mail sai pelo Supabase (com o Brevo). Quem entra com usuário (o convite por link, D42) recebe o link no e-mail de
+// recuperação que confirmou (a função email-de-recuperacao); sem ele, pede um link novo à Renderiza pelo WhatsApp.
 
 import { telaDeAcesso, focarTitulo } from "./acesso.js";
 import { TELAS } from "../rotas.js";
-import { validarEmail } from "../sessao.js";
+import { validarEmail, FORMATO_DO_USUARIO } from "../sessao.js";
 import { linkDaRenderiza } from "./renderiza.js";
 import { icone } from "../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../ui/formulario.js";
 
 const ESPERA_PARA_REENVIAR = 60; // segundos
 
-export async function montar(el, { sessao, ambiente }) {
+export async function montar(el, { sessao, banco, ambiente }) {
   const emailInicial = new URLSearchParams(location.search).get("email") || "";
   const voltar = { href: TELAS.entrar.caminho, texto: "Voltar para entrar" };
   const linkDeVolta = () => location.origin + TELAS.novaSenha.caminho;
 
-  // quem entra com usuário: o link novo vem da Renderiza, pelo WhatsApp
-  function semEmail(usuario) {
+  // quem entra com usuário: o link vai para o e-mail de recuperação confirmado (se tiver); senão, pelo WhatsApp
+  function semEmail(usuario, mandado = false) {
+    const whats = linkDaRenderiza(`Oi! Esqueci a senha do Painel Renderiza (usuário ${usuario}). Pode me mandar um link novo?`);
     el.innerHTML = telaDeAcesso({
       ambiente,
       voltar,
-      conteudo: `
+      conteudo: mandado ? `
+        <div class="rz-acesso-cabeca">
+          <span class="rz-icone-grande">${icone("carta", { tamanho: 24 })}</span>
+          <h1 class="rz-titulo-1">Confira o seu e-mail</h1>
+          <p class="rz-texto-2">Se o usuário <b>${escapar(usuario)}</b> tiver um e-mail confirmado, o link para criar a senha nova chega nele em alguns minutos. Olhe também a caixa de spam.</p>
+        </div>
+        <div class="rz-acesso-acoes">
+          <a class="rz-botao rz-botao--escuro rz-botao--grande rz-botao--bloco" href="${TELAS.entrar.caminho}?email=${encodeURIComponent(usuario)}">Voltar para entrar</a>
+          <a class="rz-botao rz-botao--fantasma rz-botao--bloco" href="${whats}" target="_blank" rel="noopener">${icone("whatsapp")}Não chegou? Pedir um link novo</a>
+        </div>` : `
         <div class="rz-acesso-cabeca">
           <span class="rz-icone-grande">${icone("cadeado", { tamanho: 24 })}</span>
           <h1 class="rz-titulo-1">Esqueceu a senha?</h1>
-          <p class="rz-texto-2">Quem entra com usuário recebe um link novo da Renderiza, pelo WhatsApp, para criar uma senha nova.</p>
+          <p class="rz-texto-2">Se você pôs um e-mail para recuperar a senha, o link chega nele. Se não pôs, a Renderiza manda um link novo pelo WhatsApp.</p>
         </div>
+        <div role="alert" hidden></div>
         <div class="rz-acesso-acoes">
-          <a class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" href="${linkDaRenderiza(`Oi! Esqueci a senha do Painel Renderiza (usuário ${usuario}). Pode me mandar um link novo?`)}" target="_blank" rel="noopener">${icone("whatsapp")}Pedir um link novo</a>
+          <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-mandar>${icone("carta")}Mandar o link para o meu e-mail</button>
+          <a class="rz-botao rz-botao--grande rz-botao--bloco" href="${whats}" target="_blank" rel="noopener">${icone("whatsapp")}Pedir pelo WhatsApp</a>
         </div>`,
     });
     focarTitulo(el);
+    el.querySelector("[data-mandar]")?.addEventListener("click", async e => {
+      ocupado(e.currentTarget, true, "Mandando…");
+      try {
+        await banco.funcao("email-de-recuperacao", { acao: "recuperar", usuario, destino: linkDeVolta() });
+        semEmail(usuario, true);
+      } catch (er) {
+        ocupado(e.currentTarget, false);
+        avisoDoFormulario(el.querySelector("[role=alert]"), er.message);
+      }
+    });
   }
 
   function pedir() {
@@ -44,13 +66,13 @@ export async function montar(el, { sessao, ambiente }) {
         <div class="rz-acesso-cabeca">
           <span class="rz-icone-grande">${icone("cadeado", { tamanho: 24 })}</span>
           <h1 class="rz-titulo-1">Esqueceu a senha?</h1>
-          <p class="rz-texto-2">Sem problema. Digite o e-mail da sua conta e a gente manda um link para você criar uma senha nova.</p>
+          <p class="rz-texto-2">Sem problema. Digite o e-mail (ou o usuário) da sua conta e a gente manda um link para você criar uma senha nova.</p>
         </div>
         <form class="rz-pilha" novalidate>
           <div role="alert" hidden></div>
           <div class="rz-campo">
-            <label class="rz-rotulo" for="esqueci-email">E-mail</label>
-            <input id="esqueci-email" class="rz-entrada" name="email" type="email" autocomplete="username" inputmode="email"
+            <label class="rz-rotulo" for="esqueci-email">E-mail ou usuário</label>
+            <input id="esqueci-email" class="rz-entrada" name="email" type="text" autocomplete="username" inputmode="email"
               autocapitalize="none" spellcheck="false" enterkeyhint="send" placeholder="voce@seunegocio.com.br" value="${escapar(emailInicial)}">
             <p class="rz-erro-campo" hidden></p>
           </div>
@@ -67,11 +89,16 @@ export async function montar(el, { sessao, ambiente }) {
       evento.preventDefault();
       if (botao.disabled) return;
       avisoDoFormulario(aviso, "");
+      // um usuário (sem @): o caminho de quem entra com usuário
+      const digitado = form.email.value.trim().toLowerCase();
+      if (digitado && !digitado.includes("@") && FORMATO_DO_USUARIO.test(digitado)) return semEmail(digitado);
       const problema = validarEmail(form.email.value);
       erroNoCampo(form.email, problema);
       if (problema) return form.email.focus();
       ocupado(botao, true, "Enviando…");
       try {
+        // o e-mail pode ser o de recuperação de quem entra com usuário: a função procura nele também (sem dizer se achou)
+        banco.funcao("email-de-recuperacao", { acao: "recuperar", email: form.email.value.trim(), destino: linkDeVolta() }).catch(() => {});
         await sessao.pedirNovaSenha(form.email.value, linkDeVolta());
         enviado(form.email.value.trim());
       } catch (e) {

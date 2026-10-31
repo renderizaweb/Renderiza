@@ -6,7 +6,7 @@
 
 import { MODULOS } from "../modulos/index.js";
 import { caminhoDe } from "../rotas.js";
-import { estadoDoModulo, diasDeTeste } from "../sessao.js";
+import { estadoDoModulo, diasDeTeste, usuarioDoEmail } from "../sessao.js";
 import { nicho } from "../nichos/index.js";
 import { temaDoNicho } from "./acesso.js";
 import { icone } from "../ui/icones.js";
@@ -229,13 +229,19 @@ function ligar(raiz, { conta, itens, sessao, banco, navegar }) {
     const lugares = conta.liberada ? itens : [];
     const folha = abrirFolha({
       titulo: conta.nome,
-      subtitulo: escapar((sessao.usuario() || {}).email || ""),
+      subtitulo: escapar(usuarioDoEmail((sessao.usuario() || {}).email) ? `usuário ${usuarioDoEmail(sessao.usuario().email)}` : (sessao.usuario() || {}).email || ""),
       corpo: `<ul class="rz-lista-acoes">
           ${lugares.map(i => `<li><a href="${i.caminho}" ${i.estado === "trancado" ? `data-trancado="${escapar(i.nome)}"` : ""}>${icone(i.icone)}<span>${escapar(i.nome)}</span>${i.estado === "trancado" ? icone("cadeado", { tamanho: 16 }) : ""}</a></li>`).join("")}
           ${sessao.eEquipeRenderiza() ? `<li><a href="/admin">${icone("admin")}<span>Admin</span></a></li>` : ""}
           ${variasContas ? `<li><button type="button" data-trocar-conta>${icone("trocar")}<span>Trocar de conta</span></button></li>` : ""}
+          ${usuarioDoEmail((sessao.usuario() || {}).email) ? `<li><button type="button" data-email-recuperacao>${icone("carta")}<span>E-mail para recuperar a senha</span></button></li>` : ""}
           <li><button type="button" data-sair>${icone("sair")}<span>Sair</span></button></li>
         </ul>`,
+    });
+    folha.corpo.querySelector("[data-email-recuperacao]")?.addEventListener("click", async () => {
+      folha.fechar();
+      const { abrirEmailDeRecuperacao } = await import("../ui/email-de-recuperacao.js");
+      abrirEmailDeRecuperacao({ banco, avisar });
     });
     folha.corpo.addEventListener("click", e => {
       if (e.target.closest("a:not([data-trancado]), [data-trocar-conta], [data-sair]")) folha.fechar();

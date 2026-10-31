@@ -311,8 +311,14 @@ Feito (bloco E, na branch, no STG): a conversa de boas-vindas em /montar (src/te
   Início; "só eu" na equipe tira o passo de convidar. A migração 20261030260000 (contexto_da_minha_conta). A política
   e os termos na versão 31/10/2026 (a Anthropic, a demo e a conversa de boas-vindas; o que mudou está no
   termos-referencias.md, 1b). O piloto, passo 2, passa pela conversa inteira (9/9; a varredura 9/9).
-Falta (bloco E): o e-mail opcional no fim da conversa (precisa da chave do Brevo nas funções, para mandar o código e
-  o link de senha nova);  a
+Feito em 31/10 (com a chave do Brevo nas funções, posta pela Renderiza): o e-mail opcional de quem entra com usuário
+  (migração 20261031120000; função email-de-recuperacao, testada em test/email-de-recuperacao.test.mjs). A pessoa põe
+  um e-mail e confirma com um código de 6 números (cifrado no banco, 15 minutos, 5 tentativas, um envio por minuto),
+  pelo menu (Mais → "E-mail para recuperar a senha") ou pelo passo novo dos primeiros passos; o "Esqueci a senha"
+  aceita o usuário e manda o link para esse e-mail (a resposta é sempre a mesma; sem e-mail, o WhatsApp da
+  Renderiza). O aviso de pedido novo deixou de ir para o e-mail interno e vai para o de recuperação do dono. O aviso
+  de pedido novo da agenda online saiu de verdade no STG (Brevo aceitou). Fluxos 18/18.
+Falta (bloco E):  a
   Renderiza conferir as mudanças da política e dos termos (termos-referencias.md, 1b).
 Na produção em 30/10: as migrações de D e E e a função assistente (sem a chave, responde "sem IA"); a main com
   tudo. A tela só entra no ar quando a Vercel publicar (o deploy está no limite diário; ver o aviso de 30/10).
@@ -884,6 +890,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030250000_ia_uso.sql` (a IA do onboarding: cada chamada com os tokens e o custo, e o teto por conta; só a Renderiza) | 7D | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 (com a função `assistente`, sem a chave) |
 | `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
+| `20261031120000_email_de_recuperacao.sql` (o e-mail opcional de quem entra com usuário; o aviso de pedido novo sem o e-mail interno) | 7 | `claude/painel-renderiza-setup-ztnrzy` | 31/10/2026 | 31/10/2026 |
 
 ## Avisos entre sessões
 
