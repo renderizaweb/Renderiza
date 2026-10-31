@@ -240,6 +240,12 @@ test("vercel.json: só a home pode ser indexada; painel, login, demos e api não
 // Cada deploy do site tem uns 750 MB e o plano grátis da Vercel guarda 10 GB: o push que só mexe no painel, nos
 // documentos do painel ou nos testes não monta o site. Na Vercel, sair com 0 pula, com 1 monta e com outro código
 // (ex.: 128, erro do git) o deploy falha; por isso o build sai com 1, nunca só "diferente de 0" (como o do painel).
+test("vercel.json: as branches das sessões (claude/*) não montam o site (cada prévia tem uns 750 MB)", () => {
+  const v = JSON.parse(readFileSync(new URL("../vercel.json", import.meta.url), "utf8"));
+  assert.equal(v.git.deploymentEnabled["claude/*"], false);
+  assert.equal(v.git.deploymentEnabled.referencias, false);
+});
+
 test("vercel.json: o site não monta quando só mudam painel-clientes/, docs/painel-clientes/ ou test/", () => {
   const { ignoreCommand } = JSON.parse(readFileSync(new URL("../vercel.json", import.meta.url), "utf8"));
   assert.ok(ignoreCommand.length <= 256, "a Vercel aceita até 256 caracteres");
