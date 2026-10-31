@@ -1,7 +1,10 @@
 // Site público (/) e o que vai para o ar.   npm test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import config from "../site/config.mjs";
 import { montarPagina, pendencias, linkWhatsapp, telefoneLegivel, FRASE, TESTE } from "../site/pagina.mjs";
 import { arquivosPublicados, comPreviaDoLink, fotoDaCapa } from "../scripts/montar-site.mjs";
@@ -232,6 +235,43 @@ test("vercel.json: só a home pode ser indexada; painel, login, demos e api não
   const semIndice = v.headers.filter(h => h.headers.some(x => x.key === "X-Robots-Tag" && /noindex/.test(x.value))).map(h => h.source);
   for (const s of ["/demo/(.*)", "/painel", "/painel/(.*)", "/login", "/api/(.*)"]) assert.ok(semIndice.includes(s), s);
   assert.ok(!v.headers.some(h => h.source === "/(.*)"));
+});
+
+// Cada deploy do site tem uns 750 MB e o plano grátis da Vercel guarda 10 GB: o push que só mexe no painel, nos
+// documentos do painel ou nos testes não monta o site. Na Vercel, sair com 0 pula, com 1 monta e com outro código
+// (ex.: 128, erro do git) o deploy falha; por isso o build sai com 1, nunca só "diferente de 0" (como o do painel).
+test("vercel.json: o site não monta quando só mudam painel-clientes/, docs/painel-clientes/ ou test/", () => {
+  const { ignoreCommand } = JSON.parse(readFileSync(new URL("../vercel.json", import.meta.url), "utf8"));
+  assert.ok(ignoreCommand.length <= 256, "a Vercel aceita até 256 caracteres");
+  const repo = mkdtempSync(join(tmpdir(), "site-ignore-"));
+  try {
+    const git = (...a) => execFileSync("git", ["-c", "user.name=Teste", "-c", "user.email=teste@example.com", "-c", "commit.gpgsign=false", ...a], { cwd: repo, encoding: "utf8" }).trim();
+    const commit = (arquivo, texto) => {
+      mkdirSync(join(repo, dirname(arquivo)), { recursive: true });
+      writeFileSync(join(repo, arquivo), texto);
+      git("add", "-A");
+      git("commit", "-q", "-m", arquivo);
+      return git("rev-parse", "HEAD");
+    };
+    const codigo = anterior => spawnSync("sh", ["-c", ignoreCommand], { cwd: repo, env: { ...process.env, VERCEL_GIT_PREVIOUS_SHA: anterior } }).status;
+    git("init", "-q");
+    const inicio = commit("site/config.mjs", "1");
+    const siteMudou = commit("demos/otica/index.html", "2");
+    commit("painel-clientes/index.html", "painel");
+    commit("docs/painel-clientes/missoes.md", "só documento do painel");
+    commit("test/site.test.mjs", "só teste");
+    assert.equal(codigo(siteMudou), 0, "depois do último deploy só mudou painel, documento do painel e teste: pula");
+    assert.equal(codigo(inicio), 1, "o site mudou num commit antes do último: monta");
+    assert.equal(codigo(""), 1, "sem deploy anterior na branch: monta");
+    assert.equal(codigo("0123456789abcdef0123456789abcdef01234567"), 1, "SHA fora do clone (erro do git): monta, sem falhar");
+    for (const arquivo of ["painel/index.html", "docs/outro.md", "vercel.json", "site/test/a.txt", "painel-clientes-x/a.txt"]) {
+      const antes = git("rev-parse", "HEAD");
+      commit(arquivo, "outra pasta");
+      assert.equal(codigo(antes), 1, `${arquivo}: monta`);
+    }
+  } finally {
+    rmSync(repo, { recursive: true, force: true });
+  }
 });
 
 const secao = (html, id) => html.slice(html.indexOf(`id="${id}"`), html.indexOf("</section>", html.indexOf(`id="${id}"`)));

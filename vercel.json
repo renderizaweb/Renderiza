@@ -4,6 +4,7 @@
   "installCommand": "",
   "buildCommand": "node scripts/montar-site.mjs",
   "outputDirectory": "publico",
+  "ignoreCommand": "[ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- . ':(exclude)painel-clientes' ':(exclude)docs/painel-clientes' ':(exclude)test' || exit 1",
   "git": { "deploymentEnabled": { "referencias": false } },
   "cleanUrls": true,
   "trailingSlash": false,
