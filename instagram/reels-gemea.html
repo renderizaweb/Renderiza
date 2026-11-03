@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: a gêmea da Paula</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 1 (quarta, 19h).
+     Alvo: quem vende pelo Instagram (loja de bolsas, roupa, acessório) e perde cliente que desconfia que é golpe.
+     Objetivo: a pessoa perceber que, para quem não a conhece, o perfil dela e o de um golpista parecem iguais, e que
+     um site com o nome do negócio no endereço é a prova que o golpista não consegue copiar.
+     A história: a Paula descobre uma gêmea, um golpista que copiou o perfil inteiro. A Renata, que quer uma bolsa e
+     tem uma prima que caiu num golpe, compara os dois: igualzinho. Desiste das duas, e a Paula nem fica sabendo.
+     Então a Paula faz um site e põe o link na bio. O golpista copia até a bio, mas o endereço só existe um, e leva
+     para a Paula. No fim, a Renata compra e manda o link para a prima: "Essa é a de verdade."
+     Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
+     narracao/reels-gemea.json → python3 instagram/narrar.py reels-gemea → esta página lê reels-gemea.tempos.json.
+     As peças comuns (contas, gente, legendas, marca, convite e trilha) estão em historia.mjs e historia.css.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+.fone .rotulo{position:absolute;right:40px;top:-18px;z-index:25;padding:9px 18px;border-radius:999px;font-size:22px;font-weight:800;letter-spacing:.01em;background:#f1eee9;color:#1e2528}
+.fone .rotulo.g{background:var(--terracota);color:#fff}
+/* o perfil do Instagram */
+.pf-topo{height:72px;display:flex;align-items:center;gap:14px;padding:0 22px;font-size:27px;font-weight:800;letter-spacing:-.01em}
+.pf-topo svg{width:30px;height:30px;flex:none}
+.pf-topo .of{border-radius:8px;padding:0 3px;margin-left:-3px}
+.pf-cab{display:flex;align-items:center;gap:20px;padding:4px 22px 0}
+.pf-av{width:114px;height:114px;border-radius:50%;flex:none;padding:5px;background:linear-gradient(135deg,#f2b632,#d6407a)}
+.pf-av svg{width:100%;height:100%;display:block;border-radius:50%;border:4px solid #fbf8f3;background:#e9d8c4}
+.pf-nome{font-size:29px;font-weight:800;letter-spacing:-.02em}
+.pf-nome small{display:block;font-size:21px;font-weight:600;color:#7a8386;margin-top:4px}
+.pf-bio{padding:12px 22px 0;font-size:23px;line-height:1.2;font-weight:600}
+.pf-bio div{display:flex;align-items:center;gap:10px;border-radius:12px;padding:4px 8px;margin:2px 0 0 -8px}
+.pf-bio svg{width:24px;height:24px;flex:none;color:#5b6467}
+.pf-bio .pf-link{color:#2f5fc4;font-weight:700;opacity:0}
+.pf-bio .pf-link svg{color:#2f5fc4}
+.pf-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:14px}
+.pf-grade i{display:block;height:128px;overflow:hidden}
+.pf-grade svg,.pb-fotos svg{width:100%;height:100%;display:block}
+/* o site da Paula */
+.ms-url .cad{width:18px;height:18px}
+.ms-hero.pb{height:200px;background:#b8743a}
+.ms-hero.pb h3{right:150px;top:26px;font-size:36px}
+.ms-hero.pb svg{position:absolute;right:6px;bottom:-4px;width:160px;height:160px}
+.pb-fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 16px 0;border-radius:18px}
+.pb-fotos i{display:block;height:118px;border-radius:16px;overflow:hidden}
+.pb-aval{margin:14px 16px 0;padding:14px 18px;border-radius:20px;background:#f1ece4;font-size:23px;font-weight:600;line-height:1.25}
+.pb-aval .est{display:flex;gap:4px;margin-bottom:6px;color:#e0a526}
+.pb-aval .est svg{width:26px;height:26px;fill:currentColor;stroke:none}
+.pb-aval small{display:block;color:#7a8386;font-size:19px;margin-top:6px}
+.ms-url,.ms-zap{transform-origin:50% 50%}
+/* WhatsApp: o link que vai para a prima */
+.zp-card{position:absolute;right:18px;top:28px;width:330px;border-radius:24px;border-top-right-radius:6px;background:#d9fdd3;padding:10px 10px 14px;box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.zp-card i{display:block;height:170px;border-radius:16px;overflow:hidden}
+.zp-card i svg{width:100%;height:100%;display:block}
+.zp-card b{display:block;font-size:25px;font-weight:800;margin:10px 8px 0}
+.zp-card span{display:block;font-size:21px;font-weight:600;color:#5b6467;margin:2px 8px 0}
+/* a comparação */
+.chip{position:absolute;left:0;top:0;z-index:23;display:flex;align-items:center;gap:14px;height:74px;padding:0 26px;border-radius:37px;background:#f1eee9;color:#1e2528;font-size:32px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.35);opacity:0}
+.chip svg{width:34px;height:34px;color:var(--terracota)}
+#igual{position:absolute;left:460px;top:880px;width:160px;height:160px;z-index:26;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;font-size:150px;font-weight:800;line-height:1;padding-bottom:14px;box-sizing:border-box;box-shadow:0 24px 70px rgba(178,81,52,.55);opacity:0}
+.balao .bolsa{display:block;width:96px;height:96px}
+.balao.pouco{font-size:34px;font-weight:600;padding:16px 26px;border-radius:26px;color:#5b6467}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div id="escuro"></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="chips"></div>
+  <div class="fone" id="fb"></div>
+  <div class="fone" id="fa"></div>
+  <div id="igual">=</div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, E, pose, IC, ic, ZAP_B, cabeca, dePe, boca, pernas, fecha, barra, balao, historia } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-gemea",
+  ordem: ["perfis", "renata", "compara", "licao", "desistiu", "soube", "site", "copia", "fecho", "marca", "cta"],
+  // a trilha: os perfis abrem com impacto, a Renata é o pulso, a comparação é o groove (cortado no "Para quem não
+  // conhece", a frase "nada"), a lição fica abafada, quem desiste só com o coração, a Paula sozinha sobe até o drop,
+  // que cai em "fez um site"
+  trilha: { perfis: "abre", renata: "google", compara: "insta", licao: "volta", desistiu: "meio", soube: "ese", site: "site", copia: "site", fecho: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "A Paula, a Renata e a gêmea são fictícias.", bpm: 120, tom: -1,
+});
+const { F, S, I, FIM, W, palco } = R;
+const T = {
+  gemea: W("abre", "gemea"), fotos: W("mesmas", "fotos"), bolsas: W("mesmas", "bolsas"), nenhuma: W("nenhuma", "nenhuma"),
+  golpista: W("golpista", "golpista"), inteiro: W("golpista", "inteiro"),
+  renata: W("renata", "renata"), bolsa: W("renata", "bolsa"), prima: I("prima"), golpe: W("prima", "golpe"),
+  comparou: W("comparou", "comparou"),
+  pp: I("pp"), pd: W("pp", "direct"), pk: W("pp", "pix"), pe: W("pp", "entrega"),
+  pg: I("pg"), gd: W("pg", "direct"), gk: W("pg", "pix"), ge: W("pg", "entrega"),
+  igual: I("igual"), jeito: W("nada", "jeito"),
+  duas: W("desistiu", "duas"), sabendo: W("soube", "sabendo"),
+  site: W("fez", "site"), endereco: W("itens", "endereco"), fotosV: W("itens", "fotos"), aval: W("itens", "avaliacoes"), zap: W("itens", "whatsapp"),
+  link: W("bio", "link"), bio: W("bio", "bio"),
+  copW: W("copiou", "copiou"), copF: W("copiou", "fotos"), copB: W("copiou", "bio"),
+  endW: W("endereco", "endereco"), copiar: W("endereco", "copiar"),
+  um: W("um", "um"), paula: W("um", "paula"),
+  voltou: W("voltou", "voltou"), bolsaF: W("voltou", "bolsa"), mandou: W("mandou", "mandou"), linkF: W("mandou", "link"), primaF: W("mandou", "prima"),
+};
+T.tapB = T.copiar + 0.42; // o dedo toca no link do perfil da gêmea
+
+IC.cartao = '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>';
+const TERRA = (a) => `rgba(232,133,94,${a.toFixed(3)})`;
+
+// ====================== bolsas ======================
+const CORES = [["#efe4d6", "#b8743a"], ["#e6e2dc", "#2b2b2b"], ["#f1e3e0", "#7a2a36"], ["#e9e6da", "#c9a77c"], ["#e2e8df", "#4f6b4a"],
+  ["#f0e6dc", "#a2552f"], ["#e8e1d9", "#5a3d2b"], ["#ece4e8", "#9b6b84"], ["#e5e9ec", "#2f5d7a"]];
+function formaBolsa(k, c) {
+  const f = k % 3;
+  const corpo = f === 0 ? "M24 44 L76 44 L83 84 Q83 88 79 88 L21 88 Q17 88 17 84 Z" : f === 1 ? "M18 50 Q18 42 26 42 L74 42 Q82 42 82 50 L82 80 Q82 88 74 88 L26 88 Q18 88 18 80 Z" : "M14 60 Q14 52 22 52 L78 52 Q86 52 86 60 L86 76 Q86 82 80 82 L20 82 Q14 82 14 76 Z";
+  const alca = f === 2 ? "M30 52 Q50 32 70 52" : "M33 44 Q33 19 50 19 Q67 19 67 44";
+  const aba = f === 1 ? `<path d="M18 50 Q18 42 26 42 L74 42 Q82 42 82 50 L82 58 Q50 70 18 58 Z" fill="#000" opacity=".18"/>` : f === 0 ? `<path d="M24 44 L76 44 L77 50 L23 50 Z" fill="#000" opacity=".15"/>` : `<path d="M14 60 L86 60 L86 64 Q50 72 14 64 Z" fill="#000" opacity=".15"/>`;
+  return { corpo, alca, desenho: `<ellipse cx="50" cy="${f === 2 ? 86 : 91}" rx="36" ry="4" fill="#000" opacity=".12"/><path d="${alca}" fill="none" stroke="${c}" stroke-width="5.5" stroke-linecap="round"/><path d="${corpo}" fill="${c}"/>${aba}<circle cx="50" cy="${f === 2 ? 66 : f === 1 ? 61 : 58}" r="3.8" fill="#e0b04a"/>` };
+}
+// uma foto do feed: a bolsa, e por baixo o contorno vazio (a gêmea não tem bolsa nenhuma)
+function bolsa(k) {
+  const [bg, c] = CORES[k % 9], b = formaBolsa(k, c);
+  return `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect width="100" height="100" fill="${bg}"/><g class="b">${b.desenho}</g>
+    <g class="v" opacity="0" fill="none" stroke="#9aa3a6" stroke-width="2.4" stroke-dasharray="5 5" stroke-linecap="round"><path d="${b.alca}"/><path d="${b.corpo}"/></g></svg>`;
+}
+const bolsaSolta = (k, cor) => `<svg class="bolsa" viewBox="0 0 100 100">${formaBolsa(k, cor || CORES[k % 9][1]).desenho}</svg>`;
+
+// ====================== gente ======================
+const PAULA_CAB = { cabelo: "longo", corCabelo: "#3b2418", brinco: "#e0b04a" };
+const PAULA = { ...PAULA_CAB, id: "pa", roupa: "#e8e1d6", braco: "#e8e1d6", calca: "#2c3a4a", bracos: "celular", avental: "#b8743a" };
+const RENATA = { id: "re", cabelo: "coque", corCabelo: "#1f1714", roupa: "#2f6f86", calca: "#3a3f45", pele: "#c98d6b", pele2: "#b67a59", bracos: "celular" };
+// o rosto da Paula na foto do perfil; a gêmea ganha uma máscara de bandido
+const MASCARA = `<path fill-rule="evenodd" d="M25 63 Q60 52 95 63 L93 76 Q60 70 27 76 Z M41.1 68.4 a6.5 5 0 1 0 13 0 a6.5 5 0 1 0 -13 0 Z M65.9 68.4 a6.5 5 0 1 0 13 0 a6.5 5 0 1 0 -13 0 Z" fill="#14181a"/><path d="M92 66 L108 59 L102 69 L109 77 L91 73 Z" fill="#14181a"/>`;
+const avatar = pre => `<svg viewBox="0 0 120 120"><rect width="120" height="120" fill="#e9d8c4"/><path d="M12 126 Q14 100 60 99 Q106 100 108 126 Z" fill="#b8743a"/>${cabeca({ ...PAULA_CAB, id: pre }, 60, 70, 33)}<g id="${pre}masc" opacity="0">${MASCARA}</g></svg>`;
+
+// ====================== os celulares ======================
+function perfil(p, gemea) {
+  const handle = gemea ? `paulabolsas<span class="of" id="${p}-of">.oficial</span>` : "paulabolsas";
+  return `<div class="tela" id="${p}-perfil"><div class="pf-topo">${ic("voltar")}<b>${handle}</b></div>
+    <div class="pf-cab"><div class="pf-av">${avatar(p + "a")}</div><div class="pf-nome">Paula Bolsas<small>Bolsas de couro</small></div></div>
+    <div class="pf-bio"><div>${ic("sacola")}Feitas à mão, peça por peça</div><div id="${p}-b0">${ic("etiqueta")}Preço no direct</div>
+      <div id="${p}-b1">${ic("cartao")}Pix antes do envio</div><div id="${p}-b2">${ic("relogio")}Entrega em 7 dias</div>
+      <div class="pf-link" id="${p}-link">${ic("link")}paulabolsas.com.br</div></div>
+    <div class="pf-grade" id="${p}-grade">${[0, 1, 2, 3, 4, 5, 6, 7, 8].map(k => `<i>${bolsa(k)}</i>`).join("")}</div>
+    <div class="dedo" id="${p}-dedo"></div></div>`;
+}
+const site = p => `<div class="tela" id="${p}-site"><div class="ms-url" id="${p}-url">${ic("cadeado", 'class="i cad"')}<span>paulabolsas.com.br</span></div>
+  <div class="ms-topo"><span id="${p}-marca">Paula Bolsas</span><i></i></div>
+  <div class="ms-hero pb"><h3>Bolsas de couro feitas à mão</h3>${bolsaSolta(1, "#f3e3cf")}</div>
+  <div class="pb-fotos" id="${p}-fotos"><i>${bolsa(0)}</i><i>${bolsa(4)}</i><i>${bolsa(2)}</i></div>
+  <div class="pb-aval" id="${p}-aval"><span class="est">${[1, 2, 3, 4, 5].map(() => ic("estrela")).join("")}</span>“Chegou certinho, igual à foto.”<small>Carla, cliente</small></div>
+  <div class="ms-zap" id="${p}-zap">${ZAP_B}Pedir pelo WhatsApp</div></div>`;
+const zap = p => `<div class="tela" id="${p}-zap1"><div class="zp-topo">${ic("voltar")}<i style="background:#b8743a">${ic("sacola", 'style="color:#fff"')}</i><div>Paula Bolsas<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-m sai" id="${p}-m1" style="top:30px">Oi! Vi no site. Quero a bolsa caramelo.<small>10:42</small></div>
+    <div class="zp-m ent" id="${p}-m2" style="top:214px">Separada! Sai amanhã.<small>10:43</small></div></div></div>
+  <div class="tela" id="${p}-zap2"><div class="zp-topo">${ic("voltar")}<i style="background:#2f6f86">B</i><div>Bia (prima)<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-card" id="${p}-lk"><i>${bolsa(0)}</i><b>Paula Bolsas</b><span>paulabolsas.com.br</span></div>
+    <div class="zp-m sai" id="${p}-m3" style="top:338px">Essa é a de verdade.<small>10:45</small></div></div></div>`;
+for (const [p, gemea] of [["a", false], ["b", true]]) {
+  $("#f" + p).innerHTML = `<span class="exemplo claro">exemplo</span><span class="rotulo${gemea ? " g" : ""}" id="${p}-rot">${gemea ? "A gêmea" : "A Paula"}</span>
+    <div class="visor">${barra("10:40")}${perfil(p, gemea)}${site(p)}${zap(p)}</div>`;
+}
+const FA = $("#fa"), FB = $("#fb");
+const telas = p => $$(".tela", $("#f" + p));
+const mostra = (p, id) => telas(p).forEach(el => { el.style.display = el.id === `${p}-${id}` ? "block" : "none"; });
+
+// as pílulas da comparação, três para cada perfil
+const CHIPS = [["etiqueta", "Preço no direct"], ["cartao", "Pix antes"], ["relogio", "Entrega em 7 dias"]];
+const CH = ["a", "b"].map(() => CHIPS.map(([i, txt]) => { const el = document.createElement("div"); el.className = "chip"; el.innerHTML = ic(i) + txt; $("#chips").appendChild(el); return el; }));
+
+// ====================== as cenas desenhadas: a Renata e a loja da Paula ======================
+const estante = (y, xs, ks) => `<rect x="${xs[0] - 110}" y="${y}" width="${xs[xs.length - 1] - xs[0] + 220}" height="18" rx="6" fill="#6b4a33"/><rect x="${xs[0] - 110}" y="${y + 18}" width="${xs[xs.length - 1] - xs[0] + 220}" height="10" fill="#000" opacity=".2"/>` +
+  xs.map((x, i) => `<g transform="translate(${x - 95} ${y - 172}) scale(1.9)">${formaBolsa(ks[i], CORES[ks[i] % 9][1]).desenho}</g>`).join("");
+$("#cn").innerHTML = `
+  <defs><linearGradient id="g-sala" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22323a"/><stop offset="1" stop-color="#18242a"/></linearGradient>
+    <linearGradient id="g-loja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2c24"/><stop offset="1" stop-color="#2a201b"/></linearGradient>
+    <radialGradient id="g-luz" cx="540" cy="1200" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <g id="sala-r"><rect width="1080" height="1920" fill="url(#g-sala)"/>
+    <rect x="700" y="700" width="250" height="330" rx="14" fill="#2d4a56"/><rect x="716" y="716" width="218" height="298" rx="8" fill="#3d6474"/><path d="M825 716 V1014 M716 865 H934" stroke="#2d4a56" stroke-width="12"/>
+    <rect y="1640" width="1080" height="280" fill="#11171a"/><rect y="1630" width="1080" height="14" fill="#2b3c43"/>
+    <g transform="translate(170 1640)"><path d="M-46 0 L-56 -110 L56 -110 L46 0 Z" fill="#a2552f"/><path d="M0 -110 Q-90 -230 -60 -330 Q-10 -250 0 -110 Z M0 -110 Q40 -300 110 -320 Q70 -220 0 -110 Z M0 -110 Q-10 -280 20 -380 Q40 -260 0 -110 Z" fill="#4f6b4a"/></g>
+    <rect width="1080" height="1920" fill="url(#g-luz)"/>
+    <g id="re-pos">${dePe(RENATA)}</g></g>
+  <g id="sala-p"><rect width="1080" height="1920" fill="url(#g-loja)"/>
+    ${estante(880, [190, 400, 680, 890], [0, 2, 4, 7])}${estante(1250, [150, 930], [5, 3])}
+    <rect y="1640" width="1080" height="280" fill="#1c1512"/><rect y="1630" width="1080" height="14" fill="#4a362a"/>
+    <rect width="1080" height="1920" fill="url(#g-luz)"/>
+    <g id="pa-pos">${dePe(PAULA)}</g></g>`;
+const ESC = 1.75;
+
+// ====================== balões ======================
+const B_PENSA = balao(bolsaSolta(0), "esq");
+const B_PRIMA = balao("Paguei no Pix e nunca chegou.", "msg");
+const B_NADA = balao("Nenhuma mensagem nova", "sem pouco");
+
+// ====================== quadro a quadro ======================
+// [t, centro x, centro y, escala, giro, opacidade]
+const PA = [
+  [0, 540, 1010, 1, 0, 1], [T.gemea - 0.05, 540, 1010, 1, 0, 1], [T.gemea + 0.45, 290, 1010, 0.92, -2, 1],
+  [S.renata - 0.35, 290, 1010, 0.92, -2, 1], [S.renata - 0.05, 290, 1080, 0.86, -2, 0],
+  [S.compara - 0.3, 290, 1040, 0.84, 0, 0], [S.compara + 0.1, 290, 960, 0.86, 0, 1],
+  [S.licao - 0.05, 290, 960, 0.86, 0, 1], [T.jeito, 540, 980, 0.9, 0, 1], [S.desistiu - 0.05, 540, 980, 0.9, 0, 1],
+  [S.desistiu + 0.45, 585, 1325, 0.07, 0, 0], [S.site - 0.25, 540, 2300, 1, 6, 0], [S.site + 0.15, 540, 1010, 1, 0, 1],
+  [S.copia - 0.05, 540, 1010, 1, 0, 1], [S.copia + 0.4, 290, 1010, 0.92, -2, 1], [T.um - 0.05, 290, 1010, 0.92, -2, 1],
+  [T.um + 0.4, -320, 1010, 0.8, -8, 0],
+];
+const PB = [
+  [0, 540, 1010, 1, 0, 0], [T.gemea - 0.05, 540, 1010, 1, 0, 0], [T.gemea + 0.45, 790, 1010, 0.92, 2, 1],
+  [S.renata - 0.35, 790, 1010, 0.92, 2, 1], [S.renata - 0.05, 790, 1080, 0.86, 2, 0],
+  [S.compara - 0.3, 790, 1040, 0.84, 0, 0], [S.compara + 0.1, 790, 960, 0.86, 0, 1],
+  [S.licao - 0.05, 790, 960, 0.86, 0, 1], [T.jeito, 540, 980, 0.9, 0, 1], [S.desistiu - 0.05, 540, 980, 0.9, 0, 1],
+  [S.desistiu + 0.45, 585, 1325, 0.07, 0, 0], [S.copia - 0.05, 1400, 1010, 0.92, 8, 0], [S.copia + 0.4, 790, 1010, 0.92, 2, 1],
+  [T.um - 0.05, 790, 1010, 0.92, 2, 1], [T.um + 0.45, 540, 1010, 1, 0, 1], [S.marca - 0.35, 540, 1010, 1, 0, 1], [S.marca - 0.05, 540, 1100, 0.9, 0, 0],
+];
+const realce = (el, a) => { el.style.background = a > 0.004 ? TERRA(a) : ""; };
+const anel = (el, a) => { el.style.boxShadow = a > 0.004 ? `0 0 0 ${(7 * a).toFixed(1)}px ${TERRA(0.95 * a)}` : ""; };
+// o realce fica aceso da palavra até pouco depois do fim da frase
+const aceso = (t, t0, t1) => fase(t, t0 - 0.08, t0 + 0.12) * (1 - fase(t, t1, t1 + 0.35));
+
+function qFone(p, t) {
+  const el = p === "a" ? FA : FB, [cx, cy, s, r, o] = pose(p === "a" ? PA : PB, t);
+  pos(el, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o <= 0.002) return;
+  // na comparação, o perfil de quem está sendo lido fica aceso e o outro apaga um pouco
+  const apaga = p === "a" ? aceso(t, T.pg, FIM("pg")) : aceso(t, T.pp, FIM("pp"));
+  el.style.filter = apaga > 0 ? `brightness(${lerp(1, 0.55, apaga).toFixed(3)})` : "";
+  // a tela de cada momento
+  let tela = "perfil";
+  if (p === "a" && em(t, S.site - 0.3, I("bio") - 0.05)) tela = "site";
+  if (p === "b" && t >= T.tapB + 0.25) tela = t >= T.mandou - 0.1 ? "zap2" : t >= S.fecho ? "zap1" : "site";
+  mostra(p, tela);
+  const rot = em(t, S.licao, S.desistiu) ? 1 - fase(t, S.licao + 0.4, T.jeito - 0.3) : em(t, S.site - 0.3, S.copia) || t >= T.tapB + 0.25 ? 0 : 1;
+  $(`#${p}-rot`).style.opacity = rot.toFixed(3);
+  if (tela === "perfil") qPerfil(p, t);
+  if (tela === "site") qSite(p, t);
+  if (tela.startsWith("zap")) qZap(p, t);
+}
+function qPerfil(p, t) {
+  const gemea = p === "b";
+  // a máscara de bandido: na apresentação e quando ele copia a bio; na comparação, a Renata não vê diferença
+  const masc = gemea ? (em(t, T.golpista - 0.05, S.renata) ? sai(fase(t, T.golpista - 0.05, T.golpista + 0.25)) : t >= T.copW - 0.05 ? sai(fase(t, T.copW - 0.05, T.copW + 0.25)) : 0) : 0;
+  attr($(`#${p}amasc`), "opacity", masc.toFixed(3));
+  attr($(`#${p}amasc`), "transform", masc > 0 && masc < 1 ? `translate(60 68) scale(${lerp(1.6, 1, masc).toFixed(3)}) translate(-60 -68)` : "");
+  if (gemea) realce($("#b-of"), 0.5 * (em(t, T.golpista, S.renata) ? fase(t, T.golpista + 0.1, T.golpista + 0.4) : 0) + 0.4 * pulso(t, T.copW, 0.9));
+  // as fotos do feed: de repente, na gêmea, não há bolsa nenhuma
+  $$(`#${p}-grade i`).forEach((tile, k) => {
+    let vazio = 0;
+    if (gemea && t < S.renata) vazio = sai(fase(t, T.nenhuma - 0.12 + k * 0.035, T.nenhuma + 0.18 + k * 0.035));
+    attr($(".b", tile), "opacity", (1 - vazio).toFixed(3)); attr($(".v", tile), "opacity", vazio.toFixed(3));
+    const brilho = em(t, 0, S.renata) ? pulso(t, T.fotos - 0.1 + k * 0.03, 0.6) + pulso(t, T.bolsas - 0.1 + k * 0.03, 0.6) : gemea ? pulso(t, T.copF - 0.1 + k * 0.03, 0.6) : 0;
+    tile.style.filter = brilho > 0.01 ? `brightness(${(1 + 0.18 * brilho).toFixed(3)})` : "";
+  });
+  // a bio lida em voz alta, linha por linha
+  const ws = p === "a" ? [T.pd, T.pk, T.pe] : [T.gd, T.gk, T.ge], fim = FIM(p === "a" ? "pp" : "pg");
+  [0, 1, 2].forEach(k => realce($(`#${p}-b${k}`), 0.4 * aceso(t, ws[k], fim) + 0.4 * pulso(t, T.igual - 0.05, 0.7)));
+  // o link na bio: a Paula coloca, o golpista copia
+  const lk = $(`#${p}-link`), surge = p === "a" ? fase(t, T.link - 0.1, T.link + 0.2) : fase(t, T.copB - 0.1, T.copB + 0.2);
+  lk.style.opacity = surge.toFixed(3);
+  realce(lk, 0.45 * (p === "a" ? pulso(t, T.bio - 0.1, 1.1) : pulso(t, T.copB, 0.9)) + 0.4 * aceso(t, T.endW, T.tapB));
+  // o dedo toca no link da gêmea
+  const d = $(`#${p}-dedo`);
+  if (gemea) {
+    const x = fase(t, T.tapB - 0.4, T.tapB + 0.25);
+    d.style.left = `${lk.offsetLeft + 150}px`; d.style.top = `${lk.offsetTop + lk.offsetHeight / 2}px`;
+    pos(d, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+  } else d.style.opacity = 0;
+}
+function qSite(p, t) {
+  if (p === "a") {
+    anel($("#a-url"), pulso(t, T.endereco - 0.1, 1.1)); $("#a-url").style.transform = `scale(${(1 + 0.05 * pulso(t, T.endereco - 0.1, 0.6)).toFixed(3)})`;
+    anel($("#a-fotos"), pulso(t, T.fotosV - 0.1, 1.2)); anel($("#a-aval"), pulso(t, T.aval - 0.1, 1.2));
+    $("#a-zap").style.transform = `scale(${(1 + 0.08 * pulso(t, T.zap - 0.05, 0.6)).toFixed(3)})`;
+  } else {
+    const u = pulso(t, T.um - 0.15, 0.9), pl = pulso(t, T.paula - 0.1, 0.9);
+    anel($("#b-url"), u); $("#b-url").style.transform = `scale(${(1 + 0.06 * u).toFixed(3)})`;
+    $("#b-marca").style.color = pl > 0.01 ? `rgb(${Math.round(lerp(30, 178, pl))},${Math.round(lerp(37, 81, pl))},${Math.round(lerp(40, 52, pl))})` : "";
+    $("#b-zap").style.transform = `scale(${(1 + 0.06 * pl).toFixed(3)})`;
+  }
+}
+function qZap(p, t) {
+  for (const [id, t0] of [["m1", T.voltou], ["m2", T.bolsaF + 0.05], ["lk", T.linkF], ["m3", T.primaF]]) {
+    const a = entra(t, t0, 0.3);
+    pos($(`#${p}-${id}`), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+  }
+}
+function qChips(t) {
+  const xs = [290, 790], ys = [1408, 1496, 1584], ws = [[T.pd, T.pk, T.pe], [T.gd, T.gk, T.ge]];
+  const junta = ease(fase(t, S.licao, S.licao + 0.5)), fora = fase(t, S.licao + 0.1, S.licao + 0.5), ig = pulso(t, T.igual - 0.05, 0.5);
+  CH.forEach((col, c) => col.forEach((el, k) => {
+    if (!em(t, S.compara, S.desistiu)) { el.style.opacity = 0; el.style.visibility = "hidden"; return; }
+    const a = entra(t, ws[c][k] + 0.02);
+    pos(el, { x: lerp(xs[c], 540, junta) - el.offsetWidth / 2, y: ys[k] + a.y, s: a.s * (1 + 0.06 * ig), o: a.o * (1 - fora) });
+  }));
+  const g = entra(t, T.igual - 0.02, 0.3);
+  pos($("#igual"), { s: g.s * (1 + 0.05 * Math.sin(t * 7) * fase(t, T.igual + 0.3, T.igual + 0.6)), o: em(t, T.igual - 0.05, S.desistiu) ? g.o * (1 - fase(t, S.licao + 0.1, S.licao + 0.45)) : 0 });
+}
+function qCena(t) {
+  const renata = em(t, S.renata, S.compara) || em(t, S.desistiu, S.soube), loja = em(t, S.soube, S.site);
+  vis($("#c-cena"), renata || loja);
+  attr($("#sala-r"), "opacity", renata ? 1 : 0); attr($("#sala-p"), "opacity", loja ? 1 : 0);
+  if (renata) {
+    // entra pela direita, quer uma bolsa, lembra da prima; depois desiste das duas e vai embora
+    const x = t < S.compara ? lerp(1320, 540, ease(fase(t, S.renata - 0.05, T.renata + 0.45))) : lerp(540, 1380, ease(fase(t, T.duas + 0.25, S.soube)));
+    const anda = t < S.compara ? em(t, S.renata, T.renata + 0.4) : t > T.duas + 0.3;
+    attr($("#re-pos"), "transform", `translate(${x.toFixed(1)} 1700) scale(${ESC})`);
+    pernas("re", t, anda);
+    const nao = em(t, S.desistiu + 0.4, T.duas + 0.2) ? Math.sin((t - S.desistiu) * 16) * 6 : 0;
+    attr($("#recab"), "transform", nao ? `rotate(${nao.toFixed(2)} 0 -306)` : "");
+    boca("re", t < S.compara ? (t >= T.golpe ? "triste" : em(t, T.bolsa - 0.1, S.prima) ? "sorriso" : "reta") : t >= T.duas ? "triste" : "reta");
+    attr($("#retela"), "fill", t >= S.desistiu ? (t >= T.duas ? "#1a1f21" : "#9cc6e0") : "#9cc6e0");
+    fecha("re", Math.max(t % 3.1 < 0.12 ? 1 : 0, em(t, S.desistiu + 0.4, T.duas + 0.2) ? 0.6 : 0));
+  }
+  if (loja) {
+    attr($("#pa-pos"), "transform", `translate(540 1700) scale(${ESC}) rotate(${(Math.sin(t * 2.2) * 1.2).toFixed(2)} 0 0)`);
+    boca("pa", "sorriso"); fecha("pa", (t - S.soube) % 2.4 < 0.12 ? 1 : 0); pernas("pa", t, false);
+  }
+}
+function qBaloes(t) {
+  // a Renata pensa na bolsa; a mensagem da prima chega
+  const x = t < S.compara ? lerp(1320, 540, ease(fase(t, S.renata - 0.05, T.renata + 0.45))) : 540;
+  {
+    const a = entra(t, T.bolsa - 0.05), o = em(t, T.bolsa - 0.1, S.compara) ? a.o * (1 - fase(t, T.prima + 0.1, T.prima + 0.4)) : 0;
+    pos(B_PENSA, { x: x + 70, y: 1700 - 400 * ESC - B_PENSA.offsetHeight - 10 + a.y, s: a.s, o, r: 3 });
+  }
+  {
+    const a = entra(t, T.prima + 0.35), o = em(t, T.prima + 0.3, S.compara) ? a.o * (1 - fase(t, S.compara - 0.25, S.compara)) : 0;
+    pos(B_PRIMA, { x: 540 - B_PRIMA.offsetWidth / 2, y: 650 + a.y, s: a.s, o });
+  }
+  {
+    const a = entra(t, T.sabendo - 0.3), o = em(t, T.sabendo - 0.35, S.site) ? a.o * (1 - fase(t, S.site - 0.25, S.site)) : 0;
+    pos(B_NADA, { x: 540 - B_NADA.offsetWidth / 2, y: 560 + a.y, s: a.s, o });
+  }
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const quente = em(t, S.site, S.marca);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  qCena(t);
+  qFone("b", t); qFone("a", t);
+  qChips(t); qBaloes(t);
+  R.comum(t);
+};
+window.preparar = () => R.preparar([0.4, T.gemea + 0.6, T.fotos + 0.3, T.nenhuma + 0.5, T.golpista + 0.5, T.inteiro + 0.2, T.renata + 0.3, T.bolsa + 0.3, T.golpe + 0.4,
+  T.comparou + 0.3, T.pk + 0.2, T.ge + 0.5, T.igual + 0.35, T.jeito + 0.1, S.desistiu + 0.25, T.duas + 0.3, T.sabendo + 0.3, T.site + 0.2, T.endereco + 0.3,
+  T.aval + 0.3, T.zap + 0.3, T.bio + 0.2, T.copB + 0.3, T.tapB, T.um + 0.5, T.paula + 0.2, T.bolsaF + 0.4, T.primaF + 0.4, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6]);
+await R.pronto();
+</script>
+</body></html>

@@ -1,0 +1,33 @@
+{
+ "_sobre": "Narração do Reels \"A gêmea da Paula\" (série com história, semana de 04/11/2026). Alvo: quem vende pelo Instagram e pelo WhatsApp e fecha a venda com preço no direct e Pix antes. Objetivo: ela perceber que, para quem ainda não a conhece, o jeito dela de vender é igual ao de um golpista, e que um site com o nome do negócio no endereço é uma prova que o golpista não tem. A Paula, a Renata, a prima e a gêmea são fictícias. texto = legenda palavra a palavra (*palavra* sai em destaque); fala = o que a voz diz, quando a pronúncia pede outra grafia; pausa = silêncio depois da frase (s); cena = o que o Reels mostra; impacto = batida forte e tranco no início da frase. O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  {"id": "abre", "cena": "perfis", "texto": "A Paula descobriu que tinha uma *gêmea.*", "pausa": 0.35, "impacto": true},
+  {"id": "mesmas", "cena": "perfis", "texto": "Mesmas *fotos,* mesmas *bolsas.*", "pausa": 0.2},
+  {"id": "nenhuma", "cena": "perfis", "texto": "Só que a gêmea não tinha bolsa *nenhuma.*", "pausa": 0.55},
+  {"id": "golpista", "cena": "perfis", "texto": "Era um *golpista,* que copiou o perfil *inteiro.*", "pausa": 0.3},
+  {"id": "renata", "cena": "renata", "texto": "Aí apareceu a Renata, querendo uma *bolsa.*", "pausa": 0.15},
+  {"id": "prima", "cena": "renata", "texto": "No mês passado, a prima dela caiu num *golpe.*", "pausa": 0.3},
+  {"id": "comparou", "cena": "compara", "texto": "Então a Renata fez o que todo mundo faz: *comparou.*", "pausa": 0.25},
+  {"id": "pp", "cena": "compara", "texto": "No perfil da Paula: preço no *direct,* Pix antes, entrega em sete *dias.*", "fala": "No perfil da Paula: preço no dairéct, Pix antes, entrega em sete dias.", "pausa": 0.2},
+  {"id": "pg", "cena": "compara", "texto": "No perfil da gêmea: preço no *direct,* Pix antes, entrega em sete *dias.*", "fala": "No perfil da gêmea: preço no dairéct, Pix antes, entrega em sete dias.", "pausa": 0.25},
+  {"id": "igual", "cena": "compara", "texto": "*Igualzinho.*", "pausa": 0.55},
+  {"id": "nada", "cena": "licao", "texto": "Para quem não conhece, a Paula e o golpista faziam tudo do mesmo *jeito.*", "pausa": 0.25},
+  {"id": "desistiu", "cena": "desistiu", "texto": "A Renata desistiu das *duas.*", "pausa": 0.3},
+  {"id": "soube", "cena": "soube", "texto": "E a Paula nem ficou *sabendo.*", "pausa": 0.5},
+  {"id": "fez", "cena": "site", "texto": "Então a Paula fez um *site.*", "pausa": 0.15, "impacto": true},
+  {"id": "itens", "cena": "site", "texto": "Com o nome dela no *endereço,* as fotos de *verdade,* as avaliações das *clientes* e o *WhatsApp.*", "pausa": 0.15},
+  {"id": "bio", "cena": "site", "texto": "E colocou o link na *bio.*", "pausa": 0.3},
+  {"id": "copiou", "cena": "copia", "texto": "O golpista copiou as fotos e até a *bio.*", "pausa": 0.2},
+  {"id": "endereco", "cena": "copia", "texto": "O endereço, ele não conseguiu *copiar:*", "pausa": 0.12},
+  {"id": "um", "cena": "copia", "texto": "só existe *um,* e ele leva para a *Paula.*", "pausa": 0.4},
+  {"id": "voltou", "cena": "fecho", "texto": "A Renata voltou, comprou a *bolsa…*", "pausa": 0.15},
+  {"id": "mandou", "cena": "fecho", "texto": "e mandou o link para a *prima.*", "pausa": 0.55},
+  {"id": "moral", "cena": "marca", "texto": "Para quem não te conhece, um site com o seu *nome* é a prova de que você *existe.*", "pausa": 0.3},
+  {"id": "marca", "cena": "marca", "texto": "Com a *Renderiza,* o seu site vai para o ar com o nome do seu negócio no *endereço.*", "pausa": 0.5, "impacto": true},
+  {"id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu site.", "pausa": 0.4, "fala": "Comenta prévia, que a gente monta a prévia do seu site."}
+ ]
+}

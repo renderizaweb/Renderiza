@@ -1,0 +1,1706 @@
+{
+ "duracao": 82.27,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "pausa": 0.35,
+   "impacto": true,
+   "ini": 0.2,
+   "fim": 3.444,
+   "palavras": [
+    {
+     "p": "Faz",
+     "ini": 0.2,
+     "fim": 0.337,
+     "tom": false
+    },
+    {
+     "p": "dois",
+     "ini": 0.348,
+     "fim": 0.525,
+     "tom": false
+    },
+    {
+     "p": "anos",
+     "ini": 0.536,
+     "fim": 0.89,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 0.901,
+     "fim": 0.968,
+     "tom": false
+    },
+    {
+     "p": "eu",
+     "ini": 0.979,
+     "fim": 1.034,
+     "tom": false
+    },
+    {
+     "p": "estou",
+     "ini": 1.045,
+     "fim": 1.288,
+     "tom": false
+    },
+    {
+     "p": "aqui",
+     "ini": 1.299,
+     "fim": 1.465,
+     "tom": false
+    },
+    {
+     "p": "embaixo,",
+     "ini": 1.476,
+     "fim": 1.963,
+     "tom": false
+    },
+    {
+     "p": "esperando",
+     "ini": 2.195,
+     "fim": 2.549,
+     "tom": false
+    },
+    {
+     "p": "alguém",
+     "ini": 2.56,
+     "fim": 2.793,
+     "tom": false
+    },
+    {
+     "p": "me",
+     "ini": 2.804,
+     "fim": 2.859,
+     "tom": false
+    },
+    {
+     "p": "encontrar.",
+     "ini": 2.87,
+     "fim": 3.335,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "cima",
+   "cena": "pilha",
+   "pausa": 0.4,
+   "ini": 3.794,
+   "fim": 9.336,
+   "palavras": [
+    {
+     "p": "Em",
+     "ini": 3.794,
+     "fim": 3.906,
+     "tom": false
+    },
+    {
+     "p": "cima",
+     "ini": 3.917,
+     "fim": 4.238,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 4.249,
+     "fim": 4.348,
+     "tom": false
+    },
+    {
+     "p": "mim",
+     "ini": 4.36,
+     "fim": 4.559,
+     "tom": false
+    },
+    {
+     "p": "tem",
+     "ini": 4.57,
+     "fim": 4.702,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 4.714,
+     "fim": 4.802,
+     "tom": false
+    },
+    {
+     "p": "bolo",
+     "ini": 4.813,
+     "fim": 5.045,
+     "tom": false
+    },
+    {
+     "p": "esmagado,",
+     "ini": 5.056,
+     "fim": 5.554,
+     "tom": false
+    },
+    {
+     "p": "dois",
+     "ini": 5.775,
+     "fim": 5.986,
+     "tom": false
+    },
+    {
+     "p": "Natais,",
+     "ini": 5.997,
+     "fim": 6.439,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 6.738,
+     "fim": 6.848,
+     "tom": false
+    },
+    {
+     "p": "sorteio",
+     "ini": 6.86,
+     "fim": 7.313,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 7.324,
+     "fim": 7.424,
+     "tom": false
+    },
+    {
+     "p": "Páscoa",
+     "ini": 7.435,
+     "fim": 7.778,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 7.789,
+     "fim": 7.822,
+     "tom": false
+    },
+    {
+     "p": "catorze",
+     "ini": 7.833,
+     "fim": 8.298,
+     "tom": false
+    },
+    {
+     "p": "vídeos",
+     "ini": 8.309,
+     "fim": 8.618,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 8.629,
+     "fim": 8.707,
+     "tom": false
+    },
+    {
+     "p": "dancinha.",
+     "ini": 8.718,
+     "fim": 9.26,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "sou",
+   "cena": "bebe",
+   "pausa": 0.2,
+   "ini": 9.736,
+   "fim": 14.23,
+   "palavras": [
+    {
+     "p": "Eu",
+     "ini": 9.736,
+     "fim": 9.854,
+     "tom": false
+    },
+    {
+     "p": "sou",
+     "ini": 9.865,
+     "fim": 10.086,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 10.097,
+     "fim": 10.13,
+     "tom": false
+    },
+    {
+     "p": "bebê",
+     "ini": 10.142,
+     "fim": 10.429,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 10.44,
+     "fim": 10.529,
+     "tom": false
+    },
+    {
+     "p": "post",
+     "ini": 10.54,
+     "fim": 10.861,
+     "tom": false
+    },
+    {
+     "p": "sessenta",
+     "ini": 10.872,
+     "fim": 11.192,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 11.203,
+     "fim": 11.248,
+     "tom": false
+    },
+    {
+     "p": "três,",
+     "ini": 11.259,
+     "fim": 11.569,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 11.812,
+     "fim": 11.856,
+     "tom": false
+    },
+    {
+     "p": "newborn",
+     "ini": 11.867,
+     "fim": 12.31,
+     "tom": false
+    },
+    {
+     "p": "mais",
+     "ini": 12.321,
+     "fim": 12.476,
+     "tom": false
+    },
+    {
+     "p": "bonito",
+     "ini": 12.487,
+     "fim": 12.874,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 12.885,
+     "fim": 12.94,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 12.951,
+     "fim": 12.973,
+     "tom": false
+    },
+    {
+     "p": "Marina",
+     "ini": 12.984,
+     "fim": 13.338,
+     "tom": false
+    },
+    {
+     "p": "já",
+     "ini": 13.35,
+     "fim": 13.482,
+     "tom": false
+    },
+    {
+     "p": "fotografou.",
+     "ini": 13.493,
+     "fim": 14.157,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "julia",
+   "cena": "julia",
+   "pausa": 0.2,
+   "ini": 14.43,
+   "fim": 19.414,
+   "palavras": [
+    {
+     "p": "Uma",
+     "ini": 14.43,
+     "fim": 14.609,
+     "tom": false
+    },
+    {
+     "p": "noite,",
+     "ini": 14.62,
+     "fim": 15.007,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 15.14,
+     "fim": 15.229,
+     "tom": false
+    },
+    {
+     "p": "Júlia,",
+     "ini": 15.24,
+     "fim": 15.583,
+     "tom": false
+    },
+    {
+     "p": "grávida",
+     "ini": 15.782,
+     "fim": 16.18,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 16.191,
+     "fim": 16.302,
+     "tom": false
+    },
+    {
+     "p": "oito",
+     "ini": 16.313,
+     "fim": 16.534,
+     "tom": false
+    },
+    {
+     "p": "meses,",
+     "ini": 16.545,
+     "fim": 16.943,
+     "tom": false
+    },
+    {
+     "p": "entrou",
+     "ini": 17.198,
+     "fim": 17.463,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 17.474,
+     "fim": 17.563,
+     "tom": false
+    },
+    {
+     "p": "perfil",
+     "ini": 17.574,
+     "fim": 17.906,
+     "tom": false
+    },
+    {
+     "p": "procurando",
+     "ini": 17.917,
+     "fim": 18.304,
+     "tom": false
+    },
+    {
+     "p": "ensaio",
+     "ini": 18.315,
+     "fim": 18.746,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 18.757,
+     "fim": 18.857,
+     "tom": false
+    },
+    {
+     "p": "newborn.",
+     "ini": 18.868,
+     "fim": 19.333,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "agora",
+   "cena": "julia",
+   "pausa": 0.4,
+   "ini": 19.614,
+   "fim": 21.002,
+   "palavras": [
+    {
+     "p": "Eu",
+     "ini": 19.614,
+     "fim": 19.737,
+     "tom": false
+    },
+    {
+     "p": "pensei:",
+     "ini": 19.748,
+     "fim": 20.212,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 20.389,
+     "fim": 20.511,
+     "tom": false
+    },
+    {
+     "p": "agora.",
+     "ini": 20.522,
+     "fim": 20.92,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "passou",
+   "cena": "rola",
+   "pausa": 0.15,
+   "ini": 21.402,
+   "fim": 27.605,
+   "palavras": [
+    {
+     "p": "Passou",
+     "ini": 21.402,
+     "fim": 21.692,
+     "tom": false
+    },
+    {
+     "p": "pelo",
+     "ini": 21.703,
+     "fim": 21.902,
+     "tom": false
+    },
+    {
+     "p": "bolo,",
+     "ini": 21.913,
+     "fim": 22.201,
+     "tom": false
+    },
+    {
+     "p": "pelo",
+     "ini": 22.455,
+     "fim": 22.655,
+     "tom": false
+    },
+    {
+     "p": "Natal",
+     "ini": 22.666,
+     "fim": 23.086,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 23.097,
+     "fim": 23.13,
+     "tom": false
+    },
+    {
+     "p": "parou",
+     "ini": 23.141,
+     "fim": 23.418,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 23.429,
+     "fim": 23.506,
+     "tom": false
+    },
+    {
+     "p": "Reels",
+     "ini": 23.517,
+     "fim": 23.827,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 23.838,
+     "fim": 23.916,
+     "tom": false
+    },
+    {
+     "p": "Marina",
+     "ini": 23.927,
+     "fim": 24.27,
+     "tom": false
+    },
+    {
+     "p": "dançando",
+     "ini": 24.281,
+     "fim": 24.745,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 24.756,
+     "fim": 24.911,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 24.922,
+     "fim": 24.978,
+     "tom": false
+    },
+    {
+     "p": "câmera.",
+     "ini": 24.989,
+     "fim": 25.387,
+     "tom": false
+    },
+    {
+     "p": "Assistiu",
+     "ini": 26.144,
+     "fim": 26.664,
+     "tom": false
+    },
+    {
+     "p": "duas",
+     "ini": 26.675,
+     "fim": 27.04,
+     "tom": false
+    },
+    {
+     "p": "vezes.",
+     "ini": 27.051,
+     "fim": 27.527,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "rolou",
+   "cena": "rola",
+   "pausa": 0.5,
+   "ini": 27.755,
+   "fim": 30.302,
+   "palavras": [
+    {
+     "p": "A",
+     "ini": 27.755,
+     "fim": 27.844,
+     "tom": false
+    },
+    {
+     "p": "Júlia",
+     "ini": 27.856,
+     "fim": 28.198,
+     "tom": false
+    },
+    {
+     "p": "rolou,",
+     "ini": 28.209,
+     "fim": 28.586,
+     "tom": false
+    },
+    {
+     "p": "rolou…",
+     "ini": 28.84,
+     "fim": 29.271,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 29.493,
+     "fim": 29.581,
+     "tom": false
+    },
+    {
+     "p": "não",
+     "ini": 29.592,
+     "fim": 29.847,
+     "tom": false
+    },
+    {
+     "p": "rolou.",
+     "ini": 29.858,
+     "fim": 30.223,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "nada",
+   "cena": "onze",
+   "pausa": 0.45,
+   "ini": 30.802,
+   "fim": 32.878,
+   "palavras": [
+    {
+     "p": "Faltavam",
+     "ini": 30.802,
+     "fim": 31.308,
+     "tom": false
+    },
+    {
+     "p": "onze",
+     "ini": 31.319,
+     "fim": 31.574,
+     "tom": false
+    },
+    {
+     "p": "fileiras",
+     "ini": 31.585,
+     "fim": 31.983,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 31.994,
+     "fim": 32.138,
+     "tom": false
+    },
+    {
+     "p": "chegar",
+     "ini": 32.149,
+     "fim": 32.448,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 32.459,
+     "fim": 32.569,
+     "tom": false
+    },
+    {
+     "p": "mim.",
+     "ini": 32.581,
+     "fim": 32.802,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fechou",
+   "cena": "onze",
+   "pausa": 0.45,
+   "ini": 33.328,
+   "fim": 36.499,
+   "palavras": [
+    {
+     "p": "Ela",
+     "ini": 33.328,
+     "fim": 33.533,
+     "tom": false
+    },
+    {
+     "p": "fechou",
+     "ini": 33.545,
+     "fim": 33.876,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 33.887,
+     "fim": 33.987,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 33.998,
+     "fim": 34.031,
+     "tom": false
+    },
+    {
+     "p": "primeira",
+     "ini": 34.042,
+     "fim": 34.341,
+     "tom": false
+    },
+    {
+     "p": "fotógrafa",
+     "ini": 34.352,
+     "fim": 34.894,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 34.905,
+     "fim": 34.994,
+     "tom": false
+    },
+    {
+     "p": "mostrou",
+     "ini": 35.005,
+     "fim": 35.348,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 35.359,
+     "fim": 35.425,
+     "tom": false
+    },
+    {
+     "p": "bebê",
+     "ini": 35.436,
+     "fim": 35.702,
+     "tom": false
+    },
+    {
+     "p": "logo",
+     "ini": 35.713,
+     "fim": 36.0,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 36.011,
+     "fim": 36.1,
+     "tom": false
+    },
+    {
+     "p": "cara.",
+     "ini": 36.111,
+     "fim": 36.41,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "gaveta",
+   "cena": "licao",
+   "pausa": 0.25,
+   "ini": 36.949,
+   "fim": 41.049,
+   "palavras": [
+    {
+     "p": "Para",
+     "ini": 36.949,
+     "fim": 37.102,
+     "tom": false
+    },
+    {
+     "p": "quem",
+     "ini": 37.113,
+     "fim": 37.29,
+     "tom": false
+    },
+    {
+     "p": "chega,",
+     "ini": 37.302,
+     "fim": 37.667,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 37.976,
+     "fim": 38.043,
+     "tom": false
+    },
+    {
+     "p": "feed",
+     "ini": 38.054,
+     "fim": 38.264,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 38.275,
+     "fim": 38.286,
+     "tom": false
+    },
+    {
+     "p": "uma",
+     "ini": 38.297,
+     "fim": 38.43,
+     "tom": false
+    },
+    {
+     "p": "gaveta:",
+     "ini": 38.441,
+     "fim": 38.894,
+     "tom": false
+    },
+    {
+     "p": "tem",
+     "ini": 39.127,
+     "fim": 39.304,
+     "tom": false
+    },
+    {
+     "p": "tudo,",
+     "ini": 39.315,
+     "fim": 39.613,
+     "tom": false
+    },
+    {
+     "p": "mas",
+     "ini": 39.857,
+     "fim": 40.045,
+     "tom": false
+    },
+    {
+     "p": "ninguém",
+     "ini": 40.056,
+     "fim": 40.399,
+     "tom": false
+    },
+    {
+     "p": "acha",
+     "ini": 40.41,
+     "fim": 40.62,
+     "tom": false
+    },
+    {
+     "p": "nada.",
+     "ini": 40.631,
+     "fim": 40.941,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fixar",
+   "cena": "licao",
+   "pausa": 0.45,
+   "ini": 41.299,
+   "fim": 43.129,
+   "palavras": [
+    {
+     "p": "E",
+     "ini": 41.299,
+     "fim": 41.353,
+     "tom": false
+    },
+    {
+     "p": "só",
+     "ini": 41.364,
+     "fim": 41.508,
+     "tom": false
+    },
+    {
+     "p": "dá",
+     "ini": 41.519,
+     "fim": 41.63,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 41.641,
+     "fim": 41.818,
+     "tom": false
+    },
+    {
+     "p": "fixar",
+     "ini": 41.829,
+     "fim": 42.249,
+     "tom": false
+    },
+    {
+     "p": "três",
+     "ini": 42.26,
+     "fim": 42.526,
+     "tom": false
+    },
+    {
+     "p": "posts.",
+     "ini": 42.537,
+     "fim": 43.057,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fez",
+   "cena": "site",
+   "pausa": 0.15,
+   "impacto": true,
+   "ini": 43.579,
+   "fim": 45.163,
+   "palavras": [
+    {
+     "p": "Até",
+     "ini": 43.579,
+     "fim": 43.854,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 43.865,
+     "fim": 43.92,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 43.931,
+     "fim": 43.953,
+     "tom": false
+    },
+    {
+     "p": "Marina",
+     "ini": 43.964,
+     "fim": 44.34,
+     "tom": false
+    },
+    {
+     "p": "fez",
+     "ini": 44.351,
+     "fim": 44.495,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 44.506,
+     "fim": 44.65,
+     "tom": false
+    },
+    {
+     "p": "site.",
+     "ini": 44.661,
+     "fim": 45.092,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "abas",
+   "cena": "site",
+   "pausa": 0.15,
+   "ini": 45.313,
+   "fim": 49.851,
+   "palavras": [
+    {
+     "p": "Com",
+     "ini": 45.313,
+     "fim": 45.411,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 45.422,
+     "fim": 45.467,
+     "tom": false
+    },
+    {
+     "p": "portfólio",
+     "ini": 45.478,
+     "fim": 45.986,
+     "tom": false
+    },
+    {
+     "p": "separado",
+     "ini": 45.998,
+     "fim": 46.495,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 46.506,
+     "fim": 46.628,
+     "tom": false
+    },
+    {
+     "p": "ensaio:",
+     "ini": 46.639,
+     "fim": 47.071,
+     "tom": false
+    },
+    {
+     "p": "newborn,",
+     "ini": 47.292,
+     "fim": 47.756,
+     "tom": false
+    },
+    {
+     "p": "gestante,",
+     "ini": 48.0,
+     "fim": 48.542,
+     "tom": false
+    },
+    {
+     "p": "família",
+     "ini": 48.741,
+     "fim": 49.194,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 49.206,
+     "fim": 49.283,
+     "tom": false
+    },
+    {
+     "p": "smash.",
+     "ini": 49.294,
+     "fim": 49.759,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "cada",
+   "cena": "site",
+   "pausa": 0.3,
+   "ini": 50.001,
+   "fim": 52.598,
+   "palavras": [
+    {
+     "p": "Em",
+     "ini": 50.001,
+     "fim": 50.125,
+     "tom": false
+    },
+    {
+     "p": "cada",
+     "ini": 50.136,
+     "fim": 50.412,
+     "tom": false
+    },
+    {
+     "p": "um,",
+     "ini": 50.423,
+     "fim": 50.611,
+     "tom": false
+    },
+    {
+     "p": "as",
+     "ini": 50.833,
+     "fim": 50.943,
+     "tom": false
+    },
+    {
+     "p": "melhores",
+     "ini": 50.954,
+     "fim": 51.364,
+     "tom": false
+    },
+    {
+     "p": "fotos",
+     "ini": 51.375,
+     "fim": 51.718,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 51.729,
+     "fim": 51.839,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 51.85,
+     "fim": 51.895,
+     "tom": false
+    },
+    {
+     "p": "WhatsApp.",
+     "ini": 51.906,
+     "fim": 52.514,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "adivinha",
+   "cena": "site",
+   "pausa": 0.5,
+   "ini": 52.898,
+   "fim": 55.257,
+   "palavras": [
+    {
+     "p": "Adivinha",
+     "ini": 52.898,
+     "fim": 53.418,
+     "tom": false
+    },
+    {
+     "p": "quem",
+     "ini": 53.429,
+     "fim": 53.595,
+     "tom": false
+    },
+    {
+     "p": "virou",
+     "ini": 53.606,
+     "fim": 53.86,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 53.871,
+     "fim": 53.926,
+     "tom": false
+    },
+    {
+     "p": "primeira",
+     "ini": 53.938,
+     "fim": 54.269,
+     "tom": false
+    },
+    {
+     "p": "foto",
+     "ini": 54.28,
+     "fim": 54.59,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 54.601,
+     "fim": 54.679,
+     "tom": false
+    },
+    {
+     "p": "newborn.",
+     "ini": 54.69,
+     "fim": 55.165,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "depois",
+   "cena": "fecho",
+   "pausa": 0.2,
+   "ini": 55.757,
+   "fim": 60.134,
+   "palavras": [
+    {
+     "p": "Dois",
+     "ini": 55.757,
+     "fim": 55.959,
+     "tom": false
+    },
+    {
+     "p": "anos",
+     "ini": 55.97,
+     "fim": 56.291,
+     "tom": false
+    },
+    {
+     "p": "depois,",
+     "ini": 56.302,
+     "fim": 56.722,
+     "tom": false
+    },
+    {
+     "p": "grávida",
+     "ini": 56.932,
+     "fim": 57.331,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 57.342,
+     "fim": 57.441,
+     "tom": false
+    },
+    {
+     "p": "novo,",
+     "ini": 57.452,
+     "fim": 57.784,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 57.983,
+     "fim": 58.072,
+     "tom": false
+    },
+    {
+     "p": "Júlia",
+     "ini": 58.083,
+     "fim": 58.371,
+     "tom": false
+    },
+    {
+     "p": "recebeu",
+     "ini": 58.382,
+     "fim": 58.769,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 58.78,
+     "fim": 58.813,
+     "tom": false
+    },
+    {
+     "p": "link",
+     "ini": 58.824,
+     "fim": 59.101,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 59.112,
+     "fim": 59.156,
+     "tom": false
+    },
+    {
+     "p": "tocou",
+     "ini": 59.167,
+     "fim": 59.477,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 59.488,
+     "fim": 59.565,
+     "tom": false
+    },
+    {
+     "p": "Newborn.",
+     "ini": 59.576,
+     "fim": 60.052,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "tres",
+   "cena": "fecho",
+   "pausa": 0.4,
+   "ini": 60.334,
+   "fim": 63.165,
+   "palavras": [
+    {
+     "p": "Três",
+     "ini": 60.334,
+     "fim": 60.528,
+     "tom": false
+    },
+    {
+     "p": "segundos",
+     "ini": 60.54,
+     "fim": 60.916,
+     "tom": false
+    },
+    {
+     "p": "depois,",
+     "ini": 60.927,
+     "fim": 61.38,
+     "tom": false
+    },
+    {
+     "p": "chamou",
+     "ini": 61.59,
+     "fim": 61.933,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 61.944,
+     "fim": 61.978,
+     "tom": false
+    },
+    {
+     "p": "Marina",
+     "ini": 61.989,
+     "fim": 62.343,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 62.354,
+     "fim": 62.431,
+     "tom": false
+    },
+    {
+     "p": "WhatsApp.",
+     "ini": 62.442,
+     "fim": 63.084,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "danca2",
+   "cena": "fecho",
+   "pausa": 0.3,
+   "ini": 63.565,
+   "fim": 66.424,
+   "palavras": [
+    {
+     "p": "E",
+     "ini": 63.565,
+     "fim": 63.654,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 63.665,
+     "fim": 63.709,
+     "tom": false
+    },
+    {
+     "p": "Reels",
+     "ini": 63.72,
+     "fim": 64.041,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 64.052,
+     "fim": 64.173,
+     "tom": false
+    },
+    {
+     "p": "dança?",
+     "ini": 64.185,
+     "fim": 64.572,
+     "tom": false
+    },
+    {
+     "p": "Continua",
+     "ini": 65.329,
+     "fim": 65.86,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 65.871,
+     "fim": 65.96,
+     "tom": false
+    },
+    {
+     "p": "feed.",
+     "ini": 65.971,
+     "fim": 66.347,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "hoje",
+   "cena": "fecho",
+   "pausa": 0.6,
+   "ini": 66.724,
+   "fim": 69.298,
+   "palavras": [
+    {
+     "p": "Hoje,",
+     "ini": 66.724,
+     "fim": 67.088,
+     "tom": false
+    },
+    {
+     "p": "quem",
+     "ini": 67.254,
+     "fim": 67.442,
+     "tom": false
+    },
+    {
+     "p": "está",
+     "ini": 67.453,
+     "fim": 67.685,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 67.696,
+     "fim": 67.807,
+     "tom": false
+    },
+    {
+     "p": "post",
+     "ini": 67.818,
+     "fim": 68.172,
+     "tom": false
+    },
+    {
+     "p": "sessenta",
+     "ini": 68.183,
+     "fim": 68.526,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 68.537,
+     "fim": 68.581,
+     "tom": false
+    },
+    {
+     "p": "três",
+     "ini": 68.592,
+     "fim": 68.769,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 68.78,
+     "fim": 68.924,
+     "tom": false
+    },
+    {
+     "p": "ele.",
+     "ini": 68.935,
+     "fim": 69.223,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "pausa": 0.3,
+   "ini": 69.898,
+   "fim": 72.56,
+   "palavras": [
+    {
+     "p": "Quem",
+     "ini": 69.898,
+     "fim": 70.044,
+     "tom": false
+    },
+    {
+     "p": "procura",
+     "ini": 70.055,
+     "fim": 70.442,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 70.453,
+     "fim": 70.519,
+     "tom": false
+    },
+    {
+     "p": "ensaio",
+     "ini": 70.531,
+     "fim": 70.94,
+     "tom": false
+    },
+    {
+     "p": "decide",
+     "ini": 70.951,
+     "fim": 71.371,
+     "tom": false
+    },
+    {
+     "p": "pelo",
+     "ini": 71.382,
+     "fim": 71.559,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 71.57,
+     "fim": 71.648,
+     "tom": false
+    },
+    {
+     "p": "encontra",
+     "ini": 71.659,
+     "fim": 72.079,
+     "tom": false
+    },
+    {
+     "p": "primeiro.",
+     "ini": 72.09,
+     "fim": 72.466,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "pausa": 0.5,
+   "impacto": true,
+   "ini": 72.86,
+   "fim": 77.946,
+   "palavras": [
+    {
+     "p": "Com",
+     "ini": 72.86,
+     "fim": 72.988,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 73.0,
+     "fim": 73.022,
+     "tom": false
+    },
+    {
+     "p": "Renderiza,",
+     "ini": 73.033,
+     "fim": 73.575,
+     "tom": true
+    },
+    {
+     "p": "o",
+     "ini": 73.785,
+     "fim": 73.84,
+     "tom": false
+    },
+    {
+     "p": "seu",
+     "ini": 73.851,
+     "fim": 74.028,
+     "tom": false
+    },
+    {
+     "p": "portfólio",
+     "ini": 74.039,
+     "fim": 74.526,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 74.537,
+     "fim": 74.747,
+     "tom": false
+    },
+    {
+     "p": "separado",
+     "ini": 74.758,
+     "fim": 75.245,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 75.256,
+     "fim": 75.367,
+     "tom": false
+    },
+    {
+     "p": "ensaio,",
+     "ini": 75.378,
+     "fim": 75.831,
+     "tom": false
+    },
+    {
+     "p": "num",
+     "ini": 76.119,
+     "fim": 76.307,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 76.318,
+     "fim": 76.683,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 76.694,
+     "fim": 76.827,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 76.838,
+     "fim": 76.86,
+     "tom": false
+    },
+    {
+     "p": "nome",
+     "ini": 76.871,
+     "fim": 77.126,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 77.137,
+     "fim": 77.236,
+     "tom": false
+    },
+    {
+     "p": "seu",
+     "ini": 77.247,
+     "fim": 77.413,
+     "tom": false
+    },
+    {
+     "p": "estúdio.",
+     "ini": 77.424,
+     "fim": 77.867,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "pausa": 0.4,
+   "ini": 78.446,
+   "fim": 81.87,
+   "palavras": [
+    {
+     "p": "Comenta",
+     "ini": 78.446,
+     "fim": 78.857,
+     "tom": false
+    },
+    {
+     "p": "PRÉVIA",
+     "ini": 78.868,
+     "fim": 79.244,
+     "tom": true
+    },
+    {
+     "p": "que",
+     "ini": 79.465,
+     "fim": 79.554,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 79.565,
+     "fim": 79.62,
+     "tom": false
+    },
+    {
+     "p": "gente",
+     "ini": 79.631,
+     "fim": 79.919,
+     "tom": false
+    },
+    {
+     "p": "monta",
+     "ini": 79.93,
+     "fim": 80.206,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 80.217,
+     "fim": 80.25,
+     "tom": false
+    },
+    {
+     "p": "prévia",
+     "ini": 80.262,
+     "fim": 80.571,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 80.582,
+     "fim": 80.671,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 80.682,
+     "fim": 81.047,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 81.058,
+     "fim": 81.158,
+     "tom": false
+    },
+    {
+     "p": "seu",
+     "ini": 81.169,
+     "fim": 81.346,
+     "tom": false
+    },
+    {
+     "p": "estúdio.",
+     "ini": 81.357,
+     "fim": 81.788,
+     "tom": true
+    }
+   ]
+  }
+ ]
+}

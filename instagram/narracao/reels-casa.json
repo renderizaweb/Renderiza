@@ -1,0 +1,127 @@
+{
+ "_sobre": "Narração do Reels \"A casa abandonada\" (série com virada, semana de 04/11/2026, domingo). Alvo: o dono de espaço de eventos com site antigo. Objetivo: perceber que, para quem chega pelo celular, o site é a primeira visita, e que site parado parece lugar fechado; com um site novo, feito para o celular, com fotos de agora, pacotes e WhatsApp, a noiva marca a visita. A virada: a história de terror é a visita a um site antigo; o espaço estava no meio de um casamento. A Ana, o Léo, a Dona Célia e o Espaço Jardim Aurora são fictícios. O id \"nada\" corta a batida da trilha.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+13%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "casa",
+   "texto": "A Ana e o Léo procuravam um lugar para o casamento. Encontraram uma casa *abandonada.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "meia",
+   "cena": "entrada",
+   "texto": "À meia-noite, logo na entrada, uma música começou a tocar *sozinha.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "placa",
+   "cena": "entrada",
+   "texto": "Na parede, uma placa: você é o visitante trezentos e *doze.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "quadros",
+   "cena": "corredor",
+   "texto": "Os quadros estavam vazios, e uma porta dizia: em construção desde dois mil e *treze.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "livro",
+   "cena": "livro",
+   "texto": "No livro de visitas, a última mensagem era de março de dois mil e *catorze.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "fixo",
+   "cena": "telefone",
+   "texto": "O único telefone era fixo. O Léo ligou, e ninguém *atendeu.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "foram",
+   "cena": "telefone",
+   "texto": "Eles foram embora e nunca mais *voltaram.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "nada",
+   "cena": "celular",
+   "texto": "Só que a casa abandonada era um *site.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "aurora",
+   "cena": "festa",
+   "texto": "Era o site do Espaço Jardim Aurora, que naquela mesma noite estava no meio de um *casamento.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "pista",
+   "cena": "festa",
+   "texto": "Pista *cheia.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "sabado",
+   "cena": "festa",
+   "texto": "Tinha festa quase todo sábado. Só o site tinha parado em dois mil e *catorze.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "licao",
+   "cena": "licao",
+   "texto": "Para quem chega pelo celular, o site é a primeira visita. Se ele parece abandonado, ninguém marca a *segunda.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "trocou",
+   "cena": "site",
+   "texto": "Então a Dona Célia trocou o *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "fotos",
+   "cena": "site",
+   "texto": "Fotos da festa do último sábado, os pacotes, o que está incluso e o WhatsApp a um *toque.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "noiva",
+   "cena": "fecho",
+   "texto": "Um mês depois, outra noiva entrou à meia-noite, viu a pista cheia e chamou no *WhatsApp.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "contador",
+   "cena": "fecho",
+   "texto": "E o contador de visitas parou no trezentos e doze. O site novo conta quem viu e quem *chamou.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Site parado parece lugar *fechado.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu espaço ganha um site novo, feito para o celular, com as fotos de *agora.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do site do seu *espaço.*",
+   "pausa": 0.4,
+   "fala": "Comenta prévia, que a gente monta a prévia do site do seu espaço."
+  }
+ ]
+}

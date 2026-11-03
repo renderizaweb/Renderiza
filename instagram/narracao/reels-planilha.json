@@ -1,0 +1,145 @@
+{
+ "_sobre": "Narração do Reels \"A planilha\" (série com virada, semana de 04/11/2026, sexta). Alvo: a fotógrafa que abre a mini sessão de Natal pelo Stories e controla as vagas numa planilha. Objetivo: perceber que, quando as vagas moram no direct e na planilha, a mesma vaga é vendida duas vezes e horário fica preso por quem não paga, e que com a agenda online no site a cliente vê as vagas e reserva sozinha, o horário fica separado por 24 horas até o sinal, quem chega tarde vai para a lista de espera e o painel conta as vagas. Quem narra é a planilha, que no fim é demitida. Os fatos vêm do exemplo do Estúdio Ciranda. A Lia, as clientes e o cachorro são fictícios. O único trocadilho é \"não tinha coluna para cachorro\". O id \"nada\" corta a batida da trilha.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+13%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "planilha",
+   "texto": "Eu sou uma planilha. E eu vendi a mesma vaga duas *vezes.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "moro",
+   "cena": "stories",
+   "texto": "Eu moro no celular da fotógrafa Lia Moreno, que abriu as vagas do Natal às oito da *noite.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "explodiu",
+   "cena": "direct",
+   "texto": "Às oito e um, o direct *explodiu.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "trinta",
+   "cena": "direct",
+   "texto": "Trinta pessoas perguntaram se tinha vaga, e a Lia digitava em mim com uma mão *só.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "carol",
+   "cena": "noite",
+   "texto": "À meia-noite, ela escreveu Carol às dez e vinte. Dois minutos depois, Fernanda. Também às dez e *vinte.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "vi",
+   "cena": "noite",
+   "texto": "Eu vi. Mas planilha não *fala.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "nada",
+   "cena": "bruna",
+   "texto": "Depois veio a Bruna, que pediu para segurar as nove e quarenta até falar com o *marido.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "quinze",
+   "cena": "bruna",
+   "texto": "Ficou quinze dias. O marido respondeu no dia *vinte.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "nao",
+   "cena": "bruna",
+   "texto": "Era *não.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "cachorro",
+   "cena": "cachorro",
+   "texto": "E uma moça perguntou se podia levar o cachorro. Eu não tinha coluna para *cachorro.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "fez",
+   "cena": "site",
+   "texto": "Então a Lia colocou a agenda online no *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "restam",
+   "cena": "site",
+   "texto": "A cliente vê quantas vagas *restam* e reserva *sozinha.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "sinal",
+   "cena": "site",
+   "texto": "O horário fica separado por vinte e quatro horas, até o sinal no *Pix.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "espera",
+   "cena": "site",
+   "texto": "Quem chega tarde vai para a lista de *espera.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "painel",
+   "cena": "site",
+   "texto": "E no painel, a Lia marca os sinais e vê quantas vagas *sobraram.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "trabalho",
+   "cena": "site",
+   "texto": "Ou seja: o meu trabalho, sem *erro.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "cada",
+   "cena": "fecho",
+   "texto": "A Carol ficou com as dez e vinte, a Fernanda com as onze, e a dona do cachorro entrou pela lista de espera, nas nove e *quarenta.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "demitida",
+   "cena": "demitida",
+   "texto": "E eu? Fui *demitida.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "compras",
+   "cena": "demitida",
+   "texto": "Hoje eu cuido da lista de compras da Lia. Primeiro item: *ração.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Vaga que a cliente vê, ninguém vende duas *vezes.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* a agenda online fica no site do seu estúdio, e o painel conta as *vagas.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *NATAL* que a gente te manda o exemplo para *testar.*",
+   "pausa": 0.4,
+   "fala": "Comenta natal, que a gente te manda o exemplo para testar."
+  }
+ ]
+}

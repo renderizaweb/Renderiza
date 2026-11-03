@@ -1,0 +1,169 @@
+{
+ "_sobre": "Narração do Reels \"A partida\" (série com virada, semana de 04/11/2026, quinta). Alvo: clínica odontológica ou de estética que marca avaliação pelo WhatsApp, com a recepção respondendo entre um paciente e outro. Objetivo: perceber que o vai e volta para marcar faz o paciente desistir, e que com a agenda online no site o paciente vê os horários livres, escolhe um e o compromisso cai na agenda do Google. A virada: quem narra a partida é a clínica do outro lado da rua, que só deixou a agenda aberta no site. A Bia e as clínicas são fictícias. As mensagens da Bia saem mais agudas e as da clínica mais graves. O id \"nada\" corta a batida da trilha.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "mesa",
+   "texto": "Atenção: vai começar a partida mais longa da *semana.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "bia",
+   "cena": "jogadores",
+   "texto": "De um lado, a Bia, que quer clarear os *dentes.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "clinica",
+   "cena": "jogadores",
+   "texto": "Do outro, a recepção da Clínica Sorriso Claro, que responde entre um paciente e *outro.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "saque",
+   "cena": "rali",
+   "texto": "Saque da Bia: *tem horário para avaliação?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "devolve",
+   "cena": "rali",
+   "texto": "Uma hora depois, a clínica devolve: *amanhã, às dez.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "r3",
+   "cena": "rali",
+   "texto": "Às dez eu trabalho. Depois das *seis?*",
+   "pausa": 0.08,
+   "tom": "+8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "r4",
+   "cena": "rali",
+   "texto": "Depois das seis não temos. *Sábado?*",
+   "pausa": 0.08,
+   "tom": "-8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "r5",
+   "cena": "rali",
+   "texto": "Sábado eu viajo. *Segunda?*",
+   "pausa": 0.08,
+   "tom": "+8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "r6",
+   "cena": "rali",
+   "texto": "Segunda, às *duas?*",
+   "pausa": 0.08,
+   "tom": "-8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "r7",
+   "cena": "rali",
+   "texto": "Pode ser às *três?*",
+   "pausa": 0.08,
+   "tom": "+8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "r8",
+   "cena": "rali",
+   "texto": "Três acabou de sair. *Quatro?*",
+   "pausa": 0.4,
+   "tom": "-8Hz",
+   "ritmo": "+24%"
+  },
+  {
+   "id": "placar",
+   "cena": "rali",
+   "texto": "Oito mensagens, dois dias, e ninguém *marcou.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "nada",
+   "cena": "desiste",
+   "texto": "A Bia parou de *responder.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "noite",
+   "cena": "desiste",
+   "texto": "Às onze da noite, ela abriu o site de outra clínica, viu os horários livres e marcou em um *toque.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "ponto",
+   "cena": "desiste",
+   "texto": "Ponto para a clínica do outro lado da *rua.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "apresentei",
+   "cena": "revela",
+   "texto": "Ah, eu ainda não me *apresentei.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "sou",
+   "cena": "eu",
+   "texto": "Eu sou a clínica do outro lado da *rua.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "bolinha",
+   "cena": "eu",
+   "texto": "Eu não joguei nenhuma bolinha. Só deixei a agenda aberta no *site.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "ve",
+   "cena": "eu",
+   "texto": "O paciente vê os horários *livres,* escolhe *um,* e o compromisso cai direto na minha agenda do *Google.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "semana",
+   "cena": "fecho",
+   "texto": "Toda semana, a Sorriso Claro me manda uns três pacientes *assim.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "conta",
+   "cena": "fecho",
+   "texto": "Por favor, não conta isso para *ela.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Quem vê os horários livres marca *sozinho.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu site pode ter agenda *online.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do site da sua *clínica.*",
+   "pausa": 0.4,
+   "fala": "Comenta prévia, que a gente monta a prévia do site da sua clínica."
+  }
+ ]
+}

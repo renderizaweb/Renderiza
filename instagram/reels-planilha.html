@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: a planilha</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 3 (sexta, 19h), para fotógrafas.
+     Alvo: a fotógrafa que abre a mini sessão de Natal pelo Stories e controla as vagas numa planilha. Objetivo: ela
+     perceber que, quando as vagas moram no direct e na planilha, a mesma vaga é vendida duas vezes e horário fica preso
+     por quem não paga, e que com a agenda online no site a cliente vê quantas vagas restam e reserva sozinha, o horário
+     fica separado por 24 horas até o sinal, quem chega tarde vai para a lista de espera e o painel conta as vagas.
+     Quem narra é a planilha da Lia: confessa que vendeu a mesma vaga duas vezes, viu tudo e não podia falar, não tinha
+     coluna para cachorro (o único trocadilho) e, no fim, é demitida e passa a cuidar da lista de compras (primeiro item:
+     ração, para o cachorro das 9h40). As telas seguem o exemplo do Estúdio Ciranda (/exemplos/agenda-fotografia e
+     /exemplos/painel-fotografia). A agenda do painel não liga com o Google, e o vídeo não diz que liga. O painel não
+     recebe o Pix: quem marca o sinal é a Lia. Tudo é fictício, e as telas levam o selo "exemplo". Vem do Reels "A vaga
+     das 10h20", que saiu da semana em 03/11. O tempo de tudo sai da narração: narracao/reels-planilha.json →
+     python3 instagram/narrar.py reels-planilha. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+:root{--vinho:#8a4a5f;--vinho-esc:#3a2430;--ouro:#c58b5e}
+.fone .rotulo{position:absolute;right:40px;top:-18px;z-index:25;padding:9px 18px;border-radius:999px;font-size:22px;font-weight:800;background:#f1eee9;color:#1e2528}
+.fone.escura .status{color:#fff}
+/* o Stories do estúdio */
+.tela.st{padding-top:0;background:linear-gradient(170deg,#3a2430 0%,#6b3446 55%,#8a4a5f 100%);color:#fbf3ea}
+.st-barras{position:absolute;left:20px;right:20px;top:66px;display:flex;gap:6px}
+.st-barras i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.st-barras i b{display:block;height:100%;width:0;background:#fff}
+.st-quem{position:absolute;left:22px;top:86px;display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700}
+.st-quem i{width:50px;height:50px;border-radius:50%;background:var(--ouro);display:grid;place-items:center;font-style:normal;font-weight:800;color:var(--vinho-esc);font-size:24px}
+.st-quem small{font-weight:600;opacity:.7}
+.st-arvore{position:absolute;left:50%;top:176px;width:250px;height:290px;margin-left:-125px}
+.st-tit{position:absolute;left:20px;right:20px;top:486px;text-align:center;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:60px;line-height:.98;letter-spacing:-.02em}
+.st-chip{position:absolute;left:50%;top:626px;translate:-50% 0;padding:10px 24px;border-radius:999px;background:#fbf3ea;color:var(--vinho-esc);font-size:26px;font-weight:800;white-space:nowrap}
+.st-info{position:absolute;left:20px;right:20px;top:700px;text-align:center;font-size:23px;font-weight:600;line-height:1.35;opacity:.92}
+.st-env{position:absolute;left:20px;right:20px;bottom:26px;height:62px;border-radius:31px;border:2px solid rgba(255,255,255,.55);display:flex;align-items:center;padding:0 24px;font-size:21px;font-weight:600;color:rgba(255,255,255,.85)}
+/* o direct */
+.dm-topo{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.dm-topo svg{width:30px;height:30px}
+.dm-abas{display:flex;gap:28px;padding:4px 24px 12px;font-size:22px;font-weight:700;color:#9aa1a3;border-bottom:2px solid #ece7df}
+.dm-abas b{color:#1e2528}
+.dm-lista{position:absolute;left:0;right:0;top:184px;bottom:0;overflow:hidden}
+.dm-rol{position:absolute;left:0;right:0;top:0}
+.dm-l{height:94px;display:flex;align-items:center;gap:16px;padding:0 22px}
+.dm-l i{width:62px;height:62px;border-radius:50%;flex:none;display:grid;place-items:center;font-style:normal;font-size:26px;font-weight:800;color:#fff}
+.dm-l b{display:block;font-size:23px;font-weight:800;letter-spacing:-.01em}
+.dm-l span{display:block;font-size:21px;font-weight:600;color:#1e2528}
+.dm-l span small{color:#9aa1a3;font-weight:600}
+.dm-l em{margin-left:auto;width:14px;height:14px;border-radius:50%;background:#3d6ef5;flex:none}
+.dm-l.cao{background:#f7efdb}
+/* as conversas */
+.ch-topo{height:84px;display:flex;align-items:center;gap:14px;padding:0 20px;border-bottom:2px solid #ece7df;font-size:26px;font-weight:800}
+.ch-topo>svg{width:30px;height:30px;flex:none}
+.ch-topo i{width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;font-style:normal;font-size:24px;font-weight:800;color:#fff}
+.ch-topo small{display:block;font-size:18px;font-weight:600;color:#9aa1a3;margin-top:2px}
+.ch-col{position:absolute;left:0;right:0;top:146px;padding:22px 16px;display:flex;flex-direction:column;gap:12px}
+.ch-m{max-width:330px;padding:14px 20px;border-radius:26px;font-size:28px;font-weight:600;line-height:1.2;opacity:0}
+.ch-m.ent{align-self:flex-start;background:#ebe7e1}
+.ch-m.sai{align-self:flex-end;background:#6c4ee6;color:#fff}
+.ch-hora{align-self:center;font-size:19px;font-weight:700;color:#9aa1a3;opacity:0;padding:4px 0}
+/* a agenda online do Estúdio Ciranda */
+.tela.ag,.tela.pn{background:#f6f1ee}
+.ag-topo{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:30px;color:var(--vinho-esc)}
+.ag-topo i{width:28px;height:18px;border-top:3px solid currentColor;border-bottom:3px solid currentColor;position:relative}
+.ag-topo i::after{content:"";position:absolute;left:0;right:0;top:4.5px;border-top:3px solid currentColor}
+.ag-h{margin:4px 22px 0;font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.04;color:var(--vinho-esc)}
+.ag-h em{font-family:"Fraunces",serif;font-weight:600;color:var(--vinho)}
+.ag-ens{margin:14px 18px 0;padding:12px 14px;border-radius:18px;background:#fff;border:2.5px solid var(--vinho);display:flex;align-items:center;gap:12px}
+.ag-ens .ic{width:50px;height:50px;border-radius:14px;background:#fbe4e2;color:#b3261e;display:grid;place-items:center;flex:none}
+.ag-ens .ic svg{width:30px;height:30px}
+.ag-ens b{display:block;font-size:23px;font-weight:800;color:var(--vinho-esc)}
+.ag-ens small{display:block;font-size:18px;font-weight:600;color:#8a7d82}
+.ag-restam{margin:12px 18px 0;padding:11px 14px;border-radius:14px;background:#fbe4e2;color:#8f1f18;font-weight:700;font-size:19px;line-height:1.25;display:flex;gap:10px;align-items:center}
+.ag-restam i{width:11px;height:11px;border-radius:50%;background:#b3261e;flex:none}
+.ag-dias{display:flex;gap:10px;margin:14px 18px 0}
+.ag-dias b{flex:1;padding:8px 0;border-radius:14px;background:#fff;border:2px solid #e9dfdb;text-align:center;font-size:18px;font-weight:700;color:#7a6a70;line-height:1.15}
+.ag-dias b i{display:block;font-style:normal;font-size:26px;color:var(--vinho-esc)}
+.ag-dias b.sel{background:var(--vinho);border-color:var(--vinho);color:#f5e8ec}
+.ag-dias b.sel i{color:#fff}
+.ag-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 18px 0}
+.ag-grade i{height:54px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-size:22px;font-weight:700;background:#fff;border:2px solid #e9dfdb;color:var(--vinho-esc)}
+.ag-grade i.oc{background:#efe8e5;border-color:#efe8e5;color:#b8acb0;text-decoration:line-through}
+.ag-grade i.sel{background:var(--vinho);border-color:var(--vinho);color:#fff;text-decoration:none}
+.ag-ok{position:absolute;left:0;right:0;bottom:0;padding:24px 22px 30px;border-radius:34px 34px 0 0;background:#fff;box-shadow:0 -20px 50px rgba(0,0,0,.18);transform:translateY(110%)}
+.ag-ok .ck{width:58px;height:58px;border-radius:50%;background:#2f7d55;display:grid;place-items:center;margin-bottom:10px}
+.ag-ok .ck svg{width:34px;height:34px;color:#fff;stroke-width:3}
+.ag-ok>b{display:block;font-size:29px;font-weight:800;color:var(--vinho-esc)}
+.ag-ok>span{display:block;font-size:21px;font-weight:600;color:#6b5a60;margin-top:4px}
+.ag-24{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 14px;border-radius:999px;background:#f5e8ec;color:var(--vinho);font-size:19px;font-weight:800}
+.ag-24 svg{width:22px;height:22px}
+.ag-sinal{margin-top:12px;padding:12px 14px;border-radius:14px;background:#f8ece2;color:#6e4a2a;font-size:19px;font-weight:600;line-height:1.3}
+.ag-sinal b{font-weight:800}
+/* o painel */
+.pn-topo{height:66px;background:var(--vinho-esc);color:#f5e8ec;display:flex;align-items:center;gap:12px;padding:0 22px;font-size:22px;font-weight:800}
+.pn-topo small{font-weight:600;opacity:.7;margin-left:auto;font-size:18px}
+.pn-tit{margin:14px 20px 0;font-size:29px;font-weight:800;letter-spacing:-.025em;color:var(--vinho-esc)}
+.pn-resumo{margin:6px 20px 0;padding:10px 12px;border-radius:14px;font-size:20px;font-weight:600;color:#6b5a60;line-height:1.3}
+.pn-resumo b{color:var(--vinho-esc)}
+.pn-dia{margin:14px 22px 8px;font-size:18px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8a7d82}
+.pn-l{display:flex;align-items:center;gap:12px;margin:0 14px 8px;padding:11px 14px;border-radius:16px;background:#fff;border:2px solid #efe6e2;position:relative}
+.pn-l .h{font-size:22px;font-weight:800;width:68px;color:var(--vinho-esc);flex:none}
+.pn-l .n{flex:1;font-size:21px;font-weight:700;line-height:1.15;min-width:0}
+.pn-l .n small{display:block;font-size:16px;font-weight:600;color:#8a7d82}
+.pn-st{padding:6px 11px;border-radius:999px;font-size:15px;font-weight:800;white-space:nowrap;flex:none}
+.pn-st.ok{background:#dff1e6;color:#1f7a45}
+.pn-st.pre{background:#fdf3d8;color:#8a6a10}
+.pn-st.livre{border:2px dashed #d9c9cf;color:#9a8a90}
+.pn-st.bt{background:var(--vinho);color:#fff}
+.pn-esp{position:absolute;left:12px;right:12px;bottom:14px;padding:16px 16px 18px;border-radius:24px;background:#fff;box-shadow:0 -12px 40px rgba(58,36,48,.2);transform:translateY(130%)}
+.pn-esp>b{display:block;font-size:22px;font-weight:800;color:var(--vinho-esc)}
+.pn-esp>small{display:block;font-size:16px;font-weight:600;color:#8a7d82;margin-bottom:10px}
+.pn-esp .l{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:2px solid #f2ebe8}
+.pn-esp .l div{flex:1;font-size:20px;font-weight:700;line-height:1.15}
+.pn-esp .l div small{display:block;font-size:16px;font-weight:600;color:#8a7d82}
+.pn-esp .av{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;background:#e7f6ec;color:#1f7a45;font-size:17px;font-weight:800}
+.pn-esp .av svg{width:18px;height:18px}
+/* peças soltas */
+.tarja{position:absolute;left:60px;top:1500px;z-index:27;display:flex;flex-direction:column;opacity:0}
+.tarja b{align-self:flex-start;padding:12px 26px;background:#f1eee9;color:#1e2528;font-size:44px;font-weight:800;letter-spacing:.04em}
+.tarja span{align-self:flex-start;padding:10px 26px;background:var(--terracota);color:#fff;font-size:30px;font-weight:700}
+#contador{position:absolute;left:0;top:0;z-index:26;display:flex;align-items:center;gap:16px;padding:14px 28px 14px 16px;border-radius:999px;background:#f1eee9;color:#1e2528;font-size:30px;font-weight:800;box-shadow:0 24px 60px rgba(0,0,0,.4);opacity:0;white-space:nowrap}
+#contador b{min-width:84px;height:84px;border-radius:42px;background:#e5484d;color:#fff;display:grid;place-items:center;font-size:48px;font-variant-numeric:tabular-nums;letter-spacing:-.03em;padding:0 10px}
+.balao.cao{display:flex;align-items:center;gap:20px;padding:18px 34px 18px 18px;font-size:48px}
+.balao.cao svg{width:96px;height:96px;flex:none}
+.chip{position:absolute;left:0;top:0;z-index:23;display:flex;align-items:center;gap:12px;height:70px;padding:0 26px;border-radius:35px;background:#f1eee9;color:#1e2528;font-size:31px;font-weight:800;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.35);opacity:0}
+.chip svg{width:32px;height:32px;color:var(--terracota)}
+#relogio{position:absolute;left:50%;top:470px;z-index:27;translate:-50% 0;display:flex;align-items:center;gap:14px;padding:12px 30px;border-radius:999px;background:rgba(14,18,20,.82);color:#f6f3ee;font-size:56px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;box-shadow:0 20px 50px rgba(0,0,0,.4);opacity:0}
+#relogio svg{width:46px;height:46px;color:var(--terracota-clara)}
+#calend{position:absolute;left:0;top:0;z-index:26;width:330px;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 40px 90px rgba(0,0,0,.5);text-align:center;opacity:0}
+#calend .m{background:#b3261e;color:#fff;font-size:28px;font-weight:800;letter-spacing:.12em;padding:14px 0}
+#calend .d{font-size:150px;font-weight:800;letter-spacing:-.06em;line-height:1;padding:18px 0 0;color:#1e2528;font-variant-numeric:tabular-nums}
+#calend .s{font-size:28px;font-weight:700;color:#7a8386;padding:2px 0 18px}
+#calend .a{background:#fbe4e2;color:#8f1f18;font-size:21px;font-weight:800;padding:12px 10px}
+#planilha{position:absolute;left:110px;right:110px;top:620px;z-index:26;border-radius:30px;background:#fff;box-shadow:0 50px 110px rgba(0,0,0,.5);overflow:hidden;opacity:0}
+#planilha .cab{display:flex;align-items:center;gap:14px;padding:18px 24px;background:#1f7a45;color:#fff;font-size:28px;font-weight:800}
+#planilha .cab svg{width:32px;height:32px}
+#planilha table{width:100%;border-collapse:collapse;font-size:30px;font-weight:700;color:#1e2528}
+#planilha td{padding:16px 22px;border-top:2px solid #e8eee9;position:relative}
+#planilha td:first-child{width:130px;color:#5b6467;border-right:2px solid #e8eee9}
+#planilha td small{display:block;font-size:20px;font-weight:600;color:#7a8386}
+#planilha .risco{position:absolute;left:12px;right:12px;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:#e5484d;transform-origin:0 50%}
+#planilha .q{position:absolute;right:20px;top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;background:#e5484d;color:#fff;display:grid;place-items:center;font-size:36px;font-weight:800;opacity:0}
+#planilha .dup{background:#fde8e8}
+#so-lia{position:absolute;left:50%;top:1530px;z-index:27;translate:-50% 0;opacity:0}
+.zz{font-family:"Fraunces",serif;font-style:italic;font-weight:600;fill:#e6e1da}
+#planilha{transform-origin:50% 0}
+#planilha .cab{gap:18px;padding:14px 24px}
+#planilha .cab .rosto{width:210px;height:105px;flex:none;margin:-6px 0 -6px -8px}
+#planilha .cab{font-size:32px}
+#planilha .cab span{flex:1}
+#planilha .cab span.riscado{text-decoration:line-through;opacity:.6}
+#planilha.cinza .cab{background:#7a8386}
+#planilha th{padding:12px 22px;font-size:20px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7a8386;text-align:left;background:#f3f7f4;position:relative}
+#planilha th.cao{width:150px;color:#b3261e}
+#planilha th.cao i{position:absolute;inset:6px 10px;border:4px solid #e5484d;border-radius:12px;opacity:0}
+#planilha .lc td:first-child{width:70px;text-align:center}
+#planilha .lc .ok{color:#1f7a45}
+#planilha tr.prim{background:#fff6dc}
+#cn .zz{font-family:"Fraunces",serif}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div id="escuro"></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="relogio"></div>
+  <div class="fone" id="fb"></div>
+  <div class="fone" id="fa"></div>
+  <div id="contador"><b>0</b>conversas novas</div>
+  <div id="calend"><div class="m">NOVEMBRO</div><div class="d">05</div><div class="s">quinta</div><div class="a">Sábado, 21: mini sessão de Natal</div></div>
+  <div id="planilha"></div>
+  <div class="tarja" id="tj-lia"><b>LIA MORENO</b><span>fotógrafa, Estúdio Ciranda</span></div>
+  <div id="chips"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, clamp, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, E, pose, IC, ic, cabeca, boca, fecha, barra, balao, historia } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-planilha",
+  ordem: ["planilha", "stories", "direct", "noite", "bruna", "cachorro", "site", "fecho", "demitida", "marca", "cta"],
+  // a trilha: a confissão da planilha abre com impacto, o Stories e o direct são o pulso, a noite é o groove (cortado
+  // em "Depois veio a Bruna", a frase "nada"), a Bruna fica na batida abafada, o cachorro só com o coração e sobe até o
+  // drop, que cai em "colocou a agenda online no site"; a demissão fica no fim
+  trilha: { planilha: "abre", stories: "google", direct: "google", noite: "insta", bruna: "volta", cachorro: "ese", site: "site", fecho: "site", demitida: "fim", marca: "fim", cta: "cta" },
+  cta: "NATAL", nota: "O Estúdio Ciranda, as clientes, a planilha e o cachorro são fictícios.", bpm: 116, tom: -2,
+});
+const { F, frases, S, I, FIM, W, palco } = R;
+const T = {
+  duas: W("abre", "duas"), lia: W("moro", "lia"), noite: W("moro", "noite"), explodiu: W("explodiu", "explodiu"), vaga: W("trinta", "vaga"), liaD: W("trinta", "lia"), mim: W("trinta", "mim"),
+  carol0: I("carol"), carol: W("carol", "carol"), dez: W("carol", "dez"), fern: W("carol", "fernanda"), tambem: W("carol", "tambem"),
+  vi: I("vi"), fala: W("vi", "fala"),
+  bruna: W("nada", "bruna"), segurar: W("nada", "segurar"), marido: W("nada", "marido"), vinte0: I("quinze"), vinte: W("quinze", "vinte"), nao: W("nao", "nao"),
+  cachorro: W("cachorro", "cachorro"), coluna: W("cachorro", "coluna"),
+  site: W("fez", "site"), restam: W("restam", "restam"), reserva: W("restam", "reserva"),
+  horas: W("sinal", "horas"), sinal: W("sinal", "sinal"), pix: W("sinal", "pix"), tarde: W("espera", "tarde"), lista: W("espera", "lista"),
+  painel: W("painel", "painel"), marcaS: W("painel", "marca"), sobraram: W("painel", "sobraram"), trab: I("trabalho"), erro: W("trabalho", "erro"),
+  carolF: W("cada", "carol"), fernF: W("cada", "fernanda"), dona: W("cada", "dona"), cachF: W("cada", "cachorro"), pegou: W("cada", "entrou"), noveF: W("cada", "nove"), listaF: W("cada", "lista"),
+  demitida: W("demitida", "demitida"), compras: W("compras", "compras"), racao: W("compras", "racao"),
+};
+T.tapSlot = W("restam", "reserva") - 0.45; T.tapSinal = T.marcaS + 0.1; T.tapAvisar = T.pegou - 0.05;
+IC.arvore = '<path d="M12 2.5 6 11h3l-4 6h14l-4-6h3z"/><path d="M12 17v4.5"/>';
+IC.planilha = '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>';
+IC.camera = '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/>';
+IC.envia = '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>';
+const TERRA = a => `rgba(232,133,94,${a.toFixed(3)})`, VERM = a => `rgba(229,72,77,${a.toFixed(3)})`;
+const anel = (el, a, cor = TERRA) => { el.style.boxShadow = a > 0.004 ? `0 0 0 ${(7 * a).toFixed(1)}px ${cor(0.95 * a)}` : ""; };
+const aceso = (t, t0, t1) => fase(t, t0 - 0.08, t0 + 0.12) * (1 - fase(t, t1, t1 + 0.35));
+
+// ====================== desenhos ======================
+const PELE_L = "#d8a07c", PELE_L2 = "#c4876a";
+const LIA = { cabelo: "coque", corCabelo: "#4a2a1c", oculos: true, pele: PELE_L, pele2: PELE_L2 };
+function arvore(id, x, y, s) {
+  let g = `<g id="${id}" transform="translate(${x} ${y}) scale(${s})"><rect x="-14" y="-40" width="28" height="44" fill="#6b4a2f"/>`;
+  g += `<path d="M0 -330 L-120 -150 L-70 -150 L-160 -40 L160 -40 L70 -150 L120 -150 Z" fill="#2f6b47"/><path d="M0 -330 L-60 -240 L60 -240 Z" fill="#3b7f57"/>`;
+  g += `<path d="M0 -372 l11 24 l26 3 l-19 17 l5 26 l-23 -13 l-23 13 l5 -26 l-19 -17 l26 -3 Z" fill="#e8c46a"/>`;
+  const luzes = [[-30, -270], [34, -250], [-70, -190], [10, -200], [68, -175], [-100, -90], [-40, -110], [30, -95], [96, -80], [-10, -60], [130, -55], [-130, -52]];
+  luzes.forEach(([lx, ly], k) => { g += `<circle class="luz" data-k="${k}" cx="${lx}" cy="${ly}" r="11" fill="${["#ffd36b", "#ff7a6b", "#9fd8ff"][k % 3]}"/>`; });
+  return g + "</g>";
+}
+function liaDePe(id) {
+  const roupa = "#8a4a5f";
+  let s = `<g id="${id}"><ellipse cx="0" cy="4" rx="64" ry="10" fill="#000" opacity=".25"/>`;
+  s += `<rect x="-29" y="-150" width="26" height="146" rx="11" fill="#2b2f33"/><rect x="3" y="-150" width="26" height="146" rx="11" fill="#2b2f33"/>`;
+  s += `<path d="M-50 -140 L-46 -262 Q-44 -288 -20 -290 L20 -290 Q44 -288 46 -262 L50 -140 Z" fill="${roupa}"/>`;
+  s += `<path d="M-47 -272 Q-92 -236 -74 -214" stroke="${roupa}" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M47 -272 Q92 -236 74 -214" stroke="${roupa}" stroke-width="24" stroke-linecap="round" fill="none"/>`;
+  s += `<g transform="translate(-80 -238)"><rect x="-19" y="-32" width="38" height="62" rx="7" fill="#111"/><rect id="${id}t1" x="-15" y="-28" width="30" height="52" rx="4" fill="#9cc6e0"/></g>`;
+  s += `<g transform="translate(80 -238)"><rect x="-19" y="-32" width="38" height="62" rx="7" fill="#111"/><rect id="${id}t2" x="-15" y="-28" width="30" height="52" rx="4" fill="#9cc6e0"/></g>`;
+  s += `<circle cx="-74" cy="-210" r="12" fill="${PELE_L}"/><circle cx="74" cy="-210" r="12" fill="${PELE_L}"/>`;
+  s += `<rect x="-11" y="-306" width="22" height="20" fill="${PELE_L2}"/>`;
+  s += cabeca({ ...LIA, id }, 0, -346, 40);
+  return s + "</g>";
+}
+function cao(id, gorro) {
+  let s = `<g id="${id}">`;
+  s += `<path d="M-46 -18 Q-74 -10 -66 34 Q-48 30 -34 6 Z" fill="#7a4a2a"/><path d="M46 -18 Q74 -10 66 34 Q48 30 34 6 Z" fill="#7a4a2a"/>`;
+  s += `<ellipse cx="0" cy="6" rx="50" ry="46" fill="#c0874f"/><ellipse cx="0" cy="30" rx="27" ry="20" fill="#ecd3b0"/>`;
+  s += `<ellipse cx="0" cy="20" rx="11" ry="8" fill="#1e1a18"/><path d="M0 28 v8 M-9 40 Q0 46 9 40" stroke="#1e1a18" stroke-width="3.4" fill="none" stroke-linecap="round"/>`;
+  s += `<circle cx="-17" cy="-6" r="6" fill="#1e1a18"/><circle cx="17" cy="-6" r="6" fill="#1e1a18"/><circle cx="-15" cy="-8" r="2" fill="#fff"/><circle cx="19" cy="-8" r="2" fill="#fff"/>`;
+  if (gorro) s += `<g transform="rotate(14)"><path d="M-40 -34 Q-6 -110 52 -96 Q30 -70 40 -34 Z" fill="#c8312b"/><rect x="-48" y="-46" width="98" height="22" rx="11" fill="#f6f3ee"/><circle cx="54" cy="-98" r="13" fill="#f6f3ee"/></g>`;
+  return s + "</g>";
+}
+const CAO_SVG = `<svg viewBox="-80 -80 160 140">${cao("cb", false)}</svg>`;
+$("#cn").innerHTML = `
+  <defs><radialGradient id="g-luz" cx="540" cy="1150" r="760" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9cc6e0" stop-opacity=".2"/><stop offset="1" stop-color="#9cc6e0" stop-opacity="0"/></radialGradient></defs>
+  <g id="g-noite">
+    <rect width="1080" height="1920" fill="#1c1519"/><rect y="1700" width="1080" height="220" fill="#140f12"/>
+    <path d="M0 470 Q270 540 540 470 Q810 540 1080 470" stroke="#3a2a30" stroke-width="4" fill="none"/>
+    ${Array.from({ length: 11 }, (_, k) => `<circle class="luz" data-k="${k + 3}" cx="${40 + k * 100}" cy="${488 + 18 * Math.sin(k * 1.7)}" r="10" fill="${["#ffd36b", "#ff7a6b", "#9fd8ff"][k % 3]}"/>`).join("")}
+    ${arvore("arv1", 880, 1700, 1.55)}
+    <rect width="1080" height="1920" fill="url(#g-luz)"/>
+    <g id="lia-pos" transform="translate(470 1720) scale(1.95)">${liaDePe("ln")}</g>
+  </g>
+  <g id="g-foto">
+    <rect width="1080" height="1920" fill="#1a1416"/>
+    <g id="polaroid" transform="translate(540 1040) rotate(-3)">
+      <rect x="-330" y="-400" width="660" height="790" rx="10" fill="#fbf8f3"/>
+      <rect x="-300" y="-370" width="600" height="600" fill="#2c4a3a"/>
+      <clipPath id="clip-foto"><rect x="-300" y="-370" width="600" height="600"/></clipPath>
+      <g clip-path="url(#clip-foto)">
+        ${arvore("arv4", 190, 140, 1.05)}
+        <path d="M-300 150 L300 150 L300 230 L-300 230 Z" fill="#6b4a2f" opacity=".7"/>
+        <path d="M-250 240 Q-240 20 -110 0 Q20 20 30 240 Z" fill="#b3261e"/>${cabeca({ cabelo: "longo", corCabelo: "#2a1a12", id: "fm", brinco: "#e8c46a" }, -110, -90, 74)}
+        <path d="M-10 240 Q0 110 80 100 Q160 110 170 240 Z" fill="#2f6b47"/>${cabeca({ cabelo: "curto", corCabelo: "#4a2a1c", id: "fk", pele: "#e3ae8a" }, 80, 34, 52)}
+        <g id="cao-foto" transform="translate(-30 170) scale(1.25)"><ellipse cx="0" cy="60" rx="66" ry="40" fill="#b07a45"/>${cao("cf", true)}</g>
+      </g>
+      <text x="0" y="330" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="58" fill="#3a2430">Sábado, 9h40</text>
+    </g>
+  </g>`;
+const G = id => $(`#${id}`);
+["fm", "fk"].forEach(p => boca(p, "sorriso"));
+
+// ====================== os celulares ======================
+const FA = $("#fa"), FB = $("#fb");
+const NOMES = ["Juliana Matos", "Patrícia N.", "Renata Lopes", "Larissa Campos", "Débora Assis", "Natália Freitas", "Paula Siqueira", "Gabriela Moura", "Isabela Ramos",
+  "Letícia Barros", "Priscila A.", "Bianca Torres", "Elaine Vidal", "Michele S.", "Raquel Dantas", "Thaís Moraes", "Helena Castro", "Joana Peixoto", "Lívia Andrade",
+  "Marcela Brito", "Simone Paiva", "Cíntia Pacheco", "Daniela Fontes", "Érica Leal", "Flávia Rezende", "Tatiana G.", "Mônica Seixas", "Rebeca Amaral", "Yasmin Q.", "Luana Bastos"];
+const FRASES = ["Ainda tem vaga?", "Oi! Ainda tem vaga?", "Tem vaga ainda?", "Ainda tem horário?", "Ainda tem vaga pro sábado?"];
+const COR_AV = ["#8a4a5f", "#2f6f86", "#c26a2a", "#2f7d55", "#8a4fb5", "#c0477a", "#4f6b4a", "#b25134"];
+const av = (nome, k) => `<i style="background:${COR_AV[k % COR_AV.length]}">${nome[0]}</i>`;
+const msgs = (p, id, lista) => `<div class="ch-col">${lista.map(([quem, txt], k) => quem === "h" ? `<div class="ch-hora" id="${p}-${id}${k}">${txt}</div>` : `<div class="ch-m ${quem}" id="${p}-${id}${k}">${txt}</div>`).join("")}</div>`;
+const conversa = (p, id, nome, k, lista) => `<div class="tela" id="${p}-${id}"><div class="ch-topo">${ic("voltar")}${av(nome, k)}<div>${nome}<small>Ativa agora</small></div></div>${msgs(p, id, lista)}</div>`;
+const SLOTS = ["09:00", "09:40", "10:20", "11:00", "11:40", "14:00", "14:40", "15:20", "16:00", "16:40"];
+const LIVRES = ["11:00", "14:40", "16:40"];
+const FIM_OK = ["Sábado, 21/11 · 11:00", "Mini sessão de Natal · 30 minutos"];
+const PN = [["09:00", "Ana Prado", "ok", "Sinal pago"], ["09:40", "Bruna Teixeira", "pre", "Esperando o sinal"], ["10:20", "Carol Pires", "ok", "Sinal pago"], ["11:00", "Fernanda Prado", "pre", "Esperando o sinal"], ["11:40", "Débora Assis", "ok", "Sinal pago"]];
+FA.innerHTML = `<span class="exemplo claro">exemplo</span><div class="visor">${barra("20:00")}
+  <div class="tela st" id="a-st"><div class="st-barras"><i><b id="a-stb"></b></i><i></i><i></i></div>
+    <div class="st-quem"><i>C</i><span>estudiociranda <small>· agora</small></span></div>
+    <svg class="st-arvore" viewBox="-170 -390 340 400">${arvore("arv-st", 0, 0, 1)}</svg>
+    <div class="st-tit">Mini sessão<br>de Natal</div><div class="st-chip" id="a-stchip">Agenda aberta</div>
+    <div class="st-info">Sábados 21 e 28 e domingo 22/11<br>30 minutos · 10 fotos editadas</div>
+    <div class="st-env">Enviar mensagem</div></div>
+  <div class="tela" id="a-dm"><div class="dm-topo"><span>estudiociranda</span>${ic("envia")}</div><div class="dm-abas"><b>Principal</b><span>Geral</span><span>Solicitações</span></div>
+    <div class="dm-lista"><div class="dm-rol" id="a-rol">
+      ${NOMES.map((n, k) => `<div class="dm-l"><i style="background:${COR_AV[k % COR_AV.length]}">${n[0]}</i><div><b>${n}</b><span>${FRASES[k % FRASES.length]} <small>· agora</small></span></div><em></em></div>`).reverse().join("")}
+      <div class="dm-l"><i style="background:#9aa1a3">M</i><div><b>Mãe da Lia</b><span style="color:#7a8386">Filha, você vem domingo? <small>· 2 d</small></span></div></div>
+    </div></div></div>
+  ${conversa("a", "chc", "Carol Pires", 3, [["h", "Hoje 00:00"], ["ent", "Tem sábado de manhã?"], ["sai", "Sábado, 10h20. Pode ser?"], ["ent", "Pode!"], ["sai", "Fechado! Sábado, 10h20."]])}
+  ${conversa("a", "chb", "Bruna Teixeira", 4, [["h", "05/11 21:12"], ["ent", "Segura as 9h40 pra mim? Vou ver com o meu marido."], ["sai", "Seguro!"], ["h", "20/11 18:47"], ["ent", "Ele disse que não."]])}
+  <div class="tela ag" id="a-ag"><div class="ms-url">${ic("cadeado")}<span>estudiociranda.com.br/agenda</span></div>
+    <div class="ag-topo"><span>Estúdio Ciranda</span><i></i></div>
+    <div class="ag-h">Escolha o horário <em>do seu ensaio.</em></div>
+    <div class="ag-ens"><span class="ic">${ic("arvore")}</span><div><b>Mini sessão de Natal</b><small>30 minutos · 10 fotos · R$ 220</small></div></div>
+    <div class="ag-restam" id="a-restam"><i></i><span id="a-restam-t">Mini sessão de Natal: restam 6 horários em 3 dias.</span></div>
+    <div class="ag-dias"><b class="sel">Sáb<i>21</i></b><b>Dom<i>22</i></b><b>Sáb<i>28</i></b></div>
+    <div class="ag-grade" id="a-grade">${SLOTS.map(h => `<i class="${LIVRES.includes(h) ? "" : "oc"}" data-h="${h}">${h}</i>`).join("")}</div>
+    <div class="ag-ok" id="a-ok"><div class="ck">${ic("check")}</div><b>Pré-reserva feita</b><span>${FIM_OK.join("<br>")}</span>
+      <div class="ag-24" id="a-24">${ic("relogio")}Separado por 24 horas</div>
+      <div class="ag-sinal" id="a-sinal">Para confirmar, o sinal é de <b>R$ 110 pelo Pix</b>. O restante é pago no dia do ensaio.</div></div>
+    <div class="dedo" id="a-dedo"></div></div>
+  <div class="tela pn" id="a-pn"><div class="pn-topo">${ic("calendario", 'style="width:26px;height:26px"')}Painel<small>Estúdio Ciranda</small></div>
+    <div class="pn-tit">Mini sessão de Natal</div>
+    <div class="pn-resumo" id="a-resumo">Restam <b id="a-rn">3</b> horários. <b id="a-rp">2</b> esperando o sinal e <b>4</b> na lista de espera.</div>
+    <div class="pn-dia">Sábado, 21/11</div>
+    ${PN.map(([h, n, st, rot], k) => `<div class="pn-l" id="a-l${k}"><span class="h">${h}</span><div class="n" id="a-n${k}">${n}<small id="a-ns${k}"></small></div><span class="pn-st ${st}" id="a-st${k}">${rot}</span></div>`).join("")}
+    <div class="pn-esp" id="a-esp"><b>Lista de espera</b><small>por ordem de chegada</small>
+      <div class="l"><div>1. Sabrina Lacerda<small>Quer a mini sessão · vai com o cachorro</small></div><span class="av" id="a-av">${ic("mensagem")}Avisar</span></div>
+      <div class="l"><div>2. Kelly Barreto<small>Quer o sábado de manhã</small></div><span class="av">${ic("mensagem")}Avisar</span></div></div>
+    <div class="dedo" id="a-dedo2"></div></div>
+</div>`;
+FB.innerHTML = `<span class="exemplo claro">exemplo</span><div class="visor">${barra("00:02")}${conversa("b", "chf", "Fernanda Prado", 1, [["h", "Hoje 00:02"], ["ent", "Tem sábado de manhã?"], ["sai", "Sábado, 10h20. Pode ser?"], ["ent", "Pode!"], ["sai", "Fechado! Sábado, 10h20."]])}</div>`;
+$("#b-chf").style.display = "block";
+const mostra = id => $$(".tela", FA).forEach(el => { el.style.display = el.id === `a-${id}` ? "block" : "none"; });
+const HORA_A = $(".status .hora", FA);
+
+// ====================== a planilha, que narra ======================
+// o rosto fica na faixa verde: dois olhos e uma boca que mexe com as palavras
+const ROSTO = `<svg class="rosto" viewBox="0 0 132 66"><g id="pl-ol"><ellipse cx="38" cy="28" rx="16" ry="17" fill="#fff"/><ellipse cx="94" cy="28" rx="16" ry="17" fill="#fff"/>
+  <circle id="pl-p1" cx="38" cy="30" r="7" fill="#1e2528"/><circle id="pl-p2" cx="94" cy="30" r="7" fill="#1e2528"/>
+  <rect id="pl-pa1" x="20" y="8" width="36" height="0" fill="#1f7a45"/><rect id="pl-pa2" x="76" y="8" width="36" height="0" fill="#1f7a45"/></g>
+  <path id="pl-sob1" d="M24 6 L52 9" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/><path id="pl-sob2" d="M80 9 L108 6" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/>
+  <path id="pl-boca" d="M54 54 Q66 62 78 54" stroke="#fff" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <ellipse id="pl-aberta" cx="66" cy="56" rx="9" ry="7" fill="#0f3d23" opacity="0"/>
+  <path id="pl-ziper" d="M50 56 H82 M54 52 v8 M60 52 v8 M66 52 v8 M72 52 v8 M78 52 v8" stroke="#fff" stroke-width="3" opacity="0"/></svg>`;
+const PL = [["09:00", "Ana", ""], ["09:40", "Bruna", "esperando o marido"], ["10:20", "Carol", ""], ["10:20", "Fernanda", ""], ["11:00", "?", ""], ["11:40", "Débora (pagou?)", ""]];
+const COMPRAS = [["1", "Ração", "para o cachorro das 9h40"], ["2", "Café", ""], ["3", "Pilhas para o flash", ""], ["4", "Papel de presente", ""]];
+$("#planilha").innerHTML = `<div class="cab">${ROSTO}<span id="pl-tit">Natal · sábado 21</span></div>
+  <table id="pl-natal"><tr><th>Horário</th><th>Nome</th><th class="cao" id="pl-th-cao">Cachorro?<i id="pl-x"></i></th></tr>${PL.map(([hh, n, obs], k) => `<tr class="${k === 2 || k === 3 ? "dup" : ""}" id="pl-r${k}"><td>${hh}</td><td>${n}${obs ? `<small>${obs}</small>` : ""}<i class="q" id="pq${k}">?</i></td><td class="cao"></td></tr>`).join("")}</table>
+  <table id="pl-compras" class="lc" style="display:none">${COMPRAS.map(([n, it, obs], k) => `<tr id="pc${k}" class="${k === 0 ? "prim" : ""}"><td>${n}</td><td>${it}${obs ? `<small>${obs}</small>` : ""}</td></tr>`).join("")}</table>`;
+const PLAN = $("#planilha");
+// a boca mexe enquanto a planilha fala (as palavras de cada frase têm início e fim)
+const PALAVRAS = frases.flatMap(f => f.palavras);
+const falando = t => PALAVRAS.some(w => t >= w.ini && t < w.ini + Math.max(0.08, (w.fim - w.ini) * 0.6));
+function rosto(t, jeito) {
+  // jeito: "culpa", "susto", "fala", "triste"
+  const aberta = jeito !== "susto" && falando(t);
+  attr($("#pl-aberta"), "opacity", aberta ? 1 : 0);
+  attr($("#pl-ziper"), "opacity", jeito === "susto" && t >= T.fala - 0.1 ? 1 : 0);
+  attr($("#pl-boca"), "opacity", aberta || (jeito === "susto" && t >= T.fala - 0.1) ? 0 : 1);
+  attr($("#pl-boca"), "d", jeito === "triste" || jeito === "culpa" ? "M54 58 Q66 50 78 58" : "M54 54 Q66 62 78 54");
+  const [dx, dy] = jeito === "culpa" ? [-6, 4] : jeito === "triste" ? [0, 5] : [Math.sin(t * 1.3) * 3, 0];
+  const r = jeito === "susto" ? 4.5 : 7;
+  for (const [id, cx] of [["#pl-p1", 38], ["#pl-p2", 94]]) { attr($(id), "cx", (cx + dx).toFixed(1)); attr($(id), "cy", (30 + dy).toFixed(1)); attr($(id), "r", r); }
+  attr($("#pl-ol"), "transform", jeito === "susto" ? "translate(66 28) scale(1.15) translate(-66 -28)" : "");
+  const pis = (t % 3.1) < 0.12 ? 1 : 0, lid = jeito === "triste" ? 14 : jeito === "culpa" ? 9 : 0;
+  for (const id of ["#pl-pa1", "#pl-pa2"]) attr($(id), "height", Math.max(lid, pis * 36));
+  attr($("#pl-sob1"), "opacity", jeito === "triste" || jeito === "culpa" ? 1 : 0); attr($("#pl-sob2"), "opacity", jeito === "triste" || jeito === "culpa" ? 1 : 0);
+  attr($("#pl-sob1"), "d", jeito === "triste" ? "M24 9 L52 4" : "M24 6 L52 9"); attr($("#pl-sob2"), "d", jeito === "triste" ? "M80 4 L108 9" : "M80 9 L108 6");
+}
+
+// ====================== peças soltas ======================
+const CH_DM = Object.assign(document.createElement("div"), { className: "chip", innerHTML: `${ic("mensagem")}Direct` });
+const CH_PL = Object.assign(document.createElement("div"), { className: "chip", innerHTML: `${ic("planilha")}Eu` });
+$("#chips").append(CH_DM, CH_PL);
+const B_CAO = balao(`${CAO_SVG}<span>Pode levar o cachorro?</span>`, "cao esq"); B_CAO.style.zIndex = 28;
+$("#relogio").innerHTML = `${ic("relogio")}<span id="rel-t">20:01</span>`;
+
+// ====================== quadro a quadro ======================
+// [t, centro x, centro y, escala, giro, opacidade]
+const PA = [
+  [S.stories - 0.3, 540, 1060, 0.94, 0, 0], [S.stories + 0.05, 540, 1010, 1, 0, 1], [T.liaD - 0.45, 540, 1010, 1, 0, 1], [T.liaD - 0.15, 540, 2300, 0.95, 6, 0],
+  [T.carol0 - 0.35, 540, 2300, 0.95, -6, 0], [T.carol0, 540, 1010, 0.95, 0, 1], [T.fern - 0.1, 540, 1010, 0.95, 0, 1], [T.fern + 0.35, 290, 1010, 0.9, -2, 1],
+  [T.vi - 0.3, 290, 1010, 0.9, -2, 1], [T.vi, 290, 2300, 0.9, -6, 0],
+  [S.bruna - 0.3, 380, 2300, 0.92, 6, 0], [S.bruna, 380, 1070, 0.92, -2, 1], [S.cachorro - 0.3, 380, 1070, 0.92, -2, 1], [S.cachorro, 380, 2300, 0.9, -6, 0],
+  [S.site - 0.25, 540, 2300, 1.2, 6, 0], [S.site + 0.15, 540, 1060, 1.2, 0, 1], [T.trab - 0.1, 540, 1060, 1.2, 0, 1], [T.trab + 0.35, 540, 1110, 1.12, 0, 1],
+  [S.demitida - 0.3, 540, 1110, 1.12, 0, 1], [S.demitida, 540, 2300, 1.1, -6, 0],
+];
+const PB = [[T.fern - 0.05, 1400, 1010, 0.9, 8, 0], [T.fern + 0.35, 790, 1010, 0.9, 2, 1], [T.vi - 0.3, 790, 1010, 0.9, 2, 1], [T.vi, 790, 2300, 0.9, 6, 0]];
+const DIRECT_0 = T.explodiu - 0.25, DIRECT_1 = T.vaga;
+const nDirect = t => 30 * Math.pow(fase(t, DIRECT_0, DIRECT_1), 1.5);
+
+function qFoneA(t) {
+  const [cx, cy, s, r, o] = pose(PA, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o <= 0.002) return;
+  const tela = t < I("explodiu") - 0.1 ? "st" : t < S.noite ? "dm" : t < S.bruna ? "chc" : t < S.cachorro ? "chb" : t < I("painel") - 0.05 ? "ag" : "pn";
+  mostra(tela);
+  FA.classList.toggle("escura", tela === "st");
+  HORA_A.textContent = { st: "20:00", dm: "20:01", chc: "00:00", chb: "21:12", ag: "09:30", pn: "10:05" }[tela];
+  if (tela === "st") { $("#a-stb").style.width = `${(100 * fase(t, S.stories, I("explodiu"))).toFixed(1)}%`; $("#a-stchip").style.transform = `scale(${(1 + 0.08 * pulso(t, T.noite - 0.1, 0.5)).toFixed(3)})`; }
+  if (tela === "dm") { const n = nDirect(t); $("#a-rol").style.transform = `translateY(${(-(31 - n) * 94).toFixed(1)}px)`; }
+  if (tela === "chc" || tela === "chb") qConversa("a", tela, t);
+  if (tela === "ag") qAgenda(t);
+  if (tela === "pn") qPainel(t);
+}
+function qFoneB(t) {
+  const [cx, cy, s, r, o] = pose(PB, t);
+  pos(FB, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o > 0.002) qConversa("b", "chf", t);
+}
+const QUANDO = {
+  chc: [T.carol0 - 0.1, T.carol0 + 0.1, T.carol0 + 0.4, T.carol - 0.2, T.carol + 0.1],
+  chf: [T.fern + 0.2, T.fern + 0.35, T.fern + 0.6, T.tambem - 0.25, T.tambem + 0.25],
+  chb: [S.bruna - 0.1, T.segurar - 0.1, T.marido, T.vinte - 0.15, T.vinte + 0.05],
+};
+function qConversa(p, id, t) {
+  QUANDO[id].forEach((t0, k) => { const el = $(`#${p}-${id}${k}`), a = entra(t, t0, 0.28); pos(el, { y: a.y * 0.5, s: lerp(0.86, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); });
+  if (id === "chc" || id === "chf") anel($(`#${p}-${id}4`), Math.max(aceso(t, T.tambem + 0.35, T.vi - 0.4), pulso(t, T.fern, 0.6)), VERM);
+  if (id === "chb") anel($(`#${p}-${id}4`), pulso(t, T.nao - 0.05, 0.8), VERM);
+}
+function qAgenda(t) {
+  anel($("#a-restam"), aceso(t, T.restam - 0.1, T.reserva) + pulso(t, T.lista - 0.1, 1.0));
+  $("#a-restam i").style.opacity = Math.sin(t * 6) > 0 ? 1 : 0.35;
+  const esgotou = t >= T.lista - 0.15;
+  $("#a-restam-t").textContent = esgotou ? "A mini sessão de Natal esgotou. Fale com o estúdio para entrar na lista de espera." : t >= T.reserva + 0.3 ? "Mini sessão de Natal: restam 5 horários em 3 dias." : "Mini sessão de Natal: restam 6 horários em 3 dias.";
+  $$("#a-grade i").forEach(el => {
+    const h = el.dataset.h, escolhido = h === "11:00" && em(t, T.tapSlot + 0.15, T.tarde);
+    const tomado = !LIVRES.includes(h) || (h === "11:00" && t >= T.tarde) || (t >= T.tarde + 0.25 + LIVRES.indexOf(h) * 0.3 && LIVRES.includes(h));
+    el.className = escolhido ? "sel" : tomado ? "oc" : "";
+    el.style.boxShadow = "";
+    if (!tomado && !escolhido) { const a = pulso(t, T.restam + 0.1 + LIVRES.indexOf(h) * 0.1, 0.7); if (a > 0.01) el.style.boxShadow = `0 0 0 ${(5 * a).toFixed(1)}px ${TERRA(0.8 * a)}`; }
+  });
+  const alvo = $('#a-grade i[data-h="11:00"]'), dd = $("#a-dedo"), x = fase(t, T.tapSlot - 0.35, T.tapSlot + 0.3);
+  dd.style.left = `${alvo.offsetLeft + alvo.offsetWidth / 2}px`; dd.style.top = `${alvo.offsetTop + alvo.offsetHeight / 2}px`;
+  pos(dd, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+  const ok = fase(t, T.reserva - 0.05, T.reserva + 0.35) * (1 - fase(t, T.tarde - 0.3, T.tarde));
+  $("#a-ok").style.transform = `translateY(${(110 * (1 - sai(ok))).toFixed(1)}%)`;
+  anel($("#a-24"), aceso(t, T.horas - 0.6, I("espera") - 0.2)); anel($("#a-sinal"), aceso(t, T.sinal - 0.1, I("espera") - 0.2));
+}
+function qPainel(t) {
+  const pagoF = t >= T.tapSinal + 0.2, livreB = em(t, T.dona + 0.35, T.noveF - 0.05), sabrina = t >= T.noveF - 0.05;
+  $("#a-st3").className = `pn-st ${pagoF ? "ok" : em(t, T.marcaS - 0.5, T.tapSinal + 0.2) ? "bt" : "pre"}`;
+  $("#a-st3").textContent = pagoF ? "Sinal pago" : em(t, T.marcaS - 0.5, T.tapSinal + 0.2) ? "Marcar sinal" : "Esperando o sinal";
+  $("#a-st1").className = `pn-st ${sabrina ? "pre" : livreB ? "livre" : "pre"}`;
+  $("#a-st1").textContent = sabrina ? "Esperando o sinal" : livreB ? "Livre" : "Esperando o sinal";
+  $("#a-n1").firstChild.textContent = sabrina ? "Sabrina Lacerda" : livreB ? "Sem sinal em 24 h" : "Bruna Teixeira";
+  $("#a-ns1").textContent = sabrina ? "pela lista de espera · com o cachorro" : "";
+  $("#a-rn").textContent = livreB ? 1 : 0; $("#a-rp").textContent = sabrina ? 1 : pagoF ? 1 : 2;
+  anel($("#a-resumo"), pulso(t, T.sobraram - 0.15, 1.0));
+  anel($("#a-l2"), aceso(t, T.carolF - 0.05, T.fernF - 0.2)); anel($("#a-l3"), aceso(t, T.fernF - 0.05, T.dona - 0.1) + pulso(t, T.tapSinal + 0.2, 0.6));
+  anel($("#a-l1"), aceso(t, T.dona + 0.2, S.demitida));
+  const esp = fase(t, T.dona - 0.1, T.dona + 0.3) * (1 - fase(t, T.noveF + 0.2, T.noveF + 0.6));
+  $("#a-esp").style.transform = `translateY(${(130 * (1 - sai(esp))).toFixed(1)}%)`;
+  anel($("#a-av"), pulso(t, T.tapAvisar + 0.1, 0.6), a => `rgba(31,122,69,${a.toFixed(3)})`);
+  const dd = $("#a-dedo2"), alvo = t < T.dona - 0.2 ? $("#a-st3") : $("#a-av"), tt = t < T.dona - 0.2 ? T.tapSinal : T.tapAvisar, x = fase(t, tt - 0.35, tt + 0.3);
+  const rp = $("#a-pn").getBoundingClientRect(), ra = alvo.getBoundingClientRect(), k = rp.width / $("#a-pn").offsetWidth;
+  dd.style.left = `${((ra.left + ra.width / 2 - rp.left) / k).toFixed(1)}px`; dd.style.top = `${((ra.top + ra.height / 2 - rp.top) / k).toFixed(1)}px`;
+  pos(dd, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+}
+function qCena(t) {
+  const noite = em(t, T.liaD - 0.3, T.carol0), foto = t >= T.racao - 0.35 && t < S.marca;
+  vis($("#c-cena"), noite || foto);
+  for (const [id, v] of [["g-noite", noite], ["g-foto", foto]]) attr(G(id), "opacity", v ? 1 : 0);
+  $$("#cn .luz").forEach(el => { const k = +el.dataset.k; attr(el, "opacity", (0.35 + 0.65 * (Math.sin(t * 5 + k * 2.1) > -0.2 ? 1 : 0)).toFixed(2)); });
+  if (noite) {
+    const x = fase(t, T.liaD - 0.3, T.liaD + 0.3);
+    attr($("#lia-pos"), "transform", `translate(${lerp(560, 470, sai(x)).toFixed(1)} 1720) scale(1.95) rotate(${(Math.sin(t * 2.3) * 1.2).toFixed(2)} 0 0)`);
+    boca("ln", "reta"); fecha("ln", (t % 2.6) < 0.12 ? 1 : 0);
+    attr($("#lnt1"), "fill", Math.sin(t * 9) > 0 ? "#e9a8c9" : "#f6d9e8");
+    attr($("#lnt2"), "fill", t >= T.mim - 0.1 ? "#bfe6c9" : "#9cc6e0");
+  }
+  if (foto) {
+    // a foto de Natal entra embaixo, menor, enquanto a planilha mostra a lista de compras
+    const a = fase(t, T.racao - 0.35, T.racao + 0.15), c = entra(t, T.racao, 0.4);
+    attr($("#polaroid"), "transform", `translate(${lerp(820, 760, sai(a)).toFixed(1)} ${lerp(1900, 1470, sai(a)).toFixed(1)}) rotate(${lerp(14, 7, sai(a)).toFixed(2)}) scale(${(0.52 * lerp(0.9, 1, volta(a))).toFixed(3)})`);
+    attr($("#cao-foto"), "transform", `translate(-30 ${(170 + 40 * (1 - sai(c.x))).toFixed(1)}) scale(${(1.25 * (c.x > 0 ? lerp(0.7, 1, volta(c.x)) : 0.7)).toFixed(3)})`);
+  }
+}
+// onde a planilha aparece: [t, y, escala, giro, opacidade]
+const PP = [
+  [0, 640, 1.05, -1.5, 1], [S.stories - 0.35, 640, 1.05, -1.5, 1], [S.stories - 0.05, 700, 0.9, -1.5, 0],
+  [T.vi - 0.3, 700, 0.9, -1.5, 0], [T.vi + 0.05, 640, 1, -1.5, 1], [S.bruna - 0.3, 640, 1, -1.5, 1], [S.bruna, 700, 0.9, -1.5, 0],
+  [S.cachorro - 0.1, 700, 0.9, 1.5, 0], [S.cachorro + 0.25, 860, 1, 1.5, 1], [S.site - 0.3, 860, 1, 1.5, 1], [S.site, 900, 0.9, 1.5, 0],
+  [S.demitida - 0.35, 700, 0.9, -1.5, 0], [S.demitida + 0.05, 640, 1, -1.5, 1], [T.racao - 0.4, 640, 1, -1.5, 1], [T.racao, 560, 0.94, -2.5, 1], [S.marca - 0.35, 560, 0.94, -2.5, 1], [S.marca - 0.05, 640, 0.9, -2.5, 0],
+];
+function qPlanilha(t) {
+  const [y, s, r, o] = pose(PP, t);
+  // no "o meu trabalho, sem erro", ela espia de cima, pequena, ao lado do painel
+  const espia = em(t, T.trab - 0.1, S.demitida - 0.3) ? fase(t, T.trab - 0.1, T.trab + 0.25) * (1 - fase(t, T.erro + 0.5, T.erro + 0.85)) : 0;
+  const yy = lerp(y, 470, espia), ss = lerp(s, 0.5, espia), oo = Math.max(o, espia);
+  PLAN.style.transform = `translateY(${(yy - 620).toFixed(1)}px) translateX(${(espia * 230).toFixed(1)}px) scale(${ss.toFixed(3)}) rotate(${(r + espia * 6).toFixed(2)}deg)`;
+  PLAN.style.opacity = oo.toFixed(3);
+  if (oo <= 0.002) return;
+  const compras = t >= T.compras - 0.2;
+  $("#pl-natal").style.display = compras ? "none" : ""; $("#pl-compras").style.display = compras ? "" : "none";
+  PLAN.classList.toggle("cinza", em(t, S.demitida, T.compras - 0.2));
+  $("#pl-tit").textContent = compras ? "Lista de compras · Lia" : "Natal · sábado 21";
+  $("#pl-tit").classList.toggle("riscado", em(t, T.demitida - 0.1, T.compras - 0.2));
+  // as linhas: as duas de 10h20 acendem na confissão e no "eu vi"; a coluna do cachorro só existe quando ele aparece
+  const dup = Math.max(aceso(t, T.duas - 0.1, S.stories - 0.4), aceso(t, T.vi - 0.05, S.bruna - 0.4));
+  [2, 3].forEach(k => { $(`#pl-r${k}`).style.background = dup > 0.01 ? `rgba(229,72,77,${(0.12 + 0.2 * dup).toFixed(3)})` : ""; });
+  const cao_ = t >= S.cachorro;
+  $$("#pl-natal .cao").forEach(el => { el.style.display = cao_ ? "" : "none"; });
+  const x = fase(t, T.coluna - 0.1, T.coluna + 0.2);
+  $("#pl-x").style.opacity = x.toFixed(3); $("#pl-th-cao").style.transform = `scale(${(1 + 0.12 * pulso(t, T.coluna - 0.1, 0.5)).toFixed(3)})`;
+  [1, 4, 5].forEach((k, i) => { const q = entra(t, T.vi + 0.35 + i * 0.12, 0.25); const vis_ = em(t, T.vi, S.bruna) || em(t, S.cachorro, S.site); $(`#pq${k}`).style.opacity = vis_ ? q.o.toFixed(3) : 0; $(`#pq${k}`).style.transform = `scale(${q.s.toFixed(3)})`; });
+  [0, 2, 3].forEach(k => { $(`#pq${k}`).style.opacity = 0; });
+  $("#pc0").style.boxShadow = compras ? `inset 0 0 0 ${(5 * pulso(t, T.racao - 0.05, 0.9)).toFixed(1)}px #e8855e` : "";
+  // o rosto
+  const jeito = t < S.stories ? "culpa" : em(t, T.vi, S.bruna) ? (t < T.fala - 0.6 ? "fala" : "susto") : em(t, S.demitida, T.compras - 0.2) ? "triste" : espia > 0.05 ? "fala" : "fala";
+  rosto(t, jeito);
+}
+function qPecas(t) {
+  const a = fase(t, T.lia - 0.15, T.lia + 0.15), b = fase(t, I("explodiu") - 0.3, I("explodiu"));
+  pos($("#tj-lia"), { x: (1 - saiX(a)) * -500 + b * -500, o: em(t, T.lia - 0.15, I("explodiu")) ? 1 : 0 });
+  const n = Math.min(30, Math.floor(nDirect(t))), c = entra(t, DIRECT_0 + 0.1);
+  $("#contador b").textContent = n;
+  pos($("#contador"), { x: 540 - $("#contador").offsetWidth / 2, y: 1500 + c.y, s: c.s * (1 + 0.06 * pulso(t, T.vaga - 0.05, 0.4)), o: em(t, DIRECT_0, T.liaD - 0.2) ? c.o * (1 - fase(t, T.liaD - 0.4, T.liaD - 0.2)) : 0 });
+  const d = entra(t, S.cachorro + 0.1, 0.35);
+  pos(B_CAO, { x: 540 - B_CAO.offsetWidth / 2, y: 600 + d.y, s: d.s, r: -3, o: em(t, S.cachorro, S.site - 0.2) ? d.o * (1 - fase(t, S.site - 0.4, S.site - 0.2)) : 0 });
+  for (const [el, t0, cx] of [[CH_DM, T.liaD, 314], [CH_PL, T.mim - 0.1, 650]]) {
+    const e = entra(t, t0); pos(el, { x: cx - el.offsetWidth / 2, y: 1360 + e.y, s: e.s, o: em(t, t0 - 0.05, T.carol0 - 0.15) ? e.o * (1 - fase(t, T.carol0 - 0.35, T.carol0 - 0.15)) : 0 });
+  }
+  const rel = em(t, T.liaD, T.carol0 - 0.15);
+  const min_ = Math.round(lerp(20 * 60 + 1, 23 * 60 + 59, ease(fase(t, T.liaD, T.carol0 - 0.4))));
+  $("#rel-t").textContent = `${String(Math.floor(min_ / 60)).padStart(2, "0")}:${String(min_ % 60).padStart(2, "0")}`;
+  const rr = entra(t, T.liaD);
+  pos($("#relogio"), { y: rr.y, s: rr.s, o: rel ? rr.o : 0 });
+  const ce = entra(t, T.marido + 0.1, 0.35), dia = Math.round(lerp(5, 20, ease(fase(t, T.vinte0 - 0.1, T.vinte - 0.05))));
+  $("#calend .d").textContent = String(dia).padStart(2, "0");
+  $("#calend .s").textContent = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"][(dia + 6) % 7];
+  $("#calend .a").style.opacity = dia >= 20 ? 1 : 0;
+  pos($("#calend"), { x: 650, y: 620 + ce.y, s: ce.s * (1 + 0.05 * pulso(t, T.vinte - 0.05, 0.4)), r: 4, o: em(t, T.marido, S.cachorro - 0.1) ? ce.o * (1 - fase(t, S.cachorro - 0.35, S.cachorro - 0.1)) : 0 });
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const quente = em(t, S.site, S.demitida);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#8a4a5f 0%,#3a2430 52%,#141c1e 100%)" : t < S.noite && t >= S.stories ? "radial-gradient(64% 40% at 50% 54%,#6b3446 0%,#2a1a20 52%,#141c1e 100%)" : t < S.stories ? "radial-gradient(64% 40% at 50% 54%,#1f5a3a 0%,#14301f 52%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  qCena(t); qFoneA(t); qFoneB(t); qPlanilha(t); qPecas(t);
+  R.comum(t);
+};
+const SONS = [
+  { t: T.explodiu - 0.2, tipo: "ding", ganho: 0.55 }, { t: T.explodiu + 0.25, tipo: "ding", ganho: 0.45 }, { t: T.explodiu + 0.6, tipo: "ding", ganho: 0.4 }, { t: T.explodiu + 0.85, tipo: "ding", ganho: 0.35 },
+  { t: S.cachorro + 0.1, tipo: "ding", ganho: 0.7 }, { t: T.vinte + 0.05, tipo: "ding", ganho: 0.6 },
+  { t: T.tapSlot, tipo: "toque", ganho: 0.8 }, { t: T.tapSinal, tipo: "toque", ganho: 0.8 }, { t: T.tapAvisar, tipo: "toque", ganho: 0.8 },
+];
+window.preparar = () => R.preparar([0.4, T.duas + 0.3, T.lia + 0.3, T.noite + 0.2, T.explodiu + 0.6, T.vaga + 0.1, T.mim + 0.3, T.carol + 0.4, T.tambem + 0.5, T.vi + 0.4, T.fala + 0.3,
+  T.segurar + 0.4, T.marido + 0.5, T.vinte + 0.3, T.nao + 0.3, T.cachorro + 0.3, T.coluna + 0.4, T.site + 0.3, T.restam + 0.3, T.tapSlot + 0.3, T.reserva + 0.5, T.horas + 0.3, T.pix + 0.3,
+  T.lista + 0.4, T.painel + 0.3, T.tapSinal + 0.4, T.sobraram + 0.2, T.erro + 0.2, T.carolF + 0.4, T.fernF + 0.5, T.cachF + 0.3, T.tapAvisar + 0.3, T.noveF + 0.5,
+  T.demitida + 0.3, T.compras + 0.3, T.racao + 0.5, F.moral.ini + 1.2, F.marca.ini + 1.3, F.cta.ini + 1.6], SONS);
+await R.pronto();
+</script>
+</body></html>

@@ -1,0 +1,33 @@
+{
+ "_sobre": "Narração do Reels \"O pingue-pongue da agenda\" (série com história, semana de 04/11/2026, quinta). Alvo: o dono de barbearia, salão, estética ou consultório que marca horário pelo WhatsApp, muitas vezes no meio de um atendimento. Objetivo: ele perceber que o vai e volta para marcar um horário cansa o cliente e faz perder gente, e que com a agenda online no site o cliente vê os horários livres, escolhe um e o compromisso cai direto na agenda do Google. O Caio e o Neto são fictícios. A narração é de jogo de pingue-pongue; as mensagens do Caio saem um pouco mais graves e as do Neto um pouco mais agudas, mais rápidas que o narrador. O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "frases": [
+  {"id": "abre", "cena": "mesa", "texto": "Atenção: vai começar a partida mais longa da *semana.*", "pausa": 0.35, "impacto": true},
+  {"id": "caio", "cena": "jogadores", "texto": "De um lado, o Caio, que quer cortar o *cabelo.*", "pausa": 0.15},
+  {"id": "neto", "cena": "jogadores", "texto": "Do outro, o Neto, barbeiro, que está cortando o cabelo de outra *pessoa.*", "pausa": 0.3},
+  {"id": "saque", "cena": "rali", "texto": "Saque do Caio: *tem horário amanhã?*", "pausa": 0.3},
+  {"id": "devolve", "cena": "rali", "texto": "Quarenta minutos depois, o Neto devolve: *às dez.*", "pausa": 0.25},
+  {"id": "r3", "cena": "rali", "texto": "Dez não dá. E à *tarde?*", "pausa": 0.08, "ritmo": "+24%", "tom": "-8Hz"},
+  {"id": "r4", "cena": "rali", "texto": "Quatro *horas?*", "pausa": 0.08, "ritmo": "+24%", "tom": "+8Hz"},
+  {"id": "r5", "cena": "rali", "texto": "Consegue às *cinco?*", "pausa": 0.08, "ritmo": "+24%", "tom": "-8Hz"},
+  {"id": "r6", "cena": "rali", "texto": "Cinco tá marcado. Cinco e *meia?*", "pausa": 0.08, "ritmo": "+24%", "tom": "+8Hz"},
+  {"id": "r7", "cena": "rali", "texto": "*Fechado!*", "pausa": 0.08, "ritmo": "+24%", "tom": "-8Hz"},
+  {"id": "r8", "cena": "rali", "texto": "Opa, acabou de sair. *Seis?*", "pausa": 0.4, "ritmo": "+24%", "tom": "+8Hz"},
+  {"id": "placar", "cena": "rali", "texto": "Oito mensagens, três horas, e ninguém *marcou.*", "pausa": 0.55},
+  {"id": "nada", "cena": "desiste", "texto": "O Caio parou de *responder.*", "pausa": 0.3},
+  {"id": "outro", "cena": "desiste", "texto": "No dia seguinte, ele cortou o cabelo em outro *lugar.*", "pausa": 0.15},
+  {"id": "toque", "cena": "desiste", "texto": "Lá, ele viu os horários livres no site e marcou em um *toque.*", "pausa": 0.35},
+  {"id": "licao", "cena": "licao", "texto": "Cada mensagem a mais é uma chance de o cliente *desistir.*", "pausa": 0.35},
+  {"id": "uma", "cena": "netao", "texto": "E o Neto? Continuou cortando com uma mão e respondendo com a *outra.*", "pausa": 0.25},
+  {"id": "fez", "cena": "site", "texto": "Então o Neto colocou a agenda no *site.*", "pausa": 0.15, "impacto": true},
+  {"id": "ve", "cena": "site", "texto": "Agora o cliente vê os horários *livres,* escolhe *um,* e o compromisso cai direto na agenda do Google do *Neto.*", "pausa": 0.2},
+  {"id": "so", "cena": "site", "texto": "Um saque só, e o jogo *acaba.*", "pausa": 0.3},
+  {"id": "maos", "cena": "fecho", "texto": "E o Neto voltou a cortar cabelo com as duas *mãos.*", "pausa": 0.5},
+  {"id": "moral", "cena": "marca", "texto": "Quem vê os horários livres marca *sozinho.*", "pausa": 0.3},
+  {"id": "marca", "cena": "marca", "texto": "Com a *Renderiza,* o seu site pode ter agenda *online.*", "pausa": 0.5, "impacto": true},
+  {"id": "cta", "cena": "cta", "texto": "Comenta *PRÉVIA* que a gente monta a prévia do seu *site.*", "fala": "Comenta prévia, que a gente monta a prévia do seu site.", "pausa": 0.4}
+ ]
+}
