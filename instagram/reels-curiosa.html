@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <title>Reels narrado: a curiosa</title>
-<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 1 (quarta, 19h).
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 1 (quarta, 19h). Versão 2 (03/11).
      Alvo: quem vende pelo Instagram e responde "valor?" com "chamei no direct".
-     Objetivo: a pessoa perceber que quem some depois de perguntar o preço é cliente que não quis perguntar nem
-     esperar, e que um catálogo no site, com o preço de cada peça, vende sem a cliente precisar perguntar.
-     A história: a Paula, da Paula Bolsas, odeia curiosas (comentam "valor?", recebem o preço no direct e somem).
-     À noite ela procura um vestido, comenta "valor?" numa loja, espera, e compra numa loja com site, onde vê tudo
-     com preço. De manhã visualiza o preço da primeira loja e não responde: a curiosa era ela. E a loja do site era
-     da Bia, a primeira curiosa do dia. A Paula coloca o catálogo no site, e a Bia volta e compra sem perguntar nada.
+     Objetivo: a pessoa perceber que quem some depois de perguntar o preço foi procurar o preço em outro lugar, e que um
+     catálogo no site, com o preço de cada peça, vende sem a cliente precisar perguntar.
+     A história começa num mistério: só hoje, onze clientes sumiram da loja da Paula, todas do mesmo jeito (comentaram
+     "valor?", receberam "chamei no direct" e o preço, visualizaram e nunca mais apareceram). À noite, a próxima a sumir
+     é a própria Paula: ela pergunta o preço de um vestido, espera, e compra numa loja com site, onde vê tudo com preço.
+     De manhã visualiza o preço da primeira loja e nunca mais aparece. E a loja do site era da Bia, a primeira que tinha
+     sumido. A Paula coloca o catálogo no site, e a Bia volta e compra sem perguntar nada.
      Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
      narracao/reels-curiosa.json → python3 instagram/narrar.py reels-curiosa → esta página lê reels-curiosa.tempos.json.
      As peças comuns (contas, gente, legendas, marca, convite e trilha) estão em historia.mjs e historia.css.
@@ -78,6 +79,15 @@
 .balao.valor{font-size:44px;padding:16px 28px}
 .balao.zapm{font-size:36px;white-space:normal;width:640px;line-height:1.18}
 .balao.pensa{font-size:40px;color:#3b4447}
+/* o gancho: as onze clientes que somem */
+#sumidas{position:absolute;inset:0;z-index:22;pointer-events:none}
+.sm{position:absolute;width:220px;margin-left:-110px;text-align:center}
+.sm i,.sm u{display:block;width:180px;height:180px;margin:0 auto;border-radius:50%}
+.sm u{position:absolute;left:20px;top:0;border:5px dashed #56636a;box-sizing:border-box}
+.sm i{position:relative;display:grid;place-items:center;font-style:normal;color:#fff;font-size:78px;font-weight:800;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.sm span{display:block;margin-top:14px;font-size:27px;font-weight:700;color:#c9d0d2;letter-spacing:-.01em}
+#sm-n{position:absolute;left:540px;top:1530px;translate:-50% 0;z-index:24;display:flex;align-items:center;gap:18px;padding:16px 34px 16px 20px;border-radius:999px;background:#f1eee9;color:#1e2528;font-size:36px;font-weight:800;white-space:nowrap;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+#sm-n b{min-width:92px;height:92px;border-radius:46px;background:#e5484d;color:#fff;display:grid;place-items:center;font-size:54px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 </style></head><body>
 <div class="reels" id="palco">
   <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
@@ -96,31 +106,36 @@ import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, 
 
 const R = await historia({
   nome: "reels-curiosa",
-  ordem: ["post", "direct", "noite", "vestido", "espera", "outra", "manha", "era", "bia", "licao", "site", "fecho", "marca", "cta"],
-  // a trilha: a implicância abre com impacto, o direct é o pulso, a noite é o groove (cortado no "valor?" da Paula,
-  // a frase "nada"), a espera fica abafada, a outra loja e a manhã voltam aos poucos, as duas viradas e a lição
-  // sobem até o drop, que cai em "colocou o catálogo no site"
-  trilha: { post: "abre", direct: "google", noite: "insta", vestido: "insta", espera: "volta", outra: "meio", manha: "meio", era: "meio", bia: "meio", licao: "ese", site: "site", fecho: "fim", marca: "fim", cta: "cta" },
+  ordem: ["sumiram", "post", "direct", "loja", "noite", "vestido", "espera", "outra", "manha", "bia", "licao", "site", "fecho", "marca", "cta"],
+  // a trilha: o mistério abre com impacto, o "valor?", o direct e a Paula na loja são o pulso, a noite é o groove
+  // (cortado em "A próxima a sumir foi ela", a frase "nada"), o vestido e a espera ficam abafados, a outra loja, a
+  // manhã e a Bia voltam aos poucos, a lição sobe até o drop, que cai em "colocou o catálogo no site"
+  trilha: { sumiram: "abre", post: "google", direct: "google", loja: "google", noite: "insta", vestido: "volta", espera: "volta", outra: "meio", manha: "meio", bia: "meio", licao: "ese", site: "site", fecho: "fim", marca: "fim", cta: "cta" },
   cta: "PRÉVIA", nota: "A Paula, a Bia e as lojas são fictícias.", bpm: 118, tom: -1,
 });
 const { F, S, I, FIM, W, palco } = R;
 const T = {
-  curiosa: W("abre", "curiosa"), comenta: W("def", "comenta"), valor0: W("def", "valor"), some: W("def", "some"),
-  chamei0: W("resp", "chamei"), preco0: W("resp", "preco"), visualiza: W("resp", "visualiza"), responde: W("resp", "responde"),
-  onze: W("onze", "onze"), bia0: W("onze", "bia"), dez0: W("onze", "dez"),
-  vestido: W("achou", "vestido"), lindo: W("achou", "vestido"), sem: W("achou", "sem"),
-  coment: W("nada", "comentou"), valor1: W("nada", "valor"), chamei1: W("chamei", "chamei"),
+  onze0: W("sumiram", "onze"), sumir: W("sumiram", "sumiram"), paula: W("sumiram", "paula"), jeito: W("jeito", "jeito"),
+  valorC: W("def", "valor"), chameiC: W("def", "chamei"), precoC: W("def", "preco"),
+  visualizaram: W("visto", "visualizaram"), apareceram: W("visto", "apareceram"), bia0: W("bia0", "bia"), dez0: W("bia0", "dez"),
+  entender: W("onde", "entender"), ia: W("onde", "ia"),
+  onzeN: W("descobriu", "onze"), descobriu: W("descobriu", "descobriu"), proxima: W("nada", "proxima"), ela: W("nada", "ela"),
+  vestido: W("achou", "vestido"), sem: W("achou", "sem"), valor1: W("comentou", "valor"), chamei1: W("comentou", "chamei"),
   caro: W("espera", "caro"), tarde: W("espera", "caro") + 0.9,
   site1: W("outra", "site"), todos: W("outra", "todos"), foto: W("outra", "foto"), tocou: W("pediu", "tocou"), escrito: W("pediu", "escrito"),
-  chegou: W("manha", "chegou"), visu: W("manha", "visualizou"), nresp: W("nao", "respondeu"),
-  ela: W("era", "ela"), biaR: W("bia", "bia"), dez: W("dez", "dez"),
-  trab: W("licao", "trabalho"), esperar: W("licao", "esperar"), loja: W("licao", "loja"), quarenta: W("legenda", "quarenta"), comparar: W("legenda", "legenda"),
+  chegou: W("manha", "chegou"), visu: W("manha", "visualizou"), apareceu: W("nunca", "apareceu"),
+  biaR: W("bia", "bia"), dez: W("dez", "dez"), sumido: W("dez", "sumido"),
+  toa: W("licao", "toa"), preco2: W("licao", "preco"), procurar: W("licao", "procurar"), esta: W("licao", "esta"),
   catalogo: W("fez", "catalogo"), cadaB: W("cada", "bolsa"), preco: W("cada", "preco"), botao: W("cada", "botao"),
   valor2: W("link", "valor"), link: W("link", "link"),
   voltou: W("voltou", "voltou"), caramelo: W("voltou", "caramelo"), nadaF: W("voltou", "nada"),
 };
 T.tapV = T.tocou + 0.15;   // o dedo toca em "Pedir" no vestido Oliva
 T.tapB = T.botao + 0.1;    // e depois na bolsa Caramelo, no site da Paula
+T.someP = T.ela - 0.05;    // a Paula pisca e some, à noite
+T.someM = T.apareceu - 0.05; // e de manhã, de novo
+// alguém que some: pisca algumas vezes e apaga
+const pisca = (t, t0, d = 0.42) => t < t0 ? 1 : t >= t0 + d ? 0 : (h(Math.floor((t - t0) / 0.045), 7) > 0.25 + 0.75 * (t - t0) / d ? 1 : 0.12);
 
 IC.ig = '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>';
 IC.loja = '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M2 7h20v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>';
@@ -176,6 +191,11 @@ $("#fa").innerHTML = `<span class="exemplo claro">exemplo</span><div class="viso
     <div class="ct-rolo"><div class="ms-topo"><span>Paula Bolsas</span><i></i></div>
     <div class="ct-hero" style="background:#b8743a">Bolsas de couro feitas à mão</div>
     <div class="ct-grade">${itens(CT_PAULA, x => bolsa(x[2]), "pv")}</div></div><div class="dedo" id="pau-dedo"></div></div>
+  <div class="tela" id="s-cm0"><div class="ig-topo"><span class="av" style="background:#b8743a">P</span><b>paulabolsas</b></div>
+    <div class="pt-foto" style="height:360px">${bolsa(0)}</div><div class="pt-acoes">${ic("coracao")}${ic("mensagem")}${ic("enviar")}</div>
+    <div class="pt-leg"><b>paulabolsas</b> Bolsa Caramelo, couro legítimo. Chama no direct!</div>
+    <div class="cm" id="cm5" style="top:610px"><span class="dl-av" style="background:#7a2a36">B</span><div><b>bia.atelie</b>valor?<small>10:01</small></div></div>
+    <div class="cm" id="cm6" style="top:692px"><span class="dl-av" style="background:#b8743a">P</span><div><b>paulabolsas</b>@bia.atelie chamei no direct<small>10:02</small></div></div></div>
   <div class="tela" id="s-cm"><div class="ig-topo"><span class="av" style="background:#b8743a">P</span><b>paulabolsas</b></div>
     <div class="pt-foto" style="height:360px">${bolsa(0)}</div><div class="pt-acoes">${ic("coracao")}${ic("mensagem")}${ic("enviar")}</div>
     <div class="cm" id="cm3" style="top:540px"><span class="dl-av" style="background:#2f6f86">R</span><div><b>renata.f</b>valor?<small>agora</small></div></div>
@@ -220,8 +240,12 @@ const B_ZAPV = balao("Oi! Vi no site e quero o Vestido Oliva, R$ 260.", "msg zap
 const B_ZAPB = balao("Oi! Quero a Bolsa Caramelo, R$ 289.", "msg zapm");
 const B_VISTO = balao(`${ic("olho", 'style="width:44px;height:44px;vertical-align:-8px;margin-right:12px"')}Visto 09:13`, "sem");
 const B_BIA = balao(`<span style="display:inline-flex;align-items:center;gap:16px"><span class="dl-av" style="width:62px;height:62px;border-radius:50%;background:#7a2a36;color:#fff;display:inline-grid;place-items:center;font-size:30px">B</span><span>bia.atelie<br><small style="font-size:30px;color:#7a8386;font-weight:600">“valor?” · Visto 10:02</small></span></span>`, "sem");
-$("#extra").innerHTML = `<div id="placar"><b id="pl-n">0</b><span>curiosas<br>hoje</span></div><div id="relogio">23:12</div><div id="carimbo">curiosa</div>
-  <div id="posts">${Array.from({ length: 40 }, (_, k) => `<i>${bolsa(k)}</i>`).join("")}</div><div id="posts-n">1 de 40</div>`;
+$("#extra").innerHTML = `<div id="placar"><b id="pl-n">0</b><span>sumiram<br>hoje</span></div><div id="relogio">23:12</div>
+  <div id="sumidas">${DL.map(([n, c], k) => `<div class="sm" id="sm${k}"><u></u><i style="background:${c}">${n[0].toUpperCase()}</i><span>${n}</span></div>`).join("")}</div>
+  <div id="sm-n"><b id="sm-nb">0</b>sumiram hoje</div>`;
+// as onze, em três fileiras (4, 4 e 3), e a hora em que cada uma some
+const SM_POS = DL.map((_, k) => { const f = k < 4 ? 0 : k < 8 ? 1 : 2, i = k < 4 ? k : k < 8 ? k - 4 : k - 8, n = f < 2 ? 4 : 3; return [540 + (i - (n - 1) / 2) * 242, 600 + f * 300]; });
+const SM_T = DL.map((_, k) => lerp(T.onze0 - 0.1, T.paula + 0.2, k / 10));
 const ETAPAS = [["mensagem", "“valor?”"], ["enviar", "“chamei no direct”"], ["relogio", "Esperar a resposta"], ["loja", "Outra loja, com preço"]].map(([i, txt], k) => {
   const el = document.createElement("div"); el.className = "etapa" + (k === 3 ? " fim" : ""); el.innerHTML = ic(i) + txt; $("#extra").appendChild(el); return el;
 });
@@ -230,21 +254,24 @@ const SETAS = [0, 1, 2].map(() => { const el = document.createElement("div"); el
 // ====================== quadro a quadro ======================
 // o celular: [t, centro x, centro y, escala, giro, opacidade]
 const PF = [
-  [0, 540, 1300, 0.9, 4, 0], [S.direct - 0.3, 540, 1300, 0.9, 4, 0], [S.direct + 0.1, 540, 1010, 1, 0, 1],
-  [S.noite - 0.3, 540, 1010, 1, 0, 1], [S.noite, 540, 1400, 0.9, 6, 0], [T.lindo - 0.3, 700, 1500, 0.6, 8, 0], [T.lindo + 0.15, 660, 1010, 0.96, 2, 1],
-  [S.espera - 0.25, 660, 1010, 0.96, 2, 1], [S.espera + 0.05, 700, 1500, 0.6, 8, 0],
+  [0, 540, 1300, 0.9, 4, 0], [S.post - 0.3, 540, 1300, 0.9, 4, 0], [S.post + 0.1, 540, 1010, 1, 0, 1],
+  [S.loja - 0.3, 540, 1010, 1, 0, 1], [S.loja, 540, 1400, 0.9, 6, 0],
+  [S.vestido - 0.3, 540, 1400, 0.9, -6, 0], [S.vestido + 0.1, 540, 1010, 1, 0, 1],
+  [S.espera - 0.25, 540, 1010, 1, 0, 1], [S.espera + 0.05, 700, 1500, 0.6, 8, 0],
   [S.outra - 0.25, 540, 1500, 0.9, 0, 0], [S.outra + 0.15, 540, 1010, 1, 0, 1], [S.manha - 0.3, 540, 1010, 1, 0, 1], [S.manha - 0.05, 660, 1010, 0.96, 2, 1],
-  [T.nresp + 0.25, 660, 1010, 0.96, 2, 1], [S.era - 0.1, 1350, 1010, 0.9, 12, 0],
-  [S.bia - 0.3, -300, 1010, 0.9, -12, 0], [S.bia + 0.1, 540, 1010, 1, 0, 1], [T.dez - 0.4, 540, 1010, 1, 0, 1], [T.dez + 0.05, 330, 1060, 0.86, -3, 1],
+  [S.bia - 0.35, 660, 1010, 0.96, 2, 1], [S.bia - 0.3, -300, 1010, 0.9, -12, 0], [S.bia + 0.1, 540, 1010, 1, 0, 1], [T.sumido - 0.5, 540, 1010, 1, 0, 1], [T.sumido - 0.05, 330, 1060, 0.86, -3, 1],
   [S.licao - 0.25, 330, 1060, 0.86, -3, 1], [S.licao + 0.05, 330, 1400, 0.8, -6, 0],
   [S.site - 0.25, 540, 2200, 1, 6, 0], [S.site + 0.15, 540, 1010, 1, 0, 1], [S.marca - 0.35, 540, 1010, 1, 0, 1], [S.marca - 0.05, 540, 1100, 0.9, 0, 0],
 ];
 function qFone(t) {
-  const [cx, cy, s, r, o] = pose(PF, t);
+  const [cx, cy, s, r, o0] = pose(PF, t);
+  // de manhã, o celular some junto com a Paula
+  const o = em(t, S.manha, S.bia) ? o0 * pisca(t, T.someM) : o0;
   pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
   if (o <= 0.002) return;
-  let tela = "s-dir", hora = "10:40";
-  if (t >= S.noite) { tela = "s-post"; hora = "23:08"; }
+  let tela = "s-cm0", hora = "10:02";
+  if (t >= S.direct) { tela = "s-dir"; hora = "19:10"; }
+  if (t >= S.vestido) { tela = "s-post"; hora = "23:08"; }
   if (t >= S.outra) { tela = "s-bia"; hora = "23:41"; }
   if (t >= S.manha) { tela = "s-dm"; hora = "09:12"; }
   if (t >= S.bia) { tela = "s-bia"; hora = "09:14"; }
@@ -252,13 +279,19 @@ function qFone(t) {
   if (t >= S.fecho - 0.1) { tela = "s-zap"; hora = "10:03"; }
   mostra(tela);
   $(".status .hora", FA).textContent = hora;
-  const d = $("#dedo"); d.style.opacity = 0;
+  if (tela === "s-cm0") {
+    // o post da Paula: a Bia pergunta o preço, a Paula chama no direct
+    for (const [id, t0] of [["cm5", T.valorC - 0.1], ["cm6", T.chameiC - 0.1]]) { const a = entra(t, t0, 0.28); pos($("#" + id), { y: a.y * 0.6, o: a.o }); }
+    realce($("#cm5"), 0.4 * pulso(t, T.valorC, 1.1)); realce($("#cm6"), 0.4 * pulso(t, T.chameiC, 1.1));
+  }
   if (tela === "s-dir") {
-    // o direct enche: uma conversa por curiosa, todas com "Visto"
+    // o direct: uma conversa por cliente, todas com o preço e "Visto"; depois cada uma fica cinza
     DL.forEach((_, k) => {
-      const t0 = lerp(T.chamei0 - 0.2, T.onze + 0.1, k / 10), a = entra(t, t0, 0.25);
-      pos($(`#dl${k}`), { y: a.y * 0.5, o: k === 0 ? Math.max(a.o, 1) : a.o });
-      $(`#dlv${k}`).style.color = t >= Math.max(t0, T.visualiza) + 0.1 ? "#b25134" : "";
+      const t0 = S.direct - 0.15 + k * 0.05, a = entra(t, t0, 0.25);
+      pos($(`#dl${k}`), { y: a.y * 0.5, o: a.o });
+      $(`#dlv${k}`).style.color = t >= T.visualizaram + k * 0.04 ? "#b25134" : "";
+      const cinza = fase(t, T.apareceram - 0.1 + k * 0.06, T.apareceram + 0.15 + k * 0.06);
+      $(`#dl${k} .dl-av`).style.filter = cinza > 0 ? `grayscale(${cinza.toFixed(2)}) opacity(${(1 - 0.55 * cinza).toFixed(2)})` : "";
     });
     realce($("#dl0"), 0.42 * fase(t, T.bia0 - 0.1, T.bia0 + 0.15));
   }
@@ -279,7 +312,7 @@ function qFone(t) {
     $("#bia-marca").style.color = t >= S.bia && pulso(t, T.biaR - 0.1, 1.4) > 0.01 ? "#b25134" : "";
     CT_BIA.forEach((_, k) => { $(`#bv${k}`).style.filter = t < S.manha && pulso(t, T.foto - 0.1 + k * 0.08, 0.7) > 0.01 ? `brightness(${(1 + 0.12 * pulso(t, T.foto - 0.1 + k * 0.08, 0.7)).toFixed(3)})` : ""; });
     $("#bvu0").style.transform = t < S.manha ? `scale(${(1 + 0.1 * pulso(t, T.tapV - 0.05, 0.4)).toFixed(3)})` : "";
-    if (t < S.manha) toque(t, T.tapV, $("#bvu0"), y + 124);
+    if (t < S.manha) toque(t, T.tapV, $("#bvu0"), y + 124); else $("#dedo").style.opacity = 0;
   }
   if (tela === "s-dm") {
     const a = entra(t, T.chegou + 0.1, 0.3); pos($("#dm1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
@@ -301,6 +334,7 @@ function qFone(t) {
   if (tela === "s-zap") {
     for (const [id, t0] of [["zp1", T.voltou + 0.1], ["zp2", T.nadaF + 0.15]]) { const a = entra(t, t0, 0.3); pos($("#" + id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); }
   }
+  if (tela !== "s-bia" && tela !== "s-pau") $("#dedo").style.opacity = 0;
 }
 // o dedo toca num botão "Pedir": el é o botão, dy é o deslocamento do conteúdo
 function toque(t, t0, el, dy) {
@@ -310,17 +344,16 @@ function toque(t, t0, el, dy) {
   pos(d, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
 }
 function qCena(t) {
-  const dia = em(t, 0, S.direct) || em(t, S.era, S.bia), sala = em(t, S.noite, S.outra) || em(t, S.manha, S.era);
+  const dia = em(t, S.loja, S.noite), sala = em(t, S.noite, S.vestido) || em(t, S.espera, S.outra) || em(t, S.manha, S.bia);
   vis($("#c-cena"), dia || sala);
   attr($("#g-dia"), "opacity", dia ? 1 : 0); attr($("#g-sala"), "opacity", sala ? 1 : 0);
   if (dia) {
+    // a Paula na loja, sem entender para onde vão as clientes
     attr($("#pa-pos"), "transform", `translate(540 1700) scale(${ESC}) rotate(${(Math.sin(t * 2.2) * 1.2).toFixed(2)} 0 0)`);
     pernas("pa", t, false);
-    const era = t >= S.era;
-    // de dia ela revira os olhos para as curiosas; na virada, fica de boca aberta
-    boca("pa", era ? "oh" : em(t, T.some - 0.1, S.direct) ? "triste" : "reta");
-    attr($("#pasob"), "transform", !era && em(t, T.curiosa - 0.05, S.direct) ? "translate(0 -6)" : era ? "translate(0 -10)" : "");
-    fecha("pa", era ? 0 : (t % 2.7 < 0.12 ? 1 : 0));
+    boca("pa", t >= T.ia - 0.1 ? "oh" : "reta");
+    attr($("#pasob"), "transform", "translate(0 -7)");
+    attr($("#paolhos"), "transform", `translate(${(Math.sin(t * 2.6) * 6).toFixed(1)} 0)`);
     attr($("#patela"), "fill", "#9cc6e0");
   }
   if (sala) {
@@ -330,66 +363,76 @@ function qCena(t) {
     $$(".estr").forEach((s, k) => attr(s, "opacity", manha ? 0 : (0.4 + 0.6 * Math.abs(Math.sin(t * 1.3 + k))).toFixed(2)));
     attr($("#g-sala rect"), "fill", manha ? "#3a4a58" : "url(#g-noite)");
     attr($("#abajur"), "opacity", manha ? 0 : 0.12);
-    attr($("#pn-pos"), "transform", `translate(${PX} 1700) scale(${ESC})`);
+    attr($("#pn-pos"), "transform", `translate(${t < S.vestido ? 540 : PX} 1700) scale(${ESC})`);
     pernas("pn", t, false);
+    // ela some: à noite, em "foi ela"; de manhã, em "nunca mais apareceu"
+    const o = t < S.vestido ? pisca(t, T.someP) : manha ? pisca(t, T.someM) : 1;
+    attr($("#pn-pos"), "opacity", o);
     // a tela do celular dela ilumina o rosto à noite
-    attr($("#brilho"), "transform", `translate(${PX + 26 * ESC} ${1700 - 214 * ESC})`); attr($("#brilho"), "opacity", manha ? 0 : (0.8 + 0.2 * Math.sin(t * 5)).toFixed(3));
+    const px = t < S.vestido ? 540 : PX;
+    attr($("#brilho"), "transform", `translate(${px + 26 * ESC} ${1700 - 214 * ESC})`); attr($("#brilho"), "opacity", manha ? 0 : (o * (0.8 + 0.2 * Math.sin(t * 5))).toFixed(3));
     const pensando = em(t, S.espera, S.outra);
-    boca("pn", manha ? (t >= T.nresp ? "reta" : "reta") : pensando ? "reta" : "sorriso");
+    boca("pn", manha ? "reta" : pensando ? "reta" : "sorriso");
     attr($("#pnsob"), "transform", pensando ? "translate(0 4)" : "");
     attr($("#pnolhos"), "transform", pensando ? `translate(${(Math.sin(t * 1.4) * 4).toFixed(1)} 0)` : "");
     if (!pensando) fecha("pn", (t % 2.9) < 0.12 ? 1 : 0);
-    attr($("#pncab"), "transform", manha && t >= T.nresp - 0.1 ? `rotate(${(-6 * fase(t, T.nresp - 0.1, T.nresp + 0.3)).toFixed(2)} 0 -306)` : "");
+    attr($("#pncab"), "transform", manha && t >= T.visu ? `rotate(${(-6 * fase(t, T.visu, T.visu + 0.4)).toFixed(2)} 0 -306)` : "");
   }
 }
+function qGancho(t) {
+  // as onze clientes, uma a uma, piscam e somem; fica o contorno
+  const fim = 1 - fase(t, S.post - 0.45, S.post - 0.05);
+  $("#sumidas").style.display = t < S.post ? "block" : "none";
+  if (t >= S.post) { $("#sm-n").style.opacity = 0; return; }
+  let n = 0;
+  DL.forEach((_, k) => {
+    const el = $(`#sm${k}`), [x, y] = SM_POS[k], a = entra(t, 0.05 + k * 0.03, 0.3), o = pisca(t, SM_T[k]);
+    if (t >= SM_T[k] + 0.2) n++;
+    el.style.left = `${x}px`; el.style.top = `${y + a.y * 0.6}px`;
+    el.style.opacity = (Math.max(a.o, t > 0.4 ? 1 : 0) * fim).toFixed(3);
+    el.style.transform = `scale(${(a.s * lerp(0.92, 1, fim) * (1 + 0.05 * pulso(t, T.jeito - 0.1, 0.5))).toFixed(3)})`;
+    $("i", el).style.opacity = o.toFixed(3);
+    $("span", el).style.opacity = (0.35 + 0.65 * o).toFixed(3);
+  });
+  $("#sm-nb").textContent = n;
+  const c = entra(t, 0.15, 0.3), bate = SM_T.reduce((m, t0) => Math.max(m, pulso(t, t0 + 0.2, 0.25)), 0);
+  $("#sm-n").style.opacity = (c.o * fim).toFixed(3);
+  $("#sm-n").style.transform = `translateY(${c.y}px) scale(${(c.s * (1 + 0.08 * bate)).toFixed(3)})`;
+}
 function qExtra(t) {
-  // as curiosas do dia, contadas
-  const n = em(t, S.direct, S.noite) ? Math.round(lerp(0, 11, fase(t, T.chamei0 - 0.2, T.onze + 0.1))) : 0;
+  // no direct, as que somem são contadas de novo
+  const n = em(t, S.direct, S.loja) ? Math.round(lerp(0, 11, fase(t, T.apareceram - 0.1, T.apareceram + 0.75))) : 0;
   $("#pl-n").textContent = n;
   {
-    const a = entra(t, T.chamei0 - 0.25), o = em(t, T.chamei0 - 0.3, S.noite) ? a.o * (1 - fase(t, S.noite - 0.3, S.noite)) : 0;
-    pos($("#placar"), { x: 720, y: 486 + a.y, s: a.s * (1 + 0.1 * pulso(t, T.onze - 0.05, 0.4)), o, r: 3 });
+    const a = entra(t, S.direct + 0.2), o = em(t, S.direct, S.loja) ? a.o * (1 - fase(t, S.loja - 0.3, S.loja)) : 0;
+    pos($("#placar"), { x: 720, y: 486 + a.y, s: a.s * (1 + 0.1 * pulso(t, T.apareceram + 0.7, 0.4)), o, r: 3 });
   }
-  // o relógio da espera
+  // o relógio: onze da noite, e depois a espera
   {
-    const o = em(t, S.espera - 0.1, S.outra) ? entra(t, S.espera).o * (1 - fase(t, S.outra - 0.25, S.outra)) : 0;
-    const m = Math.round(lerp(12, 58, fase(t, S.espera, S.outra)));
+    const noite = em(t, S.noite - 0.1, S.vestido), espera = em(t, S.espera - 0.1, S.outra);
+    const o = noite ? entra(t, S.noite).o * (1 - fase(t, S.vestido - 0.25, S.vestido)) : espera ? entra(t, S.espera).o * (1 - fase(t, S.outra - 0.25, S.outra)) : 0;
+    const m = noite ? 0 : Math.round(lerp(12, 58, fase(t, S.espera, S.outra)));
     $("#relogio").textContent = `23:${String(m).padStart(2, "0")}`;
     $("#relogio").style.opacity = o.toFixed(3);
   }
-  // o carimbo: curiosa
-  {
-    const x = fase(t, T.ela - 0.1, T.ela + 0.2), o = em(t, T.ela - 0.1, S.bia) ? Math.min(1, x * 3) * (1 - fase(t, S.bia - 0.25, S.bia)) : 0;
-    pos($("#carimbo"), { s: lerp(2.4, 1, sai(x)), r: -9, o });
-  }
-  // a lição: o caminho da "curiosa" até a outra loja
-  const L0 = S.licao, L1 = I("legenda");
+  // a lição: o caminho de quem "some" até a outra loja
+  const L0 = S.licao, L1 = S.site;
   ETAPAS.forEach((el, k) => {
-    const t0 = [L0 + 0.1, T.trab - 0.3, T.esperar - 0.1, T.loja - 0.2][k], a = entra(t, t0, 0.3);
+    const t0 = [L0 + 0.1, T.toa - 0.2, T.preco2 - 0.1, T.procurar - 0.1][k], a = entra(t, t0, 0.3);
     const o = em(t, t0 - 0.05, L1) ? a.o * (1 - fase(t, L1 - 0.3, L1)) : 0;
-    pos(el, { x: 220, y: 700 + k * 178 + a.y, s: a.s, o });
+    pos(el, { x: 220, y: 700 + k * 178 + a.y, s: a.s * (k === 3 ? 1 + 0.06 * pulso(t, T.esta - 0.1, 0.5) : 1), o });
   });
   SETAS.forEach((el, k) => {
-    const t0 = [T.trab - 0.3, T.esperar - 0.1, T.loja - 0.2][k], o = em(t, t0, L1) ? fase(t, t0, t0 + 0.2) * (1 - fase(t, L1 - 0.3, L1)) : 0;
+    const t0 = [T.toa - 0.2, T.preco2 - 0.1, T.procurar - 0.1][k], o = em(t, t0, L1) ? fase(t, t0, t0 + 0.2) * (1 - fase(t, L1 - 0.3, L1)) : 0;
     pos(el, { y: 700 + k * 178 + 124, o });
   });
-  // quarenta posts para abrir um por um
-  const P0 = L1, P1 = S.site, ab = em(t, P0, P1) ? Math.floor(lerp(1, 7, fase(t, T.quarenta, T.comparar + 0.2))) : 0;
-  $$("#posts i").forEach((el, k) => {
-    const a = entra(t, P0 + 0.05 + k * 0.018, 0.25);
-    const o = em(t, P0, P1) ? a.o * (1 - fase(t, P1 - 0.3, P1)) : 0;
-    pos(el, { y: a.y * 0.4, s: a.s * (k < ab && k === ab - 1 ? 1.15 : 1), o: o * (k < ab ? 1 : 0.55) });
-    el.style.boxShadow = k < ab ? "0 0 0 4px #e8855e" : "";
-  });
-  $("#posts-n").textContent = `${Math.max(1, ab)} de 40`;
-  $("#posts-n").style.opacity = (em(t, T.quarenta - 0.2, P1) ? fase(t, T.quarenta - 0.2, T.quarenta + 0.1) * (1 - fase(t, P1 - 0.3, P1)) : 0).toFixed(3);
 }
 function qBaloes(t) {
-  // os "valor?" estouram em volta da Paula e somem
+  // na loja, os "valor?" do dia estouram em volta da Paula e somem, um por um
   B_VALOR.forEach((b, k) => {
-    const [x, y, r] = VALOR_POS[k], t0 = lerp(T.comenta - 0.2, T.valor0 + 0.5, k / 7), a = entra(t, t0, 0.25);
-    const some = fase(t, T.some - 0.05 + k * 0.03, T.some + 0.15 + k * 0.03);
-    pos(b, { x, y: y + a.y, s: a.s * (1 + 0.3 * some), r, o: em(t, t0 - 0.05, S.direct) ? a.o * (1 - some) : 0 });
+    const [x, y, r] = VALOR_POS[k], t0 = lerp(S.loja + 0.05, T.entender + 0.2, k / 7), a = entra(t, t0, 0.25);
+    const o = em(t, t0 - 0.05, S.noite) ? a.o * pisca(t, T.ia - 0.25 + k * 0.05, 0.35) : 0;
+    pos(b, { x, y: y + a.y, s: a.s, r, o });
   });
   for (const [b, t0, t1, x, y] of [[B_CARO, T.caro - 0.3, S.outra, 470, 860], [B_TARDE, T.tarde - 0.3, S.outra, 300, 1040]]) {
     const a = entra(t, t0), o = em(t, t0 - 0.05, t1) ? a.o * (1 - fase(t, t1 - 0.25, t1)) : 0;
@@ -400,11 +443,11 @@ function qBaloes(t) {
     pos(b, { x: 220, y: 1530 + a.y, s: a.s, o });
   }
   {
-    const a = entra(t, T.visu - 0.05, 0.25), o = em(t, T.visu - 0.1, S.era) ? a.o * (1 - fase(t, S.era - 0.25, S.era)) : 0;
+    const a = entra(t, T.visu - 0.05, 0.25), o = em(t, T.visu - 0.1, S.bia) ? a.o * pisca(t, T.someM + 0.1) : 0;
     pos(B_VISTO, { x: 540 - B_VISTO.offsetWidth / 2, y: 1500 + a.y, s: a.s, o });
   }
   {
-    const a = entra(t, T.dez - 0.15, 0.3), o = em(t, T.dez - 0.2, S.licao) ? a.o * (1 - fase(t, S.licao - 0.25, S.licao)) : 0;
+    const a = entra(t, T.sumido - 0.25, 0.3), o = em(t, T.sumido - 0.3, S.licao) ? a.o * (1 - fase(t, S.licao - 0.25, S.licao)) : 0;
     pos(B_BIA, { x: 1056 - B_BIA.offsetWidth, y: 760 + a.y, s: a.s, o, r: 2 });
   }
 }
@@ -412,14 +455,17 @@ function qBaloes(t) {
 window.quadro = t => {
   palco.style.transform = "none";
   const quente = em(t, S.site, S.marca);
-  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
-  qCena(t); qFone(t); qExtra(t); qBaloes(t);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : t < S.post ? "radial-gradient(70% 45% at 50% 46%,#2a2224 0%,#121618 72%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  qCena(t); qGancho(t); qFone(t); qExtra(t); qBaloes(t);
   R.comum(t);
 };
-window.preparar = () => R.preparar([0.4, T.curiosa + 0.4, T.valor0 + 0.4, T.some + 0.3, T.visualiza + 0.3, T.onze + 0.4, T.bia0 + 0.3, T.vestido + 0.3, T.sem + 0.4,
-  T.valor1 + 0.4, T.chamei1 + 0.5, T.caro + 0.3, T.tarde + 0.6, T.site1 + 0.3, T.foto + 0.3, T.tapV + 0.6, T.chegou + 0.5, T.visu + 0.4, T.nresp + 0.3,
-  T.ela + 0.3, T.biaR + 0.3, T.dez + 0.4, T.trab + 0.3, T.loja + 0.3, T.quarenta + 0.5, T.comparar + 0.2, T.catalogo + 0.3, T.preco + 0.3, T.tapB + 0.6,
-  T.link + 0.4, T.caramelo + 0.3, T.nadaF + 0.5, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6]);
+// um estalo baixinho para cada uma que some, e para a Paula
+const SONS = [...SM_T.map((t0, k) => ({ t: t0 + 0.05, tipo: "toc", ganho: 0.22 + 0.02 * (k % 3) })), { t: T.someP + 0.05, tipo: "toc", ganho: 0.45 }, { t: T.someM + 0.05, tipo: "toc", ganho: 0.45 },
+  { t: T.tapV, tipo: "toque", ganho: 0.7 }, { t: T.tapB, tipo: "toque", ganho: 0.7 }];
+window.preparar = () => R.preparar([0.3, T.onze0 + 0.3, T.paula + 0.4, T.jeito + 0.3, T.valorC + 0.3, T.chameiC + 0.4, T.visualizaram + 0.3, T.apareceram + 0.6, T.bia0 + 0.3,
+  T.entender + 0.3, T.ia + 0.2, T.descobriu + 0.3, T.ela + 0.1, T.ela + 0.6, T.vestido + 0.3, T.sem + 0.4, T.valor1 + 0.4, T.chamei1 + 0.5, T.caro + 0.3, T.tarde + 0.6,
+  T.site1 + 0.3, T.foto + 0.3, T.tapV + 0.6, T.chegou + 0.5, T.visu + 0.4, T.apareceu + 0.6, T.biaR + 0.3, T.sumido + 0.4,
+  T.toa + 0.3, T.procurar + 0.3, T.catalogo + 0.3, T.preco + 0.3, T.tapB + 0.6, T.link + 0.4, T.caramelo + 0.3, T.nadaF + 0.5, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6], SONS);
 await R.pronto();
 </script>
 </body></html>

@@ -1,5 +1,5 @@
 {
- "_sobre": "Narração do Reels \"A planilha\" (série com virada, semana de 04/11/2026, sexta). Alvo: a fotógrafa que abre a mini sessão de Natal pelo Stories e controla as vagas numa planilha. Objetivo: perceber que, quando as vagas moram no direct e na planilha, a mesma vaga é vendida duas vezes e horário fica preso por quem não paga, e que com a agenda online no site a cliente vê as vagas e reserva sozinha, o horário fica separado por 24 horas até o sinal, quem chega tarde vai para a lista de espera e o painel conta as vagas. Quem narra é a planilha, que no fim é demitida. Os fatos vêm do exemplo do Estúdio Ciranda. A Lia, as clientes e o cachorro são fictícios. O único trocadilho é \"não tinha coluna para cachorro\". O id \"nada\" corta a batida da trilha.",
+ "_sobre": "Narração do Reels \"A planilha\" (série com virada, semana de 04/11/2026, sexta, para fotógrafas), versão 2 (03/11, 22h40): começa no meio da confusão para prender nos primeiros segundos. Alvo: a fotógrafa que vende a mini sessão de Natal pelo direct e anota as vagas numa planilha. Objetivo: ela perceber que vaga anotada à mão é vendida duas vezes e fica presa por quem não paga, e que com a agenda online no site a cliente vê quantas vagas restam e reserva sozinha, o horário fica separado por 24 horas até o sinal, quem chega tarde vai para a lista de espera e o painel conta as vagas. O gancho: duas famílias de pijama de Natal chegam para a mesma foto. A virada: quem narra, e viu tudo sem poder avisar, é a planilha da Lia, que no fim é demitida. Tudo é fictício. O id \"nada\" corta a batida.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+13%",
@@ -7,69 +7,88 @@
  "frases": [
   {
    "id": "abre",
-   "cena": "planilha",
-   "texto": "Eu sou uma planilha. E eu vendi a mesma vaga duas *vezes.*",
-   "pausa": 0.4,
+   "cena": "porta",
+   "texto": "Sábado, dez e vinte. Duas famílias de pijama de Natal chegaram para a mesma *foto.*",
+   "pausa": 0.3,
    "impacto": true
   },
   {
-   "id": "moro",
+   "id": "marcado",
+   "cena": "porta",
+   "texto": "As duas com o horário *confirmado.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "lia",
+   "cena": "porta",
+   "texto": "No meio, a fotógrafa Lia Moreno, segurando a *câmera.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "sei",
+   "cena": "porta",
+   "texto": "Eu sei como isso aconteceu. Eu vi quando a Lia marcou as *duas.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "antes",
    "cena": "stories",
-   "texto": "Eu moro no celular da fotógrafa Lia Moreno, que abriu as vagas do Natal às oito da *noite.*",
-   "pausa": 0.2
+   "texto": "Três semanas antes, ela abriu as vagas da mini sessão de Natal pelo *Stories.*",
+   "pausa": 0.15
   },
   {
    "id": "explodiu",
-   "cena": "direct",
-   "texto": "Às oito e um, o direct *explodiu.*",
+   "cena": "stories",
+   "texto": "Em um minuto, o direct *explodiu.*",
    "pausa": 0.2
   },
   {
    "id": "trinta",
    "cena": "direct",
-   "texto": "Trinta pessoas perguntaram se tinha vaga, e a Lia digitava em mim com uma mão *só.*",
+   "texto": "Trinta pessoas perguntando se ainda tinha *vaga.*",
    "pausa": 0.3
   },
   {
    "id": "carol",
    "cena": "noite",
-   "texto": "À meia-noite, ela escreveu Carol às dez e vinte. Dois minutos depois, Fernanda. Também às dez e *vinte.*",
-   "pausa": 0.2
+   "texto": "À meia-noite, ela marcou a Carol às dez e vinte. Logo depois, a Fernanda. Também às dez e *vinte.*",
+   "pausa": 0.35
   },
   {
    "id": "vi",
    "cena": "noite",
-   "texto": "Eu vi. Mas planilha não *fala.*",
-   "pausa": 0.55
+   "texto": "Eu vi tudo. Mas não podia *avisar.*",
+   "pausa": 0.5
   },
   {
    "id": "nada",
-   "cena": "bruna",
-   "texto": "Depois veio a Bruna, que pediu para segurar as nove e quarenta até falar com o *marido.*",
-   "pausa": 0.2
+   "cena": "planilha",
+   "texto": "Eu sou a planilha da *Lia.*",
+   "pausa": 0.5,
+   "impacto": true
   },
   {
-   "id": "quinze",
+   "id": "bruna",
    "cena": "bruna",
-   "texto": "Ficou quinze dias. O marido respondeu no dia *vinte.*",
-   "pausa": 0.25
+   "texto": "E as nove e quarenta? A Bruna segurou por quinze dias, esperando o *marido.*",
+   "pausa": 0.3
   },
   {
    "id": "nao",
    "cena": "bruna",
-   "texto": "Era *não.*",
-   "pausa": 0.5
+   "texto": "A resposta foi *não.*",
+   "pausa": 0.45
   },
   {
-   "id": "cachorro",
-   "cena": "cachorro",
-   "texto": "E uma moça perguntou se podia levar o cachorro. Eu não tinha coluna para *cachorro.*",
-   "pausa": 0.55
+   "id": "foto",
+   "cena": "foto",
+   "texto": "No sábado, a Lia resolveu do único jeito possível: uma foto com as duas *famílias.*",
+   "pausa": 0.5
   },
   {
    "id": "fez",
    "cena": "site",
-   "texto": "Então a Lia colocou a agenda online no *site.*",
+   "texto": "No Natal seguinte, ela abriu as vagas pelo site, com a agenda *online.*",
    "pausa": 0.15,
    "impacto": true
   },
@@ -77,7 +96,7 @@
    "id": "restam",
    "cena": "site",
    "texto": "A cliente vê quantas vagas *restam* e reserva *sozinha.*",
-   "pausa": 0.2
+   "pausa": 0.15
   },
   {
    "id": "sinal",
@@ -93,33 +112,21 @@
   },
   {
    "id": "painel",
-   "cena": "site",
-   "texto": "E no painel, a Lia marca os sinais e vê quantas vagas *sobraram.*",
-   "pausa": 0.2
-  },
-  {
-   "id": "trabalho",
-   "cena": "site",
-   "texto": "Ou seja: o meu trabalho, sem *erro.*",
-   "pausa": 0.4
-  },
-  {
-   "id": "cada",
    "cena": "fecho",
-   "texto": "A Carol ficou com as dez e vinte, a Fernanda com as onze, e a dona do cachorro entrou pela lista de espera, nas nove e *quarenta.*",
-   "pausa": 0.4
+   "texto": "E no painel, a Lia marca os sinais e vê quantas vagas *sobraram.*",
+   "pausa": 0.45
   },
   {
    "id": "demitida",
    "cena": "demitida",
    "texto": "E eu? Fui *demitida.*",
-   "pausa": 0.55
+   "pausa": 0.4
   },
   {
    "id": "compras",
    "cena": "demitida",
-   "texto": "Hoje eu cuido da lista de compras da Lia. Primeiro item: *ração.*",
-   "pausa": 0.6
+   "texto": "Hoje eu cuido da lista de compras da Lia. Lá, se eu anotar o leite duas vezes, o pior que acontece é sobrar *leite.*",
+   "pausa": 0.5
   },
   {
    "id": "moral",

@@ -410,7 +410,7 @@ Comentário para fixar: "Quantas mensagens a sua recepção troca para marcar um
 
 ### Sex 06/11 · "A planilha" (`reels-planilha`, para fotógrafas)
 
-A Lia, a Carol e a Fernanda são fictícias. A planilha de Natal, nem tanto.
+A Lia e as duas famílias de pijama são fictícias. A planilha de Natal, nem tanto.
 
 Quando as vagas moram no direct e numa planilha, só você sabe quais acabaram, e às vezes nem você. Com a agenda online no site, a cliente vê o que resta e reserva sozinha, o horário espera o sinal por 24 horas, e quem chega tarde vai para a lista de espera.
 

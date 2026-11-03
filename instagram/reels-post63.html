@@ -8,7 +8,7 @@
      A história: abre como suspense. Quem fala está "aqui embaixo" há dois anos: é o bebê do post 63, o melhor
      newborn da Marina, soterrado por bolo, Natal, sorteio e dancinhas. A Júlia, grávida, procura newborn no perfil,
      para no Reels da dança e desiste onze fileiras acima. A Marina faz um site com o portfólio por ensaio, o bebê vira
-     a primeira foto do newborn, e dois anos depois a Júlia chama a Marina em três segundos. No fim, quem afunda até o
+     a primeira foto do newborn, e na segunda gravidez a Júlia chama a Marina em três segundos. No fim, quem afunda até o
      post 63 é o Reels da dança. Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
      narracao/reels-post63.json → python3 instagram/narrar.py reels-post63 → esta página lê reels-post63.tempos.json.
      As peças comuns (contas, gente, legendas, marca, convite e trilha) estão em historia.mjs e historia.css.
@@ -119,7 +119,7 @@ const T = {
   bebe: W("sou", "bebe"), sessenta: W("sou", "sessenta"), bonito: W("sou", "bonito"),
   gravida: W("julia", "gravida"), entrou: W("julia", "entrou"), perfil: W("julia", "perfil"), newborn1: W("julia", "newborn"),
   agora: W("agora", "agora"),
-  bolo2: W("passou", "bolo"), natal2: W("passou", "natal"), parou: W("passou", "parou"), reels: W("passou", "reels"), assistiu: W("passou", "assistiu"), duas: W("passou", "duas"),
+  bolo2: W("passou", "bolo"), natal2: W("passou", "natal"), parou: W("passou", "parou"), reels: W("passou", "video"), assistiu: W("passou", "assistiu"), duas: W("passou", "duas"),
   rolou1: W("rolou", "rolou", 0), rolou2: W("rolou", "rolou", 1), nao: W("rolou", "nao"), rolou3: W("rolou", "rolou", 2),
   onze: W("nada", "onze"), mim: W("nada", "mim"),
   fechou: W("fechou", "fechou"), bebe2: W("fechou", "bebe"), cara: W("fechou", "cara"),
@@ -129,14 +129,14 @@ const T = {
   nb: W("abas", "newborn"), gest: W("abas", "gestante"), fam: W("abas", "familia"), smash: W("abas", "smash"),
   cada: W("cada", "cada"), fotos: W("cada", "fotos"), whats: W("cada", "whatsapp"),
   adivinha: W("adivinha", "adivinha"), primeira: W("adivinha", "primeira"), nb2: W("adivinha", "newborn"),
-  gravida2: W("depois", "gravida"), recebeu: W("depois", "recebeu"), link: W("depois", "link"), tocou: W("depois", "tocou"), nb3: W("depois", "newborn"),
+  gravida2: W("depois", "gravidez"), recebeu: W("depois", "recebeu"), link: W("depois", "link"), tocou: W("depois", "tocou"), nb3: W("depois", "newborn"),
   segundos: W("tres", "segundos"), chamou: W("tres", "chamou"), whats2: W("tres", "whatsapp"),
-  reels2: W("danca2", "reels"), continua: W("danca2", "continua"), feed2: W("danca2", "feed"),
+  reels2: W("danca2", "video"), continua: W("danca2", "continua"), feed2: W("danca2", "feed"),
   hoje: W("hoje", "hoje"), post2: W("hoje", "post"), ele: W("hoje", "ele"),
 };
 T.tapReel = T.reels - 0.12;        // a Júlia toca no Reels da dança
 T.voltaGrade = T.rolou1 - 0.15;    // e volta para a grade
-T.tapLink = T.link + 0.2;          // dois anos depois: o link da amiga
+T.tapLink = T.link + 0.2;          // na segunda gravidez: o link da amiga
 T.tapNb = T.nb3 - 0.12;            // a aba Newborn
 T.tapZap = T.chamou - 0.2;         // o botão do WhatsApp
 
