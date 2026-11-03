@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: a casa abandonada</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 5 (domingo, 19h).
+     Alvo: o dono de espaço de eventos com site antigo.
+     Objetivo: perceber que, para quem chega pelo celular, o site é a primeira visita, e que site parado parece lugar
+     fechado; com um site novo, feito para o celular, com fotos de agora, pacotes e WhatsApp, a noiva chama.
+     A história: abre como terror. A Ana e o Léo entram numa casa abandonada à meia-noite: música tocando sozinha, uma
+     placa de "visitante 312", quadros vazios, uma porta "em construção desde 2013", um livro de visitas parado em 2014
+     e um telefone fixo que ninguém atende. A virada: a casa era o site antigo do Espaço Jardim Aurora, que naquela
+     mesma noite estava no meio de um casamento. A Dona Célia troca o site, e a noiva seguinte chama no WhatsApp.
+     A Ana, o Léo, a Dona Célia e o Espaço Jardim Aurora são fictícios, e as telas levam o selo "exemplo".
+     O tempo de tudo sai da narração: narracao/reels-casa.json → python3 instagram/narrar.py reels-casa → esta página
+     lê reels-casa.tempos.json. As peças comuns estão em historia.mjs e historia.css.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+#c-casa{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:6;transform-origin:0 0;display:none}
+/* o site antigo */
+.vh{background:#1a0f24;color:#e9e3c9;font-family:Georgia,"Times New Roman",serif}
+.vh-top{height:70px;background:#2a1238;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05}
+.vh-top b{font-family:"Fraunces",serif;font-style:italic;font-weight:600;color:#f2c25a;font-size:30px}
+.vh-top small{font-size:15px;color:#e8855e;letter-spacing:.18em}
+.vh-foto{height:300px;overflow:hidden}
+.vh-foto svg{width:100%;height:100%;display:block}
+.vh-l{margin:8px 12px 0;padding:0 12px;border:3px ridge #6a4a7a;font-size:19px;display:flex;align-items:center;gap:10px;height:66px;box-sizing:border-box}
+.vh-dig{font-family:monospace;background:#000;color:#7cfc7c;padding:2px 8px;font-size:26px;letter-spacing:3px}
+.vh-x{width:46px;height:42px;border:2px solid #8c9598;background:#2a2238;position:relative;flex:none}
+.vh-x::before{content:"";position:absolute;left:4px;top:4px;width:12px;height:12px;border:2px solid #c0c4c6;background:#fff;clip-path:polygon(0 0,100% 0,100% 55%,55% 100%,0 100%)}
+.vh-obra{background:repeating-linear-gradient(45deg,#f2c25a 0 14px,#1e2528 14px 28px)}
+.vh-obra span{background:#f2c25a;color:#1e2528;font-family:"Geist",sans-serif;font-weight:800;padding:4px 10px;border-radius:6px}
+.vh-l u{text-decoration:underline;color:#9cc6e0}
+/* o site novo */
+.nv{position:absolute;inset:0;padding-top:60px;background:#fbf8f3;overflow:hidden}
+.nv-hero{position:relative;height:250px;margin:0 16px;border-radius:24px;overflow:hidden}
+.nv-hero svg{width:100%;height:100%;display:block}
+.nv-hero span{position:absolute;left:14px;bottom:14px;padding:8px 16px;border-radius:16px;background:rgba(251,248,243,.94);color:#1e2528;font-size:21px;font-weight:800}
+.nv-tit{margin:12px 22px 8px;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.nv-pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 16px}
+.nv-p{border-radius:20px;background:#fff;padding:14px 14px 12px;box-shadow:0 2px 0 rgba(0,0,0,.05)}
+.nv-p b{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.nv-p small{display:block;font-size:17px;font-weight:700;color:#b25134;margin:8px 0 4px;text-transform:uppercase;letter-spacing:.06em}
+.nv-p i{display:flex;align-items:center;gap:6px;font-style:normal;font-size:19px;font-weight:600;color:#3b4447;line-height:1.5}
+.nv-p i svg{width:18px;height:18px;color:#2f8f5b;flex:none}
+/* sobre a cena */
+.fone .status{background:transparent}
+.vh .status,.fone .status.escura{color:#e9e3c9}
+.etq{position:absolute;left:0;top:0;z-index:27;padding:12px 26px;border-radius:26px;background:#1e2528;color:#f1eee9;font-size:38px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;opacity:0;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+#relogio{position:absolute;left:540px;top:470px;translate:-50% 0;z-index:27;padding:16px 38px;border-radius:32px;background:rgba(10,14,16,.75);color:#f1eee9;font-size:84px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;opacity:0}
+#sabados{position:absolute;left:90px;top:470px;width:900px;z-index:27;padding:26px 30px;border-radius:34px;background:#f1eee9;color:#1e2528;opacity:0;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+#sabados b{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+#sabados div{display:flex;gap:14px}
+#sabados span{flex:1;height:120px;border-radius:22px;background:#e2dbd0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:40px;font-weight:800;opacity:0}
+#sabados span small{font-size:20px;font-weight:700;color:#7a8386}
+#sabados span.f{background:var(--terracota);color:#fff}
+#sabados span.f small{color:#fbe3d6}
+.etapa{position:absolute;left:0;top:0;z-index:23;width:700px;height:150px;border-radius:34px;background:#f1eee9;color:#1e2528;display:flex;align-items:center;gap:24px;padding:0 34px;font-size:40px;font-weight:800;letter-spacing:-.025em;line-height:1.08;box-shadow:0 24px 60px rgba(0,0,0,.35);opacity:0;box-sizing:border-box}
+.etapa svg{width:56px;height:56px;flex:none;color:var(--terracota)}
+.etapa small{display:block;font-size:26px;font-weight:600;color:#6a7376;letter-spacing:-.01em}
+#teia{position:absolute;left:0;top:0;z-index:24;width:170px;height:170px;opacity:0}
+#xis{position:absolute;left:0;top:0;z-index:24;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;opacity:0}
+#xis svg{width:56px;height:56px}
+#seta{position:absolute;left:567px;top:0;width:6px;height:56px;margin-left:-3px;border-radius:3px;background:#8c9598;z-index:22;opacity:0}
+#painel{position:absolute;left:110px;top:640px;width:860px;z-index:27;padding:34px 40px 30px;border-radius:40px;background:#f1eee9;color:#1e2528;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.5);box-sizing:border-box}
+#painel>small{display:block;font-size:26px;font-weight:700;color:#6a7376;margin-bottom:18px}
+#painel .exemplo{left:40px;top:-16px}
+.pn-l{display:flex;align-items:center;gap:22px;padding:20px 0;border-top:2px solid #e2dbd0}
+.pn-l svg{width:56px;height:56px;color:var(--terracota);flex:none}
+.pn-l span{flex:1;font-size:38px;font-weight:700;letter-spacing:-.02em}
+.pn-l b{font-size:76px;font-weight:800;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.balao.zapm{font-size:36px;white-space:normal;width:640px;line-height:1.18}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <svg id="c-casa" viewBox="0 0 1080 1920"><g id="mundo"></g></svg>
+  <div class="poeira" id="poeira"></div>
+  <div id="extra"></div>
+  <div class="fone" id="fa"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, camera, IC, ic, ZAP_B, PELE, cabeca, dePe, boca, pernas, fecha, barra, balao, historia, h } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-casa",
+  ordem: ["casa", "entrada", "corredor", "livro", "telefone", "celular", "festa", "licao", "site", "fecho", "marca", "cta"],
+  // a trilha: o terror abre num drone, a casa é o relógio (chimbal e baixo), o telefone acelera e "a casa abandonada
+  // era um site" (a frase "nada") corta tudo; a subida leva ao drop na festa, e o groove segue até o site novo
+  trilha: { casa: "abre", entrada: "google", corredor: "google", livro: "google", telefone: "insta", celular: "ese", festa: "site", licao: "site", site: "site", fecho: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "A Ana, o Léo, a Dona Célia e o Espaço Jardim Aurora são fictícios.", bpm: 120, tom: 1,
+});
+const { F, S, I, W, palco } = R;
+const T = {
+  abandonada: W("abre", "abandonada"),
+  meia: W("meia", "meia-noite"), entrada: W("meia", "entrada"), musica: W("meia", "musica"), sozinha: W("meia", "sozinha"),
+  placa: W("placa", "placa"), visitante: W("placa", "visitante"), trezentos: W("placa", "trezentos"), doze: W("placa", "doze"),
+  quadros: W("quadros", "quadros"), vazios: W("quadros", "vazios"), porta: W("quadros", "porta"), construcao: W("quadros", "construcao"), treze: W("quadros", "treze"),
+  livro: W("livro", "livro"), ultima: W("livro", "ultima"), marco: W("livro", "marco"),
+  telefone: W("fixo", "telefone"), fixo: W("fixo", "fixo"), ligou: W("fixo", "ligou"), ninguem: W("fixo", "ninguem"), atendeu: W("fixo", "atendeu"),
+  foram: W("foram", "foram"), nunca: W("foram", "nunca"),
+  era: W("nada", "era"), siteN: W("nada", "site"),
+  espaco: W("aurora", "espaco"), naquela: W("aurora", "naquela"), casamento: W("aurora", "casamento"),
+  pista: W("pista", "pista"), festa: W("sabado", "festa"), sabado: W("sabado", "sabado"), so: W("sabado", "so"), parado: W("sabado", "parado"),
+  celular: W("licao", "celular"), primeira: W("licao", "primeira"), parece: W("licao", "parece"), ninguem2: W("licao", "ninguem"), segunda: W("licao", "segunda"),
+  celia: W("trocou", "celia"), trocou: W("trocou", "trocou"),
+  fotos: W("fotos", "fotos"), pacotes: W("fotos", "pacotes"), incluso: W("fotos", "incluso"), whats: W("fotos", "whatsapp"), toque: W("fotos", "toque"),
+  noiva: W("noiva", "noiva"), meia2: W("noiva", "meia-noite"), pista2: W("noiva", "pista"), chamou: W("noiva", "chamou"),
+  contador: W("contador", "contador"), trezentos2: W("contador", "trezentos"), novo: W("contador", "novo"), viu2: W("contador", "viu"), chamou2: W("contador", "chamou"),
+};
+T.encolhe = T.era - 1.0;          // a casa encolhe até caber na tela do celular
+T.troca = T.siteN - 0.05;         // e vira o site antigo
+T.tapZap = T.chamou - 0.2;
+
+IC.teia = '<path d="M2 2 L22 22 M2 2 L12 22 M2 2 L22 12 M2 2 L2 22 M2 2 L22 2"/><path d="M2 8 Q6 7 7 2 M2 13 Q10 11 13 2 M2 18 Q14 15 18 2"/>';
+IC.pino = '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>';
+IC.fone = '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>';
+IC.grafico = '<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>';
+
+// ====================== a casa (o mundo de terror, de 0 a 6600 em x) ======================
+// a frente da casa, à noite. sfx muda os ids, porque o mesmo desenho vira a foto do site antigo
+const exterior = sfx => `<defs><linearGradient id="ceu${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0a18"/><stop offset="1" stop-color="#241a38"/></linearGradient>
+    <radialGradient id="halo${sfx}" cx="760" cy="560" r="300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e9e3c9" stop-opacity=".22"/><stop offset="1" stop-color="#e9e3c9" stop-opacity="0"/></radialGradient></defs>
+  <rect x="-200" y="0" width="1290" height="1920" fill="url(#ceu${sfx})"/><rect x="-200" y="0" width="1290" height="1920" fill="url(#halo${sfx})"/>
+  ${Array.from({ length: 26 }, (_, k) => `<circle cx="${(h(k, 1) * 1080).toFixed(0)}" cy="${(h(k, 2) * 900).toFixed(0)}" r="${(1.5 + h(k, 3) * 2.5).toFixed(1)}" fill="#f1eee9" opacity="${(0.3 + h(k, 4) * 0.5).toFixed(2)}"/>`).join("")}
+  <circle cx="760" cy="560" r="110" fill="#e9e3c9"/><circle cx="726" cy="540" r="18" fill="#cfc8ac"/><circle cx="790" cy="600" r="12" fill="#cfc8ac"/>
+  <g id="nuvem${sfx}"><ellipse cx="600" cy="640" rx="210" ry="34" fill="#15122a" opacity=".85"/><ellipse cx="900" cy="500" rx="160" ry="26" fill="#15122a" opacity=".7"/></g>
+  <path d="M-200 1500 Q300 1300 540 1320 Q800 1330 1290 1480 V1920 H-200 Z" fill="#120f1c"/>
+  <g transform="translate(150 1360)"><path d="M0 0 L8 -380 M6 -200 L-90 -300 M6 -260 L80 -350 M6 -320 L-40 -420 M-60 -270 L-110 -260 M60 -320 L120 -330" stroke="#0a0812" stroke-width="18" stroke-linecap="round" fill="none"/></g>
+  <g><rect x="330" y="980" width="420" height="350" fill="#1c1826"/><polygon points="300,990 540,760 780,990" fill="#15121e"/>
+    <rect x="640" y="820" width="100" height="170" fill="#1c1826"/><polygon points="628,826 690,690 752,826" fill="#15121e"/>
+    ${[[380, 1040], [600, 1040], [380, 1170], [600, 1170], [670, 860]].map(([x, y], k) => `<rect class="jan${sfx}" x="${x}" y="${y}" width="${k === 4 ? 40 : 90}" height="${k === 4 ? 70 : 90}" fill="#2b2338"/><rect class="luzj${sfx}" x="${x}" y="${y}" width="${k === 4 ? 40 : 90}" height="${k === 4 ? 70 : 90}" fill="#e8c76a" opacity="${[0.3, 0, 0, 0.22, 0.35][k]}"/><path d="M${x} ${y} h${k === 4 ? 40 : 90} v${k === 4 ? 70 : 90} h${-(k === 4 ? 40 : 90)} Z M${x + (k === 4 ? 20 : 45)} ${y} v${k === 4 ? 70 : 90} M${x} ${y + (k === 4 ? 35 : 45)} h${k === 4 ? 40 : 90}" stroke="#0f0c16" stroke-width="6" fill="none"/>`).join("")}
+    <path d="M610 1040 L650 1090 L630 1100 L690 1130" stroke="#0f0c16" stroke-width="4" fill="none"/>
+    <path d="M500 1330 V1210 Q540 1170 580 1210 V1330 Z" fill="#0d0b14"/><rect x="470" y="1330" width="140" height="18" fill="#100d18"/></g>
+  <g fill="#0d0b14">${[60, 160, 260, 360, 720, 820, 920, 1020].map((x, k) => `<rect x="${x}" y="${1490 + (k % 3) * 8}" width="18" height="${110 - (k % 2) * 20}" transform="rotate(${(k % 2 ? 6 : -5)} ${x} 1600)"/>`).join("")}<rect x="40" y="1530" width="400" height="12" transform="rotate(-3 40 1530)"/><rect x="700" y="1530" width="380" height="12" transform="rotate(4 700 1530)"/></g>
+  <g transform="rotate(-7 540 1470)"><path d="M420 1400 L430 1440 M660 1400 L650 1440" stroke="#3a2a1e" stroke-width="5"/><rect x="360" y="1436" width="360" height="92" rx="8" fill="#3a2a1e" stroke="#241a12" stroke-width="6"/>
+    <text x="540" y="1484" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="44" fill="#b8a07a" opacity=".75">Jardim Aurora</text>
+    <text x="540" y="1515" text-anchor="middle" font-family="Geist" font-weight="700" font-size="20" letter-spacing="6" fill="#b8a07a" opacity=".55">EVENTOS</text></g>
+  <g id="neblina${sfx}" opacity=".5"><ellipse cx="300" cy="1600" rx="420" ry="50" fill="#8c86a6" opacity=".12"/><ellipse cx="820" cy="1640" rx="380" ry="46" fill="#8c86a6" opacity=".1"/></g>`;
+const nota = (x, y, k) => `<g class="nota" data-x="${x}" data-y="${y}" data-k="${k}"><path d="M0 0 V-70 L46 -84 V-14" stroke="#e9e3c9" stroke-width="7" fill="none"/><ellipse cx="-10" cy="0" rx="16" ry="12" fill="#e9e3c9" transform="rotate(-20 -10 0)"/><ellipse cx="36" cy="-14" rx="16" ry="12" fill="#e9e3c9" transform="rotate(-20 36 -14)"/></g>`;
+const quadro = x => `<g><rect x="${x - 110}" y="740" width="220" height="290" rx="6" fill="none" stroke="#6b5332" stroke-width="22"/><rect x="${x - 98}" y="752" width="196" height="266" fill="#0f0c14"/>
+  <rect x="${x - 86}" y="764" width="30" height="26" fill="#d8d4cc"/><path d="M${x - 86} 764 h30 v14 l-14 12 h-16 Z" fill="#fff"/><path d="M${x - 58} 772 l-8 10 l8 6" stroke="#b25134" stroke-width="3" fill="none"/></g>`;
+$("#mundo").innerHTML = `${exterior("")}
+  <rect x="1080" y="0" width="5600" height="1500" fill="#1e1a24"/>
+  ${Array.from({ length: 70 }, (_, k) => `<rect x="${1080 + k * 80}" y="0" width="34" height="1300" fill="#fff" opacity=".025"/>`).join("")}
+  <rect x="1080" y="1300" width="5600" height="200" fill="#17131c"/><rect x="1080" y="1290" width="5600" height="14" fill="#2a2330"/>
+  <rect x="1080" y="1500" width="5600" height="420" fill="#120e0b"/>${Array.from({ length: 8 }, (_, k) => `<rect x="1080" y="${1540 + k * 50}" width="5600" height="3" fill="#000" opacity=".35"/>`).join("")}
+  <rect x="1084" y="0" width="30" height="1920" fill="#0b0910"/>
+  <!-- a entrada: o relógio na meia-noite e o gramofone -->
+  <g transform="translate(1320 0)"><rect x="-70" y="700" width="140" height="800" rx="10" fill="#3a2618"/><rect x="-82" y="690" width="164" height="30" rx="8" fill="#4a3220"/>
+    <circle cx="0" cy="820" r="54" fill="#e9e3c9"/><circle cx="0" cy="820" r="54" fill="none" stroke="#8a6a3a" stroke-width="8"/>
+    <g stroke="#1e1a24" stroke-width="7" stroke-linecap="round"><path d="M0 820 V780"/><path d="M0 820 V772" stroke-width="4"/></g>
+    <rect x="-40" y="920" width="80" height="420" rx="6" fill="#241810"/><g id="pendulo"><path d="M0 930 V1200" stroke="#c9a77c" stroke-width="5"/><circle cx="0" cy="1220" r="26" fill="#c9a77c"/></g></g>
+  <path d="M1520 1500 V720 Q1640 600 1760 720 V1500 Z" fill="#0b0910"/>
+  <g transform="translate(1880 0)"><rect x="-150" y="1250" width="300" height="24" rx="6" fill="#3a2618"/><rect x="-130" y="1274" width="16" height="226" fill="#2a1c12"/><rect x="114" y="1274" width="16" height="226" fill="#2a1c12"/>
+    <rect x="-80" y="1170" width="160" height="80" rx="8" fill="#4a3220"/><ellipse cx="0" cy="1170" rx="76" ry="14" fill="#141016"/>
+    <path d="M30 1170 L10 1060 Q-20 990 -150 930 Q-200 1010 -120 1070 Q-50 1080 10 1060" fill="#b8954a"/><path d="M-150 930 Q-200 1010 -120 1070" stroke="#7a5c28" stroke-width="6" fill="none"/></g>
+  <g id="notas">${[0, 1, 2, 3].map(k => nota(1740, 1000, k)).join("")}</g>
+  <!-- a placa do visitante -->
+  <g><rect x="2420" y="740" width="560" height="300" rx="20" fill="#8a6a3a" stroke="#5a4424" stroke-width="12"/><circle cx="2450" cy="770" r="7" fill="#5a4424"/><circle cx="2950" cy="770" r="7" fill="#5a4424"/><circle cx="2450" cy="1010" r="7" fill="#5a4424"/><circle cx="2950" cy="1010" r="7" fill="#5a4424"/>
+    <text x="2700" y="830" text-anchor="middle" font-family="Geist" font-weight="800" font-size="40" letter-spacing="2" fill="#2a1d10">VOCÊ É O VISITANTE</text>
+    ${[0, 1, 2, 3, 4, 5].map(k => `<rect x="${2700 - 222 + k * 76}" y="870" width="66" height="110" rx="8" fill="#0b0b0b"/><text class="dig" x="${2700 - 189 + k * 76}" y="950" text-anchor="middle" font-family="Geist" font-weight="800" font-size="74" fill="#e9e3c9">0</text>`).join("")}
+    <path d="M2980 1040 L3240 1040 L3240 760 Q3120 900 2980 1040 Z" fill="#000" opacity=".0"/>
+    <path d="M3200 0 Q3160 160 3240 300 M3240 0 L3060 160 M3240 60 L3110 230 M3240 140 L3170 300 M3130 120 Q3190 150 3240 120 M3090 70 Q3170 110 3240 80" stroke="#cfc8d8" stroke-width="2.5" fill="none" opacity=".35"/>
+    <g transform="translate(2300 900)"><rect x="-10" y="-20" width="20" height="60" fill="#4a3220"/><rect x="-8" y="-70" width="16" height="50" fill="#e9e3c9"/><ellipse cx="0" cy="-84" rx="7" ry="13" fill="#f2c25a" id="vela"/></g></g>
+  <!-- o corredor: quadros vazios e a porta em construção -->
+  ${[3380, 3640, 3900].map(quadro).join("")}
+  <g><rect x="4050" y="820" width="220" height="680" rx="8" fill="#2a1f17"/><rect x="4070" y="840" width="180" height="300" rx="6" fill="#33261c"/><rect x="4070" y="1170" width="180" height="300" rx="6" fill="#33261c"/><circle cx="4232" cy="1160" r="10" fill="#c9a77c"/>
+    <g id="obra"><rect x="3990" y="960" width="340" height="170" rx="10" fill="#f2c25a"/><rect x="3990" y="960" width="340" height="30" fill="url(#listra)"/><rect x="3990" y="1100" width="340" height="30" fill="url(#listra)"/>
+      <text x="4160" y="1040" text-anchor="middle" font-family="Geist" font-weight="800" font-size="40" fill="#1e2528">EM CONSTRUÇÃO</text><text id="obra-ano" x="4160" y="1084" text-anchor="middle" font-family="Geist" font-weight="800" font-size="32" fill="#1e2528">DESDE 2013</text></g>
+    <path d="M4300 1500 L4330 1400 L4360 1500 Z" fill="#e8855e"/><rect x="4314" y="1440" width="32" height="12" fill="#f1eee9"/></g>
+  <defs><pattern id="listra" width="40" height="30" patternUnits="userSpaceOnUse" patternTransform="skewX(-35)"><rect width="20" height="30" fill="#1e2528"/></pattern></defs>
+  <!-- o livro de visitas -->
+  <g><rect x="4800" y="1170" width="120" height="330" fill="#3a2618"/><rect x="4760" y="1150" width="200" height="30" rx="6" fill="#4a3220"/><rect x="4770" y="1480" width="180" height="24" rx="6" fill="#2a1c12"/>
+    <path d="M4860 1150 L4640 1120 L4660 990 L4860 1010 Z" fill="#e9e1cf"/><path d="M4860 1150 L5080 1120 L5060 990 L4860 1010 Z" fill="#f1eadb"/><path d="M4860 1010 V1150" stroke="#b8a07a" stroke-width="4"/>
+    ${[0, 1, 2, 3].map(k => `<path d="M4680 ${1030 + k * 26} L${4840 - (k % 2) * 30} ${1046 + k * 26}" stroke="#8a7a5a" stroke-width="3" opacity=".55"/>`).join("")}
+    <text x="4964" y="1052" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="26" fill="#3a2a1e" transform="rotate(-6 4964 1052)">Lindo lugar!!!</text>
+    <text id="data" x="4964" y="1096" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="28" fill="#b25134" transform="rotate(-6 4964 1096)">12/03/2014</text>
+    <text x="4860" y="920" text-anchor="middle" font-family="Geist" font-weight="800" font-size="40" letter-spacing="3" fill="#8c86a6" opacity=".7">LIVRO DE VISITAS</text>
+    <path d="M4640 1120 Q4700 1080 4720 1150" stroke="#cfc8d8" stroke-width="2" fill="none" opacity=".4"/></g>
+  <!-- o telefone fixo -->
+  <g><rect x="5760" y="760" width="360" height="110" rx="10" fill="#e9e1cf" opacity=".9"/><text x="5940" y="808" text-anchor="middle" font-family="Georgia" font-size="30" fill="#3a2a1e">Fone fixo:</text><text x="5940" y="850" text-anchor="middle" font-family="Georgia" font-size="32" fill="#3a2a1e">(11) 3••• ••••</text>
+    <rect x="5800" y="1250" width="280" height="24" rx="6" fill="#3a2618"/><rect x="5820" y="1274" width="16" height="226" fill="#2a1c12"/><rect x="6044" y="1274" width="16" height="226" fill="#2a1c12"/>
+    <g id="telefone"><path d="M5870 1250 L5890 1180 Q5940 1166 5990 1180 L6010 1250 Z" fill="#7a2626"/><circle cx="5940" cy="1214" r="26" fill="#e9e3c9"/><circle cx="5940" cy="1214" r="9" fill="#7a2626"/>
+      ${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<circle cx="${(5940 + 17 * Math.cos(k * 0.75 - 1)).toFixed(1)}" cy="${(1214 + 17 * Math.sin(k * 0.75 - 1)).toFixed(1)}" r="3.4" fill="#7a2626"/>`).join("")}
+      <path d="M5860 1172 Q5940 1140 6020 1172 L6026 1160 Q5940 1124 5854 1160 Z" fill="#5e1c1c"/><rect x="5848" y="1148" width="26" height="30" rx="8" fill="#5e1c1c"/><rect x="6006" y="1148" width="26" height="30" rx="8" fill="#5e1c1c"/>
+      <path d="M6020 1240 Q6080 1300 6050 1380 Q6020 1440 6070 1480" stroke="#5e1c1c" stroke-width="5" fill="none"/></g>
+    <g id="trim" stroke="#e9e3c9" stroke-width="8" fill="none" stroke-linecap="round" opacity="0"><path d="M5830 1150 Q5810 1190 5830 1230"/><path d="M5800 1130 Q5770 1190 5800 1250"/><path d="M6050 1150 Q6070 1190 6050 1230"/><path d="M6080 1130 Q6110 1190 6080 1250"/></g></g>`;
+
+// ====================== a festa (o mesmo Jardim Aurora, naquela noite) ======================
+function pessoa(p, c) {
+  const o = { id: p, cabelo: c.cabelo, corCabelo: c.corCabelo || "#3b2418", pele: c.pele, pele2: c.pele2, barba: c.barba };
+  const roupa = c.roupa, calca = c.calca || "#2b2f3a";
+  return `<g id="${p}"><ellipse cx="0" cy="4" rx="60" ry="10" fill="#000" opacity=".3"/>
+    <g id="${p}l1"><rect x="-29" y="-150" width="26" height="146" rx="11" fill="${calca}"/><ellipse cx="-18" cy="-4" rx="21" ry="9" fill="#141819"/></g>
+    <g id="${p}l2"><rect x="3" y="-150" width="26" height="146" rx="11" fill="${calca}"/><ellipse cx="18" cy="-4" rx="21" ry="9" fill="#141819"/></g>
+    ${c.vestido ? `<path d="M-40 -170 L-92 0 Q0 18 92 0 L40 -170 Z" fill="${c.vestido}"/>` : ""}
+    <g id="${p}tr"><g id="${p}a1"><path d="M-46 -272 L-58 -162" stroke="${roupa}" stroke-width="24" stroke-linecap="round"/><circle cx="-58" cy="-152" r="12" fill="${c.pele || PELE}"/></g>
+      <g id="${p}a2"><path d="M46 -272 L58 -162" stroke="${roupa}" stroke-width="24" stroke-linecap="round"/><circle cx="58" cy="-152" r="12" fill="${c.pele || PELE}"/></g>
+      <path d="M-50 -140 L-46 -262 Q-44 -288 -20 -290 L20 -290 Q44 -288 46 -262 L50 -140 Z" fill="${roupa}"/>${c.gravata ? `<path d="M0 -286 L-8 -250 L0 -200 L8 -250 Z" fill="${c.gravata}"/>` : ""}
+      <rect x="-11" y="-306" width="22" height="20" fill="${c.pele2 || "#c4876a"}"/>${cabeca(o, 0, -346, 40)}
+      ${c.veu ? `<path d="M-30 -380 Q-70 -300 -60 -180 L-20 -200 Q-40 -300 -10 -386 Z" fill="#fff" opacity=".7"/>` : ""}</g></g>`;
+}
+function danca(p, t, a, f0 = 0, pulo = 1) {
+  const w = t * 7.85 + f0, s = Math.sin(w);
+  attr($(`#${p}a1`), "transform", `rotate(${lerp(14, 120 + 40 * s, a).toFixed(1)} -46 -272)`);
+  attr($(`#${p}a2`), "transform", `rotate(${(-lerp(14, 120 - 40 * s, a)).toFixed(1)} 46 -272)`);
+  attr($(`#${p}tr`), "transform", `translate(0 ${(-12 * pulo * Math.abs(s) * a).toFixed(1)}) rotate(${(6 * Math.sin(w / 2) * a).toFixed(2)} 0 -150)`);
+  attr($(`#${p}l1`), "transform", `rotate(${(9 * s * a).toFixed(1)} -16 -150)`);
+  attr($(`#${p}l2`), "transform", `rotate(${(-9 * s * a).toFixed(1)} 16 -150)`);
+}
+const CORES = ["#c47b6a", "#5f7f9a", "#e0b04a", "#7a8f6a", "#9b6b84", "#2f6f86", "#b25134", "#6a4a7a", "#4f6b4a"];
+const CABELOS = ["longo", "curto", "coque", "careca", "longo", "curto", "coque", "longo", "curto"];
+const PISTA = [[170, 1380, 0.7], [340, 1360, 0.68], [540, 1350, 0.68], [740, 1362, 0.7], [910, 1382, 0.72], [250, 1510, 0.84], [820, 1510, 0.84], [110, 1660, 0.96], [970, 1660, 0.96]]
+  .map(([x, y, s], k) => ({ x, y, s, c: { cabelo: CABELOS[k], corCabelo: ["#3b2418", "#1e1a16", "#7a4a2a", "#2a1a12", "#5a3a22"][k % 5], roupa: CORES[k], pele: k % 3 === 1 ? "#a8735a" : k % 3 === 2 ? "#e2b49a" : undefined, pele2: k % 3 === 1 ? "#93614a" : undefined } }));
+PISTA.push({ x: 470, y: 1690, s: 1.02, c: { cabelo: "coque", corCabelo: "#5a3a22", roupa: "#f4efe6", vestido: "#f4efe6", calca: "#f4efe6", veu: true } });
+PISTA.push({ x: 630, y: 1690, s: 1.02, c: { cabelo: "curto", corCabelo: "#2a1a12", roupa: "#1e2528", calca: "#1e2528", gravata: "#b25134" } });
+const festa = sfx => `<defs><linearGradient id="fc${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1828"/><stop offset="1" stop-color="#2a2238"/></linearGradient>
+    <radialGradient id="fl${sfx}" cx="540" cy="1450" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f2c25a" stop-opacity=".3"/><stop offset="1" stop-color="#f2c25a" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1080" height="1920" fill="url(#fc${sfx})"/>
+  <path d="M0 1000 Q120 880 260 940 Q380 840 520 930 Q660 860 800 940 Q940 870 1080 960 V1250 H0 Z" fill="#141d22"/>
+  ${[[60, 600], [1020, 600]].map(([x]) => `<rect x="${x - 14}" y="560" width="28" height="760" fill="#3a2a1e"/>`).join("")}
+  ${[400, 470, 540, 610].map((y, k) => `<path d="M-40 ${y - 60} Q540 ${y + 120} 1120 ${y - 60}" stroke="#2a2a2a" stroke-width="3" fill="none"/>` + Array.from({ length: 13 }, (_, i) => { const x = -40 + i * 96.6, u = (x + 40) / 1160, yy = (1 - u) * (1 - u) * (y - 60) + 2 * u * (1 - u) * (y + 120) + u * u * (y - 60); return `<circle class="lamp${sfx}" cx="${x.toFixed(0)}" cy="${(yy + 12).toFixed(0)}" r="10" fill="#f6dc9a"/><circle cx="${x.toFixed(0)}" cy="${(yy + 12).toFixed(0)}" r="26" fill="#f2c25a" opacity=".16"/>`; }).join("")).join("")}
+  <g><rect x="320" y="700" width="440" height="96" rx="12" fill="#2a1d14"/><text x="540" y="762" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="48" fill="#f6dc9a">Jardim Aurora</text></g>
+  <path d="M60 1300 L1020 1300 L1080 1780 L0 1780 Z" fill="#2a2230"/>${Array.from({ length: 6 }, (_, k) => `<path d="M${60 - k * 10} ${1300 + k * 80} L${1020 + k * 10} ${1300 + k * 80}" stroke="#3a2f40" stroke-width="3"/>`).join("")}
+  <rect width="1080" height="1920" fill="url(#fl${sfx})"/>
+  <g id="pista${sfx}">${PISTA.map((d, k) => `<g transform="translate(${d.x} ${d.y}) scale(${d.s})">${pessoa(`p${k}${sfx}`, d.c)}</g>`).join("")}</g>`;
+
+// ====================== o celular ======================
+const linhas = ["Decoração", "Buffet", "DJ e pista", "6 horas de festa"];
+$("#fa").innerHTML = `<span class="exemplo claro">exemplo</span><div class="visor">${barra("00:03")}
+  <div class="tela vh" id="s-velho"><div class="vh-top"><b id="vh-nome">Espaço Jardim Aurora</b><small>*** BEM VINDOS ***</small></div>
+    <div class="vh-foto"><svg viewBox="0 650 1080 787" preserveAspectRatio="xMidYMid slice">${exterior("v")}</svg></div>
+    <div class="vh-l">Você é o visitante <span class="vh-dig">000312</span></div>
+    <div class="vh-l">Galeria: <span class="vh-x"></span><span class="vh-x"></span><span class="vh-x"></span></div>
+    <div class="vh-l vh-obra"><span>Em construção · desde 2013</span></div>
+    <div class="vh-l"><u>Livro de visitas</u> · última: 12/03/2014</div>
+    <div class="vh-l">Fone fixo: (11) 3••• ••••</div></div>
+  <div class="tela nv" id="s-novo"><div class="ms-url">${ic("cadeado")}<span>jardimaurora.com.br</span></div><div class="ms-topo"><span>Jardim Aurora</span><i></i></div>
+    <div class="nv-hero" id="nv-hero"><svg viewBox="0 880 1080 820" preserveAspectRatio="xMidYMid slice">${festa("h")}</svg><span>Sábado passado</span></div>
+    <div class="nv-tit">Pacotes</div>
+    <div class="nv-pc">${["Até 100 convidados", "Até 200 convidados"].map((n, k) => `<div class="nv-p" id="pc${k}"><b>${n}</b><small>Incluso</small>${linhas.map((l, j) => `<i class="inc" data-j="${j}">${ic("check")}${l}</i>`).join("")}</div>`).join("")}</div>
+    <div class="ms-zap" id="nv-zap">${ZAP_B}Chamar no WhatsApp</div></div>
+  <div class="tela" id="s-zap"><div class="zp-topo">${ic("voltar")}<i style="background:#3a2a1e">J</i><div>Jardim Aurora<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-m sai" id="zp1" style="top:30px;max-width:350px">Oi! Vi a festa de sábado no site. Tem data em maio?<small>00:01</small></div></div></div>
+  <div class="dedo" id="dedo"></div></div>`;
+const FA = $("#fa"), VISOR = $(".visor", FA);
+const mostra = id => $$(".tela", FA).forEach(el => { el.style.display = el.id === id ? "block" : "none"; });
+const centro = el => { let x = el.offsetWidth / 2, y = el.offsetHeight / 2; for (let e = el; e && e !== VISOR; e = e.offsetParent) { x += e.offsetLeft; y += e.offsetTop; } return [x, y]; };
+function toque(t, t0, el) {
+  const d = $("#dedo"), x = fase(t, t0 - 0.4, t0 + 0.25), [cx, cy] = centro(el);
+  d.style.left = `${cx}px`; d.style.top = `${cy}px`;
+  pos(d, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+}
+
+// ====================== as cenas desenhadas (fora da casa) ======================
+const ANA = { id: "an", cabelo: "longo", corCabelo: "#2b1a12", brinco: "#e0b04a", roupa: "#6a7f5a", braco: "#6a7f5a", calca: "#2b2f3a", bracos: "celular" };
+const LEO = { id: "le", cabelo: "curto", corCabelo: "#3a2416", barba: true, roupa: "#3b5a7a", braco: "#3b5a7a", calca: "#2b2f3a", bracos: "peito" };
+const CELIA = { id: "ce", cabelo: "coque", corCabelo: "#a8a8a8", oculos: true, brinco: "#e0b04a", roupa: "#7a5c48", braco: "#7a5c48", calca: "#2b2f3a", bracos: "celular" };
+const NOIVA = { id: "no", cabelo: "longo", corCabelo: "#7a4a2a", roupa: "#c47b6a", braco: "#c47b6a", calca: "#2b2f3a", bracos: "celular" };
+$("#cn").innerHTML = `
+  <defs><linearGradient id="g-noite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141d2b"/><stop offset="1" stop-color="#0f141c"/></linearGradient>
+    <radialGradient id="g-tela" cx="0" cy="0" r="1"><stop offset="0" stop-color="#9cc6e0" stop-opacity=".35"/><stop offset="1" stop-color="#9cc6e0" stop-opacity="0"/></radialGradient></defs>
+  <g id="g-sala"><rect id="parede" width="1080" height="1920" fill="url(#g-noite)"/>
+    <g id="janela"><rect x="660" y="560" width="280" height="360" rx="14" fill="#1c2a3a"/><rect id="ceu" x="676" y="576" width="248" height="328" rx="8" fill="#22344d"/>
+      <circle id="lua" cx="860" cy="660" r="34" fill="#e9e3c9"/><circle id="lua2" cx="874" cy="650" r="30" fill="#22344d"/><circle id="sol" cx="760" cy="700" r="46" fill="#f2c25a" opacity="0"/>
+      <path d="M800 576 V904 M676 740 H924" stroke="#1c2a3a" stroke-width="12"/></g>
+    <rect y="1640" width="1080" height="280" fill="#0b0f15" id="chao"/><rect y="1630" width="1080" height="14" fill="#1f2b38"/>
+    <g id="an-pos">${dePe(ANA)}</g><g id="le-pos">${dePe(LEO)}</g><g id="ce-pos">${dePe(CELIA)}</g><g id="no-pos">${dePe(NOIVA)}</g>
+    <circle id="brilho" cx="0" cy="0" r="220" fill="url(#g-tela)"/></g>
+  <g id="g-festa">${festa("")}</g>`;
+const ESC = 1.75;
+
+// ====================== peças por cima ======================
+$("#extra").innerHTML = `<div id="relogio">00:00</div>
+  <div id="sabados"><b>Sábados de novembro no Jardim Aurora</b><div>${[["1", 1], ["8", 1], ["15", 1], ["22", 0], ["29", 1]].map(([d, f]) => `<span class="${f ? "f" : ""}">${d}<small>${f ? "festa" : "livre"}</small></span>`).join("")}</div></div>
+  <div class="etapa" id="e1">${ic("fone")}<div>1ª visita<small>o site, pelo celular</small></div></div><div id="seta"></div>
+  <div class="etapa" id="e2">${ic("pino")}<div>2ª visita<small>no espaço</small></div></div>
+  <svg id="teia" class="i" viewBox="0 0 24 24" style="color:#cfc8d8;stroke-width:1">${IC.teia}</svg><div id="xis">${ic("x")}</div>
+  <div id="painel"><span class="exemplo">exemplo</span><small>jardimaurora.com.br · este mês</small>
+    <div class="pn-l">${ic("olho")}<span>Viram o site</span><b id="pn1">0</b></div><div class="pn-l">${ic("mensagem")}<span>Chamaram no WhatsApp</span><b id="pn2">0</b></div></div>`;
+const B_RING = balao("Chamando…", "sem");
+
+// ====================== quadro a quadro ======================
+// a câmera dentro da casa: [t, cx, cy, s]
+const CAMH = [
+  [0, 540, 960, 1.0], [S.entrada - 0.05, 540, 1010, 1.1], [S.entrada + 0.6, 1600, 1050, 1.0], [I("placa") - 0.3, 1660, 1050, 1.02], [I("placa") + 0.3, 2700, 900, 1.2],
+  [T.trezentos - 0.1, 2700, 900, 1.25], [T.doze + 0.3, 2700, 905, 1.42], [S.corredor - 0.3, 2700, 905, 1.42], [S.corredor + 0.4, 3640, 920, 1.0],
+  [T.porta - 0.2, 3720, 940, 1.02], [T.porta + 0.4, 4160, 1000, 1.18], [S.livro - 0.3, 4160, 1000, 1.18], [S.livro + 0.35, 4860, 1080, 1.2],
+  [T.marco - 0.5, 4870, 1080, 1.25], [T.marco + 0.1, 4964, 1080, 1.7], [S.telefone - 0.3, 4964, 1080, 1.7], [S.telefone + 0.4, 5940, 1080, 1.3],
+  [I("foram") - 0.2, 5940, 1080, 1.38], [I("foram") - 0.19, 540, 960, 1.14], [S.celular, 540, 960, 1.0],
+  [T.contador - 0.3, 2700, 905, 1.15], [T.trezentos2 + 0.6, 2700, 905, 1.4],
+];
+const casaVisivel = t => em(t, 0, T.troca) || em(t, T.contador - 0.3, T.novo - 0.3);
+function qCasa(t) {
+  const el = $("#c-casa"), v = casaVisivel(t);
+  vis(el, v); if (!v) return;
+  camera($("#mundo"), pose(CAMH, t));
+  // a virada: a casa encolhe até a foto do site antigo, no celular
+  const k = ease(fase(t, T.encolhe, T.troca)), K = 412 / 1080;
+  if (k > 0 && t < S.festa) {
+    const s = lerp(1, K, k), y0 = 564 + 130 - 650 * K;
+    el.style.transform = `translate(${lerp(0, 334, k).toFixed(1)}px,${lerp(0, y0, k).toFixed(1)}px) scale(${s.toFixed(4)})`;
+    el.style.clipPath = `inset(${(650 * k).toFixed(1)}px 0 ${(483 * k).toFixed(1)}px 0)`;
+    el.style.zIndex = 25; // por cima do celular, exatamente sobre a foto do site
+  } else { el.style.transform = ""; el.style.clipPath = ""; el.style.zIndex = ""; }
+  el.style.opacity = em(t, T.contador - 0.3, T.novo) ? (fase(t, T.contador - 0.3, T.contador) * (1 - fase(t, T.novo - 0.55, T.novo - 0.3))).toFixed(3) : 1;
+  // a música toca sozinha, o pêndulo balança, a vela treme
+  attr($("#pendulo"), "transform", `rotate(${(14 * Math.sin(t * 3.1)).toFixed(2)} 0 930)`);
+  attr($("#vela"), "transform", `scale(${(1 + 0.12 * Math.sin(t * 17)).toFixed(3)} ${(1 + 0.18 * Math.sin(t * 13)).toFixed(3)})`);
+  $$(".nota").forEach(n => {
+    const kk = +n.dataset.k, t0 = T.musica + kk * 0.45, x = ((t - t0) / 1.8);
+    const vivo = t >= t0 && em(t, T.musica, S.corredor);
+    const u = vivo ? x % 1 : 0;
+    attr(n, "transform", `translate(${(1740 - 40 * kk - 260 * u + 30 * Math.sin(u * 6)).toFixed(1)} ${(990 - 420 * u).toFixed(1)}) scale(${(0.7 + 0.5 * u).toFixed(3)}) rotate(${(-10 + 20 * Math.sin(u * 5)).toFixed(1)})`);
+    attr(n, "opacity", vivo ? (Math.sin(Math.PI * u) * 0.9).toFixed(3) : 0);
+  });
+  // o contador: roda até 312 e trava
+  const n = t < T.trezentos - 0.1 ? 0 : Math.round(lerp(0, 312, ease(fase(t, T.trezentos - 0.1, T.doze + 0.2))));
+  const dig = String(n).padStart(6, "0");
+  $$(".dig").forEach((d, i) => { d.textContent = dig[i]; attr(d, "fill", t >= T.doze + 0.2 && i >= 3 && pulso(t, T.doze + 0.2, 0.8) > 0.05 ? "#e8855e" : "#e9e3c9"); });
+  // a porta e o livro
+  attr($("#obra"), "transform", `rotate(${(2 * Math.sin(t * 1.7)).toFixed(2)} 4160 960)`);
+  attr($("#obra-ano"), "fill", pulso(t, T.treze - 0.4, 1.2) > 0.05 ? "#b25134" : "#1e2528");
+  attr($("#data"), "opacity", (0.55 + 0.45 * Math.max(fase(t, T.marco - 0.2, T.marco + 0.2), t > S.telefone ? 1 : 0)).toFixed(3));
+  // o telefone toca, e ninguém atende
+  const toca = em(t, T.ligou, T.atendeu - 0.1), tre = toca ? Math.sin(t * 90) * 3 : 0;
+  const grande = "translate(5940 1250) scale(1.7) translate(-5940 -1250)"; // o telefone, maior, apoiado na mesa
+  attr($("#telefone"), "transform", `translate(${tre.toFixed(1)} ${(Math.abs(tre) * -0.6).toFixed(1)}) ${grande}`);
+  attr($("#trim"), "transform", grande);
+  attr($("#trim"), "opacity", toca ? (0.5 + 0.5 * Math.abs(Math.sin(t * 20))).toFixed(3) : 0);
+  // ao ir embora, as janelas apagam
+  $$(".luzj").forEach((j, i) => { const base = [0.3, 0, 0, 0.22, 0.35][i]; attr(j, "opacity", (t >= T.nunca + i * 0.12 ? 0 : base * (0.8 + 0.2 * Math.sin(t * 9 + i))).toFixed(3)); });
+  attr($("#nuvem"), "transform", `translate(${(-40 + 14 * t).toFixed(1)} 0)`);
+  attr($("#neblina"), "transform", `translate(${(30 * Math.sin(t * 0.4)).toFixed(1)} 0)`);
+}
+// o celular: [t, centro x, centro y, escala, giro, opacidade]
+const PF = [
+  [0, 540, 1000, 1, 0, 0], [T.encolhe, 540, 1000, 1, 0, 0], [T.troca - 0.2, 540, 1000, 1, 0, 1], [T.naquela - 0.15, 540, 1000, 1, 0, 1], [T.naquela + 0.15, 540, 1300, 0.85, 0, 0],
+  [T.so - 0.4, 1350, 1300, 0.6, 14, 0], [T.so, 790, 1380, 0.62, 8, 1], [S.licao - 0.25, 790, 1380, 0.62, 8, 1], [S.licao + 0.05, 900, 1600, 0.5, 14, 0],
+  [S.site - 0.3, 700, 1500, 0.6, 8, 0], [S.site + 0.15, 660, 1010, 0.96, 2, 1], [T.contador - 0.3, 660, 1010, 0.96, 2, 1], [T.contador, 700, 1500, 0.6, 8, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(PF, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o <= 0.002) return;
+  // na virada, a casa encolhe por cima do site antigo até virar a foto dele
+  const virando = t < T.troca;
+  let tela = "s-velho", hora = "00:03";
+  if (t >= S.site) { tela = t >= T.trocou + 0.1 ? "s-novo" : "s-velho"; hora = "10:20"; }
+  if (t >= S.fecho) { tela = t >= T.tapZap + 0.15 ? "s-zap" : "s-novo"; hora = t >= T.tapZap + 0.15 ? "00:01" : "00:00"; }
+  mostra(tela);
+  if (tela === "s-novo" && t < T.trocou + 0.55) $("#s-velho").style.display = "block"; // o site novo cobre o antigo, de cima para baixo
+  const st = $(".status", FA); st.querySelector(".hora").textContent = hora; st.classList.toggle("escura", tela === "s-velho" || virando);
+  $("#dedo").style.opacity = 0;
+  if (tela === "s-velho") {
+    const ab = em(t, S.festa, S.licao) ? 0 : pulso(t, T.espaco - 0.1, 1.0);
+    $("#vh-nome").style.textShadow = ab > 0.02 ? `0 0 ${(18 * ab).toFixed(0)}px #f2c25a` : "";
+    $("#s-velho").style.filter = t >= S.festa && t < S.site ? "sepia(.5) brightness(.85)" : "";
+  }
+  if (tela === "s-novo") {
+    const ent = t >= S.fecho ? 1 : fase(t, T.trocou + 0.1, T.trocou + 0.5);
+    $("#s-novo").style.clipPath = `inset(0 0 ${((1 - ease(ent)) * 100).toFixed(1)}% 0)`;
+    const fe = t >= S.fecho;
+    const hero = fe ? pulso(t, T.pista2 - 0.1, 1) : pulso(t, T.fotos - 0.1, 1.2);
+    $("#nv-hero").style.boxShadow = hero > 0.01 ? `0 0 0 ${(6 * hero).toFixed(1)}px #e8855e` : "";
+    $("#nv-hero").style.transform = `scale(${(1 + 0.04 * hero).toFixed(3)})`;
+    [0, 1].forEach(k => { const a = fe ? 0 : pulso(t, T.pacotes - 0.1 + k * 0.12, 0.8); $(`#pc${k}`).style.boxShadow = a > 0.01 ? `0 0 0 ${(5 * a).toFixed(1)}px #e8855e` : ""; });
+    $$(".inc").forEach(i => { const j = +i.dataset.j, a = fe ? 0 : pulso(t, T.incluso - 0.05 + j * 0.1, 0.6); i.style.color = a > 0.05 ? "#2f8f5b" : ""; });
+    const z = fe ? pulso(t, T.tapZap - 0.05, 0.4) : pulso(t, T.whats - 0.05, 0.9);
+    $("#nv-zap").style.transform = `scale(${(1 + 0.06 * z).toFixed(3)})`;
+    toque(t, fe ? T.tapZap : T.toque, $("#nv-zap"));
+  }
+  if (tela === "s-zap") { const a = entra(t, T.chamou + 0.05, 0.3); pos($("#zp1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); }
+}
+function qCena(t) {
+  const casal = em(t, T.encolhe, T.naquela), celia = em(t, S.site, S.fecho), noiva = em(t, S.fecho, T.contador - 0.1), festaV = em(t, T.naquela, S.licao);
+  const sala = casal || celia || noiva;
+  vis($("#c-cena"), sala || festaV);
+  attr($("#g-sala"), "opacity", sala ? (casal ? fase(t, T.encolhe + 0.3, T.troca - 0.1) : 1).toFixed(3) : 0);
+  attr($("#g-festa"), "opacity", festaV ? 1 : 0);
+  if (sala) {
+    const dia = celia;
+    attr($("#ceu"), "fill", dia ? "#9cc6e0" : "#22344d"); attr($("#lua2"), "fill", dia ? "#9cc6e0" : "#22344d"); attr($("#lua"), "opacity", dia ? 0 : 1); attr($("#sol"), "opacity", dia ? 1 : 0);
+    attr($("#parede"), "fill", dia ? "#3a4a58" : "url(#g-noite)"); attr($("#chao"), "fill", dia ? "#2a3440" : "#0b0f15");
+    attr($("#janela"), "opacity", casal ? 0 : 1);
+    for (const id of ["an", "le", "ce", "no"]) attr($(`#${id}-pos`), "opacity", (id === "an" || id === "le") ? (casal ? 1 : 0) : id === "ce" ? (celia ? 1 : 0) : (noiva ? 1 : 0));
+    if (casal) {
+      // a Ana e o Léo, no sofá da sala, com medo de um site
+      attr($("#an-pos"), "transform", `translate(170 1720) scale(1.6)`); attr($("#le-pos"), "transform", `translate(905 1720) scale(1.6)`);
+      pernas("an", t, false); pernas("le", t, false);
+      const susto = t < T.siteN + 0.4;
+      boca("an", susto ? "oh" : "reta"); boca("le", susto ? "oh" : "reta");
+      attr($("#ansob"), "transform", "translate(0 -8)"); attr($("#lesob"), "transform", "translate(0 -8)");
+      fecha("an", (t % 2.6) < 0.1 ? 1 : 0); fecha("le", (t % 3.1) < 0.1 ? 1 : 0);
+      attr($("#brilho"), "opacity", 0);
+    } else {
+      const quem = celia ? "ce" : "no";
+      attr($(`#${quem}-pos`), "transform", `translate(290 1700) scale(${ESC})`); pernas(quem, t, false);
+      attr($("#brilho"), "transform", `translate(${290 + 26 * ESC} ${1700 - 214 * ESC})`); attr($("#brilho"), "opacity", celia ? 0 : (0.8 + 0.2 * Math.sin(t * 5)).toFixed(3));
+      boca(quem, "sorriso"); fecha(quem, (t % 2.9) < 0.12 ? 1 : 0); attr($(`#${quem}sob`), "transform", "");
+    }
+  }
+  if (festaV) {
+    const cheia = em(t, T.pista - 0.1, T.pista + 0.9);
+    PISTA.forEach((d, k) => { danca(`p${k}`, t, k >= 9 ? 0.75 : 1, k * 0.9, cheia ? 2.2 : 1); boca(`p${k}`, "sorriso"); fecha(`p${k}`, ((t + k * 0.7) % 3.3) < 0.12 ? 1 : 0); });
+    $$(".lamp").forEach((l, k) => attr(l, "opacity", (0.75 + 0.25 * Math.sin(t * 6.3 + k)).toFixed(3)));
+    attr($("#pista"), "transform", `translate(540 1500) scale(${(1 + 0.012 * Math.max(0, Math.sin(t * Math.PI * 2 * 2))).toFixed(4)}) translate(-540 -1500)`);
+  }
+}
+function qExtra(t) {
+  // meia-noite
+  {
+    const a = entra(t, T.meia2 - 0.1), o = em(t, T.meia2 - 0.15, T.contador - 0.3) ? a.o * (1 - fase(t, T.chamou - 0.3, T.chamou)) : 0;
+    pos($("#relogio"), { s: a.s, o });
+  }
+  // quase todo sábado
+  {
+    const on = em(t, T.festa - 0.2, T.so - 0.1), sb = $("#sabados"), a = entra(t, T.festa - 0.2, 0.3);
+    pos(sb, { y: a.y, s: a.s, o: on ? a.o * (1 - fase(t, T.so - 0.4, T.so - 0.1)) : 0 });
+    $$("#sabados span").forEach((el, k) => { const b = entra(t, T.festa + k * 0.18, 0.25); pos(el, { s: b.s, o: b.o }); });
+  }
+  // a primeira visita é o site; se parece abandonado, ninguém marca a segunda
+  {
+    const on = em(t, S.licao, S.site), sai_ = fase(t, S.site - 0.3, S.site);
+    const a1 = entra(t, T.primeira - 0.1, 0.32), poeira = fase(t, T.parece, T.parece + 0.5);
+    pos($("#e1"), { x: 190, y: 760 + a1.y, s: a1.s, o: on ? a1.o * (1 - sai_) : 0 });
+    $("#e1").style.filter = poeira > 0 ? `sepia(${(0.7 * poeira).toFixed(2)}) brightness(${(1 - 0.35 * poeira).toFixed(3)})` : "";
+    pos($("#teia"), { x: 190 + 700 - 140, y: 760 - 20, s: lerp(0.4, 1, sai(poeira)), o: on ? poeira * (1 - sai_) : 0 });
+    pos($("#seta"), { y: 760 + 150 + 12, o: on ? fase(t, T.ninguem2 - 0.3, T.ninguem2) * (1 - sai_) : 0 });
+    const a2 = entra(t, T.ninguem2 - 0.1, 0.32);
+    pos($("#e2"), { x: 190, y: 980 + a2.y, s: a2.s, o: on ? a2.o * 0.55 * (1 - sai_) : 0 });
+    $("#e2").style.outline = "6px dashed #8c9598"; $("#e2").style.background = "#d8d2c8";
+    const x = entra(t, T.segunda - 0.05, 0.3);
+    pos($("#xis"), { x: 190 + 700 - 30, y: 980 + 30, s: x.s, o: on ? x.o * (1 - sai_) : 0 });
+  }
+  // o site novo conta quem viu e quem chamou
+  {
+    const on = em(t, T.novo - 0.3, S.marca), p = $("#painel"), a = entra(t, T.novo - 0.3, 0.35);
+    pos(p, { y: a.y, s: a.s, o: on ? a.o * (1 - fase(t, S.marca - 0.35, S.marca)) : 0 });
+    const n1 = Math.round(1284 * ease(fase(t, T.viu2 - 0.2, T.viu2 + 0.6))), n2 = Math.round(41 * ease(fase(t, T.chamou2 - 0.2, T.chamou2 + 0.5)));
+    $("#pn1").textContent = n1.toLocaleString("pt-BR"); $("#pn2").textContent = n2;
+  }
+}
+function qBaloes(t) {
+  const a = entra(t, T.ligou + 0.05, 0.25), o = em(t, T.ligou, T.atendeu + 0.4) ? a.o * (1 - fase(t, T.atendeu + 0.1, T.atendeu + 0.4)) : 0;
+  pos(B_RING, { x: 540 - B_RING.offsetWidth / 2, y: 750 + a.y, s: a.s, o });
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const quente = em(t, S.site, S.fecho);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  qCena(t); qCasa(t); qFone(t); qExtra(t); qBaloes(t);
+  R.comum(t);
+};
+const SONS = [{ t: T.musica, tipo: "caixinha", ganho: 0.5 }, { t: T.ligou + 0.05, tipo: "campainha", ganho: 0.45 },
+  { t: T.toque, tipo: "toque", ganho: 0.8 }, { t: T.tapZap, tipo: "toque", ganho: 0.8 }, { t: T.chamou + 0.05, tipo: "ding", ganho: 0.7 }];
+window.preparar = () => R.preparar([0.5, T.abandonada + 0.3, T.musica + 0.6, T.sozinha + 0.4, T.visitante + 0.2, T.doze + 0.4, T.vazios + 0.2, T.construcao + 0.3, T.treze + 0.2,
+  T.livro + 0.4, T.marco + 0.4, T.fixo + 0.2, T.ligou + 0.4, T.atendeu + 0.3, T.foram + 0.4, T.nunca + 0.6, T.era - 0.3, T.era + 0.1, T.siteN + 0.2, T.espaco + 0.3,
+  T.casamento + 0.3, T.pista + 0.3, T.sabado + 0.2, T.parado + 0.3, T.primeira + 0.3, T.parece + 0.5, T.segunda + 0.3, T.trocou + 0.4, T.fotos + 0.3, T.pacotes + 0.3,
+  T.incluso + 0.3, T.toque + 0.1, T.noiva + 0.3, T.meia2 + 0.3, T.pista2 + 0.3, T.chamou + 0.4, T.trezentos2 + 0.3, T.viu2 + 0.6, T.chamou2 + 0.5,
+  F.moral.ini + 1.2, F.marca.ini + 1.3, F.cta.ini + 1.6], SONS);
+await R.pronto();
+</script>
+</body></html>

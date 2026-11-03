@@ -260,7 +260,7 @@ export async function historia(cfg) {
   }
 
   // a trilha (ferramentas/video/trilha-pulso.py) só conhece abre, google, insta, volta, meio, ese, site, fim e cta
-  // sons: efeitos de cena [{ t, tipo: "toc" | "quica" | "ding" | "apito" | "toque" | "tesoura", ganho }], mixados pela trilha
+  // sons: efeitos de cena [{ t, tipo: "toc" | "quica" | "ding" | "apito" | "toque" | "tesoura" | "campainha" | "caixinha", ganho }], mixados pela trilha
   const preparar = (ensaio = [], sons = []) => {
     window.quadro(0);
     return {

@@ -383,3 +383,57 @@ Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem comprom
 Fonte: Central de Ajuda do Google, "Completar o Perfil da Empresa no Google".
 
 Comentário para fixar: "O horário de feriado do seu negócio já está no Google?"
+
+## Reels com história da semana de 04 a 08/11 (19h)
+
+Um Reels por dia às 19h, de quarta a domingo, e o story 10 minutos depois. Desde 03/11, cada história tem uma virada no fim. A capa não mostra a marca.
+
+### Qua 04/11 · "A curiosa" (`reels-curiosa`, para lojas no Instagram)
+
+A Paula e a Bia são fictícias. O “valor?” sem resposta, nem tanto.
+
+Quem pergunta o preço e some, muitas vezes, só não quis esperar. Perguntar dá trabalho, e esperar dá tempo de achar outra loja. Com o catálogo no site, cada peça tem foto, preço e o botão de pedir pelo WhatsApp.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso.
+
+Comentário para fixar: "Quantas pessoas comentaram “valor?” na sua loja esta semana?"
+
+### Qui 05/11 · "A partida" (`reels-partida`, para clínicas odontológicas e de estética)
+
+A Bia e as duas clínicas são fictícias. As oito mensagens para marcar uma avaliação, nem tanto.
+
+Cada mensagem a mais entre a vontade e o horário marcado é uma chance de o paciente desistir, ou de marcar do outro lado da rua. Com a agenda online no site, ele vê os horários livres, escolhe um e o compromisso cai direto na sua agenda do Google.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu negócio, sem compromisso.
+
+Comentário para fixar: "Quantas mensagens a sua recepção troca para marcar uma avaliação?"
+
+### Sex 06/11 · "A planilha" (`reels-planilha`, para fotógrafas)
+
+A Lia, a Carol e a Fernanda são fictícias. A planilha de Natal, nem tanto.
+
+Quando as vagas moram no direct e numa planilha, só você sabe quais acabaram, e às vezes nem você. Com a agenda online no site, a cliente vê o que resta e reserva sozinha, o horário espera o sinal por 24 horas, e quem chega tarde vai para a lista de espera.
+
+Comenta NATAL que a gente te manda o exemplo do Estúdio Ciranda para testar.
+
+Comentário para fixar: "Você já vendeu a mesma vaga duas vezes?"
+
+### Sáb 07/11 · "O post 63" (`reels-post63`, para fotógrafas)
+
+A Marina, a Júlia e o bebê do post 63 são fictícios. O feed misturado, nem tanto.
+
+Quem procura um ensaio newborn não rola sessenta posts atrás de um bebê. Decide pelo que encontra primeiro. Com o portfólio separado por ensaio, cada um com as melhores fotos e o WhatsApp, a cliente vai direto ao que veio procurar, e o feed fica livre para as dancinhas.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
+
+Comentário para fixar: "Em que post está o seu melhor ensaio?"
+
+### Dom 08/11 · "A casa abandonada" (`reels-casa`, para espaços de eventos)
+
+A Ana, o Léo e o Jardim Aurora são fictícios. O contador de visitas, nem tanto.
+
+Para quem chega pelo celular, o site é a primeira visita ao seu espaço. Se ele parece abandonado, ninguém marca a segunda. Um site novo, feito para o celular, com as fotos da última festa, os pacotes e o WhatsApp a um toque, mostra que a pista continua cheia.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu espaço, sem compromisso.
+
+Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu espaço?"

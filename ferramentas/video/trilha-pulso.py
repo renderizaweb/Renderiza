@@ -7,7 +7,8 @@
 #   abre: drone grave e batidas de impacto · google: pulso de baixo e chimbal (o relógio) · insta: entra o bumbo
 #   reto e a palma; "Nada." corta tudo · volta: a batida abafada · meio: só o drone e um coração batendo
 #   ese: subida (ruído e tom crescendo) até o drop · site: tudo, com acordes curtos · fim: só os impactos · cta: fecha
-#   --sons: efeitos de cena por cima de tudo (a bolinha de pingue-pongue, a notificação, o apito, a tesoura), no nível da voz.
+#   --sons: efeitos de cena por cima de tudo (a bolinha de pingue-pongue, a notificação, o apito, a tesoura, o telefone fixo,
+#   a caixinha de música), no nível da voz.
 import argparse, json, wave
 import numpy as np
 
@@ -111,11 +112,13 @@ for k, t in enumerate(grade(C["insta"][0], nada, BEAT / 4)): somar(bat, chimbal(
 for t in grade(C["insta"][0], nada, BEAT / 2): somar(grave, sub(hz("A1") if acorde(t) == "Am" else hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.6)
 # volta: a batida abafada (filtrada depois)
 abaf = np.zeros(N)
-for t in grade(*C["volta"], BEAT): somar(abaf, bumbo(0.8), t, 0.9)
-for t in grade(*C["volta"], BEAT / 2): somar(abaf, sub(hz("A1"), BEAT / 2 * 0.85), t, 0.6)
+for t in (grade(*C["volta"], BEAT) if "volta" in C else []): somar(abaf, bumbo(0.8), t, 0.9)
+for t in (grade(*C["volta"], BEAT / 2) if "volta" in C else []): somar(abaf, sub(hz("A1"), BEAT / 2 * 0.85), t, 0.6)
 # meio: drone e um coração (dois bumbos curtos por compasso)
-somar(harm, drone(hz("A1"), C["meio"][1] - C["meio"][0] + 1.0), C["meio"][0], 1.1)
-for t in grade(*C["meio"], 4 * BEAT): somar(bat, bumbo(0.7), t, 0.7); somar(bat, bumbo(0.5), t + 0.28, 0.6)
+# (cada parte é opcional: um Reels pode não usar todas)
+if "meio" in C:
+    somar(harm, drone(hz("A1"), C["meio"][1] - C["meio"][0] + 1.0), C["meio"][0], 1.1)
+    for t in grade(*C["meio"], 4 * BEAT): somar(bat, bumbo(0.7), t, 0.7); somar(bat, bumbo(0.5), t + 0.28, 0.6)
 # ese: subida até o drop, com caixa acelerando
 somar(fx, subida(DROP - C["ese"][0]), C["ese"][0], 0.55)
 t = C["ese"][0]
@@ -181,6 +184,14 @@ def efeito_som(tipo):
         for ini in (0.0, 0.16):
             t = T(0.07); n = filtro(rng.standard_normal(len(t)), alto=3500) * np.exp(-t / 0.012) + 0.4 * np.sin(2 * np.pi * 4200 * t) * np.exp(-t / 0.008)
             i = int(SR * ini); x[i:i + len(n)] += n * 0.7
+    elif tipo == "campainha":  # telefone fixo tocando: duas notas de sino batidas 20 vezes por segundo
+        t = T(0.9); x = (np.sin(2 * np.pi * 1050 * t) + 0.7 * np.sin(2 * np.pi * 1310 * t)) * (0.55 + 0.45 * np.sin(2 * np.pi * 20 * t))
+        x *= np.minimum(1, t / 0.01) * np.minimum(1, np.maximum(0, (0.9 - t) / 0.08)) * 0.5
+    elif tipo == "caixinha":  # caixinha de música tocando sozinha: arpejo agudo em lá menor
+        x = np.zeros(int(SR * 2.6))
+        for k, n in enumerate((880.0, 1046.5, 1318.5, 1760.0, 1318.5, 1046.5, 987.8)):
+            t = T(0.7); nota = (np.sin(2 * np.pi * n * t) + 0.3 * np.sin(2 * np.pi * 3.01 * n * t)) * np.exp(-t / 0.22) * np.minimum(1, t / 0.002)
+            i = int(SR * k * 0.3); x[i:i + len(nota)] += nota[: len(x) - i] * 0.6
     else:
         raise SystemExit("efeito desconhecido: " + tipo)
     return x / max(1e-9, np.max(np.abs(x)))

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: a partida</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 2 (quinta, 19h).
+     Alvo: clínica odontológica ou de estética que marca avaliação pelo WhatsApp, com a recepção respondendo entre um
+     paciente e outro. Objetivo: perceber que o vai e volta para marcar faz o paciente desistir, e que com a agenda
+     online no site o paciente vê os horários livres, escolhe um e o compromisso cai direto na agenda do Google.
+     A história é narrada como uma partida: cada mensagem é uma bolinha que cruza a mesa. Oito mensagens, dois dias, e
+     ninguém marcou. A Bia desiste e marca, às onze da noite, no site de outra clínica. A virada: quem narra é essa
+     clínica, a do outro lado da rua, que não jogou nenhuma bolinha, só deixou a agenda aberta no site, e pede que
+     ninguém conte isso para a Sorriso Claro. Tudo é fictício, e as telas levam o selo "exemplo".
+     O tempo de tudo sai da narração: narracao/reels-partida.json → python3 instagram/narrar.py reels-partida.
+     As peças comuns estão em historia.mjs e historia.css; os efeitos (bolinha, apito, notificação, tesoura) saem em
+     "sons" e a trilha mixa. Vem do Reels do pingue-pongue (barbearia), que saiu da semana em 03/11. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+/* as mensagens que cruzam a mesa */
+.bola{position:absolute;left:0;top:0;z-index:26;padding:18px 28px;border-radius:34px;font-size:40px;font-weight:700;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 24px 60px rgba(0,0,0,.4);opacity:0;transform-origin:50% 50%}
+.bola.c{background:#d9fdd3;color:#1d3b14}
+.bola.n{background:#f6f3ee;color:#1e2528}
+.bola.ok{background:var(--terracota);color:#fff;font-size:44px}
+.bola small{display:block;font-size:20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.55;margin-bottom:2px}
+/* o placar da transmissão */
+#placar{position:absolute;left:50%;top:1330px;z-index:27;translate:-50% 0;display:flex;align-items:stretch;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45);font-weight:800;opacity:0}
+#placar > div{display:flex;align-items:center;padding:0 24px;height:78px;font-size:32px;letter-spacing:.02em;white-space:nowrap}
+#placar .lado{background:#1e2528;color:#f1eee9}
+#placar .relo{background:var(--terracota);color:#fff;font-size:36px;font-variant-numeric:tabular-nums;letter-spacing:-.01em;min-width:230px;justify-content:center}
+#ao-vivo{position:absolute;left:50%;top:1292px;z-index:27;translate:-50% 0;display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:.14em;color:#f1eee9;opacity:0}
+#ao-vivo i{width:14px;height:14px;border-radius:50%;background:#e5484d}
+#contas{position:absolute;left:50%;top:1426px;z-index:27;translate:-50% 0;font-size:26px;font-weight:700;color:#e6e1da;white-space:nowrap;opacity:0}
+#contas b{color:#fff;font-variant-numeric:tabular-nums}
+/* o resultado */
+#resultado{position:absolute;left:150px;right:150px;top:640px;z-index:28;padding:34px 48px;border-radius:40px;background:#f1eee9;color:#1e2528;box-shadow:0 50px 110px rgba(0,0,0,.5);opacity:0}
+#resultado .r{display:flex;align-items:baseline;gap:22px;padding:14px 0;border-top:2px solid #e2dcd2;opacity:0}
+#resultado .r:first-of-type{border-top:0}
+#resultado .r b{font-size:118px;font-weight:800;letter-spacing:-.05em;line-height:.95;min-width:110px;text-align:right}
+#resultado .r span{font-size:46px;font-weight:700;color:#5b6467;letter-spacing:-.02em}
+#resultado .r.zero b{color:var(--terracota)}
+#resultado .t{font-size:24px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7a8386;margin-bottom:6px}
+/* a tarja de apresentação */
+.tarja{position:absolute;left:60px;top:1330px;z-index:27;display:flex;flex-direction:column;opacity:0}
+.tarja b{align-self:flex-start;padding:12px 26px;background:#f1eee9;color:#1e2528;font-size:46px;font-weight:800;letter-spacing:.04em}
+.tarja span{align-self:flex-start;padding:10px 26px;background:var(--terracota);color:#fff;font-size:32px;font-weight:700;letter-spacing:-.01em}
+/* a agenda online no celular */
+.ms-url .cad{width:18px;height:18px}
+.ag-tit{margin:12px 22px 0;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.ag-tit small{display:block;font-size:20px;font-weight:600;color:#7a8386;margin-top:2px;letter-spacing:0}
+.ag-dias{display:flex;gap:10px;margin:14px 18px 0}
+.ag-dias b{flex:1;padding:10px 0;border-radius:16px;background:#ece7df;text-align:center;font-size:19px;font-weight:700;color:#5b6467;line-height:1.15}
+.ag-dias b i{display:block;font-style:normal;font-size:28px;color:#1e2528}
+.ag-dias b.sel{background:#1e2528;color:#d6d0c6}
+.ag-dias b.sel i{color:#fff}
+.ag-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 18px 0}
+.ag-grade i{display:block;height:62px;border-radius:16px;font-style:normal;font-size:24px;font-weight:700;display:grid;place-items:center;border:2.5px solid #d6d0c6;color:#1e2528;background:#fff}
+.ag-grade i.oc{background:#ece7df;border-color:#ece7df;color:#a3a9ab;text-decoration:line-through}
+.ag-ok{position:absolute;left:0;right:0;bottom:0;padding:26px 26px 40px;border-radius:34px 34px 0 0;background:#fff;box-shadow:0 -20px 50px rgba(0,0,0,.18);transform:translateY(110%)}
+.ag-ok .ck{width:62px;height:62px;border-radius:50%;background:#22a355;display:grid;place-items:center;margin-bottom:12px}
+.ag-ok .ck svg{width:38px;height:38px;color:#fff;stroke-width:3}
+.ag-ok b{display:block;font-size:30px;font-weight:800}
+.ag-ok span{display:block;font-size:23px;font-weight:600;color:#5b6467;margin-top:4px}
+/* a agenda do Neto, depois que o horário cai */
+.cal-topo{display:flex;align-items:center;justify-content:space-between;padding:10px 22px 12px;border-bottom:2px solid #e7e1d8}
+.cal-topo b{font-size:28px;font-weight:800}
+.cal-topo small{display:block;font-size:19px;font-weight:600;color:#7a8386}
+.cal-topo i{width:46px;height:46px;border-radius:12px;background:#2f6fde;color:#fff;display:grid;place-items:center;font-style:normal;font-size:22px;font-weight:800}
+.cal-h{position:relative;height:84px;border-top:1.5px solid #ece7df;margin-left:86px}
+.cal-h::before{content:attr(data-h);position:absolute;left:-74px;top:-12px;font-size:19px;font-weight:600;color:#9aa1a3}
+.cal-ev{position:absolute;left:96px;right:16px;border-radius:14px;padding:8px 14px;font-size:22px;font-weight:700;line-height:1.15;color:#fff}
+.cal-ev small{display:block;font-size:18px;font-weight:600;opacity:.85}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-mundo" viewBox="0 0 1080 1920"><g id="mu"></g></svg>
+  <div id="escuro"></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="ao-vivo"><i></i>AO VIVO</div>
+  <div id="placar"><div class="lado" id="pl-e">BIA</div><div class="relo" id="relo">TER 09:10</div><div class="lado" id="pl-d">SORRISO CLARO</div></div>
+  <div id="contas">Mensagens <b id="n-msg">0</b> · Marcados <b id="n-marc">0</b></div>
+  <div class="tarja" id="tj-caio"><b>BIA</b><span>quer clarear os dentes</span></div>
+  <div class="tarja" id="tj-neto"><b>RECEPÇÃO</b><span>Clínica Sorriso Claro</span></div>
+  <div class="tarja" id="tj-dr"><b>OUTRO LADO DA RUA</b><span>Odonto Prisma, narrando</span></div>
+  <div class="fone" id="fone"></div>
+  <div id="bolas"></div>
+  <div id="resultado"><div class="t">Fim do primeiro tempo</div><div class="r"><b>8</b><span>mensagens</span></div><div class="r"><b>2</b><span>dias</span></div><div class="r zero"><b>0</b><span>avaliações marcadas</span></div></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, clamp, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, E, pose, camera, naTela, IC, ic, ZAP_B, cabeca, dePe, boca, pernas, fecha, barra, balao, historia } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-partida",
+  ordem: ["mesa", "jogadores", "rali", "desiste", "revela", "eu", "fecho", "marca", "cta"],
+  // a trilha: a abertura da partida, o pulso na apresentação, o groove no rali (cortado no "A Bia parou de responder",
+  // a frase "nada"), a batida abafada quando ela desiste, a subida no "eu ainda não me apresentei" e o drop na
+  // virada: "Eu sou a clínica do outro lado da rua"
+  trilha: { mesa: "abre", jogadores: "google", rali: "insta", desiste: "volta", revela: "ese", eu: "site", fecho: "fim", marca: "fim", cta: "cta" },
+  soBalao: ["r3", "r4", "r5", "r6", "r7", "r8"],
+  cta: "PRÉVIA", nota: "A Bia e as clínicas são fictícias.", bpm: 128, tom: 2,
+});
+const { F, S, I, FIM, W, palco } = R;
+const T = {
+  semana: W("abre", "semana"), caio: W("bia", "bia"), cabelo: W("bia", "dentes"), neto: W("clinica", "recepcao"), pessoa: W("clinica", "outro"),
+  tem: W("saque", "tem"), quarenta: I("devolve"), as: W("devolve", "amanha"),
+  oito: I("placar"), tres: W("placar", "dois"), ninguem: W("placar", "ninguem"), marcou: W("placar", "marcou"),
+  nada: I("nada"), noite: I("noite"), livres1: W("noite", "livres"), toque: W("noite", "toque"),
+  ponto: I("ponto"), rua: W("ponto", "rua"), apres: I("apresentei"), sou: I("sou"), ruaE: W("sou", "rua"),
+  bolinha: W("bolinha", "bolinha"), agenda: W("bolinha", "agenda"), site: W("bolinha", "site"),
+  livres: W("ve", "livres"), um: W("ve", "um"), cai: W("ve", "cai"), google: W("ve", "google"),
+  semanaF: I("semana"), tresF: W("semana", "tres"), assim: W("semana", "assim"), conta: I("conta"), ela: W("conta", "ela"),
+};
+
+// ====================== o mundo: a mesa, a Bia, a recepção e, do outro lado da rua, a cabine ======================
+const CHAO = 1600, MESA_Y = 1290;
+const BIA = { id: "ca", cabelo: "longo", corCabelo: "#2a1a12", brinco: "#e0b04a", roupa: "#7a5ca8", calca: "#2f3a46", bracos: "celular" };
+const REC = { id: "ne", cabelo: "coque", corCabelo: "#3b2418", roupa: "#5aa7a0", braco: "#5aa7a0", calca: "#3e7f79", bracos: "celular", pele: "#c98d6b", pele2: "#b67a59" };
+const PAC = { id: "cl", cabelo: "curto", corCabelo: "#1f1714", roupa: "#c0583a", calca: "#2b2f33", bracos: "peito" };
+const P_C = [632, 1334], P_N = [1832, 1334], ACIMA = 290; // os celulares; a mensagem recebida fica acima da cabeça de quem recebeu
+const CAB = [-230, 980]; // a cabine da Odonto Prisma, do outro lado da rua
+const dentes = (x, y, s, cor) => `<path transform="translate(${x} ${y}) scale(${s})" d="M-14 -16 Q-22 -16 -22 -6 Q-22 6 -16 14 Q-12 22 -9 12 Q-6 4 0 4 Q6 4 9 12 Q12 22 16 14 Q22 6 22 -6 Q22 -16 14 -16 Q6 -16 0 -12 Q-6 -16 -14 -16 Z" fill="${cor}"/>`;
+function cabine() {
+  // a fachada, a janela da cabine e o dentista narrando, de jaleco e fone
+  let s = `<g id="cab"><rect x="-900" y="-1200" width="1160" height="2800" fill="#24343e"/><rect x="250" y="-1200" width="14" height="2800" fill="#1a262d"/>`;
+  for (let i = 0; i < 6; i++) for (let j = 0; j < 3; j++) if (!(j === 1 && i === 4)) s += `<rect x="${-800 + j * 330}" y="${-940 + i * 330}" width="220" height="230" rx="10" fill="#1b2830"/>`;
+  s += `<rect x="-560" y="580" width="660" height="92" rx="12" fill="#f1eee9"/>${dentes(-500, 626, 1.3, "#2f6f86")}<text x="-462" y="645" font-family="Geist" font-weight="800" font-size="50" letter-spacing="2" fill="#1e2528">ODONTO PRISMA</text>`;
+  s += `<rect x="-500" y="700" width="540" height="420" rx="14" fill="#17222a"/><rect id="cab-luz" x="-484" y="716" width="508" height="388" rx="8" fill="#2a3b45"/>`;
+  s += `<g transform="translate(${CAB[0]} 1100)"><path d="M-130 0 L-112 -120 Q-100 -150 -44 -156 L44 -156 Q100 -150 112 -120 L130 0 Z" fill="#f1eee9"/><path d="M-30 -156 L0 -104 L30 -156 Z" fill="#9cc6e0"/>
+    <rect x="-12" y="-176" width="24" height="24" fill="#c4876a"/>${cabeca({ id: "dr", cabelo: "curto", corCabelo: "#2a1c14", oculos: true }, 0, -222, 46)}
+    <path d="M-50 -236 Q0 -316 50 -236" fill="none" stroke="#1e2528" stroke-width="9" stroke-linecap="round"/><circle cx="-50" cy="-224" r="14" fill="#1e2528"/><circle cx="50" cy="-224" r="14" fill="#1e2528"/>
+    <path d="M-52 -214 Q-48 -170 -16 -178" fill="none" stroke="#1e2528" stroke-width="5" stroke-linecap="round"/><circle cx="-14" cy="-178" r="8" fill="#1e2528"/>
+    <g id="dr-mao" opacity="0"><path d="M70 -132 Q60 -176 14 -192" stroke="#f1eee9" stroke-width="28" stroke-linecap="round" fill="none"/><rect x="2" y="-226" width="10" height="38" rx="5" fill="#d79d79"/><circle cx="12" cy="-190" r="13" fill="#d79d79"/></g>
+    <rect x="-210" y="-6" width="420" height="40" rx="6" fill="#3a2c24"/></g>`;
+  s += `<rect x="360" y="900" width="12" height="700" fill="#2b3438"/><path d="M366 900 Q366 860 410 860 L440 860" stroke="#2b3438" stroke-width="12" fill="none"/><ellipse cx="446" cy="866" rx="26" ry="10" fill="#f2d79a" opacity=".7"/>`;
+  return s + "</g>";
+}
+// a recepção: o balcão na frente da recepcionista, e a placa na parede
+const balcao = `<g id="balcao"><rect x="1650" y="1396" width="330" height="204" rx="10" fill="#e9e2d6"/><rect x="1640" y="1384" width="350" height="22" rx="8" fill="#cfc6b8"/>
+  <text x="1815" y="1500" text-anchor="middle" font-family="Geist" font-weight="800" font-size="30" letter-spacing="6" fill="#7a8386">RECEPÇÃO</text></g>`;
+const placa = `<g><rect x="1560" y="960" width="520" height="150" rx="16" fill="#f1eee9"/>${dentes(1640, 1035, 1.7, "#5aa7a0")}<text x="1690" y="1022" font-family="Geist" font-weight="800" font-size="40" fill="#1e2528">CLÍNICA</text><text x="1690" y="1068" font-family="Geist" font-weight="800" font-size="40" fill="#1e2528">SORRISO CLARO</text></g>`;
+$("#mu").innerHTML = `
+  <defs><radialGradient id="g-luz" cx="1210" cy="1180" r="900" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f1d6b8" stop-opacity=".22"/><stop offset="1" stop-color="#f1d6b8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="g-parede" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16232b"/><stop offset="1" stop-color="#1d2f38"/></linearGradient></defs>
+  <rect x="-1000" y="-1200" width="4400" height="2800" fill="url(#g-parede)"/>
+  <rect x="-1000" y="1440" width="4400" height="120" fill="#1f5f8b"/><text x="1200" y="1514" text-anchor="middle" font-family="Geist" font-weight="800" font-size="44" letter-spacing="9" fill="#f1eee9" opacity=".55">PARTIDA DA SEMANA</text>
+  <rect x="-1000" y="${CHAO}" width="4400" height="900" fill="#11181b"/><rect x="-1000" y="1560" width="4400" height="40" fill="#18232a"/>
+  <rect x="-1000" y="-1200" width="4400" height="2800" fill="url(#g-luz)"/>
+  ${cabine()}${placa}
+  <g id="mesa"><rect x="800" y="1316" width="22" height="${CHAO - 1316}" fill="#2b3438"/><rect x="1580" y="1316" width="22" height="${CHAO - 1316}" fill="#2b3438"/>
+    <rect x="760" y="${MESA_Y}" width="880" height="26" rx="4" fill="#1f5f8b"/><rect x="760" y="${MESA_Y}" width="880" height="6" fill="#f1eee9" opacity=".85"/>
+    <rect x="1206" y="1196" width="8" height="${MESA_Y - 1196}" fill="#cfd4d6"/><rect x="1196" y="1200" width="28" height="86" fill="#f1eee9" opacity=".22"/><path d="M1196 1204 h28 M1196 1222 h28 M1196 1240 h28 M1196 1258 h28 M1196 1276 h28" stroke="#f1eee9" stroke-width="2" opacity=".5"/></g>
+  <g id="ca-pos" transform="translate(600 ${CHAO}) scale(1.25)">${dePe(BIA)}</g>
+  <g id="cl-pos" transform="translate(2100 ${CHAO}) scale(1.25)">${dePe(PAC)}</g>
+  <g id="nb-pos" transform="translate(1800 ${CHAO}) scale(1.25)">${dePe(REC)}</g>${balcao}`;
+const MU = $("#mu");
+
+// ====================== as mensagens (as bolinhas) ======================
+// [id da frase, quem manda, texto, hora no relógio]
+const MSG = [["saque", "c", "Tem horário para avaliação?", "TER 09:10"], ["devolve", "n", "Amanhã, às 10h.", "TER 10:10"], ["r3", "c", "Às 10h eu trabalho. Depois das 18h?", "TER 12:30"], ["r4", "n", "Depois das 18h não temos. Sábado?", "TER 16:45"],
+  ["r5", "c", "Sábado eu viajo. Segunda?", "TER 19:20"], ["r6", "n", "Segunda, às 14h?", "QUA 09:05"], ["r7", "c", "Pode ser às 15h?", "QUA 11:40"], ["r8", "n", "15h acabou de sair. 16h?", "QUA 15:30"]];
+const BOLAS = MSG.map(([id, quem, txt, hora], k) => {
+  const el = document.createElement("div"); el.className = "bola " + quem; el.innerHTML = `<small>${quem === "c" ? "Bia" : "Recepção"}</small>${txt}`; $("#bolas").appendChild(el);
+  const sai_ = k === 0 ? T.tem - 0.04 : k === 1 ? T.as - 0.04 : I(id) - 0.04;
+  return { el, quem, hora, sai: sai_, voo: k < 2 ? 0.7 : 0.5 };
+});
+BOLAS.forEach((b, k) => { b.ate = k < BOLAS.length - 1 ? BOLAS[k + 1].sai : T.nada; });
+// o caminho: da raquete de quem manda até quicar do outro lado da rede, e dali até a raquete de quem recebe
+function caminho(b, x) {
+  const [a, c] = b.quem === "c" ? [P_C, P_N] : [P_N, P_C], q = [b.quem === "c" ? 1480 : 940, MESA_Y - 6];
+  if (x < 0.62) { const u = x / 0.62; return [lerp(a[0], q[0], u), lerp(a[1], q[1], u) - 330 * Math.sin(Math.PI * u)]; }
+  const u = (x - 0.62) / 0.38; return [lerp(q[0], c[0], u), lerp(q[1], c[1] - ACIMA, u) - 120 * Math.sin(Math.PI * u)];
+}
+const SONS = [{ t: 0.22, tipo: "apito", ganho: 0.8 }];
+for (const b of BOLAS) SONS.push({ t: b.sai + 0.02, tipo: "toc", ganho: 0.9 }, { t: b.sai + b.voo * 0.62, tipo: "quica", ganho: 0.7 });
+
+// ====================== o celular: a agenda da Odonto Prisma, e depois a agenda do Google ======================
+const SLOTS = ["08:00", "09:00", "10:00", "11:00", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
+function agenda(p, nome, url, cor, livres, dia) {
+  return `<div class="tela" id="${p}-ag"><div class="ms-url">${ic("cadeado")}<span>${url}</span></div>
+    <div class="ms-topo"><span>${nome}</span><i></i></div>
+    <div class="ag-tit">Escolha o horário<small>Avaliação · 30 min</small></div>
+    <div class="ag-dias">${["Qui|05", "Sex|06", "Sáb|07", "Seg|09"].map((d, i) => { const [a, b] = d.split("|"); return `<b class="${i === dia ? "sel" : ""}" ${i === dia ? `style="background:${cor}"` : ""}>${a}<i>${b}</i></b>`; }).join("")}</div>
+    <div class="ag-grade">${SLOTS.map(h => `<i class="${livres.includes(h) ? "" : "oc"}" data-h="${h}">${h}</i>`).join("")}</div>
+    <div class="ag-ok" id="${p}-ok"><div class="ck">${ic("check")}</div><b>Horário marcado</b><span id="${p}-quando"></span></div>
+    <div class="dedo" id="${p}-dedo"></div></div>`;
+}
+const CAL = `<div class="tela" id="n-cal"><div class="cal-topo"><div><b>Segunda, 09</b><small>Agenda da Odonto Prisma · Google</small></div><i>09</i></div>
+  <div style="position:relative;margin-top:14px">${["14:00", "15:00", "16:00", "17:00", "18:00"].map(h => `<div class="cal-h" data-h="${h}"></div>`).join("")}
+    <div class="cal-ev" style="top:2px;height:54px;background:#2f6f86">Limpeza<small>Davi · 14:00</small></div>
+    <div class="cal-ev" style="top:170px;height:54px;background:#4f6b4a">Clareamento<small>Léo · 16:00</small></div>
+    <div class="cal-ev" id="n-novo" style="top:86px;height:54px;background:var(--terracota)">Avaliação<small>Bia · 15:00 · pelo site</small></div></div></div>`;
+const LIVRES = ["08:00", "11:00", "15:00", "16:30", "17:30"];
+$("#fone").innerHTML = `<span class="exemplo claro">exemplo</span><div class="visor">${barra("23:02")}
+  ${agenda("o", "Odonto Prisma", "odontoprisma.com.br", "#2f6f86", LIVRES, 3)}
+  ${agenda("n", "Odonto Prisma", "odontoprisma.com.br", "#2f6f86", LIVRES, 3)}${CAL}</div>`;
+const FONE = $("#fone"), HORA = $(".status .hora", FONE);
+const mostra = id => $$(".tela", FONE).forEach(el => { el.style.display = el.id === id ? "block" : "none"; });
+const slot = (p, h) => $(`#${p}-ag .ag-grade i[data-h="${h}"]`);
+$("#o-quando").textContent = "Segunda, 09 · 15:00 · Avaliação"; $("#n-quando").textContent = "Segunda, 09 · 15:00 · Avaliação";
+
+// ====================== quadro a quadro ======================
+const LARGA = [1306, 1200, 0.64], NO_CAIO = [640, 1330, 1.3], NO_NETO = [1930, 1300, 1.15], RUA = [CAB[0] + 40, 960, 0.78], CABINE = [CAB[0], 930, 1.3], TUDO = [760, 1150, 0.47];
+const T_SAI = T.noite + 0.25, T_VOLTA = T.ponto - 0.25, T_AG = T.agenda - 0.35;
+const CAM = [
+  [0, 1200, 1250, 1.25], [T.semana + 0.3, ...LARGA], [S.jogadores - 0.1, ...LARGA],
+  [S.jogadores + 0.35, ...NO_CAIO], [T.neto - 0.3, ...NO_CAIO], [T.neto + 0.25, ...NO_NETO], [S.rali - 0.35, ...NO_NETO], [S.rali + 0.25, ...LARGA],
+  [T.ponto + 0.6, ...LARGA], [T.apres + 0.3, ...RUA], [T.sou - 0.1, ...RUA], [T.sou + 0.5, ...CABINE], [T_AG, ...CABINE],
+  [S.fecho - 0.2, ...TUDO], [T.conta - 0.3, ...TUDO], [T.conta + 0.35, ...CABINE], [S.marca, CAB[0], 920, 1.45],
+];
+const mundoVisivel = t => t < S.marca && !em(t, T_SAI, T_VOLTA) && !em(t, T_AG + 0.4, S.fecho - 0.25);
+function qMundo(t) {
+  const cam = pose(CAM, t);
+  camera(MU, cam);
+  // a Bia: devolve com o celular; quando para de responder, abaixa e vai embora
+  const sai_ = fase(t, T.nada + 0.5, T.nada + 1.5), anda = em(t, T.nada + 0.5, T.nada + 1.5);
+  attr($("#ca-pos"), "transform", `translate(${lerp(600, -200, sai_).toFixed(1)} ${CHAO}) scale(1.25)`);
+  attr($("#ca-pos"), "opacity", sai_ >= 1 ? 0 : 1); // a Bia sai de cena e não volta
+  pernas("ca", t, anda);
+  boca("ca", t >= T.nada ? "reta" : em(t, T.oito, T.nada) ? "triste" : em(t, T.caio - 0.1, S.rali) ? "sorriso" : "reta");
+  fecha("ca", (t % 2.7) < 0.12 ? 1 : 0);
+  // a recepcionista: olha para o paciente do balcão e para o celular, alternando
+  const olhaCel = BOLAS.some(b => em(t, b.sai - 0.5, b.sai + 0.2) && b.quem === "n");
+  attr($("#necab"), "transform", `rotate(${olhaCel ? -4 : 6 * Math.sin(t * 1.1)} 0 -306)`);
+  attr($("#netela"), "fill", olhaCel ? "#f1eee9" : "#9cc6e0");
+  boca("ne", em(t, S.rali + 4, S.desiste) ? "reta" : "sorriso"); fecha("ne", (t % 3.3) < 0.12 ? 1 : 0);
+  // o paciente do balcão: cada vez mais impaciente
+  boca("cl", em(t, S.rali + 3, S.revela) ? "triste" : "reta");
+  attr($("#clsob"), "transform", em(t, S.rali + 3, S.revela) ? "translate(0 5)" : "");
+  pernas("cl", t, false); attr($("#clp2"), "transform", em(t, S.rali + 3, S.revela) && Math.sin(t * 10) > 0 ? "rotate(-6 16 -150)" : "");
+  fecha("cl", (t % 4.1) < 0.12 ? 1 : 0);
+  // a cabine: acende quando o narrador se apresenta
+  const luz = fase(t, T.sou - 0.15, T.sou + 0.25);
+  attr($("#cab-luz"), "fill", luz > 0 ? `rgb(${Math.round(lerp(42, 241, luz))},${Math.round(lerp(59, 214, luz))},${Math.round(lerp(69, 160, luz))})` : "#2a3b45");
+  boca("dr", t >= T.conta + 0.2 ? "reta" : "sorriso"); fecha("dr", (t % 3.7) < 0.12 ? 1 : 0, -224);
+  attr($("#dr-mao"), "opacity", em(t, T.conta + 0.15, S.marca + 0.6) ? 1 : 0);
+  attr($("#drcab"), "transform", em(t, T.conta, S.marca) ? "rotate(-5 0 -176)" : `rotate(${(2 * Math.sin(t * 2.3)).toFixed(2)} 0 -176)`);
+  return cam;
+}
+function qBolas(t, cam) {
+  const visivel = em(t, S.rali - 0.2, T.nada + 1.5);
+  BOLAS.forEach((b, k) => {
+    const el = b.el;
+    if (!visivel || t < b.sai - 0.02) { el.style.opacity = 0; el.style.visibility = "hidden"; return; }
+    let wx, wy, s = 1, r = 0, o = 1;
+    const x = fase(t, b.sai, b.sai + b.voo);
+    if (x < 1) { [wx, wy] = caminho(b, x); s = 0.75 + 0.4 * Math.sin(Math.PI * Math.min(1, x / 0.62)); r = (b.quem === "c" ? 1 : -1) * 8 * Math.sin(Math.PI * x); }
+    else {
+      const [cx, cy] = b.quem === "c" ? P_N : P_C, d = t - b.sai - b.voo;
+      wx = cx; wy = cy - ACIMA - 10 * Math.sin(d * 3);
+      o = 1 - fase(t, b.ate - 0.05, b.ate + 0.15);
+      if (k === BOLAS.length - 1) { // o "16h?" ninguém devolve: cai do lado da Bia e quica para longe
+        const q = fase(t, T.nada - 0.05, T.nada + 1.3);
+        if (q > 0) { const chao = CHAO - 70, alto = (chao - wy) * (1 - q) ** 1.6; wx = lerp(cx, cx - 420, q); wy = chao - alto * Math.abs(Math.cos(Math.PI * 1.5 * Math.sqrt(q) * 2)); r = -30 * q; }
+        o = 1 - fase(t, T.nada + 1.0, T.nada + 1.4);
+      }
+    }
+    const [sx, sy] = naTela(cam, wx, wy), w = el.offsetWidth, h_ = el.offsetHeight;
+    pos(el, { x: clamp(sx - w / 2, 24, 1056 - w), y: sy - h_ / 2, s, r, o });
+  });
+}
+// o placar da transmissão, o resultado e o ponto para o outro lado da rua
+function qPlacar(t) {
+  const ponto = em(t, T.ponto - 0.3, T.apres + 0.2), abre = t < S.rali - 0.3;
+  const on = em(t, 0, S.jogadores + 0.3) || em(t, S.rali - 0.2, S.desiste) || ponto;
+  const t0 = ponto ? T.ponto - 0.3 : abre ? 0.25 : S.rali - 0.2;
+  const o = fase(t, t0, t0 + 0.3) * (1 - (ponto ? fase(t, T.apres, T.apres + 0.25) : abre ? fase(t, S.jogadores, S.jogadores + 0.3) : fase(t, T.oito - 0.2, T.oito + 0.1)));
+  for (const id of ["#placar", "#contas", "#ao-vivo"]) pos($(id), { o: on && !(ponto && id === "#contas") ? o : 0, y: (1 - sai(fase(t, t0, t0 + 0.4))) * 20 });
+  if (ponto) {
+    $("#pl-e").textContent = "SORRISO CLARO"; $("#pl-d").textContent = "OUTRO LADO";
+    const um = t >= T.rua - 0.1; $("#relo").textContent = um ? "0 × 1" : "0 × 0";
+    $("#relo").style.transform = `scale(${(1 + 0.18 * pulso(t, T.rua - 0.1, 0.45)).toFixed(3)})`;
+    return;
+  }
+  $("#pl-e").textContent = "BIA"; $("#pl-d").textContent = "SORRISO CLARO";
+  let n = 0, hora = "TER 09:10";
+  for (const b of BOLAS) if (t >= b.sai) { n++; hora = b.hora; }
+  if (em(t, T.quarenta, BOLAS[1].sai)) { const m = Math.round(550 + 60 * ease(fase(t, T.quarenta, T.quarenta + 1))); hora = `TER ${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`; }
+  $("#relo").textContent = hora; $("#n-msg").textContent = n; $("#n-marc").textContent = 0;
+  $("#relo").style.transform = `scale(${(1 + 0.08 * Math.max(...BOLAS.map(b => pulso(t, b.sai, 0.3)), pulso(t, T.quarenta, 1))).toFixed(3)})`;
+  $("#ao-vivo i").style.opacity = Math.sin(t * 5) > 0 ? 1 : 0.3;
+  const r = fase(t, T.oito - 0.15, T.oito + 0.25), fora = fase(t, T.nada - 0.1, T.nada + 0.25);
+  pos($("#resultado"), { y: (1 - sai(r)) * 50, s: r > 0 ? lerp(0.85, 1, volta(r)) : 0.85, o: em(t, T.oito - 0.2, T.nada + 0.3) ? Math.min(1, r * 3) * (1 - fora) : 0 });
+  $$("#resultado .r").forEach((el, k) => { const a = entra(t, [T.oito, T.tres, T.ninguem][k]); pos(el, { y: a.y * 0.6, o: a.o }); });
+  $("#resultado .zero b").style.transform = `scale(${(1 + 0.18 * pulso(t, T.marcou, 0.5)).toFixed(3)})`;
+}
+// as tarjas de apresentação
+function qTarjas(t) {
+  for (const [id, t0, t1] of [["#tj-caio", T.caio - 0.1, T.neto - 0.35], ["#tj-neto", T.neto + 0.1, S.rali - 0.3], ["#tj-dr", T.sou + 0.4, T_AG - 0.1]]) {
+    const a = fase(t, t0, t0 + 0.3), b = fase(t, t1 - 0.2, t1);
+    pos($(id), { x: (1 - saiX(a)) * -500 + b * -500, o: em(t, t0, t1) ? 1 : 0 });
+  }
+}
+// o celular: a Bia marca na Odonto Prisma às onze da noite; depois, o narrador mostra como o horário cai na agenda
+const FONE_P = [
+  [T.noite - 0.3, 540, 2300, 0.95, 6, 0], [T.noite + 0.15, 540, 1040, 1, 0, 1], [T.ponto - 0.5, 540, 1040, 1, 0, 1], [T.ponto - 0.15, 540, 2300, 0.95, -6, 0],
+  [T_AG, 540, 2300, 0.95, 6, 0], [T_AG + 0.45, 540, 1040, 1, 0, 1], [S.fecho - 0.45, 540, 1040, 1, 0, 1], [S.fecho - 0.1, 540, 2300, 0.95, -6, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(FONE_P, t);
+  pos(FONE, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o <= 0.002) return;
+  const deles = t < T.ponto, p = deles ? "o" : "n";
+  const tap = deles ? T.toque - 0.15 : T.um - 0.1, livres = deles ? T.livres1 : T.livres, alvo = "15:00";
+  const cal = !deles && t >= T.cai - 0.45;
+  mostra(cal ? "n-cal" : `${p}-ag`);
+  HORA.textContent = deles ? "23:02" : "08:40";
+  if (cal) {
+    const d = fase(t, T.cai - 0.1, T.cai + 0.35);
+    pos($("#n-novo"), { y: (1 - saiX(d)) * -260, s: d > 0 ? lerp(0.9, 1, volta(d)) : 0.9, o: Math.min(1, d * 4) });
+    $("#n-novo").style.boxShadow = `0 0 0 ${(6 * pulso(t, T.google - 0.1, 0.8)).toFixed(1)}px rgba(232,133,94,.6)`;
+    return;
+  }
+  $$(`#${p}-ag .ag-grade i:not(.oc)`).forEach((el, k) => { const a = pulso(t, livres - 0.05 + k * 0.06, 0.7); el.style.boxShadow = a > 0.01 ? `0 0 0 ${(5 * a).toFixed(1)}px rgba(232,133,94,${(0.8 * a).toFixed(2)})` : ""; });
+  const sl = slot(p, alvo), esc = t >= tap + 0.2;
+  sl.style.background = esc ? "#1e2528" : ""; sl.style.color = esc ? "#fff" : ""; sl.style.borderColor = esc ? "#1e2528" : "";
+  const dd = $(`#${p}-dedo`), x = fase(t, tap - 0.35, tap + 0.3);
+  dd.style.left = `${sl.offsetLeft + sl.offsetWidth / 2}px`; dd.style.top = `${sl.offsetTop + sl.offsetHeight / 2}px`;
+  pos(dd, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+  const ok = fase(t, tap + 0.35, tap + 0.75);
+  $(`#${p}-ok`).style.transform = `translateY(${(110 * (1 - sai(ok))).toFixed(1)}%)`;
+}
+// toda semana, três pacientes atravessam a rua: as bolinhas saem da recepção da Sorriso Claro e vão parar na cabine
+const NOVOS = [0, 1, 2].map(k => { const el = document.createElement("div"); el.className = "bola ok"; el.innerHTML = `<small>Paciente novo</small>pelo site`; $("#bolas").appendChild(el); return { el, sai: T.semanaF + 0.15 + k * 0.62, voo: 1.1 }; });
+function qNovos(t, cam) {
+  for (const b of NOVOS) {
+    const x = fase(t, b.sai, b.sai + b.voo);
+    if (!em(t, b.sai - 0.02, T.conta + 0.2)) { pos(b.el, { o: 0 }); continue; }
+    const wx = lerp(P_N[0], CAB[0] + 120, ease(x)), wy = lerp(P_N[1] - 160, 820, ease(x)) - 520 * Math.sin(Math.PI * x);
+    const [sx, sy] = naTela(cam, wx, wy), w = b.el.offsetWidth, hh = b.el.offsetHeight;
+    pos(b.el, { x: clamp(sx - w / 2, 24, 1056 - w), y: sy - hh / 2, s: (0.7 + 0.25 * Math.sin(Math.PI * x)) * (x >= 1 ? 0.8 : 1), r: -10 * Math.sin(Math.PI * x), o: (x >= 1 ? 1 - fase(t, b.sai + b.voo, b.sai + b.voo + 0.3) : 1) * (1 - fase(t, T.conta - 0.1, T.conta + 0.2)) });
+  }
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const mundo = mundoVisivel(t);
+  vis($("#c-mundo"), mundo);
+  const cam = mundo ? qMundo(t) : LARGA;
+  const quente = em(t, T_AG, S.fecho);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b25134 0%,#5a2a1b 50%,#141c1e 100%)" : em(t, T.noite - 0.3, T.ponto) ? "radial-gradient(64% 40% at 50% 54%,#2f6f86 0%,#163240 50%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  $("#escuro").style.opacity = mundo && em(t, T.oito - 0.2, T.nada + 0.3) ? (0.55 * fase(t, T.oito - 0.2, T.oito + 0.2) * (1 - fase(t, T.nada, T.nada + 0.3))).toFixed(3) : 0;
+  qTarjas(t); qPlacar(t); qBolas(t, cam); qFone(t); qNovos(t, mundo ? cam : LARGA);
+  R.comum(t);
+};
+SONS.push({ t: T.nada + 0.05, tipo: "quica", ganho: 0.7 }, { t: T.nada + 0.45, tipo: "quica", ganho: 0.5 }, { t: T.nada + 0.8, tipo: "quica", ganho: 0.35 },
+  { t: T.toque - 0.15, tipo: "toque", ganho: 0.8 }, { t: T.rua - 0.1, tipo: "apito", ganho: 0.7 }, { t: T.um - 0.1, tipo: "toque", ganho: 0.8 }, { t: T.cai, tipo: "ding", ganho: 0.7 },
+  ...NOVOS.map(b => ({ t: b.sai + 0.02, tipo: "toc", ganho: 0.8 })), ...NOVOS.map(b => ({ t: b.sai + b.voo - 0.05, tipo: "ding", ganho: 0.45 })));
+window.preparar = () => R.preparar([0.3, T.semana + 0.4, T.cabelo + 0.3, T.pessoa + 0.3, T.tem + 0.35, T.quarenta + 0.6, T.as + 0.5, I("r4") + 0.3, I("r6") + 0.6, I("r8") + 0.7,
+  T.tres + 0.3, T.marcou + 0.2, T.nada + 0.4, T.nada + 1.2, T.livres1 + 0.3, T.toque + 0.5, T.rua + 0.3, T.apres + 0.5, T.sou + 0.2, T.sou + 0.8, T.bolinha,
+  T.agenda + 0.4, T.livres + 0.3, T.um + 0.5, T.cai + 0.5, T.semanaF + 0.8, T.assim + 0.3, T.conta + 0.5, T.ela + 0.3, F.moral.ini + 1.2, F.marca.ini + 1.3, F.cta.ini + 1.6], SONS);
+await R.pronto();
+</script>
+</body></html>

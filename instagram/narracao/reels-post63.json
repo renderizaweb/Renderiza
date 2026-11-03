@@ -1,0 +1,150 @@
+{
+ "_sobre": "Narração do Reels \"Post 63\" (série com virada, semana de 04/11/2026, sábado). Alvo: a fotógrafa que usa o feed do Instagram como portfólio e faz vários tipos de ensaio. Objetivo: perceber que a cliente que procura um ensaio específico desiste antes de achar no feed misturado, e que um site com o portfólio separado por ensaio mostra o que ela procura logo de cara. A virada: o Reels abre como suspense, alguém soterrado há dois anos, e quem fala é o bebê do post 63. No fim, quem afunda até o post 63 é o Reels da dança. A Marina e a Júlia são fictícias. O único trocadilho é \"rolou, rolou… e não rolou\". O id \"nada\" corta a batida da trilha.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+13%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Faz dois anos que eu estou aqui embaixo, esperando alguém me *encontrar.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "cima",
+   "cena": "pilha",
+   "texto": "Em cima de mim tem um bolo esmagado, dois Natais, um sorteio de Páscoa e catorze vídeos de *dancinha.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "sou",
+   "cena": "bebe",
+   "texto": "Eu sou o bebê do post sessenta e três, o newborn mais bonito que a Marina já *fotografou.*",
+   "pausa": 0.2,
+   "fala": "Eu sou o bebê do post sessenta e três, o níuborn mais bonito que a Marina já fotografou."
+  },
+  {
+   "id": "julia",
+   "cena": "julia",
+   "texto": "Uma noite, a Júlia, grávida de oito meses, entrou no perfil procurando ensaio de *newborn.*",
+   "pausa": 0.2,
+   "fala": "Uma noite, a Júlia, grávida de oito meses, entrou no perfil procurando ensaio de níuborn."
+  },
+  {
+   "id": "agora",
+   "cena": "julia",
+   "texto": "Eu pensei: é *agora.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "passou",
+   "cena": "rola",
+   "texto": "Passou pelo bolo, pelo Natal e parou no Reels da Marina dançando com a câmera. Assistiu duas *vezes.*",
+   "pausa": 0.15
+  },
+  {
+   "id": "rolou",
+   "cena": "rola",
+   "texto": "A Júlia rolou, rolou… e não *rolou.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "nada",
+   "cena": "onze",
+   "texto": "Faltavam onze fileiras para chegar em *mim.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "fechou",
+   "cena": "onze",
+   "texto": "Ela fechou com a primeira fotógrafa que mostrou um bebê logo de *cara.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "gaveta",
+   "cena": "licao",
+   "texto": "Para quem chega, o feed é uma gaveta: tem tudo, mas ninguém acha *nada.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "fixar",
+   "cena": "licao",
+   "texto": "E só dá para fixar três *posts.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "fez",
+   "cena": "site",
+   "texto": "Até que a Marina fez um *site.*",
+   "pausa": 0.15,
+   "impacto": true
+  },
+  {
+   "id": "abas",
+   "cena": "site",
+   "texto": "Com o portfólio separado por ensaio: newborn, gestante, família e *smash.*",
+   "pausa": 0.15,
+   "fala": "Com o portfólio separado por ensaio: níuborn, gestante, família e smash."
+  },
+  {
+   "id": "cada",
+   "cena": "site",
+   "texto": "Em cada um, as melhores fotos e o *WhatsApp.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "adivinha",
+   "cena": "site",
+   "texto": "Adivinha quem virou a primeira foto do *newborn.*",
+   "pausa": 0.5,
+   "fala": "Adivinha quem virou a primeira foto do níuborn."
+  },
+  {
+   "id": "depois",
+   "cena": "fecho",
+   "texto": "Dois anos depois, grávida de novo, a Júlia recebeu o link e tocou em *Newborn.*",
+   "pausa": 0.2,
+   "fala": "Dois anos depois, grávida de novo, a Júlia recebeu o link e tocou em níuborn."
+  },
+  {
+   "id": "tres",
+   "cena": "fecho",
+   "texto": "Três segundos depois, chamou a Marina no *WhatsApp.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "danca2",
+   "cena": "fecho",
+   "texto": "E o Reels da dança? Continua no *feed.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "hoje",
+   "cena": "fecho",
+   "texto": "Hoje, quem está no post sessenta e três é *ele.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Quem procura um ensaio decide pelo que encontra *primeiro.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu portfólio fica separado por ensaio, num site com o nome do seu *estúdio.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do site do seu *estúdio.*",
+   "pausa": 0.4,
+   "fala": "Comenta prévia, que a gente monta a prévia do site do seu estúdio."
+  }
+ ]
+}

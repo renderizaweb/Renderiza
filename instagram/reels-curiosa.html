@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: a curiosa</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Semana de 04 a 08/11/2026, Reels 1 (quarta, 19h).
+     Alvo: quem vende pelo Instagram e responde "valor?" com "chamei no direct".
+     Objetivo: a pessoa perceber que quem some depois de perguntar o preço é cliente que não quis perguntar nem
+     esperar, e que um catálogo no site, com o preço de cada peça, vende sem a cliente precisar perguntar.
+     A história: a Paula, da Paula Bolsas, odeia curiosas (comentam "valor?", recebem o preço no direct e somem).
+     À noite ela procura um vestido, comenta "valor?" numa loja, espera, e compra numa loja com site, onde vê tudo
+     com preço. De manhã visualiza o preço da primeira loja e não responde: a curiosa era ela. E a loja do site era
+     da Bia, a primeira curiosa do dia. A Paula coloca o catálogo no site, e a Bia volta e compra sem perguntar nada.
+     Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
+     narracao/reels-curiosa.json → python3 instagram/narrar.py reels-curiosa → esta página lê reels-curiosa.tempos.json.
+     As peças comuns (contas, gente, legendas, marca, convite e trilha) estão em historia.mjs e historia.css.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+/* Instagram: o direct, o post e os comentários */
+.ig-topo{height:76px;display:flex;align-items:center;gap:14px;padding:0 22px;font-size:27px;font-weight:800;letter-spacing:-.01em;border-bottom:2px solid #eee8df}
+.ig-topo svg{width:30px;height:30px;flex:none}
+.ig-topo .av,.dl-av{width:50px;height:50px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:24px;font-weight:800}
+.dl{position:relative}
+.dl-row{display:flex;align-items:center;gap:14px;height:63px;padding:0 20px;border-radius:14px}
+.dl-row div{min-width:0;flex:1}
+.dl-row b{display:block;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.dl-row small{display:block;font-size:18px;font-weight:600;color:#7a8386;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dl-row em{font-style:normal;font-size:17px;font-weight:700;color:#9aa3a6;flex:none}
+.pt-foto{height:420px;overflow:hidden}
+.pt-foto svg{width:100%;height:100%;display:block}
+.pt-acoes{display:flex;gap:22px;padding:14px 22px 6px}
+.pt-acoes svg{width:34px;height:34px}
+.pt-leg{padding:2px 22px 0;font-size:22px;font-weight:600;line-height:1.25}
+.pt-leg b{font-weight:800}
+.cm{position:absolute;left:18px;right:18px;display:flex;gap:12px;align-items:flex-start;padding:8px 10px;border-radius:16px;font-size:22px;font-weight:600;line-height:1.25}
+.cm .dl-av{width:42px;height:42px;font-size:19px}
+.cm b{font-weight:800;margin-right:6px}
+.cm small{display:block;font-size:17px;color:#8a9396;margin-top:3px}
+.dm-in{position:absolute;left:18px;right:18px;bottom:22px;height:62px;border-radius:31px;border:2px solid #e2dbd0;display:flex;align-items:center;padding:0 24px;font-size:22px;font-weight:600;color:#9aa3a6}
+.dm-in i{display:inline-block;width:3px;height:30px;background:#2f5fc4;margin-right:4px}
+.dm-m{position:absolute;left:18px;max-width:330px;padding:16px 22px;border-radius:24px;background:#efebe5;font-size:27px;font-weight:600;line-height:1.22}
+.dm-m small{display:block;font-size:17px;color:#8a9396;margin-top:6px}
+/* os sites com catálogo */
+.ct{position:absolute;inset:0;padding-top:60px;background:#fbf8f3;overflow:hidden}
+.ct .ms-url{position:relative;z-index:3}
+.ct-rolo{position:absolute;left:0;right:0;top:124px}
+.ct-hero{position:relative;height:120px;margin:0 16px;border-radius:24px;overflow:hidden;color:#fff;display:flex;align-items:center;padding:0 24px;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.ct-grade{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 16px 0}
+.ct-it{border-radius:20px;background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.05);overflow:hidden;position:relative}
+.ct-it i{display:block;height:158px;overflow:hidden}
+.ct-it i svg{width:100%;height:100%;display:block}
+.ct-it b{display:block;font-size:21px;font-weight:800;margin:8px 12px 0;letter-spacing:-.01em}
+.ct-it span{display:block;font-size:22px;font-weight:800;margin:2px 12px 0;color:#b25134}
+.ct-it u{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin:8px 10px 10px;height:46px;border-radius:14px;background:#25d366;color:#fff;font-size:19px;font-weight:800}
+.ct-it u svg{width:22px;height:22px}
+/* WhatsApp */
+.zp-m.ent b{display:block;font-size:20px;color:#2f8f5b;margin-bottom:2px}
+/* sobre a cena */
+.fone .status{background:#fbf8f3}
+.chip{position:absolute;left:0;top:0;z-index:23;display:flex;align-items:center;gap:14px;height:74px;padding:0 26px;border-radius:37px;background:#f1eee9;color:#1e2528;font-size:32px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.35);opacity:0}
+.chip svg{width:34px;height:34px;color:var(--terracota)}
+#placar{position:absolute;left:0;top:0;z-index:27;display:flex;align-items:center;gap:18px;padding:16px 30px 16px 22px;border-radius:30px;background:#1e2528;color:#f1eee9;box-shadow:0 24px 60px rgba(0,0,0,.45);opacity:0}
+#placar b{font-size:74px;font-weight:800;letter-spacing:-.05em;line-height:1;min-width:84px;text-align:center;color:var(--terracota-clara)}
+#placar span{font-size:28px;font-weight:700;line-height:1.1}
+#relogio{position:absolute;left:540px;top:540px;translate:-50% 0;z-index:27;padding:18px 40px;border-radius:34px;background:rgba(10,14,16,.72);color:#f1eee9;font-size:92px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;opacity:0}
+#carimbo{position:absolute;left:540px;top:1236px;z-index:28;padding:14px 44px;border:12px solid var(--terracota-clara);border-radius:26px;color:var(--terracota-clara);font-size:118px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1;background:rgba(20,10,8,.35);opacity:0;translate:-50% 0}
+.etapa{position:absolute;left:0;top:0;z-index:23;width:640px;height:118px;border-radius:30px;background:#f1eee9;color:#1e2528;display:flex;align-items:center;gap:22px;padding:0 30px;font-size:38px;font-weight:800;letter-spacing:-.025em;box-shadow:0 24px 60px rgba(0,0,0,.35);opacity:0}
+.etapa svg{width:46px;height:46px;flex:none;color:var(--terracota)}
+.etapa.fim{background:var(--terracota);color:#fff}
+.etapa.fim svg{color:#fff}
+.seta{position:absolute;left:540px;top:0;width:6px;height:40px;margin-left:-3px;background:#8c9598;border-radius:3px;z-index:22;opacity:0}
+#posts{position:absolute;left:160px;top:760px;width:760px;display:grid;grid-template-columns:repeat(8,1fr);gap:8px;z-index:23}
+#posts i{display:block;height:90px;border-radius:12px;overflow:hidden;opacity:0}
+#posts i svg{width:100%;height:100%;display:block}
+#posts-n{position:absolute;left:540px;top:1300px;translate:-50% 0;z-index:24;padding:14px 34px;border-radius:30px;background:#1e2528;color:#f1eee9;font-size:44px;font-weight:800;letter-spacing:-.03em;opacity:0;white-space:nowrap}
+.balao .bolsa{display:block;width:96px;height:96px}
+.balao.valor{font-size:44px;padding:16px 28px}
+.balao.zapm{font-size:36px;white-space:normal;width:640px;line-height:1.18}
+.balao.pensa{font-size:40px;color:#3b4447}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div class="poeira" id="poeira"></div>
+  <div id="extra"></div>
+  <div class="fone" id="fa"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, IC, ic, ZAP_B, cabeca, dePe, boca, pernas, fecha, barra, balao, historia, h } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-curiosa",
+  ordem: ["post", "direct", "noite", "vestido", "espera", "outra", "manha", "era", "bia", "licao", "site", "fecho", "marca", "cta"],
+  // a trilha: a implicância abre com impacto, o direct é o pulso, a noite é o groove (cortado no "valor?" da Paula,
+  // a frase "nada"), a espera fica abafada, a outra loja e a manhã voltam aos poucos, as duas viradas e a lição
+  // sobem até o drop, que cai em "colocou o catálogo no site"
+  trilha: { post: "abre", direct: "google", noite: "insta", vestido: "insta", espera: "volta", outra: "meio", manha: "meio", era: "meio", bia: "meio", licao: "ese", site: "site", fecho: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "A Paula, a Bia e as lojas são fictícias.", bpm: 118, tom: -1,
+});
+const { F, S, I, FIM, W, palco } = R;
+const T = {
+  curiosa: W("abre", "curiosa"), comenta: W("def", "comenta"), valor0: W("def", "valor"), some: W("def", "some"),
+  chamei0: W("resp", "chamei"), preco0: W("resp", "preco"), visualiza: W("resp", "visualiza"), responde: W("resp", "responde"),
+  onze: W("onze", "onze"), bia0: W("onze", "bia"), dez0: W("onze", "dez"),
+  vestido: W("achou", "vestido"), lindo: W("achou", "vestido"), sem: W("achou", "sem"),
+  coment: W("nada", "comentou"), valor1: W("nada", "valor"), chamei1: W("chamei", "chamei"),
+  caro: W("espera", "caro"), tarde: W("espera", "caro") + 0.9,
+  site1: W("outra", "site"), todos: W("outra", "todos"), foto: W("outra", "foto"), tocou: W("pediu", "tocou"), escrito: W("pediu", "escrito"),
+  chegou: W("manha", "chegou"), visu: W("manha", "visualizou"), nresp: W("nao", "respondeu"),
+  ela: W("era", "ela"), biaR: W("bia", "bia"), dez: W("dez", "dez"),
+  trab: W("licao", "trabalho"), esperar: W("licao", "esperar"), loja: W("licao", "loja"), quarenta: W("legenda", "quarenta"), comparar: W("legenda", "legenda"),
+  catalogo: W("fez", "catalogo"), cadaB: W("cada", "bolsa"), preco: W("cada", "preco"), botao: W("cada", "botao"),
+  valor2: W("link", "valor"), link: W("link", "link"),
+  voltou: W("voltou", "voltou"), caramelo: W("voltou", "caramelo"), nadaF: W("voltou", "nada"),
+};
+T.tapV = T.tocou + 0.15;   // o dedo toca em "Pedir" no vestido Oliva
+T.tapB = T.botao + 0.1;    // e depois na bolsa Caramelo, no site da Paula
+
+IC.ig = '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>';
+IC.loja = '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M2 7h20v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>';
+const TERRA = (a) => `rgba(232,133,94,${a.toFixed(3)})`;
+const realce = (el, a) => { el.style.background = a > 0.004 ? TERRA(a) : ""; };
+const anel = (el, a) => { el.style.boxShadow = a > 0.004 ? `0 0 0 ${(7 * a).toFixed(1)}px ${TERRA(0.95 * a)}` : ""; };
+
+// ====================== bolsas e vestidos ======================
+const CORES = [["#efe4d6", "#b8743a"], ["#e6e2dc", "#2b2b2b"], ["#f1e3e0", "#7a2a36"], ["#e9e6da", "#c9a77c"], ["#e2e8df", "#4f6b4a"],
+  ["#f0e6dc", "#a2552f"], ["#e8e1d9", "#5a3d2b"], ["#ece4e8", "#9b6b84"], ["#e5e9ec", "#2f5d7a"]];
+function formaBolsa(k, c) {
+  const f = k % 3;
+  const corpo = f === 0 ? "M24 44 L76 44 L83 84 Q83 88 79 88 L21 88 Q17 88 17 84 Z" : f === 1 ? "M18 50 Q18 42 26 42 L74 42 Q82 42 82 50 L82 80 Q82 88 74 88 L26 88 Q18 88 18 80 Z" : "M14 60 Q14 52 22 52 L78 52 Q86 52 86 60 L86 76 Q86 82 80 82 L20 82 Q14 82 14 76 Z";
+  const alca = f === 2 ? "M30 52 Q50 32 70 52" : "M33 44 Q33 19 50 19 Q67 19 67 44";
+  const aba = f === 1 ? `<path d="M18 50 Q18 42 26 42 L74 42 Q82 42 82 50 L82 58 Q50 70 18 58 Z" fill="#000" opacity=".18"/>` : f === 0 ? `<path d="M24 44 L76 44 L77 50 L23 50 Z" fill="#000" opacity=".15"/>` : `<path d="M14 60 L86 60 L86 64 Q50 72 14 64 Z" fill="#000" opacity=".15"/>`;
+  return `<ellipse cx="50" cy="${f === 2 ? 86 : 91}" rx="36" ry="4" fill="#000" opacity=".12"/><path d="${alca}" fill="none" stroke="${c}" stroke-width="5.5" stroke-linecap="round"/><path d="${corpo}" fill="${c}"/>${aba}<circle cx="50" cy="${f === 2 ? 66 : f === 1 ? 61 : 58}" r="3.8" fill="#e0b04a"/>`;
+}
+const bolsa = k => `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect width="100" height="100" fill="${CORES[k % 9][0]}"/>${formaBolsa(k, CORES[k % 9][1])}</svg>`;
+const bolsaSolta = (k, cor) => `<svg class="bolsa" viewBox="0 0 100 100">${formaBolsa(k, cor || CORES[k % 9][1])}</svg>`;
+// um vestido no cabide
+const formaVestido = c => `<path d="M50 6 Q56 6 56 12 Q56 16 50 18" fill="none" stroke="#8a7f74" stroke-width="2.2" stroke-linecap="round"/><path d="M50 18 L28 27 M50 18 L72 27" stroke="#8a7f74" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M38 26 Q44 30 50 30 Q56 30 62 26 L66 46 Q62 50 60 52 L76 92 Q50 99 24 92 L40 52 Q38 50 34 46 Z" fill="${c}"/><path d="M40 52 Q50 56 60 52" stroke="#000" stroke-opacity=".18" stroke-width="2.4" fill="none"/>
+  <path d="M46 56 L38 92 M56 57 L64 91" stroke="#000" stroke-opacity=".08" stroke-width="3"/>`;
+const vestido = (c, bg) => `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect width="100" height="100" fill="${bg}"/>${formaVestido(c)}</svg>`;
+
+// ====================== gente ======================
+const PAULA = { id: "pa", cabelo: "longo", corCabelo: "#3b2418", brinco: "#e0b04a", roupa: "#e8e1d6", braco: "#e8e1d6", calca: "#2c3a4a", bracos: "celular", avental: "#b8743a" };
+const PAULA_N = { ...PAULA, id: "pn", avental: null, roupa: "#5b4a6e", braco: "#5b4a6e", calca: "#2b2f3a" };
+
+// ====================== o celular ======================
+const DL = [["bia.atelie", "#7a2a36", "10:02"], ["carla.mendes", "#2f6f86", "10:40"], ["ju.rocha", "#a2552f", "11:15"], ["aline_s", "#4f6b4a", "12:03"], ["fer.oliveira", "#9b6b84", "13:20"],
+  ["mari.costa", "#2f5d7a", "14:08"], ["debora.silva", "#c9a77c", "15:31"], ["tati.nunes", "#5a3d2b", "16:12"], ["lu.prado", "#b8743a", "17:45"], ["camila.r", "#7a8386", "18:20"], ["rebeca.m", "#2b2b2b", "19:02"]];
+const dlRow = ([n, c, hh], k) => `<div class="dl-row" id="dl${k}"><span class="dl-av" style="background:${c}">${n[0].toUpperCase()}</span><div><b>${n}</b><small>Você: A Caramelo sai por R$ 289.</small></div><em id="dlv${k}">Visto · ${hh}</em></div>`;
+const VEST_LOJA = vestido("#6f8f5a", "#ebe6dc");
+const CT_BIA = [["Vestido Oliva", "R$ 260", "#6f8f5a", "#ebe6dc"], ["Vestido Areia", "R$ 230", "#c9b08a", "#efe9e1"], ["Vestido Vinho", "R$ 290", "#7a2a36", "#f1e5e3"], ["Vestido Céu", "R$ 245", "#7fa6c4", "#e6ecf0"]];
+const CT_PAULA = [["Bolsa Caramelo", "R$ 289", 0], ["Bolsa Noite", "R$ 259", 1], ["Bolsa Vinho", "R$ 319", 2], ["Bolsa Areia", "R$ 239", 3]];
+const itens = (xs, img, p) => xs.map((x, k) => `<div class="ct-it" id="${p}${k}"><i>${img(x)}</i><b>${x[0]}</b><span>${x[1]}</span><u id="${p}u${k}">${ZAP_B}Pedir</u></div>`).join("");
+$("#fa").innerHTML = `<span class="exemplo claro">exemplo</span><div class="visor">${barra("10:40")}
+  <div class="tela" id="s-dir"><div class="ig-topo">${ic("voltar")}<b>paulabolsas</b></div><div class="dl" style="padding-top:6px">${DL.map(dlRow).join("")}</div></div>
+  <div class="tela" id="s-post"><div class="ig-topo"><span class="av" style="background:#4f6b4a">L</span><b>lirio.modas</b></div>
+    <div class="pt-foto">${VEST_LOJA}</div><div class="pt-acoes">${ic("coracao")}${ic("mensagem")}${ic("enviar")}</div>
+    <div class="pt-leg"><b>lirio.modas</b> Vestido Lírio, coleção nova. Chama no direct!</div>
+    <div class="cm" id="cm1" style="top:672px"><span class="dl-av" style="background:#b8743a">P</span><div><b>paulabolsas</b>valor?<small>agora</small></div></div>
+    <div class="cm" id="cm2" style="top:752px"><span class="dl-av" style="background:#4f6b4a">L</span><div><b>lirio.modas</b>@paulabolsas chamei no direct<small>agora</small></div></div></div>
+  <div class="tela" id="s-dm"><div class="ig-topo">${ic("voltar")}<span class="av" style="background:#4f6b4a">L</span><b>lirio.modas</b></div>
+    <div class="dm-m" id="dm1" style="top:190px">Oi, linda! O Vestido Lírio sai por R$ 340.<small>09:12</small></div>
+    <div class="dm-in" id="dmin"><i id="dmcur"></i>Mensagem…</div></div>
+  <div class="tela ct" id="s-bia"><div class="ms-url" id="bia-url">${ic("cadeado")}<span>biaatelie.com.br</span></div>
+    <div class="ct-rolo" id="bia-rolo"><div class="ms-topo"><span id="bia-marca">Bia Ateliê</span><i></i></div>
+    <div class="ct-hero" style="background:#7a2a36">Vestidos para festa, com preço</div>
+    <div class="ct-grade">${itens(CT_BIA, x => vestido(x[2], x[3]), "bv")}</div></div><div class="dedo" id="bia-dedo"></div></div>
+  <div class="tela ct" id="s-pau"><div class="ms-url" id="pau-url">${ic("cadeado")}<span>paulabolsas.com.br</span></div>
+    <div class="ct-rolo"><div class="ms-topo"><span>Paula Bolsas</span><i></i></div>
+    <div class="ct-hero" style="background:#b8743a">Bolsas de couro feitas à mão</div>
+    <div class="ct-grade">${itens(CT_PAULA, x => bolsa(x[2]), "pv")}</div></div><div class="dedo" id="pau-dedo"></div></div>
+  <div class="tela" id="s-cm"><div class="ig-topo"><span class="av" style="background:#b8743a">P</span><b>paulabolsas</b></div>
+    <div class="pt-foto" style="height:360px">${bolsa(0)}</div><div class="pt-acoes">${ic("coracao")}${ic("mensagem")}${ic("enviar")}</div>
+    <div class="cm" id="cm3" style="top:540px"><span class="dl-av" style="background:#2f6f86">R</span><div><b>renata.f</b>valor?<small>agora</small></div></div>
+    <div class="cm" id="cm4" style="top:622px"><span class="dl-av" style="background:#b8743a">P</span><div><b>paulabolsas</b>@renata.f Tá tudo com preço no site: <span style="color:#2f5fc4;font-weight:700">paulabolsas.com.br</span><small>agora</small></div></div></div>
+  <div class="tela" id="s-zap"><div class="zp-topo">${ic("voltar")}<i style="background:#7a2a36">B</i><div>Bia Ateliê<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-m ent" id="zp1" style="top:30px"><b>Bia Ateliê</b>Oi, Paula! Vi no seu site. Quero a Bolsa Caramelo.<small>10:02</small></div>
+    <div class="zp-m sai" id="zp2" style="top:250px">É sua! Sai hoje.<small>10:03</small></div></div></div>
+  <div class="dedo" id="dedo"></div></div>`;
+const FA = $("#fa");
+const mostra = id => $$(".tela", FA).forEach(el => { el.style.display = el.id === id ? "block" : "none"; });
+
+// ====================== as cenas desenhadas ======================
+const estante = (y, xs, ks) => `<rect x="${xs[0] - 110}" y="${y}" width="${xs[xs.length - 1] - xs[0] + 220}" height="18" rx="6" fill="#6b4a33"/><rect x="${xs[0] - 110}" y="${y + 18}" width="${xs[xs.length - 1] - xs[0] + 220}" height="10" fill="#000" opacity=".2"/>` +
+  xs.map((x, i) => `<g transform="translate(${x - 95} ${y - 172}) scale(1.9)">${formaBolsa(ks[i], CORES[ks[i] % 9][1])}</g>`).join("");
+$("#cn").innerHTML = `
+  <defs><linearGradient id="g-loja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2c24"/><stop offset="1" stop-color="#2a201b"/></linearGradient>
+    <linearGradient id="g-noite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141d2b"/><stop offset="1" stop-color="#0f141c"/></linearGradient>
+    <radialGradient id="g-luz" cx="540" cy="1200" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g-tela" cx="0" cy="0" r="1"><stop offset="0" stop-color="#9cc6e0" stop-opacity=".35"/><stop offset="1" stop-color="#9cc6e0" stop-opacity="0"/></radialGradient></defs>
+  <g id="g-dia"><rect width="1080" height="1920" fill="url(#g-loja)"/>
+    ${estante(880, [190, 400, 680, 890], [0, 2, 4, 7])}${estante(1250, [150, 930], [5, 3])}
+    <rect y="1640" width="1080" height="280" fill="#1c1512"/><rect y="1630" width="1080" height="14" fill="#4a362a"/>
+    <rect width="1080" height="1920" fill="url(#g-luz)"/>
+    <g id="pa-pos">${dePe(PAULA)}</g></g>
+  <g id="g-sala"><rect width="1080" height="1920" fill="url(#g-noite)"/>
+    <g id="janela"><rect x="660" y="660" width="280" height="360" rx="14" fill="#1c2a3a"/><rect id="ceu" x="676" y="676" width="248" height="328" rx="8" fill="#22344d"/>
+      <circle id="lua" cx="860" cy="760" r="34" fill="#e9e3c9"/><circle id="lua2" cx="874" cy="750" r="30" fill="#22344d"/>
+      <circle id="sol" cx="760" cy="800" r="46" fill="#f2c25a" opacity="0"/>
+      ${[[700, 720], [740, 880], [900, 940], [820, 690], [700, 980]].map(([x, y], k) => `<circle class="estr" cx="${x}" cy="${y}" r="${3 + (k % 2)}" fill="#f1eee9"/>`).join("")}
+      <path d="M800 676 V1004 M676 840 H924" stroke="#1c2a3a" stroke-width="12"/></g>
+    <g transform="translate(180 1640)"><rect x="-8" y="-420" width="16" height="420" fill="#3a3f45"/><path d="M-70 -420 L70 -420 L48 -520 L-48 -520 Z" fill="#e8d9b5"/><ellipse id="abajur" cx="0" cy="-400" rx="160" ry="60" fill="#f2d79a" opacity=".12"/></g>
+    <rect y="1640" width="1080" height="280" fill="#0b0f15"/><rect y="1630" width="1080" height="14" fill="#1f2b38"/>
+    <g id="pn-pos">${dePe(PAULA_N)}</g><circle id="brilho" cx="0" cy="0" r="220" fill="url(#g-tela)"/></g>`;
+const ESC = 1.75, PX = 290; // a Paula, à noite, fica à esquerda do celular
+
+// ====================== balões, chips e outras peças ======================
+const VALOR_POS = [[150, 640, -6], [700, 560, 5], [80, 900, 4], [780, 860, -5], [330, 470, 3], [600, 1180, -4], [120, 1160, 6], [790, 1300, -3]];
+const B_VALOR = VALOR_POS.map(() => balao("valor?", "valor sem"));
+const B_CARO = balao("Deve ser caro.", "pensa esq");
+const B_TARDE = balao("Já é tarde para perguntar de novo.", "pensa dir");
+const B_ZAPV = balao("Oi! Vi no site e quero o Vestido Oliva, R$ 260.", "msg zapm");
+const B_ZAPB = balao("Oi! Quero a Bolsa Caramelo, R$ 289.", "msg zapm");
+const B_VISTO = balao(`${ic("olho", 'style="width:44px;height:44px;vertical-align:-8px;margin-right:12px"')}Visto 09:13`, "sem");
+const B_BIA = balao(`<span style="display:inline-flex;align-items:center;gap:16px"><span class="dl-av" style="width:62px;height:62px;border-radius:50%;background:#7a2a36;color:#fff;display:inline-grid;place-items:center;font-size:30px">B</span><span>bia.atelie<br><small style="font-size:30px;color:#7a8386;font-weight:600">“valor?” · Visto 10:02</small></span></span>`, "sem");
+$("#extra").innerHTML = `<div id="placar"><b id="pl-n">0</b><span>curiosas<br>hoje</span></div><div id="relogio">23:12</div><div id="carimbo">curiosa</div>
+  <div id="posts">${Array.from({ length: 40 }, (_, k) => `<i>${bolsa(k)}</i>`).join("")}</div><div id="posts-n">1 de 40</div>`;
+const ETAPAS = [["mensagem", "“valor?”"], ["enviar", "“chamei no direct”"], ["relogio", "Esperar a resposta"], ["loja", "Outra loja, com preço"]].map(([i, txt], k) => {
+  const el = document.createElement("div"); el.className = "etapa" + (k === 3 ? " fim" : ""); el.innerHTML = ic(i) + txt; $("#extra").appendChild(el); return el;
+});
+const SETAS = [0, 1, 2].map(() => { const el = document.createElement("div"); el.className = "seta"; $("#extra").appendChild(el); return el; });
+
+// ====================== quadro a quadro ======================
+// o celular: [t, centro x, centro y, escala, giro, opacidade]
+const PF = [
+  [0, 540, 1300, 0.9, 4, 0], [S.direct - 0.3, 540, 1300, 0.9, 4, 0], [S.direct + 0.1, 540, 1010, 1, 0, 1],
+  [S.noite - 0.3, 540, 1010, 1, 0, 1], [S.noite, 540, 1400, 0.9, 6, 0], [T.lindo - 0.3, 700, 1500, 0.6, 8, 0], [T.lindo + 0.15, 660, 1010, 0.96, 2, 1],
+  [S.espera - 0.25, 660, 1010, 0.96, 2, 1], [S.espera + 0.05, 700, 1500, 0.6, 8, 0],
+  [S.outra - 0.25, 540, 1500, 0.9, 0, 0], [S.outra + 0.15, 540, 1010, 1, 0, 1], [S.manha - 0.3, 540, 1010, 1, 0, 1], [S.manha - 0.05, 660, 1010, 0.96, 2, 1],
+  [T.nresp + 0.25, 660, 1010, 0.96, 2, 1], [S.era - 0.1, 1350, 1010, 0.9, 12, 0],
+  [S.bia - 0.3, -300, 1010, 0.9, -12, 0], [S.bia + 0.1, 540, 1010, 1, 0, 1], [T.dez - 0.4, 540, 1010, 1, 0, 1], [T.dez + 0.05, 330, 1060, 0.86, -3, 1],
+  [S.licao - 0.25, 330, 1060, 0.86, -3, 1], [S.licao + 0.05, 330, 1400, 0.8, -6, 0],
+  [S.site - 0.25, 540, 2200, 1, 6, 0], [S.site + 0.15, 540, 1010, 1, 0, 1], [S.marca - 0.35, 540, 1010, 1, 0, 1], [S.marca - 0.05, 540, 1100, 0.9, 0, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(PF, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  if (o <= 0.002) return;
+  let tela = "s-dir", hora = "10:40";
+  if (t >= S.noite) { tela = "s-post"; hora = "23:08"; }
+  if (t >= S.outra) { tela = "s-bia"; hora = "23:41"; }
+  if (t >= S.manha) { tela = "s-dm"; hora = "09:12"; }
+  if (t >= S.bia) { tela = "s-bia"; hora = "09:14"; }
+  if (t >= S.site) { tela = t >= I("link") - 0.1 ? "s-cm" : "s-pau"; hora = "10:01"; }
+  if (t >= S.fecho - 0.1) { tela = "s-zap"; hora = "10:03"; }
+  mostra(tela);
+  $(".status .hora", FA).textContent = hora;
+  const d = $("#dedo"); d.style.opacity = 0;
+  if (tela === "s-dir") {
+    // o direct enche: uma conversa por curiosa, todas com "Visto"
+    DL.forEach((_, k) => {
+      const t0 = lerp(T.chamei0 - 0.2, T.onze + 0.1, k / 10), a = entra(t, t0, 0.25);
+      pos($(`#dl${k}`), { y: a.y * 0.5, o: k === 0 ? Math.max(a.o, 1) : a.o });
+      $(`#dlv${k}`).style.color = t >= Math.max(t0, T.visualiza) + 0.1 ? "#b25134" : "";
+    });
+    realce($("#dl0"), 0.42 * fase(t, T.bia0 - 0.1, T.bia0 + 0.15));
+  }
+  if (tela === "s-post") {
+    // a loja dos vestidos, sem preço; o "valor?" é da Paula
+    for (const [id, t0] of [["cm1", T.valor1 - 0.1], ["cm2", T.chamei1 - 0.05]]) { const a = entra(t, t0, 0.28); pos($("#" + id), { y: a.y * 0.6, o: a.o }); }
+    realce($("#cm1"), 0.45 * pulso(t, T.valor1, 1.3));
+    $(".pt-leg", FA).style.color = pulso(t, T.sem - 0.1, 1) > 0.01 ? "#b25134" : "";
+  }
+  if (tela === "s-bia") {
+    // à noite, o site rola até os vestidos (a barra de endereço some); de manhã, volta ao topo: Bia Ateliê
+    const sobe = t >= S.bia ? ease(fase(t, T.biaR - 0.55, T.biaR - 0.05)) : 0, desce = ease(fase(t, S.outra + 0.2, T.todos));
+    const y = lerp(0, -250, desce) * (1 - sobe);
+    $("#bia-rolo").style.transform = `translateY(${y.toFixed(1)}px)`;
+    $("#bia-url").style.transform = `translateY(${(lerp(0, -70, desce) * (1 - sobe)).toFixed(1)}px)`;
+    $("#bia-url").style.opacity = (1 - desce * (1 - sobe)).toFixed(3);
+    anel($("#bia-url"), t >= S.bia ? pulso(t, T.biaR - 0.05, 1.4) : 0);
+    $("#bia-marca").style.color = t >= S.bia && pulso(t, T.biaR - 0.1, 1.4) > 0.01 ? "#b25134" : "";
+    CT_BIA.forEach((_, k) => { $(`#bv${k}`).style.filter = t < S.manha && pulso(t, T.foto - 0.1 + k * 0.08, 0.7) > 0.01 ? `brightness(${(1 + 0.12 * pulso(t, T.foto - 0.1 + k * 0.08, 0.7)).toFixed(3)})` : ""; });
+    $("#bvu0").style.transform = t < S.manha ? `scale(${(1 + 0.1 * pulso(t, T.tapV - 0.05, 0.4)).toFixed(3)})` : "";
+    if (t < S.manha) toque(t, T.tapV, $("#bvu0"), y + 124);
+  }
+  if (tela === "s-dm") {
+    const a = entra(t, T.chegou + 0.1, 0.3); pos($("#dm1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+    $("#dmcur").style.opacity = Math.floor(t * 2.2) % 2 ? 0 : 1;
+  }
+  if (tela === "s-pau") {
+    CT_PAULA.forEach((_, k) => {
+      const ac = pulso(t, T.cadaB - 0.1 + k * 0.08, 0.7) + pulso(t, T.preco - 0.1 + k * 0.08, 0.7);
+      $(`#pv${k} span`).style.transform = `scale(${(1 + 0.12 * pulso(t, T.preco - 0.1 + k * 0.08, 0.6)).toFixed(3)})`;
+      $(`#pv${k}`).style.filter = ac > 0.01 ? `brightness(${(1 + 0.1 * ac).toFixed(3)})` : "";
+    });
+    $("#pvu0").style.transform = `scale(${(1 + 0.1 * pulso(t, T.tapB - 0.05, 0.4)).toFixed(3)})`;
+    toque(t, T.tapB, $("#pvu0"), 124);
+  }
+  if (tela === "s-cm") {
+    for (const [id, t0] of [["cm3", T.valor2 - 0.1], ["cm4", T.link - 0.15]]) { const a = entra(t, t0, 0.28); pos($("#" + id), { y: a.y * 0.6, o: a.o }); }
+    realce($("#cm4"), 0.35 * pulso(t, T.link, 1.2));
+  }
+  if (tela === "s-zap") {
+    for (const [id, t0] of [["zp1", T.voltou + 0.1], ["zp2", T.nadaF + 0.15]]) { const a = entra(t, t0, 0.3); pos($("#" + id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); }
+  }
+}
+// o dedo toca num botão "Pedir": el é o botão, dy é o deslocamento do conteúdo
+function toque(t, t0, el, dy) {
+  const d = $("#dedo"), x = fase(t, t0 - 0.4, t0 + 0.25), it = el.parentElement;
+  d.style.left = `${it.offsetLeft + 16 + el.offsetLeft + el.offsetWidth / 2}px`;
+  d.style.top = `${60 + dy + it.parentElement.offsetTop + it.offsetTop + el.offsetTop + el.offsetHeight / 2}px`;
+  pos(d, { s: lerp(1.5, 0.8, sai(x)), o: x > 0 && x < 1 ? Math.sin(Math.PI * x) : 0 });
+}
+function qCena(t) {
+  const dia = em(t, 0, S.direct) || em(t, S.era, S.bia), sala = em(t, S.noite, S.outra) || em(t, S.manha, S.era);
+  vis($("#c-cena"), dia || sala);
+  attr($("#g-dia"), "opacity", dia ? 1 : 0); attr($("#g-sala"), "opacity", sala ? 1 : 0);
+  if (dia) {
+    attr($("#pa-pos"), "transform", `translate(540 1700) scale(${ESC}) rotate(${(Math.sin(t * 2.2) * 1.2).toFixed(2)} 0 0)`);
+    pernas("pa", t, false);
+    const era = t >= S.era;
+    // de dia ela revira os olhos para as curiosas; na virada, fica de boca aberta
+    boca("pa", era ? "oh" : em(t, T.some - 0.1, S.direct) ? "triste" : "reta");
+    attr($("#pasob"), "transform", !era && em(t, T.curiosa - 0.05, S.direct) ? "translate(0 -6)" : era ? "translate(0 -10)" : "");
+    fecha("pa", era ? 0 : (t % 2.7 < 0.12 ? 1 : 0));
+    attr($("#patela"), "fill", "#9cc6e0");
+  }
+  if (sala) {
+    const manha = t >= S.manha;
+    attr($("#ceu"), "fill", manha ? "#9cc6e0" : "#22344d"); attr($("#lua2"), "fill", manha ? "#9cc6e0" : "#22344d");
+    attr($("#lua"), "opacity", manha ? 0 : 1); attr($("#sol"), "opacity", manha ? 1 : 0);
+    $$(".estr").forEach((s, k) => attr(s, "opacity", manha ? 0 : (0.4 + 0.6 * Math.abs(Math.sin(t * 1.3 + k))).toFixed(2)));
+    attr($("#g-sala rect"), "fill", manha ? "#3a4a58" : "url(#g-noite)");
+    attr($("#abajur"), "opacity", manha ? 0 : 0.12);
+    attr($("#pn-pos"), "transform", `translate(${PX} 1700) scale(${ESC})`);
+    pernas("pn", t, false);
+    // a tela do celular dela ilumina o rosto à noite
+    attr($("#brilho"), "transform", `translate(${PX + 26 * ESC} ${1700 - 214 * ESC})`); attr($("#brilho"), "opacity", manha ? 0 : (0.8 + 0.2 * Math.sin(t * 5)).toFixed(3));
+    const pensando = em(t, S.espera, S.outra);
+    boca("pn", manha ? (t >= T.nresp ? "reta" : "reta") : pensando ? "reta" : "sorriso");
+    attr($("#pnsob"), "transform", pensando ? "translate(0 4)" : "");
+    attr($("#pnolhos"), "transform", pensando ? `translate(${(Math.sin(t * 1.4) * 4).toFixed(1)} 0)` : "");
+    if (!pensando) fecha("pn", (t % 2.9) < 0.12 ? 1 : 0);
+    attr($("#pncab"), "transform", manha && t >= T.nresp - 0.1 ? `rotate(${(-6 * fase(t, T.nresp - 0.1, T.nresp + 0.3)).toFixed(2)} 0 -306)` : "");
+  }
+}
+function qExtra(t) {
+  // as curiosas do dia, contadas
+  const n = em(t, S.direct, S.noite) ? Math.round(lerp(0, 11, fase(t, T.chamei0 - 0.2, T.onze + 0.1))) : 0;
+  $("#pl-n").textContent = n;
+  {
+    const a = entra(t, T.chamei0 - 0.25), o = em(t, T.chamei0 - 0.3, S.noite) ? a.o * (1 - fase(t, S.noite - 0.3, S.noite)) : 0;
+    pos($("#placar"), { x: 720, y: 486 + a.y, s: a.s * (1 + 0.1 * pulso(t, T.onze - 0.05, 0.4)), o, r: 3 });
+  }
+  // o relógio da espera
+  {
+    const o = em(t, S.espera - 0.1, S.outra) ? entra(t, S.espera).o * (1 - fase(t, S.outra - 0.25, S.outra)) : 0;
+    const m = Math.round(lerp(12, 58, fase(t, S.espera, S.outra)));
+    $("#relogio").textContent = `23:${String(m).padStart(2, "0")}`;
+    $("#relogio").style.opacity = o.toFixed(3);
+  }
+  // o carimbo: curiosa
+  {
+    const x = fase(t, T.ela - 0.1, T.ela + 0.2), o = em(t, T.ela - 0.1, S.bia) ? Math.min(1, x * 3) * (1 - fase(t, S.bia - 0.25, S.bia)) : 0;
+    pos($("#carimbo"), { s: lerp(2.4, 1, sai(x)), r: -9, o });
+  }
+  // a lição: o caminho da "curiosa" até a outra loja
+  const L0 = S.licao, L1 = I("legenda");
+  ETAPAS.forEach((el, k) => {
+    const t0 = [L0 + 0.1, T.trab - 0.3, T.esperar - 0.1, T.loja - 0.2][k], a = entra(t, t0, 0.3);
+    const o = em(t, t0 - 0.05, L1) ? a.o * (1 - fase(t, L1 - 0.3, L1)) : 0;
+    pos(el, { x: 220, y: 700 + k * 178 + a.y, s: a.s, o });
+  });
+  SETAS.forEach((el, k) => {
+    const t0 = [T.trab - 0.3, T.esperar - 0.1, T.loja - 0.2][k], o = em(t, t0, L1) ? fase(t, t0, t0 + 0.2) * (1 - fase(t, L1 - 0.3, L1)) : 0;
+    pos(el, { y: 700 + k * 178 + 124, o });
+  });
+  // quarenta posts para abrir um por um
+  const P0 = L1, P1 = S.site, ab = em(t, P0, P1) ? Math.floor(lerp(1, 7, fase(t, T.quarenta, T.comparar + 0.2))) : 0;
+  $$("#posts i").forEach((el, k) => {
+    const a = entra(t, P0 + 0.05 + k * 0.018, 0.25);
+    const o = em(t, P0, P1) ? a.o * (1 - fase(t, P1 - 0.3, P1)) : 0;
+    pos(el, { y: a.y * 0.4, s: a.s * (k < ab && k === ab - 1 ? 1.15 : 1), o: o * (k < ab ? 1 : 0.55) });
+    el.style.boxShadow = k < ab ? "0 0 0 4px #e8855e" : "";
+  });
+  $("#posts-n").textContent = `${Math.max(1, ab)} de 40`;
+  $("#posts-n").style.opacity = (em(t, T.quarenta - 0.2, P1) ? fase(t, T.quarenta - 0.2, T.quarenta + 0.1) * (1 - fase(t, P1 - 0.3, P1)) : 0).toFixed(3);
+}
+function qBaloes(t) {
+  // os "valor?" estouram em volta da Paula e somem
+  B_VALOR.forEach((b, k) => {
+    const [x, y, r] = VALOR_POS[k], t0 = lerp(T.comenta - 0.2, T.valor0 + 0.5, k / 7), a = entra(t, t0, 0.25);
+    const some = fase(t, T.some - 0.05 + k * 0.03, T.some + 0.15 + k * 0.03);
+    pos(b, { x, y: y + a.y, s: a.s * (1 + 0.3 * some), r, o: em(t, t0 - 0.05, S.direct) ? a.o * (1 - some) : 0 });
+  });
+  for (const [b, t0, t1, x, y] of [[B_CARO, T.caro - 0.3, S.outra, 470, 860], [B_TARDE, T.tarde - 0.3, S.outra, 300, 1040]]) {
+    const a = entra(t, t0), o = em(t, t0 - 0.05, t1) ? a.o * (1 - fase(t, t1 - 0.25, t1)) : 0;
+    pos(b, { x, y: y + a.y, s: a.s, o, r: x > 300 ? 2 : -2 });
+  }
+  for (const [b, t0, t1] of [[B_ZAPV, T.tapV + 0.25, S.manha], [B_ZAPB, T.tapB + 0.25, I("link")]]) {
+    const a = entra(t, t0, 0.3), o = em(t, t0 - 0.05, t1) ? a.o * (1 - fase(t, t1 - 0.25, t1)) : 0;
+    pos(b, { x: 220, y: 1530 + a.y, s: a.s, o });
+  }
+  {
+    const a = entra(t, T.visu - 0.05, 0.25), o = em(t, T.visu - 0.1, S.era) ? a.o * (1 - fase(t, S.era - 0.25, S.era)) : 0;
+    pos(B_VISTO, { x: 540 - B_VISTO.offsetWidth / 2, y: 1500 + a.y, s: a.s, o });
+  }
+  {
+    const a = entra(t, T.dez - 0.15, 0.3), o = em(t, T.dez - 0.2, S.licao) ? a.o * (1 - fase(t, S.licao - 0.25, S.licao)) : 0;
+    pos(B_BIA, { x: 1056 - B_BIA.offsetWidth, y: 760 + a.y, s: a.s, o, r: 2 });
+  }
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const quente = em(t, S.site, S.marca);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : "radial-gradient(70% 45% at 50% 52%,#26333a 0%,#161c1f 70%)";
+  qCena(t); qFone(t); qExtra(t); qBaloes(t);
+  R.comum(t);
+};
+window.preparar = () => R.preparar([0.4, T.curiosa + 0.4, T.valor0 + 0.4, T.some + 0.3, T.visualiza + 0.3, T.onze + 0.4, T.bia0 + 0.3, T.vestido + 0.3, T.sem + 0.4,
+  T.valor1 + 0.4, T.chamei1 + 0.5, T.caro + 0.3, T.tarde + 0.6, T.site1 + 0.3, T.foto + 0.3, T.tapV + 0.6, T.chegou + 0.5, T.visu + 0.4, T.nresp + 0.3,
+  T.ela + 0.3, T.biaR + 0.3, T.dez + 0.4, T.trab + 0.3, T.loja + 0.3, T.quarenta + 0.5, T.comparar + 0.2, T.catalogo + 0.3, T.preco + 0.3, T.tapB + 0.6,
+  T.link + 0.4, T.caramelo + 0.3, T.nadaF + 0.5, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6]);
+await R.pronto();
+</script>
+</body></html>
