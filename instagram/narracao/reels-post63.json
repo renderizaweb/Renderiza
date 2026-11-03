@@ -41,7 +41,7 @@
   {
    "id": "passou",
    "cena": "rola",
-   "texto": "Passou pelo bolo, pelo Natal e parou no Reels da Marina dançando com a câmera. Assistiu duas *vezes.*",
+   "texto": "Ela passou pelo bolo, pelo Natal, e parou no vídeo da Marina dançando com a câmera. Assistiu duas *vezes.*",
    "pausa": 0.15
   },
   {
@@ -104,9 +104,9 @@
   {
    "id": "depois",
    "cena": "fecho",
-   "texto": "Dois anos depois, grávida de novo, a Júlia recebeu o link e tocou em *Newborn.*",
+   "texto": "Na segunda gravidez, a Júlia recebeu o link e tocou em *Newborn.*",
    "pausa": 0.2,
-   "fala": "Dois anos depois, grávida de novo, a Júlia recebeu o link e tocou em níuborn."
+   "fala": "Na segunda gravidez, a Júlia recebeu o link e tocou em níuborn."
   },
   {
    "id": "tres",
@@ -117,7 +117,7 @@
   {
    "id": "danca2",
    "cena": "fecho",
-   "texto": "E o Reels da dança? Continua no *feed.*",
+   "texto": "E o vídeo da dança? Continua no *feed.*",
    "pausa": 0.3
   },
   {

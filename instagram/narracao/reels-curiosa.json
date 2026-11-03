@@ -1,54 +1,73 @@
 {
- "_sobre": "Narração do Reels \"A curiosa\" (série com virada, semana de 04/11/2026, quarta). Alvo: quem vende pelo Instagram e responde \"valor?\" com \"chamei no direct\". Objetivo: ela perceber que quem some depois de perguntar o preço não é curiosa, é cliente que não quis perguntar nem esperar, e que um catálogo no site com o preço de cada peça vende sem a pessoa precisar perguntar. A virada: a Paula, que odeia curiosas, vira uma à noite, e a loja do site em que ela compra é da Bia, a curiosa da manhã. A Paula, a Bia e as lojas são fictícias. O id \"nada\" corta a batida da trilha.",
+ "_sobre": "Narração do Reels \"A curiosa\" (série com virada, semana de 04/11/2026, quarta), versão 2 (03/11, 22h40): o começo virou um mistério para prender nos primeiros segundos. Alvo: quem vende pelo Instagram e responde \"valor?\" com \"chamei no direct\". Objetivo: ela perceber que quem some depois de perguntar o preço foi procurar o preço em outro lugar, e que um catálogo no site, com o preço de cada peça, vende sem a cliente precisar perguntar. O gancho: onze clientes sumiram da loja da Paula, todas do mesmo jeito. Primeira virada: à noite, a próxima a sumir é a própria Paula. Segunda: a loja do site em que ela compra é da Bia, a primeira que sumiu. A Paula, a Bia e as lojas são fictícias. O id \"nada\" corta a batida da trilha.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+14%",
  "inicio": 0.2,
  "frases": [
   {
-   "id": "abre",
-   "cena": "post",
-   "texto": "A Paula tem uma loja de bolsas no Instagram e uma implicância: *curiosa.*",
+   "id": "sumiram",
+   "cena": "sumiram",
+   "texto": "Só hoje, onze clientes sumiram da loja da *Paula.*",
    "pausa": 0.3,
    "impacto": true
   },
   {
-   "id": "def",
-   "cena": "post",
-   "texto": "Curiosa, para ela, é quem comenta “valor?” e *some.*",
-   "pausa": 0.25,
-   "fala": "Curiosa, para ela, é quem comenta valor, e some."
-  },
-  {
-   "id": "resp",
-   "cena": "direct",
-   "texto": "Ela responde “chamei no direct”, manda o preço, e a pessoa visualiza e não *responde.*",
+   "id": "jeito",
+   "cena": "sumiram",
+   "texto": "Todas do mesmo *jeito.*",
    "pausa": 0.25
   },
   {
-   "id": "onze",
-   "cena": "direct",
-   "texto": "Só hoje foram onze. A primeira, uma tal de Bia, às dez da *manhã.*",
-   "pausa": 0.45
+   "id": "def",
+   "cena": "post",
+   "texto": "Comentaram “valor?”, a Paula respondeu “chamei no direct” e mandou o *preço.*",
+   "pausa": 0.2,
+   "fala": "Comentaram valor, a Paula respondeu chamei no direct, e mandou o preço."
   },
   {
-   "id": "achou",
+   "id": "visto",
+   "cena": "direct",
+   "texto": "Elas visualizaram e nunca mais *apareceram.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "bia0",
+   "cena": "direct",
+   "texto": "A primeira foi uma tal de Bia, às dez da *manhã.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "onde",
+   "cena": "loja",
+   "texto": "A Paula passou o dia tentando entender para onde essa gente *ia.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "descobriu",
    "cena": "noite",
-   "texto": "À noite, a Paula achou um vestido lindo para o casamento da irmã. Sem *preço.*",
+   "texto": "Às onze da noite, ela *descobriu.*",
    "pausa": 0.4
   },
   {
    "id": "nada",
-   "cena": "vestido",
-   "texto": "Ela comentou: *“valor?”*",
+   "cena": "noite",
+   "texto": "A próxima a sumir foi *ela.*",
    "pausa": 0.5,
-   "fala": "Ela comentou: valor?"
+   "impacto": true
   },
   {
-   "id": "chamei",
+   "id": "achou",
    "cena": "vestido",
-   "texto": "A loja respondeu: “chamei no *direct.*”",
-   "pausa": 0.35
+   "texto": "Ela achou um vestido lindo para o casamento da irmã. Sem *preço.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "comentou",
+   "cena": "vestido",
+   "texto": "Comentou “valor?”, e a loja respondeu: “chamei no *direct.*”",
+   "pausa": 0.35,
+   "fala": "Comentou valor, e a loja respondeu: chamei no direct."
   },
   {
    "id": "espera",
@@ -66,7 +85,7 @@
    "id": "pediu",
    "cena": "outra",
    "texto": "Tocou no botão de pedir, e a mensagem já foi com o vestido *escrito.*",
-   "pausa": 0.45
+   "pausa": 0.4
   },
   {
    "id": "manha",
@@ -75,17 +94,10 @@
    "pausa": 0.3
   },
   {
-   "id": "nao",
+   "id": "nunca",
    "cena": "manha",
-   "texto": "E não *respondeu.*",
-   "pausa": 0.45
-  },
-  {
-   "id": "era",
-   "cena": "era",
-   "texto": "A curiosa, ontem à noite, era *ela.*",
-   "pausa": 0.5,
-   "impacto": true
+   "texto": "E nunca mais *apareceu.*",
+   "pausa": 0.5
   },
   {
    "id": "bia",
@@ -96,19 +108,13 @@
   {
    "id": "dez",
    "cena": "bia",
-   "texto": "A curiosa das dez da *manhã.*",
+   "texto": "A primeira que tinha sumido, às dez da *manhã.*",
    "pausa": 0.45
   },
   {
    "id": "licao",
    "cena": "licao",
-   "texto": "Ninguém some à toa. Perguntar dá trabalho, e esperar dá tempo de achar outra *loja.*",
-   "pausa": 0.3
-  },
-  {
-   "id": "legenda",
-   "cena": "licao",
-   "texto": "E ninguém abre quarenta posts para achar o preço na *legenda.*",
+   "texto": "Ninguém some à toa. Quem não vê o preço vai procurar onde ele *está.*",
    "pausa": 0.4
   },
   {
