@@ -1,0 +1,33 @@
+{
+ "_sobre": "Narração do Reels \"A vaga das 10h20\" (série com história, semana de 04/11/2026, sexta). Alvo: a fotógrafa de estúdio que abre a mini sessão de Natal pelo Stories e vende as vagas no direct. Objetivo: ela perceber que, quando as vagas moram no direct, só ela sabe quais acabaram (vende a mesma vaga duas vezes e segura horário de quem não paga), e que com a agenda online no site a cliente vê as vagas e reserva sozinha, o horário fica separado por 24 horas até o sinal, quem chega tarde vai para a lista de espera e o painel conta as vagas. Os fatos vêm do exemplo do Estúdio Ciranda (/exemplos/fotografia). A Lia, a Carol, a Fernanda, a Bruna e o cachorro são fictícios. O único trocadilho é \"noite feliz\". O id \"nada\" corta a batida da trilha (a virada).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+11%",
+ "inicio": 0.2,
+ "frases": [
+  {"id": "abre", "cena": "stories", "texto": "A fotógrafa Lia Moreno abriu as vagas da mini sessão de Natal às oito da *noite.*", "pausa": 0.35, "impacto": true},
+  {"id": "explodiu", "cena": "direct", "texto": "Às oito e um, o direct *explodiu.*", "pausa": 0.2},
+  {"id": "trinta", "cena": "direct", "texto": "Trinta pessoas perguntaram se ainda tinha *vaga.*", "pausa": 0.2},
+  {"id": "cachorro", "cena": "direct", "texto": "Uma perguntou se podia levar o *cachorro.*", "pausa": 0.4},
+  {"id": "planilha", "cena": "noite", "texto": "Ela respondeu uma por uma, com o direct num celular e a planilha no *outro.*", "pausa": 0.25},
+  {"id": "carol", "cena": "noite", "texto": "À meia-noite, ela prometeu o sábado, dez e vinte, para a *Carol.*", "pausa": 0.15},
+  {"id": "fernanda", "cena": "noite", "texto": "À meia-noite e dois, o mesmo horário, para a *Fernanda.*", "pausa": 0.45},
+  {"id": "feliz", "cena": "noite", "texto": "Não foi exatamente uma noite *feliz.*", "pausa": 0.55},
+  {"id": "nada", "cena": "bruna", "texto": "E a Bruna pediu para segurar as nove e quarenta até falar com o *marido.*", "pausa": 0.25},
+  {"id": "vinte", "cena": "bruna", "texto": "O marido respondeu no dia *vinte.*", "pausa": 0.3},
+  {"id": "nao", "cena": "bruna", "texto": "Era *não.*", "pausa": 0.5},
+  {"id": "licao", "cena": "licao", "texto": "Quando a vaga mora no direct, só a Lia sabe quais já *acabaram.*", "pausa": 0.25},
+  {"id": "dorme", "cena": "dorme", "texto": "E ninguém consegue reservar enquanto ela *dorme.*", "pausa": 0.45},
+  {"id": "fez", "cena": "site", "texto": "Então a Lia colocou a agenda online no *site.*", "pausa": 0.15, "impacto": true},
+  {"id": "restam", "cena": "site", "texto": "A cliente vê quantas vagas *restam,* escolhe o horário e reserva *sozinha.*", "pausa": 0.2},
+  {"id": "sinal", "cena": "site", "texto": "O horário fica separado por vinte e quatro horas, até o sinal no *Pix.*", "pausa": 0.15},
+  {"id": "espera", "cena": "site", "texto": "Quem chega tarde entra na lista de *espera.*", "pausa": 0.2},
+  {"id": "painel", "cena": "site", "texto": "E no painel, a Lia marca os sinais e vê quantas vagas *sobraram.*", "pausa": 0.4},
+  {"id": "cada", "cena": "fecho", "texto": "A Carol ficou com as dez e vinte. A Fernanda, com as *onze.*", "pausa": 0.25},
+  {"id": "dona", "cena": "fecho", "texto": "E a dona do cachorro? Pegou as nove e quarenta, pela lista de *espera.*", "pausa": 0.3},
+  {"id": "com", "cena": "fecho", "texto": "Com o *cachorro.*", "pausa": 0.6},
+  {"id": "moral", "cena": "marca", "texto": "Vaga que a cliente vê, ninguém vende duas *vezes.*", "pausa": 0.3},
+  {"id": "marca", "cena": "marca", "texto": "Com a *Renderiza,* a agenda online fica no site do seu estúdio, e o painel conta as *vagas.*", "pausa": 0.5, "impacto": true},
+  {"id": "cta", "cena": "cta", "texto": "Comenta *NATAL* que a gente te manda o exemplo para *testar.*", "fala": "Comenta natal, que a gente te manda o exemplo para testar.", "pausa": 0.4}
+ ]
+}

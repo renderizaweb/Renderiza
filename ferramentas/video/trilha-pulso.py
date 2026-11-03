@@ -7,6 +7,7 @@
 #   abre: drone grave e batidas de impacto · google: pulso de baixo e chimbal (o relógio) · insta: entra o bumbo
 #   reto e a palma; "Nada." corta tudo · volta: a batida abafada · meio: só o drone e um coração batendo
 #   ese: subida (ruído e tom crescendo) até o drop · site: tudo, com acordes curtos · fim: só os impactos · cta: fecha
+#   --sons: efeitos de cena por cima de tudo (a bolinha de pingue-pongue, a notificação, o apito, a tesoura), no nível da voz.
 import argparse, json, wave
 import numpy as np
 
@@ -14,6 +15,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("tempos"); ap.add_argument("voz"); ap.add_argument("saida"); ap.add_argument("duracao", type=float)
 ap.add_argument("--bpm", type=float, default=124)
 ap.add_argument("--tom", type=int, default=0)
+ap.add_argument("--sons", help="JSON com os efeitos da cena: [{\"t\": s, \"tipo\": \"toc\"|\"quica\"|\"ding\"|\"apito\"|\"toque\"|\"tesoura\", \"ganho\": 1}]")
 a = ap.parse_args()
 SR = 44100
 rng = np.random.default_rng(11)
@@ -155,6 +157,38 @@ def nivel(x):  # volume médio só onde há som
 tem_voz = np.any(np.abs(voz) > 1e-3)  # Reels sem voz: a voz vem muda e a música fica sozinha, mais alta
 alvo_db = 20 * np.log10(nivel(voz)) - 8 if tem_voz else -15  # música 8 dB abaixo da voz (já tratada e nivelada)
 mix = voz + musica / nivel(musica) * 10 ** (alvo_db / 20)
+# efeitos de cena (--sons): sintetizados aqui, por cima da voz e da música
+def efeito_som(tipo):
+    if tipo == "toc":  # a bolinha na raquete: estalo curto e seco
+        t = T(0.09); x = 0.7 * np.sin(2 * np.pi * 2300 * t) * np.exp(-t / 0.012) + 0.5 * np.sin(2 * np.pi * 950 * t) * np.exp(-t / 0.02)
+        x += filtro(rng.standard_normal(len(t)), alto=2500) * np.exp(-t / 0.003) * 0.6
+    elif tipo == "quica":  # a bolinha na mesa: mais grave
+        t = T(0.1); x = 0.8 * np.sin(2 * np.pi * (700 + 500 * np.exp(-t / 0.01)) * t) * np.exp(-t / 0.025)
+        x += filtro(rng.standard_normal(len(t)), alto=1200, baixo=6000) * np.exp(-t / 0.004) * 0.5
+    elif tipo == "ding":  # notificação de mensagem: duas notas
+        x = np.zeros(int(SR * 0.42))
+        for ini, f in ((0.0, 1318.5), (0.11, 1760.0)):
+            t = T(0.3); n = (np.sin(2 * np.pi * f * t) + 0.25 * np.sin(2 * np.pi * 2 * f * t)) * np.exp(-t / 0.09) * np.minimum(1, t / 0.004)
+            i = int(SR * ini); x[i:i + len(n)] += n[: len(x) - i] * 0.6
+    elif tipo == "apito":  # apito de juiz: tom alto com trinado
+        t = T(0.55); f = 2950 + 160 * np.sign(np.sin(2 * np.pi * 28 * t))
+        x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.minimum(1, t / 0.02) * np.minimum(1, (0.55 - t) / 0.08) * 0.5
+        x += filtro(rng.standard_normal(len(t)), alto=2000, baixo=6000) * 0.08
+    elif tipo == "toque":  # toque na tela
+        t = T(0.05); x = np.sin(2 * np.pi * 1800 * t) * np.exp(-t / 0.006) * 0.5
+    elif tipo == "tesoura":  # dois cortes de tesoura
+        x = np.zeros(int(SR * 0.3))
+        for ini in (0.0, 0.16):
+            t = T(0.07); n = filtro(rng.standard_normal(len(t)), alto=3500) * np.exp(-t / 0.012) + 0.4 * np.sin(2 * np.pi * 4200 * t) * np.exp(-t / 0.008)
+            i = int(SR * ini); x[i:i + len(n)] += n * 0.7
+    else:
+        raise SystemExit("efeito desconhecido: " + tipo)
+    return x / max(1e-9, np.max(np.abs(x)))
+if a.sons:
+    sfx = np.zeros(N)
+    for s in json.load(open(a.sons)):
+        somar(sfx, efeito_som(s["tipo"]), s["t"], s.get("ganho", 1.0))
+    mix = mix + sfx * 2.2 * (nivel(voz) if tem_voz else 0.12)
 mix = mix[: int(SR * dur)]
 t = np.arange(len(mix)) / SR
 mix *= np.minimum(1, t / 0.02) * np.minimum(1, np.maximum(0, (dur - t) / 1.2))

@@ -18,7 +18,7 @@ import { chromium } from "/opt/node22/lib/node_modules/playwright/index.mjs";
 
 const AQUI = dirname(fileURLToPath(import.meta.url)), RAIZ = resolve(AQUI, "..");
 const SAIDA = join(RAIZ, "rascunhos", "instagram", "saida"), FOTOS = join(RAIZ, "rascunhos", "instagram", "fotos");
-const FFMPEG = process.env.FFMPEG || "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2";
+const FFMPEG = process.env.FFMPEG || ["/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2", "/usr/bin/ffmpeg"].find(existsSync) || "ffmpeg";
 const FPS = 30;
 const pedidos = process.argv.slice(2).filter(a => !a.startsWith("--"));
 const ENSAIO = process.argv.includes("--ensaio");
@@ -78,7 +78,7 @@ const rodar = (cmd, args) => new Promise((ok, falha) => spawn(cmd, args, { stdio
 
 async function reels(nome) {
   const p = await abrir(nome + ".html", 1080, 1920);
-  const { duracao, entrada, fechamento, clima = "leve", narracao, pulso, bpm, tom, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
+  const { duracao, entrada, fechamento, clima = "leve", narracao, pulso, bpm, tom, sons, ensaio = [0.6, 2.6, 4.6, 5.6, 7, 9, 11.4, 13.4, 15.6, 17, 19] } = await p.evaluate(() => window.preparar());
   if (ENSAIO) { // só alguns quadros, para conferir antes de gravar
     for (const t of ensaio) {
       await p.evaluate(x => window.quadro(x), t);
@@ -87,6 +87,8 @@ async function reels(nome) {
     await p.close(); console.log(`${nome}: ensaio em ${SAIDA}`); return;
   }
   const tmp = join(SAIDA, ".tmp-" + nome); mkdirSync(tmp, { recursive: true });
+  // efeitos de cena (a bolinha, a notificação, o apito): a página devolve "sons" e a trilha mixa por cima
+  const efeitos = () => { if (!sons || !sons.length) return []; const arq = join(tmp, "sons.json"); writeFileSync(arq, JSON.stringify(sons)); return ["--sons", arq]; };
   const video = join(tmp, "video.mp4");
   const ff = spawn(FFMPEG, ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(FPS), "-c:v", "mjpeg", "-i", "-",
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", "-pix_fmt", "yuv420p", video], { stdio: ["pipe", "inherit", "inherit"] });
@@ -106,12 +108,12 @@ async function reels(nome) {
     // outro nome devolve também "pulso", as mesmas frases com a parte da trilha de cada uma (ex.: reels-ciclo-eventos)
     let tempos = join(AQUI, "narracao", narracao + ".tempos.json");
     if (pulso) { tempos = join(tmp, "cenas.json"); writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso })); }
-    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, voz, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : [])]);
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, voz, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : []), ...efeitos()]);
   } else if (pulso) { // Reels sem voz com a trilha pulsante: "pulso" traz as cenas como as frases de uma narração
     const tempos = join(tmp, "cenas.json"), mudo = join(tmp, "mudo.wav");
     writeFileSync(tempos, JSON.stringify({ duracao, frases: pulso }));
     await rodar(FFMPEG, ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono", "-t", String(duracao), "-c:a", "pcm_s16le", mudo]);
-    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, mudo, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : [])]);
+    await rodar("python3", [join(RAIZ, "ferramentas", "video", "trilha-pulso.py"), tempos, mudo, wav, String(duracao), ...(bpm ? ["--bpm", String(bpm)] : []), ...(tom ? ["--tom", String(tom)] : []), ...efeitos()]);
   } else await rodar("python3", [join(RAIZ, "ferramentas", "video", "musica.py"), wav, String(duracao), "--entrada", String(entrada), "--fechamento", String(fechamento), "--clima", clima]);
   const saida = join(SAIDA, nome + ".mp4");
   await rodar(FFMPEG, ["-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a", "-t", String(duracao),

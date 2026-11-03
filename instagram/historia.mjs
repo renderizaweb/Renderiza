@@ -260,10 +260,11 @@ export async function historia(cfg) {
   }
 
   // a trilha (ferramentas/video/trilha-pulso.py) só conhece abre, google, insta, volta, meio, ese, site, fim e cta
-  const preparar = (ensaio = []) => {
+  // sons: efeitos de cena [{ t, tipo: "toc" | "quica" | "ding" | "apito" | "toque" | "tesoura", ganho }], mixados pela trilha
+  const preparar = (ensaio = [], sons = []) => {
     window.quadro(0);
     return {
-      duracao: DUR, narracao: nome, bpm, tom,
+      duracao: DUR, narracao: nome, bpm, tom, sons: sons.map(s => ({ ...s, t: +s.t.toFixed(3) })),
       pulso: frases.map(f => ({ id: f.id, cena: trilha[f.cena], ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
       ensaio: ensaio.map(x => +x.toFixed(2)),
     };
