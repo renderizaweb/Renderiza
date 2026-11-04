@@ -10,7 +10,7 @@
 | Site | só Linktree: o Google aponta linktr.ee/jessicacunhafotografia; 20 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | publicada em 28/10/2026 · `/demo/jessica-cunha-fotografia` e `/demo/jessica-cunha-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 04/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 11/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 14 livres de 30 (`horarios` no `demo.json`) |
 
 ## Direção da demo

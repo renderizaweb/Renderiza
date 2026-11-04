@@ -10,7 +10,7 @@
 | Site | sem site: sem link no Google; 16 domínios testados (tiaisa.com.br é de outra pessoa, do Paraná); a bio leva ao Linktree |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | publicada em 28/10/2026 · `/demo/tia-isa-fotografia` e `/demo/tia-isa-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 04/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 11/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 17 livres de 36 (`horarios` no `demo.json`) |
 
 ## Direção da demo

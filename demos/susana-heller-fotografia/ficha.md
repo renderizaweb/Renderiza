@@ -10,7 +10,7 @@
 | Site | não tem: sem link no Google; 16 domínios óbvios testados, nenhum existe (lote 1, 22/10/2026). A bio manda “agendar no link” |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | publicada em 28/10/2026 · `/demo/susana-heller-fotografia` e `/demo/susana-heller-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 04/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 11/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 6 livres de 18 (`horarios` no `demo.json`) |
 
 ## Direção da demo
