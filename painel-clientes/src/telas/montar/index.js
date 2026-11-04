@@ -37,6 +37,18 @@ const comPrazo = (promessa, ms) => Promise.race([promessa, esperar(ms).then(() =
 
 
 const chave = contaId => `painel-renderiza:montar:${contaId}`;
+/** O que o /trazer deixou no aparelho (Missão 7, bloco F): { contagem } ou { pedido }, com o resumo pronto. */
+function lerTrazido(contaId) {
+  try {
+    const t = JSON.parse(localStorage.getItem(`painel-renderiza:trazido:${contaId}`) || "null");
+    if (!t || Date.now() - t.em > 6 * 3600000) return null;
+    if (t.pedido) return { pedido: true };
+    const c = t.contagem || {};
+    const partes = [[c.pacotes + c.adicionais, "item de preço", "itens de preço"], [c.datas, "data", "datas"], [c.clientes, "cliente", "clientes"], [c.modelos, "modelo de contrato", "modelos de contrato"]]
+      .filter(([q]) => q > 0).map(([q, um, varios]) => `${q} ${q === 1 ? um : varios}`);
+    return partes.length ? { texto: partes.length === 1 ? partes[0] : `${partes.slice(0, -1).join(", ")} e ${partes[partes.length - 1]}` } : null;
+  } catch (e) { return null; }
+}
 const estadoInicial = () => ({ versao: VERSAO, passo: "abertura", respostas: [], perguntas: null, viaIa: false, tipos: null, corrigido: null });
 function ler(contaId) {
   try {
@@ -173,12 +185,18 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-pular>Pular</button>`;
     },
 
-    arquivos: () => `
-      ${cabeca("Tem orçamento, contrato ou lista de clientes?", "Em foto, PDF ou planilha. Mande para a Renderiza pelo WhatsApp que a gente coloca no seu painel. Logo, logo você manda por aqui, e a IA monta junto com você.")}
+    arquivos: () => {
+      // o que voltou do /trazer (Missão 7, bloco F): "Pronto: trouxe…"
+      const trazido = lerTrazido(conta.conta_id);
+      return `
+      ${cabeca(trazido ? "Pronto, já está no seu painel" : "Tem orçamento, contrato ou lista de clientes?", trazido
+        ? (trazido.pedido ? "Os arquivos foram para a Renderiza: a gente monta e te avisa no WhatsApp." : `Entrou: ${escapar(trazido.texto)}. Quer trazer mais alguma coisa?`)
+        : "Em foto, PDF, Word ou planilha, do jeito que estiver. A IA lê, organiza, e você só confere antes de entrar.")}
       <div class="rz-acesso-acoes">
-        <a class="rz-botao rz-botao--grande rz-botao--bloco" href="${escapar(linkDaRenderiza(`Oi! Sou ${primeiroNome || "dono"} do ${sabe.nome}. Vou mandar o que tenho para o painel (orçamento, contrato, clientes).`))}" target="_blank" rel="noopener">${icone("whatsapp", { tamanho: 18 })}Mandar pelo WhatsApp</a>
-        <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-seguir>Montar o meu painel ${icone("seta", { tamanho: 18 })}</button>
-      </div>`,
+        <a class="rz-botao rz-botao--grande rz-botao--bloco${trazido ? "" : " rz-botao--primario"}" href="/trazer?de=montar">${icone("importar", { tamanho: 18 })}${trazido ? "Trazer mais" : "Mandar agora"}</a>
+        <button class="rz-botao rz-botao--grande rz-botao--bloco${trazido ? " rz-botao--primario" : ""}" type="button" data-seguir>${trazido ? "Montar o meu painel" : "Fazer isso depois"} ${icone("seta", { tamanho: 18 })}</button>
+      </div>`;
+    },
 
     montagem: () => {
       const marcadas = estado.tipos.filter(t => t.marcada && !existentes.some(x => x.nome.toLowerCase() === t.nome.toLowerCase()));

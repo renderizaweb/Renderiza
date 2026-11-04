@@ -76,3 +76,12 @@ export function funilDoOnboarding(linhas) {
     { id: "confiantes", nome: "Confiantes", n: n(l => etapaDaConta(l).id === "confiante") },
   ];
 }
+
+/** O que a conta trouxe pelo "trazer o que tem" (Missão 7F), numa frase curta; "" se nada. */
+export function oQueTrouxe(l) {
+  const t = l.trouxe;
+  if (!t) return "";
+  const partes = [[t.pacotes, "item de preço", "itens de preço"], [t.datas, "data", "datas"], [t.clientes, "cliente", "clientes"], [t.modelos, "contrato", "contratos"]]
+    .filter(([q]) => Number(q) > 0).map(([q, um, varios]) => `${q} ${Number(q) === 1 ? um : varios}`);
+  return partes.length ? `Trouxe ${partes.join(", ")}` : "";
+}

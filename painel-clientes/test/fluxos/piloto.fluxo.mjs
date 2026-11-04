@@ -206,7 +206,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
 
     await passo("3b. o dono traz as festas que já estavam marcadas (digitando rápido)", async () => {
       await pDono.goto(`${srv.url}/`, { waitUntil: "networkidle" });
-      await visivel(pDono, ".rz-passos :is(a,button):has-text('Trazer as datas')").click();
+      await visivel(pDono, ".rz-passos button:has-text('Digitar as datas')").click();
       await pDono.fill("#importar-texto", `${D.marcadas[0]} 19h Carla Fluxo Teste (11) 90000-0202\n${D.marcadas[1]} Bruno e Lia Fluxo Teste`);
       await pDono.waitForSelector("dialog[open] [data-trazer]:not([disabled])");
       assert.match(await pDono.locator("dialog[open] [data-previa]").innerText(), /2 datas/);

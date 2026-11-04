@@ -8,6 +8,7 @@
 //   /contas              escolher a conta (quem é de mais de uma)
 //   /comecar             o onboarding: as 5 perguntas que criam a conta (09)
 //   /montar              a conversa de boas-vindas de quem chega pelo convite (Missão 7, bloco E): a conta já existe
+//   /trazer              trazer o que tem (Missão 7, bloco F): arquivos lidos pela IA, conferidos e gravados
 //   /                    Início
 //   /<módulo>            um módulo de src/modulos/index.js
 //   /admin[/<parte>]     o Admin (src/admin/index.js)
@@ -30,6 +31,7 @@ export const TELAS = {
   contas: { caminho: "/contas", carregar: () => import("./telas/contas.js") },
   comecar: { caminho: "/comecar", carregar: () => import("./telas/comecar.js") },
   montar: { caminho: "/montar", carregar: () => import("./telas/montar/index.js") },
+  trazer: { caminho: "/trazer", carregar: () => import("./telas/trazer/index.js") },
 };
 
 export function lerRota(caminho) {

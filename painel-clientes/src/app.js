@@ -81,7 +81,9 @@ async function iniciar() {
       if (rota.tipo === "tela") {
         const tela = await TELAS[rota.id].carregar();
         if (minhaVez !== vez) return;
-        await tela.montar(raiz, { sessao, banco, config, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
+        const saida = await tela.montar(raiz, { sessao, banco, config, ambiente: config.ambiente, aoEntrar: desenhar, navegar });
+        // como nos módulos: a tela pode devolver o que fecha ao sair (o /trazer cancela os envios no meio)
+        if (typeof saida === "function") desmontar = saida;
         return;
       }
 

@@ -114,5 +114,48 @@ export async function criarAdaptadorSupabase({ url, chave, createClient }) {
       return cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl;
     },
     urlPublica: (bucket, caminho) => cliente.storage.from(bucket).getPublicUrl(caminho).data.publicUrl,
+    /**
+     * Envia um arquivo grande mostrando o progresso (o supabase-js não mostra): `aoProgredir(0..1)`. Só cria, nunca
+     * troca. Devolve uma promessa com `.cancelar()` (a pessoa tirou o arquivo da lista no meio do envio).
+     */
+    enviarComProgresso(bucket, caminho, arquivo, tipo, aoProgredir = () => {}) {
+      const xhr = new XMLHttpRequest();
+      const promessa = (async () => {
+        const { data } = await cliente.auth.getSession();
+        const token = data.session && data.session.access_token;
+        if (!token) throw erro({ code: "PGRST301", message: "JWT expired" });
+        await new Promise((ok, falhou) => {
+          xhr.open("POST", `${url}/storage/v1/object/${bucket}/${caminho.split("/").map(encodeURIComponent).join("/")}`);
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("apikey", chave);
+          xhr.setRequestHeader("Content-Type", tipo || "application/octet-stream");
+          xhr.setRequestHeader("x-upsert", "false");
+          xhr.upload.onprogress = e => { if (e.lengthComputable) aoProgredir(e.loaded / e.total); };
+          xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) return ok();
+            let msg = xhr.responseText;
+            try { msg = JSON.parse(xhr.responseText).message || msg; } catch (e) { /* texto */ }
+            falhou(erro({ status: xhr.status, message: /exceeded the maximum allowed size|Payload too large/i.test(msg) ? "Arquivo grande demais." : msg }));
+          };
+          xhr.onerror = () => falhou(erro({ message: "Failed to fetch" }));
+          xhr.onabort = () => falhou(Object.assign(new Error("Cancelado."), { cancelado: true }));
+          xhr.send(arquivo);
+        });
+      })();
+      promessa.cancelar = () => xhr.abort();
+      return promessa;
+    },
+    /** Os arquivos de uma pasta do Storage (nome, tamanho e tipo), até 200. */
+    async listarArquivos(bucket, pasta) {
+      const lista = await resultado(cliente.storage.from(bucket).list(pasta, { limit: 200, sortBy: { column: "name", order: "asc" } }));
+      return lista.filter(a => a.id).map(a => ({ nome: a.name, caminho: `${pasta}/${a.name}`, tamanho: (a.metadata && a.metadata.size) || 0, tipo: (a.metadata && a.metadata.mimetype) || "" }));
+    },
+    /** Baixa um arquivo do Storage (com o login de quem pede): um Blob. */
+    async baixarArquivo(bucket, caminho) {
+      return resultado(cliente.storage.from(bucket).download(caminho));
+    },
+    async removerArquivos(bucket, caminhos) {
+      if (caminhos.length) await resultado(cliente.storage.from(bucket).remove(caminhos));
+    },
   };
 }

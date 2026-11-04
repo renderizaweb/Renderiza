@@ -30,8 +30,9 @@ export function passosDaConta(conta, feitos = {}) {
         feito: false, acao: { href: "/servicos", rotulo: "Cadastrar" } }
       : { id: "valores", titulo: `Pôr os valores dos seus ${n.palavras.servicos}`, texto: "Para os orçamentos e o Financeiro saírem certos.",
         feito: !!feitos.valores, acao: { href: "/servicos", rotulo: "Pôr os valores" } },
-    (ligado("agenda") || ligado("atendimento")) && { id: "datas", titulo: "Trazer as datas que já estão marcadas",
-      texto: "De uma planilha, ou digitando rápido: uma data e um nome por linha.", feito: !!feitos.reservas, acao: { importar: true, rotulo: "Trazer as datas" } },
+    (ligado("agenda") || ligado("atendimento")) && { id: "datas", titulo: "Trazer o que você já tem",
+      texto: "Datas marcadas, clientes, pacotes e contrato: em foto, PDF ou planilha. A IA lê e você confere.", feito: !!feitos.reservas || !!feitos.trouxe,
+      acao: { href: "/trazer", rotulo: "Trazer" }, extra: { importar: true, rotulo: "Digitar as datas" } },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
       feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" } },
     // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo
@@ -280,16 +281,17 @@ export function abrirImportacao({ banco, conta }) {
 
 async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
   const existe = consulta => banco.resultado(consulta.limit(1)).then(l => l.length > 0).catch(() => false);
-  const [valores, servicos, reservas, pedidos, pessoas, convites] = await Promise.all([
+  const [valores, servicos, reservas, pedidos, pessoas, convites, trouxe] = await Promise.all([
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId).not("valor", "is", null)),
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("reservas").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("pedidos").select("id").eq("conta_id", contaId)),
     banco.resultado(banco.tabela("pessoas").select("id").eq("conta_id", contaId).limit(2)).then(l => l.length > 1).catch(() => false),
     existe(banco.tabela("convites").select("id").eq("conta_id", contaId).is("aceito_em", null).is("cancelado_em", null)),
+    existe(banco.tabela("importacoes").select("id").eq("conta_id", contaId).is("desfeita_em", null)),
   ]);
   const recuperacao = comUsuario ? await banco.rpc("meu_email_de_recuperacao").catch(() => null) : null;
-  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
+  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, trouxe, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
 }
 
 /** Monta o cartão dentro de `el` (some sozinho para quem não é dono ou escondeu). */
@@ -321,10 +323,10 @@ export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar,
         ${passos.map(p => `<li class="rz-passo" data-feito="${p.feito}">
           <span class="rz-passo-marca" aria-hidden="true">${p.feito ? icone("ok", { tamanho: 14 }) : ""}</span>
           <span class="rz-linha-texto"><b>${escapar(p.titulo)}</b><small>${p.feito ? "Feito" : escapar(p.texto)}</small></span>
-          ${p.feito ? "" : p.acao.importar
+          ${p.feito ? "" : `<span class="rz-passo-acoes">${p.extra && p.extra.importar ? `<button class="rz-botao rz-botao--fantasma" type="button" data-importar>${escapar(p.extra.rotulo)}</button>` : ""}${p.acao.importar
             ? `<button class="rz-botao" type="button" data-importar>${escapar(p.acao.rotulo)}</button>`
             : p.acao.email ? `<button class="rz-botao" type="button" data-email-recuperacao>${escapar(p.acao.rotulo)}</button>`
-            : `<a class="rz-botao" href="${p.acao.href}">${escapar(p.acao.rotulo)}</a>`}
+            : `<a class="rz-botao" href="${p.acao.href}">${escapar(p.acao.rotulo)}</a>`}</span>`}
         </li>`).join("")}
       </ol>
     </section>`;

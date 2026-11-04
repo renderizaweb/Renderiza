@@ -24,17 +24,20 @@ export async function encerrarSuporte(banco, contaId) {
   await banco.resultado(banco.tabela("acessos_suporte").update({ fim: agora }).eq("conta_id", contaId).gt("fim", agora));
 }
 
-/** "Entrar para ajudar": o motivo, o nível e por quanto tempo; depois abre o painel da conta. */
-export function entrarParaAjudar(conta, ctx) {
+/**
+ * "Entrar para ajudar": o motivo, o nível e por quanto tempo; depois abre o painel da conta. `opcoes` (o pedido "a
+ * Renderiza monta", Missão 7F): { motivo, nivel, destino } já preenchidos (destino: a tela que abre, ex. "/trazer").
+ */
+export function entrarParaAjudar(conta, ctx, { motivo: motivoPronto = "", nivel: nivelPronto = "ver", destino = "/" } = {}) {
   const { banco, sessao, navegar } = ctx;
   const folha = abrirFolha({
     titulo: `Entrar em ${conta.nome}`,
     corpo: `<form class="rz-pilha" novalidate id="form-suporte">
         <div role="alert" hidden></div>
         <p class="rz-texto-2">Fica registrado (quem, quando e por quê) e o dono vê. Acaba sozinho no fim do prazo.</p>
-        ${campoTexto({ id: "sup-motivo", nome: "motivo", rotulo: "Por quê", placeholder: "Ex.: ajudar a importar as datas", extra: { maxlength: 300, autocomplete: "off" } })}
+        ${campoTexto({ id: "sup-motivo", nome: "motivo", rotulo: "Por quê", valor: motivoPronto, placeholder: "Ex.: ajudar a importar as datas", extra: { maxlength: 300, autocomplete: "off" } })}
         <fieldset class="rz-campo"><legend class="rz-rotulo">O que pode fazer</legend>
-          ${segmentos({ nome: "nivel", rotulo: "O que pode fazer", valor: "ver", opcoes: [{ valor: "ver", rotulo: "Só ver" }, { valor: "editar", rotulo: "Ver e editar" }] })}</fieldset>
+          ${segmentos({ nome: "nivel", rotulo: "O que pode fazer", valor: nivelPronto, opcoes: [{ valor: "ver", rotulo: "Só ver" }, { valor: "editar", rotulo: "Ver e editar" }] })}</fieldset>
         ${campoSelecao({ id: "sup-horas", nome: "horas", rotulo: "Por quanto tempo", valor: "2", opcoes: HORAS.map(h => ({ valor: String(h), rotulo: h === 1 ? "1 hora" : `${h} horas` })) })}
       </form>`,
     rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-suporte">${icone("seta")}Entrar</button>`,
@@ -53,7 +56,7 @@ export function entrarParaAjudar(conta, ctx) {
       await sessao.carregarContas();
       sessao.escolherConta(conta.id);
       folha.fechar();
-      navegar("/");
+      navegar(destino);
     } catch (e) { ocupado(botao, false); avisoDoFormulario(form.querySelector("[role=alert]"), e.message); }
   });
 }

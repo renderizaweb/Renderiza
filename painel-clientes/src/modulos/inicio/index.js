@@ -97,7 +97,8 @@ export async function montar(el, contexto) {
           <h2 class="rz-titulo-3" id="dados-titulo">Seus dados</h2>
           <div class="rz-cartao rz-cartao-corpo rz-exportar">
             <p class="rz-texto-2">Uma planilha por assunto (clientes, pedidos, ${escapar(nicho.palavras.reservas)}, pagamentos, contratos…) num arquivo .zip. Abre no Excel e no Google Planilhas.</p>
-            <button class="rz-botao" type="button" data-exportar>${icone("baixar", { tamanho: 18 })}Exportar tudo</button>
+            <span class="rz-exportar-botoes"><a class="rz-botao" href="/trazer">${icone("importar", { tamanho: 18 })}Trazer dados</a>
+            <button class="rz-botao" type="button" data-exportar>${icone("baixar", { tamanho: 18 })}Exportar tudo</button></span>
           </div>
         </section>` : ""}`;
   }

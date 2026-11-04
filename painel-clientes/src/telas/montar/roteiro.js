@@ -26,14 +26,14 @@ export const ASSUNTOS = [
     ["2_3", "De 2 a 3", "Depois você convida a equipe, e cada um vê só o que você deixar."],
     ["4_mais", "4 ou mais", "Depois você convida a equipe, e cada um vê só o que você deixar."]] },
   { assunto: "organiza", pergunta: "Onde ficam as datas que você já tem marcadas?", opcoes: [
-    ["caderno", "Caderno ou agenda de papel", "Dá para trazer digitando rápido: uma data e um nome por linha."],
-    ["planilha", "Planilha", "Dá para trazer a planilha de uma vez, no Início."],
-    ["google", "Google Agenda", "Dá para trazer digitando rápido, uma por linha, ou por planilha."],
-    ["sistema", "Outro sistema", "Exporte uma planilha de lá e traga de uma vez, no Início."],
+    ["caderno", "Caderno ou agenda de papel", "Uma foto das páginas já basta: a IA lê as datas para você conferir."],
+    ["planilha", "Planilha", "Dá para trazer a planilha de uma vez, daqui a pouco."],
+    ["google", "Google Agenda", "Dá para trazer a agenda inteira do Google, num arquivo só."],
+    ["sistema", "Outro sistema", "Exporte uma planilha de lá e traga de uma vez, daqui a pouco."],
     ["cabeca", "Na cabeça", "Comece pelas próximas: uma data e um nome por linha, rapidinho."]] },
   { assunto: "pacotes", pergunta: "Você já tem pacotes com preço?", opcoes: [
     ["com_preco", "Sim, com preço", "Eles entram nos orçamentos, nos contratos e no Financeiro."],
-    ["arquivo", "Tenho num PDF ou arte", "Mande o arquivo para a Renderiza, que a gente cadastra para você."],
+    ["arquivo", "Tenho num PDF ou arte", "Daqui a pouco você manda o arquivo, e a IA cadastra os pacotes para você conferir."],
     ["nao", "Ainda não", "Você cadastra os primeiros em Serviços, quando quiser."]] },
   { assunto: "contrato", pergunta: "E contrato, você usa?", opcoes: [
     ["modelo", "Tenho um modelo", "Você cola o seu texto no painel e marca os campos que se preenchem sozinhos."],

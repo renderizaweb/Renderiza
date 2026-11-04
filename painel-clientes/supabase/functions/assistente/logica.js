@@ -4,7 +4,11 @@
 // o cache), valida a resposta e registra o uso e o custo. O pedido é neutro e vira o de cada fornecedor aqui:
 // a OpenAI (o padrão, D52: a chave que a Renderiza já tem) ou a Anthropic. A IA só propõe: nada é gravado aqui.
 // Qualquer problema (sem chave, teto, demora, resposta fora do formato) devolve { ok: false, fallback: true }, e o
-// painel segue o roteiro fixo, sem a pessoa perceber. Tarefa de hoje: "perguntas" (a conversa de boas-vindas).
+// painel segue o roteiro fixo, sem a pessoa perceber. Tarefas: "perguntas" (a conversa de boas-vindas) e, em
+// leitura.js (bloco F), "ler" (um arquivo ou texto vira pacotes, datas, clientes e contrato) e "colunas" (o mapa de
+// uma planilha). O dono usa; a Renderiza também, quando está no suporte da conta com "editar" (D48).
+
+import { TAREFAS_DE_LEITURA } from "./leitura.js";
 
 const ORIGENS = [
   /^https:\/\/painel\.renderizaweb\.com\.br$/,
@@ -28,7 +32,7 @@ export const PRECOS = {
 /** Modelo sem preço conhecido: conta pelo mais caro da lista, para o teto nunca ficar folgado. */
 const PRECO_DESCONHECIDO = PRECOS["claude-opus-5-5"];
 export const TETO_PADRAO = 3;
-export const CHAMADAS_POR_HORA = 80;
+export const CHAMADAS_POR_HORA = 120;
 
 export function cabecalhosCors(origem) {
   return {
@@ -107,6 +111,7 @@ Tarefa: prepare as perguntas da conversa de boas-vindas deste negócio, uma por 
     additionalProperties: false,
   },
   maximo: 4000,
+  prazo: 20000,
   /** A entrada do painel: { perguntas: [{ assunto, pergunta, opcoes: [{ valor, rotulo, efeito }] }] } (as do roteiro). */
   entradaValida(e) {
     return e && Array.isArray(e.perguntas) && e.perguntas.length > 0 && e.perguntas.length <= 12
@@ -139,22 +144,35 @@ Tarefa: prepare as perguntas da conversa de boas-vindas deste negócio, uma por 
   },
 };
 
-export const TAREFAS = { perguntas: PERGUNTAS };
+export const TAREFAS = { perguntas: PERGUNTAS, ...TAREFAS_DE_LEITURA };
 
-/** O pedido, neutro: o roteiro da tarefa e o contexto da conta (iguais a cada pergunta: vão primeiro, para o cache), a pergunta da vez e o esquema da resposta. */
-export function montarPedido(tarefa, entrada, { conta, contexto }) {
+/**
+ * O pedido, neutro: o roteiro da tarefa e o contexto da conta (iguais a cada pergunta: vão primeiro, para o cache), a
+ * pergunta da vez, o esquema da resposta e, na leitura, o anexo ({ tipo, nome, url }: o link temporário do arquivo).
+ */
+export function montarPedido(tarefa, entrada, { conta, contexto }, url = null) {
   const t = TAREFAS[tarefa];
-  return { tarefa, sistema: t.sistema, contexto: textoDoContexto({ conta, contexto }), mensagem: t.mensagem(entrada), esquema: t.esquema, maximo: t.maximo };
+  const anexo = t.anexo && t.anexo(entrada);
+  return {
+    tarefa, sistema: t.sistema, contexto: textoDoContexto({ conta, contexto }), mensagem: t.mensagem(entrada), esquema: t.esquema,
+    maximo: t.maximo, prazo: t.prazo, anexo: anexo && url ? { tipo: anexo.tipo, nome: anexo.nome, url } : null,
+  };
 }
 
 /** Para a OpenAI (Responses API): o roteiro e o contexto como mensagens de sistema, a saída em JSON pelo esquema (strict), sem guardar a conversa lá (store: false). */
 export function paraOpenAI(p, modelo) {
+  const a = p.anexo;
+  const usuario = !a ? p.mensagem : [
+    { type: "input_text", text: p.mensagem },
+    // o link já termina com o nome do arquivo (e a extensão): a OpenAI sabe o tipo por ele
+    a.tipo === "imagem" ? { type: "input_image", image_url: a.url, detail: "high" } : { type: "input_file", file_url: a.url },
+  ];
   return {
     model: modelo,
     input: [
       { role: "system", content: p.sistema },
       { role: "system", content: p.contexto },
-      { role: "user", content: p.mensagem },
+      { role: "user", content: usuario },
     ],
     text: { format: { type: "json_schema", name: p.tarefa, strict: true, schema: p.esquema } },
     reasoning: { effort: "low" },
@@ -165,11 +183,17 @@ export function paraOpenAI(p, modelo) {
 
 /** Para a Anthropic (Messages API): o roteiro e o contexto em cache, a saída em JSON pelo esquema. */
 export function paraAnthropic(p, modelo) {
+  const a = p.anexo;
+  // a Anthropic lê foto e PDF por link; documento do Word, não (a OpenAI lê, D52)
+  const usuario = !a ? p.mensagem : [
+    a.tipo === "imagem" ? { type: "image", source: { type: "url", url: a.url } } : { type: "document", source: { type: "url", url: a.url } },
+    { type: "text", text: p.mensagem },
+  ];
   return {
     model: modelo,
     max_tokens: p.maximo,
     system: [{ type: "text", text: p.sistema }, { type: "text", text: p.contexto, cache_control: { type: "ephemeral" } }],
-    messages: [{ role: "user", content: p.mensagem }],
+    messages: [{ role: "user", content: usuario }],
     output_config: { effort: "low", format: { type: "json_schema", schema: p.esquema } },
   };
 }
@@ -198,8 +222,10 @@ export function lerResposta(fornecedor, r) {
 
 /**
  * Atende o pedido. `deps`: { ia: { fornecedor, modelo, chamar(pedidoNeutro) → resposta do fornecedor } | null (sem
- * chave), usuarioDoToken(token), podeUsar(usuarioId, contaId) → { conta, contexto } | null, gasto(contaId) →
- * { usd, teto, naHora }, registrar(uso) }. Devolve { status, corpo, headers }.
+ * chave), usuarioDoToken(token), podeUsar(usuarioId, contaId) → { conta, contexto } | null (o dono, ou a Renderiza no
+ * suporte com "editar"), gasto(contaId) → { usd, teto, naHora }, registrar(uso); na leitura, linkDoArquivo(caminho) →
+ * o link temporário (ou null se não existe), apagarArquivo(caminho) e limpar(contaId) (os esquecidos) }.
+ * Devolve { status, corpo, headers }.
  */
 export async function atender({ metodo, origem, token, corpo }, deps) {
   const headers = cabecalhosCors(origem);
@@ -215,15 +241,28 @@ export async function atender({ metodo, origem, token, corpo }, deps) {
   const entrada = corpo && corpo.entrada;
   if (!UUID.test(contaId) || !TAREFAS[tarefa]) return responder(400, { erro: "Pedido fora do formato." });
   if (!TAREFAS[tarefa].entradaValida(entrada)) return responder(400, { erro: "Pedido fora do formato." });
+  const caminho = entrada.arquivo ? entrada.arquivo.caminho : null;
+  if (caminho && !caminho.startsWith(contaId + "/")) return responder(400, { erro: "Pedido fora do formato." });
   // a conta e o gasto ao mesmo tempo (cada ida ao banco conta na espera da pessoa); o gasto só vale se for o dono
   const [daConta, g] = await Promise.all([deps.podeUsar(usuario.id, contaId), deps.ia ? deps.gasto(contaId) : null]);
   if (!daConta) return responder(403, { erro: "Só o dono da conta usa o assistente." });
-  if (!deps.ia) return semIa("sem_ia");
+  // o arquivo lido não fica guardado (D49): sai do Storage logo depois, leia ou não (os do "pedir à Renderiza" ficam
+  // até ela atender); e, de vez em quando, os esquecidos de leituras que a pessoa largou no meio
+  const depois = async () => {
+    if (caminho && /^[^/]+\/lote-/.test(caminho)) await deps.apagarArquivo(caminho).catch(() => {});
+    if (caminho && deps.limpar) await deps.limpar(contaId).catch(() => {});
+  };
+  if (!deps.ia) { await depois(); return semIa("sem_ia"); }
 
-  if (g.usd >= g.teto) return semIa("teto");
-  if (g.naHora >= CHAMADAS_POR_HORA) return semIa("limite");
+  if (g.usd >= g.teto) { await depois(); return semIa("teto"); }
+  if (g.naHora >= CHAMADAS_POR_HORA) { await depois(); return semIa("limite"); }
 
-  const pedido = montarPedido(tarefa, entrada, daConta);
+  let url = null;
+  if (caminho) {
+    url = await deps.linkDoArquivo(caminho).catch(() => null);
+    if (!url) return responder(404, { erro: "O arquivo não chegou. Mande de novo." });
+  }
+  const pedido = montarPedido(tarefa, entrada, daConta, url);
   const { fornecedor, modelo } = deps.ia;
   const uso = { conta_id: contaId, usuario_id: usuario.id, tarefa, modelo };
   let resposta;
@@ -231,8 +270,10 @@ export async function atender({ metodo, origem, token, corpo }, deps) {
     resposta = await deps.ia.chamar(pedido);
   } catch (e) {
     await deps.registrar({ ...uso, resultado: "falhou" }).catch(() => {});
+    await depois();
     return semIa("falhou");
   }
+  await depois();
   const lida = lerResposta(fornecedor, resposta);
   const medido = { ...uso, ...lida.uso, custo_usd: custo(lida.uso, modelo) };
   if (lida.recusou) {
