@@ -151,10 +151,16 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
 
 ## Quando o cliente aprova (demo vira site)
 
+**O passo a passo completo, do pagamento ao site no ar, está em `docs/fechamento.md`** (painel, o que pedir ao
+cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é do código.
+
 1. Na pasta da demo, criar `site.json` (domínio, nome, cor, dados da empresa para o Google). Modelo:
    `demos/lu-elegante-modas/site.json`.
 2. `npm run site -- <pasta>` gera `../sites/<domínio>/`: fotos em arquivos, endereço oficial, prévia para
-   WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google.
+   WhatsApp, ícone, dados da empresa, robots.txt e sitemap.xml liberando o Google. Tira o que é só da demo (o
+   noindex dos geradores, o ícone embutido duplicado) e termina com a **conferência** (`scripts/conferir-site.mjs`):
+   barra rastreio da Renderiza, card de valor da oferta, link de /demo/, noindex, texto provisório ("espaço
+   reservado") e foto faltando; sai com código 1 se achar algum.
    **Com o Meu site do Painel Renderiza** (só se o cliente quiser): `"painel": { "codigo": "<código do site no
    painel>" }` no `site.json` embute o script que mostra o que o cliente publica no painel, sempre com a versão do
    `index.html` de reserva. Com `"agenda": true` no mesmo `"painel"`, o site ganha a agenda online em `/agenda/` (os dias
@@ -179,7 +185,9 @@ As 9 da fila entraram no painel (Supabase) como **Leads a trabalhar**, com id ig
   Pedido direto do Kaue, sem triagem. Mesmo padrão das demos, com história da dona e seção de salão.
   Sem lead no painel até o Kaue pedir.
 - `ms-odontologia` (01/10/2026): Clínica MS Odontologia, Dr. Marcos Silva, Itapevi. Cliente de antes do
-  painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026.
+  painel; a demo já tinha sido aprovada e foi refeita com o ensaio novo e o Oscar Beauty 2026. **Fechou: R$ 500,
+  pago, a primeira venda da Renderiza** (relato do Kaue, novembro/2026). Entrega em andamento: seção "Entrega" da
+  `ficha.md`, seguindo `docs/fechamento.md`.
 - `/exemplos` (21/10/2026, pedido do Kaue): exemplos de sistema para oferecer além do site aos espaços de
   eventos ("temos outras soluções: painel de gestão integrado com agenda online…"). Painel do espaço e agenda
   online da **Villa Alecrim**, espaço inventado, com dados fictícios e um aviso disso em toda página; vídeo

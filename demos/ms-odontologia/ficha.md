@@ -11,7 +11,7 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 | WhatsApp | (11) 98755-8202 (Google, site atual e posts da clínica) |
 | Site atual | Canva: clinicamsodonto.my.canva.site/bio-ms-odonto (ele não gosta) |
 | Entregável | demo de site (`index.html`) |
-| Situação | pronta · 05/10/2026 · `/demo/ms-odontologia` · **versão 3: fotos originais do ensaio + espaço da equipe** |
+| Situação | **fechou: R$ 500, pago** (primeira venda da Renderiza) · entrega em andamento, ver "Entrega" no fim · demo: `/demo/ms-odontologia`, versão 3 |
 
 ## O que foi mantido da demo aprovada
 - Paleta verde-petróleo, menta, creme e coral; logo "Dr. Marcos Silva".
@@ -54,3 +54,30 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 
 ## Conferir
 - Foto da equipe toda: pedir na horizontal, com todos, de preferência na clínica e com boa luz.
+
+## Entrega (cliente fechou)
+Roteiro: `docs/fechamento.md`.
+
+| | |
+|---|---|
+| Venda | R$ 500 · pago (relato do Kaue, registrado em 04/11/2026; data e forma a confirmar) |
+| Combinado | site a partir da demo aprovada (versão 3) |
+| Ajustes pedidos | um último ajuste pedido pelo Dr. Marcos: **qual?** (a confirmar com o Kaue) |
+| Domínio | a escolher. Livres no registro.br em 04/11/2026: `clinicamsodontologia.com.br`, `msodontologia.com.br`, `clinicamsodonto.com.br` (já registrados por outros: `msodonto.com.br`, `drmarcossilva.com.br`). Registro no CPF/CNPJ dele |
+| Contas | a combinar: ele tem Gmail/GitHub? Se não, Gmail de dev para o site |
+| Repositório | o Kaue vai criar (privado) |
+| No ar | ainda não. Hoje o link da bio é o site do Canva |
+
+- [ ] 1 painel (lead ainda aparece como Encerrado, sem valor: passar para Ganho, R$ 500)
+- [ ] 2 levantamento · [ ] 3 ajustes · [x] 4 site.json (falta só o domínio) · [ ] 5 gerar e conferir · [ ] 6 repositório
+- [ ] 7 hospedagem e domínio · [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
+
+O que falta dele antes de gerar (passo 2):
+- **Foto da equipe toda** (horizontal): a seção "Nossa equipe" ainda tem o espaço reservado, e a conferência barra o
+  site com ele. Se a foto não vier, a seção sai (e o link "Equipe" do menu junto).
+- Horário: Google (seg 9h–18h, ter 9h30–18h, qua a sex 9h–18h, sáb 9h–15h) ou a arte da clínica (seg a sex 9h–19h)?
+- "Avaliação gratuita" ainda vale? Se sim, entra na capa.
+- "+10 mil casos" e "5 anos consecutivos melhor dentista de Itapevi": confirmar com ele antes de ir para o ar.
+
+Ensaio da geração (04/11/2026, com domínio de teste, fora do repositório): 21 fotos em `img/`, `index.html` de 56 KB,
+831 KB no total; prévia do WhatsApp recortada da capa. A conferência só apontou o espaço reservado da equipe.

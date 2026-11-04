@@ -9,6 +9,9 @@
 // - entram endereço oficial (canonical), prévia para WhatsApp/redes (og:*), ícone da aba e dados
 //   estruturados da empresa (schema.org) a partir do site.json;
 // - robots.txt e sitemap.xml liberam o Google (as demos da Renderiza ficam fora do Google; o site real não);
+// - sai o que é só da demo: o noindex dos geradores e o ícone embutido (vira favicon.svg se o site.json não trouxer um);
+// - no fim, a conferência (scripts/conferir-site.mjs): rastreio, oferta, link de /demo/, texto provisório e foto
+//   faltando saem como problema, com código 1. Roteiro completo da entrega: docs/fechamento.md;
 // - cabeçalhos para Cloudflare Pages (_headers) e Vercel (vercel.json): serve nas duas hospedagens;
 // - com "painel" no site.json, entra o script do Meu site (ferramentas/meu-site/meu-site.js) com o código do site:
 //   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel);
@@ -23,15 +26,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { paginaDaAgenda, ligarNoSite } from '../ferramentas/demo/agenda-online/gerar.mjs';
+import { conferirSite, relatorio } from './conferir-site.mjs';
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [pasta, saidaArg] = process.argv.slice(2);
 if (!pasta) { console.error('Uso: node scripts/virar-site.mjs <pasta-da-demo> [pasta-de-saida]'); process.exit(1); }
 const dirDemo = /[\\/]/.test(pasta) ? path.resolve(pasta) : path.join(raiz, 'demos', pasta);
 const conf = JSON.parse(fs.readFileSync(path.join(dirDemo, 'site.json'), 'utf8'));
-if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(conf.dominio || '')) throw new Error('site.json: "dominio" inválido');
+if (!conf.dominio) { console.error('site.json: falta o "dominio" (o cliente já escolheu e registrou? docs/fechamento.md, passos 2 e 4).'); process.exit(1); }
+if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(conf.dominio)) throw new Error('site.json: "dominio" inválido');
 const url = `https://${conf.dominio}/`;
 const saida = path.resolve(saidaArg || path.join(raiz, '..', 'sites', conf.dominio));
 const hoje = new Date().toISOString().slice(0, 10);
@@ -43,8 +49,9 @@ fs.rmSync(saida, { recursive: true, force: true });
 fs.mkdirSync(path.join(saida, 'img'), { recursive: true });
 
 // 1. Fotos: data URI → img/<descrição>-<hash>.<ext>. A mesma foto usada duas vezes vira um arquivo só.
+// A prévia sai da primeira foto de verdade (30 KB ou mais): a primeira <img> pode ser um ícone ou o logo.
 const arquivos = new Map();
-let primeira = null;
+let primeira = null, primeiraGrande = null;
 html = html.replace(/<img\b[^>]*>/g, tag => {
   const m = tag.match(/src="data:image\/(jpeg|jpg|png|webp|gif|avif);base64,([A-Za-z0-9+/=]+)"/);
   if (!m) return tag;
@@ -58,25 +65,56 @@ html = html.replace(/<img\b[^>]*>/g, tag => {
     arquivos.set(hash, nome);
   }
   primeira ??= nome;
+  if (dados.length >= 30 * 1024) primeiraGrande ??= nome;
   return tag.replace(/src="data:[^"]+"/, `src="/${nome}"`);
 });
 if (/data:image\//.test(html)) console.warn('Atenção: sobrou imagem embutida fora de <img> (CSS ou atributo).');
 
 // 2. Prévia para WhatsApp e redes: 1200×630 em JPG, recortada da primeira foto da página (a da capa).
+// Com Python/Pillow; sem ele, com o Chromium do Playwright; sem os dois, a foto como está (a conferência avisa).
+primeira = primeiraGrande || primeira;
+if (!primeira) throw new Error('index.html sem nenhuma foto em <img> embutida: de onde sai a prévia?');
+const centro = (conf.previaCentro || [0.5, 0.1]).map(Number);
 let og = primeira;
+async function previaPeloNavegador(origem, destino) {
+  let chromium;
+  try { ({ chromium } = await import('playwright')); } catch { ({ chromium } = createRequire(import.meta.url)('playwright')); }
+  const nav = await chromium.launch({ args: ['--no-sandbox'] });
+  try {
+    const pag = await nav.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+    const tipo = path.extname(origem).slice(1).replace('jpg', 'jpeg');
+    const foto = `data:image/${tipo};base64,${fs.readFileSync(origem).toString('base64')}`;
+    await pag.setContent(`<body style="margin:0;width:1200px;height:630px;background:url(${foto}) ${centro[0] * 100}% ${centro[1] * 100}%/cover no-repeat"></body>`);
+    await pag.screenshot({ path: destino, type: 'jpeg', quality: 82 });
+  } finally { await nav.close(); }
+}
 try {
   execFileSync('python3', ['-c', `
 import sys
 from PIL import Image, ImageOps
 im = Image.open(sys.argv[1]).convert('RGB')
 im = ImageOps.fit(im, (1200, 630), Image.LANCZOS, centering=(float(sys.argv[3]), float(sys.argv[4])))
-im.save(sys.argv[2], 'JPEG', quality=82, optimize=True)`, path.join(saida, primeira), path.join(saida, 'og.jpg'), ...(conf.previaCentro || [0.5, 0.1]).map(String)]);
+im.save(sys.argv[2], 'JPEG', quality=82, optimize=True)`, path.join(saida, primeira), path.join(saida, 'og.jpg'), ...centro.map(String)], { stdio: ['ignore', 'ignore', 'ignore'] });
   og = 'og.jpg';
-} catch { console.warn('Sem Python/Pillow: a prévia usa a foto da capa como está.'); }
+} catch {
+  try { await previaPeloNavegador(path.join(saida, primeira), path.join(saida, 'og.jpg')); og = 'og.jpg'; }
+  catch { console.warn('Sem Python/Pillow nem Playwright: a prévia usa a foto da capa como está.'); }
+}
 
-// 3. Ícone da aba.
+// 3. Ícone da aba. O da demo (SVG embutido, dos geradores) vira o favicon.svg quando o site.json não traz "favicon";
+// com "favicon", vale o do site.json. Nos dois casos sai o embutido: a página fica com um ícone só.
+let iconeDaDemo = null;
+html = html.replace(/[ \t]*<link\b[^>]*\brel="(?:shortcut )?icon"[^>]*>\n?/g, tag => {
+  const href = (tag.match(/\shref="data:image\/svg\+xml(;base64)?,([^"]+)"/) || []);
+  if (!href[2]) return tag;
+  iconeDaDemo ??= href[1] ? Buffer.from(href[2], 'base64').toString('utf8') : decodeURIComponent(href[2]);
+  return '';
+});
 const fav = conf.favicon || { texto: conf.nome.slice(0, 1), cor: conf.corTema || '#222' };
-fs.writeFileSync(path.join(saida, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="${esc(fav.cor)}"/><text x="32" y="43" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="${fav.texto.length > 1 ? 28 : 36}" fill="#fff">${esc(fav.texto)}</text></svg>\n`);
+fs.writeFileSync(path.join(saida, 'favicon.svg'), !conf.favicon && iconeDaDemo ? iconeDaDemo.trim() + '\n' : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="${esc(fav.cor)}"/><text x="32" y="43" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="${fav.texto.length > 1 ? 28 : 36}" fill="#fff">${esc(fav.texto)}</text></svg>\n`);
+
+// 3b. O que é só da demo: o pedido para o Google não indexar (os geradores põem noindex; o site real quer o Google).
+html = html.replace(/[ \t]*<meta name="robots" content="[^"]*noindex[^"]*">\n?/gi, '');
 
 // 4. Cabeça da página: endereço oficial, prévia, ícone e dados da empresa.
 const titulo = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || conf.nome;
@@ -183,3 +221,8 @@ fs.writeFileSync(path.join(saida, 'README.md'), readme);
 
 const tam = d => fs.readdirSync(d, { withFileTypes: true }).reduce((t, e) => t + (e.isDirectory() ? tam(path.join(d, e.name)) : fs.statSync(path.join(d, e.name)).size), 0);
 console.log(`${saida}\n  index.html: ${Math.round(fs.statSync(path.join(saida, 'index.html')).size / 1024)} KB · ${arquivos.size} fotos em img/ · total ${Math.round(tam(saida) / 1024)} KB · prévia: ${og}`);
+
+// 6. Conferência: o que é da demo e não pode ir para o site do cliente (scripts/conferir-site.mjs).
+const conferencia = conferirSite(saida);
+console.log(relatorio(conferencia));
+if (conferencia.problemas.length) process.exitCode = 1;

@@ -1,0 +1,25 @@
+{
+  "dominio": "",
+  "nome": "Clínica MS Odontologia",
+  "corTema": "#004c47",
+  "favicon": { "texto": "MS", "cor": "#004c47" },
+  "previaCentro": [0.5, 0.1],
+  "dadosEstruturados": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Clínica MS Odontologia",
+      "telephone": "+55 11 98755-8202",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Bagre, 46 - São Carlos",
+        "addressLocality": "Itapevi",
+        "addressRegion": "SP",
+        "postalCode": "06694-470",
+        "addressCountry": "BR"
+      },
+      "hasMap": "https://www.google.com/maps?cid=139493636978748293",
+      "sameAs": ["https://www.instagram.com/clinicamsodontologia/", "https://www.instagram.com/mmarcos_s/"]
+    }
+  ]
+}
