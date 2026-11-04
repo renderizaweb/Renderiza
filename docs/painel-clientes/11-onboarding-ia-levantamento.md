@@ -60,6 +60,11 @@ externa, capacidade); avaliações do Google (nota e total); se já tem site (a 
 preços), foto da agenda de papel (datas), prints de conversas (clientes), planilhas (clientes, datas), o contrato em
 Word ou PDF (modelo com campos). Sem IA: contatos do celular (.vcf), Google Agenda (.ics), planilha CSV.
 
+> **Feito em 04/11 (bloco F, D53):** a tela `/trazer`, aberta pela conversa ("Mandar agora"), pelos primeiros passos e
+> por "Seus dados". Recebe também Excel e .zip, várias de uma vez (até 50, 45 MB cada); a conferência mostra tudo numa
+> lista, com o que já está no painel desmarcado, e "Desfazer" tira o que entrou. "Pedir à Renderiza" deixa os arquivos
+> até ela montar (no máximo 7 dias), pelo Admin · Onboarding ("Montar agora").
+
 **O que o painel entrega no fim:** a conta com o perfil confirmado; os módulos e a ordem do menu pelo objetivo; tipos
 de festa ou ensaio; pacotes com preço e sinal; horários; Pix; o que veio de datas, clientes e contrato; e o plano para
 começar com o que faltou.
@@ -81,7 +86,9 @@ para a Renderiza no Admin, com a mensagem pronta.
   página ou imagem.
 - A IA só propõe: nada é gravado sem o toque da pessoa. Se ela falhar ou demorar, segue o roteiro fixo.
 - Privacidade: a política e os termos ganham o fornecedor antes de ligar na produção; os arquivos lidos não ficam
-  guardados.
+  guardados (o bucket `importacoes` é privado, e a função apaga o arquivo logo depois de ler).
+- Medido no STG em 04/11 (OpenAI, `gpt-5.4-mini`): ler uma foto da agenda, um PDF de preços ou um contrato em Word sai
+  de US$ 0,002 a 0,006 cada, em poucos segundos.
 
 ## Fora da Parada 7
 

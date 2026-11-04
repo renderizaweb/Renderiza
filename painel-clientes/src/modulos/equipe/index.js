@@ -56,7 +56,7 @@ function linhaDaPessoa(p, modulos) {
   const cor = p.cor ? ` style="--cor:${escapar(p.cor)}"` : "";
   return `<li><button class="rz-linha" type="button" data-pessoa="${escapar(p.id)}">
       <span class="rz-avatar"${cor} aria-hidden="true">${escapar(iniciais(p.nome))}</span>
-      <span class="rz-linha-texto"><b>${escapar(p.nome)}${p.dono ? ' <span class="rz-etiqueta rz-etiqueta--destaque">Dono</span>' : ""}${!p.ativa ? ' <span class="rz-etiqueta">Sem acesso</span>' : ""}</b>
+      <span class="rz-linha-texto"><span class="rz-linha-titulo"><b>${escapar(p.nome)}</b>${p.dono ? '<span class="rz-etiqueta rz-etiqueta--destaque">Dono</span>' : ""}${!p.ativa ? '<span class="rz-etiqueta">Sem acesso</span>' : ""}</span>
         <small>${escapar([p.papel, comoEntra(p.email)].filter(Boolean).join(" · "))}</small>
         <span class="rz-acessos-chips">${resumoDosAcessos(p, modulos).map(t => `<span class="rz-etiqueta">${escapar(t)}</span>`).join("")}</span></span>
       <span class="rz-linha-fim rz-texto-3">${escapar(p.ativa ? vistoEm(p.visto_em) : "")}</span>

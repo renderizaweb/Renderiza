@@ -6,7 +6,7 @@ import { abrirParaQuem, abrirCliente } from "../../ui/para-quem.js";
 import { icone } from "../../ui/icones.js";
 import { escapar, avisoDoFormulario, ocupado, erroNoCampo } from "../../ui/formulario.js";
 import { campoTexto, campoArea, campoSelecao, lerFormulario } from "../../ui/campos.js";
-import { dataLonga, dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, dia } from "../../ui/formatos.js";
+import { dataLonga, dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, dia, primeiroNome } from "../../ui/formatos.js";
 import { COMPROMISSOS, tiposDeCompromisso, itemDoCompromisso, faixa, quandoFoi } from "./logica.js";
 
 export const COLUNAS_COMPROMISSO = "id, tipo, titulo, inicio, fim, cliente_id, reserva_id, pedido_id, responsavel_id, observacoes, clientes(id, nome, whatsapp, email, instagram)";
@@ -18,7 +18,7 @@ export function abrirCompromisso(c, ctx) {
   const edita = podeMexer(pode);
   const it = itemDoCompromisso(c, fuso);
   const numero = normalizarWhatsapp(c.clientes && c.clientes.whatsapp);
-  const primeiro = String((c.clientes && c.clientes.nome) || "").trim().split(/\s+/)[0];
+  const primeiro = primeiroNome(c.clientes && c.clientes.nome);
   const mensagem = `Oi${primeiro ? `, ${primeiro}` : ""}! Confirmando: ${(COMPROMISSOS[c.tipo] || COMPROMISSOS.outro).nome.toLowerCase()} em ${dataCurta(new Date(c.inicio), fuso)}, ${it.ini}. Até lá!`;
   const j = abrirGaveta({
     foco: "fechar",

@@ -7,7 +7,7 @@
 import { montarPrimeirosPassos } from "./primeiros-passos.js";
 import { precisaMontar } from "../../telas/montar/roteiro.js";
 import { TELAS } from "../../rotas.js";
-import { saudacao, paraFazerAgora, numeros, frase, comoEstaAProxima } from "./logica.js";
+import { saudacao, paraFazerAgora, numeros, frase, comoEstaAProxima, agruparAtividades } from "./logica.js";
 import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
 import { comEstados } from "../../ui/estados.js";
@@ -120,7 +120,7 @@ export async function montar(el, contexto) {
       vazio(banco.resultado(banco.tabela("reservas").select("id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).neq("situacao", "cancelada").order("inicio"))),
       vazio(banco.resultado(banco.tabela("reservas").select(`id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)${ve("contratos") ? ", contratos(situacao)" : ""}${ve("financeiro") ? ", parcelas(valor, pago_em), reservas_valores(valor_total, desconto)" : ""}`).eq("conta_id", conta.conta_id).gte("fim", agora.toISOString()).neq("situacao", "cancelada").order("inicio").limit(5))),
       vazio(banco.resultado(banco.tabela("compromissos").select("id, tipo, titulo, inicio, clientes(id, nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).order("inicio"))),
-      vazio(banco.resultado(banco.tabela("atividades").select("id, acao, tabela, cliente_id, reserva_id, modulo, mudou, detalhe, quando, pelo_suporte, pessoas(nome)").eq("conta_id", conta.conta_id).order("quando", { ascending: false }).limit(12))),
+      vazio(banco.resultado(banco.tabela("atividades").select("id, acao, tabela, cliente_id, reserva_id, modulo, mudou, detalhe, quando, pelo_suporte, pessoas(nome)").eq("conta_id", conta.conta_id).order("quando", { ascending: false }).limit(80))).then(agruparAtividades),
     ]);
     const ids = [...new Set(atividades.map(x => x.cliente_id).filter(Boolean))];
     const nomes = ids.length ? await vazio(banco.resultado(banco.tabela("clientes").select("id, nome").in("id", ids))) : [];

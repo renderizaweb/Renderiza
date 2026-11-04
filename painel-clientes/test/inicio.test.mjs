@@ -94,3 +94,18 @@ test("as próximas: a etiqueta (quitado, contrato, pré-reserva) e o quanto já 
   assert.deepEqual(comoEstaAProxima({ situacao: "confirmada" }), { etiqueta: null, pago: "" }, "sem Financeiro nem Contratos: nada");
   assert.equal(comoEstaAProxima({ reservas_valores: { valor_total: 1000, desconto: 200 }, parcelas: pago(400) }).pago, "50% pago", "o desconto sai do total");
 });
+
+test("O que a equipe fez: várias iguais em seguida viram uma frase (trazer o que tem, desfazer)", async () => {
+  const { agruparAtividades, frase } = await import("../src/modulos/inicio/logica.js");
+  const { nicho } = await import("../src/nichos/index.js");
+  const t = m => new Date(Date.UTC(2026, 10, 4, 12, m)).toISOString();
+  const a = (m, extra) => ({ quando: t(m), tabela: "clientes", acao: "criou", pelo_suporte: false, pessoas: { nome: "Marina Alves" }, ...extra });
+  const lista = [a(30), a(29), a(28), a(27, { tabela: "reservas" }), a(26, { tabela: "reservas" }), a(5), a(4, { acao: "atualizou" }), a(3, { pelo_suporte: true, acao: "apagou" })];
+  const g = agruparAtividades(lista);
+  assert.deepEqual(g.map(x => [x.tabela, x.acao, x.vezes]), [["clientes", "criou", 3], ["reservas", "criou", 2], ["clientes", "criou", 1], ["clientes", "atualizou", 1], ["clientes", "apagou", 1]], "a de 20 minutos depois não junta");
+  const n = nicho("eventos");
+  assert.deepEqual(frase(g[0], { pessoa: "Marina Alves", nicho: n }), { quem: "Marina", texto: "cadastrou 3 clientes" });
+  assert.equal(frase(g[1], { pessoa: "Marina Alves", nicho: n }).texto, `reservou 2 ${n.palavras.reservas}`);
+  assert.equal(frase({ ...g[0], acao: "apagou", pelo_suporte: true }, { nicho: n }).texto, "apagou 3 clientes");
+  assert.equal(frase({ ...g[0], tabela: "pedidos" }, { pessoa: "", nicho: n }).texto, "Chegaram 3 pedidos");
+});

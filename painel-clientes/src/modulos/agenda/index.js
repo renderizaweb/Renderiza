@@ -10,7 +10,7 @@ import { escapar } from "../../ui/formulario.js";
 import { abrirFolha } from "../../ui/gaveta.js";
 import { comEstados } from "../../ui/estados.js";
 import { interruptor } from "../../ui/campos.js";
-import { dia, dataLonga, somarDias, instanteNoFuso, horaDoTexto } from "../../ui/formatos.js";
+import { dia, dataLonga, somarDias, instanteNoFuso, horaDoTexto, nomeCurto } from "../../ui/formatos.js";
 import {
   DIAS_DA_SEMANA, gradeDoMes, semana, primeiroDoMes, somarMeses, nomeDoMes, itemDaReserva, itemDoCompromisso,
   itensDoDia, filtrarItens, bloqueioDoDia, horariosDoDia, horariosLivres, faixa, quandoFoi, seguraHorario,
@@ -63,7 +63,7 @@ export async function montar(el, contexto) {
     ...dados.compromissos.map(c => itemDoCompromisso(c, fuso)),
   ], filtro);
 
-  const chipDoItem = it => `<span class="rz-dia-item${it.situacao === "pre_reserva" ? " rz-dia-item--pre" : ""}${it.tipo === "compromisso" ? " rz-dia-item--compromisso" : ""}"${it.cor ? ` style="--cor:${escapar(it.cor)}"` : ""}><time>${escapar(it.ini)}</time>${escapar(it.titulo.split(/\s+/)[0])}</span>`;
+  const chipDoItem = it => `<span class="rz-dia-item${it.situacao === "pre_reserva" ? " rz-dia-item--pre" : ""}${it.tipo === "compromisso" ? " rz-dia-item--compromisso" : ""}"${it.cor ? ` style="--cor:${escapar(it.cor)}"` : ""}><time>${escapar(it.ini)}</time>${escapar(nomeCurto(it.titulo))}</span>`;
   const pontos = lista => `<span class="rz-dia-pontos" aria-hidden="true">${lista.slice(0, 4).map(it => `<i class="${it.tipo === "compromisso" ? "rz-ponto-compromisso" : ""}"${it.cor ? ` style="--cor:${escapar(it.cor)}"` : ""}></i>`).join("")}</span>`;
   const rotuloDoDia = (d, lista, bloq) => `${dataLonga(instanteNoFuso(d, "12:00", fuso), fuso)}${bloq ? ", data fechada" : ""}${lista.length ? `, ${lista.length} ${lista.length === 1 ? "item" : "itens"}` : ""}`;
 

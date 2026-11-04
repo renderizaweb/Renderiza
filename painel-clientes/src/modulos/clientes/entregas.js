@@ -8,7 +8,7 @@ import { abrirGaveta } from "../../ui/gaveta.js";
 import { campoTexto, lerFormulario } from "../../ui/campos.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { chips, ligarChips } from "../../ui/filtros.js";
-import { dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, somarDias } from "../../ui/formatos.js";
+import { dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, somarDias, primeiroNome } from "../../ui/formatos.js";
 import { ENTREGAS, prazoDaEntrega } from "./logica.js";
 
 const COLUNAS = "id, reserva_id, cliente_id, situacao, prazo, link_galeria, entregue_em, criado_em, clientes(id, nome, whatsapp), reservas(id, inicio, servicos(nome))";
@@ -52,7 +52,7 @@ export async function montarEntregas(el, ctx, { entrega: abrirId } = {}) {
 
   function abrirEntrega(e) {
     const numero = normalizarWhatsapp(e.clientes && e.clientes.whatsapp);
-    const primeiro = String((e.clientes && e.clientes.nome) || "").split(/\s+/)[0];
+    const primeiro = primeiroNome(e.clientes && e.clientes.nome);
     const msg = link => `Oi${primeiro ? `, ${primeiro}` : ""}! As suas fotos estão prontas: ${link}`;
     const j = abrirGaveta({
       foco: "fechar",

@@ -351,6 +351,8 @@ kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:
 .rz-lista-acoes a:hover,.rz-lista-acoes button:hover{background:var(--rz-superficie-2)}
 .rz-lista-acoes a:focus-visible,.rz-lista-acoes button:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-lista-acoes span{flex:1}
+/* o círculo da inicial e as etiquetas não crescem (o "span{flex:1}" acima esticava a inicial do cliente na lista do modal) */
+.rz-lista-acoes .rz-avatar,.rz-lista-acoes .rz-etiqueta,.rz-lista-acoes .rz-icone{flex:none}
 .rz-lista-acoes .rz-icone{color:var(--rz-tinta-2)}
 .rz-lista-acoes [data-trancado]{color:var(--rz-tinta-3)}
 .rz-lista-contas{display:flex;flex-direction:column;gap:var(--rz-2)}
@@ -391,11 +393,21 @@ button.rz-linha:hover,a.rz-linha:hover{background:var(--rz-superficie-2)}
 .rz-linha:focus-visible{outline:none;box-shadow:inset var(--rz-foco)}
 .rz-linha-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .rz-linha-texto b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* o nome com etiquetas ("Dono"): o nome corta, a etiqueta fica inteira */
+.rz-linha-titulo{display:flex;align-items:center;gap:6px;min-width:0}
+.rz-linha-titulo b{min-width:0}
+.rz-linha-titulo .rz-etiqueta{flex:none}
 .rz-linha-texto small{color:var(--rz-tinta-2);font-size:var(--rz-t-sm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* título com valor ("Nome · R$ 5.400"): no celular, corta o nome, nunca o valor */
 .rz-linha-texto b.rz-titulo-valor{display:flex;gap:var(--rz-1)}
 .rz-titulo-valor>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .rz-titulo-valor>span+span{flex:none}
+/* no celular, o nome pode ir em duas linhas antes de cortar (com a etiqueta ou o botão na ponta, cortava cedo demais) */
+@media (max-width:719px){
+  .rz-linha-texto b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+  .rz-linha-texto b.rz-titulo-valor{display:flex;align-items:flex-start}
+  .rz-titulo-valor>span:first-child{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+}
 .rz-linha-fim{display:flex;align-items:center;gap:var(--rz-2);flex:none;color:var(--rz-tinta-3)}
 .rz-cor{flex:none;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--rz-linha-forte));box-shadow:0 0 0 3px color-mix(in srgb,var(--cor,var(--rz-linha-forte)) 18%,transparent)}
 .rz-avatar--cliente{background:var(--rz-gelo);color:var(--rz-tinta-2)}
@@ -606,6 +618,12 @@ button.rz-opcao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-linha-quando{font-size:var(--rz-t-xs);color:var(--rz-tinta-3);white-space:nowrap}
 .rz-linha-fim{flex-direction:column;align-items:flex-end;gap:4px}
 @media (min-width:720px){.rz-linha-fim{flex-direction:row;align-items:center;gap:var(--rz-3)}}
+/* no celular, a etapa do pedido vai embaixo do nome (com a etiqueta e o botão na ponta, o nome virava uma letra só) */
+.rz-linha-etapa{display:none}
+@media (max-width:719px){
+  .rz-linha-etapa{display:flex;flex-wrap:wrap;align-items:center;gap:var(--rz-2);margin-top:4px}
+  .rz-linha-texto:has(.rz-linha-etapa)+.rz-linha-fim{display:none}
+}
 /* resumo recolhido (o funil e de onde vêm; 09: depois da lista) */
 .rz-resumo{margin-top:var(--rz-6)}
 .rz-resumo>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--rz-3);min-height:var(--rz-alvo);padding:var(--rz-3) var(--rz-5);cursor:pointer;list-style:none;font-weight:600}
@@ -865,7 +883,9 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-acoes-linha{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
 /* a casca na cor do negócio (o tema do nicho, como no onboarding e nos exemplos; cara-dos-exemplos.md, G1, G2, G6) */
 .rz-topo-nome{display:flex;flex-direction:column;min-width:0;line-height:1.15}
-.rz-topo-nome small{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rz-destaque)}
+.rz-topo-nome small{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rz-destaque);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* "Painel do espaço" numa linha só (com o "+" no topo, quebrava em duas e o nome da conta ficava espremido) */
+.rz-topo-nome b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (min-width:960px){.rz-app.rz-tema-eventos .rz-lateral,.rz-app.rz-tema-fotografia .rz-lateral{background:var(--rz-lateral)}}
 /* no celular, o "+" no topo, ao lado do nome, como o exemplo (cara-dos-exemplos.md, G3): o flutuante cobria a lista */
 .rz-topo-mais{flex:none;width:40px;height:40px;display:grid;place-items:center;padding:0;border:0;border-radius:var(--rz-raio);background:var(--rz-destaque);color:#fff;cursor:pointer;box-shadow:var(--rz-sombra-1)}

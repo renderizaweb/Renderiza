@@ -8,7 +8,7 @@ import { abrirParaQuem, abrirCliente } from "../../ui/para-quem.js";
 import { icone } from "../../ui/icones.js";
 import { escapar, avisoDoFormulario, ocupado, erroNoCampo } from "../../ui/formulario.js";
 import { campoTexto, campoArea, campoSelecao, lerFormulario } from "../../ui/campos.js";
-import { dataLonga, dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, dia, hora, horaDoTexto } from "../../ui/formatos.js";
+import { dataLonga, dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, dia, hora, horaDoTexto, primeiroNome } from "../../ui/formatos.js";
 import { SITUACOES, itemDaReserva, faixa, quandoFoi, conflitos, bloqueioDoDia, horariosDoDia, linhaDaReserva } from "./logica.js";
 
 export const COLUNAS_RESERVA = "id, cliente_id, pedido_id, servico_id, tipo_id, campanha_id, titulo, inicio, fim, convidados, situacao, responsavel_id, producao_id, observacoes, criado_em, "
@@ -43,7 +43,7 @@ export function abrirReserva(r, ctx, { aba = "resumo" } = {}) {
   const eventos = nicho.id === "eventos";
   const passou = it.dia < hoje;
   const numero = normalizarWhatsapp(r.clientes && r.clientes.whatsapp);
-  const primeiro = String((r.clientes && r.clientes.nome) || "").trim().split(/\s+/)[0];
+  const primeiro = primeiroNome(r.clientes && r.clientes.nome);
   const mensagem = `Oi${primeiro ? `, ${primeiro}` : ""}! Passando sobre ${aReserva(nicho)} de ${dataCurta(new Date(r.inicio), fuso)}, ${faixa(it)}. Qualquer coisa, é só me chamar por aqui.`;
   const verChecklist = pode("agenda", "ver") || pode("clientes", "ver");
 

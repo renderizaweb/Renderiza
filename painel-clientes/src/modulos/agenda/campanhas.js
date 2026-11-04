@@ -6,7 +6,7 @@ import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { ligarCopiar } from "../../ui/whatsapp.js";
-import { dataLonga, instanteNoFuso, dia, horaDoTexto } from "../../ui/formatos.js";
+import { dataLonga, instanteNoFuso, dia, horaDoTexto, nomeCurto } from "../../ui/formatos.js";
 import { resumoDaCampanha, textoDoStories, horariosLivres, quandoFoi } from "./logica.js";
 import { COLUNAS_RESERVA, abrirReserva, abrirFormReserva } from "./reserva.js";
 
@@ -61,7 +61,7 @@ export async function montarCampanhas(el, ctx) {
                 return Date.parse(x.inicio) <= comeca && Date.parse(x.fim) > comeca;
               });
               const rotulo = horaDoTexto(hh);
-              if (r) return `<button type="button" class="rz-horario rz-horario--${r.situacao === "pre_reserva" ? "pre" : "ok"}" data-reserva="${escapar(r.id)}"><b>${rotulo}</b><span>${escapar(((r.clientes && r.clientes.nome) || "Reservado").split(/\s+/)[0])}${r.situacao === "pre_reserva" ? " · sinal?" : ""}</span></button>`;
+              if (r) return `<button type="button" class="rz-horario rz-horario--${r.situacao === "pre_reserva" ? "pre" : "ok"}" data-reserva="${escapar(r.id)}"><b>${rotulo}</b><span>${escapar(nomeCurto((r.clientes && r.clientes.nome) || "Reservado"))}${r.situacao === "pre_reserva" ? " · sinal?" : ""}</span></button>`;
               const passou = d < hoje;
               return edita && !passou
                 ? `<button type="button" class="rz-horario rz-horario--livre" data-livre="${d} ${hh}" data-campanha="${escapar(c.id)}"><b>${rotulo}</b><span>livre</span></button>`

@@ -1,7 +1,7 @@
 // Atendimento (Missão 3, bloco C): as regras sem tela, testadas em test/atendimento.test.mjs.
 // Etapas e origens são as do banco (05, pedidos); os nomes e o tom da etiqueta são do painel (09, exemplo de eventos).
 
-import { dia, dataCurta, hora, haQuanto, instanteNoFuso, somarDias, normalizarWhatsapp } from "../../ui/formatos.js";
+import { dia, dataCurta, hora, haQuanto, instanteNoFuso, somarDias, normalizarWhatsapp, primeiroNome } from "../../ui/formatos.js";
 import { doNegocio } from "../../nichos/index.js";
 
 export { doNegocio };
@@ -108,7 +108,7 @@ export function deOndeVem(pedidos, { dias = 90, agora = Date.now() } = {}) {
 
 /** A mensagem pronta do "Responder": de quem atende, pelo nome da conta, citando o que a pessoa pediu. */
 export function mensagemDeResposta(p, { conta, pessoa, nicho, fuso } = {}) {
-  const primeiro = String((p.clientes && p.clientes.nome) || "").trim().split(/\s+/)[0];
+  const primeiro = primeiroNome(p.clientes && p.clientes.nome);
   const eu = String((pessoa && pessoa.nome) || "").trim().split(/\s+/)[0];
   const tipo = (p.tipos_reserva && p.tipos_reserva.nome) || (p.servicos && p.servicos.nome);
   const quando = p.data_desejada ? dataCurta(instanteNoFuso(p.data_desejada, "12:00", fuso), fuso) : "";

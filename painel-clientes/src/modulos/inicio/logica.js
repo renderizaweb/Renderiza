@@ -3,7 +3,7 @@
 // equipe fez" em frases (as atividades que o banco grava sozinho; 05). Só entra o que veio do banco: cada um vê o que
 // pode (RLS), e quem chama já não busca o módulo que a pessoa não vê.
 
-import { dia, hora, haQuanto, somarDias, moeda, dataCurta, instanteNoFuso } from "../../ui/formatos.js";
+import { dia, hora, haQuanto, somarDias, moeda, dataCurta, instanteNoFuso, primeiroNome } from "../../ui/formatos.js";
 import { ETAPA, ORIGEM } from "../atendimento/logica.js";
 
 /** "Bom dia", "Boa tarde", "Boa noite" pela hora do lugar. */
@@ -110,7 +110,31 @@ export function comoEstaAProxima(r) {
   return { etiqueta, pago: pct != null && pct < 100 ? `${pct}% pago` : "" };
 }
 
-const primeiro = nome => String(nome || "").trim().split(/\s+/)[0];
+const primeiro = primeiroNome;
+
+/** As atividades que se juntam quando vêm várias em seguida: o verbo de "criou" e o nome no plural. */
+const GRUPOS = {
+  clientes: () => ["cadastrou", "clientes"],
+  reservas: n => ["reservou", n.palavras.reservas],
+  pedidos: () => ["anotou", "pedidos"],
+  parcelas: () => ["lançou", "parcelas"],
+  compromissos: () => ["marcou", "compromissos"],
+};
+
+/**
+ * Junta as atividades iguais em seguida (a mesma pessoa, a mesma tabela, criou ou apagou, em até 15 minutos): trazer
+ * 40 clientes vira "cadastrou 40 clientes", e não 40 linhas. `lista` vem da mais nova para a mais velha.
+ */
+export function agruparAtividades(lista, { maximo = 12, janela = 15 * 60000 } = {}) {
+  const saida = [];
+  for (const a of lista) {
+    const ultimo = saida[saida.length - 1];
+    const chave = GRUPOS[a.tabela] && ["criou", "apagou"].includes(a.acao) ? `${a.pelo_suporte}|${(a.pessoas && a.pessoas.nome) || ""}|${a.tabela}|${a.acao}` : null;
+    if (chave && ultimo && ultimo.chave === chave && Date.parse(ultimo.quando) - Date.parse(a.quando) <= janela) { ultimo.vezes++; continue; }
+    saida.push({ ...a, chave, vezes: 1 });
+  }
+  return saida.slice(0, maximo);
+}
 
 /**
  * Uma atividade em frase ("O que a equipe fez"): { quem, texto }. `quem`: o primeiro nome de quem fez, "Suporte da
@@ -119,6 +143,12 @@ const primeiro = nome => String(nome || "").trim().split(/\s+/)[0];
  */
 export function frase(a, { cliente = "", pessoa = "", nicho }) {
   const quem = a.pelo_suporte ? "Suporte da Renderiza" : primeiro(pessoa);
+  // várias iguais em seguida (trazer o que tem, desfazer): uma frase só, com quantas foram
+  if (a.vezes > 1 && GRUPOS[a.tabela]) {
+    const [criou, nome] = GRUPOS[a.tabela](nicho);
+    const texto = `${a.acao === "apagou" ? "apagou" : quem ? criou : "chegaram"} ${a.vezes} ${nome}`;
+    return { quem, texto: quem ? texto : texto.replace(/^./, l => l.toUpperCase()) };
+  }
   const de = cliente ? ` de ${cliente}` : "";
   const com = cliente ? ` com ${cliente}` : "";
   const r = nicho.palavras.reserva;

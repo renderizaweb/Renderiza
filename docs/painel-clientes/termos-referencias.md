@@ -28,7 +28,7 @@ A Renderiza leu e validou os dois textos em 30/10/2026, com estas escolhas:
 Ficou como cuidado para depois, sem travar nada: conferir nos acordos de dados (DPA) dos fornecedores o mecanismo de
 transferência internacional, e o país da conta Zoho.
 
-## 1b. Versão de 31/10/2026 (Missão 7): o que mudou, para a Renderiza conferir
+## 1b. Versão de 31/10/2026 (Missão 7): o que mudou (conferida: a Renderiza pediu para seguir em 04/11/2026)
 
 A IA da conversa de boas-vindas (D45, D49, D52) e a conta que nasce da demo (D41, D51) mudaram o que o painel trata, então
 a política e os termos ganharam uma versão nova **antes do primeiro cliente de verdade**. Assim, quem entra a partir
@@ -49,6 +49,33 @@ tinha aceitado a de 30/10 (só contas de teste) vê o aceite de novo no próximo
 - **Política, seção 13 (decisões automáticas):** a IA só escolhe a próxima pergunta e o jeito de escrever, entre as
   opções do roteiro; nada entra sem o toque da pessoa.
 - **Termos, cláusula 3 (o serviço):** "A IA do painel" (da OpenAI): só sugere, pode errar, quem decide é o Cliente.
+
+## 1c. Versão de 04/11/2026 (Missão 7, bloco F): os arquivos para montar o painel
+
+O "Trazer o que você já tem" (D53) passa arquivos pela IA, então a política e os termos ganharam versão nova antes do
+primeiro cliente de verdade (quem já aceitou vê o aceite de novo no próximo acesso; a regra dos 30 dias de aviso da
+cláusula 18 não pega ninguém no meio). O que entrou:
+
+- **Política, seção 3:** a linha "Arquivos mandados para montar o painel": o que a pessoa escolhe mandar; fotos, PDFs
+  e documentos passam pela IA só para leitura e saem logo depois; planilhas, contatos e agenda são lidos no aparelho;
+  só fica o que a pessoa conferir e gravar.
+- **Política, seção 4:** ler os arquivos e propor o que entra, com a IA ou pela Renderiza a pedido; base: execução do
+  contrato, e, para os dados dos clientes do negócio que estiverem nos arquivos, a base do negócio (a Renderiza é
+  operadora).
+- **Política, seção 5:** a OpenAI recebe também os arquivos para ler, por um link que vale 10 minutos.
+- **Política, seção 7:** arquivos lidos pela IA, apagados logo depois (os largados no meio, em até 1 hora); os
+  mandados para a Renderiza montar, até a montagem, no máximo 7 dias.
+- **Política, seção 13:** a IA propõe pacotes, datas, clientes e o contrato; a pessoa confere numa lista, corrige e
+  desmarca; só entra o que ela gravar, e dá para desfazer.
+- **Termos, cláusula 3:** a leitura dos arquivos na "IA do painel", e que o Cliente só manda dados que tem o direito
+  de usar (os dos clientes dele seguem com ele, cláusula 12).
+- **Termos, cláusula 15:** o "mandar para a Renderiza montar": os arquivos ficam até a montagem (no máximo 7 dias) e a
+  Renderiza entra na conta com o registro de sempre.
+
+Melhorias que ficam para o especialista em LGPD olhar junto com o resto (D12): o aviso, na tela de mandar arquivos,
+de que contatos do celular podem trazer pessoas que não são clientes (hoje, com mais de 40 contatos, eles vêm
+desmarcados e a tela pede para marcar só os clientes); e se vale um texto curto na própria tela sobre a OpenAI (hoje a
+tela diz que os arquivos passam pela IA e saem do painel logo depois, e a política detalha).
 
 ## 2. Decisões de negócio que estão nos textos (confirme ou mude)
 

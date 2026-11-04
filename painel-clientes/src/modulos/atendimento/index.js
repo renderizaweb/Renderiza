@@ -57,7 +57,8 @@ export async function montar(el, contexto) {
     else if (edita && ["orcamento_enviado", "aguardando_sinal"].includes(p.etapa)) acao = `<button class="rz-botao rz-botao--pequeno rz-linha-acao" type="button" data-fechar-pedido="${escapar(p.id)}">Fechar</button>`;
     return `<li class="rz-com-acao"><button class="rz-linha" type="button" data-pedido="${escapar(p.id)}">
         ${iconeDaOrigem(p.origem)}
-        <span class="rz-linha-texto"><b>${escapar((p.clientes && p.clientes.nome) || "Cliente")}</b><small>${escapar(resumoDoPedido(p, nicho, { fuso }))}</small></span>
+        <span class="rz-linha-texto"><b>${escapar((p.clientes && p.clientes.nome) || "Cliente")}</b><small>${escapar(resumoDoPedido(p, nicho, { fuso }))}</small>
+          <span class="rz-linha-etapa">${etiquetaDaEtapa(p.etapa)}<span class="rz-linha-quando">${escapar(haQuanto(new Date(p.criado_em)))}</span></span></span>
         <span class="rz-linha-fim">${etiquetaDaEtapa(p.etapa)}<span class="rz-linha-quando">${escapar(haQuanto(new Date(p.criado_em)))}</span></span>
       </button>${acao}</li>`;
   }

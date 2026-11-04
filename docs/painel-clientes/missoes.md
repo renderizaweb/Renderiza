@@ -13,9 +13,9 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
 | 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; a chave do Brevo está nas funções desde 31/10 | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
-| 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
-| 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
-| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): **A, B, C, D, E e G feitos e na produção** (banco, funções e, desde a noite de 30/10, a tela). Falta: o **F** (trazer o que tem, com o leitor de IA) e a Renderiza conferir a política e os termos de 31/10. Feitos em 31/10: o e-mail opcional (Brevo) e a IA medida (OpenAI, D52) | B e A: `claude/painel-renderiza-setup-ztnrzy` |
+| 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; o backup ficou **adiado** pela Renderiza em 04/11 (o workflow está pronto; faltam os segredos no GitHub, sem pressa) e a revisão dos termos por alguém de LGPD fica para antes do primeiro cliente pagante | A e B: `claude/painel-renderiza-setup-ztnrzy` |
+| 6 · Piloto | 6 | você + 1 sessão | **feita a parte da sessão** (30/10: fluxos e varredura verdes, a produção conferida). O roteiro do piloto deixou de ser uma etapa: a Renderiza testa no dia a dia e manda o que achar (04/11); a varredura de UX de 04/11 corrigiu o que apareceu | `claude/painel-renderiza-setup-ztnrzy` |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **feita** (04/11/2026): A a G **na `main`**. O F (trazer o que tem: arquivos lidos pela IA, conferidos em lote, "a Renderiza monta") foi feito pela sessão da Missão 4 em 04/11; ver a nota de passagem dele e "Migrações aplicadas" para a produção. A política e os termos estão na versão de 04/11 (termos-referencias.md, 1c) | B e A: `claude/painel-renderiza-setup-ztnrzy` |
 | 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -246,7 +246,45 @@ Migrações aplicadas (STG / produção): …
 ```
 
 ```
-Missão 7 · blocos A, B, C, D, E e G · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10, 20h · EM ANDAMENTO (falta o F)
+Missão 7 · bloco F (Trazer o que tem) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 04/11 · FEITO, NA MAIN
+Referência: D53 (e D44, D48, D49) no 07; 11 ("mande o que tiver"); termos-referencias.md, 1c.
+Feito:
+  - /trazer (src/telas/trazer/: index.js a tela; arquivos.js os formatos; logica.js a proposta e o que vai para o
+    banco): arrastar (no computador, pastas inteiras também), escolher vários, tirar foto (celular), colar texto, .zip
+    aberto no aparelho (fflate pelo jsDelivr); tirar da lista, tentar de novo; o andamento de cada arquivo (sobe com
+    progresso, a IA lê), até 3 ao mesmo tempo; até 50 por vez, 45 MB cada; fotos reduzidas a 2048 px.
+  - Sem IA, no aparelho: planilhas (CSV e .xlsx), contatos (.vcf, inclusive o quoted-printable do Android), Google
+    Agenda (.ics: o fuso, o dia inteiro, o que se repete e o cancelado). A IA só mapeia as colunas de uma planilha
+    que o cabeçalho não diz (tarefa "colunas").
+  - Com IA (função assistente, tarefa "ler", supabase/functions/assistente/leitura.js): fotos e prints
+    (input_image), PDF e Word (input_file por file_url; sem "filename", que a OpenAI recusa com file_url), por um link
+    de 10 minutos do bucket privado "importacoes"; o arquivo sai do Storage logo depois (D49), e os largados no meio
+    em até 1 hora. O contrato volta com os campos do painel ({cliente}, {cpf}, {data}, {valor}, {sinal}, {hoje}…).
+  - A conferência: pacotes, adicionais, datas, clientes e modelos numa lista; o que já está no painel desmarcado;
+    contatos acima de 40 desmarcados; editar e desmarcar; gravar com os tipos de festa novos e os clientes das datas;
+    "Desfazer" tira tudo o que entrou; o registro em importacoes (só as contagens).
+  - "Mandar para a Renderiza montar" (D48): os arquivos ficam em importacoes/<conta>/pedido-…/ até ela montar (no
+    máximo 7 dias); no Admin · Onboarding, "Pediram para a Renderiza montar" com "Montar agora" (entra no suporte
+    com "editar" e abre o /trazer, com os arquivos do pedido); "Marcar como feito" tira os arquivos.
+  - Ligado em: a conversa de boas-vindas ("Mandar agora" no lugar do WhatsApp; volta com "Pronto: trouxe…"), os
+    primeiros passos ("Trazer o que você já tem", e "Digitar as datas" continua), o Início e Configurações ("Trazer
+    dados" ao lado de "Exportar tudo"). O Admin · Onboarding mostra o que cada conta trouxe e quem pediu para montar.
+  - Migração 20261104120000_trazer_o_que_tem (o bucket, pedidos_a_renderiza, importacoes, admin_onboarding e
+    admin_pedidos_a_renderiza); teste 089. app.js: a tela pode devolver o que fecha ao sair (como os módulos).
+  - A política e os termos na versão de 04/11 (termos-referencias.md, 1c): todo mundo aceita de novo.
+Testado: npm test 230; banco local (16 testes); de ponta a ponta no STG: o dono no computador e no celular (PDF,
+  foto da agenda, Excel, CSV, .vcf, .ics, Word e um .zip: 9 arquivos lidos em 10 s, cada leitura por menos de 1
+  centavo de dólar; gravar 20 itens e desfazer), e a Renderiza pelo Admin (o pedido, "Montar agora", ler, gravar,
+  desfazer, marcar como feito). Os fluxos do piloto e a varredura passaram a usar "Fazer isso depois" na conversa.
+Não testado aqui: arquivos de 40 MB de verdade (o limite é o do Supabase grátis, 50 MB; o envio mostra o progresso);
+  HEIC num Android (a tela pede JPEG ou um print quando o aparelho não abre a foto).
+Mexe em: src/telas/trazer/, a função assistente, src/admin/onboarding/ e src/admin/suporte.js (pedir à Renderiza).
+  Fora disso, pequeno: src/app.js, src/rotas.js, src/adaptadores/supabase.js (enviarComProgresso, listarArquivos,
+  baixarArquivo, removerArquivos), src/telas/montar/, src/modulos/inicio/ e configuracoes/, estilo.css (seção 28).
+```
+
+```
+Missão 7 · blocos A, B, C, D, E e G · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10, 20h · FEITOS, NA MAIN (o F está na nota acima)
 Referência: 11 (o caminho da pessoa), D40 a D50 (07), D33 (o visual do onboarding), D42 (acesso sem e-mail).
 Feito (bloco B; na main e na produção, conferido em 04/11):
   B1. Migrações 20261030220000_convite_por_link e 20261030223000_login_do_convite (só no STG): convites.usuario,
@@ -897,6 +935,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030260000_contexto_do_dono.sql` (`contexto_da_minha_conta`: o dono lê o que a demo sabia, nunca a conversa) | 7E | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261031120000_email_de_recuperacao.sql` (o e-mail opcional de quem entra com usuário; o aviso de pedido novo sem o e-mail interno) | 7 | `claude/painel-renderiza-setup-ztnrzy` | 31/10/2026 | 31/10/2026 |
+| `20261104120000_trazer_o_que_tem.sql` (trazer o que tem: o bucket privado `importacoes`, `pedidos_a_renderiza`, `importacoes`, o Admin · Onboarding com o que a conta trouxe) | 7F | `claude/painel-renderiza-roadmap-jfhmpp` | 04/11/2026 | — |
 
 ## Avisos entre sessões
 
@@ -905,6 +944,8 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 04/11/2026 | UX → todas | **Varredura de UX de 04/11** (todas as telas, dono, "edita" e "só vê", celular e computador, e os modais). Corrigido, e vale para quem fizer tela nova: (1) **o círculo da inicial esticava** na lista do modal "de quem?" (`.rz-lista-acoes span{flex:1}` pegava o `.rz-avatar`): avatar, etiqueta e ícone não crescem mais dentro dessas listas; (2) **no celular, o Atendimento** mostrava o nome como uma letra só ("E.", "A") quando a linha tinha etiqueta e botão: a etapa vai embaixo do nome (`.rz-linha-etapa`); (3) **no celular, o nome das linhas vai em até 2 linhas** antes de cortar (`.rz-linha-texto b`, inclusive o `.rz-titulo-valor`); (4) **nome com etiqueta** ("Dono"): use `<span class="rz-linha-titulo"><b>nome</b><span class="rz-etiqueta">…</span></span>`, para a etiqueta nunca ser cortada; (5) o topo do celular: "Painel do espaço" numa linha só; (6) **mensagens prontas e a Agenda**: use `primeiroNome()` ("Alice, 7 anos" → "Oi, Alice!"; "60 anos do Seu Antônio" → "Oi!") e `nomeCurto()` ("60 anos" no calendário), de `src/ui/formatos.js`, nunca `split(/\s+/)[0]`; (7) "O que a equipe fez" junta as iguais em seguida ("cadastrou 40 clientes"). |
+| 04/11/2026 | 7F → Renderiza, todas | **Trazer o que tem pronto (na `main`); Missão 7 feita.** Para todas: (1) a tela `/trazer` (rota nova em `src/rotas.js`, arquivo comum) e o `app.js` agora guarda o que uma tela devolve para fechar ao sair; (2) o adaptador ganhou `enviarComProgresso`, `listarArquivos`, `baixarArquivo` e `removerArquivos`; (3) a função `assistente` tem as tarefas `ler` e `colunas` e aceita a Renderiza no suporte com "editar" (antes, só o dono); (4) o passo dos primeiros passos "Trazer as datas" virou "Trazer o que você já tem" (o botão "Digitar as datas" continua) e, na conversa de boas-vindas, "Montar o meu painel" virou "Mandar agora" / "Fazer isso depois" (os fluxos já usam `[data-seguir]`); (5) **termos e política na versão de 04/11**: todo mundo aceita de novo. **Backup:** a Renderiza adiou em 04/11 (o workflow está pronto e roda toda segunda sem erro, mas não guarda nada sem os segredos). |
 | 04/11/2026 | Conferência → Renderiza, todas | **Estado conferido em 04/11:** produção em dia (painel no `887783c`, o último commit dele na `main`; migrações em dia no STG e na produção; as 5 funções iguais nos dois; `OPENAI_API_KEY` e `BREVO_API_KEY` nos dois). **O backup ainda não acontece:** a execução de 02/11 terminou "verde" mas sem arquivo (o caminho de "faltam os segredos"); faltam os 4 segredos no GitHub (aviso da 5B). Abertos: Missão 7, bloco F; Missão 6, a Renderiza rodar o roteiro do piloto; conferir os termos de 31/10; Missão 8 sem levantamento. |
 | 30/10/2026 | Vercel → Renderiza, todas | **A Vercel voltou a publicar: painel e site no `225d06c` (21h47, Brasília).** (1) **Limpeza** com `scripts/limpar-deploys-vercel.mjs --apagar`: `renderiza`, 42 apagados, ficaram 4 de produção (`a3f699f`, o que estava no ar, `f06e680`, `690b90b`, `c1a47a2`); `renderiza-painel-clientes`, 96 apagados, ficaram 4 (`f06e680`, o que estava no ar, `71d2d2d`, `1dd2129` e o `a3f699f` pulado). Antes, conferido pelos domínios que o no ar ficava. **Atenção ao "No ar:" do script:** ele mostra o `targets.production` da Vercel, que no painel era o deploy CANCELED (pulado pelo `ignoreCommand`), não o do domínio; deu certo porque o do domínio estava entre os 3 últimos prontos. (2) **`ignoreCommand` no `vercel.json` da raiz** (com o "pode" da Renderiza): o site não monta quando o push só muda `painel-clientes/`, `docs/painel-clientes/` ou `test/`; termina em `\|\| exit 1`, como o do painel (casos no `test/site.test.mjs`). (3) O push do `225d06c` montou a produção dos dois (o SHA anterior estava fora do clone: "bad object", e o `\|\| exit 1` mandou montar); o painel entrou em 2 minutos, sem deploy pela API; `npm run conferir-producao` 4/4. Commit só de documentos (como este aviso) não muda o `versao`. (4) **A Renderiza já pode apagar o `VERCEL_TOKEN`.** Ainda gasta cota: push numa branch `claude/*` que mexe no site monta prévia do site (uns 750 MB); fechar isso é o `"claude/*": false` no `git.deploymentEnabled` da raiz, se a Renderiza quiser. |
 | 30/10/2026 | 7D → todas | **A IA agora é a da OpenAI (D52)**: a função `assistente` usa `OPENAI_API_KEY` (padrão `gpt-5.4-mini`) e ainda sabe falar com a Anthropic. A política e os termos (versão 31/10, ainda não no ar) citam a OpenAI. |

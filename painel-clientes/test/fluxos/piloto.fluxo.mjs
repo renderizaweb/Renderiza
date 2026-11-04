@@ -160,7 +160,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         await pDono.waitForFunction(p => (document.querySelector("h1") || {}).innerText !== p, pergunta, { timeout: 15000 });
       }
       assert.equal(respondidas.length, 5, "as 5 perguntas da conversa, uma por vez");
-      await pDono.click("button:has-text('Montar o meu painel')");
+      await pDono.click("[data-seguir]"); // "Fazer isso depois" (o trazer o que tem é testado à parte)
       await pDono.waitForURL(u => new URL(u).pathname === "/", { timeout: 30000 });
       await pDono.waitForSelector(".rz-passos");
       const [conta] = await banco.sql(`select ajustes -> 'onboarding' as o, (select count(*)::int from public.tipos_reserva t where t.conta_id = c.id) as tipos from public.contas c where c.codigo = ${A.q(A.CODIGO)}`);

@@ -9,7 +9,7 @@ import { icone } from "../../ui/icones.js";
 import { escapar, avisoDoFormulario, ocupado, erroNoCampo } from "../../ui/formulario.js";
 import { campoTexto, campoArea, campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { botoesWhatsapp, ligarCopiar } from "../../ui/whatsapp.js";
-import { telefone, moeda } from "../../ui/formatos.js";
+import { telefone, moeda, primeiroNome } from "../../ui/formatos.js";
 import { SITUACOES, ENTREGAS, ORIGENS, nomeDaOrigem, validarCliente, linhaDoCliente, linhaDoTempo } from "./logica.js";
 
 export const COLUNAS_CLIENTE = "id, nome, whatsapp, email, instagram, origem, arquivado_em, criado_em, situacao";
@@ -48,7 +48,7 @@ function etiquetaDoItem(it) {
 export function abrirFicha(c, ctx) {
   const { pode, nicho, navegar, avisar, banco } = ctx;
   const edita = pode("clientes", "editar");
-  const mensagem = `Oi, ${String(c.nome || "").split(/\s+/)[0]}!`;
+  const mensagem = primeiroNome(c.nome) ? `Oi, ${primeiroNome(c.nome)}!` : "Oi!";
   const contatos = [
     c.whatsapp && `<li>${icone("telefone", { tamanho: 18 })}<span>${escapar(telefone(c.whatsapp))}</span></li>`,
     c.email && `<li>${icone("carta", { tamanho: 18 })}<a href="mailto:${escapar(c.email)}">${escapar(c.email)}</a></li>`,

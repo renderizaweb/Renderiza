@@ -88,3 +88,14 @@ test("ler data e hora digitadas", () => {
   assert.equal(f.lerHora("9"), "09:00");
   assert.equal(f.lerHora("25h"), null);
 });
+
+test("primeiro nome e nome curto: sem a pontuação do fim; nome que começa por número", async () => {
+  const f = await import("../src/ui/formatos.js");
+  assert.equal(f.primeiroNome("Alice, 7 anos"), "Alice");
+  assert.equal(f.primeiroNome("  Ana e Pedro "), "Ana");
+  assert.equal(f.primeiroNome("60 anos do Seu Antônio"), "", "a mensagem fica \"Oi!\"");
+  assert.equal(f.primeiroNome(""), "");
+  assert.equal(f.nomeCurto("60 anos do Seu Antônio"), "60 anos");
+  assert.equal(f.nomeCurto("Alice, 7 anos"), "Alice");
+  assert.equal(f.nomeCurto("(Reservado)"), "Reservado");
+});

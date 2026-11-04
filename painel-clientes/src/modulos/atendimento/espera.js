@@ -8,7 +8,7 @@ import { abrirGaveta } from "../../ui/gaveta.js";
 import { abrirParaQuem } from "../../ui/para-quem.js";
 import { campoTexto, campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { comEstados, vazio } from "../../ui/estados.js";
-import { iniciais, haQuanto, linkWhatsapp, normalizarWhatsapp } from "../../ui/formatos.js";
+import { iniciais, haQuanto, linkWhatsapp, normalizarWhatsapp, primeiroNome } from "../../ui/formatos.js";
 import { ORIGEM, doNegocio } from "./logica.js";
 
 const COLUNAS = "id, campanha_id, cliente_id, posicao, preferencia, origem, criado_em, clientes(id, nome, whatsapp), campanhas(id, nome)";
@@ -26,7 +26,7 @@ export function gruposDaEspera(linhas) {
 
 /** A mensagem de quando abre um horário. */
 export function mensagemDaVaga(l, contaNome, nicho) {
-  const primeiro = String((l.clientes && l.clientes.nome) || "").trim().split(/\s+/)[0];
+  const primeiro = primeiroNome(l.clientes && l.clientes.nome);
   const de = l.campanhas ? ` na ${l.campanhas.nome}` : "";
   return `Oi${primeiro ? `, ${primeiro}` : ""}! Abriu um horário${de} aqui ${doNegocio(contaNome, nicho, "no")}. Ainda tem interesse?`;
 }

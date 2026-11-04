@@ -200,3 +200,21 @@ export function lerHora(texto) {
   if (h > 23 || m > 59) return null;
   return `${dois(h)}:${dois(m)}`;
 }
+
+const PALAVRAS_DO_NOME = nome => String(nome || "").trim().split(/\s+/).map(p => p.replace(/^[("'“]+|[,;:.!?)"'”·–-]+$/g, "")).filter(Boolean);
+
+/**
+ * O primeiro nome para a mensagem ("Oi, Ana!"), sem a pontuação do fim ("Alice, 7 anos" → "Alice"). Nome que começa
+ * por número ("60 anos do Seu Antônio") não tem primeiro nome: "" (a mensagem fica "Oi!").
+ */
+export function primeiroNome(nome) {
+  const p = PALAVRAS_DO_NOME(nome);
+  return p.length && !/^\d/.test(p[0]) ? p[0] : "";
+}
+
+/** O nome curto do calendário: a primeira palavra; se ela é um número, as duas primeiras ("60 anos"). */
+export function nomeCurto(nome) {
+  const p = PALAVRAS_DO_NOME(nome);
+  if (!p.length) return "";
+  return /^\d/.test(p[0]) && p[1] ? `${p[0]} ${p[1]}` : p[0];
+}

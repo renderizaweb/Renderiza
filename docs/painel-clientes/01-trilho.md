@@ -15,10 +15,10 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
 
 | | |
 |---|---|
-| **Onde o trem está** | Parada 6 · Piloto (a parada 5 chegou em 30/10/2026; as 3 e 4, em 29/10/2026) |
-| **Próxima ação** | A Renderiza simula o piloto seguindo o [`roteiro-do-piloto.md`](roteiro-do-piloto.md) e manda o que travou (a parte da sessão da Missão 6 está feita, na `main`; o deploy da Vercel voltou a andar em 30/10 e a produção está conferida). Ainda da Renderiza, sem travar a simulação: os segredos do backup no GitHub e rodar o backup uma vez (antes de dado de verdade entrar), a revisão dos termos e da política por alguém de LGPD (antes do primeiro cliente pagante), a chave do Brevo na função do aviso de pedido, apagar o `VERCEL_TOKEN` se ainda existir, o ok para a regra no `vercel.json` da raiz e o Turnstile, quando quiser abrir o cadastro (D30) |
-| **Em aberto** | os 🟡 da [`cara-dos-exemplos.md`](cara-dos-exemplos.md) (as abas de baixo, a ordem do Início, os dois botões da Agenda, o ticket médio) e conferir as mudanças da política e dos termos de 31/10 ([`termos-referencias.md`](termos-referencias.md), 1b): a Renderiza decide quando quiser, sem travar. A Missão 7 está em andamento (A a E e G feitos; falta o F) |
-| **Última atualização** | 30/10/2026 |
+| **Onde o trem está** | Parada 8 · IA no dia a dia, no levantamento (a 7 chegou em 04/11/2026; o piloto segue no dia a dia da Renderiza) |
+| **Próxima ação** | Levantamento da Missão 8 com a Renderiza (o que a IA faz no uso diário; [`missoes.md`](missoes.md), Missão 8). Da Renderiza, sem travar nada: testar no dia a dia e mandar o que achar (o roteiro do piloto deixou de ser uma etapa); a revisão dos termos por alguém de LGPD antes do primeiro cliente pagante; o backup (adiado em 04/11: faltam os segredos no GitHub); o Turnstile, quando quiser abrir o cadastro (D30) |
+| **Em aberto** | os 🟡 da [`cara-dos-exemplos.md`](cara-dos-exemplos.md) (as abas de baixo, a ordem do Início, os dois botões da Agenda, o ticket médio): a Renderiza decide quando quiser, sem travar |
+| **Última atualização** | 04/11/2026 |
 
 ## O mapa
 
@@ -27,7 +27,7 @@ Renderiza: o piloto começar a usar por volta de **11/11/2026** (2 semanas a par
  PARTIDA ━━ [1] ORGANIZAÇÃO ━━ [2] FUNDAÇÃO ━━━━━━━━━━━╋━━ [4] PONTE COM O SITE ✅ ━━━━━╋━━ [6] PILOTO 🚂 ━━ 🏁 DESTINO
    ✅        E INFRA ✅         BANCO E CASCA ✅       ┗━━ [5] ADMIN E REGRAS ✅ ━━━━━━━┛
 
- 🏁 ━━ [7] ONBOARDING COM IA 🚂 ━━ [8] IA NO DIA A DIA ⬜
+ 🏁 ━━ [7] ONBOARDING COM IA ✅ ━━ [8] IA NO DIA A DIA 🚂
 ```
 
 - **1 e 2 são em sequência:** são os trilhos e o esqueleto que todo mundo usa.
@@ -164,9 +164,12 @@ segredos do backup no GitHub (e rodar uma vez) e a revisão dos termos por algu�
 ([`roteiro-do-piloto.md`](roteiro-do-piloto.md)). A parte da sessão anda: o fluxo de ponta a ponta roda sozinho no
 STG (`npm run fluxos`: a conta criada pelo Admin, as datas trazidas, as 5 tarefas do `09`, o aceite do contrato, a
 equipe "só vê", o Admin), a varredura passa por todas as telas, e a produção é conferida depois de cada deploy, só
-leitura (`npm run conferir-producao`). Falta a Renderiza rodar o roteiro e mandar o que travou.
+leitura (`npm run conferir-producao`).
 
-## Parada 7 · Onboarding com IA, do convite até a confiança 🚂 (em andamento, junto do piloto)
+**Situação (04/11/2026):** o roteiro do piloto deixou de ser uma etapa: a Renderiza testa no dia a dia e manda o que
+achar, e uma sessão corrige (a varredura de UX de 04/11 já passou por todas as telas).
+
+## Parada 7 · Onboarding com IA, do convite até a confiança ✅ (04/11/2026)
 
 **Para quê:** o lead que vem da demo começar a usar em minutos, com o painel montado do jeito do negócio dele, sem
 digitar nada um a um, e seguir até estar usando sozinho. **Referência:** [`11`](11-onboarding-ia-levantamento.md)
@@ -184,7 +187,11 @@ digitar nada um a um, e seguir até estar usando sozinho. **Referência:** [`11`
 com o painel montado (dados confirmados, tipos, pacotes com preço e o que tinha de datas e clientes), sem digitar um a
 um. A Renderiza vê cada passo no Admin, e a conta cumpre os marcos da primeira semana sem precisar de ajuda.
 
-## Parada 8 · IA no dia a dia ⬜
+**Chegou (04/11/2026):** os 7 blocos na `main` e na produção. O último, "trazer o que tem" (D53), lê fotos, PDFs,
+Word, planilhas, contatos, a agenda do Google e .zip, com a conferência em lote e "Desfazer", e a Renderiza monta pelo
+Admin quando a pessoa pede.
+
+## Parada 8 · IA no dia a dia 🚂 (levantamento)
 
 **Para quê:** a IA ajudar no uso diário: colar a conversa do cliente e virar pedido, sugestões nas telas, respostas
 prontas. **Ainda sem missão:** levantamento próprio com a Renderiza depois da Parada 7 (D40).
@@ -203,6 +210,7 @@ Uma linha por avanço. O mais novo em cima.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 04/11/2026 | 7 | **Parada 7 chegou.** O bloco F (trazer o que tem) feito e na `main`: a pessoa manda fotos, PDFs, Word, planilhas, contatos, a agenda do Google ou um .zip, a IA lê e organiza, e ela confere tudo antes de gravar (com "Desfazer"); quem prefere manda para a Renderiza montar pelo Admin. Junto, a varredura de UX de todas as telas (o círculo da inicial que esticava na lista do modal, entre outros), os termos na versão de 04/11, o backup adiado e o roteiro do piloto passando para o dia a dia. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 7 | **Missão 7, blocos C, D, E e G, na `main` e na produção (banco e funções):** a conta nasce da demo (o catálogo das 60 demos, a conversa com o lead guardada só para a Renderiza); a IA no servidor (a função `assistente`, com teto por conta e o custo registrado; espera a chave da Anthropic e, sem ela, segue o roteiro fixo); a **conversa de boas-vindas** (`/montar`: o que a demo sabe confirmado num toque, os tipos já marcados, as perguntas do roteiro com a IA escolhendo a próxima, a montagem até o Início); e o **acompanhamento** no Admin (o funil, quem travou, os marcos da primeira semana, a mensagem pronta). Termos e política na versão 31/10 (a IA e a demo). Falta o F (trazer arquivos com a IA). A tela entra no ar quando a Vercel sair do limite diário. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 7 | **Missão 7, blocos A e B, na `main` e na produção:** o painel com a cara dos exemplos (a cor do negócio em tudo, o "+" no topo do celular, a Agenda no mês com a legenda, o funil e o ícone de origem no Atendimento, o gráfico à vista no Financeiro, as próximas com o contrato e o "% pago"; lista em [`cara-dos-exemplos.md`](cara-dos-exemplos.md), os 🟡 com a Renderiza) e o **convite por link no WhatsApp** (a conta nova no Admin e a equipe pelo dono: usuário e só a senha, entrar com usuário ou e-mail, link novo e senha nova). Uma porta de segurança achada e fechada antes de subir (o link não toma o acesso de outra pessoa). Fluxos 18/18 no STG. | Claude, a pedido da Renderiza |
 | 30/10/2026 | 7 | **Parada 7 levantada** com a Renderiza: onboarding com IA do convite até a confiança (entrada pela demo, link no WhatsApp, só senha, conversa com IA no visual de hoje, o máximo sem travar, acompanhamento com marcos). Decisões D40 a D50; Missão 7 escrita, esperando aprovação. Parada 8 (IA no dia a dia) marcada para levantamento depois. | Claude, com a Renderiza |
