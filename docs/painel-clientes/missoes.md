@@ -12,10 +12,10 @@ trabalho umas das outras) estão em [`08-trabalho-em-paralelo.md`](08-trabalho-e
 | 1 · Trilhos | 1 | você + 1 sessão | **feita** (29/10/2026): tudo no ar, na `main` e conferido na produção e numa prévia | — |
 | 2 · Fundação | 2 | 1 sessão (ou 2: banco e telas) | **feita** (29/10/2026): bloco A (banco) e bloco B (telas base) na `main` e na produção, com a função `convidar` | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 3 · Módulos | 3 | 1 a 6 sessões (uma por bloco) | **feita** (29/10/2026): os 6 blocos (Atendimento, Agenda, Clientes, Financeiro, Contratos, Início e exportar) **na `main`**; a Renderiza faz a varredura geral (ver "Avisos" sobre o deploy da produção) | A a E: `claude/painel-renderiza-setup-ztnrzy`; F terminado pela `claude/painel-renderiza-roadmap-jfhmpp` |
-| 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; falta só a chave do Brevo na função (Renderiza) | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
+| 4 · Ponte com o site | 4 | 1 a 3 sessões | **feita** (29/10/2026): A, B e C **na `main`**, banco e função `avisar-pedido` na produção; a chave do Brevo está nas funções desde 31/10 | A, B e C: `claude/painel-renderiza-roadmap-jfhmpp` |
 | 5 · Admin e regras | 5 | 1 a 2 sessões | **feita** (30/10/2026): A (Admin) e B (Regras) **na `main`**, as migrações na produção e o `contato@` na equipe Renderiza da produção; falta o que é da Renderiza: os segredos do backup no GitHub e a revisão dos termos (ver "Avisos") | A e B: `claude/painel-renderiza-setup-ztnrzy` |
 | 6 · Piloto | 6 | você + 1 sessão | **em andamento**: a parte da sessão **feita e na `main`** (30/10: fluxos de ponta a ponta e varredura verdes no STG, 5 correções, a produção conferida); **falta a Renderiza rodar o [roteiro do piloto](roteiro-do-piloto.md)** e mandar o que travou | `claude/painel-renderiza-setup-ztnrzy` |
-| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): **A, B, C, D, E e G feitos e na produção** (banco, funções e, desde a noite de 30/10, a tela). Falta: o **F** (trazer o que tem, com o leitor de IA), o e-mail opcional no fim da conversa (Brevo) e medir a IA de verdade (a chave da Anthropic) | B e A: `claude/painel-renderiza-setup-ztnrzy` |
+| 7 · Onboarding com IA | 7 | 1 a 4 sessões (blocos) | **em andamento** desde 30/10 (aprovada pela Renderiza): **A, B, C, D, E e G feitos e na produção** (banco, funções e, desde a noite de 30/10, a tela). Falta: o **F** (trazer o que tem, com o leitor de IA) e a Renderiza conferir a política e os termos de 31/10. Feitos em 31/10: o e-mail opcional (Brevo) e a IA medida (OpenAI, D52) | B e A: `claude/painel-renderiza-setup-ztnrzy` |
 | 8 · IA no dia a dia | 8 | a definir | esperando o levantamento (depois da 7) | |
 
 **Situação:** `esperando` · `em andamento` · `pronta para subir` (a Renderiza junta na `main`) · `feita` · `travada`
@@ -248,7 +248,7 @@ Migrações aplicadas (STG / produção): …
 ```
 Missão 7 · blocos A, B, C, D, E e G · branch claude/painel-renderiza-setup-ztnrzy · atualizada em 30/10, 20h · EM ANDAMENTO (falta o F)
 Referência: 11 (o caminho da pessoa), D40 a D50 (07), D33 (o visual do onboarding), D42 (acesso sem e-mail).
-Feito (bloco B, na branch, ainda NÃO na main nem na produção):
+Feito (bloco B; na main e na produção, conferido em 04/11):
   B1. Migrações 20261030220000_convite_por_link e 20261030223000_login_do_convite (só no STG): convites.usuario,
       link_codigo (32 letras e números, único), link_usado_em; publico_convite(código) para a tela; usuario_disponivel;
       login_do_email (só a função). E-mail interno <usuario>@acesso.renderizaweb.com.br (não recebe e-mail).
@@ -272,10 +272,8 @@ Feito (bloco A, na branch): a lista em cara-dos-exemplos.md e TODOS os itens �
   O e-mail opcional (a outra metade do B6) passou para o bloco E: o usuário continua entrando, então o e-mail vai
       à parte, confirmado por código, e o "Esqueci a senha" manda o link por uma função com o Brevo (a chave do Brevo
       nas funções está com a Renderiza).
-Falta (bloco B):
-  Subir o B para a produção, nesta ordem: (1) as 3 migrações na produção (não destrutivas), (2)
-      node supabase/functions/publicar.mjs producao --projeto <ref> --so aceitar-convite, (3) juntar a branch na main
-      (a Vercel publica; conferir /api/config), (4) npm run conferir-producao, (5) a tabela de migrações abaixo.
+Bloco B na produção (conferido em 04/11): migrações em dia nos dois bancos, as 5 funções iguais no STG e na
+  produção (mesmo pacote) e o painel no ar no último commit dele na main (887783c).
 Feito (bloco C, na branch, no STG): o catálogo das demos (migração 20261030240000; scripts/demos.mjs grava as 40
   de eventos e as 20 de fotografia; D51) e o contexto da conta (contas_contexto: a demo, o que ela sabia e a conversa
   colada; só a Renderiza). No Admin, "Veio de uma demo?" preenche o nome, o tipo, o código, o WhatsApp e o dono, e a
@@ -907,6 +905,7 @@ Recado que outra sessão precisa saber (mudou um nome de coluna, travou numa dep
 
 | Data | Missão | Recado |
 |---|---|---|
+| 04/11/2026 | Conferência → Renderiza, todas | **Estado conferido em 04/11:** produção em dia (painel no `887783c`, o último commit dele na `main`; migrações em dia no STG e na produção; as 5 funções iguais nos dois; `OPENAI_API_KEY` e `BREVO_API_KEY` nos dois). **O backup ainda não acontece:** a execução de 02/11 terminou "verde" mas sem arquivo (o caminho de "faltam os segredos"); faltam os 4 segredos no GitHub (aviso da 5B). Abertos: Missão 7, bloco F; Missão 6, a Renderiza rodar o roteiro do piloto; conferir os termos de 31/10; Missão 8 sem levantamento. |
 | 30/10/2026 | Vercel → Renderiza, todas | **A Vercel voltou a publicar: painel e site no `225d06c` (21h47, Brasília).** (1) **Limpeza** com `scripts/limpar-deploys-vercel.mjs --apagar`: `renderiza`, 42 apagados, ficaram 4 de produção (`a3f699f`, o que estava no ar, `f06e680`, `690b90b`, `c1a47a2`); `renderiza-painel-clientes`, 96 apagados, ficaram 4 (`f06e680`, o que estava no ar, `71d2d2d`, `1dd2129` e o `a3f699f` pulado). Antes, conferido pelos domínios que o no ar ficava. **Atenção ao "No ar:" do script:** ele mostra o `targets.production` da Vercel, que no painel era o deploy CANCELED (pulado pelo `ignoreCommand`), não o do domínio; deu certo porque o do domínio estava entre os 3 últimos prontos. (2) **`ignoreCommand` no `vercel.json` da raiz** (com o "pode" da Renderiza): o site não monta quando o push só muda `painel-clientes/`, `docs/painel-clientes/` ou `test/`; termina em `\|\| exit 1`, como o do painel (casos no `test/site.test.mjs`). (3) O push do `225d06c` montou a produção dos dois (o SHA anterior estava fora do clone: "bad object", e o `\|\| exit 1` mandou montar); o painel entrou em 2 minutos, sem deploy pela API; `npm run conferir-producao` 4/4. Commit só de documentos (como este aviso) não muda o `versao`. (4) **A Renderiza já pode apagar o `VERCEL_TOKEN`.** Ainda gasta cota: push numa branch `claude/*` que mexe no site monta prévia do site (uns 750 MB); fechar isso é o `"claude/*": false` no `git.deploymentEnabled` da raiz, se a Renderiza quiser. |
 | 30/10/2026 | 7D → todas | **A IA agora é a da OpenAI (D52)**: a função `assistente` usa `OPENAI_API_KEY` (padrão `gpt-5.4-mini`) e ainda sabe falar com a Anthropic. A política e os termos (versão 31/10, ainda não no ar) citam a OpenAI. |
 | 30/10/2026 | 7G → todas | **Parte nova no Admin: "Onboarding"** (`src/admin/index.js`, arquivo comum; logo depois de Contas). A função pública nova `publico_convite_aberto` (o teste 090 aceita porque começa com `publico_`). |
