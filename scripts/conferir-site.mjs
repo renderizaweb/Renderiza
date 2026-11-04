@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 const ARQUIVOS = ['index.html', 'README.md', 'robots.txt', 'sitemap.xml', 'vercel.json', '_headers', 'favicon.svg'];
 // Texto que só existe enquanto falta alguma coisa do cliente. Procurado no texto visível e nos alt das fotos.
-const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\bTODO\b|\bFIXME\b|a definir|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
+const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\bTODO\b|\bFIXME\b|\ba definir\b|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
 // Pode ser de verdade ("em breve, nova unidade"), mas vale olhar.
 const TALVEZ_PROVISORIO = /\bem breve\b|\bem constru[çc][ãa]o\b/i;
 

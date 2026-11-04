@@ -11,7 +11,7 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 | WhatsApp | (11) 98755-8202 (Google, site atual e posts da clínica) |
 | Site atual | Canva: clinicamsodonto.my.canva.site/bio-ms-odonto (ele não gosta) |
 | Entregável | demo de site (`index.html`) |
-| Situação | **fechou: R$ 500, pago** (primeira venda da Renderiza) · entrega em andamento, ver "Entrega" no fim · demo: `/demo/ms-odontologia`, versão 3 |
+| Situação | **fechou: R$ 500, Pix, 04/11/2026** (primeira venda da Renderiza) · entrega em andamento, ver "Entrega" no fim · demo: `/demo/ms-odontologia`, versão 4 |
 
 ## O que foi mantido da demo aprovada
 - Paleta verde-petróleo, menta, creme e coral; logo "Dr. Marcos Silva".
@@ -55,29 +55,38 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 ## Conferir
 - Foto da equipe toda: pedir na horizontal, com todos, de preferência na clínica e com boa luz.
 
+## Versão 4 (04/11/2026): ajustes pedidos depois do fechamento
+- Antes e depois: o Dr. Marcos disse que estava invertido. As duas fotos trocaram de lugar (legendas e textos
+  ficaram). Ainda vale trocar por um par mais bonito do Instagram (ver "Entrega").
+- Seção "Nossa equipe" e o link "Equipe" do menu saíram: ele manda a foto da equipe em outro momento. Para voltar,
+  a seção está no `index.html` do commit da versão 3 (CSS `.equipe*` ficou no arquivo).
+
 ## Entrega (cliente fechou)
 Roteiro: `docs/fechamento.md`.
 
 | | |
 |---|---|
-| Venda | R$ 500 · pago (relato do Kaue, registrado em 04/11/2026; data e forma a confirmar) |
-| Combinado | site a partir da demo aprovada (versão 3) |
-| Ajustes pedidos | um último ajuste pedido pelo Dr. Marcos: **qual?** (a confirmar com o Kaue) |
-| Domínio | a escolher. Livres no registro.br em 04/11/2026: `clinicamsodontologia.com.br`, `msodontologia.com.br`, `clinicamsodonto.com.br` (já registrados por outros: `msodonto.com.br`, `drmarcossilva.com.br`). Registro no CPF/CNPJ dele |
-| Contas | a combinar: ele tem Gmail/GitHub? Se não, Gmail de dev para o site |
-| Repositório | o Kaue vai criar (privado) |
+| Venda | R$ 500 · Pix · pago em 04/11/2026 (primeira venda da Renderiza) |
+| Combinado | site a partir da demo aprovada, com os ajustes abaixo |
+| Ajustes pedidos | 1. antes e depois invertido (feito, versão 4); 2. foto da resina do Instagram dele (falta) |
+| Domínio | `msodontologiaitapevi.com.br` (pedido dele; livre no registro.br em 04/11/2026). O Kaue registra, no CPF/CNPJ da clínica |
+| Contas | Gmail novo da clínica (o Kaue cria; anotado como msodontologiaitapevi@gmail.com), GitHub e Vercel nessa conta |
+| Hospedagem | Vercel (decisão do Kaue, 04/11/2026) |
+| Repositório | o Kaue cria no GitHub da clínica (privado) |
 | No ar | ainda não. Hoje o link da bio é o site do Canva |
+| Demo | no ar até 11/11/2026 para ele ver os ajustes; depois fica no painel e no repositório da Renderiza |
 
-- [ ] 1 painel (lead ainda aparece como Encerrado, sem valor: passar para Ganho, R$ 500)
-- [ ] 2 levantamento · [ ] 3 ajustes · [x] 4 site.json (falta só o domínio) · [ ] 5 gerar e conferir · [ ] 6 repositório
-- [ ] 7 hospedagem e domínio · [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
+- [x] 1 painel (Ganho, R$ 500, 04/11/2026) · [x] 2 levantamento · [ ] 3 ajustes (falta a resina) · [x] 4 site.json
+- [x] 5 gerar e conferir (04/11: conferência ok, 21 fotos, 832 KB) · [ ] 6 repositório · [ ] 7 hospedagem e domínio
+- [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
 
-O que falta dele antes de gerar (passo 2):
-- **Foto da equipe toda** (horizontal): a seção "Nossa equipe" ainda tem o espaço reservado, e a conferência barra o
-  site com ele. Se a foto não vier, a seção sai (e o link "Equipe" do menu junto).
-- Horário: Google (seg 9h–18h, ter 9h30–18h, qua a sex 9h–18h, sáb 9h–15h) ou a arte da clínica (seg a sex 9h–19h)?
-- "Avaliação gratuita" ainda vale? Se sim, entra na capa.
-- "+10 mil casos" e "5 anos consecutivos melhor dentista de Itapevi": confirmar com ele antes de ir para o ar.
+**Foto da resina e antes e depois novo**: procurados em 04/11/2026 sem achar. O Instagram sem login só mostra os 6
+posts mais recentes de cada perfil (@clinicamsodontologia: memes e artes; @mmarcos_s: o ensaio e o Oscar), o site do
+Canva só tem ícones e retratos, e o Google mostra 3 fotos (fachada, recepção e logo). Com o link do post
+(Compartilhar → Copiar link), `ferramentas/ig-post.py <shortcode> <pasta>` baixa as fotos em tamanho cheio.
+Onde entra a resina: decidir com a foto na mão (no "Resultados reais", como segundo caso, ou junto de "Lentes de
+contato dental" nos tratamentos).
 
-Ensaio da geração (04/11/2026, com domínio de teste, fora do repositório): 21 fotos em `img/`, `index.html` de 56 KB,
-831 KB no total; prévia do WhatsApp recortada da capa. A conferência só apontou o espaço reservado da equipe.
+Conferir com ele (não trava a entrega): horário (Google: seg 9h–18h, ter 9h30–18h, qua a sex 9h–18h, sáb 9h–15h;
+a arte da clínica: seg a sex 9h–19h, sáb 9h–15h), se a "avaliação gratuita" ainda vale, e a fonte de "+10 mil
+casos" e "5 anos consecutivos melhor dentista de Itapevi".

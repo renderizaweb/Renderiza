@@ -40,7 +40,9 @@ test("conferência: texto provisório só no que aparece (não no CSS, script ou
   const html = `<style>.x::after{content:"placeholder"}</style><!-- TODO trocar --><script>const a = "a definir";</script><p>Oi</p>`;
   assert.equal(textoVisivel(html), "Oi");
   assert.equal(textoVisivel('<p>Oi</p><img src="/img/a.webp" alt="Foto a definir">'), "Oi Foto a definir");
-  assert.deepEqual(conferirHtml(SITE.replace("</body>", html + "</body>"), { dominio: "clinica.com.br", existe }).problemas, []);
+  assert.deepEqual(conferirHtml(SITE.replace("</body>", html + "</body>"), { dominio: "clinica.com.br", existe }).problemas, []);  // "para definir" é texto normal, não "a definir"
+  assert.deepEqual(conferirHtml(SITE.replace("</body>", "<p>Análise cuidadosa para definir as etapas.</p></body>"), { dominio: "clinica.com.br", existe }).problemas, []);
+  assert.equal(conferirHtml(SITE.replace("</body>", "<p>Horário a definir</p></body>"), { dominio: "clinica.com.br", existe }).problemas.length, 1);
 });
 
 test("conferência: avisos (sem descrição, sem WhatsApp, foto embutida, prévia em WebP, 'em breve')", () => {
