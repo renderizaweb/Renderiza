@@ -276,6 +276,10 @@ Testado: npm test 230; banco local (16 testes); de ponta a ponta no STG: o dono 
   foto da agenda, Excel, CSV, .vcf, .ics, Word e um .zip: 9 arquivos lidos em 10 s, cada leitura por menos de 1
   centavo de dólar; gravar 20 itens e desfazer), e a Renderiza pelo Admin (o pedido, "Montar agora", ler, gravar,
   desfazer, marcar como feito). Os fluxos do piloto e a varredura passaram a usar "Fazer isso depois" na conversa.
+Falta (depende da Renderiza): o "pode" para a produção: a migração 20261104120000_trazer_o_que_tem (node
+  scripts/migrar.mjs producao --projeto <ref>, não destrutiva) e a função assistente (node
+  supabase/functions/publicar.mjs producao --projeto <ref> --so assistente). Até lá, o /trazer não funciona na
+  produção (a tela está no ar, mas o bucket, as tabelas e a leitura ainda não); o resto do painel segue normal.
 Não testado aqui: arquivos de 40 MB de verdade (o limite é o do Supabase grátis, 50 MB; o envio mostra o progresso);
   HEIC num Android (a tela pede JPEG ou um print quando o aparelho não abre a foto).
 Mexe em: src/telas/trazer/, a função assistente, src/admin/onboarding/ e src/admin/suporte.js (pedir à Renderiza).
