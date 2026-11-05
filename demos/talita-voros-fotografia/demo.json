@@ -1,0 +1,633 @@
+{
+ "pasta": "talita-voros-fotografia",
+ "marca": "Talita Voros Fotógrafa",
+ "marca_completa": "Talita Voros Fotógrafa",
+ "dona": "Talita",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.681296,-46.786155",
+  "fid": "0x94ce53f3577b8cbb:0xdfbbe2f31a9ce81d",
+  "gid": "/g/11l2m28bd1"
+ },
+ "google_nome": "Fotografa Talita Voros",
+ "endereco_maps": "R. Afonso Sanches, 520 - Sl 2 - Jd são bento Novo, São Paulo - SP, 05882-310",
+ "google_nota": "5,0",
+ "google_total": "16",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511910993620",
+ "fone_link": "+5511910993620",
+ "instagram": "fotografatalitavoros",
+ "seguidores": "8,0 mil",
+ "mensagem": "Olá, Talita! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f9f8f4",
+  "papel": "#ffffff",
+  "areia": "#eff1ea",
+  "linha": "#dfe3d8",
+  "tinta": "#2b2a27",
+  "tinta2": "#62645d",
+  "rosa": "#d8b2a3",
+  "acento": "#4a6b56",
+  "acento_escuro": "#3a5544",
+  "cafe": "#22302a"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-28 14h",
+   "2026-11-28 15h30",
+   "2026-12-05 15h30",
+   "2026-12-12 10h30",
+   "2026-12-12 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Talita define os dela",
+  "mensagem": "Olá, Talita! Quero o horário de {data} ({semana}) às {hora} para o especial de Natal no ateliê do Noel. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Talita",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Talita, do estúdio Talita Voros. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Talita, do estúdio Talita Voros. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Brygada 1918",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Sacramento",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "☆",
+  "script_escala": 1.1
+ },
+ "titulo_nome": "Talita Voros",
+ "titulo_script": "fotógrafa",
+ "quem_a": "a Talita",
+ "quem_da": "da Talita",
+ "quem_sou": "Sou a Talita Voros",
+ "slogan": "Fotografia com propósito: criar memórias!",
+ "site": {
+  "titulo": "Talita Voros Fotógrafa | Gestante, newborn e infantil na zona sul de SP",
+  "descricao": "Talita Voros, fotógrafa de gestante, newborn e infantil no Jardim São Bento Novo, zona sul de São Paulo: smash the cake, formatura infantil, família e o especial de Natal no ateliê do Noel. Nota 5,0 no Google.",
+  "comentario": "Demo Talita Voros Fotógrafa (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@fotografatalitavoros: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio na zona sul de São Paulo",
+   "frase": "Fotografia com propósito: criar memórias!",
+   "intro": "Gestante, newborn, infantil e família, com cenários temáticos para cada fase, no estúdio da Talita no Jardim São Bento Novo. E o especial de Natal deste ano conta a história do ateliê do Papai Noel.",
+   "rotulos": [
+    "Natal 2026",
+    "Família",
+    "1 aninho"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Infantil",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_00.jpg",
+     "f": "p",
+     "alt": "Pais com o bebê na cama do cenário de Natal 2026",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/620770380_18130216795512235_3888007843326365576_n.jpg",
+     "f": "p",
+     "alt": "Pais com o bebê no ensaio de Ano Novo",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/620986921_18152119990428962_7284676899124742559_n.jpg",
+     "f": "p",
+     "alt": "Bebê no smash the cake do safári, com o tigre",
+     "c": [
+      0.5,
+      0.55
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Memórias <em>de cada fase.</em>",
+   "p": "Ensaios no estúdio da Talita. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
+      "f": "p",
+      "alt": "Família de pijama xadrez na cama de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619996784_18103314142805590_8255221630131108326_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido vermelho no Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_00.jpg",
+      "f": "l",
+      "alt": "Pais com o bebê na cama de Natal, entre as luzinhas",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_02.jpg",
+      "f": "l",
+      "alt": "Pais com o bebê sentados na cama de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619615137_18106725913738154_953663252439491025_n.jpg",
+      "f": "l",
+      "alt": "Mãe recebendo beijos das filhas, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/620832250_18059625194331519_7118617899229496851_n.jpg",
+      "f": "l",
+      "alt": "Família de gorro de Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/623243099_18132778138446181_1473421709813907767_n.jpg",
+      "f": "l",
+      "alt": "Família de vermelho no cenário de Natal",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Smash e infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/620986921_18152119990428962_7284676899124742559_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake do safári",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/621563387_18111545485722405_3212676116878612915_n.jpg",
+      "f": "p",
+      "alt": "Menino segurando os sapatinhos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/650841588_18121448287587560_6890268903848659785_n.jpg",
+      "f": "p",
+      "alt": "Bebê no ensaio de verão com cenário fit",
+      "pos": "50% 60%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/588003974_18089918132046442_143685586957491416_n.jpg",
+      "f": "p",
+      "alt": "Menino na formatura da escolinha, de beca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/650005133_18106475272855181_5706677623014381319_n.jpg",
+      "f": "l",
+      "alt": "Bebê gargalhando na banheira do safári",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/650071955_18094469594094735_669262688402661112_n.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira do smash da Minnie",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/650091296_18094492751067155_1660423668914180264_n.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira de espuma com patinhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/650746973_18170282680398386_4051934549979396914_n.jpg",
+      "f": "l",
+      "alt": "Bebê com o bolo da Minnie",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante com o buquê de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/620770380_18130216795512235_3888007843326365576_n.jpg",
+      "f": "p",
+      "alt": "Pais com o bebê no ensaio de Ano Novo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/621616956_18117931498595182_3402052585007611440_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no ensaio de Ano Novo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/622484404_18150718471451189_6367358853962722229_n.jpg",
+      "f": "p",
+      "alt": "Casal no cenário de balões prata",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/623267797_18102379771872125_8813338855516073694_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o filho formando, de beca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/649215309_18079663568369554_7213035739340550903_n.jpg",
+      "f": "p",
+      "alt": "Família sentada no cenário de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/625299190_18109854652591273_8737514271969739382_n.jpg",
+      "f": "l",
+      "alt": "Barriga de gestante com as mãos e o terço",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/651024778_18097441445068045_4081644582645459083_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca azul no balde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619564210_18086358962159027_7279071441187003539_n.jpg",
+      "f": "l",
+      "alt": "Família com as três filhas no ensaio de Ano Novo",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Talita, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Talita sorrindo com a câmera na mão",
+    "c": [
+     0.45,
+     0.5
+    ]
+   },
+   "p": [
+    "A Talita Voros fotografa gestantes, newborns, crianças e famílias no estúdio dela, no Jardim São Bento Novo, zona sul de São Paulo. Com a equipe, monta cenários temáticos para cada fase: smash the cake, formatura da escolinha, Ano Novo e o especial de Natal."
+   ],
+   "citacao": "Nosso estúdio não vende fotos! Nós vendemos experiência!",
+   "citacao_quem": "Talita, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias contam que voltam há anos (uma delas, há mais de 7), da gestação ao newborn, ao 1 ano e às festas; e falam da paciência com as crianças e do jeito de deixar os papais e os tímidos à vontade."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "16 avaliações no Google"
+    ],
+    [
+     "8 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1,9 mil",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>à formatura.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "Bio e legendas da Talita no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "O primeiro ensaio de muitas famílias, que depois voltam a cada fase."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O bebê recém-chegado, com paciência e carinho em cada detalhe."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Trimestral",
+     "p": "Ensaios ao longo do primeiro ano, para ver o bebê crescer."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "Cenários temáticos: safári, Minnie, banheira de espuma e muito bolo."
+    },
+    {
+     "nome": "Formatura",
+     "sub": "Infantil",
+     "p": "A formatura da escolinha, de beca, diante do quadro-negro."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Ateliê do Noel",
+     "p": "Cenários 100% reais e interativos, com o Papai Noel."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O conto de Natal <em>deste ano.</em>",
+   "p": "O especial de Natal 2026 conta a história do ateliê do Noel: dois cenários reais e interativos, com missões para as crianças e o Papai Noel. Escolha um horário e a mensagem chega pronta no WhatsApp da Talita.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
+    "f": "p",
+    "alt": "Família de pijama xadrez na cama de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Ivana e os Gêmeos",
+    "tag": "Há mais de 7 anos",
+    "trecho": "Ela registra os momentos da minha família há mais de 7 anos, sempre com muito carinho, sensibilidade e perfeição em cada detalhe."
+   },
+   {
+    "nome": "Tamires Pigozzi",
+    "tag": "Todas as fases",
+    "trecho": "Depois disso já fizemos mais alguns ensaios como de gestante do meu segundo bebe o newborn, do 1° ano e a cobertura da festa também."
+   },
+   {
+    "nome": "Michelle Sales",
+    "tag": "Gestante",
+    "trecho": "Fiz meu ensaio gestante e o de Dia das Mães com o estúdio e foi simplesmente mágico. Me senti acolhida, linda e respeitada em cada detalhe."
+   },
+   {
+    "nome": "Gabriella Ramos",
+    "tag": "Para os tímidos",
+    "trecho": "ela conseguiu me deixar super à vontade, mesmo eu sendo uma pessoa extremamente tímida."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim São Bento Novo, zona sul de São Paulo.",
+   "telefone": "(11) 91099-3620",
+   "endereco": [
+    "Rua Afonso Sanches, 520, sala 2",
+    "Jardim São Bento Novo",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 no Ateliê do Noel | Talita Voros Fotógrafa",
+  "descricao": "O especial de Natal 2026 da Talita Voros, na zona sul de São Paulo: o ateliê do Papai Noel, com dois cenários reais e interativos. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Talita Voros Fotógrafa: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Zona sul de SP",
+   "h1": "O ateliê <em>do Papai Noel.</em>",
+   "citacao": "E o nosso conto de Natal este ano veio contar a história do ateliê do Noel, onde as famílias estão vivendo uma experiência exclusiva!",
+   "citacao_quem": "Talita, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_00.jpg",
+    "f": "p",
+    "alt": "Pais com o bebê na cama do cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Uma experiência, <em>não só fotos.</em>",
+   "p": "O especial de Natal 2026 tem dois cenários 100% reais e interativos: o ateliê do Papai Noel, com os ursinhos e as cartas, e o quarto de Natal, com a cama, as luzinhas e a árvore. As crianças vivem missões, e o bom velhinho está lá.",
+   "itens": [
+    "No estúdio da Talita, no Jardim São Bento Novo.",
+    "Dois cenários: o ateliê do Noel e o quarto de Natal.",
+    "Horário extra com o Papai Noel no dia 14/11 (já no 2º lote).",
+    "Valores e detalhes pelo WhatsApp da Talita."
+   ],
+   "legenda_fotos": "Os cenários do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfGIX7kPWj4/DfGIX7kPWj4_00.jpg",
+    "f": "p",
+    "alt": "O Papai Noel no ateliê, com a carta e os ursinhos",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
+    "f": "p",
+    "alt": "O quarto de Natal, com a cama, as luzinhas e a árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_02.jpg",
+    "f": "l",
+    "alt": "Família com o bebê na cama de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Talita abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Talita define os dias, a duração e quantos horários abre (no dia 14/11 há horário extra com o Papai Noel); o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Talita abre com o dia e a hora escritos."
+    ],
+    [
+     "A Talita confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natais por aqui",
+   "h2": "Cada ano, <em>um Natal.</em>",
+   "nome": "Natais por aqui",
+   "p": "O Natal 2026 e os Natais de outros anos no estúdio da Talita.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_01.jpg",
+     "f": "l",
+     "alt": "Pais com o bebê na cama de Natal 2026",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619996784_18103314142805590_8255221630131108326_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/649215309_18079663568369554_7213035739340550903_n.jpg",
+     "f": "p",
+     "alt": "Família no cenário de Natal",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/621579121_18084029438336200_3395122046160106470_n.jpg",
+     "f": "l",
+     "alt": "Família sentada junto à árvore",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/621818144_18091512556822920_720632584724341156_n.jpg",
+     "f": "l",
+     "alt": "Família de gorro de Papai Noel",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Bruna Vasconcelos",
+    "tag": "Natal e mais",
+    "trecho": "fiz o acompanhamento trimestral, de Natal e agora de dois anos, eh uma profissional incrível, ela e toda sua equipe."
+   },
+   {
+    "nome": "Michelle Sales",
+    "tag": "Mágico",
+    "trecho": "As fotos ficaram SENSACIONAIS , captaram exatamente a emoção que eu queria guardar pra sempre."
+   },
+   {
+    "nome": "Gabriella Ramos",
+    "tag": "O espaço",
+    "trecho": "O  espaço também é super aconchegante, tem cafezinho, um ambiente confortável e tudo feito com muito profissionalismo."
+   },
+   {
+    "nome": "Ivana e os Gêmeos",
+    "tag": "Carinho",
+    "trecho": "Recomendo de olhos fechados para quem quer eternizar momentos especiais com qualidade e amor."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Zona sul de SP",
+   "h2": "Garanta o seu <em>Natal no ateliê.</em>",
+   "p": "Já estamos no 2º lote. Escolha um horário ou chame a Talita no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 91099-3620); a bio leva a um link de orçamento",
+  "site": "não tem: o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/talita-voros-fotografia` e `/demo/talita-voros-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 15, 82 pontos), escolhida no Drive de 05/11/2026. Bio: \"Gestante | Newborn | Infantil · Fotografia com propósito: criar memórias!\".",
+   "Dona: Talita Voros (\"Tá\" nas avaliações), com equipe. Foto dela: a do Google e do perfil, com a câmera.",
+   "Cores: o verde-sálvia do ateliê do Noel (#4a6b56 no destaque); Brygada 1918, Nunito e \"fotografia\" em Sacramento; abertura em polaroides. O logo dela (câmera colorida, TALITA VOROS FOTÓGRAFA) só aparece pequeno numa arte de 2020: monograma TV e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, família e 1 aninho), portfólio em 3 abas (Natal, 7; Smash e infantil, 8; Gestante e família, 9), a Talita, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O ateliê do Papai Noel\": o ensaio, os cenários (o Papai Noel no ateliê, o quarto de Natal e a família na cama), a agenda de exemplo (6 dias de 14/11, o horário extra com o Papai Noel, a 12/12) e os Natais no estúdio."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (o Papai Noel no ateliê, as famílias no quarto de Natal, até 2048 px), a página do Instagram salva no Drive (2020-2021, 1080 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as artes com texto (\"Como trocar seu marido...\", \"Já estamos em clima de Natal\"), a capa com \"A magia do Natal\" escrito, o logo de 2020, os ensaios de adultos (40 anos, formatura de faculdade) e as fotos de escola."
+  ],
+  "textos": [
+   "Bio e legendas: \"E o nosso conto de Natal este ano veio contar a história do ateliê do Noel...\" e \"Horário EXTRA com nosso bom velhinho para dia 14/11... 2º Lote\" (24/10), \"Nosso estúdio não vende fotos! Nós vendemos experiência!... Nossos cenários são 100% reais e interativos\" (29/10).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "2º lote e horário extra com o Papai Noel em 14/11 (legenda de 24/10): conferir se ainda valem.",
+   "As fotos de famílias no Natal 2026 foram postadas pelos clientes em parceria com ela (02/11 e 25/10).",
+   "Três avaliações citam a equipe: a demo fala da Talita \"com a equipe\".",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sex 9h-18h, sáb 8h-17h).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
