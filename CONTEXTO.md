@@ -455,7 +455,8 @@ O mapa do Google do site entra na rolagem do fechamento como foto (fora da tela 
   o WhatsApp pode tratar como GIF.
 
 **Música (aprovada; vai em todos desde 08/10/2026):** `"musica": "auto"` gera uma trilha original com
-`ferramentas/video/musica.py` (sintetizada aqui, sem direito de terceiros): piano elétrico em arpejo, pad,
+`ferramentas/video/musica.py` (sintetizada aqui, sem direito de terceiros; precisa do numpy: numa máquina nova,
+`python3 -m pip install numpy`): piano elétrico em arpejo, pad,
 baixo e bateria leve, em dó maior, ~97 bpm; o groove entra com o site e o acorde final cai no fechamento.
 `"musica": "caminho/arquivo.mp3"` usa uma faixa escolhida (com entrada e saída suaves); sem o campo, faixa
 muda. O roteiro gerado já vem com `"auto"`; `"clima"` muda o jeito da trilha (acima).

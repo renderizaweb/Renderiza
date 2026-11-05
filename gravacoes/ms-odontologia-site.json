@@ -1,0 +1,134 @@
+{
+ "_sobre": "Vídeo de divulgação do site da Clínica MS Odontologia, que já está no ar (cliente, cortesia): para o Dr. Marcos postar no Status, nos Stories e no Reels. Sem marca da Renderiza. O MP4 vai para rascunhos/ e é mandado a ele; não vai ao ar.",
+ "url": "https://www.msodontologiaitapevi.com.br/",
+ "marca": "Clínica MS Odontologia",
+ "local": "São Carlos · Itapevi",
+ "cores": {
+  "fundo": "#004c47",
+  "fundo2": "#072624",
+  "acento": "#eea27e",
+  "claro": "#fffefa"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Manrope"
+ },
+ "hora": "2026-11-05T10:30:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "resolucao": 1080,
+ "assinatura": "@clinicamsodontologia",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Site novo no ar",
+  "chamada": "Conheça o site da",
+  "nome": [
+   "MS",
+   "Odontologia"
+  ],
+  "frase": "Seu sorriso, do seu jeito.",
+  "fotos": [
+   ".hero-media img",
+   "#galeria-track > :nth-child(1) img",
+   ".results-grid .result-after img",
+   ".doutor-foto img"
+  ],
+  "rotulos_fotos": [
+   "Doutor",
+   "Clínica",
+   "Sorriso",
+   "Cuidado"
+  ],
+  "pos_fotos": [
+   "50% 30%",
+   "50% 55%",
+   "50% 50%",
+   "50% 25%"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Visite o nosso site",
+  "destaque": "msodontologiaitapevi​.com.br",
+  "convite": "Agende sua avaliação pelo WhatsApp."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.5
+  },
+  {
+   "rolar": "#resultados .results-grid",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Resultados reais"
+  },
+  {
+   "rolar": ".results-mais",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Lentes em resina e preenchimento",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": ".doutor-foto",
+   "segura": 1.7,
+   "legenda": "Conheça o Dr. Marcos",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": ".treatment-list",
+   "alinhar": "topo",
+   "segura": 1.8,
+   "legenda": "Todos os tratamentos"
+  },
+  {
+   "rolar": "#galeria-track",
+   "alinhar": "topo",
+   "segura": 2.8,
+   "legenda": "Por dentro da clínica",
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "deslizar",
+     "alvo": "#galeria-track",
+     "cartoes": 1
+    },
+    {
+     "em": 1.6,
+     "tipo": "deslizar",
+     "alvo": "#galeria-track",
+     "cartoes": 1
+    }
+   ],
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#depoimentos-track",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Nota 5,0 no Google",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "deslizar",
+     "alvo": "#depoimentos-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#contato h2",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "acoes": [
+    {
+     "em": 0.7,
+     "tipo": "tocar",
+     "alvo": "#contato .button-light"
+    }
+   ]
+  }
+ ],
+ "legenda_baixo": 170
+}

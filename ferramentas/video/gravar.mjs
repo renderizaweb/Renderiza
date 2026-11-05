@@ -40,7 +40,9 @@ import { spkiProxy } from "../proxy.mjs";
 import { chromium } from "/opt/node22/lib/node_modules/playwright/index.mjs";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const FFMPEG = process.env.FFMPEG || "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2";
+// O ffmpeg do imageio-ffmpeg (pip) quando existe; senão o do sistema. FFMPEG=<caminho> escolhe outro.
+const FFMPEG_PIP = "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2";
+const FFMPEG = process.env.FFMPEG || (existsSync(FFMPEG_PIP) ? FFMPEG_PIP : "ffmpeg");
 const argumentos = process.argv.slice(2);
 const ENSAIO = argumentos.includes("--ensaio");
 const [caminhoRoteiro, saidaArg] = argumentos.filter(x => !x.startsWith("--"));
