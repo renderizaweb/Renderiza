@@ -305,3 +305,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Heloisa Barbosa (fotógrafa)](demos/heloisa-barbosa-fotografia) | Centro, Itaquaquecetuba | site + página de Natal (`/natal`, “A infância é agora”) | pronta · 05/11/2026 (fotógrafos lote 2 · 9ª) |
 | [Amanda Azevedo Fotografia (fotógrafa)](demos/amanda-azevedo-fotografia) | Alto de Pinheiros, São Paulo | site + página de Natal (`/natal`, “Vem se apaixonar pelo Natal 2026”) | pronta · 05/11/2026 (fotógrafos lote 2 · 10ª) |
 | [Estúdio Mariana Lima (fotógrafa)](demos/mariana-lima-fotografia) | Jardim Álamo, Guarulhos | site + página de Natal (`/natal`, “O Natal merece ser lembrado para sempre”) | pronta · 05/11/2026 (fotógrafos lote 2 · 11ª) |
+| [Janaina Bertunes Fotografia (fotógrafa)](demos/janaina-bertunes-fotografia) | Parque Rodrigo Barreto, Arujá | site + página de Natal (`/natal`, “Meu Natal Favorito”) | pronta · 05/11/2026 (fotógrafos lote 2 · 12ª) |

@@ -1,0 +1,701 @@
+{
+ "pasta": "janaina-bertunes-fotografia",
+ "marca": "Janaina Bertunes Fotografia",
+ "marca_completa": "Janaina Bertunes Fotografia",
+ "dona": "Janaína",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.3792185,-46.3183519",
+  "fid": "0x491f1343a2d2c12f:0xd279ac4d3a39b5c0",
+  "gid": "/g/11v14925zf"
+ },
+ "google_nome": "Janaina Bertunes Fotografia",
+ "endereco_maps": "Estrada Mun., 726 - Parque Rodrigo Barreto, Arujá - SP, 07417-265",
+ "google_nota": "5,0",
+ "google_total": "126",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511970658002",
+ "fone_link": "+5511970658002",
+ "instagram": "janainabertunesfotografia",
+ "seguidores": "2,0 mil",
+ "mensagem": "Olá, Janaína! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf7f2",
+  "papel": "#ffffff",
+  "areia": "#f4ece3",
+  "linha": "#e8ddd1",
+  "tinta": "#2e2420",
+  "tinta2": "#6b5c53",
+  "rosa": "#dfb299",
+  "acento": "#a5532f",
+  "acento_escuro": "#88421f",
+  "cafe": "#2b1e18"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "12h",
+   "13h"
+  ],
+  "reservados": [
+   "2026-11-14 10h",
+   "2026-11-14 12h",
+   "2026-11-18 10h",
+   "2026-11-18 12h",
+   "2026-11-21 9h",
+   "2026-11-21 10h",
+   "2026-11-21 13h",
+   "2026-11-25 9h",
+   "2026-11-25 13h",
+   "2026-11-28 10h",
+   "2026-11-28 12h",
+   "2026-11-28 13h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 12h"
+  ],
+  "exemplo": "Horários de exemplo: a Janaína define os dela",
+  "mensagem": "Olá, Janaína! Quero o horário de {data} ({semana}) às {hora} para o Meu Natal Favorito 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Janaína",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Janaína, da Janaina Bertunes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Janaína, da Janaina Bertunes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Newsreader",
+    "ital,opsz,wght@0,6..72,400..600;1,6..72,400..600"
+   ],
+   "sans": [
+    "DM Sans",
+    "opsz,wght@9..40,300..600"
+   ],
+   "script": [
+    "Corinthia",
+    "wght@400;700"
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.35
+ },
+ "titulo_nome": "Janaina Bertunes",
+ "titulo_script": "fotografia",
+ "quem_a": "a Janaína",
+ "quem_da": "da Janaína",
+ "quem_sou": "Sou a Janaína Bertunes",
+ "slogan": "Ensaios leves, atemporais e afetivos.",
+ "site": {
+  "titulo": "Janaina Bertunes Fotografia | Gestante, bebê e família em Arujá",
+  "descricao": "Janaina Bertunes Fotografia, em Arujá (SP): materno-infantil clean color, com gestante, newborn, acompanhamento, 1 aninho, família e o Meu Natal Favorito 2026. Nota 5,0 no Google, com 126 avaliações.",
+  "comentario": "Demo Janaina Bertunes Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@janainabertunesfotografia: a página salva e os posts de out/2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Materno-infantil em Arujá",
+   "frase": "Ensaios leves, atemporais e afetivos.",
+   "intro": "Gestante, bebê e família no estilo clean color: fundos de cor, luz suave e o tempo de cada um respeitado, no estúdio da Janaína em Arujá. E o Meu Natal Favorito 2026 está com a agenda aberta.",
+   "rotulos": [
+    "Natal 2026",
+    "Bebê",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "1 aninho",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_01.jpg",
+     "f": "p",
+     "alt": "Família sentada na cama do cenário de Natal, com a filha no colo",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g03.jpg",
+     "f": "p",
+     "alt": "Bebê de tiara no cestinho, com flores secas no fundo laranja",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g06.jpg",
+     "f": "p",
+     "alt": "Gestante com o marido e o filho no estúdio claro",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Eles crescem, <em>as fotografias ficam.</em>",
+   "p": "Ensaios no estúdio da Janaína, em Arujá. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DecFO1JEeXD/DecFO1JEeXD_00.jpg",
+      "f": "p",
+      "alt": "Bebê de 2 meses na caixinha de madeira, no fundo amarelo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Bebê de tiara no cestinho, no fundo laranja",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DecFO1JEeXD/DecFO1JEeXD_02.jpg",
+      "f": "p",
+      "alt": "Bebê de 2 meses olhando para a câmera",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Bebê de laço vermelho mordendo a melancia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g05.jpg",
+      "f": "p",
+      "alt": "Bebê no balanço de madeira com flores",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g04.jpg",
+      "f": "p",
+      "alt": "Bebê de quimono engatinhando",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DecFO1JEeXD/DecFO1JEeXD_01.jpg",
+      "f": "p",
+      "alt": "Bebê de 2 meses na caixinha, de lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/624813445_18171354208350265_905072977721846395_n.webp",
+      "f": "p",
+      "alt": "Menina de rosa no bosque encantado, com o regador",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Smash the cake de 1 aninho, com balões rosa e dourados",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/623956566_18104848462756574_1605317083953196910_n.webp",
+      "f": "l",
+      "alt": "Bebê sorrindo na caminha de madeira",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g06.jpg",
+      "f": "p",
+      "alt": "Gestante com o marido e o filho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g07.jpg",
+      "f": "p",
+      "alt": "Gestante de rosa com o marido e o filho na cama",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DecFO1JEeXD/DecFO1JEeXD_03.jpg",
+      "f": "p",
+      "alt": "Família de branco e preto com a bebê no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/622443237_18053395472693042_7301511717374077160_n.webp",
+      "f": "p",
+      "alt": "Casal gestante no balanço de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/621219915_18060657995321776_7582558429769463675_n.webp",
+      "f": "p",
+      "alt": "Mãe com o recém-nascido no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/623814368_18086364728127603_7400250790803458352_n.webp",
+      "f": "p",
+      "alt": "Menino beijando a mãe",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/638296174_18576701440032668_6932979958197795717_n.webp",
+      "f": "p",
+      "alt": "Pai, mãe e filho no estúdio claro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/620933578_18002854946698494_3670102052712626600_n.webp",
+      "f": "p",
+      "alt": "Pai, mãe e filho de mãos dadas, de costas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/625085382_18199140829329992_4254460454049652042_n.webp",
+      "f": "l",
+      "alt": "Casal com o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/623286080_18193231642341959_3547628763480051222_n.webp",
+      "f": "l",
+      "alt": "Pai com o recém-nascido no colo",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "natal-infantil",
+    "nome": "Natal e infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_05.jpg",
+      "f": "p",
+      "alt": "Família deitada na cama do cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_02.jpg",
+      "f": "p",
+      "alt": "Mãe e filha junto à árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_08.jpg",
+      "f": "p",
+      "alt": "Guerra de travesseiros no cenário de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_03.jpg",
+      "f": "p",
+      "alt": "Pai e filha apontando para a árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_04.jpg",
+      "f": "p",
+      "alt": "Família de branco no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_00.jpg",
+      "f": "p",
+      "alt": "Família abraçada na cama, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Crianças de chapéu de chef na cozinha do estúdio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/620870031_18098255174506885_7483200490795685601_n.webp",
+      "f": "p",
+      "alt": "Pai com o filho nos ombros",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/622054947_18053017733436131_907781276381743774_n.webp",
+      "f": "p",
+      "alt": "Menina rodando o vestido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/624794232_18064083956281938_7549697278308222172_n.webp",
+      "f": "p",
+      "alt": "Menina sentada no estúdio claro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/651986774_18105190075855016_7837635209801455907_n.webp",
+      "f": "p",
+      "alt": "Menina de sereia no cenário do fundo do mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/janainabertunesfotografia/Instagram_files/623203949_18082772429186026_4713176051858762425_n.webp",
+      "f": "p",
+      "alt": "Mãe e filhas com vestidos iguais",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Janaína, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Janaína sentada com a câmera na mão",
+    "c": [
+     0.45,
+     0.5
+    ]
+   },
+   "p": [
+    "A Janaína Bertunes fotografa gestantes, bebês e famílias no estúdio dela, em Arujá, no estilo clean color: fundos de cor, luz suave e ensaios leves, atemporais e afetivos. A primeira \"clientizinha\" chegou ainda na barriga da mamãe, em 2014, e muitas famílias voltam a cada fase."
+   ],
+   "citacao": "Porque eles crescem… e as fotografias ficam.",
+   "citacao_quem": "Janaína, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do espaço aconchegante, do cuidado com o bebê (ela climatiza o ambiente para ele ficar confortável) e do jeito de acalmar as crianças."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "126 avaliações no Google"
+    ],
+    [
+     "2014",
+     "a primeira cliente"
+    ],
+    [
+     "2 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase, <em>do seu jeito.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "Bio e legendas da Janaína no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Clean color",
+     "p": "Ensaios leves, atemporais e afetivos, sozinha, em casal ou com os filhos."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Cada registro feito com cuidado, respeito e carinho vira parte da história da família."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "O bebê de hoje já não é exatamente o mesmo de algumas semanas atrás."
+    },
+    {
+     "nome": "1 aninho",
+     "sub": "Smash the cake",
+     "p": "Bolo, tema e cenário. E, às vezes, o bolo dá lugar à melancia."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todas as fases",
+     "p": "Famílias que voltam: a Lorena chegou bebê, fez o 1 aninho aqui e hoje tem 7 anos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Meu Natal Favorito",
+     "p": "A temporada mais especial do estúdio: agenda aberta e vagas limitadas."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Meu Natal Favorito 2026",
+   "h2": "O Natal passa, <em>as lembranças ficam.</em>",
+   "p": "O Meu Natal Favorito 2026 está com a agenda aberta: a cama, a árvore com estrelas e os presentes, num cenário acolhedor e atemporal. Vagas limitadas: escolha um horário e a mensagem chega pronta no WhatsApp da Janaína.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_05.jpg",
+    "f": "p",
+    "alt": "Família deitada na cama do cenário de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Meu Natal Favorito 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thaynara Sousa",
+    "tag": "O cuidado com o bebê",
+    "trecho": "Ela faz a aclimatação do ambiente para o bebê ficar super confortável! Consegue tirar as MELHORES FOTOS mesmo quando parece que o ensaio não vai fluir!"
+   },
+   {
+    "nome": "Tamires Vitor",
+    "tag": "Com as crianças",
+    "trecho": "Mto simpática,tem um jeito de acalmar as crianças, nos deixa avontade, foi um atendimento maravilhoso. Eu amei o resultado das fotos"
+   },
+   {
+    "nome": "Rosemary Rodrigues",
+    "tag": "Do jeito que eu queria",
+    "trecho": "comentei de como gostaria de um cenário mais simples e a mesma se preocupou em dividir comigo detalhes do cenário, buscou entender o que eu aprovaria e me atendeu sem hesitar."
+   },
+   {
+    "nome": "Eidi Maria Lins",
+    "tag": "Gestante",
+    "trecho": "Foi uma experiência incrível Fiquei encantada com o resultado! Espaço super aconchegante Janaína deixa a gente super a vontade"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Parque Rodrigo Barreto, em Arujá.",
+   "telefone": "(11) 97065-8002",
+   "endereco": [
+    "Estrada Municipal, 726",
+    "Parque Rodrigo Barreto",
+    "Arujá · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Meu Natal Favorito 2026 | Janaina Bertunes Fotografia",
+  "descricao": "O Meu Natal Favorito 2026 da Janaina Bertunes Fotografia, em Arujá: um cenário acolhedor, delicado e atemporal para a sua família. Vagas limitadas: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Janaina Bertunes Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Arujá",
+   "h1": "Meu Natal <em>Favorito.</em>",
+   "citacao": "O Natal passa, mas as lembranças que construímos em família podem nos acompanhar para sempre.",
+   "citacao_quem": "Janaína, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_01.jpg",
+    "f": "p",
+    "alt": "Família sentada na cama do cenário de Natal, com a filha no colo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Meu Natal Favorito 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Acolhedor, delicado <em>e atemporal.</em>",
+   "p": "Cada detalhe do cenário foi pensado para que a decoração complemente o que realmente importa: a sua família. A cama com cabeceira de madeira, a árvore com bolas de veludo e estrelas, os presentes, a lanterna e o \"Feliz Natal\" na parede.",
+   "itens": [
+    "No estúdio da Janaína, em Arujá.",
+    "Não é sobre a pose perfeita: é sobre estar junto, brincar com as crianças e trocar abraços.",
+    "Vagas limitadas, com condições especiais no primeiro lote.",
+    "Detalhes e horários pelo WhatsApp da Janaína."
+   ],
+   "legenda_fotos": "O cenário do Meu Natal Favorito"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DemUFG6kfvB/DemUFG6kfvB_06.jpg",
+    "f": "p",
+    "alt": "A cama de Natal com a árvore e os presentes",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DemUFG6kfvB/DemUFG6kfvB_03.jpg",
+    "f": "p",
+    "alt": "Os presentes e a lanterna junto à árvore",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DemUFG6kfvB/DemUFG6kfvB_01.jpg",
+    "f": "p",
+    "alt": "A estrela de madeira e as bolas douradas da árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Janaína abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Janaína define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Janaína abre com o dia e a hora escritos."
+    ],
+    [
+     "A Janaína confirma",
+     "Ela responde com os valores e os detalhes da sessão."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Meu Natal Favorito",
+   "h2": "Uma família, <em>um Natal favorito.</em>",
+   "nome": "Natal 2026",
+   "p": "O primeiro ensaio do Meu Natal Favorito 2026, publicado em 24 de outubro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_00.jpg",
+     "f": "p",
+     "alt": "Família abraçada na cama, junto à árvore",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_02.jpg",
+     "f": "p",
+     "alt": "Mãe e filha junto à árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_03.jpg",
+     "f": "p",
+     "alt": "Pai e filha apontando para a árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_08.jpg",
+     "f": "p",
+     "alt": "Guerra de travesseiros",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_05.jpg",
+     "f": "p",
+     "alt": "Família deitada na cama",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_04.jpg",
+     "f": "p",
+     "alt": "Família de branco no cenário",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/De4132xIOh6/De4132xIOh6_07.jpg",
+     "f": "p",
+     "alt": "Pai, mãe e filha brincando na cama",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/janaina-bertunes-fotografia/posts/DemUFG6kfvB/DemUFG6kfvB_04.jpg",
+     "f": "p",
+     "alt": "A árvore com as estrelas de madeira",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thaynara Sousa",
+    "tag": "Acolhida",
+    "trecho": "o espaço é muito aconchegante,  a gente se sente super bem e acolhida no local!"
+   },
+   {
+    "nome": "Rosemary Rodrigues",
+    "tag": "Sorrindo",
+    "trecho": "Meu filho ficou encantando com ela, saiu sorrindo em todas as fotos, adorei o resultado."
+   },
+   {
+    "nome": "Tamires Vitor",
+    "tag": "Encantada",
+    "trecho": "Eu achei essa Abençoada no Instagram e logo corri para ver seu trabalho. Me apaixonei, marcamos e deu tudo certo."
+   },
+   {
+    "nome": "Ranilda Santos",
+    "tag": "De volta",
+    "trecho": "as minhas fotos ficaram lindas amei todas pode ter certeza que voltarei"
+   }
+  ],
+  "final": {
+   "eyebrow": "Meu Natal Favorito 2026 · Arujá",
+   "h2": "Garanta o seu <em>Natal Favorito.</em>",
+   "p": "As vagas são limitadas. Escolha um horário na agenda ou chame a Janaína no WhatsApp para conhecer os detalhes da sessão."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97065-8002), o mesmo das artes e legendas (\"Contato: (11)97065-8002\")",
+  "site": "não tem: o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/janaina-bertunes-fotografia` e `/demo/janaina-bertunes-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 12, 85 pontos), escolhida no Drive de 05/11/2026. Bio: \"Materno-infantil clean color · Gestante • Bebê • Família • Feminino · Ensaios leves, atemporais e afetivos · Arujá-SP\".",
+   "Dona: Janaína Bertunes (\"Jana\", \"tia Jana\"). Foto dela: a do perfil do Instagram, sentada com a câmera.",
+   "Cores: o ferrugem, o creme e o dourado do Meu Natal Favorito (#a5532f no destaque); Newsreader, DM Sans e \"fotografia\" em Corinthia; abertura em arco. O logo dela (jb + JANAINA BERTUNES FOTOGRAFIA) só aparece pequeno nas artes: monograma JB e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, bebê e gestante), portfólio em 3 abas (Bebês, 10; Gestante e família, 10; Natal e infantil, 12), a Janaína, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Meu Natal Favorito\": o ensaio, o cenário (3 fotos da agenda aberta de 17/10), a agenda de exemplo (6 dias de 14/11 a 05/12, das 9h às 13h, dentro do horário do Google) e o ensaio de Natal de 24/10."
+  ],
+  "fotos": [
+   "Os posts de out/2026 (Natal de 17 e 24/10 e a bebê de 2 meses de 13/10, em 1080 px), 8 fotos do Google (até 2000 px), a foto do perfil e as fotos nítidas da página salva no Drive (720 a 1080 px, de ensaios antigos).",
+   "Ficaram de fora: as artes com texto (Meu Natal Favorito, \"Curtiu esse conteúdo?\"), a colagem, as capas de vídeo e as fotos antigas pequenas ou borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"O Natal passa, mas as lembranças...\" (24/10), \"MEU NATAL FAVORITO — A AGENDA ESTÁ ABERTA! Cada detalhe do nosso cenário foi pensado...\" (17/10), \"Porque eles crescem… e as fotografias ficam.\" (13/10), a melancia no 1 aninho (12/10), a primeira cliente de 2014 e a Lorena dos 1 aos 7 anos.",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "\"Condições especiais do primeiro lote\" (legenda de 17/10): conferir se ainda valem antes de mandar.",
+   "Horários: a agenda é exemplo (dito na página), dentro do horário do Google (seg 13h-18h, ter a sex 9h-18h, sáb 9h-14h).",
+   "Fotos de bebês, crianças e da família do Natal: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
