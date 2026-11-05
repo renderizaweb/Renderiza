@@ -1,0 +1,672 @@
+{
+ "pasta": "marilia-zanoni-fotografia",
+ "marca": "Marilia Zanoni Fotografia",
+ "marca_completa": "Marilia Zanoni Fotografia",
+ "dona": "Marília",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5473764,-46.2921511",
+  "fid": "0x94ce70b690f4af63:0x52a1e2c1e05b9d5a",
+  "gid": "/g/11gh34r5tg"
+ },
+ "google_nome": "Marilia Zanoni Fotografia",
+ "endereco_maps": "Rua Thadeu José de Moraes, 1093 - jd urupês, Suzano - SP, 08616-870",
+ "google_nota": "4,9",
+ "google_total": "69",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511961567622",
+ "fone_link": "+5511961567622",
+ "instagram": "mariliazanoni.fotografia",
+ "seguidores": "1,9 mil",
+ "mensagem": "Olá, Marília! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f3",
+  "papel": "#ffffff",
+  "areia": "#f3ede4",
+  "linha": "#e6ddd0",
+  "tinta": "#2c2422",
+  "tinta2": "#6a5e57",
+  "rosa": "#d6b49c",
+  "acento": "#82303a",
+  "acento_escuro": "#6b252e",
+  "cafe": "#2a1d1d"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-11-29",
+   "2026-12-06"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-21 10h30",
+   "2026-11-21 15h30",
+   "2026-11-22 9h",
+   "2026-11-22 10h30",
+   "2026-11-22 17h",
+   "2026-11-28 9h",
+   "2026-11-28 17h",
+   "2026-11-29 10h30",
+   "2026-11-29 15h30",
+   "2026-11-29 17h",
+   "2026-12-06 9h",
+   "2026-12-06 10h30",
+   "2026-12-06 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Marília define os dela",
+  "mensagem": "Olá, Marília! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal Frost Sugar. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Marília",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Marília, da Marilia Zanoni Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Marília, da Marilia Zanoni Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Crimson Pro",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Josefin Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Alex Brush",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "❄",
+  "script_escala": 1.1
+ },
+ "titulo_nome": "Marilia Zanoni",
+ "titulo_script": "fotografia",
+ "quem_a": "a Marília",
+ "quem_da": "da Marília",
+ "quem_sou": "Sou a Marília Zanoni",
+ "slogan": "Onde a emoção vira legado.",
+ "site": {
+  "titulo": "Marilia Zanoni Fotografia | Gestante, newborn, infantil e família em Suzano",
+  "descricao": "Marilia Zanoni Fotografia, em Suzano (SP): fotografia afetiva de gestante, newborn, infantil e família, num estúdio intimista de luz natural. Natal 2026 \"Frost Sugar\". Nota 4,9 no Google.",
+  "comentario": "Demo Marilia Zanoni Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@mariliazanoni.fotografia: a página salva, capas dos posts de out/nov 2026 e quadros do vídeo do cenário de Natal) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia afetiva em Suzano",
+   "frase": "Onde a emoção vira legado.",
+   "intro": "Gestante, newborn, infantil e famílias, num estúdio intimista de luz natural em Suzano, ou ao ar livre. E o Natal 2026 vem com neve: o Frost Sugar, a magia do bosque encantado.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Infantil",
+    "Famílias",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/posts/DfQWfVctli7/DfQWfVctli7_00.jpg",
+     "f": "p",
+     "alt": "Irmãos no bosque encantado com neve, no cenário de Natal 2026",
+     "c": [
+      0.55,
+      0.6
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido claro sentada na mata",
+     "c": [
+      0.5,
+      0.55
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/623384658_18087807038039189_447835334800396163_n.jpg",
+     "f": "p",
+     "alt": "Pai, filha e o cachorro de gorro de Natal",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Memórias <em>que viram legado.</em>",
+   "p": "Ensaios da Marília: no estúdio, na praia e na mata. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido claro sentada na mata",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/618563521_18006468725683219_8143877781512520902_n.webp",
+      "f": "p",
+      "alt": "Gestante sorrindo no balanço, de frente para o mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/619611145_18066212393634972_4406097907445086655_n.webp",
+      "f": "p",
+      "alt": "Casal e filho com a mão na barriga, sob a palmeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/629025935_18398926405181426_3303226529197463806_n.webp",
+      "f": "p",
+      "alt": "Gestante de vestido branco à beira-mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/641263140_18565606411009348_5794204532284600348_n.webp",
+      "f": "p",
+      "alt": "Gestante na ponte de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622147656_18100969108859816_1686824665223945727_n.webp",
+      "f": "p",
+      "alt": "Casal abraçado no barco, em preto e branco",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622287149_18125040379531278_1834345367841689027_n.webp",
+      "f": "p",
+      "alt": "Casal se olhando na ponte, à beira-mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/624844316_18146608438459603_2822447113912285168_n.webp",
+      "f": "p",
+      "alt": "Gestante com a família na mata",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621459012_18083954806924978_6120882365446595032_n.webp",
+      "f": "l",
+      "alt": "Casal no balanço de frente para o mar",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622440740_18093905849298992_3796611678581185904_n.webp",
+      "f": "l",
+      "alt": "Gestante nas pedras da praia",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "criancas",
+    "nome": "Natal das crianças",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/641033104_18571639615029469_2553215531102768038_n.jpg",
+      "f": "p",
+      "alt": "Menino de camiseta vermelha sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621765832_18092182882806893_7854832154646673026_n.jpg",
+      "f": "p",
+      "alt": "Menino no sofá com o ursinho e o carrinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622801609_18113889304623814_8629064934337323172_n.jpg",
+      "f": "p",
+      "alt": "Menino no cavalinho de madeira, junto à árvore",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621154692_18077516573601707_3955852531907286211_n.jpg",
+      "f": "p",
+      "alt": "Menina no cavalinho de madeira, com os ursinhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/620500133_18096196412495246_2989327810394883454_n.webp",
+      "f": "p",
+      "alt": "Menina de vestido de paetê entre os ursinhos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Irmãos rindo na máquina de escrever",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621881150_18083979746330915_7137889120721238043_n.jpg",
+      "f": "l",
+      "alt": "Menino de suspensório enfeitando a árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622470934_18089956925079778_1370892496868488457_n.webp",
+      "f": "l",
+      "alt": "Menina de laço vermelho junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/625132100_18171736885385809_5387972020660216356_n.jpg",
+      "f": "l",
+      "alt": "Bebê entre os ursinhos, na manta xadrez",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Natal em família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/623384658_18087807038039189_447835334800396163_n.jpg",
+      "f": "p",
+      "alt": "Pai, filha e o cachorro de gorro de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/636686653_18377065459095349_6387385049517157260_n.webp",
+      "f": "p",
+      "alt": "Casal com o cachorro e o gato no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/620259259_18078292202028985_7449714773765146228_n.webp",
+      "f": "p",
+      "alt": "Casal sentado com o gato, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/626795907_18161693698413526_4685226556035388533_n.jpg",
+      "f": "p",
+      "alt": "Irmão mais velho com o bebê no cestinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621765811_18085430267160162_2094851987953666747_n.jpg",
+      "f": "l",
+      "alt": "Família no sofá, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622120698_18068594189184570_652824469135974239_n.webp",
+      "f": "l",
+      "alt": "Família com as duas filhas, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/623203688_18076894244362242_3519479983872938768_n.jpg",
+      "f": "l",
+      "alt": "Casal com o cachorro de Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/633119258_18401447791181570_6933748520768845551_n.jpg",
+      "f": "l",
+      "alt": "Casal com o cachorro no sofá de Natal",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Marília, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Marília sorrindo, de óculos e blusa branca",
+    "c": [
+     0.42,
+     0.5
+    ]
+   },
+   "p": [
+    "A Marília Zanoni faz fotografia afetiva em Suzano: gestante, newborn, infantil e famílias, num estúdio intimista de luz natural, e também ao ar livre, na praia e na mata. Os ensaios de Natal são a temporada mais esperada, com a família toda, até os pets."
+   ],
+   "citacao": "Por aqui, tudo acontece no tempo do bebê. Sem pressa, sem poses forçadas e respeitando cada pausa, cada colo e cada necessidade.",
+   "citacao_quem": "Marília, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da leveza com que ela conduz o ensaio (até para quem é tímida), do jeito de acalmar o bebê e orientar os pais, e do estúdio lindo e aconchegante."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "69 avaliações no Google"
+    ],
+    [
+     "1,9 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1,8 mil",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase, <em>uma história.</em>",
+   "p": "Os ensaios da Marília:",
+   "fonte": "Bio e legendas da Marília no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Estúdio ou externo",
+     "p": "Na luz natural do estúdio ou ao ar livre, na praia e na mata."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "No tempo do bebê",
+     "p": "Mais do que fotografar um bebê pequenininho: é acolher uma família que está descobrindo um novo amor."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Crianças",
+     "p": "Ensaios leves, para as crianças brincarem, se encantarem e protagonizarem a própria história."
+    },
+    {
+     "nome": "Família",
+     "sub": "Com os pets",
+     "p": "A família toda junta, com os cachorros e os gatos também."
+    },
+    {
+     "nome": "Estúdio",
+     "sub": "Luz natural",
+     "p": "Um estúdio intimista de luz natural, em Suzano."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Frost Sugar",
+     "p": "Um bosque encantado, neve caindo e doces de Natal: a agenda está aberta."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026 · Frost Sugar",
+   "h2": "E se o Natal <em>nevasse por aqui?</em>",
+   "p": "O Frost Sugar, a magia do bosque encantado, já está ganhando vida: neve caindo, o trenó, a lanterna e uma paradinha no carrinho de doce. A agenda está aberta: escolha um horário e a mensagem chega pronta no WhatsApp da Marília.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/posts/DfQWfVctli7/DfQWfVctli7_00.jpg",
+    "f": "p",
+    "alt": "Irmãos no bosque encantado com neve",
+    "c": [
+     0.55,
+     0.6
+    ]
+   },
+   "legenda": "Frost Sugar, Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thaina Souza",
+    "tag": "Newborn",
+    "trecho": "Demonstra muita sensibilidade e experiência ao lidar com o bebê, conseguindo acalmá-lo com facilidade e, ao mesmo tempo, orientar os pais de forma acolhedora"
+   },
+   {
+    "nome": "Maysa Santos Venuto de Lima",
+    "tag": "Gestante",
+    "trecho": "Marília conduziu o ensaio com uma leveza tão grande que parecia que nós conhecíamos há anos, o resultado final ficou incrível"
+   },
+   {
+    "nome": "Nathally Torres",
+    "tag": "Para quem é tímida",
+    "trecho": "achei que minhas fotos não iriam ficar legais pois sou muito tímida e nao iria saber fazer posar direito, mas a Mari trabalha de um jeito muito leve que faz a gente se sentir a vontade"
+   },
+   {
+    "nome": "Karolyne Reis",
+    "tag": "O estúdio",
+    "trecho": "Cada detalhe é pensado com muito carinho, desde o studio que é um ambiente lindo e confortável, até a forma como ela conduz o ensaio."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Jardim Urupês, em Suzano.",
+   "telefone": "(11) 96156-7622",
+   "endereco": [
+    "Rua Thadeu José de Moraes, 1093",
+    "Jardim Urupês",
+    "Suzano · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 Frost Sugar | Marilia Zanoni Fotografia",
+  "descricao": "Frost Sugar, a magia do bosque encantado: o ensaio de Natal 2026 da Marilia Zanoni Fotografia, em Suzano, com neve caindo e doces de Natal. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Marilia Zanoni Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Suzano e região",
+   "h1": "Frost Sugar: <em>a magia do bosque encantado.</em>",
+   "citacao": "Imagina você viver um filme de Sessão da Tarde… só que em uma edição especial de Natal de 2026.",
+   "citacao_quem": "Marília, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/posts/DfQWfVctli7/DfQWfVctli7_00.jpg",
+    "f": "p",
+    "alt": "Irmãos no bosque encantado com neve, no cenário de Natal 2026",
+    "c": [
+     0.55,
+     0.6
+    ]
+   },
+   "legenda": "Frost Sugar, Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Neve caindo <em>e doces de Natal.</em>",
+   "p": "No Frost Sugar, cada cantinho foi pensado para transformar o Natal da família numa experiência cheia de encanto, afeto e memórias: o bosque com neve, o trenó, a lanterna com laço de veludo, a janela com a guirlanda e o carrinho de doce.",
+   "itens": [
+    "No estúdio da Marília, em Suzano.",
+    "A neve cai durante o ensaio, e tem paradinha no carrinho de doce.",
+    "Para as crianças descobrirem, brincarem e se encantarem.",
+    "Valores e detalhes pelo WhatsApp da Marília."
+   ],
+   "legenda_fotos": "O cenário do Frost Sugar"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/posts/De5FO85hh98/De5FO85hh98_00.jpg",
+    "f": "p",
+    "alt": "A janela com a guirlanda e o banco de pelúcia na neve",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/extra/v10.5.jpg",
+    "f": "p",
+    "alt": "A lanterna acesa com o laço vermelho",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/extra/v16.5.jpg",
+    "f": "p",
+    "alt": "O pote de balas com a rena dourada, no carrinho de doce",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Marília abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Marília define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Marília abre com o dia e a hora escritos."
+    ],
+    [
+     "A Marília confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natais por aqui",
+   "h2": "O Natal <em>no estúdio.</em>",
+   "nome": "Natais por aqui",
+   "p": "O cenário do Natal 2026 e os Natais de outros anos no estúdio da Marília.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/extra/v9.2.jpg",
+     "f": "p",
+     "alt": "A árvore e a guirlanda da janela, no Natal 2026",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/marilia-zanoni-fotografia/extra/v19.5.jpg",
+     "f": "p",
+     "alt": "A árvore com pinhas e laços de veludo, no Natal 2026",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/641033104_18571639615029469_2553215531102768038_n.jpg",
+     "f": "p",
+     "alt": "Menino de camiseta vermelha",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621154692_18077516573601707_3955852531907286211_n.jpg",
+     "f": "p",
+     "alt": "Menina no cavalinho de madeira",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/623384658_18087807038039189_447835334800396163_n.jpg",
+     "f": "p",
+     "alt": "Pai, filha e o cachorro",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/622801609_18113889304623814_8629064934337323172_n.jpg",
+     "f": "p",
+     "alt": "Menino no cavalinho, junto à árvore",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/621765832_18092182882806893_7854832154646673026_n.jpg",
+     "f": "p",
+     "alt": "Menino com o ursinho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/mariliazanoni.fotografia/Instagram_files/620500133_18096196412495246_2989327810394883454_n.webp",
+     "f": "p",
+     "alt": "Menina entre os ursinhos",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Karolyne Reis",
+    "tag": "Uma experiência",
+    "trecho": "O resultado das fotos ficou impecável! Vou me lembrar desse momento sempre, com muito carinho."
+   },
+   {
+    "nome": "Thaina Souza",
+    "tag": "Aconchego",
+    "trecho": "O espaço é encantador, bem preparado e extremamente aconchegante, proporcionando conforto e tranquilidade durante todo o ensaio."
+   },
+   {
+    "nome": "Nathally Torres",
+    "tag": "Magia",
+    "trecho": "comanda as fotos de um jeito sensacional!!! É so se entregar que ela faz magia"
+   },
+   {
+    "nome": "Tatiana Teixeira Lima",
+    "tag": "Atendimento",
+    "trecho": "Minha experiência com a Marília foi incrível, amei o atendimento e os resultados das minhas fotos ficaram excelentes."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Suzano e região",
+   "h2": "Vamos viver <em>esse filme juntos?</em>",
+   "p": "A agenda de Natal está aberta. Escolha um horário ou chame a Marília no WhatsApp para garantir o seu lugar nessa história."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96156-7622); a bio leva a um link \"para conversar e receber valores\"",
+  "site": "não tem: o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/marilia-zanoni-fotografia` e `/demo/marilia-zanoni-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 13, 85 pontos), escolhida no Drive de 05/11/2026. Bio: \"Onde a emoção vira legado · Gestante | Newborn | Infantil | Famílias · Estúdio intimista de luz natural\"; Suzano.",
+   "Dona: Marília Zanoni (\"Mari\" nas avaliações). Foto dela: a do perfil do Instagram, a mesma mulher de óculos do vídeo do newborn (02/11).",
+   "Cores: o vinho dos laços de veludo e o creme do Frost Sugar (#82303a no destaque); Crimson Pro, Josefin Sans e \"fotografia\" em Alex Brush; abertura em filme. Sem logo em boa resolução: monograma MZ e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e família), portfólio em 3 abas (Gestante, 10; Natal das crianças, 9; Natal em família, 8), a Marília, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Frost Sugar: a magia do bosque encantado\": o ensaio, o cenário (a capa e 2 quadros do vídeo de 24/10), a agenda de exemplo (6 dias de fim de semana de 14/11 a 06/12) e os Natais no estúdio."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (1080 a 1440 px: Natais de outros anos e gestantes ao ar livre), as capas de 2 posts de Natal de out/nov 2026 (640 px), 4 quadros do vídeo do cenário (720 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as capas com texto (Frost Sugar, \"Meu dom é transformar isso\"), a do vídeo dela falando, a da família na neve (tremida), as artes (\"Somos 500\") e as fotos repetidas do mesmo ensaio."
+  ],
+  "textos": [
+   "Bio e legendas: \"E se o Natal nevasse por aqui?\" (05/11), \"Imagina você viver um filme de Sessão da Tarde...\" e \"No Frost Sugar, cada cantinho foi pensado...\" (02/11), o carrinho de doce (26/10) e o newborn \"no tempo do bebê\" (02/11).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "Natal 2026: só há as capas dos vídeos (640 px) e quadros do vídeo do cenário (720 px); as fotos de Natal com crianças e famílias no site são de anos anteriores (cenário de tijolinho).",
+   "Posts antigos usam a marca \"Lila Fotos\" (#lilafotos e a arte \"Somos 500\"): conferir se ela ainda usa esse nome.",
+   "Os ensaios de gestante ao ar livre são na praia (Angra dos Reis, pelas hashtags) e na mata: a demo diz só \"na praia e na mata\".",
+   "Horários: a agenda é exemplo (dito na página); o Google não mostra horário.",
+   "Fotos de crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
