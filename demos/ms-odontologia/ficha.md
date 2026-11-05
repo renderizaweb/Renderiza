@@ -11,7 +11,7 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 | WhatsApp | (11) 98755-8202 (Google, site atual e posts da clínica) |
 | Site atual | Canva: clinicamsodonto.my.canva.site/bio-ms-odonto (ele não gosta) |
 | Entregável | demo de site (`index.html`) |
-| Situação | **fechou: R$ 500, Pix, 04/11/2026** (primeira venda da Renderiza) · entrega em andamento, ver "Entrega" no fim · demo: `/demo/ms-odontologia`, versão 4 |
+| Situação | **fechou: R$ 500, Pix, 04/11/2026** (primeira venda da Renderiza) · entrega em andamento, ver "Entrega" no fim · demo: `/demo/ms-odontologia`, versão 5 |
 
 ## O que foi mantido da demo aprovada
 - Paleta verde-petróleo, menta, creme e coral; logo "Dr. Marcos Silva".
@@ -61,6 +61,24 @@ saíram no Instagram dele em setembro de 2026; esta é a versão refeita com ela
 - Seção "Nossa equipe" e o link "Equipe" do menu saíram: ele manda a foto da equipe em outro momento. Para voltar,
   a seção está no `index.html` do commit da versão 3 (CSS `.equipe*` ficou no arquivo).
 
+## Versão 5 (05/11/2026): fotos novas no lugar das fracas (ok do Kaue: "faça o que achar melhor")
+Fontes: as páginas do Instagram salvas pelo Kaue no Drive (pasta `1Fj6DVq2v9zdwsS34-mibWWv9PuXlGdu1`: @mmarcos_s e
+@clinicamsodontologia), os posts em tamanho cheio por `ferramentas/ig-post.py` e as fotos do Google.
+- **Antes e depois:** o par do post da clínica "LENTES EM PORCELANA BL2" (`DCVN-PWRI-O`), no lugar das duas selfies.
+  Legenda: "Lentes de contato em porcelana".
+- **Dois casos novos em Resultados reais** (legenda embaixo da foto): "Lentes em resina" (post da clínica "LENTES EM
+  RESINA BL1", `DJxzg9YxDYq`, girado para o sorriso ficar na horizontal: em cima com a resina, embaixo natural) e
+  "Preenchimento labial" (post da clínica "1 ML · Realizado por Dr Marcos Silva", `DEkUN5LRF2e`, recorte horizontal).
+  Os posts trazem o aviso de autorização do paciente (CFO 196/19), menos o do preenchimento, que só diz "realizado
+  por". No preenchimento há dois pontinhos vermelhos do procedimento: a foto não foi retocada.
+- **Carrossel "Tem técnica. Tem cuidado. Tem gente.":** saíram os 4 quadros de vídeo e a foto de evento de costas.
+  Entraram a recepção (foto do Google), a parede verde com o logo (`DBFEFzxRNM1`), o Dr. de jaleco ao notebook no
+  consultório (`DFZQ_gwRm3n`) e o curso de atualização com o certificado (post do Dr., "Esse final de semana, foi dia
+  de buscar mais conhecimento"). Ficaram as 3 do ensaio (notebook, sofá, pensativo).
+- Outras candidatas olhadas (para uma próxima troca): o par "lentes em resina" dos incisivos laterais
+  (`C75WcBmx2FF`), o reel "Aquele antes & depois!" (`DDk6vW0SGle`, rosto inteiro, só em vídeo) e "+1 sorriso aqui no
+  feed" (`CjIUYPvOBLP`).
+
 ## Entrega (cliente fechou)
 Roteiro: `docs/fechamento.md`.
 
@@ -68,7 +86,7 @@ Roteiro: `docs/fechamento.md`.
 |---|---|
 | Venda | R$ 500 · Pix · pago em 04/11/2026 (primeira venda da Renderiza) |
 | Combinado | site a partir da demo aprovada, com os ajustes abaixo |
-| Ajustes pedidos | 1. antes e depois invertido (feito, versão 4); 2. foto da resina do Instagram dele (falta) |
+| Ajustes pedidos | 1. antes e depois invertido (versão 4; trocado por um par melhor na versão 5); 2. foto da resina (feito, versão 5) |
 | Domínio | `msodontologiaitapevi.com.br` (pedido dele; livre no registro.br em 04/11/2026). O Kaue registra, no CPF/CNPJ da clínica |
 | Contas | Gmail novo da clínica (o Kaue cria; anotado como msodontologiaitapevi@gmail.com), GitHub e Vercel nessa conta |
 | Hospedagem | Vercel (decisão do Kaue, 04/11/2026) |
@@ -76,7 +94,7 @@ Roteiro: `docs/fechamento.md`.
 | No ar | ainda não. Hoje o link da bio é o site do Canva |
 | Demo | no ar até 11/11/2026 para ele ver os ajustes; depois fica no painel e no repositório da Renderiza |
 
-- [x] 1 painel (Ganho, R$ 500, 04/11/2026) · [x] 2 levantamento · [ ] 3 ajustes (falta a resina) · [x] 4 site.json
+- [x] 1 painel (Ganho, R$ 500, 04/11/2026) · [x] 2 levantamento · [ ] 3 ajustes (feitos na versão 5; falta o ok do Kaue e do cliente) · [x] 4 site.json
 - [x] 5 gerar e conferir (04/11: conferência ok, 21 fotos, 832 KB) · [ ] 6 repositório · [ ] 7 hospedagem e domínio
 - [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
 
