@@ -1,0 +1,639 @@
+{
+ "pasta": "faro-fotografia",
+ "marca": "Estúdio Faro Fotografia",
+ "marca_completa": "Estúdio Faro Fotografia",
+ "dona": "Fabi",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6000447,-46.5369847",
+  "fid": "0x94ce5d1f871b8a9b:0x4260b2c234f3aec7",
+  "gid": "/g/11rhqdpx61"
+ },
+ "google_nome": "Estúdio Faro Fotografia",
+ "endereco_maps": "R. João Manoel de Matos, 40 - Parque Res. Oratorio, São Paulo - SP, 03266-140",
+ "google_nota": "4,9",
+ "google_total": "45",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511911671432",
+ "fone_link": "+5511911671432",
+ "instagram": "farofotografia",
+ "seguidores": "11,4 mil",
+ "mensagem": "Olá, Fabi! Vi o site do Estúdio Faro e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf7f5",
+  "papel": "#ffffff",
+  "areia": "#f5ecea",
+  "linha": "#e9dcd9",
+  "tinta": "#2c2426",
+  "tinta2": "#675b5d",
+  "rosa": "#e3b7b0",
+  "acento": "#9b4f5b",
+  "acento_escuro": "#82404b",
+  "cafe": "#2b1c20"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-19",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-03",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h30",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h",
+   "2026-11-19 13h30",
+   "2026-11-21 9h",
+   "2026-11-21 13h30",
+   "2026-11-21 15h",
+   "2026-11-28 13h30",
+   "2026-11-28 15h",
+   "2026-12-03 15h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Fabi define os dela",
+  "mensagem": "Olá, Fabi! Quero o horário de {data} ({semana}) às {hora} para o Natal Encantado 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Fabi",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Fabi, do Estúdio Faro Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Fabi, do Estúdio Faro Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Prata",
+    ""
+   ],
+   "sans": [
+    "Lato",
+    "wght@300;400;700"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 0.95
+ },
+ "titulo_nome": "Estúdio Faro",
+ "titulo_script": "fotografia",
+ "quem_a": "a Fabi",
+ "quem_da": "da Fabi",
+ "quem_sou": "Sou a Fabi, do Estúdio Faro",
+ "slogan": "Fotografia sensível para eternizar o início de uma história.",
+ "site": {
+  "titulo": "Estúdio Faro Fotografia | Gestante, newborn e família em São Paulo",
+  "descricao": "Estúdio Faro Fotografia, maternidade e família em São Paulo: gestante (com banheira de leite e ensaio vogue), parto, newborn, família e o Natal Encantado 2026. Nota 4,9 no Google, com 45 avaliações.",
+  "comentario": "Demo Estúdio Faro Fotografia (lote 2 de fotógrafos, reserva, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@farofotografia: a página salva, os posts de set/out 2026 e quadros do vídeo de Natal de 28/10) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Maternidade e família · São Paulo",
+   "frase": "Fotografia sensível para eternizar o início de uma história.",
+   "intro": "Gestante, parto, newborn e família no Estúdio Faro: vários cenários, figurinos para as mamães e os bebês e a Fabi guiando cada pose. E o Natal Encantado 2026 já está montado.",
+   "rotulos": [
+    "Gestante",
+    "Família",
+    "Natal 2026"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Família",
+    "Acompanhamento",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante de branco diante do arco de flores azuis",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_04.jpg",
+     "f": "p",
+     "alt": "Mãe e filho sorrindo no cenário boho",
+     "c": [
+      0.3,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v26.4.jpg",
+     "f": "p",
+     "alt": "A cabine telefônica vermelha e a árvore do Natal Encantado",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "O início <em>de uma história.</em>",
+   "p": "Ensaios no Estúdio Faro. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante de branco diante do arco de flores azuis",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/618469626_18011207990820265_7106265004896792396_n.jpg",
+      "f": "p",
+      "alt": "Gestante de rosa entre as flores da porta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622181751_18072711647454980_1399970426641098319_n.jpg",
+      "f": "p",
+      "alt": "Gestante de tule rosa no fundo de flores vermelhas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622092170_18083617691174696_8389398958897335091_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido terracota",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/650826437_18095054570027166_1858159861396577969_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante no balanço de flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622502095_18101093788849414_8426711074460640062_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante na porta de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/624837581_18100636786683900_7350716560327355350_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o filho entre as flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/639696010_18408959665125467_3262222192523806547_n.jpg",
+      "f": "p",
+      "alt": "Gestante com a capa de pérolas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Gestante de rosa no balanço de flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622416948_18031647851581122_913096557500860537_n.jpg",
+      "f": "l",
+      "alt": "Gestante deitada na cama boho",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/620966026_18090784013473873_8791036958032102966_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca de ursinho no cesto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/627965319_18356852842206491_9047894844708026406_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de aviador no avião de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/623720321_18082129067186550_2783141789914410543_n.jpg",
+      "f": "l",
+      "alt": "Pais com o recém-nascido no cenário boho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/630120153_18393012955145863_4101462739861112348_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo no cesto dourado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/624896577_18177294961374611_4558009637479505194_n.jpg",
+      "f": "l",
+      "alt": "Bebê no balancinho de flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/621161094_18164478874403820_5988722183327674831_n.jpg",
+      "f": "l",
+      "alt": "Mãe com o recém-nascido, em preto e branco",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_00.jpg",
+      "f": "l",
+      "alt": "Família com os dois filhos e o cachorro no cenário boho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_02.jpg",
+      "f": "l",
+      "alt": "Mãe e bebê deitados na cama, com o cachorro",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_05.jpg",
+      "f": "l",
+      "alt": "Família deitada na cama do estúdio",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_09.jpg",
+      "f": "l",
+      "alt": "Família deitada de cabeça para cima, rindo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_01.jpg",
+      "f": "l",
+      "alt": "Mãe e filho nariz com nariz",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_08.jpg",
+      "f": "l",
+      "alt": "Mãe recebendo um beijo do filho, com o bebê no colo",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Fabi, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Fabi, do Estúdio Faro, com a mão no queixo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Fabi fotografa gestantes, partos, recém-nascidos e famílias no Estúdio Faro, com a equipe: vários cenários, figurinos para as mamães e os bebês, banheira de leite, ensaio vogue e até o ensaio intrauterino. Acompanha muitas famílias da primeira gestação aos Natais."
+   ],
+   "citacao": "A vida passa, a família cresce e as fotografias ficam.",
+   "citacao_quem": "Fabi, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam de como a Fabi deixa a gestante confortável (até com as inseguranças com o corpo), do jeito de acalmar os bebês, dos cenários e figurinos e das fotos entregues antes do prazo."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "45 avaliações no Google"
+    ],
+    [
+     "11,4 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "10 dias",
+     "o ideal para o newborn"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do ventre <em>aos Natais em família.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Fabi:",
+   "fonte": "Bio e legendas do Estúdio Faro no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "28 a 32 semanas",
+     "p": "Diversos cenários, figurinos, a banheira de leite e o ensaio vogue."
+    },
+    {
+     "nome": "Intrauterino",
+     "sub": "Experiência Faro",
+     "p": "Uma imagem do bebê como se ele ainda estivesse dentro da barriga."
+    },
+    {
+     "nome": "Parto",
+     "sub": "A chegada",
+     "p": "Estar presente num dos momentos mais importantes da vida da família."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Até os 10 dias",
+     "p": "Quando o bebê ainda dorme bastante, sempre respeitando o conforto e os limites de cada um."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todos na foto",
+     "p": "Quantas vezes a família inteira aparece na mesma fotografia?"
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal Encantado",
+     "p": "Um cenário cheio de encanto, luzes e detalhes especiais."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal Encantado 2026",
+   "h2": "Mais do que fotografias, <em>memórias.</em>",
+   "p": "O Natal Encantado 2026 tem a cabine telefônica vermelha, a rua com árvores iluminadas e neve, a caixa de cartas do Papai Noel e as renas. Escolha um horário e a mensagem chega pronta no WhatsApp da Fabi.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v20.5.jpg",
+    "f": "p",
+    "alt": "A cabine telefônica vermelha e o banquinho com os presentes",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal Encantado 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Bruna Carvalho",
+    "tag": "Gestante",
+    "trecho": "A Fabi te deixa extremamente confortável do início ao fim. Leva em conta seus gostos e até suas inseguranças"
+   },
+   {
+    "nome": "Sheila Sibia",
+    "tag": "Newborn e Natal",
+    "trecho": "Gente ela é  encantadora de bebes kkkk nunca vi minha bebê tão tranquila  quanto no dia do ensaio. E fizemos tbm o ensaio de Natal, ficou a coisa mais linda do mundo."
+   },
+   {
+    "nome": "Camila Teodoro",
+    "tag": "Gêmeos",
+    "trecho": "Fiz todo meu acompanhamento gestante e também dos mesversários dos meus filhos gêmeos. Os cenários são lindos"
+   },
+   {
+    "nome": "Mariana Alves Vieira",
+    "tag": "De volta no Natal",
+    "trecho": "levamos meu primeiro filho para fazer o ensaio New Born"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O endereço do Google é no Parque Residencial Oratório, em São Paulo.",
+   "telefone": "(11) 91167-1432",
+   "endereco": [
+    "Rua João Manoel de Matos, 40",
+    "Parque Residencial Oratório",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal Encantado 2026 | Estúdio Faro Fotografia",
+  "descricao": "O Natal Encantado 2026 do Estúdio Faro: a cabine telefônica vermelha, a rua com neve e a caixa de cartas do Papai Noel. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Faro Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Natal <em>Encantado.</em>",
+   "citacao": "Porque os filhos crescem, os anos passam e a família muda. Mas as fotografias nos permitem reviver, para sempre, o amor que sentimos em cada fase da vida.",
+   "citacao_quem": "Fabi, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v26.4.jpg",
+    "f": "p",
+    "alt": "A cabine telefônica vermelha e a árvore do Natal Encantado",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal Encantado 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Encanto, luzes <em>e detalhes.</em>",
+   "p": "Neste ano, o estúdio preparou um cenário cheio de encanto: a cabine telefônica vermelha, a rua com as árvores iluminadas e a neve, a caixa de cartas do Papai Noel, as renas, o banquinho com os presentes e a escada de madeira. Para viver momentos inesquecíveis em família.",
+   "itens": [
+    "A cabine telefônica, a rua com neve e as árvores iluminadas.",
+    "A caixa de cartas do Papai Noel e as renas.",
+    "Figurinos e cenários do estúdio.",
+    "Local, valores e horários pelo WhatsApp da Fabi."
+   ],
+   "legenda_fotos": "O cenário do Natal Encantado 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v8.6.jpg",
+    "f": "p",
+    "alt": "A caixa de cartas do Papai Noel e a rena",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v20.5.jpg",
+    "f": "p",
+    "alt": "A cabine telefônica e o banquinho com os presentes",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v23.6.jpg",
+    "f": "p",
+    "alt": "A rena de palha junto à escada de madeira",
+    "c": [
+     0.5,
+     0.55
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Fabi abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Fabi define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Fabi abre com o dia e a hora escritos."
+    ],
+    [
+     "A Fabi confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "O início <em>de uma história.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios do Estúdio Faro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante de branco",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/618469626_18011207990820265_7106265004896792396_n.jpg",
+     "f": "p",
+     "alt": "Gestante entre as flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/650826437_18095054570027166_1858159861396577969_n.jpg",
+     "f": "p",
+     "alt": "Casal gestante no balanço",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/650849357_18074365802635577_6982761011509567525_n.jpg",
+     "f": "p",
+     "alt": "Mãe amamentando no cenário boho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622181751_18072711647454980_1399970426641098319_n.jpg",
+     "f": "p",
+     "alt": "Gestante de tule rosa",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622092170_18083617691174696_8389398958897335091_n.jpg",
+     "f": "p",
+     "alt": "Gestante de terracota",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_04.jpg",
+     "f": "p",
+     "alt": "Mãe e filho no cenário boho",
+     "pos": "30% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622502095_18101093788849414_8426711074460640062_n.jpg",
+     "f": "p",
+     "alt": "Casal gestante na porta de flores",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Mariana Alves Vieira",
+    "tag": "Natal",
+    "trecho": "não foi à toa que voltamos para o ensaio de Natal, que foi espetacular também!"
+   },
+   {
+    "nome": "Sheila Sibia",
+    "tag": "Estrutura",
+    "trecho": "O estúdio tem toda estrutura, vários cenários e temas,até roupas,o que facilita muito ."
+   },
+   {
+    "nome": "Camila Teodoro",
+    "tag": "Antes do prazo",
+    "trecho": "Ela sempre me entregou todas as fotos tratadas e até antes do prazo acordado."
+   },
+   {
+    "nome": "Bruna Carvalho",
+    "tag": "Experiência",
+    "trecho": "Amei a experiência e com certeza as próximas serão com ela também!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal Encantado 2026",
+   "h2": "Venha viver <em>a magia do Natal.</em>",
+   "p": "Garanta seu horário na agenda ou chame a Fabi no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 91167-1432)",
+  "site": "não tem: o Google não mostra site; os domínios \"faro\" são de outras empresas (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/faro-fotografia` e `/demo/faro-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos, reserva (nº 25, 77 pontos), escolhida no Drive de 05/11/2026. Bio: \"Maternidade & Família · Fotografia sensível para eternizar o início de uma história · Gestante • Parto • Newborn • Família · São Paulo – SP | Maringá – PR\".",
+   "Dona: Fabi (avaliações), com equipe e maquiadora. Foto: a do perfil do Instagram (mulher de franja, a mesma do vlog de 23/09).",
+   "Cores: o rosa-antigo dos cenários de flores (#9b4f5b no destaque); Prata, Lato e \"fotografia\" em Parisienne; abertura em arco. Sem logo em boa resolução: monograma EF e \"Estúdio Faro\" com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, família e Natal 2026), portfólio em 3 abas (Gestante, 10; Newborn, 6; Família, 6), a Fabi, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Natal Encantado\": o ensaio, o cenário (3 quadros do vídeo de 28/10), a agenda de exemplo (6 dias de 14/11 a 05/12, das 9h às 15h, dentro do horário do Google) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "O post de família de 24/10 (10 fotos, 4096 px), 5 quadros do vídeo do Natal Encantado de 28/10 (720 px, sem o texto), a página do Instagram salva no Drive (2021-2022, até 1440 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: a capa do vídeo de Natal (com texto), a capa do vlog, as gestantes de lingerie ou de tecido muito expostas, as fotos de parto na maternidade e as fotos antigas pequenas ou borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Natal Encantado 2026... Neste ano, preparamos um cenário cheio de encanto, luzes e detalhes especiais... Mais do que fotografias, memórias!\" (28/10), \"A vida passa, a família cresce e as fotografias ficam\" (24/10), o newborn \"preferencialmente até os 10 dias\" (18/09), o ensaio intrauterino (16/09).",
+   "Avaliações do Google: das 5 visíveis sem login, 4 de 5 estrelas, nas duas páginas."
+  ],
+  "conferir": [
+   "A bio diz \"São Paulo – SP | Maringá – PR\": confirmar onde ela atende hoje e onde acontece o Natal Encantado (a página pede o local pelo WhatsApp). O Google mostra o endereço no Parque Residencial Oratório, em São Paulo.",
+   "O cenário de Natal 2026 só aparece no vídeo (720 px); o fundo da rua parece ser um painel impresso.",
+   "Último post em 28/10: perfil menos ativo que as outras.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sex 9h-18h, sáb 9h-16h).",
+   "Fotos de gestantes, bebês e famílias: todas publicadas pelo estúdio como portfólio. Vale confirmar se pode usar todas no site."
+  ]
+ }
+}

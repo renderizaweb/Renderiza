@@ -318,3 +318,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Juliana Figueiredo Fotografia (fotógrafa)](demos/juliana-figueiredo-fotografia) | Centro, Francisco Morato | site + página de Natal (`/natal`, “As luzes estão acesas”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 2) |
 | [Andressa Pratez Fotografia (fotógrafa)](demos/andressa-pratez-fotografia) | Santo Amaro, São Paulo | site + página de Natal (`/natal`, “Memórias de Natal”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 3) |
 | [Leila Bomfim Fotografia (fotógrafa)](demos/leila-bomfim-fotografia) | Jardim Ouro Preto, Taboão da Serra | site + página de Natal (`/natal`, “Memórias de Natal”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 4) |
+| [Estúdio Faro Fotografia (fotógrafa)](demos/faro-fotografia) | Parque Residencial Oratório, São Paulo | site + página de Natal (`/natal`, “Natal Encantado”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 5) |
