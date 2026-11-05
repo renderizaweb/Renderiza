@@ -312,3 +312,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Thamirys Costa (fotógrafa)](demos/thamirys-costa-fotografia) | Vila Carrão, São Paulo | site + página de Natal (`/natal`, “Expresso Natalino”) | pronta · 05/11/2026 (fotógrafos lote 2 · 16ª) |
 | [Sabrina Matos Fotografias (fotógrafa)](demos/sabrina-matos-fotografia) | Jardim Prudência, São Paulo | site + página de Natal (`/natal`, “Não deixe o seu Natal para a última hora”) | pronta · 05/11/2026 (fotógrafos lote 2 · 17ª) |
 | [Arantes Fotografia (fotógrafa)](demos/arantes-fotografia) | Vila Santa Lúcia, Carapicuíba | site + página de Natal (`/natal`, “Transformar um cenário em magia”) | pronta · 05/11/2026 (fotógrafos lote 2 · 18ª) |
+| [Estúdio Guilherme Nascimento (fotógrafo)](demos/guilherme-nascimento-fotografia) | Km 18, Osasco | site + página de Natal (`/natal`, “Onde o Natal acontece”) | pronta · 05/11/2026 (fotógrafos lote 2 · 19ª) |

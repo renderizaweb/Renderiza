@@ -1,0 +1,687 @@
+{
+ "pasta": "guilherme-nascimento-fotografia",
+ "marca": "Estúdio Guilherme Nascimento",
+ "marca_completa": "Estúdio Guilherme Nascimento",
+ "dona": "Guilherme",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5314288,-46.7974086",
+  "fid": "0x94ceffe182be9ebd:0x125e35b99f35a070",
+  "gid": "/g/11qqrbnbpv"
+ },
+ "google_nome": "Estúdio Guilherme Nascimento",
+ "endereco_maps": "Av. Hildebrando de Lima, 585 - Km 18 - Quitauna, Osasco - SP, 06190-160",
+ "google_nota": "4,8",
+ "google_total": "89",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511982296828",
+ "fone_link": "+5511982296828",
+ "instagram": "estudioguilhermenascimento",
+ "seguidores": "25,4 mil",
+ "mensagem": "Olá, Guilherme! Vi o site do estúdio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f9f7f3",
+  "papel": "#ffffff",
+  "areia": "#f0eee7",
+  "linha": "#e1ddd2",
+  "tinta": "#262622",
+  "tinta2": "#5f5f58",
+  "rosa": "#d8b389",
+  "acento": "#2f4f3a",
+  "acento_escuro": "#243d2d",
+  "cafe": "#1e2a22"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 10h30",
+   "2026-11-18 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-28 9h",
+   "2026-11-28 17h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-05 17h",
+   "2026-12-12 9h",
+   "2026-12-12 10h30",
+   "2026-12-12 15h30"
+  ],
+  "exemplo": "Horários de exemplo: o Guilherme define os dele",
+  "mensagem": "Olá, Guilherme! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal \"Onde o Natal acontece\". Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Guilherme",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou o Guilherme, do Estúdio Guilherme Nascimento. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou o Guilherme, do Estúdio Guilherme Nascimento. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "DM Serif Text",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Hanken Grotesk",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.1,
+  "css": ".eyebrow,.review-tag{color:#8a6a3d}.especialidades i{color:var(--rosa)}"
+ },
+ "titulo_nome": "Guilherme Nascimento",
+ "titulo_script": "fotografia",
+ "quem_a": "o Guilherme",
+ "quem_da": "do Guilherme",
+ "quem_sou": "Sou o Guilherme Nascimento",
+ "slogan": "A melhor parte da vida é viver ao lado de quem a gente ama.",
+ "site": {
+  "titulo": "Estúdio Guilherme Nascimento | Família, gestante e infantil em Osasco",
+  "descricao": "Estúdio Guilherme Nascimento, em Osasco (Km 18): família, gestante, newborn, smash the cake, corporativo e a campanha de Natal 2026 \"Onde o Natal acontece\". Nota 4,8 no Google, com 89 avaliações.",
+  "comentario": "Demo Estúdio Guilherme Nascimento (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@estudioguilhermenascimento: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio em Osasco e região",
+   "frase": "A melhor parte da vida é viver ao lado de quem a gente ama.",
+   "intro": "Família, gestante, newborn, smash the cake e ensaios corporativos no estúdio do Guilherme, no Km 18, em Osasco. E a agenda de Natal 2026 está aberta: \"Onde o Natal acontece\".",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Corporativo",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_13.jpg",
+     "f": "p",
+     "alt": "Menina gargalhando de vestido verde, no cenário de Natal 2026",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/628050362_18421564915139676_6897722017553430284_n.jpg",
+     "f": "p",
+     "alt": "Gestante de preto apoiada na banqueta",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido verde na cadeirinha, entre balões e flores",
+     "c": [
+      0.5,
+      0.55
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Memórias <em>em família.</em>",
+   "p": "Ensaios no estúdio do Guilherme, em Osasco. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_08.jpg",
+      "f": "p",
+      "alt": "Menina gargalhando ao piano, na sala de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_01.jpg",
+      "f": "p",
+      "alt": "Menina rindo com a massa de biscoito",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_00.jpg",
+      "f": "p",
+      "alt": "Família no sofá da sala de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_05.jpg",
+      "f": "p",
+      "alt": "Mãe e filha rindo no sofá",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_12.jpg",
+      "f": "p",
+      "alt": "Menina brincando com o trenzinho no tapete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfBJ5sdAktv/DfBJ5sdAktv_00.jpg",
+      "f": "p",
+      "alt": "Mãe com a bebê no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfIldYsIjGZ/DfIldYsIjGZ_00.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo na mesa dos biscoitos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_00.jpg",
+      "f": "p",
+      "alt": "Menina rindo na cozinha dos biscoitos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_09.jpg",
+      "f": "p",
+      "alt": "Menina rindo com o livro no sofá",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_03.jpg",
+      "f": "p",
+      "alt": "Irmãos lendo juntos no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_07.jpg",
+      "f": "p",
+      "alt": "Menina sentada no tapete, junto à meia de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_10.jpg",
+      "f": "p",
+      "alt": "A sala de Natal com a lareira e a guirlanda",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/628050362_18421564915139676_6897722017553430284_n.jpg",
+      "f": "p",
+      "alt": "Gestante de preto apoiada na banqueta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/622851972_18100973302853328_6560952821279603359_n.jpg",
+      "f": "p",
+      "alt": "Gestante de saia de tule rosa no cubo branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/627735423_18310753681254386_4551551019068922264_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no capacete de moto, nas mãos do pai",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/621237338_18078283238202656_5305119549352647053_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo de orelhinhas de coelho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/619605426_18065133890645622_5185952715961670489_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara de flores na pelúcia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/640916471_18566534830037648_3474568063510285743_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo no fundo azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/624095419_18076088126075259_776974146025544701_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara olhando para a câmera",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/621476435_18102298699854657_6542193993188028696_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo com o coelhinho",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e smash",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido verde na cadeirinha",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/629819188_18392212087144187_385013756116750480_n.jpg",
+      "f": "p",
+      "alt": "Menino de chapéu no smash the cake agro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/621622361_18068173604187148_3843088493426552978_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido azul no cenário de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/619904008_18083555189141096_2716985207418355584_n.jpg",
+      "f": "p",
+      "alt": "Menino de jardineira no cenário de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/620921823_18124657399555968_8056907750263930985_n.jpg",
+      "f": "p",
+      "alt": "Bebê no triciclo de madeira, de orelhinhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/622563320_18066840968238980_651982954135402942_n.jpg",
+      "f": "p",
+      "alt": "Bebê no caixote de madeira, de orelhinhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Bebê sentada entre balões e flores rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/610623209_18098974181497719_6247166059476858829_n.jpg",
+      "f": "l",
+      "alt": "Menina de coroa de flores no cenário de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudioguilhermenascimento/Instagram_files/622456330_18118823806514282_1764739691398803084_n.jpg",
+      "f": "l",
+      "alt": "Bebê de orelhinhas na poltroninha",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "O Guilherme, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "O casal da foto do perfil do estúdio, de gorro de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "O Guilherme Nascimento fotografa famílias, gestantes, newborns e crianças no estúdio dele, no Km 18, em Osasco, com a equipe. Ao longo do ano, monta campanhas temáticas: Páscoa, Dia das Mães e, agora, o Natal 2026."
+   ],
+   "citacao": "Os filhos crescem, o tempo passa, mas as memórias em família permanecem.",
+   "citacao_quem": "Guilherme, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da experiência do Guilherme na condução (uma gestante de 29 semanas conta que nunca se sentiu tão linda), do cuidado com os bebês e da equipe atenciosa."
+   ],
+   "numeros": [
+    [
+     "4,8",
+     "89 avaliações no Google"
+    ],
+    [
+     "25 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "4,7 mil",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para cada fase, <em>um ensaio.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "Bio e legendas do estúdio no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Capa de revista",
+     "p": "Agora meu coração bate por dois: o ensaio da espera, no estúdio."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O recém-nascido com acessórios artesanais e todo o cuidado."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "Temas para todos os gostos, do agro à Branca de Neve."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "A melhor parte da vida é viver ao lado de quem a gente ama."
+    },
+    {
+     "nome": "Corporativo",
+     "sub": "Sua imagem",
+     "p": "O ensaio corporativo mostra que sua marca é poderosa e confiável."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Onde o Natal acontece",
+     "p": "A campanha 2026, com agendamentos abertos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Onde o Natal <em>acontece.</em>",
+   "p": "A campanha de Natal 2026 tem o aconchego de um lar: a cozinha dos biscoitos e a sala com a lareira, o piano e a árvore. Os agendamentos estão abertos: escolha um horário e a mensagem chega pronta no WhatsApp do Guilherme.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_00.jpg",
+    "f": "p",
+    "alt": "Família no sofá da sala de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Onde o Natal acontece, 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Camila Gois",
+    "tag": "Gestante",
+    "trecho": "Me senti uma deusa, Guilherme tem muita experiência, não precisa se preocupar com nada, estou gestante de 29 semanas, nunca me senti tão linda como no ensaio"
+   },
+   {
+    "nome": "evelyn silva",
+    "tag": "Com a bebê",
+    "trecho": "fiz o ensaio da minha bebê, eles cuidaram como se fossem filha, muito delicados, com cada detalhe, fizeram do jeito que imaginei"
+   },
+   {
+    "nome": "Gabriel Muniz",
+    "tag": "1 aninho",
+    "trecho": "fizemos o ensaio da minha filha de 1 aninho e foi incrível, parabéns a todos profissionais pelo atendimento e por serem tão atenciosos."
+   },
+   {
+    "nome": "Nathalia Lisboa",
+    "tag": "A condução",
+    "trecho": "Deixaram o ensaio bem a minha cara, fiquei super à vontade com a condução das meninas."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Km 18, em Osasco.",
+   "rotulo": "Estúdio",
+   "telefone": "(11) 98229-6828",
+   "endereco": [
+    "Av. Hildebrando de Lima, 585",
+    "Km 18 · Quitaúna",
+    "Osasco · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Onde o Natal acontece | Estúdio Guilherme Nascimento",
+  "descricao": "Onde o Natal acontece: a campanha de Natal 2026 do Estúdio Guilherme Nascimento, em Osasco, com a cozinha dos biscoitos e a sala com lareira. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Guilherme Nascimento: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h1": "Onde o Natal <em>acontece.</em>",
+   "citacao": "A beleza dos detalhes, o aconchego de um lar e a eternidade das memórias em família.",
+   "citacao_quem": "Guilherme, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_08.jpg",
+    "f": "p",
+    "alt": "Menina gargalhando ao piano, na sala de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Onde o Natal acontece, 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O aconchego <em>de um lar.</em>",
+   "p": "A campanha de Natal 2026 tem dois ambientes de casa: a cozinha dos biscoitos, com a farinha, os cortadores e o rolo de massa, e a sala com a lareira, o piano, a árvore e as meias penduradas.",
+   "itens": [
+    "No estúdio do Guilherme, no Km 18, em Osasco.",
+    "A cozinha dos biscoitos e a sala com a lareira.",
+    "Para as crianças, o casal e a família toda.",
+    "Orçamento e horários pelo WhatsApp."
+   ],
+   "legenda_fotos": "Os ambientes do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_05.jpg",
+    "f": "p",
+    "alt": "A mesa dos biscoitos, com a farinha e os cortadores",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_10.jpg",
+    "f": "p",
+    "alt": "A sala com a lareira, a guirlanda e a árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_04.jpg",
+    "f": "p",
+    "alt": "Os sapatinhos de laço, no banquinho da cozinha",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp do Guilherme abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: o Guilherme define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp do Guilherme abre com o dia e a hora escritos."
+    ],
+    [
+     "O estúdio confirma",
+     "A resposta vem com o orçamento e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Os filhos crescem, <em>as memórias ficam.</em>",
+   "nome": "Natal 2026",
+   "p": "A campanha \"Onde o Natal acontece\", em outubro de 2026.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_04.jpg",
+     "f": "p",
+     "alt": "Pai e filha rindo no sofá",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_06.jpg",
+     "f": "p",
+     "alt": "Família reunida na sala de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_02.jpg",
+     "f": "p",
+     "alt": "Família soprando a farinha na cozinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_02.jpg",
+     "f": "p",
+     "alt": "Menina com o rolo de massa",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_03.jpg",
+     "f": "p",
+     "alt": "Menina cortando os biscoitos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_11.jpg",
+     "f": "p",
+     "alt": "Menina com o trenzinho no sofá",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfU7AgqEUd2/DfU7AgqEUd2_01.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo de vestido verde",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/guilherme-nascimento-fotografia/posts/DfAxhx9GjnP/DfAxhx9GjnP_07.jpg",
+     "f": "p",
+     "alt": "Família na mesa dos biscoitos",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "evelyn silva",
+    "tag": "Atenção",
+    "trecho": "Lugar maravilhoso, todos muito atenciosos, e prestativos, estou encantada"
+   },
+   {
+    "nome": "Gabriel Muniz",
+    "tag": "Qualidade",
+    "trecho": "Atendimento excepcional, qualidade extraordinária"
+   },
+   {
+    "nome": "Camila Gois",
+    "tag": "Emoção",
+    "trecho": "muito incrível mesmo, emocionante"
+   },
+   {
+    "nome": "Nathalia Lisboa",
+    "tag": "Expectativas",
+    "trecho": "Sensacional!!!! Superaram todas as expectativas."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h2": "Garanta o seu <em>Natal em família.</em>",
+   "p": "Os agendamentos estão abertos. Escolha um horário ou chame o Guilherme no WhatsApp para o orçamento."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98229-6828); legendas antigas trazem 98475-2355 e 94747-8700",
+  "site": "não tem: o Google não mostra site; a bio leva a um link de orçamento (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/guilherme-nascimento-fotografia` e `/demo/guilherme-nascimento-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 19, 80 pontos), escolhida no Drive de 05/11/2026. Bio: \"ESTÚDIO FOTOGRÁFICO - OSASCO E REGIÃO · ENSAIO NATAL 2026 · AGENDA DE NATAL ABERTA\".",
+   "Dono: Guilherme Nascimento (\"tio Gui\" nas legendas), com equipe (\"a condução das meninas\"). O texto fala dele no masculino. Foto do \"quem fotografa\": a do perfil do Instagram (um casal de gorro de Natal), sem dizer quem é o outro.",
+   "Cores: o verde-escuro do vestido e dos ramos do Natal 2026 (#2f4f3a no destaque); DM Serif Text, Hanken Grotesk e \"fotografia\" em Great Vibes; abertura em filme. Sem logo em boa resolução: monograma GN e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e infantil), portfólio em 3 abas (Natal 2026, 12; Gestante e newborn, 8; Infantil e smash, 9), o Guilherme, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Onde o Natal acontece\": o ensaio, os ambientes (3 fotos da campanha), a agenda de exemplo (6 dias de 14/11 a 12/12, das 9h às 17h, dentro do horário do Google) e mais fotos da campanha."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (a campanha \"Onde o Natal acontece\" de 27/10 e 04/11, 1365 a 2048 px), a página do Instagram salva no Drive (Páscoa, newborn, gestante; 1440 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: a capa de vídeo com texto, a foto de lado (girada), as fotos do Google tiradas de celular (Branca de Neve, tela do tablet), a gestante de lingerie e as fotos borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Onde o Natal acontece... A beleza dos detalhes, o aconchego de um lar e a eternidade das memórias em família\" (28/10 e 04/11), \"Os filhos crescem, o tempo passa, mas as memórias em família permanecem\" (27/10), \"A melhor parte da vida é viver ao lado de quem a gente ama\" (04/11).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 de 5 estrelas em cada página."
+  ],
+  "conferir": [
+   "WhatsApp: o do Google (98229-6828) é o da demo; legendas antigas trazem 98475-2355 e 94747-8700.",
+   "A foto do \"quem fotografa\" é a do perfil do Instagram (casal de gorro de Natal): conferir.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 9h-18h).",
+   "Fotos de bebês, crianças e famílias: todas publicadas pelo estúdio como portfólio. Vale confirmar se pode usar todas no site."
+  ]
+ }
+}
