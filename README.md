@@ -307,3 +307,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Mariana Lima (fotógrafa)](demos/mariana-lima-fotografia) | Jardim Álamo, Guarulhos | site + página de Natal (`/natal`, “O Natal merece ser lembrado para sempre”) | pronta · 05/11/2026 (fotógrafos lote 2 · 11ª) |
 | [Janaina Bertunes Fotografia (fotógrafa)](demos/janaina-bertunes-fotografia) | Parque Rodrigo Barreto, Arujá | site + página de Natal (`/natal`, “Meu Natal Favorito”) | pronta · 05/11/2026 (fotógrafos lote 2 · 12ª) |
 | [Marilia Zanoni Fotografia (fotógrafa)](demos/marilia-zanoni-fotografia) | Jardim Urupês, Suzano | site + página de Natal (`/natal`, “Frost Sugar”) | pronta · 05/11/2026 (fotógrafos lote 2 · 13ª) |
+| [Bia Maida Fotografia (fotógrafa)](demos/bia-maida-fotografia) | Vila Paulo Silas, São Paulo | site + página de Natal (`/natal`, “Hoje, ela ainda cabe naquele abraço”) | pronta · 05/11/2026 (fotógrafos lote 2 · 14ª) |

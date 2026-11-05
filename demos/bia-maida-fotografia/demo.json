@@ -1,0 +1,685 @@
+{
+ "pasta": "bia-maida-fotografia",
+ "marca": "Bia Maida Fotografia",
+ "marca_completa": "Bia Maida Fotografia",
+ "dona": "Bia",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5888803,-46.5440096",
+  "fid": "0x94ce5de16127178b:0x9367a1fbea3437dd",
+  "gid": "/g/11sjt5dz4m"
+ },
+ "google_nome": "Bia Maida Fotografia",
+ "endereco_maps": "Rua Francisco Fett, 74 - Sl 6 - Vila Paulo Silas, São Paulo - SP, 03264-000",
+ "google_nota": "5,0",
+ "google_total": "116",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511987191135",
+ "fone_link": "+5511987191135",
+ "instagram": "biamaidafotografia",
+ "seguidores": "2,7 mil",
+ "mensagem": "Olá, Bia! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f9f7f4",
+  "papel": "#ffffff",
+  "areia": "#f0ede8",
+  "linha": "#e2ddd5",
+  "tinta": "#26292c",
+  "tinta2": "#5f6366",
+  "rosa": "#e0b39b",
+  "acento": "#1f5470",
+  "acento_escuro": "#173f55",
+  "cafe": "#1b2a33"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-17",
+   "2026-11-19",
+   "2026-11-25",
+   "2026-12-01",
+   "2026-12-03",
+   "2026-12-09"
+  ],
+  "horas": [
+   "10h",
+   "11h30",
+   "13h30",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-17 11h30",
+   "2026-11-17 15h",
+   "2026-11-19 13h30",
+   "2026-11-25 10h",
+   "2026-11-25 13h30",
+   "2026-11-25 15h",
+   "2026-12-01 13h30",
+   "2026-12-01 15h",
+   "2026-12-03 15h",
+   "2026-12-09 11h30",
+   "2026-12-09 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Bia define os dela",
+  "mensagem": "Olá, Bia! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Bia",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Literata",
+    "ital,opsz,wght@0,7..72,400..600;1,7..72,400..600"
+   ],
+   "sans": [
+    "Outfit",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Ephesis",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Bia Maida",
+ "titulo_script": "fotografia",
+ "quem_a": "a Bia",
+ "quem_da": "da Bia",
+ "quem_sou": "Sou a Bia Maida",
+ "slogan": "Te ajudo a eternizar memórias através da fotografia.",
+ "site": {
+  "titulo": "Bia Maida Fotografia | Família, gestante e corporativo em São Paulo",
+  "descricao": "Bia Maida, fotógrafa familiar e corporativa há 15 anos, com estúdio na Vila Paulo Silas, em São Paulo: família, crianças, gestante, feminino, corporativo e Natal. Nota 5,0 no Google, com 116 avaliações.",
+  "comentario": "Demo Bia Maida Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@biamaidafotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa familiar e corporativa · SP",
+   "frase": "Te ajudo a eternizar memórias através da fotografia.",
+   "intro": "Há 15 anos fotografando famílias, crianças, gestantes, mulheres e profissionais, no estúdio da Vila Paulo Silas ou ao ar livre. E a agenda de Natal está aberta até 13 de dezembro.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Infantil",
+    "Gestante",
+    "Feminino",
+    "Corporativo",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_01.jpg",
+     "f": "p",
+     "alt": "Mãe e filha sorrindo no sofá, junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+     "f": "p",
+     "alt": "Gestante de branco com as mãos na barriga",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656274307_18201055711339969_4909681377634970087_n.jpg",
+     "f": "p",
+     "alt": "Menino sorrindo na motinho de brinquedo",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Memórias <em>que ficam.</em>",
+   "p": "Ensaios da Bia, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "familia",
+    "nome": "Família e crianças",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_01.jpg",
+      "f": "p",
+      "alt": "Mãe e filha no sofá, junto à árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/654986467_18090343181124660_4269799484812917372_n.jpg",
+      "f": "p",
+      "alt": "Mãe beijando o bebê no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656026355_18073308575185915_9114320923836597483_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha abraçadas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656274307_18201055711339969_4909681377634970087_n.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo na motinho de brinquedo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/653457346_17986626875791428_6149843631829910389_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho brincando na cozinha do cenário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/655767223_18108657538631048_8408259611452137088_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/642905266_17958620408917306_5086791531825776542_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha na cozinha do cenário de Dia das Mães",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/652763651_18124181476604487_9121455916233440737_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha abraçadas na cama",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/626839880_18078139232369236_1966748597506464516_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filha sentadas, encostadas uma na outra",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/654419234_18016772309659936_6078452749846530114_n.jpg",
+      "f": "l",
+      "alt": "Abraço apertado com a criança no colo",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e feminino",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+      "f": "p",
+      "alt": "Gestante de branco com as mãos na barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_00.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo junto à cortina",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_02.jpg",
+      "f": "p",
+      "alt": "Gestante de olhos fechados, com a camisa branca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656195351_18085095233212976_1863791361366396874_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada no cubo branco",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/655166219_18086658316980939_8878942719544505530_n.jpg",
+      "f": "p",
+      "alt": "Gestante de rosa no estúdio claro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfVIg8_iXeo/DfVIg8_iXeo_01.jpg",
+      "f": "p",
+      "alt": "Mulher com o girassol no campo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfVIg8_iXeo/DfVIg8_iXeo_03.jpg",
+      "f": "p",
+      "alt": "Mulher sorrindo entre os girassóis",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfVIg8_iXeo/DfVIg8_iXeo_00.jpg",
+      "f": "p",
+      "alt": "Mulher de costas olhando os girassóis",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/622444941_18003470612842298_1760426266095202995_n.jpg",
+      "f": "p",
+      "alt": "Ensaio feminino de blusa vermelha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/622980489_18028443551599155_2676747747161951770_n.jpg",
+      "f": "p",
+      "alt": "Ensaio feminino de camisa branca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/652649862_18040386581759026_8603085730270824668_n.jpg",
+      "f": "l",
+      "alt": "Gestante junto à mesa do chá revelação",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "corporativo",
+    "nome": "Corporativo e casais",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/652070964_18068302046288935_6913660941889741424_n.jpg",
+      "f": "p",
+      "alt": "Retrato corporativo de terno claro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/655476097_18094252187030159_5398640243848444026_n.jpg",
+      "f": "p",
+      "alt": "Retrato profissional de blazer preto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656645957_18090011576327102_3905991409939328084_n.jpg",
+      "f": "p",
+      "alt": "Retrato profissional com o celular, no fundo rosa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/642866682_17962533875904413_4046602580071767292_n.jpg",
+      "f": "p",
+      "alt": "Formanda de beca diante do quadro-negro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/653489275_18124000759581457_6808639291970215392_n.jpg",
+      "f": "p",
+      "alt": "Retrato de blusa preta acetinada",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/google/fotos/g05.jpg",
+      "f": "p",
+      "alt": "Casal nos trilhos da antiga estação de trem",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/653536106_18097113644076033_6067975610564335497_n.jpg",
+      "f": "l",
+      "alt": "Equipe da área da saúde, de jaleco",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/google/fotos/g06.jpg",
+      "f": "l",
+      "alt": "Casal na estação, com a torre do relógio",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/google/fotos/g07.jpg",
+      "f": "l",
+      "alt": "Casal de óculos escuros junto ao carro",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Bia, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Bia sorrindo com a câmera, junto à árvore de Natal",
+    "c": [
+     0.4,
+     0.5
+    ]
+   },
+   "p": [
+    "A Bia Maida é fotógrafa familiar e corporativa há 15 anos. No estúdio dela, na Vila Paulo Silas, em São Paulo, ou ao ar livre, fotografa famílias, crianças, gestantes, ensaios femininos, retratos profissionais e casais."
+   ],
+   "citacao": "Quem disse que criança precisa ficar paradinha para ter fotos lindas?",
+   "citacao_quem": "Bia, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as pessoas falam de como ela deixa todo mundo à vontade, das ideias para as poses (até para quem nunca tinha feito fotos profissionais) e da entrega rápida das fotos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "116 avaliações no Google"
+    ],
+    [
+     "15 anos",
+     "de fotografia"
+    ],
+    [
+     "2,7 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para cada momento, <em>um ensaio.</em>",
+   "p": "Os ensaios da Bia, nas palavras dela:",
+   "fonte": "Bio e legendas da Bia no Instagram.",
+   "passos": [
+    {
+     "nome": "Conexão",
+     "sub": "Mães e filhos",
+     "p": "Para todas as mães, avós e filhos que desejam eternizar o amor e o carinho dessa relação."
+    },
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Antes de conhecer o rostinho, já existe um amor que não cabe no peito."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Aniversários",
+     "p": "Quanto mais a criança se diverte, mais lindas e verdadeiras as fotos ficam."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Autoestima",
+     "p": "No ensaio feminino você pode explorar aquilo que mais lhe destaca."
+    },
+    {
+     "nome": "Corporativo",
+     "sub": "Sua imagem",
+     "p": "Você é o principal rosto do seu negócio: investir na sua imagem é investir nele."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Até 13/12",
+     "p": "Um amor que merece ser fotografado em todas as fases da vida. Agenda aberta até 13 de dezembro."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Entre as luzinhas <em>da árvore.</em>",
+   "p": "O ensaio de Natal no estúdio da Bia, com a árvore, o sofá e a parede azul, para mães e filhos e para a família toda. A agenda está aberta até 13 de dezembro: escolha um horário e a mensagem chega pronta no WhatsApp da Bia.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_03.jpg",
+    "f": "p",
+    "alt": "Mãe e filha se olhando no sofá de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Lara Hernandez Urbinati",
+    "tag": "Entrega rápida",
+    "trecho": "Desde o primeiro contato, ela deu todo o suporte necessário e deixou tudo ainda mais leve e especial. E para completar, a entrega das fotos foi super rápida!"
+   },
+   {
+    "nome": "Karla Monte",
+    "tag": "Pré-wedding",
+    "trecho": "A Bia é muito simpática e tem ideias incríveis para as fotos, o que nos salvou, pois não tínhamos ideias para “pose”."
+   },
+   {
+    "nome": "Marilya Xavier",
+    "tag": "Em família",
+    "trecho": "Profissional excelente, fotos lindas, te deixa a vontade durante o ensaio além de ser muito querida!!"
+   },
+   {
+    "nome": "Luana Marques",
+    "tag": "Corporativo",
+    "trecho": "Ela transmite tanta segurança e confiança que me senti super à vontade durante o ensaio."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Paulo Silas, em São Paulo.",
+   "telefone": "(11) 98719-1135",
+   "endereco": [
+    "Rua Francisco Fett, 74, sala 6",
+    "Vila Paulo Silas",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Bia Maida Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Bia Maida, em São Paulo: mães, filhos e a família toda entre as luzinhas da árvore. Agenda aberta até 13 de dezembro: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Bia Maida Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Paulo",
+   "h1": "Hoje, ela ainda cabe <em>naquele abraço.</em>",
+   "citacao": "Não é apenas sobre a decoração ou as fotos bonitas, mas sobre registrar quem estava ao nosso lado e como era viver esses momentos juntos.",
+   "citacao_quem": "Bia, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_01.jpg",
+    "f": "p",
+    "alt": "Mãe e filha sorrindo no sofá, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um amor que merece <em>ser fotografado.</em>",
+   "p": "Entre as luzinhas da árvore de Natal, abraços apertados e sorrisos cheios de carinho: o ensaio de Natal no estúdio da Bia, com a árvore, o sofá e a parede azul. Para mães e filhos, irmãos e a família toda.",
+   "itens": [
+    "No estúdio da Bia, na Vila Paulo Silas, em São Paulo.",
+    "A árvore com as luzinhas, o sofá e a parede azul.",
+    "Agenda aberta até 13 de dezembro.",
+    "Valores e detalhes pelo WhatsApp da Bia."
+   ],
+   "legenda_fotos": "O cenário de Natal"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_02.jpg",
+    "f": "p",
+    "alt": "O sofá, a parede azul e a árvore de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfFuhLJCbb6/DfFuhLJCbb6_04.jpg",
+    "f": "p",
+    "alt": "Mãe e filha enfeitando a árvore",
+    "c": [
+     0.4,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Menina com os presentes junto à árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Bia abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: dias até 13 de dezembro, quando a agenda de Natal fecha. A Bia define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Bia abre com o dia e a hora escritos."
+    ],
+    [
+     "A Bia confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Memórias <em>em todas as fases.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Bia.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+     "f": "p",
+     "alt": "Gestante de branco",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/654986467_18090343181124660_4269799484812917372_n.jpg",
+     "f": "p",
+     "alt": "Mãe beijando o bebê",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656274307_18201055711339969_4909681377634970087_n.jpg",
+     "f": "p",
+     "alt": "Menino na motinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfVIg8_iXeo/DfVIg8_iXeo_01.jpg",
+     "f": "p",
+     "alt": "Ensaio entre os girassóis",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656026355_18073308575185915_9114320923836597483_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filha abraçadas",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/653457346_17986626875791428_6149843631829910389_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filho na cozinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/656195351_18085095233212976_1863791361366396874_n.jpg",
+     "f": "p",
+     "alt": "Gestante no cubo branco",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/652070964_18068302046288935_6913660941889741424_n.jpg",
+     "f": "p",
+     "alt": "Retrato corporativo",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Marilya Xavier",
+    "tag": "Em família",
+    "trecho": "Adorei e quero fazer ensaios com ela sempre!"
+   },
+   {
+    "nome": "Lara Hernandez Urbinati",
+    "tag": "O olhar",
+    "trecho": "Uma profissional super atenciosa, cuidadosa e com um olhar único, que consegue transmitir toda a essência de cada momento em um clique."
+   },
+   {
+    "nome": "Karla Monte",
+    "tag": "Espontâneo",
+    "trecho": "Ela faz a gente se soltar e no final, temos um ensaio espontâneo e maravilhoso!"
+   },
+   {
+    "nome": "Luana Marques",
+    "tag": "À vontade",
+    "trecho": "Amei a experiência de ser fotografada pela Bia!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · São Paulo",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "A agenda fecha em 13 de dezembro. Escolha um horário ou chame a Bia no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98719-1135), o mesmo das artes antigas (\"Contato: (11) 987191135\")",
+  "site": "não tem: o Google aponta o Facebook (facebook.com/biamaidafotografia) (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/bia-maida-fotografia` e `/demo/bia-maida-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 14, 83 pontos), escolhida no Drive de 05/11/2026. Bio: \"Fotógrafa Familiar e Corporativa · Te ajudo a eternizar memórias através da fotografia · Fotógrafa profissional há 15 anos\".",
+   "Dona: Bia (Beatriz) Maida (vídeo \"Muito prazer, eu sou a Bia Maida\", 31/10). Foto dela: a do perfil do Instagram, com a câmera, no cenário de Natal.",
+   "Cores: o azul-petróleo da parede do cenário de Natal (#1f5470 no destaque); Literata, Outfit e \"fotografia\" em Ephesis; abertura em cápsulas. Sem logo em boa resolução: monograma BM e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e infantil), portfólio em 3 abas (Família e crianças, 10; Gestante e feminino, 11; Corporativo e casais, 9), a Bia, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Hoje, ela ainda cabe naquele abraço\": o ensaio, o cenário (2 fotos do ensaio de 29/10 e 1 do Google), a agenda de exemplo (6 dias de terça a quinta, de 17/11 a 09/12, das 10h às 15h, dentro do horário do Google e antes de 13/12) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (Natal de mãe e filha de 29/10, gestante de 02/11 e girassóis de 04/11, até 1421 px), a página do Instagram salva no Drive (1440 px), 5 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as artes com texto (Conexão, Páscoa, Pocket, horários), as capas de vídeo, as fotos de festas e eventos com convidados e as fotos borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Entre as luzinhas da árvore de Natal...\" e \"Agenda aberta até 13 de Dezembro\" (29/10), \"Quem disse que criança precisa ficar paradinha...\" (30/10), \"Antes de conhecer o rostinho...\" (02/11), o ensaio Conexão, o feminino e o corporativo.",
+   "Avaliações do Google: as 5 visíveis sem login; 4 de 5 estrelas em cada página."
+  ],
+  "conferir": [
+   "Horários: o Google mostra só terça a quinta, das 10h às 16h; uma arte antiga diz \"ensaios todos os dias das 10h às 16h\". A agenda é exemplo (dito na página).",
+   "O ensaio dos girassóis (04/11) é da irmã dela; a página fala só em \"ensaio entre os girassóis\". Ela também divulga ensaios em Holambra (03/11).",
+   "Fotos de crianças, gestantes e clientes corporativos: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
