@@ -151,7 +151,28 @@ Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix
   `estilo.css` resolve. (6) Avaliação de alguém com o mesmo sobrenome da dona ou de outra fotógrafa do lote fica de
   fora (Joyce Custodio, Giovanna Barbosa, Jessica Custodio na Elise).
 
+**Demos do lote 2 (05/11/2026): as outras 16.** O Kaue pôs no Drive as 11 que faltavam do top 20 e as 5 reservas
+(16 pastas). As 16 viraram demo, no mesmo formato e com a mesma oferta, uma por vez: cada uma entrou no painel em
+Leads a trabalhar, ganhou o site + a página de Natal e foi para Prontas para trabalhar assim que ficou no ar. São:
+Amanda Azevedo, Mariana Lima, Janaina Bertunes, Marilia Zanoni, Bia Maida, Talita Voros, Thamirys Costa, Sabrina
+Matos, Arantes, Guilherme Nascimento e Michele Rabetti (top 20), e Layane Santos, Juliana Figueiredo, Andressa
+Pratez, Leila Bomfim e Faro (reservas). O aviso de prazo vai até 12/11/2026, igual ao `vale_ate` do painel. A `ficha.md`
+de cada pasta diz o que conferir antes de mandar.
+- **Lições:** (1) Para não sobrar vão embaixo das abas, o total de colunas de cada aba (em pé = 1, deitada = 2) tem que
+  ser múltiplo de 4, não só igual entre as abas: com 10, a última linha fica pela metade (a Juliana ficou com 8).
+  (2) Muitos posts recentes não abrem pelo `ig-post.py` (o embed vem sem o contextJSON); a capa sai do `srcset` da
+  imagem do embed, em até 1600 px. (3) Quando o Natal 2026 só existe em vídeo, quadros do vídeo (720 px) sem legenda
+  escrita dão o cenário (Amanda, Marília, Thamirys, Sabrina, Arantes, Faro). Vídeo que é sequência de fotos com faixa
+  preta: recortar a faixa (Leila). (4) Só entram avaliações de 5 estrelas. A Michele tem só 3 visíveis: o carrossel fica
+  numa página e o validador marca "carrosséis com pontos". Os controles foram escondidos por `estilo.css`, e essa
+  falha foi aceita. (5) Fotógrafo homem (Guilherme): `quem_a`/`quem_da` "o Guilherme"/"do Guilherme", o texto
+  "Horários de exemplo: o Guilherme define os dele" e "(fotógrafo)" no README. (6) Dois WhatsApps (Andressa: Google
+  94545-8454, bio 96446-0083): os botões da demo usam o `wa.me` da bio; o painel tem o do Google e a nota. (7) Quando o
+  Google lista como "Serviço de fotografia" ou "Fotógrafo", sem estúdio (Layane, Leila), o contato mostra "Endereço" e
+  o texto não fala em estúdio. (8) Lugar incerto (Faro: SP e Maringá-PR na bio; Juliana: "nosso Natal ganhou um novo
+  endereço"): a página de Natal pede o local pelo WhatsApp e o alerta vai no painel.
+
 **Pendências do lote 2:**
-1. ~~Escolher as 20~~ As 9 primeiras viraram demo (acima); faltam as outras 11 da lista, se o Kaue quiser.
+1. ~~Escolher as 20~~ As 25 (20 + 5 reservas) viraram demo (acima).
 2. Duplas e casais (Sabrina e Tati, Arantes, Guilherme Nascimento) seguem entrando, como no lote 1. Confirmar.
 3. Os valores e o prazo (`vale_ate`) das demos do lote 2.
