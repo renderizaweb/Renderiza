@@ -1,0 +1,693 @@
+{
+ "pasta": "layane-santos-fotografia",
+ "marca": "Layane Santos Fotografia",
+ "marca_completa": "Layane Santos Fotografia",
+ "dona": "Lay",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6222657,-46.8083496",
+  "fid": "0x94ce55449840fd55:0xe61a0759807b45b1",
+  "gid": "/g/11vz7njzyj"
+ },
+ "google_nome": "Layane Santos Fotografia",
+ "endereco_maps": "R. Manoel Maria Fernandes, 386 - Jardim Elizabete, Taboão da Serra - SP, 06786-340",
+ "google_nota": "5,0",
+ "google_total": "19",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511959912199",
+ "fone_link": "+5511959912199",
+ "instagram": "layanesantosfotografia",
+ "seguidores": "3,2 mil",
+ "mensagem": "Olá, Lay! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f3",
+  "papel": "#ffffff",
+  "areia": "#f5efe6",
+  "linha": "#e8dfd2",
+  "tinta": "#2d2622",
+  "tinta2": "#675b53",
+  "rosa": "#d9b28c",
+  "acento": "#9b3b2c",
+  "acento_escuro": "#802f22",
+  "cafe": "#2a1d18"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 10h30",
+   "2026-11-18 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-28 9h",
+   "2026-11-28 17h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-05 17h",
+   "2026-12-12 9h",
+   "2026-12-12 10h30",
+   "2026-12-12 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Lay define os dela",
+  "mensagem": "Olá, Lay! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Lay",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Lay, da Layane Santos Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lay, da Layane Santos Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Mulish",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Mea Culpa",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Layane Santos",
+ "titulo_script": "fotografia",
+ "quem_a": "a Lay",
+ "quem_da": "da Lay",
+ "quem_sou": "Sou a Layane Santos, a Lay",
+ "slogan": "Registros que atravessam gerações.",
+ "site": {
+  "titulo": "Layane Santos Fotografia | Família, infantil e Natal em São Paulo",
+  "descricao": "Layane Santos, fotógrafa de família em São Paulo e Taboão da Serra: ensaios de família, infantil, aniversário, casamento e o Natal 2026. Nota 5,0 no Google.",
+  "comentario": "Demo Layane Santos Fotografia (lote 2 de fotógrafos, reserva, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@layanesantosfotografia: a página salva e os posts de out/2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa de família · São Paulo",
+   "frase": "Registros que atravessam gerações.",
+   "intro": "Histórias reais, sentidas e registradas com alma: famílias, crianças, aniversários e casamentos, com a Lay. E as vagas para o Natal 2026 estão abertas.",
+   "rotulos": [
+    "Natal 2026",
+    "Infantil",
+    "Ensaios"
+   ],
+   "especialidades": [
+    "Família",
+    "Infantil",
+    "Aniversário",
+    "Ensaios",
+    "Casamento",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__18.jpg",
+     "f": "p",
+     "alt": "Menino batendo palmas junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_00.jpg",
+     "f": "p",
+     "alt": "Menina de vestido branco com a cesta de flores no parque",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g07.jpg",
+     "f": "p",
+     "alt": "Mulher sorrindo de chapéu e vestido estampado",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Histórias reais, <em>registradas com alma.</em>",
+   "p": "Ensaios da Lay. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal em família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_00.jpg",
+      "f": "p",
+      "alt": "Pais com os dois filhos no colo, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_02.jpg",
+      "f": "p",
+      "alt": "Irmãos abraçados diante da árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__18.jpg",
+      "f": "p",
+      "alt": "Menino batendo palmas junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__16.jpg",
+      "f": "p",
+      "alt": "Bebê rindo com a velinha, na poltrona",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_08.jpg",
+      "f": "p",
+      "alt": "Mãe com os filhos na poltrona, o pai atrás",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__05.jpg",
+      "f": "p",
+      "alt": "Menino pendurando a bola na árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__02.jpg",
+      "f": "p",
+      "alt": "Irmãos de rosto colado",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DesUZNvlKT6/DesUZNvlKT6_00.jpg",
+      "f": "p",
+      "alt": "Mãe com os dois filhos no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__11.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__14.jpg",
+      "f": "p",
+      "alt": "Bebê de macacão vermelho com a velinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_05.jpg",
+      "f": "p",
+      "alt": "Família rindo junto aos presentes",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__08.jpg",
+      "f": "p",
+      "alt": "Bebê de jardineira na poltrona",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversário",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_00.jpg",
+      "f": "p",
+      "alt": "Menina com a cesta de flores no parque",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_02.jpg",
+      "f": "p",
+      "alt": "Menina sentada na pedra, de vestido branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_06.jpg",
+      "f": "p",
+      "alt": "Menina deitada na toalha, com o livro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_08.jpg",
+      "f": "p",
+      "alt": "Menina com o bolo de brigadeiros e a velinha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake, entre balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/layanesantosfotografia/Instagram_files/650079010_18190728799360876_7644361990535026867_n.jpg",
+      "f": "p",
+      "alt": "Menina correndo de saia de tule no parque",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_04.jpg",
+      "f": "l",
+      "alt": "O piquenique no gramado, com a cesta e a mesinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DfCKxHCID_v/DfCKxHCID_v_05.jpg",
+      "f": "l",
+      "alt": "Menina deitada no piquenique",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/layanesantosfotografia/Instagram_files/651901543_18192525013358297_813955426053559873_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 5 meses de vestido vermelho, no Natal",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "ensaios",
+    "nome": "Ensaios e casamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g07.jpg",
+      "f": "p",
+      "alt": "Mulher de chapéu sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g08.jpg",
+      "f": "p",
+      "alt": "Mulher de vestido estampado junto à janela",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g10.jpg",
+      "f": "p",
+      "alt": "Ensaio de 30 anos no sofá",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Casal de festa à noite",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Noiva com as madrinhas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/layanesantosfotografia/Instagram_files/645702703_18109903111687766_3341807488661170603_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado entre os pinheiros",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g04.jpg",
+      "f": "l",
+      "alt": "O beijo dos noivos, em preto e branco",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g05.jpg",
+      "f": "l",
+      "alt": "Os noivos comemorando na saída",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/google/fotos/g06.jpg",
+      "f": "l",
+      "alt": "O beijo no altar",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Lay, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Layane sorrindo junto à janela, de branco",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Layane Santos, a Lay, é fotógrafa de família em São Paulo. Fotografa famílias, crianças, aniversários, ensaios e casamentos, buscando histórias reais, sentidas e registradas com alma."
+   ],
+   "citacao": "Neste Natal, permita que seu filho seja criança. Eu cuido de transformar esses momentos em lembranças que vão atravessar gerações.",
+   "citacao_quem": "Lay, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as clientes falam da sensibilidade dela, da paciência para ensinar a posar, da atenção com a luz e os detalhes (até balão, velas e confetes no ensaio) e de casamentos registrados com carinho."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "19 avaliações no Google"
+    ],
+    [
+     "3,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "381",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Criança tem que <em>ser criança.</em>",
+   "p": "Os ensaios da Lay:",
+   "fonte": "Bio e legendas da Lay no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "A família toda junta, com leveza e sem pose perfeita."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Do jeitinho deles",
+     "p": "Criança tem que correr, brincar, explorar, dar gargalhadas e descobrir o mundo."
+    },
+    {
+     "nome": "Aniversário",
+     "sub": "Ensaio e festa",
+     "p": "O ensaio de aniversário, com bolo e velinha, e a cobertura da festa."
+    },
+    {
+     "nome": "Ensaios",
+     "sub": "Para você",
+     "p": "Ensaios individuais e de casal, com cuidado com a luz e com cada detalhe."
+    },
+    {
+     "nome": "Casamento",
+     "sub": "O grande dia",
+     "p": "Do pré-wedding ao casamento."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "As vagas para o Natal de 2026 estão abertas."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal passa, <em>as memórias permanecem.</em>",
+   "p": "O cenário de Natal 2026 da Lay tem a árvore vermelha e dourada, os presentes de laço, a poltrona com a manta verde e a guirlanda na janela. As vagas estão abertas: escolha um horário e a mensagem chega pronta no WhatsApp da Lay.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_00.jpg",
+    "f": "p",
+    "alt": "Família junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Helena Narcizo",
+    "tag": "Cada detalhe",
+    "trecho": "a Lay tem uma sensibilidade incrível para tornar tudo incrível, desde a primeira foto até a última, até a questão de posicionamento para foto que eu não sabia nada ela me mostrou"
+   },
+   {
+    "nome": "Soraya Santos Marques",
+    "tag": "Ensaio",
+    "trecho": "Que experiência incrível realizar um ensaio com a Layane, super cuidadosa, atenciosa, deixando a gente sempre confortável"
+   },
+   {
+    "nome": "Fernanda Souza",
+    "tag": "Outros olhos",
+    "trecho": "foi através das fotos dela que eu pude ver a minha história com outros olhos"
+   },
+   {
+    "nome": "Stephanie Xavier",
+    "tag": "Casamento",
+    "trecho": "Quero agradecer a Lay por toda dedicação,  as fotos do casamento ficaram perfeitas"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O endereço do Perfil da Empresa no Google fica no Jardim Elizabete, em Taboão da Serra.",
+   "rotulo": "Endereço",
+   "telefone": "(11) 95991-2199",
+   "endereco": [
+    "Rua Manoel Maria Fernandes, 386",
+    "Jardim Elizabete",
+    "Taboão da Serra · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Layane Santos Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Layane Santos: a família junta, as crianças livres para brincar e a árvore cheia de presentes. As vagas estão abertas: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Layane Santos Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026",
+   "h1": "Neste Natal, deixe seu filho <em>ser criança.</em>",
+   "citacao": "O Natal passa, as crianças crescem, mas as memórias que construímos hoje permanecem!",
+   "citacao_quem": "Lay, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__18.jpg",
+    "f": "p",
+    "alt": "Menino batendo palmas junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Sem pose perfeita, <em>com muita risada.</em>",
+   "p": "No ensaio de Natal da Lay, as crianças exploram o cenário, brincam, dão risada e aproveitam cada momento ao lado da família: a árvore vermelha e dourada, os presentes de laço, a poltrona com a manta verde e a guirlanda na janela.",
+   "itens": [
+    "A família toda junta, irmãos, pais e o bebê.",
+    "A árvore, os presentes e a poltrona com a manta verde.",
+    "As vagas para o Natal de 2026 estão abertas.",
+    "Local, valores e detalhes pelo WhatsApp da Lay."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__05.jpg",
+    "f": "p",
+    "alt": "A árvore vermelha e dourada e os presentes de laço",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__01.jpg",
+    "f": "p",
+    "alt": "A poltrona com a manta verde",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__06.jpg",
+    "f": "p",
+    "alt": "A velinha diante dos presentes",
+    "c": [
+     0.5,
+     0.6
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Lay abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Lay define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Lay abre com o dia e a hora escritos."
+    ],
+    [
+     "A Lay confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Do jeitinho <em>de cada um.</em>",
+   "nome": "Natal 2026",
+   "p": "Os primeiros ensaios de Natal 2026 da Lay, em outubro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__00.jpg",
+     "f": "p",
+     "alt": "Irmãos abraçados",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__04.jpg",
+     "f": "p",
+     "alt": "Irmãos junto à árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__07.jpg",
+     "f": "p",
+     "alt": "Menino deitado no tapete com a velinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__12.jpg",
+     "f": "p",
+     "alt": "Bebê com o Papai Noel de pelúcia",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__15.jpg",
+     "f": "p",
+     "alt": "Bebê na poltrona com a manta verde",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DereXfEkQG_/DereXfEkQG__17.jpg",
+     "f": "p",
+     "alt": "Bebê com a velinha acesa",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DesUZNvlKT6/DesUZNvlKT6_01.jpg",
+     "f": "p",
+     "alt": "Mãe e filho no sofá",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/layane-santos-fotografia/posts/DepbIScFGVU/DepbIScFGVU_03.jpg",
+     "f": "p",
+     "alt": "Família sentada diante da árvore",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Helena Narcizo",
+    "tag": "Paciência",
+    "trecho": "ela tem muita paciência,  e um carinho enorme pelo que faz e até trouxe balão,  velas e confetes para as fotos que ficaram incríveis"
+   },
+   {
+    "nome": "Daianne Fernandes Da silva",
+    "tag": "Atenciosa",
+    "trecho": "No cassmento, tudo fluiu muito bem, ela é incrível e extremamente atenciosa"
+   },
+   {
+    "nome": "Soraya Santos Marques",
+    "tag": "Olhar",
+    "trecho": "com um olhar fotográfico maravilhoso. Simplesmente apaixonada pelas fotos."
+   },
+   {
+    "nome": "Fernanda Souza",
+    "tag": "Satisfação",
+    "trecho": "Palavras me faltam para expressar minha satisfação com o trabalho que a Lay realiza"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal em família.</em>",
+   "p": "As vagas para o Natal de 2026 estão abertas. Escolha um horário ou chame a Lay no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95991-2199), o mesmo das artes antigas (\"(11) 95991-2199\")",
+  "site": "não tem: o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/layane-santos-fotografia` e `/demo/layane-santos-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos, reserva (nº 21, 80 pontos), escolhida no Drive de 05/11/2026. Bio: \"Fotógrafa de família · Registros que atravessam gerações · Histórias reais, sentidas e registradas com alma · São Paulo\".",
+   "Dona: Layane Santos (\"Lay\" nas avaliações). Foto dela: a do perfil do Instagram (mulher de branco junto à janela).",
+   "Cores: o vermelho-terracota e o dourado do cenário de Natal 2026 (#9b3b2c no destaque); Cormorant, Mulish e \"fotografia\" em Mea Culpa; abertura em arco. Sem logo em boa resolução: monograma LS e o nome com \"fotografia\" cursiva, feitos para a demo.",
+   "O Google a lista como \"Serviço de fotografia\", não como estúdio: a demo não fala em estúdio; o contato mostra o endereço do Google como \"Endereço\"."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, infantil e ensaios), portfólio em 3 abas (Natal em família, 12; Infantil e aniversário, 9; Ensaios e casamento, 9), a Lay, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Neste Natal, deixe seu filho ser criança\": o ensaio, o cenário (3 fotos dos ensaios de outubro), a agenda de exemplo (6 dias de 14/11 a 12/12, das 9h às 17h, dentro do horário do Google) e mais fotos dos ensaios de Natal."
+  ],
+  "fotos": [
+   "Os posts de out/2026 (dois ensaios de Natal em família de 18 e 19/10 e o ensaio de 10 anos de 28/10, 3072 a 4096 px), 5 fotos do Google (ensaios e casamentos, até 2000 px), 2 da página do Instagram salva no Drive e a foto do perfil.",
+   "Ficaram de fora: as fotos em preto e branco repetidas, a capa do vídeo com texto, as artes de orçamento e as fotos antigas pequenas (2018-2019, 720 px) de festas, bailes e eventos."
+  ],
+  "textos": [
+   "Bio e legendas: \"Meu filho não fica parado para fotos! Perfeito! Porque criança tem que ser criança!!... Neste Natal, permita que seu filho seja criança... As vagas para o nosso Natal de 2026 estão abertas!\" (22/10).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página (casamento e ensaios: é o que as clientes avaliaram)."
+  ],
+  "conferir": [
+   "Onde ela fotografa o Natal: as fotos mostram um cenário montado numa sala; o Google mostra um endereço em Taboão da Serra e a bio diz \"São Paulo\". A página não diz onde é (\"local pelo WhatsApp\").",
+   "As fotos de Natal e do ensaio de 10 anos foram postadas em parceria com as clientes.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 8h-18h).",
+   "Fotos de crianças e famílias: todas publicadas como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
