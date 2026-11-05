@@ -1,0 +1,673 @@
+{
+ "pasta": "arantes-fotografia",
+ "marca": "Arantes Fotografia",
+ "marca_completa": "Arantes Fotografia",
+ "dona": "Arantes",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5383549,-46.8286421",
+  "fid": "0x94cf01d263a6c19d:0xe32985ae596544ce",
+  "gid": "/g/11f1vk586j"
+ },
+ "google_nome": "Arantes Fotografia",
+ "endereco_maps": "Estr. do Cabreúva, 738 - Vila Santa Lucia, Carapicuíba - SP, 06321-001",
+ "google_nota": "5,0",
+ "google_total": "48",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511969564223",
+ "fone_link": "+5511969564223",
+ "instagram": "arantesfoto",
+ "seguidores": "5,6 mil",
+ "mensagem": "Olá! Vi o site da Arantes Fotografia e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#faf7f5",
+  "papel": "#ffffff",
+  "areia": "#f3ecec",
+  "linha": "#e6dcdc",
+  "tinta": "#2b2427",
+  "tinta2": "#665b5f",
+  "rosa": "#d8b0a4",
+  "acento": "#6e3b4e",
+  "acento_escuro": "#58303f",
+  "cafe": "#271a20"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-15 10h30",
+   "2026-11-15 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-22 9h",
+   "2026-11-22 17h",
+   "2026-11-28 10h30",
+   "2026-11-28 15h30",
+   "2026-11-28 17h",
+   "2026-12-05 9h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Arantes define os dela",
+  "mensagem": "Olá! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Arantes",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou da Arantes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou da Arantes Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Spectral",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Albert Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Birthstone",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.15
+ },
+ "titulo_nome": "Arantes",
+ "titulo_script": "fotografia",
+ "quem_a": "a Arantes",
+ "quem_da": "da Arantes",
+ "quem_sou": "Somos a Arantes Fotografia",
+ "slogan": "Há mais de 9 anos registrando famílias.",
+ "site": {
+  "titulo": "Arantes Fotografia | Gestante, newborn e smash the cake em Carapicuíba",
+  "descricao": "Arantes Fotografia, estúdio em Carapicuíba (SP) há mais de 9 anos registrando famílias: gestante, newborn, smash the cake, chá revelação, infantil e Natal 2026. Nota 5,0 no Google, com 48 avaliações.",
+  "comentario": "Demo Arantes Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@arantesfoto: a página salva, os posts de out/nov 2026 e quadros do vídeo de Natal de 04/11) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio em Carapicuíba",
+   "frase": "Há mais de 9 anos registrando famílias.",
+   "intro": "Gestante, newborn, smash the cake, chá revelação e ensaios infantis, com foto e vídeo, no estúdio da Arantes em Carapicuíba. E o Natal 2026 já está acontecendo, com poucas vagas.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Chá revelação",
+    "Infantil",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+     "f": "p",
+     "alt": "Menina de gorro branco brincando com a neve, no cenário de Natal 2026",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_00.jpg",
+     "f": "p",
+     "alt": "Gestante de blazer, em preto e branco",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Recém-nascido dormindo no cesto com manta de tricô",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Momentos que viram <em>lembranças.</em>",
+   "p": "Ensaios da Arantes, no estúdio e ao ar livre. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_00.jpg",
+      "f": "p",
+      "alt": "Gestante de blazer, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_06.jpg",
+      "f": "p",
+      "alt": "Gestante com o laço gigante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido esvoaçante",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_05.jpg",
+      "f": "p",
+      "alt": "Gestante de branco com o véu",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/623543939_18322426330221003_3344083151048990266_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul na mata",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/628060425_18327970795170201_5274659799748517005_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda ao pôr do sol",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/637173209_18559269907022486_5565799123855867740_n.jpg",
+      "f": "p",
+      "alt": "Casal ao pôr do sol, com a mão na barriga",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no cesto com manta de tricô",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/De0ORX-NPBW/De0ORX-NPBW_00.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara de flores no cestinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfANgpON187/DfANgpON187_00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de perto",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/624106377_18354246010201418_2174863474217943769_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake com o tema Mickey",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/624235864_18321967234216934_6636574422850295681_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake com o tema circo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/627792031_18395092471179344_1617094640022117565_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake no jardim encantado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/628064490_18512203423073854_6324488168260346296_n.jpg",
+      "f": "l",
+      "alt": "Bebê comendo o bolo no cenário azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/626759174_18380846233159580_3084860911676102467_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake de Alice no País das Maravilhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/625598837_18327952078168080_6597427416149899850_n.jpg",
+      "f": "l",
+      "alt": "A hora do banho depois do bolo",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/627858756_18360151213167768_7284324715492823079_n.jpg",
+      "f": "p",
+      "alt": "Menina de 5 anos de pequena sereia",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/636941979_18558072409054925_6125788735857786935_n.jpg",
+      "f": "p",
+      "alt": "Menina de saia de tule caminhando na mata",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/639835458_18559689793030161_2424692723815155672_n.jpg",
+      "f": "p",
+      "alt": "Menina de 7 anos com tiara de unicórnio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/622391512_18334002196241898_2943999760341422288_n.jpg",
+      "f": "p",
+      "alt": "Menina de caipira no ensaio de festa junina",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/628165791_18377320384090186_6573852074291607785_n.jpg",
+      "f": "p",
+      "alt": "Bebê na barraca do beijo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/641965057_18562787368012418_2166105033778814518_n.jpg",
+      "f": "p",
+      "alt": "Menino de caipira no arraiá",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/638860147_18593938360026454_3106829238432985020_n.jpg",
+      "f": "l",
+      "alt": "Família no parabéns do aniversário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/621791353_18310390396255874_8600266861052029198_n.jpg",
+      "f": "l",
+      "alt": "O cenário de circo do aniversário",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/619601662_18306799102252411_6461059536283240660_n.jpg",
+      "f": "l",
+      "alt": "Bebê de caipira sorrindo",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Arantes, <em>há mais de 9 anos.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "A foto do perfil da Arantes Fotografia, no Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Arantes Fotografia registra famílias há mais de 9 anos, num estúdio em Carapicuíba: gestante, newborn, smash the cake, chá revelação e festas, com foto e vídeo. Os ensaios infantis têm cenário e figurino inclusos."
+   ],
+   "citacao": "Meu dom é transformar momentos em lembranças que ficam para sempre.",
+   "citacao_quem": "Arantes Fotografia, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do atendimento do primeiro contato à entrega, da entrega rápida, da presença discreta e acolhedora nas festas e de famílias que voltam para os aniversários e os ensaios."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "48 avaliações no Google"
+    ],
+    [
+     "+9 anos",
+     "registrando famílias"
+    ],
+    [
+     "5,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase, <em>uma lembrança.</em>",
+   "p": "Os ensaios da Arantes, nas palavras do estúdio:",
+   "fonte": "Bio e legendas da Arantes Fotografia no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Sua história",
+     "p": "Seu corpo está escrevendo uma história que merece ser lembrada para sempre."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "A lembrança de quando o seu bebê ainda cabia inteirinho no seu colo."
+    },
+    {
+     "nome": "Chá revelação",
+     "sub": "Foto e vídeo",
+     "p": "A expectativa, os olhares ansiosos e a emoção de descobrir quem está a caminho."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "O primeiro bolo, com tema, cenário e muita bagunça."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temáticos",
+     "p": "Ensaio em estúdio, com cenário e figurino incluso."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O Natal 2026 já está acontecendo: poucas vagas disponíveis."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Um cenário <em>que vira magia.</em>",
+   "p": "O Natal 2026 da Arantes já está acontecendo, com dois cenários: a porta com a guirlanda iluminada e a neve, e a lareira com o sofá branco. Poucas vagas: escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+    "f": "p",
+    "alt": "Menina brincando com a neve no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Kelly Oliveira da costa",
+    "tag": "Aniversários e ensaios",
+    "trecho": "Já contamos com a equipe em vários aniversários da nossa família e também já fiz alguns ensaios, e em todas as vezes fomos muito bem atendidos."
+   },
+   {
+    "nome": "Bruna Neto",
+    "tag": "O estúdio",
+    "trecho": "Estúdio maravilhoso, profissionais incríveis! Deixam a gente tão a vontade que não dá nem vontade de parar a sessão de fotos!"
+   },
+   {
+    "nome": "Izabela Timoteo",
+    "tag": "Entrega rápida",
+    "trecho": "Além de fotos impecáveis e de altíssima qualidade, a entrega foi super rápida e o atendimento do início ao fim foi extremamente atencioso."
+   },
+   {
+    "nome": "Jennifer Piva",
+    "tag": "Foto e vídeo",
+    "trecho": "gostamos muito do atendimento, da postura, da presença discreta e ao mesmo tempo acolhedora."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Santa Lúcia, em Carapicuíba.",
+   "telefone": "(11) 96956-4223",
+   "endereco": [
+    "Estrada do Cabreúva, 738",
+    "Vila Santa Lúcia",
+    "Carapicuíba · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Arantes Fotografia",
+  "descricao": "O Natal 2026 da Arantes Fotografia, em Carapicuíba: dois cenários, a porta com a guirlanda e a neve e a lareira com o sofá. Poucas vagas: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Arantes Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Carapicuíba",
+   "h1": "Transformar um cenário <em>em magia.</em>",
+   "citacao": "Porque o Natal passa, mas a emoção de viver tudo isso fica guardada no coração.",
+   "citacao_quem": "Arantes Fotografia, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+    "f": "p",
+    "alt": "Menina de gorro branco brincando com a neve, no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários, <em>uma experiência.</em>",
+   "p": "O Natal 2026 da Arantes tem dois cenários: a porta branca com a guirlanda iluminada, as árvores, a caixinha de correio do Papai Noel e a neve; e a lareira acesa, com o sofá branco e a árvore dourada. Um ensaio que a infância merece viver.",
+   "itens": [
+    "No estúdio da Arantes, em Carapicuíba.",
+    "A porta com a guirlanda e a neve; a lareira com o sofá.",
+    "Poucas vagas: o Natal 2026 já está acontecendo.",
+    "Valores e detalhes pelo WhatsApp."
+   ],
+   "legenda_fotos": "Os cenários do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/extra/v7.2.jpg",
+    "f": "p",
+    "alt": "A porta branca com a guirlanda iluminada e as árvores",
+    "c": [
+     0.5,
+     0.45
+    ],
+    "box": [
+     0.0,
+     0.0,
+     1.0,
+     0.74
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/extra/v13.6.jpg",
+    "f": "p",
+    "alt": "A lareira acesa, o sofá branco e a árvore dourada",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.0,
+     0.0,
+     1.0,
+     0.76
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+    "f": "p",
+    "alt": "A caixinha de correio do Papai Noel e a neve",
+    "c": [
+     0.5,
+     0.75
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Arantes abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Arantes define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Arantes abre com o dia e a hora escritos."
+    ],
+    [
+     "A Arantes confirma",
+     "A resposta vem com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Momentos que viram <em>lembranças.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Arantes.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_00.jpg",
+     "f": "p",
+     "alt": "Gestante em preto e branco",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_06.jpg",
+     "f": "p",
+     "alt": "Gestante com o laço",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante com o tecido esvoaçante",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Recém-nascido no cesto",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/627858756_18360151213167768_7284324715492823079_n.jpg",
+     "f": "p",
+     "alt": "Menina de pequena sereia",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/636941979_18558072409054925_6125788735857786935_n.jpg",
+     "f": "p",
+     "alt": "Menina na mata",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/641965057_18562787368012418_2166105033778814518_n.jpg",
+     "f": "p",
+     "alt": "Menino no arraiá",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/622391512_18334002196241898_2943999760341422288_n.jpg",
+     "f": "p",
+     "alt": "Menina de caipira",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Fernanda Andrade",
+    "tag": "Dedicação",
+    "trecho": "Amei a experiência, eles são muito atenciosos e muito dedicados no que faz"
+   },
+   {
+    "nome": "Kelly Oliveira da costa",
+    "tag": "Naturais",
+    "trecho": "As fotos ficam naturais, bonitas e conseguem registrar cada momento de um jeito muito especial."
+   },
+   {
+    "nome": "Bruna Neto",
+    "tag": "Carinho",
+    "trecho": "Obrigada por todo o carinho, amor e cuidado comigo, com a minha família em cada trabalho realizado!"
+   },
+   {
+    "nome": "Izabela Timoteo",
+    "tag": "Emoção",
+    "trecho": "Ele conseguiu capturar toda a emoção e a leveza do nosso dia de uma forma única."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Carapicuíba",
+   "h2": "Garanta o seu <em>Natal 2026.</em>",
+   "p": "Poucas vagas disponíveis. Escolha um horário ou chame a Arantes no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96956-4223)",
+  "site": "não tem: o Google não mostra site; a bio leva a um link de agendamento (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/arantes-fotografia` e `/demo/arantes-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 18, 80 pontos), escolhida no Drive de 05/11/2026. Bio: \"Estúdio Fotográfico | Gestante e Newborn | Carapicuíba · Gestante | Newborn | Smash the Cake · +9 anos registrando famílias\".",
+   "Dono(s): o nome não aparece no perfil nem nas avaliações (\"ele\", \"eles\", \"a equipe\"). A demo fala da \"Arantes\" e da equipe, sem nomes. No \"quem fotografa\" entrou a foto do perfil do Instagram (um casal com uma menina, no Natal), sem dizer quem são.",
+   "Cores: o vinho-malva da parede do cenário de Natal (#6e3b4e no destaque); Spectral, Albert Sans e \"fotografia\" em Birthstone; abertura em arco. Sem logo em boa resolução: monograma AF e \"Arantes\" com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e newborn), portfólio em 3 abas (Gestante e newborn, 10; Smash the cake, 6; Infantil e família, 9), a Arantes, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Transformar um cenário em magia\": o ensaio, os cenários (2 quadros do vídeo de 04/11 e a capa), a agenda de exemplo (6 dias de fim de semana de 14/11 a 05/12) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (gestantes de 24/10 e 30/10, até 4096 px; newborns de 25 e 27/10; a capa do vídeo de Natal, 1215 px), 2 quadros do vídeo de Natal (720 px, cortados sem a legenda), a página do Instagram salva no Drive (2018-2019, 1080 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as colagens, a foto com o texto de uma avaliação, a gestante sem blusa com as flores, a arte de sorteio e de promoção e as fotos borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Meu dom é transformar momentos em lembranças que ficam para sempre... O Natal 2026 da Arantes Fotografia já está acontecendo! Poucas vagas\" (04/11), \"Seu corpo está escrevendo uma história...\" (24/10), \"quando seu bebê ainda cabia inteirinho no seu colo\" (27/10), o chá revelação (26/10) e \"Ensaio em estúdio, com cenário e figurino incluso\".",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "Descobrir o nome de quem atende antes de mandar (o perfil mostra um casal; as avaliações dizem \"ele\" e \"a equipe\"). Se for o caso, trocar \"Arantes\" pelo nome na faixa e nos textos.",
+   "A foto do \"quem fotografa\" é a do perfil do Instagram (casal com uma menina, no Natal): conferir se são os donos.",
+   "Horários: a agenda é exemplo; o Google não mostra horário.",
+   "Fotos de bebês e crianças: todas publicadas por eles como portfólio. Vale confirmar se podem usar todas no site."
+  ]
+ }
+}
