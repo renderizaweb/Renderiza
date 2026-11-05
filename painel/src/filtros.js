@@ -105,36 +105,44 @@ export const CAMPOS = [
     l => { const m = [l.nao_contatar && "nao_contatar", l.revisar && "revisar"].filter(Boolean); return m.length ? m : [SEM]; },
     () => [sim("Não contatar", "nao_contatar"), sim("Marcado para revisar", "revisar"), sim("Sem marcação")]),
 ];
-export const campo = id => CAMPOS.find(c => c.id === id) || null;
 
-/* ---------- aplicar ---------- */
-/** Filtro com campo conhecido e algo escolhido; o resto é descartado (ex.: o que veio de uma versão antiga). */
-export function valido(f) {
-  const c = f && campo(f.campo);
-  if (!c) return false;
-  if (c.tipo === "lista") return Array.isArray(f.valores) && f.valores.length > 0;
-  return c.periodos.includes(f.periodo) && (f.periodo !== "intervalo" || !!(f.de || f.ate));
+/**
+ * A lógica dos filtros para uma lista de campos (os do Pipeline aqui; os da tela Atividade em filtros-atividade.js).
+ * Os itens são o que a tela filtra (leads, visitas…): cada campo diz os valores de um item.
+ */
+export function modeloDeFiltros(campos, grupos) {
+  const campo = id => campos.find(c => c.id === id) || null;
+  /** Filtro com campo conhecido e algo escolhido; o resto é descartado (ex.: o que veio de uma versão antiga). */
+  function valido(f) {
+    const c = f && campo(f.campo);
+    if (!c) return false;
+    if (c.tipo === "lista") return Array.isArray(f.valores) && f.valores.length > 0;
+    return c.periodos.includes(f.periodo) && (f.periodo !== "intervalo" || !!(f.de || f.ate));
+  }
+  const limpar = filtros => (Array.isArray(filtros) ? filtros.filter(valido).map(f => ({ ...f })) : []);
+  function passa(item, f, ctx) {
+    const c = campo(f.campo);
+    if (c.tipo === "data") return noPeriodo(c.dia(item, ctx), f, ctx.hoje);
+    const tem = c.valores(item, ctx).some(v => f.valores.includes(v));
+    return f.op === "nao" ? !tem : tem;
+  }
+  /** Itens que passam em todos os filtros (menos o do campo `exceto`, para contar as opções dele). */
+  const aplicar = (itens, filtros, ctx, exceto = null) =>
+    itens.filter(item => filtros.every(f => f.campo === exceto || !valido(f) || passa(item, f, ctx)));
+  /** Quantos itens há em cada opção do campo, considerando os outros filtros. */
+  function contar(itens, filtros, c, ctx) {
+    const base = aplicar(itens, filtros, ctx, c.id);
+    const conta = new Map();
+    if (c.tipo === "lista") for (const item of base) for (const v of new Set(c.valores(item, ctx))) conta.set(v, (conta.get(v) || 0) + 1);
+    else for (const p of c.periodos) if (p !== "intervalo") conta.set(p, base.filter(item => noPeriodo(c.dia(item, ctx), { periodo: p }, ctx.hoje)).length);
+    return conta;
+  }
+  return { campos, grupos, campo, valido, limpar, passa, aplicar, contar, descrever: (f, opcoes) => descreverCom(campo, f, opcoes) };
 }
-export const limpar = filtros => (Array.isArray(filtros) ? filtros.filter(valido).map(f => ({ ...f })) : []);
 
-export function passa(l, f, ctx) {
-  const c = campo(f.campo);
-  if (c.tipo === "data") return noPeriodo(c.dia(l, ctx), f, ctx.hoje);
-  const tem = c.valores(l, ctx).some(v => f.valores.includes(v));
-  return f.op === "nao" ? !tem : tem;
-}
-/** Leads que passam em todos os filtros (menos o do campo `exceto`, para contar as opções dele). */
-export const aplicar = (leads, filtros, ctx, exceto = null) =>
-  leads.filter(l => filtros.every(f => f.campo === exceto || !valido(f) || passa(l, f, ctx)));
-
-/** Quantos leads há em cada opção do campo, considerando os outros filtros. */
-export function contar(leads, filtros, c, ctx) {
-  const base = aplicar(leads, filtros, ctx, c.id);
-  const conta = new Map();
-  if (c.tipo === "lista") for (const l of base) for (const v of new Set(c.valores(l, ctx))) conta.set(v, (conta.get(v) || 0) + 1);
-  else for (const p of c.periodos) if (p !== "intervalo") conta.set(p, base.filter(l => noPeriodo(c.dia(l, ctx), { periodo: p }, ctx.hoje)).length);
-  return conta;
-}
+/** Os filtros do Pipeline (os nomes de sempre). */
+export const PIPELINE = modeloDeFiltros(CAMPOS, GRUPOS);
+export const { campo, valido, limpar, passa, aplicar, contar } = PIPELINE;
 
 /* ---------- mudar ---------- */
 /** Liga ou desliga um valor no filtro do campo (cria o filtro se precisar; some quando fica vazio). */
@@ -152,7 +160,8 @@ export const tirar = (filtros, idCampo) => filtros.filter(f => f.campo !== idCam
 /* ---------- texto do filtro ---------- */
 const dm = d => (d ? d.slice(8, 10) + "/" + d.slice(5, 7) : "");
 /** {campo, operador, valores} para o chip: "Etapa" "é um de" "Em conversa, Sem resposta". */
-export function descrever(f, opcoes) {
+export const descrever = (f, opcoes) => descreverCom(campo, f, opcoes);
+function descreverCom(campo, f, opcoes) {
   const c = campo(f.campo);
   if (c.tipo === "data") {
     const texto = f.periodo !== "intervalo" ? PERIODOS[f.periodo].toLowerCase()

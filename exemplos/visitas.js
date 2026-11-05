@@ -113,7 +113,10 @@
         if (el.matches("[data-rz-garantir]")) return { alvo: "oferta", texto: "garantir" };
         if (el.matches("[data-rz-negociar]")) return { alvo: "oferta", texto: "negociar" };
         if (el.dataset.rzAlvo) return { alvo: el.dataset.rzAlvo }; // botões nossos: faixa do valor, reabrir a demo
-        if (/wa\.me\/|api\.whatsapp\.com|whatsapp:\/\//i.test(href)) return { whatsapp: true };
+        // Demo de fotógrafa: a pílula e o "Ver a condição" da faixa abrem o card de valor da Renderiza.
+        if (el.matches(".rz-pilula, .rz-abrir")) return { alvo: "valor" };
+        // WhatsApp: o do cliente (o botão do site da demo) ou o da Renderiza (o mesmo número do site da Renderiza).
+        if (/wa\.me\/|api\.whatsapp\.com|whatsapp:\/\//i.test(href)) return { whatsapp: true, renderiza: href.includes("5511988697165") };
         if (el.matches("[data-directions]") || /maps\/dir|destination=|waze\.com/i.test(href)) return { alvo: "rota" };
         if (el.matches("[data-review-write]")) return { alvo: "avaliar" };
         if (el.matches("[data-reviews-link]")) return { alvo: "avaliacoes" };
@@ -142,7 +145,7 @@
           const c = el && cliqueDe(el);
           if (!c) return;
           const parte = parteDe(el);
-          if (c.whatsapp) { window.rzVisita("clicou_whatsapp", { onde: fora ? "fora" : "demo", ...(parte ? { parte } : {}) }, "demo"); return; }
+          if (c.whatsapp) { window.rzVisita("clicou_whatsapp", { onde: fora ? "fora" : "demo", ...(c.renderiza && !fora ? { para: "renderiza" } : {}), ...(parte ? { parte } : {}) }, "demo"); return; }
           const chave = c.alvo + ":" + (c.para || c.texto || "");
           if (jaClicou.has(chave) || jaClicou.size >= 25) return;
           jaClicou.add(chave);

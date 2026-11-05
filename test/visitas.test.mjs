@@ -94,7 +94,7 @@ test("build: a demo sai com o contador e a pasta; sem </head> ou já com o conta
 
 test("textos e lugares da demo", () => {
   assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo" }), "Abriu a demo do site");
-  assert.equal(textoDoPasso({ evento: "clicou_whatsapp", pagina: "demo", detalhe: { onde: "demo" } }), "Clicou no WhatsApp da loja, na demo");
+  assert.equal(textoDoPasso({ evento: "clicou_whatsapp", pagina: "demo", detalhe: { onde: "demo" } }), "Clicou no WhatsApp do próprio site, na demo (testou o botão)");
   assert.equal(textoDoPasso({ evento: "rolou_fim", pagina: "demo" }), "Rolou até o fim da demo");
   assert.equal(lugarDe({ pagina: "demo", demo: "otica-nina" }), "Demo otica-nina");
   assert.equal(lugarDe({ pagina: "exemplos" }), "Página do Painel Renderiza");
@@ -110,7 +110,7 @@ test("atividade: todos os leads, a última ação primeiro, e quem é nosso vale
   ];
   const g = atividade(visitas);
   assert.deepEqual(g.map(x => [x.lead_id, x.quem]), [["nina", "cliente"], ["lira", "equipe_ip"], ["nina", "equipe"], ["lira", "equipe"]]);
-  assert.equal(g[0].passos.at(-1).texto, "Clicou no WhatsApp da loja, na demo");
+  assert.equal(g[0].passos.at(-1).texto, "Clicou no WhatsApp do próprio site, na demo (testou o botão)");
   const r = resumoDaAtividade(g);
   assert.deepEqual(r, { visitas: 1, leads: 1, demos: 1, whatsapp: 1, nossas: 3 });
 });
@@ -191,9 +191,9 @@ test("a visita numa frase, sem termo técnico", () => {
   const D = (min, evento, detalhe = {}) => V(min, evento, { pagina: "demo", demo: "otica-nina", detalhe });
   const frase = vs => fraseDaVisita(agruparVisitas(vs)[0]);
   assert.equal(frase([D(0, "abriu")]), "abriu a demo");
-  assert.equal(frase([D(0, "abriu"), D(1, "rolou_fim"), D(2, "clicou_whatsapp", { onde: "demo" })]), "abriu a demo, viu até o fim e clicou no WhatsApp da loja");
+  assert.equal(frase([D(0, "abriu"), D(1, "rolou_fim"), D(2, "clicou_whatsapp", { onde: "demo" })]), "abriu a demo, viu até o fim e clicou no WhatsApp do site");
   assert.equal(frase([D(0, "abriu"), D(1, "clicou", { alvo: "menu", para: "Sobre" }), D(2, "clicou", { alvo: "menu", para: "Armações" }), D(3, "clicou", { alvo: "instagram" }),
-    D(4, "rolou_fim"), D(5, "clicou", { alvo: "rota" }), D(6, "clicou_whatsapp")]), "abriu a demo, abriu o Instagram, pediu a rota até a loja e clicou no WhatsApp da loja", "longa: menu e fim saem primeiro (ficam nos detalhes)");
+    D(4, "rolou_fim"), D(5, "clicou", { alvo: "rota" }), D(6, "clicou_whatsapp")]), "abriu a demo, abriu o Instagram, pediu a rota até a loja e clicou no WhatsApp do site", "longa: menu e fim saem primeiro (ficam nos detalhes)");
   assert.equal(frase([V(0, "abriu"), V(1, "viu_precos"), V(2, "viu_detalhes", { detalhe: { m: "financeiro" } }), V(3, "viu_detalhes", { detalhe: { m: "contratos" } })]),
     "abriu o link do painel, chegou nos preços e viu os detalhes de 2 módulos");
   assert.equal(frase([V(0, "abriu"), V(1, "abriu_exemplo", { detalhe: { qual: "financeiro" } }), V(2, "abriu", { pagina: "painel-eventos", sessao: "s2" }), V(3, "mudou_tela", { pagina: "painel-eventos", sessao: "s2" })]),

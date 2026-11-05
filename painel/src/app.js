@@ -968,7 +968,7 @@ function secaoDemo(id) {
   // Quem abriu a demo (o contador entra na demo pelo build; o lead vem do link_demo).
   const mapa = mapaDeVisitas(id, daDemo, {
     ninguem: "Ninguém abriu a demo ainda.", soVoces: "Só vocês abriram a demo até agora.",
-    sinais: r => [r.precos && "viu o valor", r.fim && "viu até o fim", r.whatsapp && "clicou no WhatsApp da loja", r.cliques.includes("reabrir") && "reabriu pelo botão",
+    sinais: r => [r.precos && "viu o valor", r.fim && "viu até o fim", r.whatsapp && "clicou no WhatsApp do site", r.cliques.includes("reabrir") && "reabriu pelo botão",
       r.cliques.includes("instagram") && "abriu o Instagram", r.cliques.includes("rota") && "pediu a rota", r.cliques.includes("avaliacoes") && "viu as avaliações",
       r.aparelhos > 1 && `abriu em ${r.aparelhos} aparelhos`],
   });

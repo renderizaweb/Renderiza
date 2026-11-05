@@ -167,14 +167,25 @@ fica em **respondeu, a avaliar** até alguém marcar o interesse ou o não. Regi
 Só leitura, em `/painel#atividade` (contas em `src/visitas.js`, testes em `test/visitas.test.mjs`). Uma linha do
 tempo de todos os leads, a última ação primeiro, agrupada por dia. Cada visita é uma linha curta, sem termo técnico:
 quem foi (**Cliente**, **Vocês** ou **Provavelmente vocês**), o lead e o que fez numa frase ("Ótica Nina abriu a
-demo, viu até o fim e clicou no WhatsApp da loja"), embaixo "Ficou 2 min, mais tempo em Armações", e à direita há
+demo, viu até o fim e clicou no WhatsApp do site"), embaixo "Ficou 2 min, mais tempo em Armações", e à direita há
 quanto tempo foi ou **vendo agora** (a página ainda aberta). Clicar abre os detalhes: **Abrir o lead**, **Abrir a
 demo**, aparelho, cidade, IP e horário, **O que mais olhou** (tempo em cada parte da demo, em barras) e o passo a
-passo com a hora. No topo: clientes vendo agora, visitas de clientes, leads diferentes, demos abertas e cliques no
-WhatsApp.
+passo com a hora.
 
-- **Filtros:** quem (Todos, Clientes, Vocês), onde (Tudo, Link do painel, Demos), período (Hoje, 7 dias, 30 dias,
-  Tudo) e busca por lead, pasta da demo, cidade ou IP. A escolha fica salva no navegador (a busca não).
+- **Filtros** (05/11/2026): na barra, o período (Hoje, 7 dias, 30 dias, Tudo) e a busca por lead, pasta da demo,
+  cidade ou IP; o resto no botão **Filtrar**, com os mesmos chips do Pipeline ("é" / "não é", vários valores, a
+  contagem de cada opção). Campos (`src/filtros-atividade.js`): **Fez** (viu o valor, clicou em Garantir ou Negociar,
+  chamou vocês no WhatsApp, clicou no WhatsApp do site, foi até o fim, abriu a página de Natal, mexeu no exemplo do
+  painel, voltou na demo vencida, outro aparelho, só olhou), **Clicou em** (Menu: Portfólio, Botões em Portfólio,
+  Card de valor da Renderiza, Instagram…), **Parte que viu**, **Tempo na visita** (faixas), **Quem abriu**, **Onde**
+  (demo ou link do painel), **Aparelho**, **Nicho** e **Etapa do lead**. Os filtros e o período ficam salvos no
+  navegador (a busca não); as abas antigas Quem e Onde viram chips.
+- **Números e indicadores do que está filtrado** (só clientes, a menos que o filtro Quem abriu diga outra coisa):
+  vendo agora, visitas, leads, tempo por visita (mediana), % que foi até o fim, leads que viram o valor, que clicaram
+  no WhatsApp do site e, quando houver, que chamaram vocês ou clicaram em Garantir. **Ver os indicadores** abre três
+  quadros: onde ficaram mais tempo (tempo somado, médio e % das visitas), em que clicaram (leads e visitas) e quem
+  mais se interessou (pontos por visitas, tempo, valor visto, WhatsApp e oferta; clicar abre o lead). Ex.: Fez →
+  Clicou no WhatsApp do site mostra quem foi; Fez → Viu o valor, quem viu o valor.
 - **Ao vivo:** o tempo real do Supabase traz a visita na hora; com a tela aberta, ela também lê a tabela de novo a
   cada 30 s (e ao voltar para a aba), e o botão **Atualizar** lê na hora. O que chegou depois da última vez que a
   tela foi aberta pisca, e o menu mostra quantas visitas de clientes são novas.
@@ -182,7 +193,9 @@ WhatsApp.
   **Vocês**, em qualquer lead; outro aparelho no mesmo IP de uma visita nossa é **Provavelmente vocês**.
 - **Demos:** o build põe o contador em cada `/demo/<pasta>` e o banco acha o lead pelo `link_demo`: o link da demo
   continua o mesmo (sem parâmetro), e os já enviados contam também. A demo manda: abriu, rolou até o fim, os
-  cliques (WhatsApp da loja, Instagram, rota, mapa, avaliações, telefone, menu e botões, com a parte onde foi) e o
+  cliques (WhatsApp do site, Instagram, rota, mapa, avaliações, telefone, menu e botões, com a parte onde foi; o card
+  de valor da Renderiza nas demos de fotógrafa vai como `alvo: "valor"` e o WhatsApp da Renderiza com `para:
+  "renderiza"`, desde 05/11/2026; o clique antigo "Renderiza R$ …" conta como valor) e o
   tempo em cada parte (capa, sobre, armações…; o nome vem do menu, do aria-label ou do título). O tempo vai a cada
   30 s com a página aberta e ao sair: é o que dá o **vendo agora** (notícia há menos de 75 s, sem ter saído). No
   lead, a seção **Demo** mostra **Quem abriu a demo** com "Mais tempo em…"; o selo "abriu" do cartão conta demo e

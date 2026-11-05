@@ -5,7 +5,7 @@
 
 import { h } from "./dom.js";
 import { icone } from "./icones.js";
-import { CAMPOS, GRUPOS, SEM, PERIODOS, campo, contar, alternarValor, definirPeriodo, alternarOperador, tirar, descrever } from "./filtros.js";
+import { PIPELINE, SEM, PERIODOS, alternarValor, definirPeriodo, alternarOperador, tirar } from "./filtros.js";
 
 const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
@@ -57,10 +57,14 @@ function abrirPop(gatilho) {
 }
 
 /**
- * @param {{leads: () => Array, ctx: () => object, ler: () => Array, gravar: (filtros) => void}} o
+ * @param {{leads: () => Array, ctx: () => object, ler: () => Array, gravar: (filtros) => void,
+ *   modelo?: object, nomes?: [string, string]}} o  modelo: os campos e a lógica (modeloDeFiltros; padrão, o do
+ *   Pipeline); leads: os itens que a tela filtra; nomes: como contar ("lead", "leads").
  * @returns {{botao: HTMLElement, faixa: HTMLElement, atualizar: (visiveis: number, total: number) => void, fechar: () => void}}
  */
 export function criarFiltros(o) {
+  const { campos: CAMPOS, grupos: GRUPOS, campo, contar, descrever } = o.modelo || PIPELINE;
+  const [um, varios] = o.nomes || ["lead", "leads"];
   const contador = h("span", { class: "filtro-contador", hidden: true });
   const botao = h("button", { type: "button", class: "btn btn-outline botao-filtrar", "aria-haspopup": "dialog", "aria-expanded": "false" },
     icone("filtro", 16), h("span", { text: "Filtrar" }), contador);
@@ -222,7 +226,7 @@ export function criarFiltros(o) {
       contador.hidden = !filtros.length;
       contador.textContent = String(filtros.length);
       botao.classList.toggle("com-filtro", filtros.length > 0);
-      conta.textContent = `${visiveis} de ${total} ${total === 1 ? "lead" : "leads"}`;
+      conta.textContent = `${visiveis} de ${total} ${total === 1 ? um : varios}`;
       if (aberto && aberto.el.isConnected) aberto.posicionar();
     },
   };

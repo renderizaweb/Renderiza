@@ -26,6 +26,14 @@ const LUGARES = { exemplos: "Página do Painel Renderiza", "painel-eventos": "Ex
 export const lugarDe = v => (daDemo(v) ? "Demo " + (v.demo || "") : LUGARES[v.pagina] || v.pagina).trim();
 const reais = v => "R$ " + Number(v || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+/**
+ * O alvo de um clique na demo. "valor": abriu o card de valor da Renderiza (a pílula ou "Ver a condição"); antes de
+ * 05/11/2026 a página gravava esse clique como um botão "Renderiza R$ 399 · até …", que conta igual.
+ */
+export const alvoDoClique = d => (!d ? "" : d.alvo === "botao" && /^Renderiza R\$/.test(String(d.texto || "")) ? "valor" : d.alvo || "");
+/** O WhatsApp clicado é o da Renderiza (a página de demo fora do ar ou o número da Renderiza), não o do cliente. */
+export const whatsappDaRenderiza = (v, d = v.detalhe || {}) => d.para === "renderiza" || d.onde === "fora" || (v.pagina !== "demo" && v.evento === "clicou_whatsapp");
+
 /** O que a pessoa fez, em português. Tempo na página não é passo (vira a duração da visita). */
 export function textoDoPasso(v) {
   const d = v.detalhe || {};
@@ -36,7 +44,8 @@ export function textoDoPasso(v) {
     case "abriu_exemplo": return d.qual === "agenda online" ? "Foi testar a agenda online" : "Foi ver no exemplo " + (TELAS[d.qual] || "o painel");
     case "mudou_tela": return "No exemplo, abriu " + (TELAS[d.tela] || "outra tela");
     case "clicou_whatsapp": {
-      if (daDemo(v)) return d.onde === "fora" ? "Chamou vocês no WhatsApp para liberar a demo de novo" : "Clicou no WhatsApp da loja, na demo";
+      if (daDemo(v)) return d.onde === "fora" ? "Chamou vocês no WhatsApp para liberar a demo de novo"
+        : d.para === "renderiza" ? "Chamou vocês no WhatsApp (botão da Renderiza na demo)" : "Clicou no WhatsApp do próprio site, na demo (testou o botão)";
       const mods = Array.isArray(d.modulos) ? d.modulos.map(m => MODULOS[m] || m) : [];
       return mods.length ? `Clicou no WhatsApp com o plano: ${mods.join(", ")}${d.total ? ` (${reais(d.total)}/mês)` : ""}` : "Clicou no WhatsApp";
     }
@@ -44,6 +53,7 @@ export function textoDoPasso(v) {
     case "rolou_fim": return "Rolou até o fim d" + (v.pagina === "exemplos" ? "a página" : v.pagina === "agenda-online" ? "a agenda" : daDemo(v) ? "a demo" : "o exemplo");
     case "clicou": {
       const onde = d.parte ? ` (em ${d.parte})` : "";
+      if (alvoDoClique(d) === "valor") return "Abriu o card de valor da Renderiza" + onde;
       if (d.alvo === "menu") return "Pelo menu, foi para " + (d.para || "outra parte");
       if (d.alvo === "botao") return `Clicou em "${d.texto || "um botão"}"` + onde;
       if (d.alvo === "link") return "Abriu um link" + (d.para ? ` (${d.para})` : "");
@@ -60,8 +70,8 @@ const CLIQUES = { reabrir: "Reabriu a demo por 1 hora (botão grátis)", faixa: 
   mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["reabrir", "faixa", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
-const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has((v.detalhe || {}).alvo)) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
+const CLIQUES_FORTES = new Set(["reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
+const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has(alvoDoClique(v.detalhe))) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
 
 /** IPs vistos em visitas marcadas como nossas: outra visita com o mesmo IP provavelmente também é nossa. */
 export const ipsDaEquipe = visitas => new Set(visitas.filter(v => v.equipe && v.ip).map(v => v.ip));
@@ -156,7 +166,7 @@ const ABERTURAS = { demo: "abriu a demo", exemplos: "abriu o link do painel", "p
 const MENOS_IMPORTANTE = ["botoes", "menu", "telas", "fim", "clicou:mapa", "clicou:email", "clicou:facebook", "clicou:tiktok"];
 
 /**
- * A visita numa frase, sem termo técnico: "abriu a demo, viu até o fim e clicou no WhatsApp da loja". Na ordem
+ * A visita numa frase, sem termo técnico: "abriu a demo, viu até o fim e clicou no WhatsApp do site". Na ordem
  * em que aconteceu, no máximo 4 coisas (o que é menos importante sai primeiro; tudo fica nos detalhes).
  */
 export function fraseDaVisita(g) {
@@ -173,7 +183,8 @@ export function fraseDaVisita(g) {
     else if (p.evento === "viu_detalhes") { modulos.add(MODULOS[d.m] || d.m || "um módulo"); add("detalhes", () => (modulos.size === 1 ? "viu os detalhes de " + [...modulos][0] : `viu os detalhes de ${modulos.size} módulos`)); }
     else if (p.evento === "pediu_reserva") add("reserva", () => "fez uma reserva de teste");
     else if (p.evento === "rolou_fim") add("fim", () => (p.pagina === "demo" ? "viu até o fim" : "rolou até o fim"));
-    else if (p.evento === "clicou_whatsapp") add("whatsapp", () => (d.onde === "fora" ? "chamou vocês no WhatsApp" : p.pagina === "demo" ? "clicou no WhatsApp da loja" : "clicou no WhatsApp"));
+    else if (p.evento === "clicou_whatsapp") add("whatsapp", () => (d.onde === "fora" || d.para === "renderiza" ? "chamou vocês no WhatsApp" : p.pagina === "demo" ? "clicou no WhatsApp do site" : "clicou no WhatsApp"));
+    else if (p.evento === "clicou" && alvoDoClique(d) === "valor") add("precos", () => "abriu o valor do site");
     else if (p.evento === "clicou" && ALVOS[d.alvo]) add("clicou:" + d.alvo, () => ALVOS[d.alvo]);
     else if (p.evento === "clicou" && d.alvo === "menu") add("menu", () => "usou o menu");
     else if (p.evento === "clicou" && d.alvo === "botao") { botoes++; ultimoBotao = d.texto || ""; add("botoes", () => (botoes > 1 || !ultimoBotao ? `clicou em ${botoes > 1 ? botoes + " botões" : "um botão"}` : `clicou em "${ultimoBotao}"`)); }
@@ -283,5 +294,91 @@ export function resumoDaAtividade(grupos) {
     demos: new Set(passos.filter(p => p.pagina === "demo").map(p => p.demo)).size,
     whatsapp: passos.filter(p => p.evento === "clicou_whatsapp").length,
     nossas: grupos.length - doCliente.length,
+  };
+}
+
+/* ---------- filtros e indicadores da tela Atividade ---------- */
+
+/** O que a visita teve de importante (o campo "Fez" dos filtros da Atividade). */
+export const SINAIS = [
+  ["valor", "Viu o valor"], ["oferta", "Clicou em Garantir ou Negociar"], ["whatsapp_renderiza", "Chamou vocês no WhatsApp"],
+  ["whatsapp", "Clicou no WhatsApp do site"], ["fim", "Foi até o fim"], ["natal", "Abriu a página de Natal"],
+  ["exemplo", "Mexeu no exemplo do painel"], ["reabriu", "Voltou na demo vencida"], ["repasse", "Outro aparelho"],
+];
+export function sinaisDaVisita(g) {
+  const s = new Set();
+  for (const p of g.passos) {
+    const d = p.detalhe || {}, v = { evento: p.evento, pagina: p.pagina, detalhe: d };
+    if (p.evento === "viu_precos" || (p.evento === "clicou" && ["valor", "faixa"].includes(alvoDoClique(d)))) s.add("valor");
+    if (p.evento === "clicou" && d.alvo === "oferta") s.add("oferta");
+    if (p.evento === "clicou_whatsapp") s.add(whatsappDaRenderiza(v) ? "whatsapp_renderiza" : "whatsapp");
+    if (p.evento === "rolou_fim") s.add("fim");
+    if (p.evento === "abriu" && d.sub === "natal") s.add("natal");
+    if (["abriu_exemplo", "mudou_tela", "viu_detalhes", "pediu_reserva"].includes(p.evento)) s.add("exemplo");
+    if ((p.evento === "abriu" && d.fora) || (p.evento === "clicou" && d.alvo === "reabrir")) s.add("reabriu");
+  }
+  if (g.repasse) s.add("repasse");
+  return s;
+}
+
+/** Em que clicou, agrupado para filtrar e contar ("Menu: Portfólio", "Botões em Portfólio", "Instagram"…). */
+const NOMES_DOS_CLIQUES = { reabrir: "Reabrir a demo", faixa: "Faixa do valor", valor: "Card de valor da Renderiza", oferta: "Garantir ou Negociar",
+  instagram: "Instagram", facebook: "Facebook", tiktok: "TikTok", rota: "Rota", mapa: "Mapa", avaliacoes: "Avaliações no Google",
+  avaliar: "Avaliar no Google", telefone: "Telefone", email: "E-mail", link: "Link para outro site" };
+export function categoriaDoClique(p) {
+  const d = p.detalhe || {};
+  if (p.evento === "clicou_whatsapp") return whatsappDaRenderiza({ evento: p.evento, pagina: p.pagina, detalhe: d }) ? "WhatsApp da Renderiza" : "WhatsApp do site";
+  if (p.evento !== "clicou") return null;
+  const alvo = alvoDoClique(d);
+  if (alvo === "menu") return "Menu: " + (d.para || "outra parte");
+  if (alvo === "botao") return /^fechar$/i.test(String(d.texto || "").trim()) ? null : d.parte ? "Botões em " + d.parte : "Outros botões";
+  return NOMES_DOS_CLIQUES[alvo] || "Outros cliques";
+}
+
+const mediana = ns => { if (!ns.length) return 0; const o = [...ns].sort((a, b) => a - b), m = Math.floor(o.length / 2); return o.length % 2 ? o[m] : Math.round((o[m - 1] + o[m]) / 2); };
+
+/**
+ * Indicadores de um recorte de visitas (a tela Atividade, depois dos filtros): visitas, leads, tempo, quantas foram
+ * até o fim, quantos leads viram o valor, chamaram no WhatsApp ou clicaram na oferta, o tempo em cada parte e os
+ * cliques. `pontos` ordena os leads (mesma régua do painel de indicadores das demos de fotógrafa).
+ */
+export function indicadoresDaAtividade(grupos) {
+  const porLead = new Map(), partes = new Map(), cliques = new Map();
+  let fim = 0;
+  for (const g of grupos) {
+    const sinais = sinaisDaVisita(g);
+    if (sinais.has("fim")) fim++;
+    const l = porLead.get(g.lead_id) || { lead_id: g.lead_id, visitas: 0, segundos: 0, sinais: new Set(), ultima: g.fim };
+    l.visitas++; l.segundos += g.segundos || 0;
+    for (const x of sinais) l.sinais.add(x);
+    if (Date.parse(g.fim) > Date.parse(l.ultima)) l.ultima = g.fim;
+    porLead.set(g.lead_id, l);
+    for (const [nome, s] of g.secoes || []) { const x = partes.get(nome) || { nome, visitas: 0, segundos: 0 }; x.visitas++; x.segundos += s; partes.set(nome, x); }
+    const vistos = new Set();
+    for (const p of g.passos) {
+      const c = categoriaDoClique(p);
+      if (!c) continue;
+      const x = cliques.get(c) || { nome: c, cliques: 0, leads: new Set() };
+      if (!vistos.has(c)) { x.cliques++; vistos.add(c); }
+      x.leads.add(g.lead_id);
+      cliques.set(c, x);
+    }
+  }
+  const leads = [...porLead.values()].map(l => ({ ...l,
+    pontos: Math.min(l.visitas, 5) + Math.min(Math.floor(l.segundos / 60), 5) + (l.sinais.has("fim") ? 1 : 0) + (l.sinais.has("repasse") ? 2 : 0)
+      + (l.sinais.has("whatsapp") ? 2 : 0) + (l.sinais.has("valor") ? 3 : 0) + (l.sinais.has("whatsapp_renderiza") ? 5 : 0) + (l.sinais.has("oferta") ? 5 : 0) }))
+    .sort((a, b) => b.pontos - a.pontos || b.segundos - a.segundos || Date.parse(b.ultima) - Date.parse(a.ultima));
+  const com = sinal => leads.filter(l => l.sinais.has(sinal)).length;
+  const comTempo = grupos.map(g => g.segundos || 0).filter(s => s > 0);
+  return {
+    visitas: grupos.length,
+    leads: leads.length,
+    segundosMediana: mediana(comTempo),
+    fim, fimPct: grupos.length ? Math.round(100 * fim / grupos.length) : 0,
+    valor: com("valor"), whatsapp: com("whatsapp"), whatsappRenderiza: com("whatsapp_renderiza"), oferta: com("oferta"),
+    partes: [...partes.values()].map(x => ({ ...x, media: Math.round(x.segundos / x.visitas), pct: grupos.length ? Math.round(100 * x.visitas / grupos.length) : 0 }))
+      .sort((a, b) => b.segundos - a.segundos || b.media - a.media),
+    cliques: [...cliques.values()].map(x => ({ nome: x.nome, cliques: x.cliques, leads: x.leads.size })).sort((a, b) => b.leads - a.leads || b.cliques - a.cliques),
+    porLead: leads,
   };
 }

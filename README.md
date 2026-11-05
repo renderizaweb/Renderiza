@@ -127,11 +127,14 @@ inventado, a **Villa Alecrim**:
   loja, Instagram, rota, mapa, avaliações, telefone, menu e botões; evento `clicou`), o tempo em cada parte da página
   (`detalhe.secoes` do `tempo`, mandado a cada 30 s e ao sair) e o banco acha o lead pelo `link_demo` (coluna
   `visitas.demo`). O link da demo não muda nem ganha parâmetro: os já enviados contam. Aberta do disco ou com
-  `?video=1`, não conta. No painel, a tela **Atividade** (`/painel#atividade`) junta tudo numa linha do tempo ao vivo, com filtros
-  de quem (cliente ou vocês), onde (link do painel ou demos), período e busca (`painel/README.md`).
+  `?video=1`, não conta. No painel, a tela **Atividade** (`/painel#atividade`) junta tudo numa linha do tempo ao vivo, com período,
+  busca e o botão Filtrar (o que fez, em que clicou, parte que viu, tempo, quem, onde, aparelho, nicho e etapa) e os
+  indicadores do que está filtrado (`painel/README.md`).
   **Outras páginas da demo** (ex.: `natal.html` das fotógrafas, `artes-instagram.html`) também contam, para o mesmo
   lead, com o nome da página no `abriu` (`detalhe.sub`). Os botões da **oferta da Renderiza** na demo (Garantir o meu /
-  Negociar, `data-rz-garantir`/`data-rz-negociar`) são um clique à parte (`alvo: "oferta"`), separado do WhatsApp da loja.
+  Negociar, `data-rz-garantir`/`data-rz-negociar`) são um clique à parte (`alvo: "oferta"`), separado do WhatsApp do site.
+  A pílula e o "Ver a condição" das demos de fotógrafa (`.rz-pilula`, `.rz-abrir`) vão como `alvo: "valor"`, e um
+  WhatsApp para o número da Renderiza vai com `para: "renderiza"`.
 - **Valor dentro da demo (28/10/2026):** as demos da lista de `site/ofertas.mjs` (as 16 de eventos até 31/10) saem
   do build com uma faixa no topo e um card de valor no fim do conteúdo (`site/oferta-na-demo.mjs`, `comOferta`),
   com as cores da própria demo e os dias que faltam; depois do prazo, os dois somem sozinhos. O contador vê o card

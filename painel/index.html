@@ -562,6 +562,19 @@ button.lead-chip:hover{filter:brightness(.96)}
 .atv-parte-tempo{text-align:right;color:var(--muted-foreground);font-variant-numeric:tabular-nums}
 .atv-numero.agora{background:#e3f5ec;border-color:#bfe5d0}
 .atv-numero.agora strong{color:#16714a}
+.atv-ver-ind{align-self:center;gap:6px}
+.atv-ind{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px;margin:-8px 0 22px}
+.atv-ind-bloco{background:#fff;border:1px solid #dfe7e2;border-radius:11px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.atv-ind-bloco h3{margin:0;font-size:.9375rem;font-weight:650}
+.atv-ind-nota{margin:0;font-size:.75rem;color:var(--muted-foreground)}
+.atv-ind-lista{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.atv-ind-lista li{display:grid;grid-template-columns:minmax(80px,150px) minmax(40px,1fr) auto;align-items:center;gap:10px;font-size:.8125rem}
+.atv-ind-lista .atv-parte-tempo{white-space:nowrap}
+.atv-ind-leads{margin:0;padding-left:18px;display:grid;gap:7px;font-size:.8125rem}
+.atv-ind-leads li{display:grid;gap:1px;min-width:0}
+.atv-ind-leads .text-link{justify-self:start;text-align:left;font-weight:600}
+.atv-ind-meta{color:var(--muted-foreground)}
+.atv-ind-vazio{margin:0;font-size:.8125rem;color:var(--muted-foreground)}
 .atv-passos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:.8125rem}
 .atv-passos li{display:flex;gap:10px}
 .atv-passos time{flex:none;width:40px;color:var(--muted-foreground);font-variant-numeric:tabular-nums}
@@ -578,6 +591,8 @@ button.lead-chip:hover{filter:brightness(.96)}
   .atv-quando{padding-top:2px}
   .atv-detalhes{padding:2px 12px 12px}
   .atv-partes li{grid-template-columns:minmax(70px,110px) 1fr 64px;gap:8px}
+  .atv-ind-lista li{grid-template-columns:minmax(70px,120px) minmax(30px,1fr) auto;gap:8px}
+  .atv-ver-ind{flex:1 1 100%;justify-content:center}
 }
 .chip-demo{display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;background:#dceee1;color:#1f5a45;text-decoration:none}
 .chip-demo:hover{background:#cfe4d6}
