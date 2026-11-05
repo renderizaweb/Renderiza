@@ -315,3 +315,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Guilherme Nascimento (fotógrafo)](demos/guilherme-nascimento-fotografia) | Km 18, Osasco | site + página de Natal (`/natal`, “Onde o Natal acontece”) | pronta · 05/11/2026 (fotógrafos lote 2 · 19ª) |
 | [Michele Rabetti Fotografia (fotógrafa)](demos/michele-rabetti-fotografia) | Jaguaribe, Osasco | site + página de Natal (`/natal`, “A Sala do Noel”) | pronta · 05/11/2026 (fotógrafos lote 2 · 20ª) |
 | [Layane Santos Fotografia (fotógrafa)](demos/layane-santos-fotografia) | Jardim Elizabete, Taboão da Serra | site + página de Natal (`/natal`, “Neste Natal, deixe seu filho ser criança”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 1) |
+| [Estúdio Juliana Figueiredo Fotografia (fotógrafa)](demos/juliana-figueiredo-fotografia) | Centro, Francisco Morato | site + página de Natal (`/natal`, “As luzes estão acesas”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 2) |

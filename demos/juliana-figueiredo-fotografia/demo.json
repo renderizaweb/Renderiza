@@ -1,0 +1,633 @@
+{
+ "pasta": "juliana-figueiredo-fotografia",
+ "marca": "Estúdio Juliana Figueiredo Fotografia",
+ "marca_completa": "Estúdio Juliana Figueiredo Fotografia",
+ "dona": "Ju",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.2826002,-46.7445585",
+  "fid": "0x94cee17bf1864f8b:0x62d606db631f6e5d",
+  "gid": "/g/11hfqghc04"
+ },
+ "google_nome": "Estúdio Juliana Figueiredo Fotografia",
+ "endereco_maps": "R. Progresso, 305 - Centro, Francisco Morato - SP, 07901-170",
+ "google_nota": "4,9",
+ "google_total": "34",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511996796265",
+ "fone_link": "+5511996796265",
+ "instagram": "julianafigueiredofotografia",
+ "seguidores": "22,5 mil",
+ "mensagem": "Olá, Ju! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#faf6f1",
+  "papel": "#ffffff",
+  "areia": "#f3ebe2",
+  "linha": "#e6dacd",
+  "tinta": "#2c2420",
+  "tinta2": "#675a51",
+  "rosa": "#d9b99a",
+  "acento": "#7a4a32",
+  "acento_escuro": "#633b27",
+  "cafe": "#271c17"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h",
+   "14h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 14h30",
+   "2026-11-18 13h",
+   "2026-11-21 9h",
+   "2026-11-21 13h",
+   "2026-11-21 14h30",
+   "2026-11-25 13h",
+   "2026-11-25 14h30",
+   "2026-11-28 14h30",
+   "2026-12-05 10h30",
+   "2026-12-05 14h30"
+  ],
+  "exemplo": "Horários de exemplo: a Ju define os dela",
+  "mensagem": "Olá, Ju! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Juliana",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Juliana, do Estúdio Juliana Figueiredo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Juliana, do Estúdio Juliana Figueiredo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Gilda Display",
+    ""
+   ],
+   "sans": [
+    "Red Hat Display",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.15
+ },
+ "titulo_nome": "Juliana Figueiredo",
+ "titulo_script": "fotografia",
+ "quem_a": "a Ju",
+ "quem_da": "da Ju",
+ "quem_sou": "Sou a Juliana Figueiredo, a Ju",
+ "slogan": "Memórias reais para quem valoriza sentir.",
+ "site": {
+  "titulo": "Estúdio Juliana Figueiredo Fotografia | Gestante, parto e família em Francisco Morato",
+  "descricao": "Estúdio Juliana Figueiredo Fotografia, no Centro de Francisco Morato (SP): gestante, parto, newborn, família, batizado e o Natal 2026. Nota 4,9 no Google.",
+  "comentario": "Demo Estúdio Juliana Figueiredo Fotografia (lote 2 de fotógrafos, reserva, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@julianafigueiredofotografia: a página salva e os posts de out/nov 2026); avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Gestante, parto e família",
+   "frase": "Memórias reais para quem valoriza sentir.",
+   "intro": "Experiência, sensibilidade e confiança: a Ju acompanha a gestação, o parto, os primeiros dias do bebê e a família, no estúdio dela em Francisco Morato. E o Natal 2026 está com as luzes acesas.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Família",
+    "Batizado",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+     "f": "p",
+     "alt": "A casinha de Natal 2026 com a neve e as árvores iluminadas",
+     "c": [
+      0.55,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/De93eJbiIng/De93eJbiIng_00.jpg",
+     "f": "p",
+     "alt": "Casal gestante de boné, com o ultrassom",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_03.jpg",
+     "f": "p",
+     "alt": "Recém-nascido dormindo na cabaninha",
+     "c": [
+      0.5,
+      0.6
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Os primeiros <em>capítulos.</em>",
+   "p": "Ensaios da Ju, no estúdio, na maternidade e na igreja. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_02.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo no baldinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_03.jpg",
+      "f": "p",
+      "alt": "Recém-nascido na cabaninha",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_01.jpg",
+      "f": "p",
+      "alt": "Pai beijando a mãe, que beija o bebê, com a irmã",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_04.jpg",
+      "f": "p",
+      "alt": "Irmã mais velha com o bebê no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/647227501_18305192803274434_3168832841730048984_n.jpg",
+      "f": "l",
+      "alt": "Gêmeos recém-nascidos lado a lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/653220018_18368133637164163_7459376023093319684_n.jpg",
+      "f": "l",
+      "alt": "Gêmeos enroladinhos na manta azul",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "parto",
+    "nome": "Gestante e parto",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/De93eJbiIng/De93eJbiIng_00.jpg",
+      "f": "p",
+      "alt": "Casal gestante de boné, com o ultrassom",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/619187311_18089660299833977_2061168528710626853_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante, ele beijando a testa dela",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/622385854_18190800112342428_2203700409837008970_n.jpg",
+      "f": "p",
+      "alt": "Gestante junto à cortina",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/621554265_18085096256159357_7893959720803119960_n.jpg",
+      "f": "p",
+      "alt": "Pai com o recém-nascido na maternidade",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/656736779_18310163062260382_8317745817123032449_n.jpg",
+      "f": "l",
+      "alt": "A mãe vendo o bebê pela primeira vez, no parto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/659467092_18357084724226183_324377529657122237_n.jpg",
+      "f": "l",
+      "alt": "A mãe com o bebê no rosto, no parto",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e batizado",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_00.jpg",
+      "f": "p",
+      "alt": "Pais com a bebê de vestido de batizado",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_06.jpg",
+      "f": "p",
+      "alt": "Pais com a filha no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_04.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido branco sentada no altar",
+      "pos": "50% 45%",
+      "box": [
+       0.046,
+       0.061,
+       0.954,
+       0.939
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_02.jpg",
+      "f": "p",
+      "alt": "O batizado na pia batismal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/619440133_18078458156364920_2722006382521408313_n.jpg",
+      "f": "l",
+      "alt": "Família de vermelho no Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/626511951_18355727851205586_4832034738839368686_n.jpg",
+      "f": "l",
+      "alt": "Casal com o recém-nascido, em preto e branco",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Ju, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Juliana sorrindo de óculos, com a câmera",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Juliana Figueiredo, a Ju, fotografa gestantes, partos, recém-nascidos e famílias, no estúdio dela em Francisco Morato. Com a equipe, acompanha muitas famílias da gestação ao primeiro ano do bebê, e cuida de aniversários com ensaio, festa e álbum."
+   ],
+   "citacao": "Que privilégio o meu poder eternizar os primeiros capítulos da sua história.",
+   "citacao_quem": "Ju, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da Ju e da equipe, da estrutura do estúdio, das fotos entregues antes do prazo e de quem é acompanhado desde o nascimento."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "34 avaliações no Google"
+    ],
+    [
+     "22,5 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "610",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro ano.</em>",
+   "p": "Os ensaios da Ju:",
+   "fonte": "Bio e legendas da Ju no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Memórias reais para quem valoriza sentir."
+    },
+    {
+     "nome": "Parto",
+     "sub": "O primeiro encontro",
+     "p": "O nascimento, na maternidade, com sensibilidade e discrição."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Entre dedos que se encontram e abraços que acolhem, uma família descobrindo uma nova forma de amar."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "O primeiro ano",
+     "p": "Famílias acompanhadas da gestação ao primeiro aninho."
+    },
+    {
+     "nome": "Batizado",
+     "sub": "Fé e família",
+     "p": "Um dia de fé, amor e bênçãos, guardado para sempre."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "As luzes estão acesas. A porta está aberta."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "As luzes estão acesas. <em>A porta está aberta.</em>",
+   "p": "O cenário de Natal 2026 da Ju tem a casinha de madeira com a guirlanda, as lanternas, as árvores iluminadas e a neve no chão. Escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+    "f": "p",
+    "alt": "A casinha de Natal 2026 com a neve",
+    "c": [
+     0.55,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Larissa Ribeiro",
+    "tag": "Aniversário completo",
+    "trecho": "Fiz o pacote completo de aniversário para a minha filha:  ensaio pré-aniversário + festa (foto e vídeo) + album e estou encantada com o resultado!"
+   },
+   {
+    "nome": "Nathalia Oliveira",
+    "tag": "Desde o nascimento",
+    "trecho": "Eu amo tirar fotos com a Juh! Acompanha meu filho desde que nasceu, muito dedicada e atenciosa"
+   },
+   {
+    "nome": "Daniela Sousa",
+    "tag": "Gestação",
+    "trecho": "Amei eternizar minha gestação e o acompanhamento da minha Helo."
+   },
+   {
+    "nome": "Gê Luz",
+    "tag": "A equipe",
+    "trecho": "A Ju e a equipe dela são maravilhosos! Um carinho tão grande. E as fotos são extremamente maravilhosas."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Centro de Francisco Morato.",
+   "telefone": "(11) 99679-6265",
+   "endereco": [
+    "Rua Progresso, 305",
+    "Centro",
+    "Francisco Morato · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Juliana Figueiredo Fotografia",
+  "descricao": "O Natal 2026 do Estúdio Juliana Figueiredo, em Francisco Morato: a casinha com a guirlanda, as árvores iluminadas e a neve. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Juliana Figueiredo Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Francisco Morato",
+   "h1": "As luzes estão acesas. <em>A porta está aberta.</em>",
+   "citacao": "Talvez, daqui a alguns anos, ninguém se lembre exatamente de como era a decoração deste Natal. Mas alguém vai se lembrar de como foi estar aqui.",
+   "citacao_quem": "Ju, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+    "f": "p",
+    "alt": "A casinha de Natal 2026 com a neve e as árvores iluminadas",
+    "c": [
+     0.55,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um lugar onde <em>o tempo desacelera.</em>",
+   "p": "O cenário de Natal 2026 foi feito com amor e construído com trabalho: a casinha de madeira com a guirlanda e a almofada xadrez, as lanternas acesas, as árvores com luzinhas e a neve no chão. E falta só uma coisa: a sua história ali.",
+   "itens": [
+    "A casinha de madeira, a guirlanda e as lanternas.",
+    "As árvores iluminadas e a neve no chão.",
+    "Neste ano, o Natal ganhou um novo endereço.",
+    "Endereço, valores e horários pelo WhatsApp da Ju."
+   ],
+   "legenda_fotos": "O cenário do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+    "f": "p",
+    "alt": "A casinha de madeira com a guirlanda, entre as árvores",
+    "c": [
+     0.55,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+    "f": "p",
+    "alt": "A porta com a guirlanda e a almofada xadrez",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.44,
+     0.2,
+     0.86,
+     0.72
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DfQx5v8NeXe/DfQx5v8NeXe_00.jpg",
+    "f": "p",
+    "alt": "A árvore com luzinhas e a neve",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.0,
+     0.08,
+     0.52,
+     0.86
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Ju abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Ju define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Ju abre com o dia e a hora escritos."
+    ],
+    [
+     "A Ju confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Os primeiros <em>capítulos.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Ju.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_03.jpg",
+     "f": "p",
+     "alt": "Recém-nascido na cabaninha",
+     "pos": "50% 55%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_01.jpg",
+     "f": "p",
+     "alt": "Família com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_00.jpg",
+     "f": "p",
+     "alt": "As mãos da família com o bebê",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/De93eJbiIng/De93eJbiIng_00.jpg",
+     "f": "p",
+     "alt": "Casal gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_00.jpg",
+     "f": "p",
+     "alt": "O batizado",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DecRFV5lj-d/DecRFV5lj-d_06.jpg",
+     "f": "p",
+     "alt": "Família no jardim",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/julianafigueiredofotografia/Instagram_files/622291957_18111591496572005_7203281310131523416_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho no Natal de outro ano",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/juliana-figueiredo-fotografia/posts/DexFEQAnxCp/DexFEQAnxCp_02.jpg",
+     "f": "p",
+     "alt": "Recém-nascido no baldinho",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Larissa Ribeiro",
+    "tag": "No mesmo dia",
+    "trecho": "Fotos excelentes, com resolução surreal, entrega das fotos   editadas muito antes do prazo combinado (no mesmo dia!!!!!)."
+   },
+   {
+    "nome": "Gê Luz",
+    "tag": "O estúdio",
+    "trecho": "Todos os adjetivos não seriam suficientes pra classificar o estúdio!"
+   },
+   {
+    "nome": "Daniela Sousa",
+    "tag": "A equipe",
+    "trecho": "Profissional incrível, equipe maravilhosa."
+   },
+   {
+    "nome": "Nathalia Oliveira",
+    "tag": "Qualidade",
+    "trecho": "muito dedicada e atenciosa e as fotos que sempre são de qualidade!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Francisco Morato",
+   "h2": "Falta só <em>a sua história.</em>",
+   "p": "Escolha um horário na agenda ou chame a Ju no WhatsApp para saber os valores e o endereço do Natal."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99679-6265), o mesmo da bio do Instagram",
+  "site": "fora do ar: o Google aponta julianafigueiredofoto.com.br, domínio que não existe mais (NXDOMAIN) (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/juliana-figueiredo-fotografia` e `/demo/juliana-figueiredo-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos, reserva (nº 22, 79 pontos), escolhida no Drive de 05/11/2026. Bio: \"Gestante, parto & família · Memórias reais para quem valoriza sentir · Experiência • sensibilidade • confiança\".",
+   "Dona: Juliana Figueiredo (\"Ju\" nas avaliações), com equipe. Foto dela: a do perfil do Instagram (de óculos, com a câmera), a mesma do post de 17/10.",
+   "Cores: o marrom-terracota da parede do estúdio (#7a4a32 no destaque); Gilda Display, Red Hat Display e \"fotografia\" em Allura; abertura em bolhas. O logo dela (monograma JF e o nome) aparece na parede do estúdio, numa foto do Google: a demo usa um monograma JF e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e newborn), portfólio em 3 abas (Newborn, 6; Gestante e parto, 6; Família e batizado, 6), a Ju, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"As luzes estão acesas. A porta está aberta.\": o ensaio, o cenário (a foto de 03/11 e dois recortes dela), a agenda de exemplo (6 dias de 14/11 a 05/12, das 9h às 14h30, dentro do horário do Google) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (newborn do Pedro de 21/10 e batizado de 13/10, até 4096 px; o cenário de Natal de 03/11, 1215 px), a página do Instagram salva no Drive (2018-2020, 853 a 1440 px) e a foto do perfil.",
+   "Ficaram de fora: as colagens do batizado, os vídeos de humor, as fotos de parto com a mãe em cirurgia muito exposta, as fotos dela com a câmera e as antigas mais borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Talvez, daqui a alguns anos, ninguém se lembre exatamente de como era a decoração deste Natal... Este ano, nosso Natal ganhou um novo endereço... Agora, as luzes estão acesas. A porta está aberta.\" (03/11) e o newborn do Pedro (21/10).",
+   "Avaliações do Google: das 5 visíveis sem login, 4 são de 5 estrelas e estão nas duas páginas; a outra (negativa, sobre remarcação) ficou de fora."
+  ],
+  "conferir": [
+   "\"Este ano, nosso Natal ganhou um novo endereço\" (03/11): conferir se o endereço do Google (Rua Progresso, 305) ainda vale; a página de Natal pede o endereço pelo WhatsApp.",
+   "Uma avaliação negativa visível no Google fala de remarcação em cima da hora.",
+   "O cenário de Natal 2026 só tem uma foto (1215 px); os recortes ficam um pouco menos nítidos.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sex 9h-18h, sáb 9h-15h).",
+   "Fotos de parto, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
