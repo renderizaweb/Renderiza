@@ -1,0 +1,853 @@
+{
+ "pasta": "fluup-fotografia",
+ "marca": "Estúdio Fluup Fotografia",
+ "marca_completa": "Estúdio Fluup Fotografia",
+ "dona": "Giu",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6458788,-46.534805",
+  "fid": "0x94ce42c553574585:0xa74a3e2b6b12cb76",
+  "gid": "/g/11g9dqg3yp"
+ },
+ "google_nome": "Estúdio Fluup Fotografia (Ensaios gestante, acompanhamento de bebê e família)",
+ "endereco_maps": "Av. Industrial, 780 - Sl 1806 - Jardim, Santo André - SP, 09080-510",
+ "google_nota": "5,0",
+ "google_total": "32",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511981176147",
+ "fone_link": "+5511981176147",
+ "instagram": "fluupfotografia",
+ "seguidores": "7,8 mil",
+ "mensagem": "Olá, Giu! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f6",
+  "papel": "#ffffff",
+  "areia": "#f6efec",
+  "linha": "#ecdfd9",
+  "tinta": "#3b2a2e",
+  "tinta2": "#6e5a5e",
+  "rosa": "#d9a3a6",
+  "acento": "#a3455a",
+  "acento_escuro": "#863646",
+  "cafe": "#2e1f23"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 15h",
+   "2026-12-12 10h",
+   "2026-12-12 14h",
+   "2026-12-12 15h",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Giu define os dela",
+  "mensagem": "Olá, Giu! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Giuliana",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Giuliana, do Estúdio Fluup Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Giuliana, do Estúdio Fluup Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "natal_capa": "retrato",
+  "ornamento": "✿"
+ },
+ "titulo_nome": "Fluup",
+ "titulo_script": "fotografia",
+ "quem_a": "a Giu",
+ "quem_da": "da Giu",
+ "quem_sou": "Sou a Giuliana, do Estúdio Fluup Fotografia",
+ "slogan": "Fotografando famílias com amor há 19 anos.",
+ "site": {
+  "titulo": "Estúdio Fluup Fotografia | Gestante, bebês e família em Santo André",
+  "descricao": "Estúdio Fluup Fotografia, da Giuliana Fraccarolli, em Santo André (SP): ensaios de gestante, newborn, acompanhamento do bebê e família, num estúdio de luz natural. Nota 5,0 no Google.",
+  "comentario": "Demo Estúdio Fluup Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@fluupfotografia: a página salva e os posts do Natal 2026); avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Santo André · ABC",
+   "frase": "Fotografando famílias com amor há 19 anos.",
+   "intro": "Gestantes, bebês e famílias num estúdio claro, de luz natural, em Santo André. E o cenário de Natal 2026 já está montado.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Bebê"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento do bebê",
+    "Família",
+    "Dia das Mães",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_00.jpg",
+     "f": "p",
+     "alt": "Família de pijama xadrez vermelho sentada junto à árvore de Natal rosa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/648254029_17996357990916965_5901801165825225105_n.jpg",
+     "f": "p",
+     "alt": "Casal abraçado no ensaio de gestante, com a mão dele na barriga",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/648731620_17954991155940653_1890228866967214205_n.jpg",
+     "f": "p",
+     "alt": "Bebê sorrindo com tiara de flores, sentado num vaso de lavanda",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>com luz natural.</em>",
+   "p": "Ensaios feitos no estúdio da Giu, em Santo André. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_00.jpg",
+      "f": "p",
+      "alt": "Família de pijama xadrez sentada junto à árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_01.jpg",
+      "f": "p",
+      "alt": "Pais e filha sorrindo no tapete do cenário de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/De9SzX6nEoU/De9SzX6nEoU_01.jpg",
+      "f": "p",
+      "alt": "Menino datilografando na máquina de escrever vermelha, ao lado da árvore",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_01.jpg",
+      "f": "p",
+      "alt": "Menino na máquina de escrever vermelha, no cenário de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_01.jpg",
+      "f": "p",
+      "alt": "Casal grávido com o filho no colo, no cenário de Natal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_03.jpg",
+      "f": "p",
+      "alt": "Menino de pijama xadrez ajoelhado junto à árvore",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_02.jpg",
+      "f": "p",
+      "alt": "Menina segurando enfeites rosa da árvore, ao lado dos ursos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_00.jpg",
+      "f": "p",
+      "alt": "Pai, mãe grávida e filho em pé junto à árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_00.jpg",
+      "f": "p",
+      "alt": "Menino no cavalinho de madeira, ao lado da árvore",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_02.jpg",
+      "f": "p",
+      "alt": "Bebê de pijama xadrez sentado entre os presentes",
+      "pos": "50% 60%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/De9SzX6nEoU/De9SzX6nEoU_02.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo no cavalinho de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_01.jpg",
+      "f": "p",
+      "alt": "Família de pijama com violão no sofá do cenário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/De9SzX6nEoU/De9SzX6nEoU_00.jpg",
+      "f": "p",
+      "alt": "Menino datilografando na máquina de escrever, de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_02.jpg",
+      "f": "p",
+      "alt": "Menino com a caixa de madeira dos enfeites",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_02.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo na máquina de escrever",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_00.jpg",
+      "f": "p",
+      "alt": "Menina enfeitando a árvore rosa",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/653533705_18106636822863243_2425437840256938229_n.webp",
+      "f": "p",
+      "alt": "Casal sorrindo, com as mãos na barriga, no ensaio de gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/652099531_18085065104259359_6740820987777770058_n.webp",
+      "f": "p",
+      "alt": "Casal abraçado de branco, rosto com rosto, no ensaio de gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/653455721_18094424933118982_386408587649908013_n.jpg",
+      "f": "l",
+      "alt": "Pai beijando a barriga da gestante",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/650937739_18045018542514105_131664173172805249_n.jpg",
+      "f": "p",
+      "alt": "Gestante com a mãe e a avó, as três com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/622842980_18068853155184382_3304592370492673755_n.webp",
+      "f": "p",
+      "alt": "Gestante de lingerie branca entre flores penduradas",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655097026_18056253209470917_1225543263406618627_n.jpg",
+      "f": "p",
+      "alt": "Casal em pé, ele beijando a testa dela, no estúdio claro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655574224_18112707730707946_7385457796646257703_n.jpg",
+      "f": "l",
+      "alt": "Mãos dos pais na barriga, com sapatinhos de bebê",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/657380006_18421756966130054_1582137233862717759_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada de pernas cruzadas no chão do estúdio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/651299133_17974881353840868_6572043980947766757_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco ao lado de uma escada com flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/653989719_18076484321419650_5848955229157897234_n.webp",
+      "f": "p",
+      "alt": "Gestante sorrindo de cardigã cinza",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/648254029_17996357990916965_5901801165825225105_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no ensaio de gestante",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655897687_18097200373820533_981631806333167811_n.jpg",
+      "f": "p",
+      "alt": "Gestante de ombros de fora, envolta num tecido branco",
+      "pos": "50% 25%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655594605_18194092624357752_5199767543611710356_n.webp",
+      "f": "l",
+      "alt": "Mãos da gestante e do pai sobre a barriga, com renda branca",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/648731620_17954991155940653_1890228866967214205_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo com tiara de flores, num vaso de lavanda",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/656020572_18205486186328552_9071021996550052042_n.webp",
+      "f": "p",
+      "alt": "Menina de 1 ano com laços no cabelo, entre balões claros",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/654017121_18094021681864323_5617364379949437481_n.jpg",
+      "f": "l",
+      "alt": "Bebê de touca rosa num cestinho, no cenário de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/654397984_18081191957076199_8605117939251550630_n.jpg",
+      "f": "p",
+      "alt": "Bebê em pé apoiado no cavalinho, com bandeirinhas e balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/657618458_18093411301877382_9197064544088599218_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo dentro de uma banheira de leite",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655297073_18077865551418354_186117135470068913_n.webp",
+      "f": "p",
+      "alt": "Mãe beijando o bebê sorridente",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655892592_18119768368550043_8712836390698463504_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de macacão branco deitado na manta",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/656272314_18091640996172842_7603938142342007565_n.jpg",
+      "f": "p",
+      "alt": "Menina sentada numa cadeira de vime, entre flores penduradas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/662274548_18369570688164602_5921387910366947201_n.webp",
+      "f": "p",
+      "alt": "Mãe e filha de rosto colado, com uma flor na mão",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655767403_18096020809833635_1378370203245948445_n.webp",
+      "f": "p",
+      "alt": "Mãe levantando o bebê no colo, os dois sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/663142653_18522141817079633_8089801484443037667_n.jpg",
+      "f": "p",
+      "alt": "Bebê olhando para cima, ao lado de uma cesta de laranjas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/658185989_18576390460009114_474343576838841480_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no alto, testa com testa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/654012882_18126895282563325_6369498669933215899_n.jpg",
+      "f": "l",
+      "alt": "Pezinhos do bebê nas mãos da mãe",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/651692768_18059789981693654_887646883044344849_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha sentadas no cavalinho de madeira, entre flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/652829642_18093514511027899_8067229125572644292_n.jpg",
+      "f": "p",
+      "alt": "Pais segurando os filhos de cabeça para baixo, todos rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655437629_18113738809727898_4971782168627921042_n.jpg",
+      "f": "l",
+      "alt": "Mãe com os gêmeos e o marido no estúdio claro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/653529490_18075572063544117_1488942629349441247_n.webp",
+      "f": "p",
+      "alt": "Mãe abraçando o filho pequeno, que beija o rosto dela",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/653937827_18040952990575913_4662763747025144705_n.webp",
+      "f": "p",
+      "alt": "Mãe e filho de nariz com nariz",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/658917958_18336574750171849_1211497760429666633_n.jpg",
+      "f": "p",
+      "alt": "Pais e filha deitados na cama do estúdio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/651764349_18089885867324521_4486156697288711541_n.webp",
+      "f": "l",
+      "alt": "Pais abraçados com o bebê no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/663218598_18574125949046278_6182771086154848158_n.jpg",
+      "f": "p",
+      "alt": "Família de quatro com o bebê nos ombros do pai",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/670288433_18365477281201088_2564438568788271395_n.jpg",
+      "f": "p",
+      "alt": "Pai levantando o bebê, com a mãe ao lado",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/650278318_18015959714823934_5639122009219534296_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o filho no colo, ele abraçado ao pescoço dela",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/651762637_18124944142504255_4730047118468216656_n.webp",
+      "f": "p",
+      "alt": "Família na cama do estúdio com o bebê e a filha mais velha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/655056453_18098001715796551_7009641127319295621_n.webp",
+      "f": "p",
+      "alt": "Mãe beijando a bebê no colo, na luz da janela",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fluupfotografia/Instagram_files/658326082_18225392497309616_5578291680932531802_n.webp",
+      "f": "l",
+      "alt": "Mãe com os dois filhos e o marido sentados no estúdio",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Giu, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Giuliana Fraccarolli, a fotógrafa da Fluup, sorrindo com um telefone rosa",
+    "c": [
+     0.3,
+     0.45
+    ]
+   },
+   "p": [
+    "A Giuliana Fraccarolli fotografa famílias há 19 anos. No estúdio da Fluup, em Santo André, com bastante luz natural e cara de casa, ela acompanha a gestação, os primeiros dias do bebê, cada fase do primeiro ano e a família que cresce."
+   ],
+   "citacao": "Eu amo meu trabalho. Sério. Eu amo. Poder eternizar momentos únicos da vida... de alguma maneira eu me sinto parte dessa história.",
+   "citacao_quem": "Giu, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam que ela explica o ensaio antes, dá dicas de roupa e de cores, guia as poses e vai mostrando as fotos durante a sessão, sem suspense."
+   ],
+   "numeros": [
+    [
+     "19 anos",
+     "fotografando famílias"
+    ],
+    [
+     "5,0",
+     "32 avaliações no Google"
+    ],
+    [
+     "7,8 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Giu:",
+   "fonte": "Legendas da Giu no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A celebração da espera",
+     "p": "Um momento mágico, cheio de amor e expectativas: cada sorriso, cada carinho e cada olhar repleto de ternura."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Os primeiros dias de vida de um bebê passam tão rápido. Registrar esse momento é eternizar cada pedacinho de amor."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "3, 6, 9 e 12 meses",
+     "p": "O bebê volta ao estúdio a cada três meses. Os cenários e os figurinos dos bebês estão inclusos no pacote."
+    },
+    {
+     "nome": "Primeiro aninho",
+     "sub": "O fim do primeiro ano",
+     "p": "O ensaio de 1 aninho, feito no estúdio, fecha o acompanhamento."
+    },
+    {
+     "nome": "Família",
+     "sub": "Mãe, pai e filhos",
+     "p": "Essa conexão entre mãe e filhos. Esse cheiro, esse abraço, esse colo."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Natal e Dia das Mães",
+     "p": "Cenário de Natal todo ano e ensaio especial de Dia das Mães, no estúdio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O cenário de Natal <em>já está montado.</em>",
+   "p": "A árvore em rosa e vermelho, a máquina de escrever e o cavalinho de madeira esperam a sua família no estúdio. Escolha um horário e a mensagem chega pronta no WhatsApp da Giu.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_00.jpg",
+    "f": "p",
+    "alt": "Pai, mãe grávida e filho em pé junto à árvore de Natal rosa",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Victória Pereira Garcia Domingues",
+    "tag": "Antes do ensaio",
+    "trecho": "A Giu foi maravilhosa desde o primeiro contato. Explicou como funciona o ensaio, deu várias dicas de roupas, cores e orientações importantes antes do ensaio."
+   },
+   {
+    "nome": "Gabriella Donati",
+    "tag": "Gestante e filha",
+    "trecho": "Quem vê minhas fotos de gestante e as da minha filha sempre perguntam quem fez pq nunca viram nada igual, um olhar único!"
+   },
+   {
+    "nome": "Soraya",
+    "tag": "Natal",
+    "trecho": "ela conseguiu trazer um rosa super lindo, sofisticado do calor, do nosso clima e país, diferindo da grande maioria, adorei a proposta."
+   },
+   {
+    "nome": "Fabiana Gomes",
+    "tag": "Pais e filho",
+    "trecho": "escolhi a Giu e fui surpreendida com o trabalho impecável que ela conseguiu me apresentar, foi muito mais do que esperava"
+   },
+   {
+    "nome": "Vitoria Helena",
+    "tag": "Família",
+    "trecho": "Hoje eu quero deixar registrado minha total admiração pela Giuliana e seu trabalho. É lindo ver o amor e dedicação em cada entrega"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Av. Industrial, no bairro Jardim, em Santo André.",
+   "telefone": "(11) 98117-6147",
+   "endereco": [
+    "Av. Industrial, 780, sala 1806",
+    "Jardim",
+    "Santo André · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Fluup Fotografia",
+  "descricao": "O ensaio de Natal 2026 do Estúdio Fluup Fotografia, em Santo André: o cenário em rosa e vermelho, fotos natalinas e retratos atemporais. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Fluup Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Santo André",
+   "h1": "Memórias encantadas <em>de Natal.</em>",
+   "citacao": "Como sempre, a gente pensa em dar o destaque todo pra família, para as pessoas, para o amor entre todos.",
+   "citacao_quem": "Giu, no lançamento do cenário de 2026",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_01.jpg",
+    "f": "p",
+    "alt": "Família de pijama xadrez com violão no cenário de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natalinas <em>e atemporais.</em>",
+   "p": "No cenário de 2026, a família é o destaque. E, além das fotos natalinas, o ensaio tem cliques neutros e atemporais: imagens delicadas, sem elementos temáticos, que combinam com qualquer época do ano.",
+   "itens": [
+    "No estúdio de luz natural, em Santo André.",
+    "O cenário de 2026: a árvore em rosa e vermelho, os ursos, os presentes e o cavalinho de madeira.",
+    "A máquina de escrever vermelha, que mora no estúdio o ano todo.",
+    "Fotos natalinas e retratos atemporais no mesmo ensaio.",
+    "Valores e detalhes pelo WhatsApp da Giu."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_00.jpg",
+    "f": "p",
+    "alt": "A árvore de Natal rosa e vermelha, com uma menina enfeitando",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_02.jpg",
+    "f": "p",
+    "alt": "Menino com a caixa de madeira dos enfeites, no sofá do cenário",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/De9SzX6nEoU/De9SzX6nEoU_01.jpg",
+    "f": "p",
+    "alt": "O canto da máquina de escrever, ao lado da árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Giu abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Giu define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Giu abre com o dia e a hora escritos."
+    ],
+    [
+     "A Giu confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "As primeiras famílias <em>no cenário.</em>",
+   "nome": "Natal 2026",
+   "p": "Os primeiros ensaios no cenário de Natal 2026, entre outubro e novembro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_01.jpg",
+     "f": "p",
+     "alt": "Pais e filha sorrindo no tapete do cenário",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_01.jpg",
+     "f": "p",
+     "alt": "Casal grávido com o filho no colo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_01.jpg",
+     "f": "p",
+     "alt": "Menino na máquina de escrever vermelha",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DebsEqmnByC/DebsEqmnByC_02.jpg",
+     "f": "p",
+     "alt": "Menina com enfeites rosa da árvore",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_00.jpg",
+     "f": "p",
+     "alt": "Família de pijama xadrez junto à árvore",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_03.jpg",
+     "f": "p",
+     "alt": "Menino de pijama xadrez ajoelhado",
+     "pos": "50% 55%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/De9SzX6nEoU/De9SzX6nEoU_00.jpg",
+     "f": "p",
+     "alt": "Menino datilografando, de perto",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/Desdilsjqqt/Desdilsjqqt_02.jpg",
+     "f": "p",
+     "alt": "Bebê de pijama entre os presentes",
+     "pos": "50% 60%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfAfrX0D6EN/DfAfrX0D6EN_00.jpg",
+     "f": "p",
+     "alt": "Menino no cavalinho de madeira",
+     "pos": "50% 55%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fluup-fotografia/posts/DfUdFgglK-s/DfUdFgglK-s_02.jpg",
+     "f": "p",
+     "alt": "Menino sorrindo na máquina de escrever",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Soraya",
+    "tag": "O Natal em rosa",
+    "trecho": "ela conseguiu trazer um rosa super lindo, sofisticado do calor, do nosso clima e país, diferindo da grande maioria, adorei a proposta."
+   },
+   {
+    "nome": "Victória Pereira Garcia Domingues",
+    "tag": "O estúdio",
+    "trecho": "O estúdio dela é uma graça, tem bastante luz natural e remete a casa mesmo, de tão aconchegante."
+   },
+   {
+    "nome": "Gabriella Donati",
+    "tag": "Com crianças",
+    "trecho": "Conduz o ensaio de forma que você fique confortável e confiante, super jeito com crianças também!"
+   },
+   {
+    "nome": "Fabiana Gomes",
+    "tag": "Pais e filho",
+    "trecho": "ela é super acolhedora, nos sentimentos bem a vontade, super paciente em questão ao meu bebe (e ele amou ela rs)"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Santo André",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Giu no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google, o mesmo do Linktree dela (linktr.ee/fluup → bit.ly → WhatsApp)",
+  "site": "não tem: o Google aponta www.fluup.com.br, domínio que não existe mais (DNS); o Linktree (linktr.ee/fluup) só tem o WhatsApp e o Facebook; 36 domínios óbvios testados (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/fluup-fotografia` e `/demo/fluup-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 1, 97 pontos), escolhida no Drive de 05/11/2026. Estúdio claro, de luz natural (as legendas usam #estudioluznatural e #estudioclean): muito branco, rosa e o vermelho do Natal 2026.",
+   "Dona: Giuliana Fraccarolli (\"fotografando sua família com amor há 19 anos\", bio do Instagram); \"a Giu\" nas avaliações. A foto dela é a do perfil do Instagram (1080 px).",
+   "Cores: o rosa do cenário de Natal (#a3455a no destaque) sobre fundo creme; títulos em Cormorant Garamond e \"fotografia\" em letra cursiva. Sem logo em boa resolução: monograma F e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura em arco (Natal 2026, gestante e bebê), portfólio em 4 abas (Natal 2026, 16; Gestante, Bebês e Família, 13 cada), a Giu, os ensaios nas palavras dela, 5 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"Memórias encantadas de Natal\": o ensaio (natalinas e atemporais, como ela anuncia), o cenário, a agenda de exemplo (6 sábados de 7/11 a 12/12) e as primeiras famílias no cenário."
+  ],
+  "fotos": [
+   "Página do Instagram salva no Drive (posts de 2023 a 2025, 1440 px) e os carrosséis do Natal 2026 (posts de 13/10 a 04/11/2026, 1667 px).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. O menino da máquina de escrever é o Theo, que, segundo a legenda, faz fotos nela todo ano (não confirmei se é filho dela)."
+  ],
+  "textos": [
+   "Bio: \"Giuliana Fraccarolli fotografando sua família com amor há 19 anos.\" Legendas: o Cenário de Natal 2026 (19/10, 27/10 e 04/11), a máquina de escrever (26/10), o acompanhamento de 3, 6, 9 e 12 meses com cenários e figurinos inclusos, gestante, newborn e \"Eu amo meu trabalho\".",
+   "Avaliações do Google: as 5 visíveis sem login (todas 5 estrelas)."
+  ],
+  "conferir": [
+   "Horários: a agenda é exemplo (dito na página). O Google diz que ela abre todos os dias, das 9h às 17h.",
+   "O estúdio fica numa sala comercial (Av. Industrial, 780, sala 1806).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

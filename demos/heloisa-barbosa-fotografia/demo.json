@@ -1,0 +1,683 @@
+{
+ "pasta": "heloisa-barbosa-fotografia",
+ "marca": "Estúdio Heloisa Barbosa",
+ "marca_completa": "Estúdio Heloisa Barbosa",
+ "dona": "Heloísa",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4753515,-46.3539683",
+  "fid": "0x94ce7d0afd7c9ca5:0xa35c7f380fb15129",
+  "gid": "/g/11j0lx8mgs"
+ },
+ "google_nome": "Heloisa Barbosa Fotografia",
+ "endereco_maps": "R. Dirce Passos, 61 - Sl 1 - Centro, Itaquaquecetuba - SP, 08570-600",
+ "google_nota": "4,8",
+ "google_total": "19",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511991431335",
+ "fone_link": "+5511991431335",
+ "instagram": "heloisabarbosafotografia",
+ "seguidores": "10,6 mil",
+ "mensagem": "Olá, Heloísa! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcfaf8",
+  "papel": "#ffffff",
+  "areia": "#f5efeb",
+  "linha": "#e9e0da",
+  "tinta": "#2d2523",
+  "tinta2": "#6a5d58",
+  "rosa": "#d9b9ab",
+  "acento": "#9a6656",
+  "acento_escuro": "#7e5244",
+  "cafe": "#2a211f"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-20",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-04",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "12h",
+   "13h"
+  ],
+  "reservados": [
+   "2026-11-20 10h",
+   "2026-11-20 12h",
+   "2026-11-21 10h",
+   "2026-11-21 12h",
+   "2026-11-28 9h",
+   "2026-11-28 10h",
+   "2026-11-28 13h",
+   "2026-12-04 9h",
+   "2026-12-04 13h",
+   "2026-12-05 10h",
+   "2026-12-05 12h",
+   "2026-12-05 13h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 12h"
+  ],
+  "exemplo": "Horários de exemplo: a Heloísa define os dela",
+  "mensagem": "Olá, Heloísa! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Heloísa",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Heloísa, do Estúdio Heloisa Barbosa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Heloísa, do Estúdio Heloisa Barbosa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Bodoni Moda",
+    "ital,opsz,wght@0,6..96,400..600;1,6..96,400..600"
+   ],
+   "sans": [
+    "Jost",
+    "wght@300;400;500"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 0.8
+ },
+ "titulo_nome": "Heloisa Barbosa",
+ "titulo_script": "fotografia",
+ "quem_a": "a Heloísa",
+ "quem_da": "da Heloísa",
+ "quem_sou": "Sou a Heloísa, do Estúdio Heloisa Barbosa",
+ "slogan": "Fotografia minimalista.",
+ "site": {
+  "titulo": "Estúdio Heloisa Barbosa | Newborn, gestante e 1 aninho em Itaquaquecetuba",
+  "descricao": "Estúdio Heloisa Barbosa, no Centro de Itaquaquecetuba (SP): fotografia minimalista, especialista em newborn, com gestante, acompanhamento do bebê, 1 aninho e Natal. Nota 4,8 no Google.",
+  "comentario": "Demo Estúdio Heloisa Barbosa (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@heloisabarbosafotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Itaquaquecetuba",
+   "frase": "Fotografia minimalista.",
+   "intro": "Especialista em newborn, num estúdio claro e clean no Centro de Itaquaquecetuba: gestante, recém-nascido, o primeiro ano do bebê e a família. E a agenda de Natal está aberta.",
+   "rotulos": [
+    "Natal",
+    "Newborn",
+    "1 aninho"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Gestante",
+    "Acompanhamento",
+    "1 aninho",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo atrás da janela de madeira, no cenário de Natal",
+     "c": [
+      0.5,
+      0.62
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DewnzkTxujm/DewnzkTxujm_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de tiara dormindo na manta de tricô",
+     "c": [
+      0.5,
+      0.45
+     ],
+     "box": [
+      0,
+      0.29,
+      1,
+      1
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624098932_18093082136054927_2935234263226010062_n.jpg",
+     "f": "p",
+     "alt": "Bebê no smash the cake, entre balões rose",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Foco <em>no que importa.</em>",
+   "p": "Ensaios feitos no estúdio da Heloísa, em Itaquaquecetuba. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Gestante e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfC-yT1GylN/DfC-yT1GylN_02.jpg",
+      "f": "p",
+      "alt": "Pais e a filha com o recém-nascido de 15 dias",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DewnzkTxujm/DewnzkTxujm_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de tiara dormindo na manta de tricô",
+      "pos": "50% 45%",
+      "box": [
+       0,
+       0.29,
+       1,
+       1
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/622877872_18107595397709898_1123086102365777600_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo no balde branco de tricô",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/619537351_18086125646117276_7231749936681067711_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco com as mãos na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco, com o cabelo ao vento",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/634478155_18381035380085375_3439240716340554327_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco no estúdio claro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no cestinho de vime, com flores secas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/621818415_18068624171549519_574928289946267461_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na manta lilás, com flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/622622213_18143810929411177_5321629473896217435_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas recém-nascidas lado a lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624072409_18111758308715785_2364478818849052463_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de boina na caminha de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/621446650_18086545640280854_279623718156651847_n.jpg",
+      "f": "l",
+      "alt": "Pais beijando a recém-nascida",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "aninho",
+    "nome": "Acompanhamento e 1 aninho",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624098932_18093082136054927_2935234263226010062_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake, entre balões rose",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/620890074_18032818478571282_433366166044550165_n.jpg",
+      "f": "p",
+      "alt": "Bebê gargalhando no estúdio branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/662322685_18120300892618010_8375867442919771750_n.jpg",
+      "f": "p",
+      "alt": "Bebê com o pezinho no bolo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/654117645_18097334152956513_4676253408767337580_n.jpg",
+      "f": "p",
+      "alt": "Menina de tiara com o dedinho para cima, entre balões",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/640284025_18559869007046839_2394614325497521218_n.jpg",
+      "f": "p",
+      "alt": "Bebê na banheira, no smash the cake",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/621678429_18066783404232927_8936319373647469178_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentado na caminha branca",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/623882609_18054422141692652_989739760982502066_n.jpg",
+      "f": "p",
+      "alt": "Bebê de pandinha no balde branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/622821361_18085482374126202_504636235598452711_n.jpg",
+      "f": "p",
+      "alt": "Menino de 2 anos no cavalinho de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/651760254_18075389150566114_989270685978254507_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentado na manta, com limões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/652837320_18076965473117503_8527964464305845590_n.jpg",
+      "f": "p",
+      "alt": "Bebê na cadeirinha, com limões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624497687_18114782197559012_756072175919442067_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 8 meses no cenário de balões rose",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624843255_18164165500406551_7262520856324536570_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 11 meses sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/650722652_18070400516557353_4148417844851565224_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cavalinho entre balões rose",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/649485392_18014475788667614_317424796149393779_n.jpg",
+      "f": "l",
+      "alt": "Pais beijando a filha de 1 ano",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Heloísa, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624631727_18118899994587554_3404893914272825015_n.jpg",
+    "f": "p",
+    "alt": "Heloísa sorrindo com a câmera na mão",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Heloísa Pereira Barbosa é graduada em fotografia e especialista em newborn. No estúdio dela, no Centro de Itaquaquecetuba, faz fotografia minimalista: fundo claro e o foco no que importa, o bebê, a família e o momento."
+   ],
+   "citacao": "Eles crescem. Os detalhes mudam. O tempo passa. Mas você sempre poderá voltar ao começo através da fotografia.",
+   "citacao_quem": "Heloísa, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam da paz que ela transmite, do respeito ao tempo do recém-nascido (mesmo quando o bebê não dorme) e de quem veio de outra cidade para o newborn."
+   ],
+   "numeros": [
+    [
+     "4,8",
+     "19 avaliações no Google"
+    ],
+    [
+     "10,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "15 dias",
+     "o newborn, até os 15 dias de vida"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Heloísa:",
+   "fonte": "Bio e legendas da Heloísa no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Clean",
+     "p": "Uma sessão linda, com foco totalmente em você, no seu momento."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Até os 15 dias",
+     "p": "A sessão é realizada no estúdio até os 15 dias de vida, no tempo de cada recém-nascido."
+    },
+    {
+     "nome": "Em família",
+     "sub": "Os primeiros dias",
+     "p": "Retrato em família nos primeiros dias de vida do bebê: uma recordação única."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mensal ou trimestral",
+     "p": "Registre o crescimento do seu bebê e eternize cada fase, que passa tão rápido."
+    },
+    {
+     "nome": "1 aninho",
+     "sub": "Smash the cake",
+     "p": "Ensaio de aniversário com bolo preparado especialmente para o seu bebê, no estilo clean."
+    },
+    {
+     "nome": "Natal",
+     "sub": "20/11 a 12/12",
+     "p": "A infância é agora, mas a recordação é para sempre. Vagas limitadas."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A infância é agora, <em>a recordação é para sempre.</em>",
+   "p": "A agenda de Natal está aberta: os ensaios acontecem de 20 de novembro a 12 de dezembro, com vagas limitadas. Escolha um horário e a mensagem chega pronta no WhatsApp da Heloísa.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+    "f": "p",
+    "alt": "Menina sorrindo atrás da janela de madeira, no cenário de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   "legenda": "O cenário de Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thamiris Rosa",
+    "tag": "Newborn",
+    "trecho": "moro em outra cidade e fui até o estúdio para realizar o newborn do meu filho. Sem dúvidas, a melhor escolha."
+   },
+   {
+    "nome": "Carlos Eduardo Maciel",
+    "tag": "Com as crianças",
+    "trecho": "Da super atenção as crianças, tem vocação pra isso, interage e tira o sorriso dos babys huahua. Super recomendo!!!"
+   },
+   {
+    "nome": "Nath B S",
+    "tag": "O estúdio",
+    "trecho": "Estúdio lindo, fotos de qualidade e a Heloisa é muito atenciosa. Super recomendo!"
+   },
+   {
+    "nome": "Andreza Oliveira",
+    "tag": "Energia",
+    "trecho": "Super indico, lugar maravilho, energia incrível, as fotos não tem como não sair maravilhosas!!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Centro de Itaquaquecetuba.",
+   "telefone": "(11) 99143-1335",
+   "endereco": [
+    "Rua Dirce Passos, 61, sala 1",
+    "Centro",
+    "Itaquaquecetuba · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Heloisa Barbosa",
+  "descricao": "O ensaio de Natal 2026 do Estúdio Heloisa Barbosa, em Itaquaquecetuba: de 20 de novembro a 12 de dezembro, vagas limitadas. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Heloisa Barbosa: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Itaquaquecetuba",
+   "h1": "A infância é agora, <em>a recordação é para sempre.</em>",
+   "citacao": "Antes que o tempo passe, permita-se viver e eternizar esses momentos.",
+   "citacao_quem": "Heloísa, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+    "f": "p",
+    "alt": "Menina sorrindo atrás da janela de madeira, no cenário de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   "legenda": "O cenário de Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Uma janela <em>para o Natal.</em>",
+   "p": "O cenário de Natal tem a janela de madeira, os pinheiros nevados, a lanterna acesa e o espelho dourado com o cavalinho, no estilo clean do estúdio. Os ensaios acontecem de 20 de novembro a 12 de dezembro.",
+   "itens": [
+    "No estúdio da Heloísa, no Centro de Itaquaquecetuba.",
+    "O cenário: a janela de madeira, os pinheiros nevados, a lanterna e o espelho dourado.",
+    "De 20 de novembro a 12 de dezembro, com vagas limitadas.",
+    "Valores e detalhes pelo WhatsApp da Heloísa."
+   ],
+   "legenda_fotos": "O cenário de Natal"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+    "f": "p",
+    "alt": "A menina na janela de madeira do cenário de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+    "f": "l",
+    "alt": "A lanterna acesa e o espelho dourado com o cavalinho",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.05,
+     0.0,
+     0.75,
+     0.3
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfLgmJVhkfO/DfLgmJVhkfO_00.jpg",
+    "f": "l",
+    "alt": "Os pinheiros nevados junto à janela",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.0,
+     0.2,
+     0.42,
+     0.55
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Heloísa abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: dias entre 20 de novembro e 12 de dezembro, a temporada dela. A Heloísa define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Heloísa abre com o dia e a hora escritos."
+    ],
+    [
+     "A Heloísa confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Do newborn <em>ao primeiro aninho.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios no estúdio da Heloísa.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DfC-yT1GylN/DfC-yT1GylN_02.jpg",
+     "f": "p",
+     "alt": "Família com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/heloisa-barbosa-fotografia/posts/DewnzkTxujm/DewnzkTxujm_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida na manta de tricô",
+     "pos": "50% 45%",
+     "box": [
+      0,
+      0.29,
+      1,
+      1
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/624098932_18093082136054927_2935234263226010062_n.jpg",
+     "f": "p",
+     "alt": "Smash the cake entre balões",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/620890074_18032818478571282_433366166044550165_n.jpg",
+     "f": "p",
+     "alt": "Bebê gargalhando",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/619537351_18086125646117276_7231749936681067711_n.jpg",
+     "f": "p",
+     "alt": "Gestante de branco",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/622877872_18107595397709898_1123086102365777600_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido no balde branco",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/640284025_18559869007046839_2394614325497521218_n.jpg",
+     "f": "p",
+     "alt": "Bebê na banheira",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/heloisabarbosafotografia/Instagram_files/662322685_18120300892618010_8375867442919771750_n.jpg",
+     "f": "p",
+     "alt": "Bebê com o pezinho no bolo",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carlos Eduardo Maciel",
+    "tag": "Com as crianças",
+    "trecho": "Fomos super bem atendidos, muito simpática. Da super atenção as crianças, tem vocação pra isso"
+   },
+   {
+    "nome": "Thamiris Rosa",
+    "tag": "No tempo do bebê",
+    "trecho": "Atenciosa e respeitosa com os nenens, sabe lidar com as adversidades e contra tempo que pode acontecer durante a sessão."
+   },
+   {
+    "nome": "Nath B S",
+    "tag": "O estúdio",
+    "trecho": "Estúdio lindo, fotos de qualidade e a Heloisa é muito atenciosa."
+   },
+   {
+    "nome": "Andreza Oliveira",
+    "tag": "Energia",
+    "trecho": "Super indico, lugar maravilho, energia incrível, as fotos não tem como não sair maravilhosas!!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Itaquaquecetuba",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Vagas limitadas, de 20/11 a 12/12. Escolha um horário na agenda ou chame a Heloísa no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google, o mesmo das legendas (\"WhatsApp (11)991431335\") e da bio (wa.me)",
+  "site": "não tem: o Google aponta o Instagram; a bio tem só o WhatsApp; heloisabarbosa.com é uma página \"em breve\" do Squarespace, sem dono identificado (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/heloisa-barbosa-fotografia` e `/demo/heloisa-barbosa-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 9, 86 pontos), escolhida no Drive de 05/11/2026. Bio: \"FOTOGRAFIA MINIMALISTA · Especialista em fotografia newborn · Itaquaquecetuba\"; o site segue o estilo clean dela (fundo claro, poucos ornamentos).",
+   "Dona: Heloísa Pereira Barbosa (post \"Um pouquinho sobre mim\": graduada em fotografia). Foto dela: a do post com a câmera e a blusa azul, a mesma mulher do \"sobre mim\".",
+   "Cores: o rose e o bege dos cenários dela (#9a6656 no destaque); Bodoni Moda, Jost e \"fotografia\" em Parisienne; abertura em polaroides. Sem logo em boa resolução: monograma HB e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal, newborn e 1 aninho), portfólio em 2 abas (Gestante e newborn, 11; Acompanhamento e 1 aninho, 14), a Heloísa, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"A infância é agora, a recordação é para sempre\": o ensaio, o cenário (a capa do vídeo de 01/11 e dois detalhes dela), a agenda de exemplo (6 dias de 20/11 a 12/12, a temporada dela, das 9h às 13h) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (1440 px), 2 posts de out/2026 (o newborn de 21/10 e a família com o recém-nascido de 28/10, este em 3072 px), a capa do vídeo de Natal (720 px) e 2 fotos do Google.",
+   "Material de Natal curto: só a capa do vídeo de 01/11 (o vídeo não abre sem login). Os posts de 2026 com moldura branca, marca d'água ou várias fotos lado a lado ficaram de fora, além das artes e da foto do perfil."
+  ],
+  "textos": [
+   "Bio e legendas: \"Agenda aberta, os ensaios acontecerão do dia 20 de novembro ao dia 12 de dezembro, vagas limitadas!\" (01/11), \"Eles crescem. Os detalhes mudam...\" (21/10), \"Retrato em família nos primeiros dias de vida do bebê...\" (28/10), \"Sessão realizada até os 15 dias de vida\", gestante clean e o 1 aninho.",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 na demo (a da Giovanna Barbosa ficou de fora: mesmo sobrenome da dona)."
+  ],
+  "conferir": [
+   "A foto do perfil do Instagram (mulher de blazer marrom com a lente) parece ser de outra pessoa (o @heloisabarbosaretratos?): a demo usa a do post com a câmera e a blusa azul. Conferir com ela.",
+   "Horários: a agenda é exemplo (dito na página). No Google: segunda a sexta das 9h às 17h, sábado das 9h às 14h.",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

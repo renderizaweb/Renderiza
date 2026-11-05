@@ -1,0 +1,778 @@
+{
+ "pasta": "rosangela-rocha-fotografia",
+ "marca": "Fotógrafa Rosangela Rocha",
+ "marca_completa": "Fotógrafa Rosangela Rocha",
+ "dona": "Ro",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4960245,-46.6923991",
+  "fid": "0x94cef9c7e695ebeb:0x59929f3e7e16ff98",
+  "gid": "/g/11gjw_6qkn"
+ },
+ "google_nome": "Fotógrafa Rosangela Rocha",
+ "endereco_maps": "Av. Miguel Conejo, 886 - Freguesia do Ó, São Paulo - SP, 02731-060",
+ "google_nota": "4,9",
+ "google_total": "33",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511981401474",
+ "fone_link": "+5511981401474",
+ "instagram": "fotografarosangelarocha",
+ "seguidores": "6,9 mil",
+ "mensagem": "Olá, Rosangela! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f8f9fa",
+  "papel": "#ffffff",
+  "areia": "#eef1f3",
+  "linha": "#dfe4e8",
+  "tinta": "#222a31",
+  "tinta2": "#58626b",
+  "rosa": "#9fb8c8",
+  "acento": "#a8323a",
+  "acento_escuro": "#8a2830",
+  "cafe": "#1b2229"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 15h",
+   "2026-12-12 10h",
+   "2026-12-12 14h",
+   "2026-12-12 15h",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Ro define os dela",
+  "mensagem": "Olá, Rosangela! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Rosangela",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Rosangela Rocha, fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Rosangela Rocha, fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Baskerville",
+    "ital,wght@0,400;0,700;1,400"
+   ],
+   "sans": [
+    "Work Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Petit Formal Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "❅",
+  "script_escala": 0.62,
+  "css": "h1,h2,h3{letter-spacing:-.02em}.abertura h1{font-size:clamp(2.5rem,5.2vw,4.4rem)}.abertura h1 .script{margin-top:.25em}@media(min-width:861px){.rz-in{gap:10px 14px}.rz-faixa{font-size:.82rem}}"
+ },
+ "titulo_nome": "Rosangela Rocha",
+ "titulo_script": "fotografia",
+ "quem_a": "a Rosangela",
+ "quem_da": "da Rosangela",
+ "quem_sou": "Sou a Rosangela Rocha, fotógrafa",
+ "slogan": "Mais de 5 mil famílias atendidas.",
+ "site": {
+  "titulo": "Fotógrafa Rosangela Rocha | Gestante, newborn, smash the cake e Natal na Freguesia do Ó",
+  "descricao": "Fotógrafa Rosangela Rocha, na Freguesia do Ó, zona norte de São Paulo: gestante, newborn, smash the cake, acompanhamento e Natal 2026, com cenários exclusivos e figurinos. Mais de 5 mil famílias atendidas.",
+  "comentario": "Demo Fotógrafa Rosangela Rocha (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@fotografarosangelarocha: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia na Freguesia do Ó · Zona Norte",
+   "frase": "Mais de 5 mil famílias atendidas.",
+   "intro": "Gestante, newborn e smash the cake, com cenários exclusivos e figurinos, no ateliê da Ro, na Freguesia do Ó. E o Natal 2026 já está montado.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Smash the cake"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Acompanhamento",
+    "Páscoa",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_04.jpg",
+     "f": "p",
+     "alt": "Pais beijando o bebê no cenário de Natal com o urso polar",
+     "c": [
+      0.45,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/628031039_18507296182074953_5212713674441664465_n.jpg",
+     "f": "l",
+     "alt": "Gestante entre rosas, com as mãos na barriga",
+     "c": [
+      0.5,
+      0.3
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQYJXFj7rf/DfQYJXFj7rf_01.jpg",
+     "f": "l",
+     "alt": "Bebê no smash the cake de borboletas, com o bolo rosa",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cenários <em>cheios de detalhes.</em>",
+   "p": "Ensaios feitos no ateliê da Ro, na Freguesia do Ó. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_00.jpg",
+      "f": "l",
+      "alt": "Mãe levantando o bebê na floresta de neve, com os ursos polares",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_04.jpg",
+      "f": "l",
+      "alt": "Pais beijando o bebê, junto ao urso polar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Família de vermelho com o Papai Noel, no cenário dourado",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_01.jpg",
+      "f": "l",
+      "alt": "Irmãs de xadrez sentadas na neve, junto à árvore branca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_03.jpg",
+      "f": "l",
+      "alt": "Pais e filhas sentados na neve do cenário",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/fotos/g02.jpg",
+      "f": "l",
+      "alt": "Família no trenó, entre os ursos polares",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_02.jpg",
+      "f": "l",
+      "alt": "Família acenando no cenário de neve",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/624757422_18339541891213718_3288701223937407933_n.jpg",
+      "f": "p",
+      "alt": "Menino de Papai Noel no trenó das renas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/627114780_18394692718182814_6401955958547699258_n.jpg",
+      "f": "p",
+      "alt": "Irmãos no sofá vermelho, junto à árvore",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQYJXFj7rf/DfQYJXFj7rf_01.jpg",
+      "f": "l",
+      "alt": "Bebê com o bolo rosa no cenário de borboletas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQXBNOmh4s/DfQXBNOmh4s_00.jpg",
+      "f": "l",
+      "alt": "Pais e a bebê de lilás no cenário de borboletas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQWdKRlkvq/DfQWdKRlkvq_00.jpg",
+      "f": "l",
+      "alt": "Bebê de vestido lilás entre os balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQYJXFj7rf/DfQYJXFj7rf_00.jpg",
+      "f": "l",
+      "alt": "Bebê brincando com o bolo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQWdKRlkvq/DfQWdKRlkvq_02.jpg",
+      "f": "l",
+      "alt": "Bebê sentada no banquinho, de vestido de tule",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfQXBNOmh4s/DfQXBNOmh4s_02.jpg",
+      "f": "l",
+      "alt": "Pai e bebê sentados no chão do cenário",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/621847038_18281239888303845_137332768277779100_n.jpg",
+      "f": "l",
+      "alt": "Menino de cartola no smash the cake do Mundo Bita",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/630149043_18452740957097992_4319020621649131399_n.jpg",
+      "f": "p",
+      "alt": "Menina no smash the cake de bailarina",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/619494856_18396497971178071_8935965574298267139_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano sorrindo, de perto",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/628031039_18507296182074953_5212713674441664465_n.jpg",
+      "f": "p",
+      "alt": "Gestante entre rosas, com as mãos na barriga",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/640326326_18567795379017016_1106737976729738305_n.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu no balanço de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/619594154_18312804946266126_3726579525454390601_n.jpg",
+      "f": "p",
+      "alt": "Gestante de dourado no fundo escuro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/624758329_18339256690242481_192112961350748138_n.jpg",
+      "f": "p",
+      "alt": "Casal grávido, ele beijando a testa dela",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/628760742_18515018692076678_2225100435087036361_n.jpg",
+      "f": "p",
+      "alt": "Gestante entre luzes douradas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/626000496_18446358037099862_6778648230172341920_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho, abraçado ao urso",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/628059029_18406474210131864_4426078903622812712_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido na manta azul de pelos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/637695602_18563760652014492_4921743114991858780_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no capacete de moto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/638859950_18569325730026488_6271440227677195983_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo enrolado na manta",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/639752223_18569793841063742_5491669268569041589_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no baldinho, no fundo rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/640393534_18568530385056490_7255593560372689873_n.jpg",
+      "f": "l",
+      "alt": "Gestante no balanço de folhas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/619950114_18300881449287600_8670699807186541269_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo na manta branca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/628277214_18452004040100920_2289794109586497386_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no caixote de madeira com flores",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/622818306_18378269269154437_5485453732156015695_n.jpg",
+      "f": "p",
+      "alt": "Bebê no ovo de chocolate da Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/622964987_18327075190169842_9141122797236381883_n.jpg",
+      "f": "p",
+      "alt": "Menina de orelhas de coelho no ovo de chocolate",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/619219197_18401371528133064_3891886536263937899_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano entre estrelas douradas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/626458908_18404127622120534_502499566976884842_n.jpg",
+      "f": "p",
+      "alt": "Bebê com coroa de flores no cestinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/629470164_18388957156145174_5499704016012913699_n.jpg",
+      "f": "p",
+      "alt": "Bebê sentada no cestinho de vime",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/639795771_18562742413062678_4125225821700568029_n.jpg",
+      "f": "p",
+      "alt": "Menina de chapéu preto e colar de pérolas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/632750076_18564620824005219_1797359587043157724_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha deitadas na grama",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/629571617_18388327021145529_2314824219083238960_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cestinho com a manta rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/627993990_18439808131128284_6133750446574023447_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo no cercadinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/639786504_18569098741033998_4189569827044866065_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filho no sofá do ateliê",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/642142634_18570878896051807_478446794964952231_n.jpg",
+      "f": "l",
+      "alt": "Menina de orelhas de coelho na Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/629423419_18408208819132746_7896110497529889191_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filho deitados na cama do ateliê",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Rosangela, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Rosangela Rocha sorrindo, de blazer branco",
+    "c": [
+     0.45,
+     0.4
+    ]
+   },
+   "p": [
+    "A Rosangela Rocha, a Ro, fotografa gestantes, recém-nascidos e bebês no ateliê dela, na Freguesia do Ó, na zona norte de São Paulo. São mais de 5 mil famílias atendidas, com cenários exclusivos e figurinos para cada ensaio."
+   ],
+   "citacao": "O primeiro aninho passa voando, mas as lembranças podem durar para sempre!",
+   "citacao_quem": "Ro, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam que ela brinca e canta música infantil para o bebê se soltar, que tem vários cenários cheios de detalhes e que entrega as fotos antes do prazo, com o álbum."
+   ],
+   "numeros": [
+    [
+     "5 mil",
+     "famílias atendidas"
+    ],
+    [
+     "4,9",
+     "33 avaliações no Google"
+    ],
+    [
+     "6,9 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do ateliê, nas palavras da Ro:",
+   "fonte": "Bio e legendas da Ro no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No balanço de flores, entre rosas ou no fundo escuro, com maquiagem."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Os primeiros dias do bebê, com mantas, cestinhos e pequenos detalhes."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Uma sessão a cada fase, até o primeiro aninho."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "A bagunça é liberada",
+     "p": "Pode colocar a mãozinha, se lambuzar, experimentar e fazer aquela bagunça deliciosa!"
+    },
+    {
+     "nome": "Páscoa e Dia das Mães",
+     "sub": "Datas especiais",
+     "p": "Os cenários de cada data: o ovo de chocolate, os coelhos, as flores."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Cenários exclusivos",
+     "p": "Cenários encantadores, fotografias com todo carinho e figurinos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Toda a magia <em>do Natal.</em>",
+   "p": "A floresta de neve com os ursos polares e o trenó está montada no ateliê, com figurinos. Escolha um horário e a mensagem chega pronta no WhatsApp da Ro.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_01.jpg",
+    "f": "p",
+    "alt": "Irmãs de xadrez sentadas na neve, junto à árvore branca e ao urso polar",
+    "c": [
+     0.35,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026 no ateliê"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Stefany e Lucas",
+    "tag": "Smash the cake",
+    "trecho": "ela brincou muito com ele, cantou músicas infantil e o resultado disso foram as fotos incríveis que saíram!!!"
+   },
+   {
+    "nome": "Fabiana Almeida",
+    "tag": "Vários ensaios",
+    "trecho": "Já fiz vários ensaios com a Ro, acho ela super simpática,atenciosa e profissional. Ela tem vários cenários e são bem lindos e cheios de detalhes."
+   },
+   {
+    "nome": "Camila Rodrigues",
+    "tag": "Bebês",
+    "trecho": "Rosangela é uma profissional espetacular, sempre muito paciente e consegue arrancar as melhores risadas dos bebês"
+   },
+   {
+    "nome": "Shirley acld",
+    "tag": "O ateliê",
+    "trecho": "Paciente, amorosa, dedicada.. Ateliê super aconchegante. As fotografias e o álbum ficaram perfeitos."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O ateliê fica na Av. Miguel Conejo, na Freguesia do Ó, zona norte de São Paulo.",
+   "telefone": "(11) 98140-1474",
+   "endereco": [
+    "Av. Miguel Conejo, 886",
+    "Freguesia do Ó",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Fotógrafa Rosangela Rocha",
+  "descricao": "O ensaio de Natal 2026 da fotógrafa Rosangela Rocha, na Freguesia do Ó: a floresta de neve com os ursos polares, cenários exclusivos e figurinos. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Fotógrafa Rosangela Rocha: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Freguesia do Ó",
+   "h1": "Tesouros <em>para a vida inteira.</em>",
+   "citacao": "Já imaginou reviver o sorriso dos seus filhos, o abraço da sua família e toda a magia do Natal por meio de fotografias que serão tesouros para a vida inteira?",
+   "citacao_quem": "Ro, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_00.jpg",
+    "f": "l",
+    "alt": "Mãe levantando o bebê na floresta de neve, com os ursos polares",
+    "c": [
+     0.45,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026 no ateliê"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Cenários <em>encantadores.</em>",
+   "p": "Para o Natal 2026, a Ro preparou cenários encantadores para transformar o ensaio numa experiência inesquecível: a floresta de neve, com os ursos polares, os pinheiros e o trenó, e o cenário vermelho com o Papai Noel.",
+   "itens": [
+    "No ateliê da Ro, na Freguesia do Ó, zona norte.",
+    "Cenários exclusivos: a floresta de neve com os ursos polares e o cenário vermelho com o Papai Noel.",
+    "Figurinos para o ensaio.",
+    "Para as crianças, os irmãos ou a família toda.",
+    "Valores e detalhes pelo WhatsApp da Ro."
+   ],
+   "legenda_fotos": "Os cenários de Natal"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_01.jpg",
+    "f": "p",
+    "alt": "A floresta de neve, com a árvore branca e o urso polar",
+    "c": [
+     0.3,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "O cenário vermelho e dourado, com o Papai Noel",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_05.jpg",
+    "f": "l",
+    "alt": "O trenó e os ursos polares na neve",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Ro abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Ro define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Ro abre com o dia e a hora escritos."
+    ],
+    [
+     "A Ro confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal",
+   "h2": "Natais <em>no ateliê.</em>",
+   "nome": "Natal",
+   "p": "O Natal 2026 e ensaios de Natal de outros anos, no ateliê da Ro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_04.jpg",
+     "f": "l",
+     "alt": "Pais beijando o bebê junto ao urso polar",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_03.jpg",
+     "f": "l",
+     "alt": "Família sentada na neve",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/fotos/g02.jpg",
+     "f": "l",
+     "alt": "Família no trenó",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/posts/DfBP9bKjMPB/DfBP9bKjMPB_02.jpg",
+     "f": "l",
+     "alt": "Família acenando na neve",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/rosangela-rocha-fotografia/google/fotos/g01.jpg",
+     "f": "l",
+     "alt": "Família sentada na neve com o caixote de madeira",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/626107304_18407646157132126_2370132701259643999_n.jpg",
+     "f": "l",
+     "alt": "Menina de Natal no sofá vermelho",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/624757422_18339541891213718_3288701223937407933_n.jpg",
+     "f": "p",
+     "alt": "Menino de Papai Noel no trenó das renas",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografarosangelarocha/Instagram_files/627114780_18394692718182814_6401955958547699258_n.jpg",
+     "f": "p",
+     "alt": "Irmãos no sofá vermelho",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Fabiana Almeida",
+    "tag": "Os cenários",
+    "trecho": "Ela tem vários cenários e são bem lindos e cheios de detalhes. Muito obrigada pelo carinho e profissionalismo de sempre!!"
+   },
+   {
+    "nome": "Stefany e Lucas",
+    "tag": "Entrega",
+    "trecho": "E a rapidez na entrega das fotos também, foram entregues antes do prazo, com alta qualidade e perfeitas."
+   },
+   {
+    "nome": "Camila Rodrigues",
+    "tag": "Fotos",
+    "trecho": "as fotos ficam impecáveis, bem tratadas e nítidas. Obrigada, Ro por fazer parte desse momento tão especial"
+   },
+   {
+    "nome": "Shirley acld",
+    "tag": "Família",
+    "trecho": "Ela eternizou em fotos as faces mais bonitas da vida do meu sobrinho e neto."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Freguesia do Ó",
+   "h2": "Garanta o seu <em>Natal no ateliê.</em>",
+   "p": "Escolha um horário na agenda ou chame a Ro no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google, o mesmo das legendas (\"mais informações whatsapp 11 98140-1474\") e do linkme.bio da bio",
+  "site": "não tem: sem link no Google; a bio leva a um linkme.bio só com o WhatsApp; rosangelarocha.com.br é de outra empresa (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/rosangela-rocha-fotografia` e `/demo/rosangela-rocha-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 6, 87 pontos; reserva do lote 1), escolhida no Drive de 05/11/2026. Bio: \"Gestante | Newborn | smash the cake · Mais de 5 mil famílias atendidas · Atendimento em Freguesia do Ó\".",
+   "Dona: Rosângela Rocha (bio); \"a Ro\" nas avaliações. Foto dela: a do perfil do Instagram (1080 px).",
+   "Cores: o vermelho do Natal e o azul-gelo da floresta de neve (#a8323a no destaque); Libre Baskerville, Work Sans e \"fotografia\" em Petit Formal Script. Sem logo em boa resolução: monograma RR e o nome em letra cursiva, feitos para a demo. As fotos de Natal são deitadas: a capa da página de Natal também."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e smash the cake), portfólio em 4 abas (Natal, 9; Smash the cake, 9; Gestante e newborn, 13; Bebês e família, 12), a Ro, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"Tesouros para a vida inteira\": o ensaio, os dois cenários, a agenda de exemplo (6 sábados de 7/11 a 12/12) e os Natais no ateliê."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (Natal da floresta de neve e o smash the cake da Amanda, 2048 px), 3 fotos de Natal do Google (2000 px) e a página do Instagram salva no Drive (posts de 2017 e 2018, 480 a 1080 px: gestante, newborn, Páscoa, Natal, smash).",
+   "Ficaram de fora: as montagens (vários quadros numa foto), o \"amor no cubo\", a renovação de votos e a foto do newborn com nome e peso escritos."
+  ],
+  "textos": [
+   "Bio. Legendas do Natal 2026 (28/10: \"Preparamos cenários encantadores... Cenários exclusivos, Fotografias profissionais com todo carinho, Figurinos\"; \"Já imaginou reviver o sorriso dos seus filhos...\") e do smash the cake (02/11: \"Aqui a bagunça é liberada\", \"O primeiro aninho passa voando...\").",
+   "Avaliações do Google: 4 de 5 estrelas visíveis sem login."
+  ],
+  "conferir": [
+   "Horários: a agenda é exemplo (dito na página). No Google, ela atende todos os dias, das 9h às 18h.",
+   "O cenário vermelho com o Papai Noel aparece só no Google: conferir se é de 2026.",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

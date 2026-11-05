@@ -1,0 +1,712 @@
+{
+ "pasta": "fernanda-oliveira-fotografia",
+ "marca": "Estúdio Fernanda Oliveira Fotografia",
+ "marca_completa": "Estúdio Fernanda Oliveira Fotografia",
+ "dona": "Fernanda",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6909733,-46.7719517",
+  "fid": "0x94ce53da92b94e87:0xb977a8fbd4446393",
+  "gid": "/g/11y92wgmt7"
+ },
+ "google_nome": "Estúdio Fernanda Oliveira Fotografia",
+ "endereco_maps": "Rua Antônio Victor de Oliveira - Jardim Copacabana, São Paulo - SP, 04939-070",
+ "google_nota": "4,9",
+ "google_total": "24",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511954625744",
+ "fone_link": "+5511954625744",
+ "instagram": "estudiofernandafotografia",
+ "seguidores": "2,8 mil",
+ "mensagem": "Olá, Fernanda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfaf7",
+  "papel": "#ffffff",
+  "areia": "#f3efe7",
+  "linha": "#e5dfd2",
+  "tinta": "#2a2620",
+  "tinta2": "#625b50",
+  "rosa": "#b7342f",
+  "acento": "#93702f",
+  "acento_escuro": "#765824",
+  "cafe": "#221f1a"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "13h",
+   "14h",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 13h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 14h",
+   "2026-11-14 15h",
+   "2026-11-21 11h",
+   "2026-11-21 13h",
+   "2026-11-28 10h",
+   "2026-11-28 13h",
+   "2026-11-28 15h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 14h",
+   "2026-12-12 10h",
+   "2026-12-12 13h",
+   "2026-12-12 14h",
+   "2026-12-12 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Fernanda define os dela",
+  "mensagem": "Olá, Fernanda! Quero o horário de {data} ({semana}) às {hora} para o Natal na Vila Nevada. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Fernanda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Fernanda, do Estúdio Fernanda Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Fernanda, do Estúdio Fernanda Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Montserrat",
+    "wght@300;400;500"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "❄",
+  "script_escala": 0.85,
+  "css": "@media(min-width:861px){.rz-in{gap:10px 14px}.rz-faixa{font-size:.82rem}}"
+ },
+ "titulo_nome": "Estúdio Fernanda",
+ "titulo_script": "fotografia",
+ "quem_a": "a Fernanda",
+ "quem_da": "da Fernanda",
+ "quem_sou": "Sou a Fernanda, do Estúdio Fernanda Fotografia",
+ "slogan": "Tudo que envolve o amor merece ser registrado.",
+ "site": {
+  "titulo": "Estúdio Fernanda Oliveira Fotografia | Newborn, acompanhamento e infantil na zona sul de SP",
+  "descricao": "Estúdio Fernanda Oliveira Fotografia, no Jardim Copacabana, zona sul de São Paulo: especialista em newborn e ensaio infantil, acompanhamento mensal com tema e o Natal na Vila Nevada 2026. Nota 4,9 no Google.",
+  "comentario": "Demo Estúdio Fernanda Oliveira Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@estudiofernandafotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia na Zona Sul · São Paulo",
+   "frase": "Tudo que envolve o amor merece ser registrado.",
+   "intro": "Especialista em newborn e ensaio infantil, com um tema novo a cada mês do primeiro ano, no estúdio da Fernanda, no Jardim Copacabana. E o Natal na Vila Nevada já começou.",
+   "rotulos": [
+    "Natal 2026",
+    "Newborn",
+    "Acompanhamento"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Acompanhamento mensal",
+    "Smash the cake",
+    "Infantil",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_01.jpg",
+     "f": "p",
+     "alt": "Menina de capa vermelha sorrindo entre os pinheiros nevados",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486019387_1271617361021853_8257047545122677858_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida dormindo na manta azul de pelos",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487110276_1275714520612137_3532033115303482201_n.jpg",
+     "f": "p",
+     "alt": "Bebê de 10 meses vestido de Chaves, rindo",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Um tema <em>a cada mês.</em>",
+   "p": "Ensaios feitos no estúdio da Fernanda, no Jardim Copacabana. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_01.jpg",
+      "f": "l",
+      "alt": "Menina de capa vermelha sorrindo entre os pinheiros nevados",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_05.jpg",
+      "f": "l",
+      "alt": "Menina sentada no banco vermelho da casinha de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_00.jpg",
+      "f": "l",
+      "alt": "Menina de capa vermelha junto ao boneco de neve",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_01.jpg",
+      "f": "l",
+      "alt": "Menina tomando chocolate quente no trenó vermelho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_02.jpg",
+      "f": "l",
+      "alt": "Menina com as bengalas de doce no rosto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_02.jpg",
+      "f": "l",
+      "alt": "Menina sentada na neve junto à lareira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_06.jpg",
+      "f": "l",
+      "alt": "Menina sorrindo com a caixa de presente, entre os pinheiros",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_03.jpg",
+      "f": "l",
+      "alt": "Menina no trenó com as canecas e os doces",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486019387_1271617361021853_8257047545122677858_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo na manta azul de pelos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/485922092_1271617307688525_8795056843380585914_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida enrolada na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de vestido rosa no bercinho com rosas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/385067878_892822875567972_8228751594848691153_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na lua, entre flores e borboletas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487239250_1276881857162070_1976296321482184636_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido no casulo verde, entre folhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486718062_1274697904047132_6712726270259277003_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na manta branca de pelos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486842978_1276881533828769_8097284945383809701_n.jpg",
+      "f": "l",
+      "alt": "Pezinhos do recém-nascido nas mãos dos pais",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486378488_1273937964123126_5156990217194248237_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 mês vestido de Super-Homem",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "acompanhamento",
+    "nome": "Acompanhamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487110276_1275714520612137_3532033115303482201_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 10 meses vestido de Chaves",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487297155_1276879337162322_8589657035939313012_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 9 meses no safári, com o leão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486462666_1272265264290396_6288950158405965365_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no cenário da Turma da Mônica",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487326643_1276700607180195_1424795434186448513_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 3 meses no aviãozinho, entre as nuvens",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486286522_1272254140958175_7420570012102619801_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 8 meses na fazendinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486789439_1274698054047117_7958922950479687828_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 2 meses no tema Toy Story",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfH6FTJI2ue/DfH6FTJI2ue_02.jpg",
+      "f": "l",
+      "alt": "Bebê de 5 meses na cadeira de praia, no tema praia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486322476_1272204444296478_705240166309126173_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no cenário pink da Minnie",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "aninho",
+    "nome": "1 aninho e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Bebê no smash the cake da Minnie, com o bolo rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486447006_1272254414291481_1569503719900468800_n.jpg",
+      "f": "l",
+      "alt": "Menina de 1 ano no tema Alice no País das Maravilhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487308258_1274681380715451_8722187416875460362_n.jpg",
+      "f": "l",
+      "alt": "Menino de 1 ano de palhacinho, no circo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486367041_1275482920635297_3402350020563025394_n.jpg",
+      "f": "l",
+      "alt": "Menina de 1 ano sorrindo no cenário de flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/486808251_1274672920716297_7499206436680774149_n.jpg",
+      "f": "l",
+      "alt": "Menina de 2 anos no cenário do ursinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487197706_1276444987205757_6148403360796298256_n.jpg",
+      "f": "l",
+      "alt": "Menino de 2 anos no cenário clean de balões azuis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487094152_1274701340713455_202158919441884359_n.jpg",
+      "f": "l",
+      "alt": "Irmãos, a irmã mais velha com o bebê no colo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487451171_1277332497117006_5368916189592808742_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filhas no cenário de Natal vermelho",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Fernanda, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Fernanda Oliveira sorrindo com a câmera, no estúdio",
+    "c": [
+     0.45,
+     0.5
+    ]
+   },
+   "p": [
+    "A Fernanda Oliveira é especialista em newborn e ensaio infantil. No estúdio dela, no Jardim Copacabana, na zona sul de São Paulo, acompanha o bebê do newborn ao primeiro aninho, com um tema diferente a cada mês: a fazendinha, o safári, o Chaves, a praia, o aviãozinho."
+   ],
+   "citacao": "Acompanhar o bebê desde o newborn até o 1º aninho é um misto de sentimentos.",
+   "citacao_quem": "Fernanda, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam do carinho e da paciência com as crianças, dos sorrisos que ela consegue e dos cenários caprichados e ricos de detalhes."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "24 avaliações no Google"
+    ],
+    [
+     "2,8 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2,3 mil",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do newborn <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Fernanda:",
+   "fonte": "Bio e legendas da Fernanda no Instagram.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O ensaio newborn guarda detalhes que mudam rápido demais. O ideal é agendar ainda durante a gestação."
+    },
+    {
+     "nome": "Acompanhamento mensal",
+     "sub": "Um tema por mês",
+     "p": "Que delícia poder guardar cada fase dessa aventura chamada primeiro ano!"
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Algumas crianças não gostam da parte do bolo, e isso é bem comum: o ensaio respeita o tempo delas."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Do jeito de cada um",
+     "p": "Aos 2 anos, aos 10 anos: um ensaio no estilo de cada criança."
+    },
+    {
+     "nome": "Irmãos e família",
+     "sub": "Todo mundo junto",
+     "p": "E fotos com o irmão mais velho, não pode faltar."
+    },
+    {
+     "nome": "Natal na Vila Nevada",
+     "sub": "Brincar na neve",
+     "p": "Pinheiros nevados, luzinhas e uma experiência preparada para despertar a imaginação das crianças."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal na Vila Nevada 2026",
+   "h2": "O Natal na Vila Nevada <em>já começou.</em>",
+   "p": "Os pinheiros nevados, a casinha vermelha, o trenó do chocolate quente e a lareira esperam as crianças no estúdio, com roupas de frio para os pequenos. Escolha um horário e a mensagem chega pronta no WhatsApp da Fernanda.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_04.jpg",
+    "f": "p",
+    "alt": "Menina na casinha vermelha da Vila Nevada",
+    "c": [
+     0.55,
+     0.5
+    ]
+   },
+   "legenda": "Natal na Vila Nevada 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Érica Costa Batista Dos Santos",
+    "tag": "As fases dos filhos",
+    "trecho": "Os cenários perfeitos, caprichados e rico de detalhes. Sou grata por cada registro das fases dos meus filhos."
+   },
+   {
+    "nome": "Annah Alves",
+    "tag": "Com os pequenos",
+    "trecho": "A melhor fotógrafa que já vi. Bem atenciosa com meus pequenos Consegue tirar sorrisos e os melhores cliques"
+   },
+   {
+    "nome": "Camila Menezes",
+    "tag": "O estúdio",
+    "trecho": "O estúdio é maravilhoso , tirei fotos do meu filho e ficaram perfeitas a Fernanda é uma profissional maravilhosa"
+   },
+   {
+    "nome": "marcos da silva silva",
+    "tag": "Cliente há anos",
+    "trecho": "sempre fico encantada com o trabalho, profissionalismo e cuidado com os clientes!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Copacabana, na zona sul de São Paulo.",
+   "telefone": "(11) 95462-5744",
+   "endereco": [
+    "Rua Antônio Victor de Oliveira",
+    "Jardim Copacabana",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal na Vila Nevada 2026 | Estúdio Fernanda Fotografia",
+  "descricao": "Natal na Vila Nevada 2026: o ensaio de Natal do Estúdio Fernanda Fotografia, no Jardim Copacabana, zona sul de São Paulo. Brincar na neve, com roupas de frio no estúdio. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Fernanda Oliveira Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Zona Sul",
+   "h1": "Natal <em>na Vila Nevada.</em>",
+   "citacao": "Cada luzinha, cada floco de neve e cada pequeno detalhe foram preparados com muito carinho para receber vocês!",
+   "citacao_quem": "Fernanda, no lançamento do cenário",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_03.jpg",
+    "f": "l",
+    "alt": "Menina de capa vermelha entre os pinheiros nevados, com o boneco de neve",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal na Vila Nevada 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Brincar <em>na neve.</em>",
+   "p": "A proposta do Natal na Vila Nevada é brincar na neve: pinheiros nevados, luzinhas, a casinha vermelha, o trenó com chocolate quente e a lareira. Os looks de frio combinam com o cenário, e o estúdio tem roupas e acessórios para as crianças de até 2 ou 3 aninhos.",
+   "itens": [
+    "No estúdio da Fernanda, no Jardim Copacabana, zona sul.",
+    "Cenário de neve: pinheiros, casinha vermelha, trenó e lareira.",
+    "Roupas e acessórios de frio no estúdio para as crianças de até 2 ou 3 aninhos.",
+    "Para as crianças, os irmãos ou a família toda.",
+    "Valores e detalhes pelo WhatsApp da Fernanda."
+   ],
+   "legenda_fotos": "O cenário da Vila Nevada"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_00.jpg",
+    "f": "p",
+    "alt": "A casinha vermelha da Vila Nevada, com o banco e as renas",
+    "c": [
+     0.55,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_01.jpg",
+    "f": "l",
+    "alt": "O trenó do chocolate quente",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_02.jpg",
+    "f": "l",
+    "alt": "A lareira e os pinheiros nevados",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Fernanda abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Fernanda define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Fernanda abre com o dia e a hora escritos."
+    ],
+    [
+     "A Fernanda confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "A Helena <em>na Vila Nevada.</em>",
+   "nome": "Natal 2026",
+   "p": "O primeiro ensaio no cenário de 2026, publicado pela Fernanda em novembro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_01.jpg",
+     "f": "l",
+     "alt": "Menina sorrindo entre os pinheiros",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_05.jpg",
+     "f": "l",
+     "alt": "Menina na casinha vermelha",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_02.jpg",
+     "f": "l",
+     "alt": "Menina com as bengalas de doce",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_03.jpg",
+     "f": "l",
+     "alt": "Menina no trenó",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_00.jpg",
+     "f": "l",
+     "alt": "Menina junto ao boneco de neve",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfQYiGqAIao/DfQYiGqAIao_06.jpg",
+     "f": "l",
+     "alt": "Menina com o presente",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/fernanda-oliveira-fotografia/posts/DfS55fOIHPl/DfS55fOIHPl_02.jpg",
+     "f": "l",
+     "alt": "Menina junto à lareira",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/estudiofernandafotografia/Instagram_files/487451171_1277332497117006_5368916189592808742_n.jpg",
+     "f": "l",
+     "alt": "Mãe e filhas num Natal anterior do estúdio",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Érica Costa Batista Dos Santos",
+    "tag": "Com as crianças",
+    "trecho": "A Fernanda sempre muito atenciosa e cuidadosa com as crianças, tem todo carinho e paciência."
+   },
+   {
+    "nome": "Camila Menezes",
+    "tag": "Os detalhes",
+    "trecho": "nos deixou muito a vontade ,muito atenciosa e prestativa a delicadeza das fotos foram escolhidas nos mínimos detalhes"
+   },
+   {
+    "nome": "Annah Alves",
+    "tag": "Carinho",
+    "trecho": "O melhor investimento que já fiz Grata a todo instante pelo carinho e cuidado que você tem"
+   },
+   {
+    "nome": "marcos da silva silva",
+    "tag": "Cliente há anos",
+    "trecho": "sempre fico encantada com o trabalho, profissionalismo e cuidado com os clientes!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal na Vila Nevada 2026",
+   "h2": "Garanta o seu <em>Natal na neve.</em>",
+   "p": "Escolha um horário na agenda ou chame a Fernanda no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google, o mesmo da bio do Instagram (api.whatsapp.com) e das legendas",
+  "site": "não tem: o Google aponta o Instagram; a bio tem só o WhatsApp; os domínios com o nome dela são de outras Fernandas (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/fernanda-oliveira-fotografia` e `/demo/fernanda-oliveira-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 7, 87 pontos), escolhida no Drive de 05/11/2026. Bio: \"Tudo que envolve o amor merece ser registrado. Especialista em ensaio newborn e infantil. São Paulo / zona sul\". O forte é o acompanhamento mensal com tema; o Natal 2026 se chama \"Natal na Vila Nevada\".",
+   "Dona: Fernanda Oliveira (perfil do Instagram e avaliações). Foto dela: a do perfil do Instagram (1080 px, com a câmera e as luzes do estúdio). A placa do estúdio (foto do Google) diz \"Estúdio Fernanda Fotografia\", em dourado: o nome no topo e a cor seguem a placa.",
+   "Cores: o dourado da placa (#93702f no destaque) e o vermelho do Natal; Cormorant Garamond, Montserrat e \"fotografia\" em Great Vibes; abertura em arco. Monograma EF e o nome em letra cursiva, feitos para a demo (a placa não serve de logo)."
+  ],
+  "demo": [
+   "Site: abertura em arco (Natal 2026, newborn e acompanhamento), portfólio em 4 abas de 8 fotos deitadas (Natal 2026, Newborn, Acompanhamento, 1 aninho e família), a Fernanda, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página \"Natal na Vila Nevada 2026\": o ensaio (brincar na neve, roupas de frio no estúdio), o cenário, a agenda de exemplo (6 sábados de 7/11 a 12/12) e a Helena na Vila Nevada."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (2048 px: newborn, acompanhamento mensal com tema, 1 aninho), os posts de out/nov 2026 (o Natal na Vila Nevada da Helena e a praia do Gustavo, 2048 px) e 4 fotos do Google (até 2000 px).",
+   "Todas as fotos dela são deitadas; as galerias também. Ficaram de fora: o antes e depois, as artes do cenário e os quadros de vídeo."
+  ],
+  "textos": [
+   "Bio. Legendas do Natal na Vila Nevada (31/10, 02, 03 e 04/11: \"a proposta é brincar na neve\", \"temos opções de roupas e acessórios no estúdio para crianças de até 2/3 aninhos\"), do newborn (agendar na gestação), do acompanhamento e do fim do acompanhamento.",
+   "Avaliações do Google: 4 de 5 estrelas visíveis sem login; as 4 na demo; a do Marcos fala da \"Thierry Photo\", o nome antigo, e entra só o trecho do elogio (a dona respondeu a avaliação nesta ficha). A 5ª (3 estrelas, sobre um newborn) ficou de fora."
+  ],
+  "conferir": [
+   "Quem atende: o estúdio já foi \"Thierry Photo\" (marca d'água de 2025 e #thierryphoto), uma avaliação fala em \"eles\" e um Thierry aparece em 2 avaliações. Abrir a conversa pela Fernanda, mas sem supor que é só ela.",
+   "Horários: a agenda é exemplo (dito na página). No Google: segunda das 9h às 16h30, terça a sexta das 9h às 17h, sábado das 9h às 16h e domingo das 13h às 15h30.",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

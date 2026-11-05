@@ -126,7 +126,28 @@ curso; 51 com fotos medianas (nota 3,5 ou menos).
   sábados"). Para a demo, o prazo é curto: quem recebe depois de ~20/11 já está com a agenda cheia.
 - **Uma avaliação negativa entre muitas boas** (Solange, Mariana Lima, Juliana Figueiredo) vai só no alerta.
 
+**Demos do lote 2 (05/11/2026): as 9 primeiras.** O Kaue escolheu as 9 primeiras da lista e mandou as páginas
+do Instagram no Drive (pasta "lote 2", uma por fotógrafa). As 9 entraram no painel em Leads a trabalhar e ganharam a
+demo no formato do lote 1 (`ferramentas/demo/gerar-fotografia.py`: o site + a página de Natal, com o preço e o prazo
+na faixa da Renderiza): Fluup, Je Criativa, Gabi Nascimento, Solange David, Elise Vitor, Rosangela Rocha, Fernanda
+Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix ou 2x de R$ 199), válida até o
+`vale_ate` da demo. O que cada uma tem e o que conferir está na `ficha.md` da pasta.
+- **Como foram montadas:** a bio da página salva confirmou o @ das 9; fotos da página salva (posts antigos, até 1440
+  px) + os carrosséis dos posts de out/nov 2026 (`ferramentas/ig-post.py`, até 2048 px) + as fotos do Google; avaliações
+  do Google (só as de 5 estrelas, trecho de até ~175 caracteres). Os scripts de cada uma ficaram na pasta da sessão.
+- **O que é novo:** `ferramentas/demo/marca-fotografia.py` faz o monograma e o logo em letra cursiva (como os do
+  lote 1, "feitos para a demo") a partir das fontes do Google Fonts; o gerador ganhou `contato.rotulo` (para quem
+  atende a domicílio, como a Thamy Lima, o rótulo do endereço vira "Atendimento").
+- **Lições:** (1) as abas do portfólio têm que ter a mesma altura (a altura segue a aba mais alta: com 4 colunas no
+  computador, conte em pé = 1 e deitada = 2 e feche cada aba no mesmo total, ex.: 16); senão sobra um vão branco
+  embaixo da aba ativa. (2) Post com várias fotos lado a lado (mosaico) pode render fotos boas recortando os
+  quadrantes (Gabi). (3) Reel com texto por cima: a capa ou um recorte fora do texto (Solange, Heloisa); o vídeo
+  inteiro nem sempre baixa sem login. (4) Com 3 avaliações, o carrossel não anda no computador (o validador falha):
+  são precisas pelo menos 4. (5) Nome comprido na faixa da Renderiza quebra a linha no computador: um ajuste fino no
+  `estilo.css` resolve. (6) Avaliação de alguém com o mesmo sobrenome da dona ou de outra fotógrafa do lote fica de
+  fora (Joyce Custodio, Giovanna Barbosa, Jessica Custodio na Elise).
+
 **Pendências do lote 2:**
-1. Escolher as 20 (ou trocar pela reserva) olhando os Instagrams, e salvar as páginas no Drive, uma pasta por fotógrafa.
+1. ~~Escolher as 20~~ As 9 primeiras viraram demo (acima); faltam as outras 11 da lista, se o Kaue quiser.
 2. Duplas e casais (Sabrina e Tati, Arantes, Guilherme Nascimento) seguem entrando, como no lote 1. Confirmar.
 3. Os valores e o prazo (`vale_ate`) das demos do lote 2.

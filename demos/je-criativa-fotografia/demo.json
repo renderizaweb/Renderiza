@@ -1,0 +1,725 @@
+{
+ "pasta": "je-criativa-fotografia",
+ "marca": "Je Criativa Fotografia",
+ "marca_completa": "Je Criativa Fotografia",
+ "dona": "Jé",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.670439,-46.737529",
+  "fid": "0x94ce51b698c2c017:0x8de8fc6e7b9edb2c",
+  "gid": "/g/11y2j291jn"
+ },
+ "google_nome": "Je Criativa Fotografia",
+ "endereco_maps": "R. Anhandui Mirim, 64 - Sl 2 - Jardim das Flores, São Paulo - SP, 04904-200",
+ "google_nota": "5,0",
+ "google_total": "24",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511966273909",
+ "fone_link": "+5511966273909",
+ "instagram": "jecriativafotografia",
+ "seguidores": "2,7 mil",
+ "mensagem": "Olá, Jé! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf9f5",
+  "papel": "#ffffff",
+  "areia": "#f1efe8",
+  "linha": "#e2ddd2",
+  "tinta": "#1f2b26",
+  "tinta2": "#55625b",
+  "rosa": "#c4473f",
+  "acento": "#2b5c49",
+  "acento_escuro": "#1f4637",
+  "cafe": "#18241f"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-07 10h",
+   "2026-11-07 14h",
+   "2026-11-14 9h",
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-14 16h",
+   "2026-11-21 11h",
+   "2026-11-21 14h",
+   "2026-11-28 10h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 9h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 15h",
+   "2026-12-12 10h",
+   "2026-12-12 14h",
+   "2026-12-12 15h",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Jé define os dela",
+  "mensagem": "Olá, Jé! Quero o horário de {data} ({semana}) às {hora} para o ensaio Natal de Afeto. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Jessica",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Jessica, da Je Criativa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Jessica, da Je Criativa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Playfair Display",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Karla",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "✦",
+  "script_escala": 0.8
+ },
+ "titulo_nome": "Je Criativa",
+ "titulo_script": "fotografia",
+ "quem_a": "a Jé",
+ "quem_da": "da Jé",
+ "quem_sou": "Sou a Jessica, da Je Criativa Fotografia",
+ "slogan": "Ensaios criativos para a família toda.",
+ "site": {
+  "titulo": "Je Criativa Fotografia | Natal, bebês, gestantes e família no Jardim das Flores (SP)",
+  "descricao": "Je Criativa Fotografia, da Jessica Custodio, no Jardim das Flores, zona sul de São Paulo: ensaios criativos de Natal, bebês, smash the cake, gestantes e família. Nota 5,0 no Google.",
+  "comentario": "Demo Je Criativa Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@jecriativafotografia: a página salva e os posts do Natal 2026); avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia no Jardim das Flores · Zona Sul",
+   "frase": "Ensaios criativos para a família toda.",
+   "intro": "Natal, bebês, smash the cake, gestantes e famílias, no estúdio da Jé, perto do terminal Jardim das Flores, em São Paulo.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "1 aninho"
+   ],
+   "especialidades": [
+    "Natal",
+    "Bebês",
+    "Smash the cake",
+    "Acompanhamento",
+    "Gestante",
+    "Família"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_00.jpg",
+     "f": "p",
+     "alt": "Menina de vestido verde e laço vermelho sorrindo junto à árvore de Natal",
+     "c": [
+      0.45,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/650166679_18088901414172534_2725281699115557529_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio de gestante sobre uma ponte de madeira no parque",
+     "c": [
+      0.6,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/649234623_18075705620134020_4101275796094532935_n.jpg",
+     "f": "p",
+     "alt": "Bebê de chapéu de palhaço no smash the cake do circo rosa",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada ensaio, <em>uma ideia nova.</em>",
+   "p": "Ensaios feitos pela Jé, no estúdio e ao ar livre. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_00.jpg",
+      "f": "p",
+      "alt": "Menina de vestido verde sorrindo junto à árvore",
+      "pos": "45% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_00.jpg",
+      "f": "p",
+      "alt": "Menina de vestido verde apoiada no piano branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_01.jpg",
+      "f": "l",
+      "alt": "Menina lendo um livro de Natal em frente à lareira e à árvore",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_06.jpg",
+      "f": "p",
+      "alt": "Menina ao piano branco, com um urso de pelúcia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSQMFdAs6a/DfSQMFdAs6a_00.jpg",
+      "f": "p",
+      "alt": "Menino de suspensório lendo o livro Contos de Natal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_05.jpg",
+      "f": "p",
+      "alt": "Menina segurando um enfeite com as mãos em concha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_05.jpg",
+      "f": "p",
+      "alt": "Menina vista de cima, com o vestido verde aberto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_07.jpg",
+      "f": "p",
+      "alt": "Menina abraçada ao urso de pelúcia",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_07.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo debruçada sobre um presente vermelho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DezOZ3OOpMz/DezOZ3OOpMz_00.jpg",
+      "f": "p",
+      "alt": "Menina acenando atrás da janela embaçada",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_04.jpg",
+      "f": "p",
+      "alt": "Menina sentada no banquinho do piano, junto à árvore",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/650166679_18088901414172534_2725281699115557529_n.jpg",
+      "f": "p",
+      "alt": "Casal de mãos dadas na ponte do parque",
+      "pos": "60% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/652831920_18130302577546823_6842369078147137130_n.jpg",
+      "f": "p",
+      "alt": "Gestante com coroa de flores, com a mão na barriga, na ponte",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/649500013_18097823122980738_4904060552706935981_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado em preto e branco, com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/655580648_18098926405787397_5028770638328419141_n.jpg",
+      "f": "l",
+      "alt": "Gestante de vestido vermelho abraçada pelo marido no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/653959632_18170620522400024_6954537717175733925_n.jpg",
+      "f": "p",
+      "alt": "Pai ajoelhado beijando a barriga na praia",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/655694952_18169827928399096_3821340867551476007_n.jpg",
+      "f": "p",
+      "alt": "Gestante com tecido amarelo ao vento no gramado",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/650211727_18069190715259461_8574487114239040090_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio de gestante, ela de vestido vermelho",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/655272465_18074370059165340_8582276612613773892_n.jpg",
+      "f": "p",
+      "alt": "Gestante no parque com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/658896023_18426987094185543_1454124866888554333_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na beira do mar",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/652677126_18146177098483150_1841891637700697567_n.jpg",
+      "f": "l",
+      "alt": "Casal de branco no caminho de madeira entre as árvores",
+      "pos": "50% 55%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/649234623_18075705620134020_4101275796094532935_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake do circo rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/650961883_18110888248688852_2639834969880792230_n.jpg",
+      "f": "p",
+      "alt": "Bebê de chapéu de palhaço gargalhando",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/657323561_18350714002232547_4446450865792953671_n.jpg",
+      "f": "p",
+      "alt": "Bebê com bolo no rosto no smash the cake",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/670257703_18456217927110801_2789709872510097479_n.jpg",
+      "f": "p",
+      "alt": "Bebê com o rosto atrás do bolo cor-de-rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_02.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo com a mão no rosto, no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/630116541_18426237349136591_3801042765201971485_n.jpg",
+      "f": "p",
+      "alt": "Pais com o bebê e o cachorro, entre balões dourados",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/619184545_18069755825152198_5770410521464636367_n.jpg",
+      "f": "p",
+      "alt": "Família de gorro de Papai Noel em frente à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_02.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo junto à lareira com presentes",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/623870495_18070777262162094_3357190054525119834_n.jpg",
+      "f": "p",
+      "alt": "Chá revelação: a barriga e o bolo com a pergunta menino ou menina",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/jecriaivafotografia/Instagram_files/641284519_18566715541033249_3570584241821546464_n.jpg",
+      "f": "p",
+      "alt": "Chá revelação na praia, com pétalas no ar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "O álbum do primeiro ano de um bebê, com as fotos do acompanhamento",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_01.jpg",
+      "f": "p",
+      "alt": "Menina de vestido verde e laço vermelho junto à árvore",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Jé, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Jessica Custodio, a Jé, com a câmera no rosto e a camiseta da Je Criativa",
+    "c": [
+     0.35,
+     0.5
+    ]
+   },
+   "p": [
+    "A Jessica Custodio, a Jé, fotografa no estúdio da Je Criativa, no Jardim das Flores, na zona sul de São Paulo. Ela deixa as crianças brincarem e explorarem o cenário, para que venha o sorriso espontâneo, e cria temas novos para cada ensaio."
+   ],
+   "citacao": "Cada ensaio se transforma em uma pequena cápsula do tempo.",
+   "citacao_quem": "Jé, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias contam que ela topa os temas que pedem, conduz o ensaio com paciência, tem sempre um cafezinho e entrega as fotos antes do prazo."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "24 avaliações no Google"
+    ],
+    [
+     "2,7 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "Desde 2023",
+     "o Gui volta todo Natal"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>a cada Natal.</em>",
+   "p": "Os ensaios da Jé, com as palavras dela e de quem fotografou:",
+   "fonte": "Bio e legendas da Jé no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "No estúdio ou ao ar livre",
+     "p": "No parque, na praia ou no estúdio: espontâneo, para mostrar o que realmente existe."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "O primeiro ano",
+     "p": "Cada fase do seu bebê passa tão rápido. Cada detalhe do crescimento vira memória para tocar, reviver e guardar."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "O bolo, o cenário temático e a festa toda no estúdio."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temas criativos",
+     "p": "Ela sempre topa os temas, mesmo os que nunca fez, como conta uma mãe nas avaliações."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo mundo junto",
+     "p": "Pq eu amo momentos em família, amo mais ainda registrá-los."
+    },
+    {
+     "nome": "Natal de Afeto",
+     "sub": "Figurinos inclusos",
+     "p": "O cenário de Natal do estúdio, com figurinos infantis inclusos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal de Afeto 2026",
+   "h2": "A magia do Natal, <em>de pertinho.</em>",
+   "p": "O piano branco, a lareira, a árvore e os livros de Natal esperam a sua família no estúdio, com figurinos infantis inclusos. Escolha um horário e a mensagem chega pronta no WhatsApp da Jé.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_01.jpg",
+    "f": "p",
+    "alt": "Menina de vestido verde e laço vermelho no cenário de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal de Afeto 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Amanda Correia",
+    "tag": "O primeiro ano",
+    "trecho": "Sem sombras de dúvidas foi a melhor escolha que eu fiz, a melhor fotógrafa para acompanhar o primeiro ano de vida do meu pequeno."
+   },
+   {
+    "nome": "Aline Santos",
+    "tag": "Família",
+    "trecho": "Você não fotografa apenas momentos, você eterniza memórias que vamos guardar para sempre no coração."
+   },
+   {
+    "nome": "jéssyla souza",
+    "tag": "Filho e família",
+    "trecho": "Ela sabe conduzir o ensaio perfeitamente, tira fotos maravilhosas. As fotos são entregues antes do prazo sempre!"
+   },
+   {
+    "nome": "Laura Lopes",
+    "tag": "Ideias",
+    "trecho": "Simplesmente incrível, a Je me deixou super a vontade além de me dar muitas ideias para as fotos que ficaram maravilhosas!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim das Flores, na zona sul de São Paulo, perto do terminal.",
+   "telefone": "(11) 96627-3909",
+   "endereco": [
+    "Rua Anhandui Mirim, 64, sala 2",
+    "Jardim das Flores",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal de Afeto 2026 | Je Criativa Fotografia",
+  "descricao": "Natal de Afeto 2026: o ensaio de Natal da Je Criativa Fotografia, no Jardim das Flores, em São Paulo, com figurinos infantis inclusos. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Je Criativa Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal de Afeto 2026 · Zona Sul",
+   "h1": "Natal <em>de Afeto.</em>",
+   "citacao": "O Natal fica ainda mais mágico quando é vivido com o coração de uma criança!",
+   "citacao_quem": "Jé, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_06.jpg",
+    "f": "p",
+    "alt": "Menina de vestido verde ao piano branco, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal de Afeto 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Deixar brincar, <em>para vir o sorriso.</em>",
+   "p": "Aqui a criança brinca, explora o cenário e se diverte, para que venha o sorriso espontâneo e as fotos mais lindas. Aos 3 aninhos, cada detalhe vira descoberta, cada presente desperta curiosidade e cada história abre espaço para a imaginação.",
+   "itens": [
+    "No estúdio da Jé, no Jardim das Flores, zona sul.",
+    "O cenário de 2026: o piano branco, a lareira, a árvore, os presentes e os livros de Natal.",
+    "Figurinos infantis inclusos.",
+    "Para as crianças sozinhas ou com a família toda (até as vovós).",
+    "Valores e detalhes pelo WhatsApp da Jé."
+   ],
+   "legenda_fotos": "O cenário do Natal de Afeto 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_01.jpg",
+    "f": "p",
+    "alt": "A lareira, a árvore e os presentes do cenário de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_03.jpg",
+    "f": "p",
+    "alt": "O piano branco do cenário, junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_06.jpg",
+    "f": "p",
+    "alt": "O sofá branco com o livro de Natal e o lampião",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Jé abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Jé define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Jé abre com o dia e a hora escritos."
+    ],
+    [
+     "A Jé confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Os primeiros ensaios <em>no cenário.</em>",
+   "nome": "Natal 2026",
+   "p": "Os primeiros ensaios do Natal de Afeto 2026, entre outubro e novembro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_00.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo junto à árvore",
+     "pos": "45% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_00.jpg",
+     "f": "p",
+     "alt": "Menina apoiada no piano",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSQMFdAs6a/DfSQMFdAs6a_00.jpg",
+     "f": "p",
+     "alt": "Menino lendo o livro Contos de Natal",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_05.jpg",
+     "f": "p",
+     "alt": "Menina vista de cima",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_07.jpg",
+     "f": "p",
+     "alt": "Menina abraçada ao urso",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfIEG14IIrY/DfIEG14IIrY_07.jpg",
+     "f": "p",
+     "alt": "Menina debruçada no presente",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_05.jpg",
+     "f": "p",
+     "alt": "Menina com o enfeite nas mãos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DezOZ3OOpMz/DezOZ3OOpMz_00.jpg",
+     "f": "p",
+     "alt": "Menina acenando na janela",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_04.jpg",
+     "f": "p",
+     "alt": "Menina no banquinho do piano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/je-criativa-fotografia/posts/DfSNr0LgDZg/DfSNr0LgDZg_03.jpg",
+     "f": "p",
+     "alt": "Menina com a mão no rosto, vista de cima",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Amanda Correia",
+    "tag": "Datas comemorativas",
+    "trecho": "Com certeza continuaremos em datas comemorativas rs. Sempre topou os temas mesmo ela nunca tendo feito e isso sem dúvidas fez a total diferença para mim."
+   },
+   {
+    "nome": "Aline Santos",
+    "tag": "Com a filha",
+    "trecho": "Sua paciência, seu cuidado e sua sensibilidade transformaram o ensaio em uma experiência leve, acolhedora e inesquecível."
+   },
+   {
+    "nome": "jéssyla souza",
+    "tag": "Família",
+    "trecho": "Já fotografou momentos muitos importantes do meu filho e da minha família!"
+   },
+   {
+    "nome": "Laura Lopes",
+    "tag": "Ideias",
+    "trecho": "Simplesmente incrível, a Je me deixou super a vontade além de me dar muitas ideias para as fotos que ficaram maravilhosas!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal de Afeto 2026",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Jé no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google; a bio do Instagram tem um link wa.me (não abri)",
+  "site": "não tem: sem link no Google; a bio tem só o WhatsApp; 36 domínios óbvios testados, nenhum existe (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/je-criativa-fotografia` e `/demo/je-criativa-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 2, 90 pontos), escolhida no Drive de 05/11/2026. O Natal 2026 dela (\"Natal de Afeto\", em verde e vermelho, com piano branco e lareira) puxa o site; ensaios \"criativos\", como diz a bio.",
+   "Dona: Jessica Custodio (nome do perfil do Instagram); \"a Jé\" / \"a Jé Criativa\" nas avaliações. Foto dela: a do perfil (772 px, com a câmera e a camiseta da Je Criativa).",
+   "Cores: o verde e o vermelho do cenário de Natal (#2b5c49 no destaque). Playfair Display, Karla e \"fotografia\" em Great Vibes; abertura em polaroides. Sem logo em boa resolução: monograma JC e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura em polaroides (Natal 2026, gestante e 1 aninho), portfólio em 3 abas (12 fotos cada: Natal 2026, Gestante, Bebês e família), a Jé, os ensaios, 4 avaliações do Google, o bloco do Natal de Afeto e o contato.",
+   "Página \"Natal de Afeto 2026\": o ensaio (deixar a criança brincar, figurinos inclusos), o cenário, a agenda de exemplo (6 sábados de 7/11 a 12/12) e os primeiros ensaios no cenário."
+  ],
+  "fotos": [
+   "Os carrosséis do Natal 2026 (posts de 22/10 a 03/11/2026, 1066 a 1115 px) e a página do Instagram salva no Drive (posts de 2019 a 2021: gestantes, smash the cake e família).",
+   "Ficaram de fora: maquiagem, ensaio sensual, cursos, aniversários de adulto e quadros de vídeo pequenos. A menina de cabelo escuro do Natal 2026 é a filha dela (\"Ensaio da minha pequena\", 03/11)."
+  ],
+  "textos": [
+   "Bio: \"Ensaios criativos, bebês, crianças, gestantes, femininos, famílias, festa e eventos.\" Legendas: \"Natal de Afeto — Estúdio Je Criativa\", \"Temos figurinos infantis inclusos\" (22/10), a Lore de 3 aninhos (30/10), o Gui desde 2023 (03/11), o álbum do acompanhamento (23/10).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; a da Joyce Custodio ficou de fora (mesmo sobrenome da Jé)."
+  ],
+  "conferir": [
+   "Horários: a agenda é exemplo (dito na página). No Google, ela fecha às quartas.",
+   "A bio também oferece ensaio feminino, festa e eventos; a demo foca em Natal, bebês, gestantes e família.",
+   "Fotos de crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

@@ -1,0 +1,703 @@
+{
+ "pasta": "elise-vitor-fotografia",
+ "marca": "Estúdio Elise Vitor Fotografia",
+ "marca_completa": "Estúdio Elise Vitor Fotografia",
+ "dona": "Elise",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.683287,-46.6748157",
+  "fid": "0x94ce4f46e535cad9:0xf1f42b16a6954d3b",
+  "gid": "/g/11rstkpr44"
+ },
+ "google_nome": "Estúdio Elise Vitor Fotografia",
+ "endereco_maps": "R. Casa de Emaús, 12 - Vila Campo Grande, São Paulo - SP, 04455-410",
+ "google_nota": "5,0",
+ "google_total": "110",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511981743952",
+ "fone_link": "+5511981743952",
+ "instagram": "elisevitorfotografia",
+ "seguidores": "8,9 mil",
+ "mensagem": "Olá, Elise! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f9f7f3",
+  "papel": "#ffffff",
+  "areia": "#eef0ec",
+  "linha": "#dde0d9",
+  "tinta": "#1d2826",
+  "tinta2": "#55605d",
+  "rosa": "#c0392f",
+  "acento": "#1b5a56",
+  "acento_escuro": "#134542",
+  "cafe": "#152220"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "8h",
+   "9h",
+   "10h",
+   "11h"
+  ],
+  "reservados": [
+   "2026-11-07 9h",
+   "2026-11-07 11h",
+   "2026-11-14 10h",
+   "2026-11-21 8h",
+   "2026-11-21 10h",
+   "2026-11-21 11h",
+   "2026-11-28 10h",
+   "2026-11-28 11h",
+   "2026-12-05 11h",
+   "2026-12-12 9h",
+   "2026-12-12 11h"
+  ],
+  "exemplo": "Horários de exemplo: a Elise define os dela",
+  "mensagem": "Olá, Elise! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Elise",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Elise, do Estúdio Elise Vitor Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Elise, do Estúdio Elise Vitor Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "EB Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Lato",
+    "wght@300;400;700"
+   ],
+   "script": [
+    "Pinyon Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "❄",
+  "script_escala": 0.78
+ },
+ "titulo_nome": "Elise Vitor",
+ "titulo_script": "fotografia",
+ "quem_a": "a Elise",
+ "quem_da": "da Elise",
+ "quem_sou": "Sou a Elise, do Estúdio Elise Vitor Fotografia",
+ "slogan": "Cada clique vira uma aventura.",
+ "site": {
+  "titulo": "Estúdio Elise Vitor Fotografia | Ensaios temáticos, Natal e smash the cake na zona sul de SP",
+  "descricao": "Estúdio Elise Vitor Fotografia, na Vila Campo Grande, zona sul de São Paulo: ensaios infantis temáticos com figurino incluso, smash the cake, Páscoa e Natal 2026. Nota 5,0 no Google.",
+  "comentario": "Demo Estúdio Elise Vitor Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@elisevitorfotografia: a página salva e os posts do Natal 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia na Zona Sul · São Paulo",
+   "frase": "Cada clique vira uma aventura.",
+   "intro": "Ensaios temáticos com figurino infantil incluso, smash the cake e datas especiais, no estúdio da Elise, na Vila Campo Grande. Há mais de 10 anos registrando histórias de amor.",
+   "rotulos": [
+    "Natal 2026",
+    "Smash the cake",
+    "Temáticos"
+   ],
+   "especialidades": [
+    "Ensaios temáticos",
+    "Smash the cake",
+    "Páscoa",
+    "Newborn",
+    "Gestante",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_02.jpg",
+     "f": "p",
+     "alt": "Menina ruiva de vestido vermelho segurando um presente, no cenário de Natal",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g04.jpg",
+     "f": "p",
+     "alt": "Bebê engatinhando de saia de tule, no cenário rosa do smash the cake",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g06.jpg",
+     "f": "p",
+     "alt": "Menina de laço azul sorrindo no cenário da escola",
+     "c": [
+      0.5,
+      0.3
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cenários <em>que viram aventura.</em>",
+   "p": "Ensaios feitos no estúdio da Elise, na zona sul de São Paulo. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_02.jpg",
+      "f": "p",
+      "alt": "Menina ruiva de vermelho com um presente",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_01.jpg",
+      "f": "p",
+      "alt": "Menino de colete verde fazendo um coração com bengalas de doce",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_00.jpg",
+      "f": "p",
+      "alt": "Menina de vermelho com o lampião, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_00.jpg",
+      "f": "p",
+      "alt": "Menino de boina verde com a bengala de doce no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Menina de vermelho no sofá do cenário, sob o relógio",
+      "pos": "50% 60%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_01.jpg",
+      "f": "p",
+      "alt": "Menina com o quebra-nozes atrás da janela com neve",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_02.jpg",
+      "f": "p",
+      "alt": "Menino com o sino dourado, entre a neve",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_03.jpg",
+      "f": "p",
+      "alt": "Menino deitado entre os enfeites vermelhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619892793_18150473470443941_8072471943551552358_n.jpg",
+      "f": "l",
+      "alt": "Menina de gorro de Papai Noel sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619590200_18123225889484323_7540944827730465841_n.jpg",
+      "f": "l",
+      "alt": "Menina com a lanterna de Natal nas mãos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/640396885_18564781333017865_4523555315387648021_n.jpg",
+      "f": "l",
+      "alt": "Menino de roupa de Papai Noel com a bola de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619312848_18102599965699970_6302696491869434997_n.jpg",
+      "f": "l",
+      "alt": "Menina de gorro mandando um beijo",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "tematicos",
+    "nome": "Temáticos e Páscoa",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g05.jpg",
+      "f": "p",
+      "alt": "Menina com o livro no cenário da escola",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g06.jpg",
+      "f": "p",
+      "alt": "Menina de laço azul sorrindo no cenário da escola",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/640407940_18565016140022260_7526920205272865443_n.jpg",
+      "f": "p",
+      "alt": "Menina de Alice no País das Maravilhas, com a boneca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/617477036_18083203294910976_124974254648483000_n.jpg",
+      "f": "p",
+      "alt": "Menino de óculos escuros e gravata borboleta na Páscoa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/650837198_18124395505570365_5770424703229702744_n.jpg",
+      "f": "p",
+      "alt": "Bebê de orelhinhas de coelho no mini ensaio de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g07.jpg",
+      "f": "p",
+      "alt": "Menina de costas, com o laço azul, no cenário da escola",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/618998563_18107077264667252_2724808321276712997_n.jpg",
+      "f": "l",
+      "alt": "Menina de Rainha de Copas sentada no bosque",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619535425_18109366501656217_1281408883751127783_n.jpg",
+      "f": "l",
+      "alt": "Menina no jardim de cartas da Alice",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619366209_18093568165946873_7083645841535964536_n.jpg",
+      "f": "l",
+      "alt": "Menina sorrindo sentada no banco de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/617471372_18092136520985736_6858755382007650772_n.jpg",
+      "f": "l",
+      "alt": "Bebê de touca de coelho com a cenoura",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619373573_18104264155789157_7498939588667600874_n.jpg",
+      "f": "l",
+      "alt": "Menina de 2 anos na piscina de bolinhas",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g03.jpg",
+      "f": "l",
+      "alt": "Bebê no balde de bolhas no smash the cake rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619735763_18105595069771710_2666817201444887423_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho no caixote de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/622128814_18146411290456957_6863503406546842883_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o vestido branco ao vento, entre flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/642765535_18131450266529997_7422743123961836774_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano com a plaquinha, entre balões azuis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/649492406_18145043830422912_2204463785367480616_n.jpg",
+      "f": "p",
+      "alt": "Menino de 2 anos de orelhas de Mickey",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/625777511_18306278308257235_3563813557152585179_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo entre tecidos lilás",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/641764523_18122481322581782_8670571041542497465_n.jpg",
+      "f": "l",
+      "alt": "Casal grávido no caminho de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/621220468_18099855046878737_908509273121071194_n.jpg",
+      "f": "l",
+      "alt": "Bebê no smash the cake de Harry Potter",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619143546_18087234451869335_6873546117329917704_n.jpg",
+      "f": "l",
+      "alt": "Menina recebendo beijos dos pais no bosque",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619503063_18136464355488696_291894390319699877_n.jpg",
+      "f": "l",
+      "alt": "Bebê com o coelho de pelúcia na Páscoa",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Elise, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g00.jpg",
+    "f": "p",
+    "alt": "Elise Vitor sorrindo com uma câmera antiga nas mãos",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Elise fotografa há mais de 10 anos e tem um estúdio na Vila Campo Grande, na zona sul de São Paulo. Monta cenários temáticos exclusivos e tem figurinos infantis inclusos: a escola, a Alice no País das Maravilhas, a Páscoa, o Natal."
+   ],
+   "citacao": "Aqui, cada clique vira uma aventura, cada sorriso conta uma história e cada fotografia se transforma em uma lembrança para a vida toda.",
+   "citacao_quem": "Elise, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam do cenário e do figurino, das fotos que acontecem no tempo do bebê, sem pressa, da entrega no prazo e de quem já voltou para o segundo ensaio."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "110 avaliações no Google"
+    ],
+    [
+     "10 anos",
+     "registrando histórias de amor"
+    ],
+    [
+     "8,9 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "p": "Os ensaios do estúdio, com as palavras da Elise e de quem fotografou:",
+   "fonte": "Bio e legendas da Elise no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Temáticos",
+     "sub": "Figurino incluso",
+     "p": "Cenários temáticos exclusivos e figurinos infantis inclusos."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "O cenário montado, o figurino e as fotos no tempo do bebê, com paciência e sem pressão."
+    },
+    {
+     "nome": "Newborn e gestante",
+     "sub": "Antes e depois da chegada",
+     "p": "Da barriga ao recém-nascido, no estúdio ou ao ar livre."
+    },
+    {
+     "nome": "Páscoa",
+     "sub": "Mini ensaio",
+     "p": "O mini ensaio de Páscoa, com orelhinhas, cenouras e coelhos."
+    },
+    {
+     "nome": "Família",
+     "sub": "Momentos em família",
+     "p": "Cada abraço, cada sorriso e cada carinho merecem se transformar em memórias eternas."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Agenda quase esgotada",
+     "p": "O Natal passa, mas as lembranças ficam para sempre."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A magia do Natal <em>já está no ar.</em>",
+   "p": "O cenário verde e vermelho, com o relógio, a árvore e o sofá, está montado no estúdio, com figurinos infantis inclusos. Escolha um horário e a mensagem chega pronta no WhatsApp da Elise.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_01.jpg",
+    "f": "p",
+    "alt": "Menino de colete verde com o coração de bengalas de doce",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Vanessa Souza",
+    "tag": "Smash the cake",
+    "trecho": "O estúdio é lindo, ela montou um cenário estava um espetáculo e o figurino então.. Um sonho!"
+   },
+   {
+    "nome": "Hellen Alves",
+    "tag": "Segundo ensaio",
+    "trecho": "É o segundo ensaio que faço com a Elise e pretendo levar para vida"
+   },
+   {
+    "nome": "Marcela Cavalcanti",
+    "tag": "Atendimento",
+    "trecho": "Elise, uma profissional com excelente atendimento, desde o primeiro contato. Pessoalmente atendimento excelente. Amamos as fotos."
+   },
+   {
+    "nome": "Silvana Araujo Jeronimo",
+    "tag": "Detalhes",
+    "trecho": "Cada pose, cada detalhe que no final fez toda a diferença. Só tenho a agradecer o profissionalismo."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Campo Grande, na zona sul de São Paulo.",
+   "telefone": "(11) 98174-3952",
+   "endereco": [
+    "Rua Casa de Emaús, 12",
+    "Vila Campo Grande",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Elise Vitor Fotografia",
+  "descricao": "O ensaio de Natal 2026 do Estúdio Elise Vitor Fotografia, na zona sul de São Paulo: cenário temático exclusivo e figurinos infantis inclusos. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Elise Vitor Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Zona Sul",
+   "h1": "O Natal passa, <em>as lembranças ficam.</em>",
+   "citacao": "Registre a magia dessa época tão especial ao lado de quem você ama.",
+   "citacao_quem": "Elise, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_00.jpg",
+    "f": "p",
+    "alt": "Menina ruiva de vestido vermelho com o lampião, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Cenário exclusivo, <em>figurino incluso.</em>",
+   "p": "O Natal 2026 do estúdio tem cenário temático exclusivo, figurinos infantis inclusos e momentos especiais em família: a árvore, o relógio na parede verde, o sofá vermelho, a janela com neve e as bengalas de doce.",
+   "itens": [
+    "No estúdio da Elise, na Vila Campo Grande, zona sul.",
+    "Cenário temático exclusivo, em verde e vermelho.",
+    "Figurinos infantis inclusos.",
+    "Para as crianças sozinhas ou com a família toda.",
+    "Valores e detalhes pelo WhatsApp da Elise."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/google/fotos/g01.jpg",
+    "f": "p",
+    "alt": "Menina de vermelho no sofá, sob o grande relógio do cenário",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_03.jpg",
+    "f": "l",
+    "alt": "Os enfeites vermelhos e dourados da árvore",
+    "c": [
+     0.5,
+     0.3
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_01.jpg",
+    "f": "l",
+    "alt": "A janela com neve do cenário",
+    "c": [
+     0.5,
+     0.35
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Elise abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro, de manhã. A Elise define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Elise abre com o dia e a hora escritos."
+    ],
+    [
+     "A Elise confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal",
+   "h2": "Natais <em>no estúdio.</em>",
+   "nome": "Natal",
+   "p": "O Natal 2026 e os ensaios de Natal de outros anos, no estúdio da Elise.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DexY2nWI2Zn/DexY2nWI2Zn_02.jpg",
+     "f": "p",
+     "alt": "Menina com o presente",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_01.jpg",
+     "f": "p",
+     "alt": "Menino com o coração de bengalas",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_00.jpg",
+     "f": "p",
+     "alt": "Menino de boina verde",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/elise-vitor-fotografia/posts/DfSBH0BlM5v/DfSBH0BlM5v_02.jpg",
+     "f": "p",
+     "alt": "Menino com o sino dourado",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/622408706_18158303746418122_8307202881205436680_n.jpg",
+     "f": "p",
+     "alt": "Menina de gorro de Papai Noel sorrindo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619907300_18105376081778832_6515533090351297379_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho entre os presentes",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/619892793_18150473470443941_8072471943551552358_n.jpg",
+     "f": "l",
+     "alt": "Menina de gorro sorrindo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/elisevitorfotografia/Instagram_files/640396885_18564781333017865_4523555315387648021_n.jpg",
+     "f": "l",
+     "alt": "Menino de Papai Noel",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Vanessa Souza",
+    "tag": "O cenário",
+    "trecho": "Ela deixou que as fotos acontecessem no tempo da bebê, com toda paciência, sem pressão, sem stress, enfim, um clima de leveza e tranquilidade"
+   },
+   {
+    "nome": "Hellen Alves",
+    "tag": "O estúdio",
+    "trecho": "o Studio é completo todos assessórios que nos mães sonhar a Elise realiza, e com muito amor e paciência"
+   },
+   {
+    "nome": "Silvana Araujo Jeronimo",
+    "tag": "Fotos",
+    "trecho": "As fotos ficaram a cima do esperado por nós. Parabéns. Super recomendo."
+   },
+   {
+    "nome": "Marcela Cavalcanti",
+    "tag": "Atendimento",
+    "trecho": "Elise, uma profissional com excelente atendimento, desde o primeiro contato."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Zona Sul",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "A agenda de Natal está quase esgotada. Escolha um horário ou chame a Elise no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google, o mesmo do linkme.bio da bio do Instagram",
+  "site": "não tem: sem link no Google; a bio leva a um linkme.bio só com o WhatsApp e o pedido de avaliação no Google; 36 domínios óbvios testados, nenhum existe (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/elise-vitor-fotografia` e `/demo/elise-vitor-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 5, 90 pontos), escolhida no Drive de 05/11/2026. O forte dela é o ensaio infantil temático com figurino incluso; o Natal 2026 (verde-petróleo e vermelho, 1440 px) puxa o site.",
+   "Dona: Elise Vitor (\"mais de 10 anos registrando histórias de amor\", bio); citada pelo nome em 5 avaliações. Foto dela: a do Google com a câmera antiga (1628 px).",
+   "Cores: o verde-petróleo e o vermelho do cenário (#1b5a56 no destaque); EB Garamond, Lato e \"fotografia\" em Pinyon Script; abertura em filme. Sem logo em boa resolução: monograma EV e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura em filme (Natal 2026, smash the cake e temáticos), portfólio em 3 abas (Natal, 12; Temáticos e Páscoa, 11; Bebês e família, 10), a Elise, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"O Natal passa, as lembranças ficam\": o ensaio (cenário exclusivo, figurino incluso), o cenário, a agenda de exemplo (6 sábados de manhã, de 7/11 a 12/12) e os Natais no estúdio."
+  ],
+  "fotos": [
+   "Os carrosséis do Natal 2026 (posts de 21/10 e 03/11/2026, 1440 px), a página do Instagram salva no Drive (posts antigos, 1080 px: Natal, Páscoa, temáticos, newborn, gestante) e 8 fotos do Google (até 2000 px: o Natal do sofá, o smash rosa, a escola e a Elise).",
+   "As crianças do Natal 2026 são modelos, segundo as legendas (\"Modelo: @annaemaria.simao\"). Ficaram de fora: casamento, 15 anos, ensaio feminino, batizado, festa e decoração."
+  ],
+  "textos": [
+   "Bio: \"Mais de 10 anos registrando histórias de amor · Ensaios e Eventos\". Legendas do Natal 2026: \"Cenários temáticos exclusivos · Figurinos infantis inclusos · Momentos especiais em família\" e \"agenda quase esgotada\" (03/11), \"O Natal passa, mas as lembranças ficam para sempre!\" (21/10), \"Aqui, cada clique vira uma aventura...\" (04/11).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; a da Jessica Custodio ficou de fora (é a dona da Je Criativa, também do lote 2)."
+  ],
+  "conferir": [
+   "Horários: a agenda é exemplo (dito na página). No Google: segunda a sexta das 10h às 20h, sábado e domingo das 8h às 12h.",
+   "A bio também oferece eventos; a demo foca em ensaios.",
+   "Fotos de crianças: todas publicadas por ela como portfólio (as do Natal 2026 são de modelos). Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

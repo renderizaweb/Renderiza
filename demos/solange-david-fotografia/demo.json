@@ -1,0 +1,724 @@
+{
+ "pasta": "solange-david-fotografia",
+ "marca": "Solange David Estúdio Fotográfico",
+ "marca_completa": "Solange David Estúdio Fotográfico",
+ "dona": "Solange",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.7171379,-46.8440201",
+  "fid": "0x94ce5369a30cc615:0x2f1ac64b73ff4ad4",
+  "gid": "/g/11pcbl2v9w"
+ },
+ "google_nome": "Solange David Estúdio Fotográfico",
+ "endereco_maps": "MR estética automotiva - Rod. Armando Salles, 99 - Piso superior a loja - Olaria, Itapecerica da Serra - SP, 06856-000",
+ "google_nota": "4,9",
+ "google_total": "67",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511989226358",
+ "fone_link": "+5511989226358",
+ "instagram": "solangedavid.fotografia",
+ "seguidores": "4,4 mil",
+ "mensagem": "Olá, Solange! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcf8f7",
+  "papel": "#ffffff",
+  "areia": "#f7eeec",
+  "linha": "#ecdedb",
+  "tinta": "#2f2428",
+  "tinta2": "#665a5e",
+  "rosa": "#e3a3ad",
+  "acento": "#b5394a",
+  "acento_escuro": "#952c3c",
+  "cafe": "#271d21"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12",
+   "2026-12-19"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-14 10h",
+   "2026-11-14 14h",
+   "2026-11-21 9h",
+   "2026-11-21 11h",
+   "2026-11-21 15h",
+   "2026-11-21 16h",
+   "2026-11-28 11h",
+   "2026-11-28 14h",
+   "2026-12-05 10h",
+   "2026-12-05 14h",
+   "2026-12-05 16h",
+   "2026-12-12 9h",
+   "2026-12-12 10h",
+   "2026-12-12 11h",
+   "2026-12-12 15h",
+   "2026-12-19 10h",
+   "2026-12-19 14h",
+   "2026-12-19 15h",
+   "2026-12-19 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Solange define os dela",
+  "mensagem": "Olá, Solange! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Solange",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Solange, do Solange David Estúdio Fotográfico. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Solange, do Solange David Estúdio Fotográfico. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Nunito Sans",
+    "wght@300;400;600"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "♥",
+  "script_escala": 0.85
+ },
+ "titulo_nome": "Solange David",
+ "titulo_script": "fotografia",
+ "quem_a": "a Solange",
+ "quem_da": "da Solange",
+ "quem_sou": "Sou a Solange, do Solange David Estúdio Fotográfico",
+ "slogan": "Memórias de infância para a vida inteira.",
+ "site": {
+  "titulo": "Solange David Estúdio Fotográfico | Newborn, smash the cake e gestante em Itapecerica da Serra",
+  "descricao": "Solange David Estúdio Fotográfico, em Itapecerica da Serra (SP): especialista em newborn, smash the cake temático, acompanhamento do bebê e gestante. Natal 2026 de 14/11 a 19/12. Nota 4,9 no Google.",
+  "comentario": "Demo Solange David Estúdio Fotográfico (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@solangedavid.fotografia: a página salva e os posts do Natal 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em Itapecerica da Serra",
+   "frase": "Memórias de infância para a vida inteira.",
+   "intro": "Especialista em newborn e em smash the cake com cenário temático, no estúdio da Solange, em Itapecerica da Serra. E a temporada de Natal começa em 14 de novembro.",
+   "rotulos": [
+    "Natal 2026",
+    "Newborn",
+    "1 aninho"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Smash the cake",
+    "Acompanhamento",
+    "Gestante",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/posts/DeecGdIRgzy/DeecGdIRgzy_00.jpg",
+     "f": "p",
+     "alt": "Menino de suspensório vermelho ao lado do urso, no cenário de Natal",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/657239519_18101085041480033_8576282781352626287_n.webp",
+     "f": "p",
+     "alt": "Recém-nascido de touca dormindo abraçado a um coração vermelho",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/622263380_18048818195626182_5964646708421273047_n.jpg",
+     "f": "p",
+     "alt": "Bebê no cavalinho de madeira, no cenário de festa junina",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada tema, <em>um mundo inteiro.</em>",
+   "p": "Ensaios feitos no estúdio da Solange, em Itapecerica da Serra. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/657239519_18101085041480033_8576282781352626287_n.webp",
+      "f": "p",
+      "alt": "Recém-nascido de touca abraçado a um coração vermelho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/658840622_18200828152340708_4903493639852912320_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 3 meses dormindo na poltrona entre flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/497544481_701630362245416_7722294006723435136_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touca de ursinho, enrolado em tricô",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/502339160_1722585289138918_4828113588055889767_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido apoiado nas mãos, com a plaquinha de Deus",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/502971342_1893572168058021_795601240567916201_n.jpg",
+      "f": "p",
+      "alt": "Bebê dormindo entre flores, abraçado ao ursinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503105724_1066750585342841_9205586080564675432_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de bailarina, com sapatilhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/652758320_18090132437516725_8179989135882713401_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara dormindo na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/656008622_18110163727761355_637715842099374705_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido na caminha branca de ferro",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/656293057_18099426976757554_4685657557010362160_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de bruços na manta",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/658092137_18110727565752053_6202646051416731006_n.jpg",
+      "f": "l",
+      "alt": "Mãos da mãe segurando as mãozinhas da recém-nascida",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/619390934_17924358366211486_1463719404524481020_n.jpg",
+      "f": "l",
+      "alt": "Bebê na manta rosa de tricô, entre flores e borboletas",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "1 aninho",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/622263380_18048818195626182_5964646708421273047_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cavalinho de madeira, no cenário de festa junina",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/653344121_18083990213342713_5121333729590583763_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo entre balões coloridos, no cenário do Mundo Bita",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/651557425_18088009726945639_8818617785340308694_n.jpg",
+      "f": "p",
+      "alt": "Bebê no carrinho de madeira, no cenário da fazendinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655761562_18082833326052547_7554454020910263021_n.jpg",
+      "f": "p",
+      "alt": "Bebê deitado entre os bonecos do Mundo Bita",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503035358_707252845345270_5623786011807285797_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano no cenário do arco-íris",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503742524_1282824576740532_9187186659005639707_n.jpg",
+      "f": "p",
+      "alt": "Menina de amarelo no cenário das margaridas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503782927_727593336337821_2784684247578055388_n.jpg",
+      "f": "p",
+      "alt": "Bebê de lenço vermelho no cenário da fazendinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/666301734_1225074029469207_5987942624461882756_n.jpg",
+      "f": "p",
+      "alt": "Menina no smash the cake da Moana",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/649748494_17978955081003476_4873938539785674398_n.jpg",
+      "f": "l",
+      "alt": "Menina com o bolo no cenário de balões coloridos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655150763_18114060940677751_2117520502620303899_n.jpg",
+      "f": "l",
+      "alt": "Menina sentada na cadeira, no cenário da Galinha Pintadinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655768089_18076875602140023_5557048528074156998_n.jpg",
+      "f": "l",
+      "alt": "Menina no smash the cake da Moana, entre flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/670277569_18575516878047424_1299067901089032943_n.jpg",
+      "f": "l",
+      "alt": "Menina comemorando no smash the cake da Moana",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e acompanhamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655976416_18199400470344525_8127465543099391610_n.jpg",
+      "f": "p",
+      "alt": "Gestante no balanço de flores, com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/628994540_18405840379132963_8049076721690249450_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul com o vestido esvoaçante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655125956_18096583769512827_1081041460355049998_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido verde junto à escada branca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/653645669_18093820883083695_6221059907066729291_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido azul no estúdio claro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503973581_9597604320348582_8458450602982586416_n.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo entre as rosas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503031715_636670442726116_6598102940883999991_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido claro de perfil, com a mão na barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503152269_995687689397614_2322454461120736022_n.jpg",
+      "f": "p",
+      "alt": "Barriga com os tênis do bebê na mão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/503523711_565088889715085_5977183633283205009_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 7 meses sorrindo entre os balões coloridos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/624832866_18083200322520089_2947950374614427447_n.jpg",
+      "f": "l",
+      "alt": "Casal com a plaquinha do nome do bebê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/662089300_18323001397269962_7010563867367332238_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no cenário da fazendinha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655311149_18099573100944397_1623123242962423170_n.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira, no cenário de balões rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/659150060_18347874895215292_7497716515110851896_n.jpg",
+      "f": "l",
+      "alt": "Mãe beijando a filha no cenário de borboletas",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Solange, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Solange David sorrindo com a câmera na mão",
+    "c": [
+     0.42,
+     0.5
+    ]
+   },
+   "p": [
+    "A Solange David fotografa bebês, crianças e gestantes no estúdio dela, em Itapecerica da Serra. É especialista em newborn e monta um cenário diferente para cada tema de smash the cake: a fazendinha, a Moana, o jardim de borboletas, os dinossauros."
+   ],
+   "citacao": "O que hoje parece apenas um registro, amanhã será a herança mais bonita que seu filho vai receber.",
+   "citacao_quem": "Solange, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam da paciência com as crianças, do estúdio acolhedor, limpo e organizado, e de quem fez o gestante, voltou para o newborn e já marcou o acompanhamento do bebê."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "67 avaliações no Google"
+    ],
+    [
+     "4,4 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1,9 mil",
+     "publicações no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Solange:",
+   "fonte": "Bio e legendas da Solange no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Uma doce espera",
+     "p": "Com make e cabelo de parceira, no estúdio claro ou no balanço de flores."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Os primeiros dias do bebê são mágicos. É a especialidade do estúdio."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mensal ou trimestral",
+     "p": "Uma sessão a cada fase. Nesse período, é super normal o bebê tirar um cochilinho no ensaio."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "Com tema",
+     "p": "Os mais pedidos aqui são os ensaios temáticos, para quem curte uma infância lúdica e colorida."
+    },
+    {
+     "nome": "Família",
+     "sub": "Toda a família junto",
+     "p": "Traga a família e vamos criar memórias de infância para a vida inteira."
+    },
+    {
+     "nome": "Natal",
+     "sub": "14/11 a 19/12",
+     "p": "A temporada de Natal, com o cenário do quarto, os ursos e o telefone vermelho."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Vem viver <em>a magia do Natal.</em>",
+   "p": "A temporada de Natal do estúdio vai de 14 de novembro a 19 de dezembro, com o cenário do quarto, os ursos e o telefone vermelho. Escolha um horário e a mensagem chega pronta no WhatsApp da Solange.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/extra/natal_solange.jpg",
+    "f": "p",
+    "alt": "Solange no cenário de Natal 2026, com a cama, os ursos e a árvore",
+    "c": [
+     0.62,
+     0.5
+    ]
+   },
+   "legenda": "O cenário de Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Kethellen Xavier",
+    "tag": "Gestante e newborn",
+    "trecho": "levamos ele para fazer o ensaio Newborn e simplesmente foi melhor ainda do que o da gestante"
+   },
+   {
+    "nome": "Taina De Jesus lopes",
+    "tag": "Com as crianças",
+    "trecho": "Ela é maravilhosa uma profissional incrível, gentil com as crianças e bem paciente."
+   },
+   {
+    "nome": "Priscila Ferreira",
+    "tag": "Dois ensaios",
+    "trecho": "Minha bebê já fez dois ensaios com ela, o momento das fotos é tudo muito tranquilo e muito calma e os resultados são maravilhosos."
+   },
+   {
+    "nome": "Débora Rodrigues de Oliveira",
+    "tag": "Família",
+    "trecho": "Sol , muito obrigada pelo carinho e dedicação comigo e minha família você é maravilhosa"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Rodovia Armando Salles, em Itapecerica da Serra.",
+   "telefone": "(11) 98922-6358",
+   "endereco": [
+    "Rodovia Armando Salles, 99, piso superior",
+    "Olaria",
+    "Itapecerica da Serra · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Solange David Estúdio Fotográfico",
+  "descricao": "O ensaio de Natal 2026 do Solange David Estúdio Fotográfico, em Itapecerica da Serra: temporada de 14/11 a 19/12, especial para toda a família. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Solange David Estúdio Fotográfico: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Itapecerica da Serra",
+   "h1": "Vem viver <em>a magia do Natal.</em>",
+   "citacao": "Traga a família e vamos criar memórias de infância para a vida inteira!",
+   "citacao_quem": "Solange, no lançamento do Natal 2026",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/posts/DeecGdIRgzy/DeecGdIRgzy_00.jpg",
+    "f": "p",
+    "alt": "Menino de suspensório vermelho ao lado do urso e do telefone vermelho, no cenário de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Especial <em>para toda a família.</em>",
+   "p": "O cenário de Natal 2026 é um quarto de Natal: a cama com a manta vermelha, os ursos de suéter, o telefone vermelho, as cartas para o Papai Noel e a árvore junto à janela. A temporada vai de 14 de novembro a 19 de dezembro.",
+   "itens": [
+    "No estúdio da Solange, em Itapecerica da Serra.",
+    "O cenário de 2026: a cama de Natal, os ursos, o telefone vermelho e as cartas para o Papai Noel.",
+    "Para as crianças sozinhas ou para a família toda.",
+    "12 fotos por ensaio, como no anúncio dela.",
+    "Valores e detalhes pelo WhatsApp da Solange."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/extra/natal_solange.jpg",
+    "f": "p",
+    "alt": "A Solange no cenário de Natal 2026",
+    "c": [
+     0.62,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/extra/natal_mesa_3.jpg",
+    "f": "l",
+    "alt": "As cartas para o Papai Noel na mesinha do cenário",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/solange-david-fotografia/extra/natal_urso_3.jpg",
+    "f": "l",
+    "alt": "O urso de suéter vermelho e os presentes junto à janela",
+    "c": [
+     0.5,
+     0.6
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Solange abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: os sábados da temporada, de 14/11 a 19/12. A Solange define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Solange abre com o dia e a hora escritos."
+    ],
+    [
+     "A Solange confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Do newborn <em>ao primeiro aninho.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios no estúdio da Solange.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/657239519_18101085041480033_8576282781352626287_n.webp",
+     "f": "p",
+     "alt": "Recém-nascido abraçado ao coração vermelho",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655976416_18199400470344525_8127465543099391610_n.jpg",
+     "f": "p",
+     "alt": "Gestante no balanço de flores",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/622263380_18048818195626182_5964646708421273047_n.jpg",
+     "f": "p",
+     "alt": "Bebê no cavalinho de madeira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/653344121_18083990213342713_5121333729590583763_n.jpg",
+     "f": "p",
+     "alt": "Bebê entre balões coloridos",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/658840622_18200828152340708_4903493639852912320_n.jpg",
+     "f": "p",
+     "alt": "Bebê dormindo na poltrona entre flores",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/651557425_18088009726945639_8818617785340308694_n.jpg",
+     "f": "p",
+     "alt": "Bebê no carrinho da fazendinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/655768089_18076875602140023_5557048528074156998_n.jpg",
+     "f": "l",
+     "alt": "Smash the cake da Moana",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/solangedavidfotografia/Instagram_files/652758320_18090132437516725_8179989135882713401_n.jpg",
+     "f": "l",
+     "alt": "Recém-nascida na manta rosa",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Taina De Jesus lopes",
+    "tag": "O espaço",
+    "trecho": "o espaço dela é acolhedor bem limpo e organizado tudo de bom"
+   },
+   {
+    "nome": "Kethellen Xavier",
+    "tag": "Atendimento",
+    "trecho": "dedicada e atenciosa desde o atendimento pelo WhatsApp até o último minuto"
+   },
+   {
+    "nome": "Priscila Ferreira",
+    "tag": "A região",
+    "trecho": "A Solange é una excelente profissional, trabalho dedicado e com muito amor."
+   },
+   {
+    "nome": "Débora Rodrigues de Oliveira",
+    "tag": "Família",
+    "trecho": "eu e minha família amouuuuuu seu trabalho."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Itapecerica da Serra",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Solange no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google; a bio leva a uma página de links no Canva (\"Bio Magnética\") com WhatsApp (wa.link) e mapa",
+  "site": "não tem: o Google aponta o Instagram; a bio leva a uma página de links no Canva (marketingmais.my.canva.site/solangedavidfotografia), que funciona como um Linktree; solangedavid.com está estacionado (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/solange-david-fotografia` e `/demo/solange-david-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 4, 90 pontos), escolhida no Drive de 05/11/2026. O forte dela é o smash the cake com cenário temático e o newborn (\"Especialista em Newborn. Smash the cake\", bio); o site abre pelo Natal, que ela vende de 14/11 a 19/12.",
+   "Dona: Solange David (\"Sol\" nas avaliações). Foto dela: a do perfil do Instagram (1080 px, com a câmera).",
+   "Cores: o rosa e o vermelho dos cenários dela (#b5394a no destaque); Cormorant Garamond, Nunito Sans e \"fotografia\" em Parisienne; abertura em bolhas. Sem logo em boa resolução: monograma SD e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, newborn e 1 aninho), portfólio em 3 abas (Newborn, 11; 1 aninho, 12; Gestante e acompanhamento, 12), a Solange, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"Vem viver a magia do Natal\": o ensaio, o cenário (3 fotos), a agenda de exemplo (6 sábados de 14/11 a 19/12, a temporada dela) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Página do Instagram salva no Drive (1440 px nos posts de carrossel; os de 540 px entram só nas galerias) e o Natal 2026: a capa do reel de 14/10 (o menino com o urso, 540 px), a foto dela no cenário (post de 15/10, recortada abaixo do texto) e dois detalhes do vídeo de 18/10 (recortados fora do texto).",
+   "Material de Natal curto: os posts de Natal 2026 são vídeos com texto por cima. Ficaram de fora a arte de Natal do Google (com o preço dela) e as artes de serviços."
+  ],
+  "textos": [
+   "Bio: \"Ensaio de Natal 2026 · Estúdio localizado em Itapecerica da Serra SP · Especialista em Newborn. Smash the cake\". Legendas: \"A nossa temporada de Natal vai acontecer dos dias 14 nov a 19 dez\" (15/10), \"traga a família e vamos criar memórias de infância para vida inteira\" (14/10), \"O que hoje parece apenas um registro, amanhã será a herança...\" (03/11), os temas de smash e o acompanhamento.",
+   "A arte de Natal no Google diz \"12 fotos\" e \"Especial para toda família\" (e o preço, que não entra na demo). Avaliações do Google: 4 de 5 estrelas visíveis sem login; a 5ª (negativa) ficou de fora."
+  ],
+  "conferir": [
+   "O Google não mostra horário de funcionamento; a agenda de Natal é exemplo (dito na página).",
+   "Uma avaliação negativa no Google (desmarcou na véspera).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

@@ -1,0 +1,720 @@
+{
+ "pasta": "thamy-lima-fotografia",
+ "marca": "Thamy Lima Fotografia",
+ "marca_completa": "Thamy Lima Fotografia",
+ "dona": "Thamy",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6824124,-46.5952992",
+  "fid": "0x823cee695be0c1cd:0x586f2df8ae3ea997",
+  "gid": "/g/11y2kp7j6j"
+ },
+ "google_nome": "Thamy Lima Fotografia",
+ "endereco_maps": "São Paulo - SP",
+ "google_nota": "4,9",
+ "google_total": "49",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511984999471",
+ "fone_link": "+5511984999471",
+ "instagram": "thamylimafotografia",
+ "seguidores": "2,5 mil",
+ "mensagem": "Olá, Thamy! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f5",
+  "papel": "#ffffff",
+  "areia": "#f3ece6",
+  "linha": "#e6dbd2",
+  "tinta": "#2e2420",
+  "tinta2": "#675a53",
+  "rosa": "#c9a36b",
+  "acento": "#8e3129",
+  "acento_escuro": "#732620",
+  "cafe": "#251c19"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-07",
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "10h",
+   "11h",
+   "14h",
+   "15h",
+   "16h",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-07 11h",
+   "2026-11-07 15h",
+   "2026-11-14 10h",
+   "2026-11-14 14h",
+   "2026-11-14 16h",
+   "2026-11-14 17h",
+   "2026-11-21 14h",
+   "2026-11-21 15h",
+   "2026-11-28 11h",
+   "2026-11-28 15h",
+   "2026-11-28 17h",
+   "2026-12-05 10h",
+   "2026-12-05 11h",
+   "2026-12-05 14h",
+   "2026-12-05 16h",
+   "2026-12-12 11h",
+   "2026-12-12 15h",
+   "2026-12-12 16h",
+   "2026-12-12 17h"
+  ],
+  "exemplo": "Horários de exemplo: a Thamy define os dela",
+  "mensagem": "Olá, Thamy! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Thamy",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Thamy, da Thamy Lima Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thamy, da Thamy Lima Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Fraunces",
+    "ital,opsz,wght@0,9..144,300..600;1,9..144,300..600"
+   ],
+   "sans": [
+    "Raleway",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "natal_capa": "retrato",
+  "ornamento": "✦",
+  "script_escala": 0.9
+ },
+ "titulo_nome": "Thamy Lima",
+ "titulo_script": "fotografia",
+ "quem_a": "a Thamy",
+ "quem_da": "da Thamy",
+ "quem_sou": "Sou a Thamy, da Thamy Lima Fotografia",
+ "mapa_nome": "Thamy Lima Fotografia",
+ "slogan": "Fotografia com muita arte desde 2011.",
+ "site": {
+  "titulo": "Thamy Lima Fotografia | Newborn, gestante, parto e família em São Paulo",
+  "descricao": "Thamy Lima Fotografia, fotografia com muita arte desde 2011: newborn, gestante, parto e família em São Paulo, a domicílio ou em estúdio, e o Natal 2026. Nota 4,9 no Google.",
+  "comentario": "Demo Thamy Lima Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@thamylimafotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em São Paulo · desde 2011",
+   "frase": "Fotografia com muita arte desde 2011.",
+   "intro": "Newborn, gestante, parto e família, a domicílio ou em estúdio, com o olhar da Thamy. E o Natal 2026 já está acontecendo.",
+   "rotulos": [
+    "Natal 2026",
+    "Newborn",
+    "Família"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Gestante",
+    "Parto",
+    "Família",
+    "Aniversário",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_00.jpg",
+     "f": "p",
+     "alt": "Bebê de vermelho no cavalinho de balanço, junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625164255_18099664759908197_5977244246492902899_n.webp",
+     "f": "p",
+     "alt": "Mãe beijando o recém-nascido no colo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/De7SsZnFPjF/De7SsZnFPjF_04.jpg",
+     "f": "p",
+     "alt": "Pais e a filha de 2 anos sorrindo entre balões",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>com arte.</em>",
+   "p": "Ensaios feitos pela Thamy, a domicílio e em estúdio. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_00.jpg",
+      "f": "p",
+      "alt": "Bebê de vermelho no cavalinho de balanço, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_01.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no colo, no banco xadrez do cenário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_05.jpg",
+      "f": "p",
+      "alt": "Bebê segurando o globo de luzes",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_04.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no cavalinho, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_07.jpg",
+      "f": "p",
+      "alt": "Mãe beijando o bebê no cavalinho de balanço",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_11.jpg",
+      "f": "p",
+      "alt": "Bebê no banco de madeira, entre dois ursos de pelúcia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_09.jpg",
+      "f": "p",
+      "alt": "Mãe e bebê sob os enfeites pendurados",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_10.jpg",
+      "f": "p",
+      "alt": "Pai com o bebê no colo, sob os enfeites pendurados",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_03.jpg",
+      "f": "l",
+      "alt": "Pais e bebê sentados no banco xadrez, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/623233537_18094382300490105_8279534583170257299_n.webp",
+      "f": "l",
+      "alt": "Família no sofá, junto à árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625357777_18209967022320603_49504873691820193_n.webp",
+      "f": "l",
+      "alt": "Bebê de vermelho sorrindo no sofá de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/622690430_18072589286429838_4004703058079986291_n.webp",
+      "f": "l",
+      "alt": "Pai sorrindo com a filha de vermelho no colo",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn e parto",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625164255_18099664759908197_5977244246492902899_n.webp",
+      "f": "p",
+      "alt": "Mãe beijando o recém-nascido no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625784837_18124143736557066_4634955232002531028_n.webp",
+      "f": "p",
+      "alt": "Pai com o recém-nascido no rosto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625078623_18089628626088598_3776481484467355893_n.webp",
+      "f": "p",
+      "alt": "Mãe com o recém-nascido no colo, junto à planta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/670424105_18073417373230153_1715231968426029513_n.webp",
+      "f": "p",
+      "alt": "Recém-nascido de olhos abertos na manta branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara de flores, com a câmera ao lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfDV2N_lF8z/DfDV2N_lF8z_00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido sorrindo no cestinho de lã",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfDV2N_lF8z/DfDV2N_lF8z_02.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de bruços no fundo verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/639551935_18435281023115012_5738075674024999166_n.webp",
+      "f": "l",
+      "alt": "Recém-nascida na carruagem, entre flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/626467352_18095184485493576_3152791048794650019_n.webp",
+      "f": "l",
+      "alt": "Recém-nascido no balancinho, de macacão verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/626761235_18074067884438751_5730543343581070039_n.webp",
+      "f": "l",
+      "alt": "Pais beijando o recém-nascido",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/De7SsZnFPjF/De7SsZnFPjF_04.jpg",
+      "f": "p",
+      "alt": "Pais e a filha de 2 anos entre balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/De7SsZnFPjF/De7SsZnFPjF_00.jpg",
+      "f": "p",
+      "alt": "Menina de laço entre as margaridas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeJoSUaldDo/DeJoSUaldDo_01.jpg",
+      "f": "p",
+      "alt": "Menina rindo com o rosto sujo de bolo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeJoSUaldDo/DeJoSUaldDo_00.jpg",
+      "f": "p",
+      "alt": "Menina de 2 anos com o balão rosa",
+      "pos": "50% 60%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeuWLfIlIiE/DeuWLfIlIiE_08.jpg",
+      "f": "p",
+      "alt": "Três gerações da família no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeJoSUaldDo/DeJoSUaldDo_07.jpg",
+      "f": "p",
+      "alt": "Menina de rosa caminhando no estúdio claro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/De7SsZnFPjF/De7SsZnFPjF_06.jpg",
+      "f": "l",
+      "alt": "Família sorrindo no sofá, com a menina de 2 anos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeuWLfIlIiE/DeuWLfIlIiE_04.jpg",
+      "f": "l",
+      "alt": "Avó, mãe, tia e o menino reunidos",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeuWLfIlIiE/DeuWLfIlIiE_01.jpg",
+      "f": "l",
+      "alt": "Menino sorrindo, de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DeuWLfIlIiE/DeuWLfIlIiE_06.jpg",
+      "f": "l",
+      "alt": "Família sentada na sala com o menino",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/De7SsZnFPjF/De7SsZnFPjF_03.jpg",
+      "f": "l",
+      "alt": "Menina no meio das margaridas",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Thamy, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Thamy Lima com a câmera, em preto e branco",
+    "c": [
+     0.5,
+     0.4
+    ],
+    "box": [
+     0.19,
+     0.11,
+     0.81,
+     0.89
+    ]
+   },
+   "p": [
+    "A Thamy Lima faz fotografia com muita arte desde 2011. Fotografa gestantes, partos, recém-nascidos, aniversários e famílias, em casa, ao ar livre ou em estúdio, e acompanha as famílias ano após ano."
+   ],
+   "citacao": "Dos primeiros dias de vida aos dois aninhos… que privilégio é ver sua história florescer através do meu olhar.",
+   "citacao_quem": "Thamy, no Instagram",
+   "p2": [
+    "Nas avaliações, as famílias falam do respeito ao tempo do bebê, das pausas para a amamentação no ensaio em casa e de quem fez com ela o gestante, o newborn e o primeiro aniversário."
+   ],
+   "numeros": [
+    [
+     "2011",
+     "o começo na fotografia"
+    ],
+    [
+     "4,9",
+     "49 avaliações no Google"
+    ],
+    [
+     "2,5 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>aos aninhos.</em>",
+   "p": "Os ensaios da Thamy, nas palavras dela:",
+   "fonte": "Bio e legendas da Thamy no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Te espero",
+     "p": "Te espero... com todo amor do mundo."
+    },
+    {
+     "nome": "Parto",
+     "sub": "A chegada",
+     "p": "Como é apaixonante e lindo o nascimento de um novo ser. Ela fotografa partos nas maternidades."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Até os 20 dias",
+     "p": "Momentos de um recém-nascido até seus 20 dias são únicos."
+    },
+    {
+     "nome": "A domicílio",
+     "sub": "Conforto e segurança",
+     "p": "O ensaio pode ser na casa da família, pensado e realizado para cada cliente."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "O primeiro e o segundo aninho",
+     "p": "Que nunca faltem sorrisos, descobertas, abraços apertados e muitos momentos para guardar para sempre."
+    },
+    {
+     "nome": "Família",
+     "sub": "Atemporal",
+     "p": "Lar é onde o amor da família floresce e o coração encontra paz."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Era uma vez... <em>o Natal 2026.</em>",
+   "p": "O cenário tem a árvore, o cavalinho de balanço, os presentes dourados e os enfeites pendurados, e as famílias voltam todo ano. Escolha um horário e a mensagem chega pronta no WhatsApp da Thamy.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_09.jpg",
+    "f": "p",
+    "alt": "Mãe e bebê sob os enfeites pendurados do cenário de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Sandra Santos Chaves",
+    "tag": "Gestante ao 1 ano",
+    "trecho": "Muito obrigada por fazer: meu ensaio gestante, newborn e aniversário de 1 ano do meu príncipe."
+   },
+   {
+    "nome": "cristianna amarante",
+    "tag": "Newborn em casa",
+    "trecho": "Recebi a thamy em minha casa para o ensaio do meu bebê recém nascido"
+   },
+   {
+    "nome": "Debora Garcês",
+    "tag": "2 anos",
+    "trecho": "Realizei uma sessão de fotos da minha filha de 2 anos.. e superou minhas expectativas"
+   },
+   {
+    "nome": "Vilson Aparecido dos Santos",
+    "tag": "Recém-nascido",
+    "trecho": "Ficamos muito felizes com todo o cuidado, paciência e profissionalismo durante cada momento das fotos."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas, local e orçamentos pelo WhatsApp. A Thamy atende a domicílio e em estúdio, em São Paulo.",
+   "telefone": "(11) 98499-9471",
+   "rotulo": "Atendimento",
+   "endereco": [
+    "A domicílio ou em estúdio",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Thamy Lima Fotografia",
+  "descricao": "Era uma vez... o Natal 2026: o ensaio de Natal da Thamy Lima Fotografia, em São Paulo. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Thamy Lima Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Paulo",
+   "h1": "Era uma vez... <em>o Natal 2026.</em>",
+   "citacao": "Nossas famílias tão amadas mais um ano conosco!!!",
+   "citacao_quem": "Thamy, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_05.jpg",
+    "f": "p",
+    "alt": "Bebê de vermelho segurando o globo de luzes, junto à árvore",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um Natal <em>que vira tradição.</em>",
+   "p": "O cenário de Natal 2026 tem a árvore iluminada, o cavalinho de balanço, o banco xadrez, os presentes dourados e os enfeites pendurados. E tem família que volta todo ano para o ensaio de Natal.",
+   "itens": [
+    "O cenário de 2026: a árvore, o cavalinho de balanço, o banco xadrez e os enfeites pendurados.",
+    "Para o bebê, as crianças ou a família toda.",
+    "Ensaio leve, no tempo do bebê.",
+    "Local, valores e detalhes pelo WhatsApp da Thamy."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_09.jpg",
+    "f": "p",
+    "alt": "Os enfeites pendurados e a árvore do cenário",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_03.jpg",
+    "f": "l",
+    "alt": "O banco xadrez junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_06.jpg",
+    "f": "p",
+    "alt": "Os presentes dourados e o cavalinho",
+    "c": [
+     0.5,
+     0.6
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Thamy abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: sábados de novembro e dezembro. A Thamy define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Thamy abre com o dia e a hora escritos."
+    ],
+    [
+     "A Thamy confirma",
+     "Ela responde com o local, os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal",
+   "h2": "Natais <em>com a Thamy.</em>",
+   "nome": "Natal",
+   "p": "O Natal 2026 e ensaios de Natal de outros anos.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_00.jpg",
+     "f": "p",
+     "alt": "Bebê no cavalinho de balanço",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_01.jpg",
+     "f": "p",
+     "alt": "Mãe com o bebê no banco xadrez",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_11.jpg",
+     "f": "p",
+     "alt": "Bebê entre os ursos",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_10.jpg",
+     "f": "p",
+     "alt": "Pai com o bebê",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_07.jpg",
+     "f": "p",
+     "alt": "Mãe beijando o bebê",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamy-lima-fotografia/posts/DfVmQ2dlHDR/DfVmQ2dlHDR_02.jpg",
+     "f": "p",
+     "alt": "Bebê com a boneca",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/623233537_18094382300490105_8279534583170257299_n.webp",
+     "f": "l",
+     "alt": "Família junto à árvore, num Natal anterior",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamylimafotografia/Instagram_files/625357777_18209967022320603_49504873691820193_n.webp",
+     "f": "l",
+     "alt": "Bebê de vermelho num Natal anterior",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Fernanda Fajan Mendes",
+    "tag": "No tempo do bebê",
+    "trecho": "foi um ensaio leve, respeitando o tempo do bebê."
+   },
+   {
+    "nome": "cristianna amarante",
+    "tag": "Carinho",
+    "trecho": "fez tudo no tempo dele com carinho e respeito"
+   },
+   {
+    "nome": "Debora Garcês",
+    "tag": "2 anos",
+    "trecho": "o carinho dela, e profissionalismo foi excepcional pra sessão de fotos ser leve e sair tudo lindo!"
+   },
+   {
+    "nome": "Sandra Santos Chaves",
+    "tag": "Lembranças",
+    "trecho": "Thamy profissional de excelência! Faz a diferença partilhar com ela, as melhores lembranças da vida!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026",
+   "h2": "Garanta o seu <em>Natal 2026.</em>",
+   "p": "Restam poucas vagas, segundo a Thamy. Escolha um horário na agenda ou chame no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google",
+  "site": "**fora do ar**: o Google aponta thamylima.com.br, domínio que não existe mais (DNS: NXDOMAIN); 36 domínios óbvios testados, nenhum existe (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/thamy-lima-fotografia` e `/demo/thamy-lima-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 8, 87 pontos), escolhida no Drive de 05/11/2026. Bio: \"Fotografia com muita Arte desde 2011 · Newborn. Gestante. Famílias. Parto.\" Site morto: o gancho.",
+   "Dona: Thamy (avaliações e perfil). Foto dela: a do perfil do Instagram (redonda, em preto e branco; recortada por dentro do círculo).",
+   "Sem endereço no Google: ela atende a domicílio, ao ar livre e em estúdio (legendas antigas: \"Ensaios a domicílio · Diversas opções externas · Estúdio\"). No contato, o rótulo é \"Atendimento\" (opção nova do gerador, contato.rotulo) e o mapa busca o nome em São Paulo.",
+   "Cores: o vermelho e o dourado do Natal 2026 dela (#8e3129 no destaque); Fraunces, Raleway e \"fotografia\" em Allura. Sem logo em boa resolução: monograma TL e o nome em letra cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, newborn e família), portfólio em 3 abas (Natal 2026, 12; Newborn e parto, 10; Família e aniversários, 11), a Thamy, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"Era uma vez... o Natal 2026\": o ensaio, o cenário, a agenda de exemplo (6 sábados de 7/11 a 12/12) e os Natais com a Thamy."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (Natal 2026, 2 aninhos, família, newborn; 1440 px), a página do Instagram salva no Drive (posts de 2023 e 2024, 1080 px) e 1 foto do Google (newborn, 2000 px).",
+   "Ficaram de fora: os mosaicos, as fotos escuras ou pequenas, o ensaio de noiva e as fotos do smash de safári do Google (não deu para confirmar se são dela). O bebê do Natal 2026 aparece em várias fotos: é o ensaio que ela publicou."
+  ],
+  "textos": [
+   "Bio. Legendas: \"Era uma vez... O Natal 2026! Nossas famílias tão amadas mais um ano conosco!!! Restam poucas vagas\" (04/11), \"Dos primeiros dias de vida aos dois aninhos...\" (25/10), \"Lar é onde o amor da família floresce...\" (20/10) e as antigas (domicílio, parto, gestante).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; a da Fernanda Fajan entra só com o trecho sobre o tempo do bebê (ela cita \"ela e a equipe\")."
+  ],
+  "conferir": [
+   "Onde é o Natal 2026: sem endereço no Google. Ela atende a domicílio e em estúdio; perguntar onde fica o cenário antes da conversa e trocar o contato se ela tiver estúdio fixo.",
+   "Uma avaliação cita \"ela e a equipe\" e um post é em parceria com outra fotógrafa (@paulaoliveirafotografa): pode haver equipe.",
+   "Horários: a agenda é exemplo (dito na página).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

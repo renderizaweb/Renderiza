@@ -15,6 +15,7 @@
 #   verificado, whatsapp, instagram, seguidores, mensagem, cores {fundo, papel, areia, tinta, tinta2, rosa, acento,
 #   acento_escuro, cafe}, marca_img {simbolo, logo, logo_claro, favicon},
 #   site {titulo, descricao, hero {...}, galerias [{id, nome, fotos: [{arquivo, f: "p"|"l", c, box, alt}]}],
+#         (contato.rotulo: o rótulo do endereço no contato, "Estúdio" se faltar; ex.: "Atendimento" para quem vai a domicílio)
 #         sobre {...}, jornada {...}, natal_bloco {...}, avaliacoes [...], contato {...}},
 #   natal {titulo, descricao, hero {...}, ensaio {...}, cenario [...], galeria {...}, avaliacoes [...]},
 #   horarios {dias, horas, reservados, exemplo, mensagem},
@@ -967,7 +968,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
       <ul class="canais">
         <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#">{esc(v["telefone"])}</a></div></li>
         <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@{esc(cfg["instagram"])} · {esc(cfg["seguidores"])} seguidores</a></div></li>
-        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Estúdio</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">{esc(" · ".join(v["endereco"]))}</a></div></li>
+        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>{esc(v.get("rotulo", "Estúdio"))}</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">{esc(" · ".join(v["endereco"]))}</a></div></li>
         <li><svg aria-hidden="true"><use href="#relogio"/></svg><div><b>Atendimento</b><ul class="hours">{horas_html}</ul></div></li>
       </ul>
       <a {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
