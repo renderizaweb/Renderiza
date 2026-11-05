@@ -310,3 +310,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Bia Maida Fotografia (fotógrafa)](demos/bia-maida-fotografia) | Vila Paulo Silas, São Paulo | site + página de Natal (`/natal`, “Hoje, ela ainda cabe naquele abraço”) | pronta · 05/11/2026 (fotógrafos lote 2 · 14ª) |
 | [Talita Voros Fotógrafa (fotógrafa)](demos/talita-voros-fotografia) | Jardim São Bento Novo, São Paulo | site + página de Natal (`/natal`, “O ateliê do Papai Noel”) | pronta · 05/11/2026 (fotógrafos lote 2 · 15ª) |
 | [Estúdio Thamirys Costa (fotógrafa)](demos/thamirys-costa-fotografia) | Vila Carrão, São Paulo | site + página de Natal (`/natal`, “Expresso Natalino”) | pronta · 05/11/2026 (fotógrafos lote 2 · 16ª) |
+| [Sabrina Matos Fotografias (fotógrafa)](demos/sabrina-matos-fotografia) | Jardim Prudência, São Paulo | site + página de Natal (`/natal`, “Não deixe o seu Natal para a última hora”) | pronta · 05/11/2026 (fotógrafos lote 2 · 17ª) |

@@ -1,0 +1,637 @@
+{
+ "pasta": "sabrina-matos-fotografia",
+ "marca": "Sabrina Matos Fotografias",
+ "marca_completa": "Sabrina Matos Fotografias",
+ "dona": "Sabrina",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6731363,-46.6646402",
+  "fid": "0x94ce459dca235281:0x304b54f14b66d6b",
+  "gid": "/g/11ny8vf02s"
+ },
+ "google_nome": "Sabrina Matos Fotografias",
+ "endereco_maps": "Av. Celso dos Santos, 1397 - Jardim prudência, São Paulo - SP, 04658-241",
+ "google_nota": "5,0",
+ "google_total": "34",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511958375136",
+ "fone_link": "+5511958375136",
+ "instagram": "sabrinamatosfotografias",
+ "seguidores": "6,0 mil",
+ "mensagem": "Olá, Sabrina! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf7f6",
+  "papel": "#ffffff",
+  "areia": "#f6eeee",
+  "linha": "#ebdfe0",
+  "tinta": "#2a2426",
+  "tinta2": "#665b5e",
+  "rosa": "#e3aeb6",
+  "acento": "#9e2b45",
+  "acento_escuro": "#832238",
+  "cafe": "#2c1b20"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "10h",
+   "11h30",
+   "14h",
+   "16h",
+   "17h30"
+  ],
+  "reservados": [
+   "2026-11-14 11h30",
+   "2026-11-14 16h",
+   "2026-11-21 11h30",
+   "2026-11-21 16h",
+   "2026-11-25 10h",
+   "2026-11-25 11h30",
+   "2026-11-25 17h30",
+   "2026-11-28 10h",
+   "2026-11-28 17h30",
+   "2026-12-05 11h30",
+   "2026-12-05 16h",
+   "2026-12-05 17h30",
+   "2026-12-12 10h",
+   "2026-12-12 11h30",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Sabrina define os dela",
+  "mensagem": "Olá, Sabrina! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Sabrina",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Sabrina, da Sabrina Matos Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Sabrina, da Sabrina Matos Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Source Serif 4",
+    "ital,opsz,wght@0,8..60,400..600;1,8..60,400..600"
+   ],
+   "sans": [
+    "Figtree",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Yellowtail",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "♥",
+  "script_escala": 0.95
+ },
+ "titulo_nome": "Sabrina Matos",
+ "titulo_script": "fotografias",
+ "quem_a": "a Sabrina",
+ "quem_da": "da Sabrina",
+ "quem_sou": "Sou a Sabrina Matos",
+ "slogan": "Ensaio infantil e feminino na zona sul de São Paulo.",
+ "site": {
+  "titulo": "Sabrina Matos Fotografias | Estúdio infantil na Cidade Ademar, SP",
+  "descricao": "Sabrina Matos Fotografias, estúdio infantil no Jardim Prudência (Cidade Ademar, zona sul de São Paulo): newborn, acompanhamento mensal, smash the cake, aniversário, feminino e Natal. Nota 5,0 no Google.",
+  "comentario": "Demo Sabrina Matos Fotografias (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@sabrinamatosfotografias: a página salva, os posts de out/2026 e quadros do vídeo de Natal de 04/11) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio infantil · Cidade Ademar, SP",
+   "frase": "Um cenário para cada fase.",
+   "intro": "Newborn, acompanhamento mensal, smash the cake, aniversário infantil e ensaio feminino, num estúdio de cenários temáticos no Jardim Prudência. E o cenário de Natal 2026 já está pronto.",
+   "rotulos": [
+    "Infantil",
+    "Mesversário",
+    "Aniversário"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Acompanhamento mensal",
+    "Smash the cake",
+    "Aniversário",
+    "Feminino",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_01.jpg",
+     "f": "p",
+     "alt": "Menino sorrindo no cenário de pintor, no Dia das Crianças",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5lKUnU83/DeH5lKUnU83_00.jpg",
+     "f": "p",
+     "alt": "Bebê de 6 meses no andador, no cenário de bichinhos",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Menina de 8 anos entre os balões coloridos",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "p": "Ensaios no estúdio da Sabrina. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "mensal",
+    "nome": "Acompanhamento mensal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5lKUnU83/DeH5lKUnU83_00.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no andador, no cenário de bichinhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5jeXHX3m/DeH5jeXHX3m_01.jpg",
+      "f": "l",
+      "alt": "Pais com a bebê no mesversário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Bebê de 8 meses de óculos escuros",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5jeXHX3m/DeH5jeXHX3m_00.jpg",
+      "f": "l",
+      "alt": "Bebê deitada brincando com o pezinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5lKUnU83/DeH5lKUnU83_01.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo no andador de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/622232500_18146789329404658_1813487562929560764_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cenário da Minnie",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversário",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_01.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo no cenário de pintor",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_00.jpg",
+      "f": "p",
+      "alt": "Menino segurando o lápis gigante",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Menina de 8 anos entre os balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/619900730_18100619437870892_357464626922524291_n.jpg",
+      "f": "p",
+      "alt": "Menina de Mulher-Maravilha na festa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9UY5jnWI/Deb9UY5jnWI_00.jpg",
+      "f": "l",
+      "alt": "Menino pintando o quadro no cavalete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9YwsjiiL/Deb9YwsjiiL_01.jpg",
+      "f": "l",
+      "alt": "Menino rindo com o pincel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9UY5jnWI/Deb9UY5jnWI_01.jpg",
+      "f": "l",
+      "alt": "O cenário de pintor do Dia das Crianças",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/620859945_18109413766646619_399027715022522300_n.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira do cenário da Minnie",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e festas",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/660918717_18429518134191124_2909782100995129709_n.jpg",
+      "f": "p",
+      "alt": "Pais beijando a filha no aniversário da Ladybug",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/620965258_18152420908384828_4110097189406126179_n.jpg",
+      "f": "p",
+      "alt": "Aniversário de 5 anos com o bolo da Mulher-Maravilha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/619959466_18101140264671533_267539406356765918_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante fazendo coração na barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/622777952_18157946707420733_3046398346934590614_n.jpg",
+      "f": "p",
+      "alt": "Ensaio de 15 anos, de vestido vinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/619956556_18088711855864711_294778056138869977_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas no cenário de unicórnio",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/648127733_18070164839235009_1884677292511006648_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas sentadas no cenário de unicórnio",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/641355244_18069777797239744_3837821914032747617_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cenário de festa junina",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/649225164_18098057294284757_8880287941254395208_n.jpg",
+      "f": "l",
+      "alt": "A mesa do aniversário da Ladybug",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Sabrina, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Sabrina sorrindo com a lente no rosto e a câmera na mão",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Sabrina Matos fotografa newborn, acompanhamento mensal, smash the cake, aniversários infantis e ensaios femininos no estúdio dela, no Jardim Prudência, na Cidade Ademar, zona sul de São Paulo. Com a Tati, monta um cenário temático para cada ensaio."
+   ],
+   "citacao": "A fotografia é a sua primeira lembrança.",
+   "citacao_quem": "Sabrina, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da Sabrina e da Tati: o carinho e a paciência com as crianças, a entrega pontual das fotos e quem volta todo mês para o acompanhamento."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "34 avaliações no Google"
+    ],
+    [
+     "6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "967",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do newborn <em>ao aniversário.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "Bio e legendas da Sabrina no Instagram.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "O recém-nascido no estúdio, com carinho e paciência."
+    },
+    {
+     "nome": "Mesversário",
+     "sub": "Acompanhamento mensal",
+     "p": "Um tema por mês, com o bolo e a plaquinha dos meses."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "O primeiro bolo, no tema que a família escolher."
+    },
+    {
+     "nome": "Happy Birthday",
+     "sub": "Aniversário infantil",
+     "p": "O ensaio de aniversário das crianças maiores, com balões e tema."
+    },
+    {
+     "nome": "Datas especiais",
+     "sub": "Temáticos",
+     "p": "Dia das Crianças, festa junina, Natal: um cenário para cada data."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Para você",
+     "p": "O ensaio feminino no estúdio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Não deixe o Natal <em>para a última hora.</em>",
+   "p": "O cenário de Natal 2026 já está pronto: as cortinas de veludo vermelho, a lareira, a guirlanda, os laços e a árvore. Escolha um horário e a mensagem chega pronta no WhatsApp da Sabrina.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n25.jpg",
+    "f": "p",
+    "alt": "O cenário de Natal 2026, com a árvore vermelha e a lareira",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "O cenário de Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "nathalia moreira",
+    "tag": "Mês a mês",
+    "trecho": "Vou todos os meses fazer o acompanhamento mensal do meu filho e sempre saio mto feliz com o resultado e o atendimento."
+   },
+   {
+    "nome": "Mariana Martins",
+    "tag": "Há 2 anos",
+    "trecho": "Ela é super atenciosa, cuidadosa, e muito detalhista! Já faço fotos com ela a 2 anos e não troco por nada!!!"
+   },
+   {
+    "nome": "Vanessa Rodrigues",
+    "tag": "O estúdio",
+    "trecho": "eu simplesmente amei o studio e as meninas deixa agente super confortável e amei o cuidado com a minha filha."
+   },
+   {
+    "nome": "Pamela Fabricia",
+    "tag": "Com as crianças",
+    "trecho": "Uma profissional muito feliz com oq faz, a recepção é incrível. Fora o amor q ela cria com as crianças"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Prudência, na Cidade Ademar.",
+   "telefone": "(11) 95837-5136",
+   "endereco": [
+    "Av. Celso dos Santos, 1397",
+    "Jardim Prudência",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Sabrina Matos Fotografias",
+  "descricao": "O ensaio de Natal 2026 da Sabrina Matos, na Cidade Ademar, zona sul de São Paulo: um cenário exclusivo de 2026. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Sabrina Matos Fotografias: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Cidade Ademar, SP",
+   "h1": "Não deixe o seu Natal <em>para a última hora.</em>",
+   "citacao": "A fotografia é a sua primeira lembrança.",
+   "citacao_quem": "Sabrina, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n10.jpg",
+    "f": "p",
+    "alt": "O cenário de Natal 2026, com o laço vermelho, a guirlanda e a lareira",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "legenda": "O cenário de Natal 2026, no vídeo do estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Três motivos <em>para vir agora.</em>",
+   "p": "O cenário de Natal 2026 é exclusivo deste ano: as cortinas de veludo vermelho, a lareira branca, a guirlanda, os laços, o Papai Noel e a árvore cheia de bolas vermelhas.",
+   "itens": [
+    "Tradição em família: o Natal que se repete a cada ano.",
+    "Lembranças: a fotografia é a primeira lembrança das crianças.",
+    "Exclusividade: um cenário montado só para 2026.",
+    "Valores e horários pelo WhatsApp da Sabrina."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n0.2.jpg",
+    "f": "p",
+    "alt": "A árvore com as bolas de veludo vermelho",
+    "c": [
+     0.5,
+     0.5
+    ],
+    "box": [
+     0.45,
+     0.0,
+     1.0,
+     0.6
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n15.5.jpg",
+    "f": "p",
+    "alt": "A lareira branca do cenário",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n31.jpg",
+    "f": "p",
+    "alt": "A árvore vermelha e os castiçais",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Sabrina abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Sabrina define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Sabrina abre com o dia e a hora escritos."
+    ],
+    [
+     "A Sabrina confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios no estúdio da Sabrina.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_01.jpg",
+     "f": "p",
+     "alt": "Menino no cenário de pintor",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_00.jpg",
+     "f": "p",
+     "alt": "Menino com o lápis gigante",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Menina entre os balões",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/sabrinamatosfotografias/Instagram_files/660918717_18429518134191124_2909782100995129709_n.jpg",
+     "f": "p",
+     "alt": "Família no aniversário",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5jeXHX3m/DeH5jeXHX3m_01.jpg",
+     "f": "l",
+     "alt": "Pais com a bebê no mesversário",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/google/fotos/g01.jpg",
+     "f": "l",
+     "alt": "Bebê de óculos escuros",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Kelly Novais",
+    "tag": "Paciência",
+    "trecho": "Uma excelente equipe  , pessoas carinhosa , paciente , principalmente com crianças , eu amei as fotos , ficaram lindas"
+   },
+   {
+    "nome": "nathalia moreira",
+    "tag": "Pontual",
+    "trecho": "Eu amo o trabalho da Sabrina ela e Tati perfeitas, super atenciosas e pacientes. Pontual com a entrega das fotos."
+   },
+   {
+    "nome": "Pamela Fabricia",
+    "tag": "Voltarei",
+    "trecho": "amei e com certeza voltarei sempre que puder"
+   },
+   {
+    "nome": "Mariana Martins",
+    "tag": "A equipe",
+    "trecho": "Sem falar da equipe que é sensacional! Recomendo de olhos fechados"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Cidade Ademar, SP",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário na agenda ou chame a Sabrina no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95837-5136), o mesmo das legendas (\"Orçamento via WhatsApp 11958375136\")",
+  "site": "não tem: o Google aponta um post do Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/sabrina-matos-fotografia` e `/demo/sabrina-matos-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 17, 82 pontos), escolhida no Drive de 05/11/2026. Bio: \"Newborn | Acompanhamento Mensal | Smash the Cake | Happy Birthday Infantil e Feminino · O melhor estúdio Infantil da Cidade Ademar\".",
+   "Dona: Sabrina Matos, com a Tati (\"ela e Tati\", \"as meninas\"). Foto dela: a do perfil do Instagram, com a lente no rosto.",
+   "Cores: o vermelho-cereja do cenário de Natal (#9e2b45 no destaque); Source Serif 4, Figtree e \"fotografias\" em Yellowtail; abertura em cápsulas. Sem logo em boa resolução: monograma SM e o nome com \"fotografias\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Dia das Crianças, mesversário e aniversário), portfólio em 3 abas (Acompanhamento mensal, 6; Infantil e aniversário, 8; Família e festas, 8), a Sabrina, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Não deixe o seu Natal para a última hora\": o ensaio com os 3 motivos do vídeo dela, o cenário (3 quadros do vídeo de 04/11), a agenda de exemplo (6 dias de 14/11 a 12/12, das 10h às 17h30, dentro do horário do Google) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Os posts de out/2026 (mesversário de 05/10 e Dia das Crianças de 13/10, até 4096 px), 5 quadros do vídeo de Natal de 04/11 (720 px), a página do Instagram salva no Drive (2020, 1080 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: a capa do vídeo com texto, as fotos antigas borradas ou escuras, os ensaios de adultos (corporativo) e as de gestante com pouca nitidez."
+  ],
+  "textos": [
+   "Bio e legendas: \"3 motivos pra você NÃO deixar seu ensaio de Natal pra última hora: Tradição, Lembranças, Exclusividade\" (04/11), e no vídeo: \"Tradição em família\", \"A fotografia é sua primeira lembrança\", \"Cenário exclusivo de 2026\".",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "Natal 2026: ainda não há fotos de clientes no cenário; a página usa quadros do vídeo de 04/11, em que aparece uma moça da equipe (a Sabrina ou a Tati) apresentando o cenário. Trocar pelas primeiras fotos de Natal assim que ela tiver.",
+   "As fotos do Instagram salvo são de 2020 (1080 px); as novas são de out/2026.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 10h-19h).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
