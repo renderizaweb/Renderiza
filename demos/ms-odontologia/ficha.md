@@ -90,12 +90,12 @@ Roteiro: `docs/fechamento.md`.
 | Domínio | `msodontologiaitapevi.com.br`: registrado e publicado (registro.br, vence em 04/11/2027; DNS ainda os do registro.br) |
 | Contas | Gmail de dev da clínica (o Kaue tem o acesso; não aparece no site), GitHub `msodontologiadev-sudo` e Vercel nessa conta |
 | Hospedagem | Vercel (decisão do Kaue, 04/11/2026) |
-| Repositório | github.com/msodontologiadev-sudo/msodontologia (público por enquanto). Site gerado e com o commit pronto em 05/11/2026; o envio espera o app do Claude na conta da clínica (ou o upload do .zip pelo Kaue) |
-| No ar | ainda não. Hoje o link da bio é o site do Canva |
+| Repositório | github.com/msodontologiadev-sudo/msodontologia (público por enquanto). O Kaue subiu o .zip pela tela do GitHub em 05/11/2026 (arquivos na raiz). O app do Claude não está instalado na conta: para mudar o site daqui, instalar antes |
+| No ar | **https://www.msodontologiaitapevi.com.br** desde 05/11/2026 (Vercel; conferido: igual ao gerado, 23 fotos, sem erro). A raiz redireciona para o www, mas o endereço oficial do site (canonical, prévia, sitemap) é sem www: na Vercel, deixar a raiz como principal |
 | Demo | no ar até 11/11/2026 para ele ver os ajustes; depois fica no painel e no repositório da Renderiza |
 
 - [x] 1 painel (Ganho, R$ 500, 04/11/2026) · [x] 2 levantamento · [ ] 3 ajustes (feitos na versão 5; falta o ok do Kaue e do cliente) · [x] 4 site.json
-- [x] 5 gerar e conferir (05/11: conferência ok, 22 fotos, 1,2 MB) · [ ] 6 repositório (commit pronto, falta enviar) · [ ] 7 hospedagem e domínio (domínio comprado)
+- [x] 5 gerar e conferir (05/11: conferência ok, 22 fotos, 1,2 MB) · [x] 6 repositório · [x] 7 hospedagem e domínio (05/11/2026)
 - [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
 
 **Foto da resina e antes e depois novo**: procurados em 04/11/2026 sem achar. O Instagram sem login só mostra os 6
@@ -108,3 +108,7 @@ contato dental" nos tratamentos).
 Conferir com ele (não trava a entrega): horário (Google: seg 9h–18h, ter 9h30–18h, qua a sex 9h–18h, sáb 9h–15h;
 a arte da clínica: seg a sex 9h–19h, sáb 9h–15h), se a "avaliação gratuita" ainda vale, e a fonte de "+10 mil
 casos" e "5 anos consecutivos melhor dentista de Itapevi".
+
+**Vídeo de divulgação (cortesia, 05/11/2026):** `gravacoes/ms-odontologia-site.json` (o site no ar rolando no celular,
+~35 s, música original, assinatura @clinicamsodontologia, legenda acima dos botões do Instagram). O MP4 fica em
+`rascunhos/` e vai para o Dr. Marcos pelo WhatsApp; não vai ao ar.
