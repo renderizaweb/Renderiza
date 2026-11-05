@@ -1,0 +1,730 @@
+{
+ "pasta": "amanda-azevedo-fotografia",
+ "marca": "Amanda Azevedo Fotografia",
+ "marca_completa": "Amanda Azevedo Fotografia",
+ "dona": "Amanda",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5435444,-46.7333509",
+  "fid": "0xaf81a2a4cb3e6fbb:0xf3460cac1b728aba",
+  "gid": "/g/11rpdqhtvz"
+ },
+ "google_nome": "Amanda Azevedo Fotógrafa de Família em SP",
+ "endereco_maps": "Av. Queiroz Filho, 1700 - Conj 16 - Torre E - Alto de Pinheiros, São Paulo - SP, 05319-000",
+ "google_nota": "5,0",
+ "google_total": "112",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511972042123",
+ "fone_link": "+5511972042123",
+ "instagram": "amandaazevedofotografia",
+ "seguidores": "16,9 mil",
+ "mensagem": "Olá, Amanda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#141414",
+  "papel": "#1c1b1a",
+  "areia": "#201e1d",
+  "linha": "#363230",
+  "tinta": "#f2ebe4",
+  "tinta2": "#b9afa6",
+  "rosa": "#d4a283",
+  "acento": "#a8673f",
+  "acento_escuro": "#8d5333",
+  "cafe": "#1f1915"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12",
+   "2026-12-19"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-21 14h",
+   "2026-11-28 9h",
+   "2026-11-28 14h",
+   "2026-11-28 15h30",
+   "2026-12-05 14h",
+   "2026-12-05 15h30",
+   "2026-12-12 15h30",
+   "2026-12-19 10h30",
+   "2026-12-19 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Amanda define os dela",
+  "mensagem": "Olá, Amanda! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Amanda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Amanda, da Amanda Azevedo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Amanda, da Amanda Azevedo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Noto Serif Display",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Manrope",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Pinyon Script",
+    ""
+   ]
+  },
+  "tema": "escuro",
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.1,
+  "css": "h1 em,h2 em,h3 em{color:#dcaa8b}.eyebrow,.review-tag{color:#d4a283}.especialidades i{color:var(--rosa)}"
+ },
+ "titulo_nome": "Amanda Azevedo",
+ "titulo_script": "fotografia",
+ "quem_a": "a Amanda",
+ "quem_da": "da Amanda",
+ "quem_sou": "Sou a Amanda Azevedo",
+ "slogan": "Desde 2008 fotografando com amor.",
+ "site": {
+  "titulo": "Amanda Azevedo Fotografia | Gestante, parto, newborn e família em São Paulo",
+  "descricao": "Amanda Azevedo, fotógrafa de família em São Paulo desde 2008: gestante, parto (foto e vídeo), newborn, família e Natal. Estúdio no Alto de Pinheiros. Nota 5,0 no Google, com 112 avaliações.",
+  "comentario": "Demo Amanda Azevedo Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@amandaazevedofotografia: a página salva, os posts de out/nov 2026 e quadros do vídeo de Natal 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia em São Paulo · desde 2008",
+   "frase": "Desde 2008 fotografando com amor.",
+   "intro": "Gestante, parto, newborn e família: a Amanda acompanha a espera, a chegada e os primeiros dias do bebê, com um olhar elegante e atemporal. Premiada pela Outstanding Award. E os cenários do Natal 2026 já estão montados.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Família",
+    "Acompanhamento",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_02.jpg",
+     "f": "p",
+     "alt": "Menina de vestido vermelho sorrindo no cavalinho, ao lado da árvore de Natal",
+     "c": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfS_gfeG53e/DfS_gfeG53e_01.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido branco esvoaçante no estúdio",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/De-NeGlm3LD/De-NeGlm3LD_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de touquinha de tricô dormindo de bruços",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Da espera <em>ao primeiro abraço.</em>",
+   "p": "Ensaios da Amanda, no estúdio e na maternidade. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfGCdTfGwIv/DfGCdTfGwIv_00.jpg",
+      "f": "p",
+      "alt": "Gestante de preto no fundo escuro do estúdio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfS_gfeG53e/DfS_gfeG53e_01.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco esvoaçante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfGCdTfGwIv/DfGCdTfGwIv_02.jpg",
+      "f": "p",
+      "alt": "Casal abraçado, de preto, com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468733170_18448273867070797_7668348341380969520_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco sob o arco de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfGCdTfGwIv/DfGCdTfGwIv_01.jpg",
+      "f": "p",
+      "alt": "Gestante de preto com a barriga à mostra",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468956912_18448273822070797_5445266064277056316_n.jpg",
+      "f": "p",
+      "alt": "Casal de branco junto às flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfS_gfeG53e/DfS_gfeG53e_02.jpg",
+      "f": "p",
+      "alt": "Casal no estúdio claro, ela sentada no cubo branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472269142_18454426156070797_5143587213139359997_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto, testa com testa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468662131_18448454380070797_1399087153330326128_n.jpg",
+      "f": "p",
+      "alt": "Gestante de preto com a filha no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472190931_18454423279070797_5268713659056389047_n.jpg",
+      "f": "p",
+      "alt": "Casal de preto e branco no estúdio claro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472310152_18454429195070797_3158465943394592475_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco com flores na mão",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468751761_18448272460070797_4954985729582503632_n.jpg",
+      "f": "p",
+      "alt": "Casal no fundo escuro, ele abraçando a barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Casal de branco no estúdio cinza",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472312185_18454429585070797_7635544886993930819_n.jpg",
+      "f": "l",
+      "alt": "Gestante de renda deitada, beijando o marido",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "parto",
+    "nome": "Parto e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/De-NeGlm3LD/De-NeGlm3LD_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de touquinha de tricô dormindo de bruços",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfAtbX3G6sF/DfAtbX3G6sF_07.jpg",
+      "f": "p",
+      "alt": "Mãe beijando a recém-nascida na maternidade",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfAtbX3G6sF/DfAtbX3G6sF_04.jpg",
+      "f": "p",
+      "alt": "Pai com a recém-nascida no peito, pele a pele",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/De-NeGlm3LD/De-NeGlm3LD_02.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo com o ursinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfAtbX3G6sF/DfAtbX3G6sF_06.jpg",
+      "f": "p",
+      "alt": "Pai e mãe com a recém-nascida na maternidade",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472310284_18454427089070797_2047967287311534410_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida chorando, logo depois do parto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfAtbX3G6sF/DfAtbX3G6sF_00.jpg",
+      "f": "p",
+      "alt": "Mãe com a recém-nascida, em preto e branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfAtbX3G6sF/DfAtbX3G6sF_03.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de touca, de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468905333_18448280746070797_1298932277933132108_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido no colo da mãe, logo depois do parto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/468499646_18448459063070797_5354661830830644896_n.jpg",
+      "f": "l",
+      "alt": "Pais com as gêmeas recém-nascidas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469391448_18449860018070797_5774379696265097216_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas recém-nascidas dormindo lado a lado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Recém-nascido no balde com palha",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "natal-familia",
+    "nome": "Natal e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_01.jpg",
+      "f": "p",
+      "alt": "Mãe e filha no cenário de Natal 2026, com o cavalinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_03.jpg",
+      "f": "p",
+      "alt": "Menina de vermelho junto à árvore e ao Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_00.jpg",
+      "f": "p",
+      "alt": "Menina no cavalinho de balanço, no Natal 2026",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_02.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo no cavalinho, de perto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469480639_18449869501070797_5835622238841065748_n.jpg",
+      "f": "p",
+      "alt": "Família sentada diante da árvore de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469446486_18449861791070797_7292948379863658789_n.jpg",
+      "f": "p",
+      "alt": "Mãe e bebê no banquinho, no Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469527000_18449861947070797_917358826396339541_n.jpg",
+      "f": "p",
+      "alt": "Pais beijando o bebê no Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469613725_18449866954070797_4946564161609055855_n.jpg",
+      "f": "p",
+      "alt": "Mãe de vermelho com o bebê, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469503309_18449862838070797_4160584202371539921_n.jpg",
+      "f": "l",
+      "alt": "Família na neve de algodão, no Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469517406_18449868868070797_3295425733781547230_n.jpg",
+      "f": "l",
+      "alt": "Família de vermelho brincando na neve de algodão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469862669_18449864656070797_5752265478501429743_n.jpg",
+      "f": "l",
+      "alt": "Mãe e bebê rindo junto aos presentes",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/472300890_18454425838070797_2357715268868955609_n.jpg",
+      "f": "l",
+      "alt": "Casal de branco com os três cachorrinhos",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Amanda, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Amanda Azevedo sorrindo, de blazer preto",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "p": [
+    "A Amanda Azevedo fotografa desde 2008: gestante, parto, newborn e família, em São Paulo. É premiada pela Outstanding Award e acompanha muitas famílias por várias fases, da gestação ao nascimento e aos ensaios do bebê."
+   ],
+   "citacao": "Como fotógrafa, meu maior propósito é capturar não apenas a beleza estética dessa espera, mas a alma e a conexão pura que existem nela.",
+   "citacao_quem": "Amanda, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do olhar sensível, da paciência no ensaio gestante, da presença carinhosa no parto e de quem já voltou para o terceiro trabalho com ela."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "112 avaliações no Google"
+    ],
+    [
+     "16,9 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2008",
+     "o ano em que ela começou"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>aos primeiros dias.</em>",
+   "p": "Os ensaios da Amanda, nas palavras dela:",
+   "fonte": "Bio e legendas da Amanda no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Entre 28 e 33 semanas",
+     "p": "O melhor momento para o ensaio gestante, para criar lembranças atemporais."
+    },
+    {
+     "nome": "Parto",
+     "sub": "Foto e vídeo",
+     "p": "Um vídeo traz de volta todos os sentimentos: o primeiro suspiro, o primeiro choro e os pequenos detalhes do nascimento."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "A chance de pausar o tempo e eternizar os traços delicados desse comecinho de vida."
+    },
+    {
+     "nome": "Família",
+     "sub": "Com os irmãos",
+     "p": "A participação dos irmãos mais velhos é fundamental, para que se sintam parte da família que está aumentando."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Ensaios de acompanhamento do bebê, para registrar cada fase."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "Vem se apaixonar por esse ensaio e viver a experiência mágica da melhor época do ano."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A melhor época do ano, <em>eternizada.</em>",
+   "p": "Os cenários do Natal 2026 já estão montados: a árvore vermelha, a cabaninha branca e a cama com luzinhas. Escolha um horário e a mensagem chega pronta no WhatsApp da Amanda.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_01.jpg",
+    "f": "p",
+    "alt": "Mãe e filha no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Tabata Moral",
+    "tag": "Ensaio com a filha",
+    "trecho": "fiz um ensaio com minha filha e ficou maravilhoso, delicado e natural. Além de excelente profissional a Amanda foi muito amável, paciente e gentil"
+   },
+   {
+    "nome": "Marília Velloso",
+    "tag": "Gestante e parto",
+    "trecho": "Ela fez meu ensaio gestante com paciência para esperar eu fazer as trocas de roupa e acessórios, e também fez o meu parto normal."
+   },
+   {
+    "nome": "Eliana Vaz",
+    "tag": "O olhar",
+    "trecho": "Seu olhar sensível transforma cada momento em uma lembrança única. Além da qualidade impecável das fotos, ela faz com que a gente se sinta à vontade durante todo o ensaio."
+   },
+   {
+    "nome": "Valeria Cappello",
+    "tag": "De volta",
+    "trecho": "muito competente, cuidadosa, carinhosa.... Já é o 3° trabalho q faço c a Amanda, DIVINO!!!!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Alto de Pinheiros, em São Paulo.",
+   "telefone": "(11) 97204-2123",
+   "endereco": [
+    "Av. Queiroz Filho, 1700, conj. 16, torre E",
+    "Alto de Pinheiros",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Amanda Azevedo Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Amanda Azevedo, em São Paulo: três cenários, da árvore vermelha à cama com luzinhas. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Amanda Azevedo Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · São Paulo",
+   "h1": "Vem se apaixonar <em>pelo Natal 2026.</em>",
+   "citacao": "Vem se apaixonar por esse ensaio e viver essa experiência maravilhosa e mágica da melhor época do ano.",
+   "citacao_quem": "Amanda, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_02.jpg",
+    "f": "p",
+    "alt": "Menina de vestido vermelho sorrindo no cavalinho, ao lado da árvore de Natal",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Três cenários, <em>um Natal só seu.</em>",
+   "p": "O ensaio de Natal 2026 tem três cenários: a árvore vermelha com a poltrona e o arco rosado, a cabaninha branca com os bonecos de neve e a cama branca com guirlanda e luzinhas. Para o bebê, as crianças e a família toda.",
+   "itens": [
+    "Três cenários de Natal, montados para 2026.",
+    "A árvore vermelha, a cabaninha branca e a cama com luzinhas.",
+    "Para o bebê, as crianças e a família toda.",
+    "Local, datas e valores pelo WhatsApp da Amanda."
+   ],
+   "legenda_fotos": "Os cenários do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v4.5.jpg",
+    "f": "p",
+    "alt": "A árvore vermelha, o Papai Noel e a poltrona azul",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v13.2.jpg",
+    "f": "p",
+    "alt": "A cabaninha branca com os bonecos de neve",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v30.5.jpg",
+    "f": "p",
+    "alt": "A cama branca com a guirlanda e as luzinhas",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Amanda abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Amanda define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Amanda abre com o dia e a hora escritos."
+    ],
+    [
+     "A Amanda confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natais por aqui",
+   "h2": "O Natal <em>no estúdio.</em>",
+   "nome": "Natais por aqui",
+   "p": "O Natal 2026 e outros Natais da Amanda: em 2023, a árvore no estúdio branco e a neve de algodão.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_01.jpg",
+     "f": "p",
+     "alt": "Mãe e filha no Natal 2026",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_03.jpg",
+     "f": "p",
+     "alt": "Menina junto à árvore e ao Papai Noel",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469480639_18449869501070797_5835622238841065748_n.jpg",
+     "f": "p",
+     "alt": "Família diante da árvore de Natal",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469527000_18449861947070797_917358826396339541_n.jpg",
+     "f": "p",
+     "alt": "Pais beijando o bebê no Natal",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_00.jpg",
+     "f": "p",
+     "alt": "Menina no cavalinho de balanço",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469446486_18449861791070797_7292948379863658789_n.jpg",
+     "f": "p",
+     "alt": "Mãe e bebê no banquinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/amandaazevedofotografia/Instagram_files/469503309_18449862838070797_4160584202371539921_n.jpg",
+     "f": "l",
+     "alt": "Família na neve de algodão",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Tabata Moral",
+    "tag": "Delicado e natural",
+    "trecho": "Super recomendo a Amanda, fiz um ensaio com minha filha e ficou maravilhoso, delicado e natural."
+   },
+   {
+    "nome": "Eliana Vaz",
+    "tag": "À vontade",
+    "trecho": "ela faz com que a gente se sinta à vontade durante todo o ensaio."
+   },
+   {
+    "nome": "Valeria Cappello",
+    "tag": "De volta",
+    "trecho": "Já é o 3° trabalho q faço c a Amanda, DIVINO!!!! MUITO OBRIGADA, SEMPRE!"
+   },
+   {
+    "nome": "Marília Velloso",
+    "tag": "Paciência",
+    "trecho": "Amanda é extremamente atenciosa, solícita e pró ativa."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · São Paulo",
+   "h2": "Garanta o seu <em>Natal 2026.</em>",
+   "p": "Escolha um horário na agenda ou chame a Amanda no WhatsApp para saber as datas e os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97204-2123)",
+  "site": "não tem no ar: o Google aponta amandaazevedofotografia.com.br, que cai na página de erro do Wix (ConnectYourDomain: domínio desconectado) (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/amanda-azevedo-fotografia` e `/demo/amanda-azevedo-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 10, 86 pontos), escolhida no Drive de 05/11/2026. Bio: \"Desde 2008 fotografando com amor · Gestante, Parto, Newborn e Família · Premiada pela @outstandingaward\".",
+   "Dona: Amanda Azevedo (bio, marca d'água das fotos e avaliações). Foto dela: a do perfil do Instagram, a mesma mulher dos vídeos dela (\"3 motivos pra me contratar para seu parto\").",
+   "Tema escuro, no tom do fundo cinza-chumbo dos ensaios gestante dela, com cobre (#a8673f) no destaque; Noto Serif Display, Manrope e \"fotografia\" em Pinyon Script; abertura em faixa. Sem logo em boa resolução: monograma AA e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e newborn), portfólio em 3 abas (Gestante, 14; Parto e newborn, 12; Natal e família, 12), a Amanda, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal 2026 \"Vem se apaixonar pelo Natal 2026\": o ensaio, os três cenários (quadros do vídeo de 31/10), a agenda de exemplo (6 sábados de 14/11 a 19/12, 4 horários) e os Natais dela (2026 e 2023)."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (1440 px), 4 posts de out/nov 2026 (newborn de 26/10, o parto de 27/10, gestantes de 29/10 e 03/11) e o \"Natal da Maia\" de 31/10 (3072 px), 3 quadros do vídeo de Natal 2026 (720 px), 2 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as capas de vídeo com texto, as colagens, a foto do médico, a do perfil profissional do Google e a panorâmica do prédio."
+  ],
+  "textos": [
+   "Bio e legendas: \"Vem se apaixonar por esse ensaio... NATAL 2026\" (31/10), \"Como fotógrafa, meu maior propósito é capturar...\" (29/10), \"Os primeiros dias do seu bebê passam como um suspiro...\" (26/10), \"o melhor momento para um ensaio gestante é entre 28-33 semanas\", o vídeo de parto e os irmãos no ensaio.",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 na demo (a da tatigodoi ficou de fora: fala de \"a equipe... eles\" e de uma festa)."
+  ],
+  "conferir": [
+   "Natal 2026: o vídeo mostra os três cenários, mas não diz onde ficam nem as datas; a página fala em \"local, datas e valores pelo WhatsApp da Amanda\".",
+   "Horários: a agenda é exemplo (dito na página); o Google não mostra horário de funcionamento.",
+   "Uma avaliação fala em \"a equipe... eles\": vale perguntar se ela trabalha com equipe (a demo fala só da Amanda).",
+   "Fotos de bebês, crianças e de parto: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
