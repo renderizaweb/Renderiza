@@ -1,0 +1,706 @@
+{
+ "pasta": "leila-bomfim-fotografia",
+ "marca": "Leila Bomfim Fotografia",
+ "marca_completa": "Leila Bomfim Fotografia",
+ "dona": "Leila",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5976135,-46.761591",
+  "fid": "0x94ce556bfed1e4c9:0x8d2305fe047afa45",
+  "gid": "/g/11lkf2hsqz"
+ },
+ "google_nome": "Leila Bomfim Fotografia",
+ "endereco_maps": "R. Argemiro Hónorato de Aquino, 09 - Jardim Ouro Preto, Taboão da Serra - SP, 06755-160",
+ "google_nota": "4,8",
+ "google_total": "44",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511950815784",
+ "fone_link": "+5511950815784",
+ "instagram": "leilabomfim_fotografia",
+ "seguidores": "4,6 mil",
+ "mensagem": "Olá, Leila! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f7f6f2",
+  "papel": "#ffffff",
+  "areia": "#eeefe9",
+  "linha": "#dfe0d8",
+  "tinta": "#26282a",
+  "tinta2": "#5e6162",
+  "rosa": "#d6b48a",
+  "acento": "#7d2433",
+  "acento_escuro": "#661b29",
+  "cafe": "#1f2a27"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 10h30",
+   "2026-11-18 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-28 9h",
+   "2026-11-28 17h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-05 17h",
+   "2026-12-12 9h",
+   "2026-12-12 10h30",
+   "2026-12-12 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Leila define os dela",
+  "mensagem": "Olá, Leila! Quero o horário de {data} ({semana}) às {hora} para o ensaio Memórias de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Leila",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Leila, da Leila Bomfim Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Leila, da Leila Bomfim Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Rosarivo",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Figtree",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "·",
+  "script_escala": 1.05,
+  "css": ".eyebrow,.review-tag{color:#8a6a3d}"
+ },
+ "titulo_nome": "Leila Bomfim",
+ "titulo_script": "fotografia",
+ "quem_a": "a Leila",
+ "quem_da": "da Leila",
+ "quem_sou": "Sou a Leila Bomfim",
+ "slogan": "Há 15 anos registrando memórias.",
+ "site": {
+  "titulo": "Leila Bomfim Fotografia | Família, gestante e infantil em Taboão da Serra",
+  "descricao": "Leila Bomfim, fotógrafa de família, gestante e infantil em Taboão da Serra (SP), há 15 anos registrando memórias. Memórias de Natal 2026 com agenda aberta. Nota 4,8 no Google, com 44 avaliações.",
+  "comentario": "Demo Leila Bomfim Fotografia (lote 2 de fotógrafos, reserva, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@leilabomfim_fotografia: a página salva, os posts de out/nov 2026 e fotos do vídeo de 02/11) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa em Taboão da Serra",
+   "frase": "Há 15 anos registrando memórias.",
+   "intro": "Família, gestante e infantil: a Leila registra a espontaneidade, a leveza e a verdade de cada família. E o Memórias de Natal 2026 está com a agenda aberta, com as fotos entregues até 25/12.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Gestante",
+    "Infantil",
+    "Casal",
+    "Dia das Mães",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfARWEHzTxp/DfARWEHzTxp_00.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido xadrez junto à poltrona de couro e à árvore",
+     "c": [
+      0.4,
+      0.55
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/629378494_18405641995134759_7879318685521814110_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido branco no bosque florido",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625212141_18339846019241260_6991792453278782542_n.jpg",
+     "f": "p",
+     "alt": "Menina sorrindo abraçada ao ursinho",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Leveza <em>e verdade.</em>",
+   "p": "Ensaios da Leila, no estúdio e ao ar livre. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfARWEHzTxp/DfARWEHzTxp_00.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido xadrez junto à poltrona e à árvore",
+      "pos": "40% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
+      "f": "p",
+      "alt": "Menino de camisa vermelha com a caixa de presente",
+      "pos": "50% 45%",
+      "box": [
+       0,
+       0.12,
+       1,
+       0.88
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Menino com a lanterna junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Mãe e filha abraçadas entre os ursinhos de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Mãe e filha no balanço, junto à janela de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v23.jpg",
+      "f": "p",
+      "alt": "Pai e filho sentados no tapete, rindo",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v11.jpg",
+      "f": "p",
+      "alt": "Família na poltrona de couro, junto à árvore",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfPodNiTWJ7/DfPodNiTWJ7_00.jpg",
+      "f": "p",
+      "alt": "Família lendo o livro de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfIAJ-RzG25/DfIAJ-RzG25_00.jpg",
+      "f": "p",
+      "alt": "O enfeite da lua na árvore de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/621549828_18282229723303964_5277822411401489299_n.jpg",
+      "f": "p",
+      "alt": "Bebê de gorro de Papai Noel com as bolas de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v20.jpg",
+      "f": "l",
+      "alt": "Mãe e filho no tapete persa, diante da árvore",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625212141_18339846019241260_6991792453278782542_n.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo abraçada ao ursinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/618018991_18189259978350517_1340847465824740431_n.jpg",
+      "f": "p",
+      "alt": "Menina caminhando com o ursinho no bosque",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625096075_18345787834232465_3070404029448058956_n.jpg",
+      "f": "p",
+      "alt": "Menina de jaqueta jeans sentada na mureta",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/639700767_18585839611049232_7052041716577083923_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido vermelho junto ao lago",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/649222479_18156570013439396_5082867826093364442_n.jpg",
+      "f": "p",
+      "alt": "Menina com as flores rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/630103969_18453057322101912_4933359488580004224_n.jpg",
+      "f": "p",
+      "alt": "Irmãs abraçadas ao ursão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625347618_18310444783249370_626883520278110325_n.jpg",
+      "f": "l",
+      "alt": "Menina com o ursinho no caminho do bosque",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/630639176_18408253927122604_7499435780374590275_n.jpg",
+      "f": "l",
+      "alt": "Menina lendo sentada no degrau",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/621405048_18151834228440408_2417096078316962368_n.jpg",
+      "f": "l",
+      "alt": "Menina de braços abertos no jardim",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Gestante, família e retrato",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/629378494_18405641995134759_7879318685521814110_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco no bosque florido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/626181933_18435993139113897_959526077923985768_n.jpg",
+      "f": "p",
+      "alt": "Gestante lendo o livro para a barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Casal no estúdio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/628357083_18447385786110360_7735414099308610910_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante no piquenique à beira do lago",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/619855504_18149450029431449_671733884253489570_n.jpg",
+      "f": "p",
+      "alt": "Retrato na rua, de jaqueta de couro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/649247724_18164171653414075_3125778487577820777_n.jpg",
+      "f": "p",
+      "alt": "Retrato em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/638287620_18565819738007378_7796924264889772593_n.jpg",
+      "f": "l",
+      "alt": "Família de costas olhando as montanhas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/631688125_18433764553114951_1876764634142670700_n.jpg",
+      "f": "l",
+      "alt": "Família pulando no alto do mirante",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/632044952_18433930192116224_3218819083144328842_n.jpg",
+      "f": "l",
+      "alt": "Retrato sorrindo, de cabelo cacheado",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Leila, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Leila sorrindo com a câmera",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Leila Bomfim fotografa famílias, gestantes e crianças em Taboão da Serra há 15 anos, no estúdio e ao ar livre. Busca a espontaneidade, a leveza e a verdade de cada família, e todo ano monta o Memórias de Natal."
+   ],
+   "citacao": "Porque o Natal é feito de histórias, afetos e lembranças que atravessam o tempo.",
+   "citacao_quem": "Leila, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do carinho na recepção (até com quem chegou atrasado), do cuidado para guiar e valorizar cada um e de quem volta para mais ensaios."
+   ],
+   "numeros": [
+    [
+     "4,8",
+     "44 avaliações no Google"
+    ],
+    [
+     "15 anos",
+     "registrando memórias"
+    ],
+    [
+     "4,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Encontros que <em>viram tradição.</em>",
+   "p": "Os ensaios da Leila:",
+   "fonte": "Bio e legendas da Leila no Instagram; avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Registros que contam histórias e guardam a beleza dos pequenos instantes."
+    },
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No bosque, à beira do lago ou no estúdio."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Espontâneo",
+     "p": "Crianças livres para brincar, com o ursinho, as flores e o jardim."
+    },
+    {
+     "nome": "Casal",
+     "sub": "Ensaios",
+     "p": "Ensaios de casal com leveza e verdade."
+    },
+    {
+     "nome": "Dia das Mães",
+     "sub": "Especial",
+     "p": "Amor, carinho e conexão entre mães e filhos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Memórias de Natal",
+     "p": "Agenda aberta, com as fotos entregues até 25/12."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Memórias de Natal 2026",
+   "h2": "Encontros que se tornam <em>tradição.</em>",
+   "p": "A sala de Natal da Leila tem as paredes de arcos, as guirlandas, a árvore branca e dourada, a poltrona de couro e o tapete persa. A agenda está aberta e as fotos chegam até 25/12: escolha um horário e a mensagem vai pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
+    "f": "p",
+    "alt": "Menino de camisa vermelha com a caixa de presente",
+    "c": [
+     0.5,
+     0.45
+    ],
+    "box": [
+     0,
+     0.12,
+     1,
+     0.88
+    ]
+   },
+   "legenda": "Memórias de Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Danielle Dos Anjos",
+    "tag": "Carinho",
+    "trecho": "Desde o momento em que chegamos, mesmo atrasados para a sessão, ela nos recebeu com muito carinho."
+   },
+   {
+    "nome": "Raquel Barbosa Santos",
+    "tag": "Casal",
+    "trecho": "As fotos ficam divinas, já fiz dois ensaios de casal com meu noivo… E quero fazer vários outros, amamos!"
+   },
+   {
+    "nome": "Nany Vilhena 2",
+    "tag": "Dia das Mães",
+    "trecho": "Fiquei encantada com o ensaio de Dia das Mães! 🩷 Cada foto transmitiu amor, carinho e conexão de uma forma tão linda."
+   },
+   {
+    "nome": "Hugo Rocha",
+    "tag": "Respeito",
+    "trecho": "Excelente atendimento! Tratou minha mulher com todo respeito e cuidado! Recomendo muito!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. A Leila atende no Jardim Ouro Preto, em Taboão da Serra.",
+   "rotulo": "Endereço",
+   "telefone": "(11) 95081-5784",
+   "endereco": [
+    "Rua Argemiro Honorato de Aquino, 09",
+    "Jardim Ouro Preto",
+    "Taboão da Serra · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Memórias de Natal 2026 | Leila Bomfim Fotografia",
+  "descricao": "O Memórias de Natal 2026 da Leila Bomfim, em Taboão da Serra: a sala de Natal com a árvore, a poltrona e o tapete persa, e as fotos entregues até 25/12. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Leila Bomfim Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Taboão da Serra",
+   "h1": "Memórias <em>de Natal.</em>",
+   "citacao": "Tem encontros que se tornam tradição.",
+   "citacao_quem": "Leila, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
+    "f": "p",
+    "alt": "Menino de camisa vermelha com a caixa de presente",
+    "c": [
+     0.5,
+     0.45
+    ],
+    "box": [
+     0,
+     0.12,
+     1,
+     0.88
+    ]
+   },
+   "legenda": "Memórias de Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Histórias, afetos <em>e lembranças.</em>",
+   "p": "A sala de Natal tem as paredes de arcos com as guirlandas, a árvore branca e dourada com flores vermelhas, a poltrona de couro, o abajur, o livro de Natal e o tapete persa. E a cada ano tem família voltando para escrever mais um pedacinho da sua história.",
+   "itens": [
+    "A sala de Natal da Leila, em Taboão da Serra.",
+    "A árvore, a poltrona de couro e o tapete persa.",
+    "Faça as fotos com calma e receba até 25/12.",
+    "Valores e detalhes pelo WhatsApp da Leila."
+   ],
+   "legenda_fotos": "O cenário de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v5.5.jpg",
+    "f": "p",
+    "alt": "A sala com os arcos, as guirlandas e a árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfARWEHzTxp/DfARWEHzTxp_00.jpg",
+    "f": "p",
+    "alt": "A poltrona de couro e os presentes junto à árvore",
+    "c": [
+     0.35,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfIAJ-RzG25/DfIAJ-RzG25_00.jpg",
+    "f": "p",
+    "alt": "O enfeite da lua na árvore de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Leila abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Leila define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Leila abre com o dia e a hora escritos."
+    ],
+    [
+     "A Leila confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Leveza <em>e verdade.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Leila.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625212141_18339846019241260_6991792453278782542_n.jpg",
+     "f": "p",
+     "alt": "Menina com o ursinho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/629378494_18405641995134759_7879318685521814110_n.jpg",
+     "f": "p",
+     "alt": "Gestante no bosque",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/626181933_18435993139113897_959526077923985768_n.jpg",
+     "f": "p",
+     "alt": "Gestante lendo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/618018991_18189259978350517_1340847465824740431_n.jpg",
+     "f": "p",
+     "alt": "Menina no bosque",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/639700767_18585839611049232_7052041716577083923_n.jpg",
+     "f": "p",
+     "alt": "Menina junto ao lago",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/649222479_18156570013439396_5082867826093364442_n.jpg",
+     "f": "p",
+     "alt": "Menina com as flores",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g03.jpg",
+     "f": "p",
+     "alt": "Casal no estúdio",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/625096075_18345787834232465_3070404029448058956_n.jpg",
+     "f": "p",
+     "alt": "Menina de jaqueta jeans",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Danielle Dos Anjos",
+    "tag": "Cuidado",
+    "trecho": "Durante as fotos, ela fez questão de nos valorizar, nos guiou com muito cuidado e, no final, as imagens ficaram incríveis."
+   },
+   {
+    "nome": "Nany Vilhena 2",
+    "tag": "Sensibilidade",
+    "trecho": "Parabéns pelo trabalho maravilhoso, ficou emocionante e cheio de sensibilidade!"
+   },
+   {
+    "nome": "Raquel Barbosa Santos",
+    "tag": "Vários ensaios",
+    "trecho": "Uma fotógrafa maravilhosa! As fotos ficam divinas"
+   },
+   {
+    "nome": "Hugo Rocha",
+    "tag": "Atendimento",
+    "trecho": "Excelente atendimento!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Memórias de Natal 2026",
+   "h2": "Garanta as suas <em>memórias de Natal.</em>",
+   "p": "A agenda está aberta e as fotos chegam até 25/12. Escolha um horário ou chame a Leila no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95081-5784)",
+  "site": "não tem: o Google não mostra site; leilabomfim.com é de outra pessoa (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/leila-bomfim-fotografia` e `/demo/leila-bomfim-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos, reserva (nº 24, 78 pontos), escolhida no Drive de 05/11/2026. Bio: \"Família • Gestante • Infantil · Memórias de Natal 2026 | Agenda aberta · Taboão da Serra - SP · Há 15 anos registrando memórias\".",
+   "Dona: Leila Bomfim (\"a Leila\" em duas avaliações). Foto dela: a do perfil do Instagram, com a câmera Canon.",
+   "Cores: o vinho das flores e o verde-acinzentado das paredes do Natal 2026 (#7d2433 no destaque); Rosarivo, Figtree e \"fotografia\" em Great Vibes; abertura em polaroides. Sem logo em boa resolução: monograma LB e o nome com \"fotografia\" cursiva, feitos para a demo.",
+   "O Google a lista como \"Fotógrafo\", não como estúdio: o contato mostra o endereço do Google como \"Endereço\"."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e infantil), portfólio em 3 abas (Natal, 11; Infantil, 9; Gestante, família e retrato, 9), a Leila, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Memórias de Natal\": o ensaio, o cenário (uma foto do vídeo de 02/11 e duas dos posts), a agenda de exemplo (6 dias de 14/11 a 12/12, das 9h às 17h, dentro do horário do Google) e outros ensaios."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (até 2048 px; as capas dos vídeos com as faixas pretas cortadas), 4 fotos do vídeo de 02/11 (720 px), 4 fotos do Google (Natal, até 2000 px), a página do Instagram salva no Drive (2018-2019, 706 a 1080 px) e a foto do perfil.",
+   "Ficaram de fora: a arte \"Faltam apenas 8 sábados para o Natal\", a capa com \"Encantamento\" escrito, as fotos de viagem, paisagem, cachorro, as selfies e os retratos indígenas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Tem encontros que se tornam tradição... a cada Natal, essa família volta\" (02/11), \"Porque o Natal é feito de histórias, afetos e lembranças que atravessam o tempo\" (30/10), \"Para você fazer suas fotos com calma e recebê-las até 25/12 a hora é agora\" (27/10).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página (a da Sara, em maiúsculas, ficou de fora)."
+  ],
+  "conferir": [
+   "As fotos de Natal do Google (mãe e filha com ursinhos, balanço, menino com lanterna) podem ser de 2025; as de 2026 são as dos posts e do vídeo.",
+   "\"Receba até 25/12\" vem da legenda de 27/10: conferir se ainda vale para quem marcar agora.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 8h-18h).",
+   "Fotos de crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
