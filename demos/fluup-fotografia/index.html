@@ -45,6 +45,8 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .rz-troca a[aria-current="page"]{background:#f1eee9;color:#1e2528;font-weight:500}
 .rz-preco{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;margin-left:auto}
 .rz-preco b{font-weight:500;color:#fff}.rz-preco small{color:#aab3ae;font-size:.78rem}
+.rz-alerta{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:#f4b9452e;color:#ffd387;font-size:.78rem;font-weight:500;white-space:nowrap}.rz-alerta svg{width:13px;height:13px;flex:none}.rz-alerta b{color:#ffe2a8;font-weight:600}
+.rz-preco:has(.rz-alerta:not([hidden])) small{display:none}@media(min-width:861px){.rz-preco:has(.rz-alerta:not([hidden])) .rz-tudo{display:none}}
 .rz-abrir{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;border:1px solid #ffffff38;font-size:.8rem;white-space:nowrap}
 .rz-abrir svg{width:12px;height:12px;transform:rotate(90deg);transition:transform .2s}.rz-faixa.aberta .rz-abrir svg{transform:rotate(-90deg)}
 .rz-mais{border-top:1px solid #ffffff1f}.rz-mais .rz-in{padding:14px 0 16px;align-items:center}
@@ -61,7 +63,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .rz-folha-fechar{position:absolute;top:12px;right:12px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#d7dcd9}.rz-folha-fechar svg{width:18px;height:18px}
 .modo-video .rz-faixa,.modo-video .rz-pilula,.modo-video .rz-folha{display:none!important}
 @media(max-width:860px){.rz-in{gap:8px 12px;padding:10px 0 11px}.rz-ola{width:100%;font-size:.84rem}.rz-troca{width:100%}.rz-troca a{flex:1;text-align:center;padding:7px 8px}
-.rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:nowrap;gap:10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
+.rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px 10px}.rz-preco>span:first-child{flex:1 1 auto;min-width:0}.rz-alerta{order:3;font-size:.74rem;padding:3px 10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
 
 /* topo do site */
 .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--fundo) 92%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
@@ -295,12 +297,13 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
   <div class="rz-in">
     <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>Giuliana, a Renderiza montou para você:</p>
     <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/fluup-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/fluup-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
-    <p class="rz-preco" style="margin:0"><span>Tudo incluso: <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> <small>(<span data-rz="nota">condição de lançamento</span>)</small></span>
+    <p class="rz-preco" style="margin:0"><span><span class="rz-tudo">Tudo incluso: </span><b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> <small>(<span data-rz="nota">condição de lançamento</span>)</small></span>
+      <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Valor válido somente até <b data-rz="validade-curta">10/11</b></span>
       <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
   </div>
   <div class="rz-mais" id="rz-mais" hidden>
     <div class="rz-in">
-      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>). Condição válida até <b data-rz="validade">12/11/2026</b>, o dia em que esta demonstração sai do ar.</p>
+      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">10/11/2026</b>.</span></p>
       <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
       <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
     </div>
@@ -423,13 +426,13 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
   <button class="lb-seta lb-ant" type="button" aria-label="Foto anterior"><svg aria-hidden="true"><use href="#seta"/></svg></button>
   <button class="lb-seta lb-prox" type="button" aria-label="Próxima foto"><svg aria-hidden="true"><use href="#seta"/></svg></button>
 </div>
-<button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha"><svg aria-hidden="true"><use href="#brilho"/></svg><b>Renderiza</b> <span data-rz="curta">R$ 399 · até 12/11</span></button>
+<button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha"><svg aria-hidden="true"><use href="#brilho"/></svg><b>Renderiza</b> <span data-rz="curta">R$ 399 · até 10/11</span></button>
 <div class="rz-folha" id="rz-folha" role="dialog" aria-label="O que a Renderiza montou" hidden>
   <button class="rz-folha-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
   <h2>Giuliana, a Renderiza montou para você</h2>
   <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/fluup-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/fluup-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
   <p>Tudo incluso: <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).</p>
-  <p>Condição válida até <b data-rz="validade">12/11/2026</b>, o dia em que esta demonstração sai do ar.</p>
+  <p data-rz-prazo>Valor válido somente até <b data-rz="validade">10/11/2026</b>.</p>
   <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
 </div>
   <script>
@@ -633,14 +636,14 @@ window.DEMO_CLIENT = {
 })();
 </script>
 <script>
-// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. O prazo é o dia em que a demo
-// sai do ar (vale_ate no painel), sem contagem regressiva.
+// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. "Valor válido somente até" validoAte
+// (padrão: a data da demo + 7 dias); depois dela, a data some e fica só o valor. Sem contagem regressiva.
 window.RZ = {
   whatsapp: "5511988697165",
   precoPix: "R$ 399",
   parcelado: "2x de R$ 199",
   notaPreco: "condição de lançamento",
-  validoAte: "2026-11-12",
+  validoAte: "2026-11-10",
   msgGarantir: "Olá! Sou a Giuliana, do Estúdio Fluup Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   msgNegociar: "Olá! Sou a Giuliana, do Estúdio Fluup Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
 };
@@ -659,8 +662,13 @@ window.RZ = {
     const wa = msg => "https://wa.me/" + RZ.whatsapp + "?text=" + encodeURIComponent(msg);
     $$("[data-rz=preco]").forEach(e => e.textContent = RZ.precoPix + " no Pix ou " + RZ.parcelado);
     $$("[data-rz=nota]").forEach(e => e.textContent = RZ.notaPreco);
+    // Depois do último dia (horário de Brasília), o aviso e a data somem e fica só o valor.
+    const hoje = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
+    const vencida = hoje > RZ.validoAte;
     $$("[data-rz=validade]").forEach(e => e.textContent = data);
-    $$("[data-rz=curta]").forEach(e => e.textContent = RZ.precoPix + " · até " + d + "/" + m);
+    $$("[data-rz=validade-curta]").forEach(e => e.textContent = d + "/" + m);
+    $$("[data-rz-prazo]").forEach(e => e.hidden = vencida);
+    $$("[data-rz=curta]").forEach(e => e.textContent = vencida ? RZ.precoPix : RZ.precoPix + " · até " + d + "/" + m);
     $$("[data-rz-garantir]").forEach(e => e.href = wa(RZ.msgGarantir));
     $$("[data-rz-negociar]").forEach(e => e.href = wa(RZ.msgNegociar));
   }

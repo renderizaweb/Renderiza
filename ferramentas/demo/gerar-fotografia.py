@@ -21,6 +21,8 @@
 #   horarios {dias, horas, reservados, exemplo, mensagem},
 #   renderiza {whatsapp, preco_pix, parcelado, nota_preco, valido_ate, msg_garantir, msg_negociar}
 #     -> os valores e a data da oferta ficam só aqui; no HTML, num objeto só (window.RZ), que preenche a faixa.
+#     valido_ate: o aviso "Valor válido somente até <data>" (sem ele, a data em que a demo é gerada + 7 dias). Depois
+#     dessa data (horário de Brasília), o aviso e a data somem sozinhos e fica só o valor.
 #   ficha {...}: o que vai para a ficha.md.
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
 import base64, datetime, html, io, json, os, re, sys, urllib.parse
@@ -212,6 +214,8 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .rz-troca a[aria-current="page"]{background:#f1eee9;color:#1e2528;font-weight:500}
 .rz-preco{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;margin-left:auto}
 .rz-preco b{font-weight:500;color:#fff}.rz-preco small{color:#aab3ae;font-size:.78rem}
+.rz-alerta{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:#f4b9452e;color:#ffd387;font-size:.78rem;font-weight:500;white-space:nowrap}.rz-alerta svg{width:13px;height:13px;flex:none}.rz-alerta b{color:#ffe2a8;font-weight:600}
+.rz-preco:has(.rz-alerta:not([hidden])) small{display:none}@media(min-width:861px){.rz-preco:has(.rz-alerta:not([hidden])) .rz-tudo{display:none}}
 .rz-abrir{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;border:1px solid #ffffff38;font-size:.8rem;white-space:nowrap}
 .rz-abrir svg{width:12px;height:12px;transform:rotate(90deg);transition:transform .2s}.rz-faixa.aberta .rz-abrir svg{transform:rotate(-90deg)}
 .rz-mais{border-top:1px solid #ffffff1f}.rz-mais .rz-in{padding:14px 0 16px;align-items:center}
@@ -228,7 +232,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .rz-folha-fechar{position:absolute;top:12px;right:12px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#d7dcd9}.rz-folha-fechar svg{width:18px;height:18px}
 .modo-video .rz-faixa,.modo-video .rz-pilula,.modo-video .rz-folha{display:none!important}
 @media(max-width:860px){.rz-in{gap:8px 12px;padding:10px 0 11px}.rz-ola{width:100%;font-size:.84rem}.rz-troca{width:100%}.rz-troca a{flex:1;text-align:center;padding:7px 8px}
-.rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:nowrap;gap:10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
+.rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px 10px}.rz-preco>span:first-child{flex:1 1 auto;min-width:0}.rz-alerta{order:3;font-size:.74rem;padding:3px 10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
 
 /* topo do site */
 .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--fundo) 92%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
@@ -601,8 +605,13 @@ JS = r'''
     const wa = msg => "https://wa.me/" + RZ.whatsapp + "?text=" + encodeURIComponent(msg);
     $$("[data-rz=preco]").forEach(e => e.textContent = RZ.precoPix + " no Pix ou " + RZ.parcelado);
     $$("[data-rz=nota]").forEach(e => e.textContent = RZ.notaPreco);
+    // Depois do último dia (horário de Brasília), o aviso e a data somem e fica só o valor.
+    const hoje = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
+    const vencida = hoje > RZ.validoAte;
     $$("[data-rz=validade]").forEach(e => e.textContent = data);
-    $$("[data-rz=curta]").forEach(e => e.textContent = RZ.precoPix + " · até " + d + "/" + m);
+    $$("[data-rz=validade-curta]").forEach(e => e.textContent = d + "/" + m);
+    $$("[data-rz-prazo]").forEach(e => e.hidden = vencida);
+    $$("[data-rz=curta]").forEach(e => e.textContent = vencida ? RZ.precoPix : RZ.precoPix + " · até " + d + "/" + m);
     $$("[data-rz-garantir]").forEach(e => e.href = wa(RZ.msgGarantir));
     $$("[data-rz-negociar]").forEach(e => e.href = wa(RZ.msgNegociar));
   }
@@ -713,12 +722,13 @@ def faixa_rz(cfg, pagina):
   <div class="rz-in">
     <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>{nome}, a Renderiza montou para {esc(cfg["renderiza"].get("para", "você"))}:</p>
     {troca}
-    <p class="rz-preco" style="margin:0"><span>Tudo incluso: <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> <small>(<span data-rz="nota">{esc(r["nota_preco"])}</span>)</small></span>
+    <p class="rz-preco" style="margin:0"><span><span class="rz-tudo">Tudo incluso: </span><b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> <small>(<span data-rz="nota">{esc(r["nota_preco"])}</span>)</small></span>
+      <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Valor válido somente até <b data-rz="validade-curta">{d[2]}/{d[1]}</b></span>
       <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
   </div>
   <div class="rz-mais" id="rz-mais" hidden>
     <div class="rz-in">
-      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>). Condição válida até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>, o dia em que esta demonstração sai do ar.</p>
+      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</span></p>
       <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">Negociar</a></div>
       <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
     </div>
@@ -736,7 +746,7 @@ def pilula_rz(cfg, pagina):
   <h2>{esc(r.get("ola", "Ana"))}, a Renderiza montou para {esc(r.get("para", "você"))}</h2>
   <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="index.html" data-pagina="site"{site_atual}>O seu site</a><a href="natal.html" data-pagina="natal"{natal_atual}>A sua página de Natal</a></nav>
   <p>Tudo incluso: <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>).</p>
-  <p>Condição válida até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>, o dia em que esta demonstração sai do ar.</p>
+  <p data-rz-prazo>Valor válido somente até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</p>
   <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">Negociar</a></div>
 </div>'''
 
@@ -746,8 +756,8 @@ def rz_js(cfg):
     dados = {'whatsapp': r['whatsapp'], 'precoPix': r['preco_pix'], 'parcelado': r['parcelado'], 'notaPreco': r['nota_preco'],
              'validoAte': r['valido_ate'], 'msgGarantir': r['msg_garantir'], 'msgNegociar': r['msg_negociar']}
     linhas = ',\n'.join(f'  {k}: {json.dumps(v, ensure_ascii=False)}' for k, v in dados.items())
-    return ('<script>\n// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. O prazo é o dia em que a demo\n'
-            '// sai do ar (vale_ate no painel), sem contagem regressiva.\nwindow.RZ = {\n' + linhas + '\n};\n</script>')
+    return ('<script>\n// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. "Valor válido somente até" validoAte\n'
+            '// (padrão: a data da demo + 7 dias); depois dela, a data some e fica só o valor. Sem contagem regressiva.\nwindow.RZ = {\n' + linhas + '\n};\n</script>')
 
 
 def cabecalho(cfg, F, pagina, nav, cta):
@@ -1083,7 +1093,7 @@ def ficha(cfg, horas, total, livres, F):
               f'| Site | {f["site"]} |',
               '| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |',
               f'| Situação | {f["situacao"]} |',
-              f'| Oferta na demo | {cfg["renderiza"]["preco_pix"]} no Pix ou {cfg["renderiza"]["parcelado"]} ({cfg["renderiza"]["nota_preco"]}), válida até {dmy(cfg["renderiza"]["valido_ate"])}: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |',
+              f'| Oferta na demo | {cfg["renderiza"]["preco_pix"]} no Pix ou {cfg["renderiza"]["parcelado"]} ({cfg["renderiza"]["nota_preco"]}), válida até {dmy(cfg["renderiza"]["valido_ate"])} (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |',
               f'| Horários de exemplo | {livres} livres de {total} (`horarios` no `demo.json`) |', '']
     for titulo, chave in (('Direção da demo', 'direcao'), ('O que tem na demo', 'demo'), ('Fotos', 'fotos'), ('Textos e fontes', 'textos'), ('Conferir antes de mandar', 'conferir')):
         if f.get(chave): linhas += [f'## {titulo}'] + [f'- {x}' for x in f[chave]] + ['']
@@ -1106,6 +1116,8 @@ def links_publicados(doc, pasta):
 
 def gerar(caminho):
     cfg = json.load(open(caminho, encoding='utf-8'))
+    if not cfg['renderiza'].get('valido_ate'):
+        cfg['renderiza']['valido_ate'] = (datetime.date.today() + datetime.timedelta(days=7)).isoformat()
     google = G.ler_google(cfg.get('google_json'))
     horas = G.horario(google)
     dias, total, livres = horarios(cfg)

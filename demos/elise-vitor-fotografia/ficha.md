@@ -10,7 +10,7 @@
 | Site | não tem: sem link no Google; a bio leva a um linkme.bio só com o WhatsApp e o pedido de avaliação no Google; 36 domínios óbvios testados, nenhum existe (lote 2, 05/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 05/11/2026 · `/demo/elise-vitor-fotografia` e `/demo/elise-vitor-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 10/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo

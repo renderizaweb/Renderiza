@@ -10,7 +10,7 @@
 | Site | não tem: sem link no Google; a bio tem só o WhatsApp; 36 domínios óbvios testados, nenhum existe (lote 2, 05/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 05/11/2026 · `/demo/je-criativa-fotografia` e `/demo/je-criativa-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 10/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 17 livres de 36 (`horarios` no `demo.json`) |
 
 ## Direção da demo

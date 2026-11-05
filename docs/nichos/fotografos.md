@@ -130,8 +130,12 @@ curso; 51 com fotos medianas (nota 3,5 ou menos).
 do Instagram no Drive (pasta "lote 2", uma por fotógrafa). As 9 entraram no painel em Leads a trabalhar e ganharam a
 demo no formato do lote 1 (`ferramentas/demo/gerar-fotografia.py`: o site + a página de Natal, com o preço e o prazo
 na faixa da Renderiza): Fluup, Je Criativa, Gabi Nascimento, Solange David, Elise Vitor, Rosangela Rocha, Fernanda
-Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix ou 2x de R$ 199), válida até o
-`vale_ate` da demo. O que cada uma tem e o que conferir está na `ficha.md` da pasta.
+Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix ou 2x de R$ 199).
+- **Prazo do valor (pedido de 05/11/2026):** a faixa mostra o aviso "Valor válido somente até <data>" (nestas 9, 10/11/2026;
+  nas próximas, a data da demo + 7 dias: é o padrão do gerador quando `renderiza.valido_ate` falta). Depois do último dia
+  (horário de Brasília), o aviso e a data somem sozinhos e fica só o valor. A demo continua com o `vale_ate` dela no
+  painel (estas 9 saem do ar em 12/11). Enquanto o aviso aparece, o computador esconde o "Tudo incluso:" da faixa para
+  caber numa linha; no celular, o aviso fica numa linha só dele. O que cada uma tem e o que conferir está na `ficha.md` da pasta.
 - **Como foram montadas:** a bio da página salva confirmou o @ das 9; fotos da página salva (posts antigos, até 1440
   px) + os carrosséis dos posts de out/nov 2026 (`ferramentas/ig-post.py`, até 2048 px) + as fotos do Google; avaliações
   do Google (só as de 5 estrelas, trecho de até ~175 caracteres). Os scripts de cada uma ficaram na pasta da sessão.
