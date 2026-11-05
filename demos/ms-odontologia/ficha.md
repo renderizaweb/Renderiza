@@ -87,15 +87,15 @@ Roteiro: `docs/fechamento.md`.
 | Venda | R$ 500 · Pix · pago em 04/11/2026 (primeira venda da Renderiza) |
 | Combinado | site a partir da demo aprovada, com os ajustes abaixo |
 | Ajustes pedidos | 1. antes e depois invertido (versão 4; trocado por um par melhor na versão 5); 2. foto da resina (feito, versão 5) |
-| Domínio | `msodontologiaitapevi.com.br` (pedido dele; livre no registro.br em 04/11/2026). O Kaue registra, no CPF/CNPJ da clínica |
-| Contas | Gmail novo da clínica (o Kaue cria; anotado como msodontologiaitapevi@gmail.com), GitHub e Vercel nessa conta |
+| Domínio | `msodontologiaitapevi.com.br`: registrado e publicado (registro.br, vence em 04/11/2027; DNS ainda os do registro.br) |
+| Contas | Gmail de dev da clínica (o Kaue tem o acesso; não aparece no site), GitHub `msodontologiadev-sudo` e Vercel nessa conta |
 | Hospedagem | Vercel (decisão do Kaue, 04/11/2026) |
-| Repositório | o Kaue cria no GitHub da clínica (privado) |
+| Repositório | github.com/msodontologiadev-sudo/msodontologia (público por enquanto). Site gerado e com o commit pronto em 05/11/2026; o envio espera o app do Claude na conta da clínica (ou o upload do .zip pelo Kaue) |
 | No ar | ainda não. Hoje o link da bio é o site do Canva |
 | Demo | no ar até 11/11/2026 para ele ver os ajustes; depois fica no painel e no repositório da Renderiza |
 
 - [x] 1 painel (Ganho, R$ 500, 04/11/2026) · [x] 2 levantamento · [ ] 3 ajustes (feitos na versão 5; falta o ok do Kaue e do cliente) · [x] 4 site.json
-- [x] 5 gerar e conferir (04/11: conferência ok, 21 fotos, 832 KB) · [ ] 6 repositório · [ ] 7 hospedagem e domínio
+- [x] 5 gerar e conferir (05/11: conferência ok, 22 fotos, 1,2 MB) · [ ] 6 repositório (commit pronto, falta enviar) · [ ] 7 hospedagem e domínio (domínio comprado)
 - [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
 
 **Foto da resina e antes e depois novo**: procurados em 04/11/2026 sem achar. O Instagram sem login só mostra os 6
