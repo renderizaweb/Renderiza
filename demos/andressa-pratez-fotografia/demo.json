@@ -1,0 +1,674 @@
+{
+ "pasta": "andressa-pratez-fotografia",
+ "marca": "Andressa Pratez Fotografia",
+ "marca_completa": "Andressa Pratez Fotografia",
+ "dona": "Andressa",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6533411,-46.7205583",
+  "fid": "0x94ce4f24e5bc5755:0xb4918da327253f7a",
+  "gid": "/g/11hcvtqrs_"
+ },
+ "google_nome": "Andressa Pratez Fotografia",
+ "endereco_maps": "Av. das Nações Unidas, 18801 - Santo Amaro, São Paulo - SP, 04795-100",
+ "google_nota": "5,0",
+ "google_total": "20",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511964460083",
+ "fone_link": "+5511964460083",
+ "instagram": "andressa.fotografia",
+ "seguidores": "6,4 mil",
+ "mensagem": "Olá, Andressa! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f8f3ed",
+  "papel": "#ffffff",
+  "areia": "#f1e8de",
+  "linha": "#e4d8ca",
+  "tinta": "#2e2420",
+  "tinta2": "#6a5c53",
+  "rosa": "#dfb79c",
+  "acento": "#9a5634",
+  "acento_escuro": "#80462a",
+  "cafe": "#2a1d17"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-12-06"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-15 10h30",
+   "2026-11-15 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-22 9h",
+   "2026-11-22 17h",
+   "2026-11-28 10h30",
+   "2026-11-28 15h30",
+   "2026-11-28 17h",
+   "2026-12-06 9h",
+   "2026-12-06 10h30",
+   "2026-12-06 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Andressa define os dela",
+  "mensagem": "Olá, Andressa! Quero o horário de {data} ({semana}) às {hora} para o Memórias de Natal 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Andressa",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Andressa, da Andressa Pratez Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Andressa, da Andressa Pratez Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Marcellus",
+    ""
+   ],
+   "sans": [
+    "Nunito Sans",
+    "wght@300;400;600"
+   ],
+   "script": [
+    "Allison",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "♡",
+  "script_escala": 1.35
+ },
+ "titulo_nome": "Andressa Pratez",
+ "titulo_script": "fotografia",
+ "quem_a": "a Andressa",
+ "quem_da": "da Andressa",
+ "quem_sou": "Sou a Andressa Pratez",
+ "slogan": "Contando histórias através de fotografias.",
+ "site": {
+  "titulo": "Andressa Pratez Fotografia | Gestante, newborn e família em Santo Amaro, SP",
+  "descricao": "Andressa Pratez, fotógrafa de família em Santo Amaro, São Paulo, especializada em gestantes e newborn: acompanhamento, smash the cake, Dia das Mães e o Memórias de Natal 2026. Nota 5,0 no Google.",
+  "comentario": "Demo Andressa Pratez Fotografia (lote 2 de fotógrafos, reserva, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@andressa.fotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa de família · Santo Amaro, SP",
+   "frase": "Contando histórias através de fotografias.",
+   "intro": "Especializada em gestantes e newborn, a Andressa fotografa a espera, os primeiros dias e a família crescendo, num estúdio claro e aconchegante em Santo Amaro. E o Memórias de Natal 2026 está com a agenda aberta.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
+     "f": "p",
+     "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/fotos/g02.jpg",
+     "f": "p",
+     "alt": "Casal gestante de preto, ele beijando a barriga, com a filha",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_01.jpg",
+     "f": "p",
+     "alt": "Recém-nascido dormindo no cesto de palha",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Histórias <em>em fotografias.</em>",
+   "p": "Ensaios no estúdio da Andressa, em Santo Amaro. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_01.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo no cesto de palha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascido com o balão \"Olá, mundo\"",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_03.jpg",
+      "f": "p",
+      "alt": "Pais com o recém-nascido no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_06.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no cesto sobre o tapete de palha",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_02.jpg",
+      "f": "p",
+      "alt": "Recém-nascido na manta creme",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfLO3tRD0Wz/DfLO3tRD0Wz_05.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no peito do pai",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/608766682_18045871769706443_5287802282978802110_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de tiara na caminha azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/622284952_18070746227388355_629474084812566525_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida segurando os dedos dos pais",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/626820743_18297274300302765_6171582236995822190_n.jpg",
+      "f": "l",
+      "alt": "O irmão mais velho com o recém-nascido",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Casal gestante com a filha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Pais erguendo a filha, a mãe gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/621559837_18081644699252119_2229963020077468857_n.jpg",
+      "f": "p",
+      "alt": "Casal gestante, nariz com nariz",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/620287903_18069567137420432_1310074900445215798_n.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/622073268_18105345871780474_8389750876576064977_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco no estúdio claro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/655281049_18116422000645622_1838787475421654692_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na cama branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/651440362_18073914725178599_5711609648539344854_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho abraçados, no Dia das Mães",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/619967482_18041513399513603_7113309356881830326_n.jpg",
+      "f": "p",
+      "alt": "Mãe beijando o bebê sorridente",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/623238021_18090165695080833_3084894287609736595_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha abraçadas no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/619751907_18059325302336451_5735508337664742126_n.jpg",
+      "f": "p",
+      "alt": "Mãe com os dois filhos, no Dia das Mães",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/629852105_18445997290129177_1289773141398338069_n.jpg",
+      "f": "l",
+      "alt": "Casal gestante na cama, no estúdio branco",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Smash e acompanhamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/623298805_18165235771392924_7694654624237149980_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a filha no colo, no cenário de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/fotos/g04.jpg",
+      "f": "p",
+      "alt": "Família com o bebê junto à árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Smash the cake de 1 ano entre balões azuis",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/649975028_18091409423111716_7985686708987627185_n.jpg",
+      "f": "l",
+      "alt": "Smash the cake de 1 aninho com balões rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/651643448_18103306106508163_2657747967385358247_n.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira do smash the cake",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/628068206_18181378834367806_1536456812210079776_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo na manta rosa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/andressa.fotografia/Instagram_files/655120065_18283752247304876_3731216035147761743_n.jpg",
+      "f": "l",
+      "alt": "Bebê de suspensório sorrindo",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Andressa, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Andressa com a câmera no cenário de Natal",
+    "c": [
+     0.4,
+     0.45
+    ]
+   },
+   "p": [
+    "A Andressa Pratez é fotógrafa de família em Santo Amaro, São Paulo, especializada em gestantes e newborn. No estúdio claro e aconchegante dela, fotografa a espera, os primeiros dias, o primeiro ano e a família, com a equipe."
+   ],
+   "citacao": "Cada cantinho foi preparado para receber os abraços, as brincadeiras e as risadas da sua família.",
+   "citacao_quem": "Andressa, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da leveza e da confiança que ela passa, de quem voltou para a segunda gestação e de quem já vai para as fotos dos 5 anos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "20 avaliações no Google"
+    ],
+    [
+     "6,4 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "487",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>aos primeiros anos.</em>",
+   "p": "Os ensaios da Andressa:",
+   "fonte": "Bio e legendas da Andressa no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Ensaios leves no estúdio claro, sozinha, em casal ou com os filhos."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "São tão pequeninos: uma fase linda, que passa tão rápido."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Trimestral",
+     "p": "O bebê a cada fase do primeiro ano."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "O primeiro bolo, num tema delicado escolhido pela família."
+    },
+    {
+     "nome": "Dia das Mães",
+     "sub": "Especial",
+     "p": "O cenário de flores para mães e filhos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Memórias de Natal",
+     "p": "A campanha mais especial do ano, com agenda aberta."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Memórias de Natal 2026",
+   "h2": "Agora <em>só falta vocês.</em>",
+   "p": "O Memórias de Natal 2026 tem a cozinha dos biscoitos, a lareira com as meias, o sofá branco e a árvore cheia de bolas vermelhas. A agenda está aberta: escolha um horário e a mensagem chega pronta no WhatsApp da Andressa.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
+    "f": "p",
+    "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Memórias de Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Kamila Moraes",
+    "tag": "Segunda gestação",
+    "trecho": "Já tínhamos feito o ensaio da gestação da nossa primeira filha e, agora, voltamos para registrar esse momento tão especial novamente. E, mais uma vez, saímos encantados!"
+   },
+   {
+    "nome": "Amanda Ribeiro de Souza",
+    "tag": "Rumo aos 5 anos",
+    "trecho": "graças a ela fez os registros mais lindos do meu baby e nisso estamos indo pra 05 anos e que venha fotos de 05 anos"
+   },
+   {
+    "nome": "Ray Macedo",
+    "tag": "Mais de um ensaio",
+    "trecho": "Já tive a oportunidade de fazer mais de um ensaio com ela e, em todos, me senti muito à vontade e especial."
+   },
+   {
+    "nome": "Paloma Santos",
+    "tag": "Para os tímidos",
+    "trecho": "a Andressa é muito atenciosa e fez com que fosse um momento leve e tranquilo pra nós que somos travados em foros rsrs."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica em Santo Amaro, em São Paulo.",
+   "telefone": "(11) 96446-0083",
+   "endereco": [
+    "Av. das Nações Unidas, 18801",
+    "Santo Amaro",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Memórias de Natal 2026 | Andressa Pratez Fotografia",
+  "descricao": "O Memórias de Natal 2026 da Andressa Pratez, em Santo Amaro: a cozinha dos biscoitos, a lareira e a árvore, para a família toda. A agenda está aberta: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Andressa Pratez Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Santo Amaro, SP",
+   "h1": "Memórias <em>de Natal.</em>",
+   "citacao": "Acho que as memórias de Natal começam antes mesmo da primeira foto.",
+   "citacao_quem": "Andressa, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
+    "f": "p",
+    "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Memórias de Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Cada cantinho, <em>pensado para a sua família.</em>",
+   "p": "O Memórias de Natal 2026 tem a cozinha com o armário branco, a louça de Natal, o rolo de massa e os cortadores de biscoito; a lareira com as meias penduradas; o sofá branco; e a árvore cheia de bolas vermelhas. Um lugar para os abraços, as brincadeiras e as risadas.",
+   "itens": [
+    "No estúdio da Andressa, em Santo Amaro.",
+    "A cozinha dos biscoitos, a lareira, o sofá e a árvore.",
+    "Pacotes e datas pelo WhatsApp (ou mande NATAL no direct).",
+    "Valores e detalhes com a Andressa."
+   ],
+   "legenda_fotos": "O cenário, com a Andressa"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_04.jpg",
+    "f": "p",
+    "alt": "A cozinha dos biscoitos, com o armário branco e a árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_01.jpg",
+    "f": "p",
+    "alt": "A lareira com as meias e a árvore vermelha",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_07.jpg",
+    "f": "p",
+    "alt": "O sofá branco junto à lareira",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Andressa abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Andressa define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Andressa abre com o dia e a hora escritos."
+    ],
+    [
+     "A Andressa confirma",
+     "Ela responde com os pacotes e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Memórias de Natal",
+   "h2": "Já no clima <em>de Natal.</em>",
+   "nome": "Memórias de Natal",
+   "p": "A própria Andressa no cenário do Memórias de Natal 2026, em novembro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_00.jpg",
+     "f": "p",
+     "alt": "Andressa junto à árvore, com a câmera",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_08.jpg",
+     "f": "p",
+     "alt": "Andressa sorrindo com a câmera",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_05.jpg",
+     "f": "p",
+     "alt": "Andressa com a caneca na cozinha de Natal",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_02.jpg",
+     "f": "p",
+     "alt": "Andressa no sofá branco",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_06.jpg",
+     "f": "p",
+     "alt": "Andressa com a câmera e a caneca",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_10.jpg",
+     "f": "p",
+     "alt": "Andressa junto à lareira",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_03.jpg",
+     "f": "p",
+     "alt": "Andressa na cozinha dos biscoitos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_09.jpg",
+     "f": "p",
+     "alt": "Andressa deitada no sofá",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Beatriz Nunes",
+    "tag": "Leveza",
+    "trecho": "Uma ótima profissional, passando sempre muita leveza e confiança no momento das fotos."
+   },
+   {
+    "nome": "Kamila Moraes",
+    "tag": "A equipe",
+    "trecho": "Toda a equipe é extremamente atenciosa, carinhosa e faz com que a experiência seja leve, confortável e inesquecível."
+   },
+   {
+    "nome": "Amanda Ribeiro de Souza",
+    "tag": "O estúdio",
+    "trecho": "Estúdio lindo, super aconchegante"
+   },
+   {
+    "nome": "Ray Macedo",
+    "tag": "Olhar",
+    "trecho": "Ela tem um olhar incrível para registrar momentos únicos e consegue transmitir emoção em cada foto."
+   }
+  ],
+  "final": {
+   "eyebrow": "Memórias de Natal 2026",
+   "h2": "Garanta as suas <em>memórias de Natal.</em>",
+   "p": "A agenda está aberta. Escolha um horário ou chame a Andressa no WhatsApp para receber os pacotes."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "o link de WhatsApp da bio do Instagram (wa.me/5511964460083, (11) 96446-0083); o Perfil da Empresa no Google mostra outro celular, (11) 94545-8454",
+  "site": "não tem: o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/andressa-pratez-fotografia` e `/demo/andressa-pratez-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos, reserva (nº 23, 78 pontos), escolhida no Drive de 05/11/2026. Bio: \"Fotógrafa de família. Especializada em fotografia de gestantes e newborn · Santo Amaro, São Paulo · Contando histórias através de fotografias\".",
+   "Dona: Andressa Pratez, com equipe (\"toda a equipe\" em 2 avaliações). Foto dela: a do perfil do Instagram, com a câmera no cenário de Natal (a mesma mulher do post de 01/11).",
+   "Cores: o caramelo e o creme do Memórias de Natal e do newborn do Levi (#9a5634 no destaque); Marcellus, Nunito Sans e \"fotografia\" em Allison; abertura em cápsulas. Sem logo em boa resolução: monograma AP e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e newborn), portfólio em 3 abas (Newborn, 9; Gestante e família, 11; Smash e acompanhamento, 7), a Andressa, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Memórias de Natal\": o ensaio, o cenário (3 fotos dela no cenário, 01/11), a agenda de exemplo (6 dias de fim de semana de 14/11 a 06/12, das 9h às 17h, dentro do horário do Google) e a galeria dela no cenário."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (o Memórias de Natal de 28/10 e 01/11 e o newborn do Levi de 31/10, até 4096 px), a página do Instagram salva no Drive (1440 px), 4 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as capas com texto (\"Natal 2026\", \"Última chamada para pré-venda\"), a gestante em movimento (borrada), os closes do newborn, o ensaio executivo e as gestantes de tecido muito expostas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Esse é o nosso Memórias de Natal! Cada cantinho foi preparado para receber os abraços, as brincadeiras e as risadas da sua família. Agora só falta vocês! A agenda está aberta. Me manda NATAL no direct\" (28/10) e \"Acho que as memórias de Natal começam antes mesmo da primeira foto\" (25/10).",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "WhatsApp: a demo usa o da bio do Instagram ((11) 96446-0083); o Google mostra (11) 94545-8454. Confirmar qual ela usa.",
+   "O cenário de Natal aparece com a própria Andressa (post dela de 01/11); a capa do site e da página de Natal é a família do post de lançamento (28/10).",
+   "Duas avaliações citam a equipe: a demo fala da Andressa \"com a equipe\".",
+   "Horários: a agenda é exemplo, dentro do horário do Google (todos os dias, 8h-20h; domingo até 17h).",
+   "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
