@@ -1,0 +1,645 @@
+{
+ "pasta": "thamirys-costa-fotografia",
+ "marca": "Estúdio Thamirys Costa",
+ "marca_completa": "Estúdio Thamirys Costa",
+ "dona": "Thamirys",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5562201,-46.533753",
+  "fid": "0x94ce5d420ff64189:0x1e311bda71054d13",
+  "gid": "/g/11rqx2jhxr"
+ },
+ "google_nome": "Estúdio Thamirys Costa Fotografia",
+ "endereco_maps": "R. Xiririca, 1602 - Sl 1 - Vila Carrão, São Paulo - SP, 03428-000",
+ "google_nota": "5,0",
+ "google_total": "15",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511982435146",
+ "fone_link": "+5511982435146",
+ "instagram": "thamiryscostafotografia",
+ "seguidores": "5,2 mil",
+ "mensagem": "Olá, Thamirys! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f8f7f4",
+  "papel": "#ffffff",
+  "areia": "#efeee9",
+  "linha": "#e0ded6",
+  "tinta": "#24262d",
+  "tinta2": "#5e6068",
+  "rosa": "#d5ae6c",
+  "acento": "#2b3a67",
+  "acento_escuro": "#1f2b4e",
+  "cafe": "#1c2033"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-06",
+   "2026-12-12"
+  ],
+  "horas": [
+   "10h",
+   "11h30",
+   "13h",
+   "14h30"
+  ],
+  "reservados": [
+   "2026-11-14 11h30",
+   "2026-11-14 14h30",
+   "2026-11-15 13h",
+   "2026-11-21 10h",
+   "2026-11-21 13h",
+   "2026-11-21 14h30",
+   "2026-11-28 13h",
+   "2026-11-28 14h30",
+   "2026-12-06 14h30",
+   "2026-12-12 11h30",
+   "2026-12-12 14h30"
+  ],
+  "exemplo": "Horários de exemplo: a Thamirys define os dela",
+  "mensagem": "Olá, Thamirys! Quero o horário de {data} ({semana}) às {hora} para embarcar no Expresso Natalino 2026. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Thamirys",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Thamirys, do Estúdio Thamirys Costa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thamirys, do Estúdio Thamirys Costa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Gelasio",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Plus Jakarta Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Italianno",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "✦",
+  "script_escala": 1.25,
+  "css": ".eyebrow,.review-tag{color:#8a6a2f}.especialidades i{color:var(--rosa)}"
+ },
+ "titulo_nome": "Thamirys Costa",
+ "titulo_script": "fotografia",
+ "quem_a": "a Thamirys",
+ "quem_da": "da Thamirys",
+ "quem_sou": "Sou a Thamirys Costa",
+ "slogan": "Registrando cada fase desde a descoberta.",
+ "site": {
+  "titulo": "Estúdio Thamirys Costa | Fotografia infantil na Vila Carrão, SP",
+  "descricao": "Estúdio Thamirys Costa, na Vila Carrão, zona leste de São Paulo: especialista em fotografia infantil, com gestante, newborn, acompanhamento, smash the cake, festas e o Expresso Natalino 2026. Mais de 800 famílias fotografadas; nota 5,0 no Google.",
+  "comentario": "Demo Estúdio Thamirys Costa (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@thamiryscostafotografia: a página salva, os posts de set/out 2026 e quadros dos vídeos do Expresso Natalino) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotografia infantil · Vila Carrão, SP",
+   "frase": "Registrando cada fase desde a descoberta.",
+   "intro": "Especialista em fotografia infantil, com mais de 800 famílias fotografadas: da gestação ao newborn, do acompanhamento mês a mês ao smash the cake. E o Expresso Natalino 2026 já está com as reservas abertas.",
+   "rotulos": [
+    "Natal 2026",
+    "Acompanhamento",
+    "Newborn"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Festas",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
+     "f": "p",
+     "alt": "Menina de vermelho na porta do trem do Expresso Natalino",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_00.jpg",
+     "f": "p",
+     "alt": "Bebê de 11 meses batendo palminhas no cenário da Frozen",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/654262459_18126384877566172_1137688425704749105_n.webp",
+     "f": "p",
+     "alt": "Recém-nascida dormindo no balanço de lua",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>um registro.</em>",
+   "p": "Ensaios no estúdio da Thamirys, na Vila Carrão. Escolha a fase e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "infantil",
+    "nome": "Infantil e smash",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_00.jpg",
+      "f": "p",
+      "alt": "Bebê de 11 meses batendo palminhas no cenário da Frozen",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_12.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano com o rosto cheio de bolo, no tema Bela e a Fera",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeavCVfvB1Z/DeavCVfvB1Z_00.jpg",
+      "f": "p",
+      "alt": "Menina rindo com a bolinha no Dia das Crianças",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/654270668_18037810340777149_8513908050411425816_n.webp",
+      "f": "p",
+      "alt": "Menina vestida de princesa com a rosa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/669787014_18419657713132244_7420876518304461068_n.webp",
+      "f": "p",
+      "alt": "Bebê de vestido de princesa no smash the cake",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_13.jpg",
+      "f": "p",
+      "alt": "Bebê rindo no cenário da Frozen",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_00.jpg",
+      "f": "l",
+      "alt": "O cenário da Bela e a Fera no 1 aninho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_01.jpg",
+      "f": "l",
+      "alt": "O cenário da Frozen no ensaio de 11 meses",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/652886068_18093826124012108_1202103670196806111_n.webp",
+      "f": "l",
+      "alt": "Gêmeas de vestido de princesa no jardim",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn e acompanhamento",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/654262459_18126384877566172_1137688425704749105_n.webp",
+      "f": "l",
+      "alt": "Recém-nascida dormindo no balanço de lua",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/626179002_18078360761605845_5790843900530788343_n.webp",
+      "f": "l",
+      "alt": "Recém-nascida com o coração de pelúcia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/627389841_18387604300158130_2743090248778603962_n.webp",
+      "f": "l",
+      "alt": "Recém-nascido dormindo na manta verde",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/621534294_18053936429410814_972104667587695744_n.webp",
+      "f": "l",
+      "alt": "Bebê de 5 meses sorrindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/619118803_17963761751875268_587991344218559655_n.webp",
+      "f": "l",
+      "alt": "Bebê de 9 meses no ovo de Páscoa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/658773240_18361041919226664_1526610597286816703_n.webp",
+      "f": "l",
+      "alt": "Bebê de 1 mês na poltroninha",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/623815698_18119630869599082_339041194609881434_n.webp",
+      "f": "p",
+      "alt": "Gestante de vestido verde com o marido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/649641899_18046239854723512_83309586312344896_n.webp",
+      "f": "p",
+      "alt": "Gestante de vestido azul esvoaçante na alameda",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/653477703_18079396679080343_3549006482192923380_n.webp",
+      "f": "p",
+      "alt": "Gestante de vermelho à beira do lago",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/620384367_17998944815888839_7887277849135608303_n.webp",
+      "f": "p",
+      "alt": "Gestante de rosa entre as flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/625026045_18095494636755532_3730214836013876714_n.webp",
+      "f": "l",
+      "alt": "Gestante de azul nos arcos de pedra",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/655010261_18084566297265195_8025003912745913913_n.webp",
+      "f": "l",
+      "alt": "Casal no chá revelação",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/622564713_18092743523301666_2223680496975674572_n.webp",
+      "f": "l",
+      "alt": "Família no aniversário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/623306118_18108269617679841_1580085407515789384_n.webp",
+      "f": "l",
+      "alt": "Pai erguendo a filha no aniversário",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Thamirys, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Thamirys com a câmera na mão",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Thamirys Costa é especialista em fotografia infantil e já fotografou mais de 800 famílias, no estúdio dela na Vila Carrão, zona leste de São Paulo. Com a equipe, acompanha cada fase desde a descoberta: gestante, newborn, o acompanhamento mês a mês, o smash the cake e as festas."
+   ],
+   "citacao": "A nossa missão é fazer com que os momentos durem para sempre.",
+   "citacao_quem": "Thamirys, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do carinho e do cuidado com os bebês, do estúdio espaçoso e arejado, com vários temas, e de quem fez o acompanhamento do primeiro filho e voltou para o segundo."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "15 avaliações no Google"
+    ],
+    [
+     "+800",
+     "famílias fotografadas"
+    ],
+    [
+     "5,2 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Desde <em>a descoberta.</em>",
+   "p": "Os ensaios do estúdio, nas palavras da Thamirys:",
+   "fonte": "Bio e legendas da Thamirys no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A descoberta",
+     "p": "Antes de começarmos o acompanhamento do bebê, nós já acompanhamos desde a gestação."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "É de tirar o fôlego esse acompanhamento, quando vemos que o bebê cresceu."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Dos 0 aos 12 meses",
+     "p": "É extremamente importante registrar cada mudança, cada traço."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "A foto tão sonhada do primeiro aninho, no tema que a família escolher."
+    },
+    {
+     "nome": "Festas",
+     "sub": "E eventos",
+     "p": "Aniversários, chás revelação, batizados e 15 anos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Expresso Natalino",
+     "p": "A viagem mais especial do ano, de 24/10 a 20/12."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Expresso Natalino 2026",
+   "h2": "A viagem mais especial <em>do ano.</em>",
+   "p": "Neste ano, o Natal do estúdio é um convite para viajar: o trem, a estação, a neve e as luzes. Os ensaios vão de 24/10 a 20/12, e as reservas estão abertas: escolha um horário e a mensagem chega pronta no WhatsApp da Thamirys.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
+    "f": "p",
+    "alt": "Menina de vermelho na porta do trem",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Expresso Natalino 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Marcella Vanni Emidio",
+    "tag": "Do primeiro ao segundo",
+    "trecho": "Fiz o acompanhamento da minha primeira filha e agora do segundo tbm. Super recomendo."
+   },
+   {
+    "nome": "Linyh M.",
+    "tag": "Mês a mês",
+    "trecho": "faço ensaio mensal do meu filho desde os 3 meses, e não tenho palavras para descrever o carinho e o cuidado que ela tem com as crianças."
+   },
+   {
+    "nome": "Suzana Correia",
+    "tag": "O estúdio",
+    "trecho": "Lugar incrível super espaçoso e arejado diversos temas p ensaios"
+   },
+   {
+    "nome": "Wálace Ânderson Almeida Soares",
+    "tag": "Com os bebês",
+    "trecho": "Muito cuidado e carinho com os bebês. Fotos com excelente qualidade."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Carrão, zona leste de São Paulo.",
+   "telefone": "(11) 98243-5146",
+   "endereco": [
+    "Rua Xiririca, 1602, sala 1",
+    "Vila Carrão",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Expresso Natalino 2026 | Estúdio Thamirys Costa",
+  "descricao": "O Expresso Natalino 2026 do Estúdio Thamirys Costa, na Vila Carrão: a viagem mais especial do ano, de 24/10 a 20/12. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Thamirys Costa: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Vila Carrão, SP",
+   "h1": "Expresso Natalino: <em>a viagem mais especial do ano.</em>",
+   "citacao": "Porque os anos passam, as crianças crescem e a vida muda… mas algumas memórias merecem viajar com a gente para sempre.",
+   "citacao_quem": "Thamirys, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
+    "f": "p",
+    "alt": "Menina de vermelho na porta do trem do Expresso Natalino",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Expresso Natalino 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um convite <em>para viajar.</em>",
+   "p": "O cenário do Natal 2026 é uma estação de trem: a locomotiva preta e dourada, o vagão com janelas, a placa da estação, a neve, o lampião e as árvores iluminadas. Uma viagem feita de abraços, sorrisos e conexão.",
+   "itens": [
+    "No estúdio da Thamirys, na Vila Carrão.",
+    "A locomotiva, o vagão, a estação, a neve e as luzes.",
+    "Ensaios de 24 de outubro a 20 de dezembro.",
+    "Catálogo e valores pelo WhatsApp da Thamirys."
+   ],
+   "legenda_fotos": "O cenário do Expresso Natalino"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/b17.5.jpg",
+    "f": "p",
+    "alt": "A locomotiva preta e dourada na neve",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/a54.3.jpg",
+    "f": "p",
+    "alt": "Menina sorrindo na janela do vagão",
+    "c": [
+     0.5,
+     0.28
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/a6.jpg",
+    "f": "p",
+    "alt": "Menina brincando com a neve",
+    "c": [
+     0.5,
+     0.3
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu embarque.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Thamirys abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: dias entre 24/10 e 20/12, a temporada do Expresso Natalino. A Thamirys define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Thamirys abre com o dia e a hora escritos."
+    ],
+    [
+     "A Thamirys confirma",
+     "Ela responde com o catálogo e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada fase, <em>um registro.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios no estúdio da Thamirys.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_00.jpg",
+     "f": "p",
+     "alt": "Bebê no cenário da Frozen",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_12.jpg",
+     "f": "p",
+     "alt": "Smash the cake da Bela e a Fera",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeavCVfvB1Z/DeavCVfvB1Z_00.jpg",
+     "f": "p",
+     "alt": "Menina no Dia das Crianças",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/654270668_18037810340777149_8513908050411425816_n.webp",
+     "f": "p",
+     "alt": "Menina de princesa",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/623815698_18119630869599082_339041194609881434_n.webp",
+     "f": "p",
+     "alt": "Gestante de verde com o marido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/649641899_18046239854723512_83309586312344896_n.webp",
+     "f": "p",
+     "alt": "Gestante de azul",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/669787014_18419657713132244_7420876518304461068_n.webp",
+     "f": "p",
+     "alt": "Bebê de princesa",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_13.jpg",
+     "f": "p",
+     "alt": "Bebê rindo",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Jeisiany Dos Santos",
+    "tag": "Carinho",
+    "trecho": "um carinho enorme com meu bebê.. muito respeitosas, comunicativas, carinhosas.."
+   },
+   {
+    "nome": "Marcella Vanni Emidio",
+    "tag": "Aconchego",
+    "trecho": "Estúdio super aconchegante e acolhedor. A Thamirys é um amor, super carinhosa, atenciosa e uma excelente profissional."
+   },
+   {
+    "nome": "Suzana Correia",
+    "tag": "Experiência",
+    "trecho": "nos deixam super a vontade .tivemos uma experiência incrível"
+   },
+   {
+    "nome": "Wálace Ânderson Almeida Soares",
+    "tag": "Qualidade",
+    "trecho": "Excelente profissional. Muito cuidado e carinho com os bebês."
+   }
+  ],
+  "final": {
+   "eyebrow": "Expresso Natalino 2026",
+   "h2": "Garanta <em>o seu embarque.</em>",
+   "p": "As reservas estão abertas até 20 de dezembro. Escolha um horário ou chame a Thamirys no WhatsApp para receber o catálogo."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98243-5146); a bio leva a um link \"Garanta sua vaga\"",
+  "site": "não tem no ar: thamiryscosta.com.br manda para o www, que aponta para a Alboom e responde 409 (Alboom desligado); o Google aponta o Instagram (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/thamirys-costa-fotografia` e `/demo/thamirys-costa-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 16, 82 pontos), escolhida no Drive de 05/11/2026. Bio: \"Registrando cada fase desde a descoberta · Especialista em fotografia Infantil · + de 800 famílias fotografadas · Vila Carrão - SP\".",
+   "Dona: Thamirys Costa, com equipe (\"essas meninas\" nas avaliações). Foto dela: a do perfil do Instagram, com a câmera.",
+   "Cores: o azul-noite e o dourado do Expresso Natalino (#2b3a67 no destaque); Gelasio, Plus Jakarta Sans e \"fotografia\" em Italianno; abertura em faixa. Sem logo em boa resolução: monograma TC e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, acompanhamento e newborn), portfólio em 3 abas (Infantil e smash, 9; Newborn e acompanhamento, 6; Gestante e família, 8), a Thamirys, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Expresso Natalino\": o ensaio, o cenário (3 quadros dos vídeos de 23/10), a agenda de exemplo (6 dias de 14/11 a 12/12, das 10h às 14h30, dentro do horário do Google) e outros ensaios do ano."
+  ],
+  "fotos": [
+   "Os posts de set/out 2026 (11 meses na Frozen, 1 aninho da Bela e a Fera, Dia das Crianças; 1080 a 3072 px), a capa e 3 quadros dos vídeos do Expresso Natalino (720 a 1216 px), a página do Instagram salva no Drive (1080 px), 1 foto do Google e a foto do perfil.",
+   "Ficaram de fora: a arte do Expresso Natalino e os quadros com legenda escrita, os vídeos com efeito de mosaico, as fotos de festas com convidados, de 15 anos e de batizados, e as artes."
+  ],
+  "textos": [
+   "Bio e legendas: \"O Expresso Natalino 2026 chegou... Esse ano, o nosso Natal é um convite para viajar... De 24/10 a 20/12\" (23/10), \"Antes de começarmos o acompanhamento do bebê, nós já acompanhamos desde a gestação\", \"Dos 0 aos 12 meses, é extremamente importante registrar cada mudança, cada traço\", \"A nossa missão é fazer com que os momentos durem para sempre\".",
+   "Avaliações do Google: as 5 visíveis sem login, todas 5 estrelas; 4 em cada página."
+  ],
+  "conferir": [
+   "A foto do perfil do Instagram (mulher com a câmera, cabelo castanho-claro) é a usada como a Thamirys; fotos antigas dela no Instagram têm cabelo escuro. Conferir.",
+   "Ela trabalha com equipe (\"essas meninas\") e também faz festas, batizados, 15 anos e casamento (uma avaliação).",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 9h-20h, dom 10h-15h).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}

@@ -309,3 +309,4 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Marilia Zanoni Fotografia (fotógrafa)](demos/marilia-zanoni-fotografia) | Jardim Urupês, Suzano | site + página de Natal (`/natal`, “Frost Sugar”) | pronta · 05/11/2026 (fotógrafos lote 2 · 13ª) |
 | [Bia Maida Fotografia (fotógrafa)](demos/bia-maida-fotografia) | Vila Paulo Silas, São Paulo | site + página de Natal (`/natal`, “Hoje, ela ainda cabe naquele abraço”) | pronta · 05/11/2026 (fotógrafos lote 2 · 14ª) |
 | [Talita Voros Fotógrafa (fotógrafa)](demos/talita-voros-fotografia) | Jardim São Bento Novo, São Paulo | site + página de Natal (`/natal`, “O ateliê do Papai Noel”) | pronta · 05/11/2026 (fotógrafos lote 2 · 15ª) |
+| [Estúdio Thamirys Costa (fotógrafa)](demos/thamirys-costa-fotografia) | Vila Carrão, São Paulo | site + página de Natal (`/natal`, “Expresso Natalino”) | pronta · 05/11/2026 (fotógrafos lote 2 · 16ª) |
