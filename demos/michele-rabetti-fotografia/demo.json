@@ -1,0 +1,621 @@
+{
+ "pasta": "michele-rabetti-fotografia",
+ "marca": "Michele Rabetti Fotografia",
+ "marca_completa": "Michele Rabetti Fotografia",
+ "dona": "Michele",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5589945,-46.7885016",
+  "fid": "0x94ceff819b23071d:0x35aae641004fed",
+  "gid": "/g/11cnc09q2j"
+ },
+ "google_nome": "Michele Rabetti Fotografia",
+ "endereco_maps": "R. Magnólia, 13 - Jaguaribe, Osasco - SP, 06050-080",
+ "google_nota": "4,8",
+ "google_total": "147",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511950411639",
+ "fone_link": "+5511950411639",
+ "instagram": "michelerabettifotografia",
+ "seguidores": "20,0 mil",
+ "mensagem": "Olá, Michele! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f9f8f5",
+  "papel": "#ffffff",
+  "areia": "#f2efe8",
+  "linha": "#e4dfd3",
+  "tinta": "#22252c",
+  "tinta2": "#5f6168",
+  "rosa": "#dcc08e",
+  "acento": "#8b6a2b",
+  "acento_escuro": "#715522",
+  "cafe": "#17223a"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-19",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30",
+   "17h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-19 10h30",
+   "2026-11-19 15h30",
+   "2026-11-21 9h",
+   "2026-11-21 10h30",
+   "2026-11-21 17h",
+   "2026-11-28 9h",
+   "2026-11-28 17h",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30",
+   "2026-12-05 17h",
+   "2026-12-12 9h",
+   "2026-12-12 10h30",
+   "2026-12-12 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Michele define os dela",
+  "mensagem": "Olá, Michele! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal na Sala do Noel. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Michele",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "condição de lançamento",
+  "valido_ate": "2026-11-12",
+  "msg_garantir": "Olá! Sou a Michele, da Michele Rabetti Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Michele, da Michele Rabetti Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Bodoni",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Urbanist",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Mrs Saint Delafield",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "abas": "sublinhado",
+  "natal_capa": "retrato",
+  "ornamento": "✦",
+  "script_escala": 1.3,
+  "css": ".carousel-footer:has(.carousel-dots button:only-child){display:none}"
+ },
+ "titulo_nome": "Michele Rabetti",
+ "titulo_script": "fotografia",
+ "quem_a": "a Michele",
+ "quem_da": "da Michele",
+ "quem_sou": "Sou a Michele Rabetti",
+ "slogan": "Há mais de 13 anos eternizando famílias.",
+ "site": {
+  "titulo": "Michele Rabetti Fotografia | Gestante, newborn e família em Osasco",
+  "descricao": "Michele Rabetti Fotografia, estúdio no Jaguaribe, em Osasco, há mais de 13 anos: gestante com produção completa, newborn, smash the cake, família e a Sala do Noel do Natal 2026. 1º lugar no Top of Mind Brazil 2021/2022.",
+  "comentario": "Demo Michele Rabetti Fotografia (lote 2 de fotógrafos, 05/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@michelerabettifotografia: a página salva e os posts de out/nov 2026) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio em Osasco · há mais de 13 anos",
+   "frase": "Há mais de 13 anos eternizando famílias.",
+   "intro": "Gestante com produção completa, newborn, smash the cake e família, no estúdio da Michele no Jaguaribe, em Osasco. E a História de Natal 2026 já está montada: a Sala do Noel, com o Papai Noel.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
+     "f": "p",
+     "alt": "Família com o Papai Noel na Sala do Noel",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido preto com mangas de tule branco",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/653985875_18098126017952884_5793645098755436507_n.jpg",
+     "f": "p",
+     "alt": "Mãe gestante com o filho no colo, no estúdio claro",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Momentos <em>preciosos.</em>",
+   "p": "Ensaios no estúdio da Michele, em Osasco. Escolha o tema e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido preto com mangas de tule",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante com asas de anjo no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/646025996_18024476507802392_5527364779534176708_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido roxo no portão de ferro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/651393507_18097045300982926_4992240276081771234_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido azul no portão de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/652013758_18087016574268539_8112190150032889702_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul-turquesa no coração de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/650891837_18082922684200359_2566110090277181894_n.jpg",
+      "f": "p",
+      "alt": "Gestante de tule claro no portão de ferro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/651609483_18102620524925247_1726493936223917259_n.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu e vestido caramelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/652765035_18094374827512720_7056818847904216115_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul no balanço de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/622321310_17985774299779076_2128200637400905847_n.jpg",
+      "f": "l",
+      "alt": "Gestante de roxo entre as plantas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/654014424_18109861048816986_5144614456238122279_n.jpg",
+      "f": "l",
+      "alt": "Gestante de branco no portão de ferro",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_00.jpg",
+      "f": "l",
+      "alt": "Família com o Papai Noel junto à árvore azul e dourada",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_02.jpg",
+      "f": "l",
+      "alt": "Menina com o Papai Noel na poltrona, ao lado do piano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_03.jpg",
+      "f": "l",
+      "alt": "Menino tocando o piano branco com o Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_04.jpg",
+      "f": "l",
+      "alt": "Mãe tocando o piano, com o Papai Noel ao lado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_06.jpg",
+      "f": "l",
+      "alt": "Menino com o Papai Noel no bosque com neve",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_07.jpg",
+      "f": "l",
+      "alt": "Menina e o Papai Noel junto à fogueira na neve",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/653985875_18098126017952884_5793645098755436507_n.jpg",
+      "f": "p",
+      "alt": "Mãe gestante com o filho no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/652757324_18083362955010126_7644481595808422495_n.jpg",
+      "f": "p",
+      "alt": "Gestante com os filhos no portão de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/649821240_18083557724603264_2515771947436049992_n.jpg",
+      "f": "p",
+      "alt": "Gestante na carruagem de flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/653775867_18089413676182762_8924721802866544453_n.jpg",
+      "f": "p",
+      "alt": "Gestante no balanço com balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/624685864_18119459071605271_6445025650549469557_n.jpg",
+      "f": "l",
+      "alt": "Irmãs gestantes juntas no portão de ferro",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/652794606_18083103083027995_3360377763908553924_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de marinheiro no barquinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/622455795_18159713941414222_3093266651402235314_n.jpg",
+      "f": "l",
+      "alt": "Gestante de azul no portão de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/michelerabettifotografia/Instagram_files/622607086_18075604634523941_3001694026412367359_n.jpg",
+      "f": "l",
+      "alt": "Gestante de roxo no fundo azul",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Michele, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Michele sorrindo com a câmera na mão",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Michele Rabetti eterniza famílias há mais de 13 anos, no estúdio dela no Jaguaribe, em Osasco: gestante com produção completa, figurinos e cenários próprios, newborn, smash the cake e família. Em 2021/2022, o estúdio ficou em 1º lugar no Top of Mind Brazil como referência em fotografia gestante, newborn e família."
+   ],
+   "citacao": "Se existe algo que a fotografia me ensinou, é que os momentos mais preciosos da nossa vida são justamente aqueles que não queremos que acabem.",
+   "citacao_quem": "Michele, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do olhar sensível, da paciência com as crianças e de quem volta: do ensaio gestante aos temáticos de Natal e Páscoa."
+   ],
+   "numeros": [
+    [
+     "4,8",
+     "147 avaliações no Google"
+    ],
+    [
+     "+13 anos",
+     "eternizando famílias"
+    ],
+    [
+     "20 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada momento, <em>um sonho realizado.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "Bio e legendas da Michele no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Produção completa",
+     "p": "Figurinos e cenários próprios: o portão de ferro, o portão de madeira, o balanço de flores."
+    },
+    {
+     "nome": "Banheira de leite",
+     "sub": "Gestante",
+     "p": "Sutil e delicado, o ensaio na banheira de leite faz sucesso por aqui."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Os primeiros dias",
+     "p": "Ensaios temáticos para os primeiros dias de vida."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 aninho",
+     "p": "O primeiro aniversário, com bolo e tema."
+    },
+    {
+     "nome": "Família",
+     "sub": "Temáticos",
+     "p": "Natal, Páscoa e Dia das Mães, com a família toda."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Sala do Noel",
+     "p": "A lareira de pedra, a poltrona e o piano branco, com o Papai Noel."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A Sala <em>do Noel.</em>",
+   "p": "A História de Natal 2026 foi montada peça por peça: a lareira de pedra, a poltrona, o piano branco e a árvore azul e dourada, com o Papai Noel. A agenda está aberta: escolha um horário e a mensagem chega pronta no WhatsApp da Michele.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
+    "f": "p",
+    "alt": "Família com o Papai Noel na Sala do Noel",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "A Sala do Noel, Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Bruna Horta",
+    "tag": "Da gestação ao Natal",
+    "trecho": "Ela acompanhou momentos lindíssimos da minha vida, desde o meu ensaio de gestante até os ensaios temáticos de Natal e Páscoa."
+   },
+   {
+    "nome": "Érica Kitty",
+    "tag": "Gestante",
+    "trecho": "Eu amei as minhas fotos gestante, a Michele foi muito simpática durante todo o ensaio e tudo ficou muito lindo"
+   },
+   {
+    "nome": "Silvia Regina Fortunato",
+    "tag": "Com as crianças",
+    "trecho": "Gosto do atendimento da equipe da Michele, segunda vez que faço ensaio com eles."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jaguaribe, em Osasco.",
+   "telefone": "(11) 95041-1639",
+   "endereco": [
+    "Rua Magnólia, 13",
+    "Jaguaribe",
+    "Osasco · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 na Sala do Noel | Michele Rabetti Fotografia",
+  "descricao": "A História de Natal 2026 da Michele Rabetti, em Osasco: a Sala do Noel, com lareira, poltrona, piano branco e o Papai Noel, e o bosque com neve. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Michele Rabetti Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h1": "A Sala <em>do Noel.</em>",
+   "citacao": "Porque o melhor do Natal é voltar a ser criança e deixar a felicidade aparecer até nas caretas!",
+   "citacao_quem": "Michele, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
+    "f": "p",
+    "alt": "Família com o Papai Noel na Sala do Noel",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "A Sala do Noel, Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Cada peça <em>tem um motivo.</em>",
+   "p": "A História de Natal 2026 foi montada peça por peça: a lareira com pedras feitas à mão, a poltrona, o piano branco para as crianças tocarem, a árvore azul e dourada e o Papai Noel. E um segundo cenário, o bosque com neve.",
+   "itens": [
+    "No estúdio da Michele, no Jaguaribe, em Osasco.",
+    "A Sala do Noel, com a lareira, a poltrona e o piano branco.",
+    "O bosque com neve e o Papai Noel.",
+    "Agenda aberta: valores pelo WhatsApp da Michele."
+   ],
+   "legenda_fotos": "Os cenários do Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_02.jpg",
+    "f": "l",
+    "alt": "A poltrona, o piano branco e a árvore azul e dourada",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_06.jpg",
+    "f": "l",
+    "alt": "O bosque com neve e o Papai Noel",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_07.jpg",
+    "f": "l",
+    "alt": "A fogueira na neve",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Michele abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Michele define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Michele abre com o dia e a hora escritos."
+    ],
+    [
+     "A Michele confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "Natal 2026",
+   "h2": "Momentos que <em>não queremos que acabem.</em>",
+   "nome": "Natal 2026",
+   "p": "O primeiro ensaio na Sala do Noel, publicado em 23 de outubro.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_00.jpg",
+     "f": "l",
+     "alt": "Família com o Papai Noel",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_01.jpg",
+     "f": "l",
+     "alt": "O Papai Noel chegando à sala",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_03.jpg",
+     "f": "l",
+     "alt": "Menino tocando o piano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_04.jpg",
+     "f": "l",
+     "alt": "Mãe ao piano com o Papai Noel",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Bruna Horta",
+    "tag": "Olhar sensível",
+    "trecho": "Além de ser uma profissional impecável, ela tem um olhar sensível e uma paciência incrível com as crianças."
+   },
+   {
+    "nome": "Silvia Regina Fortunato",
+    "tag": "Paciência",
+    "trecho": "Atenciosos e pacientes com criança."
+   },
+   {
+    "nome": "Érica Kitty",
+    "tag": "Super indico",
+    "trecho": "fotos profissionais só façam que não vão se arrepender, super indico."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h2": "Garanta o seu <em>Natal na Sala do Noel.</em>",
+   "p": "A agenda está aberta. Escolha um horário ou chame a Michele no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 95041-1639)",
+  "site": "não tem: o Google não mostra site (lote 2, 05/11/2026)",
+  "situacao": "pronta · 05/11/2026 · `/demo/michele-rabetti-fotografia` e `/demo/michele-rabetti-fotografia/natal`",
+  "direcao": [
+   "Lote 2 de fotógrafos (nº 20, 80 pontos), escolhida no Drive de 05/11/2026. Bio: \"Há mais de 13 anos eternizo os momentos mais preciosos da sua família · Gestante | Newborn | Smash the cake · O melhor estúdio de Osasco\".",
+   "Dona: Michele Rabetti, com equipe. Foto dela: a do perfil do Instagram, com a câmera (a mesma mulher da arte do prêmio Top of Mind).",
+   "Cores: o dourado e o azul-marinho da Sala do Noel (#8b6a2b no destaque); Libre Bodoni, Urbanist e \"fotografia\" em Mrs Saint Delafield; abertura em polaroides. Sem logo em boa resolução: monograma MR e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e família), portfólio em 3 abas (Gestante, 10; Natal 2026, 6; Família e newborn, 8), a Michele, os ensaios, 3 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A Sala do Noel\": o ensaio, os cenários (a Sala do Noel e o bosque com neve), a agenda de exemplo (6 dias de 14/11 a 12/12, das 9h às 17h, dentro do horário do Google) e o primeiro ensaio de Natal."
+  ],
+  "fotos": [
+   "O post de Natal de 23/10 (8 fotos, 1600 px) e a capa do vídeo de 22/10 (1215 px), a página do Instagram salva no Drive (gestantes de 2021-2022, 853 a 1440 px), 3 fotos do Google e a foto do perfil.",
+   "Ficaram de fora: as capas da \"Montagem do Cenário de Natal\" (com texto), a capa do vídeo de 02/11 (com texto), as artes de sorteio e prêmio, as gestantes de lingerie ou rede e as fotos borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Se existe algo que a fotografia me ensinou...\" e \"A agenda de Natal está aberta\" (23/10), os episódios da montagem da Sala do Noel (lareira de pedras em gesso, poltrona, piano branco; 24/09 a 08/10), \"o melhor do Natal é voltar a ser criança\" (02/11) e o 1º lugar no Top of Mind Brazil 2021/2022.",
+   "Avaliações do Google: das 5 visíveis sem login, 3 são de 5 estrelas e entram nas duas páginas; ficaram de fora a da Greicy Maria (2 estrelas: reclama do prazo de entrega) e a do Johnny Gonçalves (4 estrelas: elogia, mas fala da rua íngreme)."
+  ],
+  "conferir": [
+   "Uma avaliação recente de 2 estrelas (2 meses) reclama do prazo de entrega: 30 dias úteis, informado só depois da sessão. Vale saber antes de falar com ela.",
+   "As fotos do Natal 2026 parecem ser da família dela (legenda de 23/10: \"quando olho para a minha família...\"); a demo não diz isso.",
+   "Horários: a agenda é exemplo, dentro do horário do Google (seg a sáb 9h-19h).",
+   "Fotos de gestantes, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
