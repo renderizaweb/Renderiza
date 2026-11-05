@@ -82,7 +82,51 @@ o Instagram no lugar do site e 6 sem link; 15 anunciam Natal 2026; de 1,6 mil a 
 2. Duplas e casais (Vitória Mazo, Aizza Cardoso, Anny, Elôo e Jeff): entram como "dona"?
 3. Os valores para as demos (preço na demo) e a data de validade de cada uma.
 4. Quantas demos no 1º lote e a ordem (sugestão: começar pelos 4 sites mortos e pelas que já vendem Natal por horário).
-5. Próximo lote: 54 passaram no corte e não foram olhados na folha (pré-nota até 43, a maioria sem especialidade clara nas
-   legendas; lista em `lote1/dados/nao_olhados.json` na pasta da sessão), mais as 26 candidatas sem @ achado e novas buscas
-   de especialidade nos bairros e cidades que faltaram (zona norte e leste da capital, Osasco, Mogi, Mauá, Franco da Rocha e
-   Caieiras).
+5. ~~Próximo lote: 54 passaram no corte e não foram olhados na folha (lista em `lote1/dados/nao_olhados.json` na pasta da
+   sessão)~~ A pasta da sessão do lote 1 se perdeu; o lote 2 refez a varredura do zero (seção 7).
+
+## 7. Lote 2 (05/11/2026)
+
+O lote 1 foi para o ar (20 demos de 28/10) e teve bom resultado; o lote 2 replica o mesmo perfil. A lista completa, com a
+pontuação, está em **`docs/nichos/fotografos-lote2.md`** (no repositório, para não se perder com a sessão). Os scripts do
+nicho estão em `ferramentas/prospeccao/fotografos/`. Nada foi cadastrado no painel.
+
+**A régua não mudou** (seção 1). Fora: as 20 do lote 1 (pelo id do lugar e pelo @) e quem o lote 1 já tinha descartado por
+site próprio.
+
+**Funil:** 166 buscas no Maps (5 termos girando por 52 bairros da capital e 28 cidades, com prioridade às zonas norte e leste
+e às cidades que faltaram) → 4.380 lugares → 2.294 fotógrafos (pela categoria) → **803 na régua do Google** (nota 4,7+, 15 a
+150 avaliações, fora as exclusões pelo nome) → 439 sem site próprio funcionando → 331 com Instagram achado e lido → **181 no
+corte** (1 a 30 mil seguidores, post em 30 dias) → **181 olhados na folha** → 57 com nota 4+ e @ certo → avaliações, domínios
+(com e sem www) e cidade conferidos → **20 + 5 de reserva**.
+
+**As 20:** 4 com site morto (Fluup, Thamy Lima, Amanda Azevedo e Thamirys Costa, esta achada testando domínios: Alboom
+desligado, como a Ana Carolina), 9 com o Instagram no lugar do site, 6 sem link e 1 só com Facebook; 18 vendendo Natal 2026
+nos últimos posts e 2 só mostrando; todas com celular no Google e post desde 23/10; de 1,9 mil a 25,4 mil seguidores (mediana
+de 6,5 mil); 2 reservas do lote 1 entraram (Gabi Nascimento e Rosangela Rocha).
+
+**Descartes dos 181 olhados:** 21 fora do nicho (marca pessoal, moda, esporte, show), 19 com @ errado ou não confirmado, 17
+de casamento, 15 anos ou eventos, 9 de cobertura de festa infantil, 3 já do lote 1 (Katia Rodrigues numa 2ª ficha em Guarulhos,
+Maria Fernanda e o Jooh, que é o Jonathan Santos), 1 com site próprio (Francielly Fragnan), 1 só arte, 1 aluguel de estúdio, 1
+curso; 51 com fotos medianas (nota 3,5 ou menos).
+
+**O que o lote 2 ensinou:**
+- **A busca na web não funciona mais daqui:** o DuckDuckGo pede captcha, o Google bloqueia e o Bing devolve lixo. O @ veio do
+  Google (link no perfil, site ou Linktree) ou de variações do nome testadas no embed (`ig_foto.py`, até ~20 por lugar). Sem a
+  bio, a cidade se prova pelo local marcado nos posts, pelo 📍, pelo telefone do Google nas legendas ou por um site com o @.
+- **O @ por variação do nome errou em 19 dos olhados:** Americana (o @annyfotografia, reserva do lote 1, é de lá), Rio das
+  Ostras, Uberaba, Colômbia, México, Indonésia, Espanha, perfis pessoais. Os domínios ajudam: annyfotografia.com.br e
+  danilimafotografia.com.br diziam a cidade.
+- **Testar o www:** franciellyfragnan.com dá 403, mas www.franciellyfragnan.com é o site dela funcionando. E domínio sem
+  endereço na raiz pode ter o www (o teste agora cobre os dois).
+- **Alboom desligado também aparece só testando domínios:** thamiryscosta.com.br → www → website.alboompro.com → 409.
+- **"Equipe" nas avaliações pesa:** "ela e toda sua equipe", "as meninas", "a Mari e a Isa". Entrou na pontuação (−5) e no
+  alerta, em linha com a lição do lote 1 sobre estúdio com estrutura.
+- **Novembro é o auge do Natal:** 18 das 20 já vendem (temporadas de 24/10 a 20/12, lotes, "restam poucas vagas", "faltam 8
+  sábados"). Para a demo, o prazo é curto: quem recebe depois de ~20/11 já está com a agenda cheia.
+- **Uma avaliação negativa entre muitas boas** (Solange, Mariana Lima, Juliana Figueiredo) vai só no alerta.
+
+**Pendências do lote 2:**
+1. Escolher as 20 (ou trocar pela reserva) olhando os Instagrams, e salvar as páginas no Drive, uma pasta por fotógrafa.
+2. Duplas e casais (Sabrina e Tati, Arantes, Guilherme Nascimento) seguem entrando, como no lote 1. Confirmar.
+3. Os valores e o prazo (`vale_ate`) das demos do lote 2.
