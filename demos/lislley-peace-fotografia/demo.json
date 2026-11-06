@@ -1,0 +1,662 @@
+{
+ "pasta": "lislley-peace-fotografia",
+ "marca": "Lislley Peace Fotografia",
+ "marca_completa": "Lislley Peace Fotografia",
+ "dona": "Lislley",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5999625,-47.3717387",
+  "fid": "0x94ce6da52ee6b52d:0x4ef62e05bb8999f3",
+  "gid": "/g/11f8l2y8sx"
+ },
+ "google_nome": "Lislley Peace Fotografia",
+ "endereco_maps": "Ribeirão Pires - SP",
+ "google_nota": "5,0",
+ "google_total": "28",
+ "verificado": "2026-11-05",
+ "whatsapp": "5511998383900",
+ "fone_link": "+5511998383900",
+ "instagram": "lislleypeace.fotografia",
+ "seguidores": "4,3 mil",
+ "mensagem": "Olá, Lislley! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#faf6f0",
+  "papel": "#ffffff",
+  "areia": "#f2e8dc",
+  "linha": "#e4d6c5",
+  "tinta": "#2e2a24",
+  "tinta2": "#6b6157",
+  "rosa": "#e3b58c",
+  "acento": "#a45a2e",
+  "acento_escuro": "#7e4220",
+  "cafe": "#2a2620"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-11-29",
+   "2026-12-06"
+  ],
+  "horas": [
+   "9h30",
+   "11h",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-15 11h",
+   "2026-11-15 15h30",
+   "2026-11-21 14h",
+   "2026-11-22 9h30",
+   "2026-11-22 14h",
+   "2026-11-22 15h30",
+   "2026-11-28 14h",
+   "2026-11-28 15h30",
+   "2026-11-29 15h30",
+   "2026-12-06 11h",
+   "2026-12-06 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Lislley define os dela",
+  "mensagem": "Olá, Lislley! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Lislley",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Lislley, da Lislley Peace Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lislley, da Lislley Peace Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "gzpp",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Lislley, da Lislley Peace Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "DM Serif Display",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Figtree",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allison",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✺",
+  "script_escala": 1.35,
+  "css": ".abertura{background:radial-gradient(ellipse 60% 70% at 88% 8%,#f3d3a855,transparent 70%)}"
+ },
+ "titulo_nome": "Lislley Peace",
+ "titulo_script": "fotografia",
+ "quem_a": "a Lislley",
+ "quem_da": "da Lislley",
+ "quem_sou": "Sou a Lislley Peace",
+ "slogan": "Fotos cheias de vida, espontaneidade e amor.",
+ "site": {
+  "titulo": "Lislley Peace Fotografia | Família, gestante, bebês e Natal em Ribeirão Pires e no ABC",
+  "descricao": "Lislley Peace, fotógrafa de família, gestante, bebês e crianças, com estúdio em Ribeirão Pires, no ABC, e ensaios ao ar livre. Natal 2026 com dois cenários. Nota 5,0 no Google, com 28 avaliações.",
+  "comentario": "Demo Lislley Peace Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@lislleypeace.fotografia: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa de família · Ribeirão Pires e ABC",
+   "frase": "Fotos cheias de vida, espontaneidade e amor.",
+   "intro": "Famílias, gestantes, bebês e crianças, no estúdio em Ribeirão Pires ou ao ar livre, na luz do fim de tarde. E a agenda de Natal 2026 já está aberta, com dois cenários: o do Mickey e o clássico.",
+   "rotulos": [
+    "Família",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Gestante",
+    "Bebês",
+    "Acompanhamento",
+    "Infantil",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468458996_18360385561138065_3143149134022960846_n.jpg",
+     "f": "p",
+     "alt": "Pais sorrindo com o bebê no colo, ao ar livre",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468817952_18360242038138065_5906214512870348907_n.jpg",
+     "f": "p",
+     "alt": "Gestante contra a luz do sol, entre as árvores",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468621195_18360238468138065_1024020487068827451_n.jpg",
+     "f": "p",
+     "alt": "Bebê rindo no cavalinho de balanço, no bosque",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Na luz <em>mais bonita do dia.</em>",
+   "p": "Ensaios da Lislley, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "infantil",
+    "nome": "Infantil e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468621195_18360238468138065_1024020487068827451_n.jpg",
+      "f": "p",
+      "alt": "Bebê rindo no cavalinho de balanço, no bosque",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468818516_18360244216138065_1831619793016305029_n.jpg",
+      "f": "p",
+      "alt": "Menina segurando o sapatinho, na escada do jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/655576247_18092251664121592_8052323421619724851_n.jpg",
+      "f": "p",
+      "alt": "Menina dançando entre os balões, no aniversário",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468660748_18360386809138065_4073759906849875246_n.jpg",
+      "f": "p",
+      "alt": "Menina de laço vermelho entre as luzes de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468712822_18360499543138065_6091736360352189800_n.jpg",
+      "f": "p",
+      "alt": "Menina dando um beijo no Papai Noel de pelúcia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468706069_18360505642138065_132367986855080406_n.jpg",
+      "f": "p",
+      "alt": "Bebê de pijama de Natal com o ursinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/656015970_18098240318056316_9090495263675032289_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo com o urso de pelúcia",
+      "pos": "40% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/657353653_18190934419363861_646545915006226408_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço abraçando o urso",
+      "pos": "40% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468400338_18360378055138065_2629296959582609791_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo deitado na manta",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/649144033_17966084868034284_5919971947418252874_n.jpg",
+      "f": "l",
+      "alt": "Bebê no cesto com a girafinha de pelúcia",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468817952_18360242038138065_5906214512870348907_n.jpg",
+      "f": "p",
+      "alt": "Gestante contra a luz do sol, entre as árvores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/360092000_18290174980138065_8590403950923155398_n.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo de olhos fechados, junto ao celeiro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/366510974_18294243175138065_7663362581244148231_n.jpg",
+      "f": "p",
+      "alt": "Gestante entre as folhagens",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/620505791_18043654517715544_5358746110568205159_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o capim-dos-pampas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/655242769_18104587721501199_8853244543549414335_n.jpg",
+      "f": "p",
+      "alt": "Gestante de casaco preto, de perfil no bosque",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/621676538_18091556708107636_3521220829646859342_n.jpg",
+      "f": "p",
+      "alt": "Gestante em preto e branco, com as mãos na barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/361864355_18290860669138065_4446962769538191819_n.jpg",
+      "f": "p",
+      "alt": "Casal brincando entre as árvores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/652858204_18110273473692187_7464916208763362429_n.jpg",
+      "f": "p",
+      "alt": "Casal se beijando contra a luz",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468458996_18360385561138065_3143149134022960846_n.jpg",
+      "f": "p",
+      "alt": "Pais sorrindo com o bebê no colo, ao ar livre",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468654058_18360369097138065_1512653940324713461_n.jpg",
+      "f": "p",
+      "alt": "Pais e filho rindo juntos, no jardim",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/370488214_18296116288138065_6658026459476414068_n.jpg",
+      "f": "p",
+      "alt": "Família com a plaquinha da irmã mais velha",
+      "pos": "55% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/637178646_18564626164029421_39253941556623255_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filhas na porta de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/366954750_18294483712138065_2684847580543510547_n.jpg",
+      "f": "p",
+      "alt": "Mãe sorrindo com o bebê no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/655064616_18089685815181638_5043789119273073094_n.jpg",
+      "f": "p",
+      "alt": "Casal caminhando na ponte do jardim",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/google/fotos/g02.jpg",
+      "f": "l",
+      "alt": "Mãe, filha e avó com a bebê no colo, entre as flores",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Lislley, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/802561840_18456013150138065_5920597982646993748_n.jpg",
+    "f": "p",
+    "alt": "Lislley sorrindo, com as duas câmeras",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Lislley fotografa famílias, gestantes, bebês e crianças, no estúdio em Ribeirão Pires, no ABC, e ao ar livre, entre árvores e sol de fim de tarde. Também acompanha o bebê ao longo do primeiro ano, com ensaios a cada três meses."
+   ],
+   "citacao": "Pensados com muito carinho para vocês viverem esse momento e guardarem lembranças lindas em família.",
+   "citacao_quem": "Lislley, sobre os cenários de Natal 2026",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do carisma dela, de como deixa todo mundo à vontade, da paciência com os bebês e das fotos entregues antes do prazo."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "28 avaliações no Google"
+    ],
+    [
+     "4,3 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "cenários de Natal 2026"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro sorriso <em>ao Natal em família.</em>",
+   "p": "Os ensaios da Lislley:",
+   "fonte": "Legendas da Lislley no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Ao ar livre, entre as árvores e a luz do sol, ou no estúdio."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Acompanhamento",
+     "p": "Ensaios ao longo do primeiro ano, como o acompanhamento trimestral."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Aniversários",
+     "p": "Smash the cake, aniversários e ensaios cheios de brincadeira."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Para registrar momentos especiais em família."
+    },
+    {
+     "nome": "Casais",
+     "sub": "A dois",
+     "p": "Casais e chá revelação, com fotos cheias de vida, espontaneidade e amor."
+    },
+    {
+     "nome": "Natal",
+     "sub": "2 cenários",
+     "p": "Um do Mickey, cheio de magia e diversão, e outro clássico, com todo o charme e aconchego do Natal."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Dois cenários <em>para o Natal 2026.</em>",
+   "p": "Um do Mickey, cheio de magia e diversão, e outro clássico, com cama e todo o charme e aconchego do Natal. A agenda está aberta e as vagas são limitadas: escolha um horário e a mensagem chega pronta no WhatsApp da Lislley.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/posts/De1j63MEeOX/De1j63MEeOX_00.jpg",
+    "f": "l",
+    "alt": "Mãe e filha abraçadas no cenário do Mickey",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Izabella Padilha de Oliveira",
+    "tag": "Chá revelação",
+    "trecho": "Fotos cheias de afeto, qualidade de imagem e edição impecáveis e entrega das fotos para a escolha e fotos tratadas bem antes do prazo estipulado."
+   },
+   {
+    "nome": "Maria Eduarda Nunes",
+    "tag": "Acompanhamento",
+    "trecho": "Fiz o ensaio 3 meses da minha bebê e ela amou a Lis, já fechamos o acompanhamento trimestral"
+   },
+   {
+    "nome": "Roberta Dos Santos Mariano",
+    "tag": "Divertido",
+    "trecho": "Ensaio super divertido,a fotógrafa é super carismática e nos deixa muito a vontade."
+   },
+   {
+    "nome": "Karina Vigerelli de Barros",
+    "tag": "Atenciosa",
+    "trecho": "Profissional maravilhosa, atenciosa, perfeccionista, entende o nosso desejo e o melhor, realiza."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "rotulo": "Estúdio",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica em Ribeirão Pires, no ABC, e os ensaios ao ar livre são combinados com ela.",
+   "telefone": "(11) 99838-3900",
+   "endereco": [
+    "Ribeirão Pires",
+    "ABC Paulista · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Lislley Peace Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Lislley Peace, em Ribeirão Pires: dois cenários, o do Mickey e o clássico. Agenda aberta: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Lislley Peace Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Ribeirão Pires",
+   "h1": "O Natal mais encantador <em>do ano.</em>",
+   "citacao": "Preparei dois cenários especiais para esse ano: um do Mickey, cheio de magia e diversão, e outro clássico, com todo o charme e aconchego do Natal!",
+   "citacao_quem": "Lislley, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/posts/De1j63MEeOX/De1j63MEeOX_00.jpg",
+    "f": "l",
+    "alt": "Mãe e filha abraçadas no cenário do Mickey",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Mickey <em>ou clássico?</em>",
+   "p": "Este ano são dois cenários de Natal, pensados com muito carinho para vocês viverem esse momento e guardarem lembranças lindas em família: o do Mickey, para quem ama esse personagem que atravessa gerações, e o clássico, com cama, árvore dourada e luzinhas.",
+   "itens": [
+    "Estúdio em Ribeirão Pires, no ABC.",
+    "Dois cenários: o do Mickey e o clássico, com cama.",
+    "Agenda de Natal 2026 aberta; as vagas são limitadas.",
+    "Valores e detalhes pelo WhatsApp da Lislley."
+   ],
+   "legenda_fotos": "Os cenários de 2026 (Mickey e clássico) e um Natal de outro ano"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/posts/DfH0HoKEQeq/DfH0HoKEQeq_00.jpg",
+    "f": "p",
+    "alt": "O cenário do Mickey, com a árvore vermelha",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lislley-peace-fotografia/posts/De1xqnWkY50/De1xqnWkY50_00.jpg",
+    "f": "l",
+    "alt": "O cenário clássico, com a cama e a árvore dourada",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/652833456_18037788419785741_3675992319477612294_n.jpg",
+    "f": "l",
+    "alt": "Família reunida num cenário de Natal de outro ano",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Lislley abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece. A Lislley define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Lislley abre com o dia e a hora escritos."
+    ],
+    [
+     "A Lislley confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Memórias <em>em todas as fases.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Lislley.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468817952_18360242038138065_5906214512870348907_n.jpg",
+     "f": "p",
+     "alt": "Gestante contra a luz do sol",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468458996_18360385561138065_3143149134022960846_n.jpg",
+     "f": "p",
+     "alt": "Pais com o bebê no colo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468621195_18360238468138065_1024020487068827451_n.jpg",
+     "f": "p",
+     "alt": "Bebê no cavalinho de balanço",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/620505791_18043654517715544_5358746110568205159_n.jpg",
+     "f": "p",
+     "alt": "Gestante com o capim-dos-pampas",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468818516_18360244216138065_1831619793016305029_n.jpg",
+     "f": "p",
+     "alt": "Menina com o sapatinho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/468654058_18360369097138065_1512653940324713461_n.jpg",
+     "f": "p",
+     "alt": "Pais e filho rindo juntos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/655576247_18092251664121592_8052323421619724851_n.jpg",
+     "f": "p",
+     "alt": "Menina entre os balões",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lislleypeace.fotografia/Instagram_files/360092000_18290174980138065_8590403950923155398_n.jpg",
+     "f": "p",
+     "alt": "Gestante junto ao celeiro",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Karina Vigerelli de Barros",
+    "tag": "Super recomendo",
+    "trecho": "Profissional maravilhosa, atenciosa, perfeccionista, entende o nosso desejo e o melhor, realiza. Super recomendo."
+   },
+   {
+    "nome": "Maria Eduarda Nunes",
+    "tag": "Paciente",
+    "trecho": "Trabalho maravilhoso!!! Super atenciosa, paciente e simpática."
+   },
+   {
+    "nome": "Roberta Dos Santos Mariano",
+    "tag": "À vontade",
+    "trecho": "a fotógrafa é super carismática e nos deixa muito a vontade"
+   },
+   {
+    "nome": "Izabella Padilha de Oliveira",
+    "tag": "Em família",
+    "trecho": "Quando enviamos as fotos para os nossos familiares, eles ficaram surpresos em como os registros ficaram"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Ribeirão Pires",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "As vagas são limitadas. Escolha um horário ou chame a Lislley no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99838-3900)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/lislley-peace-fotografia` e `/demo/lislley-peace-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 2, 80 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio e sem as legendas antigas; os textos vêm dos posts de out/nov 2026 e das avaliações.",
+   "Dona: Lislley (\"a Lis\" numa avaliação). Foto dela: com as duas câmeras, da página salva.",
+   "Personalidade: a luz dourada de fim de tarde dos ensaios ao ar livre (bosque, sol contra a luz, tons quentes). Na demo: abertura em filme, DM Serif Display, \"fotografia\" em Allison, laranja queimado e um brilho quente no topo; ✺ entre as especialidades.",
+   "Sem logo em boa resolução: monograma LP e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (família, gestante e infantil), portfólio em 3 abas (Infantil e bebês, 10; Gestante, 8; Família, 7), a Lislley, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O Natal mais encantador do ano\": os dois cenários de 2026 (Mickey e clássico), a agenda de exemplo (6 dias de sábado e domingo, de 15/11 a 06/12, das 9h30 às 15h30, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (os dois cenários de Natal, até 2500 px), as fotos da página salva no Drive (1440 px) e 1 foto do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes com texto (Campanha Natal 2026, colagem \"Ensaio de Natal\") e as fotos de casamento/moto do Google."
+  ],
+  "textos": [
+   "Legendas: \"Ensaio de Natal 2026: agenda aberta! Preparei dois cenários especiais...\" (23/10 a 04/11), \"O Natal mais encantador do ano está chegando por aqui!\" (20/10), \"fotos cheias de vida, espontaneidade e amor\" (19/10).",
+   "Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas."
+  ],
+  "conferir": [
+   "Sem endereço no Google: o contato diz só \"Ribeirão Pires, ABC\" (os posts dizem \"Estúdio em Ribeirão Pires / ABC\").",
+   "As fotos dos cenários de Natal 2026 (mulher, menina e cachorrinho) podem ser da família dela.",
+   "Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
