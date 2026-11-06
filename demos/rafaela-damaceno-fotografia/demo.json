@@ -1,0 +1,659 @@
+{
+ "pasta": "rafaela-damaceno-fotografia",
+ "marca": "Rafaela Damaceno Fotografia",
+ "marca_completa": "Rafaela Damaceno Fotografia",
+ "dona": "Rafaela",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.3319793,-46.7254874",
+  "fid": "0x94cee5a2e38b83ef:0xfcfbf0dd6da72ce1",
+  "gid": "/g/11x0n_lt4w"
+ },
+ "google_nome": "Estúdio Rafaela Damaceno Fotografia",
+ "endereco_maps": "Av. Liberdade - Centro, Franco da Rocha - SP, 07850-325",
+ "google_nota": "5,0",
+ "google_total": "26",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511994794869",
+ "fone_link": "+5511994794869",
+ "instagram": "rafaeladamacenofotografia",
+ "seguidores": "1,1 mil",
+ "mensagem": "Olá, Rafaela! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf7f1",
+  "papel": "#ffffff",
+  "areia": "#f3ebe0",
+  "linha": "#e6dacb",
+  "tinta": "#3b2a22",
+  "tinta2": "#6e5d53",
+  "rosa": "#d9a48a",
+  "acento": "#8a5a3c",
+  "acento_escuro": "#6b4430",
+  "cafe": "#2f211a"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-19",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-03",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h",
+   "14h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 14h30",
+   "2026-11-19 13h",
+   "2026-11-21 9h",
+   "2026-11-21 13h",
+   "2026-11-21 14h30",
+   "2026-11-28 13h",
+   "2026-11-28 14h30",
+   "2026-12-03 14h30",
+   "2026-12-05 10h30",
+   "2026-12-05 14h30"
+  ],
+  "exemplo": "Horários de exemplo: a Rafaela define os dela",
+  "mensagem": "Olá, Rafaela! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Rafaela",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Rafaela, do Estúdio Rafaela Damaceno. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Rafaela, do Estúdio Rafaela Damaceno. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "2rqp",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Rafaela, do Estúdio Rafaela Damaceno. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "IM Fell English",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600;700"
+   ],
+   "script": [
+    "Sacramento",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "abas": "script",
+  "textura": "papel",
+  "ornamento": "❀",
+  "script_escala": 1.25,
+  "css": ".sobre-texto>h2+p::first-letter{float:left;font-family:var(--serif);font-size:3.6em;line-height:.82;margin:.04em .1em 0 0;color:var(--acento)}.cenario figure:first-child img{object-position:100% 50%}.numeros b,.nota-google>b,.prova>b{font-family:var(--sans);font-weight:600;letter-spacing:-.02em}"
+ },
+ "titulo_nome": "Rafaela Damaceno",
+ "titulo_script": "fotografia",
+ "quem_a": "a Rafaela",
+ "quem_da": "da Rafaela",
+ "quem_sou": "Sou a Rafaela Damaceno",
+ "slogan": "Onde as memórias florescem.",
+ "site": {
+  "titulo": "Rafaela Damaceno Fotografia | Gestante, bebês, família e aniversários em Franco da Rocha",
+  "descricao": "Estúdio Rafaela Damaceno, no Centro de Franco da Rocha: gestante, newborn, bebês, família, aniversários, smash the cake e Natal. Nota 5,0 no Google, com 26 avaliações.",
+  "comentario": "Demo Rafaela Damaceno Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@rafaeladamacenofotografia: a página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Franco da Rocha",
+   "frase": "Onde as memórias florescem.",
+   "intro": "Gestantes, bebês, famílias e aniversários, no estúdio da Rafaela, no Centro de Franco da Rocha. E o cenário de Natal 2026 já está pronto: os agendamentos começam em 9 de novembro.",
+   "rotulos": [
+    "Aniversários",
+    "Bebês",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Bebês",
+    "Família",
+    "Aniversários",
+    "Smash the cake",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/DehBC86IHca/DehBC86IHca_00.jpg",
+     "f": "p",
+     "alt": "Menina vestida de Branca de Neve no cavalinho de madeira, no smash the cake de 1 ano",
+     "c": [
+      0.45,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/653789547_18001055144908389_8980904257244644845_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida dormindo enrolada no cesto",
+     "c": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669996564_18100993975946102_3003398123487247558_n.jpg",
+     "f": "p",
+     "alt": "Gestante segurando as roupinhas do bebê",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Memórias <em>que florescem.</em>",
+   "p": "Ensaios da Rafaela, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/DehBC86IHca/DehBC86IHca_00.jpg",
+      "f": "p",
+      "alt": "Smash the cake de 1 ano no tema Branca de Neve",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/Det49l6IGFl/Det49l6IGFl_00.jpg",
+      "f": "p",
+      "alt": "Menina de 3 anos no cavalinho, entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/De7lolKoNn1/De7lolKoNn1_00.jpg",
+      "f": "p",
+      "alt": "Menina de 6 anos com a bolinha de sabão, no fundo azul",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/656263636_18070039403251743_5956990344858604744_n.jpg",
+      "f": "p",
+      "alt": "Aniversário de 5 anos com a Branca de Neve",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/670275873_18431151259143574_4378326984163763399_n.jpg",
+      "f": "p",
+      "alt": "Menino de 2 anos com a turminha da Patrulha Canina",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Irmãos abraçados no cenário da Patrulha Canina",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/658915210_18430460233140732_2186602645106595055_n.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo no aniversário de 3 anos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/656728773_18074535632444217_2360690017599968434_n.jpg",
+      "f": "p",
+      "alt": "Menino na piscina de bolinhas, no aniversário de 1 ano",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/656227300_18087088643240308_6380469895496955218_n.jpg",
+      "f": "l",
+      "alt": "Menino deitado com o carrinho, no ensaio de 3 anos",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano com os braços para cima, entre os balões",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669996564_18100993975946102_3003398123487247558_n.jpg",
+      "f": "p",
+      "alt": "Gestante segurando as roupinhas do bebê",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/645547045_17886888504452079_7617376984584895490_n.jpg",
+      "f": "p",
+      "alt": "Gestante sorrindo de chapéu",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/653789547_18001055144908389_8980904257244644845_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo enrolada no cesto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669782494_18430373215184707_35263649447327250_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 2 meses no tapete de pelo, com os bonecos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/642491830_17892737691423516_1167043711064682835_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo na poltroninha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/651502190_17940926934158723_7480624491417476019_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 mês dormindo de coroa de príncipe",
+      "pos": "50% 50%",
+      "box": [
+       0.0,
+       0.0,
+       0.79,
+       0.99
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/661523515_18099505108809215_1155897490695387326_n.jpg",
+      "f": "l",
+      "alt": "Irmãos com o bebê no cenário de estrelas",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e datas especiais",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/670273531_18575356246000552_2190821663554899430_n.jpg",
+      "f": "p",
+      "alt": "Família no piquenique de Natal, junto à árvore e à cabana",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/657613212_18096765797013829_6242686163818240179_n.jpg",
+      "f": "p",
+      "alt": "Família no aniversário de 4 anos, com os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/657394003_18098151593485695_7788987470969330362_n.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo junto ao balão do número 4",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/662454675_18397440583145111_944059235087702058_n.jpg",
+      "f": "p",
+      "alt": "Ensaio revelação no parque, com os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/655652021_18011472422683510_3073516266808988520_n.jpg",
+      "f": "l",
+      "alt": "Irmãos sorrindo na manta xadrez de Natal",
+      "pos": "70% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669496443_18099312808822769_4812966405001411224_n.jpg",
+      "f": "l",
+      "alt": "Irmãos de orelhinhas de coelho no cenário de Páscoa",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Prazer, <em>Rafaela Damaceno.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Rafaela sorrindo, com a câmera na mão",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "Sonhadora, a Rafaela sempre gostou de tirar fotos de tudo e de todos. Hoje fotografa gestantes, bebês, famílias e aniversários no estúdio que ela sonhou e construiu, no Centro de Franco da Rocha, e cria os cenários de cada data: Páscoa, Dia das Mães e Natal."
+   ],
+   "citacao": "Fotografando hoje as memórias que serão tesouros amanhã.",
+   "citacao_quem": "Rafaela, no Instagram",
+   "p2": [
+    "Mãe da Micaelly e do Henry. Nas avaliações do Google, as famílias falam do carinho e da atenção com cada detalhe, do espaço limpo e cheiroso, de como as crianças ficam à vontade com ela e da entrega rápida das fotos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "26 avaliações no Google"
+    ],
+    [
+     "Natal 2026",
+     "cenário novo, já pronto"
+    ],
+    [
+     "207",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase, <em>um capítulo.</em>",
+   "p": "Os ensaios da Rafaela, nas palavras dela:",
+   "fonte": "Bio e legendas da Rafaela no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A doce espera",
+     "p": "Cada momento da gestação é único e especial, seja a primeira gestação ou não."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Uma forma de guardar momentos únicos e especiais dos primeiros dias de vida do bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Mês a mês",
+     "p": "Um ensaio a cada mês, e o tema quem escolhe é a mamãe: de Shrek a pequeno príncipe."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "Era uma vez",
+     "p": "Cada detalhe pensado para transformar o primeiro aninho num verdadeiro conto de fadas."
+    },
+    {
+     "nome": "Família",
+     "sub": "Colo de mãe",
+     "p": "São mais que fotos: são momentos que não voltam."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O Natal passa, as crianças crescem, mas as memórias que construímos em família permanecem."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal tem uma magia <em>que merece ser lembrada.</em>",
+   "p": "O cenário de Natal 2026 da Rafaela está pronto, cheio de encanto e aconchego, e os agendamentos começam em 9 de novembro. As vagas são limitadas: escolha um horário e a mensagem chega pronta no WhatsApp da Rafaela.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/670273531_18575356246000552_2190821663554899430_n.jpg",
+    "f": "p",
+    "alt": "Família no piquenique de Natal, junto à árvore e à cabana",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal em família"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Ravi Bento Martins",
+    "tag": "Festa de aniversário",
+    "trecho": "Na festa da Raika, ela conseguiu registrar momentos tão especiais de uma forma leve e natural, que tenho certeza de que vamos guardar essas lembranças para sempre."
+   },
+   {
+    "nome": "Silvana Cristina Alves",
+    "tag": "O estúdio",
+    "trecho": "Adorei o espaço limpo cheiroso decoração da foto da minha filha muito lindo caprichosa e minha filha se sentiu muito a vontade com ela"
+   },
+   {
+    "nome": "Jocassia Teixeira Couto",
+    "tag": "Aniversário",
+    "trecho": "Cada foto conseguiu captar momentos únicos, sorrisos verdadeiros e toda a alegria desse dia tão especial para nossa família."
+   },
+   {
+    "nome": "Ane Cristina",
+    "tag": "15 anos",
+    "trecho": "Uma profissional muito educada e prestativa um amor de pessoa ,as fotos ficaram perfeitas e foram entregues muito rápido"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos criar juntos <em>mais um capítulo?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Av. Liberdade, no Centro de Franco da Rocha, e atende de terça a sábado.",
+   "telefone": "(11) 99479-4869",
+   "endereco": [
+    "Av. Liberdade",
+    "Centro",
+    "Franco da Rocha · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Rafaela Damaceno Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Rafaela Damaceno, em Franco da Rocha: o cenário novo, cheio de encanto e aconchego. Agendamentos a partir de 9 de novembro: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Rafaela Damaceno Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Franco da Rocha",
+   "h1": "Mais um capítulo <em>da história da sua família.</em>",
+   "citacao": "Porque o Natal passa, as crianças crescem, mas as memórias que construímos em família permanecem.",
+   "citacao_quem": "Rafaela, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/655652021_18011472422683510_3073516266808988520_n.jpg",
+    "f": "l",
+    "alt": "Irmãos sorrindo na manta xadrez de Natal",
+    "c": [
+     0.72,
+     0.5
+    ]
+   },
+   "legenda": "Natal em família"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um cantinho cheio <em>de encanto.</em>",
+   "p": "Mais do que um cenário: um cantinho cheio de encanto, aconchego e detalhes pensados para transformar momentos simples em memórias extraordinárias. O cenário de Natal 2026 está pronto, no estúdio da Rafaela, para cada família viver a magia de estar junto.",
+   "itens": [
+    "No estúdio da Rafaela, no Centro de Franco da Rocha.",
+    "O cenário de Natal 2026, novo e já pronto.",
+    "Agendamentos a partir de 9 de novembro; as vagas são limitadas.",
+    "Valores e detalhes pelo WhatsApp da Rafaela."
+   ],
+   "legenda_fotos": "O Natal em família e outros cenários da Rafaela"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/670273531_18575356246000552_2190821663554899430_n.jpg",
+    "f": "p",
+    "alt": "Família no piquenique de Natal, junto à árvore e à cabana",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669496443_18099312808822769_4812966405001411224_n.jpg",
+    "f": "l",
+    "alt": "Irmãos no cenário de Páscoa",
+    "c": [
+     0.42,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/661523515_18099505108809215_1155897490695387326_n.jpg",
+    "f": "l",
+    "alt": "Irmãos com o bebê no cenário de estrelas",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Rafaela abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: os agendamentos de Natal começam em 9 de novembro, de terça a sábado, no horário do estúdio. A Rafaela define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Rafaela abre com o dia e a hora escritos."
+    ],
+    [
+     "A Rafaela confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Memórias <em>em todas as fases.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Rafaela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/DehBC86IHca/DehBC86IHca_00.jpg",
+     "f": "p",
+     "alt": "Smash the cake da Branca de Neve",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669996564_18100993975946102_3003398123487247558_n.jpg",
+     "f": "p",
+     "alt": "Gestante com as roupinhas do bebê",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/653789547_18001055144908389_8980904257244644845_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no cesto",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/De7lolKoNn1/De7lolKoNn1_00.jpg",
+     "f": "p",
+     "alt": "Menina com a bolinha de sabão",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/656263636_18070039403251743_5956990344858604744_n.jpg",
+     "f": "p",
+     "alt": "Aniversário da Branca de Neve",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/669782494_18430373215184707_35263649447327250_n.jpg",
+     "f": "p",
+     "alt": "Bebê de 2 meses com os bonecos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/rafaela-damaceno-fotografia/posts/Det49l6IGFl/Det49l6IGFl_00.jpg",
+     "f": "p",
+     "alt": "Menina no cavalinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/rafaeladamacenofotografia/Instagram_files/645547045_17886888504452079_7617376984584895490_n.jpg",
+     "f": "p",
+     "alt": "Gestante de chapéu",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Ravi Bento Martins",
+    "tag": "Com carinho",
+    "trecho": "Foi muito mais do que contratar uma fotógrafa: foi ter alguém especial cuidando para que cada momento importante fosse registrado."
+   },
+   {
+    "nome": "Jocassia Teixeira Couto",
+    "tag": "Sensibilidade",
+    "trecho": "Hoje quero deixar um agradecimento especial à fotógrafa Rafaela, que registrou com tanto carinho e sensibilidade o aniversário da minha filha Alice."
+   },
+   {
+    "nome": "Silvana Lopes Esperandio",
+    "tag": "Indico",
+    "trecho": "Eu gostei muito do trabalho da Rafaela, pois e realmente oq eu esperava uma experiência muito boa tudo muito lindooo um trabalho maravilhoso, indico de olhos fechados"
+   },
+   {
+    "nome": "Silvana Cristina Alves",
+    "tag": "À vontade",
+    "trecho": "minha filha se sentiu muito a vontade com ela"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Franco da Rocha",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "As vagas são limitadas. Escolha um horário ou chame a Rafaela no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99479-4869), o mesmo do post \"Respondendo coletivamente...\" (\"WhatsApp: (11) 99479-4869\")",
+  "site": "fora do ar: o Google aponta www.rafaeladamacenofotografia.com.br, domínio que não existe mais (NXDOMAIN) (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 1, 86 pontos), escolhida no Drive de 06/11/2026. Bio: \"📸 Onde as memórias florescem · 🤎 Gestante | Bebês | Família | Aniversários · ✨ Newborn · Orçamentos pelo WhatsApp\".",
+   "Dona: Rafaela Damaceno (\"Para quem não me conhece, prazer sou a Rafaela Damaceno! Sonhadora...\"; \"Mãe da Micaelly e do Henry\"). Foto dela: a do perfil do Instagram, com a câmera.",
+   "Personalidade: livro de histórias. Ela escreve \"Era uma vez... um ensaio Smash the Cake\", fez o projeto \"Cartas ao Noel\" e chama o Natal 2026 de \"mais um capítulo da história da sua família\". Na demo: IM Fell English (letra de livro antigo), capitular no \"quem fotografa\", os ensaios como capítulos, ❀ entre as especialidades (\"onde as memórias florescem\"), o marrom 🤎 que ela usa e papel creme.",
+   "Sem logo em boa resolução: monograma RD e o nome com \"fotografia\" cursiva (Sacramento), feitos para a demo; abertura em arcos."
+  ],
+  "demo": [
+   "Site: abertura (aniversários, bebês e gestante), portfólio em 3 abas (Infantil e aniversários, 10; Gestante e bebês, 7; Família e datas especiais, 6), a Rafaela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Mais um capítulo da história da sua família\": o ensaio (o texto do post de 05/11), o cenário (o Natal em família e os cenários de Páscoa e de estrelas), a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 14h30, dentro do horário do Google e depois de 09/11) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (modal leve depois de 40 s e 25% da página): até quando a demo fica no ar, o valor (pagamento único, sem mensalidade, promoção de 1 semana) e a agenda online e o painel como opcionais."
+  ],
+  "fotos": [
+   "Os posts de out 2026 (smash da Branca de Neve de 15/10, Natália 3 anos de 20/10 e Micaelly 6 anos de 25/10, 1440 px), a página do Instagram salva no Drive (só as fotos do feed, 1440 px), 2 fotos do Google e a foto do perfil do Instagram.",
+   "Ficaram de fora: todas as capas de vídeo (os quadros 9:16 da página, inclusive o cenário de Natal 2026 e o de 2024, que só existem em reels), as artes com texto (Cartas ao Noel, Feliz Natal, Promo, Quem sou eu), as fotos pessoais (com o marido) e as de festa de 15 anos."
+  ],
+  "textos": [
+   "Bio e legendas: \"Onde as memórias florescem\", \"Fotografando hoje as memórias que serão tesouros amanhã\" (27/10), \"O Natal tem uma magia...\" e \"Vamos criar juntos mais um capítulo da história da sua família?\" (05/11), \"Era uma vez...\" (15/10), gestante, newborn, acompanhamento e Colo de Mãe.",
+   "Avaliações do Google: as 5 visíveis sem login; 4 de 5 estrelas em cada página."
+  ],
+  "conferir": [
+   "As fotos de Natal são de anos anteriores (o piquenique de 2024 é da família dela, com o marido e os filhos; os irmãos na manta xadrez são os filhos dela). O cenário de 2026 só aparece num reel, então não entrou.",
+   "O site antigo (rafaeladamacenofotografia.com.br) está fora do ar e o Google ainda aponta para ele.",
+   "Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
