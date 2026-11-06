@@ -1,0 +1,694 @@
+{
+ "pasta": "roberta-ale-fotografia",
+ "marca": "Roberta Ale Fotografia",
+ "marca_completa": "Roberta Ale Fotografia",
+ "dona": "Roberta",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5669754,-46.4743611",
+  "fid": "0x94ce675f6ee01719:0x696c8db801c82a",
+  "gid": "/g/11k6bc38hv"
+ },
+ "google_nome": "Roberta Ale_Fotografia - Ensaio Newborn a Domicílio",
+ "endereco_maps": "Av. Maria Luiza Americano, 1766 - Sl 5 - Jardim Nossa Sra. do Carmo, São Paulo - SP, 08275-001",
+ "google_nota": "4,9",
+ "google_total": "30",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511967798569",
+ "fone_link": "+5511967798569",
+ "instagram": "robertaale_fotografia",
+ "seguidores": "6,3 mil",
+ "mensagem": "Olá, Roberta! Vi o seu site e queria saber mais sobre o ensaio newborn.",
+ "cores": {
+  "fundo": "#fbfafd",
+  "papel": "#ffffff",
+  "areia": "#f1eff7",
+  "linha": "#e0dceb",
+  "tinta": "#26232c",
+  "tinta2": "#615d6b",
+  "rosa": "#c9d8ef",
+  "acento": "#6a57a5",
+  "acento_escuro": "#544485",
+  "cafe": "#211e29"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-25 14h",
+   "2026-11-25 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Roberta define os dela",
+  "mensagem": "Olá, Roberta! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Roberta",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "3pzu",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Mulish",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "♡",
+  "natal_capa": "retrato",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Roberta Ale",
+ "titulo_script": "fotografia",
+ "quem_a": "a Roberta",
+ "quem_da": "da Roberta",
+ "quem_sou": "Sou a Roberta Ale",
+ "slogan": "O estúdio vai até a sua casa.",
+ "site": {
+  "titulo": "Roberta Ale Fotografia | Newborn a domicílio, gestante e família na Zona Leste de SP",
+  "descricao": "Roberta Ale, fotógrafa de newborn a domicílio, com o marido, Edson, na Zona Leste de São Paulo: newborn, gestante, família e smash the cake. Nota 4,9 no Google, com 30 avaliações.",
+  "comentario": "Demo Roberta Ale Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@robertaale_fotografia: as fotos da página salva, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Newborn a domicílio · Zona Leste de SP",
+   "frase": "O estúdio vai até a sua casa.",
+   "intro": "Newborn a domicílio, gestante e família, com a Roberta e o Edson, na Zona Leste de São Paulo e região.",
+   "rotulos": [
+    "Newborn",
+    "Família",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Newborn",
+    "A domicílio",
+    "Gestante",
+    "Família",
+    "Smash the cake",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486652121_1119944123481722_51246999430685558_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida sorrindo enrolada na manta lilás",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487688324_1122468873229247_1880327644877859159_n.jpg",
+     "f": "p",
+     "alt": "Família com o recém-nascido no colo",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487600319_1122468813229253_1740567059940171553_n.jpg",
+     "f": "p",
+     "alt": "Gestante de azul com os sapatinhos",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Os primeiros dias, <em>em casa.</em>",
+   "p": "Ensaios da Roberta, na casa de cada família. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486652121_1119944123481722_51246999430685558_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida sorrindo na manta lilás",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486864100_1120635543412580_977885500725673493_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de tiara de flores lilás",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487077426_1120635446745923_2463394864300991644_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de tiara vermelha nas mãos da mãe",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487077799_1120051303471004_1426998580983723_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de óculos e touquinha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487086222_1120050906804377_2737133105544344697_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido com as asinhas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487298118_1119871833488951_898430283403623599_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido no baldinho de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487314864_1120051350137666_2860644176153323535_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido enrolado na manta azul",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487473481_1119964473479687_496559391353099024_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida na manta rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487479221_1122468759895925_1792199965669685071_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de óculos na manta azul",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487504901_1119614430181358_693389915818829663_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de óculos no cesto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/488258786_1125511469591654_6137119356968577731_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido sorrindo na manta verde",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487545874_1120051263471008_229484881644439066_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de perto, com a pulseirinha",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família com o bebê",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487688324_1122468873229247_1880327644877859159_n.jpg",
+      "f": "p",
+      "alt": "Família com o recém-nascido no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/469144073_18049531691300086_7336811840625062529_n.jpg",
+      "f": "p",
+      "alt": "Irmão abraçando a recém-nascida",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487312369_1119614463514688_5442881877206450967_n.jpg",
+      "f": "p",
+      "alt": "Pais com a recém-nascida, testa com testa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487361384_1120051243471010_4994481936929630733_n.jpg",
+      "f": "p",
+      "alt": "Pai beijando o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487566175_1122468909895910_1520793168347617543_n.jpg",
+      "f": "p",
+      "alt": "Mãe encostando o rosto na recém-nascida",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487738990_1122468763229258_6348358066478419270_n.jpg",
+      "f": "p",
+      "alt": "Mães com o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487807462_1120635163412618_1611861355752970808_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a recém-nascida no rosto",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487823801_1120635273412607_2634189734251982990_n.jpg",
+      "f": "p",
+      "alt": "Pais abraçando o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/488338096_1125511299591671_2575046530742642225_n.jpg",
+      "f": "p",
+      "alt": "Mãe e avó com o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/488883470_1125511289591672_6497702652623669022_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha com o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486643038_1119964466813021_8377980188815400804_n.jpg",
+      "f": "l",
+      "alt": "Pais com a recém-nascida, rosto com rosto",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e 1 ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487600319_1122468813229253_1740567059940171553_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul com os sapatinhos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487411821_1122469063229228_1581083620873316208_n.jpg",
+      "f": "p",
+      "alt": "Gestante de jaqueta jeans",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/roberta-ale-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante de chapéu e jeans",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486649708_1120635440079257_1733692131138617798_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano entre os balões lilás",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487669895_1120051246804343_5121517604890047740_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake verde",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487821094_1122468806562587_819388878114866079_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake, entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487045057_1120635316745936_4056462179396904223_n.jpg",
+      "f": "l",
+      "alt": "Gêmeas recém-nascidas nos baldinhos",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Roberta e o Edson, <em>na sua casa.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/448607078_1022371696178714_5132660388772629100_n.jpg",
+    "f": "p",
+    "alt": "Roberta com a câmera",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Roberta Ale fotografa newborn a domicílio, com o marido, o Edson: os dois levam o estúdio até a casa da família, na Zona Leste de São Paulo e região. Também fotografa gestantes, famílias e smash the cake."
+   ],
+   "citacao": "Tem a maior paciência do mundo com nossos bebês.",
+   "citacao_quem": "Amanda Custódio Ferrari, no Google",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da paciência para acalmar o bebê, do Edson fazendo companhia ao pai durante o ensaio e do valor acessível."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "30 avaliações no Google"
+    ],
+    [
+     "6,3 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "Em casa",
+     "o estúdio vai até você"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "O estúdio <em>vai até você.</em>",
+   "p": "Os ensaios da Roberta:",
+   "fonte": "Legendas da Roberta no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "O ensaio gestante, com o casal e os irmãos."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Newborn de 13 a 25 dias, na casa da família."
+    },
+    {
+     "nome": "A domicílio",
+     "sub": "Em casa",
+     "p": "A Roberta e o Edson levam o estúdio até você."
+    },
+    {
+     "nome": "Família",
+     "sub": "Pais e irmãos",
+     "p": "Os pais, os irmãos e até as avós junto com o bebê."
+    },
+    {
+     "nome": "Detalhes",
+     "sub": "Mãozinhas",
+     "p": "As mãozinhas, os pezinhos e a pulseirinha com o nome."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 ano",
+     "p": "O primeiro aniversário, com bolo e balões."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O primeiro Natal <em>do bebê.</em>",
+   "p": "O newborn a domicílio no clima de Natal, para guardar o primeiro Natal do bebê em casa. Escolha um horário e a mensagem chega pronta no WhatsApp da Roberta.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487199850_1120635240079277_1266385842346750325_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida de óculos no cesto rosa",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Newborn"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Sara Melo",
+    "tag": "O casal",
+    "trecho": "O esposo dela TBM fez companhia para o meu esposo o tempo todo que durou o ensaio, são dois profissionais que amam o que fazem dá pra ver e sentir."
+   },
+   {
+    "nome": "Amanda Custódio Ferrari",
+    "tag": "Acalma o bebê",
+    "trecho": "perfeita com meu baby no ensaio newborn sabe acalmar o bebê, super cuidadosa"
+   },
+   {
+    "nome": "Ayaka Matsui",
+    "tag": "Gestante e newborn",
+    "trecho": "todos muito atenciosos e pacientes, tanto no ensaio gestante quanto no newborn, sabem valorizar muito cada pequeno detalhe"
+   },
+   {
+    "nome": "Bianca Merizio",
+    "tag": "Princesa",
+    "trecho": "Fotos lindas e minha bebê foi tratada como princesa"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o newborn?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O ensaio é na sua casa, na Zona Leste de São Paulo e região; o endereço abaixo é o de referência no Google.",
+   "rotulo": "Atendimento",
+   "telefone": "(11) 96779-8569",
+   "endereco": [
+    "Av. Maria Luiza Americano, 1766, sala 5",
+    "Jardim Nossa Senhora do Carmo",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Roberta Ale Fotografia",
+  "descricao": "O primeiro Natal do bebê, em casa: o newborn a domicílio da Roberta Ale, na Zona Leste de São Paulo. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Roberta Ale Fotografia: página da campanha de Natal (natal.html), ligada ao site. Ela não divulgou Natal: os textos não prometem cenário. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · a domicílio",
+   "h1": "O primeiro Natal <em>do bebê.</em>",
+   "citacao": "Não há palavras que descrevam o amor e carinho que somos tratados pela Roberta e pelo Edson.",
+   "citacao_quem": "Bianca Merizio, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487077426_1120635446745923_2463394864300991644_n.jpg",
+    "f": "p",
+    "alt": "Recém-nascida de tiara vermelha nas mãos da mãe",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Newborn"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Newborn em casa, <em>no clima de Natal.</em>",
+   "p": "A Roberta e o Edson levam o estúdio até a casa da família: o ensaio newborn a domicílio, com calma e paciência, para guardar o primeiro Natal do bebê.",
+   "itens": [
+    "Newborn a domicílio: o estúdio vai até a sua casa.",
+    "Com a Roberta e o Edson, com calma e paciência.",
+    "Para o bebê, os irmãos e os pais.",
+    "Valores e datas pelo WhatsApp da Roberta."
+   ],
+   "legenda_fotos": "Newborns da Roberta"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/488258786_1125511469591654_6137119356968577731_n.jpg",
+    "f": "p",
+    "alt": "Recém-nascido sorrindo na manta verde",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487124747_1120635243412610_4200217468064070294_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida de tiara na manta lilás",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487391651_1120635173412617_6424545802022518486_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascido de óculos na manta lilás",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Roberta abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado. O newborn é marcado pela data do parto: a Roberta define os dias, a duração e quantos horários abre.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Roberta abre com o dia e a hora escritos."
+    ],
+    [
+     "A Roberta confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Os primeiros dias, <em>em casa.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Roberta.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486652121_1119944123481722_51246999430685558_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida na manta lilás",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487688324_1122468873229247_1880327644877859159_n.jpg",
+     "f": "p",
+     "alt": "Família com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487077799_1120051303471004_1426998580983723_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido de óculos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487600319_1122468813229253_1740567059940171553_n.jpg",
+     "f": "p",
+     "alt": "Gestante de azul",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486864100_1120635543412580_977885500725673493_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de tiara",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/469144073_18049531691300086_7336811840625062529_n.jpg",
+     "f": "p",
+     "alt": "Irmão com a recém-nascida",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/487298118_1119871833488951_898430283403623599_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido no baldinho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/robertaleefotografia/Instagram_files/486649708_1120635440079257_1733692131138617798_n.jpg",
+     "f": "p",
+     "alt": "Bebê de 1 ano",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Sara Melo",
+    "tag": "Acessível",
+    "trecho": "Eu super recomendo e o valor é bem acessível."
+   },
+   {
+    "nome": "Ayaka Matsui",
+    "tag": "Paciência",
+    "trecho": "sem mencionar a enorme paciência da Roberta e seu marido no momento do ensaio do meu bem mais precioso"
+   },
+   {
+    "nome": "Amanda Custódio Ferrari",
+    "tag": "Perfeição",
+    "trecho": "As Fotos uma Perfeição, uma mais Linda que a outra, uma Maravilha de verdade."
+   },
+   {
+    "nome": "Bianca Merizio",
+    "tag": "Perfeito",
+    "trecho": "Simplesmente perfeito."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · a domicílio",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Roberta no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96779-8569), o mesmo das legendas (\"Agendamento no WhatsApp 11 96779-8569\")",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/roberta-ale-fotografia` e `/demo/roberta-ale-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 24, reserva 4, 70 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; as legendas são curtas (\"ENSAIO NEWBORN - Maite - 13 dias · Newborn à domicílio\"), então os textos vêm das fotos e das avaliações (com o nome de quem escreveu).",
+   "Donos: a Roberta e o marido, Edson (avaliações). Foto: a da fotógrafa com a câmera (página salva).",
+   "Personalidade: newborn a domicílio, o casal que leva o estúdio até a casa da família; mantas lilás e azuis. Na demo: abertura em arcos, Cormorant Garamond, \"fotografia\" em Allura, lavanda e azul-bebê, ♡ entre as especialidades.",
+   "Sem logo em boa resolução: monograma RA e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (newborn, família e gestante), portfólio em 3 abas (Newborn, 12; Família com o bebê, 11; Gestante e 1 ano, 7), a Roberta e o Edson, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato (com \"Atendimento\": o ensaio é na casa da família).",
+   "Página de Natal \"O primeiro Natal do bebê\": ela não divulgou Natal; os textos falam do newborn em casa no clima de Natal, sem prometer cenário; agenda de exemplo.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "As fotos da página salva no Drive (1440 px) e 2 fotos do Google. Os posts de nov 2026 são capas de vídeo, então não entraram.",
+   "Ficaram de fora: as capas de vídeo (9:16) e os closes de detalhe muito fechados."
+  ],
+  "textos": [
+   "Legendas: \"ENSAIO NEWBORN - Maite - 13 dias · Newborn à domicílio · Agendamento no WhatsApp 11 96779-8569\" (01 a 03/11). As citações vêm das avaliações do Google, com o nome de quem escreveu.",
+   "Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas."
+  ],
+  "conferir": [
+   "**Ela não divulgou campanha de Natal**: a página de Natal é sugestão (vale perguntar).",
+   "É um casal (a Roberta e o Edson); a demo cumprimenta a Roberta.",
+   "Atende a domicílio: o endereço do Google é só referência (dito no contato).",
+   "Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
