@@ -136,6 +136,13 @@ Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix
   (horário de Brasília), o aviso e a data somem sozinhos e fica só o valor. A demo continua com o `vale_ate` dela no
   painel (estas 9 saem do ar em 12/11). Enquanto o aviso aparece, o computador esconde o "Tudo incluso:" da faixa para
   caber numa linha; no celular, o aviso fica numa linha só dele. O que cada uma tem e o que conferir está na `ficha.md` da pasta.
+- **Oferta mais clara e o aviso da Renderiza (pedido de 06/11/2026, a partir do lote 3):** a faixa diz "pagamento único" ao
+  lado do valor e "Promoção de 1 semana: até <data>"; o "Ver condição" e o card explicam que é um pagamento único, que o site
+  fica 100% da pessoa, sem mensalidade, e que a promoção vale uma semana. Com `renderiza.aviso` no `demo.json`, a demo
+  ganha o aviso da Renderiza: um recado curto que abre uma vez depois de 40 s e 25% da página, com a data em que a demo
+  sai do ar, o valor e os opcionais (agenda online e painel), e que fecha no botão, no X, tocando fora ou no Esc. Serve
+  para medir: quem viu, como fechou, quanto tempo ficou aberto e se foi para o WhatsApp ou para o painel de exemplo
+  (README, "Aviso da Renderiza"). As demos antigas só mudam se forem geradas de novo.
 - **Como foram montadas:** a bio da página salva confirmou o @ das 9; fotos da página salva (posts antigos, até 1440
   px) + os carrosséis dos posts de out/nov 2026 (`ferramentas/ig-post.py`, até 2048 px) + as fotos do Google; avaliações
   do Google (só as de 5 estrelas, trecho de até ~175 caracteres). Os scripts de cada uma ficaram na pasta da sessão.

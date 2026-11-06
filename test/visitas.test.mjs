@@ -255,3 +255,28 @@ test("fotografia: o card mostra o link do painel de fotografia, com o código do
   assert.equal(linkDoPainel({ codigo: "k3f9", segmento: "Eventos" }), "https://www.renderizaweb.com.br/exemplos?c=k3f9", "eventos continua no mesmo link");
   assert.match(textoDoPasso({ evento: "mudou_tela", pagina: "painel-eventos", detalhe: { tela: "campanha" } }), /campanha de Natal/);
 });
+
+test("demo de fotógrafa: o aviso da Renderiza (viu, como fechou, quanto tempo aberto) vira texto, sinal e indicador", async () => {
+  const { categoriaDoClique, sinaisDaVisita, indicadoresDaAtividade } = await import("../painel/src/visitas.js");
+  const C = (detalhe) => textoDoPasso({ evento: "clicou", pagina: "demo", detalhe });
+  assert.equal(C({ alvo: "aviso", acao: "viu", gatilho: "tempo", s: 41, rolagem: 32 }), "Viu o aviso da Renderiza (com 41 s na página, 32% rolado)");
+  assert.equal(C({ alvo: "aviso", acao: "viu", gatilho: "teste", s: 1, rolagem: 0 }), "Viu o aviso da Renderiza (aberto pelo link de teste)");
+  assert.equal(C({ alvo: "aviso", acao: "fechou", como: "continuar", s: 6 }), 'Fechou o aviso depois de 6 s, em "Continuar vendo"');
+  assert.equal(C({ alvo: "aviso", acao: "fechou", como: "x", s: 0 }), "Fechou o aviso na hora, no X");
+  assert.equal(C({ alvo: "aviso_painel", parte: "Aviso" }), "Foi ver o painel do estúdio (agenda online) (em Aviso)");
+  assert.equal(textoDoPasso({ evento: "clicou_whatsapp", pagina: "demo", detalhe: { onde: "demo", para: "renderiza", parte: "Aviso" } }), "Chamou vocês no WhatsApp (pelo aviso da Renderiza)");
+  const D = (min, evento, detalhe = {}, extra = {}) => V(min, evento, { lead_id: "rafa", pagina: "demo", demo: "rafaela-damaceno-fotografia", detalhe, ...extra });
+  const [g] = agruparVisitas([D(0, "abriu"), D(1, "clicou", { alvo: "aviso", acao: "viu", gatilho: "tempo", s: 40, rolagem: 30 }), D(2, "clicou", { alvo: "aviso", acao: "fechou", como: "continuar", s: 8 })]);
+  assert.equal(fraseDaVisita(g), "abriu a demo e viu o aviso");
+  assert.ok(sinaisDaVisita(g).has("aviso"));
+  assert.equal(resumoDasVisitas([g]).aviso, true);
+  assert.deepEqual(g.passos.map(p => categoriaDoClique(p)).filter(Boolean), ["Aviso: Continuar vendo"], "o viu não é clique; o fechar conta como foi");
+  const [g2] = agruparVisitas([D(0, "abriu", {}, { lead_id: "lis", visitante: "v2", sessao: "s2" }), D(1, "clicou", { alvo: "aviso", acao: "fechou", como: "x", s: 2 }, { lead_id: "lis", visitante: "v2", sessao: "s2" })]);
+  const r = indicadoresDaAtividade([g, g2]);
+  assert.equal(r.aviso, 1, "só a visita com o viu conta como quem viu");
+  assert.equal(r.avisoSegundosMediana, 5);
+  // o contador da página não grava os botões de fechar como clique (o aviso já manda como fechou) e marca a parte "Aviso"
+  const contador = readFileSync(new URL("../exemplos/visitas.js", import.meta.url), "utf8");
+  assert.match(contador, /\[data-rz-aviso-fechar\]"\)\) return null/);
+  assert.match(contador, /closest\("\[data-rz-aviso\]"\) \? "Aviso"/);
+});

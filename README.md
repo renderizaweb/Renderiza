@@ -135,6 +135,15 @@ inventado, a **Villa Alecrim**:
   Negociar, `data-rz-garantir`/`data-rz-negociar`) são um clique à parte (`alvo: "oferta"`), separado do WhatsApp do site.
   A pílula e o "Ver a condição" das demos de fotógrafa (`.rz-pilula`, `.rz-abrir`) vão como `alvo: "valor"`, e um
   WhatsApp para o número da Renderiza vai com `para: "renderiza"`.
+  **Aviso da Renderiza** (demos de fotógrafa com `renderiza.aviso` no `demo.json`, a partir do lote 3): um recado curto
+  (modal) que abre uma vez por visita, e no máximo uma vez a cada 24 h no aparelho, depois de 40 s com a página na frente
+  e 25% dela rolada (ou ao chegar no fim, com 20 s). Diz até quando a demo fica no ar, o valor (pagamento único, sem
+  mensalidade, promoção de uma semana) e os opcionais (agenda online e painel, com o link do painel de exemplo do lead).
+  Vai para o banco como `clicou` com `alvo: "aviso"`: `acao: "viu"` (`gatilho`, `s` na página, `rolagem` %) e
+  `acao: "fechou"` (`como`: continuar, x, fora, esc, whatsapp ou saiu; `s` aberto), sem mudar a tabela. O link do painel
+  vai como `alvo: "aviso_painel"` e o WhatsApp do aviso como `para: "renderiza"`, `parte: "Aviso"`. No painel: o passo
+  na linha do tempo, "viu o aviso" na frase e no cartão, o filtro "Viu o aviso da Renderiza" e, nos números da
+  Atividade, quantos leads viram e quanto tempo ficou aberto (mediana). `?aviso=1` no link abre na hora (teste).
 - **Valor dentro da demo (28/10/2026):** as demos da lista de `site/ofertas.mjs` (as 16 de eventos até 31/10) saem
   do build com uma faixa no topo e um card de valor no fim do conteúdo (`site/oferta-na-demo.mjs`, `comOferta`),
   com as cores da própria demo e os dias que faltam; depois do prazo, os dois somem sozinhos. O contador vê o card

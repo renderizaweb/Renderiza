@@ -19,9 +19,12 @@
 #         sobre {...}, jornada {...}, natal_bloco {...}, avaliacoes [...], contato {...}},
 #   natal {titulo, descricao, hero {...}, ensaio {...}, cenario [...], galeria {...}, avaliacoes [...]},
 #   horarios {dias, horas, reservados, exemplo, mensagem},
-#   renderiza {whatsapp, preco_pix, parcelado, nota_preco, valido_ate, msg_garantir, msg_negociar}
+#   renderiza {whatsapp, preco_pix, parcelado, nota_preco, valido_ate, msg_garantir, msg_negociar, [msg_duvida, codigo, aviso]}
+#     aviso (opcional): {segundos, rolagem} liga o aviso da Renderiza (modal leve, uma vez por visita) depois de
+#     segundos na página e rolagem (0 a 1) da página; ?aviso=1 no link abre na hora (para testar). codigo: o do lead,
+#     para o link do painel de exemplo (/exemplos/fotografia?c=codigo) que o aviso mostra.
 #     -> os valores e a data da oferta ficam só aqui; no HTML, num objeto só (window.RZ), que preenche a faixa.
-#     valido_ate: o aviso "Valor válido somente até <data>" (sem ele, a data em que a demo é gerada + 7 dias). Depois
+#     valido_ate: o aviso "Promoção de 1 semana: até <data>" (sem ele, a data em que a demo é gerada + 7 dias). Depois
 #     dessa data (horário de Brasília), o aviso e a data somem sozinhos e fica só o valor.
 #   ficha {...}: o que vai para a ficha.md.
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
@@ -173,6 +176,8 @@ SIMBOLOS = '''<svg width="0" height="0" style="position:absolute" aria-hidden="t
   <symbol id="seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="fechar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="brilho" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3L3.5 11l6.3-2.2Z"/></symbol>
+  <symbol id="etiqueta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0Z"/><circle cx="8" cy="8" r="1.4"/></g></symbol>
+  <symbol id="mais" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></g></symbol>
   <symbol id="cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
 </svg>'''
 
@@ -230,7 +235,21 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .rz-folha h2{font-family:var(--sans);font-size:1rem;font-weight:500;letter-spacing:0;color:#fff;margin:0 0 10px;padding-right:28px}
 .rz-folha p{margin:0 0 10px;color:#d7dcd9}.rz-folha .rz-troca{margin:4px 0 14px}.rz-folha .rz-acoes{margin:12px 0 0}
 .rz-folha-fechar{position:absolute;top:12px;right:12px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#d7dcd9}.rz-folha-fechar svg{width:18px;height:18px}
-.modo-video .rz-faixa,.modo-video .rz-pilula,.modo-video .rz-folha{display:none!important}
+.rz-unico{color:#aab3ae;font-size:.78rem;white-space:nowrap}
+.modo-video .rz-faixa,.modo-video .rz-pilula,.modo-video .rz-folha,.modo-video .rz-aviso{display:none!important}
+/* aviso da Renderiza: modal leve (centro no computador, folha de baixo no celular) */
+.rz-aviso{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:16px;background:#14100d73;opacity:0;transition:opacity .25s}
+.rz-aviso[hidden]{display:none}.rz-aviso.visivel{opacity:1}
+.rz-aviso-caixa{position:relative;width:min(440px,100%);background:#1e2528;color:#eef0ee;border-radius:20px;padding:24px 22px 20px;box-shadow:0 30px 80px #00000059;font-family:var(--sans);font-size:.92rem;line-height:1.5;transform:translateY(14px);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.rz-aviso.visivel .rz-aviso-caixa{transform:none}.rz-aviso-caixa:focus{outline:none}
+.rz-aviso-de{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:#aab3ae;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.rz-aviso-de svg{width:13px;height:13px;color:#e8855e}
+.rz-aviso h2{font-family:var(--sans);font-size:1.14rem;font-weight:600;letter-spacing:0;line-height:1.3;color:#fff;margin:0 0 14px;padding-right:32px;text-wrap:balance}
+.rz-aviso ul{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:11px}
+.rz-aviso li{display:flex;gap:11px;align-items:flex-start;color:#d7dcd9}.rz-aviso li[hidden]{display:none}.rz-aviso li svg{width:17px;height:17px;flex:none;margin-top:2px;color:#e8a07f}.rz-aviso li b{color:#fff;font-weight:500}
+.rz-aviso li a{color:#f1c9b6;text-underline-offset:3px}
+.rz-aviso-acoes{display:flex;flex-direction:column;gap:8px}.rz-aviso-acoes .rz-botao{justify-content:center;min-height:46px;font-size:.9rem}
+.rz-aviso-x{position:absolute;top:12px;right:12px;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#d7dcd9}.rz-aviso-x:hover{background:#ffffff14}.rz-aviso-x svg{width:18px;height:18px}
+@media(max-width:600px){.rz-aviso{place-items:end center;padding:0}.rz-aviso-caixa{width:100%;border-radius:20px 20px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom));transform:translateY(40px)}}
 @media(max-width:860px){.rz-in{gap:8px 12px;padding:10px 0 11px}.rz-ola{width:100%;font-size:.84rem}.rz-troca{width:100%}.rz-troca a{flex:1;text-align:center;padding:7px 8px}
 .rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px 10px}.rz-preco>span:first-child{flex:1 1 auto;min-width:0}.rz-alerta{order:3;font-size:.74rem;padding:3px 10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
 
@@ -614,6 +633,7 @@ JS = r'''
     $$("[data-rz=curta]").forEach(e => e.textContent = vencida ? RZ.precoPix : RZ.precoPix + " · até " + d + "/" + m);
     $$("[data-rz-garantir]").forEach(e => e.href = wa(RZ.msgGarantir));
     $$("[data-rz-negociar]").forEach(e => e.href = wa(RZ.msgNegociar));
+    $$("[data-rz-duvida]").forEach(e => e.href = wa(RZ.msgDuvida || RZ.msgNegociar));
   }
   const faixa = $(".rz-faixa"), abrir = $(".rz-abrir"), mais = $(".rz-mais");
   if (faixa && abrir && mais) abrir.addEventListener("click", () => {
@@ -629,6 +649,59 @@ JS = r'''
     $(".rz-folha-fechar", folha).addEventListener("click", () => { fechar(); pilula.focus(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !folha.hidden) fechar(); });
   }
+  // ---------- aviso da Renderiza: abre uma vez por visita (e no máximo uma vez a cada 24 h neste aparelho) ----------
+  // Depois de RZ.aviso.segundos com a página na frente e RZ.aviso.rolagem da página rolada, ou ao chegar no fim
+  // (com 20 s). Nunca com a galeria em tela cheia, o card de valor ou a faixa aberta, nem depois de "Garantir"/"Negociar".
+  // ?aviso=1 abre na hora (teste). Métricas (clicou, alvo aviso): acao viu {gatilho, s, rolagem} e acao fechou {como, s aberto}.
+  const aviso = $("[data-rz-aviso]");
+  if (aviso && RZ && RZ.aviso && !document.documentElement.classList.contains("modo-video")) {
+    const espera = (RZ.aviso.segundos || 40) * 1000, rolagemMin = RZ.aviso.rolagem == null ? 0.25 : RZ.aviso.rolagem;
+    const chave = "renderiza:aviso:" + (RZ.pasta || "demo");
+    const lerMarca = () => { try { return Number(localStorage.getItem(chave)) || 0; } catch (e) { return 0; } };
+    const marcar = () => { try { localStorage.setItem(chave, String(Date.now())); } catch (e) { /* sem armazenamento */ } };
+    // No banco, como um "clicou" com alvo "aviso" (acao: viu ou fechou): a tabela visitas só aceita os passos de sempre.
+    const conta = d => { try { if (window.rzVisita) window.rzVisita("clicou", { alvo: "aviso", ...d }); } catch (e) { /* o contador nunca atrapalha */ } };
+    const forcar = /[?&]aviso=1(&|$)/.test(location.search);
+    let visivelMs = 0, tique = Date.now(), maxRol = 0, fim = false, mostrado = false, aberto = false, abertoEm = 0, oferta = false;
+    const lerRolagem = () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      maxRol = Math.max(maxRol, h > 0 ? Math.min(1, scrollY / h) : 1);
+      if (scrollY + innerHeight >= document.documentElement.scrollHeight - 320) fim = true;
+    };
+    addEventListener("scroll", lerRolagem, { passive: true });
+    document.addEventListener("click", e => { if (e.target.closest && e.target.closest("[data-rz-garantir], [data-rz-negociar]")) oferta = true; }, true);
+    const ocupado = () => { const lb = $(".lb"), fo = $(".rz-folha"), fx = $(".rz-faixa");
+      return (lb && lb.classList.contains("aberto")) || (fo && !fo.hidden) || (fx && fx.classList.contains("aberta")); };
+    const abrirAviso = gatilho => {
+      mostrado = aberto = true; marcar(); abertoEm = Date.now();
+      aviso.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => aviso.classList.add("visivel")));
+      conta({ acao: "viu", gatilho, s: Math.round(visivelMs / 1000), rolagem: Math.round(maxRol * 100) });
+      const cx = $(".rz-aviso-caixa", aviso); if (cx) cx.focus({ preventScroll: true });
+    };
+    const fecharAviso = como => {
+      if (!aberto) return;
+      aberto = false; aviso.classList.remove("visivel"); setTimeout(() => { aviso.hidden = true; }, 260);
+      conta({ acao: "fechou", como, s: Math.round((Date.now() - abertoEm) / 1000) });
+    };
+    $$("[data-rz-aviso-fechar]", aviso).forEach(b => b.addEventListener("click", () => fecharAviso(b.dataset.rzAvisoFechar)));
+    $$("[data-rz-duvida]", aviso).forEach(a => a.addEventListener("click", () => fecharAviso("whatsapp")));
+    aviso.addEventListener("click", e => { if (e.target === aviso) fecharAviso("fora"); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && aberto) fecharAviso("esc"); });
+    addEventListener("pagehide", () => fecharAviso("saiu"));
+    if (forcar) setTimeout(() => abrirAviso("teste"), 1200);
+    else if (Date.now() - lerMarca() > 24 * 3600e3) {
+      const relogio = setInterval(() => {
+        const agora = Date.now(), passo = Math.min(2000, agora - tique); tique = agora;
+        if (document.visibilityState !== "visible") return;
+        visivelMs += passo; lerRolagem();
+        if (mostrado || oferta) { clearInterval(relogio); return; }
+        if (ocupado()) return;
+        const porTempo = visivelMs >= espera && maxRol >= rolagemMin, peloFim = fim && visivelMs >= 20000;
+        if (porTempo || peloFim) { clearInterval(relogio); abrirAviso(porTempo ? "tempo" : "fim"); }
+      }, 1000);
+    }
+  }
+
   // Links entre o site e a página de Natal: no ar o endereço não tem ".html" (/demo/<pasta> e /demo/<pasta>/natal)
   // e leva junto o ?c= do link do lead; aberto do computador (file://), vai para o arquivo.
   if (location.protocol !== "file:") {
@@ -722,13 +795,13 @@ def faixa_rz(cfg, pagina):
   <div class="rz-in">
     <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>{nome}, a Renderiza montou para {esc(cfg["renderiza"].get("para", "você"))}:</p>
     {troca}
-    <p class="rz-preco" style="margin:0"><span><span class="rz-tudo">Tudo incluso: </span><b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> <small>(<span data-rz="nota">{esc(r["nota_preco"])}</span>)</small></span>
-      <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Valor válido somente até <b data-rz="validade-curta">{d[2]}/{d[1]}</b></span>
+    <p class="rz-preco" style="margin:0"><span><b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> <span class="rz-unico">pagamento único</span></span>
+      <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Promoção de 1 semana: até <b data-rz="validade-curta">{d[2]}/{d[1]}</b></span>
       <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
   </div>
   <div class="rz-mais" id="rz-mais" hidden>
     <div class="rz-in">
-      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</span></p>
+      <p class="rz-prazo">O site e a página de Natal, prontos, por <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b>. É um pagamento único: depois disso o site é 100% seu, <b>sem mensalidade</b>.<span data-rz-prazo> Promoção de lançamento, válida por uma semana: até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</span></p>
       <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">Negociar</a></div>
       <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
     </div>
@@ -745,9 +818,34 @@ def pilula_rz(cfg, pagina):
   <button class="rz-folha-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
   <h2>{esc(r.get("ola", "Ana"))}, a Renderiza montou para {esc(r.get("para", "você"))}</h2>
   <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="index.html" data-pagina="site"{site_atual}>O seu site</a><a href="natal.html" data-pagina="natal"{natal_atual}>A sua página de Natal</a></nav>
-  <p>Tudo incluso: <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b> (<span data-rz="nota">{esc(r["nota_preco"])}</span>).</p>
-  <p data-rz-prazo>Valor válido somente até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</p>
+  <p>O site e a página de Natal por <b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b>. Pagamento único: o site fica 100% seu, <b>sem mensalidade</b>.</p>
+  <p data-rz-prazo>Promoção de lançamento, válida por uma semana: até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</p>
   <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">Negociar</a></div>
+</div>'''
+
+
+def aviso_rz(cfg, pagina):
+    """O aviso da Renderiza: um recado curto que abre uma vez por visita, depois de um tempo na página (renderiza.aviso
+    no demo.json; sem isso, não entra). Diz até quando a demo fica no ar, o valor (pagamento único, sem mensalidade,
+    promoção de uma semana) e o que dá para somar depois (agenda online e painel). Fecha no botão, no X, tocando fora
+    ou no Esc; as métricas (viu e fechou o aviso, como e em quanto tempo, e os cliques) vão para o contador de visitas."""
+    r = cfg['renderiza']
+    if not r.get('aviso'): return ''
+    d = r['valido_ate'].split('-')
+    painel = '/exemplos/fotografia' + (f'?c={r["codigo"]}' if r.get('codigo') else '')
+    continuar = 'Continuar vendo o site' if pagina == 'site' else 'Continuar vendo a página'
+    return f'''<div class="rz-aviso" data-rz-aviso hidden>
+  <div class="rz-aviso-caixa" role="dialog" aria-modal="true" aria-labelledby="rz-aviso-t" tabindex="-1">
+    <button class="rz-aviso-x" type="button" aria-label="Fechar o aviso" data-rz-aviso-fechar="x"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
+    <p class="rz-aviso-de"><svg aria-hidden="true"><use href="#brilho"/></svg>Um recado da Renderiza</p>
+    <h2 id="rz-aviso-t">{esc(r.get("ola", "Ana"))}, este site pode ser seu.</h2>
+    <ul>
+      <li data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg><span>Esta demonstração fica no ar até <b data-rz="validade-curta">{d[2]}/{d[1]}</b>. Pode mostrar para quem quiser.</span></li>
+      <li><svg aria-hidden="true"><use href="#etiqueta"/></svg><span><b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b>, pagamento único: depois o site é 100% seu, <b>sem mensalidade</b>.<span data-rz-prazo> Promoção válida por uma semana.</span></span></li>
+      <li><svg aria-hidden="true"><use href="#mais"/></svg><span>Se quiser ir além: agenda online e painel do estúdio, opcionais. <a href="{painel}" data-rz-alvo="aviso_painel" target="_blank" rel="noopener">Ver como funciona</a></span></li>
+    </ul>
+    <div class="rz-aviso-acoes"><button class="rz-botao" type="button" data-rz-aviso-fechar="continuar">{continuar}</button><a class="rz-botao rz-botao--linha" data-rz-duvida href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Tirar uma dúvida no WhatsApp</a></div>
+  </div>
 </div>'''
 
 
@@ -755,6 +853,10 @@ def rz_js(cfg):
     r = cfg['renderiza']
     dados = {'whatsapp': r['whatsapp'], 'precoPix': r['preco_pix'], 'parcelado': r['parcelado'], 'notaPreco': r['nota_preco'],
              'validoAte': r['valido_ate'], 'msgGarantir': r['msg_garantir'], 'msgNegociar': r['msg_negociar']}
+    if r.get('aviso'):
+        a = r['aviso'] if isinstance(r['aviso'], dict) else {}
+        dados.update({'msgDuvida': r.get('msg_duvida') or r['msg_negociar'], 'pasta': cfg['pasta'],
+                      'aviso': {'segundos': a.get('segundos', 40), 'rolagem': a.get('rolagem', 0.25)}})
     linhas = ',\n'.join(f'  {k}: {json.dumps(v, ensure_ascii=False)}' for k, v in dados.items())
     return ('<script>\n// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. "Valor válido somente até" validoAte\n'
             '// (padrão: a data da demo + 7 dias); depois dela, a data some e fica só o valor. Sem contagem regressiva.\nwindow.RZ = {\n' + linhas + '\n};\n</script>')
@@ -990,6 +1092,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     out.append(rodape(cfg, F, [('#portfolio', 'Portfólio', ''), ('#sobre', q['A'], ''), ('natal.html', 'Natal 2026', 'natal')]))
     out.append(lightbox())
     out.append(pilula_rz(cfg, 'site'))
+    out.append(aviso_rz(cfg, 'site'))
     return out
 
 
@@ -1070,6 +1173,7 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
     out.append(rodape(cfg, F, [('index.html', 'O site ' + q['da'], 'site'), ('index.html#portfolio', 'Portfólio', 'site'), ('#horarios', 'Horários de Natal', '')]))
     out.append(lightbox())
     out.append(pilula_rz(cfg, 'natal'))
+    out.append(aviso_rz(cfg, 'natal'))
     return out
 
 
@@ -1093,7 +1197,7 @@ def ficha(cfg, horas, total, livres, F):
               f'| Site | {f["site"]} |',
               '| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |',
               f'| Situação | {f["situacao"]} |',
-              f'| Oferta na demo | {cfg["renderiza"]["preco_pix"]} no Pix ou {cfg["renderiza"]["parcelado"]} ({cfg["renderiza"]["nota_preco"]}), válida até {dmy(cfg["renderiza"]["valido_ate"])} (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |',
+              f'| Oferta na demo | {cfg["renderiza"]["preco_pix"]} no Pix ou {cfg["renderiza"]["parcelado"]}, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até {dmy(cfg["renderiza"]["valido_ate"])} (depois dessa data, o aviso some e fica só o valor){"; com o aviso da Renderiza (modal) depois de " + str((cfg["renderiza"]["aviso"] if isinstance(cfg["renderiza"]["aviso"], dict) else {}).get("segundos", 40)) + " s" if cfg["renderiza"].get("aviso") else ""}: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |',
               f'| Horários de exemplo | {livres} livres de {total} (`horarios` no `demo.json`) |', '']
     for titulo, chave in (('Direção da demo', 'direcao'), ('O que tem na demo', 'demo'), ('Fotos', 'fotos'), ('Textos e fontes', 'textos'), ('Conferir antes de mandar', 'conferir')):
         if f.get(chave): linhas += [f'## {titulo}'] + [f'- {x}' for x in f[chave]] + ['']

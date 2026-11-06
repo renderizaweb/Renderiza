@@ -155,6 +155,8 @@ export function criarTelaAtividade(ctx) {
       numero(r.whatsapp, "leads clicaram no WhatsApp do site", "lead clicou no WhatsApp do site"),
       r.whatsappRenderiza ? numero(r.whatsappRenderiza, "leads chamaram vocês no WhatsApp", "lead chamou vocês no WhatsApp", true) : null,
       r.oferta ? numero(r.oferta, "leads clicaram em Garantir ou Negociar", "lead clicou em Garantir ou Negociar", true) : null,
+      r.aviso ? numero(r.aviso, "leads viram o aviso da Renderiza", "lead viu o aviso da Renderiza") : null,
+      r.aviso && r.avisoSegundosMediana ? numeroTexto(duracao(r.avisoSegundosMediana), "com o aviso aberto (mediana)") : null,
       nossas ? h("p", { class: "atv-nossas", text: `${plural(nossas, "visita", "visitas")} de vocês no período` }) : null,
       contados.length ? verIndicadores : null].filter(Boolean));
     verIndicadores.replaceChildren(icone(estado.indicadores ? "abaixo" : "direita", 14), estado.indicadores ? "Esconder os indicadores" : "Ver os indicadores");

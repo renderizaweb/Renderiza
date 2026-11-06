@@ -113,6 +113,8 @@
         if (el.matches("[data-rz-garantir]")) return { alvo: "oferta", texto: "garantir" };
         if (el.matches("[data-rz-negociar]")) return { alvo: "oferta", texto: "negociar" };
         if (el.dataset.rzAlvo) return { alvo: el.dataset.rzAlvo }; // botões nossos: faixa do valor, reabrir a demo
+        // O aviso da Renderiza (demo de fotógrafa) conta sozinho que abriu e como fechou: os botões de fechar não entram.
+        if (el.matches("[data-rz-aviso-fechar]")) return null;
         // Demo de fotógrafa: a pílula e o "Ver a condição" da faixa abrem o card de valor da Renderiza.
         if (el.matches(".rz-pilula, .rz-abrir")) return { alvo: "valor" };
         // WhatsApp: o do cliente (o botão do site da demo) ou o da Renderiza (o mesmo número do site da Renderiza).
@@ -144,7 +146,7 @@
           const el = ev.target && ev.target.closest && ev.target.closest("a[href], button, [role=button]");
           const c = el && cliqueDe(el);
           if (!c) return;
-          const parte = parteDe(el);
+          const parte = parteDe(el) || (el.closest("[data-rz-aviso]") ? "Aviso" : "");
           if (c.whatsapp) { window.rzVisita("clicou_whatsapp", { onde: fora ? "fora" : "demo", ...(c.renderiza && !fora ? { para: "renderiza" } : {}), ...(parte ? { parte } : {}) }, "demo"); return; }
           const chave = c.alvo + ":" + (c.para || c.texto || "");
           if (jaClicou.has(chave) || jaClicou.size >= 25) return;

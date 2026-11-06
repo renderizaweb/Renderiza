@@ -45,7 +45,8 @@ export function textoDoPasso(v) {
     case "mudou_tela": return "No exemplo, abriu " + (TELAS[d.tela] || "outra tela");
     case "clicou_whatsapp": {
       if (daDemo(v)) return d.onde === "fora" ? "Chamou vocês no WhatsApp para liberar a demo de novo"
-        : d.para === "renderiza" ? "Chamou vocês no WhatsApp (botão da Renderiza na demo)" : "Clicou no WhatsApp do próprio site, na demo (testou o botão)";
+        : d.para === "renderiza" ? (d.parte === "Aviso" ? "Chamou vocês no WhatsApp (pelo aviso da Renderiza)" : "Chamou vocês no WhatsApp (botão da Renderiza na demo)")
+        : "Clicou no WhatsApp do próprio site, na demo (testou o botão)";
       const mods = Array.isArray(d.modulos) ? d.modulos.map(m => MODULOS[m] || m) : [];
       return mods.length ? `Clicou no WhatsApp com o plano: ${mods.join(", ")}${d.total ? ` (${reais(d.total)}/mês)` : ""}` : "Clicou no WhatsApp";
     }
@@ -54,6 +55,7 @@ export function textoDoPasso(v) {
     case "clicou": {
       const onde = d.parte ? ` (em ${d.parte})` : "";
       if (alvoDoClique(d) === "valor") return "Abriu o card de valor da Renderiza" + onde;
+      if (d.alvo === "aviso") return textoDoAviso(d);
       if (d.alvo === "menu") return "Pelo menu, foi para " + (d.para || "outra parte");
       if (d.alvo === "botao") return `Clicou em "${d.texto || "um botão"}"` + onde;
       if (d.alvo === "link") return "Abriu um link" + (d.para ? ` (${d.para})` : "");
@@ -63,14 +65,29 @@ export function textoDoPasso(v) {
     default: return v.evento;
   }
 }
+/**
+ * O aviso da Renderiza na demo de fotógrafa (modal leve que abre uma vez depois de um tempo na página): a página grava
+ * como "clicou" com alvo "aviso", acao "viu" (s: segundos na página, rolagem: % rolado, gatilho) ou "fechou" (como e
+ * s: quanto tempo ficou aberto).
+ */
+const COMO_FECHOU = { continuar: 'em "Continuar vendo"', x: "no X", fora: "tocando fora", esc: "no Esc", whatsapp: "indo para o WhatsApp", saiu: "saindo da página com ele aberto" };
+export const avisoVisto = d => !!d && d.alvo === "aviso" && d.acao === "viu";
+function textoDoAviso(d) {
+  if (d.acao === "viu") {
+    const contexto = [d.gatilho === "teste" ? "aberto pelo link de teste" : d.s ? `com ${duracao(d.s)} na página` : "", d.rolagem != null && d.gatilho !== "teste" ? `${d.rolagem}% rolado` : ""].filter(Boolean).join(", ");
+    return "Viu o aviso da Renderiza" + (contexto ? ` (${contexto})` : "");
+  }
+  const tempo = d.s == null ? "" : d.s >= 1 ? ` depois de ${duracao(d.s)}` : " na hora";
+  return "Fechou o aviso" + tempo + (COMO_FECHOU[d.como] ? ", " + COMO_FECHOU[d.como] : "");
+}
 // A demo fora do ar (middleware.js): a pessoa voltou no link e viu o aviso.
 const FORA = { vencida: "Voltou na demo, que estava vencida (viu o aviso e o botão de reabrir)", reaberta: "Voltou na demo vencida, que já tinha sido reaberta uma vez",
   fora: "Voltou na demo, que está desligada (viu o aviso de fora do ar)" };
-const CLIQUES = { reabrir: "Reabriu a demo por 1 hora (botão grátis)", faixa: "Tocou na faixa do valor, no topo", instagram: "Abriu o Instagram da loja", facebook: "Abriu o Facebook da loja", tiktok: "Abriu o TikTok da loja", rota: "Pediu a rota até a loja",
+const CLIQUES = { aviso_painel: "Foi ver o painel do estúdio (agenda online)", reabrir: "Reabriu a demo por 1 hora (botão grátis)", faixa: "Tocou na faixa do valor, no topo", instagram: "Abriu o Instagram da loja", facebook: "Abriu o Facebook da loja", tiktok: "Abriu o TikTok da loja", rota: "Pediu a rota até a loja",
   mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
+const CLIQUES_FORTES = new Set(["aviso_painel", "reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
 const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has(alvoDoClique(v.detalhe))) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
 
 /** IPs vistos em visitas marcadas como nossas: outra visita com o mesmo IP provavelmente também é nossa. */
@@ -160,10 +177,10 @@ export const vendoAgora = (g, agora = Date.now()) => !g.saiu && agora - Date.par
 const juntar = l => (l.length < 2 ? l.join("") : l.slice(0, -1).join(", ") + " e " + l[l.length - 1]);
 const ALVOS = { reabrir: "reabriu por 1 hora", instagram: "abriu o Instagram", facebook: "abriu o Facebook", tiktok: "abriu o TikTok", rota: "pediu a rota até a loja", mapa: "abriu o mapa",
   avaliacoes: "foi ver as avaliações", avaliar: "foi avaliar no Google", telefone: "tocou para ligar", email: "tocou no e-mail",
-  oferta: "clicou na oferta da Renderiza" };
+  oferta: "clicou na oferta da Renderiza", aviso_painel: "foi ver o painel do estúdio" };
 const ABERTURAS = { demo: "abriu a demo", exemplos: "abriu o link do painel", "painel-eventos": "viu o exemplo do painel", "agenda-online": "abriu a agenda online" };
 // O que pode sair da frase quando ela fica longa (o resto continua nos detalhes).
-const MENOS_IMPORTANTE = ["botoes", "menu", "telas", "fim", "clicou:mapa", "clicou:email", "clicou:facebook", "clicou:tiktok"];
+const MENOS_IMPORTANTE = ["botoes", "menu", "telas", "fim", "aviso", "clicou:mapa", "clicou:email", "clicou:facebook", "clicou:tiktok"];
 
 /**
  * A visita numa frase, sem termo técnico: "abriu a demo, viu até o fim e clicou no WhatsApp do site". Na ordem
@@ -185,6 +202,7 @@ export function fraseDaVisita(g) {
     else if (p.evento === "rolou_fim") add("fim", () => (p.pagina === "demo" ? "viu até o fim" : "rolou até o fim"));
     else if (p.evento === "clicou_whatsapp") add("whatsapp", () => (d.onde === "fora" || d.para === "renderiza" ? "chamou vocês no WhatsApp" : p.pagina === "demo" ? "clicou no WhatsApp do site" : "clicou no WhatsApp"));
     else if (p.evento === "clicou" && alvoDoClique(d) === "valor") add("precos", () => "abriu o valor do site");
+    else if (p.evento === "clicou" && d.alvo === "aviso") { if (d.acao === "viu") add("aviso", () => "viu o aviso"); }
     else if (p.evento === "clicou" && ALVOS[d.alvo]) add("clicou:" + d.alvo, () => ALVOS[d.alvo]);
     else if (p.evento === "clicou" && d.alvo === "menu") add("menu", () => "usou o menu");
     else if (p.evento === "clicou" && d.alvo === "botao") { botoes++; ultimoBotao = d.texto || ""; add("botoes", () => (botoes > 1 || !ultimoBotao ? `clicou em ${botoes > 1 ? botoes + " botões" : "um botão"}` : `clicou em "${ultimoBotao}"`)); }
@@ -221,6 +239,7 @@ export function resumoDasVisitas(grupos) {
     demo: passos.some(p => p.pagina === "demo"),
     painel: passos.some(p => p.pagina !== "demo"),
     fim: passos.some(p => p.evento === "rolou_fim"),
+    aviso: passos.some(p => p.evento === "clicou" && avisoVisto(p.detalhe)),
     aparelhos: doCliente.length ? 1 + doCliente.filter(g => g.repasse).length : 0,
     cliques: [...new Set(passos.filter(p => p.evento === "clicou").map(p => (p.detalhe || {}).alvo).filter(Boolean))],
     segundos: doCliente.reduce((s, g) => s + g.segundos, 0),
@@ -302,7 +321,7 @@ export function resumoDaAtividade(grupos) {
 /** O que a visita teve de importante (o campo "Fez" dos filtros da Atividade). */
 export const SINAIS = [
   ["valor", "Viu o valor"], ["oferta", "Clicou em Garantir ou Negociar"], ["whatsapp_renderiza", "Chamou vocês no WhatsApp"],
-  ["whatsapp", "Clicou no WhatsApp do site"], ["fim", "Foi até o fim"], ["natal", "Abriu a página de Natal"],
+  ["whatsapp", "Clicou no WhatsApp do site"], ["aviso", "Viu o aviso da Renderiza"], ["fim", "Foi até o fim"], ["natal", "Abriu a página de Natal"],
   ["exemplo", "Mexeu no exemplo do painel"], ["reabriu", "Voltou na demo vencida"], ["repasse", "Outro aparelho"],
 ];
 export function sinaisDaVisita(g) {
@@ -311,6 +330,7 @@ export function sinaisDaVisita(g) {
     const d = p.detalhe || {}, v = { evento: p.evento, pagina: p.pagina, detalhe: d };
     if (p.evento === "viu_precos" || (p.evento === "clicou" && ["valor", "faixa"].includes(alvoDoClique(d)))) s.add("valor");
     if (p.evento === "clicou" && d.alvo === "oferta") s.add("oferta");
+    if (p.evento === "clicou" && avisoVisto(d)) s.add("aviso");
     if (p.evento === "clicou_whatsapp") s.add(whatsappDaRenderiza(v) ? "whatsapp_renderiza" : "whatsapp");
     if (p.evento === "rolou_fim") s.add("fim");
     if (p.evento === "abriu" && d.sub === "natal") s.add("natal");
@@ -324,13 +344,16 @@ export function sinaisDaVisita(g) {
 /** Em que clicou, agrupado para filtrar e contar ("Menu: Portfólio", "Botões em Portfólio", "Instagram"…). */
 const NOMES_DOS_CLIQUES = { reabrir: "Reabrir a demo", faixa: "Faixa do valor", valor: "Card de valor da Renderiza", oferta: "Garantir ou Negociar",
   instagram: "Instagram", facebook: "Facebook", tiktok: "TikTok", rota: "Rota", mapa: "Mapa", avaliacoes: "Avaliações no Google",
-  avaliar: "Avaliar no Google", telefone: "Telefone", email: "E-mail", link: "Link para outro site" };
+  avaliar: "Avaliar no Google", telefone: "Telefone", email: "E-mail", link: "Link para outro site", aviso_painel: "Aviso: ver o painel do estúdio" };
+/** Como fecharam o aviso, nos cliques (o "viu" não é clique; o WhatsApp do aviso já conta como WhatsApp da Renderiza). */
+const FECHOU_O_AVISO = { continuar: "Aviso: Continuar vendo", x: "Aviso: fechou no X", fora: "Aviso: tocou fora", esc: "Aviso: fechou no Esc", saiu: "Aviso: saiu com ele aberto" };
 export function categoriaDoClique(p) {
   const d = p.detalhe || {};
   if (p.evento === "clicou_whatsapp") return whatsappDaRenderiza({ evento: p.evento, pagina: p.pagina, detalhe: d }) ? "WhatsApp da Renderiza" : "WhatsApp do site";
   if (p.evento !== "clicou") return null;
   const alvo = alvoDoClique(d);
   if (alvo === "menu") return "Menu: " + (d.para || "outra parte");
+  if (alvo === "aviso") return d.acao === "fechou" ? FECHOU_O_AVISO[d.como] || null : null;
   if (alvo === "botao") return /^fechar$/i.test(String(d.texto || "").trim()) ? null : d.parte ? "Botões em " + d.parte : "Outros botões";
   return NOMES_DOS_CLIQUES[alvo] || "Outros cliques";
 }
@@ -343,7 +366,7 @@ const mediana = ns => { if (!ns.length) return 0; const o = [...ns].sort((a, b) 
  * cliques. `pontos` ordena os leads (mesma régua do painel de indicadores das demos de fotógrafa).
  */
 export function indicadoresDaAtividade(grupos) {
-  const porLead = new Map(), partes = new Map(), cliques = new Map();
+  const porLead = new Map(), partes = new Map(), cliques = new Map(), avisoAberto = [];
   let fim = 0;
   for (const g of grupos) {
     const sinais = sinaisDaVisita(g);
@@ -356,6 +379,8 @@ export function indicadoresDaAtividade(grupos) {
     for (const [nome, s] of g.secoes || []) { const x = partes.get(nome) || { nome, visitas: 0, segundos: 0 }; x.visitas++; x.segundos += s; partes.set(nome, x); }
     const vistos = new Set();
     for (const p of g.passos) {
+      const d = p.detalhe || {};
+      if (p.evento === "clicou" && d.alvo === "aviso" && d.acao === "fechou" && d.s >= 0) avisoAberto.push(Number(d.s));
       const c = categoriaDoClique(p);
       if (!c) continue;
       const x = cliques.get(c) || { nome: c, cliques: 0, leads: new Set() };
@@ -376,6 +401,7 @@ export function indicadoresDaAtividade(grupos) {
     segundosMediana: mediana(comTempo),
     fim, fimPct: grupos.length ? Math.round(100 * fim / grupos.length) : 0,
     valor: com("valor"), whatsapp: com("whatsapp"), whatsappRenderiza: com("whatsapp_renderiza"), oferta: com("oferta"),
+    aviso: com("aviso"), avisoSegundosMediana: mediana(avisoAberto),
     partes: [...partes.values()].map(x => ({ ...x, media: Math.round(x.segundos / x.visitas), pct: grupos.length ? Math.round(100 * x.visitas / grupos.length) : 0 }))
       .sort((a, b) => b.segundos - a.segundos || b.media - a.media),
     cliques: [...cliques.values()].map(x => ({ nome: x.nome, cliques: x.cliques, leads: x.leads.size })).sort((a, b) => b.leads - a.leads || b.cliques - a.cliques),
