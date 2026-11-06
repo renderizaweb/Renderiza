@@ -103,7 +103,6 @@
   "fotos": "suave",
   "eyebrow": "ponto",
   "abas": "sublinhado",
-  "natal_capa": "retrato",
   "ornamento": "♥",
   "script_escala": 0.95
  },
@@ -400,15 +399,15 @@
    "h2": "Não deixe o Natal <em>para a última hora.</em>",
    "p": "O cenário de Natal 2026 já está pronto: as cortinas de veludo vermelho, a lareira, a guirlanda, os laços e a árvore. Escolha um horário e a mensagem chega pronta no WhatsApp da Sabrina.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n25.jpg",
-    "f": "p",
-    "alt": "O cenário de Natal 2026, com a árvore vermelha e a lareira",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5jeXHX3m/DeH5jeXHX3m_01.jpg",
+    "f": "l",
+    "alt": "Pais com a bebê no mesversário",
     "c": [
      0.5,
      0.45
     ]
    },
-   "legenda": "O cenário de Natal 2026"
+   "legenda": "Mesversário no estúdio"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -456,15 +455,15 @@
    "citacao": "A fotografia é a sua primeira lembrança.",
    "citacao_quem": "Sabrina, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n10.jpg",
-    "f": "p",
-    "alt": "O cenário de Natal 2026, com o laço vermelho, a guirlanda e a lareira",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5jeXHX3m/DeH5jeXHX3m_01.jpg",
+    "f": "l",
+    "alt": "Pais com a bebê no mesversário",
     "c": [
      0.5,
-     0.42
+     0.45
     ]
    },
-   "legenda": "O cenário de Natal 2026, no vídeo do estúdio"
+   "legenda": "Ensaio em família no estúdio"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -476,40 +475,34 @@
     "Exclusividade: um cenário montado só para 2026.",
     "Valores e horários pelo WhatsApp da Sabrina."
    ],
-   "legenda_fotos": "O cenário de Natal 2026"
+   "legenda_fotos": "Os cenários temáticos do estúdio"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n0.2.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9XWfDona/Deb9XWfDona_01.jpg",
     "f": "p",
-    "alt": "A árvore com as bolas de veludo vermelho",
+    "alt": "Menino sorrindo com o lápis gigante, no cenário de pintor",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/Deb9UY5jnWI/Deb9UY5jnWI_00.jpg",
+    "f": "l",
+    "alt": "O cenário de pintor do Dia das Crianças",
     "c": [
      0.5,
      0.5
-    ],
-    "box": [
-     0.45,
-     0.0,
-     1.0,
-     0.6
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n15.5.jpg",
-    "f": "p",
-    "alt": "A lareira branca do cenário",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/posts/DeH5lKUnU83/DeH5lKUnU83_00.jpg",
+    "f": "l",
+    "alt": "O cenário de bichinhos do mesversário",
     "c": [
      0.5,
-     0.45
-    ]
-   },
-   {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/sabrina-matos-fotografia/extra/n31.jpg",
-    "f": "p",
-    "alt": "A árvore vermelha e os castiçais",
-    "c": [
-     0.5,
-     0.45
+     0.5
     ]
    }
   ],

@@ -136,12 +136,12 @@
    ],
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_05.jpg",
      "f": "p",
-     "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+     "alt": "Andressa com a caneca na cozinha do cenário de Natal",
      "c": [
       0.5,
-      0.45
+      0.4
      ]
     },
     {
@@ -430,15 +430,15 @@
    "h2": "Agora <em>só falta vocês.</em>",
    "p": "O Memórias de Natal 2026 tem a cozinha dos biscoitos, a lareira com as meias, o sofá branco e a árvore cheia de bolas vermelhas. A agenda está aberta: escolha um horário e a mensagem chega pronta no WhatsApp da Andressa.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
-    "f": "p",
-    "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_01.jpg",
+    "f": "l",
+    "alt": "A lareira com as meias e a árvore vermelha",
     "c": [
      0.5,
-     0.45
+     0.35
     ]
    },
-   "legenda": "Memórias de Natal 2026"
+   "legenda": "Memórias de Natal 2026, com a Andressa"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -486,15 +486,15 @@
    "citacao": "Acho que as memórias de Natal começam antes mesmo da primeira foto.",
    "citacao_quem": "Andressa, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfDCwd-pmqo/DfDCwd-pmqo_00.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_04.jpg",
     "f": "p",
-    "alt": "Família fazendo biscoitos no cenário Memórias de Natal",
+    "alt": "Andressa na cozinha dos biscoitos do Memórias de Natal",
     "c": [
      0.5,
-     0.45
+     0.4
     ]
    },
-   "legenda": "Memórias de Natal 2026"
+   "legenda": "Memórias de Natal 2026, com a Andressa"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -510,7 +510,7 @@
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_04.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_03.jpg",
     "f": "p",
     "alt": "A cozinha dos biscoitos, com o armário branco e a árvore",
     "c": [
@@ -600,7 +600,7 @@
      "pos": "50% 40%"
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_03.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/andressa-pratez-fotografia/posts/DfNxVWjGohC/DfNxVWjGohC_04.jpg",
      "f": "p",
      "alt": "Andressa na cozinha dos biscoitos",
      "pos": "50% 40%"

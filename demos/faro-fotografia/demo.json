@@ -98,7 +98,6 @@
   "fotos": "suave",
   "eyebrow": "ponto",
   "abas": "sublinhado",
-  "natal_capa": "retrato",
   "ornamento": "·",
   "script_escala": 0.95
  },
@@ -119,7 +118,7 @@
    "rotulos": [
     "Gestante",
     "Família",
-    "Natal 2026"
+    "Newborn"
    ],
    "especialidades": [
     "Gestante",
@@ -140,18 +139,18 @@
      ]
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_04.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622126117_18075379388375353_2947713869065821211_n.jpg",
      "f": "p",
-     "alt": "Mãe e filho sorrindo no cenário boho",
+     "alt": "Pais com a filha, no ensaio de família",
      "c": [
-      0.3,
-      0.45
+      0.5,
+      0.4
      ]
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v26.4.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/620966026_18090784013473873_8791036958032102966_n.jpg",
      "f": "p",
-     "alt": "A cabine telefônica vermelha e a árvore do Natal Encantado",
+     "alt": "Recém-nascido de touca de ursinho no cesto",
      "c": [
       0.5,
       0.5
@@ -395,15 +394,15 @@
    "h2": "Mais do que fotografias, <em>memórias.</em>",
    "p": "O Natal Encantado 2026 tem a cabine telefônica vermelha, a rua com árvores iluminadas e neve, a caixa de cartas do Papai Noel e as renas. Escolha um horário e a mensagem chega pronta no WhatsApp da Fabi.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v20.5.jpg",
-    "f": "p",
-    "alt": "A cabine telefônica vermelha e o banquinho com os presentes",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_00.jpg",
+    "f": "l",
+    "alt": "Família com os dois filhos e o cachorro no estúdio",
     "c": [
      0.5,
      0.5
     ]
    },
-   "legenda": "Natal Encantado 2026"
+   "legenda": "Ensaio em família no estúdio"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -451,15 +450,15 @@
    "citacao": "Porque os filhos crescem, os anos passam e a família muda. Mas as fotografias nos permitem reviver, para sempre, o amor que sentimos em cada fase da vida.",
    "citacao_quem": "Fabi, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v26.4.jpg",
-    "f": "p",
-    "alt": "A cabine telefônica vermelha e a árvore do Natal Encantado",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_00.jpg",
+    "f": "l",
+    "alt": "Família com os dois filhos e o cachorro no estúdio",
     "c": [
      0.5,
      0.5
     ]
    },
-   "legenda": "Natal Encantado 2026"
+   "legenda": "Ensaio em família no Estúdio Faro"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -471,34 +470,34 @@
     "Figurinos e cenários do estúdio.",
     "Local, valores e horários pelo WhatsApp da Fabi."
    ],
-   "legenda_fotos": "O cenário do Natal Encantado 2026"
+   "legenda_fotos": "Ensaios em família no Estúdio Faro"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v8.6.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622126117_18075379388375353_2947713869065821211_n.jpg",
     "f": "p",
-    "alt": "A caixa de cartas do Papai Noel e a rena",
+    "alt": "Pais com a filha no estúdio",
     "c": [
      0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_09.jpg",
+    "f": "l",
+    "alt": "Família deitada na cama do estúdio, rindo",
+    "c": [
+     0.9,
      0.5
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v20.5.jpg",
-    "f": "p",
-    "alt": "A cabine telefônica e o banquinho com os presentes",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_02.jpg",
+    "f": "l",
+    "alt": "Mãe e bebê deitados na cama, com o cachorro",
     "c": [
      0.5,
      0.5
-    ]
-   },
-   {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/extra/v23.6.jpg",
-    "f": "p",
-    "alt": "A rena de palha junto à escada de madeira",
-    "c": [
-     0.5,
-     0.55
     ]
    }
   ],
@@ -565,10 +564,10 @@
      "pos": "50% 40%"
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/faro-fotografia/posts/De4-4xUH6UA/De4-4xUH6UA_04.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/624837581_18100636786683900_7350716560327355350_n.jpg",
      "f": "p",
-     "alt": "Mãe e filho no cenário boho",
-     "pos": "30% 45%"
+     "alt": "Gestante com o filho entre as flores",
+     "pos": "50% 45%"
     },
     {
      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/farofotografia/Instagram_files/622502095_18101093788849414_8426711074460640062_n.jpg",

@@ -140,12 +140,12 @@
      ]
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_00.jpg",
      "f": "p",
-     "alt": "Gestante de branco com as mãos na barriga",
+     "alt": "Gestante sorrindo junto à cortina",
      "c": [
       0.5,
-      0.45
+      0.3
      ]
     },
     {
@@ -237,10 +237,10 @@
     "nome": "Gestante e feminino",
     "fotos": [
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_03.jpg",
       "f": "p",
-      "alt": "Gestante de branco com as mãos na barriga",
-      "pos": "50% 40%"
+      "alt": "Detalhe do ensaio gestante: as mãos na barriga",
+      "pos": "50% 50%"
      },
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_00.jpg",
@@ -373,7 +373,7 @@
     "f": "p",
     "alt": "Bia sorrindo com a câmera, junto à árvore de Natal",
     "c": [
-     0.4,
+     0.75,
      0.5
     ]
    },
@@ -577,10 +577,10 @@
    "p": "Outros ensaios da Bia.",
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_01.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/bia-maida-fotografia/posts/DfPidsxoIxX/DfPidsxoIxX_00.jpg",
      "f": "p",
-     "alt": "Gestante de branco",
-     "pos": "50% 40%"
+     "alt": "Gestante sorrindo junto à cortina",
+     "pos": "50% 30%"
     },
     {
      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/biamaidafotografia/Instagram_files/654986467_18090343181124660_4269799484812917372_n.jpg",

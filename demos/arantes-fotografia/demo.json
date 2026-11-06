@@ -122,8 +122,8 @@
    "frase": "Há mais de 9 anos registrando famílias.",
    "intro": "Gestante, newborn, smash the cake, chá revelação e ensaios infantis, com foto e vídeo, no estúdio da Arantes em Carapicuíba. E o Natal 2026 já está acontecendo, com poucas vagas.",
    "rotulos": [
-    "Natal 2026",
     "Gestante",
+    "Infantil",
     "Newborn"
    ],
    "especialidades": [
@@ -136,18 +136,18 @@
    ],
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_06.jpg",
      "f": "p",
-     "alt": "Menina de gorro branco brincando com a neve, no cenário de Natal 2026",
+     "alt": "Gestante com o laço gigante",
      "c": [
       0.5,
-      0.5
+      0.4
      ]
     },
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/627858756_18360151213167768_7284324715492823079_n.jpg",
      "f": "p",
-     "alt": "Gestante de blazer, em preto e branco",
+     "alt": "Menina de 5 anos de pequena sereia",
      "c": [
       0.5,
       0.4
@@ -194,9 +194,9 @@
       "pos": "50% 45%"
      },
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfIADCDloJQ/DfIADCDloJQ_05.jpg",
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/626003985_18449234737102184_1132488712420144306_n.jpg",
       "f": "p",
-      "alt": "Gestante de branco com o véu",
+      "alt": "Gestante de vestido azul na mata",
       "pos": "50% 40%"
      },
      {
@@ -418,15 +418,15 @@
    "h2": "Um cenário <em>que vira magia.</em>",
    "p": "O Natal 2026 da Arantes já está acontecendo, com dois cenários: a porta com a guirlanda iluminada e a neve, e a lareira com o sofá branco. Poucas vagas: escolha um horário e a mensagem chega pronta no WhatsApp.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
-    "f": "p",
-    "alt": "Menina brincando com a neve no cenário de Natal 2026",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/De0ORX-NPBW/De0ORX-NPBW_00.jpg",
+    "f": "l",
+    "alt": "Recém-nascida de tiara de flores no cestinho",
     "c": [
      0.5,
      0.5
     ]
    },
-   "legenda": "Natal 2026"
+   "legenda": "Newborn no estúdio"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -474,15 +474,15 @@
    "citacao": "Porque o Natal passa, mas a emoção de viver tudo isso fica guardada no coração.",
    "citacao_quem": "Arantes Fotografia, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/inv/perfil.jpg",
     "f": "p",
-    "alt": "Menina de gorro branco brincando com a neve, no cenário de Natal 2026",
+    "alt": "Família no Natal, a foto do perfil do estúdio",
     "c": [
      0.5,
-     0.5
+     0.45
     ]
    },
-   "legenda": "Natal 2026"
+   "legenda": "Natal em família"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -494,46 +494,34 @@
     "Poucas vagas: o Natal 2026 já está acontecendo.",
     "Valores e detalhes pelo WhatsApp."
    ],
-   "legenda_fotos": "Os cenários do Natal 2026"
+   "legenda_fotos": "Cenários e ensaios do estúdio"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/extra/v7.2.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/636941979_18558072409054925_6125788735857786935_n.jpg",
     "f": "p",
-    "alt": "A porta branca com a guirlanda iluminada e as árvores",
+    "alt": "Menina de saia de tule caminhando na mata",
     "c": [
      0.5,
      0.45
-    ],
-    "box": [
-     0.0,
-     0.0,
-     1.0,
-     0.74
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/extra/v13.6.jpg",
-    "f": "p",
-    "alt": "A lareira acesa, o sofá branco e a árvore dourada",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/621791353_18310390396255874_8600266861052029198_n.jpg",
+    "f": "l",
+    "alt": "O cenário de circo do aniversário",
     "c": [
      0.5,
      0.5
-    ],
-    "box": [
-     0.0,
-     0.0,
-     1.0,
-     0.76
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/arantes-fotografia/posts/DfVqljut8IM/DfVqljut8IM_00.jpg",
-    "f": "p",
-    "alt": "A caixinha de correio do Papai Noel e a neve",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/arantesfoto/Instagram_files/624106377_18354246010201418_2174863474217943769_n.jpg",
+    "f": "l",
+    "alt": "Smash the cake com o tema Mickey",
     "c": [
      0.5,
-     0.75
+     0.5
     ]
    }
   ],

@@ -174,25 +174,13 @@
   "galerias": [
    {
     "id": "natal",
-    "nome": "Natal",
+    "nome": "Natal e família",
     "fotos": [
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfARWEHzTxp/DfARWEHzTxp_00.jpg",
       "f": "p",
       "alt": "Bebê de vestido xadrez junto à poltrona e à árvore",
       "pos": "40% 55%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
-      "f": "p",
-      "alt": "Menino de camisa vermelha com a caixa de presente",
-      "pos": "50% 45%",
-      "box": [
-       0,
-       0.12,
-       1,
-       0.88
-      ]
      },
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g02.jpg",
@@ -204,36 +192,12 @@
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g00.jpg",
       "f": "p",
       "alt": "Mãe e filha abraçadas entre os ursinhos de Natal",
-      "pos": "50% 40%"
+      "pos": "50% 35%"
      },
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g01.jpg",
       "f": "p",
       "alt": "Mãe e filha no balanço, junto à janela de Natal",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v23.jpg",
-      "f": "p",
-      "alt": "Pai e filho sentados no tapete, rindo",
-      "pos": "50% 55%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v11.jpg",
-      "f": "p",
-      "alt": "Família na poltrona de couro, junto à árvore",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfPodNiTWJ7/DfPodNiTWJ7_00.jpg",
-      "f": "p",
-      "alt": "Família lendo o livro de Natal",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfIAJ-RzG25/DfIAJ-RzG25_00.jpg",
-      "f": "p",
-      "alt": "O enfeite da lua na árvore de Natal",
       "pos": "50% 50%"
      },
      {
@@ -243,9 +207,15 @@
       "pos": "50% 40%"
      },
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v20.jpg",
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/619595970_18185570200360448_1232048178530361171_n.jpg",
+      "f": "p",
+      "alt": "Menina colhendo flores na árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/638287620_18565819738007378_7796924264889772593_n.jpg",
       "f": "l",
-      "alt": "Mãe e filho no tapete persa, diante da árvore",
+      "alt": "Família de costas olhando as montanhas",
       "pos": "50% 50%"
      }
     ]
@@ -295,24 +265,12 @@
       "f": "l",
       "alt": "Menina com o ursinho no caminho do bosque",
       "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/630639176_18408253927122604_7499435780374590275_n.jpg",
-      "f": "l",
-      "alt": "Menina lendo sentada no degrau",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/621405048_18151834228440408_2417096078316962368_n.jpg",
-      "f": "l",
-      "alt": "Menina de braços abertos no jardim",
-      "pos": "50% 50%"
      }
     ]
    },
    {
     "id": "familia",
-    "nome": "Gestante, família e retrato",
+    "nome": "Gestante, casal e retrato",
     "fotos": [
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/629378494_18405641995134759_7879318685521814110_n.jpg",
@@ -333,33 +291,15 @@
       "pos": "50% 40%"
      },
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/628357083_18447385786110360_7735414099308610910_n.jpg",
-      "f": "p",
-      "alt": "Casal gestante no piquenique à beira do lago",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/619855504_18149450029431449_671733884253489570_n.jpg",
-      "f": "p",
-      "alt": "Retrato na rua, de jaqueta de couro",
-      "pos": "50% 40%"
-     },
-     {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/649247724_18164171653414075_3125778487577820777_n.jpg",
       "f": "p",
       "alt": "Retrato em preto e branco",
       "pos": "50% 35%"
      },
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/638287620_18565819738007378_7796924264889772593_n.jpg",
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/628357083_18447385786110360_7735414099308610910_n.jpg",
       "f": "l",
-      "alt": "Família de costas olhando as montanhas",
-      "pos": "50% 50%"
-     },
-     {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/leilabomfim_fotografia/Instagram_files/631688125_18433764553114951_1876764634142670700_n.jpg",
-      "f": "l",
-      "alt": "Família pulando no alto do mirante",
+      "alt": "Casal gestante no piquenique à beira do lago",
       "pos": "50% 50%"
      },
      {
@@ -449,21 +389,15 @@
    "h2": "Encontros que se tornam <em>tradição.</em>",
    "p": "A sala de Natal da Leila tem as paredes de arcos, as guirlandas, a árvore branca e dourada, a poltrona de couro e o tapete persa. A agenda está aberta e as fotos chegam até 25/12: escolha um horário e a mensagem vai pronta no WhatsApp.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
-    "f": "p",
-    "alt": "Menino de camisa vermelha com a caixa de presente",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Mãe e filha abraçadas entre os ursinhos de Natal",
     "c": [
      0.5,
-     0.45
-    ],
-    "box": [
-     0,
-     0.12,
-     1,
-     0.88
+     0.35
     ]
    },
-   "legenda": "Memórias de Natal 2026"
+   "legenda": "Natal no estúdio"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -512,21 +446,15 @@
    "citacao": "Tem encontros que se tornam tradição.",
    "citacao_quem": "Leila, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfQYMgJTLCy/DfQYMgJTLCy_00.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g02.jpg",
     "f": "p",
-    "alt": "Menino de camisa vermelha com a caixa de presente",
+    "alt": "Menino com a lanterna junto à árvore",
     "c": [
      0.5,
-     0.45
-    ],
-    "box": [
-     0,
-     0.12,
-     1,
-     0.88
+     0.4
     ]
    },
-   "legenda": "Memórias de Natal 2026"
+   "legenda": "Natal no estúdio"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -538,34 +466,34 @@
     "Faça as fotos com calma e receba até 25/12.",
     "Valores e detalhes pelo WhatsApp da Leila."
    ],
-   "legenda_fotos": "O cenário de Natal 2026"
+   "legenda_fotos": "O Natal no estúdio da Leila"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/extra/v5.5.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g01.jpg",
     "f": "p",
-    "alt": "A sala com os arcos, as guirlandas e a árvore",
+    "alt": "O balanço junto à janela de Natal",
     "c": [
      0.5,
-     0.45
+     0.5
     ]
    },
    {
     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfARWEHzTxp/DfARWEHzTxp_00.jpg",
-    "f": "p",
+    "f": "l",
     "alt": "A poltrona de couro e os presentes junto à árvore",
     "c": [
-     0.35,
-     0.5
+     0.4,
+     0.55
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/posts/DfIAJ-RzG25/DfIAJ-RzG25_00.jpg",
-    "f": "p",
-    "alt": "O enfeite da lua na árvore de Natal",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/leila-bomfim-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Os ursinhos e a árvore de Natal",
     "c": [
      0.5,
-     0.5
+     0.35
     ]
    }
   ],

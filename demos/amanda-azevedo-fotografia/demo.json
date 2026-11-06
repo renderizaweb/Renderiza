@@ -498,7 +498,7 @@
     "alt": "Mãe e filha no cenário de Natal 2026",
     "c": [
      0.5,
-     0.5
+     0.15
     ]
    },
    "legenda": "Natal 2026"
@@ -569,34 +569,34 @@
     "Para o bebê, as crianças e a família toda.",
     "Local, datas e valores pelo WhatsApp da Amanda."
    ],
-   "legenda_fotos": "Os cenários do Natal 2026"
+   "legenda_fotos": "O Natal da Maia, no cenário de 2026"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v4.5.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_03.jpg",
     "f": "p",
-    "alt": "A árvore vermelha, o Papai Noel e a poltrona azul",
+    "alt": "A menina junto à árvore vermelha e ao Papai Noel",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_00.jpg",
+    "f": "p",
+    "alt": "O cavalinho de balanço junto à árvore",
     "c": [
      0.5,
      0.5
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v13.2.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/posts/DfKO9xVG3bi/DfKO9xVG3bi_01.jpg",
     "f": "p",
-    "alt": "A cabaninha branca com os bonecos de neve",
+    "alt": "Mãe e filha no cenário de Natal 2026",
     "c": [
      0.5,
-     0.55
-    ]
-   },
-   {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/amanda-azevedo-fotografia/extra/v30.5.jpg",
-    "f": "p",
-    "alt": "A cama branca com a guirlanda e as luzinhas",
-    "c": [
-     0.5,
-     0.5
+     0.4
     ]
    }
   ],

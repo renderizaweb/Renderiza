@@ -98,7 +98,6 @@
   "fotos": "suave",
   "eyebrow": "losango",
   "abas": "sublinhado",
-  "natal_capa": "retrato",
   "ornamento": "☆",
   "script_escala": 1.1
  },
@@ -117,7 +116,7 @@
    "frase": "Fotografia com propósito: criar memórias!",
    "intro": "Gestante, newborn, infantil e família, com cenários temáticos para cada fase, no estúdio da Talita no Jardim São Bento Novo. E o especial de Natal deste ano conta a história do ateliê do Papai Noel.",
    "rotulos": [
-    "Natal 2026",
+    "Natal",
     "Família",
     "1 aninho"
    ],
@@ -131,12 +130,12 @@
    ],
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619996784_18103314142805590_8255221630131108326_n.jpg",
      "f": "p",
-     "alt": "Pais com o bebê na cama do cenário de Natal 2026",
+     "alt": "Menina de vestido vermelho no Natal",
      "c": [
       0.5,
-      0.5
+      0.35
      ]
     },
     {
@@ -171,10 +170,10 @@
     "nome": "Natal",
     "fotos": [
      {
-      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/649215309_18079663568369554_7213035739340550903_n.jpg",
       "f": "p",
-      "alt": "Família de pijama xadrez na cama de Natal",
-      "pos": "50% 50%"
+      "alt": "Família no cenário de Natal",
+      "pos": "50% 45%"
      },
      {
       "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/619996784_18103314142805590_8255221630131108326_n.jpg",
@@ -407,9 +406,9 @@
    "h2": "O conto de Natal <em>deste ano.</em>",
    "p": "O especial de Natal 2026 conta a história do ateliê do Noel: dois cenários reais e interativos, com missões para as crianças e o Papai Noel. Escolha um horário e a mensagem chega pronta no WhatsApp da Talita.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
-    "f": "p",
-    "alt": "Família de pijama xadrez na cama de Natal",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_00.jpg",
+    "f": "l",
+    "alt": "Pais com o bebê na cama de Natal, entre as luzinhas",
     "c": [
      0.5,
      0.5
@@ -483,34 +482,34 @@
     "Horário extra com o Papai Noel no dia 14/11 (já no 2º lote).",
     "Valores e detalhes pelo WhatsApp da Talita."
    ],
-   "legenda_fotos": "Os cenários do Natal 2026"
+   "legenda_fotos": "O quarto de Natal 2026 e um Natal de outro ano"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfGIX7kPWj4/DfGIX7kPWj4_00.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/fotografatalitavoros/Instagram_files/649215309_18079663568369554_7213035739340550903_n.jpg",
     "f": "p",
-    "alt": "O Papai Noel no ateliê, com a carta e os ursinhos",
+    "alt": "Família no cenário de Natal de outro ano",
     "c": [
      0.5,
      0.45
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/De7wxgzhI6z/De7wxgzhI6z_00.jpg",
-    "f": "p",
-    "alt": "O quarto de Natal, com a cama, as luzinhas e a árvore",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_02.jpg",
+    "f": "l",
+    "alt": "A cama de Natal 2026, com as luzinhas e a árvore",
     "c": [
      0.5,
      0.5
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_02.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/talita-voros-fotografia/posts/DfQdFoRDtuQ/DfQdFoRDtuQ_01.jpg",
     "f": "l",
-    "alt": "Família com o bebê na cama de Natal",
+    "alt": "Família com o bebê na cama de Natal 2026",
     "c": [
      0.5,
-     0.5
+     0.45
     ]
    }
   ],

@@ -103,7 +103,6 @@
   "fotos": "suave",
   "eyebrow": "losango",
   "abas": "sublinhado",
-  "natal_capa": "retrato",
   "ornamento": "✦",
   "script_escala": 1.3,
   "css": ".carousel-footer:has(.carousel-dots button:only-child){display:none}"
@@ -136,9 +135,9 @@
    ],
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_02.jpg",
      "f": "p",
-     "alt": "Família com o Papai Noel na Sala do Noel",
+     "alt": "Menina com o Papai Noel na poltrona, ao lado do piano",
      "c": [
       0.5,
       0.5
@@ -150,7 +149,7 @@
      "alt": "Gestante de vestido preto com mangas de tule branco",
      "c": [
       0.5,
-      0.4
+      0.0
      ]
     },
     {
@@ -412,12 +411,12 @@
    "h2": "A Sala <em>do Noel.</em>",
    "p": "A História de Natal 2026 foi montada peça por peça: a lareira de pedra, a poltrona, o piano branco e a árvore azul e dourada, com o Papai Noel. A agenda está aberta: escolha um horário e a mensagem chega pronta no WhatsApp da Michele.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
-    "f": "p",
-    "alt": "Família com o Papai Noel na Sala do Noel",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_00.jpg",
+    "f": "l",
+    "alt": "Família com o Papai Noel junto à árvore azul e dourada",
     "c": [
      0.5,
-     0.5
+     0.45
     ]
    },
    "legenda": "A Sala do Noel, Natal 2026"
@@ -463,12 +462,12 @@
    "citacao": "Porque o melhor do Natal é voltar a ser criança e deixar a felicidade aparecer até nas caretas!",
    "citacao_quem": "Michele, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/DeznpBHzy7P/DeznpBHzy7P_00.jpg",
-    "f": "p",
-    "alt": "Família com o Papai Noel na Sala do Noel",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/michele-rabetti-fotografia/posts/De19hvJka6K/De19hvJka6K_00.jpg",
+    "f": "l",
+    "alt": "Família com o Papai Noel junto à árvore azul e dourada",
     "c": [
      0.5,
-     0.5
+     0.45
     ]
    },
    "legenda": "A Sala do Noel, Natal 2026"

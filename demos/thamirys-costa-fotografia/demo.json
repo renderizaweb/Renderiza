@@ -118,7 +118,7 @@
    "frase": "Registrando cada fase desde a descoberta.",
    "intro": "Especialista em fotografia infantil, com mais de 800 famílias fotografadas: da gestação ao newborn, do acompanhamento mês a mês ao smash the cake. E o Expresso Natalino 2026 já está com as reservas abertas.",
    "rotulos": [
-    "Natal 2026",
+    "1 aninho",
     "Acompanhamento",
     "Newborn"
    ],
@@ -132,12 +132,12 @@
    ],
    "fotos": [
     {
-     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_12.jpg",
      "f": "p",
-     "alt": "Menina de vermelho na porta do trem do Expresso Natalino",
+     "alt": "Bebê de 1 ano com o rosto cheio de bolo, no tema Bela e a Fera",
      "c": [
       0.5,
-      0.5
+      0.4
      ]
     },
     {
@@ -402,15 +402,15 @@
    "h2": "A viagem mais especial <em>do ano.</em>",
    "p": "Neste ano, o Natal do estúdio é um convite para viajar: o trem, a estação, a neve e as luzes. Os ensaios vão de 24/10 a 20/12, e as reservas estão abertas: escolha um horário e a mensagem chega pronta no WhatsApp da Thamirys.",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
-    "f": "p",
-    "alt": "Menina de vermelho na porta do trem",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_00.jpg",
+    "f": "l",
+    "alt": "O cenário da Bela e a Fera no 1 aninho",
     "c": [
      0.5,
      0.5
     ]
    },
-   "legenda": "Expresso Natalino 2026"
+   "legenda": "1 aninho no estúdio"
   },
   "avaliacoes_eyebrow": "Depoimentos",
   "avaliacoes_h2": "O que as famílias <em>contam.</em>",
@@ -458,15 +458,15 @@
    "citacao": "Porque os anos passam, as crianças crescem e a vida muda… mas algumas memórias merecem viajar com a gente para sempre.",
    "citacao_quem": "Thamirys, no Instagram",
    "foto": {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/De2foSbPSCq/De2foSbPSCq_00.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive/paginas/thamiryscostafotografia/Instagram_files/654270668_18037810340777149_8513908050411425816_n.webp",
     "f": "p",
-    "alt": "Menina de vermelho na porta do trem do Expresso Natalino",
+    "alt": "Menina vestida de princesa, com a rosa",
     "c": [
      0.5,
-     0.5
+     0.35
     ]
    },
-   "legenda": "Expresso Natalino 2026"
+   "legenda": "Ensaio infantil no estúdio"
   },
   "ensaio": {
    "eyebrow": "O ensaio",
@@ -478,34 +478,34 @@
     "Ensaios de 24 de outubro a 20 de dezembro.",
     "Catálogo e valores pelo WhatsApp da Thamirys."
    ],
-   "legenda_fotos": "O cenário do Expresso Natalino"
+   "legenda_fotos": "Os cenários temáticos do estúdio"
   },
   "cenario": [
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/b17.5.jpg",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_13.jpg",
     "f": "p",
-    "alt": "A locomotiva preta e dourada na neve",
+    "alt": "Bebê com o bolo da Bela e a Fera",
     "c": [
      0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DdH2CfykZ6i/DdH2CfykZ6i_01.jpg",
+    "f": "l",
+    "alt": "O cenário da Frozen",
+    "c": [
+     0.1,
      0.5
     ]
    },
    {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/a54.3.jpg",
-    "f": "p",
-    "alt": "Menina sorrindo na janela do vagão",
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/posts/DeTKF70AIcx/DeTKF70AIcx_01.jpg",
+    "f": "l",
+    "alt": "O cenário da Bela e a Fera",
     "c": [
      0.5,
-     0.28
-    ]
-   },
-   {
-    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos2/thamirys-costa-fotografia/extra/a6.jpg",
-    "f": "p",
-    "alt": "Menina brincando com a neve",
-    "c": [
-     0.5,
-     0.3
+     0.5
     ]
    }
   ],
