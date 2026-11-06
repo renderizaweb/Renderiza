@@ -1,0 +1,686 @@
+{
+ "pasta": "olivares-fotografia",
+ "marca": "Estúdio Olivares Fotografia",
+ "marca_completa": "Estúdio Olivares Fotografia",
+ "dona": "Verônica",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.555293,-46.3105772",
+  "fid": "0x94ce7bd476e15a0d:0x47fc5125d99b517b",
+  "gid": "/g/11gjt0rskn"
+ },
+ "google_nome": "Estúdio Olivares Fotografia",
+ "endereco_maps": "R. Horácio Nelson Rondinelli, 40 - Cidade Edson, Suzano - SP, 08665-380",
+ "google_nota": "5,0",
+ "google_total": "49",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511997533203",
+ "fone_link": "+5511997533203",
+ "instagram": "olivares.fotografia",
+ "seguidores": "9,4 mil",
+ "mensagem": "Olá! Vi o site do Estúdio Olivares e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfaf8",
+  "papel": "#ffffff",
+  "areia": "#f1efea",
+  "linha": "#e2ded6",
+  "tinta": "#2d2c2a",
+  "tinta2": "#65625d",
+  "rosa": "#e7cfc0",
+  "acento": "#6f8a7a",
+  "acento_escuro": "#566d60",
+  "cafe": "#262a27"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-17",
+   "2026-11-21",
+   "2026-11-24",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-17 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-24 14h",
+   "2026-11-24 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Verônica define os dela",
+  "mensagem": "Olá! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Verônica",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "9pjx",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Gilda Display",
+    ""
+   ],
+   "sans": [
+    "Karla",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Birthstone",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "❁",
+  "natal_capa": "retrato",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Olivares",
+ "titulo_script": "fotografia",
+ "quem_a": "o Estúdio Olivares",
+ "quem_da": "do Estúdio Olivares",
+ "quem_sou": "Somos o Estúdio Olivares",
+ "slogan": "Vem registrar o amor com a gente.",
+ "site": {
+  "titulo": "Estúdio Olivares Fotografia | Gestante, newborn, infantil, família e Natal em Suzano",
+  "descricao": "Estúdio Olivares Fotografia, na Cidade Edson, em Suzano: gestante, newborn, acompanhamento do bebê, infantil, família e Natal 2026 com dois cenários. Nota 5,0 no Google, com 49 avaliações.",
+  "comentario": "Demo Estúdio Olivares Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@olivaresfotografia: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Suzano",
+   "frase": "Vem registrar o amor com a gente.",
+   "intro": "Gestantes, newborn, bebês, crianças e famílias, no estúdio de luz clara e no jardim, na Cidade Edson, em Suzano. E o Natal 2026 já tem dois cenários, com a agenda aberta.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Natal 2026"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Infantil",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651365240_18071443073218342_918995483623452353_n.jpg",
+     "f": "p",
+     "alt": "Casal abraçado no ensaio gestante",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/650605316_18092448943877090_2819144458879352509_n.jpg",
+     "f": "p",
+     "alt": "Mãe encostando o rosto no recém-nascido",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DehiCTcoJgI/DehiCTcoJgI_00.jpg",
+     "f": "p",
+     "alt": "Menina no cenário infantil de Natal 2026",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>com leveza.</em>",
+   "p": "Ensaios do Estúdio Olivares, no estúdio e no jardim. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651365240_18071443073218342_918995483623452353_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no ensaio gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/625009384_18127082074551722_7797409672411178761_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na cama clara",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/646136444_18032384573788991_5223091464595768014_n.jpg",
+      "f": "p",
+      "alt": "Gestante de cardigã bege",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651894607_18103020997911511_7676704314159924373_n.jpg",
+      "f": "p",
+      "alt": "Gestante de blusa branca ombro a ombro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/655003478_18133090426522038_1858631786364880691_n.jpg",
+      "f": "p",
+      "alt": "Gestante de preto no fundo rosado",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/656101367_18211793215322902_516280246483785016_n.jpg",
+      "f": "p",
+      "alt": "Gestante com a rosa vermelha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/656278063_18440147743113099_2695215237940572367_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada, de mãos na barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/650737354_18014848154667103_3476385884611861801_n.jpg",
+      "f": "p",
+      "alt": "Gestante de jeans no fundo branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/652024280_18071506358542504_6923565685752510290_n.jpg",
+      "f": "p",
+      "alt": "Casal em preto e branco no ensaio gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/659913144_18575568274021517_2183740466572439338_n.jpg",
+      "f": "p",
+      "alt": "Silhueta da gestante contra a janela",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DeMBUPjEbp7/DeMBUPjEbp7_00.jpg",
+      "f": "p",
+      "alt": "Gestante de branco no jardim",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Família no ensaio gestante, no fundo escuro",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/650605316_18092448943877090_2819144458879352509_n.jpg",
+      "f": "p",
+      "alt": "Mãe encostando o rosto no recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/653527221_18204103012329980_8853469045304474432_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida enrolada na manta azul",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/620202089_17985607310778959_2762458446724842406_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo na manta azul",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/621235629_18033401093569023_567255308564263888_n.jpg",
+      "f": "l",
+      "alt": "Bebê de olhos abertos na cestinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/649673352_18046955582721522_6719384280557214538_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de bruços",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/652142301_18086875154463149_362658409935823007_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de touquinha com o coelhinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/654047554_18108538960747903_4933178037665932387_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo no pufe",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/619496471_18039314216733412_3960082662921984236_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha se beijando na cama clara",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651024663_18086547431466083_5426711582449726859_n.jpg",
+      "f": "p",
+      "alt": "Pai beijando o filho, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651913220_18095848145298772_6441941483994386630_n.jpg",
+      "f": "p",
+      "alt": "Irmãos com o pai, sentados no tronco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/652250841_18102964585925717_323813317360181067_n.jpg",
+      "f": "p",
+      "alt": "Mulher com o cachorrinho no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/652394447_18037089965583990_8974351629461661001_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo no barquinho de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/659070157_18367816933206308_6105462161636176610_n.jpg",
+      "f": "p",
+      "alt": "Menino nos ombros do pai",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DfTMHbsjTQu/DfTMHbsjTQu_00.jpg",
+      "f": "p",
+      "alt": "Bebê de laço olhando para cima",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DfVd6ExIPwM/DfVd6ExIPwM_00.jpg",
+      "f": "p",
+      "alt": "Menina com os patinhos no quintal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651206423_18042374498755382_4255374286604778748_n.jpg",
+      "f": "l",
+      "alt": "Menino de boina no carrinho de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/654284716_18096999730981705_3524355524476920889_n.jpg",
+      "f": "l",
+      "alt": "Bebê de laço sorrindo",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "As meninas <em>do Estúdio Olivares.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/google/fotos/g00.jpg",
+    "f": "p",
+    "alt": "A entrada do Estúdio Olivares, em Suzano",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "p": [
+    "O Estúdio Olivares, na Cidade Edson, em Suzano, é tocado por duas fotógrafas, \"as meninas\", como dizem as clientes. Elas fotografam gestantes, newborn, bebês, crianças e famílias, no estúdio de luz clara e no jardim, e acompanham os bebês com ensaios a cada três meses."
+   ],
+   "citacao": "É essa leveza que queremos guardar em cada fotografia.",
+   "citacao_quem": "Estúdio Olivares, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias contam que voltam do newborn aos 3 anos e falam da paciência, do cuidado com cada detalhe e do jardim do estúdio."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "49 avaliações no Google"
+    ],
+    [
+     "9,4 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "fotógrafas no estúdio"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do ventre <em>ao quintal.</em>",
+   "p": "Os ensaios do Estúdio Olivares:",
+   "fonte": "Legendas do Estúdio Olivares no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio de luz clara ou no jardim."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias do bebê, com calma e muito cuidado."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "Trimestral",
+     "p": "Um ensaio a cada três meses no primeiro ano."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Ser criança",
+     "p": "Sem pressa, sem roteiro… só uma menina, seus bichinhos no quintal e a maravilha de ser criança."
+    },
+    {
+     "nome": "Irmãos",
+     "sub": "Lado a lado",
+     "p": "Crescer lado a lado é ter para sempre um pedacinho da infância um no outro."
+    },
+    {
+     "nome": "Natal",
+     "sub": "2 cenários",
+     "p": "O Natal é feito de encontros, abraços e sorrisos espontâneos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal é feito <em>de encontros.</em>",
+   "p": "Este ano são dois cenários de Natal no Estúdio Olivares: o Família e o Infantil. A agenda já está aberta e as vagas se esgotam rápido: escolha um horário e a mensagem chega pronta no WhatsApp do estúdio.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DehiCTcoJgI/DehiCTcoJgI_00.jpg",
+    "f": "l",
+    "alt": "Menina no cenário infantil de Natal 2026",
+    "c": [
+     0.5,
+     0.65
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Michele Oliveira",
+    "tag": "Do newborn aos 3 anos",
+    "trecho": "Acompanham a minha filha desde o ensaio newborn até hoje, com 3 aninhos."
+   },
+   {
+    "nome": "Amanda Nakao",
+    "tag": "Gestante e newborn",
+    "trecho": "Fiz meu ensaio de gestante e o ensaio newborn com elas e foram as melhores escolhas que eu poderia ter feito!"
+   },
+   {
+    "nome": "Glena Cost",
+    "tag": "O jardim",
+    "trecho": "O studio e o jardim são lindos !!!!"
+   },
+   {
+    "nome": "Fabiana Martins",
+    "tag": "Acolhida",
+    "trecho": "É muito mais do que um estúdio fotográfico, é um lugar onde me sinto acolhida e onde cada momento é registrado com muito amor, carinho e profissionalismo."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vem registrar <em>o amor com a gente.</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Cidade Edson, em Suzano.",
+   "telefone": "(11) 99753-3203",
+   "endereco": [
+    "R. Horácio Nelson Rondinelli, 40",
+    "Cidade Edson",
+    "Suzano · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Olivares Fotografia",
+  "descricao": "O ensaio de Natal 2026 do Estúdio Olivares, em Suzano: dois cenários, Família e Infantil. Agenda aberta: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Olivares Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Suzano",
+   "h1": "O Natal é feito <em>de encontros.</em>",
+   "citacao": "O Natal tem um encanto diferente quando visto pelos olhos de uma criança.",
+   "citacao_quem": "Estúdio Olivares, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DejdrlREdPC/DejdrlREdPC_00.jpg",
+    "f": "p",
+    "alt": "Família junto à árvore no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários: <em>Família e Infantil.</em>",
+   "p": "Um espaço acolhedor, criado para registrar a essência de cada família e transformar pequenos instantes em grandes memórias. Este ano são dois cenários de Natal no estúdio, em Suzano: o Família e o Infantil.",
+   "itens": [
+    "No Estúdio Olivares, na Cidade Edson, em Suzano.",
+    "Dois cenários de Natal 2026: Família e Infantil.",
+    "A agenda já está aberta; as vagas se esgotam rápido.",
+    "Valores e detalhes pelo WhatsApp do estúdio."
+   ],
+   "legenda_fotos": "O cenário infantil de Natal 2026 e outros ensaios do estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DehiCTcoJgI/DehiCTcoJgI_00.jpg",
+    "f": "p",
+    "alt": "Menina no cenário infantil de Natal 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/655182034_18351525385233867_4964960468209563675_n.jpg",
+    "f": "l",
+    "alt": "Bebê sorrindo entre os cogumelos do cenário",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/655208126_18157790371436844_3934276396891202051_n.jpg",
+    "f": "l",
+    "alt": "Bebê sorrindo entre as plantas",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp do estúdio abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece (o Google não mostra o horário do estúdio). O estúdio define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp do estúdio abre com o dia e a hora escritos."
+    ],
+    [
+     "O estúdio confirma",
+     "Elas respondem com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada fase, <em>com leveza.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios do Estúdio Olivares.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/651365240_18071443073218342_918995483623452353_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/650605316_18092448943877090_2819144458879352509_n.jpg",
+     "f": "p",
+     "alt": "Mãe com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DfVd6ExIPwM/DfVd6ExIPwM_00.jpg",
+     "f": "p",
+     "alt": "Menina com os patinhos",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/656101367_18211793215322902_516280246483785016_n.jpg",
+     "f": "p",
+     "alt": "Gestante com a rosa",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/652394447_18037089965583990_8974351629461661001_n.jpg",
+     "f": "p",
+     "alt": "Bebê no barquinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/653527221_18204103012329980_8853469045304474432_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida na manta azul",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/olivaresfotografia/Instagram_files/659070157_18367816933206308_6105462161636176610_n.jpg",
+     "f": "p",
+     "alt": "Menino nos ombros do pai",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/olivares-fotografia/posts/DeMBUPjEbp7/DeMBUPjEbp7_00.jpg",
+     "f": "p",
+     "alt": "Gestante no jardim",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Amanda Nakao",
+    "tag": "Memória afetiva",
+    "trecho": "Cada detalhe fotografado por elas é uma memória afetiva que não tem igual"
+   },
+   {
+    "nome": "Fabiana Martins",
+    "tag": "Surpreende",
+    "trecho": "Já faço fotos com elas há algum tempo e, a cada ensaio, elas conseguem me surpreender ainda mais!"
+   },
+   {
+    "nome": "Guilherme Miguel",
+    "tag": "Vou voltar",
+    "trecho": "Fiz ensaio gestante e amei demais!! As meninas super atenciosas, com certeza vou voltar para fazer outros ensaios"
+   },
+   {
+    "nome": "Glena Cost",
+    "tag": "Leve",
+    "trecho": "o ensaio foi um momento leve , de muitas risadas e bate-papo."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Suzano",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "As vagas se esgotam rápido. Escolha um horário ou chame o estúdio no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99753-3203)",
+  "site": "não tem: o Google aponta o Facebook (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/olivares-fotografia` e `/demo/olivares-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 10, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.",
+   "Donas: uma dupla, a Verônica Olivares e outra fotógrafa (\"as meninas\" nas avaliações). A demo fala do estúdio e das duas; a saudação da Renderiza vai para a Verônica. Sem foto delas: o \"quem fotografa\" usa a entrada do estúdio (Google).",
+   "Personalidade: luz clara e leveza (\"É essa leveza que queremos guardar em cada fotografia\"), estúdio com jardim. Na demo: abertura em arcos, Gilda Display, \"fotografia\" em Birthstone, verde-sálvia e ❁ entre as especialidades.",
+   "Sem logo em boa resolução: monograma EO e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, newborn e Natal 2026), portfólio em 3 abas (Gestante, 12; Newborn, 7; Família e infantil, 10), as meninas do estúdio, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O Natal é feito de encontros\": os cenários Família e Infantil de 2026, a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (os cenários de Natal Família e Infantil, gestante no jardim, menina com os patinhos), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), a arte \"Acompanhamento Trimestral\", os closes desfocados e o ensaio de lingerie."
+  ],
+  "textos": [
+   "Legendas: \"O Natal é feito de encontros, abraços, sorrisos espontâneos...\" (16/10), \"O Natal tem um encanto diferente quando visto pelos olhos de uma criança... É essa leveza que queremos guardar\" (15/10), \"Nossa agenda já está aberta\" (09/10), \"Sem pressa, sem roteiro...\" e \"Crescer lado a lado...\" (04/11).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "É uma dupla: falar com as duas (a demo cumprimenta a Verônica).",
+   "Google sem horário de funcionamento: a agenda é exemplo (dito na página).",
+   "Fotos de bebês, crianças e gestantes: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site."
+  ]
+ }
+}
