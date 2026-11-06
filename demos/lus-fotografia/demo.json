@@ -1,0 +1,686 @@
+{
+ "pasta": "lus-fotografia",
+ "marca": "Lus Fotografia",
+ "marca_completa": "Lus Fotografia",
+ "dona": "Lu",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6026166,-46.7395645",
+  "fid": "0x94ce5722177f84af:0xb7136fe6d3422b92",
+  "gid": "/g/11wxgy72b8"
+ },
+ "google_nome": "Lus Fotografia - Fotógrafos de Famílias",
+ "endereco_maps": "R. David Ben Gurion, 72 - Jardim Monte Kemel, São Paulo - SP, 05634-000",
+ "google_nota": "5,0",
+ "google_total": "48",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511916341606",
+ "fone_link": "+5511916341606",
+ "instagram": "lusfotografia",
+ "seguidores": "4,6 mil",
+ "mensagem": "Olá, Lu! Vi o site da Lus e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdf9f6",
+  "papel": "#ffffff",
+  "areia": "#f7ede6",
+  "linha": "#ecdcd1",
+  "tinta": "#2f2826",
+  "tinta2": "#6d625d",
+  "rosa": "#efc9b7",
+  "acento": "#b8694a",
+  "acento_escuro": "#9c583c",
+  "cafe": "#2a221f"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12",
+   "2026-12-19"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-21 14h",
+   "2026-11-28 9h",
+   "2026-11-28 14h",
+   "2026-11-28 15h30",
+   "2026-12-05 14h",
+   "2026-12-05 15h30",
+   "2026-12-12 15h30",
+   "2026-12-19 10h30",
+   "2026-12-19 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Lu define os dela",
+  "mensagem": "Olá, Lu! Quero o horário de {data} ({semana}) às {hora} para o Natal de Lus. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Lu",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Lu, da Lus Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lu, da Lus Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "4qx7",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Lu, da Lus Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Newsreader",
+    "ital,opsz,wght@0,6..72,400..600;1,6..72,400..600"
+   ],
+   "sans": [
+    "DM Sans",
+    "opsz,wght@9..40,300..600"
+   ],
+   "script": [
+    "Mea Culpa",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✳",
+  "natal_capa": "retrato",
+  "script_escala": 1.3
+ },
+ "titulo_nome": "Lus",
+ "titulo_script": "fotografia",
+ "quem_a": "a Lu",
+ "quem_da": "da Lus",
+ "quem_sou": "Somos a Lus Fotografia",
+ "slogan": "A fotografia não é para hoje. É para quando não der mais pra repetir.",
+ "site": {
+  "titulo": "Lus Fotografia | Fotógrafos de família e festa infantil no Jardim Monte Kemel, São Paulo",
+  "descricao": "Lus Fotografia, da Lu e do Lucas, no Jardim Monte Kemel, em São Paulo: fotógrafos de família e especialistas em festas infantis. Gestante, bebês, 1 ano, batizados e o Natal de Lus 2026. Nota 5,0 no Google, com 48 avaliações.",
+  "comentario": "Demo Lus Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@lusfotografia: a página salva e os posts de out/nov 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafos de família · São Paulo",
+   "frase": "A fotografia não é para hoje. É para quando não der mais pra repetir.",
+   "intro": "Gestantes, bebês, festas infantis, batizados e famílias, com a Lu e o Lucas, no Jardim Monte Kemel, em São Paulo. E o Natal de Lus 2026 está oficialmente aberto, até 20 de dezembro.",
+   "rotulos": [
+    "Natal 2026",
+    "1 ano",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Família",
+    "Festa infantil",
+    "1 ano",
+    "Gestante",
+    "Batizado",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/posts/DfS155nlK8R/DfS155nlK8R_00.jpg",
+     "f": "p",
+     "alt": "Família brincando no cenário do Natal de Lus 2026",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/651996612_18102107026910439_4590848883178548521_n.jpg",
+     "f": "p",
+     "alt": "Bebê no smash the cake de 1 ano, entre os balões rosa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649480896_18106590697889241_7991421893834195956_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido branco e chapéu",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Histórias <em>que merecem ser lembradas.</em>",
+   "p": "Ensaios e festas fotografados pela Lus. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "festas",
+    "nome": "Festas e 1 ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/661587874_18584598763048741_8921093290161226253_n.jpg",
+      "f": "p",
+      "alt": "Família na festa de 1 ano, entre os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/659626324_18401596717194387_1327026505071687806_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano no tema circo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/651996612_18102107026910439_4590848883178548521_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash the cake de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/657861610_18579883867010813_4233437216620231258_n.jpg",
+      "f": "p",
+      "alt": "Família cantando parabéns no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649571780_18042312743556516_7675458841079414055_n.jpg",
+      "f": "p",
+      "alt": "Família com o bolo de 3 anos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/650071098_18159341017440575_7705745012509882552_n.jpg",
+      "f": "p",
+      "alt": "Irmãs dançando na festa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/662344215_18369885307206542_2380298368788851507_n.jpg",
+      "f": "p",
+      "alt": "Pais com a filha no batizado",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/369683378_18231576562214363_4883119133564685219_n.jpg",
+      "f": "p",
+      "alt": "Família no batizado, com a mesa branca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/654023750_18138013561452373_1533186630801140552_n.jpg",
+      "f": "l",
+      "alt": "Menino rindo na festa de aniversário",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/651217141_18091976260888147_5450081131758358862_n.jpg",
+      "f": "l",
+      "alt": "Família no dia do batizado, na igreja",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/622128713_18117108823591433_7547211933368743630_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, na parede laranja",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649480896_18106590697889241_7991421893834195956_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido branco e chapéu",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653655513_18182705647332373_4692771354738629500_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda branca",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649235549_18037590491562589_8641792691575522976_n.jpg",
+      "f": "p",
+      "alt": "Pais beijando o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649706905_18111198325739614_4988518220080809831_n.jpg",
+      "f": "p",
+      "alt": "Casal no campo de girassóis",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653871933_18074536004158975_4082062569955625254_n.jpg",
+      "f": "p",
+      "alt": "Pais com a bebê no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/655502199_18213031318316197_8340234481500419988_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha abraçadas no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/656506315_18574876807053111_8742552625144150388_n.jpg",
+      "f": "p",
+      "alt": "Mãe erguendo a filha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653564674_18106566358871285_398829717090320353_n.jpg",
+      "f": "p",
+      "alt": "Família correndo no campo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653601509_18100872893301065_350138185306870942_n.jpg",
+      "f": "p",
+      "alt": "Pais com o bebê junto à árvore de Natal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Família no campo de girassóis",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649243941_18091477250127325_3650234566752980270_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo de olhos fechados",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/652013654_18086730182335883_6820628131379315179_n.jpg",
+      "f": "p",
+      "alt": "Bebê de asas de borboleta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/652773954_18098890186768121_804507440765997899_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo de tiara",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/655234888_18097719751815089_6978350934148448942_n.jpg",
+      "f": "p",
+      "alt": "Bebê de camisa xadrez olhando para cima",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/621581046_18106729393779307_7123688218876153691_n.jpg",
+      "f": "l",
+      "alt": "Bebê de tiara olhando para cima",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/622607946_18075850154460486_7401063970019936170_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo na manta de tricô",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/623061261_18103270702871295_5659701980477003223_n.jpg",
+      "f": "l",
+      "alt": "Bebê espiando por cima da madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/631506527_18409521931193080_8994040711888689205_n.jpg",
+      "f": "l",
+      "alt": "Menina sorrindo entre as flores",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Lu e o Lucas, <em>da Lus.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Lu sorrindo, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Lus Fotografia é da Lu (Luciana), com o Lucas na equipe: fotógrafos de família e especialistas em festas infantis, no Jardim Monte Kemel, em São Paulo. Fotografam gestantes, bebês, aniversários de 1 ano, batizados, famílias e o Natal de Lus."
+   ],
+   "citacao": "Tem momentos que a câmera guarda o que as palavras não conseguem explicar.",
+   "citacao_quem": "Lu, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam de se sentir em casa, da paciência da equipe nas festas e de voltar para registrar o Natal ano após ano."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "48 avaliações no Google"
+    ],
+    [
+     "4,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "20/12",
+     "último dia do Natal de Lus"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para quando <em>não der mais pra repetir.</em>",
+   "p": "Os ensaios da Lus, nas palavras dela:",
+   "fonte": "Bio e legendas da Lus no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "A leveza no sorriso de quem transporta em seu ventre o maior tesouro da vida."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Pacotinho de amor",
+     "p": "Cheirinho de bebê e coração dos papais transbordando de alegria."
+    },
+    {
+     "nome": "1 ano",
+     "sub": "Festas infantis",
+     "p": "Criança agitada não é problema. É matéria-prima."
+    },
+    {
+     "nome": "Batizado",
+     "sub": "Celebrações",
+     "p": "Fotografar batizados é sempre muito especial."
+    },
+    {
+     "nome": "Família",
+     "sub": "Lifestyle",
+     "p": "Em casa, no estúdio ou no campo de girassóis."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal de Lus",
+     "p": "A cada Natal, vemos nossos filhos crescerem."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal de Lus 2026",
+   "h2": "A cada Natal, <em>vemos nossos filhos crescerem.</em>",
+   "p": "O Natal de Lus 2026 está oficialmente aberto, de 1º de novembro a 20 de dezembro: um cenário pensado para a sua família ser a protagonista. Escolha um horário e a mensagem chega pronta no WhatsApp da Lu.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653601509_18100872893301065_350138185306870942_n.jpg",
+    "f": "l",
+    "alt": "Pais com o bebê junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Gabih Marchioro Akerley",
+    "tag": "Natal em família",
+    "trecho": "É o nosso segundo ano registrando o Natal da nossa família, e estar na Lus é como estar em casa"
+   },
+   {
+    "nome": "Danielle Carmo",
+    "tag": "Festa de 1 ano",
+    "trecho": "Gostaria de registrar minha imensa satisfação e gratidão pelo trabalho incrível realizado por toda a equipe de fotografia no aniversário de 1 ano do meu filho Daniel."
+   },
+   {
+    "nome": "Fernanda Araujo",
+    "tag": "Gestante",
+    "trecho": "Nosso ensaio seria em um parque, mas no dia choveu muito e ela nos ajudou com outras opções."
+   },
+   {
+    "nome": "Beatriz Paula",
+    "tag": "A Lu e o Lucas",
+    "trecho": "a Lu é uma das melhores pessoas que já conheci, apaixonada pelo que faz, o Lucas muito prestativo"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos fotografar <em>juntos?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Monte Kemel, em São Paulo; as festas, onde elas acontecerem.",
+   "telefone": "(11) 91634-1606",
+   "endereco": [
+    "R. David Ben Gurion, 72",
+    "Jardim Monte Kemel",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal de Lus 2026 | Lus Fotografia",
+  "descricao": "O Natal de Lus 2026, de 1º de novembro a 20 de dezembro, no Jardim Monte Kemel, em São Paulo: a sua família como protagonista. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Lus Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal de Lus 2026 · 01/11 a 20/12",
+   "h1": "A cada Natal, vemos <em>nossos filhos crescerem.</em>",
+   "citacao": "Mais do que fotos bonitas, queremos guardar o amor, os abraços e as brincadeiras.",
+   "citacao_quem": "Lu, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/posts/DfS155nlK8R/DfS155nlK8R_00.jpg",
+    "f": "p",
+    "alt": "Família brincando no cenário do Natal de Lus 2026",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal de Lus 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Vocês são <em>os protagonistas.</em>",
+   "p": "Cada detalhe do cenário foi pensado com muito amor para que você e sua família sejam os verdadeiros protagonistas dessa história. O Natal de Lus 2026 vai de 1º de novembro a 20 de dezembro, no Jardim Monte Kemel.",
+   "itens": [
+    "No estúdio da Lus, no Jardim Monte Kemel, em São Paulo.",
+    "Natal de Lus 2026: de 1º de novembro a 20 de dezembro.",
+    "Para a família toda: pais, irmãos e bebês.",
+    "Valores e detalhes pelo WhatsApp da Lu."
+   ],
+   "legenda_fotos": "O Natal e as famílias da Lus"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/653601509_18100872893301065_350138185306870942_n.jpg",
+    "f": "p",
+    "alt": "Pais com o bebê junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lus-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Família no campo de girassóis",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/651217141_18091976260888147_5450081131758358862_n.jpg",
+    "f": "l",
+    "alt": "Família no dia do batizado",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Lu abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: o Natal de Lus vai até 20 de dezembro. A Lu define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Lu abre com o dia e a hora escritos."
+    ],
+    [
+     "A Lu confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Histórias <em>que merecem ser lembradas.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Lus.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/661587874_18584598763048741_8921093290161226253_n.jpg",
+     "f": "p",
+     "alt": "Família na festa de 1 ano",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649480896_18106590697889241_7991421893834195956_n.jpg",
+     "f": "p",
+     "alt": "Gestante de chapéu",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/651996612_18102107026910439_4590848883178548521_n.jpg",
+     "f": "p",
+     "alt": "Smash the cake de 1 ano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649235549_18037590491562589_8641792691575522976_n.jpg",
+     "f": "p",
+     "alt": "Pais com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/659626324_18401596717194387_1327026505071687806_n.jpg",
+     "f": "p",
+     "alt": "Menina de 1 ano no tema circo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/649706905_18111198325739614_4988518220080809831_n.jpg",
+     "f": "p",
+     "alt": "Casal nos girassóis",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/652013654_18086730182335883_6820628131379315179_n.jpg",
+     "f": "p",
+     "alt": "Bebê de asas de borboleta",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lusfotografia/Instagram_files/656506315_18574876807053111_8742552625144150388_n.jpg",
+     "f": "p",
+     "alt": "Mãe erguendo a filha",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Gabih Marchioro Akerley",
+    "tag": "À vontade",
+    "trecho": "desde o atendimento pelo whats até no dia do ensaio eles nos deixam super a vontade, o que faz fluir de forma natural o ensaio."
+   },
+   {
+    "nome": "Nathalia David dos Santos",
+    "tag": "Detalhes",
+    "trecho": "sempre atenciosos, pacientes e preocupados com cada detalhe."
+   },
+   {
+    "nome": "Beatriz Paula",
+    "tag": "Momentos",
+    "trecho": "Já fizeram parte de muitos momentos especiais e marcantes com a nossa família"
+   },
+   {
+    "nome": "Fernanda Araujo",
+    "tag": "Clientes fiéis",
+    "trecho": "apesar de ter sido nosso primeiro contato, já viramos clientes fiéis!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal de Lus 2026",
+   "h2": "Garanta o seu <em>Natal de Lus.</em>",
+   "p": "Vai até 20 de dezembro. Escolha um horário ou chame a Lu no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 91634-1606)",
+  "site": "só a galeria Pixieset (lusfotografia.pixieset.com, respondeu 403) (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/lus-fotografia` e `/demo/lus-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 11, 76 pontos), escolhida no Drive de 06/11/2026. Bio: \"🎄 NATAL DE LUS 2026 • 01/11 à 20/12 · Especialistas em festas infantis | São Paulo\".",
+   "Donos: a Lu (Luciana) e o Lucas (avaliações). Foto: a do perfil do Instagram (a Lu junto à árvore de Natal).",
+   "Personalidade: os posts de texto sobre o valor da fotografia (\"A fotografia não é para hoje. É para quando não der mais pra repetir\", \"Criança agitada não é problema. É matéria-prima\"). Na demo: abertura em faixa, Newsreader, \"fotografia\" em Mea Culpa, pêssego e terracota, ✳ entre as especialidades (o asterisco das artes dela).",
+   "Sem logo em boa resolução: monograma LF e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, 1 ano e gestante), portfólio em 3 abas (Festas e 1 ano, 10; Família e gestante, 11; Bebês, 8), a Lu e o Lucas, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A cada Natal, vemos nossos filhos crescerem\": o Natal de Lus 2026 (01/11 a 20/12), a agenda de exemplo (sábados de 14/11 a 19/12, das 9h às 15h30) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "O post do Natal de Lus 2026 (03/11), a página do Instagram salva no Drive (até 1440 px), 1 foto do Google e a foto do perfil.",
+   "Ficaram de fora: as capas de vídeo (9:16), os posts só de texto e a arte \"A fotógrafa\", as fotos de festa adulta e de casamento."
+  ],
+  "textos": [
+   "Bio e legendas: \"Natal de Lus 2026 oficialmente ABERTO!... A cada Natal, vemos nossos filhos crescerem...\" (03/11), \"Tem momentos que a câmera guarda...\" (09/10), \"Criança agitada não é problema. É matéria-prima.\" (14/10), \"A fotografia não é para hoje...\" (arte).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "É uma equipe (a Lu e o Lucas); a demo cumprimenta a Lu.",
+   "O Google diz \"Atendimento 24 horas\"; a agenda é exemplo.",
+   "Fotos de crianças, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site."
+  ]
+ }
+}
