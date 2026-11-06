@@ -1,0 +1,601 @@
+{
+ "pasta": "mayara-teixeira-fotografia",
+ "marca": "Mayara Teixeira Fotografia",
+ "marca_completa": "Mayara Teixeira Fotografia",
+ "dona": "May",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5329546,-46.5598161",
+  "fid": "0x94ce5f2575f964a9:0x30337b22ea465dd5",
+  "gid": "/g/11nxqxycd9"
+ },
+ "google_nome": "Mayara Teixeira - Fotografia",
+ "endereco_maps": "R. Antônio de Barros, 290 - Tatuapé, São Paulo - SP, 03089-000",
+ "google_nota": "5,0",
+ "google_total": "90",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511994548938",
+ "fone_link": "+5511994548938",
+ "instagram": "mayarateixeirafotografia",
+ "seguidores": "14,7 mil",
+ "mensagem": "Olá, May! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfbfd",
+  "papel": "#ffffff",
+  "areia": "#eef2f8",
+  "linha": "#dbe2ee",
+  "tinta": "#22252b",
+  "tinta2": "#5d6370",
+  "rosa": "#ffd166",
+  "acento": "#2f6db5",
+  "acento_escuro": "#24568f",
+  "cafe": "#1e2230"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "12h",
+   "13h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 13h30",
+   "2026-11-18 12h",
+   "2026-11-21 9h",
+   "2026-11-21 12h",
+   "2026-11-21 13h30",
+   "2026-11-25 12h",
+   "2026-11-25 13h30",
+   "2026-11-28 13h30",
+   "2026-12-05 10h30",
+   "2026-12-05 13h30"
+  ],
+  "exemplo": "Horários de exemplo: a May define os dela",
+  "mensagem": "Olá, May! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Mayara",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "2f4m",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Baskerville",
+    "ital,wght@0,400;0,700;1,400"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600;700"
+   ],
+   "script": [
+    "Satisfy",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "★"
+ },
+ "titulo_nome": "Mayara Teixeira",
+ "titulo_script": "fotografia",
+ "quem_a": "a May",
+ "quem_da": "da May",
+ "quem_sou": "Sou a Mayara Teixeira, a May",
+ "slogan": "Um cenário para cada fase.",
+ "site": {
+  "titulo": "Mayara Teixeira Fotografia | Mês a mês, smash the cake e família no Tatuapé",
+  "descricao": "Mayara Teixeira, a May, fotógrafa no Tatuapé, Zona Leste de São Paulo: acompanhamento mês a mês, smash the cake, aniversários e família, com cenários temáticos. Nota 5,0 no Google, com 90 avaliações.",
+  "comentario": "Demo Mayara Teixeira Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@mayarateixeirafotografia: as fotos da página salva e os posts de nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Tatuapé, Zona Leste",
+   "frase": "Um cenário para cada fase.",
+   "intro": "Bebês mês a mês, smash the cake, aniversários e famílias, com cenários temáticos, no Tatuapé, Zona Leste de São Paulo.",
+   "rotulos": [
+    "1 ano",
+    "Bebês",
+    "Mês a mês"
+   ],
+   "especialidades": [
+    "Mês a mês",
+    "Smash the cake",
+    "Aniversários",
+    "Newborn",
+    "Família",
+    "Festas"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/618949265_18557846887009123_5007008916879884134_n.jpg",
+     "f": "l",
+     "alt": "Bebê de Cinderela no aniversário de 1 ano",
+     "c": [
+      0.55,
+      0.55
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/621835392_18558569806009123_4305001468547986547_n.jpg",
+     "f": "p",
+     "alt": "Mãe com o bebê no colo, sorrindo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/618472285_18557845081009123_8492785035775564053_n.jpg",
+     "f": "l",
+     "alt": "Bebê no cenário Monstros S.A., com 1 ano",
+     "c": [
+      0.45,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Um cenário <em>para cada fase.</em>",
+   "p": "Ensaios da May, cada um com o seu tema e a plaquinha do nome. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "mensal",
+    "nome": "Mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/617603454_18557847169009123_6238030337382867811_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 9 meses no cenário de super-heróis",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/617915797_18557846149009123_4427006114817858843_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 7 meses de chef, entre os legumes",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/619600051_18557844490009123_6950522228381091916_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 10 meses no cenário do Stitch",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/619814510_18558569629009123_845221620945378564_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 10 meses de óculos na praia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/620470954_18558338563009123_9221456633430618787_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 10 meses no cenário de bichinhos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/622036636_18559072501009123_1670523972930243003_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 7 meses no cenário do Chaves",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e 1 ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/618949265_18557846887009123_5007008916879884134_n.jpg",
+      "f": "l",
+      "alt": "Bebê de Cinderela no aniversário de 1 ano",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/615959738_18557292103009123_2702315751872824553_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cenário do Rei Leão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/618472285_18557845081009123_8492785035775564053_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cenário Monstros S.A.",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/621811836_18558134533018010_1902664716149812542_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cavalinho",
+      "pos": "50% 14%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/622525132_18559824091009123_4971541145367016810_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no cenário da selva",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/623798333_18559779358009123_4621413334208564991_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 11 meses no cenário da Barbie",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/621835392_18558569806009123_4305001468547986547_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/624810428_18560867938009123_5665139075762039432_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, no fundo preto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/619581077_18557847628009123_5904223347002297037_n.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo deitada",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/620761917_18558337108009123_8001107633216373556_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de 1 mês no sofazinho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/624718237_18559823479009123_3463582355210533727_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido com o ursinho",
+      "pos": "50% 0%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/posts/DfXR3DvlT0j/DfXR3DvlT0j_00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touca amarela",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/google/fotos/g02.jpg",
+      "f": "l",
+      "alt": "Bebê de 2 meses no cenário do Pooh",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A May, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/652768839_18577463239009123_8786684744456549615_n.jpg",
+    "f": "p",
+    "alt": "May com a câmera diante do rosto",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Mayara Teixeira, a May, fotografa bebês mês a mês, smash the cake, aniversários e famílias no estúdio do Tatuapé, na Zona Leste de São Paulo. Cada ensaio tem um cenário temático e a plaquinha com o nome e a idade."
+   ],
+   "citacao": "Obrigada por eternizar cada fase da nossa princesa com tanto cuidado e sensibilidade.",
+   "citacao_quem": "Sarah Kerlin, no Google",
+   "p2": [
+    "Nas avaliações do Google (90, todas 5,0), as famílias falam da paciência com várias crianças ao mesmo tempo, do acompanhamento de 12 meses e do carinho com os bebês."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "90 avaliações no Google"
+    ],
+    [
+     "14,7 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "12",
+     "meses de acompanhamento"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do primeiro mês <em>ao aniversário.</em>",
+   "p": "Os ensaios da May:",
+   "fonte": "Legendas da May no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "1 mês",
+     "p": "O primeiro mês, com a plaquinha do nome."
+    },
+    {
+     "nome": "Mês a mês",
+     "sub": "Acompanhamento",
+     "p": "Doze meses, um cenário diferente a cada mês."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 ano",
+     "p": "Smash the cake no tema escolhido: Cinderela, Rei Leão, Monstros S.A."
+    },
+    {
+     "nome": "Aniversário",
+     "sub": "2 e 3 anos",
+     "p": "Ensaio de aniversário com o personagem preferido."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Pais, irmãos e o bebê no mesmo cenário."
+    },
+    {
+     "nome": "Festas",
+     "sub": "Cobertura",
+     "p": "A festa de aniversário, do bolo aos convidados."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Natal no estúdio <em>da May.</em>",
+   "p": "Os cenários temáticos da May no clima de Natal, para o bebê do acompanhamento, o aniversariante do ano e a família toda. Escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário de Natal do Pooh",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Daiane Ribeiro",
+    "tag": "12 meses",
+    "trecho": "Foram 12 meses de muita dedicação, comprometimento e leveza em cada sessão."
+   },
+   {
+    "nome": "Lais Borelli",
+    "tag": "3 crianças",
+    "trecho": "Ela foi muito paciente com a minha família, fotografar 3 crianças ao mesmo tempo é um grande desafio."
+   },
+   {
+    "nome": "Priscila Fonseca Fodor",
+    "tag": "Carinho",
+    "trecho": "Além de ter um olhar atencioso e delicado para as fotos, seu trabalho envolve carinho, paciência e cuidado, o que transforma cada momento em lembranças eternas!"
+   },
+   {
+    "nome": "Eduarda Oliveira Nail Designer",
+    "tag": "Detalhista",
+    "trecho": "Mayara ótima profissional; atenciosa, simpática, educada e super carinhosa e detalhista com a minha bebê."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Qual vai ser <em>o tema?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Tatuapé, Zona Leste de São Paulo, e atende de terça a sábado.",
+   "telefone": "(11) 99454-8938",
+   "endereco": [
+    "R. Antônio de Barros, 290",
+    "Tatuapé",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Mayara Teixeira Fotografia",
+  "descricao": "O ensaio de Natal no estúdio da Mayara Teixeira, no Tatuapé: cenários temáticos para bebês, crianças e família. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Mayara Teixeira Fotografia: página da campanha de Natal (natal.html), ligada ao site. Ela ainda não divulgou Natal: os textos não prometem cenário novo. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Tatuapé",
+   "h1": "Natal no estúdio <em>da May.</em>",
+   "citacao": "Tenho certeza de que, no futuro, olhar essas fotos vai nos fazer reviver cada emoção desse período tão especial.",
+   "citacao_quem": "Sarah Kerlin, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário de Natal do Pooh",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um cenário <em>com clima de Natal.</em>",
+   "p": "Os cenários temáticos da May, no Tatuapé, no clima de Natal: para o bebê do acompanhamento, o aniversariante do ano e a família toda.",
+   "itens": [
+    "No estúdio da May, no Tatuapé, Zona Leste de São Paulo.",
+    "Cenário temático com a plaquinha do nome e da idade.",
+    "Para bebês, crianças e a família toda.",
+    "Valores e datas pelo WhatsApp da May."
+   ],
+   "legenda_fotos": "Os cenários da May"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mayara-teixeira-fotografia/posts/DfV5g_vFRz8/DfV5g_vFRz8_00.jpg",
+    "f": "p",
+    "alt": "Mãe e filho no cenário do Pooh",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/619814510_18558569629009123_845221620945378564_n.jpg",
+    "f": "l",
+    "alt": "Bebê de óculos na praia",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/623798333_18559779358009123_4621413334208564991_n.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário da Barbie",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da May abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado. A May define os dias de Natal, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da May abre com o dia e a hora escritos."
+    ],
+    [
+     "A May confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Um cenário <em>para cada fase.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da May.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/618949265_18557846887009123_5007008916879884134_n.jpg",
+     "f": "l",
+     "alt": "Bebê de Cinderela",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/617915797_18557846149009123_4427006114817858843_n.jpg",
+     "f": "l",
+     "alt": "Bebê de chef",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/619600051_18557844490009123_6950522228381091916_n.jpg",
+     "f": "l",
+     "alt": "Bebê no cenário do Stitch",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mayarateixeirafotografia/Instagram_files/615959738_18557292103009123_2702315751872824553_n.jpg",
+     "f": "l",
+     "alt": "Bebê no Rei Leão",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Sarah Kerlin",
+    "tag": "Nossa história",
+    "trecho": "Foi um privilégio ter você fazendo parte da nossa história."
+   },
+   {
+    "nome": "Daiane Ribeiro",
+    "tag": "Divertida",
+    "trecho": "Além de super profissional, é organizada e divertida (uuuuuh, rsrs)!"
+   },
+   {
+    "nome": "Lais Borelli",
+    "tag": "1 ano",
+    "trecho": "especialmente as fotos da Lis, no ensaio de 1 ano, ficaram maravilhosas. Voltaremos em breve."
+   },
+   {
+    "nome": "Priscila Fonseca Fodor",
+    "tag": "Amizade",
+    "trecho": "Uma profissional maravilhosa e um ser humano muito especial, ganhei uma linda amizade!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Tatuapé",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a May no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99454-8938), o mesmo das legendas (\"WhatsApp 11 99454-8938\")",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/mayara-teixeira-fotografia` e `/demo/mayara-teixeira-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 21, reserva 1, 72 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; as legendas são só o nome do ensaio, então os textos vêm das fotos e das avaliações (com o nome de quem escreveu).",
+   "Dona: Mayara Teixeira (\"a May\"). Foto dela: com a câmera diante do rosto, da página salva.",
+   "Personalidade: um cenário temático a cada ensaio, com a plaquinha do nome e da idade. Na demo: abertura em bolhas, Libre Baskerville e Nunito, \"fotografia\" em Satisfy, azul e amarelo, ★ entre as especialidades.",
+   "Sem logo em boa resolução: monograma MT e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (1 ano, bebês e mês a mês), portfólio em 3 abas (Mês a mês, 6; Smash e 1 ano, 6; Bebês e família, 7; quase todas deitadas), a May, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Natal no estúdio da May\": ela ainda não divulgou Natal, então os textos falam dos cenários dela no clima de Natal, sem prometer cenário novo; a foto de Natal é a do Google (cenário do Pooh); agenda de exemplo (terça a sábado, de 14/11 a 05/12).",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "As fotos da página salva no Drive (1440 px, quase todas deitadas, com a marca d'água dela), 1 post de nov 2026 e 3 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as gestantes com nu e as fotos de festa com muita gente."
+  ],
+  "textos": [
+   "As legendas dela são só o nome do ensaio (\"Ensaio Smash The Cake 2026...Eloá 1 ano #cinderela\"); as citações vêm das avaliações do Google, com o nome de quem escreveu.",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "**Ela não divulgou campanha de Natal**: a página de Natal é uma sugestão (vale perguntar se ela vai fazer).",
+   "As fotos têm a marca d'água dela (fica bem, mas no site dá para usar sem).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
