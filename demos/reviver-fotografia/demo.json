@@ -1,0 +1,672 @@
+{
+ "pasta": "reviver-fotografia",
+ "marca": "Reviver Fotografia",
+ "marca_completa": "Reviver Fotografia",
+ "dona": "Denise",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6733831,-46.4515729",
+  "fid": "0x94ce699e2715e5bf:0xcf563df2e5b7e09c",
+  "gid": "/g/11pcm0yxx9"
+ },
+ "google_nome": "Denise Domingos (Reviver Fotografia)",
+ "endereco_maps": "Av. Itapark, 772 - Vila Bocaina, Mauá - SP, 09350-000",
+ "google_nota": "5,0",
+ "google_total": "31",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511942776730",
+ "fone_link": "+5511942776730",
+ "instagram": "re.viverfotografia",
+ "seguidores": "2,4 mil",
+ "mensagem": "Olá, Denise! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcfaf7",
+  "papel": "#ffffff",
+  "areia": "#f3eee6",
+  "linha": "#e4ddd1",
+  "tinta": "#25221f",
+  "tinta2": "#615c55",
+  "rosa": "#f0c9b8",
+  "acento": "#2f6656",
+  "acento_escuro": "#244f43",
+  "cafe": "#1f2b27"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-17",
+   "2026-11-19",
+   "2026-11-24",
+   "2026-11-26",
+   "2026-12-01",
+   "2026-12-03"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-17 10h30",
+   "2026-11-17 15h30",
+   "2026-11-19 14h",
+   "2026-11-24 9h",
+   "2026-11-24 14h",
+   "2026-11-24 15h30",
+   "2026-11-26 14h",
+   "2026-11-26 15h30",
+   "2026-12-01 15h30",
+   "2026-12-03 10h30",
+   "2026-12-03 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Denise define os dela",
+  "mensagem": "Olá, Denise! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Denise",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "4z8d",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Lora",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Nunito Sans",
+    "opsz,wght@6..12,300..600"
+   ],
+   "script": [
+    "Italianno",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "❦",
+  "script_escala": 1.3
+ },
+ "titulo_nome": "Reviver",
+ "titulo_script": "fotografia",
+ "quem_a": "a Denise",
+ "quem_da": "da Denise",
+ "quem_sou": "Sou a Denise Domingos",
+ "slogan": "Fotografias para reviver cada momento.",
+ "site": {
+  "titulo": "Reviver Fotografia | Família, bebês, gestante e Natal em Mauá",
+  "descricao": "Reviver Fotografia, da Denise Domingos, na Vila Bocaina, em Mauá: família, bebês, 1 ano, gestante e o Natal 2026. Nota 5,0 no Google, com 31 avaliações.",
+  "comentario": "Demo Reviver Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@re.viverfotografia: as fotos da página salva e os posts de set a nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Mauá",
+   "frase": "Fotografias para reviver cada momento.",
+   "intro": "Famílias, bebês, gestantes e aniversários de 1 ano, no estúdio da Denise, na Vila Bocaina, em Mauá. E o primeiro cenário de Natal 2026 já está pronto.",
+   "rotulos": [
+    "Natal",
+    "Bebês",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Bebês",
+    "1 ano",
+    "Gestante",
+    "Casais",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/622387788_17947701342094039_3765977448456187695_n.webp",
+     "f": "p",
+     "alt": "Menina sorrindo com a mão no rosto, junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/628994549_18363465943164756_8077287658528992706_n.webp",
+     "f": "p",
+     "alt": "Bebê rindo de suéter branco",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/641720606_18570764950029539_3403704406357413477_n.webp",
+     "f": "p",
+     "alt": "Menino de vermelho rindo na cadeirinha",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Para reviver <em>sempre que quiser.</em>",
+   "p": "Ensaios da Denise no estúdio da Reviver. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/622387788_17947701342094039_3765977448456187695_n.webp",
+      "f": "p",
+      "alt": "Menina com a mão no rosto, junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/623670017_18087802442121265_1294963223236686667_n.webp",
+      "f": "p",
+      "alt": "Menina de vestido verde junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/624671984_18068692634442313_1540852203507629960_n.webp",
+      "f": "p",
+      "alt": "Menina de vermelho com as mãos no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/625000061_17969163914853005_4744865490883379612_n.webp",
+      "f": "p",
+      "alt": "Menina de macacão caramelo junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/622392564_17948303883006273_4442169170918835672_n.webp",
+      "f": "p",
+      "alt": "Irmão beijando a bebê, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/623451159_18071877473416829_6008114205859969272_n.webp",
+      "f": "p",
+      "alt": "Família de vermelho no tapete de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/621752954_18010478303821947_5229100656718224700_n.webp",
+      "f": "p",
+      "alt": "Família com as filhas junto à lareira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/641720606_18570764950029539_3403704406357413477_n.webp",
+      "f": "p",
+      "alt": "Menino de vermelho rindo na cadeirinha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/617541609_17902159668357723_4474616631741710506_n.webp",
+      "f": "l",
+      "alt": "Família deitada no tapete, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/623690554_18066359054631995_3224718292013980436_n.webp",
+      "f": "l",
+      "alt": "Pais abraçando a filha no cenário de Natal",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/625047976_18206677012321144_7472683421224803304_n.webp",
+      "f": "p",
+      "alt": "Irmãos de rostos colados",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/626433950_18105281029841051_3666195570719821977_n.webp",
+      "f": "p",
+      "alt": "Mãe com os filhos junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/627242785_18104215924885063_138040318965319480_n.webp",
+      "f": "p",
+      "alt": "Casal abraçado, rindo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/619305731_17916558555259386_5308290502033759523_n.webp",
+      "f": "p",
+      "alt": "Casal de branco junto à guirlanda",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/624830701_18072946154618721_2888174176302613827_n.webp",
+      "f": "l",
+      "alt": "Mãe e filha deitadas no tapete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/625695570_18083540215952725_2439921662062704950_n.webp",
+      "f": "l",
+      "alt": "Casal deitado no tapete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/637770613_18563501518005086_1673307515916872119_n.webp",
+      "f": "l",
+      "alt": "Mãe e filha de rostos juntos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/626274272_18053206964443473_4207224975855669010_n.webp",
+      "f": "l",
+      "alt": "Mãe e filha sorrindo no tapete",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/619222064_17919053592249966_8554559276464444009_n.webp",
+      "f": "p",
+      "alt": "Bebê de laço verde sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/628994549_18363465943164756_8077287658528992706_n.webp",
+      "f": "p",
+      "alt": "Bebê rindo de suéter branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdwEi59oOfF/DdwEi59oOfF_00.jpg",
+      "f": "p",
+      "alt": "Bebê na cadeirinha, entre os balões lilás",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/626788063_18036753800550034_309479955360545169_n.webp",
+      "f": "p",
+      "alt": "Menino olhando para cima, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdpJx7OoPT2/DdpJx7OoPT2_00.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido caramelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdwE0JOIwJX/DdwE0JOIwJX_00.jpg",
+      "f": "l",
+      "alt": "Mãe com os filhos entre os balões lilás",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdwE5W_Tle1/DdwE5W_Tle1_00.jpg",
+      "f": "l",
+      "alt": "Bebê sorrindo na cadeirinha, entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/google/fotos/g04.jpg",
+      "f": "l",
+      "alt": "Bebê de 6 meses no cenário de balões",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Denise, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/528261113_18271271941302458_3266566066689734803_n.jpg",
+    "f": "p",
+    "alt": "Denise sorrindo com a câmera na mão",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Denise Domingos fotografa famílias, bebês, gestantes e aniversários de 1 ano na Reviver Fotografia, na Vila Bocaina, em Mauá. No Natal, o estúdio vira uma sala inteira de Natal, com sofá verde, árvore e luzinhas, para a família toda."
+   ],
+   "citacao": "Às vezes eu não sei lidar com tanta fofura.",
+   "citacao_quem": "Denise, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam de como ela deixa todo mundo à vontade, do olhar para cada detalhe e do jeito extrovertido que transforma o ensaio em algo leve e divertido."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "31 avaliações no Google"
+    ],
+    [
+     "2,4 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1º",
+     "cenário de Natal 2026 pronto"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para reviver <em>cada fase.</em>",
+   "p": "Os ensaios da Reviver:",
+   "fonte": "Legendas da Denise no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "A gestação no estúdio, com vestidos e tecidos esvoaçantes."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Mês a mês",
+     "p": "Os meses do bebê, com cenários que mudam a cada fase."
+    },
+    {
+     "nome": "1 ano",
+     "sub": "Aniversário",
+     "p": "Balões, bolo e muita fofura no primeiro aninho."
+    },
+    {
+     "nome": "Família",
+     "sub": "Do bebê aos avós",
+     "p": "A família toda no estúdio, e até o pet."
+    },
+    {
+     "nome": "Casais",
+     "sub": "A dois",
+     "p": "Ensaios de casal, com carinho e leveza."
+    },
+    {
+     "nome": "Natal",
+     "sub": "1º cenário",
+     "p": "Vem viver essa magia com a gente."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Vem viver essa magia <em>com a gente.</em>",
+   "p": "O primeiro cenário de Natal 2026 da Reviver já está finalizado. Escolha um horário e a mensagem chega pronta no WhatsApp da Denise.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/623690554_18066359054631995_3224718292013980436_n.webp",
+    "f": "l",
+    "alt": "Pais abraçando a filha no cenário de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carol Coutinho",
+    "tag": "Leve e divertido",
+    "trecho": "Sempre nos deixa super à vontade, transformando o ensaio em algo leve e divertido."
+   },
+   {
+    "nome": "Lorenzo Calado",
+    "tag": "Descontraído",
+    "trecho": "uma profissional exemplar, extrovertida que deixa o cliente descontraído para fotografar os melhores momentos com carinho, amor e dedicação."
+   },
+   {
+    "nome": "Mell Duarte",
+    "tag": "Experiência",
+    "trecho": "Denise é uma profissional de excelência, dedicada , sempre buscando proporcionar a melhor experiência pra nós clientes, e uma pessoa excepcional."
+   },
+   {
+    "nome": "Barbara Stefany",
+    "tag": "Fácil acesso",
+    "trecho": "Estúdio de fácil acesso, fotógrafa maravilhosa!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Bocaina, em Mauá, e atende de segunda a sexta.",
+   "telefone": "(11) 94277-6730",
+   "endereco": [
+    "Av. Itapark, 772",
+    "Vila Bocaina",
+    "Mauá · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Reviver Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Reviver Fotografia, em Mauá: o primeiro cenário já está pronto. Escolha o horário e chame no WhatsApp da Denise.",
+  "comentario": "Demo Reviver Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Mauá",
+   "h1": "Vem viver essa magia <em>com a gente.</em>",
+   "citacao": "A alegria que fiquei em registrar esse momento não está escrito.",
+   "citacao_quem": "Denise, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/617541609_17902159668357723_4474616631741710506_n.webp",
+    "f": "l",
+    "alt": "Família deitada no tapete, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O primeiro cenário <em>já está pronto.</em>",
+   "p": "O primeiro cenário de Natal 2026 da Reviver já está finalizado, no estúdio da Denise, na Vila Bocaina, em Mauá. Para a família toda, do bebê aos avós, e até o pet.",
+   "itens": [
+    "No estúdio da Denise, na Vila Bocaina, em Mauá.",
+    "O 1º cenário de Natal 2026 já está finalizado.",
+    "Para a família toda: do bebê aos avós, e até o pet.",
+    "Valores e datas pelo WhatsApp da Denise."
+   ],
+   "legenda_fotos": "Natais anteriores na Reviver"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/623670017_18087802442121265_1294963223236686667_n.webp",
+    "f": "p",
+    "alt": "Menina de vestido verde junto à árvore",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/621922794_18017450363804429_5939721814338571078_n.webp",
+    "f": "l",
+    "alt": "Casal com o bebê no colo, de costas, junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/622975888_18146521651456468_1563005105855464771_n.webp",
+    "f": "l",
+    "alt": "Família sentada no tapete, junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Denise abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sexta, no horário do estúdio. A Denise define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Denise abre com o dia e a hora escritos."
+    ],
+    [
+     "A Denise confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Para reviver <em>sempre que quiser.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Denise.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/628994549_18363465943164756_8077287658528992706_n.webp",
+     "f": "p",
+     "alt": "Bebê rindo de suéter branco",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdpJx7OoPT2/DdpJx7OoPT2_00.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido vermelho",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/625047976_18206677012321144_7472683421224803304_n.webp",
+     "f": "p",
+     "alt": "Irmãos de rostos colados",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/posts/DdwEi59oOfF/DdwEi59oOfF_00.jpg",
+     "f": "p",
+     "alt": "Bebê entre os balões lilás",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/627242785_18104215924885063_138040318965319480_n.webp",
+     "f": "p",
+     "alt": "Casal abraçado",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/619222064_17919053592249966_8554559276464444009_n.webp",
+     "f": "p",
+     "alt": "Bebê de laço verde",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/reviver-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Gestante com o tecido caramelo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/reiverfotografia/Instagram_files/619305731_17916558555259386_5308290502033759523_n.webp",
+     "f": "p",
+     "alt": "Casal de branco",
+     "pos": "50% 30%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carol Coutinho",
+    "tag": "Olhar único",
+    "trecho": "Tem um olhar único, capta cada detalhe com perfeição e faz de tudo para que as fotos fiquem do jeitinho que a gente sonha."
+   },
+   {
+    "nome": "Amanda Caroba Balbino",
+    "tag": "Perfeito",
+    "trecho": "O trabalho da Denise é perfeito, as fotos são maravilhosas e ela é um amor, super atenciosa."
+   },
+   {
+    "nome": "Lorenzo Calado",
+    "tag": "Gratidão",
+    "trecho": "nós amamos o ensaio como um todo."
+   },
+   {
+    "nome": "Barbara Stefany",
+    "tag": "Indico",
+    "trecho": "Indico de olhos fechados"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Mauá",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Denise no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 94277-6730)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/reviver-fotografia` e `/demo/reviver-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 12, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de set a nov 2026 e das avaliações.",
+   "Dona: Denise Domingos (nome no Google). Foto dela: com a câmera, da página salva.",
+   "Personalidade: o nome Reviver e o Natal em família na sala de sofá verde, com árvore e luzinhas. Na demo: abertura em polaroides, Lora, \"fotografia\" em Italianno, verde-sofá e ❦ entre as especialidades.",
+   "Sem logo em boa resolução: monograma RF e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal, bebês e infantil), portfólio em 3 abas (Natal, 10; Família, 8; Bebês e gestante, 9), a Denise, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Vem viver essa magia com a gente\": o 1º cenário de 2026, fotos de Natais anteriores, a agenda de exemplo (6 dias de segunda a sexta, de 17/11 a 03/12, das 9h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de set/out 2026 (1 ano nos balões lilás e gestante), as fotos da página salva no Drive (até 1440 px) e 4 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), inclusive a do cenário de Natal 2026, e as fotos com moldura de outra foto."
+  ],
+  "textos": [
+   "Legendas: \"Nosso 1º cenário já está finalizado... Vem viver essa magia com a gente\" (03/11), \"Às vezes eu não sei lidar com tanta fofura\" (26/09), \"A alegria que fiquei em registrar esse momento não está escrito\" (23/09).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "As fotos de Natal são de anos anteriores; o cenário 2026 só aparece num reel.",
+   "Fotos de crianças, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
