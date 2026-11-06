@@ -1,0 +1,703 @@
+{
+ "pasta": "erika-stojan-fotografia",
+ "marca": "Studio Erika Stojan Fotografia",
+ "marca_completa": "Studio Erika Stojan Fotografia",
+ "dona": "Erika",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5124064,-46.7781774",
+  "fid": "0x94ceffe4980940b3:0xed4db565fc1caa5",
+  "gid": "/g/11v15pxdm8"
+ },
+ "google_nome": "Studio Erika Stojan Fotografia",
+ "endereco_maps": "Av. Cruzeiro do Sul - Rochdale, Osasco - SP, 06226-006",
+ "google_nota": "5,0",
+ "google_total": "49",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511988153793",
+ "fone_link": "+5511988153793",
+ "instagram": "erikastojanfotografia",
+ "seguidores": "5,3 mil",
+ "mensagem": "Olá, Erika! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf9f9",
+  "papel": "#ffffff",
+  "areia": "#f4eded",
+  "linha": "#e6dadb",
+  "tinta": "#262326",
+  "tinta2": "#635c61",
+  "rosa": "#ecc5cc",
+  "acento": "#a84d61",
+  "acento_escuro": "#873d4e",
+  "cafe": "#232026"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-21",
+   "2026-11-24",
+   "2026-11-28",
+   "2026-12-01",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h",
+   "14h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-14 10h",
+   "2026-11-14 16h",
+   "2026-11-21 14h",
+   "2026-11-24 9h",
+   "2026-11-24 14h",
+   "2026-11-24 16h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-01 16h",
+   "2026-12-05 10h",
+   "2026-12-05 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Erika define os dela",
+  "mensagem": "Olá, Erika! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Erika",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Erika, do Studio Erika Stojan. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Erika, do Studio Erika Stojan. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "v9et",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Erika, do Studio Erika Stojan. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Marcellus",
+    ""
+   ],
+   "sans": [
+    "Raleway",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Alex Brush",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "◇",
+  "natal_capa": "retrato",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Erika Stojan",
+ "titulo_script": "fotografia",
+ "quem_a": "a Erika",
+ "quem_da": "da Erika",
+ "quem_sou": "Sou a Erika Stojan",
+ "slogan": "Um estúdio especializado em fotografia de famílias.",
+ "site": {
+  "titulo": "Studio Erika Stojan Fotografia | Gestante, newborn e família em Osasco",
+  "descricao": "Studio Erika Stojan, no Rochdale, em Osasco: gestante, newborn, bebês, casal e família, com produção e maquiagem. Nota 5,0 no Google, com 49 avaliações.",
+  "comentario": "Demo Studio Erika Stojan Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@erikastojanfotografia: as fotos da página salva e os posts de nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Studio de fotografia · Osasco",
+   "frase": "Um estúdio especializado em fotografia de famílias.",
+   "intro": "Gestantes, recém-nascidos, bebês e famílias, no Studio Erika Stojan, no Rochdale, em Osasco. As últimas vagas de 2026 para gestante e newborn já estão abertas.",
+   "rotulos": [
+    "Gestante",
+    "Bebês",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Casal",
+    "Newborn",
+    "Bebês",
+    "Família",
+    "Feminino"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480468013_557606284001160_2467508257287791156_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido caramelo com a flor",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/649660592_17957186088078694_7232880362880864283_n.jpg",
+     "f": "p",
+     "alt": "Bebê de laço na cadeira branca",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480518754_557996227295499_1644080768597495841_n.jpg",
+     "f": "p",
+     "alt": "Pais com o filho no colo, sorrindo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase <em>da família.</em>",
+   "p": "Ensaios da Erika no Studio. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480468013_557606284001160_2467508257287791156_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido caramelo com a flor",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480756889_557606470667808_4364658438327523979_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vermelho com a flor",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/470025591_17951354588881143_2490674261831470069_n.jpg",
+      "f": "p",
+      "alt": "Gestante de blusa de tricô rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480268130_557832157311906_6070315223311632272_n.jpg",
+      "f": "p",
+      "alt": "Gestante ajoelhada, de blusa preta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480657921_557995893962199_8713705565620322186_n.jpg",
+      "f": "p",
+      "alt": "Gestante em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480695522_557606447334477_3866424578850066951_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o tule rosé",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/481156224_558735443888244_2705392702434024552_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada no chão, sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/481248091_558723613889427_8528180042797518485_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido preto, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/649609296_17916580140293267_4118965371598754317_n.jpg",
+      "f": "p",
+      "alt": "Gestante de jeans dançando",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/469969823_17951354900881143_7139623535824713813_n.jpg",
+      "f": "p",
+      "alt": "Gestante sentada, de camisa aberta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/posts/DfP9b3em1cq/DfP9b3em1cq_00.jpg",
+      "f": "p",
+      "alt": "Gestante de preto no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido azul no fundo escuro",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "casal",
+    "nome": "Casal e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/447222988_372136265881497_222788368501112621_n.jpg",
+      "f": "p",
+      "alt": "Casal com os sapatinhos do bebê",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/470092903_17951354603881143_3692602426204937143_n.jpg",
+      "f": "p",
+      "alt": "Casal com o teste de gravidez",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480231729_557211174040671_4632202261005006723_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ele atrás dela",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480661241_558279020600553_3337780770409102893_n.jpg",
+      "f": "p",
+      "alt": "Casal, ele com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/653570682_18050996171717513_5113574572670821555_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ela de pink",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/655185250_18071550311219642_1558083316361721708_n.jpg",
+      "f": "p",
+      "alt": "Casal em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/posts/DfX0mfPm1hA/DfX0mfPm1hA_00.jpg",
+      "f": "p",
+      "alt": "Casal com o vestidinho rosa do bebê",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/posts/DfYDf37G-qf/DfYDf37G-qf_00.jpg",
+      "f": "p",
+      "alt": "Casal de mãos dadas, ela de vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480518754_557996227295499_1644080768597495841_n.jpg",
+      "f": "p",
+      "alt": "Pais com o filho no colo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/470131613_17951354927881143_4524479446546322323_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a bebê e o filho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/657298187_18012613877684361_3822194902926560140_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho abraçados no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Família sentada no estúdio",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/649660592_17957186088078694_7232880362880864283_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço na cadeira branca",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/469984934_17951354690881143_485799186192146349_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço no fundo amarelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480299520_556573744104414_3596185956030128637_n.jpg",
+      "f": "p",
+      "alt": "Bebê no colo da mãe, de camiseta combinando",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480775142_558279013933887_1608974117080350545_n.jpg",
+      "f": "p",
+      "alt": "Avó com o neto na poltrona",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/653671183_18089596414902458_4693626409967164993_n.jpg",
+      "f": "l",
+      "alt": "Bebê de lilás no cenário do fundo do mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480309107_556573040771151_8081593238447073859_n.jpg",
+      "f": "l",
+      "alt": "Pais com a bebê sentados no chão",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480760839_557996297295492_626044922951947661_n.jpg",
+      "f": "l",
+      "alt": "Família deitada no chão do estúdio",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Irmãs com o bolo de aniversário",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Erika <em>e o Studio.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/649600754_18001186814881143_8952364613934144242_n.jpg",
+    "f": "p",
+    "alt": "Ensaio entre as luzes do estúdio",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Erika Stojan fotografa gestantes, recém-nascidos, bebês e famílias no Studio Erika Stojan, no Rochdale, em Osasco: um estúdio especializado em fotografia de famílias, com produção e maquiagem."
+   ],
+   "citacao": "Não deixe para depois a oportunidade de registrar uma das fases mais especiais da sua vida.",
+   "citacao_quem": "Erika, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as clientes falam da paciência e da atenção dela, da maquiagem, da autoestima lá em cima e das fotos entregues antes do prazo."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "49 avaliações no Google"
+    ],
+    [
+     "5,3 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2026",
+     "últimas vagas abertas"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase <em>da família.</em>",
+   "p": "Os ensaios do Studio Erika Stojan:",
+   "fonte": "Legendas da Erika no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Uma das fases mais especiais da sua vida, com produção e maquiagem."
+    },
+    {
+     "nome": "Casal",
+     "sub": "A dois",
+     "p": "O casal junto no ensaio gestante, do teste positivo à barriga."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Para receber você e seu recém-nascido com carinho, cuidado e conforto."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Crescidinhos",
+     "p": "Os bebês crescidinhos, com cenários coloridos."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todos juntos",
+     "p": "Pais, irmãos, avós e até o pet."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Autoestima",
+     "p": "Ensaios que elevam a autoestima."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O primeiro Natal <em>do bebê.</em>",
+   "p": "Gestantes, recém-nascidos e famílias no clima de Natal, no estúdio da Erika. Escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480309107_556573040771151_8081593238447073859_n.jpg",
+    "f": "l",
+    "alt": "Pais com a bebê sentados no chão",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Família"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Amanda Ferreiira",
+    "tag": "Antes do prazo",
+    "trecho": "As fotos ficaram perfeitas! A profissional foi super atenciosa, paciente e ainda entregou tudo bem antes do prazo."
+   },
+   {
+    "nome": "Aldeira Rodrigues",
+    "tag": "Autoestima",
+    "trecho": "Sempre elevando minha autoestima , sem falar nas fotos lindas que fez da minha família."
+   },
+   {
+    "nome": "Camila Carvalho",
+    "tag": "A make",
+    "trecho": "um ensaio leve , muito bem feito , eu amei tudo , o resultado ficou impecável , eu indico o estúdio da Érika e a make"
+   },
+   {
+    "nome": "Jhennifer do Nascimento Sena da Silva",
+    "tag": "Todas lindas",
+    "trecho": "Foi difícil escolher as fotos pois todas estavam lindas."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Rochdale, em Osasco, e atende de terça a sábado.",
+   "telefone": "(11) 98815-3793",
+   "endereco": [
+    "Av. Cruzeiro do Sul",
+    "Rochdale",
+    "Osasco · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Studio Erika Stojan Fotografia",
+  "descricao": "O ensaio de Natal 2026 no Studio Erika Stojan, em Osasco: gestantes, recém-nascidos e famílias. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Studio Erika Stojan Fotografia: página da campanha de Natal (natal.html), ligada ao site. Ela ainda não divulgou Natal: os textos não prometem cenário. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h1": "O primeiro Natal <em>do bebê.</em>",
+   "citacao": "Os primeiros dias do seu bebê passam tão rápido… e cada detalhe merece ser guardado para sempre!",
+   "citacao_quem": "Erika, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/google/fotos/g04.jpg",
+    "f": "p",
+    "alt": "Mãe com a bebê no cenário de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal em família <em>no estúdio.</em>",
+   "p": "Um estúdio especializado em fotografia de famílias, preparado para receber vocês com carinho, cuidado e conforto: gestantes, recém-nascidos, crianças e a família toda, no clima de Natal.",
+   "itens": [
+    "No Studio Erika Stojan, no Rochdale, em Osasco.",
+    "Ambiente confortável e acolhedor.",
+    "Produção e maquiagem no estúdio.",
+    "Valores e datas pelo WhatsApp da Erika."
+   ],
+   "legenda_fotos": "Famílias no estúdio da Erika"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480775142_558279013933887_1608974117080350545_n.jpg",
+    "f": "p",
+    "alt": "Avó com o neto na poltrona",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480760839_557996297295492_626044922951947661_n.jpg",
+    "f": "l",
+    "alt": "Família deitada no chão do estúdio",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480309107_556573040771151_8081593238447073859_n.jpg",
+    "f": "l",
+    "alt": "Pais com a bebê sentados no chão",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Erika abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado. A Erika define os dias de Natal, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Erika abre com o dia e a hora escritos."
+    ],
+    [
+     "A Erika confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada fase <em>da família.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Erika.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480468013_557606284001160_2467508257287791156_n.jpg",
+     "f": "p",
+     "alt": "Gestante de caramelo com a flor",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/649660592_17957186088078694_7232880362880864283_n.jpg",
+     "f": "p",
+     "alt": "Bebê na cadeira branca",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480518754_557996227295499_1644080768597495841_n.jpg",
+     "f": "p",
+     "alt": "Pais com o filho no colo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/480756889_557606470667808_4364658438327523979_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vermelho",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/469984934_17951354690881143_485799186192146349_n.jpg",
+     "f": "p",
+     "alt": "Bebê no fundo amarelo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/447222988_372136265881497_222788368501112621_n.jpg",
+     "f": "p",
+     "alt": "Casal com os sapatinhos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/erikastojanfotografia/Instagram_files/470025591_17951354588881143_2490674261831470069_n.jpg",
+     "f": "p",
+     "alt": "Gestante rindo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/erika-stojan-fotografia/posts/DfYDf37G-qf/DfYDf37G-qf_00.jpg",
+     "f": "p",
+     "alt": "Casal de mãos dadas",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rafaela Almeida",
+    "tag": "À vontade",
+    "trecho": "fotógrafa maravilhosa, atenciosa me senti muito a vontade"
+   },
+   {
+    "nome": "Aldeira Rodrigues",
+    "tag": "Bem recebidos",
+    "trecho": "A Erika e muito simpática e nos recebeu super bem no Studio.."
+   },
+   {
+    "nome": "Jhennifer do Nascimento Sena da Silva",
+    "tag": "Atendimento",
+    "trecho": "Atendimento maravilhoso, muito atenciosa, paciente e realiza um trabalho incrível."
+   },
+   {
+    "nome": "Amanda Ferreiira",
+    "tag": "Perfeitas",
+    "trecho": "As fotos ficaram perfeitas!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Erika no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98815-3793)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/erika-stojan-fotografia` e `/demo/erika-stojan-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 15, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de nov 2026 e das avaliações.",
+   "Dona: Erika Stojan. Sem foto dela confirmada: o \"quem fotografa\" usa um ensaio entre as luzes do estúdio, sem dizer que é ela.",
+   "Personalidade: estúdio limpo e claro, cheio de gestantes, casais e famílias (\"um estúdio especializado em fotografia de famílias\"), com produção e maquiagem. Na demo: abertura em cápsulas, Marcellus, \"fotografia\" em Alex Brush, rosé e ◇ entre as especialidades.",
+   "Sem logo em boa resolução: monograma ES e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, bebês e família), portfólio em 3 abas (Gestante, 12; Casal e família, 12; Bebês, 8), a Erika, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O primeiro Natal do bebê\": ela ainda não divulgou Natal, então os textos falam do estúdio e da família, sem prometer cenário; a foto do topo é a de Natal do Google; a agenda é exemplo (terças e sábados, de 14/11 a 05/12).",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de nov 2026 (gestantes e casais, 1440 px), as fotos da página salva no Drive (1440 px) e 5 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), os ensaios com nu, o casamento e as fotos de cliente com texto."
+  ],
+  "textos": [
+   "Legendas: \"RESERVE AGORA SEU ENSAIO NEWBORN/GESTANTE! ÚLTIMAS VAGAS PARA 2026\", \"Um estúdio especializado em fotografia de famílias...\", \"Os primeiros dias do seu bebê passam tão rápido...\" e \"Não deixe para depois a oportunidade...\" (05/11).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "**Ela não divulgou campanha de Natal**: a página de Natal é uma sugestão (vale perguntar se ela vai fazer).",
+   "Fotos de gestantes, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
