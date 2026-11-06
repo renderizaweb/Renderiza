@@ -1,0 +1,680 @@
+{
+ "pasta": "vanessa-luciana-fotografia",
+ "marca": "Vanessa Luciana Fotografia",
+ "marca_completa": "Vanessa Luciana Fotografia",
+ "dona": "Vanessa",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6307012,-46.6060138",
+  "fid": "0x94ce5b4f8c328d07:0x7623e3a63b9875df",
+  "gid": "/g/11ss7969d3"
+ },
+ "google_nome": "Vanessa Luciana Fotografia",
+ "endereco_maps": "Rua Itaguajé, 193 - Vila Moraes, São Paulo - SP, 04164-210",
+ "google_nota": "5,0",
+ "google_total": "32",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511943197367",
+ "fone_link": "+5511943197367",
+ "instagram": "vanessalucianafotografia",
+ "seguidores": "4,2 mil",
+ "mensagem": "Olá, Vanessa! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f4",
+  "papel": "#ffffff",
+  "areia": "#f3ece3",
+  "linha": "#e5dacd",
+  "tinta": "#26231f",
+  "tinta2": "#635c55",
+  "rosa": "#e9c0a6",
+  "acento": "#a8323a",
+  "acento_escuro": "#88282f",
+  "cafe": "#1f2421"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-26",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h",
+   "14h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-18 13h",
+   "2026-11-21 9h",
+   "2026-11-21 13h",
+   "2026-11-21 14h",
+   "2026-11-26 13h",
+   "2026-11-26 14h",
+   "2026-11-28 14h",
+   "2026-12-05 10h30",
+   "2026-12-05 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Vanessa define os dela",
+  "mensagem": "Olá, Vanessa! Quero o horário de {data} ({semana}) às {hora} para o especial de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Vanessa",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "ndwt",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Crimson Pro",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Work Sans",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✻",
+  "natal_capa": "retrato",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Vanessa Luciana",
+ "titulo_script": "fotografia",
+ "quem_a": "a Vanessa",
+ "quem_da": "da Vanessa",
+ "quem_sou": "Sou a Vanessa Luciana",
+ "slogan": "Bom mesmo é junto!",
+ "site": {
+  "titulo": "Vanessa Luciana Fotografia | Natal, smash the cake, família e newborn na Vila Moraes, SP",
+  "descricao": "Vanessa Luciana, fotógrafa na Vila Moraes, em São Paulo: smash the cake, newborn, família de várias gerações, festas e o especial de Natal 2026, \"Bom mesmo é junto!\". Nota 5,0 no Google, com 32 avaliações.",
+  "comentario": "Demo Vanessa Luciana Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@vanessalucianafotografia: as fotos da página salva e os posts de set a nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa de família · Vila Moraes, SP",
+   "frase": "Bom mesmo é junto!",
+   "intro": "Smash the cake, newborn, famílias de várias gerações e festas, no estúdio da Vila Moraes, em São Paulo. E o especial de Natal 2026 já está pronto para receber vocês.",
+   "rotulos": [
+    "Natal 2026",
+    "Infantil",
+    "Smash"
+   ],
+   "especialidades": [
+    "Natal",
+    "Smash the cake",
+    "Newborn",
+    "Família",
+    "Festas",
+    "Celebrações"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DfVP_w4Pf6f/DfVP_w4Pf6f_00.jpg",
+     "f": "p",
+     "alt": "O cenário de Natal 2026, com a árvore, as luzinhas e o arco",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/629222368_18424920193190732_3144626818943981620_n.jpg",
+     "f": "p",
+     "alt": "Menina encantada com o presente de Natal que brilha",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DeFyD9aP-N-/DeFyD9aP-N-_00.jpg",
+     "f": "p",
+     "alt": "Bebê de coroa de flores no smash the cake",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Perto de quem <em>faz a vida especial.</em>",
+   "p": "Ensaios da Vanessa, no estúdio e nas festas. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/629222368_18424920193190732_3144626818943981620_n.jpg",
+      "f": "p",
+      "alt": "Menina encantada com o presente que brilha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/619884057_18119213197586816_2890450412687599122_n.jpg",
+      "f": "p",
+      "alt": "Menina no balanço junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/640507998_18569331940043168_5342706072275738514_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço na cabaninha de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650264725_18096801661799253_8333465838175240960_n.jpg",
+      "f": "p",
+      "alt": "Menino de braços para cima na cabaninha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/645980404_18084763124351921_6689705870257672874_n.jpg",
+      "f": "p",
+      "alt": "Mãe abraçando o filho junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/646136169_18091999301029163_4857808283582351759_n.jpg",
+      "f": "p",
+      "alt": "Família no balanço de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/649219795_18069794597237659_1843796355273562164_n.jpg",
+      "f": "p",
+      "alt": "Mãe erguendo o filho junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/652566160_18111087100775728_4369094044702172593_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido vermelho na cabaninha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/656163674_18335108110168782_7985759344919438729_n.jpg",
+      "f": "p",
+      "alt": "Bebê de gorro na neve, junto à árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/656192471_18314454409252609_1162906240563145175_n.jpg",
+      "f": "p",
+      "alt": "Menino lendo o livro que brilha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/670002672_18398915239196402_7113144099435492797_n.jpg",
+      "f": "p",
+      "alt": "Família com o menino no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/619593905_18092085598790927_3739968626953513512_n.jpg",
+      "f": "p",
+      "alt": "Menina de vermelho no cavalinho, junto à árvore",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Smash e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DeFyD9aP-N-/DeFyD9aP-N-_00.jpg",
+      "f": "p",
+      "alt": "Bebê de coroa de flores no smash the cake",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DdxUBauNK9B/DdxUBauNK9B_00.jpg",
+      "f": "p",
+      "alt": "Bebê no smash de 1 ano, entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/622692302_18125212990545114_6509301909125836653_n.jpg",
+      "f": "p",
+      "alt": "Bebê de chef na panela, entre os legumes",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/637805274_18569546371060673_354244479750867668_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido com as mãozinhas no queixo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650113568_18171077071400668_8599759334164050999_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido bocejando na xícara",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/657303016_18580253614049566_5652923481804134457_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo de lado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/625151581_18053548526432783_8083718257063331071_n.jpg",
+      "f": "p",
+      "alt": "Menino com a bola de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650742820_18127073104492483_1921607183283534856_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido vermelho no jardim",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e celebrações",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Quatro gerações reunidas entre as flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/649476791_18053852951483278_6140542547059310685_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filhas de jeans e camiseta branca",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Mulheres da família sorrindo juntas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650771561_18102228928904848_5525106115440063230_n.jpg",
+      "f": "p",
+      "alt": "Formatura de beca, jogando o capelo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/620434628_18089477753099042_8130209431239435900_n.jpg",
+      "f": "p",
+      "alt": "Formanda de beca no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/619801195_18071352833135983_6967147688039532059_n.jpg",
+      "f": "p",
+      "alt": "Noiva junto à janela",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/656242897_18538541689067012_7055704643841343943_n.jpg",
+      "f": "p",
+      "alt": "Retrato de chapéu e camisa listrada",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/649180456_18111086779665233_3538038972667749672_n.jpg",
+      "f": "p",
+      "alt": "Retrato de vestido de bolinhas, de costas",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Vanessa, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/780860563_18599707960065459_5356015308538001855_n.jpg",
+    "f": "p",
+    "alt": "Retrato com a lente nas mãos",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Vanessa Luciana fotografa smash the cake, newborn, famílias, festas e formaturas, no estúdio da Vila Moraes, em São Paulo. Também faz álbuns, monóculos e um planner fotográfico."
+   ],
+   "citacao": "O Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial.",
+   "citacao_quem": "Vanessa, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias contam que voltam há anos e falam dos ensaios com quatro gerações, do cuidado com a mãe de 90 anos e dos cenários pensados em cada detalhe."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "32 avaliações no Google"
+    ],
+    [
+     "4,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "4",
+     "gerações num mesmo ensaio"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Bom mesmo <em>é junto.</em>",
+   "p": "Os ensaios da Vanessa, nas palavras dela:",
+   "fonte": "Legendas da Vanessa no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias do bebê, com toda a calma."
+    },
+    {
+     "nome": "Smash",
+     "sub": "Em 3 partes",
+     "p": "Fotos no cenário, fotos brincando com o bolo e a foto do banho."
+    },
+    {
+     "nome": "Sem açúcar",
+     "sub": "Bolo de fruta",
+     "p": "Não dá açúcar pro bebê? Não tem problema, temos a versão de bolo de fruta."
+    },
+    {
+     "nome": "Família",
+     "sub": "Gerações",
+     "p": "Do bebê à bisavó, a família toda reunida."
+    },
+    {
+     "nome": "Festas",
+     "sub": "Celebrações",
+     "p": "80 anos não pode passar sem comemoração, não é mesmo?"
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O cenário está pronto. Agora só faltam vocês!"
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Bom mesmo <em>é junto!</em>",
+   "p": "O cantinho de Natal 2026 da Vanessa está pronto para receber histórias, encontros, abraços e muitos momentos em família. Escolha um horário e a mensagem chega pronta no WhatsApp da Vanessa.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/645980404_18084763124351921_6689705870257672874_n.jpg",
+    "f": "l",
+    "alt": "Mãe abraçando o filho junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Aline Oliveira",
+    "tag": "4 gerações",
+    "trecho": "Fiz ensaio de dia das mães com minha família de 4 gerações e nós amamos!"
+   },
+   {
+    "nome": "Silvana Silva Ferreira",
+    "tag": "Cuidado",
+    "trecho": "tratou de mim e minha família com muito carinho e teve um cuidado especial com minha mãe de 90 anos."
+   },
+   {
+    "nome": "Caroline Trento",
+    "tag": "Os cenários",
+    "trecho": "Os cenários dela são muito perfeitos!! Cada detalhe pensado com muito carinho e amor!"
+   },
+   {
+    "nome": "Eduardo Domingos",
+    "tag": "De confiança",
+    "trecho": "Ela foi responsável pela cobertura da festa e, desde então, tornou-se nossa fotógrafa de confiança."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Bom mesmo <em>é junto.</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Moraes, em São Paulo, e atende de terça a sábado.",
+   "telefone": "(11) 94319-7367",
+   "endereco": [
+    "Rua Itaguajé, 193",
+    "Vila Moraes",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Especial de Natal 2026 | Vanessa Luciana Fotografia",
+  "descricao": "O especial de Natal 2026 da Vanessa Luciana, na Vila Moraes, em São Paulo: bom mesmo é junto! Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Vanessa Luciana Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Especial de Natal 2026 · Vila Moraes",
+   "h1": "Bom mesmo <em>é junto!</em>",
+   "citacao": "Porque, no final das contas, o Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial.",
+   "citacao_quem": "Vanessa, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DfVP_w4Pf6f/DfVP_w4Pf6f_00.jpg",
+    "f": "p",
+    "alt": "O cenário de Natal 2026, com a árvore, as luzinhas e o arco",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O cenário está pronto. <em>Só faltam vocês.</em>",
+   "p": "Entre caixas, ferramentas, luzes, enfeites e muita dedicação, a bagunça foi dando lugar a um cantinho especial, preparado com carinho para receber histórias, encontros, abraços e muitos momentos em família.",
+   "itens": [
+    "No estúdio da Vanessa, na Vila Moraes, em São Paulo.",
+    "O cenário de Natal 2026, já pronto.",
+    "Para a família toda, de todas as gerações.",
+    "Valores e datas pelo WhatsApp da Vanessa."
+   ],
+   "legenda_fotos": "Natais com a Vanessa"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/649875867_18057599642447286_2581300792601904661_n.jpg",
+    "f": "p",
+    "alt": "Menina com o livro que brilha, na cabaninha",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/620251156_18118832017513043_5043480045931980769_n.jpg",
+    "f": "l",
+    "alt": "Bebê sentado entre os presentes, junto à árvore",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/652679600_18131276014530376_5205721163623725811_n.jpg",
+    "f": "l",
+    "alt": "Menino engatinhando na neve, junto à árvore",
+    "c": [
+     0.5,
+     0.65
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Vanessa abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado, no horário do estúdio. A Vanessa define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Vanessa abre com o dia e a hora escritos."
+    ],
+    [
+     "A Vanessa confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Perto de quem <em>faz a vida especial.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Vanessa.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DeFyD9aP-N-/DeFyD9aP-N-_00.jpg",
+     "f": "p",
+     "alt": "Smash the cake de coroa de flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/google/fotos/g01.jpg",
+     "f": "p",
+     "alt": "Quatro gerações reunidas",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/622692302_18125212990545114_6509301909125836653_n.jpg",
+     "f": "p",
+     "alt": "Bebê de chef na panela",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/637805274_18569546371060673_354244479750867668_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/vanessa-luciana-fotografia/posts/DdxUBauNK9B/DdxUBauNK9B_00.jpg",
+     "f": "p",
+     "alt": "Smash de 1 ano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/649476791_18053852951483278_6140542547059310685_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filhas",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650113568_18171077071400668_8599759334164050999_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido na xícara",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/vanessalucianafotografia/Instagram_files/650771561_18102228928904848_5525106115440063230_n.jpg",
+     "f": "p",
+     "alt": "Formatura",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Bruna Delprete",
+    "tag": "Há anos",
+    "trecho": "Conheço o trabalho da Vanessa há alguns anos"
+   },
+   {
+    "nome": "Aline Oliveira",
+    "tag": "Paciente",
+    "trecho": "Super profissional, carinhosa, paciente e sem contar que as fotos ficaram lindas e perfeitas!"
+   },
+   {
+    "nome": "Caroline Trento",
+    "tag": "Cliques",
+    "trecho": "Consegue captar cada momento com os cliques mais perfeitos que ja vi!!"
+   },
+   {
+    "nome": "Silvana Silva Ferreira",
+    "tag": "Carisma",
+    "trecho": "Além de excelente profissional, é muito educada, carismática"
+   }
+  ],
+  "final": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "O cenário está pronto. Escolha um horário ou chame a Vanessa no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 94319-7367)",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/vanessa-luciana-fotografia` e `/demo/vanessa-luciana-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 18, 73 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de set a nov 2026 e das avaliações.",
+   "Dona: Vanessa Luciana. O retrato com a lente nas mãos entra no \"quem fotografa\" sem dizer que é ela (conferir).",
+   "Personalidade: \"Bom mesmo é junto!\" e famílias de várias gerações (4 gerações, mãe de 90 anos, 80 anos). Na demo: abertura em polaroides, Crimson Pro, \"fotografia\" em Great Vibes, vermelho de Natal e ✻ entre as especialidades.",
+   "Sem logo em boa resolução: monograma VL e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, infantil e smash), portfólio em 3 abas (Natal, 12; Smash e bebês, 8; Família e celebrações, 8), a Vanessa, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Bom mesmo é junto!\": o cenário de 2026 (post de 04/11), fotos de Natais anteriores, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 14h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de set a nov 2026 (cenário de Natal 2026 e dois smash, até 1440 px), as fotos da página salva no Drive (1440 px) e 3 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as fotos pessoais (aniversário dela, o cachorro), o ensaio sensual e as de festa adulta."
+  ],
+  "textos": [
+   "Legendas: \"Por aqui, o Natal começou assim... o Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial... Bom mesmo é junto! O cenário está pronto. Agora só faltam vocês!\" (02/11), \"Smash the cake, nosso ensaio é feito em 3 partes...\" (04/10), \"temos a versão de bolo de fruta\" (27/09), \"80 anos não pode passar sem comemoração\" (08/10).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "O retrato com a lente pode ser da Vanessa (não confirmado).",
+   "As fotos de Natal são de anos anteriores; a de 2026 é a do cenário (sem pessoas).",
+   "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
