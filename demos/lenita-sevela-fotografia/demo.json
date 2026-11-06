@@ -1,0 +1,673 @@
+{
+ "pasta": "lenita-sevela-fotografia",
+ "marca": "Lenita Sevela Fotografia",
+ "marca_completa": "Lenita Sevela Fotografia",
+ "dona": "Lenita",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.55581,-46.7798812",
+  "fid": "0x94ceffcb9b324ab9:0x68d1df708279c0ad",
+  "gid": "/g/11jh_jnnzs"
+ },
+ "google_nome": "Lenita Sevela Fotografia",
+ "endereco_maps": "Av. Pres. Joao Goulart, 03 - Umuarama, Osasco - SP, 06036-048",
+ "google_nota": "5,0",
+ "google_total": "32",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511985249061",
+ "fone_link": "+5511985249061",
+ "instagram": "lenitasevelafotografia",
+ "seguidores": "3,2 mil",
+ "mensagem": "Olá, Lenita! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfcfa",
+  "papel": "#ffffff",
+  "areia": "#eef4f1",
+  "linha": "#dbe6e1",
+  "tinta": "#22282a",
+  "tinta2": "#5c6466",
+  "rosa": "#f7c6a3",
+  "acento": "#25806f",
+  "acento_escuro": "#1e6659",
+  "cafe": "#1d2626"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h",
+   "14h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-18 13h",
+   "2026-11-21 9h",
+   "2026-11-21 13h",
+   "2026-11-21 14h",
+   "2026-11-25 13h",
+   "2026-11-25 14h",
+   "2026-11-28 14h",
+   "2026-12-05 10h30",
+   "2026-12-05 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Lenita define os dela",
+  "mensagem": "Olá, Lenita! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Lenita",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "s2r3",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Playfair Display",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600;700"
+   ],
+   "script": [
+    "Dancing Script",
+    "wght@500"
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "✿"
+ },
+ "titulo_nome": "Lenita Sevela",
+ "titulo_script": "fotografia",
+ "quem_a": "a Lenita",
+ "quem_da": "da Lenita",
+ "quem_sou": "Sou a Lenita Sevela",
+ "slogan": "Cada fase é preciosa demais de registrar.",
+ "site": {
+  "titulo": "Lenita Sevela Fotografia | Newborn, mês a mês, smash e família em Osasco",
+  "descricao": "Lenita Sevela, fotógrafa no Umuarama, em Osasco: newborn, acompanhamento mês a mês, smash the cake, gestante e família, com produções lúdicas. Nota 5,0 no Google, com 32 avaliações.",
+  "comentario": "Demo Lenita Sevela Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@lenitasevelafotografia: as fotos da página salva e os posts de set/out 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Osasco",
+   "frase": "Cada fase é preciosa demais de registrar.",
+   "intro": "Newborn, mês a mês, smash the cake, gestantes e famílias, com produções lúdicas, no estúdio do Umuarama, em Osasco.",
+   "rotulos": [
+    "Mês a mês",
+    "Gestante",
+    "1 ano"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Mês a mês",
+    "Smash the cake",
+    "Gestante",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DfHjay6FU3U/DfHjay6FU3U_00.jpg",
+     "f": "p",
+     "alt": "Bebê de Fiona no cenário do Shrek",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469034588_18446845903066520_4614201310022285456_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vermelho entre as rosas",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DeRouQ3EWUq/DeRouQ3EWUq_00.jpg",
+     "f": "p",
+     "alt": "Bebê de 1 ano no fundo do mar",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Produções <em>lúdicas.</em>",
+   "p": "Ensaios da Lenita, cada um com um cenário montado. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "mensal",
+    "nome": "Mês a mês e smash",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DfHjay6FU3U/DfHjay6FU3U_00.jpg",
+      "f": "p",
+      "alt": "Bebê de Fiona no cenário do Shrek",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/Dd9XfohkeZp/Dd9XfohkeZp_00.jpg",
+      "f": "p",
+      "alt": "Bebê de 10 meses no tema Moana",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DdttI_OESgu/DdttI_OESgu_00.jpg",
+      "f": "p",
+      "alt": "Bebê de laço vermelho no tema Toy Story",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DeRouQ3EWUq/DeRouQ3EWUq_00.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano no fundo do mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DezQM-UkYWU/DezQM-UkYWU_00.jpg",
+      "f": "p",
+      "alt": "Menina de 2 anos no cenário Monstros S.A.",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/470880556_18449926165066520_4418128929769091022_n.jpg",
+      "f": "p",
+      "alt": "Bebê na banheira, no cenário do espaço",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/468977287_18447023776066520_220908112777681210_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 5 meses no tema circo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469041097_18446821534066520_3485196371598679611_n.jpg",
+      "f": "p",
+      "alt": "Bebê de cartola no cenário das pipas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469109558_18446824534066520_8372492729073007595_n.jpg",
+      "f": "p",
+      "alt": "Bebê no aniversário de 1 aninho",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469182459_18446826760066520_7757092311690272409_n.jpg",
+      "f": "p",
+      "alt": "Menino de 3 anos com o balão do número",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Bebê de 1 ano na poltrona de vime",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/468997465_18446824399066520_2799745463979958837_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no cestinho de coração",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469034588_18446845903066520_4614201310022285456_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vermelho entre as rosas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469092506_18446845663066520_597778527510596865_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469119791_18446844793066520_2141532339828059225_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido caramelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/471166445_18449929402066520_1804695138059223484_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ela na poltrona",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/471149785_18449928532066520_2231454776326573648_n.jpg",
+      "f": "p",
+      "alt": "Silhueta do casal no ensaio gestante",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469226027_18447019915066520_8373414061108116153_n.jpg",
+      "f": "p",
+      "alt": "Pai e filha com o recém-nascido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascida dormindo na lua",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469042394_18446836312066520_8691198923115104254_n.jpg",
+      "f": "p",
+      "alt": "Família entre as cortinas prateadas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469144823_18446817685066520_5701981845334665374_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho com os balões prateados",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469391110_18446817799066520_6394313877336095381_n.jpg",
+      "f": "p",
+      "alt": "Irmãos com os balões prateados",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/470822320_18449943511066520_1165743090361682553_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha no fundo preto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g03.jpg",
+      "f": "l",
+      "alt": "Mulheres da família de branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g04.jpg",
+      "f": "l",
+      "alt": "Pais com a filha no colo, sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g05.jpg",
+      "f": "l",
+      "alt": "Mãe e filhas brincando",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g06.jpg",
+      "f": "l",
+      "alt": "Pais com a filha entre as cortinas prateadas",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Lenita <em>e as produções lúdicas.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/612609470_18518187283066520_6923239334969327342_n.jpg",
+    "f": "p",
+    "alt": "Retrato sorrindo com a câmera",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Lenita Sevela fotografa newborn, mês a mês, smash the cake, gestantes e famílias no estúdio do Umuarama, em Osasco, com um cenário montado para cada ensaio: Shrek, Moana, Monstros S.A., Toy Story, fundo do mar, jardim das borboletas."
+   ],
+   "citacao": "Quem aí também é apaixonado por produções lúdicas?",
+   "citacao_quem": "Lenita, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da música de ninar no newborn, da delicadeza com os bebês e de voltar todo ano, do primeiro mês ao Natal."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "32 avaliações no Google"
+    ],
+    [
+     "3,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "12",
+     "meses de acompanhamento"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada fase <em>é preciosa.</em>",
+   "p": "Os ensaios da Lenita:",
+   "fonte": "Legendas da Lenita no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "No estúdio, com vestidos, flores e o casal junto."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Música de ninar",
+     "p": "Delicadeza e música de ninar para o bebê dormir tranquilo."
+    },
+    {
+     "nome": "Mês a mês",
+     "sub": "Acompanhamento",
+     "p": "O tempo voa, e cada fase é preciosa demais de registrar."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 aninho",
+     "p": "Jardim das borboletas, fundo do mar e o tema que a família escolher."
+    },
+    {
+     "nome": "Aniversário",
+     "sub": "2 e 3 anos",
+     "p": "2 anos assustando todo mundo... com tanta lindeza!"
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo ano",
+     "p": "Famílias que voltam todo ano, até no Natal."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Todo ano, <em>um Natal novo.</em>",
+   "p": "Tem família que faz o ensaio de Natal com a Lenita todos os anos. Escolha um horário e a mensagem chega pronta no WhatsApp da Lenita.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g04.jpg",
+    "f": "l",
+    "alt": "Pais com a filha no colo, sorrindo",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Família"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Danilla Miranda",
+    "tag": "Faz parte da história",
+    "trecho": "Ela registrou mês a mês o primeiro ano da minha filha mais velha, eternizou um dos momentos mais emocionantes da minha vida no meu ensaio de gestante"
+   },
+   {
+    "nome": "Lygia Martini",
+    "tag": "Newborn",
+    "trecho": "a profissional tem todo um jeito de lidar com o bebê, com música de ninar e delicadeza."
+   },
+   {
+    "nome": "Luana Noli",
+    "tag": "Acolhidos",
+    "trecho": "em todo o processo nos sentimos acolhidos e agradecidos pelo excelente trabalho da Lenita."
+   },
+   {
+    "nome": "Denise Teixeira",
+    "tag": "1 aninho",
+    "trecho": "Fizemos as fotos de 1 aninho da nossa princesa e as fotos ficaram muito lindas, amamos."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Qual vai ser <em>o próximo cenário?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Umuarama, em Osasco, e atende de segunda a sábado.",
+   "telefone": "(11) 98524-9061",
+   "endereco": [
+    "Av. Pres. João Goulart, 03",
+    "Umuarama",
+    "Osasco · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Lenita Sevela Fotografia",
+  "descricao": "O ensaio de Natal 2026 com a Lenita Sevela, no Umuarama, em Osasco: para bebês, crianças e a família toda. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Lenita Sevela Fotografia: página da campanha de Natal (natal.html), ligada ao site. Ela ainda não divulgou o Natal 2026: os textos não prometem cenário. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h1": "Todo ano, <em>um Natal novo.</em>",
+   "citacao": "A Lenita faz parte da nossa história.",
+   "citacao_quem": "Danilla Miranda, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g04.jpg",
+    "f": "l",
+    "alt": "Pais com a filha no colo, sorrindo",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Família"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal com a Lenita, <em>no Umuarama.</em>",
+   "p": "Tem família que faz o ensaio de Natal com a Lenita todos os anos. Uma produção lúdica, com cenário montado no estúdio do Umuarama, em Osasco, para bebês, crianças e a família toda.",
+   "itens": [
+    "No estúdio da Lenita, no Umuarama, em Osasco.",
+    "Produção lúdica, com cenário montado para o ensaio.",
+    "Para bebês, crianças e a família toda.",
+    "Valores e datas pelo WhatsApp da Lenita."
+   ],
+   "legenda_fotos": "Famílias no estúdio da Lenita"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469042394_18446836312066520_8691198923115104254_n.jpg",
+    "f": "p",
+    "alt": "Família entre as cortinas prateadas",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g06.jpg",
+    "f": "l",
+    "alt": "Pais com a filha entre as cortinas prateadas",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Recém-nascida dormindo na lua",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Lenita abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado. A Lenita define os dias de Natal, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Lenita abre com o dia e a hora escritos."
+    ],
+    [
+     "A Lenita confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Produções <em>lúdicas.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Lenita.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DfHjay6FU3U/DfHjay6FU3U_00.jpg",
+     "f": "p",
+     "alt": "Bebê de Fiona",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469034588_18446845903066520_4614201310022285456_n.jpg",
+     "f": "p",
+     "alt": "Gestante entre as rosas",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/Dd9XfohkeZp/Dd9XfohkeZp_00.jpg",
+     "f": "p",
+     "alt": "Bebê no tema Moana",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DeRouQ3EWUq/DeRouQ3EWUq_00.jpg",
+     "f": "p",
+     "alt": "Bebê no fundo do mar",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/469119791_18446844793066520_2141532339828059225_n.jpg",
+     "f": "p",
+     "alt": "Gestante com o tecido caramelo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DezQM-UkYWU/DezQM-UkYWU_00.jpg",
+     "f": "p",
+     "alt": "Menina no Monstros S.A.",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/lenitasvelafotografia/Instagram_files/468997465_18446824399066520_2799745463979958837_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no cestinho",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/lenita-sevela-fotografia/posts/DdttI_OESgu/DdttI_OESgu_00.jpg",
+     "f": "p",
+     "alt": "Bebê no tema Toy Story",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Danilla Miranda",
+    "tag": "Todo ano",
+    "trecho": "Além de fazermos com ela todos os anos o ensaio de Natal"
+   },
+   {
+    "nome": "Suely Silva",
+    "tag": "Gestante",
+    "trecho": "Fiz meu ensaio de gestante com ela e posso falar com toda certeza , o trabalho dela é maravilhoso super indico ."
+   },
+   {
+    "nome": "Lygia Martini",
+    "tag": "Tranquila",
+    "trecho": "Hoje fizemos um ensaio com a Lenita e foi uma experiência tranquila e muito feliz !"
+   },
+   {
+    "nome": "Denise Teixeira",
+    "tag": "Carismática",
+    "trecho": "Excelente profissional, atenciosa e carismática."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Osasco",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Lenita no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98524-9061)",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/lenita-sevela-fotografia` e `/demo/lenita-sevela-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 22, reserva 2, 72 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de set/out 2026 e das avaliações.",
+   "Dona: Lenita Sevela. O retrato com a câmera entra no \"quem fotografa\" sem dizer que é ela (conferir).",
+   "Personalidade: \"produções lúdicas\" (palavra dela): um cenário montado a cada ensaio (Shrek, Moana, Monstros S.A., Toy Story, fundo do mar). Na demo: abertura em cápsulas, Playfair Display e Nunito, \"fotografia\" em Dancing Script, verde-água e pêssego, ✿ entre as especialidades.",
+   "Sem logo em boa resolução: monograma LS e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (mês a mês, gestante e 1 ano), portfólio em 3 abas (Mês a mês e smash, 12; Gestante e bebês, 7; Família, 8), a Lenita, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Todo ano, um Natal novo\": ela não divulgou o Natal 2026; uma avaliação diz que a família faz o ensaio de Natal com ela todo ano. Os textos não prometem cenário; as fotos são de família (sem fotos de Natal no perfil salvo); agenda de exemplo.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de set/out 2026 (Shrek, Moana, Monstros S.A., fundo do mar, Toy Story, até 1440 px), as fotos da página salva no Drive (1440 px) e 6 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16, inclusive uma do Google) e as fotos repetidas."
+  ],
+  "textos": [
+   "Legendas: \"Quem aí também é apaixonado por produções lúdicas?\" (30/10), \"2 anos assustando todo mundo... com tanta lindeza!\" (22/10), \"cada fase é preciosa demais de registrar\" (01/10). A citação da página de Natal é de uma avaliação do Google (Danilla Miranda), com o nome dela.",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "**Ela não divulgou o Natal 2026**: a página de Natal é sugestão (uma cliente diz que faz o Natal com ela todo ano).",
+   "O retrato com a câmera pode ser da Lenita (não confirmado).",
+   "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
