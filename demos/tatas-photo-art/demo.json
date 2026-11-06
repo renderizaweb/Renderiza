@@ -1,0 +1,656 @@
+{
+ "pasta": "tatas-photo-art",
+ "marca": "Tata's Photo Art",
+ "marca_completa": "Tata's Photo Art",
+ "dona": "Tata",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/google/google_demo.json",
+ "google": {
+  "coords": "-23.5062339,-46.4998821",
+  "fid": "0x94ce613a8e95d479:0x127f9a477ff981ad",
+  "gid": "/g/11p5cgsq86"
+ },
+ "google_nome": "Tata´s Photo Art",
+ "endereco_maps": "R. Jacina, 87 - Jardim Penha, São Paulo - SP, 03758-030",
+ "google_nota": "4,9",
+ "google_total": "108",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511940039145",
+ "fone_link": "+5511940039145",
+ "instagram": "tatas.photo.art",
+ "seguidores": "7,7 mil",
+ "mensagem": "Olá, Tata! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdf8f6",
+  "papel": "#ffffff",
+  "areia": "#f7ece9",
+  "linha": "#ecdcd7",
+  "tinta": "#2f2a33",
+  "tinta2": "#6d6470",
+  "rosa": "#f2b6c1",
+  "acento": "#c84f74",
+  "acento_escuro": "#a83f5f",
+  "cafe": "#2a2230"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-17",
+   "2026-11-21",
+   "2026-11-24",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-17 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-24 14h",
+   "2026-11-24 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Tata define os dela",
+  "mensagem": "Olá, Tata! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Taise",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "2vuy",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Fraunces",
+    "ital,opsz,wght@0,9..144,400..600;1,9..144,400..600"
+   ],
+   "sans": [
+    "Nunito",
+    "wght@300;400;500;600;700"
+   ],
+   "script": [
+    "Dancing Script",
+    "wght@500"
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "✿",
+  "natal_capa": "retrato"
+ },
+ "titulo_nome": "Tata's",
+ "titulo_script": "Photo Art",
+ "quem_a": "a Tata",
+ "quem_da": "da Tata",
+ "quem_sou": "Sou a Taise, a tia Tata",
+ "slogan": "Momentos especiais que viram lembranças para sempre.",
+ "site": {
+  "titulo": "Tata's Photo Art | Bebês mês a mês, newborn, gestante e Natal no Jardim Penha, Zona Leste",
+  "descricao": "Tata's Photo Art, da Taise (a tia Tata), no Jardim Penha, Zona Leste de São Paulo: acompanhamento mês a mês com cenários temáticos, newborn, gestante, aniversários, família e Natal 2026. Nota 4,9 no Google, com 108 avaliações.",
+  "comentario": "Demo Tata's Photo Art (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@tatas.photo.art: as fotos da página salva, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Jardim Penha, Zona Leste",
+   "frase": "Momentos especiais que viram lembranças para sempre.",
+   "intro": "Bebês mês a mês, newborn, gestantes, aniversários e famílias, com um cenário novo a cada ensaio, no Jardim Penha, Zona Leste de São Paulo. E o Natal 2026 já chegou por lá.",
+   "rotulos": [
+    "Mês a mês",
+    "Newborn",
+    "Natal"
+   ],
+   "especialidades": [
+    "Mês a mês",
+    "Newborn",
+    "Gestante",
+    "Aniversários",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/581322342_18385627990176019_1833552093284591206_n.jpg",
+     "f": "p",
+     "alt": "Bebê no cenário Oficina, sentado no pneu",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582354270_18385629424176019_4700283913751843496_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida sorrindo no pelego rosa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583489705_18386040364176019_2219547252181779559_n.jpg",
+     "f": "p",
+     "alt": "Família de vermelho no cenário de Natal",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Um cenário <em>para cada mês.</em>",
+   "p": "Ensaios da Tata, cada um com um cenário criado para a família. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "mensal",
+    "nome": "Mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564893749_18380240932176019_1972278752022397044_n.jpg",
+      "f": "p",
+      "alt": "Bebê de chapéu de chef no cenário Mini Chef",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/581322342_18385627990176019_1833552093284591206_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário Oficina, sentado no pneu",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564716195_18380051563176019_7510553601103246406_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário Toy Story",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/565557351_18380603461176019_3532891799560732886_n.jpg",
+      "f": "p",
+      "alt": "Bebê de capacete no cenário de obra",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564176661_18380605030176019_1404440807243555746_n.jpg",
+      "f": "p",
+      "alt": "Bebê de camisa de basquete, com a bola",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/563914780_18380604388176019_1905266641276533422_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço e óculos no berço rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/580865305_18385631710176019_2905979489170453566_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário do fundo do mar",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582627260_18385635088176019_3090130815008574114_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 4 meses no Mini Chef",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583729774_18385632643176019_7622921995922835028_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 10 meses entre as tintas",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583566030_18385630909176019_3382950278865637529_n.jpg",
+      "f": "p",
+      "alt": "Bebê de pijama do Stitch",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/566961849_18380628988176019_6641103736466195799_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário Monstros S.A.",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/566223583_18380629777176019_6072612277091213003_n.jpg",
+      "f": "p",
+      "alt": "Bebê de touca do Stitch",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564270878_18380603665176019_4860610171245623207_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no aro de flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582354270_18385629424176019_4700283913751843496_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida sorrindo no pelego rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582209915_18385627300176019_9163287292020378415_n.jpg",
+      "f": "p",
+      "alt": "Aniversário de 1 ano da Branca de Neve",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/581537032_18385622530176019_2102789537615792267_n.jpg",
+      "f": "p",
+      "alt": "Aniversário de 1 ano no tema Safari",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582050071_18385629793176019_8536088587400986556_n.jpg",
+      "f": "p",
+      "alt": "Bebê de Rapunzel no cenário florido",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583552630_18386040586176019_7070736276508312949_n.jpg",
+      "f": "p",
+      "alt": "Bebê de rosa no balanço de bailarina",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/566301956_18380627815176019_452849222533770584_n.jpg",
+      "f": "p",
+      "alt": "Bebê de bruxinha no cenário de Halloween",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/566408389_18380628271176019_6945488018467154492_n.jpg",
+      "f": "p",
+      "alt": "Bebê de gatinho no cenário de Halloween",
+      "pos": "50% 55%"
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583489705_18386040364176019_2219547252181779559_n.jpg",
+      "f": "p",
+      "alt": "Família de vermelho no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582666986_18386030041176019_2895721255789362460_n.jpg",
+      "f": "p",
+      "alt": "Pais e filha junto à árvore de Natal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583444217_18386039971176019_3445947128208522388_n.jpg",
+      "f": "p",
+      "alt": "Família sentada com a bebê no cavalinho de Natal",
+      "pos": "50% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583356971_18386039722176019_2165104313773451274_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido verde na escadinha de Natal",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A tia Tata <em>e os cenários dela.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564893749_18380240932176019_1972278752022397044_n.jpg",
+    "f": "p",
+    "alt": "Ensaio Mini Chef, um dos cenários criados pela Tata",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "p": [
+    "A Taise, a tia Tata, fotografa bebês mês a mês, newborn, gestantes, aniversários e famílias no estúdio do Jardim Penha, na Zona Leste de São Paulo. Cada ensaio ganha um cenário criado por ela: Mini Chef, Oficina, Toy Story, Stitch, fundo do mar, Halloween e Natal."
+   ],
+   "citacao": "O tempo passa, as crianças crescem e o que fica são as memórias.",
+   "citacao_quem": "Tata, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias contam que voltam do newborn aos 2 anos e falam do carinho com as crianças, das ideias criativas e do espaço aconchegante e limpo."
+   ],
+   "numeros": [
+    [
+     "4,9",
+     "108 avaliações no Google"
+    ],
+    [
+     "7,7 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "12",
+     "meses de cenários no primeiro ano"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Do newborn <em>aos 18 anos.</em>",
+   "p": "Os ensaios da Tata:",
+   "fonte": "Legendas da Tata no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "O ensaio gestante, com cuidado em cada detalhe."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias, no estúdio aconchegante do Jardim Penha."
+    },
+    {
+     "nome": "Mês a mês",
+     "sub": "Acompanhamento",
+     "p": "Um cenário diferente a cada mês: Mini Chef, Oficina, Toy Story, Stitch."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "1 ano",
+     "p": "Branca de Neve, Safari e o tema que a família escolher."
+    },
+    {
+     "nome": "18 anos",
+     "sub": "Nova fase",
+     "p": "18 anos não é apenas uma idade… é uma data única, cheia de sonhos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O melhor presente é estar presente."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O melhor presente <em>é estar presente.</em>",
+   "p": "A época mais mágica do ano começou no estúdio da Tata: tempo de reunir a família e eternizar momentos que viram lembranças para sempre. Escolha um horário e a mensagem chega pronta no WhatsApp.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Família reunida com os balões de 2026",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Família"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Maynara Lima",
+    "tag": "Do newborn aos 2 anos",
+    "trecho": "Frequentamos o estúdio desde o newborn da minha neném e acabo de receber o ensaio dela de 2 aninhos"
+   },
+   {
+    "nome": "Luiza dos Anjos",
+    "tag": "Acompanhamento",
+    "trecho": "fizemos os acompanhamentos, e nos apaixonamos pela tia Tata, super profissional, acolhedora, estrutura maravilhosa, cuidadosa."
+   },
+   {
+    "nome": "Rafaela Argolo Mendonça Barros",
+    "tag": "Gestante",
+    "trecho": "Realizamos ensaio gestante com a profissional Taise e ficamos simplesmente impactados com cada detalhe"
+   },
+   {
+    "nome": "Lilian Campos Ferreira Guimaraes",
+    "tag": "Ensaios mensais",
+    "trecho": "Minha bebê fez todos os ensaios mensais lá e sempre fomos muito bem recebidos"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos criar <em>o próximo cenário?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Penha, na Zona Leste de São Paulo.",
+   "telefone": "(11) 94003-9145",
+   "endereco": [
+    "R. Jacina, 87",
+    "Jardim Penha · Zona Leste",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Tata's Photo Art",
+  "descricao": "O ensaio de Natal 2026 da Tata's Photo Art, no Jardim Penha, Zona Leste de São Paulo: o melhor presente é estar presente. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Tata's Photo Art: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Jardim Penha",
+   "h1": "O melhor presente <em>é estar presente.</em>",
+   "citacao": "É tempo de celebrar o amor, reunir a família e eternizar momentos que se transformam em lembranças para sempre.",
+   "citacao_quem": "Tata, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583489705_18386040364176019_2219547252181779559_n.jpg",
+    "f": "p",
+    "alt": "Família de vermelho no cenário de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "A época mais mágica <em>do ano começou.</em>",
+   "p": "O cenário de Natal da Tata, com as árvores nevadas, a escadinha e o cavalinho, para a família toda espalhar fofura, alegria e muita magia em cada clique. No estúdio do Jardim Penha, na Zona Leste.",
+   "itens": [
+    "No estúdio da Tata, no Jardim Penha, Zona Leste de São Paulo.",
+    "O cenário de Natal com árvores nevadas, escadinha e cavalinho.",
+    "Para a família toda: pais, irmãos e bebês.",
+    "Valores e detalhes pelo WhatsApp da Tata."
+   ],
+   "legenda_fotos": "O cenário de Natal e as famílias da Tata"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583444217_18386039971176019_3445947128208522388_n.jpg",
+    "f": "p",
+    "alt": "Família sentada com a bebê no cavalinho de Natal",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/tatas-photo-art/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Família reunida com os balões de 2026",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/583356971_18386039722176019_2165104313773451274_n.jpg",
+    "f": "l",
+    "alt": "Menina de vestido verde na escadinha de Natal",
+    "c": [
+     0.5,
+     0.3
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Tata abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece (o Google não mostra o horário do estúdio). A Tata define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Tata abre com o dia e a hora escritos."
+    ],
+    [
+     "A Tata confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Um cenário <em>para cada mês.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Tata.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/581322342_18385627990176019_1833552093284591206_n.jpg",
+     "f": "p",
+     "alt": "Bebê no cenário Oficina",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564270878_18380603665176019_4860610171245623207_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no aro de flores",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582209915_18385627300176019_9163287292020378415_n.jpg",
+     "f": "p",
+     "alt": "Aniversário da Branca de Neve",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564893749_18380240932176019_1972278752022397044_n.jpg",
+     "f": "p",
+     "alt": "Bebê no Mini Chef",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/582354270_18385629424176019_4700283913751843496_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no pelego rosa",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/564176661_18380605030176019_1404440807243555746_n.jpg",
+     "f": "p",
+     "alt": "Bebê com a bola de basquete",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/581537032_18385622530176019_2102789537615792267_n.jpg",
+     "f": "p",
+     "alt": "Aniversário no tema Safari",
+     "pos": "50% 55%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/tatas-photo.art/Instagram_files/580865305_18385631710176019_2905979489170453566_n.jpg",
+     "f": "p",
+     "alt": "Bebê no fundo do mar",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Maynara Lima",
+    "tag": "Cenários",
+    "trecho": "Além de criar cenários lindos e ter ideias super criativas."
+   },
+   {
+    "nome": "Thayna Cristina Guerreiro de Oliveira",
+    "tag": "Em casa",
+    "trecho": "Super atenciosa do início ao fim, fomos muito bem recepcionados me senti em casa"
+   },
+   {
+    "nome": "Lilian Campos Ferreira Guimaraes",
+    "tag": "O espaço",
+    "trecho": "Uma profissional incrível, atenciosa , com um espaço aconchegante e extremamente limpo e organizado."
+   },
+   {
+    "nome": "Luiza dos Anjos",
+    "tag": "Fãs",
+    "trecho": "Indico de olhos fechados! Somos clientes e fãs!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Jardim Penha",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Tata no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 94003-9145), o mesmo das legendas (\"📲11.94003-9145\")",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/tatas-photo-art` e `/demo/tatas-photo-art/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 5, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de nov 2026 e das avaliações.",
+   "Dona: Taise, a \"tia Tata\" das avaliações. Não há foto dela (o perfil é o logo): o \"quem fotografa\" usa o ensaio Mini Chef, sem dizer que é ela.",
+   "Personalidade: um cenário temático novo a cada ensaio (Mini Chef, Oficina, Toy Story, Stitch, fundo do mar, Halloween), divertido e colorido. Na demo: abertura em bolhas, Fraunces e Nunito (arredondada), \"Photo Art\" em Dancing Script, framboesa e rosa, ✿ entre as especialidades.",
+   "Sem logo em boa resolução: monograma TP e o nome com \"Photo Art\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (mês a mês, newborn e Natal), portfólio em 3 abas (Mês a mês, 12; Newborn e aniversários, 8; Natal, 4), a Tata, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O melhor presente é estar presente\": o cenário de Natal, a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "As fotos da página salva no Drive (1440 px) e 1 foto do Google. Os posts de nov 2026 são todos vídeo ou arte, então não entraram.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes com texto (Dia das Crianças, Natal 2026, frase de 21/11) e a foto de 18 anos."
+  ],
+  "textos": [
+   "Legendas: \"Natal 2026 — O melhor presente é estar presente!\" e \"É tempo de celebrar o amor, reunir a família e eternizar momentos...\" (02/11), \"o tempo passa, as crianças crescem e o que fica são as memórias\" (02/11), \"18 anos não é apenas uma idade...\" (03/11).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "As fotos de Natal são do cenário dela, mas não dá para saber se são de 2026 (os posts de 2026 são vídeo).",
+   "Google sem horário de funcionamento: a agenda é exemplo (dito na página).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
