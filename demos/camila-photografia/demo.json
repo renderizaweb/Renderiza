@@ -1,0 +1,726 @@
+{
+ "pasta": "camila-photografia",
+ "marca": "Camila Photografia",
+ "marca_completa": "Camila Photografia",
+ "dona": "Camila",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5711491,-46.5291164",
+  "fid": "0x94ce5dde62dbad91:0x61af95c834316f3c",
+  "gid": "/g/11yxmf3ctz"
+ },
+ "google_nome": "Camila Photografia",
+ "endereco_maps": "R. Brás Machado Lima, 30 - Jardim Piqueroby, São Paulo - SP, 03463-020",
+ "google_nota": "5,0",
+ "google_total": "109",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511977045992",
+ "fone_link": "+5511977045992",
+ "instagram": "camilaphotografia",
+ "seguidores": "6,6 mil",
+ "mensagem": "Olá, Camila! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#f8f8f6",
+  "papel": "#ffffff",
+  "areia": "#efeeea",
+  "linha": "#dedcd5",
+  "tinta": "#1f2329",
+  "tinta2": "#5b616a",
+  "rosa": "#e8b4a0",
+  "acento": "#b23a48",
+  "acento_escuro": "#8f2e3a",
+  "cafe": "#1d2026"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-11-29"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h30",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h",
+   "2026-11-15 13h30",
+   "2026-11-21 9h",
+   "2026-11-21 13h30",
+   "2026-11-21 15h",
+   "2026-11-22 13h30",
+   "2026-11-22 15h",
+   "2026-11-28 15h",
+   "2026-11-29 10h30",
+   "2026-11-29 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Camila define os dela",
+  "mensagem": "Olá, Camila! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal na cozinha. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Camila",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Camila, da Camila Photografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Camila, da Camila Photografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "3wq6",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Camila, da Camila Photografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Spectral",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Figtree",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "•",
+  "natal_capa": "retrato"
+ },
+ "titulo_nome": "Camila",
+ "titulo_script": "photografia",
+ "quem_a": "a Camila",
+ "quem_da": "da Camila",
+ "quem_sou": "Sou a Camila",
+ "slogan": "Acompanhar as famílias e registrar cada nova fase.",
+ "site": {
+  "titulo": "Camila Photografia | Família, infantil, corporativo e Natal no Jardim Piqueroby, Zona Leste",
+  "descricao": "Camila Photografia, no Jardim Piqueroby, Zona Leste de São Paulo: família, crianças, aniversários, retratos corporativos e o ensaio de Natal na cozinha. Nota 5,0 no Google, com 109 avaliações.",
+  "comentario": "Demo Camila Photografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@camilaphotografia: as fotos da página salva e os posts de Natal de nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Jardim Piqueroby, Zona Leste",
+   "frase": "Acompanhar as famílias e registrar cada nova fase.",
+   "intro": "Famílias, crianças, gestantes e retratos profissionais, no estúdio do Jardim Piqueroby, na Zona Leste de São Paulo. E a cozinha de Natal 2026 já está pronta.",
+   "rotulos": [
+    "Natal 2026",
+    "Corporativo",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Infantil",
+    "Aniversários",
+    "Corporativo",
+    "Celebrações",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfSnXcVnyzm/DfSnXcVnyzm_00.jpg",
+     "f": "p",
+     "alt": "Menino de gorro vermelho na cozinha de Natal",
+     "c": [
+      0.5,
+      0.4
+     ],
+     "box": [
+      0.119,
+      0.04,
+      0.881,
+      0.958
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488183201_18286746577247141_1235833680267115434_n.jpg",
+     "f": "p",
+     "alt": "Retrato corporativo de blazer vermelho",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484583739_18284897659247141_1785525154465348532_n.jpg",
+     "f": "p",
+     "alt": "Menina de laço rindo",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>um retrato.</em>",
+   "p": "Ensaios da Camila no estúdio do Jardim Piqueroby. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal e infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfSnXcVnyzm/DfSnXcVnyzm_00.jpg",
+      "f": "p",
+      "alt": "Menino de gorro vermelho na cozinha de Natal",
+      "pos": "50% 40%",
+      "box": [
+       0.119,
+       0.04,
+       0.881,
+       0.958
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfPXS3lDfkn/DfPXS3lDfkn_00.jpg",
+      "f": "p",
+      "alt": "Menina de vestido dourado na cozinha de Natal",
+      "pos": "50% 40%",
+      "box": [
+       0.119,
+       0.042,
+       0.881,
+       0.958
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484020150_18284858992247141_2420414874421209913_n.jpg",
+      "f": "p",
+      "alt": "Menina de laço sorrindo, no aniversário",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484583739_18284897659247141_1785525154465348532_n.jpg",
+      "f": "p",
+      "alt": "Menina de laço rindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484878926_18285120943247141_3232326013220636881_n.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido lilás comemorando",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/485077377_18285100057247141_1654134047508625636_n.jpg",
+      "f": "p",
+      "alt": "Bebê rindo no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/486587610_18285790666247141_5328758892577363660_n.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo no aniversário",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484963155_18284894152247141_5371655086746535351_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço sorrindo no colo",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "corporativo",
+    "nome": "Corporativo",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488183201_18286746577247141_1235833680267115434_n.jpg",
+      "f": "p",
+      "alt": "Retrato corporativo de blazer vermelho",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/482885651_18283878442247141_2072486784883968339_n.jpg",
+      "f": "p",
+      "alt": "Retrato junto à janela, de blazer preto",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/483006525_18284000086247141_5568382230284401256_n.jpg",
+      "f": "p",
+      "alt": "Retrato junto à estante de livros",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/487808640_18286747909247141_8112779690536481072_n.jpg",
+      "f": "p",
+      "alt": "Retrato de camisa laranja",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/487848353_18286745035247141_1172585480741984369_n.jpg",
+      "f": "p",
+      "alt": "Retrato de terninho branco com a agenda",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488079606_18286920793247141_4777089300469136267_n.jpg",
+      "f": "p",
+      "alt": "Retrato sentada, de blusa preta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488203442_18286746043247141_2741081233888616164_n.jpg",
+      "f": "p",
+      "alt": "Retrato de blazer branco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488265204_18286853071247141_8288415037634353157_n.jpg",
+      "f": "p",
+      "alt": "Retrato sorrindo, de blusa preta",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488837661_18287440087247141_5185917517925403572_n.jpg",
+      "f": "p",
+      "alt": "Retrato de camisa branca, sentada",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/489310202_18287440468247141_3447117313329373493_n.jpg",
+      "f": "p",
+      "alt": "Retrato com o tablet",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/489961921_18287545054247141_294583812309186252_n.jpg",
+      "f": "p",
+      "alt": "Retrato na poltrona de couro",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/490390822_18287652019247141_8369029893263010435_n.jpg",
+      "f": "p",
+      "alt": "Retrato sentada na cadeira branca",
+      "pos": "50% 30%"
+     }
+    ]
+   },
+   {
+    "id": "masculino",
+    "nome": "Retratos masculinos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491380950_18288537379247141_5026570050849425970_n.jpg",
+      "f": "p",
+      "alt": "Retrato de terno cinza, junto à cortina",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491434941_18288497245247141_4994439387830168379_n.jpg",
+      "f": "p",
+      "alt": "Retrato de terno cinza, de lado",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491449461_18288536158247141_50607850123366696_n.jpg",
+      "f": "p",
+      "alt": "Retrato de óculos, com as mãos juntas",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491439600_18288329278247141_6167734325716267665_n.jpg",
+      "f": "p",
+      "alt": "Retrato de camisa azul entre as luzes",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491441805_18288394570247141_9128611262128127737_n.jpg",
+      "f": "p",
+      "alt": "Retrato de camisa azul, com a mão no queixo",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491441793_18288436615247141_4361739725082549272_n.jpg",
+      "f": "p",
+      "alt": "Retrato de blusa preta no fundo escuro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491444288_18288436786247141_7756086516849431338_n.jpg",
+      "f": "p",
+      "alt": "Retrato de blazer cinza no fundo escuro",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491452995_18288435922247141_5347106474896043138_n.jpg",
+      "f": "p",
+      "alt": "Retrato de blazer cinza, em pé",
+      "pos": "50% 30%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Camila, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/427343049_730434059068472_3428177373620055051_n.jpg",
+    "f": "p",
+    "alt": "Camila sorrindo com a câmera de filme na mão",
+    "c": [
+     0.45,
+     0.4
+    ]
+   },
+   "p": [
+    "A Camila fotografa famílias, crianças, aniversários, gestantes e retratos profissionais no estúdio do Jardim Piqueroby, na Zona Leste de São Paulo. Tem famílias que voltam todo Natal e clientes que já fizeram três ensaios corporativos com ela."
+   ],
+   "citacao": "Do ensaio gestante ao Natal do ano passado… e agora, mais um Natal juntos!",
+   "citacao_quem": "Camila, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, os clientes falam da direção com carinho nas poses, do retorno rápido e da ética no trabalho."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "109 avaliações no Google"
+    ],
+    [
+     "6,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "3º",
+     "ensaio corporativo de uma cliente"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Acompanhar <em>cada fase.</em>",
+   "p": "Os ensaios da Camila:",
+   "fonte": "Legendas da Camila no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "O começo",
+     "p": "O começo da história, no ensaio gestante."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Aniversários",
+     "p": "Festas e ensaios de aniversário, cheios de sorrisos."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo ano",
+     "p": "É muito bom acompanhar o crescimento de uma família e registrar cada nova fase dessa história."
+    },
+    {
+     "nome": "Corporativo",
+     "sub": "Sua imagem",
+     "p": "Retratos profissionais com direção em cada pose."
+    },
+    {
+     "nome": "Celebrações",
+     "sub": "Bodas e 40 anos",
+     "p": "Bodas, aniversários e datas para celebrar."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Na cozinha",
+     "p": "Um ensaio cheio de brincadeiras, momentos especiais e lembranças que vão ficar para sempre."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A cozinha <em>já está pronta.</em>",
+   "p": "O ensaio de Natal na cozinha da Camila é cheio de brincadeiras e lembranças que ficam para sempre. As reservas já estão acontecendo: escolha um horário e a mensagem chega pronta no WhatsApp da Camila.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfSnXcVnyzm/DfSnXcVnyzm_00.jpg",
+    "f": "l",
+    "alt": "Menino de gorro vermelho na cozinha de Natal",
+    "c": [
+     0.5,
+     0.3
+    ],
+    "box": [
+     0.119,
+     0.04,
+     0.881,
+     0.958
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Tatiane Marinho Quintiliano",
+    "tag": "Corporativo",
+    "trecho": "Já é o terceiro ensaio corporativo que faço com a Camila e sempre fico muito feliz e realizada com o resultado."
+   },
+   {
+    "nome": "Adri e Artur FS",
+    "tag": "Bodas",
+    "trecho": "Agora, para minhas fotos de estúdio, escolhi a Camila e não poderia ter feito escolha melhor!"
+   },
+   {
+    "nome": "Gabriela Silva",
+    "tag": "40 anos",
+    "trecho": "Uma experiência deliciosa, cheia de leveza e registros maravilhosos para celebrar meus 40 anos!"
+   },
+   {
+    "nome": "Mariangela Languidi",
+    "tag": "Ética",
+    "trecho": "Rápido retorno, fotos maravilhosas e com muita ética!"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Piqueroby, na Zona Leste de São Paulo, e atende todos os dias.",
+   "telefone": "(11) 97704-5992",
+   "endereco": [
+    "R. Brás Machado Lima, 30",
+    "Jardim Piqueroby",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal na cozinha 2026 | Camila Photografia",
+  "descricao": "O ensaio de Natal 2026 da Camila Photografia, no Jardim Piqueroby, Zona Leste de São Paulo: a cozinha de Natal, cheia de brincadeiras. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Camila Photografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Jardim Piqueroby",
+   "h1": "A cozinha <em>já está pronta.</em>",
+   "citacao": "É isso que torna a fotografia tão especial: poder acompanhar as famílias, registrar suas mudanças e guardar capítulos tão importantes da história.",
+   "citacao_quem": "Camila, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfSnXcVnyzm/DfSnXcVnyzm_00.jpg",
+    "f": "p",
+    "alt": "Menino de gorro vermelho na cozinha de Natal",
+    "c": [
+     0.5,
+     0.4
+    ],
+    "box": [
+     0.119,
+     0.04,
+     0.881,
+     0.958
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal <em>na cozinha.</em>",
+   "p": "Um ensaio cheio de brincadeiras, momentos especiais e lembranças que vão ficar para sempre, na cozinha de Natal do estúdio da Camila. Tem família que volta todo ano, e família que volta com um integrante novo.",
+   "itens": [
+    "No estúdio da Camila, no Jardim Piqueroby, Zona Leste de São Paulo.",
+    "O cenário da cozinha de Natal, com brincadeiras.",
+    "As reservas já estão acontecendo.",
+    "Valores e datas pelo WhatsApp da Camila."
+   ],
+   "legenda_fotos": "A cozinha de Natal 2026"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfPXS3lDfkn/DfPXS3lDfkn_00.jpg",
+    "f": "p",
+    "alt": "Menina de vestido dourado na cozinha de Natal",
+    "c": [
+     0.5,
+     0.4
+    ],
+    "box": [
+     0.119,
+     0.042,
+     0.881,
+     0.958
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfOHvgSDVTl/DfOHvgSDVTl_00.jpg",
+    "f": "l",
+    "alt": "Irmã de chapéu de chef com o bebê",
+    "c": [
+     0.5,
+     0.35
+    ],
+    "box": [
+     0.117,
+     0.042,
+     0.884,
+     0.958
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/camila-photografia/posts/DfSnXcVnyzm/DfSnXcVnyzm_00.jpg",
+    "f": "l",
+    "alt": "Menino de gorro vermelho no fogão de Natal",
+    "c": [
+     0.5,
+     0.4
+    ],
+    "box": [
+     0.119,
+     0.04,
+     0.881,
+     0.958
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Camila abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece. A Camila define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Camila abre com o dia e a hora escritos."
+    ],
+    [
+     "A Camila confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada fase, <em>um retrato.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Camila.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484583739_18284897659247141_1785525154465348532_n.jpg",
+     "f": "p",
+     "alt": "Menina de laço rindo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488183201_18286746577247141_1235833680267115434_n.jpg",
+     "f": "p",
+     "alt": "Retrato de blazer vermelho",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/486587610_18285790666247141_5328758892577363660_n.jpg",
+     "f": "p",
+     "alt": "Menino no aniversário",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/487848353_18286745035247141_1172585480741984369_n.jpg",
+     "f": "p",
+     "alt": "Retrato de terninho branco",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/484878926_18285120943247141_3232326013220636881_n.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido lilás",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/491439600_18288329278247141_6167734325716267665_n.jpg",
+     "f": "p",
+     "alt": "Retrato de camisa azul",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/485077377_18285100057247141_1654134047508625636_n.jpg",
+     "f": "p",
+     "alt": "Bebê rindo no colo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/camilaphotografia/Instagram_files/488837661_18287440087247141_5185917517925403572_n.jpg",
+     "f": "p",
+     "alt": "Retrato de camisa branca",
+     "pos": "50% 30%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Tatiane Marinho Quintiliano",
+    "tag": "Direção",
+    "trecho": "Ela direciona com muito carinho e posicionamento, o que torna a experiência ainda melhor."
+   },
+   {
+    "nome": "Gabriela Silva",
+    "tag": "Memórias",
+    "trecho": "Cada foto eterniza um pedacinho desse momento tão especial, transformando memórias em lembranças para guardar para sempre."
+   },
+   {
+    "nome": "Mariangela Languidi",
+    "tag": "Recomendo",
+    "trecho": "Amei o trabalho da Camila!!!"
+   },
+   {
+    "nome": "Adri e Artur FS",
+    "tag": "A escolha",
+    "trecho": "As fotos ficaram incríveis"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Jardim Piqueroby",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "As reservas já estão acontecendo. Escolha um horário ou chame a Camila no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97704-5992), o mesmo da legenda de 04/11 (\"11 97704-5992\")",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/camila-photografia` e `/demo/camila-photografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 9, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de nov 2026 e das avaliações.",
+   "Dona: Camila. Foto dela: com a câmera de filme (a mesma loira do post \"Aniversário da fotógrafa\").",
+   "Personalidade: retratos com luz de estúdio e famílias que voltam todo ano (a cozinha de Natal). Na demo: abertura em filme (ela posa com uma câmera de filme), Spectral, \"photografia\" em Allura, vinho e grafite.",
+   "Sem logo em boa resolução: monograma CP e o nome com \"photografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, corporativo e infantil), portfólio em 3 abas (Natal e infantil, 8; Corporativo, 12; Retratos masculinos, 8), a Camila, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A cozinha já está pronta\": o ensaio, as 3 fotos da cozinha de Natal 2026, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 9h às 15h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de Natal de 02 e 03/11/2026 (2700 px), as fotos da página salva no Drive (1440 px) e a foto dela do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), a colagem de aniversário, a arte \"Aniversário da fotógrafa\" e as fotos de bastidores do Google."
+  ],
+  "textos": [
+   "Legendas: \"A cozinha já está pronta para receber vocês!... Um ensaio cheio de brincadeiras...\" (04/11), \"Pelo segundo ano, essa família escolhe meu olhar...\" (03/11), \"Do ensaio gestante ao Natal do ano passado...\" (02/11), \"poder acompanhar as famílias...\" (02/11).",
+   "Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas."
+  ],
+  "conferir": [
+   "**No Google, uma avaliação acusa \"retenção de fotos pagas\"** (não entrou na demo; vale saber antes do contato).",
+   "Fotos de crianças e retratos de clientes: todos publicados por ela como portfólio. Vale ela confirmar se pode usar todos no site."
+  ]
+ }
+}
