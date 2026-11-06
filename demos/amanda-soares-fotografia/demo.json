@@ -1,0 +1,667 @@
+{
+ "pasta": "amanda-soares-fotografia",
+ "marca": "Amanda Soares Fotografias",
+ "marca_completa": "Amanda Soares Fotografias",
+ "dona": "Amanda",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6881924,-46.599396",
+  "fid": "0x216ec5d787c5629d:0xd16a1c9612ba0696",
+  "gid": "/g/11rmnffnxp"
+ },
+ "google_nome": "Amanda Soares Fotografias",
+ "endereco_maps": "R. Antônio Dias Adorno, 933 - Sl 1 - Vila Nogueira, Diadema - SP, 09951-000",
+ "google_nota": "5,0",
+ "google_total": "15",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511932264037",
+ "fone_link": "+5511932264037",
+ "instagram": "amandasoares.fotografia",
+ "seguidores": "4,9 mil",
+ "mensagem": "Olá, Amanda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fffaf3",
+  "papel": "#ffffff",
+  "areia": "#fbf0e0",
+  "linha": "#efe0c9",
+  "tinta": "#2b2622",
+  "tinta2": "#6a6058",
+  "rosa": "#f6c453",
+  "acento": "#d0453a",
+  "acento_escuro": "#a8352c",
+  "cafe": "#2a211d"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 16h",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 16h",
+   "2026-11-25 14h",
+   "2026-11-25 16h",
+   "2026-11-28 16h",
+   "2026-12-05 10h30",
+   "2026-12-05 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Amanda define os dela",
+  "mensagem": "Olá, Amanda! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Amanda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "97mk",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "DM Serif Text",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Outfit",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Satisfy",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "capsulas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "✹"
+ },
+ "titulo_nome": "Amanda Soares",
+ "titulo_script": "fotografias",
+ "quem_a": "a Amanda",
+ "quem_da": "da Amanda",
+ "quem_sou": "Sou a Amanda Soares",
+ "slogan": "Seu momento merece fotos incríveis.",
+ "site": {
+  "titulo": "Amanda Soares Fotografias | Smash the cake, bebês, família e Natal em Diadema",
+  "descricao": "Amanda Soares, fotógrafa em Diadema (Vila Nogueira): smash the cake, aniversário de 1 ano, bebês mês a mês, família, 15 anos e Natal 2026. Nota 5,0 no Google.",
+  "comentario": "Demo Amanda Soares Fotografias (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@amandasoares.fotografia: as fotos da página salva e os posts de ago a nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Diadema",
+   "frase": "Seu momento merece fotos incríveis.",
+   "intro": "Smash the cake, bebês mês a mês, famílias e 15 anos, no estúdio da Vila Nogueira, em Diadema. E vem aí o Natal 2026, com cenário novo.",
+   "rotulos": [
+    "1 ano",
+    "Bebês",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Smash the cake",
+    "1 ano",
+    "Mês a mês",
+    "Família",
+    "15 anos",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DdW4fyKifqF/DdW4fyKifqF_00.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido vermelho rindo no cavalinho, no aniversário de 1 ano",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651939109_18096714596064588_5184211585714287400_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida dormindo no sofazinho",
+     "c": [
+      0.45,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/653697813_18118224907722863_3804272439163347436_n.jpg",
+     "f": "p",
+     "alt": "Menino de chapéu de palha sorrindo, no tema junino",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada fase, <em>um cenário.</em>",
+   "p": "Ensaios da Amanda, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "smash",
+    "nome": "Smash e 1 ano",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DdW4fyKifqF/DdW4fyKifqF_00.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido vermelho rindo no cavalinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DcuN5eOCXwo/DcuN5eOCXwo_00.jpg",
+      "f": "p",
+      "alt": "Menino rindo no cavalinho, no aniversário de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/649923781_18096985127072957_2548334923594970499_n.jpg",
+      "f": "p",
+      "alt": "Menino de camisa branca entre os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/656004526_18158861860449249_4684824043530084099_n.jpg",
+      "f": "p",
+      "alt": "Bebê no tema melancia",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651540180_18125403070566485_1466472619344876239_n.jpg",
+      "f": "p",
+      "alt": "Menino de Capitão América no aniversário",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/656011394_18172052704399416_1247489314875782537_n.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo no cenário colorido",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/652812785_18116506174650319_1845173914903568186_n.jpg",
+      "f": "p",
+      "alt": "Menina com o pop-it, no Dia das Crianças",
+      "pos": "55% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/647399923_18100812254480320_6079453383397507511_n.jpg",
+      "f": "p",
+      "alt": "Bolo dos Vingadores, detalhe da festa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DcrHCTlCXse/DcrHCTlCXse_00.jpg",
+      "f": "l",
+      "alt": "Bebê de tiara no cavalinho, entre os balões rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Bebê no tema safári, entre os balões verdes",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês mês a mês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651939109_18096714596064588_5184211585714287400_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo no sofazinho",
+      "pos": "45% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651904251_18096870007817149_4347479328833140034_n.jpg",
+      "f": "p",
+      "alt": "Bebê no tema junino",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/621423848_18055457309382758_5729942340338325312_n.jpg",
+      "f": "p",
+      "alt": "Bebê de camisa de futebol no gramado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/650022372_18095736499998376_2636873251982899729_n.jpg",
+      "f": "p",
+      "alt": "Bebê no tema praia, com a pazinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651885528_18086357452958945_1182682873342514480_n.jpg",
+      "f": "p",
+      "alt": "Bebê de 5 meses no tema praia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/655068860_18165653422413537_4769686132294877745_n.jpg",
+      "f": "p",
+      "alt": "Bebê de óculos no barril, no tema Chaves",
+      "pos": "45% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/657682436_18346444885208547_5344938322375192361_n.jpg",
+      "f": "p",
+      "alt": "Bebê de chapéu de palha no cesto",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/649515545_18068384474537341_2884273169066464064_n.jpg",
+      "f": "p",
+      "alt": "Bebê de roupa junina com o coração",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/621217717_18088994360045578_7847370022852281356_n.jpg",
+      "f": "p",
+      "alt": "Pais com a bebê de vestido amarelo, entre os girassóis",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651000653_18093854222022437_6221344168313386059_n.jpg",
+      "f": "p",
+      "alt": "Família no tema junino",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/650826442_18094882937088840_4187773628188337979_n.jpg",
+      "f": "p",
+      "alt": "Menino de chapéu de palha com o violão",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/653697813_18118224907722863_3804272439163347436_n.jpg",
+      "f": "p",
+      "alt": "Menino de chapéu de palha sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/624877934_18087844834887049_1380921788776656065_n.jpg",
+      "f": "p",
+      "alt": "Pai e bebê no cenário do estádio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/649230809_18097574056995936_8726885262255173047_n.jpg",
+      "f": "p",
+      "alt": "Pai beijando a bebê no cenário do estádio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/654972694_18120281476625529_4153880378050095980_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho de testas juntas",
+      "pos": "45% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/646102530_18043124792537008_8967485066237038737_n.jpg",
+      "f": "p",
+      "alt": "Família abraçada no fundo escuro",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Amanda, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/733939220_18106947853996561_7500681309066116183_n.jpg",
+    "f": "p",
+    "alt": "Amanda sorrindo, com a câmera",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "p": [
+    "A Amanda fotografa smash the cake, aniversários de 1 ano, bebês mês a mês, famílias e 15 anos, no estúdio da Vila Nogueira, em Diadema, e também ao ar livre, como o smash no bosque da Helena."
+   ],
+   "citacao": "Um ano inteiro de descobertas, sorrisos, abraços e muito amor.",
+   "citacao_quem": "Amanda, sobre a primeira volta ao sol do Eduardo",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da atenção aos detalhes, da paciência e do carisma dela e das fotos entregues antes do prazo."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "15 avaliações no Google"
+    ],
+    [
+     "4,9 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "1º ano",
+     "do mês a mês ao smash"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da primeira volta ao sol <em>aos 15 anos.</em>",
+   "p": "Os ensaios da Amanda:",
+   "fonte": "Legendas da Amanda no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias do bebê, no estúdio."
+    },
+    {
+     "nome": "Mês a mês",
+     "sub": "Acompanhamento",
+     "p": "Um tema a cada mês: futebol, praia, festa junina."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "1 ano",
+     "p": "A primeira volta ao sol: um ano inteiro de descobertas, sorrisos, abraços e muito amor."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temas",
+     "p": "Do Chaves ao Dia das Crianças, cenários para cada idade."
+    },
+    {
+     "nome": "15 anos",
+     "sub": "Produção",
+     "p": "Uma produção romântica para registrar um dos momentos mais especiais da vida."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "Uma nova temporada de histórias e sorrisos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Uma época cheia <em>de magia e encanto.</em>",
+   "p": "O cenário de Natal 2026 da Amanda estreia em 5 de novembro: uma nova temporada de histórias e sorrisos. Escolha um horário e a mensagem chega pronta no WhatsApp da Amanda.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Casal de avental vermelho na cozinha de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Jaqueline Silva",
+    "tag": "Detalhes",
+    "trecho": "A amanda é uma excelente profissional! Atenta aos detalhes, é muito prestativa e se empenha o máximo para entregar um trabalho incrível !"
+   },
+   {
+    "nome": "Emanuel Oliveira",
+    "tag": "Antes do prazo",
+    "trecho": "Pode contratar sem medo ótima profissional pontual e o melhor entregou as fotos antes do prazo combinado super recomendo"
+   },
+   {
+    "nome": "Lidiane Pinto da Silva",
+    "tag": "Paciência",
+    "trecho": "Profissional incrível! De uma paciência e carisma incrível tbm"
+   },
+   {
+    "nome": "Elder Lima",
+    "tag": "Atendimento",
+    "trecho": "Recomendo! Ótimo atendimento e muito atenciosa. As fotos ficaram ótimas."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Nogueira, em Diadema, e atende de segunda a sábado.",
+   "telefone": "(11) 93226-4037",
+   "endereco": [
+    "R. Antônio Dias Adorno, 933, sala 1",
+    "Vila Nogueira",
+    "Diadema · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Amanda Soares Fotografias",
+  "descricao": "O ensaio de Natal 2026 da Amanda Soares, em Diadema: uma época cheia de magia e encanto. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Amanda Soares Fotografias: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Diadema",
+   "h1": "Uma época cheia <em>de magia e encanto.</em>",
+   "citacao": "Por aqui, os preparativos estão quase finalizados e estamos contando os minutos para compartilhar tudo com vocês!",
+   "citacao_quem": "Amanda, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Casal de avental vermelho na cozinha de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Uma nova temporada <em>de histórias.</em>",
+   "p": "O cenário de Natal 2026 da Amanda estreia em 5 de novembro: uma nova temporada de histórias, sorrisos e momentos inesquecíveis, no estúdio da Vila Nogueira, em Diadema.",
+   "itens": [
+    "No estúdio da Amanda, na Vila Nogueira, em Diadema.",
+    "O cenário de Natal 2026, com estreia em 5 de novembro.",
+    "Para a família toda: pais, irmãos e bebês.",
+    "Valores e detalhes pelo WhatsApp da Amanda."
+   ],
+   "legenda_fotos": "Os cenários da Amanda ao longo do ano"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/649515545_18068384474537341_2884273169066464064_n.jpg",
+    "f": "p",
+    "alt": "Bebê no cenário junino",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DcrHCTlCXse/DcrHCTlCXse_00.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário rosa de 1 ano",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/google/fotos/g00.jpg",
+    "f": "l",
+    "alt": "Bebê no cenário safári",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Amanda abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado, no horário do estúdio. A Amanda define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Amanda abre com o dia e a hora escritos."
+    ],
+    [
+     "A Amanda confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada fase, <em>um cenário.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Amanda.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DdW4fyKifqF/DdW4fyKifqF_00.jpg",
+     "f": "p",
+     "alt": "Bebê no cavalinho de 1 ano",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651939109_18096714596064588_5184211585714287400_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no sofazinho",
+     "pos": "45% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/621217717_18088994360045578_7847370022852281356_n.jpg",
+     "f": "p",
+     "alt": "Pais com a bebê entre os girassóis",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/amanda-soares-fotografia/posts/DcuN5eOCXwo/DcuN5eOCXwo_00.jpg",
+     "f": "p",
+     "alt": "Menino rindo no cavalinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/649923781_18096985127072957_2548334923594970499_n.jpg",
+     "f": "p",
+     "alt": "Menino entre os balões",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/653697813_18118224907722863_3804272439163347436_n.jpg",
+     "f": "p",
+     "alt": "Menino de chapéu de palha",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/655068860_18165653422413537_4769686132294877745_n.jpg",
+     "f": "p",
+     "alt": "Bebê no tema Chaves",
+     "pos": "45% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/amandasoaresfotorafia/Instagram_files/651000653_18093854222022437_6221344168313386059_n.jpg",
+     "f": "p",
+     "alt": "Família no tema junino",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Juliana Gomes",
+    "tag": "Perfeitas",
+    "trecho": "Trabalho maravilhoso, uma excelente profissional."
+   },
+   {
+    "nome": "Elder Lima",
+    "tag": "Obrigado",
+    "trecho": "Muito obrigado Amanda e desejo muito sucesso."
+   },
+   {
+    "nome": "Jaqueline Silva",
+    "tag": "Incrível",
+    "trecho": "Incrível! A amanda é uma excelente profissional!"
+   },
+   {
+    "nome": "Emanuel Oliveira",
+    "tag": "Sem medo",
+    "trecho": "Pode contratar sem medo ótima profissional pontual"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Diadema",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Amanda no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 93226-4037); um post de 04/10 diz \"11 94226-4037\" (conferir qual é o certo)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/amanda-soares-fotografia` e `/demo/amanda-soares-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 6, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de ago a nov 2026 e das avaliações.",
+   "Dona: Amanda Soares. Foto dela: com a câmera, da página salva.",
+   "Personalidade: cenários coloridos e bem-humorados (smash, 1 ano, festa junina, futebol, Chaves) e o anúncio do Natal como \"transmissão especial\". Na demo: abertura em cápsulas, DM Serif Text, \"fotografias\" em Satisfy, vermelho-tomate e amarelo-girassol, ✹ entre as especialidades.",
+   "Sem logo em boa resolução: monograma AS e o nome com \"fotografias\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (1 ano, bebês e infantil), portfólio em 3 abas (Smash e 1 ano, 10; Bebês mês a mês, 8; Família, 8), a Amanda, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Uma época cheia de magia e encanto\": o ensaio (estreia em 05/11), os cenários dela, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 16h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de ago a nov 2026 (três aniversários de 1 ano, até 1440 px), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), a arte do anúncio de Natal, os ensaios de 15 e 25 anos (um de costas, outro sensual) e as fotos com faixa de outra foto do carrossel."
+  ],
+  "textos": [
+   "Legendas: \"Alô, alô… temos uma transmissão especial! Uma época cheia de magia...\" e \"05.11.2026 — marque essa data\" (03/11), \"A primeira volta ao sol do Eduardo... Um ano inteiro de descobertas...\" (31/08), \"seu momento merece fotos incríveis\" (04/10).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "Telefone: o Google tem (11) 93226-4037 e um post tem (11) 94226-4037; a demo usa o do Google.",
+   "A única foto de Natal é do Google (casal na cozinha de Natal); o cenário 2026 estreia em 05/11.",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
