@@ -195,3 +195,23 @@ A lista está em `docs/nichos/fotografos-lote3.md` (20 + 5 reservas, com o link 
 - **Alertas que pesam na abordagem:** Camila Photografia tem uma avaliação acusando "retenção de fotos pagas"; Amanda
   Soares tem dois celulares diferentes (Google e um post); Thays Adrianny não mostra o número no Google.
 - Duplas e casais (Olivares, Lus, JB Four, Carlota Joaquina, Roberta Ale) seguem entrando, como nos lotes 1 e 2.
+- **Demos do lote 3 (06/11/2026): as 25.** As 25 entraram no painel em Leads a trabalhar (com Google, avaliações,
+  WhatsApp, Natal, dona e alertas nas observações) e ganharam a demo, uma por vez, na ordem do ranking; cada uma foi
+  para Prontas para trabalhar ao publicar. Todas com o aviso da Renderiza, a oferta nova (pagamento único, sem
+  mensalidade, promoção de 1 semana, até o `vale_ate` do painel) e o portfólio em abas (2 a 4 por demo; nada de abas
+  em letra cursiva, que não pareciam filtro). Cada uma com um toque dela: livro de histórias (Rafaela), luz de fim de
+  tarde (Lislley), "o começo de cada família" (Aimee), luz e sombra em tema escuro (Mandaluz e Ray Barbosa), cenário
+  por mês (Tata's, Mayara, Lenita), e assim por diante; o que entrou e o que conferir está na `ficha.md` de cada pasta.
+- **O que o lote 3 ensinou:**
+  - **21 das 25 páginas do Drive vieram sem o `Instagram.html`** (só a pasta das fotos): sem bio e sem as legendas
+    antigas. As fotos bastam; os textos vêm dos posts recentes, das artes delas e das avaliações (citação de cliente
+    sempre com o nome de quem escreveu).
+  - **Sem capa de vídeo:** a folha de escolha já tira tudo que é 9:16 (inclusive foto do Google em 9:16) e o que tem
+    menos de 900 px; a revisão de rostos pega o resto. Foto com moldura branca embutida (Camila) leva `box`.
+  - **A data da oferta segue o dia de Brasília:** o painel grava o `vale_ate` como o dia de Brasília + 7. Perto da
+    meia-noite, a demo gerada num dia e publicada no outro ficava com data diferente; agora a publicação acerta o
+    `vale_ate` do painel para a data da demo quando elas não batem.
+  - **Sem Natal divulgado** (Erika Stojan, Mayara Teixeira, Lenita Sevela, Roberta Ale, Silvia Olarindo): a página de
+    Natal sai como sugestão, com texto que não promete cenário; a ficha manda perguntar.
+  - **WhatsApp escondido no Google** (Thays Adrianny): o link `wa.me/message/...` do Perfil abre a conta com o número
+    na página pública do WhatsApp; o número foi para a demo e para o lead.
