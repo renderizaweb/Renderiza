@@ -1,0 +1,655 @@
+{
+ "pasta": "thays-adrianny-fotografia",
+ "marca": "Thays Adrianny Fotografia",
+ "marca_completa": "Thays Adrianny Fotografia",
+ "dona": "Thays",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5979425,-46.4347964",
+  "fid": "0x94ce6f27e606c513:0x214ac2a52a6412e7",
+  "gid": "/g/11yxp9tg36"
+ },
+ "google_nome": "Thays Adrianny Fotografia",
+ "endereco_maps": "R. Mendonça Arrais, 33 - Jardim Iguatemi, São Paulo - SP, 08380-020",
+ "google_nota": "5,0",
+ "google_total": "53",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511991792312",
+ "fone_link": "+5511991792312",
+ "instagram": "thaysadriannyfotografia",
+ "seguidores": "4,6 mil",
+ "mensagem": "Olá, Thays! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fffafa",
+  "papel": "#ffffff",
+  "areia": "#fbefef",
+  "linha": "#efdcdc",
+  "tinta": "#29232a",
+  "tinta2": "#675f66",
+  "rosa": "#f5c4cf",
+  "acento": "#c22f3c",
+  "acento_escuro": "#9c2531",
+  "cafe": "#271f24"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "12h",
+   "13h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 13h",
+   "2026-11-18 12h",
+   "2026-11-21 9h",
+   "2026-11-21 12h",
+   "2026-11-21 13h",
+   "2026-11-25 12h",
+   "2026-11-25 13h",
+   "2026-11-28 13h",
+   "2026-12-05 10h30",
+   "2026-12-05 13h"
+  ],
+  "exemplo": "Horários de exemplo: a Thays define os dela",
+  "mensagem": "Olá, Thays! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Thays",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "27qw",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Rosarivo",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Quicksand",
+    "wght@400;500;600;700"
+   ],
+   "script": [
+    "Yellowtail",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "★"
+ },
+ "titulo_nome": "Thays Adrianny",
+ "titulo_script": "fotografia",
+ "quem_a": "a Thays",
+ "quem_da": "da Thays",
+ "quem_sou": "Sou a Thays Adrianny",
+ "slogan": "Essa fase passa, mas as lembranças ficam para sempre.",
+ "site": {
+  "titulo": "Thays Adrianny Fotografia | Bebês, smash, aniversários, gestante e Natal no Jardim Iguatemi",
+  "descricao": "Thays Adrianny Fotografia, no Jardim Iguatemi, Zona Leste de São Paulo: bebês mês a mês, smash the cake, aniversários, gestante, família e Natal, com cenários temáticos. Nota 5,0 no Google, com 53 avaliações.",
+  "comentario": "Demo Thays Adrianny Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@thaysadriannyfotografia: as fotos da página salva e os posts de nov 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Jardim Iguatemi, Zona Leste",
+   "frase": "Essa fase passa, mas as lembranças ficam para sempre.",
+   "intro": "Bebês, smash the cake, aniversários, gestantes e famílias, com cenários temáticos, no Jardim Iguatemi, Zona Leste de São Paulo. E a temporada de Natal já começou.",
+   "rotulos": [
+    "Natal",
+    "Aniversários",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Bebês",
+    "Smash the cake",
+    "Aniversários",
+    "Gestante",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469118203_18034426910460970_3085205406858740088_n.jpg",
+     "f": "p",
+     "alt": "Menina de vestido de Natal sorrindo, junto à lareira",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469213170_18034434596460970_8775955668542968681_n.jpg",
+     "f": "p",
+     "alt": "Menino de suspensório no tema circo",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfSb3cZoGh_/DfSb3cZoGh__00.jpg",
+     "f": "p",
+     "alt": "Gestante sentada na cadeira, de jeans",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "p": "Ensaios da Thays, cada um com o seu cenário. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469118203_18034426910460970_3085205406858740088_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido de Natal sorrindo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/409182069_741389251345593_8749804931584141702_n.jpg",
+      "f": "p",
+      "alt": "Menina de saia vermelha junto à lareira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/409179426_741382334679618_7411529173590255096_n.jpg",
+      "f": "l",
+      "alt": "Bebê de laço vermelho junto à lareira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469316907_18034427648460970_4061224911242473567_n.jpg",
+      "f": "l",
+      "alt": "Bebê de gorro de Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/481951672_1037186641765851_5413026285460064761_n.jpg",
+      "f": "l",
+      "alt": "Bebê de vestido vermelho no cenário de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/662306320_18159751609436745_4831009643392544800_n.jpg",
+      "f": "l",
+      "alt": "Bebê engatinhando na manta vermelha",
+      "pos": "50% 0%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469073942_18034426793460970_1191819293514038982_n.jpg",
+      "f": "l",
+      "alt": "Bebê sentada na manta vermelha, junto à lareira",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469213170_18034434596460970_8775955668542968681_n.jpg",
+      "f": "p",
+      "alt": "Menino de suspensório no tema circo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/464207414_18029879291460970_1744386174610336643_n.jpg",
+      "f": "p",
+      "alt": "Bebê no smash de 1 ano com os Bolofofos",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/466796634_18032271350460970_3947283323248063654_n.jpg",
+      "f": "p",
+      "alt": "Bebê de coroa de flores no cubo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/465312196_18030939368460970_2904742965992840253_n.jpg",
+      "f": "p",
+      "alt": "Menino de PJ Masks pulando",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/464293920_18029916050460970_8356098975191698397_n.jpg",
+      "f": "p",
+      "alt": "Menino de óculos escuros entre os balões prata",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469139076_18034434716460970_7467784960447411693_n.jpg",
+      "f": "p",
+      "alt": "Menino sentado entre os balões prata",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469182477_18034434686460970_9142021112020145186_n.jpg",
+      "f": "p",
+      "alt": "Menina com o balão personalizado, no fundo rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfAFK7YoNQ6/DfAFK7YoNQ6_00.jpg",
+      "f": "p",
+      "alt": "Menina de rosa entre os balões prata",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469073794_18034434521460970_5718503460270949404_n.jpg",
+      "f": "l",
+      "alt": "Menina na casinha da Barbie",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469126937_18034434215460970_3365974181300477087_n.jpg",
+      "f": "l",
+      "alt": "Bebê de Minnie no aniversário de 1 ano",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Bebês, gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfSb3cZoGh_/DfSb3cZoGh__00.jpg",
+      "f": "p",
+      "alt": "Gestante sentada na cadeira, de jeans",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante no fundo cinza com a luz atrás",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfU02RpoCoG/DfU02RpoCoG_00.jpg",
+      "f": "l",
+      "alt": "Bebê de 2 meses de Woody, no tema Toy Story",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfXzCWrIJrH/DfXzCWrIJrH_00.jpg",
+      "f": "l",
+      "alt": "Mãe beijando o Homem-Aranha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/fotos/g03.jpg",
+      "f": "l",
+      "alt": "Pais beijando a bebê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/fotos/g05.jpg",
+      "f": "l",
+      "alt": "Pais com a bebê no cenário das abelhinhas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/fotos/g06.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no barril, no tema abelhinha",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Thays <em>e os cenários dela.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/751001229_18095991146460970_5326002672364822010_n.jpg",
+    "f": "p",
+    "alt": "Retrato em dupla exposição, com a câmera",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Thays Adrianny fotografa bebês, smash the cake, aniversários, gestantes e famílias no estúdio do Jardim Iguatemi, na Zona Leste de São Paulo, com cenários temáticos: Toy Story, Homem-Aranha, Minnie, Barbie, circo e o Natal da lareira."
+   ],
+   "citacao": "Porque até os super heróis precisam de carinho.",
+   "citacao_quem": "Thays, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da paciência dela com as crianças (até com quem chega chorando), do carinho com os bebês e da entrega rápida das fotos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "53 avaliações no Google"
+    ],
+    [
+     "4,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "02/11",
+     "abertura da agenda de Natal"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "p": "Os ensaios da Thays:",
+   "fonte": "Legendas da Thays no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A doce espera",
+     "p": "A espera mais linda merece ser eternizada em cada detalhe."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Mês a mês",
+     "p": "Cada mês um tema, como o pequeno xerife de Toy Story aos 2 meses."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 ano",
+     "p": "Smash the cake de 1 ano, com o tema escolhido pela família."
+    },
+    {
+     "nome": "Aniversários",
+     "sub": "Happy Birthday Kids",
+     "p": "Ensaio completo com bexigas, balão de idade e velinhas."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "A família toda no cenário, com muito carinho."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Temporada",
+     "p": "Cada detalhe preparado com muito carinho para lembranças inesquecíveis."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal chegou <em>ao nosso estúdio!</em>",
+   "p": "A temporada de Natal começou e a agenda abriu em 2 de novembro. Escolha um horário e a mensagem chega pronta no WhatsApp da Thays.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/409179426_741382334679618_7411529173590255096_n.jpg",
+    "f": "l",
+    "alt": "Bebê de laço vermelho junto à lareira",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Camila Boneli Alves",
+    "tag": "Paciência",
+    "trecho": "A Thays é extremamente paciente e carinhosa com as crianças, tornando o ensaio leve e divertido."
+   },
+   {
+    "nome": "Ester Costa",
+    "tag": "Homem-Aranha",
+    "trecho": "Ela teve muita paciência com meu filho de 3 anos, deixou ele à vontade. O cenário estava lindo e as fotos ficaram perfeitas."
+   },
+   {
+    "nome": "Gabi Costa",
+    "tag": "Entrega rápida",
+    "trecho": "Ótima profissional, atenciosa com os bebê e fora entrega das fotos que é super rápido!!"
+   },
+   {
+    "nome": "Renato Andrade",
+    "tag": "Calma",
+    "trecho": "teve muita paciência com minha filha, que na hora das fotos estava chorando é as fotos ficaram lindas"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Qual vai ser <em>o tema?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Iguatemi, na Zona Leste de São Paulo, e atende de segunda a sábado.",
+   "telefone": "(11) 99179-2312",
+   "endereco": [
+    "R. Mendonça Arrais, 33",
+    "Jardim Iguatemi",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Thays Adrianny Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Thays Adrianny, no Jardim Iguatemi, Zona Leste de São Paulo: a temporada de Natal começou. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Thays Adrianny Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Jardim Iguatemi",
+   "h1": "O Natal chegou <em>ao nosso estúdio!</em>",
+   "citacao": "Cada detalhe foi preparado com muito carinho para transformar momentos especiais em lembranças inesquecíveis.",
+   "citacao_quem": "Thays, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469316907_18034427648460970_4061224911242473567_n.jpg",
+    "f": "l",
+    "alt": "Bebê de gorro de Papai Noel junto à lareira",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "A temporada de Natal <em>começou.</em>",
+   "p": "A agenda de Natal abriu em 2 de novembro: uma temporada especial, cheia de encanto e momentos para guardar para sempre, no estúdio da Thays, no Jardim Iguatemi.",
+   "itens": [
+    "No estúdio da Thays, no Jardim Iguatemi, Zona Leste de São Paulo.",
+    "Agenda de Natal aberta desde 2 de novembro.",
+    "Para bebês, crianças e a família toda.",
+    "Valores e datas pelo WhatsApp da Thays."
+   ],
+   "legenda_fotos": "Natal no estúdio da Thays: lareira, ursinhos e neve"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/409182069_741389251345593_8749804931584141702_n.jpg",
+    "f": "p",
+    "alt": "Menina de saia vermelha junto à lareira",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/409185590_741376888013496_4187329593253406333_n.jpg",
+    "f": "l",
+    "alt": "Bebê sentado na manta vermelha, junto à lareira",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/410718316_741389918012193_71539310681594375_n.jpg",
+    "f": "l",
+    "alt": "Bebê de gorro na cadeirinha, junto à lareira",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Thays abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado, no horário do estúdio. A Thays define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Thays abre com o dia e a hora escritos."
+    ],
+    [
+     "A Thays confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Um tema <em>para cada fase.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Thays.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469213170_18034434596460970_8775955668542968681_n.jpg",
+     "f": "p",
+     "alt": "Menino no tema circo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfSb3cZoGh_/DfSb3cZoGh__00.jpg",
+     "f": "p",
+     "alt": "Gestante na cadeira",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/464207414_18029879291460970_1744386174610336643_n.jpg",
+     "f": "p",
+     "alt": "Smash de 1 ano",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/466796634_18032271350460970_3947283323248063654_n.jpg",
+     "f": "p",
+     "alt": "Bebê de coroa de flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/465312196_18030939368460970_2904742965992840253_n.jpg",
+     "f": "p",
+     "alt": "Menino de PJ Masks",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thaysadrianntfotografia/Instagram_files/469182477_18034434686460970_9142021112020145186_n.jpg",
+     "f": "p",
+     "alt": "Menina com o balão personalizado",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/posts/DfAFK7YoNQ6/DfAFK7YoNQ6_00.jpg",
+     "f": "p",
+     "alt": "Menina de rosa",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thays-adrianny-fotografia/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante no fundo cinza",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thawany Barbosa",
+    "tag": "Bebês",
+    "trecho": "as fotos são perfeitas, amo cada uma! além de ser uma ótima profissional com os bebês"
+   },
+   {
+    "nome": "Ester Costa",
+    "tag": "O cenário",
+    "trecho": "O cenário estava lindo e as fotos ficaram perfeitas. Super recomendo, meu filho amou o ensaio do homem aranha!!"
+   },
+   {
+    "nome": "Camila Boneli Alves",
+    "tag": "Detalhes",
+    "trecho": "é possível perceber o amor e a dedicação que ela coloca em cada detalhe do seu trabalho."
+   },
+   {
+    "nome": "Gabi Costa",
+    "tag": "Voltarei",
+    "trecho": "Vale a pena voltarei pra fazer mais com toda certeza"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Jardim Iguatemi",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Thays no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "o Google não mostra o número; o link de WhatsApp do Perfil (wa.me/message/2O6MWDXDLXHDJ1) abre a conta \"Thays Adrianny Fotografia\", com o +55 11 99179-2312",
+  "site": "só o link de WhatsApp (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/thays-adrianny-fotografia` e `/demo/thays-adrianny-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 14, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.",
+   "Dona: Thays Adrianny. O retrato em dupla exposição com a câmera entra no \"quem fotografa\" sem dizer que é ela (conferir).",
+   "Personalidade: cenários temáticos (Toy Story, Homem-Aranha, Minnie, Barbie, circo) e o Natal da lareira com ursinhos e neve. Na demo: abertura em bolhas, Rosarivo, \"fotografia\" em Yellowtail, vermelho e rosa, ★ entre as especialidades.",
+   "Sem logo em boa resolução: monograma TA e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal, aniversários e gestante), portfólio em 3 abas (Natal, 7; Infantil e aniversários, 10; Bebês, gestante e família, 7), a Thays, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O Natal chegou ao nosso estúdio!\": a temporada (agenda aberta em 02/11), o cenário da lareira, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 13h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de nov 2026 (gestante, Toy Story, Homem-Aranha), as fotos da página salva no Drive (até 1440 px) e 5 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes (\"Dia do Cliente\", \"Feliz Natal\", colagens), a gestante com pintura no corpo e os ensaios femininos."
+  ],
+  "textos": [
+   "Legendas: \"O natal chegou ao nosso estúdio! Cada detalhe foi preparado com muito carinho...\" (02/11), \"02/11 será o dia da abertura oficial da nossa agenda de Natal\" (01/11), \"Porque essa fase passa, mas as lembranças ficam para sempre\" (03/11), \"até os super heróis precisam de carinho\" (05/11), \"Happy Birthday Kids... Bexigas, Balão de idade, Velinhas\" (27/10).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "**WhatsApp: o Google não mostra o número**; o da demo vem do link de WhatsApp do Perfil dela (+55 11 99179-2312). Conferir antes de mandar.",
+   "As fotos de Natal são do cenário da lareira, sem data (o post de 2026 é vídeo).",
+   "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
