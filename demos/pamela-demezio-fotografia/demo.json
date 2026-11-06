@@ -1,0 +1,684 @@
+{
+ "pasta": "pamela-demezio-fotografia",
+ "marca": "Pamela Demezio Fotografia",
+ "marca_completa": "Pamela Demezio Fotografia",
+ "dona": "Pamela",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4495676,-46.5085423",
+  "fid": "0x94ce8bb945314c2b:0x369c9998de8ca8f5",
+  "gid": "/g/11pz8mtbcs"
+ },
+ "google_nome": "Pamela Demezio Fotografia",
+ "endereco_maps": "Av. Otávio Braga de Mesquita, 1773 - Vila Florida - Vila Barros, Guarulhos - SP, 07191-000",
+ "google_nota": "5,0",
+ "google_total": "22",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511967396569",
+ "fone_link": "+5511967396569",
+ "instagram": "pamelademeziofotografia",
+ "seguidores": "10,8 mil",
+ "mensagem": "Olá, Pamela! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fffaf8",
+  "papel": "#ffffff",
+  "areia": "#f9eeeb",
+  "linha": "#eedcd8",
+  "tinta": "#2a2224",
+  "tinta2": "#675d5f",
+  "rosa": "#f3c6c9",
+  "acento": "#b8364a",
+  "acento_escuro": "#952b3c",
+  "cafe": "#271e20"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-17",
+   "2026-11-21",
+   "2026-11-24",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-17 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-24 14h",
+   "2026-11-24 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Pamela define os dela",
+  "mensagem": "Olá, Pamela! Quero o horário de {data} ({semana}) às {hora} para o especial de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Pamela",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "9utd",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Gelasio",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Nunito Sans",
+    "opsz,wght@6..12,300..600"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "♡"
+ },
+ "titulo_nome": "Pamela Demezio",
+ "titulo_script": "fotografia",
+ "quem_a": "a Pamela",
+ "quem_da": "da Pamela",
+ "quem_sou": "Sou a Pamela Demezio",
+ "slogan": "Um ensaio leve, divertido e cheio de carinho.",
+ "site": {
+  "titulo": "Pamela Demezio Fotografia | Infantil, gestante, família e Natal em Guarulhos",
+  "descricao": "Pamela Demezio, fotógrafa na Vila Barros, em Guarulhos: infantil, smash, gestante, chá revelação, casal, família e o especial de Natal 2026, Delícias de Natal. Nota 5,0 no Google.",
+  "comentario": "Demo Pamela Demezio Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@pamelademeziofotografia: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa · Guarulhos",
+   "frase": "Um ensaio leve, divertido e cheio de carinho.",
+   "intro": "Crianças, gestantes, casais e famílias, no estúdio da Vila Barros, em Guarulhos, e ao ar livre. E o especial de Natal 2026, Delícias de Natal, já começou.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Smash"
+   ],
+   "especialidades": [
+    "Infantil",
+    "Smash",
+    "Gestante",
+    "Chá revelação",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/Dezvod_D00Z/Dezvod_D00Z_00.jpg",
+     "f": "p",
+     "alt": "Irmãs deitadas sob a árvore de Natal de laços",
+     "c": [
+      0.5,
+      0.6
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/619666659_18083631797517425_4928019796113293690_n.webp",
+     "f": "p",
+     "alt": "Gestante de vermelho no bambuzal",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/651707842_18124700803509762_6355391994264085653_n.webp",
+     "f": "p",
+     "alt": "Bebê na banheira, no smash de 1 ano",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Para cada fase, <em>um cenário.</em>",
+   "p": "Ensaios da Pamela, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal e infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/Dezvod_D00Z/Dezvod_D00Z_00.jpg",
+      "f": "p",
+      "alt": "Irmãs deitadas sob a árvore de Natal",
+      "pos": "50% 60%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g05.jpg",
+      "f": "p",
+      "alt": "Menina de vermelho com o doce de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g06.jpg",
+      "f": "p",
+      "alt": "Menina enfeitando a árvore",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/653616173_18131249206532318_7642127884514421820_n.jpg",
+      "f": "p",
+      "alt": "Irmãos enfeitando a árvore dourada",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/626376750_18385123342156806_6460155704802611474_n.jpg",
+      "f": "p",
+      "alt": "Menino no cavalinho de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/669682303_18338253442174819_5025267227232110827_n.webp",
+      "f": "p",
+      "alt": "Bebê no smash de 1 ano, entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/624482819_18070039331423123_5626832702571856599_n.webp",
+      "f": "p",
+      "alt": "Bebê no cenário de Páscoa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/628012062_18337177786208753_1896664126268582113_n.webp",
+      "f": "p",
+      "alt": "Menina de orelhinhas no cenário de Páscoa",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/DfQKZesj_X2/DfQKZesj_X2_00.jpg",
+      "f": "l",
+      "alt": "Menina com os biscoitos na cozinha de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Bebê no smash de 1 ano com o ursinho",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e casal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/619666659_18083631797517425_4928019796113293690_n.webp",
+      "f": "p",
+      "alt": "Gestante de vermelho no bambuzal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/621881476_18085326563171236_5270509604394650050_n.webp",
+      "f": "p",
+      "alt": "Gestante de vermelho entre os bambus",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/617353933_18037498451724900_3968655043236170044_n.webp",
+      "f": "p",
+      "alt": "Gestante de rosa na escadaria do casarão",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/622364793_18114175903624331_3614438083086281940_n.webp",
+      "f": "p",
+      "alt": "Gestante de rosa no sofá branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Gestante de branco com o guarda-chuva",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/622621013_18102960859837935_7265547426843426018_n.webp",
+      "f": "p",
+      "alt": "Casal em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/641742951_18563530468038391_3954974347175272591_n.jpg",
+      "f": "p",
+      "alt": "Família no chá revelação, entre os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/622368565_18105964069838482_3457831776841048389_n.jpg",
+      "f": "p",
+      "alt": "Família no chá revelação, ao pôr do sol",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/650646884_18114692731630382_5712481644000251955_n.webp",
+      "f": "p",
+      "alt": "Gestante no cenário do chá revelação",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/653533790_18185542603367401_6778742136134562524_n.webp",
+      "f": "p",
+      "alt": "Casal no cenário do chá revelação",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Casal na beira do mar",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/622606613_18076383629362339_1859074906555354573_n.webp",
+      "f": "p",
+      "alt": "Mãe e filha de rostos juntos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/621585985_18102053179869563_4537861391819470842_n.jpg",
+      "f": "p",
+      "alt": "Menina com o ursinho no chá revelação",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/655130182_18092507707883829_7567434871821805295_n.webp",
+      "f": "p",
+      "alt": "Mãe brincando com a filha de ponta-cabeça",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/652755674_18087276233232542_1735137245475461856_n.webp",
+      "f": "p",
+      "alt": "Mãe com o bebê e os cachorros",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/626620181_18159335974422473_4768031565633732899_n.webp",
+      "f": "p",
+      "alt": "Casal comemorando entre os balões",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/651707842_18124700803509762_6355391994264085653_n.webp",
+      "f": "p",
+      "alt": "Bebê na banheira, no smash de 1 ano",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/625155089_18114806713541318_9136344322570413125_n.webp",
+      "f": "p",
+      "alt": "Mulher sentada no cenário de palha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/625049761_18115757395612187_1214795145739176803_n.webp",
+      "f": "p",
+      "alt": "Casal dançando na praia",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Pamela, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/654086526_18096222320102734_2711875805762746994_n.webp",
+    "f": "p",
+    "alt": "Mãe abraçando a filha de laço",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Pamela Demezio fotografa crianças, gestantes, casais e famílias no estúdio da Vila Barros, em Guarulhos, e ao ar livre: no bambuzal, na praia, no campo. Também faz ensaios femininos e fotos para negócios."
+   ],
+   "citacao": "A primeira impressão importa, e muitas vezes ela acontece através de uma imagem.",
+   "citacao_quem": "Pamela, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do jeito dela com os bebês, da sessão leve e divertida e do carinho do primeiro contato até a entrega."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "22 avaliações no Google"
+    ],
+    [
+     "10,8 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2026",
+     "especial de Natal"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para cada fase, <em>um cenário.</em>",
+   "p": "Os ensaios da Pamela:",
+   "fonte": "Posts da Pamela no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Ao ar livre",
+     "p": "No bambuzal, na praia ou no estúdio."
+    },
+    {
+     "nome": "Chá revelação",
+     "sub": "Baby",
+     "p": "O chá revelação com a família, os balões e o ursinho."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Smash",
+     "p": "Banheira, bolo e muita bagunça no primeiro ano."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temas",
+     "p": "Cenários de Páscoa e de aniversário, com orelhinhas e coelhos."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Mãe, filhos e até os cachorros."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Delícias de Natal",
+     "p": "Biscoitos, receitas e a árvore de laços."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Delícias <em>de Natal.</em>",
+   "p": "O especial de Natal 2026 da Pamela tem cozinha de Natal, com biscoitos e receitas, e a árvore cheia de laços. Escolha um horário e a mensagem chega pronta no WhatsApp da Pamela.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/DfQKZesj_X2/DfQKZesj_X2_00.jpg",
+    "f": "l",
+    "alt": "Menina com os biscoitos na cozinha de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Jaine Santos",
+    "tag": "Com o bebê",
+    "trecho": "a forma que ela falava com meu bebê foi algo impressionante, isso sim é trabalhar com amor"
+   },
+   {
+    "nome": "Steffany Santos",
+    "tag": "Relaxante",
+    "trecho": "A sessão foi incrível e bem relaxante para a minha bebê, as fotos então ficaram maravilhosas"
+   },
+   {
+    "nome": "Roseane Ferraz",
+    "tag": "Leve e divertida",
+    "trecho": "a experiência de fotografar com você foi leve e divertida. Me senti super à vontade e o resultado ficou espetacular"
+   },
+   {
+    "nome": "Aryane Ribeiro",
+    "tag": "Fotógrafa oficial",
+    "trecho": "a Pamela é muito simpática e excelente profissional , minha fotógrafa oficial agora"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Barros, em Guarulhos.",
+   "telefone": "(11) 96739-6569",
+   "endereco": [
+    "Av. Otávio Braga de Mesquita, 1773",
+    "Vila Barros",
+    "Guarulhos · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Delícias de Natal 2026 | Pamela Demezio Fotografia",
+  "descricao": "Delícias de Natal: o especial de Natal 2026 da Pamela Demezio, em Guarulhos, com biscoitos, receitas e a árvore de laços. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Pamela Demezio Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h1": "Delícias <em>de Natal.</em>",
+   "citacao": "A experiência de fotografar com você foi leve e divertida.",
+   "citacao_quem": "Roseane Ferraz, no Google",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/DfQKZesj_X2/DfQKZesj_X2_00.jpg",
+    "f": "l",
+    "alt": "Menina com os biscoitos na cozinha de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O especial <em>de Natal 2026.</em>",
+   "p": "O especial de Natal 2026 da Pamela tem cozinha de Natal, com biscoitos e receitas, e a árvore cheia de laços, para as crianças e a família toda, no estúdio da Vila Barros, em Guarulhos.",
+   "itens": [
+    "No estúdio da Pamela, na Vila Barros, em Guarulhos.",
+    "Delícias de Natal: biscoitos, receitas e a árvore de laços.",
+    "Para as crianças e a família toda.",
+    "Valores e datas pelo WhatsApp da Pamela."
+   ],
+   "legenda_fotos": "O Natal 2026 e outros ensaios da Pamela"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/posts/Dezvod_D00Z/Dezvod_D00Z_00.jpg",
+    "f": "p",
+    "alt": "Irmãs deitadas sob a árvore de Natal",
+    "c": [
+     0.5,
+     0.6
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g04.jpg",
+    "f": "l",
+    "alt": "Bebê sorrindo deitado no pelego",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g02.jpg",
+    "f": "l",
+    "alt": "Família no piquenique de girassóis",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Pamela abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece (o Google não mostra o horário do estúdio). A Pamela define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Pamela abre com o dia e a hora escritos."
+    ],
+    [
+     "A Pamela confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Para cada fase, <em>um cenário.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Pamela.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/619666659_18083631797517425_4928019796113293690_n.webp",
+     "f": "p",
+     "alt": "Gestante no bambuzal",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/651707842_18124700803509762_6355391994264085653_n.webp",
+     "f": "p",
+     "alt": "Bebê na banheira",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/622606613_18076383629362339_1859074906555354573_n.webp",
+     "f": "p",
+     "alt": "Mãe e filha",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/617353933_18037498451724900_3968655043236170044_n.webp",
+     "f": "p",
+     "alt": "Gestante no casarão",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/669682303_18338253442174819_5025267227232110827_n.webp",
+     "f": "p",
+     "alt": "Smash de 1 ano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/641742951_18563530468038391_3954974347175272591_n.jpg",
+     "f": "p",
+     "alt": "Chá revelação",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/pamelademeziofotografia/Instagram_files/655130182_18092507707883829_7567434871821805295_n.webp",
+     "f": "p",
+     "alt": "Mãe e filha brincando",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/pamela-demezio-fotografia/google/fotos/g03.jpg",
+     "f": "p",
+     "alt": "Gestante com o guarda-chuva",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Gabriela Leite",
+    "tag": "Ser humano raro",
+    "trecho": "A Pamela não é somente uma fotógrafa, ela é um ser humano raro de encontrar."
+   },
+   {
+    "nome": "Jaine Santos",
+    "tag": "Muitos ensaios",
+    "trecho": "com certeza farei muitos ensaios com a Pamela, indico o trabalho dela de olhos fechados"
+   },
+   {
+    "nome": "Steffany Santos",
+    "tag": "Do começo ao fim",
+    "trecho": "Só tenho a agradecer pelo profissionalismo e carinho, desde o primeiro contato, ao dia do ensaio e o pós."
+   },
+   {
+    "nome": "Aryane Ribeiro",
+    "tag": "Maravilhosa",
+    "trecho": "Maravilhosa"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Pamela no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96739-6569)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/pamela-demezio-fotografia` e `/demo/pamela-demezio-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 19, 73 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; as legendas recentes são curtas (\"Delícias de Natal 🎄\"), então os textos vêm das fotos e das avaliações.",
+   "Dona: Pamela Demezio. Sem foto dela confirmada (o perfil mostra a dona e a filha): o \"quem fotografa\" usa a foto de mãe e filha, sem dizer que é ela.",
+   "Personalidade: cenários coloridos (bambuzal, praia, chá revelação, Páscoa) e o Natal \"Delícias de Natal\", com biscoitos e receitas. Na demo: abertura em arcos, Gelasio, \"fotografia\" em Parisienne, framboesa e rosa, ♡ entre as especialidades.",
+   "Sem logo em boa resolução: monograma PD e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e smash), portfólio em 3 abas (Natal e infantil, 10; Gestante e casal, 11; Família, 8), a Pamela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Delícias de Natal\": o especial (fotos de 2026 do feed), a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de Natal de out/nov 2026 (cozinha de Natal e irmãs sob a árvore), as fotos da página salva no Drive (1440 px) e 7 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), os ensaios femininos e corporativos (metade do perfil) e as gestantes de lingerie."
+  ],
+  "textos": [
+   "Posts: \"E está lançando nosso especial de Natal 2026\" e \"Natal 2026\" (22/10), \"Delícias de Natal\" (02/11), \"A primeira impressão importa...\" (25/10). A citação da página de Natal é de uma avaliação do Google (Roseane Ferraz), com o nome dela.",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "Google sem horário de funcionamento: a agenda é exemplo (dito na página).",
+   "Metade dos posts dela é ensaio feminino ou corporativo; a demo foca no infantil, na família e no Natal.",
+   "Fotos de crianças, gestantes e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
