@@ -10,7 +10,7 @@
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 06/11/2026 · `/demo/camila-photografia` e `/demo/camila-photografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor); com o aviso da Renderiza (modal) depois de 40 s: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
@@ -22,7 +22,7 @@
 ## O que tem na demo
 - Site: abertura (Natal 2026, corporativo e infantil), portfólio em 3 abas (Natal e infantil, 8; Corporativo, 12; Retratos masculinos, 8), a Camila, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
 - Página de Natal "A cozinha já está pronta": o ensaio, as 3 fotos da cozinha de Natal 2026, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 9h às 15h, dentro do horário do Google) e outros ensaios do ano.
-- Com o aviso da Renderiza (depois de 40 s e 25% da página).
+- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
 
 ## Fotos
 - Os posts de Natal de 02 e 03/11/2026 (2700 px), as fotos da página salva no Drive (1440 px) e a foto dela do Google.

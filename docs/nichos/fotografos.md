@@ -143,6 +143,9 @@ Oliveira, Thamy Lima e Heloisa Barbosa. Oferta igual à do lote 1 (R$ 399 no Pix
   sai do ar, o valor e os opcionais (agenda online e painel), e que fecha no botão, no X, tocando fora ou no Esc. Serve
   para medir: quem viu, como fechou, quanto tempo ficou aberto e se foi para o WhatsApp ou para o painel de exemplo
   (README, "Aviso da Renderiza"). As demos antigas só mudam se forem geradas de novo.
+  **Tirado no mesmo dia:** nas primeiras visitas de clientes, o aviso abria aos 40 s e a pessoa saía em seguida (fechou no
+  X e saiu, ou saiu com ele aberto), quando antes as visitas duravam 1 a 3 min. As 25 do lote 3 foram geradas de novo sem
+  ele. Lição: nada que cubra a página enquanto a pessoa ainda está olhando as fotos.
 - **Como foram montadas:** a bio da página salva confirmou o @ das 9; fotos da página salva (posts antigos, até 1440
   px) + os carrosséis dos posts de out/nov 2026 (`ferramentas/ig-post.py`, até 2048 px) + as fotos do Google; avaliações
   do Google (só as de 5 estrelas, trecho de até ~175 caracteres). Os scripts de cada uma ficaram na pasta da sessão.
@@ -197,8 +200,8 @@ A lista está em `docs/nichos/fotografos-lote3.md` (20 + 5 reservas, com o link 
 - Duplas e casais (Olivares, Lus, JB Four, Carlota Joaquina, Roberta Ale) seguem entrando, como nos lotes 1 e 2.
 - **Demos do lote 3 (06/11/2026): as 25.** As 25 entraram no painel em Leads a trabalhar (com Google, avaliações,
   WhatsApp, Natal, dona e alertas nas observações) e ganharam a demo, uma por vez, na ordem do ranking; cada uma foi
-  para Prontas para trabalhar ao publicar. Todas com o aviso da Renderiza, a oferta nova (pagamento único, sem
-  mensalidade, promoção de 1 semana, até o `vale_ate` do painel) e o portfólio em abas (2 a 4 por demo; nada de abas
+  para Prontas para trabalhar ao publicar. Todas com a oferta nova (pagamento único, sem
+  mensalidade, promoção de 1 semana, até o `vale_ate` do painel; o aviso da Renderiza saiu no mesmo dia) e o portfólio em abas (2 a 4 por demo; nada de abas
   em letra cursiva, que não pareciam filtro). Cada uma com um toque dela: livro de histórias (Rafaela), luz de fim de
   tarde (Lislley), "o começo de cada família" (Aimee), luz e sombra em tema escuro (Mandaluz e Ray Barbosa), cenário
   por mês (Tata's, Mayara, Lenita), e assim por diante; o que entrou e o que conferir está na `ficha.md` de cada pasta.

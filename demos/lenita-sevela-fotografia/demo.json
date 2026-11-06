@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "s2r3",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -654,7 +650,7 @@
   "demo": [
    "Site: abertura (mês a mês, gestante e 1 ano), portfólio em 3 abas (Mês a mês e smash, 12; Gestante e bebês, 7; Família, 8), a Lenita, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Todo ano, um Natal novo\": ela não divulgou o Natal 2026; uma avaliação diz que a família faz o ensaio de Natal com ela todo ano. Os textos não prometem cenário; as fotos são de família (sem fotos de Natal no perfil salvo); agenda de exemplo.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de set/out 2026 (Shrek, Moana, Monstros S.A., fundo do mar, Toy Story, até 1440 px), as fotos da página salva no Drive (1440 px) e 6 fotos do Google.",

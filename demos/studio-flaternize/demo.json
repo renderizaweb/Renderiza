@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "hdfv",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -665,7 +661,7 @@
   "demo": [
    "Site: abertura (Natal, gestante e infantil), portfólio em 3 abas (Natal, 12; Infantil e bebês, 9; Gestante e feminino, 8), a Flávia, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Eterna magia\": o Especial de Natal 2026 (cenários Sala e Celeiro), fotos de Natais anteriores, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 10h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "As fotos da página salva no Drive (até 1440 px) e 3 fotos do Google. Os posts de out 2026 com os cenários Sala e Celeiro são artes com texto, então não entraram.",

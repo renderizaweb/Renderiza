@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "2vuy",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -637,7 +633,7 @@
   "demo": [
    "Site: abertura (mês a mês, newborn e Natal), portfólio em 3 abas (Mês a mês, 12; Newborn e aniversários, 8; Natal, 4), a Tata, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"O melhor presente é estar presente\": o cenário de Natal, a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "As fotos da página salva no Drive (1440 px) e 1 foto do Google. Os posts de nov 2026 são todos vídeo ou arte, então não entraram.",

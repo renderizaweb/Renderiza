@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "97mk",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -648,7 +644,7 @@
   "demo": [
    "Site: abertura (1 ano, bebês e infantil), portfólio em 3 abas (Smash e 1 ano, 10; Bebês mês a mês, 8; Família, 8), a Amanda, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Uma época cheia de magia e encanto\": o ensaio (estreia em 05/11), os cenários dela, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 16h, dentro do horário do Google) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de ago a nov 2026 (três aniversários de 1 ano, até 1440 px), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",

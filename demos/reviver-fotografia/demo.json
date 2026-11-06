@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "4z8d",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -654,7 +650,7 @@
   "demo": [
    "Site: abertura (Natal, bebês e infantil), portfólio em 3 abas (Natal, 10; Família, 8; Bebês e gestante, 9), a Denise, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Vem viver essa magia com a gente\": o 1º cenário de 2026, fotos de Natais anteriores, a agenda de exemplo (6 dias de segunda a sexta, de 17/11 a 03/12, das 9h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de set/out 2026 (1 ano nos balões lilás e gestante), as fotos da página salva no Drive (até 1440 px) e 4 fotos do Google.",

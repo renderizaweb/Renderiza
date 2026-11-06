@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "6pzm",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida.",
   "para": "vocês"
  },
@@ -673,7 +669,7 @@
   "demo": [
    "Site: abertura (Natal 2026, mães e filhos e infantil), portfólio em 3 abas (Natal e aniversários, 10; Mães e filhos, 12; Família, 8), as meninas, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"A magia do Natal chegou no estúdio!\": a Oficina do Papai Noel 2026 (fotos do feed), a agenda de exemplo (6 dias em novembro; o Google não mostra horário) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de Natal de 30 e 31/10/2026 (Oficina do Papai Noel), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",

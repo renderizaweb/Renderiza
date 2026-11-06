@@ -10,7 +10,7 @@
 | Site | não tem (lote 3, 06/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 06/11/2026 · `/demo/vanessa-luciana-fotografia` e `/demo/vanessa-luciana-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor); com o aviso da Renderiza (modal) depois de 40 s: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
@@ -22,7 +22,7 @@
 ## O que tem na demo
 - Site: abertura (Natal 2026, infantil e smash), portfólio em 3 abas (Natal, 12; Smash e bebês, 8; Família e celebrações, 8), a Vanessa, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
 - Página de Natal "Bom mesmo é junto!": o cenário de 2026 (post de 04/11), fotos de Natais anteriores, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 14h, dentro do horário do Google) e outros ensaios do ano.
-- Com o aviso da Renderiza (depois de 40 s e 25% da página).
+- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
 
 ## Fotos
 - Os posts de set a nov 2026 (cenário de Natal 2026 e dois smash, até 1440 px), as fotos da página salva no Drive (1440 px) e 3 fotos do Google.

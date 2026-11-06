@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "v7zs",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -631,7 +627,7 @@
   "demo": [
    "Site: abertura (gestante, newborn e Natal 2026), portfólio em 3 abas (Gestante, 12; Retratos, 8; Natal e newborn, 3), a Milena, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Confeitaria, diversão e tempo juntos\": o Ateliê de Panetones, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h30 às 15h, dentro do horário do Google) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de out/nov 2026 (Ateliê de Panetones, irmãos no Natal, newborn e gestante, até 4096 px), as fotos da página salva no Drive (1440 px) e 5 fotos do Google.",

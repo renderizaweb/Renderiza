@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "9utd",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -665,7 +661,7 @@
   "demo": [
    "Site: abertura (Natal 2026, gestante e smash), portfólio em 3 abas (Natal e infantil, 10; Gestante e casal, 11; Família, 8), a Pamela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Delícias de Natal\": o especial (fotos de 2026 do feed), a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de Natal de out/nov 2026 (cozinha de Natal e irmãs sob a árvore), as fotos da página salva no Drive (1440 px) e 7 fotos do Google.",

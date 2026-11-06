@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "d5na",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -630,7 +626,7 @@
   "demo": [
    "Site: abertura (newborn, família e detalhes), portfólio em 3 abas (Newborn, 6; Cenários e detalhes, 10; Família, 7), a Sil, o ensaio, 4 avaliações do Google, o bloco do Natal e o contato (com \"Atendimento\": o ensaio é na casa da família, sem endereço).",
    "Página de Natal \"O primeiro Natal, no conforto de casa\": ela não divulgou Natal; os textos falam do newborn em casa no clima de Natal, sem prometer cenário; agenda de exemplo.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "Os posts de out/nov 2026 (newborns de 6 e 15 dias), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",

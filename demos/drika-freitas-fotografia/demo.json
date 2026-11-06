@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "qwm8",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -685,7 +681,7 @@
   "demo": [
    "Site: abertura (Natal, newborn e família), portfólio em 3 abas (Natal, 12; Bebês e aniversários, 12; Família e gestante, 8), a Drika, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"O Natal mais encantador chegou ao estúdio!\": cenários de Natais anteriores (a sala do relógio e a cozinha), a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "A página do Instagram salva no Drive (1080 px, quase todas quadradas), 2 posts gestantes de nov 2026 e 4 fotos do Google, mais a foto do perfil.",

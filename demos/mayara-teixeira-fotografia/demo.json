@@ -78,10 +78,6 @@
   "msg_garantir": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
   "msg_negociar": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "2f4m",
-  "aviso": {
-   "segundos": 40,
-   "rolagem": 0.25
-  },
   "msg_duvida": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
@@ -582,7 +578,7 @@
   "demo": [
    "Site: abertura (1 ano, bebês e mês a mês), portfólio em 3 abas (Mês a mês, 6; Smash e 1 ano, 6; Bebês e família, 7; quase todas deitadas), a May, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
    "Página de Natal \"Natal no estúdio da May\": ela ainda não divulgou Natal, então os textos falam dos cenários dela no clima de Natal, sem prometer cenário novo; a foto de Natal é a do Google (cenário do Pooh); agenda de exemplo (terça a sábado, de 14/11 a 05/12).",
-   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+   "Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria)."
   ],
   "fotos": [
    "As fotos da página salva no Drive (1440 px, quase todas deitadas, com a marca d'água dela), 1 post de nov 2026 e 3 fotos do Google.",

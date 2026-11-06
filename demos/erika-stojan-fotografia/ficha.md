@@ -10,7 +10,7 @@
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 06/11/2026 · `/demo/erika-stojan-fotografia` e `/demo/erika-stojan-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor); com o aviso da Renderiza (modal) depois de 40 s: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
@@ -22,7 +22,7 @@
 ## O que tem na demo
 - Site: abertura (gestante, bebês e família), portfólio em 3 abas (Gestante, 12; Casal e família, 12; Bebês, 8), a Erika, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
 - Página de Natal "O primeiro Natal do bebê": ela ainda não divulgou Natal, então os textos falam do estúdio e da família, sem prometer cenário; a foto do topo é a de Natal do Google; a agenda é exemplo (terças e sábados, de 14/11 a 05/12).
-- Com o aviso da Renderiza (depois de 40 s e 25% da página).
+- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
 
 ## Fotos
 - Os posts de nov 2026 (gestantes e casais, 1440 px), as fotos da página salva no Drive (1440 px) e 5 fotos do Google.
