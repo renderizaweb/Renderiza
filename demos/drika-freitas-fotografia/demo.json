@@ -1,0 +1,704 @@
+{
+ "pasta": "drika-freitas-fotografia",
+ "marca": "Drika Freitas Fotógrafa",
+ "marca_completa": "Drika Freitas Fotógrafa",
+ "dona": "Drika",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4886157,-46.6602607",
+  "fid": "0x94cef72d79508931:0xb10666666a6c57e9",
+  "gid": "/g/11l2117l4v"
+ },
+ "google_nome": "Drika Freitas Fotógrafa",
+ "endereco_maps": "Travessa João Jantin, 21 - Casa Verde Alta, São Paulo - SP, 02544-020",
+ "google_nota": "5,0",
+ "google_total": "36",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511934442987",
+ "fone_link": "+5511934442987",
+ "instagram": "drikafreitasfotografa",
+ "seguidores": "6,4 mil",
+ "mensagem": "Olá, Drika! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdfaf7",
+  "papel": "#ffffff",
+  "areia": "#f6eee7",
+  "linha": "#e9dccf",
+  "tinta": "#272320",
+  "tinta2": "#655d56",
+  "rosa": "#f4c7b5",
+  "acento": "#b23838",
+  "acento_escuro": "#912c2c",
+  "cafe": "#22201d"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-25 14h",
+   "2026-11-25 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Drika define os dela",
+  "mensagem": "Olá, Drika! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Drika",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "qwm8",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "EB Garamond",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Mulish",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Sacramento",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "❄",
+  "script_escala": 1.25,
+  "natal_capa": "retrato"
+ },
+ "titulo_nome": "Drika Freitas",
+ "titulo_script": "fotógrafa",
+ "quem_a": "a Drika",
+ "quem_da": "da Drika",
+ "quem_sou": "Sou a Drika Freitas",
+ "slogan": "Momentos que merecem ser eternizados.",
+ "site": {
+  "titulo": "Drika Freitas Fotógrafa | Natal, newborn, smash, família e gestante na Casa Verde, Zona Norte",
+  "descricao": "Drika Freitas, fotógrafa na Casa Verde Alta, Zona Norte de São Paulo: gestante, newborn, mesversário, smash the cake, família, festas e Natal. Nota 5,0 no Google, com 36 avaliações.",
+  "comentario": "Demo Drika Freitas Fotógrafa (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@drikafreitasfotografa: a página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Casa Verde Alta, Zona Norte",
+   "frase": "Momentos que merecem ser eternizados.",
+   "intro": "Gestantes, newborn, mesversários, smash the cake, famílias e festas, no estúdio da Casa Verde Alta, na Zona Norte de São Paulo. E o Natal mais encantador já chegou ao estúdio.",
+   "rotulos": [
+    "Natal",
+    "Newborn",
+    "Família"
+   ],
+   "especialidades": [
+    "Natal",
+    "Newborn",
+    "Mesversário",
+    "Smash the cake",
+    "Família",
+    "Festas"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/651162275_17962872714059407_8076798922027037844_n.webp",
+     "f": "p",
+     "alt": "Menina de touca rindo com o pão, na cozinha de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/661072595_18430952383141140_6226006767423565568_n.webp",
+     "f": "p",
+     "alt": "Recém-nascida dormindo com o ursinho rosa",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/658249057_18111312787812976_5532610566792863730_n.webp",
+     "f": "p",
+     "alt": "Mãe e filha de vermelho, rosto com rosto",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Todos os temas <em>do ano.</em>",
+   "p": "Ensaios da Drika, no estúdio e fora dele. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/651162275_17962872714059407_8076798922027037844_n.webp",
+      "f": "p",
+      "alt": "Menina de touca rindo com o pão",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655853192_18153098431456283_3983504350957599392_n.webp",
+      "f": "p",
+      "alt": "Menino de chapéu de chef com o pão",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656112786_18104284028309580_7515377326596773680_n.webp",
+      "f": "p",
+      "alt": "Menino de chef com as baguetes",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/661970269_18073175789444916_7368696572815069982_n.webp",
+      "f": "p",
+      "alt": "Menina mexendo a massa na cozinha de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/654014585_18075011483166936_2105729098319671517_n.webp",
+      "f": "p",
+      "alt": "Bebê na poltrona verde, junto à árvore",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/650390473_17917949748125654_79468733821696997_n.webp",
+      "f": "p",
+      "alt": "Menina de vermelho junto à lareira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655208714_18113035237666521_8358164202414750548_n.webp",
+      "f": "p",
+      "alt": "Menino no cavalinho, junto à lareira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655488529_18046790732729281_2794548844183008643_n.webp",
+      "f": "p",
+      "alt": "Bebê de gorro de Papai Noel",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655854985_18092074685137904_4307283121938022365_n.webp",
+      "f": "p",
+      "alt": "Bebê com o ursinho de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/652881092_17982846344798969_2408728640494096212_n.webp",
+      "f": "p",
+      "alt": "Pais com a bebê de vermelho",
+      "pos": "4% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655484439_18074487149451414_3074419226478499052_n.webp",
+      "f": "p",
+      "alt": "Pais beijando a bebê junto ao relógio",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/650990327_17919889065278831_1399871214624653723_n.webp",
+      "f": "p",
+      "alt": "Menina na mesa de doces da cozinha de Natal",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/661072595_18430952383141140_6226006767423565568_n.webp",
+      "f": "p",
+      "alt": "Recém-nascida com o ursinho rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/650806449_17914598805319920_4037977724658229029_n.webp",
+      "f": "p",
+      "alt": "Recém-nascido dormindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/651366924_17950407266961319_7348853126102049764_n.webp",
+      "f": "p",
+      "alt": "Bebê de faixa vermelha na poltrona",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/653645180_17983283276970437_1373348026124298682_n.webp",
+      "f": "p",
+      "alt": "Bebê de Branca de Neve",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655205041_18150471133456376_5128257083172116069_n.webp",
+      "f": "p",
+      "alt": "Bebê de laço vermelho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656068938_18055872179495654_3054929386534921908_n.webp",
+      "f": "p",
+      "alt": "Bebê de princesa no castelo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656273627_17982723527975910_7361721902930799722_n.webp",
+      "f": "p",
+      "alt": "Bebê no cenário de índia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/653900919_18083713571526335_7886822200746170119_n.webp",
+      "f": "p",
+      "alt": "Irmãos no aniversário de 2 anos",
+      "pos": "100% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655267138_18186434536369168_2496916812211662899_n.webp",
+      "f": "p",
+      "alt": "Menino de 3 anos na Patrulha Canina",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/657333704_18092464973162416_5967068643956068434_n.webp",
+      "f": "p",
+      "alt": "Menina de 3 anos com os balões",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/660738214_18143938192435996_2964072097131304818_n.webp",
+      "f": "p",
+      "alt": "Bebê de Woody engatinhando",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655620743_18081756068060919_2389210457727278171_n.webp",
+      "f": "p",
+      "alt": "Bebê entre os balões coloridos",
+      "pos": "50% 55%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/658249057_18111312787812976_5532610566792863730_n.webp",
+      "f": "p",
+      "alt": "Mãe e filha de vermelho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/641459098_17903698932381024_2235685807891027935_n.webp",
+      "f": "p",
+      "alt": "Família junto à lareira de Natal",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/646101517_17909005704349846_7240066470271936643_n.webp",
+      "f": "p",
+      "alt": "Família abraçada no tapete",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656284744_18112519435762836_5126274406022948155_n.webp",
+      "f": "p",
+      "alt": "Família junto à árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656614868_17963638716025356_3293474315738294562_n.webp",
+      "f": "p",
+      "alt": "Pais com o recém-nascido e o filho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/466044676_18260736277268618_5263978174326775342_n.webp",
+      "f": "p",
+      "alt": "Gestante com os sapatinhos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/posts/DfXVNbFlFIs/DfXVNbFlFIs_00.jpg",
+      "f": "p",
+      "alt": "Gestante de branco junto à cortina",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/posts/DfXVZX1lCxP/DfXVZX1lCxP_00.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Drika, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Drika sorrindo com a câmera",
+    "c": [
+     0.6,
+     0.45
+    ]
+   },
+   "p": [
+    "A Drika (Adriana Freitas) fotografa gestantes, newborn, mesversários, smash the cake, famílias e festas, no estúdio da Casa Verde Alta, na Zona Norte de São Paulo, e também em ensaios externos."
+   ],
+   "citacao": "Não deixe de registrar este momento lindo.",
+   "citacao_quem": "Drika, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias contam que fotografam com ela desde 2019, em todos os temas do ano, e falam do cuidado com os bebês e do estúdio aconchegante."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "36 avaliações no Google"
+    ],
+    [
+     "2019",
+     "clientes desde"
+    ],
+    [
+     "6,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Todos os temas <em>do ano.</em>",
+   "p": "Os ensaios da Drika:",
+   "fonte": "Bio e legendas da Drika no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Ensaios no estúdio ou externos."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Mesversário",
+     "p": "O acompanhamento mês a mês do bebê, até 1 ano."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 ano",
+     "p": "Smash the cake e festas de 1 ano."
+    },
+    {
+     "nome": "Família",
+     "sub": "Datas",
+     "p": "Natal, Ano Novo, Páscoa, Dia das Mães e Dia dos Pais."
+    },
+    {
+     "nome": "Festas",
+     "sub": "Coberturas",
+     "p": "Aniversários de todas as idades, dos 3 aos 80 anos."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "Cenários lindos e exclusivos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal mais encantador <em>chegou ao estúdio!</em>",
+   "p": "Cenários natalinos especiais, cheios de encanto e detalhes, para viver essa experiência ao lado de quem ama. Escolha um horário e a mensagem chega pronta no WhatsApp da Drika.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656778460_18079290137385917_3713312312288960560_n.webp",
+    "f": "l",
+    "alt": "Família na cozinha de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rita de Cassia Xavier de Lima Barroso",
+    "tag": "Desde 2019",
+    "trecho": "já realizo ensaios com ela desde 2019, muito atenciosa e carinhosa com seus clientes"
+   },
+   {
+    "nome": "Danielle Teixeira",
+    "tag": "1 ano e newborn",
+    "trecho": "Ela fez o ensaio de 1 ano da minha filha e o newborn do meu filho. Ela tem um cuidado todo especial, além de ser amorosa também."
+   },
+   {
+    "nome": "Silvana Messias",
+    "tag": "Todos os temas",
+    "trecho": "eu vou tirar foto com ela todos os temas Natal ou Ano Novo aniversário dos meus filhos meu aniversário Páscoa dia das mães dia dos pais"
+   },
+   {
+    "nome": "Debora Barboza Pital",
+    "tag": "Aconchegante",
+    "trecho": "Lugar aconchegante, fotógrafa atenciosa, super indico."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Qual vai ser <em>o próximo tema?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Casa Verde Alta, Zona Norte de São Paulo, e atende de segunda a sábado.",
+   "telefone": "(11) 93444-2987",
+   "endereco": [
+    "Travessa João Jantin, 21",
+    "Casa Verde Alta",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Drika Freitas Fotógrafa",
+  "descricao": "O Natal 2026 no estúdio da Drika Freitas, na Casa Verde Alta, Zona Norte de São Paulo: cenários natalinos exclusivos. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Drika Freitas Fotógrafa: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Casa Verde Alta",
+   "h1": "O Natal mais encantador <em>chegou ao estúdio!</em>",
+   "citacao": "O Natal é tempo de amor, união, magia e momentos que merecem ser eternizados!",
+   "citacao_quem": "Drika, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/661970269_18073175789444916_7368696572815069982_n.webp",
+    "f": "p",
+    "alt": "Menina de touca mexendo a massa na cozinha de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Cenários natalinos <em>exclusivos.</em>",
+   "p": "Cenários natalinos especiais, cheios de encanto e detalhes, para viver essa experiência mágica ao lado de quem ama, no estúdio da Drika, na Casa Verde Alta.",
+   "itens": [
+    "No estúdio da Drika, na Casa Verde Alta, Zona Norte de São Paulo.",
+    "Cenários lindos e exclusivos.",
+    "Para a família toda: bebês, crianças, pais e avós.",
+    "Valores e datas pelo WhatsApp da Drika."
+   ],
+   "legenda_fotos": "Natais anteriores: a sala do relógio e a cozinha de Natal"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655208714_18113035237666521_8358164202414750548_n.webp",
+    "f": "p",
+    "alt": "Menino no cavalinho, junto à lareira e ao relógio",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655488529_18046790732729281_2794548844183008643_n.webp",
+    "f": "l",
+    "alt": "Bebê de gorro de Papai Noel sorrindo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/658210431_18006601424888245_5605015888549451554_n.webp",
+    "f": "l",
+    "alt": "Família fazendo biscoitos na cozinha de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Drika abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado, no horário do estúdio. A Drika define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Drika abre com o dia e a hora escritos."
+    ],
+    [
+     "A Drika confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Todos os temas <em>do ano.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Drika.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/661072595_18430952383141140_6226006767423565568_n.webp",
+     "f": "p",
+     "alt": "Recém-nascida com o ursinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/658249057_18111312787812976_5532610566792863730_n.webp",
+     "f": "p",
+     "alt": "Mãe e filha de vermelho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/653900919_18083713571526335_7886822200746170119_n.webp",
+     "f": "p",
+     "alt": "Irmãos no aniversário",
+     "pos": "100% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/655267138_18186434536369168_2496916812211662899_n.webp",
+     "f": "p",
+     "alt": "Menino na Patrulha Canina",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/653645180_17983283276970437_1373348026124298682_n.webp",
+     "f": "p",
+     "alt": "Bebê de Branca de Neve",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/drika-freitas-fotografia/posts/DfXVNbFlFIs/DfXVNbFlFIs_00.jpg",
+     "f": "p",
+     "alt": "Gestante de branco",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/646101517_17909005704349846_7240066470271936643_n.webp",
+     "f": "p",
+     "alt": "Família abraçada",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/drikafreitasfotografia/Instagram_files/656068938_18055872179495654_3054929386534921908_n.webp",
+     "f": "p",
+     "alt": "Bebê de princesa",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Nathalia Lima Rodrigues",
+    "tag": "Um ano todinho",
+    "trecho": "um agradecimento mais que gigante para a tia, Drika fotógrafa que topou durante um ano todinho, todas as loucuras da mamãe"
+   },
+   {
+    "nome": "Silvana Messias",
+    "tag": "Fotos todo ano",
+    "trecho": "eu sempre tenho fotos atualizadas por ano"
+   },
+   {
+    "nome": "Danielle Teixeira",
+    "tag": "Amorosa",
+    "trecho": "Amamos o trabalho e indico de olhos fechado"
+   },
+   {
+    "nome": "Rita de Cassia Xavier de Lima Barroso",
+    "tag": "Indico",
+    "trecho": "indico ela para todos que elogiam minhas fotos que faço com ela"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Casa Verde Alta",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Drika no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 93444-2987), o mesmo das legendas (\"11934442987\")",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/drika-freitas-fotografia` e `/demo/drika-freitas-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 20, 72 pontos), escolhida no Drive de 06/11/2026. Bio: \"Ensaio Fotográfico Interno e Externo · Gestante · Corporativo · Infantil (Newborn, Mesversário, Smash) · Familiar · Pre-wedding · coberturas de festas\".",
+   "Dona: Drika (Adriana Freitas, nas avaliações). Foto dela: a do perfil do Instagram, com a câmera.",
+   "Personalidade: um tema para cada data do ano (Natal, Ano Novo, Páscoa, aniversários) e a cozinha de Natal com as crianças de confeiteiras. Na demo: abertura em filme, EB Garamond, \"fotógrafa\" em Sacramento, vermelho de Natal e ❄ entre as especialidades.",
+   "Sem logo em boa resolução: monograma DF e o nome com \"fotógrafa\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal, newborn e família), portfólio em 3 abas (Natal, 12; Bebês e aniversários, 12; Família e gestante, 8), a Drika, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O Natal mais encantador chegou ao estúdio!\": cenários de Natais anteriores (a sala do relógio e a cozinha), a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (1080 px, quase todas quadradas), 2 posts gestantes de nov 2026 e 4 fotos do Google, mais a foto do perfil.",
+   "Ficaram de fora: as capas de vídeo (9:16), as fotos de festa adulta e corporativo, o Ano Novo com os números do ano e as fotos com logo de outra empresa."
+  ],
+  "textos": [
+   "Bio e legendas: \"O NATAL MAIS ENCANTADOR CHEGOU AO ESTÚDIO FOTOS DRIKA FREITAS!... O Natal é tempo de amor, união, magia...\" e \"Cenários lindos e exclusivos\" (30/10), \"Realizo o acompanhamento mês a mês do seu bebe até 1 ano\", \"Não deixe de registrar este momento lindo\".",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "As fotos de Natal são de anos anteriores (os cenários de 2026 ainda não aparecem em foto).",
+   "Quase todas as fotos da página são quadradas e em 1080 px: ficam bem, mas não tão nítidas quanto as das outras demos.",
+   "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
