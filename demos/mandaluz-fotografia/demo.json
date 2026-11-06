@@ -1,0 +1,649 @@
+{
+ "pasta": "mandaluz-fotografia",
+ "marca": "Estúdio Mandaluz Fotografia",
+ "marca_completa": "Estúdio Mandaluz Fotografia",
+ "dona": "Milena",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.3161835,-46.7470276",
+  "fid": "0x94cee3e952a81815:0x393a9cdaf5b32268",
+  "gid": "/g/11n34ynz7_"
+ },
+ "google_nome": "Estúdio Mandaluz Fotografia",
+ "endereco_maps": "Av. Pref. Ângelo Celeguim, 4146 - Portal das Alamedas, Franco da Rocha - SP, 07809-000",
+ "google_nota": "5,0",
+ "google_total": "31",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511999671196",
+ "fone_link": "+5511999671196",
+ "instagram": "mandaluzfotografia",
+ "seguidores": "4,5 mil",
+ "mensagem": "Olá, Milena! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#121110",
+  "papel": "#1a1917",
+  "areia": "#1f1d1a",
+  "linha": "#34302b",
+  "tinta": "#f1ebe2",
+  "tinta2": "#b8ada0",
+  "rosa": "#d9b98a",
+  "acento": "#b58b4c",
+  "acento_escuro": "#94703a",
+  "cafe": "#1b1814"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-26",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h30",
+   "11h",
+   "13h30",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-14 11h",
+   "2026-11-14 15h",
+   "2026-11-18 13h30",
+   "2026-11-21 9h30",
+   "2026-11-21 13h30",
+   "2026-11-21 15h",
+   "2026-11-26 13h30",
+   "2026-11-26 15h",
+   "2026-11-28 15h",
+   "2026-12-05 11h",
+   "2026-12-05 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Milena define os dela",
+  "mensagem": "Olá, Milena! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Milena",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "v7zs",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Bodoni Moda",
+    "ital,opsz,wght@0,6..96,400..600;1,6..96,400..600"
+   ],
+   "sans": [
+    "Jost",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Mrs Saint Delafield",
+    ""
+   ]
+  },
+  "tema": "escuro",
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✧",
+  "script_escala": 1.3
+ },
+ "titulo_nome": "Mandaluz",
+ "titulo_script": "fotografia",
+ "quem_a": "a Milena",
+ "quem_da": "da Milena",
+ "quem_sou": "Sou a Milena, do Estúdio Mandaluz",
+ "slogan": "A fotografia guarda tudo aquilo que o tempo não consegue levar.",
+ "site": {
+  "titulo": "Estúdio Mandaluz Fotografia | Gestante, família, newborn e Natal em Franco da Rocha",
+  "descricao": "Estúdio Mandaluz, da fotógrafa Milena, no Portal das Alamedas, em Franco da Rocha: gestante, família, newborn, retratos e o Natal Mandaluz 2026. Nota 5,0 no Google, com 31 avaliações.",
+  "comentario": "Demo Estúdio Mandaluz Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@mandaluzfotografia: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Franco da Rocha",
+   "frase": "A fotografia guarda tudo aquilo que o tempo não consegue levar.",
+   "intro": "Gestantes, famílias, recém-nascidos e retratos, com luz de estúdio, no Portal das Alamedas, em Franco da Rocha. E o Natal Mandaluz 2026 já começou, com o Ateliê de Panetones.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Natal 2026"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Casal",
+    "Newborn",
+    "Família",
+    "Retratos",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g02.jpg",
+     "f": "p",
+     "alt": "Gestante de renda preta no fundo escuro",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/DfXCxXSlj8u/DfXCxXSlj8u_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida dormindo de tiara de flores",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/DfIfX02me1N/DfIfX02me1N_00.jpg",
+     "f": "p",
+     "alt": "Irmãos abraçados no cenário de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Entre a luz <em>e a sombra.</em>",
+   "p": "Ensaios da Milena no Estúdio Mandaluz. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/618480176_18077712131585170_5448118005648138301_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ela de vestido verde",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/619488799_18065850044214732_895033429194646687_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda branca, de perfil",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/619605179_18078060197029258_6661289215293839502_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido verde esvoaçante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/621221312_18127193581530868_776514335591292248_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido florido no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/631337301_18419778853185468_8897892489234908708_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido rosé",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido rosa longo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Gestante de renda preta no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g04.jpg",
+      "f": "p",
+      "alt": "Casal abraçado, ela de renda preta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/621951660_18080767076272105_4222346553057255651_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido preto sentada no cubo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/623393706_18199277020326518_808055702516230765_n.jpg",
+      "f": "p",
+      "alt": "Gestante de camisa branca, caminhando",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g03.jpg",
+      "f": "p",
+      "alt": "Casal se beijando no ensaio gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/De9nHpLkdhq/De9nHpLkdhq_00.jpg",
+      "f": "p",
+      "alt": "Casal em preto e branco, ele abraçando a barriga",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "retratos",
+    "nome": "Retratos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/640378552_18559837381038746_1248851506859834241_n.jpg",
+      "f": "p",
+      "alt": "Retrato com o anel de luz, no fundo caramelo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/618545834_18099183007683570_1191779827035956478_n.jpg",
+      "f": "p",
+      "alt": "Menina com os girassóis no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/622112113_18194051482337424_6993341345531342402_n.jpg",
+      "f": "p",
+      "alt": "Menina com a bola de chiclete, no fundo roxo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/627542068_18303998353286929_3220395401981014900_n.jpg",
+      "f": "p",
+      "alt": "Menina de camisa jeans, com a mão no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/634255392_18381498004087259_344053533361037799_n.jpg",
+      "f": "p",
+      "alt": "Retrato de óculos, no fundo rosado",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/621444434_18098484289723879_8133630062941767698_n.jpg",
+      "f": "p",
+      "alt": "Retrato de chapéu, com a luz no rosto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/626309881_18216858763312853_8890118784527682696_n.jpg",
+      "f": "p",
+      "alt": "Retrato em preto e branco",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/620488325_18091672703053347_5022163344053575377_n.jpg",
+      "f": "p",
+      "alt": "Retrato com o buquê de flores",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/DfIfX02me1N/DfIfX02me1N_00.jpg",
+      "f": "p",
+      "alt": "Irmãos abraçados no cenário de Natal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/DfXCxXSlj8u/DfXCxXSlj8u_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo de tiara de flores",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/De-rnZVEcDC/De-rnZVEcDC_00.jpg",
+      "f": "l",
+      "alt": "Família no Ateliê de Panetones, junto à árvore de Natal",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Milena, <em>e a luz do estúdio.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/640378552_18559837381038746_1248851506859834241_n.jpg",
+    "f": "p",
+    "alt": "Ensaio com o anel de luz, no Estúdio Mandaluz",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "p": [
+    "A Milena, a Mi, fotografa gestantes, famílias, recém-nascidos e retratos no Estúdio Mandaluz, no Portal das Alamedas, em Franco da Rocha. Fundo claro ou escuro, luz desenhada no estúdio e cada pose pensada junto: as avaliações falam das dicas e da paciência dela com as poses."
+   ],
+   "citacao": "Quanto amor cabe numa fotografia?",
+   "citacao_quem": "Milena, no Instagram",
+   "p2": [
+    "O estúdio também cuida da produção: as avaliações citam a Paula, assistente, e a Helô, na maquiagem. Uma cliente já fez 5 ensaios por lá."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "31 avaliações no Google"
+    ],
+    [
+     "4,5 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "5",
+     "ensaios de uma mesma cliente"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para cada fase, <em>uma luz.</em>",
+   "p": "Os ensaios do Estúdio Mandaluz:",
+   "fonte": "Legendas da Milena no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "A gestação é feita de pequenos momentos que lá na frente vão deixar saudade."
+    },
+    {
+     "nome": "Casal",
+     "sub": "A dois",
+     "p": "O casal junto no ensaio gestante, no fundo claro ou escuro."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias do bebê, com toda a delicadeza."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "O melhor do ensaio é poder brincar, rir, abraçar e aproveitar quem a gente ama."
+    },
+    {
+     "nome": "Irmãos",
+     "sub": "Crescendo",
+     "p": "É gostoso acompanhar o crescimento de quem a gente fotografa."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Ateliê de Panetones",
+     "p": "Confeitaria, diversão e tempo de qualidade juntos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal Mandaluz 2026",
+   "h2": "O Ateliê <em>de Panetones.</em>",
+   "p": "No Natal Mandaluz 2026, o ensaio vira uma tarde em família: confeitaria, diversão e as melhores recordações. Escolha um horário e a mensagem chega pronta no WhatsApp da Milena.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/De-rnZVEcDC/De-rnZVEcDC_00.jpg",
+    "f": "l",
+    "alt": "Família no Ateliê de Panetones, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Cristy Leite",
+    "tag": "Gestante",
+    "trecho": "A Milena foi incrível, muito atenciosa, paciente e me ajudou demais com as poses, sempre dando dicas para que cada foto ficasse linda."
+   },
+   {
+    "nome": "Victoria Polido",
+    "tag": "Leveza",
+    "trecho": "Estava super insegura para registrar minha gestação mas a mi deixou tudo leve e as coisas fluíram naturalmente"
+   },
+   {
+    "nome": "Vitória Nascimento Vieira",
+    "tag": "5 ensaios",
+    "trecho": "fui a primeira vez por indicação e depois disso me apaixonei, já fiz 5 ensaios e não me arrependo de nenhum"
+   },
+   {
+    "nome": "Juliana Fernandes",
+    "tag": "A equipe",
+    "trecho": "Quero agradecer também à Paula, assistente maravilhosa, e à Helô, que fez uma maquiagem impecável."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Portal das Alamedas, em Franco da Rocha, e atende de terça a sábado.",
+   "telefone": "(11) 99967-1196",
+   "endereco": [
+    "Av. Pref. Ângelo Celeguim, 4146",
+    "Portal das Alamedas",
+    "Franco da Rocha · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal Mandaluz 2026 | Estúdio Mandaluz Fotografia",
+  "descricao": "O Natal Mandaluz 2026, em Franco da Rocha: o Ateliê de Panetones, com confeitaria e diversão em família. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio Mandaluz Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal Mandaluz 2026 · Franco da Rocha",
+   "h1": "Confeitaria, diversão <em>e tempo juntos.</em>",
+   "citacao": "Não precisa sair tudo perfeito, só precisa ser de vocês.",
+   "citacao_quem": "Milena, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/De-rnZVEcDC/De-rnZVEcDC_00.jpg",
+    "f": "l",
+    "alt": "Família no Ateliê de Panetones, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal Mandaluz 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "O Ateliê <em>de Panetones.</em>",
+   "p": "No Natal Mandaluz 2026, o ensaio vira uma tarde em família: confeitaria, diversão, guerra de almofadas e as melhores recordações, no estúdio da Milena, em Franco da Rocha.",
+   "itens": [
+    "No Estúdio Mandaluz, no Portal das Alamedas, em Franco da Rocha.",
+    "O Ateliê de Panetones: confeitaria e diversão em família.",
+    "Para a família toda: pais, irmãos e a turminha.",
+    "Valores e detalhes pelo WhatsApp da Milena."
+   ],
+   "legenda_fotos": "O Natal Mandaluz 2026 e outros ensaios do estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/posts/DfIfX02me1N/DfIfX02me1N_00.jpg",
+    "f": "p",
+    "alt": "Irmãos abraçados no cenário de Natal 2026",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/616149820_18070192526570246_110888910760774017_n.jpg",
+    "f": "l",
+    "alt": "Gestante deitada no fundo claro",
+    "c": [
+     0.5,
+     0.55
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/626309881_18216858763312853_8890118784527682696_n.jpg",
+    "f": "l",
+    "alt": "Retrato em preto e branco",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Milena abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado, no horário do estúdio. A Milena define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Milena abre com o dia e a hora escritos."
+    ],
+    [
+     "A Milena confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Outros ensaios <em>do estúdio.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Milena.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/621221312_18127193581530868_776514335591292248_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido florido",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/618480176_18077712131585170_5448118005648138301_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g04.jpg",
+     "f": "p",
+     "alt": "Casal abraçado",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/618545834_18099183007683570_1191779827035956478_n.jpg",
+     "f": "p",
+     "alt": "Menina com os girassóis",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/631337301_18419778853185468_8897892489234908708_n.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido rosé",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/634255392_18381498004087259_344053533361037799_n.jpg",
+     "f": "p",
+     "alt": "Retrato de óculos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/mandaluz-fotografia/google/fotos/g02.jpg",
+     "f": "p",
+     "alt": "Gestante de renda preta",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/mandaluzfotografia/Instagram_files/619488799_18065850044214732_895033429194646687_n.jpg",
+     "f": "p",
+     "alt": "Gestante de renda branca",
+     "pos": "50% 30%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Larissa Coelho",
+    "tag": "Atendimento",
+    "trecho": "Simplesmente incrível, desde o atendimento por WhatsApp até o dia da sessão de fotos."
+   },
+   {
+    "nome": "Juliana Fernandes",
+    "tag": "À vontade",
+    "trecho": "Ela realmente se preocupou em entender nossas expectativas e nos deixou super à vontade durante todo o ensaio."
+   },
+   {
+    "nome": "Cristy Leite",
+    "tag": "Acolhida",
+    "trecho": "me senti super acolhida e à vontade desde o início"
+   },
+   {
+    "nome": "Vitória Nascimento Vieira",
+    "tag": "O espaço",
+    "trecho": "Amo o espaço da mih"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal Mandaluz 2026",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Milena no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99967-1196), o mesmo das legendas (\"Natal Mandaluz 2026 / (11) 99967-1196\")",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/mandaluz-fotografia` e `/demo/mandaluz-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 4, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.",
+   "Dona: Milena (\"a Mi\", \"a mih\" nas avaliações). Não há foto dela (a do perfil é em preto e branco e não veio): o \"quem fotografa\" usa o ensaio com o anel de luz, sem dizer que é ela.",
+   "Personalidade: luz e sombra (Mandaluz), retratos de estúdio com fundo escuro e luz desenhada. Na demo: tema escuro com dourado, Bodoni Moda, \"fotografia\" em Mrs Saint Delafield e ✧ entre as especialidades.",
+   "Sem logo em boa resolução: monograma M e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, newborn e Natal 2026), portfólio em 3 abas (Gestante, 12; Retratos, 8; Natal e newborn, 3), a Milena, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Confeitaria, diversão e tempo juntos\": o Ateliê de Panetones, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h30 às 15h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (Ateliê de Panetones, irmãos no Natal, newborn e gestante, até 4096 px), as fotos da página salva no Drive (1440 px) e 5 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as fotos repetidas e os ensaios com nu (gestante de topless e casal sem roupa), para a demo ficar boa de mandar para qualquer pessoa."
+  ],
+  "textos": [
+   "Legendas: \"Teve confeitaria, diversão, tempo de qualidade juntos...\" (27/10), \"Quanto amor cabe numa fotografia?... A fotografia guarda tudo aquilo que o tempo não consegue levar!\" (30/10), \"Não precisa sair tudo perfeito, só precisa ser de vocês\" (04/11), \"A gestação é feita de pequenos momentos...\" (26/10).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "A dona é a Milena (as avaliações dizem \"a Milena\", \"a Mi\"); não temos foto dela.",
+   "Fotos de gestantes, bebês e adolescentes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
