@@ -176,3 +176,15 @@ de cada pasta diz o que conferir antes de mandar.
 1. ~~Escolher as 20~~ As 25 (20 + 5 reservas) viraram demo (acima).
 2. Duplas e casais (Sabrina e Tati, Arantes, Guilherme Nascimento) seguem entrando, como no lote 1. Confirmar.
 3. Os valores e o prazo (`vale_ate`) das demos do lote 2.
+
+## 8. Lote 3 (06/11/2026)
+
+A lista está em `docs/nichos/fotografos-lote3.md` (20 + 5 reservas, com o link do Instagram de cada uma). Saiu da fila
+"Para o lote 3" do lote 2, relida em 06/11: os 6 últimos posts, as avaliações do Google das 58 da fila, os domínios
+óbvios, o WhatsApp, a cidade e quem atende. Mesma régua; "post na semana" conta desde 30/10.
+- **O que a releitura mudou:** quem abriu o Natal nos últimos dias subiu (Rafaela Damaceno, Lus, Thays); o nome da dona
+  nas avaliações, conferido a olho, somou para 5 delas; equipe ou casal nas avaliações tirou 5 de mais 4 (Lus, Roberta,
+  Estúdio4S, Vitória Lopes). A Cris Ribeiro saiu (sem Natal, parada desde 19/10, telefone com DDD 41).
+- **Alertas que pesam na abordagem:** Camila Photografia tem uma avaliação acusando "retenção de fotos pagas"; Amanda
+  Soares tem dois celulares diferentes (Google e um post); Thays Adrianny não mostra o número no Google.
+- Duplas e casais (Olivares, Lus, JB Four, Carlota Joaquina, Roberta Ale) seguem entrando, como nos lotes 1 e 2.
