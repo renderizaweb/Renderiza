@@ -1,0 +1,583 @@
+{
+ "pasta": "jb-four-fotografia",
+ "marca": "Estúdio JB Four Photograph",
+ "marca_completa": "Estúdio JB Four Photograph",
+ "dona": "Bia",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.2785935,-46.7454879",
+  "fid": "0x94cee7fcc05df641:0x6b07859ca2079483",
+  "gid": "/g/11h026ghj_"
+ },
+ "google_nome": "Estúdio JB Four Photograph",
+ "endereco_maps": "Rua Fioravante Begamini, 50 - Centro, Francisco Morato - SP, 07910-110",
+ "google_nota": "5,0",
+ "google_total": "46",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511981289588",
+ "fone_link": "+5511981289588",
+ "instagram": "jbfour",
+ "seguidores": "5,0 mil",
+ "mensagem": "Olá, Bia! Vi o site do estúdio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcf9f5",
+  "papel": "#ffffff",
+  "areia": "#f5ede4",
+  "linha": "#e8dbcc",
+  "tinta": "#2a2420",
+  "tinta2": "#675d55",
+  "rosa": "#efc7a9",
+  "acento": "#b9592b",
+  "acento_escuro": "#974822",
+  "cafe": "#26201b"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 16h",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 16h",
+   "2026-11-25 14h",
+   "2026-11-25 16h",
+   "2026-11-28 16h",
+   "2026-12-05 10h30",
+   "2026-12-05 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Bia define os dela",
+  "mensagem": "Olá, Bia! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Beatriz",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Beatriz, do Estúdio JB Four. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Beatriz, do Estúdio JB Four. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "xahk",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Beatriz, do Estúdio JB Four. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Alegreya",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Lato",
+    "wght@300;400;700"
+   ],
+   "script": [
+    "Ephesis",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✧",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "JB Four",
+ "titulo_script": "photograph",
+ "quem_a": "a Bia",
+ "quem_da": "da Bia",
+ "quem_sou": "Somos a Bia e o esposo, do JB Four",
+ "slogan": "Lembranças de uma fase que merece ser guardada para sempre.",
+ "site": {
+  "titulo": "Estúdio JB Four Photograph | Gestante, bebês, família e Natal em Francisco Morato",
+  "descricao": "Estúdio JB Four, da Beatriz e do esposo, no Centro de Francisco Morato: gestante, bebês, crianças, família e Natal 2026. Nota 5,0 no Google, com 46 avaliações.",
+  "comentario": "Demo Estúdio JB Four Photograph (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@jbfour: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Francisco Morato",
+   "frase": "Lembranças de uma fase que merece ser guardada para sempre.",
+   "intro": "Gestantes, bebês, crianças e famílias, com a Bia e o esposo, no Centro de Francisco Morato. E o ensaio de Natal 2026 já está acontecendo.",
+   "rotulos": [
+    "Bebês",
+    "Gestante",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Bebês",
+    "Família",
+    "Casal",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/620429246_18032548127572089_2141249032028795780_n.jpg",
+     "f": "p",
+     "alt": "Bebê sorrindo no tema melancia",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/posts/DfKlZUWkb9_/DfKlZUWkb9__00.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido claro diante dos arcos",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/650783853_18064798868321892_4459238744650004995_n.jpg",
+     "f": "p",
+     "alt": "Pai com os filhos fantasiados de super-heróis",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Uma grande <em>experiência.</em>",
+   "p": "Ensaios da Bia e do esposo, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/posts/DfKlZUWkb9_/DfKlZUWkb9__00.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido claro diante dos arcos",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/619958004_18082398299464806_2929672212248930255_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul junto à escadinha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/652132668_18109785034795112_3598026260944275529_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul com as flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/629134156_18443779753108044_8618928356539614130_n.jpg",
+      "f": "p",
+      "alt": "Gestante de azul com o sapatinho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/621572198_18074273756578055_2380240973062989749_n.jpg",
+      "f": "p",
+      "alt": "Gestante de verde com o buquê branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/632184514_18529611520068365_7135727793292912936_n.jpg",
+      "f": "p",
+      "alt": "Gestante de verde sorrindo com as flores",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/625616969_18218004097311746_7336265863475686109_n.jpg",
+      "f": "p",
+      "alt": "Gestante de verde com a mão na barriga",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/669018650_18180450331379843_621767019685619814_n.jpg",
+      "f": "p",
+      "alt": "Casal de mãos dadas no fim de tarde",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/620429246_18032548127572089_2141249032028795780_n.jpg",
+      "f": "p",
+      "alt": "Bebê sorrindo no tema melancia",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/650783853_18064798868321892_4459238744650004995_n.jpg",
+      "f": "p",
+      "alt": "Pai com os filhos fantasiados de super-heróis",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de touquinha laranja",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Bebê na banheira, no cenário de flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/fotos/g02.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 mês no bercinho",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Bia, <em>com o esposo.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/825325859_18391206133200948_7801364065006540144_n.jpg",
+    "f": "p",
+    "alt": "Bia sorrindo com a câmera, na poltrona de vime",
+    "c": [
+     0.45,
+     0.4
+    ]
+   },
+   "p": [
+    "O Estúdio JB Four, no Centro de Francisco Morato, é da Beatriz, a Bia, que fotografa com o esposo: gestantes, bebês, crianças e famílias, no estúdio e ao ar livre, no fim de tarde."
+   ],
+   "citacao": "Foi uma alegria registrar esse momento, ver de perto toda essa beleza e transformar em fotografias as lembranças de uma fase que merece ser guardada para sempre.",
+   "citacao_quem": "Bia, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do acolhimento (até o lanchinho), do respeito e da paciência do casal e de se sentir em casa."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "46 avaliações no Google"
+    ],
+    [
+     "5 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "fotógrafos: a Bia e o esposo"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Uma grande <em>experiência.</em>",
+   "p": "Os ensaios do JB Four:",
+   "fonte": "Legendas da Bia no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "A gravidez traz um brilho diferente, e merece ser guardada para sempre."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Mês a mês",
+     "p": "Os primeiros meses do bebê, mês a mês."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Temas",
+     "p": "Melancia, banheira e muita fofura."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todos juntos",
+     "p": "Pais, filhos e até os super-heróis."
+    },
+    {
+     "nome": "Casal",
+     "sub": "Fim de tarde",
+     "p": "Ensaios ao ar livre, no fim de tarde."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O Natal passa, mas as memórias ficam."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal passa, <em>mas as memórias ficam.</em>",
+   "p": "O ensaio de Natal no Estúdio JB Four, com a Bia e o esposo. Escolha um horário e a mensagem chega pronta no WhatsApp da Bia.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/posts/DfVS_p1n3VG/DfVS_p1n3VG_00.jpg",
+    "f": "l",
+    "alt": "Bebê de vestido vermelho no cenário de Natal",
+    "c": [
+     0.4,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Tais Rodrigues Da Silva",
+    "tag": "Experiência",
+    "trecho": "quando contratamos um pacote não só pagamos por fotos e sim por uma grande experiência, amei me sentir acolhida, amei o lanchinho, a recepção, o cuidado com tudo, nos sentimos em casa"
+   },
+   {
+    "nome": "Samara Silva",
+    "tag": "Final de tarde",
+    "trecho": "Beatriz e o esposo são profissionais maravilhosos! Foi um final de tarde maravilhoso, fiquei encantada com o trabalho"
+   },
+   {
+    "nome": "Amanda Souto",
+    "tag": "Respeito",
+    "trecho": "vcs foram maravilhosos com nossas questões pessoais e nós trataram com todo respeito e empatia após remarcar.."
+   },
+   {
+    "nome": "Gabrielly Santos",
+    "tag": "Gestação",
+    "trecho": "registrar esse momento pra mim foi surreal"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Centro de Francisco Morato e atende de terça a sábado.",
+   "telefone": "(11) 98128-9588",
+   "endereco": [
+    "Rua Fioravante Begamini, 50",
+    "Centro",
+    "Francisco Morato · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio JB Four Photograph",
+  "descricao": "O ensaio de Natal 2026 do Estúdio JB Four, em Francisco Morato: o Natal passa, mas as memórias ficam. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Estúdio JB Four Photograph: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Francisco Morato",
+   "h1": "O Natal passa, <em>mas as memórias ficam.</em>",
+   "citacao": "Talvez uma das maiores alegrias do Natal seja justamente essa: olhar para quem está ao nosso lado e perceber o quanto temos a agradecer.",
+   "citacao_quem": "Bia, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/posts/DfVS_p1n3VG/DfVS_p1n3VG_00.jpg",
+    "f": "l",
+    "alt": "Bebê de vestido vermelho no cenário de Natal",
+    "c": [
+     0.4,
+     0.45
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Natal no estúdio <em>da Bia.</em>",
+   "p": "O ensaio de Natal no Estúdio JB Four, no Centro de Francisco Morato, com a Bia e o esposo: um momento para olhar para quem está ao lado e guardar as memórias deste Natal.",
+   "itens": [
+    "No Estúdio JB Four, no Centro de Francisco Morato.",
+    "Com a Bia e o esposo, do atendimento às fotos.",
+    "Para bebês, crianças e a família toda.",
+    "Valores e datas pelo WhatsApp da Bia."
+   ],
+   "legenda_fotos": "O estúdio da Bia"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/650783853_18064798868321892_4459238744650004995_n.jpg",
+    "f": "p",
+    "alt": "Pai com os filhos fantasiados",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/fotos/g02.jpg",
+    "f": "l",
+    "alt": "Bebê de 1 mês no bercinho",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Bebê na banheira, no cenário de flores",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Bia abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado, no horário do estúdio. A Bia define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Bia abre com o dia e a hora escritos."
+    ],
+    [
+     "A Bia confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Uma grande <em>experiência.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios do JB Four.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/jb-four-fotografia/posts/DfKlZUWkb9_/DfKlZUWkb9__00.jpg",
+     "f": "p",
+     "alt": "Gestante diante dos arcos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/620429246_18032548127572089_2141249032028795780_n.jpg",
+     "f": "p",
+     "alt": "Bebê no tema melancia",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/619958004_18082398299464806_2929672212248930255_n.jpg",
+     "f": "p",
+     "alt": "Gestante de azul",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/650783853_18064798868321892_4459238744650004995_n.jpg",
+     "f": "p",
+     "alt": "Pai com os filhos",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/632184514_18529611520068365_7135727793292912936_n.jpg",
+     "f": "p",
+     "alt": "Gestante de verde",
+     "pos": "50% 30%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/669018650_18180450331379843_621767019685619814_n.jpg",
+     "f": "p",
+     "alt": "Casal no fim de tarde",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/652132668_18109785034795112_3598026260944275529_n.jpg",
+     "f": "p",
+     "alt": "Gestante com as flores",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/jbfour/Instagram_files/621572198_18074273756578055_2380240973062989749_n.jpg",
+     "f": "p",
+     "alt": "Gestante com o buquê",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Samara Silva",
+    "tag": "Família",
+    "trecho": "Obrigado pelo cuidado e carinho comigo e com a minha família em um momento tão especial"
+   },
+   {
+    "nome": "Amanda Souto",
+    "tag": "O príncipe",
+    "trecho": "As Fotos ficaram impecáveis e o ensaio do meu príncipe então"
+   },
+   {
+    "nome": "Tais Rodrigues Da Silva",
+    "tag": "Em casa",
+    "trecho": "nos sentimos em casa"
+   },
+   {
+    "nome": "Gabrielly Santos",
+    "tag": "Surreal",
+    "trecho": "O resultado foi muito mais do que esperava fico admirando até hoje as fotos rsrs"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Francisco Morato",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Bia no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98128-9588)",
+  "site": "jbfour.com é deles, mas mostra só \"Coming Soon\" (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/jb-four-fotografia` e `/demo/jb-four-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 17, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.",
+   "Donos: a Beatriz (Bia) e o esposo (avaliações). Foto: a da fotógrafa com a câmera na poltrona de vime (página salva).",
+   "Personalidade: o casal que recebe a família (\"nos sentimos em casa\", \"amei o lanchinho\") e as cores quentes do estúdio (laranja, terracota). Na demo: abertura em arcos, Alegreya, \"photograph\" em Ephesis, laranja queimado e ✧ entre as especialidades.",
+   "Sem logo em boa resolução: monograma JB e o nome com \"photograph\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (bebês, gestante e família), portfólio em 2 abas (Gestante, 8; Bebês e família, 5; poucas fotos boas, sem capa de vídeo), a Bia, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"O Natal passa, mas as memórias ficam\": o ensaio, a foto de Natal 2026, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 16h) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "O post de Natal de 04/11/2026 e o gestante de 31/10, as fotos da página salva no Drive (1440 px) e 3 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), que são a maior parte do perfil. Por isso há poucas fotos e algumas são do mesmo ensaio."
+  ],
+  "textos": [
+   "Legendas: \"O Natal passa, mas as memórias ficam!\" (30/10), \"Há sonhos que, quando se realizam... olhar para quem está ao nosso lado e perceber o quanto temos a agradecer\" (04/11), \"A gravidez trouxe um brilho diferente... uma fase que merece ser guardada para sempre\" (31/10).",
+   "Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas."
+  ],
+  "conferir": [
+   "É um casal (a Bia e o esposo); a demo cumprimenta a Beatriz.",
+   "Poucas fotos boas fora de vídeo: vale pedir mais fotos se ela gostar da demo.",
+   "Fotos de gestantes, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site."
+  ]
+ }
+}
