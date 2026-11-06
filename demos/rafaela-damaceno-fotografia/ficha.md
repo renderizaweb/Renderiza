@@ -20,7 +20,7 @@
 - Sem logo em boa resolução: monograma RD e o nome com "fotografia" cursiva (Sacramento), feitos para a demo; abertura em arcos.
 
 ## O que tem na demo
-- Site: abertura (aniversários, bebês e gestante), portfólio em 3 abas (Infantil e aniversários, 10; Gestante e bebês, 7; Família e datas especiais, 6), a Rafaela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
+- Site: abertura (aniversários, bebês e gestante), portfólio em 3 abas (Infantil, 10; Gestante e bebês, 7; Família, 6), a Rafaela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
 - Página de Natal "Mais um capítulo da história da sua família": o ensaio (o texto do post de 05/11), o cenário (o Natal em família e os cenários de Páscoa e de estrelas), a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 14h30, dentro do horário do Google e depois de 09/11) e outros ensaios do ano.
 - Com o aviso da Renderiza (modal leve depois de 40 s e 25% da página): até quando a demo fica no ar, o valor (pagamento único, sem mensalidade, promoção de 1 semana) e a agenda online e o painel como opcionais.
 
