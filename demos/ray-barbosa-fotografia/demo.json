@@ -1,0 +1,681 @@
+{
+ "pasta": "ray-barbosa-fotografia",
+ "marca": "Ray Barbosa Fotografia",
+ "marca_completa": "Ray Barbosa Fotografia",
+ "dona": "Ray",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4677285,-46.5228846",
+  "fid": "0x94cef5de0b006ebf:0x9f87a8b6deee993c",
+  "gid": "/g/11t81jcm6h"
+ },
+ "google_nome": "Ray Barbosa Fotografia",
+ "endereco_maps": "Av. Paulo Faccini, 351 - Macedo, Guarulhos - SP, 07130-000",
+ "google_nota": "5,0",
+ "google_total": "42",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511986052915",
+ "fone_link": "+5511986052915",
+ "instagram": "raybarbosafoto",
+ "seguidores": "10,6 mil",
+ "mensagem": "Olá, Ray! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#131112",
+  "papel": "#1b1819",
+  "areia": "#201c1d",
+  "linha": "#383032",
+  "tinta": "#f3ecea",
+  "tinta2": "#bcaeab",
+  "rosa": "#e8a3a3",
+  "acento": "#b8323f",
+  "acento_escuro": "#962733",
+  "cafe": "#1a1415"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-26",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "10h",
+   "11h30",
+   "13h30",
+   "15h"
+  ],
+  "reservados": [
+   "2026-11-14 11h30",
+   "2026-11-14 15h",
+   "2026-11-18 13h30",
+   "2026-11-21 10h",
+   "2026-11-21 13h30",
+   "2026-11-21 15h",
+   "2026-11-26 13h30",
+   "2026-11-26 15h",
+   "2026-11-28 15h",
+   "2026-12-05 11h30",
+   "2026-12-05 15h"
+  ],
+  "exemplo": "Horários de exemplo: a Ray define os dela",
+  "mensagem": "Olá, Ray! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Ray",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "bqu8",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Prata",
+    ""
+   ],
+   "sans": [
+    "Manrope",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Corinthia",
+    ""
+   ]
+  },
+  "tema": "escuro",
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✦",
+  "natal_capa": "retrato",
+  "script_escala": 1.35
+ },
+ "titulo_nome": "Ray Barbosa",
+ "titulo_script": "fotografia",
+ "quem_a": "a Ray",
+ "quem_da": "da Ray",
+ "quem_sou": "Eu sou a Ray",
+ "slogan": "A arte de desenhar com a luz.",
+ "site": {
+  "titulo": "Ray Barbosa Fotografia | Gestante, família, infantil e Natal em Guarulhos",
+  "descricao": "Ray Barbosa, fotógrafa formada em 2013, com estúdio no Macedo, em Guarulhos: gestante, família, infantil, ensaio feminino de aniversário e a edição de Natal 2026. Nota 5,0 no Google, com 42 avaliações.",
+  "comentario": "Demo Ray Barbosa Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@raybarbosafoto: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Guarulhos",
+   "frase": "A arte de desenhar com a luz.",
+   "intro": "Gestantes, famílias, crianças e ensaios femininos de aniversário, com luz de estúdio, no Macedo, em Guarulhos. E a edição de Natal 2026 já está com reservas abertas.",
+   "rotulos": [
+    "Natal 2026",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Família",
+    "Infantil",
+    "Feminino",
+    "Aniversário",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfXdURLEbFS/DfXdURLEbFS_00.jpg",
+     "f": "p",
+     "alt": "Mãe e filha de vestido verde junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/625996873_18335014996245612_8275762865070759681_n.webp",
+     "f": "p",
+     "alt": "Casal no ensaio gestante, ela de vermelho",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488220520_1211323667660369_34415735578126666_n.jpg",
+     "f": "p",
+     "alt": "Menina de cabelo cacheado no fundo vermelho",
+     "c": [
+      0.5,
+      0.35
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Desenhar <em>com a luz.</em>",
+   "p": "Ensaios da Ray no estúdio. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/625996873_18335014996245612_8275762865070759681_n.webp",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ela de vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488223811_1211323554327047_165389914262270109_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vermelho no fundo vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/650636189_17995557932867382_5893459165445122248_n.webp",
+      "f": "p",
+      "alt": "Gestante de tule azul",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/656068889_18370294858160827_1548176387829816657_n.webp",
+      "f": "p",
+      "alt": "Gestante de tule azul, de perfil",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/655602214_18061857005346856_2380247415224269399_n.webp",
+      "f": "p",
+      "alt": "Gestante de azul royal",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/fotos/g04.jpg",
+      "f": "p",
+      "alt": "Gestante de vermelho com a coroa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/fotos/g05.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ela de branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/fotos/g06.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido sereia vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488205920_1212400890885980_3760221364214295497_n.jpg",
+      "f": "p",
+      "alt": "Gestante de renda no fundo preto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/625880004_18098532802726523_8087981426794269807_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido brilhante, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488580738_1211642597628476_213293415301461120_n.jpg",
+      "f": "l",
+      "alt": "Gestante de body branco diante do círculo de luz",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "feminino",
+    "nome": "Feminino e aniversário",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/358684677_18290849587115240_4589487191386836269_n.jpg",
+      "f": "p",
+      "alt": "Aniversariante de rosa com o bolo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfHyTXBkbqQ/DfHyTXBkbqQ_00.jpg",
+      "f": "p",
+      "alt": "Aniversariante de vermelho com o bolo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/487479525_1211642370961832_3618088437269128095_n.jpg",
+      "f": "p",
+      "alt": "Retrato de vestido bordô no fundo vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/487566178_1211323954327007_3605706120537661807_n.jpg",
+      "f": "p",
+      "alt": "Retrato de coroa dourada",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/627497488_18120288772504853_4783573045952028955_n.webp",
+      "f": "p",
+      "alt": "Retrato de batom vermelho no fundo escuro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/641210925_17977860491988419_1372800924037684721_n.webp",
+      "f": "p",
+      "alt": "Retrato com a caixinha de joias",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/656232429_18099847913491144_4393856257728693254_n.webp",
+      "f": "p",
+      "alt": "Retrato de preto no círculo de luz vermelho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Retrato de jaleco com a beca",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfXdURLEbFS/DfXdURLEbFS_00.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de vestido verde junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488220520_1211323667660369_34415735578126666_n.jpg",
+      "f": "p",
+      "alt": "Menina de cabelo cacheado no fundo vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488223424_1211323940993675_9194328684310785704_n.jpg",
+      "f": "p",
+      "alt": "Menina de cabelo cacheado no fundo de flores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/650271884_17992547105921595_6341359838742708320_n.jpg",
+      "f": "p",
+      "alt": "Menina de pink no fundo vermelho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/654657575_18116502073712784_396512865914466188_n.webp",
+      "f": "p",
+      "alt": "Menino de mãos juntas, no fundo cinza",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/659804732_18063317927375946_4463791889111534660_n.webp",
+      "f": "p",
+      "alt": "Menino fantasiado no cenário do castelo",
+      "pos": "100% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/487813020_1212277390898330_1168785517139330516_n.jpg",
+      "f": "l",
+      "alt": "Menina com a bola de cristal entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/358663416_18290764759115240_5540948056994072943_n.jpg",
+      "f": "l",
+      "alt": "Menina de pink no cenário rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488163815_1212292644230138_7417000227897714057_n.jpg",
+      "f": "l",
+      "alt": "Menina de óculos de coração no cenário de balões",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Eu sou <em>a Ray.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/797009388_18470493823115240_1067512749828370758_n.jpg",
+    "f": "p",
+    "alt": "Ray sorrindo com a câmera",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Ray se formou em fotografia em 2013, vive exclusivamente da fotografia desde 2016 e abriu o primeiro estúdio em 2020, no Macedo, em Guarulhos, apaixonada por criar com a luz artificial. Fotografa gestantes, famílias, crianças e ensaios femininos de aniversário."
+   ],
+   "citacao": "Quero compartilhar com vocês minha paixão pela arte de desenhar com a luz.",
+   "citacao_quem": "Ray, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, os clientes falam do estúdio organizado e da iluminação, da direção do início ao fim e do atendimento antes e depois do ensaio, com fotos digitais e impressas."
+   ],
+   "numeros": [
+    [
+     "2013",
+     "formada em fotografia"
+    ],
+    [
+     "5,0",
+     "42 avaliações no Google"
+    ],
+    [
+     "10,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Uma experiência <em>de autoestima.</em>",
+   "p": "Os ensaios da Ray, nas palavras dela:",
+   "fonte": "Legendas e artes da Ray no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "26 a 32 semanas",
+     "p": "O período recomendado para o ensaio é entre 26 e 32 semanas: agende com antecedência."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Aniversário",
+     "p": "Seu aniversário merece um momento só seu."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Princesas",
+     "p": "Ensaios temáticos, como o Especial Princesas."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Entre sorrisos, olhares e abraços, o amor e a alegria de estar juntos."
+    },
+    {
+     "nome": "Retrato",
+     "sub": "Luz de estúdio",
+     "p": "Fotografias apaixonantes, sem perder a identidade."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Edição 2026",
+     "p": "O Natal fica ainda mais especial quando estamos pertinho de quem amamos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A minha edição <em>de Natal 2026.</em>",
+   "p": "Um cenário encantador, cheio de aconchego e magia, preparado com muito carinho. As reservas já estão abertas: escolha um horário e a mensagem chega pronta no WhatsApp da Ray.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfXdURLEbFS/DfXdURLEbFS_00.jpg",
+    "f": "l",
+    "alt": "Mãe e filha de vestido verde junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Julia Brandão",
+    "tag": "Do começo ao fim",
+    "trecho": "atendimento impecável desde antes da contratação até o pós quando recebi as fotos tanto digitais quanto impressas!"
+   },
+   {
+    "nome": "Ludymila Madalena",
+    "tag": "Gestante",
+    "trecho": "Sonhávamos em registrar este momento tão especial p nossa família, nossa jóia preciosa no forninho"
+   },
+   {
+    "nome": "Rafael Xenofonte",
+    "tag": "O estúdio",
+    "trecho": "O ambiente é muito bem estruturado, limpo e organizado. A iluminação é impecável e o atendimento é extremamente profissional."
+   },
+   {
+    "nome": "Eliana Cardoso Ramos",
+    "tag": "Direção",
+    "trecho": "A Ray me direcionou do início ao fim e minhas fotos ficaram perfeitas"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos planejar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Macedo, em Guarulhos, e atende de segunda a sábado.",
+   "telefone": "(11) 98605-2915",
+   "endereco": [
+    "Av. Paulo Faccini, 351",
+    "Macedo",
+    "Guarulhos · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Ray Barbosa Fotografia",
+  "descricao": "A edição de Natal 2026 da Ray Barbosa, em Guarulhos: um cenário cheio de aconchego e magia. Reservas abertas: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Ray Barbosa Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h1": "A minha edição <em>de Natal 2026.</em>",
+   "citacao": "Meu desejo é transformar momentos em família em memórias lindas, que vocês poderão reviver por muitos e muitos anos.",
+   "citacao_quem": "Ray, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfXdURLEbFS/DfXdURLEbFS_00.jpg",
+    "f": "p",
+    "alt": "Mãe e filha de vestido verde junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Aconchego <em>e magia.</em>",
+   "p": "Cada detalhe foi preparado com muito carinho para criar um cenário encantador, cheio de aconchego e magia, no estúdio da Ray, no Macedo, em Guarulhos.",
+   "itens": [
+    "No estúdio da Ray, no Macedo, em Guarulhos.",
+    "O cenário de Natal 2026, com reservas abertas.",
+    "Com maquiagem para o ensaio.",
+    "Valores e datas pelo WhatsApp da Ray."
+   ],
+   "legenda_fotos": "O Natal 2026 e outros cenários da Ray"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/posts/DfPn-LSxVXn/DfPn-LSxVXn_00.jpg",
+    "f": "p",
+    "alt": "Família abrindo o presente de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/487813020_1212277390898330_1168785517139330516_n.jpg",
+    "f": "l",
+    "alt": "Menina com a bola de cristal entre os balões",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/358663416_18290764759115240_5540948056994072943_n.jpg",
+    "f": "l",
+    "alt": "Menina de pink no cenário rosa",
+    "c": [
+     0.4,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Ray abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado, no horário do estúdio. A Ray define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Ray abre com o dia e a hora escritos."
+    ],
+    [
+     "A Ray confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Desenhar <em>com a luz.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Ray.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/625996873_18335014996245612_8275762865070759681_n.webp",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488220520_1211323667660369_34415735578126666_n.jpg",
+     "f": "p",
+     "alt": "Menina no fundo vermelho",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/358684677_18290849587115240_4589487191386836269_n.jpg",
+     "f": "p",
+     "alt": "Aniversariante com o bolo",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/650636189_17995557932867382_5893459165445122248_n.webp",
+     "f": "p",
+     "alt": "Gestante de tule azul",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/488223424_1211323940993675_9194328684310785704_n.jpg",
+     "f": "p",
+     "alt": "Menina no fundo de flores",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/ray-barbosa-fotografia/google/fotos/g05.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/487566178_1211323954327007_3605706120537661807_n.jpg",
+     "f": "p",
+     "alt": "Retrato de coroa",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/raybarbosafoto/Instagram_files/654657575_18116502073712784_396512865914466188_n.webp",
+     "f": "p",
+     "alt": "Menino de mãos juntas",
+     "pos": "50% 35%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que os clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Kravmagaponterasa",
+    "tag": "Crianças e família",
+    "trecho": "muito criativa e bem humorada, grade diferencial para ensaios com crianças e familiares."
+   },
+   {
+    "nome": "Ludymila Madalena",
+    "tag": "Expectativas",
+    "trecho": "Sinceramente, ultrapassou nossas expectativas"
+   },
+   {
+    "nome": "Julia Brandão",
+    "tag": "Surreal",
+    "trecho": "S-U-R-R-E-A-L !"
+   },
+   {
+    "nome": "Eliana Cardoso Ramos",
+    "tag": "O próximo",
+    "trecho": "Indico de olhos fechados e não vejo a hora de fazer o próximo rs"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Guarulhos",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "No fim do ano a agenda fica concorrida. Escolha um horário ou chame a Ray no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 98605-2915)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/ray-barbosa-fotografia` e `/demo/ray-barbosa-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 16, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm da arte \"sobre mim\", das legendas de out/nov 2026 e das avaliações.",
+   "Dona: Ray Barbosa (arte \"sobre mim\": formada em 2013, vive da fotografia desde 2016, primeiro estúdio em 2020). Foto dela: com a câmera, da página salva.",
+   "Personalidade: \"minha paixão pela arte de desenhar com a luz\", retratos de estúdio com fundo vermelho e preto. Na demo: tema escuro com vermelho, Prata, \"fotografia\" em Corinthia, abertura em faixa.",
+   "Sem logo em boa resolução: monograma RB e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, gestante e infantil), portfólio em 3 abas (Gestante, 11; Feminino e aniversário, 8; Infantil e família, 9), a Ray, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A minha edição de Natal 2026\": o cenário (fotos de 2026 do feed), a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 10h às 15h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de Natal de 02 e 05/11/2026 e o de aniversário, as fotos da página salva no Drive (1440 px) e 5 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes com texto, e os ensaios com nu ou sensuais (ela tem muitos), para a demo ficar boa de mandar para qualquer pessoa."
+  ],
+  "textos": [
+   "Arte \"sobre mim\" e legendas: \"É com muita alegria que apresento a vocês a minha edição de Natal 2026!... Meu desejo é transformar momentos em família em memórias lindas\" (26/10), \"O Natal fica ainda mais especial quando estamos pertinho de quem amamos\" (02/11), \"Entre sorrisos, olhares e abraços...\" (05/11), \"Seu aniversário merece um momento só seu\" (30/10), \"entre 26 a 32 semanas\" (arte).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "Ela faz muito ensaio feminino sensual; a demo mostra só os vestidos e retratos.",
+   "A maquiagem dos ensaios de Natal é de uma parceira (@gabrielamacielmakeup nas legendas); a página diz só \"com maquiagem\".",
+   "Fotos de gestantes, crianças e clientes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
