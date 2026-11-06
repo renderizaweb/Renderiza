@@ -1,0 +1,693 @@
+{
+ "pasta": "carlota-joaquina-fotografia",
+ "marca": "Carlota Joaquina Fotografia",
+ "marca_completa": "Carlota Joaquina Fotografia",
+ "dona": "Joyce e Carla",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.4080506,-46.8768038",
+  "fid": "0x94cf1cf13b4fa2ed:0xfa2abe1df6d5f513",
+  "gid": "/g/11fqbnx7kb"
+ },
+ "google_nome": "Carlota Joaquina Fotografia",
+ "endereco_maps": "R. Paraíba, 198 - Chácara do Solar I (Fazendinha), Santana de Parnaíba - SP, 06530-035",
+ "google_nota": "4,7",
+ "google_total": "18",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511997628059",
+ "fone_link": "+5511997628059",
+ "instagram": "carlotajoaquinafotografias",
+ "seguidores": "5,2 mil",
+ "mensagem": "Olá, meninas! Vi o site do estúdio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdfafb",
+  "papel": "#ffffff",
+  "areia": "#f8eef2",
+  "linha": "#ecdbe2",
+  "tinta": "#2a2427",
+  "tinta2": "#665c61",
+  "rosa": "#bfe0c9",
+  "acento": "#b0326a",
+  "acento_escuro": "#8f2856",
+  "cafe": "#2a1f25"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-17",
+   "2026-11-21",
+   "2026-11-24",
+   "2026-11-28",
+   "2026-11-30"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-17 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-24 14h",
+   "2026-11-24 15h30",
+   "2026-11-28 15h30",
+   "2026-11-30 10h30",
+   "2026-11-30 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Joyce e Carla define os dela",
+  "mensagem": "Olá, meninas! Quero o horário de {data} ({semana}) às {hora} para o Ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Joyce e Carla",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "6pzm",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "para": "vocês"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Literata",
+    "ital,opsz,wght@0,7..72,400..600;1,7..72,400..600"
+   ],
+   "sans": [
+    "Outfit",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Birthstone",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✿",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Carlota Joaquina",
+ "titulo_script": "fotografia",
+ "quem_a": "as meninas",
+ "quem_da": "das meninas",
+ "quem_sou": "Somos a Joyce e a Carla",
+ "slogan": "Para acompanhar o crescimento das crianças.",
+ "site": {
+  "titulo": "Carlota Joaquina Fotografia | Bebês, aniversários, mães e filhos e Natal em Santana de Parnaíba",
+  "descricao": "Carlota Joaquina Fotografia, da Joyce e da Carla, na Fazendinha, em Santana de Parnaíba: bebês, aniversários, mães e filhos, família e o Ensaio de Natal 2026 na Oficina do Papai Noel.",
+  "comentario": "Demo Carlota Joaquina Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@carlotajoaquinafotografias: as fotos da página salva e os posts de out 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio de fotografia · Santana de Parnaíba",
+   "frase": "Para acompanhar o crescimento das crianças.",
+   "intro": "Bebês, aniversários, mães e filhos e famílias, com a Joyce e a Carla, na Fazendinha, em Santana de Parnaíba. E a agenda do Ensaio de Natal 2026, na Oficina do Papai Noel, já está aberta.",
+   "rotulos": [
+    "Natal 2026",
+    "Mães e filhos",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Bebês",
+    "Aniversários",
+    "Mães e filhos",
+    "Família",
+    "Temáticos",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKLWOtnBgU/DfKLWOtnBgU_00.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido xadrez na Oficina do Papai Noel",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468856220_18284832793240590_942273899824185242_n.jpg",
+     "f": "p",
+     "alt": "Mãe com o bebê entre as tulipas",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469049789_18284833756240590_2707457837426985512_n.jpg",
+     "f": "p",
+     "alt": "Bebê de Branca de Neve com a maçã",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Cada data, <em>um cenário.</em>",
+   "p": "Ensaios da Joyce e da Carla no estúdio. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal e aniversários",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKLWOtnBgU/DfKLWOtnBgU_00.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido xadrez na Oficina do Papai Noel",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/573177739_18322204498240590_3458939476647971919_n.jpg",
+      "f": "p",
+      "alt": "Bebê de laço junto ao quebra-nozes de Natal",
+      "pos": "100% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469050490_18284837533240590_3483466313163627448_n.jpg",
+      "f": "p",
+      "alt": "Menina de 1 ano de vestido rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469006321_18284837497240590_7080193997178728026_n.jpg",
+      "f": "p",
+      "alt": "Menino de 2 anos entre os balões azuis",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469049789_18284833756240590_2707457837426985512_n.jpg",
+      "f": "p",
+      "alt": "Bebê de Branca de Neve com a maçã",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469084226_18284834587240590_1984966787296501827_n.jpg",
+      "f": "p",
+      "alt": "Bebê de Chapolin",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469071213_18284837614240590_8570608855544191460_n.jpg",
+      "f": "p",
+      "alt": "Menino de caipira no cenário do burrinho",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469274017_18284833480240590_6013981368599946258_n.jpg",
+      "f": "p",
+      "alt": "Bebê no cenário da Turma da Mônica",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKKuswHAPj/DfKKuswHAPj_00.jpg",
+      "f": "l",
+      "alt": "Crianças na Oficina do Papai Noel",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468946722_18284837308240590_177133691098889069_n.jpg",
+      "f": "l",
+      "alt": "Bebê de 1 ano no tema Carros",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "maes",
+    "nome": "Mães e filhos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468856220_18284832793240590_942273899824185242_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468847915_18284832625240590_9126464338987701283_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a bebê de tiara entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468849414_18284832571240590_7929552658640917929_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de rosa entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468925842_18284832895240590_1408194948364192664_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o filho de boina entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469043897_18284832766240590_6871852378937914982_n.jpg",
+      "f": "p",
+      "alt": "Filho beijando a mãe entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469084248_18284832919240590_4807413210556653737_n.jpg",
+      "f": "p",
+      "alt": "Mãe com os filhos entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469198149_18284832619240590_6051513927868249910_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a bebê de lilás",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469249895_18284830756240590_1497393931761132170_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho sorrindo entre as tulipas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468847225_18284830393240590_9015420654650056556_n.jpg",
+      "f": "p",
+      "alt": "Mãe erguendo o bebê no balanço de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469105633_18284832610240590_7391469122709199364_n.jpg",
+      "f": "p",
+      "alt": "Mãe de rosa com o bebê no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469167147_18284832820240590_7218315847122885322_n.jpg",
+      "f": "p",
+      "alt": "Mãe erguendo a filha",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469235038_18284832742240590_6919315227961554168_n.jpg",
+      "f": "p",
+      "alt": "Mãe com o bebê na poltrona rosa",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468944957_18284832880240590_2060521136532052831_n.jpg",
+      "f": "p",
+      "alt": "Mãe com os filhos na poltrona rosa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469034268_18284838520240590_218890108579121426_n.jpg",
+      "f": "p",
+      "alt": "Pai com os filhos no sofá",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469049608_18284832781240590_1342671625992296957_n.jpg",
+      "f": "p",
+      "alt": "Mãe com os três filhos entre as flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469050480_18284839129240590_4031787736740550770_n.jpg",
+      "f": "p",
+      "alt": "Pai com o filho nos ombros",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469091413_18284838631240590_6970242053271290018_n.jpg",
+      "f": "p",
+      "alt": "Pai e filha em preto e branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469168989_18284838502240590_432028476430365039_n.jpg",
+      "f": "p",
+      "alt": "Pai com o bebê no colo, em preto e branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469168248_18284830528240590_5649051976465481987_n.jpg",
+      "f": "p",
+      "alt": "Mãe e bebê em preto e branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469032945_18284830801240590_6595875622930625093_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filho abraçados, em preto e branco",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "As meninas <em>do estúdio.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/google/fotos/g01.jpg",
+    "f": "p",
+    "alt": "O estúdio das meninas, com o banco e as portas azuis",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "p": [
+    "A Carlota Joaquina Fotografia, na Fazendinha, em Santana de Parnaíba, é da Joyce e da Carla, \"as meninas\", como dizem as famílias. Elas fotografam bebês, aniversários, mães e filhos e famílias, com cenários que mudam a cada data: Dia das Mães entre tulipas, aniversários temáticos e a Oficina do Papai Noel."
+   ],
+   "citacao": "Quero atender cada família com calma.",
+   "citacao_quem": "Carlota Joaquina, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do cuidado com os bebês e com as crianças e de como é bom voltar para acompanhar o crescimento delas."
+   ],
+   "numeros": [
+    [
+     "4,7",
+     "18 avaliações no Google"
+    ],
+    [
+     "5,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "fotógrafas: Joyce e Carla"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Para acompanhar <em>o crescimento.</em>",
+   "p": "Os ensaios das meninas:",
+   "fonte": "Legendas das meninas no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Bebês",
+     "sub": "Mês a mês",
+     "p": "Os primeiros meses do bebê, cada um num cenário."
+    },
+    {
+     "nome": "Aniversário",
+     "sub": "1 e 2 anos",
+     "p": "Festa no estúdio: Carros, Patrulha Canina, Mickey e Minnie."
+    },
+    {
+     "nome": "Mães",
+     "sub": "Dia das Mães",
+     "p": "Mães e filhos entre as tulipas."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Pais, irmãos e o bebê no colo."
+    },
+    {
+     "nome": "Temas",
+     "sub": "Personagens",
+     "p": "Chapolin, Branca de Neve, caipira e Turma da Mônica."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Oficina do Papai Noel",
+     "p": "Árvore gigante, ursão e presentinhos."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A magia do Natal <em>chegou no estúdio!</em>",
+   "p": "A agenda do Ensaio de Natal 2026 está aberta, na Oficina do Papai Noel. São poucas vagas em novembro: escolha um horário e a mensagem chega pronta no WhatsApp das meninas.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKKuswHAPj/DfKKuswHAPj_00.jpg",
+    "f": "l",
+    "alt": "Crianças na Oficina do Papai Noel",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Educador Adão Gomes",
+    "tag": "Crescimento",
+    "trecho": "Um lugar perfeito para acompanhar o crescimento das crianças por meio de imagens. Joyce e Carla são maravilhosas."
+   },
+   {
+    "nome": "Michele Oliveira",
+    "tag": "Com a bebê",
+    "trecho": "Experiência maravilhosa com elas, muito atenciosas, e cuidado com minha bebê."
+   },
+   {
+    "nome": "Rafael Xavier",
+    "tag": "Com as filhas",
+    "trecho": "Empresa de um excelente atendimento e cuidado com as minhas filhas recomendo muito"
+   },
+   {
+    "nome": "Natalia Fernandes da Silva",
+    "tag": "As meninas",
+    "trecho": "Trabalho excepcional, de ótima qualidade as meninas são incríveis e muito atenciosas."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Fazendinha (Chácara do Solar I), em Santana de Parnaíba.",
+   "telefone": "(11) 99762-8059",
+   "endereco": [
+    "R. Paraíba, 198",
+    "Chácara do Solar I (Fazendinha)",
+    "Santana de Parnaíba · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026, Oficina do Papai Noel | Carlota Joaquina Fotografia",
+  "descricao": "O Ensaio de Natal 2026 da Carlota Joaquina Fotografia, em Santana de Parnaíba: a Oficina do Papai Noel. Poucas vagas em novembro: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Carlota Joaquina Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Santana de Parnaíba",
+   "h1": "A magia do Natal <em>chegou no estúdio!</em>",
+   "citacao": "Esse cenário da Oficina do Papai Noel foi feito com muito carinho para criar memórias que vocês vão guardar para sempre.",
+   "citacao_quem": "Carlota Joaquina, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKKuswHAPj/DfKKuswHAPj_00.jpg",
+    "f": "l",
+    "alt": "Crianças na Oficina do Papai Noel",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "A Oficina <em>do Papai Noel.</em>",
+   "p": "O Papai Noel já deixou a casinha dele prontinha no estúdio: árvore gigante, ursão, presentinhos e a fábrica de brinquedos. São poucas vagas em novembro, para atender cada família com calma.",
+   "itens": [
+    "No estúdio, na Fazendinha, em Santana de Parnaíba.",
+    "A Oficina do Papai Noel: árvore gigante, ursão e presentinhos.",
+    "Poucas vagas em novembro.",
+    "Valores e datas pelo WhatsApp das meninas."
+   ],
+   "legenda_fotos": "A Oficina do Papai Noel 2026 e outros cenários"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/carlota-joaquina-fotografia/posts/DfKLWOtnBgU/DfKLWOtnBgU_00.jpg",
+    "f": "p",
+    "alt": "Bebê de vestido xadrez junto ao relógio da Oficina",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/573177739_18322204498240590_3458939476647971919_n.jpg",
+    "f": "l",
+    "alt": "Bebê de laço junto ao quebra-nozes",
+    "c": [
+     0.4,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468946722_18284837308240590_177133691098889069_n.jpg",
+    "f": "l",
+    "alt": "Bebê de 1 ano no tema Carros",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp das meninas abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece (o Google não mostra o horário do estúdio). As meninas definem os dias, a duração e quantos horários abrem; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp das meninas abre com o dia e a hora escritos."
+    ],
+    [
+     "As meninas confirmam",
+     "Elas respondem com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Cada data, <em>um cenário.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios das meninas.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468856220_18284832793240590_942273899824185242_n.jpg",
+     "f": "p",
+     "alt": "Mãe com o bebê entre as tulipas",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469049789_18284833756240590_2707457837426985512_n.jpg",
+     "f": "p",
+     "alt": "Bebê de Branca de Neve",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/468849414_18284832571240590_7929552658640917929_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filha entre as tulipas",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469050490_18284837533240590_3483466313163627448_n.jpg",
+     "f": "p",
+     "alt": "Menina de 1 ano",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469050480_18284839129240590_4031787736740550770_n.jpg",
+     "f": "p",
+     "alt": "Pai com o filho nos ombros",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469084226_18284834587240590_1984966787296501827_n.jpg",
+     "f": "p",
+     "alt": "Bebê de Chapolin",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469043897_18284832766240590_6871852378937914982_n.jpg",
+     "f": "p",
+     "alt": "Filho beijando a mãe",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/carlotajoquinafotografias/Instagram_files/469006321_18284837497240590_7080193997178728026_n.jpg",
+     "f": "p",
+     "alt": "Menino entre os balões",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rafael Xavier",
+    "tag": "Vamos voltar",
+    "trecho": "Obrigado com certeza vamos voltar para consumir mais dos serviços de vocês"
+   },
+   {
+    "nome": "Michele Oliveira",
+    "tag": "Obrigada, meninas",
+    "trecho": "Fotos ficaram lindas. Obrigada meninas."
+   },
+   {
+    "nome": "Educador Adão Gomes",
+    "tag": "Joyce e Carla",
+    "trecho": "Joyce e Carla são maravilhosas."
+   },
+   {
+    "nome": "Natalia Fernandes da Silva",
+    "tag": "Qualidade",
+    "trecho": "Trabalho excepcional, de ótima qualidade"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Santana de Parnaíba",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "São poucas vagas em novembro. Escolha um horário ou chame as meninas no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 99762-8059)",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/carlota-joaquina-fotografia` e `/demo/carlota-joaquina-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 23, reserva 3, 72 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out 2026 e das avaliações.",
+   "Donas: uma dupla, a Joyce e a Carla (\"as meninas\" nas avaliações). A demo fala das duas; a saudação da Renderiza vai para as duas. Sem foto delas: o \"quem fotografa\" usa o cenário do estúdio (Google).",
+   "Personalidade: cenários que mudam a cada data (Dia das Mães entre tulipas rosa e verde, aniversários temáticos, a Oficina do Papai Noel) e o jeito de falar com as mães (\"Mamãe, já garantiu?\", \"Corre pra falar com a tia!\"). Na demo: abertura em faixa, Literata, \"fotografia\" em Birthstone, rosa e verde-menta, ✿ entre as especialidades.",
+   "Sem logo em boa resolução: monograma CJ e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal 2026, mães e filhos e infantil), portfólio em 3 abas (Natal e aniversários, 10; Mães e filhos, 12; Família, 8), as meninas, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A magia do Natal chegou no estúdio!\": a Oficina do Papai Noel 2026 (fotos do feed), a agenda de exemplo (6 dias em novembro; o Google não mostra horário) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de Natal de 30 e 31/10/2026 (Oficina do Papai Noel), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes (\"O Diabetes agora faz parte de um capítulo da nossa história\") e os closes de detalhe."
+  ],
+  "textos": [
+   "Legendas: \"A MAGIA DO NATAL CHEGOU NO ESTÚDIO! Nossa AGENDA ABERTA para o Ensaio de Natal 2026... esse cenário da Oficina do Papai Noel foi feito com muito carinho... São poucas vagas em Novembro, porque quero atender cada família com calma\" (31/10), \"O Papai Noel já deixou a casinha dele prontinha... árvore gigante, ursão, presentinhos\" (30/10).",
+   "Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas."
+  ],
+  "conferir": [
+   "É uma dupla (Joyce e Carla): falar com as duas.",
+   "Nota 4,7 no Google; uma avaliação antiga reclama de não atenderem o telefone.",
+   "Um post recente fala de diabetes tipo 1 na família (assunto pessoal; a demo não toca nisso).",
+   "Fotos de bebês, crianças e mães: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site."
+  ]
+ }
+}
