@@ -1,0 +1,650 @@
+{
+ "pasta": "silvia-olarindo-fotografia",
+ "marca": "Silvia Olarindo Fotografia",
+ "marca_completa": "Silvia Olarindo Fotografia",
+ "dona": "Sil",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.6324757,-46.7842933",
+  "fid": "0x26a0d996d65eff99:0x15b8089688e45220",
+  "gid": "/g/11zjy39wn9"
+ },
+ "google_nome": "Silvia Olarindo Fotografia",
+ "endereco_maps": "São Paulo - SP",
+ "google_nota": "5,0",
+ "google_total": "23",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511972145643",
+ "fone_link": "+5511972145643",
+ "instagram": "silviaolarindofotografia",
+ "seguidores": "1,4 mil",
+ "mensagem": "Olá, Sil! Vi o seu site e queria saber mais sobre o ensaio newborn em casa.",
+ "cores": {
+  "fundo": "#fdf9fa",
+  "papel": "#ffffff",
+  "areia": "#f8eef1",
+  "linha": "#ecdde2",
+  "tinta": "#2b2427",
+  "tinta2": "#675d61",
+  "rosa": "#f3d4dc",
+  "acento": "#b65c76",
+  "acento_escuro": "#934960",
+  "cafe": "#271f23"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 15h30",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-25 14h",
+   "2026-11-25 15h30",
+   "2026-11-28 15h30",
+   "2026-12-05 10h30",
+   "2026-12-05 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Sil define os dela",
+  "mensagem": "Olá, Sil! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Silvia",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "d5na",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Quicksand",
+    "wght@400;500;600;700"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "bolhas",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "♡",
+  "script_escala": 1.2
+ },
+ "titulo_nome": "Silvia Olarindo",
+ "titulo_script": "fotografia",
+ "quem_a": "a Sil",
+ "quem_da": "da Sil",
+ "quem_sou": "Sou a Silvia Olarindo, a Sil",
+ "slogan": "Nós iremos até você para eternizá-lo.",
+ "site": {
+  "titulo": "Silvia Olarindo Fotografia | Ensaio newborn em casa, com segurança",
+  "descricao": "Silvia Olarindo, a Sil, fotógrafa de newborn em casa, com segurança: os primeiros dias do bebê, no conforto da casa da família. Nota 5,0 no Google, com 23 avaliações.",
+  "comentario": "Demo Silvia Olarindo Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@silviaolarindofotografia: as fotos da página salva e os posts de out/nov 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Newborn em casa · com segurança",
+   "frase": "Nós iremos até você para eternizá-lo.",
+   "intro": "O ensaio newborn em casa, com segurança, nos primeiros dias do bebê. A Sil leva os cenários e os detalhes até a família.",
+   "rotulos": [
+    "Newborn",
+    "Família",
+    "Detalhes"
+   ],
+   "especialidades": [
+    "Newborn",
+    "Em casa",
+    "Família",
+    "Irmãos",
+    "Detalhes",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/653640770_17965840371046415_3071723434974151549_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de tiara de flores rosa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/670936153_18093306278026683_4334650872413916632_n.jpg",
+     "f": "p",
+     "alt": "Pais com o recém-nascido e o cachorrinho",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DfXnH1unQ6l/DfXnH1unQ6l_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de laço na caminha branca",
+     "c": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Pureza <em>e delicadeza.</em>",
+   "p": "Ensaios da Sil, na casa de cada família. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/619491679_17956108887059330_9084846399278302912_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida sorrindo na manta rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/620812665_17939716878111301_8958005034667548555_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida sorrindo de tiara",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/627170005_18190384579348966_1671382336755274263_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido sorrindo de macacão listrado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/624910780_18082404974229463_146454385383773255_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida de body de renda, dormindo",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/657386277_18094542392045470_4394964326496846193_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no cestinho entre as flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Recém-nascida na caminha de madeira",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "detalhes",
+    "nome": "Cenários e detalhes",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/653640770_17965840371046415_3071723434974151549_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de tiara de flores rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/620443336_17912452530274718_1947733624946191006_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo com a mão no rosto",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/622853474_18069539882404801_4723387133134510721_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de coroinha",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/623111910_18100371607866884_5921453415394802526_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de touquinha de tricô",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/626224051_18356178364206157_8771534149892211267_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida na cadeirinha de vime",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/656081897_18070747676248963_5494114049867668170_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de body lilás",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/656851982_18403491193177781_6568822233264971977_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no bercinho de vime",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DfXmb1MHb39/DfXmb1MHb39_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no baldinho branco com rosas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/624318574_17989719320761661_8393795275413456313_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida no cestinho com flores",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/618589423_17909903229293341_8492042108178494473_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido de coroinha na manta clara",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/670936153_18093306278026683_4334650872413916632_n.jpg",
+      "f": "p",
+      "alt": "Pais com o recém-nascido e o cachorrinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DeuJfBQoFts/DeuJfBQoFts_00.jpg",
+      "f": "p",
+      "alt": "Pais deitados com a recém-nascida",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/621206638_18036191237553186_5739040101709578288_n.jpg",
+      "f": "p",
+      "alt": "Mãe encostando o rosto na recém-nascida",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/463959042_17872176627202918_4686690363983927041_n.jpg",
+      "f": "p",
+      "alt": "Mãe com a recém-nascida no colo, de flor no cabelo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DfXnH1unQ6l/DfXnH1unQ6l_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida de laço na caminha branca",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DeuJwNAIEvR/DeuJwNAIEvR_00.jpg",
+      "f": "p",
+      "alt": "Recém-nascida no coração branco",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/626695830_18074736005593545_3229972279654594259_n.jpg",
+      "f": "l",
+      "alt": "Pais e o irmão com o recém-nascido",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Sil, <em>na sua casa.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/451575152_498329646027379_3542178597109960852_n.jpg",
+    "f": "p",
+    "alt": "Retrato sorrindo",
+    "c": [
+     0.45,
+     0.45
+    ]
+   },
+   "p": [
+    "A Silvia Olarindo, a Sil, fotografa recém-nascidos em casa, com segurança: leva os cenários, as mantas e os detalhes até a família, nos primeiros dias do bebê. Também fotografa os pais e os irmãos junto com o bebê."
+   ],
+   "citacao": "Este ensaio é repleto de pureza e delicadeza, deixando uma marca significativa na vida dos pais, irmãos e do recém-nascido!",
+   "citacao_quem": "Sil, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da paciência e do carinho com bebês de poucos dias, do ambiente tranquilo e confortável e das fotos lindas."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "23 avaliações no Google"
+    ],
+    [
+     "6 a 15",
+     "dias de vida no ensaio"
+    ],
+    [
+     "Em casa",
+     "com segurança"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "O ensaio",
+   "h2": "Os primeiros dias, <em>em casa.</em>",
+   "p": "O ensaio newborn da Sil:",
+   "fonte": "Artes e legendas da Sil no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Newborn",
+     "sub": "6 a 15 dias",
+     "p": "Os primeiros dias do bebê, fotografados em casa."
+    },
+    {
+     "nome": "Segurança",
+     "sub": "Com cuidado",
+     "p": "Ensaio newborn em casa, com segurança."
+    },
+    {
+     "nome": "Cenários",
+     "sub": "Delicadeza",
+     "p": "Cestinhos, caminhas, flores e mantas cor-de-rosa."
+    },
+    {
+     "nome": "Família",
+     "sub": "Pais e irmãos",
+     "p": "Uma marca significativa na vida dos pais, dos irmãos e do recém-nascido."
+    },
+    {
+     "nome": "Detalhes",
+     "sub": "O nome",
+     "p": "O nome no bastidor, a coroinha, a touquinha de tricô."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Em casa",
+     "p": "O primeiro Natal do bebê, no conforto de casa."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O primeiro Natal, <em>no conforto de casa.</em>",
+   "p": "O ensaio newborn em casa, no clima de Natal. Escolha um horário e a mensagem chega pronta no WhatsApp da Sil.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/657386277_18094542392045470_4394964326496846193_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida no cestinho entre as flores",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Newborn"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carla França",
+    "tag": "Primeiros dias",
+    "trecho": "A Sil foi carinhosa, paciente e cuidadosa em cada detalhe, deixando tudo tranquilo e acolhedor para a nossa bebê."
+   },
+   {
+    "nome": "Renata França",
+    "tag": "14 dias",
+    "trecho": "Fizemos as fotos do meu bebê de 14 dias. A Sil deixou o ambiente super confortável para o bebê e as fotos ficaram lindas!!"
+   },
+   {
+    "nome": "Luiza Alcantara",
+    "tag": "10 dias",
+    "trecho": "Fiz as fotos da minha filha de 10 dias com a Sil, e ela foi super paciente e atenciosa!"
+   },
+   {
+    "nome": "Jennifer Leite",
+    "tag": "Divertida",
+    "trecho": "Profissional maravilhosa, muito simpática, atenciosa, paciente e divertida."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o newborn?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O ensaio é na sua casa: a Sil vai até vocês.",
+   "rotulo": "Atendimento",
+   "telefone": "(11) 97214-5643",
+   "endereco": [
+    "Ensaio na casa da família",
+    "Grande São Paulo"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Silvia Olarindo Fotografia",
+  "descricao": "O primeiro Natal do bebê, no conforto de casa: o ensaio newborn em casa da Silvia Olarindo. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Silvia Olarindo Fotografia: página da campanha de Natal (natal.html), ligada ao site. Ela não divulgou Natal: os textos não prometem cenário. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · em casa",
+   "h1": "O primeiro Natal, <em>no conforto de casa.</em>",
+   "citacao": "Que o Senhor Jesus resplandeça sua luz sobre todas as famílias.",
+   "citacao_quem": "Sil, na mensagem de Natal",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/620812665_17939716878111301_8958005034667548555_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida sorrindo de tiara",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Newborn"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Nós iremos <em>até você.</em>",
+   "p": "Experimente realizar este momento tão especial no conforto da sua casa: a Sil vai até vocês, com segurança e delicadeza, para registrar os primeiros dias do bebê, também no Natal.",
+   "itens": [
+    "Ensaio newborn em casa, com segurança.",
+    "A Sil leva os cenários, as mantas e os detalhes.",
+    "Para o bebê, os pais e os irmãos.",
+    "Valores e datas pelo WhatsApp da Sil."
+   ],
+   "legenda_fotos": "Newborns da Sil"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DfXnH1unQ6l/DfXnH1unQ6l_00.jpg",
+    "f": "p",
+    "alt": "Recém-nascida de laço na caminha branca",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/656305663_18076660052141980_2124606011887372098_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida dormindo na manta rosa",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/651623310_18007498691845472_1320497919249974028_n.jpg",
+    "f": "l",
+    "alt": "Recém-nascida na caminha de madeira",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Sil abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de terça a sábado. O newborn é marcado pela data do parto: a Sil define os dias, a duração e quantos horários abre.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Sil abre com o dia e a hora escritos."
+    ],
+    [
+     "A Sil confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Pureza <em>e delicadeza.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Sil.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/653640770_17965840371046415_3071723434974151549_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida de tiara de flores",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/670936153_18093306278026683_4334650872413916632_n.jpg",
+     "f": "p",
+     "alt": "Pais com o recém-nascido",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/622853474_18069539882404801_4723387133134510721_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido de coroinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DfXmb1MHb39/DfXmb1MHb39_00.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no baldinho",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/621206638_18036191237553186_5739040101709578288_n.jpg",
+     "f": "p",
+     "alt": "Mãe com a recém-nascida",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/623111910_18100371607866884_5921453415394802526_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido de touquinha",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/silviaolarindofotografia/Instagram_files/656851982_18403491193177781_6568822233264971977_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida no bercinho",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/silvia-olarindo-fotografia/posts/DeuJfBQoFts/DeuJfBQoFts_00.jpg",
+     "f": "p",
+     "alt": "Pais com a recém-nascida",
+     "pos": "50% 50%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Carla França",
+    "tag": "Para sempre",
+    "trecho": "As fotos ficaram lindas e vão guardar para sempre uma fase muito preciosa da nossa família."
+   },
+   {
+    "nome": "Luiza Alcantara",
+    "tag": "Atenção",
+    "trecho": "Deu toda atenção dela no dia do ensaio e me entregou fotos lindas minhas e da minha bebê!"
+   },
+   {
+    "nome": "Ellen Caldas",
+    "tag": "Admiração",
+    "trecho": "continue sendo essa profissional incrível que eu admiro muito"
+   },
+   {
+    "nome": "Renata França",
+    "tag": "Paciente",
+    "trecho": "Excelente profissional. Muito paciente e atenciosa!"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · em casa",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Sil no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97214-5643)",
+  "site": "não tem (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/silvia-olarindo-fotografia` e `/demo/silvia-olarindo-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 25, reserva 5, 70 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm da arte \"Ensaio recém nascido ou newborn\", dos posts de out/nov 2026 e das avaliações.",
+   "Dona: Silvia Olarindo (\"a Sil\"). O retrato sorrindo da página salva entra no \"quem fotografa\" sem dizer que é ela (conferir).",
+   "Personalidade: newborn em casa, com segurança (\"nós iremos até você para eternizá-lo\"), em rosa e flores. Na demo: abertura em bolhas, Cormorant, \"fotografia\" em Great Vibes, rosa antigo e ♡ entre as especialidades.",
+   "Sem logo em boa resolução: monograma SO e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (newborn, família e detalhes), portfólio em 3 abas (Newborn, 6; Cenários e detalhes, 10; Família, 7), a Sil, o ensaio, 4 avaliações do Google, o bloco do Natal e o contato (com \"Atendimento\": o ensaio é na casa da família, sem endereço).",
+   "Página de Natal \"O primeiro Natal, no conforto de casa\": ela não divulgou Natal; os textos falam do newborn em casa no clima de Natal, sem prometer cenário; agenda de exemplo.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de out/nov 2026 (newborns de 6 e 15 dias), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16) e as artes (\"Ensaio recém nascido ou newborn\", \"Feliz Natal\")."
+  ],
+  "textos": [
+   "Arte: \"Este ensaio é repleto de pureza e delicadeza... Experimente realizar este momento tão especial no conforto da sua casa, nós iremos até você para eternizá-lo!\". Mensagem de Natal: \"Que o Senhor Jesus resplandeça sua luz, sobre todas as famílias...\". Legendas: \"Mariana com 06 dias\", \"#ensaionewbornemcasa #ensaionewborncomsegurança\".",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "**Ela não divulgou campanha de Natal**: a página de Natal é sugestão (vale perguntar).",
+   "Sem endereço no Google (atende em casa): o contato diz \"Ensaio na casa da família, Grande São Paulo\".",
+   "O retrato do \"quem fotografa\" pode ser dela (não confirmado).",
+   "Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
