@@ -1,0 +1,684 @@
+{
+ "pasta": "studio-flaternize",
+ "marca": "Studio Flaternize",
+ "marca_completa": "Studio Flaternize",
+ "dona": "Flávia",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/google_demo.json",
+ "google": {
+  "coords": "-23.54624,-46.2530055",
+  "fid": "0x94ce7725f0c033cb:0xda88d919845066cb",
+  "gid": "/g/11mvlx55nw"
+ },
+ "google_nome": "Studio Flaternize",
+ "endereco_maps": "Av. José Gallucci, 186 - Sala 8 - Jundiapeba, Mogi das Cruzes - SP, 08750-600",
+ "google_nota": "5,0",
+ "google_total": "29",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511977802176",
+ "fone_link": "+5511977802176",
+ "instagram": "studioflaternize",
+ "seguidores": "3,0 mil",
+ "mensagem": "Olá, Flávia! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfaf7",
+  "papel": "#ffffff",
+  "areia": "#f2efe8",
+  "linha": "#e3ddd1",
+  "tinta": "#23271f",
+  "tinta2": "#5f6459",
+  "rosa": "#d8c08f",
+  "acento": "#2f5d46",
+  "acento_escuro": "#244a37",
+  "cafe": "#1f2a22"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-15",
+   "2026-11-21",
+   "2026-11-22",
+   "2026-11-28",
+   "2026-11-29"
+  ],
+  "horas": [
+   "10h",
+   "11h30",
+   "14h",
+   "15h30"
+  ],
+  "reservados": [
+   "2026-11-14 11h30",
+   "2026-11-14 15h30",
+   "2026-11-15 14h",
+   "2026-11-21 10h",
+   "2026-11-21 14h",
+   "2026-11-21 15h30",
+   "2026-11-22 14h",
+   "2026-11-22 15h30",
+   "2026-11-28 15h30",
+   "2026-11-29 11h30",
+   "2026-11-29 15h30"
+  ],
+  "exemplo": "Horários de exemplo: a Flávia define os dela",
+  "mensagem": "Olá, Flávia! Quero o horário de {data} ({semana}) às {hora} para o Especial de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Flávia",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "hdfv",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Playfair Display",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Manrope",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Great Vibes",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "faixa",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "✦"
+ },
+ "titulo_nome": "Flaternize",
+ "titulo_script": "studio",
+ "quem_a": "a Flávia",
+ "quem_da": "da Flávia",
+ "quem_sou": "Sou a Flávia, do Studio Flaternize",
+ "slogan": "Mais que um ensaio: uma experiência.",
+ "site": {
+  "titulo": "Studio Flaternize | Família, infantil, gestante e Natal em Mogi das Cruzes",
+  "descricao": "Studio Flaternize, da fotógrafa Flávia, em Jundiapeba, Mogi das Cruzes: família, crianças, bebês, gestante, feminino e o Especial de Natal 2026, Eterna Magia. Nota 5,0 no Google, com 29 avaliações.",
+  "comentario": "Demo Studio Flaternize (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@studioflaternize: as fotos da página salva, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Studio de fotografia · Mogi das Cruzes",
+   "frase": "Mais que um ensaio: uma experiência.",
+   "intro": "Famílias, crianças, bebês e gestantes, no Studio Flaternize, em Jundiapeba, Mogi das Cruzes. E o Especial de Natal 2026, Eterna Magia, já está com poucas vagas.",
+   "rotulos": [
+    "Natal",
+    "Gestante",
+    "Infantil"
+   ],
+   "especialidades": [
+    "Família",
+    "Infantil",
+    "Bebês",
+    "Gestante",
+    "Feminino",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/622010879_18057086528348398_8209198525601140081_n.webp",
+     "f": "p",
+     "alt": "Menina abrindo o presente junto à árvore de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante de branco na poltrona de vime",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/619881649_18105405274696048_3395450950290617290_n.webp",
+     "f": "p",
+     "alt": "Menino de Homem-Aranha sorrindo, sentado no chão",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Uma experiência <em>em cada ensaio.</em>",
+   "p": "Ensaios da Flávia no Studio Flaternize. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/622010879_18057086528348398_8209198525601140081_n.webp",
+      "f": "p",
+      "alt": "Menina abrindo o presente junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/625189280_18122435167561934_7533529298207920365_n.webp",
+      "f": "p",
+      "alt": "Menina de cabelo cacheado com o presente",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/627055246_18308306509280197_1796496271103665929_n.webp",
+      "f": "p",
+      "alt": "Menina sorrindo com o presente, junto à árvore",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/622869880_18088071158012412_3272323840250449880_n.webp",
+      "f": "p",
+      "alt": "Família junto à árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/624699774_18088527260126823_6550337330073979084_n.webp",
+      "f": "p",
+      "alt": "Pais e filho na cama do cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/655220384_18090573821162163_2080857548175590550_n.webp",
+      "f": "p",
+      "alt": "Menina sorrindo junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/654631392_18097758124813957_4578779579305118531_n.webp",
+      "f": "p",
+      "alt": "Menina de franja junto à árvore",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/650403561_18057904226690287_2147848427453932745_n.webp",
+      "f": "p",
+      "alt": "Irmãs na poltrona de vime de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/654011262_18076111256140852_981629879849440872_n.webp",
+      "f": "p",
+      "alt": "Bebê de verde na poltrona de vime",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/656174372_18060662216391700_1297633402962775866_n.webp",
+      "f": "p",
+      "alt": "Pais com a bebê de verde",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/670276415_18582066451063781_2485442044824456778_n.webp",
+      "f": "p",
+      "alt": "Bebê de verde no trenzinho de madeira",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/650899620_18118447237619463_9187965684667569038_n.webp",
+      "f": "p",
+      "alt": "Mãe erguendo o filho, rindo, junto à árvore",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e bebês",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/619881649_18105405274696048_3395450950290617290_n.webp",
+      "f": "p",
+      "alt": "Menino de Homem-Aranha sentado no chão",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/619477047_18028704047786430_143525598355426893_n.webp",
+      "f": "p",
+      "alt": "Mãe e filho de Homem-Aranha",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/621218125_18039078875729583_6273850629461060175_n.webp",
+      "f": "p",
+      "alt": "Bebê com o limão, no ensaio das frutas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/653982933_18095505035058248_9220561475066477396_n.webp",
+      "f": "p",
+      "alt": "Bebê mordendo a fruta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/652800264_18081116570605247_472530266297488406_n.webp",
+      "f": "p",
+      "alt": "Bebê na poltrona de vime, no fundo cinza",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/657553910_18314585410258417_6095710827145793996_n.webp",
+      "f": "p",
+      "alt": "Irmãs brincando com o sininho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/618912623_17993750696875899_7253095350205150877_n.webp",
+      "f": "l",
+      "alt": "Bebê de laço rindo, de braços abertos",
+      "pos": "35% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/625353338_18111647944647486_1841963482198598052_n.webp",
+      "f": "l",
+      "alt": "Bebê sentada entre as frutas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/623422416_18012575363659015_1460608884622531206_n.webp",
+      "f": "l",
+      "alt": "Bebê sorrindo no fundo cinza",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e feminino",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido colorido no fundo lilás",
+      "pos": "50% 61%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g01.jpg",
+      "f": "p",
+      "alt": "Gestante com o vestido de tule colorido",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g00.jpg",
+      "f": "p",
+      "alt": "Gestante de branco na poltrona de vime",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/621513847_18031662302582119_5629234547596632876_n.webp",
+      "f": "p",
+      "alt": "Gestante de preto, de perfil junto à porta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/624096698_18081482165231293_6013069048267845172_n.webp",
+      "f": "p",
+      "alt": "Casal no ensaio gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/652553277_18139606807501740_9185953139628375761_n.webp",
+      "f": "p",
+      "alt": "Detalhe dos sapatinhos sobre a barriga",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/626297583_18424072705139136_63589526878182541_n.webp",
+      "f": "p",
+      "alt": "Ensaio feminino de blusa preta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/624085519_18120590494569258_2695277065513142149_n.webp",
+      "f": "p",
+      "alt": "Ensaio feminino na banqueta",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Flávia <em>e o Studio Flaternize.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/863142088_18128939758804494_5877897350241258296_n.jpg",
+    "f": "p",
+    "alt": "Retrato sorrindo com a câmera, no Studio Flaternize",
+    "c": [
+     0.5,
+     0.42
+    ]
+   },
+   "p": [
+    "A Flávia fotografa famílias, crianças, bebês, gestantes e ensaios femininos e corporativos no Studio Flaternize, em Jundiapeba, Mogi das Cruzes. Cada ensaio é pensado como uma experiência, com cenários montados por ela, como os de Natal."
+   ],
+   "citacao": "Aqui no nosso Studio oferecemos experiência, vocês saem querendo mais.",
+   "citacao_quem": "Flávia, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam da paciência e do cuidado com as crianças, de como ela deixa todo mundo à vontade e dos cenários. Uma cliente acompanha a filha desde o positivo até os 2 anos."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "29 avaliações no Google"
+    ],
+    [
+     "3 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "2",
+     "cenários de Natal 2026"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Mais que um ensaio, <em>uma experiência.</em>",
+   "p": "Os ensaios do Studio Flaternize:",
+   "fonte": "Legendas da Flávia no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Do positivo",
+     "p": "O acompanhamento começa no positivo e segue com o bebê."
+    },
+    {
+     "nome": "Bebês",
+     "sub": "Primeiro ano",
+     "p": "Ensaios do bebê ao longo do primeiro ano, até o smash the cake."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temas",
+     "p": "Do Homem-Aranha ao aniversário, com paciência e cuidado com as crianças."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "A família toda no estúdio, à vontade."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Corporativo",
+     "p": "Ensaios femininos e corporativos, com ajuda em cada pose."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Eterna Magia",
+     "p": "Dois cenários de Natal 2026: a Sala e o Celeiro."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Eterna <em>magia.</em>",
+   "p": "O Especial de Natal 2026 do Studio Flaternize tem dois cenários, a Sala e o Celeiro, e pouquíssimas vagas. Escolha um horário e a mensagem chega pronta no WhatsApp da Flávia.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/625055749_18084729544924460_765431615616013041_n.webp",
+    "f": "l",
+    "alt": "Mãe beijando a filha junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thaina Vieira",
+    "tag": "Crianças",
+    "trecho": "Excelente profissional, os melhores ensaios que já fiz, muito paciente, simpática e cuidadosa com as crianças."
+   },
+   {
+    "nome": "Lígia Pinheiro Martins",
+    "tag": "Desde o positivo",
+    "trecho": "Fiz também o acompanhamento da minha filha, desde o positivo até agora com 2 anos."
+   },
+   {
+    "nome": "Jonathas Santos",
+    "tag": "Experiência",
+    "trecho": "Um ótimo ambiente a Flávia e uma excelente profissional, com uma ótima comunicação e um cuidado enorme com a nossa experiência"
+   },
+   {
+    "nome": "Daniele Silva Alves",
+    "tag": "Atendimento",
+    "trecho": "Trabalho incrível atendimento ótimo a Flávia maravilhosa muito atenciosa"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos viver <em>essa experiência?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O studio fica em Jundiapeba, Mogi das Cruzes, e atende todos os dias.",
+   "telefone": "(11) 97780-2176",
+   "endereco": [
+    "Av. José Gallucci, 186, sala 8",
+    "Jundiapeba",
+    "Mogi das Cruzes · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Especial de Natal 2026, Eterna Magia | Studio Flaternize",
+  "descricao": "O Especial de Natal 2026 do Studio Flaternize, em Mogi das Cruzes: Eterna Magia, com os cenários Sala e Celeiro. Poucas vagas: escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Studio Flaternize: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Especial de Natal 2026 · Mogi das Cruzes",
+   "h1": "Eterna <em>magia.</em>",
+   "citacao": "Nunca vou oferecer apenas um ensaio simples de fotos.",
+   "citacao_quem": "Flávia, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/622043314_18054059681414940_2129121593067451993_n.webp",
+    "f": "l",
+    "alt": "Irmã mais velha com a bebê, junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Dois cenários: <em>Sala e Celeiro.</em>",
+   "p": "O Especial de Natal 2026, Eterna Magia, tem dois cenários no Studio Flaternize, em Jundiapeba: a Sala e o Celeiro. Mais do que um ensaio de fotos, uma experiência para a família toda.",
+   "itens": [
+    "No Studio Flaternize, em Jundiapeba, Mogi das Cruzes.",
+    "Dois cenários: a Sala e o Celeiro.",
+    "Pouquíssimas vagas: reserve o seu horário.",
+    "Valores e detalhes pelo WhatsApp da Flávia."
+   ],
+   "legenda_fotos": "Natais anteriores no Studio Flaternize"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/627055246_18308306509280197_1796496271103665929_n.webp",
+    "f": "p",
+    "alt": "Menina com o presente junto à árvore",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/621571928_18104819176686270_8128339393166853033_n.webp",
+    "f": "l",
+    "alt": "Bebê no trenzinho de madeira, junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/629238215_18324828589223249_5060960538453152834_n.webp",
+    "f": "l",
+    "alt": "Bebê de verde com o sininho",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Flávia abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece. A Flávia define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Flávia abre com o dia e a hora escritos."
+    ],
+    [
+     "A Flávia confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Uma experiência <em>em cada ensaio.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Flávia.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g02.jpg",
+     "f": "p",
+     "alt": "Gestante de vestido colorido",
+     "pos": "50% 61%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/619881649_18105405274696048_3395450950290617290_n.webp",
+     "f": "p",
+     "alt": "Menino de Homem-Aranha",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/621218125_18039078875729583_6273850629461060175_n.webp",
+     "f": "p",
+     "alt": "Bebê com o limão",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/studio-flaternize/google/fotos/g00.jpg",
+     "f": "p",
+     "alt": "Gestante na poltrona de vime",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/619477047_18028704047786430_143525598355426893_n.webp",
+     "f": "p",
+     "alt": "Mãe e filho de Homem-Aranha",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/657553910_18314585410258417_6095710827145793996_n.webp",
+     "f": "p",
+     "alt": "Irmãs com o sininho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/621513847_18031662302582119_5629234547596632876_n.webp",
+     "f": "p",
+     "alt": "Gestante de preto",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/studioflaternize/Instagram_files/653982933_18095505035058248_9220561475066477396_n.webp",
+     "f": "p",
+     "alt": "Bebê mordendo a fruta",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Lígia Pinheiro Martins",
+    "tag": "À vontade",
+    "trecho": "ela nos deixa super a vontade e garante que o trabalho saia incrível."
+   },
+   {
+    "nome": "Jonathas Santos",
+    "tag": "Voltarei",
+    "trecho": "fui muito bem atendido presencialmente e as fts ficaram incríveis. Voltarei em breve!"
+   },
+   {
+    "nome": "Thaina Vieira",
+    "tag": "Os melhores",
+    "trecho": "os melhores ensaios que já fiz"
+   },
+   {
+    "nome": "Daniele Silva Alves",
+    "tag": "Recomendo",
+    "trecho": "o ensaio que fiz ficaram maravilhosos recomendo de olhos fechados"
+   }
+  ],
+  "final": {
+   "eyebrow": "Especial de Natal 2026",
+   "h2": "Garanta o seu <em>horário de Natal.</em>",
+   "p": "São pouquíssimas vagas. Escolha um horário ou chame a Flávia no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97780-2176)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/studio-flaternize` e `/demo/studio-flaternize/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 7, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out 2026 e das avaliações.",
+   "Dona: Flávia (citada nas avaliações). O retrato com a câmera da página salva entra no \"quem fotografa\" sem dizer que é ela (conferir).",
+   "Personalidade: \"Nunca vou oferecer apenas um ensaio simples de fotos... oferecemos EXPERIÊNCIA\" e o Natal branco e dourado com o trenzinho de madeira. Na demo: abertura em faixa, Playfair Display, \"studio\" em Great Vibes, verde-pinheiro e dourado, ✦ entre as especialidades.",
+   "Sem logo em boa resolução: monograma SF e o nome com \"studio\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (Natal, gestante e infantil), portfólio em 3 abas (Natal, 12; Infantil e bebês, 9; Gestante e feminino, 8), a Flávia, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Eterna magia\": o Especial de Natal 2026 (cenários Sala e Celeiro), fotos de Natais anteriores, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 10h às 15h30, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "As fotos da página salva no Drive (até 1440 px) e 3 fotos do Google. Os posts de out 2026 com os cenários Sala e Celeiro são artes com texto, então não entraram.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes (\"Eterna Magia\", colagem de aniversário), a silhueta e os ensaios de aniversário adulto."
+  ],
+  "textos": [
+   "Legendas: \"ESPECIAL DE NATAL 2026 - ETERNA MAGIA... Nunca vou oferecer apenas um ensaio simples de fotos. Aqui no nosso Studio oferecemos EXPERIÊNCIA, vocês saem querendo mais\" (22/10), \"Cenário Celeiro\" (23/10), \"temos poucas vagas\" (24/10).",
+   "Avaliações do Google: 4 das 5 visíveis (a de \"Janny\" ficou de fora: o nome dela no Google é um e-mail)."
+  ],
+  "conferir": [
+   "O retrato com a câmera pode ser da Flávia (não está confirmado).",
+   "As fotos de Natal são de anos anteriores; as de 2026 só aparecem nas artes.",
+   "Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
