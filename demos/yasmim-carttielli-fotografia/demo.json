@@ -1,0 +1,679 @@
+{
+ "pasta": "yasmim-carttielli-fotografia",
+ "marca": "Yasmim Carttielli Fotografia",
+ "marca_completa": "Yasmim Carttielli Fotografia",
+ "dona": "Yasmim",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5118171,-46.4873516",
+  "fid": "0x94ce610f2cb13b3b:0xefb2c347c93ee7ec",
+  "gid": "/g/11gfp88sdj"
+ },
+ "google_nome": "Yasmim Carttielli Fotografa",
+ "endereco_maps": "R. Srg. Djalma Evangelista, 5 - Vila Pte. Rasa, Sl 4 - Pte. Rasa, São Paulo - SP, 03881-170",
+ "google_nota": "4,8",
+ "google_total": "17",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511961597762",
+ "fone_link": "+5511961597762",
+ "instagram": "yasmimcarttiellifotografa",
+ "seguidores": "3,4 mil",
+ "mensagem": "Olá, Yasmim! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdf9fa",
+  "papel": "#ffffff",
+  "areia": "#f8eef1",
+  "linha": "#efdfe4",
+  "tinta": "#2c2430",
+  "tinta2": "#6a5f68",
+  "rosa": "#f4c6d4",
+  "acento": "#c4467a",
+  "acento_escuro": "#a3395f",
+  "cafe": "#2b2028"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-26",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "13h",
+   "14h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 14h",
+   "2026-11-18 13h",
+   "2026-11-21 9h",
+   "2026-11-21 13h",
+   "2026-11-21 14h",
+   "2026-11-26 13h",
+   "2026-11-26 14h",
+   "2026-11-28 14h",
+   "2026-12-05 10h30",
+   "2026-12-05 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Yasmim define os dela",
+  "mensagem": "Olá, Yasmim! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Yasmim",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Yasmim, da Yasmim Carttielli Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Yasmim, da Yasmim Carttielli Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "pp5k",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Yasmim, da Yasmim Carttielli Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Bodoni",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Poppins",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Petit Formal Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "botoes": "suave",
+  "ornamento": "♥"
+ },
+ "titulo_nome": "Yasmim Carttielli",
+ "titulo_script": "fotografia",
+ "quem_a": "a Yasmim",
+ "quem_da": "da Yasmim",
+ "quem_sou": "Sou a Yasmim Carttielli",
+ "slogan": "Que privilégio é acompanhar famílias crescendo.",
+ "site": {
+  "titulo": "Yasmim Carttielli Fotografia | Gestante, parto, bebês, família e Natal na Ponte Rasa, Zona Leste",
+  "descricao": "Yasmim Carttielli, fotógrafa desde 2009, com estúdio na Ponte Rasa, Zona Leste de São Paulo: gestante, parto, newborn, infantil, família, retratos e Natal 2026.",
+  "comentario": "Demo Yasmim Carttielli Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@yasmmcarttiellifotografia: as fotos da página salva e os posts de 2026, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa desde 2009 · Ponte Rasa, Zona Leste",
+   "frase": "Que privilégio é acompanhar famílias crescendo.",
+   "intro": "Gestantes, partos, bebês, crianças e famílias, no estúdio da Ponte Rasa, na Zona Leste de São Paulo. E a pré-venda do ensaio de Natal 2026 já começou.",
+   "rotulos": [
+    "Infantil",
+    "Gestante",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Infantil",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/652644678_18039172052782994_4987894194587832441_n.jpg",
+     "f": "p",
+     "alt": "Menina de coroa de flores e orelhinhas no cenário de Páscoa",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/posts/DaTAcH9kaCe/DaTAcH9kaCe_00.jpg",
+     "f": "p",
+     "alt": "Família no ensaio gestante, entre as flores de papel",
+     "c": [
+      0.5,
+      0.0
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/624152177_18015716456647118_8490330543193279942_n.jpg",
+     "f": "p",
+     "alt": "Pai erguendo o filho, os dois rindo",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Pedacinhos <em>da história de cada família.</em>",
+   "p": "Ensaios da Yasmim, no estúdio da Ponte Rasa. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/322334709_580959853854205_4790085541587075451_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido branco esvoaçante",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/322578538_5646715818779860_4936464238872029652_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco na banqueta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/650034538_17982428186796677_3037886260382931928_n.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no ensaio gestante",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/654586041_18062003411355632_5857107586160225080_n.jpg",
+      "f": "p",
+      "alt": "Gestante em preto e branco, de perfil",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/624152177_18015716456647118_8490330543193279942_n.jpg",
+      "f": "p",
+      "alt": "Pai erguendo o filho, os dois rindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/posts/DaTAcH9kaCe/DaTAcH9kaCe_00.jpg",
+      "f": "p",
+      "alt": "Família no ensaio gestante, entre as flores de papel",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/posts/DaQjIlQEaX8/DaQjIlQEaX8_00.jpg",
+      "f": "p",
+      "alt": "Família em preto e branco no fundo de tijolinhos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Casal sentado no cenário com capim-dos-pampas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/fotos/g03.jpg",
+      "f": "l",
+      "alt": "O parto: o pai beijando a mãe com o bebê no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Pais com o recém-nascido, em preto e branco",
+      "pos": "50% 40%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325377034_3167768670181542_4937456791942413295_n.jpg",
+      "f": "p",
+      "alt": "Bebê na boia, no cenário de piscina",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325388187_1312765716241814_6179570380596758865_n.jpg",
+      "f": "p",
+      "alt": "Bebê de cachinhos na cadeirinha, entre os balões",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325404825_741871680610976_5550912004551822776_n.jpg",
+      "f": "p",
+      "alt": "Bebê de vestido lilás entre os balões",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/326949423_549829157188082_761553660706001700_n.jpg",
+      "f": "p",
+      "alt": "Bebê de vermelho na piscina de bolinhas",
+      "pos": "60% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/653863399_18070754054235976_6581444080885104113_n.jpg",
+      "f": "p",
+      "alt": "Menino mordendo o ovo de chocolate",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/622051295_18063284453300966_1728611384183223869_n.jpg",
+      "f": "p",
+      "alt": "Bebê de orelhinhas no cenário de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/625051782_18047790389701043_7743024606271040155_n.jpg",
+      "f": "p",
+      "alt": "Menina de pé no cenário de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/627136912_18405999001133741_8909016393571195110_n.jpg",
+      "f": "p",
+      "alt": "Menino no banco do cenário de Páscoa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/656217372_18189673069318825_4387474333082128051_n.jpg",
+      "f": "p",
+      "alt": "Menino de orelhinhas no cenário de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/652644678_18039172052782994_4987894194587832441_n.jpg",
+      "f": "p",
+      "alt": "Menina de coroa de flores no cenário de Páscoa",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/655717530_18174892870390887_6913469047335336617_n.jpg",
+      "f": "l",
+      "alt": "Bebê com o ovo de chocolate no cenário de Páscoa",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "retratos",
+    "nome": "Retratos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/323566656_858229995296875_6914270747089399082_n.jpg",
+      "f": "p",
+      "alt": "Retrato de terninho roxo no fundo azul",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325309486_739510627297751_3287979975942366094_n.jpg",
+      "f": "p",
+      "alt": "Retrato profissional de jaleco",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/653627169_18109256803817466_7545016537506233973_n.jpg",
+      "f": "p",
+      "alt": "Retrato de óculos escuros no fundo rosa",
+      "pos": "50% 30%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/656060098_18109402477837972_8672460980067321254_n.webp",
+      "f": "p",
+      "alt": "Retrato profissional no consultório",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325566993_5834010653382418_5558511684242383841_n.jpg",
+      "f": "p",
+      "alt": "Profissional da saúde no consultório",
+      "pos": "40% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/323893673_608022217579808_5159742732910144972_n.jpg",
+      "f": "p",
+      "alt": "Ensaio feminino deitada no fundo azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325761020_893373001806028_7343180333144396787_n.jpg",
+      "f": "l",
+      "alt": "Um abraço apertado",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Yasmim, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/323707847_1822538531435009_7415454155709946608_n.jpg",
+    "f": "p",
+    "alt": "Yasmim sorrindo com a câmera junto ao rosto",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "Fotógrafa desde 2009, paulista e apaixonada pela família, a Yasmim fotografa gestantes, partos, bebês, crianças e famílias no estúdio da Ponte Rasa, na Zona Leste de São Paulo. Também faz retratos profissionais e corporativos."
+   ],
+   "citacao": "Que privilégio é transformar tudo isso em memória.",
+   "citacao_quem": "Yasmim, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam do cuidado com os pequenos, do alto astral dela e do carinho no parto e no newborn. Uma cliente conta que ela eterniza a família há anos."
+   ],
+   "numeros": [
+    [
+     "2009",
+     "fotografando desde"
+    ],
+    [
+     "4,8",
+     "17 avaliações no Google"
+    ],
+    [
+     "3,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da barriga <em>aos 10 anos.</em>",
+   "p": "Os ensaios da Yasmim:",
+   "fonte": "Legendas da Yasmim no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Entre tantos preparativos, existe também a beleza de simplesmente esperar."
+    },
+    {
+     "nome": "Parto",
+     "sub": "O dia",
+     "p": "O registro do parto, com cuidado e carinho."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Depois do parto, o newborn do bebê."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "Temas",
+     "p": "Piscina, balões, piscina de bolinhas, Páscoa e aniversários."
+    },
+    {
+     "nome": "Família",
+     "sub": "Crescendo",
+     "p": "Um dia a Isa estava na barriga da mamãe; 10 anos depois, mais um pedacinho da história dessa família."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Pré-venda",
+     "p": "Uma experiência acolhedora para guardar lembranças reais com quem você ama."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "A pré-venda de Natal <em>já começou.</em>",
+   "p": "Uma experiência acolhedora para guardar lembranças reais com quem você ama. As vagas são antecipadas e limitadas: escolha um horário e a mensagem chega pronta no WhatsApp da Yasmim.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Mãe e filha junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Thaynara Borba",
+    "tag": "Parto e newborn",
+    "trecho": "A Yasmim realizou as fotos do meu parto, tivemos nosso primeiro contato alguns dias antes, e no dia do parto eu sentia como se conhecesse ela a anos"
+   },
+   {
+    "nome": "Lara Beatriz",
+    "tag": "Com as crianças",
+    "trecho": "Trabalho impecável, fotógrafa muitooooo atenciosa e cuidadosa com os pequenos."
+   },
+   {
+    "nome": "Juliana Moni",
+    "tag": "Natal",
+    "trecho": "Fizemos o ensaio de natal e ficou muito melhor do que nossa expectativas."
+   },
+   {
+    "nome": "Flavio dos Santos Silvério",
+    "tag": "Dia das Mães",
+    "trecho": "Fiz um ensaio de Dia das Mães com ela e as fotos ficaram maravilhosas, foi um dos melhores presentes que eu poderia dar para minha mãe"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos registrar <em>a sua história?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Ponte Rasa, Zona Leste de São Paulo, e atende de segunda a sábado.",
+   "telefone": "(11) 96159-7762",
+   "endereco": [
+    "R. Srg. Djalma Evangelista, 5, sala 4",
+    "Vila Ponte Rasa",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Yasmim Carttielli Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Yasmim Carttielli, na Ponte Rasa, Zona Leste de São Paulo: pré-venda aberta, vagas limitadas. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Yasmim Carttielli Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Ponte Rasa",
+   "h1": "A época mais especial <em>do ano está chegando.</em>",
+   "citacao": "Preparamos uma experiência acolhedora para guardar lembranças reais com quem você ama.",
+   "citacao_quem": "Yasmim, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/google/fotos/g01.jpg",
+    "f": "l",
+    "alt": "Mãe e filha junto à árvore de Natal",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "A pré-venda <em>de Natal já começou.</em>",
+   "p": "A época mais especial do ano está chegando: uma experiência acolhedora no estúdio da Yasmim, na Ponte Rasa, para guardar lembranças reais com quem você ama. As vagas são antecipadas e limitadas.",
+   "itens": [
+    "No estúdio da Yasmim, na Ponte Rasa, Zona Leste de São Paulo.",
+    "Pré-venda do ensaio de Natal 2026 aberta.",
+    "Vagas antecipadas e limitadas.",
+    "Valores e datas pelo WhatsApp da Yasmim."
+   ],
+   "legenda_fotos": "Outros ensaios no estúdio da Yasmim"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/625051782_18047790389701043_7743024606271040155_n.jpg",
+    "f": "p",
+    "alt": "Menina no cenário de Páscoa",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/654586041_18062003411355632_5857107586160225080_n.jpg",
+    "f": "l",
+    "alt": "Gestante em preto e branco",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/652014911_18060078800414385_635900411137537096_n.jpg",
+    "f": "l",
+    "alt": "Pais com a filha no cenário de Páscoa",
+    "c": [
+     0.5,
+     0.4
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Yasmim abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece, de segunda a sábado, no horário do estúdio. A Yasmim define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Yasmim abre com o dia e a hora escritos."
+    ],
+    [
+     "A Yasmim confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Pedacinhos <em>da história de cada família.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Yasmim.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/322334709_580959853854205_4790085541587075451_n.jpg",
+     "f": "p",
+     "alt": "Gestante com o tecido branco",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/652644678_18039172052782994_4987894194587832441_n.jpg",
+     "f": "p",
+     "alt": "Menina de coroa de flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/624152177_18015716456647118_8490330543193279942_n.jpg",
+     "f": "p",
+     "alt": "Pai erguendo o filho",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325404825_741871680610976_5550912004551822776_n.jpg",
+     "f": "p",
+     "alt": "Bebê de vestido lilás",
+     "pos": "50% 45%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/yasmim-carttielli-fotografia/posts/DaTAcH9kaCe/DaTAcH9kaCe_00.jpg",
+     "f": "p",
+     "alt": "Família no ensaio gestante",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325388187_1312765716241814_6179570380596758865_n.jpg",
+     "f": "p",
+     "alt": "Bebê de cachinhos entre os balões",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/650034538_17982428186796677_3037886260382931928_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/yasmmcarttiellifotografia/Instagram_files/325377034_3167768670181542_4937456791942413295_n.jpg",
+     "f": "p",
+     "alt": "Bebê na boia",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Juliana Moni",
+    "tag": "Ensaio de Natal",
+    "trecho": "Ela teve muita paciência e carinho com nosso bebe. Fizemos o ensaio de natal e ficou muito melhor do que nossa expectativas."
+   },
+   {
+    "nome": "Victoria Gouvea",
+    "tag": "Parto",
+    "trecho": "Obrigada por registrar o melhor dia da minha vida!"
+   },
+   {
+    "nome": "Lara Beatriz",
+    "tag": "Há anos",
+    "trecho": "a anos eternizando momentos da minha família"
+   },
+   {
+    "nome": "Thaynara Borba",
+    "tag": "Alto astral",
+    "trecho": "muito cuidadosa, carinhosa, simpática, super alto astral, me deixou muito confortável."
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Ponte Rasa",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "As vagas são limitadas. Escolha um horário ou chame a Yasmim no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96159-7762)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/yasmim-carttielli-fotografia` e `/demo/yasmim-carttielli-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 8, 77 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de 2026, da arte \"Quem sou eu?\" dela e das avaliações.",
+   "Dona: Yasmim Carttielli (arte \"Quem sou eu?\": fotógrafa desde 2009, 31 anos, paulista, ama a família, divertida). Foto dela: com a câmera junto ao rosto, da página salva.",
+   "Personalidade: rosa, divertida e de família, que acompanha as famílias por anos (\"Um dia a Isa estava na barriga da mamãe... 10 anos depois\"). Na demo: abertura em polaroides, Libre Bodoni, \"fotografia\" em Petit Formal Script, rosa e ♥ entre as especialidades.",
+   "Sem logo em boa resolução: monograma YC e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (infantil, gestante e família), portfólio em 3 abas (Gestante e família, 10; Infantil, 11; Retratos, 7), a Yasmim, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A época mais especial do ano está chegando\": a pré-venda, os cenários dela (Páscoa), a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 14h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "Os posts de 2026 (família em preto e branco e gestante em família, 1440 px), as fotos da página salva no Drive (1440 px) e 4 fotos do Google.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes (\"Dia do Fotógrafo\", \"Quem sou eu?\", \"Pré-venda aberta\", \"Mini sessão Summer\"), as fotos pessoais (casamento e pré-wedding dela) e as de detalhe."
+  ],
+  "textos": [
+   "Legendas: \"A época mais especial do ano está chegando e a nossa pré-venda de Natal já começou... lembranças reais com quem você ama\" (20/10), \"Que privilégio é acompanhar famílias crescendo\" e \"Entre tantos preparativos...\" (julho).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "A única foto de Natal é do Google (mãe e filha junto à árvore); a pré-venda 2026 só aparece numa arte.",
+   "Nota 4,8 no Google (17 avaliações): o placar mostra a nota.",
+   "Fotos de crianças, bebês, gestantes e do parto: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
