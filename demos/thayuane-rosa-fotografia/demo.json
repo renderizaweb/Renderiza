@@ -1,0 +1,691 @@
+{
+ "pasta": "thayuane-rosa-fotografia",
+ "marca": "Thayuane Rosa Fotografia",
+ "marca_completa": "Thayuane Rosa Fotografia",
+ "dona": "Thay",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.5037009,-46.5327554",
+  "fid": "0x94ce5fa4b116b837:0xc0ab9527d5afec83",
+  "gid": "/g/11vz47fjfv"
+ },
+ "google_nome": "Thayuane Rosa Fotografia",
+ "endereco_maps": "R. Mutu-Poranga, 115 - Jardim Piratininga, São Paulo - SP, 03716-140",
+ "google_nota": "5,0",
+ "google_total": "34",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511970758127",
+ "fone_link": "+5511970758127",
+ "instagram": "thayuanerosafotografia",
+ "seguidores": "1,6 mil",
+ "mensagem": "Olá, Thay! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf7f4",
+  "papel": "#ffffff",
+  "areia": "#f2e9e2",
+  "linha": "#e5d8cd",
+  "tinta": "#2b211c",
+  "tinta2": "#6b5c52",
+  "rosa": "#e6c3b0",
+  "acento": "#7a4a33",
+  "acento_escuro": "#5f3826",
+  "cafe": "#241a15"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "14h",
+   "16h"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 16h",
+   "2026-11-18 14h",
+   "2026-11-21 9h",
+   "2026-11-21 14h",
+   "2026-11-21 16h",
+   "2026-11-28 14h",
+   "2026-11-28 16h",
+   "2026-12-05 16h",
+   "2026-12-12 10h30",
+   "2026-12-12 16h"
+  ],
+  "exemplo": "Horários de exemplo: a Thay define os dela",
+  "mensagem": "Olá, Thay! Quero o horário de {data} ({semana}) às {hora} para o Entre nós, o Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Thay",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "u8wk",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Jost",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Pinyon Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "arco",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "◆",
+  "natal_capa": "retrato"
+ },
+ "titulo_nome": "Thayuane Rosa",
+ "titulo_script": "fotografia",
+ "quem_a": "a Thay",
+ "quem_da": "da Thay",
+ "quem_sou": "Prazer, eu sou a Thay",
+ "slogan": "Fotografar nunca foi só sobre fazer fotos.",
+ "site": {
+  "titulo": "Thayuane Rosa Fotografia | Gestante, newborn, família e Natal no Jardim Piratininga, Zona Leste",
+  "descricao": "Thayuane Rosa, a Thay, fotógrafa no Jardim Piratininga, Zona Leste de São Paulo: gestante, newborn, bebês, smash the cake, família, feminino e o especial Entre nós, o Natal. Nota 5,0 no Google, com 34 avaliações.",
+  "comentario": "Demo Thayuane Rosa Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@thayuanerosafotografia: as fotos da página salva, sem capas de vídeo nem artes) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Fotógrafa · Jardim Piratininga, Zona Leste",
+   "frase": "Fotografar nunca foi só sobre fazer fotos.",
+   "intro": "Gestantes, newborn, bebês, crianças, famílias e mulheres, no estúdio do Jardim Piratininga, na Zona Leste de São Paulo. E o especial Entre nós, o Natal vai de 9 de novembro a 12 de dezembro.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Natal"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Smash the cake",
+    "Família",
+    "Feminino",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/652133568_18076574711419478_2653339206517450222_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante, ele beijando a barriga",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621802465_18054766223393330_6254482331695573586_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascida dormindo com o ursinho",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623902361_18149045824444125_1052802437522669561_n.jpg",
+     "f": "p",
+     "alt": "Bebê de tiara de rena no cenário de Natal",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Guardar fases, <em>reencontrar sentimentos.</em>",
+   "p": "Ensaios da Thay, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/652133568_18076574711419478_2653339206517450222_n.jpg",
+      "f": "p",
+      "alt": "Casal no ensaio gestante, ele beijando a barriga",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621828456_18054678809679508_8221837462904263509_n.jpg",
+      "f": "p",
+      "alt": "Gestante de vestido pink no bosque",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622129548_18093605995769517_6615089427277435837_n.jpg",
+      "f": "p",
+      "alt": "Gestante de branco entre as árvores",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623395653_17987658806927588_5558001118100205258_n.jpg",
+      "f": "p",
+      "alt": "Gestante com o tecido de arco-íris no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/654349650_18091484069145700_2045887274773536787_n.jpg",
+      "f": "p",
+      "alt": "Gestante na estrada, de boné",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621980318_18093429272302404_9071612881905973320_n.jpg",
+      "f": "p",
+      "alt": "Casal de costas um para o outro, no estúdio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/638873803_18377304061092651_7802043096721084570_n.jpg",
+      "f": "p",
+      "alt": "Casal de mãos dadas na estrada",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/thayuane-rosa-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Gestante de verde rodando o vestido",
+      "pos": "50% 35%"
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621802465_18054766223393330_6254482331695573586_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascida dormindo com o ursinho",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623798371_18065273435254178_5339518115784327835_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido de tiara de flores",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/619583493_18094210457504239_5474253424791567260_n.jpg",
+      "f": "l",
+      "alt": "Bebê de faixinha dourada na manta amarela",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621188573_18053623961690621_6590999228758411690_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido no caixote de madeira",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625673101_18311536975248679_2904585259456560607_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascido dormindo de lado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/628417499_18343508011213772_8336939486134036149_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida sorrindo na manta rosa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/654564652_18112186591740614_4565046470192277147_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida com o carneirinho de tricô",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Infantil e família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622413127_18071106779147067_2607186249413867837_n.jpg",
+      "f": "p",
+      "alt": "Menino sorrindo abraçado à barriga da mãe",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622577752_18087613489885249_4954717722559397432_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filha de gorro vermelho se beijando",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/651268249_18057849893427377_6148708678149821991_n.jpg",
+      "f": "p",
+      "alt": "Menino de jardineira mostrando a língua",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/640395423_18563493937002242_4566380441156736734_n.jpg",
+      "f": "p",
+      "alt": "Mãe e recém-nascido deitados juntos",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625955768_18132178456513217_8921311173695565624_n.jpg",
+      "f": "p",
+      "alt": "Mãe com os filhos junto à árvore de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/652742490_18109877347696888_3969942216801038048_n.jpg",
+      "f": "p",
+      "alt": "Mãe erguendo o filho no fundo branco",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/653570707_18100945660898595_5925450806697253390_n.jpg",
+      "f": "l",
+      "alt": "Bebê no smash the cake lilás, no gramado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/654015704_18094816691106126_1763789529349367471_n.jpg",
+      "f": "l",
+      "alt": "Bebê com a laranja no banho de frutas",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622686869_18111525973728658_7311941604015102670_n.jpg",
+      "f": "l",
+      "alt": "Mãe e filho deitados, rosto com rosto",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623902361_18149045824444125_1052802437522669561_n.jpg",
+      "f": "p",
+      "alt": "Bebê de tiara de rena no cenário de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/618517061_17991665636874420_5001325304169892760_n.jpg",
+      "f": "p",
+      "alt": "Pais de gorro de Papai Noel com o bebê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625298413_18109875286670338_3993426566660944541_n.jpg",
+      "f": "l",
+      "alt": "Menina de tiara de rena sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/653963695_18137424298504667_5655180142667490280_n.jpg",
+      "f": "l",
+      "alt": "Menino de gorro de Papai Noel rindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625029344_18054606512407486_366603158690669734_n.jpg",
+      "f": "l",
+      "alt": "Menina de gorro deitada junto à árvore",
+      "pos": "50% 45%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "Prazer, <em>eu sou a Thay.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/783616904_18281843488294244_536150711998745473_n.jpg",
+    "f": "p",
+    "alt": "Thay sorrindo, de cabelo ruivo",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "A Thayuane Rosa, a Thay, fotografa gestantes, newborn, bebês, crianças, famílias e mulheres no estúdio do Jardim Piratininga, na Zona Leste de São Paulo. Também faz smash the cake, festas e casamentos."
+   ],
+   "citacao": "Por trás da câmera, existe uma mulher que ama ouvir histórias, reparar nos detalhes e encontrar beleza naquilo que, às vezes, passa despercebido na correria dos dias.",
+   "citacao_quem": "Thay, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as clientes falam do atendimento desde o primeiro contato, da maquiagem, do prazo de entrega das fotos e de como o ensaio é divertido."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "34 avaliações no Google"
+    ],
+    [
+     "1,6 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "12/12",
+     "último dia do Natal"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Um pedacinho <em>da nossa história.</em>",
+   "p": "Os ensaios da Thay:",
+   "fonte": "Legendas da Thay no Instagram e avaliações do Google.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "Acompanhamento",
+     "p": "Do ensaio gestante ao acompanhamento do bebê."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias, com delicadeza e muito cuidado."
+    },
+    {
+     "nome": "Smash",
+     "sub": "1 ano",
+     "p": "Smash the cake, banho de frutas e muita bagunça boa."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todas as idades",
+     "p": "Do bebê à mãe de 65 anos."
+    },
+    {
+     "nome": "Feminino",
+     "sub": "Para ela",
+     "p": "Ensaios femininos, com maquiagem e direção."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Entre nós",
+     "p": "Os filhos crescem, as famílias mudam e o tempo passa."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Entre nós, o Natal",
+   "h2": "De 9 de novembro <em>a 12 de dezembro.</em>",
+   "p": "O especial de Natal da Thay é uma temporada cheia de amor, aconchego e muita sofisticação, para reunir quem vocês amam. Escolha um horário e a mensagem chega pronta no WhatsApp da Thay.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625298413_18109875286670338_3993426566660944541_n.jpg",
+    "f": "l",
+    "alt": "Menina de tiara de rena sorrindo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Isabela Ferraz",
+    "tag": "Gestação",
+    "trecho": "Com certeza, irei fazer todo o meu acompanhamento da gestação com ela e, futuramente, também do meu bebê."
+   },
+   {
+    "nome": "Rebecca Requena",
+    "tag": "65 anos",
+    "trecho": "Foi o ensaio da minha mãe de 65 anos e ela amou a experiência, as fotos ficaram perfeitas, tudo foi perfeito, do começo ao fim."
+   },
+   {
+    "nome": "KleytyaneN",
+    "tag": "Gestante",
+    "trecho": "nos sentimos muito bem em fazer as fotos do ensaio gestante. Amei a maquiagem também"
+   },
+   {
+    "nome": "Ana Paula Ventura",
+    "tag": "Casamento",
+    "trecho": "ela teve a sensibilidade de entender a proposta e abraçou essa inovação com muito amor e carinho"
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos guardar <em>a sua história?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Piratininga, na Zona Leste de São Paulo, e atende de segunda a sábado.",
+   "telefone": "(11) 97075-8127",
+   "endereco": [
+    "R. Mutu-Poranga, 115",
+    "Jardim Piratininga",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Entre nós, o Natal 2026 | Thayuane Rosa Fotografia",
+  "descricao": "Entre nós, o Natal: o especial de Natal 2026 da Thay, de 9 de novembro a 12 de dezembro, no Jardim Piratininga, Zona Leste de São Paulo. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Thayuane Rosa Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · 09/11 a 12/12",
+   "h1": "Entre nós, <em>o Natal.</em>",
+   "citacao": "Mais do que fotos bonitas, quero que esse Natal seja uma oportunidade de reunir quem vocês amam.",
+   "citacao_quem": "Thay, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623902361_18149045824444125_1052802437522669561_n.jpg",
+    "f": "p",
+    "alt": "Bebê de tiara de rena no cenário de Natal",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Amor, aconchego <em>e sofisticação.</em>",
+   "p": "O especial Entre nós, o Natal é uma temporada cheia de amor, aconchego e muita sofisticação, para reunir quem vocês amam, viver momentos gostosos em família e guardar para sempre um pedacinho da história que estão construindo juntos.",
+   "itens": [
+    "No estúdio da Thay, no Jardim Piratininga, Zona Leste de São Paulo.",
+    "Entre nós, o Natal: de 9 de novembro a 12 de dezembro.",
+    "Dicas de looks para o ensaio, no Instagram da Thay.",
+    "Valores e datas pelo WhatsApp da Thay."
+   ],
+   "legenda_fotos": "Natais anteriores com a Thay"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625955768_18132178456513217_8921311173695565624_n.jpg",
+    "f": "p",
+    "alt": "Mãe com os filhos junto à árvore de Natal",
+    "c": [
+     0.9,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/653963695_18137424298504667_5655180142667490280_n.jpg",
+    "f": "l",
+    "alt": "Menino de gorro de Papai Noel rindo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/625029344_18054606512407486_366603158690669734_n.jpg",
+    "f": "l",
+    "alt": "Menina de gorro deitada junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Thay abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: o especial vai de 9 de novembro a 12 de dezembro. A Thay define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Thay abre com o dia e a hora escritos."
+    ],
+    [
+     "A Thay confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Guardar fases, <em>reencontrar sentimentos.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Thay.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/652133568_18076574711419478_2653339206517450222_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/640395423_18563493937002242_4566380441156736734_n.jpg",
+     "f": "p",
+     "alt": "Mãe e recém-nascido deitados juntos",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622577752_18087613489885249_4954717722559397432_n.jpg",
+     "f": "p",
+     "alt": "Mãe e filha de gorro vermelho",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/621828456_18054678809679508_8221837462904263509_n.jpg",
+     "f": "p",
+     "alt": "Gestante de pink no bosque",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/651268249_18057849893427377_6148708678149821991_n.jpg",
+     "f": "p",
+     "alt": "Menino de jardineira",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/623798371_18065273435254178_5339518115784327835_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido de tiara de flores",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/622129548_18093605995769517_6615089427277435837_n.jpg",
+     "f": "p",
+     "alt": "Gestante entre as árvores",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/thayuanerodafotografia/Instagram_files/652742490_18109877347696888_3969942216801038048_n.jpg",
+     "f": "p",
+     "alt": "Mãe erguendo o filho",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as clientes <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Isabela Ferraz",
+    "tag": "Prazo",
+    "trecho": "o prazo para a entrega das fotos é incrível, ainda mais para ansiosas como eu kkkkk."
+   },
+   {
+    "nome": "Rebecca Requena",
+    "tag": "Divertida",
+    "trecho": "ela e a assistente sempre muito prestativas e divertidas, rimos muito!"
+   },
+   {
+    "nome": "Claudia Monteiro de Oliveira",
+    "tag": "Sonho",
+    "trecho": "realizamos o sonho de fazer as fotos e vídeo da nossa princesa com a Thayuane Rosa"
+   },
+   {
+    "nome": "KleytyaneN",
+    "tag": "Cuidado",
+    "trecho": "o cuidado que ela teve foi maravilhoso."
+   }
+  ],
+  "final": {
+   "eyebrow": "Entre nós, o Natal",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Vai até 12 de dezembro. Escolha um horário ou chame a Thay no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 97075-8127)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/thayuane-rosa-fotografia` e `/demo/thayuane-rosa-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 13, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out 2026 (\"Prazer, eu sou a Thay\") e das avaliações.",
+   "Dona: Thayuane Rosa, a Thay. Foto dela: o retrato de cabelo ruivo (o mesmo da arte \"Prazer, sou a Thay\").",
+   "Personalidade: o marrom 🤎 que ela usa e o \"Entre nós, o Natal\" com \"muuuita sofisticação\". Na demo: abertura em arcos, Cormorant, \"fotografia\" em Pinyon Script, chocolate e rosado, ◆ entre as especialidades; o título do portfólio é a frase dela (\"guardar fases, reencontrar sentimentos\").",
+   "Sem logo em boa resolução: monograma TR e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, newborn e Natal), portfólio em 4 abas (Gestante, 8; Newborn, 7; Infantil e família, 9; Natal, 5), a Thay, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"Entre nós, o Natal\": o especial (09/11 a 12/12), fotos de Natais anteriores, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 12/12, das 9h às 16h, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "As fotos da página salva no Drive (1440 px) e 1 foto do Google. Os posts de out 2026 são vídeos e artes, então não entraram.",
+   "Ficaram de fora: as capas de vídeo (9:16), as artes (\"Natal 2026\", \"Prazer, sou a Thay\"), os ensaios com nu, os closes de detalhe e as fotos de casamento e de moto do Google."
+  ],
+  "textos": [
+   "Legendas: \"Prazer, eu sou a Thay... Por trás da câmera, existe uma mulher que ama ouvir histórias...\" e \"É sobre guardar fases, reencontrar sentimentos\" (27/10), \"fotografar nunca foi só sobre fazer fotos\" (13/10), \"Mais do que fotos bonitas, quero que esse Natal seja uma oportunidade de reunir quem vocês amam... os filhos crescem, as famílias mudam\" (12/10).",
+   "Avaliações do Google: as 5 visíveis sem login; 4 em cada página."
+  ],
+  "conferir": [
+   "As fotos de Natal são de anos anteriores; o cenário de 2026 só aparece em arte e vídeo.",
+   "Uma avaliação cita \"ela e a assistente\".",
+   "Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
