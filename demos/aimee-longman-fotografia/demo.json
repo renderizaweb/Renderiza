@@ -1,0 +1,613 @@
+{
+ "pasta": "aimee-longman-fotografia",
+ "marca": "Aimee Longman Fotografia",
+ "marca_completa": "Aimee Longman Fotografia",
+ "dona": "Aimee",
+ "google_json": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/google/google_demo.json",
+ "google": {
+  "coords": "-23.483951,-46.859738",
+  "fid": "0xac142e936145f19:0x1308a1b159d595f8",
+  "gid": "/g/11thr5z06g"
+ },
+ "google_nome": "Aimee Longman Fotografia",
+ "endereco_maps": "torre London - Av. Sagitário, 138 - Sl 901 - Alphaville Conde II, Barueri - SP, 06473-073",
+ "google_nota": "5,0",
+ "google_total": "16",
+ "verificado": "2026-11-06",
+ "whatsapp": "5511967760519",
+ "fone_link": "+5511967760519",
+ "instagram": "aimeelongmanfotografia",
+ "seguidores": "6,2 mil",
+ "mensagem": "Olá, Aimee! Vi o seu site e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf9f6",
+  "papel": "#ffffff",
+  "areia": "#f1ece5",
+  "linha": "#e3dbd0",
+  "tinta": "#2b2a28",
+  "tinta2": "#66625c",
+  "rosa": "#d7b7a0",
+  "acento": "#6f7f5f",
+  "acento_escuro": "#56654a",
+  "cafe": "#262a23"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "9h",
+   "10h30",
+   "15h",
+   "16h30"
+  ],
+  "reservados": [
+   "2026-11-14 10h30",
+   "2026-11-14 16h30",
+   "2026-11-18 15h",
+   "2026-11-21 9h",
+   "2026-11-21 15h",
+   "2026-11-21 16h30",
+   "2026-11-25 15h",
+   "2026-11-25 16h30",
+   "2026-11-28 16h30",
+   "2026-12-05 10h30",
+   "2026-12-05 16h30"
+  ],
+  "exemplo": "Horários de exemplo: a Aimee define os dela",
+  "mensagem": "Olá, Aimee! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Aimee",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-13",
+  "msg_garantir": "Olá! Sou a Aimee, da Aimee Longman Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Aimee, da Aimee Longman Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "zx98",
+  "aviso": {
+   "segundos": 40,
+   "rolagem": 0.25
+  },
+  "msg_duvida": "Olá! Sou a Aimee, da Aimee Longman Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Garamond",
+    "ital,wght@0,400;0,500;0,600;1,400;1,500"
+   ],
+   "sans": [
+    "Mulish",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Parisienne",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "polaroid",
+  "fotos": "suave",
+  "eyebrow": "ponto",
+  "ornamento": "♡",
+  "natal_capa": "retrato",
+  "jornada": "cartoes"
+ },
+ "titulo_nome": "Aimee Longman",
+ "titulo_script": "fotografia",
+ "quem_a": "a Aimee",
+ "quem_da": "da Aimee",
+ "quem_sou": "Sou a Aimee Longman",
+ "slogan": "Cada família tem um começo. Eu fotografo o seu.",
+ "site": {
+  "titulo": "Aimee Longman Fotografia | Gestante, parto, newborn e família em Alphaville",
+  "descricao": "Aimee Longman fotografa o começo das famílias: gestante, parto, newborn e família, com estúdio em Alphaville, Barueri. Nota 5,0 no Google.",
+  "comentario": "Demo Aimee Longman Fotografia (lote 3 de fotógrafos, 06/11/2026): arquivo único com as fotos dentro. Fotos do Instagram (@aimeelongmanfotografia: a página salva e os posts de out 2026, sem capas de vídeo) e do Google; avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Estúdio em Alphaville · Barueri",
+   "frase": "Cada família tem um começo. Eu fotografo o seu.",
+   "intro": "Gestante, parto, newborn e família, no estúdio da Aimee, em Alphaville. E o Natal 2026 já começou por lá, com um cenário montado do zero.",
+   "rotulos": [
+    "Gestante",
+    "Newborn",
+    "Família"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Parto",
+    "Newborn",
+    "Família",
+    "Infantil",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/posts/De6hn1Kjtad/De6hn1Kjtad_00.jpg",
+     "f": "p",
+     "alt": "Gestante sentada no estúdio claro, com as mãos na barriga",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469630837_18474503479031552_3394558521894218984_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido sorrindo dormindo no colo",
+     "c": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469451712_18474271978031552_1202472540955700606_n.jpg",
+     "f": "p",
+     "alt": "Pais erguendo o bebê, ao ar livre",
+     "c": [
+      0.5,
+      0.4
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "O começo <em>de cada família.</em>",
+   "p": "Ensaios da Aimee, no estúdio e ao ar livre. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "gestante",
+    "nome": "Gestante e newborn",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/posts/De6hn1Kjtad/De6hn1Kjtad_00.jpg",
+      "f": "p",
+      "alt": "Gestante sentada no estúdio claro",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469555198_18474270172031552_4835243777420216401_n.jpg",
+      "f": "p",
+      "alt": "Gestante junto à janela do estúdio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469495490_18474273244031552_6179261114190795885_n.jpg",
+      "f": "p",
+      "alt": "Casal se beijando no ensaio gestante, ao ar livre",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469630837_18474503479031552_3394558521894218984_n.jpg",
+      "f": "p",
+      "alt": "Recém-nascido dormindo no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469687959_18474272356031552_1824040266663068791_n.jpg",
+      "f": "p",
+      "alt": "Bebê enrolado na manta, sobre o pelego",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/google/fotos/g02.jpg",
+      "f": "p",
+      "alt": "Detalhe do parto: o pezinho do bebê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469840030_18474485869031552_3375651664628716884_n.jpg",
+      "f": "l",
+      "alt": "Recém-nascida sorrindo dormindo, de faixinha",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469451712_18474271978031552_1202472540955700606_n.jpg",
+      "f": "p",
+      "alt": "Pais erguendo o bebê, ao ar livre",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469864445_18474497254031552_8084612163292189586_n.jpg",
+      "f": "p",
+      "alt": "Família deitada, de cabeças juntas",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469555015_18474270964031552_5157993807800263296_n.jpg",
+      "f": "l",
+      "alt": "Pais brincando com a bebê de laço",
+      "pos": "50% 0%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/google/fotos/g01.jpg",
+      "f": "l",
+      "alt": "Família sentada no gramado, ao lado da casinha azul",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/google/fotos/g00.jpg",
+      "f": "l",
+      "alt": "Irmãos abraçados no sofá",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/463665259_18463811662031552_511560249629986195_n.jpg",
+      "f": "p",
+      "alt": "Mãe e filhos deitados, junto à guirlanda de Natal",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/464512714_18469313992031552_1079475454671102420_n.jpg",
+      "f": "p",
+      "alt": "Menina deitada sob a guirlanda de Natal",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/468489479_18471991582031552_415393794717062669_n.jpg",
+      "f": "p",
+      "alt": "Menina de vestido vermelho com a bola de Natal",
+      "pos": "50% 35%",
+      "box": [
+       0.0,
+       0.0,
+       0.83,
+       1.0
+      ]
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/468513146_18472109119031552_1676440202468981022_n.jpg",
+      "f": "p",
+      "alt": "Menina rindo no sofá, junto à árvore",
+      "pos": "50% 40%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "A Aimee, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/inv/perfil.jpg",
+    "f": "p",
+    "alt": "Aimee sorrindo, entre as luzinhas de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "p": [
+    "A Aimee fotografa o começo das famílias: a gestação, o parto, os primeiros dias do bebê e a família que cresce junto. O estúdio fica em Alphaville, em Barueri, e os ensaios também podem ser ao ar livre."
+   ],
+   "citacao": "Os dias são longos, mas os anos são curtos demais, então aproveite essa jornada!",
+   "citacao_quem": "Aimee, no Instagram",
+   "p2": [
+    "Nas avaliações do Google, as famílias falam de como ela é humana, gentil e atenciosa, do cuidado com os bebês e de como deixa todo mundo à vontade durante o ensaio."
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "16 avaliações no Google"
+    ],
+    [
+     "6,2 mil",
+     "seguidores no Instagram"
+    ],
+    [
+     "877",
+     "posts no Instagram"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Cada família <em>tem um começo.</em>",
+   "p": "Os ensaios da Aimee, do primeiro ao próximo capítulo:",
+   "fonte": "Bio e legendas da Aimee no Instagram.",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Amar sem ver, sentir sem tocar e, ainda assim, viver o maior amor do mundo."
+    },
+    {
+     "nome": "Parto",
+     "sub": "O dia",
+     "p": "O registro do parto, na maternidade."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "Primeiros dias",
+     "p": "Os primeiros dias do bebê, no estúdio em Alphaville."
+    },
+    {
+     "nome": "Família",
+     "sub": "Juntos",
+     "p": "Os abraços apertados, as risadas e os pequenos detalhes que a gente não quer esquecer nunca."
+    },
+    {
+     "nome": "Infantil",
+     "sub": "A infância",
+     "p": "Não deixe que eles cresçam sem viver toda a magia que tem para ser vivida!"
+    },
+    {
+     "nome": "Natal",
+     "sub": "Natal 2026",
+     "p": "O cenário perfeito para novas memórias em família."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O nosso Natal <em>já começou.</em>",
+   "p": "O cenário de Natal 2026 da Aimee foi pensado nos mínimos detalhes, para trazer de volta a sensação gostosa dos Natais da infância. Escolha um horário e a mensagem chega pronta no WhatsApp da Aimee.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469199080_18473283715031552_4346000008424445999_n.jpg",
+    "f": "l",
+    "alt": "Menino deitado na cama do cenário de Natal",
+    "c": [
+     0.5,
+     1.0
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "avaliacoes_eyebrow": "Depoimentos",
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Gabriela Soares",
+    "tag": "Parto e newborn",
+    "trecho": "Ela fez as fotos do meu parto e o ensaio newborn da minha bebê e ficou tudo impecável!!!"
+   },
+   {
+    "nome": "Rafaela Reginato",
+    "tag": "À vontade",
+    "trecho": "Aimee foi extremamente humana, gentil e atenciosa do início ao fim, me deixando muito à vontade durante toda a sessão."
+   },
+   {
+    "nome": "Vitoria Vasconcelos",
+    "tag": "Atendimento",
+    "trecho": "Desde o primeiro contato fui muito bem atendida, com muita atenção, carinho e profissionalismo"
+   },
+   {
+    "nome": "Lidialle Lima",
+    "tag": "Newborn",
+    "trecho": "Aimee foi muito atenciosa e cuidadosa com a nossa bebê, as fotos ficaram lindas, amamos."
+   }
+  ],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos fotografar <em>o seu começo?</em>",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica em Alphaville, em Barueri.",
+   "telefone": "(11) 96776-0519",
+   "endereco": [
+    "Av. Sagitário, 138, sala 901 (torre London)",
+    "Alphaville Conde II",
+    "Barueri · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Aimee Longman Fotografia",
+  "descricao": "O ensaio de Natal 2026 da Aimee Longman, em Alphaville: um cenário pensado para trazer de volta a sensação dos Natais da infância. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Aimee Longman Fotografia: página da campanha de Natal (natal.html), ligada ao site. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Alphaville",
+   "h1": "A sensação gostosa <em>dos Natais da infância.</em>",
+   "citacao": "Porque, no fim, o que fica são as lembranças que construímos com quem amamos.",
+   "citacao_quem": "Aimee, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/463665259_18463811662031552_511560249629986195_n.jpg",
+    "f": "p",
+    "alt": "Mãe e filhos deitados, junto à guirlanda de Natal",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "legenda": "Natal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Pensado nos <em>mínimos detalhes.</em>",
+   "p": "Um cenário pensado nos mínimos detalhes, mas que vai muito além da decoração: para trazer de volta aquela sensação gostosa dos Natais da infância, despertar lembranças afetivas e criar o cenário perfeito para novas memórias em família.",
+   "itens": [
+    "No estúdio da Aimee, em Alphaville, Barueri.",
+    "O cenário de Natal 2026, montado do zero.",
+    "Para a família toda: pais, irmãos e bebês.",
+    "Valores e detalhes pelo WhatsApp da Aimee."
+   ],
+   "legenda_fotos": "Natais anteriores no estúdio da Aimee"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/468513146_18472109119031552_1676440202468981022_n.jpg",
+    "f": "p",
+    "alt": "Menina rindo no sofá, junto à árvore",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469199080_18473283715031552_4346000008424445999_n.jpg",
+    "f": "l",
+    "alt": "Menino deitado na cama do cenário de Natal",
+    "c": [
+     0.55,
+     0.62
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/464512714_18469313992031552_1079475454671102420_n.jpg",
+    "f": "l",
+    "alt": "Menina deitada sob a guirlanda",
+    "c": [
+     0.5,
+     0.55
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Aimee abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece. A Aimee define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Aimee abre com o dia e a hora escritos."
+    ],
+    [
+     "A Aimee confirma",
+     "Ela responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Do começo <em>ao Natal.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios da Aimee.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/aimee-longman-fotografia/posts/De6hn1Kjtad/De6hn1Kjtad_00.jpg",
+     "f": "p",
+     "alt": "Gestante no estúdio claro",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469630837_18474503479031552_3394558521894218984_n.jpg",
+     "f": "p",
+     "alt": "Recém-nascido no colo",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469451712_18474271978031552_1202472540955700606_n.jpg",
+     "f": "p",
+     "alt": "Pais erguendo o bebê",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469555198_18474270172031552_4835243777420216401_n.jpg",
+     "f": "p",
+     "alt": "Gestante junto à janela",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469864445_18474497254031552_8084612163292189586_n.jpg",
+     "f": "p",
+     "alt": "Família de cabeças juntas",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/464512714_18469313992031552_1079475454671102420_n.jpg",
+     "f": "p",
+     "alt": "Menina sob a guirlanda",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469495490_18474273244031552_6179261114190795885_n.jpg",
+     "f": "p",
+     "alt": "Casal no ensaio gestante",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/drive3/paginas/aimeelongmanfotografia/Instagram_files/469687959_18474272356031552_1824040266663068791_n.jpg",
+     "f": "p",
+     "alt": "Bebê enrolado na manta",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes_h2": "O que as famílias <em>contam.</em>",
+  "avaliacoes": [
+   {
+    "nome": "Rafaela Reginato",
+    "tag": "Carinho",
+    "trecho": "Além de ser uma excelente profissional, demonstra um carinho e uma dedicação que fazem toda a diferença."
+   },
+   {
+    "nome": "Gabriela Soares",
+    "tag": "A melhor",
+    "trecho": "Simplesmente A MELHOR!!! Ela fez as fotos do meu parto e o ensaio newborn da minha bebê e ficou tudo impecável!!! Recomendo de olhos fechados"
+   },
+   {
+    "nome": "Lidialle Lima",
+    "tag": "Acolhida",
+    "trecho": "Ótimo atendimento, fomos bem recepcionados, realizamos as fotos da nossa filha recém nascida"
+   },
+   {
+    "nome": "Vitoria Vasconcelos",
+    "tag": "Atenção",
+    "trecho": "Minha experiência foi maravilhosa"
+   }
+  ],
+  "final": {
+   "eyebrow": "Natal 2026 · Alphaville",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame a Aimee no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "celular do Perfil da Empresa no Google (+55 11 96776-0519)",
+  "site": "não tem: só o Instagram (lote 3, 06/11/2026)",
+  "situacao": "pronta · 06/11/2026 · `/demo/aimee-longman-fotografia` e `/demo/aimee-longman-fotografia/natal`",
+  "direcao": [
+   "Lote 3 de fotógrafos (nº 3, 80 pontos), escolhida no Drive de 06/11/2026. Bio: \"Cada família tem um começo. Eu fotografo o seu. 🤍 · 📍Estúdio em Alphaville · Gestante • Parto • Newborn • Família\".",
+   "Dona: Aimee Longman. Foto dela: a do perfil do Instagram, entre as luzinhas.",
+   "Personalidade: \"o começo de cada família\" (gestação, parto, newborn, família), em fotos claras e delicadas. Na demo: abertura em polaroides, Cormorant Garamond, \"fotografia\" em Parisienne, verde-sálvia e ♡ (o 🤍 dela) entre as especialidades; os ensaios como etapas do começo.",
+   "Sem logo em boa resolução: monograma AL e o nome com \"fotografia\" cursiva, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (gestante, newborn e família), portfólio em 3 abas (Gestante e newborn, 7; Família, 5; Natal, 4), a Aimee, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.",
+   "Página de Natal \"A sensação gostosa dos Natais da infância\": o ensaio (texto da série \"Como nasce um cenário de Natal\"), o cenário (Natais anteriores), a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 16h30, dentro do horário do Google) e outros ensaios do ano.",
+   "Com o aviso da Renderiza (depois de 40 s e 25% da página)."
+  ],
+  "fotos": [
+   "A página do Instagram salva no Drive (só as fotos do feed, até 1440 px), o post gestante de 25/10 (2773 px) e 3 fotos do Google.",
+   "Ficaram de fora: todas as capas de vídeo e os posts 9:16 (inclusive o cenário de Natal 2026, que só aparece em reels), as artes com texto, as fotos do parto dela (relato de parto) e as fotos borradas."
+  ],
+  "textos": [
+   "Bio e legendas: \"Cada família tem um começo...\", \"Amar sem ver...\" (25/10), \"Queríamos trazer de volta aquela sensação gostosa dos Natais da infância...\" (23/10), \"o que fica são as lembranças...\" (30/10), \"Os dias são longos...\" e \"Não deixe que eles cresçam...\".",
+   "Avaliações do Google: 4 das 5 visíveis (a de Paulo Longman ficou de fora: mesmo sobrenome dela)."
+  ],
+  "conferir": [
+   "As fotos de Natal são de anos anteriores; o cenário 2026 só aparece em reels.",
+   "Fotos de crianças, bebês, gestantes e do parto: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
+  ]
+ }
+}
