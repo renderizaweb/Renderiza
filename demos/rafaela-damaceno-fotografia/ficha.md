@@ -4,13 +4,13 @@
 |---|---|
 | Onde | Av. Liberdade - Centro, Franco da Rocha - SP, 07850-325 |
 | Instagram | [@rafaeladamacenofotografia](https://www.instagram.com/rafaeladamacenofotografia/) · 1,1 mil seguidores |
-| Google | nota 5,0 · 26 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 26 avaliações · conferido em 05/11/2026 |
 | WhatsApp | (11) 99479-4869 · celular do Perfil da Empresa no Google (+55 11 99479-4869), o mesmo do post "Respondendo coletivamente..." ("WhatsApp: (11) 99479-4869") |
 | Horário | Segunda Fechado; Terça a sexta 8h às 18h; Sábado 8h às 16h; Domingo Fechado |
 | Site | fora do ar: o Google aponta www.rafaeladamacenofotografia.com.br, domínio que não existe mais (NXDOMAIN) (lote 3, 06/11/2026) |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
 | Situação | pronta · 06/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor); com o aviso da Renderiza (modal) depois de 40 s: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 12/11/2026 (depois dessa data, o aviso some e fica só o valor); com o aviso da Renderiza (modal) depois de 40 s: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
