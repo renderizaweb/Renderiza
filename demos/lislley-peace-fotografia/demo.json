@@ -13,7 +13,7 @@
  "endereco_maps": "Ribeirão Pires - SP",
  "google_nota": "5,0",
  "google_total": "28",
- "verificado": "2026-11-05",
+ "verificado": "2026-11-06",
  "whatsapp": "5511998383900",
  "fone_link": "+5511998383900",
  "instagram": "lislleypeace.fotografia",
@@ -104,8 +104,7 @@
   "fotos": "suave",
   "eyebrow": "ponto",
   "ornamento": "✺",
-  "script_escala": 1.35,
-  "css": ".abertura{background:radial-gradient(ellipse 60% 70% at 88% 8%,#f3d3a855,transparent 70%)}"
+  "script_escala": 1.35
  },
  "titulo_nome": "Lislley Peace",
  "titulo_script": "fotografia",
@@ -637,7 +636,7 @@
   "direcao": [
    "Lote 3 de fotógrafos (nº 2, 80 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio e sem as legendas antigas; os textos vêm dos posts de out/nov 2026 e das avaliações.",
    "Dona: Lislley (\"a Lis\" numa avaliação). Foto dela: com as duas câmeras, da página salva.",
-   "Personalidade: a luz dourada de fim de tarde dos ensaios ao ar livre (bosque, sol contra a luz, tons quentes). Na demo: abertura em filme, DM Serif Display, \"fotografia\" em Allison, laranja queimado e um brilho quente no topo; ✺ entre as especialidades.",
+   "Personalidade: a luz dourada de fim de tarde dos ensaios ao ar livre (bosque, sol contra a luz, tons quentes). Na demo: abertura em filme, DM Serif Display, \"fotografia\" em Allison, laranja queimado; ✺ entre as especialidades.",
    "Sem logo em boa resolução: monograma LP e o nome com \"fotografia\" cursiva, feitos para a demo."
   ],
   "demo": [

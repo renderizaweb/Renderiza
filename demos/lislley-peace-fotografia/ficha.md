@@ -4,7 +4,7 @@
 |---|---|
 | Onde | Ribeirão Pires - SP |
 | Instagram | [@lislleypeace.fotografia](https://www.instagram.com/lislleypeace.fotografia/) · 4,3 mil seguidores |
-| Google | nota 5,0 · 28 avaliações · conferido em 05/11/2026 |
+| Google | nota 5,0 · 28 avaliações · conferido em 06/11/2026 |
 | WhatsApp | (11) 99838-3900 · celular do Perfil da Empresa no Google (+55 11 99838-3900) |
 | Horário | Segunda a domingo 9h às 17h |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
@@ -16,7 +16,7 @@
 ## Direção da demo
 - Lote 3 de fotógrafos (nº 2, 80 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio e sem as legendas antigas; os textos vêm dos posts de out/nov 2026 e das avaliações.
 - Dona: Lislley ("a Lis" numa avaliação). Foto dela: com as duas câmeras, da página salva.
-- Personalidade: a luz dourada de fim de tarde dos ensaios ao ar livre (bosque, sol contra a luz, tons quentes). Na demo: abertura em filme, DM Serif Display, "fotografia" em Allison, laranja queimado e um brilho quente no topo; ✺ entre as especialidades.
+- Personalidade: a luz dourada de fim de tarde dos ensaios ao ar livre (bosque, sol contra a luz, tons quentes). Na demo: abertura em filme, DM Serif Display, "fotografia" em Allison, laranja queimado; ✺ entre as especialidades.
 - Sem logo em boa resolução: monograma LP e o nome com "fotografia" cursiva, feitos para a demo.
 
 ## O que tem na demo
