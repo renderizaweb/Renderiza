@@ -543,12 +543,12 @@ const CAPS = [{ t0: S.pai, ate: S.perfil, hora: "02h58", quem: "O PAI" }, { t0: 
 const qCap = capitulos(CAPS);
 const qFalas = dialogo(R, {
   c1: { quem: "Camila", x: 60, y: 300, cauda: "esq", ate: I("r1") + 0.05 },
-  r1: { quem: "O pai", ax: 1000, y: 300, cauda: "dir", ate: F.r1.fim + 0.7 },
+  r1: { quem: "O pai", ax: 944, y: 300, cauda: "dir", ate: F.r1.fim + 0.7 },
   pdfq: { quem: "Helena", x: 110, y: 860, cauda: "esq" },
   d1: { quem: "Mãe da Helena", ax: 450, y: 880, cauda: "esq", cls: "estreito", ate: I("c2") - 0.05 },
   c2: { quem: "Camila", ax: 820, y: 960, cauda: "dir", ate: I("r2") - 0.05 },
-  r2: { quem: "O pai", ax: 990, y: 960, cauda: "dir", ate: I("l1") - 0.05 },
-  l1: { quem: "Louro", ax: 600, y: 1000, cauda: "dir", cls: "louro", ate: I("dormi") },
+  r2: { quem: "O pai", ax: 944, y: 960, cauda: "dir", ate: I("l1") - 0.05 },
+  l1: { quem: "Louro", ax: 430, y: 920, cauda: "esq", cls: "louro", ate: I("dormi") },
   l2: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro pos", ate: I("r3") - 0.05 },
   r3: { quem: "O pai", ax: 760, y: 700, cauda: "dir", cls: "pos", ate: I("l3") - 0.05 },
   l3: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro pos", ate: I("temporada") - 0.2 },
