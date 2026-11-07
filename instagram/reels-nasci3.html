@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Eu ainda não nasci · episódio 3</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Episódio 3 (final) de "Eu ainda não nasci" (SERIE.md),
+     "Três da manhã". Faltam dois dias para a janela do newborn fechar. A Camila abre o perfil da Helena, começa a
+     digitar "valor?", para, e toca no link da bio: é um site, com as fotos do newborn, o que vem incluso e o preço na
+     primeira tela, e uma agenda com os horários livres. Sábado (28/11), dez da manhã, está livre: uma mãe tinha
+     segurado o horário com "vou ver com meu marido", não pagou o sinal em 24 horas, e a vaga voltou. A Camila marca em
+     quatro minutos e paga o sinal. De manhã, a Helena marca o sinal no painel e lê o nome: Camila, a do PDF. A virada:
+     depois daquele visualizado, a Helena tinha trocado o PDF por um site. No sábado, o bebê dorme o ensaio inteiro e
+     vira a primeira foto do newborn no site; o PDF a Helena guardou. Moral, marca e convite falados. O painel não
+     recebe o Pix: quem marca o sinal é a Helena; para fotógrafas, a agenda é a do painel e não liga com o Google. Para
+     aprender vendo: o caminho até o preço (14 páginas no episódio 1, um toque agora), as 24 horas da pré-reserva e o
+     cronômetro dos quatro minutos. Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da
+     narração: narracao/reels-nasci3.json → python3 instagram/narrar.py reels-nasci3.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+.etq{position:absolute;left:0;top:0;z-index:27;padding:12px 26px;border-radius:26px;background:#1e2528;color:#f1eee9;font-size:36px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;opacity:0;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.etq.tc{background:var(--terracota);color:#fff}
+.etq.claro{background:#f1eee9;color:#1e2528}
+#eu{position:absolute;left:0;top:0;width:300px;height:400px;margin:-200px 0 0 -150px;z-index:26;opacity:0}
+#eu svg{width:100%;height:100%;overflow:visible;display:block}
+#relogio{position:absolute;left:0;top:0;z-index:27;font:800 250px/1 "Geist",sans-serif;letter-spacing:-.06em;color:#f6f3ee;font-variant-numeric:tabular-nums;opacity:0}
+#dias{position:absolute;left:0;top:0;z-index:28;width:900px;margin-left:-450px;opacity:0}
+#dias .tit{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font:800 38px/1 "Geist",sans-serif;color:#f6f3ee}
+#dias .tit small{font-size:26px;font-weight:700;color:#ff7a6a}
+#dias .bar{display:grid;grid-template-columns:repeat(15,1fr);gap:6px;height:56px}
+#dias .bar i{border-radius:8px;background:#e8855e}
+#dias .bar i.hoje{background:#f1eee9}
+#dias .bar i.fim{box-shadow:inset 0 0 0 3px #e0453a;background:rgba(224,69,58,.18)}
+/* o post da Helena no resumo */
+#post{position:absolute;left:0;top:0;z-index:23;width:420px;border-radius:24px;overflow:hidden;background:#fbf8f3;box-shadow:0 30px 70px rgba(0,0,0,.5);opacity:0}
+#post .tp{height:70px;display:flex;align-items:center;gap:12px;padding:0 18px;font:800 24px/1 "Geist",sans-serif;color:#1e2528}
+#post .tp i{width:44px;height:44px;border-radius:50%;background:#b25134;color:#fff;display:grid;place-items:center;font-style:normal}
+#post .im{height:380px}
+#post .im svg{width:100%;height:100%;display:block}
+/* o caminho até o preço: episódio 1 contra agora */
+#caminho{position:absolute;left:0;top:0;z-index:28;width:900px;margin-left:-450px;display:flex;gap:18px;opacity:0}
+#caminho>div{flex:1;padding:22px 24px;border-radius:28px;background:rgba(10,14,16,.9);color:#f1eee9;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#caminho small{display:block;font:800 22px/1 "Geist",sans-serif;letter-spacing:.08em;color:#9aa3a6;text-transform:uppercase}
+#caminho b{display:block;margin-top:10px;font:800 54px/1 "Geist",sans-serif;letter-spacing:-.03em}
+#caminho p{margin:8px 0 0;font:700 24px/1.2 "Geist",sans-serif;color:#b9bfc1}
+#caminho #cm-b b{color:#7fd8a0}
+/* as 24 horas da pré-reserva */
+#h24{position:absolute;left:0;top:0;z-index:28;width:900px;margin-left:-450px;padding:24px 28px;border-radius:30px;background:rgba(10,14,16,.92);color:#f1eee9;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#h24 .lin{display:flex;justify-content:space-between;font:800 26px/1 "Geist",sans-serif;margin-bottom:14px}
+#h24 .lin span:last-child{color:#f2c25a}
+#h24 .tr{position:relative;height:30px;border-radius:15px;background:rgba(241,238,233,.12);overflow:hidden}
+#h24 .tr i{position:absolute;left:0;top:0;bottom:0;background:#f2c25a;border-radius:15px}
+#h24 .rot{display:flex;justify-content:space-between;margin-top:10px;font:700 21px/1 "Geist",sans-serif;color:#9aa3a6}
+#h24 .fim{margin-top:14px;font:800 30px/1 "Geist",sans-serif;color:#7fd8a0;opacity:0}
+#marido{position:absolute;left:0;top:0;z-index:27;width:300px;height:280px;margin:-140px 0 0 -150px;opacity:0}
+#marido svg{width:100%;height:100%;overflow:visible}
+#crono{position:absolute;left:0;top:0;z-index:28;padding:16px 34px;border-radius:30px;background:rgba(10,14,16,.85);color:#f1eee9;font:800 78px/1 "Geist",sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums;opacity:0}
+#crono small{display:block;font:700 24px/1 "Geist",sans-serif;letter-spacing:0;color:#7fd8a0;margin-top:8px;text-align:center}
+#troca{position:absolute;left:0;top:0;z-index:27;width:170px;height:70px;margin:-35px 0 0 -85px;opacity:0}
+#troca svg{width:100%;height:100%;overflow:visible}
+#gaveta{position:absolute;left:0;top:0;z-index:25;width:520px;height:360px;margin:-180px 0 0 -260px;opacity:0}
+#gaveta svg{width:100%;height:100%;overflow:visible}
+.balao.pensa{font-size:52px;padding:24px 40px;border-radius:50px}
+/* celular */
+.pf-cab{padding:18px 22px 10px}
+.pf-l1{display:flex;align-items:center;gap:26px}
+.pf-av{width:110px;height:110px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:46px;font-weight:800;background:#b25134}
+.pf-l1 b{display:block;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.pf-l1 small{display:block;font-size:19px;font-weight:600;color:#7a8386}
+.pf-bio{margin-top:14px;font-size:22px;font-weight:600;line-height:1.35}
+#pf-link{display:inline-flex;align-items:center;gap:6px;color:#2f5fc4;font-weight:800;border-radius:8px;padding:2px 6px;margin-left:-6px}
+#pf-link svg{width:22px;height:22px}
+.pf-bts{display:flex;gap:10px;margin-top:14px}
+.pf-bts span{flex:1;height:52px;border-radius:12px;background:#efebe4;display:grid;place-items:center;font-size:21px;font-weight:800}
+.pf-bts span:first-child{background:#2f5fc4;color:#fff}
+.pf-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:12px}
+.pf-g i{display:block;height:136px;overflow:hidden}
+.pf-g svg{width:100%;height:100%;display:block}
+.dm-topo{height:86px;display:flex;align-items:center;gap:14px;padding:0 22px;font-size:27px;font-weight:800;border-bottom:2px solid #eee8df;background:#fbf8f3}
+.dm-topo svg{width:30px;height:30px}
+.dm-topo i{width:56px;height:56px;border-radius:50%;background:#b25134;color:#fff;display:grid;place-items:center;font-style:normal;font-size:24px}
+.dm-novo{display:flex;flex-direction:column;align-items:center;padding-top:70px;text-align:center}
+.dm-novo i{width:150px;height:150px;border-radius:50%;background:#b25134;color:#fff;display:grid;place-items:center;font-style:normal;font-size:64px;font-weight:800}
+.dm-novo b{margin-top:18px;font-size:32px;font-weight:800}
+.dm-novo small{margin-top:6px;font-size:20px;font-weight:600;color:#7a8386}
+.dm-novo span{margin-top:18px;padding:12px 26px;border-radius:12px;background:#efebe4;font-size:21px;font-weight:800}
+.dm-in{position:absolute;left:16px;right:16px;bottom:24px;height:76px;border-radius:38px;background:#efebe4;display:flex;align-items:center;padding:0 26px;font-size:28px;font-weight:600;color:#1e2528}
+.dm-in i{display:inline-block;width:3px;height:34px;background:#2f5fc4;margin-left:3px}
+.st{position:absolute;inset:0;padding-top:60px;background:#fbf8f3;overflow:hidden}
+.st-tit{margin:2px 26px 12px;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.05}
+.st-ens{display:flex;align-items:center;gap:18px;height:140px;margin:0 16px 12px;padding:0 14px;border-radius:22px;background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.05)}
+.st-ens i{width:112px;height:112px;border-radius:16px;overflow:hidden;flex:none}
+.st-ens i svg{width:100%;height:100%;display:block}
+.st-ens b{display:block;font-size:31px;font-weight:800;letter-spacing:-.02em}
+.st-ens em{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:12px;background:#f3e3da;color:#8f3c25;font-style:normal;font-size:23px;font-weight:800}
+.hero{position:relative;height:250px;margin:0 16px;border-radius:24px;overflow:hidden}
+.hero svg{width:100%;height:100%;display:block}
+.hero span{position:absolute;left:14px;top:14px;padding:8px 16px;border-radius:16px;background:#b25134;color:#fff;font-size:22px;font-weight:800;opacity:0}
+.inc{margin:12px 22px 0;font-size:21px;font-weight:600;color:#3b4447;border-radius:14px;padding:4px 8px}
+.inc p{display:flex;align-items:center;gap:10px;margin:5px 0}
+.inc p svg{width:24px;height:24px;color:#2f8f5b;flex:none}
+.preco{display:flex;align-items:baseline;gap:12px;margin:8px 16px 0;padding:10px 16px;border-radius:16px}
+.preco b{font-size:46px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.preco small{font-size:19px;font-weight:600;color:#7a8386}
+.bt-ag{position:absolute;left:18px;right:18px;bottom:26px;height:76px;border-radius:24px;background:#1e2528;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;font-size:27px;font-weight:800}
+.bt-ag svg{width:30px;height:30px}
+.ag-l{display:flex;align-items:center;justify-content:space-between;margin:0 16px 12px;padding:20px 22px;border-radius:20px;background:#fff;border:2px solid #efe8e0;font-size:26px;font-weight:800}
+.ag-l small{padding:7px 14px;border-radius:999px;font-size:18px;font-weight:800;background:#f1ece4;color:#a59b90}
+.ag-l.livre small{background:#dff1e6;color:#1f7a45}
+.ag-l.sep small{background:#fdf3d8;color:#8a6a10}
+#ag-sep{margin:6px 16px 0;padding:16px 18px;border-radius:20px;background:#1e2528;color:#fff;font-size:21px;font-weight:700;line-height:1.3;opacity:0}
+#ag-sep b{display:block;font-size:40px;font-weight:800;color:#f2c25a;font-variant-numeric:tabular-nums}
+.pix{display:flex;flex-direction:column;align-items:center;padding-top:150px;text-align:center}
+.pix .ok{width:120px;height:120px;border-radius:50%;background:#25a35a;display:grid;place-items:center;color:#fff}
+.pix .ok svg{width:66px;height:66px;stroke-width:3}
+.pix h4{margin:26px 0 10px;font-size:38px;font-weight:800}
+.pix p{margin:6px 40px 0;font-size:24px;font-weight:600;color:#5b6467;line-height:1.35}
+.pn-topo{height:70px;background:#1e2528;color:#f1eee9;display:flex;align-items:center;gap:12px;padding:0 22px;font-size:23px;font-weight:800}
+.pn-topo small{font-weight:600;opacity:.7;margin-left:auto;font-size:18px}
+.pn-topo svg{width:26px;height:26px}
+.fi-cab{display:flex;align-items:center;gap:18px;margin:20px 22px 14px}
+.fi-cab .av{width:84px;height:84px;border-radius:50%;background:#7a6a9a;color:#fff;display:grid;place-items:center;font-size:36px;font-weight:800;flex:none}
+.fi-cab b{display:block;font-size:34px;font-weight:800;letter-spacing:-.025em;border-radius:10px;padding:0 6px;margin-left:-6px}
+.fi-cab small{font-size:20px;font-weight:600;color:#7a8386}
+.fi-l{display:flex;align-items:center;gap:14px;margin:0 16px 12px;padding:16px 18px;border-radius:20px;background:#fff;border:2px solid #efe8e0}
+.fi-l>svg{width:34px;height:34px;color:#5b6467;flex:none}
+.fi-l div{flex:1;min-width:0}
+.fi-l small{display:block;font-size:17px;font-weight:700;color:#7a8386;letter-spacing:.04em;text-transform:uppercase}
+.fi-l b{display:block;font-size:25px;font-weight:800}
+.pn-st{padding:6px 10px;border-radius:999px;font-size:15px;font-weight:800;white-space:nowrap;flex:none}
+.pn-st.ok{background:#dff1e6;color:#1f7a45}
+.pn-st.pre{background:#fdf3d8;color:#8a6a10}
+#fi-bt{margin:8px 16px 0;height:84px;border-radius:24px;background:#1e2528;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;font-size:26px;font-weight:800}
+#fi-bt svg{width:30px;height:30px}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div class="poeira" id="poeira"></div>
+  <div id="extra"></div>
+  <div class="fone" id="fa"></div>
+  <div id="eu"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, IC, ic, balao, historia, h } from "./historia.mjs";
+import { serie } from "./serie.mjs";
+import { ARTE, arte, estudio, helena, cara, celular } from "./celular.mjs";
+
+const R = await historia({
+  nome: "reels-nasci3",
+  ordem: ["escuro", "resumo", "perfil", "link", "site", "manha", "virada", "fecho", "marca", "cta"],
+  // a trilha: as três da manhã abrem com impacto, o resumo no pulso, o "valor?" sendo digitado é o groove (cortado em
+  // "Ela parou", a frase "nada"), o link sobe até o drop, que cai em "Era um site"; a manhã na batida abafada, a virada
+  // no coração batendo, o fecho seco
+  trilha: { escuro: "abre", resumo: "google", perfil: "insta", link: "ese", site: "site", manha: "volta", virada: "meio", fecho: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "Fim. A Camila, a Helena e o bebê são fictícios.", bpm: 120, tom: 1,
+});
+const { F, S, I, W, palco, DUR } = R;
+const T = {
+  tres: W("abre", "tres"), dois: W("abre", "dois"), fechar: W("abre", "fechar"),
+  lotou: W("resumo", "lotou"), instagram: W("resumo", "instagram"), pdfR: W("resumo", "pdf"),
+  abriu: W("digita", "abriu"), digitar: W("digita", "digitar"), valor: W("digita", "valor"), parou: W("nada", "parou"),
+  linkW: W("link", "link"), tocou: W("tocou", "tocou"), site: W("site", "site"),
+  fotos: W("newborn", "fotos"), incluso: W("newborn", "incluso"), preco: W("newborn", "preco"), tela: W("newborn", "tela"),
+  agenda: W("agenda", "agenda"), livres: W("agenda", "livres"), sabado: W("sabado", "sabado"), livre: W("sabado", "livre"),
+  segurado: W("marido", "segurado"), marido: W("marido", "marido"), h24: W("h24", "24"), naoPagou: W("h24", "pagou"), voltou: W("h24", "voltou"),
+  quatro: W("quatro", "quatro"), minutos: W("quatro", "minutos"), sinal: W("pagou", "sinal"),
+  painel: W("manha", "painel"), marcou: W("manha", "marcou"), nome: W("nome", "nome"), camila: W("nome", "camila"), pdfq: W("pdfq", "pdf"),
+  visualizado: W("sabia", "visualizado"), trocado: W("sabia", "trocado"), siteV: W("sabia", "site"),
+  dormi: W("dormi", "dormi"), inteiro: W("dormi", "inteiro"), primeira: W("foto", "primeira"), helenaF: W("foto", "helena"),
+  guardou: W("guardou", "guardou"), lembrar: W("guardou", "lembrar"),
+};
+T.tapLink = T.tocou;                // o link da bio
+T.tapNb = T.fotos - 0.35;           // no site, o ensaio newborn
+T.tapAg = T.agenda - 0.2;           // "ver horários"
+T.tapSab = T.quatro - 0.1;          // o sábado, dez da manhã
+T.tapSinal = T.marcou - 0.1;        // no painel, "marcar sinal pago"
+IC.lupa = '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>';
+IC.contrato = '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>';
+IC.moeda = '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>';
+
+// ====================== o PDF, com cara ======================
+$("#eu").innerHTML = `<svg viewBox="-150 -190 300 400"><g id="nr"><ellipse cx="0" cy="196" rx="120" ry="14" fill="#000" opacity=".28"/>
+  <path d="M-130 -170 H66 L130 -106 V166 Q130 180 116 180 H-116 Q-130 180 -130 166 Z" fill="#fbf8f3"/><path d="M66 -170 V-120 Q66 -106 80 -106 H130 Z" fill="#d6cec1"/>
+  <g fill="#e2dbd0"><rect x="-98" y="-140" width="120" height="13" rx="6.5"/><rect x="-98" y="-112" width="170" height="13" rx="6.5"/></g>
+  <path d="M-130 108 H130 V166 Q130 180 116 180 H-116 Q-130 180 -130 166 Z" fill="#b25134"/><text x="0" y="158" text-anchor="middle" font-family="Geist" font-weight="800" font-size="50" letter-spacing="3" fill="#fff">PDF</text>
+  <g id="nrsob" fill="#3a2f2a"><rect x="-70" y="-46" width="44" height="9" rx="4.5"/><rect x="26" y="-46" width="44" height="9" rx="4.5"/></g>
+  <g id="nrolhos"><circle cx="-48" cy="-6" r="17" fill="#1e2528"/><circle cx="48" cy="-6" r="17" fill="#1e2528"/><circle cx="-42" cy="-12" r="5.5" fill="#fff"/><circle cx="54" cy="-12" r="5.5" fill="#fff"/></g>
+  <path id="nrsorriso" d="M-24 40 Q0 66 24 40" stroke="#7a3d2e" stroke-width="8" fill="none" stroke-linecap="round" opacity="0"/><path id="nrreta" d="M-18 50 H18" stroke="#7a3d2e" stroke-width="8" stroke-linecap="round"/>
+  <path id="nrtriste" d="M-22 58 Q0 38 22 58" stroke="#7a3d2e" stroke-width="8" fill="none" stroke-linecap="round" opacity="0"/><ellipse id="nroh" cx="0" cy="50" rx="13" ry="17" fill="#7a3d2e" opacity="0"/></g></svg>`;
+
+// ====================== a cena desenhada: o estúdio da Helena (de manhã e no ensaio) ======================
+$("#cn").innerHTML = `${estudio()}
+  <g id="ensaio"><ellipse cx="740" cy="1610" rx="260" ry="90" fill="#efe6d6"/><path d="M490 1600 Q740 1450 990 1600 Q740 1720 490 1600 Z" fill="#e9d9c3"/>
+    <g transform="translate(740 1540) scale(3.6) translate(-50 -64)">${ARTE.bebe(0).replace(/<rect width="100" height="100"[^>]*\/>/, "").replace(/<ellipse cx="52" cy="72"[^>]*\/>/, "")}</g>
+    <circle id="flash-c" cx="380" cy="1180" r="200" fill="#fff" opacity="0"/></g>`;
+
+// ====================== o celular ======================
+const GRADE = [["bebe", 0], ["familia", 0], ["gestante", 1], ["bebe", 2], ["gestante", 0], ["bebe", 3]];
+const { FA, mostra, toque, hora } = celular(`
+  <div class="tela" id="s-perfil"><div class="pf-cab"><div class="pf-l1"><span class="pf-av">H</span><div><b>helena.fotografia</b><small>Newborn, gestante e família</small></div></div>
+    <div class="pf-bio"><b>Helena Fotografia</b><br>Ensaios com hora marcada pelo site<br><span id="pf-link">${ic("link")}helenafotografia.com.br</span></div>
+    <div class="pf-bts"><span>Seguir</span><span id="pf-msg">Mensagem</span></div></div>
+    <div class="pf-g">${GRADE.map(a => `<i>${arte(...a)}</i>`).join("")}</div></div>
+  <div class="tela" id="s-dm"><div class="dm-topo">${ic("voltar")}<i>H</i>helena.fotografia</div><div class="dm-novo"><i>H</i><b>Helena Fotografia</b><small>helena.fotografia · Instagram</small><span>Ver perfil</span></div><div class="dm-in"><span id="dm-txt"></span><i id="dm-cur"></i></div></div>
+  <div class="tela st" id="s-home"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br</span></div><div class="ms-topo"><span>Helena Fotografia</span><i></i></div>
+    <div class="st-tit">Escolha o seu ensaio</div>
+    ${[["Newborn", ["bebe", 1], "R$ 850"], ["Gestante", ["gestante", 0], "R$ 690"], ["Família", ["familia", 0], "R$ 750"]].map(([n, a, p], k) => `<div class="st-ens" id="hs${k}"><i>${arte(...a)}</i><div><b>${n}</b><em>${p}</em></div></div>`).join("")}</div>
+  <div class="tela st" id="s-nb"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br/newborn</span></div><div class="ms-topo"><span>Ensaio newborn</span><i></i></div>
+    <div class="hero" id="nb-hero">${arte("bebe", 1)}</div>
+    <div class="inc" id="nb-inc">${["Até 15 dias de vida", "3h de ensaio, no ritmo do bebê", "20 fotos editadas"].map(x => `<p>${ic("check")}${x}</p>`).join("")}</div>
+    <div class="preco" id="nb-preco"><b>R$ 850</b><small>sinal para reservar</small></div>
+    <div class="bt-ag" id="nb-ag">${ic("calendario")}Ver horários livres</div></div>
+  <div class="tela st" id="s-ag"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br/agenda</span></div><div class="ms-topo"><span>Newborn · horários</span><i></i></div>
+    <div class="st-tit">Escolha o dia</div>
+    <div class="ag-l" id="ag0">Qui, 26/11<small>lotado</small></div><div class="ag-l" id="ag1">Sex, 27/11<small>lotado</small></div>
+    <div class="ag-l livre" id="ag2">Sáb, 28/11 · 10h<small id="ag2s">livre</small></div>
+    <div id="ag-sep">Separado para você até o sinal<b id="ag-t">24:00:00</b></div></div>
+  <div class="tela" id="s-pix"><div class="pix"><div class="ok">${ic("check")}</div><h4>Sinal enviado</h4><p>Ensaio newborn<br>Sábado, 28/11, às 10h</p></div></div>
+  <div class="tela" id="s-ficha"><div class="pn-topo">${ic("voltar")}Ficha da cliente<small>Helena Fotografia</small></div>
+    <div class="fi-cab"><span class="av">C</span><div><b id="fi-nome">Camila Rocha</b><small>Ensaio newborn</small></div></div>
+    <div class="fi-l">${ic("calendario")}<div><small>Data</small><b>28/11, sábado, 10h</b></div></div>
+    <div class="fi-l">${ic("contrato")}<div><small>Contrato</small><b>Enviado</b></div></div>
+    <div class="fi-l" id="fi-sinal">${ic("moeda")}<div><small>Sinal</small><b id="fi-sv">aguardando</b></div><span class="pn-st pre" id="fi-st">aguardando</span></div>
+    <div id="fi-bt">${ic("check")}Marcar sinal pago</div></div>
+  <div class="tela st" id="s-site"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br/newborn</span></div><div class="ms-topo"><span>Ensaio newborn</span><i></i></div>
+    <div class="hero" style="height:430px">${arte("bebe", 0)}<span id="um">1ª foto</span></div>
+    <div class="inc">${["Até 15 dias de vida", "3h de ensaio, no ritmo do bebê"].map(x => `<p>${ic("check")}${x}</p>`).join("")}</div></div>`, "03:00");
+
+// ====================== peças por cima ======================
+$("#extra").innerHTML = `
+  <div id="relogio">03:00</div>
+  <div id="dias"><div class="tit"><span>dia 13 de 15</span><small>faltam 2 dias</small></div><div class="bar">${Array.from({ length: 15 }, (_, k) => `<i class="${k === 12 ? "hoje" : k > 12 ? "fim" : ""}" id="dd${k}"></i>`).join("")}</div></div>
+  <div id="post"><div class="tp"><i>H</i>helena.fotografia</div><div class="im">${arte("bebe", 0)}</div></div>
+  <div id="caminho"><div id="cm-a"><small>Episódio 1</small><b>14 páginas</b><p>o preço na página 9, num PDF que não baixou</p></div><div id="cm-b"><small>Agora</small><b>1 toque</b><p>o preço na primeira tela do site</p></div></div>
+  <div id="marido"><svg viewBox="-210 -190 420 380"><path d="M-190 -150 Q-200 -170 -170 -170 H170 Q200 -170 200 -140 V60 Q200 90 170 90 H-30 L-110 160 L-96 90 H-170 Q-200 90 -200 60 Z" fill="#f1eee9"/>
+    <text x="0" y="-92" text-anchor="middle" font-family="Geist" font-weight="800" font-size="36" fill="#1e2528">Vou ver com</text><text x="0" y="-48" text-anchor="middle" font-family="Geist" font-weight="800" font-size="36" fill="#b25134">meu marido</text>
+    <circle cx="-40" cy="12" r="13" fill="#1e2528"/><circle cx="40" cy="12" r="13" fill="#1e2528"/><path d="M-14 52 H14" stroke="#7a3d2e" stroke-width="7" stroke-linecap="round"/></svg></div>
+  <div id="h24"><div class="lin"><span>Pré-reserva: sábado, 10h</span><span id="h24-r">24 h para o sinal</span></div><div class="tr"><i id="h24-b"></i></div>
+    <div class="rot"><span>separou</span><span>24 horas</span></div><div class="fim" id="h24-f">Sem sinal: a vaga voltou para a agenda.</div></div>
+  <div id="troca"><svg viewBox="0 0 170 70"><path d="M8 35 H150 M118 8 L156 35 L118 62" stroke="#e8855e" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div id="crono">03:00<small id="crono-s"></small></div>
+  <div id="gaveta"><svg viewBox="0 0 520 360"><rect x="20" y="40" width="480" height="300" rx="24" fill="#7d573c"/><rect x="50" y="70" width="420" height="120" rx="16" fill="#5a3d2b"/>
+    <rect x="50" y="210" width="420" height="110" rx="16" fill="#6b4a33" id="gv-frente"/><rect x="220" y="250" width="80" height="22" rx="11" fill="#e0c08a"/>
+    <text x="260" y="140" text-anchor="middle" font-family="Geist" font-weight="800" font-size="34" fill="#e0c08a">Lembranças</text></svg></div>`;
+const B_PDF = balao("A do PDF?", "esq pensa");
+
+// ====================== quadro a quadro ======================
+// as três da manhã: o relógio e os dois dias que faltam
+function qAbre(t) {
+  const on = t < S.resumo + 0.3, sai_ = fase(t, S.resumo - 0.1, S.resumo + 0.3);
+  const r = $("#relogio"), a = entra(t, 0.05, 0.4);
+  pos(r, { x: 540 - r.offsetWidth / 2, y: 760 + a.y, s: a.s, o: on ? a.o * (1 - sai_) : 0 });
+  const d = $("#dias"), b = entra(t, T.dois - 0.2, 0.35);
+  pos(d, { x: 540, y: 1180 + b.y, s: b.s, o: on ? b.o * (1 - sai_) : 0 });
+  for (let k = 13; k < 15; k++) $(`#dd${k}`).style.transform = `scaleY(${(1 + 0.25 * Math.max(0, Math.sin(t * 6 + k))).toFixed(3)})`;
+}
+// o resumo: o post da Helena e o PDF de onde tudo começou
+const EU = [[0, 760, 1060, 0.3, 0, 0], [T.pdfR - 0.4, 760, 1060, 0.3, 0, 0], [T.pdfR, 760, 1040, 0.7, 6, 1], [S.perfil - 0.2, 760, 1040, 0.7, 6, 1], [S.perfil, 760, 1040, 0.5, 6, 0],
+  [S.virada - 0.2, 300, 1080, 0.4, 0, 0], [S.virada + 0.2, 300, 1080, 0.8, -4, 1], [T.trocado + 0.3, 300, 1080, 0.8, -4, 1], [I("dormi") - 0.2, 300, 1080, 0.6, 0, 0],
+  [I("guardou") - 0.2, 540, 1000, 0.5, 0, 0], [I("guardou") + 0.2, 540, 980, 0.9, 0, 1], [T.lembrar - 0.2, 540, 980, 0.9, 0, 1], [T.lembrar + 0.4, 540, 1180, 0.5, 0, 0]];
+function qEu(t) {
+  const [x, y, s, r, o] = pose(EU, t);
+  pos($("#eu"), { x, y, s, r, o });
+  if (o > 0.002) cara("nr", t < S.perfil ? "triste" : t < I("dormi") ? "oh" : "sorriso", t >= T.lembrar - 0.3 ? 0.6 : (t % 2.6) < 0.1 ? 1 : 0, t < S.perfil ? -0.6 : 0.5);
+  const p = $("#post"), a = entra(t, T.instagram - 0.15, 0.35);
+  pos(p, { x: 120, y: 820 + a.y, s: a.s, r: -4, o: em(t, T.instagram - 0.2, S.perfil) ? a.o * (1 - fase(t, S.perfil - 0.25, S.perfil)) : 0 });
+}
+// a cena desenhada: a Helena de manhã com o painel, e o ensaio no sábado
+function qCena(t) {
+  const manha = em(t, S.manha - 0.05, S.virada), ensaio = em(t, I("dormi") - 0.05, I("foto"));
+  vis($("#c-cena"), manha || ensaio);
+  attr($("#g-estudio"), "opacity", manha || ensaio ? 1 : 0); attr($("#ensaio"), "opacity", ensaio ? 1 : 0);
+  if (!manha && !ensaio) return;
+  const reconhece = t >= T.camila;
+  helena(t, { x: ensaio ? 300 : 290, jeito: ensaio ? "sorriso" : reconhece ? "oh" : "sorriso", olhos: reconhece && !ensaio ? 0 : null });
+  if (ensaio) { const f = Math.max(pulso(t, I("dormi") + 0.4, 0.25), pulso(t, T.inteiro, 0.25)); attr($("#flash-c"), "opacity", (0.85 * f).toFixed(3)); }
+}
+// o celular: [t, centro x, centro y, escala, giro, opacidade]
+const PF = [
+  [0, 540, 1500, 0.9, 10, 0], [S.perfil - 0.25, 540, 1500, 0.9, 10, 0], [S.perfil + 0.1, 540, 1060, 1.3, 0, 1],
+  [S.manha - 0.15, 540, 1060, 1.3, 0, 1], [S.manha + 0.2, 760, 1120, 0.84, 3, 1], [S.virada - 0.15, 760, 1120, 0.84, 3, 1],
+  [S.virada + 0.2, 760, 1080, 0.8, 4, 1], [I("dormi") - 0.2, 760, 1080, 0.8, 4, 1], [I("dormi"), 900, 1300, 0.7, 8, 0],
+  [I("foto") - 0.25, 540, 1500, 0.9, 10, 0], [I("foto") + 0.1, 540, 1060, 1.3, 0, 1], [I("guardou") - 0.15, 540, 1060, 1.3, 0, 1], [I("guardou") + 0.1, 540, 1300, 1, 0, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(PF, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  $("#dedo").style.opacity = 0;
+  if (o <= 0.002) return;
+  let tela;
+  if (t < S.manha) {
+    tela = t < T.abriu + 0.6 ? "s-perfil" : t < I("link") - 0.1 ? "s-dm" : t < T.tapLink + 0.15 ? "s-perfil" : t < T.tapNb + 0.15 ? "s-home" : t < T.tapAg + 0.15 ? "s-nb" : t < I("pagou") ? "s-ag" : "s-pix";
+    hora(t < T.tapSab ? "03:00" : "03:04");
+  } else if (t < S.virada) { tela = "s-ficha"; hora("08:20"); }
+  else if (t < I("foto") - 0.1) { tela = "s-home"; hora("08:21"); }
+  else { tela = "s-site"; hora("10:00"); }
+  mostra(tela);
+  if (tela === "s-perfil") {
+    const msg = pulso(t, T.abriu + 0.3, 0.5); $("#pf-msg").style.background = msg > 0.05 ? `rgba(47,95,196,${(0.2 * msg).toFixed(3)})` : "";
+    const lk = pulso(t, T.linkW - 0.1, 1.0); $("#pf-link").style.background = lk > 0.05 ? `rgba(47,95,196,${(0.2 * lk).toFixed(3)})` : "";
+    if (t < I("link")) toque(t, T.abriu + 0.4, $("#pf-msg")); else toque(t, T.tapLink, $("#pf-link"));
+  }
+  if (tela === "s-dm") {
+    const n = Math.min(6, Math.floor(fase(t, T.digitar - 0.1, T.valor + 0.3) * 7)), parou = t >= T.parou - 0.1;
+    $("#dm-txt").textContent = "valor?".slice(0, n);
+    $("#dm-cur").style.opacity = parou ? ((t * 2) % 1 < 0.5 ? 1 : 0) : 1;
+  }
+  if (tela === "s-home") {
+    const noSite = t < S.manha;
+    $$(".st-ens", $("#s-home")).forEach((el, k) => { const b = entra(t, (noSite ? T.site : S.virada + 0.2) + k * 0.07, 0.3); pos(el, { y: b.y * 0.6, s: b.x > 0 ? lerp(0.9, 1, volta(b.x)) : 0.9, o: b.o }); });
+    if (noSite) { const p = pulso(t, T.tapNb - 0.15, 0.5); $("#hs0").style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #e8855e` : ""; toque(t, T.tapNb, $("#hs0")); }
+    else $("#hs0").style.boxShadow = "";
+  }
+  if (tela === "s-nb") {
+    const a = entra(t, T.tapNb + 0.2, 0.35); pos($("#nb-hero"), { s: lerp(0.9, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+    [["#nb-hero", T.fotos], ["#nb-inc", T.incluso], ["#nb-preco", T.preco]].forEach(([id, t0]) => { const p = pulso(t, t0 - 0.1, 0.8); $(id).style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #e8855e` : ""; });
+    $("#nb-preco").style.transform = `scale(${(1 + 0.07 * pulso(t, T.preco - 0.1, 0.8)).toFixed(3)})`;
+    toque(t, T.tapAg, $("#nb-ag"));
+  }
+  if (tela === "s-ag") {
+    ["#ag0", "#ag1", "#ag2"].forEach((id, k) => { const b = entra(t, T.tapAg + 0.2 + k * 0.08, 0.3); pos($(id), { y: b.y * 0.5, o: b.o }); });
+    const ps = pulso(t, T.sabado - 0.1, 1.2); $("#ag2").style.boxShadow = ps > 0.05 ? `0 0 0 ${(5 * ps).toFixed(1)}px #25a35a` : "";
+    const sep = t >= T.tapSab + 0.1;
+    $("#ag2").className = "ag-l " + (sep ? "sep" : "livre"); $("#ag2s").textContent = sep ? "separado" : "livre";
+    const a = entra(t, T.tapSab + 0.15, 0.3); pos($("#ag-sep"), { y: a.y * 0.4, s: a.s, o: a.o });
+    const rest = Math.max(0, 86400 - Math.floor((t - T.tapSab) * 37)); $("#ag-t").textContent = `${String(Math.floor(rest / 3600)).padStart(2, "0")}:${String(Math.floor(rest % 3600 / 60)).padStart(2, "0")}:${String(rest % 60).padStart(2, "0")}`;
+    toque(t, T.tapSab, $("#ag2"));
+  }
+  if (tela === "s-pix") { const a = entra(t, I("pagou"), 0.35); pos($(".pix .ok", FA), { s: a.s, o: a.o }); }
+  if (tela === "s-ficha") {
+    const pago = t >= T.tapSinal + 0.1;
+    $("#fi-sv").textContent = pago ? "pago em 26/11" : "aguardando"; $("#fi-st").className = `pn-st ${pago ? "ok" : "pre"}`; $("#fi-st").textContent = pago ? "sinal pago" : "aguardando";
+    $("#fi-bt").style.background = pago ? "#1f7a45" : ""; $("#fi-bt").style.transform = `scale(${(1 - 0.05 * pulso(t, T.tapSinal - 0.05, 0.4)).toFixed(3)})`;
+    const pn = pulso(t, T.camila - 0.1, 1.3); $("#fi-nome").style.background = pn > 0.05 ? `rgba(232,133,94,${(0.3 * pn).toFixed(3)})` : "";
+    toque(t, T.tapSinal, $("#fi-bt"));
+  }
+  if (tela === "s-site") { const u = entra(t, T.primeira - 0.05, 0.3); pos($("#um"), { s: u.s, o: u.o }); }
+}
+// por cima: o caminho até o preço, o "vou ver com meu marido", as 24 horas, os quatro minutos e a gaveta das lembranças
+function qExtra(t) {
+  {
+    const on = em(t, T.tela - 0.4, S.site + 6), el = $("#caminho"), a = entra(t, T.tela - 0.3, 0.35);
+    pos(el, { x: 540, y: 1390 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, I("agenda") - 0.2, I("agenda") + 0.1)) : 0 });
+    pos($("#cm-b"), { s: 1 + 0.06 * pulso(t, T.tela + 0.1, 0.5) });
+  }
+  {
+    const el = $("#marido"), on = em(t, I("marido") - 0.1, I("quatro")), a = entra(t, T.segurado - 0.2, 0.35), tre = em(t, T.voltou - 0.1, T.voltou + 0.3) ? 10 * Math.sin(t * 50) : 0;
+    pos(el, { x: 830 + tre, y: 600 + a.y, s: a.s * 1.2, r: 6, o: on ? a.o * (1 - fase(t, T.voltou, T.voltou + 0.4)) : 0 });
+  }
+  {
+    const el = $("#h24"), on = em(t, I("h24") - 0.1, I("quatro") + 0.2), a = entra(t, I("h24"), 0.35);
+    pos(el, { x: 540, y: 1330 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, I("quatro"), I("quatro") + 0.2)) : 0 });
+    const x = ease(fase(t, T.h24, T.naoPagou)); $("#h24-b").style.width = `${(100 * (1 - x)).toFixed(1)}%`;
+    $("#h24-r").textContent = x >= 1 ? "0 h · sem sinal" : `${Math.ceil(24 * (1 - x))} h para o sinal`;
+    $("#h24-f").style.opacity = fase(t, T.voltou - 0.1, T.voltou + 0.2).toFixed(3);
+  }
+  {
+    const el = $("#crono"), on = em(t, I("quatro") - 0.1, S.manha - 0.1), a = entra(t, I("quatro"), 0.35);
+    const m = Math.min(4, Math.floor(fase(t, I("quatro") + 0.2, T.minutos) * 5));
+    el.firstChild.textContent = `03:0${m}`; $("#crono-s").textContent = m >= 4 ? "4 minutos, de madrugada" : "";
+    pos(el, { x: 540 - el.offsetWidth / 2, y: 1450 + a.y, s: a.s * (1 + 0.06 * pulso(t, T.minutos, 0.4)), o: on ? a.o * (1 - fase(t, S.manha - 0.35, S.manha - 0.1)) : 0 });
+  }
+  {
+    const el = $("#troca"), a = fase(t, T.trocado - 0.1, T.trocado + 0.35), on = em(t, T.trocado - 0.1, I("dormi") - 0.2);
+    pos(el, { x: 520, y: 1080, s: 0.6 + 0.4 * ease(a), o: on ? a * (1 - fase(t, I("dormi") - 0.5, I("dormi") - 0.2)) : 0 });
+  }
+  {
+    const el = $("#gaveta"), on = em(t, I("guardou") - 0.1, S.marca), a = entra(t, I("guardou"), 0.35);
+    pos(el, { x: 540, y: 1300 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, S.marca - 0.3, S.marca)) : 0 });
+    attr($("#gv-frente"), "transform", `translate(0 ${(40 * pulso(t, T.lembrar - 0.2, 0.8)).toFixed(1)})`);
+  }
+}
+function qBaloes(t) {
+  const a = entra(t, T.pdfq - 0.25, 0.3), o = em(t, T.pdfq - 0.3, S.virada) ? a.o * (1 - fase(t, S.virada - 0.2, S.virada)) : 0;
+  pos(B_PDF, { x: 110, y: 860 + a.y, s: a.s, o });
+}
+
+const MINI_E2 = `<svg viewBox="0 0 150 200"><rect width="150" height="200" fill="#10161d"/><text x="75" y="34" text-anchor="middle" font-family="Geist" font-weight="800" font-size="18" fill="#f6f3ee">Quinze dias</text>
+  ${Array.from({ length: 15 }, (_, k) => `<rect x="${12 + k * 8.4}" y="150" width="6.4" height="18" rx="2" fill="${k < 12 ? "#e8855e" : k === 12 ? "#f1eee9" : "#5a2a28"}"/>`).join("")}
+  <g transform="translate(75 100)"><path d="M0 -40 C-22 -40 -30 -24 -30 -14 C-30 6 0 30 0 30 C0 30 30 6 30 -14 C30 -24 22 -40 0 -40 Z" fill="#e0453a"/><circle cx="0" cy="-15" r="11" fill="#fbf8f3"/></g></svg>`;
+const quadroSerie = serie(R, { parte: 3, abertura: "resumo", rotulo: "EPISÓDIO", nome: "Eu ainda não nasci", resumo: { id: "resumo", titulo: "Quinze dias", arte: MINI_E2 } });
+window.quadro = t => {
+  palco.style.transform = "none";
+  const manha = em(t, S.manha - 0.05, S.virada) || em(t, I("dormi") - 0.05, I("foto")), quente = em(t, S.site, S.manha);
+  palco.style.background = manha ? "#3a4a58" : quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : "radial-gradient(70% 50% at 50% 42%,#18222c 0%,#0a0d10 75%)";
+  qAbre(t); qEu(t); qCena(t); qFone(t); qExtra(t); qBaloes(t); quadroSerie(t);
+  R.comum(t, { poeira: !manha });
+};
+const SONS = [{ t: T.abriu + 0.4, tipo: "toque", ganho: 0.7 }, { t: T.tapLink, tipo: "toque", ganho: 0.8 }, { t: T.tapNb, tipo: "toque", ganho: 0.8 }, { t: T.tapAg, tipo: "toque", ganho: 0.8 },
+  { t: T.tapSab, tipo: "toque", ganho: 0.8 }, { t: I("pagou"), tipo: "ding", ganho: 0.7 }, { t: T.tapSinal, tipo: "toque", ganho: 0.8 }];
+window.preparar = () => R.preparar([0.3, T.dois + 0.3, T.instagram + 0.3, T.pdfR + 0.3, T.digitar + 0.6, T.parou + 0.3, T.linkW + 0.3, T.site + 0.2, T.incluso + 0.2, T.tela + 0.3,
+  T.livres + 0.2, T.livre + 0.2, T.marido + 0.2, T.h24 + 0.6, T.voltou + 0.3, T.minutos + 0.3, T.sinal + 0.2, T.marcou + 0.3, T.camila + 0.3, T.pdfq + 0.3, T.visualizado + 0.3,
+  T.trocado + 0.5, T.inteiro, T.primeira + 0.4, T.lembrar, F.moral.ini + 1.2, F.marca.ini + 1.3, F.cta.ini + 1.6, DUR - 0.4], SONS);
+await R.pronto();
+</script>
+</body></html>

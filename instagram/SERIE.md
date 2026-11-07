@@ -1,20 +1,25 @@
-# Série "O celular da fotógrafa": o padrão de cada parte
+# Série "Eu ainda não nasci": uma história em três episódios
 
-Uma minissérie para fotógrafas, uma parte por dia às 19h. Em cada parte, quem narra é uma coisa que mora no celular
-da Helena, fotógrafa de gestante e newborn: o PDF de preços, o comprovante de Pix, o "vou ver com meu marido"...
-O padrão vale para todas as partes; o visual comum está em `serie.mjs`.
+Uma minissérie para fotógrafas de gestante e newborn, um episódio por dia às 19h. Quem narra é o bebê da Camila, do
+útero ao primeiro ensaio. Diferente de partes que se entendem sozinhas, aqui a história é uma só: cada episódio termina
+numa pergunta que só o próximo responde, e cada um começa lembrando o anterior. O visual comum está em `serie.mjs`
+(selo, cartão do resumo e o "Siga") e em `celular.mjs` (o celular, o estúdio, a Helena e as fotos dos ensaios).
+
+Substitui a série "O celular da fotógrafa": a parte 1 (`reels-pdf`) virou o episódio 1, e o que as partes 2 e 3
+(`reels-comprovante` e `reels-marido`) ensinavam, o sinal marcado no painel e as 24 horas da vaga, está no episódio 3.
+Essas duas não devem ser postadas; os arquivos ficam só como referência.
 
 ## Por que assim (pesquisa de 07/11/2026)
 
 - O Instagram mostra o vídeo primeiro para quem não segue a conta. O Adam Mosseri, chefe do Instagram, disse em
   janeiro de 2025 que os sinais que mais pesam são o tempo assistido, as curtidas por alcance e os envios por alcance
-  (os envios pesam um pouco mais para quem ainda não segue). Por isso cada parte precisa prender sozinha nos três
+  (os envios pesam um pouco mais para quem ainda não segue). Por isso cada episódio precisa prender sozinha nos três
   primeiros segundos e ter uma cena que dá vontade de mandar para alguém.
 - Desde agosto de 2025, o Instagram deixa vincular um Reels a outro: aparece um botão no canto do vídeo (por exemplo,
   "Ver parte 2"), com título de até 15 caracteres. Cada Reels leva um vínculo só. Ele se coloca na hora de postar ou
   depois, pelo menu de três pontos do Reels.
 - A Meta testa desde junho de 2026 uma aba "Séries" no perfil, só para alguns criadores. Quando chegar para a conta,
-  as partes entram lá.
+  os episódios entram lá.
 - Séries curtas com episódios que se referem uns aos outros (e as "microdramas" de 1 a 3 minutos) são o formato que o
   Instagram está procurando em 2026.
 
@@ -22,60 +27,53 @@ O padrão vale para todas as partes; o visual comum está em `serie.mjs`.
 
 | Momento | O que aparece |
 |---|---|
-| 0 a 3 s | O gancho da parte, novo, sem contexto. No topo, o selo "PARTE N · O celular da fotógrafa". |
-| 3 a 8 s (da parte 2 em diante) | Uma frase de resumo: "Na parte 1, ..." e o cartão da parte anterior, com a capa dela. Nunca antes do gancho. |
-| O meio | A história da parte, que se entende sozinha, com a virada dela. |
-| O fim | Moral, marca e convite, como em qualquer vídeo. |
-| Pós-créditos (3 a 4 s) | "Na parte N+1: ..." com um detalhe concreto do que vem, o selo "PARTE N+1" e "Siga para ver a parte N+1". |
+| 0 a 3 s | O gancho do episódio, novo. No topo, o selo "EPISÓDIO N · Eu ainda não nasci". |
+| 3 a 10 s (do episódio 2 em diante) | O resumo: "No episódio 1, ..." e o cartão do episódio anterior. Nunca antes do gancho. |
+| O meio | A história, com pelo menos uma coisa para aprender desenhada na tela (régua, contador, cronômetro). |
+| Gancho do fim | Uma frase que deixa a pergunta aberta ("Só que eu resolvi nascer três semanas antes."). |
+| Prévia (uns 6 s, episódios 1 e 2) | "No próximo episódio: ..." com cenas do episódio seguinte, e a voz fecha com "Siga para ver o episódio 2" ou "Siga para ver o final". |
+| Depois da voz (episódios 1 e 2) | Só na tela, sem falar: a marca, "Comenta PRÉVIA" e "que a Renderiza monta a prévia do site do seu estúdio". |
+| Final (episódio 3) | A história fecha, e a voz fala a moral, a Renderiza e o convite. |
 
-A linguagem é a das séries do Instagram: "parte 1", "parte 2", "siga para ver a parte 3".
+No motor, o fim mudo acontece sozinho quando a narração não tem a frase `moral` (`historia.mjs`; o tempo na tela é
+`fimMudo`, padrão 4,2 s). O "Siga" é `serie(R, { siga: { texto } })`, que aparece na frase de id `siga`.
+
+## Para aprender vendo
+
+| Episódio | O que se aprende |
+|---|---|
+| 1 | A régua da gestação: 40 semanas, 36 feitas, 4 faltando. O caminho até o preço: 14 páginas, o preço na 9, o PDF que não baixa. |
+| 2 | A janela do newborn: o contador dos 15 dias, e "janeiro: dia 48, fora da janela". 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box). |
+| 3 | 14 páginas no episódio 1 contra um toque agora. As 24 horas da pré-reserva até o sinal, e o cronômetro dos quatro minutos. |
 
 ## Capa
 
-O mesmo desenho em todas: o selo "PARTE N" no alto, o título grande, sem a marca. No perfil, as capas lado a lado
-mostram a sequência.
+O selo "EPISÓDIO N · EU AINDA NÃO NASCI" (no 3, "EPISÓDIO 3 · FINAL") e o título grande, sem a marca, com o título a
+pelo menos 290 px do topo: o perfil mostra a capa cortada em 3:4, sem os 240 px de cima e de baixo. As três lado a lado
+contam o relógio: "Eu ainda não nasci", "Quinze dias", "Faltam dois dias".
 
 ## Ao postar
 
-1. Legenda: a primeira linha diz a parte e onde está o começo ("Parte 2 de O celular da fotógrafa. A parte 1 está
-   fixada no perfil."), junto com o aviso de ficção. Depois, a lição, o convite e o comentário para fixar, como no guia.
-2. Vincular: a parte nova aponta para a parte 1 ("Ver a parte 1"). Quando a próxima sair, troque o vínculo da parte
-   anterior para ela ("Ver a parte 3"). Assim, quem chega pela última parte volta ao começo, e quem começa pela parte 1
-   vai seguindo.
-3. A parte 1 fica fixada no perfil. Cada parte vai para o destaque "Série" nos stories.
-4. Story 10 minutos depois: "Parte N no ar." Story das 20h: enquete sobre a dor da parte.
+1. Legenda: a primeira linha diz o episódio e onde está o começo ("Episódio 2 de Eu ainda não nasci. O episódio 1 está
+   fixado no perfil."), com o aviso de ficção. Depois, a lição, o convite e o comentário para fixar, como no guia.
+2. Vincular: quando o episódio novo sai, o anterior passa a apontar para ele ("Ver episódio 2", "Ver o final"). O
+   episódio 3 aponta de volta para o 1 ("Ver episódio 1"), para quem chega pelo final.
+3. O episódio 1 fica fixado no perfil enquanto a série dura; no fim, os três ficam fixados.
+4. Story 10 minutos depois: "Episódio N no ar." Story das 20h: enquete sobre a dor do episódio.
 
 ## O que acompanhar
 
-Em cada parte: tempo médio assistido, taxa de pular, envios, seguidores ganhos e visitas ao perfil. Se a taxa de pular
-subir da parte 1 para a 2, o resumo está pesando e deve encurtar.
+Em cada episódio: tempo médio assistido, taxa de pular, envios, seguidores ganhos e visitas ao perfil. Do 1 para o 2,
+o que importa é quantos seguiram: é o que diz se a prévia e o "Siga" funcionaram. Se a taxa de pular subir no 2, o
+resumo está pesando e deve encurtar.
 
-## As partes
+## Os episódios
 
-| Parte | Quem narra | O que a Renderiza mostra | Convite |
-|---|---|---|---|
-| 1 | O PDF de preços (`reels-pdf`) | O site com o preço de cada ensaio | PRÉVIA |
-| 2 | O comprovante de Pix (`reels-comprovante`) | O painel: o sinal marcado na ficha da cliente | PAINEL |
-| 3 | O "vou ver com meu marido" (`reels-marido`) | A pré-reserva por 24 horas até o sinal e a lista de espera | NATAL |
-| 4 | O alfinete do estúdio no Google Maps | O perfil do Google completo | PRÉVIA |
-| 5 | O bebê da Camila, que chutou o celular na parte 1 | Tudo junto, no dia da mini sessão de Natal | NATAL |
+| Episódio | Arquivo | A história | O que a Renderiza mostra | Fim |
+|---|---|---|---|---|
+| 1 · A tabela | `reels-nasci1` | Com 36 semanas, o bebê vê a mãe pedir o valor à Helena e receber um PDF de 14 páginas que não baixa. Ele chuta, o celular cai, e ela fecha com outra fotógrafa, mais cara, que mostrava o preço na primeira tela. A Helena acha que foi o preço. Gancho: ele nasce três semanas antes. | O preço na primeira tela (pela outra fotógrafa) | Siga + PRÉVIA na tela |
+| 2 · Quinze dias | `reels-nasci2` | Nascido em 14/11, às 4h, o relógio dos 15 dias corre. A outra fotógrafa só tem vaga em janeiro. Às 3h, perfis parados, telefone que não existe, a Helena no vácuo e o alfinete do mapa na casa da mãe dela. No dia 11, a mãe desiste; no 13, acha o newborn mais lindo do Instagram: é da Helena. | O que falta quando não há site | Siga + PRÉVIA na tela |
+| 3 · Três da manhã | `reels-nasci3` | Faltando dois dias, a mãe digita "valor?", para e toca no link da bio: é um site. Sábado, 10h, livre, porque um "vou ver com meu marido" não pagou o sinal em 24 horas. Ela marca em quatro minutos. De manhã, a Helena marca o sinal no painel e lê "Camila". A do PDF? Ela tinha trocado o PDF por um site. O bebê vira a primeira foto do newborn no site. | O site com o preço de cada ensaio, a agenda que segura a vaga até o sinal e o painel | Moral, marca e PRÉVIA falados |
 
-## O fio da temporada (o final primeiro)
-
-Cada parte fecha a sua história, mas a temporada tem uma pergunta só: a Helena vai recuperar a Camila?
-
-- **Parte 1.** A Helena perde a Camila, grávida de oito meses, porque o PDF não baixa e o bebê chuta o celular na cara
-  dela. O fecho planta a temporada: "E a Camila? Nunca mais apareceu. Por enquanto.", com a barriga chutando de novo.
-  No fim, a Helena responde o "valor?" da Lari com o link.
-- **Parte 2.** O resumo lembra a Camila. A Lari, que recebeu o link, marca o ensaio gestante de 28/11. O print do sinal
-  dela vai parar no grupo da família. No fecho, a tia Rosa pede o valor da foto de Natal.
-- **Parte 3.** A mini sessão de Natal do dia 05/12 fica com o das dez vazio; entre as mães recusadas está a tia Rosa,
-  que pediu o horário e ouviu "já está reservado". As vagas do dia 12/12 já abrem pela agenda do site.
-- **Parte 4.** O alfinete do estúdio no mapa aponta para a casa da mãe da Helena; o perfil do Google completo leva ao
-  estúdio de verdade. O resumo lembra a Camila de novo.
-- **Parte 5 (o final).** Quem narra é o bebê da Camila: "Antes de nascer, eu derrubei um celular." De madrugada, com
-  o bebê no colo, a Camila procura uma mini sessão de Natal no Google, acha a Helena (parte 4), vê o preço no site
-  (parte 1) e pega a última vaga de 12/12, separada por 24 horas (parte 3). O sinal cai e a Helena marca no painel
-  (parte 2). No painel, a Helena lê o nome: Camila. No dia 12, o bebê ganha a primeira foto de Natal, e a tia Rosa
-  aparece com a família na vaga seguinte. A cliente perdida na parte 1 volta porque tudo o que a Helena consertou
-  funciona junto.
+A linha do tempo: previsão 05/12, nascimento no sábado 14/11 (37 semanas), dia 13 em 26/11, ensaio no sábado 28/11 às
+10h, o último dia da janela. O painel não recebe o Pix: quem marca o sinal é a Helena.

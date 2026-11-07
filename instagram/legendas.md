@@ -438,42 +438,48 @@ Comenta PRÉVIA que a gente monta a prévia do site do seu espaço, sem compromi
 
 Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu espaço?"
 
-## Série "O celular da fotógrafa" (uma parte por dia, 19h; o padrão está em `SERIE.md`)
+## Série "Eu ainda não nasci" (3 episódios, um por dia, 19h; o padrão está em `SERIE.md`)
 
-### Parte 1 · "O PDF" (`reels-pdf`, para fotógrafas)
+Substitui a série "O celular da fotógrafa". As partes "O comprovante" (`reels-comprovante`) e "Vou ver com meu marido" (`reels-marido`) não serão postadas: o que elas ensinavam está no episódio 3.
 
-Capa: "Só quatro me abriram", com o selo "PARTE 1 · O celular da fotógrafa" (a opção B é "O celular caiu na cara dela").
+### Episódio 1 · "A tabela" (`reels-nasci1`, para fotógrafas)
 
-Parte 1 de O celular da fotógrafa, uma parte por dia às 19h. A Helena, a Camila e a Tabela 2026 FINAL agora vai são fictícias. O PDF de catorze páginas, nem tanto.
+Capa: "Eu ainda não *nasci*", com o selo "EPISÓDIO 1 · EU AINDA NÃO NASCI", sobre o bebê no útero e a régua das 36 semanas.
+Quando: Sábado, 07/11, às 19h.
+Vincular: Por enquanto, nada. Quando o episódio 2 sair, abra os três pontos deste e vincule ao 2 com o título "Ver episódio 2".
 
-Quem pergunta "valor?" e some nem sempre achou caro: às vezes nem chegou a ver o preço. E 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box), justo quando o 4G pensa e o sono vence. Com o portfólio separado por ensaio no site, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela, e o "valor?" se responde com um link.
+Episódio 1 de Eu ainda não nasci, uma série em três episódios, um por dia às 19h. A Camila, a Helena e o bebê que narra são fictícios. O PDF de catorze páginas, nem tanto.
+
+Quem pergunta "valor?" e some nem sempre achou caro: às vezes nem chegou a ver o preço. No PDF da Helena, o preço estava na página 9, e o arquivo não baixou no 4G. Num site com o portfólio separado por ensaio, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela.
 
 Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
 Comentário para fixar: "Quantas páginas tem a sua tabela de preços?"
 
-### Parte 2 · "O comprovante" (`reels-comprovante`, para fotógrafas)
+### Episódio 2 · "Quinze dias" (`reels-nasci2`, para fotógrafas)
 
-Capa: "300 reais sumiram", com o selo "PARTE 2 · O celular da fotógrafa" (a opção B é "Foi parar no grupo da família").
-Ao postar, vincular à parte 1 ("Ver a parte 1") e trocar o vínculo da parte 1 para esta ("Ver a parte 2").
+Capa: "*Quinze* dias", com o selo "EPISÓDIO 2 · EU AINDA NÃO NASCI", sobre o recém-nascido com a pulseira "14/11 · 04h00".
+Quando: Domingo, 08/11, às 19h.
+Vincular: Ao postar, nada neste. Abra o episódio 1 e vincule ao 2, com o título "Ver episódio 2".
 
-Parte 2 de O celular da fotógrafa. A parte 1 está fixada no perfil. A Helena, a Lari e a tia Rosa são fictícias. O print no grupo errado, nem tanto.
+Episódio 2 de Eu ainda não nasci. O episódio 1 está fixado no perfil. A Camila, a Helena e o bebê que narra são fictícios. A busca às três da manhã, nem tanto.
 
-Comprovante guardado em conversa vai para onde o dedo escorregar, e cobrar de novo quem já pagou é o pior momento com uma cliente. No painel, cada cliente tem a data, o contrato e o sinal na mesma ficha: quando o pagamento cai, você marca o sinal ali, e no fim do mês vê quem pagou.
+O ensaio newborn costuma ser feito nos primeiros quinze dias de vida, e quem procura fotógrafa nessa janela procura de madrugada, entre uma mamada e outra: 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box). Perfil parado, telefone que não existe e endereço antigo no mapa fazem a mãe desistir antes de perguntar o preço. Com um site, o link da bio leva direto aos ensaios, com o preço de cada um e os horários livres.
 
-Comenta PAINEL que a gente te manda o exemplo do painel no direct.
+Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
-Comentário para fixar: "Onde você guarda os comprovantes de sinal hoje?"
+Comentário para fixar: "Qual foi o 'valor?' mais tarde que você já recebeu?"
 
-### Parte 3 · "Vou ver com meu marido" (`reels-marido`, para fotógrafas)
+### Episódio 3 · "Três da manhã" (`reels-nasci3`, para fotógrafas)
 
-Capa: "A frase que segurou nove vagas", com o selo "PARTE 3 · O celular da fotógrafa" (a opção B é "Vou ver com meu marido", sobre as vagas carimbadas).
-Ao postar, vincular à parte 1 ("Ver a parte 1") e trocar o vínculo da parte 2 para esta ("Ver a parte 3").
+Capa: "Faltam *dois* dias", com o selo "EPISÓDIO 3 · FINAL", sobre o relógio 03:00 e a barra dos 15 dias.
+Quando: Segunda, 09/11, às 19h.
+Vincular: Ao postar, vincule este ao episódio 1 com o título "Ver episódio 1": quem chega pelo final volta ao começo. Depois, abra o episódio 2 e vincule ao 3, com "Ver o final".
 
-Parte 3 de O celular da fotógrafa. A parte 1 está fixada no perfil. A Helena, a Carla e o marido são fictícios. O "vou ver com meu marido", nem tanto.
+Episódio 3, o final de Eu ainda não nasci. Os episódios 1 e 2 estão fixados no perfil. A Camila, a Helena e o bebê que narra são fictícios. O "valor?" às três da manhã, nem tanto.
 
-Horário segurado sem prazo fica vazio: quem pediu não tem pressa, e quem queria de verdade vai para outra fotógrafa. Na agenda do site, o horário fica separado por 24 horas até o sinal. Se o sinal não vem, a vaga volta, você chama a primeira da lista de espera, e o painel conta quantas vagas sobraram.
+De madrugada ninguém responde direct, mas um site responde: as fotos, o que vem incluso e o preço de cada ensaio na primeira tela, e uma agenda com os horários livres. Quem escolhe um horário tem 24 horas para pagar o sinal; se não paga, a vaga volta para a agenda. De manhã, você confere o Pix e marca o sinal no painel.
 
-Comenta NATAL que a gente te manda o exemplo da agenda para testar.
+Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
-Comentário para fixar: "Quantas vagas um 'vou ver com meu marido' já segurou no seu estúdio?"
+Comentário para fixar: "Se uma mãe te mandasse 'valor?' às três da manhã, o que ela encontraria hoje?"

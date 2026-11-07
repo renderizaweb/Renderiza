@@ -1,0 +1,148 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "_sobre": "Narração do episódio 1 de \"Eu ainda não nasci\" (série em 3 episódios, SERIE.md), \"A tabela\". Quem narra é o bebê da Camila, ainda na barriga (36 semanas, previsão 05/12). A Camila quer o ensaio gestante e o newborn; quase meia-noite pede o valor à fotógrafa Helena e recebe um PDF de 14 páginas com o preço na nona. O 4G pensa, o bebê chuta e o celular cai na cara dela. Ela fecha com outra fotógrafa, que mostra o preço no site; a Helena acha que foi o preço, mas a outra era mais cara. Gancho: o bebê nasce três semanas antes. Prévia do episódio 2 e \"Siga para ver o episódio 2\". Sem convite falado: o \"Comenta PRÉVIA\" aparece só escrito, depois da voz. Tudo é fictício. O id \"nada\" corta a batida.",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Eu ainda não nasci, e já fiz a minha mãe perder uma *fotógrafa.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "mae",
+   "cena": "utero",
+   "texto": "Minha mãe é a Camila. Trinta e seis *semanas.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "faltam",
+   "cena": "utero",
+   "texto": "Ainda faltam *quatro.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "quer",
+   "cena": "utero",
+   "texto": "Ela queria duas fotos: uma comigo na barriga, outra comigo no *colo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "valor",
+   "cena": "noite",
+   "texto": "Quase meia-noite, ela mandou para a fotógrafa Helena: *valor?*",
+   "pausa": 0.25
+  },
+  {
+   "id": "pdf",
+   "cena": "paginas",
+   "texto": "Chegou um PDF: Tabela 2026 FINAL agora *vai.*",
+   "pausa": 0.25,
+   "fala": "Chegou um pê dê éfe: Tabela dois mil e vinte e seis, final, agora vai."
+  },
+  {
+   "id": "paginas",
+   "cena": "paginas",
+   "texto": "Catorze páginas. O preço, só na *nove.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "toque",
+   "cena": "baixa",
+   "texto": "Toque para baixar. O 4G *pensou.*",
+   "pausa": 0.25,
+   "fala": "Toque para baixar. O quatro gê pensou."
+  },
+  {
+   "id": "curioso",
+   "cena": "baixa",
+   "texto": "Daqui de dentro, eu vi aquela luz e fiquei *curioso.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "chute",
+   "texto": "Eu *chutei.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "caiu",
+   "cena": "chute",
+   "texto": "O celular caiu na cara *dela.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "naobaixou",
+   "cena": "chute",
+   "texto": "Quando ela pegou de novo, o PDF não tinha *baixado.*",
+   "pausa": 0.3,
+   "fala": "Quando ela pegou de novo, o pê dê éfe não tinha baixado."
+  },
+  {
+   "id": "outra",
+   "cena": "outra",
+   "texto": "Antes de dormir, ela achou outra fotógrafa, com o preço na primeira *tela.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "fechou",
+   "cena": "outra",
+   "texto": "Fechou ali mesmo: gestante agora, newborn quando eu *nascesse.*",
+   "pausa": 0.35,
+   "fala": "Fechou ali mesmo: gestante agora, níuborn quando eu nascesse."
+  },
+  {
+   "id": "helena",
+   "cena": "dia",
+   "texto": "De manhã, a Helena mandou: conseguiu ver a *tabela?*",
+   "pausa": 0.25
+  },
+  {
+   "id": "visto",
+   "cena": "dia",
+   "texto": "*Visualizado.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "achou",
+   "cena": "dia",
+   "texto": "A Helena achou que tinha sido o *preço.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "caro",
+   "cena": "dia",
+   "texto": "Só que a outra era mais *cara.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "nem",
+   "cena": "dia",
+   "texto": "A minha mãe nunca viu o preço da *Helena.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "gancho",
+   "cena": "gancho",
+   "texto": "Estava tudo combinado. Só que eu resolvi nascer três semanas *antes.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "previa",
+   "cena": "previa",
+   "texto": "No próximo episódio: quinze dias para uma foto, uma agenda lotada e uma busca às três da *manhã.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "siga",
+   "cena": "siga",
+   "texto": "Siga para ver o episódio *dois.*",
+   "pausa": 0.2
+  }
+ ]
+}

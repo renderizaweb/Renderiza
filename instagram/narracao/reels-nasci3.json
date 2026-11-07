@@ -1,0 +1,168 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "_sobre": "Narração do episódio 3 (final) de \"Eu ainda não nasci\" (SERIE.md), \"Três da manhã\". Faltam dois dias para a janela do newborn fechar. A Camila abre o perfil da Helena e começa a digitar \"valor?\", para, e toca no link da bio: é um site, com as fotos do newborn, o que vem incluso e o preço na primeira tela, e uma agenda com os horários livres. Sábado (28/11), dez da manhã, está livre porque uma mãe tinha segurado o horário com \"vou ver com meu marido\", não pagou o sinal em 24 horas, e a vaga voltou. A Camila marca em quatro minutos e paga o sinal. De manhã, a Helena marca o sinal no painel e lê o nome: Camila, a do PDF. A virada: depois daquele visualizado, a Helena tinha trocado o PDF por um site. No sábado, o bebê dorme o ensaio inteiro e vira a primeira foto do newborn no site. O PDF a Helena guardou. Moral, marca e convite falados. O painel não recebe o Pix: quem marca o sinal é a Helena; para fotógrafas, a agenda é a do painel. Tudo é fictício. O id \"nada\" corta a batida.",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Três da manhã. Faltavam dois dias para a janela do newborn *fechar.*",
+   "pausa": 0.35,
+   "fala": "Três da manhã. Faltavam dois dias para a janela do níuborn fechar.",
+   "impacto": true
+  },
+  {
+   "id": "resumo",
+   "cena": "resumo",
+   "texto": "No episódio 2, a outra fotógrafa lotou, e a minha mãe achou a Helena no Instagram. A mesma Helena do *PDF.*",
+   "pausa": 0.3,
+   "fala": "No episódio dois, a outra fotógrafa lotou, e a minha mãe achou a Helena no Instagram. A mesma Helena do pê dê éfe."
+  },
+  {
+   "id": "digita",
+   "cena": "perfil",
+   "texto": "Ela abriu o perfil e começou a digitar: *valor?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "perfil",
+   "texto": "Ela *parou.*",
+   "pausa": 0.45,
+   "impacto": true
+  },
+  {
+   "id": "link",
+   "cena": "link",
+   "texto": "Tinha um link na *bio.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "tocou",
+   "cena": "link",
+   "texto": "Ela *tocou.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "site",
+   "cena": "site",
+   "texto": "Era um *site.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "newborn",
+   "cena": "site",
+   "texto": "Newborn: as fotos, o que vem incluso e o preço, na primeira *tela.*",
+   "pausa": 0.2,
+   "fala": "Níuborn: as fotos, o que vem incluso e o preço, na primeira tela."
+  },
+  {
+   "id": "agenda",
+   "cena": "site",
+   "texto": "E uma agenda com os horários *livres.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "sabado",
+   "cena": "site",
+   "texto": "Sábado, dez da manhã: *livre.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "marido",
+   "cena": "site",
+   "texto": "Uma mãe tinha segurado esse horário: vou ver com meu *marido.*",
+   "pausa": 0.2,
+   "fala": "Uma mãe tinha segurado esse horário. Vou ver, com o meu marido."
+  },
+  {
+   "id": "h24",
+   "cena": "site",
+   "texto": "O site deu 24 horas para o sinal. Ela não pagou, e a vaga *voltou.*",
+   "pausa": 0.25,
+   "fala": "O site deu vinte e quatro horas para o sinal. Ela não pagou, e a vaga voltou."
+  },
+  {
+   "id": "quatro",
+   "cena": "site",
+   "texto": "Minha mãe marcou em quatro *minutos.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "pagou",
+   "cena": "site",
+   "texto": "E pagou o sinal ali *mesmo.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "manha",
+   "cena": "manha",
+   "texto": "De manhã, a Helena abriu o painel e marcou o *sinal.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "nome",
+   "cena": "manha",
+   "texto": "Leu o nome: *Camila.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "pdfq",
+   "cena": "manha",
+   "texto": "A do *PDF?*",
+   "pausa": 0.5,
+   "fala": "A do pê dê éfe?"
+  },
+  {
+   "id": "sabia",
+   "cena": "virada",
+   "texto": "O que a minha mãe não sabia: depois daquele visualizado, a Helena tinha trocado o PDF por um *site.*",
+   "pausa": 0.35,
+   "fala": "O que a minha mãe não sabia: depois daquele visualizado, a Helena tinha trocado o pê dê éfe por um site."
+  },
+  {
+   "id": "dormi",
+   "cena": "fecho",
+   "texto": "No sábado, eu dormi o ensaio *inteiro.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "foto",
+   "cena": "fecho",
+   "texto": "Hoje, eu sou a primeira foto do newborn no site da *Helena.*",
+   "pausa": 0.3,
+   "fala": "Hoje, eu sou a primeira foto do níuborn no site da Helena."
+  },
+  {
+   "id": "guardou",
+   "cena": "fecho",
+   "texto": "E o PDF? A Helena guardou. Abre de vez em quando, para *lembrar.*",
+   "pausa": 0.6,
+   "fala": "E o pê dê éfe? A Helena guardou. Abre de vez em quando, para lembrar."
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Às três da manhã, o site responde por *você.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* o seu estúdio ganha um site com o preço de cada ensaio e uma agenda que segura a vaga até o sinal.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do site do seu estúdio.",
+   "pausa": 0.5,
+   "fala": "Comenta prévia, que a gente monta a prévia do site do seu estúdio."
+  }
+ ]
+}

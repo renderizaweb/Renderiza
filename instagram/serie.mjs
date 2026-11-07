@@ -1,5 +1,6 @@
-// O padrão da série "O celular da fotógrafa" (instagram/SERIE.md): o selo da parte no topo da abertura, o cartão do
-// resumo da parte anterior e a cena pós-créditos que anuncia a próxima. Cada parte chama:
+// O padrão das séries (instagram/SERIE.md): o selo do episódio no topo da abertura, o cartão do resumo do anterior,
+// o "Siga para ver..." no fim (siga) ou a cena pós-créditos que anuncia o próximo (proxima). "Eu ainda não nasci" usa
+// rotulo: "EPISÓDIO", nome e siga; a antiga "O celular da fotógrafa" usava proxima. Cada parte chama:
 //   const quadroSerie = serie(R, { parte: 2, abertura: "resumo",            // até o fim desta frase o selo fica no topo
 //     resumo: { id: "resumo", titulo: "Só quatro me abriram", arte: "<svg…>" },   // só da parte 2 em diante
 //     proxima: { arte: "<svg…>", anima: (t, t0, W) => {…} } });              // o que aparece no pós-créditos
@@ -24,14 +25,15 @@ const CSS = `
 #sr-siga{position:absolute;left:50%;top:1650px;translate:-50% 0;display:inline-flex;align-items:center;gap:20px;height:128px;padding:0 54px;border-radius:64px;background:#f1eee9;color:#1e2528;font:800 54px/1 "Geist",sans-serif;letter-spacing:-.025em;white-space:nowrap;opacity:0}
 #sr-siga svg{width:54px;height:54px;flex:none}`;
 
-export function serie(R, { parte, abertura, resumo = null, proxima }) {
+export function serie(R, { parte, abertura, resumo = null, proxima = null, siga = null, rotulo = "PARTE", nome = NOME_SERIE }) {
   const { F, DUR } = R, palco = $("#palco");
   const st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
   palco.insertAdjacentHTML("beforeend", `
-    <div id="sr-selo"><b>PARTE ${parte}</b><span>${NOME_SERIE}</span></div>
-    ${resumo ? `<div id="sr-resumo"><div class="mini">${resumo.arte}</div><div><b>PARTE ${parte - 1}</b><p>${resumo.titulo}</p></div></div>` : ""}
-    <div id="sr-pos"><svg viewBox="0 0 1080 1920">${proxima.arte}</svg><div id="sr-parte">PARTE ${parte + 1}</div>
-      <div id="sr-siga">${ic("seguir", 'style="stroke-width:2.3"')}Siga para ver a parte ${parte + 1}</div></div>`);
+    <div id="sr-selo"><b>${rotulo} ${parte}</b><span>${nome}</span></div>
+    ${resumo ? `<div id="sr-resumo"><div class="mini">${resumo.arte}</div><div><b>${rotulo} ${parte - 1}</b><p>${resumo.titulo}</p></div></div>` : ""}
+    ${proxima ? `<div id="sr-pos"><svg viewBox="0 0 1080 1920">${proxima.arte}</svg><div id="sr-parte">${rotulo} ${parte + 1}</div>
+      <div id="sr-siga">${ic("seguir", 'style="stroke-width:2.3"')}Siga para ver a parte ${parte + 1}</div></div>` : ""}
+    ${siga ? `<div id="sr-siga" style="z-index:44">${ic("seguir", 'style="stroke-width:2.3"')}${siga.texto}</div>` : ""}`);
   const fimAbertura = F[abertura].fim + 0.35;
   return function quadro(t) {
     // o selo da parte: fica no topo durante o gancho e o resumo
@@ -42,6 +44,9 @@ export function serie(R, { parte, abertura, resumo = null, proxima }) {
       const f = F[resumo.id], a = entra(t, f.ini, 0.35);
       pos($("#sr-resumo"), { y: a.y, s: a.s, r: -2, o: em(t, f.ini - 0.05, f.fim + 0.3) ? a.o * (1 - fase(t, f.fim, f.fim + 0.3)) : 0 });
     }
+    // o "Siga" dos episódios: aparece na frase "siga" e fica até o fim, junto do convite mudo
+    if (siga) { const sg = entra(t, F.siga.ini - 0.1, 0.35); pos($("#sr-siga"), { y: sg.y, s: sg.s * (1 + 0.03 * Math.sin(t * 4) * fase(t, F.siga.fim, DUR)), o: sg.o }); }
+    if (!proxima) return;
     // o pós-créditos: a próxima parte e o convite para seguir
     const el = $("#sr-pos"), p = F.pos, on = t >= p.ini - 0.35;
     vis(el, on); if (!on) return;

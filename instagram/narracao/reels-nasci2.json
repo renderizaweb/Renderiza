@@ -1,0 +1,130 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "_sobre": "Narração do episódio 2 de \"Eu ainda não nasci\" (SERIE.md), \"Quinze dias\". O bebê nasce num sábado (14/11), três semanas antes. Ensaio newborn costuma ser nos primeiros quinze dias; a outra fotógrafa só tem vaga em janeiro. De madrugada, mamando, a Camila procura no Google e acha um perfil parado e um telefone que não existe. No dia 7 lembra da Helena, mas tinha deixado a Helena no vácuo; no mapa, o alfinete do estúdio aponta para a casa da mãe da Helena. No dia 11 desiste. No dia 13, às três da manhã, aparece no Instagram o newborn mais lindo que ela já viu: da Helena. Faltam dois dias, e a Helena manda os preços em PDF. Prévia do final e \"Siga para ver o final\". Sem convite falado. Tudo é fictício. O id \"nada\" corta a batida.",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Nasci num sábado, às quatro da *manhã.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "relogio",
+   "cena": "escuro",
+   "texto": "E um relógio começou a *correr.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "resumo",
+   "cena": "resumo",
+   "texto": "No episódio 1, eu fiz a minha mãe perder a fotógrafa Helena por causa de um PDF. E nasci três semanas *antes.*",
+   "pausa": 0.3,
+   "fala": "No episódio um, eu fiz a minha mãe perder a fotógrafa Helena por causa de um pê dê éfe. E nasci três semanas antes."
+  },
+  {
+   "id": "janela",
+   "cena": "janela",
+   "texto": "Ensaio newborn costuma ser nos primeiros quinze dias, enquanto o bebê dorme *enroladinho.*",
+   "pausa": 0.3,
+   "fala": "Ensaio níuborn costuma ser nos primeiros quinze dias, enquanto o bebê dorme enroladinho."
+  },
+  {
+   "id": "avisou",
+   "cena": "rival",
+   "texto": "Minha mãe avisou a outra fotógrafa: ele *nasceu!*",
+   "pausa": 0.25
+  },
+  {
+   "id": "lotada",
+   "cena": "rival",
+   "texto": "A resposta: só tenho vaga em *janeiro.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "dia3",
+   "cena": "noite",
+   "texto": "Dia três, três da manhã. Eu mamando, ela procurando no *Google.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "achados",
+   "cena": "noite",
+   "texto": "Um perfil parado em 2023. Um telefone que não *existe.*",
+   "pausa": 0.3,
+   "fala": "Um perfil parado em dois mil e vinte e três. Um telefone que não existe."
+  },
+  {
+   "id": "dia7",
+   "cena": "mapa",
+   "texto": "Dia sete, ela lembrou da *Helena.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "vacuo",
+   "cena": "mapa",
+   "texto": "Tinha o WhatsApp dela. Mas tinha deixado a Helena no *vácuo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "mapa",
+   "cena": "mapa",
+   "texto": "Então procurou o estúdio no mapa. O alfinete apontava para uma casa *fechada.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "casa",
+   "cena": "mapa",
+   "texto": "Era a casa da mãe da *Helena.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "nada",
+   "cena": "desiste",
+   "texto": "Dia onze, ela *desistiu.*",
+   "pausa": 0.45,
+   "impacto": true
+  },
+  {
+   "id": "dia13",
+   "cena": "achou",
+   "texto": "Dia treze, três da manhã, apareceu no Instagram o newborn mais lindo que ela já *viu.*",
+   "pausa": 0.3,
+   "fala": "Dia treze, três da manhã, apareceu no Instagram o níuborn mais lindo que ela já viu."
+  },
+  {
+   "id": "quem",
+   "cena": "achou",
+   "texto": "A fotógrafa? *Helena.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "faltavam",
+   "cena": "achou",
+   "texto": "Faltavam dois *dias.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "gancho",
+   "cena": "gancho",
+   "texto": "E a gente sabe como a Helena manda os *preços.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "previa",
+   "cena": "previa",
+   "texto": "No episódio final: três da manhã, uma última chance e uma resposta que ninguém *esperava.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "siga",
+   "cena": "siga",
+   "texto": "Siga para ver o *final.*",
+   "pausa": 0.2
+  }
+ ]
+}

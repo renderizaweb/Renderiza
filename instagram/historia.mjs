@@ -143,8 +143,10 @@ const limpa = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").repl
 export async function historia(cfg) {
   const { nome, ordem, trilha, soBalao = [], juntas = [], fora = ["marca", "cta"], cta = "PRÉVIA", nota = "", bpm = 124, tom = 0 } = cfg;
   const { duracao: VOZ, frases } = await (await fetch(`narracao/${nome}.tempos.json`)).json();
-  const DUR = Math.round((VOZ + 1.67) * 10) / 10; // a voz acaba e o convite fica mais 1,5 s na tela
   const F = Object.fromEntries(frases.map(f => [f.id, f]));
+  // sem as frases moral, marca e cta, o convite é mudo: depois da voz, só na tela (episódios de série que terminam em "Siga")
+  const MUDO = !F.moral, T0 = VOZ + 0.1;
+  const DUR = MUDO ? Math.round((VOZ + (cfg.fimMudo || 4.2)) * 10) / 10 : Math.round((VOZ + 1.67) * 10) / 10; // a voz acaba e o convite fica mais 1,5 s na tela
   const palco = $("#palco");
   palco.style.setProperty("--zap", `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#fff'><path d='${ZAP_D}'/></svg>`)}")`);
   const S = {};
@@ -158,7 +160,16 @@ export async function historia(cfg) {
   }
 
   // marca e convite
-  {
+  if (MUDO) {
+    const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 190 : 255; return `${(540 + r * Math.cos(a)).toFixed(1)},${(960 + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
+    $("#c-fim").style.background = "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
+    $("#c-fim").innerHTML = `<svg id="mc-estrela" viewBox="0 0 1080 1920"><defs><radialGradient id="mc-g" cx="540" cy="960" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".5"/><stop offset=".6" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="540" cy="960" r="420" fill="url(#mc-g)"/><polygon points="${est}" fill="#e8855e" fill-opacity=".13" id="mc-poli"/></svg>
+      <div id="mc-simbolo"><span class="simbolo"></span></div><div id="mc-nome">renderiza</div>
+      <div id="cta-botao"><span id="cta-luz"></span>${ic("mensagem", 'style="stroke-width:2.2"')}<span>Comenta <em id="cta-previa">${cta}</em></span></div>
+      <p id="cta-texto">${cfg.ctaTexto || "que a gente monta a prévia do site do seu estúdio, sem compromisso."}</p>
+      <p id="cta-nota">${nota}</p>`;
+  } else {
     const L = F.moral.palavras, M = F.marca.palavras, C = F.cta.palavras, ip = C.findIndex(p => p.p.includes(cta)), ir = M.findIndex(p => /Renderiza/.test(p.p));
     const est = Array.from({ length: 32 }, (_, i) => { const a = (i * 11.25 - 90) * Math.PI / 180, r = i % 2 ? 190 : 255; return `${(540 + r * Math.cos(a)).toFixed(1)},${(960 + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
     $("#c-fim").innerHTML = `<svg id="mc-estrela" viewBox="0 0 1080 1920"><defs><radialGradient id="mc-g" cx="540" cy="960" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e8855e" stop-opacity=".5"/><stop offset=".6" stop-color="#e8855e" stop-opacity=".12"/><stop offset="1" stop-color="#e8855e" stop-opacity="0"/></radialGradient></defs>
@@ -170,10 +181,10 @@ export async function historia(cfg) {
       <p id="cta-texto">${C.slice(ip + 1).map(p => `<span class="w">${p.p}</span>`).join(" ")}</p>
       <p id="cta-nota">${nota}</p>`;
   }
-  const mcPal = $$("#mc-linha .w").map((el, k) => ({ el, ini: F.moral.palavras[k].ini }));
-  const subPal = (() => { const M = F.marca.palavras, ir = M.findIndex(p => /Renderiza/.test(p.p)); return $$("#mc-sub .w").map((el, k) => ({ el, ini: M[ir + 1 + k].ini })); })();
-  const ctaPal = (() => { const C = F.cta.palavras, ip = C.findIndex(p => p.p.includes(cta)); return $$("#cta-texto .w").map((el, k) => ({ el, ini: C[ip + 1 + k].ini })); })();
-  const T_REN = W("marca", "renderiza"), T_CTA = W("cta", limpa(cta));
+  const mcPal = MUDO ? [] : $$("#mc-linha .w").map((el, k) => ({ el, ini: F.moral.palavras[k].ini }));
+  const subPal = MUDO ? [] : (() => { const M = F.marca.palavras, ir = M.findIndex(p => /Renderiza/.test(p.p)); return $$("#mc-sub .w").map((el, k) => ({ el, ini: M[ir + 1 + k].ini })); })();
+  const ctaPal = MUDO ? [] : (() => { const C = F.cta.palavras, ip = C.findIndex(p => p.p.includes(cta)); return $$("#cta-texto .w").map((el, k) => ({ el, ini: C[ip + 1 + k].ini })); })();
+  const T_REN = MUDO ? T0 : W("marca", "renderiza"), T_CTA = MUDO ? T0 + 0.6 : W("cta", limpa(cta));
 
   // poeira, sempre igual a cada gravação
   const POEIRA = Array.from({ length: 22 }, (_, i) => { const el = document.createElement("i"); $("#poeira").appendChild(el); return { el, x: h(i, 1) * 1080, y: h(i, 2) * 2100, v: 14 + h(i, 3) * 34, s: 0.4 + h(i, 4) * 1.1, f: h(i, 5) * 6.28 }; });
@@ -230,10 +241,27 @@ export async function historia(cfg) {
     $("#c-fim").style.opacity = fase(t, S.marca - 0.3, S.marca).toFixed(3);
   }
 
+  // o convite mudo: a marca e o "Comenta" aparecem na tela depois da voz, sem nada falado
+  function qFimMudo(t) {
+    const a = fase(t, T0, T0 + 0.6), nm = ease(fase(t, T0 + 0.1, T0 + 0.6));
+    pos($("#mc-simbolo"), { y: -330, s: (a > 0 ? lerp(0.3, 1, volta(a)) : 0.3) * 0.44, r: lerp(-140, 0, saiX(a)), o: a > 0 ? Math.min(1, a * 3) : 0, b: (1 - saiX(a)) * 10 });
+    $("#mc-nome").style.clipPath = `inset(-30% ${(100 - 100 * nm).toFixed(2)}% -30% 0)`; pos($("#mc-nome"), { y: -462, s: 0.5 });
+    const est = saiX(fase(t, T0, T0 + 1));
+    $("#mc-poli").setAttribute("transform", `translate(540 960) rotate(${(5 * (t - T0)).toFixed(2)}) scale(${lerp(0.3, 1, est).toFixed(3)}) translate(-540 -960)`);
+    $("#mc-estrela").style.transform = "translateY(-330px)"; $("#mc-estrela").style.opacity = est.toFixed(3);
+    const b = fase(t, T0 + 0.35, T0 + 0.7), pb = pulso(t, T_CTA, 0.32);
+    pos($("#cta-botao"), { y: (1 - sai(b)) * 40, s: (b > 0 ? lerp(0.5, 1, volta(b)) : 0.5) * (1 + 0.05 * pb + 0.015 * Math.sin(t * 3.2) * fase(t, T0 + 1, T0 + 1.5)), o: b > 0 ? Math.min(1, b * 3) : 0 });
+    $("#cta-previa").style.transform = `scale(${(1 + 0.14 * pb).toFixed(3)})`;
+    const lz = ((t - T_CTA) % 2.4) / 0.7; $("#cta-luz").style.transform = `translateX(${(t > T_CTA && lz < 1 ? lerp(-200, 900, lz) : -300).toFixed(0)}px) skewX(-18deg)`;
+    const x = fase(t, T0 + 0.7, T0 + 1.05); pos($("#cta-texto"), { y: (1 - sai(x)) * 20, o: x });
+    $("#cta-nota").style.opacity = fase(t, T0 + 1.3, T0 + 1.8).toFixed(3);
+    $("#c-fim").style.opacity = fase(t, T0 - 0.3, T0).toFixed(3);
+  }
+
   // o que todo quadro faz depois das cenas: marca e convite, poeira, legendas e o tranco dos impactos
   function comum(t, { poeira = true } = {}) {
-    const fim = t >= S.marca - 0.3;
-    vis($("#c-fim"), fim); if (fim) qFim(t);
+    const fim = MUDO ? t >= T0 - 0.3 : t >= S.marca - 0.3;
+    vis($("#c-fim"), fim); if (fim) (MUDO ? qFimMudo : qFim)(t);
     for (const p of POEIRA) {
       const y = ((p.y - t * p.v) % 2100 + 2100) % 2100 - 90, x = p.x + Math.sin(t * 0.35 + p.f) * 34, tw = 0.45 + 0.55 * Math.abs(Math.sin(t * 0.7 + p.f));
       p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) scale(${p.s.toFixed(2)})`;
@@ -275,5 +303,5 @@ export async function historia(cfg) {
     window.quadro(0);
     window.pronto = true;
   };
-  return { F, frases, DUR, S, I, FIM, W, palco, comum, preparar, pronto };
+  return { F, frases, DUR, S, I, FIM, W, palco, comum, preparar, pronto, MUDO, T0 };
 }
