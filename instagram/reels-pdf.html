@@ -134,6 +134,10 @@
 .cmp-veu{position:absolute;left:0;right:0;top:180px;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(30,37,40,.88);color:#f1eee9;font-size:32px;font-weight:800;opacity:0}
 .cmp-veu svg{width:72px;height:72px}
 #carimbo{position:absolute;left:0;top:0;z-index:25;padding:14px 34px;border:8px solid var(--terracota);border-radius:22px;color:var(--terracota);background:rgba(251,248,243,.92);font-size:70px;font-weight:800;letter-spacing:-.03em;white-space:nowrap;opacity:0;text-transform:uppercase}
+#camcard{position:absolute;left:0;top:0;z-index:23;width:460px;height:600px;margin:-300px 0 0 -230px;border-radius:18px;background:#fbf8f3;padding:22px 22px 0;box-shadow:0 40px 90px rgba(0,0,0,.55);opacity:0}
+#camcard .fo{height:470px;border-radius:8px;overflow:hidden;background:#2a3542}
+#camcard .fo svg{width:100%;height:100%;display:block}
+#camcard p{margin:14px 0 0;text-align:center;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:40px;color:#3a2c26}
 /* o fecho: as quatro vezes */
 .vez{position:absolute;left:0;top:0;z-index:23;width:300px;height:200px;border-radius:24px;overflow:hidden;opacity:0;box-shadow:0 26px 60px rgba(0,0,0,.45)}
 .vez svg{width:100%;height:100%;display:block}
@@ -182,7 +186,7 @@ const T = {
   pegou: W("naobaixou", "pegou"), baixado: W("naobaixou", "baixado"),
   perfil: W("outra", "perfil"), link: W("outra", "link"),
   fotos: W("rival", "fotos"), precoR: W("rival", "preco"), logo: W("rival", "logo"),
-  whatsN: W("chamou", "whatsapp"),
+  whatsN: W("rival", "cara") + 0.3,      // ela chama no WhatsApp da outra fotógrafa no fim da frase
   perguntou: W("helena", "perguntou"), tabela2: W("helena", "tabela"),
   visto: W("visto", "visualizado"),
   achou: W("achou", "achou"),
@@ -401,7 +405,8 @@ $("#extra").innerHTML = `
     <g fill="none" stroke="#1e2528" stroke-width="7" stroke-linecap="round"><circle cx="${118 + k * 6}" cy="${90 - k * 3}" r="44"/><path d="M${150 + k * 6} ${122 - k * 3} L${182 + k * 6} ${154 - k * 3}"/></g>
     <g transform="translate(244 148)">${cabeca({ id: "hv" + k, cabelo: "coque", corCabelo: "#2b1a12", oculos: true }, 0, 0, 30)}</g>
     <g class="ok" opacity="0"><circle cx="262" cy="40" r="24" fill="#b25134"/><path d="M251 40 L259 48 L274 32" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>`).join("")}
-  ${[0, 1, 2, 3].map(k => `<div class="num" id="n${k}">${k + 1}</div>`).join("")}`;
+  ${[0, 1, 2, 3].map(k => `<div class="num" id="n${k}">${k + 1}</div>`).join("")}
+  <div id="camcard"><div class="fo"><svg viewBox="-210 -470 420 490" preserveAspectRatio="xMidYMax slice"><rect x="-210" y="-470" width="420" height="490" fill="#2a3542"/><circle cx="120" cy="-360" r="60" fill="#e9e3c9" opacity=".25"/>${dePe({ id: "cm", cabelo: "longo", corCabelo: "#5a3422", brinco: "#e0b04a", roupa: "#7a6a9a", braco: "#7a6a9a", vestido: "#7a6a9a", calca: "#2b2f3a" }).replace(/(<path d="M-50 -140[^>]*\/>)/, '$1<ellipse cx="4" cy="-196" rx="62" ry="56" fill="#7a6a9a" stroke="#000" stroke-opacity=".18" stroke-width="5"/>')}<g id="cm-chute" opacity="0"><ellipse cx="52" cy="-214" rx="20" ry="16" fill="#7a6a9a"/><g stroke="#f1eee9" stroke-width="6" stroke-linecap="round" fill="none"><path d="M78 -250 Q92 -262 104 -254"/><path d="M86 -214 H112"/><path d="M78 -178 Q92 -166 104 -174"/></g></g></svg></div><p>Camila</p></div>`;
 const B_ACHOU = balao("Achou caro.", "esq pensa");
 // a parte 2 no pós-créditos: o comprovante espia por trás das fotos e some
 const ARTE_P2 = `<defs><clipPath id="po-clip"><rect width="1080" height="1330"/></clipPath></defs>
@@ -445,7 +450,7 @@ const EU = [
   [T.pdf - 0.2, 540, 1100, 1.15, 0, 1], [T.pdf + 0.35, 830, 1010, 0.55, 8, 1],
   [T.manda - 0.15, 830, 1010, 0.55, 8, 1], [T.manda + 0.3, 760, 1150, 0.08, 40, 0],
   [T.baixado - 0.3, 930, 1720, 0.3, 0, 0], [T.baixado, 930, 1720, 0.4, 0, 1], [S.outra + 0.5, 930, 1720, 0.4, 0, 1], [S.outra + 0.8, 930, 1780, 0.3, 0, 0],
-  [S.fecho - 0.25, 540, 1150, 0.6, 0, 0], [S.fecho + 0.25, 540, 1150, 1.0, 0, 1], [S.marca - 0.4, 540, 1150, 1.0, 0, 1], [S.marca - 0.1, 540, 1150, 0.9, 0, 0],
+  [S.fecho - 0.25, 540, 1150, 0.6, 0, 0], [S.fecho + 0.25, 540, 1150, 1.0, 0, 1], [I("camila2") - 0.35, 540, 1150, 1.0, 0, 1], [I("camila2") - 0.05, 540, 1150, 0.9, 0, 0],
 ];
 function qEu(t) {
   const [x, y, s, r, o] = pose(EU, t), el = $("#eu");
@@ -462,7 +467,7 @@ function qEu(t) {
   else if (t < T.helenaQ - 0.05) cara("nr", "reta", pisca, 0);
   else if (t < T.estava - 0.05) cara("nr", "oh", 0, 1);
   else cara("nr", "reta", 0.55, 0);
-  attr($("#nrgota"), "opacity", em(t, T.estava, S.marca) ? fase(t, T.estava, T.estava + 0.2) : 0);
+  attr($("#nrgota"), "opacity", em(t, T.estava, I("camila2")) ? fase(t, T.estava, T.estava + 0.2) : 0);
   attr($("#nrgota"), "transform", `translate(0 ${(18 * fase(t, T.estava, S.marca)).toFixed(1)})`);
 }
 
@@ -694,7 +699,7 @@ function qExtra(t) {
   }
   // o fecho: as quatro vezes que alguém abriu o PDF
   {
-    const on = em(t, T.quatro2 - 0.2, S.marca), sai_ = 1 - fase(t, S.marca - 0.35, S.marca - 0.05);
+    const on = em(t, T.quatro2 - 0.2, I("camila2")), sai_ = 1 - fase(t, I("camila2") - 0.35, I("camila2") - 0.05);
     [[200, 820], [880, 820], [200, 1560], [880, 1560]].forEach(([x, y], k) => {
       const a = entra(t, T.quatro2 - 0.05 + k * 0.12, 0.3), el = $(`#vez${k}`);
       pos(el, { x: x - 150, y: y - 100 + a.y, s: a.s, r: [-5, 4, 3, -4][k], o: on ? a.o * sai_ : 0 });
@@ -705,6 +710,16 @@ function qExtra(t) {
       const n = entra(t, T.quatro2 + k * 0.12, 0.25);
       pos($(`#n${k}`), { x: x - 132, y: y - 92 + n.y * 0.4, s: n.s, o: on ? n.o * sai_ : 0 });
     });
+  }
+  // a Camila, que nunca mais apareceu. Por enquanto: a barriga chuta de novo (o bebê narra a parte 5)
+  {
+    const on = em(t, I("camila2") - 0.15, S.marca), a = entra(t, W("camila2", "camila") - 0.1, 0.4), el = $("#camcard");
+    pos(el, { x: 540, y: 1130 + a.y, s: a.s * lerp(1, 1.04, fase(t, I("camila2"), S.marca)), r: -3, o: on ? a.o * (1 - fase(t, S.marca - 0.3, S.marca)) : 0 });
+    const cinza = fase(t, W("camila2", "nunca") - 0.1, W("camila2", "apareceu") + 0.2) * (1 - fase(t, W("camila2", "enquanto") - 0.15, W("camila2", "enquanto") + 0.3));
+    el.style.filter = cinza > 0.01 ? `grayscale(${cinza.toFixed(3)}) brightness(${(1 - 0.25 * cinza).toFixed(3)})` : "";
+    const k = fase(t, W("camila2", "enquanto") + 0.05, W("camila2", "enquanto") + 0.6);
+    attr($("#cm-chute"), "opacity", k > 0 && k < 1 ? Math.sin(Math.PI * k).toFixed(3) : 0);
+    boca("cm", k > 0 ? "oh" : "reta"); fecha("cm", (t % 3.3) < 0.12 ? 1 : 0);
   }
   // o selo de exemplo nas páginas e na comparação
   const selo = $("#selo"), vs = em(t, S.paginas, S.noite);
@@ -738,7 +753,7 @@ const SONS = [{ t: T.recebeu, tipo: "ding", ganho: 0.7 }, { t: T.tapDl, tipo: "t
 window.preparar = () => R.preparar([0.3, T.n212 + 0.6, T.quatro + 0.45, S.eu + 0.6, T.agora + 0.3, T.bebes + 0.4, T.manda + 0.8, T.catorze + 0.3, T.catorze + 0.9, T.eternizar + 0.5, T.nove - 0.8, T.nove + 0.1, T.nove + 0.7,
   T.camila + 0.4, T.recebeu + 0.3, T.toque + 0.3, T.g4 + 0.2, T.pouco + 0.2, T.chutou + 0.1, T.cara + 0.25, T.baixado + 0.3, T.link + 0.15, T.precoR + 0.2, T.whatsN + 0.4,
   T.perguntou + 0.5, T.visto + 0.3, T.achou + 0.6, T.mais + 0.4, T.ver + 0.5, T.site + 0.4, T.fotosS + 0.4, T.precoS + 0.2, T.whatsS + 0.1, T.link2 + 0.3,
-  T.quatro2 + 0.6, T.helenaQ + 0.4, T.estava + 0.3, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6, F.pos.ini + 1.2, F.pos.ini + 1.8, DUR - 0.5], SONS);
+  T.quatro2 + 0.6, T.helenaQ + 0.4, T.estava + 0.3, F.camila2.ini + 1.4, W("camila2", "enquanto") + 0.3, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6, F.pos.ini + 1.2, F.pos.ini + 1.8, DUR - 0.5], SONS);
 await R.pronto();
 </script>
 </body></html>

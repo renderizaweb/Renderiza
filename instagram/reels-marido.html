@@ -8,8 +8,8 @@
      o painel conta quantas vagas sobraram. Para fotógrafas, a agenda é a do painel e não liga com o Google (o vídeo não
      diz que liga); o painel não chama a lista de espera sozinho: quem chama é a Helena.
      A história: abre com nove vagas carimbadas "segurada" por alguém que nunca pagou. Depois do gancho, o resumo da parte
-     2. Quem fala é a frase "vou ver com meu marido". A Carla pede o das dez, a Helena segura, recusa quatro mães, e no
-     sábado o estúdio fica vazio às dez. A virada: o marido tinha dito sim no primeiro dia; a Carla só esqueceu de avisar.
+     2. Quem fala é a frase "vou ver com meu marido". A Carla pede o das dez do dia 5/12, a Helena segura e recusa quatro pedidos (um deles, da tia
+     Rosa da parte 2), e no sábado o estúdio fica vazio às dez. As vagas do dia 12/12 já abrem pela agenda do site. A virada: o marido tinha dito sim no primeiro dia; a Carla só esqueceu de avisar.
      Com a agenda do site, o horário espera o sinal por 24 horas. Fecho: a Carla volta com a mesma frase e, com prazo, o
      marido responde em vinte minutos. Pós-créditos: a parte 4, no padrão da série (serie.mjs). Tudo é fictício, e as
      telas levam o selo "exemplo". O tempo de tudo sai da narração: narracao/reels-marido.json →
@@ -185,12 +185,12 @@ $("#cn").innerHTML = `${estudio()}
     <g transform="translate(660 1720)"><rect x="-60" y="-120" width="120" height="16" rx="8" fill="#c9a77c"/><rect x="-50" y="-104" width="10" height="104" fill="#a8865c"/><rect x="40" y="-104" width="10" height="104" fill="#a8865c"/></g></g>`;
 
 // ====================== o celular ======================
-const MAES = [["Bia", "#2f6f86"], ["Lu", "#6f8f5a"], ["Nanda", "#9b6b84"], ["Jéssica", "#c47b6a"]];
+const MAES = [["Bia", "#2f6f86"], ["Lu", "#6f8f5a"], ["Nanda", "#9b6b84"], ["Tia Rosa", "#b25134"]];
 const HORAS = ["9h", "10h", "11h", "13h", "14h", "15h", "16h", "17h"];
 const { FA, mostra, toque, hora } = celular(`
   <div class="tela sto" id="s-sto"><div class="sto-barras"><i><b id="sto-p"></b></i><i></i></div><div class="sto-quem"><i>H</i>helena.fotografia</div>
     <svg class="sto-arv" viewBox="0 0 100 120"><polygon points="50,6 24,46 36,46 14,80 40,80 40,104 60,104 60,80 86,80 64,46 76,46" fill="#4f7a52"/><polygon points="50,0 53,8 61,8 55,13 57,21 50,16 43,21 45,13 39,8 47,8" fill="#e0b04a"/>${[[42, 38], [58, 54], [36, 66], [64, 70], [50, 28]].map(([x, y], k) => `<circle cx="${x}" cy="${y}" r="3.4" fill="${["#e8855e", "#f2c25a", "#f1eee9"][k % 3]}"/>`).join("")}</svg>
-    <div class="sto-tit">Mini sessão<br>de Natal</div><div class="sto-sub">Sábado, 12/12 · 8 horários</div>
+    <div class="sto-tit">Mini sessão<br>de Natal</div><div class="sto-sub">Sábado, 05/12 · 8 horários</div>
     <div class="sto-h">${HORAS.map((x, k) => `<span id="sh${k}">${x}</span>`).join("")}</div></div>
   <div class="tela" id="s-dm"><div class="dm-topo">${ic("voltar")}<i style="background:#7a6a9a">C</i><div>Carla<small>carla.mendes</small></div></div>
     <div class="dm-fundo" id="dm-rolo"><span class="dm-hora" style="top:16px">3 DE NOVEMBRO</span>
@@ -203,7 +203,7 @@ const { FA, mostra, toque, hora } = celular(`
     <div class="dm-fundo">${MAES.map(([n, c], k) => `<div class="dm ent" id="mm${k}" style="top:${24 + k * 150}px;max-width:300px"><span class="quem" style="color:${c}">${n}</span>Tem o das 10?</div><div class="dm sai" id="mr${k}" style="top:${86 + k * 150}px;max-width:300px">Já está reservado.</div>`).join("")}</div></div>
   <div class="tela" id="s-zap"><div class="zp-topo">${ic("voltar")}<i style="background:#2f6f86">R</i><div>Amor<small>visto por último hoje às 09:58</small></div></div>
     <div class="zp-fundo"><span class="dm-hora" style="top:16px;background:#f6f3ee;padding:6px 14px;border-radius:10px">3 DE NOVEMBRO</span>
-      <div class="zp-m sai" id="zp1" style="top:64px;max-width:360px">Amor, vamos fazer a foto de Natal? Dia 12, às 10h.<small>21:02 ${TK("#3aa7e0")}</small></div>
+      <div class="zp-m sai" id="zp1" style="top:64px;max-width:360px">Amor, vamos fazer a foto de Natal? Dia 5, às 10h.<small>21:02 ${TK("#3aa7e0")}</small></div>
       <div class="zp-m ent" id="zp2" style="top:210px;font-size:48px;font-weight:800">Sim!<small>21:03</small></div></div></div>
   <div class="tela st" id="s-ag"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br/natal</span></div><div class="ms-topo"><span>Helena Fotografia</span><i></i></div>
     <div class="ag-tit">Mini sessão de Natal</div><div class="ag-sub">Sábado, 12/12 · escolha o seu horário</div>

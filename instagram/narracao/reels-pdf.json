@@ -1,5 +1,5 @@
 {
- "_sobre": "Narração do Reels \"O PDF\" (parte 1 da série \"O celular da fotógrafa\", 06/11/2026). Alvo: a fotógrafa de gestante e newborn que responde \"valor?\" mandando a tabela em PDF pelo WhatsApp e acha que a cliente que some achou caro. Objetivo: ela perceber que a cliente, muitas vezes, nem chega a ver o preço (o arquivo pesa, é de noite, o 4G não ajuda) e que, com o portfólio separado por ensaio no site, com fotos, o que vem incluso e o preço na primeira tela, ela manda o link e a cliente decide sem baixar nada. O gancho: um narrador misterioso que foi mandado para 212 mães e só foi aberto quatro vezes. Quem fala é o PDF de preços da Helena (Tabela 2026 FINAL agora vai). A virada: a Helena acha que perdeu a Camila pelo preço, mas a outra fotógrafa cobrava mais caro; a Camila nem chegou a ver o preço da Helena. O fecho paga o gancho: as quatro aberturas eram a própria Helena, conferindo o preço. Depois do convite, a cena pós-créditos anuncia a parte 2. Tudo é fictício. O id \"nada\" corta a batida.",
+ "_sobre": "Narração do Reels \"O PDF\" (parte 1 da série \"O celular da fotógrafa\", 06/11/2026). Alvo: a fotógrafa de gestante e newborn que responde \"valor?\" mandando a tabela em PDF pelo WhatsApp e acha que a cliente que some achou caro. Objetivo: ela perceber que a cliente, muitas vezes, nem chega a ver o preço (o arquivo pesa, é de noite, o 4G não ajuda) e que, com o portfólio separado por ensaio no site, com fotos, o que vem incluso e o preço na primeira tela, ela manda o link e a cliente decide sem baixar nada. O gancho: um narrador misterioso que foi mandado para 212 mães e só foi aberto quatro vezes. Quem fala é o PDF de preços da Helena (Tabela 2026 FINAL agora vai). A virada: a Helena acha que perdeu a Camila pelo preço, mas a outra fotógrafa cobrava mais caro; a Camila nem chegou a ver o preço da Helena. O fecho paga o gancho: as quatro aberturas eram a própria Helena, conferindo o preço. E planta o fio da temporada (SERIE.md): \"E a Camila? Nunca mais apareceu. Por enquanto.\", com a barriga chutando de novo; o bebê que chutou o celular narra a parte 5, quando a Camila volta. Depois do convite, a cena pós-créditos anuncia a parte 2. Tudo é fictício. O id \"nada\" corta a batida.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
@@ -102,12 +102,6 @@
    "pausa": 0.2
   },
   {
-   "id": "chamou",
-   "cena": "outra",
-   "texto": "Chamou no *WhatsApp* ali mesmo.",
-   "pausa": 0.35
-  },
-  {
    "id": "helena",
    "cena": "dia",
    "texto": "No dia seguinte, a Helena perguntou: conseguiu ver a *tabela?*",
@@ -173,7 +167,13 @@
    "id": "estava",
    "cena": "fecho",
    "texto": "*Estava.*",
-   "pausa": 0.6
+   "pausa": 0.5
+  },
+  {
+   "id": "camila2",
+   "cena": "fecho",
+   "texto": "E a Camila? Nunca mais apareceu. Por *enquanto.*",
+   "pausa": 0.7
   },
   {
    "id": "moral",

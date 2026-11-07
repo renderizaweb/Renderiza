@@ -56,6 +56,26 @@ subir da parte 1 para a 2, o resumo está pesando e deve encurtar.
 |---|---|---|---|
 | 1 | O PDF de preços (`reels-pdf`) | O site com o preço de cada ensaio | PRÉVIA |
 | 2 | O comprovante de Pix (`reels-comprovante`) | O painel: o sinal marcado na ficha da cliente | PAINEL |
-| 3 | O "vou ver com meu marido" | A pré-reserva por 24 horas até o sinal e a lista de espera | NATAL |
+| 3 | O "vou ver com meu marido" (`reels-marido`) | A pré-reserva por 24 horas até o sinal e a lista de espera | NATAL |
 | 4 | O alfinete do estúdio no Google Maps | O perfil do Google completo | PRÉVIA |
-| 5 | O próprio celular da Helena | O site e o painel juntos, no dia da mini sessão de Natal | NATAL |
+| 5 | O bebê da Camila, que chutou o celular na parte 1 | Tudo junto, no dia da mini sessão de Natal | NATAL |
+
+## O fio da temporada (o final primeiro)
+
+Cada parte fecha a sua história, mas a temporada tem uma pergunta só: a Helena vai recuperar a Camila?
+
+- **Parte 1.** A Helena perde a Camila, grávida de oito meses, porque o PDF não baixa e o bebê chuta o celular na cara
+  dela. O fecho planta a temporada: "E a Camila? Nunca mais apareceu. Por enquanto.", com a barriga chutando de novo.
+  No fim, a Helena responde o "valor?" da Lari com o link.
+- **Parte 2.** O resumo lembra a Camila. A Lari, que recebeu o link, marca o ensaio gestante de 28/11. O print do sinal
+  dela vai parar no grupo da família. No fecho, a tia Rosa pede o valor da foto de Natal.
+- **Parte 3.** A mini sessão de Natal do dia 05/12 fica com o das dez vazio; entre as mães recusadas está a tia Rosa,
+  que pediu o horário e ouviu "já está reservado". As vagas do dia 12/12 já abrem pela agenda do site.
+- **Parte 4.** O alfinete do estúdio no mapa aponta para a casa da mãe da Helena; o perfil do Google completo leva ao
+  estúdio de verdade. O resumo lembra a Camila de novo.
+- **Parte 5 (o final).** Quem narra é o bebê da Camila: "Antes de nascer, eu derrubei um celular." De madrugada, com
+  o bebê no colo, a Camila procura uma mini sessão de Natal no Google, acha a Helena (parte 4), vê o preço no site
+  (parte 1) e pega a última vaga de 12/12, separada por 24 horas (parte 3). O sinal cai e a Helena marca no painel
+  (parte 2). No painel, a Helena lê o nome: Camila. No dia 12, o bebê ganha a primeira foto de Natal, e a tia Rosa
+  aparece com a família na vaga seguinte. A cliente perdida na parte 1 volta porque tudo o que a Helena consertou
+  funciona junto.

@@ -7,11 +7,11 @@
      e o sinal na mesma ficha: quando o pagamento cai, ela marca o sinal ali, e no fim do mês vê quem pagou. O painel
      não recebe nem confere o Pix: quem marca é a fotógrafa, e o vídeo diz isso.
      A história: abre com um cartaz de procura-se (trezentos reais sumiram há onze dias, e quem fala é a única prova).
-     Depois do gancho, o resumo da parte 1. Quem fala é o print do Pix da Lari: a Helena guarda os comprovantes num grupo
+     Depois do gancho, o resumo da parte 1, que lembra a Camila, a cliente que a Helena perdeu (o fio da temporada). Quem fala é o print do Pix da Lari: a Helena guarda os comprovantes num grupo
      só com ela, mas o dedo escorrega um grupo para baixo. Onze dias depois, a Helena cobra a Lari, que responde com três
      pontos de exclamação. A virada: o print passou os onze dias no grupo da família, onde a tia Rosa respondeu
      "parabéns pelo pagamento, querida". Com o painel, o sinal é marcado na ficha da cliente. Fecho: a tia manda
-     "valor?", e a Helena responde com o link (a parte 1). Pós-créditos: a parte 3, no padrão da série (serie.mjs).
+     "valor da foto de Natal?", e a Helena responde com o link (a parte 1, e a deixa para a 3). Pós-créditos: a parte 3, no padrão da série (serie.mjs).
      Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
      narracao/reels-comprovante.json → python3 instagram/narrar.py reels-comprovante.
      Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
@@ -136,7 +136,7 @@
   <div id="cartaz"><h3>PROCURA-SE</h3><div class="foto"><svg viewBox="-110 -180 220 360"><path d="M-100 -170 H100 V150 L83 168 L67 150 L50 168 L33 150 L17 168 L0 150 L-17 168 L-33 150 L-50 168 L-67 150 L-83 168 L-100 150 Z" fill="#46403a"/><text x="0" y="40" text-anchor="middle" font-family="Geist" font-weight="800" font-size="150" fill="#2a2622">?</text></svg></div>
     <b>R$ 300,00</b><small>Sumiu em 03/11, às 21h14.<br>Última vez visto num celular.</small></div>
   <div id="lanterna"></div>
-  <div id="rz"><div id="rz-pdf"></div><div id="rz-link"></div><div class="rz-cli" id="rz0" style="background:#9b6b84">L</div><div class="rz-cli" id="rz1" style="background:#2f6f86">M</div><div class="rz-cli" id="rz2" style="background:#c47b6a">T</div></div>
+  <div id="rz"><div id="rz-pdf"></div><div id="rz-link"></div><div class="rz-cli" id="rz0" style="background:#7a6a9a">C</div></div>
   <div class="poeira" id="poeira"></div>
   <div id="extra"></div>
   <div class="fone" id="fa"></div>
@@ -165,8 +165,8 @@ const R = await historia({
 const { F, S, I, W, palco, DUR } = R;
 const T = {
   sumiram: W("abre", "sumiram"), prova: W("abre", "prova"),
-  ninguem: W("resumo", "ninguem"), agora: W("resumo", "agora"), link: W("resumo", "link"), clientes: W("resumo", "clientes"), marcam: W("resumo", "marcam"),
-  lari: W("lari", "lari"), gestante: W("lari", "gestante"), dezembro: W("lari", "dezembro"),
+  perdeu: W("resumo", "perdeu"), camila: W("resumo", "camila"), pdfR: W("resumo", "pdf"), agora: W("resumo", "agora"), link: W("resumo", "link"),
+  lari: W("lari", "lari"), gestante: W("lari", "gestante"), novembro: W("lari", "novembro"),
   pagou: W("pagou", "pagou"), print: W("pagou", "print"),
   sou: W("sou", "sou"),
   grupoW: W("grupo", "grupo"), so: W("grupo", "so"), comprovantes: W("grupo", "comprovantes", 1),
@@ -207,7 +207,7 @@ $("#rz-pdf").innerHTML = `<svg viewBox="-150 -190 300 400"><path d="M-130 -170 H
   <g fill="#3a2f2a"><rect x="-70" y="-50" width="44" height="9" rx="4.5" transform="rotate(-12 -48 -46)"/><rect x="26" y="-50" width="44" height="9" rx="4.5" transform="rotate(12 48 -46)"/></g>
   <circle cx="-48" cy="-6" r="17" fill="#1e2528"/><circle cx="48" cy="-6" r="17" fill="#1e2528"/><path d="M-22 58 Q0 38 22 58" stroke="#7a3d2e" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`;
 $("#rz-link").innerHTML = `${ic("link")}helenafotografia.com.br`;
-$$(".rz-cli").forEach(el => el.insertAdjacentHTML("beforeend", `<i>${ic("check", 'style="stroke-width:3.4"')}</i>`));
+$$(".rz-cli").forEach(el => el.insertAdjacentHTML("beforeend", `<i style="background:#b25134">${ic("x", 'style="stroke-width:3.4"')}</i>`));
 
 // ====================== as cenas desenhadas: a sala da Lari e o estúdio da Helena ======================
 const gravida = (svg, cor) => svg.replace(/(<path d="M-50 -140[^>]*\/>)/, `$1<ellipse cx="2" cy="-196" rx="60" ry="54" fill="${cor}" stroke="#000" stroke-opacity=".18" stroke-width="5"/><ellipse cx="-16" cy="-214" rx="20" ry="14" fill="#fff" opacity=".13"/>`);
@@ -229,7 +229,7 @@ const ESC = 1.75;
 // ====================== o celular ======================
 const GRUPOS = [["Lari", "#c47b6a", "L", "Foto"], ["Comprovantes", "#25a35a", ic("recibo"), "Você: Foto"], ["Família Lins", "#7a6a9a", ic("casa"), "Tia Rosa: Bom dia, família!"], ["Condomínio Bloco B", "#2f6f86", ic("grupo"), "Síndico: Reunião na quinta"], ["Futebol de quinta", "#6f8f5a", ic("bola"), "Dudu: Quem leva a bola?"], ["Mãe", "#b25134", "M", "Já almoçou?"]];
 const linha = ([n, c, a, s], k, pre) => `<div class="zl-r" id="${pre}${k}"><i style="background:${c}">${a}</i><div><b>${n}</b><small>${s}</small></div></div>`;
-const CLIENTES = [["Ana Clara", "#9b6b84", "Ensaio newborn · 28/11", "ok", "sinal pago"], ["Bruna", "#2f6f86", "Família · 05/12", "ok", "sinal pago"], ["Lari Souza", "#c47b6a", "Ensaio gestante · 12/12", "pre", "aguardando sinal"], ["Duda", "#6f8f5a", "Smash · 14/12", "pre", "aguardando sinal"], ["Gabi", "#7a6a9a", "Newborn · 19/12", "ok", "sinal pago"]];
+const CLIENTES = [["Ana Clara", "#9b6b84", "Ensaio newborn · 28/11", "ok", "sinal pago"], ["Bruna", "#2f6f86", "Família · 05/12", "ok", "sinal pago"], ["Lari Souza", "#c47b6a", "Ensaio gestante · 28/11", "pre", "aguardando sinal"], ["Duda", "#6f8f5a", "Smash · 14/12", "pre", "aguardando sinal"], ["Gabi", "#7a6a9a", "Newborn · 19/12", "ok", "sinal pago"]];
 const { FA, mostra, toque, hora } = celular(`
   <div class="tela" id="s-pix"><div class="pix"><div class="ok">${ic("check")}</div><h4>Pix enviado</h4><b>R$ 300,00</b><p>para Helena Lins Fotografia<br>03/11/2026, às 21h14<br>Sinal do ensaio gestante</p><span class="bt">Compartilhar comprovante</span></div></div>
   <div class="tela" id="s-lchat"><div class="zp-topo">${ic("voltar")}<i style="background:#b25134">H</i><div>Helena Fotografia<small>online</small></div></div>
@@ -243,7 +243,7 @@ const { FA, mostra, toque, hora } = celular(`
       ${["Ana Clara", "Bruna", "Gabi", "Isa", "Mel"].map(n => `<div style="background:#fff;border-radius:16px;padding:8px;text-align:center;font-size:20px;font-weight:800"><div style="height:150px;border-radius:10px;background:#e9e4da;display:grid;place-items:center"><svg viewBox="-110 -180 220 360" style="height:130px">${printMini().replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></div>${n}</div>`).join("")}
       <div id="cp-lari" style="border:4px dashed #b25134;border-radius:16px;display:grid;place-items:center;font-size:30px;font-weight:800;color:#b25134;min-height:196px">Lari?</div></div></div>
   <div class="tela" id="s-cobra"><div class="zp-topo">${ic("voltar")}<i style="background:#c47b6a">L</i><div>Lari<small>online</small></div></div>
-    <div class="zp-fundo"><div class="zp-m sai" id="cb1" style="top:24px">Oi, Lari! Falta o sinal do dia 12.<small>10:02</small></div>
+    <div class="zp-fundo"><div class="zp-m sai" id="cb1" style="top:24px">Oi, Lari! Falta o sinal do dia 28.<small>10:02</small></div>
       <div class="zp-m ent grande" id="cb2" style="top:140px">Já paguei!!!<small>10:03</small></div>
       <div class="zp-img ent" id="cb3" style="top:250px"><div class="pv">${printMini()}</div><small>10:03</small></div></div></div>
   <div class="tela" id="s-fam"><div class="zp-topo">${ic("voltar")}<i style="background:#7a6a9a">${ic("casa")}</i><div>Família Lins<small>14 participantes</small></div></div>
@@ -252,14 +252,14 @@ const { FA, mostra, toque, hora } = celular(`
       <div class="zp-img sai" id="fm-img" style="top:390px"><div class="enc">${ic("enviar", 'style="width:16px;height:16px"')}Encaminhada</div><div class="pv">${printMini()}</div><small>21:14 ${TK("#3aa7e0")}</small></div>
       <div class="zp-m ent" id="fm-tia" style="top:760px;max-width:360px"><span class="quem" style="color:#b25134">Tia Rosa</span>Parabéns pelo pagamento, querida!<small>21:20</small></div>
       <div class="zp-m ent" id="fm-ze" style="top:900px"><span class="quem" style="color:#2f6f86">Tio Zé</span>Quem é Lari?<small>21:31</small></div>
-      <div class="zp-m ent" id="fm-valor" style="top:900px"><span class="quem" style="color:#b25134">Tia Rosa</span>valor?<small>18:40</small></div>
+      <div class="zp-m ent" id="fm-valor" style="top:900px"><span class="quem" style="color:#b25134">Tia Rosa</span>valor da foto de Natal?<small>18:40</small></div>
       <div class="zp-m sai" id="fm-link" style="top:1010px;max-width:390px">Tudo aqui, tia:<div class="lkc"><i>${arte("gestante", 0)}</i><div><b>Ensaio gestante</b><small>helenafotografia.com.br</small></div></div><small>18:41</small></div></div></div>
   <div class="tela" id="s-pn"><div class="pn-topo">${ic("calendario")}Painel<small>Helena Fotografia</small></div>
-    <div class="pn-tit">Clientes</div><div class="pn-sub">Dezembro</div>
+    <div class="pn-tit">Clientes</div><div class="pn-sub">Próximos ensaios</div>
     ${CLIENTES.map(([n, c, s, st, rot], k) => `<div class="pn-l" id="pl${k}"><span class="av" style="background:${c}">${n[0]}</span><div class="n">${n}<small>${s}</small></div><span class="pn-st ${st}" id="pl${k}s">${rot}</span></div>`).join("")}</div>
   <div class="tela" id="s-ficha"><div class="pn-topo">${ic("voltar")}Ficha da cliente<small>Helena Fotografia</small></div>
     <div class="fi-cab"><span class="av">L</span><div><b>Lari Souza</b><small>Ensaio gestante</small></div></div>
-    <div class="fi-l" id="fi-data">${ic("calendario")}<div><small>Data</small><b>12/12, sábado, 15h</b></div></div>
+    <div class="fi-l" id="fi-data">${ic("calendario")}<div><small>Data</small><b>28/11, sábado, 15h</b></div></div>
     <div class="fi-l" id="fi-cont">${ic("contrato")}<div><small>Contrato</small><b>Enviado em 03/11</b></div></div>
     <div class="fi-l" id="fi-sinal">${ic("moeda")}<div><small>Sinal</small><b id="fi-sv">R$ 300 · aguardando</b></div><span class="pn-st pre" id="fi-st">aguardando</span></div>
     <div id="fi-bt">${ic("check")}Marcar sinal pago</div></div>
@@ -270,7 +270,7 @@ const { FA, mostra, toque, hora } = celular(`
 
 // ====================== peças por cima ======================
 $("#extra").innerHTML = `
-  <div class="etq tc" id="etq-data">Ensaio gestante · 12/12</div>
+  <div class="etq tc" id="etq-data">Ensaio gestante · 28/11</div>
   <div class="etq claro" id="etq-so">1 participante: a Helena</div>
   <div id="cal"><div class="mes">NOVEMBRO</div><div class="dia" id="cal-d">03</div><div class="sub" id="cal-s">o print sumiu</div></div>
   <div class="etq tc" id="etq-exc" style="font-size:90px;padding:10px 36px">!!!</div>
@@ -293,11 +293,14 @@ function qResumo(t) {
   const on = em(t, S.resumo - 0.2, S.lari + 0.2), el = $("#rz");
   el.style.opacity = on ? (fase(t, S.resumo - 0.2, S.resumo + 0.2) * (1 - fase(t, S.lari - 0.2, S.lari + 0.15))).toFixed(3) : 0;
   if (!on) return;
+  // a Camila, a cliente perdida na parte 1, sai de cena; o PDF fica triste; depois o link
   const a = entra(t, S.resumo + 0.05, 0.35), vai = ease(fase(t, T.agora - 0.2, T.agora + 0.3));
-  pos($("#rz-pdf"), { x: 540, y: lerp(900, 820, vai) + a.y, s: a.s * lerp(1, 0.65, vai), r: lerp(0, -10, vai), o: a.o * lerp(1, 0.35, vai) });
+  pos($("#rz-pdf"), { x: lerp(540, 380, ease(fase(t, T.camila - 0.2, T.camila + 0.2))) * (1 - vai) + 540 * vai, y: lerp(900, 820, vai) + a.y, s: a.s * lerp(1, 0.65, vai), r: lerp(0, -10, vai), o: a.o * lerp(1, 0.35, vai) });
+  const c = entra(t, T.camila - 0.05, 0.3), vaiC = ease(fase(t, T.pdfR - 0.1, T.agora - 0.2));
+  pos($("#rz0"), { x: 720 + 260 * vaiC, y: 900 + c.y, s: c.s * 1.25, o: c.o * (1 - vaiC) });
+  pos($("#rz0 i"), { s: fase(t, T.camila + 0.25, T.camila + 0.5) > 0 ? lerp(0.4, 1, volta(fase(t, T.camila + 0.25, T.camila + 0.5))) : 0 });
   const b = entra(t, T.link - 0.05, 0.35), lk = $("#rz-link");
-  pos(lk, { x: 540 - lk.offsetWidth / 2, y: 1000 + b.y, s: b.s, o: b.o });
-  [[300, 1200], [540, 1240], [780, 1200]].forEach(([x, y], k) => { const c = entra(t, T.clientes - 0.05 + k * 0.12, 0.3); pos($(`#rz${k}`), { x, y: y + c.y, s: c.s, o: c.o }); pos($(`#rz${k} i`), { s: fase(t, T.marcam + k * 0.1, T.marcam + 0.25 + k * 0.1) > 0 ? lerp(0.4, 1, volta(fase(t, T.marcam + k * 0.1, T.marcam + 0.25 + k * 0.1))) : 0 }); });
+  pos(lk, { x: 540 - lk.offsetWidth / 2, y: 1080 + b.y, s: b.s, o: b.o });
 }
 // a sala da Lari (paga e manda o print) e o estúdio da Helena (cobra e fica vermelha)
 function qCena(t) {
@@ -464,7 +467,7 @@ window.quadro = t => {
 const SONS = [{ t: T.print, tipo: "ding", ganho: 0.6 }, { t: T.escorregou + 0.2, tipo: "toque", ganho: 0.8 }, { t: T.baixo, tipo: "ding", ganho: 0.5 },
   { t: T.mandou + 0.05, tipo: "ding", ganho: 0.5 }, { t: T.resposta, tipo: "ding", ganho: 0.7 }, { t: T.parabens - 0.1, tipo: "ding", ganho: 0.6 }, { t: T.querida + 0.4, tipo: "ding", ganho: 0.5 },
   { t: T.tapLari, tipo: "toque", ganho: 0.8 }, { t: T.tapSinal, tipo: "toque", ganho: 0.8 }, { t: T.valor - 0.1, tipo: "ding", ganho: 0.6 }, { t: T.linkf - 0.05, tipo: "ding", ganho: 0.6 }];
-window.preparar = () => R.preparar([0.3, 1.5, T.prova + 0.2, T.ninguem + 0.3, T.link + 0.4, T.marcam + 0.4, T.lari + 0.4, T.dezembro + 0.2, T.pagou + 0.3, T.print + 0.4, T.sou + 0.3,
+window.preparar = () => R.preparar([0.3, 1.5, T.prova + 0.2, T.camila + 0.4, T.agora + 0.3, T.link + 0.4, T.lari + 0.4, T.novembro + 0.2, T.pagou + 0.3, T.print + 0.4, T.sou + 0.3,
   T.comprovantes + 0.3, T.encaminhou + 0.2, T.escorregou + 0.4, T.baixo + 0.4, T.onze + 0.6, T.mes + 0.2, T.lari2 + 0.2, T.mandou + 0.3, T.exclamacao + 0.3, T.onde + 0.3,
   T.familia + 0.4, T.parabens + 0.4, T.querida + 0.8, T.conversa + 0.2, T.escorregar + 0.2, T.painel + 0.3, T.data + 0.2, T.sinal + 0.3, T.marca + 0.6, T.quem + 0.3,
   T.eu2 + 0.3, T.valor + 0.3, T.linkf + 0.5, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6, F.pos.ini + 1.2, F.pos.ini + 2.6, DUR - 0.4], SONS);

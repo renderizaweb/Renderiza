@@ -1,5 +1,5 @@
 {
- "_sobre": "Narração do Reels \"O comprovante\" (parte 2 da série \"O celular da fotógrafa\", 07/11/2026). Alvo: a fotógrafa que recebe o sinal por Pix e controla quem pagou por prints no WhatsApp. Objetivo: ela perceber que comprovante guardado em conversa se perde (e que cobrar de novo quem já pagou é o pior momento com uma cliente) e que, com o painel, cada cliente tem a data, o contrato e o sinal na mesma ficha: quando o Pix cai, ela marca o sinal ali, e no fim do mês vê quem pagou. O painel não recebe nem confere o Pix: quem marca é a fotógrafa. O gancho: trezentos reais sumiram há onze dias, e o narrador é a única prova. Depois do gancho, o resumo da parte 1 (padrão da série, SERIE.md). Quem fala é o print do Pix da Lari, que a Helena encaminhou para o grupo errado. A virada: ele passou os onze dias no grupo da família, onde a tia Rosa respondeu \"parabéns pelo pagamento, querida\". O fecho volta à parte 1: a tia manda \"valor?\" e a Helena responde com o link. Depois do convite, a cena pós-créditos anuncia a parte 3. Tudo é fictício. O id \"nada\" corta a batida.",
+ "_sobre": "Narração do Reels \"O comprovante\" (parte 2 da série \"O celular da fotógrafa\", 07/11/2026). Alvo: a fotógrafa que recebe o sinal por Pix e controla quem pagou por prints no WhatsApp. Objetivo: ela perceber que comprovante guardado em conversa se perde (e que cobrar de novo quem já pagou é o pior momento com uma cliente) e que, com o painel, cada cliente tem a data, o contrato e o sinal na mesma ficha: quando o Pix cai, ela marca o sinal ali, e no fim do mês vê quem pagou. O painel não recebe nem confere o Pix: quem marca é a fotógrafa. O gancho: trezentos reais sumiram há onze dias, e o narrador é a única prova. Depois do gancho, o resumo da parte 1, que lembra a Camila, a cliente perdida (o fio da temporada, SERIE.md). Quem fala é o print do Pix da Lari, que a Helena encaminhou para o grupo errado. A virada: ele passou os onze dias no grupo da família, onde a tia Rosa respondeu \"parabéns pelo pagamento, querida\". O fecho volta à parte 1: a tia manda \"valor?\" e a Helena responde com o link. Depois do convite, a cena pós-créditos anuncia a parte 3. Tudo é fictício. O id \"nada\" corta a batida.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
@@ -16,15 +16,15 @@
   {
    "id": "resumo",
    "cena": "resumo",
-   "texto": "Na parte 1, ninguém abria a tabela de preços da Helena. Agora ela manda o link, e as clientes *marcam.*",
-   "fala": "Na parte um, ninguém abria a tabela de preços da Helena. Agora ela manda o link, e as clientes marcam.",
+   "texto": "Na parte 1, a Helena perdeu a Camila por causa de um PDF. Agora, quem pergunta o valor recebe o *link.*",
+   "fala": "Na parte um, a Helena perdeu a Camila por causa de um pê dê éfe. Agora, quem pergunta o valor recebe o link.",
    "pausa": 0.3
   },
   {
    "id": "lari",
    "cena": "lari",
-   "texto": "Uma delas foi a Lari: ensaio gestante, dia 12 de *dezembro.*",
-   "fala": "Uma delas foi a Lari: ensaio gestante, dia doze de dezembro.",
+   "texto": "A Lari recebeu, gostou e marcou: ensaio gestante, dia 28 de *novembro.*",
+   "fala": "A Lari recebeu, gostou e marcou: ensaio gestante, dia vinte e oito de novembro.",
    "pausa": 0.25
   },
   {
@@ -73,8 +73,8 @@
   {
    "id": "cobra",
    "cena": "cobra",
-   "texto": "Então ela mandou: oi, Lari, falta o sinal do dia *12.*",
-   "fala": "Então ela mandou: oi, Lari, falta o sinal do dia doze.",
+   "texto": "Então ela mandou: oi, Lari, falta o sinal do dia *28.*",
+   "fala": "Então ela mandou: oi, Lari, falta o sinal do dia vinte e oito.",
    "pausa": 0.25
   },
   {
@@ -142,7 +142,7 @@
   {
    "id": "ontem",
    "cena": "fecho",
-   "texto": "Ontem, a tia Rosa mandou outra mensagem: *valor?*",
+   "texto": "Ontem, a tia Rosa mandou outra mensagem: valor da foto de *Natal?*",
    "pausa": 0.3
   },
   {
