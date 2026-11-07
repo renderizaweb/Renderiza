@@ -287,8 +287,8 @@ export async function historia(cfg) {
     $("#flash").style.opacity = flash.toFixed(3);
   }
 
-  // a trilha (ferramentas/video/trilha-pulso.py) só conhece abre, google, insta, volta, meio, ese, site, fim e cta
-  // sons: efeitos de cena [{ t, tipo: "toc" | "quica" | "ding" | "apito" | "toque" | "tesoura" | "campainha" | "caixinha" | "baque", ganho }], mixados pela trilha
+  // a trilha (ferramentas/video/trilha-pulso.py) só conhece abre, google, insta, volta, meio, ese, site, fim, cta, brinca (papagaio) e pos (pós-créditos)
+  // sons: efeitos de cena [{ t, tipo: "toc" | "quica" | "ding" | "apito" | "toque" | "tesoura" | "campainha" | "caixinha" | "baque" | "pi" | "louro" | "passa" | "ronco", ganho }], mixados pela trilha
   const preparar = (ensaio = [], sons = []) => {
     window.quadro(0);
     return {

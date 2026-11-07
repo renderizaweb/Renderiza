@@ -185,6 +185,22 @@
 #pv-c .busca svg{width:44px;height:44px;flex:none}
 #pv-c .res{margin-top:30px;text-align:center;font:700 34px/1.2 "Geist",sans-serif;color:#b9bfc1}
 #pv-d{text-align:center}
+#pv-b svg{position:absolute;inset:0;width:1080px;height:1920px}
+#pv-b .fl{z-index:5}
+#conta{position:absolute;left:0;top:0;z-index:28;width:900px;margin-left:-450px;padding:26px 30px 30px;border-radius:34px;background:rgba(10,14,16,.9);color:#f1eee9;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#conta .tit{display:flex;justify-content:space-between;align-items:baseline;font:800 40px/1 "Geist",sans-serif;margin-bottom:20px}
+#conta .tit small{font-size:30px;color:#7fd8a0}
+#conta .gr{display:grid;grid-template-columns:repeat(11,1fr);gap:10px}
+#conta .gr i{height:62px;border-radius:8px;background:#f1eee9;position:relative;opacity:0}
+#conta .gr i::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;border-radius:0 0 8px 8px;background:#b25134}
+#conta .gr i.ok{background:#7fd8a0}
+#conta .gr i.ok::after{background:#1f7a45}
+#conta p{margin:18px 0 0;font:700 26px/1.25 "Geist",sans-serif;color:#b9bfc1}
+#mapacard{position:absolute;left:0;top:0;z-index:28;width:760px;margin-left:-380px;border-radius:30px;overflow:hidden;background:#fbf8f3;color:#1e2528;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#mapacard .mp{position:relative;height:250px;background:#e9e4d8}
+#mapacard .mp svg{width:100%;height:100%;display:block}
+#mapacard .rod{padding:20px 26px;font:800 32px/1.15 "Geist",sans-serif}
+#mapacard .rod small{display:block;margin-top:6px;font:700 24px/1.2 "Geist",sans-serif;color:#b25134}
 #pv-d small{display:block;font:800 34px/1 "Geist",sans-serif;letter-spacing:.12em;color:#e8855e}
 #pv-d b{display:block;margin-top:18px;font:800 120px/.95 "Geist",sans-serif;letter-spacing:-.05em;color:#f6f3ee}
 </style></head><body>
@@ -206,15 +222,18 @@
 </div>
 <script type="module">
 import { serie } from "./serie.mjs";
+import { LOURO, POLEIRO, louro, sala, casaFora, rafa, RAFA, capitulos, sonsCapitulos, dialogo } from "./casa.mjs";
 import { $, $$, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, pose, camera, IC, ic, ZAP_B, PELE, PELE2, cabeca, dePe, boca, pernas, fecha, barra, balao, historia, h, xe } from "./historia.mjs";
 
 const R = await historia({
   nome: "reels-nasci1",
-  ordem: ["escuro", "utero", "noite", "paginas", "baixa", "chute", "outra", "dia", "gancho", "previa", "siga"],
+  ordem: ["escuro", "utero", "noite", "paginas", "baixa", "chute", "outra", "helena", "dia", "louro", "gancho", "previa", "siga"],
   // a trilha: o gancho abre com impacto, o útero no pulso, a noite do PDF é o groove (cortado em "Eu chutei", a frase
   // "nada"), a queda no coração batendo, a outra fotógrafa e a manhã na batida abafada, o parto adiantado sobe até o drop,
-  // que cai na prévia do episódio 2; o "Siga" e o convite mudo fecham
-  trilha: { escuro: "abre", utero: "google", noite: "insta", paginas: "insta", baixa: "insta", chute: "meio", outra: "volta", dia: "volta", gancho: "ese", previa: "site", siga: "cta" },
+  // que cai na prévia do episódio 2; o "Siga" e o convite mudo fecham. O lado da Helena segue na batida abafada, e a
+  // sala do Louro é o pizzicato brincalhão
+  trilha: { escuro: "abre", utero: "google", noite: "insta", paginas: "insta", baixa: "insta", chute: "meio", outra: "volta", helena: "volta", dia: "volta", louro: "brinca", gancho: "ese", previa: "site", siga: "cta" },
+  soBalao: ["frase", "l1", "l2", "l3"],
   cta: "PRÉVIA", nota: "A Camila, a Helena e o bebê são fictícios.", ctaTexto: "que a Renderiza monta a prévia do site do seu estúdio, sem compromisso.", bpm: 120, tom: 0, fimMudo: 4.2,
 });
 const { F, S, I, W, palco, DUR, T0 } = R;
@@ -225,14 +244,18 @@ const T = {
   helenaV: W("valor", "helena"), valor: W("valor", "valor"),
   pdf: W("pdf", "pdf"), tabela: W("pdf", "tabela"), vai: W("pdf", "vai"),
   catorze: W("paginas", "catorze"), preco9: W("paginas", "preco"), nove: W("paginas", "nove"),
-  toque: W("toque", "toque"), baixar: W("toque", "baixar"), g4: W("toque", "4g"), pensou: W("toque", "pensou"),
+  toque: W("toque", "toque"), baixar: W("toque", "baixar"), g4: W("toque", "4g"), pensou: W("toque", "sinal"),
+  dormia: W("pai", "dormia"), importante: W("pai", "importante"), onze: W("mesma", "onze"), mundo: W("mesma", "mundo"),
+  trinta1: W("conta", "trinta"), fecharam: W("conta", "fecharam"), sempre: W("helena", "sempre"),
+  cor: W("decor", "cor"), louroW: W("louro", "louro"), sala: W("louro", "sala"), y2019: W("louro", "2019"), tres: W("aprendeu", "tres"),
+  mudou: W("mudou", "mudou"), mapa: W("mudou", "mapa"), nao: W("mudou", "nao"),
   dentro: W("curioso", "dentro"), luz: W("curioso", "luz"), curioso: W("curioso", "curioso"),
   chutei: W("nada", "chutei"), caiu: W("caiu", "caiu"), cara: W("caiu", "cara"), pegou: W("naobaixou", "pegou"), baixado: W("naobaixou", "baixado"),
   outraF: W("outra", "outra"), precoR: W("outra", "preco"), tela: W("outra", "tela"),
   fechou: W("fechou", "fechou"), newborn: W("fechou", "newborn"),
   perguntou: W("helena", "mandou"), visto: W("visto", "visualizado"), achou: W("achou", "achou"), mais: W("caro", "mais"), nunca: W("nem", "nunca"),
   combinado: W("gancho", "combinado"), nascer: W("gancho", "nascer"), antes: W("gancho", "antes"),
-  quinze: W("previa", "quinze"), agenda: W("previa", "agenda"), busca: W("previa", "busca"),
+  quinze: W("previa", "quinze"), pai: W("previa", "pai"), papagaio: W("previa", "papagaio"), porta: W("previa", "porta"),
 };
 T.tapDl = T.baixar + 0.35;          // a Camila toca para baixar
 T.tapLink = T.outraF + 0.3;         // o link da bio da outra fotógrafa
@@ -334,6 +357,13 @@ $("#cn").innerHTML = `
     <rect x="110" y="1150" width="890" height="290" rx="64" fill="#2a4049"/>
     <rect x="80" y="1370" width="950" height="190" rx="44" fill="#33505a"/><rect x="120" y="1556" width="26" height="44" rx="6" fill="#141a1d"/><rect x="964" y="1556" width="26" height="44" rx="6" fill="#141a1d"/>
     <rect x="44" y="1220" width="180" height="340" rx="74" fill="#3b5d69"/><rect x="900" y="1250" width="170" height="310" rx="68" fill="#3b5d69"/>
+    <g id="ra-dorme" transform="translate(700 1700)"><path d="M-30 -12 L230 6" stroke="#2b3540" stroke-width="46" stroke-linecap="round"/><path d="M-20 -46 L210 -40" stroke="#2b3540" stroke-width="44" stroke-linecap="round"/>
+      <ellipse cx="236" cy="0" rx="26" ry="18" fill="#141819"/><ellipse cx="216" cy="-44" rx="26" ry="18" fill="#141819"/>
+      <path d="M-86 0 Q-110 -150 -46 -186 L14 -186 Q56 -140 40 0 Z" fill="${RAFA.roupa}"/>
+      <rect x="-30" y="-140" width="40" height="64" rx="8" fill="#111" transform="rotate(-12 -10 -108)"/><rect id="ra-tela" x="-26" y="-136" width="32" height="56" rx="6" fill="#cfe6f2" transform="rotate(-12 -10 -108)"/>
+      <ellipse id="ra-brilho" cx="-14" cy="-150" rx="90" ry="70" fill="url(#g-tela)"/>
+      <g transform="translate(-30 -236) rotate(22)">${cabeca({ ...RAFA, id: "rs" }, 0, 0, 46)}</g>
+      <g id="ra-z" font-family="Geist" font-weight="800" fill="#cfe6f2">${[0, 1, 2].map(k => `<text class="z" x="${20 + k * 34}" y="${-300 - k * 50}" font-size="${40 + k * 12}">z</text>`).join("")}</g></g>
     <ellipse cx="200" cy="1262" rx="104" ry="58" fill="#e8d9b5" transform="rotate(-14 200 1262)"/>
     <g id="ca-corpo">
       <path d="M592 1398 L908 1410" stroke="#2b2f3a" stroke-width="54" stroke-linecap="round"/><path d="M588 1372 Q760 1290 904 1352" stroke="#353a47" stroke-width="54" stroke-linecap="round" fill="none"/>
@@ -348,7 +378,8 @@ $("#cn").innerHTML = `
       <g id="ca-bracos"><path d="M300 1270 Q282 1172 342 1112" stroke="#7a6a9a" stroke-width="26" stroke-linecap="round" fill="none"/><circle cx="344" cy="1108" r="13" fill="${PELE}"/>
         <path d="M354 1292 Q430 1200 410 1124" stroke="#7a6a9a" stroke-width="26" stroke-linecap="round" fill="none"/><circle cx="408" cy="1118" r="13" fill="${PELE}"/></g>
       <g id="ca-fone"><rect x="-40" y="-70" width="80" height="140" rx="15" fill="#111"/><rect x="-36" y="-66" width="72" height="132" rx="12" fill="#2b3438"/><circle cx="-18" cy="-46" r="7" fill="#0b0f11" stroke="#4a5357" stroke-width="2"/><circle cx="-18" cy="-24" r="7" fill="#0b0f11" stroke="#4a5357" stroke-width="2"/></g>
-    </g></g>`;
+    </g></g>
+  ${sala(`${POLEIRO(600, 1240, 360)}${LOURO("lo")}<rect id="sl-veu" width="1080" height="1920" fill="#07090c" opacity=".82"/>`)}`;
 
 // ====================== as 14 páginas da tabela ======================
 const sk = (n, w = [100, 92, 96, 70]) => Array.from({ length: n }, (_, k) => `<div class="sk" style="width:${w[k % w.length]}%"></div>`).join("");
@@ -432,6 +463,10 @@ $("#extra").innerHTML = `
     <div class="cmp-veu" id="cmp-veu">${ic("olhoX")}<span>a Camila nunca viu</span></div></div>
   <div class="cmp" id="cmpB"><span class="exemplo">exemplo</span><div class="cmp-quem"><i style="background:#2f6f86">N</i>Nascer</div><b class="cmp-v">R$ 890</b><small>na primeira tela</small></div>
   <div id="carimbo">mais caro</div>
+  <div id="conta"><div class="tit"><span id="ct-t">31 pediram o valor</span><small id="ct-f"></small></div><div class="gr">${Array.from({ length: 31 }, (_, k) => `<i id="ct${k}"></i>`).join("")}</div><p>Todas receberam o mesmo PDF de 14 páginas.</p></div>
+  <div id="mapacard"><div class="mp"><svg viewBox="0 0 760 250"><rect width="760" height="250" fill="#e9e4d8"/><path d="M0 170 H760 M240 0 V250 M520 0 V250 M0 60 H760" stroke="#fff" stroke-width="22"/><path d="M0 120 Q380 90 760 140" stroke="#f2d79a" stroke-width="16" fill="none"/>
+    <rect x="300" y="80" width="150" height="70" rx="8" fill="#cfc6b6"/><g transform="translate(375 98)"><path d="M0 -50 C-27 -50 -37 -30 -37 -17 C-37 7 0 37 0 37 C0 37 37 7 37 -17 C37 -30 27 -50 0 -50 Z" fill="#e0453a"/><circle cx="0" cy="-17" r="12" fill="#fbf8f3"/></g></svg></div>
+    <div class="rod">Helena Fotografia<small>endereço cadastrado em 2019: a casa da mãe</small></div></div>
   ${[0, 1, 2, 3].map(k => `<div class="vez" id="vez${k}"><svg viewBox="0 0 300 200"><rect width="300" height="200" fill="#fbf8f3"/>
     <rect x="22" y="24" width="120" height="10" rx="5" fill="#e2dbd0"/><rect x="22" y="46" width="170" height="10" rx="5" fill="#e2dbd0"/>
     <text x="22" y="104" font-family="Geist" font-weight="800" font-size="34" fill="#1e2528">R$ 690</text><rect x="22" y="124" width="140" height="10" rx="5" fill="#e2dbd0"/>
@@ -477,8 +512,8 @@ $("#extra").insertAdjacentHTML("beforeend", `
     <div id="cg-n"><div class="m">NASCEU</div><div class="d">14/11</div><div class="s">37 semanas</div></div></div>`);
 $("#prev").innerHTML = `<div id="prev-chip">NO PRÓXIMO EPISÓDIO</div>
   <div class="pv-s" id="pv-a"><div><b id="pv-n">15</b><span>dias para uma foto</span><div class="barra">${Array.from({ length: 15 }, (_, k) => `<i id="pvb${k}"></i>`).join("")}</div></div></div>
-  <div class="pv-s" id="pv-b"><div class="card"><div class="q"><i>N</i>Nascer Fotografia</div><span class="m">Só tenho vaga em janeiro.</span></div></div>
-  <div class="pv-s" id="pv-c"><div class="card"><div class="hora">03:00</div><div class="busca">${ic("lupa")}fotógrafa newborn perto de mim</div><div class="res">nenhum resultado que ajude</div></div></div>
+  <div class="pv-s" id="pv-b"><svg viewBox="0 0 1080 1920"><g id="pvb-cam">${casaFora(`<g transform="translate(400 1200)">${LOURO("lp")}</g>`)}<g id="pvb-ra">${rafa()}</g></g></svg>
+    <div class="fl louro esq" id="pvb-fl"><small>Louro</small>Qual o valor?</div></div>
   <div class="pv-s" id="pv-d"><div><small>EPISÓDIO 2</small><b>Quinze<br>dias</b></div></div>`;
 
 // ====================== quadro a quadro ======================
@@ -542,10 +577,17 @@ function qEu(t) {
   const tg = $("#etq-nome"), a = entra(t, T.tabela - 0.05);
   pos(tg, { x: 540 - tg.offsetWidth / 2, y: 1270 + a.y, s: a.s * (1 + 0.05 * pulso(t, T.vai, 0.4)), o: em(t, T.tabela - 0.1, I("paginas")) ? a.o * (1 - fase(t, I("paginas") - 0.2, I("paginas"))) : 0 });
 }
-// o estúdio da Helena, de manhã
+// o estúdio da Helena: de noite (23h51, quando ela manda o PDF) e de manhã
+const NOITE_H = t => em(t, S.helena - 0.05, S.dia - 0.05);
 function qEstudio(t) {
-  const dia = em(t, S.dia - 0.05, I("caro") - 0.05);
-  attr($("#g-estudio"), "opacity", dia ? 1 : 0);
+  const dia = em(t, S.dia - 0.05, I("caro") - 0.05), noite = NOITE_H(t);
+  attr($("#g-estudio"), "opacity", dia || noite ? 1 : 0);
+  if (noite) {
+    attr($("#es-parede"), "fill", "#26323a"); attr($("#es-ceu"), "fill", "#22344d"); attr($("#es-sol"), "opacity", 0); attr($("#es-lua"), "opacity", 1); attr($("#es-lua2"), "fill", "#22344d");
+    attr($("#es-luz"), "opacity", 1); attr($("#he-pos"), "transform", "translate(300 1730) scale(1.75)"); pernas("he", t, false);
+    attr($("#hetela"), "fill", "#cfe6f2"); boca("he", "sorriso"); fecha("he", (t % 2.9) < 0.12 ? 1 : 0); attr($("#hesob"), "transform", "");
+    return;
+  }
   if (!dia) return;
   attr($("#es-parede"), "fill", "#3a4a58"); attr($("#es-ceu"), "fill", "#9cc6e0"); attr($("#es-sol"), "opacity", 1); attr($("#es-lua"), "opacity", 0); attr($("#es-lua2"), "fill", "#9cc6e0");
   attr($("#es-luz"), "opacity", (0.7 + 0.3 * Math.sin(t * 1.7)).toFixed(3));
@@ -558,9 +600,9 @@ function qEstudio(t) {
   attr($("#hesob"), "transform", triste ? "translate(0 5)" : t >= T.visto ? "translate(0 -5)" : "");
 }
 // a sala da Camila: a mensagem de meia-noite, o chute e o celular na cara
-const QC = [[S.noite, 560, 1190, 0.92], [T.helenaV, 470, 1170, 1.0], [S.chute - 0.01, 470, 1170, 1.08], [S.chute, 360, 1190, 1.6], [I("naobaixou"), 330, 1190, 1.75], [S.outra, 330, 1190, 1.75], [S.dia, 360, 1190, 1.8]];
+const QC = [[S.noite, 640, 1330, 0.84], [T.dormia + 0.1, 700, 1480, 1.3], [T.importante + 0.5, 700, 1480, 1.3], [T.helenaV, 470, 1170, 1.0], [S.chute - 0.01, 470, 1170, 1.08], [S.chute, 360, 1190, 1.6], [I("naobaixou"), 330, 1190, 1.75], [S.outra, 330, 1190, 1.75], [S.helena, 360, 1190, 1.8]];
 function qQuarto(t) {
-  const on = em(t, S.noite - 0.05, S.dia - 0.05) && !em(t, I("paginas") - 0.1, S.baixa) && !em(t, I("curioso") - 0.05, S.chute);
+  const on = em(t, S.noite - 0.05, S.helena - 0.05) && !em(t, I("paginas") - 0.1, S.baixa) && !em(t, I("curioso") - 0.05, S.chute);
   attr($("#g-quarto"), "opacity", on ? 1 : 0);
   if (!on) return;
   const fundo = em(t, T.helenaV - 0.1, S.paginas + 3) || em(t, S.baixa, S.chute) || t >= I("naobaixou") - 0.1;
@@ -584,6 +626,33 @@ function qQuarto(t) {
   const es = fase(t, T.cara, T.cara + 0.3);
   attr($("#ca-estr"), "opacity", t >= T.cara && t < S.dia ? Math.min(1, es * 3).toFixed(3) : 0);
   attr($("#ca-estr"), "transform", `translate(240 1110) rotate(${(t * 90).toFixed(1)}) translate(-240 -1110)`);
+  // o pai, dormindo no chão com o celular aceso no peito; na "parte importante" ele vira um pouco a cabeça e ronca
+  fecha("rs", 1, -2); boca("rs", (t % 2.2) < 1.1 ? "oh" : "reta");
+  attr($("#ra-tela"), "opacity", (0.75 + 0.25 * Math.sin(t * 3)).toFixed(3)); attr($("#ra-brilho"), "opacity", (0.6 + 0.3 * Math.sin(t * 3)).toFixed(3));
+  $$("#ra-z .z").forEach((z, k) => { const c = ((t * 0.55 + k / 3) % 1); attr(z, "opacity", (Math.sin(Math.PI * c) * 0.9).toFixed(3)); attr(z, "transform", `translate(${(30 * c).toFixed(1)} ${(-60 * c).toFixed(1)})`); });
+  const ri = pulso(t, T.importante - 0.1, 0.8);
+  attr($("#ra-dorme"), "transform", `translate(700 1700) rotate(${(-3 * ri).toFixed(2)})`);
+}
+// a conta da Helena naquele mês: 31 pediram o valor, 4 fecharam
+function qConta(t) {
+  const el = $("#conta"), on = em(t, I("conta") - 0.2, S.dia), a = entra(t, I("conta") - 0.1, 0.35);
+  pos(el, { x: 540, y: 820 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, S.dia - 0.3, S.dia)) : 0 });
+  const n = Math.floor(31 * ease(fase(t, T.trinta1 - 0.1, T.trinta1 + 0.9))), ok = t >= T.fecharam - 0.2;
+  for (let k = 0; k < 31; k++) { const i = $(`#ct${k}`); i.style.opacity = k < n ? 1 : 0; i.className = ok && [3, 11, 19, 27].includes(k) ? "ok" : ""; i.style.transform = ok && [3, 11, 19, 27].includes(k) ? `scale(${(1 + 0.3 * pulso(t, T.fecharam - 0.2 + k * 0.01, 0.5)).toFixed(3)})` : ""; }
+  $("#ct-f").textContent = ok ? "4 fecharam" : "";
+}
+// a sala da mãe da Helena, onde o estúdio começou: no escuro, até "de cor", quando a luz acende e o Louro aparece colorido
+const SL = [[S.louro, 470, 1060, 1], [T.sala - 0.2, 470, 1060, 1], [T.y2019 + 0.3, 330, 860, 1.25], [I("aprendeu") - 0.1, 330, 860, 1.25], [I("aprendeu") + 0.5, 560, 1040, 1.45], [I("mudou") - 0.2, 560, 1040, 1.45], [I("mudou") + 0.3, 540, 1000, 1.05]];
+function qSala(t) {
+  const on = em(t, S.louro - 0.05, S.gancho), g = $("#g-sala");
+  const mc = $("#mapacard"), a = entra(t, T.mapa - 0.15, 0.35);
+  pos(mc, { x: 540, y: 1220 + a.y, s: a.s, r: -2, o: em(t, T.mapa - 0.2, S.gancho) ? a.o * (1 - fase(t, S.gancho - 0.25, S.gancho)) : 0 });
+  attr(g, "opacity", on ? 1 : 0); if (!on) return;
+  const [cx, cy, cs] = pose(SL, t);
+  camera(g, [cx, cy, cs]);
+  attr($("#sl-veu"), "opacity", (0.82 * (1 - fase(t, T.cor - 0.1, T.cor + 0.25))).toFixed(3));
+  const fala = ["l1", "l2", "l3"].some(id => em(t, I(id) - 0.1, F[id].fim + 0.1));
+  louro(t, F, { x: 600, y: 1240, s: 1.35, falas: ["l1", "l2", "l3"], inclina: t < T.cor ? 0 : fala ? 0 : 0.35 * Math.sin(t * 0.8) });
 }
 // as 14 páginas: em leque, juntas, viram até a 9, e a câmera chega no preço do tamanho de uma formiga
 const PG0 = [280, 770];
@@ -621,7 +690,8 @@ const PF = [
   [T.pdf - 0.15, 540, 1090, 1.3, 0, 1], [T.pdf + 0.15, 540, 1300, 1, 0, 0],
   [S.baixa - 0.25, 540, 1500, 0.9, 10, 0], [S.baixa + 0.1, 540, 1090, 1.3, 0, 1], [I("curioso") - 0.15, 540, 1090, 1.3, 0, 1], [I("curioso") + 0.05, 540, 1300, 1, 0, 0],
   [T.pegou - 0.2, 540, 1090, 1.3, 0, 0], [T.pegou + 0.05, 540, 1090, 1.3, 0, 1],
-  [S.dia - 0.1, 540, 1090, 1.3, 0, 1], [S.dia + 0.2, 760, 1120, 0.84, 3, 1], [T.achou - 0.15, 760, 1120, 0.84, 3, 1], [T.achou + 0.15, 900, 1300, 0.7, 10, 0],
+  [S.helena - 0.1, 540, 1090, 1.3, 0, 1], [S.helena + 0.25, 760, 1120, 0.84, 3, 1], [I("conta") - 0.2, 760, 1120, 0.84, 3, 1], [I("conta") + 0.1, 900, 1300, 0.7, 10, 0],
+  [S.dia - 0.25, 900, 1300, 0.7, 10, 0], [S.dia + 0.1, 760, 1120, 0.84, 3, 1], [T.achou - 0.15, 760, 1120, 0.84, 3, 1], [T.achou + 0.15, 900, 1300, 0.7, 10, 0],
 ];
 function qFone(t) {
   const [cx, cy, s, r, o] = pose(PF, t);
@@ -629,8 +699,8 @@ function qFone(t) {
   $("#dedo").style.opacity = 0;
   if (o <= 0.002) return;
   let tela, hora;
-  if (t < S.dia - 0.05) { hora = t < S.baixa ? "23:48" : t < S.outra ? "23:52" : "23:57"; tela = t < T.outraF - 0.1 ? "s-cam" : t < T.tapLink + 0.15 ? "s-ig" : t < T.tapZapN + 0.15 ? "s-rs" : "s-zn"; }
-  else { tela = "s-hc"; hora = "09:12"; }
+  if (t < S.helena + 0.05) { hora = t < S.baixa ? "23:48" : t < S.outra ? "23:52" : "23:57"; tela = t < T.outraF - 0.1 ? "s-cam" : t < T.tapLink + 0.15 ? "s-ig" : t < T.tapZapN + 0.15 ? "s-rs" : "s-zn"; }
+  else { tela = "s-hc"; hora = t < S.dia ? "23:51" : "09:12"; }
   mostra(tela);
   $(".status .hora", FA).textContent = hora;
   const daCamila = tela !== "s-hc";
@@ -666,7 +736,9 @@ function qFone(t) {
   }
   if (tela === "s-zn") { const a = entra(t, T.tapZapN + 0.25, 0.3); pos($("#zn1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); }
   if (tela === "s-hc") {
-    const a = entra(t, T.perguntou + 0.1, 0.3); pos($("#hc1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+    const a = entra(t, I("frase") - 0.05, 0.3); pos($("#hc1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: t < S.dia ? 0 : a.o });
+    $("#hc-doc").style.boxShadow = t < S.dia ? `0 0 0 ${(5 * pulso(t, T.onze, 0.8)).toFixed(1)}px #e8855e` : "";
+    $(".zp-topo small", $("#s-hc")).textContent = t < S.dia ? "online" : "visto por último hoje às 08:40";
     const lido = t >= T.visto - 0.05;
     $("#hc-tk").innerHTML = `09:12 ${TK(lido ? "#3aa7e0" : "#8a9396")}`;
     $("#hc1").style.boxShadow = lido && pulso(t, T.visto - 0.05, 0.6) > 0.05 ? `0 0 0 ${(5 * pulso(t, T.visto - 0.05, 0.6)).toFixed(1)}px #3aa7e0` : "";
@@ -676,7 +748,7 @@ function qFone(t) {
 function qExtra(t) {
   { const el = $("#etq-visto"), a = entra(t, T.visto - 0.05); pos(el, { x: 760 - el.offsetWidth / 2, y: 1560 + a.y, s: a.s, r: -4, o: em(t, T.visto - 0.1, T.achou) ? a.o * (1 - fase(t, T.achou - 0.2, T.achou)) : 0 }); }
   {
-    const on = em(t, I("caro") - 0.1, S.gancho), fora_ = 1 - fase(t, S.gancho - 0.25, S.gancho);
+    const on = em(t, I("caro") - 0.1, S.louro), fora_ = 1 - fase(t, S.louro - 0.25, S.louro);
     const a = entra(t, I("caro"), 0.35), b = entra(t, I("caro") + 0.12, 0.35), so = ease(fase(t, I("nem") - 0.1, I("nem") + 0.35));
     pos($("#cmpA"), { x: lerp(60, 320, so), y: 760 + a.y + lerp(0, 40, so), s: a.s * lerp(1, 1.3, so), r: lerp(-3, 0, so), o: on ? a.o * fora_ : 0 });
     pos($("#cmpB"), { x: lerp(580, 900, so), y: 800 + b.y, s: b.s, r: 3, o: on ? b.o * (1 - so) : 0 });
@@ -696,30 +768,50 @@ function qPrevia(t) {
   const el = $("#prev"), on = t >= S.previa - 0.15 && t < T0;
   vis(el, on); if (!on) return;
   el.style.opacity = fase(t, S.previa - 0.15, S.previa + 0.1).toFixed(3);
-  const cortes = [["#pv-a", T.quinze - 0.2], ["#pv-b", T.agenda - 0.2], ["#pv-c", T.busca - 0.25], ["#pv-d", I("siga") - 0.1]];
+  const cortes = [["#pv-a", T.quinze - 0.2], ["#pv-b", T.pai - 0.2], ["#pv-d", I("siga") - 0.1]];
   cortes.forEach(([id, t0], k) => {
-    const t1 = k < 3 ? cortes[k + 1][1] : T0 + 1, x = fase(t, t0, t0 + 0.18);
+    const t1 = k < 2 ? cortes[k + 1][1] : T0 + 1, x = fase(t, t0, t0 + 0.18);
     pos($(id), { s: lerp(1.08, 1, sai(x)) + 0.02 * fase(t, t0, t1), o: em(t, t0, t1) ? Math.min(1, x * 2) : 0 });
   });
-  const dias = Math.max(0, 15 - Math.floor(fase(t, T.quinze, T.agenda) * 6));
+  const dias = Math.max(0, 15 - Math.floor(fase(t, T.quinze, T.pai) * 6));
+  // o pai com o bebê-conforto na porta; a câmera chega na janela, onde o Louro atende
+  const z = ease(fase(t, T.papagaio - 0.3, T.papagaio + 0.3));
+  camera($("#pvb-cam"), [lerp(540, 400, z), lerp(1180, 1120, z), lerp(0.95, 2.3, z)]);
+  attr($("#ra-pos"), "transform", "translate(640 1600) scale(1.25)"); pernas("ra", t, false); boca("ra", "reta"); fecha("ra", (t % 2.7) < 0.12 ? 1 : 0);
+  louro(t, F, { p: "lp", x: 0, y: 0, s: 0.62, inclina: 0.4 * Math.sin(t * 2) });
+  const fb = entra(t, T.porta - 0.1, 0.3); pos($("#pvb-fl"), { x: 470, y: 760 + fb.y, s: fb.s, o: t >= T.porta - 0.15 ? fb.o : 0 });
   $("#pv-n").textContent = dias; for (let k = 0; k < 15; k++) $(`#pvb${k}`).style.opacity = k < dias ? 1 : 0.15;
   $("#prev-chip").style.opacity = t < I("siga") - 0.1 ? 1 : 0;
 }
 
+// quem está contando: o bebê, a fotógrafa do outro lado da cidade, o papagaio e o bebê de novo
+const CAPS = [{ t0: S.utero, ate: S.helena, hora: "36 SEMANAS", quem: "O BEBÊ", grande: false }, { t0: S.helena, ate: S.dia, hora: "23h51", quem: "A FOTÓGRAFA" },
+  { t0: S.dia, ate: S.louro, hora: "09h12", quem: "A FOTÓGRAFA", grande: false }, { t0: S.louro, ate: S.gancho, hora: "DESDE 2019", quem: "O PAPAGAIO" }, { t0: S.gancho, ate: S.previa, hora: "37 SEMANAS", quem: "O BEBÊ" }];
+const qCap = capitulos(CAPS);
+// as falas dos personagens, em balões (a legenda delas fica de fora)
+const qFalas = dialogo(R, {
+  frase: { quem: "Helena", x: 120, y: 590, cauda: "esq", ate: F.visto.fim },
+  l1: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("l2") - 0.05 },
+  l2: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("l3") - 0.05 },
+  l3: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("mudou") },
+});
 const quadroSerie = serie(R, { parte: 1, abertura: "abre", rotulo: "EPISÓDIO", nome: "Eu ainda não nasci", siga: { texto: "Siga para ver o episódio 2" } });
 window.quadro = t => {
   palco.style.transform = "none";
-  const dia = em(t, S.dia - 0.05, I("caro") - 0.05), quente = NO_UTERO(t);
+  const dia = em(t, S.dia - 0.05, I("caro") - 0.05), quente = NO_UTERO(t), naSala = em(t, S.louro - 0.05, S.gancho);
   palco.style.background = dia ? "#3a4a58" : quente ? "radial-gradient(70% 50% at 50% 55%,#3a1418 0%,#120708 75%)" : "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
-  vis($("#c-cena"), em(t, S.noite - 0.05, S.dia + 0.01) || dia);
-  qUtero(t); qRegua(t); qFotos(t); qCalendario(t); qEstudio(t); qQuarto(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); qPrevia(t); quadroSerie(t);
-  R.comum(t, { poeira: !dia });
+  vis($("#c-cena"), em(t, S.noite - 0.05, S.dia + 0.01) || dia || NOITE_H(t) || naSala);
+  qUtero(t); qRegua(t); qFotos(t); qCalendario(t); qEstudio(t); qQuarto(t); qConta(t); qSala(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); qFalas(t); qPrevia(t); quadroSerie(t); qCap(t);
+  R.comum(t, { poeira: !dia && !naSala });
 };
 const SONS = [{ t: T.valor - 0.05, tipo: "ding", ganho: 0.6 }, { t: T.pdf - 0.3, tipo: "ding", ganho: 0.7 }, { t: T.tapDl, tipo: "toque", ganho: 0.8 }, { t: T.cara, tipo: "baque", ganho: 1 },
-  { t: T.tapLink, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN + 0.3, tipo: "ding", ganho: 0.6 }, { t: T.perguntou + 0.15, tipo: "ding", ganho: 0.6 }];
+  { t: T.tapLink, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN + 0.3, tipo: "ding", ganho: 0.6 }, { t: I("frase") - 0.05, tipo: "ding", ganho: 0.6 },
+  { t: T.importante + 0.2, tipo: "ronco", ganho: 0.55 }, { t: T.cor + 0.05, tipo: "louro", ganho: 0.6 }, { t: T.papagaio + 0.1, tipo: "campainha", ganho: 0.4 },
+  ...sonsCapitulos(CAPS)];
 window.preparar = () => R.preparar([0.3, T.nasci + 0.3, T.fotografa + 0.4, T.semanas + 0.4, T.quatro + 0.4, T.barriga + 0.2, T.colo + 0.4, T.valor + 0.3, T.tabela + 0.4, T.catorze + 0.4,
   T.preco9 + 0.4, T.nove + 0.6, T.g4 + 0.3, T.luz + 0.3, T.curioso + 0.2, T.chutei + 0.2, T.cara + 0.25, T.baixado + 0.2, T.tapLink + 0.4, T.tela, T.fechou + 0.6,
-  T.perguntou + 0.5, T.visto + 0.3, T.achou + 0.6, T.mais + 0.4, T.nunca + 0.5, T.nascer + 0.4, T.antes + 0.4, T.quinze + 0.3, T.agenda + 0.3, T.busca + 0.4,
+  T.importante + 0.3, S.helena + 0.6, T.onze + 0.3, T.trinta1 + 0.8, T.fecharam + 0.3, I("frase") + 0.5, T.cor + 0.4, T.y2019 + 0.3, I("l1") + 0.4, I("l2") + 0.5, I("l3") + 0.5, T.mapa + 0.4,
+  T.perguntou + 0.5, T.visto + 0.3, T.achou + 0.6, T.mais + 0.4, T.nunca + 0.5, T.nascer + 0.4, T.antes + 0.4, T.quinze + 0.3, T.pai + 0.3, T.papagaio + 0.5, T.porta + 0.3,
   I("siga") + 0.4, T0 + 1.5, DUR - 0.3], SONS);
 await R.pronto();
 </script>

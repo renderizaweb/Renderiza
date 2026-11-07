@@ -84,11 +84,37 @@
 .pv-dm{display:flex;justify-content:flex-end;width:760px}
 .pv-dm span{padding:24px 34px;border-radius:34px;background:#7a4ad8;color:#fff;font:700 54px/1 "Geist",sans-serif}
 .pv-dm i{display:inline-block;width:5px;height:54px;background:#fff;margin-left:6px;vertical-align:-8px}
-#pv-b b{display:block;text-align:center;font:800 96px/1.02 "Geist",sans-serif;letter-spacing:-.04em;color:#f6f3ee;width:880px}
-#pv-b b em{font-style:normal;color:#e8855e}
 #pv-c .tela-luz{width:420px;height:760px;border-radius:60px;background:radial-gradient(60% 50% at 50% 45%,#dff1ff 0%,#9cc6e0 45%,#2b3438 100%);display:grid;place-items:center;box-shadow:0 0 160px rgba(156,198,224,.45)}
 #pv-c .tela-luz b{font:800 220px/1 "Geist",sans-serif;color:#1e2528}
 #pv-d{text-align:center}
+#pv-b .tres{display:flex;gap:22px}
+#pv-b .tres div{width:290px;padding:30px 20px;border-radius:30px;background:#111a20;text-align:center;box-shadow:0 0 0 2px rgba(241,238,233,.08)}
+#pv-b .tres b{display:block;font:800 66px/1 "Geist",sans-serif;letter-spacing:-.04em;color:#f6f3ee;font-variant-numeric:tabular-nums}
+#pv-b .tres small{display:block;margin-top:14px;font:800 26px/1 "Geist",sans-serif;letter-spacing:.08em;color:#e8855e}
+#pv-c svg{position:absolute;inset:0;width:1080px;height:1920px}
+.pgv{position:absolute;left:0;top:0;z-index:29;width:200px;height:270px;margin:-135px 0 0 -100px;border-radius:12px;background:#fbf8f3;box-shadow:0 14px 34px rgba(0,0,0,.4);opacity:0}
+.pgv::before{content:"";position:absolute;left:22px;right:40px;top:30px;height:12px;border-radius:6px;background:#e2dbd0;box-shadow:0 26px 0 #e2dbd0,0 52px 0 #e2dbd0,0 78px 0 #e2dbd0}
+.pgv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;border-radius:0 0 12px 12px;background:#b25134}
+#pgn{position:absolute;left:0;top:0;z-index:30;padding:14px 30px;border-radius:30px;background:rgba(10,14,16,.86);color:#f1eee9;font:800 44px/1 "Geist",sans-serif;opacity:0;white-space:nowrap}
+#mapafix{position:absolute;left:0;top:0;z-index:28;width:700px;margin-left:-350px;border-radius:30px;overflow:hidden;background:#fbf8f3;color:#1e2528;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#mapafix svg{width:100%;height:220px;display:block}
+#mapafix .rod{padding:18px 24px;font:800 30px/1.15 "Geist",sans-serif}
+#mapafix .rod small{display:block;margin-top:6px;font:700 22px/1.2 "Geist",sans-serif;color:#1f7a45}
+.st{position:absolute;inset:0;padding-top:60px;background:#fbf8f3;overflow:hidden}
+.st-tit{margin:2px 26px 12px;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.05}
+.st-ens{display:flex;align-items:center;gap:18px;height:140px;margin:0 16px 12px;padding:0 14px;border-radius:22px;background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.05)}
+.st-ens i{width:112px;height:112px;border-radius:16px;overflow:hidden;flex:none}
+.st-ens i svg{width:100%;height:100%;display:block}
+.st-ens b{display:block;font-size:31px;font-weight:800;letter-spacing:-.02em}
+.st-ens em{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:12px;background:#f3e3da;color:#8f3c25;font-style:normal;font-size:23px;font-weight:800}
+
+#s-ig .hr{margin-top:120px;text-align:center;font:800 120px/1 "Geist",sans-serif;letter-spacing:-.04em;color:#f1eee9}
+#s-ig .dt{text-align:center;margin-top:10px;font:700 24px/1 "Geist",sans-serif;color:#b9bfc1}
+#nt{margin:60px 18px 0;padding:18px 20px;border-radius:24px;background:rgba(241,238,233,.92);color:#1e2528;display:flex;gap:16px;align-items:center}
+#nt i{width:56px;height:56px;border-radius:14px;flex:none;background:linear-gradient(45deg,#f2c25a,#e0453a,#9b3ab0)}
+#nt b{display:block;font-size:22px;font-weight:800}
+#nt span{display:block;font-size:22px;font-weight:600;margin-top:4px}
+#nt u{text-decoration:none;filter:blur(7px)}
 #pv-d small{display:block;font:800 34px/1 "Geist",sans-serif;letter-spacing:.12em;color:#e8855e}
 #pv-d b{display:block;margin-top:18px;font:800 120px/.95 "Geist",sans-serif;letter-spacing:-.05em;color:#f6f3ee}
 </style></head><body>
@@ -107,17 +133,20 @@
   <div class="flash" id="flash"></div>
 </div>
 <script type="module">
-import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, IC, ic, cabeca, boca, fecha, historia, h } from "./historia.mjs";
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, camera, IC, ic, cabeca, boca, fecha, historia, h } from "./historia.mjs";
 import { serie } from "./serie.mjs";
-import { ARTE, arte, cara, TK, celular } from "./celular.mjs";
+import { ARTE, arte, cara, TK, celular, estudio, helena } from "./celular.mjs";
+import { LOURO, POLEIRO, louro, sala, casaFora, rafa, LURDES, gente, capitulos, sonsCapitulos, dialogo } from "./casa.mjs";
+import { dePe, pernas } from "./historia.mjs";
 
 const R = await historia({
   nome: "reels-nasci2",
-  ordem: ["escuro", "resumo", "janela", "rival", "noite", "mapa", "desiste", "achou", "gancho", "previa", "siga"],
+  ordem: ["escuro", "resumo", "janela", "rival", "noite", "mapa", "porta", "audio", "desiste", "achou", "gancho", "previa", "siga"],
   // a trilha: o nascimento abre com impacto, o resumo e a janela no pulso, a outra fotógrafa, as madrugadas e o mapa são
-  // o groove (cortado em "Dia onze, ela desistiu", a frase "nada"), a desistência no coração batendo, o Instagram na
-  // batida abafada, o PDF sobe até o drop, que cai na prévia do final
-  trilha: { escuro: "abre", resumo: "google", janela: "google", rival: "insta", noite: "insta", mapa: "insta", desiste: "meio", achou: "volta", gancho: "ese", previa: "site", siga: "cta" },
+  // o groove (cortado em "Meu pai teve.", a frase "nada"), a porta do Louro no pizzicato, o áudio da mãe e a página virada
+  // no coração batendo, a desistência também, a mensagem das três na batida abafada, e o PDF sobe até o drop da prévia
+  trilha: { escuro: "abre", resumo: "google", janela: "google", rival: "insta", noite: "insta", mapa: "insta", porta: "brinca", audio: "meio", desiste: "meio", achou: "volta", gancho: "ese", previa: "site", siga: "cta" },
+  soBalao: ["l1", "r1", "l2", "r2", "l3", "d1", "h1"],
   cta: "PRÉVIA", nota: "A Camila, a Helena e o bebê são fictícios.", ctaTexto: "que a Renderiza monta a prévia do site do seu estúdio, sem compromisso.", bpm: 118, tom: -2, fimMudo: 4.2,
 });
 const { F, S, I, W, palco, DUR, T0 } = R;
@@ -129,11 +158,14 @@ const T = {
   dia3: W("dia3", "dia"), mamando: W("dia3", "mamando"), google: W("dia3", "google"),
   perfil: W("achados", "perfil"), telefone: W("achados", "telefone"), existe: W("achados", "existe"),
   dia7: W("dia7", "dia"), whats: W("vacuo", "whatsapp"), vacuo: W("vacuo", "vacuo"),
-  mapa: W("mapa", "mapa"), alfinete: W("mapa", "alfinete"), fechada: W("mapa", "fechada"), mae: W("casa", "mae"),
-  onze: W("nada", "onze"), desistiu: W("nada", "desistiu"),
-  dia13: W("dia13", "dia"), instagram: W("dia13", "instagram"), lindo: W("dia13", "lindo"), helena: W("quem", "helena"), dois: W("faltavam", "dois"),
-  precos: W("gancho", "precos"),
-  final: W("previa", "final"), tres: W("previa", "tres"), chance: W("previa", "chance"), resp: W("previa", "resposta"),
+  mapa: W("mapa", "mapa"), alfinete: W("mapa", "alfinete"), fechada: W("mapa", "fechada"), coragem: W("coragem", "coragem"), teve: W("nada", "teve"),
+  conforto: W("dez", "bebe-conforto"), alfinete2: W("dez", "alfinete"), campainha: W("campainha", "campainha"), embora: W("embora", "embora"), nunca: W("embora", "nunca"),
+  janela2: W("janela2", "janela"), audio: W("janela2", "audio"), ouviu: W("ouviu", "ouviu"), vacuo2: W("ouviu", "vacuo"),
+  pagina: W("pagina", "pagina"), catorze: W("pagina", "catorze"), trocou: W("trocou", "trocou"), siteW: W("trocou", "site"), mapa2: W("trocou", "mapa"),
+  onze: W("desistiu", "onze"), desistiu: W("desistiu", "desistiu"),
+  dia13: W("dia13", "dia"), instagram: W("dia13", "celular"), lindo: W("dia13", "lindo"), helena: W("quem", "helena"), dois: W("faltavam", "dois"),
+  precos: W("gancho", "achava"),
+  final: W("previa", "final"), tres: W("previa", "tres"), chance: W("previa", "acordadas"), resp: W("previa", "papagaio"), nova: W("previa", "nova"),
 };
 T.tapNum = T.telefone - 0.1;   // na busca, o telefone que não existe
 T.tapPost = T.lindo - 0.3;     // no Instagram, o newborn mais lindo
@@ -150,7 +182,6 @@ const FOLHA = `<g id="nr"><ellipse cx="0" cy="196" rx="120" ry="14" fill="#000" 
 $("#eu").innerHTML = `<svg viewBox="-150 -190 300 400">${FOLHA}</svg>`;
 
 // ====================== a cena desenhada: o bebê no hospital e a casa da mãe da Helena ======================
-const MAE_H = { id: "dl", cabelo: "curto", corCabelo: "#c9c2b8", oculos: true, corOculos: "#5a4a3a" };
 $("#cn").innerHTML = `
   <defs><radialGradient id="g-ab"><stop offset="0" stop-color="#f2d79a" stop-opacity=".35"/><stop offset="1" stop-color="#f2d79a" stop-opacity="0"/></radialGradient></defs>
   <g id="g-bebe"><rect width="1080" height="1920" fill="#16202b"/><ellipse cx="540" cy="900" rx="520" ry="420" fill="url(#g-ab)"/>
@@ -158,17 +189,9 @@ $("#cn").innerHTML = `
     <g transform="translate(540 1060) scale(6.2) translate(-50 -64)">${ARTE.bebe(1).replace(/<rect width="100" height="100"[^>]*\/>/, "").replace(/<ellipse cx="52" cy="72"[^>]*\/>/, "")}</g>
     <g id="pulseira" transform="translate(690 1190) rotate(-8)"><rect x="-130" y="-32" width="260" height="64" rx="32" fill="#f1eee9"/><rect x="-118" y="-20" width="236" height="40" rx="20" fill="#9cc6e0" opacity=".45"/>
       <text x="0" y="12" text-anchor="middle" font-family="Geist" font-weight="800" font-size="30" fill="#1e2528">14/11 · 04h00</text></g></g>
-  <g id="g-casa"><rect width="1080" height="1920" fill="#9cc6e0"/><circle cx="860" cy="520" r="70" fill="#f2c25a"/>
-    <rect y="1480" width="1080" height="440" fill="#7a9a6a"/><rect y="1600" width="1080" height="320" fill="#6f8a60"/>
-    <path d="M200 900 L540 600 L880 900 Z" fill="#b25134"/><rect x="250" y="900" width="580" height="600" fill="#efe1c6"/>
-    <rect x="300" y="1000" width="200" height="200" rx="12" fill="#3a4a58"/><rect x="580" y="1000" width="200" height="200" rx="12" fill="#3a4a58"/>
-    <rect x="460" y="1260" width="160" height="240" rx="10" fill="#7d573c"/><circle cx="595" cy="1385" r="9" fill="#e0b04a"/>
-    <g id="dl-pos" transform="translate(400 1150) scale(1.15)">${cabeca(MAE_H, 0, -20, 46)}<path d="M-50 60 Q0 20 50 60 V70 H-50 Z" fill="#9b6b84"/>
-      <g id="dl-mao"><path d="M46 40 Q80 0 70 -50" stroke="#9b6b84" stroke-width="20" stroke-linecap="round" fill="none"/><circle cx="70" cy="-56" r="12" fill="#d79d79"/></g></g>
-    <rect x="300" y="1000" width="200" height="200" rx="12" fill="none" stroke="#f1eee9" stroke-width="12"/><path d="M400 1000 V1200 M300 1100 H500" stroke="#f1eee9" stroke-width="8"/>
-    <rect x="580" y="1000" width="200" height="200" rx="12" fill="none" stroke="#f1eee9" stroke-width="12"/>
-    ${[[160, 1440], [920, 1440], [130, 1500]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="70" fill="#5f8a52"/>`).join("")}
-    <g transform="translate(700 860)"><rect x="-90" y="-30" width="180" height="60" rx="10" fill="#1e2528"/><text x="0" y="12" text-anchor="middle" font-family="Geist" font-weight="800" font-size="30" fill="#f1eee9">FECHADO</text></g></g>`;
+  <g id="g-porta">${casaFora(`<g transform="translate(400 1200)">${LOURO("lj")}</g>`)}${rafa()}</g>
+  ${sala(`${POLEIRO(640, 1240, 360)}${LOURO("lo")}<g id="dl-pos">${dePe(LURDES)}</g>`)}
+  ${estudio()}`;
 
 // ====================== o celular ======================
 const EXPLORA = [["familia", 0], ["gestante", 2], ["bebe", 3], ["bebe", 1], ["bebe", 0], ["familia", 1], ["gestante", 0], ["bebe", 2], ["gestante", 1], ["familia", 0], ["bebe", 3], ["gestante", 2]];
@@ -190,7 +213,10 @@ const { FA, mostra, toque, hora } = celular(`
       <g id="mp-pino" transform="translate(210 370)"><path d="M0 -60 C-32 -60 -44 -36 -44 -20 C-44 8 0 44 0 44 C0 44 44 8 44 -20 C44 -36 32 -60 0 -60 Z" fill="#e0453a"/><circle cx="0" cy="-22" r="16" fill="#fbf8f3"/></g></svg>
     <div class="mp-bar">${ic("lupa")}Helena Fotografia</div>
     <div class="mp-card" id="mp-card"><b>Helena Fotografia</b><small>Fechado</small><p>Endereço cadastrado em 2019</p></div></div></div>
-  <div class="tela" id="s-ig"><div class="ig-bar">${ic("lupa")}Pesquisar</div><div class="ig-g">${EXPLORA.map((a, k) => `<i id="ex${k}">${arte(...a)}</i>`).join("")}</div></div>
+  <div class="tela" id="s-ig" style="background:linear-gradient(#1b2633,#0d1219)"><div class="hr">03:00</div><div class="dt">quinta-feira, 26 de novembro</div><div id="nt"><i></i><div><b>Instagram</b><span><u>Rafael</u> enviou uma publicação.</span></div></div></div>
+  <div class="tela st" id="s-site"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br</span></div><div class="ms-topo"><span>Helena Fotografia</span><i></i></div>
+    <div class="st-tit">Escolha o seu ensaio</div>
+    ${[["Newborn", ["bebe", 1], "R$ 850"], ["Gestante", ["gestante", 0], "R$ 690"], ["Família", ["familia", 0], "R$ 750"]].map(([n, a, p_], k) => `<div class="st-ens" id="hs${k}"><i>${arte(...a)}</i><div><b>${n}</b><em>${p_}</em></div></div>`).join("")}</div>
   <div class="tela" id="s-post"><div class="post-topo"><i>H</i><span id="post-nome">helena.fotografia</span></div><div class="post-img">${arte("bebe", 0)}</div>
     <div class="post-pe"><b>helena.fotografia</b> O sono mais bonito do mundo. Newborn, 8 dias.</div></div>`, "03:00");
 
@@ -202,19 +228,26 @@ $("#extra").innerHTML = `
   <div id="dado"><b>54%</b><span>dos brasileiros compram à noite ou de madrugada</span><small>CX Trends 2026, Octadesk e Opinion Box (2.000 consumidores)</small></div>
   <div class="etq claro" id="etq-vac">sem resposta desde 08/11</div>
   <div class="etq tc" id="etq-mae">a casa da mãe da Helena</div>
-  <div class="etq" id="etq-pdf" style="font-size:30px">Tabela_2026_FINAL_agoravai.pdf</div>`;
+  <div class="etq" id="etq-pdf" style="font-size:30px">Tabela_2026_FINAL_agoravai.pdf</div>
+  ${Array.from({ length: 14 }, (_, k) => `<div class="pgv" id="pv${k}"></div>`).join("")}<div id="pgn">14 páginas</div>
+  <div id="mapafix"><svg viewBox="0 0 700 220"><rect width="700" height="220" fill="#e9e4d8"/><path d="M0 150 H700 M220 0 V220 M480 0 V220 M0 50 H700" stroke="#fff" stroke-width="20"/>
+    <rect x="80" y="70" width="110" height="64" rx="8" fill="#cfc6b6"/><rect x="520" y="70" width="120" height="64" rx="8" fill="#d6e2cc"/>
+    <path id="mf-rota" d="M135 100 Q340 20 580 100" stroke="#1f7a45" stroke-width="6" stroke-dasharray="14 12" fill="none" opacity="0"/>
+    <g id="mf-pino"><path d="M0 -50 C-27 -50 -37 -30 -37 -17 C-37 7 0 37 0 37 C0 37 37 7 37 -17 C37 -30 27 -50 0 -50 Z" fill="#e0453a"/><circle cx="0" cy="-17" r="12" fill="#fbf8f3"/></g></svg>
+    <div class="rod" id="mf-rod">Endereço: a casa da mãe<small id="mf-s"></small></div></div>`;
 $("#prev").innerHTML = `<div id="prev-chip">NO EPISÓDIO FINAL</div>
   <div class="pv-s" id="pv-a"><div><div class="pv-hora">03:00</div><div class="pv-dm"><span id="pv-dig">valor?</span></div></div></div>
-  <div class="pv-s" id="pv-b"><b>A Helena ainda<br>manda <em>PDF?</em></b></div>
-  <div class="pv-s" id="pv-c"><div class="tela-luz"><b>?</b></div></div>
+  <div class="pv-s" id="pv-b"><div class="tres">${[["02h58", "O PAI"], ["03h00", "A MÃE"], ["03h04", "A FOTÓGRAFA"]].map(([h_, q], k) => `<div id="tr${k}"><b>${h_}</b><small>${q}</small></div>`).join("")}</div></div>
+  <div class="pv-s" id="pv-c"><svg viewBox="0 0 1080 1920">${sala(`${POLEIRO(560, 1300, 360)}${LOURO("lp")}`).replace('id="g-sala"', 'id="g-salap"')}</svg>
+    <div class="fl louro dir" id="pvc-fl" style="z-index:5"><small>Louro</small>???</div></div>
   <div class="pv-s" id="pv-d"><div><small>EPISÓDIO 3 · FINAL</small><b>Três da<br>manhã</b></div></div>`;
 
 // ====================== quadro a quadro ======================
 // o dia da janela do newborn, frase a frase
-const DIA = [[0, 1], [I("dia3") - 0.1, 3], [I("dia7") - 0.1, 7], [I("nada") - 0.1, 11], [I("dia13") - 0.1, 13]];
+const DIA = [[0, 1], [I("dia3") - 0.1, 3], [I("dia7") - 0.1, 7], [I("dez") - 0.1, 10], [I("desistiu") - 0.1, 11], [I("dia13") - 0.1, 13]];
 const diaHoje = t => { let d = 1; for (const [t0, n] of DIA) if (t >= t0) d = n; return d; };
 function qDias(t) {
-  const on = em(t, T.relogio - 0.2, S.previa), el = $("#dias");
+  const on = em(t, T.relogio - 0.2, S.previa) && !em(t, S.audio - 0.2, S.desiste - 0.1), el = $("#dias");
   if (!on) { el.style.opacity = 0; return; }
   const grande = Math.max(ease(fase(t, S.janela - 0.2, S.janela + 0.3)) * (1 - ease(fase(t, S.rival - 0.3, S.rival + 0.1))), ease(fase(t, S.desiste - 0.1, S.desiste + 0.3)) * (1 - ease(fase(t, S.achou - 0.3, S.achou + 0.1))));
   const a = entra(t, T.relogio - 0.1, 0.35), d = diaHoje(t);
@@ -225,17 +258,42 @@ function qDias(t) {
     i.style.transform = k === d - 1 ? `scaleY(${(1 + 0.3 * pulso(t, muda, 0.5)).toFixed(3)})` : (d >= 11 && k >= d) ? `scaleY(${(1 + 0.2 * Math.max(0, Math.sin(t * 6 + k))).toFixed(3)})` : "";
   }
   $("#dias-t").textContent = `dia ${d} de 15`;
-  $("#dias-s").textContent = d >= 13 ? "faltam 2 dias" : d >= 11 ? "faltam 4 dias" : "janela do newborn";
+  $("#dias-s").textContent = d >= 13 ? "faltam 2 dias" : d >= 11 ? "faltam 4 dias" : d >= 10 ? "faltam 5 dias" : "janela do newborn";
   $("#dias-s").style.color = d >= 11 ? "#ff7a6a" : "";
 }
-// a cena desenhada: o bebê recém-nascido e a casa da mãe da Helena
+// a cena desenhada: o bebê recém-nascido; a porta da casa velha (o pai e o Louro); a sala da Dona Lurdes; o estúdio da Helena
+const PORTA = t => em(t, S.porta - 0.05, S.audio);
+const SALA = t => em(t, S.audio - 0.05, I("ouviu") - 0.05) || em(t, I("h1") - 0.15, S.desiste);
+const ESTUDIO = t => em(t, I("ouviu") - 0.05, I("h1") - 0.15);
+const CP = [[S.porta, 560, 1180, 0.95], [I("campainha") - 0.3, 560, 1180, 0.95], [I("campainha") + 0.2, 520, 1160, 1.25], [I("embora") + 0.4, 520, 1160, 1.25], [S.audio, 600, 1180, 1.0]];
+const CS = [[S.audio, 560, 1080, 1.0], [T.audio, 560, 1080, 1.0], [I("d1") + 0.2, 600, 1120, 1.18], [I("h1"), 640, 1080, 1.3], [S.desiste, 640, 1080, 1.3]];
 function qCena(t) {
-  const bebe = t < S.resumo + 0.2 || em(t, S.janela - 0.25, S.rival), casa = em(t, T.mae - 0.5, S.desiste);
-  vis($("#c-cena"), bebe || casa);
+  const bebe = t < S.resumo + 0.2 || em(t, S.janela - 0.25, S.rival), porta = PORTA(t), salaOn = SALA(t), est = ESTUDIO(t);
+  vis($("#c-cena"), bebe || porta || salaOn || est);
   attr($("#g-bebe"), "opacity", bebe ? (t < S.janela - 0.3 ? 1 - fase(t, S.resumo - 0.1, S.resumo + 0.2) : fase(t, S.janela - 0.25, S.janela + 0.1) * (1 - fase(t, S.rival - 0.25, S.rival))).toFixed(3) : 0);
-  attr($("#g-casa"), "opacity", casa ? fase(t, T.mae - 0.5, T.mae - 0.2).toFixed(3) : 0);
+  attr($("#g-porta"), "opacity", porta ? fase(t, S.porta - 0.05, S.porta + 0.25).toFixed(3) : 0);
+  attr($("#g-sala"), "opacity", salaOn ? 1 : 0); attr($("#g-estudio"), "opacity", est ? 1 : 0);
   if (bebe) { const p = pulso(t, T.quatro, 0.5); attr($("#pulseira"), "transform", `translate(690 1190) rotate(-8) scale(${(1 + 0.12 * p).toFixed(3)})`); }
-  if (casa) { attr($("#dl-mao"), "transform", `rotate(${(18 * Math.sin(t * 9)).toFixed(1)} 46 40)`); boca("dl", "sorriso"); fecha("dl", (t % 2.4) < 0.12 ? 1 : 0, -22); }
+  if (porta) {
+    camera($("#g-porta"), pose(CP, t));
+    // o pai chega com o bebê-conforto, toca, conversa com a janela e vai embora sem entender
+    const chega = ease(fase(t, S.porta, I("campainha"))), vai = ease(fase(t, T.embora - 0.2, T.embora + 1.2));
+    const x = lerp(980, 650, chega) + lerp(0, 520, vai), confuso = t >= I("r2") - 0.1;
+    gente(t, F, { id: "ra", x, y: 1560, s: 1.25, jeito: confuso ? "oh" : "reta", falas: ["r1", "r2"], andando: (chega > 0 && chega < 1) || (vai > 0 && vai < 1) });
+    attr($("#rasob"), "transform", confuso ? "translate(0 -8)" : "");
+    louro(t, F, { p: "lj", x: 0, y: 0, s: 0.62, falas: ["l1", "l2", "l3"], inclina: t > I("embora") ? 0.5 : 0.15 * Math.sin(t * 1.5) });
+  }
+  if (salaOn) {
+    camera($("#g-sala"), pose(CS, t));
+    gente(t, F, { id: "dl", x: 360, y: 1640, s: 1.6, jeito: t >= I("h1") ? "sorriso" : "reta", falas: ["d1"] });
+    attr($("#dltela"), "fill", "#cfe6f2");
+    // o Louro escuta o áudio da Helena e inclina a cabeça: está aprendendo
+    louro(t, F, { x: 640, y: 1240, s: 1.2, inclina: t >= I("h1") ? 0.9 * fase(t, I("h1"), I("h1") + 0.4) : 0.2 * Math.sin(t * 1.2) });
+  }
+  if (est) {
+    attr($("#es-parede"), "fill", "#26323a"); attr($("#es-ceu"), "fill", "#22344d"); attr($("#es-sol"), "fill", "#e9e3c9");
+    helena(t, { x: 300, jeito: t >= T.vacuo2 - 0.1 ? "oh" : "reta" });
+  }
 }
 // o PDF: no resumo (o motivo da perda) e no gancho (a Helena ainda manda PDF)
 const EU = [[0, 540, 920, 0.3, 0, 0], [S.resumo + 0.1, 540, 920, 0.3, 0, 0], [S.resumo + 0.5, 540, 900, 0.9, 0, 1], [T.antes - 0.4, 540, 900, 0.9, 0, 1], [T.antes, 540, 1000, 0.4, 0, 0],
@@ -250,7 +308,8 @@ function qEu(t) {
 // o celular: [t, centro x, centro y, escala, giro, opacidade]
 const PF = [
   [0, 540, 1500, 0.9, 10, 0], [S.rival - 0.25, 540, 1500, 0.9, 10, 0], [S.rival + 0.1, 540, 1060, 1.25, 0, 1],
-  [T.mae - 0.45, 540, 1060, 1.25, 0, 1], [T.mae - 0.2, 540, 1300, 1, 0, 0],
+  [S.porta - 0.3, 540, 1060, 1.25, 0, 1], [S.porta, 540, 1300, 1, 0, 0],
+  [I("trocou") - 0.25, 760, 1300, 0.9, 6, 0], [I("trocou") + 0.1, 760, 1040, 1.05, 3, 1], [I("h1") - 0.25, 760, 1040, 1.05, 3, 1], [I("h1"), 900, 1300, 0.8, 8, 0],
   [S.achou - 0.25, 540, 1500, 0.9, 10, 0], [S.achou + 0.1, 540, 1060, 1.25, 0, 1], [S.gancho - 0.15, 540, 1060, 1.25, 0, 1], [S.gancho + 0.1, 540, 1300, 1, 0, 0],
 ];
 function qFone(t) {
@@ -261,7 +320,8 @@ function qFone(t) {
   let tela;
   if (t < S.noite) { tela = "s-dm"; hora("16:52"); }
   else if (t < S.mapa) { tela = "s-busca"; hora("03:00"); }
-  else if (t < S.desiste) { tela = t < I("mapa") - 0.05 ? "s-zl" : "s-mapa"; hora(t < I("mapa") ? "02:40" : "02:43"); }
+  else if (t < S.porta) { tela = t < I("mapa") - 0.05 ? "s-zl" : "s-mapa"; hora(t < I("mapa") ? "02:40" : "02:43"); }
+  else if (t < S.desiste) { tela = "s-site"; hora("23:40"); }
   else { tela = t < T.tapPost + 0.15 ? "s-ig" : "s-post"; hora("03:00"); }
   mostra(tela);
   if (tela === "s-dm") {
@@ -282,9 +342,12 @@ function qFone(t) {
     const f = pulso(t, T.fechada - 0.1, 0.8); $("#mp-card").style.boxShadow = f > 0.05 ? `0 0 0 ${(5 * f).toFixed(1)}px #e0453a` : "";
   }
   if (tela === "s-ig") {
-    EXPLORA.forEach((_, k) => { const a = entra(t, S.achou + 0.1 + k * 0.03, 0.25); pos($(`#ex${k}`), { s: a.x > 0 ? lerp(0.85, 1, volta(a.x)) : 0.85, o: a.o }); });
-    const p = pulso(t, T.tapPost - 0.3, 0.6); $("#ex4").style.boxShadow = p > 0.05 ? `inset 0 0 0 ${(6 * p).toFixed(1)}px #e8855e` : "";
-    toque(t, T.tapPost, $("#ex4"));
+    const a = entra(t, T.instagram - 0.3, 0.35); pos($("#nt"), { y: a.y, s: a.s, o: a.o });
+    const p = pulso(t, T.tapPost - 0.35, 0.6); $("#nt").style.boxShadow = p > 0.05 ? `0 0 0 ${(6 * p).toFixed(1)}px #e8855e` : "";
+    toque(t, T.tapPost, $("#nt"));
+  }
+  if (tela === "s-site") {
+    $$(".st-ens", FA).forEach((el, k) => { const b = entra(t, T.siteW + k * 0.08, 0.3); pos(el, { y: b.y * 0.6, s: b.x > 0 ? lerp(0.9, 1, volta(b.x)) : 0.9, o: b.o }); });
   }
   if (tela === "s-post") {
     const p = pulso(t, T.helena - 0.1, 1.0); $("#post-nome").style.background = p > 0.05 ? `rgba(232,133,94,${(0.3 * p).toFixed(3)})` : "";
@@ -296,36 +359,78 @@ function qExtra(t) {
   { const el = $("#fora"), a = entra(t, T.janeiro + 0.1); pos(el, { x: 540 - el.offsetWidth / 2, y: 1470 + a.y, s: a.s, r: -2, o: em(t, T.janeiro, S.noite) ? a.o * (1 - fase(t, S.noite - 0.25, S.noite)) : 0 }); }
   { const el = $("#dado"), a = entra(t, T.mamando - 0.1, 0.35); pos(el, { x: 540, y: 1330 + a.y, s: a.s, o: em(t, T.mamando - 0.2, I("achados") + 0.6) ? a.o * (1 - fase(t, I("achados") + 0.2, I("achados") + 0.6)) : 0 }); }
   { const el = $("#etq-vac"), a = entra(t, T.vacuo - 0.1); pos(el, { x: 540 - el.offsetWidth / 2, y: 1690 + a.y, s: a.s, r: -3, o: em(t, T.vacuo - 0.2, I("mapa")) ? a.o * (1 - fase(t, I("mapa") - 0.2, I("mapa"))) : 0 }); }
-  { const el = $("#etq-mae"), a = entra(t, T.mae - 0.05); pos(el, { x: 540 - el.offsetWidth / 2, y: 760 + a.y, s: a.s, r: -2, o: em(t, T.mae - 0.1, S.desiste) ? a.o * (1 - fase(t, S.desiste - 0.2, S.desiste)) : 0 }); }
+  { const el = $("#etq-mae"), a = entra(t, T.alfinete2 - 0.05); pos(el, { x: 540 - el.offsetWidth / 2, y: 520 + a.y, s: a.s, r: -2, o: em(t, T.alfinete2 - 0.1, I("campainha") + 0.3) ? a.o * (1 - fase(t, I("campainha"), I("campainha") + 0.3)) : 0 }); }
+  // "virou a página. As catorze.": as 14 páginas do PDF voam, uma a uma
+  {
+    const on = em(t, T.pagina - 0.4, I("trocou") + 0.3), n = $("#pgn");
+    for (let k = 0; k < 14; k++) {
+      const t0 = T.pagina + 0.05 + k * 0.09, v = ease(fase(t, t0, t0 + 0.55)), a = entra(t, T.pagina - 0.35 + k * 0.012, 0.3);
+      const ang = (k / 13 - 0.5) * 2.4 - Math.PI / 2;
+      pos($(`#pv${k}`), { x: 540 + (k - 6.5) * 3 + v * 760 * Math.cos(ang), y: 1000 - k * 3 + v * 900 * Math.sin(ang) + v * v * 500, s: a.s * lerp(1, 0.6, v), r: (k - 6.5) * 2 + v * (k % 2 ? 160 : -160), o: on ? a.o * (1 - fase(t, t0 + 0.35, t0 + 0.55)) : 0 });
+    }
+    const resta = Math.max(0, 14 - Math.floor(fase(t, T.pagina + 0.05, T.pagina + 0.05 + 13 * 0.09 + 0.3) * 14)), c = entra(t, T.pagina - 0.3, 0.3);
+    n.textContent = resta === 0 ? "0 páginas" : `${resta} páginas`;
+    pos(n, { x: 540 - n.offsetWidth / 2, y: 1460 + c.y, s: c.s, o: on ? c.o * (1 - fase(t, I("trocou"), I("trocou") + 0.3)) : 0 });
+  }
+  // "arrumou o endereço no mapa": o alfinete sai da casa da mãe e vai para o estúdio
+  {
+    const el = $("#mapafix"), on = em(t, T.mapa2 - 0.9, S.desiste), a = entra(t, T.mapa2 - 0.85, 0.35), m = ease(fase(t, T.mapa2 - 0.3, T.mapa2 + 0.5));
+    pos(el, { x: 540, y: 1340 + a.y, s: a.s * 0.9, r: -2, o: on ? a.o * (1 - fase(t, S.desiste - 0.3, S.desiste)) : 0 });
+    attr($("#mf-pino"), "transform", `translate(${lerp(135, 580, m).toFixed(1)} ${(100 - 60 * Math.sin(Math.PI * m)).toFixed(1)})`);
+    attr($("#mf-rota"), "opacity", (0.8 * m).toFixed(2));
+    $("#mf-rod").firstChild.textContent = m >= 1 ? "Endereço: o estúdio" : "Endereço: a casa da mãe";
+    $("#mf-s").textContent = m >= 1 ? "atualizado hoje" : "";
+  }
 }
 // a prévia do final
 function qPrevia(t) {
   const el = $("#prev"), on = t >= S.previa - 0.15 && t < T0;
   vis(el, on); if (!on) return;
   el.style.opacity = fase(t, S.previa - 0.15, S.previa + 0.1).toFixed(3);
-  const cortes = [["#pv-a", S.previa - 0.05], ["#pv-b", T.chance - 0.5], ["#pv-c", T.resp - 0.15], ["#pv-d", I("siga") - 0.1]];
+  const cortes = [["#pv-a", S.previa - 0.05], ["#pv-b", T.tres - 0.1], ["#pv-c", T.resp - 0.15], ["#pv-d", I("siga") - 0.1]];
   cortes.forEach(([id, t0], k) => {
     const t1 = k < 3 ? cortes[k + 1][1] : T0 + 1, x = fase(t, t0, t0 + 0.18);
     pos($(id), { s: lerp(1.08, 1, sai(x)) + 0.02 * fase(t, t0, t1), o: em(t, t0, t1) ? Math.min(1, x * 2) : 0 });
   });
-  const n = Math.min(6, Math.floor(fase(t, S.previa + 0.2, T.chance - 0.6) * 7));
+  [0, 1, 2].forEach(k => { const a = entra(t, T.tres + 0.1 + k * 0.22, 0.3); pos($(`#tr${k}`), { y: a.y, s: a.s, o: a.o }); });
+  louro(t, F, { p: "lp", x: 560, y: 1300, s: 1.5, inclina: 0.6 * Math.sin(t * 2.5) });
+  const fb = entra(t, T.nova - 0.2, 0.3); pos($("#pvc-fl"), { x: 520, y: 640 + fb.y, s: fb.s, o: fb.o });
+  const n = Math.min(6, Math.floor(fase(t, S.previa + 0.2, T.tres - 0.3) * 7));
   $("#pv-dig").innerHTML = "valor?".slice(0, n) + "<i></i>";
   $("#prev-chip").style.opacity = t < I("siga") - 0.1 ? 1 : 0;
 }
 
 const MINI_E1 = `<svg viewBox="0 0 150 200"><rect width="150" height="200" fill="#1a0a0b"/><text x="75" y="30" text-anchor="middle" font-family="Geist" font-weight="800" font-size="16" fill="#f6f3ee">Eu ainda não</text><text x="75" y="48" text-anchor="middle" font-family="Geist" font-weight="800" font-size="16" fill="#e8855e">nasci</text>
   <circle cx="75" cy="128" r="54" fill="#b8503e"/><circle cx="68" cy="112" r="16" fill="#f3c2ab"/><ellipse cx="80" cy="138" rx="18" ry="24" fill="#f0b9a2" transform="rotate(-25 80 138)"/></svg>`;
+// quem está contando
+const CAPS = [{ t0: S.janela, ate: S.porta, hora: "15 DIAS", quem: "O BEBÊ", grande: false }, { t0: S.porta, ate: S.audio, hora: "DIA 10 · 21h", quem: "O PAI" },
+  { t0: S.audio, ate: I("ouviu"), hora: "21h05", quem: "A MÃE DA HELENA" }, { t0: I("ouviu"), ate: I("h1") - 0.1, hora: "23h40", quem: "A FOTÓGRAFA" },
+  { t0: I("h1") - 0.1, ate: S.desiste, hora: "23h41", quem: "O PAPAGAIO", grande: false }, { t0: S.desiste, ate: S.previa, hora: "DIA 11", quem: "O BEBÊ" }];
+const qCap = capitulos(CAPS);
+const qFalas = dialogo(R, {
+  l1: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro", ate: I("r1") - 0.05 },
+  r1: { quem: "O pai", ax: 760, y: 700, cauda: "dir", ate: I("l2") - 0.05 },
+  l2: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro", ate: I("r2") - 0.05 },
+  r2: { quem: "O pai", ax: 760, y: 700, cauda: "dir", ate: I("l3") - 0.05 },
+  l3: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro", ate: F.embora.fim },
+  d1: { quem: "Mãe da Helena · áudio", x: 130, y: 520, cauda: "sem", cls: "audio", ate: F.d1.fim + 0.7 },
+  h1: { quem: "Helena · áudio", x: 170, y: 560, cauda: "sem", cls: "audio", ate: S.desiste },
+});
 const quadroSerie = serie(R, { parte: 2, abertura: "resumo", rotulo: "EPISÓDIO", nome: "Eu ainda não nasci", resumo: { id: "resumo", titulo: "A tabela", arte: MINI_E1 }, siga: { texto: "Siga para ver o final" } });
 window.quadro = t => {
   palco.style.transform = "none";
   palco.style.background = "radial-gradient(70% 50% at 50% 42%,#18222c 0%,#0a0d10 75%)";
-  qCena(t); qFone(t); qEu(t); qDias(t); qExtra(t); qPrevia(t); quadroSerie(t);
-  R.comum(t);
+  qCena(t); qFone(t); qEu(t); qDias(t); qExtra(t); qFalas(t); qPrevia(t); quadroSerie(t); qCap(t);
+  R.comum(t, { poeira: !SALA(t) && !ESTUDIO(t) });
 };
-const SONS = [{ t: T.avisou, tipo: "ding", ganho: 0.6 }, { t: T.resposta, tipo: "ding", ganho: 0.7 }, { t: T.tapNum, tipo: "toque", ganho: 0.8 }, { t: T.tapPost, tipo: "toque", ganho: 0.8 }];
+const SONS = [{ t: T.avisou, tipo: "ding", ganho: 0.6 }, { t: T.resposta, tipo: "ding", ganho: 0.7 }, { t: T.tapNum, tipo: "toque", ganho: 0.8 }, { t: T.tapPost, tipo: "toque", ganho: 0.8 },
+  { t: T.campainha + 0.35, tipo: "campainha", ganho: 0.55 }, { t: I("l1") - 0.25, tipo: "louro", ganho: 0.5 }, { t: I("d1") - 0.25, tipo: "ding", ganho: 0.5 }, { t: I("h1") - 0.25, tipo: "ding", ganho: 0.5 },
+  { t: T.instagram - 0.3, tipo: "ding", ganho: 0.6 }, { t: T.nova, tipo: "louro", ganho: 0.4 }, ...sonsCapitulos(CAPS)];
 window.preparar = () => R.preparar([0.3, T.quatro + 0.3, T.correr + 0.3, T.pdfR + 0.3, T.quinze + 0.4, T.enroladinho + 0.3, T.nasceu + 0.2, T.janeiro + 0.4, T.google + 0.3, T.perfil + 0.4,
-  T.existe + 0.3, T.whats + 0.4, T.vacuo + 0.3, T.alfinete + 0.4, T.fechada + 0.2, T.mae + 0.3, T.desistiu + 0.3, T.instagram + 0.3, T.lindo + 0.4, T.helena + 0.3, T.dois + 0.3,
-  T.precos + 0.3, T.final + 0.3, T.chance + 0.3, T.resp + 0.4, I("siga") + 0.4, T0 + 1.5, DUR - 0.3], SONS);
+  T.existe + 0.3, T.whats + 0.4, T.vacuo + 0.3, T.alfinete + 0.4, T.fechada + 0.2, T.teve + 0.3, S.porta + 1.5, T.conforto + 0.3, I("l1") + 0.4, I("r1") + 0.6, I("l2") + 0.5, I("r2") + 0.3, I("l3") + 0.5, T.embora + 0.6,
+  S.audio + 1.4, I("d1") + 1.5, T.ouviu + 0.3, T.vacuo2 + 0.3, T.pagina + 0.6, T.catorze + 0.5, T.siteW + 0.4, T.mapa2 + 0.7, I("h1") + 0.6,
+  T.desistiu + 0.3, T.instagram + 0.3, T.lindo + 0.4, T.helena + 0.3, T.dois + 0.3,
+  T.precos + 0.3, T.final + 0.3, T.chance + 0.3, T.resp + 0.4, T.nova + 0.3, I("siga") + 0.4, T0 + 1.5, DUR - 0.3], SONS);
 await R.pronto();
 </script>
 </body></html>

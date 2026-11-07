@@ -3,7 +3,7 @@
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
  "inicio": 0.2,
- "_sobre": "Narração do episódio 2 de \"Eu ainda não nasci\" (SERIE.md), \"Quinze dias\". O bebê nasce num sábado (14/11), três semanas antes. Ensaio newborn costuma ser nos primeiros quinze dias; a outra fotógrafa só tem vaga em janeiro. De madrugada, mamando, a Camila procura no Google e acha um perfil parado e um telefone que não existe. No dia 7 lembra da Helena, mas tinha deixado a Helena no vácuo; no mapa, o alfinete do estúdio aponta para a casa da mãe da Helena. No dia 11 desiste. No dia 13, às três da manhã, aparece no Instagram o newborn mais lindo que ela já viu: da Helena. Faltam dois dias, e a Helena manda os preços em PDF. Prévia do final e \"Siga para ver o final\". Sem convite falado. Tudo é fictício. O id \"nada\" corta a batida.",
+ "_sobre": "Episódio 2, \"Quinze dias\". O bebê conta a janela de 15 dias; o pai vai até o alfinete do mapa e o Louro atende a porta; a mãe da Helena manda um áudio para a filha, e a Helena troca o PDF por um site (o público fica sabendo, a Camila não). O id \"nada\" corta a batida.",
  "frases": [
   {
    "id": "abre",
@@ -73,27 +73,148 @@
    "id": "mapa",
    "cena": "mapa",
    "texto": "Então procurou o estúdio no mapa. O alfinete apontava para uma casa *fechada.*",
-   "pausa": 0.25
+   "pausa": 0.3
   },
   {
-   "id": "casa",
+   "id": "coragem",
    "cena": "mapa",
-   "texto": "Era a casa da mãe da *Helena.*",
-   "pausa": 0.55
+   "texto": "Ela não teve coragem de bater.",
+   "pausa": 0.15
   },
   {
    "id": "nada",
+   "cena": "mapa",
+   "texto": "Meu pai *teve.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "dez",
+   "cena": "porta",
+   "texto": "Dia dez, ele me pôs no bebê-conforto e dirigiu até o *alfinete.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "campainha",
+   "cena": "porta",
+   "texto": "Tocou a *campainha.*",
+   "pausa": 0.9
+  },
+  {
+   "id": "l1",
+   "cena": "porta",
+   "texto": "Qual o valor? *Valor?*",
+   "pausa": 0.3,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "r1",
+   "cena": "porta",
+   "texto": "Ééé... boa noite. Quanto é o ensaio *newborn?*",
+   "pausa": 0.25,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa"
+  },
+  {
+   "id": "l2",
+   "cena": "porta",
+   "texto": "Conseguiu ver a *tabela?*",
+   "pausa": 0.25,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "r2",
+   "cena": "porta",
+   "texto": "Que *tabela?*",
+   "pausa": 0.3,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa"
+  },
+  {
+   "id": "l3",
+   "cena": "porta",
+   "texto": "Vou ver com meu *marido!*",
+   "pausa": 0.5,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "embora",
+   "cena": "porta",
+   "texto": "Meu pai foi embora sem entender nada. E nunca contou isso para a minha *mãe.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "janela2",
+   "cena": "audio",
+   "texto": "A mãe da Helena viu tudo pela janela e mandou um áudio para a *filha.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "d1",
+   "cena": "audio",
+   "texto": "Filha, o Louro atendeu mais um pai. Com um bebê no colo! Tira esse endereço da *internet!*",
+   "pausa": 0.35,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+2%",
+   "tom": "-12Hz",
+   "quem": "lurdes"
+  },
+  {
+   "id": "ouviu",
+   "cena": "audio",
+   "texto": "A Helena ouviu e lembrou de uma mãe que tinha deixado ela no *vácuo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "pagina",
+   "cena": "audio",
+   "texto": "Naquela noite, a Helena virou a página. As *catorze.*",
+   "pausa": 0.45,
+   "impacto": true
+  },
+  {
+   "id": "trocou",
+   "cena": "audio",
+   "texto": "Trocou o PDF por um site, com o preço de cada ensaio, e arrumou o endereço no *mapa.*",
+   "pausa": 0.25,
+   "fala": "Trocou o pê dê éfe por um site, com o preço de cada ensaio, e arrumou o endereço no mapa."
+  },
+  {
+   "id": "h1",
+   "cena": "audio",
+   "texto": "Mãe, agora tá tudo no *site.*",
+   "pausa": 0.45,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+6%",
+   "quem": "helena"
+  },
+  {
+   "id": "desistiu",
    "cena": "desiste",
-   "texto": "Dia onze, ela *desistiu.*",
+   "texto": "Dia onze, a minha mãe *desistiu.*",
    "pausa": 0.45,
    "impacto": true
   },
   {
    "id": "dia13",
    "cena": "achou",
-   "texto": "Dia treze, três da manhã, apareceu no Instagram o newborn mais lindo que ela já *viu.*",
+   "texto": "Dia treze, três da manhã, chegou no celular dela o newborn mais lindo que ela já *viu.*",
    "pausa": 0.3,
-   "fala": "Dia treze, três da manhã, apareceu no Instagram o níuborn mais lindo que ela já viu."
+   "fala": "Dia treze, três da manhã, chegou no celular dela o níuborn mais lindo que ela já viu."
   },
   {
    "id": "quem",
@@ -111,13 +232,14 @@
   {
    "id": "gancho",
    "cena": "gancho",
-   "texto": "E a gente sabe como a Helena manda os *preços.*",
-   "pausa": 0.6
+   "texto": "E a minha mãe ainda achava que a Helena mandava *PDF.*",
+   "pausa": 0.6,
+   "fala": "E a minha mãe ainda achava que a Helena mandava pê dê éfe."
   },
   {
    "id": "previa",
    "cena": "previa",
-   "texto": "No episódio final: três da manhã, uma última chance e uma resposta que ninguém *esperava.*",
+   "texto": "No episódio final: três da manhã, três pessoas acordadas e um papagaio com uma frase *nova.*",
    "pausa": 0.3
   },
   {

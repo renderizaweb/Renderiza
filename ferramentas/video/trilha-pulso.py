@@ -134,9 +134,20 @@ for t in grade(*C["site"], BEAT / 4): somar(bat, chimbal(), t, 0.18)
 for t in grade(*C["site"], BEAT / 2): somar(grave, sub(hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.7)
 for t in grade(*C["site"], BEAT * 0.75): somar(harm, pluck([hz(n) for n in ACORDES[acorde(t)][1]]), t, 0.55)
 # cta: volta o pulso e fecha num acorde de lá menor
-for t in grade(C["cta"][0], dur - 1.2, BEAT): somar(bat, bumbo(0.9), t, 0.85)
-for t in grade(C["cta"][0], dur - 1.2, BEAT / 2): somar(grave, sub(hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.6)
-somar(harm, drone(hz("A2"), dur - C["cta"][0] + 0.5), C["cta"][0], 0.8)
+FIM_CTA = C["pos"][0] - 0.7 if "pos" in C else dur  # com pós-créditos, o convite acaba antes do piii
+for t in grade(C["cta"][0], FIM_CTA - 1.2, BEAT): somar(bat, bumbo(0.9), t, 0.85)
+for t in grade(C["cta"][0], FIM_CTA - 1.2, BEAT / 2): somar(grave, sub(hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.6)
+somar(harm, drone(hz("A2"), FIM_CTA - C["cta"][0] + 0.5), C["cta"][0], 0.8)
+# brinca: as cenas do papagaio, um pizzicato saltitante em lá menor, com chimbal no contratempo
+if "brinca" in C:
+    NOTAS = ["A3", "E4", "C4", "E4", "A3", "E4", "D4", "E4"]
+    for k, t in enumerate(grade(*C["brinca"], BEAT / 2)): somar(harm, pluck([hz(NOTAS[k % 8])], 0.18), t, 0.7)
+    for t in grade(*C["brinca"], BEAT): somar(bat, chimbal(), t + BEAT / 2, 0.3)
+    for t in grade(*C["brinca"], 2 * BEAT): somar(grave, sub(hz("A1"), BEAT * 0.4), t, 0.5)
+# pos: o pós-créditos, em cinza: só um drone baixo e uma nota de caixinha a cada dois tempos
+if "pos" in C:
+    somar(harm, drone(hz("A2"), dur - C["pos"][0] + 0.5), C["pos"][0], 0.5)
+    for k, t in enumerate(grade(C["pos"][0], dur - 1.0, 2 * BEAT)): somar(harm, pluck([hz(["E5", "C5", "A4", "B4"][k % 4])], 0.5), t, 0.35)
 # impactos marcados na narração (e o corte do "Nada.")
 for f in fr:
     if f.get("impacto"): somar(fx, impacto(), f["ini"] - 0.03, 0.8)
@@ -195,6 +206,23 @@ def efeito_som(tipo):
         for k, n in enumerate((880.0, 1046.5, 1318.5, 1760.0, 1318.5, 1046.5, 987.8)):
             t = T(0.7); nota = (np.sin(2 * np.pi * n * t) + 0.3 * np.sin(2 * np.pi * 3.01 * n * t)) * np.exp(-t / 0.22) * np.minimum(1, t / 0.002)
             i = int(SR * k * 0.3); x[i:i + len(nota)] += nota[: len(x) - i] * 0.6
+    elif tipo == "pi":  # o piii de censura que corta para o pós-créditos
+        t = T(0.75); x = np.sin(2 * np.pi * 1000 * t) * np.minimum(1, t / 0.004) * np.minimum(1, np.maximum(0, (0.75 - t) / 0.004)) * 0.6
+    elif tipo == "louro":  # grito de papagaio: serra áspera que sobe e desce, com ruído
+        t = T(0.34); f = 1000 + 700 * np.sin(np.pi * t / 0.34) ** 2; ph = 2 * np.pi * np.cumsum(f) / SR
+        x = sum(np.sin(k * ph) / k for k in range(1, 9)) * (0.6 + 0.4 * np.sin(2 * np.pi * 70 * t))
+        x = np.tanh(2.5 * x) + filtro(rng.standard_normal(len(t)), baixo=5000, alto=1200) * 0.35
+        x *= np.minimum(1, t / 0.008) * np.minimum(1, np.maximum(0, (0.34 - t) / 0.06))
+    elif tipo == "passa":  # o whoosh da troca de personagem: ruído que varre de grave a agudo
+        t = T(0.5); r = rng.standard_normal(len(t)); x = np.zeros_like(t); bloco = 1024
+        for i in range(0, len(t), bloco):
+            c = 400 + 3200 * (i / len(t)) ** 1.5
+            x[i:i + bloco] = filtro(r[i:i + bloco], baixo=c * 1.6, alto=c * 0.6)[: len(x[i:i + bloco])]
+        x *= np.sin(np.pi * t / 0.5) ** 2
+    elif tipo == "ronco":  # o pai dormindo: um ronco grave e áspero
+        t = T(1.1); f = 85 + 10 * np.sin(2 * np.pi * 0.9 * t); ph = 2 * np.pi * np.cumsum(f) / SR
+        x = (sum(np.sin(k * ph) / k for k in range(1, 6)) * 0.5 + filtro(rng.standard_normal(len(t)), baixo=500) * 0.8) * (0.55 + 0.45 * np.sin(2 * np.pi * 28 * t))
+        x *= np.sin(np.pi * np.minimum(1, t / 1.1)) ** 1.5
     else:
         raise SystemExit("efeito desconhecido: " + tipo)
     return x / max(1e-9, np.max(np.abs(x)))

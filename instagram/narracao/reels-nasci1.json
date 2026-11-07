@@ -3,7 +3,7 @@
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
  "inicio": 0.2,
- "_sobre": "Narração do episódio 1 de \"Eu ainda não nasci\" (série em 3 episódios, SERIE.md), \"A tabela\". Quem narra é o bebê da Camila, ainda na barriga (36 semanas, previsão 05/12). A Camila quer o ensaio gestante e o newborn; quase meia-noite pede o valor à fotógrafa Helena e recebe um PDF de 14 páginas com o preço na nona. O 4G pensa, o bebê chuta e o celular cai na cara dela. Ela fecha com outra fotógrafa, que mostra o preço no site; a Helena acha que foi o preço, mas a outra era mais cara. Gancho: o bebê nasce três semanas antes. Prévia do episódio 2 e \"Siga para ver o episódio 2\". Sem convite falado: o \"Comenta PRÉVIA\" aparece só escrito, depois da voz. Tudo é fictício. O id \"nada\" corta a batida.",
+ "_sobre": "Episódio 1 de \"Eu ainda não nasci\" (SERIE.md), \"A tabela\". Três pontos de vista: o bebê (Antonio), a Helena do outro lado da cidade (a mesma noite, e a frase dela na voz dela) e o Louro, o papagaio da mãe da Helena, que aprendeu as frases da filha quando o estúdio funcionava na sala da mãe, em 2019. Planta o pai que dorme na parte importante e o endereço velho no mapa. O id \"nada\" corta a batida.",
  "frases": [
   {
    "id": "abre",
@@ -31,6 +31,12 @@
    "pausa": 0.3
   },
   {
+   "id": "pai",
+   "cena": "noite",
+   "texto": "Meu pai dormia do lado. Ele sempre dorme na parte *importante.*",
+   "pausa": 0.3
+  },
+  {
    "id": "valor",
    "cena": "noite",
    "texto": "Quase meia-noite, ela mandou para a fotógrafa Helena: *valor?*",
@@ -52,9 +58,9 @@
   {
    "id": "toque",
    "cena": "baixa",
-   "texto": "Toque para baixar. O 4G *pensou.*",
+   "texto": "Toque para baixar. E o 4G, sem *sinal.*",
    "pausa": 0.25,
-   "fala": "Toque para baixar. O quatro gê pensou."
+   "fala": "Toque para baixar. E o quatro gê, sem sinal."
   },
   {
    "id": "curioso",
@@ -92,14 +98,41 @@
    "id": "fechou",
    "cena": "outra",
    "texto": "Fechou ali mesmo: gestante agora, newborn quando eu *nascesse.*",
-   "pausa": 0.35,
+   "pausa": 0.45,
    "fala": "Fechou ali mesmo: gestante agora, níuborn quando eu nascesse."
+  },
+  {
+   "id": "depois",
+   "cena": "helena",
+   "texto": "O que aconteceu do outro lado da cidade, eu só descobri *depois.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "mesma",
+   "cena": "helena",
+   "texto": "Às onze e cinquenta e um, a Helena tinha mandado a mesma tabela que mandava para todo *mundo.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "conta",
+   "cena": "helena",
+   "texto": "Naquele mês, trinta e uma mães pediram o valor. Quatro *fecharam.*",
+   "pausa": 0.4
   },
   {
    "id": "helena",
    "cena": "dia",
-   "texto": "De manhã, a Helena mandou: conseguiu ver a *tabela?*",
-   "pausa": 0.25
+   "texto": "De manhã, ela mandou a frase de *sempre:*",
+   "pausa": 0.15
+  },
+  {
+   "id": "frase",
+   "cena": "dia",
+   "texto": "Conseguiu ver a *tabela?*",
+   "pausa": 0.35,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+6%",
+   "quem": "helena"
   },
   {
    "id": "visto",
@@ -124,7 +157,65 @@
    "id": "nem",
    "cena": "dia",
    "texto": "A minha mãe nunca viu o preço da *Helena.*",
-   "pausa": 0.45
+   "pausa": 0.5
+  },
+  {
+   "id": "decor",
+   "cena": "louro",
+   "texto": "E tinha mais alguém que sabia essa frase de *cor.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "louro",
+   "cena": "louro",
+   "texto": "O Louro, papagaio da mãe da Helena. O estúdio começou na sala dela, em *2019.*",
+   "pausa": 0.25,
+   "fala": "O Louro, papagaio da mãe da Helena. O estúdio começou na sala dela, em dois mil e dezenove."
+  },
+  {
+   "id": "aprendeu",
+   "cena": "louro",
+   "texto": "Em dois anos ouvindo a Helena no telefone, ele aprendeu três *frases.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "l1",
+   "cena": "louro",
+   "texto": "Qual o valor? *Valor?*",
+   "pausa": 0.3,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "l2",
+   "cena": "louro",
+   "texto": "Conseguiu ver a *tabela?*",
+   "pausa": 0.3,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "l3",
+   "cena": "louro",
+   "texto": "Vou ver com meu *marido!*",
+   "pausa": 0.45,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "mudou",
+   "cena": "louro",
+   "texto": "O estúdio mudou. O endereço no mapa, *não.*",
+   "pausa": 0.6
   },
   {
    "id": "gancho",
@@ -135,7 +226,7 @@
   {
    "id": "previa",
    "cena": "previa",
-   "texto": "No próximo episódio: quinze dias para uma foto, uma agenda lotada e uma busca às três da *manhã.*",
+   "texto": "No próximo episódio: quinze dias para uma foto, um pai que não dorme e um papagaio que atende a *porta.*",
    "pausa": 0.3
   },
   {

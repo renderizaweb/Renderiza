@@ -12,8 +12,10 @@
 #     o Whisper ouviu. pip install kokoro-onnx faster-whisper
 #   edge: vozes neurais brasileiras da Microsoft ("voz": "pt-BR-AntonioNeural", "pt-BR-FranciscaNeural" ou
 #     "pt-BR-ThalitaMultilingualNeural"; "ritmo": "+12%"; "tom": "-2Hz"), pelo serviço de leitura em voz alta do Edge.
-#     Uma frase pode trocar "voz", "ritmo" e "tom" só para ela (a voz de um personagem, por exemplo).
-# Qualquer motor: "efeito": "megafone" numa frase faz ela sair pelo alto-falante (só os médios, saturada e com eco de rua).
+#     Uma frase pode trocar "voz", "ritmo" e "tom" só para ela (a voz de um personagem, por exemplo). As vozes
+#     multilíngues (ex.: "en-US-BrianMultilingualNeural") também falam português.
+# Qualquer motor: "efeito": "megafone" numa frase faz ela sair pelo alto-falante (só os médios, saturada e com eco de rua);
+#     "papagaio" deixa a voz aguda e com trinado; "zap" faz soar como áudio de WhatsApp.
 #     As mesmas vozes existem no Azure Speech, que é o caminho com licença para uso comercial. As palavras da legenda
 #     seguem os tempos que o próprio serviço devolve. pip install edge-tts imageio-ffmpeg
 import difflib, json, re, subprocess, sys, unicodedata, wave
@@ -117,7 +119,11 @@ def aparar(x):
     ini = max(0, som[0] - int(0.03 * SR))
     return x[ini: som[-1] + int(0.1 * SR)], ini / SR
 
-EFEITOS = {"megafone": "highpass=f=600,lowpass=f=3300,volume=8,asoftclip=type=atan,highpass=f=500,lowpass=f=3600,aecho=0.8:0.5:110|230:0.22|0.12"}
+EFEITOS = {"megafone": "highpass=f=600,lowpass=f=3300,volume=8,asoftclip=type=atan,highpass=f=500,lowpass=f=3600,aecho=0.8:0.5:110|230:0.22|0.12",
+           # o papagaio: a voz de quem ele imita, mais aguda (sem mudar a duração), fina e com trinado
+           "papagaio": f"asetrate={SR}*1.1,aresample={SR},atempo=0.909,highpass=f=500,lowpass=f=7500,vibrato=f=14:d=0.15,volume=2",
+           # áudio de WhatsApp: banda de telefone, comprimido
+           "zap": "highpass=f=320,lowpass=f=3400,acompressor=threshold=0.1:ratio=4:attack=5:release=80,volume=1.6"}
 def efeito(x, nome):
     import imageio_ffmpeg
     return np.frombuffer(subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "quiet", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
