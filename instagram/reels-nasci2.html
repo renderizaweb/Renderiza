@@ -407,7 +407,8 @@ const MINI_E1 = `<svg viewBox="0 0 150 200"><rect width="150" height="200" fill=
 // quem está contando
 const CAPS = [{ t0: S.janela, ate: S.porta, hora: "15 DIAS", quem: "O BEBÊ", grande: false }, { t0: S.porta, ate: S.audio, hora: "DIA 10 · 21h", quem: "O PAI" },
   { t0: S.audio, ate: I("ouviu"), hora: "21h05", quem: "A MÃE DA HELENA" }, { t0: I("ouviu"), ate: I("h1") - 0.1, hora: "23h40", quem: "A FOTÓGRAFA" },
-  { t0: I("h1") - 0.1, ate: S.desiste, hora: "23h41", quem: "O PAPAGAIO", grande: false }, { t0: S.desiste, ate: S.previa, hora: "DIA 11", quem: "O BEBÊ" }];
+  { t0: I("h1") - 0.1, ate: S.desiste, hora: "23h41", quem: "O PAPAGAIO", grande: false }, { t0: S.desiste, ate: S.achou, hora: "DIA 11", quem: "O BEBÊ" },
+  { t0: S.achou, ate: S.previa, hora: "DIA 13 · 03h00", quem: "O BEBÊ", grande: false }];
 const qCap = capitulos(CAPS);
 const qFalas = dialogo(R, {
   l1: { quem: "Louro", ax: 420, y: 560, cauda: "esq", cls: "louro", ate: I("r1") - 0.05 },
