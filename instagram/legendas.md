@@ -464,3 +464,16 @@ Comprovante guardado em conversa vai para onde o dedo escorregar, e cobrar de no
 Comenta PAINEL que a gente te manda o exemplo do painel no direct.
 
 Comentário para fixar: "Onde você guarda os comprovantes de sinal hoje?"
+
+### Parte 3 · "Vou ver com meu marido" (`reels-marido`, para fotógrafas)
+
+Capa: "A frase que segurou nove vagas", com o selo "PARTE 3 · O celular da fotógrafa" (a opção B é "Vou ver com meu marido", sobre as vagas carimbadas).
+Ao postar, vincular à parte 1 ("Ver a parte 1") e trocar o vínculo da parte 2 para esta ("Ver a parte 3").
+
+Parte 3 de O celular da fotógrafa. A parte 1 está fixada no perfil. A Helena, a Carla e o marido são fictícios. O "vou ver com meu marido", nem tanto.
+
+Horário segurado sem prazo fica vazio: quem pediu não tem pressa, e quem queria de verdade vai para outra fotógrafa. Na agenda do site, o horário fica separado por 24 horas até o sinal. Se o sinal não vem, a vaga volta, você chama a primeira da lista de espera, e o painel conta quantas vagas sobraram.
+
+Comenta NATAL que a gente te manda o exemplo da agenda para testar.
+
+Comentário para fixar: "Quantas vagas um 'vou ver com meu marido' já segurou no seu estúdio?"

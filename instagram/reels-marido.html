@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: vou ver com meu marido</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. 07/11/2026, parte 3 da série "O celular da fotógrafa"
+     (SERIE.md). Alvo: a fotógrafa que abre a mini sessão de Natal pelo direct e segura horário sem prazo para quem pede.
+     Objetivo: ela perceber que vaga segurada sem prazo fica vazia, e que com a agenda do site e o painel o horário fica
+     separado por 24 horas até o sinal; se o sinal não vem, a vaga volta, a Helena chama a primeira da lista de espera e
+     o painel conta quantas vagas sobraram. Para fotógrafas, a agenda é a do painel e não liga com o Google (o vídeo não
+     diz que liga); o painel não chama a lista de espera sozinho: quem chama é a Helena.
+     A história: abre com nove vagas carimbadas "segurada" por alguém que nunca pagou. Depois do gancho, o resumo da parte
+     2. Quem fala é a frase "vou ver com meu marido". A Carla pede o das dez, a Helena segura, recusa quatro mães, e no
+     sábado o estúdio fica vazio às dez. A virada: o marido tinha dito sim no primeiro dia; a Carla só esqueceu de avisar.
+     Com a agenda do site, o horário espera o sinal por 24 horas. Fecho: a Carla volta com a mesma frase e, com prazo, o
+     marido responde em vinte minutos. Pós-créditos: a parte 4, no padrão da série (serie.mjs). Tudo é fictício, e as
+     telas levam o selo "exemplo". O tempo de tudo sai da narração: narracao/reels-marido.json →
+     python3 instagram/narrar.py reels-marido. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+#eu{position:absolute;left:0;top:0;width:420px;height:360px;margin:-180px 0 0 -210px;z-index:26;opacity:0;transform-origin:50% 50%}
+#eu svg{width:100%;height:100%;overflow:visible;display:block}
+.etq{position:absolute;left:0;top:0;z-index:27;padding:12px 26px;border-radius:26px;background:#1e2528;color:#f1eee9;font-size:38px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;opacity:0;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.etq.tc{background:var(--terracota);color:#fff}
+.etq.claro{background:#f1eee9;color:#1e2528}
+/* o quadro das vagas (o gancho) */
+#quadro{position:absolute;left:0;top:0;z-index:7;width:820px;margin-left:-410px;opacity:0}
+#quadro h3{margin:0 0 22px;text-align:center;font-size:44px;font-weight:800;letter-spacing:-.03em;color:#f1eee9}
+#quadro .g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vg{position:relative;height:200px;border-radius:26px;background:#f1eee9;color:#1e2528;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;overflow:hidden}
+.vg b{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.vg small{font-size:22px;font-weight:600;color:#7a8386}
+.vg .car{position:absolute;inset:auto 10px 20px 10px;padding:8px 0;border:6px solid var(--terracota);border-radius:14px;color:var(--terracota);font-size:28px;font-weight:800;letter-spacing:.06em;text-align:center;background:rgba(251,248,243,.92);opacity:0}
+.vg .zero{position:absolute;top:14px;right:16px;font-size:20px;font-weight:800;color:#b25134;opacity:0}
+/* o resumo: o comprovante e o sinal pago */
+#rz{position:absolute;inset:0;z-index:7;opacity:0;pointer-events:none}
+#rz-rec{position:absolute;left:0;top:0;width:200px;height:330px;margin:-165px 0 0 -100px}
+#rz-rec svg{width:100%;height:100%;overflow:visible}
+#rz-ok{position:absolute;left:0;top:0;padding:16px 30px;border-radius:999px;background:#dff1e6;color:#1f7a45;font-size:42px;font-weight:800;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+/* o estúdio de Natal às dez */
+#relogio{position:absolute;left:0;top:0;z-index:27;padding:14px 30px;border-radius:30px;background:rgba(10,14,16,.82);color:#f1eee9;font-size:72px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;opacity:0}
+/* o "∞" da lição */
+#infinito{position:absolute;left:0;top:0;z-index:23;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:#f1eee9;color:#1e2528;display:grid;place-items:center;opacity:0;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+#infinito b{font-size:250px;font-weight:800;line-height:1;margin-top:-30px}
+#infinito small{position:absolute;bottom:96px;font-size:34px;font-weight:700;color:#7a8386}
+/* Stories */
+.tela.sto{padding-top:0;background:linear-gradient(170deg,#24382d 0%,#2f4a3a 55%,#5a2830 100%);color:#fbf3ea}
+.sto-barras{position:absolute;left:20px;right:20px;top:66px;display:flex;gap:6px}
+.sto-barras i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.sto-barras i b{display:block;height:100%;width:0;background:#fff}
+.sto-quem{position:absolute;left:22px;top:86px;display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700}
+.sto-quem i{width:50px;height:50px;border-radius:50%;background:#b25134;display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff;font-size:24px}
+.sto-arv{position:absolute;left:50%;top:170px;width:240px;height:280px;margin-left:-120px}
+.sto-tit{position:absolute;left:20px;right:20px;top:470px;text-align:center;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:56px;line-height:.98;letter-spacing:-.02em}
+.sto-sub{position:absolute;left:20px;right:20px;top:600px;text-align:center;font-size:24px;font-weight:700;opacity:.9}
+.sto-h{position:absolute;left:24px;right:24px;top:650px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sto-h span{padding:9px 0;border-radius:12px;background:rgba(251,243,234,.16);text-align:center;font-size:22px;font-weight:800;opacity:0}
+/* direct */
+.dm-topo{height:86px;display:flex;align-items:center;gap:14px;padding:0 22px;font-size:27px;font-weight:800;border-bottom:2px solid #eee8df;background:#fbf8f3;position:relative;z-index:3}
+.dm-topo svg{width:30px;height:30px}
+.dm-topo i{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:24px}
+.dm-topo small{display:block;font-size:18px;font-weight:600;color:#7a8386}
+.dm-fundo{position:absolute;left:0;right:0;top:146px;bottom:0;background:#fbf8f3}
+.dm{position:absolute;max-width:330px;padding:14px 20px;border-radius:26px;font-size:27px;font-weight:600;line-height:1.2}
+.dm.ent{left:18px;background:#efebe4}
+.dm.sai{right:18px;background:#7a4ad8;color:#fff}
+.dm .quem{display:block;font-size:17px;font-weight:800;color:#7a8386;margin-bottom:2px}
+.dm-hora{position:absolute;left:50%;translate:-50% 0;font-size:17px;font-weight:700;color:#9a9188;letter-spacing:.04em}
+/* WhatsApp do marido */
+.zp-topo{position:relative;z-index:3}
+/* a agenda do site e o painel */
+.ag-tit{margin:4px 22px 0;font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.05}
+.ag-sub{margin:6px 22px 14px;font-size:20px;font-weight:600;color:#7a8386}
+.ag-g{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 16px}
+.ag-h{height:78px;border-radius:18px;border:2px solid #e2dbd0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:27px;font-weight:800}
+.ag-h small{font-size:15px;font-weight:700;color:#1f7a45}
+.ag-h.oc{background:#f1ece4;color:#a59b90}
+.ag-h.oc small{color:#a59b90}
+.ag-h.pre{background:#fdf3d8;border-color:#e9cf86}
+.ag-h.pre small{color:#8a6a10}
+#ag-sep{margin:14px 16px 0;padding:16px 18px;border-radius:20px;background:#1e2528;color:#fff;font-size:21px;font-weight:700;line-height:1.3;opacity:0}
+#ag-sep b{display:block;font-size:44px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#f2c25a}
+.pn-topo{height:70px;background:#1e2528;color:#f1eee9;display:flex;align-items:center;gap:12px;padding:0 22px;font-size:23px;font-weight:800}
+.pn-topo small{font-weight:600;opacity:.7;margin-left:auto;font-size:18px}
+.pn-topo svg{width:26px;height:26px}
+.pn-tit{margin:16px 22px 2px;font-size:30px;font-weight:800;letter-spacing:-.025em}
+.pn-cont{margin:10px 16px 12px;padding:16px 18px;border-radius:20px;background:#fff;border:2px solid #efe8e0;display:flex;align-items:baseline;gap:12px}
+.pn-cont b{font-size:64px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#1f7a45}
+.pn-cont span{font-size:22px;font-weight:700;color:#5b6467}
+.pn-l{display:flex;align-items:center;gap:12px;margin:0 14px 10px;padding:13px 16px;border-radius:18px;background:#fff;border:2px solid #efe8e0}
+.pn-l .h{font-size:22px;font-weight:800;width:66px;flex:none}
+.pn-l .n{flex:1;font-size:21px;font-weight:700;line-height:1.15;min-width:0}
+.pn-l .n small{display:block;font-size:16px;font-weight:600;color:#7a8386}
+.pn-st{padding:6px 10px;border-radius:999px;font-size:14px;font-weight:800;white-space:nowrap;flex:none}
+.pn-st.ok{background:#dff1e6;color:#1f7a45}
+.pn-st.pre{background:#fdf3d8;color:#8a6a10}
+.pn-st.livre{border:2px dashed #d9c9cf;color:#9a8a90}
+.pn-st.bt{background:#1e2528;color:#fff}
+.pn-esp{margin:12px 14px 0;padding:14px 16px;border-radius:20px;background:#fff;border:2px solid #efe8e0}
+.pn-esp>b{display:block;font-size:21px;font-weight:800}
+.pn-esp .l{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:2px solid #f2ebe8;font-size:20px;font-weight:700}
+.pn-esp .l span{flex:1}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div id="quadro"><h3>Mini sessão de Natal</h3><div class="g">${0}</div></div>
+  <div id="rz"><div id="rz-rec"></div><div id="rz-ok">sinal pago</div></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="extra"></div>
+  <div class="fone" id="fa"></div>
+  <div id="eu"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, attr, entra, em, vis, pose, IC, ic, boca, fecha, historia, h } from "./historia.mjs";
+import { serie } from "./serie.mjs";
+import { estudio, helena, recibo, cara, TK, celular } from "./celular.mjs";
+
+const R = await historia({
+  nome: "reels-marido",
+  ordem: ["escuro", "resumo", "eu", "natal", "espera", "virada", "licao", "site", "fecho", "marca", "cta", "pos"],
+  // a trilha: as vagas carimbadas abrem com impacto, o resumo e a frase no pulso, a mini sessão e as mães pedindo são o
+  // groove (cortado no estúdio vazio, a frase "nada"), a resposta do marido na batida abafada, "sem prazo" sobe até o
+  // drop, que cai em "abrir as vagas pela agenda do site"; o fecho fica seco
+  trilha: { escuro: "abre", resumo: "google", eu: "google", natal: "insta", espera: "insta", virada: "volta", licao: "ese", site: "site", fecho: "fim", marca: "fim", cta: "cta", pos: "cta" },
+  cta: "NATAL", nota: "A Helena, a Carla e o marido são fictícios.", bpm: 126, tom: 2,
+});
+const { F, S, I, W, palco, DUR } = R;
+const T = {
+  segurei: W("abre", "segurei"), nove: W("abre", "nove"), vagas: W("abre", "vagas"), nenhuma: W("abre", "nenhuma"),
+  comprovante: W("resumo", "comprovante"), familia: W("resumo", "familia"), agora: W("resumo", "agora"), painel: W("resumo", "painel"),
+  frase: W("frase", "frase"), vou: W("frase", "vou"), marido: W("frase", "marido"),
+  novembro: W("natal", "novembro"), abriu: W("natal", "abriu"), natal: W("natal", "natal"), oito: W("oito", "oito"), sabado: W("oito", "sabado"),
+  carla: W("tati", "carla"), dez: W("tati", "dez"), segura: W("tati", "segura"), marido2: W("tati", "marido"),
+  segurou: W("segurou", "segurou"),
+  quatro: W("quatro", "quatro"), maes: W("quatro", "maes"), respondeu: W("reservado", "respondeu"), reservado: W("reservado", "reservado"),
+  semana: W("semana", "semana"), vendo: W("semana", "vendo"),
+  sab2: W("nada", "sabado"), vazio: W("nada", "vazio"),
+  respondido: W("sabe", "respondido"), sim: W("sim", "sim"), primeiro: W("sim", "primeiro"), esqueceu: W("esqueceu", "esqueceu"), avisar: W("esqueceu", "avisar"),
+  prazo: W("licao", "prazo"), pressa: W("licao", "pressa"),
+  agenda: W("site", "agenda"), site: W("site", "site"), horario: W("h24", "horario"), h24: W("h24", "24"), sinal: W("h24", "sinal"),
+  volta: W("volta", "volta"), chama: W("volta", "chama"), espera: W("volta", "espera"), conta: W("conta", "conta"), sobraram: W("conta", "sobraram"),
+  direct: W("eu2", "direct"), ontem: W("ontem", "ontem"), voltou: W("ontem", "voltou"), nove2: W("ontem", "nove"), marido3: W("ontem", "marido"),
+  vinte: W("minutos", "vinte"), minutos: W("minutos", "minutos"),
+};
+T.tap10 = T.horario - 0.2;       // na agenda do site, o horário das dez
+
+IC.arvore = '<path d="m8 19 4-14 4 14"/><path d="M10 13h4"/><path d="M12 19v3"/>';
+IC.relogio2 = '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>';
+IC.cadeado = '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>';
+
+// ====================== o narrador: um balão de fala, com cara ======================
+function balaoCara(p) {
+  return `<g id="${p}"><ellipse cx="0" cy="168" rx="150" ry="14" fill="#000" opacity=".28"/>
+    <path d="M-190 -150 Q-200 -170 -170 -170 H170 Q200 -170 200 -140 V60 Q200 90 170 90 H-30 L-110 160 L-96 90 H-170 Q-200 90 -200 60 Z" fill="#f1eee9"/>
+    <text id="${p}txt" x="0" y="-92" text-anchor="middle" font-family="Geist" font-weight="800" font-size="36" fill="#1e2528">Vou ver com</text>
+    <text id="${p}txt2" x="0" y="-48" text-anchor="middle" font-family="Geist" font-weight="800" font-size="36" fill="#b25134">meu marido</text>
+    <g id="${p}sob" fill="#3a2f2a"><rect x="-58" y="-16" width="36" height="8" rx="4"/><rect x="22" y="-16" width="36" height="8" rx="4"/></g>
+    <g id="${p}olhos"><circle cx="-40" cy="12" r="13" fill="#1e2528"/><circle cx="40" cy="12" r="13" fill="#1e2528"/><circle cx="-35" cy="7" r="4.2" fill="#fff"/><circle cx="45" cy="7" r="4.2" fill="#fff"/></g>
+    <circle cx="-76" cy="40" r="11" fill="#e8855e" opacity=".22"/><circle cx="76" cy="40" r="11" fill="#e8855e" opacity=".22"/>
+    <path id="${p}sorriso" d="M-18 44 Q0 62 18 44" stroke="#7a3d2e" stroke-width="7" fill="none" stroke-linecap="round" opacity="0"/>
+    <path id="${p}reta" d="M-14 52 H14" stroke="#7a3d2e" stroke-width="7" stroke-linecap="round"/>
+    <path id="${p}triste" d="M-16 60 Q0 44 16 60" stroke="#7a3d2e" stroke-width="7" fill="none" stroke-linecap="round" opacity="0"/>
+    <ellipse id="${p}oh" cx="0" cy="52" rx="10" ry="13" fill="#7a3d2e" opacity="0"/></g>`;
+}
+$("#eu").innerHTML = `<svg viewBox="-210 -190 420 380">${balaoCara("nr")}</svg>`;
+// o comprovante da parte 2, para o resumo
+$("#rz-rec").innerHTML = `<svg viewBox="-120 -190 240 390">${recibo("rr")}</svg>`;
+
+// ====================== o quadro das nove vagas ======================
+const VAGAS = [["05/12", "9h"], ["05/12", "15h"], ["12/12", "10h"], ["12/12", "11h"], ["12/12", "16h"], ["19/12", "9h"], ["19/12", "14h"], ["20/12", "10h"], ["20/12", "17h"]];
+$("#quadro .g").innerHTML = VAGAS.map(([d, hr], k) => `<div class="vg" id="vg${k}"><b>${d}</b><small>${hr}</small><span class="car">SEGURADA</span><span class="zero">sinal: R$ 0</span></div>`).join("");
+
+// ====================== as cenas desenhadas: o estúdio de Natal ======================
+$("#cn").innerHTML = `${estudio()}
+  <g id="natal-set"><rect x="560" y="1180" width="420" height="540" rx="10" fill="#5a2830"/><rect x="560" y="1180" width="420" height="40" fill="#4a1f27"/>
+    <g transform="translate(770 1700)"><polygon points="0,-420 -120,-230 -70,-230 -160,-80 -60,-80 -60,0 60,0 60,-80 160,-80 70,-230 120,-230" fill="#3f6844"/>
+      <polygon points="0,-450 9,-428 32,-426 14,-411 20,-388 0,-401 -20,-388 -14,-411 -32,-426 -9,-428" fill="#e0b04a"/>
+      ${[[-40, -300], [50, -250], [-90, -160], [80, -140], [0, -200], [-20, -110]].map(([x, y], k) => `<circle cx="${x}" cy="${y}" r="13" fill="${["#e8855e", "#f2c25a", "#f1eee9"][k % 3]}"/>`).join("")}</g>
+    <g transform="translate(660 1720)"><rect x="-60" y="-120" width="120" height="16" rx="8" fill="#c9a77c"/><rect x="-50" y="-104" width="10" height="104" fill="#a8865c"/><rect x="40" y="-104" width="10" height="104" fill="#a8865c"/></g></g>`;
+
+// ====================== o celular ======================
+const MAES = [["Bia", "#2f6f86"], ["Lu", "#6f8f5a"], ["Nanda", "#9b6b84"], ["Jéssica", "#c47b6a"]];
+const HORAS = ["9h", "10h", "11h", "13h", "14h", "15h", "16h", "17h"];
+const { FA, mostra, toque, hora } = celular(`
+  <div class="tela sto" id="s-sto"><div class="sto-barras"><i><b id="sto-p"></b></i><i></i></div><div class="sto-quem"><i>H</i>helena.fotografia</div>
+    <svg class="sto-arv" viewBox="0 0 100 120"><polygon points="50,6 24,46 36,46 14,80 40,80 40,104 60,104 60,80 86,80 64,46 76,46" fill="#4f7a52"/><polygon points="50,0 53,8 61,8 55,13 57,21 50,16 43,21 45,13 39,8 47,8" fill="#e0b04a"/>${[[42, 38], [58, 54], [36, 66], [64, 70], [50, 28]].map(([x, y], k) => `<circle cx="${x}" cy="${y}" r="3.4" fill="${["#e8855e", "#f2c25a", "#f1eee9"][k % 3]}"/>`).join("")}</svg>
+    <div class="sto-tit">Mini sessão<br>de Natal</div><div class="sto-sub">Sábado, 12/12 · 8 horários</div>
+    <div class="sto-h">${HORAS.map((x, k) => `<span id="sh${k}">${x}</span>`).join("")}</div></div>
+  <div class="tela" id="s-dm"><div class="dm-topo">${ic("voltar")}<i style="background:#7a6a9a">C</i><div>Carla<small>carla.mendes</small></div></div>
+    <div class="dm-fundo" id="dm-rolo"><span class="dm-hora" style="top:16px">3 DE NOVEMBRO</span>
+      <div class="dm ent" id="dm1" style="top:56px">Me segura o das 10? Vou ver com meu marido.</div>
+      <div class="dm sai" id="dm2" style="top:212px">Seguro!</div>
+      <span class="dm-hora" id="dm-h2" style="top:300px">10 DE NOVEMBRO</span>
+      <div class="dm sai" id="dm3" style="top:340px">E aí, Carla? Fechamos o das 10?</div>
+      <div class="dm ent" id="dm4" style="top:470px">Tô vendo ainda!</div></div></div>
+  <div class="tela" id="s-maes"><div class="dm-topo">${ic("voltar")}Mensagens<small style="margin-left:auto;display:inline">4 novas</small></div>
+    <div class="dm-fundo">${MAES.map(([n, c], k) => `<div class="dm ent" id="mm${k}" style="top:${24 + k * 150}px;max-width:300px"><span class="quem" style="color:${c}">${n}</span>Tem o das 10?</div><div class="dm sai" id="mr${k}" style="top:${86 + k * 150}px;max-width:300px">Já está reservado.</div>`).join("")}</div></div>
+  <div class="tela" id="s-zap"><div class="zp-topo">${ic("voltar")}<i style="background:#2f6f86">R</i><div>Amor<small>visto por último hoje às 09:58</small></div></div>
+    <div class="zp-fundo"><span class="dm-hora" style="top:16px;background:#f6f3ee;padding:6px 14px;border-radius:10px">3 DE NOVEMBRO</span>
+      <div class="zp-m sai" id="zp1" style="top:64px;max-width:360px">Amor, vamos fazer a foto de Natal? Dia 12, às 10h.<small>21:02 ${TK("#3aa7e0")}</small></div>
+      <div class="zp-m ent" id="zp2" style="top:210px;font-size:48px;font-weight:800">Sim!<small>21:03</small></div></div></div>
+  <div class="tela st" id="s-ag"><div class="ms-url">${ic("cadeado")}<span>helenafotografia.com.br/natal</span></div><div class="ms-topo"><span>Helena Fotografia</span><i></i></div>
+    <div class="ag-tit">Mini sessão de Natal</div><div class="ag-sub">Sábado, 12/12 · escolha o seu horário</div>
+    <div class="ag-g">${HORAS.map((x, k) => `<div class="ag-h${[0, 3, 4, 6].includes(k) ? " oc" : ""}" id="ah${k}">${x}<small>${[0, 3, 4, 6].includes(k) ? "reservado" : "livre"}</small></div>`).join("")}</div>
+    <div id="ag-sep">O horário das 10h fica separado até o sinal.<b id="ag-t">24:00:00</b></div></div>
+  <div class="tela" id="s-pn"><div class="pn-topo">${ic("calendario")}Painel<small>Helena Fotografia</small></div>
+    <div class="pn-tit">Mini sessão de Natal · 12/12</div>
+    <div class="pn-cont"><b id="pn-n">3</b><span>vagas sobrando de 8</span></div>
+    <div class="pn-l"><span class="h">10h</span><div class="n">Carla<small>separado até o sinal</small></div><span class="pn-st pre" id="pn-st10">24 h</span></div>
+    <div class="pn-l"><span class="h">11h</span><div class="n">Ana<small>sinal marcado</small></div><span class="pn-st ok">confirmado</span></div>
+    <div class="pn-esp" id="pn-esp"><b>Lista de espera</b>${MAES.slice(0, 3).map(([n], k) => `<div class="l" id="pe${k}"><span>${k + 1}. ${n}</span>${k === 0 ? `<span class="pn-st bt" id="pe-bt">Chamar</span>` : ""}</div>`).join("")}</div></div>
+  <div class="tela" id="s-dm2"><div class="dm-topo">${ic("voltar")}<i style="background:#7a6a9a">C</i><div>Carla<small>carla.mendes</small></div></div>
+    <div class="dm-fundo"><span class="dm-hora" style="top:16px">HOJE</span>
+      <div class="dm ent" id="d21" style="top:56px">Me segura o das 9? Vou ver com meu marido.</div>
+      <div class="dm sai" id="d22" style="top:212px;max-width:350px">Separei por 24 horas pelo site. É só pagar o sinal!</div>
+      <span class="dm-hora" id="d2h" style="top:360px">20 MINUTOS DEPOIS</span>
+      <div class="dm ent" id="d23" style="top:400px">Ele disse sim! Já paguei.</div></div></div>`);
+
+// ====================== peças por cima ======================
+$("#extra").innerHTML = `<div id="relogio">10:00</div><div id="infinito"><b>∞</b><small>prazo para decidir</small></div>
+  <div class="etq tc" id="etq-1dia">no primeiro dia</div>`;
+$("#quadro").style.display = "";
+
+// ====================== quadro a quadro ======================
+// o gancho: o quadro de vagas da mini sessão, carimbadas uma a uma, e nenhum sinal
+function qQuadro(t) {
+  const el = $("#quadro"), on = t < S.resumo + 0.3;
+  vis(el, on); if (!on) return;
+  const a = entra(t, 0, 0.35), sai_ = fase(t, S.resumo - 0.15, S.resumo + 0.25);
+  pos(el, { x: 540, y: 720 + a.y, s: lerp(1, 0.92, sai_), o: a.o * (1 - sai_) });
+  VAGAS.forEach((_, k) => {
+    const t0 = lerp(T.nove - 0.15, T.vagas + 0.25, k / 8), c = fase(t, t0, t0 + 0.22), z = fase(t, T.nenhuma - 0.1 + k * 0.03, T.nenhuma + 0.2 + k * 0.03);
+    pos($(`#vg${k} .car`), { s: c > 0 ? lerp(2.2, 1, sai(c)) : 2.2, r: -8 + 5 * h(k, 2), o: c > 0 ? Math.min(1, c * 3) : 0 });
+    $(`#vg${k} .zero`).style.opacity = z.toFixed(3);
+    $(`#vg${k}`).style.transform = c > 0 && c < 1 ? `translateY(${(6 * Math.sin(Math.PI * c)).toFixed(1)}px)` : "";
+  });
+}
+// o resumo da parte 2: o comprovante e o sinal pago no painel
+function qResumo(t) {
+  const on = em(t, S.resumo - 0.2, S.eu + 0.2), el = $("#rz");
+  el.style.opacity = on ? (fase(t, S.resumo - 0.2, S.resumo + 0.2) * (1 - fase(t, S.eu - 0.2, S.eu + 0.1))).toFixed(3) : 0;
+  if (!on) return;
+  const a = entra(t, S.resumo + 0.05, 0.35); pos($("#rz-rec"), { x: 540, y: 880 + a.y, s: a.s * 0.95, r: -6 + 3 * Math.sin(t * 2), o: a.o });
+  cara("rr", t > T.agora ? "sorriso" : "triste", (t % 2.5) < 0.1 ? 1 : 0, t > T.agora ? 0.5 : -0.6);
+  const b = entra(t, T.painel - 0.1, 0.35), ok = $("#rz-ok"); pos(ok, { x: 540 - ok.offsetWidth / 2, y: 1120 + b.y, s: b.s, o: b.o });
+}
+// o estúdio de Natal: às dez da manhã, a Helena espera sozinha
+function qCena(t) {
+  const on = em(t, I("nada") - 0.05, S.virada);
+  vis($("#c-cena"), on);
+  attr($("#g-estudio"), "opacity", on ? 1 : 0); attr($("#natal-set"), "opacity", on ? 1 : 0);
+  if (!on) return;
+  helena(t, { x: 300, jeito: t > T.vazio ? "triste" : "reta", olhos: t > T.vazio + 0.4 ? 0.3 : null });
+}
+// o celular: [t, centro x, centro y, escala, giro, opacidade]
+const PF = [
+  [0, 540, 1500, 0.9, 10, 0], [S.natal - 0.25, 540, 1500, 0.9, 10, 0], [S.natal + 0.1, 540, 1090, 1.3, 0, 1],
+  [I("nada") - 0.15, 540, 1090, 1.3, 0, 1], [I("nada") + 0.05, 540, 1300, 1, 0, 0],
+  [S.virada - 0.2, 540, 1500, 0.9, 10, 0], [S.virada + 0.1, 540, 1090, 1.3, 0, 1],
+  [S.licao - 0.15, 540, 1090, 1.3, 0, 1], [S.licao + 0.1, 540, 1300, 1, 0, 0],
+  [S.site - 0.2, 540, 1700, 1, 8, 0], [S.site + 0.15, 540, 1090, 1.3, 0, 1],
+  [S.marca - 0.35, 540, 1090, 1.3, 0, 1], [S.marca - 0.05, 540, 1300, 1, 0, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(PF, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  $("#dedo").style.opacity = 0;
+  if (o <= 0.002) return;
+  let tela;
+  if (t < S.virada - 0.1) {
+    tela = t < I("tati") - 0.1 ? "s-sto" : t < I("quatro") - 0.1 ? "s-dm" : t < I("semana") - 0.1 ? "s-maes" : "s-dm";
+    hora(t < I("semana") - 0.1 ? "21:00" : "10:12");
+  } else if (t < S.site - 0.1) { tela = "s-zap"; hora("10:20"); }
+  else if (t < S.fecho - 0.1) { tela = t < I("volta") + 1.2 ? "s-ag" : "s-pn"; hora("18:00"); }
+  else { tela = "s-dm2"; hora("18:22"); }
+  mostra(tela);
+  if (tela === "s-sto") {
+    $("#sto-p").style.width = `${(100 * fase(t, S.natal, I("tati"))).toFixed(1)}%`;
+    HORAS.forEach((_, k) => { const a = entra(t, T.oito - 0.05 + k * 0.08, 0.25); pos($(`#sh${k}`), { y: a.y * 0.4, s: a.s, o: a.o }); });
+  }
+  if (tela === "s-dm") {
+    const semana = t >= I("semana") - 0.1;
+    $("#dm-rolo").style.transform = semana ? "translateY(-40px)" : "";
+    [["#dm1", T.carla - 0.1], ["#dm2", T.segurou - 0.05]].forEach(([id, t0]) => { const a = entra(t, t0, 0.3); pos($(id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: semana ? 1 : a.o }); });
+    [["#dm-h2", I("semana")], ["#dm3", I("semana") + 0.1], ["#dm4", T.vendo - 0.25]].forEach(([id, t0]) => { const a = entra(t, t0, 0.3); pos($(id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: semana ? a.o : 0 }); });
+  }
+  if (tela === "s-maes") {
+    MAES.forEach((_, k) => {
+      const a = entra(t, T.quatro - 0.1 + k * 0.18, 0.3); pos($(`#mm${k}`), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+      const b = entra(t, T.respondeu + k * 0.22, 0.3); pos($(`#mr${k}`), { y: b.y * 0.6, s: lerp(0.85, 1, b.x > 0 ? volta(b.x) : 0), o: b.o });
+    });
+  }
+  if (tela === "s-zap") {
+    const a = entra(t, T.respondido - 0.5, 0.3); pos($("#zp1"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
+    const b = entra(t, T.sim - 0.05, 0.3); pos($("#zp2"), { y: b.y * 0.6, s: lerp(0.7, 1, b.x > 0 ? volta(b.x) : 0), o: b.o });
+    $("#zp2").style.boxShadow = pulso(t, T.primeiro - 0.1, 0.8) > 0.05 ? `0 0 0 ${(6 * pulso(t, T.primeiro - 0.1, 0.8)).toFixed(1)}px #e8855e` : "";
+  }
+  if (tela === "s-ag") {
+    HORAS.forEach((_, k) => { const b = entra(t, S.site + 0.15 + k * 0.05, 0.3); pos($(`#ah${k}`), { y: b.y * 0.5, s: b.x > 0 ? lerp(0.9, 1, volta(b.x)) : 0.9, o: b.o }); });
+    const sep = t >= T.tap10 + 0.1, volta_ = t >= T.volta - 0.1;
+    $("#ah1").className = "ag-h" + (sep && !volta_ ? " pre" : ""); $("#ah1 small").textContent = sep && !volta_ ? "separado" : "livre";
+    const a = entra(t, T.tap10 + 0.15, 0.3); pos($("#ag-sep"), { y: a.y * 0.4, s: a.s, o: a.o });
+    // o relógio das 24 horas corre até zerar na volta
+    const rest = Math.max(0, 86400 * (1 - fase(t, T.tap10 + 0.3, T.volta - 0.1)));
+    const hh = Math.floor(rest / 3600), mm = Math.floor(rest % 3600 / 60), ss = Math.floor(rest % 60);
+    $("#ag-t").textContent = `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
+    $("#ag-t").style.color = volta_ ? "#e8855e" : "";
+    const p = pulso(t, T.h24 - 0.1, 0.8); $("#ag-sep").style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #e8855e` : "";
+    const pv = pulso(t, T.volta - 0.05, 0.7); $("#ah1").style.boxShadow = pv > 0.05 ? `0 0 0 ${(5 * pv).toFixed(1)}px #25a35a` : "";
+    toque(t, T.tap10, $("#ah1"));
+  }
+  if (tela === "s-pn") {
+    const ch = t >= T.espera - 0.1;
+    $("#pe-bt").textContent = ch ? "Chamada" : "Chamar"; $("#pe-bt").className = "pn-st " + (ch ? "ok" : "bt");
+    $("#pn-st10").textContent = "vaga livre"; $("#pn-st10").className = "pn-st livre";
+    const pe = pulso(t, T.espera - 0.2, 0.8); $("#pn-esp").style.boxShadow = pe > 0.05 ? `0 0 0 ${(5 * pe).toFixed(1)}px #e8855e` : "";
+    const n = t >= T.sobraram - 0.2 ? 2 : 3; $("#pn-n").textContent = n;
+    const pc = pulso(t, T.sobraram - 0.2, 0.6); $(".pn-cont", FA).style.boxShadow = pc > 0.05 ? `0 0 0 ${(5 * pc).toFixed(1)}px #25a35a` : "";
+    $(".pn-cont", FA).style.transform = `scale(${(1 + 0.05 * pc).toFixed(3)})`;
+    toque(t, T.espera + 0.05, $("#pe-bt"));
+  }
+  if (tela === "s-dm2") {
+    [["#d21", T.voltou], ["#d22", T.marido3 + 0.3], ["#d2h", T.vinte - 0.5], ["#d23", T.vinte - 0.3]].forEach(([id, t0]) => { const a = entra(t, t0, 0.3); pos($(id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); });
+  }
+}
+// o narrador: [t, x, y, escala, giro, opacidade]
+const EU = [
+  [0, 540, 1100, 0.3, 0, 0], [T.frase - 0.3, 540, 1100, 0.3, 0, 0], [T.frase + 0.1, 540, 1080, 1.4, 0, 1],
+  [S.natal - 0.15, 540, 1080, 1.4, 0, 1], [S.natal + 0.15, 540, 1080, 0.3, 20, 0],
+  [I("semana") - 0.2, 900, 1750, 0.3, 0, 0], [I("semana") + 0.1, 900, 1750, 0.42, 0, 1], [I("nada") - 0.1, 900, 1750, 0.42, 0, 1], [I("nada") + 0.1, 900, 1800, 0.3, 0, 0],
+  [S.licao - 0.25, 540, 1080, 0.5, 0, 0], [S.licao + 0.1, 540, 1080, 0.6, 0, 0],
+  [S.fecho - 0.2, 880, 1760, 0.3, 0, 0], [S.fecho + 0.1, 880, 1760, 0.42, 0, 1], [S.marca - 0.35, 880, 1760, 0.42, 0, 1], [S.marca - 0.05, 880, 1800, 0.3, 0, 0],
+];
+function qEu(t) {
+  const [x, y, s, r, o] = pose(EU, t);
+  pos($("#eu"), { x, y: y + 6 * Math.sin(t * 2.4), s, r, o });
+  if (o <= 0.002) return;
+  const pisca = (t % 2.7) < 0.1 ? 1 : 0;
+  if (t < S.natal) cara("nr", "sorriso", pisca, 0.6, 12);
+  else if (t < S.fecho) cara("nr", "sorriso", 0.5, 0, 12);
+  else cara("nr", t >= T.vinte - 0.3 ? "oh" : "sorriso", t >= T.vinte - 0.3 ? 0 : pisca, t >= T.vinte - 0.3 ? 1 : 0.4, 12);
+  const esc = fase(t, T.vou - 0.1, T.marido + 0.2);
+  attr($("#nrtxt"), "opacity", t < S.natal ? Math.min(1, esc * 2).toFixed(3) : 1); attr($("#nrtxt2"), "opacity", t < S.natal ? fase(t, T.marido - 0.15, T.marido + 0.15).toFixed(3) : 1);
+}
+// por cima: o relógio das dez, o "no primeiro dia" e o infinito da lição
+function qExtra(t) {
+  { const el = $("#relogio"), on = em(t, I("nada"), S.virada), a = entra(t, T.sab2 - 0.05); pos(el, { x: 540 - el.offsetWidth / 2, y: 560 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, S.virada - 0.25, S.virada)) : 0 }); }
+  { const el = $("#etq-1dia"), a = entra(t, T.primeiro - 0.05); pos(el, { x: 540 - el.offsetWidth / 2, y: 1720 + a.y, s: a.s, r: -3, o: em(t, T.primeiro - 0.1, S.licao) ? a.o * (1 - fase(t, S.licao - 0.25, S.licao)) : 0 }); }
+  { const el = $("#infinito"), on = em(t, S.licao - 0.1, S.site), a = entra(t, S.licao, 0.4); pos(el, { x: 540, y: 1100 + a.y, s: a.s * (1 + 0.04 * Math.sin(t * 6)), r: 6 * Math.sin(t * 1.5), o: on ? a.o * (1 - fase(t, S.site - 0.25, S.site)) : 0 }); }
+}
+
+const quadroSerie = serie(R, { parte: 3, abertura: "resumo",
+  resumo: { id: "resumo", titulo: "300 reais sumiram", arte: `<svg viewBox="0 0 150 200"><rect width="150" height="200" fill="#111618"/><text x="75" y="34" text-anchor="middle" font-family="Geist" font-weight="800" font-size="18" fill="#e8855e">300 reais</text><text x="75" y="54" text-anchor="middle" font-family="Geist" font-weight="800" font-size="18" fill="#f6f3ee">sumiram</text><g transform="translate(75 132) scale(.34)">${recibo("mn")}</g></svg>` },
+  proxima: { arte: `<g id="p4-mapa"><rect x="140" y="760" width="800" height="760" rx="40" fill="#e7e4dc"/>
+      <path d="M140 1000 H940 M140 1260 H940 M380 760 V1520 M700 760 V1520" stroke="#fbf8f3" stroke-width="34"/><path d="M140 1130 Q540 1080 940 1180" stroke="#f2d79a" stroke-width="22" fill="none"/>
+      <rect x="200" y="800" width="140" height="160" rx="12" fill="#cfd8c8"/><rect x="760" y="1300" width="140" height="180" rx="12" fill="#cfd8c8"/>
+      <g transform="translate(560 1180)"><path d="M-90 0 L0 -80 L90 0 V90 H-90 Z" fill="#c9a77c"/><rect x="-24" y="30" width="48" height="60" fill="#7d573c"/><path d="M0 -20 C-12 -36 -36 -24 -22 -6 L0 14 L22 -6 C36 -24 12 -36 0 -20 Z" fill="#e0606a"/></g>
+      <text x="560" y="1320" text-anchor="middle" font-family="Geist" font-weight="800" font-size="34" fill="#1e2528">casa da mãe</text></g>
+    <g id="p4-pino"><path d="M0 -150 C-80 -150 -110 -90 -110 -50 C-110 20 0 110 0 110 C0 110 110 20 110 -50 C110 -90 80 -150 0 -150 Z" fill="#e0453a"/><circle cx="0" cy="-58" r="44" fill="#fbf8f3"/>
+      <circle cx="-16" cy="-62" r="8" fill="#1e2528"/><circle cx="16" cy="-62" r="8" fill="#1e2528"/><path d="M-12 -40 Q0 -32 12 -40" stroke="#7a3d2e" stroke-width="5" fill="none" stroke-linecap="round"/></g>`,
+    anima: (t, p) => {
+      const al = W("pos", "alfinete"), mae = W("pos", "mae");
+      const m = fase(t, p.ini, p.ini + 0.4); attr($("#p4-mapa"), "opacity", m.toFixed(3));
+      const c = fase(t, al - 0.15, al + 0.35), sobre = ease(fase(t, mae - 0.6, mae));
+      attr($("#p4-pino"), "transform", `translate(${lerp(820, 560, sobre).toFixed(1)} ${(lerp(700, 1000, sai(c)) - 30 * Math.abs(Math.sin(t * 3)) * (1 - sobre)).toFixed(1)}) scale(${(c > 0 ? lerp(0.4, 1, volta(c)) : 0.001).toFixed(3)})`);
+    } } });
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const est = em(t, I("nada") - 0.05, S.virada), quente = em(t, S.site, S.fecho);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : est ? "#3a4a58" : "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
+  qQuadro(t); qResumo(t); qCena(t); qFone(t); qEu(t); qExtra(t); quadroSerie(t);
+  R.comum(t, { poeira: !est });
+};
+const SONS = [...VAGAS.map((_, k) => ({ t: lerp(T.nove - 0.15, T.vagas + 0.25, k / 8), tipo: "toc", ganho: 0.6 })), { t: T.carla - 0.1, tipo: "ding", ganho: 0.6 }, { t: T.segurou - 0.05, tipo: "ding", ganho: 0.5 },
+  ...MAES.map((_, k) => ({ t: T.quatro - 0.1 + k * 0.18, tipo: "ding", ganho: 0.45 })), { t: T.vendo - 0.25, tipo: "ding", ganho: 0.5 }, { t: T.sim - 0.05, tipo: "ding", ganho: 0.7 },
+  { t: T.tap10, tipo: "toque", ganho: 0.8 }, { t: T.espera + 0.05, tipo: "toque", ganho: 0.8 }, { t: T.voltou, tipo: "ding", ganho: 0.6 }, { t: T.vinte - 0.3, tipo: "ding", ganho: 0.7 }];
+window.preparar = () => R.preparar([0.3, T.nove + 0.3, T.vagas + 0.6, T.nenhuma + 0.4, T.familia + 0.3, T.painel + 0.4, T.frase + 0.3, T.marido + 0.3, T.natal + 0.3, T.sabado + 0.3,
+  T.segura + 0.3, T.segurou + 0.3, T.maes + 0.4, T.reservado + 0.4, T.vendo + 0.3, T.vazio + 0.3, T.respondido + 0.2, T.sim + 0.3, T.avisar + 0.2, T.pressa + 0.2,
+  T.site + 0.3, T.h24 + 0.3, T.volta + 0.4, T.espera + 0.3, T.sobraram + 0.3, T.direct + 0.2, T.marido3 + 0.5, T.minutos + 0.3, F.moral.ini + 1.2, F.marca.ini + 1.3,
+  F.cta.ini + 1.6, F.pos.ini + 1.2, F.pos.ini + 2.6, DUR - 0.4], SONS);
+await R.pronto();
+</script>
+</body></html>
