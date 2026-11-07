@@ -440,7 +440,7 @@ Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu
 
 ## Série "Eu ainda não nasci" (3 episódios, um por dia, 19h; o padrão está em `SERIE.md`)
 
-Substitui a série "O celular da fotógrafa". As partes "O comprovante" (`reels-comprovante`) e "Vou ver com meu marido" (`reels-marido`) não serão postadas: o que elas ensinavam está no episódio 3.
+Substitui a série "O celular da fotógrafa". As partes "O comprovante" (`reels-comprovante`) e "Vou ver com meu marido" (`reels-marido`) não serão postadas.
 
 ### Episódio 1 · "A tabela" (`reels-nasci1`, para fotógrafas)
 
@@ -448,38 +448,38 @@ Capa: "Eu ainda não *nasci*", com o selo "EPISÓDIO 1 · EU AINDA NÃO NASCI", 
 Quando: Sábado, 07/11, às 19h.
 Vincular: Por enquanto, nada. Quando o episódio 2 sair, abra os três pontos deste e vincule ao 2 com o título "Ver episódio 2".
 
-Episódio 1 de Eu ainda não nasci, uma série em três episódios, um por dia às 19h. A Camila, a Helena, o Louro e o bebê que narra são fictícios. O PDF de catorze páginas, nem tanto.
+Episódio 1 de Eu ainda não nasci, uma série em três episódios, um por dia às 19h. A Camila, o Rafa, a Helena, o Louro e o bebê que narra são fictícios. O PDF de catorze páginas, nem tanto.
 
-Quem pergunta "valor?" e some nem sempre achou caro: às vezes nem chegou a ver o preço. No PDF da Helena, o preço estava na página 9, e o arquivo não baixou no 4G. Num site com o portfólio separado por ensaio, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela.
+Quem pergunta "valor?" de madrugada e some nem sempre achou caro: às vezes nem chegou a ver o preço. No PDF da Helena, o preço estava na última página, e o arquivo não baixou no 4G. Num site com o portfólio separado por ensaio, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela.
 
 Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
-Comentário para fixar: "Quantas páginas tem a sua tabela de preços?"
+Comentário para fixar: "Quem você acha que leu as 14 páginas? Palpite aqui, a resposta sai no episódio 3."
 
 ### Episódio 2 · "Quinze dias" (`reels-nasci2`, para fotógrafas)
 
-Capa: "*Quinze* dias", com o selo "EPISÓDIO 2 · EU AINDA NÃO NASCI", sobre o pai na porta e o Louro na janela ("Qual o valor? Valor?").
+Capa: "*Quinze* dias", com o selo "EPISÓDIO 2 · EU AINDA NÃO NASCI", sobre o pai na porta e o Louro na janela.
 Quando: Domingo, 08/11, às 19h.
 Vincular: Ao postar, nada neste. Abra o episódio 1 e vincule ao 2, com o título "Ver episódio 2".
 
-Episódio 2 de Eu ainda não nasci. O episódio 1 está fixado no perfil. A Camila, a Helena, o Louro e o bebê que narra são fictícios. O endereço velho no mapa, nem tanto.
+Episódio 2 de Eu ainda não nasci. O episódio 1 está fixado no perfil. A Camila, o Rafa, a Helena, o Louro e o bebê que narra são fictícios. O endereço velho no mapa, nem tanto.
 
-O ensaio newborn costuma ser feito nos primeiros quinze dias de vida, e quem procura fotógrafa nessa janela procura de madrugada: 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box). Perfil parado, telefone que não existe e endereço antigo no mapa fazem a mãe desistir antes de perguntar o preço. Com um site, o link da bio leva direto aos ensaios, com o preço de cada um e os horários livres.
+O ensaio newborn costuma ser feito nos primeiros quinze dias de vida. Quem procura fotógrafa nessa janela não tem tempo para perfil parado, telefone que não atende e endereço antigo no mapa: conclui que a fotógrafa fechou e desiste. Com um site, o link da bio leva direto aos ensaios, com o preço de cada um e os horários livres.
 
 Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
-Comentário para fixar: "O endereço do seu estúdio no mapa leva aonde? Conta aqui."
+Comentário para fixar: "O que você acha que estava no bilhete?"
 
 ### Episódio 3 · "Três da manhã" (`reels-nasci3`, para fotógrafas)
 
-Capa: "Três da *manhã*", com o selo "EPISÓDIO 3 · FINAL", sobre o relógio 03:00 e as três janelas acesas.
+Capa: "Três da *manhã*", com o selo "EPISÓDIO 3 · FINAL", sobre o relógio 03:00 e as janelas acesas (uma azul).
 Quando: Segunda, 09/11, às 19h.
-Vincular: Ao postar, vincule este ao episódio 1 com o título "Ver episódio 1": quem chega pelo final volta ao começo. Depois, abra o episódio 2 e vincule ao 3, com "Ver o final".
+Vincular: Ao postar, vincule este ao episódio 1 com o título "Ver episódio 1": quem chega pelo final volta ao começo (e acha as pistas). Depois, abra o episódio 2 e vincule ao 3, com "Ver o final".
 
-Episódio 3, o final de Eu ainda não nasci (tem pós-créditos). Os episódios 1 e 2 estão fixados no perfil. A Camila, a Helena, o Louro e o bebê que narra são fictícios. O "valor?" às três da manhã, nem tanto.
+Episódio 3, o final de Eu ainda não nasci (tem pós-créditos). Os episódios 1 e 2 estão fixados no perfil: depois do final, vale rever. A Camila, o Rafa, a Helena, o Louro e o bebê que narra são fictícios. O "valor?" às três da manhã, nem tanto.
 
 De madrugada ninguém responde direct, mas um site responde: as fotos, o que vem incluso e o preço de cada ensaio na primeira tela, e uma agenda com os horários livres. Quem escolhe um horário tem 24 horas para pagar o sinal; se não paga, a vaga volta para a agenda. De manhã, você confere o Pix e marca o sinal no painel.
 
 Comenta PRÉVIA: a gente monta a prévia do site do seu estúdio com as fotos do seu Instagram. Ver não custa nada. E se você quer a temporada 2, comenta CONTINUAÇÃO.
 
-Comentário para fixar: "Temporada 2: quem conta, o bebê ou o Louro?"
+Comentário para fixar: "Você tinha percebido a parede azul no episódio 1?"

@@ -3,7 +3,7 @@
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
  "inicio": 0.2,
- "_sobre": "Episódio 1 de \"Eu ainda não nasci\" (SERIE.md), \"A tabela\". Três pontos de vista: o bebê (Antonio), a Helena do outro lado da cidade (a mesma noite, e a frase dela na voz dela) e o Louro, o papagaio da mãe da Helena, que aprendeu as frases da filha quando o estúdio funcionava na sala da mãe, em 2019. Planta o pai que dorme na parte importante e o endereço velho no mapa. O id \"nada\" corta a batida.",
+ "_sobre": "Episódio 1 de \"Eu ainda não nasci\" (SERIE.md), \"A tabela\". O mistério da série: alguém leu as 14 páginas (era o pai, que finge dormir; pista: a parede azul do celular). Pontos de vista: o bebê, a Helena às 23h51 e o Louro, que aprendeu três frases na voz da Helena (\"Te mando a tabela!\", \"Conseguiu ver a tabela?\", \"Eu seguro pra você!\"). O id \"nada\" corta a batida.",
  "frases": [
   {
    "id": "abre",
@@ -15,121 +15,141 @@
   {
    "id": "mae",
    "cena": "utero",
-   "texto": "Minha mãe é a Camila. Trinta e seis *semanas.*",
-   "pausa": 0.2
-  },
-  {
-   "id": "faltam",
-   "cena": "utero",
-   "texto": "Ainda faltam *quatro.*",
+   "texto": "Minha mãe é a Camila. Trinta e seis semanas: faltam *quatro.*",
    "pausa": 0.3
   },
   {
    "id": "quer",
    "cena": "utero",
-   "texto": "Ela queria duas fotos: uma comigo na barriga, outra comigo no *colo.*",
+   "texto": "Ela queria duas fotos: uma comigo na barriga, outra no *colo.*",
    "pausa": 0.3
   },
   {
    "id": "pai",
    "cena": "noite",
-   "texto": "Meu pai dormia do lado. Ele sempre dorme na parte *importante.*",
+   "texto": "Meu pai estava virado para a parede. Ele sempre dorme na parte *importante.*",
    "pausa": 0.3
   },
   {
    "id": "valor",
    "cena": "noite",
-   "texto": "Quase meia-noite, ela mandou para a fotógrafa Helena: *valor?*",
+   "texto": "Quase meia-noite, minha mãe mandou para a fotógrafa Helena: *valor?*",
    "pausa": 0.25
+  },
+  {
+   "id": "maioria",
+   "cena": "noite",
+   "texto": "Ela estava na *maioria.*",
+   "pausa": 0.3
   },
   {
    "id": "pdf",
    "cena": "paginas",
-   "texto": "Chegou um PDF: Tabela 2026 FINAL agora *vai.*",
-   "pausa": 0.25,
-   "fala": "Chegou um pê dê éfe: Tabela dois mil e vinte e seis, final, agora vai."
+   "texto": "Três minutos depois, chegou um PDF: Tabela 2026 FINAL agora *vai.*",
+   "pausa": 0.2,
+   "fala": "Três minutos depois, chegou um pê dê éfe: Tabela dois mil e vinte e seis, final, agora vai."
   },
   {
-   "id": "paginas",
+   "id": "c1",
    "cena": "paginas",
-   "texto": "Catorze páginas. O preço, só na *nove.*",
-   "pausa": 0.6
+   "texto": "Catorze *páginas?*",
+   "pausa": 0.2,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+8%",
+   "tom": "+4Hz",
+   "quem": "camila"
+  },
+  {
+   "id": "ultima",
+   "cena": "paginas",
+   "texto": "O preço, só na *última.*",
+   "pausa": 0.5
   },
   {
    "id": "toque",
    "cena": "baixa",
-   "texto": "Toque para baixar. E o 4G, sem *sinal.*",
-   "pausa": 0.25,
-   "fala": "Toque para baixar. E o quatro gê, sem sinal."
+   "texto": "Toque para baixar. E o 4G dela, sem *sinal.*",
+   "pausa": 0.3,
+   "fala": "Toque para baixar. E o quatro gê dela, sem sinal."
   },
   {
-   "id": "curioso",
+   "id": "suspira",
    "cena": "baixa",
-   "texto": "Daqui de dentro, eu vi aquela luz e fiquei *curioso.*",
+   "texto": "Quando ela suspira, eu *chuto.*",
    "pausa": 0.3
   },
   {
    "id": "nada",
    "cena": "chute",
-   "texto": "Eu *chutei.*",
+   "texto": "Ela *suspirou.*",
    "pausa": 0.35,
    "impacto": true
   },
   {
    "id": "caiu",
    "cena": "chute",
-   "texto": "O celular caiu na cara *dela.*",
-   "pausa": 0.55
+   "texto": "O celular caiu no rosto *dela.*",
+   "pausa": 0.5
   },
   {
-   "id": "naobaixou",
+   "id": "nove",
    "cena": "chute",
-   "texto": "Quando ela pegou de novo, o PDF não tinha *baixado.*",
-   "pausa": 0.3,
-   "fala": "Quando ela pegou de novo, o pê dê éfe não tinha baixado."
+   "texto": "E parou nos nove por *cento.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "enc",
+   "cena": "chute",
+   "texto": "Ela encaminhou para o meu pai: baixa no *seu?*",
+   "pausa": 0.25
+  },
+  {
+   "id": "resposta",
+   "cena": "chute",
+   "texto": "Nenhuma resposta. Parte *importante.*",
+   "pausa": 0.4
   },
   {
    "id": "outra",
    "cena": "outra",
-   "texto": "Antes de dormir, ela achou outra fotógrafa, com o preço na primeira *tela.*",
+   "texto": "Às onze e cinquenta e oito, ela achou outra fotógrafa. Preço na primeira *tela.*",
    "pausa": 0.2
   },
   {
    "id": "fechou",
    "cena": "outra",
-   "texto": "Fechou ali mesmo: gestante agora, newborn quando eu *nascesse.*",
-   "pausa": 0.45,
-   "fala": "Fechou ali mesmo: gestante agora, níuborn quando eu nascesse."
+   "texto": "Fechou ali *mesmo.*",
+   "pausa": 0.45
   },
   {
-   "id": "depois",
+   "id": "lado",
    "cena": "helena",
-   "texto": "O que aconteceu do outro lado da cidade, eu só descobri *depois.*",
-   "pausa": 0.3
+   "texto": "Do outro lado da cidade, a Helena tinha mandado a tabela de *sempre.*",
+   "pausa": 0.2
   },
   {
-   "id": "mesma",
+   "id": "chorar",
    "cena": "helena",
-   "texto": "Às onze e cinquenta e um, a Helena tinha mandado a mesma tabela que mandava para todo *mundo.*",
-   "pausa": 0.25
+   "texto": "As fotos dela fazem mãe chorar. A tabela *também.*",
+   "pausa": 0.35
   },
   {
    "id": "conta",
    "cena": "helena",
-   "texto": "Naquele mês, trinta e uma mães pediram o valor. Quatro *fecharam.*",
+   "texto": "Naquele mês, trinta e uma pediram o valor. Quatro *fecharam.*",
    "pausa": 0.4
   },
   {
    "id": "helena",
    "cena": "dia",
-   "texto": "De manhã, ela mandou a frase de *sempre:*",
-   "pausa": 0.15
+   "texto": "De *manhã:*",
+   "pausa": 0.1
   },
   {
    "id": "frase",
    "cena": "dia",
    "texto": "Conseguiu ver a *tabela?*",
-   "pausa": 0.35,
+   "pausa": 0.3,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+6%",
    "quem": "helena"
@@ -138,51 +158,38 @@
    "id": "visto",
    "cena": "dia",
    "texto": "*Visualizado.*",
-   "pausa": 0.45
+   "pausa": 0.4
   },
   {
    "id": "achou",
    "cena": "dia",
-   "texto": "A Helena achou que tinha sido o *preço.*",
-   "pausa": 0.3
-  },
-  {
-   "id": "caro",
-   "cena": "dia",
-   "texto": "Só que a outra era mais *cara.*",
+   "texto": "A Helena achou que foi o preço. A outra era mais *cara.*",
    "pausa": 0.35,
    "impacto": true
   },
   {
    "id": "nem",
    "cena": "dia",
-   "texto": "A minha mãe nunca viu o preço da *Helena.*",
+   "texto": "Minha mãe visualizou a mensagem. O preço, *nunca.*",
    "pausa": 0.5
   },
   {
    "id": "decor",
    "cena": "louro",
-   "texto": "E tinha mais alguém que sabia essa frase de *cor.*",
-   "pausa": 0.3
+   "texto": "Essa pergunta, mais alguém sabia de cor: o *Louro,* papagaio da mãe da Helena.",
+   "pausa": 0.25
   },
   {
    "id": "louro",
    "cena": "louro",
-   "texto": "O Louro, papagaio da mãe da Helena. O estúdio começou na sala dela, em *2019.*",
-   "pausa": 0.25,
-   "fala": "O Louro, papagaio da mãe da Helena. O estúdio começou na sala dela, em dois mil e dezenove."
-  },
-  {
-   "id": "aprendeu",
-   "cena": "louro",
-   "texto": "Em dois anos ouvindo a Helena no telefone, ele aprendeu três *frases.*",
-   "pausa": 0.35
+   "texto": "O estúdio começou na sala dela, e ele aprendeu três frases. Na voz da *Helena.*",
+   "pausa": 0.3
   },
   {
    "id": "l1",
    "cena": "louro",
-   "texto": "Qual o valor? *Valor?*",
-   "pausa": 0.3,
+   "texto": "Te mando a *tabela!*",
+   "pausa": 0.25,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -193,7 +200,7 @@
    "id": "l2",
    "cena": "louro",
    "texto": "Conseguiu ver a *tabela?*",
-   "pausa": 0.3,
+   "pausa": 0.25,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -203,8 +210,8 @@
   {
    "id": "l3",
    "cena": "louro",
-   "texto": "Vou ver com meu *marido!*",
-   "pausa": 0.45,
+   "texto": "Eu seguro pra *você!*",
+   "pausa": 0.4,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -212,21 +219,45 @@
    "quem": "louro"
   },
   {
+   "id": "ultimaf",
+   "cena": "louro",
+   "texto": "A última era para quem ia pensar. O horário ficava preso, e quase ninguém *voltava.*",
+   "pausa": 0.3
+  },
+  {
    "id": "mudou",
    "cena": "louro",
-   "texto": "O estúdio mudou. O endereço no mapa, *não.*",
-   "pausa": 0.6
+   "texto": "O estúdio mudou. O endereço no mapa, não. Nem na página *catorze.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "alguem",
+   "cena": "cidade",
+   "texto": "Naquela noite, alguém leu as catorze *páginas.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "foto",
+   "cena": "cidade",
+   "texto": "É por causa dessa pessoa que eu tenho a minha primeira *foto.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "quem",
+   "cena": "cidade",
+   "texto": "Quem? Só no último *episódio.*",
+   "pausa": 0.5
   },
   {
    "id": "gancho",
    "cena": "gancho",
-   "texto": "Estava tudo combinado. Só que eu resolvi nascer três semanas *antes.*",
+   "texto": "Estava tudo acordado. Só que eu resolvi nascer três semanas *antes.*",
    "pausa": 0.6
   },
   {
    "id": "previa",
    "cena": "previa",
-   "texto": "No próximo episódio: quinze dias para uma foto, um pai que não dorme e um papagaio que atende a *porta.*",
+   "texto": "No próximo episódio: quinze dias para uma foto e um papagaio que atende pela *janela.*",
    "pausa": 0.3
   },
   {

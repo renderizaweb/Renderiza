@@ -3,77 +3,52 @@
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
  "inicio": 0.2,
- "_sobre": "Episódio 3 (final), \"Três da manhã\": a mesma madrugada vista pelo pai (02h58), pela mãe (03h00) e pela Helena (03h04); o encontro no sábado; moral, marca e a prévia explicada; depois de um piii, o pós-créditos em cinza, onze meses depois, com o convite da temporada 2.",
+ "_sobre": "Episódio 3 (final), \"Três da manhã\". A mãe marca e paga sozinha em 4 minutos (a vaga voltou pelas 24 horas). \"Amor, tá acordado?\" \"Não.\" A Helena confere o Pix e marca o sinal no painel: \"Camila. A do PDF?\". No ensaio, a virada: quem leu as 14 páginas e escreveu o bilhete foi o pai; e a Camila sabia (\"a parede fica azul\"). Moral, marca, a prévia explicada e o pós-créditos em cinza com a temporada 2.",
  "frases": [
   {
    "id": "abre",
    "cena": "escuro",
-   "texto": "Três da manhã. Três pessoas acordadas por minha *causa.*",
+   "texto": "Três da manhã. Nessa casa, tinha mais gente acordada do que a minha mãe *sabia.*",
    "pausa": 0.35,
    "impacto": true
   },
   {
    "id": "resumo",
    "cena": "resumo",
-   "texto": "No episódio 2, a Helena trocou o PDF por um site. Só a minha mãe não *sabia.*",
+   "texto": "No episódio 2, um bilhete fez a Helena trocar o PDF por um site. Minha mãe achava que ela tinha *fechado.*",
    "pausa": 0.3,
-   "fala": "No episódio dois, a Helena trocou o pê dê éfe por um site. Só a minha mãe não sabia."
+   "fala": "No episódio dois, um bilhete fez a Helena trocar o pê dê éfe por um site. Minha mãe achava que ela tinha fechado."
   },
   {
-   "id": "acordado",
-   "cena": "pai",
-   "texto": "Duas e cinquenta e oito. Meu pai, que sempre dorme na parte importante, estava *acordado.*",
-   "pausa": 0.25
-  },
-  {
-   "id": "seguia",
-   "cena": "pai",
-   "texto": "Desde o papagaio, ele seguia a Helena no *Instagram.*",
-   "pausa": 0.2
-  },
-  {
-   "id": "postou",
-   "cena": "pai",
-   "texto": "Ela tinha acabado de postar um *newborn.*",
-   "pausa": 0.2,
-   "fala": "Ela tinha acabado de postar um níuborn."
-  },
-  {
-   "id": "mandou",
-   "cena": "pai",
-   "texto": "Ele mandou para a minha mãe: olha *essa.*",
-   "pausa": 0.35
+   "id": "viu",
+   "cena": "perfil",
+   "texto": "Minha mãe viu quem mandou. Você, ainda *não.*",
+   "pausa": 0.3
   },
   {
    "id": "digita",
    "cena": "perfil",
-   "texto": "Minha mãe abriu o perfil e começou a digitar: *valor?*",
+   "texto": "Ela começou a digitar: *valor?*",
    "pausa": 0.3
   },
   {
    "id": "nada",
    "cena": "perfil",
    "texto": "Ela *parou.*",
-   "pausa": 0.45,
+   "pausa": 0.4,
    "impacto": true
   },
   {
    "id": "link",
    "cena": "link",
-   "texto": "Tinha um link na *bio.*",
-   "pausa": 0.25
-  },
-  {
-   "id": "tocou",
-   "cena": "link",
-   "texto": "Ela *tocou.*",
+   "texto": "Tinha um link na bio. Ela *tocou.*",
    "pausa": 0.3
   },
   {
    "id": "site",
    "cena": "site",
    "texto": "Era um *site.*",
-   "pausa": 0.3,
+   "pausa": 0.25,
    "impacto": true
   },
   {
@@ -86,34 +61,39 @@
   {
    "id": "agenda",
    "cena": "site",
-   "texto": "E uma agenda com os horários *livres.*",
-   "pausa": 0.2
-  },
-  {
-   "id": "sabado",
-   "cena": "site",
-   "texto": "Sábado, dez da manhã: *livre.*",
+   "texto": "E a agenda: sábado, dez da manhã, último dia da janela. *Livre.*",
    "pausa": 0.25
   },
   {
-   "id": "marido",
+   "id": "dona",
    "cena": "site",
-   "texto": "Uma mãe tinha segurado esse horário: vou ver com meu *marido.*",
-   "pausa": 0.2,
-   "fala": "Uma mãe tinha segurado esse horário. Vou ver, com o meu marido."
+   "texto": "Até as três, essa vaga tinha dona: alguém escolheu e não pagou o *sinal.*",
+   "pausa": 0.2
   },
   {
-   "id": "h24",
+   "id": "solta",
    "cena": "site",
-   "texto": "O site deu 24 horas para o sinal. Ela não pagou, e a vaga *voltou.*",
-   "pausa": 0.3,
-   "fala": "O site deu vinte e quatro horas para o sinal. Ela não pagou, e a vaga voltou."
+   "texto": "O site segura vinte e quatro horas. Depois, *solta.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "quatro",
+   "cena": "site",
+   "texto": "Ela marcou em quatro minutos e pagou o sinal no *Pix.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "deu",
+   "cena": "site",
+   "texto": "No episódio 1, faltou sinal. Dessa vez, ela deu o *sinal.*",
+   "pausa": 0.4,
+   "fala": "No episódio um, faltou sinal. Dessa vez, ela deu o sinal."
   },
   {
    "id": "c1",
    "cena": "site",
-   "texto": "Amor, vou ver com o *meu...*",
-   "pausa": 0.1,
+   "texto": "Amor, tá *acordado?*",
+   "pausa": 0.3,
    "voz": "pt-BR-FranciscaNeural",
    "ritmo": "+8%",
    "tom": "+4Hz",
@@ -122,75 +102,50 @@
   {
    "id": "r1",
    "cena": "site",
-   "texto": "Já *vi.*",
-   "pausa": 0.4,
+   "texto": "*Não.*",
+   "pausa": 0.6,
    "voz": "en-US-BrianMultilingualNeural",
    "ritmo": "+4%",
    "quem": "rafa"
   },
   {
-   "id": "quatro",
-   "cena": "site",
-   "texto": "Minha mãe marcou em quatro *minutos.*",
-   "pausa": 0.2
-  },
-  {
-   "id": "pagou",
-   "cena": "site",
-   "texto": "E pagou o sinal ali *mesmo.*",
+   "id": "dormia",
+   "cena": "noiteh",
+   "texto": "A Helena *dormia.*",
    "pausa": 0.3
-  },
-  {
-   "id": "caiu",
-   "cena": "site",
-   "texto": "Da outra vez, o que caiu foi o celular. Dessa vez, foi o *sinal.*",
-   "pausa": 0.45
-  },
-  {
-   "id": "acendeu",
-   "cena": "noiteh",
-   "texto": "Do outro lado da cidade, o celular da Helena acendeu. Ela *dormia.*",
-   "pausa": 0.25
-  },
-  {
-   "id": "sozinho",
-   "cena": "noiteh",
-   "texto": "Pela primeira vez, alguém marcou sem ela precisar *responder.*",
-   "pausa": 0.4
   },
   {
    "id": "manha",
    "cena": "manha",
-   "texto": "De manhã, ela conferiu o Pix, marcou o sinal no painel e leu o *nome:*",
+   "texto": "De manhã, conferiu o Pix no banco, marcou o sinal no painel e leu o *nome.*",
    "pausa": 0.2
-  },
-  {
-   "id": "nome",
-   "cena": "manha",
-   "texto": "*Camila.*",
-   "pausa": 0.4,
-   "impacto": true
   },
   {
    "id": "pdfq",
    "cena": "manha",
-   "texto": "A do *PDF?*",
-   "pausa": 0.5,
-   "fala": "A do pê dê éfe?",
+   "texto": "Camila. A do *PDF?*",
+   "pausa": 0.4,
+   "fala": "Camila. A do pê dê éfe?",
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+6%",
    "quem": "helena"
   },
   {
-   "id": "ombro",
+   "id": "sozinho",
+   "cena": "manha",
+   "texto": "Pela primeira vez, alguém marcou sem ela precisar *responder.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "sabado",
    "cena": "sabado",
-   "texto": "No sábado, a mãe da Helena apareceu no ensaio, com o Louro no *ombro.*",
+   "texto": "Sábado. A Dona Lurdes veio, com o Louro, conhecer a família do *bilhete.*",
    "pausa": 0.3
   },
   {
    "id": "d1",
    "cena": "sabado",
-   "texto": "Ué! Não é o pai que o Louro *atendeu?*",
+   "texto": "É *ele!*",
    "pausa": 0.2,
    "voz": "pt-BR-FranciscaNeural",
    "ritmo": "+2%",
@@ -200,7 +155,7 @@
   {
    "id": "c2",
    "cena": "sabado",
-   "texto": "Que *Louro?*",
+   "texto": "Ele *quem?*",
    "pausa": 0.2,
    "voz": "pt-BR-FranciscaNeural",
    "ritmo": "+8%",
@@ -208,19 +163,10 @@
    "quem": "camila"
   },
   {
-   "id": "r2",
-   "cena": "sabado",
-   "texto": "Depois eu te *conto.*",
-   "pausa": 0.3,
-   "voz": "en-US-BrianMultilingualNeural",
-   "ritmo": "+4%",
-   "quem": "rafa"
-  },
-  {
    "id": "l1",
    "cena": "sabado",
    "texto": "Conseguiu ver a *tabela?*",
-   "pausa": 0.6,
+   "pausa": 0.3,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -228,76 +174,120 @@
    "quem": "louro"
   },
   {
+   "id": "r2",
+   "cena": "sabado",
+   "texto": "Consegui, sim. As catorze *páginas.*",
+   "pausa": 0.4,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa"
+  },
+  {
+   "id": "b1",
+   "cena": "sabado",
+   "texto": "Helena, minha esposa não passou da primeira página. Eu li as catorze. É você que ela quer. Põe o preço na primeira. Um pai que não estava *dormindo.*",
+   "pausa": 0.5,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa"
+  },
+  {
+   "id": "virada",
+   "cena": "virada",
+   "texto": "Estava tudo acordado. Inclusive o meu *pai.*",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "c3",
+   "cena": "virada",
+   "texto": "Por que você não me *contou?*",
+   "pausa": 0.2,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+8%",
+   "tom": "+4Hz",
+   "quem": "camila"
+  },
+  {
+   "id": "r3",
+   "cena": "virada",
+   "texto": "Você dormia duas horas por noite. Eu não ia te dar catorze *páginas.*",
+   "pausa": 0.3,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa"
+  },
+  {
+   "id": "c4",
+   "cena": "virada",
+   "texto": "Rafa, eu sei que você não dorme. A parede fica *azul.*",
+   "pausa": 0.6,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+8%",
+   "tom": "+4Hz",
+   "quem": "camila"
+  },
+  {
    "id": "dormi",
    "cena": "fecho",
-   "texto": "Eu dormi o ensaio *inteiro.*",
-   "pausa": 0.25
+   "texto": "Eu dormi o ensaio inteiro, no colo dele. Ele também. Dessa vez, de *verdade.*",
+   "pausa": 0.3
   },
   {
    "id": "foto",
    "cena": "fecho",
-   "texto": "Hoje, eu sou a primeira foto do newborn no site da *Helena.*",
-   "pausa": 0.3,
-   "fala": "Hoje, eu sou a primeira foto do níuborn no site da Helena."
+   "texto": "É a primeira foto do site da *Helena.*",
+   "pausa": 0.3
   },
   {
-   "id": "guardou",
+   "id": "foi",
    "cena": "fecho",
-   "texto": "E o PDF? A Helena guardou. Abre de vez em quando, para *lembrar.*",
+   "texto": "E o PDF ganhou um nome novo: FINAL agora *foi.*",
    "pausa": 0.6,
-   "fala": "E o pê dê éfe? A Helena guardou. Abre de vez em quando, para lembrar."
+   "fala": "E o pê dê éfe ganhou um nome novo: final, agora foi."
   },
   {
    "id": "moral",
    "cena": "marca",
-   "texto": "Às três da manhã, o site responde por *você.*",
-   "pausa": 0.3
+   "texto": "Foto de newborn não tem preço. O ensaio tem, e precisa estar na primeira *tela.*",
+   "pausa": 0.3,
+   "fala": "Foto de níuborn não tem preço. O ensaio tem, e precisa estar na primeira tela."
   },
   {
    "id": "marca",
    "cena": "marca",
-   "texto": "Com a *Renderiza,* o seu estúdio ganha um site com o preço de cada ensaio e uma agenda que segura a vaga até o sinal.",
+   "texto": "Com a *Renderiza,* o seu estúdio ganha um site com o preço de cada ensaio e uma agenda que segura o horário até o sinal.",
    "pausa": 0.5,
    "impacto": true
   },
   {
    "id": "cta",
    "cena": "cta",
-   "texto": "Comenta *PRÉVIA:* a gente monta a prévia do site do seu estúdio com as fotos do seu Instagram. Ver não custa nada, e você só paga se quiser colocar no ar.",
+   "texto": "Você viu três prévias. Falta a sua. Comenta *PRÉVIA:* a gente monta a prévia do site do seu estúdio com as fotos do seu Instagram. Ver não custa nada: você só paga se quiser colocar no ar.",
    "pausa": 1.4,
-   "fala": "Comenta prévia: a gente monta a prévia do site do seu estúdio com as fotos do seu Instagram. Ver não custa nada, e você só paga se quiser colocar no ar."
+   "fala": "Você viu três prévias. Falta a sua. Comenta prévia: a gente monta a prévia do site do seu estúdio com as fotos do seu Instagram. Ver não custa nada: você só paga se quiser colocar no ar."
   },
   {
    "id": "onze",
    "cena": "pos",
-   "texto": "Onze meses depois. Três da *manhã.*",
-   "pausa": 1.0
+   "texto": "Onze meses *depois.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "d2",
+   "cena": "pos",
+   "texto": "Ensaio de um ano? Peraí que eu vejo o *valor...*",
+   "pausa": 0.2,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+2%",
+   "tom": "-12Hz",
+   "quem": "lurdes"
   },
   {
    "id": "l2",
    "cena": "pos",
-   "texto": "Qual o valor? *Valor?*",
-   "pausa": 0.3,
-   "voz": "pt-BR-ThalitaMultilingualNeural",
-   "ritmo": "+12%",
-   "tom": "+30Hz",
-   "efeito": "papagaio",
-   "quem": "louro"
-  },
-  {
-   "id": "r3",
-   "cena": "pos",
-   "texto": "Louro, sou eu de novo. Quanto é o ensaio de um *ano?*",
-   "pausa": 0.3,
-   "voz": "en-US-BrianMultilingualNeural",
-   "ritmo": "+4%",
-   "quem": "rafa"
-  },
-  {
-   "id": "l3",
-   "cena": "pos",
    "texto": "Tá no site! Tá no *site!*",
-   "pausa": 0.5,
+   "pausa": 0.4,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -307,25 +297,35 @@
   {
    "id": "temporada",
    "cena": "pos",
-   "texto": "Temporada dois: eu ainda não *andei.*",
+   "texto": "Temporada dois: meu primeiro aniversário. E, de novo, alguém não está *dormindo.*",
    "pausa": 0.3
   },
   {
    "id": "continua",
    "cena": "pos",
-   "texto": "Quer ver? Comenta continuação, e diz quem conta: eu ou o *Louro.*",
-   "pausa": 0.25
+   "texto": "Comenta *continuação.*",
+   "pausa": 0.3
   },
   {
-   "id": "l4",
+   "id": "l3",
    "cena": "pos",
-   "texto": "Eu conto! Eu *conto!*",
-   "pausa": 0.4,
+   "texto": "Eu seguro pra *você!*",
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
    "efeito": "papagaio",
    "quem": "louro"
+  },
+  {
+   "id": "d3",
+   "cena": "pos",
+   "texto": "Agora são vinte e quatro horas, *Louro.*",
+   "pausa": 0.4,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+2%",
+   "tom": "-12Hz",
+   "quem": "lurdes"
   }
  ]
 }

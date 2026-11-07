@@ -1,5 +1,5 @@
 {
- "duracao": 112.47,
+ "duracao": 130.78,
  "frases": [
   {
    "id": "abre",
@@ -7,7 +7,7 @@
    "pausa": 0.3,
    "impacto": true,
    "ini": 0.2,
-   "fim": 2.344,
+   "fim": 4.259,
    "palavras": [
     {
      "p": "Nasci",
@@ -49,6 +49,24 @@
      "p": "manhã.",
      "ini": 1.943,
      "fim": 2.222,
+     "tom": false
+    },
+    {
+     "p": "Três",
+     "ini": 2.987,
+     "fim": 3.221,
+     "tom": false
+    },
+    {
+     "p": "semanas",
+     "ini": 3.232,
+     "fim": 3.623,
+     "tom": false
+    },
+    {
+     "p": "antes.",
+     "ini": 3.634,
+     "fim": 4.159,
      "tom": true
     }
    ]
@@ -57,43 +75,43 @@
    "id": "relogio",
    "cena": "escuro",
    "pausa": 0.35,
-   "ini": 2.644,
-   "fim": 4.262,
+   "ini": 4.559,
+   "fim": 6.176,
    "palavras": [
     {
      "p": "E",
-     "ini": 2.644,
-     "fim": 2.713,
+     "ini": 4.559,
+     "fim": 4.628,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 2.724,
-     "fim": 2.814,
+     "ini": 4.639,
+     "fim": 4.728,
      "tom": false
     },
     {
      "p": "relógio",
-     "ini": 2.825,
-     "fim": 3.305,
+     "ini": 4.739,
+     "fim": 5.219,
      "tom": false
     },
     {
      "p": "começou",
-     "ini": 3.316,
-     "fim": 3.729,
+     "ini": 5.231,
+     "fim": 5.643,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 3.74,
-     "fim": 3.785,
+     "ini": 5.655,
+     "fim": 5.699,
      "tom": false
     },
     {
      "p": "correr.",
-     "ini": 3.796,
-     "fim": 4.142,
+     "ini": 5.71,
+     "fim": 6.056,
      "tom": true
     }
    ]
@@ -101,140 +119,137 @@
   {
    "id": "resumo",
    "cena": "resumo",
-   "pausa": 0.3,
-   "ini": 4.612,
-   "fim": 11.564,
+   "pausa": 0.2,
+   "ini": 6.526,
+   "fim": 11.85,
    "palavras": [
     {
      "p": "No",
-     "ini": 4.612,
-     "fim": 4.737,
+     "ini": 6.526,
+     "fim": 6.636,
      "tom": false
     },
     {
      "p": "episódio",
-     "ini": 4.748,
-     "fim": 5.284,
+     "ini": 6.647,
+     "fim": 7.149,
      "tom": false
     },
     {
-     "p": "1,",
-     "ini": 5.295,
-     "fim": 5.463,
+     "p": "1:",
+     "ini": 7.16,
+     "fim": 7.283,
      "tom": false
     },
     {
-     "p": "eu",
-     "ini": 5.719,
-     "fim": 5.82,
+     "p": "catorze",
+     "ini": 7.573,
+     "fim": 8.064,
      "tom": false
     },
     {
-     "p": "fiz",
-     "ini": 5.831,
-     "fim": 5.987,
+     "p": "páginas,",
+     "ini": 8.075,
+     "fim": 8.589,
      "tom": false
     },
     {
-     "p": "a",
-     "ini": 5.998,
-     "fim": 6.099,
+     "p": "e",
+     "ini": 8.845,
+     "fim": 8.912,
      "tom": false
     },
     {
-     "p": "minha",
-     "ini": 6.11,
-     "fim": 6.277,
+     "p": "o",
+     "ini": 8.924,
+     "fim": 8.99,
      "tom": false
     },
     {
-     "p": "mãe",
-     "ini": 6.288,
-     "fim": 6.512,
+     "p": "preço",
+     "ini": 9.002,
+     "fim": 9.314,
      "tom": false
     },
     {
-     "p": "perder",
-     "ini": 6.523,
-     "fim": 6.813,
+     "p": "só",
+     "ini": 9.325,
+     "fim": 9.504,
      "tom": false
     },
     {
-     "p": "a",
-     "ini": 6.824,
-     "fim": 6.88,
+     "p": "na",
+     "ini": 9.515,
+     "fim": 9.66,
      "tom": false
     },
     {
-     "p": "fotógrafa",
-     "ini": 6.891,
-     "fim": 7.661,
-     "tom": false
-    },
-    {
-     "p": "Helena",
-     "ini": 7.672,
-     "fim": 7.817,
-     "tom": false
-    },
-    {
-     "p": "por",
-     "ini": 7.829,
-     "fim": 8.13,
-     "tom": false
-    },
-    {
-     "p": "causa",
-     "ini": 8.141,
-     "fim": 8.253,
-     "tom": false
-    },
-    {
-     "p": "de",
-     "ini": 8.264,
-     "fim": 8.376,
-     "tom": false
-    },
-    {
-     "p": "um",
-     "ini": 8.387,
-     "fim": 8.565,
-     "tom": false
-    },
-    {
-     "p": "PDF.",
-     "ini": 8.576,
-     "fim": 8.699,
+     "p": "última.",
+     "ini": 9.671,
+     "fim": 10.04,
      "tom": false
     },
     {
      "p": "E",
-     "ini": 8.71,
-     "fim": 9.101,
+     "ini": 10.804,
+     "fim": 10.916,
      "tom": false
     },
     {
-     "p": "nasci",
-     "ini": 9.866,
-     "fim": 9.955,
+     "p": "alguém",
+     "ini": 10.927,
+     "fim": 11.24,
      "tom": false
     },
     {
-     "p": "três",
-     "ini": 9.966,
-     "fim": 10.312,
+     "p": "leu",
+     "ini": 11.251,
+     "fim": 11.418,
      "tom": false
     },
     {
-     "p": "semanas",
-     "ini": 10.323,
-     "fim": 10.546,
+     "p": "tudo.",
+     "ini": 11.429,
+     "fim": 11.764,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "louroR",
+   "cena": "resumo",
+   "pausa": 0.4,
+   "ini": 12.05,
+   "fim": 13.48,
+   "palavras": [
+    {
+     "p": "Não,",
+     "ini": 12.05,
+     "fim": 12.355,
      "tom": false
     },
     {
-     "p": "antes.",
-     "ini": 10.558,
-     "fim": 11.473,
+     "p": "não",
+     "ini": 12.545,
+     "fim": 12.779,
+     "tom": false
+    },
+    {
+     "p": "foi",
+     "ini": 12.79,
+     "fim": 12.98,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 12.991,
+     "fim": 13.036,
+     "tom": false
+    },
+    {
+     "p": "Louro.",
+     "ini": 13.047,
+     "fim": 13.382,
      "tom": true
     }
    ]
@@ -243,193 +258,85 @@
    "id": "janela",
    "cena": "janela",
    "pausa": 0.3,
-   "ini": 11.864,
-   "fim": 16.48,
+   "ini": 13.88,
+   "fim": 18.674,
    "palavras": [
     {
      "p": "Ensaio",
-     "ini": 11.864,
-     "fim": 12.301,
+     "ini": 13.88,
+     "fim": 14.284,
      "tom": false
     },
     {
      "p": "newborn",
-     "ini": 12.312,
-     "fim": 12.758,
+     "ini": 14.295,
+     "fim": 14.786,
      "tom": false
     },
     {
-     "p": "costuma",
-     "ini": 12.769,
-     "fim": 13.171,
+     "p": "tem",
+     "ini": 14.797,
+     "fim": 14.931,
      "tom": false
     },
     {
-     "p": "ser",
-     "ini": 13.182,
-     "fim": 13.394,
+     "p": "janela:",
+     "ini": 14.942,
+     "fim": 15.389,
      "tom": false
     },
     {
-     "p": "nos",
-     "ini": 13.406,
-     "fim": 13.528,
-     "tom": false
-    },
-    {
-     "p": "primeiros",
-     "ini": 13.539,
-     "fim": 13.93,
+     "p": "uns",
+     "ini": 15.601,
+     "fim": 15.824,
      "tom": false
     },
     {
      "p": "quinze",
-     "ini": 13.941,
-     "fim": 14.276,
+     "ini": 15.835,
+     "fim": 16.159,
      "tom": false
     },
     {
      "p": "dias,",
-     "ini": 14.287,
-     "fim": 14.667,
+     "ini": 16.17,
+     "fim": 16.561,
      "tom": false
     },
     {
      "p": "enquanto",
-     "ini": 14.923,
-     "fim": 15.202,
+     "ini": 16.795,
+     "fim": 17.107,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 15.214,
-     "fim": 15.225,
+     "ini": 17.119,
+     "fim": 17.13,
      "tom": false
     },
     {
      "p": "bebê",
-     "ini": 15.236,
-     "fim": 15.493,
+     "ini": 17.141,
+     "fim": 17.42,
+     "tom": false
+    },
+    {
+     "p": "ainda",
+     "ini": 17.431,
+     "fim": 17.699,
      "tom": false
     },
     {
      "p": "dorme",
-     "ini": 15.504,
-     "fim": 15.794,
+     "ini": 17.71,
+     "fim": 18.0,
      "tom": false
     },
     {
      "p": "enroladinho.",
-     "ini": 15.805,
-     "fim": 16.385,
-     "tom": true
-    }
-   ]
-  },
-  {
-   "id": "avisou",
-   "cena": "rival",
-   "pausa": 0.25,
-   "ini": 16.78,
-   "fim": 19.539,
-   "palavras": [
-    {
-     "p": "Minha",
-     "ini": 16.78,
-     "fim": 16.981,
-     "tom": false
-    },
-    {
-     "p": "mãe",
-     "ini": 16.992,
-     "fim": 17.215,
-     "tom": false
-    },
-    {
-     "p": "avisou",
-     "ini": 17.226,
-     "fim": 17.628,
-     "tom": false
-    },
-    {
-     "p": "a",
-     "ini": 17.639,
-     "fim": 17.717,
-     "tom": false
-    },
-    {
-     "p": "outra",
-     "ini": 17.729,
-     "fim": 17.963,
-     "tom": false
-    },
-    {
-     "p": "fotógrafa:",
-     "ini": 17.974,
-     "fim": 18.61,
-     "tom": false
-    },
-    {
-     "p": "ele",
-     "ini": 18.811,
-     "fim": 19.001,
-     "tom": false
-    },
-    {
-     "p": "nasceu!",
-     "ini": 19.012,
-     "fim": 19.458,
-     "tom": true
-    }
-   ]
-  },
-  {
-   "id": "lotada",
-   "cena": "rival",
-   "pausa": 0.4,
-   "ini": 19.789,
-   "fim": 21.932,
-   "palavras": [
-    {
-     "p": "A",
-     "ini": 19.789,
-     "fim": 19.849,
-     "tom": false
-    },
-    {
-     "p": "resposta:",
-     "ini": 19.86,
-     "fim": 20.44,
-     "tom": false
-    },
-    {
-     "p": "só",
-     "ini": 20.641,
-     "fim": 20.786,
-     "tom": false
-    },
-    {
-     "p": "tenho",
-     "ini": 20.797,
-     "fim": 21.054,
-     "tom": false
-    },
-    {
-     "p": "vaga",
-     "ini": 21.065,
-     "fim": 21.355,
-     "tom": false
-    },
-    {
-     "p": "em",
-     "ini": 21.366,
-     "fim": 21.411,
-     "tom": false
-    },
-    {
-     "p": "janeiro.",
-     "ini": 21.422,
-     "fim": 21.846,
+     "ini": 18.011,
+     "fim": 18.592,
      "tom": true
     }
    ]
@@ -437,143 +344,173 @@
   {
    "id": "dia3",
    "cena": "noite",
-   "pausa": 0.25,
-   "ini": 22.332,
-   "fim": 26.737,
+   "pausa": 0.3,
+   "ini": 18.974,
+   "fim": 27.497,
    "palavras": [
     {
      "p": "Dia",
-     "ini": 22.332,
-     "fim": 22.579,
+     "ini": 18.974,
+     "fim": 19.221,
      "tom": false
     },
     {
      "p": "três,",
-     "ini": 22.59,
-     "fim": 23.003,
+     "ini": 19.232,
+     "fim": 19.645,
      "tom": false
     },
     {
      "p": "três",
-     "ini": 23.171,
-     "fim": 23.438,
+     "ini": 19.813,
+     "fim": 20.081,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 23.45,
-     "fim": 23.528,
+     "ini": 20.092,
+     "fim": 20.17,
      "tom": false
     },
     {
      "p": "manhã.",
-     "ini": 23.539,
-     "fim": 23.851,
+     "ini": 20.181,
+     "fim": 20.494,
      "tom": false
     },
     {
      "p": "Eu",
-     "ini": 24.616,
-     "fim": 24.761,
+     "ini": 21.258,
+     "fim": 21.392,
      "tom": false
     },
     {
      "p": "mamando,",
-     "ini": 24.772,
-     "fim": 25.263,
+     "ini": 21.403,
+     "fim": 21.906,
      "tom": false
     },
     {
      "p": "ela",
-     "ini": 25.42,
-     "fim": 25.598,
+     "ini": 22.129,
+     "fim": 22.307,
      "tom": false
     },
     {
-     "p": "procurando",
-     "ini": 25.609,
-     "fim": 26.112,
+     "p": "relendo",
+     "ini": 22.319,
+     "fim": 22.631,
      "tom": false
     },
     {
-     "p": "no",
-     "ini": 26.123,
-     "fim": 26.223,
+     "p": "a",
+     "ini": 22.642,
+     "fim": 22.665,
      "tom": false
     },
     {
-     "p": "Google.",
-     "ini": 26.234,
-     "fim": 26.647,
+     "p": "resposta",
+     "ini": 22.676,
+     "fim": 23.189,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 23.2,
+     "fim": 23.334,
+     "tom": false
+    },
+    {
+     "p": "outra",
+     "ini": 23.345,
+     "fim": 23.602,
+     "tom": false
+    },
+    {
+     "p": "fotógrafa:",
+     "ini": 23.613,
+     "fim": 24.238,
+     "tom": false
+    },
+    {
+     "p": "Parabéns!",
+     "ini": 24.484,
+     "fim": 25.153,
+     "tom": false
+    },
+    {
+     "p": "Newborn,",
+     "ini": 25.924,
+     "fim": 26.482,
+     "tom": false
+    },
+    {
+     "p": "só",
+     "ini": 26.705,
+     "fim": 26.883,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 26.895,
+     "fim": 26.984,
+     "tom": false
+    },
+    {
+     "p": "janeiro.",
+     "ini": 26.995,
+     "fim": 27.408,
      "tom": true
     }
    ]
   },
   {
-   "id": "achados",
+   "id": "desenrolado",
    "cena": "noite",
-   "pausa": 0.3,
-   "ini": 26.987,
-   "fim": 31.435,
+   "pausa": 0.4,
+   "ini": 27.797,
+   "fim": 30.012,
    "palavras": [
     {
-     "p": "Um",
-     "ini": 26.987,
-     "fim": 27.095,
+     "p": "Em",
+     "ini": 27.797,
+     "fim": 27.89,
      "tom": false
     },
     {
-     "p": "perfil",
-     "ini": 27.106,
-     "fim": 27.887,
+     "p": "janeiro,",
+     "ini": 27.901,
+     "fim": 28.359,
      "tom": false
     },
     {
-     "p": "parado",
-     "ini": 27.898,
-     "fim": 27.932,
+     "p": "eu",
+     "ini": 28.548,
+     "fim": 28.66,
      "tom": false
     },
     {
-     "p": "em",
-     "ini": 27.943,
-     "fim": 28.278,
+     "p": "já",
+     "ini": 28.671,
+     "fim": 28.827,
      "tom": false
     },
     {
-     "p": "2023.",
-     "ini": 28.289,
-     "fim": 28.345,
+     "p": "ia",
+     "ini": 28.838,
+     "fim": 28.95,
      "tom": false
     },
     {
-     "p": "Um",
-     "ini": 28.356,
-     "fim": 28.635,
+     "p": "estar",
+     "ini": 28.961,
+     "fim": 29.251,
      "tom": false
     },
     {
-     "p": "telefone",
-     "ini": 28.646,
-     "fim": 29.003,
-     "tom": false
-    },
-    {
-     "p": "que",
-     "ini": 29.768,
-     "fim": 30.482,
-     "tom": false
-    },
-    {
-     "p": "não",
-     "ini": 30.493,
-     "fim": 30.605,
-     "tom": false
-    },
-    {
-     "p": "existe.",
-     "ini": 30.616,
-     "fim": 31.342,
+     "p": "desenrolado.",
+     "ini": 29.263,
+     "fim": 29.932,
      "tom": true
     }
    ]
@@ -582,118 +519,100 @@
    "id": "dia7",
    "cena": "mapa",
    "pausa": 0.2,
-   "ini": 31.735,
-   "fim": 33.575,
+   "ini": 30.412,
+   "fim": 32.253,
    "palavras": [
     {
      "p": "Dia",
-     "ini": 31.735,
-     "fim": 31.949,
+     "ini": 30.412,
+     "fim": 30.626,
      "tom": false
     },
     {
      "p": "sete,",
-     "ini": 31.96,
-     "fim": 32.395,
+     "ini": 30.637,
+     "fim": 31.072,
      "tom": false
     },
     {
      "p": "ela",
-     "ini": 32.54,
-     "fim": 32.686,
+     "ini": 31.217,
+     "fim": 31.363,
      "tom": false
     },
     {
      "p": "lembrou",
-     "ini": 32.697,
-     "fim": 33.032,
+     "ini": 31.374,
+     "fim": 31.709,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 33.043,
-     "fim": 33.11,
+     "ini": 31.72,
+     "fim": 31.787,
      "tom": false
     },
     {
      "p": "Helena.",
-     "ini": 33.121,
-     "fim": 33.523,
+     "ini": 31.798,
+     "fim": 32.2,
      "tom": true
     }
    ]
   },
   {
-   "id": "vacuo",
+   "id": "voltar",
    "cena": "mapa",
    "pausa": 0.3,
-   "ini": 33.775,
-   "fim": 37.56,
+   "ini": 32.453,
+   "fim": 35.949,
    "palavras": [
     {
-     "p": "Tinha",
-     "ini": 33.775,
-     "fim": 34.005,
+     "p": "Voltar",
+     "ini": 32.453,
+     "fim": 32.88,
      "tom": false
     },
     {
-     "p": "o",
-     "ini": 34.016,
-     "fim": 34.038,
+     "p": "depois",
+     "ini": 32.891,
+     "fim": 33.203,
      "tom": false
     },
     {
-     "p": "WhatsApp",
-     "ini": 34.049,
-     "fim": 34.641,
+     "p": "de",
+     "ini": 33.214,
+     "fim": 33.293,
      "tom": false
     },
     {
-     "p": "dela.",
-     "ini": 34.652,
-     "fim": 34.965,
-     "tom": false
-    },
-    {
-     "p": "Mas",
-     "ini": 35.729,
-     "fim": 36.042,
-     "tom": false
-    },
-    {
-     "p": "tinha",
-     "ini": 36.053,
-     "fim": 36.243,
-     "tom": false
-    },
-    {
-     "p": "deixado",
-     "ini": 36.254,
-     "fim": 36.667,
-     "tom": false
-    },
-    {
-     "p": "a",
-     "ini": 36.678,
-     "fim": 36.7,
-     "tom": false
-    },
-    {
-     "p": "Helena",
-     "ini": 36.711,
-     "fim": 36.99,
+     "p": "deixar",
+     "ini": 33.304,
+     "fim": 33.661,
      "tom": false
     },
     {
      "p": "no",
-     "ini": 37.002,
-     "fim": 37.102,
+     "ini": 33.672,
+     "fim": 33.772,
      "tom": false
     },
     {
-     "p": "vácuo.",
-     "ini": 37.113,
-     "fim": 37.47,
+     "p": "visualizado?",
+     "ini": 33.784,
+     "fim": 34.431,
+     "tom": false
+    },
+    {
+     "p": "Melhor",
+     "ini": 35.196,
+     "fim": 35.586,
+     "tom": false
+    },
+    {
+     "p": "não.",
+     "ini": 35.597,
+     "fim": 35.865,
      "tom": true
     }
    ]
@@ -701,132 +620,51 @@
   {
    "id": "mapa",
    "cena": "mapa",
-   "pausa": 0.3,
-   "ini": 37.86,
-   "fim": 42.593,
+   "pausa": 0.2,
+   "ini": 36.249,
+   "fim": 38.022,
    "palavras": [
     {
-     "p": "Então",
-     "ini": 37.86,
-     "fim": 38.235,
-     "tom": false
-    },
-    {
-     "p": "procurou",
-     "ini": 38.246,
-     "fim": 38.637,
+     "p": "E",
+     "ini": 36.249,
+     "fim": 36.34,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 38.648,
-     "fim": 38.704,
+     "ini": 36.351,
+     "fim": 36.396,
      "tom": false
     },
     {
-     "p": "estúdio",
-     "ini": 38.715,
-     "fim": 39.117,
+     "p": "mapa",
+     "ini": 36.407,
+     "fim": 36.708,
      "tom": false
     },
     {
-     "p": "no",
-     "ini": 39.128,
-     "fim": 39.206,
+     "p": "dava",
+     "ini": 36.719,
+     "fim": 36.931,
      "tom": false
     },
     {
-     "p": "mapa.",
-     "ini": 39.217,
-     "fim": 39.53,
-     "tom": false
-    },
-    {
-     "p": "O",
-     "ini": 40.295,
-     "fim": 40.384,
-     "tom": false
-    },
-    {
-     "p": "alfinete",
-     "ini": 40.395,
-     "fim": 40.886,
-     "tom": false
-    },
-    {
-     "p": "apontava",
-     "ini": 40.897,
-     "fim": 41.388,
-     "tom": false
-    },
-    {
-     "p": "para",
-     "ini": 41.4,
-     "fim": 41.545,
-     "tom": false
-    },
-    {
-     "p": "uma",
-     "ini": 41.556,
-     "fim": 41.701,
+     "p": "numa",
+     "ini": 36.943,
+     "fim": 37.143,
      "tom": false
     },
     {
      "p": "casa",
-     "ini": 41.712,
-     "fim": 41.991,
+     "ini": 37.155,
+     "fim": 37.434,
      "tom": false
     },
     {
      "p": "fechada.",
-     "ini": 42.002,
-     "fim": 42.493,
+     "ini": 37.445,
+     "fim": 37.947,
      "tom": true
-    }
-   ]
-  },
-  {
-   "id": "coragem",
-   "cena": "mapa",
-   "pausa": 0.15,
-   "ini": 42.893,
-   "fim": 44.491,
-   "palavras": [
-    {
-     "p": "Ela",
-     "ini": 42.893,
-     "fim": 43.074,
-     "tom": false
-    },
-    {
-     "p": "não",
-     "ini": 43.085,
-     "fim": 43.275,
-     "tom": false
-    },
-    {
-     "p": "teve",
-     "ini": 43.286,
-     "fim": 43.542,
-     "tom": false
-    },
-    {
-     "p": "coragem",
-     "ini": 43.554,
-     "fim": 43.967,
-     "tom": false
-    },
-    {
-     "p": "de",
-     "ini": 43.978,
-     "fim": 44.045,
-     "tom": false
-    },
-    {
-     "p": "bater.",
-     "ini": 44.056,
-     "fim": 44.391,
-     "tom": false
     }
    ]
   },
@@ -835,25 +673,43 @@
    "cena": "mapa",
    "pausa": 0.5,
    "impacto": true,
-   "ini": 44.641,
-   "fim": 45.545,
+   "ini": 38.222,
+   "fim": 40.535,
    "palavras": [
     {
-     "p": "Meu",
-     "ini": 44.641,
-     "fim": 44.868,
+     "p": "Conclusão",
+     "ini": 38.222,
+     "fim": 38.743,
      "tom": false
     },
     {
-     "p": "pai",
-     "ini": 44.88,
-     "fim": 45.114,
+     "p": "óbvia:",
+     "ini": 38.754,
+     "fim": 39.078,
      "tom": false
     },
     {
-     "p": "teve.",
-     "ini": 45.125,
-     "fim": 45.449,
+     "p": "a",
+     "ini": 39.301,
+     "fim": 39.368,
+     "tom": false
+    },
+    {
+     "p": "Helena",
+     "ini": 39.379,
+     "fim": 39.692,
+     "tom": false
+    },
+    {
+     "p": "tinha",
+     "ini": 39.703,
+     "fim": 39.948,
+     "tom": false
+    },
+    {
+     "p": "fechado.",
+     "ini": 39.959,
+     "fim": 40.451,
      "tom": true
     }
    ]
@@ -862,79 +718,211 @@
    "id": "dez",
    "cena": "porta",
    "pausa": 0.25,
-   "ini": 46.045,
-   "fim": 49.429,
+   "ini": 41.035,
+   "fim": 45.696,
    "palavras": [
     {
      "p": "Dia",
-     "ini": 46.045,
-     "fim": 46.256,
+     "ini": 41.035,
+     "fim": 41.251,
      "tom": false
     },
     {
      "p": "dez,",
-     "ini": 46.268,
-     "fim": 46.625,
+     "ini": 41.262,
+     "fim": 41.608,
      "tom": false
     },
     {
-     "p": "ele",
-     "ini": 46.859,
-     "fim": 46.982,
+     "p": "eu",
+     "ini": 41.831,
+     "fim": 41.932,
      "tom": false
     },
     {
-     "p": "me",
-     "ini": 46.993,
-     "fim": 47.082,
+     "p": "não",
+     "ini": 41.943,
+     "fim": 42.088,
      "tom": false
     },
     {
-     "p": "pôs",
-     "ini": 47.093,
-     "fim": 47.305,
-     "tom": false
-    },
-    {
-     "p": "no",
-     "ini": 47.317,
-     "fim": 47.384,
-     "tom": false
-    },
-    {
-     "p": "bebê-conforto",
-     "ini": 47.395,
-     "fim": 48.02,
+     "p": "dormia,",
+     "ini": 42.099,
+     "fim": 42.512,
      "tom": false
     },
     {
      "p": "e",
-     "ini": 48.031,
-     "fim": 48.064,
+     "ini": 42.78,
+     "fim": 42.858,
      "tom": false
     },
     {
-     "p": "dirigiu",
-     "ini": 48.076,
-     "fim": 48.522,
+     "p": "meu",
+     "ini": 42.869,
+     "fim": 43.037,
      "tom": false
     },
     {
-     "p": "até",
-     "ini": 48.533,
-     "fim": 48.756,
+     "p": "pai",
+     "ini": 43.048,
+     "fim": 43.26,
+     "tom": false
+    },
+    {
+     "p": "fez",
+     "ini": 43.271,
+     "fim": 43.483,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 48.768,
-     "fim": 48.823,
+     "ini": 43.494,
+     "fim": 43.572,
      "tom": false
     },
     {
-     "p": "alfinete.",
-     "ini": 48.834,
-     "fim": 49.348,
+     "p": "que",
+     "ini": 43.583,
+     "fim": 43.717,
+     "tom": false
+    },
+    {
+     "p": "todo",
+     "ini": 43.729,
+     "fim": 44.019,
+     "tom": false
+    },
+    {
+     "p": "pai",
+     "ini": 44.03,
+     "fim": 44.22,
+     "tom": false
+    },
+    {
+     "p": "faz:",
+     "ini": 44.231,
+     "fim": 44.633,
+     "tom": false
+    },
+    {
+     "p": "me",
+     "ini": 44.833,
+     "fim": 44.945,
+     "tom": false
+    },
+    {
+     "p": "pôs",
+     "ini": 44.956,
+     "fim": 45.179,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 45.191,
+     "fim": 45.28,
+     "tom": false
+    },
+    {
+     "p": "carro.",
+     "ini": 45.291,
+     "fim": 45.604,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "cor",
+   "cena": "porta",
+   "pausa": 0.25,
+   "ini": 45.946,
+   "fim": 49.109,
+   "palavras": [
+    {
+     "p": "Não",
+     "ini": 45.946,
+     "fim": 46.172,
+     "tom": false
+    },
+    {
+     "p": "abriu",
+     "ini": 46.183,
+     "fim": 46.462,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 46.473,
+     "fim": 46.495,
+     "tom": false
+    },
+    {
+     "p": "mapa.",
+     "ini": 46.506,
+     "fim": 46.875,
+     "tom": false
+    },
+    {
+     "p": "Sabia",
+     "ini": 47.639,
+     "fim": 48.164,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 48.175,
+     "fim": 48.22,
+     "tom": false
+    },
+    {
+     "p": "endereço",
+     "ini": 48.231,
+     "fim": 48.666,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 48.677,
+     "fim": 48.778,
+     "tom": false
+    },
+    {
+     "p": "cor.",
+     "ini": 48.789,
+     "fim": 49.012,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "bilhete",
+   "cena": "porta",
+   "pausa": 0.4,
+   "ini": 49.359,
+   "fim": 50.771,
+   "palavras": [
+    {
+     "p": "No",
+     "ini": 49.359,
+     "fim": 49.494,
+     "tom": false
+    },
+    {
+     "p": "bolso,",
+     "ini": 49.505,
+     "fim": 49.963,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 50.153,
+     "fim": 50.253,
+     "tom": false
+    },
+    {
+     "p": "bilhete.",
+     "ini": 50.264,
+     "fim": 50.722,
      "tom": true
     }
    ]
@@ -942,26 +930,62 @@
   {
    "id": "campainha",
    "cena": "porta",
-   "pausa": 0.9,
-   "ini": 49.679,
-   "fim": 50.682,
+   "pausa": 0.3,
+   "ini": 51.171,
+   "fim": 54.577,
    "palavras": [
     {
      "p": "Tocou",
-     "ini": 49.679,
-     "fim": 49.977,
+     "ini": 51.171,
+     "fim": 51.469,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 49.988,
-     "fim": 50.044,
+     "ini": 51.48,
+     "fim": 51.536,
      "tom": false
     },
     {
      "p": "campainha.",
-     "ini": 50.055,
-     "fim": 50.624,
+     "ini": 51.547,
+     "fim": 52.116,
+     "tom": false
+    },
+    {
+     "p": "Da",
+     "ini": 52.881,
+     "fim": 53.037,
+     "tom": false
+    },
+    {
+     "p": "janela,",
+     "ini": 53.048,
+     "fim": 53.539,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 53.707,
+     "fim": 53.807,
+     "tom": false
+    },
+    {
+     "p": "voz",
+     "ini": 53.818,
+     "fim": 54.042,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 54.053,
+     "fim": 54.12,
+     "tom": false
+    },
+    {
+     "p": "Helena:",
+     "ini": 54.131,
+     "fim": 54.499,
      "tom": true
     }
    ]
@@ -969,37 +993,37 @@
   {
    "id": "l1",
    "cena": "porta",
-   "pausa": 0.3,
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
    "efeito": "papagaio",
    "quem": "louro",
-   "ini": 51.582,
-   "fim": 53.083,
+   "ini": 54.877,
+   "fim": 55.856,
    "palavras": [
     {
-     "p": "Qual",
-     "ini": 51.582,
-     "fim": 51.795,
+     "p": "Te",
+     "ini": 54.877,
+     "fim": 54.923,
      "tom": false
     },
     {
-     "p": "o",
-     "ini": 51.795,
-     "fim": 51.817,
+     "p": "mando",
+     "ini": 54.923,
+     "fim": 55.28,
      "tom": false
     },
     {
-     "p": "valor?",
-     "ini": 51.817,
-     "fim": 52.219,
+     "p": "a",
+     "ini": 55.28,
+     "fim": 55.336,
      "tom": false
     },
     {
-     "p": "Valor?",
-     "ini": 52.522,
-     "fim": 53.024,
+     "p": "tabela!",
+     "ini": 55.336,
+     "fim": 55.793,
      "tom": true
     }
    ]
@@ -1007,59 +1031,23 @@
   {
    "id": "r1",
    "cena": "porta",
-   "pausa": 0.25,
+   "pausa": 0.2,
    "voz": "en-US-BrianMultilingualNeural",
    "ritmo": "+4%",
    "quem": "rafa",
-   "ini": 53.383,
-   "fim": 57.227,
+   "ini": 56.056,
+   "fim": 56.98,
    "palavras": [
     {
-     "p": "Ééé...",
-     "ini": 53.383,
-     "fim": 53.696,
+     "p": "Boa",
+     "ini": 56.056,
+     "fim": 56.33,
      "tom": false
     },
     {
-     "p": "boa",
-     "ini": 54.237,
-     "fim": 54.513,
-     "tom": false
-    },
-    {
-     "p": "noite.",
-     "ini": 54.525,
-     "fim": 55.006,
-     "tom": false
-    },
-    {
-     "p": "Quanto",
-     "ini": 55.357,
-     "fim": 55.813,
-     "tom": false
-    },
-    {
-     "p": "é",
-     "ini": 55.825,
-     "fim": 55.958,
-     "tom": false
-    },
-    {
-     "p": "o",
-     "ini": 55.97,
-     "fim": 56.054,
-     "tom": false
-    },
-    {
-     "p": "ensaio",
-     "ini": 56.066,
-     "fim": 56.534,
-     "tom": false
-    },
-    {
-     "p": "newborn?",
-     "ini": 56.547,
-     "fim": 57.135,
+     "p": "noite?",
+     "ini": 56.342,
+     "fim": 56.883,
      "tom": true
     }
    ]
@@ -1067,61 +1055,100 @@
   {
    "id": "l2",
    "cena": "porta",
-   "pausa": 0.25,
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
    "efeito": "papagaio",
    "quem": "louro",
-   "ini": 57.477,
-   "fim": 58.863,
+   "ini": 57.18,
+   "fim": 58.566,
    "palavras": [
     {
      "p": "Conseguiu",
-     "ini": 57.477,
-     "fim": 58.01,
+     "ini": 57.18,
+     "fim": 57.713,
      "tom": false
     },
     {
      "p": "ver",
-     "ini": 58.022,
-     "fim": 58.211,
+     "ini": 57.724,
+     "fim": 57.914,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 58.211,
-     "fim": 58.267,
+     "ini": 57.914,
+     "fim": 57.97,
      "tom": false
     },
     {
      "p": "tabela?",
-     "ini": 58.267,
-     "fim": 58.758,
+     "ini": 57.97,
+     "fim": 58.461,
      "tom": true
     }
    ]
   },
   {
-   "id": "r2",
+   "id": "resp",
    "cena": "porta",
    "pausa": 0.3,
-   "voz": "en-US-BrianMultilingualNeural",
-   "ritmo": "+4%",
-   "quem": "rafa",
-   "ini": 59.113,
-   "fim": 59.935,
+   "ini": 58.766,
+   "fim": 62.352,
    "palavras": [
     {
-     "p": "Que",
-     "ini": 59.113,
-     "fim": 59.217,
+     "p": "Meu",
+     "ini": 58.766,
+     "fim": 58.976,
      "tom": false
     },
     {
-     "p": "tabela?",
-     "ini": 59.229,
-     "fim": 59.83,
+     "p": "pai",
+     "ini": 58.987,
+     "fim": 59.211,
+     "tom": false
+    },
+    {
+     "p": "respondeu.",
+     "ini": 59.222,
+     "fim": 59.813,
+     "tom": false
+    },
+    {
+     "p": "Essa",
+     "ini": 60.578,
+     "fim": 60.868,
+     "tom": false
+    },
+    {
+     "p": "resposta",
+     "ini": 60.879,
+     "fim": 61.449,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 61.46,
+     "fim": 61.694,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 61.705,
+     "fim": 61.85,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 61.862,
+     "fim": 61.873,
+     "tom": false
+    },
+    {
+     "p": "final.",
+     "ini": 61.884,
+     "fim": 62.286,
      "tom": true
     }
    ]
@@ -1129,241 +1156,227 @@
   {
    "id": "l3",
    "cena": "porta",
-   "pausa": 0.5,
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
    "efeito": "papagaio",
    "quem": "louro",
-   "ini": 60.235,
-   "fim": 61.488,
+   "ini": 62.652,
+   "fim": 63.836,
    "palavras": [
     {
-     "p": "Vou",
-     "ini": 60.235,
-     "fim": 60.455,
+     "p": "Eu",
+     "ini": 62.652,
+     "fim": 62.775,
      "tom": false
     },
     {
-     "p": "ver",
-     "ini": 60.455,
-     "fim": 60.645,
+     "p": "seguro",
+     "ini": 62.775,
+     "fim": 63.277,
      "tom": false
     },
     {
-     "p": "com",
-     "ini": 60.645,
-     "fim": 60.79,
+     "p": "pra",
+     "ini": 63.277,
+     "fim": 63.411,
      "tom": false
     },
     {
-     "p": "meu",
-     "ini": 60.79,
-     "fim": 60.968,
-     "tom": false
-    },
-    {
-     "p": "marido!",
-     "ini": 60.968,
-     "fim": 61.392,
+     "p": "você!",
+     "ini": 63.411,
+     "fim": 63.768,
      "tom": true
     }
    ]
   },
   {
-   "id": "embora",
+   "id": "r2",
    "cena": "porta",
-   "pausa": 0.4,
-   "ini": 61.988,
-   "fim": 66.583,
+   "pausa": 0.25,
+   "voz": "en-US-BrianMultilingualNeural",
+   "ritmo": "+4%",
+   "quem": "rafa",
+   "ini": 64.036,
+   "fim": 65.014,
    "palavras": [
     {
-     "p": "Meu",
-     "ini": 61.988,
-     "fim": 62.195,
+     "p": "Segura",
+     "ini": 64.036,
+     "fim": 64.519,
      "tom": false
     },
     {
-     "p": "pai",
-     "ini": 62.206,
-     "fim": 62.429,
+     "p": "o",
+     "ini": 64.531,
+     "fim": 64.591,
      "tom": false
     },
     {
-     "p": "foi",
-     "ini": 62.44,
-     "fim": 62.574,
-     "tom": false
-    },
-    {
-     "p": "embora",
-     "ini": 62.585,
-     "fim": 62.954,
-     "tom": false
-    },
-    {
-     "p": "sem",
-     "ini": 62.965,
-     "fim": 63.177,
-     "tom": false
-    },
-    {
-     "p": "entender",
-     "ini": 63.188,
-     "fim": 63.601,
-     "tom": false
-    },
-    {
-     "p": "nada.",
-     "ini": 63.612,
-     "fim": 63.936,
-     "tom": false
-    },
-    {
-     "p": "E",
-     "ini": 64.701,
-     "fim": 64.79,
-     "tom": false
-    },
-    {
-     "p": "nunca",
-     "ini": 64.801,
-     "fim": 65.169,
-     "tom": false
-    },
-    {
-     "p": "contou",
-     "ini": 65.18,
-     "fim": 65.549,
-     "tom": false
-    },
-    {
-     "p": "isso",
-     "ini": 65.56,
-     "fim": 65.817,
-     "tom": false
-    },
-    {
-     "p": "para",
-     "ini": 65.828,
-     "fim": 65.984,
-     "tom": false
-    },
-    {
-     "p": "a",
-     "ini": 65.995,
-     "fim": 66.017,
-     "tom": false
-    },
-    {
-     "p": "minha",
-     "ini": 66.029,
-     "fim": 66.207,
-     "tom": false
-    },
-    {
-     "p": "mãe.",
-     "ini": 66.218,
-     "fim": 66.497,
+     "p": "quê?",
+     "ini": 64.603,
+     "fim": 64.904,
      "tom": true
     }
    ]
   },
   {
-   "id": "janela2",
-   "cena": "audio",
-   "pausa": 0.25,
-   "ini": 66.983,
-   "fim": 70.294,
+   "id": "d0",
+   "cena": "porta",
+   "pausa": 0.45,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+2%",
+   "tom": "-12Hz",
+   "quem": "lurdes",
+   "ini": 65.264,
+   "fim": 68.118,
    "palavras": [
+    {
+     "p": "É",
+     "ini": 65.264,
+     "fim": 65.341,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 65.354,
+     "fim": 65.403,
+     "tom": false
+    },
+    {
+     "p": "Louro,",
+     "ini": 65.415,
+     "fim": 65.77,
+     "tom": false
+    },
+    {
+     "p": "moço.",
+     "ini": 65.795,
+     "fim": 66.236,
+     "tom": false
+    },
     {
      "p": "A",
-     "ini": 66.983,
-     "fim": 67.041,
-     "tom": false
-    },
-    {
-     "p": "mãe",
-     "ini": 67.052,
-     "fim": 67.275,
-     "tom": false
-    },
-    {
-     "p": "da",
-     "ini": 67.287,
-     "fim": 67.354,
+     "ini": 66.492,
+     "fim": 66.639,
      "tom": false
     },
     {
      "p": "Helena",
-     "ini": 67.365,
-     "fim": 67.644,
+     "ini": 66.652,
+     "fim": 66.982,
      "tom": false
     },
     {
-     "p": "viu",
-     "ini": 67.655,
-     "fim": 67.845,
+     "p": "mudou",
+     "ini": 66.995,
+     "fim": 67.277,
      "tom": false
     },
     {
-     "p": "tudo",
-     "ini": 67.856,
-     "fim": 68.124,
+     "p": "faz",
+     "ini": 67.289,
+     "fim": 67.473,
      "tom": false
     },
     {
-     "p": "pela",
-     "ini": 68.135,
-     "fim": 68.313,
+     "p": "anos.",
+     "ini": 67.485,
+     "fim": 68.036,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "deixou",
+   "cena": "audio",
+   "pausa": 0.3,
+   "ini": 68.568,
+   "fim": 72.701,
+   "palavras": [
+    {
+     "p": "Meu",
+     "ini": 68.568,
+     "fim": 68.784,
      "tom": false
     },
     {
-     "p": "janela",
-     "ini": 68.325,
-     "fim": 68.782,
+     "p": "pai",
+     "ini": 68.795,
+     "fim": 69.019,
+     "tom": false
+    },
+    {
+     "p": "deixou",
+     "ini": 69.03,
+     "fim": 69.331,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 69.342,
+     "fim": 69.376,
+     "tom": false
+    },
+    {
+     "p": "bilhete",
+     "ini": 69.387,
+     "fim": 69.8,
      "tom": false
     },
     {
      "p": "e",
-     "ini": 68.793,
-     "fim": 68.86,
+     "ini": 69.811,
+     "fim": 69.833,
      "tom": false
     },
     {
-     "p": "mandou",
-     "ini": 68.871,
-     "fim": 69.195,
+     "p": "foi",
+     "ini": 69.845,
+     "fim": 70.012,
      "tom": false
     },
     {
-     "p": "um",
-     "ini": 69.206,
-     "fim": 69.351,
+     "p": "embora.",
+     "ini": 70.023,
+     "fim": 70.425,
      "tom": false
     },
     {
-     "p": "áudio",
-     "ini": 69.362,
-     "fim": 69.63,
+     "p": "Nunca",
+     "ini": 71.19,
+     "fim": 71.569,
+     "tom": false
+    },
+    {
+     "p": "contou",
+     "ini": 71.58,
+     "fim": 71.96,
      "tom": false
     },
     {
      "p": "para",
-     "ini": 69.642,
-     "fim": 69.787,
+     "ini": 71.971,
+     "fim": 72.116,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 69.798,
-     "fim": 69.831,
+     "ini": 72.127,
+     "fim": 72.149,
      "tom": false
     },
     {
-     "p": "filha.",
-     "ini": 69.842,
-     "fim": 70.188,
+     "p": "minha",
+     "ini": 72.161,
+     "fim": 72.339,
+     "tom": false
+    },
+    {
+     "p": "mãe.",
+     "ini": 72.35,
+     "fim": 72.64,
      "tom": true
     }
    ]
@@ -1371,436 +1384,587 @@
   {
    "id": "d1",
    "cena": "audio",
-   "pausa": 0.35,
+   "pausa": 0.3,
    "voz": "pt-BR-FranciscaNeural",
    "ritmo": "+2%",
    "tom": "-12Hz",
    "quem": "lurdes",
-   "ini": 70.544,
-   "fim": 75.767,
+   "efeito": "zap",
+   "ini": 73.001,
+   "fim": 79.183,
    "palavras": [
     {
      "p": "Filha,",
-     "ini": 70.544,
-     "fim": 70.829,
+     "ini": 73.001,
+     "fim": 73.285,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 70.94,
-     "fim": 71.013,
+     "ini": 73.396,
+     "fim": 73.469,
      "tom": false
     },
     {
      "p": "Louro",
-     "ini": 71.026,
-     "fim": 71.307,
+     "ini": 73.481,
+     "fim": 73.763,
      "tom": false
     },
     {
      "p": "atendeu",
-     "ini": 71.32,
-     "fim": 71.724,
+     "ini": 73.776,
+     "fim": 74.18,
      "tom": false
     },
     {
      "p": "mais",
-     "ini": 71.736,
-     "fim": 71.896,
+     "ini": 74.192,
+     "fim": 74.352,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 71.908,
-     "fim": 72.067,
+     "ini": 74.364,
+     "fim": 74.523,
      "tom": false
     },
     {
      "p": "pai.",
-     "ini": 72.079,
-     "fim": 72.41,
+     "ini": 74.535,
+     "fim": 74.866,
      "tom": false
     },
     {
      "p": "Com",
-     "ini": 72.667,
-     "fim": 72.814,
+     "ini": 75.123,
+     "fim": 75.27,
+     "tom": false
+    },
+    {
+     "p": "bebê!",
+     "ini": 75.282,
+     "fim": 75.686,
+     "tom": false
+    },
+    {
+     "p": "Deixou",
+     "ini": 75.944,
+     "fim": 76.348,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 72.826,
-     "fim": 72.9,
+     "ini": 76.36,
+     "fim": 76.434,
      "tom": false
     },
     {
-     "p": "bebê",
-     "ini": 72.912,
-     "fim": 73.194,
+     "p": "bilhete.",
+     "ini": 76.446,
+     "fim": 77.01,
      "tom": false
     },
     {
-     "p": "no",
-     "ini": 73.206,
-     "fim": 73.316,
+     "p": "E",
+     "ini": 77.267,
+     "fim": 77.365,
      "tom": false
     },
     {
-     "p": "colo!",
-     "ini": 73.328,
-     "fim": 73.721,
-     "tom": false
-    },
-    {
-     "p": "Tira",
-     "ini": 73.978,
-     "fim": 74.211,
+     "p": "tira",
+     "ini": 77.378,
+     "fim": 77.635,
      "tom": false
     },
     {
      "p": "esse",
-     "ini": 74.223,
-     "fim": 74.382,
+     "ini": 77.647,
+     "fim": 77.806,
      "tom": false
     },
     {
      "p": "endereço",
-     "ini": 74.395,
-     "fim": 74.836,
+     "ini": 77.819,
+     "fim": 78.26,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 74.848,
-     "fim": 74.946,
+     "ini": 78.272,
+     "fim": 78.37,
      "tom": false
     },
     {
      "p": "internet!",
-     "ini": 74.958,
-     "fim": 75.706,
+     "ini": 78.382,
+     "fim": 79.13,
      "tom": true
     }
    ]
   },
   {
-   "id": "ouviu",
+   "id": "janela2",
    "cena": "audio",
+   "pausa": 0.4,
+   "ini": 79.483,
+   "fim": 86.262,
+   "palavras": [
+    {
+     "p": "Da",
+     "ini": 79.483,
+     "fim": 79.631,
+     "tom": false
+    },
+    {
+     "p": "janela,",
+     "ini": 79.642,
+     "fim": 80.111,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 80.301,
+     "fim": 80.379,
+     "tom": false
+    },
+    {
+     "p": "Dona",
+     "ini": 80.39,
+     "fim": 80.635,
+     "tom": false
+    },
+    {
+     "p": "Lurdes",
+     "ini": 80.647,
+     "fim": 81.071,
+     "tom": false
+    },
+    {
+     "p": "viu",
+     "ini": 81.082,
+     "fim": 81.238,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 81.249,
+     "fim": 81.294,
+     "tom": false
+    },
+    {
+     "p": "carro",
+     "ini": 81.305,
+     "fim": 81.618,
+     "tom": false
+    },
+    {
+     "p": "ir",
+     "ini": 81.629,
+     "fim": 81.752,
+     "tom": false
+    },
+    {
+     "p": "embora.",
+     "ini": 81.763,
+     "fim": 82.165,
+     "tom": false
+    },
+    {
+     "p": "A",
+     "ini": 82.929,
+     "fim": 83.063,
+     "tom": false
+    },
+    {
+     "p": "outra",
+     "ini": 83.074,
+     "fim": 83.32,
+     "tom": false
+    },
+    {
+     "p": "janela,",
+     "ini": 83.331,
+     "fim": 83.766,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 84.012,
+     "fim": 84.101,
+     "tom": false
+    },
+    {
+     "p": "dos",
+     "ini": 84.112,
+     "fim": 84.358,
+     "tom": false
+    },
+    {
+     "p": "quinze",
+     "ini": 84.369,
+     "fim": 84.704,
+     "tom": false
+    },
+    {
+     "p": "dias,",
+     "ini": 84.715,
+     "fim": 85.117,
+     "tom": false
+    },
+    {
+     "p": "estava",
+     "ini": 85.34,
+     "fim": 85.675,
+     "tom": false
+    },
+    {
+     "p": "fechando.",
+     "ini": 85.686,
+     "fim": 86.166,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "leu",
+   "cena": "helena",
    "pausa": 0.3,
-   "ini": 76.117,
-   "fim": 79.036,
+   "ini": 86.662,
+   "fim": 90.41,
    "palavras": [
     {
      "p": "A",
-     "ini": 76.117,
-     "fim": 76.208,
+     "ini": 86.662,
+     "fim": 86.742,
      "tom": false
     },
     {
      "p": "Helena",
-     "ini": 76.219,
-     "fim": 76.464,
+     "ini": 86.754,
+     "fim": 87.044,
      "tom": false
     },
     {
-     "p": "ouviu",
-     "ini": 76.476,
-     "fim": 76.721,
+     "p": "leu",
+     "ini": 87.055,
+     "fim": 87.256,
      "tom": false
     },
     {
-     "p": "e",
-     "ini": 76.732,
-     "fim": 76.743,
+     "p": "o",
+     "ini": 87.267,
+     "fim": 87.3,
      "tom": false
     },
     {
-     "p": "lembrou",
-     "ini": 76.755,
-     "fim": 77.112,
+     "p": "bilhete.",
+     "ini": 87.312,
+     "fim": 87.791,
      "tom": false
     },
     {
-     "p": "de",
-     "ini": 77.123,
-     "fim": 77.179,
-     "tom": false
-    },
-    {
-     "p": "uma",
-     "ini": 77.19,
-     "fim": 77.313,
-     "tom": false
-    },
-    {
-     "p": "mãe",
-     "ini": 77.324,
-     "fim": 77.558,
+     "p": "O",
+     "ini": 88.556,
+     "fim": 88.657,
      "tom": false
     },
     {
      "p": "que",
-     "ini": 77.569,
-     "fim": 77.692,
+     "ini": 88.668,
+     "fim": 88.802,
      "tom": false
     },
     {
-     "p": "tinha",
-     "ini": 77.703,
-     "fim": 77.893,
+     "p": "dizia,",
+     "ini": 88.813,
+     "fim": 89.215,
      "tom": false
     },
     {
-     "p": "deixado",
-     "ini": 77.904,
-     "fim": 78.328,
+     "p": "fica",
+     "ini": 89.471,
+     "fim": 89.75,
      "tom": false
     },
     {
-     "p": "ela",
-     "ini": 78.339,
-     "fim": 78.462,
+     "p": "para",
+     "ini": 89.762,
+     "fim": 89.918,
      "tom": false
     },
     {
-     "p": "no",
-     "ini": 78.473,
-     "fim": 78.574,
+     "p": "o",
+     "ini": 89.929,
+     "fim": 89.951,
      "tom": false
     },
     {
-     "p": "vácuo.",
-     "ini": 78.585,
-     "fim": 78.953,
+     "p": "final.",
+     "ini": 89.962,
+     "fim": 90.342,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "sete",
+   "cena": "helena",
+   "pausa": 0.35,
+   "ini": 90.71,
+   "fim": 97.257,
+   "palavras": [
+    {
+     "p": "Sete",
+     "ini": 90.71,
+     "fim": 91.059,
+     "tom": false
+    },
+    {
+     "p": "anos",
+     "ini": 91.07,
+     "fim": 91.316,
+     "tom": false
+    },
+    {
+     "p": "repetindo",
+     "ini": 91.327,
+     "fim": 91.773,
+     "tom": false
+    },
+    {
+     "p": "as",
+     "ini": 91.785,
+     "fim": 91.885,
+     "tom": false
+    },
+    {
+     "p": "mesmas",
+     "ini": 91.896,
+     "fim": 92.231,
+     "tom": false
+    },
+    {
+     "p": "frases:",
+     "ini": 92.242,
+     "fim": 92.711,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 92.923,
+     "fim": 93.001,
+     "tom": false
+    },
+    {
+     "p": "Louro,",
+     "ini": 93.012,
+     "fim": 93.347,
+     "tom": false
+    },
+    {
+     "p": "porque",
+     "ini": 93.57,
+     "fim": 93.86,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 93.872,
+     "fim": 93.939,
+     "tom": false
+    },
+    {
+     "p": "papagaio.",
+     "ini": 93.95,
+     "fim": 94.508,
+     "tom": false
+    },
+    {
+     "p": "Ela,",
+     "ini": 95.272,
+     "fim": 95.585,
+     "tom": false
+    },
+    {
+     "p": "porque",
+     "ini": 95.831,
+     "fim": 96.132,
+     "tom": false
+    },
+    {
+     "p": "sempre",
+     "ini": 96.143,
+     "fim": 96.556,
+     "tom": false
+    },
+    {
+     "p": "deu",
+     "ini": 96.567,
+     "fim": 96.723,
+     "tom": false
+    },
+    {
+     "p": "certo.",
+     "ini": 96.735,
+     "fim": 97.17,
      "tom": true
     }
    ]
   },
   {
    "id": "pagina",
-   "cena": "audio",
+   "cena": "helena",
    "pausa": 0.45,
    "impacto": true,
-   "ini": 79.336,
-   "fim": 82.993,
+   "ini": 97.607,
+   "fim": 101.045,
    "palavras": [
     {
      "p": "Naquela",
-     "ini": 79.336,
-     "fim": 79.718,
+     "ini": 97.607,
+     "fim": 97.982,
      "tom": false
     },
     {
      "p": "noite,",
-     "ini": 79.729,
-     "fim": 80.12,
+     "ini": 97.993,
+     "fim": 98.361,
      "tom": false
     },
     {
-     "p": "a",
-     "ini": 80.209,
-     "fim": 80.309,
-     "tom": false
-    },
-    {
-     "p": "Helena",
-     "ini": 80.321,
-     "fim": 80.622,
+     "p": "ela",
+     "ini": 98.473,
+     "fim": 98.663,
      "tom": false
     },
     {
      "p": "virou",
-     "ini": 80.633,
-     "fim": 80.845,
+     "ini": 98.674,
+     "fim": 98.886,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 80.856,
-     "fim": 80.923,
+     "ini": 98.897,
+     "fim": 98.975,
      "tom": false
     },
     {
      "p": "página.",
-     "ini": 80.934,
-     "fim": 81.381,
+     "ini": 98.986,
+     "fim": 99.433,
      "tom": false
     },
     {
      "p": "As",
-     "ini": 82.146,
-     "fim": 82.291,
+     "ini": 100.198,
+     "fim": 100.343,
      "tom": false
     },
     {
      "p": "catorze.",
-     "ini": 82.302,
-     "fim": 82.905,
+     "ini": 100.354,
+     "fim": 100.956,
      "tom": true
     }
    ]
   },
   {
    "id": "trocou",
-   "cena": "audio",
-   "pausa": 0.25,
-   "ini": 83.443,
-   "fim": 88.417,
+   "cena": "helena",
+   "pausa": 0.4,
+   "ini": 101.495,
+   "fim": 105.429,
    "palavras": [
     {
-     "p": "Trocou",
-     "ini": 83.443,
-     "fim": 83.755,
+     "p": "E",
+     "ini": 101.495,
+     "fim": 101.55,
+     "tom": false
+    },
+    {
+     "p": "começou",
+     "ini": 101.562,
+     "fim": 101.997,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 102.008,
+     "fim": 102.053,
+     "tom": false
+    },
+    {
+     "p": "trocar",
+     "ini": 102.064,
+     "fim": 102.388,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 83.766,
-     "fim": 83.811,
+     "ini": 102.399,
+     "fim": 102.454,
      "tom": false
     },
     {
      "p": "PDF",
-     "ini": 83.822,
-     "fim": 83.989,
+     "ini": 102.466,
+     "fim": 102.667,
      "tom": false
     },
     {
      "p": "por",
-     "ini": 84.0,
-     "fim": 84.134,
+     "ini": 102.678,
+     "fim": 102.789,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 84.146,
-     "fim": 84.436,
+     "ini": 102.8,
+     "fim": 103.225,
      "tom": false
     },
     {
      "p": "site,",
-     "ini": 84.447,
-     "fim": 84.559,
+     "ini": 103.236,
+     "fim": 103.303,
      "tom": false
     },
     {
      "p": "com",
-     "ini": 84.57,
-     "fim": 84.648,
+     "ini": 103.314,
+     "fim": 103.705,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 84.659,
-     "fim": 85.05,
+     "ini": 103.961,
+     "fim": 104.129,
      "tom": false
     },
     {
      "p": "preço",
-     "ini": 85.306,
-     "fim": 85.496,
+     "ini": 104.14,
+     "fim": 104.173,
      "tom": false
     },
     {
-     "p": "de",
-     "ini": 85.507,
-     "fim": 85.831,
+     "p": "na",
+     "ini": 104.184,
+     "fim": 104.553,
      "tom": false
     },
     {
-     "p": "cada",
-     "ini": 85.842,
-     "fim": 85.942,
+     "p": "primeira",
+     "ini": 104.564,
+     "fim": 104.653,
      "tom": false
     },
     {
-     "p": "ensaio,",
-     "ini": 85.954,
-     "fim": 86.166,
-     "tom": false
-    },
-    {
-     "p": "e",
-     "ini": 86.177,
-     "fim": 86.634,
-     "tom": false
-    },
-    {
-     "p": "arrumou",
-     "ini": 86.925,
-     "fim": 87.003,
-     "tom": false
-    },
-    {
-     "p": "o",
-     "ini": 87.014,
-     "fim": 87.404,
-     "tom": false
-    },
-    {
-     "p": "endereço",
-     "ini": 87.416,
-     "fim": 87.471,
-     "tom": false
-    },
-    {
-     "p": "no",
-     "ini": 87.483,
-     "fim": 87.896,
-     "tom": false
-    },
-    {
-     "p": "mapa.",
-     "ini": 87.907,
-     "fim": 88.331,
-     "tom": true
-    }
-   ]
-  },
-  {
-   "id": "h1",
-   "cena": "audio",
-   "pausa": 0.45,
-   "voz": "pt-BR-ThalitaMultilingualNeural",
-   "ritmo": "+6%",
-   "quem": "helena",
-   "ini": 88.667,
-   "fim": 90.709,
-   "palavras": [
-    {
-     "p": "Mãe,",
-     "ini": 88.667,
-     "fim": 89.006,
-     "tom": false
-    },
-    {
-     "p": "agora",
-     "ini": 89.23,
-     "fim": 89.572,
-     "tom": false
-    },
-    {
-     "p": "tá",
-     "ini": 89.572,
-     "fim": 89.678,
-     "tom": false
-    },
-    {
-     "p": "tudo",
-     "ini": 89.678,
-     "fim": 90.056,
-     "tom": false
-    },
-    {
-     "p": "no",
-     "ini": 90.056,
-     "fim": 90.15,
-     "tom": false
-    },
-    {
-     "p": "site.",
-     "ini": 90.15,
-     "fim": 90.645,
+     "p": "tela.",
+     "ini": 104.664,
+     "fim": 105.334,
      "tom": true
     }
    ]
@@ -1808,45 +1972,112 @@
   {
    "id": "desistiu",
    "cena": "desiste",
-   "pausa": 0.45,
+   "pausa": 0.3,
    "impacto": true,
-   "ini": 91.159,
-   "fim": 93.139,
+   "ini": 105.829,
+   "fim": 107.714,
    "palavras": [
     {
      "p": "Dia",
-     "ini": 91.159,
-     "fim": 91.424,
+     "ini": 105.829,
+     "fim": 106.072,
      "tom": false
     },
     {
      "p": "onze,",
-     "ini": 91.435,
-     "fim": 91.792,
-     "tom": false
-    },
-    {
-     "p": "a",
-     "ini": 91.971,
-     "fim": 92.038,
+     "ini": 106.083,
+     "fim": 106.418,
      "tom": false
     },
     {
      "p": "minha",
-     "ini": 92.049,
-     "fim": 92.283,
+     "ini": 106.596,
+     "fim": 106.831,
      "tom": false
     },
     {
      "p": "mãe",
-     "ini": 92.294,
-     "fim": 92.54,
+     "ini": 106.842,
+     "fim": 107.098,
      "tom": false
     },
     {
      "p": "desistiu.",
-     "ini": 92.551,
-     "fim": 93.053,
+     "ini": 107.11,
+     "fim": 107.634,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "c1",
+   "cena": "desiste",
+   "pausa": 0.45,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+8%",
+   "tom": "+4Hz",
+   "quem": "camila",
+   "ini": 108.014,
+   "fim": 110.603,
+   "palavras": [
+    {
+     "p": "Tudo",
+     "ini": 108.014,
+     "fim": 108.19,
+     "tom": false
+    },
+    {
+     "p": "bem.",
+     "ini": 108.201,
+     "fim": 108.479,
+     "tom": false
+    },
+    {
+     "p": "A",
+     "ini": 108.719,
+     "fim": 108.834,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 108.846,
+     "fim": 108.985,
+     "tom": false
+    },
+    {
+     "p": "colo",
+     "ini": 108.996,
+     "fim": 109.367,
+     "tom": false
+    },
+    {
+     "p": "eu",
+     "ini": 109.39,
+     "fim": 109.471,
+     "tom": false
+    },
+    {
+     "p": "tiro",
+     "ini": 109.482,
+     "fim": 109.772,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 109.783,
+     "fim": 109.911,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 109.922,
+     "fim": 109.969,
+     "tom": false
+    },
+    {
+     "p": "celular.",
+     "ini": 109.98,
+     "fim": 110.466,
      "tom": true
     }
    ]
@@ -1855,109 +2086,130 @@
    "id": "dia13",
    "cena": "achou",
    "pausa": 0.3,
-   "ini": 93.589,
-   "fim": 97.976,
+   "ini": 111.053,
+   "fim": 114.095,
    "palavras": [
     {
      "p": "Dia",
-     "ini": 93.589,
-     "fim": 93.83,
+     "ini": 111.053,
+     "fim": 111.28,
      "tom": false
     },
     {
      "p": "treze,",
-     "ini": 93.841,
-     "fim": 94.231,
+     "ini": 111.291,
+     "fim": 111.659,
+     "tom": false
+    },
+    {
+     "p": "quase",
+     "ini": 111.882,
+     "fim": 112.228,
      "tom": false
     },
     {
      "p": "três",
-     "ini": 94.332,
-     "fim": 94.555,
+     "ini": 112.24,
+     "fim": 112.44,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 94.566,
-     "fim": 94.644,
+     "ini": 112.452,
+     "fim": 112.53,
      "tom": false
     },
     {
      "p": "manhã,",
-     "ini": 94.655,
-     "fim": 94.968,
+     "ini": 112.541,
+     "fim": 112.842,
      "tom": false
     },
     {
      "p": "chegou",
-     "ini": 95.158,
-     "fim": 95.426,
+     "ini": 113.054,
+     "fim": 113.3,
      "tom": false
     },
     {
-     "p": "no",
-     "ini": 95.437,
-     "fim": 95.526,
+     "p": "uma",
+     "ini": 113.311,
+     "fim": 113.411,
      "tom": false
     },
     {
-     "p": "celular",
-     "ini": 95.537,
-     "fim": 95.972,
+     "p": "mensagem.",
+     "ini": 113.423,
+     "fim": 114.003,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "lindo",
+   "cena": "achou",
+   "pausa": 0.25,
+   "ini": 114.395,
+   "fim": 116.953,
+   "palavras": [
+    {
+     "p": "Um",
+     "ini": 114.395,
+     "fim": 114.503,
      "tom": false
     },
     {
-     "p": "dela",
-     "ini": 95.984,
-     "fim": 96.173,
+     "p": "newborn,",
+     "ini": 114.514,
+     "fim": 115.005,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 96.184,
-     "fim": 96.218,
-     "tom": false
-    },
-    {
-     "p": "newborn",
-     "ini": 96.229,
-     "fim": 96.642,
+     "ini": 115.184,
+     "fim": 115.251,
      "tom": false
     },
     {
      "p": "mais",
-     "ini": 96.653,
-     "fim": 96.888,
+     "ini": 115.262,
+     "fim": 115.496,
      "tom": false
     },
     {
      "p": "lindo",
-     "ini": 96.899,
-     "fim": 97.167,
+     "ini": 115.508,
+     "fim": 115.798,
      "tom": false
     },
     {
      "p": "que",
-     "ini": 97.178,
-     "fim": 97.278,
+     "ini": 115.809,
+     "fim": 115.876,
      "tom": false
     },
     {
      "p": "ela",
-     "ini": 97.289,
-     "fim": 97.479,
+     "ini": 115.887,
+     "fim": 116.032,
      "tom": false
     },
     {
      "p": "já",
-     "ini": 97.49,
-     "fim": 97.624,
+     "ini": 116.043,
+     "fim": 116.188,
      "tom": false
     },
     {
-     "p": "viu.",
-     "ini": 97.635,
-     "fim": 97.892,
+     "p": "tinha",
+     "ini": 116.199,
+     "fim": 116.49,
+     "tom": false
+    },
+    {
+     "p": "visto.",
+     "ini": 116.501,
+     "fim": 116.858,
      "tom": true
     }
    ]
@@ -1965,27 +2217,27 @@
   {
    "id": "quem",
    "cena": "achou",
-   "pausa": 0.35,
+   "pausa": 0.3,
    "impacto": true,
-   "ini": 98.276,
-   "fim": 100.47,
+   "ini": 117.203,
+   "fim": 119.397,
    "palavras": [
     {
      "p": "A",
-     "ini": 98.276,
-     "fim": 98.367,
+     "ini": 117.203,
+     "fim": 117.294,
      "tom": false
     },
     {
      "p": "fotógrafa?",
-     "ini": 98.378,
-     "fim": 99.092,
+     "ini": 117.305,
+     "fim": 118.02,
      "tom": false
     },
     {
      "p": "Helena.",
-     "ini": 99.857,
-     "fim": 100.382,
+     "ini": 118.784,
+     "fim": 119.309,
      "tom": true
     }
    ]
@@ -1994,25 +2246,25 @@
    "id": "faltavam",
    "cena": "achou",
    "pausa": 0.35,
-   "ini": 100.82,
-   "fim": 102.12,
+   "ini": 119.697,
+   "fim": 120.997,
    "palavras": [
     {
      "p": "Faltavam",
-     "ini": 100.82,
-     "fim": 101.293,
+     "ini": 119.697,
+     "fim": 120.17,
      "tom": false
     },
     {
      "p": "dois",
-     "ini": 101.304,
-     "fim": 101.606,
+     "ini": 120.182,
+     "fim": 120.483,
      "tom": false
     },
     {
      "p": "dias.",
-     "ini": 101.617,
-     "fim": 102.052,
+     "ini": 120.494,
+     "fim": 120.929,
      "tom": true
     }
    ]
@@ -2021,73 +2273,73 @@
    "id": "gancho",
    "cena": "gancho",
    "pausa": 0.6,
-   "ini": 102.47,
-   "fim": 105.295,
+   "ini": 121.347,
+   "fim": 123.818,
    "palavras": [
     {
      "p": "E",
-     "ini": 102.47,
-     "fim": 102.546,
+     "ini": 121.347,
+     "fim": 121.415,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 102.557,
-     "fim": 102.613,
+     "ini": 121.426,
+     "fim": 121.482,
      "tom": false
     },
     {
      "p": "minha",
-     "ini": 102.624,
-     "fim": 102.814,
+     "ini": 121.493,
+     "fim": 121.683,
      "tom": false
     },
     {
      "p": "mãe",
-     "ini": 102.825,
-     "fim": 103.037,
+     "ini": 121.694,
+     "fim": 121.906,
      "tom": false
     },
     {
      "p": "ainda",
-     "ini": 103.049,
-     "fim": 103.294,
+     "ini": 121.917,
+     "fim": 122.163,
      "tom": false
     },
     {
      "p": "achava",
-     "ini": 103.305,
-     "fim": 103.752,
+     "ini": 122.174,
+     "fim": 122.542,
      "tom": false
     },
     {
      "p": "que",
-     "ini": 103.763,
-     "fim": 103.785,
+     "ini": 122.554,
+     "fim": 122.621,
      "tom": false
     },
     {
      "p": "a",
-     "ini": 103.796,
-     "fim": 104.075,
+     "ini": 122.632,
+     "fim": 122.654,
      "tom": false
     },
     {
      "p": "Helena",
-     "ini": 104.086,
-     "fim": 104.522,
+     "ini": 122.665,
+     "fim": 122.978,
      "tom": false
     },
     {
-     "p": "mandava",
-     "ini": 104.533,
-     "fim": 104.678,
+     "p": "tinha",
+     "ini": 122.989,
+     "fim": 123.234,
      "tom": false
     },
     {
-     "p": "PDF.",
-     "ini": 104.689,
-     "fim": 105.236,
+     "p": "fechado.",
+     "ini": 123.246,
+     "fim": 123.726,
      "tom": true
     }
    ]
@@ -2096,103 +2348,121 @@
    "id": "previa",
    "cena": "previa",
    "pausa": 0.3,
-   "ini": 105.895,
-   "fim": 110.806,
+   "ini": 124.418,
+   "fim": 129.121,
    "palavras": [
     {
      "p": "No",
-     "ini": 105.895,
-     "fim": 106.014,
-     "tom": false
-    },
-    {
-     "p": "episódio",
-     "ini": 106.025,
-     "fim": 106.505,
+     "ini": 124.418,
+     "fim": 124.549,
      "tom": false
     },
     {
      "p": "final:",
-     "ini": 106.516,
-     "fim": 106.862,
+     "ini": 124.56,
+     "fim": 124.951,
      "tom": false
     },
     {
      "p": "três",
-     "ini": 107.052,
-     "fim": 107.264,
+     "ini": 125.129,
+     "fim": 125.353,
      "tom": false
     },
     {
      "p": "da",
-     "ini": 107.275,
-     "fim": 107.353,
+     "ini": 125.364,
+     "fim": 125.442,
      "tom": false
     },
     {
      "p": "manhã,",
-     "ini": 107.364,
-     "fim": 107.71,
-     "tom": false
-    },
-    {
-     "p": "três",
-     "ini": 107.833,
-     "fim": 108.034,
-     "tom": false
-    },
-    {
-     "p": "pessoas",
-     "ini": 108.045,
-     "fim": 108.402,
-     "tom": false
-    },
-    {
-     "p": "acordadas",
-     "ini": 108.413,
-     "fim": 109.005,
-     "tom": false
-    },
-    {
-     "p": "e",
-     "ini": 109.016,
-     "fim": 109.105,
+     "ini": 125.453,
+     "fim": 125.766,
      "tom": false
     },
     {
      "p": "um",
-     "ini": 109.116,
-     "fim": 109.194,
+     "ini": 126.033,
+     "fim": 126.112,
      "tom": false
     },
     {
-     "p": "papagaio",
-     "ini": 109.206,
-     "fim": 109.719,
+     "p": "bilhete",
+     "ini": 126.123,
+     "fim": 126.469,
      "tom": false
     },
     {
-     "p": "com",
-     "ini": 109.73,
-     "fim": 109.875,
+     "p": "lido",
+     "ini": 126.48,
+     "fim": 126.681,
      "tom": false
     },
     {
-     "p": "uma",
-     "ini": 109.886,
-     "fim": 110.009,
+     "p": "em",
+     "ini": 126.692,
+     "fim": 126.759,
      "tom": false
     },
     {
-     "p": "frase",
-     "ini": 110.02,
-     "fim": 110.377,
+     "p": "voz",
+     "ini": 126.77,
+     "fim": 126.96,
      "tom": false
     },
     {
-     "p": "nova.",
-     "ini": 110.389,
-     "fim": 110.712,
+     "p": "alta",
+     "ini": 126.971,
+     "fim": 127.295,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 127.306,
+     "fim": 127.339,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 127.35,
+     "fim": 127.406,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 127.417,
+     "fim": 127.518,
+     "tom": false
+    },
+    {
+     "p": "meu",
+     "ini": 127.529,
+     "fim": 127.674,
+     "tom": false
+    },
+    {
+     "p": "pai",
+     "ini": 127.685,
+     "fim": 127.875,
+     "tom": false
+    },
+    {
+     "p": "respondeu",
+     "ini": 127.886,
+     "fim": 128.355,
+     "tom": false
+    },
+    {
+     "p": "ao",
+     "ini": 128.366,
+     "fim": 128.455,
+     "tom": false
+    },
+    {
+     "p": "papagaio.",
+     "ini": 128.466,
+     "fim": 129.036,
      "tom": true
     }
    ]
@@ -2201,37 +2471,37 @@
    "id": "siga",
    "cena": "siga",
    "pausa": 0.2,
-   "ini": 111.106,
-   "fim": 112.267,
+   "ini": 129.421,
+   "fim": 130.583,
    "palavras": [
     {
      "p": "Siga",
-     "ini": 111.106,
-     "fim": 111.392,
+     "ini": 129.421,
+     "fim": 129.707,
      "tom": false
     },
     {
      "p": "para",
-     "ini": 111.403,
-     "fim": 111.593,
+     "ini": 129.718,
+     "fim": 129.908,
      "tom": false
     },
     {
      "p": "ver",
-     "ini": 111.604,
-     "fim": 111.76,
+     "ini": 129.919,
+     "fim": 130.075,
      "tom": false
     },
     {
      "p": "o",
-     "ini": 111.772,
-     "fim": 111.805,
+     "ini": 130.087,
+     "fim": 130.12,
      "tom": false
     },
     {
      "p": "final.",
-     "ini": 111.816,
-     "fim": 112.196,
+     "ini": 130.131,
+     "fim": 130.511,
      "tom": true
     }
    ]

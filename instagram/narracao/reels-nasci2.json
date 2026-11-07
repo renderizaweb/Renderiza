@@ -3,12 +3,12 @@
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
  "inicio": 0.2,
- "_sobre": "Episódio 2, \"Quinze dias\". O bebê conta a janela de 15 dias; o pai vai até o alfinete do mapa e o Louro atende a porta; a mãe da Helena manda um áudio para a filha, e a Helena troca o PDF por um site (o público fica sabendo, a Camila não). O id \"nada\" corta a batida.",
+ "_sobre": "Episódio 2, \"Quinze dias\". A janela de 15 dias; a mãe acha que a Helena fechou; o pai vai de carro ao endereço da página 14 (sabia de cor), o Louro fala da janela, a Dona Lurdes abre a porta; o pai deixa um bilhete (o texto fica para o final) e responde ao Louro sem som. A Helena lê o bilhete e vira a página. No dia 13, alguém (nome borrado, \"Rafa\") manda o post da Helena. O id \"nada\" corta a batida.",
  "frases": [
   {
    "id": "abre",
    "cena": "escuro",
-   "texto": "Nasci num sábado, às quatro da *manhã.*",
+   "texto": "Nasci num sábado, às quatro da manhã. Três semanas *antes.*",
    "pausa": 0.3,
    "impacto": true
   },
@@ -21,41 +21,35 @@
   {
    "id": "resumo",
    "cena": "resumo",
-   "texto": "No episódio 1, eu fiz a minha mãe perder a fotógrafa Helena por causa de um PDF. E nasci três semanas *antes.*",
-   "pausa": 0.3,
-   "fala": "No episódio um, eu fiz a minha mãe perder a fotógrafa Helena por causa de um pê dê éfe. E nasci três semanas antes."
+   "texto": "No episódio 1: catorze páginas, e o preço só na última. E alguém leu *tudo.*",
+   "pausa": 0.2,
+   "fala": "No episódio um: catorze páginas, e o preço só na última. E alguém leu tudo."
+  },
+  {
+   "id": "louroR",
+   "cena": "resumo",
+   "texto": "Não, não foi o *Louro.*",
+   "pausa": 0.4
   },
   {
    "id": "janela",
    "cena": "janela",
-   "texto": "Ensaio newborn costuma ser nos primeiros quinze dias, enquanto o bebê dorme *enroladinho.*",
+   "texto": "Ensaio newborn tem janela: uns quinze dias, enquanto o bebê ainda dorme *enroladinho.*",
    "pausa": 0.3,
-   "fala": "Ensaio níuborn costuma ser nos primeiros quinze dias, enquanto o bebê dorme enroladinho."
-  },
-  {
-   "id": "avisou",
-   "cena": "rival",
-   "texto": "Minha mãe avisou a outra fotógrafa: ele *nasceu!*",
-   "pausa": 0.25
-  },
-  {
-   "id": "lotada",
-   "cena": "rival",
-   "texto": "A resposta: só tenho vaga em *janeiro.*",
-   "pausa": 0.4
+   "fala": "Ensaio níuborn tem janela: uns quinze dias, enquanto o bebê ainda dorme enroladinho."
   },
   {
    "id": "dia3",
    "cena": "noite",
-   "texto": "Dia três, três da manhã. Eu mamando, ela procurando no *Google.*",
-   "pausa": 0.25
+   "texto": "Dia três, três da manhã. Eu mamando, ela relendo a resposta da outra fotógrafa: Parabéns! Newborn, só em *janeiro.*",
+   "pausa": 0.3,
+   "fala": "Dia três, três da manhã. Eu mamando, ela relendo a resposta da outra fotógrafa: Parabéns! Níuborn, só em janeiro."
   },
   {
-   "id": "achados",
+   "id": "desenrolado",
    "cena": "noite",
-   "texto": "Um perfil parado em 2023. Um telefone que não *existe.*",
-   "pausa": 0.3,
-   "fala": "Um perfil parado em dois mil e vinte e três. Um telefone que não existe."
+   "texto": "Em janeiro, eu já ia estar *desenrolado.*",
+   "pausa": 0.4
   },
   {
    "id": "dia7",
@@ -64,47 +58,53 @@
    "pausa": 0.2
   },
   {
-   "id": "vacuo",
+   "id": "voltar",
    "cena": "mapa",
-   "texto": "Tinha o WhatsApp dela. Mas tinha deixado a Helena no *vácuo.*",
+   "texto": "Voltar depois de deixar no visualizado? Melhor *não.*",
    "pausa": 0.3
   },
   {
    "id": "mapa",
    "cena": "mapa",
-   "texto": "Então procurou o estúdio no mapa. O alfinete apontava para uma casa *fechada.*",
-   "pausa": 0.3
-  },
-  {
-   "id": "coragem",
-   "cena": "mapa",
-   "texto": "Ela não teve coragem de bater.",
-   "pausa": 0.15
+   "texto": "E o mapa dava numa casa *fechada.*",
+   "pausa": 0.2
   },
   {
    "id": "nada",
    "cena": "mapa",
-   "texto": "Meu pai *teve.*",
+   "texto": "Conclusão óbvia: a Helena tinha *fechado.*",
    "pausa": 0.5,
    "impacto": true
   },
   {
    "id": "dez",
    "cena": "porta",
-   "texto": "Dia dez, ele me pôs no bebê-conforto e dirigiu até o *alfinete.*",
+   "texto": "Dia dez, eu não dormia, e meu pai fez o que todo pai faz: me pôs no *carro.*",
    "pausa": 0.25
+  },
+  {
+   "id": "cor",
+   "cena": "porta",
+   "texto": "Não abriu o mapa. Sabia o endereço de *cor.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "bilhete",
+   "cena": "porta",
+   "texto": "No bolso, um *bilhete.*",
+   "pausa": 0.4
   },
   {
    "id": "campainha",
    "cena": "porta",
-   "texto": "Tocou a *campainha.*",
-   "pausa": 0.9
+   "texto": "Tocou a campainha. Da janela, a voz da *Helena:*",
+   "pausa": 0.3
   },
   {
    "id": "l1",
    "cena": "porta",
-   "texto": "Qual o valor? *Valor?*",
-   "pausa": 0.3,
+   "texto": "Te mando a *tabela!*",
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -114,8 +114,8 @@
   {
    "id": "r1",
    "cena": "porta",
-   "texto": "Ééé... boa noite. Quanto é o ensaio *newborn?*",
-   "pausa": 0.25,
+   "texto": "Boa *noite?*",
+   "pausa": 0.2,
    "voz": "en-US-BrianMultilingualNeural",
    "ritmo": "+4%",
    "quem": "rafa"
@@ -124,7 +124,24 @@
    "id": "l2",
    "cena": "porta",
    "texto": "Conseguiu ver a *tabela?*",
-   "pausa": 0.25,
+   "pausa": 0.2,
+   "voz": "pt-BR-ThalitaMultilingualNeural",
+   "ritmo": "+12%",
+   "tom": "+30Hz",
+   "efeito": "papagaio",
+   "quem": "louro"
+  },
+  {
+   "id": "resp",
+   "cena": "porta",
+   "texto": "Meu pai respondeu. Essa resposta fica para o *final.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "l3",
+   "cena": "porta",
+   "texto": "Eu seguro pra *você!*",
+   "pausa": 0.2,
    "voz": "pt-BR-ThalitaMultilingualNeural",
    "ritmo": "+12%",
    "tom": "+30Hz",
@@ -134,93 +151,106 @@
   {
    "id": "r2",
    "cena": "porta",
-   "texto": "Que *tabela?*",
-   "pausa": 0.3,
+   "texto": "Segura o *quê?*",
+   "pausa": 0.25,
    "voz": "en-US-BrianMultilingualNeural",
    "ritmo": "+4%",
    "quem": "rafa"
   },
   {
-   "id": "l3",
+   "id": "d0",
    "cena": "porta",
-   "texto": "Vou ver com meu *marido!*",
-   "pausa": 0.5,
-   "voz": "pt-BR-ThalitaMultilingualNeural",
-   "ritmo": "+12%",
-   "tom": "+30Hz",
-   "efeito": "papagaio",
-   "quem": "louro"
-  },
-  {
-   "id": "embora",
-   "cena": "porta",
-   "texto": "Meu pai foi embora sem entender nada. E nunca contou isso para a minha *mãe.*",
-   "pausa": 0.4
-  },
-  {
-   "id": "janela2",
-   "cena": "audio",
-   "texto": "A mãe da Helena viu tudo pela janela e mandou um áudio para a *filha.*",
-   "pausa": 0.25
-  },
-  {
-   "id": "d1",
-   "cena": "audio",
-   "texto": "Filha, o Louro atendeu mais um pai. Com um bebê no colo! Tira esse endereço da *internet!*",
-   "pausa": 0.35,
+   "texto": "É o Louro, moço. A Helena mudou faz *anos.*",
+   "pausa": 0.45,
    "voz": "pt-BR-FranciscaNeural",
    "ritmo": "+2%",
    "tom": "-12Hz",
    "quem": "lurdes"
   },
   {
-   "id": "ouviu",
+   "id": "deixou",
    "cena": "audio",
-   "texto": "A Helena ouviu e lembrou de uma mãe que tinha deixado ela no *vácuo.*",
+   "texto": "Meu pai deixou o bilhete e foi embora. Nunca contou para a minha *mãe.*",
    "pausa": 0.3
   },
   {
-   "id": "pagina",
+   "id": "d1",
    "cena": "audio",
-   "texto": "Naquela noite, a Helena virou a página. As *catorze.*",
+   "texto": "Filha, o Louro atendeu mais um pai. Com bebê! Deixou um bilhete. E tira esse endereço da *internet!*",
+   "pausa": 0.3,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+2%",
+   "tom": "-12Hz",
+   "quem": "lurdes",
+   "efeito": "zap"
+  },
+  {
+   "id": "janela2",
+   "cena": "audio",
+   "texto": "Da janela, a Dona Lurdes viu o carro ir embora. A outra janela, a dos quinze dias, estava *fechando.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "leu",
+   "cena": "helena",
+   "texto": "A Helena leu o bilhete. O que dizia, fica para o *final.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "sete",
+   "cena": "helena",
+   "texto": "Sete anos repetindo as mesmas frases: o Louro, porque é papagaio. Ela, porque sempre deu *certo.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "pagina",
+   "cena": "helena",
+   "texto": "Naquela noite, ela virou a página. As *catorze.*",
    "pausa": 0.45,
    "impacto": true
   },
   {
    "id": "trocou",
-   "cena": "audio",
-   "texto": "Trocou o PDF por um site, com o preço de cada ensaio, e arrumou o endereço no *mapa.*",
-   "pausa": 0.25,
-   "fala": "Trocou o pê dê éfe por um site, com o preço de cada ensaio, e arrumou o endereço no mapa."
-  },
-  {
-   "id": "h1",
-   "cena": "audio",
-   "texto": "Mãe, agora tá tudo no *site.*",
-   "pausa": 0.45,
-   "voz": "pt-BR-ThalitaMultilingualNeural",
-   "ritmo": "+6%",
-   "quem": "helena"
+   "cena": "helena",
+   "texto": "E começou a trocar o PDF por um site, com o preço na primeira *tela.*",
+   "pausa": 0.4,
+   "fala": "E começou a trocar o pê dê éfe por um site, com o preço na primeira tela."
   },
   {
    "id": "desistiu",
    "cena": "desiste",
-   "texto": "Dia onze, a minha mãe *desistiu.*",
-   "pausa": 0.45,
+   "texto": "Dia onze, minha mãe *desistiu.*",
+   "pausa": 0.3,
    "impacto": true
+  },
+  {
+   "id": "c1",
+   "cena": "desiste",
+   "texto": "Tudo bem. A do colo eu tiro com o *celular.*",
+   "pausa": 0.45,
+   "voz": "pt-BR-FranciscaNeural",
+   "ritmo": "+8%",
+   "tom": "+4Hz",
+   "quem": "camila"
   },
   {
    "id": "dia13",
    "cena": "achou",
-   "texto": "Dia treze, três da manhã, chegou no celular dela o newborn mais lindo que ela já *viu.*",
-   "pausa": 0.3,
-   "fala": "Dia treze, três da manhã, chegou no celular dela o níuborn mais lindo que ela já viu."
+   "texto": "Dia treze, quase três da manhã, chegou uma *mensagem.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "lindo",
+   "cena": "achou",
+   "texto": "Um newborn, o mais lindo que ela já tinha *visto.*",
+   "pausa": 0.25,
+   "fala": "Um níuborn, o mais lindo que ela já tinha visto."
   },
   {
    "id": "quem",
    "cena": "achou",
    "texto": "A fotógrafa? *Helena.*",
-   "pausa": 0.35,
+   "pausa": 0.3,
    "impacto": true
   },
   {
@@ -232,14 +262,13 @@
   {
    "id": "gancho",
    "cena": "gancho",
-   "texto": "E a minha mãe ainda achava que a Helena mandava *PDF.*",
-   "pausa": 0.6,
-   "fala": "E a minha mãe ainda achava que a Helena mandava pê dê éfe."
+   "texto": "E a minha mãe ainda achava que a Helena tinha *fechado.*",
+   "pausa": 0.6
   },
   {
    "id": "previa",
    "cena": "previa",
-   "texto": "No episódio final: três da manhã, três pessoas acordadas e um papagaio com uma frase *nova.*",
+   "texto": "No final: três da manhã, um bilhete lido em voz alta e o que meu pai respondeu ao *papagaio.*",
    "pausa": 0.3
   },
   {
