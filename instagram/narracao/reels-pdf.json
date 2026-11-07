@@ -1,0 +1,206 @@
+{
+ "_sobre": "Narração do Reels \"O PDF\" (episódio 1 da série com as coisas que moram no celular da fotógrafa, 06/11/2026). Alvo: a fotógrafa de gestante e newborn que responde \"valor?\" mandando a tabela em PDF pelo WhatsApp e acha que a cliente que some achou caro. Objetivo: ela perceber que a cliente, muitas vezes, nem chega a ver o preço (o arquivo pesa, é de noite, o 4G não ajuda) e que, com o portfólio separado por ensaio no site, com fotos, o que vem incluso e o preço na primeira tela, ela manda o link e a cliente decide sem baixar nada. O gancho: um narrador misterioso que foi mandado para 212 mães e só foi aberto quatro vezes. Quem fala é o PDF de preços da Helena (Tabela 2026 FINAL agora vai). A virada: a Helena acha que perdeu a Camila pelo preço, mas a outra fotógrafa cobrava mais caro; a Camila nem chegou a ver o preço da Helena. O fecho paga o gancho: as quatro aberturas eram a própria Helena, conferindo o preço. Depois do convite, uma cena pós-créditos anuncia o episódio 2. Tudo é fictício. O id \"nada\" corta a batida.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Já me mandaram para 212 mães. Só *quatro* me abriram.",
+   "fala": "Já me mandaram para duzentas e doze mães. Só quatro me abriram.",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "nome",
+   "cena": "eu",
+   "texto": "Meu nome é Tabela 2026 FINAL *agora vai.*",
+   "fala": "Meu nome é Tabela dois mil e vinte e seis, final, agora vai.",
+   "pausa": 0.3
+  },
+  {
+   "id": "pdf",
+   "cena": "eu",
+   "texto": "Sou o *PDF* de preços da Helena, fotógrafa de grávidas e bebês.",
+   "fala": "Sou o pê dê éfe de preços da Helena, fotógrafa de grávidas e bebês.",
+   "pausa": 0.25
+  },
+  {
+   "id": "manda",
+   "cena": "eu",
+   "texto": "Toda vez que alguém pergunta “*valor?*”, ela me manda.",
+   "pausa": 0.25
+  },
+  {
+   "id": "paginas",
+   "cena": "paginas",
+   "texto": "Catorze páginas. Na primeira, *eternizar momentos.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "nove",
+   "cena": "paginas",
+   "texto": "O preço, só na página *nove.*",
+   "pausa": 0.75
+  },
+  {
+   "id": "camila",
+   "cena": "noite",
+   "texto": "Quase meia-noite. A Camila, grávida de oito meses, me *recebeu.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "toque",
+   "cena": "baixa",
+   "texto": "*Toque para baixar.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "tocou",
+   "cena": "baixa",
+   "texto": "Ela tocou. O 4G *pensou.*",
+   "fala": "Ela tocou. O quatro gê pensou.",
+   "pausa": 0.2
+  },
+  {
+   "id": "pensou",
+   "cena": "baixa",
+   "texto": "Pensou mais um *pouco.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "chute",
+   "texto": "E o bebê *chutou.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "caiu",
+   "cena": "chute",
+   "texto": "O celular caiu na *cara* dela.",
+   "pausa": 0.55
+  },
+  {
+   "id": "naobaixou",
+   "cena": "chute",
+   "texto": "Quando ela pegou de novo, eu não tinha *baixado.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "outra",
+   "cena": "outra",
+   "texto": "Ela abriu o perfil de outra fotógrafa e tocou no *link* da bio.",
+   "pausa": 0.2
+  },
+  {
+   "id": "rival",
+   "cena": "outra",
+   "texto": "Fotos e *preço* do ensaio gestante, logo de cara.",
+   "pausa": 0.2
+  },
+  {
+   "id": "chamou",
+   "cena": "outra",
+   "texto": "Chamou no *WhatsApp* ali mesmo.",
+   "pausa": 0.35
+  },
+  {
+   "id": "helena",
+   "cena": "dia",
+   "texto": "No dia seguinte, a Helena perguntou: conseguiu ver a *tabela?*",
+   "pausa": 0.25
+  },
+  {
+   "id": "visto",
+   "cena": "dia",
+   "texto": "*Visualizado.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "achou",
+   "cena": "dia",
+   "texto": "A Helena achou que tinha sido o *preço.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "caro",
+   "cena": "dia",
+   "texto": "Só que a outra fotógrafa cobrava *mais caro.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "nem",
+   "cena": "licao",
+   "texto": "A Camila nem chegou a *ver* o preço da Helena.",
+   "pausa": 0.3
+  },
+  {
+   "id": "site",
+   "cena": "site",
+   "texto": "Então a Helena fez um *site.*",
+   "pausa": 0.2,
+   "impacto": true
+  },
+  {
+   "id": "cada",
+   "cena": "site",
+   "texto": "Cada ensaio com as fotos, o que vem incluso e o *preço*, na primeira tela.",
+   "pausa": 0.2
+  },
+  {
+   "id": "zap",
+   "cena": "site",
+   "texto": "E um botão para chamar no *WhatsApp.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "link",
+   "cena": "site",
+   "texto": "Agora, quando alguém pergunta “valor?”, ela manda o *link.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "quatro",
+   "cena": "fecho",
+   "texto": "E as quatro vezes que me abriram? Foi a Helena, conferindo se o preço estava *certo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "estava",
+   "cena": "fecho",
+   "texto": "*Estava.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Arquivo que ninguém abre não vende *ensaio.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* cada ensaio ganha fotos e preço no site do seu estúdio.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA* que a gente monta a prévia do site do seu estúdio.",
+   "fala": "Comenta prévia, que a gente monta a prévia do site do seu estúdio.",
+   "pausa": 0.5
+  },
+  {
+   "id": "pos",
+   "cena": "pos",
+   "texto": "No próximo episódio: o comprovante de Pix que *sumiu.*",
+   "fala": "No próximo episódio: o comprovante de píquis que sumiu.",
+   "pausa": 0.2
+  }
+ ]
+}

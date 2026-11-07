@@ -437,3 +437,17 @@ Para quem chega pelo celular, o site é a primeira visita ao seu espaço. Se ele
 Comenta PRÉVIA que a gente monta a prévia do site do seu espaço, sem compromisso.
 
 Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu espaço?"
+
+## Série "O celular da fotógrafa" (19h)
+
+### Episódio 1 · "O PDF" (`reels-pdf`, para fotógrafas)
+
+Capa: "Só quatro me abriram", com o selo "Episódio 1" (`reels-pdf-capa.jpg`; a opção B é "O celular caiu na cara dela").
+
+A Helena, a Camila e a Tabela 2026 FINAL agora vai são fictícias. O PDF de catorze páginas, nem tanto.
+
+Quem pergunta "valor?" e some nem sempre achou caro: às vezes nem chegou a ver o preço. E 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box), justo quando o 4G pensa e o sono vence. Com o portfólio separado por ensaio no site, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela, e o "valor?" se responde com um link.
+
+Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
+
+Comentário para fixar: "Quantas páginas tem a sua tabela de preços?"

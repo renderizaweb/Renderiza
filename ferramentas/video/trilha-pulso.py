@@ -8,7 +8,7 @@
 #   reto e a palma; "Nada." corta tudo · volta: a batida abafada · meio: só o drone e um coração batendo
 #   ese: subida (ruído e tom crescendo) até o drop · site: tudo, com acordes curtos · fim: só os impactos · cta: fecha
 #   --sons: efeitos de cena por cima de tudo (a bolinha de pingue-pongue, a notificação, o apito, a tesoura, o telefone fixo,
-#   a caixinha de música), no nível da voz.
+#   a caixinha de música, o baque do celular caindo), no nível da voz.
 import argparse, json, wave
 import numpy as np
 
@@ -187,6 +187,9 @@ def efeito_som(tipo):
     elif tipo == "campainha":  # telefone fixo tocando: duas notas de sino batidas 20 vezes por segundo
         t = T(0.9); x = (np.sin(2 * np.pi * 1050 * t) + 0.7 * np.sin(2 * np.pi * 1310 * t)) * (0.55 + 0.45 * np.sin(2 * np.pi * 20 * t))
         x *= np.minimum(1, t / 0.01) * np.minimum(1, np.maximum(0, (0.9 - t) / 0.08)) * 0.5
+    elif tipo == "baque":  # o celular caindo na cara: um baque surdo e curto
+        t = T(0.3); x = np.sin(2 * np.pi * np.cumsum(70 + 160 * np.exp(-t / 0.018)) / SR) * np.exp(-t / 0.07)
+        x += filtro(rng.standard_normal(len(t)), baixo=1600) * np.exp(-t / 0.012) * 0.6
     elif tipo == "caixinha":  # caixinha de música tocando sozinha: arpejo agudo em lá menor
         x = np.zeros(int(SR * 2.6))
         for k, n in enumerate((880.0, 1046.5, 1318.5, 1760.0, 1318.5, 1046.5, 987.8)):
