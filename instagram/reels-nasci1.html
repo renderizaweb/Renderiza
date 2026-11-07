@@ -196,15 +196,6 @@
 #conta .gr i.ok{background:#7fd8a0}
 #conta .gr i.ok::after{background:#1f7a45}
 #conta p{margin:18px 0 0;font:700 26px/1.25 "Geist",sans-serif;color:#b9bfc1}
-#dado{position:absolute;left:0;top:0;z-index:28;width:880px;margin-left:-440px;padding:24px 30px;border-radius:30px;background:rgba(10,14,16,.9);color:#f1eee9;opacity:0;box-shadow:0 26px 70px rgba(0,0,0,.5)}
-#dado b{font:800 92px/1 "Geist",sans-serif;letter-spacing:-.04em;color:#f2c25a;margin-right:14px}
-#dado span{font:800 36px/1.15 "Geist",sans-serif}
-#dado small{display:block;margin-top:12px;font:700 21px/1.2 "Geist",sans-serif;color:#9aa3a6}
-#preso{position:absolute;left:0;top:0;z-index:28;width:700px;margin-left:-350px;padding:22px 26px;border-radius:30px;background:#fbf8f3;color:#1e2528;opacity:0;box-shadow:0 26px 70px rgba(0,0,0,.5)}
-#preso .r{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-radius:18px;border:2px solid #efe8e0;font:800 32px/1 "Geist",sans-serif}
-#preso .r small{padding:8px 14px;border-radius:999px;background:#fdf3d8;color:#8a6a10;font-size:20px}
-#preso p{margin:14px 4px 0;font:800 30px/1.2 "Geist",sans-serif;color:#b25134}
-#cid-q{position:absolute;left:0;top:0;z-index:28;font:800 300px/1 "Geist",sans-serif;color:#9cc6e0;opacity:0;text-shadow:0 0 60px rgba(156,198,224,.6)}
 #mapacard{position:absolute;left:0;top:0;z-index:28;width:760px;margin-left:-380px;border-radius:30px;overflow:hidden;background:#fbf8f3;color:#1e2528;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 #mapacard .mp{position:relative;height:250px;background:#e9e4d8}
 #mapacard .mp svg{width:100%;height:100%;display:block}
@@ -236,36 +227,35 @@ import { $, $$, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em,
 
 const R = await historia({
   nome: "reels-nasci1",
-  ordem: ["escuro", "utero", "noite", "paginas", "baixa", "chute", "outra", "helena", "dia", "louro", "cidade", "gancho", "previa", "siga"],
+  ordem: ["escuro", "utero", "noite", "paginas", "baixa", "chute", "outra", "helena", "dia", "louro", "gancho", "previa", "siga"],
   // a trilha: o gancho abre com impacto, o útero no pulso, a noite do PDF é o groove (cortado em "Eu chutei", a frase
   // "nada"), a queda no coração batendo, a outra fotógrafa e a manhã na batida abafada, o parto adiantado sobe até o drop,
   // que cai na prévia do episódio 2; o "Siga" e o convite mudo fecham. O lado da Helena segue na batida abafada, e a
   // sala do Louro é o pizzicato brincalhão
-  trilha: { escuro: "abre", utero: "google", noite: "insta", paginas: "insta", baixa: "insta", chute: "meio", outra: "volta", helena: "volta", dia: "volta", louro: "brinca", cidade: "ese", gancho: "ese", previa: "site", siga: "cta" },
-  soBalao: ["c1", "frase", "l1", "l2", "l3"],
+  trilha: { escuro: "abre", utero: "google", noite: "insta", paginas: "insta", baixa: "insta", chute: "meio", outra: "volta", helena: "volta", dia: "volta", louro: "brinca", gancho: "ese", previa: "site", siga: "cta" },
+  soBalao: ["frase", "l1", "l2", "l3"],
   cta: "PRÉVIA", nota: "A Camila, a Helena e o bebê são fictícios.", ctaTexto: "que a Renderiza monta a prévia do site do seu estúdio, sem compromisso.", bpm: 120, tom: 0, fimMudo: 4.2,
 });
 const { F, S, I, W, palco, DUR, T0 } = R;
 const T = {
   nasci: W("abre", "nasci"), perder: W("abre", "perder"), fotografa: W("abre", "fotografa"),
-  camila: W("mae", "camila"), trinta: W("mae", "trinta"), semanas: W("mae", "semanas"), quatro: W("mae", "quatro"),
+  camila: W("mae", "camila"), trinta: W("mae", "trinta"), semanas: W("mae", "semanas"), quatro: W("faltam", "quatro"),
   duas: W("quer", "duas"), barriga: W("quer", "barriga"), colo: W("quer", "colo"),
-  dormia: W("pai", "parede"), importante: W("pai", "importante"),
-  helenaV: W("valor", "helena"), valor: W("valor", "valor"), maioria: W("maioria", "maioria"),
+  helenaV: W("valor", "helena"), valor: W("valor", "valor"),
   pdf: W("pdf", "pdf"), tabela: W("pdf", "tabela"), vai: W("pdf", "vai"),
-  catorze: W("c1", "catorze"), preco9: W("ultima", "preco"), nove: W("ultima", "ultima"),
+  catorze: W("paginas", "catorze"), preco9: W("paginas", "preco"), nove: W("paginas", "nove"),
   toque: W("toque", "toque"), baixar: W("toque", "baixar"), g4: W("toque", "4g"), pensou: W("toque", "sinal"),
-  dentro: W("suspira", "quando"), luz: W("suspira", "suspira"), curioso: W("suspira", "chuto"),
-  chutei: W("nada", "suspirou") + 0.3, caiu: W("caiu", "caiu"), cara: W("caiu", "rosto"), pegou: W("nove", "parou"), baixado: W("nove", "cento"),
-  enc: W("enc", "encaminhou"), seu: W("enc", "seu"), resposta: W("resposta", "resposta"), importante2: W("resposta", "importante"),
-  outraF: W("outra", "outra"), precoR: W("outra", "preco"), tela: W("outra", "tela"), fechou: W("fechou", "fechou"),
-  onze: W("lado", "tabela"), chorar: W("chorar", "chorar"), tambem: W("chorar", "tambem"), trinta1: W("conta", "trinta"), fecharam: W("conta", "fecharam"),
-  perguntou: W("helena", "manha"), visto: W("visto", "visualizado"), achou: W("achou", "achou"), caro: W("achou", "outra"), mais: W("achou", "mais"), nunca: W("nem", "nunca"),
-  cor: W("decor", "cor"), sala: W("louro", "sala"), y2019: W("louro", "comecou"), tres: W("louro", "tres"),
-  preso: W("ultimaf", "preso"), voltava: W("ultimaf", "voltava"), mudou: W("mudou", "mudou"), mapa: W("mudou", "mapa"), pag14: W("mudou", "catorze"),
-  alguem: W("alguem", "alguem"), leu: W("alguem", "leu"), fotoC: W("foto", "foto"), quemW: W("quem", "quem"),
-  combinado: W("gancho", "acordado"), nascer: W("gancho", "nascer"), antes: W("gancho", "antes"),
-  quinze: W("previa", "quinze"), pai: W("previa", "papagaio") - 0.35, papagaio: W("previa", "papagaio"), porta: W("previa", "janela"),
+  dormia: W("pai", "dormia"), importante: W("pai", "importante"), onze: W("depois", "tabela"), mundo: W("mesma", "mundo"),
+  trinta1: W("conta", "trinta"), fecharam: W("conta", "fecharam"), sempre: W("helena", "sempre"),
+  cor: W("decor", "cor"), louroW: W("louro", "louro"), sala: W("louro", "sala"), y2019: W("louro", "2019"), tres: W("aprendeu", "tres"),
+  mudou: W("mudou", "mudou"), mapa: W("mudou", "mapa"), nao: W("mudou", "nao"),
+  dentro: W("curioso", "dentro"), luz: W("curioso", "luz"), curioso: W("curioso", "curioso"),
+  chutei: W("nada", "chutei"), caiu: W("caiu", "caiu"), cara: W("caiu", "cara"), pegou: W("naobaixou", "pdf"), baixado: W("naobaixou", "baixou"),
+  outraF: W("outra", "outra"), precoR: W("outra", "preco"), tela: W("outra", "tela"),
+  fechou: W("fechou", "fechou"), newborn: W("fechou", "newborn"),
+  perguntou: W("helena", "manha"), visto: W("visto", "visualizado"), achou: W("achou", "achou"), mais: W("caro", "mais"), nunca: W("nem", "nunca"),
+  combinado: W("gancho", "combinado"), nascer: W("gancho", "nascer"), antes: W("gancho", "antes"),
+  quinze: W("previa", "quinze"), pai: W("previa", "pai"), papagaio: W("previa", "papagaio"), porta: W("previa", "porta"),
 };
 T.tapDl = T.baixar + 0.35;          // a Camila toca para baixar
 T.tapLink = T.outraF + 0.3;         // o link da bio da outra fotógrafa
@@ -343,7 +333,6 @@ $("#cn").innerHTML = `
     <radialGradient id="g-luz"><stop offset="0" stop-color="#f1eee9" stop-opacity=".22"/><stop offset="1" stop-color="#f1eee9" stop-opacity="0"/></radialGradient>
     <linearGradient id="g-noite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141d2b"/><stop offset="1" stop-color="#0f141c"/></linearGradient>
     <radialGradient id="g-tela" cx="0" cy="0" r="1"><stop offset="0" stop-color="#9cc6e0" stop-opacity=".42"/><stop offset="1" stop-color="#9cc6e0" stop-opacity="0"/></radialGradient>
-    <radialGradient id="g-azul"><stop offset="0" stop-color="#8fc0f0" stop-opacity=".85"/><stop offset=".55" stop-color="#6fa0d8" stop-opacity=".35"/><stop offset="1" stop-color="#6fa0d8" stop-opacity="0"/></radialGradient>
     <radialGradient id="g-abajur"><stop offset="0" stop-color="#f2d79a" stop-opacity=".3"/><stop offset="1" stop-color="#f2d79a" stop-opacity="0"/></radialGradient></defs>
   <g id="g-estudio"><rect id="es-parede" width="1080" height="1920" fill="#26323a"/>
     <g><rect x="690" y="520" width="300" height="420" rx="16" fill="#1c2a33"/><rect id="es-ceu" x="706" y="536" width="268" height="388" rx="10" fill="#22344d"/>
@@ -370,9 +359,11 @@ $("#cn").innerHTML = `
     <rect x="44" y="1220" width="180" height="340" rx="74" fill="#3b5d69"/><rect x="900" y="1250" width="170" height="310" rx="68" fill="#3b5d69"/>
     <g id="ra-dorme" transform="translate(700 1700)"><path d="M-30 -12 L230 6" stroke="#2b3540" stroke-width="46" stroke-linecap="round"/><path d="M-20 -46 L210 -40" stroke="#2b3540" stroke-width="44" stroke-linecap="round"/>
       <ellipse cx="236" cy="0" rx="26" ry="18" fill="#141819"/><ellipse cx="216" cy="-44" rx="26" ry="18" fill="#141819"/>
-      <ellipse id="ra-brilho" cx="-170" cy="-260" rx="230" ry="150" fill="url(#g-azul)"/>
       <path d="M-86 0 Q-110 -150 -46 -186 L14 -186 Q56 -140 40 0 Z" fill="${RAFA.roupa}"/>
-      <g transform="translate(-26 -236)"><circle r="48" fill="${RAFA.corCabelo}"/><ellipse cx="44" cy="6" rx="9" ry="13" fill="#e0a98a"/><path d="M-30 30 Q0 50 30 30" stroke="#1a120d" stroke-width="10" fill="none"/></g></g>
+      <rect x="-30" y="-140" width="40" height="64" rx="8" fill="#111" transform="rotate(-12 -10 -108)"/><rect id="ra-tela" x="-26" y="-136" width="32" height="56" rx="6" fill="#cfe6f2" transform="rotate(-12 -10 -108)"/>
+      <ellipse id="ra-brilho" cx="-14" cy="-150" rx="90" ry="70" fill="url(#g-tela)"/>
+      <g transform="translate(-30 -236) rotate(22)">${cabeca({ ...RAFA, id: "rs" }, 0, 0, 46)}</g>
+      <g id="ra-z" font-family="Geist" font-weight="800" fill="#cfe6f2">${[0, 1, 2].map(k => `<text class="z" x="${20 + k * 34}" y="${-300 - k * 50}" font-size="${40 + k * 12}">z</text>`).join("")}</g></g>
     <ellipse cx="200" cy="1262" rx="104" ry="58" fill="#e8d9b5" transform="rotate(-14 200 1262)"/>
     <g id="ca-corpo">
       <path d="M592 1398 L908 1410" stroke="#2b2f3a" stroke-width="54" stroke-linecap="round"/><path d="M588 1372 Q760 1290 904 1352" stroke="#353a47" stroke-width="54" stroke-linecap="round" fill="none"/>
@@ -388,11 +379,7 @@ $("#cn").innerHTML = `
         <path d="M354 1292 Q430 1200 410 1124" stroke="#7a6a9a" stroke-width="26" stroke-linecap="round" fill="none"/><circle cx="408" cy="1118" r="13" fill="${PELE}"/></g>
       <g id="ca-fone"><rect x="-40" y="-70" width="80" height="140" rx="15" fill="#111"/><rect x="-36" y="-66" width="72" height="132" rx="12" fill="#2b3438"/><circle cx="-18" cy="-46" r="7" fill="#0b0f11" stroke="#4a5357" stroke-width="2"/><circle cx="-18" cy="-24" r="7" fill="#0b0f11" stroke="#4a5357" stroke-width="2"/></g>
     </g></g>
-  ${sala(`${POLEIRO(600, 1240, 360)}${LOURO("lo")}<rect id="sl-veu" width="1080" height="1920" fill="#07090c" opacity=".82"/>`)}
-  <g id="g-cidade"><rect width="1080" height="1920" fill="#0d1420"/>${[[120, 300], [320, 220], [520, 340], [700, 250], [980, 300], [860, 420], [200, 480]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3" fill="#e9e3d6" opacity=".6"/>`).join("")}
-    ${[[40, 900, 230, 1020], [290, 760, 200, 1160], [520, 980, 240, 940], [790, 840, 250, 1080]].map(([x, y, w, h_]) => `<rect x="${x}" y="${y}" width="${w}" height="${h_}" fill="#162030"/>`).join("")}
-    ${[[95, 1000, "#f2d79a", "Helena"], [345, 860, "#f2d79a", "casa da mãe"], [585, 1080, "#f2d79a", "a outra"], [850, 940, "#9cc6e0", "?"]].map(([x, y, c, n], k) => `<g id="cj${k}"><rect x="${x - 10}" y="${y - 10}" width="140" height="160" rx="10" fill="${c}" opacity=".18"/><rect x="${x}" y="${y}" width="120" height="140" rx="6" fill="${c}"/><path d="M${x + 60} ${y} V${y + 140} M${x} ${y + 70} H${x + 120}" stroke="#162030" stroke-width="7"/><text x="${x + 60}" y="${y + 190}" text-anchor="middle" font-family="Geist" font-weight="800" font-size="30" fill="${c}">${n}</text></g>`).join("")}
-    <rect y="1800" width="1080" height="120" fill="#0a0f18"/></g>`;
+  ${sala(`${POLEIRO(600, 1240, 360)}${LOURO("lo")}<rect id="sl-veu" width="1080" height="1920" fill="#07090c" opacity=".82"/>`)}`;
 
 // ====================== as 14 páginas da tabela ======================
 const sk = (n, w = [100, 92, 96, 70]) => Array.from({ length: n }, (_, k) => `<div class="sk" style="width:${w[k % w.length]}%"></div>`).join("");
@@ -405,10 +392,10 @@ const PAG = [
   `<div class="pg"><span class="cab">Página 6</span><div class="foto" style="height:470px;margin-top:10px">${arte("gestante", 1)}</div>${sk(3)}</div>`,
   `<div class="pg"><span class="cab">Página 7</span><h4>O que dizem</h4>${[0, 1, 2].map(() => `<div style="padding:16px 20px;border-radius:14px;background:#f1ebe2;margin-bottom:14px">${sk(3)}</div>`).join("")}</div>`,
   `<div class="pg"><span class="cab">Página 8</span><h4>Como funciona</h4>${[1, 2, 3, 4].map(n => `<div style="display:flex;gap:16px;align-items:center;margin:14px 0"><b style="width:44px;height:44px;border-radius:50%;background:#efe6dc;display:grid;place-items:center;font-size:22px">${n}</b><div style="flex:1">${sk(2)}</div></div>`).join("")}</div>`,
-  ...["Pacotes", "Formas de pagamento", "Remarcação", "Contrato", "Dúvidas"].map((t, k) => `<div class="pg"><span class="cab">Página ${9 + k}</span><h4>${t}</h4>${sk(12)}</div>`),
-  `<div class="pg p9"><span class="cab">Página 14</span><h4 style="font-size:22px;margin:10px 0 8px">Investimento e contato</h4>${sk(2)}
-    <div class="lin" id="preco9">Ensaio gestante<u></u><span id="preco9v">R$ 690</span></div><div class="lin">Ensaio newborn<u></u>R$ 850</div><div class="lin">Ensaio família<u></u>R$ 750</div><div class="lin">Smash the cake<u></u>R$ 780</div>${sk(3, [60, 92, 80, 96])}
-    <div class="lin" id="end14" style="margin-top:14px;font-weight:800">Estúdio: Rua das Acácias, 140<u></u>desde 2019</div>${sk(3, [60, 92, 80, 96])}</div>`,
+  `<div class="pg p9"><span class="cab">Página 9</span><h4 style="font-size:22px;margin:10px 0 8px">Investimento</h4>${sk(2)}
+    <div class="lin" id="preco9">Ensaio gestante<u></u><span id="preco9v">R$ 690</span></div><div class="lin">Ensaio newborn<u></u>R$ 850</div><div class="lin">Ensaio família<u></u>R$ 750</div><div class="lin">Smash the cake<u></u>R$ 780</div>${sk(9, [60, 92, 80, 96])}</div>`,
+  ...["Formas de pagamento", "Remarcação", "Contrato", "Dúvidas"].map((t, k) => `<div class="pg"><span class="cab">Página ${10 + k}</span><h4>${t}</h4>${sk(12)}</div>`),
+  `<div class="pg p1"><div class="et" style="font-size:64px">Obrigada!</div><div class="ft">Página 14</div></div>`,
 ];
 $("#paginas").innerHTML = PAG.map(p => p).join("");
 const PGS = $$(".pg");
@@ -435,9 +422,6 @@ $("#fa").innerHTML = `<span class="exemplo claro">exemplo</span><div class="viso
     <div class="mini" id="rs-mini">${[["gestante", 0], ["gestante", 1], ["familia", 1]].map(a => `<i>${arte(...a)}</i>`).join("")}</div>
     <div class="preco" id="rs-preco"><b>R$ 890</b><small>1h de ensaio · 20 fotos</small></div>
     <div class="ms-zap" id="rs-zap">${ZAP_B}Quero agendar</div></div>
-  <div class="tela" id="s-enc"><div class="zp-topo">${ic("voltar")}<i style="background:#4f6f8f">R</i><div>Rafa<small>visto por último hoje às 22:10</small></div></div>
-    <div class="zp-fundo"><span class="zp-dia" style="top:18px;font-size:16px">ENCAMINHADA</span>${docBolha("sai", "enc-doc", 54)}<small>23:54</small></div>
-      <div class="zp-m sai" id="enc-m" style="top:250px">baixa no seu?<small id="enc-tk" style="display:flex;align-items:center;gap:4px">23:54</small></div></div></div>
   <div class="tela" id="s-zn"><div class="zp-topo">${ic("voltar")}<i style="background:#2f6f86">N</i><div>Nascer Fotografia<small>online</small></div></div>
     <div class="zp-fundo"><div class="zp-m sai" id="zn1" style="top:30px;max-width:360px">Fechado! Gestante agora e newborn quando ele nascer.<small>23:58</small></div></div></div>
   <div class="tela" id="s-hc"><div class="zp-topo">${ic("voltar")}<i style="background:#7a6a9a">C</i><div>Camila<small>visto por último hoje às 08:40</small></div></div>
@@ -475,17 +459,14 @@ $("#extra").innerHTML = `
   <div class="etq tc" id="etq-preco">o preço</div>
   <div class="etq claro" id="etq-visto">Visualizado</div>
   <span class="exemplo claro selo" id="selo">exemplo</span>
-  <div class="cmp" id="cmpA"><span class="exemplo">exemplo</span><div class="cmp-quem"><i style="background:#b25134">H</i>Helena</div><b class="cmp-v">R$ 690</b><small>na página 14 de 14</small>
+  <div class="cmp" id="cmpA"><span class="exemplo">exemplo</span><div class="cmp-quem"><i style="background:#b25134">H</i>Helena</div><b class="cmp-v">R$ 690</b><small>na página 9 de 14</small>
     <div class="cmp-veu" id="cmp-veu">${ic("olhoX")}<span>a Camila nunca viu</span></div></div>
   <div class="cmp" id="cmpB"><span class="exemplo">exemplo</span><div class="cmp-quem"><i style="background:#2f6f86">N</i>Nascer</div><b class="cmp-v">R$ 890</b><small>na primeira tela</small></div>
   <div id="carimbo">mais caro</div>
   <div id="conta"><div class="tit"><span id="ct-t">31 pediram o valor</span><small id="ct-f"></small></div><div class="gr">${Array.from({ length: 31 }, (_, k) => `<i id="ct${k}"></i>`).join("")}</div><p>Todas receberam o mesmo PDF de 14 páginas.</p></div>
-  <div id="dado"><b>54%</b><span>dos brasileiros compram à noite ou de madrugada</span><small>CX Trends 2026, Octadesk e Opinion Box (2.000 consumidores)</small></div>
-  <div id="preso"><div class="r">Sáb, 10h<small id="pr-s">segurado há 1 dia</small></div><p>"Eu seguro pra você!"</p></div>
-  <div id="cid-q">?</div>
   <div id="mapacard"><div class="mp"><svg viewBox="0 0 760 250"><rect width="760" height="250" fill="#e9e4d8"/><path d="M0 170 H760 M240 0 V250 M520 0 V250 M0 60 H760" stroke="#fff" stroke-width="22"/><path d="M0 120 Q380 90 760 140" stroke="#f2d79a" stroke-width="16" fill="none"/>
     <rect x="300" y="80" width="150" height="70" rx="8" fill="#cfc6b6"/><g transform="translate(375 98)"><path d="M0 -50 C-27 -50 -37 -30 -37 -17 C-37 7 0 37 0 37 C0 37 37 7 37 -17 C37 -30 27 -50 0 -50 Z" fill="#e0453a"/><circle cx="0" cy="-17" r="12" fill="#fbf8f3"/></g></svg></div>
-    <div class="rod">Helena Fotografia<small>endereço de 2019 (a casa da mãe), no mapa e na página 14</small></div></div>
+    <div class="rod">Helena Fotografia<small>endereço cadastrado em 2019: a casa da mãe</small></div></div>
   ${[0, 1, 2, 3].map(k => `<div class="vez" id="vez${k}"><svg viewBox="0 0 300 200"><rect width="300" height="200" fill="#fbf8f3"/>
     <rect x="22" y="24" width="120" height="10" rx="5" fill="#e2dbd0"/><rect x="22" y="46" width="170" height="10" rx="5" fill="#e2dbd0"/>
     <text x="22" y="104" font-family="Geist" font-weight="800" font-size="34" fill="#1e2528">R$ 690</text><rect x="22" y="124" width="140" height="10" rx="5" fill="#e2dbd0"/>
@@ -532,16 +513,16 @@ $("#extra").insertAdjacentHTML("beforeend", `
 $("#prev").innerHTML = `<div id="prev-chip">NO PRÓXIMO EPISÓDIO</div>
   <div class="pv-s" id="pv-a"><div><b id="pv-n">15</b><span>dias para uma foto</span><div class="barra">${Array.from({ length: 15 }, (_, k) => `<i id="pvb${k}"></i>`).join("")}</div></div></div>
   <div class="pv-s" id="pv-b"><svg viewBox="0 0 1080 1920"><g id="pvb-cam">${casaFora(`<g transform="translate(400 1200)">${LOURO("lp")}</g>`)}<g id="pvb-ra">${rafa()}</g></g></svg>
-    <div class="fl louro esq" id="pvb-fl"><small>Louro</small>Te mando a tabela!</div></div>
+    <div class="fl louro esq" id="pvb-fl"><small>Louro</small>Qual o valor?</div></div>
   <div class="pv-s" id="pv-d"><div><small>EPISÓDIO 2</small><b>Quinze<br>dias</b></div></div>`;
 
 // ====================== quadro a quadro ======================
 // o útero: o gancho, a régua das semanas, a luz do celular e o parto adiantado
-const NO_UTERO = t => t < S.noite || em(t, I("suspira") - 0.1, S.chute) || em(t, S.gancho - 0.1, S.previa);
+const NO_UTERO = t => t < S.noite || em(t, I("curioso") - 0.1, S.chute) || em(t, S.gancho - 0.1, S.previa);
 function qUtero(t) {
   const on = NO_UTERO(t), el = $("#utero");
   vis(el, on); if (!on) return;
-  const a = t < S.noite ? fase(t, 0, 0.6) : em(t, I("suspira") - 0.1, S.chute) ? fase(t, I("suspira") - 0.1, I("suspira") + 0.2) : fase(t, S.gancho - 0.1, S.gancho + 0.2);
+  const a = t < S.noite ? fase(t, 0, 0.6) : em(t, I("curioso") - 0.1, S.chute) ? fase(t, I("curioso") - 0.1, I("curioso") + 0.2) : fase(t, S.gancho - 0.1, S.gancho + 0.2);
   el.style.opacity = a.toFixed(3);
   const bate = 1 + 0.025 * Math.pow(Math.max(0, Math.sin(t * 7.6)), 8);
   attr($("#ut-anel"), "transform", `translate(540 1080) scale(${(bate * 1.01).toFixed(4)}) translate(-540 -1080)`);
@@ -552,7 +533,7 @@ function qUtero(t) {
   attr($("#bb-b"), "opacity", olha && t > T.curioso - 0.1 ? 0 : 1); attr($("#bb-o"), "opacity", olha && t > T.curioso - 0.1 ? 1 : 0);
   const zoom = t < S.noite ? lerp(1.15, 0.85, ease(fase(t, T.trinta - 0.3, T.trinta + 0.4))) * lerp(1, 0.75, ease(fase(t, T.duas - 0.3, T.duas + 0.3))) : 1;
   attr($("#bb-pos"), "transform", `translate(540 1090) rotate(${(lerp(0, 160, vira) + 3 * Math.sin(t * 1.3)).toFixed(2)}) scale(${(zoom * bate).toFixed(4)}) translate(10 -20)`);
-  attr($("#ut-luzc"), "opacity", 0);
+  attr($("#ut-luzc"), "opacity", olha ? (fase(t, T.luz - 0.2, T.luz + 0.3) * (0.75 + 0.25 * Math.sin(t * 5))).toFixed(3) : 0);
 }
 // a régua das 40 semanas: 36 cheias e 4 faltando; no gancho, o parto cai na 37ª, três semanas antes da previsão
 function qRegua(t) {
@@ -587,19 +568,19 @@ function qCalendario(t) {
   const n = entra(t, T.antes, 0.3); pos($("#cg-n"), { s: n.s, o: n.o, y: n.y * 0.5 });
 }
 // o PDF que chega: a folha com cara e o nome do arquivo
-const EU = [[0, 540, 1000, 0.3, 0, 0], [T.pdf - 0.1, 540, 1000, 0.3, 0, 0], [T.pdf + 0.3, 540, 980, 1.0, 0, 1], [I("c1") - 0.15, 540, 980, 1.0, 0, 1], [I("c1") + 0.2, 540, 1110, 0.4, 0, 0]];
+const EU = [[0, 540, 1000, 0.3, 0, 0], [T.pdf - 0.1, 540, 1000, 0.3, 0, 0], [T.pdf + 0.3, 540, 980, 1.0, 0, 1], [I("paginas") - 0.15, 540, 980, 1.0, 0, 1], [I("paginas") + 0.2, 540, 1110, 0.4, 0, 0]];
 function qEu(t) {
   const [x, y, s, r, o] = pose(EU, t), el = $("#eu");
   const pulo = em(t, T.vai - 0.05, T.vai + 0.6) ? -40 * Math.abs(Math.sin(Math.PI * fase(t, T.vai - 0.05, T.vai + 0.6) * 2)) : 0;
   pos(el, { x, y: y + pulo, s, r, o });
   if (o > 0.002) cara("nr", t >= T.vai - 0.05 ? "sorriso" : "reta", (t % 2.7) < 0.1 ? 1 : 0, 0.6);
   const tg = $("#etq-nome"), a = entra(t, T.tabela - 0.05);
-  pos(tg, { x: 540 - tg.offsetWidth / 2, y: 1270 + a.y, s: a.s * (1 + 0.05 * pulso(t, T.vai, 0.4)), o: em(t, T.tabela - 0.1, I("c1")) ? a.o * (1 - fase(t, I("c1") - 0.2, I("c1"))) : 0 });
+  pos(tg, { x: 540 - tg.offsetWidth / 2, y: 1270 + a.y, s: a.s * (1 + 0.05 * pulso(t, T.vai, 0.4)), o: em(t, T.tabela - 0.1, I("paginas")) ? a.o * (1 - fase(t, I("paginas") - 0.2, I("paginas"))) : 0 });
 }
 // o estúdio da Helena: de noite (23h51, quando ela manda o PDF) e de manhã
 const NOITE_H = t => em(t, S.helena - 0.05, S.dia - 0.05);
 function qEstudio(t) {
-  const dia = em(t, S.dia - 0.05, T.caro - 0.05), noite = NOITE_H(t);
+  const dia = em(t, S.dia - 0.05, I("caro") - 0.05), noite = NOITE_H(t);
   attr($("#g-estudio"), "opacity", dia || noite ? 1 : 0);
   if (noite) {
     attr($("#es-parede"), "fill", "#26323a"); attr($("#es-ceu"), "fill", "#22344d"); attr($("#es-sol"), "opacity", 0); attr($("#es-lua"), "opacity", 1); attr($("#es-lua2"), "fill", "#22344d");
@@ -619,12 +600,12 @@ function qEstudio(t) {
   attr($("#hesob"), "transform", triste ? "translate(0 5)" : t >= T.visto ? "translate(0 -5)" : "");
 }
 // a sala da Camila: a mensagem de meia-noite, o chute e o celular na cara
-const QC = [[S.noite, 640, 1330, 0.84], [T.dormia - 0.2, 660, 1460, 1.3], [T.importante + 0.5, 660, 1460, 1.3], [T.helenaV, 470, 1170, 1.0], [S.chute - 0.01, 470, 1170, 1.08], [S.chute, 360, 1190, 1.6], [I("nove"), 330, 1190, 1.75], [T.importante2 - 0.35, 330, 1190, 1.75], [T.importante2, 640, 1450, 1.35], [S.outra - 0.1, 640, 1450, 1.35], [S.outra, 330, 1190, 1.75], [S.helena, 360, 1190, 1.8]];
+const QC = [[S.noite, 640, 1330, 0.84], [T.dormia + 0.1, 700, 1480, 1.3], [T.importante + 0.5, 700, 1480, 1.3], [T.helenaV, 470, 1170, 1.0], [S.chute - 0.01, 470, 1170, 1.08], [S.chute, 360, 1190, 1.6], [I("naobaixou"), 330, 1190, 1.75], [S.outra, 330, 1190, 1.75], [S.helena, 360, 1190, 1.8]];
 function qQuarto(t) {
-  const on = em(t, S.noite - 0.05, S.helena - 0.05) && !em(t, I("c1") - 0.1, S.baixa) && !em(t, I("suspira") - 0.05, S.chute);
+  const on = em(t, S.noite - 0.05, S.helena - 0.05) && !em(t, I("paginas") - 0.1, S.baixa) && !em(t, I("curioso") - 0.05, S.chute);
   attr($("#g-quarto"), "opacity", on ? 1 : 0);
   if (!on) return;
-  const fundo = em(t, T.helenaV - 0.1, S.paginas + 3) || em(t, S.baixa, S.chute) || em(t, I("nove") - 0.1, T.importante2 - 0.3) || t >= S.outra - 0.05;
+  const fundo = em(t, T.helenaV - 0.1, S.paginas + 3) || em(t, S.baixa, S.chute) || t >= I("naobaixou") - 0.1;
   const [qx, qy, qs] = pose(QC, t), tre = t >= T.cara && t < T.cara + 0.35 ? 12 * Math.sin(t * 90) * (1 - fase(t, T.cara, T.cara + 0.35)) : 0;
   attr($("#g-quarto"), "transform", `translate(${(540 - qx * qs + tre).toFixed(1)} ${(960 - qy * qs).toFixed(1)}) scale(${qs.toFixed(4)})`);
   attr($("#g-quarto"), "opacity", fundo ? 0.32 : 1);
@@ -646,9 +627,11 @@ function qQuarto(t) {
   attr($("#ca-estr"), "opacity", t >= T.cara && t < S.dia ? Math.min(1, es * 3).toFixed(3) : 0);
   attr($("#ca-estr"), "transform", `translate(240 1110) rotate(${(t * 90).toFixed(1)}) translate(-240 -1110)`);
   // o pai, dormindo no chão com o celular aceso no peito; na "parte importante" ele vira um pouco a cabeça e ronca
-  // o brilho azul na parede (o celular dele, aceso): mais forte quando o PDF chega no celular dele
-  attr($("#ra-brilho"), "opacity", ((0.55 + 0.15 * Math.sin(t * 2.3)) * (1 + 0.8 * pulso(t, T.seu + 0.2, 1.4))).toFixed(3));
-  attr($("#ra-dorme"), "transform", "translate(700 1700)");
+  fecha("rs", 1, -2); boca("rs", (t % 2.2) < 1.1 ? "oh" : "reta");
+  attr($("#ra-tela"), "opacity", (0.75 + 0.25 * Math.sin(t * 3)).toFixed(3)); attr($("#ra-brilho"), "opacity", (0.6 + 0.3 * Math.sin(t * 3)).toFixed(3));
+  $$("#ra-z .z").forEach((z, k) => { const c = ((t * 0.55 + k / 3) % 1); attr(z, "opacity", (Math.sin(Math.PI * c) * 0.9).toFixed(3)); attr(z, "transform", `translate(${(30 * c).toFixed(1)} ${(-60 * c).toFixed(1)})`); });
+  const ri = pulso(t, T.importante - 0.1, 0.8);
+  attr($("#ra-dorme"), "transform", `translate(700 1700) rotate(${(-3 * ri).toFixed(2)})`);
 }
 // a conta da Helena naquele mês: 31 pediram o valor, 4 fecharam
 function qConta(t) {
@@ -658,26 +641,12 @@ function qConta(t) {
   for (let k = 0; k < 31; k++) { const i = $(`#ct${k}`); i.style.opacity = k < n ? 1 : 0; i.className = ok && [3, 11, 19, 27].includes(k) ? "ok" : ""; i.style.transform = ok && [3, 11, 19, 27].includes(k) ? `scale(${(1 + 0.3 * pulso(t, T.fecharam - 0.2 + k * 0.01, 0.5)).toFixed(3)})` : ""; }
   $("#ct-f").textContent = ok ? "4 fecharam" : "";
 }
-// a cidade à meia-noite: quem leu as catorze páginas? A janela azul é a da sala da Camila
-function qCidade(t) {
-  const on = em(t, S.cidade - 0.05, S.gancho), g = $("#g-cidade");
-  attr(g, "opacity", on ? fase(t, S.cidade - 0.05, S.cidade + 0.3).toFixed(3) : 0);
-  const q = $("#cid-q"), a = entra(t, T.quemW - 0.1, 0.35);
-  pos(q, { x: 540 - q.offsetWidth / 2, y: 330 + a.y, s: a.s, o: on ? a.o * (1 - fase(t, S.gancho - 0.25, S.gancho)) : 0 });
-  if (!on) return;
-  const z = ease(fase(t, T.leu - 0.2, T.leu + 0.6)) * (1 - 0.6 * ease(fase(t, T.fotoC - 0.2, T.fotoC + 0.4)));
-  camera(g, [lerp(540, 910, z), lerp(960, 1010, z), lerp(1, 1.9, z)]);
-  attr($("#cj3"), "opacity", (0.75 + 0.25 * Math.sin(t * 4)).toFixed(3));
-}
 // a sala da mãe da Helena, onde o estúdio começou: no escuro, até "de cor", quando a luz acende e o Louro aparece colorido
-const SL = [[S.louro, 470, 1060, 1], [T.sala - 0.2, 470, 1060, 1], [T.y2019 + 0.6, 330, 860, 1.25], [I("l1") - 0.5, 330, 860, 1.25], [I("l1") - 0.1, 560, 1040, 1.45], [I("mudou") - 0.2, 560, 1040, 1.45], [I("mudou") + 0.3, 540, 1000, 1.05]];
+const SL = [[S.louro, 470, 1060, 1], [T.sala - 0.2, 470, 1060, 1], [T.y2019 + 0.3, 330, 860, 1.25], [I("aprendeu") - 0.1, 330, 860, 1.25], [I("aprendeu") + 0.5, 560, 1040, 1.45], [I("mudou") - 0.2, 560, 1040, 1.45], [I("mudou") + 0.3, 540, 1000, 1.05]];
 function qSala(t) {
-  const on = em(t, S.louro - 0.05, S.cidade), g = $("#g-sala");
-  const pr = $("#preso"), b = entra(t, T.preso - 0.4, 0.35);
-  pos(pr, { x: 540, y: 1400 + b.y, s: b.s, r: 2, o: em(t, T.preso - 0.45, I("mudou")) ? b.o * (1 - fase(t, I("mudou") - 0.25, I("mudou"))) : 0 });
-  $("#pr-s").textContent = `segurado há ${Math.max(1, Math.floor(1 + 13 * fase(t, T.preso, T.voltava + 0.3)))} dias`.replace("há 1 dias", "há 1 dia");
+  const on = em(t, S.louro - 0.05, S.gancho), g = $("#g-sala");
   const mc = $("#mapacard"), a = entra(t, T.mapa - 0.15, 0.35);
-  pos(mc, { x: 540, y: 1220 + a.y, s: a.s, r: -2, o: em(t, T.mapa - 0.2, S.cidade) ? a.o * (1 - fase(t, S.cidade - 0.25, S.cidade)) : 0 });
+  pos(mc, { x: 540, y: 1220 + a.y, s: a.s, r: -2, o: em(t, T.mapa - 0.2, S.gancho) ? a.o * (1 - fase(t, S.gancho - 0.25, S.gancho)) : 0 });
   attr(g, "opacity", on ? 1 : 0); if (!on) return;
   const [cx, cy, cs] = pose(SL, t);
   camera(g, [cx, cy, cs]);
@@ -688,21 +657,22 @@ function qSala(t) {
 // as 14 páginas: em leque, juntas, viram até a 9, e a câmera chega no preço do tamanho de uma formiga
 const PG0 = [280, 770];
 function qPaginas(t) {
-  const el = $("#paginas"), on = em(t, I("c1") - 0.1, S.baixa);
+  const el = $("#paginas"), on = em(t, I("paginas") - 0.1, S.baixa);
   vis(el, on);
   if (!on) { $("#pgnum").style.opacity = 0; $("#etq-preco").style.opacity = 0; return; }
   el.style.opacity = (1 - fase(t, S.baixa - 0.2, S.baixa)).toFixed(3);
-  const p = $("#preco9"), px = p.offsetLeft + p.offsetWidth / 2, py = p.offsetTop + p.offsetHeight / 2, P0 = I("c1");
-  const junta = ease(fase(t, T.preco9 - 0.8, T.preco9 - 0.3)), zoom = ease(fase(t, T.nove + 0.05, T.nove + 0.55));
+  const p = $("#preco9"), px = p.offsetLeft + p.offsetWidth / 2, py = p.offsetTop + p.offsetHeight / 2, P0 = I("paginas");
+  const junta = ease(fase(t, T.preco9 - 0.7, T.preco9 - 0.2)), zoom = ease(fase(t, T.nove - 0.15, T.nove + 0.4));
   let topo = 0;
   PGS.forEach((pg, i) => {
     const a = fase(t, P0 + i * 0.035, P0 + i * 0.035 + 0.3), k = i - 6.5;
     const lq = [k * 54, Math.abs(k) * 7 - 20, k * 4.5, 0.6], pl = [(h(i, 7) - 0.5) * 18, (h(i, 8) - 0.5) * 14 + i * 2, (h(i, 9) - 0.5) * 7, i === 0 ? 1.1 : 1.04];
     let x = lerp(lq[0], pl[0], junta), y = lerp(lq[1], pl[1], junta), r = lerp(lq[2], pl[2], junta), s = lerp(lq[3], pl[3], junta) * (a > 0 ? lerp(0.5, 1, volta(a)) : 0);
     let o = a > 0 ? Math.min(1, a * 3) : 0;
-    if (i < 13) { const tk = lerp(T.preco9 - 0.2, T.nove - 0.2, i / 12), v = fase(t, tk, tk + 0.25); if (v > 0) { x += lerp(0, -1050, ease(v)); y -= 70 * Math.sin(Math.PI * v); r += lerp(0, -30, v); } if (v >= 1) o = 0; if (t >= tk + 0.1) topo = i + 1; }
-    pg.style.transformOrigin = i === 13 && zoom > 0 ? `${px}px ${py}px` : "50% 50%";
-    if (i === 13 && zoom > 0) { x = lerp(pl[0], 540 - PG0[0] - px, zoom); y = lerp(pl[1], 1180 - PG0[1] - py, zoom); r = lerp(pl[2], 0, zoom); s = lerp(pl[3], 2.35, zoom); }
+    if (i < 8) { const tk = lerp(T.preco9 - 0.15, T.nove - 0.3, i / 7), v = fase(t, tk, tk + 0.25); if (v > 0) { x += lerp(0, -1050, ease(v)); y -= 70 * Math.sin(Math.PI * v); r += lerp(0, -30, v); } if (v >= 1) o = 0; if (t >= tk + 0.1) topo = i + 1; }
+    pg.style.transformOrigin = i === 8 && zoom > 0 ? `${px}px ${py}px` : "50% 50%";
+    if (i === 8 && zoom > 0) { x = lerp(pl[0], 540 - PG0[0] - px, zoom); y = lerp(pl[1], 1180 - PG0[1] - py, zoom); r = lerp(pl[2], 0, zoom); s = lerp(pl[3], 2.35, zoom); }
+    else if (i > 8) o *= 1 - zoom;
     pg.style.left = `${PG0[0]}px`; pg.style.top = `${PG0[1]}px`; pg.style.zIndex = 20 - i;
     pos(pg, { x, y, r, s, o });
   });
@@ -718,9 +688,9 @@ function qPaginas(t) {
 const PF = [
   [0, 540, 1500, 0.9, 10, 0], [T.helenaV - 0.35, 540, 1500, 0.9, 10, 0], [T.helenaV, 540, 1090, 1.3, 0, 1],
   [T.pdf - 0.15, 540, 1090, 1.3, 0, 1], [T.pdf + 0.15, 540, 1300, 1, 0, 0],
-  [S.baixa - 0.25, 540, 1500, 0.9, 10, 0], [S.baixa + 0.1, 540, 1090, 1.3, 0, 1], [I("suspira") - 0.15, 540, 1090, 1.3, 0, 1], [I("suspira") + 0.05, 540, 1300, 1, 0, 0],
-  [T.pegou - 0.2, 540, 1090, 1.3, 0, 0], [T.pegou + 0.05, 540, 1090, 1.3, 0, 1], [T.importante2 - 0.35, 540, 1090, 1.3, 0, 1], [T.importante2 - 0.05, 540, 1300, 1, 0, 0],
-  [S.outra - 0.25, 540, 1300, 1, 0, 0], [S.outra + 0.05, 540, 1090, 1.3, 0, 1], [S.helena - 0.1, 540, 1090, 1.3, 0, 1], [S.helena + 0.25, 760, 1120, 0.84, 3, 1], [I("conta") - 0.2, 760, 1120, 0.84, 3, 1], [I("conta") + 0.1, 900, 1300, 0.7, 10, 0],
+  [S.baixa - 0.25, 540, 1500, 0.9, 10, 0], [S.baixa + 0.1, 540, 1090, 1.3, 0, 1], [I("curioso") - 0.15, 540, 1090, 1.3, 0, 1], [I("curioso") + 0.05, 540, 1300, 1, 0, 0],
+  [T.pegou - 0.2, 540, 1090, 1.3, 0, 0], [T.pegou + 0.05, 540, 1090, 1.3, 0, 1],
+  [S.helena - 0.1, 540, 1090, 1.3, 0, 1], [S.helena + 0.25, 760, 1120, 0.84, 3, 1], [I("conta") - 0.2, 760, 1120, 0.84, 3, 1], [I("conta") + 0.1, 900, 1300, 0.7, 10, 0],
   [S.dia - 0.25, 900, 1300, 0.7, 10, 0], [S.dia + 0.1, 760, 1120, 0.84, 3, 1], [T.achou - 0.15, 760, 1120, 0.84, 3, 1], [T.achou + 0.15, 900, 1300, 0.7, 10, 0],
 ];
 function qFone(t) {
@@ -729,7 +699,7 @@ function qFone(t) {
   $("#dedo").style.opacity = 0;
   if (o <= 0.002) return;
   let tela, hora;
-  if (t < S.helena + 0.05) { hora = t < S.baixa ? "23:48" : t < I("enc") ? "23:52" : t < S.outra ? "23:54" : "23:58"; tela = t < I("enc") - 0.05 ? "s-cam" : t < S.outra - 0.1 ? "s-enc" : t < T.tapLink + 0.15 ? "s-ig" : t < T.tapZapN + 0.15 ? "s-rs" : "s-zn"; }
+  if (t < S.helena + 0.05) { hora = t < S.baixa ? "23:48" : t < S.outra ? "23:52" : "23:57"; tela = t < T.outraF - 0.1 ? "s-cam" : t < T.tapLink + 0.15 ? "s-ig" : t < T.tapZapN + 0.15 ? "s-rs" : "s-zn"; }
   else { tela = "s-hc"; hora = t < S.dia ? "23:51" : "09:12"; }
   mostra(tela);
   $(".status .hora", FA).textContent = hora;
@@ -741,8 +711,8 @@ function qFone(t) {
     const baixando = t >= T.tapDl && t < S.chute, falhou = t >= S.chute;
     const est = falhou ? "falha" : baixando ? "x" : "baixar";
     if (est !== dlEstado) { $("#dl-ic").innerHTML = DL[est]; dlEstado = est; }
-    const pct = baixando ? Math.floor(lerp(1, 9, fase(t, T.tapDl, I("suspira")))) : 0;
-    $("#dl-txt").textContent = falhou ? "Parado em 9%. Toque para tentar de novo." : baixando ? `Baixando… ${pct}%` : "Toque para baixar";
+    const pct = baixando ? Math.floor(lerp(1, 4, fase(t, T.tapDl, I("curioso")))) : 0;
+    $("#dl-txt").textContent = falhou ? "Falha no download. Toque para tentar de novo." : baixando ? `Baixando… ${pct}%` : "Toque para baixar";
     $("#dl-txt").className = falhou ? "falha" : "";
     const arco = $("#dl-arco");
     if (baixando) { attr(arco, "stroke-dashoffset", (176 * 0.78).toFixed(1)); attr(arco, "transform", `rotate(${(-90 + (t - T.tapDl) * 260).toFixed(1)} 32 32)`); } else attr(arco, "stroke-dashoffset", 176);
@@ -755,11 +725,6 @@ function qFone(t) {
     $("#pensa").style.opacity = pe.toFixed(3);
     $$("#pensa i").forEach((d, k) => { d.style.transform = `translateY(${(-6 * Math.max(0, Math.sin(t * 7 - k * 0.9))).toFixed(1)}px)`; });
     if (!falhou) toque(t, T.tapDl, $("#dl"));
-  }
-  if (tela === "s-enc") {
-    const a = entra(t, T.seu - 0.4, 0.3); pos($("#enc-m"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o });
-    const lido = t >= T.resposta - 0.05; $("#enc-tk").innerHTML = `23:54 ${TK(lido ? "#3aa7e0" : "#8a9396")}`;
-    const p = pulso(t, T.resposta - 0.05, 0.8); $("#enc-m").style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #3aa7e0` : "";
   }
   if (tela === "s-ig") { const p = pulso(t, T.tapLink - 0.2, 0.5); $("#ig-link").style.background = p > 0.05 ? `rgba(47,95,196,${(0.16 * p).toFixed(3)})` : ""; toque(t, T.tapLink, $("#ig-link")); }
   if (tela === "s-rs") {
@@ -781,11 +746,10 @@ function qFone(t) {
 }
 // por cima: o "Visualizado" e a comparação dos preços
 function qExtra(t) {
-  { const el = $("#dado"), a = entra(t, T.maioria - 0.6, 0.35); pos(el, { x: 540, y: 1330 + a.y, s: a.s, o: em(t, T.maioria - 0.7, S.paginas) ? a.o * (1 - fase(t, S.paginas - 0.25, S.paginas)) : 0 }); }
   { const el = $("#etq-visto"), a = entra(t, T.visto - 0.05); pos(el, { x: 760 - el.offsetWidth / 2, y: 1560 + a.y, s: a.s, r: -4, o: em(t, T.visto - 0.1, T.achou) ? a.o * (1 - fase(t, T.achou - 0.2, T.achou)) : 0 }); }
   {
-    const on = em(t, T.caro - 0.1, S.louro), fora_ = 1 - fase(t, S.louro - 0.25, S.louro);
-    const a = entra(t, T.caro, 0.35), b = entra(t, T.caro + 0.12, 0.35), so = ease(fase(t, I("nem") - 0.1, I("nem") + 0.35));
+    const on = em(t, I("caro") - 0.1, S.louro), fora_ = 1 - fase(t, S.louro - 0.25, S.louro);
+    const a = entra(t, I("caro"), 0.35), b = entra(t, I("caro") + 0.12, 0.35), so = ease(fase(t, I("nem") - 0.1, I("nem") + 0.35));
     pos($("#cmpA"), { x: lerp(60, 320, so), y: 760 + a.y + lerp(0, 40, so), s: a.s * lerp(1, 1.3, so), r: lerp(-3, 0, so), o: on ? a.o * fora_ : 0 });
     pos($("#cmpB"), { x: lerp(580, 900, so), y: 800 + b.y, s: b.s, r: 3, o: on ? b.o * (1 - so) : 0 });
     const c = fase(t, T.mais - 0.05, T.mais + 0.25), ca = $("#carimbo");
@@ -793,10 +757,10 @@ function qExtra(t) {
     const v = fase(t, T.nunca - 0.1, T.nunca + 0.25);
     $("#cmp-veu").style.opacity = v.toFixed(3); $("#cmp-veu").style.transform = `scale(${(v > 0 ? lerp(0.8, 1, volta(v)) : 0.8).toFixed(3)})`;
   }
-  const selo = $("#selo"), vs = em(t, I("c1"), S.baixa); selo.style.display = vs ? "" : "none"; selo.style.left = "40px"; selo.style.top = "1820px";
+  const selo = $("#selo"), vs = em(t, I("paginas"), S.baixa); selo.style.display = vs ? "" : "none"; selo.style.left = "40px"; selo.style.top = "1820px";
 }
 function qBaloes(t) {
-  const a = entra(t, T.achou + 0.15, 0.3), o = em(t, T.achou, T.caro - 0.05) ? a.o * (1 - fase(t, T.caro - 0.25, T.caro - 0.05)) : 0;
+  const a = entra(t, T.achou + 0.15, 0.3), o = em(t, T.achou, I("caro") - 0.05) ? a.o * (1 - fase(t, I("caro") - 0.25, I("caro") - 0.05)) : 0;
   pos(B_ACHOU, { x: 420, y: 900 + a.y, s: a.s, o });
 }
 // a prévia do episódio 2: os quinze dias, a agenda lotada, a busca às três da manhã e o título
@@ -821,36 +785,33 @@ function qPrevia(t) {
 }
 
 // quem está contando: o bebê, a fotógrafa do outro lado da cidade, o papagaio e o bebê de novo
-const CAPS = [{ t0: S.utero, ate: S.noite, hora: "36 SEMANAS", quem: "O BEBÊ", grande: false }, { t0: S.noite, ate: S.helena, hora: "23h48", quem: "A MÃE" },
-  { t0: S.helena, ate: S.dia, hora: "23h51", quem: "A FOTÓGRAFA" }, { t0: S.dia, ate: S.louro, hora: "09h12", quem: "A FOTÓGRAFA", grande: false },
-  { t0: S.louro, ate: S.cidade, hora: "DESDE 2019", quem: "O PAPAGAIO" }, { t0: S.cidade, ate: S.gancho, hora: "23h59", quem: "ALGUÉM" }, { t0: S.gancho, ate: S.previa, hora: "37 SEMANAS", quem: "O BEBÊ", grande: false }];
+const CAPS = [{ t0: S.utero, ate: S.helena, hora: "36 SEMANAS", quem: "O BEBÊ", grande: false }, { t0: S.helena, ate: S.dia, hora: "23h51", quem: "A FOTÓGRAFA" },
+  { t0: S.dia, ate: S.louro, hora: "09h12", quem: "A FOTÓGRAFA", grande: false }, { t0: S.louro, ate: S.gancho, hora: "DESDE 2019", quem: "O PAPAGAIO" }, { t0: S.gancho, ate: S.previa, hora: "37 SEMANAS", quem: "O BEBÊ" }];
 const qCap = capitulos(CAPS);
 // as falas dos personagens, em balões (a legenda delas fica de fora)
 const qFalas = dialogo(R, {
-  c1: { quem: "Camila", x: 60, y: 300, cauda: "esq", ate: I("ultima") },
   frase: { quem: "Helena", x: 120, y: 590, cauda: "esq", ate: F.visto.fim },
   l1: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("l2") - 0.05 },
   l2: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("l3") - 0.05 },
-  l3: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("ultimaf") + 0.3 },
+  l3: { quem: "Louro", ax: 760, y: 600, cauda: "dir", cls: "louro", ate: I("mudou") },
 });
 const quadroSerie = serie(R, { parte: 1, abertura: "abre", rotulo: "EPISÓDIO", nome: "Eu ainda não nasci", siga: { texto: "Siga para ver o episódio 2" } });
 window.quadro = t => {
   palco.style.transform = "none";
-  const dia = em(t, S.dia - 0.05, T.caro - 0.05), quente = NO_UTERO(t), naSala = em(t, S.louro - 0.05, S.cidade), naCidade = em(t, S.cidade - 0.05, S.gancho);
+  const dia = em(t, S.dia - 0.05, I("caro") - 0.05), quente = NO_UTERO(t), naSala = em(t, S.louro - 0.05, S.gancho);
   palco.style.background = dia ? "#3a4a58" : quente ? "radial-gradient(70% 50% at 50% 55%,#3a1418 0%,#120708 75%)" : "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
-  vis($("#c-cena"), em(t, S.noite - 0.05, S.dia + 0.01) || dia || NOITE_H(t) || naSala || naCidade);
-  qUtero(t); qRegua(t); qFotos(t); qCalendario(t); qEstudio(t); qQuarto(t); qConta(t); qSala(t); qCidade(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); qFalas(t); qPrevia(t); quadroSerie(t); qCap(t);
-  R.comum(t, { poeira: !dia && !naSala && !naCidade });
+  vis($("#c-cena"), em(t, S.noite - 0.05, S.dia + 0.01) || dia || NOITE_H(t) || naSala);
+  qUtero(t); qRegua(t); qFotos(t); qCalendario(t); qEstudio(t); qQuarto(t); qConta(t); qSala(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); qFalas(t); qPrevia(t); quadroSerie(t); qCap(t);
+  R.comum(t, { poeira: !dia && !naSala });
 };
 const SONS = [{ t: T.valor - 0.05, tipo: "ding", ganho: 0.6 }, { t: T.pdf - 0.3, tipo: "ding", ganho: 0.7 }, { t: T.tapDl, tipo: "toque", ganho: 0.8 }, { t: T.cara, tipo: "baque", ganho: 1 },
   { t: T.tapLink, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN, tipo: "toque", ganho: 0.8 }, { t: T.tapZapN + 0.3, tipo: "ding", ganho: 0.6 }, { t: I("frase") - 0.05, tipo: "ding", ganho: 0.6 },
-  { t: T.seu - 0.3, tipo: "ding", ganho: 0.5 }, { t: T.cor + 0.05, tipo: "louro", ganho: 0.6 }, { t: T.papagaio + 0.1, tipo: "campainha", ganho: 0.4 },
+  { t: T.importante + 0.2, tipo: "ronco", ganho: 0.55 }, { t: T.cor + 0.05, tipo: "louro", ganho: 0.6 }, { t: T.papagaio + 0.1, tipo: "campainha", ganho: 0.4 },
   ...sonsCapitulos(CAPS)];
-window.preparar = () => R.preparar([0.3, T.fotografa + 0.4, T.semanas + 0.4, T.quatro + 0.4, T.colo + 0.4, T.importante + 0.3, T.valor + 0.3, T.maioria + 0.2, T.tabela + 0.4, T.catorze + 0.3,
-  T.preco9 + 0.3, T.nove + 0.6, T.g4 + 0.3, T.curioso + 0.2, T.chutei + 0.1, T.cara + 0.25, T.baixado + 0.2, T.seu + 0.3, T.resposta + 0.4, T.tapLink + 0.4, T.tela, T.fechou + 0.3,
-  S.helena + 0.6, T.onze + 0.3, T.tambem + 0.2, T.trinta1 + 0.8, T.fecharam + 0.3, I("frase") + 0.5, T.visto + 0.3, T.achou + 0.6, T.mais + 0.4, T.nunca + 0.5,
-  T.cor + 0.4, T.y2019 + 0.8, I("l1") + 0.4, I("l2") + 0.5, I("l3") + 0.5, T.preso + 0.5, T.voltava + 0.3, T.mapa + 0.4, T.pag14 + 0.3,
-  T.leu + 0.5, T.fotoC + 0.3, T.quemW + 0.4, T.nascer + 0.4, T.antes + 0.4, T.quinze + 0.3, T.papagaio + 0.5, T.porta + 0.3,
+window.preparar = () => R.preparar([0.3, T.nasci + 0.3, T.fotografa + 0.4, T.semanas + 0.4, T.quatro + 0.4, T.barriga + 0.2, T.colo + 0.4, T.valor + 0.3, T.tabela + 0.4, T.catorze + 0.4,
+  T.preco9 + 0.4, T.nove + 0.6, T.g4 + 0.3, T.luz + 0.3, T.curioso + 0.2, T.chutei + 0.2, T.cara + 0.25, T.baixado + 0.2, T.tapLink + 0.4, T.tela, T.fechou + 0.6,
+  T.importante + 0.3, S.helena + 0.6, T.onze + 0.3, T.trinta1 + 0.8, T.fecharam + 0.3, I("frase") + 0.5, T.cor + 0.4, T.y2019 + 0.3, I("l1") + 0.4, I("l2") + 0.5, I("l3") + 0.5, T.mapa + 0.4,
+  T.perguntou + 0.5, T.visto + 0.3, T.achou + 0.6, T.mais + 0.4, T.nunca + 0.5, T.nascer + 0.4, T.antes + 0.4, T.quinze + 0.3, T.pai + 0.3, T.papagaio + 0.5, T.porta + 0.3,
   I("siga") + 0.4, T0 + 1.5, DUR - 0.3], SONS);
 await R.pronto();
 </script>
