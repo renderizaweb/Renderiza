@@ -1,5 +1,5 @@
 {
- "_sobre": "Narração do Reels \"O PDF\" (episódio 1 da série com as coisas que moram no celular da fotógrafa, 06/11/2026). Alvo: a fotógrafa de gestante e newborn que responde \"valor?\" mandando a tabela em PDF pelo WhatsApp e acha que a cliente que some achou caro. Objetivo: ela perceber que a cliente, muitas vezes, nem chega a ver o preço (o arquivo pesa, é de noite, o 4G não ajuda) e que, com o portfólio separado por ensaio no site, com fotos, o que vem incluso e o preço na primeira tela, ela manda o link e a cliente decide sem baixar nada. O gancho: um narrador misterioso que foi mandado para 212 mães e só foi aberto quatro vezes. Quem fala é o PDF de preços da Helena (Tabela 2026 FINAL agora vai). A virada: a Helena acha que perdeu a Camila pelo preço, mas a outra fotógrafa cobrava mais caro; a Camila nem chegou a ver o preço da Helena. O fecho paga o gancho: as quatro aberturas eram a própria Helena, conferindo o preço. Depois do convite, uma cena pós-créditos anuncia o episódio 2. Tudo é fictício. O id \"nada\" corta a batida.",
+ "_sobre": "Narração do Reels \"O PDF\" (parte 1 da série \"O celular da fotógrafa\", 06/11/2026). Alvo: a fotógrafa de gestante e newborn que responde \"valor?\" mandando a tabela em PDF pelo WhatsApp e acha que a cliente que some achou caro. Objetivo: ela perceber que a cliente, muitas vezes, nem chega a ver o preço (o arquivo pesa, é de noite, o 4G não ajuda) e que, com o portfólio separado por ensaio no site, com fotos, o que vem incluso e o preço na primeira tela, ela manda o link e a cliente decide sem baixar nada. O gancho: um narrador misterioso que foi mandado para 212 mães e só foi aberto quatro vezes. Quem fala é o PDF de preços da Helena (Tabela 2026 FINAL agora vai). A virada: a Helena acha que perdeu a Camila pelo preço, mas a outra fotógrafa cobrava mais caro; a Camila nem chegou a ver o preço da Helena. O fecho paga o gancho: as quatro aberturas eram a própria Helena, conferindo o preço. Depois do convite, a cena pós-créditos anuncia a parte 2. Tudo é fictício. O id \"nada\" corta a batida.",
  "motor": "edge",
  "voz": "pt-BR-AntonioNeural",
  "ritmo": "+12%",
@@ -198,8 +198,8 @@
   {
    "id": "pos",
    "cena": "pos",
-   "texto": "No próximo episódio: o comprovante de Pix que *sumiu.*",
-   "fala": "No próximo episódio: o comprovante de píquis que sumiu.",
+   "texto": "Na parte 2: o comprovante de Pix que *sumiu.*",
+   "fala": "Na parte dois: o comprovante de píquis que sumiu.",
    "pausa": 0.2
   }
  ]

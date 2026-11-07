@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: o comprovante</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. 07/11/2026, parte 2 da série "O celular da fotógrafa"
+     (SERIE.md). Alvo: a fotógrafa que recebe o sinal por Pix e controla quem pagou por prints no WhatsApp. Objetivo:
+     ela perceber que comprovante guardado em conversa se perde, e que com o painel cada cliente tem a data, o contrato
+     e o sinal na mesma ficha: quando o pagamento cai, ela marca o sinal ali, e no fim do mês vê quem pagou. O painel
+     não recebe nem confere o Pix: quem marca é a fotógrafa, e o vídeo diz isso.
+     A história: abre com um cartaz de procura-se (trezentos reais sumiram há onze dias, e quem fala é a única prova).
+     Depois do gancho, o resumo da parte 1. Quem fala é o print do Pix da Lari: a Helena guarda os comprovantes num grupo
+     só com ela, mas o dedo escorrega um grupo para baixo. Onze dias depois, a Helena cobra a Lari, que responde com três
+     pontos de exclamação. A virada: o print passou os onze dias no grupo da família, onde a tia Rosa respondeu
+     "parabéns pelo pagamento, querida". Com o painel, o sinal é marcado na ficha da cliente. Fecho: a tia manda
+     "valor?", e a Helena responde com o link (a parte 1). Pós-créditos: a parte 3, no padrão da série (serie.mjs).
+     Tudo é fictício, e as telas levam o selo "exemplo". O tempo de tudo sai da narração:
+     narracao/reels-comprovante.json → python3 instagram/narrar.py reels-comprovante.
+     Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+#eu{position:absolute;left:0;top:0;width:240px;height:380px;margin:-190px 0 0 -120px;z-index:26;opacity:0;transform-origin:50% 50%}
+#eu svg{width:100%;height:100%;overflow:visible;display:block}
+.etq{position:absolute;left:0;top:0;z-index:27;padding:12px 26px;border-radius:26px;background:#1e2528;color:#f1eee9;font-size:38px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;opacity:0;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.etq.tc{background:var(--terracota);color:#fff}
+.etq.claro{background:#f1eee9;color:#1e2528}
+/* o cartaz de procura-se e a lanterna */
+#cartaz{position:absolute;left:0;top:0;z-index:7;width:600px;height:820px;margin:-410px 0 0 -300px;background:#efe6d2;border-radius:6px;box-shadow:0 40px 90px rgba(0,0,0,.6);display:flex;flex-direction:column;align-items:center;padding-top:52px;color:#2a2420;opacity:0}
+#cartaz::before,#cartaz::after{content:"";position:absolute;top:-18px;width:120px;height:40px;background:rgba(232,220,190,.8);transform:rotate(-8deg)}
+#cartaz::before{left:40px}#cartaz::after{right:40px;transform:rotate(9deg)}
+#cartaz h3{margin:0;font-size:82px;white-space:nowrap;font-weight:800;letter-spacing:-.04em;line-height:.9;color:#9a3a22}
+#cartaz .foto{width:300px;height:330px;margin:26px 0 22px;background:#2a2622;border:10px solid #fff;box-shadow:0 6px 0 rgba(0,0,0,.12);display:grid;place-items:center}
+#cartaz .foto svg{width:170px;height:250px}
+#cartaz b{font-size:74px;font-weight:800;letter-spacing:-.04em}
+#cartaz small{display:block;margin-top:14px;font-size:30px;font-weight:600;color:#5a4f46;text-align:center;line-height:1.25}
+#lanterna{position:absolute;inset:0;z-index:8;pointer-events:none}
+/* o resumo: o PDF da parte 1, o link e as clientes */
+#rz{position:absolute;inset:0;z-index:7;opacity:0;pointer-events:none}
+#rz-pdf{position:absolute;left:0;top:0;width:220px;height:290px;margin:-145px 0 0 -110px}
+#rz-pdf svg{width:100%;height:100%;overflow:visible}
+#rz-link{position:absolute;left:0;top:0;display:flex;align-items:center;gap:14px;padding:18px 30px;border-radius:40px;background:#f1eee9;color:#2f5fc4;font-size:40px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+#rz-link svg{width:40px;height:40px}
+.rz-cli{position:absolute;left:0;top:0;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:46px;font-weight:800;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.rz-cli i{position:absolute;right:-6px;bottom:-6px;width:48px;height:48px;border-radius:50%;background:#25a35a;display:grid;place-items:center;border:5px solid #161c1f}
+.rz-cli i svg{width:24px;height:24px;color:#fff}
+/* o calendário dos onze dias */
+#cal{position:absolute;left:0;top:0;z-index:23;width:440px;height:480px;margin:-240px 0 0 -220px;border-radius:40px;background:#fbf8f3;box-shadow:0 40px 90px rgba(0,0,0,.5);overflow:hidden;opacity:0;text-align:center;color:#1e2528}
+#cal .mes{height:110px;background:var(--terracota);color:#fff;font-size:44px;font-weight:800;letter-spacing:.08em;display:grid;place-items:center}
+#cal .dia{font-size:240px;font-weight:800;letter-spacing:-.06em;line-height:1.15;font-variant-numeric:tabular-nums}
+#cal .sub{font-size:30px;font-weight:600;color:#7a8386;margin-top:-10px}
+/* os grupos por onde o print passa */
+#grupos{position:absolute;left:0;top:0;z-index:22;width:760px;margin-left:-380px;opacity:0}
+.gp{display:flex;align-items:center;gap:20px;height:118px;margin-bottom:14px;padding:0 26px;border-radius:28px;background:#f1eee9;color:#1e2528;font-size:38px;font-weight:800;letter-spacing:-.02em;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.gp i{width:76px;height:76px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-style:normal;font-size:32px}
+#voa{position:absolute;left:0;top:0;z-index:24;width:90px;height:140px;margin:-70px 0 0 -45px;opacity:0}
+#voa svg{width:100%;height:100%;overflow:visible}
+/* WhatsApp */
+.zl-topo{height:86px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:34px;font-weight:800;letter-spacing:-.02em}
+.zl-r{display:flex;align-items:center;gap:16px;height:110px;padding:0 20px;border-bottom:1.5px solid #ece7df}
+.zl-r>i{width:68px;height:68px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-style:normal;font-size:28px;font-weight:800}
+.zl-r>i svg{width:36px;height:36px}
+.zl-r div{flex:1;min-width:0}
+.zl-r b{display:block;font-size:26px;font-weight:800;letter-spacing:-.01em}
+.zl-r small{display:block;font-size:21px;font-weight:600;color:#7a8386;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.enc-topo{height:96px;display:flex;align-items:center;gap:16px;padding:0 24px;font-size:30px;font-weight:800;background:#f6f3ee;border-bottom:2px solid #e7e1d8}
+.enc-topo svg{width:30px;height:30px}
+.enc-r{display:flex;align-items:center;gap:16px;height:104px;padding:0 22px;border-bottom:1.5px solid #ece7df}
+.enc-r>i{width:62px;height:62px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-style:normal;font-size:26px;font-weight:800}
+.enc-r>i svg{width:32px;height:32px}
+.enc-r b{flex:1;font-size:26px;font-weight:700}
+.enc-r em{width:38px;height:38px;border-radius:50%;border:3px solid #c9c2b8;flex:none;display:grid;place-items:center}
+.enc-r em.on{background:#25a35a;border-color:#25a35a}
+.enc-r em svg{width:22px;height:22px;color:#fff}
+#enc-b b{filter:blur(7px)}
+#toast{position:absolute;left:50%;bottom:120px;translate:-50% 0;padding:14px 28px;border-radius:30px;background:#1e2528;color:#f1eee9;font-size:24px;font-weight:700;white-space:nowrap;opacity:0;z-index:9}
+.zp-img{position:absolute;padding:8px 8px 30px;border-radius:20px;box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.zp-img.ent{left:18px;background:#fff}
+.zp-img.sai{right:18px;background:#d9fdd3}
+.zp-img .pv{width:210px;height:280px;border-radius:14px;overflow:hidden;background:#e9e4da;display:grid;place-items:center}
+.zp-img .pv svg{width:150px;height:240px}
+.zp-img .enc{display:flex;align-items:center;gap:6px;font-size:17px;font-style:italic;color:#8a9396;margin:0 6px 6px}
+.zp-img small{position:absolute;right:16px;bottom:7px;font-size:18px;color:#8a9396;font-weight:600}
+.zp-m .quem{display:block;font-size:19px;font-weight:800;margin-bottom:2px}
+.zp-m .flor{width:200px;height:150px;border-radius:12px;overflow:hidden;margin-bottom:6px}
+.zp-m .flor svg{width:100%;height:100%;display:block}
+.zp-m.grande{font-size:44px;font-weight:800;letter-spacing:-.02em;max-width:360px}
+.zp-topo{position:relative;z-index:3}
+.zp-dia{position:absolute;left:50%;translate:-50% 0;padding:6px 16px;border-radius:10px;background:#f6f3ee;font-size:17px;font-weight:700;color:#7a8386;letter-spacing:.06em}
+.lkc{display:flex;gap:12px;align-items:center;margin-top:10px;padding:10px;border-radius:16px;background:#c9f0c1}
+.lkc i{width:84px;height:84px;border-radius:12px;overflow:hidden;flex:none}
+.lkc i svg{width:100%;height:100%;display:block}
+.lkc b{display:block;font-size:22px;font-weight:800}
+.zp-m .lkc small{position:static;display:block;font-size:18px;color:#2f5fc4}
+.tk{width:26px;height:18px;flex:none}
+/* o app do banco */
+.pix{display:flex;flex-direction:column;align-items:center;padding-top:110px;text-align:center}
+.pix .ok{width:120px;height:120px;border-radius:50%;background:#25a35a;display:grid;place-items:center;color:#fff}
+.pix .ok svg{width:66px;height:66px;stroke-width:3}
+.pix h4{margin:26px 0 10px;font-size:36px;font-weight:800;letter-spacing:-.02em}
+.pix b{font-size:70px;font-weight:800;letter-spacing:-.04em}
+.pix p{margin:18px 40px 0;font-size:24px;font-weight:600;color:#5b6467;line-height:1.35}
+.pix .bt{margin-top:40px;padding:18px 40px;border-radius:30px;background:#1e2528;color:#fff;font-size:26px;font-weight:800}
+/* o painel */
+.pn-topo{height:70px;background:#1e2528;color:#f1eee9;display:flex;align-items:center;gap:12px;padding:0 22px;font-size:23px;font-weight:800}
+.pn-topo small{font-weight:600;opacity:.7;margin-left:auto;font-size:18px}
+.pn-topo svg{width:26px;height:26px}
+.pn-tit{margin:18px 22px 4px;font-size:32px;font-weight:800;letter-spacing:-.025em}
+.pn-sub{margin:0 22px 12px;font-size:20px;font-weight:600;color:#7a8386}
+.pn-l{display:flex;align-items:center;gap:12px;margin:0 14px 10px;padding:14px 16px;border-radius:18px;background:#fff;border:2px solid #efe8e0}
+.pn-l .av{width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px}
+.pn-l .n{flex:1;font-size:22px;font-weight:800;line-height:1.15;min-width:0}
+.pn-l .n small{display:block;font-size:17px;font-weight:600;color:#7a8386}
+.pn-st{padding:6px 10px;border-radius:999px;font-size:14px;font-weight:800;white-space:nowrap;flex:none}
+.pn-st.ok{background:#dff1e6;color:#1f7a45}
+.pn-st.pre{background:#fdf3d8;color:#8a6a10}
+.fi-cab{display:flex;align-items:center;gap:18px;margin:20px 22px 14px}
+.fi-cab .av{width:84px;height:84px;border-radius:50%;background:#c47b6a;color:#fff;display:grid;place-items:center;font-size:36px;font-weight:800;flex:none}
+.fi-cab b{display:block;font-size:34px;font-weight:800;letter-spacing:-.025em}
+.fi-cab small{font-size:20px;font-weight:600;color:#7a8386}
+.fi-l{display:flex;align-items:center;gap:14px;margin:0 16px 12px;padding:16px 18px;border-radius:20px;background:#fff;border:2px solid #efe8e0}
+.fi-l>svg{width:34px;height:34px;color:#5b6467;flex:none}
+.fi-l div{flex:1;min-width:0}
+.fi-l small{display:block;font-size:17px;font-weight:700;color:#7a8386;letter-spacing:.04em;text-transform:uppercase}
+.fi-l b{display:block;font-size:25px;font-weight:800}
+#fi-bt{margin:8px 16px 0;height:84px;border-radius:24px;background:#1e2528;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;font-size:26px;font-weight:800}
+#fi-bt svg{width:30px;height:30px}
+.mes-res{display:flex;gap:12px;margin:4px 16px 16px}
+.mes-res div{flex:1;padding:16px;border-radius:20px;background:#fff;border:2px solid #efe8e0}
+.mes-res b{display:block;font-size:46px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.mes-res small{font-size:18px;font-weight:700;color:#7a8386}
+.mes-res .v b{color:#1f7a45}
+.mes-res .a b{color:#8a6a10}
+</style></head><body>
+<div class="reels" id="palco">
+  <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
+  <div id="cartaz"><h3>PROCURA-SE</h3><div class="foto"><svg viewBox="-110 -180 220 360"><path d="M-100 -170 H100 V150 L83 168 L67 150 L50 168 L33 150 L17 168 L0 150 L-17 168 L-33 150 L-50 168 L-67 150 L-83 168 L-100 150 Z" fill="#46403a"/><text x="0" y="40" text-anchor="middle" font-family="Geist" font-weight="800" font-size="150" fill="#2a2622">?</text></svg></div>
+    <b>R$ 300,00</b><small>Sumiu em 03/11, às 21h14.<br>Última vez visto num celular.</small></div>
+  <div id="lanterna"></div>
+  <div id="rz"><div id="rz-pdf"></div><div id="rz-link"></div><div class="rz-cli" id="rz0" style="background:#9b6b84">L</div><div class="rz-cli" id="rz1" style="background:#2f6f86">M</div><div class="rz-cli" id="rz2" style="background:#c47b6a">T</div></div>
+  <div class="poeira" id="poeira"></div>
+  <div id="extra"></div>
+  <div class="fone" id="fa"></div>
+  <div id="eu"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, pose, IC, ic, ZAP_B, PELE, PELE2, dePe, boca, pernas, fecha, historia, h } from "./historia.mjs";
+import { serie } from "./serie.mjs";
+import { ARTE, arte, estudio, helena, recibo, cara, TK, celular, MINI_P1 } from "./celular.mjs";
+
+const R = await historia({
+  nome: "reels-comprovante",
+  ordem: ["escuro", "resumo", "lari", "grupo", "busca", "cobra", "virada", "licao", "site", "fecho", "marca", "cta", "pos"],
+  // a trilha: o cartaz abre com impacto, o resumo e a Lari no pulso, o encaminhamento é o groove (cortado em "nada da
+  // Lari", a frase "nada"), a cobrança fica no coração batendo, o grupo da família na batida abafada, a lição sobe até o
+  // drop, que cai em "a Helena passou a usar um painel"; o fecho fica seco
+  trilha: { escuro: "abre", resumo: "google", lari: "google", grupo: "insta", busca: "insta", cobra: "meio", virada: "volta", licao: "ese", site: "site", fecho: "fim", marca: "fim", cta: "cta", pos: "cta" },
+  cta: "PAINEL", nota: "A Helena, a Lari e a tia Rosa são fictícias.", bpm: 118, tom: -1,
+});
+const { F, S, I, W, palco, DUR } = R;
+const T = {
+  sumiram: W("abre", "sumiram"), prova: W("abre", "prova"),
+  ninguem: W("resumo", "ninguem"), agora: W("resumo", "agora"), link: W("resumo", "link"), clientes: W("resumo", "clientes"), marcam: W("resumo", "marcam"),
+  lari: W("lari", "lari"), gestante: W("lari", "gestante"), dezembro: W("lari", "dezembro"),
+  pagou: W("pagou", "pagou"), print: W("pagou", "print"),
+  sou: W("sou", "sou"),
+  grupoW: W("grupo", "grupo"), so: W("grupo", "so"), comprovantes: W("grupo", "comprovantes", 1),
+  noite: W("encaminha", "noite"), encaminhou: W("encaminha", "encaminhou"),
+  dedo: W("dedo", "dedo"), escorregou: W("dedo", "escorregou"), baixo: W("dedo", "baixo"),
+  onze: W("onze", "onze"), mes: W("onze", "mes"),
+  nadaW: W("nada", "nada"), lari2: W("nada", "lari"),
+  mandou: W("cobra", "mandou"), falta: W("cobra", "falta"),
+  resposta: W("respondeu", "resposta"), exclamacao: W("respondeu", "exclamacao"),
+  onde: W("sabe", "onde"), familia: W("familia", "familia"), tia: W("tia", "tia"), parabens: W("tia", "parabens"), querida: W("tia", "querida"),
+  conversa: W("licao", "conversa"), escorregar: W("licao", "escorregar"),
+  painel: W("painel", "painel"), cada: W("ficha", "cada"), data: W("ficha", "data"), contrato: W("ficha", "contrato"), sinal: W("ficha", "sinal"), ficha: W("ficha", "ficha"),
+  cai: W("marcou", "cai"), marca: W("marcou", "marca"), hora: W("marcou", "hora"),
+  fim: W("mes", "fim"), quem: W("mes", "quem"), conversa2: W("mes", "conversa"),
+  eu2: W("eu2", "continuo"), ontem: W("ontem", "ontem"), valor: W("ontem", "valor"), linkf: W("linkf", "link"),
+};
+T.tapLari = T.cada - 0.25;      // no painel, a ficha da Lari
+T.tapSinal = T.marca - 0.15;    // o botão "Marcar sinal pago"
+
+IC.casa = '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>';
+IC.recibo = '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>';
+IC.contrato = '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>';
+IC.moeda = '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>';
+IC.grupo = '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>';
+IC.bola = '<circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/>';
+IC.lupa = '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>';
+
+// a miniatura do print (o comprovante numa foto)
+const printMini = () => `<svg viewBox="-110 -180 220 360"><path d="M-100 -170 H100 V150 L83 168 L67 150 L50 168 L33 150 L17 168 L0 150 L-17 168 L-33 150 L-50 168 L-67 150 L-83 168 L-100 150 Z" fill="#fbf8f3"/>
+  <circle cx="-62" cy="-132" r="16" fill="#25a35a"/><text x="-38" y="-125" font-family="Geist" font-weight="800" font-size="20" fill="#1e2528">Pix enviado</text>
+  <text x="0" y="-60" text-anchor="middle" font-family="Geist" font-weight="800" font-size="34" fill="#1e2528">R$ 300,00</text><g fill="#e2dbd0"><rect x="-70" y="0" width="140" height="10" rx="5"/><rect x="-50" y="24" width="100" height="10" rx="5"/><rect x="-70" y="96" width="140" height="10" rx="5"/></g></svg>`;
+
+// ====================== o narrador: o comprovante, com cara ======================
+$("#eu").innerHTML = `<svg viewBox="-120 -190 240 390">${recibo("nr")}</svg>`;
+// o PDF da parte 1, para o resumo
+$("#rz-pdf").innerHTML = `<svg viewBox="-150 -190 300 400"><path d="M-130 -170 H66 L130 -106 V166 Q130 180 116 180 H-116 Q-130 180 -130 166 Z" fill="#fbf8f3"/><path d="M66 -170 V-120 Q66 -106 80 -106 H130 Z" fill="#d6cec1"/>
+  <path d="M-130 108 H130 V166 Q130 180 116 180 H-116 Q-130 180 -130 166 Z" fill="#b25134"/><text x="0" y="158" text-anchor="middle" font-family="Geist" font-weight="800" font-size="50" letter-spacing="3" fill="#fff">PDF</text>
+  <g fill="#3a2f2a"><rect x="-70" y="-50" width="44" height="9" rx="4.5" transform="rotate(-12 -48 -46)"/><rect x="26" y="-50" width="44" height="9" rx="4.5" transform="rotate(12 48 -46)"/></g>
+  <circle cx="-48" cy="-6" r="17" fill="#1e2528"/><circle cx="48" cy="-6" r="17" fill="#1e2528"/><path d="M-22 58 Q0 38 22 58" stroke="#7a3d2e" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`;
+$("#rz-link").innerHTML = `${ic("link")}helenafotografia.com.br`;
+$$(".rz-cli").forEach(el => el.insertAdjacentHTML("beforeend", `<i>${ic("check", 'style="stroke-width:3.4"')}</i>`));
+
+// ====================== as cenas desenhadas: a sala da Lari e o estúdio da Helena ======================
+const gravida = (svg, cor) => svg.replace(/(<path d="M-50 -140[^>]*\/>)/, `$1<ellipse cx="2" cy="-196" rx="60" ry="54" fill="${cor}" stroke="#000" stroke-opacity=".18" stroke-width="5"/><ellipse cx="-16" cy="-214" rx="20" ry="14" fill="#fff" opacity=".13"/>`);
+const LARI = { id: "la", cabelo: "longo", corCabelo: "#2b1a12", brinco: "#e0b04a", roupa: "#c47b6a", braco: "#c47b6a", vestido: "#c47b6a", calca: "#2b2f3a", bracos: "celular" };
+$("#cn").innerHTML = `
+  <defs><linearGradient id="g-noite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2533"/><stop offset="1" stop-color="#121821"/></linearGradient>
+    <radialGradient id="g-abajur"><stop offset="0" stop-color="#f2d79a" stop-opacity=".3"/><stop offset="1" stop-color="#f2d79a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g-tela" cx="0" cy="0" r="1"><stop offset="0" stop-color="#9cc6e0" stop-opacity=".35"/><stop offset="1" stop-color="#9cc6e0" stop-opacity="0"/></radialGradient></defs>
+  <g id="g-sala"><rect width="1080" height="1920" fill="url(#g-noite)"/>
+    <g><rect x="640" y="560" width="320" height="400" rx="14" fill="#1c2a3a"/><rect x="656" y="576" width="288" height="368" rx="8" fill="#22344d"/>
+      <circle cx="860" cy="670" r="34" fill="#e9e3c9"/><circle cx="874" cy="660" r="30" fill="#22344d"/><path d="M800 576 V944 M656 760 H944" stroke="#1c2a3a" stroke-width="12"/></g>
+    <g transform="translate(980 1720)"><rect x="-6" y="-460" width="12" height="460" fill="#3a3f45"/><path d="M-60 -460 L60 -460 L44 -550 L-44 -550 Z" fill="#e8d9b5"/><ellipse cx="0" cy="-430" rx="220" ry="100" fill="url(#g-abajur)"/></g>
+    <g transform="translate(150 1720)"><path d="M-50 0 L-40 -110 H40 L50 0 Z" fill="#7d573c"/><ellipse cx="0" cy="-150" rx="70" ry="60" fill="#4f7a52"/><ellipse cx="-40" cy="-200" rx="40" ry="50" fill="#5f8a62"/><ellipse cx="40" cy="-210" rx="36" ry="46" fill="#6f9a6e"/></g>
+    <rect y="1720" width="1080" height="200" fill="#0b0f15"/><rect y="1712" width="1080" height="12" fill="#1f2b38"/>
+    <g id="la-pos">${gravida(dePe(LARI), LARI.roupa)}</g><circle id="la-brilho" cx="0" cy="0" r="200" fill="url(#g-tela)"/></g>
+  ${estudio()}`;
+const ESC = 1.75;
+
+// ====================== o celular ======================
+const GRUPOS = [["Lari", "#c47b6a", "L", "Foto"], ["Comprovantes", "#25a35a", ic("recibo"), "Você: Foto"], ["Família Lins", "#7a6a9a", ic("casa"), "Tia Rosa: Bom dia, família!"], ["Condomínio Bloco B", "#2f6f86", ic("grupo"), "Síndico: Reunião na quinta"], ["Futebol de quinta", "#6f8f5a", ic("bola"), "Dudu: Quem leva a bola?"], ["Mãe", "#b25134", "M", "Já almoçou?"]];
+const linha = ([n, c, a, s], k, pre) => `<div class="zl-r" id="${pre}${k}"><i style="background:${c}">${a}</i><div><b>${n}</b><small>${s}</small></div></div>`;
+const CLIENTES = [["Ana Clara", "#9b6b84", "Ensaio newborn · 28/11", "ok", "sinal pago"], ["Bruna", "#2f6f86", "Família · 05/12", "ok", "sinal pago"], ["Lari Souza", "#c47b6a", "Ensaio gestante · 12/12", "pre", "aguardando sinal"], ["Duda", "#6f8f5a", "Smash · 14/12", "pre", "aguardando sinal"], ["Gabi", "#7a6a9a", "Newborn · 19/12", "ok", "sinal pago"]];
+const { FA, mostra, toque, hora } = celular(`
+  <div class="tela" id="s-pix"><div class="pix"><div class="ok">${ic("check")}</div><h4>Pix enviado</h4><b>R$ 300,00</b><p>para Helena Lins Fotografia<br>03/11/2026, às 21h14<br>Sinal do ensaio gestante</p><span class="bt">Compartilhar comprovante</span></div></div>
+  <div class="tela" id="s-lchat"><div class="zp-topo">${ic("voltar")}<i style="background:#b25134">H</i><div>Helena Fotografia<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-m sai" style="top:24px">Paguei o sinal! Segue:<small>21:14</small></div><div class="zp-img sai" id="lc-img" style="top:120px"><div class="pv">${printMini()}</div><small>21:14 ${TK("#8a9396")}</small></div></div></div>
+  <div class="tela" id="s-lista"><div class="zl-topo">WhatsApp<span>${ic("lupa", 'style="width:32px;height:32px"')}</span></div>${GRUPOS.map((g, k) => linha(g, k, "gl")).join("")}</div>
+  <div class="tela" id="s-enc"><div class="enc-topo">${ic("x")}Encaminhar para…</div>
+    ${[["Comprovantes", "#25a35a", ic("recibo"), "enc-a"], ["Família Lins", "#7a6a9a", ic("casa"), "enc-b"], ["Lari", "#c47b6a", "L", "enc-c"], ["Mãe", "#b25134", "M", "enc-d"], ["Condomínio Bloco B", "#2f6f86", ic("grupo"), "enc-e"]].map(([n, c, a, id]) => `<div class="enc-r" id="${id}"><i style="background:${c}">${a}</i><b>${n}</b><em>${ic("check", 'style="stroke-width:3.4"')}</em></div>`).join("")}
+    <div id="toast">Encaminhada</div></div>
+  <div class="tela" id="s-comp"><div class="zp-topo">${ic("voltar")}<i style="background:#25a35a">${ic("recibo")}</i><div>Comprovantes<small>só você</small></div></div>
+    <div class="zp-fundo" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px;align-content:start">
+      ${["Ana Clara", "Bruna", "Gabi", "Isa", "Mel"].map(n => `<div style="background:#fff;border-radius:16px;padding:8px;text-align:center;font-size:20px;font-weight:800"><div style="height:150px;border-radius:10px;background:#e9e4da;display:grid;place-items:center"><svg viewBox="-110 -180 220 360" style="height:130px">${printMini().replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></div>${n}</div>`).join("")}
+      <div id="cp-lari" style="border:4px dashed #b25134;border-radius:16px;display:grid;place-items:center;font-size:30px;font-weight:800;color:#b25134;min-height:196px">Lari?</div></div></div>
+  <div class="tela" id="s-cobra"><div class="zp-topo">${ic("voltar")}<i style="background:#c47b6a">L</i><div>Lari<small>online</small></div></div>
+    <div class="zp-fundo"><div class="zp-m sai" id="cb1" style="top:24px">Oi, Lari! Falta o sinal do dia 12.<small>10:02</small></div>
+      <div class="zp-m ent grande" id="cb2" style="top:140px">Já paguei!!!<small>10:03</small></div>
+      <div class="zp-img ent" id="cb3" style="top:250px"><div class="pv">${printMini()}</div><small>10:03</small></div></div></div>
+  <div class="tela" id="s-fam"><div class="zp-topo">${ic("voltar")}<i style="background:#7a6a9a">${ic("casa")}</i><div>Família Lins<small>14 participantes</small></div></div>
+    <div class="zp-fundo" id="fam-rolo"><div class="zp-m ent" style="top:20px"><span class="quem" style="color:#b25134">Tia Rosa</span><div class="flor">${arte("flor")}</div>Bom dia, família!<small>07:02</small></div>
+      <div class="zp-m ent" style="top:298px"><span class="quem" style="color:#2f6f86">Tio Zé</span>Amém<small>07:15</small></div>
+      <div class="zp-img sai" id="fm-img" style="top:390px"><div class="enc">${ic("enviar", 'style="width:16px;height:16px"')}Encaminhada</div><div class="pv">${printMini()}</div><small>21:14 ${TK("#3aa7e0")}</small></div>
+      <div class="zp-m ent" id="fm-tia" style="top:760px;max-width:360px"><span class="quem" style="color:#b25134">Tia Rosa</span>Parabéns pelo pagamento, querida!<small>21:20</small></div>
+      <div class="zp-m ent" id="fm-ze" style="top:900px"><span class="quem" style="color:#2f6f86">Tio Zé</span>Quem é Lari?<small>21:31</small></div>
+      <div class="zp-m ent" id="fm-valor" style="top:900px"><span class="quem" style="color:#b25134">Tia Rosa</span>valor?<small>18:40</small></div>
+      <div class="zp-m sai" id="fm-link" style="top:1010px;max-width:390px">Tudo aqui, tia:<div class="lkc"><i>${arte("gestante", 0)}</i><div><b>Ensaio gestante</b><small>helenafotografia.com.br</small></div></div><small>18:41</small></div></div></div>
+  <div class="tela" id="s-pn"><div class="pn-topo">${ic("calendario")}Painel<small>Helena Fotografia</small></div>
+    <div class="pn-tit">Clientes</div><div class="pn-sub">Dezembro</div>
+    ${CLIENTES.map(([n, c, s, st, rot], k) => `<div class="pn-l" id="pl${k}"><span class="av" style="background:${c}">${n[0]}</span><div class="n">${n}<small>${s}</small></div><span class="pn-st ${st}" id="pl${k}s">${rot}</span></div>`).join("")}</div>
+  <div class="tela" id="s-ficha"><div class="pn-topo">${ic("voltar")}Ficha da cliente<small>Helena Fotografia</small></div>
+    <div class="fi-cab"><span class="av">L</span><div><b>Lari Souza</b><small>Ensaio gestante</small></div></div>
+    <div class="fi-l" id="fi-data">${ic("calendario")}<div><small>Data</small><b>12/12, sábado, 15h</b></div></div>
+    <div class="fi-l" id="fi-cont">${ic("contrato")}<div><small>Contrato</small><b>Enviado em 03/11</b></div></div>
+    <div class="fi-l" id="fi-sinal">${ic("moeda")}<div><small>Sinal</small><b id="fi-sv">R$ 300 · aguardando</b></div><span class="pn-st pre" id="fi-st">aguardando</span></div>
+    <div id="fi-bt">${ic("check")}Marcar sinal pago</div></div>
+  <div class="tela" id="s-mes"><div class="pn-topo">${ic("moeda")}Financeiro<small>Helena Fotografia</small></div>
+    <div class="pn-tit">Novembro</div><div class="pn-sub">Sinais dos ensaios marcados</div>
+    <div class="mes-res"><div class="v"><b>9</b><small>sinais pagos</small></div><div class="a"><b>2</b><small>aguardando</small></div></div>
+    ${CLIENTES.map(([n, c, s, st, rot], k) => `<div class="pn-l" id="pm${k}"><span class="av" style="background:${c}">${n[0]}</span><div class="n">${n}<small>${s}</small></div><span class="pn-st ${k === 2 ? "ok" : st}">${k === 2 ? "sinal pago" : rot}</span></div>`).join("")}</div>`);
+
+// ====================== peças por cima ======================
+$("#extra").innerHTML = `
+  <div class="etq tc" id="etq-data">Ensaio gestante · 12/12</div>
+  <div class="etq claro" id="etq-so">1 participante: a Helena</div>
+  <div id="cal"><div class="mes">NOVEMBRO</div><div class="dia" id="cal-d">03</div><div class="sub" id="cal-s">o print sumiu</div></div>
+  <div class="etq tc" id="etq-exc" style="font-size:90px;padding:10px 36px">!!!</div>
+  <div id="grupos">${[["Família Lins", "#7a6a9a", ic("casa")], ["Condomínio Bloco B", "#2f6f86", ic("grupo")], ["Futebol de quinta", "#6f8f5a", ic("bola")], ["Mães da escola", "#9b6b84", ic("grupo")]].map(([n, c, a], k) => `<div class="gp" id="gp${k}"><i style="background:${c}">${a}</i>${n}</div>`).join("")}</div>
+  <div id="voa">${printMini()}</div>`;
+
+// ====================== quadro a quadro ======================
+// o cartaz de procura-se, na luz da lanterna
+function qCartaz(t) {
+  const on = t < S.resumo + 0.4, c = $("#cartaz");
+  vis(c, on); vis($("#lanterna"), on);
+  if (!on) return;
+  const sai_ = fase(t, S.resumo - 0.1, S.resumo + 0.35), a = fase(t, 0, 0.5);
+  pos(c, { x: 540, y: 1130 + 8 * Math.sin(t * 1.3), r: -2.5, s: lerp(1.08, 1, ease(fase(t, 0, S.resumo))) * lerp(1, 0.9, sai_), o: (1 - sai_) });
+  const lx = lerp(260, 540, ease(fase(t, 0, 1.4))) + 50 * Math.sin(t * 1.7), ly = lerp(820, 1120, ease(fase(t, 0, 1.4))) + 40 * Math.cos(t * 1.3), raio = lerp(230, 420, ease(fase(t, T.prova - 0.3, T.prova + 0.3)));
+  $("#lanterna").style.background = `radial-gradient(circle at ${lx.toFixed(0)}px ${ly.toFixed(0)}px, rgba(0,0,0,0) 0, rgba(0,0,0,0) ${raio.toFixed(0)}px, rgba(5,7,8,${(0.92 * (1 - sai_) * a).toFixed(3)}) ${(raio + 240).toFixed(0)}px)`;
+}
+// o resumo da parte 1: o PDF que ninguém abria, o link e as clientes marcando
+function qResumo(t) {
+  const on = em(t, S.resumo - 0.2, S.lari + 0.2), el = $("#rz");
+  el.style.opacity = on ? (fase(t, S.resumo - 0.2, S.resumo + 0.2) * (1 - fase(t, S.lari - 0.2, S.lari + 0.15))).toFixed(3) : 0;
+  if (!on) return;
+  const a = entra(t, S.resumo + 0.05, 0.35), vai = ease(fase(t, T.agora - 0.2, T.agora + 0.3));
+  pos($("#rz-pdf"), { x: 540, y: lerp(900, 820, vai) + a.y, s: a.s * lerp(1, 0.65, vai), r: lerp(0, -10, vai), o: a.o * lerp(1, 0.35, vai) });
+  const b = entra(t, T.link - 0.05, 0.35), lk = $("#rz-link");
+  pos(lk, { x: 540 - lk.offsetWidth / 2, y: 1000 + b.y, s: b.s, o: b.o });
+  [[300, 1200], [540, 1240], [780, 1200]].forEach(([x, y], k) => { const c = entra(t, T.clientes - 0.05 + k * 0.12, 0.3); pos($(`#rz${k}`), { x, y: y + c.y, s: c.s, o: c.o }); pos($(`#rz${k} i`), { s: fase(t, T.marcam + k * 0.1, T.marcam + 0.25 + k * 0.1) > 0 ? lerp(0.4, 1, volta(fase(t, T.marcam + k * 0.1, T.marcam + 0.25 + k * 0.1))) : 0 }); });
+}
+// a sala da Lari (paga e manda o print) e o estúdio da Helena (cobra e fica vermelha)
+function qCena(t) {
+  const sala = em(t, S.lari - 0.1, S.grupo), est = em(t, S.cobra - 0.05, S.virada);
+  vis($("#c-cena"), sala || est);
+  attr($("#g-sala"), "opacity", sala ? (1 - 0.65 * fase(t, I("sou") - 0.1, I("sou") + 0.2)).toFixed(3) : 0);
+  attr($("#g-estudio"), "opacity", est ? 1 : 0);
+  if (sala) {
+    const anda = fase(t, S.lari - 0.1, T.lari + 0.4);
+    attr($("#la-pos"), "transform", `translate(${lerp(-200, 320, sai(anda)).toFixed(1)} 1730) scale(${ESC})`);
+    pernas("la", t, anda < 0.97); boca("la", "sorriso"); fecha("la", (t % 3.1) < 0.12 ? 1 : 0);
+    attr($("#la-brilho"), "transform", `translate(${(lerp(-200, 320, sai(anda)) + 26 * ESC).toFixed(1)} ${1730 - 214 * ESC})`);
+  }
+  if (est) {
+    const vergonha = fase(t, T.resposta - 0.1, T.exclamacao + 0.2);
+    helena(t, { x: 290, jeito: t >= T.resposta ? "oh" : "sorriso", corada: vergonha });
+  }
+}
+// o celular: [t, centro x, centro y, escala, giro, opacidade]
+const PF = [
+  [0, 760, 1500, 0.6, 8, 0], [T.pagou - 0.45, 770, 1400, 0.6, 8, 0], [T.pagou - 0.1, 760, 1120, 0.84, 3, 1],
+  [I("sou") - 0.2, 760, 1120, 0.84, 3, 1], [I("sou") + 0.1, 820, 1260, 0.7, 8, 0],
+  [S.grupo - 0.25, 540, 1500, 0.9, 10, 0], [S.grupo + 0.1, 540, 1090, 1.3, 0, 1],
+  [S.busca - 0.1, 540, 1090, 1.3, 0, 1], [S.busca + 0.1, 540, 1300, 1, 0, 0],
+  [T.nadaW - 0.5, 540, 1300, 1.0, 0, 0], [T.nadaW - 0.2, 540, 1090, 1.3, 0, 1],
+  [S.cobra - 0.1, 540, 1090, 1.3, 0, 1], [S.cobra + 0.2, 760, 1120, 0.84, 3, 1],
+  [S.virada - 0.15, 760, 1120, 0.84, 3, 1], [S.virada + 0.1, 900, 1300, 0.7, 10, 0],
+  [I("familia") - 0.25, 540, 1500, 0.9, 10, 0], [I("familia") + 0.05, 540, 1090, 1.3, 0, 1],
+  [S.licao - 0.15, 540, 1090, 1.3, 0, 1], [S.licao + 0.1, 540, 1300, 1, 0, 0],
+  [S.site - 0.2, 540, 1700, 1, 8, 0], [S.site + 0.15, 540, 1090, 1.3, 0, 1],
+  [S.marca - 0.35, 540, 1090, 1.3, 0, 1], [S.marca - 0.05, 540, 1300, 1, 0, 0],
+];
+function qFone(t) {
+  const [cx, cy, s, r, o] = pose(PF, t);
+  pos(FA, { x: cx - 220, y: cy - 450, s, r, o });
+  $("#dedo").style.opacity = 0;
+  if (o <= 0.002) return;
+  let tela;
+  if (t < S.grupo - 0.1) { tela = t < T.print - 0.1 ? "s-pix" : "s-lchat"; hora("21:14"); }
+  else if (t < S.busca) { tela = t < T.encaminhou - 0.3 ? "s-lista" : "s-enc"; hora("21:14"); }
+  else if (t < S.cobra - 0.05) { tela = "s-comp"; hora("09:40"); }
+  else if (t < S.virada) { tela = "s-cobra"; hora("10:03"); }
+  else if (t < S.site - 0.1) { tela = "s-fam"; hora("21:31"); }
+  else if (t < S.fecho - 0.1) { tela = t < T.tapLari + 0.15 ? "s-pn" : t < I("mes") ? "s-ficha" : "s-mes"; hora("10:30"); }
+  else { tela = "s-fam"; hora("18:41"); }
+  mostra(tela);
+  if (tela === "s-lchat") { const a = entra(t, T.print - 0.05, 0.3); pos($("#lc-img"), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); }
+  if (tela === "s-lista") {
+    GRUPOS.forEach((_, k) => { const p = k === 1 ? pulso(t, T.comprovantes - 0.1, 1.2) : 0; $(`#gl${k}`).style.background = p > 0.05 ? `rgba(37,163,90,${(0.16 * p).toFixed(3)})` : ""; });
+  }
+  if (tela === "s-enc") {
+    // o dedo vai para "Comprovantes" e escorrega para a linha de baixo
+    const d = $("#dedo"), [ax, ay] = [370, 146 + 52], [bx, by] = [370, 146 + 104 + 52];
+    const vem = fase(t, T.encaminhou - 0.2, T.escorregou - 0.2), esc = ease(fase(t, T.escorregou - 0.15, T.escorregou + 0.25)), some = fase(t, T.baixo + 0.2, T.baixo + 0.5);
+    d.style.left = `${lerp(ax, bx, esc)}px`; d.style.top = `${lerp(ay + 220 * (1 - sai(vem)), by, esc)}px`;
+    pos(d, { s: 0.9, o: Math.min(1, vem * 3) * (1 - some) });
+    const marcou = t >= T.escorregou + 0.2;
+    $("#enc-b em").className = marcou ? "on" : ""; $("#enc-a em").className = "";
+    $("#enc-b").style.background = marcou ? "rgba(37,163,90,.1)" : "";
+    const ts = entra(t, T.baixo, 0.3); pos($("#toast"), { y: ts.y * 0.5, s: ts.s, o: ts.o });
+  }
+  if (tela === "s-comp") {
+    const p = pulso(t, T.lari2 - 0.15, 0.8), tr = em(t, T.lari2, T.lari2 + 0.4) ? Math.sin(t * 60) * 6 : 0;
+    $("#cp-lari").style.transform = `translateX(${tr.toFixed(1)}px) scale(${(1 + 0.08 * p).toFixed(3)})`;
+    $("#cp-lari").style.background = `rgba(178,81,52,${(0.12 * p).toFixed(3)})`;
+  }
+  if (tela === "s-cobra") {
+    [["#cb1", T.mandou - 0.05], ["#cb2", T.resposta - 0.05], ["#cb3", T.resposta + 0.5]].forEach(([id, t0]) => { const a = entra(t, t0, 0.3); pos($(id), { y: a.y * 0.6, s: lerp(0.85, 1, a.x > 0 ? volta(a.x) : 0), o: a.o }); });
+  }
+  if (tela === "s-fam") {
+    const fecho = t >= S.fecho - 0.1, rolo = fecho ? lerp(300, 560, ease(fase(t, S.fecho - 0.1, T.ontem))) : lerp(60, 300, ease(fase(t, T.parabens - 0.4, T.parabens + 0.1)));
+    $("#fam-rolo").style.transform = `translateY(${(-rolo).toFixed(1)}px)`;
+    const pi = fecho ? 0 : pulso(t, I("familia") + 0.1, 0.9);
+    $("#fm-img").style.boxShadow = pi > 0.05 ? `0 0 0 ${(6 * pi).toFixed(1)}px #e8855e` : "";
+    const ti = entra(t, T.parabens - 0.1, 0.3); pos($("#fm-tia"), { y: ti.y * 0.6, s: lerp(0.85, 1, ti.x > 0 ? volta(ti.x) : 0), o: fecho ? 1 : ti.o });
+    const ze = entra(t, T.querida + 0.4, 0.3); pos($("#fm-ze"), { y: ze.y * 0.6, s: lerp(0.85, 1, ze.x > 0 ? volta(ze.x) : 0), o: fecho ? 0 : ze.o });
+    const va = entra(t, T.valor - 0.1, 0.3); pos($("#fm-valor"), { y: va.y * 0.6, s: lerp(0.85, 1, va.x > 0 ? volta(va.x) : 0), o: fecho ? va.o : 0 });
+    const lk = entra(t, T.linkf - 0.05, 0.3); pos($("#fm-link"), { y: lk.y * 0.6, s: lerp(0.85, 1, lk.x > 0 ? volta(lk.x) : 0), o: fecho ? lk.o : 0 });
+  }
+  if (tela === "s-pn") {
+    CLIENTES.forEach((_, k) => { const b = entra(t, S.site + 0.1 + k * 0.07, 0.3); pos($(`#pl${k}`), { y: b.y * 0.6, s: b.x > 0 ? lerp(0.9, 1, volta(b.x)) : 0.9, o: b.o }); });
+    const p = pulso(t, T.tapLari - 0.15, 0.5); $("#pl2").style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #e8855e` : "";
+    toque(t, T.tapLari, $("#pl2"));
+  }
+  if (tela === "s-ficha") {
+    [["#fi-data", T.data], ["#fi-cont", T.contrato], ["#fi-sinal", T.sinal]].forEach(([id, t0]) => { const p = pulso(t, t0 - 0.1, 0.7); $(id).style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #e8855e` : ""; $(id).style.transform = `scale(${(1 + 0.04 * p).toFixed(3)})`; });
+    const pago = t >= T.tapSinal + 0.1;
+    $("#fi-sv").textContent = pago ? "R$ 300 · pago em 03/11" : "R$ 300 · aguardando";
+    $("#fi-st").className = `pn-st ${pago ? "ok" : "pre"}`; $("#fi-st").textContent = pago ? "sinal pago" : "aguardando";
+    const pb = pulso(t, T.tapSinal - 0.05, 0.4); $("#fi-bt").style.transform = `scale(${(1 - 0.05 * pb).toFixed(3)})`;
+    $("#fi-bt").style.background = pago ? "#1f7a45" : "";
+    const pp = pago ? pulso(t, T.tapSinal + 0.1, 0.8) : 0; $("#fi-st").style.transform = `scale(${(1 + 0.3 * pp).toFixed(3)})`;
+    toque(t, T.tapSinal, $("#fi-bt"));
+  }
+  if (tela === "s-mes") {
+    const a = entra(t, I("mes") + 0.05, 0.35); pos($(".mes-res", FA), { s: a.x > 0 ? lerp(0.9, 1, volta(a.x)) : 0.9, o: a.o });
+    CLIENTES.forEach((_, k) => { const b = entra(t, T.fim + k * 0.08, 0.3); pos($(`#pm${k}`), { y: b.y * 0.6, o: b.o }); });
+    const p = pulso(t, T.quem - 0.1, 0.8); $("#pm2").style.boxShadow = p > 0.05 ? `0 0 0 ${(5 * p).toFixed(1)}px #25a35a` : "";
+  }
+}
+// o narrador: [t, x, y, escala, giro, opacidade]
+const EU = [
+  [0, 540, 1080, 0.3, 0, 0], [T.sou - 0.3, 540, 1080, 0.3, 0, 0], [T.sou + 0.1, 540, 1060, 1.15, 0, 1],
+  [S.grupo - 0.15, 540, 1060, 1.15, 0, 1], [S.grupo + 0.15, 540, 1060, 0.2, 20, 0],
+  [S.virada - 0.2, 540, 1080, 0.5, 0, 0], [S.virada + 0.15, 540, 1080, 1.15, 0, 1],
+  [I("familia") - 0.2, 540, 1080, 1.15, 0, 1], [I("familia") + 0.05, 540, 1080, 0.3, 0, 0],
+  [S.fecho - 0.2, 930, 1740, 0.3, 0, 0], [S.fecho + 0.1, 930, 1740, 0.38, 0, 1], [S.marca - 0.35, 930, 1740, 0.38, 0, 1], [S.marca - 0.05, 930, 1780, 0.3, 0, 0],
+];
+function qEu(t) {
+  const [x, y, s, r, o] = pose(EU, t);
+  pos($("#eu"), { x: x + (em(t, S.virada, I("familia")) ? 8 * Math.sin(t * 2) : 0), y, s, r, o });
+  if (o <= 0.002) return;
+  const pisca = (t % 2.6) < 0.1 ? 1 : 0;
+  if (t < S.grupo) cara("nr", "sorriso", pisca, 0.5);
+  else if (t < S.fecho - 0.3) cara("nr", "reta", pisca, -0.6);
+  else cara("nr", t >= T.linkf ? "sorriso" : "reta", t >= T.ontem && t < T.linkf ? 0.5 : pisca, 0);
+  attr($("#nrolhos"), "transform", em(t, S.virada, I("familia")) ? `translate(${(10 * Math.sin(t * 1.6)).toFixed(1)} 0)` : $("#nrolhos").getAttribute("transform") || "");
+}
+// por cima: a data do ensaio, o grupo só da Helena, os onze dias, o "!!!" e o print pulando de grupo em grupo
+function qExtra(t) {
+  { const el = $("#etq-data"), a = entra(t, T.gestante - 0.05); pos(el, { x: 330 - el.offsetWidth / 2, y: 700 + a.y, s: a.s, r: -3, o: em(t, T.gestante - 0.1, I("sou") - 0.1) ? a.o * (1 - fase(t, I("sou") - 0.3, I("sou") - 0.1)) : 0 }); }
+  { const el = $("#etq-so"), a = entra(t, T.so - 0.05); pos(el, { x: 540 - el.offsetWidth / 2, y: 1730 + a.y, s: a.s, o: em(t, T.so - 0.1, S.grupo + 3.4) ? a.o * (1 - fase(t, T.encaminhou - 0.6, T.encaminhou - 0.3)) : 0 }); }
+  {
+    const el = $("#cal"), on = em(t, S.busca - 0.1, T.nadaW - 0.3), a = entra(t, S.busca, 0.35);
+    pos(el, { x: 540, y: 1100 + a.y, s: a.s, r: -2, o: on ? a.o * (1 - fase(t, T.nadaW - 0.55, T.nadaW - 0.3)) : 0 });
+    const d = Math.min(14, 3 + Math.floor(11 * fase(t, T.onze - 0.1, T.mes)));
+    $("#cal-d").textContent = String(d).padStart(2, "0"); $("#cal-s").textContent = d >= 14 ? "onze dias depois" : "o print sumiu";
+  }
+  { const el = $("#etq-exc"), a = entra(t, T.exclamacao - 0.1, 0.3); pos(el, { x: 780 - el.offsetWidth / 2, y: 520 + a.y, s: a.s * (1 + 0.08 * pulso(t, T.exclamacao + 0.25, 0.3)), r: 8, o: em(t, T.exclamacao - 0.15, S.virada - 0.1) ? a.o * (1 - fase(t, S.virada - 0.35, S.virada - 0.1)) : 0 }); }
+  {
+    // a lição: o print vai pulando para onde o dedo escorregar
+    const on = em(t, S.licao - 0.1, S.site - 0.05), g = $("#grupos"), a = fase(t, S.licao - 0.1, S.licao + 0.3), fora_ = 1 - fase(t, S.site - 0.3, S.site - 0.05);
+    pos(g, { x: 540, y: 900, o: on ? a * fora_ : 0 });
+    $$(".gp", g).forEach((el, k) => { const b = entra(t, S.licao + k * 0.08, 0.3); pos(el, { y: b.y * 0.5, s: b.s, o: b.o }); });
+    const pulos = [0, 2, 1, 3], tk = lerp(S.licao + 0.4, T.escorregar, 1), n = Math.min(3, Math.floor(fase(t, S.licao + 0.3, T.escorregar + 0.3) * 4));
+    const alvo = pulos[n], ant = pulos[Math.max(0, n - 1)], x = fase(t, S.licao + 0.3 + n * ((T.escorregar - S.licao) / 4), S.licao + 0.3 + n * ((T.escorregar - S.licao) / 4) + 0.35);
+    const y0 = 900 + 59 + ant * 132, y1 = 900 + 59 + alvo * 132;
+    pos($("#voa"), { x: 840, y: lerp(y0, y1, ease(x)) - 80 * Math.sin(Math.PI * x), r: 12 * Math.sin(t * 3), s: 0.9, o: on && t > S.licao + 0.3 ? fora_ : 0 });
+    $$(".gp", g).forEach((el, k) => { el.style.boxShadow = k === alvo && x > 0.8 ? "0 0 0 6px #e8855e, 0 14px 40px rgba(0,0,0,.35)" : ""; });
+    void tk;
+  }
+}
+
+const quadroSerie = serie(R, { parte: 2, abertura: "resumo", resumo: { id: "resumo", titulo: "Só quatro me abriram", arte: MINI_P1 },
+  proxima: { arte: `<g id="p3-vagas">${Array.from({ length: 9 }, (_, k) => `<g class="p3v" id="p3v${k}"><rect x="-70" y="-46" width="140" height="92" rx="16" fill="#f1eee9"/><text x="0" y="-8" text-anchor="middle" font-family="Geist" font-weight="800" font-size="28" fill="#1e2528">${["05/12", "05/12", "12/12", "12/12", "12/12", "19/12", "19/12", "20/12", "20/12"][k]}</text><text x="0" y="26" text-anchor="middle" font-family="Geist" font-weight="700" font-size="22" fill="#8a6a10">segurada</text></g>`).join("")}</g>
+    <g id="p3-bal"><path d="M-300 -120 Q-300 -170 -250 -170 H250 Q300 -170 300 -120 V60 Q300 110 250 110 H-60 L-130 180 L-120 110 H-250 Q-300 110 -300 60 Z" fill="#f1eee9"/>
+      <text x="0" y="-62" text-anchor="middle" font-family="Geist" font-weight="800" font-size="50" fill="#1e2528">Vou ver com</text><text x="0" y="-4" text-anchor="middle" font-family="Geist" font-weight="800" font-size="50" fill="#b25134">meu marido</text>
+      <circle cx="-34" cy="60" r="11" fill="#1e2528"/><circle cx="34" cy="60" r="11" fill="#1e2528"/></g>`,
+    anima: (t, p) => {
+      const nove = W("pos", "nove"), frase = W("pos", "frase");
+      const b = fase(t, frase - 0.1, frase + 0.3); attr($("#p3-bal"), "transform", `translate(540 ${(1060 + 20 * Math.sin(t * 2)).toFixed(1)}) scale(${(b > 0 ? lerp(0.5, 1, volta(b)) : 0.001).toFixed(3)}) rotate(${(-3 * Math.sin(t * 1.5)).toFixed(2)})`);
+      $$(".p3v").forEach((g, k) => { const a = fase(t, nove - 0.1 + k * 0.06, nove + 0.25 + k * 0.06), ang = (k / 9) * Math.PI * 2 - Math.PI / 2, x = 540 + 390 * Math.cos(ang), y = 1110 + 330 * Math.sin(ang);
+        attr(g, "transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(-8 + 16 * h(k, 3)).toFixed(1)}) scale(${(a > 0 ? lerp(0.4, 0.9, volta(a)) : 0.001).toFixed(3)})`); attr(g, "opacity", Math.min(1, a * 3).toFixed(3)); });
+      void p;
+    } } });
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  const est = em(t, S.cobra - 0.05, S.virada), quente = em(t, S.site, S.fecho);
+  palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : est ? "#3a4a58" : t < S.resumo ? "#2b2622" : "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
+  qCartaz(t); qResumo(t); qCena(t); qFone(t); qEu(t); qExtra(t); quadroSerie(t);
+  R.comum(t, { poeira: !est });
+};
+const SONS = [{ t: T.print, tipo: "ding", ganho: 0.6 }, { t: T.escorregou + 0.2, tipo: "toque", ganho: 0.8 }, { t: T.baixo, tipo: "ding", ganho: 0.5 },
+  { t: T.mandou + 0.05, tipo: "ding", ganho: 0.5 }, { t: T.resposta, tipo: "ding", ganho: 0.7 }, { t: T.parabens - 0.1, tipo: "ding", ganho: 0.6 }, { t: T.querida + 0.4, tipo: "ding", ganho: 0.5 },
+  { t: T.tapLari, tipo: "toque", ganho: 0.8 }, { t: T.tapSinal, tipo: "toque", ganho: 0.8 }, { t: T.valor - 0.1, tipo: "ding", ganho: 0.6 }, { t: T.linkf - 0.05, tipo: "ding", ganho: 0.6 }];
+window.preparar = () => R.preparar([0.3, 1.5, T.prova + 0.2, T.ninguem + 0.3, T.link + 0.4, T.marcam + 0.4, T.lari + 0.4, T.dezembro + 0.2, T.pagou + 0.3, T.print + 0.4, T.sou + 0.3,
+  T.comprovantes + 0.3, T.encaminhou + 0.2, T.escorregou + 0.4, T.baixo + 0.4, T.onze + 0.6, T.mes + 0.2, T.lari2 + 0.2, T.mandou + 0.3, T.exclamacao + 0.3, T.onde + 0.3,
+  T.familia + 0.4, T.parabens + 0.4, T.querida + 0.8, T.conversa + 0.2, T.escorregar + 0.2, T.painel + 0.3, T.data + 0.2, T.sinal + 0.3, T.marca + 0.6, T.quem + 0.3,
+  T.eu2 + 0.3, T.valor + 0.3, T.linkf + 0.5, F.moral.ini + 1.5, F.marca.ini + 1.3, F.cta.ini + 1.6, F.pos.ini + 1.2, F.pos.ini + 2.6, DUR - 0.4], SONS);
+await R.pronto();
+</script>
+</body></html>

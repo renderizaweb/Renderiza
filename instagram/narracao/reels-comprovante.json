@@ -1,0 +1,182 @@
+{
+ "_sobre": "Narração do Reels \"O comprovante\" (parte 2 da série \"O celular da fotógrafa\", 07/11/2026). Alvo: a fotógrafa que recebe o sinal por Pix e controla quem pagou por prints no WhatsApp. Objetivo: ela perceber que comprovante guardado em conversa se perde (e que cobrar de novo quem já pagou é o pior momento com uma cliente) e que, com o painel, cada cliente tem a data, o contrato e o sinal na mesma ficha: quando o Pix cai, ela marca o sinal ali, e no fim do mês vê quem pagou. O painel não recebe nem confere o Pix: quem marca é a fotógrafa. O gancho: trezentos reais sumiram há onze dias, e o narrador é a única prova. Depois do gancho, o resumo da parte 1 (padrão da série, SERIE.md). Quem fala é o print do Pix da Lari, que a Helena encaminhou para o grupo errado. A virada: ele passou os onze dias no grupo da família, onde a tia Rosa respondeu \"parabéns pelo pagamento, querida\". O fecho volta à parte 1: a tia manda \"valor?\" e a Helena responde com o link. Depois do convite, a cena pós-créditos anuncia a parte 3. Tudo é fictício. O id \"nada\" corta a batida.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "300 reais sumiram há onze dias. Eu sou a única *prova.*",
+   "fala": "Trezentos reais sumiram há onze dias. Eu sou a única prova.",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "resumo",
+   "cena": "resumo",
+   "texto": "Na parte 1, ninguém abria a tabela de preços da Helena. Agora ela manda o link, e as clientes *marcam.*",
+   "fala": "Na parte um, ninguém abria a tabela de preços da Helena. Agora ela manda o link, e as clientes marcam.",
+   "pausa": 0.3
+  },
+  {
+   "id": "lari",
+   "cena": "lari",
+   "texto": "Uma delas foi a Lari: ensaio gestante, dia 12 de *dezembro.*",
+   "fala": "Uma delas foi a Lari: ensaio gestante, dia doze de dezembro.",
+   "pausa": 0.25
+  },
+  {
+   "id": "pagou",
+   "cena": "lari",
+   "texto": "Pagou o sinal e mandou o *print.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "sou",
+   "cena": "lari",
+   "texto": "O print sou *eu.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "grupo",
+   "cena": "grupo",
+   "texto": "A Helena guarda os comprovantes num grupo do WhatsApp só com ela, chamado *Comprovantes.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "encaminha",
+   "cena": "grupo",
+   "texto": "Às nove da noite, editando um ensaio, ela me *encaminhou.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "dedo",
+   "cena": "grupo",
+   "texto": "Só que o dedo escorregou um grupo para *baixo.*",
+   "pausa": 0.4
+  },
+  {
+   "id": "onze",
+   "cena": "busca",
+   "texto": "Onze dias depois, ela conferiu os sinais do *mês.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "nada",
+   "cena": "busca",
+   "texto": "No grupo Comprovantes, nada da *Lari.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "cobra",
+   "cena": "cobra",
+   "texto": "Então ela mandou: oi, Lari, falta o sinal do dia *12.*",
+   "fala": "Então ela mandou: oi, Lari, falta o sinal do dia doze.",
+   "pausa": 0.25
+  },
+  {
+   "id": "respondeu",
+   "cena": "cobra",
+   "texto": "A resposta da Lari veio com três pontos de *exclamação.*",
+   "pausa": 0.45
+  },
+  {
+   "id": "sabe",
+   "cena": "virada",
+   "texto": "Sabe onde eu passei esses onze *dias?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "familia",
+   "cena": "virada",
+   "texto": "No grupo da *família.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "tia",
+   "cena": "virada",
+   "texto": "A tia Rosa respondeu: parabéns pelo pagamento, *querida!*",
+   "pausa": 0.55
+  },
+  {
+   "id": "licao",
+   "cena": "licao",
+   "texto": "Comprovante que mora em conversa vai para onde o dedo *escorregar.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "painel",
+   "cena": "site",
+   "texto": "Então a Helena passou a usar um *painel.*",
+   "pausa": 0.2,
+   "impacto": true
+  },
+  {
+   "id": "ficha",
+   "cena": "site",
+   "texto": "Cada cliente tem a data, o contrato e o sinal na mesma *ficha.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "marcou",
+   "cena": "site",
+   "texto": "Quando o pagamento cai, ela marca o sinal ali, na *hora.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "mes",
+   "cena": "site",
+   "texto": "E no fim do mês, vê quem pagou sem abrir nenhuma *conversa.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "eu2",
+   "cena": "fecho",
+   "texto": "E eu? Continuo no grupo da *família.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "ontem",
+   "cena": "fecho",
+   "texto": "Ontem, a tia Rosa mandou outra mensagem: *valor?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "linkf",
+   "cena": "fecho",
+   "texto": "A Helena mandou o *link.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Sinal que ninguém marca, ninguém *acha.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* a agenda, as clientes e os sinais do seu estúdio ficam num painel só.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PAINEL* que a gente te manda o exemplo do painel.",
+   "fala": "Comenta painel, que a gente te manda o exemplo do painel.",
+   "pausa": 0.5
+  },
+  {
+   "id": "pos",
+   "cena": "pos",
+   "texto": "Na parte 3: a frase que segurou nove vagas. “Vou ver com meu *marido.*”",
+   "fala": "Na parte três: a frase que segurou nove vagas. Vou ver com meu marido.",
+   "pausa": 0.2
+  }
+ ]
+}

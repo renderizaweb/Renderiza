@@ -10,8 +10,8 @@
      pensa, o bebê chuta e o celular cai na cara dela. Antes de dormir ela acha o site de outra fotógrafa, com fotos e
      preço logo de cara, e chama no WhatsApp. No dia seguinte, "Visualizado". A Helena acha que foi o preço; a outra
      cobrava mais caro, e a Camila nem chegou a ver o preço da Helena. A Helena faz um site e passa a mandar o link. Fecho:
-     as quatro vezes que abriram o PDF eram a própria Helena, conferindo o preço. "Estava." Depois do convite, uma cena
-     pós-créditos anuncia o episódio 2 (o comprovante de Pix que sumiu). Tudo é fictício, e as telas levam o selo
+     as quatro vezes que abriram o PDF eram a própria Helena, conferindo o preço. "Estava." Depois do convite, a cena
+     pós-créditos anuncia a parte 2 (o comprovante de Pix que sumiu), no padrão da série (SERIE.md, serie.mjs). Tudo é fictício, e as telas levam o selo
      "exemplo". O tempo de tudo sai da narração: narracao/reels-pdf.json → python3 instagram/narrar.py reels-pdf.
      As peças comuns (contas, gente, legendas, marca, convite e trilha) estão em historia.mjs e historia.css.
      Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
@@ -138,11 +138,6 @@
 .vez{position:absolute;left:0;top:0;z-index:23;width:300px;height:200px;border-radius:24px;overflow:hidden;opacity:0;box-shadow:0 26px 60px rgba(0,0,0,.45)}
 .vez svg{width:100%;height:100%;display:block}
 /* pós-créditos */
-#pos{position:absolute;inset:0;z-index:43;background:radial-gradient(70% 50% at 50% 55%,#1d2528 0%,#0a0d0f 75%);opacity:0;display:none}
-#pos svg{position:absolute;left:0;top:0;width:1080px;height:1920px}
-#ep2{position:absolute;left:50%;top:560px;translate:-50% 0;padding:12px 30px;border-radius:30px;background:var(--terracota);color:#fff;font-size:40px;font-weight:800;letter-spacing:.06em;opacity:0}
-#siga{position:absolute;left:50%;top:1650px;translate:-50% 0;display:inline-flex;align-items:center;gap:20px;height:128px;padding:0 54px;border-radius:64px;background:#f1eee9;color:#1e2528;font-size:56px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;opacity:0}
-#siga svg{width:54px;height:54px}
 </style></head><body>
 <div class="reels" id="palco">
   <svg class="comp" id="c-cena" viewBox="0 0 1080 1920"><g id="cn"></g></svg>
@@ -153,13 +148,13 @@
   <div id="eu"></div>
   <div id="baloes"></div>
   <section class="cena" id="c-fim"></section>
-  <div id="pos"></div>
   <div class="vinheta" id="vinheta"></div>
   <div class="sombra-topo"></div>
   <div class="falas" id="falas"></div>
   <div class="flash" id="flash"></div>
 </div>
 <script type="module">
+import { serie } from "./serie.mjs";
 import { $, $$, fase, ease, sai, saiX, volta, lerp, pulso, pos, attr, entra, em, vis, pose, camera, IC, ic, ZAP_B, PELE, PELE2, cabeca, dePe, boca, pernas, fecha, barra, balao, historia, h, xe } from "./historia.mjs";
 
 const R = await historia({
@@ -408,14 +403,14 @@ $("#extra").innerHTML = `
     <g class="ok" opacity="0"><circle cx="262" cy="40" r="24" fill="#b25134"/><path d="M251 40 L259 48 L274 32" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>`).join("")}
   ${[0, 1, 2, 3].map(k => `<div class="num" id="n${k}">${k + 1}</div>`).join("")}`;
 const B_ACHOU = balao("Achou caro.", "esq pensa");
-$("#pos").innerHTML = `<svg viewBox="0 0 1080 1920"><defs><clipPath id="po-clip"><rect width="1080" height="1330"/></clipPath></defs>
+// a parte 2 no pós-créditos: o comprovante espia por trás das fotos e some
+const ARTE_P2 = `<defs><clipPath id="po-clip"><rect width="1080" height="1330"/></clipPath></defs>
     <g clip-path="url(#po-clip)"><g id="po-comp"><path id="po-corpo" d="M-70 -160 H70 V140 L52 158 L35 140 L17 158 L0 140 L-17 158 L-35 140 L-52 158 L-70 140 Z" fill="#f1eee9"/>
       <rect x="-50" y="-132" width="54" height="14" rx="7" fill="#25a35a"/><text x="14" y="-119" font-family="Geist" font-weight="800" font-size="22" fill="#1e2528">Pix</text>
       <rect x="-50" y="-96" width="100" height="10" rx="5" fill="#d9d2c6"/><rect x="-50" y="-76" width="70" height="10" rx="5" fill="#d9d2c6"/>
       <g id="po-olhos"><circle cx="-22" cy="-30" r="11" fill="#1e2528"/><circle cx="22" cy="-30" r="11" fill="#1e2528"/><circle cx="-18" cy="-34" r="3.5" fill="#fff"/><circle cx="26" cy="-34" r="3.5" fill="#fff"/></g></g></g>
     <g id="po-pilha">${[[380, 1290, -14, ["bebe", 0]], [700, 1300, 12, ["gestante", 1]], [470, 1360, 8, ["familia", 0]], [620, 1370, -9, ["bebe", 2]], [540, 1330, -3, ["bebe", 3]], [330, 1400, 16, ["gestante", 0]], [760, 1400, -15, ["bebe", 1]], [540, 1430, 5, ["familia", 1]]].map(([x, y, r, a]) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-128" y="-128" width="256" height="256" rx="8" fill="#fbf8f3"/><svg x="-116" y="-116" width="232" height="232" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">${ARTE[a[0]](a[1])}</svg></g>`).join("")}</g>
-    <text id="po-q" x="0" y="0" text-anchor="middle" font-family="Geist" font-weight="800" font-size="120" fill="#e8855e" opacity="0">?</text></svg>
-  <div id="ep2">EPISÓDIO 2</div><div id="siga">${ic("seguir", 'style="stroke-width:2.3"')}Siga para ver</div>`;
+    <text id="po-q" x="0" y="0" text-anchor="middle" font-family="Geist" font-weight="800" font-size="120" fill="#e8855e" opacity="0">?</text>`;
 
 // ====================== quadro a quadro ======================
 // o mistério: as 212 cópias saem do narrador; só quatro se abrem; a câmera mergulha nele
@@ -719,28 +714,22 @@ function qBaloes(t) {
   const a = entra(t, T.achou + 0.15, 0.3), o = em(t, T.achou, I("caro") - 0.05) ? a.o * (1 - fase(t, I("caro") - 0.25, I("caro") - 0.05)) : 0;
   pos(B_ACHOU, { x: 420, y: 900 + a.y, s: a.s, o });
 }
-// a cena pós-créditos: o episódio 2
-function qPos(t) {
-  const el = $("#pos"), on = t >= S.pos - 0.35;
-  vis(el, on); if (!on) return;
-  el.style.opacity = fase(t, S.pos - 0.35, S.pos).toFixed(3);
-  const e = entra(t, S.pos + 0.1, 0.35); pos($("#ep2"), { y: e.y, s: e.s, o: e.o });
+// o padrão da série: o selo "PARTE 1" no gancho e o pós-créditos que anuncia a parte 2
+const quadroSerie = serie(R, { parte: 1, abertura: "abre", proxima: { arte: ARTE_P2, anima: t => {
   const espia = ease(fase(t, W("pos", "comprovante") - 0.1, W("pos", "comprovante") + 0.5)), some = ease(fase(t, W("pos", "sumiu") - 0.05, W("pos", "sumiu") + 0.3));
   const y = lerp(1460, 1010, espia) + lerp(0, 450, some);
   attr($("#po-comp"), "transform", `translate(${(540 + 14 * Math.sin(t * 3) * espia).toFixed(1)} ${y.toFixed(1)}) rotate(${(6 * Math.sin(t * 2.2)).toFixed(2)}) scale(1.45)`);
   attr($("#po-olhos"), "transform", `translate(${(10 * Math.sin(t * 2.6)).toFixed(1)} 0)`);
   const q = fase(t, W("pos", "sumiu") + 0.1, W("pos", "sumiu") + 0.45);
   attr($("#po-q"), "transform", `translate(540 ${(1080 - 30 * sai(q)).toFixed(1)}) scale(${(q > 0 ? lerp(0.5, 1, volta(q)) : 0.5).toFixed(3)})`); attr($("#po-q"), "opacity", q.toFixed(3));
-  const sg = entra(t, F.pos.fim + 0.05, 0.35);
-  pos($("#siga"), { y: sg.y, s: sg.s * (1 + 0.03 * Math.sin(t * 4) * fase(t, F.pos.fim + 0.4, DUR)), o: sg.o });
-}
+} } });
 
 window.quadro = t => {
   palco.style.transform = "none";
   const dia = em(t, S.dia - 0.05, I("caro") - 0.05), quente = em(t, S.site, S.fecho);
   palco.style.background = quente ? "radial-gradient(64% 40% at 50% 54%,#b8743a 0%,#5a3518 50%,#141c1e 100%)" : dia ? "#3a4a58" : "radial-gradient(70% 50% at 50% 42%,#1a2124 0%,#0a0d0f 75%)";
   vis($("#c-cena"), t < S.paginas || em(t, S.noite - 0.05, S.dia + 0.01) || dia);
-  qHook(t); qEstudio(t); qQuarto(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); qPos(t);
+  qHook(t); qEstudio(t); qQuarto(t); qPaginas(t); qFone(t); qEu(t); qExtra(t); qBaloes(t); quadroSerie(t);
   R.comum(t, { poeira: !dia });
 };
 const SONS = [{ t: T.recebeu, tipo: "ding", ganho: 0.7 }, { t: T.tapDl, tipo: "toque", ganho: 0.8 }, { t: T.cara, tipo: "baque", ganho: 1 },

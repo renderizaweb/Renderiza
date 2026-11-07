@@ -1,0 +1,178 @@
+{
+ "_sobre": "Narração do Reels \"Vou ver com meu marido\" (parte 3 da série \"O celular da fotógrafa\", 07/11/2026). Alvo: a fotógrafa que abre a mini sessão de Natal pelo direct e segura horário para quem pede, sem prazo. Objetivo: ela perceber que vaga segurada sem prazo fica vazia (quem pediu não tem pressa, e quem queria de verdade vai para outra fotógrafa), e que, com a agenda do site e o painel, o horário fica separado por vinte e quatro horas até o sinal; se o sinal não vem, a vaga volta, a Helena chama a primeira da lista de espera, e o painel conta quantas vagas sobraram. Para fotógrafas, a agenda é a do painel e não liga com o Google, e o vídeo não diz que liga; o painel não avisa a lista de espera sozinho: quem chama é a Helena. O gancho: um narrador que segurou nove vagas este ano e não pagou nenhuma. Depois do gancho, o resumo da parte 2 (SERIE.md). Quem fala é a frase \"vou ver com meu marido\". A virada: o marido tinha dito sim no primeiro dia; a Carla só esqueceu de avisar. O fecho: com prazo, o marido responde em vinte minutos. Depois do convite, a cena pós-créditos anuncia a parte 4. Tudo é fictício. O id \"nada\" corta a batida.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "escuro",
+   "texto": "Este ano, eu segurei nove vagas. E não paguei *nenhuma.*",
+   "pausa": 0.35,
+   "impacto": true
+  },
+  {
+   "id": "resumo",
+   "cena": "resumo",
+   "texto": "Na parte 2, um comprovante passou onze dias no grupo da família. Agora a Helena marca os sinais no *painel.*",
+   "fala": "Na parte dois, um comprovante passou onze dias no grupo da família. Agora a Helena marca os sinais no painel.",
+   "pausa": 0.3
+  },
+  {
+   "id": "frase",
+   "cena": "eu",
+   "texto": "Eu sou uma frase. “Vou ver com meu *marido.*”",
+   "fala": "Eu sou uma frase. Vou ver, com o meu marido.",
+   "pausa": 0.4
+  },
+  {
+   "id": "natal",
+   "cena": "natal",
+   "texto": "Novembro. A Helena abriu a mini sessão de *Natal.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "oito",
+   "cena": "natal",
+   "texto": "Oito horários, num sábado *só.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "tati",
+   "cena": "natal",
+   "texto": "A Carla pediu o das dez: “Me segura? Vou ver com meu *marido.*”",
+   "fala": "A Carla pediu o das dez. Me segura? Vou ver, com o meu marido.",
+   "pausa": 0.25
+  },
+  {
+   "id": "segurou",
+   "cena": "natal",
+   "texto": "A Helena *segurou.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "quatro",
+   "cena": "espera",
+   "texto": "No mesmo dia, mais quatro mães pediram o das *dez.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "reservado",
+   "cena": "espera",
+   "texto": "A Helena respondeu a todas: já está *reservado.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "semana",
+   "cena": "espera",
+   "texto": "Uma semana depois, a Carla ainda estava *vendo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "espera",
+   "texto": "No sábado, às dez da manhã, o estúdio ficou *vazio.*",
+   "pausa": 0.4,
+   "impacto": true
+  },
+  {
+   "id": "sabe",
+   "cena": "virada",
+   "texto": "Sabe o que o marido tinha *respondido?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "sim",
+   "cena": "virada",
+   "texto": "Sim. No primeiro *dia.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "esqueceu",
+   "cena": "virada",
+   "texto": "A Carla só esqueceu de *avisar.*",
+   "pausa": 0.55
+  },
+  {
+   "id": "licao",
+   "cena": "licao",
+   "texto": "Sem prazo, ninguém tem *pressa.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "site",
+   "cena": "site",
+   "texto": "Então a Helena passou a abrir as vagas pela agenda do *site.*",
+   "pausa": 0.2,
+   "impacto": true
+  },
+  {
+   "id": "h24",
+   "cena": "site",
+   "texto": "O horário fica separado por 24 horas, até o *sinal.*",
+   "fala": "O horário fica separado por vinte e quatro horas, até o sinal.",
+   "pausa": 0.2
+  },
+  {
+   "id": "volta",
+   "cena": "site",
+   "texto": "Se o sinal não vem, a vaga volta, e a Helena chama a primeira da lista de *espera.*",
+   "pausa": 0.2
+  },
+  {
+   "id": "conta",
+   "cena": "site",
+   "texto": "E o painel conta quantas vagas *sobraram.*",
+   "pausa": 0.35
+  },
+  {
+   "id": "eu2",
+   "cena": "fecho",
+   "texto": "E eu? Continuo no *direct.*",
+   "pausa": 0.25
+  },
+  {
+   "id": "ontem",
+   "cena": "fecho",
+   "texto": "Ontem, a Carla voltou: “Me segura o das nove? Vou ver com meu *marido.*”",
+   "fala": "Ontem, a Carla voltou. Me segura o das nove? Vou ver, com o meu marido.",
+   "pausa": 0.3
+  },
+  {
+   "id": "minutos",
+   "cena": "fecho",
+   "texto": "Desta vez, o marido respondeu em vinte *minutos.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "marca",
+   "texto": "Vaga sem prazo fica *vazia.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Com a *Renderiza,* cada vaga da sua mini sessão espera o sinal por 24 horas, e a lista de espera fica no painel.",
+   "fala": "Com a Renderiza, cada vaga da sua mini sessão espera o sinal por vinte e quatro horas, e a lista de espera fica no painel.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *NATAL* que a gente te manda o exemplo da agenda para testar.",
+   "fala": "Comenta natal, que a gente te manda o exemplo da agenda para testar.",
+   "pausa": 0.5
+  },
+  {
+   "id": "pos",
+   "cena": "pos",
+   "texto": "Na parte 4: o alfinete do mapa que aponta para a casa da *mãe* da Helena.",
+   "fala": "Na parte quatro: o alfinete do mapa que aponta para a casa da mãe da Helena.",
+   "pausa": 0.2
+  }
+ ]
+}

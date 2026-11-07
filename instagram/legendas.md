@@ -438,16 +438,29 @@ Comenta PRÉVIA que a gente monta a prévia do site do seu espaço, sem compromi
 
 Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu espaço?"
 
-## Série "O celular da fotógrafa" (19h)
+## Série "O celular da fotógrafa" (uma parte por dia, 19h; o padrão está em `SERIE.md`)
 
-### Episódio 1 · "O PDF" (`reels-pdf`, para fotógrafas)
+### Parte 1 · "O PDF" (`reels-pdf`, para fotógrafas)
 
-Capa: "Só quatro me abriram", com o selo "Episódio 1" (`reels-pdf-capa.jpg`; a opção B é "O celular caiu na cara dela").
+Capa: "Só quatro me abriram", com o selo "PARTE 1 · O celular da fotógrafa" (a opção B é "O celular caiu na cara dela").
 
-A Helena, a Camila e a Tabela 2026 FINAL agora vai são fictícias. O PDF de catorze páginas, nem tanto.
+Parte 1 de O celular da fotógrafa, uma parte por dia às 19h. A Helena, a Camila e a Tabela 2026 FINAL agora vai são fictícias. O PDF de catorze páginas, nem tanto.
 
 Quem pergunta "valor?" e some nem sempre achou caro: às vezes nem chegou a ver o preço. E 54% dos brasileiros compram à noite ou de madrugada (CX Trends 2026, Octadesk e Opinion Box), justo quando o 4G pensa e o sono vence. Com o portfólio separado por ensaio no site, cada ensaio mostra as fotos, o que vem incluso e o preço logo na primeira tela, e o "valor?" se responde com um link.
 
 Comenta PRÉVIA que a gente monta a prévia do site do seu estúdio, sem compromisso.
 
 Comentário para fixar: "Quantas páginas tem a sua tabela de preços?"
+
+### Parte 2 · "O comprovante" (`reels-comprovante`, para fotógrafas)
+
+Capa: "300 reais sumiram", com o selo "PARTE 2 · O celular da fotógrafa" (a opção B é "Foi parar no grupo da família").
+Ao postar, vincular à parte 1 ("Ver a parte 1") e trocar o vínculo da parte 1 para esta ("Ver a parte 2").
+
+Parte 2 de O celular da fotógrafa. A parte 1 está fixada no perfil. A Helena, a Lari e a tia Rosa são fictícias. O print no grupo errado, nem tanto.
+
+Comprovante guardado em conversa vai para onde o dedo escorregar, e cobrar de novo quem já pagou é o pior momento com uma cliente. No painel, cada cliente tem a data, o contrato e o sinal na mesma ficha: quando o pagamento cai, você marca o sinal ali, e no fim do mês vê quem pagou.
+
+Comenta PAINEL que a gente te manda o exemplo do painel no direct.
+
+Comentário para fixar: "Onde você guarda os comprovantes de sinal hoje?"
