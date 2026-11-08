@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Da curtida ao sinal</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. "Da curtida ao sinal", parte 2 de "Do zero ao estúdio",
+     no formato "mas aí... então...": o caminho de uma cliente, da primeira curtida ao sinal pago, em degraus que sobem
+     em zigue-zague. Cada "Mas aí" põe uma pedra vermelha no próximo degrau; cada "Então" troca a pedra por uma dica
+     (convite no post, bio clara, depoimentos, resposta salva, preço à vista, chamar de novo, prazo de 24 horas,
+     marcar na hora), e a cliente sobe. Com trinta clientes por mês, os três últimos degraus voltam a rachar e viram
+     site, agenda e painel. Do produto, só o que ele faz; o painel não recebe o Pix. As telas levam o selo "exemplo".
+     O tempo de tudo sai da narração: narracao/reels-curtida.json. Sem animação de CSS: window.quadro(t) desenha o
+     instante t (s). -->
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+#torre{position:absolute;inset:0;z-index:20;transform-origin:540px 1600px}
+#chao{position:absolute;left:150px;top:1600px;width:780px;height:6px;border-radius:3px;background:#3a464d}
+#planta{position:absolute;left:0;top:0;width:560px;height:630px;border:5px dashed #4b5961;border-radius:18px;display:flex;align-items:center;justify-content:center;font:800 40px/1 "Geist",sans-serif;letter-spacing:.12em;color:#5d6b73}
+.bloco{position:absolute;left:0;top:0;width:560px;height:66px;border-radius:16px;display:flex;align-items:center;gap:18px;padding:0 30px;box-sizing:border-box;font:800 36px/1 "Geist",sans-serif;letter-spacing:-.02em;box-shadow:0 10px 30px rgba(0,0,0,.35);overflow:hidden}
+.bloco small{margin-left:auto;font:700 22px/1 "Geist",sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.bloco.bom{background:#efe6d6;color:#1e2528}
+.bloco.gamb{background:#56636c;color:#f1eee9}
+.bloco.pedra{background:#c8402c;color:#fff}
+#mae{position:absolute;left:0;top:0;width:70px;height:96px;z-index:3}
+#x30{position:absolute;left:0;top:0;padding:10px 22px;border-radius:24px;background:#c8402c;color:#fff;font:800 34px/1 "Geist",sans-serif;opacity:0;white-space:nowrap}
+.bloco.novo{background:var(--terracota);color:#fff}
+.bloco .racha{position:absolute;inset:0;width:100%;height:100%;opacity:0}
+#teto{position:absolute;left:0;top:0;width:640px;height:150px}
+.card{position:absolute;left:0;top:0;width:920px;box-sizing:border-box;padding:38px 44px 30px;border-radius:44px;background:#f6f1ea;color:#1e2528;box-shadow:0 30px 80px rgba(0,0,0,.45);font-family:"Geist",sans-serif;opacity:0;z-index:25}
+.card h4{margin:0 0 22px;font:800 26px/1 "Geist",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--terracota)}
+.card .ex{position:absolute;right:36px;top:30px;padding:8px 16px;border-radius:14px;background:#1e2528;color:#f1eee9;font:800 20px/1 "Geist",sans-serif;letter-spacing:.12em}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:40px;background:#fff;border:3px solid #e3d9cc;font:800 36px/1 "Geist",sans-serif;letter-spacing:-.02em;margin:0 10px 14px 0;white-space:nowrap}
+.chip svg.i{width:34px;height:34px}
+.chip.tc{background:var(--terracota);border-color:var(--terracota);color:#fff}
+.chip.ruim{background:#fbe3dd;border-color:#f0b9ab;color:#b2402c}
+.chip.bom{background:#e3f1e5;border-color:#b9dcc0;color:#2f7a43}
+.chip.esc{background:#1e2528;border-color:#1e2528;color:#f1eee9}
+.x{opacity:.36!important;text-decoration:line-through 5px #b2402c}
+.big{font:800 92px/1 "Geist",sans-serif;letter-spacing:-.05em}
+.lin{font:600 32px/1.3 "Geist",sans-serif;color:#56636c;margin:4px 0 14px}
+.grade{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:8px 0 16px}
+.grade.g3{grid-template-columns:repeat(3,1fr)}
+.foto{aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.foto b{margin-bottom:10px;padding:6px 12px;border-radius:12px;background:rgba(30,37,40,.82);color:#fff;font:700 21px/1 "Geist",sans-serif}
+.pilha{display:inline-grid;vertical-align:top}
+.dia svg.i{width:42px;height:42px;flex:none}.pilha>*{grid-area:1/1}
+.dm{display:flex;align-items:center;gap:16px;margin:0 0 12px;font:700 32px/1 "Geist",sans-serif}
+.dm i{width:52px;height:52px;border-radius:50%;flex:none}
+.dm span{padding:14px 24px;border-radius:28px;background:#ece4d8}
+.tab{width:100%;border-collapse:collapse;font:700 31px/1 "Geist",sans-serif}
+.tab td{border:2px solid #d9cfc1;padding:14px 16px}.tab tr:first-child td{background:#1e2528;color:#f1eee9;font-size:24px;letter-spacing:.08em;text-transform:uppercase}
+.dia{display:flex;align-items:center;gap:20px;padding:20px 26px;margin:0 0 14px;border-radius:24px;background:#fff;border:3px solid #e3d9cc;font:800 34px/1 "Geist",sans-serif}
+.dia em{font-style:normal;margin-left:auto;font-size:26px;padding:10px 18px;border-radius:18px}
+.barra{height:16px;border-radius:8px;background:#e3d9cc;overflow:hidden;margin:4px 0 16px}.barra i{display:block;height:100%;background:#e0a33a}
+.selo{position:absolute;left:0;top:0;z-index:28;padding:12px 30px;border-radius:14px;font:800 40px/1 "Geist",sans-serif;letter-spacing:.06em;opacity:0}
+#mas{background:#c8402c;color:#fff;box-shadow:0 12px 40px rgba(200,64,44,.45)}
+#entao{background:#2f7a43;color:#fff;box-shadow:0 12px 40px rgba(47,122,67,.45)}
+#fone{position:absolute;left:0;top:0;z-index:26;width:560px;height:980px;border-radius:70px;background:#0f1416;padding:22px;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.6);opacity:0}
+#fone .ftela{width:100%;height:100%;border-radius:52px;background:#f6f1ea;overflow:hidden;font-family:"Geist",sans-serif;color:#1e2528}
+#fone .url{margin:34px 30px 0;padding:14px 20px;border-radius:20px;background:#e9e1d5;font:700 24px/1 "Geist",sans-serif;color:#56636c;text-align:center}
+#fone h5{margin:34px 34px 6px;font:800 50px/1 "Geist",sans-serif;letter-spacing:-.04em}
+#fone .sub{margin:0 34px 26px;font:600 25px/1.25 "Geist",sans-serif;color:#56636c}
+#fone .peca{display:flex;gap:20px;align-items:center;margin:0 26px 18px;padding:24px;border-radius:28px;background:#fff;border:3px solid #eadfd2}
+#fone .peca i{width:70px;height:70px;border-radius:20px;background:var(--terracota);flex:none;display:flex;align-items:center;justify-content:center}
+#fone .peca i svg{width:40px;height:40px;stroke:#fff}
+#fone .peca b{display:block;font:800 36px/1 "Geist",sans-serif;margin-bottom:8px}
+#fone .peca span{font:600 23px/1.25 "Geist",sans-serif;color:#56636c}
+#fone .ig{margin:6px 26px 22px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+#fone .ig div{aspect-ratio:1;border-radius:12px}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="poeira" id="poeira"></div>
+  <div id="torre"><div id="chao"></div><div id="planta">ATÉ O SINAL</div><div id="blocos"></div>
+    <svg id="teto" viewBox="0 0 640 150"><rect x="120" y="40" width="400" height="96" rx="48" fill="#2f7a43"/><text x="320" y="103" text-anchor="middle" font-family="Geist" font-weight="800" font-size="42" letter-spacing="4" fill="#fff">SINAL PAGO</text></svg>
+    <svg id="mae" viewBox="0 0 70 96"><circle cx="35" cy="20" r="16" fill="#d79d79"/><path d="M14 28 Q35 18 56 28 L60 92 L10 92 Z" fill="#e8855e"/><circle cx="35" cy="14" r="17" fill="none" stroke="#5a3a2a" stroke-width="7" stroke-dasharray="40 80"/></svg>
+    <div id="x30">× 30 por mês</div></div>
+  <div id="cards"></div>
+  <div class="selo" id="mas">MAS AÍ</div>
+  <div class="selo" id="entao">ENTÃO</div>
+  <div id="fone"><div class="ftela">
+    <div class="url">seuestudio.com.br</div>
+    <h5>Seu Estúdio</h5><p class="sub">Newborn, gestante e família</p>
+    <div class="ig" id="fone-ig"></div>
+    <div class="peca" data-p="0"><i></i><div><b>Site</b><span>fotos, o que vem incluso e o preço na primeira tela</span></div></div>
+    <div class="peca" data-p="1"><i></i><div><b>Agenda</b><span>segura a vaga 24 horas até o sinal</span></div></div>
+    <div class="peca" data-p="2"><i></i><div><b>Painel</b><span>você confere o Pix e marca o sinal</span></div></div>
+  </div></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, entra, em, ic, historia } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-curtida",
+  ordem: ["abre", "ver", "passa", "bio", "prova", "valor", "pdf", "pensar", "sabado", "pix", "pronto", "trinta", "site", "virada", "marca", "cta"],
+  trilha: { abre: "abre", ver: "google", passa: "google", bio: "insta", prova: "insta", valor: "volta", pdf: "volta", pensar: "meio", sabado: "meio",
+    pix: "ese", pronto: "ese", trinta: "ese", site: "site", virada: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "As telas do vídeo são exemplos.", bpm: 120, tom: 0,
+});
+const { S, I, W, DUR, palco } = R;
+const tw = s => { const [id, w, n] = s.split(":"); return w ? W(id, w, +(n || 0)) : I(id); };
+const OK = ic("check", 'style="stroke-width:3"');
+
+// ---------- os cartões: um por passo; data-w = quando aparece, data-x = quando risca, data-sai = quando some ----------
+const FOTO = (a, b, rotulo = "") => `<div class="foto" style="background:linear-gradient(160deg,${a},${b})"><svg viewBox="0 0 100 100" style="position:absolute;inset:0"><circle cx="50" cy="44" r="15" fill="rgba(255,255,255,.55)"/><ellipse cx="50" cy="84" rx="30" ry="18" fill="rgba(255,255,255,.4)"/></svg>${rotulo ? `<b>${rotulo}</b>` : ""}</div>`;
+const CORES = [["#d9b49a", "#a9765d"], ["#c9c2b3", "#8f8a7c"], ["#e3c9a8", "#b98e66"], ["#bcc9c4", "#7f948d"], ["#e0b8a8", "#b07c6c"], ["#d4c4a0", "#9c8a62"]];
+const CARDS = [
+  { de: "ver", ate: "passa", html: `<h4>Seja vista</h4><div class="grade">${CORES.map((c, k) => `<div data-w="ver:posta" data-d="${k * 0.1}">${FOTO(...c)}</div>`).join("")}</div>
+    <span class="chip" data-w="ver:newborn">newborn dormindo</span><span class="chip" data-w="ver:gestante">gestante na janela</span><span class="chip" data-w="ver:bastidores">bastidores</span>` },
+  { de: "passa", ate: "bio", html: `<h4>O convite</h4><span class="chip ruim" data-w="passa:curte" data-x="passa:entao">curtiu e passou</span>
+    <div class="dia" data-w="passa:convite">Quer um ensaio assim? O link está na bio.</div>` },
+  { de: "bio", ate: "prova", html: `<h4>A bio</h4><div class="dia" data-w="bio:diz" data-x="bio:reescreve">eternizando momentos</div>
+    <div class="dia" data-w="bio:reescreve" style="border-color:#b9dcc0">Newborn e gestante · Campinas, SP</div>
+    <span class="chip" data-w="bio:fotografa">o quê</span><span class="chip" data-w="bio:quem">para quem</span><span class="chip" data-w="bio:cidade">onde</span>` },
+  { de: "prova", ate: "nada", html: `<h4>A prova</h4><span class="chip ruim" data-w="prova:foto" data-x="prova:entao">só fotos</span>
+    <div class="dm" data-w="prova:depoimentos"><i style="background:linear-gradient(160deg,#d9b49a,#a9765d)"></i>Ana<span>chorei vendo as fotos</span></div>
+    <div class="dm" data-w="prova:destaque"><i style="background:linear-gradient(160deg,#bcc9c4,#7f948d)"></i>Bia<span>a melhor escolha que fiz</span></div>
+    <p class="lin" data-w="prova:autorizacao">Com autorização de cada mãe.</p>` },
+  { de: "nada", ate: "pdf", html: `<h4>A resposta</h4><div class="dm" data-w="nada:valor"><i style="background:linear-gradient(160deg,#e0b8a8,#b07c6c)"></i>Carla<span>valor?</span></div>
+    <span class="chip ruim" data-w="nada:quatro" data-x="nada:entao">4 horas depois</span><span class="chip ruim" data-w="nada:tres" data-x="nada:entao">perguntou para mais 3</span>
+    <span class="chip bom" data-w="nada:salva">${OK}resposta salva · segundos</span>` },
+  { de: "pdf", ate: "pensar", html: `<span class="ex">EXEMPLO</span><h4>O preço</h4><span class="chip ruim" data-w="pdf:catorze" data-x="pdf:entao">14 páginas</span><span class="chip ruim" data-w="pdf:abre" data-x="pdf:entao">não abre no 4G</span><span class="chip ruim" data-w="pdf:nove" data-x="pdf:entao">preço na 9</span>
+    <div class="dia" data-w="pdf:mostra">Newborn<span class="lin" style="margin:0" data-w="pdf:incluso">3h · 20 fotos editadas</span><em style="color:var(--terracota);font-size:40px">R$ 850</em></div>` },
+  { de: "pensar", ate: "sabado", html: `<h4>O vou pensar</h4><div class="dm" data-w="pensar:pensar"><i style="background:linear-gradient(160deg,#d9b49a,#a9765d)"></i>Ana<span>vou pensar</span></div>
+    <span class="chip ruim" data-w="pensar:esfria" data-x="pensar:entao">esfriou</span>
+    <div class="dm" data-w="pensar:dias" style="justify-content:flex-end"><span style="background:#e3f1e5">2 dias depois: ficou alguma dúvida?</span></div>` },
+  { de: "sabado", ate: "pix", html: `<h4>O sábado</h4><div class="dia" data-w="sabado:caderno">${ic("calendario")}sáb 14 · 10h · Ana<em class="chip ruim" data-w="sabado:semana" style="margin:0 0 0 auto">7 dias sem sinal</em></div>
+    <div class="big" data-w="sabado:prazo">24 horas</div>` },
+  { de: "pix", ate: "pronto", html: `<h4>O Pix</h4>${["Pix recebido · R$ 300", "Pix recebido · R$ 250"].map((p, k) => `<div class="dia" data-w="pix:chega" data-d="${k * 0.2}" style="padding:14px 22px">${p}</div>`).join("")}
+    <span class="chip ruim" data-w="pix:esquece" data-x="pix:entao">esqueceu de anotar</span><span class="chip bom" data-w="pix:marca">${OK}marcou na hora</span>` },
+  { de: "trinta", ate: "asfalto", html: `<h4>Por mês</h4><div class="big" data-w="trinta:trinta">30 clientes</div><p class="lin" data-w="trinta:estrada">Cada uma, a estrada inteira na sua mão.</p>` },
+  { de: "asfalto", ate: "comeco", html: `<span class="ex">EXEMPLO</span><h4>O fim do caminho, pronto</h4>
+    <div class="dia" data-w="asfalto:site">${ic("link")}Site<span class="lin" style="margin:0">preço na 1ª tela</span></div>
+    <div class="dia" data-w="asfalto:agenda">${ic("calendario")}Agenda<span class="lin" style="margin:0">vaga segura 24 h</span></div>
+    <div class="dia" data-w="asfalto:painel">${ic("check")}Painel<span class="lin" style="margin:0">você marca o sinal</span></div>` },
+];
+$("#cards").innerHTML = CARDS.map((c, k) => `<div class="card" id="cd${k}">${c.html}</div>`).join("");
+const cards = CARDS.map((c, k) => {
+  const el = $(`#cd${k}`), ini = I(c.de) - 0.12, fim = I(c.ate) - 0.12;
+  const itens = $$("[data-w],[data-x],[data-sai]", el).map(e => ({ e, w: e.dataset.w ? Math.max(ini + 0.15, tw(e.dataset.w) + +(e.dataset.d || 0)) : null,
+    x: e.dataset.x ? tw(e.dataset.x) : null, s: e.dataset.sai ? tw(e.dataset.sai) : null }));
+  return { el, ini, fim, itens };
+});
+function qCards(t) {
+  for (const c of cards) {
+    const on = t >= c.ini && t < c.fim;
+    if (!on) { c.el.style.visibility = "hidden"; continue; }
+    const a = entra(t, c.ini, 0.35), o = a.o * (1 - fase(t, c.fim - 0.22, c.fim));
+    pos(c.el, { x: 80, y: 500 + a.y, s: a.s, o });
+    for (const it of c.itens) {
+      let op = 1, y = 0, s = 1;
+      if (it.w !== null) { const x = fase(t, it.w - 0.06, it.w + 0.24); op = x > 0 ? Math.min(1, x * 3) : 0; y = (1 - sai(x)) * 18; s = x > 0 ? lerp(0.85, 1, volta(x)) : 0.85; }
+      if (it.s !== null) op *= 1 - fase(t, it.s - 0.05, it.s + 0.15);
+      it.e.style.opacity = op.toFixed(3); it.e.style.transform = `translateY(${y.toFixed(1)}px) scale(${s.toFixed(3)})`;
+      if (it.x !== null) it.e.classList.toggle("x", t >= it.x);
+    }
+  }
+  const b24 = $("#b24"), b24b = $("#b24b");
+  if (b24) b24.style.width = (100 * (1 - fase(t, W("prazo", "prazo"), I("trava")))).toFixed(1) + "%";
+  if (b24b) b24b.style.width = (100 * (1 - fase(t, W("agenda", "escolhe"), W("agenda", "volta")))).toFixed(1) + "%";
+}
+
+// ---------- o prédio ----------
+const RACHA = `<svg class="racha" viewBox="0 0 560 66" preserveAspectRatio="none"><path d="M300 0 L282 18 L310 30 L288 46 L304 66" fill="none" stroke="#e0533d" stroke-width="6" stroke-linejoin="round"/></svg>`;
+const BL = [
+  { r: "Posts que ela procura", t: W("ver", "posta") },
+  { r: "Convite no post", t: W("passa", "convite"), p: "curte e passa", pt: W("passa", "mas") },
+  { r: "Bio clara", t: W("bio", "reescreve"), p: "bio vaga", pt: W("bio", "mas") },
+  { r: "Depoimentos", t: W("prova", "depoimentos"), p: "sem prova", pt: W("prova", "mas") },
+  { r: "Resposta salva", t: W("nada", "salva"), p: "4 horas depois", pt: W("nada", "mas") },
+  { r: "Preço à vista", t: W("pdf", "mostra"), p: "PDF de 14 páginas", pt: W("pdf", "mas"), racha: W("trinta", "mao"), troca: { r: "Site", n: "preço na 1ª tela", t: W("asfalto", "site") } },
+  { r: "Chamar de novo", t: W("pensar", "chama", 1), p: "vou pensar", pt: W("pensar", "mas") },
+  { r: "Prazo de 24 horas", t: W("sabado", "prazo"), p: "data presa", pt: W("sabado", "mas"), racha: W("trinta", "mao"), troca: { r: "Agenda", n: "24 h até o sinal", t: W("asfalto", "agenda") } },
+  { r: "Marcar na hora", t: W("pix", "marca"), p: "Pix perdido", pt: W("pix", "mas"), racha: W("trinta", "mao"), troca: { r: "Painel", n: "você marca o sinal", t: W("asfalto", "painel") } },
+];
+$("#blocos").innerHTML = BL.map((b, k) => `<div class="bloco ${b.c || "bom"}" id="bl${k}"><span class="r">${b.r}</span><small>${b.n || ""}</small>${RACHA}</div>`).join("");
+const Y0 = 1600, AL = 66, VAO = 4, yDe = k => Y0 - (k + 1) * AL - k * VAO;
+const T_PRONTO = W("pronto", "pronto"), DX = k => (k % 2 ? 70 : -70);
+function qTorre(t) {
+  pos($("#planta"), { x: 260, y: Y0 - 640, o: entra(t, 0.2, 0.5).o * (1 - fase(t, BL[0].t - 0.3, BL[0].t + 0.2)) * 0.9 });
+  let alto = -1;
+  BL.forEach((b, k) => {
+    const el = $(`#bl${k}`), pedra = b.p && t >= b.pt && t < b.t, cai = fase(t, (pedra ? b.pt : b.t) - 0.42, pedra ? b.pt : b.t);
+    if (cai <= 0) { el.style.visibility = "hidden"; return; }
+    if (!pedra) alto = k;
+    const trocado = b.troca && t >= b.troca.t, rachado = b.racha && t >= b.racha && !trocado;
+    const t0 = pedra ? b.pt : b.t;
+    let x = 260 + DX(k), y = yDe(k) - 460 * (1 - cai * cai) - 12 * pulso(t, t0, 0.25), s = 1;
+    if (pedra) x += 7 * Math.sin(t * 50) * (1 - fase(t, b.pt, b.pt + 0.4));
+    if (b.racha) { const tr = fase(t, b.racha, b.racha + 0.45); if (tr > 0 && tr < 1) x += 9 * Math.sin(t * 70) * (1 - tr); }
+    if (b.troca) s *= 1 + 0.1 * pulso(t, b.troca.t - 0.05, 0.4);
+    pos(el, { x, y, s });
+    el.className = `bloco ${pedra ? "pedra" : trocado ? "novo" : "bom"}`;
+    el.querySelector(".r").textContent = pedra ? b.p : trocado ? b.troca.r : b.r;
+    el.querySelector("small").textContent = pedra ? "mas aí" : trocado ? b.troca.n : "";
+    el.querySelector(".racha").style.opacity = rachado ? 1 : 0;
+    el.style.boxShadow = trocado ? `0 10px 30px rgba(0,0,0,.35),0 0 ${(40 * (1 - fase(t, b.troca.t, b.troca.t + 1.2))).toFixed(0)}px rgba(232,133,94,.9)` : "";
+  });
+  // a cliente sobe para o último degrau firme
+  const mae = $("#mae");
+  if (alto < 0) mae.style.visibility = "hidden";
+  else {
+    const f = ease(fase(t, BL[alto].t, BL[alto].t + 0.6)), xa = k => (DX(k) > 0 ? 800 : 220), ya = k => yDe(k) - 92;
+    const ant = Math.max(0, alto - 1), parada = BL[alto + 1] && BL[alto + 1].p && t >= BL[alto + 1].pt;
+    pos(mae, { x: lerp(xa(ant), xa(alto), alto ? f : 1), y: lerp(ya(ant), ya(alto), alto ? f : 1) - 14 * Math.abs(Math.sin(t * 9)) * (f < 1 ? 1 : 0), r: parada ? 4 * Math.sin(t * 20) * (1 - fase(t, BL[alto + 1].pt, BL[alto + 1].pt + 0.5)) : 0 });
+  }
+  const tx = entra(t, W("trinta", "trinta"), 0.3);
+  pos($("#x30"), { x: 260 + DX(8) + 130, y: yDe(8) - 80 + tx.y, s: tx.s, o: tx.o * (1 - fase(t, W("asfalto", "site") - 0.2, W("asfalto", "site"))) });
+  const v = ease(fase(t, I("comeco"), T_PR + 0.2)), apaga = ease(fase(t, T_PR - 0.2, T_PR + 0.4));
+  $("#torre").style.transform = `translateY(${(-90 * v).toFixed(1)}px) scale(${lerp(1, 0.84, v).toFixed(4)})`;
+  $("#torre").style.opacity = ((1 - 0.8 * apaga) * (1 - fase(t, S.marca - 0.6, S.marca - 0.3))).toFixed(3);
+  const tp = fase(t, T_PRONTO - 0.4, T_PRONTO);
+  pos($("#teto"), { x: 320 + DX(8), y: yDe(8) - 150 - 300 * (1 - tp * tp) - 10 * pulso(t, T_PRONTO, 0.25), o: tp > 0 && t < W("trinta", "mas") ? 1 : 0 });
+}
+const T_PR = W("comeco", "pronto");
+
+// ---------- os selos "MAS AÍ" e "ENTÃO" ----------
+const MAS = R.frases.flatMap(f => f.palavras.filter((p, i) => /^mas$/i.test(p.p) && f.palavras[i + 1] && /^aí/i.test(f.palavras[i + 1].p)).map(p => p.ini));
+const ENTAO = R.frases.flatMap(f => f.palavras.filter(p => /^então/i.test(p.p)).map(p => p.ini));
+function qSelos(t) {
+  const m = MAS.filter(x => t >= x - 0.1 && t < x + 1.6).pop(), e = ENTAO.filter(x => t >= x - 0.1 && t < x + 1.4).pop();
+  for (const [el, t0, d] of [[$("#mas"), m, 1.6], [$("#entao"), e, 1.4]]) {
+    if (t0 === undefined) { el.style.visibility = "hidden"; continue; }
+    const a = entra(t, t0, 0.25);
+    pos(el, { x: 80, y: 420 + a.y * 0.5, s: lerp(1.5, 1, sai(fase(t, t0 - 0.05, t0 + 0.2))), r: -5, o: a.o * (1 - fase(t, t0 + d - 0.25, t0 + d)) });
+  }
+  if (m !== undefined && e !== undefined && e > m) $("#mas").style.visibility = "hidden";
+}
+
+// ---------- a virada: as três peças já vêm prontas ----------
+$("#fone-ig").innerHTML = CORES.map(c => `<div style="background:linear-gradient(160deg,${c[0]},${c[1]})"></div>`).join("");
+$$("#fone .peca i").forEach((e, k) => { e.innerHTML = ic(["link", "calendario", "check"][k], 'style="stroke-width:2.4"'); });
+function qVirada(t) {
+  const f = $("#fone"), a = fase(t, T_PR - 0.35, T_PR + 0.25), fim = S.marca - 0.3;
+  if (a <= 0 || t >= fim) { f.style.visibility = "hidden"; return; }
+  pos(f, { x: 260, y: lerp(1500, 520, sai(a)), s: lerp(0.8, 1, volta(a)), o: Math.min(1, a * 3) * (1 - fase(t, fim - 0.25, fim)) });
+  $$("#fone .peca").forEach((p, k) => { const x = fase(t, T_PR + 0.15 + k * 0.22, T_PR + 0.45 + k * 0.22); p.style.opacity = x.toFixed(3); p.style.transform = `translateX(${((1 - sai(x)) * 60).toFixed(1)}px)`; });
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  palco.style.background = "radial-gradient(70% 50% at 50% 46%,#1c252b 0%,#0b0e10 78%)";
+  qTorre(t); qCards(t); qSelos(t); qVirada(t);
+  R.comum(t);
+};
+const SONS = [...BL.map(b => ({ t: b.t - 0.02, tipo: "toc", ganho: 0.6 })), ...BL.filter(b => b.p).map(b => ({ t: b.pt, tipo: "baque", ganho: 0.45 })),
+  ...BL.filter(b => b.troca).map(b => ({ t: b.troca.t, tipo: "ding", ganho: 0.5 })), { t: T_PRONTO, tipo: "ding", ganho: 0.6 }];
+window.preparar = () => R.preparar([0.3, W("ver", "bastidores") + 0.5, W("passa", "bio") + 0.4, W("bio", "cidade") + 0.4, W("prova", "autorizacao") + 0.4, W("nada", "segundos") + 0.3,
+  W("pdf", "incluso") + 0.4, W("pensar", "duvida") + 0.4, W("sabado", "sinal", 1) + 0.3, W("pix", "vez") + 0.3, T_PRONTO + 0.5, W("trinta", "mao") + 0.4, W("asfalto", "sinal") + 0.4,
+  T_PR + 1.2, S.marca + 2, DUR - 0.3], SONS);
+await R.pronto();
+</script>
+</body></html>

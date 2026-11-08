@@ -1,0 +1,119 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "pausaMax": 0.36,
+ "_sobre": "Da curtida ao sinal (parte 2 de Do zero ao estúdio): no formato \"mas aí... então...\", o caminho de uma cliente, da primeira curtida ao sinal pago; as pedras viram dicas e o fim do caminho vira site, agenda e painel.",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "abre",
+   "texto": "Vamos fechar uma cliente. Da primeira curtida ao sinal *pago.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "ver",
+   "cena": "ver",
+   "texto": "Primeiro, ela precisa te ver. Então você posta o que ela procura: newborn dormindo, gestante na luz da janela, os *bastidores.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "passa",
+   "cena": "passa",
+   "texto": "Mas aí: ela curte e passa reto. Então você fecha cada post com um convite: quer um ensaio assim? O link está na *bio.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "bio",
+   "cena": "bio",
+   "texto": "Ela entra no perfil. Mas aí: a bio diz eternizando momentos. Ela não sabe se você faz newborn. Então você reescreve: o que você fotografa, para quem e em que *cidade.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "prova",
+   "cena": "prova",
+   "texto": "Agora ela quer saber se você é boa. Mas aí: só tem foto. Nenhuma mãe falando de você. Então você junta depoimentos num destaque. Prints de mensagem, com *autorização.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "valor",
+   "texto": "Ela se convence e pergunta: valor? Mas aí: você está fotografando e responde quatro horas depois. Ela já perguntou para mais três. Então você salva respostas prontas no Instagram e responde em *segundos.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "pdf",
+   "cena": "pdf",
+   "texto": "Na resposta vai um PDF. Mas aí: catorze páginas, não abre no 4G, e o preço está na nove. Então você mostra o preço de cada ensaio direto, com o que vem *incluso.*",
+   "pausa": 0.3,
+   "fala": "Na resposta vai um pê dê éfe. Mas aí: catorze páginas, não abre no quatro gê, e o preço está na nove. Então você mostra o preço de cada ensaio direto, com o que vem incluso."
+  },
+  {
+   "id": "pensar",
+   "cena": "pensar",
+   "texto": "Ela gosta e diz: vou pensar. Mas aí: você não chama de novo, para não parecer chata. E ela esfria. Então você chama dois dias depois, com uma pergunta só: ficou alguma *dúvida?*",
+   "pausa": 0.3
+  },
+  {
+   "id": "sabado",
+   "cena": "sabado",
+   "texto": "Ela quer o sábado. Mas aí: você anota no caderno e espera. Ela segura a data por uma semana sem pagar o sinal. Então você dá um prazo: 24 horas para o *sinal.*",
+   "pausa": 0.3,
+   "fala": "Ela quer o sábado. Mas aí: você anota no caderno e espera. Ela segura a data por uma semana sem pagar o sinal. Então você dá um prazo: vinte e quatro horas para o sinal."
+  },
+  {
+   "id": "pix",
+   "cena": "pix",
+   "texto": "Ela paga. Mas aí: o Pix chega no meio de outros vinte, e você esquece de anotar. Então você confere e marca na hora. Toda *vez.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "pronto",
+   "cena": "pronto",
+   "texto": "Pronto. Cliente fechada, da curtida ao *sinal.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "trinta",
+   "cena": "trinta",
+   "texto": "Mas aí: chegam trinta clientes por mês. E cada uma passa pela estrada inteira na sua *mão.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "asfalto",
+   "cena": "site",
+   "texto": "Então você asfalta o fim do caminho. Um site com o preço de cada ensaio na primeira tela. Uma agenda que segura a vaga por 24 horas até o sinal. E um painel onde você marca o *sinal.*",
+   "pausa": 0.3,
+   "fala": "Então você asfalta o fim do caminho. Um site com o preço de cada ensaio na primeira tela. Uma agenda que segura a vaga por vinte e quatro horas até o sinal. E um painel onde você marca o sinal.",
+   "impacto": true
+  },
+  {
+   "id": "comeco",
+   "cena": "virada",
+   "texto": "O começo continua seu: o post, a bio, os depoimentos e a conversa. O fim já vem *pronto.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "moral",
+   "cena": "virada",
+   "texto": "A cliente sempre quis chegar. Você só precisava tirar as *pedras.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Na *Renderiza,* a gente monta a prévia do seu site com as fotos do seu Instagram.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA.* Ver não custa nada. Você só paga se quiser colocar no *ar.*",
+   "pausa": 1.4,
+   "fala": "Comenta prévia. Ver não custa nada. Você só paga se quiser colocar no ar."
+  }
+ ]
+}
