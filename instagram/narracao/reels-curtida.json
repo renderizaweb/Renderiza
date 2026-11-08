@@ -9,7 +9,7 @@
   {
    "id": "abre",
    "cena": "abre",
-   "texto": "Vamos fechar uma cliente. Da primeira curtida ao sinal *pago.*",
+   "texto": "Você é fotógrafa de newborn. Vamos fechar uma cliente, da primeira curtida ao sinal *pago.*",
    "pausa": 0.3,
    "impacto": true
   },
