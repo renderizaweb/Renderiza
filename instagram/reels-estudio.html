@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Do zero ao estúdio</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. "Do zero ao estúdio", no formato "mas aí... então...":
+     um prédio de blocos sobe peça por peça (câmera e técnica, portfólio, nicho, Instagram, conteúdo, PDF, planilha,
+     sinal, prazo de 24 horas) e, em cima dele, um cartão ensina cada passo. Cada "Mas aí" racha uma peça; cada
+     "Então" põe uma nova. Quando o prédio entorta (atender, cobrar e organizar ao mesmo tempo), as peças improvisadas
+     são trocadas por site, agenda e painel, e o prédio fica reto. A virada: essas três já vêm prontas, com as fotos
+     do Instagram da fotógrafa. Moral, marca e "Comenta PRÉVIA" falados. Do produto, só o que ele faz: o site com o
+     preço de cada ensaio na primeira tela, a agenda que segura a vaga 24 horas até o sinal e o painel onde a
+     fotógrafa marca o sinal (o painel não recebe o Pix). As telas levam o selo "exemplo".
+     O tempo de tudo sai da narração: narracao/reels-estudio.json. Sem animação de CSS: window.quadro(t) desenha o
+     instante t (s). -->
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+#torre{position:absolute;inset:0;z-index:20;transform-origin:540px 1600px}
+#chao{position:absolute;left:150px;top:1600px;width:780px;height:6px;border-radius:3px;background:#3a464d}
+#planta{position:absolute;left:0;top:0;width:560px;height:630px;border:5px dashed #4b5961;border-radius:18px;display:flex;align-items:center;justify-content:center;font:800 40px/1 "Geist",sans-serif;letter-spacing:.12em;color:#5d6b73}
+.bloco{position:absolute;left:0;top:0;width:560px;height:66px;border-radius:16px;display:flex;align-items:center;gap:18px;padding:0 30px;box-sizing:border-box;font:800 36px/1 "Geist",sans-serif;letter-spacing:-.02em;box-shadow:0 10px 30px rgba(0,0,0,.35);overflow:hidden}
+.bloco small{margin-left:auto;font:700 22px/1 "Geist",sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.bloco.bom{background:#efe6d6;color:#1e2528}
+.bloco.gamb{background:#56636c;color:#f1eee9}
+.bloco.novo{background:var(--terracota);color:#fff}
+.bloco .racha{position:absolute;inset:0;width:100%;height:100%;opacity:0}
+#teto{position:absolute;left:0;top:0;width:640px;height:150px}
+.card{position:absolute;left:0;top:0;width:920px;box-sizing:border-box;padding:38px 44px 30px;border-radius:44px;background:#f6f1ea;color:#1e2528;box-shadow:0 30px 80px rgba(0,0,0,.45);font-family:"Geist",sans-serif;opacity:0;z-index:25}
+.card h4{margin:0 0 22px;font:800 26px/1 "Geist",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--terracota)}
+.card .ex{position:absolute;right:36px;top:30px;padding:8px 16px;border-radius:14px;background:#1e2528;color:#f1eee9;font:800 20px/1 "Geist",sans-serif;letter-spacing:.12em}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:40px;background:#fff;border:3px solid #e3d9cc;font:800 36px/1 "Geist",sans-serif;letter-spacing:-.02em;margin:0 10px 14px 0;white-space:nowrap}
+.chip svg.i{width:34px;height:34px}
+.chip.tc{background:var(--terracota);border-color:var(--terracota);color:#fff}
+.chip.ruim{background:#fbe3dd;border-color:#f0b9ab;color:#b2402c}
+.chip.bom{background:#e3f1e5;border-color:#b9dcc0;color:#2f7a43}
+.chip.esc{background:#1e2528;border-color:#1e2528;color:#f1eee9}
+.x{opacity:.36!important;text-decoration:line-through 5px #b2402c}
+.big{font:800 92px/1 "Geist",sans-serif;letter-spacing:-.05em}
+.lin{font:600 32px/1.3 "Geist",sans-serif;color:#56636c;margin:4px 0 14px}
+.grade{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:8px 0 16px}
+.grade.g3{grid-template-columns:repeat(3,1fr)}
+.foto{aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.foto b{margin-bottom:10px;padding:6px 12px;border-radius:12px;background:rgba(30,37,40,.82);color:#fff;font:700 21px/1 "Geist",sans-serif}
+.pilha{display:inline-grid;vertical-align:top}
+.dia svg.i{width:42px;height:42px;flex:none}.pilha>*{grid-area:1/1}
+.dm{display:flex;align-items:center;gap:16px;margin:0 0 12px;font:700 32px/1 "Geist",sans-serif}
+.dm i{width:52px;height:52px;border-radius:50%;flex:none}
+.dm span{padding:14px 24px;border-radius:28px;background:#ece4d8}
+.tab{width:100%;border-collapse:collapse;font:700 31px/1 "Geist",sans-serif}
+.tab td{border:2px solid #d9cfc1;padding:14px 16px}.tab tr:first-child td{background:#1e2528;color:#f1eee9;font-size:24px;letter-spacing:.08em;text-transform:uppercase}
+.dia{display:flex;align-items:center;gap:20px;padding:20px 26px;margin:0 0 14px;border-radius:24px;background:#fff;border:3px solid #e3d9cc;font:800 34px/1 "Geist",sans-serif}
+.dia em{font-style:normal;margin-left:auto;font-size:26px;padding:10px 18px;border-radius:18px}
+.barra{height:16px;border-radius:8px;background:#e3d9cc;overflow:hidden;margin:4px 0 16px}.barra i{display:block;height:100%;background:#e0a33a}
+.selo{position:absolute;left:0;top:0;z-index:28;padding:12px 30px;border-radius:14px;font:800 40px/1 "Geist",sans-serif;letter-spacing:.06em;opacity:0}
+#mas{background:#c8402c;color:#fff;box-shadow:0 12px 40px rgba(200,64,44,.45)}
+#entao{background:#2f7a43;color:#fff;box-shadow:0 12px 40px rgba(47,122,67,.45)}
+#fone{position:absolute;left:0;top:0;z-index:26;width:560px;height:980px;border-radius:70px;background:#0f1416;padding:22px;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.6);opacity:0}
+#fone .ftela{width:100%;height:100%;border-radius:52px;background:#f6f1ea;overflow:hidden;font-family:"Geist",sans-serif;color:#1e2528}
+#fone .url{margin:34px 30px 0;padding:14px 20px;border-radius:20px;background:#e9e1d5;font:700 24px/1 "Geist",sans-serif;color:#56636c;text-align:center}
+#fone h5{margin:34px 34px 6px;font:800 50px/1 "Geist",sans-serif;letter-spacing:-.04em}
+#fone .sub{margin:0 34px 26px;font:600 25px/1.25 "Geist",sans-serif;color:#56636c}
+#fone .peca{display:flex;gap:20px;align-items:center;margin:0 26px 18px;padding:24px;border-radius:28px;background:#fff;border:3px solid #eadfd2}
+#fone .peca i{width:70px;height:70px;border-radius:20px;background:var(--terracota);flex:none;display:flex;align-items:center;justify-content:center}
+#fone .peca i svg{width:40px;height:40px;stroke:#fff}
+#fone .peca b{display:block;font:800 36px/1 "Geist",sans-serif;margin-bottom:8px}
+#fone .peca span{font:600 23px/1.25 "Geist",sans-serif;color:#56636c}
+#fone .ig{margin:6px 26px 22px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+#fone .ig div{aspect-ratio:1;border-radius:12px}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="poeira" id="poeira"></div>
+  <div id="torre"><div id="chao"></div><div id="planta">ESTÚDIO</div><div id="blocos"></div>
+    <svg id="teto" viewBox="0 0 640 150"><path d="M20 140 L320 14 L620 140 Z" fill="#b25134"/><text x="320" y="112" text-anchor="middle" font-family="Geist" font-weight="800" font-size="40" letter-spacing="5" fill="#fff">ESTÚDIO</text></svg></div>
+  <div id="cards"></div>
+  <div class="selo" id="mas">MAS AÍ</div>
+  <div class="selo" id="entao">ENTÃO</div>
+  <div id="fone"><div class="ftela">
+    <div class="url">seuestudio.com.br</div>
+    <h5>Seu Estúdio</h5><p class="sub">Newborn, gestante e família</p>
+    <div class="ig" id="fone-ig"></div>
+    <div class="peca" data-p="0"><i></i><div><b>Site</b><span>fotos, o que vem incluso e o preço na primeira tela</span></div></div>
+    <div class="peca" data-p="1"><i></i><div><b>Agenda</b><span>segura a vaga 24 horas até o sinal</span></div></div>
+    <div class="peca" data-p="2"><i></i><div><b>Painel</b><span>você confere o Pix e marca o sinal</span></div></div>
+  </div></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, fase, ease, sai, volta, lerp, pulso, pos, entra, em, ic, historia } from "./historia.mjs";
+
+const R = await historia({
+  nome: "reels-estudio",
+  ordem: ["abre", "base", "portfolio", "nicho", "insta", "posta", "valor", "pdf", "pdfruim", "planilha", "dupla", "regra", "preso", "prazo", "trava", "site", "agenda", "painel", "pronto", "virada", "marca", "cta"],
+  // a trilha: a abertura com impacto, a base e o portfólio no pulso, do nicho ao "valor?" a batida reta (cortada
+  // no "valor?"), o PDF e a planilha na batida abafada, o sábado preso no coração batendo, o prazo e a trava sobem
+  // até o drop em "as três últimas peças", a virada seca, o convite
+  trilha: { abre: "abre", base: "google", portfolio: "google", nicho: "insta", insta: "insta", posta: "insta", valor: "volta", pdf: "volta", pdfruim: "volta", planilha: "volta",
+    dupla: "meio", regra: "meio", preso: "meio", prazo: "ese", trava: "ese", site: "site", agenda: "site", painel: "site", pronto: "site", virada: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", ctaTexto: "A gente monta a prévia do site do seu estúdio com as fotos do seu Instagram.",
+  nota: "As telas do vídeo são exemplos.", bpm: 120, tom: 0,
+});
+const { S, I, W, DUR, palco } = R;
+const tw = s => { const [id, w, n] = s.split(":"); return w ? W(id, w, +(n || 0)) : I(id); };
+const OK = ic("check", 'style="stroke-width:3"');
+
+// ---------- os cartões: um por passo; data-w = quando aparece, data-x = quando risca, data-sai = quando some ----------
+const FOTO = (a, b, rotulo = "") => `<div class="foto" style="background:linear-gradient(160deg,${a},${b})"><svg viewBox="0 0 100 100" style="position:absolute;inset:0"><circle cx="50" cy="44" r="15" fill="rgba(255,255,255,.55)"/><ellipse cx="50" cy="84" rx="30" ry="18" fill="rgba(255,255,255,.4)"/></svg>${rotulo ? `<b>${rotulo}</b>` : ""}</div>`;
+const CORES = [["#d9b49a", "#a9765d"], ["#c9c2b3", "#8f8a7c"], ["#e3c9a8", "#b98e66"], ["#bcc9c4", "#7f948d"], ["#e0b8a8", "#b07c6c"], ["#d4c4a0", "#9c8a62"]];
+const CARDS = [
+  { de: "base", ate: "portfolio", html: `<h4>A base</h4>
+    <span class="chip" data-w="base:camera">${OK}Câmera</span><span class="chip" data-w="base:lente">${OK}Lente clara</span><span class="chip" data-w="base:janela">${OK}Luz de janela</span>
+    <span class="chip" data-w="base:pose">${OK}Pose</span><span class="chip" data-w="base:luz:1">${OK}Luz</span><span class="chip" data-w="base:cenario">${OK}Cenário</span>
+    <p class="lin" data-w="base:treina">Treino até a foto sair boa <b>todas as vezes</b>.</p>` },
+  { de: "portfolio", ate: "nicho", html: `<h4>Portfólio</h4>
+    <div class="big" data-w="portfolio:ninguem" data-x="portfolio:entao" style="color:#b2402c">0 fotos</div>
+    <div class="grade">${CORES.map((c, k) => `<div data-w="portfolio:amigos" data-d="${k * 0.12}">${FOTO(...c)}</div>`).join("")}</div>
+    <span class="chip esc" data-w="portfolio:graca">amigos · de graça</span><span class="chip bom" data-w="portfolio:portfolio">${OK}portfólio</span>` },
+  { de: "nicho", ate: "insta", html: `<h4>Nicho</h4>
+    <span class="chip" data-w="nicho:casamento" data-x="nicho:escolhe">Casamento</span><span class="chip" data-w="nicho:produto" data-x="nicho:escolhe">Produto</span><span class="chip" data-w="nicho:aniversario" data-x="nicho:escolhe">Aniversário</span>
+    <p class="lin" data-w="nicho:ninguem">Quem fotografa tudo não é lembrada por nada.</p>
+    <span class="chip tc" data-w="nicho:newborn" style="font-size:52px;padding:20px 40px">Newborn</span>` },
+  { de: "insta", ate: "posta", html: `<h4>Ser encontrada</h4>
+    <div class="dia" data-w="insta:ninguem">${ic("olho")}fotógrafa newborn perto de mim<em class="chip ruim" style="margin:0">você não aparece</em></div>
+    <div class="dia" data-w="insta:instagram"><i style="width:78px;height:78px;border-radius:50%;background:linear-gradient(45deg,#f2a43a,#d6336c,#7a4ad8)"></i><div>@seuestudio<p class="lin" style="margin:8px 0 0">0 publicações</p></div></div>` },
+  { de: "posta", ate: "nada", html: `<h4>Conteúdo</h4>
+    <span class="chip ruim" data-w="posta:parado" data-x="posta:entao">perfil parado</span><span class="chip tc" data-w="posta:semana">toda semana</span>
+    <div class="grade">${CORES.map((c, k) => `<div data-w="${["posta:bastidores", "posta:bastidores", "posta:antes", "posta:antes", "posta:ensaio", "posta:ensaio"][k]}" data-d="${(k % 2) * 0.2}">${FOTO(...c, ["bastidores", "", "antes", "depois", "ensaio", "novo"][k])}</div>`).join("")}</div>` },
+  { de: "nada", ate: "pdf", html: `<h4>Direct · 27 mensagens</h4>
+    ${[["Ana", "valor?"], ["Bia", "valor?"], ["Carla", "quanto é o newborn?"], ["Duda", "valor?"], ["Elis", "valor pfv"]].map(([n, m], k) => `<div class="dm" data-w="nada:direct" data-d="${k * 0.32}"><i style="background:linear-gradient(160deg,${CORES[k][0]},${CORES[k][1]})"></i>${n}<span>${m}</span></div>`).join("")}` },
+  { de: "pdf", ate: "pdfruim", html: `<h4>O PDF</h4>
+    <div class="dia" data-w="pdf:noites">${ic("relogio")}23:48 · respondendo um por um</div>
+    <div class="dia" data-w="pdf:pdf"><i style="width:64px;height:78px;border-radius:10px;background:#b2402c"></i>Tabela_2026.pdf</div>
+    <span class="chip" data-w="pdf:pacotes">${OK}Pacotes</span><span class="chip" data-w="pdf:incluso">${OK}Incluso</span><span class="chip" data-w="pdf:preco">${OK}Preço</span><span class="chip" data-w="pdf:datas">${OK}Datas</span>` },
+  { de: "pdfruim", ate: "planilha", html: `<h4>O PDF cresce</h4>
+    <div class="big" data-w="pdfruim:catorze">14 páginas</div>
+    <span class="chip ruim" data-w="pdfruim:pesada">18 MB de foto</span><span class="chip ruim" data-w="pdfruim:abre">não abre no 4G</span><span class="chip ruim" data-w="pdfruim:nove">preço na página 9</span>
+    <div class="dm" data-w="pdfruim:pensar"><i style="background:linear-gradient(160deg,#d9b49a,#a9765d)"></i>Ana<span>vou pensar</span></div>
+    <p class="lin" data-w="pdfruim:some">Visualizado. E nunca mais.</p>` },
+  { de: "planilha", ate: "dupla", html: `<h4>A planilha</h4>
+    <table class="tab"><tr><td>Data</td><td>Cliente</td><td>Confirmou</td></tr>
+    <tr data-w="planilha:datas"><td>sáb 14 · 10h</td><td data-w="planilha:nomes">Ana</td><td data-w="planilha:confirmou">sim</td></tr>
+    <tr data-w="planilha:datas" data-d="0.2"><td>dom 15 · 9h</td><td data-w="planilha:nomes" data-d="0.2">Carla</td><td data-w="planilha:confirmou" data-d="0.2">?</td></tr>
+    <tr data-w="planilha:datas" data-d="0.4"><td>sáb 21 · 10h</td><td data-w="planilha:nomes" data-d="0.4">Duda</td><td data-w="planilha:confirmou" data-d="0.4">sim</td></tr></table>` },
+  { de: "dupla", ate: "regra", html: `<h4>Sábado, 10h</h4>
+    <div class="dia" data-w="dupla:whatsapp">Ana<span class="lin" style="margin:0">pelo WhatsApp</span><em class="chip bom" data-w="dupla:confirmou" style="margin:0 0 0 auto">${OK}confirmado</em></div>
+    <div class="dia" data-w="dupla:direct">Bia<span class="lin" style="margin:0">pelo direct</span><em class="chip bom" data-w="dupla:confirmou" style="margin:0 0 0 auto">${OK}confirmado</em></div>
+    <span class="chip ruim" data-w="dupla:duas" style="font-size:42px">2 clientes, 1 horário</span>` },
+  { de: "regra", ate: "preso", html: `<h4>A regra</h4>
+    <div class="big" data-w="regra:data" style="font-size:72px">Data reservada</div>
+    <div class="big" data-w="regra:sinal" style="font-size:72px;color:var(--terracota)">= sinal pago</div>` },
+  { de: "preso", ate: "prazo", html: `<h4>O sábado preso</h4>
+    <div class="dia" data-w="preso:segura">${ic("cadeado")}sáb 14 · 10h · Ana<em class="chip ruim" data-w="preso:paga" style="margin:0 0 0 auto">sinal: nada</em></div>
+    <div class="dm" data-w="preso:preso"><i style="background:linear-gradient(160deg,#d9b49a,#a9765d)"></i>Ana<span>vou pensar e te aviso</span></div>
+    <div class="dm" data-w="preso:outra"><i style="background:linear-gradient(160deg,#bcc9c4,#7f948d)"></i>Rita<span>já fechei com outra fotógrafa</span></div>` },
+  { de: "prazo", ate: "trava", html: `<h4>O prazo</h4>
+    <div class="big" data-w="prazo:prazo">24 horas</div>
+    <div class="barra" data-w="prazo:prazo"><i id="b24"></i></div>
+    <span class="chip esc" data-w="prazo:cobra">Cobrar</span><span class="chip esc" data-w="prazo:extrato">Conferir extrato</span><span class="chip esc" data-w="prazo:risca">Riscar a planilha</span>
+    <span class="chip ruim" data-w="prazo:vez">toda vez</span>` },
+  { de: "trava", ate: "site", html: `<h4>Onde o estúdio trava</h4>
+    <span class="chip bom" data-w="trava:fotografar" style="font-size:44px">${OK}Fotografar</span>
+    <p class="lin" data-w="trava:atender">Ao mesmo tempo:</p>
+    <span class="chip ruim" data-w="trava:atender" style="font-size:44px">Atender</span><span class="chip ruim" data-w="trava:cobrar" style="font-size:44px">Cobrar</span><span class="chip ruim" data-w="trava:organizar" style="font-size:44px">Organizar</span>` },
+  { de: "site", ate: "agenda", html: `<span class="ex">EXEMPLO</span><h4>Peça 1 · O site</h4>
+    <div style="display:flex;gap:26px;align-items:center" data-w="site:site"><div style="width:200px;flex:none">${FOTO("#d9b49a", "#a9765d")}</div>
+    <div><div style="font:800 46px/1 Geist">Newborn</div><p class="lin" data-w="site:incluso">3h de ensaio · 20 fotos editadas · figurinos</p>
+    <div style="font:800 54px/1 Geist;color:var(--terracota)" data-w="site:preco">R$ 850</div></div></div>
+    <span class="chip tc" data-w="site:tela" style="margin-top:20px">na primeira tela</span><span class="chip esc" data-w="site:bio">${ic("link")}link na bio</span>` },
+  { de: "agenda", ate: "painel", html: `<span class="ex">EXEMPLO</span><h4>Peça 2 · A agenda</h4>
+    <div class="dia">sex 13 · 10h<em style="background:#ece4d8;color:#8a8278">lotado</em></div>
+    <div class="dia" data-w="agenda:livres">sáb 14 · 10h<div class="pilha" style="margin-left:auto">
+      <em class="chip bom" data-w="agenda:livres" data-sai="agenda:escolhe" style="margin:0">livre</em>
+      <em class="chip" data-w="agenda:escolhe" data-sai="agenda:volta" style="margin:0;background:#fbefd6;border-color:#f0d49a;color:#9a6a12">reservado · 24h</em>
+      <em class="chip bom" data-w="agenda:volta" style="margin:0">livre de novo</em></div></div>
+    <div class="barra" data-w="agenda:escolhe" data-sai="agenda:volta"><i id="b24b"></i></div>
+    <p class="lin" data-w="agenda:paga">Sem sinal em 24 horas, a vaga volta sozinha.</p>` },
+  { de: "painel", ate: "pronto", html: `<span class="ex">EXEMPLO</span><h4>Peça 3 · O painel</h4>
+    <div class="dia" data-w="painel:painel"><i style="width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#e0b8a8,#b07c6c)"></i><div>Ana · sáb 14 · 10h<p class="lin" style="margin:6px 0 0">ensaio newborn</p></div></div>
+    <span class="chip" data-w="painel:pix">${OK}Pix conferido no banco</span>
+    <div class="pilha" data-w="painel:marca"><span class="chip tc" data-sai="painel:sinal" style="font-size:40px">Marcar sinal pago</span><span class="chip bom" data-w="painel:sinal" style="font-size:40px">${OK}Sinal pago</span></div>
+    <span class="chip ruim" data-w="painel:planilha" data-x="painel:planilha">planilha</span>` },
+];
+$("#cards").innerHTML = CARDS.map((c, k) => `<div class="card" id="cd${k}">${c.html}</div>`).join("");
+const cards = CARDS.map((c, k) => {
+  const el = $(`#cd${k}`), ini = I(c.de) - 0.12, fim = I(c.ate) - 0.12;
+  const itens = $$("[data-w],[data-x],[data-sai]", el).map(e => ({ e, w: e.dataset.w ? Math.max(ini + 0.15, tw(e.dataset.w) + +(e.dataset.d || 0)) : null,
+    x: e.dataset.x ? tw(e.dataset.x) : null, s: e.dataset.sai ? tw(e.dataset.sai) : null }));
+  return { el, ini, fim, itens };
+});
+function qCards(t) {
+  for (const c of cards) {
+    const on = t >= c.ini && t < c.fim;
+    if (!on) { c.el.style.visibility = "hidden"; continue; }
+    const a = entra(t, c.ini, 0.35), o = a.o * (1 - fase(t, c.fim - 0.22, c.fim));
+    pos(c.el, { x: 80, y: 500 + a.y, s: a.s, o });
+    for (const it of c.itens) {
+      let op = 1, y = 0, s = 1;
+      if (it.w !== null) { const x = fase(t, it.w - 0.06, it.w + 0.24); op = x > 0 ? Math.min(1, x * 3) : 0; y = (1 - sai(x)) * 18; s = x > 0 ? lerp(0.85, 1, volta(x)) : 0.85; }
+      if (it.s !== null) op *= 1 - fase(t, it.s - 0.05, it.s + 0.15);
+      it.e.style.opacity = op.toFixed(3); it.e.style.transform = `translateY(${y.toFixed(1)}px) scale(${s.toFixed(3)})`;
+      if (it.x !== null) it.e.classList.toggle("x", t >= it.x);
+    }
+  }
+  const b24 = $("#b24"), b24b = $("#b24b");
+  if (b24) b24.style.width = (100 * (1 - fase(t, W("prazo", "prazo"), I("trava")))).toFixed(1) + "%";
+  if (b24b) b24b.style.width = (100 * (1 - fase(t, W("agenda", "escolhe"), W("agenda", "volta")))).toFixed(1) + "%";
+}
+
+// ---------- o prédio ----------
+const RACHA = `<svg class="racha" viewBox="0 0 560 66" preserveAspectRatio="none"><path d="M300 0 L282 18 L310 30 L288 46 L304 66" fill="none" stroke="#e0533d" stroke-width="6" stroke-linejoin="round"/></svg>`;
+const BL = [
+  { r: "Câmera e técnica", n: "a base", t: W("base", "base"), c: "bom" },
+  { r: "Portfólio", t: W("portfolio", "portfolio"), c: "bom" },
+  { r: "Nicho", n: "newborn", t: W("nicho", "nicho"), c: "bom" },
+  { r: "Instagram", t: W("insta", "instagram"), c: "bom" },
+  { r: "Conteúdo", n: "toda semana", t: W("posta", "semana"), c: "bom" },
+  { r: "PDF", n: "14 páginas", t: W("pdf", "pdf"), c: "gamb", dx: 22, rot: 1.4, racha: W("pdfruim", "cresce"), troca: { r: "Site", n: "preço na 1ª tela", t: W("site", "site") } },
+  { r: "Planilha", t: W("planilha", "planilha"), c: "gamb", dx: -26, rot: -1.6, racha: W("dupla", "duas"), troca: { r: "Agenda", n: "24 h até o sinal", t: W("agenda", "agenda") } },
+  { r: "Sinal", n: "para reservar", t: W("regra", "sinal"), c: "gamb", dx: 14, rot: 1, racha: W("preso", "preso"), cura: W("agenda", "sinal") },
+  { r: "Prazo de 24 horas", n: "você cobra", t: W("prazo", "prazo"), c: "gamb", dx: -18, rot: -1.2, racha: W("prazo", "vez"), troca: { r: "Painel", n: "você marca o sinal", t: W("painel", "painel") } },
+];
+$("#blocos").innerHTML = BL.map((b, k) => `<div class="bloco ${b.c}" id="bl${k}"><span class="r">${b.r}</span><small>${b.n || ""}</small>${RACHA}</div>`).join("");
+const Y0 = 1600, AL = 66, VAO = 4, yDe = k => Y0 - (k + 1) * AL - k * VAO;
+const T_TRAVA = W("trava", "crescer"), T_RETO = W("site", "pecas") + 0.2, T_PRONTO = W("pronto", "pronto");
+function qTorre(t) {
+  const plt = $("#planta"), pf = fase(t, BL[0].t - 0.3, BL[0].t + 0.2);
+  pos(plt, { x: 260, y: Y0 - 640, o: entra(t, W("abre", "zero") - 0.1, 0.4).o * (1 - pf) * 0.9 });
+  BL.forEach((b, k) => {
+    const el = $(`#bl${k}`), cai = fase(t, b.t - 0.42, b.t);
+    if (cai <= 0) { el.style.visibility = "hidden"; return; }
+    const trocado = b.troca && t >= b.troca.t, endireita = b.troca ? fase(t, b.troca.t - 0.1, b.troca.t + 0.4) : b.cura ? fase(t, b.cura, b.cura + 0.4) : 0;
+    const rachado = b.racha && t >= b.racha && !trocado && !(b.cura && t >= b.cura + 0.2);
+    let x = 260 + (b.dx || 0) * (1 - endireita), y = yDe(k) - 460 * (1 - cai * cai) - 12 * pulso(t, b.t, 0.25), r = (b.rot || 0) * (1 - endireita);
+    if (b.racha) { const tr = fase(t, b.racha, b.racha + 0.45); if (tr > 0 && tr < 1) x += 9 * Math.sin(t * 70) * (1 - tr); }
+    let s = 1;
+    if (k === 5 && t >= W("pdfruim", "cresce") && !trocado) s = 1 + 0.06 * ease(fase(t, W("pdfruim", "cresce"), W("pdfruim", "cresce") + 0.8));
+    if (b.troca) { const p = pulso(t, b.troca.t - 0.05, 0.4); s *= 1 + 0.1 * p; }
+    pos(el, { x, y, r, s });
+    el.className = `bloco ${trocado ? "novo" : b.c}`;
+    el.querySelector(".r").textContent = trocado ? b.troca.r : b.r;
+    el.querySelector("small").textContent = trocado ? b.troca.n : (b.n || "");
+    el.querySelector(".racha").style.opacity = rachado ? 1 : 0;
+    el.style.boxShadow = b.troca && t >= b.troca.t ? `0 10px 30px rgba(0,0,0,.35),0 0 ${(40 * (1 - fase(t, b.troca.t, b.troca.t + 1.2))).toFixed(0)}px rgba(232,133,94,.9)` : "";
+  });
+  // o prédio entorta quando tudo pesa e volta a ficar reto com as peças novas
+  const torto = 4.2 * ease(fase(t, T_TRAVA, T_TRAVA + 1.4)) * (1 - ease(fase(t, T_RETO, T_RETO + 0.9)));
+  const treme = torto > 0.05 ? 0.5 * Math.sin(t * 6.3) * (torto / 4.2) : 0;
+  // na virada, o prédio se afasta e apaga atrás do celular
+  const v = ease(fase(t, I("anos"), I("prontas") + 0.2)), apaga = ease(fase(t, W("prontas", "prontas") - 0.2, W("prontas", "prontas") + 0.4));
+  $("#torre").style.transform = `rotate(${(torto + treme).toFixed(2)}deg) translateY(${(-90 * v).toFixed(1)}px) scale(${lerp(1, 0.84, v).toFixed(4)})`;
+  $("#torre").style.opacity = ((1 - 0.8 * apaga) * (1 - fase(t, S.marca - 0.6, S.marca - 0.3))).toFixed(3);
+  const tp = fase(t, T_PRONTO - 0.4, T_PRONTO);
+  pos($("#teto"), { x: 220, y: yDe(8) - 150 - 300 * (1 - tp * tp) - 10 * pulso(t, T_PRONTO, 0.25), o: tp > 0 ? 1 : 0 });
+}
+
+// ---------- os selos "MAS AÍ" e "ENTÃO" ----------
+const MAS = R.frases.filter(f => f.palavras.length > 1 && /^mas$/i.test(f.palavras[0].p) && /^aí/i.test(f.palavras[1].p)).map(f => f.ini);
+const ENTAO = R.frases.flatMap(f => f.palavras.filter(p => /^então/i.test(p.p)).map(p => p.ini));
+function qSelos(t) {
+  const m = MAS.filter(x => t >= x - 0.1 && t < x + 1.6).pop(), e = ENTAO.filter(x => t >= x - 0.1 && t < x + 1.4).pop();
+  for (const [el, t0, d] of [[$("#mas"), m, 1.6], [$("#entao"), e, 1.4]]) {
+    if (t0 === undefined) { el.style.visibility = "hidden"; continue; }
+    const a = entra(t, t0, 0.25);
+    pos(el, { x: 80, y: 420 + a.y * 0.5, s: lerp(1.5, 1, sai(fase(t, t0 - 0.05, t0 + 0.2))), r: -5, o: a.o * (1 - fase(t, t0 + d - 0.25, t0 + d)) });
+  }
+  if (m !== undefined && e !== undefined && e > m) $("#mas").style.visibility = "hidden";
+}
+
+// ---------- a virada: as três peças já vêm prontas ----------
+$("#fone-ig").innerHTML = CORES.map(c => `<div style="background:linear-gradient(160deg,${c[0]},${c[1]})"></div>`).join("");
+$$("#fone .peca i").forEach((e, k) => { e.innerHTML = ic(["link", "calendario", "check"][k], 'style="stroke-width:2.4"'); });
+const T_PR = W("prontas", "prontas");
+function qVirada(t) {
+  const f = $("#fone"), a = fase(t, T_PR - 0.35, T_PR + 0.25), fim = S.marca - 0.3;
+  if (a <= 0 || t >= fim) { f.style.visibility = "hidden"; return; }
+  pos(f, { x: 260, y: lerp(1500, 520, sai(a)), s: lerp(0.8, 1, volta(a)), o: Math.min(1, a * 3) * (1 - fase(t, fim - 0.25, fim)) });
+  $$("#fone .peca").forEach((p, k) => { const x = fase(t, T_PR + 0.15 + k * 0.22, T_PR + 0.45 + k * 0.22); p.style.opacity = x.toFixed(3); p.style.transform = `translateX(${((1 - sai(x)) * 60).toFixed(1)}px)`; });
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  palco.style.background = "radial-gradient(70% 50% at 50% 46%,#1c252b 0%,#0b0e10 78%)";
+  qTorre(t); qCards(t); qSelos(t); qVirada(t);
+  R.comum(t);
+};
+const SONS = [...BL.map(b => ({ t: b.t - 0.02, tipo: "toc", ganho: 0.6 })), ...BL.filter(b => b.racha).map(b => ({ t: b.racha, tipo: "baque", ganho: 0.45 })),
+  ...BL.filter(b => b.troca).map(b => ({ t: b.troca.t, tipo: "ding", ganho: 0.5 })), { t: T_PRONTO, tipo: "toc", ganho: 0.7 }];
+window.preparar = () => R.preparar([0.3, W("abre", "zero") + 0.6, W("base", "treina") + 0.5, W("portfolio", "portfolio") + 0.4, W("nicho", "newborn") + 0.5, W("insta", "instagram") + 0.5,
+  W("posta", "sair"), W("nada", "valor") + 0.3, W("pdf", "datas") + 0.3, W("pdfruim", "nove") + 0.3, W("pdfruim", "some") + 0.3, W("planilha", "confirmou") + 0.3, W("dupla", "duas") + 0.3,
+  W("regra", "sinal") + 0.4, W("preso", "outra", 1) + 0.3, W("prazo", "vez") + 0.3, T_TRAVA + 1.5, W("trava", "da", 1) + 0.3, W("site", "bio") + 0.3, W("agenda", "escolhe") + 0.8,
+  W("agenda", "volta") + 0.4, W("painel", "sinal") + 0.3, W("painel", "planilha") + 0.4, T_PRONTO + 0.5, I("anos") + 1.5, T_PR + 1.2, S.marca + 2, DUR - 0.3], SONS);
+await R.pronto();
+</script>
+</body></html>

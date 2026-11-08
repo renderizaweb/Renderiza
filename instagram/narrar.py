@@ -119,6 +119,23 @@ def aparar(x):
     ini = max(0, som[0] - int(0.03 * SR))
     return x[ini: som[-1] + int(0.1 * SR)], ini / SR
 
+def encurtar(x, maximo):
+    """Encurta as pausas de dentro da frase mais longas que `maximo` (s): o Edge para quase 0,8 s em cada ponto final.
+    Devolve o áudio e o mapa dos tempos antigos para os novos (para a legenda continuar no tempo das palavras)."""
+    env = np.convolve(np.abs(x), np.ones(220) / 220, mode="same")
+    mudo = (env < max(0.012, env.max() * 0.05)).astype(np.int8)
+    d = np.diff(np.concatenate(([0], mudo, [0])))
+    m = int(maximo * SR)
+    cortes = [(a + m // 2, b - m // 2) for a, b in zip(np.where(d == 1)[0], np.where(d == -1)[0]) if b - a > m and a > 0 and b < len(x)]
+    if not cortes: return x, lambda s: s
+    partes, ant = [], 0
+    for a, b in cortes: partes.append(x[ant:a]); ant = b
+    partes.append(x[ant:])
+    def mapa(s):
+        k = int(s * SR)
+        return (k - sum(min(max(k - a, 0), b - a) for a, b in cortes)) / SR
+    return np.concatenate(partes), mapa
+
 EFEITOS = {"megafone": "highpass=f=600,lowpass=f=3300,volume=8,asoftclip=type=atan,highpass=f=500,lowpass=f=3600,aecho=0.8:0.5:110|230:0.22|0.12",
            # o papagaio: a voz de quem ele imita, mais aguda (sem mudar a duração), fina e com trinado
            "papagaio": f"asetrate={SR}*1.1,aresample={SR},atempo=0.909,highpass=f=500,lowpass=f=7500,vibrato=f=14:d=0.15,volume=2",
@@ -136,6 +153,7 @@ for i, f in enumerate(cfg["frases"]):
     FRASE = {k: f[k] for k in ("voz", "ritmo", "tom") if k in f}
     x, ouvidas = falar(fala, tmp / f"{i:02d}.wav")
     x, corte = aparar(x)
+    x, mapa = encurtar(x, cfg["pausaMax"]) if cfg.get("pausaMax") else (x, lambda s: s)
     if f.get("efeito"): x = efeito(x, f["efeito"])
     x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01] ** 2))) * 0.12  # todas as frases no mesmo volume
     dur = len(x) / SR
@@ -145,8 +163,8 @@ for i, f in enumerate(cfg["frases"]):
         for j, p in enumerate(brutas):
             a_ = ouvidas[min(len(ouvidas) - 1, int(j * len(ouvidas) / len(brutas)))]
             b_ = ouvidas[min(len(ouvidas) - 1, int((j + 1) * len(ouvidas) / len(brutas)) - 1)] if j < len(brutas) - 1 else ouvidas[-1]
-            palavras.append({"p": p.replace("*", ""), "ini": round(t + max(0, a_["ini"] - corte), 3),
-                             "fim": round(t + min(dur, max(a_["fim"], b_["fim"]) - corte), 3), "tom": "*" in p})
+            palavras.append({"p": p.replace("*", ""), "ini": round(t + mapa(max(0, a_["ini"] - corte)), 3),
+                             "fim": round(t + min(dur, mapa(max(0, max(a_["fim"], b_["fim"]) - corte))), 3), "tom": "*" in p})
     else:  # sem Whisper: o tempo da frase dividido pelo tamanho de cada palavra
         pesos = [len(re.sub(r"[^\wÀ-ú]", "", p)) + 2 + (4 if re.search(r"[.?!:,]\*?$", p) else 0) for p in brutas]
         soma, acc = sum(pesos), 0.0

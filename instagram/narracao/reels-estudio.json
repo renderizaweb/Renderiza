@@ -1,0 +1,164 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "_sobre": "Do zero ao estúdio: no formato \"mas aí... então...\", o passo a passo de um estúdio de fotografia, da câmera ao sinal; as peças que racham (PDF, planilha, sinal sem prazo) dão lugar a site, agenda e painel, e a virada mostra que essas três já vêm prontas na Renderiza.",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "abre",
+   "texto": "Você quer montar um estúdio de fotografia com agenda cheia. Vamos construir do *zero.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "base",
+   "cena": "base",
+   "texto": "Primeiro, a base. Uma câmera, uma lente clara e luz de janela. Você estuda pose, luz e cenário. Treina até a foto sair boa todas as *vezes.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "portfolio",
+   "cena": "portfolio",
+   "texto": "Mas aí: ninguém contrata quem não tem fotos. Então você fotografa amigos de graça. Agora tem *portfólio.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nicho",
+   "cena": "nicho",
+   "texto": "Mas aí: você fotografa de tudo. Casamento, produto, aniversário. E ninguém lembra de você para nada. Então você escolhe um nicho. Newborn, por *exemplo.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "insta",
+   "cena": "insta",
+   "texto": "Mas aí: ninguém te encontra. Então você abre um *Instagram.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "posta",
+   "cena": "posta",
+   "texto": "Só que perfil parado não aparece. Então você posta toda semana. Bastidores, antes e depois, o ensaio que acabou de *sair.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "nada",
+   "cena": "valor",
+   "texto": "Funciona. E o direct enche de uma pergunta só: *valor?*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "pdf",
+   "cena": "pdf",
+   "texto": "Responder um por um come as suas noites. Então você cria um PDF. Pacotes, o que vem incluso, preço e *datas.*",
+   "pausa": 0.3,
+   "fala": "Responder um por um come as suas noites. Então você cria um pê dê éfe. Pacotes, o que vem incluso, preço e datas."
+  },
+  {
+   "id": "pdfruim",
+   "cena": "pdfruim",
+   "texto": "Mas aí: o PDF cresce. Catorze páginas, foto pesada, não abre no 4G. O preço fica lá na página nove. A cliente diz vou pensar e *some.*",
+   "pausa": 0.3,
+   "fala": "Mas aí: o pê dê éfe cresce. Catorze páginas, foto pesada, não abre no quatro gê. O preço fica lá na página nove. A cliente diz vou pensar. E sóme."
+  },
+  {
+   "id": "planilha",
+   "cena": "planilha",
+   "texto": "Então você organiza tudo numa planilha. Datas, nomes, quem *confirmou.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "dupla",
+   "cena": "dupla",
+   "texto": "Mas aí: duas clientes pedem o mesmo sábado. Uma pelo WhatsApp, outra pelo direct. E você confirmou as *duas.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "regra",
+   "cena": "regra",
+   "texto": "Então você cria uma regra: a data só fica reservada com *sinal.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "preso",
+   "cena": "preso",
+   "texto": "Mas aí: a cliente segura o sábado e não paga. E o sábado fica preso enquanto outra mãe fecha com outra *fotógrafa.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "prazo",
+   "cena": "prazo",
+   "texto": "Então você dá um prazo de 24 horas. Só que agora é você quem cobra, confere o extrato e risca a planilha. Toda *vez.*",
+   "pausa": 0.3,
+   "fala": "Então você dá um prazo de vinte e quatro horas. Só que agora é você quem cobra, confere o extrato e risca a planilha. Toda vez."
+  },
+  {
+   "id": "trava",
+   "cena": "trava",
+   "texto": "É aqui que muito estúdio para de crescer. Fotografar dá. Atender, cobrar e organizar ao mesmo tempo, não *dá.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "site",
+   "cena": "site",
+   "texto": "Então vêm as três últimas peças. Primeiro, um site. Cada ensaio com as fotos, o que vem incluso e o preço na primeira tela, direto no link da *bio.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "agenda",
+   "cena": "agenda",
+   "texto": "Depois, uma agenda com os horários livres. Quem escolhe tem 24 horas para pagar o sinal. Se não paga, a vaga volta para a *agenda.*",
+   "pausa": 0.3,
+   "fala": "Depois, uma agenda com os horários livres. Quem escolhe tem vinte e quatro horas para pagar o sinal. Se não paga, a vaga volta para a agenda."
+  },
+  {
+   "id": "painel",
+   "cena": "painel",
+   "texto": "Por último, um painel. Você confere o Pix e marca o sinal. Sem *planilha.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "pronto",
+   "cena": "pronto",
+   "texto": "Pronto. Estúdio de pé, da câmera ao *sinal.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "anos",
+   "cena": "virada",
+   "texto": "Você levou anos montando esse estúdio. Peça por *peça.*",
+   "pausa": 0.6
+  },
+  {
+   "id": "prontas",
+   "cena": "virada",
+   "texto": "Só que essas três últimas já vêm *prontas.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "moral",
+   "cena": "virada",
+   "texto": "Site, agenda e painel. Com as *suas* fotos.",
+   "pausa": 0.3
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Na *Renderiza,* a gente monta a prévia do seu site com as fotos do seu Instagram.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA.* Ver não custa nada. Você só paga se quiser colocar no *ar.*",
+   "pausa": 1.4,
+   "fala": "Comenta prévia. Ver não custa nada. Você só paga se quiser colocar no ar."
+  }
+ ],
+ "pausaMax": 0.36
+}
