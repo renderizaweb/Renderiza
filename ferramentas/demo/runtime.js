@@ -75,12 +75,12 @@
   }
 
   // Avaliações.
-  const avaliacoes = () => $("[data-reviews]").innerHTML = client.reviews.map(r => {
+  const avaliacoes = () => $("[data-reviews]") && ($("[data-reviews]").innerHTML = client.reviews.map(r => {
     const long = r.quote.length > 130 ? "is-long" : "";
     return '<li><article class="review-card"><div class="review-card-top"><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="review-tag">' + escapeHTML(r.tag) + '</span></div>' +
       '<blockquote class="' + long + '">“' + escapeHTML(r.quote) + '”</blockquote>' +
       '<div class="review-person"><span class="review-avatar" aria-hidden="true">' + escapeHTML(r.initials) + '</span><div><strong>' + escapeHTML(r.name) + '</strong><a href="' + escapeHTML(client.reviewsUrl) + '" target="_blank" rel="noopener noreferrer">Avaliação no Google ↗</a></div></div></article></li>';
-  }).join("");
+  }).join(""));
   avaliacoes();
 
   // Formato de rosto.

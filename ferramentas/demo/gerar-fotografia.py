@@ -974,12 +974,16 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     hero3 = F.uri(h['fotos'][2], 0, 0, q=66, tam=(600, 750))
     q = quem(cfg)
     nav = [('#portfolio', 'Portfólio', ''), ('#sobre', q['A'], ''), ('#ensaios', 'Ensaios', ''), ('#depoimentos', 'Depoimentos', ''), ('#natal', 'Natal 2026', ''), ('#contato', 'Contato', '')]
+    if not s['avaliacoes']: nav = [x for x in nav if x[0] != '#depoimentos']
     out = [head(cfg, F, s['titulo'], s['descricao'], s['comentario']), '<body class="pagina-site">', SIMBOLOS, faixa_rz(cfg, 'site'),
            cabecalho(cfg, F, 'site', nav, 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'),
            '<main id="inicio">']
     nota = G.mostrar_nota(cfg)
-    prova = (f'<a class="prova" href="#depoimentos"><span class="estrelas" aria-hidden="true">★★★★★</span>'
-             + (f'<b>{esc(cfg["google_nota"])}</b>' if nota else '') + f'<span>{esc(cfg["google_total"])} avaliações no Google</span></a>')
+    if cfg.get('prova'):  # sem avaliações no Google: um número do perfil (ex.: "+310" ensaios), sem estrelas
+        prova = f'<a class="prova" href="#sobre"><b>{esc(cfg["prova"][0])}</b><span>{esc(cfg["prova"][1])}</span></a>'
+    else:
+        prova = (f'<a class="prova" href="#depoimentos"><span class="estrelas" aria-hidden="true">★★★★★</span>'
+                 + (f'<b>{esc(cfg["google_nota"])}</b>' if nota else '') + f'<span>{esc(cfg["google_total"])} avaliações no Google</span></a>')
     rot = h.get('rotulos', ['Gestação', 'Newborn', 'Primeiros passos'])
     # nome com palavra longa (DIAMANTINO) não cabe na coluna no tamanho padrão: o título diminui na proporção
     maior = max(len(w) for w in q['nome'].split())
@@ -1050,7 +1054,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
   </div>
 </section>''')
 
-    out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos')))
+    if s['avaliacoes']: out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos')))
 
     # bloco de Natal (leva à página da campanha)
     n = s['natal_bloco']; nf = F.uri(n['foto'], 0, 0, q=66, tam=(1200, 800))
@@ -1103,6 +1107,7 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
     capa = F.uri(h['foto'], 0, 0, fmt='jpeg', q=76, tam=(960, 1200) if retrato else (1500, 1000))
     q = quem(cfg)
     nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', n['galeria']['nome'], ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', 'O site ' + q['da'], 'site')]
+    if not n['avaliacoes']: nav = [x for x in nav if x[0] != '#depoimentos']
     out = [head(cfg, F, n['titulo'], n['descricao'], n['comentario']), '<body class="pagina-natal">', SIMBOLOS, faixa_rz(cfg, 'natal'),
            cabecalho(cfg, F, 'natal', nav, 'href="#horarios"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher horário'),
            '<main id="inicio">']
@@ -1159,7 +1164,7 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
   </div>
 </section>''')
 
-    out.append(avaliacoes_html(cfg, n['avaliacoes_h2'], 'Depoimentos'))
+    if n['avaliacoes']: out.append(avaliacoes_html(cfg, n['avaliacoes_h2'], 'Depoimentos'))
     v = cfg['site']['contato']
     out.append(f'''<section class="secao natal" id="contato" aria-labelledby="contato-titulo">
   <div class="container" style="text-align:center;max-width:760px">
@@ -1191,7 +1196,7 @@ def ficha(cfg, horas, total, livres, F):
     linhas = [f'# {cfg["marca"]}', '', '| | |', '|---|---|',
               f'| Onde | {cfg["endereco_maps"]} |',
               f'| Instagram | [@{cfg["instagram"]}](https://www.instagram.com/{cfg["instagram"]}/) · {cfg["seguidores"]} seguidores |',
-              f'| Google | nota {cfg["google_nota"]} · {cfg["google_total"]} avaliações · conferido em {dmy(cfg["verificado"])} |',
+              (f'| Google | nota {cfg["google_nota"]} · {cfg["google_total"]} avaliações · conferido em {dmy(cfg["verificado"])} |' if cfg.get('google') else f'| Google | sem Perfil da Empresa (sem avaliações) · conferido em {dmy(cfg["verificado"])} |'),
               f'| WhatsApp | ({w[2:4]}) {w[4:-4]}-{w[-4:]} · {f["whatsapp_fonte"]} |',
               '| Horário | ' + ('; '.join(f'{n} {t}' for n, t, _ in G.linhas_horario(horas)) if horas else 'não confirmado') + ' |',
               f'| Site | {f["site"]} |',

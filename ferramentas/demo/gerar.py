@@ -72,7 +72,7 @@ def paleta(escuro, acento, tinta='escuro'):
 
 def mostrar_nota(cfg):
     """A nota só aparece quando é 5,0; com 4,9 ou menos ficam as estrelas e o número de avaliações."""
-    return cfg.get('mostrar_nota', cfg['google_nota'].strip() in ('5,0', '5'))
+    return cfg.get('mostrar_nota', cfg.get('google_nota', '').strip() in ('5,0', '5'))
 
 def tema(cfg):
     c = cfg['cores']; escuro = c['escuro'].lstrip('#'); acento = c['acento'].lstrip('#')
@@ -470,11 +470,16 @@ def corpo(cfg, fotos, google):
     return '\n'.join(out), horas
 
 def cliente(cfg, google, horas):
-    g = cfg['google']; lat, lng = g['coords'].split(',')
+    g = cfg.get('google')
     from urllib.parse import quote
-    base = f'https://www.google.com/maps/place/{quote(cfg["google_nome"]).replace("%20", "+")}/@{g["coords"]},17z/data='
-    aval = base + f'!4m8!3m7!1s{g["fid"]}!8m2!3d{lat}!4d{lng}!9m1!1b1!16s{quote(g["gid"], safe="")}?hl=pt-BR'
-    cid = int(g['fid'].split(':')[1], 16)
+    if g:
+        lat, lng = g['coords'].split(',')
+        base = f'https://www.google.com/maps/place/{quote(cfg["google_nome"]).replace("%20", "+")}/@{g["coords"]},17z/data='
+        aval = base + f'!4m8!3m7!1s{g["fid"]}!8m2!3d{lat}!4d{lng}!9m1!1b1!16s{quote(g["gid"], safe="")}?hl=pt-BR'
+        maps = f'https://www.google.com/maps?cid={int(g["fid"].split(":")[1], 16)}'
+    else:  # sem Perfil da Empresa no Google: sem avaliações; mapa e rota pela cidade
+        aval = ''; maps = 'https://www.google.com/maps?q=' + quote(cfg['endereco_maps'])
+    lugar = ', '.join(x for x in (cfg.get('google_nome'), cfg['endereco_maps']) if x)
     lista = avaliacoes(google); revs = []
     for a in cfg['avaliacoes']:
         if 'nome' in a:
@@ -495,11 +500,11 @@ def cliente(cfg, google, horas):
         f'  whatsapp: "https://wa.me/{cfg["whatsapp"]}?text=" + encodeURIComponent({json.dumps(msg, ensure_ascii=False)}),',
         f'  phone: {json.dumps(cfg.get("fone_link", "+" + cfg["whatsapp"]))},',
         f'  instagram: "https://www.instagram.com/{cfg["instagram"]}/",',
-        f'  maps: "https://www.google.com/maps?cid={cid}",',
-        f'  directions: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent({json.dumps(cfg["google_nome"] + ", " + cfg["endereco_maps"], ensure_ascii=False)}),',
-        f'  mapEmbed: "https://www.google.com/maps?q=" + encodeURIComponent({json.dumps(cfg["google_nome"] + ", " + cfg["endereco_maps"], ensure_ascii=False)}) + "&z=17&hl=pt-BR&output=embed",',
+        f'  maps: {json.dumps(maps)},',
+        f'  directions: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent({json.dumps(lugar, ensure_ascii=False)}),',
+        f'  mapEmbed: "https://www.google.com/maps?q=" + encodeURIComponent({json.dumps(lugar, ensure_ascii=False)}) + "&z={17 if g else 12}&hl=pt-BR&output=embed",',
         f'  reviewsUrl: {json.dumps(aval)},', f'  writeReviewUrl: {json.dumps(aval)},',
-        f'  rating: {json.dumps(cfg["google_nota"])},', f'  reviewTotal: {json.dumps(cfg["google_total"])},',
+        f'  rating: {json.dumps(cfg.get("google_nota", ""))},', f'  reviewTotal: {json.dumps(cfg.get("google_total", ""))},',
         '  // Horário do Perfil da Empresa no Google (0 = domingo), em minutos desde 00h.' if horas else '  // Horário não confirmado no Google: sem aviso de aberto/fechado.',
         f'  hours: {js_horas},',
         '  reviews: [\n' + ',\n'.join('    ' + json.dumps(r, ensure_ascii=False) for r in revs) + '\n  ],',

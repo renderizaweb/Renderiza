@@ -15,7 +15,7 @@ for (const [nome, vw, vh] of [['desktop', 1440, 900], ['celular', 390, 844]]) {
   await page.waitForTimeout(2500);
   const r = await page.evaluate(() => ({
     imgs: [...document.images].length, quebradas: [...document.images].filter(i => !i.complete || !i.naturalWidth).length,
-    reviews: document.querySelectorAll('[data-reviews] li').length, esperadas: window.DEMO_CLIENT.reviews.length,
+    reviews: document.querySelectorAll('[data-reviews] li').length, esperadas: window.DEMO_CLIENT.reviews.length, semAval: !document.querySelector('[data-reviews]'),
     dots: [...document.querySelectorAll('[data-carousel]')].map(c => c.querySelectorAll('[data-dots] button').length),
     wa: [...document.querySelectorAll('[data-whatsapp]')].every(a => a.href.startsWith(window.DEMO_CLIENT.whatsapp.split('?')[0])),
     ig: [...document.querySelectorAll('[data-instagram]')].every(a => a.href === window.DEMO_CLIENT.instagram),
@@ -23,8 +23,9 @@ for (const [nome, vw, vh] of [['desktop', 1440, 900], ['celular', 390, 844]]) {
     titulo: document.title, fontes: document.fonts.status,
   }));
   ok(`${nome}: imagens carregadas`, r.quebradas === 0, `${r.imgs} imagens, ${r.quebradas} quebradas`);
-  ok(`${nome}: avaliações no carrossel`, r.reviews === r.esperadas && r.reviews >= 3, r.reviews + '/' + r.esperadas);
-  ok(`${nome}: carrosséis com pontos`, r.dots.length >= 1 && r.dots.every(n => n >= 2), JSON.stringify(r.dots));
+  // Demo sem avaliações no Google (sem a seção): os dois testes do carrossel não se aplicam.
+  ok(`${nome}: avaliações no carrossel`, r.semAval || (r.reviews === r.esperadas && r.reviews >= 3), r.semAval ? 'sem a seção' : r.reviews + '/' + r.esperadas);
+  ok(`${nome}: carrosséis com pontos`, r.semAval || (r.dots.length >= 1 && r.dots.every(n => n >= 2)), JSON.stringify(r.dots));
   ok(`${nome}: WhatsApp e Instagram certos`, r.wa && r.ig);
   ok(`${nome}: sem rolagem para o lado`, r.excesso <= 0, r.excesso + 'px');
   // carrossel da vitrine anda

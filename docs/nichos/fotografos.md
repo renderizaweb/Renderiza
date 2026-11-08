@@ -218,3 +218,16 @@ A lista está em `docs/nichos/fotografos-lote3.md` (20 + 5 reservas, com o link 
     Natal sai como sugestão, com texto que não promete cenário; a ficha manda perguntar.
   - **WhatsApp escondido no Google** (Thays Adrianny): o link `wa.me/message/...` do Perfil abre a conta com o número
     na página pública do WhatsApp; o número foi para a demo e para o lead.
+
+## 9. Pedido pelo Instagram: Paulo Braga (08/11/2026)
+
+- **Quem:** @paulobraga_fotografo (Paulo H. Lacerda Braga, P'click Fotografia; nas artes, "Paulo Braga"), fotógrafo e
+  videomaker em Petrolina/PE, especialista em casamentos. Pediu uma demo pelo Instagram da Renderiza. Entrou no painel
+  como `paulo-braga-fotografo` e a demo saiu no mesmo dia (`/demo/paulo-braga-fotografo` e `/natal`).
+- **Sem Google:** sem Perfil da Empresa, sem avaliações e sem endereço. O gerador agora aceita isso: sem `google` no
+  `demo.json` e com `avaliacoes: []`, some a seção de depoimentos (e o item do menu), o mapa e a rota vão pela cidade, e
+  `prova` (ex.: `["+310", "ensaios, entre externos e em estúdio"]`) troca a nota do Google na abertura, sem estrelas.
+- **A página salva pode trazer fotos de outras contas:** as 39 fotos de paisagem do `Instagram_files` não eram dele (o
+  segundo número do nome do arquivo termina com o id da conta; as dele terminam em `637837`, as paisagens cada uma num
+  final diferente). A demo usou só os carrosséis completos dos posts dele, lidos pelo embed público (`ferramentas/ig-post.py`):
+  136 fotos de casamentos, making of e pré-weddings. Conferir esse final antes de usar fotos de uma página salva.
