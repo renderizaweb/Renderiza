@@ -1,0 +1,712 @@
+{
+ "pasta": "paulo-braga-fotografo",
+ "marca": "Paulo Braga Fotógrafo",
+ "marca_completa": "Paulo Braga Fotógrafo",
+ "dona": "Paulo",
+ "google_json": null,
+ "google_nome": "",
+ "endereco_maps": "Petrolina - PE",
+ "google_nota": "",
+ "google_total": "",
+ "verificado": "2026-11-08",
+ "whatsapp": "5574981211360",
+ "fone_link": "+5574981211360",
+ "instagram": "paulobraga_fotografo",
+ "seguidores": "3,6 mil",
+ "mensagem": "Olá, Paulo! Vi o seu site e queria saber mais sobre a cobertura do casamento.",
+ "cores": {
+  "fundo": "#f7f4ef",
+  "papel": "#ffffff",
+  "areia": "#efe8dd",
+  "linha": "#e2d9cb",
+  "tinta": "#1d2433",
+  "tinta2": "#5d6473",
+  "rosa": "#e6d8c2",
+  "acento": "#1f3352",
+  "acento_escuro": "#152540",
+  "cafe": "#141b29"
+ },
+ "marca_img": {
+  "simbolo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/marca/simbolo.png",
+  "logo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/marca/logo.png",
+  "logo_claro": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/marca/logo-claro.png",
+  "favicon": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/marca/favicon.png"
+ },
+ "horarios": {
+  "dias": [
+   "2026-11-14",
+   "2026-11-18",
+   "2026-11-21",
+   "2026-11-25",
+   "2026-11-28",
+   "2026-12-05"
+  ],
+  "horas": [
+   "7h",
+   "9h",
+   "15h30",
+   "16h30"
+  ],
+  "reservados": [
+   "2026-11-14 9h",
+   "2026-11-14 16h30",
+   "2026-11-18 15h30",
+   "2026-11-21 7h",
+   "2026-11-21 15h30",
+   "2026-11-21 16h30",
+   "2026-11-25 15h30",
+   "2026-11-25 16h30",
+   "2026-11-28 16h30",
+   "2026-12-05 9h",
+   "2026-12-05 16h30"
+  ],
+  "exemplo": "Horários de exemplo: a Paulo define os dela",
+  "mensagem": "Olá, Paulo! Quero o horário de {data} ({semana}) às {hora} para o ensaio de Natal. Ainda está livre?"
+ },
+ "renderiza": {
+  "ola": "Paulo",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-15",
+  "msg_garantir": "Olá! Sou o Paulo Braga, fotógrafo de Petrolina. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou o Paulo Braga, fotógrafo de Petrolina. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "codigo": "t9jz",
+  "msg_duvida": "Olá! Sou o Paulo Braga, fotógrafo de Petrolina. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Playfair Display",
+    "ital,wght@0,400..700;1,400..700"
+   ],
+   "sans": [
+    "Jost",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "abertura": "filme",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "ornamento": "◆",
+  "botoes": "reto",
+  "abas": "sublinhado",
+  "script_escala": 1.3
+ },
+ "titulo_nome": "Paulo Braga",
+ "titulo_script": "fotógrafo",
+ "quem_a": "o Paulo",
+ "quem_da": "do Paulo",
+ "quem_sou": "Eu sou o Paulo Braga",
+ "slogan": "Histórias reais, com sensibilidade, técnica e paixão.",
+ "mapa_nome": "Petrolina e região",
+ "prova": [
+  "+310",
+  "ensaios, entre externos e em estúdio"
+ ],
+ "site": {
+  "titulo": "Paulo Braga Fotógrafo | Casamentos e ensaios em Petrolina e no Vale do São Francisco",
+  "descricao": "Paulo Braga, fotógrafo e videomaker em Petrolina (PE), especialista em casamentos: making of, cerimônia, pré-wedding e ensaios externos e em estúdio no Vale do São Francisco.",
+  "comentario": "Demo Paulo Braga Fotógrafo (pedido pelo Instagram da Renderiza, 08/11/2026): arquivo único com as fotos dentro. Fotos dos posts do Instagram (@paulobraga_fotografo, carrosséis completos, sem capas de vídeo nem artes). Sem avaliações no Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Casamentos · Petrolina e Vale do São Francisco",
+   "frase": "Datas passam, momentos se vão, mas a fotografia é para sempre.",
+   "intro": "Fotógrafo e videomaker em Petrolina, especialista em casamentos: do making of ao sim, do pré-wedding na beira do rio à festa.",
+   "rotulos": [
+    "Casamento",
+    "Noite",
+    "Pré-wedding"
+   ],
+   "especialidades": [
+    "Casamentos",
+    "Pré-wedding",
+    "Making of",
+    "Ensaios externos",
+    "Estúdio",
+    "Gestante",
+    "15 anos",
+    "Foto e vídeo"
+   ],
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dclw8eXFjTc_00.jpg",
+     "f": "p",
+     "alt": "Noivo inclina a noiva para o beijo no altar na beira do rio",
+     "c": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWdNdwFPpi_01.jpg",
+     "f": "p",
+     "alt": "Noivos abraçados à noite, sob o varal de luzes",
+     "c": [
+      0.5,
+      0.35
+     ]
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdzqHwslBce_00.jpg",
+     "f": "p",
+     "alt": "Casal no deque ao pôr do sol, com a árvore seca",
+     "c": [
+      0.42,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Histórias reais, <em>para sempre.</em>",
+   "p": "Casamentos, pré-weddings e ensaios do Paulo, em Petrolina e região. Escolha o tipo de ensaio e toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "casamentos",
+    "nome": "Casamentos",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_08.jpg",
+      "f": "p",
+      "alt": "Beijo dos noivos na saída da igreja",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWdNdwFPpi_00.jpg",
+      "f": "p",
+      "alt": "Noivos abraçados à noite, de véu",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWdNdwFPpi_01.jpg",
+      "f": "p",
+      "alt": "Noivos sob o varal de luzes, com o buquê rosa",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_01.jpg",
+      "f": "p",
+      "alt": "Noiva sorrindo no carro, com o buquê",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_06.jpg",
+      "f": "p",
+      "alt": "Noivos no altar da igreja",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dclw8eXFjTc_00.jpg",
+      "f": "p",
+      "alt": "Beijo no altar na beira do rio",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_06.jpg",
+      "f": "p",
+      "alt": "Noivos no jardim, ele de terno vinho",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_08.jpg",
+      "f": "p",
+      "alt": "Beijo dos noivos com as taças",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_07.jpg",
+      "f": "l",
+      "alt": "Noivos saindo da igreja entre os convidados",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWbG0LFEZ2_04.jpg",
+      "f": "l",
+      "alt": "Beijo dos noivos no jardim",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_05.jpg",
+      "f": "l",
+      "alt": "Noivos, madrinhas e padrinhos sob a árvore",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWbG0LFEZ2_00.jpg",
+      "f": "l",
+      "alt": "Noiva entrando pelo caminho de madeira",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "prewedding",
+    "nome": "Pré-wedding",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWcakpFKn1_02.jpg",
+      "f": "p",
+      "alt": "Casal abraçado na beira do rio",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1d_7jlF53_00.jpg",
+      "f": "p",
+      "alt": "Casal no deque, contra a luz",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_03.jpg",
+      "f": "p",
+      "alt": "Ela pula no colo dele, na areia",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_04.jpg",
+      "f": "p",
+      "alt": "Casal na areia, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdzqHwslBce_00.jpg",
+      "f": "p",
+      "alt": "Casal no deque ao pôr do sol",
+      "pos": "42% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdwvXTuFKDc_02.jpg",
+      "f": "p",
+      "alt": "Casal sorrindo no deque da praia",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdwvXTuFKDc_03.jpg",
+      "f": "p",
+      "alt": "Casal se olhando, com o rio ao fundo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Ddzu8nPFKCZ_02.jpg",
+      "f": "p",
+      "alt": "Casal no deque ao pôr do sol, com a árvore",
+      "pos": "45% 55%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DasWPDwFiXw_01.jpg",
+      "f": "l",
+      "alt": "Ele carrega a noiva na água",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_01.jpg",
+      "f": "l",
+      "alt": "Casal sentado na areia, testa com testa",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdzqHwslBce_02.jpg",
+      "f": "l",
+      "alt": "Casal sentado no deque, de costas para o rio",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Ddzv436lHSr_02.jpg",
+      "f": "l",
+      "alt": "Casal abraçado na ponta do deque",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "casal",
+    "nome": "Ensaio de casal",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9Ta_F9e__04.jpg",
+      "f": "p",
+      "alt": "Casal dançando no jardim, ela de vestido amarelo",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9Ta_F9e__08.jpg",
+      "f": "p",
+      "alt": "Casal abraçado no jardim, ela de perna levantada",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdzqHwslBce_03.jpg",
+      "f": "p",
+      "alt": "Ela com o buquê entre as folhagens",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Ddzv436lHSr_00.jpg",
+      "f": "p",
+      "alt": "Casal de mãos dadas no gramado",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DfbAUavl0UG_01.jpg",
+      "f": "p",
+      "alt": "Casal dançando sob o pergolado entre as palmeiras",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DfbBCDol8GV_04.jpg",
+      "f": "p",
+      "alt": "Casal sentado na grama, sorrindo",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dbd-0XllL3p_01.jpg",
+      "f": "p",
+      "alt": "Ela encosta a cabeça no ombro dele",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DfbAUavl0UG_05.jpg",
+      "f": "p",
+      "alt": "Ela no balanço da árvore, ele atrás",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dbd-0XllL3p_03.jpg",
+      "f": "l",
+      "alt": "Casal dançando na ponte de madeira",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Ddzu8nPFKCZ_04.jpg",
+      "f": "l",
+      "alt": "Casal de mãos dadas no gramado com flores",
+      "pos": "50% 50%"
+     }
+    ]
+   },
+   {
+    "id": "makingof",
+    "nome": "Making of",
+    "fotos": [
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_02.jpg",
+      "f": "p",
+      "alt": "Noiva se arrumando, de robe de renda",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_01.jpg",
+      "f": "p",
+      "alt": "Noivo ajeitando a abotoadura",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DZDf8bsFFjn_00.jpg",
+      "f": "p",
+      "alt": "Noiva sob o véu, em preto e branco",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DasWPDwFiXw_02.jpg",
+      "f": "p",
+      "alt": "As mãos dos noivos e a aliança",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWbG0LFEZ2_02.jpg",
+      "f": "l",
+      "alt": "Noiva lendo uma carta e sorrindo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DZDf8bsFFjn_06.jpg",
+      "f": "l",
+      "alt": "Os noivos assinando o livro",
+      "pos": "50% 50%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "eyebrow": "Quem fotografa",
+   "h2": "O Paulo, <em>atrás da câmera.</em>",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/extra/perfil.jpg",
+    "f": "p",
+    "alt": "Retrato do Paulo Braga, de blazer bege",
+    "c": [
+     0.5,
+     0.4
+    ]
+   },
+   "p": [
+    "O Paulo Braga é fotógrafo e videomaker em Petrolina (PE), especialista em casamentos. Fotografa casamentos em Petrolina, Juazeiro e no Vale do São Francisco, na igreja e ao ar livre, e também ensaios externos e em estúdio."
+   ],
+   "citacao": "Eu sou o Paulo Braga e meu propósito é eternizar histórias reais com sensibilidade, técnica e paixão.",
+   "citacao_quem": "Paulo, no Instagram",
+   "p2": [
+    "Além dos casamentos e pré-weddings, os destaques do Instagram dele mostram chá revelação, gestantes, aniversários, 15 anos e Natal."
+   ],
+   "numeros": [
+    [
+     "+160",
+     "ensaios externos"
+    ],
+    [
+     "+150",
+     "ensaios em estúdio"
+    ],
+    [
+     "Foto e vídeo",
+     "fotógrafo e videomaker"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Os ensaios",
+   "h2": "Do pré-wedding <em>ao grande dia.</em>",
+   "p": "O que o Paulo fotografa:",
+   "fonte": "Bio, legendas e destaques do Instagram do Paulo.",
+   "passos": [
+    {
+     "nome": "Casamento",
+     "sub": "Especialista",
+     "p": "Na igreja ou ao ar livre: a cerimônia, os detalhes, a família e a festa."
+    },
+    {
+     "nome": "Making of",
+     "sub": "Antes do sim",
+     "p": "A noiva se arrumando, o noivo, as cartas e os detalhes."
+    },
+    {
+     "nome": "Pré-wedding",
+     "sub": "Save the date",
+     "p": "O ensaio do casal antes do casamento, na beira do rio ou no jardim."
+    },
+    {
+     "nome": "Ensaios externos",
+     "sub": "+160",
+     "p": "Ensaios ao ar livre em Petrolina e região."
+    },
+    {
+     "nome": "Estúdio",
+     "sub": "+150",
+     "p": "Ensaios em estúdio: gestante, aniversário, 15 anos."
+    },
+    {
+     "nome": "Foto e vídeo",
+     "sub": "Videomaker",
+     "p": "O Paulo também filma: pergunte pelo vídeo do seu dia."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "O Natal de vocês, <em>pelo olhar do Paulo.</em>",
+   "p": "Um ensaio de fim de ano para o casal ou a família. Escolha um horário e a mensagem chega pronta no WhatsApp do Paulo.",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_06.jpg",
+    "f": "l",
+    "alt": "Noiva no centro de um coração de velas na areia",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Ensaio de casal"
+  },
+  "avaliacoes": [],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos falar <em>do seu casamento?</em>",
+   "p": "Agenda e orçamentos pelo WhatsApp. O Paulo atende em Petrolina, Juazeiro e no Vale do São Francisco.",
+   "rotulo": "Atende em",
+   "telefone": "(74) 98121-1360",
+   "endereco": [
+    "Petrolina · PE",
+    "Juazeiro e Vale do São Francisco"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Paulo Braga Fotógrafo",
+  "descricao": "Ensaio de Natal para casais e famílias em Petrolina, com o Paulo Braga. Escolha o horário e chame no WhatsApp.",
+  "comentario": "Demo Paulo Braga Fotógrafo: página da campanha de Natal (natal.html), ligada ao site. Sugestão: não há fotos de Natal nos posts (só um destaque \"Natal\"); os textos não prometem cenário. Horários de exemplo. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "hero": {
+   "eyebrow": "Natal 2026 · Petrolina",
+   "h1": "O Natal de vocês, <em>para sempre.</em>",
+   "citacao": "Datas passam, momentos se vão, mas a fotografia é para sempre.",
+   "citacao_quem": "Paulo, no Instagram",
+   "foto": {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_06.jpg",
+    "f": "l",
+    "alt": "Noiva no centro de um coração de velas na areia",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   "legenda": "Ensaio de casal"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "Um ensaio <em>de fim de ano.</em>",
+   "p": "O fim do ano é tempo de celebrar quem está do seu lado. Um ensaio para o casal ou a família, ao ar livre ou em estúdio, para guardar este Natal.",
+   "itens": [
+    "Para casais, noivos e famílias.",
+    "Ao ar livre, no fim da tarde, ou em estúdio.",
+    "Fotógrafo e videomaker: pergunte também pelo vídeo.",
+    "Valores e datas pelo WhatsApp do Paulo."
+   ],
+   "legenda_fotos": "Ensaios do Paulo"
+  },
+  "cenario": [
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DbWdNdwFPpi_00.jpg",
+    "f": "p",
+    "alt": "Noivos abraçados à noite, de véu",
+    "c": [
+     0.5,
+     0.35
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9Ta_F9e__00.jpg",
+    "f": "l",
+    "alt": "Casal na ponte de madeira, sob a árvore",
+    "c": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9vRrF4Tc_01.jpg",
+    "f": "l",
+    "alt": "Casal sentado na areia, testa com testa",
+    "c": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp do Paulo abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: cedo ou no fim da tarde, na luz mais bonita. O Paulo define os dias, a duração e quantos horários abre; o contador mostra quantos ainda estão livres.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp do Paulo abre com o dia e a hora escritos."
+    ],
+    [
+     "O Paulo confirma",
+     "Ele responde com os valores e os detalhes do ensaio."
+    ]
+   ]
+  },
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Histórias reais, <em>para sempre.</em>",
+   "nome": "O ano todo",
+   "p": "Casamentos e ensaios do Paulo.",
+   "fotos": [
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dclw8eXFjTc_00.jpg",
+     "f": "p",
+     "alt": "Beijo no altar na beira do rio",
+     "pos": "50% 40%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_08.jpg",
+     "f": "p",
+     "alt": "Beijo na saída da igreja",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1dof4lB4P_06.jpg",
+     "f": "p",
+     "alt": "Noivos no jardim",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DdzqHwslBce_00.jpg",
+     "f": "p",
+     "alt": "Casal no deque ao pôr do sol",
+     "pos": "42% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dc1d_7jlF53_00.jpg",
+     "f": "p",
+     "alt": "Casal no deque, contra a luz",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Dce9Ta_F9e__04.jpg",
+     "f": "p",
+     "alt": "Casal dançando no jardim",
+     "pos": "50% 35%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/Ddzv436lHSr_00.jpg",
+     "f": "p",
+     "alt": "Casal de mãos dadas no gramado",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "/tmp/claude-0/-home-user-Renderiza/88f999c1-2b2f-5ab0-87ea-154afbd7fc3a/scratchpad/demos3/paulo-braga-fotografo/todas/DWojMXQDklt_01.jpg",
+     "f": "p",
+     "alt": "Noiva no carro",
+     "pos": "50% 40%"
+    }
+   ]
+  },
+  "avaliacoes": [],
+  "final": {
+   "eyebrow": "Natal 2026 · Petrolina",
+   "h2": "Garanta o seu <em>ensaio de Natal.</em>",
+   "p": "Escolha um horário ou chame o Paulo no WhatsApp para saber os valores."
+  }
+ },
+ "ficha": {
+  "whatsapp_fonte": "link wa.me da bio do Instagram (+55 74 98121-1360)",
+  "site": "não tem (o link da bio é o WhatsApp)",
+  "situacao": "pronta · 08/11/2026 · `/demo/paulo-braga-fotografo` e `/demo/paulo-braga-fotografo/natal`",
+  "direcao": [
+   "Lead que chegou pelo Instagram da Renderiza pedindo uma demo (08/11/2026). Página do Instagram salva no Drive do mesmo dia.",
+   "Paulo H. Lacerda Braga, @paulobraga_fotografo (nome no perfil: P'click Fotografia; nas artes, \"Paulo Braga\"), fotógrafo e videomaker em Petrolina/PE, especialista em casamentos, 3.596 seguidores.",
+   "Personalidade: a marca dele (monograma B, azul-marinho e areia), casamentos na igreja e ao ar livre e pré-weddings na beira do rio. Na demo: Playfair Display, \"fotógrafo\" em Allura, azul-marinho e areia, abertura em filme (ele também é videomaker).",
+   "Sem logo em boa resolução: monograma B e o nome com \"fotógrafo\" cursivo, feitos para a demo."
+  ],
+  "demo": [
+   "Site: abertura (casamento, noite e pré-wedding), \"+310 ensaios\" no lugar da nota do Google, portfólio em 4 abas (Casamentos, 12; Pré-wedding, 12; Ensaio de casal, 10; Making of, 6), o Paulo, os ensaios, o bloco do Natal e o contato (Petrolina, Juazeiro e Vale do São Francisco). Sem depoimentos: ele não tem avaliações no Google.",
+   "Página de Natal \"O Natal de vocês, para sempre\": ensaio de fim de ano para casal ou família; sem promessa de cenário; agenda de exemplo (7h, 9h, 15h30 e 16h30).",
+   "Sem o aviso da Renderiza (tirado em 06/11)."
+  ],
+  "fotos": [
+   "Os carrosséis completos de 22 posts (136 fotos, 1440 a 4096 px), lidos pelo embed público.",
+   "Ficaram de fora: as capas de vídeo (reels), as artes da marca e os mosaicos com borda branca. As fotos de paisagem da página salva também: os arquivos são de outras contas (não dele)."
+  ],
+  "textos": [
+   "Bio: \"Fotografo e VideoMaker - Petrolina/PE · Especialista em Casamentos · + 160 ensaios externos · + 150 ensaios em estúdio\".",
+   "Legendas: \"Eu sou o Paulo Braga e meu propósito é eternizar histórias reais com sensibilidade, técnica e paixão.\" e \"Datas passam, momentos se vão, mas a fotografia é para sempre.\""
+  ],
+  "conferir": [
+   "**Sem avaliações no Google**: a demo não tem depoimentos (o destaque \"Depoimentos\" do Instagram pode virar a seção, se ele mandar os prints).",
+   "A página de Natal é sugestão: ele tem um destaque de Natal, mas sem fotos nos posts.",
+   "Fotos de noivos e casais: todas publicadas por ele como portfólio. Vale ele confirmar se pode usar todas no site."
+  ]
+ }
+}
