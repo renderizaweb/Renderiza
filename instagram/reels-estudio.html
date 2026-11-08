@@ -226,7 +226,7 @@ const Y0 = 1600, AL = 66, VAO = 4, yDe = k => Y0 - (k + 1) * AL - k * VAO;
 const T_TRAVA = W("trava", "crescer"), T_RETO = W("site", "pecas") + 0.2, T_PRONTO = W("pronto", "pronto");
 function qTorre(t) {
   const plt = $("#planta"), pf = fase(t, BL[0].t - 0.3, BL[0].t + 0.2);
-  pos(plt, { x: 260, y: Y0 - 640, o: entra(t, W("abre", "zero") - 0.1, 0.4).o * (1 - pf) * 0.9 });
+  pos(plt, { x: 260, y: Y0 - 640, o: entra(t, 0.2, 0.5).o * (1 - pf) * 0.9 });
   BL.forEach((b, k) => {
     const el = $(`#bl${k}`), cai = fase(t, b.t - 0.42, b.t);
     if (cai <= 0) { el.style.visibility = "hidden"; return; }
