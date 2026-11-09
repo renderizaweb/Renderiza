@@ -320,7 +320,7 @@ def gerar(pasta, site_html, natal_html):
   <p class="eyebrow">{esc(e["chamada"])}</p><h2>{esc(e["titulo"])}</h2><p>{esc(e["sub"])}</p>
   <p class="pv-apartir">a partir de <b>{esc(a_partir(e))}</b></p><span class="link">Ver fotos e pacotes {SETA}</span></div></a>''' for e in ensaios)
     capa = fotos_de(pf['capa'])[0] if pf.get('capa') else (capa_site[0] if capa_site else ensaios[0]['_fotos'][0])
-    corpo = f'''<section class="pv-hero{" pv-hero--deitada" if capa["w"] > capa["h"] * 1.08 else ""}" aria-labelledby="titulo-site">
+    corpo = f'''<section class="pv-hero{" pv-hero--deitada" if capa["w"] > capa["h"] * .95 else ""}" aria-labelledby="titulo-site">
   {tag(capa, True)}
   <div class="container">
     <p class="eyebrow">{esc(nome_marca)}</p>
@@ -360,7 +360,7 @@ def gerar(pasta, site_html, natal_html):
             x = e['extra']; pedido = wa(f'Olá! Vi o portfólio de {nome_marca} e quero saber do {x["titulo"].lower()}.')
             extra = (f'<div class="pv-extra reveal"><div><b>{esc(x["titulo"])}</b><p>{esc(x["p"])}</p></div>'
                      f'<a class="botao botao--linha" href="{esc(pedido)}" target="_blank" rel="noopener noreferrer">Quero saber</a></div>')
-        corpo = f'''<section class="pv-hero{" pv-hero--deitada" if fotos[0]["w"] > fotos[0]["h"] * 1.08 else ""}" aria-labelledby="titulo-ensaio">
+        corpo = f'''<section class="pv-hero{" pv-hero--deitada" if fotos[0]["w"] > fotos[0]["h"] * .95 else ""}" aria-labelledby="titulo-ensaio">
   {tag(fotos[0], True)}
   <div class="container">
     <p class="eyebrow">{esc(e["chamada"])}{" · " + esc(local) if local else ""}</p>
