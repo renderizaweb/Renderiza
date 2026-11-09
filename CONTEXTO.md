@@ -194,6 +194,7 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
   tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
   O sistema se chama **Painel Renderiza** ("Bastidor" foi recusado pelo Kaue em 21/10/2026: ninguém entende).
+- **Fotógrafas: portfólio online** (09/11/2026, pedido do Kaue): a proposta deixa de ser "site" e vira portfólio online (galerias por ensaio, ensaios e valores, promoção, WhatsApp). O porquê e o formato estão em `docs/nichos/fotografos.md` (seção 10); a demo sai de `ferramentas/demo/gerar-portfolio.py`. Primeira: `/demo/olivares-fotografia`.
 - `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
   inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads
   de Fotografia mostra o link com o código. Galeria de fotos não entra (guarda só o link). Como funciona: README.

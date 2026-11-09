@@ -231,3 +231,37 @@ A lista está em `docs/nichos/fotografos-lote3.md` (20 + 5 reservas, com o link 
   segundo número do nome do arquivo termina com o id da conta; as dele terminam em `637837`, as paisagens cada uma num
   final diferente). A demo usou só os carrosséis completos dos posts dele, lidos pelo embed público (`ferramentas/ig-post.py`):
   136 fotos de casamentos, making of e pré-weddings. Conferir esse final antes de usar fotos de uma página salva.
+
+## 10. Portfólio online, não "site" (09/11/2026, pedido do Kaue)
+
+**Por quê:** as fotógrafas respondem que "site não funciona para o nicho", que "o Instagram basta" e que "já tive site e
+não funcionou". Elas têm razão num ponto: a cliente delas não vem do Google, vem do Instagram e da indicação. Um site
+fica esperando visita. O que elas fazem todo dia é outra coisa: a cliente pergunta "quanto custa?" no direct ou no
+WhatsApp, e elas mandam um **PDF de valores**, prints dos destaques ou um texto copiado.
+
+**A proposta:** o **portfólio online**, o link que ela manda nessa hora e põe na bio. Tem as galerias por ensaio, o
+que é cada ensaio e o valor, a promoção do momento (Natal) e o botão do WhatsApp já com o ensaio escrito. Não
+concorre com o Instagram: organiza o que o feed mistura e substitui o PDF.
+
+**O que serviu de referência:**
+- **Plataformas de portfólio para fotógrafo** (Pixieset, Format, Adobe Portfolio e, no Brasil, Alboom): a capa é uma
+  grade de galerias, cada galeria tem a própria página e há uma página de valores ("Investment" lá fora).
+- **O guia de valores em PDF** (o "pricing guide" ou "welcome guide", muito vendido como modelo do Canva): é o que
+  elas já mandam. O portfólio faz o mesmo papel, abre num toque no WhatsApp e não fica desatualizado.
+- **Catálogo do WhatsApp Business e link da bio** (tipo Linktree): mostram que ela já aceita mandar um link com
+  produto e preço. O portfólio junta os dois, com a cara dela.
+
+**Como é a demo:** `ferramentas/demo/gerar-portfolio.py` transforma a demo de site (gerar-fotografia.py) num
+portfólio de várias páginas, com o mesmo visual, a mesma faixa da Renderiza e o mesmo rastreio (cada página conta
+para o mesmo lead, com o nome dela no detalhe da visita):
+- `index`: a capa, a grade de galerias, os cartões "Ensaios e valores" e "Natal 2026", quem fotografa, as avaliações e
+  o contato.
+- uma página por galeria (`gestante`, `newborn`, `familia`...): as fotos, como é o ensaio, a ficha com o valor e
+  "Quero este ensaio" (WhatsApp com o ensaio na mensagem); embaixo, os outros ensaios.
+- `valores`: o catálogo (cada ensaio com foto, texto, valor e botão) e "Como funciona".
+- `natal`: a página de Natal que já existia, com os textos de "portfólio".
+- **Valores:** a demo não inventa preço. Mostra "sob consulta" e a etiqueta "aqui entra o seu valor" (some no vídeo,
+  `?video=1`), mais um recado da Renderiza: ela manda a tabela que já usa e a gente monta.
+
+**Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
+trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.

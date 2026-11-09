@@ -8,10 +8,15 @@
 | WhatsApp | (11) 99753-3203 · celular do Perfil da Empresa no Google (+55 11 99753-3203) |
 | Horário | não confirmado |
 | Site | não tem: o Google aponta o Facebook (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
+| Entregável | **portfólio online** (09/11/2026): `index.html` (capa e galerias), `gestante.html`, `newborn.html`, `familia.html`, `valores.html` e `natal.html`. O site e o Natal saem de `ferramentas/demo/gerar-fotografia.py`; o portfólio, de `ferramentas/demo/gerar-portfolio.py demos/olivares-fotografia <site.html>`, com o site antigo tirado do git (`git show 650889b:demos/olivares-fotografia/index.html`) |
 | Situação | pronta · 06/11/2026 · `/demo/olivares-fotografia` e `/demo/olivares-fotografia/natal` |
 | Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+
+## Portfólio (09/11/2026)
+- Primeira demo no formato **portfólio online** (docs/nichos/fotografos.md, seção 10): o mesmo link (`/demo/olivares-fotografia`), o mesmo lead e o mesmo rastreio; cada página aparece na visita com o nome dela.
+- Valores: "sob consulta" com a etiqueta "aqui entra o seu valor"; não inventar preço. Quando ela mandar a tabela, entra no `valores.html` e na ficha de cada galeria.
+- Prazo da demo no banco: até 13/11/2026 (a mesma data da promoção na faixa). Se mandar depois de 10/11, estender antes.
 
 ## Direção da demo
 - Lote 3 de fotógrafos (nº 10, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.
