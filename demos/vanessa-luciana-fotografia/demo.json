@@ -672,5 +672,159 @@
    "As fotos de Natal são de anos anteriores; a de 2026 é a do cenário (sem pessoas).",
    "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Vila Moraes",
+  "h1": "Natal, smash the cake e famílias de várias gerações em São Paulo.",
+  "frase": "Bom mesmo é junto!",
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "natal:0-11",
+     "pn:2,3"
+    ],
+    "titulo": "O cenário está pronto. Agora só faltam vocês!",
+    "sub": "O cantinho de Natal 2026, com a árvore, a cabaninha e a neve.",
+    "texto": "O Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial.",
+    "selos": [
+     "Cantinho de Natal",
+     "Vila Moraes",
+     "5,0 no Google"
+    ],
+    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Caroline Trento",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 290",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e bebês",
+    "chamada": "Smash the cake",
+    "fotos": [
+     "infantil:0-7"
+    ],
+    "titulo": "Smash the cake, em 3 partes.",
+    "sub": "Fotos no cenário, brincando com o bolo e a foto do banho.",
+    "texto": "Não dá açúcar pro bebê? Não tem problema: tem a versão de bolo de fruta.",
+    "selos": [
+     "Bolo de fruta",
+     "Vila Moraes",
+     "5,0 no Google"
+    ],
+    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
+    "depo": "Silvana Silva Ferreira",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "Cenário temático",
+       "Bolo para o smash",
+       "15 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "Cenário no tema escolhido",
+       "Bolo e banho no fim",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "Tudo do Completo",
+       "40 fotos editadas",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e celebrações",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-7"
+    ],
+    "titulo": "Do bebê à bisavó.",
+    "sub": "Famílias de várias gerações, formaturas e festas de 80 anos.",
+    "texto": "80 anos não pode passar sem comemoração, não é mesmo? A família toda reunida, no estúdio ou fora dele.",
+    "selos": [
+     "4 gerações",
+     "Vila Moraes",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Aline Oliveira",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

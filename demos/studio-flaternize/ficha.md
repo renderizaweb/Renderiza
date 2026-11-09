@@ -36,3 +36,9 @@
 - O retrato com a câmera pode ser da Flávia (não está confirmado).
 - As fotos de Natal são de anos anteriores; as de 2026 só aparecem nas artes.
 - Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 320), `infantil` (Infantil e bebês, a partir de R$ 300), `gestante` (Gestante e feminino, a partir de R$ 420).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/studio-flaternize <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/studio-flaternize/index.html` e `.../natal.html`).

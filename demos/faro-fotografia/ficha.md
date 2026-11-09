@@ -36,3 +36,9 @@
 - Último post em 28/10: perfil menos ativo que as outras.
 - Horários: a agenda é exemplo, dentro do horário do Google (seg a sex 9h-18h, sáb 9h-16h).
 - Fotos de gestantes, bebês e famílias: todas publicadas pelo estúdio como portfólio. Vale confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `gestante` (Gestante, a partir de R$ 550), `newborn` (Newborn, a partir de R$ 650), `familia` (Família, a partir de R$ 450). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/faro-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/faro-fotografia/index.html` e `.../natal.html`).

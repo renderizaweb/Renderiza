@@ -37,3 +37,9 @@
 - Nota 4,7 no Google; uma avaliação antiga reclama de não atenderem o telefone.
 - Um post recente fala de diabetes tipo 1 na família (assunto pessoal; a demo não toca nisso).
 - Fotos de bebês, crianças e mães: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `aniversario` (Aniversários e temas, a partir de R$ 300), `maes` (Mães e filhos, a partir de R$ 280), `familia` (Família, a partir de R$ 320).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/carlota-joaquina-fotografia/index.html` e `.../natal.html`).

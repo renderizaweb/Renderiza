@@ -36,3 +36,9 @@
 - É uma equipe (a Lu e o Lucas); a demo cumprimenta a Lu.
 - O Google diz "Atendimento 24 horas"; a agenda é exemplo.
 - Fotos de crianças, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `festas` (Festas e 1 ano, a partir de R$ 900), `familia` (Família e gestante, a partir de R$ 450), `bebes` (Bebês, a partir de R$ 500), `natal` (Natal 2026, a partir de R$ 350).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lus-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lus-fotografia/index.html` e `.../natal.html`).

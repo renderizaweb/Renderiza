@@ -9,7 +9,8 @@
 # Uso: python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <site.html> <natal.html>
 #   <site.html> e <natal.html>: as páginas de gerar-fotografia.py (as fotos saem de dentro delas). Depois que a demo
 #   vira portfólio, elas ficam no git: git show <commit>:demos/<pasta>/index.html > site.html (idem natal.html).
-#   demo.json -> "portfolio": {h1, ensaios: [{id, galeria (id da galeria do site ou "natal"), nome, chamada, titulo,
+#   demo.json -> "portfolio": {h1, frase?, local, tom ("claro" ou escuro), vitrine ("grade" ou lista), capa?,
+#   ensaios: [{id, fotos (["galeria:0-3,5", "pn:1"]: a primeira é a capa; pn = as fotos da página de Natal antiga), nome, chamada, titulo,
 #   sub, texto, selos [3], quando, depo (nome de quem avaliou), extra {titulo, p}?, pacotes [{nome, preco, itens,
 #   destaque?}]}]}. Os pacotes de exemplo levam o selo "valores de exemplo" (some no vídeo, ?video=1).
 import html, json, os, re, sys
@@ -41,6 +42,10 @@ def imgs(trecho):
 def tag(f, prioridade=False):
     carga = ' fetchpriority="high"' if prioridade else ' loading="lazy"'
     return f'<img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{esc(f["alt"])}"{carga} style="object-position:{f["pos"]}">'
+
+
+def nome_de(n):  # "RITA DE CASSIA" / "lilian CAMPOS" -> "Rita De Cassia" / "Lilian Campos" (como a pessoa escreveu, se não for quase tudo maiúscula)
+    return n.title() if sum(c.isupper() for c in n) > len(n.replace(' ', '')) / 2 else n
 
 
 def galeria(nome, fotos):
@@ -82,7 +87,7 @@ CSS = r'''
 .pv-depo figcaption{margin-top:14px;font-size:.85rem;color:var(--tinta-2)}
 .pv-depo figcaption b{color:var(--tinta);font-weight:500}
 .pv-depo .estrelas{color:#d9a441;letter-spacing:1px}
-.pv-quando{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--tinta);color:#f4efe9;margin:clamp(28px,4vw,44px) 0 0}
+.pv-quando{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:#1f1d1b;color:#f4efe9;margin:clamp(28px,4vw,44px) 0 0}
 .pv-quando svg{width:22px;height:22px;flex:none;color:#e9b8a2;margin-top:2px}
 .pv-quando b{color:#fff;font-weight:500}
 .pv-exemplo{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:7px 12px;border-radius:999px;background:#1f1d1b;color:#fff;font-size:.74rem;letter-spacing:.04em}
@@ -131,6 +136,20 @@ CSS = r'''
 .pv-barra span b{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--tinta)}
 .pv-barra .botao{min-height:46px;padding:10px 18px;font-size:.86rem;flex:none}
 .rz-folha .pv-dica-rz{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
+/* no computador, a capa fica ao lado do texto: a foto em pé aparece inteira, sem cortar rosto */
+@media(min-width:861px){.pv-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:0;background:var(--tinta)}
+.pv-hero::after{display:none}.pv-hero>img{position:relative;grid-column:2;grid-row:1;height:min(84vh,780px);width:100%}
+.pv-hero .container{grid-column:1;grid-row:1;width:auto;max-width:640px;margin:0 0 0 auto;padding:clamp(48px,6vw,90px) clamp(28px,4vw,64px);align-self:center}
+.pv-claro .pv-hero{background:var(--areia);color:var(--tinta)}.pv-claro .pv-hero h1,.pv-claro .pv-hero .eyebrow{color:var(--tinta)}.pv-claro .pv-hero h1 em{color:var(--acento)}
+.pv-claro .pv-hero p{color:var(--tinta-2)}.pv-claro .pv-prova{background:var(--papel);color:var(--tinta);border:1px solid var(--linha)}
+.pv-claro .pv-acoes .botao--vidro{color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 35%,transparent);background:transparent}}
+.pv-vitrine--grade{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pv-vitrine--grade .pv-card{grid-template-columns:1fr;min-height:0}
+.pv-vitrine--grade .pv-card figure{aspect-ratio:4/5}
+.pv-vitrine--grade .pv-card>div{padding:16px 16px 18px;justify-content:flex-start}
+.pv-vitrine--grade .pv-card h2{font-size:clamp(1.3rem,2vw,1.6rem)}
+.pv-vitrine--grade .pv-card>div>p:not(.pv-apartir):not(.eyebrow){display:none}
+@media(max-width:860px){.pv-vitrine--grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pv-vitrine--grade .pv-card{grid-template-columns:1fr}.pv-vitrine--grade .pv-card>div{padding:12px}.pv-vitrine--grade .pv-card h2{font-size:1.15rem}.pv-vitrine--grade .pv-card .eyebrow{font-size:.6rem;letter-spacing:.14em}.pv-vitrine--grade .link{display:none!important}}
 @media(max-width:860px){.pv-pacotes{grid-template-columns:1fr;gap:22px}.pv-pac--destaque{order:-1}.pv-historia{grid-template-columns:1fr}
 .pv-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:0}.pv-card h2{font-size:1.5rem}.pv-card>div{padding:16px}.pv-card p{display:none}.pv-card .pv-apartir{display:block}.pv-card .pv-apartir b{font-size:1.35rem}
 .pv-barra{display:flex}.pv-tem-barra{padding-bottom:72px}.pv-tem-barra .flutuante{display:none}.pv-tem-barra .rz-pilula{bottom:84px}.pv-tem-barra .rz-folha{bottom:138px}}
@@ -172,12 +191,26 @@ def gerar(pasta, site_html, natal_html):
     galerias = {}
     for m in re.finditer(r'<div class="painel[^"]*" id="painel-([a-z0-9-]+)".*?<h3 class="painel-titulo">.*?</h3>(<div class="galeria".*?</div>)</div>', s, re.S):
         galerias[m.group(1)] = imgs(m.group(2))
-    galerias['natal'] = [f for f in imgs(natal) if f['w'] >= 600 and ('Natal' in f['alt'] or 'cenário' in f['alt'])]
+    galerias['pn'] = [f for f in imgs(natal) if f['w'] >= 500]  # as fotos da página de Natal antiga, na ordem
+    if 'natal' not in galerias: galerias['natal'] = [f for f in galerias['pn'] if 'Natal' in f['alt'] or 'cenário' in f['alt']]
+
+    def fotos_de(refs):
+        """["natal:2-7,9", "pn:2", "familia"] -> as fotos, na ordem (a primeira é a capa)."""
+        out = []
+        for r in ([refs] if isinstance(refs, str) else refs):
+            g, _, idx = r.partition(':'); lista = galerias.get(g) or sys.exit(f'galeria {g} não existe ({", ".join(galerias)})')
+            if not idx: out += lista; continue
+            for parte in idx.split(','):
+                a, _, b = parte.partition('-')
+                for i in range(int(a), int(b or a) + 1): out.append(lista[i])
+        return out
     capa_site = imgs(pegar(r'<div class="mosaico">.*?</div>', s))
     nota, total = cfg['google_nota'], cfg['google_total']
     prova_txt = (f'{nota} · ' if str(nota).startswith('5') else '') + f'{total} avaliações no Google'
     nome_marca = cfg['marca']
-    ensaios = [e for e in pf['ensaios'] if galerias.get(e['galeria'])]
+    for e in pf['ensaios']: e['_fotos'] = fotos_de(e.get('fotos') or e['galeria'])
+    ensaios = [e for e in pf['ensaios'] if len(e['_fotos']) >= 2]
+    local = pf.get('local', '')
 
     def wa(msg): return f'https://wa.me/{fone}?text={quote(msg)}'
 
@@ -230,7 +263,7 @@ def gerar(pasta, site_html, natal_html):
         h = re.sub(r'<!-- .*? -->', f'<!-- Portfólio de {esc(nome_marca)} (demo da Renderiza): gerado por ferramentas/demo/gerar-portfolio.py. Pacotes e valores de exemplo. -->', h, count=1, flags=re.S)
         links = ''.join(f'<a {link(e["id"])}>{esc(e["nome"])}</a>' for e in ensaios)
         r = re.sub(r'<nav aria-label="Links">.*?</nav>', lambda _: f'<nav aria-label="Links">{links}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>', rodape, flags=re.S)
-        classe = 'pagina-site pv-pagina' + (' pv-tem-barra' if barra else '')
+        classe = 'pagina-site pv-pagina' + (' pv-tem-barra' if barra else '') + (' pv-claro' if pf.get('tom') == 'claro' else '')
         doc = (h + f'\n<body class="{classe}">\n' + sprite + '\n' + rz(faixa, nome) + '\n' + cabecalho(nome)
                + f'\n<main id="inicio">\n{corpo}\n</main>\n' + r + '\n' + barra + '\n' + lb + '\n' + rz(folha, nome) + rz(fim, nome)
                + (BARRA_JS if barra else '') + '</body>\n</html>\n')
@@ -240,22 +273,23 @@ def gerar(pasta, site_html, natal_html):
     def a_partir(e): return min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
 
     def outro(e):
-        return f'<a class="pv-outro" {link(e["id"])}>{tag(galerias[e["galeria"]][0])}<span><b>{esc(e["nome"])}</b><small>a partir de {esc(a_partir(e))}</small></span></a>'
+        return f'<a class="pv-outro" {link(e["id"])}>{tag(e["_fotos"][0])}<span><b>{esc(e["nome"])}</b><small>a partir de {esc(a_partir(e))}</small></span></a>'
 
     prova = f'<a class="pv-prova" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span>{esc(prova_txt)}</a>'
     exemplo = f'<p class="pv-exemplo">{BRILHO}Pacotes e valores de exemplo: você coloca os seus</p>'
     feitas = []
 
     # ---------- a vitrine ----------
-    cards = ''.join(f'''<a class="pv-card reveal" {link(e["id"])}><figure>{tag(galerias[e["galeria"]][0])}</figure><div>
+    cards = ''.join(f'''<a class="pv-card reveal" {link(e["id"])}><figure>{tag(e["_fotos"][0])}</figure><div>
   <p class="eyebrow">{esc(e["chamada"])}</p><h2>{esc(e["titulo"])}</h2><p>{esc(e["sub"])}</p>
   <p class="pv-apartir">a partir de <b>{esc(a_partir(e))}</b></p><span class="link">Ver fotos e pacotes {SETA}</span></div></a>''' for e in ensaios)
-    capa = capa_site[0] if capa_site else galerias[ensaios[0]['galeria']][0]
+    capa = fotos_de(pf['capa'])[0] if pf.get('capa') else (capa_site[0] if capa_site else ensaios[0]['_fotos'][0])
     corpo = f'''<section class="pv-hero" aria-labelledby="titulo-site">
   {tag(capa, True)}
   <div class="container">
     <p class="eyebrow">{esc(nome_marca)}</p>
     <h1 id="titulo-site">{esc(pf["h1"])}</h1>
+    {f'<p>{esc(pf["frase"])}</p>' if pf.get("frase") else ""}
     {prova}
     <div class="pv-acoes"><a class="botao" href="#ensaios">Ver ensaios e valores {SETA}</a><a class="botao botao--vidro" data-whatsapp href="#">{WA}WhatsApp</a></div>
   </div>
@@ -264,7 +298,7 @@ def gerar(pasta, site_html, natal_html):
   <div class="container">
     <div class="pv-cab"><h2 id="ensaios-titulo">Escolha <em>o seu ensaio.</em></h2><small>fotos, pacotes e valores</small></div>
     {exemplo}
-    <div class="pv-vitrine">{cards}</div>
+    <div class="pv-vitrine{" pv-vitrine--grade" if pf.get("vitrine") == "grade" else ""}">{cards}</div>
   </div>
 </section>
 {depo}
@@ -274,13 +308,13 @@ def gerar(pasta, site_html, natal_html):
 
     # ---------- uma página de venda por ensaio ----------
     for e in ensaios:
-        fotos = galerias[e['galeria']]
+        fotos = e['_fotos']
 
         def msg(pac=None, e=e):
             return f'Olá! Vi o portfólio de {nome_marca} e quero o {e["chamada"].lower()}' + (f', pacote {pac}' if pac else '') + '. Quais datas vocês têm?'
         av = avals.get(e.get('depo')) or next(iter(avals.values()), None)
         depo_html = (f'<figure class="pv-depo reveal"><blockquote>“{esc(av["quote"].strip("…").strip())}”</blockquote>'
-                     f'<figcaption><span class="estrelas" aria-hidden="true">★★★★★</span> <b>{esc(av["name"])}</b>, no Google</figcaption></figure>') if av else ''
+                     f'<figcaption><span class="estrelas" aria-hidden="true">★★★★★</span> <b>{esc(nome_de(av["name"]))}</b>, no Google</figcaption></figure>') if av else ''
         pacotes = ''.join(f'''<article class="pv-pac{" pv-pac--destaque" if p.get("destaque") else ""}">{'<span class="pv-selo">Mais escolhido</span>' if p.get("destaque") else ''}
   <h3>{esc(p["nome"])}</h3><p class="pv-preco">{esc(p["preco"])}</p>
   <ul>{"".join(f"<li>{esc(i)}</li>" for i in p["itens"])}</ul>
@@ -293,7 +327,7 @@ def gerar(pasta, site_html, natal_html):
         corpo = f'''<section class="pv-hero" aria-labelledby="titulo-ensaio">
   {tag(fotos[0], True)}
   <div class="container">
-    <p class="eyebrow">{esc(e["chamada"])} · Suzano</p>
+    <p class="eyebrow">{esc(e["chamada"])}{" · " + esc(local) if local else ""}</p>
     <h1 id="titulo-ensaio">{esc(e["titulo"])}</h1>
     <p>{esc(e["sub"])}</p>
     {prova}
@@ -339,7 +373,9 @@ def gerar(pasta, site_html, natal_html):
                  f'<a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu</a></div>')
         feitas.append(montar(e['id'], f'{e["chamada"]} | {nome_marca}', f'{e["chamada"]} com {nome_marca}: {e["sub"]} Fotos, pacotes e valores.', corpo, barra))
 
-    if os.path.exists(os.path.join(pasta, 'valores.html')): os.remove(os.path.join(pasta, 'valores.html'))
+    # páginas que sobraram da demo antiga (o natal.html de quem não tem Natal, o valores.html da versão 1) saem do ar
+    for f in os.listdir(pasta):
+        if f.endswith('.html') and f not in feitas: os.remove(os.path.join(pasta, f)); feitas.append(f'({f} removida)')
     print('portfólio:', ', '.join(feitas))
 
 

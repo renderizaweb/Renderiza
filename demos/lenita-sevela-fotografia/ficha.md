@@ -36,3 +36,9 @@
 - **Ela não divulgou o Natal 2026**: a página de Natal é sugestão (uma cliente diz que faz o Natal com ela todo ano).
 - O retrato com a câmera pode ser da Lenita (não confirmado).
 - Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `mesames` (Mês a mês e smash, a partir de R$ 200), `gestante` (Gestante e bebês, a partir de R$ 380), `familia` (Família, a partir de R$ 320). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lenita-sevela-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lenita-sevela-fotografia/index.html` e `.../natal.html`).

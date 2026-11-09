@@ -696,5 +696,158 @@
    "Quase todas as fotos da página são quadradas e em 1080 px: ficam bem, mas não tão nítidas quanto as das outras demos.",
    "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Zona Norte de SP",
+  "h1": "Natal, bebês, festas e famílias na Zona Norte de São Paulo.",
+  "frase": "Momentos que merecem ser eternizados.",
+  "tom": "claro",
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "natal:0-11"
+    ],
+    "titulo": "O Natal mais encantador chegou ao estúdio!",
+    "sub": "Cenários lindos e exclusivos: a cozinha de Natal, com as crianças de confeiteiras, e a lareira.",
+    "texto": "O Natal é tempo de amor, união e magia: um ensaio para viver essa experiência ao lado de quem você ama.",
+    "selos": [
+     "Cozinha de Natal",
+     "Zona Norte de SP",
+     "5,0 no Google"
+    ],
+    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Debora Barboza Pital",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 300",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 460",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 660",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e aniversários",
+    "chamada": "Ensaio de bebê",
+    "fotos": [
+     "bebes:4,0-3,5-11"
+    ],
+    "titulo": "Do newborn ao primeiro aninho.",
+    "sub": "O acompanhamento mês a mês do bebê, até 1 ano, e as festas de todas as idades.",
+    "texto": "Realizo o acompanhamento mês a mês do seu bebê até 1 ano, com um tema para cada fase.",
+    "selos": [
+     "Mês a mês até 1 ano",
+     "Zona Norte de SP",
+     "5,0 no Google"
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Danielle Teixeira",
+    "pacotes": [
+     {
+      "nome": "Mês avulso",
+      "preco": "R$ 200",
+      "itens": [
+       "1 cenário temático",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Trimestral",
+      "preco": "R$ 720",
+      "itens": [
+       "4 ensaios no primeiro ano",
+       "Cenário temático em cada um",
+       "10 fotos por ensaio"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Plano 12 meses",
+      "preco": "R$ 1.920",
+      "itens": [
+       "Um ensaio por mês",
+       "Cenário novo a cada mês",
+       "Smash the cake de 1 ano incluso"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e gestante",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-7"
+    ],
+    "titulo": "Não deixe de registrar este momento lindo.",
+    "sub": "Gestantes e famílias, no estúdio ou externo.",
+    "texto": "Natal, Ano Novo, Páscoa, Dia das Mães e Dia dos Pais: um tema para cada data do ano.",
+    "selos": [
+     "Estúdio ou externo",
+     "Zona Norte de SP",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "RITA DE CASSIA XAVIER DE LIMA BARROSO",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

@@ -36,3 +36,9 @@
 - Telefone: o Google tem (11) 93226-4037 e um post tem (11) 94226-4037; a demo usa o do Google.
 - A única foto de Natal é do Google (casal na cozinha de Natal); o cenário 2026 estreia em 05/11.
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `smash` (Smash e 1 ano, a partir de R$ 350), `mesames` (Mês a mês, a partir de R$ 180), `familia` (Família, a partir de R$ 290). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/amanda-soares-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/amanda-soares-fotografia/index.html` e `.../natal.html`).

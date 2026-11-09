@@ -673,5 +673,214 @@
    "A maquiagem dos ensaios de Natal é de uma parceira (@gabrielamacielmakeup nas legendas); a página diz só \"com maquiagem\".",
    "Fotos de gestantes, crianças e clientes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Guarulhos",
+  "h1": "Gestantes, ensaios femininos e famílias em Guarulhos.",
+  "frase": "A arte de desenhar com a luz.",
+  "tom": "claro",
+  "ensaios": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "fotos": [
+     "gestante:1,0,2-9"
+    ],
+    "titulo": "A gestação, desenhada com a luz.",
+    "sub": "Vestidos, fundo escuro e luz de estúdio.",
+    "texto": "Vivendo da fotografia desde 2016, a Ray guia cada pose para a gestante se ver linda.",
+    "selos": [
+     "Direção em cada pose",
+     "Guarulhos",
+     "5,0 no Google"
+    ],
+    "quando": "O período recomendado para o ensaio é entre 26 e 32 semanas: agende com antecedência.",
+    "depo": "Ludymila Madalena",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 650",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 950",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "feminino",
+    "nome": "Feminino e aniversário",
+    "chamada": "Ensaio feminino",
+    "fotos": [
+     "feminino:0-7"
+    ],
+    "titulo": "Seu aniversário merece um momento só seu.",
+    "sub": "Ensaios femininos com bolo, vestido e luz de estúdio.",
+    "texto": "Fotografias apaixonantes, sem perder a identidade de cada mulher.",
+    "selos": [
+     "Fundo vermelho",
+     "Guarulhos",
+     "5,0 no Google"
+    ],
+    "quando": "Agende perto da data: o seu aniversário merece um momento só seu.",
+    "depo": "Eliana Cardoso Ramos",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 400",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 600",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Direção em cada pose"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 850",
+      "itens": [
+       "2 horas de ensaio",
+       "40 fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e família",
+    "chamada": "Ensaio infantil",
+    "fotos": [
+     "infantil:1-8"
+    ],
+    "titulo": "Entre sorrisos, olhares e abraços.",
+    "sub": "Ensaios temáticos, como o Especial Princesas, e a família junta.",
+    "texto": "O amor e a alegria de estar juntos, com a mesma luz dos retratos da Ray.",
+    "selos": [
+     "Especial Princesas",
+     "Guarulhos",
+     "5,0 no Google"
+    ],
+    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
+    "depo": "Julia Brandão",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 680",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "infantil:0",
+     "pn:1"
+    ],
+    "titulo": "A minha edição de Natal 2026.",
+    "sub": "Um cenário encantador, cheio de aconchego e magia.",
+    "texto": "O Natal fica ainda mais especial quando estamos pertinho de quem amamos.",
+    "selos": [
+     "Reservas abertas",
+     "Guarulhos",
+     "5,0 no Google"
+    ],
+    "quando": "As reservas já estão abertas: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Rafael Xenofonte",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 300",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 460",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 660",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

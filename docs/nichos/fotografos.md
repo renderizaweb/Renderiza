@@ -270,5 +270,17 @@ mesmo visual, a mesma faixa da Renderiza e o mesmo rastreio (cada página conta 
 - Na faixa da Renderiza: "o portfólio completo (5 páginas)" e a dica "perguntaram quanto custa o newborn? Mande o link
   da página do newborn".
 
+**Aplicado às 21 prontas para trabalhar (09/11/2026, pedido do Kaue):** as 20 fotógrafas em "demo pronta" e "a
+trabalhar", mais a Olivares. Cada uma com a personalidade dela: os títulos saem das legendas e da bio dela (ex.: "Criança
+agitada não é problema. É matéria-prima", da Lus; "Quem aí também é apaixonado por produções lúdicas?", da Lenita), as
+páginas seguem os ensaios que ela faz (corporativo da Camila, newborn a domicílio da Roberta, intrauterino e parto da
+Faro, feminino da Ray), o "quando fazer" usa o dela quando ela publicou (26 a 32 semanas da Ray, até 10 dias da Faro,
+13 a 25 dias da Roberta, as datas do Natal da Lus e da Thay) e o layout varia: tom claro ou escuro na capa do
+computador e a vitrine em lista ou em grade (grade para os estúdios de cenário temático e colorido). As fotos de cada
+página foram escolhidas uma a uma (folha de contato): capa em pé, sem capa de vídeo, sem arte nem foto repetida. Quem não
+tem foto do Natal 2026 ficou sem página de Natal (Amanda, Faro, Lenita, Mayara, Roberta e Silvia). O texto e as fotos de
+cada uma ficam no `demo.json` (`portfolio`, com `fotos: ["galeria:0-3", "pn:1"]`, `pn` = as fotos da página de Natal
+antiga) e a ficha diz como gerar de novo.
+
 **Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
 trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.

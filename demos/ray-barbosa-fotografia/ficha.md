@@ -36,3 +36,9 @@
 - Ela faz muito ensaio feminino sensual; a demo mostra só os vestidos e retratos.
 - A maquiagem dos ensaios de Natal é de uma parceira (@gabrielamacielmakeup nas legendas); a página diz só "com maquiagem".
 - Fotos de gestantes, crianças e clientes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `gestante` (Gestante, a partir de R$ 450), `feminino` (Feminino e aniversário, a partir de R$ 400), `infantil` (Infantil e família, a partir de R$ 350), `natal` (Natal 2026, a partir de R$ 300).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/ray-barbosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/ray-barbosa-fotografia/index.html` e `.../natal.html`).

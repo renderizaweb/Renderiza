@@ -36,3 +36,9 @@
 - As fotos de Natal são de anos anteriores; o cenário de 2026 só aparece em arte e vídeo.
 - Uma avaliação cita "ela e a assistente".
 - Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 320), `gestante` (Gestante, a partir de R$ 420), `newborn` (Newborn, a partir de R$ 480), `familia` (Infantil e família, a partir de R$ 320).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thayuane-rosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thayuane-rosa-fotografia/index.html` e `.../natal.html`).

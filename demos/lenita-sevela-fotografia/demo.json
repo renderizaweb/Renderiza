@@ -665,5 +665,162 @@
    "O retrato com a câmera pode ser da Lenita (não confirmado).",
    "Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Osasco",
+  "h1": "Mês a mês, smash, gestantes e famílias em Osasco.",
+  "frase": "Cada fase é preciosa demais de registrar.",
+  "tom": "claro",
+  "vitrine": "grade",
+  "ensaios": [
+   {
+    "id": "mesames",
+    "nome": "Mês a mês e smash",
+    "chamada": "Ensaio mês a mês",
+    "fotos": [
+     "mensal:5,0-4,6-11"
+    ],
+    "titulo": "Quem aí também é apaixonado por produções lúdicas?",
+    "sub": "Shrek, Moana, Monstros S.A., Toy Story, fundo do mar: um cenário montado a cada ensaio.",
+    "texto": "O tempo voa, e cada fase é preciosa demais de registrar: um cenário novo a cada mês, até o smash do primeiro aninho.",
+    "selos": [
+     "Produções lúdicas",
+     "Osasco",
+     "5,0 no Google"
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Denise Teixeira",
+    "pacotes": [
+     {
+      "nome": "Mês avulso",
+      "preco": "R$ 200",
+      "itens": [
+       "1 cenário temático",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Trimestral",
+      "preco": "R$ 720",
+      "itens": [
+       "4 ensaios no primeiro ano",
+       "Cenário temático em cada um",
+       "10 fotos por ensaio"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Plano 12 meses",
+      "preco": "R$ 1.920",
+      "itens": [
+       "Um ensaio por mês",
+       "Cenário novo a cada mês",
+       "Smash the cake de 1 ano incluso"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e bebês",
+    "chamada": "Ensaio gestante",
+    "fotos": [
+     "gestante:0-3,5,6"
+    ],
+    "titulo": "Vestidos, flores e o casal junto.",
+    "sub": "A gestação no estúdio, e o bebê logo depois, com delicadeza e música de ninar.",
+    "texto": "Do ensaio gestante ao newborn: a Lenita acompanha a família desde a barriga.",
+    "selos": [
+     "Música de ninar no newborn",
+     "Osasco",
+     "5,0 no Google"
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Lygia Martini",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 380",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 580",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 880",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-7"
+    ],
+    "titulo": "Famílias que voltam todo ano.",
+    "sub": "Até no Natal.",
+    "texto": "Tem família que faz o ensaio com a Lenita todos os anos: o aniversário, o Natal, a família que cresce.",
+    "selos": [
+     "Famílias que voltam",
+     "Osasco",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Danilla Miranda",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

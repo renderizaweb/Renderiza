@@ -642,5 +642,114 @@
    "O retrato do \"quem fotografa\" pode ser dela (não confirmado).",
    "Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Grande São Paulo",
+  "h1": "Ensaio newborn em casa, com segurança.",
+  "frase": "Nós iremos até você para eternizá-lo.",
+  "tom": "claro",
+  "ensaios": [
+   {
+    "id": "newborn",
+    "nome": "Newborn em casa",
+    "chamada": "Newborn em casa",
+    "fotos": [
+     "detalhes:0-9",
+     "newborn:0-5"
+    ],
+    "titulo": "Pureza e delicadeza, no conforto da sua casa.",
+    "sub": "Cestinhos, caminhas, flores e mantas cor-de-rosa.",
+    "texto": "A Sil leva os cenários e os detalhes até a família: o nome no bastidor, a coroinha, a touquinha de tricô.",
+    "selos": [
+     "Com segurança",
+     "Grande São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "O newborn é feito nos primeiros dias de vida: reserve ainda na gestação, pela data prevista do parto.",
+    "depo": "Luiza Alcantara",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 500",
+      "itens": [
+       "Na sua casa, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios inclusos",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 700",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.000",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-6"
+    ],
+    "titulo": "Uma marca na vida dos pais e dos irmãos.",
+    "sub": "A família toda com o recém-nascido, em casa.",
+    "texto": "Uma marca significativa na vida dos pais, dos irmãos e do recém-nascido.",
+    "selos": [
+     "Em casa",
+     "Grande São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Carla França",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 600",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 800",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

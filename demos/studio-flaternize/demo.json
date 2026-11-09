@@ -676,5 +676,162 @@
    "As fotos de Natal são de anos anteriores; as de 2026 só aparecem nas artes.",
    "Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Mogi das Cruzes",
+  "h1": "Natal, crianças, gestantes e famílias em Mogi das Cruzes.",
+  "frase": "Mais que um ensaio: uma experiência.",
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "natal:0-11"
+    ],
+    "titulo": "Eterna magia.",
+    "sub": "Dois cenários de Natal 2026: a Sala e o Celeiro.",
+    "texto": "Nunca vou oferecer apenas um ensaio simples de fotos: aqui vocês vivem uma experiência e saem querendo mais.",
+    "selos": [
+     "A Sala e o Celeiro",
+     "Mogi das Cruzes",
+     "5,0 no Google"
+    ],
+    "quando": "O Especial de Natal 2026 tem pouquíssimas vagas: reserve o seu horário.",
+    "depo": "Jonathas Santos",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 320",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 480",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 680",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e bebês",
+    "chamada": "Ensaio infantil",
+    "fotos": [
+     "infantil:2,0,1,3-8"
+    ],
+    "titulo": "Do Homem-Aranha ao aniversário.",
+    "sub": "Com paciência e cuidado com as crianças.",
+    "texto": "Ensaios do bebê ao longo do primeiro ano, até o smash the cake.",
+    "selos": [
+     "Paciência com as crianças",
+     "Mogi das Cruzes",
+     "5,0 no Google"
+    ],
+    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
+    "depo": "Thaina Vieira",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e feminino",
+    "chamada": "Ensaio gestante",
+    "fotos": [
+     "gestante:0-7"
+    ],
+    "titulo": "O acompanhamento começa no positivo.",
+    "sub": "Gestantes e ensaios femininos, com ajuda em cada pose.",
+    "texto": "Do positivo ao bebê no colo: a Flávia acompanha a família em cada fase.",
+    "selos": [
+     "Ajuda em cada pose",
+     "Mogi das Cruzes",
+     "5,0 no Google"
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Lígia Pinheiro Martins",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 420",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 620",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 920",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

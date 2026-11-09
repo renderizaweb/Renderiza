@@ -35,3 +35,9 @@
 ## Conferir antes de mandar
 - As fotos de Natal são de anos anteriores; o cenário 2026 só aparece num reel.
 - Fotos de crianças, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 290), `familia` (Família, a partir de R$ 320), `bebes` (Bebês e gestante, a partir de R$ 320).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/reviver-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/reviver-fotografia/index.html` e `.../natal.html`).

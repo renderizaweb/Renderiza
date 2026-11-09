@@ -35,3 +35,9 @@
 - Endereço: a bio diz "Rua Nicolina La Pena Turri, 210"; o Google, R. Nicolina La Pena Turriano, Jardim Álamo. Posts antigos marcam Arujá (#estudioemaruja).
 - Horários: a agenda é exemplo (dito na página); o Google não mostra horário.
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 300), `gestante` (Gestante, a partir de R$ 400), `newborn` (Newborn, a partir de R$ 500), `mesames` (Mês a mês e smash, a partir de R$ 200), `familia` (Família, a partir de R$ 300).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mariana-lima-fotografia/index.html` e `.../natal.html`).

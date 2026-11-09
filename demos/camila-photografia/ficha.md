@@ -35,3 +35,9 @@
 ## Conferir antes de mandar
 - **No Google, uma avaliação acusa "retenção de fotos pagas"** (não entrou na demo; vale saber antes do contato).
 - Fotos de crianças e retratos de clientes: todos publicados por ela como portfólio. Vale ela confirmar se pode usar todos no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 290), `infantil` (Infantil e aniversário, a partir de R$ 300), `corporativo` (Corporativo, a partir de R$ 250).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/camila-photografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/camila-photografia/index.html` e `.../natal.html`).

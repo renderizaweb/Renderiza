@@ -718,5 +718,163 @@
    "**No Google, uma avaliação acusa \"retenção de fotos pagas\"** (não entrou na demo; vale saber antes do contato).",
    "Fotos de crianças e retratos de clientes: todos publicados por ela como portfólio. Vale ela confirmar se pode usar todos no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Zona Leste de SP",
+  "h1": "Natal, crianças e retratos na Zona Leste de São Paulo.",
+  "frase": "Acompanhar as famílias e registrar cada nova fase.",
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "natal:0,1",
+     "pn:2"
+    ],
+    "titulo": "A cozinha já está pronta.",
+    "sub": "O ensaio de Natal na cozinha da Camila, cheio de brincadeiras.",
+    "texto": "Pelo segundo ano, tem família que escolhe o olhar da Camila no Natal: um ensaio cheio de brincadeiras e lembranças que ficam para sempre.",
+    "selos": [
+     "Cozinha de Natal",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "As reservas do Natal já estão acontecendo: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Adri e Artur FS",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 290",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversário",
+    "chamada": "Ensaio infantil",
+    "fotos": [
+     "natal:2-7"
+    ],
+    "titulo": "Festas e aniversários cheios de sorrisos.",
+    "sub": "Crianças à vontade, com luz de estúdio e muita brincadeira.",
+    "texto": "Do primeiro aninho aos 40 anos: a Camila acompanha as famílias e registra cada nova fase.",
+    "selos": [
+     "Luz de estúdio",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
+    "depo": "Gabriela Silva",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "corporativo",
+    "nome": "Corporativo",
+    "chamada": "Retrato corporativo",
+    "fotos": [
+     "corporativo:0-11",
+     "masculino:0-7"
+    ],
+    "titulo": "Retratos profissionais, com direção em cada pose.",
+    "sub": "Para o LinkedIn, o site, as redes e o crachá.",
+    "texto": "A Camila guia cada pose e cada expressão, com luz de estúdio, para o retrato que você precisa.",
+    "selos": [
+     "Direção de pose",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "Comece o ano com o retrato novo: reserve antes da correria de dezembro.",
+    "depo": "Tatiane Marinho Quintiliano",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 250",
+      "itens": [
+       "30 minutos",
+       "5 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Profissional",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora",
+       "15 fotos editadas",
+       "2 looks",
+       "Direção de pose"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Marca pessoal",
+      "preco": "R$ 750",
+      "itens": [
+       "2 horas",
+       "30 fotos editadas",
+       "3 looks",
+       "Fotos para as redes"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

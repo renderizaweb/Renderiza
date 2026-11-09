@@ -330,7 +330,7 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 .pv-depo figcaption{margin-top:14px;font-size:.85rem;color:var(--tinta-2)}
 .pv-depo figcaption b{color:var(--tinta);font-weight:500}
 .pv-depo .estrelas{color:#d9a441;letter-spacing:1px}
-.pv-quando{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--tinta);color:#f4efe9;margin:clamp(28px,4vw,44px) 0 0}
+.pv-quando{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:#1f1d1b;color:#f4efe9;margin:clamp(28px,4vw,44px) 0 0}
 .pv-quando svg{width:22px;height:22px;flex:none;color:#e9b8a2;margin-top:2px}
 .pv-quando b{color:#fff;font-weight:500}
 .pv-exemplo{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:7px 12px;border-radius:999px;background:#1f1d1b;color:#fff;font-size:.74rem;letter-spacing:.04em}
@@ -379,6 +379,20 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 .pv-barra span b{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--tinta)}
 .pv-barra .botao{min-height:46px;padding:10px 18px;font-size:.86rem;flex:none}
 .rz-folha .pv-dica-rz{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
+/* no computador, a capa fica ao lado do texto: a foto em pé aparece inteira, sem cortar rosto */
+@media(min-width:861px){.pv-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:0;background:var(--tinta)}
+.pv-hero::after{display:none}.pv-hero>img{position:relative;grid-column:2;grid-row:1;height:min(84vh,780px);width:100%}
+.pv-hero .container{grid-column:1;grid-row:1;width:auto;max-width:640px;margin:0 0 0 auto;padding:clamp(48px,6vw,90px) clamp(28px,4vw,64px);align-self:center}
+.pv-claro .pv-hero{background:var(--areia);color:var(--tinta)}.pv-claro .pv-hero h1,.pv-claro .pv-hero .eyebrow{color:var(--tinta)}.pv-claro .pv-hero h1 em{color:var(--acento)}
+.pv-claro .pv-hero p{color:var(--tinta-2)}.pv-claro .pv-prova{background:var(--papel);color:var(--tinta);border:1px solid var(--linha)}
+.pv-claro .pv-acoes .botao--vidro{color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 35%,transparent);background:transparent}}
+.pv-vitrine--grade{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pv-vitrine--grade .pv-card{grid-template-columns:1fr;min-height:0}
+.pv-vitrine--grade .pv-card figure{aspect-ratio:4/5}
+.pv-vitrine--grade .pv-card>div{padding:16px 16px 18px;justify-content:flex-start}
+.pv-vitrine--grade .pv-card h2{font-size:clamp(1.3rem,2vw,1.6rem)}
+.pv-vitrine--grade .pv-card>div>p:not(.pv-apartir):not(.eyebrow){display:none}
+@media(max-width:860px){.pv-vitrine--grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pv-vitrine--grade .pv-card{grid-template-columns:1fr}.pv-vitrine--grade .pv-card>div{padding:12px}.pv-vitrine--grade .pv-card h2{font-size:1.15rem}.pv-vitrine--grade .pv-card .eyebrow{font-size:.6rem;letter-spacing:.14em}.pv-vitrine--grade .link{display:none!important}}
 @media(max-width:860px){.pv-pacotes{grid-template-columns:1fr;gap:22px}.pv-pac--destaque{order:-1}.pv-historia{grid-template-columns:1fr}
 .pv-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:0}.pv-card h2{font-size:1.5rem}.pv-card>div{padding:16px}.pv-card p{display:none}.pv-card .pv-apartir{display:block}.pv-card .pv-apartir b{font-size:1.35rem}
 .pv-barra{display:flex}.pv-tem-barra{padding-bottom:72px}.pv-tem-barra .flutuante{display:none}.pv-tem-barra .rz-pilula{bottom:84px}.pv-tem-barra .rz-folha{bottom:138px}}
@@ -429,6 +443,7 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
   <div class="container">
     <p class="eyebrow">Estúdio Olivares Fotografia</p>
     <h1 id="titulo-site">Ensaios de gestante, newborn e família em Suzano.</h1>
+    
     <a class="pv-prova" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span>5,0 · 49 avaliações no Google</a>
     <div class="pv-acoes"><a class="botao" href="#ensaios">Ver ensaios e valores <svg aria-hidden="true"><use href="#seta"/></svg></a><a class="botao botao--vidro" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>WhatsApp</a></div>
   </div>

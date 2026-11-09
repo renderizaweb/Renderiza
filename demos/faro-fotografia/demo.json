@@ -634,5 +634,168 @@
    "Horários: a agenda é exemplo, dentro do horário do Google (seg a sex 9h-18h, sáb 9h-16h).",
    "Fotos de gestantes, bebês e famílias: todas publicadas pelo estúdio como portfólio. Vale confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "São Paulo",
+  "h1": "Gestante, newborn e família em São Paulo.",
+  "frase": "Fotografia sensível para eternizar o início de uma história.",
+  "ensaios": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "fotos": [
+     "gestante:0-9"
+    ],
+    "titulo": "O início de uma história.",
+    "sub": "Diversos cenários, figurinos, a banheira de leite e o ensaio vogue.",
+    "texto": "A Fabi guia cada pose, com figurinos para as mamães e cenários que mudam a cada ensaio.",
+    "selos": [
+     "Figurinos para a mamãe",
+     "São Paulo",
+     "45 avaliações no Google"
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Bruna Carvalho",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 550",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 750",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.050",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ],
+    "extra": {
+     "titulo": "Intrauterino e parto",
+     "p": "Uma imagem do bebê como se ainda estivesse na barriga, e a fotografia do parto, num dos momentos mais importantes da família."
+    }
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "fotos": [
+     "newborn:0-5"
+    ],
+    "titulo": "Quando o bebê ainda dorme bastante.",
+    "sub": "Sempre respeitando o conforto e o tempo do bebê.",
+    "texto": "O newborn é feito nos primeiros dias, quando o bebê dorme bastante e fica tranquilo nas poses.",
+    "selos": [
+     "Até os 10 dias",
+     "São Paulo",
+     "45 avaliações no Google"
+    ],
+    "quando": "Melhor época: preferencialmente até os 10 dias de vida. Reserve ainda na gestação, pela data prevista do parto.",
+    "depo": "Sheila Sibia",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 650",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios do estúdio",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 850",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.150",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-5",
+     "pn:1,4"
+    ],
+    "titulo": "A vida passa, a família cresce e as fotografias ficam.",
+    "sub": "Quantas vezes a família inteira aparece na mesma fotografia?",
+    "texto": "Um ensaio para reunir todo mundo, do bebê aos irmãos mais velhos.",
+    "selos": [
+     "A família inteira",
+     "São Paulo",
+     "45 avaliações no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Mariana Alves Vieira",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 600",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 800",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

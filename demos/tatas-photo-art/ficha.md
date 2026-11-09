@@ -36,3 +36,9 @@
 - As fotos de Natal são do cenário dela, mas não dá para saber se são de 2026 (os posts de 2026 são vídeo).
 - Google sem horário de funcionamento: a agenda é exemplo (dito na página).
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Portfólio que vende (09/11/2026)
+- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `mesames` (Mês a mês, a partir de R$ 190), `newborn` (Newborn e aniversários, a partir de R$ 450).
+- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/tatas-photo-art <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/tatas-photo-art/index.html` e `.../natal.html`).

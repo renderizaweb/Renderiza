@@ -647,5 +647,161 @@
    "As fotos de Natal são do cenário da lareira, sem data (o post de 2026 é vídeo).",
    "Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "Zona Leste de SP",
+  "h1": "Natal, aniversários, bebês e famílias na Zona Leste de São Paulo.",
+  "frase": "Essa fase passa, mas as lembranças ficam para sempre.",
+  "tom": "claro",
+  "vitrine": "grade",
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "natal:0-6"
+    ],
+    "titulo": "O Natal chegou ao nosso estúdio!",
+    "sub": "A lareira, os ursinhos e a neve: cada detalhe preparado com muito carinho.",
+    "texto": "A temporada de Natal começou, para lembranças inesquecíveis.",
+    "selos": [
+     "Lareira de Natal",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "A agenda de Natal abriu em 2 de novembro: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Renato Andrade",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 280",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 440",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 640",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e aniversários",
+    "chamada": "Ensaio de aniversário",
+    "fotos": [
+     "infantil:0-9"
+    ],
+    "titulo": "Até os super-heróis precisam de carinho.",
+    "sub": "Bexigas, balão de idade e velinhas: Toy Story, Homem-Aranha, Minnie e Barbie.",
+    "texto": "Ensaio completo de aniversário, com o tema escolhido pela família.",
+    "selos": [
+     "Tema escolhido",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
+    "depo": "Ester Costa",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Bebês, gestante e família",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:0-6"
+    ],
+    "titulo": "A espera mais linda merece ser eternizada.",
+    "sub": "Gestantes, bebês e a família toda no cenário.",
+    "texto": "Cada mês um tema, como o pequeno xerife de Toy Story aos 2 meses, e a família reunida com muito carinho.",
+    "selos": [
+     "Cada mês um tema",
+     "Zona Leste de SP",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Camila Boneli Alves",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }

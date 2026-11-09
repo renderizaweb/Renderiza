@@ -678,5 +678,210 @@
    "O Google diz \"Atendimento 24 horas\"; a agenda é exemplo.",
    "Fotos de crianças, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "local": "São Paulo",
+  "h1": "Festas infantis, famílias, bebês e o Natal de Lus em São Paulo.",
+  "frase": "A fotografia não é para hoje. É para quando não der mais pra repetir.",
+  "tom": "claro",
+  "ensaios": [
+   {
+    "id": "festas",
+    "nome": "Festas e 1 ano",
+    "chamada": "Festa infantil",
+    "fotos": [
+     "festas:0-9"
+    ],
+    "titulo": "Criança agitada não é problema. É matéria-prima.",
+    "sub": "Especialistas em festas infantis: o bolo, os convidados e os detalhes.",
+    "texto": "A Lu e o Lucas cobrem festas de 1 ano, aniversários e batizados, sem perder nenhum momento.",
+    "selos": [
+     "Especialistas em festas",
+     "São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "Festas de fim de ano e de 1 ano lotam a agenda: reserve a data da festa com antecedência.",
+    "depo": "Danielle Carmo",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 900",
+      "itens": [
+       "2 horas de cobertura",
+       "150 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 1.300",
+      "itens": [
+       "3 horas de cobertura",
+       "300 fotos editadas",
+       "Fotos posadas com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.800",
+      "itens": [
+       "4 horas de cobertura",
+       "Todas as fotos editadas",
+       "Álbum impresso 30x30"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família e gestante",
+    "chamada": "Ensaio de família",
+    "fotos": [
+     "familia:4,0-3,5-8,10"
+    ],
+    "titulo": "Em casa, no estúdio ou no campo de girassóis.",
+    "sub": "Gestantes e famílias, com leveza.",
+    "texto": "A leveza no sorriso de quem espera, e a família toda junta, onde ela se sente em casa.",
+    "selos": [
+     "Campo de girassóis",
+     "São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
+    "depo": "Fernanda Araujo",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 600",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 800",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês",
+    "chamada": "Ensaio de bebê",
+    "fotos": [
+     "bebes:0-7"
+    ],
+    "titulo": "Cheirinho de bebê.",
+    "sub": "E o coração dos papais transbordando de alegria.",
+    "texto": "O newborn e os primeiros meses do bebê, com calma e muito cuidado.",
+    "selos": [
+     "Newborn e bebês",
+     "São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
+    "depo": "Beatriz Paula",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 500",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios do estúdio",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 700",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.000",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "fotos": [
+     "pn:0",
+     "familia:9"
+    ],
+    "titulo": "A cada Natal, vemos nossos filhos crescerem.",
+    "sub": "O Natal de Lus 2026: um cenário pensado para a sua família ser a protagonista.",
+    "texto": "De 1º de novembro a 20 de dezembro, com a Lu e o Lucas.",
+    "selos": [
+     "De 1/11 a 20/12",
+     "São Paulo",
+     "5,0 no Google"
+    ],
+    "quando": "O Natal de Lus vai de 1º de novembro a 20 de dezembro: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Gabih Marchioro Akerley",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 350",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 510",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 710",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }
