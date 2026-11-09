@@ -282,5 +282,14 @@ tem foto do Natal 2026 ficou sem página de Natal (Amanda, Faro, Lenita, Mayara,
 cada uma ficam no `demo.json` (`portfolio`, com `fotos: ["galeria:0-3", "pn:1"]`, `pn` = as fotos da página de Natal
 antiga) e a ficha diz como gerar de novo.
 
+**Revisão final (09/11/2026):** todas as páginas testadas no ar, no celular e no computador (links, WhatsApp, menu,
+lightbox, barra fixa e quanto de cada foto aparece). Corrigido: o logo e os links entre ensaios nas páginas de ensaio
+(o runtime antigo calculava a raiz da demo tirando só "/natal" do endereço; agora é sempre `/demo/<pasta>`). E as fotos
+deixaram de cortar: o carrossel mostra cada foto inteira na proporção dela (altura fixa, como os portfólios
+profissionais), a capa deitada aparece inteira (no celular, a foto em cima e o texto embaixo), os cartões usam a
+primeira foto em pé do ensaio, e a vitrine em lista virou duas colunas no computador. Novidades: setas nos carrosséis
+para quem usa mouse, o "a partir de R$" na capa de cada ensaio e, no celular, a vitrine em cartões grandes com o texto
+sobre a foto.
+
 **Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
 trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.

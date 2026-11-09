@@ -752,8 +752,9 @@
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
+     "pn:1",
      "familia:0-5",
-     "pn:1,4"
+     "pn:4"
     ],
     "titulo": "A vida passa, a família cresce e as fotografias ficam.",
     "sub": "Quantas vezes a família inteira aparece na mesma fotografia?",

@@ -48,8 +48,14 @@ def nome_de(n):  # "RITA DE CASSIA" / "lilian CAMPOS" -> "Rita De Cassia" / "Lil
     return n.title() if sum(c.isupper() for c in n) > len(n.replace(' ', '')) / 2 else n
 
 
+def trilho(conteudo, rotulo):
+    """Um carrossel (fotos do ensaio, outros ensaios) com as setas para quem usa mouse; no celular, é só passar o dedo."""
+    return (f'<div class="pv-trilho">{conteudo}<button class="pv-seta pv-seta--ant" type="button" aria-label="{esc(rotulo)}: voltar" hidden>{SETA}</button>'
+            f'<button class="pv-seta pv-seta--prox" type="button" aria-label="{esc(rotulo)}: avançar" hidden>{SETA}</button></div>')
+
+
 def galeria(nome, fotos):
-    itens = ''.join(f'<button class="g-item g-{"l" if f["w"] > f["h"] else "p"}" type="button" aria-label="{esc("Abrir em tela cheia: " + f["alt"])}">{tag(f)}</button>' for f in fotos)
+    itens = ''.join(f'<button class="g-item g-{"l" if f["w"] > f["h"] else "p"}" type="button" style="--a:{f["w"] / f["h"]:.4f}" aria-label="{esc("Abrir em tela cheia: " + f["alt"])}">{tag(f)}</button>' for f in fotos)
     return f'<div class="galeria" data-nome="{esc(nome)}">{itens}</div>'
 
 
@@ -76,9 +82,9 @@ CSS = r'''
 .pv-cab small{color:var(--tinta-2);font-size:.85rem;white-space:nowrap}
 .pv-galeria .galeria{display:flex;grid-template-columns:none;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
 .pv-galeria .galeria::-webkit-scrollbar{display:none}
-.pv-galeria .g-item{flex:0 0 min(70%,380px);scroll-snap-align:start}
-.pv-galeria .g-l{flex-basis:min(92%,620px)}
-.pv-galeria .g-l::before{padding-top:66.6%}
+.pv-galeria .galeria{align-items:center}
+.pv-galeria .g-item{flex:0 0 auto;aspect-ratio:var(--a);height:min(64vh,560px,calc(86vw / var(--a)));width:auto;scroll-snap-align:start}
+.pv-galeria .g-item::before{display:none}
 .pv-dica{color:var(--tinta-2);font-size:.85rem;margin:10px 0 0}
 .pv-historia{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
 .pv-historia>p{font-family:var(--serif);font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.3;margin:0}
@@ -118,7 +124,10 @@ CSS = r'''
 .pv-outro b{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.05}
 .pv-outro small{font-size:.78rem;opacity:.92}
 .pv-vitrine{display:grid;gap:14px}
-.pv-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:inherit;overflow:hidden;min-height:300px}
+.pv-vitrine:not(.pv-vitrine--grade){grid-template-columns:1fr 1fr}
+.pv-vitrine:not(.pv-vitrine--grade) .pv-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 7px);justify-self:center}
+.pv-card{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:inherit;overflow:hidden}
+.pv-card figure{aspect-ratio:4/5;align-self:stretch}
 .pv-card figure{margin:0;position:relative;overflow:hidden}
 .pv-card figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .pv-card:hover figure img{transform:scale(1.04)}
@@ -135,6 +144,16 @@ CSS = r'''
 .pv-barra span{display:flex;flex-direction:column;line-height:1.25;font-size:.78rem;color:var(--tinta-2)}
 .pv-barra span b{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--tinta)}
 .pv-barra .botao{min-height:46px;padding:10px 18px;font-size:.86rem;flex:none}
+.pv-trilho{position:relative}
+.pv-seta{position:absolute;top:50%;z-index:2;width:46px;height:46px;margin-top:-23px;border-radius:50%;background:var(--papel);color:var(--tinta);border:1px solid var(--linha);box-shadow:0 8px 24px rgba(0,0,0,.14);display:none;align-items:center;justify-content:center}
+.pv-seta svg{width:20px;height:20px}.pv-seta--ant{left:-14px}.pv-seta--ant svg{transform:rotate(180deg)}.pv-seta--prox{right:-14px}
+@media(hover:hover) and (min-width:861px){.pv-seta{display:flex}.pv-seta[hidden]{display:none}}
+.pv-preco-hero{display:inline-flex;align-items:baseline;gap:6px;margin:18px 0 0 8px;padding:7px 14px;border-radius:999px;background:var(--acento);color:#fff;font-size:.86rem;text-decoration:none}
+.pv-preco-hero b{font-family:var(--serif);font-size:1.12rem;font-weight:500}
+.pv-hero--deitada{background:#1f1d1b}
+.pv-hero--deitada::after{display:none}
+@media(max-width:860px){.pv-hero--deitada{display:block;min-height:0}.pv-hero--deitada>img{position:relative;height:auto;aspect-ratio:auto}.pv-hero--deitada .container{padding:26px 0 34px}}
+@media(min-width:861px){.pv-hero--deitada>img{height:auto;align-self:center;max-height:min(84vh,780px)}.pv-claro .pv-hero--deitada{background:var(--areia)}}
 .rz-folha .pv-dica-rz{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
 /* no computador, a capa fica ao lado do texto: a foto em pé aparece inteira, sem cortar rosto */
 @media(min-width:861px){.pv-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:0;background:var(--tinta)}
@@ -143,18 +162,29 @@ CSS = r'''
 .pv-claro .pv-hero{background:var(--areia);color:var(--tinta)}.pv-claro .pv-hero h1,.pv-claro .pv-hero .eyebrow{color:var(--tinta)}.pv-claro .pv-hero h1 em{color:var(--acento)}
 .pv-claro .pv-hero p{color:var(--tinta-2)}.pv-claro .pv-prova{background:var(--papel);color:var(--tinta);border:1px solid var(--linha)}
 .pv-claro .pv-acoes .botao--vidro{color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 35%,transparent);background:transparent}}
-.pv-vitrine--grade{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pv-vitrine--grade{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .pv-vitrine--grade .pv-card{grid-template-columns:1fr;min-height:0}
 .pv-vitrine--grade .pv-card figure{aspect-ratio:4/5}
 .pv-vitrine--grade .pv-card>div{padding:16px 16px 18px;justify-content:flex-start}
 .pv-vitrine--grade .pv-card h2{font-size:clamp(1.3rem,2vw,1.6rem)}
 .pv-vitrine--grade .pv-card>div>p:not(.pv-apartir):not(.eyebrow){display:none}
-@media(max-width:860px){.pv-vitrine--grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pv-vitrine--grade .pv-card{grid-template-columns:1fr}.pv-vitrine--grade .pv-card>div{padding:12px}.pv-vitrine--grade .pv-card h2{font-size:1.15rem}.pv-vitrine--grade .pv-card .eyebrow{font-size:.6rem;letter-spacing:.14em}.pv-vitrine--grade .link{display:none!important}}
+@media(max-width:860px){.pv-vitrine--grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pv-vitrine--grade .pv-card figure{aspect-ratio:3/4}.pv-vitrine--grade .pv-card>div{padding:44px 12px 12px}
+.pv-vitrine--grade .pv-card h2{font-size:1.12rem}.pv-vitrine--grade .pv-card .eyebrow{display:none}.pv-vitrine--grade .pv-card .pv-apartir{font-size:.72rem}.pv-vitrine--grade .pv-card .pv-apartir b{font-size:1.1rem}
+.pv-vitrine--grade .pv-card:last-child:nth-child(odd){grid-column:span 2}.pv-vitrine--grade .pv-card:last-child:nth-child(odd) figure{aspect-ratio:1/1}}
 @media(max-width:860px){.pv-pacotes{grid-template-columns:1fr;gap:22px}.pv-pac--destaque{order:-1}.pv-historia{grid-template-columns:1fr}
-.pv-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:0}.pv-card h2{font-size:1.5rem}.pv-card>div{padding:16px}.pv-card p{display:none}.pv-card .pv-apartir{display:block}.pv-card .pv-apartir b{font-size:1.35rem}
+.pv-vitrine:not(.pv-vitrine--grade){grid-template-columns:1fr}.pv-vitrine:not(.pv-vitrine--grade) .pv-card:last-child:nth-child(odd){width:auto}
+.pv-vitrine .pv-card{display:block;position:relative;min-height:0;border:0;color:#fff;background:#2b2a28}.pv-vitrine .pv-card figure{position:relative;aspect-ratio:4/5}
+.pv-vitrine .pv-card>div{position:absolute;inset:auto 0 0 0;padding:64px 18px 18px;background:linear-gradient(180deg,rgba(15,14,13,0),rgba(15,14,13,.82));gap:2px}
+.pv-vitrine .pv-card .eyebrow{color:#fff;opacity:.92;margin:0}.pv-vitrine .pv-card h2{color:#fff;font-size:1.65rem}.pv-vitrine .pv-card h2 em{color:#fff}
+.pv-vitrine .pv-card p{display:none}.pv-vitrine .pv-card .pv-apartir{display:block;color:#efe8e1;margin-top:6px}.pv-vitrine .pv-card .pv-apartir b{color:#fff;font-size:1.4rem}.pv-vitrine .pv-card .link{display:none}
 .pv-barra{display:flex}.pv-tem-barra{padding-bottom:72px}.pv-tem-barra .flutuante{display:none}.pv-tem-barra .rz-pilula{bottom:84px}.pv-tem-barra .rz-folha{bottom:138px}}
 @media(max-width:520px){.pv-hero{min-height:82vh}.pv-acoes .botao{flex:1 1 100%}.pv-cab{flex-direction:column;align-items:flex-start;gap:4px}}
 '''
+
+TRILHO_JS = '''<script>(function(){document.querySelectorAll(".pv-trilho").forEach(function(t){var l=t.querySelector(".galeria,.pv-outros"),a=t.querySelector(".pv-seta--ant"),p=t.querySelector(".pv-seta--prox");if(!l)return;
+function f(){var fim=l.scrollWidth-l.clientWidth;a.hidden=l.scrollLeft<8;p.hidden=l.scrollLeft>fim-8||fim<8}
+a.onclick=function(){l.scrollBy({left:-l.clientWidth*.8,behavior:"smooth"})};p.onclick=function(){l.scrollBy({left:l.clientWidth*.8,behavior:"smooth"})};
+l.addEventListener("scroll",f,{passive:true});window.addEventListener("resize",f);f()})})();</script>'''
 
 BARRA_JS = '''<script>(function(){var b=document.querySelector(".pv-barra"),h=document.querySelector(".pv-hero");if(!b||!h)return;
 function f(){b.classList.toggle("ver",window.scrollY>h.offsetHeight*.7)}window.addEventListener("scroll",f,{passive:true});f()})();</script>'''
@@ -183,6 +213,10 @@ def gerar(pasta, site_html, natal_html):
     velho = ('const avaliacoes = () => $("[data-reviews]").innerHTML =', '}).join("");\n  avaliacoes();')
     if all(v in fim for v in velho):
         fim = fim.replace(velho[0], 'const avaliacoes = () => $("[data-reviews]") && ($("[data-reviews]").innerHTML =', 1).replace(velho[1], '}).join(""));\n  avaliacoes();', 1)
+    # a raiz da demo: o runtime antigo só tirava "/natal" do endereço; com uma página por ensaio, é sempre /demo/<pasta>
+    velha_base = 'const base = location.pathname.replace(/\\/(index|natal)(\\.html)?$/, "").replace(/\\/$/, "");'
+    if velha_base in fim: fim = fim.replace(velha_base, 'const base = location.pathname.replace(/^(\\/demo\\/[^\\/]+).*$/, "$1").replace(/\\/$/, "");')
+    elif 'const base = location.pathname' in fim: sys.exit('o runtime mudou: confira a raiz da demo (const base)')
     troca_link = '(e.dataset.pagina === "natal" ? "/natal" : "")'
     if troca_link not in fim: sys.exit('o runtime mudou: confira como os links entre páginas são montados')
     fim = fim.replace(troca_link, '(e.dataset.pagina && e.dataset.pagina !== "site" && e.dataset.pagina !== "index" ? "/" + e.dataset.pagina : "")')
@@ -266,25 +300,27 @@ def gerar(pasta, site_html, natal_html):
         classe = 'pagina-site pv-pagina' + (' pv-tem-barra' if barra else '') + (' pv-claro' if pf.get('tom') == 'claro' else '')
         doc = (h + f'\n<body class="{classe}">\n' + sprite + '\n' + rz(faixa, nome) + '\n' + cabecalho(nome)
                + f'\n<main id="inicio">\n{corpo}\n</main>\n' + r + '\n' + barra + '\n' + lb + '\n' + rz(folha, nome) + rz(fim, nome)
-               + (BARRA_JS if barra else '') + '</body>\n</html>\n')
+               + (BARRA_JS if barra else '') + (TRILHO_JS if 'pv-trilho' in corpo else '') + '</body>\n</html>\n')
         open(os.path.join(pasta, nome + '.html'), 'w', encoding='utf-8').write(doc)
         return nome + '.html'
+
+    def retrato(e): return next((f for f in e['_fotos'] if f['h'] >= f['w'] * .95), e['_fotos'][0])
 
     def a_partir(e): return min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
 
     def outro(e):
-        return f'<a class="pv-outro" {link(e["id"])}>{tag(e["_fotos"][0])}<span><b>{esc(e["nome"])}</b><small>a partir de {esc(a_partir(e))}</small></span></a>'
+        return f'<a class="pv-outro" {link(e["id"])}>{tag(retrato(e))}<span><b>{esc(e["nome"])}</b><small>a partir de {esc(a_partir(e))}</small></span></a>'
 
     prova = f'<a class="pv-prova" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span>{esc(prova_txt)}</a>'
     exemplo = f'<p class="pv-exemplo">{BRILHO}Pacotes e valores de exemplo: você coloca os seus</p>'
     feitas = []
 
     # ---------- a vitrine ----------
-    cards = ''.join(f'''<a class="pv-card reveal" {link(e["id"])}><figure>{tag(e["_fotos"][0])}</figure><div>
+    cards = ''.join(f'''<a class="pv-card reveal" {link(e["id"])}><figure>{tag(retrato(e))}</figure><div>
   <p class="eyebrow">{esc(e["chamada"])}</p><h2>{esc(e["titulo"])}</h2><p>{esc(e["sub"])}</p>
   <p class="pv-apartir">a partir de <b>{esc(a_partir(e))}</b></p><span class="link">Ver fotos e pacotes {SETA}</span></div></a>''' for e in ensaios)
     capa = fotos_de(pf['capa'])[0] if pf.get('capa') else (capa_site[0] if capa_site else ensaios[0]['_fotos'][0])
-    corpo = f'''<section class="pv-hero" aria-labelledby="titulo-site">
+    corpo = f'''<section class="pv-hero{" pv-hero--deitada" if capa["w"] > capa["h"] * 1.08 else ""}" aria-labelledby="titulo-site">
   {tag(capa, True)}
   <div class="container">
     <p class="eyebrow">{esc(nome_marca)}</p>
@@ -324,13 +360,13 @@ def gerar(pasta, site_html, natal_html):
             x = e['extra']; pedido = wa(f'Olá! Vi o portfólio de {nome_marca} e quero saber do {x["titulo"].lower()}.')
             extra = (f'<div class="pv-extra reveal"><div><b>{esc(x["titulo"])}</b><p>{esc(x["p"])}</p></div>'
                      f'<a class="botao botao--linha" href="{esc(pedido)}" target="_blank" rel="noopener noreferrer">Quero saber</a></div>')
-        corpo = f'''<section class="pv-hero" aria-labelledby="titulo-ensaio">
+        corpo = f'''<section class="pv-hero{" pv-hero--deitada" if fotos[0]["w"] > fotos[0]["h"] * 1.08 else ""}" aria-labelledby="titulo-ensaio">
   {tag(fotos[0], True)}
   <div class="container">
     <p class="eyebrow">{esc(e["chamada"])}{" · " + esc(local) if local else ""}</p>
     <h1 id="titulo-ensaio">{esc(e["titulo"])}</h1>
     <p>{esc(e["sub"])}</p>
-    {prova}
+    {prova}<a class="pv-preco-hero" href="#pacotes">a partir de <b>{esc(a_partir(e))}</b></a>
     <div class="pv-acoes"><a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu ensaio</a><a class="botao botao--vidro" href="#pacotes">Ver pacotes e valores</a></div>
   </div>
 </section>
@@ -338,7 +374,7 @@ def gerar(pasta, site_html, natal_html):
 <section class="pv-bloco pv-galeria" style="padding-top:12px" aria-labelledby="fotos-titulo">
   <div class="container">
     <div class="pv-cab"><h2 id="fotos-titulo">As fotos <em>do ensaio.</em></h2><small>{len(fotos)} fotos · passe para o lado</small></div>
-    {galeria(e["nome"], fotos)}
+    {trilho(galeria(e["nome"], fotos), "Fotos")}
     <p class="pv-dica">Toque numa foto para ver em tela cheia.</p>
   </div>
 </section>
@@ -366,7 +402,7 @@ def gerar(pasta, site_html, natal_html):
 <section class="pv-bloco" aria-labelledby="outros-titulo">
   <div class="container">
     <div class="pv-cab"><h2 id="outros-titulo">Outros <em>ensaios.</em></h2></div>
-    <div class="pv-outros">{"".join(outro(o) for o in ensaios if o is not e)}</div>
+    {trilho('<div class="pv-outros">' + "".join(outro(o) for o in ensaios if o is not e) + '</div>', "Outros ensaios")}
   </div>
 </section>'''
         barra = (f'<div class="pv-barra" aria-label="Reservar"><span>{esc(e["nome"])}<b>a partir de {esc(a_partir(e))}</b></span>'
