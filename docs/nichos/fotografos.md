@@ -251,17 +251,24 @@ concorre com o Instagram: organiza o que o feed mistura e substitui o PDF.
 - **Catálogo do WhatsApp Business e link da bio** (tipo Linktree): mostram que ela já aceita mandar um link com
   produto e preço. O portfólio junta os dois, com a cara dela.
 
-**Como é a demo:** `ferramentas/demo/gerar-portfolio.py` transforma a demo de site (gerar-fotografia.py) num
-portfólio de várias páginas, com o mesmo visual, a mesma faixa da Renderiza e o mesmo rastreio (cada página conta
-para o mesmo lead, com o nome dela no detalhe da visita):
-- `index`: a capa, a grade de galerias, os cartões "Ensaios e valores" e "Natal 2026", quem fotografa, as avaliações e
-  o contato.
-- uma página por galeria (`gestante`, `newborn`, `familia`...): as fotos, como é o ensaio, a ficha com o valor e
-  "Quero este ensaio" (WhatsApp com o ensaio na mensagem); embaixo, os outros ensaios.
-- `valores`: o catálogo (cada ensaio com foto, texto, valor e botão) e "Como funciona".
-- `natal`: a página de Natal que já existia, com os textos de "portfólio".
-- **Valores:** a demo não inventa preço. Mostra "sob consulta" e a etiqueta "aqui entra o seu valor" (some no vídeo,
-  `?video=1`), mais um recado da Renderiza: ela manda a tabela que já usa e a gente monta.
+**Como é a demo (versão 2, 09/11, depois do retorno do Kaue: a primeira estava "fofa, não vendível", com os
+quadros voltando para a mesma página, datas inventadas e o "1, 2, 3" ocupando a tela):**
+`ferramentas/demo/gerar-portfolio.py` transforma a demo de site (gerar-fotografia.py) num portfólio que vende, com o
+mesmo visual, a mesma faixa da Renderiza e o mesmo rastreio (cada página conta para o mesmo lead, com o nome dela):
+- `index` (a vitrine): foto grande com a promessa ("Ensaios de gestante, newborn e família em Suzano") e a nota do
+  Google; cada ensaio num cartão com foto, frase e **"a partir de R$"**; depois as avaliações, quem fotografa e o contato.
+- **uma página de venda por ensaio** (`gestante`, `newborn`, `familia`, `natal`), no formato das páginas de campanha e
+  dos guias de valores que funcionam no mercado: foto grande com a promessa, a prova e "Quero o meu ensaio"; as fotos
+  num carrossel; o depoimento de quem fez aquele ensaio; o **"quando fazer"** (a urgência honesta: gestante entre a
+  28ª e a 34ª semana, newborn nos primeiros 15 dias); **3 pacotes com o do meio em destaque** ("Mais escolhido", que
+  aparece primeiro no celular); o que mais ela vende (o acompanhamento do 1º ano); e uma **barra fixa no celular**
+  com o preço "a partir de" e o botão do WhatsApp, que já vai com o ensaio e o pacote escritos.
+- O Natal virou uma dessas páginas (sem a agenda de horários inventados).
+- **Valores:** ela não publica preço. A demo usa **pacotes e valores de exemplo** (decisão do Kaue, 09/11), com o selo
+  "Pacotes e valores de exemplo: você coloca os seus" (some no vídeo, `?video=1`). Ficam no `demo.json`
+  (`portfolio.ensaios[].pacotes`), junto com os títulos (das legendas dela) e os selos (só fatos).
+- Na faixa da Renderiza: "o portfólio completo (5 páginas)" e a dica "perguntaram quanto custa o newborn? Mande o link
+  da página do newborn".
 
 **Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
 trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.

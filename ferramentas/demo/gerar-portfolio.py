@@ -1,28 +1,35 @@
-# Transforma a demo de uma fotógrafa (site + página de Natal, de gerar-fotografia.py) num PORTFÓLIO ONLINE de várias
-# páginas: a capa com as galerias, uma página por ensaio, "Ensaios e valores" (o catálogo que substitui o PDF de
-# valores e o "me chama no direct") e a página de Natal que já existia. Mesmo visual, mesma faixa da Renderiza, mesmo
-# rastreio (montar-site põe o contador em todas as páginas da pasta, para o mesmo lead, com o nome de cada página).
-# O posicionamento está em docs/nichos/fotografos.md ("Portfólio online").
+# Transforma a demo de uma fotógrafa (o site e a página de Natal de gerar-fotografia.py) num PORTFÓLIO QUE VENDE:
+# a vitrine (index.html: cada ensaio com foto, frase e "a partir de") e uma PÁGINA DE VENDA por ensaio, no formato das
+# páginas de campanha que funcionam no mercado: foto grande com a promessa e a prova (nota do Google), as fotos do
+# ensaio num carrossel, o depoimento de quem fez, o "quando fazer" (a urgência honesta), 3 pacotes com o do meio em
+# destaque e uma barra fixa no celular com o botão do WhatsApp. Mesmo visual, mesma faixa da Renderiza, mesmo rastreio
+# (montar-site põe o contador em todas as páginas da pasta, para o mesmo lead, com o nome de cada página).
+# O porquê: docs/nichos/fotografos.md, seção 10.
 #
-# Uso: python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <site.html>
-#   <site.html>: o site gerado por gerar-fotografia.py (as fotos saem de dentro dele). Depois de virar portfólio, o
-#   index.html é o portfólio; o site antigo fica no git: git show <commit>:demos/<pasta>/index.html > /tmp/site.html
-#   -> demos/<pasta>/index.html, <galeria>.html (uma por galeria do site), valores.html; ajusta o texto do natal.html.
-#   demo.json: o mesmo da demo; "portfolio" (opcional) = {"catalogo": ["Gestante", ...]} escolhe os ensaios do catálogo.
+# Uso: python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <site.html> <natal.html>
+#   <site.html> e <natal.html>: as páginas de gerar-fotografia.py (as fotos saem de dentro delas). Depois que a demo
+#   vira portfólio, elas ficam no git: git show <commit>:demos/<pasta>/index.html > site.html (idem natal.html).
+#   demo.json -> "portfolio": {h1, ensaios: [{id, galeria (id da galeria do site ou "natal"), nome, chamada, titulo,
+#   sub, texto, selos [3], quando, depo (nome de quem avaliou), extra {titulo, p}?, pacotes [{nome, preco, itens,
+#   destaque?}]}]}. Os pacotes de exemplo levam o selo "valores de exemplo" (some no vídeo, ?video=1).
 import html, json, os, re, sys
 from urllib.parse import quote
 
 esc = lambda t: html.escape(str(t), quote=True)
+SETA = '<svg aria-hidden="true"><use href="#seta"/></svg>'
+WA = '<svg aria-hidden="true"><use href="#whats"/></svg>'
+BRILHO = '<svg aria-hidden="true"><use href="#brilho"/></svg>'
+RELOGIO = '<svg aria-hidden="true"><use href="#relogio"/></svg>'
+ATUAL = ' aria-current="page"'
 
 
-def pegar(rx, texto, flags=re.S):
-    m = re.search(rx, texto, flags)
-    if not m: sys.exit(f'não achei no site: {rx[:60]}')
+def pegar(rx, texto):
+    m = re.search(rx, texto, re.S)
+    if not m: sys.exit(f'não achei: {rx[:60]}')
     return m.group(0)
 
 
 def imgs(trecho):
-    """As fotos de um trecho: src (data URI), largura, altura, alt e posição."""
     out = []
     for m in re.finditer(r'<img src="([^"]+)" width="(\d+)" height="(\d+)" alt="([^"]*)"([^>]*)>', trecho):
         pos = re.search(r'object-position:([^";]+)', m.group(5))
@@ -31,98 +38,114 @@ def imgs(trecho):
     return out
 
 
-def tag(f, extra=''):
-    return (f'<img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{esc(f["alt"])}" loading="lazy" '
-            f'style="object-position:{f["pos"]}"{extra}>')
+def tag(f, prioridade=False):
+    carga = ' fetchpriority="high"' if prioridade else ' loading="lazy"'
+    return f'<img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{esc(f["alt"])}"{carga} style="object-position:{f["pos"]}">'
+
+
+def galeria(nome, fotos):
+    itens = ''.join(f'<button class="g-item g-{"l" if f["w"] > f["h"] else "p"}" type="button" aria-label="{esc("Abrir em tela cheia: " + f["alt"])}">{tag(f)}</button>' for f in fotos)
+    return f'<div class="galeria" data-nome="{esc(nome)}">{itens}</div>'
 
 
 CSS = r'''
-/* ---------- portfólio (gerar-portfolio.py) ---------- */
+/* ---------- portfólio que vende (gerar-portfolio.py) ---------- */
 .nav a[aria-current="page"],.menu-mobile a[aria-current="page"]{color:var(--acento)}
-.pf-topo{padding:clamp(44px,7vw,92px) 0 clamp(26px,4vw,44px);text-align:center}
-.pf-topo .eyebrow{justify-content:center}
-.pf-topo .eyebrow::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
-.pf-topo h1{font-size:clamp(2.5rem,6vw,4.6rem);font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:.98}
-.pf-topo h1 .script{display:block;font-family:var(--script);font-weight:400;text-transform:none;letter-spacing:0;color:var(--rosa);font-size:.86em;line-height:.8}
-.pf-topo h1.pf-h1-ensaio{text-transform:none;letter-spacing:-.01em;font-size:clamp(2.6rem,6vw,4.4rem)}
-.pf-topo p{color:var(--tinta-2);max-width:580px;margin:18px auto 0}
-.pf-topo .pf-acoes{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
-.pf-faixa{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:10px}
-.pf-faixa figure{margin:0;position:relative;overflow:hidden;background:var(--areia);aspect-ratio:4/5}
-.pf-faixa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pf-faixa figure:first-child{aspect-ratio:auto}
-.pf-grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.pf-tile{position:relative;display:block;overflow:hidden;text-decoration:none;color:#fff;background:var(--areia)}
-.pf-tile::before{content:"";display:block;padding-top:128%}
-.pf-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.pf-tile:hover img{transform:scale(1.04)}
-.pf-tile>span{position:absolute;inset:auto 0 0 0;padding:56px 16px 16px;background:linear-gradient(transparent,rgba(20,18,16,.62));display:flex;flex-direction:column;gap:4px}
-.pf-tile b{font-family:var(--serif);font-weight:500;font-size:clamp(1.35rem,2.2vw,1.75rem);line-height:1.05}
-.pf-tile small{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;opacity:.92}
-.pf-cartoes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pf-cartao{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:inherit;overflow:hidden;min-height:260px}
-.pf-cartao figure{margin:0;position:relative}
-.pf-cartao figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pf-cartao div{padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;justify-content:center;gap:10px}
-.pf-cartao .eyebrow{margin:0}
-.pf-cartao h2{font-size:clamp(1.8rem,3vw,2.4rem)}
-.pf-cartao p{margin:0;color:var(--tinta-2);font-size:.98rem}
-.pf-cartao .link{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--acento);font-size:.9rem;letter-spacing:.04em}
-.pf-cartao .link svg{width:18px;height:18px}
-.pf-cartao--escuro{background:var(--cafe);border-color:var(--cafe);color:#f6eee6}
-.pf-cartao--escuro p{color:#e5d8cc}.pf-cartao--escuro .eyebrow,.pf-cartao--escuro .link{color:#e9b8a2}
-.pf-pagina .galeria{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pf-info{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:start;margin-top:clamp(44px,6vw,76px);padding-top:clamp(36px,5vw,56px);border-top:1px solid var(--linha)}
-.pf-info h2{font-size:clamp(2rem,3.4vw,2.7rem);margin-bottom:16px}
-.pf-info>div>p{color:var(--tinta-2)}
-.pf-ficha{background:var(--areia);padding:clamp(22px,3vw,32px)}
-.pf-ficha dl{margin:0 0 22px}
-.pf-ficha dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--linha);align-items:baseline;flex-wrap:wrap}
-.pf-ficha dt{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
-.pf-ficha dd{margin:0;font-weight:500;text-align:right}
-.pf-ficha .botao{width:100%}
-.pf-valor dd{font-family:var(--serif);font-size:1.45rem;font-weight:500}
-.pf-aqui{display:inline-flex;align-items:center;gap:6px;margin:6px 0 0;font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:#1f1d1b;color:#fff;border-radius:999px;padding:5px 11px;line-height:1.3}
-.pf-aqui svg{width:12px;height:12px;flex:none}
-.modo-video .pf-aqui,.modo-video .pf-recado{display:none!important}
-.pf-recado{display:flex;gap:12px;align-items:flex-start;max-width:760px;margin:0 auto clamp(30px,4vw,44px);padding:16px 18px;background:#1f1d1b;color:#f4efe9;font-size:.92rem;line-height:1.55}
-.pf-recado svg{width:18px;height:18px;flex:none;margin-top:3px;color:#e9b8a2}
-.pf-recado b{color:#fff}
-.pf-catalogo{display:grid;gap:clamp(34px,5vw,60px)}
-.pf-item{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(22px,5vw,64px);align-items:center;padding-bottom:clamp(34px,5vw,60px);border-bottom:1px solid var(--linha)}
-.pf-item:last-child{border-bottom:0;padding-bottom:0}
-.pf-item:nth-child(even) figure{order:2}
-.pf-item figure{margin:0;position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--areia)}
-.pf-item figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pf-item h2{font-size:clamp(2.1rem,3.8vw,3rem)}
-.pf-item .pf-sub{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin:0 0 10px}
-.pf-item>div>p{color:var(--tinta-2);margin:14px 0 0}
-.pf-linha{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin:22px 0 22px;padding:14px 0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
-.pf-linha span{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
-.pf-linha b{font-family:var(--serif);font-weight:500;font-size:1.45rem}
-.pf-item .pf-acoes{display:flex;gap:10px;flex-wrap:wrap}
-.pf-passos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;padding:0;margin:0;counter-reset:p}
-.pf-passos li{background:var(--papel);border:1px solid var(--linha);padding:24px;counter-increment:p}
-.pf-passos li::before{content:counter(p);display:block;font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--acento);margin-bottom:10px}
-.pf-passos b{display:block;font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-bottom:4px}
-.pf-passos p{margin:0;color:var(--tinta-2);font-size:.95rem}
-@media(max-width:860px){.pf-grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pf-cartoes{grid-template-columns:1fr}.pf-info{grid-template-columns:1fr}.pf-passos{grid-template-columns:1fr}}
-@media(max-width:620px){.pf-faixa{grid-template-columns:1fr 1fr}.pf-faixa figure:first-child{grid-column:span 2;aspect-ratio:4/3}.pf-faixa figure:nth-child(n+2){aspect-ratio:4/5}
-.pf-cartao{grid-template-columns:1fr}.pf-cartao figure{aspect-ratio:16/10}.pf-item{grid-template-columns:1fr}.pf-item:nth-child(even) figure{order:0}.pf-pagina .galeria{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pv-hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2b2a28}
+.pv-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pv-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,13,0) 28%,rgba(15,14,13,.74))}
+.pv-hero .container{position:relative;z-index:1;padding:90px 0 clamp(30px,6vw,64px)}
+.pv-hero .eyebrow{color:#fff;margin-bottom:14px}
+.pv-hero h1{font-size:clamp(2.5rem,6.6vw,4.9rem);line-height:1;max-width:15ch;color:#fff}
+.pv-hero p{max-width:520px;margin:14px 0 0;color:#f3eee9;font-size:1.02rem}
+.pv-prova{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:.86rem;color:#fff;text-decoration:none}
+.pv-prova .estrelas{color:#f6c56e;letter-spacing:1px}
+.pv-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pv-acoes .botao--vidro{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.65)}
+.pv-acoes .botao--vidro:hover{background:#fff;color:var(--tinta)}
+.pv-selos{display:flex;gap:8px;list-style:none;margin:0;padding:16px 0;overflow-x:auto;scrollbar-width:none}
+.pv-selos li{flex:none;padding:8px 14px;border:1px solid var(--linha);border-radius:999px;font-size:.82rem;background:var(--papel);white-space:nowrap}
+.pv-bloco{padding:clamp(40px,7vw,96px) 0}
+.pv-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
+.pv-cab h2{font-size:clamp(2rem,4vw,3rem)}
+.pv-cab small{color:var(--tinta-2);font-size:.85rem;white-space:nowrap}
+.pv-galeria .galeria{display:flex;grid-template-columns:none;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.pv-galeria .galeria::-webkit-scrollbar{display:none}
+.pv-galeria .g-item{flex:0 0 min(70%,380px);scroll-snap-align:start}
+.pv-galeria .g-l{flex-basis:min(92%,620px)}
+.pv-galeria .g-l::before{padding-top:66.6%}
+.pv-dica{color:var(--tinta-2);font-size:.85rem;margin:10px 0 0}
+.pv-historia{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.pv-historia>p{font-family:var(--serif);font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.3;margin:0}
+.pv-depo{margin:0;padding:clamp(22px,3vw,32px);background:var(--areia);border-left:3px solid var(--acento)}
+.pv-depo blockquote{margin:0;font-size:1.02rem;line-height:1.6}
+.pv-depo figcaption{margin-top:14px;font-size:.85rem;color:var(--tinta-2)}
+.pv-depo figcaption b{color:var(--tinta);font-weight:500}
+.pv-depo .estrelas{color:#d9a441;letter-spacing:1px}
+.pv-quando{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--tinta);color:#f4efe9;margin:clamp(28px,4vw,44px) 0 0}
+.pv-quando svg{width:22px;height:22px;flex:none;color:#e9b8a2;margin-top:2px}
+.pv-quando b{color:#fff;font-weight:500}
+.pv-exemplo{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:7px 12px;border-radius:999px;background:#1f1d1b;color:#fff;font-size:.74rem;letter-spacing:.04em}
+.pv-exemplo svg{width:13px;height:13px;color:#e9b8a2}
+.modo-video .pv-exemplo{display:none!important}
+.pv-pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;padding-top:12px}
+.pv-pac{position:relative;display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linha);padding:28px 24px 24px}
+.pv-pac--destaque{border:2px solid var(--acento);box-shadow:0 20px 44px rgba(30,25,20,.10)}
+.pv-selo{position:absolute;top:-13px;left:22px;background:var(--acento);color:#fff;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.pv-pac h3{font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2)}
+.pv-preco{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3rem);line-height:1;margin:10px 0 2px}
+.pv-pac ul{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:9px;font-size:.96rem}
+.pv-pac li{display:flex;gap:10px;align-items:baseline}
+.pv-pac li::before{content:"✓";color:var(--acento);font-weight:600}
+.pv-pac .botao{margin-top:auto;width:100%}
+.pv-pac:not(.pv-pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 30%,transparent)}
+.pv-pac:not(.pv-pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
+.pv-extra{margin-top:18px;padding:20px 22px;border:1px dashed var(--acento);display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.pv-extra b{font-family:var(--serif);font-size:1.4rem;font-weight:500}
+.pv-extra p{margin:2px 0 0;color:var(--tinta-2);font-size:.95rem}
+.pv-fim{text-align:center;padding:clamp(48px,8vw,100px) 0;background:var(--areia)}
+.pv-fim h2{font-size:clamp(2.2rem,4.6vw,3.4rem)}
+.pv-fim p{color:var(--tinta-2);margin:12px auto 22px;max-width:480px}
+.pv-outros{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.pv-outro{flex:0 0 min(46%,240px);position:relative;display:block;aspect-ratio:4/5;overflow:hidden;color:#fff;text-decoration:none;background:var(--areia)}
+.pv-outro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pv-outro span{position:absolute;inset:auto 0 0;padding:40px 14px 14px;background:linear-gradient(transparent,rgba(15,14,13,.66));display:flex;flex-direction:column}
+.pv-outro b{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.05}
+.pv-outro small{font-size:.78rem;opacity:.92}
+.pv-vitrine{display:grid;gap:14px}
+.pv-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:inherit;overflow:hidden;min-height:300px}
+.pv-card figure{margin:0;position:relative;overflow:hidden}
+.pv-card figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pv-card:hover figure img{transform:scale(1.04)}
+.pv-card>div{padding:clamp(20px,3.4vw,40px);display:flex;flex-direction:column;justify-content:center;gap:6px}
+.pv-card .eyebrow{margin:0 0 4px}
+.pv-card h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
+.pv-card p{margin:4px 0 0;color:var(--tinta-2);font-size:.96rem}
+.pv-card .pv-apartir{margin-top:12px;font-size:.84rem;color:var(--tinta-2)}
+.pv-card .pv-apartir b{font-family:var(--serif);font-size:1.7rem;font-weight:500;color:var(--tinta);margin-left:4px}
+.pv-card .link{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--acento);font-size:.9rem}
+.pv-card .link svg{width:18px;height:18px}
+.pv-barra{position:fixed;left:0;right:0;bottom:0;z-index:65;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--papel) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--linha);transform:translateY(110%);transition:transform .35s}
+.pv-barra.ver{transform:none}
+.pv-barra span{display:flex;flex-direction:column;line-height:1.25;font-size:.78rem;color:var(--tinta-2)}
+.pv-barra span b{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--tinta)}
+.pv-barra .botao{min-height:46px;padding:10px 18px;font-size:.86rem;flex:none}
+.rz-folha .pv-dica-rz{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
+@media(max-width:860px){.pv-pacotes{grid-template-columns:1fr;gap:22px}.pv-pac--destaque{order:-1}.pv-historia{grid-template-columns:1fr}
+.pv-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:0}.pv-card h2{font-size:1.5rem}.pv-card>div{padding:16px}.pv-card p{display:none}.pv-card .pv-apartir{display:block}.pv-card .pv-apartir b{font-size:1.35rem}
+.pv-barra{display:flex}.pv-tem-barra{padding-bottom:72px}.pv-tem-barra .flutuante{display:none}.pv-tem-barra .rz-pilula{bottom:84px}.pv-tem-barra .rz-folha{bottom:138px}}
+@media(max-width:520px){.pv-hero{min-height:82vh}.pv-acoes .botao{flex:1 1 100%}.pv-cab{flex-direction:column;align-items:flex-start;gap:4px}}
 '''
 
-SETA = '<svg aria-hidden="true"><use href="#seta"/></svg>'
-WA = '<svg aria-hidden="true"><use href="#whats"/></svg>'
-BRILHO = '<svg aria-hidden="true"><use href="#brilho"/></svg>'
+BARRA_JS = '''<script>(function(){var b=document.querySelector(".pv-barra"),h=document.querySelector(".pv-hero");if(!b||!h)return;
+function f(){b.classList.toggle("ver",window.scrollY>h.offsetHeight*.7)}window.addEventListener("scroll",f,{passive:true});f()})();</script>'''
 
 
-def gerar(pasta, site_html):
+def gerar(pasta, site_html, natal_html):
     cfg = json.load(open(os.path.join(pasta, 'demo.json'), encoding='utf-8'))
-    slug = cfg['pasta']; base = f'/demo/{slug}'
-    s = open(site_html, encoding='utf-8').read()
-    if 'gerar-portfolio' in s: sys.exit('o <site.html> já é o portfólio: use o site antigo (git show)')
-    natal_path = os.path.join(pasta, 'natal.html')
-    natal = open(natal_path, encoding='utf-8').read()
+    pf = cfg['portfolio']; slug = cfg['pasta']; base = f'/demo/{slug}'
+    s = open(site_html, encoding='utf-8').read(); natal = open(natal_html, encoding='utf-8').read()
+    if 'gerar-portfolio' in s or 'gerar-portfolio' in natal: sys.exit('use o site e o Natal antigos (git show), não o portfólio')
 
     # ---------- as peças do site ----------
     head = pegar(r'<!doctype html>.*?</head>', s)
@@ -137,69 +160,59 @@ def gerar(pasta, site_html):
     lb = pegar(r'<div class="lb".*?lb-prox.*?</button>\s*</div>', s)
     folha = pegar(r'<button class="rz-pilula".*?<div class="rz-folha".*?</div>\s*</div>', s)
     fim = s[s.index(folha) + len(folha):s.rindex('</body>')]
-    # as páginas sem avaliações (galerias, valores): o runtime antigo não confere se o carrossel existe (o novo confere)
+    # o runtime antigo: o carrossel de avaliações sem conferir se existe; e os links entre páginas só sabiam "natal"
     velho = ('const avaliacoes = () => $("[data-reviews]").innerHTML =', '}).join("");\n  avaliacoes();')
     if all(v in fim for v in velho):
         fim = fim.replace(velho[0], 'const avaliacoes = () => $("[data-reviews]") && ($("[data-reviews]").innerHTML =', 1).replace(velho[1], '}).join(""));\n  avaliacoes();', 1)
+    troca_link = '(e.dataset.pagina === "natal" ? "/natal" : "")'
+    if troca_link not in fim: sys.exit('o runtime mudou: confira como os links entre páginas são montados')
+    fim = fim.replace(troca_link, '(e.dataset.pagina && e.dataset.pagina !== "site" && e.dataset.pagina !== "index" ? "/" + e.dataset.pagina : "")')
     fone = re.search(r'phone: "\+?(\d+)"', s).group(1)
-    galerias = []
-    for m in re.finditer(r'<div class="painel[^"]*" id="painel-([a-z0-9-]+)".*?<h3 class="painel-titulo">(.*?)</h3>(<div class="galeria".*?</div>)</div>', s, re.S):
-        galerias.append({'id': m.group(1), 'nome': html.unescape(m.group(2)), 'html': m.group(3), 'fotos': imgs(m.group(3))})
-    if not galerias: sys.exit('o site não tem galerias')
-    abertura = imgs(pegar(r'<div class="mosaico">.*?</div>', s))
-    fotos_natal = [f for f in imgs(natal) if f['w'] >= 600 and ('Natal' in f['alt'] or 'cenário' in f['alt'])]
-    todas = [f for g in galerias for f in g['fotos']] + fotos_natal
+    avals = {a['name']: a for a in (json.loads(x) for x in re.findall(r'\{"name": .*?"quote": ".*?"\}', s))}
+    galerias = {}
+    for m in re.finditer(r'<div class="painel[^"]*" id="painel-([a-z0-9-]+)".*?<h3 class="painel-titulo">.*?</h3>(<div class="galeria".*?</div>)</div>', s, re.S):
+        galerias[m.group(1)] = imgs(m.group(2))
+    galerias['natal'] = [f for f in imgs(natal) if f['w'] >= 600 and ('Natal' in f['alt'] or 'cenário' in f['alt'])]
+    capa_site = imgs(pegar(r'<div class="mosaico">.*?</div>', s))
+    nota, total = cfg['google_nota'], cfg['google_total']
+    prova_txt = (f'{nota} · ' if str(nota).startswith('5') else '') + f'{total} avaliações no Google'
+    nome_marca = cfg['marca']
+    ensaios = [e for e in pf['ensaios'] if galerias.get(e['galeria'])]
 
-    def achar(*palavras, padrao=None):
-        for p in palavras:
-            for f in todas:
-                if p.lower() in f['alt'].lower(): return f
-        return padrao or todas[0]
+    def wa(msg): return f'https://wa.me/{fone}?text={quote(msg)}'
 
-    # ---------- textos ----------
-    st = cfg['site']; passos = st['jornada']['passos']
-    passo = {p['nome'].lower(): p for p in passos}
-    marca_nome = cfg['marca']; quem_a = cfg.get('quem_a', 'o estúdio')
-    texto_galeria = {}
-    for g in galerias:
-        chave = g['nome'].split(' ')[0].lower()
-        ps = [p for p in passos if p['nome'].lower() in g['nome'].lower() or p['nome'].lower().startswith(chave)]
-        if g['id'] == 'familia': ps = [passo[k] for k in ('infantil', 'irmãos') if k in passo] or ps
-        texto_galeria[g['id']] = ' '.join(p['p'] for p in ps) or st['hero']['intro']
+    def link(nome, ancora=''):
+        h = base if nome == 'index' else f'{base}/{nome}'
+        return f'href="{h}{ancora}" data-local="{nome}.html{ancora}" data-pagina="{nome}"'
 
-    def wa(msg):
-        return f'https://wa.me/{fone}?text={quote(msg)}'
-
-    def pagina_link(nome):  # href no ar (sem .html) e o arquivo local (aberto do disco)
-        return (base if nome == 'index' else f'{base}/{nome}'), f'{nome}.html'
-
-    def a(nome, texto, ancora='', atual=False, classe=''):
-        h, l = pagina_link(nome)
-        cl = f' class="{classe}"' if classe else ''
-        cur = ' aria-current="page"' if atual else ''
-        return f'<a{cl} href="{h}{ancora}" data-local="{l}{ancora}" data-pagina="{nome}"{cur}>{texto}</a>'
-
-    paginas_rz = [('index', 'O portfólio'), ('valores', 'Ensaios e valores'), ('natal', 'A página de Natal')]
+    curto = lambda e: e['nome'].split(' e ')[0]
 
     def troca(atual):
+        itens = [('index', 'A vitrine')] + [(e['id'], curto(e)) for e in ensaios]
         return ('<nav class="rz-troca" aria-label="As páginas montadas para você">'
-                + ''.join(a(n, t, atual=(n == atual)) for n, t in paginas_rz) + '</nav>')
+                + ''.join(f'<a {link(n)}{ATUAL if n == atual else ""}>{esc(t)}</a>' for n, t in itens) + '</nav>')
 
-    def rz_textos(t, atual):
+    def rz(t, atual):
         t = re.sub(r'<nav class="rz-troca".*?</nav>', lambda _: troca(atual), t, flags=re.S)
-        for de, para in [('O site e a página de Natal, prontos, por', 'O portfólio completo (as galerias, os ensaios com os valores e a página de Natal), pronto, por'),
+        n = len(ensaios) + 1
+        for de, para in [('O site e a página de Natal, prontos, por', f'O portfólio completo ({n} páginas: a vitrine e uma página de venda para cada ensaio), pronto, por'),
                          ('depois disso o site é 100% seu', 'depois disso o portfólio é 100% seu'),
-                         ('O site e a página de Natal por', 'O portfólio completo por'),
+                         ('O site e a página de Natal por', f'O portfólio completo ({n} páginas) por'),
                          ('o site fica 100% seu', 'o portfólio fica 100% seu'),
                          ('Vi o site e a página de Natal que a Renderiza montou para mim', 'Vi o portfólio que a Renderiza montou para mim'),
                          ('Vi o site do ', 'Vi o portfólio do ')]:
             t = t.replace(de, para)
+        if 'class="rz-folha"' in t and 'pv-dica-rz' not in t:
+            ex = (ensaios[1] if len(ensaios) > 1 else ensaios[0])['nome'].lower()
+            dica = f'\n  <p class="pv-dica-rz">Perguntaram “quanto custa o {esc(ex)}?” no direct? Mande o link da página do {esc(ex)}: a cliente vê as fotos, os pacotes e já chama você no WhatsApp.</p>'
+            t = re.sub(r'(<div class="rz-folha".*?</nav>)', lambda m: m.group(1) + dica, t, count=1, flags=re.S)
         return t
 
     def cabecalho(atual):
-        itens = [a('index', 'Portfólio', '#portfolio', atual == 'galeria'), a('valores', 'Ensaios e valores', atual=atual == 'valores'),
-                 a('natal', 'Natal 2026'), a('index', 'Sobre', '#sobre'), a('index', 'Contato', '#contato')]
-        m = re.sub(r'href="[^"]*"', f'href="{base}" data-local="index.html" data-pagina="index"', marca, count=1)
+        itens = ([f'<a {link("index")}{ATUAL if atual == "index" else ""}>Ensaios</a>']
+                 + [f'<a {link(e["id"])}{ATUAL if atual == e["id"] else ""}>{esc(curto(e))}</a>' for e in ensaios]
+                 + [f'<a {link("index", "#contato")}>Contato</a>'])
+        m = re.sub(r'href="[^"]*"', link('index'), marca, count=1)
         return f'''<header class="site-header">
   <div class="container topo-in">
     {m}
@@ -210,139 +223,126 @@ def gerar(pasta, site_html):
   </div>
 </header>'''
 
-    def cabeca_html(titulo, descricao):
+    def montar(nome, titulo, descricao, corpo, barra=''):
         h = head.replace('</style>', CSS + '</style>', 1)
         h = re.sub(r'<title>.*?</title>', f'<title>{esc(titulo)}</title>', h, flags=re.S)
         h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(descricao)}">', h)
-        return re.sub(r'<!-- .*? -->', f'<!-- Portfólio online de {esc(marca_nome)} (demo da Renderiza): gerado por ferramentas/demo/gerar-portfolio.py a partir do site da demo. -->', h, count=1, flags=re.S)
-
-    def montar(nome, atual, titulo, descricao, corpo, rodape_extra=''):
-        r = rodape.replace('href="#portfolio"', f'href="{base}#portfolio" data-local="index.html#portfolio"').replace('href="#sobre"', f'href="{base}#sobre" data-local="index.html#sobre"')
-        doc = (cabeca_html(titulo, descricao) + f'\n<body class="pagina-site pf-pagina pf-{nome}">\n' + sprite + '\n' + rz_textos(faixa, nome)
-               + '\n' + cabecalho(atual) + f'\n<main id="inicio">\n{corpo}\n</main>\n' + r + '\n' + lb + '\n' + rz_textos(folha, nome) + rz_textos(fim, nome) + '</body>\n</html>\n')
+        h = re.sub(r'<!-- .*? -->', f'<!-- Portfólio de {esc(nome_marca)} (demo da Renderiza): gerado por ferramentas/demo/gerar-portfolio.py. Pacotes e valores de exemplo. -->', h, count=1, flags=re.S)
+        links = ''.join(f'<a {link(e["id"])}>{esc(e["nome"])}</a>' for e in ensaios)
+        r = re.sub(r'<nav aria-label="Links">.*?</nav>', lambda _: f'<nav aria-label="Links">{links}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>', rodape, flags=re.S)
+        classe = 'pagina-site pv-pagina' + (' pv-tem-barra' if barra else '')
+        doc = (h + f'\n<body class="{classe}">\n' + sprite + '\n' + rz(faixa, nome) + '\n' + cabecalho(nome)
+               + f'\n<main id="inicio">\n{corpo}\n</main>\n' + r + '\n' + barra + '\n' + lb + '\n' + rz(folha, nome) + rz(fim, nome)
+               + (BARRA_JS if barra else '') + '</body>\n</html>\n')
         open(os.path.join(pasta, nome + '.html'), 'w', encoding='utf-8').write(doc)
         return nome + '.html'
 
-    def tile(nome_pag, titulo, sub, foto, natal_pag=False):
-        h, l = pagina_link(nome_pag)
-        return (f'<a class="pf-tile reveal" href="{h}" data-local="{l}" data-pagina="{nome_pag}">{tag(foto)}'
-                f'<span><small>{esc(sub)}</small><b>{esc(titulo)}</b></span></a>')
+    def a_partir(e): return min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
 
-    tiles = [(g['id'], g['nome'], f'{len(g["fotos"])} fotos', g['fotos'][0]) for g in galerias]
-    if fotos_natal: tiles.append(('natal', 'Natal 2026', 'Campanha · agenda aberta', fotos_natal[0]))
+    def outro(e):
+        return f'<a class="pv-outro" {link(e["id"])}>{tag(galerias[e["galeria"]][0])}<span><b>{esc(e["nome"])}</b><small>a partir de {esc(a_partir(e))}</small></span></a>'
+
+    prova = f'<a class="pv-prova" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span>{esc(prova_txt)}</a>'
+    exemplo = f'<p class="pv-exemplo">{BRILHO}Pacotes e valores de exemplo: você coloca os seus</p>'
     feitas = []
 
-    # ---------- a capa (index) ----------
-    hero = st['hero']; capa = (abertura + [g['fotos'][0] for g in galerias])[:3]
-    faixa_fotos = ''.join('<figure>' + (tag(f).replace(' loading="lazy"', ' fetchpriority="high"') if i == 0 else tag(f)) + '</figure>' for i, f in enumerate(capa))
-    especial = ' · '.join(hero.get('especialidades', [])[:6])
-    f_val = achar('gestante', padrao=capa[0]); f_nat = fotos_natal[0] if fotos_natal else capa[-1]
-    corpo = f'''<section class="pf-topo" aria-labelledby="titulo-site">
+    # ---------- a vitrine ----------
+    cards = ''.join(f'''<a class="pv-card reveal" {link(e["id"])}><figure>{tag(galerias[e["galeria"]][0])}</figure><div>
+  <p class="eyebrow">{esc(e["chamada"])}</p><h2>{esc(e["titulo"])}</h2><p>{esc(e["sub"])}</p>
+  <p class="pv-apartir">a partir de <b>{esc(a_partir(e))}</b></p><span class="link">Ver fotos e pacotes {SETA}</span></div></a>''' for e in ensaios)
+    capa = capa_site[0] if capa_site else galerias[ensaios[0]['galeria']][0]
+    corpo = f'''<section class="pv-hero" aria-labelledby="titulo-site">
+  {tag(capa, True)}
   <div class="container">
-    <p class="eyebrow">{esc(hero["eyebrow"])}</p>
-    <h1 id="titulo-site">{esc(cfg["titulo_nome"])} <span class="script">{esc(cfg["titulo_script"])}</span></h1>
-    <p>{esc(especial)}</p>
+    <p class="eyebrow">{esc(nome_marca)}</p>
+    <h1 id="titulo-site">{esc(pf["h1"])}</h1>
+    {prova}
+    <div class="pv-acoes"><a class="botao" href="#ensaios">Ver ensaios e valores {SETA}</a><a class="botao botao--vidro" data-whatsapp href="#">{WA}WhatsApp</a></div>
   </div>
 </section>
-<div class="container pf-faixa">{faixa_fotos}</div>
-<section class="secao" id="portfolio" aria-labelledby="portfolio-titulo">
+<section class="pv-bloco" id="ensaios" aria-labelledby="ensaios-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">Portfólio</p><h2 id="portfolio-titulo">Escolha <em>o ensaio.</em></h2><p>Cada galeria abre numa página, com as fotos, como é o ensaio e o valor.</p></div>
-    <div class="pf-grade">{"".join(tile(*t) for t in tiles)}</div>
+    <div class="pv-cab"><h2 id="ensaios-titulo">Escolha <em>o seu ensaio.</em></h2><small>fotos, pacotes e valores</small></div>
+    {exemplo}
+    <div class="pv-vitrine">{cards}</div>
   </div>
 </section>
-<section class="secao" style="padding-top:0" aria-label="Ensaios, valores e Natal">
-  <div class="container pf-cartoes">
-    <a class="pf-cartao reveal" href="{base}/valores" data-local="valores.html" data-pagina="valores"><figure>{tag(f_val)}</figure><div><p class="eyebrow">Ensaios e valores</p><h2>Todos os ensaios, <em>num lugar só.</em></h2><p>O que é cada ensaio, como funciona e quanto custa, sem precisar perguntar no direct.</p><span class="link">Ver os ensaios e valores {SETA}</span></div></a>
-    <a class="pf-cartao pf-cartao--escuro reveal" href="{base}/natal" data-local="natal.html" data-pagina="natal"><figure>{tag(f_nat)}</figure><div><p class="eyebrow">Promoção · Natal 2026</p><h2>O Natal é feito <em>de encontros.</em></h2><p>Os cenários deste ano e os horários livres.</p><span class="link">Ver o Natal 2026 {SETA}</span></div></a>
-  </div>
-</section>
-{sobre}
 {depo}
+{sobre}
 {contato}'''
-    feitas.append(montar('index', 'index', f'{marca_nome} | Portfólio', f'Portfólio de {marca_nome}: {especial}.', corpo))
+    feitas.append(montar('index', f'{nome_marca} | Ensaios e valores', f'{pf["h1"]} Fotos, pacotes e valores de cada ensaio.', corpo))
 
-    # ---------- uma página por galeria ----------
-    for g in galerias:
-        outros = [t for t in tiles if t[0] != g['id']]
-        msg = f'Olá! Vi o portfólio de {marca_nome} e quero saber do ensaio {g["nome"].lower()}: valores e datas.'
-        corpo = f'''<section class="pf-topo" aria-labelledby="titulo-ensaio">
+    # ---------- uma página de venda por ensaio ----------
+    for e in ensaios:
+        fotos = galerias[e['galeria']]
+
+        def msg(pac=None, e=e):
+            return f'Olá! Vi o portfólio de {nome_marca} e quero o {e["chamada"].lower()}' + (f', pacote {pac}' if pac else '') + '. Quais datas vocês têm?'
+        av = avals.get(e.get('depo')) or next(iter(avals.values()), None)
+        depo_html = (f'<figure class="pv-depo reveal"><blockquote>“{esc(av["quote"].strip("…").strip())}”</blockquote>'
+                     f'<figcaption><span class="estrelas" aria-hidden="true">★★★★★</span> <b>{esc(av["name"])}</b>, no Google</figcaption></figure>') if av else ''
+        pacotes = ''.join(f'''<article class="pv-pac{" pv-pac--destaque" if p.get("destaque") else ""}">{'<span class="pv-selo">Mais escolhido</span>' if p.get("destaque") else ''}
+  <h3>{esc(p["nome"])}</h3><p class="pv-preco">{esc(p["preco"])}</p>
+  <ul>{"".join(f"<li>{esc(i)}</li>" for i in p["itens"])}</ul>
+  <a class="botao" href="{esc(wa(msg(p["nome"])))}" target="_blank" rel="noopener noreferrer">{WA}Quero o {esc(p["nome"])}</a></article>''' for p in e['pacotes'])
+        extra = ''
+        if e.get('extra'):
+            x = e['extra']; pedido = wa(f'Olá! Vi o portfólio de {nome_marca} e quero saber do {x["titulo"].lower()}.')
+            extra = (f'<div class="pv-extra reveal"><div><b>{esc(x["titulo"])}</b><p>{esc(x["p"])}</p></div>'
+                     f'<a class="botao botao--linha" href="{esc(pedido)}" target="_blank" rel="noopener noreferrer">Quero saber</a></div>')
+        corpo = f'''<section class="pv-hero" aria-labelledby="titulo-ensaio">
+  {tag(fotos[0], True)}
   <div class="container">
-    <p class="eyebrow">Portfólio</p>
-    <h1 class="pf-h1-ensaio" id="titulo-ensaio">{esc(g["nome"])}</h1>
-    <p>{esc(texto_galeria[g["id"]])}</p>
+    <p class="eyebrow">{esc(e["chamada"])} · Suzano</p>
+    <h1 id="titulo-ensaio">{esc(e["titulo"])}</h1>
+    <p>{esc(e["sub"])}</p>
+    {prova}
+    <div class="pv-acoes"><a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu ensaio</a><a class="botao botao--vidro" href="#pacotes">Ver pacotes e valores</a></div>
   </div>
 </section>
-<section class="secao" style="padding-top:0" aria-label="Fotos do ensaio {esc(g["nome"])}">
+<div class="container"><ul class="pv-selos" aria-label="Destaques">{"".join(f"<li>{esc(x)}</li>" for x in e["selos"])}</ul></div>
+<section class="pv-bloco pv-galeria" style="padding-top:12px" aria-labelledby="fotos-titulo">
   <div class="container">
-    {g["html"].replace('class="galeria"', 'class="galeria" data-nome="' + esc(g["nome"]) + '"', 1) if 'data-nome' not in g["html"] else g["html"]}
-    <p class="galeria-nota">Toque numa foto para ver em tela cheia.</p>
-    <div class="pf-info">
-      <div class="reveal"><p class="eyebrow">Sobre o ensaio</p><h2>{esc(g["nome"])} <em>com {esc(quem_a)}.</em></h2><p>{esc(texto_galeria[g["id"]])}</p><p>{esc(st["contato"]["p"])}</p></div>
-      <aside class="pf-ficha reveal" aria-label="Valor e agenda">
-        <dl><div><dt>Ensaio</dt><dd>{esc(g["nome"])}</dd></div><div><dt>No portfólio</dt><dd>{len(g["fotos"])} fotos</dd></div>
-        <div class="pf-valor"><dt>Valor</dt><dd>sob consulta<br><span class="pf-aqui">{BRILHO}aqui entra o seu valor</span></dd></div></dl>
-        <a class="botao" href="{esc(wa(msg))}" target="_blank" rel="noopener noreferrer">{WA}Quero este ensaio</a>
-      </aside>
-    </div>
+    <div class="pv-cab"><h2 id="fotos-titulo">As fotos <em>do ensaio.</em></h2><small>{len(fotos)} fotos · passe para o lado</small></div>
+    {galeria(e["nome"], fotos)}
+    <p class="pv-dica">Toque numa foto para ver em tela cheia.</p>
   </div>
 </section>
-<section class="secao secao--areia" aria-labelledby="outros-titulo">
+<section class="pv-bloco" style="padding-top:0" aria-label="Como é o ensaio">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">Portfólio</p><h2 id="outros-titulo">Outros <em>ensaios.</em></h2></div>
-    <div class="pf-grade">{"".join(tile(*t) for t in outros)}</div>
+    <div class="pv-historia"><p class="reveal">{esc(e["texto"])}</p>{depo_html}</div>
+    <p class="pv-quando reveal">{RELOGIO}<span><b>Quando fazer.</b> {esc(e["quando"])}</span></p>
+  </div>
+</section>
+<section class="pv-bloco secao--areia" id="pacotes" aria-labelledby="pacotes-titulo">
+  <div class="container">
+    <div class="pv-cab"><h2 id="pacotes-titulo">Pacotes <em>e valores.</em></h2><small>reserve pelo WhatsApp</small></div>
+    {exemplo}
+    <div class="pv-pacotes">{pacotes}</div>
+    {extra}
+  </div>
+</section>
+<section class="pv-fim" aria-labelledby="fim-titulo">
+  <div class="container">
+    <h2 id="fim-titulo">Vamos marcar <em>o seu?</em></h2>
+    <p>Chame no WhatsApp: a mensagem já vai com o ensaio escolhido.</p>
+    <a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu ensaio</a>
+  </div>
+</section>
+<section class="pv-bloco" aria-labelledby="outros-titulo">
+  <div class="container">
+    <div class="pv-cab"><h2 id="outros-titulo">Outros <em>ensaios.</em></h2></div>
+    <div class="pv-outros">{"".join(outro(o) for o in ensaios if o is not e)}</div>
   </div>
 </section>'''
-        feitas.append(montar(g['id'], 'galeria', f'{g["nome"]} | {marca_nome}', f'Ensaio {g["nome"].lower()} de {marca_nome}: fotos, como é e o valor.', corpo))
+        barra = (f'<div class="pv-barra" aria-label="Reservar"><span>{esc(e["nome"])}<b>a partir de {esc(a_partir(e))}</b></span>'
+                 f'<a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu</a></div>')
+        feitas.append(montar(e['id'], f'{e["chamada"]} | {nome_marca}', f'{e["chamada"]} com {nome_marca}: {e["sub"]} Fotos, pacotes e valores.', corpo, barra))
 
-    # ---------- ensaios e valores (o catálogo) ----------
-    escolha = (cfg.get('portfolio') or {}).get('catalogo') or [p['nome'] for p in passos]
-    pagina_do_passo = {'gestante': 'gestante', 'newborn': 'newborn', 'acompanhamento': 'newborn', 'infantil': 'familia', 'irmãos': 'familia', 'família': 'familia', 'natal': 'natal'}
-    busca = {'gestante': ('gestante',), 'newborn': ('recém', 'newborn'), 'acompanhamento': ('barquinho', 'bebê'), 'infantil': ('patinhos', 'menina'),
-             'irmãos': ('irm', 'menino'), 'natal': ('árvore', 'natal')}
-    itens = []
-    for nome in escolha:
-        p = passo.get(nome.lower())
-        if not p: continue
-        k = nome.lower(); foto = achar(*busca.get(k, (k,)))
-        pag = pagina_do_passo.get(k)
-        ver = a(pag, f'Ver as fotos {SETA}', classe='botao botao--linha') if pag and (pag == 'natal' or any(g['id'] == pag for g in galerias)) else ''
-        msg = f'Olá! Vi o portfólio de {marca_nome} e quero saber do ensaio {nome.lower()}: valores e datas.'
-        itens.append(f'''<article class="pf-item reveal"><figure>{tag(foto)}</figure><div>
-  <p class="pf-sub">{esc(p["sub"])}</p><h2>{esc(nome)}</h2><p>{esc(p["p"])}</p>
-  <div class="pf-linha"><span>Valor</span><b>sob consulta</b><span class="pf-aqui">{BRILHO}aqui entra o seu valor e o que inclui</span></div>
-  <div class="pf-acoes"><a class="botao" href="{esc(wa(msg))}" target="_blank" rel="noopener noreferrer">{WA}Quero este ensaio</a>{ver}</div>
-</div></article>''')
-    corpo = f'''<section class="pf-topo" aria-labelledby="titulo-valores">
-  <div class="container">
-    <p class="eyebrow">Ensaios e valores</p>
-    <h1 class="pf-h1-ensaio" id="titulo-valores">Os ensaios <em>de {esc(cfg["titulo_nome"])}.</em></h1>
-    <p>Como é cada ensaio e quanto custa. Escolheu? É só chamar no WhatsApp para ver as datas.</p>
-  </div>
-</section>
-<section class="secao" style="padding-top:0" aria-label="Catálogo de ensaios">
-  <div class="container">
-    <p class="pf-recado">{BRILHO}<span><b>Recado da Renderiza:</b> aqui entram os seus valores e pacotes, como numa tabela de preços, só que sempre atualizada. Mande a que você já usa (PDF, print ou texto) e a gente monta. Mudou o preço ou abriu promoção? É só pedir.</span></p>
-    <div class="pf-catalogo">{"".join(itens)}</div>
-  </div>
-</section>
-<section class="secao secao--areia" aria-labelledby="como-titulo">
-  <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">Como funciona</p><h2 id="como-titulo">Do primeiro oi <em>ao ensaio.</em></h2></div>
-    <ol class="pf-passos reveal"><li><b>Escolha o ensaio</b><p>Veja as fotos e os valores aqui no portfólio.</p></li><li><b>Chame no WhatsApp</b><p>Para ver as datas livres e tirar as dúvidas.</p></li><li><b>Dia do ensaio</b><p>{esc(st["contato"]["p"].split(". ")[-1].rstrip("."))}.</p></li></ol>
-  </div>
-</section>'''
-    feitas.append(montar('valores', 'valores', f'Ensaios e valores | {marca_nome}', f'Os ensaios de {marca_nome} e os valores.', corpo))
-
-    # ---------- natal.html: o mesmo texto do portfólio ----------
-    n = rz_textos(natal, 'natal')
-    n = n.replace(f'>O site do {cfg["titulo_nome"]}<', '>O portfólio<').replace(f'>O site de {cfg["titulo_nome"]}<', '>O portfólio<')
-    n = re.sub(r'>O site d[aoe] [^<]{2,60}</a>', '>O portfólio</a>', n)
-    open(natal_path, 'w', encoding='utf-8').write(n)
-    feitas.append('natal.html (textos)')
+    if os.path.exists(os.path.join(pasta, 'valores.html')): os.remove(os.path.join(pasta, 'valores.html'))
     print('portfólio:', ', '.join(feitas))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3: sys.exit(__doc__ or 'uso: gerar-portfolio.py demos/<pasta> <site.html>')
-    gerar(sys.argv[1].rstrip('/'), sys.argv[2])
+    if len(sys.argv) != 4: sys.exit('uso: gerar-portfolio.py demos/<pasta> <site.html> <natal.html>')
+    gerar(sys.argv[1].rstrip('/'), sys.argv[2], sys.argv[3])

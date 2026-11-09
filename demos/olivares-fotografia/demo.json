@@ -678,5 +678,205 @@
    "Google sem horário de funcionamento: a agenda é exemplo (dito na página).",
    "Fotos de bebês, crianças e gestantes: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site."
   ]
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online (gerar-portfolio.py): a vitrine e uma página de venda por ensaio. Os pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"): ela não publica preço. Os títulos e textos vêm das legendas dela; o \"quando fazer\" é a recomendação comum do mercado.",
+  "h1": "Ensaios de gestante, newborn e família em Suzano.",
+  "ensaios": [
+   {
+    "id": "gestante",
+    "galeria": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "titulo": "A espera também merece ficar guardada.",
+    "sub": "No estúdio de luz clara ou no jardim, na Cidade Edson, em Suzano.",
+    "texto": "A barriga, o casal, a família que está crescendo: um ensaio leve, sem pose dura, do jeito que vocês são.",
+    "selos": [
+     "No estúdio ou no jardim",
+     "Cidade Edson · Suzano",
+     "5,0 no Google"
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Amanda Nakao",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 390",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 590",
+      "itens": [
+       "1h30, no estúdio e no jardim",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 890",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "galeria": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "titulo": "Os primeiros dias passam rápido.",
+    "sub": "Os primeiros dias do bebê, com calma e muito cuidado.",
+    "texto": "O ensaio respeita o tempo do bebê: pausa para mamar, colo, soninho. As famílias contam que voltam depois, no acompanhamento e nos aniversários.",
+    "selos": [
+     "Com calma e cuidado",
+     "Acompanhamento do 1º ano",
+     "5,0 no Google"
+    ],
+    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
+    "depo": "Michele Oliveira",
+    "extra": {
+     "titulo": "Acompanhamento do primeiro ano",
+     "p": "Do newborn ao primeiro aninho, um ensaio a cada três meses. Pergunte pelo pacote do acompanhamento."
+    },
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios do estúdio",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "galeria": "familia",
+    "nome": "Família e infantil",
+    "chamada": "Ensaio de família e infantil",
+    "titulo": "Sem pressa, sem roteiro.",
+    "sub": "Crianças, irmãos e famílias, do jeitinho que são, no estúdio e no jardim.",
+    "texto": "Crescer lado a lado é ter para sempre um pedacinho da infância um no outro. O ensaio é brincadeira: os pequenos ficam à vontade e as fotos saem naturais.",
+    "selos": [
+     "Estúdio e quintal",
+     "Irmãos e família",
+     "5,0 no Google"
+    ],
+    "quando": "Os filhos crescem rápido: aniversário, mesversário e Natal são as datas que mais enchem a agenda.",
+    "depo": "Glena Cost",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 490",
+      "itens": [
+       "1 hora, no estúdio e no jardim",
+       "25 fotos editadas",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 690",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "galeria": "natal",
+    "nome": "Natal 2026",
+    "chamada": "Ensaio de Natal",
+    "titulo": "O Natal é feito de encontros.",
+    "sub": "Dois cenários de Natal no estúdio: o Família e o Infantil.",
+    "texto": "Abraços, sorrisos espontâneos e os pequenos encantados com a árvore: o Natal da sua família, guardado.",
+    "selos": [
+     "2 cenários de Natal",
+     "Agenda aberta",
+     "5,0 no Google"
+    ],
+    "quando": "A agenda de Natal já está aberta, e os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Fabiana Martins",
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 290",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 450",
+      "itens": [
+       "40 minutos",
+       "Os 2 cenários",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal em família",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora, com os avós",
+       "Os 2 cenários",
+       "30 fotos editadas"
+      ]
+     }
+    ]
+   }
+  ]
  }
 }
