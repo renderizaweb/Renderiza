@@ -1,0 +1,1013 @@
+{
+ "duracao": 52.58,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "abre",
+   "pausa": 0.3,
+   "impacto": true,
+   "ini": 0.2,
+   "fim": 3.177,
+   "palavras": [
+    {
+     "p": "Essa",
+     "ini": 0.2,
+     "fim": 0.474,
+     "tom": false
+    },
+    {
+     "p": "era",
+     "ini": 0.485,
+     "fim": 0.63,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 0.641,
+     "fim": 0.675,
+     "tom": false
+    },
+    {
+     "p": "página",
+     "ini": 0.686,
+     "fim": 1.099,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 1.11,
+     "fim": 1.21,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 1.221,
+     "fim": 1.277,
+     "tom": false
+    },
+    {
+     "p": "MS",
+     "ini": 1.288,
+     "fim": 1.757,
+     "tom": false
+    },
+    {
+     "p": "Odontologia",
+     "ini": 1.768,
+     "fim": 2.36,
+     "tom": false
+    },
+    {
+     "p": "usava",
+     "ini": 2.371,
+     "fim": 2.717,
+     "tom": false
+    },
+    {
+     "p": "na",
+     "ini": 2.728,
+     "fim": 2.829,
+     "tom": false
+    },
+    {
+     "p": "bio.",
+     "ini": 2.84,
+     "fim": 3.096,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "canva",
+   "cena": "canva",
+   "pausa": 0.3,
+   "ini": 3.477,
+   "fim": 11.409,
+   "palavras": [
+    {
+     "p": "Mas",
+     "ini": 3.477,
+     "fim": 3.624,
+     "tom": false
+    },
+    {
+     "p": "aí:",
+     "ini": 3.635,
+     "fim": 3.981,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 4.237,
+     "fim": 4.316,
+     "tom": false
+    },
+    {
+     "p": "paciente",
+     "ini": 4.327,
+     "fim": 4.941,
+     "tom": false
+    },
+    {
+     "p": "toca",
+     "ini": 4.952,
+     "fim": 5.22,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 5.231,
+     "fim": 5.32,
+     "tom": false
+    },
+    {
+     "p": "link",
+     "ini": 5.331,
+     "fim": 5.588,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 5.599,
+     "fim": 5.666,
+     "tom": false
+    },
+    {
+     "p": "cai",
+     "ini": 5.677,
+     "fim": 5.845,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 5.856,
+     "fim": 5.956,
+     "tom": false
+    },
+    {
+     "p": "quatro",
+     "ini": 5.967,
+     "fim": 6.269,
+     "tom": false
+    },
+    {
+     "p": "cartões",
+     "ini": 6.28,
+     "fim": 6.693,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 6.704,
+     "fim": 6.771,
+     "tom": false
+    },
+    {
+     "p": "letra",
+     "ini": 6.782,
+     "fim": 7.039,
+     "tom": false
+    },
+    {
+     "p": "miúda,",
+     "ini": 7.05,
+     "fim": 7.385,
+     "tom": false
+    },
+    {
+     "p": "num",
+     "ini": 7.63,
+     "fim": 7.842,
+     "tom": false
+    },
+    {
+     "p": "fundo",
+     "ini": 7.853,
+     "fim": 8.166,
+     "tom": false
+    },
+    {
+     "p": "marrom.",
+     "ini": 8.177,
+     "fim": 8.534,
+     "tom": false
+    },
+    {
+     "p": "Diz",
+     "ini": 8.819,
+     "fim": 9.109,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 9.12,
+     "fim": 9.187,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 9.198,
+     "fim": 9.232,
+     "tom": false
+    },
+    {
+     "p": "referência,",
+     "ini": 9.243,
+     "fim": 9.846,
+     "tom": false
+    },
+    {
+     "p": "mas",
+     "ini": 10.114,
+     "fim": 10.303,
+     "tom": false
+    },
+    {
+     "p": "não",
+     "ini": 10.315,
+     "fim": 10.482,
+     "tom": false
+    },
+    {
+     "p": "mostra",
+     "ini": 10.493,
+     "fim": 10.895,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 10.906,
+     "fim": 11.051,
+     "tom": true
+    },
+    {
+     "p": "quê.",
+     "ini": 11.062,
+     "fim": 11.297,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "primeiro",
+   "cena": "primeiro",
+   "pausa": 0.3,
+   "ini": 11.709,
+   "fim": 17.836,
+   "palavras": [
+    {
+     "p": "Então",
+     "ini": 11.709,
+     "fim": 12.024,
+     "tom": false
+    },
+    {
+     "p": "começamos",
+     "ini": 12.035,
+     "fim": 12.593,
+     "tom": false
+    },
+    {
+     "p": "pelo",
+     "ini": 12.604,
+     "fim": 12.783,
+     "tom": false
+    },
+    {
+     "p": "primeiro",
+     "ini": 12.794,
+     "fim": 13.095,
+     "tom": false
+    },
+    {
+     "p": "segundo:",
+     "ini": 13.106,
+     "fim": 13.564,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 13.776,
+     "fim": 13.854,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 13.865,
+     "fim": 13.966,
+     "tom": false
+    },
+    {
+     "p": "ela",
+     "ini": 13.977,
+     "fim": 14.167,
+     "tom": false
+    },
+    {
+     "p": "faz,",
+     "ini": 14.178,
+     "fim": 14.546,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 14.714,
+     "fim": 14.915,
+     "tom": false
+    },
+    {
+     "p": "quem",
+     "ini": 14.926,
+     "fim": 15.16,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 15.171,
+     "fim": 15.249,
+     "tom": false
+    },
+    {
+     "p": "onde.",
+     "ini": 15.26,
+     "fim": 15.595,
+     "tom": false
+    },
+    {
+     "p": "Odontologia",
+     "ini": 15.867,
+     "fim": 16.581,
+     "tom": false
+    },
+    {
+     "p": "estética",
+     "ini": 16.593,
+     "fim": 17.05,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 17.061,
+     "fim": 17.162,
+     "tom": false
+    },
+    {
+     "p": "Itapevi.",
+     "ini": 17.173,
+     "fim": 17.742,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "prova",
+   "cena": "prova",
+   "pausa": 0.3,
+   "ini": 18.136,
+   "fim": 26.743,
+   "palavras": [
+    {
+     "p": "Mas",
+     "ini": 18.136,
+     "fim": 18.294,
+     "tom": false
+    },
+    {
+     "p": "aí:",
+     "ini": 18.305,
+     "fim": 18.662,
+     "tom": false
+    },
+    {
+     "p": "todo",
+     "ini": 18.886,
+     "fim": 19.165,
+     "tom": false
+    },
+    {
+     "p": "dentista",
+     "ini": 19.176,
+     "fim": 19.678,
+     "tom": false
+    },
+    {
+     "p": "diz",
+     "ini": 19.689,
+     "fim": 19.912,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 19.924,
+     "fim": 20.013,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 20.024,
+     "fim": 20.08,
+     "tom": false
+    },
+    {
+     "p": "bom.",
+     "ini": 20.091,
+     "fim": 20.348,
+     "tom": false
+    },
+    {
+     "p": "Então",
+     "ini": 20.618,
+     "fim": 20.986,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 20.997,
+     "fim": 21.053,
+     "tom": false
+    },
+    {
+     "p": "prova",
+     "ini": 21.064,
+     "fim": 21.377,
+     "tom": false
+    },
+    {
+     "p": "vem",
+     "ini": 21.388,
+     "fim": 21.544,
+     "tom": false
+    },
+    {
+     "p": "logo",
+     "ini": 21.555,
+     "fim": 22.27,
+     "tom": false
+    },
+    {
+     "p": "embaixo:",
+     "ini": 22.493,
+     "fim": 22.694,
+     "tom": false
+    },
+    {
+     "p": "mais",
+     "ini": 22.705,
+     "fim": 22.794,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 22.805,
+     "fim": 23.073,
+     "tom": false
+    },
+    {
+     "p": "dez",
+     "ini": 23.084,
+     "fim": 23.285,
+     "tom": false
+    },
+    {
+     "p": "mil",
+     "ini": 23.296,
+     "fim": 23.732,
+     "tom": false
+    },
+    {
+     "p": "casos,",
+     "ini": 23.888,
+     "fim": 24.212,
+     "tom": false
+    },
+    {
+     "p": "nota",
+     "ini": 24.223,
+     "fim": 24.591,
+     "tom": false
+    },
+    {
+     "p": "cinco,",
+     "ini": 24.87,
+     "fim": 24.982,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 24.993,
+     "fim": 25.328,
+     "tom": false
+    },
+    {
+     "p": "93",
+     "ini": 25.339,
+     "fim": 25.372,
+     "tom": false
+    },
+    {
+     "p": "avaliações",
+     "ini": 25.383,
+     "fim": 25.551,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 25.562,
+     "fim": 26.176,
+     "tom": false
+    },
+    {
+     "p": "Google.",
+     "ini": 26.187,
+     "fim": 26.656,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "nada",
+   "cena": "agenda",
+   "pausa": 0.3,
+   "ini": 27.043,
+   "fim": 34.772,
+   "palavras": [
+    {
+     "p": "Mas",
+     "ini": 27.043,
+     "fim": 27.201,
+     "tom": false
+    },
+    {
+     "p": "aí:",
+     "ini": 27.212,
+     "fim": 27.603,
+     "tom": false
+    },
+    {
+     "p": "ele",
+     "ini": 27.781,
+     "fim": 27.949,
+     "tom": false
+    },
+    {
+     "p": "rola,",
+     "ini": 27.96,
+     "fim": 28.283,
+     "tom": false
+    },
+    {
+     "p": "se",
+     "ini": 28.484,
+     "fim": 28.618,
+     "tom": false
+    },
+    {
+     "p": "convence,",
+     "ini": 28.629,
+     "fim": 29.199,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 29.5,
+     "fim": 29.589,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 29.6,
+     "fim": 29.645,
+     "tom": false
+    },
+    {
+     "p": "botão",
+     "ini": 29.656,
+     "fim": 30.025,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 30.036,
+     "fim": 30.103,
+     "tom": false
+    },
+    {
+     "p": "agendar",
+     "ini": 30.114,
+     "fim": 30.482,
+     "tom": false
+    },
+    {
+     "p": "ficou",
+     "ini": 30.493,
+     "fim": 30.783,
+     "tom": false
+    },
+    {
+     "p": "lá",
+     "ini": 30.795,
+     "fim": 30.962,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 30.973,
+     "fim": 31.062,
+     "tom": false
+    },
+    {
+     "p": "cima.",
+     "ini": 31.074,
+     "fim": 31.453,
+     "tom": false
+    },
+    {
+     "p": "Então",
+     "ini": 31.718,
+     "fim": 32.075,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 32.086,
+     "fim": 32.119,
+     "tom": false
+    },
+    {
+     "p": "botão",
+     "ini": 32.131,
+     "fim": 32.454,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 32.465,
+     "fim": 32.7,
+     "tom": false
+    },
+    {
+     "p": "fixo,",
+     "ini": 32.711,
+     "fim": 33.135,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 33.314,
+     "fim": 33.392,
+     "tom": false
+    },
+    {
+     "p": "qualquer",
+     "ini": 33.403,
+     "fim": 33.782,
+     "tom": false
+    },
+    {
+     "p": "parte",
+     "ini": 33.794,
+     "fim": 34.128,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 34.14,
+     "fim": 34.229,
+     "tom": false
+    },
+    {
+     "p": "site.",
+     "ini": 34.24,
+     "fim": 34.686,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "casos",
+   "cena": "casos",
+   "pausa": 0.3,
+   "impacto": true,
+   "ini": 35.072,
+   "fim": 40.342,
+   "palavras": [
+    {
+     "p": "Mas",
+     "ini": 35.072,
+     "fim": 35.219,
+     "tom": false
+    },
+    {
+     "p": "aí:",
+     "ini": 35.23,
+     "fim": 35.61,
+     "tom": false
+    },
+    {
+     "p": "ele",
+     "ini": 35.799,
+     "fim": 35.933,
+     "tom": false
+    },
+    {
+     "p": "quer",
+     "ini": 35.944,
+     "fim": 36.168,
+     "tom": false
+    },
+    {
+     "p": "ver",
+     "ini": 36.179,
+     "fim": 36.346,
+     "tom": false
+    },
+    {
+     "p": "resultado",
+     "ini": 36.357,
+     "fim": 36.904,
+     "tom": false
+    },
+    {
+     "p": "antes.",
+     "ini": 36.915,
+     "fim": 37.362,
+     "tom": false
+    },
+    {
+     "p": "Então",
+     "ini": 37.633,
+     "fim": 38.012,
+     "tom": false
+    },
+    {
+     "p": "os",
+     "ini": 38.023,
+     "fim": 38.146,
+     "tom": false
+    },
+    {
+     "p": "casos",
+     "ini": 38.157,
+     "fim": 38.503,
+     "tom": false
+    },
+    {
+     "p": "reais",
+     "ini": 38.514,
+     "fim": 38.827,
+     "tom": false
+    },
+    {
+     "p": "estão",
+     "ini": 38.838,
+     "fim": 39.162,
+     "tom": false
+    },
+    {
+     "p": "ali,",
+     "ini": 39.173,
+     "fim": 39.407,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 39.686,
+     "fim": 39.753,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 39.764,
+     "fim": 39.932,
+     "tom": false
+    },
+    {
+     "p": "dedo.",
+     "ini": 39.943,
+     "fim": 40.244,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "moral",
+   "cena": "virada",
+   "pausa": 0.5,
+   "ini": 40.642,
+   "fim": 43.758,
+   "palavras": [
+    {
+     "p": "Quatro",
+     "ini": 40.642,
+     "fim": 40.894,
+     "tom": false
+    },
+    {
+     "p": "cartões",
+     "ini": 40.906,
+     "fim": 41.341,
+     "tom": false
+    },
+    {
+     "p": "viraram",
+     "ini": 41.352,
+     "fim": 41.653,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 41.665,
+     "fim": 41.72,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 41.732,
+     "fim": 42.1,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 42.111,
+     "fim": 42.189,
+     "tom": false
+    },
+    {
+     "p": "responde",
+     "ini": 42.2,
+     "fim": 42.736,
+     "tom": false
+    },
+    {
+     "p": "antes",
+     "ini": 42.747,
+     "fim": 43.037,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 43.049,
+     "fim": 43.16,
+     "tom": false
+    },
+    {
+     "p": "pergunta.",
+     "ini": 43.171,
+     "fim": 43.651,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "pausa": 0.5,
+   "impacto": true,
+   "ini": 44.258,
+   "fim": 48.354,
+   "palavras": [
+    {
+     "p": "Na",
+     "ini": 44.258,
+     "fim": 44.366,
+     "tom": false
+    },
+    {
+     "p": "Renderiza,",
+     "ini": 44.377,
+     "fim": 44.924,
+     "tom": true
+    },
+    {
+     "p": "a",
+     "ini": 45.136,
+     "fim": 45.203,
+     "tom": false
+    },
+    {
+     "p": "gente",
+     "ini": 45.214,
+     "fim": 45.493,
+     "tom": false
+    },
+    {
+     "p": "monta",
+     "ini": 45.504,
+     "fim": 45.783,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 45.795,
+     "fim": 45.828,
+     "tom": false
+    },
+    {
+     "p": "prévia",
+     "ini": 45.839,
+     "fim": 46.152,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 46.163,
+     "fim": 46.241,
+     "tom": false
+    },
+    {
+     "p": "seu",
+     "ini": 46.252,
+     "fim": 46.42,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 46.431,
+     "fim": 46.799,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 46.81,
+     "fim": 46.955,
+     "tom": false
+    },
+    {
+     "p": "as",
+     "ini": 46.966,
+     "fim": 47.078,
+     "tom": false
+    },
+    {
+     "p": "fotos",
+     "ini": 47.089,
+     "fim": 47.457,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 47.469,
+     "fim": 47.569,
+     "tom": false
+    },
+    {
+     "p": "seu",
+     "ini": 47.58,
+     "fim": 47.737,
+     "tom": false
+    },
+    {
+     "p": "Instagram.",
+     "ini": 47.748,
+     "fim": 48.228,
+     "tom": false
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "pausa": 1.4,
+   "ini": 48.854,
+   "fim": 51.178,
+   "palavras": [
+    {
+     "p": "Comenta",
+     "ini": 48.854,
+     "fim": 49.265,
+     "tom": false
+    },
+    {
+     "p": "PRÉVIA.",
+     "ini": 49.276,
+     "fim": 49.678,
+     "tom": true
+    },
+    {
+     "p": "Ver",
+     "ini": 49.959,
+     "fim": 50.227,
+     "tom": false
+    },
+    {
+     "p": "não",
+     "ini": 50.238,
+     "fim": 50.417,
+     "tom": false
+    },
+    {
+     "p": "custa",
+     "ini": 50.428,
+     "fim": 50.752,
+     "tom": false
+    },
+    {
+     "p": "nada.",
+     "ini": 50.763,
+     "fim": 51.087,
+     "tom": true
+    }
+   ]
+  }
+ ]
+}

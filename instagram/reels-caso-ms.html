@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Raio-X MS Odontologia</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz. Raio-X de um caso real, no formato "mas aí... então...":
+     a página da bio da MS Odontologia (feita no Canva) e o site novo (msodontologiaitapevi.com.br), rolando dentro de
+     um celular. As telas são capturas reais (casos/ms-*.jpg, 390 × 844 a 2x): o topo com o cabeçalho e a barra fixa de
+     agendar, e a página inteira sem as peças fixas, que voltam por cima como recortes do topo. Só se fala do que
+     aparece no site; o que o botão de agendar faz por trás não é dito. O tempo de tudo sai da narração:
+     narracao/reels-caso-ms.json. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+.fone{position:absolute;left:0;top:0;z-index:20;width:540px;height:1122px;border-radius:76px;background:#0f1416;padding:20px;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.fone .tl{position:relative;width:500px;height:1082px;border-radius:58px;overflow:hidden;background:#fff}
+.fone .tl img{position:absolute;left:0;top:0;width:500px;display:block}
+.fone .tl .rec{position:absolute;left:0;width:500px;overflow:hidden}
+.fone .tl .rec img{position:absolute;left:0;width:500px}
+.anel{position:absolute;left:0;top:0;border:6px solid #e8855e;border-radius:26px;box-shadow:0 0 0 9999px rgba(10,13,14,.0);opacity:0}
+.selo{position:absolute;left:0;top:0;z-index:28;padding:12px 30px;border-radius:14px;font:800 40px/1 "Geist",sans-serif;letter-spacing:.06em;opacity:0}
+#mas{background:#c8402c;color:#fff}#entao{background:#2f7a43;color:#fff}
+.etq{position:absolute;left:0;top:0;z-index:27;padding:12px 28px;border-radius:30px;font:800 34px/1 "Geist",sans-serif;letter-spacing:.08em;opacity:0;white-space:nowrap}
+.chip{position:absolute;left:0;top:0;z-index:26;padding:16px 28px;border-radius:40px;font:800 38px/1 "Geist",sans-serif;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 18px 50px rgba(0,0,0,.45);opacity:0}
+.chip.ruim{background:#fbe3dd;color:#b2402c}.chip.bom{background:#e3f1e5;color:#2f7a43}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="poeira" id="poeira"></div>
+  <div class="fone" id="fa"><div class="tl"><img src="casos/ms-antes.jpg"><div class="anel" id="an-a"></div></div></div>
+  <div class="fone" id="fd"><div class="tl">
+    <img id="longo" src="casos/ms-longo.jpg">
+    <div class="rec" id="cab" style="top:0;height:95px"><img src="casos/ms-topo.jpg" style="top:0"></div>
+    <div class="rec" id="bar" style="bottom:0;height:96px"><img src="casos/ms-topo.jpg" style="top:-986px"></div>
+    <div class="anel" id="an-d"></div></div></div>
+  <div class="etq" id="e-antes" style="background:#c8402c;color:#fff">ANTES · CANVA</div>
+  <div class="etq" id="e-depois" style="background:#2f7a43;color:#fff">DEPOIS · SITE</div>
+  <div id="chips"></div>
+  <div class="selo" id="mas">MAS AÍ</div><div class="selo" id="entao">ENTÃO</div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta"></div><div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div><div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, fase, ease, sai, volta, lerp, pulso, pos, entra, historia } from "./historia.mjs";
+const R = await historia({
+  nome: "reels-caso-ms",
+  ordem: ["abre", "canva", "primeiro", "prova", "agenda", "casos", "virada", "marca", "cta"],
+  trilha: { abre: "abre", canva: "google", primeiro: "insta", prova: "insta", agenda: "ese", casos: "site", virada: "fim", marca: "fim", cta: "cta" },
+  cta: "PRÉVIA", nota: "Caso real: Clínica MS Odontologia, Itapevi.", bpm: 120, tom: 0,
+});
+const { S, I, W, DUR, palco } = R;
+const K = 500 / 390; // px da tela do celular por px do site
+// chips: [texto, classe, palavra, x, y]
+const CH = [["4 cartões", "ruim", W("canva", "quatro"), 40, 760], ["letra miúda", "ruim", W("canva", "miuda"), 660, 900], ["cadê a prova?", "ruim", W("canva", "mostra"), 50, 1060],
+  ["em 1 segundo", "bom", W("primeiro", "segundo"), 640, 700], ["+10 mil casos", "bom", W("prova", "dez"), 30, 860], ["5,0 · 93 avaliações", "bom", W("prova", "93"), 560, 1010],
+  ["fixo na tela", "bom", W("nada", "fixo"), 600, 1400], ["casos reais", "bom", W("casos", "casos"), 40, 900]];
+$("#chips").innerHTML = CH.map((c, k) => `<div class="chip ${c[1]}" id="ch${k}">${c[0]}</div>`).join("");
+const FIM_CH = [I("primeiro"), I("primeiro"), I("primeiro"), I("prova"), I("nada"), I("nada"), I("casos"), I("moral")];
+const T_D = I("primeiro") - 0.1, T_V = I("moral");
+// rolagem do site (px do site): topo, provas, descendo com a barra fixa, casos
+const ROLA = [[0, 0], [I("prova") + 0.6, 0], [W("prova", "embaixo"), 330], [I("nada") + 0.3, 330], [W("nada", "site"), 1300], [W("casos", "resultado"), 1300], [W("casos", "casos") + 0.2, 1450], [I("moral") - 0.2, 2000], [T_V + 0.6, 0]];
+const rola = t => { for (let k = 1; k < ROLA.length; k++) if (t < ROLA[k][0]) { const [a, va] = ROLA[k - 1], [b, vb] = ROLA[k]; return lerp(va, vb, ease(fase(t, a, b))); } return ROLA[ROLA.length - 1][1]; };
+// anéis: [celular, x, y, w, h (px da tela), de, até]
+const AN = [["a", 20, 50, 460, 840, W("canva", "cartoes"), I("primeiro")], ["d", 16, 150, 468, 250, W("primeiro", "itapevi"), I("prova")],
+  ["d", 10, 275, 480, 300, W("prova", "dez"), I("nada")], ["d", 8, 990, 484, 86, W("nada", "fixo"), I("casos")]];
+const MAS = R.frases.flatMap(f => f.palavras.filter((p, i) => /^mas$/i.test(p.p) && f.palavras[i + 1] && /^aí/i.test(f.palavras[i + 1].p)).map(p => p.ini));
+const ENTAO = R.frases.flatMap(f => f.palavras.filter(p => /^então/i.test(p.p)).map(p => p.ini));
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  palco.style.background = "radial-gradient(70% 50% at 50% 46%,#1c252b 0%,#0b0e10 78%)";
+  const fim = S.marca - 0.3, vira = ease(fase(t, T_V - 0.2, T_V + 0.5)), apaga = 1 - fase(t, fim - 0.3, fim);
+  const ea = entra(t, 0.15, 0.45), troca = ease(fase(t, T_D - 0.25, T_D + 0.35));
+  // antes: sai de cena na troca e volta pequeno à esquerda na virada
+  pos($("#fa"), { x: lerp(270, 30, vira) - 300 * troca * (1 - vira), y: lerp(500, 640, vira) + ea.y, s: lerp(1, 0.62, vira) * ea.s, r: -4 * vira, o: Math.max(1 - troca, vira) * ea.o * apaga });
+  pos($("#fd"), { x: lerp(270, 510, vira) + 300 * (1 - troca), y: lerp(500, 560, vira), s: lerp(1, 0.72, vira), r: 3 * vira, o: troca * apaga });
+  $("#longo").style.top = (95 - rola(t) * K).toFixed(1) + "px";
+  for (const [qual, x, y, w, h, de, ate] of AN) {
+    const el = $(`#an-${qual}`); if (!(t >= de - 0.1 && t < ate)) continue;
+    const a = fase(t, de - 0.1, de + 0.25);
+    Object.assign(el.style, { left: x + "px", top: y + "px", width: w + "px", height: h + "px" });
+    el.style.opacity = (a * (1 - fase(t, ate - 0.25, ate))).toFixed(3); el.style.transform = `scale(${lerp(1.15, 1, sai(a)).toFixed(3)})`;
+  }
+  for (const q of ["a", "d"]) if (!AN.some(([qq, , , , , de, ate]) => qq === q && t >= de - 0.1 && t < ate)) $(`#an-${q}`).style.opacity = 0;
+  const ta = entra(t, 0.3, 0.3), td = entra(t, T_D + 0.1, 0.3);
+  pos($("#e-antes"), { x: lerp(330, 70, vira), y: lerp(430, 1575, vira) + ta.y * 0.5, s: lerp(1, 0.8, vira), o: ta.o * Math.max(1 - troca, vira) * apaga });
+  pos($("#e-depois"), { x: lerp(340, 620, vira), y: lerp(430, 1575, vira) + td.y * 0.5, s: lerp(1, 0.8, vira), o: td.o * apaga });
+  CH.forEach((c, k) => { const a = entra(t, c[2], 0.28), ate = FIM_CH[k]; pos($(`#ch${k}`), { x: c[3], y: c[4] + a.y, s: a.s, r: k % 2 ? 3 : -3, o: a.o * (1 - fase(t, ate - 0.25, ate)) }); });
+  const m = MAS.filter(x => t >= x - 0.1 && t < x + 1.6).pop(), e = ENTAO.filter(x => t >= x - 0.1 && t < x + 1.4).pop();
+  for (const [el, t0, d] of [[$("#mas"), m, 1.6], [$("#entao"), e, 1.4]]) {
+    if (t0 === undefined || (el.id === "mas" && e !== undefined && e > m)) { el.style.visibility = "hidden"; continue; }
+    const a = entra(t, t0, 0.25);
+    pos(el, { x: 80, y: 420, s: lerp(1.5, 1, sai(fase(t, t0 - 0.05, t0 + 0.2))), r: -5, o: a.o * (1 - fase(t, t0 + d - 0.25, t0 + d)) });
+  }
+  R.comum(t);
+};
+const SONS = [{ t: T_D, tipo: "passa", ganho: 0.5 }, ...CH.map(c => ({ t: c[2], tipo: c[1] === "ruim" ? "baque" : "toc", ganho: 0.45 }))];
+window.preparar = () => R.preparar([1.5, W("canva", "mostra") + 0.5, W("primeiro", "itapevi") + 0.4, W("prova", "google") + 0.3, W("nada", "site") + 0.3, W("casos", "dedo") + 0.3, T_V + 1.2, S.marca + 1.5, DUR - 0.3], SONS);
+await R.pronto();
+</script>
+</body></html>

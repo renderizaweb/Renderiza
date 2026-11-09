@@ -1,0 +1,69 @@
+{
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+12%",
+ "inicio": 0.2,
+ "pausaMax": 0.36,
+ "_sobre": "Raio-X de um caso real: a página da bio da MS Odontologia (Canva) e o site novo, no formato \"mas aí... então...\".",
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "abre",
+   "texto": "Essa era a página que a MS Odontologia usava na *bio.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "canva",
+   "cena": "canva",
+   "texto": "Mas aí: o paciente toca no link e cai em quatro cartões de letra miúda, num fundo marrom. Diz que é referência, mas não mostra *por quê.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "primeiro",
+   "cena": "primeiro",
+   "texto": "Então começamos pelo primeiro segundo: o que ela faz, para quem e onde. Odontologia estética em *Itapevi.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "prova",
+   "cena": "prova",
+   "texto": "Mas aí: todo dentista diz que é bom. Então a prova vem logo embaixo: mais de dez mil casos, nota cinco, com 93 avaliações no *Google.*",
+   "pausa": 0.3,
+   "fala": "Mas aí: todo dentista diz que é bom. Então a prova vem logo embaixo: mais de dez mil casos, nota cinco, com noventa e três avaliações no Google."
+  },
+  {
+   "id": "nada",
+   "cena": "agenda",
+   "texto": "Mas aí: ele rola, se convence, e o botão de agendar ficou lá em cima. Então o botão fica fixo, em qualquer parte do *site.*",
+   "pausa": 0.3
+  },
+  {
+   "id": "casos",
+   "cena": "casos",
+   "texto": "Mas aí: ele quer ver resultado antes. Então os casos reais estão ali, a um *dedo.*",
+   "pausa": 0.3,
+   "impacto": true
+  },
+  {
+   "id": "moral",
+   "cena": "virada",
+   "texto": "Quatro cartões viraram um site que responde antes da *pergunta.*",
+   "pausa": 0.5
+  },
+  {
+   "id": "marca",
+   "cena": "marca",
+   "texto": "Na *Renderiza,* a gente monta a prévia do seu site com as fotos do seu Instagram.",
+   "pausa": 0.5,
+   "impacto": true
+  },
+  {
+   "id": "cta",
+   "cena": "cta",
+   "texto": "Comenta *PRÉVIA.* Ver não custa *nada.*",
+   "pausa": 1.4,
+   "fala": "Comenta prévia. Ver não custa nada."
+  }
+ ]
+}
