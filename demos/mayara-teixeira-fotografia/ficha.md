@@ -37,8 +37,9 @@
 - As fotos têm a marca d'água dela (fica bem, mas no site dá para usar sem).
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `mesames` (Mês a mês, a partir de R$ 200), `smash` (Smash e 1 ano, a partir de R$ 350), `familia` (Bebês e família, a partir de R$ 300). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mayara-teixeira-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mayara-teixeira-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `mensal:2`.
+- `mesames`: Mês a mês (fotos mensal:1,0, bebes:6, mensal:4, pn:0, bebes:3, mensal:5, bebes:1, mensal:2); a partir de R$ 200; depoimento: Daiane Ribeiro
+- `smash`: Smash e 1 ano (fotos smash:0,1,2,5, bebes:0); a partir de R$ 350; depoimento: Eduarda Oliveira Nail Designer
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mayara-teixeira-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mayara-teixeira-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

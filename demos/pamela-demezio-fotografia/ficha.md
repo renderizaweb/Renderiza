@@ -37,8 +37,11 @@
 - Metade dos posts dela é ensaio feminino ou corporativo; a demo foca no infantil, na família e no Natal.
 - Fotos de crianças, gestantes e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `gestante` (Gestante e chá revelação, a partir de R$ 400), `infantil` (Infantil, a partir de R$ 300), `familia` (Família, a partir de R$ 320).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/pamela-demezio-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/pamela-demezio-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:0`.
+- `natal`: Natal 2026 (fotos natal:1,0,3, pn:0, natal:4,2); a partir de R$ 280; depoimento: Aryane Ribeiro
+- `gestante`: Gestante (fotos gestante:4,0,2,5,3,1,6,8,9); a partir de R$ 400; depoimento: Roseane Ferraz
+- `infantil`: Infantil e smash (fotos familia:5, natal:5,7,6,9, pn:2); a partir de R$ 300; depoimento: Jaine Santos
+- `familia`: Família (fotos familia:0,2,3, pn:3, familia:7); a partir de R$ 320; depoimento: Steffany Santos
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/pamela-demezio-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/pamela-demezio-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

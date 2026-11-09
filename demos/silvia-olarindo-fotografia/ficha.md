@@ -38,8 +38,9 @@
 - O retrato do "quem fotografa" pode ser dela (não confirmado).
 - Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `newborn` (Newborn em casa, a partir de R$ 500), `familia` (Família, a partir de R$ 450). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/silvia-olarindo-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/silvia-olarindo-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `detalhes:6`.
+- `newborn`: Newborn em casa (fotos familia:4, pn:0, detalhes:6,0,7, newborn:4, detalhes:2, familia:5, detalhes:3); a partir de R$ 500; depoimento: Renata França
+- `familia`: Família (fotos familia:0,1,2,3,6); a partir de R$ 450; depoimento: Jennifer Leite
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/silvia-olarindo-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/silvia-olarindo-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

@@ -595,31 +595,30 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Tatuapé",
-  "h1": "Mês a mês, smash the cake e famílias no Tatuapé.",
+  "h1": "Mês a mês e smash the cake no Tatuapé.",
   "frase": "Um cenário para cada fase.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "mensal:2",
   "ensaios": [
    {
     "id": "mesames",
     "nome": "Mês a mês",
     "chamada": "Ensaio mês a mês",
     "fotos": [
-     "mensal:2,0,1,3-5",
-     "pn:0"
+     "mensal:1,0",
+     "bebes:6",
+     "mensal:4",
+     "pn:0",
+     "bebes:3",
+     "mensal:5",
+     "bebes:1",
+     "mensal:2"
     ],
     "titulo": "Doze meses, um cenário diferente a cada mês.",
-    "sub": "Com a plaquinha do nome e da idade.",
-    "texto": "O bebê cresce e cada mês ganha um cenário temático, do primeiro mês ao primeiro aninho.",
-    "selos": [
-     "Plaquinha do nome",
-     "Tatuapé",
-     "5,0 no Google"
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Daiane Ribeiro",
+    "sub": "Com a plaquinha do nome e da idade, do primeiro mês ao primeiro aninho.",
+    "texto": "O bebê cresce e cada mês ganha um cenário temático: super-herói, chef, praia, Flintstones, Ursinho Pooh.",
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -649,25 +648,21 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Daiane Ribeiro"
    },
    {
     "id": "smash",
     "nome": "Smash e 1 ano",
     "chamada": "Smash the cake",
     "fotos": [
-     "smash:0-2,5"
+     "smash:0,1,2,5",
+     "bebes:0"
     ],
     "titulo": "Smash the cake no tema escolhido.",
-    "sub": "Cinderela, Rei Leão, Monstros S.A. e o personagem preferido.",
-    "texto": "O aniversário vira cenário: o tema que a família escolher, com bolo e muita bagunça boa.",
-    "selos": [
-     "Tema escolhido",
-     "Tatuapé",
-     "5,0 no Google"
-    ],
-    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
-    "depo": "Eduarda Oliveira Nail Designer",
+    "sub": "Cinderela, Rei Leão, Monstros S.A., Minnie e Looney Tunes.",
+    "texto": "O primeiro aniversário vira cenário: o tema que a família escolher, com bolo e muita bagunça boa.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -698,57 +693,9 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
-   },
-   {
-    "id": "familia",
-    "nome": "Bebês e família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "bebes:2,0,1,3-6",
-     "smash:3,4",
-     "pn:1"
     ],
-    "titulo": "Pais, irmãos e o bebê no mesmo cenário.",
-    "sub": "O carinho da família, do newborn aos irmãos mais velhos.",
-    "texto": "Ensaios com cenários temáticos para a família toda, no mesmo capricho dos ensaios dos bebês.",
-    "selos": [
-     "Família toda",
-     "Tatuapé",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Lais Borelli",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 300",
-      "itens": [
-       "40 minutos de ensaio",
-       "12 fotos editadas",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 450",
-      "itens": [
-       "1 hora de ensaio",
-       "25 fotos editadas",
-       "Até 6 pessoas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 650",
-      "itens": [
-       "1h30 de ensaio",
-       "40 fotos editadas",
-       "Quadro 30x40"
-      ]
-     }
-    ]
+    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
+    "depo": "Eduarda Oliveira Nail Designer"
    }
   ]
  }

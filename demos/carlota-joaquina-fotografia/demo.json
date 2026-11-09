@@ -687,78 +687,24 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Santana de Parnaíba",
-  "h1": "Natal, aniversários, mães e filhos e famílias em Santana de Parnaíba.",
-  "frase": "Para acompanhar o crescimento das crianças.",
+  "h1": "Ensaios infantis, mães e filhos e famílias em Santana de Parnaíba.",
+  "frase": "Para acompanhar o crescimento das crianças. E a Oficina do Papai Noel já abriu a agenda de Natal.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "natal:0",
   "ensaios": [
    {
-    "id": "natal",
-    "nome": "Natal 2026",
-    "chamada": "Ensaio de Natal",
+    "id": "infantil",
+    "nome": "Infantil e temas",
+    "chamada": "Ensaio infantil",
     "fotos": [
-     "natal:0,1,8"
+     "natal:4,5,0,2,6,7,1,3",
+     "pn:0"
     ],
-    "titulo": "A magia do Natal chegou no estúdio!",
-    "sub": "A Oficina do Papai Noel: árvore gigante, ursão e presentinhos.",
-    "texto": "O cenário foi feito com muito carinho, e as meninas atendem cada família com calma.",
-    "selos": [
-     "Oficina do Papai Noel",
-     "Santana de Parnaíba",
-     "18 avaliações no Google"
-    ],
-    "quando": "São poucas vagas em novembro, para atender cada família com calma: reserve o seu horário.",
-    "depo": "Natalia Fernandes da Silva",
-    "pacotes": [
-     {
-      "nome": "Mini sessão",
-      "preco": "R$ 280",
-      "itens": [
-       "20 minutos",
-       "1 cenário",
-       "8 fotos editadas"
-      ]
-     },
-     {
-      "nome": "Sessão de Natal",
-      "preco": "R$ 440",
-      "itens": [
-       "40 minutos",
-       "Família toda",
-       "20 fotos editadas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Natal completo",
-      "preco": "R$ 640",
-      "itens": [
-       "1 hora, com os avós",
-       "30 fotos editadas",
-       "Galeria online"
-      ]
-     }
-    ]
-   },
-   {
-    "id": "aniversario",
-    "nome": "Aniversários e temas",
-    "chamada": "Ensaio de aniversário",
-    "fotos": [
-     "natal:2-7,9"
-    ],
-    "titulo": "Festa no estúdio.",
-    "sub": "Carros, Patrulha Canina, Mickey, Chapolin, Branca de Neve e Turma da Mônica.",
-    "texto": "Um cenário temático para cada data: a criança escolhe o personagem e o estúdio vira a festa.",
-    "selos": [
-     "Cenário temático",
-     "Santana de Parnaíba",
-     "18 avaliações no Google"
-    ],
-    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
-    "depo": "Educador Adão Gomes",
+    "titulo": "Um cenário para cada data.",
+    "sub": "Branca de Neve, Chapolin, caipira, Turma da Mônica e a Oficina do Papai Noel.",
+    "texto": "A criança escolhe o personagem e o estúdio vira o cenário: aniversários, datas comemorativas e o Natal, com a Joyce e a Carla.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -790,25 +736,19 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Educador Adão Gomes"
    },
    {
     "id": "maes",
     "nome": "Mães e filhos",
     "chamada": "Ensaio mães e filhos",
     "fotos": [
-     "maes:5,0-4,6-11"
+     "maes:4,2,10,5,0,8,6,9,7"
     ],
     "titulo": "Mães e filhos entre as tulipas.",
-    "sub": "O colo, o abraço e o beijo, em rosa e verde.",
-    "texto": "Cenário com tulipas para mães e filhos de todas as idades: o ensaio mais pedido no Dia das Mães.",
-    "selos": [
-     "Cenário com tulipas",
-     "Santana de Parnaíba",
-     "18 avaliações no Google"
-    ],
-    "quando": "O Dia das Mães é a data mais disputada do ano: as vagas abrem antes.",
-    "depo": "Michele Oliveira",
+    "sub": "O colo, o abraço e o beijo, entre as tulipas ou as flores brancas.",
+    "texto": "Um ensaio para mães e filhos de todas as idades, com o cenário montado com carinho para o Dia das Mães.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -838,25 +778,19 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Michele Oliveira"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:2,0,1,3-7"
+     "familia:3,2,4,0,5,1,6,7"
     ],
     "titulo": "Pais, irmãos e o bebê no colo.",
     "sub": "A família toda no estúdio, em cor ou em preto e branco.",
     "texto": "Para acompanhar o crescimento das crianças, ano após ano.",
-    "selos": [
-     "Cor e preto e branco",
-     "Santana de Parnaíba",
-     "18 avaliações no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Rafael Xavier",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -886,7 +820,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Rafael Xavier"
    }
   ]
  }

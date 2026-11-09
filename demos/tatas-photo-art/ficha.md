@@ -37,8 +37,10 @@
 - Google sem horário de funcionamento: a agenda é exemplo (dito na página).
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `mesames` (Mês a mês, a partir de R$ 190), `newborn` (Newborn e aniversários, a partir de R$ 450).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/tatas-photo-art <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/tatas-photo-art/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `mensal:9`.
+- `natal`: Natal 2026 (fotos natal:3, pn:0, natal:1,2, pn:2); a partir de R$ 280; depoimento: nenhum (nenhum fala deste ensaio)
+- `mesames`: Mês a mês (fotos mensal:4,2, newborn:1, mensal:0,6,9,1,5, newborn:0); a partir de R$ 190; depoimento: Luiza dos Anjos
+- `aniversarios`: Aniversários (fotos newborn:2,3,4,6,7,5); a partir de R$ 300; depoimento: Maynara Lima
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/tatas-photo-art <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/tatas-photo-art/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

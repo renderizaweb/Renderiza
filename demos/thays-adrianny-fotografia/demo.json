@@ -649,30 +649,26 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Zona Leste de SP",
-  "h1": "Natal, aniversários, bebês e famílias na Zona Leste de São Paulo.",
+  "h1": "Natal, aniversários e bebês na Zona Leste de São Paulo.",
   "frase": "Essa fase passa, mas as lembranças ficam para sempre.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "natal:1",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "natal:0-6"
+     "natal:0",
+     "pn:0",
+     "natal:2,6,4,5",
+     "pn:2"
     ],
     "titulo": "O Natal chegou ao nosso estúdio!",
     "sub": "A lareira, os ursinhos e a neve: cada detalhe preparado com muito carinho.",
-    "texto": "A temporada de Natal começou, para lembranças inesquecíveis.",
-    "selos": [
-     "Lareira de Natal",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "A agenda de Natal abriu em 2 de novembro: os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Renato Andrade",
+    "texto": "A temporada de Natal começou: um cenário para lembranças inesquecíveis, das crianças maiores aos bebês.",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -702,25 +698,20 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "A agenda de Natal abriu em 2 de novembro: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Renato Andrade"
    },
    {
     "id": "infantil",
     "nome": "Infantil e aniversários",
     "chamada": "Ensaio de aniversário",
     "fotos": [
-     "infantil:0-9"
+     "infantil:0,6,3,2,8,4,9,1,7"
     ],
-    "titulo": "Até os super-heróis precisam de carinho.",
-    "sub": "Bexigas, balão de idade e velinhas: Toy Story, Homem-Aranha, Minnie e Barbie.",
-    "texto": "Ensaio completo de aniversário, com o tema escolhido pela família.",
-    "selos": [
-     "Tema escolhido",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
-    "depo": "Ester Costa",
+    "titulo": "Bexigas, balão de idade e velinhas.",
+    "sub": "Ensaios de aniversário com o tema escolhido: circo, Barbie, Minnie e PJ Masks.",
+    "texto": "Um ensaio completo de aniversário, com o cenário montado no tema que a criança escolher.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -752,25 +743,19 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Ester Costa"
    },
    {
     "id": "familia",
-    "nome": "Bebês, gestante e família",
+    "nome": "Bebês e família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-6"
+     "familia:4,3,5,2,6"
     ],
-    "titulo": "A espera mais linda merece ser eternizada.",
-    "sub": "Gestantes, bebês e a família toda no cenário.",
+    "titulo": "Até os super-heróis precisam de carinho.",
+    "sub": "Bebês, irmãos e a família toda no cenário.",
     "texto": "Cada mês um tema, como o pequeno xerife de Toy Story aos 2 meses, e a família reunida com muito carinho.",
-    "selos": [
-     "Cada mês um tema",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Camila Boneli Alves",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -800,7 +785,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Gabi Costa"
    }
   ]
  }

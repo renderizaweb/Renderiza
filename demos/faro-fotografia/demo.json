@@ -636,28 +636,22 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "São Paulo",
   "h1": "Gestante, newborn e família em São Paulo.",
   "frase": "Fotografia sensível para eternizar o início de uma história.",
+  "capa": "gestante:0",
   "ensaios": [
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
     "fotos": [
-     "gestante:0-9"
+     "gestante:1,0,7,4,2,3,6,5,8"
     ],
     "titulo": "O início de uma história.",
     "sub": "Diversos cenários, figurinos, a banheira de leite e o ensaio vogue.",
     "texto": "A Fabi guia cada pose, com figurinos para as mamães e cenários que mudam a cada ensaio.",
-    "selos": [
-     "Figurinos para a mamãe",
-     "São Paulo",
-     "45 avaliações no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Bruna Carvalho",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -691,6 +685,8 @@
       ]
      }
     ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Bruna Carvalho",
     "extra": {
      "titulo": "Intrauterino e parto",
      "p": "Uma imagem do bebê como se ainda estivesse na barriga, e a fotografia do parto, num dos momentos mais importantes da família."
@@ -701,18 +697,12 @@
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
     "fotos": [
-     "newborn:0-5"
+     "newborn:2,0,1,5,3",
+     "pn:7"
     ],
     "titulo": "Quando o bebê ainda dorme bastante.",
     "sub": "Sempre respeitando o conforto e o tempo do bebê.",
-    "texto": "O newborn é feito nos primeiros dias, quando o bebê dorme bastante e fica tranquilo nas poses.",
-    "selos": [
-     "Até os 10 dias",
-     "São Paulo",
-     "45 avaliações no Google"
-    ],
-    "quando": "Melhor época: preferencialmente até os 10 dias de vida. Reserve ainda na gestação, pela data prevista do parto.",
-    "depo": "Sheila Sibia",
+    "texto": "Cenários, figurinos para os bebês e muita calma: o newborn é feito nos primeiros dias, com o bebê tranquilo.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -720,7 +710,7 @@
       "itens": [
        "Até 3 horas, no tempo do bebê",
        "15 fotos editadas",
-       "Cenários e acessórios do estúdio",
+       "Cenários e acessórios",
        "Galeria online"
       ]
      },
@@ -745,27 +735,23 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: preferencialmente até os 10 dias de vida. Reserve ainda na gestação, pela data prevista do parto.",
+    "depo": "Sheila Sibia"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "pn:1",
-     "familia:0-5",
-     "pn:4"
+     "familia:4",
+     "pn:0",
+     "familia:3,5,2",
+     "pn:1"
     ],
     "titulo": "A vida passa, a família cresce e as fotografias ficam.",
     "sub": "Quantas vezes a família inteira aparece na mesma fotografia?",
     "texto": "Um ensaio para reunir todo mundo, do bebê aos irmãos mais velhos.",
-    "selos": [
-     "A família inteira",
-     "São Paulo",
-     "45 avaliações no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Mariana Alves Vieira",
     "pacotes": [
      {
       "nome": "Essencial",

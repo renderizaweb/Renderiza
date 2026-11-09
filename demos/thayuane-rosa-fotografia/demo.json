@@ -685,29 +685,24 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Zona Leste de SP",
   "h1": "Gestantes, newborn, famílias e o Natal na Zona Leste de São Paulo.",
   "frase": "Fotografar nunca foi só sobre fazer fotos.",
+  "capa": "gestante:2",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "natal:0-4",
-     "pn:1"
+     "pn:0",
+     "natal:1,2,3,4",
+     "familia:4"
     ],
     "titulo": "Entre nós, o Natal.",
     "sub": "De 9 de novembro a 12 de dezembro: amor, aconchego e muita sofisticação.",
-    "texto": "Os filhos crescem, as famílias mudam e o tempo passa: mais do que fotos bonitas, um Natal para reunir quem vocês amam.",
-    "selos": [
-     "De 9/11 a 12/12",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "O especial vai de 9 de novembro a 12 de dezembro: os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Rebecca Requena",
+    "texto": "Mais do que fotos bonitas, um Natal para reunir quem vocês amam: os filhos crescem, as famílias mudam e o tempo passa.",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -737,25 +732,19 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "O especial vai de 9 de novembro a 12 de dezembro: os horários perto do Natal são os primeiros a acabar."
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
     "fotos": [
-     "gestante:1,0,2-7"
+     "gestante:1,0,2,3,6,4,5"
     ],
-    "titulo": "É sobre guardar fases.",
-    "sub": "Do ensaio gestante ao acompanhamento do bebê, no estúdio ou ao ar livre.",
+    "titulo": "A espera, ao ar livre ou no estúdio.",
+    "sub": "Na estrada, entre as flores ou no bambuzal, com o casal junto.",
     "texto": "Por trás da câmera, existe uma mulher que ama ouvir histórias: a Thay acompanha a família desde a barriga.",
-    "selos": [
-     "Ao ar livre",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Isabela Ferraz",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -788,25 +777,20 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Isabela Ferraz"
    },
    {
     "id": "newborn",
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
     "fotos": [
-     "newborn:0-6"
+     "newborn:0,1,2,4,6,5,3"
     ],
     "titulo": "Os primeiros dias, com delicadeza.",
     "sub": "E muito cuidado.",
     "texto": "O newborn é feito com calma, no tempo do bebê, para guardar os primeiros dias.",
-    "selos": [
-     "Com delicadeza",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
-    "depo": "kleytyaneN",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -814,7 +798,7 @@
       "itens": [
        "Até 3 horas, no tempo do bebê",
        "15 fotos editadas",
-       "Cenários e acessórios do estúdio",
+       "Cenários e acessórios",
        "Galeria online"
       ]
      },
@@ -839,25 +823,19 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto."
    },
    {
     "id": "familia",
     "nome": "Infantil e família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-8"
+     "familia:1,5,0,6,2,7,3,8"
     ],
-    "titulo": "Do bebê à mãe de 65 anos.",
-    "sub": "Smash the cake, banho de frutas e famílias de todas as idades.",
-    "texto": "É sobre reencontrar sentimentos: crianças, mães e famílias inteiras.",
-    "selos": [
-     "Todas as idades",
-     "Zona Leste de SP",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Ana Paula Ventura",
+    "titulo": "É sobre guardar fases.",
+    "sub": "Crianças, smash the cake ao ar livre, mães e bebês.",
+    "texto": "É sobre guardar fases e reencontrar sentimentos: o sorriso de agora, o colo de agora.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -887,7 +865,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Rebecca Requena"
    }
   ]
  }

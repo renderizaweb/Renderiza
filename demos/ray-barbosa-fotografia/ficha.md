@@ -37,8 +37,10 @@
 - A maquiagem dos ensaios de Natal é de uma parceira (@gabrielamacielmakeup nas legendas); a página diz só "com maquiagem".
 - Fotos de gestantes, crianças e clientes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `gestante` (Gestante, a partir de R$ 450), `feminino` (Feminino e aniversário, a partir de R$ 400), `infantil` (Infantil e família, a partir de R$ 350), `natal` (Natal 2026, a partir de R$ 300).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/ray-barbosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/ray-barbosa-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:1`.
+- `gestante`: Gestante (fotos gestante:5,0,2,1,6,8,4,7,9); a partir de R$ 450; depoimento: Ludymila Madalena
+- `feminino`: Feminino (fotos feminino:3,0,6,4,2,1,5,7); a partir de R$ 400; depoimento: Eliana Cardoso Ramos
+- `infantil`: Infantil (fotos infantil:1,2,3,6,4,7,5,8); a partir de R$ 350; depoimento: Rafael Xenofonte
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/ray-barbosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/ray-barbosa-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

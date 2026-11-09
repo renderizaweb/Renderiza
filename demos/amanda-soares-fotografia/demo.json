@@ -661,30 +661,23 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Diadema",
-  "h1": "Smash the cake, bebês e famílias em Diadema.",
+  "h1": "Smash the cake, mês a mês, infantil e famílias em Diadema.",
   "frase": "Seu momento merece fotos incríveis.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "smash:0",
   "ensaios": [
    {
     "id": "smash",
-    "nome": "Smash e 1 ano",
+    "nome": "Smash e aniversário",
     "chamada": "Smash the cake",
     "fotos": [
-     "smash:0-9"
+     "smash:8,0,1,9,2"
     ],
     "titulo": "A primeira volta ao sol.",
-    "sub": "Um ano inteiro de descobertas, sorrisos e abraços, num cenário montado para o seu pequeno.",
-    "texto": "Cenários coloridos e cheios de personagem, do 1 aninho no trono ao tema que a família escolher.",
-    "selos": [
-     "Cenário temático",
-     "Diadema",
-     "5,0 no Google"
-    ],
-    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
-    "depo": "Jaqueline Silva",
+    "sub": "Um ano inteiro de descobertas, num cenário montado para o aniversário.",
+    "texto": "Cenários coloridos e cheios de personagem, do primeiro aninho ao tema que a família escolher.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -715,25 +708,22 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
+    "depo": "Emanuel Oliveira",
+    "bloco": "smash:1"
    },
    {
     "id": "mesames",
     "nome": "Mês a mês",
     "chamada": "Ensaio mês a mês",
     "fotos": [
-     "bebes:5,0-4,6,7"
+     "bebes:6,5,4,7,2,1",
+     "smash:3"
     ],
     "titulo": "Um tema a cada mês.",
-    "sub": "Futebol, praia, festa junina: o bebê cresce e cada mês ganha um cenário.",
+    "sub": "Futebol, praia, festa junina, Chaves: o bebê cresce e cada mês ganha um cenário.",
     "texto": "O acompanhamento registra o primeiro ano inteiro, mês a mês, com um cenário diferente em cada ensaio.",
-    "selos": [
-     "Cenário novo todo mês",
-     "Diadema",
-     "5,0 no Google"
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Lidiane Pinto da silva",
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -763,25 +753,67 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Lidiane Pinto da silva"
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "chamada": "Ensaio infantil",
+    "fotos": [
+     "familia:2",
+     "smash:6,5",
+     "familia:3",
+     "smash:4"
+    ],
+    "titulo": "Do Chaves ao Dia das Crianças.",
+    "sub": "Cenários para cada idade, com muita cor e brincadeira.",
+    "texto": "Festa junina, super-heróis e Dia das Crianças: a Amanda monta o cenário e a criança só precisa brincar.",
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ],
+    "depo": "Jaqueline Silva"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:4,0-3,5-7"
+     "familia:5,0,4,1,6,7"
     ],
     "titulo": "A família toda no cenário.",
     "sub": "Pais, filhos e até o time do coração, no estúdio da Vila Nogueira.",
     "texto": "Ensaios leves e divertidos, com cenários que mudam a cada estação.",
-    "selos": [
-     "Estúdio na Vila Nogueira",
-     "Diadema",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Elder Lima",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -811,7 +843,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Elder Lima"
    }
   ]
  }

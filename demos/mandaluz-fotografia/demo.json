@@ -643,29 +643,22 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Franco da Rocha",
-  "h1": "Gestantes, retratos e Natal em Franco da Rocha.",
+  "h1": "Gestantes e retratos com luz de estúdio em Franco da Rocha.",
   "frase": "A fotografia guarda tudo aquilo que o tempo não consegue levar.",
-  "tom": "claro",
+  "capa": "gestante:3",
   "ensaios": [
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
     "fotos": [
-     "gestante:3,0-2,4-11"
+     "gestante:6,3,1,11,4,7,2,0"
     ],
     "titulo": "A gestação é feita de pequenos momentos.",
-    "sub": "No fundo claro ou escuro, com luz de estúdio desenhada.",
-    "texto": "Pequenos momentos que lá na frente vão deixar saudade: a barriga, o casal, a luz e a sombra.",
-    "selos": [
-     "Luz e sombra",
-     "Franco da Rocha",
-     "5,0 no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Cristy leite",
+    "sub": "No fundo claro ou escuro, com a luz desenhada do estúdio.",
+    "texto": "Pequenos momentos que lá na frente vão deixar saudade: a barriga, o casal, a luz e a sombra. A Milena ajuda em cada pose, com calma.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -698,25 +691,20 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Cristy leite"
    },
    {
     "id": "retratos",
     "nome": "Retratos",
     "chamada": "Ensaio de retrato",
     "fotos": [
-     "retratos:0-7"
+     "retratos:5,0,4,1,6,2,7"
     ],
     "titulo": "Luz e sombra, do jeito Mandaluz.",
-    "sub": "Retratos de estúdio com fundo escuro e luz desenhada.",
-    "texto": "Ensaios individuais com luz desenhada, para se ver com outros olhos.",
-    "selos": [
-     "Fundo escuro",
-     "Franco da Rocha",
-     "5,0 no Google"
-    ],
-    "quando": "Agende perto da sua data: um ensaio para comemorar você.",
-    "depo": "Victoria Polido",
+    "sub": "Retratos de estúdio, no fundo escuro ou colorido, com a luz desenhada.",
+    "texto": "Um ensaio só seu, para se ver com outros olhos: a Milena desenha a luz e conduz cada pose.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -745,58 +733,11 @@
        "2 horas de ensaio",
        "40 fotos editadas",
        "3 looks",
-       "Álbum impresso 20x20"
+       "Maquiagem"
       ]
      }
-    ]
-   },
-   {
-    "id": "natal",
-    "nome": "Natal 2026",
-    "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:0,2"
     ],
-    "titulo": "O Ateliê de Panetones.",
-    "sub": "No Natal Mandaluz 2026, o ensaio vira uma tarde em família.",
-    "texto": "Teve confeitaria, diversão e tempo de qualidade juntos: as melhores recordações do Natal.",
-    "selos": [
-     "Ateliê de Panetones",
-     "Franco da Rocha",
-     "5,0 no Google"
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Vitória Nascimento Vieira",
-    "pacotes": [
-     {
-      "nome": "Mini sessão",
-      "preco": "R$ 300",
-      "itens": [
-       "20 minutos",
-       "1 cenário",
-       "8 fotos editadas"
-      ]
-     },
-     {
-      "nome": "Sessão de Natal",
-      "preco": "R$ 460",
-      "itens": [
-       "40 minutos",
-       "Família toda",
-       "20 fotos editadas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Natal completo",
-      "preco": "R$ 660",
-      "itens": [
-       "1 hora, com os avós",
-       "30 fotos editadas",
-       "Galeria online"
-      ]
-     }
-    ]
+    "depo": "Vitória Nascimento Vieira"
    }
   ]
  }

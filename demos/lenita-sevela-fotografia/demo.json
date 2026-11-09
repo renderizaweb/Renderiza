@@ -667,30 +667,23 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Osasco",
-  "h1": "Mês a mês, smash, gestantes e famílias em Osasco.",
+  "h1": "Mês a mês, gestante, newborn e famílias em Osasco.",
   "frase": "Cada fase é preciosa demais de registrar.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "mensal:2",
   "ensaios": [
    {
     "id": "mesames",
-    "nome": "Mês a mês e smash",
+    "nome": "Mês a mês",
     "chamada": "Ensaio mês a mês",
     "fotos": [
-     "mensal:5,0-4,6-11"
+     "mensal:5,2,0,6,1,8,3,7,4"
     ],
     "titulo": "Quem aí também é apaixonado por produções lúdicas?",
-    "sub": "Shrek, Moana, Monstros S.A., Toy Story, fundo do mar: um cenário montado a cada ensaio.",
-    "texto": "O tempo voa, e cada fase é preciosa demais de registrar: um cenário novo a cada mês, até o smash do primeiro aninho.",
-    "selos": [
-     "Produções lúdicas",
-     "Osasco",
-     "5,0 no Google"
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Denise Teixeira",
+    "sub": "Shrek, Moana, circo, astronauta, Toy Story: um cenário montado a cada ensaio.",
+    "texto": "O tempo voa, e cada fase é preciosa demais de registrar: um cenário novo a cada mês, até o primeiro aninho.",
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -720,76 +713,67 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Danilla Miranda"
    },
    {
     "id": "gestante",
-    "nome": "Gestante e bebês",
-    "chamada": "Ensaio gestante",
+    "nome": "Gestante e newborn",
+    "chamada": "Ensaio gestante e newborn",
     "fotos": [
-     "gestante:0-3,5,6"
+     "gestante:0,2,1,3,6",
+     "mensal:11",
+     "gestante:5"
     ],
     "titulo": "Vestidos, flores e o casal junto.",
-    "sub": "A gestação no estúdio, e o bebê logo depois, com delicadeza e música de ninar.",
-    "texto": "Do ensaio gestante ao newborn: a Lenita acompanha a família desde a barriga.",
-    "selos": [
-     "Música de ninar no newborn",
-     "Osasco",
-     "5,0 no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Lygia Martini",
+    "sub": "A gestação no estúdio e, depois, o newborn com delicadeza e música de ninar.",
+    "texto": "Do ensaio gestante aos primeiros dias do bebê: a Lenita acompanha a família desde a barriga.",
     "pacotes": [
      {
-      "nome": "Essencial",
+      "nome": "Gestante",
       "preco": "R$ 380",
       "itens": [
        "1 hora de ensaio",
        "15 fotos editadas",
-       "1 look",
-       "Galeria online"
+       "1 look"
       ]
      },
      {
-      "nome": "Completo",
-      "preco": "R$ 580",
+      "nome": "Gestante + Newborn",
+      "preco": "R$ 880",
       "itens": [
-       "1h30 de ensaio",
-       "30 fotos editadas",
-       "2 looks",
-       "Parceiro e filhos juntos"
+       "Os dois ensaios",
+       "40 fotos editadas",
+       "As duas datas já reservadas"
       ],
       "destaque": true
      },
      {
-      "nome": "Premium",
-      "preco": "R$ 880",
+      "nome": "Newborn",
+      "preco": "R$ 480",
       "itens": [
-       "2 horas de ensaio",
-       "Todas as fotos editadas",
-       "3 looks",
-       "Álbum impresso 20x20"
+       "No tempo do bebê",
+       "20 fotos editadas",
+       "Cenários e acessórios"
       ]
      }
-    ]
+    ],
+    "quando": "O gestante fica melhor entre a 28ª e a 34ª semana; o newborn, nos primeiros 15 dias de vida. Quem fecha os dois já reserva as duas datas.",
+    "depo": "Lygia Martini"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-7"
+     "familia:0,3",
+     "pn:0",
+     "familia:1,6,7,4"
     ],
     "titulo": "Famílias que voltam todo ano.",
-    "sub": "Até no Natal.",
-    "texto": "Tem família que faz o ensaio com a Lenita todos os anos: o aniversário, o Natal, a família que cresce.",
-    "selos": [
-     "Famílias que voltam",
-     "Osasco",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Danilla Miranda",
+    "sub": "A família toda no estúdio, ano após ano.",
+    "texto": "Tem família que volta todo ano para fotografar com a Lenita, até no Natal.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -819,7 +803,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Luana Noli"
    }
   ]
  }

@@ -37,8 +37,10 @@
 - As fotos de Natal são do cenário da lareira, sem data (o post de 2026 é vídeo).
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `infantil` (Infantil e aniversários, a partir de R$ 300), `familia` (Bebês, gestante e família, a partir de R$ 320).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thays-adrianny-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thays-adrianny-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:1`.
+- `natal`: Natal 2026 (fotos natal:0, pn:0, natal:2,6,4,5, pn:2); a partir de R$ 280; depoimento: Renato Andrade
+- `infantil`: Infantil e aniversários (fotos infantil:0,6,3,2,8,4,9,1,7); a partir de R$ 300; depoimento: Ester Costa
+- `familia`: Bebês e família (fotos familia:4,3,5,2,6); a partir de R$ 320; depoimento: Gabi Costa
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thays-adrianny-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thays-adrianny-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

@@ -650,31 +650,26 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Jardim Penha",
-  "h1": "Mês a mês, newborn, aniversários e Natal no Jardim Penha.",
+  "h1": "Mês a mês, aniversários e Natal no Jardim Penha.",
   "frase": "Momentos especiais que viram lembranças para sempre.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "mensal:9",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "natal:0-3",
+     "natal:3",
+     "pn:0",
+     "natal:1,2",
      "pn:2"
     ],
     "titulo": "O melhor presente é estar presente.",
     "sub": "A época mais mágica do ano começou no estúdio da Tata.",
     "texto": "É tempo de celebrar o amor, reunir a família e eternizar momentos que viram lembranças para sempre.",
-    "selos": [
-     "Natal 2026",
-     "Jardim Penha",
-     "108 avaliações no Google"
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Maynara Lima",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -704,25 +699,22 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar."
    },
    {
     "id": "mesames",
     "nome": "Mês a mês",
     "chamada": "Ensaio mês a mês",
     "fotos": [
-     "mensal:4,0-3,5-11"
+     "mensal:4,2",
+     "newborn:1",
+     "mensal:0,6,9,1,5",
+     "newborn:0"
     ],
     "titulo": "Um cenário novo a cada mês.",
-    "sub": "Mini Chef, Oficina, Toy Story, Stitch e fundo do mar.",
+    "sub": "Mini Chef, Oficina, Toy Story, Stitch, fundo do mar e o que a família imaginar.",
     "texto": "O tempo passa, as crianças crescem e o que fica são as memórias: um tema diferente a cada mês do primeiro ano.",
-    "selos": [
-     "Cenário temático",
-     "Jardim Penha",
-     "108 avaliações no Google"
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "lilian CAMPOS FERREIRA GUIMARAES",
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -752,58 +744,53 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Luiza dos Anjos"
    },
    {
-    "id": "newborn",
-    "nome": "Newborn e aniversários",
-    "chamada": "Ensaio newborn",
+    "id": "aniversarios",
+    "nome": "Aniversários",
+    "chamada": "Ensaio de aniversário",
     "fotos": [
-     "newborn:0-7"
+     "newborn:2,3,4,6,7,5"
     ],
-    "titulo": "Os primeiros dias, num estúdio aconchegante.",
-    "sub": "E os aniversários: Branca de Neve, Safari e o tema que a família escolher.",
-    "texto": "Do newborn ao aniversário de 2 anos, com o carinho da tia Tata.",
-    "selos": [
-     "Estúdio aconchegante",
-     "Jardim Penha",
-     "108 avaliações no Google"
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
-    "depo": "Luiza dos Anjos",
+    "titulo": "Aniversários com o tema que a família escolher.",
+    "sub": "Branca de Neve, Safari, Rapunzel e até o Halloween.",
+    "texto": "Do primeiro aninho às datas especiais, com o carinho da tia Tata.",
     "pacotes": [
      {
       "nome": "Essencial",
-      "preco": "R$ 450",
+      "preco": "R$ 300",
       "itens": [
-       "Até 3 horas, no tempo do bebê",
-       "15 fotos editadas",
-       "Cenários e acessórios do estúdio",
-       "Galeria online"
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
       ]
      },
      {
       "nome": "Completo",
-      "preco": "R$ 650",
+      "preco": "R$ 450",
       "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
        "25 fotos editadas",
-       "2 cenários",
-       "Fotos com os pais e os irmãos",
-       "Galeria online"
+       "Fotos com a família"
       ],
       "destaque": true
      },
      {
       "nome": "Premium",
-      "preco": "R$ 950",
+      "preco": "R$ 630",
       "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
        "40 fotos editadas",
-       "Todos os cenários",
-       "Fotos com a família",
-       "Álbum impresso 20x20"
+       "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Maynara Lima"
    }
   ]
  }

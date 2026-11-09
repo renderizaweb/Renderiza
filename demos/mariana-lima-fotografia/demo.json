@@ -653,31 +653,26 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Guarulhos",
-  "h1": "Newborn, gestante, mês a mês, família e Natal em Guarulhos.",
+  "h1": "Newborn, gestante, mês a mês e Natal em Guarulhos.",
   "frase": "Cada mês, um cenário. Cada fase, uma lembrança.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "newborn:0",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "pn:0-3",
-     "familia:0,4,6"
+     "pn:0,1",
+     "familia:0",
+     "pn:2",
+     "familia:6,4"
     ],
     "titulo": "O Natal merece ser lembrado para sempre.",
     "sub": "A parede verde, a árvore vermelha, o piano e o sofá.",
     "texto": "O Ensaio de Natal 2026 foi preparado com muito carinho, em cada detalhe.",
-    "selos": [
-     "Cenário com piano",
-     "Guarulhos",
-     "27 avaliações no Google"
-    ],
-    "quando": "A agenda dos ensaios de Natal está aberta: os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Patricia Moutinho",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -707,25 +702,20 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "A agenda dos ensaios de Natal está aberta: os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Daniela Martins"
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
     "fotos": [
-     "newborn:3,1,2,4,5"
+     "newborn:4,3,2,1,5"
     ],
     "titulo": "A espera, no fundo escuro ou no cenário claro.",
     "sub": "Com a cadeira de vime e as palhas.",
-    "texto": "Um ensaio para a barriga, o casal e a família que está chegando.",
-    "selos": [
-     "Fundo escuro ou claro",
-     "Guarulhos",
-     "27 avaliações no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Rayanne Araujo",
+    "texto": "Um ensaio para a barriga e para a família que está chegando, com a Mari e a Isa.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -758,25 +748,20 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Rayanne Araujo"
    },
    {
     "id": "newborn",
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
     "fotos": [
-     "newborn:0,6-9"
+     "newborn:0,7,6,9,8"
     ],
     "titulo": "Com o tempo e a paciência que o bebê pede.",
     "sub": "O recém-nascido no estúdio.",
     "texto": "O newborn é feito com calma: pausa para mamar, colo e soninho, no tempo do bebê.",
-    "selos": [
-     "No tempo do bebê",
-     "Guarulhos",
-     "27 avaliações no Google"
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
-    "depo": "Alex Sandro",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -784,7 +769,7 @@
       "itens": [
        "Até 3 horas, no tempo do bebê",
        "15 fotos editadas",
-       "Cenários e acessórios do estúdio",
+       "Cenários e acessórios",
        "Galeria online"
       ]
      },
@@ -809,26 +794,22 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
+    "depo": "Alex Sandro"
    },
    {
     "id": "mesames",
-    "nome": "Mês a mês e smash",
+    "nome": "Mês a mês",
     "chamada": "Acompanhamento mensal",
     "fotos": [
-     "mensal:2,0,1,3-7",
-     "newborn:10"
+     "mensal:2,5,1,3,7,0,6",
+     "newborn:10",
+     "mensal:4"
     ],
     "titulo": "Cada mês, um cenário.",
-    "sub": "Fundo do mar, sereia, cangaço, Toy Story, Minnie e Mickey, e o smash no fim do ano.",
+    "sub": "Fundo do mar, sereia, cangaço, Toy Story, Minnie e Mickey, até o smash do primeiro aninho.",
     "texto": "O acompanhamento mensal registra o primeiro ano do bebê, com um cenário temático a cada mês.",
-    "selos": [
-     "Cenário temático",
-     "Guarulhos",
-     "27 avaliações no Google"
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Daniela Martins",
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -858,55 +839,9 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
-   },
-   {
-    "id": "familia",
-    "nome": "Família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:7,1-3,5"
     ],
-    "titulo": "A família toda no estúdio.",
-    "sub": "Dia dos Pais, Dia das Mães e as datas que a família quiser.",
-    "texto": "Ensaios temáticos para cada data, com o mesmo carinho dos ensaios dos bebês.",
-    "selos": [
-     "Datas comemorativas",
-     "Guarulhos",
-     "27 avaliações no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Patricia Moutinho",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 300",
-      "itens": [
-       "40 minutos de ensaio",
-       "12 fotos editadas",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 450",
-      "itens": [
-       "1 hora de ensaio",
-       "25 fotos editadas",
-       "Até 6 pessoas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 650",
-      "itens": [
-       "1h30 de ensaio",
-       "40 fotos editadas",
-       "Quadro 30x40"
-      ]
-     }
-    ]
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Patricia Moutinho"
    }
   ]
  }

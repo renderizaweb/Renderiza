@@ -666,28 +666,25 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Mauá",
-  "h1": "Natal, famílias, bebês e gestantes em Mauá.",
+  "h1": "Natal, famílias e bebês em Mauá.",
   "frase": "Fotografias para reviver cada momento.",
+  "capa": "natal:7",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "natal:0-9"
+     "natal:1,5",
+     "pn:0",
+     "natal:4,2,9",
+     "familia:2,1"
     ],
     "titulo": "Vem viver essa magia com a gente.",
-    "sub": "O primeiro cenário de Natal 2026 já está pronto: a sala de sofá verde, com árvore e luzinhas.",
-    "texto": "Crianças, casais e a família inteira na sala de Natal da Reviver: um ensaio leve e divertido.",
-    "selos": [
-     "Sala de Natal",
-     "Mauá",
-     "5,0 no Google"
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Carol Coutinho",
+    "sub": "O cenário de Natal 2026 já está pronto: a sala de sofá verde, com a árvore e as luzinhas.",
+    "texto": "Crianças, casais e a família inteira na sala de Natal da Reviver, num ensaio leve e divertido.",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -717,25 +714,21 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Carol Coutinho"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-7"
+     "natal:6",
+     "familia:0,3,4,6,5,7"
     ],
     "titulo": "A família toda no estúdio.",
-    "sub": "E até o pet.",
+    "sub": "Pais, filhos, irmãos e casais, com carinho e leveza.",
     "texto": "Um ensaio descontraído, para guardar o jeito de cada família.",
-    "selos": [
-     "O pet também vem",
-     "Mauá",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Lorenzo Calado",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -765,56 +758,51 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Lorenzo Calado"
    },
    {
     "id": "bebes",
-    "nome": "Bebês e gestante",
+    "nome": "Bebês",
     "chamada": "Ensaio de bebê",
     "fotos": [
-     "bebes:2,0,1,3,6-8,4,5"
+     "bebes:1,2,0,7,8"
     ],
     "titulo": "Às vezes eu não sei lidar com tanta fofura.",
-    "sub": "Os meses do bebê, o primeiro aninho e a gestação, no estúdio.",
-    "texto": "Balões, bolo e muita fofura no primeiro aninho; vestidos e tecidos esvoaçantes para as gestantes.",
-    "selos": [
-     "Cenário por fase",
-     "Mauá",
-     "5,0 no Google"
-    ],
-    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
-    "depo": "Mell Duarte",
+    "sub": "Os meses do bebê e o primeiro aninho, com cenários que mudam a cada fase.",
+    "texto": "Balões, bolo e muita fofura no primeiro aninho: um cenário novo para cada fase do bebê.",
     "pacotes": [
      {
-      "nome": "Essencial",
-      "preco": "R$ 320",
+      "nome": "Mês avulso",
+      "preco": "R$ 200",
       "itens": [
-       "Cenário temático",
-       "Bolo para o smash",
-       "15 fotos editadas"
+       "1 cenário temático",
+       "10 fotos editadas",
+       "Galeria online"
       ]
      },
      {
-      "nome": "Completo",
-      "preco": "R$ 470",
+      "nome": "Trimestral",
+      "preco": "R$ 720",
       "itens": [
-       "Cenário no tema escolhido",
-       "Bolo e banho no fim",
-       "25 fotos editadas",
-       "Fotos com a família"
+       "4 ensaios no primeiro ano",
+       "Cenário temático em cada um",
+       "10 fotos por ensaio"
       ],
       "destaque": true
      },
      {
-      "nome": "Premium",
-      "preco": "R$ 670",
+      "nome": "Plano 12 meses",
+      "preco": "R$ 1.920",
       "itens": [
-       "Tudo do Completo",
-       "40 fotos editadas",
-       "Álbum impresso 20x20"
+       "Um ensaio por mês",
+       "Cenário novo a cada mês",
+       "Smash the cake de 1 ano incluso"
       ]
      }
-    ]
+    ],
+    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
+    "depo": "Mell Duarte"
    }
   ]
  }

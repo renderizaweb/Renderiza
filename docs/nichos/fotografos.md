@@ -291,5 +291,30 @@ primeira foto em pé do ensaio, e a vitrine em lista virou duas colunas no compu
 para quem usa mouse, o "a partir de R$" na capa de cada ensaio e, no celular, a vitrine em cartões grandes com o texto
 sobre a foto.
 
+**Versão 3 (09/11/2026), depois do retorno sobre a Mandaluz** ("cortado no PC, moça não grávida na área de
+gestantes, depoimento de gestante nos retratos, capa feia, poluída, fotos gigantescas"). O modelo foi refeito (capa
+sem chips, foto inteira ao lado do texto no computador e em cima do texto no celular, vitrine em blocos, mosaico de
+fotos inteiras, sem selos nem faixa preta) e as 21 foram curadas de novo, foto a foto.
+
+**Regras do portfólio (para não repetir):**
+1. **Uma página, um tipo de ensaio, só com fotos dele.** Gestante só com a barriga aparecendo. Página mista só quando
+   o nome diz (ex.: "Gestante e newborn", com o pacote dos dois juntos).
+2. **Curadoria na folha de contato grande** (`ferramentas/demo/folha-de-contato.py`, miniatura de 200 px ou mais),
+   nunca na miniatura pequena. De 5 a 9 fotos por página (a capa e pelo menos 4 no mosaico). Sem foto repetida (a
+   página de Natal antiga repete fotos do site em outro tamanho: usar a maior), sem capa de vídeo, arte, silhueta ou
+   foto em que não dá para ver o que é.
+3. **Natal só com 5 fotos ou mais do Natal 2026.** Menos que isso, elas entram em infantil ou família.
+4. **Depoimento: ler o texto inteiro.** Ele fala daquele ensaio ou da fotógrafa em geral; nunca de outro tipo de
+   ensaio. Sem depoimento que sirva, a página fica sem.
+5. **A capa da vitrine é a foto mais bonita** e com a cara do estúdio; a de cada página, a melhor daquele ensaio.
+6. **Layout sem sobreposição e sem foto gigante.** Cada foto num quadro da proporção dela (`--a`); a faixa branca de
+   foto posta num quadrado é aparada pelo gerador. Nunca `aspect-ratio` com `align-self: stretch` (a foto invade a
+   coluna do lado).
+7. **Texto só com o que é dela** (legendas, bio, avaliações) e fatos; "quando fazer" só em gestante, newborn, mês a
+   mês, smash e Natal.
+8. **Conferir antes de publicar:** `ferramentas/demo/conferir-portfolio.cjs` (texto sobre foto, texto estourando,
+   foto ampliada, rolagem lateral, nas larguras 390, 1280 e 1440) e OLHAR a vitrine, as capas e os mosaicos de todas
+   as páginas; depois do deploy, os links no ar (cada bloco e cada menu abre a página certa).
+
 **Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
 trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.

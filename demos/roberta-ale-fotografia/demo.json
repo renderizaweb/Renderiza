@@ -688,30 +688,27 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Zona Leste de SP",
-  "h1": "Newborn a domicílio, gestante e família na Zona Leste de São Paulo.",
+  "h1": "Newborn a domicílio na Zona Leste de São Paulo.",
   "frase": "O estúdio vai até a sua casa.",
   "tom": "claro",
+  "capa": "familia:7",
   "ensaios": [
    {
     "id": "newborn",
     "nome": "Newborn a domicílio",
     "chamada": "Newborn a domicílio",
     "fotos": [
-     "newborn:0-11",
-     "gestante:6"
+     "newborn:0,3,5",
+     "pn:0",
+     "newborn:10,7",
+     "gestante:6",
+     "newborn:9,11"
     ],
     "titulo": "Os primeiros dias, sem sair de casa.",
     "sub": "A Roberta e o Edson levam o estúdio até a família.",
     "texto": "Mantas, cestinhos e acessórios vão até você: o bebê fica no conforto de casa, e a mãe também.",
-    "selos": [
-     "Na sua casa",
-     "Zona Leste de SP",
-     "30 avaliações no Google"
-    ],
-    "quando": "O newborn é feito de 13 a 25 dias de vida, na casa da família: reserve ainda na gestação, pela data prevista do parto.",
-    "depo": "Amanda Custódio Ferrari",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -719,7 +716,7 @@
       "itens": [
        "Na sua casa, no tempo do bebê",
        "15 fotos editadas",
-       "Cenários e acessórios inclusos",
+       "Cenários e acessórios",
        "Galeria online"
       ]
      },
@@ -744,25 +741,20 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "O newborn é feito de 13 a 25 dias de vida, na casa da família: reserve ainda na gestação, pela data prevista do parto.",
+    "depo": "Amanda Custódio Ferrari"
    },
    {
     "id": "familia",
     "nome": "Família com o bebê",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-10"
+     "familia:0,2,4,1,3,8,6,9"
     ],
-    "titulo": "Os pais, os irmãos e até as avós.",
-    "sub": "Junto com o bebê, no mesmo ensaio.",
-    "texto": "No newborn a domicílio, a família toda entra nas fotos: o colo dos pais e o carinho dos irmãos.",
-    "selos": [
-     "Família toda",
-     "Zona Leste de SP",
-     "30 avaliações no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Sara Melo",
+    "titulo": "O colo dos pais, o carinho dos irmãos.",
+    "sub": "A família toda junto com o bebê, no mesmo ensaio, em casa.",
+    "texto": "No newborn a domicílio, a família entra nas fotos: os pais, os irmãos e até as avós.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -792,58 +784,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
-   },
-   {
-    "id": "gestante",
-    "nome": "Gestante e 1 ano",
-    "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:0-5"
     ],
-    "titulo": "Da barriga ao primeiro aninho.",
-    "sub": "O ensaio gestante, com o casal e os irmãos, e o smash do primeiro aniversário.",
-    "texto": "A Roberta acompanha a família antes e depois do newborn.",
-    "selos": [
-     "Antes e depois do newborn",
-     "Zona Leste de SP",
-     "30 avaliações no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Ayaka Matsui",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 400",
-      "itens": [
-       "1 hora de ensaio",
-       "15 fotos editadas",
-       "1 look",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 600",
-      "itens": [
-       "1h30 de ensaio",
-       "30 fotos editadas",
-       "2 looks",
-       "Parceiro e filhos juntos"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 900",
-      "itens": [
-       "2 horas de ensaio",
-       "Todas as fotos editadas",
-       "3 looks",
-       "Álbum impresso 20x20"
-      ]
-     }
-    ]
+    "depo": "Sara Melo"
    }
   ]
  }

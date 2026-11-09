@@ -37,8 +37,10 @@
 - As fotos de Natal são de anos anteriores; as de 2026 só aparecem nas artes.
 - Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 320), `infantil` (Infantil e bebês, a partir de R$ 300), `gestante` (Gestante e feminino, a partir de R$ 420).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/studio-flaternize <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/studio-flaternize/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:0`.
+- `natal`: Natal 2026 (fotos natal:1,3,8,9,0,7,11,10,6); a partir de R$ 320; depoimento: Jonathas Santos
+- `gestante`: Gestante (fotos gestante:1,0,3,2,4,5); a partir de R$ 420; depoimento: Lígia Pinheiro Martins
+- `infantil`: Infantil e bebês (fotos infantil:2,0,4,5,6,1,3); a partir de R$ 300; depoimento: Thaina Vieira
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/studio-flaternize <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/studio-flaternize/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

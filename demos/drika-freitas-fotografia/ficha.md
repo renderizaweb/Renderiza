@@ -37,8 +37,11 @@
 - Quase todas as fotos da página são quadradas e em 1080 px: ficam bem, mas não tão nítidas quanto as das outras demos.
 - Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 300), `bebes` (Bebês e aniversários, a partir de R$ 200), `familia` (Família e gestante, a partir de R$ 320).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/drika-freitas-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/drika-freitas-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:0`.
+- `natal`: Natal 2026 (fotos pn:0, natal:0,7,4,9,11,2,10,8); a partir de R$ 300; depoimento: Silvana Messias
+- `mesames`: Mês a mês (fotos bebes:4,5,6,2,0,1,3); a partir de R$ 200; depoimento: Danielle Teixeira
+- `infantil`: Infantil e aniversários (fotos bebes:9,8,7,11,10); a partir de R$ 300; depoimento: Debora Barboza Pital
+- `familia`: Família (fotos familia:0,2,4,1,3); a partir de R$ 320; depoimento: RITA DE CASSIA XAVIER DE LIMA BARROSO
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/drika-freitas-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/drika-freitas-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

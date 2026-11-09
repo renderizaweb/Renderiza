@@ -13,10 +13,6 @@
 | Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
 | Horários de exemplo | não usa mais (versão 2: o Natal virou página de venda, sem agenda inventada) |
 
-## Portfólio (09/11/2026)
-- Primeira demo no formato **portfólio online** (docs/nichos/fotografos.md, seção 10): o mesmo link (`/demo/olivares-fotografia`), o mesmo lead e o mesmo rastreio; cada página aparece na visita com o nome dela.
-- Pacotes e valores **de exemplo** (decisão do Kaue), com o selo "você coloca os seus". Quando ela mandar a tabela dela, trocar no `demo.json` (`portfolio.ensaios[].pacotes`) e gerar de novo.
-- Prazo da demo no banco: até 13/11/2026 (a mesma data da promoção na faixa). Se mandar depois de 10/11, estender antes.
 
 ## Direção da demo
 - Lote 3 de fotógrafos (nº 10, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.
@@ -41,3 +37,12 @@
 - É uma dupla: falar com as duas (a demo cumprimenta a Verônica).
 - Google sem horário de funcionamento: a agenda é exemplo (dito na página).
 - Fotos de bebês, crianças e gestantes: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site.
+
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:0`.
+- `gestante`: Gestante (fotos gestante:4,0,5,1,9,8,3,11,6); a partir de R$ 390; depoimento: Amanda Nakao
+- `newborn`: Newborn (fotos newborn:0,1,5,3,2,4); a partir de R$ 490; depoimento: Fabiana Martins
+- `infantil`: Infantil (fotos familia:7,4,6, pn:1, familia:9,8, pn:2,3); a partir de R$ 220; depoimento: Michele Oliveira
+- `familia`: Família (fotos familia:5,0, pn:0, familia:2,1); a partir de R$ 350; depoimento: Glena Cost
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/olivares-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/olivares-fotografia/index.html` e `.../natal.html`, ou 650889b para a Olivares); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

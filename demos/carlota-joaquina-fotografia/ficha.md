@@ -38,8 +38,10 @@
 - Um post recente fala de diabetes tipo 1 na família (assunto pessoal; a demo não toca nisso).
 - Fotos de bebês, crianças e mães: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 280), `aniversario` (Aniversários e temas, a partir de R$ 300), `maes` (Mães e filhos, a partir de R$ 280), `familia` (Família, a partir de R$ 320).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/carlota-joaquina-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:0`.
+- `infantil`: Infantil e temas (fotos natal:4,5,0,2,6,7,1,3, pn:0); a partir de R$ 300; depoimento: Educador Adão Gomes
+- `maes`: Mães e filhos (fotos maes:4,2,10,5,0,8,6,9,7); a partir de R$ 280; depoimento: Michele Oliveira
+- `familia`: Família (fotos familia:3,2,4,0,5,1,6,7); a partir de R$ 320; depoimento: Rafael Xavier
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/carlota-joaquina-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

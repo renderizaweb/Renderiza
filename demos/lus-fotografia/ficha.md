@@ -37,8 +37,11 @@
 - O Google diz "Atendimento 24 horas"; a agenda é exemplo.
 - Fotos de crianças, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `festas` (Festas e 1 ano, a partir de R$ 900), `familia` (Família e gestante, a partir de R$ 450), `bebes` (Bebês, a partir de R$ 500), `natal` (Natal 2026, a partir de R$ 350).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lus-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lus-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `familia:4`.
+- `festas`: Festas e 1 ano (fotos festas:0,3,1,6,4,2,7,9,8); a partir de R$ 900; depoimento: Danielle Carmo
+- `gestante`: Gestante (fotos familia:2,4,0,1,10); a partir de R$ 450; depoimento: Fernanda Araujo
+- `familia`: Família (fotos familia:7,8,5,6,3, pn:0, familia:9); a partir de R$ 450; depoimento: Gabih Marchioro Akerley
+- `bebes`: Newborn e bebês (fotos bebes:1,2,0,3,6,4,5,7); a partir de R$ 450; depoimento: Beatriz Paula
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lus-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lus-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

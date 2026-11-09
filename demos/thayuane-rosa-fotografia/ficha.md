@@ -37,8 +37,11 @@
 - Uma avaliação cita "ela e a assistente".
 - Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 320), `gestante` (Gestante, a partir de R$ 420), `newborn` (Newborn, a partir de R$ 480), `familia` (Infantil e família, a partir de R$ 320).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom escuro no computador, vitrine em lista.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thayuane-rosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thayuane-rosa-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:2`.
+- `natal`: Natal 2026 (fotos pn:0, natal:1,2,3,4, familia:4); a partir de R$ 320; depoimento: nenhum (nenhum fala deste ensaio)
+- `gestante`: Gestante (fotos gestante:1,0,2,3,6,4,5); a partir de R$ 420; depoimento: Isabela Ferraz
+- `newborn`: Newborn (fotos newborn:0,1,2,4,6,5,3); a partir de R$ 480; depoimento: nenhum (nenhum fala deste ensaio)
+- `familia`: Infantil e família (fotos familia:1,5,0,6,2,7,3,8); a partir de R$ 320; depoimento: Rebecca Requena
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thayuane-rosa-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thayuane-rosa-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

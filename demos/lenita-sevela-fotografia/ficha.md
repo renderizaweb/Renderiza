@@ -37,8 +37,10 @@
 - O retrato com a câmera pode ser da Lenita (não confirmado).
 - Fotos de bebês, crianças e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `mesames` (Mês a mês e smash, a partir de R$ 200), `gestante` (Gestante e bebês, a partir de R$ 380), `familia` (Família, a partir de R$ 320). Sem página de Natal: não há foto do Natal 2026 dela (a página antiga com horários de exemplo saiu do ar). Quando ela postar o cenário, dá para acrescentar.
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lenita-sevela-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lenita-sevela-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `mensal:2`.
+- `mesames`: Mês a mês (fotos mensal:5,2,0,6,1,8,3,7,4); a partir de R$ 200; depoimento: Danilla Miranda
+- `gestante`: Gestante e newborn (fotos gestante:0,2,1,3,6, mensal:11, gestante:5); a partir de R$ 380; depoimento: Lygia Martini
+- `familia`: Família (fotos familia:0,3, pn:0, familia:1,6,7,4); a partir de R$ 320; depoimento: Luana Noli
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lenita-sevela-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lenita-sevela-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.

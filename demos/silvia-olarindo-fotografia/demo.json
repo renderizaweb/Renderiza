@@ -644,30 +644,29 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Grande São Paulo",
   "h1": "Ensaio newborn em casa, com segurança.",
   "frase": "Nós iremos até você para eternizá-lo.",
   "tom": "claro",
+  "capa": "detalhes:6",
   "ensaios": [
    {
     "id": "newborn",
     "nome": "Newborn em casa",
     "chamada": "Newborn em casa",
     "fotos": [
-     "detalhes:0-9",
-     "newborn:0-5"
+     "familia:4",
+     "pn:0",
+     "detalhes:6,0,7",
+     "newborn:4",
+     "detalhes:2",
+     "familia:5",
+     "detalhes:3"
     ],
     "titulo": "Pureza e delicadeza, no conforto da sua casa.",
     "sub": "Cestinhos, caminhas, flores e mantas cor-de-rosa.",
     "texto": "A Sil leva os cenários e os detalhes até a família: o nome no bastidor, a coroinha, a touquinha de tricô.",
-    "selos": [
-     "Com segurança",
-     "Grande São Paulo",
-     "5,0 no Google"
-    ],
-    "quando": "O newborn é feito nos primeiros dias de vida: reserve ainda na gestação, pela data prevista do parto.",
-    "depo": "Luiza Alcantara",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -675,7 +674,7 @@
       "itens": [
        "Na sua casa, no tempo do bebê",
        "15 fotos editadas",
-       "Cenários e acessórios inclusos",
+       "Cenários e acessórios",
        "Galeria online"
       ]
      },
@@ -700,25 +699,20 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "O newborn é feito nos primeiros dias de vida: reserve ainda na gestação, pela data prevista do parto.",
+    "depo": "Renata França"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-6"
+     "familia:0,1,2,3,6"
     ],
     "titulo": "Uma marca na vida dos pais e dos irmãos.",
-    "sub": "A família toda com o recém-nascido, em casa.",
+    "sub": "A família toda com o recém-nascido, em casa, até o pet.",
     "texto": "Uma marca significativa na vida dos pais, dos irmãos e do recém-nascido.",
-    "selos": [
-     "Em casa",
-     "Grande São Paulo",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Carla França",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -748,7 +742,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Jennifer Leite"
    }
   ]
  }

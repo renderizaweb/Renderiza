@@ -678,30 +678,25 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py). Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; selos só com fatos; o \"quando fazer\" é a recomendação comum do mercado ou a dela.",
+  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
   "local": "Guarulhos",
   "h1": "Natal, gestantes, crianças e famílias em Guarulhos.",
   "frase": "Um ensaio leve, divertido e cheio de carinho.",
   "tom": "claro",
-  "vitrine": "grade",
+  "capa": "gestante:0",
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
     "chamada": "Ensaio de Natal",
     "fotos": [
-     "natal:0-4,8"
+     "natal:1,0,3",
+     "pn:0",
+     "natal:4,2"
     ],
     "titulo": "Delícias de Natal.",
     "sub": "A cozinha de Natal, com biscoitos e receitas, e a árvore cheia de laços.",
-    "texto": "O especial de Natal 2026 já começou: um ensaio leve e divertido, para as crianças e a família toda.",
-    "selos": [
-     "Cozinha de Natal",
-     "Guarulhos",
-     "5,0 no Google"
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Roseane Ferraz",
+    "texto": "O especial de Natal 2026 já começou: um ensaio leve e divertido para as crianças e a família toda.",
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -731,25 +726,20 @@
        "Galeria online"
       ]
      }
-    ]
+    ],
+    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
+    "depo": "Aryane Ribeiro"
    },
    {
     "id": "gestante",
-    "nome": "Gestante e chá revelação",
+    "nome": "Gestante",
     "chamada": "Ensaio gestante",
     "fotos": [
-     "gestante:0-10"
+     "gestante:4,0,2,5,3,1,6,8,9"
     ],
     "titulo": "No bambuzal, na praia ou no estúdio.",
     "sub": "E o chá revelação com a família, os balões e o ursinho.",
-    "texto": "Ensaios ao ar livre e no estúdio, com cenário para cada momento da espera.",
-    "selos": [
-     "Ao ar livre",
-     "Guarulhos",
-     "5,0 no Google"
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Steffany Santos",
+    "texto": "Ensaios ao ar livre e no estúdio, com um cenário para cada momento da espera.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -782,26 +772,22 @@
        "Álbum impresso 20x20"
       ]
      }
-    ]
+    ],
+    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
+    "depo": "Roseane Ferraz"
    },
    {
     "id": "infantil",
-    "nome": "Infantil",
+    "nome": "Infantil e smash",
     "chamada": "Ensaio infantil",
     "fotos": [
-     "natal:5-7,9",
+     "familia:5",
+     "natal:5,7,6,9",
      "pn:2"
     ],
     "titulo": "Orelhinhas, coelhos e muito bolo.",
-    "sub": "Cenários de Páscoa e de aniversário, para os pequenos.",
-    "texto": "Banheira, bolo e muita bagunça no primeiro ano: cenários coloridos montados para cada data.",
-    "selos": [
-     "Cenários coloridos",
-     "Guarulhos",
-     "5,0 no Google"
-    ],
-    "quando": "As datas perto dos aniversários enchem rápido: reserve com antecedência para garantir o tema.",
-    "depo": "Jaine Santos",
+    "sub": "Smash the cake, Páscoa e aniversários, com cenários coloridos.",
+    "texto": "Banheira, bolo e muita bagunça no primeiro ano: cenários montados para cada data.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -833,26 +819,21 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Jaine Santos"
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
     "fotos": [
-     "familia:0-7",
-     "pn:3"
+     "familia:0,2,3",
+     "pn:3",
+     "familia:7"
     ],
-    "titulo": "Mãe, filhos e até os cachorros.",
-    "sub": "A família toda, no estúdio ou ao ar livre.",
-    "texto": "Um ensaio leve, divertido e cheio de carinho, do jeito que a família é.",
-    "selos": [
-     "O pet também vem",
-     "Guarulhos",
-     "5,0 no Google"
-    ],
-    "quando": "Os filhos crescem rápido: Natal, Dia das Mães e férias são as datas que mais enchem a agenda.",
-    "depo": "Aryane Ribeiro",
+    "titulo": "Do jeito que a família é.",
+    "sub": "Mães, filhos, casais e até os cachorros, no estúdio ou ao ar livre.",
+    "texto": "Um ensaio leve, divertido e cheio de carinho, para guardar a família como ela é agora.",
     "pacotes": [
      {
       "nome": "Essencial",
@@ -882,7 +863,8 @@
        "Quadro 30x40"
       ]
      }
-    ]
+    ],
+    "depo": "Steffany Santos"
    }
   ]
  }

@@ -36,8 +36,11 @@
 - Horários: a agenda é exemplo (dito na página); o Google não mostra horário.
 - Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
 
-## Portfólio que vende (09/11/2026)
-- A demo virou **portfólio** (docs/nichos/fotografos.md, seção 10): a vitrine (`index`) e uma página de venda por ensaio: `natal` (Natal 2026, a partir de R$ 300), `gestante` (Gestante, a partir de R$ 400), `newborn` (Newborn, a partir de R$ 500), `mesames` (Mês a mês e smash, a partir de R$ 200), `familia` (Família, a partir de R$ 300).
-- Mesmo link e mesmo rastreio; cada página aparece na visita com o nome dela. Tom claro no computador, vitrine em grade.
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"); títulos e textos das legendas, da bio e das avaliações dela. Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mariana-lima-fotografia/index.html` e `.../natal.html`).
+## Portfólio que vende, versão 3 (09/11/2026)
+- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `newborn:0`.
+- `natal`: Natal 2026 (fotos pn:0,1, familia:0, pn:2, familia:6,4); a partir de R$ 300; depoimento: Daniela Martins
+- `gestante`: Gestante (fotos newborn:4,3,2,1,5); a partir de R$ 400; depoimento: Rayanne Araujo
+- `newborn`: Newborn (fotos newborn:0,7,6,9,8); a partir de R$ 500; depoimento: Alex Sandro
+- `mesames`: Mês a mês (fotos mensal:2,5,1,3,7,0,6, newborn:10, mensal:4); a partir de R$ 200; depoimento: Patricia Moutinho
+- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
+- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mariana-lima-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
