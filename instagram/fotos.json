@@ -1,5 +1,5 @@
 {
- "_sobre": "Fotos do negócio de exemplo (Lume Estética, fictício). Banco livre do Unsplash (licença Unsplash: uso comercial liberado, sem pedir autorização). Chave = nome do arquivo; valor = id da foto em images.unsplash.com/photo-<id>.",
+ "_sobre": "Fotos dos negócios de exemplo (fictícios): Lume Estética e, com o prefixo ciranda-, o site do Estúdio Ciranda (fotografia, Reels reels-site-painel). Banco livre do Unsplash (licença Unsplash: uso comercial liberado, sem pedir autorização). Chave = nome do arquivo; valor = id da foto em images.unsplash.com/photo-<id>.",
  "fotos": {
   "hero": "1616394584738-fc6e612e71b9",
   "ambiente": "1560750588-73207b1ef5b8",
@@ -14,6 +14,11 @@
   "toalha": "1540555700478-4be289fbecef",
   "produtos": "1598440947619-2c35fc9aa908",
   "maquiagem": "1487412947147-5cebf100ffc2",
-  "oleo": "1515377905703-c4788e51af15"
+  "oleo": "1515377905703-c4788e51af15",
+  "ciranda-capa": "1602255680702-c47261041a97",
+  "ciranda-newborn": "1679919996303-1824ae520235",
+  "ciranda-gestante": "1702360681796-6aa6d4f569f9",
+  "ciranda-familia": "1770871821382-60ea99b0a941",
+  "ciranda-natal": "1514064982421-df8563d62bbf"
  }
 }

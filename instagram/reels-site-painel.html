@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: site e painel (fotografia)</title>
+<!-- Vídeo curto para mandar às fotógrafas no WhatsApp (pedido do Kaue, 09/11/2026): o que é o site, o que é o painel
+     e como um conversa com o outro. 1080 × 1920, 36 s a 120 BPM, sem voz, trilha pulsante (trilha-pulso.py, pelo
+     "pulso" do preparar()); o drop cai em 19 s, na volta para o painel.
+     Só o que existe de verdade no Painel Renderiza (09/11/2026): o Meu site (as partes do site, salvar no rascunho,
+     publicar, "aparece no site em até 1 minuto"), a agenda do estúdio, a campanha de Natal, clientes e entregas,
+     contratos, financeiro e atendimento. Fica de fora o que a fotografia ainda não tem: a agenda online, os cliques
+     do site e a cor dos botões. A chave "Site | Painel" separa as duas coisas o vídeo inteiro.
+     O Estúdio Ciranda é fictício (o mesmo do /exemplos/fotografia), sempre com o selo "exemplo"; as fotos do site são
+     de banco livre (fotos.json, ciranda-*); as telas do painel saem do exemplo (telas-ciranda.mjs). Os valores são os
+     do exemplo. Animação sem CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<style>
+:root{--terracota-clara:#e8855e;--vinho:#8a4a5f;--cinza:#b9bfc1}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#101517}
+.reels{position:relative;width:1080px;height:1920px;background:#101517;overflow:hidden}
+.ceu{position:absolute;inset:0;background:radial-gradient(130% 75% at 50% 24%,#212a2d 0%,#161c1e 48%,#0c1012 100%)}
+.brilho{position:absolute;inset:0;background:radial-gradient(70% 34% at 50% 78%,rgba(138,74,95,.26) 0%,rgba(138,74,95,.08) 50%,rgba(138,74,95,0) 78%)}
+.r-topo{position:absolute;left:80px;width:920px;top:104px;height:0;display:flex;justify-content:center;align-items:center;z-index:60}
+.r-topo .marca{font-size:32px;gap:12px;color:var(--fundo)}
+.r-topo .simbolo{width:36px;height:36px}
+
+/* abertura e fechamento: as duas frases grandes */
+.txt{position:absolute;left:60px;width:960px;text-align:center;font-weight:700;letter-spacing:-.035em;line-height:1.04;color:var(--fundo);z-index:30;transform-origin:50% 50%}
+.txt .tom,.tit .tom{color:var(--terracota-clara)}
+#k1{top:722px;font-size:26px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza)}
+#l1{top:790px;font-size:84px}
+#l2{top:902px;font-size:84px}
+#l3{top:1036px;font-size:42px;font-weight:600;letter-spacing:-.02em;color:var(--cinza)}
+#c1{top:760px;font-size:80px}
+#c2{top:968px;font-size:40px;font-weight:500;letter-spacing:-.01em;color:var(--cinza)}
+#cMarca{position:absolute;left:0;width:1080px;top:1150px;display:flex;justify-content:center;z-index:30}
+#cMarca .marca{font-size:52px;gap:18px;color:var(--fundo)}
+#cMarca .simbolo{width:58px;height:58px}
+
+/* legenda: o que está acontecendo, em cima da chave */
+.leg{position:absolute;left:60px;width:960px;top:168px;text-align:center;z-index:30}
+.leg .chip{display:inline-block;margin-bottom:18px;padding:9px 20px;border-radius:999px;background:rgba(232,133,94,.14);color:var(--terracota-clara);font-size:24px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.leg .tit{font-size:62px;font-weight:700;letter-spacing:-.035em;line-height:1.06;color:var(--fundo)}
+.leg .sub{margin-top:16px;font-size:32px;font-weight:500;letter-spacing:-.01em;line-height:1.3;color:var(--cinza)}
+
+/* a chave Site | Painel */
+.chave{position:absolute;left:320px;top:488px;width:440px;height:80px;border-radius:999px;background:#232b2e;box-shadow:inset 0 0 0 2px #323c40;display:flex;z-index:40}
+.chave .bola{position:absolute;top:8px;left:8px;width:208px;height:64px;border-radius:999px;background:var(--fundo);box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.chave span{position:relative;flex:1;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:600;letter-spacing:-.02em}
+
+/* o celular: tela de 390 × 844 px do celular, na escala 1,44 (562 × 1215 do vídeo) */
+#cel{left:245px;top:592px;width:590px;height:1243px;z-index:20}
+#cel .tela{background:#f4f3ee}
+.pg{position:absolute;left:0;top:0;width:562px;height:1215px;overflow:hidden}
+.status{position:absolute;left:0;top:0;width:562px;height:66px;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 26px}
+.status .exemplo{position:static;font-size:15px;padding:7px 12px}
+.status .sinais{display:flex;align-items:center;gap:8px;color:#1e2528}
+.status .sin{display:inline-flex;align-items:flex-end;gap:3px;height:15px}
+.status .sin b{width:4px;border-radius:2px;background:currentColor}
+.status .bat{width:30px;height:15px;border-radius:5px;border:2px solid currentColor;position:relative}
+.status .bat::after{content:"";position:absolute;left:2px;top:2px;bottom:2px;width:70%;border-radius:2px;background:currentColor}
+.toque{position:absolute;z-index:50;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:rgba(30,37,40,.16);border:4px solid rgba(30,37,40,.55);opacity:0;pointer-events:none}
+
+/* o site do Estúdio Ciranda (fictício), no jeito dos portfólios da Renderiza */
+.cir{position:absolute;left:0;top:0;width:390px;background:#fbf6f3;color:#2f2226;font-family:"DM Sans",system-ui,sans-serif;font-size:15px;line-height:1.45;transform-origin:0 0}
+.cir em{font-style:italic;color:var(--vinho)}
+.c-topo{height:104px;padding:46px 20px 0;display:flex;justify-content:space-between;align-items:center}
+.c-logo{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:21px;letter-spacing:-.01em;line-height:1}
+.c-logo small{display:block;margin-top:4px;font-family:"DM Sans",sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#8d7a7f}
+.c-menu{width:22px;height:14px;border-top:2px solid #2f2226;border-bottom:2px solid #2f2226;position:relative}
+.c-menu::after{content:"";position:absolute;left:0;right:0;top:4px;border-top:2px solid #2f2226}
+.c-hero img{display:block;width:390px;height:430px;object-fit:cover;object-position:50% 30%}
+.c-txt{padding:22px 22px 8px}
+.c-kick{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vinho);margin-bottom:10px}
+.c-txt h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:31px;line-height:1.08;letter-spacing:-.02em}
+.c-txt p{color:#6e5a5f;margin:10px 0 18px}
+.c-zap{display:flex;align-items:center;justify-content:center;gap:9px;height:50px;border-radius:14px;background:var(--vinho);color:#fff;font-weight:600;font-size:15.5px}
+.c-zap svg{width:19px;height:19px}
+.c-sec{padding:30px 16px 24px}
+.c-sec h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:25px;letter-spacing:-.02em;line-height:1.1;padding:0 6px}
+.c-sec>p{color:#6e5a5f;font-size:14px;margin-top:6px;padding:0 6px}
+.c-grade{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.c-t{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#e9dcd6}
+.c-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-t::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,14,18,.74) 0%,rgba(26,14,18,.18) 42%,rgba(26,14,18,0) 60%)}
+.c-t div{position:absolute;left:12px;right:10px;bottom:11px;z-index:2;color:#fff}
+.c-t b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:16.5px;line-height:1.12;letter-spacing:-.01em}
+.c-t small{display:block;margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.9)}
+.c-t .valor{position:relative;display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;font-weight:700}
+.c-t .valor i{display:block;font-style:normal;height:1.3em}
+.c-anel{position:absolute;inset:0;border-radius:14px;z-index:3;box-shadow:inset 0 0 0 3px var(--terracota-clara);opacity:0}
+.c-barra{position:absolute;left:0;bottom:0;width:390px;height:86px;padding:12px 16px 26px;display:flex;align-items:center;justify-content:space-between;background:rgba(251,246,243,.96);border-top:1px solid #eadfd9;font-family:"DM Sans",sans-serif;color:#2f2226;transform-origin:0 100%;z-index:5}
+.c-barra b{display:block;font-size:14.5px}
+.c-barra small{display:block;font-size:12px;color:#8d7a7f}
+.c-barra .bt{display:flex;align-items:center;gap:7px;height:42px;padding:0 16px;border-radius:999px;background:var(--vinho);color:#fff;font-weight:600;font-size:14px}
+.c-barra .bt svg{width:17px;height:17px}
+
+/* o painel: o topo fixo e as telas capturadas do exemplo (um para um) */
+.cab{position:absolute;left:0;top:66px;width:562px;z-index:6}
+.tl{position:absolute;left:0;top:157px;width:562px;opacity:0}
+.veu{position:absolute;inset:0;background:#0f1a14;opacity:0;z-index:8}
+.gav{position:absolute;left:0;bottom:0;width:562px;height:845px;border-radius:35px 35px 0 0;overflow:hidden;z-index:9;box-shadow:0 -24px 60px -24px rgba(15,26,20,.4)}
+.gav img{position:absolute;left:0;top:0;width:562px;opacity:0}
+.toast{position:absolute;left:50%;bottom:46px;z-index:12;display:flex;align-items:center;gap:13px;width:max-content;max-width:520px;padding:18px 24px;border-radius:20px;background:#17201b;color:#fff;font:600 19px/1.3 "Plus Jakarta Sans",sans-serif;box-shadow:0 26px 58px -17px rgba(0,0,0,.5);opacity:0}
+.toast i{width:32px;height:32px;border-radius:50%;background:#22c55e;display:grid;place-items:center;flex:none}
+.toast i svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<div class="reels" id="reels">
+  <div class="ceu"></div><div class="brilho"></div>
+  <div class="r-topo"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+
+  <p class="txt" id="k1">Para fotógrafas</p>
+  <p class="txt" id="l1">Seu site <span class="tom">mostra.</span></p>
+  <p class="txt" id="l2">Seu painel <span class="tom">organiza.</span></p>
+  <p class="txt" id="l3">Um completa o outro.</p>
+
+  <div class="leg" id="legA"></div>
+  <div class="leg" id="legB"></div>
+
+  <div class="chave" id="chave"><i class="bola" id="bola"></i><span id="kSite">Site</span><span id="kPainel">Painel</span></div>
+
+  <div class="celular" id="cel">
+    <div class="tela">
+      <div class="pg" id="pgSite">
+        <div class="cir" id="site">
+          <div class="c-topo"><div class="c-logo">Estúdio <em>Ciranda</em><small>Fotografia</small></div><span class="c-menu"></span></div>
+          <div class="c-hero"><img src="../rascunhos/instagram/fotos/ciranda-capa.jpg" alt=""></div>
+          <div class="c-txt">
+            <p class="c-kick">Gestante · Newborn · Família</p>
+            <h1>Fotos que guardam <em>a sua família.</em></h1>
+            <p>Ensaios com calma e luz natural, num estúdio pensado para bebês.</p>
+            <div class="c-zap" id="zapHero"></div>
+          </div>
+          <div class="c-sec" id="vitrine">
+            <h2>Ensaios e <em>valores</em></h2>
+            <p>Toque no ensaio para ver o que inclui.</p>
+            <div class="c-grade">
+              <div class="c-t"><img src="../rascunhos/instagram/fotos/ciranda-newborn.jpg" alt="" style="object-position:50% 40%"><div><b>Newborn</b><small>a partir de <span class="valor"><i>R$ 1.190</i></span></small></div></div>
+              <div class="c-t"><img src="../rascunhos/instagram/fotos/ciranda-gestante.jpg" alt="" style="object-position:50% 45%"><div><b>Ensaio gestante</b><small>a partir de <span class="valor"><i>R$ 750</i></span></small></div></div>
+              <div class="c-t"><img src="../rascunhos/instagram/fotos/ciranda-familia.jpg" alt="" style="object-position:50% 40%"><div><b>Ensaio de família</b><small>a partir de <span class="valor"><i>R$ 650</i></span></small></div></div>
+              <div class="c-t" id="tNatal"><img src="../rascunhos/instagram/fotos/ciranda-natal.jpg" alt="" style="object-position:72% 50%"><div><b>Mini sessão de Natal</b><small>a partir de <span class="valor"><span id="vNatal" style="display:block"><i>R$ 220</i><i>R$ 250</i></span></span></small></div><span class="c-anel" id="anel"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="c-barra" id="barra"><div><b>Agende o seu ensaio</b><small>Resposta pelo WhatsApp</small></div><span class="bt" id="zapBarra"></span></div>
+      </div>
+
+      <div class="pg" id="pgPainel">
+        <img class="cab" src="telas-ciranda/cab.jpg" alt="">
+        <img class="tl" id="t-inicio" src="telas-ciranda/inicio.jpg" alt="">
+        <img class="tl" id="t-meusite-a" src="telas-ciranda/meusite-a.jpg" alt="">
+        <img class="tl" id="t-meusite-b" src="telas-ciranda/meusite-b.jpg" alt="">
+        <img class="tl" id="t-agenda" src="telas-ciranda/agenda.jpg" alt="">
+        <img class="tl" id="t-campanha" src="telas-ciranda/campanha.jpg" alt="">
+        <img class="tl" id="t-clientes" src="telas-ciranda/clientes.jpg" alt="">
+        <img class="tl" id="t-contratos" src="telas-ciranda/contratos.jpg" alt="">
+        <img class="tl" id="t-financeiro" src="telas-ciranda/financeiro.jpg" alt="">
+        <img class="tl" id="t-atendimento" src="telas-ciranda/atendimento.jpg" alt="">
+        <div class="veu" id="veu"></div>
+        <div class="gav" id="gav">
+          <img id="g0" src="telas-ciranda/gaveta-0.jpg" alt=""><img id="g1" src="telas-ciranda/gaveta-1.jpg" alt="">
+          <img id="g2" src="telas-ciranda/gaveta-2.jpg" alt=""><img id="g3" src="telas-ciranda/gaveta-3.jpg" alt="">
+        </div>
+        <div class="toast" id="toast"><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Publicado. Aparece no site em até 1 minuto.</span></div>
+      </div>
+
+      <div class="status" id="status"><span class="exemplo">exemplo</span><span class="sinais"><span class="sin"><b style="height:5px"></b><b style="height:8px"></b><b style="height:11px"></b><b style="height:15px"></b></span><span class="bat"></span></span></div>
+      <div class="toque" id="toque"></div>
+    </div>
+  </div>
+
+  <p class="txt" id="c1">Quer ver como fica<br><span class="tom">o seu?</span></p>
+  <p class="txt" id="c2">É só responder esta mensagem.</p>
+  <div id="cMarca"><span class="marca"><span class="simbolo"></span>renderiza</span></div>
+</div>
+
+<script type="module">
+import { $, fase, ease, sai, lerp, pos, entra, mix, ZAP_D } from "./historia.mjs";
+
+const D = 36, S = 1.44, TELA_H = 1215, TOPO_TELAS = 157; // a tela do celular e onde começam as telas do painel (abaixo do topo fixo)
+const ZAP = `<svg viewBox="0 0 24 24" fill="#fff"><path d="${ZAP_D}"/></svg>`;
+$("#zapHero").innerHTML = `${ZAP}Chamar no WhatsApp`;
+$("#zapBarra").innerHTML = `${ZAP}WhatsApp`;
+const POS = await (await fetch("telas-ciranda/posicoes.json")).json();
+
+// ---------- a história, em segundos (o drop em 19) ----------
+// p: 0 = site, 1 = painel (a chave e a troca das páginas no celular seguem o mesmo valor)
+const CHAVE = [[0, 0], [7.0, 0], [7.45, 1], [15.5, 1], [15.95, 0], [18.4, 0], [18.85, 1]];
+const LEG = [
+  { t: 3.15, tit: "O *site* é o que suas clientes veem.", sub: "Seus ensaios, os valores e o WhatsApp." },
+  { t: 7.05, tit: "O *painel* é o que só você vê.", sub: "Agenda, clientes, contratos e financeiro." },
+  { t: 10.55, tit: "Mudou um valor? *Troca no painel.*", sub: "Textos, fotos e valores do seu site." },
+  { t: 15.55, tit: "E o site *muda sozinho.*", sub: "Aparece no site em até 1 minuto." },
+  { t: 17.55, tit: "E o painel *cuida do resto.*" },
+  { t: 19.0, chip: "Agenda", tit: "Os ensaios *por horário.*" },
+  { t: 21.0, chip: "Campanha de Natal", tit: "O Natal *com as vagas contadas.*" },
+  { t: 23.0, chip: "Clientes e entregas", tit: "Cada cliente *com a sua entrega.*" },
+  { t: 25.0, chip: "Contratos", tit: "O contrato *aceito no celular.*" },
+  { t: 27.0, chip: "Financeiro", tit: "O que *entrou e o que falta.*" },
+  { t: 29.0, chip: "Atendimento", tit: "Todo pedido *num lugar só.*" },
+  { t: 31.0, fim: true },
+];
+// as telas do painel: [id, entra, sai, rolagem [[t, px do celular]...], entra sem transição?]
+const TELAS = [
+  ["inicio", 7.0, 10.5, [[8.3, 0], [10.3, 240]], true],
+  ["meusite-a", 10.5, 13.62, [[0, 0]]],
+  ["meusite-b", 13.62, 15.95, [[0, 0]], true],
+  ["agenda", 18.4, 21.0, [[0, 0]], true],
+  ["campanha", 21.0, 23.0, [[21.6, 0], [22.9, 200]]],
+  ["clientes", 23.0, 25.0, [[23.6, 0], [24.9, 160]]],
+  ["contratos", 25.0, 27.0, [[0, 0]]],
+  ["financeiro", 27.0, 29.0, [[27.6, 0], [28.9, 140]]],
+  ["atendimento", 29.0, 31.6, [[29.6, 0], [30.9, 180]]],
+];
+// o Meu site: a gaveta abre, o valor da mini sessão de Natal muda, salva no rascunho e publica
+const GAV = { abre: 11.5, digita: [12.42, 12.72, 13.02], fecha: 13.62 };
+const TOQUES = []; // { t, x, y } em px da tela do celular
+const sons = [];
+const toque = (t, x, y) => { TOQUES.push({ t, x, y }); sons.push({ t, tipo: "toque", ganho: 0.8 }); };
+
+let PARADA = 0, ZAP_BARRA = null;
+const curva = (P, t) => { if (t <= P[0][0]) return P[0][1]; for (let k = 0; k < P.length - 1; k++) if (t < P[k + 1][0]) return lerp(P[k][1], P[k + 1][1], ease(fase(t, P[k][0], P[k + 1][0]))); return P[P.length - 1][1]; };
+const marcar = s => (s || "").replace(/\*([^*]+)\*/g, '<span class="tom">$1</span>');
+const ESCRITO = new Map();
+function escreve(el, L) {
+  const html = L.fim ? "" : `${L.chip ? `<span class="chip">${L.chip}</span>` : ""}<p class="tit">${marcar(L.tit)}</p>${L.sub ? `<p class="sub">${L.sub}</p>` : ""}`;
+  if (ESCRITO.get(el) !== html) { el.innerHTML = html; ESCRITO.set(el, html); }
+}
+
+window.quadro = t => {
+  // ---- abertura (0 a 3 s) e fechamento (31 a 36 s): as frases grandes
+  const abre = t < 4, fecha = t >= 31;
+  const saiAbre = fase(t, 2.55, 2.95);
+  if (abre) {
+    const k = fase(t, 0.05, 0.45);
+    pos($("#k1"), { o: k * (1 - saiAbre), y: (1 - sai(k)) * 20 - 30 * saiAbre });
+    for (const [id, t0] of [["#l1", 0.3], ["#l2", 1.5]]) { const a = entra(t, t0); pos($(id), { s: a.s, o: a.o * (1 - saiAbre), y: a.y - 40 * saiAbre }); }
+    pos($("#l3"), { o: 0 });
+  } else if (fecha) {
+    const sai2 = fase(t, 33.35, 33.7);
+    pos($("#k1"), { o: 0 });
+    for (const [id, t0] of [["#l1", 31.5], ["#l2", 32.0]]) { const a = entra(t, t0); pos($(id), { s: a.s, o: a.o * (1 - sai2), y: a.y - 40 * sai2 }); }
+    const c = fase(t, 32.55, 32.95); pos($("#l3"), { o: c * (1 - sai2), y: (1 - sai(c)) * 18 - 30 * sai2 });
+  } else for (const id of ["#k1", "#l1", "#l2", "#l3"]) pos($(id), { o: 0 });
+  // convite final
+  const cv = fase(t, 33.7, 34.1), cv2 = fase(t, 34.05, 34.45), cv3 = fase(t, 34.4, 34.85);
+  pos($("#c1"), { o: cv, y: (1 - sai(cv)) * 30 }); pos($("#c2"), { o: cv2, y: (1 - sai(cv2)) * 24 }); pos($("#cMarca"), { o: cv3, y: (1 - sai(cv3)) * 24 });
+
+  // ---- a legenda: a nova entra enquanto a anterior sai
+  let k = -1; for (let i = 0; i < LEG.length; i++) if (t >= LEG[i].t) k = i;
+  const legs = [$("#legA"), $("#legB")];
+  for (const el of legs) pos(el, { o: 0 });
+  if (k >= 0) {
+    const L = LEG[k], el = legs[k % 2], x = fase(t, L.t + 0.1, L.t + 0.38);
+    escreve(el, L);
+    pos(el, { o: x, y: (1 - sai(x)) * 26 });
+    if (k > 0) { const A = LEG[k - 1], ea = legs[(k - 1) % 2], y = fase(t, L.t - 0.04, L.t + 0.14); escreve(ea, A); pos(ea, { o: 1 - y, y: -18 * sai(y) }); }
+  }
+
+  // ---- a chave e o celular entram em 2,8 s e saem em 30,9 s
+  const ent = fase(t, 2.8, 3.5), sa = fase(t, 30.9, 31.45);
+  const p = curva(CHAVE, t);
+  pos($("#chave"), { o: fase(t, 2.95, 3.3) * (1 - fase(t, 30.9, 31.2)), y: (1 - sai(fase(t, 2.95, 3.4))) * 26 });
+  $("#bola").style.transform = `translateX(${(216 * p).toFixed(1)}px)`;
+  $("#kSite").style.color = mix("#1e2528", "#b9bfc1", p);
+  $("#kPainel").style.color = mix("#b9bfc1", "#1e2528", p);
+  pos($("#cel"), { y: (1 - sai(ent)) * 760 + ease(sa) * 820, o: Math.min(1, ent * 4) * (1 - fase(t, 31.1, 31.45)) });
+
+  // ---- as duas páginas do celular deslizam conforme a chave
+  pos($("#pgSite"), { x: -562 * p, o: p > 0.999 ? 0 : 1 });
+  pos($("#pgPainel"), { x: 562 * (1 - p), o: p < 0.001 ? 0 : 1 });
+  $("#status").style.background = mix("#fbf6f3", "#f4f3ee", p);
+
+  // o site: a capa, a vitrine, o toque no WhatsApp; depois o valor novo da mini sessão de Natal
+  const rol = curva([[4.45, 0], [5.6, PARADA]], t);
+  $("#site").style.transform = `scale(${S}) translateY(${(-rol).toFixed(2)}px)`;
+  const v = fase(t, 16.25, 16.6);
+  $("#vNatal").style.transform = `translateY(${(-1.3 * ease(v)).toFixed(3)}em)`;
+  const anel = fase(t, 16.05, 16.35) * (1 - fase(t, 17.3, 17.7));
+  $("#anel").style.opacity = anel.toFixed(3);
+  $("#tNatal").style.transform = `scale(${(1 + 0.04 * Math.sin(Math.PI * fase(t, 16.2, 16.75))).toFixed(4)})`;
+
+  // o painel: as telas, a gaveta, o aviso de publicado
+  for (const [id, a, b, rolagem, seco] of TELAS) {
+    const el = $("#t-" + id);
+    if (t < a || t >= b + 0.25) { el.style.opacity = 0; el.style.visibility = "hidden"; continue; }
+    const x = seco ? 1 : fase(t, a, a + 0.24);
+    const y = curva(rolagem, t) * S;
+    pos(el, { o: x, y: -y + (1 - sai(x)) * 40 });
+  }
+  const g = fase(t, GAV.abre, GAV.abre + 0.4), gf = fase(t, GAV.fecha, GAV.fecha + 0.35);
+  const aberta = t >= GAV.abre && t < GAV.fecha + 0.35;
+  pos($("#gav"), { y: aberta ? lerp(845, 0, sai(g)) + ease(gf) * 845 : 845, o: aberta ? 1 : 0 });
+  $("#veu").style.opacity = aberta ? (0.4 * Math.min(fase(t, GAV.abre, GAV.abre + 0.3), 1 - gf)).toFixed(3) : 0;
+  const n = GAV.digita.filter(x => t >= x).length;
+  ["#g0", "#g1", "#g2", "#g3"].forEach((s, i) => { $(s).style.opacity = i === n ? 1 : 0; });
+  const ts = fase(t, 14.42, 14.7);
+  pos($("#toast"), { x: -$("#toast").offsetWidth / 2, y: (1 - sai(ts)) * 30, o: ts * (1 - fase(t, 15.9, 15.96)) });
+
+  // os toques
+  let alvo = null;
+  for (const q of TOQUES) if (t >= q.t - 0.14 && t < q.t + 0.3) alvo = q;
+  if (alvo) {
+    const x = fase(t, alvo.t - 0.14, alvo.t), y = fase(t, alvo.t, alvo.t + 0.3);
+    const el = $("#toque"); el.style.left = alvo.x + "px"; el.style.top = alvo.y + "px";
+    pos(el, { s: lerp(0.6, 1, sai(x)) + 0.25 * y, o: x * (1 - y) });
+  } else pos($("#toque"), { o: 0 });
+};
+
+window.preparar = () => {
+  // a parada da vitrine: o fim da vitrine logo acima da barra do WhatsApp (sobe junto o botão da capa)
+  const vit = $("#vitrine");
+  PARADA = Math.round(vit.offsetTop + vit.offsetHeight - (844 - 86) + 4);
+  $("#barra").style.transform = `scale(${S})`;
+  $("#barra").style.top = "auto";
+  // onde ficam os toques, em px da tela do celular
+  const tela = $("#cel .tela").getBoundingClientRect();
+  const bt = $("#zapBarra").getBoundingClientRect();
+  ZAP_BARRA = { x: bt.left + bt.width / 2 - tela.left, y: bt.top + bt.height / 2 - tela.top };
+  toque(6.35, ZAP_BARRA.x, ZAP_BARRA.y);
+  const T = POS.toques, G = POS.gaveta, gTopo = TELA_H - G.alto * S;
+  toque(11.25, T.ensaios.x * S, TOPO_TELAS + T.ensaios.y * S);
+  toque(12.25, G.natal.x * S, gTopo + G.natal.y * S);
+  toque(13.3, G.salvar.x * S, gTopo + G.salvar.y * S);
+  toque(14.3, T.publicar.x * S, TOPO_TELAS + T.publicar.y * S);
+  sons.push({ t: 14.45, tipo: "ding", ganho: 0.8 });
+  window.quadro(0);
+  return {
+    duracao: D, bpm: 120, tom: -1, sons,
+    pulso: [
+      { id: "l1", cena: "abre", ini: 0.3, fim: 1.4, impacto: true },
+      { id: "l2", cena: "abre", ini: 1.5, fim: 2.9, impacto: true },
+      { id: "site", cena: "google", ini: 3.0, fim: 6.95 },
+      { id: "painel", cena: "google", ini: 7.0, fim: 10.45 },
+      { id: "meusite", cena: "insta", ini: 10.5, fim: 15.45 },
+      { id: "nada", cena: "insta", ini: 15.5, fim: 16.45, impacto: true },
+      { id: "muda", cena: "meio", ini: 16.5, fim: 17.45 },
+      { id: "resto", cena: "ese", ini: 17.5, fim: 18.95 },
+      { id: "modulos", cena: "site", ini: 19.0, fim: 30.95 },
+      { id: "f1", cena: "fim", ini: 31.5, fim: 31.95, impacto: true },
+      { id: "f2", cena: "fim", ini: 32.0, fim: 33.45, impacto: true },
+      { id: "cta", cena: "cta", ini: 33.5, fim: 36.0 },
+    ],
+    ensaio: [1.8, 3.7, 5.9, 6.35, 8.6, 10.9, 11.25, 11.9, 12.8, 13.3, 13.75, 14.3, 15.0, 15.7, 16.8, 18.2, 19.6, 21.3, 23.3, 25.9, 27.3, 29.3, 31.2, 32.6, 33.9, 35.0],
+  };
+};
+
+await document.fonts.ready;
+await Promise.all([...document.images].map(i => i.decode().catch(() => { throw new Error("não carregou a imagem " + i.src); })));
+window.pronto = true;
+</script>
+</body>
+</html>

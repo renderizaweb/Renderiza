@@ -194,6 +194,12 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
   tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
   O sistema se chama **Painel Renderiza** ("Bastidor" foi recusado pelo Kaue em 21/10/2026: ninguém entende).
+- **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
+  `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
+  o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,
+  financeiro e atendimento. Ficaram de fora, porque a fotografia ainda não tem: a agenda online, os cliques do site e a cor dos
+  botões. O site de fotógrafa ainda não sai com as marcações do Meu site (`data-site-*`): quem fechar com o Meu site precisa
+  delas no site entregue.
 - **Fotógrafas: portfólio online** (09/11/2026, pedido do Kaue): a proposta deixa de ser "site" e vira portfólio online (galerias por ensaio, ensaios e valores, promoção, WhatsApp). O porquê e o formato estão em `docs/nichos/fotografos.md` (seção 10); a demo sai de `ferramentas/demo/gerar-portfolio.py`. Primeira: `/demo/olivares-fotografia`.
 - `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
   inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads

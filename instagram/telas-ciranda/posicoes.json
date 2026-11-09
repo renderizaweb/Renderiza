@@ -1,0 +1,64 @@
+{
+ "escala": 1.44,
+ "largura": 390,
+ "cab": 63,
+ "telas": {
+  "inicio": {
+   "alto": 1150,
+   "y": 67
+  },
+  "agenda": {
+   "alto": 721,
+   "y": 2410.28125
+  },
+  "campanha": {
+   "alto": 1150,
+   "y": 3132.734375
+  },
+  "clientes": {
+   "alto": 1150,
+   "y": 5416.5625
+  },
+  "contratos": {
+   "alto": 1150,
+   "y": 7062.453125
+  },
+  "financeiro": {
+   "alto": 1150,
+   "y": 9674.078125
+  },
+  "atendimento": {
+   "alto": 1150,
+   "y": 12427.5625
+  },
+  "meusite-a": {
+   "alto": 593,
+   "y": 13868.296875
+  },
+  "meusite-b": {
+   "alto": 615,
+   "y": 13868.296875
+  }
+ },
+ "toques": {
+  "ensaios": {
+   "x": 195,
+   "y": 341
+  },
+  "publicar": {
+   "x": 287,
+   "y": 137
+  }
+ },
+ "gaveta": {
+  "alto": 587,
+  "natal": {
+   "x": 195,
+   "y": 460
+  },
+  "salvar": {
+   "x": 286,
+   "y": 554
+  }
+ }
+}
