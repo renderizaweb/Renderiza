@@ -194,6 +194,9 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   Reels em `/gravacao/exemplo-sistema-eventos.mp4`. Não sai do ar (não passa pela trava das demos) e não
   tem preço na agenda online. Como funciona: README, "Exemplos de sistema".
   O sistema se chama **Painel Renderiza** ("Bastidor" foi recusado pelo Kaue em 21/10/2026: ninguém entende).
+- **Vereadores** (10/11/2026, pedido do Kaue): nicho novo, indicação do Dr. Marcos (vereador Mateuzinho Silva, de
+  Itapevi). Pesquisa, regras da lei eleitoral e da LGPD, base da landing e propostas além do site em
+  `docs/nichos/vereadores.md`. Site de mandato nunca pede voto nem mostra número de urna fora da campanha.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,
