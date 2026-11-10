@@ -3,8 +3,10 @@
 Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/vereadores.md`.
 
 - **Situação:** demo versão 1 pronta em 10/11/2026, em `/demo/vereador-mateuzinho-silva`.
-- **Painel:** sem lead no painel até agora. Sem um lead com `link_demo = /demo/vereador-mateuzinho-silva`, as visitas não
-  são gravadas. Cadastrar só com o ok do Kaue.
+- **Painel:** lead `vereador-mateuzinho-silva` criado em 10/11/2026, com o ok do Kaue. Segmento "Política", etapa Prontas
+  para trabalhar, código `ek9h`, tag "indicação Dr. Marcos". A demo ficou com o prazo automático de 7 dias
+  (`vale_ate` 17/11/2026). O contador conta as visitas, as partes vistas, os cliques (Instagram, mapa e os botões
+  `pedido-*`, inclusive "pedido-enviado" quando ele testa o formulário) e os outros aparelhos (repassou).
 - **Preço:** nenhum na demo (a proposta não foi definida).
 - **Gerar de novo:** `python3 -I ferramentas/demo/gerar-vereador.py demos/vereador-mateuzinho-silva <pasta das fotos>`
   (modelo em `ferramentas/demo/modelos/vereador.html`; a escolha e o corte das fotos ficam no `demo.json`).
@@ -60,7 +62,7 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
 | capa | 2026-10-20-portas-abertas.jpg | post "Gabinete de portas abertas", 20/10/2026 |
 | fresagem | 2026-10-30-fresagem.jpg | capa do vídeo da fresagem (Indicação 10704), 30/10/2026, cortada acima da legenda |
 | moradores | 2026-11-05-moradores.jpg | post "Ouvindo as demandas", 05/11/2026 |
-| retrato | 2024-dia-dos-pais.jpg | post do Dia dos Pais de 2024, cortado só nele, dentro da moldura da arte |
+| retrato | 2024-conversa-moradora.jpg | carrossel "Dialogando com os munícipes" (post C-WlR_Ksbgb, 2024, foto profissional), cortado só nele |
 | fe | 2024-culto-dia-das-maes.jpg | post do culto de Dia das Mães, 2024 |
 | b-* | 2024-*.jpg | visitas aos bairros (feira do Parque Suburbano, comércio do Centro, Arena Mirante, Dona Elvira e Jardim Itaparica, Jardim São Carlos, Nova Itapevi) |
 
@@ -94,4 +96,5 @@ Nada pede voto nem mostra o número de urna (Lei 9.504, art. 36-A).
 - **História:** a formação, onde cresceu e como quer ser apresentado.
 - **Bandeiras e conteúdo:** as bandeiras que quer destacar e se os projetos de pauta conservadora entram.
 - **Igreja:** se quer citar a igreja pelo nome.
-- **Fotos:** fotos originais em alta, principalmente um retrato dele sozinho.
+- **Fotos:** fotos originais em alta, principalmente um retrato dele sozinho (o Kaue citou uma do gabinete postada em 10/11,
+  que ainda não aparecia no embed público).

@@ -8,14 +8,14 @@
    "qualidade": 82
   },
   "retrato": {
-   "arquivo": "2024-dia-dos-pais.jpg",
+   "arquivo": "2024-conversa-moradora.jpg",
    "corte": [
-    0.53,
-    0.055,
-    0.94,
-    0.6
+    0.63,
+    0.05,
+    1.0,
+    0.82
    ],
-   "largura": 600,
+   "largura": 540,
    "qualidade": 84
   },
   "fresagem": {
