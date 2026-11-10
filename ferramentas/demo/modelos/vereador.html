@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vereador Mateuzinho Silva · Itapevi</title>
+<meta name="description" content="Mandato do vereador Mateuzinho Silva em Itapevi: pedidos dos bairros, indicações, projetos aprovados e o gabinete de portas abertas.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--roxo:#4b2a80;--roxo-2:#341a5e;--roxo-claro:#f1ebf8;--lima:#9cc63d;--lima-escura:#5f7f17;--fundo:#fbfaf7;--cartao:#fff;
+  --tinta:#1d1727;--tinta-2:#4d4559;--suave:#7a7286;--linha:#e8e2ee;--ok:#1f7a4d;--ok-claro:#e2f3e9;--alerta:#8a5a00;--alerta-claro:#fdf3d8;
+  --raio:22px;--sombra:0 1px 2px rgba(29,23,39,.05),0 14px 34px -18px rgba(29,23,39,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--fundo);color:var(--tinta);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.cx{width:min(1140px,100% - 40px);margin-inline:auto}
+h1,h2,h3{letter-spacing:-.025em;line-height:1.12}
+h2{font-size:clamp(28px,4.2vw,40px);font-weight:800}
+h2 em,h1 em{font-style:normal;color:var(--roxo)}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--roxo)}
+.kicker::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--lima)}
+.sub{color:var(--tinta-2);font-size:17px;max-width:620px;margin-top:12px}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 24px;border-radius:14px;font-weight:700;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,background .15s}
+.bt:active{transform:scale(.98)}
+.bt-1{background:var(--roxo);color:#fff;box-shadow:0 10px 24px -12px var(--roxo)}
+.bt-1:hover{background:var(--roxo-2)}
+.bt-2{background:var(--cartao);color:var(--roxo);border:1.5px solid var(--linha)}
+.bt svg{width:19px;height:19px}
+section{padding:76px 0}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+
+/* topo */
+.topo{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+.topo .cx{display:flex;align-items:center;gap:18px;height:66px}
+.marca{display:flex;flex-direction:column;line-height:1.05;text-decoration:none}
+.marca b{font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--roxo)}
+.marca small{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--suave);margin-top:3px}
+.menu{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:14.5px}
+.menu a{text-decoration:none;color:var(--tinta-2)}
+.menu a:hover{color:var(--roxo)}
+.topo .bt{height:42px;padding:0 16px;font-size:14px}
+
+/* capa */
+.capa{padding:44px 0 64px}
+.capa .cx{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.capa h1{font-size:clamp(40px,6vw,68px);font-weight:800;margin:16px 0 0}
+.capa .sub{font-size:18.5px;margin-top:18px}
+.acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.fatos{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.fato{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--cartao);border:1px solid var(--linha);font-size:14px;color:var(--tinta-2)}
+.fato b{font-size:18px;color:var(--tinta);font-weight:800}
+.foto-capa{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sombra);background:var(--roxo-claro)}
+.foto-capa img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.foto-capa .selo{position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.94);font-size:14px;color:var(--tinta-2)}
+.foto-capa .selo i{flex:none;width:38px;height:38px;border-radius:12px;background:var(--roxo);display:grid;place-items:center;color:#fff}
+.foto-capa .selo i svg{width:20px;height:20px}
+.foto-capa .selo b{display:block;color:var(--tinta);font-size:15px}
+
+/* números */
+.numeros{background:var(--roxo);color:#fff;padding:60px 0}
+.numeros h2{color:#fff}
+.numeros h2 em{color:var(--lima)}
+.numeros .sub{color:#d8cce9}
+.grade-num{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.num{padding:22px 20px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.num b{display:block;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.num span{display:block;font-weight:700;margin-top:8px}
+.num small{display:block;color:#cdbfe0;font-size:13.5px;margin-top:4px;line-height:1.4}
+.fonte{margin-top:18px;font-size:12.5px;color:#bba9d3}
+
+/* pedidos na rua */
+.historias{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.historia{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column}
+.historia img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 30%}
+.historia div{padding:22px 22px 24px}
+.historia time{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.historia h3{font-size:20px;margin:8px 0 8px}
+.historia p{color:var(--tinta-2);font-size:15px}
+.etiqueta{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 11px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.e-ok{background:var(--ok-claro);color:var(--ok)}
+.e-roxo{background:var(--roxo-claro);color:var(--roxo)}
+.e-alerta{background:var(--alerta-claro);color:var(--alerta)}
+.historia .etiqueta{margin-top:14px}
+.indicacoes{margin-top:22px;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden}
+.indicacoes h3{font-size:16px;padding:18px 22px;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.indicacoes h3 small{font-weight:600;color:var(--suave);font-size:13px}
+.ind{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:16px 22px;border-top:1px solid var(--linha)}
+.ind:first-of-type{border-top:0}
+.ind b{font-size:15.5px}
+.ind small{grid-column:1;color:var(--suave);font-size:13.5px}
+.ind .etiqueta{grid-row:1/3;grid-column:2;align-self:center}
+
+/* pedido do bairro */
+.pedido{background:var(--roxo-claro)}
+.pedido .cx{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.passos{list-style:none;margin-top:28px;display:grid;gap:10px}
+.passos li{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.7)}
+.passos li i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--roxo);color:#fff;font-style:normal;font-weight:800;font-size:14px;display:grid;place-items:center}
+.passos li b{display:block}
+.passos li span{color:var(--tinta-2);font-size:14.5px}
+.form{background:var(--cartao);border-radius:26px;padding:26px;box-shadow:var(--sombra)}
+.form h3{font-size:21px}
+.form>p{color:var(--suave);font-size:14px;margin-top:4px}
+.campo{margin-top:16px}
+.campo>label,.campo>span{display:block;font-weight:700;font-size:13.5px;margin-bottom:7px;color:var(--tinta-2)}
+.campo input,.campo textarea{width:100%;font:inherit;font-size:15.5px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--linha);background:#fff;color:var(--tinta);outline:0}
+.campo textarea{min-height:92px;resize:vertical}
+.campo input:focus,.campo textarea:focus{border-color:var(--roxo);box-shadow:0 0 0 4px #4b2a8018}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer;position:relative}
+.chips input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.chips span{display:inline-flex;align-items:center;height:38px;padding:0 14px;border-radius:999px;border:1.5px solid var(--linha);font-size:14px;font-weight:600;color:var(--tinta-2);background:#fff}
+.chips input:checked+span{background:var(--roxo);border-color:var(--roxo);color:#fff}
+.foto-in{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px dashed var(--linha);border-radius:12px;cursor:pointer;color:var(--tinta-2);font-size:14.5px}
+.foto-in svg{width:22px;height:22px;color:var(--roxo);flex:none}
+.foto-in img{width:52px;height:52px;object-fit:cover;border-radius:10px}
+.aceite{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:13px;color:var(--tinta-2)}
+.aceite input{margin-top:3px;width:18px;height:18px;accent-color:var(--roxo);flex:none}
+.form .bt{width:100%;margin-top:18px}
+.aviso-demo{margin-top:12px;font-size:12.5px;color:var(--suave);text-align:center}
+.resultado{display:none}
+.resultado.ver{display:block}
+.protocolo{display:flex;align-items:center;gap:14px;padding:16px;border-radius:16px;background:var(--ok-claro);color:var(--ok);font-weight:700}
+.protocolo svg{width:30px;height:30px;flex:none}
+.protocolo b{display:block;font-size:20px;color:var(--tinta)}
+.linha-tempo{list-style:none;margin-top:18px;position:relative}
+.linha-tempo li{position:relative;padding:0 0 18px 34px}
+.linha-tempo li::before{content:"";position:absolute;left:8px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2.5px solid var(--linha)}
+.linha-tempo li::after{content:"";position:absolute;left:13.5px;top:22px;bottom:2px;width:2px;background:var(--linha)}
+.linha-tempo li:last-child::after{display:none}
+.linha-tempo li.feito::before{background:var(--ok);border-color:var(--ok)}
+.linha-tempo li.agora::before{background:var(--roxo);border-color:var(--roxo);box-shadow:0 0 0 5px #4b2a8022}
+.linha-tempo b{display:block;font-size:15px}
+.linha-tempo span{color:var(--suave);font-size:13.5px}
+.acompanhar{margin-top:22px;padding-top:20px;border-top:1px solid var(--linha)}
+.acompanhar form{display:flex;gap:10px}
+.acompanhar input{flex:1;font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--linha);outline:0}
+.acompanhar .bt{width:auto;height:48px;margin:0}
+
+/* projetos */
+.projetos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);padding:22px;display:flex;flex-direction:column;gap:10px}
+.proj .tema{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lima-escura)}
+.proj h3{font-size:19px}
+.proj p{color:var(--tinta-2);font-size:14.5px;flex:1}
+.proj footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--suave);margin-top:4px}
+.andamento{margin-top:26px}
+.andamento h3{font-size:18px;margin-bottom:12px}
+.lista-and{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lista-and div{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 16px;background:var(--cartao);border:1px solid var(--linha);border-radius:16px;font-size:14.5px}
+.lista-and small{display:block;color:var(--suave);font-size:12.5px}
+
+/* bairros */
+.bairros{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,280px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.bairros figure{scroll-snap-align:start;border-radius:20px;overflow:hidden;background:var(--cartao);border:1px solid var(--linha)}
+.bairros img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.bairros figcaption{padding:12px 14px;font-weight:700;font-size:14.5px}
+.bairros figcaption small{display:block;font-weight:500;color:var(--suave);font-size:13px}
+
+/* quem é */
+.quem .cx{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.quem .retrato{border-radius:28px;overflow:hidden;aspect-ratio:3/4;box-shadow:var(--sombra)}
+.quem .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.quem p{color:var(--tinta-2);font-size:16.5px;margin-top:14px}
+.valores{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.valores div{padding:16px;border-radius:16px;background:var(--cartao);border:1px solid var(--linha)}
+.valores b{display:block;color:var(--roxo)}
+.valores span{font-size:14px;color:var(--tinta-2)}
+.fe{margin-top:22px;display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:14px;border-radius:20px;background:var(--roxo-claro)}
+.fe img{width:150px;height:110px;object-fit:cover;border-radius:14px}
+.fe p{margin:0;font-size:15px}
+
+/* gabinete */
+.gabinete{background:var(--tinta);color:#fff}
+.gabinete .cx{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.gabinete h2 em{color:var(--lima)}
+.gabinete .sub{color:#cfc8da}
+.cartao-gab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.cartao-gab>div>div{min-width:0}
+.cartao-gab b{overflow-wrap:anywhere}
+.cartao-gab>div{display:flex;gap:14px;align-items:flex-start}
+.cartao-gab i{flex:none;width:42px;height:42px;border-radius:13px;background:var(--lima);color:var(--roxo-2);display:grid;place-items:center}
+.cartao-gab i svg{width:21px;height:21px}
+.cartao-gab b{display:block}
+.cartao-gab span{color:#cfc8da;font-size:14.5px}
+.cartao-gab a{color:#fff}
+.gabinete .acoes .bt-2{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+
+/* filhos de grid e flex não alargam a página por causa da largura natural das fotos */
+.capa .cx>*,.pedido .cx>*,.quem .cx>*,.gabinete .cx>*,.historias>*,.historia>*,.projetos>*,.grade-num>*,.lista-and>*,.duas>*,.bairros>*,.form,.fe>*{min-width:0}
+footer.rodape{padding:30px 0 100px;font-size:13px;color:var(--suave)}
+footer.rodape .cx{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.barra-cel{display:none}
+
+@media (max-width:900px){
+  section{padding:56px 0}
+  .menu{display:none}
+  .topo .bt{display:none}
+  .capa{padding:18px 0 44px}
+  .capa .cx,.pedido .cx,.quem .cx,.gabinete .cx{grid-template-columns:1fr;gap:28px}
+  .foto-capa{order:-1;aspect-ratio:4/4.4;max-height:64svh;border-radius:24px}
+  .grade-num{grid-template-columns:1fr 1fr}
+  .num b{font-size:36px}
+  .historias,.projetos,.lista-and{grid-template-columns:1fr}
+  .historia img{aspect-ratio:4/3}
+  .quem .retrato{max-width:340px;aspect-ratio:4/4.6}
+  .valores{grid-template-columns:1fr}
+  .fe{grid-template-columns:110px 1fr}
+  .fe img{width:110px;height:90px}
+  .duas{grid-template-columns:1fr}
+  .barra-cel{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;padding:10px;border-radius:20px;background:rgba(255,255,255,.96);box-shadow:0 16px 40px -14px rgba(29,23,39,.4);border:1px solid var(--linha);transform:translateY(140%);transition:transform .3s}
+  .barra-cel.ver{transform:none}
+  .barra-cel .bt{flex:1;height:48px}
+}
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="cx">
+    <a class="marca" href="#inicio"><b>Mateuzinho Silva</b><small>Vereador · Itapevi</small></a>
+    <nav class="menu" aria-label="Menu">
+      <a href="#mandato">Mandato</a><a href="#ruas">Nas ruas</a><a href="#pedido">Pedido do bairro</a><a href="#projetos">Projetos</a><a href="#quem">Quem é</a><a href="#gabinete">Gabinete</a>
+    </nav>
+    <a class="bt bt-1" href="#pedido" data-rz-alvo="pedido-topo">Fazer um pedido</a>
+  </div>
+</header>
+
+<main>
+<section class="capa" id="inicio" aria-label="Início">
+  <div class="cx">
+    <div>
+      <span class="kicker">Vereador de Itapevi · 2025–2028</span>
+      <h1>Um olhar para <em>a população.</em></h1>
+      <p class="sub">Mateuzinho Silva leva para a Câmara o que ouve nos bairros de Itapevi. O pedido do morador vira indicação, segue para a Prefeitura e é acompanhado de perto.</p>
+      <div class="acoes">
+        <a class="bt bt-1" href="#pedido" data-rz-alvo="pedido-capa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Fazer um pedido do meu bairro</a>
+        <a class="bt bt-2" href="#mandato">Ver o trabalho do mandato</a>
+      </div>
+      <div class="fatos">
+        <div class="fato"><b>3.351</b>votos em 2024 · 2º mais votado</div>
+        <div class="fato"><b>185</b>indicações à Prefeitura</div>
+      </div>
+    </div>
+    <figure class="foto-capa">
+      <img src="{{img:capa}}" alt="Mateuzinho Silva com moradoras no gabinete, em frente ao mapa de Itapevi">
+      <figcaption class="selo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></i><span><b>Gabinete de portas abertas</b>Toda terça, depois da sessão na Câmara</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="numeros" id="mandato" aria-label="O mandato em números">
+  <div class="cx">
+    <span class="kicker" style="color:#d8cce9">Prestação de contas</span>
+    <h2 style="margin-top:12px">O mandato <em>em números.</em></h2>
+    <p class="sub">Tudo o que o vereador apresentou na Câmara desde janeiro de 2025, contado no sistema oficial.</p>
+    <div class="grade-num">
+      <div class="num"><b>185</b><span>Indicações</span><small>Pedidos de melhoria nos bairros enviados à Prefeitura</small></div>
+      <div class="num"><b>260</b><span>Requerimentos</span><small>Pedidos de informação e de providência ao Executivo</small></div>
+      <div class="num"><b>43</b><span>Projetos de lei</span><small>10 deles já aprovados pela Câmara</small></div>
+      <div class="num"><b>51</b><span>Moções de aplauso</span><small>Reconhecimento a quem faz pela cidade</small></div>
+    </div>
+    <p class="fonte">Fonte: proposituras de Mateus Andrade da Silva Santos no sistema da Câmara Municipal de Itapevi (consulta em 10/11/2026).</p>
+  </div>
+</section>
+
+<section id="ruas" aria-label="Nas ruas">
+  <div class="cx">
+    <div class="cab"><div><span class="kicker">Do pedido à rua</span><h2 style="margin-top:12px">O que o morador pede, <em>o mandato acompanha.</em></h2></div></div>
+    <div class="historias">
+      <article class="historia">
+        <img src="{{img:fresagem}}" alt="Mateuzinho Silva de capacete acompanhando a obra na rua, à noite">
+        <div><time>30 de outubro de 2026</time><h3>Da indicação ao asfalto novo</h3><p>Pela Indicação nº 10704, a rua recebeu a fresagem, o primeiro passo para o asfalto novo, no Programa Itapevias, com a Sabesp e a Prefeitura.</p><span class="etiqueta e-ok">✓ Pedido atendido</span></div>
+      </article>
+      <article class="historia">
+        <img src="{{img:moradores}}" alt="Mateuzinho Silva conversando com moradores na rua">
+        <div><time>5 de novembro de 2026</time><h3>Chamaram no WhatsApp, ele foi até lá</h3><p>Moradores mandaram mensagem para o gabinete e convidaram o vereador a ver o problema de perto. A visita é o começo do pedido.</p><span class="etiqueta e-roxo">Em andamento</span></div>
+      </article>
+    </div>
+    <div class="indicacoes">
+      <h3>Indicações mais recentes <small>situação no sistema da Câmara</small></h3>
+      <div class="ind"><b>Recapeamento da Rua Romão L. Barbosa</b><small>Jardim Santa Rita · Indicação 10527/2026 · 09/09/2026</small><span class="etiqueta e-alerta">Tramitando</span></div>
+      <div class="ind"><b>Recapeamento e drenagem na Rua Santo Antônio</b><small>Vila Dr. Cardoso · Indicação 10379/2026 · protocolo PMI 098239/2026</small><span class="etiqueta e-roxo">Na Prefeitura</span></div>
+      <div class="ind"><b>Recapeamento da Rua Siqueira Gonçalves</b><small>Chácara Vitápolis · Indicação 10376/2026 · protocolo PMI 098242/2026</small><span class="etiqueta e-roxo">Na Prefeitura</span></div>
+      <div class="ind"><b>Recapeamento da Rua Ezequiel Antônio de Oliveira</b><small>Jardim Santo Antônio · Indicação 10295/2026 · protocolo PMI 098326/2026</small><span class="etiqueta e-roxo">Na Prefeitura</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pedido" id="pedido" aria-label="Pedido do bairro">
+  <div class="cx">
+    <div>
+      <span class="kicker">Pedido do bairro</span>
+      <h2 style="margin-top:12px">Tem algo para melhorar <em>na sua rua?</em></h2>
+      <p class="sub">Mande o pedido direto para o gabinete, com foto e endereço. Você recebe um número e acompanha cada passo por aqui.</p>
+      <ol class="passos">
+        <li><i>1</i><div><b>Você manda o pedido</b><span>O que é, onde fica e uma foto, se tiver.</span></div></li>
+        <li><i>2</i><div><b>O gabinete confere</b><span>Se precisar, a equipe vai até o local.</span></div></li>
+        <li><i>3</i><div><b>Vira indicação na Câmara</b><span>O pedido ganha número oficial.</span></div></li>
+        <li><i>4</i><div><b>Segue para a Prefeitura</b><span>Com protocolo, para cobrar a resposta.</span></div></li>
+        <li><i>5</i><div><b>Você acompanha até o fim</b><span>Cada mudança aparece no seu link.</span></div></li>
+      </ol>
+    </div>
+    <div class="form">
+      <form id="formPedido" novalidate>
+        <h3>Enviar um pedido</h3>
+        <p>Leva menos de um minuto.</p>
+        <div class="campo"><span>O que precisa?</span>
+          <div class="chips" role="group" aria-label="Tipo do pedido">
+            <label><input type="radio" name="tipo" value="Asfalto e buracos" checked><span>Asfalto e buracos</span></label>
+            <label><input type="radio" name="tipo" value="Iluminação"><span>Iluminação</span></label>
+            <label><input type="radio" name="tipo" value="Limpeza e mato"><span>Limpeza e mato</span></label>
+            <label><input type="radio" name="tipo" value="Calçada e escadão"><span>Calçada e escadão</span></label>
+            <label><input type="radio" name="tipo" value="Bueiro e drenagem"><span>Bueiro e drenagem</span></label>
+            <label><input type="radio" name="tipo" value="Praça e lazer"><span>Praça e lazer</span></label>
+            <label><input type="radio" name="tipo" value="Outro"><span>Outro</span></label>
+          </div>
+        </div>
+        <div class="duas">
+          <div class="campo"><label for="bairro">Bairro</label><input id="bairro" list="bairros" placeholder="Ex.: Jardim São Carlos" autocomplete="off"></div>
+          <div class="campo"><label for="rua">Rua e referência</label><input id="rua" placeholder="Ex.: Rua Pirarucu, perto do escadão"></div>
+        </div>
+        <datalist id="bairros"><option>Jardim São Carlos</option><option>Jardim Portela</option><option>Jardim Briquet</option><option>Jardim Santo Antônio</option><option>Jardim Santa Rita</option><option>Vila Santa Rita</option><option>Vila dos Mineiros</option><option>Vila Dr. Cardoso</option><option>Vila São Francisco</option><option>Amador Bueno</option><option>Ambuitá</option><option>Centro</option><option>Cohab</option><option>Parque Suburbano</option><option>Parque Boa Esperança</option><option>Parque da Cidade</option><option>Chácara Vitápolis</option><option>Chácara Lagoinha</option><option>Jardim Hokkaido</option><option>Jardim Julieta</option><option>Nova Itapevi</option><option>Dona Elvira</option><option>Jardim Itaparica</option></datalist>
+        <div class="campo"><label for="desc">Conte o que está acontecendo</label><textarea id="desc" placeholder="Ex.: buraco grande na frente do número 120, já furou pneu de carro."></textarea></div>
+        <div class="campo"><label class="foto-in" for="foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span id="fotoTxt">Adicionar uma foto (opcional)</span></label><input id="foto" type="file" accept="image/*" hidden></div>
+        <div class="duas">
+          <div class="campo"><label for="nome">Seu nome</label><input id="nome" autocomplete="name"></div>
+          <div class="campo"><label for="zap">WhatsApp</label><input id="zap" inputmode="tel" placeholder="(11) 9...." autocomplete="tel"></div>
+        </div>
+        <label class="aceite"><input type="checkbox" id="aceite"><span>Concordo que o gabinete use estes dados só para atender este pedido e falar comigo sobre ele (LGPD).</span></label>
+        <button class="bt bt-1" type="submit" data-rz-alvo="pedido-enviado">Enviar pedido</button>
+        <p class="aviso-demo">Prévia: nesta demonstração o pedido não é enviado a ninguém.</p>
+      </form>
+      <div class="resultado" id="resultado" aria-live="polite">
+        <div class="protocolo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><div>Pedido recebido<b id="numPedido">nº 2026-0148</b></div></div>
+        <ol class="linha-tempo" id="tempoPedido"></ol>
+        <p class="aviso-demo" style="text-align:left">Na versão de verdade, o pedido chega ao painel do gabinete e o morador recebe este link no WhatsApp para acompanhar.</p>
+        <button class="bt bt-2" type="button" id="novoPedido" style="width:100%;margin-top:6px">Fazer outro pedido</button>
+      </div>
+      <div class="acompanhar">
+        <b>Já fez um pedido? Acompanhe:</b>
+        <form id="formAcomp" style="margin-top:10px"><input id="numAcomp" placeholder="Número do pedido ou da indicação" value="10379/2026"><button class="bt bt-1" type="submit">Ver</button></form>
+        <ol class="linha-tempo" id="tempoAcomp" style="margin-top:16px"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos" aria-label="Projetos">
+  <div class="cx">
+    <div class="cab"><div><span class="kicker">Na Câmara</span><h2 style="margin-top:12px">Projetos <em>aprovados.</em></h2><p class="sub">Leis pensadas para quem mais precisa de atenção: as famílias atípicas, as crianças com autismo e os bairros.</p></div></div>
+    <div class="projetos">
+      <article class="proj"><span class="tema">Famílias atípicas</span><h3>Dia da Mãe Atípica</h3><p>Coloca no calendário de Itapevi um dia para as mães que cuidam de filhos atípicos.</p><footer><span>PL 11/2025</span><span class="etiqueta e-ok">✓ Aprovado</span></footer></article>
+      <article class="proj"><span class="tema">Famílias atípicas</span><h3>Apoio psicológico às mães atípicas</h3><p>Cria incentivos para que essas mães tenham apoio psicológico na cidade.</p><footer><span>PL 9/2025</span><span class="etiqueta e-ok">✓ Aprovado</span></footer></article>
+      <article class="proj"><span class="tema">Educação e inclusão</span><h3>Inclusão escolar com ABA</h3><p>Autoriza a rede municipal a usar a técnica ABA na inclusão de crianças e adolescentes com autismo, com profissionais capacitados.</p><footer><span>PL 179/2025</span><span class="etiqueta e-ok">✓ Aprovado</span></footer></article>
+      <article class="proj"><span class="tema">Bairros</span><h3>Nossa Praça – Minha Cidade</h3><p>Moradores e empresas podem cuidar de praças, canteiros e áreas verdes em parceria com a Prefeitura.</p><footer><span>PL 172/2025</span><span class="etiqueta e-ok">✓ Aprovado</span></footer></article>
+      <article class="proj"><span class="tema">Bairros</span><h3>Novos nomes para ruas dos bairros</h3><p>Cinco ruas do Jardim São Carlos, do Parque Suburbano e da Vila Santa Rita ganham nomes em homenagem a pessoas da cidade.</p><footer><span>5 projetos de 2025</span><span class="etiqueta e-ok">✓ Aprovados</span></footer></article>
+      <article class="proj"><span class="tema">Saúde</span><h3>Remédio em falta, informação clara</h3><p>A lista dos remédios disponíveis e em falta em cada unidade de saúde, com a previsão de reposição, no mural e no site da Prefeitura.</p><footer><span>PL 160/2026</span><span class="etiqueta e-alerta">Nas comissões</span></footer></article>
+    </div>
+    <div class="andamento">
+      <h3>Também em andamento</h3>
+      <div class="lista-and">
+        <div><span>Divulgação de vagas de emprego<small>PL 168/2026</small></span><span class="etiqueta e-alerta">Nas comissões</span></div>
+        <div><span>"Não Se Cale": contra a violência à mulher<small>PL 85/2026</small></span><span class="etiqueta e-alerta">Nas comissões</span></div>
+        <div><span>Tampas de bueiro no nível do asfalto<small>PL 548/2025</small></span><span class="etiqueta e-roxo">Com parecer</span></div>
+        <div><span>Retirada dos fios sem uso dos postes<small>PL 24/2026</small></span><span class="etiqueta e-roxo">Com parecer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bairros" aria-label="Nos bairros" style="padding-top:0">
+  <div class="cx">
+    <div class="cab"><div><span class="kicker">Perto de quem mora aqui</span><h2 style="margin-top:12px">Pelos bairros <em>de Itapevi.</em></h2></div></div>
+    <div class="bairros">
+      <figure><img src="{{img:b-feira}}" alt="Conversa com feirante"><figcaption>Feira do Parque Suburbano<small>Conversa com os feirantes</small></figcaption></figure>
+      <figure><img src="{{img:b-centro}}" alt="Visita ao comércio"><figcaption>Comércio do Centro<small>Visita aos comerciantes</small></figcaption></figure>
+      <figure><img src="{{img:b-arena}}" alt="Jovens na Arena Mirante"><figcaption>Arena Mirante<small>Com a juventude do bairro</small></figcaption></figure>
+      <figure><img src="{{img:b-elvira}}" alt="Visita a uma família"><figcaption>Dona Elvira e Jardim Itaparica<small>Visita às famílias</small></figcaption></figure>
+      <figure><img src="{{img:b-saocarlos}}" alt="Almoço com morador"><figcaption>Jardim São Carlos<small>Prosa com quem faz o bairro</small></figcaption></figure>
+      <figure><img src="{{img:b-nova}}" alt="Visita a moradores"><figcaption>Nova Itapevi<small>Casa de amigos de longa data</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="quem" id="quem" aria-label="Quem é">
+  <div class="cx">
+    <div class="retrato"><img src="{{img:retrato}}" alt="Retrato de Mateuzinho Silva"></div>
+    <div>
+      <span class="kicker">Quem é</span>
+      <h2 style="margin-top:12px">Jovem, de Itapevi <em>e lado a lado com a população.</em></h2>
+      <p>Mateuzinho Silva está no primeiro mandato como vereador. Desde adolescente se envolve com trabalhos sociais na cidade e, em 2024, foi o segundo vereador mais votado de Itapevi, com 3.351 votos.</p>
+      <p>Na Câmara, a marca do mandato é a presença: ouvir o morador, levar o pedido adiante e voltar para mostrar o resultado.</p>
+      <div class="valores">
+        <div><b>Ouvir</b><span>Gabinete aberto toda semana e visita nos bairros.</span></div>
+        <div><b>Cuidar</b><span>Atenção às famílias atípicas e a quem precisa mais.</span></div>
+        <div><b>Prestar contas</b><span>Cada pedido com número, protocolo e resposta.</span></div>
+      </div>
+      <div class="fe"><img src="{{img:fe}}" alt="Culto em família"><p><b>Fé e família.</b> Cristão, congrega na Igreja Pentecostal Renovada em Cristo. Nas palavras dele: “A oração é a chave da vitória.”</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gabinete" id="gabinete" aria-label="Gabinete">
+  <div class="cx">
+    <div>
+      <span class="kicker" style="color:#d8cce9">Gabinete de portas abertas</span>
+      <h2 style="margin-top:12px;color:#fff">Toda terça, <em>a porta está aberta.</em></h2>
+      <p class="sub">Depois da sessão, o gabinete recebe quem quiser levar uma demanda do bairro. Se preferir, mande o pedido por aqui.</p>
+      <div class="acoes"><a class="bt bt-1" href="#pedido" style="background:var(--lima);color:var(--roxo-2)">Fazer um pedido</a><a class="bt bt-2" href="https://www.instagram.com/vereadormateuzinhosilva/" target="_blank" rel="noopener">Acompanhar no Instagram</a></div>
+    </div>
+    <div class="cartao-gab">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></i><div><b>Terças-feiras</b><span>Depois da sessão da Câmara</span></div></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><b>Câmara Municipal de Itapevi</b><span><a href="https://www.google.com/maps/search/?api=1&query=C%C3%A2mara+Municipal+de+Itapevi" target="_blank" rel="noopener">Ver no mapa</a></span></div></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></i><div><b>@vereadormateuzinhosilva</b><span>Mais de 9 mil pessoas acompanham o mandato</span></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="cx"><span>Vereador Mateuzinho Silva · Câmara Municipal de Itapevi · Os dados de quem faz um pedido são usados só para atender o pedido.</span><span>Prévia feita pela Renderiza</span></div>
+</footer>
+<div class="barra-cel"><a class="bt bt-1" href="#pedido" data-rz-alvo="pedido-barra">Fazer um pedido do meu bairro</a></div>
+
+<script>
+(function(){
+  var $ = function(s){ return document.querySelector(s); };
+  function tempo(el, passos){ el.innerHTML = passos.map(function(p){ return '<li class="'+(p[2]||'')+'"><b>'+p[0]+'</b><span>'+p[1]+'</span></li>'; }).join(''); }
+  var hoje = new Date().toLocaleDateString('pt-BR');
+  $('#foto').addEventListener('change', function(){
+    var f = this.files && this.files[0]; if(!f) return;
+    var r = new FileReader(); r.onload = function(){ var l = $('.foto-in'); var i = l.querySelector('img') || document.createElement('img'); i.src = r.result; l.insertBefore(i, l.firstChild); var s = l.querySelector('svg'); if(s) s.remove(); $('#fotoTxt').textContent = 'Foto adicionada'; }; r.readAsDataURL(f);
+  });
+  $('#formPedido').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!$('#aceite').checked){ $('#aceite').focus(); $('.aceite').style.color = '#b42318'; return; }
+    var tipo = (document.querySelector('input[name=tipo]:checked')||{}).value || 'Pedido';
+    var onde = [$('#rua').value.trim(), $('#bairro').value.trim()].filter(Boolean).join(', ') || 'Itapevi';
+    $('#numPedido').textContent = 'nº 2026-' + String(148 + Math.floor(Math.random()*40)).padStart(4,'0');
+    tempo($('#tempoPedido'), [
+      ['Pedido recebido', tipo + ' · ' + onde + ' · ' + hoje, 'feito'],
+      ['O gabinete confere', 'A equipe olha o pedido e, se precisar, vai até o local', 'agora'],
+      ['Indicação na Câmara', 'O pedido ganha número oficial'],
+      ['Na Prefeitura', 'Com protocolo para acompanhar a resposta'],
+      ['Resolvido', 'Você recebe o aviso no WhatsApp']
+    ]);
+    this.style.display = 'none'; $('#resultado').classList.add('ver');
+    $('#resultado').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+  $('#novoPedido').addEventListener('click', function(){ $('#resultado').classList.remove('ver'); var f = $('#formPedido'); f.reset(); f.style.display = ''; });
+  function acompanhar(){
+    tempo($('#tempoAcomp'), [
+      ['Pedido dos moradores', 'Recapeamento e drenagem na Rua Santo Antônio, Vila Dr. Cardoso', 'feito'],
+      ['Indicação 10379/2026', 'Protocolada na Câmara em 03/09/2026', 'feito'],
+      ['Encaminhada à Prefeitura', 'Protocolo PMI 098239/2026', 'feito'],
+      ['Aguardando a resposta da Prefeitura', 'O gabinete cobra e avisa assim que houver novidade', 'agora']
+    ]);
+  }
+  $('#formAcomp').addEventListener('submit', function(e){ e.preventDefault(); acompanhar(); });
+  acompanhar();
+  // a barra do celular aparece depois da capa e some quando o formulário está na tela
+  var barra = $('.barra-cel'), capa = $('.capa .acoes'), form = $('#pedido'), vCapa = true, vForm = false;
+  function mostra(){ barra.classList.toggle('ver', !vCapa && !vForm); }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ vCapa = e[0].isIntersecting; mostra(); }).observe(capa);
+    new IntersectionObserver(function(e){ vForm = e[0].isIntersecting; mostra(); }).observe(form);
+  } else barra.classList.add('ver');
+})();
+</script>
+</body>
+</html>

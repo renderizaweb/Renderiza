@@ -1,0 +1,65 @@
+{
+ "_sobre": "Demo do site de mandato do vereador Mateuzinho Silva (Itapevi), versão 1, 10/11/2026. Gera com: python3 -I ferramentas/demo/gerar-vereador.py demos/vereador-mateuzinho-silva <pasta das fotos escolhidas>. As fotos são do Instagram dele (página salva no Drive do Kaue e os posts mais recentes); a origem de cada uma está na ficha.md.",
+ "modelo": "vereador",
+ "fotos": {
+  "capa": {
+   "arquivo": "2026-10-20-portas-abertas.jpg",
+   "largura": 900,
+   "qualidade": 82
+  },
+  "retrato": {
+   "arquivo": "2024-dia-dos-pais.jpg",
+   "corte": [
+    0.53,
+    0.055,
+    0.94,
+    0.6
+   ],
+   "largura": 600,
+   "qualidade": 84
+  },
+  "fresagem": {
+   "arquivo": "2026-10-30-fresagem.jpg",
+   "corte": [
+    0,
+    0.03,
+    1,
+    0.6
+   ],
+   "largura": 720
+  },
+  "moradores": {
+   "arquivo": "2026-11-05-moradores.jpg",
+   "largura": 760
+  },
+  "fe": {
+   "arquivo": "2024-culto-dia-das-maes.jpg",
+   "largura": 900
+  },
+  "b-feira": {
+   "arquivo": "2024-feira-parque-suburbano.jpg",
+   "largura": 640
+  },
+  "b-centro": {
+   "arquivo": "2024-comercio-centro.jpg",
+   "largura": 640
+  },
+  "b-arena": {
+   "arquivo": "2024-arena-mirante.jpg",
+   "largura": 640
+  },
+  "b-elvira": {
+   "arquivo": "2024-dona-elvira.jpg",
+   "largura": 640
+  },
+  "b-saocarlos": {
+   "arquivo": "2024-jardim-sao-carlos.jpg",
+   "largura": 640
+  },
+  "b-nova": {
+   "arquivo": "2024-nova-itapevi.jpg",
+   "largura": 640
+  }
+ },
+ "dados": {}
+}

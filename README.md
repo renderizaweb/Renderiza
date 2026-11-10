@@ -188,6 +188,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Ótica Interativa](demos/otica-interativa) | Vila Maria, São Paulo | site | pronta · 29/09/2026 |
 | [Lú Elegante (moda e beleza, fora das óticas)](demos/lu-elegante-modas) | Vila São Pedro, São Bernardo do Campo | site | pronta · 01/10/2026 |
 | [Clínica MS Odontologia (fora das óticas)](demos/ms-odontologia) | São Carlos, Itapevi | site | pronta · 01/10/2026 (versão 2, fotos novas) |
+| [Vereador Mateuzinho Silva (fora das óticas)](demos/vereador-mateuzinho-silva) | Itapevi | site de mandato com "Pedido do bairro" | pronta · 10/11/2026 (versão 1) |
 | [Ótica Nina](demos/otica-nina) | Vila Nova Mazzei, São Paulo | site | versão final · 15/10/2026 (fotos ampliadas, vídeo Reels) · 1ª versão 02/10/2026 (lote 2 · 1ª) |
 | [Ótica Boutique dos Óculos](demos/boutique-dos-oculos) | Aclimação, São Paulo | site | pronta · 02/10/2026 (lote 2 · 2ª) |
 | [Ótica Haramaki](demos/otica-haramaki) | Vila Perus, São Paulo | site | pronta · 02/10/2026 (lote 2 · 3ª) |
