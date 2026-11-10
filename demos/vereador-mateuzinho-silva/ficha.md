@@ -8,8 +8,16 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
   (`vale_ate` 17/11/2026). O contador conta as visitas, as partes vistas, os cliques (Instagram, mapa e os botões
   `pedido-*`, inclusive "pedido-enviado" quando ele testa o formulário) e os outros aparelhos (repassou).
 - **Preço:** nenhum na demo (a proposta não foi definida).
-- **Gerar de novo:** `python3 -I ferramentas/demo/gerar-vereador.py demos/vereador-mateuzinho-silva <pasta das fotos>`
-  (modelo em `ferramentas/demo/modelos/vereador.html`; a escolha e o corte das fotos ficam no `demo.json`).
+- **Gerar de novo:**
+  1. `python3 -I ferramentas/demo/fotos-vereador.py demos/vereador-mateuzinho-silva <pasta>`: baixa as fotos pela
+     "origem" de cada uma no `demo.json` (Drive do Kaue ou post público). Com `--tudo`, baixa também as 64 fotos do
+     Drive e os carrosséis de todos os posts, para escolher outras.
+  2. `python3 -I ferramentas/demo/gerar-vereador.py demos/vereador-mateuzinho-silva <pasta>/escolhidas`. O modelo
+     fica em `ferramentas/demo/modelos/vereador.html`.
+- **Dados no repositório** (públicos, para não pesquisar de novo):
+  - `dados/proposituras.json`: as 685 proposituras dele no sistema da Câmara, com tipo, número, data, situação,
+    assunto e protocolo da Prefeitura;
+  - `dados/instagram.json`: 49 posts com legenda e número de fotos.
 
 ## Quem é (só fontes públicas)
 
@@ -59,10 +67,10 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
 
 | Chave | Arquivo | De onde |
 |---|---|---|
-| capa | 2026-10-20-portas-abertas.jpg | post "Gabinete de portas abertas", 20/10/2026 |
+| capa | 2026-10-20-portas-abertas.jpg | post "Gabinete de portas abertas", 20/10/2026 (DeuXXbAFS-6, foto 1 de 6; o carrossel inteiro está em 2268 × 3024) |
 | fresagem | 2026-10-30-fresagem.jpg | capa do vídeo da fresagem (Indicação 10704), 30/10/2026, cortada acima da legenda |
 | moradores | 2026-11-05-moradores.jpg | post "Ouvindo as demandas", 05/11/2026 |
-| retrato | 2024-conversa-moradora.jpg | carrossel "Dialogando com os munícipes" (post C-WlR_Ksbgb, 2024, foto profissional), cortado só nele |
+| retrato | 2026-10-27-plenario.jpg | carrossel da sessão de 27/10/2026 (DfA_V33o724, foto 4): ele na mesa do plenário, com a placa e o brasão da Câmara |
 | fe | 2024-culto-dia-das-maes.jpg | post do culto de Dia das Mães, 2024 |
 | b-* | 2024-*.jpg | visitas aos bairros (feira do Parque Suburbano, comércio do Centro, Arena Mirante, Dona Elvira e Jardim Itaparica, Jardim São Carlos, Nova Itapevi) |
 
