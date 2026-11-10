@@ -13,7 +13,8 @@
 //   frase) e fechamento.estilo "rolagem" (o site inteiro rolando dentro de um celular): versão "show".
 //   fechamento: { titulo, destaque, convite }, musica: "auto" (trilha original de musica.py) | caminho de um
 //   arquivo de áudio | ausente (faixa muda), volume_musica (1), resolucao: 720 (padrão leve, ~4 MB; o WhatsApp
-//   reduz para isso de todo jeito) | 1080 (Instagram), crf (23),
+//   reduz para isso de todo jeito) | 1080 (Instagram), crf (23), maxrate ("4M", o teto da taxa; 0 = sem teto, para a versão
+//   em alta que vai como documento ou link de download), bufsize ("8M"), audio (taxa do AAC: "112k" com música),
 //   clima: "leve" (padrão) | "sobrio" (confiança: trocas lentas, nome reto, rolagem calma) | "descolado" (cortes
 //   rápidos, nome em caixa alta, rolagem ágil) | "grife" (fusões longas, nome fino e espaçado, tudo mais devagar);
 //   vale para a montagem, a rolagem e a trilha (musica.py --clima).
@@ -641,8 +642,8 @@ await rodar(FFMPEG, ["-y", "-loglevel", "error",
   "-filter_complex", `[0:v][1:v]xfade=transition=fade:duration=${FUSAO}:offset=${o1.toFixed(3)}[a];[a][2:v]xfade=transition=fade:duration=${FUSAO}:offset=${o2.toFixed(3)}${Number(R.resolucao) === 1080 ? "" : ",scale=720:1280:flags=lanczos"},format=yuv420p[v]`,
   "-map", "[v]", "-map", "3:a", ...filtroAudio, "-t", seg,
   // Leve para o WhatsApp: tela de site comprime bem; aq-mode 3 evita faixas nos degradês escuros.
-  "-c:v", "libx264", "-preset", "slow", "-crf", String(R.crf || 23), "-maxrate", "4M", "-bufsize", "8M", "-x264-params", "aq-mode=3",
+  "-c:v", "libx264", "-preset", "slow", "-crf", String(R.crf || 23), ...(R.maxrate === 0 ? [] : ["-maxrate", R.maxrate || "4M", "-bufsize", R.bufsize || "8M"]), "-x264-params", "aq-mode=3",
   "-profile:v", "high", "-level", "4.1", "-r", String(FPS),
-  "-c:a", "aac", "-b:a", R.musica ? "112k" : "32k", "-movflags", "+faststart", saida]);
+  "-c:a", "aac", "-b:a", R.audio || (R.musica ? "112k" : "32k"), "-movflags", "+faststart", saida]);
 if (!process.env.MANTER) rmSync(tmp, { recursive: true, force: true });
 console.log(`${saida} pronto: ${seg}s (site ${DUR_SITE.toFixed(1)}s, paradas ${medidas.map(m => m.y).join(", ")}), ${Math.round((Date.now() - inicio) / 1000)}s de gravação`);

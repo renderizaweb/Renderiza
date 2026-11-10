@@ -26,6 +26,10 @@
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
+      "source": "/gravacao/ms-odontologia-site.mp4",
+      "headers": [{ "key": "Content-Disposition", "value": "attachment; filename=\"MS-Odontologia-site.mp4\"" }]
+    },
+    {
       "source": "/painel",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }, { "key": "X-Frame-Options", "value": "DENY" }]
     },

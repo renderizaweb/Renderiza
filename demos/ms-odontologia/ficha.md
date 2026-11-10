@@ -112,3 +112,6 @@ casos" e "5 anos consecutivos melhor dentista de Itapevi".
 **Vídeo de divulgação (cortesia, 05/11/2026):** `gravacoes/ms-odontologia-site.json` (o site no ar rolando no celular,
 ~35 s, música original, assinatura @clinicamsodontologia, legenda acima dos botões do Instagram). O MP4 fica em
 `rascunhos/` e vai para o Dr. Marcos pelo WhatsApp; não vai ao ar.
+**Versão em alta (10/11/2026, a pedido dele, para mandar como documento):** 1080 × 1920, crf 14, sem teto de taxa
+(6,6 Mb/s, ~30 MB). Fica em `gravacoes/ms-odontologia-site.mp4` e para baixar em
+https://www.renderizaweb.com.br/gravacao/ms-odontologia-site.mp4 (o `vercel.json` manda baixar em vez de tocar).

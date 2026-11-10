@@ -1,5 +1,5 @@
 {
- "_sobre": "Vídeo de divulgação do site da Clínica MS Odontologia, que já está no ar (cliente, cortesia): para o Dr. Marcos postar no Status, nos Stories e no Reels. Sem marca da Renderiza. O MP4 vai para rascunhos/ e é mandado a ele; não vai ao ar.",
+ "_sobre": "Vídeo de divulgação do site da Clínica MS Odontologia, que já está no ar (cliente, cortesia): para o Dr. Marcos postar no Status, nos Stories e no Reels. Sem marca da Renderiza. Versão em alta (10/11/2026, a pedido dele, para mandar como documento sem perder qualidade): 1080 × 1920, crf 14, sem teto de taxa; sai em gravacoes/ms-odontologia-site.mp4 e fica para baixar em /gravacao/ms-odontologia-site.mp4.",
  "url": "https://www.msodontologiaitapevi.com.br/",
  "marca": "Clínica MS Odontologia",
  "local": "São Carlos · Itapevi",
@@ -17,6 +17,9 @@
  "musica": "auto",
  "clima": "leve",
  "resolucao": 1080,
+ "crf": 14,
+ "maxrate": 0,
+ "audio": "192k",
  "assinatura": "@clinicamsodontologia",
  "abertura": {
   "estilo": "montagem",
