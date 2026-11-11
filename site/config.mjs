@@ -253,7 +253,7 @@ export default {
       titulo: "Demonstrações para óticas",
       tipo: "Sites",
       selo: "demonstracao",
-      texto: "Sites de exemplo que preparo para óticas da Grande São Paulo, com fotos reais da loja, avaliações do Google, WhatsApp e mapa. Cada ótica recebe o próprio link, que não fica aberto ao público.",
+      texto: "Sites de exemplo que preparamos para óticas da Grande São Paulo, com fotos reais da loja, avaliações do Google, WhatsApp e mapa. Cada ótica recebe o próprio link, que não fica aberto ao público.",
       imagem: "",
       link: "",
       // Kaue, 30/09/2026: nenhuma demo na home até ter aprovação de cliente.

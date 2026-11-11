@@ -21,8 +21,8 @@ export default {
   // A ilustração do topo: a consulta de data no celular e a mensagem que chega no WhatsApp do espaço.
   ilustracao: {
     espaco: "Seu Espaço",
-    campos: [["Data da festa", "Sábado, 14/03/2027"], ["Tipo de festa", "Casamento"], ["Convidados", "120"]],
-    mensagem: ["Olá! Vim pelo site e queria consultar uma data.", "Data: sábado, 14/03/2027", "Festa: casamento", "Convidados: 120"],
+    campos: [["Data da festa", "Sábado, 13/03/2027"], ["Tipo de festa", "Casamento"], ["Convidados", "120"]],
+    mensagem: ["Olá! Vim pelo site e queria consultar uma data.", "Data: sábado, 13/03/2027", "Festa: casamento", "Convidados: 120"],
   },
 
   // O "sol": tudo o que o espaço tem na internet indo para o site, no centro (pedido do Kaue, 16/10/2026).
