@@ -5,9 +5,27 @@
   "capa": {
    "arquivo": "2026-10-20-portas-abertas.jpg",
    "largura": 900,
-   "qualidade": 82,
+   "qualidade": 76,
    "origem": {
     "post": "DeuXXbAFS-6",
+    "i": 0
+   }
+  },
+  "capa-rua": {
+   "arquivo": "2026-11-05-visita-2.jpg",
+   "largura": 760,
+   "qualidade": 76,
+   "origem": {
+    "post": "DfX7haJo7it",
+    "i": 2
+   }
+  },
+  "capa-sessao": {
+   "arquivo": "2026-10-27-sessao-1.jpg",
+   "largura": 800,
+   "qualidade": 78,
+   "origem": {
+    "post": "DfA_V33o724",
     "i": 0
    }
   },
@@ -17,8 +35,8 @@
     "post": "DfA_V33o724",
     "i": 3
    },
-   "largura": 720,
-   "qualidade": 84
+   "largura": 640,
+   "qualidade": 80
   },
   "fresagem": {
    "arquivo": "2026-10-30-fresagem.jpg",
@@ -36,15 +54,88 @@
   },
   "moradores": {
    "arquivo": "2026-11-05-moradores.jpg",
-   "largura": 760,
+   "largura": 600,
    "origem": {
     "post": "DfX7haJo7it",
     "i": 0
+   },
+   "qualidade": 78
+  },
+  "portas-1": {
+   "arquivo": "2026-10-20-portas-abertas-2.jpg",
+   "largura": 600,
+   "qualidade": 78,
+   "origem": {
+    "post": "DeuXXbAFS-6",
+    "i": 1
+   }
+  },
+  "portas-3": {
+   "arquivo": "2026-10-20-portas-abertas-4.jpg",
+   "largura": 560,
+   "qualidade": 78,
+   "origem": {
+    "post": "DeuXXbAFS-6",
+    "i": 3
+   }
+  },
+  "portas-4": {
+   "arquivo": "2026-10-20-portas-abertas-5.jpg",
+   "largura": 560,
+   "qualidade": 78,
+   "origem": {
+    "post": "DeuXXbAFS-6",
+    "i": 4
+   }
+  },
+  "portas-5": {
+   "arquivo": "2026-10-20-portas-abertas-6.jpg",
+   "largura": 560,
+   "qualidade": 78,
+   "origem": {
+    "post": "DeuXXbAFS-6",
+    "i": 5
+   }
+  },
+  "sessao-2": {
+   "arquivo": "2026-10-27-sessao-2.jpg",
+   "largura": 600,
+   "qualidade": 78,
+   "origem": {
+    "post": "DfA_V33o724",
+    "i": 1
+   }
+  },
+  "visita-3": {
+   "arquivo": "2026-11-05-visita-4.jpg",
+   "largura": 480,
+   "qualidade": 74,
+   "origem": {
+    "post": "DfX7haJo7it",
+    "i": 3
+   }
+  },
+  "visita-4": {
+   "arquivo": "2026-11-05-visita-5.jpg",
+   "largura": 480,
+   "qualidade": 78,
+   "origem": {
+    "post": "DfX7haJo7it",
+    "i": 4
+   }
+  },
+  "visita-5": {
+   "arquivo": "2026-11-05-visita-6.jpg",
+   "largura": 480,
+   "qualidade": 78,
+   "origem": {
+    "post": "DfX7haJo7it",
+    "i": 5
    }
   },
   "fe": {
    "arquivo": "2024-culto-dia-das-maes.jpg",
-   "largura": 900,
+   "largura": 420,
    "origem": {
     "drive": "472711754_18471818122016765_4750552965749147324_n.jpg"
    }
@@ -86,7 +177,7 @@
   },
   "b-nova": {
    "arquivo": "2024-nova-itapevi.jpg",
-   "largura": 640,
+   "largura": 480,
    "origem": {
     "drive": "625041557_18063679190558404_4129441746806259101_n.jpg"
    }

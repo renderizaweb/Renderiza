@@ -2,6 +2,13 @@
 # Uso: python3 ig-post.py <shortcode> [pasta]   -> imprime JSON e baixa as mídias (jpg e mp4) para a pasta.
 # Vídeo vira foto: tirar quadros com o ffmpeg (pip install imageio-ffmpeg) e escolher os nítidos.
 import re, json, sys, subprocess, datetime, os
+def baixa(url, arq, limite):
+    # O embed aponta para um servidor regional (scontent-xxx.cdninstagram.com), que muda a cada consulta. O nome geral
+    # serve o mesmo arquivo e é o único liberado na rede dos ambientes com lista de hosts; o regional fica de reserva.
+    for u in (re.sub(r'^https://scontent[^/]*\.cdninstagram\.com/', 'https://scontent.cdninstagram.com/', url), url):
+        r = subprocess.run(['curl', '-sS', '-f', '--max-time', str(limite), '-o', arq, u])
+        if r.returncode == 0 and os.path.exists(arq) and os.path.getsize(arq) > 2000: return True
+    return False
 def post(sc, pasta=None):
     r = subprocess.run(['curl', '-sS', '--max-time', '25', f'https://www.instagram.com/p/{sc}/embed/captioned/'], capture_output=True)
     h = r.stdout.decode('utf8', 'ignore')
@@ -30,8 +37,8 @@ def post(sc, pasta=None):
         out['midias'].append(item)
         if pasta:
             os.makedirs(pasta, exist_ok=True)
-            if item['img']: subprocess.run(['curl', '-sS', '--max-time', '30', '-o', f'{pasta}/{sc}_{k:02d}.jpg', item['img']])
-            if item['video']: subprocess.run(['curl', '-sS', '--max-time', '90', '-o', f'{pasta}/{sc}_{k:02d}.mp4', item['video']])
+            if item['img']: baixa(item['img'], f'{pasta}/{sc}_{k:02d}.jpg', 30)
+            if item['video']: baixa(item['video'], f'{pasta}/{sc}_{k:02d}.mp4', 90)
     return out
 if __name__ == '__main__':
     print(json.dumps(post(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None), ensure_ascii=False))
