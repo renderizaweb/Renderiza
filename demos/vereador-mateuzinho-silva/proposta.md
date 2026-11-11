@@ -89,48 +89,69 @@ Fontes:
 - [Fundação Perseu Abramo](https://fpabramo.org.br/entre-o-livro-amarelo-e-a-vala-por-dentro-da-convencao-do-missao-de-renan-santos/)
 - [Projeto Brief](https://projetobrief.substack.com/p/a-geracao-que-o-missao-quer-recrutar)
 
-## O vídeo
+## O vídeo (versão 2, 11/11/2026)
 
-**Agora: um vídeo de proposta, privado, para ele e a equipe.** Vertical, 87 s, para mandar no WhatsApp junto com o
-link da demo.
+A primeira versão (87 s, que falava com ele pelo nome e mostrava aviso automático no WhatsApp) foi recusada pelo Kaue:
+parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **peça institucional**.
+- **Para quem:** explica a ideia a quem nunca ouviu falar dela e serve para ele postar como "o que estamos
+  preparando".
+- **Como chega a ele:** o Kaue manda no WhatsApp como quem diz "tive algumas ideias e tentei colocar num vídeo".
 - **Arquivos:**
   - página `instagram/reels-proposta-vereador.html`;
   - texto e voz em `instagram/narracao/reels-proposta-vereador.json`;
-  - o vídeo em `gravacoes/vereador-mateuzinho-silva-proposta.mp4` (720p, para o WhatsApp).
+  - vídeo em `gravacoes/vereador-mateuzinho-silva-proposta.mp4` (720p, para o WhatsApp).
 - **Gerar de novo:**
   1. Baixar as fotos com `fotos-vereador.py`.
-  2. Copiar `retrato`, `gabinete` e `rua` para `rascunhos/vereador-video/` (ver o comentário no topo da página).
+  2. Copiar para `rascunhos/vereador-video/` as fotos `gabinete.jpg` (post DeuXXbAFS-6, foto 1) e
+     `rua-sem-asfalto.jpg` (post DfX7haJo7it, foto 4).
   3. Rodar `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador`.
-- **Roteiro:**
-  1. 185 indicações: "quantas o morador consegue acompanhar?";
-  2. hoje: WhatsApp, papel, rua, e o pedido some de vista; 61 reapresentados em janeiro;
-  3. "Agora imagina o Gabinete Aberto";
-  4. a demo real no celular (busca "Rua Tilápia" e o pedido de demonstração);
-  5. o portal: fila, IA da indicação, Câmara e lembrete de cobrar;
-  6. o aviso no WhatsApp, os indicadores e o card dos Stories;
-  7. a prévia do vídeo de lançamento, com a marca "PRÉVIA";
-  8. o convite: "Te mostro na terça, no gabinete de portas abertas."
-- **O que é real e o que é simulação:**
-  - **real:** a demo e as fotos dele;
-  - **simulação** (com a etiqueta "Simulação · como vai funcionar" na tela): o portal, a conversa no WhatsApp, o card
-    dos Stories e o vídeo de lançamento.
-- **A narração** é a voz neural "Antonio" (Microsoft), não a dele.
+- **Regras:**
+  - sem o nome dele na narração e sem falar com ele;
+  - sem convite da Renderiza no fim;
+  - nada de WhatsApp automático;
+  - nada de pedir voto.
+- **Roteiro (71 s, voz sintética "Antonio"):**
+  1. "Todo dia, um pedido chega ao gabinete": foto do gabinete de portas abertas.
+  2. "Uma rua sem asfalto. Um poste apagado. Uma praça esquecida.": foto da visita de 05/11/2026 e dois desenhos.
+  3. "Desde 2025, foram 185 indicações à Prefeitura": 185 pontos acendendo.
+  4. "Mas, no caminho, quem pediu nem sempre sabe em que pé está o seu pedido": o caminho Pedido → Indicação →
+     Prefeitura → "E depois?".
+  5. "Por isso, estamos preparando o Gabinete Aberto": a luz de uma porta e a marca.
+  6. "Uma plataforma que conecta o morador, a equipe do gabinete e a Câmara".
+  7. **01 · Para o morador:** a demo de verdade no celular. O pedido sai com foto (um asfalto desenhado) e recebe um
+     número, e a linha do tempo anda.
+  8. **02 · Para a equipe:** o quadro de pedidos (Novos, Em andamento, Na Prefeitura) e a equipe do gabinete, com
+     acesso por pessoa e um responsável por pedido.
+  9. **03 · Ligado à Câmara:** indicações reais e, em seguida, a IA redigindo e o lembrete de cobrança.
+  10. **04 · Para a cidade:** "Rua por rua", com a busca "Rua Tilápia" e os bairros em bolhas.
+  11. **05 · Para o mandato:** os números.
+  12. Fecho: "Gabinete Aberto. Um olhar para a população." com "Vereador Mateuzinho Silva · Itapevi" e "Conceito em
+      desenvolvimento".
+- **Só o que dá para entregar:**
+  - **pedido pelo site e acompanhamento por link:** precisa de banco;
+  - **acesso por pessoa:** login;
+  - **indicações a partir do sistema da Câmara:** a consulta da demo, automatizada;
+  - **IA que ajuda a redigir:** API de IA, que custa por uso;
+  - **lembretes e números:** regras simples no portal.
+- **O que é real e o que é exemplo:**
+  - as telas do produto levam a etiqueta "Conceito em desenvolvimento";
+  - os pedidos novos do quadro são exemplos: buraco na Rua Tilápia, poste na Rua Quinze de Novembro, calçada no
+    Centro e praça da Av. Brasil;
+  - as bolhas dos bairros não são um mapa: só mostram quantos pedidos cada bairro tem.
 - **Números e onde estão:**
 
   | Número | Fonte |
   |---|---|
   | 185 indicações, 173 na Prefeitura, 10 projetos aprovados | `dados/proposituras.json` |
-  | 61 reapresentações em janeiro de 2026 | `dados/pedidos.json` (indicações de 01/2026 no mesmo pedido de uma de 2025) |
-  | os seis bairros com mais pedidos (Jardim Portela 10, Jardim São Carlos 9, Centro 8, Vila Santa Rita 8, Jardim Sorocabano 5, Monte Serrat 5) | `dados/pedidos.json` |
-  | 2026 até 11/09: 117 indicações, 143 requerimentos, 14 projetos de lei | `dados/proposituras.json` |
-  | Indicações 10527, 10379, 10376 e 10295/2026 (com as datas) | `dados/proposituras.json` |
-  | Indicações 1447/2026 e 5867/2025 (câmeras na Rua Tilápia) | `dados/proposituras.json` |
+  | os bairros com mais pedidos (Jardim Portela 10, Jardim São Carlos 9, Centro 8, Vila Santa Rita 8, Jardim Sorocabano 5, Monte Serrat 5, Jardim Briquet 4 e sete bairros com 3) | `dados/pedidos.json` |
+  | Indicações 10527, 10379 (na Prefeitura desde 03/09/2026), 10376 e 10295/2026 | `dados/proposituras.json` |
+  | Indicação 1447/2026 (câmeras na Rua Tilápia, PMI 011839/2026) | `dados/proposituras.json` |
 
   O "nº 2026-0168" é o número de demonstração do formulário da demo.
-- **Pedidos simulados no portal:** "Poste apagado na Rua Quinze de Novembro" e "Limpeza da praça da Av. Brasil" são
-  exemplos de pedido em ruas reais, sem fato novo sobre ele.
+- **Se ele for postar:** a narração é voz sintética, e convém dizer isso na legenda do post (o TSE exige o aviso na
+  propaganda eleitoral; fora da campanha não é obrigatório, mas é o mais seguro).
 
-**Depois de fechar:** o vídeo de lançamento para a população entra no pacote, gravado com ele de verdade.
+**Depois de fechar:** o vídeo de lançamento para a população, gravado com ele de verdade.
 
 ## A decidir com o Kaue
 

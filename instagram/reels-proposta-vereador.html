@@ -2,398 +2,360 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Gabinete Aberto · proposta</title>
+<title>Gabinete Aberto · conceito</title>
 <!--
-  Vídeo de proposta para o vereador Mateuzinho Silva e a equipe dele (11/11/2026). NÃO é post do Instagram da
-  Renderiza: usa as fotos dele e a demo dele. Gravar: node instagram/gerar.mjs reels-proposta-vereador
-  (texto e voz: narracao/reels-proposta-vereador.json → python3 instagram/narrar.py, com SSL_CERT_FILE atrás do proxy).
-  Fotos em rascunhos/vereador-video/ (fora do repositório): retrato, gabinete, rua (ver ficha.md da demo, "Vídeo de
-  proposta"). O celular das cenas do site é a própria demo (demos/vereador-mateuzinho-silva/index.html) num iframe,
-  rolada e preenchida quadro a quadro. Números: dados/proposituras.json e dados/pedidos.json da demo.
-  O portal, o WhatsApp, os Stories e o vídeo de lançamento são simulação e aparecem marcados assim.
+  Vídeo do conceito "Gabinete Aberto" (versão 2, 11/11/2026): peça institucional que explica a ideia e que o vereador
+  pode postar como "o que estamos preparando". NÃO é post do Instagram da Renderiza (usa as fotos e a demo dele).
+  Gravar: SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador
+  Texto e voz: narracao/reels-proposta-vereador.json (python3 instagram/narrar.py). Fotos em rascunhos/vereador-video/
+  (fora do repositório): gabinete e rua-sem-asfalto (ver demos/vereador-mateuzinho-silva/proposta.md). O celular do
+  "Para o morador" é a demo de verdade num iframe, preenchida quadro a quadro. O quadro de pedidos, o mapa de bolhas e
+  os números são desenhos com dados reais da demo (dados/proposituras.json e dados/pedidos.json); os pedidos novos do
+  quadro são exemplos. As telas do produto levam a etiqueta "Conceito em desenvolvimento".
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=block" rel="stylesheet">
 <style>
-:root{--noite:#1b0f30;--roxo:#4b2a80;--roxo2:#341a5e;--roxo3:#8a69cc;--lilas:#f1ebf8;--lima:#bfe85a;--lima2:#9cc63d;--lima3:#587812;
-  --tinta:#1d1727;--tinta2:#4d4559;--suave:#766e82;--linha:#e8e2ee;--ok:#1f7a4d;--okc:#e2f3e9;--al:#8a5a00;--alc:#fdf3d8;
+:root{--noite:#140b25;--roxo:#4b2a80;--roxo2:#341a5e;--roxo3:#8a69cc;--roxo4:#5b34a3;--lilas:#f1ebf8;--lima:#bfe85a;--lima2:#9cc63d;
+  --tinta:#1d1727;--tinta2:#4d4559;--suave:#766e82;--linha:#e8e2ee;--ok:#1f7a4d;--al:#8a5a00;--alc:#fdf3d8;
   --t:"Bricolage Grotesque","Plus Jakarta Sans",sans-serif;--x:"Plus Jakarta Sans",sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:1920px;overflow:hidden;background:var(--noite)}
 body{font-family:var(--x);color:#fff;-webkit-font-smoothing:antialiased;position:relative}
 svg{display:block}
-#fundo{position:absolute;inset:0;background:radial-gradient(70% 45% at 100% 0,#4a2a86 0,rgba(74,42,134,0) 70%),radial-gradient(60% 40% at 0 100%,#341a5e 0,rgba(52,26,94,0) 70%),var(--noite)}
-#palco{position:absolute;inset:0;transform-origin:50% 42%}
-.cena{position:absolute;inset:0;visibility:hidden}
 .a{position:absolute}
+#fundo{position:absolute;inset:0;background:var(--noite);overflow:hidden}
+.bolhao{position:absolute;left:0;top:0;width:1300px;height:1300px;border-radius:50%;filter:blur(40px)}
+#bl1{background:radial-gradient(closest-side,rgba(91,52,163,.55),rgba(91,52,163,0))}
+#bl2{background:radial-gradient(closest-side,rgba(52,26,94,.8),rgba(52,26,94,0))}
+#bl3{width:900px;height:900px;background:radial-gradient(closest-side,rgba(191,232,90,.10),rgba(191,232,90,0))}
+#grao{position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+#palco{position:absolute;inset:0;transform-origin:50% 45%}
+.cena{position:absolute;inset:0;visibility:hidden}
 .tit{font-family:var(--t);font-weight:800;letter-spacing:-.035em;line-height:.98}
-.tit em,.lima{font-style:normal;color:var(--lima)}
-#pe{position:absolute;left:0;right:0;top:1430px;bottom:0;background:linear-gradient(180deg,rgba(27,15,48,0) 0,rgba(27,15,48,.9) 130px,var(--noite) 230px);pointer-events:none}
-#legenda{position:absolute;left:70px;width:940px;top:1600px;text-align:center;font:700 50px/1.3 var(--x);letter-spacing:-.01em}
-#legenda span{opacity:.36}
+.tit em{font-style:normal;color:var(--lima)}
+.ln{display:block;overflow:hidden;padding:0 .02em .1em}
+.ln>span{display:inline-block;will-change:transform}
+.kick{left:80px;top:150px;display:flex;align-items:center;gap:14px;font:800 24px var(--x);letter-spacing:.16em;text-transform:uppercase;color:#dccff0}
+.kick b{display:grid;place-items:center;height:40px;padding:0 14px;border-radius:999px;background:var(--lima);color:var(--noite);letter-spacing:.04em}
+.head{left:80px;top:205px;width:930px;font-size:84px}
+#legenda{position:absolute;left:90px;width:900px;top:1700px;text-align:center;font:700 40px/1.32 var(--x);text-shadow:0 2px 18px rgba(0,0,0,.45)}
+#legenda span{opacity:.42}
 #legenda span.dito{opacity:1}
 #legenda span.tom{color:var(--lima)}
-#tag{position:absolute;left:50%;top:44px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;height:56px;padding:0 24px;border-radius:999px;background:rgba(27,15,48,.72);border:1.5px solid rgba(255,255,255,.18);font:700 24px var(--x);letter-spacing:.12em;text-transform:uppercase;color:#e6ddf3;white-space:nowrap}
-#tag i{width:12px;height:12px;border-radius:50%;background:var(--lima)}
-#assina{position:absolute;left:0;right:0;top:58px;text-align:center;font:700 26px var(--x);letter-spacing:.14em;text-transform:uppercase;color:#b9a8d2}
-#flash{position:absolute;inset:0;background:#f4f9e4;opacity:0;pointer-events:none}
+#pe{position:absolute;left:0;right:0;top:1560px;bottom:0;background:linear-gradient(180deg,rgba(20,11,37,0),rgba(20,11,37,.85) 120px,var(--noite) 260px);pointer-events:none}
+#selo{position:absolute;right:56px;top:58px;display:flex;align-items:center;gap:10px;height:46px;padding:0 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.22);background:rgba(20,11,37,.6);font:800 19px var(--x);letter-spacing:.14em;text-transform:uppercase;color:#cdbfe0}
+#selo i{width:10px;height:10px;border-radius:50%;background:var(--lima)}
+#flash{position:absolute;inset:0;background:#f6fbe6;opacity:0;pointer-events:none}
+#cortina{position:absolute;left:0;top:-400px;width:2600px;height:2700px;transform-origin:50% 50%;pointer-events:none;display:flex}
+#cortina i{display:block;height:100%}
+#cortina i:nth-child(1){width:2340px;background:var(--lima)}
+#cortina i:nth-child(2){width:260px;background:var(--roxo3)}
 
 /* abertura */
-.foto-fundo{position:absolute;left:0;top:0;width:1080px;height:1180px;overflow:hidden}
-.foto-fundo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform-origin:50% 35%}
-.foto-fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.45) 0,rgba(27,15,48,0) 14%,rgba(27,15,48,0) 42%,rgba(27,15,48,.8) 72%,var(--noite) 100%)}
-#abre-num{left:72px;top:660px;font-size:270px;color:var(--lima);font-variant-numeric:tabular-nums}
-#abre-rot{left:82px;top:948px;font:600 46px var(--x);color:#efe8f8}
-#abre-grade{left:80px;top:1056px;width:920px;display:grid;grid-template-columns:repeat(21,1fr);gap:8px}
-#abre-grade i{display:block;aspect-ratio:1;border-radius:9px;background:rgba(255,255,255,.08)}
-#abre-q{left:0;width:1080px;top:960px;text-align:center;font-size:520px;color:var(--lima);text-shadow:0 30px 80px rgba(0,0,0,.5)}
+.foto{position:absolute;left:0;top:0;width:1080px;height:1440px;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;transform-origin:50% 40%}
+.foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,11,37,.55) 0,rgba(20,11,37,0) 16%,rgba(20,11,37,0) 50%,rgba(20,11,37,.85) 80%,var(--noite) 100%)}
+.grande{left:80px;width:930px;top:1180px;font-size:104px}
+.desenho{left:0;width:1080px;top:230px;height:900px;display:flex;justify-content:center}
+.desenho svg{height:900px;width:auto;overflow:visible}
+.traco{fill:none;stroke:#e9e1f6;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.traco.l{stroke:var(--lima)}
 
-/* hoje */
-.carta{left:110px;width:860px;height:210px;border-radius:40px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:34px;padding:0 44px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
-.carta .ic{flex:none;width:122px;height:122px;border-radius:36px;display:grid;place-items:center;color:#fff}
-.carta .ic svg{width:62px;height:62px}
-.carta b{display:block;font:800 56px/1 var(--t);letter-spacing:-.03em}
-.linhas{display:grid;gap:12px;margin-top:20px}
-.linhas i{display:block;height:16px;border-radius:9px;background:#ebe6f0}
-.no{left:190px;width:700px;height:170px;border-radius:999px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:30px;padding:0 30px;box-shadow:0 30px 70px -36px rgba(0,0,0,.8)}
-.no .ic{flex:none;width:112px;height:112px;border-radius:50%;background:var(--lilas);color:var(--roxo);display:grid;place-items:center}
-.no .ic svg{width:56px;height:56px}
-.no b{font:800 60px/1 var(--t);letter-spacing:-.03em}
-.fio{left:537px;width:0;border-left:7px solid var(--lima);transform-origin:50% 0}
-#n-morador{background:var(--lilas)}
-#n-morador .q{margin-left:auto;width:96px;height:96px;border-radius:50%;background:var(--roxo);color:#fff;display:grid;place-items:center;font:800 64px var(--t)}
+/* 185 */
+#flor{left:0;top:0;width:1080px;height:1920px}
+#flor i{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:rgba(255,255,255,.1)}
+#v-num{left:0;width:1080px;top:1180px;text-align:center;font-size:250px;color:var(--lima);font-variant-numeric:tabular-nums}
+#v-rot{left:0;width:1080px;top:1440px;text-align:center;font:600 44px var(--x);color:#efe8f8}
 
-/* janeiro */
-#jan-chip{left:50%;top:190px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;height:76px;padding:0 30px;border-radius:999px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);font:700 34px var(--x);white-space:nowrap}
-#jan-chip svg{width:38px;height:38px;color:var(--lima)}
-.jan-chip-w{left:0;right:0;top:190px;display:flex;justify-content:center}
-#jan-num{left:0;width:1080px;top:300px;text-align:center;font-size:400px;color:var(--lima);font-variant-numeric:tabular-nums}
-#jan-num.vazado{color:transparent;-webkit-text-stroke:5px var(--lima)}
-#jan-rot{left:90px;width:900px;top:720px;text-align:center;font:600 48px/1.25 var(--x);color:#efe8f8}
-#jan-docs{left:120px;top:880px;width:840px;display:grid;grid-template-columns:repeat(11,1fr);gap:16px 14px}
-#jan-docs i{display:block;height:88px;border-radius:12px;background:#fff;position:relative;box-shadow:0 10px 20px -12px rgba(0,0,0,.6)}
-#jan-docs i::before{content:"";position:absolute;left:12px;right:12px;top:16px;height:7px;border-radius:4px;background:var(--roxo3);box-shadow:0 16px 0 #ddd3ea,0 32px 0 #ddd3ea,0 48px 0 #ddd3ea}
+/* o caminho do pedido */
+#caminho{left:0;top:0;width:1080px;height:1600px}
+.estacao{left:0;top:0;display:flex;align-items:center;gap:20px;height:124px;padding:0 34px 0 18px;border-radius:999px;background:#fff;color:var(--tinta);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);white-space:nowrap}
+.estacao .ic{width:88px;height:88px;border-radius:50%;background:var(--lilas);color:var(--roxo);display:grid;place-items:center}
+.estacao .ic svg{width:46px;height:46px}
+.estacao b{font:800 52px var(--t);letter-spacing:-.03em}
+#e-depois{left:0;top:0;font-size:132px;color:var(--lima);white-space:nowrap}
 
-/* virada */
-.virada-fundo{position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 35%,#6a43b8 0,rgba(106,67,184,0) 70%),linear-gradient(180deg,#2c1654,var(--noite))}
-#porta{left:370px;top:250px;width:340px;height:520px;border:12px solid var(--lima);border-bottom:0;border-radius:26px 26px 0 0;overflow:visible}
-#porta-luz{position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 60%,#f3ffd2 0,#bfe85a 45%,rgba(191,232,90,0) 100%)}
-#porta-folha{position:absolute;inset:0;background:linear-gradient(160deg,#5b34a3,#341a5e);transform-origin:0 50%;box-shadow:inset 0 0 0 3px rgba(255,255,255,.08)}
-#porta-folha::after{content:"";position:absolute;right:34px;top:250px;width:22px;height:22px;border-radius:50%;background:var(--lima)}
-#porta-chao{left:300px;top:770px;width:480px;height:12px;border-radius:6px;background:var(--lima)}
-#virada-t{left:0;width:1080px;top:850px;text-align:center;font-size:140px;white-space:nowrap}
-#virada-s{left:0;width:1080px;top:1040px;text-align:center;font:600 48px var(--x);color:#e6ddf3}
+/* a virada */
+#luz{left:540px;top:330px;width:8px;height:0;margin-left:-4px;background:var(--lima);box-shadow:0 0 60px 18px rgba(191,232,90,.55),0 0 160px 60px rgba(191,232,90,.25);border-radius:6px}
+#raios{left:-260px;top:-160px;width:1600px;height:1600px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(191,232,90,0) 0deg,rgba(191,232,90,.13) 10deg,rgba(191,232,90,0) 22deg,rgba(191,232,90,0) 45deg);-webkit-mask:radial-gradient(closest-side,#000 25%,transparent 100%);mask:radial-gradient(closest-side,#000 25%,transparent 100%)}
+.logo-ic{width:200px;height:236px}
+#v-logo,#m-logo{left:440px;top:330px}
+.marca-txt{left:0;width:1080px;text-align:center;font-size:200px;line-height:.9}
+
+/* conceito */
+#rede{left:0;top:0;width:1080px;height:1600px}
+.no{width:210px;height:210px;margin:-105px 0 0 -105px;border-radius:50%;background:#fff;color:var(--roxo);display:grid;place-items:center;box-shadow:0 30px 70px -30px rgba(0,0,0,.8),0 0 0 14px rgba(255,255,255,.06)}
+.no svg{width:96px;height:96px}
+.no-rot{width:360px;margin-left:-180px;text-align:center;font:800 50px var(--t);letter-spacing:-.03em}
+#no-centro{width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;background:var(--roxo4);display:grid;place-items:center;box-shadow:0 0 0 18px rgba(191,232,90,.12),0 0 90px rgba(191,232,90,.35)}
+#no-centro svg{width:120px;height:140px}
 
 /* celular com a demo */
-#cel{position:absolute;left:202px;top:110px;width:676px;height:1411px;border-radius:86px;background:#0c0716;padding:22px;box-shadow:0 70px 140px -50px rgba(0,0,0,.85),inset 0 0 0 3px #3b2a58;transform-origin:50% 0;visibility:hidden}
-#cel .tela{position:relative;width:632px;height:1367px;border-radius:66px;overflow:hidden;background:#fff}
-#demo{width:390px;height:844px;border:0;transform:scale(1.62051);transform-origin:0 0;display:block}
-#anel{left:0;top:0;border:6px solid var(--lima);border-radius:22px;box-shadow:0 0 0 8px rgba(191,232,90,.25),0 0 40px rgba(191,232,90,.55)}
-#toque{left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(255,255,255,.4);border:4px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+#cel{position:absolute;left:247px;top:420px;width:586px;height:1222px;border-radius:78px;background:#0b0615;padding:20px;box-shadow:0 80px 150px -50px rgba(0,0,0,.9),inset 0 0 0 3px #3b2a58;transform-origin:50% 50%;visibility:hidden}
+#cel .tela{position:relative;width:546px;height:1182px;border-radius:60px;overflow:hidden;background:#fff}
+#demo{width:390px;height:844px;border:0;transform:scale(1.4);transform-origin:0 0;display:block}
+#numero{left:640px;top:600px;display:flex;align-items:center;gap:14px;height:96px;padding:0 30px;border-radius:999px;background:var(--lima);color:var(--noite);font:800 40px var(--t);letter-spacing:-.02em;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);white-space:nowrap}
+#numero svg{width:42px;height:42px}
 
-/* janela do portal (e do painel) */
-.janela{left:60px;top:150px;width:960px;height:1340px;border-radius:44px;background:#fbfaf7;color:var(--tinta);overflow:hidden;box-shadow:0 70px 140px -50px rgba(0,0,0,.85)}
-.j-topo{height:112px;display:flex;align-items:center;gap:18px;padding:0 34px;background:#fff;border-bottom:2px solid var(--linha)}
-.j-logo{width:64px;height:64px;border-radius:18px;background:var(--roxo);color:var(--lima);display:grid;place-items:center}
-.j-logo svg{width:36px;height:36px}
-.j-topo b{display:block;font:800 36px/1 var(--t);letter-spacing:-.02em;color:var(--roxo)}
-.j-topo small{display:block;font:600 22px var(--x);color:var(--suave);margin-top:4px}
-.j-av{margin-left:auto;width:62px;height:62px;border-radius:50%;background:var(--lilas);color:var(--roxo);display:grid;place-items:center;font:800 24px var(--x)}
-.j-abas{height:84px;display:flex;align-items:flex-end;gap:34px;padding:0 34px;border-bottom:2px solid var(--linha);font:700 27px var(--x);color:var(--suave);white-space:nowrap;overflow:hidden}
-.j-abas span{padding-bottom:20px;border-bottom:5px solid transparent}
-.j-abas span.ativa{color:var(--roxo);border-color:var(--lima2)}
-.j-corpo{position:absolute;left:0;right:0;top:196px;bottom:0;overflow:hidden}
-.v{position:absolute;inset:0;padding:30px 36px}
-.v h4{font:800 52px/1 var(--t);letter-spacing:-.03em}
-.j-chips{display:flex;gap:12px;margin-top:22px}
-.j-chips span{height:52px;padding:0 20px;border-radius:999px;border:2px solid var(--linha);display:flex;align-items:center;gap:10px;font:700 24px var(--x);color:var(--tinta2);background:#fff}
-.j-chips span b{color:var(--roxo)}
-.j-chips span.ativa{background:var(--roxo);color:#fff;border-color:var(--roxo)}
-.j-chips span.ativa b{color:var(--lima)}
-.lin{position:absolute;left:36px;right:36px;top:0;height:176px;background:#fff;border:2px solid var(--linha);border-radius:28px;padding:20px 26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 30px -24px rgba(29,23,39,.5)}
-.lin .l-top{display:flex;align-items:center;justify-content:space-between}
-.canal{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px;border-radius:999px;font:800 21px var(--x);letter-spacing:.04em;text-transform:uppercase}
-.canal svg{width:24px;height:24px}
-.c-site{background:var(--lilas);color:var(--roxo)}
-.c-zap{background:#e3f6ea;color:#1c7a43}
-.c-terca{background:var(--alc);color:var(--al)}
-.c-acomp{background:#f0eef3;color:var(--suave)}
-.l-hora{font:600 22px var(--x);color:var(--suave)}
-.lin b{font:700 34px/1.1 var(--x);letter-spacing:-.01em}
-.lin .l-pe{display:flex;align-items:center;justify-content:space-between;font:600 25px var(--x);color:var(--tinta2)}
-.chip{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;font:800 22px var(--x);white-space:nowrap}
-.ch-novo{background:#eef7d6;color:var(--lima3)}
+/* quadro de pedidos do portal */
+.quadro{left:50px;top:360px;width:980px;height:1270px;border-radius:44px;background:#f7f5fa;color:var(--tinta);overflow:hidden;box-shadow:0 80px 150px -50px rgba(0,0,0,.9)}
+.q-topo{position:absolute;left:0;right:0;top:0;height:104px;display:flex;align-items:center;gap:18px;padding:0 30px;background:#fff;border-bottom:2px solid var(--linha)}
+.q-logo{width:60px;height:60px;border-radius:18px;background:var(--roxo);display:grid;place-items:center}
+.q-logo svg{width:34px;height:40px}
+.q-topo b{font:800 34px/1 var(--t);letter-spacing:-.02em;color:var(--roxo)}
+.q-topo small{display:block;font:600 21px var(--x);color:var(--suave);margin-top:4px}
+.q-equipe{margin-left:auto;display:flex}
+.q-equipe i{width:58px;height:58px;margin-left:-14px;border-radius:50%;border:4px solid #fff;display:grid;place-items:center;font:800 20px var(--x);font-style:normal;color:#fff}
+.col-t{position:absolute;top:128px;width:293px;display:flex;align-items:center;justify-content:space-between;font:800 22px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.col-t b{display:grid;place-items:center;min-width:40px;height:36px;padding:0 10px;border-radius:999px;background:#ebe5f3;color:var(--roxo);font-size:21px;letter-spacing:0}
+.col-bg{position:absolute;top:176px;bottom:24px;width:293px;border-radius:26px;background:#efebf5}
+.card{position:absolute;left:0;top:0;width:293px;height:212px;border-radius:24px;background:#fff;border:2px solid var(--linha);padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 26px -20px rgba(29,23,39,.6)}
+.card .fonte{display:inline-flex;align-items:center;gap:8px;width:fit-content;height:34px;padding:0 12px;border-radius:999px;font:800 17px var(--x);letter-spacing:.05em;text-transform:uppercase}
+.card .fonte svg{width:20px;height:20px}
+.f-site{background:var(--lilas);color:var(--roxo)}
+.f-terca{background:var(--alc);color:var(--al)}
+.f-visita{background:#e3f6ea;color:#1c7a43}
+.f-ind{background:#f0eef3;color:var(--suave)}
+.card b{font:700 25px/1.2 var(--x);letter-spacing:-.01em}
+.card small{font:600 21px var(--x);color:var(--suave);margin-top:auto}
+.card .resp{position:absolute;right:14px;bottom:12px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font:800 18px var(--x);color:#fff;background:#1c7a43;border:3px solid #fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+#acessos{left:0;right:0;bottom:0;height:720px;border-radius:40px 40px 0 0;background:#fff;box-shadow:0 -30px 60px -30px rgba(29,23,39,.5);padding:34px 36px;z-index:6}
+#acessos h5{font:800 40px var(--t);letter-spacing:-.02em}
+#acessos p.s{font:600 22px var(--x);color:var(--suave);margin-top:6px}
+.pessoa{display:flex;align-items:center;gap:20px;margin-top:22px;padding:18px 20px;border-radius:24px;background:#f7f5fa}
+.pessoa .av{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font:800 24px var(--x);color:#fff;flex:none}
+.pessoa b{display:block;font:800 28px var(--x)}
+.pessoa span{display:block;font:600 22px var(--x);color:var(--suave);margin-top:2px}
+.chave{margin-left:auto;width:84px;height:48px;border-radius:999px;background:#d8d1e2;position:relative;flex:none}
+.chave::after{content:"";position:absolute;left:5px;top:5px;width:38px;height:38px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);transform:translateX(var(--x,0px))}
+.chave.on{background:var(--lima2)}
+
+/* Câmara e IA */
+#cam-topo{left:80px;width:920px;top:390px;height:150px;border-radius:32px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:24px;padding:0 30px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+#cam-topo .ic{width:96px;height:96px;border-radius:26px;background:var(--roxo);color:var(--lima);display:grid;place-items:center;flex:none}
+#cam-topo .ic svg{width:54px;height:54px}
+#cam-topo b{display:block;font:800 38px var(--t);letter-spacing:-.02em}
+#sinc{display:flex;align-items:center;gap:10px;font:700 24px var(--x);color:var(--suave);margin-top:6px}
+#sinc-ic{display:inline-flex}
+#sinc svg{width:28px;height:28px}
+#sinc.ok{color:var(--ok)}
+.ind{left:80px;width:920px;height:132px;border-radius:28px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 28px}
+.ind b{display:block;font:800 32px var(--t);color:var(--lima);letter-spacing:-.01em}
+.ind div span{display:block;font:600 24px var(--x);color:#e6ddf3;margin-top:4px}
+.chip{display:inline-flex;align-items:center;height:46px;padding:0 20px;border-radius:999px;font:800 22px var(--x);white-space:nowrap;flex:none}
 .ch-pref{background:var(--lilas);color:var(--roxo)}
 .ch-cam{background:var(--alc);color:var(--al)}
-.ch-ok{background:var(--okc);color:var(--ok)}
-.voltar{display:flex;align-items:center;gap:10px;font:700 25px var(--x);color:var(--roxo)}
-.voltar svg{width:28px;height:28px}
-#ia-tit{margin-top:22px;font:800 48px/1.05 var(--t);letter-spacing:-.03em}
-#ia-meta{margin-top:12px;font:600 25px var(--x);color:var(--suave)}
-.fala-morador{margin-top:22px;padding:20px 24px;border-radius:24px;background:#f0eef3;font:500 28px/1.4 var(--x);color:var(--tinta2)}
-.fala-morador small{display:block;font:800 20px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--suave);margin-bottom:6px}
-#ia-bt{margin-top:24px;height:84px;border-radius:24px;background:var(--lima);color:var(--noite);display:flex;align-items:center;justify-content:center;gap:16px;font:800 31px var(--x);box-shadow:0 18px 30px -18px #6e8f1f}
-#ia-bt svg{width:38px;height:38px}
-#ia-texto{margin-top:22px;min-height:300px;padding:24px 28px;border-radius:26px;background:var(--lilas);border:2px solid #e2d6f2;font:500 30px/1.45 var(--x);color:var(--tinta)}
-#ia-texto small{display:block;font:800 20px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--roxo);margin-bottom:8px}
-#ia-cursor{display:inline-block;width:3px;height:34px;background:var(--roxo);vertical-align:-6px;margin-left:2px}
-#ia-alerta{left:36px;right:36px;top:840px;padding:22px 26px;border-radius:26px;background:var(--alc);border:2px solid #f0d58f;color:var(--tinta)}
-#ia-alerta .l1{display:flex;align-items:center;gap:14px;font:800 30px var(--x);color:var(--al)}
-#ia-alerta .l1 svg{width:36px;height:36px}
-#ia-alerta p{margin-top:10px;font:600 26px/1.4 var(--x);color:var(--tinta2)}
-#ia-alerta .bts{display:flex;gap:12px;margin-top:16px}
-.btp{height:58px;padding:0 22px;border-radius:16px;display:inline-flex;align-items:center;font:800 23px var(--x)}
-.btp.r{background:var(--roxo);color:#fff}
-.btp.c{background:#fff;color:var(--roxo);border:2px solid var(--linha)}
-.cam-topo{display:flex;align-items:center;gap:18px}
-.cam-topo .ic{width:76px;height:76px;border-radius:22px;background:var(--lilas);color:var(--roxo);display:grid;place-items:center}
-.cam-topo .ic svg{width:42px;height:42px}
-.cam-topo b{display:block;font:800 36px/1.1 var(--t);letter-spacing:-.02em}
-#sinc{display:flex;align-items:center;gap:10px;font:700 24px var(--x);color:var(--suave);margin-top:4px}
-#sinc svg{width:26px;height:26px}
-#sinc-ic{display:inline-flex}
-#sinc.ok{color:var(--ok)}
-.cam-sub{margin-top:30px;font:800 22px var(--x);letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
-.ci{margin-top:14px;padding:20px 24px;border-radius:24px;background:#fff;border:2px solid var(--linha);display:flex;align-items:center;justify-content:space-between;gap:18px}
-.ci b{display:block;font:800 30px var(--x);color:var(--roxo)}
-.ci span{display:block;font:600 24px/1.3 var(--x);color:var(--tinta2);margin-top:4px}
-.ci .chip{flex:none}
-#toast{left:90px;width:900px;top:300px;padding:26px 28px;border-radius:30px;background:#fff;color:var(--tinta);box-shadow:0 40px 90px -30px rgba(0,0,0,.75);border:2px solid #e2d6f2}
-#toast .l1{display:flex;align-items:center;gap:18px}
-#toast .sino{width:70px;height:70px;border-radius:50%;background:var(--roxo);color:var(--lima);display:grid;place-items:center;flex:none}
-#toast .sino svg{width:38px;height:38px}
-#toast b{display:block;font:800 32px var(--x)}
-#toast small{display:block;font:700 22px var(--x);color:var(--suave);letter-spacing:.06em;text-transform:uppercase}
-#toast p{margin-top:16px;font:600 28px/1.4 var(--x);color:var(--tinta2)}
-#toast .bts{display:flex;gap:12px;margin-top:18px}
+#ia-box{left:80px;width:920px;top:600px;border-radius:34px;background:#fff;color:var(--tinta);padding:30px 34px;box-shadow:0 50px 100px -40px rgba(0,0,0,.9)}
+#ia-box .l1{display:flex;align-items:center;gap:16px;font:800 26px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--roxo)}
+#ia-box .l1 span.ic{width:60px;height:60px;border-radius:18px;background:var(--lima);color:var(--noite);display:grid;place-items:center}
+#ia-box .l1 svg{width:36px;height:36px}
+#ia-txt{margin-top:20px;font:500 34px/1.45 var(--x);min-height:250px}
+#ia-cur{display:inline-block;width:4px;height:38px;background:var(--roxo);vertical-align:-7px;margin-left:3px}
+#lembrete{left:120px;width:840px;top:1110px;border-radius:30px;background:var(--roxo);border:2px solid var(--roxo3);padding:26px 30px;display:flex;align-items:center;gap:22px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9)}
+#lembrete .sino{width:84px;height:84px;border-radius:50%;background:var(--lima);color:var(--noite);display:grid;place-items:center;flex:none}
+#lembrete .sino svg{width:44px;height:44px}
+#lembrete small{display:block;font:800 21px var(--x);letter-spacing:.12em;text-transform:uppercase;color:var(--lima)}
+#lembrete b{display:block;font:800 31px var(--x);margin-top:4px}
+#lembrete span{display:block;font:600 24px var(--x);color:#dccff0;margin-top:4px}
 
-/* aviso no WhatsApp (conversa genérica) */
-.fone{border-radius:84px;background:#0c0716;padding:20px;box-shadow:0 70px 140px -50px rgba(0,0,0,.85),inset 0 0 0 3px #3b2a58}
-.fone .tela{position:relative;width:100%;height:100%;border-radius:66px;overflow:hidden}
-#zap{left:230px;top:150px;width:620px;height:1320px}
-#zap .tela{background:#ece5dd}
-.z-topo{height:170px;background:#2b1650;display:flex;align-items:flex-end;gap:18px;padding:0 28px 24px}
-.z-topo img{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 25%}
-.z-topo b{display:block;font:800 27px/1.15 var(--x)}
-.z-topo small{display:block;font:600 21px var(--x);color:#cdbfe0}
-.bolha{left:26px;max-width:500px;padding:20px 24px 16px;border-radius:8px 30px 30px 30px;background:#fff;color:var(--tinta);font:500 28px/1.38 var(--x);box-shadow:0 4px 10px -6px rgba(0,0,0,.3)}
-.bolha .h{display:flex;justify-content:flex-end;align-items:center;gap:6px;font:600 19px var(--x);color:#8a8a8a;margin-top:6px}
-.bolha .h svg{width:22px;height:22px;color:#4a90d9}
-.bolha .lk{display:flex;align-items:center;gap:12px;margin-top:14px;padding:16px 18px;border-radius:18px;background:var(--lilas);color:var(--roxo);font:800 26px var(--x)}
-.bolha .lk svg{width:30px;height:30px}
+/* cidade */
+#busca{left:80px;width:920px;top:380px;height:100px;border-radius:30px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:20px;padding:0 30px;font:600 36px var(--x);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+#busca svg{width:42px;height:42px;color:var(--roxo)}
+#busca .ph{color:#9b93a8}
+#busca-cur{display:inline-block;width:3px;height:40px;background:var(--roxo);margin-left:-14px}
+.bol{position:absolute;border-radius:50%;background:rgba(138,105,204,.22);border:2px solid rgba(191,232,90,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff}
+.bol b{font-family:var(--t);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--lima)}
+.bol span{font-weight:700;line-height:1.08;margin-top:4px;color:#efe8f8}
+.bol.luz{background:var(--lima);border-color:#fff}
+.bol.luz b,.bol.luz span{color:var(--noite)}
+#achado{left:80px;width:920px;top:1420px;border-radius:30px;background:#fff;color:var(--tinta);padding:24px 30px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9)}
+#achado small{font:800 20px var(--x);letter-spacing:.1em;text-transform:uppercase;color:#6a3f9f}
+#achado b{display:block;font:800 33px var(--x);margin-top:6px}
+#achado .pe{display:flex;align-items:center;gap:14px;margin-top:12px;font:600 24px var(--x);color:var(--tinta2);flex-wrap:wrap}
 
-/* indicadores */
-#jp-sub{margin-top:10px;font:600 24px var(--x);color:var(--suave)}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
-.kpi{position:relative;padding:24px 22px;border-radius:28px;background:var(--lilas);transition:none}
-.kpi b{display:block;font:800 92px/1 var(--t);letter-spacing:-.04em;color:var(--roxo);font-variant-numeric:tabular-nums}
-.kpi span{display:block;font:700 26px/1.2 var(--x);color:var(--tinta2);margin-top:10px}
-.kpi.luz{background:var(--roxo)}
-.kpi.luz b{color:var(--lima)}
-.kpi.luz span{color:#fff}
-.barras h5{margin-top:42px;font:800 22px var(--x);letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
-.barra{display:grid;grid-template-columns:300px minmax(0,1fr) 60px;align-items:center;gap:16px;margin-top:20px;font:700 27px var(--x);color:var(--tinta2)}
-.barra i{display:block;height:44px;border-radius:14px;background:linear-gradient(90deg,var(--roxo),var(--roxo3));transform-origin:0 50%}
-.barra b{font:800 32px var(--t);color:var(--roxo);text-align:right}
+/* números */
+.kpis{left:80px;width:920px;top:380px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.kpi{padding:28px 24px;border-radius:30px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.16)}
+.kpi b{display:block;font:800 104px/1 var(--t);letter-spacing:-.04em;color:var(--lima);font-variant-numeric:tabular-nums}
+.kpi span{display:block;font:700 27px/1.2 var(--x);margin-top:10px;color:#efe8f8}
+.barras{left:80px;width:920px;top:720px}
+.barras h5{font:800 22px var(--x);letter-spacing:.14em;text-transform:uppercase;color:#cdbfe0}
+.barra{display:grid;grid-template-columns:310px minmax(0,1fr) 64px;align-items:center;gap:18px;margin-top:26px;font:700 30px var(--x);color:#efe8f8}
+.barra i{display:block;height:52px;border-radius:16px;background:linear-gradient(90deg,var(--lima2),var(--lima));transform-origin:0 50%}
+.barra b{font:800 40px var(--t);color:var(--lima);text-align:right}
+#n-fonte{left:80px;width:920px;top:1450px;font:600 22px var(--x);color:#a998c4}
 
-/* stories e lançamento */
-#story{left:240px;top:150px;width:600px;height:1300px}
-#story .tela{background:var(--noite)}
-.st-barras{position:absolute;left:24px;right:24px;top:26px;display:flex;gap:8px;z-index:3}
-.st-barras i{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.35);overflow:hidden}
-.st-barras i::after{content:"";display:block;height:100%;width:var(--p,0%);background:#fff}
-.st-quem{position:absolute;left:24px;top:52px;display:flex;align-items:center;gap:12px;z-index:3;font:700 22px var(--x)}
-.st-quem img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 25%;border:2px solid #fff}
-.st-foto{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden}
-.st-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.st-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.5) 0,rgba(27,15,48,0) 25%,rgba(27,15,48,0) 55%,var(--noite) 100%)}
-.st-txt{position:absolute;left:36px;right:36px;top:560px}
-.st-txt small{font:800 20px var(--x);letter-spacing:.14em;text-transform:uppercase;color:var(--lima)}
-.st-txt h3{font:800 66px/1 var(--t);letter-spacing:-.035em;margin-top:10px}
-.st-n{display:flex;align-items:baseline;gap:16px;margin-top:18px}
-.st-n b{font:800 84px/1 var(--t);letter-spacing:-.04em;color:var(--lima);min-width:170px;font-variant-numeric:tabular-nums}
-.st-n span{font:700 30px var(--x)}
-.st-fonte{margin-top:20px;font:600 20px var(--x);color:#b9a8d2}
-.st-frase{position:absolute;left:36px;right:36px;bottom:60px;font:700 30px var(--x);color:#efe8f8}
-#lanc{left:240px;top:170px;width:600px;height:1290px}
-#lanc .tela{background:#000}
-#lanc-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.lanc-veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.2) 0,rgba(27,15,48,0) 40%,rgba(27,15,48,.88) 78%,var(--noite) 100%)}
-#lanc-t{position:absolute;left:36px;right:36px;bottom:170px;font:800 64px/1.02 var(--t);letter-spacing:-.035em}
-#lanc-n{position:absolute;left:36px;right:36px;bottom:120px;font:700 24px var(--x);color:#dccff0}
-.lanc-barra{position:absolute;left:36px;right:36px;bottom:66px;height:6px;border-radius:4px;background:rgba(255,255,255,.3);overflow:hidden}
-.lanc-barra i{display:block;height:100%;width:0;background:var(--lima)}
-#marca-d{position:absolute;left:-200px;right:-200px;top:520px;text-align:center;font:800 190px var(--t);letter-spacing:.06em;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.55);transform:rotate(-20deg)}
-
-/* marca e convite */
-.marca-fundo{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 40%,#5b34a3 0,rgba(91,52,163,0) 70%)}
-#marca-porta{left:440px;top:420px;width:200px;height:200px;color:var(--lima)}
-#marca-porta svg{width:200px;height:200px}
-#marca-t{left:0;width:1080px;top:690px;text-align:center;font-size:140px;white-space:nowrap}
-#marca-s{left:0;width:1080px;top:900px;text-align:center;font:700 60px var(--x);color:var(--lima)}
-#cta-t{left:0;width:1080px;top:150px;text-align:center;font-size:96px}
-#cta-link{left:0;width:1080px;top:380px;text-align:center;font:700 32px var(--x);color:var(--lima)}
-.cta-chip-w{left:0;right:0;top:1420px;display:flex;justify-content:center}
-#cta-chip{display:flex;align-items:center;gap:16px;height:84px;padding:0 32px;border-radius:999px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);font:700 32px var(--x);white-space:nowrap}
-#cta-chip svg{width:40px;height:40px;color:var(--lima)}
+/* marca */
+#m-foto{position:absolute;inset:0;overflow:hidden}
+#m-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:blur(14px) saturate(.8);opacity:.28;transform:scale(1.1)}
+#m-foto::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 42%,rgba(91,52,163,.55),rgba(20,11,37,.9) 80%)}
+#m-frase{left:0;width:1080px;top:1110px;text-align:center;font:700 62px var(--x)}
+#m-quem{left:0;width:1080px;top:1210px;text-align:center;font:700 30px var(--x);color:#cdbfe0;letter-spacing:.02em}
+#m-conceito{left:0;width:1080px;top:1300px;display:flex;justify-content:center}
+#m-conceito span{height:52px;padding:0 24px;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;gap:12px;font:800 20px var(--x);letter-spacing:.16em;text-transform:uppercase;color:#cdbfe0}
+#m-conceito i{width:10px;height:10px;border-radius:50%;background:var(--lima)}
 </style>
 </head>
 <body>
-<div id="fundo"></div>
+<div id="fundo"><div class="bolhao" id="bl1"></div><div class="bolhao" id="bl2"></div><div class="bolhao" id="bl3"></div></div>
 <div id="palco">
 
   <div class="cena" id="c-abre">
-    <div class="foto-fundo"><img id="abre-foto" src="../rascunhos/vereador-video/retrato.jpg" alt=""></div>
-    <div class="a tit" id="abre-num">0</div>
-    <div class="a" id="abre-rot">indicações desde janeiro de 2025</div>
-    <div class="a" id="abre-grade"></div>
-    <div class="a tit" id="abre-q">?</div>
+    <div class="foto"><img id="abre-img" src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
+    <div class="a tit grande" id="abre-t"><span class="ln"><span>Todo dia, um pedido</span></span><span class="ln"><span>chega ao <em>gabinete.</em></span></span></div>
   </div>
 
-  <div class="cena" id="c-hoje">
-    <div class="a carta" id="carta-whats" style="top:300px"><span class="ic" style="background:#25a35a" data-ic="msg"></span><div style="flex:1"><b>WhatsApp</b><div class="linhas"><i style="width:88%"></i><i style="width:56%"></i></div></div></div>
-    <div class="a carta" id="carta-papel" style="top:580px"><span class="ic" style="background:#c08a16" data-ic="clip"></span><div style="flex:1"><b>Papel da terça</b><div class="linhas"><i style="width:80%"></i><i style="width:64%"></i></div></div></div>
-    <div class="a carta" id="carta-rua" style="top:860px"><span class="ic" style="background:var(--roxo)" data-ic="pin"></span><div style="flex:1"><b>Conversa na rua</b><div class="linhas"><i style="width:84%"></i><i style="width:48%"></i></div></div></div>
-    <div class="a fio" id="l-n-ind" style="top:440px;height:110px"></div>
-    <div class="a fio" id="l-n-pref" style="top:720px;height:110px"></div>
-    <div class="a fio" id="l-n-morador" style="top:1000px;height:110px"></div>
-    <div class="a no" id="n-pedido" style="top:270px"><span class="ic" data-ic="msg"></span><b>Pedido</b></div>
-    <div class="a no" id="n-ind" style="top:550px"><span class="ic" data-ic="doc"></span><b>Indicação</b></div>
-    <div class="a no" id="n-pref" style="top:830px"><span class="ic" data-ic="predio"></span><b>Prefeitura</b></div>
-    <div class="a no" id="n-morador" style="top:1110px"><span class="ic" data-ic="user"></span><b>Morador</b><span class="q">?</span></div>
+  <div class="cena" id="c-rua">
+    <div class="foto"><img id="rua-img" src="../rascunhos/vereador-video/rua-sem-asfalto.jpg" alt=""></div>
+    <div class="a tit grande" id="rua-t"><span class="ln"><span>Uma rua</span></span><span class="ln"><span><em>sem asfalto.</em></span></span></div>
+  </div>
+  <div class="cena" id="c-poste">
+    <div class="a desenho"><svg viewBox="0 0 500 900">
+      <polygon id="cone" points="352,190 250,860 470,860" fill="rgba(191,232,90,.20)"/>
+      <path class="traco" pathLength="1" d="M160 860 V200 Q160 150 210 150 H330"/>
+      <path class="traco l" id="lampada" pathLength="1" d="M300 140 H400 L380 190 H320 Z"/>
+      <path class="traco" pathLength="1" d="M90 860 H230"/>
+    </svg></div>
+    <div class="a tit grande" id="poste-t"><span class="ln"><span>Um poste</span></span><span class="ln"><span><em>apagado.</em></span></span></div>
+  </div>
+  <div class="cena" id="c-praca">
+    <div class="a desenho"><svg viewBox="0 0 600 900">
+      <circle class="traco" pathLength="1" cx="200" cy="330" r="150"/>
+      <path class="traco" pathLength="1" d="M200 480 V860"/>
+      <path class="traco" pathLength="1" d="M200 600 L130 520 M200 560 L270 490"/>
+      <path class="traco l" pathLength="1" d="M330 720 H560 M345 720 V860 M545 720 V860 M330 650 H560"/>
+      <path class="traco" pathLength="1" d="M60 860 H590"/>
+      <g id="folhas"><path class="traco l" d="M430 300 q14 -10 28 0 q-14 10 -28 0z"/><path class="traco l" d="M480 420 q14 -10 28 0 q-14 10 -28 0z"/><path class="traco l" d="M390 520 q14 -10 28 0 q-14 10 -28 0z"/></g>
+    </svg></div>
+    <div class="a tit grande" id="praca-t"><span class="ln"><span>Uma praça</span></span><span class="ln"><span><em>esquecida.</em></span></span></div>
   </div>
 
-  <div class="cena" id="c-janeiro">
-    <div class="a jan-chip-w"><div id="jan-chip"><span data-ic="cal"></span>janeiro de 2026</div></div>
-    <div class="a tit" id="jan-num">0</div>
-    <div class="a" id="jan-rot">pedidos de 2025 apresentados de novo</div>
-    <div class="a" id="jan-docs"></div>
+  <div class="cena" id="c-volume">
+    <div class="a" id="flor"></div>
+    <div class="a tit" id="v-num">0</div>
+    <div class="a" id="v-rot">indicações à Prefeitura desde 2025</div>
+  </div>
+
+  <div class="cena" id="c-problema">
+    <svg class="a" id="caminho" viewBox="0 0 1080 1600">
+      <path id="trilha" d="M260 300 C 260 520, 820 470, 820 690 S 260 880, 260 1080 S 700 1300, 820 1460" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>
+      <path id="trilha-viva" d="M260 300 C 260 520, 820 470, 820 690 S 260 880, 260 1080 S 700 1300, 820 1460" fill="none" stroke="#bfe85a" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <circle id="ponto" r="20" fill="#bfe85a"/>
+    </svg>
+    <div class="a estacao" id="e1"><span class="ic" data-ic="user"></span><b>Pedido</b></div>
+    <div class="a estacao" id="e2"><span class="ic" data-ic="doc"></span><b>Indicação</b></div>
+    <div class="a estacao" id="e3"><span class="ic" data-ic="predio"></span><b>Prefeitura</b></div>
+    <div class="a tit" id="e-depois">E depois?</div>
   </div>
 
   <div class="cena" id="c-virada">
-    <div class="virada-fundo"></div>
-    <div class="a" id="porta"><div id="porta-luz"></div><div id="porta-folha"></div></div>
-    <div class="a" id="porta-chao"></div>
-    <div class="a tit" id="virada-t">Gabinete <em>Aberto</em></div>
-    <div class="a" id="virada-s">o site e o portal do mandato</div>
+    <div class="a" id="raios"></div>
+    <div class="a" id="luz"></div>
+    <div class="a" id="v-logo"><svg class="logo-ic" data-logo viewBox="0 0 120 142"></svg></div>
+    <div class="a tit marca-txt" id="v-t1" style="top:640px"><span class="ln"><span>Gabinete</span></span></div>
+    <div class="a tit marca-txt" id="v-t2" style="top:820px"><span class="ln"><span><em>Aberto</em></span></span></div>
   </div>
 
+  <div class="cena" id="c-conceito">
+    <div class="a kick" id="k-conceito"><b>Gabinete Aberto</b>a ideia</div>
+    <div class="a tit head" id="h-conceito"><span class="ln"><span>Tudo <em>conectado.</em></span></span></div>
+    <svg class="a" id="rede" viewBox="0 0 1080 1600">
+      <g id="fios" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="6" stroke-linecap="round">
+        <path d="M540 900 L540 560"/><path d="M540 900 L250 1230"/><path d="M540 900 L830 1230"/>
+      </g>
+      <g id="fios-vivos" fill="none" stroke="#bfe85a" stroke-width="6" stroke-linecap="round">
+        <path d="M540 900 L540 560" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><path d="M540 900 L250 1230" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><path d="M540 900 L830 1230" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      </g>
+      <g id="faiscas" fill="#bfe85a"><circle r="11"/><circle r="11"/><circle r="11"/><circle r="11"/><circle r="11"/><circle r="11"/></g>
+    </svg>
+    <div class="a" id="no-centro" style="left:540px;top:900px"><svg data-logo viewBox="0 0 120 142"></svg></div>
+    <div class="a no" id="no-1" style="left:540px;top:520px" data-ic="user"></div>
+    <div class="a no" id="no-2" style="left:250px;top:1230px" data-ic="equipe"></div>
+    <div class="a no" id="no-3" style="left:830px;top:1230px" data-ic="predio"></div>
+    <div class="a no-rot" id="nr-1" style="left:540px;top:640px">Morador</div>
+    <div class="a no-rot" id="nr-2" style="left:250px;top:1350px">Equipe</div>
+    <div class="a no-rot" id="nr-3" style="left:830px;top:1350px">Câmara</div>
+  </div>
+
+  <div class="cena" id="c-morador">
+    <div class="a kick"><b>01</b>Para o morador</div>
+    <div class="a tit head" id="h-morador" style="font-size:80px"><span class="ln"><span>Pede pelo site.</span></span><span class="ln"><span><em>Acompanha pelo link.</em></span></span></div>
+  </div>
   <div id="cel"><div class="tela"><iframe id="demo" src="../demos/vereador-mateuzinho-silva/index.html" scrolling="no" title="demo"></iframe></div></div>
-  <div class="cena" id="c-cel">
-    <div class="a" id="anel"></div>
-    <div class="a" id="toque"></div>
-  </div>
+  <div class="a" id="numero" style="visibility:hidden"><span data-ic="check"></span><span id="numero-t">nº 2026-0168</span></div>
 
-  <div class="cena" id="c-portal">
-    <div class="a janela">
-      <div class="j-topo"><span class="j-logo" data-ic="porta"></span><div><b>Gabinete Aberto</b><small>Portal do mandato</small></div><span class="j-av">MS</span></div>
-      <div class="j-abas"><span id="aba-ped" class="ativa">Pedidos</span><span>Gabinete</span><span>Agenda</span><span id="aba-cam">Câmara</span><span>Indicadores</span><span>Site</span></div>
-      <div class="j-corpo">
-        <div class="v" id="v-fila">
-          <h4>Central de pedidos</h4>
-          <div class="j-chips"><span class="ativa">Todos <b id="fila-n">2</b></span><span>Novos <b id="fila-novos">0</b></span><span>Na Prefeitura <b>1</b></span></div>
-          <div class="a" style="left:0;right:0;top:184px;bottom:0">
-            <div class="lin" id="r1"><div class="l-top"><span class="canal c-site"><span data-ic="globo"></span>Site</span><span class="l-hora">agora</span></div><b>Buraco na Rua Tilápia, 120</b><div class="l-pe"><span>Jardim São Carlos</span><span class="chip ch-novo">Novo</span></div></div>
-            <div class="lin" id="r2"><div class="l-top"><span class="canal c-zap"><span data-ic="msg"></span>WhatsApp</span><span class="l-hora">agora</span></div><b>Poste apagado na Rua Quinze de Novembro</b><div class="l-pe"><span>Jardim São Carlos</span><span class="chip ch-novo">Novo</span></div></div>
-            <div class="lin" id="r3"><div class="l-top"><span class="canal c-terca"><span data-ic="porta"></span>Terça no gabinete</span><span class="l-hora">agora</span></div><b>Limpeza da praça da Av. Brasil</b><div class="l-pe"><span>Jardim Rainha</span><span class="chip ch-novo">Novo</span></div></div>
-            <div class="lin" id="r4"><div class="l-top"><span class="canal c-acomp"><span data-ic="doc"></span>Indicação 10379/2026</span><span class="l-hora">03/09/2026</span></div><b>Recapeamento e drenagem na Rua Santo Antônio</b><div class="l-pe"><span>Vila Dr. Cardoso</span><span class="chip ch-pref">Na Prefeitura</span></div></div>
-            <div class="lin" id="r5"><div class="l-top"><span class="canal c-acomp"><span data-ic="doc"></span>Indicação 10527/2026</span><span class="l-hora">09/09/2026</span></div><b>Recapeamento da Rua Romão L. Barbosa</b><div class="l-pe"><span>Jardim Santa Rita</span><span class="chip ch-cam">Tramitando</span></div></div>
-          </div>
-        </div>
-        <div class="v" id="v-ia">
-          <div class="voltar"><span data-ic="voltar"></span>Central de pedidos</div>
-          <div id="ia-tit">Buraco na Rua Tilápia, 120</div>
-          <div id="ia-meta">Jardim São Carlos · chegou pelo site · <span id="ia-num">nº 2026-0168</span></div>
-          <div class="fala-morador"><small>O morador escreveu</small>Buraco grande na frente do número 120.</div>
-          <div id="ia-bt"><span data-ic="ia"></span><span id="ia-bt-t">Escrever a indicação com IA</span></div>
-          <div id="ia-texto"><small>Rascunho da indicação</small><span id="ia-escrito"></span><span id="ia-cursor"></span></div>
-          <div class="a" id="ia-alerta"><div class="l1"><span data-ic="alerta"></span>Esta rua já tem pedido</div><p>Câmeras de monitoramento na Rua Tilápia: Indicações 1447/2026 e 5867/2025, as duas na Prefeitura.</p><div class="bts"><span class="btp r">Ver as indicações</span><span class="btp c">Seguir com a nova</span></div></div>
-        </div>
-        <div class="v" id="v-camara">
-          <div class="cam-topo"><span class="ic" data-ic="predio"></span><div><b>Câmara Municipal de Itapevi</b><div id="sinc"><span id="sinc-ic" data-ic="sinc"></span><span id="sinc-t">Buscando no sistema da Câmara…</span></div></div></div>
-          <div class="cam-sub">Indicações do mandato</div>
-          <div class="ci" id="ci1"><div><b>10527/2026 · 09/09</b><span>Recapeamento da Rua Romão L. Barbosa · Jardim Santa Rita</span></div><span class="chip ch-cam">Tramitando</span></div>
-          <div class="ci" id="ci2"><div><b>10379/2026 · 03/09</b><span>Recapeamento e drenagem na Rua Santo Antônio · Vila Dr. Cardoso</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
-          <div class="ci" id="ci3"><div><b>10376/2026 · 02/09</b><span>Recapeamento da Rua Siqueira Gonçalves · Chácara Vitápolis</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
-          <div class="ci" id="ci4"><div><b>10295/2026 · 31/08</b><span>Recapeamento da Rua Ezequiel Antônio de Oliveira · Jardim Santo Antônio</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
-        </div>
+  <div class="cena" id="c-equipe">
+    <div class="a kick"><b>02</b>Para a equipe</div>
+    <div class="a tit head" id="h-equipe"><span class="ln"><span>Tudo num <em>só lugar.</em></span></span></div>
+    <div class="a quadro" id="quadro">
+      <div class="q-topo"><span class="q-logo"><svg data-logo viewBox="0 0 120 142"></svg></span><div><b>Gabinete Aberto</b><small>Pedidos do gabinete</small></div>
+        <div class="q-equipe" id="q-equipe"><i style="background:#4b2a80">V</i><i style="background:#8a5a00">CG</i><i style="background:#1c7a43">AB</i><i style="background:#b03349">AT</i></div></div>
+      <div class="col-bg" style="left:30px"></div><div class="col-bg" style="left:343px"></div><div class="col-bg" style="left:656px"></div>
+      <div class="col-t" style="left:34px">Novos <b id="ct1">0</b></div><div class="col-t" style="left:347px">Em andamento <b id="ct2">1</b></div><div class="col-t" style="left:660px">Na Prefeitura <b id="ct3">2</b></div>
+      <div id="cards"></div>
+      <div class="a" id="acessos">
+        <h5>Equipe do gabinete</h5><p class="s">Cada pessoa entra com a sua senha e vê o que precisa.</p>
+        <div class="pessoa"><span class="av" style="background:#4b2a80">V</span><div><b>Vereador</b><span>Tudo, inclusive os números</span></div><i class="chave"></i></div>
+        <div class="pessoa"><span class="av" style="background:#8a5a00">CG</span><div><b>Chefe de gabinete</b><span>Pedidos, equipe e site</span></div><i class="chave"></i></div>
+        <div class="pessoa"><span class="av" style="background:#1c7a43">AB</span><div><b>Assessoria de bairros</b><span>Pedidos e visitas</span></div><i class="chave"></i></div>
+        <div class="pessoa"><span class="av" style="background:#b03349">AT</span><div><b>Atendimento</b><span>As terças no gabinete</span></div><i class="chave"></i></div>
       </div>
     </div>
-    <div class="a" id="toast"><div class="l1"><span class="sino" data-ic="sino"></span><div><small>Lembrete de cobrança</small><b>Indicação 10379/2026</b></div></div><p>Está na Prefeitura desde 03/09/2026. Hora de cobrar a resposta?</p><div class="bts"><span class="btp r">Fazer requerimento</span><span class="btp c">Lembrar depois</span></div></div>
   </div>
 
-  <div class="cena" id="c-aviso">
-    <div class="a fone" id="zap"><div class="tela">
-      <div class="z-topo"><img src="../rascunhos/vereador-video/retrato.jpg" alt=""><div><b>Gabinete · Vereador Mateuzinho Silva</b><small>mensagem automática</small></div></div>
-      <div class="a bolha" id="b1" style="top:210px">Recebemos o seu pedido <b id="zap-num">nº 2026-0168</b>: buraco na Rua Tilápia, 120, Jardim São Carlos.<div class="h">agora<span data-ic="check2"></span></div></div>
-      <div class="a bolha" id="b2" style="top:430px">Ele virou indicação na Câmara.<div class="h">agora<span data-ic="check2"></span></div></div>
-      <div class="a bolha" id="b3" style="top:580px">Foi enviado à Prefeitura, com protocolo. Acompanhe cada passo:<div class="lk"><span data-ic="link"></span>Acompanhar o meu pedido</div><div class="h">agora<span data-ic="check2"></span></div></div>
-    </div></div>
+  <div class="cena" id="c-camara">
+    <div class="a kick"><b>03</b>Ligado à Câmara</div>
+    <div class="a tit head" id="h-camara1"><span class="ln"><span>Direto da <em>Câmara.</em></span></span></div>
+    <div class="a tit head" id="h-camara2" style="font-size:80px"><span class="ln"><span>Nada fica <em>para trás.</em></span></span></div>
+    <div class="a" id="cam-topo"><span class="ic" data-ic="predio"></span><div><b>Câmara Municipal de Itapevi</b><div id="sinc"><span id="sinc-ic"></span><span id="sinc-t">Buscando as indicações…</span></div></div></div>
+    <div class="a ind" id="i1" style="top:580px"><div><b>Indicação 10527/2026</b><span>Recapeamento da Rua Romão L. Barbosa</span></div><span class="chip ch-cam">Tramitando</span></div>
+    <div class="a ind" id="i2" style="top:728px"><div><b>Indicação 10379/2026</b><span>Recapeamento e drenagem na Rua Santo Antônio</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+    <div class="a ind" id="i3" style="top:876px"><div><b>Indicação 10376/2026</b><span>Recapeamento da Rua Siqueira Gonçalves</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+    <div class="a ind" id="i4" style="top:1024px"><div><b>Indicação 10295/2026</b><span>Recapeamento da Rua Ezequiel A. de Oliveira</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+    <div class="a" id="ia-box"><div class="l1"><span class="ic" data-ic="ia"></span>Rascunho da indicação</div><div id="ia-txt"><span id="ia-escrito"></span><span id="ia-cur"></span></div></div>
+    <div class="a" id="lembrete"><span class="sino" data-ic="sino"></span><div><small>Lembrete</small><b>Cobrar a Indicação 10379/2026</b><span>Na Prefeitura desde 03/09/2026</span></div></div>
   </div>
 
-  <div class="cena" id="c-painel">
-    <div class="a janela">
-      <div class="j-topo"><span class="j-logo" data-ic="porta"></span><div><b>Gabinete Aberto</b><small>Portal do mandato</small></div><span class="j-av">MS</span></div>
-      <div class="j-abas"><span>Pedidos</span><span>Gabinete</span><span>Agenda</span><span>Câmara</span><span class="ativa">Indicadores</span><span>Site</span></div>
-      <div class="j-corpo"><div class="v">
-        <h4>Indicadores do mandato</h4>
-        <div id="jp-sub">Sistema da Câmara Municipal de Itapevi · consulta em 10/11/2026</div>
-        <div class="kpis"><div class="kpi" id="k1"><b data-n="185">0</b><span>Indicações</span></div><div class="kpi" id="k2"><b data-n="173">0</b><span>Na Prefeitura</span></div><div class="kpi" id="k3"><b data-n="10">0</b><span>Projetos aprovados</span></div></div>
-        <div class="barras"><h5>Pedidos por bairro</h5>
-          <div class="barra"><span>Jardim Portela</span><i style="width:100%"></i><b>10</b></div>
-          <div class="barra"><span>Jardim São Carlos</span><i style="width:90%"></i><b>9</b></div>
-          <div class="barra"><span>Centro</span><i style="width:80%"></i><b>8</b></div>
-          <div class="barra"><span>Vila Santa Rita</span><i style="width:80%"></i><b>8</b></div>
-          <div class="barra"><span>Jardim Sorocabano</span><i style="width:50%"></i><b>5</b></div>
-          <div class="barra"><span>Monte Serrat</span><i style="width:50%"></i><b>5</b></div>
-        </div>
-      </div></div>
+  <div class="cena" id="c-cidade">
+    <div class="a kick"><b>04</b>Para a cidade</div>
+    <div class="a tit head" id="h-cidade"><span class="ln"><span>Rua por <em>rua.</em></span></span></div>
+    <div class="a" id="busca"><span data-ic="lupa"></span><span id="busca-t" class="ph">Procure a sua rua</span><span id="busca-cur"></span></div>
+    <div class="a" id="bolhas" style="left:0;top:0;width:1080px;height:1600px"></div>
+    <div class="a" id="achado"><small>Segurança · Jardim São Carlos</small><b>Câmeras de monitoramento na Rua Tilápia</b><div class="pe"><span class="chip ch-pref">Na Prefeitura</span><span>Indicação 1447/2026 · PMI 011839/2026</span></div></div>
+  </div>
+
+  <div class="cena" id="c-numeros">
+    <div class="a kick"><b>05</b>Para o mandato</div>
+    <div class="a tit head" id="h-numeros" style="font-size:78px"><span class="ln"><span>Números para <em>decidir.</em></span></span></div>
+    <div class="a kpis"><div class="kpi"><b data-n="185">0</b><span>Indicações</span></div><div class="kpi"><b data-n="173">0</b><span>Na Prefeitura</span></div><div class="kpi"><b data-n="10">0</b><span>Projetos aprovados</span></div></div>
+    <div class="a barras"><h5>Pedidos por bairro</h5>
+      <div class="barra"><span>Jardim Portela</span><i style="width:100%"></i><b>10</b></div>
+      <div class="barra"><span>Jardim São Carlos</span><i style="width:90%"></i><b>9</b></div>
+      <div class="barra"><span>Centro</span><i style="width:80%"></i><b>8</b></div>
+      <div class="barra"><span>Vila Santa Rita</span><i style="width:80%"></i><b>8</b></div>
+      <div class="barra"><span>Jardim Sorocabano</span><i style="width:50%"></i><b>5</b></div>
+      <div class="barra"><span>Monte Serrat</span><i style="width:50%"></i><b>5</b></div>
     </div>
-  </div>
-
-  <div class="cena" id="c-stories">
-    <div class="a fone" id="story"><div class="tela">
-      <div class="st-foto"><img src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
-      <div class="st-barras"><i id="st-p1"></i><i></i><i></i></div>
-      <div class="st-quem"><img src="../rascunhos/vereador-video/retrato.jpg" alt="">vereadormateuzinhosilva</div>
-      <div class="st-txt"><small>Prestação de contas</small><h3>O mandato em 2026</h3>
-        <div class="st-n"><b data-n="117">0</b><span>indicações</span></div>
-        <div class="st-n"><b data-n="143">0</b><span>requerimentos</span></div>
-        <div class="st-n"><b data-n="14">0</b><span>projetos de lei</span></div>
-        <div class="st-fonte">Sistema da Câmara, até 11/09/2026</div></div>
-      <div class="st-frase">Um olhar para a população.</div>
-    </div></div>
-  </div>
-
-  <div class="cena" id="c-lanc">
-    <div class="a fone" id="lanc"><div class="tela">
-      <img id="lanc-foto" src="../rascunhos/vereador-video/rua.jpg" alt="">
-      <div class="lanc-veu"></div>
-      <div id="lanc-t">Agora você acompanha o seu pedido, <em class="lima">rua por rua.</em></div>
-      <div id="lanc-n">Vereador Mateuzinho Silva · Itapevi</div>
-      <div class="lanc-barra"><i id="lanc-p"></i></div>
-      <div id="marca-d">PRÉVIA</div>
-    </div></div>
+    <div class="a" id="n-fonte">Sistema da Câmara Municipal de Itapevi, consulta em 10/11/2026.</div>
   </div>
 
   <div class="cena" id="c-marca">
-    <div class="marca-fundo"></div>
-    <div class="a" id="marca-porta" data-ic="porta"></div>
-    <div class="a tit" id="marca-t">Gabinete <em>Aberto</em></div>
-    <div class="a" id="marca-s">Um olhar para a população.</div>
-  </div>
-
-  <div class="cena" id="c-cta">
-    <div class="a tit" id="cta-t">A prévia do site<br><em>já está no ar.</em></div>
-    <div class="a" id="cta-link">renderizaweb.com.br/demo/vereador-mateuzinho-silva</div>
-    <div class="a cta-chip-w"><div id="cta-chip"><span data-ic="cal"></span>Terça, no gabinete de portas abertas</div></div>
+    <div id="m-foto"><img src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
+    <div class="a" id="m-logo"><svg class="logo-ic" data-logo viewBox="0 0 120 142"></svg></div>
+    <div class="a tit marca-txt" id="m-t1" style="top:640px"><span class="ln"><span>Gabinete</span></span></div>
+    <div class="a tit marca-txt" id="m-t2" style="top:820px"><span class="ln"><span><em>Aberto</em></span></span></div>
+    <div class="a" id="m-frase">Um olhar para a população.</div>
+    <div class="a" id="m-quem">Vereador Mateuzinho Silva · Itapevi</div>
+    <div class="a" id="m-conceito"><span><i></i>Conceito em desenvolvimento</span></div>
   </div>
 </div>
 <div id="pe"></div>
-<div id="tag"><i></i><span id="tag-t">Simulação · como vai funcionar</span></div>
-<div id="assina">Kaue · Renderiza</div>
+<div id="selo"><i></i>Conceito em desenvolvimento</div>
 <div id="legenda"></div>
+<div id="cortina"><i></i><i></i></div>
 <div id="flash"></div>
+<div id="grao"></div>
 
 <script type="module">
 const $ = (s, r = document) => r.querySelector(s);
@@ -404,309 +366,316 @@ const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 const sai = x => 1 - Math.pow(1 - x, 3);
 const volta = x => (x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2));
 const lerp = (a, b, x) => a + (b - a) * x;
-const h = i => { const s = Math.sin(i * 127.1) * 43758.5453; return s - Math.floor(s); };
 const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 function pos(el, { x = 0, y = 0, s = 1, r = 0, o = 1 } = {}) {
   el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg) scale(${s.toFixed(4)})`;
   el.style.opacity = o.toFixed(3);
   el.style.visibility = o <= 0.002 ? "hidden" : "visible";
 }
-const entra = (t, t0, d = 0.38) => { const x = fase(t, t0, t0 + d); return { x, s: x > 0 ? lerp(0.72, 1, volta(x)) : 0.72, o: clamp(x * 3), y: (1 - sai(x)) * 46 }; };
+const entra = (t, t0, d = 0.42) => { const x = fase(t, t0, t0 + d); return { x, s: x > 0 ? lerp(0.75, 1, volta(x)) : 0.75, o: clamp(x * 3), y: (1 - sai(x)) * 50 }; };
 const conta = (el, alvo, x) => { el.textContent = Math.round(alvo * sai(x)).toLocaleString("pt-BR"); };
+// título em linhas que sobem de dentro de uma máscara (e saem para cima, se "sair" vier)
+function linhas(el, t, t0, sair = 999) {
+  $$(".ln > span", el).forEach((s, i) => {
+    const a = sai(fase(t, t0 + i * 0.09, t0 + i * 0.09 + 0.6)), b = ease(fase(t, sair, sair + 0.35));
+    s.style.transform = `translateY(${((1 - a) * 115 - b * 115).toFixed(1)}%)`;
+  });
+}
 
-// ícones (Lucide, licença ISC)
+// ícones (Lucide, ISC) e a marca (uma porta aberta, com luz)
 const IC = {
-  msg: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
-  clip: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
-  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
   doc: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
   predio: '<line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
-  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
-  cal: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
-  porta: '<path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/>',
+  equipe: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   ia: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
-  alerta: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
-  voltar: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+  sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
   sinc: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
-  check2: '<path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/>',
-  sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
-  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  lupa: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
   globo: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  porta: '<path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
 };
 const svg = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
 $$("[data-ic]").forEach(el => (el.innerHTML = svg(el.dataset.ic) + el.innerHTML));
+let nGrad = 0;
+$$("[data-logo]").forEach(el => { const g = "vao" + nGrad++; el.innerHTML = `<defs><radialGradient id="${g}" cx="60%" cy="55%" r="70%"><stop offset="0" stop-color="#f3ffd2"/><stop offset=".55" stop-color="#bfe85a"/><stop offset="1" stop-color="#7fa32a"/></radialGradient></defs>` +
+  `<rect x="8" y="8" width="104" height="126" rx="12" fill="url(#${g})" stroke="#bfe85a" stroke-width="8"/><path d="M12 12 L64 26 L64 128 L12 130 Z" fill="#5b34a3" stroke="#3c1f72" stroke-width="2"/><circle cx="54" cy="76" r="5" fill="#bfe85a"/>`; });
 
 // tempos da narração (instagram/narrar.py)
 const NOME = "reels-proposta-vereador";
 const TEMPOS = await (await fetch(`narracao/${NOME}.tempos.json?v=${Date.now()}`)).json();
-const frases = TEMPOS.frases;
-const F = Object.fromEntries(frases.map(f => [f.id, f]));
-const DUR = +(TEMPOS.duracao + 1.4).toFixed(2);
+const frases = TEMPOS.frases, F = Object.fromEntries(frases.map(f => [f.id, f]));
+const DUR = +(TEMPOS.duracao + 1.5).toFixed(2);
 const T = id => F[id].ini;
 const W = (id, ini) => { const ps = F[id].palavras, k = ps.findIndex(p => norm(p.p).startsWith(norm(ini))); if (k < 0) throw new Error(`não achei "${ini}" em ${id}`); return ps[k]; };
+const Wi = (id, k) => F[id].palavras[k];
 
-const CENAS = [["#c-abre", 0, T("canais")], ["#c-hoje", T("canais"), T("janeiro")], ["#c-janeiro", T("janeiro"), T("virada")], ["#c-virada", T("virada"), T("site")],
-  ["#c-cel", T("site"), T("fila")], ["#c-portal", T("fila"), T("aviso")], ["#c-aviso", T("aviso"), T("painel")], ["#c-painel", T("painel"), T("stories")],
-  ["#c-stories", T("stories"), T("lancamento")], ["#c-lanc", T("lancamento"), T("marca")], ["#c-marca", T("marca"), T("cta")], ["#c-cta", T("cta"), 999]];
-const alfa = (t, a, b) => (a === 0 ? 1 : fase(t, a - 0.35, a)) * (1 - fase(t, b - 0.35, b));
+// cenas: [seletor, início, fim, entra com a cortina?]
+const B_RUA = T("lista") - 0.2, B_POSTE = Wi("lista", 4).ini - 0.25, B_PRACA = Wi("lista", 7).ini - 0.25;
+const CENAS = [["#c-abre", 0, B_RUA], ["#c-rua", B_RUA, B_POSTE], ["#c-poste", B_POSTE, B_PRACA], ["#c-praca", B_PRACA, T("volume") - 0.3],
+  ["#c-volume", T("volume") - 0.3, T("problema") - 0.3], ["#c-problema", T("problema") - 0.3, T("preparando") - 0.2], ["#c-virada", T("preparando") - 0.2, T("conecta") - 0.3],
+  ["#c-conceito", T("conecta") - 0.3, T("pedido") - 0.1], ["#c-morador", T("pedido") - 0.1, T("equipe") - 0.1, true], ["#c-equipe", T("equipe") - 0.1, T("camara") - 0.1, true],
+  ["#c-camara", T("camara") - 0.1, T("cidade") - 0.1, true], ["#c-cidade", T("cidade") - 0.1, T("numeros") - 0.2, true], ["#c-numeros", T("numeros") - 0.2, T("marca") - 0.25], ["#c-marca", T("marca") - 0.25, 999]];
+const CORTINAS = CENAS.filter(c => c[3]).map(c => c[1]);
+const CORTE = 0.075; // a troca acontece quando a cortina cobre a tela inteira
+function alfa(t, a, b, nossa, proxima) {
+  const ent = a === 0 ? 1 : nossa ? (t >= a - CORTE ? 1 : 0) : fase(t, a - 0.3, a);
+  const sa = proxima ? (t >= b - CORTE ? 0 : 1) : 1 - fase(t, b - 0.3, b);
+  return ent * sa;
+}
 const AL = {};
 
-// ---------- abertura: 185 indicações ----------
-const grade = $("#abre-grade"); for (let i = 0; i < 185; i++) grade.insertAdjacentHTML("beforeend", "<i></i>");
-const quad = $$("#abre-grade i");
-function cAbre(t) {
-  const q = F.pergunta, kb = fase(t, 0, T("canais")), esc = fase(t, q.ini - 0.1, q.ini + 0.5);
-  const foto = $("#abre-foto");
-  foto.style.transform = `scale(${lerp(1.02, 1.13, kb).toFixed(4)})`;
-  foto.style.filter = esc > 0 ? `brightness(${lerp(1, 0.4, esc).toFixed(3)}) blur(${(esc * 6).toFixed(1)}px)` : "";
-  const c0 = W("abre", "185").ini - 0.55, c1 = W("abre", "indica").fim + 0.35, n = Math.round(185 * sai(fase(t, c0, c1)));
-  $("#abre-num").textContent = n;
-  const a = entra(t, c0 - 0.25), b = entra(t, c0 + 0.1);
-  pos($("#abre-num"), { y: a.y, o: a.o * (1 - 0.6 * esc) });
-  pos($("#abre-rot"), { y: b.y, o: b.o * (1 - 0.6 * esc) });
-  const g = entra(t, c0 - 0.2); pos(grade, { y: g.y, o: g.o });
-  quad.forEach((el, i) => {
-    const k = fase(t, q.ini + i * 0.005, q.ini + 0.45 + i * 0.005);
-    el.style.background = i < n ? `rgba(${Math.round(lerp(191, 255, k))},${Math.round(lerp(232, 255, k))},${Math.round(lerp(90, 255, k))},${lerp(1, 0.12, k).toFixed(3)})` : "rgba(255,255,255,.08)";
-  });
-  const p = entra(t, W("pergunta", "morador").ini - 0.1, 0.5); pos($("#abre-q"), { y: p.y, s: p.s, o: p.o });
+// ---------- abertura: o gabinete, a rua, o poste, a praça ----------
+function cAbre(t) { $("#abre-img").style.transform = `scale(${lerp(1.0, 1.08, fase(t, 0, B_RUA)).toFixed(4)})`; linhas($("#abre-t"), t, T("abre") - 0.05); }
+function cRua(t) { $("#rua-img").style.transform = `scale(${lerp(1.04, 1.12, fase(t, B_RUA, B_POSTE)).toFixed(4)})`; linhas($("#rua-t"), t, B_RUA + 0.05); }
+function desenha(sel, t0, t) { $$(sel).forEach((p, i) => { p.style.strokeDasharray = "1"; p.style.strokeDashoffset = (1 - ease(fase(t, t0 + i * 0.1, t0 + 0.6 + i * 0.1))).toFixed(3); }); }
+function cPoste(t) {
+  desenha("#c-poste .traco", B_POSTE, t);
+  const k = t - B_POSTE, liga = k > 0.55 ? (k < 1.3 ? ((Math.floor(k * 13) % 3) ? 1 : 0.15) : Math.max(0, 1 - (k - 1.3) * 3)) : 0; // pisca e apaga
+  $("#cone").style.opacity = liga.toFixed(3); $("#lampada").style.fill = `rgba(191,232,90,${(liga * 0.9).toFixed(3)})`;
+  linhas($("#poste-t"), t, B_POSTE + 0.05);
+}
+function cPraca(t) {
+  desenha("#c-praca > svg > .traco", B_PRACA, t);
+  $$("#folhas path").forEach((p, i) => { const k = fase(t, B_PRACA + 0.4 + i * 0.25, B_PRACA + 2.2 + i * 0.25); p.style.transformBox = "fill-box"; p.style.transformOrigin = "center";
+    p.style.transform = `translate(${(Math.sin(k * 6 + i) * 30).toFixed(1)}px,${(k * 420).toFixed(1)}px) rotate(${(k * 200).toFixed(0)}deg)`; p.style.opacity = (k > 0 ? 1 - fase(t, B_PRACA + 1.8 + i * 0.25, B_PRACA + 2.2 + i * 0.25) : 0).toFixed(3); });
+  linhas($("#praca-t"), t, B_PRACA + 0.05);
 }
 
-// ---------- hoje: os canais e o caminho ----------
-function cHoje(t) {
-  const k = F.caminho, fora = fase(t, k.ini - 0.25, k.ini + 0.25);
-  [["whats", "whatsapp", -2.2], ["papel", "papel", 1.8], ["rua", "conversa", -1.3]].forEach(([id, w, r], i) => {
-    const a = entra(t, W("canais", w).ini - 0.18, 0.45);
-    pos($("#carta-" + id), { x: (1 - sai(a.x)) * (i % 2 ? 140 : -140) , y: a.y - 120 * sai(fora), r: r * a.x, s: a.s * (1 - 0.2 * fora), o: a.o * (1 - fora) });
-  });
-  const nos = [["n-pedido", k.ini - 0.05], ["n-ind", W("caminho", "indica").ini - 0.1], ["n-pref", W("caminho", "prefeitura").ini - 0.1], ["n-morador", W("caminho", "morador").ini - 0.15]];
-  const perde = fase(t, W("caminho", "perde").ini - 0.1, W("caminho", "perde").ini + 0.6);
-  nos.forEach(([id, t0], i) => {
-    const a = entra(t, t0, 0.42);
-    pos($("#" + id), { y: a.y, s: a.s, o: a.o * (i === 3 ? 1 - 0.6 * perde : 1) });
-    if (i) { const l = $("#l-" + id); l.style.transform = `scaleY(${sai(fase(t, t0 - 0.3, t0 + 0.05)).toFixed(3)})`; l.style.opacity = i === 3 ? (1 - 0.6 * perde).toFixed(3) : "1"; l.style.borderLeftStyle = i === 3 && perde > 0.25 ? "dashed" : "solid"; }
-  });
-  $("#n-morador").style.filter = perde > 0 ? `grayscale(${perde.toFixed(3)})` : "";
+// ---------- 185 indicações: as pétalas acendem ----------
+const flor = $("#flor"), PET = [];
+for (let n = 0; n < 185; n++) { const r = 25 * Math.sqrt(n + 3), a = n * 2.39996, el = document.createElement("i"); el.style.left = (540 + r * Math.cos(a)).toFixed(1) + "px"; el.style.top = (760 + r * Math.sin(a)).toFixed(1) + "px"; flor.appendChild(el); PET.push(el); }
+flor.style.transformOrigin = "540px 760px";
+function cVolume(t) {
+  const w = W("volume", "185"), x = fase(t, w.ini - 0.6, W("volume", "indica").fim + 0.4), n = Math.round(185 * sai(x));
+  $("#v-num").textContent = n;
+  const a = entra(t, w.ini - 0.7, 0.5); pos($("#v-num"), { y: a.y, s: a.s, o: a.o });
+  const b = entra(t, w.ini - 0.3); pos($("#v-rot"), { y: b.y, o: b.o });
+  PET.forEach((el, i) => { el.style.background = i < n ? "#bfe85a" : "rgba(255,255,255,.1)"; el.style.boxShadow = i < n && i > n - 12 ? "0 0 18px #bfe85a" : "none"; });
+  flor.style.transform = `rotate(${((t - T("volume")) * 6).toFixed(2)}deg)`;
 }
 
-// ---------- janeiro: 61 pedidos de novo ----------
-const docs = $("#jan-docs"); for (let i = 0; i < 61; i++) docs.insertAdjacentHTML("beforeend", "<i></i>");
-const docsEl = $$("#jan-docs i");
-function cJaneiro(t) {
-  const j = F.janeiro, q = F.quem;
-  const a = entra(t, j.ini - 0.1); pos($(".jan-chip-w"), { y: a.y, o: a.o });
-  const w = W("janeiro", "61"), x = fase(t, w.ini - 0.35, w.fim + 0.8), n = Math.round(61 * sai(x));
-  $("#jan-num").textContent = n;
-  const b = entra(t, w.ini - 0.45, 0.45); pos($("#jan-num"), { y: b.y, s: b.s, o: b.o });
-  const c = entra(t, w.fim + 0.1); pos($("#jan-rot"), { y: c.y, o: c.o });
-  docsEl.forEach((el, i) => {
-    const on = i < n, k = fase(t, q.ini + i * 0.016, q.ini + 0.5 + i * 0.016);
-    el.style.opacity = on ? (1 - 0.72 * k).toFixed(3) : "0";
-    el.style.transform = `translateY(${on ? 0 : 24}px) rotate(${(k * (h(i) - 0.5) * 34).toFixed(1)}deg)`;
+// ---------- o caminho: Pedido → Indicação → Prefeitura → e depois? ----------
+const trilha = $("#trilha"), LEN = trilha.getTotalLength();
+const EST = [[0.0, "#e1"], [0.36, "#e2"], [0.66, "#e3"]];
+function cProblema(t) {
+  const p = F.problema, ini = p.ini - 0.1, fim = W("problema", "sabe").ini, k = ease(fase(t, ini, fim)) * 0.78;
+  $("#trilha-viva").style.strokeDashoffset = (1 - k).toFixed(4);
+  const pt = trilha.getPointAtLength(LEN * k); $("#ponto").setAttribute("cx", pt.x.toFixed(1)); $("#ponto").setAttribute("cy", pt.y.toFixed(1));
+  EST.forEach(([f, id]) => {
+    const q = trilha.getPointAtLength(LEN * f), el = $(id), tt = ini + (fim - ini) * (f / 0.78) * 0.85, a = entra(t, tt - 0.15, 0.4);
+    el.style.left = (q.x > 540 ? q.x - el.offsetWidth + 70 : q.x - 70) + "px"; el.style.top = (q.y - 62) + "px"; pos(el, { y: a.y, s: a.s, o: a.o });
   });
-  $("#jan-num").classList.toggle("vazado", t > q.ini + 0.4);
+  const perde = fase(t, W("problema", "sabe").ini, W("problema", "sabe").ini + 0.6);
+  $("#trilha-viva").style.opacity = (1 - 0.7 * perde).toFixed(3); $("#ponto").style.opacity = (1 - perde).toFixed(3);
+  const d = entra(t, W("problema", "pedido").ini - 0.45, 0.5); pos($("#e-depois"), { x: 90, y: 1330 + d.y, s: d.s, o: d.o });
 }
 
-// ---------- a virada: Gabinete Aberto ----------
+// ---------- a virada: a luz da porta e o nome ----------
 function cVirada(t) {
-  const v = F.virada, ab = ease(fase(t, v.ini + 0.05, v.ini + 1.15));
-  $("#porta-folha").style.transform = `perspective(1100px) rotateY(${(-74 * ab).toFixed(2)}deg)`;
-  $("#porta-luz").style.opacity = ab.toFixed(3);
-  const p = entra(t, v.ini - 0.35, 0.5); pos($("#porta"), { y: p.y, s: p.s, o: p.o }); pos($("#porta-chao"), { o: p.o });
-  const ti = entra(t, W("virada", "gabinete").ini - 0.1, 0.5); pos($("#virada-t"), { y: ti.y, s: ti.s, o: ti.o });
-  const su = entra(t, W("virada", "aberto").fim + 0.05); pos($("#virada-s"), { y: su.y, o: su.o });
+  const pr = F.preparando, no = F.nome, luz = $("#luz"), h_ = sai(fase(t, pr.ini, pr.fim + 0.2)), w_ = ease(fase(t, no.ini - 0.25, no.ini + 0.15)), lw = lerp(8, 300, w_);
+  luz.style.height = (h_ * 560).toFixed(1) + "px"; luz.style.width = lw.toFixed(1) + "px"; luz.style.marginLeft = (-lw / 2).toFixed(1) + "px";
+  luz.style.opacity = (1 - fase(t, no.ini + 0.05, no.ini + 0.35)).toFixed(3);
+  const lg = entra(t, no.ini, 0.5); pos($("#v-logo"), { s: lg.s, o: lg.o, y: lg.y * 0.5 });
+  linhas($("#v-t1"), t, no.ini + 0.05); linhas($("#v-t2"), t, no.ini + 0.15);
+  $("#raios").style.opacity = (0.9 * fase(t, no.ini, no.ini + 0.6)).toFixed(3); $("#raios").style.transform = `rotate(${(t * 8).toFixed(1)}deg)`;
 }
 
-// ---------- o celular com a demo de verdade ----------
-const ifr = $("#demo");
-let D, IW, enviado = false;
-const K = 632 / 390, OX = 224, OY = 132;
+// ---------- o conceito: morador, equipe e Câmara ----------
+const FIOS = $$("#fios path"), VIVOS = $$("#fios-vivos path"), FAIS = $$("#faiscas circle");
+function cConceito(t) {
+  const c = F.conecta;
+  $("#k-conceito").style.opacity = fase(t, c.ini - 0.3, c.ini).toFixed(3); linhas($("#h-conceito"), t, c.ini - 0.2);
+  const cen = entra(t, c.ini - 0.2, 0.5); pos($("#no-centro"), { s: cen.s, o: cen.o });
+  [["morador", 1], ["equipe", 2], ["camara", 3]].forEach(([w, i]) => {
+    const t0 = W("conecta", w).ini - 0.15, a = entra(t, t0, 0.45);
+    pos($("#no-" + i), { s: a.s, o: a.o }); pos($("#nr-" + i), { y: a.y * 0.5, o: a.o });
+    VIVOS[i - 1].style.strokeDashoffset = (1 - ease(fase(t, t0 - 0.3, t0 + 0.1))).toFixed(3);
+    const len = FIOS[i - 1].getTotalLength();
+    for (const j of [0, 1]) { const f = FAIS[(i - 1) * 2 + j]; let k = (((t - t0) * 0.55 + j * 0.5) % 1 + 1) % 1; if (j) k = 1 - k; const p = FIOS[i - 1].getPointAtLength(len * k); f.setAttribute("cx", p.x.toFixed(1)); f.setAttribute("cy", p.y.toFixed(1)); f.style.opacity = t > t0 + 0.1 ? "1" : "0"; }
+  });
+}
+
+// ---------- 01 · Para o morador: a demo de verdade no celular ----------
+const ifr = $("#demo"); let D, IW, enviado = false, fotoAgora = null, FOTO_ORIG = "";
 const absY = el => el.getBoundingClientRect().top + IW.scrollY;
-const fora = el => { const r = el.getBoundingClientRect(); return { x: OX + r.left * K, y: OY + r.top * K, w: r.width * K, h: r.height * K }; };
-function digita(el, txt, t, a, b) {
-  const v = txt.slice(0, Math.round(txt.length * fase(t, a, b)));
-  if (el.value !== v) { el.value = v; el.dispatchEvent(new IW.Event("input", { bubbles: true })); }
-}
-function cCel(t) {
-  const s = F.site, p = F.pedido, wp = W("site", "procura").ini, tEnvio = p.ini + 3.3;
-  const busca = D.querySelector("#buscaRua"), form = D.querySelector("#formPedido");
-  // o pedido (formulário de demonstração): volta ao começo se o tempo voltar
+function digita(el, txt, t, a, b, evento = true) { const v = txt.slice(0, Math.round(txt.length * fase(t, a, b))); if (el.value !== v) { el.value = v; if (evento) el.dispatchEvent(new IW.Event("input", { bubbles: true })); } }
+// a foto do buraco: um asfalto desenhado aqui (não é foto de ninguém)
+const ASFALTO = (() => { const c = document.createElement("canvas"); c.width = c.height = 120; const g = c.getContext("2d"); let s = 7; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  for (let i = 0; i < 2600; i++) { const v = 70 + rnd() * 60 | 0; g.fillStyle = `rgb(${v},${v},${v + 4})`; g.fillRect(rnd() * 120, rnd() * 120, 2, 2); }
+  g.fillStyle = "rgba(20,20,24,.85)"; g.beginPath(); g.ellipse(64, 70, 28, 15, 0.2, 0, 7); g.fill(); g.strokeStyle = "#1d1b20"; g.lineWidth = 4; g.beginPath(); g.moveTo(8, 72); g.lineTo(36, 60); g.lineTo(52, 72); g.moveTo(80, 66); g.lineTo(98, 50); g.lineTo(114, 60); g.stroke();
+  return c.toDataURL("image/jpeg", 0.8); })();
+function cMorador(t) {
+  const p = F.pedido, tEnvio = p.ini + 3.5;
+  linhas($("#h-morador"), t, p.ini - 0.05);
   if (t < tEnvio && enviado) { D.querySelector("#novoPedido").click(); enviado = false; }
-  digita(busca, t < s.ini - 0.5 ? "" : "Rua Tilápia", t, wp + 0.3, wp + 1.15);
-  digita(D.querySelector("#bairro"), "Jardim São Carlos", t, p.ini + 0.6, p.ini + 1.3);
-  digita(D.querySelector("#rua"), "Rua Tilápia, 120", t, p.ini + 1.35, p.ini + 1.95);
-  if (!enviado) { const d = D.querySelector("#desc"), v = "Buraco grande na frente do número 120.".slice(0, Math.round(38 * fase(t, p.ini + 2.0, p.ini + 2.65))); if (d.value !== v) d.value = v; }
-  D.querySelector("#aceite").checked = t >= p.ini + 2.85;
+  digita(D.querySelector("#bairro"), "Jardim São Carlos", t, p.ini + 0.45, p.ini + 1.15);
+  digita(D.querySelector("#rua"), "Rua Tilápia, 120", t, p.ini + 1.2, p.ini + 1.8);
+  if (!enviado) digita(D.querySelector("#desc"), "Buraco grande na frente do número 120.", t, p.ini + 1.85, p.ini + 2.45, false);
+  const comFoto = t >= p.ini + 2.6 && t < tEnvio;
+  if (comFoto !== fotoAgora) { fotoAgora = comFoto; D.querySelector(".foto-in").innerHTML = comFoto ? `<img src="${ASFALTO}" alt=""><span id="fotoTxt">Foto adicionada</span>` : FOTO_ORIG; }
+  D.querySelector("#aceite").checked = t >= p.ini + 3.0;
   if (t >= tEnvio && !enviado) { D.querySelector("#formPedido button[type=submit]").click(); enviado = true; }
-  // rolagem
-  const YB = absY(busca) - 62 - 150, YF = absY(D.querySelector(".form")) - 62 - 12, YA = absY(D.querySelector(".aceite")) - 844 + 250;
-  let y;
-  if (t >= T("cta") - 0.6) y = 0;
-  else if (t < p.ini - 0.3) y = lerp(0, YB, ease(fase(t, wp - 0.6, wp + 0.25)));
-  else if (!enviado) y = lerp(YB, YF, ease(fase(t, p.ini - 0.3, p.ini + 0.45))) + Math.max(0, YA - YF) * ease(fase(t, p.ini + 1.9, p.ini + 2.6));
-  else y = absY(D.querySelector("#resultado")) - 62 - 24;
+  if (enviado) { // a linha do tempo do pedido anda: cada etapa acende
+    const passo = 1 + (t >= W("acompanha", "etapa").ini ? 1 : 0) + (t >= W("acompanha", "pedido").ini ? 1 : 0) + (t >= W("acompanha", "resposta").ini - 0.1 ? 1 : 0);
+    $$("#tempoPedido li", D).forEach((li, i) => (li.className = i < passo ? "feito" : i === passo ? "agora" : ""));
+  }
+  const YF = absY(D.querySelector(".form")) - 62 - 10, YA = absY(D.querySelector(".aceite")) - 844 + 230;
+  const y = enviado ? absY(D.querySelector("#resultado")) - 62 - 24 : YF + Math.max(0, YA - YF) * ease(fase(t, p.ini + 1.7, p.ini + 2.5));
   IW.scrollTo({ top: Math.max(0, Math.round(y)), behavior: "instant" });
-  // toques do dedo
-  const toques = [[wp + 0.12, busca], [p.ini + 0.5, "#bairro"], [p.ini + 1.28, "#rua"], [p.ini + 1.92, "#desc"], [p.ini + 2.8, ".aceite input"], [tEnvio - 0.08, "#formPedido button[type=submit]"]];
-  let tq = null; for (const [t0, alvo] of toques) if (t >= t0 && t < t0 + 0.5) tq = [t0, typeof alvo === "string" ? D.querySelector(alvo) : alvo];
-  const toque = $("#toque");
-  const rq = tq ? fora(tq[1]) : null;
-  if (tq && rq.w > 2 && !(tq[1] === busca && t > p.ini - 0.4)) { const r = rq, x = fase(t, tq[0], tq[0] + 0.5); toque.style.left = (r.x + Math.min(r.w / 2, 120)) + "px"; toque.style.top = (r.y + r.h / 2) + "px"; toque.style.opacity = (Math.sin(Math.PI * x) * 0.95).toFixed(3); toque.style.transform = `scale(${lerp(0.7, 1.15, x).toFixed(3)})`; }
-  else toque.style.opacity = "0";
-  // destaques: o número, a situação e o protocolo no cartão; depois o número do pedido
-  const anel = $("#anel"), card = D.querySelector("#trilhoPedidos .pc .pe");
-  const alvos = [];
-  if (card) alvos.push([W("site", "numero").ini - 0.1, card.children[1]], [W("site", "situacao").ini - 0.1, card.children[0]], [W("site", "protocolo").ini - 0.1, card.children[2]]);
-  let ra = null, o = 0;
-  if (t < p.ini - 0.3 && alvos.length && t >= alvos[0][0]) {
-    let k = 0; while (k + 1 < alvos.length && t >= alvos[k + 1][0]) k++;
-    const r0 = fora(alvos[Math.max(0, k - 1)][1]), r1 = fora(alvos[k][1]), x = k ? ease(fase(t, alvos[k][0], alvos[k][0] + 0.3)) : 1;
-    ra = { x: lerp(r0.x, r1.x, x), y: lerp(r0.y, r1.y, x), w: lerp(r0.w, r1.w, x), h: lerp(r0.h, r1.h, x) };
-    o = fase(t, alvos[0][0], alvos[0][0] + 0.2) * (1 - fase(t, s.fim + 0.2, s.fim + 0.4));
-  } else if (enviado && t < T("fila")) { ra = fora(D.querySelector(".protocolo")); o = fase(t, W("pedido", "numero").ini - 0.15, W("pedido", "numero").ini + 0.1); }
-  if (ra && o > 0) { anel.style.left = (ra.x - 12) + "px"; anel.style.top = (ra.y - 10) + "px"; anel.style.width = (ra.w + 24) + "px"; anel.style.height = (ra.h + 20) + "px"; anel.style.opacity = o.toFixed(3); }
-  else anel.style.opacity = "0";
+  $("#numero-t").textContent = D.querySelector("#numPedido").textContent;
+  const n = entra(t, W("acompanha", "numero").ini - 0.2, 0.5), sa = fase(t, T("equipe") - 0.5, T("equipe") - 0.2);
+  pos($("#numero"), { x: (1 - n.x) * -120, y: n.y, s: n.s, r: -4 * n.x, o: n.o * (1 - sa) });
 }
-const numPedido = () => (D && D.querySelector("#numPedido") ? D.querySelector("#numPedido").textContent : "nº 2026-0168");
 
-// ---------- o portal: a fila, a IA e a Câmara ----------
-const R_NOVOS = ["#r1", "#r2", "#r3"], R_VELHOS = ["#r4", "#r5"], PASSO = 190;
+// ---------- 02 · Para a equipe: o quadro de pedidos ----------
+const COLX = [30, 343, 656], Y0 = 192, PASSO = 228;
+const CARDS = [
+  { id: "A", f: ["f-site", "globo", "Site"], t: "Buraco na Rua Tilápia, 120", b: "Jardim São Carlos" },
+  { id: "B", f: ["f-terca", "porta", "Terça no gabinete"], t: "Poste apagado na Rua Quinze de Novembro", b: "Jardim São Carlos" },
+  { id: "C", f: ["f-visita", "pin", "Visita"], t: "Calçada quebrada perto da escola", b: "Centro" },
+  { id: "D", f: ["f-terca", "porta", "Terça no gabinete"], t: "Limpeza da praça da Av. Brasil", b: "Jardim Rainha" },
+  { id: "E", f: ["f-ind", "doc", "10379/2026"], t: "Recapeamento e drenagem na Rua Santo Antônio", b: "Vila Dr. Cardoso" },
+  { id: "F", f: ["f-ind", "doc", "10376/2026"], t: "Recapeamento da Rua Siqueira Gonçalves", b: "Chácara Vitápolis" },
+];
+$("#cards").innerHTML = CARDS.map(c => `<div class="card" id="card-${c.id}"><span class="fonte ${c.f[0]}">${svg(c.f[1])}${c.f[2]}</span><b>${c.t}</b><small>${c.b}</small>${c.id === "A" ? '<span class="resp" id="resp-A">AB</span>' : ""}</div>`).join("");
+const cardEl = id => $("#card-" + id);
+function cEquipe(t) {
+  const e = F.equipe, ac = F.acesso;
+  linhas($("#h-equipe"), t, e.ini - 0.05);
+  const qd = entra(t, e.ini - 0.1, 0.5); pos($("#quadro"), { y: qd.y * 2, o: qd.o });
+  const cheg = [W("equipe", "site").ini, W("equipe", "terca").ini, W("equipe", "visitas").ini].map(a => sai(fase(t, a - 0.25, a + 0.2)));
+  const tResp = W("acesso", "responsavel").ini - 0.25, mov = ease(fase(t, tResp, tResp + 0.7));
+  ["A", "B", "C"].forEach((id, i) => { // o mais novo fica em cima; o A vai para "Em andamento"
+    let acima = 0; for (let j = i + 1; j < 3; j++) acima += cheg[j];
+    let x = COLX[0], y = Y0 + acima * PASSO, r = 0, s = 1;
+    if (id === "A") { x = lerp(COLX[0], COLX[1], mov); y = lerp(y, Y0 + PASSO, mov) - Math.sin(Math.PI * mov) * 90; r = Math.sin(Math.PI * mov) * 4; s = 1 + Math.sin(Math.PI * mov) * 0.06; }
+    const el = cardEl(id); el.style.left = x + "px"; el.style.top = y + "px"; el.style.zIndex = id === "A" && mov > 0 ? 5 : 1;
+    el.style.transform = `translateX(${((1 - cheg[i]) * -360).toFixed(1)}px) rotate(${r.toFixed(2)}deg) scale(${s.toFixed(3)})`; el.style.opacity = cheg[i].toFixed(3);
+    el.style.boxShadow = id === "A" && mov > 0 && mov < 1 ? "0 40px 60px -20px rgba(29,23,39,.55)" : "";
+  });
+  [["D", 1, 0], ["E", 2, 0], ["F", 2, 1]].forEach(([id, c, k]) => { const el = cardEl(id); el.style.left = COLX[c] + "px"; el.style.top = (Y0 + k * PASSO) + "px"; });
+  const ra = entra(t, tResp + 0.55, 0.35); pos($("#resp-A"), { s: ra.s, o: ra.o });
+  $("#ct1").textContent = Math.round(cheg[0] + cheg[1] + cheg[2] - (mov > 0.5 ? 1 : 0)); $("#ct2").textContent = 1 + (mov > 0.5 ? 1 : 0);
+  const pa = ease(fase(t, ac.ini - 0.2, ac.ini + 0.35)) * (1 - ease(fase(t, tResp - 0.45, tResp - 0.05))); // os acessos da equipe
+  $("#acessos").style.transform = `translateY(${((1 - pa) * 760).toFixed(1)}px)`;
+  $$("#acessos .chave").forEach((c, i) => { const on = fase(t, W("acesso", "acesso").ini - 0.4 + i * 0.22, W("acesso", "acesso").ini - 0.2 + i * 0.22); c.classList.toggle("on", on > 0.5); c.style.setProperty("--x", (on * 36).toFixed(1) + "px"); });
+  $$("#q-equipe i").forEach((el, i) => { const a = entra(t, ac.ini + i * 0.12, 0.35); pos(el, { s: a.s, o: a.o }); });
+}
+
+// ---------- 03 · Ligado à Câmara, e a IA ----------
 const TEXTO_IA = "Indico ao Poder Executivo, junto à Secretaria de Infraestrutura e Serviços Urbanos, a realização de reparo no asfalto da Rua Tilápia, na altura do número 120, no Jardim São Carlos.";
-function cPortal(t) {
-  const fi = F.fila, ia = F.ia, ca = F.camara;
-  const chegadas = [W("fila", "site").ini - 0.1, W("fila", "whatsapp").ini - 0.1, W("fila", "terca").ini - 0.1].map(a => sai(fase(t, a, a + 0.4)));
-  R_NOVOS.forEach((id, i) => { const depois = chegadas.slice(i + 1).reduce((s, x) => s + x, 0); pos($(id), { x: (1 - chegadas[i]) * 80, y: depois * PASSO, o: chegadas[i] }); });
-  const total = chegadas.reduce((s, x) => s + x, 0);
-  R_VELHOS.forEach((id, i) => pos($(id), { y: (total + i) * PASSO }));
-  $("#fila-n").textContent = 2 + Math.round(total); $("#fila-novos").textContent = Math.round(total);
-  // telas: fila → pedido com IA → Câmara
-  const tIa = ia.ini - 0.25, tCa = ca.ini - 0.25;
-  const vf = 1 - fase(t, tIa, tIa + 0.35), vi = fase(t, tIa, tIa + 0.35) * (1 - fase(t, tCa, tCa + 0.35)), vc = fase(t, tCa, tCa + 0.35);
-  pos($("#v-fila"), { x: -120 * (1 - vf), o: vf }); pos($("#v-ia"), { x: t < tCa ? 120 * (1 - vi) : -120 * (1 - vi), o: vi }); pos($("#v-camara"), { x: 120 * (1 - vc), o: vc });
-  $("#aba-ped").classList.toggle("ativa", t < tCa); $("#aba-cam").classList.toggle("ativa", t >= tCa);
-  // a IA escreve
-  $("#ia-num").textContent = numPedido();
-  const tq = W("ia", "toque").ini, tEsc = W("ia", "escreve").ini - 0.1, tFim = tEsc + 2.6;
-  const apertou = fase(t, tq, tq + 0.25);
-  $("#ia-bt").style.transform = `scale(${(1 - 0.05 * Math.sin(Math.PI * apertou)).toFixed(4)})`;
-  $("#ia-bt-t").textContent = t < tq ? "Escrever a indicação com IA" : t < tFim ? "Escrevendo no seu padrão…" : "Pronto para revisar";
-  $("#ia-escrito").textContent = TEXTO_IA.slice(0, Math.round(TEXTO_IA.length * fase(t, tEsc, tFim)));
-  $("#ia-cursor").style.opacity = t > tq && Math.floor(t * 2.4) % 2 === 0 ? "1" : "0";
-  const al = entra(t, W("ia", "ja").ini - 0.2, 0.45); pos($("#ia-alerta"), { y: al.y, s: al.s, o: al.o });
-  // a Câmara
-  const tSinc = ca.ini + 0.2, tOk = ca.ini + 1.4;
-  $("#sinc-ic").style.transform = t < tOk ? `rotate(${((t - tSinc) * 420) % 360}deg)` : "";
-  $("#sinc").classList.toggle("ok", t >= tOk); $("#sinc-t").textContent = t < tOk ? "Buscando no sistema da Câmara…" : "Atualizado agora";
-  if (t >= tOk) $("#sinc-ic").innerHTML = svg("check"); else $("#sinc-ic").innerHTML = svg("sinc");
-  ["#ci1", "#ci2", "#ci3", "#ci4"].forEach((id, i) => { const a = entra(t, tSinc + 0.25 + i * 0.22, 0.4); pos($(id), { y: a.y * 0.6, o: a.o }); });
-  const to = entra(t, W("camara", "demora").ini + 0.1, 0.45); pos($("#toast"), { y: to.y - 30 * (1 - to.x), s: to.s, o: to.o });
-  $("#ci2").style.borderColor = to.o > 0.5 ? "var(--roxo3)" : "";
+function cCamara(t) {
+  const c = F.camara, tIa = F.ia.ini - 0.2;
+  linhas($("#h-camara1"), t, c.ini - 0.05, tIa - 0.1); linhas($("#h-camara2"), t, tIa + 0.2);
+  const tp = entra(t, c.ini - 0.1, 0.45), fora = ease(fase(t, tIa - 0.1, tIa + 0.4));
+  pos($("#cam-topo"), { y: tp.y - fora * 60, s: tp.s, o: tp.o * (1 - fora) });
+  const tOk = c.ini + 1.3;
+  $("#sinc-ic").innerHTML = svg(t >= tOk ? "check" : "sinc"); $("#sinc-ic").style.transform = t < tOk ? `rotate(${(((t - c.ini) * 400) % 360).toFixed(0)}deg)` : "";
+  $("#sinc").classList.toggle("ok", t >= tOk); $("#sinc-t").textContent = t < tOk ? "Buscando as indicações…" : "Atualizado agora";
+  ["#i1", "#i2", "#i3", "#i4"].forEach((id, i) => { const a = entra(t, c.ini + 0.5 + i * 0.28, 0.42); pos($(id), { x: (1 - a.x) * 120, y: a.y * 0.4 - fora * 80, o: a.o * (1 - fora) }); });
+  const bx = entra(t, tIa, 0.5); pos($("#ia-box"), { y: bx.y * 2, s: bx.s, o: bx.o });
+  const tEsc = W("ia", "redigir").ini - 0.25;
+  $("#ia-escrito").textContent = TEXTO_IA.slice(0, Math.round(TEXTO_IA.length * fase(t, tEsc, tEsc + 2.3)));
+  $("#ia-cur").style.opacity = Math.floor(t * 2.6) % 2 ? "0" : "1";
+  const lb = entra(t, W("ia", "lembra").ini - 0.15, 0.45), tre = fase(t, W("ia", "lembra").ini + 0.2, W("ia", "lembra").ini + 0.8);
+  pos($("#lembrete"), { y: lb.y, s: lb.s, r: tre > 0 && tre < 1 ? Math.sin(tre * 30) * 2.5 * (1 - tre) : 0, o: lb.o });
 }
 
-// ---------- o aviso no WhatsApp ----------
-function cAviso(t) {
-  const a = F.aviso;
-  $("#zap-num").textContent = numPedido();
-  const z = entra(t, a.ini - 0.35, 0.5); pos($("#zap"), { y: z.y * 2, o: z.o });
-  [["#b1", a.ini + 0.05], ["#b2", a.ini + 1.15], ["#b3", a.ini + 2.2]].forEach(([id, t0]) => { const b = entra(t, t0, 0.4); pos($(id), { y: b.y * 0.6, s: b.s, o: b.o }); });
+// ---------- 04 · Para a cidade: rua por rua ----------
+const BOLHAS = [["Jardim Portela", 10, 300, 790], ["Jardim São Carlos", 9, 560, 730], ["Centro", 8, 800, 850], ["Vila Santa Rita", 8, 430, 1030], ["Jardim Sorocabano", 5, 190, 1040],
+  ["Monte Serrat", 5, 900, 1110], ["Jardim Briquet", 4, 660, 1060], ["Amador Bueno", 3, 130, 660], ["Cohab", 3, 950, 640], ["Jardim Rainha", 3, 330, 1260], ["Jardim Santa Rita", 3, 560, 1270],
+  ["Jardim Santo Antônio", 3, 790, 1280], ["Vila Dr. Cardoso", 3, 770, 590]];
+$("#bolhas").innerHTML = BOLHAS.map(([n, c, x, y]) => { const r = 30 + 8 * c, nomes = r >= 90 ? n.replace(/^(\S+) /, "$1<br>") : n.split(" ").join("<br>");
+  return `<div class="bol" style="left:${x - r}px;top:${y - r}px;width:${2 * r}px;height:${2 * r}px"><b style="font-size:${Math.round(r * 0.5)}px">${c}</b><span style="font-size:${Math.max(15, Math.round(r * 0.19))}px">${nomes}</span></div>`; }).join("");
+const BOL = $$("#bolhas .bol");
+function cCidade(t) {
+  const c = F.cidade;
+  linhas($("#h-cidade"), t, c.ini - 0.05);
+  const bu = entra(t, c.ini - 0.05, 0.45); pos($("#busca"), { y: bu.y, o: bu.o });
+  const q = "Rua Tilápia", n = Math.round(q.length * fase(t, c.ini + 0.4, c.ini + 1.3));
+  $("#busca-t").textContent = n ? q.slice(0, n) : "Procure a sua rua"; $("#busca-t").className = n ? "" : "ph";
+  $("#busca-cur").style.opacity = Math.floor(t * 2.6) % 2 ? "0" : "1";
+  const tAcha = c.ini + 1.5;
+  BOL.forEach((el, i) => { const a = entra(t, c.ini + 0.05 + i * 0.07, 0.45), luz = i === 1 && t >= tAcha; el.classList.toggle("luz", luz);
+    pos(el, { s: a.s * (luz ? 1 + 0.08 * Math.sin(Math.PI * fase(t, tAcha, tAcha + 0.4)) : 1), o: a.o * (t >= tAcha && !luz ? 0.4 : 1) }); });
+  const ac = entra(t, W("cidade", "pedido").ini - 0.25, 0.45); pos($("#achado"), { y: ac.y, s: ac.s, o: ac.o });
 }
 
-// ---------- os indicadores ----------
-function cPainel(t) {
-  const p = F.painel;
-  $$("#c-painel .kpi b").forEach((el, i) => conta(el, +el.dataset.n, fase(t, p.ini + 0.1 + i * 0.15, p.ini + 1.4 + i * 0.15)));
-  const tb = W("painel", "bairro").ini - 0.3;
-  $$("#c-painel .barra i").forEach((el, i) => { el.style.transform = `scaleX(${ease(fase(t, tb + i * 0.12, tb + 0.7 + i * 0.12)).toFixed(4)})`; });
-  $$("#c-painel .barra").forEach((el, i) => { el.style.opacity = fase(t, tb + i * 0.12 - 0.1, tb + i * 0.12 + 0.2).toFixed(3); });
-  const t2 = W("painel", "prefeitura").ini - 0.1, t3 = W("painel", "aprovado").ini - 0.1;
-  $("#k2").classList.toggle("luz", t >= t2 && t < t3); $("#k3").classList.toggle("luz", t >= t3);
+// ---------- 05 · Para o mandato: números ----------
+function cNumeros(t) {
+  const n = F.numeros;
+  linhas($("#h-numeros"), t, n.ini - 0.15);
+  $$("#c-numeros .kpi").forEach((el, i) => { const a = entra(t, n.ini - 0.1 + i * 0.12, 0.42); pos(el, { y: a.y, s: a.s, o: a.o }); });
+  $$("#c-numeros .kpi b").forEach((el, i) => conta(el, +el.dataset.n, fase(t, n.ini + i * 0.12, n.ini + 1.3 + i * 0.12)));
+  $$("#c-numeros .barra i").forEach((el, i) => (el.style.transform = `scaleX(${ease(fase(t, n.ini + 0.3 + i * 0.1, n.ini + 1.1 + i * 0.1)).toFixed(4)})`));
+  $$("#c-numeros .barra").forEach((el, i) => (el.style.opacity = fase(t, n.ini + 0.2 + i * 0.1, n.ini + 0.5 + i * 0.1).toFixed(3)));
+  $("#n-fonte").style.opacity = fase(t, n.ini + 1, n.ini + 1.4).toFixed(3);
 }
 
-// ---------- os Stories e o vídeo de lançamento ----------
-function cStories(t) {
-  const s = F.stories, a = entra(t, s.ini - 0.35, 0.55);
-  pos($("#story"), { y: a.y * 4, s: a.s, o: a.o });
-  $$("#story .st-n b").forEach((el, i) => conta(el, +el.dataset.n, fase(t, s.ini + 0.3 + i * 0.25, s.ini + 1.5 + i * 0.25)));
-  $("#st-p1").style.setProperty("--p", (100 * fase(t, s.ini - 0.3, T("lancamento"))).toFixed(1) + "%");
-}
-function cLanc(t) {
-  const l = F.lancamento, a = entra(t, l.ini - 0.35, 0.55);
-  pos($("#lanc"), { y: a.y * 4, s: a.s, o: a.o });
-  $("#lanc-foto").style.transform = `scale(${lerp(1.04, 1.16, fase(t, l.ini - 0.4, T("marca"))).toFixed(4)})`;
-  const ti = entra(t, l.ini + 0.5, 0.5); pos($("#lanc-t"), { y: ti.y, o: ti.o }); pos($("#lanc-n"), { o: ti.o });
-  $("#lanc-p").style.width = (100 * fase(t, l.ini, T("marca"))).toFixed(1) + "%";
-  $("#marca-d").style.opacity = (0.55 + 0.25 * Math.sin(t * 3)).toFixed(3);
-}
-
-// ---------- a marca e o convite ----------
+// ---------- a marca ----------
 function cMarca(t) {
-  const m = F.marca;
-  const p = entra(t, m.ini - 0.3, 0.5); pos($("#marca-porta"), { y: p.y, s: p.s, o: p.o });
-  const ti = entra(t, m.ini - 0.1, 0.5); pos($("#marca-t"), { y: ti.y, s: ti.s, o: ti.o });
-  const su = entra(t, W("marca", "um").ini - 0.1); pos($("#marca-s"), { y: su.y, o: su.o });
-}
-function cCta(t) {
-  const c = F.cta;
-  const a = entra(t, c.ini - 0.3, 0.5); pos($("#cta-t"), { y: a.y, o: a.o });
-  const b = entra(t, c.ini + 0.4); pos($("#cta-link"), { y: b.y, o: b.o });
-  const d = entra(t, W("cta", "terca").ini - 0.2, 0.45); pos($(".cta-chip-w"), { y: d.y, s: d.s, o: d.o });
+  const m = F.marca, fr = F.frase;
+  const lg = entra(t, m.ini - 0.2, 0.5); pos($("#m-logo"), { s: lg.s, o: lg.o });
+  linhas($("#m-t1"), t, m.ini - 0.1); linhas($("#m-t2"), t, m.ini);
+  const a = entra(t, fr.ini - 0.1, 0.5); pos($("#m-frase"), { y: a.y, o: a.o });
+  const b = entra(t, fr.ini + 0.5, 0.5); pos($("#m-quem"), { y: b.y, o: b.o }); pos($("#m-conceito"), { y: b.y, o: b.o * 0.95 });
 }
 
-// ---------- legenda, etiqueta, socos ----------
+// ---------- legenda (só onde o título não diz a mesma coisa), selo, cortina e socos ----------
+const SEM_LEGENDA = new Set(["abre", "lista", "preparando", "nome", "marca", "frase"]);
 let fraseAtual = null;
 function legenda(t) {
-  const el = $("#legenda"), i = frases.findIndex((f, k) => t >= f.ini - 0.2 && t < (frases[k + 1] ? frases[k + 1].ini - 0.2 : DUR + 1));
-  if (i < 0) { el.style.opacity = "0"; return; }
-  const f = frases[i];
+  const el = $("#legenda"), i = frases.findIndex((f, k) => t >= f.ini - 0.2 && t < (frases[k + 1] ? frases[k + 1].ini - 0.2 : DUR + 1)), f = i >= 0 ? frases[i] : null;
+  if (!f || SEM_LEGENDA.has(f.id)) { el.style.opacity = "0"; return; }
   if (f !== fraseAtual) { fraseAtual = f; el.innerHTML = f.palavras.map(p => `<span class="${p.tom ? "tom" : ""}">${p.p}</span>`).join(" "); }
   [...el.children].forEach((sp, k) => sp.classList.toggle("dito", t >= f.palavras[k].ini - 0.04));
-  el.style.opacity = (fase(t, f.ini - 0.2, f.ini) * (1 - fase(t, DUR - 0.5, DUR))).toFixed(3);
+  el.style.opacity = fase(t, f.ini - 0.2, f.ini).toFixed(3);
 }
-const quadros = [["#c-abre", cAbre], ["#c-hoje", cHoje], ["#c-janeiro", cJaneiro], ["#c-virada", cVirada], ["#c-portal", cPortal], ["#c-aviso", cAviso], ["#c-painel", cPainel], ["#c-stories", cStories], ["#c-lanc", cLanc], ["#c-marca", cMarca], ["#c-cta", cCta]];
+const FUN = { "#c-abre": cAbre, "#c-rua": cRua, "#c-poste": cPoste, "#c-praca": cPraca, "#c-volume": cVolume, "#c-problema": cProblema, "#c-virada": cVirada, "#c-conceito": cConceito,
+  "#c-morador": () => {}, "#c-equipe": cEquipe, "#c-camara": cCamara, "#c-cidade": cCidade, "#c-numeros": cNumeros, "#c-marca": cMarca };
 window.quadro = t => {
-  for (const [sel, a, b] of CENAS) { const o = alfa(t, a, b); AL[sel] = o; const el = $(sel); el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? "visible" : "hidden"; }
-  for (const [sel, fn] of quadros) if (AL[sel] > 0.002) fn(t);
-  // o celular: aparece no site e no pedido e volta menor no convite
-  const oc = Math.max(AL["#c-cel"], AL["#c-cta"]), cel = $("#cel");
+  CENAS.forEach(([sel, a, b, nossa], k) => { const prox = !!(CENAS[k + 1] && CENAS[k + 1][3]), o = alfa(t, a, b, !!nossa, prox); AL[sel] = o; const el = $(sel); el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? "visible" : "hidden"; if (o > 0.002) FUN[sel](t); });
+  const oc = AL["#c-morador"], cel = $("#cel"); // o celular do "Para o morador"
   cel.style.visibility = oc > 0.002 ? "visible" : "hidden"; cel.style.opacity = oc.toFixed(3);
-  if (D) cCel(t);
-  if (AL["#c-cta"] > 0.002) { const e = entra(t, T("cta") + 0.2, 0.55); cel.style.transform = `translateY(${(410 + e.y * 3).toFixed(1)}px) scale(${(0.62 * e.s).toFixed(4)})`; }
-  else { const e = entra(t, T("site") - 0.35, 0.55); cel.style.transform = `translateY(${(e.y * 3).toFixed(1)}px) scale(${e.s.toFixed(4)})`; }
-  // etiqueta do topo: prévia real do site, depois simulação; no convite, a assinatura
-  const tag = $("#tag"), ot = fase(t, T("site") - 0.35, T("site")) * (1 - fase(t, T("marca") - 0.35, T("marca")));
-  tag.style.opacity = ot.toFixed(3);
-  $("#tag-t").textContent = t < T("pedido") - 0.2 ? "Prévia real do site · já no ar" : t >= T("lancamento") - 0.3 ? "Prévia do vídeo de lançamento" : "Simulação · como vai funcionar";
-  $("#assina").style.opacity = fase(t, T("cta") - 0.2, T("cta") + 0.3).toFixed(3);
+  if (D && oc > 0.002) cMorador(t); else { $("#numero").style.visibility = "hidden"; }
+  const ce = entra(t, T("pedido") - 0.1, 0.6), giro = 1 - ease(fase(t, T("pedido") - 0.1, T("pedido") + 0.9));
+  cel.style.transform = `perspective(2200px) translateY(${(ce.y * 3).toFixed(1)}px) rotateY(${(-16 * giro).toFixed(2)}deg) rotateX(${(6 * giro).toFixed(2)}deg) scale(${ce.s.toFixed(4)})`;
+  $("#bl1").style.transform = `translate(${(420 + 120 * Math.sin(t * 0.21)).toFixed(0)}px,${(-420 + 140 * Math.cos(t * 0.17)).toFixed(0)}px)`; // fundo vivo
+  $("#bl2").style.transform = `translate(${(-560 + 120 * Math.cos(t * 0.15)).toFixed(0)}px,${(1100 + 120 * Math.sin(t * 0.19)).toFixed(0)}px)`;
+  $("#bl3").style.transform = `translate(${(90 + 160 * Math.sin(t * 0.12 + 1)).toFixed(0)}px,${(600 + 200 * Math.cos(t * 0.1)).toFixed(0)}px)`;
+  $("#selo").style.opacity = (fase(t, T("conecta") - 0.3, T("conecta") + 0.1) * (1 - fase(t, T("marca") - 0.5, T("marca") - 0.2))).toFixed(3);
+  let cx = -99999; for (const c of CORTINAS) { const x = ease(fase(t, c - 0.45, c + 0.3)); if (x > 0 && x < 1) cx = lerp(-3000, 1500, x); } // a cortina entre as partes
+  $("#cortina").style.transform = `translateX(${cx.toFixed(0)}px) rotate(14deg)`;
   legenda(t);
-  let soco = 0;
-  for (const f of frases) if (f.impacto) { const x = fase(t, f.ini - 0.03, f.ini + 0.42); if (x > 0 && x < 1) soco = Math.max(soco, 1 - sai(x)); }
-  $("#palco").style.transform = soco ? `scale(${(1 + 0.035 * soco).toFixed(4)})` : "";
-  const v = fase(t, T("virada") - 0.03, T("virada") + 0.35); $("#flash").style.opacity = (v > 0 && v < 1 ? 0.6 * (1 - v) : 0).toFixed(3);
+  let soco = 0; for (const f of frases) if (f.impacto) { const x = fase(t, f.ini - 0.03, f.ini + 0.45); if (x > 0 && x < 1) soco = Math.max(soco, 1 - sai(x)); }
+  $("#palco").style.transform = soco ? `scale(${(1 + 0.04 * soco).toFixed(4)})` : "";
+  const v = fase(t, T("nome") - 0.03, T("nome") + 0.4); $("#flash").style.opacity = (v > 0 && v < 1 ? 0.75 * (1 - v) : 0).toFixed(3);
 };
 
 window.preparar = () => {
   window.quadro(0);
   return {
-    duracao: DUR, narracao: NOME, bpm: 116,
-    // "nada" é onde a trilha corta a batida (trilha-pulso.py): no "Só em janeiro"
-    pulso: frases.map(f => ({ id: f.id === "janeiro" ? "nada" : f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
-    ensaio: [1.0, W("abre", "indica").fim + 0.5, T("pergunta") + 1.4, W("canais", "conversa").ini + 0.8, W("caminho", "perde").ini + 0.7, T("janeiro") + 3.4, T("quem") + 1.2, T("virada") + 1.4,
-      T("site") + 0.6, W("site", "procura").ini + 1.4, W("site", "protocolo").ini + 0.4, T("pedido") + 1.6, T("pedido") + 3.0, W("pedido", "numero").ini + 0.3, W("fila", "terca").ini + 0.6,
-      W("ia", "escreve").ini + 1.4, W("ia", "ja").ini + 0.6, T("camara") + 2.0, W("camara", "cobrar").ini + 0.3, T("aviso") + 3.0, W("painel", "bairro").ini + 1.0, W("painel", "aprovado").ini + 0.4,
-      T("stories") + 2.2, T("lancamento") + 2.5, T("marca") + 2.2, T("cta") + 2.5, DUR - 0.2].map(x => +x.toFixed(2)),
+    duracao: DUR, narracao: NOME, bpm: 112,
+    // a trilha (ferramentas/video/trilha-pulso.py) corta a batida em "nada": aqui, no "Por isso, estamos preparando"
+    pulso: frases.map(f => ({ id: f.id === "preparando" ? "nada" : f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    ensaio: [1.6, B_RUA + 1.0, B_POSTE + 1.0, B_PRACA + 1.4, T("volume") + 2.8, T("problema") + 2.4, T("problema") + 4.0, T("preparando") + 1.2, T("nome") + 0.9,
+      T("conecta") + 3.6, T("pedido") + 0.2, T("pedido") + 2.8, T("acompanha") + 2.6, T("equipe") + 3.0, T("equipe") + 7.0, T("acesso") + 1.6, T("acesso") + 3.4,
+      T("camara") + 3.2, T("ia") + 2.2, T("ia") + 4.2, T("cidade") + 0.9, T("cidade") + 3.4, T("numeros") + 2.4, T("marca") + 0.8, T("frase") + 1.2, DUR - 0.2].map(x => +x.toFixed(2)),
   };
 };
 
-// fontes, a demo no iframe e pronto
 await Promise.all(["800 80px 'Bricolage Grotesque'", "700 80px 'Bricolage Grotesque'", "800 30px 'Plus Jakarta Sans'", "700 30px 'Plus Jakarta Sans'", "600 30px 'Plus Jakarta Sans'", "500 30px 'Plus Jakarta Sans'"].map(f => document.fonts.load(f).catch(() => {})));
 await document.fonts.ready;
 await new Promise(ok => { const d = ifr.contentDocument; if (d && d.readyState === "complete" && /vereador/.test(d.URL)) ok(); else ifr.addEventListener("load", ok, { once: true }); });
 D = ifr.contentDocument; IW = ifr.contentWindow;
 IW.Math.random = () => 0.5; // o número do pedido de demonstração sai sempre igual (nº 2026-0168)
 D.head.insertAdjacentHTML("beforeend", `<style>*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto!important}
-  .reveal{opacity:1!important;transform:none!important}.capa-midia img{opacity:0!important}.capa-midia img:first-of-type{opacity:1!important}.capa-barras{display:none!important}</style>`);
+  .reveal{opacity:1!important;transform:none!important}.capa-midia img{opacity:0!important}.capa-midia img:first-of-type{opacity:1!important}.capa-barras{display:none!important}.barra-cel{display:none!important}</style>`);
 D.querySelectorAll("img[loading=lazy]").forEach(i => (i.loading = "eager"));
+FOTO_ORIG = D.querySelector(".foto-in").innerHTML;
 await D.fonts.ready;
 await new Promise(ok => setTimeout(ok, 800));
 window.quadro(0);

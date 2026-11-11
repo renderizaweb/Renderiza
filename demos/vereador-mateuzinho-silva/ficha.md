@@ -10,7 +10,7 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
   `pedido-*`, inclusive "pedido-enviado" quando ele testa o formulário) e os outros aparelhos (repassou).
 - **Preço:** nenhum na demo.
 - **Proposta e vídeo (11/11/2026):** `proposta.md` traz as duas ofertas (site, ou site com o Portal do Mandato,
-  sob medida e fora do Painel Renderiza), os cuidados e o vídeo de proposta para ele e a equipe
+  sob medida e fora do Painel Renderiza), os cuidados e o vídeo do conceito "Gabinete Aberto" (versão 2: institucional, que ele pode postar)
   (`gravacoes/vereador-mateuzinho-silva-proposta.mp4`), com a fonte de cada número do vídeo.
 - **Gerar de novo:**
   1. `python3 -I ferramentas/demo/fotos-vereador.py demos/vereador-mateuzinho-silva <pasta>`: baixa as fotos pela
