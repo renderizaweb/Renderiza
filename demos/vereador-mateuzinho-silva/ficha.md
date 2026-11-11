@@ -8,7 +8,10 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
   para trabalhar, código `ek9h`, tag "indicação Dr. Marcos". A demo ficou com o prazo automático de 7 dias
   (`vale_ate` 17/11/2026). O contador conta as visitas, as partes vistas, os cliques (Instagram, mapa e os botões
   `pedido-*`, inclusive "pedido-enviado" quando ele testa o formulário) e os outros aparelhos (repassou).
-- **Preço:** nenhum na demo (a proposta não foi definida).
+- **Preço:** nenhum na demo.
+- **Proposta e vídeo (11/11/2026):** `proposta.md` traz as duas ofertas (site, ou site com o Portal do Mandato,
+  sob medida e fora do Painel Renderiza), os cuidados e o vídeo de proposta para ele e a equipe
+  (`gravacoes/vereador-mateuzinho-silva-proposta.mp4`), com a fonte de cada número do vídeo.
 - **Gerar de novo:**
   1. `python3 -I ferramentas/demo/fotos-vereador.py demos/vereador-mateuzinho-silva <pasta>`: baixa as fotos pela
      "origem" de cada uma no `demo.json` (Drive do Kaue ou post público). Com `--tudo`, baixa também as 64 fotos do

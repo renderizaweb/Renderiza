@@ -1,0 +1,27 @@
+{
+ "_sobre": "Vídeo de proposta para o vereador Mateuzinho Silva (Itapevi) e a equipe dele, para mandar no WhatsApp (11/11/2026). NÃO é post do Instagram da Renderiza: usa as fotos dele (do Instagram dele) e a demo dele, sem autorização para divulgação. Conceito \"Gabinete Aberto\" (site + portal do mandato, projeto sob medida, fora do Painel Renderiza). Números de demos/vereador-mateuzinho-silva/dados (ver a ficha). A parte do portal é simulação e aparece marcada assim. Nada de pedir voto, de número de urna ou de \"candidato\"; nada de rosto ou voz dele feitos por IA (a voz é a do narrador). Fotos: python3 -I ferramentas/demo/fotos-vereador.py demos/vereador-mateuzinho-silva <pasta> e copiar para rascunhos/vereador-video/ (ver reels-proposta-vereador.html).",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.3,
+ "frases": [
+  {"id": "abre", "cena": "abre", "trilha": "abre", "texto": "Mateuzinho, desde janeiro de 2025 você fez *185 indicações* para Itapevi.", "fala": "Mateuzinho, desde janeiro de dois mil e vinte e cinco, você fez cento e oitenta e cinco indicações para Itapevi.", "pausa": 0.35},
+  {"id": "pergunta", "cena": "abre", "trilha": "abre", "texto": "Mas quantas o morador consegue *acompanhar?*", "pausa": 0.55, "impacto": true},
+  {"id": "canais", "cena": "hoje", "trilha": "google", "texto": "O pedido chega no WhatsApp, no papel da terça, na conversa da rua.", "pausa": 0.3},
+  {"id": "caminho", "cena": "hoje", "trilha": "insta", "texto": "Vira indicação, vai para a Prefeitura, e o morador *perde de vista.*", "pausa": 0.45},
+  {"id": "janeiro", "cena": "janeiro", "trilha": "meio", "texto": "Só em janeiro de 2026, *61 pedidos* de 2025 foram apresentados de novo.", "fala": "Só em janeiro de dois mil e vinte e seis, sessenta e um pedidos de dois mil e vinte e cinco foram apresentados de novo.", "pausa": 0.3},
+  {"id": "quem", "cena": "janeiro", "trilha": "meio", "texto": "Quem lembra de cobrar *cada um?*", "pausa": 0.6},
+  {"id": "virada", "cena": "virada", "trilha": "ese", "texto": "Agora imagina o *Gabinete Aberto.*", "pausa": 0.55, "impacto": true},
+  {"id": "site", "cena": "site", "trilha": "site", "texto": "O morador abre o seu site, procura a rua dele e vê o pedido: o número da indicação, a situação e o *protocolo na Prefeitura.*", "pausa": 0.35},
+  {"id": "pedido", "cena": "pedido", "trilha": "site", "texto": "Tem um problema novo? Ele manda pelo site em menos de um minuto e recebe um *número na hora.*", "pausa": 0.35},
+  {"id": "fila", "cena": "fila", "trilha": "site", "texto": "No portal do gabinete, tudo cai na *mesma fila:* o site, o WhatsApp e quem veio na terça.", "pausa": 0.35},
+  {"id": "ia", "cena": "ia", "trilha": "site", "texto": "Com um toque, a inteligência artificial escreve a indicação no seu padrão e avisa quando a rua *já tem pedido.*", "pausa": 0.35},
+  {"id": "camara", "cena": "camara", "trilha": "site", "texto": "O portal acompanha o sistema da Câmara sozinho. Se a resposta demora, ele lembra a equipe de *cobrar.*", "pausa": 0.35},
+  {"id": "aviso", "cena": "aviso", "trilha": "site", "texto": "E, a cada passo, o morador recebe o *aviso no WhatsApp.*", "pausa": 0.35},
+  {"id": "painel", "cena": "painel", "trilha": "site", "texto": "Você enxerga o mandato inteiro: os pedidos por bairro, o que está na Prefeitura e o que *já foi aprovado.*", "pausa": 0.35},
+  {"id": "stories", "cena": "stories", "trilha": "site", "texto": "No fim do mês, o resumo sai *pronto para os Stories.*", "pausa": 0.35},
+  {"id": "lancamento", "cena": "lancamento", "trilha": "site", "texto": "E, no dia em que tudo for ao ar, o vídeo para a população *já vem junto.*", "pausa": 0.55},
+  {"id": "marca", "cena": "marca", "trilha": "fim", "texto": "*Gabinete Aberto.* Um olhar para a população.", "pausa": 0.5, "impacto": true},
+  {"id": "cta", "cena": "cta", "trilha": "cta", "texto": "A prévia do site já está no ar. Te mostro na terça, no *gabinete de portas abertas.*", "pausa": 0.3}
+ ]
+}

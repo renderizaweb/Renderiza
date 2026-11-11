@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gabinete Aberto · proposta</title>
+<!--
+  Vídeo de proposta para o vereador Mateuzinho Silva e a equipe dele (11/11/2026). NÃO é post do Instagram da
+  Renderiza: usa as fotos dele e a demo dele. Gravar: node instagram/gerar.mjs reels-proposta-vereador
+  (texto e voz: narracao/reels-proposta-vereador.json → python3 instagram/narrar.py, com SSL_CERT_FILE atrás do proxy).
+  Fotos em rascunhos/vereador-video/ (fora do repositório): retrato, gabinete, rua (ver ficha.md da demo, "Vídeo de
+  proposta"). O celular das cenas do site é a própria demo (demos/vereador-mateuzinho-silva/index.html) num iframe,
+  rolada e preenchida quadro a quadro. Números: dados/proposituras.json e dados/pedidos.json da demo.
+  O portal, o WhatsApp, os Stories e o vídeo de lançamento são simulação e aparecem marcados assim.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+:root{--noite:#1b0f30;--roxo:#4b2a80;--roxo2:#341a5e;--roxo3:#8a69cc;--lilas:#f1ebf8;--lima:#bfe85a;--lima2:#9cc63d;--lima3:#587812;
+  --tinta:#1d1727;--tinta2:#4d4559;--suave:#766e82;--linha:#e8e2ee;--ok:#1f7a4d;--okc:#e2f3e9;--al:#8a5a00;--alc:#fdf3d8;
+  --t:"Bricolage Grotesque","Plus Jakarta Sans",sans-serif;--x:"Plus Jakarta Sans",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--noite)}
+body{font-family:var(--x);color:#fff;-webkit-font-smoothing:antialiased;position:relative}
+svg{display:block}
+#fundo{position:absolute;inset:0;background:radial-gradient(70% 45% at 100% 0,#4a2a86 0,rgba(74,42,134,0) 70%),radial-gradient(60% 40% at 0 100%,#341a5e 0,rgba(52,26,94,0) 70%),var(--noite)}
+#palco{position:absolute;inset:0;transform-origin:50% 42%}
+.cena{position:absolute;inset:0;visibility:hidden}
+.a{position:absolute}
+.tit{font-family:var(--t);font-weight:800;letter-spacing:-.035em;line-height:.98}
+.tit em,.lima{font-style:normal;color:var(--lima)}
+#pe{position:absolute;left:0;right:0;top:1430px;bottom:0;background:linear-gradient(180deg,rgba(27,15,48,0) 0,rgba(27,15,48,.9) 130px,var(--noite) 230px);pointer-events:none}
+#legenda{position:absolute;left:70px;width:940px;top:1600px;text-align:center;font:700 50px/1.3 var(--x);letter-spacing:-.01em}
+#legenda span{opacity:.36}
+#legenda span.dito{opacity:1}
+#legenda span.tom{color:var(--lima)}
+#tag{position:absolute;left:50%;top:44px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;height:56px;padding:0 24px;border-radius:999px;background:rgba(27,15,48,.72);border:1.5px solid rgba(255,255,255,.18);font:700 24px var(--x);letter-spacing:.12em;text-transform:uppercase;color:#e6ddf3;white-space:nowrap}
+#tag i{width:12px;height:12px;border-radius:50%;background:var(--lima)}
+#assina{position:absolute;left:0;right:0;top:58px;text-align:center;font:700 26px var(--x);letter-spacing:.14em;text-transform:uppercase;color:#b9a8d2}
+#flash{position:absolute;inset:0;background:#f4f9e4;opacity:0;pointer-events:none}
+
+/* abertura */
+.foto-fundo{position:absolute;left:0;top:0;width:1080px;height:1180px;overflow:hidden}
+.foto-fundo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform-origin:50% 35%}
+.foto-fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.45) 0,rgba(27,15,48,0) 14%,rgba(27,15,48,0) 42%,rgba(27,15,48,.8) 72%,var(--noite) 100%)}
+#abre-num{left:72px;top:660px;font-size:270px;color:var(--lima);font-variant-numeric:tabular-nums}
+#abre-rot{left:82px;top:948px;font:600 46px var(--x);color:#efe8f8}
+#abre-grade{left:80px;top:1056px;width:920px;display:grid;grid-template-columns:repeat(21,1fr);gap:8px}
+#abre-grade i{display:block;aspect-ratio:1;border-radius:9px;background:rgba(255,255,255,.08)}
+#abre-q{left:0;width:1080px;top:960px;text-align:center;font-size:520px;color:var(--lima);text-shadow:0 30px 80px rgba(0,0,0,.5)}
+
+/* hoje */
+.carta{left:110px;width:860px;height:210px;border-radius:40px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:34px;padding:0 44px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.carta .ic{flex:none;width:122px;height:122px;border-radius:36px;display:grid;place-items:center;color:#fff}
+.carta .ic svg{width:62px;height:62px}
+.carta b{display:block;font:800 56px/1 var(--t);letter-spacing:-.03em}
+.linhas{display:grid;gap:12px;margin-top:20px}
+.linhas i{display:block;height:16px;border-radius:9px;background:#ebe6f0}
+.no{left:190px;width:700px;height:170px;border-radius:999px;background:#fff;color:var(--tinta);display:flex;align-items:center;gap:30px;padding:0 30px;box-shadow:0 30px 70px -36px rgba(0,0,0,.8)}
+.no .ic{flex:none;width:112px;height:112px;border-radius:50%;background:var(--lilas);color:var(--roxo);display:grid;place-items:center}
+.no .ic svg{width:56px;height:56px}
+.no b{font:800 60px/1 var(--t);letter-spacing:-.03em}
+.fio{left:537px;width:0;border-left:7px solid var(--lima);transform-origin:50% 0}
+#n-morador{background:var(--lilas)}
+#n-morador .q{margin-left:auto;width:96px;height:96px;border-radius:50%;background:var(--roxo);color:#fff;display:grid;place-items:center;font:800 64px var(--t)}
+
+/* janeiro */
+#jan-chip{left:50%;top:190px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;height:76px;padding:0 30px;border-radius:999px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);font:700 34px var(--x);white-space:nowrap}
+#jan-chip svg{width:38px;height:38px;color:var(--lima)}
+.jan-chip-w{left:0;right:0;top:190px;display:flex;justify-content:center}
+#jan-num{left:0;width:1080px;top:300px;text-align:center;font-size:400px;color:var(--lima);font-variant-numeric:tabular-nums}
+#jan-num.vazado{color:transparent;-webkit-text-stroke:5px var(--lima)}
+#jan-rot{left:90px;width:900px;top:720px;text-align:center;font:600 48px/1.25 var(--x);color:#efe8f8}
+#jan-docs{left:120px;top:880px;width:840px;display:grid;grid-template-columns:repeat(11,1fr);gap:16px 14px}
+#jan-docs i{display:block;height:88px;border-radius:12px;background:#fff;position:relative;box-shadow:0 10px 20px -12px rgba(0,0,0,.6)}
+#jan-docs i::before{content:"";position:absolute;left:12px;right:12px;top:16px;height:7px;border-radius:4px;background:var(--roxo3);box-shadow:0 16px 0 #ddd3ea,0 32px 0 #ddd3ea,0 48px 0 #ddd3ea}
+
+/* virada */
+.virada-fundo{position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 35%,#6a43b8 0,rgba(106,67,184,0) 70%),linear-gradient(180deg,#2c1654,var(--noite))}
+#porta{left:370px;top:250px;width:340px;height:520px;border:12px solid var(--lima);border-bottom:0;border-radius:26px 26px 0 0;overflow:visible}
+#porta-luz{position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 60%,#f3ffd2 0,#bfe85a 45%,rgba(191,232,90,0) 100%)}
+#porta-folha{position:absolute;inset:0;background:linear-gradient(160deg,#5b34a3,#341a5e);transform-origin:0 50%;box-shadow:inset 0 0 0 3px rgba(255,255,255,.08)}
+#porta-folha::after{content:"";position:absolute;right:34px;top:250px;width:22px;height:22px;border-radius:50%;background:var(--lima)}
+#porta-chao{left:300px;top:770px;width:480px;height:12px;border-radius:6px;background:var(--lima)}
+#virada-t{left:0;width:1080px;top:850px;text-align:center;font-size:140px;white-space:nowrap}
+#virada-s{left:0;width:1080px;top:1040px;text-align:center;font:600 48px var(--x);color:#e6ddf3}
+
+/* celular com a demo */
+#cel{position:absolute;left:202px;top:110px;width:676px;height:1411px;border-radius:86px;background:#0c0716;padding:22px;box-shadow:0 70px 140px -50px rgba(0,0,0,.85),inset 0 0 0 3px #3b2a58;transform-origin:50% 0;visibility:hidden}
+#cel .tela{position:relative;width:632px;height:1367px;border-radius:66px;overflow:hidden;background:#fff}
+#demo{width:390px;height:844px;border:0;transform:scale(1.62051);transform-origin:0 0;display:block}
+#anel{left:0;top:0;border:6px solid var(--lima);border-radius:22px;box-shadow:0 0 0 8px rgba(191,232,90,.25),0 0 40px rgba(191,232,90,.55)}
+#toque{left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(255,255,255,.4);border:4px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+
+/* janela do portal (e do painel) */
+.janela{left:60px;top:150px;width:960px;height:1340px;border-radius:44px;background:#fbfaf7;color:var(--tinta);overflow:hidden;box-shadow:0 70px 140px -50px rgba(0,0,0,.85)}
+.j-topo{height:112px;display:flex;align-items:center;gap:18px;padding:0 34px;background:#fff;border-bottom:2px solid var(--linha)}
+.j-logo{width:64px;height:64px;border-radius:18px;background:var(--roxo);color:var(--lima);display:grid;place-items:center}
+.j-logo svg{width:36px;height:36px}
+.j-topo b{display:block;font:800 36px/1 var(--t);letter-spacing:-.02em;color:var(--roxo)}
+.j-topo small{display:block;font:600 22px var(--x);color:var(--suave);margin-top:4px}
+.j-av{margin-left:auto;width:62px;height:62px;border-radius:50%;background:var(--lilas);color:var(--roxo);display:grid;place-items:center;font:800 24px var(--x)}
+.j-abas{height:84px;display:flex;align-items:flex-end;gap:34px;padding:0 34px;border-bottom:2px solid var(--linha);font:700 27px var(--x);color:var(--suave);white-space:nowrap;overflow:hidden}
+.j-abas span{padding-bottom:20px;border-bottom:5px solid transparent}
+.j-abas span.ativa{color:var(--roxo);border-color:var(--lima2)}
+.j-corpo{position:absolute;left:0;right:0;top:196px;bottom:0;overflow:hidden}
+.v{position:absolute;inset:0;padding:30px 36px}
+.v h4{font:800 52px/1 var(--t);letter-spacing:-.03em}
+.j-chips{display:flex;gap:12px;margin-top:22px}
+.j-chips span{height:52px;padding:0 20px;border-radius:999px;border:2px solid var(--linha);display:flex;align-items:center;gap:10px;font:700 24px var(--x);color:var(--tinta2);background:#fff}
+.j-chips span b{color:var(--roxo)}
+.j-chips span.ativa{background:var(--roxo);color:#fff;border-color:var(--roxo)}
+.j-chips span.ativa b{color:var(--lima)}
+.lin{position:absolute;left:36px;right:36px;top:0;height:176px;background:#fff;border:2px solid var(--linha);border-radius:28px;padding:20px 26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 30px -24px rgba(29,23,39,.5)}
+.lin .l-top{display:flex;align-items:center;justify-content:space-between}
+.canal{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px;border-radius:999px;font:800 21px var(--x);letter-spacing:.04em;text-transform:uppercase}
+.canal svg{width:24px;height:24px}
+.c-site{background:var(--lilas);color:var(--roxo)}
+.c-zap{background:#e3f6ea;color:#1c7a43}
+.c-terca{background:var(--alc);color:var(--al)}
+.c-acomp{background:#f0eef3;color:var(--suave)}
+.l-hora{font:600 22px var(--x);color:var(--suave)}
+.lin b{font:700 34px/1.1 var(--x);letter-spacing:-.01em}
+.lin .l-pe{display:flex;align-items:center;justify-content:space-between;font:600 25px var(--x);color:var(--tinta2)}
+.chip{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;font:800 22px var(--x);white-space:nowrap}
+.ch-novo{background:#eef7d6;color:var(--lima3)}
+.ch-pref{background:var(--lilas);color:var(--roxo)}
+.ch-cam{background:var(--alc);color:var(--al)}
+.ch-ok{background:var(--okc);color:var(--ok)}
+.voltar{display:flex;align-items:center;gap:10px;font:700 25px var(--x);color:var(--roxo)}
+.voltar svg{width:28px;height:28px}
+#ia-tit{margin-top:22px;font:800 48px/1.05 var(--t);letter-spacing:-.03em}
+#ia-meta{margin-top:12px;font:600 25px var(--x);color:var(--suave)}
+.fala-morador{margin-top:22px;padding:20px 24px;border-radius:24px;background:#f0eef3;font:500 28px/1.4 var(--x);color:var(--tinta2)}
+.fala-morador small{display:block;font:800 20px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--suave);margin-bottom:6px}
+#ia-bt{margin-top:24px;height:84px;border-radius:24px;background:var(--lima);color:var(--noite);display:flex;align-items:center;justify-content:center;gap:16px;font:800 31px var(--x);box-shadow:0 18px 30px -18px #6e8f1f}
+#ia-bt svg{width:38px;height:38px}
+#ia-texto{margin-top:22px;min-height:300px;padding:24px 28px;border-radius:26px;background:var(--lilas);border:2px solid #e2d6f2;font:500 30px/1.45 var(--x);color:var(--tinta)}
+#ia-texto small{display:block;font:800 20px var(--x);letter-spacing:.08em;text-transform:uppercase;color:var(--roxo);margin-bottom:8px}
+#ia-cursor{display:inline-block;width:3px;height:34px;background:var(--roxo);vertical-align:-6px;margin-left:2px}
+#ia-alerta{left:36px;right:36px;top:840px;padding:22px 26px;border-radius:26px;background:var(--alc);border:2px solid #f0d58f;color:var(--tinta)}
+#ia-alerta .l1{display:flex;align-items:center;gap:14px;font:800 30px var(--x);color:var(--al)}
+#ia-alerta .l1 svg{width:36px;height:36px}
+#ia-alerta p{margin-top:10px;font:600 26px/1.4 var(--x);color:var(--tinta2)}
+#ia-alerta .bts{display:flex;gap:12px;margin-top:16px}
+.btp{height:58px;padding:0 22px;border-radius:16px;display:inline-flex;align-items:center;font:800 23px var(--x)}
+.btp.r{background:var(--roxo);color:#fff}
+.btp.c{background:#fff;color:var(--roxo);border:2px solid var(--linha)}
+.cam-topo{display:flex;align-items:center;gap:18px}
+.cam-topo .ic{width:76px;height:76px;border-radius:22px;background:var(--lilas);color:var(--roxo);display:grid;place-items:center}
+.cam-topo .ic svg{width:42px;height:42px}
+.cam-topo b{display:block;font:800 36px/1.1 var(--t);letter-spacing:-.02em}
+#sinc{display:flex;align-items:center;gap:10px;font:700 24px var(--x);color:var(--suave);margin-top:4px}
+#sinc svg{width:26px;height:26px}
+#sinc-ic{display:inline-flex}
+#sinc.ok{color:var(--ok)}
+.cam-sub{margin-top:30px;font:800 22px var(--x);letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+.ci{margin-top:14px;padding:20px 24px;border-radius:24px;background:#fff;border:2px solid var(--linha);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.ci b{display:block;font:800 30px var(--x);color:var(--roxo)}
+.ci span{display:block;font:600 24px/1.3 var(--x);color:var(--tinta2);margin-top:4px}
+.ci .chip{flex:none}
+#toast{left:90px;width:900px;top:300px;padding:26px 28px;border-radius:30px;background:#fff;color:var(--tinta);box-shadow:0 40px 90px -30px rgba(0,0,0,.75);border:2px solid #e2d6f2}
+#toast .l1{display:flex;align-items:center;gap:18px}
+#toast .sino{width:70px;height:70px;border-radius:50%;background:var(--roxo);color:var(--lima);display:grid;place-items:center;flex:none}
+#toast .sino svg{width:38px;height:38px}
+#toast b{display:block;font:800 32px var(--x)}
+#toast small{display:block;font:700 22px var(--x);color:var(--suave);letter-spacing:.06em;text-transform:uppercase}
+#toast p{margin-top:16px;font:600 28px/1.4 var(--x);color:var(--tinta2)}
+#toast .bts{display:flex;gap:12px;margin-top:18px}
+
+/* aviso no WhatsApp (conversa genérica) */
+.fone{border-radius:84px;background:#0c0716;padding:20px;box-shadow:0 70px 140px -50px rgba(0,0,0,.85),inset 0 0 0 3px #3b2a58}
+.fone .tela{position:relative;width:100%;height:100%;border-radius:66px;overflow:hidden}
+#zap{left:230px;top:150px;width:620px;height:1320px}
+#zap .tela{background:#ece5dd}
+.z-topo{height:170px;background:#2b1650;display:flex;align-items:flex-end;gap:18px;padding:0 28px 24px}
+.z-topo img{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+.z-topo b{display:block;font:800 27px/1.15 var(--x)}
+.z-topo small{display:block;font:600 21px var(--x);color:#cdbfe0}
+.bolha{left:26px;max-width:500px;padding:20px 24px 16px;border-radius:8px 30px 30px 30px;background:#fff;color:var(--tinta);font:500 28px/1.38 var(--x);box-shadow:0 4px 10px -6px rgba(0,0,0,.3)}
+.bolha .h{display:flex;justify-content:flex-end;align-items:center;gap:6px;font:600 19px var(--x);color:#8a8a8a;margin-top:6px}
+.bolha .h svg{width:22px;height:22px;color:#4a90d9}
+.bolha .lk{display:flex;align-items:center;gap:12px;margin-top:14px;padding:16px 18px;border-radius:18px;background:var(--lilas);color:var(--roxo);font:800 26px var(--x)}
+.bolha .lk svg{width:30px;height:30px}
+
+/* indicadores */
+#jp-sub{margin-top:10px;font:600 24px var(--x);color:var(--suave)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.kpi{position:relative;padding:24px 22px;border-radius:28px;background:var(--lilas);transition:none}
+.kpi b{display:block;font:800 92px/1 var(--t);letter-spacing:-.04em;color:var(--roxo);font-variant-numeric:tabular-nums}
+.kpi span{display:block;font:700 26px/1.2 var(--x);color:var(--tinta2);margin-top:10px}
+.kpi.luz{background:var(--roxo)}
+.kpi.luz b{color:var(--lima)}
+.kpi.luz span{color:#fff}
+.barras h5{margin-top:42px;font:800 22px var(--x);letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+.barra{display:grid;grid-template-columns:300px minmax(0,1fr) 60px;align-items:center;gap:16px;margin-top:20px;font:700 27px var(--x);color:var(--tinta2)}
+.barra i{display:block;height:44px;border-radius:14px;background:linear-gradient(90deg,var(--roxo),var(--roxo3));transform-origin:0 50%}
+.barra b{font:800 32px var(--t);color:var(--roxo);text-align:right}
+
+/* stories e lançamento */
+#story{left:240px;top:150px;width:600px;height:1300px}
+#story .tela{background:var(--noite)}
+.st-barras{position:absolute;left:24px;right:24px;top:26px;display:flex;gap:8px;z-index:3}
+.st-barras i{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.35);overflow:hidden}
+.st-barras i::after{content:"";display:block;height:100%;width:var(--p,0%);background:#fff}
+.st-quem{position:absolute;left:24px;top:52px;display:flex;align-items:center;gap:12px;z-index:3;font:700 22px var(--x)}
+.st-quem img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 25%;border:2px solid #fff}
+.st-foto{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden}
+.st-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.st-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.5) 0,rgba(27,15,48,0) 25%,rgba(27,15,48,0) 55%,var(--noite) 100%)}
+.st-txt{position:absolute;left:36px;right:36px;top:560px}
+.st-txt small{font:800 20px var(--x);letter-spacing:.14em;text-transform:uppercase;color:var(--lima)}
+.st-txt h3{font:800 66px/1 var(--t);letter-spacing:-.035em;margin-top:10px}
+.st-n{display:flex;align-items:baseline;gap:16px;margin-top:18px}
+.st-n b{font:800 84px/1 var(--t);letter-spacing:-.04em;color:var(--lima);min-width:170px;font-variant-numeric:tabular-nums}
+.st-n span{font:700 30px var(--x)}
+.st-fonte{margin-top:20px;font:600 20px var(--x);color:#b9a8d2}
+.st-frase{position:absolute;left:36px;right:36px;bottom:60px;font:700 30px var(--x);color:#efe8f8}
+#lanc{left:240px;top:170px;width:600px;height:1290px}
+#lanc .tela{background:#000}
+#lanc-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.lanc-veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,15,48,.2) 0,rgba(27,15,48,0) 40%,rgba(27,15,48,.88) 78%,var(--noite) 100%)}
+#lanc-t{position:absolute;left:36px;right:36px;bottom:170px;font:800 64px/1.02 var(--t);letter-spacing:-.035em}
+#lanc-n{position:absolute;left:36px;right:36px;bottom:120px;font:700 24px var(--x);color:#dccff0}
+.lanc-barra{position:absolute;left:36px;right:36px;bottom:66px;height:6px;border-radius:4px;background:rgba(255,255,255,.3);overflow:hidden}
+.lanc-barra i{display:block;height:100%;width:0;background:var(--lima)}
+#marca-d{position:absolute;left:-200px;right:-200px;top:520px;text-align:center;font:800 190px var(--t);letter-spacing:.06em;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.55);transform:rotate(-20deg)}
+
+/* marca e convite */
+.marca-fundo{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 40%,#5b34a3 0,rgba(91,52,163,0) 70%)}
+#marca-porta{left:440px;top:420px;width:200px;height:200px;color:var(--lima)}
+#marca-porta svg{width:200px;height:200px}
+#marca-t{left:0;width:1080px;top:690px;text-align:center;font-size:140px;white-space:nowrap}
+#marca-s{left:0;width:1080px;top:900px;text-align:center;font:700 60px var(--x);color:var(--lima)}
+#cta-t{left:0;width:1080px;top:150px;text-align:center;font-size:96px}
+#cta-link{left:0;width:1080px;top:380px;text-align:center;font:700 32px var(--x);color:var(--lima)}
+.cta-chip-w{left:0;right:0;top:1420px;display:flex;justify-content:center}
+#cta-chip{display:flex;align-items:center;gap:16px;height:84px;padding:0 32px;border-radius:999px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);font:700 32px var(--x);white-space:nowrap}
+#cta-chip svg{width:40px;height:40px;color:var(--lima)}
+</style>
+</head>
+<body>
+<div id="fundo"></div>
+<div id="palco">
+
+  <div class="cena" id="c-abre">
+    <div class="foto-fundo"><img id="abre-foto" src="../rascunhos/vereador-video/retrato.jpg" alt=""></div>
+    <div class="a tit" id="abre-num">0</div>
+    <div class="a" id="abre-rot">indicações desde janeiro de 2025</div>
+    <div class="a" id="abre-grade"></div>
+    <div class="a tit" id="abre-q">?</div>
+  </div>
+
+  <div class="cena" id="c-hoje">
+    <div class="a carta" id="carta-whats" style="top:300px"><span class="ic" style="background:#25a35a" data-ic="msg"></span><div style="flex:1"><b>WhatsApp</b><div class="linhas"><i style="width:88%"></i><i style="width:56%"></i></div></div></div>
+    <div class="a carta" id="carta-papel" style="top:580px"><span class="ic" style="background:#c08a16" data-ic="clip"></span><div style="flex:1"><b>Papel da terça</b><div class="linhas"><i style="width:80%"></i><i style="width:64%"></i></div></div></div>
+    <div class="a carta" id="carta-rua" style="top:860px"><span class="ic" style="background:var(--roxo)" data-ic="pin"></span><div style="flex:1"><b>Conversa na rua</b><div class="linhas"><i style="width:84%"></i><i style="width:48%"></i></div></div></div>
+    <div class="a fio" id="l-n-ind" style="top:440px;height:110px"></div>
+    <div class="a fio" id="l-n-pref" style="top:720px;height:110px"></div>
+    <div class="a fio" id="l-n-morador" style="top:1000px;height:110px"></div>
+    <div class="a no" id="n-pedido" style="top:270px"><span class="ic" data-ic="msg"></span><b>Pedido</b></div>
+    <div class="a no" id="n-ind" style="top:550px"><span class="ic" data-ic="doc"></span><b>Indicação</b></div>
+    <div class="a no" id="n-pref" style="top:830px"><span class="ic" data-ic="predio"></span><b>Prefeitura</b></div>
+    <div class="a no" id="n-morador" style="top:1110px"><span class="ic" data-ic="user"></span><b>Morador</b><span class="q">?</span></div>
+  </div>
+
+  <div class="cena" id="c-janeiro">
+    <div class="a jan-chip-w"><div id="jan-chip"><span data-ic="cal"></span>janeiro de 2026</div></div>
+    <div class="a tit" id="jan-num">0</div>
+    <div class="a" id="jan-rot">pedidos de 2025 apresentados de novo</div>
+    <div class="a" id="jan-docs"></div>
+  </div>
+
+  <div class="cena" id="c-virada">
+    <div class="virada-fundo"></div>
+    <div class="a" id="porta"><div id="porta-luz"></div><div id="porta-folha"></div></div>
+    <div class="a" id="porta-chao"></div>
+    <div class="a tit" id="virada-t">Gabinete <em>Aberto</em></div>
+    <div class="a" id="virada-s">o site e o portal do mandato</div>
+  </div>
+
+  <div id="cel"><div class="tela"><iframe id="demo" src="../demos/vereador-mateuzinho-silva/index.html" scrolling="no" title="demo"></iframe></div></div>
+  <div class="cena" id="c-cel">
+    <div class="a" id="anel"></div>
+    <div class="a" id="toque"></div>
+  </div>
+
+  <div class="cena" id="c-portal">
+    <div class="a janela">
+      <div class="j-topo"><span class="j-logo" data-ic="porta"></span><div><b>Gabinete Aberto</b><small>Portal do mandato</small></div><span class="j-av">MS</span></div>
+      <div class="j-abas"><span id="aba-ped" class="ativa">Pedidos</span><span>Gabinete</span><span>Agenda</span><span id="aba-cam">Câmara</span><span>Indicadores</span><span>Site</span></div>
+      <div class="j-corpo">
+        <div class="v" id="v-fila">
+          <h4>Central de pedidos</h4>
+          <div class="j-chips"><span class="ativa">Todos <b id="fila-n">2</b></span><span>Novos <b id="fila-novos">0</b></span><span>Na Prefeitura <b>1</b></span></div>
+          <div class="a" style="left:0;right:0;top:184px;bottom:0">
+            <div class="lin" id="r1"><div class="l-top"><span class="canal c-site"><span data-ic="globo"></span>Site</span><span class="l-hora">agora</span></div><b>Buraco na Rua Tilápia, 120</b><div class="l-pe"><span>Jardim São Carlos</span><span class="chip ch-novo">Novo</span></div></div>
+            <div class="lin" id="r2"><div class="l-top"><span class="canal c-zap"><span data-ic="msg"></span>WhatsApp</span><span class="l-hora">agora</span></div><b>Poste apagado na Rua Quinze de Novembro</b><div class="l-pe"><span>Jardim São Carlos</span><span class="chip ch-novo">Novo</span></div></div>
+            <div class="lin" id="r3"><div class="l-top"><span class="canal c-terca"><span data-ic="porta"></span>Terça no gabinete</span><span class="l-hora">agora</span></div><b>Limpeza da praça da Av. Brasil</b><div class="l-pe"><span>Jardim Rainha</span><span class="chip ch-novo">Novo</span></div></div>
+            <div class="lin" id="r4"><div class="l-top"><span class="canal c-acomp"><span data-ic="doc"></span>Indicação 10379/2026</span><span class="l-hora">03/09/2026</span></div><b>Recapeamento e drenagem na Rua Santo Antônio</b><div class="l-pe"><span>Vila Dr. Cardoso</span><span class="chip ch-pref">Na Prefeitura</span></div></div>
+            <div class="lin" id="r5"><div class="l-top"><span class="canal c-acomp"><span data-ic="doc"></span>Indicação 10527/2026</span><span class="l-hora">09/09/2026</span></div><b>Recapeamento da Rua Romão L. Barbosa</b><div class="l-pe"><span>Jardim Santa Rita</span><span class="chip ch-cam">Tramitando</span></div></div>
+          </div>
+        </div>
+        <div class="v" id="v-ia">
+          <div class="voltar"><span data-ic="voltar"></span>Central de pedidos</div>
+          <div id="ia-tit">Buraco na Rua Tilápia, 120</div>
+          <div id="ia-meta">Jardim São Carlos · chegou pelo site · <span id="ia-num">nº 2026-0168</span></div>
+          <div class="fala-morador"><small>O morador escreveu</small>Buraco grande na frente do número 120.</div>
+          <div id="ia-bt"><span data-ic="ia"></span><span id="ia-bt-t">Escrever a indicação com IA</span></div>
+          <div id="ia-texto"><small>Rascunho da indicação</small><span id="ia-escrito"></span><span id="ia-cursor"></span></div>
+          <div class="a" id="ia-alerta"><div class="l1"><span data-ic="alerta"></span>Esta rua já tem pedido</div><p>Câmeras de monitoramento na Rua Tilápia: Indicações 1447/2026 e 5867/2025, as duas na Prefeitura.</p><div class="bts"><span class="btp r">Ver as indicações</span><span class="btp c">Seguir com a nova</span></div></div>
+        </div>
+        <div class="v" id="v-camara">
+          <div class="cam-topo"><span class="ic" data-ic="predio"></span><div><b>Câmara Municipal de Itapevi</b><div id="sinc"><span id="sinc-ic" data-ic="sinc"></span><span id="sinc-t">Buscando no sistema da Câmara…</span></div></div></div>
+          <div class="cam-sub">Indicações do mandato</div>
+          <div class="ci" id="ci1"><div><b>10527/2026 · 09/09</b><span>Recapeamento da Rua Romão L. Barbosa · Jardim Santa Rita</span></div><span class="chip ch-cam">Tramitando</span></div>
+          <div class="ci" id="ci2"><div><b>10379/2026 · 03/09</b><span>Recapeamento e drenagem na Rua Santo Antônio · Vila Dr. Cardoso</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+          <div class="ci" id="ci3"><div><b>10376/2026 · 02/09</b><span>Recapeamento da Rua Siqueira Gonçalves · Chácara Vitápolis</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+          <div class="ci" id="ci4"><div><b>10295/2026 · 31/08</b><span>Recapeamento da Rua Ezequiel Antônio de Oliveira · Jardim Santo Antônio</span></div><span class="chip ch-pref">Na Prefeitura</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="a" id="toast"><div class="l1"><span class="sino" data-ic="sino"></span><div><small>Lembrete de cobrança</small><b>Indicação 10379/2026</b></div></div><p>Está na Prefeitura desde 03/09/2026. Hora de cobrar a resposta?</p><div class="bts"><span class="btp r">Fazer requerimento</span><span class="btp c">Lembrar depois</span></div></div>
+  </div>
+
+  <div class="cena" id="c-aviso">
+    <div class="a fone" id="zap"><div class="tela">
+      <div class="z-topo"><img src="../rascunhos/vereador-video/retrato.jpg" alt=""><div><b>Gabinete · Vereador Mateuzinho Silva</b><small>mensagem automática</small></div></div>
+      <div class="a bolha" id="b1" style="top:210px">Recebemos o seu pedido <b id="zap-num">nº 2026-0168</b>: buraco na Rua Tilápia, 120, Jardim São Carlos.<div class="h">agora<span data-ic="check2"></span></div></div>
+      <div class="a bolha" id="b2" style="top:430px">Ele virou indicação na Câmara.<div class="h">agora<span data-ic="check2"></span></div></div>
+      <div class="a bolha" id="b3" style="top:580px">Foi enviado à Prefeitura, com protocolo. Acompanhe cada passo:<div class="lk"><span data-ic="link"></span>Acompanhar o meu pedido</div><div class="h">agora<span data-ic="check2"></span></div></div>
+    </div></div>
+  </div>
+
+  <div class="cena" id="c-painel">
+    <div class="a janela">
+      <div class="j-topo"><span class="j-logo" data-ic="porta"></span><div><b>Gabinete Aberto</b><small>Portal do mandato</small></div><span class="j-av">MS</span></div>
+      <div class="j-abas"><span>Pedidos</span><span>Gabinete</span><span>Agenda</span><span>Câmara</span><span class="ativa">Indicadores</span><span>Site</span></div>
+      <div class="j-corpo"><div class="v">
+        <h4>Indicadores do mandato</h4>
+        <div id="jp-sub">Sistema da Câmara Municipal de Itapevi · consulta em 10/11/2026</div>
+        <div class="kpis"><div class="kpi" id="k1"><b data-n="185">0</b><span>Indicações</span></div><div class="kpi" id="k2"><b data-n="173">0</b><span>Na Prefeitura</span></div><div class="kpi" id="k3"><b data-n="10">0</b><span>Projetos aprovados</span></div></div>
+        <div class="barras"><h5>Pedidos por bairro</h5>
+          <div class="barra"><span>Jardim Portela</span><i style="width:100%"></i><b>10</b></div>
+          <div class="barra"><span>Jardim São Carlos</span><i style="width:90%"></i><b>9</b></div>
+          <div class="barra"><span>Centro</span><i style="width:80%"></i><b>8</b></div>
+          <div class="barra"><span>Vila Santa Rita</span><i style="width:80%"></i><b>8</b></div>
+          <div class="barra"><span>Jardim Sorocabano</span><i style="width:50%"></i><b>5</b></div>
+          <div class="barra"><span>Monte Serrat</span><i style="width:50%"></i><b>5</b></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-stories">
+    <div class="a fone" id="story"><div class="tela">
+      <div class="st-foto"><img src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
+      <div class="st-barras"><i id="st-p1"></i><i></i><i></i></div>
+      <div class="st-quem"><img src="../rascunhos/vereador-video/retrato.jpg" alt="">vereadormateuzinhosilva</div>
+      <div class="st-txt"><small>Prestação de contas</small><h3>O mandato em 2026</h3>
+        <div class="st-n"><b data-n="117">0</b><span>indicações</span></div>
+        <div class="st-n"><b data-n="143">0</b><span>requerimentos</span></div>
+        <div class="st-n"><b data-n="14">0</b><span>projetos de lei</span></div>
+        <div class="st-fonte">Sistema da Câmara, até 11/09/2026</div></div>
+      <div class="st-frase">Um olhar para a população.</div>
+    </div></div>
+  </div>
+
+  <div class="cena" id="c-lanc">
+    <div class="a fone" id="lanc"><div class="tela">
+      <img id="lanc-foto" src="../rascunhos/vereador-video/rua.jpg" alt="">
+      <div class="lanc-veu"></div>
+      <div id="lanc-t">Agora você acompanha o seu pedido, <em class="lima">rua por rua.</em></div>
+      <div id="lanc-n">Vereador Mateuzinho Silva · Itapevi</div>
+      <div class="lanc-barra"><i id="lanc-p"></i></div>
+      <div id="marca-d">PRÉVIA</div>
+    </div></div>
+  </div>
+
+  <div class="cena" id="c-marca">
+    <div class="marca-fundo"></div>
+    <div class="a" id="marca-porta" data-ic="porta"></div>
+    <div class="a tit" id="marca-t">Gabinete <em>Aberto</em></div>
+    <div class="a" id="marca-s">Um olhar para a população.</div>
+  </div>
+
+  <div class="cena" id="c-cta">
+    <div class="a tit" id="cta-t">A prévia do site<br><em>já está no ar.</em></div>
+    <div class="a" id="cta-link">renderizaweb.com.br/demo/vereador-mateuzinho-silva</div>
+    <div class="a cta-chip-w"><div id="cta-chip"><span data-ic="cal"></span>Terça, no gabinete de portas abertas</div></div>
+  </div>
+</div>
+<div id="pe"></div>
+<div id="tag"><i></i><span id="tag-t">Simulação · como vai funcionar</span></div>
+<div id="assina">Kaue · Renderiza</div>
+<div id="legenda"></div>
+<div id="flash"></div>
+
+<script type="module">
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const volta = x => (x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2));
+const lerp = (a, b, x) => a + (b - a) * x;
+const h = i => { const s = Math.sin(i * 127.1) * 43758.5453; return s - Math.floor(s); };
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+function pos(el, { x = 0, y = 0, s = 1, r = 0, o = 1 } = {}) {
+  el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg) scale(${s.toFixed(4)})`;
+  el.style.opacity = o.toFixed(3);
+  el.style.visibility = o <= 0.002 ? "hidden" : "visible";
+}
+const entra = (t, t0, d = 0.38) => { const x = fase(t, t0, t0 + d); return { x, s: x > 0 ? lerp(0.72, 1, volta(x)) : 0.72, o: clamp(x * 3), y: (1 - sai(x)) * 46 }; };
+const conta = (el, alvo, x) => { el.textContent = Math.round(alvo * sai(x)).toLocaleString("pt-BR"); };
+
+// ícones (Lucide, licença ISC)
+const IC = {
+  msg: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  clip: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  doc: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  predio: '<line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
+  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  cal: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  porta: '<path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/>',
+  ia: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+  alerta: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  voltar: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+  sinc: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  check2: '<path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/>',
+  sino: '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  globo: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+};
+const svg = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+$$("[data-ic]").forEach(el => (el.innerHTML = svg(el.dataset.ic) + el.innerHTML));
+
+// tempos da narração (instagram/narrar.py)
+const NOME = "reels-proposta-vereador";
+const TEMPOS = await (await fetch(`narracao/${NOME}.tempos.json?v=${Date.now()}`)).json();
+const frases = TEMPOS.frases;
+const F = Object.fromEntries(frases.map(f => [f.id, f]));
+const DUR = +(TEMPOS.duracao + 1.4).toFixed(2);
+const T = id => F[id].ini;
+const W = (id, ini) => { const ps = F[id].palavras, k = ps.findIndex(p => norm(p.p).startsWith(norm(ini))); if (k < 0) throw new Error(`não achei "${ini}" em ${id}`); return ps[k]; };
+
+const CENAS = [["#c-abre", 0, T("canais")], ["#c-hoje", T("canais"), T("janeiro")], ["#c-janeiro", T("janeiro"), T("virada")], ["#c-virada", T("virada"), T("site")],
+  ["#c-cel", T("site"), T("fila")], ["#c-portal", T("fila"), T("aviso")], ["#c-aviso", T("aviso"), T("painel")], ["#c-painel", T("painel"), T("stories")],
+  ["#c-stories", T("stories"), T("lancamento")], ["#c-lanc", T("lancamento"), T("marca")], ["#c-marca", T("marca"), T("cta")], ["#c-cta", T("cta"), 999]];
+const alfa = (t, a, b) => (a === 0 ? 1 : fase(t, a - 0.35, a)) * (1 - fase(t, b - 0.35, b));
+const AL = {};
+
+// ---------- abertura: 185 indicações ----------
+const grade = $("#abre-grade"); for (let i = 0; i < 185; i++) grade.insertAdjacentHTML("beforeend", "<i></i>");
+const quad = $$("#abre-grade i");
+function cAbre(t) {
+  const q = F.pergunta, kb = fase(t, 0, T("canais")), esc = fase(t, q.ini - 0.1, q.ini + 0.5);
+  const foto = $("#abre-foto");
+  foto.style.transform = `scale(${lerp(1.02, 1.13, kb).toFixed(4)})`;
+  foto.style.filter = esc > 0 ? `brightness(${lerp(1, 0.4, esc).toFixed(3)}) blur(${(esc * 6).toFixed(1)}px)` : "";
+  const c0 = W("abre", "185").ini - 0.55, c1 = W("abre", "indica").fim + 0.35, n = Math.round(185 * sai(fase(t, c0, c1)));
+  $("#abre-num").textContent = n;
+  const a = entra(t, c0 - 0.25), b = entra(t, c0 + 0.1);
+  pos($("#abre-num"), { y: a.y, o: a.o * (1 - 0.6 * esc) });
+  pos($("#abre-rot"), { y: b.y, o: b.o * (1 - 0.6 * esc) });
+  const g = entra(t, c0 - 0.2); pos(grade, { y: g.y, o: g.o });
+  quad.forEach((el, i) => {
+    const k = fase(t, q.ini + i * 0.005, q.ini + 0.45 + i * 0.005);
+    el.style.background = i < n ? `rgba(${Math.round(lerp(191, 255, k))},${Math.round(lerp(232, 255, k))},${Math.round(lerp(90, 255, k))},${lerp(1, 0.12, k).toFixed(3)})` : "rgba(255,255,255,.08)";
+  });
+  const p = entra(t, W("pergunta", "morador").ini - 0.1, 0.5); pos($("#abre-q"), { y: p.y, s: p.s, o: p.o });
+}
+
+// ---------- hoje: os canais e o caminho ----------
+function cHoje(t) {
+  const k = F.caminho, fora = fase(t, k.ini - 0.25, k.ini + 0.25);
+  [["whats", "whatsapp", -2.2], ["papel", "papel", 1.8], ["rua", "conversa", -1.3]].forEach(([id, w, r], i) => {
+    const a = entra(t, W("canais", w).ini - 0.18, 0.45);
+    pos($("#carta-" + id), { x: (1 - sai(a.x)) * (i % 2 ? 140 : -140) , y: a.y - 120 * sai(fora), r: r * a.x, s: a.s * (1 - 0.2 * fora), o: a.o * (1 - fora) });
+  });
+  const nos = [["n-pedido", k.ini - 0.05], ["n-ind", W("caminho", "indica").ini - 0.1], ["n-pref", W("caminho", "prefeitura").ini - 0.1], ["n-morador", W("caminho", "morador").ini - 0.15]];
+  const perde = fase(t, W("caminho", "perde").ini - 0.1, W("caminho", "perde").ini + 0.6);
+  nos.forEach(([id, t0], i) => {
+    const a = entra(t, t0, 0.42);
+    pos($("#" + id), { y: a.y, s: a.s, o: a.o * (i === 3 ? 1 - 0.6 * perde : 1) });
+    if (i) { const l = $("#l-" + id); l.style.transform = `scaleY(${sai(fase(t, t0 - 0.3, t0 + 0.05)).toFixed(3)})`; l.style.opacity = i === 3 ? (1 - 0.6 * perde).toFixed(3) : "1"; l.style.borderLeftStyle = i === 3 && perde > 0.25 ? "dashed" : "solid"; }
+  });
+  $("#n-morador").style.filter = perde > 0 ? `grayscale(${perde.toFixed(3)})` : "";
+}
+
+// ---------- janeiro: 61 pedidos de novo ----------
+const docs = $("#jan-docs"); for (let i = 0; i < 61; i++) docs.insertAdjacentHTML("beforeend", "<i></i>");
+const docsEl = $$("#jan-docs i");
+function cJaneiro(t) {
+  const j = F.janeiro, q = F.quem;
+  const a = entra(t, j.ini - 0.1); pos($(".jan-chip-w"), { y: a.y, o: a.o });
+  const w = W("janeiro", "61"), x = fase(t, w.ini - 0.35, w.fim + 0.8), n = Math.round(61 * sai(x));
+  $("#jan-num").textContent = n;
+  const b = entra(t, w.ini - 0.45, 0.45); pos($("#jan-num"), { y: b.y, s: b.s, o: b.o });
+  const c = entra(t, w.fim + 0.1); pos($("#jan-rot"), { y: c.y, o: c.o });
+  docsEl.forEach((el, i) => {
+    const on = i < n, k = fase(t, q.ini + i * 0.016, q.ini + 0.5 + i * 0.016);
+    el.style.opacity = on ? (1 - 0.72 * k).toFixed(3) : "0";
+    el.style.transform = `translateY(${on ? 0 : 24}px) rotate(${(k * (h(i) - 0.5) * 34).toFixed(1)}deg)`;
+  });
+  $("#jan-num").classList.toggle("vazado", t > q.ini + 0.4);
+}
+
+// ---------- a virada: Gabinete Aberto ----------
+function cVirada(t) {
+  const v = F.virada, ab = ease(fase(t, v.ini + 0.05, v.ini + 1.15));
+  $("#porta-folha").style.transform = `perspective(1100px) rotateY(${(-74 * ab).toFixed(2)}deg)`;
+  $("#porta-luz").style.opacity = ab.toFixed(3);
+  const p = entra(t, v.ini - 0.35, 0.5); pos($("#porta"), { y: p.y, s: p.s, o: p.o }); pos($("#porta-chao"), { o: p.o });
+  const ti = entra(t, W("virada", "gabinete").ini - 0.1, 0.5); pos($("#virada-t"), { y: ti.y, s: ti.s, o: ti.o });
+  const su = entra(t, W("virada", "aberto").fim + 0.05); pos($("#virada-s"), { y: su.y, o: su.o });
+}
+
+// ---------- o celular com a demo de verdade ----------
+const ifr = $("#demo");
+let D, IW, enviado = false;
+const K = 632 / 390, OX = 224, OY = 132;
+const absY = el => el.getBoundingClientRect().top + IW.scrollY;
+const fora = el => { const r = el.getBoundingClientRect(); return { x: OX + r.left * K, y: OY + r.top * K, w: r.width * K, h: r.height * K }; };
+function digita(el, txt, t, a, b) {
+  const v = txt.slice(0, Math.round(txt.length * fase(t, a, b)));
+  if (el.value !== v) { el.value = v; el.dispatchEvent(new IW.Event("input", { bubbles: true })); }
+}
+function cCel(t) {
+  const s = F.site, p = F.pedido, wp = W("site", "procura").ini, tEnvio = p.ini + 3.3;
+  const busca = D.querySelector("#buscaRua"), form = D.querySelector("#formPedido");
+  // o pedido (formulário de demonstração): volta ao começo se o tempo voltar
+  if (t < tEnvio && enviado) { D.querySelector("#novoPedido").click(); enviado = false; }
+  digita(busca, t < s.ini - 0.5 ? "" : "Rua Tilápia", t, wp + 0.3, wp + 1.15);
+  digita(D.querySelector("#bairro"), "Jardim São Carlos", t, p.ini + 0.6, p.ini + 1.3);
+  digita(D.querySelector("#rua"), "Rua Tilápia, 120", t, p.ini + 1.35, p.ini + 1.95);
+  if (!enviado) { const d = D.querySelector("#desc"), v = "Buraco grande na frente do número 120.".slice(0, Math.round(38 * fase(t, p.ini + 2.0, p.ini + 2.65))); if (d.value !== v) d.value = v; }
+  D.querySelector("#aceite").checked = t >= p.ini + 2.85;
+  if (t >= tEnvio && !enviado) { D.querySelector("#formPedido button[type=submit]").click(); enviado = true; }
+  // rolagem
+  const YB = absY(busca) - 62 - 150, YF = absY(D.querySelector(".form")) - 62 - 12, YA = absY(D.querySelector(".aceite")) - 844 + 250;
+  let y;
+  if (t >= T("cta") - 0.6) y = 0;
+  else if (t < p.ini - 0.3) y = lerp(0, YB, ease(fase(t, wp - 0.6, wp + 0.25)));
+  else if (!enviado) y = lerp(YB, YF, ease(fase(t, p.ini - 0.3, p.ini + 0.45))) + Math.max(0, YA - YF) * ease(fase(t, p.ini + 1.9, p.ini + 2.6));
+  else y = absY(D.querySelector("#resultado")) - 62 - 24;
+  IW.scrollTo({ top: Math.max(0, Math.round(y)), behavior: "instant" });
+  // toques do dedo
+  const toques = [[wp + 0.12, busca], [p.ini + 0.5, "#bairro"], [p.ini + 1.28, "#rua"], [p.ini + 1.92, "#desc"], [p.ini + 2.8, ".aceite input"], [tEnvio - 0.08, "#formPedido button[type=submit]"]];
+  let tq = null; for (const [t0, alvo] of toques) if (t >= t0 && t < t0 + 0.5) tq = [t0, typeof alvo === "string" ? D.querySelector(alvo) : alvo];
+  const toque = $("#toque");
+  const rq = tq ? fora(tq[1]) : null;
+  if (tq && rq.w > 2 && !(tq[1] === busca && t > p.ini - 0.4)) { const r = rq, x = fase(t, tq[0], tq[0] + 0.5); toque.style.left = (r.x + Math.min(r.w / 2, 120)) + "px"; toque.style.top = (r.y + r.h / 2) + "px"; toque.style.opacity = (Math.sin(Math.PI * x) * 0.95).toFixed(3); toque.style.transform = `scale(${lerp(0.7, 1.15, x).toFixed(3)})`; }
+  else toque.style.opacity = "0";
+  // destaques: o número, a situação e o protocolo no cartão; depois o número do pedido
+  const anel = $("#anel"), card = D.querySelector("#trilhoPedidos .pc .pe");
+  const alvos = [];
+  if (card) alvos.push([W("site", "numero").ini - 0.1, card.children[1]], [W("site", "situacao").ini - 0.1, card.children[0]], [W("site", "protocolo").ini - 0.1, card.children[2]]);
+  let ra = null, o = 0;
+  if (t < p.ini - 0.3 && alvos.length && t >= alvos[0][0]) {
+    let k = 0; while (k + 1 < alvos.length && t >= alvos[k + 1][0]) k++;
+    const r0 = fora(alvos[Math.max(0, k - 1)][1]), r1 = fora(alvos[k][1]), x = k ? ease(fase(t, alvos[k][0], alvos[k][0] + 0.3)) : 1;
+    ra = { x: lerp(r0.x, r1.x, x), y: lerp(r0.y, r1.y, x), w: lerp(r0.w, r1.w, x), h: lerp(r0.h, r1.h, x) };
+    o = fase(t, alvos[0][0], alvos[0][0] + 0.2) * (1 - fase(t, s.fim + 0.2, s.fim + 0.4));
+  } else if (enviado && t < T("fila")) { ra = fora(D.querySelector(".protocolo")); o = fase(t, W("pedido", "numero").ini - 0.15, W("pedido", "numero").ini + 0.1); }
+  if (ra && o > 0) { anel.style.left = (ra.x - 12) + "px"; anel.style.top = (ra.y - 10) + "px"; anel.style.width = (ra.w + 24) + "px"; anel.style.height = (ra.h + 20) + "px"; anel.style.opacity = o.toFixed(3); }
+  else anel.style.opacity = "0";
+}
+const numPedido = () => (D && D.querySelector("#numPedido") ? D.querySelector("#numPedido").textContent : "nº 2026-0168");
+
+// ---------- o portal: a fila, a IA e a Câmara ----------
+const R_NOVOS = ["#r1", "#r2", "#r3"], R_VELHOS = ["#r4", "#r5"], PASSO = 190;
+const TEXTO_IA = "Indico ao Poder Executivo, junto à Secretaria de Infraestrutura e Serviços Urbanos, a realização de reparo no asfalto da Rua Tilápia, na altura do número 120, no Jardim São Carlos.";
+function cPortal(t) {
+  const fi = F.fila, ia = F.ia, ca = F.camara;
+  const chegadas = [W("fila", "site").ini - 0.1, W("fila", "whatsapp").ini - 0.1, W("fila", "terca").ini - 0.1].map(a => sai(fase(t, a, a + 0.4)));
+  R_NOVOS.forEach((id, i) => { const depois = chegadas.slice(i + 1).reduce((s, x) => s + x, 0); pos($(id), { x: (1 - chegadas[i]) * 80, y: depois * PASSO, o: chegadas[i] }); });
+  const total = chegadas.reduce((s, x) => s + x, 0);
+  R_VELHOS.forEach((id, i) => pos($(id), { y: (total + i) * PASSO }));
+  $("#fila-n").textContent = 2 + Math.round(total); $("#fila-novos").textContent = Math.round(total);
+  // telas: fila → pedido com IA → Câmara
+  const tIa = ia.ini - 0.25, tCa = ca.ini - 0.25;
+  const vf = 1 - fase(t, tIa, tIa + 0.35), vi = fase(t, tIa, tIa + 0.35) * (1 - fase(t, tCa, tCa + 0.35)), vc = fase(t, tCa, tCa + 0.35);
+  pos($("#v-fila"), { x: -120 * (1 - vf), o: vf }); pos($("#v-ia"), { x: t < tCa ? 120 * (1 - vi) : -120 * (1 - vi), o: vi }); pos($("#v-camara"), { x: 120 * (1 - vc), o: vc });
+  $("#aba-ped").classList.toggle("ativa", t < tCa); $("#aba-cam").classList.toggle("ativa", t >= tCa);
+  // a IA escreve
+  $("#ia-num").textContent = numPedido();
+  const tq = W("ia", "toque").ini, tEsc = W("ia", "escreve").ini - 0.1, tFim = tEsc + 2.6;
+  const apertou = fase(t, tq, tq + 0.25);
+  $("#ia-bt").style.transform = `scale(${(1 - 0.05 * Math.sin(Math.PI * apertou)).toFixed(4)})`;
+  $("#ia-bt-t").textContent = t < tq ? "Escrever a indicação com IA" : t < tFim ? "Escrevendo no seu padrão…" : "Pronto para revisar";
+  $("#ia-escrito").textContent = TEXTO_IA.slice(0, Math.round(TEXTO_IA.length * fase(t, tEsc, tFim)));
+  $("#ia-cursor").style.opacity = t > tq && Math.floor(t * 2.4) % 2 === 0 ? "1" : "0";
+  const al = entra(t, W("ia", "ja").ini - 0.2, 0.45); pos($("#ia-alerta"), { y: al.y, s: al.s, o: al.o });
+  // a Câmara
+  const tSinc = ca.ini + 0.2, tOk = ca.ini + 1.4;
+  $("#sinc-ic").style.transform = t < tOk ? `rotate(${((t - tSinc) * 420) % 360}deg)` : "";
+  $("#sinc").classList.toggle("ok", t >= tOk); $("#sinc-t").textContent = t < tOk ? "Buscando no sistema da Câmara…" : "Atualizado agora";
+  if (t >= tOk) $("#sinc-ic").innerHTML = svg("check"); else $("#sinc-ic").innerHTML = svg("sinc");
+  ["#ci1", "#ci2", "#ci3", "#ci4"].forEach((id, i) => { const a = entra(t, tSinc + 0.25 + i * 0.22, 0.4); pos($(id), { y: a.y * 0.6, o: a.o }); });
+  const to = entra(t, W("camara", "demora").ini + 0.1, 0.45); pos($("#toast"), { y: to.y - 30 * (1 - to.x), s: to.s, o: to.o });
+  $("#ci2").style.borderColor = to.o > 0.5 ? "var(--roxo3)" : "";
+}
+
+// ---------- o aviso no WhatsApp ----------
+function cAviso(t) {
+  const a = F.aviso;
+  $("#zap-num").textContent = numPedido();
+  const z = entra(t, a.ini - 0.35, 0.5); pos($("#zap"), { y: z.y * 2, o: z.o });
+  [["#b1", a.ini + 0.05], ["#b2", a.ini + 1.15], ["#b3", a.ini + 2.2]].forEach(([id, t0]) => { const b = entra(t, t0, 0.4); pos($(id), { y: b.y * 0.6, s: b.s, o: b.o }); });
+}
+
+// ---------- os indicadores ----------
+function cPainel(t) {
+  const p = F.painel;
+  $$("#c-painel .kpi b").forEach((el, i) => conta(el, +el.dataset.n, fase(t, p.ini + 0.1 + i * 0.15, p.ini + 1.4 + i * 0.15)));
+  const tb = W("painel", "bairro").ini - 0.3;
+  $$("#c-painel .barra i").forEach((el, i) => { el.style.transform = `scaleX(${ease(fase(t, tb + i * 0.12, tb + 0.7 + i * 0.12)).toFixed(4)})`; });
+  $$("#c-painel .barra").forEach((el, i) => { el.style.opacity = fase(t, tb + i * 0.12 - 0.1, tb + i * 0.12 + 0.2).toFixed(3); });
+  const t2 = W("painel", "prefeitura").ini - 0.1, t3 = W("painel", "aprovado").ini - 0.1;
+  $("#k2").classList.toggle("luz", t >= t2 && t < t3); $("#k3").classList.toggle("luz", t >= t3);
+}
+
+// ---------- os Stories e o vídeo de lançamento ----------
+function cStories(t) {
+  const s = F.stories, a = entra(t, s.ini - 0.35, 0.55);
+  pos($("#story"), { y: a.y * 4, s: a.s, o: a.o });
+  $$("#story .st-n b").forEach((el, i) => conta(el, +el.dataset.n, fase(t, s.ini + 0.3 + i * 0.25, s.ini + 1.5 + i * 0.25)));
+  $("#st-p1").style.setProperty("--p", (100 * fase(t, s.ini - 0.3, T("lancamento"))).toFixed(1) + "%");
+}
+function cLanc(t) {
+  const l = F.lancamento, a = entra(t, l.ini - 0.35, 0.55);
+  pos($("#lanc"), { y: a.y * 4, s: a.s, o: a.o });
+  $("#lanc-foto").style.transform = `scale(${lerp(1.04, 1.16, fase(t, l.ini - 0.4, T("marca"))).toFixed(4)})`;
+  const ti = entra(t, l.ini + 0.5, 0.5); pos($("#lanc-t"), { y: ti.y, o: ti.o }); pos($("#lanc-n"), { o: ti.o });
+  $("#lanc-p").style.width = (100 * fase(t, l.ini, T("marca"))).toFixed(1) + "%";
+  $("#marca-d").style.opacity = (0.55 + 0.25 * Math.sin(t * 3)).toFixed(3);
+}
+
+// ---------- a marca e o convite ----------
+function cMarca(t) {
+  const m = F.marca;
+  const p = entra(t, m.ini - 0.3, 0.5); pos($("#marca-porta"), { y: p.y, s: p.s, o: p.o });
+  const ti = entra(t, m.ini - 0.1, 0.5); pos($("#marca-t"), { y: ti.y, s: ti.s, o: ti.o });
+  const su = entra(t, W("marca", "um").ini - 0.1); pos($("#marca-s"), { y: su.y, o: su.o });
+}
+function cCta(t) {
+  const c = F.cta;
+  const a = entra(t, c.ini - 0.3, 0.5); pos($("#cta-t"), { y: a.y, o: a.o });
+  const b = entra(t, c.ini + 0.4); pos($("#cta-link"), { y: b.y, o: b.o });
+  const d = entra(t, W("cta", "terca").ini - 0.2, 0.45); pos($(".cta-chip-w"), { y: d.y, s: d.s, o: d.o });
+}
+
+// ---------- legenda, etiqueta, socos ----------
+let fraseAtual = null;
+function legenda(t) {
+  const el = $("#legenda"), i = frases.findIndex((f, k) => t >= f.ini - 0.2 && t < (frases[k + 1] ? frases[k + 1].ini - 0.2 : DUR + 1));
+  if (i < 0) { el.style.opacity = "0"; return; }
+  const f = frases[i];
+  if (f !== fraseAtual) { fraseAtual = f; el.innerHTML = f.palavras.map(p => `<span class="${p.tom ? "tom" : ""}">${p.p}</span>`).join(" "); }
+  [...el.children].forEach((sp, k) => sp.classList.toggle("dito", t >= f.palavras[k].ini - 0.04));
+  el.style.opacity = (fase(t, f.ini - 0.2, f.ini) * (1 - fase(t, DUR - 0.5, DUR))).toFixed(3);
+}
+const quadros = [["#c-abre", cAbre], ["#c-hoje", cHoje], ["#c-janeiro", cJaneiro], ["#c-virada", cVirada], ["#c-portal", cPortal], ["#c-aviso", cAviso], ["#c-painel", cPainel], ["#c-stories", cStories], ["#c-lanc", cLanc], ["#c-marca", cMarca], ["#c-cta", cCta]];
+window.quadro = t => {
+  for (const [sel, a, b] of CENAS) { const o = alfa(t, a, b); AL[sel] = o; const el = $(sel); el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? "visible" : "hidden"; }
+  for (const [sel, fn] of quadros) if (AL[sel] > 0.002) fn(t);
+  // o celular: aparece no site e no pedido e volta menor no convite
+  const oc = Math.max(AL["#c-cel"], AL["#c-cta"]), cel = $("#cel");
+  cel.style.visibility = oc > 0.002 ? "visible" : "hidden"; cel.style.opacity = oc.toFixed(3);
+  if (D) cCel(t);
+  if (AL["#c-cta"] > 0.002) { const e = entra(t, T("cta") + 0.2, 0.55); cel.style.transform = `translateY(${(410 + e.y * 3).toFixed(1)}px) scale(${(0.62 * e.s).toFixed(4)})`; }
+  else { const e = entra(t, T("site") - 0.35, 0.55); cel.style.transform = `translateY(${(e.y * 3).toFixed(1)}px) scale(${e.s.toFixed(4)})`; }
+  // etiqueta do topo: prévia real do site, depois simulação; no convite, a assinatura
+  const tag = $("#tag"), ot = fase(t, T("site") - 0.35, T("site")) * (1 - fase(t, T("marca") - 0.35, T("marca")));
+  tag.style.opacity = ot.toFixed(3);
+  $("#tag-t").textContent = t < T("pedido") - 0.2 ? "Prévia real do site · já no ar" : t >= T("lancamento") - 0.3 ? "Prévia do vídeo de lançamento" : "Simulação · como vai funcionar";
+  $("#assina").style.opacity = fase(t, T("cta") - 0.2, T("cta") + 0.3).toFixed(3);
+  legenda(t);
+  let soco = 0;
+  for (const f of frases) if (f.impacto) { const x = fase(t, f.ini - 0.03, f.ini + 0.42); if (x > 0 && x < 1) soco = Math.max(soco, 1 - sai(x)); }
+  $("#palco").style.transform = soco ? `scale(${(1 + 0.035 * soco).toFixed(4)})` : "";
+  const v = fase(t, T("virada") - 0.03, T("virada") + 0.35); $("#flash").style.opacity = (v > 0 && v < 1 ? 0.6 * (1 - v) : 0).toFixed(3);
+};
+
+window.preparar = () => {
+  window.quadro(0);
+  return {
+    duracao: DUR, narracao: NOME, bpm: 116,
+    pulso: frases.map(f => ({ id: f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    ensaio: [1.0, W("abre", "indica").fim + 0.5, T("pergunta") + 1.4, W("canais", "conversa").ini + 0.8, W("caminho", "perde").ini + 0.7, T("janeiro") + 3.4, T("quem") + 1.2, T("virada") + 1.4,
+      T("site") + 0.6, W("site", "procura").ini + 1.4, W("site", "protocolo").ini + 0.4, T("pedido") + 1.6, T("pedido") + 3.0, W("pedido", "numero").ini + 0.3, W("fila", "terca").ini + 0.6,
+      W("ia", "escreve").ini + 1.4, W("ia", "ja").ini + 0.6, T("camara") + 2.0, W("camara", "cobrar").ini + 0.3, T("aviso") + 3.0, W("painel", "bairro").ini + 1.0, W("painel", "aprovado").ini + 0.4,
+      T("stories") + 2.2, T("lancamento") + 2.5, T("marca") + 2.2, T("cta") + 2.5, DUR - 0.2].map(x => +x.toFixed(2)),
+  };
+};
+
+// fontes, a demo no iframe e pronto
+await Promise.all(["800 80px 'Bricolage Grotesque'", "700 80px 'Bricolage Grotesque'", "800 30px 'Plus Jakarta Sans'", "700 30px 'Plus Jakarta Sans'", "600 30px 'Plus Jakarta Sans'", "500 30px 'Plus Jakarta Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+await new Promise(ok => { const d = ifr.contentDocument; if (d && d.readyState === "complete" && /vereador/.test(d.URL)) ok(); else ifr.addEventListener("load", ok, { once: true }); });
+D = ifr.contentDocument; IW = ifr.contentWindow;
+IW.Math.random = () => 0.5; // o número do pedido de demonstração sai sempre igual (nº 2026-0168)
+D.head.insertAdjacentHTML("beforeend", `<style>*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}.capa-midia img{opacity:0!important}.capa-midia img:first-of-type{opacity:1!important}.capa-barras{display:none!important}</style>`);
+D.querySelectorAll("img[loading=lazy]").forEach(i => (i.loading = "eager"));
+await D.fonts.ready;
+await new Promise(ok => setTimeout(ok, 800));
+window.quadro(0);
+window.pronto = true;
+</script>
+</body>
+</html>
