@@ -689,7 +689,8 @@ window.preparar = () => {
   window.quadro(0);
   return {
     duracao: DUR, narracao: NOME, bpm: 116,
-    pulso: frases.map(f => ({ id: f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    // "nada" é onde a trilha corta a batida (trilha-pulso.py): no "Só em janeiro"
+    pulso: frases.map(f => ({ id: f.id === "janeiro" ? "nada" : f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
     ensaio: [1.0, W("abre", "indica").fim + 0.5, T("pergunta") + 1.4, W("canais", "conversa").ini + 0.8, W("caminho", "perde").ini + 0.7, T("janeiro") + 3.4, T("quem") + 1.2, T("virada") + 1.4,
       T("site") + 0.6, W("site", "procura").ini + 1.4, W("site", "protocolo").ini + 0.4, T("pedido") + 1.6, T("pedido") + 3.0, W("pedido", "numero").ini + 0.3, W("fila", "terca").ini + 0.6,
       W("ia", "escreve").ini + 1.4, W("ia", "ja").ini + 0.6, T("camara") + 2.0, W("camara", "cobrar").ini + 0.3, T("aviso") + 3.0, W("painel", "bairro").ini + 1.0, W("painel", "aprovado").ini + 0.4,
