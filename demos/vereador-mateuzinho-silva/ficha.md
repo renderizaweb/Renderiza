@@ -264,8 +264,12 @@ consultado em 10/11/2026. Quando o mesmo pedido foi apresentado mais de uma vez,
   saem de `/f/` e as partes aparecem com os nomes acima.
 - `npm test`: 202 testes, todos passam.
 - Nas capturas usei as mesmas fontes instaladas no ambiente (Plus Jakarta Sans e Bricolage Grotesque), porque a rede
-  de lá não alcança o Google Fonts. Vale abrir a página num celular de verdade para ver a fonte dos títulos
-  (Bricolage Grotesque); se ela não carregar, os títulos caem para a Plus Jakarta Sans, como na versão 1.
+  de lá não alcança o Google Fonts. O endereço da fonte nova no Google Fonts foi conferido à parte: responde com os
+  pesos 600, 700 e 800. Se ela não carregar, os títulos caem para a Plus Jakarta Sans, como na versão 1.
+- **Falta conferir o link no ar.** A rede do ambiente não alcança `www.renderizaweb.com.br` e a liberação desse
+  endereço foi recusada, então a página publicada não foi aberta nesta sessão. O commit está na `main` e a montagem
+  passou aqui com o mesmo comando da Vercel. Quem revalidar: abrir o link no celular e ver a capa trocando de foto, o
+  "Rua por rua" e o formulário.
 
 ## A confirmar com ele
 
