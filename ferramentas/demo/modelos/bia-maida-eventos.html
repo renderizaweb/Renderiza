@@ -152,7 +152,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 @keyframes selo-entra{from{opacity:0;transform:translateX(-50%) scale(.6) rotate(-40deg)}}
 @media(max-width:900px){.mosaico .selo{display:none}.abertura-grid{grid-template-columns:1fr;gap:28px}.abertura-texto{display:contents}
 .abertura-topo{order:1}.mosaico{order:2}.abertura-baixo{order:3}.frase{margin:16px 0 0}.abertura-acoes{margin:0 0 22px}.abertura-intro{margin-bottom:22px;max-width:none}}
-@media(max-width:520px){.eyebrow{letter-spacing:.2em}.abertura h1{font-size:clamp(2.5rem,11.6vw,3.3rem)}.mosaico{gap:8px}.capsula figcaption{bottom:7%;font-size:.54rem;padding:4px 8px;letter-spacing:.08em}.abertura-acoes .botao{width:100%}}
+@media(max-width:520px){.eyebrow{letter-spacing:.2em}.abertura h1{font-size:clamp(2.5rem,11.6vw,3.3rem)}.mosaico{gap:8px}.capsula figcaption{bottom:7%;font-size:.54rem;padding:4px 8px;letter-spacing:.08em;white-space:normal;text-align:center;line-height:1.25}.abertura-acoes .botao{width:100%}}
 
 /* faixa que rola com o que a Bia fotografa */
 .faixa-rola{border-block:1px solid var(--linha);padding:18px 0;overflow:hidden;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.35rem);color:var(--tinta-2);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -349,15 +349,15 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 <div class="cortina" aria-hidden="true"><div class="cortina-marca"><img src="{{img:simbolo}}" width="64" height="64" alt=""><b>Bia Maida</b><i>fotografia</i></div></div>
 <aside class="rz-faixa" aria-label="Recado da Renderiza">
   <div class="rz-in">
-    <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>Bia, a Renderiza montou para você:</p>
-    <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/bia-maida-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/bia-maida-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
+    <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>Bia, a Renderiza montou o seu site:</p>
+    
     <p class="rz-preco" style="margin:0"><span><span class="rz-tudo">Tudo incluso: </span><b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> <small>(<span data-rz="nota">condição de lançamento</span>)</small></span>
       <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Valor válido somente até <b data-rz="validade-curta">12/11</b></span>
       <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
   </div>
   <div class="rz-mais" id="rz-mais" hidden>
     <div class="rz-in">
-      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">12/11/2026</b>.</span></p>
+      <p class="rz-prazo">Tudo incluso: o site pronto, por <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">12/11/2026</b>.</span></p>
       <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
       <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
     </div>
@@ -378,32 +378,32 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
   <div class="container abertura-grid">
     <div class="abertura-texto">
       <div class="abertura-topo">
-        <p class="eyebrow">Fotografia de eventos · São Paulo</p>
+        <p class="eyebrow">Eventos · Ensaios externos · Corporativo</p>
         <h1 id="titulo-site"><span class="nome"><span>Bia Maida</span></span> <span class="script">fotografia</span></h1>
         <p class="frase">Te ajudo a eternizar memórias através da fotografia.</p>
       </div>
       <div class="abertura-baixo">
-        <p class="abertura-intro">Há 15 anos fotografando pessoas, a Bia registra aniversários, chás de bebê e eventos de empresas em São Paulo, além de retratos profissionais, fotos para marcas e ensaios ao ar livre.</p>
+        <p class="abertura-intro">Há 15 anos fotografando pessoas em São Paulo, a Bia cobre aniversários, chás de bebê e eventos de empresas, faz ensaios externos e fotografia corporativa: retratos, equipes e marcas.</p>
         <div class="abertura-acoes"><a class="botao" href="#data"><svg aria-hidden="true"><use href="#cal"/></svg>Consultar a minha data</a><a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
         <a class="prova" href="#depoimentos"><span class="estrelas" aria-hidden="true">★★★★★</span><b>5,0</b><span>116 avaliações no Google</span></a>
       </div>
     </div>
     <div class="mosaico" data-capsulas>
-      <figure class="hero-photo capsula" style="--c:0"><img class="ativa" src="{{img:c1a}}" {{dim:c1a}} alt="Aniversariante soprando a vela do bolo" fetchpriority="high"><img data-src="{{img:c1b}}" {{dim:c1b}} alt="Pai e filha de testa encostada na festa"><img data-src="{{img:c1c}}" {{dim:c1c}} alt="Menina com pintura no rosto, sorrindo"><figcaption>Aniversários</figcaption></figure>
-      <figure class="capsula" style="--c:1"><img class="ativa" src="{{img:c2a}}" {{dim:c2a}} alt="Gestante sorrindo no chá de bebê"><img data-src="{{img:c2b}}" {{dim:c2b}} alt="Gestante entre os balões do chá de bebê"><img data-src="{{img:c2c}}" {{dim:c2c}} alt="Casal abraçado com o cachorrinho no chá de bebê"><figcaption>Chá de bebê</figcaption></figure>
+      <figure class="hero-photo capsula" style="--c:0"><img class="ativa" src="{{img:c1a}}" {{dim:c1a}} alt="Aniversariante soprando a vela do bolo" fetchpriority="high"><img data-src="{{img:c1b}}" {{dim:c1b}} alt="Pai e filha de testa encostada na festa"><img data-src="{{img:c1c}}" {{dim:c1c}} alt="Menina com pintura no rosto, sorrindo"><img data-src="{{img:c2a}}" {{dim:c2a}} alt="Gestante sorrindo no chá de bebê"><img data-src="{{img:c2b}}" {{dim:c2b}} alt="Gestante entre os balões do chá de bebê"><img data-src="{{img:c2c}}" {{dim:c2c}} alt="Casal abraçado com o cachorrinho no chá de bebê"><figcaption>Eventos</figcaption></figure>
+      <figure class="capsula" style="--c:1"><img class="ativa" src="{{img:g09}}" {{dim:g09}} alt="Gestante de perfil entre as flores"><img data-src="{{img:g12}}" {{dim:g12}} alt="Casal com as mãos na barriga, no jardim"><img data-src="{{img:t1}}" {{dim:t1}} alt="Gestante caminhando entre as roseiras"><figcaption>Ensaios externos</figcaption></figure>
       <figure class="capsula" style="--c:2"><img class="ativa" src="{{img:c3a}}" {{dim:c3a}} alt="Retrato profissional de blazer branco"><img data-src="{{img:c3b}}" {{dim:c3b}} alt="Retrato profissional à mesa"><img data-src="{{img:c3c}}" {{dim:c3c}} alt="Médico sorrindo no consultório"><figcaption>Corporativo</figcaption></figure>
-      <svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-1" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-1" textLength="276">fotografia de eventos · são paulo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg>
+      <svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-1" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-1" textLength="276">eventos · ensaios · corporativo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg>
     </div>
   </div>
 </section>
 <div class="faixa-rola" aria-label="O que a Bia fotografa"><div class="faixa-trilho">
-  <p><span>Aniversários</span><i aria-hidden="true">✦</i><span>Chás de bebê</span><i aria-hidden="true">✦</i><span>Eventos de empresas</span><i aria-hidden="true">✦</i><span>Retratos profissionais</span><i aria-hidden="true">✦</i><span>Marcas e produtos</span><i aria-hidden="true">✦</i><span>Gestante ao ar livre</span><i aria-hidden="true">✦</i></p>
-  <p aria-hidden="true"><span>Aniversários</span><i>✦</i><span>Chás de bebê</span><i>✦</i><span>Eventos de empresas</span><i>✦</i><span>Retratos profissionais</span><i>✦</i><span>Marcas e produtos</span><i>✦</i><span>Gestante ao ar livre</span><i>✦</i></p>
+  <p><span>Aniversários</span><i aria-hidden="true">✦</i><span>Chás de bebê</span><i aria-hidden="true">✦</i><span>Eventos de empresas</span><i aria-hidden="true">✦</i><span>Retratos profissionais</span><i aria-hidden="true">✦</i><span>Marcas e produtos</span><i aria-hidden="true">✦</i><span>Ensaios externos</span><i aria-hidden="true">✦</i></p>
+  <p aria-hidden="true"><span>Aniversários</span><i>✦</i><span>Chás de bebê</span><i>✦</i><span>Eventos de empresas</span><i>✦</i><span>Retratos profissionais</span><i>✦</i><span>Marcas e produtos</span><i>✦</i><span>Ensaios externos</span><i>✦</i></p>
 </div></div>
 <section class="secao" id="portfolio" aria-labelledby="portfolio-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">Portfólio</p><h2 id="portfolio-titulo">Cada evento, <em>uma história.</em></h2><p>Aniversários, chás de bebê, eventos de empresas, retratos e ensaios ao ar livre. Escolha uma categoria e toque numa foto para ver em tela cheia.</p></div>
-    <div class="abas" role="tablist" aria-label="Categorias do portfólio"><button class="aba" type="button" role="tab" id="aba-eventos" data-aba="eventos" aria-controls="painel-eventos" aria-selected="true">Eventos<small>12</small></button><button class="aba" type="button" role="tab" id="aba-corporativo" data-aba="corporativo" aria-controls="painel-corporativo" aria-selected="false">Corporativo<span class="so-largo"> e marcas</span><small>12</small></button><button class="aba" type="button" role="tab" id="aba-arlivre" data-aba="arlivre" aria-controls="painel-arlivre" aria-selected="false">Ao ar livre<small>6</small></button><span class="abas-marca" aria-hidden="true"></span></div>
+    <div class="cabeca reveal"><p class="eyebrow">Portfólio</p><h2 id="portfolio-titulo">Cada momento, <em>uma história.</em></h2><p>Eventos, ensaios externos e fotografia corporativa. Escolha uma categoria e toque numa foto para ver em tela cheia.</p></div>
+    <div class="abas" role="tablist" aria-label="Categorias do portfólio"><button class="aba" type="button" role="tab" id="aba-eventos" data-aba="eventos" aria-controls="painel-eventos" aria-selected="true">Eventos<small>12</small></button><button class="aba" type="button" role="tab" id="aba-corporativo" data-aba="corporativo" aria-controls="painel-corporativo" aria-selected="false">Corporativo<span class="so-largo"> e marcas</span><small>12</small></button><button class="aba" type="button" role="tab" id="aba-arlivre" data-aba="arlivre" aria-controls="painel-arlivre" aria-selected="false">Ensaios externos<small>6</small></button><span class="abas-marca" aria-hidden="true"></span></div>
   </div>
   <div class="container container--largo paineis">
     <div class="painel ativo" id="painel-eventos" role="tabpanel" aria-labelledby="aba-eventos"><h3 class="painel-titulo">Eventos</h3><div class="galeria" data-nome="Eventos">
@@ -452,7 +452,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
         <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Marca e produto" aria-label="Abrir em tela cheia: Mãos segurando dois frascos de cosméticos"><img src="{{img:g22}}" {{dim:g22}} alt="Mãos segurando dois frascos de cosméticos" loading="lazy"></button>
       </div>
     </div></div>
-    <div class="painel" id="painel-arlivre" role="tabpanel" aria-labelledby="aba-arlivre" aria-hidden="true"><h3 class="painel-titulo">Ao ar livre</h3><div class="galeria" data-nome="Ao ar livre">
+    <div class="painel" id="painel-arlivre" role="tabpanel" aria-labelledby="aba-arlivre" aria-hidden="true"><h3 class="painel-titulo">Ensaios externos</h3><div class="galeria" data-nome="Ensaios externos">
       <div class="linha">
         <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="Gestante" aria-label="Abrir em tela cheia: Gestante caminhando entre as roseiras"><img src="{{img:g08}}" {{dim:g08}} alt="Gestante caminhando entre as roseiras" loading="lazy"></button>
         <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Gestante" aria-label="Abrir em tela cheia: Casal se olhando no jardim de flores brancas"><img src="{{img:g11}}" {{dim:g11}} alt="Casal se olhando no jardim de flores brancas" loading="lazy"></button>
@@ -476,7 +476,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
     <figure class="sobre-foto"><div class="reveal foto"><img src="{{img:perfil}}" {{dim:perfil}} alt="Bia sorrindo com a câmera na mão" loading="lazy"></div></figure>
     <div class="sobre-texto reveal">
       <p class="eyebrow">Quem fotografa</p><h2 id="sobre-titulo">A Bia, <em>atrás da câmera.</em></h2>
-      <p>A Bia Maida é fotógrafa familiar e corporativa há 15 anos, em São Paulo. Hoje, o trabalho dela acontece onde a festa está: aniversários, chás de bebê e eventos de empresas, além de retratos profissionais, fotos para marcas e ensaios ao ar livre.</p>
+      <p>A Bia Maida é fotógrafa familiar e corporativa há 15 anos, em São Paulo. Hoje, o trabalho dela vai aonde a história acontece: nos eventos, nos ensaios externos e na fotografia corporativa, com retratos, equipes e marcas.</p>
       <blockquote class="citacao">“Quem disse que criança precisa ficar paradinha para ter fotos lindas?”<footer>Bia, no Instagram</footer></blockquote>
       <p>Nas avaliações do Google, as pessoas falam de como ela deixa todo mundo à vontade, das ideias para as poses (até para quem nunca tinha feito fotos profissionais) e da entrega rápida das fotos.</p>
       <ul class="numeros"><li><b data-conta="5" data-casas="1">5,0</b>116 avaliações no Google</li><li><b data-conta="15" data-depois=" anos">15 anos</b>de fotografia</li><li><b data-conta="2.7" data-casas="1" data-depois=" mil">2,7 mil</b>seguidores no Instagram</li></ul>
@@ -490,9 +490,9 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
       <li class="cob-item ativa"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Aniversários</h3><span class="cob-sub">Infantis e em família</span></span><span class="cob-txt">O parabéns, a vela, os abraços e a bagunça boa: a festa inteira, do jeito que ela aconteceu.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k1}}" {{dim:k1}} alt="Pai e filha na festa de aniversário" loading="lazy"></figure></li>
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Chá de bebê</h3><span class="cob-sub">E chá revelação</span></span><span class="cob-txt">A espera comemorada com quem importa, da decoração aos sorrisos.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k2}}" {{dim:k2}} alt="Gestante com o cachorrinho no chá de bebê" loading="lazy"></figure></li>
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Eventos de empresa</h3><span class="cob-sub">Com a equipe e as famílias</span></span><span class="cob-txt">Confraternizações e dias especiais na empresa, com o registro de todo mundo.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k3}}" {{dim:k3}} alt="Crianças brincando durante o evento" loading="lazy"></figure></li>
-      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Retratos e equipes</h3><span class="cob-sub">A sua imagem</span></span><span class="cob-txt">Você é o principal rosto do seu negócio: investir na sua imagem é investir nele.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k4}}" {{dim:k4}} alt="Retrato profissional à mesa" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Retratos e equipes</h3><span class="cob-sub">Na empresa ou em estúdio parceiro</span></span><span class="cob-txt">Você é o principal rosto do seu negócio: investir na sua imagem é investir nele.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k4}}" {{dim:k4}} alt="Retrato profissional à mesa" loading="lazy"></figure></li>
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Marcas e produtos</h3><span class="cob-sub">Para o seu negócio</span></span><span class="cob-txt">O produto, o espaço e o dia a dia de trabalho, em fotos para o site e as redes.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k5}}" {{dim:k5}} alt="Mãos segurando dois frascos de cosméticos" loading="lazy"></figure></li>
-      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="arlivre"><span><h3 class="cob-nome">Gestante e casal</h3><span class="cob-sub">Ao ar livre</span></span><span class="cob-txt">Antes de conhecer o rostinho, já existe um amor que não cabe no peito.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k6}}" {{dim:k6}} alt="Casal abraçado no jardim, com as mãos na barriga" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="arlivre"><span><h3 class="cob-nome">Ensaios externos</h3><span class="cob-sub">Gestante, casal e família</span></span><span class="cob-txt">Antes de conhecer o rostinho, já existe um amor que não cabe no peito.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k6}}" {{dim:k6}} alt="Casal abraçado no jardim, com as mãos na barriga" loading="lazy"></figure></li>
     </ol>
     <p class="cob-dica">Passe para o lado para ver todas as coberturas.</p>
   </div>
@@ -520,7 +520,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
             <label class="chip"><input type="radio" name="tipo" value="aniversario" checked><span>Aniversário</span></label>
             <label class="chip"><input type="radio" name="tipo" value="cha"><span>Chá de bebê</span></label>
             <label class="chip"><input type="radio" name="tipo" value="empresa"><span>Evento de empresa</span></label>
-            <label class="chip"><input type="radio" name="tipo" value="ensaio"><span>Ensaio</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="ensaio"><span>Ensaio externo</span></label>
             <label class="chip"><input type="radio" name="tipo" value="outro"><span>Outro</span></label>
           </div></fieldset>
           <div class="campos">
@@ -542,16 +542,16 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
   <div class="container contato-grid">
     <div class="reveal">
       <p class="eyebrow">Contato</p><h2 id="contato-titulo">Vamos falar <em>do seu evento?</em></h2>
-      <p style="color:var(--tinta-2);margin-top:20px;max-width:520px">Datas e orçamentos pelo WhatsApp. A Bia fica em São Paulo e vai até o local do seu evento.</p>
+      <p style="color:var(--tinta-2);margin-top:20px;max-width:520px">Datas e orçamentos pelo WhatsApp. A Bia fica em São Paulo e vai até você: no local do evento, na sua empresa ou ao ar livre. Para retratos em estúdio, ela reserva um estúdio parceiro.</p>
       <ul class="canais">
         <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#">(11) 98719-1135</a></div></li>
         <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@biamaidafotografia · 2,7 mil seguidores</a></div></li>
         <li><svg aria-hidden="true"><use href="#estrela"/></svg><div><b>Google</b><a data-reviews-link href="#" target="_blank" rel="noopener noreferrer">Nota 5,0 · 116 avaliações</a></div></li>
-        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Onde</b><span>São Paulo · SP · no local do seu evento</span></div></li>
+        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Onde</b><span>São Paulo · SP · no seu evento, ao ar livre ou em estúdio parceiro</span></div></li>
       </ul>
       <a class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar a Bia no WhatsApp</a>
     </div>
-    <figure class="contato-foto"><div class="reveal foto"><img src="{{img:t1}}" {{dim:t1}} alt="Gestante caminhando entre as roseiras" loading="lazy"></div><svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-2" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-2" textLength="276">fotografia de eventos · são paulo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg></figure>
+    <figure class="contato-foto"><div class="reveal foto"><img src="{{img:t1}}" {{dim:t1}} alt="Gestante caminhando entre as roseiras" loading="lazy"></div><svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-2" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-2" textLength="276">eventos · ensaios · corporativo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg></figure>
   </div>
 </section>
 </main>
@@ -560,7 +560,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
     <p class="rodape-marca reveal" aria-label="Bia Maida Fotografia"><b aria-hidden="true">Bia Maida</b><i aria-hidden="true">fotografia</i></p>
     <p class="rodape-frase">Te ajudo a eternizar memórias através da fotografia.</p>
     <nav aria-label="Links"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#data">Sua data</a><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
-    <small>© <span data-year>2026</span> Bia Maida Fotografia · Fotografia de eventos · São Paulo · SP</small>
+    <small>© <span data-year>2026</span> Bia Maida Fotografia · Eventos, ensaios externos e corporativo · São Paulo · SP</small>
   </div>
 </footer>
 <a class="flutuante" data-whatsapp href="#" aria-label="Conversar com a Bia no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>
@@ -576,8 +576,8 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 <button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha"><svg aria-hidden="true"><use href="#brilho"/></svg><b>Renderiza</b> <span data-rz="curta">R$ 399 · até 12/11</span></button>
 <div class="rz-folha" id="rz-folha" role="dialog" aria-label="O que a Renderiza montou" hidden>
   <button class="rz-folha-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
-  <h2>Bia, a Renderiza montou para você</h2>
-  <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/bia-maida-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/bia-maida-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
+  <h2>Bia, a Renderiza montou o seu site</h2>
+  
   <p>Tudo incluso: <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).</p>
   <p data-rz-prazo>Valor válido somente até <b data-rz="validade">12/11/2026</b>.</p>
   <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
@@ -713,8 +713,8 @@ window.RZ = {
   parcelado: "{{dado:rz-parcelado}}",
   notaPreco: "{{dado:rz-nota}}",
   validoAte: "{{dado:rz-valido-ate}}",
-  msgGarantir: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu ({{dado:rz-pix}} no Pix ou {{dado:rz-parcelado}}).",
-  msgNegociar: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+  msgGarantir: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site que a Renderiza montou para mim e quero garantir o meu ({{dado:rz-pix}} no Pix ou {{dado:rz-parcelado}}).",
+  msgNegociar: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site que a Renderiza montou para mim e queria conversar sobre o valor."
 };
 </script>
 <script>
@@ -865,8 +865,8 @@ window.RZ = {
   if (form) {
     const dia = $("[name=dia]", form), onde = $("[name=onde]", form), enviar = $("[data-consulta-enviar]", form), previa = $("[data-consulta-previa]");
     const numero = String((window.DEMO_CLIENT || {}).phone || "").replace(/\D/g, "");
-    const com = { aniversario: "um aniversário", cha: "um chá de bebê", empresa: "um evento de empresa", ensaio: "um ensaio", outro: "um evento" };
-    const sem = { aniversario: "a cobertura de um aniversário", cha: "a cobertura de um chá de bebê", empresa: "a cobertura de um evento de empresa", ensaio: "um ensaio", outro: "a cobertura de um evento" };
+    const com = { aniversario: "um aniversário", cha: "um chá de bebê", empresa: "um evento de empresa", ensaio: "um ensaio externo", outro: "um evento" };
+    const sem = { aniversario: "a cobertura de um aniversário", cha: "a cobertura de um chá de bebê", empresa: "a cobertura de um evento de empresa", ensaio: "um ensaio externo", outro: "a cobertura de um evento" };
     const semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
     try { dia.min = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) {}
     const texto = () => {

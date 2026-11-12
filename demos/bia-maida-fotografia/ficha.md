@@ -39,7 +39,7 @@
 
 A Bia gostou da demo e pediu três coisas (relato do Kaue): foco em eventos no lugar do estúdio, trocar as fotos ("muitas já não
 representam mais ela") e refazer a demo inteira para essa versão. **A mensagem dela não chegou à sessão**: a direção saiu do
-pedido do Kaue e das fotos que ela mandou. Se a mensagem disser outra coisa, os textos mudam no modelo.
+pedido do Kaue e das fotos que ela mandou. A mensagem chegou depois e os textos foram ajustados (abaixo, "Ajustes pela mensagem da Bia").
 
 ### O que mudou
 - **Identidade mantida** (o que ela aprovou): as cores, Literata + Outfit + "fotografia" em Ephesis, o monograma BM, as
@@ -76,16 +76,30 @@ pedido do Kaue e das fotos que ela mandou. Se a mensagem disser outra coisa, os 
 simbolo.webp e favicon.png>`. As três últimas saem do `index.html` da versão 1 (`git show 9d6bbf8:demos/bia-maida-fotografia/index.html`).
 **Não rodar o `gerar-fotografia.py` nesta pasta**: ele troca o site pela versão 1 (a chave `eventos` do `demo.json` avisa).
 
+### Ajustes pela mensagem da Bia (12/11/2026, à tarde)
+Palavras dela: foco em **eventos, ensaios externos e fotografia corporativa**; o estúdio **fecha em dezembro** e, no ano que
+vem, ela trabalha com **estúdios parceiros, com locação por hora**.
+- Os três focos com o mesmo peso: abertura "Eventos · Ensaios externos · Corporativo"; cápsulas Eventos (aniversário e chá de
+  bebê), Ensaios externos (o ensaio do jardim) e Corporativo; título, descrição, faixa que rola, selo, portfólio, "A Bia" e rodapé.
+- "Ao ar livre" virou **"Ensaios externos"** (a palavra dela) na aba, na cobertura ("Gestante, casal e família") e no "Sua data"
+  ("Ensaio externo"; a mensagem diz "um ensaio externo").
+- Estúdio parceiro: "Retratos e equipes · Na empresa ou em estúdio parceiro"; Contato: "vai até você: no local do evento, na
+  sua empresa ou ao ar livre. Para retratos em estúdio, ela reserva um estúdio parceiro".
+- **A página de Natal saiu da faixa da Renderiza** (era o ensaio no estúdio que fecha): a faixa diz "Bia, a Renderiza montou o
+  seu site" e "Tudo incluso: o site pronto". O endereço `/natal` continua no ar, sem link.
+- Feito direto no modelo e no `index.html` (as fotos brutas não estão no repositório); os dois continuam iguais, fora as fotos.
+
 ### Conferir com a Bia antes de fechar
 - **"Eventos de empresa":** as fotos f13 a f16 (crianças de crachá, recreação, escritório com vista) parecem um dia das
   famílias numa empresa. É dedução; nas fotos a legenda é "Evento em família". Se não for, a cobertura 03 muda de nome.
 - **f24 e f25** (quatro mulheres no consultório) entraram em Corporativo, como "Equipe". Pode ser outra coisa.
-- **Estúdio:** o endereço, o mapa e o horário saíram do site. Se ela ainda atende no estúdio, voltam no Contato.
+- **Estúdio:** o endereço, o mapa e o horário saíram do site (o estúdio fecha em dezembro).
+- **Ensaios externos:** só há um ensaio (a gestante do jardim, 6 fotos). Vale pedir 6 a 10 fotos de outros ensaios externos (família, casal, infantil).
 - **Onde atende:** o site diz "São Paulo" e "vai até o local do seu evento". Não confirmei até onde ela vai.
 - **Textos novos** (abertura, coberturas, "Sua data") são da Renderiza; só "Você é o principal rosto do seu negócio…",
   "Antes de conhecer o rostinho…" e a citação da criança são palavras dela, do Instagram.
 - **Foto dela:** a mesma da versão 1, no cenário de Natal. Vale pedir uma atual.
-- **Página de Natal:** continua no ar e na faixa da Renderiza ("A sua página de Natal"), com o estúdio. Decidir com ela se fica.
+- **Página de Natal:** saiu da faixa em 12/11; o endereço continua no ar. Se ela quiser usar até o estúdio fechar, volta na faixa.
 - **Autorização de imagem:** crianças, o médico, a equipe e a marca de cosméticos. Ela mandou as fotos para o site; vale
   ela confirmar que os clientes autorizam.
 - **Prazo:** o aviso de valor da faixa vai até 12/11/2026 (`renderiza.valido_ate`) e o `vale_ate` da demo no painel é da

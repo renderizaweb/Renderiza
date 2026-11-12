@@ -686,8 +686,8 @@
   "comentario": "Versão 2 do site (12/11/2026), com foco em eventos: é o index.html. Gerar com ferramentas/demo/gerar-fotografia-eventos.py (modelo ferramentas/demo/modelos/bia-maida-eventos.html). O resto deste arquivo (site, natal...) é da versão 1 e da página de Natal: NÃO rodar o gerar-fotografia.py nesta pasta, ele troca o index.html pela versão 1.",
   "modelo": "bia-maida-eventos",
   "dados": {
-   "titulo": "Bia Maida Fotografia | Fotografia de eventos em São Paulo",
-   "descricao": "Bia Maida, fotógrafa há 15 anos em São Paulo: aniversários, chás de bebê, eventos de empresas, retratos profissionais e ensaios ao ar livre. Nota 5,0 no Google, com 116 avaliações.",
+   "titulo": "Bia Maida Fotografia | Eventos, ensaios externos e corporativo em São Paulo",
+   "descricao": "Bia Maida, fotógrafa há 15 anos em São Paulo: eventos (aniversários, chás de bebê e eventos de empresas), ensaios externos e fotografia corporativa. Nota 5,0 no Google, com 116 avaliações.",
    "rz-pix": "R$ 399",
    "rz-parcelado": "2x de R$ 199",
    "rz-nota": "condição de lançamento",
