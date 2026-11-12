@@ -966,6 +966,11 @@
     ],
     "largura": 760
    },
+   "r1": {
+    "arquivo": "f15.jpg",
+    "largura": 1600,
+    "qualidade": 78
+   },
    "t1": {
     "arquivo": "f08.jpg",
     "corte": [

@@ -93,8 +93,7 @@ vem, ela trabalha com **estúdios parceiros, com locação por hora**.
 ### Ajustes do Kaue (12/11/2026, noite)
 - **"Serviços" no lugar de "Coberturas"** (menu, seção e dicas; a seção agora é `#servicos`). As mensagens do WhatsApp dizem
   "as fotos de um aniversário" (não "a cobertura de").
-- **Respiro:** o casal abraçado com o cachorrinho no chá de bebê (a mesma foto da galeria, `g31`, sem peso a mais) no lugar
-  das crianças de mãos para o alto (`r1`, tirada do `demo.json`).
+- **Respiro:** testei o casal com o cachorrinho no lugar das crianças, mas o Kaue preferiu as crianças (`r1`): voltou.
 - **Portfólio com "Ver mais fotos":** cada categoria mostra as duas primeiras linhas (Eventos 5, Corporativo 6; Ensaios
   externos tem só 6 e aparece inteira); o botão abre o resto. A tela cheia passa por todas as fotos da categoria.
 
