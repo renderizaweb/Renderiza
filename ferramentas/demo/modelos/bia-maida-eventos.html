@@ -180,7 +180,12 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 .g-item::after{content:attr(data-legenda);position:absolute;left:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:#fffdf9e6;font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta);opacity:0;transform:translateY(8px);transition:opacity .35s,transform .45s var(--suave);pointer-events:none}
 .g-item:focus-visible{outline-offset:-3px}
 @media(hover:hover){.g-item:hover>img{scale:1.045}.g-item:hover::after{opacity:1;transform:none}}
-.galeria-nota{text-align:center;color:var(--tinta-2);font-size:.9rem;margin:26px 0 0}
+.galeria-nota{text-align:center;color:var(--tinta-2);font-size:.9rem;margin:26px 0 0;padding-inline:16px}
+/* portfólio: as duas primeiras linhas de cada categoria; o resto abre no "Ver mais fotos" */
+.js .galeria:not(.aberta)>.linha:nth-child(n+3){display:none}
+.ver-mais{display:flex;align-items:center;gap:10px;margin:22px auto 0;min-height:48px;padding:12px 26px;border-radius:999px;background:transparent;border:1px solid var(--acento);color:var(--acento);font:500 .8rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+.ver-mais small{font-size:.74rem;letter-spacing:.04em;opacity:.75}
+@media(hover:hover){.ver-mais:hover{background:var(--acento);color:#fff}}
 @media(max-width:760px){.abas{gap:4px 22px}.aba{letter-spacing:.08em;font-size:.72rem}.aba small,.so-largo{display:none}
 .galeria{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:dense;gap:6px}.linha{display:contents}.g-item{flex:none}.g-l,.g-solo{grid-column:span 2}.js .reveal.foto.g-item>img{transition-delay:0s}}
 @media(max-width:360px){.abas{gap:4px 14px}.aba{font-size:.68rem;letter-spacing:.05em}}
@@ -366,10 +371,10 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
 <header class="site-header">
   <div class="container topo-in">
     <a class="marca" href="#inicio" aria-label="Bia Maida Fotografia, início"><img src="{{img:simbolo}}" width="48" height="48" alt=""><span class="marca-nome"><b>Bia Maida</b><i>fotografia</i></span></a>
-    <nav class="nav" aria-label="Seções"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a></nav>
+    <nav class="nav" aria-label="Seções"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#servicos">Serviços</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a></nav>
     <a class="botao topo-cta" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
-    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a><a class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a></nav>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#servicos">Serviços</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a><a class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a></nav>
   </div>
   <span class="progresso" aria-hidden="true"></span>
 </header>
@@ -468,7 +473,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
   <p class="galeria-nota">Toque numa foto para ver em tela cheia; no celular, é só passar para o lado.</p>
 </section>
 <section class="respiro" aria-label="Memórias">
-  <div class="respiro-foto" data-paralaxe><img src="{{img:r1}}" {{dim:r1}} alt="Crianças comemorando de mãos para o alto" loading="lazy"></div>
+  <div class="respiro-foto" data-paralaxe><img src="{{img:g31}}" {{dim:g31}} alt="Casal abraçado com o cachorrinho no chá de bebê" loading="lazy"></div>
   <div class="container respiro-texto"><div class="reveal"><p class="eyebrow">Fotografia de eventos</p><p class="respiro-frase">A festa passa. <br class="so-estreito"><em>As memórias ficam.</em></p></div></div>
 </section>
 <section class="secao secao--areia" id="sobre" aria-labelledby="sobre-titulo">
@@ -483,9 +488,9 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
     </div>
   </div>
 </section>
-<section class="secao" id="coberturas" aria-labelledby="coberturas-titulo">
+<section class="secao" id="servicos" aria-labelledby="servicos-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">Coberturas</p><h2 id="coberturas-titulo">Para cada ocasião, <em>um olhar.</em></h2><p>O que a Bia fotografa. Toque numa cobertura para ver as fotos no portfólio.</p></div>
+    <div class="cabeca reveal"><p class="eyebrow">Serviços</p><h2 id="servicos-titulo">Para cada ocasião, <em>um olhar.</em></h2><p>O que a Bia fotografa. Toque num serviço para ver as fotos no portfólio.</p></div>
     <ol class="cob-lista" data-coberturas>
       <li class="cob-item ativa"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Aniversários</h3><span class="cob-sub">Infantis e em família</span></span><span class="cob-txt">O parabéns, a vela, os abraços e a bagunça boa: a festa inteira, do jeito que ela aconteceu.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k1}}" {{dim:k1}} alt="Pai e filha na festa de aniversário" loading="lazy"></figure></li>
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Chá de bebê</h3><span class="cob-sub">E chá revelação</span></span><span class="cob-txt">A espera comemorada com quem importa, da decoração aos sorrisos.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k2}}" {{dim:k2}} alt="Gestante com o cachorrinho no chá de bebê" loading="lazy"></figure></li>
@@ -494,7 +499,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Marcas e produtos</h3><span class="cob-sub">Para o seu negócio</span></span><span class="cob-txt">O produto, o espaço e o dia a dia de trabalho, em fotos para o site e as redes.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k5}}" {{dim:k5}} alt="Mãos segurando dois frascos de cosméticos" loading="lazy"></figure></li>
       <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="arlivre"><span><h3 class="cob-nome">Ensaios externos</h3><span class="cob-sub">Gestante, casal e família</span></span><span class="cob-txt">Antes de conhecer o rostinho, já existe um amor que não cabe no peito.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k6}}" {{dim:k6}} alt="Casal abraçado no jardim, com as mãos na barriga" loading="lazy"></figure></li>
     </ol>
-    <p class="cob-dica">Passe para o lado para ver todas as coberturas.</p>
+    <p class="cob-dica">Passe para o lado para ver todos os serviços.</p>
   </div>
 </section>
 <section class="secao secao--areia" id="depoimentos" aria-labelledby="depoimentos-titulo">
@@ -532,7 +537,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
       </div>
       <div class="previa reveal" aria-label="Como a mensagem chega para a Bia">
         <div class="previa-topo"><img src="{{img:simbolo}}" width="40" height="40" alt=""><div><b>Bia Maida Fotografia</b><span>WhatsApp</span></div></div>
-        <div class="previa-corpo"><p class="balao" data-consulta-previa aria-live="polite">Olá, Bia! Vi o seu site e queria saber mais sobre a cobertura de um aniversário.</p><p class="previa-nota">A mensagem chega assim. Dá para mudar antes de enviar.</p></div>
+        <div class="previa-corpo"><p class="balao" data-consulta-previa aria-live="polite">Olá, Bia! Vi o seu site e queria saber mais sobre as fotos de um aniversário.</p><p class="previa-nota">A mensagem chega assim. Dá para mudar antes de enviar.</p></div>
       </div>
     </div>
     <ol class="passos reveal"><li><b>Escolha o evento e a data</b>O tipo de evento, o dia e o lugar.</li><li><b>A mensagem vai pronta</b>O WhatsApp da Bia abre com tudo escrito.</li><li><b>A Bia confirma</b>Ela responde com a disponibilidade e os valores.</li></ol>
@@ -559,7 +564,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
   <div class="container">
     <p class="rodape-marca reveal" aria-label="Bia Maida Fotografia"><b aria-hidden="true">Bia Maida</b><i aria-hidden="true">fotografia</i></p>
     <p class="rodape-frase">Te ajudo a eternizar memórias através da fotografia.</p>
-    <nav aria-label="Links"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#data">Sua data</a><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
+    <nav aria-label="Links"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#servicos">Serviços</a><a href="#data">Sua data</a><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
     <small>© <span data-year>2026</span> Bia Maida Fotografia · Eventos, ensaios externos e corporativo · São Paulo · SP</small>
   </div>
 </footer>
@@ -585,7 +590,7 @@ h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
   <script>
 window.DEMO_CLIENT = {
   brand: "Bia Maida Fotografia",
-  whatsapp: "https://wa.me/5511987191135?text=" + encodeURIComponent("Olá, Bia! Vi o seu site e queria saber mais sobre a cobertura de eventos."),
+  whatsapp: "https://wa.me/5511987191135?text=" + encodeURIComponent("Olá, Bia! Vi o seu site e queria saber mais sobre o seu trabalho."),
   phone: "+5511987191135",
   instagram: "https://www.instagram.com/biamaidafotografia/",
   maps: "https://www.google.com/maps?cid=10621636349514758109",
@@ -866,7 +871,7 @@ window.RZ = {
     const dia = $("[name=dia]", form), onde = $("[name=onde]", form), enviar = $("[data-consulta-enviar]", form), previa = $("[data-consulta-previa]");
     const numero = String((window.DEMO_CLIENT || {}).phone || "").replace(/\D/g, "");
     const com = { aniversario: "um aniversário", cha: "um chá de bebê", empresa: "um evento de empresa", ensaio: "um ensaio externo", outro: "um evento" };
-    const sem = { aniversario: "a cobertura de um aniversário", cha: "a cobertura de um chá de bebê", empresa: "a cobertura de um evento de empresa", ensaio: "um ensaio externo", outro: "a cobertura de um evento" };
+    const sem = { aniversario: "as fotos de um aniversário", cha: "as fotos de um chá de bebê", empresa: "as fotos de um evento de empresa", ensaio: "um ensaio externo", outro: "as fotos de um evento" };
     const semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
     try { dia.min = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) {}
     const texto = () => {
@@ -930,6 +935,16 @@ window.RZ = {
     addEventListener("resize", () => { if (lb.classList.contains("aberto")) ir(atual, false); });
     const primeira = $(".galeria"); if (primeira) montar(primeira); // já montado: o vídeo mede o passo das fotos
   }
+
+  // ---------- portfólio: as duas primeiras linhas de cada categoria; o resto abre no "Ver mais fotos" (a tela cheia passa por todas) ----------
+  $$(".galeria").forEach(g => {
+    const resto = $$(".linha", g).slice(2), n = resto.reduce((s, l) => s + $$(".g-item", l).length, 0);
+    if (!n) { g.classList.add("aberta"); return; }
+    const b = document.createElement("button"); b.type = "button"; b.className = "ver-mais"; b.setAttribute("aria-expanded", "false");
+    b.innerHTML = "Ver mais fotos <small>+" + n + "</small>";
+    b.addEventListener("click", () => { g.classList.add("aberta"); b.remove(); const f = $(".g-item", resto[0]); if (f) f.focus({ preventScroll: true }); });
+    g.after(b);
+  });
 
   // ---------- no computador, o cursor vira um "Ver" redondo em cima das fotos do portfólio ----------
   const cursor = $(".cursor");
