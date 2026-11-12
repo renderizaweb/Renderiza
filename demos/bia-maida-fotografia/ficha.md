@@ -9,7 +9,7 @@
 | Horário | Segunda Fechado; Terça a quinta 10h às 16h; Sexta a domingo Fechado |
 | Site | não tem: o Google aponta o Facebook (facebook.com/biamaidafotografia) (lote 2, 05/11/2026) |
 | Entregável | o site (`index.html`), na **versão 2, com foco em eventos** (12/11/2026), gerado por `ferramentas/demo/gerar-fotografia-eventos.py` (modelo `ferramentas/demo/modelos/bia-maida-eventos.html`, chave `eventos` do `demo.json`); e a página da campanha de Natal (`natal.html`), da versão 1, gerada por `ferramentas/demo/gerar-fotografia.py` |
-| Situação | versão 1 pronta em 05/11/2026; **versão 2 (eventos) feita em 12/11/2026**, a pedido da Bia · `/demo/bia-maida-fotografia` e `/demo/bia-maida-fotografia/natal` |
+| Situação | versão 1 pronta em 05/11/2026; **versão 2 (eventos) feita em 12/11/2026**, a pedido da Bia · `/demo/bia-maida-fotografia` (a página de Natal saiu do ar em 12/11) |
 | Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo (o site: `gerar-fotografia-eventos.py`, que lê os mesmos valores), ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
@@ -86,7 +86,8 @@ vem, ela trabalha com **estúdios parceiros, com locação por hora**.
 - Estúdio parceiro: "Retratos e equipes · Na empresa ou em estúdio parceiro"; Contato: "vai até você: no local do evento, na
   sua empresa ou ao ar livre. Para retratos em estúdio, ela reserva um estúdio parceiro".
 - **A página de Natal saiu da faixa da Renderiza** (era o ensaio no estúdio que fecha): a faixa diz "Bia, a Renderiza montou o
-  seu site" e "Tudo incluso: o site pronto". O endereço `/natal` continua no ar, sem link.
+  seu site" e "Tudo incluso: o site pronto". A página `/natal` saiu do ar (volta com
+  `git show 654cfc4:demos/bia-maida-fotografia/natal.html`, e o link volta na faixa).
 - Feito direto no modelo e no `index.html` (as fotos brutas não estão no repositório); os dois continuam iguais, fora as fotos.
 
 ### Conferir com a Bia antes de fechar
@@ -99,7 +100,7 @@ vem, ela trabalha com **estúdios parceiros, com locação por hora**.
 - **Textos novos** (abertura, coberturas, "Sua data") são da Renderiza; só "Você é o principal rosto do seu negócio…",
   "Antes de conhecer o rostinho…" e a citação da criança são palavras dela, do Instagram.
 - **Foto dela:** a mesma da versão 1, no cenário de Natal. Vale pedir uma atual.
-- **Página de Natal:** saiu da faixa em 12/11; o endereço continua no ar. Se ela quiser usar até o estúdio fechar, volta na faixa.
+- **Página de Natal:** saiu do ar em 12/11. Se ela quiser usar até o estúdio fechar, volta (ver acima).
 - **Autorização de imagem:** crianças, o médico, a equipe e a marca de cosméticos. Ela mandou as fotos para o site; vale
   ela confirmar que os clientes autorizam.
 - **Prazo:** o aviso de valor da faixa vai até 12/11/2026 (`renderiza.valido_ate`) e o `vale_ate` da demo no painel é da
