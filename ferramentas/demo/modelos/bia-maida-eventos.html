@@ -1,0 +1,960 @@
+<!doctype html>
+<!-- Demo Bia Maida Fotografia, versão 2 (12/11/2026): o site com foco em eventos, a pedido da Bia, com as fotos que ela mandou em 12/11. Mesma identidade da versão 1 (cores, letras, cápsulas), com mais movimento. Arquivo único com as fotos dentro. Gerada por ferramentas/demo/gerar-fotografia-eventos.py a partir de ferramentas/demo/modelos/bia-maida-eventos.html. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{dado:descricao}}">
+  <meta name="theme-color" content="#f9f7f4">
+  <meta name="robots" content="noindex,nofollow">
+  <title>{{dado:titulo}}</title>
+  <link rel="icon" type="image/png" href="{{img:favicon}}">
+  <script>document.documentElement.classList.add("js");if(/[?&]video=1(&|$)/.test(location.search))document.documentElement.classList.add("modo-video");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400..600&family=Outfit:wght@300;400;500;600&family=Ephesis&display=swap" rel="stylesheet">
+  <style>
+:root{--fundo:#f9f7f4;--papel:#ffffff;--areia:#f0ede8;--linha:#e2ddd5;--tinta:#26292c;--tinta-2:#5f6366;--rosa:#e0b39b;--acento:#1f5470;--acento-escuro:#173f55;--cafe:#1b2a33;--claro:#f6eee6;
+--serif:"Literata",Georgia,serif;--sans:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"Ephesis","Brush Script MT",cursive;
+--container:min(1200px,calc(100% - 48px));--largo:min(1360px,calc(100% - 48px));--raio:16px;--suave:cubic-bezier(.2,.7,.2,1);--expo:cubic-bezier(.16,1,.3,1);--t0:.15s}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-weight:400;font-size:1.0625rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+img{display:block;max-width:100%;height:auto}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+::selection{background:var(--acento);color:#fff}
+.container{width:var(--container);margin-inline:auto}.container--largo{width:var(--largo)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--acento)}
+h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
+.eyebrow{display:flex;align-items:center;gap:12px;font-weight:500;font-size:.72rem;line-height:1.4;letter-spacing:.28em;text-transform:uppercase;color:var(--acento);margin:0 0 18px}
+.eyebrow::before,.cabeca .eyebrow::after{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.85}
+.secao{padding:clamp(76px,10vw,132px) 0}.secao--areia{background:var(--areia)}
+.cabeca{max-width:680px;margin:0 auto clamp(36px,5vw,56px);text-align:center}.cabeca .eyebrow{justify-content:center}
+.cabeca>p:not(.eyebrow){color:var(--tinta-2);margin:18px auto 0;max-width:540px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 28px;border-radius:999px;background:var(--acento);border:1px solid var(--acento);color:#fff;text-decoration:none;font-weight:500;font-size:.92rem;letter-spacing:.06em;transition:background .25s,color .25s,border-color .25s,transform .35s var(--suave),box-shadow .35s}
+.botao:hover{background:var(--acento-escuro);border-color:var(--acento-escuro);transform:translateY(-2px);box-shadow:0 14px 30px -14px #173f5599}.botao:active{transform:none}.botao svg{width:20px;height:20px;flex:none}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding-bottom:3px;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .45s var(--suave)}
+.link svg{width:16px;height:16px;transition:transform .45s var(--suave)}.link:hover{background-size:calc(100% - 26px) 1px}.link:hover svg{transform:translateX(6px)}
+
+/* entrada das partes: cada filho sobe em sequência; a foto abre como uma cortina. Só com JS e sem "reduzir movimento". */
+.js .reveal>*{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform 1.1s var(--suave)}
+.js .reveal>*:nth-child(2){transition-delay:.09s}.js .reveal>*:nth-child(3){transition-delay:.18s}.js .reveal>*:nth-child(4){transition-delay:.27s}.js .reveal>*:nth-child(5){transition-delay:.36s}.js .reveal>*:nth-child(n+6){transition-delay:.45s}
+.js .reveal.is-visible>*{opacity:1;transform:none}
+.foto{display:block;overflow:hidden;border-radius:var(--raio);background:var(--areia)}
+/* a cortina fica na imagem, não na moldura: moldura toda cortada não conta como "na tela" e a foto nunca abriria */
+.js .reveal.foto{background:transparent;transition:background 0s linear 1.3s}.js .reveal.foto.is-visible{background:var(--areia)}
+.js .reveal.foto>img{opacity:1;clip-path:inset(100% 0 0 0);transform:scale(1.16);transition:clip-path 1.25s var(--expo),transform 1.7s var(--expo),scale 1.1s var(--suave);transition-delay:calc(var(--i,0)*90ms),calc(var(--i,0)*90ms),0s}
+.js .reveal.foto.is-visible>img{clip-path:inset(0 0 0 0);transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal>*,.js .reveal.foto>img{opacity:1;transform:none;clip-path:none;transition:none}.js .reveal.foto{background:var(--areia);transition:none}}
+
+/* camada da Renderiza: faixa no topo (some com a rolagem), pílula e folha; ?video=1 esconde tudo */
+.rz-faixa{background:#1e2528;color:#eef0ee;font-size:.86rem;line-height:1.45;position:relative;z-index:60}
+.rz-in{width:min(1200px,calc(100% - 32px));margin-inline:auto;display:flex;align-items:center;gap:10px 20px;flex-wrap:wrap;padding:10px 0}
+.rz-ola{display:flex;align-items:center;gap:8px;font-weight:500}.rz-ola svg{width:14px;height:14px;color:#e8855e;flex:none}
+.rz-troca{display:inline-flex;padding:3px;border-radius:999px;background:#ffffff14;gap:2px}
+.rz-troca a{padding:6px 14px;border-radius:999px;text-decoration:none;color:#d7dcd9;font-size:.8rem;white-space:nowrap}
+.rz-troca a[aria-current="page"]{background:#f1eee9;color:#1e2528;font-weight:500}
+.rz-preco{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;margin-left:auto}
+.rz-preco b{font-weight:500;color:#fff}.rz-preco small{color:#aab3ae;font-size:.78rem}
+.rz-alerta{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:#f4b9452e;color:#ffd387;font-size:.78rem;font-weight:500;white-space:nowrap}.rz-alerta svg{width:13px;height:13px;flex:none}.rz-alerta b{color:#ffe2a8;font-weight:600}
+.rz-preco:has(.rz-alerta:not([hidden])) small{display:none}@media(min-width:861px){.rz-preco:has(.rz-alerta:not([hidden])) .rz-tudo{display:none}}
+.rz-abrir{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;border:1px solid #ffffff38;font-size:.8rem;white-space:nowrap}
+.rz-abrir svg{width:12px;height:12px;transform:rotate(90deg);transition:transform .2s}.rz-faixa.aberta .rz-abrir svg{transform:rotate(-90deg)}
+.rz-mais{border-top:1px solid #ffffff1f}.rz-mais .rz-in{padding:14px 0 16px;align-items:center}
+.rz-prazo{margin:0;color:#d7dcd9;max-width:640px}.rz-prazo b{color:#fff;font-weight:500}
+.rz-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+.rz-botao{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 18px;border-radius:999px;background:#b25134;color:#fff;text-decoration:none;font-weight:500;font-size:.86rem}
+.rz-botao:hover{background:#c55f40}.rz-botao--linha{background:transparent;border:1px solid #ffffff59}.rz-botao--linha:hover{background:#ffffff14}.rz-botao svg{width:17px;height:17px}
+.rz-assina{color:#8e9894;font-size:.74rem;letter-spacing:.04em}
+.rz-pilula{position:fixed;left:16px;bottom:18px;z-index:70;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#1e2528;color:#f1eee9;font-size:.8rem;box-shadow:0 10px 30px #1e252840;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .3s,transform .3s}
+.rz-pilula.visivel{opacity:1;transform:none;pointer-events:auto}.rz-pilula svg{width:13px;height:13px;color:#e8855e}.rz-pilula b{font-weight:500}
+.rz-folha{position:fixed;left:16px;bottom:72px;z-index:71;width:min(360px,calc(100vw - 32px));background:#1e2528;color:#eef0ee;border-radius:18px;padding:20px 20px 18px;box-shadow:0 24px 60px #0000004d;font-size:.9rem;line-height:1.5}
+.rz-folha h2{font-family:var(--sans);font-size:1rem;font-weight:500;letter-spacing:0;color:#fff;margin:0 0 10px;padding-right:28px}
+.rz-folha p{margin:0 0 10px;color:#d7dcd9}.rz-folha .rz-troca{margin:4px 0 14px}.rz-folha .rz-acoes{margin:12px 0 0}
+.rz-folha-fechar{position:absolute;top:12px;right:12px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#d7dcd9}.rz-folha-fechar svg{width:18px;height:18px}
+.modo-video .rz-faixa,.modo-video .rz-pilula,.modo-video .rz-folha{display:none!important}
+@media(max-width:860px){.rz-in{gap:8px 12px;padding:10px 0 11px}.rz-ola{width:100%;font-size:.84rem}.rz-troca{width:100%}.rz-troca a{flex:1;text-align:center;padding:7px 8px}
+.rz-preco{margin-left:0;width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px 10px}.rz-preco>span:first-child{flex:1 1 auto;min-width:0}.rz-alerta{order:3;font-size:.74rem;padding:3px 10px}.rz-preco>span{font-size:.8rem}.rz-preco small{display:none}.rz-abrir{padding:6px 10px}.rz-abrir .rz-abrir-txt{display:none}.rz-acoes{margin-left:0;width:100%}.rz-acoes .rz-botao{flex:1;justify-content:center}}
+
+/* cortina de entrada: só CSS (se a animação não rodar, ela nem aparece) */
+.cortina{display:none}
+@media(prefers-reduced-motion:no-preference){
+:root{--t0:1.05s}.modo-video{--t0:.15s}
+.js:not(.modo-video) .cortina{display:grid;place-items:center;position:fixed;inset:0;z-index:300;background:var(--fundo);animation:cortina-sai .8s var(--expo) .95s both}
+.cortina-marca{display:grid;justify-items:center;gap:10px;animation:cortina-marca .9s var(--suave) both}
+.cortina-marca img{width:64px;height:64px}.cortina-marca b{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:.01em;line-height:1}
+.cortina-marca i{font-family:var(--script);font-style:normal;font-size:2rem;line-height:.6;color:var(--rosa)}
+@keyframes cortina-sai{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes cortina-marca{from{opacity:0;transform:translateY(14px) scale(.96)}}
+}
+
+/* topo do site */
+.site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--fundo) 90%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.rolou{border-bottom-color:var(--linha)}
+.progresso{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--acento);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:78px;position:relative}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.marca img{width:48px;height:48px;flex:none;transition:transform .8s var(--suave)}.marca:hover img{transform:rotate(-8deg)}
+.marca-nome{display:grid;line-height:1;min-width:0}
+.marca-nome b{font-family:var(--serif);font-weight:500;font-size:1.34rem;letter-spacing:.01em;white-space:nowrap}
+.marca-nome i{font-family:var(--script);font-style:normal;font-size:1.74rem;line-height:.9;color:var(--rosa);margin:2px 0 0 1px}
+.nav{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
+.nav a{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;padding:6px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--suave),color .3s}
+.nav a:hover,.nav a.aqui{background-size:100% 1px}.nav a.aqui{color:var(--acento)}
+.topo-cta{min-height:44px;padding:10px 20px;font-size:.82rem}
+.menu-botao{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--linha);place-items:center}
+.menu-botao span{display:block;width:18px;height:1.5px;background:var(--tinta);position:relative;transition:background .2s}.menu-botao span::before,.menu-botao span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--tinta);transition:transform .35s var(--suave),top .35s var(--suave)}
+.menu-botao span::before{top:-6px}.menu-botao span::after{top:6px}
+.menu-botao[aria-expanded="true"] span{background:transparent}.menu-botao[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}.menu-botao[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+.menu-mobile{position:absolute;top:100%;left:0;right:0;background:var(--papel);border-bottom:1px solid var(--linha);box-shadow:0 18px 40px #3a2b2314;padding:8px 24px 22px}
+.menu-mobile a{display:block;padding:14px 0;border-bottom:1px solid var(--linha);text-decoration:none;font-family:var(--serif);font-size:1.4rem}
+.menu-mobile:not([hidden]) a{animation:menu-entra .5s var(--suave) both}.menu-mobile a:nth-child(2){animation-delay:.04s}.menu-mobile a:nth-child(3){animation-delay:.08s}.menu-mobile a:nth-child(4){animation-delay:.12s}.menu-mobile a:nth-child(5){animation-delay:.16s}.menu-mobile a:nth-child(n+6){animation-delay:.2s}
+@keyframes menu-entra{from{opacity:0;transform:translateY(-8px)}}
+.menu-mobile .botao{margin-top:18px;width:100%;font-family:var(--sans);font-size:.92rem;border:0;display:flex}
+@media(max-width:1060px){.nav,.topo-cta{display:none}.menu-botao{display:grid}}
+@media(min-width:1061px){.menu-mobile{display:none!important}}
+@media(max-width:520px){.topo-in{min-height:68px}.marca img{width:40px;height:40px}.marca-nome b{font-size:1.12rem;letter-spacing:0}.marca-nome i{font-size:1.5rem}}
+
+/* abertura */
+.abertura{padding:clamp(28px,5vw,72px) 0 clamp(56px,7vw,96px);overflow:hidden}
+.abertura-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(32px,5vw,80px);align-items:center}
+.abertura h1{font-size:clamp(3.1rem,6.4vw,5.6rem);font-weight:400;letter-spacing:-.015em;line-height:.94}
+.abertura h1 .nome{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}.abertura h1 .nome>span{display:block}
+.abertura h1 .script{display:block;font-family:var(--script);font-weight:400;letter-spacing:0;color:var(--rosa);font-size:1.03em;line-height:.8;margin:.1em 0 0 .32em;width:max-content;max-width:100%;padding:.12em .2em .22em 0}
+.frase{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;color:var(--tinta);margin:20px 0 14px}
+.abertura-intro{color:var(--tinta-2);max-width:480px}
+.abertura-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin:30px 0 26px}
+.prova{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--tinta-2);font-size:.92rem;text-decoration:none}
+.prova .estrelas{color:#c4935a;letter-spacing:2px}.prova b{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--tinta)}
+.mosaico{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);align-items:start;padding-bottom:6%}
+.capsula{position:relative;margin:0;aspect-ratio:3/5;border-radius:999px;overflow:hidden;background:var(--areia);isolation:isolate;transform:translateZ(0)}
+.capsula:nth-child(2){margin-top:16%}.capsula:nth-child(3){margin-top:32%}
+.capsula img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.capsula img.ativa{opacity:1;z-index:2}.capsula img.saindo{opacity:1;z-index:1;transition:none}
+.capsula figcaption{position:absolute;z-index:3;left:50%;bottom:8%;transform:translateX(-50%);white-space:nowrap;padding:5px 12px;border-radius:999px;background:#fffdf9e6;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta)}
+.selo{position:absolute;z-index:4;left:calc((100% - 2*clamp(10px,1.4vw,18px))/6);bottom:-4%;width:clamp(96px,9.4vw,128px);height:auto;transform:translateX(-50%);overflow:visible}
+.selo circle{fill:var(--fundo)}.selo text{font-family:var(--sans);font-size:8.6px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;fill:var(--tinta)}.selo .selo-gira{transform-origin:60px 60px}.selo use{color:var(--rosa)}
+@media(prefers-reduced-motion:no-preference){
+.capsula img.ativa{animation:respira 9s ease-out both}
+.selo .selo-gira{animation:gira 38s linear infinite}
+.js .abertura .eyebrow,.js .frase,.js .abertura-intro,.js .abertura-acoes,.js .prova{animation:sobe 1s var(--suave) both;animation-delay:calc(var(--t0) + var(--d,0s))}
+.js .abertura h1 .nome>span{animation:sobe-nome 1.15s var(--expo) both;animation-delay:calc(var(--t0) + .08s)}
+.js .abertura h1 .script{animation:escreve 1.5s cubic-bezier(.65,0,.25,1) both;animation-delay:calc(var(--t0) + .5s)}
+.js .frase{--d:.75s}.js .abertura-intro{--d:.9s}.js .abertura-acoes{--d:1.02s}.js .prova{--d:1.14s}
+.js .capsula{animation:capsula-entra 1.5s var(--expo) both;animation-delay:calc(var(--t0) + .2s + var(--c,0)*.14s)}
+.js .selo{animation:selo-entra 1.2s var(--suave) both;animation-delay:calc(var(--t0) + 1.1s)}
+}
+@keyframes respira{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes gira{to{transform:rotate(360deg)}}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}}
+@keyframes sobe-nome{from{transform:translateY(108%)}}
+@keyframes escreve{from{clip-path:inset(-10% 100% -10% -5%)}to{clip-path:inset(-10% -5% -10% -5%)}}
+@keyframes capsula-entra{from{opacity:0;clip-path:inset(46% 0 46% 0 round 999px);translate:0 46px}to{opacity:1;clip-path:inset(0 0 0 0 round 999px);translate:0 0}}
+@keyframes selo-entra{from{opacity:0;transform:translateX(-50%) scale(.6) rotate(-40deg)}}
+@media(max-width:900px){.mosaico .selo{display:none}.abertura-grid{grid-template-columns:1fr;gap:28px}.abertura-texto{display:contents}
+.abertura-topo{order:1}.mosaico{order:2}.abertura-baixo{order:3}.frase{margin:16px 0 0}.abertura-acoes{margin:0 0 22px}.abertura-intro{margin-bottom:22px;max-width:none}}
+@media(max-width:520px){.eyebrow{letter-spacing:.2em}.abertura h1{font-size:clamp(2.5rem,11.6vw,3.3rem)}.mosaico{gap:8px}.capsula figcaption{bottom:7%;font-size:.54rem;padding:4px 8px;letter-spacing:.08em}.abertura-acoes .botao{width:100%}}
+
+/* faixa que rola com o que a Bia fotografa */
+.faixa-rola{border-block:1px solid var(--linha);padding:18px 0;overflow:hidden;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.35rem);color:var(--tinta-2);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.faixa-trilho{display:flex;width:max-content}
+.faixa-trilho p{flex:none;margin:0;white-space:nowrap}.faixa-trilho span{transition:color .3s}.faixa-trilho span:hover{color:var(--acento)}
+.faixa-trilho i{font-style:normal;color:var(--rosa);margin:0 .9em;font-size:.7em;vertical-align:middle}
+@media(prefers-reduced-motion:no-preference){.faixa-trilho{animation:rola 44s linear infinite}.faixa-rola:hover .faixa-trilho{animation-play-state:paused}}
+@media(prefers-reduced-motion:reduce){.faixa-rola{-webkit-mask-image:none;mask-image:none;padding-inline:16px}.faixa-trilho{width:auto;justify-content:center}.faixa-trilho p{white-space:normal;text-align:center;line-height:1.9}.faixa-trilho p+p{display:none}.faixa-trilho p>i:last-child{display:none}}
+@keyframes rola{to{transform:translateX(-50%)}}
+
+/* portfólio: abas, fotos inteiras (em pé 2:3, deitada 3:2) e tela cheia */
+.abas{position:relative;display:flex;justify-content:center;flex-wrap:wrap;gap:6px clamp(20px,3vw,40px);margin:0 auto clamp(26px,4vw,40px)}
+.aba{min-height:46px;padding:10px 2px;border-bottom:1px solid transparent;font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-2);transition:color .3s}
+.aba small{font-size:.92em;opacity:.55;margin-left:6px;letter-spacing:0}
+.aba[aria-selected="true"]{color:var(--tinta);border-color:var(--acento)}.aba:hover{color:var(--tinta)}
+.abas-marca{position:absolute;left:0;top:0;height:1px;width:0;background:var(--acento);transition:transform .6s var(--expo),width .6s var(--expo);pointer-events:none}
+.js .abas.com-marca .aba[aria-selected="true"]{border-color:transparent}
+.js .painel:not(.ativo){display:none}
+.painel-titulo{font-size:1.6rem;margin:36px 0 18px}.js .painel-titulo{display:none}
+.galeria{display:grid;gap:10px}
+.linha{display:flex;gap:10px}
+.g-item{position:relative;display:block;flex:var(--ar) 1 0;min-width:0;aspect-ratio:var(--ar);cursor:zoom-in}
+.g-l{--ar:1.5}.g-p{--ar:.6667}
+.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g-item::after{content:attr(data-legenda);position:absolute;left:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:#fffdf9e6;font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta);opacity:0;transform:translateY(8px);transition:opacity .35s,transform .45s var(--suave);pointer-events:none}
+.g-item:focus-visible{outline-offset:-3px}
+@media(hover:hover){.g-item:hover>img{scale:1.045}.g-item:hover::after{opacity:1;transform:none}}
+.galeria-nota{text-align:center;color:var(--tinta-2);font-size:.9rem;margin:26px 0 0}
+@media(max-width:760px){.abas{gap:4px 22px}.aba{letter-spacing:.08em;font-size:.72rem}.aba small,.so-largo{display:none}
+.galeria{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:dense;gap:6px}.linha{display:contents}.g-item{flex:none}.g-l,.g-solo{grid-column:span 2}.js .reveal.foto.g-item>img{transition-delay:0s}}
+@media(max-width:360px){.abas{gap:4px 14px}.aba{font-size:.68rem;letter-spacing:.05em}}
+.lb{position:fixed;inset:0;z-index:200;background:#18120e;color:#f3ebe2;display:flex;flex-direction:column;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .35s ease,visibility 0s linear .35s}
+.lb.aberto{visibility:visible;opacity:1;pointer-events:auto;transition:opacity .35s ease}
+.lb-topo{display:flex;align-items:center;gap:14px;padding:14px 14px 10px 20px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+.lb-cat{color:#d9b9a6}.lb-cont{opacity:.75;letter-spacing:.1em}
+.lb-fechar{margin-left:auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff2e;transition:background .25s,transform .45s var(--suave)}.lb-fechar:hover{background:#ffffff14;transform:rotate(90deg)}.lb-fechar svg{width:22px;height:22px}
+.lb-trilho{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior:contain;scrollbar-width:none}
+.lb-trilho::-webkit-scrollbar{display:none}
+.lb-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;padding:0 clamp(0px,5vw,80px) 6px}
+.lb-slide img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:4px}
+.lb.aberto .lb-slide img{animation:lb-entra .6s var(--suave) both}@keyframes lb-entra{from{opacity:0;transform:scale(.97)}}
+.lb-seta{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;display:grid;place-items:center;background:#ffffff14;color:#fff;transition:background .25s}
+.lb-seta:hover:not(:disabled){background:#ffffff2b}.lb-seta svg{width:22px;height:22px}.lb-ant{left:18px}.lb-ant svg{transform:rotate(180deg)}.lb-prox{right:18px}.lb-seta:disabled{opacity:.25}
+.lb-leg{text-align:center;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#e9dccf;margin:0;padding:8px 20px 4px;min-height:2.2em}
+.lb-dica{text-align:center;font-size:.76rem;letter-spacing:.06em;opacity:.6;padding:0 0 14px}
+@media(max-width:760px){.lb-seta{display:none}.lb-slide{padding:0 0 4px}}@media(min-width:761px){.lb-dica{display:none}.lb-leg{padding-bottom:18px}}
+.cursor{position:fixed;left:0;top:0;z-index:90;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;display:grid;place-items:center;background:#fffdf9f0;color:var(--tinta);font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:none;opacity:0;scale:.4;transition:opacity .3s,scale .45s var(--suave);will-change:transform}
+.cursor.ativo{opacity:1;scale:1}.tem-cursor .g-item{cursor:none}.tem-cursor .g-item::after{left:auto;right:12px}
+
+/* respiro: uma foto de ponta a ponta entre o portfólio e a Bia */
+.respiro{position:relative;height:clamp(440px,58vw,780px);overflow:hidden;background:var(--cafe);color:#fff;display:flex;align-items:flex-end}
+.respiro-foto{position:absolute;left:0;right:0;top:-9%;height:118%;will-change:transform}
+.respiro-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.respiro::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1b2a3300 35%,#141f26cc 100%)}
+.respiro-texto{position:relative;z-index:1;padding:0 0 clamp(36px,6vw,84px)}
+.respiro-frase{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5.4vw,4.6rem);line-height:1.04;letter-spacing:-.015em;margin:0;text-wrap:balance}.respiro-frase em{font-style:italic;color:#f1cdb8}
+.respiro .eyebrow{color:#f1cdb8}
+.so-estreito{display:none}
+@media(max-width:760px){.respiro{height:118vw;max-height:620px}.so-estreito{display:inline}}
+
+/* sobre */
+.sobre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.sobre-foto{position:relative;margin:0}.sobre-foto img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.sobre-foto::before{content:"";position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--rosa);border-radius:24px;opacity:.55;z-index:0}.sobre-foto .foto{position:relative;z-index:1}
+.sobre-texto p{color:var(--tinta-2)}.sobre-texto h2{margin-bottom:26px}
+.citacao{margin:30px 0;padding:0 0 0 26px;border-left:1px solid var(--rosa);font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.1vw,1.7rem);line-height:1.32;color:var(--tinta)}
+.citacao footer{font-family:var(--sans);font-style:normal;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);margin-top:14px}
+.numeros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:34px 0 0;padding:0;list-style:none}
+.numeros li{border-top:1px solid var(--linha);padding-top:14px;font-size:.84rem;line-height:1.4;color:var(--tinta-2)}
+.numeros b{display:block;font-family:var(--serif);font-weight:500;font-size:2.1rem;line-height:1.1;color:var(--tinta);font-variant-numeric:tabular-nums lining-nums}
+@media(max-width:900px){.sobre-grid{grid-template-columns:1fr}.sobre-foto{max-width:460px;margin-left:16px}}
+@media(max-width:520px){.numeros{gap:12px}.numeros b{font-size:1.65rem}.numeros li{font-size:.78rem}}
+
+/* coberturas: no computador, a lista troca a foto ao lado; no celular, cartões para passar com o dedo */
+.cob-lista{list-style:none;margin:0;padding:0 0 0 calc(34% + clamp(32px,5vw,72px));position:relative;counter-reset:cob}
+.cob-item{counter-increment:cob}
+.cob-link{display:grid;grid-template-columns:36px minmax(0,1.1fr) minmax(0,1fr) 22px;gap:4px 20px;align-items:baseline;padding:24px 0 26px;border-top:1px solid var(--linha);text-decoration:none;transition:opacity .35s}
+.cob-link::before{content:counter(cob,decimal-leading-zero);font-family:var(--serif);font-style:italic;color:var(--rosa);font-size:1.1rem}
+.cob-item:last-child .cob-link{border-bottom:1px solid var(--linha)}
+.cob-nome{font-size:clamp(1.4rem,2vw,1.75rem);white-space:nowrap;transition:transform .5s var(--suave),color .3s}
+.cob-sub{display:block;font-family:var(--serif);font-style:italic;color:var(--acento);font-size:1.05rem;line-height:1.3;margin-top:4px}
+.cob-txt{color:var(--tinta-2);font-size:.98rem;line-height:1.6}
+.cob-link svg{width:20px;height:20px;align-self:center;color:var(--acento);opacity:0;transform:translateX(-10px);transition:opacity .35s,transform .5s var(--suave)}
+.cob-foto{position:absolute;left:0;top:50%;width:34%;margin:0;aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:var(--areia);translate:0 -50%;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.cob-foto img{width:100%;height:100%;object-fit:cover;transform:scale(1.07);transition:transform 1.5s var(--expo)}
+.cob-item.ativa .cob-foto{opacity:1;z-index:1}.cob-item.ativa .cob-foto img{transform:none}
+.cob-item.ativa .cob-nome{color:var(--acento)}.cob-item.ativa .cob-link svg{opacity:1;transform:none}
+@media(hover:hover) and (min-width:901px){.cob-lista:hover .cob-item:not(.ativa) .cob-link{opacity:.5}.cob-item.ativa .cob-nome{transform:translateX(10px)}}
+.cob-dica{display:none}
+@media(max-width:1100px){.cob-nome{white-space:normal}}
+@media(max-width:900px){
+.cob-lista{padding:0 24px 6px;margin-inline:-24px;border:0;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;scrollbar-width:none;overscroll-behavior-x:contain}.cob-lista::-webkit-scrollbar{display:none}
+.cob-item{flex:0 0 min(76%,330px);scroll-snap-align:start;display:flex;flex-direction:column}
+.cob-foto{position:relative;top:auto;order:-1;width:100%;translate:none;opacity:1;margin:0 0 18px;pointer-events:auto}.cob-foto img{transform:none}
+.cob-link,.cob-item:last-child .cob-link{display:block;border:0;padding:0;position:relative}.cob-link::before{display:block;margin-bottom:6px}.cob-link svg{display:none}.cob-txt{display:block;margin-top:10px;font-size:.95rem}.cob-item.ativa .cob-nome{color:inherit}
+.cob-dica{display:block;text-align:center;color:var(--tinta-2);font-size:.86rem;margin:20px 0 0}}
+
+/* avaliações (cartões montados pelo runtime) */
+.avaliacoes-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.avaliacoes-topo h2{max-width:620px}
+.nota-google{display:flex;align-items:center;gap:16px;text-decoration:none}
+.nota-google>b{font-family:var(--serif);font-size:3.4rem;font-weight:500;line-height:1}
+.nota-google span{display:grid;line-height:1.35;font-size:.86rem;color:var(--tinta-2)}.nota-google .estrelas{color:#c4935a;letter-spacing:3px;font-size:1rem}
+.carousel{min-width:0}.carousel-track{list-style:none;padding:0;margin:0;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.carousel-track::-webkit-scrollbar{display:none}.carousel-track>li{scroll-snap-align:start;min-width:0;flex:0 0 calc((100% - 32px)/3);display:flex}
+.review-card{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:28px 28px 24px;display:flex;flex-direction:column;width:100%;transition:transform .5s var(--suave),box-shadow .5s,border-color .3s}
+@media(hover:hover){.review-card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px #26292c59;border-color:#d8d0c5}}
+.review-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.stars{color:#c4935a;letter-spacing:2px;font-size:.9rem}.review-tag{font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--acento);text-align:right}
+.review-card blockquote{margin:0 0 22px;font-family:var(--serif);font-style:italic;font-size:1.32rem;line-height:1.36;flex:1}
+.review-card blockquote.is-long{font-size:1.22rem}
+.review-person{display:flex;align-items:center;gap:12px;font-size:.86rem;border-top:1px solid var(--linha);padding-top:16px}
+.review-avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--rosa);color:var(--acento);font-family:var(--serif);font-size:1rem;flex:none}
+.review-person strong{display:block;font-weight:500}.review-person a{color:var(--tinta-2);font-size:.78rem;text-decoration:none}
+.carousel-footer{display:flex;justify-content:flex-end;padding-top:24px}.carousel-controls{display:flex;gap:12px;align-items:center}
+.arrow-button{width:46px;height:46px;display:grid;place-content:center;border:1px solid var(--linha);border-radius:50%;background:var(--papel);font-size:1.15rem;transition:background .2s,border-color .2s}
+.arrow-button:hover:not(:disabled){background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}.arrow-button:disabled{opacity:.3;cursor:default}
+.carousel-dots{display:flex;gap:2px}.carousel-dots button{width:22px;height:30px;display:grid;place-content:center}
+.carousel-dots button::after{content:"";width:6px;height:6px;border-radius:50%;background:#d6c7ba;transition:width .3s}.carousel-dots button[aria-current="true"]::after{width:18px;border-radius:999px;background:var(--acento)}
+@media(max-width:980px){.carousel-track>li{flex-basis:calc((100% - 16px)/2)}}@media(max-width:640px){.carousel-track>li{flex-basis:88%}.review-card{padding:22px 20px 18px}.review-card blockquote{font-size:1.2rem}.carousel-dots{display:none}}
+
+/* a data do evento: a mensagem vai pronta para o WhatsApp */
+.consulta{background:var(--cafe);color:var(--claro);position:relative;overflow:hidden}
+.consulta::before{content:"";position:absolute;right:-12%;top:-30%;width:58%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,#2a5d7a66,transparent);pointer-events:none}
+.consulta .eyebrow{color:#e2b9a4}.consulta h2 em{color:#e9b8a2}.consulta p{color:#e2d6cb}
+.consulta-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(36px,6vw,96px);align-items:center}
+.consulta-form{margin:30px 0 0;display:grid;gap:22px}
+.consulta-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.rotulo{display:block;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#e2b9a4;margin:0 0 10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}.chip input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0;width:100%;height:100%}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:9px 18px;border-radius:999px;border:1px solid #ffffff40;font-size:.9rem;transition:background .25s,color .25s,border-color .25s}
+.chip input:hover+span{border-color:#ffffff99}.chip input:checked+span{background:#f3e7dc;border-color:#f3e7dc;color:var(--cafe)}.chip input:focus-visible+span{outline:2px solid #e9b8a2;outline-offset:3px}
+.campos{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px}
+.campo input{width:100%;min-height:50px;padding:10px 0;border:0;border-bottom:1px solid #ffffff59;border-radius:0;background:transparent;color:var(--claro);font:inherit;font-size:1.02rem;color-scheme:dark;transition:border-color .25s}
+.campo input::placeholder{color:#b9ada2}.campo input:focus{outline:0;border-bottom-color:#e9b8a2}.campo input:focus-visible{outline:0}
+.consulta .botao{background:#f3e7dc;border-color:#f3e7dc;color:var(--cafe);justify-self:start}.consulta .botao:hover{background:#fff;border-color:#fff;box-shadow:0 14px 30px -14px #00000080}
+.previa{position:relative;background:#22343f;border:1px solid #ffffff1f;border-radius:26px;padding:20px 20px 22px;box-shadow:0 40px 80px -40px #000000a6}
+.previa-topo{display:flex;align-items:center;gap:12px;padding:0 2px 16px;border-bottom:1px solid #ffffff1a;font-size:.9rem;line-height:1.3}
+.previa-topo img{width:40px;height:40px;border-radius:50%;background:var(--fundo);flex:none}.previa-topo b{display:block;font-weight:500;color:#fff}.previa-topo span{font-size:.78rem;color:#b9c4cb}
+.previa-corpo{display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding:26px 0 6px;min-height:190px;justify-content:flex-end}
+.balao{max-width:92%;margin:0;padding:13px 16px 11px;border-radius:18px 18px 4px 18px;background:#f3e7dc;color:#26292c!important;font-size:.98rem;line-height:1.5;overflow-wrap:anywhere}
+.balao.pulou{animation:balao .5s var(--suave)}@keyframes balao{from{transform:translateY(6px) scale(.985);opacity:.6}}
+.previa-nota{font-size:.76rem;color:#aebac1!important;margin:0}
+.passos{position:relative;list-style:none;margin:clamp(40px,6vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px clamp(18px,3vw,40px);counter-reset:p}
+.passos li{counter-increment:p;padding:20px 0 0;border-top:1px solid #ffffff26;color:#cfc4ba;font-size:.96rem}
+.passos li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid #e2b9a4;color:#e9b8a2;font-family:var(--serif);font-size:1.1rem;margin-bottom:12px}
+.passos b{display:block;color:#fff;font-weight:500;margin-bottom:2px}
+@media(max-width:900px){.consulta-grid{grid-template-columns:1fr}.passos{grid-template-columns:1fr}}
+@media(max-width:520px){.campos{grid-template-columns:1fr}.consulta .botao{width:100%}.chip span{padding:9px 15px}}
+
+/* contato */
+.contato-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,96px);align-items:center}
+.canais{list-style:none;margin:28px 0 30px;padding:0}
+.canais>li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--linha)}
+.canais svg{width:22px;height:22px;flex:none;color:var(--acento);margin-top:3px}
+.canais b{display:block;font-weight:500}.canais span,.canais a{color:var(--tinta-2);text-decoration:none;font-size:.96rem;transition:color .25s}
+.canais a:hover{color:var(--acento)}
+.contato-foto{position:relative;margin:0 auto;width:min(100%,400px)}
+.contato-foto .foto{border-radius:999px;aspect-ratio:3/5}
+.contato-foto img{width:100%;height:100%;object-fit:cover}
+.contato-foto .selo{left:6%;bottom:6%;width:clamp(96px,11vw,136px)}
+.js .contato-foto .selo{animation:none}.contato-foto .selo circle{fill:var(--areia)}
+@media(max-width:900px){.contato-grid{grid-template-columns:1fr}.contato-foto{width:min(74%,320px);order:-1;margin-bottom:8px}}
+
+/* rodapé */
+.rodape{background:var(--cafe);color:#d9cdc2;padding:clamp(64px,9vw,110px) 0 34px;text-align:center;overflow:hidden}
+.rodape-marca{display:grid;justify-items:center;line-height:1;margin:0 0 26px}
+.rodape-marca b{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,11vw,8.6rem);letter-spacing:-.02em;color:#f6eee6;line-height:.95}
+.rodape-marca i{font-family:var(--script);font-style:normal;font-size:clamp(2.6rem,8.4vw,6.6rem);line-height:.62;color:var(--rosa);margin-left:28%}
+.rodape-frase{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2vw,1.45rem);color:#efe4d9;margin:0 0 26px}
+.rodape nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 26px;margin-bottom:34px}
+.rodape nav a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:color .25s}.rodape nav a:hover{color:#fff}
+.rodape small{display:block;font-size:.78rem;color:#a99b8f;line-height:1.6}
+.flutuante{position:fixed;right:18px;bottom:18px;z-index:70;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#2f7d55;color:#fff;box-shadow:0 12px 30px #1f4a3340;transition:transform .4s var(--suave)}
+.flutuante:hover{transform:scale(1.07)}.flutuante svg{width:28px;height:28px}
+@media(prefers-reduced-motion:no-preference){.flutuante::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid #2f7d55;animation:onda 5s ease-out 4s infinite}}
+@keyframes onda{0%{transform:scale(1);opacity:.7}26%,100%{transform:scale(1.7);opacity:0}}
+@media(max-width:520px){.flutuante{width:54px;height:54px;right:14px;bottom:14px}.rz-pilula{left:14px;bottom:20px}}
+</style>
+</head>
+<body class="pagina-site">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="whats" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M20.5 11.5A8.5 8.5 0 0 1 7.3 19L3 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" d="M8.5 7.5c0 4 2.5 6.5 6.5 6.5l1-2-2-1-1 1c-1.5-.5-2.5-1.5-3-3l1-1-1-2Z"/></symbol>
+  <symbol id="insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="estrela" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.6 9.7l5.8-.8Z"/></symbol>
+  <symbol id="relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="fechar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="brilho" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3L3.5 11l6.3-2.2Z"/></symbol>
+</svg>
+<div class="cortina" aria-hidden="true"><div class="cortina-marca"><img src="{{img:simbolo}}" width="64" height="64" alt=""><b>Bia Maida</b><i>fotografia</i></div></div>
+<aside class="rz-faixa" aria-label="Recado da Renderiza">
+  <div class="rz-in">
+    <p class="rz-ola" style="margin:0"><svg aria-hidden="true"><use href="#brilho"/></svg>Bia, a Renderiza montou para você:</p>
+    <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/bia-maida-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/bia-maida-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
+    <p class="rz-preco" style="margin:0"><span><span class="rz-tudo">Tudo incluso: </span><b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> <small>(<span data-rz="nota">condição de lançamento</span>)</small></span>
+      <span class="rz-alerta" data-rz-prazo><svg aria-hidden="true"><use href="#relogio"/></svg>Valor válido somente até <b data-rz="validade-curta">12/11</b></span>
+      <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> <svg aria-hidden="true"><use href="#seta"/></svg></button></p>
+  </div>
+  <div class="rz-mais" id="rz-mais" hidden>
+    <div class="rz-in">
+      <p class="rz-prazo">Tudo incluso: o site e a página de Natal, prontos, por <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).<span data-rz-prazo> Valor válido somente até <b data-rz="validade">12/11/2026</b>.</span></p>
+      <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
+      <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
+    </div>
+  </div>
+</aside>
+<header class="site-header">
+  <div class="container topo-in">
+    <a class="marca" href="#inicio" aria-label="Bia Maida Fotografia, início"><img src="{{img:simbolo}}" width="48" height="48" alt=""><span class="marca-nome"><b>Bia Maida</b><i>fotografia</i></span></a>
+    <nav class="nav" aria-label="Seções"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a></nav>
+    <a class="botao topo-cta" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
+    <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#depoimentos">Depoimentos</a><a href="#data">Sua data</a><a href="#contato">Contato</a><a class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a></nav>
+  </div>
+  <span class="progresso" aria-hidden="true"></span>
+</header>
+<main id="inicio">
+<section class="abertura" aria-labelledby="titulo-site">
+  <div class="container abertura-grid">
+    <div class="abertura-texto">
+      <div class="abertura-topo">
+        <p class="eyebrow">Fotografia de eventos · São Paulo</p>
+        <h1 id="titulo-site"><span class="nome"><span>Bia Maida</span></span> <span class="script">fotografia</span></h1>
+        <p class="frase">Te ajudo a eternizar memórias através da fotografia.</p>
+      </div>
+      <div class="abertura-baixo">
+        <p class="abertura-intro">Há 15 anos fotografando pessoas, a Bia registra aniversários, chás de bebê e eventos de empresas em São Paulo, além de retratos profissionais, fotos para marcas e ensaios ao ar livre.</p>
+        <div class="abertura-acoes"><a class="botao" href="#data"><svg aria-hidden="true"><use href="#cal"/></svg>Consultar a minha data</a><a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
+        <a class="prova" href="#depoimentos"><span class="estrelas" aria-hidden="true">★★★★★</span><b>5,0</b><span>116 avaliações no Google</span></a>
+      </div>
+    </div>
+    <div class="mosaico" data-capsulas>
+      <figure class="hero-photo capsula" style="--c:0"><img class="ativa" src="{{img:c1a}}" {{dim:c1a}} alt="Aniversariante soprando a vela do bolo" fetchpriority="high"><img data-src="{{img:c1b}}" {{dim:c1b}} alt="Pai e filha de testa encostada na festa"><img data-src="{{img:c1c}}" {{dim:c1c}} alt="Menina com pintura no rosto, sorrindo"><figcaption>Aniversários</figcaption></figure>
+      <figure class="capsula" style="--c:1"><img class="ativa" src="{{img:c2a}}" {{dim:c2a}} alt="Gestante sorrindo no chá de bebê"><img data-src="{{img:c2b}}" {{dim:c2b}} alt="Gestante entre os balões do chá de bebê"><img data-src="{{img:c2c}}" {{dim:c2c}} alt="Casal abraçado com o cachorrinho no chá de bebê"><figcaption>Chá de bebê</figcaption></figure>
+      <figure class="capsula" style="--c:2"><img class="ativa" src="{{img:c3a}}" {{dim:c3a}} alt="Retrato profissional de blazer branco"><img data-src="{{img:c3b}}" {{dim:c3b}} alt="Retrato profissional à mesa"><img data-src="{{img:c3c}}" {{dim:c3c}} alt="Médico sorrindo no consultório"><figcaption>Corporativo</figcaption></figure>
+      <svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-1" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-1" textLength="276">fotografia de eventos · são paulo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg>
+    </div>
+  </div>
+</section>
+<div class="faixa-rola" aria-label="O que a Bia fotografa"><div class="faixa-trilho">
+  <p><span>Aniversários</span><i aria-hidden="true">✦</i><span>Chás de bebê</span><i aria-hidden="true">✦</i><span>Eventos de empresas</span><i aria-hidden="true">✦</i><span>Retratos profissionais</span><i aria-hidden="true">✦</i><span>Marcas e produtos</span><i aria-hidden="true">✦</i><span>Gestante ao ar livre</span><i aria-hidden="true">✦</i></p>
+  <p aria-hidden="true"><span>Aniversários</span><i>✦</i><span>Chás de bebê</span><i>✦</i><span>Eventos de empresas</span><i>✦</i><span>Retratos profissionais</span><i>✦</i><span>Marcas e produtos</span><i>✦</i><span>Gestante ao ar livre</span><i>✦</i></p>
+</div></div>
+<section class="secao" id="portfolio" aria-labelledby="portfolio-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow">Portfólio</p><h2 id="portfolio-titulo">Cada evento, <em>uma história.</em></h2><p>Aniversários, chás de bebê, eventos de empresas, retratos e ensaios ao ar livre. Escolha uma categoria e toque numa foto para ver em tela cheia.</p></div>
+    <div class="abas" role="tablist" aria-label="Categorias do portfólio"><button class="aba" type="button" role="tab" id="aba-eventos" data-aba="eventos" aria-controls="painel-eventos" aria-selected="true">Eventos<small>12</small></button><button class="aba" type="button" role="tab" id="aba-corporativo" data-aba="corporativo" aria-controls="painel-corporativo" aria-selected="false">Corporativo<span class="so-largo"> e marcas</span><small>12</small></button><button class="aba" type="button" role="tab" id="aba-arlivre" data-aba="arlivre" aria-controls="painel-arlivre" aria-selected="false">Ao ar livre<small>6</small></button><span class="abas-marca" aria-hidden="true"></span></div>
+  </div>
+  <div class="container container--largo paineis">
+    <div class="painel ativo" id="painel-eventos" role="tabpanel" aria-labelledby="aba-eventos"><h3 class="painel-titulo">Eventos</h3><div class="galeria" data-nome="Eventos">
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Aniversário" aria-label="Abrir em tela cheia: Pai e filha de testa encostada na festa de aniversário"><img src="{{img:g00}}" {{dim:g00}} alt="Pai e filha de testa encostada na festa de aniversário" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:1" data-legenda="Aniversário" aria-label="Abrir em tela cheia: Aniversariante soprando a vela do bolo"><img src="{{img:g01}}" {{dim:g01}} alt="Aniversariante soprando a vela do bolo" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Gestante sorrindo no chá de bebê, entre os balões"><img src="{{img:g29}}" {{dim:g29}} alt="Gestante sorrindo no chá de bebê, entre os balões" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Casal abraçado com o cachorrinho no chá de bebê"><img src="{{img:g31}}" {{dim:g31}} alt="Casal abraçado com o cachorrinho no chá de bebê" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Gestante com o cachorrinho no colo, no chá de bebê"><img src="{{img:g28}}" {{dim:g28}} alt="Gestante com o cachorrinho no colo, no chá de bebê" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Gestante de perfil, sorrindo, no chá de bebê"><img src="{{img:g30}}" {{dim:g30}} alt="Gestante de perfil, sorrindo, no chá de bebê" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Evento em família" aria-label="Abrir em tela cheia: Crianças de mãos para o alto no evento"><img src="{{img:g15}}" {{dim:g15}} alt="Crianças de mãos para o alto no evento" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Evento em família" aria-label="Abrir em tela cheia: Menina com pintura no rosto, sorrindo"><img src="{{img:g14}}" {{dim:g14}} alt="Menina com pintura no rosto, sorrindo" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Evento em família" aria-label="Abrir em tela cheia: Famílias reunidas para a foto no evento"><img src="{{img:g16}}" {{dim:g16}} alt="Famílias reunidas para a foto no evento" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Evento em família" aria-label="Abrir em tela cheia: Crianças brincando no tapete colorido"><img src="{{img:g13}}" {{dim:g13}} alt="Crianças brincando no tapete colorido" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Bolo do chá de bebê com ursinhos e flores"><img src="{{img:g26}}" {{dim:g26}} alt="Bolo do chá de bebê com ursinhos e flores" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Chá de bebê" aria-label="Abrir em tela cheia: Doces decorados do chá de bebê"><img src="{{img:g27}}" {{dim:g27}} alt="Doces decorados do chá de bebê" loading="lazy"></button>
+      </div>
+    </div></div>
+    <div class="painel" id="painel-corporativo" role="tabpanel" aria-labelledby="aba-corporativo" aria-hidden="true"><h3 class="painel-titulo">Corporativo e marcas</h3><div class="galeria" data-nome="Corporativo e marcas">
+      <div class="linha">
+        <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="Retrato profissional" aria-label="Abrir em tela cheia: Retrato profissional de blazer branco, com a cidade ao fundo"><img src="{{img:g17}}" {{dim:g17}} alt="Retrato profissional de blazer branco, com a cidade ao fundo" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Equipe" aria-label="Abrir em tela cheia: Equipe reunida em volta do notebook"><img src="{{img:g19}}" {{dim:g19}} alt="Equipe reunida em volta do notebook" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Retrato profissional" aria-label="Abrir em tela cheia: Retrato profissional à mesa, de blazer preto"><img src="{{img:g18}}" {{dim:g18}} alt="Retrato profissional à mesa, de blazer preto" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Equipe" aria-label="Abrir em tela cheia: Três profissionais lado a lado, com a cidade ao fundo"><img src="{{img:g20}}" {{dim:g20}} alt="Três profissionais lado a lado, com a cidade ao fundo" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Equipe" aria-label="Abrir em tela cheia: Quatro mulheres de mãos dadas, sorrindo, no consultório"><img src="{{img:g24}}" {{dim:g24}} alt="Quatro mulheres de mãos dadas, sorrindo, no consultório" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Retrato profissional" aria-label="Abrir em tela cheia: Médico em pé no consultório, sorrindo"><img src="{{img:g02}}" {{dim:g02}} alt="Médico em pé no consultório, sorrindo" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="Retrato profissional" aria-label="Abrir em tela cheia: Médico apoiado na cadeira do consultório"><img src="{{img:g03}}" {{dim:g03}} alt="Médico apoiado na cadeira do consultório" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Equipe" aria-label="Abrir em tela cheia: Quatro mulheres abraçadas, sorrindo para a câmera"><img src="{{img:g25}}" {{dim:g25}} alt="Quatro mulheres abraçadas, sorrindo para a câmera" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:2" data-legenda="Marca e produto" aria-label="Abrir em tela cheia: Cosméticos na prateleira iluminada"><img src="{{img:g21}}" {{dim:g21}} alt="Cosméticos na prateleira iluminada" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="No trabalho" aria-label="Abrir em tela cheia: Médico durante um procedimento"><img src="{{img:g05}}" {{dim:g05}} alt="Médico durante um procedimento" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Marca e produto" aria-label="Abrir em tela cheia: Mãos segurando o frasco do produto"><img src="{{img:g23}}" {{dim:g23}} alt="Mãos segurando o frasco do produto" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Marca e produto" aria-label="Abrir em tela cheia: Mãos segurando dois frascos de cosméticos"><img src="{{img:g22}}" {{dim:g22}} alt="Mãos segurando dois frascos de cosméticos" loading="lazy"></button>
+      </div>
+    </div></div>
+    <div class="painel" id="painel-arlivre" role="tabpanel" aria-labelledby="aba-arlivre" aria-hidden="true"><h3 class="painel-titulo">Ao ar livre</h3><div class="galeria" data-nome="Ao ar livre">
+      <div class="linha">
+        <button class="g-item g-p reveal foto" type="button" style="--i:0" data-legenda="Gestante" aria-label="Abrir em tela cheia: Gestante caminhando entre as roseiras"><img src="{{img:g08}}" {{dim:g08}} alt="Gestante caminhando entre as roseiras" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Gestante" aria-label="Abrir em tela cheia: Casal se olhando no jardim de flores brancas"><img src="{{img:g11}}" {{dim:g11}} alt="Casal se olhando no jardim de flores brancas" loading="lazy"></button>
+        <button class="g-item g-p reveal foto" type="button" style="--i:2" data-legenda="Gestante" aria-label="Abrir em tela cheia: Gestante de perfil entre as flores"><img src="{{img:g09}}" {{dim:g09}} alt="Gestante de perfil entre as flores" loading="lazy"></button>
+      </div>
+      <div class="linha">
+        <button class="g-item g-l reveal foto" type="button" style="--i:0" data-legenda="Gestante" aria-label="Abrir em tela cheia: Casal no jardim, com a mão dela no rosto dele"><img src="{{img:g07}}" {{dim:g07}} alt="Casal no jardim, com a mão dela no rosto dele" loading="lazy"></button>
+        <button class="g-item g-l reveal foto" type="button" style="--i:1" data-legenda="Gestante" aria-label="Abrir em tela cheia: Detalhe das mãos na barriga"><img src="{{img:g10}}" {{dim:g10}} alt="Detalhe das mãos na barriga" loading="lazy"></button>
+        <button class="g-item g-p g-solo reveal foto" type="button" style="--i:2" data-legenda="Gestante" aria-label="Abrir em tela cheia: Casal com as mãos na barriga, no jardim"><img src="{{img:g12}}" {{dim:g12}} alt="Casal com as mãos na barriga, no jardim" loading="lazy"></button>
+      </div>
+    </div></div>
+  </div>
+  <p class="galeria-nota">Toque numa foto para ver em tela cheia; no celular, é só passar para o lado.</p>
+</section>
+<section class="respiro" aria-label="Memórias">
+  <div class="respiro-foto" data-paralaxe><img src="{{img:r1}}" {{dim:r1}} alt="Crianças comemorando de mãos para o alto" loading="lazy"></div>
+  <div class="container respiro-texto"><div class="reveal"><p class="eyebrow">Fotografia de eventos</p><p class="respiro-frase">A festa passa. <br class="so-estreito"><em>As memórias ficam.</em></p></div></div>
+</section>
+<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-titulo">
+  <div class="container sobre-grid">
+    <figure class="sobre-foto"><div class="reveal foto"><img src="{{img:perfil}}" {{dim:perfil}} alt="Bia sorrindo com a câmera na mão" loading="lazy"></div></figure>
+    <div class="sobre-texto reveal">
+      <p class="eyebrow">Quem fotografa</p><h2 id="sobre-titulo">A Bia, <em>atrás da câmera.</em></h2>
+      <p>A Bia Maida é fotógrafa familiar e corporativa há 15 anos, em São Paulo. Hoje, o trabalho dela acontece onde a festa está: aniversários, chás de bebê e eventos de empresas, além de retratos profissionais, fotos para marcas e ensaios ao ar livre.</p>
+      <blockquote class="citacao">“Quem disse que criança precisa ficar paradinha para ter fotos lindas?”<footer>Bia, no Instagram</footer></blockquote>
+      <p>Nas avaliações do Google, as pessoas falam de como ela deixa todo mundo à vontade, das ideias para as poses (até para quem nunca tinha feito fotos profissionais) e da entrega rápida das fotos.</p>
+      <ul class="numeros"><li><b data-conta="5" data-casas="1">5,0</b>116 avaliações no Google</li><li><b data-conta="15" data-depois=" anos">15 anos</b>de fotografia</li><li><b data-conta="2.7" data-casas="1" data-depois=" mil">2,7 mil</b>seguidores no Instagram</li></ul>
+    </div>
+  </div>
+</section>
+<section class="secao" id="coberturas" aria-labelledby="coberturas-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow">Coberturas</p><h2 id="coberturas-titulo">Para cada ocasião, <em>um olhar.</em></h2><p>O que a Bia fotografa. Toque numa cobertura para ver as fotos no portfólio.</p></div>
+    <ol class="cob-lista" data-coberturas>
+      <li class="cob-item ativa"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Aniversários</h3><span class="cob-sub">Infantis e em família</span></span><span class="cob-txt">O parabéns, a vela, os abraços e a bagunça boa: a festa inteira, do jeito que ela aconteceu.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k1}}" {{dim:k1}} alt="Pai e filha na festa de aniversário" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Chá de bebê</h3><span class="cob-sub">E chá revelação</span></span><span class="cob-txt">A espera comemorada com quem importa, da decoração aos sorrisos.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k2}}" {{dim:k2}} alt="Gestante com o cachorrinho no chá de bebê" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="eventos"><span><h3 class="cob-nome">Eventos de empresa</h3><span class="cob-sub">Com a equipe e as famílias</span></span><span class="cob-txt">Confraternizações e dias especiais na empresa, com o registro de todo mundo.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k3}}" {{dim:k3}} alt="Crianças brincando durante o evento" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Retratos e equipes</h3><span class="cob-sub">A sua imagem</span></span><span class="cob-txt">Você é o principal rosto do seu negócio: investir na sua imagem é investir nele.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k4}}" {{dim:k4}} alt="Retrato profissional à mesa" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="corporativo"><span><h3 class="cob-nome">Marcas e produtos</h3><span class="cob-sub">Para o seu negócio</span></span><span class="cob-txt">O produto, o espaço e o dia a dia de trabalho, em fotos para o site e as redes.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k5}}" {{dim:k5}} alt="Mãos segurando dois frascos de cosméticos" loading="lazy"></figure></li>
+      <li class="cob-item"><a class="cob-link" href="#portfolio" data-ir-aba="arlivre"><span><h3 class="cob-nome">Gestante e casal</h3><span class="cob-sub">Ao ar livre</span></span><span class="cob-txt">Antes de conhecer o rostinho, já existe um amor que não cabe no peito.</span><svg aria-hidden="true"><use href="#seta"/></svg></a><figure class="cob-foto"><img src="{{img:k6}}" {{dim:k6}} alt="Casal abraçado no jardim, com as mãos na barriga" loading="lazy"></figure></li>
+    </ol>
+    <p class="cob-dica">Passe para o lado para ver todas as coberturas.</p>
+  </div>
+</section>
+<section class="secao secao--areia" id="depoimentos" aria-labelledby="depoimentos-titulo">
+  <div class="container">
+    <div class="avaliacoes-topo reveal">
+      <div><p class="eyebrow">Depoimentos</p><h2 id="depoimentos-titulo">O que os clientes <em>contam.</em></h2></div>
+      <a class="nota-google" data-reviews-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver as avaliações no Google"><b>5,0</b><span><span class="estrelas" aria-hidden="true">★★★★★</span>116 avaliações no Google</span></a>
+    </div>
+    <div class="carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações do Google">
+      <ul class="carousel-track" id="reviews-track" data-reviews tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
+      <div class="carousel-footer"><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="reviews-track" aria-label="Avaliações anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="reviews-track" aria-label="Próximas avaliações">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
+    </div>
+  </div>
+</section>
+<section class="secao consulta" id="data" aria-labelledby="data-titulo">
+  <div class="container">
+    <div class="consulta-grid">
+      <div class="reveal">
+        <p class="eyebrow">Sua data</p><h2 id="data-titulo">Qual é a data <em>do seu evento?</em></h2>
+        <p style="margin-top:22px;max-width:520px">Escolha o tipo de evento e o dia: a mensagem chega pronta no WhatsApp da Bia, e ela responde se a data está livre e com os valores.</p>
+        <form class="consulta-form" data-consulta action="#" novalidate>
+          <fieldset><legend class="rotulo">O que vai ser?</legend><div class="chips">
+            <label class="chip"><input type="radio" name="tipo" value="aniversario" checked><span>Aniversário</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="cha"><span>Chá de bebê</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="empresa"><span>Evento de empresa</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="ensaio"><span>Ensaio</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="outro"><span>Outro</span></label>
+          </div></fieldset>
+          <div class="campos">
+            <label class="campo"><span class="rotulo">Quando?</span><input type="date" name="dia"></label>
+            <label class="campo"><span class="rotulo">Onde?</span><input type="text" name="onde" placeholder="Bairro ou cidade" autocomplete="off" maxlength="60"></label>
+          </div>
+          <a class="botao" data-consulta-enviar href="https://wa.me/5511987191135" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Consultar a data no WhatsApp</a>
+        </form>
+      </div>
+      <div class="previa reveal" aria-label="Como a mensagem chega para a Bia">
+        <div class="previa-topo"><img src="{{img:simbolo}}" width="40" height="40" alt=""><div><b>Bia Maida Fotografia</b><span>WhatsApp</span></div></div>
+        <div class="previa-corpo"><p class="balao" data-consulta-previa aria-live="polite">Olá, Bia! Vi o seu site e queria saber mais sobre a cobertura de um aniversário.</p><p class="previa-nota">A mensagem chega assim. Dá para mudar antes de enviar.</p></div>
+      </div>
+    </div>
+    <ol class="passos reveal"><li><b>Escolha o evento e a data</b>O tipo de evento, o dia e o lugar.</li><li><b>A mensagem vai pronta</b>O WhatsApp da Bia abre com tudo escrito.</li><li><b>A Bia confirma</b>Ela responde com a disponibilidade e os valores.</li></ol>
+  </div>
+</section>
+<section class="secao" id="contato" aria-labelledby="contato-titulo">
+  <div class="container contato-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contato</p><h2 id="contato-titulo">Vamos falar <em>do seu evento?</em></h2>
+      <p style="color:var(--tinta-2);margin-top:20px;max-width:520px">Datas e orçamentos pelo WhatsApp. A Bia fica em São Paulo e vai até o local do seu evento.</p>
+      <ul class="canais">
+        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#">(11) 98719-1135</a></div></li>
+        <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@biamaidafotografia · 2,7 mil seguidores</a></div></li>
+        <li><svg aria-hidden="true"><use href="#estrela"/></svg><div><b>Google</b><a data-reviews-link href="#" target="_blank" rel="noopener noreferrer">Nota 5,0 · 116 avaliações</a></div></li>
+        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Onde</b><span>São Paulo · SP · no local do seu evento</span></div></li>
+      </ul>
+      <a class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar a Bia no WhatsApp</a>
+    </div>
+    <figure class="contato-foto"><div class="reveal foto"><img src="{{img:t1}}" {{dim:t1}} alt="Gestante caminhando entre as roseiras" loading="lazy"></div><svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59"/><g class="selo-gira"><path id="selo-volta-2" fill="none" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/><text><textPath href="#selo-volta-2" textLength="276">fotografia de eventos · são paulo ·</textPath></text></g><use href="#brilho" x="47" y="47" width="26" height="26"/></svg></figure>
+  </div>
+</section>
+</main>
+<footer class="rodape">
+  <div class="container">
+    <p class="rodape-marca reveal" aria-label="Bia Maida Fotografia"><b aria-hidden="true">Bia Maida</b><i aria-hidden="true">fotografia</i></p>
+    <p class="rodape-frase">Te ajudo a eternizar memórias através da fotografia.</p>
+    <nav aria-label="Links"><a href="#portfolio">Portfólio</a><a href="#sobre">A Bia</a><a href="#coberturas">Coberturas</a><a href="#data">Sua data</a><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
+    <small>© <span data-year>2026</span> Bia Maida Fotografia · Fotografia de eventos · São Paulo · SP</small>
+  </div>
+</footer>
+<a class="flutuante" data-whatsapp href="#" aria-label="Conversar com a Bia no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>
+<div class="lb" role="dialog" aria-modal="true" aria-label="Fotos em tela cheia" aria-hidden="true">
+  <div class="lb-topo"><span class="lb-cat"></span><span class="lb-cont"></span><button class="lb-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button></div>
+  <div class="lb-trilho" tabindex="-1"></div>
+  <p class="lb-leg" aria-live="polite"></p>
+  <p class="lb-dica" style="margin:0">Passe para o lado para ver a próxima</p>
+  <button class="lb-seta lb-ant" type="button" aria-label="Foto anterior"><svg aria-hidden="true"><use href="#seta"/></svg></button>
+  <button class="lb-seta lb-prox" type="button" aria-label="Próxima foto"><svg aria-hidden="true"><use href="#seta"/></svg></button>
+</div>
+<div class="cursor" aria-hidden="true">Ver</div>
+<button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha"><svg aria-hidden="true"><use href="#brilho"/></svg><b>Renderiza</b> <span data-rz="curta">R$ 399 · até 12/11</span></button>
+<div class="rz-folha" id="rz-folha" role="dialog" aria-label="O que a Renderiza montou" hidden>
+  <button class="rz-folha-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button>
+  <h2>Bia, a Renderiza montou para você</h2>
+  <nav class="rz-troca" aria-label="As páginas montadas para você"><a href="/demo/bia-maida-fotografia" data-local="index.html" data-pagina="site" aria-current="page">O seu site</a><a href="/demo/bia-maida-fotografia/natal" data-local="natal.html" data-pagina="natal">A sua página de Natal</a></nav>
+  <p>Tudo incluso: <b data-rz="preco">R$ 399 no Pix ou 2x de R$ 199</b> (<span data-rz="nota">condição de lançamento</span>).</p>
+  <p data-rz-prazo>Valor válido somente até <b data-rz="validade">12/11/2026</b>.</p>
+  <div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Garantir o meu</a><a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/5511988697165" target="_blank" rel="noopener noreferrer">Negociar</a></div>
+</div>
+  <script>
+window.DEMO_CLIENT = {
+  brand: "Bia Maida Fotografia",
+  whatsapp: "https://wa.me/5511987191135?text=" + encodeURIComponent("Olá, Bia! Vi o seu site e queria saber mais sobre a cobertura de eventos."),
+  phone: "+5511987191135",
+  instagram: "https://www.instagram.com/biamaidafotografia/",
+  maps: "https://www.google.com/maps?cid=10621636349514758109",
+  reviewsUrl: "https://www.google.com/maps/place/Bia+Maida+Fotografia/@-23.5888803,-46.5440096,17z/data=!4m8!3m7!1s0x94ce5de16127178b:0x9367a1fbea3437dd!8m2!3d-23.5888803!4d-46.5440096!9m1!1b1!16s%2Fg%2F11sjt5dz4m?hl=pt-BR",
+  writeReviewUrl: "https://www.google.com/maps/place/Bia+Maida+Fotografia/@-23.5888803,-46.5440096,17z/data=!4m8!3m7!1s0x94ce5de16127178b:0x9367a1fbea3437dd!8m2!3d-23.5888803!4d-46.5440096!9m1!1b1!16s%2Fg%2F11sjt5dz4m?hl=pt-BR",
+  rating: "5,0",
+  reviewTotal: "116",
+  reviews: [
+    {"name": "Lara Hernandez Urbinati", "initials": "LU", "tag": "Entrega rápida", "quote": "…Desde o primeiro contato, ela deu todo o suporte necessário e deixou tudo ainda mais leve e especial. E para completar, a entrega das fotos foi super rápida!…"},
+    {"name": "Karla Monte", "initials": "KM", "tag": "Pré-wedding", "quote": "…A Bia é muito simpática e tem ideias incríveis para as fotos, o que nos salvou, pois não tínhamos ideias para “pose”…"},
+    {"name": "Marilya Xavier", "initials": "MX", "tag": "Em família", "quote": "Profissional excelente, fotos lindas, te deixa a vontade durante o ensaio além de ser muito querida!!…"},
+    {"name": "Luana Marques", "initials": "LM", "tag": "Corporativo", "quote": "…Ela transmite tanta segurança e confiança que me senti super à vontade durante o ensaio…"}
+  ],
+  verifiedOn: "2026-11-05"
+};
+  </script>
+<script>
+(() => {
+  "use strict";
+  const client = window.DEMO_CLIENT;
+  if (!client) return;
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const escapeHTML = value => String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+
+  // Links e dados centralizados no DEMO_CLIENT.
+  const links = () => {
+    $$("[data-rating]").forEach(el => el.textContent = client.rating);
+    $$("[data-review-total]").forEach(el => el.textContent = client.reviewTotal);
+    $$("[data-whatsapp]").forEach(el => { el.href = client.whatsapp; el.target = "_blank"; el.rel = "noopener noreferrer"; });
+    $$("[data-instagram]").forEach(el => el.href = client.instagram);
+    $$("[data-maps]").forEach(el => el.href = client.maps);
+    $$("[data-reviews-link]").forEach(el => el.href = client.reviewsUrl);
+    $$("[data-review-write]").forEach(el => el.href = client.writeReviewUrl);
+    $$("[data-phone]").forEach(el => el.href = "tel:" + client.phone);
+  };
+  links();
+  const year = $("[data-year]");
+  if (year) year.textContent = new Date().getFullYear();
+
+  // Avaliações.
+  const avaliacoes = () => $("[data-reviews]").innerHTML = client.reviews.map(r => {
+    const long = r.quote.length > 130 ? "is-long" : "";
+    return '<li><article class="review-card"><div class="review-card-top"><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="review-tag">' + escapeHTML(r.tag) + '</span></div>' +
+      '<blockquote class="' + long + '">“' + escapeHTML(r.quote) + '”</blockquote>' +
+      '<div class="review-person"><span class="review-avatar" aria-hidden="true">' + escapeHTML(r.initials) + '</span><div><strong>' + escapeHTML(r.name) + '</strong><a href="' + escapeHTML(client.reviewsUrl) + '" target="_blank" rel="noopener noreferrer">Avaliação no Google ↗</a></div></div></article></li>';
+  }).join("");
+  avaliacoes();
+
+  // Carrossel.
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const medidas = [];
+  $$("[data-carousel]").forEach(root => {
+    const track = $(".carousel-track", root), prev = $("[data-prev]", root), next = $("[data-next]", root), dots = $("[data-dots]", root), status = $("[data-status]", root);
+    let stops = [0], active = 0, frame = 0;
+    const go = index => track.scrollTo({ left: stops[Math.max(0, Math.min(index, stops.length - 1))], behavior: motion.matches ? "auto" : "smooth" });
+    const update = () => {
+      frame = 0;
+      active = stops.reduce((best, point, i) => Math.abs(point - track.scrollLeft) < Math.abs(stops[best] - track.scrollLeft) ? i : best, 0);
+      prev.disabled = active === 0;
+      next.disabled = active === stops.length - 1;
+      Array.from(dots.children).forEach((dot, i) => dot.setAttribute("aria-current", String(i === active)));
+      const label = "Posição " + (active + 1) + " de " + stops.length;
+      if (status.textContent !== label) status.textContent = label;
+    };
+    const measure = () => {
+      const max = Math.max(0, track.scrollWidth - track.clientWidth);
+      const origin = track.firstElementChild ? track.firstElementChild.getBoundingClientRect().left + track.scrollLeft : 0;
+      stops = Array.from(track.children).map(item => Math.min(max, Math.max(0, item.getBoundingClientRect().left + track.scrollLeft - origin)));
+      stops = stops.filter((v, i, all) => i === 0 || Math.abs(v - all[i - 1]) > 3);
+      if (!stops.length) stops = [0];
+      dots.replaceChildren(...stops.map((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Ir para a posição " + (i + 1));
+        b.setAttribute("aria-controls", track.id);
+        b.addEventListener("click", () => go(i));
+        return b;
+      }));
+      update();
+    };
+    prev.addEventListener("click", () => go(active - 1));
+    next.addEventListener("click", () => go(active + 1));
+    track.addEventListener("keydown", e => {
+      const keys = { ArrowRight: active + 1, ArrowLeft: active - 1, Home: 0, End: stops.length - 1 };
+      if (e.key in keys) { e.preventDefault(); go(keys[e.key]); }
+    });
+    track.addEventListener("scroll", () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
+    if ("ResizeObserver" in window) new ResizeObserver(measure).observe(track); else window.addEventListener("resize", measure);
+    measure();
+    medidas.push(measure);
+  });
+
+  // Animação de entrada.
+  const reveals = $$(".reveal");
+  if ("IntersectionObserver" in window && !motion.matches) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } }), { threshold: .12, rootMargin: "0px 0px -40px" });
+    reveals.forEach(el => io.observe(el));
+  } else reveals.forEach(el => el.classList.add("is-visible"));
+
+  // Menu mobile.
+  const menuButton = $("[data-menu-button]"), menu = $("#menu-mobile");
+  const closeMenu = () => { menu.hidden = true; menuButton.setAttribute("aria-expanded", "false"); menuButton.setAttribute("aria-label", "Abrir menu"); };
+  menuButton.addEventListener("click", () => {
+    const open = menuButton.getAttribute("aria-expanded") !== "true";
+    menu.hidden = !open;
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+  menu.addEventListener("click", e => { if (e.target.closest("a")) closeMenu(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { closeMenu(); menuButton.focus(); } });
+  document.addEventListener("click", e => { if (!menu.hidden && !e.target.closest(".site-header")) closeMenu(); });
+  window.matchMedia("(min-width: 1061px)").addEventListener("change", e => { if (e.matches) closeMenu(); });
+
+  // O Meu site (Painel Renderiza) troca o conteúdo depois que a página abre e pede para refazer o que depende dele.
+  window.DEMO_RUNTIME = { links, avaliacoes, carrosseis: () => medidas.forEach(m => m()) };
+})();
+</script>
+<script>
+// Oferta da Renderiza nesta demo (provisória): troque aqui os valores e o prazo. "Valor válido somente até" validoAte
+// (padrão: a data da demo + 7 dias); depois dela, a data some e fica só o valor. Sem contagem regressiva.
+window.RZ = {
+  whatsapp: "5511988697165",
+  precoPix: "{{dado:rz-pix}}",
+  parcelado: "{{dado:rz-parcelado}}",
+  notaPreco: "{{dado:rz-nota}}",
+  validoAte: "{{dado:rz-valido-ate}}",
+  msgGarantir: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu ({{dado:rz-pix}} no Pix ou {{dado:rz-parcelado}}).",
+  msgNegociar: "Olá! Sou a Bia, da Bia Maida Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+};
+</script>
+<script>
+(() => {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const raiz = document.documentElement, video = raiz.classList.contains("modo-video");
+  const calmo = matchMedia("(prefers-reduced-motion: reduce)"), fino = matchMedia("(hover: hover) and (pointer: fine)");
+
+  // ---------- camada da Renderiza (valores e prazo só no window.RZ) ----------
+  const RZ = window.RZ;
+  if (RZ) {
+    const [a, m, d] = RZ.validoAte.split("-");
+    const data = d + "/" + m + "/" + a;
+    const wa = msg => "https://wa.me/" + RZ.whatsapp + "?text=" + encodeURIComponent(msg);
+    $$("[data-rz=preco]").forEach(e => e.textContent = RZ.precoPix + " no Pix ou " + RZ.parcelado);
+    $$("[data-rz=nota]").forEach(e => e.textContent = RZ.notaPreco);
+    // Depois do último dia (horário de Brasília), o aviso e a data somem e fica só o valor.
+    const hoje = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
+    const vencida = hoje > RZ.validoAte;
+    $$("[data-rz=validade]").forEach(e => e.textContent = data);
+    $$("[data-rz=validade-curta]").forEach(e => e.textContent = d + "/" + m);
+    $$("[data-rz-prazo]").forEach(e => e.hidden = vencida);
+    $$("[data-rz=curta]").forEach(e => e.textContent = vencida ? RZ.precoPix : RZ.precoPix + " · até " + d + "/" + m);
+    $$("[data-rz-garantir]").forEach(e => e.href = wa(RZ.msgGarantir));
+    $$("[data-rz-negociar]").forEach(e => e.href = wa(RZ.msgNegociar));
+  }
+  const faixa = $(".rz-faixa"), abrir = $(".rz-abrir"), mais = $(".rz-mais");
+  if (faixa && abrir && mais) abrir.addEventListener("click", () => {
+    const aberta = !faixa.classList.contains("aberta");
+    faixa.classList.toggle("aberta", aberta); mais.hidden = !aberta; abrir.setAttribute("aria-expanded", String(aberta));
+  });
+  const pilula = $(".rz-pilula"), folha = $(".rz-folha");
+  if (pilula && folha) {
+    const mostrar = () => pilula.classList.toggle("visivel", faixa ? faixa.getBoundingClientRect().bottom < -40 : scrollY > 300);
+    addEventListener("scroll", mostrar, { passive: true }); mostrar();
+    const fechar = () => { folha.hidden = true; pilula.setAttribute("aria-expanded", "false"); };
+    pilula.addEventListener("click", () => { const abre = folha.hidden; folha.hidden = !abre; pilula.setAttribute("aria-expanded", String(abre)); if (abre) $(".rz-folha-fechar", folha).focus(); });
+    $(".rz-folha-fechar", folha).addEventListener("click", () => { fechar(); pilula.focus(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !folha.hidden) fechar(); });
+  }
+  // Links entre o site e a página de Natal: no ar o endereço não tem ".html" (/demo/<pasta> e /demo/<pasta>/natal)
+  // e leva junto o ?c= do link do lead; aberto do computador (file://), vai para o arquivo.
+  if (location.protocol !== "file:") {
+    const base = location.pathname.replace(/\/(index|natal)(\.html)?$/, "").replace(/\/$/, "");
+    const q = location.search.replace(/([?&])video=1&?/, "$1").replace(/[?&]$/, "");
+    $$("a[data-pagina]").forEach(e => { const [pag, hash] = e.getAttribute("href").split("#"); e.href = base + (e.dataset.pagina === "natal" ? "/natal" : "") + q + (hash ? "#" + hash : ""); });
+  }
+
+  // ---------- topo: a linha de baixo, o quanto da página já passou e a seção em que a pessoa está ----------
+  const topo = $(".site-header"), progresso = $(".progresso");
+  let quadro = 0;
+  const aoRolar = () => {
+    quadro = 0;
+    if (topo) topo.classList.toggle("rolou", topo.getBoundingClientRect().top <= 0 && scrollY > 10);
+    if (progresso) { const total = raiz.scrollHeight - innerHeight; progresso.style.transform = "scaleX(" + (total > 0 ? Math.min(1, scrollY / total) : 0).toFixed(4) + ")"; }
+    paralaxe();
+  };
+  const navLinks = $$(".nav a[href^='#']");
+  if ("IntersectionObserver" in window && navLinks.length) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle("aqui", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
+    navLinks.forEach(a => { const s = document.getElementById(a.getAttribute("href").slice(1)); if (s) io.observe(s); });
+    const capa = $(".abertura"); if (capa) new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.classList.remove("aqui")); }), { rootMargin: "-45% 0px -50% 0px" }).observe(capa);
+  }
+
+  // ---------- respiro: a foto anda um pouco mais devagar que a página ----------
+  const fotosLentas = calmo.matches ? [] : $$("[data-paralaxe]");
+  function paralaxe() {
+    fotosLentas.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -60 || r.top > innerHeight + 60) return;
+      const p = (r.top + r.height / 2 - innerHeight / 2) / (innerHeight / 2 + r.height / 2);
+      el.style.transform = "translate3d(0," + (p * -6.5).toFixed(2) + "%,0)";
+    });
+  }
+  addEventListener("scroll", () => { if (!quadro) quadro = requestAnimationFrame(aoRolar); }, { passive: true });
+  addEventListener("resize", () => { if (!quadro) quadro = requestAnimationFrame(aoRolar); });
+  aoRolar();
+
+  // ---------- abertura: cada cápsula troca de foto de tempos em tempos (uma por vez) ----------
+  const capsulas = $$(".capsula");
+  if (capsulas.length && !calmo.matches) {
+    const carregar = () => capsulas.forEach(c => $$("img[data-src]", c).forEach(i => { i.src = i.dataset.src; i.removeAttribute("data-src"); }));
+    if (document.readyState === "complete") carregar(); else addEventListener("load", carregar);
+    let vez = 0, naTela = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => naTela = e.isIntersecting)).observe($(".mosaico"));
+    setInterval(() => {
+      if (!naTela || document.hidden) return;
+      const c = capsulas[vez++ % capsulas.length], fotos = $$("img", c), a = fotos.findIndex(i => i.classList.contains("ativa")), prox = fotos[(a + 1) % fotos.length];
+      if (!prox || prox === fotos[a] || !prox.complete || !prox.naturalWidth) return;
+      fotos.forEach(i => i.classList.remove("saindo"));
+      fotos[a].classList.add("saindo"); fotos[a].classList.remove("ativa"); prox.classList.add("ativa");
+      setTimeout(() => fotos[a].classList.remove("saindo"), 1500);
+    }, 2800);
+  }
+
+  // ---------- abas do portfólio (a linha corre até a aba escolhida) ----------
+  const abas = $$("[role=tab]"), caixaAbas = $(".abas"), marca = $(".abas-marca");
+  const marcar = aba => {
+    if (!marca || !aba) return;
+    marca.style.width = aba.offsetWidth + "px";
+    marca.style.transform = "translate(" + aba.offsetLeft + "px," + (aba.offsetTop + aba.offsetHeight - 1) + "px)";
+    caixaAbas.classList.add("com-marca");
+  };
+  const escolher = (aba, foco) => {
+    abas.forEach(a => {
+      const sim = a === aba, p = document.getElementById(a.getAttribute("aria-controls"));
+      a.setAttribute("aria-selected", String(sim)); a.tabIndex = sim ? 0 : -1;
+      if (p) { p.classList.toggle("ativo", sim); p.setAttribute("aria-hidden", String(!sim)); }
+    });
+    marcar(aba);
+    if (foco) aba.focus();
+  };
+  abas.forEach((a, i) => {
+    a.addEventListener("click", () => escolher(a));
+    a.addEventListener("keydown", e => {
+      const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: abas.length - 1 }[e.key];
+      if (k === undefined) return; e.preventDefault(); escolher(abas[(k + abas.length) % abas.length], true);
+    });
+  });
+  const ativa = abas.find(a => a.getAttribute("aria-selected") === "true"); if (ativa) escolher(ativa);
+  const remarcar = () => marcar(abas.find(a => a.getAttribute("aria-selected") === "true"));
+  addEventListener("resize", remarcar); addEventListener("load", remarcar);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(remarcar);
+  // "Coberturas": o toque abre a aba certa do portfólio.
+  $$("[data-ir-aba]").forEach(l => l.addEventListener("click", () => { const a = abas.find(x => x.dataset.aba === l.dataset.irAba); if (a) escolher(a); }));
+
+  // ---------- coberturas: no computador, a foto ao lado acompanha a linha em que o mouse (ou o teclado) está ----------
+  const cobs = $$(".cob-item");
+  const ativar = li => cobs.forEach(c => c.classList.toggle("ativa", c === li));
+  cobs.forEach(li => { li.addEventListener("mouseenter", () => { if (fino.matches) ativar(li); }); li.addEventListener("focusin", () => ativar(li)); });
+
+  // ---------- números da Bia: contam até o valor quando aparecem ----------
+  const contas = $$("[data-conta]");
+  if (contas.length && "IntersectionObserver" in window && !calmo.matches) {
+    const escrever = (el, v) => el.textContent = v.toFixed(+el.dataset.casas || 0).replace(".", ",") + (el.dataset.depois || "");
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      const el = e.target, fim = +el.dataset.conta, t0 = performance.now(), dur = 1500;
+      const passo = t => { const p = Math.min(1, (t - t0) / dur); escrever(el, fim * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(passo); };
+      requestAnimationFrame(passo);
+    }), { threshold: .6 });
+    contas.forEach(el => io.observe(el));
+  }
+
+  // ---------- a data do evento: a mensagem do WhatsApp é escrita enquanto a pessoa escolhe ----------
+  const form = $("[data-consulta]");
+  if (form) {
+    const dia = $("[name=dia]", form), onde = $("[name=onde]", form), enviar = $("[data-consulta-enviar]", form), previa = $("[data-consulta-previa]");
+    const numero = String((window.DEMO_CLIENT || {}).phone || "").replace(/\D/g, "");
+    const com = { aniversario: "um aniversário", cha: "um chá de bebê", empresa: "um evento de empresa", ensaio: "um ensaio", outro: "um evento" };
+    const sem = { aniversario: "a cobertura de um aniversário", cha: "a cobertura de um chá de bebê", empresa: "a cobertura de um evento de empresa", ensaio: "um ensaio", outro: "a cobertura de um evento" };
+    const semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+    try { dia.min = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) {}
+    const texto = () => {
+      const tipo = (form.querySelector("[name=tipo]:checked") || {}).value || "outro";
+      const lugar = onde.value.replace(/\s+/g, " ").trim();
+      const em = lugar ? ", em " + lugar : "";
+      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dia.value);
+      if (!m) return "Olá, Bia! Vi o seu site e queria saber mais sobre " + sem[tipo] + em + ".";
+      return "Olá, Bia! Vi o seu site e queria saber se você tem agenda para " + com[tipo] + " no dia " + m[3] + "/" + m[2] + "/" + m[1] + " (" + semana[new Date(+m[1], m[2] - 1, +m[3]).getDay()] + ")" + em + ".";
+    };
+    const atualizar = () => {
+      const t = texto();
+      if (previa.textContent !== t) { previa.textContent = t; previa.classList.remove("pulou"); void previa.offsetWidth; previa.classList.add("pulou"); }
+      enviar.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(t);
+    };
+    form.addEventListener("input", atualizar); form.addEventListener("change", atualizar);
+    form.addEventListener("submit", e => { e.preventDefault(); enviar.click(); });
+    atualizar();
+  }
+
+  // ---------- tela cheia (toque abre; no celular passa para o lado; setas e teclado no computador) ----------
+  const lb = $(".lb");
+  if (lb) {
+    const trilho = $(".lb-trilho", lb), cat = $(".lb-cat", lb), cont = $(".lb-cont", lb), leg = $(".lb-leg", lb), ant = $(".lb-ant", lb), prox = $(".lb-prox", lb), fecharB = $(".lb-fechar", lb);
+    let fotos = [], atual = 0, origem = null;
+    const montar = galeria => {
+      fotos = $$(".g-item img", galeria);
+      trilho.replaceChildren(...fotos.map((f, i) => {
+        const s = document.createElement("div"); s.className = "lb-slide"; s.setAttribute("role", "group"); s.setAttribute("aria-label", (i + 1) + " de " + fotos.length);
+        const im = document.createElement("img"); im.src = f.currentSrc || f.src; im.alt = f.alt; im.decoding = "async"; s.append(im); return s;
+      }));
+      cat.textContent = galeria.dataset.nome || "";
+    };
+    const largura = () => trilho.clientWidth || innerWidth;
+    const marcarFoto = () => {
+      atual = Math.max(0, Math.min(fotos.length - 1, Math.round(trilho.scrollLeft / largura())));
+      cont.textContent = (atual + 1) + " / " + fotos.length; ant.disabled = atual === 0; prox.disabled = atual === fotos.length - 1;
+      const b = fotos[atual] && fotos[atual].closest(".g-item"), l = b ? b.dataset.legenda || "" : "";
+      if (leg && leg.textContent !== l) leg.textContent = l;
+    };
+    const ir = (i, suave) => { trilho.scrollTo({ left: i * largura(), behavior: suave ? "smooth" : "auto" }); };
+    const abrirLb = (galeria, i, botao) => {
+      origem = botao; montar(galeria); trilho.style.scrollSnapType = ""; trilho.style.scrollBehavior = "";
+      lb.classList.add("aberto"); lb.setAttribute("aria-hidden", "false"); raiz.style.overflow = "hidden";
+      ir(i, false); marcarFoto(); fecharB.focus({ preventScroll: true });
+    };
+    const fecharLb = () => {
+      lb.classList.remove("aberto"); lb.setAttribute("aria-hidden", "true"); raiz.style.overflow = "";
+      if (origem) origem.focus({ preventScroll: true });
+    };
+    $$(".galeria").forEach(g => $$(".g-item", g).forEach((b, i) => b.addEventListener("click", () => abrirLb(g, i, b))));
+    trilho.addEventListener("scroll", () => requestAnimationFrame(marcarFoto), { passive: true });
+    trilho.addEventListener("click", e => { if (e.target === trilho || e.target.classList.contains("lb-slide")) fecharLb(); });
+    ant.addEventListener("click", () => ir(atual - 1, true)); prox.addEventListener("click", () => ir(atual + 1, true));
+    fecharB.addEventListener("click", fecharLb);
+    document.addEventListener("keydown", e => {
+      if (!lb.classList.contains("aberto")) return;
+      if (e.key === "Escape") fecharLb(); else if (e.key === "ArrowRight") ir(atual + 1, true); else if (e.key === "ArrowLeft") ir(atual - 1, true);
+      else if (e.key === "Tab") { e.preventDefault(); (document.activeElement === fecharB ? (prox.disabled ? fecharB : prox) : fecharB).focus(); }
+    });
+    addEventListener("resize", () => { if (lb.classList.contains("aberto")) ir(atual, false); });
+    const primeira = $(".galeria"); if (primeira) montar(primeira); // já montado: o vídeo mede o passo das fotos
+  }
+
+  // ---------- no computador, o cursor vira um "Ver" redondo em cima das fotos do portfólio ----------
+  const cursor = $(".cursor");
+  if (cursor && fino.matches && !calmo.matches && !video) {
+    raiz.classList.add("tem-cursor");
+    let x = 0, y = 0, cx = 0, cy = 0, rodando = 0, dentro = false;
+    const anda = () => {
+      cx += (x - cx) * .22; cy += (y - cy) * .22;
+      cursor.style.transform = "translate3d(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px,0)";
+      rodando = dentro || Math.abs(x - cx) > .3 || Math.abs(y - cy) > .3 ? requestAnimationFrame(anda) : 0;
+    };
+    document.addEventListener("mousemove", e => {
+      x = e.clientX; y = e.clientY;
+      const em = !!(e.target.closest && e.target.closest(".g-item"));
+      if (em && !dentro) { cx = x; cy = y; }
+      dentro = em; cursor.classList.toggle("ativo", em);
+      if (!rodando && em) rodando = requestAnimationFrame(anda);
+    }, { passive: true });
+    document.addEventListener("mouseleave", () => { dentro = false; cursor.classList.remove("ativo"); });
+    addEventListener("scroll", () => { if (dentro) { dentro = false; cursor.classList.remove("ativo"); } }, { passive: true });
+  }
+
+  // No vídeo (?video=1) o toque só marca: nada abre o WhatsApp durante a gravação.
+  if (video) document.addEventListener("click", e => { if (e.target.closest('a[href^="https://wa.me"]')) e.preventDefault(); }, true);
+})();
+</script>
+<script>if(location.protocol==="file:")document.querySelectorAll("a[data-local]").forEach(function(a){a.setAttribute("href",a.getAttribute("data-local"))})</script></body>
+</html>

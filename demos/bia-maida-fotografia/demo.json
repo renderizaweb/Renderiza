@@ -681,5 +681,318 @@
    "O ensaio dos girassóis (04/11) é da irmã dela; a página fala só em \"ensaio entre os girassóis\". Ela também divulga ensaios em Holambra (03/11).",
    "Fotos de crianças, gestantes e clientes corporativos: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site."
   ]
+ },
+ "eventos": {
+  "comentario": "Versão 2 do site (12/11/2026), com foco em eventos: é o index.html. Gerar com ferramentas/demo/gerar-fotografia-eventos.py (modelo ferramentas/demo/modelos/bia-maida-eventos.html). O resto deste arquivo (site, natal...) é da versão 1 e da página de Natal: NÃO rodar o gerar-fotografia.py nesta pasta, ele troca o index.html pela versão 1.",
+  "modelo": "bia-maida-eventos",
+  "dados": {
+   "titulo": "Bia Maida Fotografia | Fotografia de eventos em São Paulo",
+   "descricao": "Bia Maida, fotógrafa há 15 anos em São Paulo: aniversários, chás de bebê, eventos de empresas, retratos profissionais e ensaios ao ar livre. Nota 5,0 no Google, com 116 avaliações.",
+   "rz-pix": "R$ 399",
+   "rz-parcelado": "2x de R$ 199",
+   "rz-nota": "condição de lançamento",
+   "rz-valido-ate": "2026-11-12"
+  },
+  "fotos": {
+   "g00": {
+    "arquivo": "f00.jpg",
+    "largura": 1280
+   },
+   "g31": {
+    "arquivo": "f31.jpg",
+    "largura": 1280
+   },
+   "g28": {
+    "arquivo": "f28.jpg",
+    "largura": 1280
+   },
+   "g15": {
+    "arquivo": "f15.jpg",
+    "largura": 1280
+   },
+   "g16": {
+    "arquivo": "f16.jpg",
+    "largura": 1280
+   },
+   "g13": {
+    "arquivo": "f13.jpg",
+    "largura": 1280
+   },
+   "g26": {
+    "arquivo": "f26.jpg",
+    "largura": 1280
+   },
+   "g27": {
+    "arquivo": "f27.jpg",
+    "largura": 1280
+   },
+   "g19": {
+    "arquivo": "f19.jpg",
+    "largura": 1280
+   },
+   "g20": {
+    "arquivo": "f20.jpg",
+    "largura": 1280
+   },
+   "g24": {
+    "arquivo": "f24.jpg",
+    "largura": 1280
+   },
+   "g25": {
+    "arquivo": "f25.jpg",
+    "largura": 1280
+   },
+   "g21": {
+    "arquivo": "f21.jpg",
+    "largura": 1280
+   },
+   "g23": {
+    "arquivo": "f23.jpg",
+    "largura": 1280
+   },
+   "g11": {
+    "arquivo": "f11.jpg",
+    "largura": 1280
+   },
+   "g07": {
+    "arquivo": "f07.jpg",
+    "largura": 1280
+   },
+   "g10": {
+    "arquivo": "f10.jpg",
+    "largura": 1280
+   },
+   "g01": {
+    "arquivo": "f01.jpg",
+    "largura": 960
+   },
+   "g29": {
+    "arquivo": "f29.jpg",
+    "largura": 960
+   },
+   "g30": {
+    "arquivo": "f30.jpg",
+    "largura": 960
+   },
+   "g14": {
+    "arquivo": "f14.jpg",
+    "largura": 960
+   },
+   "g17": {
+    "arquivo": "f17.jpg",
+    "largura": 960
+   },
+   "g18": {
+    "arquivo": "f18.jpg",
+    "largura": 960
+   },
+   "g02": {
+    "arquivo": "f02.jpg",
+    "largura": 960
+   },
+   "g03": {
+    "arquivo": "f03.jpg",
+    "largura": 960
+   },
+   "g05": {
+    "arquivo": "f05.jpg",
+    "largura": 960
+   },
+   "g22": {
+    "arquivo": "f22.jpg",
+    "largura": 960
+   },
+   "g08": {
+    "arquivo": "f08.jpg",
+    "largura": 960
+   },
+   "g09": {
+    "arquivo": "f09.jpg",
+    "largura": 960
+   },
+   "g12": {
+    "arquivo": "f12.jpg",
+    "largura": 960
+   },
+   "c1a": {
+    "arquivo": "f01.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 720,
+    "formato": "jpeg",
+    "qualidade": 84
+   },
+   "c1b": {
+    "arquivo": "f00.jpg",
+    "corte": [
+     0.34,
+     0,
+     0.74,
+     1
+    ],
+    "largura": 560
+   },
+   "c1c": {
+    "arquivo": "f14.jpg",
+    "corte": [
+     0.07,
+     0,
+     0.97,
+     1
+    ],
+    "largura": 560
+   },
+   "c2a": {
+    "arquivo": "f30.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 560
+   },
+   "c2b": {
+    "arquivo": "f29.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 560
+   },
+   "c2c": {
+    "arquivo": "f31.jpg",
+    "corte": [
+     0.275,
+     0,
+     0.675,
+     1
+    ],
+    "largura": 560
+   },
+   "c3a": {
+    "arquivo": "f17.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 560
+   },
+   "c3b": {
+    "arquivo": "f18.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 560
+   },
+   "c3c": {
+    "arquivo": "f03.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 560
+   },
+   "k1": {
+    "arquivo": "f00.jpg",
+    "corte": [
+     0.235,
+     0,
+     0.765,
+     1
+    ],
+    "largura": 760
+   },
+   "k2": {
+    "arquivo": "f28.jpg",
+    "corte": [
+     0.24,
+     0,
+     0.77,
+     1
+    ],
+    "largura": 760
+   },
+   "k3": {
+    "arquivo": "f13.jpg",
+    "corte": [
+     0.3,
+     0,
+     0.83,
+     1
+    ],
+    "largura": 760
+   },
+   "k4": {
+    "arquivo": "f18.jpg",
+    "corte": [
+     0,
+     0.02,
+     1,
+     0.855
+    ],
+    "largura": 760
+   },
+   "k5": {
+    "arquivo": "f22.jpg",
+    "corte": [
+     0,
+     0.1,
+     1,
+     0.933
+    ],
+    "largura": 760
+   },
+   "k6": {
+    "arquivo": "f06.jpg",
+    "corte": [
+     0.15,
+     0,
+     0.68,
+     1
+    ],
+    "largura": 760
+   },
+   "r1": {
+    "arquivo": "f15.jpg",
+    "largura": 1600,
+    "qualidade": 78
+   },
+   "t1": {
+    "arquivo": "f08.jpg",
+    "corte": [
+     0.05,
+     0,
+     0.95,
+     1
+    ],
+    "largura": 680
+   },
+   "perfil": {
+    "arquivo": "perfil.webp",
+    "bruto": true
+   },
+   "simbolo": {
+    "arquivo": "simbolo.webp",
+    "bruto": true
+   },
+   "favicon": {
+    "arquivo": "favicon.png",
+    "bruto": true
+   }
+  }
  }
 }

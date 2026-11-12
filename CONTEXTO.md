@@ -203,6 +203,15 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   financeiro e atendimento. Ficaram de fora, porque a fotografia ainda não tem: a agenda online, os cliques do site e a cor dos
   botões. O site de fotógrafa ainda não sai com as marcações do Meu site (`data-site-*`): quem fechar com o Meu site precisa
   delas no site entregue.
+- **Bia Maida: versão 2 da demo, com foco em eventos** (12/11/2026, pedido do Kaue): a Bia gostou da demo e pediu o foco em
+  eventos no lugar do estúdio, fotos novas (32, pelo WhatsApp) e a demo refeita. O site virou uma página feita à mão, com a
+  mesma identidade e mais movimento: `ferramentas/demo/gerar-fotografia-eventos.py` + `ferramentas/demo/modelos/bia-maida-eventos.html`
+  (chave `eventos` do `demo.json`); a página de Natal ficou como estava. Não rodar o `gerar-fotografia.py` naquela pasta. O que
+  mudou, de onde veio cada foto e o que conferir com ela: `demos/bia-maida-fotografia/ficha.md`. Lições: (1) fotógrafa quer a
+  foto inteira: em pé 2:3 e deitada 3:2 numa linha de mesma altura (cada foto cresce na proporção dela), sem corte;
+  (2) animação de entrada que corta a própria moldura (`clip-path`) faz a foto nunca aparecer, porque moldura toda cortada
+  não conta como "na tela": a cortina vai na imagem de dentro; (3) testar com rolagem e cliques de verdade, não só com a
+  página inteira capturada (foi assim que o defeito apareceu).
 - **Fotógrafas: portfólio online** (09/11/2026, pedido do Kaue): a proposta deixa de ser "site" e vira portfólio online (galerias por ensaio, ensaios e valores, promoção, WhatsApp). O porquê e o formato estão em `docs/nichos/fotografos.md` (seção 10); a demo sai de `ferramentas/demo/gerar-portfolio.py`. Primeira: `/demo/olivares-fotografia`.
 - `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
   inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads

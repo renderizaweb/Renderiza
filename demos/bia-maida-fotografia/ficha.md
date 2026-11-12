@@ -8,9 +8,9 @@
 | WhatsApp | (11) 98719-1135 · celular do Perfil da Empresa no Google (+55 11 98719-1135), o mesmo das artes antigas ("Contato: (11) 987191135") |
 | Horário | Segunda Fechado; Terça a quinta 10h às 16h; Sexta a domingo Fechado |
 | Site | não tem: o Google aponta o Facebook (facebook.com/biamaidafotografia) (lote 2, 05/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 05/11/2026 · `/demo/bia-maida-fotografia` e `/demo/bia-maida-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
+| Entregável | o site (`index.html`), na **versão 2, com foco em eventos** (12/11/2026), gerado por `ferramentas/demo/gerar-fotografia-eventos.py` (modelo `ferramentas/demo/modelos/bia-maida-eventos.html`, chave `eventos` do `demo.json`); e a página da campanha de Natal (`natal.html`), da versão 1, gerada por `ferramentas/demo/gerar-fotografia.py` |
+| Situação | versão 1 pronta em 05/11/2026; **versão 2 (eventos) feita em 12/11/2026**, a pedido da Bia · `/demo/bia-maida-fotografia` e `/demo/bia-maida-fotografia/natal` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo (o site: `gerar-fotografia-eventos.py`, que lê os mesmos valores), ou no `window.RZ` das duas páginas |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
@@ -34,3 +34,59 @@
 - Horários: o Google mostra só terça a quinta, das 10h às 16h; uma arte antiga diz "ensaios todos os dias das 10h às 16h". A agenda é exemplo (dito na página).
 - O ensaio dos girassóis (04/11) é da irmã dela; a página fala só em "ensaio entre os girassóis". Ela também divulga ensaios em Holambra (03/11).
 - Fotos de crianças, gestantes e clientes corporativos: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+
+## Versão 2: eventos (12/11/2026)
+
+A Bia gostou da demo e pediu três coisas (relato do Kaue): foco em eventos no lugar do estúdio, trocar as fotos ("muitas já não
+representam mais ela") e refazer a demo inteira para essa versão. **A mensagem dela não chegou à sessão**: a direção saiu do
+pedido do Kaue e das fotos que ela mandou. Se a mensagem disser outra coisa, os textos mudam no modelo.
+
+### O que mudou
+- **Identidade mantida** (o que ela aprovou): as cores, Literata + Outfit + "fotografia" em Ephesis, o monograma BM, as
+  cápsulas da abertura, a ordem das partes, as 4 avaliações do Google e a frase dela.
+- **Abertura:** "Fotografia de eventos · São Paulo". As três cápsulas (Aniversários, Chá de bebê, Corporativo) trocam de foto
+  sozinhas, uma por vez; o nome entra de baixo e "fotografia" aparece como se fosse escrita. O botão principal leva à data.
+- **Faixa que rola** com o que ela fotografa, no lugar da linha parada de especialidades.
+- **Portfólio em 3 abas** (Eventos 12, Corporativo e marcas 12, Ao ar livre 6), com as **fotos inteiras** (em pé 2:3, deitada
+  3:2, sem corte): no computador, linhas de mesma altura; no celular, deitada na largura toda e em pé aos pares. Legenda de
+  cada foto ao passar o mouse e na tela cheia.
+- **Respiro:** uma foto de ponta a ponta ("A festa passa. As memórias ficam.").
+- **Coberturas** (no lugar de "Ensaios"): 6 linhas; no computador a foto ao lado acompanha o mouse, no celular são cartões
+  para passar com o dedo. O toque abre a aba certa do portfólio.
+- **Sua data** (no lugar do bloco de Natal): a pessoa escolhe o tipo de evento, o dia e o lugar, e a mensagem do WhatsApp é
+  escrita na hora (a mesma ideia do horário de Natal, que ela viu na versão 1).
+- **Contato sem o mapa, sem o endereço e sem o horário do estúdio**: "São Paulo · SP · no local do seu evento".
+- **Movimento, sem peso:** cortina de entrada de 1 s (só CSS), fotos que abrem ao rolar, números que contam, linha de
+  progresso no topo, cursor "Ver" nas fotos (só no computador). Com "reduzir movimento" ligado, nada disso roda; sem
+  JavaScript, tudo aparece. Publicada, a página tem ~100 KB e as 50 imagens saem em arquivos separados, como nas outras demos.
+
+### Fotos
+- **As 32 que a Bia mandou pelo WhatsApp em 12/11/2026** (pasta "fotos novas" do Drive do Kaue; 1600 px). Na sessão viraram
+  `f00.jpg` a `f31.jpg`, na ordem do nome do arquivo ("WhatsApp Image … .jpeg" = f00, "(1)" = f01 … "(31)" = f31).
+- **31 em uso.** Aniversário de 4 anos (f00, f01); chá de bebê (f26 a f31); evento com crianças e famílias num escritório
+  (f13 a f16); retratos e equipe no escritório (f17 a f20); médico no consultório (f02, f03, f05); quatro mulheres no
+  consultório (f24, f25); cosméticos (f21 a f23); gestante ao ar livre (f06 a f12).
+- **De fora: f04** (o close da aplicação com a agulha). É só pôr no modelo, se ela quiser.
+- **Da versão 1 ficou só o retrato da Bia** com a câmera (o do perfil do Instagram): nenhuma das fotos novas mostra ela.
+  Tirado de dentro do `index.html` da versão 1 (`perfil.webp`), junto com o monograma e o favicon.
+- Nenhuma foto antiga de estúdio ficou no site. A página de Natal não foi mexida (continua com as fotos de 29/10).
+
+### Para gerar de novo
+`python3 -I ferramentas/demo/gerar-fotografia-eventos.py demos/bia-maida-fotografia <pasta com f00.jpg … f31.jpg, perfil.webp,
+simbolo.webp e favicon.png>`. As três últimas saem do `index.html` da versão 1 (`git show 9d6bbf8:demos/bia-maida-fotografia/index.html`).
+**Não rodar o `gerar-fotografia.py` nesta pasta**: ele troca o site pela versão 1 (a chave `eventos` do `demo.json` avisa).
+
+### Conferir com a Bia antes de fechar
+- **"Eventos de empresa":** as fotos f13 a f16 (crianças de crachá, recreação, escritório com vista) parecem um dia das
+  famílias numa empresa. É dedução; nas fotos a legenda é "Evento em família". Se não for, a cobertura 03 muda de nome.
+- **f24 e f25** (quatro mulheres no consultório) entraram em Corporativo, como "Equipe". Pode ser outra coisa.
+- **Estúdio:** o endereço, o mapa e o horário saíram do site. Se ela ainda atende no estúdio, voltam no Contato.
+- **Onde atende:** o site diz "São Paulo" e "vai até o local do seu evento". Não confirmei até onde ela vai.
+- **Textos novos** (abertura, coberturas, "Sua data") são da Renderiza; só "Você é o principal rosto do seu negócio…",
+  "Antes de conhecer o rostinho…" e a citação da criança são palavras dela, do Instagram.
+- **Foto dela:** a mesma da versão 1, no cenário de Natal. Vale pedir uma atual.
+- **Página de Natal:** continua no ar e na faixa da Renderiza ("A sua página de Natal"), com o estúdio. Decidir com ela se fica.
+- **Autorização de imagem:** crianças, o médico, a equipe e a marca de cosméticos. Ela mandou as fotos para o site; vale
+  ela confirmar que os clientes autorizam.
+- **Prazo:** o aviso de valor da faixa vai até 12/11/2026 (`renderiza.valido_ate`) e o `vale_ate` da demo no painel é da
+  mesma data. Não mexi em nenhum dos dois.
