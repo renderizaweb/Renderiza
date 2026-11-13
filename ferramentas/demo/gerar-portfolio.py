@@ -121,7 +121,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .site-header.rolou{border-bottom-color:var(--linha)}
 .topo-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--topo);position:relative}
 .marca{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;white-space:nowrap}
-.marca{font-size:min(1.32rem,calc((100vw - 100px) / var(--mk,10)))}
+.marca{font-size:min(1.32rem,calc((100vw - 112px) / var(--mk,10)))}
 .marca b{font-family:var(--serif);font-weight:400;font-size:1em;letter-spacing:.2em;text-transform:uppercase}
 .marca i{font-family:var(--script);font-style:normal;font-size:1.29em;line-height:.6;color:var(--destaque)}
 .nav{display:flex;gap:clamp(16px,2.2vw,32px);margin-left:auto}
@@ -532,7 +532,7 @@ def gerar(pasta, originais=None):
 </header>'''
 
     ct = pf['contato']
-    mk = len(q['nome']) * .7 + .5 + len(q['script']) * .33   # largura da marca, em em (encolhe no celular quando o nome é longo)
+    mk = len(q['nome']) * .85 + .5 + len(q['script']) * .38   # largura da marca, em em (encolhe no celular quando o nome é longo)
 
     def contato(titulo, texto, botao):
         return f'''<section class="contato" id="contato" aria-labelledby="contato-t">

@@ -13,12 +13,12 @@
  "endereco_maps": "R. Antônio Dias Adorno, 933 - Sl 1 - Vila Nogueira, Diadema - SP, 09951-000",
  "google_nota": "5,0",
  "google_total": "15",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511932264037",
  "fone_link": "+5511932264037",
  "instagram": "amandasoares.fotografia",
  "seguidores": "4,9 mil",
- "mensagem": "Olá, Amanda! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Amanda e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fffaf3",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-20",
+  "msg_garantir": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "97mk",
-  "msg_duvida": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Amanda, da Amanda Soares Fotografias. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -661,23 +661,187 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Vila Nogueira, Diadema",
+  "titulo": "Seu momento merece fotos incríveis.",
+  "linha": "Smash the cake, mês a mês, ensaios infantis e famílias, com um cenário montado para cada tema.",
   "local": "Diadema",
-  "h1": "Smash the cake, mês a mês, infantil e famílias em Diadema.",
-  "frase": "Seu momento merece fotos incríveis.",
-  "tom": "claro",
-  "capa": "smash:0",
+  "tira": [
+   "smash:0",
+   "mesames:0",
+   "infantil:0",
+   "familia:0",
+   "smash:1",
+   "mesames:1",
+   "smash:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Lidiane Pinto da Silva",
+    "tag": "Paciência",
+    "texto": "Profissional incrível! De uma paciência e carisma incríveis também. Super recomendo o trabalho dessa profissional."
+   },
+   {
+    "nome": "Emanuel Oliveira",
+    "tag": "Entrega",
+    "texto": "Pode contratar sem medo: ótima profissional, pontual e, o melhor, entregou as fotos antes do prazo combinado. Super recomendo."
+   },
+   {
+    "nome": "Jaqueline Silva",
+    "tag": "Detalhes",
+    "texto": "Incrível! A Amanda é uma excelente profissional! Atenta aos detalhes, é muito prestativa e se empenha ao máximo para entregar um trabalho incrível!"
+   },
+   {
+    "nome": "Elder Lima",
+    "tag": "Atendimento",
+    "texto": "Recomendo! Ótimo atendimento e muito atenciosa. As fotos ficaram ótimas. Muito obrigado, Amanda, e desejo muito sucesso."
+   }
+  ],
+  "contato": {
+   "titulo": "Reserve a sua data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Nogueira, em Diadema, e atende de segunda a sábado.",
+   "endereco": [
+    "R. Antônio Dias Adorno, 933, sala 1",
+    "Vila Nogueira · Diadema, SP"
+   ],
+   "telefone": "(11) 93226-4037"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos (nº 6). Dona: Amanda. Estúdio na Vila Nogueira, em Diadema, com cenário temático em cada ensaio; tom claro, DM Serif Text e Outfit, vermelho.",
+    "Sem página de Natal: o Natal 2026 dela só aparece em vídeo (capas 9:16), sem 5 fotos."
+   ],
+   "fora": "o 15 anos (só 5 fotos, num post em parceria com a maquiadora), o ensaio de 25 anos, a foto de bastidor da Vianna's Decor (decoração de festa, outra conta), a arte política, as fotos repetidas e as capas de vídeo.",
+   "textos": [
+    "Dela: \"Seu momento merece fotos incríveis\", \"A primeira volta ao sol\", \"Um ano inteiro de descobertas, sorrisos, abraços e muito amor…\", \"Um ensaio delicioso para guardar essa fase tão linda para sempre\".",
+    "Avaliações (lidas inteiras em 13/11): todas falam dela em geral (paciência, pontualidade, atenção); cada página leva uma.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\" do smash e do mês a mês."
+   ],
+   "conferir": [
+    "Dois celulares: o do Google (11) 93226-4037 e o de um post, (11) 94226-4037. A página usa o do Google.",
+    "As fotos da grade salva estão em 1080 px; as dos smash novos, em 1365 a 1440 px."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Amanda, atrás da câmera.",
+   "p": [
+    "A Amanda fotografa smash the cake, aniversários de 1 ano, bebês mês a mês, crianças e famílias no estúdio da Vila Nogueira, em Diadema.",
+    "Cada ensaio ganha um cenário montado para o tema: do bosque de joaninhas ao estádio de futebol."
+   ],
+   "citacao": "Um ensaio delicioso para guardar essa fase tão linda para sempre.",
+   "citacao_quem": "Amanda Soares, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/733939220_18106947853996561_7500681309066116183_n.jpg",
+     "alt": "A Amanda com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 15 avaliações no Google"
+    ],
+    [
+     "4,9 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "smash",
-    "nome": "Smash e aniversário",
+    "nome": "Smash e 1 ano",
+    "curto": "Smash",
     "chamada": "Smash the cake",
-    "fotos": [
-     "smash:8,0,1,9,2"
+    "pedido": "o smash the cake",
+    "frase": "A primeira volta ao sol.",
+    "texto": "Um cenário montado para o tema do aniversário, com o bolo, o banho depois do smash e a família junto.",
+    "citacao": "Um ano inteiro de descobertas, sorrisos, abraços e muito amor… e agora, uma comemoração deliciosa para guardar esse momento para sempre!",
+    "citacao_quem": "Amanda Soares, no Instagram",
+    "quando": "Costuma ser feito perto do primeiro aniversário. Vale reservar com antecedência, para dar tempo de montar o tema.",
+    "depo": {
+     "nome": "Lidiane Pinto da Silva",
+     "texto": "Profissional incrível! De uma paciência e carisma incríveis também. Super recomendo o trabalho dessa profissional."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "A primeira volta ao sol.",
-    "sub": "Um ano inteiro de descobertas, num cenário montado para o aniversário.",
-    "texto": "Cenários coloridos e cheios de personagem, do primeiro aninho ao tema que a família escolher.",
+    "fotos": [
+     {
+      "arq": "posts/DdW4fyKifqF/DdW4fyKifqF_00.jpg",
+      "alt": "Bebê de vestido vermelho rindo no cavalinho, no tema joaninha"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_00.jpg",
+      "alt": "Bebê rindo no cavalinho, no tema sol"
+     },
+     {
+      "arq": "posts/DcrHCTlCXse/DcrHCTlCXse_00.jpg",
+      "alt": "Bebê de tiara no cavalinho, entre os balões rosa"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_05.jpg",
+      "alt": "Bebê rindo no tema sol"
+     },
+     {
+      "arq": "posts/DdW4fyKifqF/DdW4fyKifqF_06.jpg",
+      "alt": "Bebê experimentando o bolo de joaninha"
+     },
+     {
+      "arq": "posts/DcrHCTlCXse/DcrHCTlCXse_04.jpg",
+      "alt": "Bebê rindo com o bolo, de vestido rosa"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_02.jpg",
+      "alt": "Pais com o bebê no aniversário de 1 ano"
+     },
+     {
+      "arq": "posts/DdW4fyKifqF/DdW4fyKifqF_05.jpg",
+      "alt": "Pais com a bebê no tema joaninha"
+     },
+     {
+      "arq": "posts/DcrHCTlCXse/DcrHCTlCXse_02.jpg",
+      "alt": "Irmão com a bebê no cavalinho"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_06.jpg",
+      "alt": "Bebê com o bolo no tema sol"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_07.jpg",
+      "alt": "Bebê no banho depois do smash"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Bebê no tema Toy Story"
+     },
+     {
+      "arq": "posts/DdW4fyKifqF/DdW4fyKifqF_02.jpg",
+      "alt": "Bebê sentada no tema joaninha"
+     },
+     {
+      "arq": "posts/DcrHCTlCXse/DcrHCTlCXse_01.jpg",
+      "alt": "Bebê de asas de borboleta no cavalinho"
+     },
+     {
+      "arq": "posts/DcuN5eOCXwo/DcuN5eOCXwo_04.jpg",
+      "alt": "Mãe brincando com o bebê no cavalinho"
+     },
+     {
+      "arq": "drive/649923781_18096985127072957_2548334923594970499_n.jpg",
+      "alt": "Menino de camisa branca entre os balões"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -708,22 +872,93 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
-    "depo": "Emanuel Oliveira",
-    "bloco": "smash:1"
+    ]
    },
    {
     "id": "mesames",
     "nome": "Mês a mês",
-    "chamada": "Ensaio mês a mês",
-    "fotos": [
-     "bebes:6,5,4,7,2,1",
-     "smash:3"
+    "chamada": "Acompanhamento mês a mês",
+    "pedido": "o acompanhamento mês a mês",
+    "frase": "Um tema a cada mês.",
+    "texto": "Futebol, praia, festa junina, Chaves: o bebê cresce e cada mês ganha um cenário, com a plaquinha da idade.",
+    "quando": "O acompanhamento começa nos primeiros meses e fecha o ano com o smash the cake.",
+    "depo": {
+     "nome": "Emanuel Oliveira",
+     "texto": "Pode contratar sem medo: ótima profissional, pontual e, o melhor, entregou as fotos antes do prazo combinado. Super recomendo."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Um tema a cada mês.",
-    "sub": "Futebol, praia, festa junina, Chaves: o bebê cresce e cada mês ganha um cenário.",
-    "texto": "O acompanhamento registra o primeiro ano inteiro, mês a mês, com um cenário diferente em cada ensaio.",
+    "fotos": [
+     {
+      "arq": "drive/655068860_18165653422413537_4769686132294877745_n.jpg",
+      "alt": "Bebê de óculos no barril, no tema Chaves"
+     },
+     {
+      "arq": "drive/651904251_18096870007817149_4347479328833140034_n.jpg",
+      "alt": "Bebê no tema junino"
+     },
+     {
+      "arq": "drive/651885528_18086357452958945_1182682873342514480_n.jpg",
+      "alt": "Bebê de 5 meses no tema praia"
+     },
+     {
+      "arq": "drive/650181582_18107882824823689_7031670011868125051_n.jpg",
+      "alt": "Bebê de boné no tema Chaves"
+     },
+     {
+      "arq": "drive/649515545_18068384474537341_2884273169066464064_n.jpg",
+      "alt": "Bebê de roupa junina com o coração"
+     },
+     {
+      "arq": "drive/651815552_18124408006507380_2914767933235681162_n.jpg",
+      "alt": "Bebê de Chapeuzinho Vermelho"
+     },
+     {
+      "arq": "drive/651373482_18154915489450058_831476695476736914_n.jpg",
+      "alt": "Bebê de touca de ursinho"
+     },
+     {
+      "arq": "drive/657682436_18346444885208547_5344938322375192361_n.jpg",
+      "alt": "Bebê de chapéu de palha no cesto"
+     },
+     {
+      "arq": "drive/649219267_18066379640647348_6366686246801734775_n.jpg",
+      "alt": "Bebê no tapete com a plaquinha dos meses"
+     },
+     {
+      "arq": "drive/650022372_18095736499998376_2636873251982899729_n.jpg",
+      "alt": "Bebê no tema praia, com a pazinha"
+     },
+     {
+      "arq": "drive/621423848_18055457309382758_5729942340338325312_n.jpg",
+      "alt": "Bebê de camisa de futebol no gramado"
+     },
+     {
+      "arq": "drive/659151325_18572230945061404_8741830974390637172_n.jpg",
+      "alt": "Bebê no tema junino, com a plaquinha"
+     },
+     {
+      "arq": "drive/651939109_18096714596064588_5184211585714287400_n.jpg",
+      "alt": "Recém-nascida dormindo no sofazinho"
+     },
+     {
+      "arq": "drive/649917669_18095020039834257_5510345062613982365_n.jpg",
+      "alt": "Bebê no cestinho do tema junino"
+     },
+     {
+      "arq": "drive/651479855_18114713845634429_8315872326521662011_n.jpg",
+      "alt": "Bebê de 4 meses na manta branca"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -753,23 +988,72 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Lidiane Pinto da silva"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil",
     "chamada": "Ensaio infantil",
-    "fotos": [
-     "familia:2",
-     "smash:6,5",
-     "familia:3",
-     "smash:4"
+    "pedido": "o ensaio infantil",
+    "frase": "A criança só precisa brincar.",
+    "texto": "Festa junina, super-heróis, Chaves e Dia das Crianças: cenários com muita cor, montados para cada idade.",
+    "depo": {
+     "nome": "Jaqueline Silva",
+     "texto": "Incrível! A Amanda é uma excelente profissional! Atenta aos detalhes, é muito prestativa e se empenha ao máximo para entregar um trabalho incrível!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Do Chaves ao Dia das Crianças.",
-    "sub": "Cenários para cada idade, com muita cor e brincadeira.",
-    "texto": "Festa junina, super-heróis e Dia das Crianças: a Amanda monta o cenário e a criança só precisa brincar.",
+    "fotos": [
+     {
+      "arq": "drive/652812785_18116506174650319_1845173914903568186_n.jpg",
+      "alt": "Menina com o pop-it, no Dia das Crianças"
+     },
+     {
+      "arq": "drive/655895412_18403597159196359_2546095858055880294_n.jpg",
+      "alt": "Menina de Chiquinha, no tema Chaves"
+     },
+     {
+      "arq": "drive/623729116_18159172513417764_5790918403625786123_n.jpg",
+      "alt": "Irmãos fantasiados de Chaves e Chiquinha"
+     },
+     {
+      "arq": "drive/650826442_18094882937088840_4187773628188337979_n.jpg",
+      "alt": "Menino de chapéu de palha com o violão"
+     },
+     {
+      "arq": "drive/656011394_18172052704399416_1247489314875782537_n.jpg",
+      "alt": "Menino sorrindo no cenário colorido"
+     },
+     {
+      "arq": "drive/619553281_18091149962070269_1887231396806889943_n.jpg",
+      "alt": "Irmãos no cenário do Dia das Crianças"
+     },
+     {
+      "arq": "drive/653697813_18118224907722863_3804272439163347436_n.jpg",
+      "alt": "Menino de chapéu de palha sorrindo, no tema junino"
+     },
+     {
+      "arq": "drive/651540180_18125403070566485_1466472619344876239_n.jpg",
+      "alt": "Menino de Capitão América no aniversário"
+     },
+     {
+      "arq": "drive/650029205_18095893124106923_8632816212604064892_n.jpg",
+      "alt": "Menina com a bandeja do café da manhã"
+     },
+     {
+      "arq": "drive/619475748_18069773651161012_1915420887747712067_n.jpg",
+      "alt": "Irmãos deitados, abraçados"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -801,19 +1085,72 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Jaqueline Silva"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:5,0,4,1,6,7"
+    "pedido": "o ensaio de família",
+    "frase": "A família toda no cenário.",
+    "texto": "Pais, filhos e até o time do coração, no estúdio da Vila Nogueira.",
+    "depo": {
+     "nome": "Elder Lima",
+     "texto": "Recomendo! Ótimo atendimento e muito atenciosa. As fotos ficaram ótimas. Muito obrigado, Amanda, e desejo muito sucesso."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "A família toda no cenário.",
-    "sub": "Pais, filhos e até o time do coração, no estúdio da Vila Nogueira.",
-    "texto": "Ensaios leves e divertidos, com cenários que mudam a cada estação.",
+    "fotos": [
+     {
+      "arq": "drive/646102530_18043124792537008_8967485066237038737_n.jpg",
+      "alt": "Família abraçada no fundo escuro"
+     },
+     {
+      "arq": "drive/621217717_18088994360045578_7847370022852281356_n.jpg",
+      "alt": "Pais com a bebê de vestido amarelo, entre os girassóis"
+     },
+     {
+      "arq": "drive/651000653_18093854222022437_6221344168313386059_n.jpg",
+      "alt": "Família no tema junino"
+     },
+     {
+      "arq": "drive/654972694_18120281476625529_4153880378050095980_n.jpg",
+      "alt": "Mãe e filho de testas juntas"
+     },
+     {
+      "arq": "drive/624877934_18087844834887049_1380921788776656065_n.jpg",
+      "alt": "Pai e bebê no cenário do estádio"
+     },
+     {
+      "arq": "drive/619479509_18063522791281393_5273988323317583809_n.jpg",
+      "alt": "Pai com os três filhos no fundo escuro"
+     },
+     {
+      "arq": "drive/649230809_18097574056995936_8726885262255173047_n.jpg",
+      "alt": "Pai beijando a bebê no cenário do estádio"
+     },
+     {
+      "arq": "drive/650633826_18068794820276982_3173995130609321750_n.jpg",
+      "alt": "Pai e filha no Dia dos Pais, no estádio"
+     },
+     {
+      "arq": "drive/619612246_18076983218521663_4473723302372264304_n.jpg",
+      "alt": "Pai deitado com a bebê no gramado"
+     },
+     {
+      "arq": "drive/623435053_18062649602296035_6661820673420375245_n.jpg",
+      "alt": "Pai erguendo a bebê no estádio"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -843,8 +1180,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Elder Lima"
+    ]
    }
   ]
  }

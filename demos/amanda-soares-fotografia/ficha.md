@@ -4,44 +4,37 @@
 |---|---|
 | Onde | R. Antônio Dias Adorno, 933 - Sl 1 - Vila Nogueira, Diadema - SP, 09951-000 |
 | Instagram | [@amandasoares.fotografia](https://www.instagram.com/amandasoares.fotografia/) · 4,9 mil seguidores |
-| Google | nota 5,0 · 15 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 15 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 93226-4037 · celular do Perfil da Empresa no Google (+55 11 93226-4037); um post de 04/10 diz "11 94226-4037" (conferir qual é o certo) |
-| Horário | Segunda a sexta 9h às 19h; Sábado 9h às 17h; Domingo Fechado |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/amanda-soares-fotografia` e `/demo/amanda-soares-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`smash`, `mesames`, `infantil`, `familia`). Sai de `ferramentas/demo/gerar-portfolio.py demos/amanda-soares-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/amanda-soares-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 20/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 6, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de ago a nov 2026 e das avaliações.
-- Dona: Amanda Soares. Foto dela: com a câmera, da página salva.
-- Personalidade: cenários coloridos e bem-humorados (smash, 1 ano, festa junina, futebol, Chaves) e o anúncio do Natal como "transmissão especial". Na demo: abertura em cápsulas, DM Serif Text, "fotografias" em Satisfy, vermelho-tomate e amarelo-girassol, ✹ entre as especialidades.
-- Sem logo em boa resolução: monograma AS e o nome com "fotografias" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos (nº 6). Dona: Amanda. Estúdio na Vila Nogueira, em Diadema, com cenário temático em cada ensaio; tom claro, DM Serif Text e Outfit, vermelho.
+- Sem página de Natal: o Natal 2026 dela só aparece em vídeo (capas 9:16), sem 5 fotos.
 
-## O que tem na demo
-- Site: abertura (1 ano, bebês e infantil), portfólio em 3 abas (Smash e 1 ano, 10; Bebês mês a mês, 8; Família, 8), a Amanda, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Uma época cheia de magia e encanto": o ensaio (estreia em 05/11), os cenários dela, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 16h, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Seu momento merece fotos incríveis.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Smash e 1 ano (16 fotos, depoimento de Lidiane Pinto da Silva); Mês a mês (15 fotos, depoimento de Emanuel Oliveira); Infantil (10 fotos, depoimento de Jaqueline Silva); Família (10 fotos, depoimento de Elder Lima).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de ago a nov 2026 (três aniversários de 1 ano, até 1440 px), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), a arte do anúncio de Natal, os ensaios de 15 e 25 anos (um de costas, outro sensual) e as fotos com faixa de outra foto do carrossel.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 51 fotos: 36 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 14 dos carrosséis lidos pelo embed público (DcrHCTlCXse, DcuN5eOCXwo, DdW4fyKifqF) e 1 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: o 15 anos (só 5 fotos, num post em parceria com a maquiadora), o ensaio de 25 anos, a foto de bastidor da Vianna's Decor (decoração de festa, outra conta), a arte política, as fotos repetidas e as capas de vídeo.
 
-## Textos e fontes
-- Legendas: "Alô, alô… temos uma transmissão especial! Uma época cheia de magia..." e "05.11.2026 — marque essa data" (03/11), "A primeira volta ao sol do Eduardo... Um ano inteiro de descobertas..." (31/08), "seu momento merece fotos incríveis" (04/10).
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "Seu momento merece fotos incríveis", "A primeira volta ao sol", "Um ano inteiro de descobertas, sorrisos, abraços e muito amor…", "Um ensaio delicioso para guardar essa fase tão linda para sempre".
+- Avaliações (lidas inteiras em 13/11): todas falam dela em geral (paciência, pontualidade, atenção); cada página leva uma.
+- Não são dela: os pacotes e valores (exemplos) e o "quando fazer" do smash e do mês a mês.
 
-## Conferir antes de mandar
-- Telefone: o Google tem (11) 93226-4037 e um post tem (11) 94226-4037; a demo usa o do Google.
-- A única foto de Natal é do Google (casal na cozinha de Natal); o cenário 2026 estreia em 05/11.
-- Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- Dois celulares: o do Google (11) 93226-4037 e o de um post, (11) 94226-4037. A página usa o do Google.
+- As fotos da grade salva estão em 1080 px; as dos smash novos, em 1365 a 1440 px.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `smash:0`.
-- `smash`: Smash e aniversário (fotos smash:8,0,1,9,2); a partir de R$ 350; depoimento: Emanuel Oliveira
-- `mesames`: Mês a mês (fotos bebes:6,5,4,7,2,1, smash:3); a partir de R$ 180; depoimento: Lidiane Pinto da silva
-- `infantil`: Infantil (fotos familia:2, smash:6,5, familia:3, smash:4); a partir de R$ 300; depoimento: Jaqueline Silva
-- `familia`: Família (fotos familia:5,0,4,1,6,7); a partir de R$ 290; depoimento: Elder Lima
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/amanda-soares-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/amanda-soares-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/amanda-soares-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> amanda-soares-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

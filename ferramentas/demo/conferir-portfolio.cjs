@@ -46,7 +46,7 @@ const medir = () => {
       if (corte > (quadro ? 0.02 : 0.3)) o.push(`foto cortada ${Math.round(corte * 100)}%: ${nome}`);
     }
   }
-  for (const el of document.querySelectorAll('h1,h2,h3,.botao,.ens b,.preco,.valor,[role=tab],.rz-troca a')) {
+  for (const el of document.querySelectorAll('h1,h2,h3,.botao,.ens b,.preco,.valor,[role=tab],.rz-troca a,.marca,.menu-botao')) {
     if (!el.offsetParent || el.classList.contains('sr-only')) continue;
     if (el.scrollWidth > el.clientWidth + 2 && getComputedStyle(el).overflowX !== 'auto') o.push('texto estoura: ' + el.textContent.trim().slice(0, 40));
     const r = R(el); if (r.right > innerWidth + 1 && !el.closest('.rz-troca, .filtro, .tira')) o.push('texto fora da tela: ' + el.textContent.trim().slice(0, 40));
