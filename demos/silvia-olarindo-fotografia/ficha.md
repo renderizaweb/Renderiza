@@ -4,43 +4,37 @@
 |---|---|
 | Onde | São Paulo - SP |
 | Instagram | [@silviaolarindofotografia](https://www.instagram.com/silviaolarindofotografia/) · 1,4 mil seguidores |
-| Google | nota 5,0 · 23 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 23 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 97214-5643 · celular do Perfil da Empresa no Google (+55 11 97214-5643) |
-| Horário | Segunda Fechado; Terça a sábado 9h às 17h; Domingo Fechado |
 | Site | não tem (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/silvia-olarindo-fotografia` e `/demo/silvia-olarindo-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`newborn`, `familia`). Sai de `ferramentas/demo/gerar-portfolio.py demos/silvia-olarindo-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/silvia-olarindo-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 20/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 25, reserva 5, 70 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm da arte "Ensaio recém nascido ou newborn", dos posts de out/nov 2026 e das avaliações.
-- Dona: Silvia Olarindo ("a Sil"). O retrato sorrindo da página salva entra no "quem fotografa" sem dizer que é ela (conferir).
-- Personalidade: newborn em casa, com segurança ("nós iremos até você para eternizá-lo"), em rosa e flores. Na demo: abertura em bolhas, Cormorant, "fotografia" em Great Vibes, rosa antigo e ♡ entre as especialidades.
-- Sem logo em boa resolução: monograma SO e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos. A Sil (Silvia Olarindo) faz newborn na casa da família, com segurança; tom rosado claro, Cormorant e Quicksand.
+- Sem estúdio: o contato fala da casa da família e não tem rota; o "onde" das páginas diz que ela leva os cenários.
 
-## O que tem na demo
-- Site: abertura (newborn, família e detalhes), portfólio em 3 abas (Newborn, 6; Cenários e detalhes, 10; Família, 7), a Sil, o ensaio, 4 avaliações do Google, o bloco do Natal e o contato (com "Atendimento": o ensaio é na casa da família, sem endereço).
-- Página de Natal "O primeiro Natal, no conforto de casa": ela não divulgou Natal; os textos falam do newborn em casa no clima de Natal, sem prometer cenário; agenda de exemplo.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Nós iremos até você para eternizá-lo.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Newborn em casa (16 fotos, depoimento de Josi Mozer); Família com o bebê (6 fotos, depoimento de Carla França).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de out/nov 2026 (newborns de 6 e 15 dias), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16) e as artes ("Ensaio recém nascido ou newborn", "Feliz Natal").
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 22 fotos: 16 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 5 dos carrosséis lidos pelo embed público (DeuJfBQoFts, DeuJwNAIEvR, DfXmb1MHb39, DfXmqc5nRsP, DfXnH1unQ6l) e 1 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: as fotos repetidas em outro tamanho, a arte "Ensaio recém-nascido ou newborn" e a de Natal (com texto), e o vídeo.
 
-## Textos e fontes
-- Arte: "Este ensaio é repleto de pureza e delicadeza... Experimente realizar este momento tão especial no conforto da sua casa, nós iremos até você para eternizá-lo!". Mensagem de Natal: "Que o Senhor Jesus resplandeça sua luz, sobre todas as famílias...". Legendas: "Mariana com 06 dias", "#ensaionewbornemcasa #ensaionewborncomsegurança".
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "nós iremos até você para eternizá-lo", "Este ensaio é repleto de pureza e delicadeza…", "Inexplicável é o amor que chega e fica para sempre!"; as idades dos bebês (6, 14, 15 e 20 dias) vêm das legendas e das avaliações.
+- Avaliações (lidas inteiras em 13/11): Josi Mozer (tudo esterilizado, espera o tempo do bebê) no newborn e Carla França na família.
+- Não são dela: os pacotes e valores (exemplos).
 
-## Conferir antes de mandar
-- **Ela não divulgou campanha de Natal**: a página de Natal é sugestão (vale perguntar).
-- Sem endereço no Google (atende em casa): o contato diz "Ensaio na casa da família, Grande São Paulo".
-- O retrato do "quem fotografa" pode ser dela (não confirmado).
-- Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- Os carrosséis recentes não abriram pelo embed: entraram só as capas (até 3000 px).
+- A região que ela atende não está escrita em lugar público: a página diz só "São Paulo".
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `detalhes:6`.
-- `newborn`: Newborn em casa (fotos familia:4, pn:0, detalhes:6,0,7, newborn:4, detalhes:2, familia:5, detalhes:3); a partir de R$ 500; depoimento: Renata França
-- `familia`: Família (fotos familia:0,1,2,3,6); a partir de R$ 450; depoimento: Jennifer Leite
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/silvia-olarindo-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/silvia-olarindo-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/silvia-olarindo-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> silvia-olarindo-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

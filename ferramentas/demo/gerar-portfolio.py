@@ -730,7 +730,7 @@ def gerar(pasta, originais=None):
         <ul>{"".join(f"<li>{esc(x)}</li>" for x in p["itens"])}</ul>
         <a class="botao" href="{esc(pedido(e, p["nome"]))}" target="_blank" rel="noopener noreferrer" aria-label="{esc("Quero o pacote " + p["nome"] + ": pedir pelo WhatsApp")}">{ICONE("whats")}Quero este</a></article>''' for i, p in enumerate(e['pacotes']))
         resto = [o for o in ensaios if o is not e]
-        outros = ''.join(f'<a class="outro reveal" style="--i:{i}" {link(o["id"])}><span class="q">{img(F.foto(o["fotos"][0], 640))}</span><b>{esc(o["nome"])}{ICONE("seta")}</b><small>a partir de {esc(o["_de"])}</small></a>'
+        outros = ''.join(f'<a class="outro reveal" style="--i:{i}" {link(o["id"])}><span class="q">{img(F.foto(o["fotos"][0], 900))}</span><b>{esc(o["nome"])}{ICONE("seta")}</b><small>a partir de {esc(o["_de"])}</small></a>'
                          for i, o in enumerate(resto))
         quero = f'<a class="botao" href="{esc(pedido(e))}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Quero o meu ensaio</a>'
         corpo = f'''<div data-grupo="{esc(e["nome"])}">
@@ -777,7 +777,7 @@ def gerar(pasta, originais=None):
 <section class="secao secao--areia" id="outros" aria-labelledby="outros-t">
   <div class="container">
     <div class="cab reveal"><div><p class="olho">Portfólio</p><h2 id="outros-t">Outros ensaios.</h2></div></div>
-    <div class="outros" style="--n:{len(resto)}">{outros}</div>
+    <div class="outros" style="--n:{max(len(resto), 3)}">{outros}</div>
   </div>
 </section>
 {contato("Vamos marcar o seu?", "A mensagem já vai com o ensaio escolhido. É só mandar.", quero)}'''

@@ -13,12 +13,12 @@
  "endereco_maps": "São Paulo - SP",
  "google_nota": "5,0",
  "google_total": "23",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511972145643",
  "fone_link": "+5511972145643",
  "instagram": "silviaolarindofotografia",
  "seguidores": "1,4 mil",
- "mensagem": "Olá, Sil! Vi o seu site e queria saber mais sobre o ensaio newborn em casa.",
+ "mensagem": "Olá! Vi o portfólio da Sil e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fdf9fa",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-20",
+  "msg_garantir": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "d5na",
-  "msg_duvida": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Silvia, da Silvia Olarindo Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -644,29 +644,189 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Grande São Paulo",
-  "h1": "Ensaio newborn em casa, com segurança.",
-  "frase": "Nós iremos até você para eternizá-lo.",
-  "tom": "claro",
-  "capa": "detalhes:6",
+  "olho": "Fotografia newborn em casa · São Paulo",
+  "titulo": "Nós iremos até você para eternizá-lo.",
+  "linha": "O ensaio newborn na casa da família, com segurança, nos primeiros dias do bebê. Os pais, os irmãos e até o pet entram nas fotos.",
+  "local": "São Paulo",
+  "onde": "Na casa da família: a Sil leva os cenários e os acessórios. Datas pelo WhatsApp.",
+  "tira": [
+   "newborn:0",
+   "familia:0",
+   "newborn:1",
+   "newborn:2",
+   "familia:1",
+   "newborn:3",
+   "newborn:4"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Renata França",
+    "tag": "Newborn de 14 dias",
+    "texto": "Excelente profissional. Muito paciente e atenciosa! Fizemos as fotos do meu bebê de 14 dias. A Sil deixou o ambiente super confortável para o bebê e as fotos ficaram lindas!"
+   },
+   {
+    "nome": "Josi Mozer",
+    "tag": "Newborn",
+    "texto": "Eu amei o ensaio do meu bebê. Super profissional, tudo esterilizado, um cuidado de amor com o bebê, paciente, espera o tempo do bebê. Super recomendo!"
+   },
+   {
+    "nome": "Carla França",
+    "tag": "Primeiros dias",
+    "texto": "Foi uma experiência muito especial registrar os primeiros dias da Maitê. A Sil foi carinhosa, paciente e cuidadosa em cada detalhe, deixando tudo tranquilo para a nossa bebê."
+   },
+   {
+    "nome": "Juliana Firmino",
+    "tag": "Newborn de 20 dias",
+    "texto": "A Melzinha tinha apenas 20 dias de vida quando fizemos o ensaio. A Silvia é uma fotógrafa incrível, pontual, dedicada e extremamente atenciosa."
+   }
+  ],
+  "contato": {
+   "titulo": "Nós vamos até você.",
+   "p": "Datas e orçamentos pelo WhatsApp. O ensaio é na sua casa: a Sil leva os cenários, as mantas e os acessórios.",
+   "endereco": [
+    "Ensaio na casa da família",
+    "São Paulo"
+   ],
+   "telefone": "(11) 97214-5643",
+   "rota": false
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. A Sil (Silvia Olarindo) faz newborn na casa da família, com segurança; tom rosado claro, Cormorant e Quicksand.",
+    "Sem estúdio: o contato fala da casa da família e não tem rota; o \"onde\" das páginas diz que ela leva os cenários."
+   ],
+   "fora": "as fotos repetidas em outro tamanho, a arte \"Ensaio recém-nascido ou newborn\" e a de Natal (com texto), e o vídeo.",
+   "textos": [
+    "Dela: \"nós iremos até você para eternizá-lo\", \"Este ensaio é repleto de pureza e delicadeza…\", \"Inexplicável é o amor que chega e fica para sempre!\"; as idades dos bebês (6, 14, 15 e 20 dias) vêm das legendas e das avaliações.",
+    "Avaliações (lidas inteiras em 13/11): Josi Mozer (tudo esterilizado, espera o tempo do bebê) no newborn e Carla França na família.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "Os carrosséis recentes não abriram pelo embed: entraram só as capas (até 3000 px).",
+    "A região que ela atende não está escrita em lugar público: a página diz só \"São Paulo\"."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Sil vai até você.",
+   "p": [
+    "A Silvia Olarindo, a Sil, fotografa recém-nascidos na casa da família, com segurança: leva os cenários, as mantas e os detalhes.",
+    "Nas avaliações, as mães falam da paciência dela, do cuidado com a higiene e do tempo do bebê respeitado."
+   ],
+   "citacao": "Experimente realizar este momento tão especial no conforto da sua casa.",
+   "citacao_quem": "Silvia Olarindo, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/451575152_498329646027379_3542178597109960852_n.jpg",
+     "alt": "A Silvia Olarindo, fotógrafa"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 23 avaliações no Google"
+    ],
+    [
+     "1,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "newborn",
     "nome": "Newborn em casa",
-    "chamada": "Newborn em casa",
-    "fotos": [
-     "familia:4",
-     "pn:0",
-     "detalhes:6,0,7",
-     "newborn:4",
-     "detalhes:2",
-     "familia:5",
-     "detalhes:3"
+    "curto": "Newborn",
+    "chamada": "Ensaio newborn em casa",
+    "pedido": "o ensaio newborn",
+    "frase": "Pureza e delicadeza, no conforto da sua casa.",
+    "texto": "A Sil leva os cenários até a família: cestinhos, caminhas, flores, mantas e o nome do bebê.",
+    "citacao": "Este ensaio é repleto de pureza e delicadeza, deixando uma marca significativa na vida dos pais, irmãos e do recém-nascido!",
+    "citacao_quem": "Silvia Olarindo, no Instagram",
+    "quando": "Costuma ser feito nos primeiros dias de vida (nas fotos dela, de 6 a 20 dias). Por isso a reserva é feita ainda na gestação.",
+    "depo": {
+     "nome": "Josi Mozer",
+     "texto": "Eu amei o ensaio do meu bebê. Super profissional, tudo esterilizado, um cuidado de amor com o bebê, paciente, espera o tempo do bebê. Super recomendo!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Pureza e delicadeza, no conforto da sua casa.",
-    "sub": "Cestinhos, caminhas, flores e mantas cor-de-rosa.",
-    "texto": "A Sil leva os cenários e os detalhes até a família: o nome no bastidor, a coroinha, a touquinha de tricô.",
+    "fotos": [
+     {
+      "arq": "posts/DfXnH1unQ6l/DfXnH1unQ6l_00.jpg",
+      "alt": "Recém-nascida de laço na caminha branca"
+     },
+     {
+      "arq": "posts/DeuJwNAIEvR/DeuJwNAIEvR_00.jpg",
+      "alt": "Recém-nascida no coração branco"
+     },
+     {
+      "arq": "posts/DfXmb1MHb39/DfXmb1MHb39_00.jpg",
+      "alt": "Recém-nascida no baldinho branco com rosas"
+     },
+     {
+      "arq": "drive/656851982_18403491193177781_6568822233264971977_n.jpg",
+      "alt": "Recém-nascida no bercinho de vime"
+     },
+     {
+      "arq": "drive/653640770_17965840371046415_3071723434974151549_n.jpg",
+      "alt": "Recém-nascida de tiara de flores rosa"
+     },
+     {
+      "arq": "posts/DfXmqc5nRsP/DfXmqc5nRsP_00.jpg",
+      "alt": "Recém-nascida com a boneca, entre as rosas"
+     },
+     {
+      "arq": "drive/620443336_17912452530274718_1947733624946191006_n.jpg",
+      "alt": "Recém-nascida dormindo com a mão no rosto"
+     },
+     {
+      "arq": "drive/622853474_18069539882404801_4723387133134510721_n.jpg",
+      "alt": "Recém-nascido de coroinha"
+     },
+     {
+      "arq": "drive/623111910_18100371607866884_5921453415394802526_n.jpg",
+      "alt": "Recém-nascido de touquinha de tricô"
+     },
+     {
+      "arq": "drive/627170005_18190384579348966_1671382336755274263_n.jpg",
+      "alt": "Recém-nascido sorrindo de macacão listrado"
+     },
+     {
+      "arq": "drive/473574078_122163285842281405_3286710095577866668_n.jpg",
+      "alt": "Recém-nascida no cestinho entre as flores"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Recém-nascida na caminha de madeira"
+     },
+     {
+      "arq": "drive/656081897_18070747676248963_5494114049867668170_n.jpg",
+      "alt": "Recém-nascida de vestido rosa, dormindo"
+     },
+     {
+      "arq": "drive/626224051_18356178364206157_8771534149892211267_n.jpg",
+      "alt": "Recém-nascida na cadeirinha de vime"
+     },
+     {
+      "arq": "drive/622599218_18077780357055266_4272174711346873893_n.jpg",
+      "alt": "Recém-nascida de tiara rosa, sorrindo"
+     },
+     {
+      "arq": "drive/656266470_18096806114053005_648396517996290551_n.jpg",
+      "alt": "Recém-nascida dormindo na caminha de madeira"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -699,20 +859,55 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "O newborn é feito nos primeiros dias de vida: reserve ainda na gestação, pela data prevista do parto.",
-    "depo": "Renata França"
+    ]
    },
    {
     "id": "familia",
-    "nome": "Família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,1,2,3,6"
+    "nome": "Família com o bebê",
+    "curto": "Família",
+    "chamada": "Ensaio de família com o bebê",
+    "pedido": "o ensaio de família com o bebê",
+    "frase": "Inexplicável é o amor que chega e fica para sempre.",
+    "texto": "Os pais, os irmãos e até o pet junto com o recém-nascido, em casa.",
+    "depo": {
+     "nome": "Carla França",
+     "texto": "Foi uma experiência muito especial registrar os primeiros dias da Maitê. A Sil foi carinhosa, paciente e cuidadosa em cada detalhe, deixando tudo tranquilo e acolhedor para a nossa bebê. As fotos ficaram lindas e vão guardar para sempre uma fase muito preciosa da nossa família."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
     ],
-    "titulo": "Uma marca na vida dos pais e dos irmãos.",
-    "sub": "A família toda com o recém-nascido, em casa, até o pet.",
-    "texto": "Uma marca significativa na vida dos pais, dos irmãos e do recém-nascido.",
+    "fotos": [
+     {
+      "arq": "posts/DeuJfBQoFts/DeuJfBQoFts_00.jpg",
+      "alt": "Pais deitados com a recém-nascida"
+     },
+     {
+      "arq": "drive/626695830_18074736005593545_3229972279654594259_n.jpg",
+      "alt": "Pais e o irmão com o recém-nascido"
+     },
+     {
+      "arq": "drive/621206638_18036191237553186_5739040101709578288_n.jpg",
+      "alt": "Mãe encostando o rosto na recém-nascida"
+     },
+     {
+      "arq": "drive/670936153_18093306278026683_4334650872413916632_n.jpg",
+      "alt": "Pais com o recém-nascido e o cachorrinho"
+     },
+     {
+      "arq": "drive/463959042_17872176627202918_4686690363983927041_n.jpg",
+      "alt": "Mãe com a recém-nascida no colo, de flor no cabelo"
+     },
+     {
+      "arq": "drive/650116184_17953875624094619_5202756203338878527_n.jpg",
+      "alt": "O cachorrinho junto da recém-nascida"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -742,8 +937,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Jennifer Leite"
+    ]
    }
   ]
  }
