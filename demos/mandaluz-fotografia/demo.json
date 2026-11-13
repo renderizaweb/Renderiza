@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Pref. Ângelo Celeguim, 4146 - Portal das Alamedas, Franco da Rocha - SP, 07809-000",
  "google_nota": "5,0",
  "google_total": "31",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511999671196",
  "fone_link": "+5511999671196",
  "instagram": "mandaluzfotografia",
  "seguidores": "4,5 mil",
- "mensagem": "Olá, Milena! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Milena e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#121110",
   "papel": "#1a1917",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-20",
+  "msg_garantir": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "v7zs",
-  "msg_duvida": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Milena, do Estúdio Mandaluz. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -643,22 +643,170 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Franco da Rocha, SP",
+  "titulo": "A fotografia guarda o que o tempo não consegue levar.",
+  "linha": "Gestantes, recém-nascidos, retratos e o Natal 2026, com luz de estúdio, no Portal das Alamedas.",
   "local": "Franco da Rocha",
-  "h1": "Gestantes e retratos com luz de estúdio em Franco da Rocha.",
-  "frase": "A fotografia guarda tudo aquilo que o tempo não consegue levar.",
-  "capa": "gestante:3",
+  "tira": [
+   "gestante:0",
+   "natal:0",
+   "newborn:0",
+   "retratos:0",
+   "gestante:1",
+   "natal:1",
+   "newborn:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Cristy Leite",
+    "tag": "Gestante",
+    "texto": "Fazer o ensaio de gestante foi um momento muito especial, e me senti super acolhida e à vontade desde o início. A Milena me ajudou demais com as poses."
+   },
+   {
+    "nome": "Victoria Polido",
+    "tag": "Gestante",
+    "texto": "Estava super insegura para registrar minha gestação, mas a Mi deixou tudo leve e as coisas fluíram naturalmente… o que resultou em um trabalho excepcional!"
+   },
+   {
+    "nome": "Larissa Coelho",
+    "tag": "Atendimento",
+    "texto": "Simplesmente incrível, desde o atendimento por WhatsApp até o dia da sessão de fotos. A Milena é muito talentosa, atenciosa e cuidadosa nos momentos das fotos."
+   },
+   {
+    "nome": "Vitória Nascimento Vieira",
+    "tag": "Cinco ensaios",
+    "texto": "Amo o espaço da Mih. Fui a primeira vez por indicação e depois disso me apaixonei: já fiz 5 ensaios e não me arrependo de nenhum."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o seu ensaio e chame no WhatsApp.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Portal das Alamedas, em Franco da Rocha, e atende de terça a sábado.",
+   "endereco": [
+    "Av. Pref. Ângelo Celeguim, 4146",
+    "Portal das Alamedas · Franco da Rocha, SP"
+   ],
+   "telefone": "(11) 99967-1196"
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Milena e a luz do estúdio.",
+   "p": [
+    "A Milena, a Mi, fotografa gestantes, recém-nascidos, famílias e retratos no Estúdio Mandaluz, no Portal das Alamedas, em Franco da Rocha.",
+    "Fundo claro ou escuro e luz de estúdio. Nas avaliações, as clientes falam da paciência dela e das dicas de pose."
+   ],
+   "citacao": "Quanto amor cabe numa fotografia?",
+   "citacao_quem": "Mandaluz, no Instagram",
+   "fotos": [
+    {
+     "arq": "posts/De9nHpLkdhq/De9nHpLkdhq_02.jpg",
+     "alt": "Casal no ensaio gestante, em preto e branco"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 31 avaliações no Google"
+    ],
+    [
+     "4,5 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:6,3,1,11,4,7,2,0"
+    "pedido": "o ensaio gestante",
+    "frase": "Pequenos momentos que vão deixar saudade.",
+    "texto": "No fundo claro ou escuro, com a luz do estúdio. Sozinha, com o parceiro ou com a família.",
+    "citacao": "A gestação é feita de pequenos momentos que lá na frente vão deixar saudade.",
+    "citacao_quem": "Mandaluz, no Instagram",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Cristy Leite",
+     "texto": "Fazer o ensaio de gestante foi um momento muito especial, e me senti super acolhida e à vontade desde o início. A Milena foi incrível, muito atenciosa, paciente e me ajudou demais com as poses, sempre dando dicas para que cada foto ficasse linda."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "A gestação é feita de pequenos momentos.",
-    "sub": "No fundo claro ou escuro, com a luz desenhada do estúdio.",
-    "texto": "Pequenos momentos que lá na frente vão deixar saudade: a barriga, o casal, a luz e a sombra. A Milena ajuda em cada pose, com calma.",
+    "fotos": [
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Gestante de renda preta no fundo escuro"
+     },
+     {
+      "arq": "posts/De9nHpLkdhq/De9nHpLkdhq_00.jpg",
+      "alt": "Casal abraçado no ensaio gestante, em preto e branco"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Gestante de vestido rosa no fundo cinza"
+     },
+     {
+      "arq": "posts/De9nHpLkdhq/De9nHpLkdhq_02.jpg",
+      "alt": "Casal no ensaio gestante, ela de renda, em preto e branco"
+     },
+     {
+      "arq": "drive/618480176_18077712131585170_5448118005648138301_n.jpg",
+      "alt": "Casal no ensaio gestante, ela de vestido verde"
+     },
+     {
+      "arq": "drive/619605179_18078060197029258_6661289215293839502_n.jpg",
+      "alt": "Gestante com o tecido verde esvoaçante"
+     },
+     {
+      "arq": "posts/DfnlC5GmEfJ/DfnlC5GmEfJ_01.jpg",
+      "alt": "Gestante ajoelhada com uma rosa, no fundo branco"
+     },
+     {
+      "arq": "posts/De9nHpLkdhq/De9nHpLkdhq_04.jpg",
+      "alt": "Casal de rosto colado, em preto e branco"
+     },
+     {
+      "arq": "drive/631337301_18419778853185468_8897892489234908708_n.jpg",
+      "alt": "Gestante de vestido rosé"
+     },
+     {
+      "arq": "drive/621221312_18127193581530868_776514335591292248_n.jpg",
+      "alt": "Gestante de vestido florido no fundo escuro"
+     },
+     {
+      "arq": "drive/619488799_18065850044214732_895033429194646687_n.jpg",
+      "alt": "Gestante de renda branca, de perfil"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Gestante de luvas brancas, em preto e branco"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Casal sorrindo no ensaio gestante, no fundo escuro"
+     },
+     {
+      "arq": "drive/656106942_18208943941325492_4863175050142493245_n.jpg",
+      "alt": "Gestante de vestido preto com o tecido ao vento"
+     },
+     {
+      "arq": "posts/De9nHpLkdhq/De9nHpLkdhq_01.jpg",
+      "alt": "Gestante caminhando, em preto e branco"
+     },
+     {
+      "arq": "drive/623393706_18199277020326518_808055702516230765_n.jpg",
+      "alt": "Gestante de camisa branca, caminhando"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -691,20 +839,165 @@
        "Álbum impresso 20x20"
       ]
      }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias do bebê.",
+    "texto": "No estúdio de fundo claro, com o bebê e com a família: os pais e os irmãos também entram nas fotos.",
+    "quando": "Costuma ser feito nos primeiros dias de vida. Por isso a reserva é feita ainda na gestação.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Cristy leite"
+    "fotos": [
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_00.jpg",
+      "alt": "Recém-nascida dormindo de tiara de flores"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_02.jpg",
+      "alt": "Pais beijando a recém-nascida"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_06.jpg",
+      "alt": "Bebê de tiara olhando para a câmera"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_01.jpg",
+      "alt": "Pais segurando a bebê e o filho no colo"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_03.jpg",
+      "alt": "Recém-nascida dormindo de perto"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_04.jpg",
+      "alt": "Irmão deitado ao lado da bebê"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_08.jpg",
+      "alt": "Recém-nascida dormindo na manta de crochê"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_09.jpg",
+      "alt": "Pai com o filho nos ombros e a mãe com a bebê"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_07.jpg",
+      "alt": "Bebê dormindo no colo do pai"
+     },
+     {
+      "arq": "posts/DfXCxXSlj8u/DfXCxXSlj8u_05.jpg",
+      "alt": "Mãe com a bebê e o filho"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 550",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Fundo claro e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 750",
+      "itens": [
+       "25 fotos editadas",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 1.050",
+      "itens": [
+       "40 fotos editadas",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
    },
    {
     "id": "retratos",
     "nome": "Retratos",
-    "chamada": "Ensaio de retrato",
-    "fotos": [
-     "retratos:5,0,4,1,6,2,7"
+    "chamada": "Ensaio de retratos",
+    "pedido": "o ensaio de retratos",
+    "frase": "Retratos com luz de estúdio.",
+    "texto": "No fundo escuro, claro ou colorido, para mulheres, adolescentes e crianças.",
+    "depo": {
+     "nome": "Vitória Nascimento Vieira",
+     "texto": "Amo o espaço da Mih. Fui a primeira vez por indicação e depois disso me apaixonei: já fiz 5 ensaios e não me arrependo de nenhum, muito pelo contrário, já estou pensando nos outros!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Luz e sombra, do jeito Mandaluz.",
-    "sub": "Retratos de estúdio, no fundo escuro ou colorido, com a luz desenhada.",
-    "texto": "Um ensaio só seu, para se ver com outros olhos: a Milena desenha a luz e conduz cada pose.",
+    "fotos": [
+     {
+      "arq": "drive/640378552_18559837381038746_1248851506859834241_n.jpg",
+      "alt": "Retrato com o anel de luz, no fundo caramelo"
+     },
+     {
+      "arq": "drive/621444434_18098484289723879_8133630062941767698_n.jpg",
+      "alt": "Retrato de chapéu, com a luz no rosto"
+     },
+     {
+      "arq": "drive/634255392_18381498004087259_344053533361037799_n.jpg",
+      "alt": "Retrato de óculos, no fundo rosado"
+     },
+     {
+      "arq": "drive/620488325_18091672703053347_5022163344053575377_n.jpg",
+      "alt": "Retrato com o buquê de flores"
+     },
+     {
+      "arq": "drive/626309881_18216858763312853_8890118784527682696_n.jpg",
+      "alt": "Retrato em preto e branco"
+     },
+     {
+      "arq": "drive/652004673_18100318210746337_8355319092425772892_n.jpg",
+      "alt": "Retrato de cabelos ruivos no fundo escuro"
+     },
+     {
+      "arq": "drive/618545834_18099183007683570_1191779827035956478_n.jpg",
+      "alt": "Menina com os girassóis no fundo escuro"
+     },
+     {
+      "arq": "drive/622112113_18194051482337424_6993341345531342402_n.jpg",
+      "alt": "Menina com a bola de chiclete, no fundo roxo"
+     },
+     {
+      "arq": "drive/627542068_18303998353286929_3220395401981014900_n.jpg",
+      "alt": "Menina de camisa jeans, com a mão no rosto"
+     },
+     {
+      "arq": "drive/621997426_18142394446467527_5928170983725878883_n.jpg",
+      "alt": "Retrato de costas, com as flores"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -736,8 +1029,119 @@
        "Maquiagem"
       ]
      }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "Natal Mandaluz 2026.",
+    "texto": "Dois cenários no estúdio: o Ateliê de Panetones, com confeitaria de verdade, e a sala de Natal, de fundo claro.",
+    "citacao": "Que nunca nos faltem motivos para reunir a família, dar boas risadas e aproveitar cada instante ao lado de quem amamos.",
+    "citacao_quem": "Mandaluz, no Instagram",
+    "quando": "As fotos de Natal 2026 já estão sendo feitas no estúdio. Datas pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "depo": "Vitória Nascimento Vieira"
+    "fotos": [
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_03.jpg",
+      "alt": "Irmãos abraçados na sala de Natal"
+     },
+     {
+      "arq": "posts/De-rnZVEcDC/De-rnZVEcDC_00.jpg",
+      "alt": "Família no Ateliê de Panetones, junto à árvore"
+     },
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_00.jpg",
+      "alt": "Irmãos sorrindo na sala de Natal"
+     },
+     {
+      "arq": "posts/DfalBrDGZqL/DfalBrDGZqL_00.jpg",
+      "alt": "Família no Ateliê de Panetones"
+     },
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_01.jpg",
+      "alt": "Irmãos rindo no tapete, junto à árvore"
+     },
+     {
+      "arq": "posts/DfalBrDGZqL/DfalBrDGZqL_02.jpg",
+      "alt": "Família decorando os panetones"
+     },
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_04.jpg",
+      "alt": "Menina tocando o pianinho de Natal"
+     },
+     {
+      "arq": "posts/DfalBrDGZqL/DfalBrDGZqL_03.jpg",
+      "alt": "Irmãos decorando o panetone"
+     },
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_02.jpg",
+      "alt": "Irmã abraçando o irmão por trás"
+     },
+     {
+      "arq": "posts/De-rnZVEcDC/De-rnZVEcDC_02.jpg",
+      "alt": "Família à mesa do Ateliê de Panetones"
+     },
+     {
+      "arq": "posts/DfIfX02me1N/DfIfX02me1N_05.jpg",
+      "alt": "Irmãos abraçados junto à árvore de Natal"
+     },
+     {
+      "arq": "posts/DfalBrDGZqL/DfalBrDGZqL_05.jpg",
+      "alt": "Irmãos provando o panetone"
+     },
+     {
+      "arq": "posts/De-rnZVEcDC/De-rnZVEcDC_03.jpg",
+      "alt": "Família rindo no Ateliê de Panetones"
+     },
+     {
+      "arq": "posts/DfalBrDGZqL/DfalBrDGZqL_04.jpg",
+      "alt": "Mãe e filhos à mesa de Natal"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos de ensaio",
+       "8 fotos editadas",
+       "1 cenário"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos de ensaio",
+       "15 fotos editadas",
+       "Os 2 cenários"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Os 2 cenários",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }

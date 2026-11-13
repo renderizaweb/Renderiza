@@ -4,41 +4,37 @@
 |---|---|
 | Onde | Av. Pref. Ângelo Celeguim, 4146 - Portal das Alamedas, Franco da Rocha - SP, 07809-000 |
 | Instagram | [@mandaluzfotografia](https://www.instagram.com/mandaluzfotografia/) · 4,5 mil seguidores |
-| Google | nota 5,0 · 31 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 31 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 99967-1196 · celular do Perfil da Empresa no Google (+55 11 99967-1196), o mesmo das legendas ("Natal Mandaluz 2026 / (11) 99967-1196") |
-| Horário | Segunda Fechado; Terça a sexta 9h30 às 17h30; Sábado 9h30 às 15h30; Domingo Fechado |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/mandaluz-fotografia` e `/demo/mandaluz-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`gestante`, `newborn`, `retratos`, `natal`). Sai de `ferramentas/demo/gerar-portfolio.py demos/mandaluz-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/mandaluz-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 20/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 4, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.
-- Dona: Milena ("a Mi", "a mih" nas avaliações). Não há foto dela (a do perfil é em preto e branco e não veio): o "quem fotografa" usa o ensaio com o anel de luz, sem dizer que é ela.
-- Personalidade: luz e sombra (Mandaluz), retratos de estúdio com fundo escuro e luz desenhada. Na demo: tema escuro com dourado, Bodoni Moda, "fotografia" em Mrs Saint Delafield e ✧ entre as especialidades.
-- Sem logo em boa resolução: monograma M e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos (nº 4). Dona: Milena ("a Mi"). Estúdio de luz desenhada, fundo claro e escuro: o portfólio usa o tema escuro, Bodoni Moda e Jost, e o dourado da demo.
+- Na v4 entraram duas páginas novas, porque agora há material: Newborn (o carrossel de 2 meses atrás) e Natal 2026 (o Ateliê de Panetones e a sala de Natal, com 3 famílias de clientes).
 
-## O que tem na demo
-- Site: abertura (gestante, newborn e Natal 2026), portfólio em 3 abas (Gestante, 12; Retratos, 8; Natal e newborn, 3), a Milena, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Confeitaria, diversão e tempo juntos": o Ateliê de Panetones, a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h30 às 15h, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "A fotografia guarda o que o tempo não consegue levar.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Gestante (16 fotos, depoimento de Cristy Leite); Newborn (10 fotos, sem depoimento); Retratos (10 fotos, depoimento de Vitória Nascimento Vieira); Natal 2026 (14 fotos, sem depoimento).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de out/nov 2026 (Ateliê de Panetones, irmãos no Natal, newborn e gestante, até 4096 px), as fotos da página salva no Drive (1440 px) e 5 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), as fotos repetidas e os ensaios com nu (gestante de topless e casal sem roupa), para a demo ficar boa de mandar para qualquer pessoa.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 50 fotos: 17 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 29 dos carrosséis lidos pelo embed público (De-rnZVEcDC, De9nHpLkdhq, DfIfX02me1N, DfXCxXSlj8u, DfalBrDGZqL, DfnlC5GmEfJ) e 4 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: o carrossel "Minha família, minha base" (é a família da própria fotógrafa, um post pessoal), as artes do "Cenário Ano Novo" (com texto), a foto com o selo de prêmio, a silhueta, os nus, o vídeo e as fotos em 9:16.
 
-## Textos e fontes
-- Legendas: "Teve confeitaria, diversão, tempo de qualidade juntos..." (27/10), "Quanto amor cabe numa fotografia?... A fotografia guarda tudo aquilo que o tempo não consegue levar!" (30/10), "Não precisa sair tudo perfeito, só precisa ser de vocês" (04/11), "A gestação é feita de pequenos momentos..." (26/10).
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "A fotografia guarda tudo aquilo que o tempo não consegue levar", "A gestação é feita de pequenos momentos que lá na frente vão deixar saudade", "Quanto amor cabe numa fotografia?", "Que nunca nos faltem motivos para reunir a família…", "Natal Mandaluz 2026".
+- Avaliações (lidas inteiras em 13/11): Cristy Leite (gestante) na página de gestante; Vitória Nascimento Vieira ("já fiz 5 ensaios") nos retratos; Newborn e Natal sem depoimento (nenhuma avaliação fala deles). A de Juliana Fernandes ficou de fora: cita a equipe.
+- Não são dela: os pacotes e valores (exemplos) e o "quando fazer" de gestante e newborn (orientação comum do mercado).
 
-## Conferir antes de mandar
-- A dona é a Milena (as avaliações dizem "a Milena", "a Mi"); não temos foto dela.
-- Fotos de gestantes, bebês e adolescentes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- A foto de "quem fotografa" é de um ensaio dela (não há foto da Milena em boa resolução).
+- O newborn vem de um carrossel com legenda na voz da família ("Há dois meses, nossa família ficou ainda mais completa"): confirmar que é de cliente.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:3`.
-- `gestante`: Gestante (fotos gestante:6,3,1,11,4,7,2,0); a partir de R$ 450; depoimento: Cristy leite
-- `retratos`: Retratos (fotos retratos:5,0,4,1,6,2,7); a partir de R$ 350; depoimento: Vitória Nascimento Vieira
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mandaluz-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mandaluz-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/mandaluz-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> mandaluz-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

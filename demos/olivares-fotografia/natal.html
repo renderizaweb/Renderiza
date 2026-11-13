@@ -13,16 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Karla:wght@300;400;500;600&family=Birthstone&display=swap" rel="stylesheet">
   <style>
 :root{--fundo:#fbfaf8;--papel:#ffffff;--areia:#f1efea;--linha:#e2ded6;--tinta:#2d2c2a;--tinta-2:#65625d;--rosa:#e7cfc0;--acento:#6f8a7a;--acento-escuro:#566d60;--cafe:#262a27;
---serif:"Gilda Display",Georgia,serif;--sans:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"Birthstone","Brush Script MT",cursive;--w:min(1240px,calc(100% - 64px));--topo:76px;--suave:cubic-bezier(.2,.7,.2,1)}
+--serif:"Gilda Display",Georgia,serif;--sans:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"Birthstone","Brush Script MT",cursive;--w:min(1240px,calc(100% - 64px));--topo:76px;--suave:cubic-bezier(.2,.7,.2,1);--destaque:#566d60;--claro-ac:color-mix(in srgb,var(--acento) 40%,#f4f1ec)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 16px);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 img{display:block;max-width:100%;height:auto}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 [hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-:focus-visible{outline:2px solid var(--acento-escuro);outline-offset:3px}
+:focus-visible{outline:2px solid var(--destaque);outline-offset:3px}
 .container{width:var(--w);margin-inline:auto}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.005em;margin:0;text-wrap:balance}
 h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
-.olho{font-weight:500;font-size:.72rem;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--acento-escuro);margin:0 0 16px}
+.olho{font-weight:500;font-size:.72rem;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--destaque);margin:0 0 16px}
 .secao{padding:clamp(72px,9vw,128px) 0}.secao--areia{background:var(--areia)}
 .cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .cab p:not(.olho):not(.selo){color:var(--tinta-2);margin:0;max-width:44ch}
@@ -32,7 +32,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .link{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding-bottom:5px;border-bottom:1px solid currentColor}
 .link svg{width:16px;height:16px;transition:transform .35s var(--suave)}.link:hover svg{transform:translateX(5px)}
 .selo{display:inline-flex;align-items:center;gap:8px;margin:0;padding:7px 14px;border:1px dashed color-mix(in srgb,var(--tinta) 40%,transparent);color:var(--tinta-2);font-size:.74rem;letter-spacing:.04em}
-.selo svg{width:12px;height:12px;color:var(--acento-escuro)}.modo-video .selo{display:none!important}
+.selo svg{width:12px;height:12px;color:var(--destaque)}.modo-video .selo{display:none!important}
 .estrelas{color:#c99a3b;letter-spacing:2px}
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s var(--suave);transition-delay:calc(var(--i,0) * 70ms)}.js .reveal.is-visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -77,8 +77,9 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .site-header.rolou{border-bottom-color:var(--linha)}
 .topo-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--topo);position:relative}
 .marca{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;white-space:nowrap}
-.marca b{font-family:var(--serif);font-weight:400;font-size:1.32rem;letter-spacing:.2em;text-transform:uppercase}
-.marca i{font-family:var(--script);font-style:normal;font-size:1.7rem;line-height:.6;color:var(--acento-escuro)}
+.marca{font-size:min(1.32rem,calc((100vw - 100px) / var(--mk,10)))}
+.marca b{font-family:var(--serif);font-weight:400;font-size:1em;letter-spacing:.2em;text-transform:uppercase}
+.marca i{font-family:var(--script);font-style:normal;font-size:1.29em;line-height:.6;color:var(--destaque)}
 .nav{display:flex;gap:clamp(16px,2.2vw,32px);margin-left:auto}
 .nav a,.menu-mobile a:not(.botao){font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:8px 0;position:relative}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--suave)}.nav a:hover::after{transform:none}
@@ -161,7 +162,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .sobre{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,7vw,112px);align-items:center}
 .sobre-fotos{position:relative;padding:0 0 12% 0}
 .sobre-fotos img{background:var(--areia)}
-.sobre-fotos .f1{width:68%}.sobre-fotos .f2{position:absolute;right:0;bottom:0;width:42%;border:10px solid var(--fundo)}
+.sobre-fotos .f1{width:68%}.sobre-fotos--so{padding:0}.sobre-fotos--so .f1{width:min(100%,520px)}.sobre-fotos .f2{position:absolute;right:0;bottom:0;width:42%;border:10px solid var(--fundo)}
 .sobre-txt p{color:var(--tinta-2)}
 .fala{margin:28px 0 0;padding-left:22px;border-left:1px solid var(--acento)}
 .fala p{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.3;color:var(--tinta);margin:0 0 10px}.fala cite{font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
@@ -171,20 +172,20 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 
 /* contato */
 .contato{background:var(--cafe);color:#f4f1ec;padding:clamp(72px,9vw,128px) 0}
-.contato .olho{color:#b9c9be}
+.contato .olho{color:var(--claro-ac)}
 .contato-in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end}
 .contato h2{font-size:clamp(2.4rem,5vw,4.2rem);max-width:12ch}
 .contato p{color:#cfcbc3;max-width:40ch}
 .contato .botao{background:#f4f1ec;border-color:#f4f1ec;color:var(--cafe)}.contato .botao:hover{background:#fff;border-color:#fff}
 .contato .botao--linha{background:transparent;color:#f4f1ec;border-color:#f4f1ec66}.contato .botao--linha:hover{background:#f4f1ec;color:var(--cafe)}
 .onde{display:grid;gap:14px;font-size:.95rem;border-top:1px solid #ffffff26;padding-top:22px}
-.onde div{display:flex;gap:14px;align-items:flex-start}.onde svg{width:20px;height:20px;flex:none;margin-top:3px;color:#b9c9be}.onde a{text-underline-offset:4px}
+.onde div{display:flex;gap:14px;align-items:flex-start}.onde svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--claro-ac)}.onde a{text-underline-offset:4px}
 @media(max-width:860px){.contato-in{grid-template-columns:1fr;align-items:start}}
 
 /* rodapé e WhatsApp flutuante */
 .rodape{background:var(--cafe);color:#cfcbc3;border-top:1px solid #ffffff1f;padding:34px 0 40px;font-size:.84rem}
 .rodape-in{display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap}
-.rodape .marca{color:#f4f1ec}.rodape .marca i{color:#b9c9be}
+.rodape .marca{color:#f4f1ec}.rodape .marca i{color:var(--claro-ac)}
 .rodape nav{display:flex;gap:8px 22px;flex-wrap:wrap}.rodape nav a{text-decoration:none;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.rodape nav a:hover{color:#fff}
 .rodape small{display:block;width:100%;font-size:.76rem;color:#9b978f}
 .flutuante{position:fixed;right:18px;bottom:18px;z-index:55;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--acento-escuro);color:#fff;box-shadow:0 12px 30px #2d2c2a33;transition:transform .3s var(--suave),background .3s}.flutuante:hover{transform:translateY(-3px);background:var(--cafe)}.flutuante svg{width:26px;height:26px}
@@ -194,7 +195,8 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .e-capa{padding:clamp(28px,4vw,60px) 0 clamp(36px,5vw,64px)}
 .e-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,3.4vw,44px) clamp(32px,6vw,96px);align-items:end}
 .e-fotos{grid-column:1/-1;min-width:0}
-.e-capa h1{font-size:clamp(2.9rem,9vw,7rem);line-height:.95;letter-spacing:.04em;text-transform:uppercase}
+.e-capa h1{font-size:min(clamp(2.9rem,9vw,7rem),calc((min(1240px,100vw - 64px) - 400px - 6vw) / var(--k,6)));line-height:.95;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.e-capa h1{font-size:min(clamp(2.9rem,9vw,7rem),calc((100vw - 32px) / var(--k,6)))}}
 .e-frase{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;margin:14px 0 0}
 .e-lado p{color:var(--tinta-2);margin:0 0 14px}
 .e-preco{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 4px;color:var(--tinta-2);font-size:.86rem}.e-preco b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--tinta)}
@@ -209,7 +211,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
 .pac{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px);background:var(--papel);border:1px solid var(--linha)}
 .pac--destaque{background:var(--cafe);border-color:var(--cafe);color:#f4f1ec}
-.pac h3{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-2)}.pac--destaque h3{color:#b9c9be}
+.pac h3{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-2)}.pac--destaque h3{color:var(--claro-ac)}
 .pac .valor{font-family:var(--serif);font-size:clamp(2.4rem,3.6vw,3.1rem);line-height:1;margin:14px 0 0}
 .pac ul{list-style:none;padding:0;margin:22px 0 26px;flex:1}.pac li{padding:11px 0;border-top:1px solid var(--linha);font-size:.95rem}.pac--destaque li{border-top-color:#ffffff26}
 .pac .botao{width:100%}.pac:not(.pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 38%,transparent)}.pac:not(.pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
@@ -226,6 +228,11 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 @media(max-width:860px){.e-sobre{grid-template-columns:1fr;align-items:start}.e-grade{display:flex;flex-direction:column;align-items:stretch;gap:22px}.e-titulo{order:1}.e-fotos{order:2;width:100%}.e-lado{order:3}.pacotes{grid-template-columns:1fr}.pac--destaque{order:-1}.outros{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}.outro b{font-size:1.2rem}
 .tem-barra .barra{display:flex}.tem-barra{padding-bottom:70px}.tem-barra .flutuante{display:none}.tem-barra .rz-pilula{bottom:84px}.tem-barra .rz-folha{bottom:138px}.fatos li{grid-template-columns:1fr;gap:2px}}
 
+/* tema escuro (fundo escuro no demo.json) */
+.escuro .contato,.escuro .rodape{background:var(--areia)}.escuro .rodape{border-top-color:var(--linha)}
+.escuro .pac--destaque{background:var(--areia);border:1px solid var(--acento)}
+.escuro .review-card,.escuro .pac:not(.pac--destaque),.escuro .depo{background:color-mix(in srgb,var(--fundo) 70%,var(--areia))}
+.escuro .site-header{background:color-mix(in srgb,var(--fundo) 90%,transparent)}
 /* tela cheia */
 .lb{position:fixed;inset:0;z-index:100;background:#141312f5;color:#f4f1ec;display:grid;grid-template-rows:auto minmax(0,1fr);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
 .lb.aberto{opacity:1;visibility:visible}
@@ -271,7 +278,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 </aside>
 <header class="site-header">
   <div class="container topo-in">
-    <a class="marca" href="/demo/olivares-fotografia" data-local="index.html" aria-label="Estúdio Olivares Fotografia, início"><b>Olivares</b><i>fotografia</i></a>
+    <a class="marca" href="/demo/olivares-fotografia" data-local="index.html" style="--mk:9.4" aria-label="Estúdio Olivares Fotografia, início"><b>Olivares</b><i>fotografia</i></a>
     <nav class="nav" aria-label="Seções"><a href="/demo/olivares-fotografia#ensaios" data-local="index.html#ensaios">Ensaios</a><a href="#fotos">Fotos</a><a href="#sobre">O ensaio</a><a href="#valores">Valores</a><a href="#contato">Contato</a></nav>
     <a class="botao botao--linha topo-cta" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Agendar</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
@@ -286,7 +293,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
     <div class="e-grade">
       <div class="e-titulo">
         <p class="olho">Ensaio de Natal 2026 · Suzano</p>
-        <h1>Natal 2026</h1>
+        <h1 style="--k:7.80">Natal 2026</h1>
         <p class="e-frase">O Natal é feito de encontros.</p>
       </div>
       <div class="e-lado">
@@ -354,7 +361,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 </main>
 <footer class="rodape">
   <div class="container rodape-in">
-    <a class="marca" href="/demo/olivares-fotografia" data-local="index.html" aria-label="Estúdio Olivares Fotografia, início"><b>Olivares</b><i>fotografia</i></a>
+    <a class="marca" href="/demo/olivares-fotografia" data-local="index.html" style="--mk:9.4" aria-label="Estúdio Olivares Fotografia, início"><b>Olivares</b><i>fotografia</i></a>
     <nav aria-label="Páginas"><a href="/demo/olivares-fotografia" data-local="index.html">Vitrine</a><a href="/demo/olivares-fotografia/gestante" data-local="gestante.html">Gestante</a><a href="/demo/olivares-fotografia/newborn" data-local="newborn.html">Newborn</a><a href="/demo/olivares-fotografia/infantil" data-local="infantil.html">Infantil</a><a href="/demo/olivares-fotografia/familia" data-local="familia.html">Família</a><a href="/demo/olivares-fotografia/natal" data-local="natal.html">Natal</a></nav>
     <small>© <span data-year>2026</span> Estúdio Olivares Fotografia · R. Horácio Nelson Rondinelli, 40 · Cidade Edson · Suzano, SP</small>
   </div>

@@ -87,16 +87,16 @@ def img(f, prioridade=False, classe=''):
 # ---------- estilo ----------
 CSS = r'''
 :root{--fundo:{{fundo}};--papel:{{papel}};--areia:{{areia}};--linha:{{linha}};--tinta:{{tinta}};--tinta-2:{{tinta2}};--rosa:{{rosa}};--acento:{{acento}};--acento-escuro:{{acento_escuro}};--cafe:{{cafe}};
---serif:{{serif}};--sans:{{sans}};--script:{{script}};--w:min(1240px,calc(100% - 64px));--topo:76px;--suave:cubic-bezier(.2,.7,.2,1)}
+--serif:{{serif}};--sans:{{sans}};--script:{{script}};--w:min(1240px,calc(100% - 64px));--topo:76px;--suave:cubic-bezier(.2,.7,.2,1);--destaque:{{destaque}};--claro-ac:color-mix(in srgb,var(--acento) 40%,#f4f1ec)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 16px);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
 img{display:block;max-width:100%;height:auto}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 [hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-:focus-visible{outline:2px solid var(--acento-escuro);outline-offset:3px}
+:focus-visible{outline:2px solid var(--destaque);outline-offset:3px}
 .container{width:var(--w);margin-inline:auto}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.005em;margin:0;text-wrap:balance}
 h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
-.olho{font-weight:500;font-size:.72rem;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--acento-escuro);margin:0 0 16px}
+.olho{font-weight:500;font-size:.72rem;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--destaque);margin:0 0 16px}
 .secao{padding:clamp(72px,9vw,128px) 0}.secao--areia{background:var(--areia)}
 .cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .cab p:not(.olho):not(.selo){color:var(--tinta-2);margin:0;max-width:44ch}
@@ -106,7 +106,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .link{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding-bottom:5px;border-bottom:1px solid currentColor}
 .link svg{width:16px;height:16px;transition:transform .35s var(--suave)}.link:hover svg{transform:translateX(5px)}
 .selo{display:inline-flex;align-items:center;gap:8px;margin:0;padding:7px 14px;border:1px dashed color-mix(in srgb,var(--tinta) 40%,transparent);color:var(--tinta-2);font-size:.74rem;letter-spacing:.04em}
-.selo svg{width:12px;height:12px;color:var(--acento-escuro)}.modo-video .selo{display:none!important}
+.selo svg{width:12px;height:12px;color:var(--destaque)}.modo-video .selo{display:none!important}
 .estrelas{color:#c99a3b;letter-spacing:2px}
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s var(--suave);transition-delay:calc(var(--i,0) * 70ms)}.js .reveal.is-visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -121,8 +121,9 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .site-header.rolou{border-bottom-color:var(--linha)}
 .topo-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--topo);position:relative}
 .marca{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;white-space:nowrap}
-.marca b{font-family:var(--serif);font-weight:400;font-size:1.32rem;letter-spacing:.2em;text-transform:uppercase}
-.marca i{font-family:var(--script);font-style:normal;font-size:1.7rem;line-height:.6;color:var(--acento-escuro)}
+.marca{font-size:min(1.32rem,calc((100vw - 100px) / var(--mk,10)))}
+.marca b{font-family:var(--serif);font-weight:400;font-size:1em;letter-spacing:.2em;text-transform:uppercase}
+.marca i{font-family:var(--script);font-style:normal;font-size:1.29em;line-height:.6;color:var(--destaque)}
 .nav{display:flex;gap:clamp(16px,2.2vw,32px);margin-left:auto}
 .nav a,.menu-mobile a:not(.botao){font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:8px 0;position:relative}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--suave)}.nav a:hover::after{transform:none}
@@ -205,7 +206,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .sobre{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,7vw,112px);align-items:center}
 .sobre-fotos{position:relative;padding:0 0 12% 0}
 .sobre-fotos img{background:var(--areia)}
-.sobre-fotos .f1{width:68%}.sobre-fotos .f2{position:absolute;right:0;bottom:0;width:42%;border:10px solid var(--fundo)}
+.sobre-fotos .f1{width:68%}.sobre-fotos--so{padding:0}.sobre-fotos--so .f1{width:min(100%,520px)}.sobre-fotos .f2{position:absolute;right:0;bottom:0;width:42%;border:10px solid var(--fundo)}
 .sobre-txt p{color:var(--tinta-2)}
 .fala{margin:28px 0 0;padding-left:22px;border-left:1px solid var(--acento)}
 .fala p{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.3;color:var(--tinta);margin:0 0 10px}.fala cite{font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
@@ -215,20 +216,20 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 
 /* contato */
 .contato{background:var(--cafe);color:#f4f1ec;padding:clamp(72px,9vw,128px) 0}
-.contato .olho{color:#b9c9be}
+.contato .olho{color:var(--claro-ac)}
 .contato-in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end}
 .contato h2{font-size:clamp(2.4rem,5vw,4.2rem);max-width:12ch}
 .contato p{color:#cfcbc3;max-width:40ch}
 .contato .botao{background:#f4f1ec;border-color:#f4f1ec;color:var(--cafe)}.contato .botao:hover{background:#fff;border-color:#fff}
 .contato .botao--linha{background:transparent;color:#f4f1ec;border-color:#f4f1ec66}.contato .botao--linha:hover{background:#f4f1ec;color:var(--cafe)}
 .onde{display:grid;gap:14px;font-size:.95rem;border-top:1px solid #ffffff26;padding-top:22px}
-.onde div{display:flex;gap:14px;align-items:flex-start}.onde svg{width:20px;height:20px;flex:none;margin-top:3px;color:#b9c9be}.onde a{text-underline-offset:4px}
+.onde div{display:flex;gap:14px;align-items:flex-start}.onde svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--claro-ac)}.onde a{text-underline-offset:4px}
 @media(max-width:860px){.contato-in{grid-template-columns:1fr;align-items:start}}
 
 /* rodapé e WhatsApp flutuante */
 .rodape{background:var(--cafe);color:#cfcbc3;border-top:1px solid #ffffff1f;padding:34px 0 40px;font-size:.84rem}
 .rodape-in{display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap}
-.rodape .marca{color:#f4f1ec}.rodape .marca i{color:#b9c9be}
+.rodape .marca{color:#f4f1ec}.rodape .marca i{color:var(--claro-ac)}
 .rodape nav{display:flex;gap:8px 22px;flex-wrap:wrap}.rodape nav a{text-decoration:none;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.rodape nav a:hover{color:#fff}
 .rodape small{display:block;width:100%;font-size:.76rem;color:#9b978f}
 .flutuante{position:fixed;right:18px;bottom:18px;z-index:55;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--acento-escuro);color:#fff;box-shadow:0 12px 30px #2d2c2a33;transition:transform .3s var(--suave),background .3s}.flutuante:hover{transform:translateY(-3px);background:var(--cafe)}.flutuante svg{width:26px;height:26px}
@@ -238,7 +239,8 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .e-capa{padding:clamp(28px,4vw,60px) 0 clamp(36px,5vw,64px)}
 .e-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,3.4vw,44px) clamp(32px,6vw,96px);align-items:end}
 .e-fotos{grid-column:1/-1;min-width:0}
-.e-capa h1{font-size:clamp(2.9rem,9vw,7rem);line-height:.95;letter-spacing:.04em;text-transform:uppercase}
+.e-capa h1{font-size:min(clamp(2.9rem,9vw,7rem),calc((min(1240px,100vw - 64px) - 400px - 6vw) / var(--k,6)));line-height:.95;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.e-capa h1{font-size:min(clamp(2.9rem,9vw,7rem),calc((100vw - 32px) / var(--k,6)))}}
 .e-frase{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;margin:14px 0 0}
 .e-lado p{color:var(--tinta-2);margin:0 0 14px}
 .e-preco{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 4px;color:var(--tinta-2);font-size:.86rem}.e-preco b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--tinta)}
@@ -253,7 +255,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
 .pac{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px);background:var(--papel);border:1px solid var(--linha)}
 .pac--destaque{background:var(--cafe);border-color:var(--cafe);color:#f4f1ec}
-.pac h3{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-2)}.pac--destaque h3{color:#b9c9be}
+.pac h3{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-2)}.pac--destaque h3{color:var(--claro-ac)}
 .pac .valor{font-family:var(--serif);font-size:clamp(2.4rem,3.6vw,3.1rem);line-height:1;margin:14px 0 0}
 .pac ul{list-style:none;padding:0;margin:22px 0 26px;flex:1}.pac li{padding:11px 0;border-top:1px solid var(--linha);font-size:.95rem}.pac--destaque li{border-top-color:#ffffff26}
 .pac .botao{width:100%}.pac:not(.pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 38%,transparent)}.pac:not(.pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
@@ -270,6 +272,11 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 @media(max-width:860px){.e-sobre{grid-template-columns:1fr;align-items:start}.e-grade{display:flex;flex-direction:column;align-items:stretch;gap:22px}.e-titulo{order:1}.e-fotos{order:2;width:100%}.e-lado{order:3}.pacotes{grid-template-columns:1fr}.pac--destaque{order:-1}.outros{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}.outro b{font-size:1.2rem}
 .tem-barra .barra{display:flex}.tem-barra{padding-bottom:70px}.tem-barra .flutuante{display:none}.tem-barra .rz-pilula{bottom:84px}.tem-barra .rz-folha{bottom:138px}.fatos li{grid-template-columns:1fr;gap:2px}}
 
+/* tema escuro (fundo escuro no demo.json) */
+.escuro .contato,.escuro .rodape{background:var(--areia)}.escuro .rodape{border-top-color:var(--linha)}
+.escuro .pac--destaque{background:var(--areia);border:1px solid var(--acento)}
+.escuro .review-card,.escuro .pac:not(.pac--destaque),.escuro .depo{background:color-mix(in srgb,var(--fundo) 70%,var(--areia))}
+.escuro .site-header{background:color-mix(in srgb,var(--fundo) 90%,transparent)}
 /* tela cheia */
 .lb{position:fixed;inset:0;z-index:100;background:#141312f5;color:#f4f1ec;display:grid;grid-template-rows:auto minmax(0,1fr);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
 .lb.aberto{opacity:1;visibility:visible}
@@ -516,7 +523,7 @@ def gerar(pasta, originais=None):
         cta = f'data-whatsapp href="#">{ICONE("whats")}Agendar'
         return f'''<header class="site-header">
   <div class="container topo-in">
-    <a class="marca" {link("index")} aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
+    <a class="marca" {link("index")} style="--mk:{mk:.1f}" aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
     <nav class="nav" aria-label="Seções">{itens}</nav>
     <a class="botao botao--linha topo-cta" {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
@@ -525,6 +532,7 @@ def gerar(pasta, originais=None):
 </header>'''
 
     ct = pf['contato']
+    mk = len(q['nome']) * .7 + .5 + len(q['script']) * .33   # largura da marca, em em (encolhe no celular quando o nome é longo)
 
     def contato(titulo, texto, botao):
         return f'''<section class="contato" id="contato" aria-labelledby="contato-t">
@@ -537,7 +545,7 @@ def gerar(pasta, originais=None):
       <p>{esc(texto)}</p>
       <div class="acoes" style="margin:0 0 30px">{botao}<a class="botao botao--linha" data-instagram href="#" target="_blank" rel="noopener noreferrer">{ICONE("insta")}Instagram</a></div>
       <div class="onde">
-        <div>{ICONE("pin")}<span>{esc(" · ".join(ct["endereco"]))}<br><a data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar</a></span></div>
+        <div>{ICONE("pin")}<span>{esc(" · ".join(ct["endereco"]))}{"" if ct.get("rota") is False else '<br><a data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>'}</span></div>
         <div>{ICONE("whats")}<a data-whatsapp href="#">{esc(ct["telefone"])}</a></div>
       </div>
     </div>
@@ -548,7 +556,7 @@ def gerar(pasta, originais=None):
         links = ''.join(f'<a {link(p)}>{esc(t)}</a>' for p, t in paginas)
         return f'''<footer class="rodape">
   <div class="container rodape-in">
-    <a class="marca" {link("index")} aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
+    <a class="marca" {link("index")} style="--mk:{mk:.1f}" aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
     <nav aria-label="Páginas">{links}</nav>
     <small>© <span data-year>2026</span> {esc(marca)} · {esc(" · ".join(ct["endereco"]))}</small>
   </div>
@@ -589,9 +597,10 @@ def gerar(pasta, originais=None):
     runtime = open(os.path.join(AQUI, 'runtime.js'), encoding='utf-8').read()
     runtime = re.sub(r'^\s*//[^\n]*\bsite\b[^\n]*\n', '', runtime, flags=re.M | re.I)   # nem em comentário a página fala em "site"
     c = cfg['cores']; fo = (cfg.get('estilo') or {}).get('fontes') or {}
+    tema = ' escuro' if GF.G.lum(c['fundo']) < .4 else ''
     pilha = lambda k, resto: (f'"{fo[k][0]}",' if k in fo else '') + resto
     css = GF.T(CSS, fundo=c['fundo'], papel=c['papel'], areia=c['areia'], linha=c.get('linha', '#e6dbcf'), tinta=c['tinta'], tinta2=c['tinta2'],
-               rosa=c['rosa'], acento=c['acento'], acento_escuro=c['acento_escuro'], cafe=c['cafe'], rz=trecho_rz_css(),
+               rosa=c['rosa'], acento=c['acento'], acento_escuro=c['acento_escuro'], cafe=c['cafe'], rz=trecho_rz_css(), destaque=c['acento'] if tema else c['acento_escuro'],
                serif=pilha('serif', 'Georgia,serif'), sans=pilha('sans', 'system-ui,-apple-system,"Segoe UI",sans-serif'), script=pilha('script', '"Brush Script MT",cursive'))
     fontes = GF.fontes_link(fo) if fo else GF.FONTES
     fim = ('<script>\nwindow.DEMO_CLIENT = ' + json.dumps(cliente, ensure_ascii=False, indent=1) + ';\n</script>\n<script>\n' + runtime + '\n</script>\n' + GF.rz_js(cfg)
@@ -681,7 +690,7 @@ def gerar(pasta, originais=None):
 </section>
 <section class="secao" id="depoimentos" aria-labelledby="depoimentos-t">
   <div class="container">
-    <div class="cab reveal"><div><p class="olho">Avaliações no Google</p><h2 id="depoimentos-t">Quem já fotografou com elas.</h2></div>
+    <div class="cab reveal"><div><p class="olho">Avaliações no Google</p><h2 id="depoimentos-t">{esc(pf.get("depo_titulo") or "Quem já fotografou com " + q["a"] + ".")}</h2></div>
       <a class="nota-g" data-reviews-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver as avaliações no Google">{f"<b>{esc(nota)}</b>" if nota.startswith("5") else ""}<span><span class="estrelas" aria-hidden="true">★★★★★</span><br>{esc(total)} avaliações no Google</span></a></div>
     <div class="carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações do Google">
       <ul class="carousel-track" id="reviews-track" data-reviews tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
@@ -691,7 +700,7 @@ def gerar(pasta, originais=None):
 </section>
 <section class="secao secao--areia" id="sobre" aria-labelledby="sobre-t">
   <div class="container sobre">
-    <div class="sobre-fotos reveal">{img(sf[0], classe="f1")}{img(sf[1], classe="f2") if len(sf) > 1 else ""}</div>
+    <div class="sobre-fotos{"" if len(sf) > 1 else " sobre-fotos--so"} reveal">{img(sf[0], classe="f1")}{img(sf[1], classe="f2") if len(sf) > 1 else ""}</div>
     <div class="sobre-txt reveal" style="--i:1">
       <p class="olho">{esc(sb["olho"])}</p>
       <h2 id="sobre-t">{esc(sb["titulo"])}</h2>
@@ -703,12 +712,12 @@ def gerar(pasta, originais=None):
 </section>
 {contato(ct["titulo"], ct["p"], f'<a class="botao" data-whatsapp href="#">{ICONE("whats")}Chamar no WhatsApp</a>')}'''
     nav = [('href="#ensaios"', 'Ensaios'), ('href="#portfolio"', 'Portfólio'), ('href="#depoimentos"', 'Depoimentos'), ('href="#sobre"', 'Sobre'), ('href="#contato"', 'Contato')]
-    montar('index', f'{marca} | Portfólio, ensaios e valores', f'{pf["titulo"]} {pf["linha"]} Fotos, pacotes e valores de cada ensaio.', 'pf', nav, corpo)
+    montar('index', f'{marca} | Portfólio, ensaios e valores', f'{pf["titulo"]} {pf["linha"]} Fotos, pacotes e valores de cada ensaio.', 'pf' + tema, nav, corpo)
 
     # ---------- uma página por ensaio ----------
     for e in ensaios:
         fotos = e['_fotos']; n = e['_n']
-        fatos = [('Como é', e['texto'])] + ([('Quando', e['quando'])] if e.get('quando') else []) + [('Onde', e.get('onde') or f'O estúdio fica em {ct["endereco"][-1].replace(" · ", ", ")}. Datas pelo WhatsApp.')]
+        fatos = [('Como é', e['texto'])] + ([('Quando', e['quando'])] if e.get('quando') else []) + [('Onde', e.get('onde') or pf.get('onde') or f'O estúdio fica em {ct["endereco"][-1].replace(" · ", ", ")}. Datas pelo WhatsApp.')]
         grande = (f'<figure class="fala" style="margin:0"><p>“{esc(e["citacao"])}”</p><cite>{esc(e["citacao_quem"])}</cite></figure>' if e.get('citacao')
                   else f'<p class="grande">{esc(e["texto"])}</p>')
         if e.get('citacao'): pass
@@ -731,7 +740,7 @@ def gerar(pasta, originais=None):
     <div class="e-grade">
       <div class="e-titulo">
         <p class="olho">{esc(e["chamada"])} · {esc(pf["local"])}</p>
-        <h1>{esc(e["nome"])}</h1>
+        <h1 style="--k:{len(e["nome"]) * .78:.2f}">{esc(e["nome"])}</h1>
         <p class="e-frase">{esc(e["frase"])}</p>
       </div>
       <div class="e-lado">
@@ -775,7 +784,7 @@ def gerar(pasta, originais=None):
         barra = (f'<div class="barra" role="region" aria-label="Reservar"><span>{esc(e["nome"])}<b>a partir de {esc(e["_de"])}</b></span>'
                  f'<a class="botao" href="{esc(pedido(e))}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Quero o meu</a></div>')
         nav = [(link('index', '#ensaios'), 'Ensaios'), ('href="#fotos"', 'Fotos'), ('href="#sobre"', 'O ensaio'), ('href="#valores"', 'Valores'), ('href="#contato"', 'Contato')]
-        montar(e['id'], f'{e["chamada"]} | {marca}', f'{e["chamada"]} {estudio}, em {pf["local"]}: {e["frase"]} Fotos, pacotes e valores.', 'pf tem-barra', nav, corpo, barra)
+        montar(e['id'], f'{e["chamada"]} | {marca}', f'{e["chamada"]} {estudio}, em {pf["local"]}: {e["frase"]} Fotos, pacotes e valores.', 'pf tem-barra' + tema, nav, corpo, barra)
 
     # páginas de versões antigas que sobraram na pasta saem do ar
     nomes = {n for n, _ in feitas}
