@@ -1,434 +1,791 @@
-# Transforma a demo de uma fotógrafa (o site e a página de Natal de gerar-fotografia.py) num PORTFÓLIO QUE VENDE:
-# a vitrine (index.html: a capa e um bloco por ensaio, com o "a partir de") e uma PÁGINA DE VENDA por ensaio: a capa
-# com a promessa, a nota do Google e o botão do WhatsApp; as fotos do ensaio em mosaico (cada foto inteira); o texto e
-# o depoimento de quem fez AQUELE ensaio; o "quando fazer" (só quando faz sentido); 3 pacotes com o do meio em
-# destaque; e a barra fixa no celular. Mesmo visual (cores e fontes do site), mesma faixa da Renderiza, mesmo rastreio
-# (montar-site põe o contador em todas as páginas da pasta, para o mesmo lead, com o nome de cada página).
-# O porquê e as regras: docs/nichos/fotografos.md, seção 10 (inclui a lista do que conferir antes de publicar).
+# PORTFÓLIO ONLINE de uma fotógrafa (versão 4, 13/11/2026): o link que ela manda quando a cliente pergunta "quanto
+# custa?" e põe na bio. Não é a demo antiga convertida: sai dos ORIGINAIS das fotos, com desenho próprio.
+#   index.html      a vitrine: a frase dela, uma tira de fotos inteiras (cada uma leva ao ensaio), a lista de ensaios
+#                   com o "a partir de", o portfólio com FILTRO por ensaio, as avaliações, quem fotografa e o contato
+#   <ensaio>.html   uma página por ensaio: nome grande, as fotos (linhas justificadas, foto sempre inteira), o que é,
+#                   quando fazer, o depoimento de quem fez AQUELE ensaio, os pacotes e a barra de reserva no celular
+# O porquê, as referências e as regras: docs/nichos/fotografos.md, seção 10.
 #
-# Uso: python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <site.html> <natal.html>
-#   <site.html> e <natal.html>: as páginas de gerar-fotografia.py (as fotos saem de dentro delas). Depois que a demo
-#   vira portfólio, elas ficam no git: git show <commit>:demos/<pasta>/index.html > site.html (idem natal.html).
-#   demo.json -> "portfolio": {h1, frase?, local, tom ("claro" ou escuro; só para tema claro), capa ("galeria:i"),
-#     ensaios: [{id, nome, chamada, fotos (["galeria:0-3,5", "pn:1"]: a primeira é a capa da página; pn = as fotos
-#     da página de Natal antiga), bloco? (a foto do bloco na vitrine; senão a primeira em pé), titulo, sub, texto,
-#     quando?, depo? (nome de quem avaliou; o texto tem de falar daquele ensaio), extra? {titulo, p},
-#     pacotes [{nome, preco, itens, destaque?}]}]}. Os pacotes de exemplo levam o selo "valores de exemplo"
-#   (some no vídeo, ?video=1).
-import html, json, os, re, sys
+# Uso: python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> [<pasta dos originais>]
+#   <pasta dos originais>: onde estão os arquivos de portfolio...fotos[].arq (ex.: drive/..., posts/<post>/..., google/...).
+#   Foto bruta não entra no git. Sem a pasta (ou sem um arquivo), o gerador reaproveita a foto JÁ TRATADA por ele
+#   mesmo, lida das páginas que estão em demos/<pasta> (mesmos bytes, pela chave data-k): dá para mudar texto e
+#   preço sem ter os originais. Para trocar ou acrescentar foto, os originais são obrigatórios.
+#
+# Fotos (o que a versão anterior errou): nunca saem de dentro de outra página; nunca são ampliadas; nunca são
+# cortadas no centro cego (a página mostra a foto inteira, na proporção dela; "box" recorta só quando a curadoria
+# pede); um arquivo por foto: 1400 px no lado maior (galeria e tela cheia), 1920 px nas fotos da abertura do ensaio;
+# JPEG progressivo, qualidade 82. O build tira as fotos de dentro da página (scripts/fotos-da-demo.mjs).
+#
+# Mantido igual (a oferta e o rastreio): a faixa e a pílula da Renderiza (mesmas classes e atributos data-rz-* de
+# gerar-fotografia.py, de onde vêm o CSS, o JS e o window.RZ), data-whatsapp, data-instagram, data-reviews-link,
+# data-directions, o DEMO_CLIENT e o runtime.js. Nenhum evento novo: o contador (exemplos/visitas.js) lê os mesmos
+# cliques. Nada cobre a página (sem modal). O filtro por ensaio continua (abas).
+#
+# demo.json -> "portfolio": {olho, titulo, linha, local, tira ["ensaio:índice"], avaliacoes [{nome, tag, texto}],
+#   sobre {olho, titulo, p [], citacao, citacao_quem, fotos [{arq, alt}], numeros [[n, rótulo]]},
+#   contato {titulo, p, endereco [], telefone},
+#   ensaios [{id, nome, curto?, chamada, pedido ("o ensaio gestante": vai na mensagem do WhatsApp), frase, texto,
+#     citacao?, citacao_quem?, quando?, depo? {nome, texto}, capa (quantas fotos na abertura), vitrine [índices no
+#     filtro da vitrine], fotos [{arq, alt, box?}], pacotes [{nome, preco, itens, destaque?}]}]}
+#   Pacotes e valores são EXEMPLOS: a página mostra o selo (some no vídeo, ?video=1).
+import base64, hashlib, html, io, json, os, re, sys
 from urllib.parse import quote
+import importlib.util
 
+AQUI = os.path.dirname(os.path.abspath(__file__))
+_spec = importlib.util.spec_from_file_location('gerar_fotografia', os.path.join(AQUI, 'gerar-fotografia.py'))
+GF = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(GF)
 esc = lambda t: html.escape(str(t), quote=True)
-SETA = '<svg aria-hidden="true"><use href="#seta"/></svg>'
-WA = '<svg aria-hidden="true"><use href="#whats"/></svg>'
-BRILHO = '<svg aria-hidden="true"><use href="#brilho"/></svg>'
-RELOGIO = '<svg aria-hidden="true"><use href="#relogio"/></svg>'
-ATUAL = ' aria-current="page"'
+
+GALERIA, ABERTURA, MINI = 1400, 1920, 220   # lado maior, em px
+QUALIDADE = 82
+ICONE = lambda n: f'<svg aria-hidden="true"><use href="#{n}"/></svg>'
 
 
-def pegar(rx, texto):
-    m = re.search(rx, texto, re.S)
-    if not m: sys.exit(f'não achei: {rx[:60]}')
-    return m.group(0)
+# ---------- fotos ----------
+class Fotos:
+    """Cada foto sai do original (maior tamanho, sem ampliar) uma vez por tamanho. Sem o original, reaproveita os
+    bytes que o próprio gerador já pôs nas páginas da pasta (atributo data-k)."""
+    def __init__(self, originais, pasta):
+        self.originais, self.feitas, self.bytes, self.avisos = originais, {}, 0, []
+        self.antigas = {}
+        for f in sorted(os.listdir(pasta)):
+            if not f.endswith('.html'): continue
+            t = open(os.path.join(pasta, f), encoding='utf-8').read()
+            if 'gerar-portfolio.py, versão 4' not in t[:600]: continue
+            for m in re.finditer(r'<img[^>]*? src="(data:image/jpeg;base64,[^"]+)" width="(\d+)" height="(\d+)"[^>]*? data-k="([0-9a-f]+)"', t):
+                self.antigas[m.group(4)] = (m.group(1), int(m.group(2)), int(m.group(3)))
+
+    def foto(self, spec, lado=GALERIA):
+        chave = hashlib.sha1(json.dumps([spec['arq'], spec.get('box'), lado, QUALIDADE]).encode()).hexdigest()[:12]
+        if chave in self.feitas: return self.feitas[chave]
+        caminho = os.path.join(self.originais, spec['arq']) if self.originais else ''
+        if caminho and os.path.exists(caminho):
+            from PIL import Image, ImageOps
+            im = ImageOps.exif_transpose(Image.open(caminho)).convert('RGB')
+            if spec.get('box'):
+                x0, y0, x1, y1 = spec['box']; W, H = im.size
+                im = im.crop((round(x0 * W), round(y0 * H), round(x1 * W), round(y1 * H)))
+            if max(im.size) > lado: im.thumbnail((lado, lado), Image.LANCZOS)   # só reduz: nunca amplia
+            elif lado == GALERIA and max(im.size) < 1000: self.avisos.append(f'{spec["arq"]}: original pequeno ({im.width}x{im.height})')
+            buf = io.BytesIO(); im.save(buf, 'JPEG', quality=QUALIDADE, optimize=True, progressive=True)
+            r = ('data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode(), im.width, im.height)
+        elif chave in self.antigas: r = self.antigas[chave]
+        else: sys.exit(f'sem o original e sem a foto tratada: {spec["arq"]} (passe a pasta dos originais)')
+        self.bytes += len(r[0]) * 3 // 4
+        self.feitas[chave] = {'uri': r[0], 'w': r[1], 'h': r[2], 'k': chave, 'alt': spec['alt'], 'a': r[1] / r[2]}
+        return self.feitas[chave]
 
 
-def imgs(trecho):
-    out = []
-    for m in re.finditer(r'<img src="([^"]+)" width="(\d+)" height="(\d+)" alt="([^"]*)"([^>]*)>', trecho):
-        pos = re.search(r'object-position:([^";]+)', m.group(5))
-        out.append({'src': m.group(1), 'w': int(m.group(2)), 'h': int(m.group(3)), 'alt': html.unescape(m.group(4)),
-                    'pos': pos.group(1) if pos else '50% 40%'})
-    return out
-
-
-def aparar(f):
-    """Foto com faixa branca nas bordas (ex.: a foto em pé posta num quadrado branco): guarda a proporção da foto de
-    verdade (cw x ch) e o enquadramento que esconde a faixa. Sem a faixa, a foto fica como está."""
-    if 'cw' in f: return f
-    f['cw'], f['ch'] = f['w'], f['h']
-    try:
-        import base64, io
-        import numpy as np
-        from PIL import Image
-        im = np.asarray(Image.open(io.BytesIO(base64.b64decode(f['src'].split(',', 1)[1]))).convert('L'))
-    except Exception:
-        return f
-    h, w = im.shape
-    branca = im >= 246
-
-    def borda(linhas):
-        a, b = 0, len(linhas)
-        while a < b and linhas[a]: a += 1
-        while b > a and linhas[b - 1]: b -= 1
-        return a, b
-    x0, x1 = borda(branca.mean(axis=0) > .985); y0, y1 = borda(branca.mean(axis=1) > .985)
-    if x1 - x0 < .95 * w or y1 - y0 < .95 * h:
-        f['cw'], f['ch'] = (x1 - x0) * f['w'] / w, (y1 - y0) * f['h'] / h
-        px = 50 if x1 - x0 == w else x0 / (w - (x1 - x0)) * 100
-        py = 50 if y1 - y0 == h else y0 / (h - (y1 - y0)) * 100
-        f['pos'] = f'{px:.0f}% {py:.0f}%'
-    return f
-
-
-def prop(f): return f['cw'] / f['ch']
-
-
-def tag(f, prioridade=False):
-    """A foto com a proporção dela (--a = largura/altura, sem a faixa branca): os quadros usam --a para nunca cortar."""
+def img(f, prioridade=False, classe=''):
     carga = ' fetchpriority="high"' if prioridade else ' loading="lazy"'
-    return (f'<img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{esc(f["alt"])}"{carga} '
-            f'style="--a:{prop(f):.4f};object-position:{f["pos"]}">')
+    c = f' class="{classe}"' if classe else ''
+    return f'<img{c} src="{f["uri"]}" width="{f["w"]}" height="{f["h"]}" alt="{esc(f["alt"])}"{carga} decoding="async" data-k="{f["k"]}">'
 
 
-def nome_de(n):  # "RITA DE CASSIA" -> "Rita De Cassia" (como a pessoa escreveu, se não for quase tudo maiúscula)
-    return n.title() if sum(c.isupper() for c in n) > len(n.replace(' ', '')) / 2 else n
-
-
-def escuro(cor):
-    c = cor.lstrip('#')
-    if len(c) != 6: return False
-    r, g, b = (int(c[i:i + 2], 16) / 255 for i in (0, 2, 4))
-    return 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.4
-
-
-def galeria(nome, fotos):
-    itens = ''.join(f'<button class="g-item" type="button" style="--a:{prop(f):.4f}" aria-label="{esc("Abrir em tela cheia: " + f["alt"])}">{tag(f)}</button>' for f in fotos)
-    return f'<div class="galeria" data-nome="{esc(nome)}">{itens}</div>'
-
-
+# ---------- estilo ----------
 CSS = r'''
-/* ---------- portfólio que vende (gerar-portfolio.py) ---------- */
-.nav a[aria-current="page"],.menu-mobile a[aria-current="page"]{color:var(--acento)}
-/* a capa: no celular, a foto na tela toda com o texto embaixo; no computador, o texto à esquerda e a foto inteira à direita */
-.pv-hero{position:relative;overflow:hidden;background:#1d1b19;color:#fff}
-.pv-hero>img{display:block}
-.pv-hero-txt{position:relative;z-index:1}
-.pv-hero .eyebrow{color:inherit;opacity:.85;margin-bottom:14px}
-.pv-hero h1{font-size:clamp(2.3rem,4.2vw,4rem);line-height:1.02;color:inherit;max-width:16ch}
-.pv-hero-sub{margin:14px 0 0;max-width:46ch;opacity:.86;font-size:1.02rem}
-.pv-meta{margin:18px 0 0;font-size:.9rem;opacity:.9}
-.pv-meta a{color:inherit;text-decoration:none}
-.pv-meta .estrelas{color:#e8b54d;letter-spacing:1px;margin-right:6px}
-.pv-meta b{font-weight:600}
-.pv-acoes{display:flex;gap:14px 22px;flex-wrap:wrap;align-items:center;margin-top:26px}
-.pv-link{color:inherit;font-weight:500;font-size:.92rem;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;display:inline-flex;gap:8px;align-items:center}
-.pv-link svg{width:16px;height:16px}
-@media(max-width:860px){
-.pv-hero>img{width:100%;height:auto;aspect-ratio:var(--a);max-height:66svh;object-fit:cover}
-.pv-hero-txt{padding:24px 0 32px}
-.pv-hero h1{font-size:clamp(2.1rem,9.4vw,2.7rem)}
-.pv-acoes .botao{flex:1 1 100%}}
-@media(min-width:861px){
-.pv-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;background:var(--pv-hero-bg);color:var(--pv-hero-tx)}
-.pv-hero>img{grid-column:2;grid-row:1;width:min(50vw,calc(86vh * var(--a)),calc(780px * var(--a)));aspect-ratio:var(--a);height:auto;object-fit:cover}
-.pv-hero-txt{grid-column:1;grid-row:1;width:auto;max-width:600px;margin:0 auto;padding:56px clamp(28px,4vw,64px)}
-.pv-hero .botao{background:var(--acento);border-color:var(--acento);color:#fff}}
-/* blocos de ensaio (a vitrine e "outros ensaios"): a foto inteira no quadro em pé, o nome e o preço sobre ela */
-.pv-bloco{padding:clamp(48px,7vw,96px) 0}
-.pv-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 24px;flex-wrap:wrap;margin-bottom:24px}
-.pv-cab h2{font-size:clamp(2rem,3.8vw,3rem)}
-.pv-cab small{color:var(--tinta-2);font-size:.86rem}
-.pv-exemplo{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 12px;border-radius:999px;background:#1f1d1b;color:#fff;font-size:.72rem;letter-spacing:.03em}
-.pv-exemplo svg{width:12px;height:12px;color:#e9b8a2}
-.modo-video .pv-exemplo{display:none!important}
-.pv-blocos{display:grid;grid-template-columns:repeat(var(--n),minmax(0,var(--max)));gap:14px;justify-content:center}
-.pv-tile{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#2b2a28;color:#fff;text-decoration:none}
-.pv-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.pv-tile:hover img{transform:scale(1.04)}
-.pv-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,13,0) 52%,rgba(15,14,13,.78))}
-.pv-tile-txt{position:absolute;inset:auto 0 0 0;z-index:1;padding:18px 18px 16px;display:flex;flex-direction:column;gap:3px}
-.pv-tile-txt b{font-family:var(--serif);font-weight:500;font-size:clamp(1.3rem,1.9vw,1.75rem);line-height:1.05;overflow-wrap:anywhere;hyphens:auto}
-.pv-tile-txt small{font-size:.8rem;color:#efe8e1}
-.pv-tile-txt small strong{font-family:var(--serif);font-size:1.12rem;font-weight:500;color:#fff;margin-left:2px}
-@media(max-width:860px){.pv-blocos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pv-blocos--impar .pv-tile:first-child{grid-column:1/-1}
-.pv-tile-txt{padding:12px}.pv-tile-txt b{font-size:1.05rem}.pv-tile-txt small{font-size:.72rem}.pv-blocos--impar .pv-tile:first-child .pv-tile-txt b{font-size:1.6rem}
-.pv-outros{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.pv-outros .pv-tile{flex:0 0 44%;scroll-snap-align:start}.pv-outros.pv-blocos--impar .pv-tile:first-child{grid-column:auto}}
-/* as fotos do ensaio: mosaico, cada foto inteira, tamanho de portfólio */
-.pv-galeria .galeria{display:block;columns:4 210px;column-gap:12px}
-.pv-galeria .g-item{display:block;width:100%;margin:0 0 12px;break-inside:avoid;position:relative;cursor:zoom-in;background:var(--areia)}
-.pv-galeria .g-item::before{content:"";display:block;padding-top:calc(100% / var(--a))}
-.pv-galeria .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media(max-width:860px){.pv-galeria .galeria{columns:2;column-gap:8px}.pv-galeria .g-item{margin-bottom:8px}}
-/* sobre o ensaio */
-.pv-historia{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,72px);align-items:center}
-.pv-historia--so{grid-template-columns:minmax(0,760px);justify-content:center}
-.pv-texto{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.32;margin:0}
-.pv-quando{display:flex;gap:12px;align-items:flex-start;margin:24px 0 0;padding:2px 0 2px 16px;border-left:2px solid var(--acento);color:var(--tinta-2);font-size:.95rem}
-.pv-quando svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--acento)}
-.pv-quando b{color:var(--tinta);font-weight:500}
-.pv-depo{margin:0;padding:clamp(22px,3vw,32px);background:var(--areia);border-radius:2px}
-.pv-depo blockquote{margin:0;font-size:1.02rem;line-height:1.6}
-.pv-depo figcaption{margin-top:14px;font-size:.85rem;color:var(--tinta-2)}
-.pv-depo figcaption b{color:var(--tinta);font-weight:500}
-.pv-depo .estrelas{color:#d9a441;letter-spacing:1px;margin-right:4px}
-@media(max-width:860px){.pv-historia{grid-template-columns:1fr}}
-/* pacotes */
-.pv-pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;padding-top:12px}
-.pv-pac{position:relative;display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linha);padding:28px 24px 24px}
-.pv-pac--destaque{border:2px solid var(--acento);box-shadow:0 20px 44px rgba(30,25,20,.10)}
-.pv-selo{position:absolute;top:-13px;left:22px;background:var(--acento);color:#fff;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.pv-pac h3{font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2)}
-.pv-preco{font-family:var(--serif);font-size:clamp(2.3rem,3.6vw,2.9rem);line-height:1;margin:10px 0 2px}
-.pv-pac ul{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:9px;font-size:.96rem}
-.pv-pac li{display:flex;gap:10px;align-items:baseline}
-.pv-pac li::before{content:"✓";color:var(--acento);font-weight:600}
-.pv-pac .botao{margin-top:auto;width:100%}
-.pv-pac:not(.pv-pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 30%,transparent)}
-.pv-pac:not(.pv-pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
-.pv-extra{margin-top:18px;padding:20px 22px;border:1px dashed var(--acento);display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
-.pv-extra b{font-family:var(--serif);font-size:1.4rem;font-weight:500}
-.pv-extra p{margin:2px 0 0;color:var(--tinta-2);font-size:.95rem}
-@media(max-width:860px){.pv-pacotes{grid-template-columns:1fr;gap:22px}.pv-pac--destaque{order:-1}}
-.pv-fim{text-align:center;padding:clamp(48px,8vw,96px) 0;background:var(--areia)}
-.pv-fim h2{font-size:clamp(2.1rem,4.4vw,3.2rem)}
-.pv-fim p{color:var(--tinta-2);margin:12px auto 22px;max-width:480px}
-/* barra fixa no celular, nas páginas de ensaio */
-.pv-barra{position:fixed;left:0;right:0;bottom:0;z-index:65;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--papel) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--linha);transform:translateY(110%);transition:transform .35s}
-.pv-barra.ver{transform:none}
-.pv-barra span{display:flex;flex-direction:column;line-height:1.25;font-size:.78rem;color:var(--tinta-2)}
-.pv-barra span b{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--tinta)}
-.pv-barra .botao{min-height:46px;padding:10px 18px;font-size:.86rem;flex:none}
-@media(max-width:860px){.pv-barra{display:flex}.pv-tem-barra{padding-bottom:72px}.pv-tem-barra .flutuante{display:none}.pv-tem-barra .rz-pilula{bottom:84px}.pv-tem-barra .rz-folha{bottom:138px}}
-.rz-folha .pv-dica-rz{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
+:root{--fundo:{{fundo}};--papel:{{papel}};--areia:{{areia}};--linha:{{linha}};--tinta:{{tinta}};--tinta-2:{{tinta2}};--rosa:{{rosa}};--acento:{{acento}};--acento-escuro:{{acento_escuro}};--cafe:{{cafe}};
+--serif:{{serif}};--sans:{{sans}};--script:{{script}};--w:min(1240px,calc(100% - 64px));--topo:76px;--suave:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 16px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+img{display:block;max-width:100%;height:auto}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--acento-escuro);outline-offset:3px}
+.container{width:var(--w);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.005em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
+.olho{font-weight:500;font-size:.72rem;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--acento-escuro);margin:0 0 16px}
+.secao{padding:clamp(72px,9vw,128px) 0}.secao--areia{background:var(--areia)}
+.cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.cab p:not(.olho):not(.selo){color:var(--tinta-2);margin:0;max-width:44ch}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 28px;background:var(--acento-escuro);border:1px solid var(--acento-escuro);color:#fff;text-decoration:none;font-weight:500;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s}
+.botao:hover{background:var(--cafe);border-color:var(--cafe)}.botao svg{width:18px;height:18px;flex:none}
+.botao--linha{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 38%,transparent)}.botao--linha:hover{background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}
+.link{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding-bottom:5px;border-bottom:1px solid currentColor}
+.link svg{width:16px;height:16px;transition:transform .35s var(--suave)}.link:hover svg{transform:translateX(5px)}
+.selo{display:inline-flex;align-items:center;gap:8px;margin:0;padding:7px 14px;border:1px dashed color-mix(in srgb,var(--tinta) 40%,transparent);color:var(--tinta-2);font-size:.74rem;letter-spacing:.04em}
+.selo svg{width:12px;height:12px;color:var(--acento-escuro)}.modo-video .selo{display:none!important}
+.estrelas{color:#c99a3b;letter-spacing:2px}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s var(--suave);transition-delay:calc(var(--i,0) * 70ms)}.js .reveal.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+{{rz}}
+.rz-troca{max-width:100%;overflow-x:auto;scrollbar-width:none}.rz-troca::-webkit-scrollbar{display:none}
+.rz-folha .rz-dica{background:#ffffff14;border-radius:12px;padding:10px 12px;font-size:.86rem}
+@media(max-width:860px){.rz-troca a{flex:0 0 auto;padding:7px 13px}}
+
+/* topo */
+.site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--fundo) 90%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.rolou{border-bottom-color:var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--topo);position:relative}
+.marca{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;white-space:nowrap}
+.marca b{font-family:var(--serif);font-weight:400;font-size:1.32rem;letter-spacing:.2em;text-transform:uppercase}
+.marca i{font-family:var(--script);font-style:normal;font-size:1.7rem;line-height:.6;color:var(--acento-escuro)}
+.nav{display:flex;gap:clamp(16px,2.2vw,32px);margin-left:auto}
+.nav a,.menu-mobile a:not(.botao){font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:8px 0;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--suave)}.nav a:hover::after{transform:none}
+.topo-cta{min-height:42px;padding:9px 18px;font-size:.7rem}
+.menu-botao{display:none;width:44px;height:44px;place-items:center;margin-right:-10px}
+.menu-botao span,.menu-botao span::before{display:block;width:24px;height:1px;background:currentColor;transition:transform .3s}.menu-botao span::before{content:"";transform:translateY(7px)}
+.menu-botao[aria-expanded="true"] span{transform:translateY(3px) rotate(45deg)}.menu-botao[aria-expanded="true"] span::before{transform:rotate(-90deg)}
+.menu-mobile{position:absolute;top:100%;left:-16px;right:-16px;display:grid;gap:2px;padding:10px 16px 22px;background:var(--fundo);border-bottom:1px solid var(--linha);box-shadow:0 24px 40px #2d2c2a14}
+.menu-mobile a:not(.botao){padding:14px 0;border-bottom:1px solid var(--linha)}.menu-mobile .botao{margin-top:16px}
+@media(max-width:980px){.nav,.topo-cta{display:none}.menu-botao{display:grid}:root{--topo:64px}}
+@media(min-width:981px){.menu-mobile{display:none!important}}
+
+/* capa da vitrine: a frase dela e a tira de fotos inteiras */
+.capa{display:grid;grid-template-columns:minmax(32px,1fr) minmax(0,840px) minmax(0,400px) minmax(32px,1fr);align-items:end;row-gap:clamp(24px,3vw,40px);padding:clamp(26px,3.6vw,52px) 0 clamp(40px,5vw,72px)}
+.capa-titulo{grid-column:2;padding-right:clamp(24px,5vw,72px)}.capa-lado{grid-column:3}.capa .tira{grid-column:1/-1}
+.capa h1{font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.02}
+.capa-lado p{color:var(--tinta-2);margin:0 0 14px}
+.nota{display:inline-flex;align-items:center;gap:10px;font-size:.88rem;text-decoration:none;color:var(--tinta-2)}.nota b{color:var(--tinta);font-weight:500}
+.acoes{display:flex;gap:14px 26px;flex-wrap:wrap;align-items:center;margin-top:22px}
+.tira{--th:clamp(360px,56vh,600px);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tira::-webkit-scrollbar{display:none}
+.tira-trilho{display:flex;gap:12px;width:max-content;padding-inline:max(32px,calc((100vw - 1240px) / 2))}
+.tira-item{display:block;flex:none;text-decoration:none;color:inherit}
+.tira-foto{display:block;height:var(--th);aspect-ratio:var(--a);overflow:hidden;background:var(--areia)}
+.tira-foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--suave)}
+.tira-item:hover img{transform:scale(1.035)}
+.tira-item span.rot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.tira-item span.rot svg{width:16px;height:16px;opacity:.55;transition:transform .35s var(--suave),opacity .3s}.tira-item:hover span.rot svg{transform:translateX(4px);opacity:1}
+@media(max-width:860px){.capa{display:flex;flex-direction:column;align-items:stretch;gap:20px;padding-top:22px}.capa-titulo,.capa-lado{width:var(--w);margin-inline:auto;padding-right:0}.capa-titulo{order:1}.capa .tira{order:2;width:100%;min-width:0}.capa-lado{order:3}.capa h1{font-size:clamp(2.3rem,10.4vw,3rem)}.tira{--th:min(54svh,460px);scroll-snap-type:x mandatory}.tira-trilho{gap:8px;padding-inline:16px}.tira-item{scroll-snap-align:center}.acoes .botao{flex:1 1 100%}}
+
+/* lista de ensaios com o "a partir de" */
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha);counter-reset:n}
+.lista li{border-bottom:1px solid var(--linha);counter-increment:n}
+.ens{display:grid;grid-template-columns:56px 76px minmax(0,1.1fr) minmax(0,1.3fr) auto 28px;gap:0 clamp(14px,2.4vw,36px);align-items:center;padding:18px 8px;text-decoration:none;transition:background .35s,padding .45s var(--suave)}
+.ens::before{content:counter(n,decimal-leading-zero);font-size:.74rem;letter-spacing:.2em;color:var(--tinta-2)}
+.ens .mini{width:76px;height:96px;object-fit:cover;background:var(--areia)}
+.ens b{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.05}
+.ens .frase{color:var(--tinta-2)}
+.ens .preco{text-align:right;white-space:nowrap;font-family:var(--serif);font-size:1.5rem;line-height:1.1}.ens .preco small{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:4px}
+.ens>svg{width:22px;height:22px;transition:transform .45s var(--suave)}
+.ens:hover{background:var(--papel);padding-left:20px}.ens:hover>svg{transform:translateX(6px)}
+@media(max-width:860px){.ens{grid-template-columns:64px minmax(0,1fr) auto;gap:2px 14px;padding:14px 0}.ens::before{display:none}.ens .mini{width:64px;height:80px;grid-row:1/3}.ens b{font-size:1.65rem;align-self:end}.ens .frase{grid-column:2;grid-row:2;font-size:.9rem;line-height:1.35;align-self:start}.ens .preco{grid-column:3;grid-row:1/3;font-size:1.2rem}.ens .preco small{font-size:.6rem;letter-spacing:.12em}.ens>svg{display:none}.ens:hover{padding-left:0;background:none}}
+
+/* galeria: linhas justificadas, cada foto inteira na proporção dela (o JS fecha as linhas; sem JS, o flex resolve) */
+.galeria{--h:380px;display:flex;flex-wrap:wrap;gap:10px}
+.galeria::after{content:"";flex:999 1 0}
+.g-item{position:relative;display:block;flex:var(--a) 1 calc(var(--a) * var(--h));aspect-ratio:var(--a);overflow:hidden;background:var(--areia);cursor:zoom-in}
+.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--suave)}
+.g-item:hover img{transform:scale(1.03)}
+.galeria.just::after{display:none}.galeria.just .g-item{flex:none;aspect-ratio:auto}
+.galeria--abre{--h:520px}
+@media(max-width:1100px){.galeria{--h:320px}.galeria--abre{--h:420px}}
+@media(max-width:640px){.galeria{--h:200px;gap:6px}.galeria--abre{--h:320px}}
+
+/* filtro por ensaio */
+.filtro{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 clamp(20px,3vw,32px)}
+.filtro [role=tab]{padding:11px 20px;border:1px solid var(--linha);font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s}
+.filtro [role=tab]:hover{border-color:var(--tinta)}
+.filtro [role=tab][aria-selected="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}
+.painel.entra{animation:entra .7s var(--suave)}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.painel-pe{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:clamp(18px,2.4vw,28px);color:var(--tinta-2);font-size:.92rem}
+@media(max-width:640px){.filtro{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}.filtro::-webkit-scrollbar{display:none}.filtro [role=tab]{flex:none;padding:10px 15px;letter-spacing:.14em}}
+
+/* avaliações (cartões do runtime.js) */
+.nota-g{display:flex;align-items:baseline;gap:12px;text-decoration:none}.nota-g b{font-family:var(--serif);font-weight:400;font-size:2.6rem;line-height:1}.nota-g span{font-size:.88rem;color:var(--tinta-2)}
+.carousel-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 28px) / 2.35);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;list-style:none;margin:0;padding:0}.carousel-track::-webkit-scrollbar{display:none}
+.carousel-track>li{scroll-snap-align:start;display:flex}
+.review-card{display:flex;flex-direction:column;gap:18px;width:100%;padding:clamp(22px,2.6vw,34px);background:var(--papel);border:1px solid var(--linha)}
+.review-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.stars{color:#c99a3b;letter-spacing:2px;font-size:.9rem}
+.review-tag{font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2)}
+.review-card blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.18rem,1.7vw,1.42rem);line-height:1.42;flex:1}
+.review-person{display:flex;align-items:center;gap:12px;font-size:.84rem}.review-person strong{display:block;font-weight:500}.review-person a{color:var(--tinta-2);text-underline-offset:3px;font-size:.78rem}
+.review-avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--areia);font-size:.7rem;letter-spacing:.08em;flex:none}
+.carousel-footer{display:flex;justify-content:flex-end;margin-top:22px}.carousel-controls{display:flex;align-items:center;gap:14px}
+.arrow-button{width:46px;height:46px;border:1px solid color-mix(in srgb,var(--tinta) 30%,transparent);display:grid;place-items:center;transition:background .3s,color .3s,opacity .3s}.arrow-button:hover:not(:disabled){background:var(--tinta);color:var(--fundo)}.arrow-button:disabled{opacity:.3;cursor:default}
+.carousel-dots{display:flex;gap:8px}.carousel-dots button{width:22px;height:22px;display:grid;place-items:center}.carousel-dots button::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tinta);opacity:.25;transition:opacity .3s,transform .3s}.carousel-dots button[aria-current="true"]::before{opacity:1;transform:scale(1.4)}
+@media(max-width:860px){.carousel-track{grid-auto-columns:86%}}
+
+/* quem fotografa */
+.sobre{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,7vw,112px);align-items:center}
+.sobre-fotos{position:relative;padding:0 0 12% 0}
+.sobre-fotos img{background:var(--areia)}
+.sobre-fotos .f1{width:68%}.sobre-fotos .f2{position:absolute;right:0;bottom:0;width:42%;border:10px solid var(--fundo)}
+.sobre-txt p{color:var(--tinta-2)}
+.fala{margin:28px 0 0;padding-left:22px;border-left:1px solid var(--acento)}
+.fala p{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.3;color:var(--tinta);margin:0 0 10px}.fala cite{font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
+.numeros{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap;margin:34px 0 0;padding:0;list-style:none}
+.numeros b{display:block;font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1}.numeros span{font-size:.82rem;color:var(--tinta-2)}
+@media(max-width:860px){.sobre{grid-template-columns:1fr}}
+
+/* contato */
+.contato{background:var(--cafe);color:#f4f1ec;padding:clamp(72px,9vw,128px) 0}
+.contato .olho{color:#b9c9be}
+.contato-in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end}
+.contato h2{font-size:clamp(2.4rem,5vw,4.2rem);max-width:12ch}
+.contato p{color:#cfcbc3;max-width:40ch}
+.contato .botao{background:#f4f1ec;border-color:#f4f1ec;color:var(--cafe)}.contato .botao:hover{background:#fff;border-color:#fff}
+.contato .botao--linha{background:transparent;color:#f4f1ec;border-color:#f4f1ec66}.contato .botao--linha:hover{background:#f4f1ec;color:var(--cafe)}
+.onde{display:grid;gap:14px;font-size:.95rem;border-top:1px solid #ffffff26;padding-top:22px}
+.onde div{display:flex;gap:14px;align-items:flex-start}.onde svg{width:20px;height:20px;flex:none;margin-top:3px;color:#b9c9be}.onde a{text-underline-offset:4px}
+@media(max-width:860px){.contato-in{grid-template-columns:1fr;align-items:start}}
+
+/* rodapé e WhatsApp flutuante */
+.rodape{background:var(--cafe);color:#cfcbc3;border-top:1px solid #ffffff1f;padding:34px 0 40px;font-size:.84rem}
+.rodape-in{display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap}
+.rodape .marca{color:#f4f1ec}.rodape .marca i{color:#b9c9be}
+.rodape nav{display:flex;gap:8px 22px;flex-wrap:wrap}.rodape nav a{text-decoration:none;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.rodape nav a:hover{color:#fff}
+.rodape small{display:block;width:100%;font-size:.76rem;color:#9b978f}
+.flutuante{position:fixed;right:18px;bottom:18px;z-index:55;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--acento-escuro);color:#fff;box-shadow:0 12px 30px #2d2c2a33;transition:transform .3s var(--suave),background .3s}.flutuante:hover{transform:translateY(-3px);background:var(--cafe)}.flutuante svg{width:26px;height:26px}
+.modo-video .flutuante{display:none}
+
+/* página do ensaio */
+.e-capa{padding:clamp(28px,4vw,60px) 0 clamp(36px,5vw,64px)}
+.e-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,3.4vw,44px) clamp(32px,6vw,96px);align-items:end}
+.e-fotos{grid-column:1/-1;min-width:0}
+.e-capa h1{font-size:clamp(2.9rem,9vw,7rem);line-height:.95;letter-spacing:.04em;text-transform:uppercase}
+.e-frase{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;margin:14px 0 0}
+.e-lado p{color:var(--tinta-2);margin:0 0 14px}
+.e-preco{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 4px;color:var(--tinta-2);font-size:.86rem}.e-preco b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--tinta)}
+.voltar{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--tinta-2);margin-bottom:22px}.voltar svg{width:15px;height:15px;transform:rotate(180deg)}.voltar:hover{color:var(--tinta)}
+.e-sobre{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,7vw,112px);align-items:start}
+.e-sobre .grande{font-family:var(--serif);font-size:clamp(1.6rem,2.9vw,2.5rem);line-height:1.22;margin:0}
+.fatos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
+.fatos li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--linha)}.fatos b{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--acento-escuro);padding-top:5px}.fatos span{color:var(--tinta-2)}
+.depo{margin:clamp(40px,6vw,72px) 0 0;padding:clamp(26px,4vw,48px);background:var(--papel);border:1px solid var(--linha);display:grid;gap:18px}
+.depo blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.36;max-width:34em}
+.depo figcaption{font-size:.84rem;color:var(--tinta-2)}.depo figcaption b{color:var(--tinta);font-weight:500}
+.pacotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.pac{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px);background:var(--papel);border:1px solid var(--linha)}
+.pac--destaque{background:var(--cafe);border-color:var(--cafe);color:#f4f1ec}
+.pac h3{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-2)}.pac--destaque h3{color:#b9c9be}
+.pac .valor{font-family:var(--serif);font-size:clamp(2.4rem,3.6vw,3.1rem);line-height:1;margin:14px 0 0}
+.pac ul{list-style:none;padding:0;margin:22px 0 26px;flex:1}.pac li{padding:11px 0;border-top:1px solid var(--linha);font-size:.95rem}.pac--destaque li{border-top-color:#ffffff26}
+.pac .botao{width:100%}.pac:not(.pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 38%,transparent)}.pac:not(.pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
+.pac--destaque .botao{background:#f4f1ec;border-color:#f4f1ec;color:var(--cafe)}.pac--destaque .botao:hover{background:#fff}
+.outros{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:14px}
+.outro{display:block;text-decoration:none}.outro span.q{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--areia)}
+.outro img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--suave)}.outro:hover img{transform:scale(1.04)}
+.outro b{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--serif);font-weight:400;font-size:1.45rem;padding-top:12px}.outro b svg{width:18px;height:18px;opacity:.5;transition:transform .35s var(--suave)}.outro:hover b svg{transform:translateX(4px)}
+.outro small{color:var(--tinta-2);font-size:.82rem}
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:56;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--fundo) 94%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--linha);transform:translateY(110%);transition:transform .4s var(--suave)}
+.barra.ver{transform:none}.barra span{display:flex;flex-direction:column;line-height:1.25;font-size:.74rem;color:var(--tinta-2)}.barra span b{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--tinta)}
+.barra .botao{min-height:46px;padding:10px 18px;font-size:.7rem;letter-spacing:.16em;flex:none}
+.modo-video .barra{display:none!important}
+@media(max-width:860px){.e-sobre{grid-template-columns:1fr;align-items:start}.e-grade{display:flex;flex-direction:column;align-items:stretch;gap:22px}.e-titulo{order:1}.e-fotos{order:2;width:100%}.e-lado{order:3}.pacotes{grid-template-columns:1fr}.pac--destaque{order:-1}.outros{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}.outro b{font-size:1.2rem}
+.tem-barra .barra{display:flex}.tem-barra{padding-bottom:70px}.tem-barra .flutuante{display:none}.tem-barra .rz-pilula{bottom:84px}.tem-barra .rz-folha{bottom:138px}.fatos li{grid-template-columns:1fr;gap:2px}}
+
+/* tela cheia */
+.lb{position:fixed;inset:0;z-index:100;background:#141312f5;color:#f4f1ec;display:grid;grid-template-rows:auto minmax(0,1fr);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lb.aberto{opacity:1;visibility:visible}
+.lb-topo{display:flex;align-items:center;gap:16px;padding:12px 16px 12px 22px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}.lb-cont{margin-left:auto;color:#bdb8af}
+.lb-fechar{width:46px;height:46px;display:grid;place-items:center}.lb-fechar svg,.lb-seta svg{width:24px;height:24px}
+.lb-trilho{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}.lb-trilho::-webkit-scrollbar{display:none}
+.lb-slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;display:grid;place-items:center;padding:0 12px 20px;min-height:0}
+.lb-slide img{max-width:100%;max-height:calc(100svh - 96px);width:auto;height:auto;object-fit:contain}
+.lb-seta{position:absolute;top:50%;width:54px;height:54px;margin-top:-10px;display:grid;place-items:center;border:1px solid #ffffff40;border-radius:50%;background:#14131299;transition:background .3s,opacity .3s}.lb-seta:hover{background:#f4f1ec;color:#141312}.lb-seta:disabled{opacity:0;pointer-events:none}
+.lb-ant{left:20px}.lb-ant svg{transform:rotate(180deg)}.lb-prox{right:20px}
+@media(max-width:860px){.lb-seta{display:none}.lb-slide{padding:0 0 16px}}
+@media(max-width:860px){:root{--w:calc(100% - 32px)}body{font-size:1rem}.cab{align-items:flex-start;flex-direction:column}}
 '''
 
-BARRA_JS = '''<script>(function(){var b=document.querySelector(".pv-barra"),h=document.querySelector(".pv-hero");if(!b||!h)return;
-function f(){b.classList.toggle("ver",window.scrollY>h.offsetHeight*.7)}window.addEventListener("scroll",f,{passive:true});f()})();</script>'''
+JS = r'''
+  // ---------- topo ----------
+  const topo = $(".site-header");
+  if (topo) { const f = () => topo.classList.toggle("rolou", scrollY > 10 && topo.getBoundingClientRect().top <= 0); addEventListener("scroll", f, { passive: true }); f(); }
+  const calmo = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // ---------- galerias: linhas justificadas, sem cortar nenhuma foto ----------
+  // Cada foto fica na proporção dela (data-a = largura / altura) e todas as fotos de uma linha têm a mesma altura.
+  // As quebras de linha saem de uma partição: entre as divisões possíveis, a que deixa as linhas mais perto da altura
+  // pedida (--h). Assim a última linha também fecha na largura, sem foto órfã e sem foto gigante.
+  const justificar = g => {
+    const itens = $$(".g-item", g), W = g.clientWidth - .5;
+    if (W < 50 || !itens.length) return;
+    const cs = getComputedStyle(g), gap = parseFloat(cs.columnGap) || 0, h = parseFloat(cs.getPropertyValue("--h")) || 320;
+    const a = itens.map(e => Number(e.dataset.a) || 1), n = a.length, soma = [0];
+    a.forEach((x, i) => soma.push(soma[i] + x));
+    const alt = (i, j) => (W - gap * (j - i - 1)) / (soma[j] - soma[i]); // altura da linha com as fotos i..j-1
+    const custo = (i, j) => { const x = alt(i, j); return x > h * 1.6 ? 1e9 + x : (x - h) * (x - h); };
+    const k0 = Math.max(1, Math.round((soma[n] * h + gap * (n - 1)) / W));
+    let melhor = null;
+    for (let k = Math.max(1, k0 - 1); k <= Math.min(n, k0 + 1); k++) {
+      const c = Array.from({ length: k + 1 }, () => new Array(n + 1).fill(Infinity)), de = Array.from({ length: k + 1 }, () => new Array(n + 1).fill(0));
+      c[0][0] = 0;
+      for (let r = 1; r <= k; r++) for (let j = r; j <= n; j++) for (let i = r - 1; i < j; i++) {
+        const v = c[r - 1][i] + custo(i, j);
+        if (v < c[r][j]) { c[r][j] = v; de[r][j] = i; }
+      }
+      if (!melhor || c[k][n] / k < melhor.c) {
+        const linhas = []; for (let r = k, j = n; r > 0; r--) { linhas.unshift([de[r][j], j]); j = de[r][j]; }
+        melhor = { c: c[k][n] / k, linhas };
+      }
+    }
+    melhor.linhas.forEach(([i, j]) => {
+      const x = Math.min(alt(i, j), h * 1.6);
+      for (let m = i; m < j; m++) { itens[m].style.width = (Math.floor(x * a[m] * 100) / 100) + "px"; itens[m].style.height = (Math.round(x * 100) / 100) + "px"; }
+    });
+    g.classList.add("just");
+  };
+  const galerias = $$(".galeria");
+  const arrumar = () => galerias.forEach(g => { if (g.offsetParent !== null) justificar(g); });
+  arrumar();
+  if ("ResizeObserver" in window) { const ro = new ResizeObserver(() => arrumar()); galerias.forEach(g => ro.observe(g)); } else addEventListener("resize", arrumar);
+
+  // ---------- filtro por ensaio ----------
+  const abas = $$("[role=tab]");
+  const escolher = (aba, foco) => {
+    abas.forEach(x => {
+      const sim = x === aba, p = document.getElementById(x.getAttribute("aria-controls"));
+      x.setAttribute("aria-selected", String(sim)); x.tabIndex = sim ? 0 : -1;
+      if (p) { p.hidden = !sim; p.classList.toggle("entra", sim); if (sim) $$(".galeria", p).forEach(justificar); }
+    });
+    if (foco) aba.focus();
+  };
+  abas.forEach((x, i) => {
+    x.addEventListener("click", () => escolher(x));
+    x.addEventListener("keydown", e => {
+      const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: abas.length - 1 }[e.key];
+      if (k === undefined) return; e.preventDefault(); escolher(abas[(k + abas.length) % abas.length], true);
+    });
+  });
+
+  // ---------- tira da capa: anda bem devagar no computador; para quando a pessoa mexe ----------
+  const tira = $("[data-tira]");
+  if (tira && !calmo.matches && matchMedia("(hover: hover) and (pointer: fine)").matches && !document.documentElement.classList.contains("modo-video")) {
+    let x = 0, dir = 1, parada = false, ultimo = 0, visivel = true;
+    const larga = matchMedia("(min-width: 861px)"); // na tela estreita a tira passa no dedo (com encaixe): não anda sozinha
+    const passo = t => {
+      const d = Math.min(64, t - ultimo); ultimo = t;
+      const max = tira.scrollWidth - tira.clientWidth;
+      if (!parada && visivel && larga.matches && max > 4) {
+        if (Math.abs(tira.scrollLeft - x) > 2) x = tira.scrollLeft; // a pessoa rolou: continua de onde ela deixou
+        x += dir * d * .018;
+        if (x >= max) { x = max; dir = -1; } else if (x <= 0) { x = 0; dir = 1; }
+        tira.scrollLeft = x;
+      }
+      requestAnimationFrame(passo);
+    };
+    ["pointerenter", "focusin", "pointerdown"].forEach(ev => tira.addEventListener(ev, () => { parada = true; }));
+    ["pointerleave", "focusout"].forEach(ev => tira.addEventListener(ev, () => { parada = false; x = tira.scrollLeft; }));
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => { visivel = es[0].isIntersecting; }).observe(tira);
+    requestAnimationFrame(t => { ultimo = t; requestAnimationFrame(passo); });
+  }
+
+  // ---------- tela cheia: toque abre; no celular passa para o lado; setas e teclado no computador ----------
+  const lb = $(".lb");
+  if (lb) {
+    const trilho = $(".lb-trilho", lb), cat = $(".lb-cat", lb), cont = $(".lb-cont", lb), ant = $(".lb-ant", lb), prox = $(".lb-prox", lb), fecharB = $(".lb-fechar", lb);
+    let fotos = [], atual = 0, origem = null;
+    const largura = () => trilho.clientWidth || innerWidth;
+    const marcar = () => {
+      atual = Math.max(0, Math.min(fotos.length - 1, Math.round(trilho.scrollLeft / largura())));
+      cont.textContent = (atual + 1) + " / " + fotos.length; ant.disabled = atual === 0; prox.disabled = atual === fotos.length - 1;
+    };
+    const ir = (i, suave) => trilho.scrollTo({ left: i * largura(), behavior: suave && !calmo.matches ? "smooth" : "auto" });
+    const abrir = botao => {
+      const grupo = botao.closest("[data-grupo]") || document;
+      fotos = $$(".g-item img", grupo); origem = botao;
+      trilho.replaceChildren(...fotos.map((f, i) => {
+        const s = document.createElement("div"); s.className = "lb-slide"; s.setAttribute("role", "group"); s.setAttribute("aria-label", (i + 1) + " de " + fotos.length);
+        const im = document.createElement("img"); im.src = f.currentSrc || f.src; im.alt = f.alt; im.width = f.naturalWidth || f.width; im.height = f.naturalHeight || f.height; im.decoding = "async"; s.append(im); return s;
+      }));
+      cat.textContent = grupo.dataset ? grupo.dataset.grupo || "" : "";
+      lb.classList.add("aberto"); lb.setAttribute("aria-hidden", "false"); document.documentElement.style.overflow = "hidden";
+      ir(fotos.indexOf($("img", botao)), false); marcar(); fecharB.focus({ preventScroll: true });
+    };
+    const fechar = () => {
+      lb.classList.remove("aberto"); lb.setAttribute("aria-hidden", "true"); document.documentElement.style.overflow = "";
+      if (origem) origem.focus({ preventScroll: true });
+    };
+    document.addEventListener("click", e => { const b = e.target.closest && e.target.closest(".g-item"); if (b) abrir(b); });
+    trilho.addEventListener("scroll", () => requestAnimationFrame(marcar), { passive: true });
+    trilho.addEventListener("click", e => { if (e.target === trilho || e.target.classList.contains("lb-slide")) fechar(); });
+    ant.addEventListener("click", () => ir(atual - 1, true)); prox.addEventListener("click", () => ir(atual + 1, true));
+    fecharB.addEventListener("click", fechar);
+    document.addEventListener("keydown", e => {
+      if (!lb.classList.contains("aberto")) return;
+      if (e.key === "Escape") fechar(); else if (e.key === "ArrowRight") ir(atual + 1, true); else if (e.key === "ArrowLeft") ir(atual - 1, true);
+      else if (e.key === "Tab") { e.preventDefault(); const f = [fecharB, ant, prox].filter(b => !b.disabled && b.offsetParent !== null); f[(f.indexOf(document.activeElement) + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus(); }
+    });
+    addEventListener("resize", () => { if (lb.classList.contains("aberto")) ir(atual, false); });
+  }
+
+  // ---------- barra de reserva (celular, página do ensaio): aparece depois da abertura ----------
+  const barra = $(".barra"), abertura = $(".e-capa");
+  if (barra && abertura) { const f = () => barra.classList.toggle("ver", scrollY > abertura.offsetTop + abertura.offsetHeight * .6); addEventListener("scroll", f, { passive: true }); f(); }
+
+  // No vídeo (?video=1) nada abre o WhatsApp durante a gravação.
+  if (document.documentElement.classList.contains("modo-video")) document.addEventListener("click", e => { if (e.target.closest('a[href^="https://wa.me"]')) e.preventDefault(); }, true);
+'''
 
 
-def gerar(pasta, site_html, natal_html):
+def trecho_rz_css():
+    c = GF.CSS
+    a, b = c.index('/* camada da Renderiza'), c.index('/* aviso da Renderiza')
+    m = re.search(r'@media\(max-width:860px\)\{\.rz-in\{.*?\n\n', c, re.S)
+    p = re.search(r'@media\(max-width:520px\)\{[^\n]*\.rz-pilula\{[^}]*\}\}', c)
+    if not m or not p: sys.exit('gerar-fotografia.py mudou: não achei o CSS da camada da Renderiza')
+    return c[a:b] + m.group(0).strip() + '\n@media(max-width:520px){.rz-pilula{left:14px;bottom:20px}}\n'
+
+
+def trecho_rz_js():
+    j = GF.JS
+    return j[j.index('// ---------- camada da Renderiza'):j.index('// ---------- aviso da Renderiza')]
+
+
+def gerar(pasta, originais=None):
+    pasta = pasta.rstrip('/')
     cfg = json.load(open(os.path.join(pasta, 'demo.json'), encoding='utf-8'))
-    pf = cfg['portfolio']; slug = cfg['pasta']; base = f'/demo/{slug}'
-    s = open(site_html, encoding='utf-8').read(); natal = open(natal_html, encoding='utf-8').read()
-    if 'gerar-portfolio' in s or 'gerar-portfolio' in natal: sys.exit('use o site e o Natal antigos (git show), não o portfólio')
+    pf = cfg['portfolio']
+    if pf.get('versao') != 4: sys.exit('este gerador é o da versão 4: o demo.json precisa de portfolio.versao = 4 (ver o cabeçalho)')
+    slug = cfg['pasta']; base = f'/demo/{slug}'
+    ensaios = pf['ensaios']; marca = cfg['marca']; q = GF.quem(cfg)
+    estudio = cfg.get('quem_da', 'de ' + marca)            # "do Estúdio Olivares"
+    r = cfg['renderiza']; d = r['valido_ate'].split('-')
+    F = Fotos(originais, pasta)
 
-    # ---------- as peças do site ----------
-    head = pegar(r'<!doctype html>.*?</head>', s)
-    sprite = pegar(r'<svg width="0" height="0".*?</svg>', s)
-    faixa = pegar(r'<aside class="rz-faixa".*?</aside>', s)
-    marca = pegar(r'<a class="marca".*?</a>', s)
-    cta = pegar(r'<a class="botao topo-cta".*?</a>', s)
-    sobre = pegar(r'<section class="secao secao--areia" id="sobre".*?</section>', s)
-    depo = pegar(r'<section class="secao" id="depoimentos".*?</section>', s)
-    contato = pegar(r'<section class="secao secao--areia" id="contato".*?</section>', s)
-    rodape = pegar(r'<footer class="rodape">.*?</footer>\s*<a class="flutuante".*?</a>', s)
-    lb = pegar(r'<div class="lb".*?lb-prox.*?</button>\s*</div>', s)
-    folha = pegar(r'<button class="rz-pilula".*?<div class="rz-folha".*?</div>\s*</div>', s)
-    fim = s[s.index(folha) + len(folha):s.rindex('</body>')]
-    # o runtime antigo: o carrossel de avaliações sem conferir se existe; a raiz da demo tirando só "/natal" do
-    # endereço; e os links entre páginas que só sabiam "natal". Com uma página por ensaio, os três mudam.
-    velho = ('const avaliacoes = () => $("[data-reviews]").innerHTML =', '}).join("");\n  avaliacoes();')
-    if all(v in fim for v in velho):
-        fim = fim.replace(velho[0], 'const avaliacoes = () => $("[data-reviews]") && ($("[data-reviews]").innerHTML =', 1).replace(velho[1], '}).join(""));\n  avaliacoes();', 1)
-    velha_base = 'const base = location.pathname.replace(/\\/(index|natal)(\\.html)?$/, "").replace(/\\/$/, "");'
-    if velha_base in fim: fim = fim.replace(velha_base, 'const base = location.pathname.replace(/^(\\/demo\\/[^\\/]+).*$/, "$1").replace(/\\/$/, "");')
-    elif 'const base = location.pathname' in fim: sys.exit('o runtime mudou: confira a raiz da demo (const base)')
-    troca_link = '(e.dataset.pagina === "natal" ? "/natal" : "")'
-    if troca_link not in fim: sys.exit('o runtime mudou: confira como os links entre páginas são montados')
-    fim = fim.replace(troca_link, '(e.dataset.pagina && e.dataset.pagina !== "site" && e.dataset.pagina !== "index" ? "/" + e.dataset.pagina : "")')
-    fone = re.search(r'phone: "\+?(\d+)"', s).group(1)
-    avals = {a['name']: a for a in (json.loads(x) for x in re.findall(r'\{"name": .*?"quote": ".*?"\}', s))}
-    galerias = {}
-    for m in re.finditer(r'<div class="painel[^"]*" id="painel-([a-z0-9-]+)".*?<h3 class="painel-titulo">.*?</h3>(<div class="galeria".*?</div>)</div>', s, re.S):
-        galerias[m.group(1)] = imgs(m.group(2))
-    galerias['pn'] = [f for f in imgs(natal) if f['w'] >= 500]  # as fotos da página de Natal antiga, na ordem
+    # o ícone da aba continua o da demo (vem da página que já está na pasta)
+    favicon = ''
+    antiga = os.path.join(pasta, 'index.html')
+    if os.path.exists(antiga):
+        m = re.search(r'<link rel="icon" type="image/png" href="(data:image/png;base64,[^"]+)">', open(antiga, encoding='utf-8').read())
+        if m: favicon = f'<link rel="icon" type="image/png" href="{m.group(1)}">'
 
-    def fotos_de(refs):
-        """["natal:2-7,9", "pn:2"] -> as fotos, na ordem (a primeira é a capa)."""
-        out = []
-        for r in ([refs] if isinstance(refs, str) else refs):
-            g, _, idx = r.partition(':'); lista = galerias.get(g) or sys.exit(f'galeria {g} não existe ({", ".join(galerias)})')
-            if not idx: out += lista; continue
-            for parte in idx.split(','):
-                a, _, b = parte.partition('-')
-                for i in range(int(a), int(b or a) + 1): out.append(lista[i])
-        return [aparar(f) for f in out]
+    for e in ensaios:
+        if len(e['fotos']) < 6: sys.exit(f'{e["id"]}: menos de 6 fotos')
+        e['_n'] = e.get('capa', 2)
+        e['_fotos'] = [F.foto(x, ABERTURA if i < e['_n'] else GALERIA) for i, x in enumerate(e['fotos'])]
+        e['_mini'] = F.foto(e['fotos'][0], MINI)
+        e['_de'] = min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
+        e['_curto'] = e.get('curto', e['nome'])
+    por_id = {e['id']: e for e in ensaios}
 
-    for e in pf['ensaios']:
-        e['_fotos'] = fotos_de(e['fotos'])
-        if len({f['src'] for f in e['_fotos']}) != len(e['_fotos']): sys.exit(f'{e["id"]}: foto repetida na lista')
-        if e.get('depo') and e['depo'] not in avals: sys.exit(f'{e["id"]}: não há avaliação de {e["depo"]}')
-    curtos = [e['id'] for e in pf['ensaios'] if len(e['_fotos']) < 5]
-    if curtos: sys.exit(f'ensaio com menos de 5 fotos (a capa e pelo menos 4 no mosaico): {curtos}')
-    ensaios = pf['ensaios']
-    local = pf.get('local', '')
-    nota, total = str(cfg['google_nota']), cfg['google_total']
-    nome_marca = cfg['marca']
+    def ref(t):  # "gestante:3" -> (ensaio, foto no tamanho de galeria)
+        i, _, n = t.partition(':'); e = por_id[i]
+        return e, F.foto(e['fotos'][int(n)], GALERIA)
 
-    # cores da capa no computador: tema escuro usa o fundo dele; tema claro, o escuro neutro ou (tom claro) a areia
-    if escuro(cfg['cores']['fundo']): vars_capa = '--pv-hero-bg:var(--fundo);--pv-hero-tx:var(--tinta)'
-    elif pf.get('tom') == 'claro': vars_capa = '--pv-hero-bg:var(--areia);--pv-hero-tx:var(--tinta)'
-    else: vars_capa = '--pv-hero-bg:#1d1b19;--pv-hero-tx:#fff'
+    wa = lambda msg: f'https://wa.me/{cfg["whatsapp"]}?text={quote(msg)}'
+    pedido = lambda e, pac=None: wa(f'Olá! Vi o portfólio {estudio} e quero {e["pedido"]}' + (f', pacote {pac}' if pac else '') + '. Quais datas vocês têm?')
 
-    def wa(msg): return f'https://wa.me/{fone}?text={quote(msg)}'
+    def link(pagina, ancora=''):
+        destino = base if pagina == 'index' else f'{base}/{pagina}'
+        return f'href="{destino}{ancora}" data-local="{pagina}.html{ancora}"'
 
-    def link(nome, ancora=''):
-        h = base if nome == 'index' else f'{base}/{nome}'
-        return f'href="{h}{ancora}" data-local="{nome}.html{ancora}" data-pagina="{nome}"'
-
-    curto = lambda e: e['nome'].split(' e ')[0]
+    ATUAL = ' aria-current="page"'
+    paginas = [('index', 'Vitrine')] + [(e['id'], e['_curto']) for e in ensaios]
 
     def troca(atual):
-        itens = [('index', 'Início')] + [(e['id'], curto(e)) for e in ensaios]
         return ('<nav class="rz-troca" aria-label="As páginas montadas para você">'
-                + ''.join(f'<a {link(n)}{ATUAL if n == atual else ""}>{esc(t)}</a>' for n, t in itens) + '</nav>')
+                + ''.join(f'<a {link(p)}{ATUAL if p == atual else ""}>{esc(t)}</a>' for p, t in paginas) + '</nav>')
 
-    def rz(t, atual):
-        t = re.sub(r'<nav class="rz-troca".*?</nav>', lambda _: troca(atual), t, flags=re.S)
-        n = len(ensaios) + 1
-        for de, para in [('O site e a página de Natal, prontos, por', f'O portfólio completo ({n} páginas: a vitrine e uma página de venda para cada ensaio), pronto, por'),
-                         ('depois disso o site é 100% seu', 'depois disso o portfólio é 100% seu'),
-                         ('O site e a página de Natal por', f'O portfólio completo ({n} páginas) por'),
-                         ('o site fica 100% seu', 'o portfólio fica 100% seu'),
-                         ('Vi o site e a página de Natal que a Renderiza montou para mim', 'Vi o portfólio que a Renderiza montou para mim'),
-                         ('Vi o site do ', 'Vi o portfólio do ')]:
-            t = t.replace(de, para)
-        if 'class="rz-folha"' in t and 'pv-dica-rz' not in t:
-            ex = (ensaios[1] if len(ensaios) > 1 else ensaios[0])['nome'].lower()
-            dica = f'\n  <p class="pv-dica-rz">Perguntaram “quanto custa o {esc(ex)}?” no direct? Mande o link da página do {esc(ex)}: a cliente vê as fotos, os pacotes e já chama você no WhatsApp.</p>'
-            t = re.sub(r'(<div class="rz-folha".*?</nav>)', lambda m: m.group(1) + dica, t, count=1, flags=re.S)
-        return t
+    n_pag = len(paginas)
+    preco = f'<b data-rz="preco">{esc(r["preco_pix"])} no Pix ou {esc(r["parcelado"])}</b>'
+    botoes_rz = (f'<div class="rz-acoes"><a class="rz-botao" data-rz-garantir href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Garantir o meu</a>'
+                 f'<a class="rz-botao rz-botao--linha" data-rz-negociar href="https://wa.me/{r["whatsapp"]}" target="_blank" rel="noopener noreferrer">Negociar</a></div>')
+    ex = ensaios[min(1, len(ensaios) - 1)]
 
-    def cabecalho(atual):
-        itens = ([f'<a {link("index")}{ATUAL if atual == "index" else ""}>Ensaios</a>']
-                 + [f'<a {link(e["id"])}{ATUAL if atual == e["id"] else ""}>{esc(curto(e))}</a>' for e in ensaios]
-                 + [f'<a {link("index", "#contato")}>Contato</a>'])
-        m = re.sub(r'href="[^"]*"', link('index'), marca, count=1)
+    def faixa(atual):
+        """A camada da Renderiza no topo (mesma estrutura de gerar-fotografia.faixa_rz, com o texto do portfólio)."""
+        return f'''<aside class="rz-faixa" aria-label="Recado da Renderiza">
+  <div class="rz-in">
+    <p class="rz-ola" style="margin:0">{ICONE("brilho")}{esc(r.get("ola", "Ana"))}, a Renderiza montou o seu portfólio online:</p>
+    {troca(atual)}
+    <p class="rz-preco" style="margin:0"><span>{preco} <span class="rz-unico">pagamento único</span></span>
+      <span class="rz-alerta" data-rz-prazo>{ICONE("relogio")}Promoção de 1 semana: até <b data-rz="validade-curta">{d[2]}/{d[1]}</b></span>
+      <button class="rz-abrir" type="button" aria-expanded="false" aria-controls="rz-mais" aria-label="Ver a condição e os botões"><span class="rz-abrir-txt">Ver condição</span> {ICONE("seta")}</button></p>
+  </div>
+  <div class="rz-mais" id="rz-mais" hidden>
+    <div class="rz-in">
+      <p class="rz-prazo">O portfólio completo ({n_pag} páginas: a vitrine e uma página para cada ensaio), pronto, por {preco}. É um pagamento único: depois disso o portfólio é 100% seu, <b>sem mensalidade</b>.<span data-rz-prazo> Promoção de lançamento, válida por uma semana: até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</span></p>
+      {botoes_rz}
+      <span class="rz-assina">Demonstração feita pela Renderiza · renderizaweb.com.br</span>
+    </div>
+  </div>
+</aside>'''
+
+    def pilula(atual):
+        return f'''<button class="rz-pilula" type="button" aria-expanded="false" aria-controls="rz-folha">{ICONE("brilho")}<b>Renderiza</b> <span data-rz="curta">{esc(r["preco_pix"])} · até {d[2]}/{d[1]}</span></button>
+<div class="rz-folha" id="rz-folha" role="dialog" aria-label="O que a Renderiza montou" hidden>
+  <button class="rz-folha-fechar" type="button" aria-label="Fechar">{ICONE("fechar")}</button>
+  <h2>{esc(r.get("ola", "Ana"))}, a Renderiza montou o seu portfólio online</h2>
+  {troca(atual)}
+  <p class="rz-dica">Perguntaram “quanto custa {esc(ex["pedido"])}?” no direct? Mande o link da página desse ensaio: a cliente vê as fotos e os pacotes e já chama você no WhatsApp.</p>
+  <p>O portfólio completo ({n_pag} páginas) por {preco}. Pagamento único: o portfólio fica 100% seu, <b>sem mensalidade</b>.</p>
+  <p data-rz-prazo>Promoção de lançamento, válida por uma semana: até <b data-rz="validade">{d[2]}/{d[1]}/{d[0]}</b>.</p>
+  {botoes_rz}
+</div>'''
+
+    def cabecalho(nav):
+        itens = ''.join(f'<a {h}>{esc(t)}</a>' for h, t in nav)
+        cta = f'data-whatsapp href="#">{ICONE("whats")}Agendar'
         return f'''<header class="site-header">
   <div class="container topo-in">
-    {m}
-    <nav class="nav" aria-label="Páginas">{"".join(itens)}</nav>
-    {cta}
+    <a class="marca" {link("index")} aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
+    <nav class="nav" aria-label="Seções">{itens}</nav>
+    <a class="botao botao--linha topo-cta" {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
-    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{"".join(itens)}{cta.replace('topo-cta', '')}</nav>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{itens}<a class="botao" {cta} pelo WhatsApp</a></nav>
   </div>
 </header>'''
 
-    feitas = []
+    ct = pf['contato']
 
-    def montar(nome, titulo, descricao, corpo, barra=''):
-        h = head.replace('</style>', CSS + f':root{{{vars_capa}}}\n</style>', 1)
-        h = re.sub(r'<title>.*?</title>', f'<title>{esc(titulo)}</title>', h, flags=re.S)
-        h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(descricao)}">', h)
-        h = re.sub(r'<!-- .*? -->', f'<!-- Portfólio de {esc(nome_marca)} (demo da Renderiza): gerado por ferramentas/demo/gerar-portfolio.py. Pacotes e valores de exemplo. -->', h, count=1, flags=re.S)
-        links = ''.join(f'<a {link(e["id"])}>{esc(e["nome"])}</a>' for e in ensaios)
-        r = re.sub(r'<nav aria-label="Links">.*?</nav>', lambda _: f'<nav aria-label="Links">{links}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>', rodape, flags=re.S)
-        classe = 'pagina-site pv-pagina' + (' pv-tem-barra' if barra else '')
-        doc = (h + f'\n<body class="{classe}">\n' + sprite + '\n' + rz(faixa, nome) + '\n' + cabecalho(nome)
-               + f'\n<main id="inicio">\n{corpo}\n</main>\n' + r + '\n' + barra + '\n' + lb + '\n' + rz(folha, nome) + rz(fim, nome)
-               + (BARRA_JS if barra else '') + '</body>\n</html>\n')
-        open(os.path.join(pasta, nome + '.html'), 'w', encoding='utf-8').write(doc)
-        feitas.append(nome + '.html')
-
-    def retrato(e):
-        if e.get('bloco'): return fotos_de(e['bloco'])[0]
-        return next((f for f in e['_fotos'] if f['ch'] >= f['cw'] * .95), e['_fotos'][0])
-
-    def a_partir(e): return min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
-
-    def blocos(lista, outros=False):
-        n = len(lista); larg = '400px' if n <= 2 else '340px' if n == 3 else '1fr'
-        tiles = ''.join(f'<a class="pv-tile reveal" {link(e["id"])}>{tag(retrato(e))}<span class="pv-tile-txt"><b>{esc(e["nome"])}</b><small>a partir de <strong>{esc(a_partir(e))}</strong></small></span></a>' for e in lista)
-        return f'<div class="pv-blocos{" pv-outros" if outros else ""}{" pv-blocos--impar" if n % 2 else ""}" style="--n:{n};--max:{larg}">{tiles}</div>'
-
-    meta_google = (f'<a data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span>'
-                   + (f'<b>{esc(nota)}</b> no Google · {esc(total)} avaliações' if nota.startswith('5') else f'{esc(total)} avaliações no Google') + '</a>')
-    exemplo = f'<p class="pv-exemplo">{BRILHO}Pacotes e valores de exemplo: você coloca os seus</p>'
-
-    def capa_html(f, eyebrow, h1, sub, meta, acoes, rotulo):
-        return f'''<section class="pv-hero" aria-labelledby="{rotulo}">
-  {tag(f, True)}
-  <div class="container pv-hero-txt">
-    <p class="eyebrow">{eyebrow}</p>
-    <h1 id="{rotulo}">{esc(h1)}</h1>
-    {f'<p class="pv-hero-sub">{esc(sub)}</p>' if sub else ''}
-    <p class="pv-meta">{meta}</p>
-    <div class="pv-acoes">{acoes}</div>
+    def contato(titulo, texto, botao):
+        return f'''<section class="contato" id="contato" aria-labelledby="contato-t">
+  <div class="container contato-in">
+    <div class="reveal">
+      <p class="olho">Contato</p>
+      <h2 id="contato-t">{esc(titulo)}</h2>
+    </div>
+    <div class="reveal" style="--i:1">
+      <p>{esc(texto)}</p>
+      <div class="acoes" style="margin:0 0 30px">{botao}<a class="botao botao--linha" data-instagram href="#" target="_blank" rel="noopener noreferrer">{ICONE("insta")}Instagram</a></div>
+      <div class="onde">
+        <div>{ICONE("pin")}<span>{esc(" · ".join(ct["endereco"]))}<br><a data-directions href="#" target="_blank" rel="noopener noreferrer">Como chegar</a></span></div>
+        <div>{ICONE("whats")}<a data-whatsapp href="#">{esc(ct["telefone"])}</a></div>
+      </div>
+    </div>
   </div>
 </section>'''
 
+    def rodape():
+        links = ''.join(f'<a {link(p)}>{esc(t)}</a>' for p, t in paginas)
+        return f'''<footer class="rodape">
+  <div class="container rodape-in">
+    <a class="marca" {link("index")} aria-label="{esc(marca)}, início"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></a>
+    <nav aria-label="Páginas">{links}</nav>
+    <small>© <span data-year>2026</span> {esc(marca)} · {esc(" · ".join(ct["endereco"]))}</small>
+  </div>
+</footer>
+<a class="flutuante" data-whatsapp href="#" aria-label="Conversar com {esc(q["a"])} no WhatsApp">{ICONE("whats")}</a>'''
+
+    LIGHTBOX = f'''<div class="lb" role="dialog" aria-modal="true" aria-label="Fotos em tela cheia" aria-hidden="true">
+  <div class="lb-topo"><span class="lb-cat"></span><span class="lb-cont"></span><button class="lb-fechar" type="button" aria-label="Fechar">{ICONE("fechar")}</button></div>
+  <div class="lb-trilho" tabindex="-1"></div>
+  <button class="lb-seta lb-ant" type="button" aria-label="Foto anterior">{ICONE("seta")}</button>
+  <button class="lb-seta lb-prox" type="button" aria-label="Próxima foto">{ICONE("seta")}</button>
+</div>'''
+
+    def galeria(fotos, classe=''):
+        itens = ''.join(f'<button class="g-item reveal" type="button" style="--a:{f["a"]:.4f};--i:{i % 4}" data-a="{f["a"]:.4f}" aria-label="{esc("Abrir em tela cheia: " + f["alt"])}">{img(f, prioridade=bool(classe) and i == 0)}</button>'
+                        for i, f in enumerate(fotos))
+        return f'<div class="galeria{" " + classe if classe else ""}">{itens}</div>'
+
+    nota = str(cfg['google_nota']); total = cfg['google_total']
+    google = (f'<b>{esc(nota)}</b> no Google · {esc(total)} avaliações' if nota.startswith('5') else f'{esc(total)} avaliações no Google')
+    selo = f'<p class="selo">{ICONE("brilho")}Pacotes e valores de exemplo: você coloca os seus</p>'
+
+    # ---------- DEMO_CLIENT (o mesmo do runtime.js das outras demos) ----------
+    g = cfg['google']; lat, lng = g['coords'].split(',')
+    aval = (f'https://www.google.com/maps/place/{quote(cfg["google_nome"]).replace("%20", "+")}/@{g["coords"]},17z/data='
+            f'!4m8!3m7!1s{g["fid"]}!8m2!3d{lat}!4d{lng}!9m1!1b1!16s{quote(g["gid"], safe="")}?hl=pt-BR')
+    lugar = ', '.join(x for x in (cfg.get('google_nome'), cfg['endereco_maps']) if x)
+    cliente = {
+        'brand': cfg.get('marca_completa', marca),
+        'whatsapp': wa(cfg['mensagem']), 'phone': cfg.get('fone_link', '+' + cfg['whatsapp']),
+        'instagram': f'https://www.instagram.com/{cfg["instagram"]}/',
+        'maps': f'https://www.google.com/maps?cid={int(g["fid"].split(":")[1], 16)}',
+        'directions': 'https://www.google.com/maps/dir/?api=1&destination=' + quote(lugar),
+        'reviewsUrl': aval, 'writeReviewUrl': aval, 'rating': nota, 'reviewTotal': str(total), 'hours': None,
+        'reviews': [{'name': a['nome'], 'initials': GF.G.iniciais(a['nome']), 'tag': a['tag'], 'quote': a['texto']} for a in pf['avaliacoes']],
+        'verifiedOn': cfg['verificado'],
+    }
+    runtime = open(os.path.join(AQUI, 'runtime.js'), encoding='utf-8').read()
+    runtime = re.sub(r'^\s*//[^\n]*\bsite\b[^\n]*\n', '', runtime, flags=re.M | re.I)   # nem em comentário a página fala em "site"
+    c = cfg['cores']; fo = (cfg.get('estilo') or {}).get('fontes') or {}
+    pilha = lambda k, resto: (f'"{fo[k][0]}",' if k in fo else '') + resto
+    css = GF.T(CSS, fundo=c['fundo'], papel=c['papel'], areia=c['areia'], linha=c.get('linha', '#e6dbcf'), tinta=c['tinta'], tinta2=c['tinta2'],
+               rosa=c['rosa'], acento=c['acento'], acento_escuro=c['acento_escuro'], cafe=c['cafe'], rz=trecho_rz_css(),
+               serif=pilha('serif', 'Georgia,serif'), sans=pilha('sans', 'system-ui,-apple-system,"Segoe UI",sans-serif'), script=pilha('script', '"Brush Script MT",cursive'))
+    fontes = GF.fontes_link(fo) if fo else GF.FONTES
+    fim = ('<script>\nwindow.DEMO_CLIENT = ' + json.dumps(cliente, ensure_ascii=False, indent=1) + ';\n</script>\n<script>\n' + runtime + '\n</script>\n' + GF.rz_js(cfg)
+           + '\n<script>\n(() => {\n  "use strict";\n  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));\n\n  '
+           + trecho_rz_js() + JS + '})();\n</script>\n'
+           + '<script>if(location.protocol==="file:")document.querySelectorAll("a[data-local]").forEach(function(a){a.setAttribute("href",a.getAttribute("data-local"))})</script>')
+
+    feitas = []
+
+    def montar(nome, titulo, descricao, classe, nav, corpo, extra=''):
+        doc = f'''<!doctype html>
+<!-- Portfólio online de {esc(marca)} (demo da Renderiza): gerar-portfolio.py, versão 4. Pacotes e valores de exemplo. Fotos: os originais dela, tratados pelo gerador. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{esc(descricao)}">
+  <meta name="theme-color" content="{c["fundo"]}">
+  <meta name="robots" content="noindex,nofollow">
+  <title>{esc(titulo)}</title>
+  {favicon}
+  <script>document.documentElement.classList.add("js");if(/[?&]video=1(&|$)/.test(location.search))document.documentElement.classList.add("modo-video");</script>
+  {fontes}
+  <style>{css}</style>
+</head>
+<body class="{classe}">
+{GF.SIMBOLOS}
+{faixa(nome)}
+{cabecalho(nav)}
+<main id="inicio">
+{corpo}
+</main>
+{rodape()}
+{extra}
+{LIGHTBOX}
+{pilula(nome)}
+{fim}
+</body>
+</html>
+'''
+        assert '{{' not in doc
+        open(os.path.join(pasta, nome + '.html'), 'w', encoding='utf-8').write(doc)
+        feitas.append((nome + '.html', len(doc)))
+
     # ---------- a vitrine ----------
-    capa = fotos_de(pf['capa'])[0]
-    corpo = capa_html(capa, esc(nome_marca), pf['h1'], pf.get('frase', ''), meta_google,
-                      f'<a class="botao" href="#ensaios">Ver os ensaios e valores</a><a class="pv-link" data-whatsapp href="#">{WA}Chamar no WhatsApp</a>', 'titulo-site') + f'''
-<section class="pv-bloco" id="ensaios" aria-labelledby="ensaios-titulo">
-  <div class="container">
-    <div class="pv-cab"><h2 id="ensaios-titulo">Escolha <em>o seu ensaio.</em></h2><small>Toque para ver as fotos, os pacotes e os valores</small></div>
-    {exemplo}
-    {blocos(ensaios)}
+    tira = []
+    for i, t in enumerate(pf['tira']):
+        e, f = ref(t)
+        tira.append(f'<a class="tira-item" {link(e["id"])} style="--a:{f["a"]:.4f}"><span class="tira-foto">{img(f, prioridade=i < 2)}</span>'
+                    f'<span class="rot">{esc(e["_curto"])}{ICONE("seta")}</span></a>')
+    lista = ''.join(f'<li class="reveal"><a class="ens" {link(e["id"])}>{img(e["_mini"], classe="mini")}<b>{esc(e["nome"])}</b><span class="frase">{esc(e["frase"])}</span>'
+                    f'<span class="preco"><small>a partir de</small>{esc(e["_de"])}</span>{ICONE("seta")}</a></li>' for e in ensaios)
+    abas = ''.join(f'<button type="button" role="tab" id="aba-{e["id"]}" aria-controls="painel-{e["id"]}" aria-selected="{"true" if i == 0 else "false"}"{"" if i == 0 else " tabindex=" + chr(34) + "-1" + chr(34)}>{esc(e["_curto"])}</button>'
+                   for i, e in enumerate(ensaios))
+    paineis = ''.join(f'''<div class="painel" id="painel-{e["id"]}" role="tabpanel" aria-labelledby="aba-{e["id"]}" data-grupo="{esc(e["nome"])}"{"" if i == 0 else " hidden"}>
+      {galeria([F.foto(e["fotos"][k], GALERIA) for k in e["vitrine"]])}
+      <p class="painel-pe"><span>{esc(e["frase"])} A partir de {esc(e["_de"])}.</span><a class="link" {link(e["id"])}>Ver {esc(e["pedido"])} e os valores {ICONE("seta")}</a></p>
+    </div>''' for i, e in enumerate(ensaios))
+    sb = pf['sobre']; sf = [F.foto(x, GALERIA) for x in sb['fotos']]
+    numeros = ''.join(f'<li><b>{esc(a)}</b><span>{esc(b)}</span></li>' for a, b in sb.get('numeros', []))
+    corpo = f'''<section class="capa" aria-label="Capa">
+  <div class="capa-titulo">
+    <p class="olho">{esc(pf["olho"])}</p>
+    <h1>{esc(pf["titulo"])}</h1>
+  </div>
+  <div class="capa-lado">
+    <p>{esc(pf["linha"])}</p>
+    <a class="nota" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span><span>{google}</span></a>
+    <div class="acoes"><a class="botao" href="#ensaios">Ensaios e valores</a><a class="link" data-whatsapp href="#">{ICONE("whats")}Chamar no WhatsApp</a></div>
+  </div>
+  <div class="hero-photo tira" data-tira>
+    <div class="tira-trilho">{"".join(tira)}</div>
   </div>
 </section>
-{depo}
-{sobre}
-{contato}'''
-    montar('index', f'{nome_marca} | Ensaios e valores', f'{pf["h1"]} Fotos, pacotes e valores de cada ensaio.', corpo)
+<section class="secao" id="ensaios" aria-labelledby="ensaios-t">
+  <div class="container">
+    <div class="cab reveal"><div><p class="olho">Ensaios e valores</p><h2 id="ensaios-t">Escolha o seu ensaio.</h2></div>{selo}</div>
+    <ol class="lista">{lista}</ol>
+  </div>
+</section>
+<section class="secao secao--areia" id="portfolio" aria-labelledby="portfolio-t">
+  <div class="container">
+    <div class="cab reveal"><div><p class="olho">Portfólio</p><h2 id="portfolio-t">Um pouco de cada ensaio.</h2></div><p>Escolha o tipo de ensaio. Toque numa foto para ver em tela cheia.</p></div>
+    <div class="filtro" role="tablist" aria-label="Filtrar por tipo de ensaio">{abas}</div>
+    {paineis}
+  </div>
+</section>
+<section class="secao" id="depoimentos" aria-labelledby="depoimentos-t">
+  <div class="container">
+    <div class="cab reveal"><div><p class="olho">Avaliações no Google</p><h2 id="depoimentos-t">Quem já fotografou com elas.</h2></div>
+      <a class="nota-g" data-reviews-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver as avaliações no Google">{f"<b>{esc(nota)}</b>" if nota.startswith("5") else ""}<span><span class="estrelas" aria-hidden="true">★★★★★</span><br>{esc(total)} avaliações no Google</span></a></div>
+    <div class="carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações do Google">
+      <ul class="carousel-track" id="reviews-track" data-reviews tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
+      <div class="carousel-footer"><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="reviews-track" aria-label="Avaliações anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="reviews-track" aria-label="Próximas avaliações">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
+    </div>
+  </div>
+</section>
+<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-t">
+  <div class="container sobre">
+    <div class="sobre-fotos reveal">{img(sf[0], classe="f1")}{img(sf[1], classe="f2") if len(sf) > 1 else ""}</div>
+    <div class="sobre-txt reveal" style="--i:1">
+      <p class="olho">{esc(sb["olho"])}</p>
+      <h2 id="sobre-t">{esc(sb["titulo"])}</h2>
+      <div style="margin-top:22px">{"".join(f"<p>{esc(x)}</p>" for x in sb["p"])}</div>
+      <figure class="fala"><p>“{esc(sb["citacao"])}”</p><cite>{esc(sb["citacao_quem"])}</cite></figure>
+      <ul class="numeros">{numeros}</ul>
+    </div>
+  </div>
+</section>
+{contato(ct["titulo"], ct["p"], f'<a class="botao" data-whatsapp href="#">{ICONE("whats")}Chamar no WhatsApp</a>')}'''
+    nav = [('href="#ensaios"', 'Ensaios'), ('href="#portfolio"', 'Portfólio'), ('href="#depoimentos"', 'Depoimentos'), ('href="#sobre"', 'Sobre'), ('href="#contato"', 'Contato')]
+    montar('index', f'{marca} | Portfólio, ensaios e valores', f'{pf["titulo"]} {pf["linha"]} Fotos, pacotes e valores de cada ensaio.', 'pf', nav, corpo)
 
-    # ---------- uma página de venda por ensaio ----------
+    # ---------- uma página por ensaio ----------
     for e in ensaios:
-        fotos = e['_fotos']
+        fotos = e['_fotos']; n = e['_n']
+        fatos = [('Como é', e['texto'])] + ([('Quando', e['quando'])] if e.get('quando') else []) + [('Onde', e.get('onde') or f'O estúdio fica em {ct["endereco"][-1].replace(" · ", ", ")}. Datas pelo WhatsApp.')]
+        grande = (f'<figure class="fala" style="margin:0"><p>“{esc(e["citacao"])}”</p><cite>{esc(e["citacao_quem"])}</cite></figure>' if e.get('citacao')
+                  else f'<p class="grande">{esc(e["texto"])}</p>')
+        if e.get('citacao'): pass
+        else: fatos = fatos[1:]
+        dp = e.get('depo')
+        depo = (f'<figure class="depo reveal"><blockquote>“{esc(dp["texto"])}”</blockquote><figcaption><span class="estrelas" aria-hidden="true">★★★★★</span> '
+                f'<b>{esc(dp["nome"])}</b>, no <a data-reviews-link href="#" target="_blank" rel="noopener noreferrer">Google</a></figcaption></figure>') if dp else ''
+        pacotes = ''.join(f'''<article class="pac{" pac--destaque" if p.get("destaque") else ""} reveal" style="--i:{i}">
+        <h3>{esc(p["nome"])}</h3><p class="valor">{esc(p["preco"])}</p>
+        <ul>{"".join(f"<li>{esc(x)}</li>" for x in p["itens"])}</ul>
+        <a class="botao" href="{esc(pedido(e, p["nome"]))}" target="_blank" rel="noopener noreferrer" aria-label="{esc("Quero o pacote " + p["nome"] + ": pedir pelo WhatsApp")}">{ICONE("whats")}Quero este</a></article>''' for i, p in enumerate(e['pacotes']))
+        resto = [o for o in ensaios if o is not e]
+        outros = ''.join(f'<a class="outro reveal" style="--i:{i}" {link(o["id"])}><span class="q">{img(F.foto(o["fotos"][0], 640))}</span><b>{esc(o["nome"])}{ICONE("seta")}</b><small>a partir de {esc(o["_de"])}</small></a>'
+                         for i, o in enumerate(resto))
+        quero = f'<a class="botao" href="{esc(pedido(e))}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Quero o meu ensaio</a>'
+        corpo = f'''<div data-grupo="{esc(e["nome"])}">
+<section class="e-capa" aria-label="Capa">
+  <div class="container">
+    <a class="voltar" {link("index", "#ensaios")}>{ICONE("seta")}Todos os ensaios</a>
+    <div class="e-grade">
+      <div class="e-titulo">
+        <p class="olho">{esc(e["chamada"])} · {esc(pf["local"])}</p>
+        <h1>{esc(e["nome"])}</h1>
+        <p class="e-frase">{esc(e["frase"])}</p>
+      </div>
+      <div class="e-lado">
+        <p class="e-preco">a partir de <b>{esc(e["_de"])}</b><span class="selo" style="padding:3px 10px">valor de exemplo</span></p>
+        <a class="nota" data-reviews-link href="#" target="_blank" rel="noopener noreferrer"><span class="estrelas" aria-hidden="true">★★★★★</span><span>{google}</span></a>
+        <div class="acoes">{quero}<a class="link" href="#valores">Ver os pacotes {ICONE("seta")}</a></div>
+      </div>
+      <div class="e-fotos">{galeria(fotos[:n], "galeria--abre")}</div>
+    </div>
+  </div>
+</section>
+<section class="secao" id="fotos" aria-labelledby="fotos-t" style="padding-top:0">
+  <div class="container">
+    <h2 class="sr-only" id="fotos-t">As fotos do ensaio</h2>
+    {galeria(fotos[n:])}
+  </div>
+</section>
+</div>
+<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-t">
+  <div class="container">
+    <div class="e-sobre">
+      <div class="reveal"><p class="olho">O ensaio</p><h2 class="sr-only" id="sobre-t">Sobre {esc(e["pedido"])}</h2>{grande}</div>
+      <ul class="fatos reveal" style="--i:1">{"".join(f"<li><b>{esc(a)}</b><span>{esc(b)}</span></li>" for a, b in fatos)}</ul>
+    </div>
+    {depo}
+  </div>
+</section>
+<section class="secao" id="valores" aria-labelledby="valores-t">
+  <div class="container">
+    <div class="cab reveal"><div><p class="olho">Valores</p><h2 id="valores-t">Pacotes e valores.</h2></div>{selo}</div>
+    <div class="pacotes">{pacotes}</div>
+  </div>
+</section>
+<section class="secao secao--areia" id="outros" aria-labelledby="outros-t">
+  <div class="container">
+    <div class="cab reveal"><div><p class="olho">Portfólio</p><h2 id="outros-t">Outros ensaios.</h2></div></div>
+    <div class="outros" style="--n:{len(resto)}">{outros}</div>
+  </div>
+</section>
+{contato("Vamos marcar o seu?", "A mensagem já vai com o ensaio escolhido. É só mandar.", quero)}'''
+        barra = (f'<div class="barra" role="region" aria-label="Reservar"><span>{esc(e["nome"])}<b>a partir de {esc(e["_de"])}</b></span>'
+                 f'<a class="botao" href="{esc(pedido(e))}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Quero o meu</a></div>')
+        nav = [(link('index', '#ensaios'), 'Ensaios'), ('href="#fotos"', 'Fotos'), ('href="#sobre"', 'O ensaio'), ('href="#valores"', 'Valores'), ('href="#contato"', 'Contato')]
+        montar(e['id'], f'{e["chamada"]} | {marca}', f'{e["chamada"]} {estudio}, em {pf["local"]}: {e["frase"]} Fotos, pacotes e valores.', 'pf tem-barra', nav, corpo, barra)
 
-        def msg(pac=None, e=e):
-            return f'Olá! Vi o portfólio de {nome_marca} e quero o {e["chamada"].lower()}' + (f', pacote {pac}' if pac else '') + '. Quais datas vocês têm?'
-        av = avals.get(e.get('depo'))
-        depo_html = (f'<figure class="pv-depo reveal"><blockquote>“{esc(av["quote"].strip("…").strip())}”</blockquote>'
-                     f'<figcaption><span class="estrelas" aria-hidden="true">★★★★★</span><b>{esc(nome_de(av["name"]))}</b>, no Google</figcaption></figure>') if av else ''
-        quando = f'<p class="pv-quando">{RELOGIO}<span><b>Quando fazer.</b> {esc(e["quando"])}</span></p>' if e.get('quando') else ''
-        pacotes = ''.join(f'''<article class="pv-pac{" pv-pac--destaque" if p.get("destaque") else ""}">{'<span class="pv-selo">Mais escolhido</span>' if p.get("destaque") else ''}
-  <h3>{esc(p["nome"])}</h3><p class="pv-preco">{esc(p["preco"])}</p>
-  <ul>{"".join(f"<li>{esc(i)}</li>" for i in p["itens"])}</ul>
-  <a class="botao" href="{esc(wa(msg(p["nome"])))}" target="_blank" rel="noopener noreferrer">{WA}Quero o {esc(p["nome"])}</a></article>''' for p in e['pacotes'])
-        extra = ''
-        if e.get('extra'):
-            x = e['extra']; pedido = wa(f'Olá! Vi o portfólio de {nome_marca} e quero saber do {x["titulo"].lower()}.')
-            extra = (f'<div class="pv-extra reveal"><div><b>{esc(x["titulo"])}</b><p>{esc(x["p"])}</p></div>'
-                     f'<a class="botao botao--linha" href="{esc(pedido)}" target="_blank" rel="noopener noreferrer">Quero saber</a></div>')
-        meta = meta_google + f' · a partir de <b>{esc(a_partir(e))}</b>'
-        acoes = f'<a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu ensaio</a><a class="pv-link" href="#pacotes">Ver pacotes e valores {SETA}</a>'
-        outros = [o for o in ensaios if o is not e]
-        corpo = capa_html(fotos[0], esc(e['chamada']) + (' · ' + esc(local) if local else ''), e['titulo'], e['sub'], meta, acoes, 'titulo-ensaio') + f'''
-<section class="pv-bloco pv-galeria" aria-labelledby="fotos-titulo">
-  <div class="container">
-    <div class="pv-cab"><h2 id="fotos-titulo">As fotos <em>do ensaio.</em></h2><small>Toque numa foto para ver em tela cheia</small></div>
-    {galeria(e["nome"], fotos[1:])}
-  </div>
-</section>
-<section class="pv-bloco" style="padding-top:0" aria-label="Sobre o ensaio">
-  <div class="container pv-historia{"" if depo_html else " pv-historia--so"}">
-    <div class="reveal"><p class="eyebrow">Sobre o ensaio</p><p class="pv-texto">{esc(e["texto"])}</p>{quando}</div>
-    {depo_html}
-  </div>
-</section>
-<section class="pv-bloco secao--areia" id="pacotes" aria-labelledby="pacotes-titulo">
-  <div class="container">
-    <div class="pv-cab"><h2 id="pacotes-titulo">Pacotes <em>e valores.</em></h2><small>Reserve pelo WhatsApp</small></div>
-    {exemplo}
-    <div class="pv-pacotes">{pacotes}</div>
-    {extra}
-  </div>
-</section>
-<section class="pv-fim" aria-labelledby="fim-titulo">
-  <div class="container">
-    <h2 id="fim-titulo">Vamos marcar <em>o seu?</em></h2>
-    <p>Chame no WhatsApp: a mensagem já vai com o ensaio escolhido.</p>
-    <a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu ensaio</a>
-  </div>
-</section>''' + (f'''
-<section class="pv-bloco" aria-labelledby="outros-titulo">
-  <div class="container">
-    <div class="pv-cab"><h2 id="outros-titulo">Outros <em>ensaios.</em></h2></div>
-    {blocos(outros, True)}
-  </div>
-</section>''' if outros else '')
-        barra = (f'<div class="pv-barra" aria-label="Reservar"><span>{esc(e["nome"])}<b>a partir de {esc(a_partir(e))}</b></span>'
-                 f'<a class="botao" href="{esc(wa(msg()))}" target="_blank" rel="noopener noreferrer">{WA}Quero o meu</a></div>')
-        montar(e['id'], f'{e["chamada"]} | {nome_marca}', f'{e["chamada"]} com {nome_marca}: {e["sub"]} Fotos, pacotes e valores.', corpo, barra)
-
-    # páginas que sobraram de versões antigas (o natal.html de quem não tem Natal, ensaios que saíram) saem do ar
+    # páginas de versões antigas que sobraram na pasta saem do ar
+    nomes = {n for n, _ in feitas}
     for f in os.listdir(pasta):
-        if f.endswith('.html') and f not in feitas: os.remove(os.path.join(pasta, f)); feitas.append(f'({f} removida)')
-    print('portfólio:', ', '.join(feitas))
+        if f.endswith('.html') and f not in nomes: os.remove(os.path.join(pasta, f)); print('removida:', f)
+    for n, t in feitas: print(f'{pasta}/{n}: {t / 1e6:.1f} MB')
+    for a in F.avisos: print('  AVISO', a)
+    print(f'{len(F.feitas)} imagens tratadas, {F.bytes / 1e6:.1f} MB de fotos (somando as páginas)')
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 4: sys.exit('uso: gerar-portfolio.py demos/<pasta> <site.html> <natal.html>')
-    gerar(sys.argv[1].rstrip('/'), sys.argv[2], sys.argv[3])
+    if len(sys.argv) not in (2, 3): sys.exit('uso: gerar-portfolio.py demos/<pasta> [<pasta dos originais>]')
+    gerar(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)

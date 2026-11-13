@@ -13,12 +13,12 @@
  "endereco_maps": "R. Horácio Nelson Rondinelli, 40 - Cidade Edson, Suzano - SP, 08665-380",
  "google_nota": "5,0",
  "google_total": "49",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511997533203",
  "fone_link": "+5511997533203",
  "instagram": "olivares.fotografia",
  "seguidores": "9,4 mil",
- "mensagem": "Olá! Vi o site do Estúdio Olivares e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio do Estúdio Olivares e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbfaf8",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-20",
+  "msg_garantir": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "9pjx",
-  "msg_duvida": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Verônica, do Estúdio Olivares Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -680,22 +680,164 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). As fotos saem dos ORIGINAIS (pasta passada ao gerador: drive/ = a grade dela salva no Drive, 1440 px; posts/ = carrosséis lidos pelo embed público, até 3071 px; google/ = Perfil da Empresa). \"capa\": quantas fotos do começo da lista vão na abertura da página do ensaio. \"vitrine\": os índices que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a demo mostra o selo). Textos: legendas dela, avaliações do Google e fatos.",
+  "versao": 4,
   "local": "Suzano",
-  "h1": "Gestantes, newborn, bebês e famílias em Suzano.",
-  "frase": "Vem registrar o amor com a gente.",
-  "capa": "gestante:0",
+  "olho": "Estúdio de fotografia · Suzano, SP",
+  "titulo": "Vem registrar o amor com a gente.",
+  "linha": "Gestante, newborn, bebês, crianças e famílias, no estúdio e ao ar livre.",
+  "tira": [
+   "newborn:0",
+   "gestante:0",
+   "newborn:1",
+   "infantil:0",
+   "familia:0",
+   "natal:0",
+   "gestante:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Amanda Nakao",
+    "tag": "Gestante e newborn",
+    "texto": "Fiz meu ensaio de gestante e o ensaio newborn com elas e foram as melhores escolhas que eu poderia ter feito!"
+   },
+   {
+    "nome": "Fabiana Martins",
+    "tag": "Família",
+    "texto": "É muito mais do que um estúdio fotográfico, é um lugar onde me sinto acolhida e onde cada momento é registrado com muito amor, carinho e profissionalismo."
+   },
+   {
+    "nome": "Glena Cost",
+    "tag": "Gestante",
+    "texto": "No dia só precisei chegar, estava tudo preparado para me receber, o ensaio foi um momento leve, de muitas risadas e bate-papo."
+   },
+   {
+    "nome": "Michele Oliveira",
+    "tag": "Do newborn aos 3 anos",
+    "texto": "Acompanham a minha filha desde o ensaio newborn até hoje, com 3 aninhos. Trabalho impecável, simpáticas e super divertidas."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "As meninas do Estúdio Olivares.",
+   "p": [
+    "O Estúdio Olivares fica na Cidade Edson, em Suzano. São duas fotógrafas: “as meninas”, como as clientes escrevem nas avaliações.",
+    "Elas fotografam gestantes, recém-nascidos, bebês, crianças e famílias, no estúdio e ao ar livre."
+   ],
+   "citacao": "É essa leveza que queremos guardar em cada fotografia.",
+   "citacao_quem": "Estúdio Olivares, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/487796288_688252740550615_2792061291553368597_n.jpg",
+     "alt": "As duas fotógrafas do Estúdio Olivares"
+    },
+    {
+     "arq": "google/g00.jpg",
+     "alt": "A entrada do Estúdio Olivares, em Suzano"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 49 avaliações no Google"
+    ],
+    [
+     "9,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende a sua sessão com a gente.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica na Cidade Edson, em Suzano.",
+   "endereco": [
+    "R. Horácio Nelson Rondinelli, 40",
+    "Cidade Edson · Suzano, SP"
+   ],
+   "telefone": "(11) 99753-3203"
+  },
   "ensaios": [
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:4,0,5,1,9,8,3,11,6"
+    "pedido": "o ensaio gestante",
+    "frase": "A doce espera.",
+    "texto": "No estúdio, no jardim ou ao ar livre. Sozinha, com o parceiro ou com a família toda.",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Glena Cost",
+     "texto": "Estou no final da gestação e muito cansada, cheguei a cogitar não fazer o ensaio, mas ainda bem que mudei de ideia. No dia só precisei chegar, estava tudo preparado para me receber… O studio e o jardim são lindos!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "A espera também merece ficar guardada.",
-    "sub": "No estúdio de luz clara ou no jardim, na Cidade Edson, em Suzano.",
-    "texto": "A barriga, o casal, a família que está crescendo: um ensaio leve, sem pose dura, do jeito que vocês são.",
+    "fotos": [
+     {
+      "arq": "posts/DeMBUPjEbp7/DeMBUPjEbp7_02.jpg",
+      "alt": "Casal abraçado no jardim, à espera do bebê"
+     },
+     {
+      "arq": "drive/650035856_18058579646412674_4125694461339150372_n.jpg",
+      "alt": "Gestante com o marido e os filhos, todos de branco"
+     },
+     {
+      "arq": "drive/656101367_18211793215322902_516280246483785016_n.jpg",
+      "alt": "Gestante com uma rosa vermelha"
+     },
+     {
+      "arq": "drive/651365240_18071443073218342_918995483623452353_n.jpg",
+      "alt": "Casal abraçado no ensaio gestante"
+     },
+     {
+      "arq": "posts/Dfhl9HYEWPC/Dfhl9HYEWPC_07.jpg",
+      "alt": "Casal de testa colada no barco, no fim da tarde"
+     },
+     {
+      "arq": "drive/646136444_18032384573788991_5223091464595768014_n.jpg",
+      "alt": "Gestante ajoelhada, de camisa bege"
+     },
+     {
+      "arq": "drive/652024280_18071506358542504_6923565685752510290_n.jpg",
+      "alt": "Casal de testa colada, em preto e branco"
+     },
+     {
+      "arq": "drive/656278063_18440147743113099_2695215237940572367_n.jpg",
+      "alt": "Gestante sentada, de cardigã bege"
+     },
+     {
+      "arq": "posts/DeMBUPjEbp7/DeMBUPjEbp7_00.jpg",
+      "alt": "Gestante de branco no jardim"
+     },
+     {
+      "arq": "drive/651894607_18103020997911511_7676704314159924373_n.jpg",
+      "alt": "Gestante sentada, de top branco"
+     },
+     {
+      "arq": "drive/655003478_18133090426522038_1858631786364880691_n.jpg",
+      "alt": "Gestante de vestido preto no fundo rosado"
+     },
+     {
+      "arq": "drive/650737354_18014848154667103_3476385884611861801_n.jpg",
+      "alt": "Gestante de jeans no fundo branco"
+     },
+     {
+      "arq": "posts/Dfhl9HYEWPC/Dfhl9HYEWPC_09.jpg",
+      "alt": "Casal sentado no barco, com as mãos na barriga"
+     },
+     {
+      "arq": "posts/DeMBUPjEbp7/DeMBUPjEbp7_01.jpg",
+      "alt": "Casal no jardim, em preto e branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -728,20 +870,77 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Amanda Nakao"
+    ]
    },
    {
     "id": "newborn",
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
-    "fotos": [
-     "newborn:0,1,5,3,2,4"
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias do bebê.",
+    "texto": "No estúdio, com as mantas, os cestos e os acessórios de lá. Os pais também entram nas fotos.",
+    "quando": "Costuma ser feito nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação.",
+    "depo": {
+     "nome": "Amanda Nakao",
+     "texto": "Fiz meu ensaio de gestante e o ensaio newborn com elas e foram as melhores escolhas que eu poderia ter feito! As fotos ficaram tão lindas que não tive nem como escolher só algumas."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Os primeiros dias passam rápido.",
-    "sub": "Os primeiros dias do bebê, com calma e muito cuidado.",
-    "texto": "O ensaio respeita o tempo do bebê: pausa para mamar, colo e soninho.",
+    "fotos": [
+     {
+      "arq": "drive/650605316_18092448943877090_2819144458879352509_n.jpg",
+      "alt": "Mãe encostando o rosto no recém-nascido"
+     },
+     {
+      "arq": "drive/649673352_18046955582721522_6719384280557214538_n.jpg",
+      "alt": "Recém-nascido de branco dormindo de bruços"
+     },
+     {
+      "arq": "drive/620202089_17985607310778959_2762458446724842406_n.jpg",
+      "alt": "Recém-nascido dormindo na manta azul"
+     },
+     {
+      "arq": "drive/652142301_18086875154463149_362658409935823007_n.jpg",
+      "alt": "Recém-nascida de touca com o coelhinho rosa"
+     },
+     {
+      "arq": "drive/669959414_18553358407064930_5820078269049702125_n.jpg",
+      "alt": "Recém-nascido enrolado no cesto de lã"
+     },
+     {
+      "arq": "drive/654712001_18113578450771936_1321153021669966090_n.jpg",
+      "alt": "Recém-nascido dormindo nas mãos dos pais"
+     },
+     {
+      "arq": "drive/653527221_18204103012329980_8853469045304474432_n.jpg",
+      "alt": "Recém-nascida enrolada na manta azul"
+     },
+     {
+      "arq": "drive/651010796_18097574947977935_7591545271932080424_n.jpg",
+      "alt": "Recém-nascida de tiara de flores"
+     },
+     {
+      "arq": "drive/654047554_18108538960747903_4933178037665932387_n.jpg",
+      "alt": "Recém-nascido de branco dormindo no pufe"
+     },
+     {
+      "arq": "drive/662302308_18335994508174878_3006561207382986439_n.jpg",
+      "alt": "Casal com a recém-nascida no colo"
+     },
+     {
+      "arq": "drive/622700726_18065995634243069_8692402751943957871_n.jpg",
+      "alt": "Recém-nascido dormindo com o ursinho"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -759,7 +958,7 @@
       "itens": [
        "25 fotos editadas",
        "2 cenários",
-       "Fotos com os pais e os irmãos",
+       "Fotos com os pais",
        "Galeria online"
       ],
       "destaque": true
@@ -774,68 +973,191 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
-    "depo": "Fabiana Martins"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil",
-    "chamada": "Ensaio infantil e acompanhamento",
-    "fotos": [
-     "familia:7,4,6",
-     "pn:1",
-     "familia:9,8",
-     "pn:2,3"
+    "chamada": "Ensaio infantil",
+    "pedido": "o ensaio infantil",
+    "frase": "Sem pressa, sem roteiro.",
+    "texto": "Bebês e crianças, no estúdio ou ao ar livre. No primeiro ano, tem o acompanhamento trimestral.",
+    "citacao": "Sem pressa, sem roteiro… só uma menina, seus bichinhos no quintal e a maravilha de ser criança.",
+    "citacao_quem": "Estúdio Olivares, no Instagram",
+    "depo": {
+     "nome": "Michele Oliveira",
+     "texto": "Elas são maravilhosas! Acompanham a minha filha desde o ensaio newborn até hoje, com 3 aninhos. Trabalho impecável, simpáticas e super divertidas."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Sem pressa, sem roteiro.",
-    "sub": "Bebês e crianças, com um ensaio a cada três meses no primeiro ano.",
-    "texto": "Sem pressa, sem roteiro: só uma criança, seus bichinhos no quintal e a maravilha de ser criança.",
+    "fotos": [
+     {
+      "arq": "posts/DfTMHbsjTQu/DfTMHbsjTQu_04.jpg",
+      "alt": "Irmãos abraçados na cadeira de vime"
+     },
+     {
+      "arq": "drive/655208126_18157790371436844_3934276396891202051_n.jpg",
+      "alt": "Bebê rindo entre as plantas"
+     },
+     {
+      "arq": "drive/652394447_18037089965583990_8974351629461661001_n.jpg",
+      "alt": "Bebê sorrindo no barquinho de madeira"
+     },
+     {
+      "arq": "posts/DfVd6ExIPwM/DfVd6ExIPwM_03.jpg",
+      "alt": "Menina com os ovos à beira do lago"
+     },
+     {
+      "arq": "drive/654284716_18096999730981705_3524355524476920889_n.jpg",
+      "alt": "Bebê de laço sorrindo"
+     },
+     {
+      "arq": "drive/621235629_18033401093569023_567255308564263888_n.jpg",
+      "alt": "Bebê de olhos abertos no cestinho de madeira"
+     },
+     {
+      "arq": "posts/DfTMHbsjTQu/DfTMHbsjTQu_00.jpg",
+      "alt": "Bebê de vestido azul olhando para cima"
+     },
+     {
+      "arq": "posts/DfTMHbsjTQu/DfTMHbsjTQu_05.jpg",
+      "alt": "Menino sorrindo com o carrinho de madeira"
+     },
+     {
+      "arq": "drive/655182034_18351525385233867_4964960468209563675_n.jpg",
+      "alt": "Bebê de vestido de plumas"
+     },
+     {
+      "arq": "drive/651874151_18122829595598402_3697058069613462932_n.jpg",
+      "alt": "Bebê de touca de aviador no aviãozinho"
+     },
+     {
+      "arq": "posts/DfVd6ExIPwM/DfVd6ExIPwM_08.jpg",
+      "alt": "Menina piscando, com os ovos na mão"
+     },
+     {
+      "arq": "posts/DfVd6ExIPwM/DfVd6ExIPwM_00.jpg",
+      "alt": "Menina dando comida às galinhas no quintal"
+     },
+     {
+      "arq": "drive/652678791_18092556392116683_7301883595598825246_n.jpg",
+      "alt": "Bebê de tiara deitada, olhando para a câmera"
+     },
+     {
+      "arq": "drive/660427649_18417558070134084_1218629868894098202_n.jpg",
+      "alt": "Bebê de capuz no carrinho branco"
+     },
+     {
+      "arq": "drive/660030502_18197497588352144_2221172018501993553_n.jpg",
+      "alt": "Menina deitada, com a mão no rosto"
+     }
+    ],
     "pacotes": [
      {
-      "nome": "Mês avulso",
+      "nome": "Ensaio no estúdio",
       "preco": "R$ 220",
       "itens": [
-       "1 cenário temático",
+       "1 cenário",
        "10 fotos editadas",
        "Galeria online"
       ]
      },
      {
-      "nome": "Trimestral",
+      "nome": "Acompanhamento trimestral",
       "preco": "R$ 790",
       "itens": [
        "4 ensaios no primeiro ano",
-       "Cenário temático em cada um",
-       "10 fotos por ensaio"
+       "10 fotos por ensaio",
+       "Galeria online"
       ],
       "destaque": true
      },
      {
-      "nome": "Plano 12 meses",
-      "preco": "R$ 2.110",
+      "nome": "Ensaio ao ar livre",
+      "preco": "R$ 450",
       "itens": [
-       "Um ensaio por mês",
-       "Cenário novo a cada mês",
-       "Smash the cake de 1 ano incluso"
+       "1 hora de ensaio",
+       "20 fotos editadas",
+       "Local a combinar"
       ]
      }
-    ],
-    "quando": "O acompanhamento é um ensaio a cada três meses: comece pelo newborn e feche o ano com o primeiro aninho.",
-    "depo": "Michele Oliveira"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:5,0",
-     "pn:0",
-     "familia:2,1"
+    "pedido": "o ensaio de família",
+    "frase": "Crescer lado a lado.",
+    "texto": "Pais, filhos e irmãos, no estúdio ou ao ar livre.",
+    "citacao": "O tempo passa, as crianças crescem, mas as fotografias nos permitem reviver o que realmente importa.",
+    "citacao_quem": "Estúdio Olivares, no Instagram",
+    "depo": {
+     "nome": "Fabiana Martins",
+     "texto": "Já faço fotos com elas há algum tempo e, a cada ensaio, elas conseguem me surpreender ainda mais! Já virou tradição fazer nossos registros com vocês!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Crescer lado a lado.",
-    "sub": "Pais, filhos e irmãos, no estúdio e no jardim.",
-    "texto": "Crescer lado a lado é ter para sempre um pedacinho da infância um no outro.",
+    "fotos": [
+     {
+      "arq": "drive/619496471_18039314216733412_3960082662921984236_n.jpg",
+      "alt": "Mãe e filha se beijando"
+     },
+     {
+      "arq": "drive/650367340_18018283193651940_1346508790263952540_n.jpg",
+      "alt": "Menino nos ombros do pai, com a mãe ao lado"
+     },
+     {
+      "arq": "drive/651913220_18095848145298772_6441941483994386630_n.jpg",
+      "alt": "Pai sentado com o filho e a filha"
+     },
+     {
+      "arq": "drive/659070157_18367816933206308_6105462161636176610_n.jpg",
+      "alt": "Menino nos ombros do pai"
+     },
+     {
+      "arq": "drive/652975428_18085816238266743_2045704867560649006_n.jpg",
+      "alt": "Pai e filho abraçados ao ar livre"
+     },
+     {
+      "arq": "drive/651024663_18086547431466083_5426711582449726859_n.jpg",
+      "alt": "Pai beijando o bebê, em preto e branco"
+     },
+     {
+      "arq": "posts/DfTMHbsjTQu/DfTMHbsjTQu_06.jpg",
+      "alt": "Família de quatro no sofá, em preto e branco"
+     },
+     {
+      "arq": "drive/654014902_18085034897212456_823036626682088780_n.jpg",
+      "alt": "Pai levantando o filho no alto"
+     },
+     {
+      "arq": "drive/656545471_18103141795928578_8322744497232286588_n.jpg",
+      "alt": "Filho beijando a testa do pai, em preto e branco"
+     },
+     {
+      "arq": "posts/DfTMHbsjTQu/DfTMHbsjTQu_07.jpg",
+      "alt": "Pais e filhos abraçados, em preto e branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -865,8 +1187,123 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "O Natal é feito de encontros.",
+    "texto": "Dois cenários no estúdio este ano: o Família e o Infantil. A agenda já está aberta.",
+    "citacao": "O Natal tem um encanto diferente quando visto pelos olhos de uma criança.",
+    "citacao_quem": "Estúdio Olivares, no Instagram",
+    "quando": "A temporada de Natal 2026 já começou. Depois do cenário lançado, as vagas se esgotam mais rápido.",
+    "capa": 3,
+    "vitrine": [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
     ],
-    "depo": "Glena Cost"
+    "fotos": [
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_02.jpg",
+      "alt": "Mãe e filha rindo no cenário de Natal"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_01.jpg",
+      "alt": "Família reunida ao lado da árvore de Natal"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_05.jpg",
+      "alt": "Menina rindo, de vestido xadrez"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_06.jpg",
+      "alt": "Pai e filho rindo ao lado da árvore"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_06.jpg",
+      "alt": "Irmãos brincando no cenário Infantil"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_03.jpg",
+      "alt": "Mãe e filha de rosto colado"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_00.jpg",
+      "alt": "Menina com o urso no cenário Infantil"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_07.jpg",
+      "alt": "Casal com a filha no colo"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_07.jpg",
+      "alt": "Irmão beijando a irmã"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_09.jpg",
+      "alt": "Família sentada no banco, no cenário Família"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_04.jpg",
+      "alt": "Mãe e filho abraçados junto à árvore"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_04.jpg",
+      "alt": "Menina no cavalinho de madeira"
+     },
+     {
+      "arq": "posts/DejdrlREdPC/DejdrlREdPC_08.jpg",
+      "alt": "Família sentada no chão, ao lado da árvore"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_03.jpg",
+      "alt": "Irmãos brincando no chão do cenário Infantil"
+     },
+     {
+      "arq": "posts/DehiCTcoJgI/DehiCTcoJgI_09.jpg",
+      "alt": "Menina olhando os enfeites"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos de ensaio",
+       "8 fotos editadas",
+       "1 cenário"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos de ensaio",
+       "15 fotos editadas",
+       "Os 2 cenários"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Os 2 cenários",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }

@@ -318,3 +318,21 @@ fotos inteiras, sem selos nem faixa preta) e as 21 foram curadas de novo, foto a
 
 **Primeira demo:** Estúdio Olivares (`/demo/olivares-fotografia`), escolhida entre as 21 que ainda não foram
 trabalhadas por ter mais material: 29 fotos em 3 galerias, mais o Natal, 5,0 com 49 avaliações e 9,4 mil seguidores.
+
+**Versão 4, fase 1 (13/11/2026): a Olivares refeita do zero, esperando a aprovação do Kaue.** As versões 1 a 3 tiravam as
+fotos de dentro da página antiga (já cortadas e comprimidas) e ficaram feias. O `gerar-portfolio.py` foi reescrito: lê os
+ORIGINAIS de uma pasta (a grade dela salva no Drive, os carrosséis do embed público e o Google), nunca amplia nem corta
+(a página mostra a foto inteira, em linhas justificadas), grava 1400 px na galeria e 1920 px na abertura (JPEG
+progressivo, qualidade 82) e, sem os originais, reaproveita as fotos que ele mesmo já tratou. Desenho novo: vitrine com
+a frase dela, tira de fotos, lista de ensaios com o "a partir de" e filtro por ensaio; uma página por ensaio. A faixa, a
+oferta e o rastreio continuam os mesmos e nenhum texto fala em "site". A conferência (`conferir-portfolio.cjs`) também foi
+reescrita: rola a página, clica nas abas, na tela cheia, na faixa e na pílula e acusa foto cortada, ampliada e a palavra
+"site". Só a Olivares está nesse modelo; os outros 19 leads seguem na versão 3 até a aprovação. O que este lead ensinou:
+- **As pastas dos lotes de fotógrafas estão na lixeira do Drive do Kaue.** O conector acha com `trashed = true` (lote 3:
+  "lotes-leads-12-05-11-26"); a listagem pública da pasta vem vazia, mas o download de cada arquivo pelo id funciona.
+- **Como provar que a página salva é o perfil dela:** o arquivo da foto de perfil que o embed público devolve
+  (`profile_pic_url`) está dentro da pasta salva, com o mesmo nome. O final do segundo número (seção 9) só é constante
+  em quem posta sempre do mesmo jeito: na Olivares vale nos posts de out/nov 2026 e não nos antigos da grade.
+- **Ler a avaliação inteira antes de pôr numa página:** na versão 3, o depoimento da página de família falava de gestação.
+- **Peso no repositório:** com as fotos em tamanho de portfólio, a pasta da Olivares tem 26 MB de HTML (antes, 3 MB).
+  No ar a página continua leve (as fotos saem da página no build). Decidir antes de aplicar aos outros 19.
