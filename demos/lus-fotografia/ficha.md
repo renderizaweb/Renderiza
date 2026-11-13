@@ -4,44 +4,37 @@
 |---|---|
 | Onde | R. David Ben Gurion, 72 - Jardim Monte Kemel, São Paulo - SP, 05634-000 |
 | Instagram | [@lusfotografia](https://www.instagram.com/lusfotografia/) · 4,6 mil seguidores |
-| Google | nota 5,0 · 48 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 48 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 91634-1606 · celular do Perfil da Empresa no Google (+55 11 91634-1606) |
-| Horário | Segunda a domingo Fechado |
 | Site | só a galeria Pixieset (lusfotografia.pixieset.com, respondeu 403) (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/lus-fotografia` e `/demo/lus-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`festas`, `gestante`, `familia`, `bebes`, `natal`). Sai de `ferramentas/demo/gerar-portfolio.py demos/lus-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/lus-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 20/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 11, 76 pontos), escolhida no Drive de 06/11/2026. Bio: "🎄 NATAL DE LUS 2026 • 01/11 à 20/12 · Especialistas em festas infantis | São Paulo".
-- Donos: a Lu (Luciana) e o Lucas (avaliações). Foto: a do perfil do Instagram (a Lu junto à árvore de Natal).
-- Personalidade: os posts de texto sobre o valor da fotografia ("A fotografia não é para hoje. É para quando não der mais pra repetir", "Criança agitada não é problema. É matéria-prima"). Na demo: abertura em faixa, Newsreader, "fotografia" em Mea Culpa, pêssego e terracota, ✳ entre as especialidades (o asterisco das artes dela).
-- Sem logo em boa resolução: monograma LF e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos (nº 11). A Lus Fotografia é da Lu (Luciana), com uma equipe (as avaliações citam a Nane e "toda a equipe"). Fotógrafos de família e especialistas em festas infantis; tom claro, Newsreader e DM Sans, terracota.
+- Na v4 entrou a página do Natal de Lus 2026 (o cenário aberto em 03/11) e as festas ganharam as da Hello Kitty e da Frozen, em alta.
 
-## O que tem na demo
-- Site: abertura (Natal 2026, 1 ano e gestante), portfólio em 3 abas (Festas e 1 ano, 10; Família e gestante, 11; Bebês, 8), a Lu e o Lucas, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "A cada Natal, vemos nossos filhos crescerem": o Natal de Lus 2026 (01/11 a 20/12), a agenda de exemplo (sábados de 14/11 a 19/12, das 9h às 15h30) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "A fotografia não é para hoje. É para quando não der mais pra repetir.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Festas e 1 ano (16 fotos, depoimento de Danielle Carmo); Gestante (7 fotos, depoimento de Fernanda Araujo); Família (8 fotos, sem depoimento); Newborn e bebês (11 fotos, sem depoimento); Natal 2026 (7 fotos, depoimento de Gabih Marchioro Akerley).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- O post do Natal de Lus 2026 (03/11), a página do Instagram salva no Drive (até 1440 px), 1 foto do Google e a foto do perfil.
-- Ficaram de fora: as capas de vídeo (9:16), os posts só de texto e a arte "A fotógrafa", as fotos de festa adulta e de casamento.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 49 fotos: 30 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 18 dos carrosséis lidos pelo embed público (DeRpq0eFPUh, Der9z1Jm5ht, DewuofNEXck, DfS155nlK8R) e 1 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: os mosaicos (várias fotos numa só), as artes com texto (a série sobre a Vivian Maier, "Meu filho é muito agitado", "A fotografia não é para hoje" e a da fotógrafa com a câmera), o casamento e as fotos em 9:16.
 
-## Textos e fontes
-- Bio e legendas: "Natal de Lus 2026 oficialmente ABERTO!... A cada Natal, vemos nossos filhos crescerem..." (03/11), "Tem momentos que a câmera guarda..." (09/10), "Criança agitada não é problema. É matéria-prima." (14/10), "A fotografia não é para hoje..." (arte).
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "Criança agitada não é problema. É matéria-prima", "A fotografia não é para hoje. É para quando não der mais pra repetir", "Quatro anos passam rápido demais…", "Tem momentos que a câmera guarda o que as palavras não conseguem explicar", "A fotografia não tem som…", "A cada Natal, vemos nossos filhos crescerem…" e "Nossos ensaios acontecem de 01/11 a 20/12, com entrega das fotos antes do Natal".
+- Avaliações (lidas inteiras em 13/11): Danielle Carmo (festa de 1 ano), Fernanda Araujo (gestante) e Gabih Marchioro Akerley (Natal) nas páginas desses ensaios; Família e Bebês sem depoimento. A de Maria Luiza Duarte ficou de fora: fala de outra fotógrafa (a Nane).
+- Não são dela: os pacotes e valores (exemplos) e o "quando fazer" de gestante e newborn.
 
-## Conferir antes de mandar
-- É uma equipe (a Lu e o Lucas); a demo cumprimenta a Lu.
-- O Google diz "Atendimento 24 horas"; a agenda é exemplo.
-- Fotos de crianças, bebês e famílias: todas publicadas por eles como portfólio. Vale eles confirmarem se podem usar todas no site.
+## Conferir com ela
+- A foto de "quem fotografa" mostra duas pessoas com câmeras (a equipe): confirmar quem são.
+- As festas são de clientes com personagens (Hello Kitty, Frozen, Moana): vale confirmar se podem aparecer.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `familia:4`.
-- `festas`: Festas e 1 ano (fotos festas:0,3,1,6,4,2,7,9,8); a partir de R$ 900; depoimento: Danielle Carmo
-- `gestante`: Gestante (fotos familia:2,4,0,1,10); a partir de R$ 450; depoimento: Fernanda Araujo
-- `familia`: Família (fotos familia:7,8,5,6,3, pn:0, familia:9); a partir de R$ 450; depoimento: Gabih Marchioro Akerley
-- `bebes`: Newborn e bebês (fotos bebes:1,2,0,3,6,4,5,7); a partir de R$ 450; depoimento: Beatriz Paula
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/lus-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/lus-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/lus-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> lus-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

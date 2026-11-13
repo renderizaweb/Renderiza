@@ -13,12 +13,12 @@
  "endereco_maps": "R. David Ben Gurion, 72 - Jardim Monte Kemel, São Paulo - SP, 05634-000",
  "google_nota": "5,0",
  "google_total": "48",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511916341606",
  "fone_link": "+5511916341606",
  "instagram": "lusfotografia",
  "seguidores": "4,6 mil",
- "mensagem": "Olá, Lu! Vi o site da Lus e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Lus e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fdf9f6",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Lu, da Lus Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Lu, da Lus Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-20",
+  "msg_garantir": "Olá! Sou a Lu, da Lus Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lu, da Lus Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "4qx7",
-  "msg_duvida": "Olá! Sou a Lu, da Lus Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Lu, da Lus Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -680,23 +680,187 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Fotografia de família · Jardim Monte Kemel, São Paulo",
+  "titulo": "A fotografia não é para hoje. É para quando não der mais pra repetir.",
+  "linha": "Festas infantis, gestantes, bebês, famílias e o Natal de Lus 2026, no estúdio, em casa ou ao ar livre.",
   "local": "São Paulo",
-  "h1": "Festas infantis, gestantes, famílias e bebês em São Paulo.",
-  "frase": "A fotografia não é para hoje. É para quando não der mais pra repetir.",
-  "tom": "claro",
-  "capa": "familia:4",
+  "tira": [
+   "festas:0",
+   "gestante:0",
+   "bebes:0",
+   "natal:0",
+   "familia:0",
+   "festas:1",
+   "gestante:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Fernanda Araujo",
+    "tag": "Gestante",
+    "texto": "Nosso ensaio seria em um parque, mas no dia choveu muito e ela nos ajudou com outras opções. Fizemos as fotos em nossa casa e o resultado ficou ainda mais lindo!"
+   },
+   {
+    "nome": "Danielle Carmo",
+    "tag": "Festa de 1 ano",
+    "texto": "Desde o primeiro contato até o dia da festa, fomos atendidos com muito profissionalismo, carinho, atenção e dedicação. A equipe foi cuidadosa com todos, especialmente com nosso filho."
+   },
+   {
+    "nome": "Nathalia David dos Santos",
+    "tag": "Festa",
+    "texto": "Desde o momento da escolha das fotos até o dia da festa, tudo foi simplesmente impecável. As fotos ficaram lindas e o álbum ficou perfeito."
+   },
+   {
+    "nome": "Gabih Marchioro Akerley",
+    "tag": "Natal",
+    "texto": "É o nosso segundo ano registrando o Natal da nossa família, e estar na Lus é como estar em casa. Eles nos deixam super à vontade."
+   }
+  ],
+  "contato": {
+   "titulo": "Vamos fotografar juntos?",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Monte Kemel, em São Paulo; as festas, onde elas acontecerem.",
+   "endereco": [
+    "R. David Ben Gurion, 72",
+    "Jardim Monte Kemel · São Paulo, SP"
+   ],
+   "telefone": "(11) 91634-1606"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos (nº 11). A Lus Fotografia é da Lu (Luciana), com uma equipe (as avaliações citam a Nane e \"toda a equipe\"). Fotógrafos de família e especialistas em festas infantis; tom claro, Newsreader e DM Sans, terracota.",
+    "Na v4 entrou a página do Natal de Lus 2026 (o cenário aberto em 03/11) e as festas ganharam as da Hello Kitty e da Frozen, em alta."
+   ],
+   "fora": "os mosaicos (várias fotos numa só), as artes com texto (a série sobre a Vivian Maier, \"Meu filho é muito agitado\", \"A fotografia não é para hoje\" e a da fotógrafa com a câmera), o casamento e as fotos em 9:16.",
+   "textos": [
+    "Dela: \"Criança agitada não é problema. É matéria-prima\", \"A fotografia não é para hoje. É para quando não der mais pra repetir\", \"Quatro anos passam rápido demais…\", \"Tem momentos que a câmera guarda o que as palavras não conseguem explicar\", \"A fotografia não tem som…\", \"A cada Natal, vemos nossos filhos crescerem…\" e \"Nossos ensaios acontecem de 01/11 a 20/12, com entrega das fotos antes do Natal\".",
+    "Avaliações (lidas inteiras em 13/11): Danielle Carmo (festa de 1 ano), Fernanda Araujo (gestante) e Gabih Marchioro Akerley (Natal) nas páginas desses ensaios; Família e Bebês sem depoimento. A de Maria Luiza Duarte ficou de fora: fala de outra fotógrafa (a Nane).",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\" de gestante e newborn."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" mostra duas pessoas com câmeras (a equipe): confirmar quem são.",
+    "As festas são de clientes com personagens (Hello Kitty, Frozen, Moana): vale confirmar se podem aparecer."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Lu e a equipe da Lus.",
+   "p": [
+    "A Lus Fotografia é da Lu (Luciana), no Jardim Monte Kemel, em São Paulo: fotógrafos de família e especialistas em festas infantis.",
+    "Fotografam gestantes, bebês, aniversários, batizados, famílias e o Natal de Lus, no estúdio, em casa ou onde a festa acontecer."
+   ],
+   "citacao": "A fotografia não tem som… mas quem olha, escuta a emoção daquele instante.",
+   "citacao_quem": "Lus Fotografia, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/649208786_18059346650374146_9076798768511639677_n.jpg",
+     "alt": "A equipe da Lus com as câmeras"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 48 avaliações no Google"
+    ],
+    [
+     "4,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "festas",
     "nome": "Festas e 1 ano",
+    "curto": "Festas",
     "chamada": "Festa infantil",
-    "fotos": [
-     "festas:0,3,1,6,4,2,7,9,8"
+    "pedido": "a cobertura da festa",
+    "frase": "Criança agitada não é problema. É matéria-prima.",
+    "texto": "Aniversários, festas de 1 ano e batizados: o bolo, os convidados, as brincadeiras e os detalhes.",
+    "citacao": "Quatro anos passam rápido demais. A nossa missão é garantir que nada se perca no caminho.",
+    "citacao_quem": "Lus Fotografia, no Instagram",
+    "onde": "No salão de festas, em casa ou onde a festa acontecer. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Danielle Carmo",
+     "texto": "Desde o primeiro contato até o dia da festa, fomos atendidos com muito profissionalismo, carinho, atenção e dedicação. A equipe inteira foi extremamente cuidadosa, simpática e atenciosa com todos os convidados, especialmente com nosso filho, conseguindo captar momentos únicos, espontâneos e cheios de emoção."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Criança agitada não é problema. É matéria-prima.",
-    "sub": "Especialistas em festas infantis: o bolo, os convidados e os detalhes.",
-    "texto": "A Lu e o Lucas cobrem festas de 1 ano, aniversários e batizados, sem perder nenhum momento.",
+    "fotos": [
+     {
+      "arq": "drive/661587874_18584598763048741_8921093290161226253_n.jpg",
+      "alt": "Família na festa de 1 ano, entre os balões"
+     },
+     {
+      "arq": "drive/657861610_18579883867010813_4233437216620231258_n.jpg",
+      "alt": "Família cantando parabéns no jardim"
+     },
+     {
+      "arq": "posts/Der9z1Jm5ht/Der9z1Jm5ht_05.jpg",
+      "alt": "Pais com a filha diante do bolo da Frozen"
+     },
+     {
+      "arq": "posts/DeRpq0eFPUh/DeRpq0eFPUh_03.jpg",
+      "alt": "Menina abraçando a Hello Kitty"
+     },
+     {
+      "arq": "drive/650071098_18159341017440575_7705745012509882552_n.jpg",
+      "alt": "Irmãs dançando com a Moana na festa"
+     },
+     {
+      "arq": "drive/659626324_18401596717194387_1327026505071687806_n.jpg",
+      "alt": "Menina de 1 ano no tema circo"
+     },
+     {
+      "arq": "posts/Der9z1Jm5ht/Der9z1Jm5ht_01.jpg",
+      "alt": "Crianças assistindo ao show da festa"
+     },
+     {
+      "arq": "drive/649571780_18042312743556516_7675458841079414055_n.jpg",
+      "alt": "Família com o bolo de 3 anos"
+     },
+     {
+      "arq": "posts/DeRpq0eFPUh/DeRpq0eFPUh_02.jpg",
+      "alt": "Amigas fazendo careta na festa"
+     },
+     {
+      "arq": "drive/662344215_18369885307206542_2380298368788851507_n.jpg",
+      "alt": "Pais com a filha no batizado"
+     },
+     {
+      "arq": "posts/Der9z1Jm5ht/Der9z1Jm5ht_03.jpg",
+      "alt": "Aniversariante com as personagens da Frozen"
+     },
+     {
+      "arq": "posts/DeRpq0eFPUh/DeRpq0eFPUh_08.jpg",
+      "alt": "Menina brincando com o pai na festa"
+     },
+     {
+      "arq": "drive/654023750_18138013561452373_1533186630801140552_n.jpg",
+      "alt": "Menino fazendo bolhas de sabão"
+     },
+     {
+      "arq": "posts/DewuofNEXck/DewuofNEXck_04.jpg",
+      "alt": "Família diante da mesa da festa"
+     },
+     {
+      "arq": "drive/651217141_18091976260888147_5450081131758358862_n.jpg",
+      "alt": "Família no dia do batizado, na igreja"
+     },
+     {
+      "arq": "posts/DeRpq0eFPUh/DeRpq0eFPUh_01.jpg",
+      "alt": "Menina descendo o escorregador"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -726,19 +890,60 @@
        "Álbum impresso 30x30"
       ]
      }
-    ],
-    "depo": "Danielle Carmo"
+    ]
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "familia:2,4,0,1,10"
+    "pedido": "o ensaio gestante",
+    "frase": "A leveza de quem espera.",
+    "texto": "No estúdio, em casa ou ao ar livre, no campo de girassóis. Com o parceiro e os filhos, se quiser.",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Fernanda Araujo",
+     "texto": "Nosso ensaio seria em um parque, mas no dia choveu muito e ela nos ajudou com outras opções. No final, fizemos as fotos em nossa casa e o resultado ficou ainda mais lindo do que imaginávamos! A Lu nos deixou super à vontade e foi muito cuidadosa em cada detalhe."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
     ],
-    "titulo": "A leveza de quem espera.",
-    "sub": "No estúdio, em casa ou no campo de girassóis.",
-    "texto": "A leveza no sorriso de quem leva no ventre o maior tesouro, num ensaio tranquilo, com a Lu e o Lucas.",
+    "fotos": [
+     {
+      "arq": "drive/649706905_18111198325739614_4988518220080809831_n.jpg",
+      "alt": "Casal no campo de girassóis"
+     },
+     {
+      "arq": "drive/622128713_18117108823591433_7547211933368743630_n.jpg",
+      "alt": "Casal no ensaio gestante, na parede laranja"
+     },
+     {
+      "arq": "drive/649480896_18106590697889241_7991421893834195956_n.jpg",
+      "alt": "Gestante de vestido branco e chapéu"
+     },
+     {
+      "arq": "drive/653655513_18182705647332373_4692771354738629500_n.jpg",
+      "alt": "Gestante de renda branca"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Família no campo de girassóis, à espera do bebê"
+     },
+     {
+      "arq": "drive/653564674_18106566358871285_398829717090320353_n.jpg",
+      "alt": "Família correndo no campo"
+     },
+     {
+      "arq": "drive/650779406_18118284880617260_7935229414097624814_n.jpg",
+      "alt": "Casal com o filho no sofá, em preto e branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -771,22 +976,62 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Fernanda Araujo"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:7,8,5,6,3",
-     "pn:0",
-     "familia:9"
+    "pedido": "o ensaio de família",
+    "frase": "Cada momento tem uma história.",
+    "texto": "Em casa, no estúdio ou ao ar livre, com a família como ela é.",
+    "citacao": "Tem momentos que a câmera guarda o que as palavras não conseguem explicar.",
+    "citacao_quem": "Lus Fotografia, no Instagram",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Em casa, no estúdio ou no campo de girassóis.",
-    "sub": "A família toda junta, com leveza.",
-    "texto": "A cada ano, vemos nossos filhos crescerem: um ensaio para guardar a família como ela é agora.",
+    "fotos": [
+     {
+      "arq": "drive/655502199_18213031318316197_8340234481500419988_n.jpg",
+      "alt": "Mãe e filha abraçadas no sofá"
+     },
+     {
+      "arq": "posts/DewuofNEXck/DewuofNEXck_02.jpg",
+      "alt": "Mãe erguendo o filho em casa"
+     },
+     {
+      "arq": "drive/650568231_18104798014863842_8013272707136697052_n.jpg",
+      "alt": "Irmãs deitadas na grama"
+     },
+     {
+      "arq": "drive/656506315_18574876807053111_8742552625144150388_n.jpg",
+      "alt": "Mãe erguendo a filha"
+     },
+     {
+      "arq": "posts/DewuofNEXck/DewuofNEXck_03.jpg",
+      "alt": "Menino rindo com o cachorro no sofá"
+     },
+     {
+      "arq": "posts/DewuofNEXck/DewuofNEXck_06.jpg",
+      "alt": "Menino correndo para o avô"
+     },
+     {
+      "arq": "drive/653871933_18074536004158975_4082062569955625254_n.jpg",
+      "alt": "Pais com a bebê no colo"
+     },
+     {
+      "arq": "posts/DewuofNEXck/DewuofNEXck_07.jpg",
+      "alt": "A mão do bebê segurando o dedo do avô"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -816,19 +1061,74 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Gabih Marchioro Akerley"
+    ]
    },
    {
     "id": "bebes",
     "nome": "Newborn e bebês",
-    "chamada": "Ensaio de bebê",
-    "fotos": [
-     "bebes:1,2,0,3,6,4,5,7"
+    "curto": "Bebês",
+    "chamada": "Ensaio newborn e de bebês",
+    "pedido": "o ensaio do bebê",
+    "frase": "Os primeiros meses do bebê.",
+    "texto": "O newborn nos primeiros dias e os ensaios dos primeiros meses, no estúdio de luz clara.",
+    "quando": "O newborn costuma ser feito nos primeiros dias de vida; a reserva é feita ainda na gestação.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Cheirinho de bebê.",
-    "sub": "E o coração dos papais transbordando de alegria.",
-    "texto": "O newborn e os primeiros meses do bebê, com calma e muito cuidado.",
+    "fotos": [
+     {
+      "arq": "drive/652773954_18098890186768121_804507440765997899_n.jpg",
+      "alt": "Recém-nascida dormindo de tiara"
+     },
+     {
+      "arq": "drive/649235549_18037590491562589_8641792691575522976_n.jpg",
+      "alt": "Pais beijando o recém-nascido"
+     },
+     {
+      "arq": "drive/652013654_18086730182335883_6820628131379315179_n.jpg",
+      "alt": "Bebê de asas de borboleta"
+     },
+     {
+      "arq": "drive/651996612_18102107026910439_4590848883178548521_n.jpg",
+      "alt": "Bebê no smash the cake de 1 ano"
+     },
+     {
+      "arq": "drive/621581046_18106729393779307_7123688218876153691_n.jpg",
+      "alt": "Bebê de tiara olhando para cima"
+     },
+     {
+      "arq": "drive/622607946_18075850154460486_7401063970019936170_n.jpg",
+      "alt": "Bebê sorrindo na manta de tricô"
+     },
+     {
+      "arq": "drive/623061261_18103270702871295_5659701980477003223_n.jpg",
+      "alt": "Bebê espiando por cima da madeira"
+     },
+     {
+      "arq": "drive/649243941_18091477250127325_3650234566752980270_n.jpg",
+      "alt": "Bebê sorrindo de olhos fechados"
+     },
+     {
+      "arq": "drive/631506527_18409521931193080_8994040711888689205_n.jpg",
+      "alt": "Menina sorrindo entre as flores"
+     },
+     {
+      "arq": "drive/649852023_18056408294448246_2284088071658015303_n.jpg",
+      "alt": "Menino rindo na cabaninha"
+     },
+     {
+      "arq": "drive/655234888_18097719751815089_6978350934148448942_n.jpg",
+      "alt": "Bebê de camisa xadrez olhando para cima"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -858,8 +1158,93 @@
        "Álbum impresso 20x20"
       ]
      }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Natal de Lus 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "Natal de Lus 2026.",
+    "texto": "Um cenário pensado para a família ser a protagonista: a árvore, a cama, os brinquedos e as brincadeiras.",
+    "citacao": "A cada Natal, vemos nossos filhos crescerem e percebemos como o tempo passa depressa.",
+    "citacao_quem": "Lus Fotografia, no Instagram",
+    "quando": "Os ensaios do Natal de Lus 2026 vão de 1º de novembro a 20 de dezembro, com as fotos entregues antes do Natal.",
+    "depo": {
+     "nome": "Gabih Marchioro Akerley",
+     "texto": "É o nosso segundo ano registrando o Natal da nossa família, e estar na Lus é como estar em casa. Desde o atendimento pelo WhatsApp até o dia do ensaio, eles nos deixam super à vontade, o que faz fluir de forma natural o ensaio."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
     ],
-    "depo": "Beatriz Paula"
+    "fotos": [
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_07.jpg",
+      "alt": "Família deitada na cama, junto à árvore de Natal"
+     },
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_00.jpg",
+      "alt": "Família brincando no tapete do cenário de Natal"
+     },
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_01.jpg",
+      "alt": "Menina deitada, olhando para a câmera"
+     },
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_03.jpg",
+      "alt": "Mãe com a filha no colo, junto à árvore"
+     },
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_05.jpg",
+      "alt": "Pais brincando com a filha no cavalinho"
+     },
+     {
+      "arq": "posts/DfS155nlK8R/DfS155nlK8R_09.jpg",
+      "alt": "Pais beijando a filha, em preto e branco"
+     },
+     {
+      "arq": "drive/883300072_18376513831214363_6502621144506735547_n.jpg",
+      "alt": "Mãe sorrindo junto à árvore de Natal"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos de ensaio",
+       "8 fotos editadas",
+       "Fotos entregues antes do Natal"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos de ensaio",
+       "15 fotos editadas",
+       "Fotos entregues antes do Natal"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }
