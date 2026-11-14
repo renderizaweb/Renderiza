@@ -84,10 +84,18 @@ function textoDoAviso(d) {
 const FORA = { vencida: "Voltou na demo, que estava vencida (viu o aviso e o botão de reabrir)", reaberta: "Voltou na demo vencida, que já tinha sido reaberta uma vez",
   fora: "Voltou na demo, que está desligada (viu o aviso de fora do ar)" };
 const CLIQUES = { aviso_painel: "Foi ver o painel do estúdio (agenda online)", reabrir: "Reabriu a demo por 1 hora (botão grátis)", faixa: "Tocou na faixa do valor, no topo", instagram: "Abriu o Instagram da loja", facebook: "Abriu o Facebook da loja", tiktok: "Abriu o TikTok da loja", rota: "Pediu a rota até a loja",
-  mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail" };
+  mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail",
+  // proposta e contrato do vereador (/proposta e /contrato/vereador-mateuzinho-silva)
+  "proposta-seguir-topo": "Clicou em \"Quero seguir\" na proposta", "proposta-seguir-capa": "Clicou em \"Quero seguir\" na proposta",
+  "proposta-seguir-investimento": "Clicou em \"Quero seguir\" na proposta", "proposta-seguir-planos": "Clicou em \"Quero seguir com um plano\" na proposta",
+  "proposta-seguir-fim": "Clicou em \"Quero seguir: assinar o contrato\" na proposta", "proposta-duvida": "Clicou em \"Tirar uma dúvida\" (WhatsApp da Renderiza)",
+  "contrato-ir-topo": "Foi para a assinatura do contrato", "contrato-ir-capa": "Foi para a assinatura do contrato", "contrato-duvida": "Clicou em \"Tirar uma dúvida\" no contrato (WhatsApp da Renderiza)",
+  "contrato-assinar": "Tocou em Continuar/Assinar no contrato", "contrato-reenviar": "Pediu outro código para assinar o contrato",
+  "contrato-assinado": "Assinou o contrato online", "contrato-avisar": "Avisou vocês no WhatsApp que assinou", "contrato-imprimir": "Salvou o contrato assinado em PDF" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["aviso_painel", "reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone"]);
+const CLIQUES_FORTES = new Set(["aviso_painel", "reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone",
+  "proposta-seguir-topo", "proposta-seguir-capa", "proposta-seguir-investimento", "proposta-seguir-planos", "proposta-seguir-fim", "contrato-assinado"]);
 const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has(alvoDoClique(v.detalhe))) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
 
 /** IPs vistos em visitas marcadas como nossas: outra visita com o mesmo IP provavelmente também é nossa. */

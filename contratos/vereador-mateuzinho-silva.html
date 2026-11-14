@@ -19,6 +19,8 @@
      Vai ao ar em /contrato/vereador-mateuzinho-silva (scripts/montar-site.mjs). A assinatura chama a função
      aceitar_termo_online do Supabase (supabase/termos-online.sql) com a chave pública de /api/config; o termo
      "vereador-mateuzinho-silva-v1" guarda o texto e a impressão (SHA-256 do texto de #contrato, espaços juntados).
+     Antes de assinar, o e-mail é confirmado por um código de 6 números (função de borda termo-codigo, em
+     supabase/functions/termo-codigo; o banco confere o código na assinatura).
      Mudou o texto do contrato: nova versão do termo (v2), com o texto e a impressão novos, e TERMO abaixo. -->
 <script src="/exemplos/visitas.js" data-pagina="demo" data-demo="vereador-mateuzinho-silva" data-sub="contrato" defer></script>
 <style>
@@ -106,6 +108,14 @@ section{padding:52px 0}
 .erro.ver{display:block}
 .form .bt{width:100%;margin-top:18px}
 .registro{margin-top:12px;font-size:12.5px;color:var(--suave);word-break:break-word}
+.passo{margin-top:10px;font-size:13.5px;color:var(--suave);text-align:center}
+.codigo{margin-top:18px;padding:16px;border-radius:16px;background:var(--lilas);border:1.5px solid var(--roxo-3)}
+.codigo p{font-size:14.5px;color:var(--tinta)}
+.codigo #codigo{font-size:24px;letter-spacing:.3em;font-weight:700;max-width:220px}
+.codigo-acoes{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:10px}
+.codigo-acoes span{font-size:13px;color:var(--suave)}
+.link{background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:700;color:var(--roxo);text-decoration:underline;cursor:pointer}
+.link:disabled{opacity:.5;cursor:not-allowed;text-decoration:none}
 .feito{display:none}
 .feito.ver{display:block}
 .comprovante{border-radius:20px;background:var(--ok-claro);padding:20px;color:var(--tinta)}
@@ -137,7 +147,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="cx">
     <span class="kicker">Contrato de prestação de serviços</span>
     <h1>Para seguir, <em>é só assinar.</em></h1>
-    <p class="sub">Aqui estão o resumo e o contrato completo do site do mandato e do portal Gabinete Aberto, como na proposta. A assinatura é online: você informa os seus dados, escolhe o plano de manutenção e confirma.</p>
+    <p class="sub">Aqui estão o resumo e o contrato completo do site do mandato e do portal Gabinete Aberto, como na proposta. A assinatura é online: você informa os seus dados, escolhe o plano de manutenção e confirma com um código enviado ao seu e-mail.</p>
     <div class="aviso-capa"><b>A assinatura é o que dá início ao trabalho.</b> Ficou alguma dúvida? Fale com o Kaue no WhatsApp antes de assinar.</div>
     <div class="acoes">
       <a class="bt bt-lima" href="#assinar" data-rz-alvo="contrato-ir-capa">Ir para a assinatura</a>
@@ -151,11 +161,11 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <span class="kicker">Resumo</span>
     <h2>O contrato <em>em seis pontos.</em></h2>
     <div class="resumo">
-      <div class="res forte"><h3><i>1</i>O que você recebe</h3><ul><li>O <b>site do mandato</b>, com o pedido do bairro e o acompanhamento de cada pedido.</li><li>O <b>portal Gabinete Aberto</b>: pedidos, equipe com acesso por pessoa, terça no gabinete, munícipes, Câmara, indicadores e IA.</li><li>Tudo em 3 fases, em cerca de 5 semanas.</li></ul></div>
-      <div class="res"><h3><i>2</i>Quanto e como você paga</h3><ul><li><b>R$&nbsp;3.300</b>: 60 horas a R$&nbsp;55 (condição de indicação; a tabela é R$&nbsp;75, ou R$&nbsp;4.500).</li><li>R$&nbsp;1.320 na assinatura, R$&nbsp;990 na entrega da Fase 1 e R$&nbsp;990 na entrega final.</li><li>Valor fechado: se passar de 60 horas, a diferença é da Renderiza.</li></ul></div>
-      <div class="res"><h3><i>3</i>Depois da entrega</h3><ul><li>Um plano mensal mantém tudo no ar e seguro: <b>Essencial R$&nbsp;350</b> (o mínimo), Gabinete R$&nbsp;590 ou Mandato R$&nbsp;990.</li><li>Mínimo de 3 meses; depois, cancela com 30 dias de aviso.</li></ul></div>
-      <div class="res"><h3><i>4</i>As suas garantias</h3><ul><li>90 dias de garantia contra defeitos, mesmo sem plano.</li><li>Desconto de 5% na parcela se a Renderiza atrasar uma fase por culpa dela.</li><li>O domínio, o código e os dados são seus; se o contrato acabar, você recebe tudo.</li></ul></div>
-      <div class="res"><h3><i>5</i>Os seus compromissos</h3><ul><li>Enviar o material (textos, fotos, acessos) e testar cada entrega em até 5 dias úteis.</li><li>Pagar em dia, com recursos próprios.</li><li>Usar os dados dos moradores só para atender os pedidos do mandato.</li></ul></div>
+      <div class="res forte"><h3><i>1</i>O que você recebe</h3><ul><li>O <b>site do mandato</b>, com o pedido do bairro e o acompanhamento de cada pedido.</li><li>O <b>portal Gabinete Aberto</b>: pedidos, equipe com acesso por pessoa, terça no gabinete, munícipes, Câmara, indicadores e IA.</li><li>Tudo em 3 fases, em até 5 semanas.</li></ul></div>
+      <div class="res"><h3><i>2</i>Quanto e como você paga</h3><ul><li><b>R$&nbsp;3.300</b>: 60 horas a R$&nbsp;55 (condição de indicação; a tabela é R$&nbsp;75, ou R$&nbsp;4.500).</li><li><b>Nada a pagar nos primeiros 15 dias.</b> No 15º dia, com a prévia do trabalho em mãos, R$&nbsp;1.320 (40%).</li><li>Na entrega final, você valida em até 1 dia útil e paga o saldo de R$&nbsp;1.980 (60%).</li><li>Valor fechado: se passar de 60 horas, a diferença é da Renderiza.</li></ul></div>
+      <div class="res"><h3><i>3</i>Depois da entrega</h3><ul><li>Um plano mensal mantém tudo no ar e seguro, com hospedagem e banco incluídos: <b>Essencial R$&nbsp;500</b> (o mínimo), Gabinete R$&nbsp;790 ou Completo R$&nbsp;1.290.</li><li>Mínimo de 3 meses; depois, cancela com 30 dias de aviso.</li></ul></div>
+      <div class="res"><h3><i>4</i>As suas garantias</h3><ul><li>90 dias de garantia contra defeitos (erros de funcionamento), mesmo sem plano.</li><li>Nos 7 primeiros dias, você pode desistir sem custo.</li><li>Desconto de 5% no saldo se a entrega final atrasar por culpa da Renderiza.</li><li>O domínio, o código e os dados são seus; se o contrato acabar, você recebe tudo.</li></ul></div>
+      <div class="res"><h3><i>5</i>Os seus compromissos</h3><ul><li>Enviar o material (textos, fotos, acessos) nos primeiros 5 dias úteis e validar a entrega final em até 1 dia útil.</li><li>Pagar em dia, com recursos próprios.</li><li>Usar os dados dos moradores só para atender os pedidos do mandato.</li></ul></div>
       <div class="res"><h3><i>6</i>Segurança e lei eleitoral</h3><ul><li>Banco exclusivo do mandato, no Brasil, com acesso por pessoa e verificação em duas etapas.</li><li>Nada de campanha no sistema do mandato; em 2028, o que for de campanha tem contrato e hospedagem próprios.</li></ul></div>
     </div>
     <p class="nota">O resumo ajuda a ler; o que vale é o contrato completo, logo abaixo.</p>
@@ -169,7 +179,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <nav class="indice so-tela" aria-label="Cláusulas"><a href="#c1">Partes</a><a href="#c3">Prazos</a><a href="#c5">Preço</a><a href="#c10">Manutenção</a><a href="#c13">Dados</a><a href="#c14">Lei eleitoral</a><a href="#c15">Segurança</a><a href="#c18">Saída</a><a href="#anexo1">Escopo</a><a href="#anexo2">Medidas de segurança</a></nav>
     <div class="contrato" id="contrato">
       <h3 id="c1">1. As partes</h3>
-      <p><b>CONTRATADA:</b> <span class="pendente">[NOME COMPLETO DO KAUE]</span>, inscrito no CPF sob o nº <span class="pendente">[CPF DO KAUE]</span>, que atua com o nome Renderiza (renderizaweb.com.br), WhatsApp (11) 98869-7165, aqui chamado de <b>Renderiza</b>.</p>
+      <p><b>CONTRATADA:</b> Kaue de Almeida Cunha, inscrito no CPF sob o nº ***.406.148-**, com endereço em São Paulo/SP, que atua com o nome Renderiza (renderizaweb.com.br), e-mail contato@renderizaweb.com.br e WhatsApp (11) 98869-7165, aqui chamado de <b>Renderiza</b>. O CPF aparece em parte para proteger o dado nesta página; o número completo e o endereço vão na cópia do contrato enviada ao Contratante.</p>
       <p><b>CONTRATANTE:</b> a pessoa que assina este contrato ao final, identificada pelo nome, CPF, endereço, e-mail e WhatsApp informados na assinatura, que declara ser Mateus Andrade da Silva Santos, vereador do Município de Itapevi/SP, conhecido como Mateuzinho Silva, e contrata em nome próprio, como pessoa física, aqui chamado de <b>Contratante</b>.</p>
 
       <h3 id="c2">2. O objeto</h3>
@@ -178,26 +188,26 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <h3 id="c3">3. Fases e prazos</h3>
       <ol>
         <li>O trabalho tem três fases: <b>Fase 1</b> (site no ar, pedido do bairro e acompanhamento, portal com pedidos e equipe), <b>Fase 2</b> (terça no gabinete, munícipes, indicações da Câmara, site pelo portal, indicadores) e <b>Fase 3</b> (IA para redigir indicações, lembretes, testes e treinamento).</li>
-        <li>Os prazos são: Fase 1 em até 10 dias úteis; Fase 2 em até 10 dias úteis depois da aprovação da Fase 1; Fase 3 em até 5 dias úteis depois da aprovação da Fase 2.</li>
-        <li>Os prazos começam no dia útil seguinte ao último destes três fatos: a assinatura, o pagamento da entrada e o envio do material (textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe).</li>
-        <li>Atraso do Contratante em enviar material, dar acesso ou responder estende o prazo pelo mesmo tempo.</li>
-        <li>Se a Renderiza atrasar uma fase em mais de 10 dias úteis por motivo dela, o Contratante tem 5% de desconto na parcela daquela fase (na Fase 2, na parcela final).</li>
+        <li>Os prazos contam da assinatura: a <b>prévia</b>, com a Fase 1 pronta para ver e testar, é enviada até o 15º dia corrido; a <b>entrega final</b>, com as três fases, em até 25 dias úteis (cerca de 5 semanas).</li>
+        <li>O Contratante envia o material nos primeiros 5 dias úteis: textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe. Atraso do Contratante em enviar material, dar acesso ou responder estende os prazos pelo mesmo tempo.</li>
+        <li>Se a entrega final atrasar mais de 10 dias úteis por motivo da Renderiza, o Contratante tem 5% de desconto no saldo (cláusula 5).</li>
         <li>A Renderiza manda ao Contratante um resumo curto do andamento ao fim de cada semana de trabalho.</li>
       </ol>
 
-      <h3 id="c4">4. Entrega e aprovação</h3>
+      <h3 id="c4">4. Prévia, entrega e validação</h3>
       <ol>
-        <li>Ao fim de cada fase, a Renderiza entrega o que foi feito para o Contratante testar.</li>
-        <li>O Contratante tem até 5 dias úteis para testar e enviar a lista de ajustes. Ajustes dentro do Anexo I são feitos sem custo.</li>
-        <li>Sem resposta nesse prazo, a fase é considerada aprovada. Defeitos encontrados depois continuam cobertos pela garantia (cláusula 9).</li>
+        <li><b>Prévia:</b> até o 15º dia, a Renderiza envia o link da prévia, com a Fase 1 para ver e testar. O Contratante comenta em até 2 dias úteis; os ajustes dentro do Anexo I entram na entrega final, sem custo.</li>
+        <li><b>Entrega final:</b> a Renderiza entrega o site e o portal completos, no ar, com a lista do que foi feito. O Contratante tem até 1 dia útil para validar.</li>
+        <li>Validar é conferir se o que está no Anexo I foi entregue e funciona. Se faltar um item do Anexo I ou um defeito impedir o uso de uma função, o Contratante aponta nesse prazo; a Renderiza corrige, entrega de novo e o prazo de 1 dia útil recomeça. Defeitos que não impedem o uso não seguram a validação: são corrigidos pela garantia (cláusula 9).</li>
+        <li>Sem resposta em 1 dia útil, a entrega final é considerada validada.</li>
       </ol>
 
       <h3 id="c5">5. Preço e pagamento</h3>
       <ol>
         <li>O preço é de <b>R$&nbsp;3.300,00</b> (três mil e trezentos reais): 60 horas a R$&nbsp;55,00, valor com a condição de indicação. O valor de tabela é R$&nbsp;75,00 a hora (R$&nbsp;4.500,00).</li>
         <li>O preço é fechado para o Anexo I: se o trabalho passar de 60 horas, a diferença fica por conta da Renderiza.</li>
-        <li>O pagamento é feito por Pix ou transferência, para a conta indicada pela Renderiza, em três parcelas: <b>R$&nbsp;1.320,00</b> (40%) em até 3 dias úteis da assinatura; <b>R$&nbsp;990,00</b> (30%) na entrega da Fase 1; <b>R$&nbsp;990,00</b> (30%) na entrega final. A Renderiza dá recibo de cada pagamento.</li>
-        <li>Atraso no pagamento gera multa de 2%, juros de 1% ao mês, proporcionais aos dias, e correção pelo IPCA. Com mais de 15 dias de atraso, a Renderiza pode parar o trabalho até o pagamento, e os prazos param junto.</li>
+        <li>Nada é pago nos primeiros 15 dias. O pagamento é feito por Pix ou transferência, para a conta indicada pela Renderiza, em duas parcelas: <b>R$&nbsp;1.320,00</b> (40%) no 15º dia corrido depois da assinatura, com a prévia já enviada; e o saldo de <b>R$&nbsp;1.980,00</b> (60%) até o dia útil seguinte à validação da entrega final (cláusula 4). Se a prévia atrasar, a primeira parcela vence 2 dias úteis depois do envio dela. A Renderiza dá recibo de cada pagamento.</li>
+        <li>Atraso no pagamento gera multa de 2%, juros de 1% ao mês, proporcionais aos dias, e correção pelo IPCA. Com mais de 15 dias de atraso, a Renderiza pode parar o trabalho ou o suporte até o pagamento, e os prazos param junto.</li>
         <li>A hospedagem durante o desenvolvimento está incluída no preço. O registro do domínio (cerca de R$&nbsp;40,00 por ano no Registro.br) é pago diretamente pelo Contratante, porque o domínio fica no nome dele.</li>
       </ol>
 
@@ -222,7 +232,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       </ol>
 
       <h3 id="c9">9. Garantia</h3>
-      <p>Por 90 dias depois da entrega final, a Renderiza corrige sem custo qualquer defeito no que entregou, com ou sem plano de manutenção. Defeito é o que não funciona como descrito no Anexo I; mudança de pedido é melhoria (cláusula 6).</p>
+      <p>Por 90 dias depois da entrega final, a Renderiza corrige sem custo os defeitos do que entregou, com ou sem plano de manutenção. Defeito é erro de funcionamento: o que não funciona como descrito no Anexo I. A garantia cobre só defeitos. Melhorias, mudanças de visual ou de texto, funções novas e pedidos diferentes do Anexo I não entram nela: são feitos pelas horas do plano de manutenção (cláusula 11) ou como trabalho novo (cláusula 6).</p>
 
       <h3 id="c10">10. Hospedagem, domínio e contas</h3>
       <ol>
@@ -239,9 +249,9 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <div class="tabela-rolagem"><table>
         <thead><tr><th>Plano</th><th>Por mês</th><th>Inclui</th></tr></thead>
         <tbody>
-          <tr><td><b>Essencial</b></td><td>R$&nbsp;350,00</td><td>Hospedagem e banco de dados, cópias de segurança, atualizações de segurança, monitoramento, correção de defeitos e até 1 hora de ajustes no mês. Resposta em até 2 dias úteis.</td></tr>
-          <tr><td><b>Gabinete</b></td><td>R$&nbsp;590,00</td><td>Tudo do Essencial, mais até 4 horas de melhorias no mês, o ajuste quando a Câmara mudar o sistema dela e o relatório mensal de uso. Resposta em até 1 dia útil.</td></tr>
-          <tr><td><b>Mandato</b></td><td>R$&nbsp;990,00</td><td>Tudo do Gabinete, mais até 10 horas no mês e uma reunião mensal de 30 minutos. Urgências no mesmo dia útil.</td></tr>
+          <tr><td><b>Essencial</b></td><td>R$&nbsp;500,00</td><td>Hospedagem e banco de dados, cópias de segurança, atualizações de segurança, monitoramento, correção de defeitos e até 1 hora de ajustes no mês. Resposta em até 2 dias úteis.</td></tr>
+          <tr><td><b>Gabinete</b></td><td>R$&nbsp;790,00</td><td>Tudo do Essencial, mais até 4 horas de melhorias no mês, o ajuste quando a Câmara mudar o sistema dela e o relatório mensal de uso. Resposta em até 1 dia útil.</td></tr>
+          <tr><td><b>Completo</b></td><td>R$&nbsp;1.290,00</td><td>Tudo do Gabinete, mais até 10 horas no mês e uma reunião mensal de 30 minutos. Urgências no mesmo dia útil.</td></tr>
         </tbody>
       </table></div>
       <ol start="3">
@@ -291,8 +301,9 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
       <h3 id="c17">17. Desistência e rescisão</h3>
       <ol>
-        <li>Se o Contratante desistir antes da entrega final, paga as fases entregues e as horas já trabalhadas na fase em andamento, a R$&nbsp;55,00, com o relatório das horas, sem passar do preço. O que tiver pago além disso volta em até 10 dias, e a Renderiza entrega o que estiver pronto.</li>
-        <li>A Renderiza só pode encerrar o contrato por falta de pagamento por mais de 30 dias ou por descumprimento grave, com aviso de 10 dias. Nesse caso, devolve o que recebeu por fase que não entregou.</li>
+        <li>Nos 7 primeiros dias depois da assinatura, o Contratante pode desistir sem nenhum custo (Código de Defesa do Consumidor, art. 49).</li>
+        <li>Depois disso, se o Contratante desistir antes da entrega final, paga as horas já trabalhadas, a R$&nbsp;55,00, com o relatório das horas, sem passar do preço. O que tiver pago além disso volta em até 10 dias, e a Renderiza entrega o que estiver pronto.</li>
+        <li>A Renderiza só pode encerrar o contrato por falta de pagamento por mais de 30 dias ou por descumprimento grave, com aviso de 10 dias. Nesse caso, devolve o que tiver recebido além das horas já trabalhadas.</li>
         <li>Qualquer das partes pode encerrar o contrato por descumprimento grave da outra, se não for corrigido em 10 dias depois do aviso.</li>
       </ol>
 
@@ -303,7 +314,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <p>Os avisos deste contrato valem quando enviados pelo e-mail ou pelo WhatsApp informados na assinatura (do Contratante) e no início deste contrato (da Renderiza).</p>
 
       <h3 id="c20">20. Assinatura eletrônica</h3>
-      <p>Este contrato é assinado eletronicamente. A Renderiza concorda com este texto ao publicá-lo, e o contrato se forma com o aceite do Contratante. Ficam registrados o nome, o CPF, o endereço, o e-mail e o WhatsApp informados, a data e a hora, o endereço IP, o aparelho e a impressão digital (SHA-256) deste texto. As partes reconhecem a validade dessa forma de assinatura (Medida Provisória 2.200-2/2001, art. 10, § 2º). A Renderiza envia ao Contratante a cópia do contrato com os dados da assinatura.</p>
+      <p>Este contrato é assinado eletronicamente. A Renderiza concorda com este texto ao publicá-lo, e o contrato se forma com o aceite do Contratante, que confirma o e-mail com um código de 6 números enviado a ele na hora da assinatura. Ficam registrados o nome, o CPF, o endereço, o e-mail confirmado e o WhatsApp informados, a data e a hora, o endereço IP, o aparelho e a impressão digital (SHA-256) deste texto. As partes reconhecem a validade dessa forma de assinatura (Medida Provisória 2.200-2/2001, art. 10, § 2º). A Renderiza envia ao Contratante, pelo e-mail confirmado, a cópia do contrato com os dados da assinatura.</p>
 
       <h3 id="c21">21. Foro</h3>
       <p>Fica escolhido o foro da Comarca de Itapevi/SP para resolver qualquer questão deste contrato.</p>
@@ -364,26 +375,33 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <div class="campo"><label for="endereco">Endereço completo</label><input id="endereco" autocomplete="street-address" placeholder="Rua, número, bairro, cidade, CEP"></div>
         <div class="campo"><span>Plano de manutenção (começa depois da entrega final)</span>
           <div class="planos" role="radiogroup" aria-label="Plano de manutenção">
-            <label class="plano"><input type="radio" name="plano" value="essencial"><i class="bola"></i><div><b>Essencial · R$&nbsp;350</b><span>O mínimo: no ar, seguro, 1 hora de ajustes</span></div></label>
-            <label class="plano"><input type="radio" name="plano" value="gabinete"><i class="bola"></i><div><b>Gabinete · R$&nbsp;590</b><span>Recomendado: 4 horas de melhorias, ajuste da Câmara</span></div></label>
-            <label class="plano"><input type="radio" name="plano" value="mandato"><i class="bola"></i><div><b>Mandato · R$&nbsp;990</b><span>10 horas, reunião mensal, urgência no dia</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="essencial"><i class="bola"></i><div><b>Essencial · R$&nbsp;500</b><span>O mínimo: no ar, seguro, 1 hora de ajustes</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="gabinete"><i class="bola"></i><div><b>Gabinete · R$&nbsp;790</b><span>Recomendado: 4 horas de melhorias, ajuste da Câmara</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="completo"><i class="bola"></i><div><b>Completo · R$&nbsp;1.290</b><span>10 horas, reunião mensal, urgência no dia</span></div></label>
           </div>
         </div>
         <label class="marcar"><input type="checkbox" id="li"><span>Li o contrato completo, com os anexos, e concordo com ele.</span></label>
         <label class="marcar"><input type="checkbox" id="recursos"><span>Declaro que contrato em nome próprio e que pago com recursos próprios, sem verba de gabinete nem outro recurso público.</span></label>
-        <label class="marcar"><input type="checkbox" id="privacidade"><span>Sei que os meus dados acima, a data, a hora, o IP e o aparelho ficam registrados como prova da assinatura e são usados só para este contrato.</span></label>
+        <label class="marcar"><input type="checkbox" id="privacidade"><span>Sei que os meus dados acima, o e-mail confirmado pelo código, a data, a hora, o IP e o aparelho ficam registrados como prova da assinatura e são usados só para este contrato.</span></label>
+        <div class="codigo" id="caixaCodigo" hidden>
+          <p id="avisoCodigo">Mandamos um código de 6 números para o seu e-mail. Ele vale por 15 minutos.</p>
+          <div class="campo"><label for="codigo">Código do e-mail</label><input id="codigo" inputmode="numeric" autocomplete="one-time-code" placeholder="000000"></div>
+          <p class="codigo-acoes"><button type="button" class="link" id="reenviar" data-rz-alvo="contrato-reenviar">Reenviar o código</button><span id="esperar"></span></p>
+        </div>
         <div class="erro" id="erro" role="alert"></div>
-        <button class="bt bt-roxo" type="submit" id="botao" data-rz-alvo="contrato-assinar">Assinar o contrato</button>
+        <button class="bt bt-roxo" type="submit" id="botao" data-rz-alvo="contrato-assinar">Continuar</button>
+        <p class="passo" id="passo">No próximo passo, mandamos um código ao seu e-mail para confirmar a assinatura.</p>
         <p class="registro" id="registro">Impressão digital deste texto (SHA-256): calculando…</p>
       </form>
       <div class="feito" id="feito" aria-live="polite">
         <div class="comprovante">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>Contrato assinado</h3>
-          <p style="margin-top:8px">Obrigado! O próximo passo é o pagamento da entrada; o Kaue manda os dados pelo WhatsApp.</p>
+          <p style="margin-top:8px">Obrigado! O trabalho começa no próximo dia útil. Agora não há nada a pagar: a prévia chega até o 15º dia, junto com os dados da primeira parcela.</p>
           <dl>
             <div><dt>Protocolo</dt><dd id="cProt"></dd></div>
             <div><dt>Data e hora</dt><dd id="cData"></dd></div>
             <div><dt>Nome</dt><dd id="cNome"></dd></div>
+            <div><dt>E-mail</dt><dd id="cEmail"></dd></div>
             <div><dt>Plano escolhido</dt><dd id="cPlano"></dd></div>
             <div><dt>IP registrado</dt><dd id="cIp"></dd></div>
             <div><dt>Impressão do texto</dt><dd id="cHash"></dd></div>
@@ -406,6 +424,9 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   var TERMO = "vereador-mateuzinho-silva-v1";
   var $ = function(s){ return document.querySelector(s); };
   var form = $("#formAssinar"), botao = $("#botao"), erro = $("#erro"), impressao = "", config = null;
+  var situacao = null;        // { aberto, exige_codigo } do banco; sem resposta, a página supõe que pede o código
+  var codigoPara = "";        // e-mail para o qual o último código foi mandado
+  var espera = 0, relogio = null, ocupado = false;
   function mostraErro(t, campo){ erro.textContent = t; erro.classList.add("ver"); if (campo) { campo.setAttribute("aria-invalid", "true"); campo.focus(); } }
   function limpa(){ erro.classList.remove("ver"); Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function(e){ e.removeAttribute("aria-invalid"); }); }
   function so(n){ return String(n || "").replace(/\D/g, ""); }
@@ -414,11 +435,15 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     for (var t = 9; t < 11; t++) { var s = 0; for (var i = 0; i < t; i++) s += Number(c[i]) * (t + 1 - i); var r = (s * 10) % 11 % 10; if (r !== Number(c[t])) return false; }
     return true;
   }
+  function fechado(msg){ botao.disabled = true; $("#passo").textContent = msg; }
+  function rotulo(){ botao.textContent = ocupado ? botao.textContent : (codigoPara ? "Confirmar e assinar" : "Continuar"); }
   $("#cpf").addEventListener("input", function(){ var d = so(this.value).slice(0, 11); this.value = d.replace(/^(\d{3})(\d)/, "$1.$2").replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1-$2"); });
+  $("#codigo").addEventListener("input", function(){ this.value = so(this.value).slice(0, 6); });
+  // trocou o e-mail depois de pedir o código: o código vale só para o e-mail antigo
+  $("#email").addEventListener("input", function(){ if (codigoPara && this.value.trim().toLowerCase() !== codigoPara) { codigoPara = ""; $("#caixaCodigo").hidden = true; $("#codigo").value = ""; $("#passo").hidden = false; rotulo(); } });
   // a impressão digital do texto que a pessoa leu: SHA-256 do texto do contrato, com os espaços juntados
   var texto = $("#contrato").textContent.replace(/\s+/g, " ").trim();
-  var pendente = document.querySelector("#contrato .pendente");
-  if (pendente) { botao.disabled = true; $("#registro").textContent = "Contrato em preparação: a assinatura abre quando os dados da Renderiza estiverem completos."; }
+  if (document.querySelector("#contrato .pendente")) fechado("Contrato em preparação: a assinatura abre quando o texto estiver completo.");
   else if (window.crypto && crypto.subtle && window.TextEncoder) {
     crypto.subtle.digest("SHA-256", new TextEncoder().encode(texto)).then(function(b){
       impressao = Array.prototype.map.call(new Uint8Array(b), function(x){ return ("0" + x.toString(16)).slice(-2); }).join("");
@@ -426,15 +451,63 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     });
   }
   window.rzImpressao = function(){ return { texto: texto, impressao: impressao }; };
-  fetch("/api/config").then(function(r){ return r.ok ? r.json() : null; }).then(function(c){ config = c; }).catch(function(){});
-  var NOMES = { essencial: "Essencial · R$ 350 por mês", gabinete: "Gabinete · R$ 590 por mês", mandato: "Mandato · R$ 990 por mês" };
-  var CAMPOS = { nome: "#nome", cpf: "#cpf", email: "#email", whatsapp: "#zap", endereco: "#endereco" };
-  var MSG = { nome: "Confira o nome completo.", cpf: "Confira o CPF.", email: "Confira o e-mail.", whatsapp: "Confira o WhatsApp, com DDD.", endereco: "Confira o endereço completo.", plano: "Escolha o plano de manutenção.", declaracoes: "Marque as três confirmações para assinar." };
+  function rpc(nome, corpo){
+    return fetch(config.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/" + nome, {
+      method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey }, body: JSON.stringify(corpo)
+    }).then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+  }
+  function conectado(){ return config && config.supabaseUrl && config.supabaseAnonKey; }
+  fetch("/api/config").then(function(r){ return r.ok ? r.json() : null; }).then(function(c){
+    config = c; if (!conectado()) return;
+    return rpc("situacao_termo_online", { p_termo: TERMO }).then(function(st){
+      situacao = st || null;
+      if (situacao && !situacao.aberto) fechado("Este contrato não está aberto para assinatura agora. Fale com o Kaue no WhatsApp.");
+      if (situacao && !situacao.exige_codigo) { $("#passo").hidden = true; botao.textContent = "Assinar o contrato"; }
+    }, function(e){ if (e && e.message === "404") fechado("A assinatura deste contrato abre em breve. Ficou alguma dúvida? Fale com o Kaue no WhatsApp."); });
+  }).catch(function(){});
+  function pedeCodigo(){ return !situacao || situacao.exige_codigo !== false; }
+  var NOMES = { essencial: "Essencial · R$ 500 por mês", gabinete: "Gabinete · R$ 790 por mês", completo: "Completo · R$ 1.290 por mês" };
+  var CAMPOS = { nome: "#nome", cpf: "#cpf", email: "#email", whatsapp: "#zap", endereco: "#endereco", codigo: "#codigo" };
+  var MSG = { nome: "Confira o nome completo.", cpf: "Confira o CPF.", email: "Confira o e-mail.", whatsapp: "Confira o WhatsApp, com DDD.", endereco: "Confira o endereço completo.", plano: "Escolha o plano de manutenção.",
+    declaracoes: "Marque as três confirmações para assinar.", codigo: "Digite os 6 números do código que chegou no seu e-mail." };
+  var ERROS_DO_CODIGO = {
+    espera: "Espere um minuto para pedir outro código.",
+    limite: "Muitos códigos pedidos seguidos. Tente de novo mais tarde ou fale com o Kaue no WhatsApp.",
+    email: MSG.email,
+    desligado: "O envio do código está sendo ligado. Tente de novo em alguns minutos ou fale com o Kaue no WhatsApp.",
+    envio: "O e-mail não saiu agora. Tente de novo em instantes.",
+    fora: "Este contrato não está aberto para assinatura agora. Fale com o Kaue no WhatsApp."
+  };
+  function contagem(){
+    clearInterval(relogio); espera = 60; $("#reenviar").disabled = true;
+    relogio = setInterval(function(){
+      espera--; $("#esperar").textContent = espera > 0 ? "(pode pedir outro em " + espera + " s)" : "";
+      if (espera <= 0) { clearInterval(relogio); $("#reenviar").disabled = false; }
+    }, 1000);
+    $("#esperar").textContent = "(pode pedir outro em 60 s)";
+  }
+  function enviarCodigo(email){
+    ocupado = true; botao.disabled = true; botao.textContent = "Enviando o código…";
+    return fetch(config.supabaseUrl.replace(/\/$/, "") + "/functions/v1/termo-codigo", {
+      method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey }, body: JSON.stringify({ termo: TERMO, email: email })
+    }).then(function(r){ return r.json().catch(function(){ return {}; }); }).then(function(res){
+      ocupado = false; botao.disabled = false;
+      if (!res || !res.ok) { rotulo(); var c = res && res.erro; return mostraErro(ERROS_DO_CODIGO[c] || "Não deu para mandar o código agora. Tente de novo em instantes.", c === "email" ? $("#email") : null); }
+      codigoPara = email; rotulo();
+      $("#avisoCodigo").textContent = "Mandamos um código de 6 números para " + email + ". Ele vale por 15 minutos. Não chegou? Veja também o spam.";
+      $("#caixaCodigo").hidden = false; $("#passo").hidden = true; contagem();
+      $("#codigo").value = ""; $("#codigo").focus();
+    }).catch(function(){ ocupado = false; botao.disabled = false; rotulo(); mostraErro("Não deu para mandar o código agora. Confira a internet e tente de novo."); });
+  }
+  $("#reenviar").addEventListener("click", function(){ limpa(); if (codigoPara && conectado()) enviarCodigo(codigoPara); });
+  function coletar(){
+    return { nome: $("#nome").value.trim().replace(/\s+/g, " "), cpf: so($("#cpf").value), email: $("#email").value.trim().toLowerCase(), whatsapp: so($("#zap").value), endereco: $("#endereco").value.trim(),
+      plano: (form.querySelector("input[name=plano]:checked") || {}).value || "", declaracoes: { li: $("#li").checked, recursos: $("#recursos").checked, privacidade: $("#privacidade").checked } };
+  }
   form.addEventListener("submit", function(e){
     e.preventDefault(); limpa();
-    if (pendente) return;
-    var dados = { nome: $("#nome").value.trim().replace(/\s+/g, " "), cpf: so($("#cpf").value), email: $("#email").value.trim(), whatsapp: so($("#zap").value), endereco: $("#endereco").value.trim(),
-      plano: (form.querySelector("input[name=plano]:checked") || {}).value || "", declaracoes: { li: $("#li").checked, recursos: $("#recursos").checked, privacidade: $("#privacidade").checked } };
+    if (botao.disabled || ocupado) return;
+    var dados = coletar();
     if (dados.nome.length < 5 || !/\S+\s+\S+/.test(dados.nome)) return mostraErro(MSG.nome, $("#nome"));
     if (!cpfValido(dados.cpf)) return mostraErro(MSG.cpf, $("#cpf"));
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(dados.email)) return mostraErro(MSG.email, $("#email"));
@@ -442,27 +515,34 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     if (dados.endereco.length < 10) return mostraErro(MSG.endereco, $("#endereco"));
     if (!dados.plano) return mostraErro(MSG.plano);
     if (!dados.declaracoes.li || !dados.declaracoes.recursos || !dados.declaracoes.privacidade) return mostraErro(MSG.declaracoes);
-    if (!impressao || !config || !config.supabaseUrl || !config.supabaseAnonKey) return mostraErro("Não deu para conectar agora. Tente de novo em instantes ou fale com o Kaue no WhatsApp.");
-    botao.disabled = true; botao.textContent = "Assinando…";
-    fetch(config.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/aceitar_termo_online", {
-      method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey },
-      body: JSON.stringify({ p_termo: TERMO, p_impressao: impressao, p_dados: dados })
-    }).then(function(r){ return r.json(); }).then(function(res){
-      botao.disabled = false; botao.textContent = "Assinar o contrato";
+    if (!impressao || !conectado()) return mostraErro("Não deu para conectar agora. Tente de novo em instantes ou fale com o Kaue no WhatsApp.");
+    if (pedeCodigo()) {
+      if (codigoPara !== dados.email) return enviarCodigo(dados.email);
+      dados.codigo = so($("#codigo").value);
+      if (dados.codigo.length !== 6) return mostraErro(MSG.codigo, $("#codigo"));
+    }
+    ocupado = true; botao.disabled = true; botao.textContent = "Assinando…";
+    rpc("aceitar_termo_online", { p_termo: TERMO, p_impressao: impressao, p_dados: dados }).then(function(res){
+      ocupado = false; botao.disabled = false; rotulo(); if (!pedeCodigo()) botao.textContent = "Assinar o contrato";
       if (!res || !res.ok) {
         var c = res && res.erro;
         if (c === "dados") return mostraErro(MSG[res.campo] || "Confira os dados.", CAMPOS[res.campo] ? $(CAMPOS[res.campo]) : null);
+        if (c === "codigo") return mostraErro("Esse código não confere. Confira o último e-mail que chegou e digite de novo.", $("#codigo"));
+        if (c === "codigo_vencido") return mostraErro("O código venceu ou foi trocado por um novo. Toque em “Reenviar o código”.", $("#codigo"));
+        if (c === "codigo_bloqueado") return mostraErro("Muitas tentativas com esse código. Toque em “Reenviar o código” para receber outro.", $("#codigo"));
         if (c === "mudou") return mostraErro("O contrato foi atualizado enquanto a página estava aberta. Recarregue a página e leia de novo antes de assinar.");
         if (c === "limite") return mostraErro("Muitas tentativas seguidas. Espere um pouco ou fale com o Kaue no WhatsApp.");
-        return mostraErro("Este contrato não está aberto para assinatura. Fale com o Kaue no WhatsApp.");
+        return mostraErro("Este contrato não está aberto para assinatura agora. Fale com o Kaue no WhatsApp.");
       }
+      clearInterval(relogio);
       var quando = new Date(res.em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
       $("#cProt").textContent = res.protocolo; $("#cData").textContent = quando; $("#cNome").textContent = dados.nome;
+      $("#cEmail").textContent = dados.email + (res.email_confirmado ? " (confirmado pelo código)" : "");
       $("#cPlano").textContent = NOMES[dados.plano]; $("#cIp").textContent = res.ip || "não informado"; $("#cHash").textContent = impressao;
       var msg = "Olá, Kaue! Assinei o contrato do Gabinete Aberto. Protocolo " + res.protocolo + ", plano " + NOMES[dados.plano] + ".";
       $("#avisar").href = "https://wa.me/5511988697165?text=" + encodeURIComponent(msg);
       form.style.display = "none"; $("#feito").classList.add("ver"); $("#feito").scrollIntoView({ block: "center" });
-    }).catch(function(){ botao.disabled = false; botao.textContent = "Assinar o contrato"; mostraErro("Não deu para enviar agora. Confira a internet e tente de novo."); });
+    }).catch(function(){ ocupado = false; botao.disabled = false; rotulo(); mostraErro("Não deu para enviar agora. Confira a internet e tente de novo."); });
   });
   $("#imprimir").addEventListener("click", function(){ window.print(); });
 })();

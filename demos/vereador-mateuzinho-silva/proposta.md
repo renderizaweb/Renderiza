@@ -159,3 +159,62 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 2. Cortes ou acréscimos na lista da opção B.
 3. Os valores da A e da B.
 4. Se a rede de apoiadores entra em algum momento.
+
+## Proposta, contrato e assinatura (14/11/2026)
+
+- **Páginas:** `propostas/vereador-mateuzinho-silva.html` (/proposta/vereador-mateuzinho-silva) e
+  `contratos/vereador-mateuzinho-silva.html` (/contrato/vereador-mateuzinho-silva). Os "Quero seguir" da proposta levam
+  ao contrato. As duas contam visita no card do lead (`data-sub` "proposta" e "contrato").
+- **Condições combinadas com o Kaue:**
+  - R$ 3.300 (60 h a R$ 55; tabela R$ 75, ou R$ 4.500);
+  - nada a pagar nos primeiros 15 dias; 40% (R$ 1.320) no 15º dia, com a prévia (Fase 1) já enviada;
+  - 60% (R$ 1.980) até o dia útil seguinte à validação da entrega final; o vereador valida em até 1 dia útil, e o
+    silêncio vale como validação;
+  - entrega final em até 25 dias úteis (cerca de 5 semanas);
+  - garantia de 90 dias só para defeitos (erros de funcionamento), não para melhorias;
+  - desistência sem custo nos 7 primeiros dias (Código de Defesa do Consumidor, art. 49: contrato fechado pela internet);
+  - planos: Essencial R$ 500 (o mínimo), Gabinete R$ 790 (recomendado) e Completo R$ 1.290. A hospedagem, o banco e os
+    e-mails ficam por conta da Renderiza.
+- **Dados da Renderiza no contrato:** Kaue de Almeida Cunha. Na página, o CPF aparece mascarado (***.406.148-**) e o
+  endereço só como "São Paulo/SP", porque a página é aberta a quem tiver o link. O número completo e o endereço vão na
+  cópia enviada ao vereador.
+- **"Mandato":** é o período do cargo (2025 a 2028). "Site do mandato" é o site oficial do vereador no cargo, diferente
+  de um site de campanha, que tem regras próprias.
+
+### Como a assinatura funciona
+
+- **Banco:** projeto do Supabase da prospecção, `supabase/termos-online.sql`.
+- **Termo:** `vereador-mateuzinho-silva-v1` guarda o texto do contrato e a impressão SHA-256 dele (texto de `#contrato`,
+  espaços juntados). A página só assina se a impressão for a mesma. Mudou o texto: criar o termo v2 e trocar `TERMO`
+  na página.
+- **Código por e-mail:**
+  - a função de borda `termo-codigo` (`supabase/functions/termo-codigo`) sorteia 6 números, guarda só o hash e manda
+    pelo Brevo, de nao-responda@renderizaweb.com.br;
+  - o banco confere o código na assinatura: vale 15 minutos e 5 tentativas, e só o último pedido vale;
+  - limites: um código por minuto e 3 por hora para o mesmo e-mail, 6 por hora para o mesmo IP;
+  - precisa da chave `BREVO_API_KEY` em Edge Functions → Secrets desse projeto;
+  - `exige_codigo` no termo liga ou desliga esse passo.
+- **O que fica registrado:**
+  - nome, CPF, e-mail (e se foi confirmado), WhatsApp, endereço e plano;
+  - as três declarações;
+  - o IP e o aparelho, lidos dos cabeçalhos dentro do banco;
+  - a data e a impressão;
+  - um passo "Assinou o contrato online" na Atividade do lead.
+- **Para apagar um teste:** apagar a linha de `termos_aceites` e o passo `contrato-assinado` em `visitas` do lead.
+
+### Compromissos de segurança do contrato (Anexo II): conferir na implantação
+
+1. HTTPS em tudo.
+2. Projeto do Supabase exclusivo do mandato, em São Paulo.
+3. Login individual, com verificação em duas etapas para toda a equipe.
+4. Perfis de acesso com RLS em todas as tabelas.
+5. Registro de quem criou, alterou ou excluiu cada coisa; registros de acesso guardados por 6 meses.
+6. Cópia diária guardada por 7 dias, mais uma semanal guardada à parte.
+7. Formulário público com proteção contra robôs (Turnstile) e limite de envios.
+8. Página do pedido só pelo link ou pelo número com confirmação.
+9. O site público nunca mostra nome, telefone ou endereço de quem pediu.
+10. Atualizações de segurança, monitoramento e revisão de segurança antes de cada entrega.
+11. Domínio com duas etapas e bloqueio de transferência.
+12. Acesso da Renderiza só com duas etapas e só pelo tempo necessário.
+13. A IA nunca recebe nome, telefone, e-mail ou endereço de morador.
+14. Avisar o vereador de incidente em até 2 dias úteis.
