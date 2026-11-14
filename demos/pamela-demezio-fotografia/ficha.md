@@ -4,44 +4,37 @@
 |---|---|
 | Onde | Av. Otávio Braga de Mesquita, 1773 - Vila Florida - Vila Barros, Guarulhos - SP, 07191-000 |
 | Instagram | [@pamelademeziofotografia](https://www.instagram.com/pamelademeziofotografia/) · 10,8 mil seguidores |
-| Google | nota 5,0 · 22 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 22 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 96739-6569 · celular do Perfil da Empresa no Google (+55 11 96739-6569) |
-| Horário | não confirmado |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/pamela-demezio-fotografia` e `/demo/pamela-demezio-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `gestante`, `infantil`, `familia`, `retratos`). Sai de `ferramentas/demo/gerar-portfolio.py demos/pamela-demezio-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/pamela-demezio-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 19, 73 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; as legendas recentes são curtas ("Delícias de Natal 🎄"), então os textos vêm das fotos e das avaliações.
-- Dona: Pamela Demezio. Sem foto dela confirmada (o perfil mostra a dona e a filha): o "quem fotografa" usa a foto de mãe e filha, sem dizer que é ela.
-- Personalidade: cenários coloridos (bambuzal, praia, chá revelação, Páscoa) e o Natal "Delícias de Natal", com biscoitos e receitas. Na demo: abertura em arcos, Gelasio, "fotografia" em Parisienne, framboesa e rosa, ♡ entre as especialidades.
-- Sem logo em boa resolução: monograma PD e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos. Dona: Pamela Demezio. Estúdio na Vila Barros, em Guarulhos, e ensaios ao ar livre; tom claro, Gelasio e Nunito Sans, vermelho.
+- Na v4 entrou a página Retratos e negócios (o post "O poder da imagem para o seu negócio" e os retratos de manicure, em 3072 px) e o newborn entrou junto do infantil.
 
-## O que tem na demo
-- Site: abertura (Natal 2026, gestante e smash), portfólio em 3 abas (Natal e infantil, 10; Gestante e casal, 11; Família, 8), a Pamela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Delícias de Natal": o especial (fotos de 2026 do feed), a agenda de exemplo (6 dias, de 14/11 a 05/12, das 9h às 15h30; o Google não mostra horário) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Um ensaio leve, divertido e cheio de carinho.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal 2026 (10 fotos, sem depoimento); Gestante (16 fotos, depoimento de Roseane Ferraz); Infantil e smash (15 fotos, depoimento de Jaine Santos); Família (9 fotos, depoimento de Steffany Santos); Retratos e negócios (8 fotos, sem depoimento).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de Natal de out/nov 2026 (cozinha de Natal e irmãs sob a árvore), as fotos da página salva no Drive (1440 px) e 7 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), os ensaios femininos e corporativos (metade do perfil) e as gestantes de lingerie.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 58 fotos: 36 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 17 dos carrosséis lidos pelo embed público (De7yb8OEU_1, Dezvod_D00Z, DfQKZesj_X2, Dff0zUVkVHQ) e 5 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: o ensaio de aniversário de uma amiga (post pessoal), o casamento (vídeo), o nu com tecido, as fotos repetidas em tamanho menor e as capas de vídeo.
 
-## Textos e fontes
-- Posts: "E está lançando nosso especial de Natal 2026" e "Natal 2026" (22/10), "Delícias de Natal" (02/11), "A primeira impressão importa..." (25/10). A citação da página de Natal é de uma avaliação do Google (Roseane Ferraz), com o nome dela.
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "Delícias de Natal", "E está lançando nosso especial de Natal 2026", "O poder da imagem para o seu negócio! A primeira impressão importa…".
+- Avaliações (lidas inteiras em 13/11): Roseane Ferraz (gestante), Jaine Santos (bebê) e Steffany Santos (bebê) nas páginas desses ensaios; o Natal e os Retratos sem depoimento.
+- Não são dela: os pacotes e valores (exemplos), inclusive os de Retratos, e o "quando fazer" de gestante.
 
-## Conferir antes de mandar
-- Google sem horário de funcionamento: a agenda é exemplo (dito na página).
-- Metade dos posts dela é ensaio feminino ou corporativo; a demo foca no infantil, na família e no Natal.
-- Fotos de crianças, gestantes e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- Sem foto dela confirmada: o "quem fotografa" usa a foto de mãe e filha, sem dizer que é ela (como na v3).
+- As fotos da grade salva são de 1080 px; as do Natal 2026 e dos retratos, de 3072 px.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `gestante:0`.
-- `natal`: Natal 2026 (fotos natal:1,0,3, pn:0, natal:4,2); a partir de R$ 280; depoimento: Aryane Ribeiro
-- `gestante`: Gestante (fotos gestante:4,0,2,5,3,1,6,8,9); a partir de R$ 400; depoimento: Roseane Ferraz
-- `infantil`: Infantil e smash (fotos familia:5, natal:5,7,6,9, pn:2); a partir de R$ 300; depoimento: Jaine Santos
-- `familia`: Família (fotos familia:0,2,3, pn:3, familia:7); a partir de R$ 320; depoimento: Steffany Santos
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/pamela-demezio-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/pamela-demezio-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/pamela-demezio-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> pamela-demezio-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

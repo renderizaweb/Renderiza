@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Otávio Braga de Mesquita, 1773 - Vila Florida - Vila Barros, Guarulhos - SP, 07191-000",
  "google_nota": "5,0",
  "google_total": "22",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511967396569",
  "fone_link": "+5511967396569",
  "instagram": "pamelademeziofotografia",
  "seguidores": "10,8 mil",
- "mensagem": "Olá, Pamela! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Pamela e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fffaf8",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "9utd",
-  "msg_duvida": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Pamela, da Pamela Demezio Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -678,25 +678,157 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Fotografia · Vila Barros, Guarulhos",
+  "titulo": "Um ensaio leve, divertido e cheio de carinho.",
+  "linha": "Natal 2026, gestantes, crianças, famílias e retratos, no estúdio e ao ar livre.",
   "local": "Guarulhos",
-  "h1": "Natal, gestantes, crianças e famílias em Guarulhos.",
-  "frase": "Um ensaio leve, divertido e cheio de carinho.",
-  "tom": "claro",
-  "capa": "gestante:0",
+  "tira": [
+   "natal:0",
+   "gestante:0",
+   "infantil:0",
+   "familia:0",
+   "natal:1",
+   "gestante:1",
+   "retratos:0"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Roseane Ferraz",
+    "tag": "Gestante",
+    "texto": "Além das fotos que ficaram incríveis, a experiência de fotografar com você foi leve e divertida. Me senti super à vontade e o resultado ficou espetacular."
+   },
+   {
+    "nome": "Jaine Santos",
+    "tag": "Bebê",
+    "texto": "Excelente atendimento. A forma que ela falava com meu bebê foi algo impressionante: isso sim é trabalhar com amor. As fotos ficaram impecáveis."
+   },
+   {
+    "nome": "Steffany Santos",
+    "tag": "Bebê",
+    "texto": "Só tenho a agradecer pelo profissionalismo e carinho, desde o primeiro contato até o pós. A sessão foi incrível e bem relaxante para a minha bebê."
+   },
+   {
+    "nome": "Gabriela Leite",
+    "tag": "A Pamela",
+    "texto": "A Pamela não é somente uma fotógrafa, ela é um ser humano raro de encontrar. A simpatia, a garra e a humildade dela fazem dela uma pessoa encantadora."
+   }
+  ],
+  "contato": {
+   "titulo": "Vamos marcar o seu ensaio?",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Barros, em Guarulhos.",
+   "endereco": [
+    "Av. Otávio Braga de Mesquita, 1773",
+    "Vila Barros · Guarulhos, SP"
+   ],
+   "telefone": "(11) 96739-6569"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Pamela Demezio. Estúdio na Vila Barros, em Guarulhos, e ensaios ao ar livre; tom claro, Gelasio e Nunito Sans, vermelho.",
+    "Na v4 entrou a página Retratos e negócios (o post \"O poder da imagem para o seu negócio\" e os retratos de manicure, em 3072 px) e o newborn entrou junto do infantil."
+   ],
+   "fora": "o ensaio de aniversário de uma amiga (post pessoal), o casamento (vídeo), o nu com tecido, as fotos repetidas em tamanho menor e as capas de vídeo.",
+   "textos": [
+    "Dela: \"Delícias de Natal\", \"E está lançando nosso especial de Natal 2026\", \"O poder da imagem para o seu negócio! A primeira impressão importa…\".",
+    "Avaliações (lidas inteiras em 13/11): Roseane Ferraz (gestante), Jaine Santos (bebê) e Steffany Santos (bebê) nas páginas desses ensaios; o Natal e os Retratos sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos), inclusive os de Retratos, e o \"quando fazer\" de gestante."
+   ],
+   "conferir": [
+    "Sem foto dela confirmada: o \"quem fotografa\" usa a foto de mãe e filha, sem dizer que é ela (como na v3).",
+    "As fotos da grade salva são de 1080 px; as do Natal 2026 e dos retratos, de 3072 px."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Pamela, atrás da câmera.",
+   "p": [
+    "A Pamela Demezio fotografa crianças, gestantes, casais e famílias no estúdio da Vila Barros, em Guarulhos, e ao ar livre: no bambuzal, na praia, no campo.",
+    "Também faz retratos femininos e fotos para negócios."
+   ],
+   "citacao": "A primeira impressão importa, e muitas vezes ela acontece através de uma imagem.",
+   "citacao_quem": "Pamela Demezio, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/654086526_18096222320102734_2711875805762746994_n.webp",
+     "alt": "Mãe e filha abraçadas no estúdio"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 22 avaliações no Google"
+    ],
+    [
+     "10,8 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
-    "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:1,0,3",
-     "pn:0",
-     "natal:4,2"
+    "curto": "Natal",
+    "chamada": "Especial de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "Delícias de Natal.",
+    "texto": "Dois cenários no estúdio: a cozinha de Natal, com biscoitos e doces, e a árvore cheia de laços.",
+    "quando": "O especial de Natal 2026 já está no estúdio. Datas pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Delícias de Natal.",
-    "sub": "A cozinha de Natal, com biscoitos e receitas, e a árvore cheia de laços.",
-    "texto": "O especial de Natal 2026 já começou: um ensaio leve e divertido para as crianças e a família toda.",
+    "fotos": [
+     {
+      "arq": "posts/Dezvod_D00Z/Dezvod_D00Z_04.jpg",
+      "alt": "Mãe e filhas junto à árvore de Natal de laços"
+     },
+     {
+      "arq": "posts/DfQKZesj_X2/DfQKZesj_X2_01.jpg",
+      "alt": "Irmã com os biscoitos de Natal nos olhos"
+     },
+     {
+      "arq": "posts/Dezvod_D00Z/Dezvod_D00Z_01.jpg",
+      "alt": "Irmãs deitadas sob a árvore de Natal"
+     },
+     {
+      "arq": "posts/DfQKZesj_X2/DfQKZesj_X2_02.jpg",
+      "alt": "Irmãs provando o doce na cozinha de Natal"
+     },
+     {
+      "arq": "posts/Dezvod_D00Z/Dezvod_D00Z_02.jpg",
+      "alt": "Irmãs abraçadas junto à árvore"
+     },
+     {
+      "arq": "posts/DfQKZesj_X2/DfQKZesj_X2_03.jpg",
+      "alt": "Irmãs com os biscoitos na bancada de Natal"
+     },
+     {
+      "arq": "posts/Dezvod_D00Z/Dezvod_D00Z_00.jpg",
+      "alt": "Irmãs deitadas com as mãos no rosto"
+     },
+     {
+      "arq": "posts/DfQKZesj_X2/DfQKZesj_X2_04.jpg",
+      "alt": "Irmãs com os doces de Natal"
+     },
+     {
+      "arq": "posts/Dezvod_D00Z/Dezvod_D00Z_03.jpg",
+      "alt": "Mãe e filhas de rostos colados"
+     },
+     {
+      "arq": "posts/DfQKZesj_X2/DfQKZesj_X2_00.jpg",
+      "alt": "Menina com o biscoito no olho"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -726,20 +858,97 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Aryane Ribeiro"
+    ]
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:4,0,2,5,3,1,6,8,9"
+    "pedido": "o ensaio gestante",
+    "frase": "No bambuzal, na praia ou no estúdio.",
+    "texto": "Ao ar livre, no estúdio ou no chá revelação com a família. Sozinha ou com o parceiro e os filhos.",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Roseane Ferraz",
+     "texto": "Que fotos lindas, você arrasou demais! Além das fotos que ficaram incríveis, a experiência de fotografar com você foi leve e divertida. Me senti super à vontade e o resultado ficou espetacular. Super indicada e com certeza vou voltar."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "No bambuzal, na praia ou no estúdio.",
-    "sub": "E o chá revelação com a família, os balões e o ursinho.",
-    "texto": "Ensaios ao ar livre e no estúdio, com um cenário para cada momento da espera.",
+    "fotos": [
+     {
+      "arq": "drive/621881476_18085326563171236_5270509604394650050_n.webp",
+      "alt": "Gestante de vestido vermelho no bambuzal"
+     },
+     {
+      "arq": "drive/622364793_18114175903624331_3614438083086281940_n.webp",
+      "alt": "Gestante de rosa na poltrona"
+     },
+     {
+      "arq": "drive/619666659_18083631797517425_4928019796113293690_n.webp",
+      "alt": "Gestante de vermelho entre os bambus"
+     },
+     {
+      "arq": "drive/622503097_18103825414767800_6050095955978709299_n.webp",
+      "alt": "Casal no bambuzal, ela de vermelho"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Gestante com o guarda-chuva na ponte"
+     },
+     {
+      "arq": "drive/621449723_18128096254520670_6936801822944876981_n.webp",
+      "alt": "Gestante de vermelho sentada no jardim"
+     },
+     {
+      "arq": "drive/617353933_18037498451724900_3968655043236170044_n.webp",
+      "alt": "Gestante de rosa na escadaria"
+     },
+     {
+      "arq": "drive/622621013_18102960859837935_7265547426843426018_n.webp",
+      "alt": "Casal no ensaio gestante, em preto e branco"
+     },
+     {
+      "arq": "drive/621436936_18065107679267785_6284925147120844319_n.webp",
+      "alt": "Casal no fundo azul"
+     },
+     {
+      "arq": "drive/623203961_18061182443320036_2178454360609273195_n.webp",
+      "alt": "Gestante deitada no sofá"
+     },
+     {
+      "arq": "drive/622368565_18105964069838482_3457831776841048389_n.jpg",
+      "alt": "Família no chá revelação, ao pôr do sol"
+     },
+     {
+      "arq": "drive/623363219_18167859457395431_5080940432094841593_n.webp",
+      "alt": "Gestante de renda preta no fundo bege"
+     },
+     {
+      "arq": "drive/650646884_18114692731630382_5712481644000251955_n.webp",
+      "alt": "Gestante com o ursinho no chá revelação"
+     },
+     {
+      "arq": "drive/624621315_18196510138339994_4617142607560975855_n.webp",
+      "alt": "Gestante na escadinha branca"
+     },
+     {
+      "arq": "drive/619237293_18096116870498053_2799447167906430193_n.webp",
+      "alt": "A barriga com os sapatinhos do bebê"
+     },
+     {
+      "arq": "drive/641742951_18563530468038391_3954974347175272591_n.jpg",
+      "alt": "Família com a fumaça rosa no chá revelação"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -772,22 +981,93 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Roseane Ferraz"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil e smash",
-    "chamada": "Ensaio infantil",
-    "fotos": [
-     "familia:5",
-     "natal:5,7,6,9",
-     "pn:2"
+    "curto": "Infantil",
+    "chamada": "Ensaio infantil e smash the cake",
+    "pedido": "o ensaio infantil",
+    "frase": "Orelhinhas, coelhos e muito bolo.",
+    "texto": "Smash the cake, Páscoa e aniversários, com cenários coloridos. E o newborn dos primeiros dias.",
+    "depo": {
+     "nome": "Jaine Santos",
+     "texto": "Foi tudo incrível, excelente atendimento. A forma que ela falava com meu bebê foi algo impressionante: isso sim é trabalhar com amor. As fotos ficaram impecáveis e com certeza farei muitos ensaios com a Pamela."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Orelhinhas, coelhos e muito bolo.",
-    "sub": "Smash the cake, Páscoa e aniversários, com cenários coloridos.",
-    "texto": "Banheira, bolo e muita bagunça no primeiro ano: cenários montados para cada data.",
+    "fotos": [
+     {
+      "arq": "drive/669682303_18338253442174819_5025267227232110827_n.webp",
+      "alt": "Bebê com o bolo no tema Monstros S.A."
+     },
+     {
+      "arq": "drive/618513227_17996413706727654_3267404898462364955_n.webp",
+      "alt": "Menina de orelhinhas de coelho na Páscoa"
+     },
+     {
+      "arq": "drive/651238147_18087928406189695_4433633407187697558_n.webp",
+      "alt": "Bebê no smash rosa"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Bebê no banho do smash, no tema Pooh"
+     },
+     {
+      "arq": "drive/661644448_18366818095205035_8628725093950960366_n.webp",
+      "alt": "Bebê sorrindo no tema Monstros S.A."
+     },
+     {
+      "arq": "drive/628012062_18337177786208753_1896664126268582113_n.webp",
+      "alt": "Menina sentada no cenário de Páscoa"
+     },
+     {
+      "arq": "drive/651707842_18124700803509762_6355391994264085653_n.webp",
+      "alt": "Bebê fazendo careta na banheira"
+     },
+     {
+      "arq": "drive/624482819_18070039331423123_5626832702571856599_n.webp",
+      "alt": "Bebê no cenário de Páscoa"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Bebê deitado sorrindo, no fundo branco"
+     },
+     {
+      "arq": "drive/625372558_18119512600513041_2142830342380034285_n.webp",
+      "alt": "Gêmeos recém-nascidos dormindo"
+     },
+     {
+      "arq": "drive/623683666_18133903084498142_3958654132997391068_n.webp",
+      "alt": "Recém-nascido dormindo com o ursinho"
+     },
+     {
+      "arq": "drive/621836156_18102245257871098_2043108790563769650_n.webp",
+      "alt": "Recém-nascida no carrinho com flores"
+     },
+     {
+      "arq": "drive/620804447_18089653181048245_2087626322130224686_n.webp",
+      "alt": "Recém-nascida com o ursinho"
+     },
+     {
+      "arq": "drive/624297033_18081922634182492_4259920977496073692_n.webp",
+      "alt": "Recém-nascido enrolado na manta azul"
+     },
+     {
+      "arq": "drive/622485048_18050374850481391_2985946876821066154_n.webp",
+      "alt": "Irmão com a recém-nascida no carrinho"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -819,21 +1099,67 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Jaine Santos"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,2,3",
-     "pn:3",
-     "familia:7"
+    "pedido": "o ensaio de família",
+    "frase": "Do jeito que a família é.",
+    "texto": "Mães, filhos, casais e até os cachorros, no estúdio ou ao ar livre.",
+    "depo": {
+     "nome": "Steffany Santos",
+     "texto": "Só tenho a agradecer pelo profissionalismo e carinho, desde o primeiro contato, ao dia do ensaio e o pós. A sessão foi incrível e bem relaxante para a minha bebê, e as fotos ficaram maravilhosas."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
     ],
-    "titulo": "Do jeito que a família é.",
-    "sub": "Mães, filhos, casais e até os cachorros, no estúdio ou ao ar livre.",
-    "texto": "Um ensaio leve, divertido e cheio de carinho, para guardar a família como ela é agora.",
+    "fotos": [
+     {
+      "arq": "drive/622606613_18076383629362339_1859074906555354573_n.webp",
+      "alt": "Mãe e filha de rostos colados"
+     },
+     {
+      "arq": "drive/655130182_18092507707883829_7567434871821805295_n.webp",
+      "alt": "Mãe erguendo a filha de cabeça para baixo"
+     },
+     {
+      "arq": "drive/621661941_18076052639582539_7404191388373848337_n.webp",
+      "alt": "Pais beijando a bebê"
+     },
+     {
+      "arq": "drive/652755674_18087276233232542_1735137245475461856_n.webp",
+      "alt": "Mãe com o bebê e os cachorros"
+     },
+     {
+      "arq": "drive/652771414_18096217364069286_8277282574211609607_n.webp",
+      "alt": "Mãe e filho abraçados"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Família no piquenique entre os girassóis"
+     },
+     {
+      "arq": "drive/625049761_18115757395612187_1214795145739176803_n.webp",
+      "alt": "Casal dançando na praia"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Casal deitado no mar"
+     },
+     {
+      "arq": "drive/654086526_18096222320102734_2711875805762746994_n.webp",
+      "alt": "Mãe e filha abraçadas no estúdio"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -863,8 +1189,91 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "retratos",
+    "nome": "Retratos e negócios",
+    "curto": "Retratos",
+    "chamada": "Retratos e fotos para negócios",
+    "pedido": "o ensaio de retratos",
+    "frase": "O poder da imagem para o seu negócio.",
+    "texto": "Retratos no estúdio, para você ou para a sua marca: fundo escuro, cinza ou colorido.",
+    "citacao": "Uma boa fotografia vai muito além de mostrar um produto ou serviço: ela transmite confiança, valoriza sua marca e cria conexões com seus clientes.",
+    "citacao_quem": "Pamela Demezio, no Instagram",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "depo": "Steffany Santos"
+    "fotos": [
+     {
+      "arq": "posts/De7yb8OEU_1/De7yb8OEU_1_02.jpg",
+      "alt": "Retrato de blusa preta no fundo cinza"
+     },
+     {
+      "arq": "posts/Dff0zUVkVHQ/Dff0zUVkVHQ_00.jpg",
+      "alt": "Retrato com a mão no rosto, no fundo cinza"
+     },
+     {
+      "arq": "posts/De7yb8OEU_1/De7yb8OEU_1_03.jpg",
+      "alt": "Retrato com as mãos cruzadas"
+     },
+     {
+      "arq": "posts/De7yb8OEU_1/De7yb8OEU_1_00.jpg",
+      "alt": "Retrato sentada no banco alto"
+     },
+     {
+      "arq": "posts/Dff0zUVkVHQ/Dff0zUVkVHQ_01.jpg",
+      "alt": "Retrato com os esmaltes"
+     },
+     {
+      "arq": "posts/Dff0zUVkVHQ/Dff0zUVkVHQ_02.jpg",
+      "alt": "Retrato com o motor de unha"
+     },
+     {
+      "arq": "posts/De7yb8OEU_1/De7yb8OEU_1_01.jpg",
+      "alt": "Retrato de corpo inteiro no fundo cinza"
+     },
+     {
+      "arq": "drive/660422211_18603164614021228_9203361252017324659_n.webp",
+      "alt": "Retrato na loja de esmaltes"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "30 minutos de ensaio",
+       "10 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "20 fotos editadas",
+       "2 looks"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Para a marca",
+      "preco": "R$ 650",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "Fotos com os produtos"
+      ]
+     }
+    ]
    }
   ]
  }
