@@ -1039,3 +1039,6 @@ begin
   end if;
 end;
 $$;
+
+-- Termos online (14/11/2026): contrato aceito pela internet por um lead (/contrato/<pasta>). As tabelas
+-- termos_online e termos_aceites e a função aceitar_termo_online estão em supabase/termos-online.sql.

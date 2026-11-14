@@ -153,6 +153,10 @@ export function arquivosPublicados() {
   // quando a demo vence. Cada uma traz o próprio contador (data-sub="proposta") e o noindex.
   const propostas = join(RAIZ, "propostas");
   if (existsSync(propostas)) for (const f of readdirSync(propostas)) if (f.endsWith(".html")) lista.push([join("proposta", f), join(propostas, f)]);
+  // Contratos para assinar online (contratos/<lead>.html → /contrato/<lead>): o aceite grava no Supabase pela função
+  // aceitar_termo_online (supabase/termos-online.sql), com a impressão digital do texto, o IP e o aparelho.
+  const contratos = join(RAIZ, "contratos");
+  if (existsSync(contratos)) for (const f of readdirSync(contratos)) if (f.endsWith(".html")) lista.push([join("contrato", f), join(contratos, f)]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);
