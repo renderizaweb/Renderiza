@@ -138,3 +138,104 @@ export function maisVendidos(reservas) {
   }
   return [...grupos.values()].sort((x, y) => y.total - x.total);
 }
+
+// ---------- registrar pagamento e nova parcela: o que é e o valor sugerido ----------
+
+/** O "O que é" da parcela: uma lista, com "Outro" para escrever. O que se escolhe vira a descrição. */
+export const TIPOS_DE_PARCELA = ["Sinal", "Restante", "Pagamento total", "Parcela"];
+export const OUTRO = "Outro";
+
+/** As opções do "O que é": os tipos, mais a descrição que já existe (ao editar "Parcela 2/6") e "Outro". */
+export function opcoesDoQueE(atual) {
+  const lista = [...TIPOS_DE_PARCELA];
+  if (atual && !lista.includes(atual)) lista.unshift(atual);
+  return [...lista, OUTRO];
+}
+
+const centavos = v => Math.round(Number(v || 0) * 100) / 100;
+
+/**
+ * O dinheiro de uma reserva para o formulário: o total (os valores da reserva; sem eles, o valor do pacote ou ensaio
+ * em Serviços), o sinal, quanto já entrou, quanto já tem parcela e as parcelas abertas. `valores` é a linha de
+ * reservas_valores (ou lista, como o banco entrega), `servico` o de Serviços, `parcelas` as dessa reserva.
+ */
+export function dinheiroDaReserva({ valores, servico, parcelas = [] }) {
+  const v = Array.isArray(valores) ? valores[0] : valores;
+  const doServico = !v && servico && servico.valor != null;
+  const total = v ? centavos(Number(v.valor_total || 0) - Number(v.desconto || 0)) : doServico ? centavos(servico.valor) : null;
+  const sinal = v ? (v.sinal != null ? centavos(v.sinal) : null) : servico && servico.sinal != null ? centavos(servico.sinal) : null;
+  const pagas = parcelas.filter(p => p.pago_em);
+  return {
+    total, sinal, doServico,
+    recebido: centavos(pagas.reduce((t, p) => t + Number(p.valor || 0), 0)),
+    lancado: centavos(parcelas.reduce((t, p) => t + Number(p.valor || 0), 0)),
+    pagas, abertas: parcelas.filter(p => !p.pago_em).sort((a, b) => a.vence_em.localeCompare(b.vence_em)),
+  };
+}
+
+/**
+ * A sugestão do formulário: o tipo, o valor e uma frase curta do porquê. Registrar pagamento (`jaRecebido`) olha o
+ * que já entrou (sinal pago: sugere o restante); nova parcela olha o que já tem parcela. Sem total: sem sugestão.
+ * `nome` é o do pacote ou ensaio ("Newborn").
+ */
+export function sugestaoDoValor(d, { jaRecebido = false, nome = "" } = {}) {
+  if (!d || !(d.total > 0)) return null;
+  const de = `${nome ? `${nome}: ` : ""}${moeda(d.total)}${d.doServico ? " (valor em Serviços)" : ""}`;
+  const quais = lista => (lista.length && lista.length <= 2 ? ` (${lista.map(p => p.descricao).join(" e ")})` : "");
+  const base = jaRecebido ? d.recebido : d.lancado;
+  const falta = centavos(d.total - base);
+  const porTipo = { "Pagamento total": d.total, Restante: falta > 0 ? falta : null, Sinal: d.sinal > 0 && d.sinal < d.total ? d.sinal : null };
+  if (falta <= 0) {
+    return { tipo: jaRecebido ? "Pagamento total" : "Parcela", valor: null, porTipo,
+      texto: jaRecebido ? `${de}. Já entrou tudo${quais(d.pagas)}.` : `${de}. As parcelas já somam o total.` };
+  }
+  if (base > 0) {
+    return { tipo: "Restante", valor: falta, porTipo,
+      texto: jaRecebido ? `${de}. Já entrou ${moeda(d.recebido)}${quais(d.pagas)}: falta ${moeda(falta)}.` : `${de}. Já tem ${moeda(d.lancado)} em parcelas: faltam ${moeda(falta)}.` };
+  }
+  if (porTipo.Sinal) return { tipo: "Sinal", valor: d.sinal, porTipo, texto: `${de}, com sinal de ${moeda(d.sinal)}. Nada ${jaRecebido ? "entrou" : "lançado"} ainda.` };
+  return { tipo: "Pagamento total", valor: d.total, porTipo, texto: `${de}. Nada ${jaRecebido ? "entrou" : "lançado"} ainda.` };
+}
+
+// ---------- filtros: período, cliente e forma ----------
+
+const NOMES_DOS_MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const nomeDoMesLongo = m => `${NOMES_DOS_MESES[Number(m.slice(5, 7)) - 1]} de ${m.slice(0, 4)}`;
+/** A data que conta para o período: quando entrou (recebida) ou quando vence (a receber). */
+export const dataDaParcela = p => p.pago_em || p.vence_em;
+
+export const PERIODO_PADRAO = "30d";
+
+/** As opções de período: os atalhos e os meses que têm parcela (do mais novo ao mais antigo), e "Tudo". */
+export function periodos(parcelas, hoje) {
+  const atual = mesDe(hoje);
+  const meses = [...new Set(parcelas.map(p => mesDe(dataDaParcela(p))).concat(atual))].sort().reverse();
+  return [
+    { valor: "30d", rotulo: "Últimos 30 dias" },
+    { valor: "prox30", rotulo: "Próximos 30 dias" },
+    ...meses.map(m => ({ valor: "mes:" + m, rotulo: (m === atual ? "Este mês · " : "") + nomeDoMesLongo(m) })),
+    { valor: "tudo", rotulo: "Tudo" },
+  ];
+}
+
+/** A parcela está no período? Recebida: pela data em que entrou; a receber: pelo vencimento. */
+export function noPeriodo(p, periodo, hoje) {
+  const d = dataDaParcela(p);
+  if (!periodo || periodo === "tudo") return true;
+  if (periodo === "30d") return d >= somarDias(hoje, -30) && d <= hoje;
+  if (periodo === "prox30") return d >= hoje && d <= somarDias(hoje, 30);
+  if (periodo.startsWith("mes:")) return mesDe(d) === periodo.slice(4);
+  return true;
+}
+
+/** O recorte antes dos chips: período, cliente e forma de pagamento (forma só vale para as recebidas). */
+export function recortar(parcelas, { periodo = PERIODO_PADRAO, cliente = null, forma = null, hoje }) {
+  return parcelas.filter(p => noPeriodo(p, periodo, hoje) && (!cliente || p.cliente_id === cliente) && (!forma || (p.pago_em && p.forma === forma)));
+}
+
+/** Os clientes que têm parcela, pelo nome, para o filtro. */
+export function clientesDasParcelas(parcelas) {
+  const vistos = new Map();
+  for (const p of parcelas) if (p.cliente_id && !vistos.has(p.cliente_id)) vistos.set(p.cliente_id, (p.clientes && p.clientes.nome) || "Cliente");
+  return [...vistos].map(([id, nome]) => ({ id, nome })).sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+}

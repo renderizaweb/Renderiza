@@ -11,7 +11,7 @@ import { escapar, ocupado } from "../../ui/formulario.js";
 import { campoTexto, campoSelecao, campoArea, interruptor, lerFormulario } from "../../ui/campos.js";
 import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso, lerValor } from "../../ui/formatos.js";
 import { nicho } from "../../nichos/index.js";
-import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora } from "../logica.js";
+import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora, INCLUIDOS } from "../logica.js";
 import { abrirPagamento } from "../pagamentos/pagamento.js";
 import { entrarParaAjudar, exportarAPedido } from "../suporte.js";
 import { usuarioDoEmail } from "../../sessao.js";
@@ -97,7 +97,7 @@ export async function abrirConta(c, ctx) {
 
         <section class="rz-pilha-p"><h3 class="rz-titulo-3">Módulos</h3>
           <p class="rz-texto-3">Ligou ou desligou, vale na hora. No plano: 2 módulos; cada um a mais entra na mensalidade seguinte.</p>
-          <form class="rz-pilha-p" data-modulos>${catalogo.map(m => interruptor({ nome: m.id, rotulo: n.modulos[m.id] ? n.modulos[m.id].nome : m.nome, ajuda: m.liberado_no_teste ? "" : "só pago: bloqueado no teste", marcado: c.ligados.includes(m.id) })).join("")}</form>
+          <form class="rz-pilha-p" data-modulos>${catalogo.map(m => interruptor({ nome: m.id, rotulo: n.modulos[m.id] ? n.modulos[m.id].nome : m.nome, ajuda: INCLUIDOS.includes(m.id) ? "vem em todo plano (desligar só para desconectar o site)" : m.liberado_no_teste ? "" : "só pago: bloqueado no teste", marcado: c.ligados.includes(m.id) })).join("")}</form>
         </section>
 
         <section class="rz-pilha-p"><h3 class="rz-titulo-3">Pessoas</h3>

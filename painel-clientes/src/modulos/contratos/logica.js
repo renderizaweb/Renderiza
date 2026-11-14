@@ -147,3 +147,53 @@ export function filtrarContratos(contratos, { grupo = "enviado", busca = "", ago
   }
   return lista.sort((a, b) => Date.parse(b.atualizado_em || b.criado_em) - Date.parse(a.atualizado_em || a.criado_em));
 }
+
+// ---------- filtros: período e cliente ----------
+
+const MESES_LONGOS = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const mesDoInstante = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`; };
+/** A data que conta para o período: a da festa ou ensaio; contrato sem reserva, quando foi feito. */
+export const dataDoContrato = c => (c.reservas && c.reservas.inicio) || c.criado_em;
+
+/** As opções de período: os atalhos e os meses das festas ou ensaios que têm contrato, e "Todas as datas". */
+export function periodosDosContratos(contratos, agora = Date.now()) {
+  const atual = mesDoInstante(agora);
+  const meses = [...new Set(contratos.map(c => mesDoInstante(dataDoContrato(c))).concat(atual))].sort();
+  return [
+    { valor: "", rotulo: "Todas as datas" },
+    { valor: "prox30", rotulo: "Próximos 30 dias" },
+    { valor: "ult30", rotulo: "Últimos 30 dias" },
+    ...meses.map(m => ({ valor: "mes:" + m, rotulo: `${m === atual ? "Este mês · " : ""}${MESES_LONGOS[Number(m.slice(5, 7)) - 1]} de ${m.slice(0, 4)}` })),
+  ];
+}
+
+/** O instante (festa, ensaio ou contrato) está no período? */
+export function noPeriodoDoContrato(instante, periodo, agora = Date.now()) {
+  if (!periodo) return true;
+  const t = Date.parse(instante), dia = 864e5;
+  if (periodo === "prox30") return t >= agora - dia / 2 && t <= agora + 30 * dia;
+  if (periodo === "ult30") return t >= agora - 30 * dia && t <= agora;
+  if (periodo.startsWith("mes:")) return mesDoInstante(t) === periodo.slice(4);
+  return true;
+}
+
+/** O recorte antes dos chips: contratos e reservas sem contrato pelo período e pelo cliente. */
+export function recortarContratos({ contratos, reservas }, { periodo = "", cliente = "" } = {}, agora = Date.now()) {
+  return {
+    contratos: contratos.filter(c => (!cliente || c.cliente_id === cliente) && noPeriodoDoContrato(dataDoContrato(c), periodo, agora)),
+    reservas: reservas.filter(r => (!cliente || r.cliente_id === cliente) && noPeriodoDoContrato(r.inicio, periodo, agora)),
+  };
+}
+
+/** Os clientes com contrato ou com reserva sem contrato, pelo nome, para o filtro. */
+export function clientesDosContratos(contratos, reservas) {
+  const vistos = new Map();
+  for (const x of [...contratos, ...reservas]) if (x.cliente_id && !vistos.has(x.cliente_id)) vistos.set(x.cliente_id, (x.clientes && x.clientes.nome) || "Cliente");
+  return [...vistos].map(([id, nome]) => ({ id, nome })).sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+}
+
+/** Os contratos que viraram "aceito" entre duas leituras (para avisar sem a pessoa recarregar). */
+export function aceitosDesde(antes, depois) {
+  const eram = new Map(antes.map(c => [c.id, c.situacao]));
+  return depois.filter(c => c.situacao === "aceito" && eram.has(c.id) && eram.get(c.id) !== "aceito");
+}

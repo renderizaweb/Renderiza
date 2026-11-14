@@ -29,18 +29,18 @@ export function passosDaConta(conta, feitos = {}) {
       ? { id: "valores", titulo: `Cadastrar os seus ${n.palavras.servicos}, com os valores`, texto: "Para os orçamentos, os contratos e o Financeiro saírem certos.",
         feito: false, acao: { href: "/servicos", rotulo: "Cadastrar" } }
       : { id: "valores", titulo: `Pôr os valores dos seus ${n.palavras.servicos}`, texto: "Para os orçamentos e o Financeiro saírem certos.",
-        feito: !!feitos.valores, acao: { href: "/servicos", rotulo: "Pôr os valores" } },
+        feito: !!feitos.valores, acao: { href: "/servicos", rotulo: "Pôr os valores" }, deNovo: "Ver os valores" },
     (ligado("agenda") || ligado("atendimento")) && { id: "datas", titulo: "Trazer o que você já tem",
       texto: "Datas marcadas, clientes, pacotes e contrato: em foto, PDF ou planilha. A IA lê e você confere.", feito: !!feitos.reservas || !!feitos.trouxe,
-      acao: { href: "/trazer", rotulo: "Trazer" }, extra: { importar: true, rotulo: "Digitar as datas" } },
+      acao: { href: "/trazer", rotulo: "Trazer" }, extra: { importar: true, rotulo: "Digitar as datas" }, deNovo: "Trazer mais" },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
-      feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" } },
+      feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" }, deNovo: "Anotar outro" },
     // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo
     perfil.tamanho !== "so_eu" && { id: "equipe", titulo: "Convidar alguém da equipe", texto: "Cada pessoa vê só o que você liberar.",
-      feito: !!feitos.equipe, acao: { href: "/equipe", rotulo: "Convidar" } },
+      feito: !!feitos.equipe, acao: { href: "/equipe", rotulo: "Convidar" }, deNovo: "Convidar mais" },
     // quem entra com usuário (o convite por link) pode pôr um e-mail para recuperar a senha sozinho (D42)
     feitos.comUsuario && { id: "email", titulo: "Pôr um e-mail para recuperar a senha", texto: "Se esquecer a senha, o link chega nele na hora.",
-      feito: !!feitos.emailRecuperacao, acao: { email: true, rotulo: "Pôr o e-mail" } },
+      feito: !!feitos.emailRecuperacao, acao: { email: true, rotulo: "Pôr o e-mail" }, deNovo: "Trocar o e-mail" },
   ].filter(Boolean);
 }
 
@@ -294,6 +294,13 @@ async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
   return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, trouxe, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
 }
 
+/** O botão de um passo: importar, pôr o e-mail ou ir para a tela. Feito, o mesmo caminho com o rótulo de fazer de novo. */
+function botaoDoPasso(acao, rotulo, classe) {
+  if (acao.importar) return `<button class="${classe}" type="button" data-importar>${escapar(rotulo)}</button>`;
+  if (acao.email) return `<button class="${classe}" type="button" data-email-recuperacao>${escapar(rotulo)}</button>`;
+  return `<a class="${classe}" href="${acao.href}">${escapar(rotulo)}</a>`;
+}
+
 /** Monta o cartão dentro de `el` (some sozinho para quem não é dono ou escondeu). */
 export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar, pessoa }) {
   if (!conta || !conta.dono || (conta.ajustes && conta.ajustes.primeiros_passos_escondidos)) { el.innerHTML = ""; return; }
@@ -323,10 +330,8 @@ export async function montarPrimeirosPassos(el, { banco, conta, navegar, avisar,
         ${passos.map(p => `<li class="rz-passo" data-feito="${p.feito}">
           <span class="rz-passo-marca" aria-hidden="true">${p.feito ? icone("ok", { tamanho: 14 }) : ""}</span>
           <span class="rz-linha-texto"><b>${escapar(p.titulo)}</b><small>${p.feito ? "Feito" : escapar(p.texto)}</small></span>
-          ${p.feito ? "" : `<span class="rz-passo-acoes">${p.extra && p.extra.importar ? `<button class="rz-botao rz-botao--fantasma" type="button" data-importar>${escapar(p.extra.rotulo)}</button>` : ""}${p.acao.importar
-            ? `<button class="rz-botao" type="button" data-importar>${escapar(p.acao.rotulo)}</button>`
-            : p.acao.email ? `<button class="rz-botao" type="button" data-email-recuperacao>${escapar(p.acao.rotulo)}</button>`
-            : `<a class="rz-botao" href="${p.acao.href}">${escapar(p.acao.rotulo)}</a>`}</span>`}
+          ${p.feito ? (p.deNovo ? `<span class="rz-passo-acoes">${botaoDoPasso(p.acao, p.deNovo, "rz-botao rz-botao--fantasma")}</span>` : "")
+            : `<span class="rz-passo-acoes">${p.extra && p.extra.importar ? `<button class="rz-botao rz-botao--fantasma" type="button" data-importar>${escapar(p.extra.rotulo)}</button>` : ""}${botaoDoPasso(p.acao, p.acao.rotulo, "rz-botao")}</span>`}
         </li>`).join("")}
       </ol>
     </section>`;

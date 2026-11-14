@@ -7,7 +7,7 @@ import { comEstados } from "../../ui/estados.js";
 import { interruptor } from "../../ui/campos.js";
 import { moeda } from "../../ui/formatos.js";
 import { carregarContas } from "../dados.js";
-import { PLANO } from "../logica.js";
+import { PLANO, INCLUIDOS } from "../logica.js";
 
 export async function montar(el, { banco, avisar }) {
   el.innerHTML = `
@@ -22,7 +22,7 @@ export async function montar(el, { banco, avisar }) {
         ${catalogo.map(m => {
           const n = usando.filter(c => c.ligados.includes(m.id)).length;
           return `<div class="rz-admin-modulo">
-              <div class="rz-linha-texto"><b>${escapar(m.nome)} · ${escapar(moeda(Number(m.preco), { centavos: true }))}</b><small>${n} de ${usando.length} ${usando.length === 1 ? "conta" : "contas"} em uso</small>
+              <div class="rz-linha-texto"><b>${escapar(m.nome)} · ${INCLUIDOS.includes(m.id) ? "vem em todo plano" : escapar(moeda(Number(m.preco), { centavos: true }))}</b><small>${n} de ${usando.length} ${usando.length === 1 ? "conta" : "contas"} em uso</small>
                 <span class="rz-progresso" aria-hidden="true"><span style="width:${usando.length ? Math.round((n / usando.length) * 100) : 0}%"></span></span></div>
               ${interruptor({ nome: m.id, rotulo: "Liberado no teste", ajuda: m.liberado_no_teste ? "" : "só pago", marcado: m.liberado_no_teste })}
             </div>`;

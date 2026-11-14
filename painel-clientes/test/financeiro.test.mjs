@@ -2,7 +2,8 @@
 // lembrete, mês a mês e o que mais vende.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { situacaoDaParcela, textoDoVencimento, resumo, chipsDeParcelas, filtrarParcelas, planoDeParcelas, mensagemDeLembrete, mesAMes, maisVendidos } from "../src/modulos/financeiro/logica.js";
+import { situacaoDaParcela, textoDoVencimento, resumo, chipsDeParcelas, filtrarParcelas, planoDeParcelas, mensagemDeLembrete, mesAMes, maisVendidos,
+  opcoesDoQueE, dinheiroDaReserva, sugestaoDoValor, periodos, noPeriodo, recortar, clientesDasParcelas } from "../src/modulos/financeiro/logica.js";
 import { nicho } from "../src/nichos/index.js";
 
 const SP = "America/Sao_Paulo";
@@ -85,4 +86,56 @@ test("o que mais vende: pelo tipo, com desconto, lista ou objeto, sem as cancela
     { situacao: "confirmada", servicos: { nome: "Ensaio gestante" }, reservas_valores: [] },
   ];
   assert.deepEqual(maisVendidos(reservas), [{ nome: "Casamento", n: 2, total: 37000 }, { nome: "15 anos", n: 1, total: 9000 }]);
+});
+
+test("o que é: a lista, com a descrição que já existe e o Outro", () => {
+  assert.deepEqual(opcoesDoQueE(""), ["Sinal", "Restante", "Pagamento total", "Parcela", "Outro"]);
+  assert.deepEqual(opcoesDoQueE("Sinal"), ["Sinal", "Restante", "Pagamento total", "Parcela", "Outro"]);
+  assert.deepEqual(opcoesDoQueE("Parcela 2/6")[0], "Parcela 2/6", "ao editar, a descrição de agora fica escolhida");
+});
+
+test("valor sugerido: pelo ensaio em Serviços, o restante depois do sinal, e nada sem total", () => {
+  const newborn = { valor: 500, sinal: 150 };
+  // nada pago: o sinal do ensaio
+  let d = dinheiroDaReserva({ valores: null, servico: newborn, parcelas: [] });
+  assert.deepEqual([d.total, d.sinal, d.recebido, d.doServico], [500, 150, 0, true]);
+  let s = sugestaoDoValor(d, { jaRecebido: true, nome: "Newborn" });
+  assert.deepEqual([s.tipo, s.valor], ["Sinal", 150]);
+  assert.match(s.texto, /^Newborn: R\$ 500 \(valor em Serviços\), com sinal de R\$ 150\. Nada entrou ainda\.$/);
+  assert.deepEqual(s.porTipo, { "Pagamento total": 500, Restante: 500, Sinal: 150 });
+  // sinal pago: o restante, com a frase do porquê
+  const sinalPago = { descricao: "Sinal", valor: 150, vence_em: "2026-10-01", pago_em: "2026-10-01" };
+  d = dinheiroDaReserva({ servico: newborn, parcelas: [sinalPago] });
+  s = sugestaoDoValor(d, { jaRecebido: true, nome: "Newborn" });
+  assert.deepEqual([s.tipo, s.valor], ["Restante", 350]);
+  assert.match(s.texto, /Já entrou R\$ 150 \(Sinal\): falta R\$ 350\.$/);
+  // os valores da reserva valem mais que os de Serviços (com o desconto)
+  d = dinheiroDaReserva({ valores: [{ valor_total: 600, sinal: null, desconto: 50 }], servico: newborn, parcelas: [] });
+  assert.deepEqual([d.total, d.sinal, d.doServico], [550, null, false]);
+  s = sugestaoDoValor(d, { jaRecebido: true });
+  assert.deepEqual([s.tipo, s.valor], ["Pagamento total", 550]);
+  // nova parcela olha o que já tem parcela (paga ou não)
+  const aberta = { descricao: "Restante", valor: 350, vence_em: "2026-11-20", pago_em: null };
+  d = dinheiroDaReserva({ servico: newborn, parcelas: [sinalPago, aberta] });
+  assert.deepEqual(d.abertas.map(p => p.descricao), ["Restante"]);
+  assert.equal(sugestaoDoValor(d, { jaRecebido: false }).valor, null, "as parcelas já somam o total");
+  assert.equal(sugestaoDoValor(d, { jaRecebido: true }).valor, 350, "registrar: falta o que não entrou");
+  // tudo pago; sem valor nenhum
+  d = dinheiroDaReserva({ servico: newborn, parcelas: [sinalPago, { ...aberta, pago_em: "2026-11-01" }] });
+  assert.match(sugestaoDoValor(d, { jaRecebido: true }).texto, /Já entrou tudo/);
+  assert.equal(sugestaoDoValor(dinheiroDaReserva({ servico: { valor: null } }), { jaRecebido: true }), null);
+});
+
+test("filtros: período (últimos 30 dias, próximos 30, mês, tudo), cliente e forma", () => {
+  // recebida conta pela data em que entrou; a receber, pelo vencimento
+  assert.deepEqual(parcelas.filter(p => noPeriodo(p, "30d", hoje)).map(p => p.id), ["a", "b", "c"]);
+  assert.deepEqual(parcelas.filter(p => noPeriodo(p, "prox30", hoje)).map(p => p.id), ["c", "d"]);
+  assert.deepEqual(parcelas.filter(p => noPeriodo(p, "mes:2026-09", hoje)).map(p => p.id), ["f"]);
+  assert.equal(parcelas.filter(p => noPeriodo(p, "tudo", hoje)).length, 6);
+  const op = periodos(parcelas, hoje).map(o => o.valor);
+  assert.deepEqual(op, ["30d", "prox30", "mes:2026-12", "mes:2026-11", "mes:2026-10", "mes:2026-09", "tudo"]);
+  assert.match(periodos(parcelas, hoje).find(o => o.valor === "mes:2026-10").rotulo, /^Este mês · outubro de 2026$/);
+  assert.deepEqual(recortar(parcelas, { periodo: "tudo", cliente: "c3", hoje }).map(p => p.id), ["e", "f"]);
+  assert.deepEqual(recortar([{ ...parcelas[0], forma: "pix" }, parcelas[1]], { periodo: "tudo", forma: "pix", hoje }).map(p => p.id), ["a"]);
+  assert.deepEqual(clientesDasParcelas(parcelas).map(c => c.nome), ["Ana Souza", "Bruno", "Júlia & Caio"]);
 });

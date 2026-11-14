@@ -68,6 +68,8 @@ function sqlDoUso(site) {
 update public.contas set whatsapp = '11900000000', ajustes = ${json(ajustesVilla)}, criado_em = now() - interval '120 days' where id = ${q(villa)};
 update public.contas set whatsapp = '11900000001', ajustes = ${json(ajustesCiranda)}, criado_em = now() - interval '120 days' where id = ${q(ciranda)};
 update public.sites set dominios = array[${dominios.map(q).join(", ")}]::text[] where conta_id = ${q(villa)};
+-- o Meu site vem em todo plano (07, 14/11/2026): o estúdio também tem, mesmo sem site ligado ainda
+insert into public.contas_modulos (conta_id, modulo_id) values (${q(ciranda)}, 'meu-site') on conflict (conta_id, modulo_id) do update set ligado = true;
 
 -- os clientes com WhatsApp (11 9 0000-NNNN: números que não existem), Instagram quando veio de lá e uma nota em alguns
 with numerados as (

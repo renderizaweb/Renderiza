@@ -80,8 +80,7 @@ Sombras discretas `--rz-sombra-1` (cartão), `-2` (o que flutua: gaveta, menu), 
 | Chips e abas | `.rz-chips` (`--quebra` para várias linhas), `.rz-chip[aria-pressed]`; `.rz-abas` | chips para filtros e escolhas rápidas; abas para partes de um módulo |
 | Opções em cartão | `.rz-opcoes` > `label.rz-opcao` (`-icone`, `-texto`, `-marca`) com `input` radio ou checkbox | onboarding (nicho, módulos): uma por linha, grande para o polegar |
 | Campos prontos | `campoTexto`, `campoArea`, `campoSelecao`, `interruptor`, `segmentos`, `escolherCor`, `lerFormulario` em `src/ui/campos.js` | rótulo, ajuda, "(opcional)" e o lugar do erro já vêm; cores das pessoas e dos tipos só da lista `CORES` |
-| "Para quem?" | `abrirParaQuem`, `novoCliente`, `abrirCliente` em `src/ui/para-quem.js` | busca por nome ou WhatsApp, recentes primeiro, "+ novo cliente" ali mesmo (o mesmo WhatsApp é o mesmo cliente) |
-| Paleta | `abrirPaleta` em `src/ui/paleta.js` (Ctrl+K ou "/") | acha módulo, cliente e ação; recentes primeiro |
+| "Para quem?" | `abrirParaQuem`, `novoCliente`, `abrirCliente` em `src/ui/para-quem.js` | busca por nome ou WhatsApp, recentes primeiro, 10 por vez com "Ver mais", "+ novo cliente" ali mesmo (o mesmo WhatsApp é o mesmo cliente) |
 | WhatsApp, CSV, filtros | `src/ui/whatsapp.js`, `src/ui/csv.js` (`baixarCsv`, `lerCsv`), `src/ui/filtros.js` | CSV com ";" e BOM (abre certo no Excel), protegido contra fórmula |
 | Progresso | `.rz-progresso > span` | onboarding ("2 de 5") e primeiros passos |
 | Onboarding (trilho) | `.rz-palco` (`.rz-sai`, `.rz-entra` e as de voltar), `button.rz-opcao[aria-pressed]`, `.rz-trilho`, `.rz-roteiro`, `.rz-montagem`, `.rz-passo-topo`, `.rz-com-botao`, `.rz-duracoes` (`src/telas/comecar.js`; seção 16) | boas-vindas com o roteiro; escolha única segue sozinha com o check (`rz-marcar`); passos entram e saem de lado; a montagem marca cada parte enquanto acontece; "reduzir movimento" zera as animações |

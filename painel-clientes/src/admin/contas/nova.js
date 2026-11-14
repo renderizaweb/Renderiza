@@ -14,7 +14,7 @@ import { campoTexto, campoSelecao, campoArea, segmentos, lerFormulario } from ".
 import { novoCodigoDeLink, usuarioDoNome, usuarioValido, emailDoUsuario, linkDoConvite, abrirMandarConvite } from "../../ui/convite-link.js";
 import { dia, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { NICHOS } from "../../nichos/index.js";
-import { codigoDoNome, codigoValido, prazoAte, mensalidadeSugerida, moeda } from "../logica.js";
+import { codigoDoNome, codigoValido, prazoAte, mensalidadeSugerida, moeda, INCLUIDOS } from "../logica.js";
 
 const PADRAO = ["agenda", "clientes"];
 
@@ -32,7 +32,9 @@ export function abrirNovaConta(ctx) {
         ${campoTexto({ id: "nc-codigo", nome: "codigo", rotulo: "Código público", ajuda: "Vai no endereço do site e da agenda online. Letras minúsculas, números e hífen.", extra: { maxlength: 40, autocapitalize: "off", spellcheck: "false" } })}
         ${campoTexto({ id: "nc-whats", nome: "whatsapp", rotulo: "WhatsApp do negócio", tipo: "tel", teclado: "tel", opcional: true, placeholder: "(11) 98888-7777" })}
         <fieldset class="rz-campo"><legend class="rz-rotulo">Módulos <span class="rz-texto-3" data-preco></span></legend>
-          <div class="rz-chips rz-chips--quebra">${catalogo.map(m => `<label class="rz-chip"><input type="checkbox" name="modulos" value="${escapar(m.id)}"${PADRAO.includes(m.id) ? " checked" : ""}>${escapar(m.nome)}</label>`).join("")}</div></fieldset>
+          <div class="rz-chips rz-chips--quebra">${catalogo.map(m => INCLUIDOS.includes(m.id)
+            ? `<label class="rz-chip"><input type="checkbox" checked disabled>${escapar(m.nome)} (vem em todo plano)</label>`
+            : `<label class="rz-chip"><input type="checkbox" name="modulos" value="${escapar(m.id)}"${PADRAO.includes(m.id) ? " checked" : ""}>${escapar(m.nome)}</label>`).join("")}</div></fieldset>
         ${campoSelecao({ id: "nc-prazo", nome: "prazo", rotulo: "Prazo", valor: "sem", opcoes: [{ valor: "sem", rotulo: "Sem prazo" }, { valor: "30", rotulo: "30 dias" }, { valor: "90", rotulo: "90 dias" }, { valor: "365", rotulo: "1 ano" }] })}
         ${campoTexto({ id: "nc-dono-nome", nome: "dono_nome", rotulo: "Nome do dono", extra: { maxlength: 120, autocomplete: "off" } })}
         <fieldset class="rz-campo"><legend class="rz-rotulo">Como o dono entra</legend>
@@ -81,7 +83,8 @@ export function abrirNovaConta(ctx) {
   form.addEventListener("submit", async ev => {
     ev.preventDefault();
     const d = lerFormulario(form);
-    const modulos = [].concat(d.modulos || []).filter(Boolean);
+    const escolhidos = [].concat(d.modulos || []).filter(Boolean);
+    const modulos = [...escolhidos, ...INCLUIDOS.filter(m => catalogo.some(x => x.id === m) && !escolhidos.includes(m))];
     const porLink = jeito() === "link";
     const usuario = String(d.usuario || "").trim().toLowerCase();
     const email = porLink ? emailDoUsuario(usuario) : String(d.dono_email || "").trim().toLowerCase();
@@ -96,7 +99,7 @@ export function abrirNovaConta(ctx) {
     for (const [k, v] of Object.entries(erros)) erroNoCampo(form[k], v);
     const aviso = form.querySelector("[role=alert]");
     if (Object.values(erros).some(Boolean)) return;
-    if (!modulos.length) return avisoDoFormulario(aviso, "Escolha pelo menos um módulo.");
+    if (!escolhidos.length) return avisoDoFormulario(aviso, "Escolha pelo menos um módulo.");
     const botao = j.el.querySelector("[type=submit]");
     ocupado(botao, true, "Criando…");
     if (porLink && !(await banco.rpc("usuario_disponivel", { p_usuario: usuario }).catch(() => true))) {

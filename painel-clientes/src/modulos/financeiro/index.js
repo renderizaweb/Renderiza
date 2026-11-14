@@ -9,7 +9,7 @@ import { escapar } from "../../ui/formulario.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { chips, ligarChips } from "../../ui/filtros.js";
 import { dia, moeda } from "../../ui/formatos.js";
-import { resumo, chipsDeParcelas, filtrarParcelas, textoDoVencimento, mesAMes, maisVendidos } from "./logica.js";
+import { resumo, chipsDeParcelas, filtrarParcelas, textoDoVencimento, mesAMes, maisVendidos, FORMAS, PERIODO_PADRAO, periodos, recortar, clientesDasParcelas } from "./logica.js";
 import { COLUNAS_PARCELA, etiquetaDaParcela, daReserva, abrirParcela, receber, abrirFormParcela } from "./parcela.js";
 import { abrirFesta } from "./festa.js";
 
@@ -24,9 +24,11 @@ export async function montar(el, contexto) {
   const fuso = conta.fuso || undefined;
   const hoje = dia(new Date(), fuso);
   const params = new URLSearchParams(location.search);
-  let filtro = { grupo: "receber", busca: "", cliente: params.get("cliente") || null };
+  // os filtros (período, cliente, forma) recortam a lista; os chips dizem a situação dentro do recorte
+  let filtro = { grupo: "todas", busca: "", cliente: params.get("cliente") || null, periodo: params.get("cliente") ? "tudo" : PERIODO_PADRAO, forma: null };
   let dados = { parcelas: [], reservas: [] };
-  const ctx = { banco, conta, nicho, pode, avisar, navegar, fuso, hoje, aoMudar: () => desenhar(), recarregar: () => atualizar(), abrirFesta: id => abrirFesta(id, ctx) };
+  const ctx = { banco, conta, nicho, pode, avisar, navegar, fuso, hoje, aoMudar: () => desenhar(), recarregar: () => atualizar(), abrirFesta: id => abrirFesta(id, ctx),
+    parcela: id => dados.parcelas.find(x => x.id === id) };
 
   el.innerHTML = `
     <header class="rz-cabeca">
@@ -73,10 +75,20 @@ export async function montar(el, contexto) {
       </figure>`;
   }
 
+  const listaHtml = l => (l.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${l.slice(0, 200).map(linha).join("")}</ul>` : `<p class="rz-estado-curto">${filtro.busca ? "Nada com essa busca." : "Nada neste período. Troque o período ou escolha \"Tudo\"."}</p>`);
+  const somaDe = l => l.reduce((t, p) => t + Number(p.valor || 0), 0);
+  const totaisHtml = l => {
+    const pagas = l.filter(p => p.pago_em), abertas = l.filter(p => !p.pago_em);
+    return l.length ? `<p class="rz-texto-3" data-totais>${l.length} ${l.length === 1 ? "parcela" : "parcelas"} · recebido ${escapar(moeda(somaDe(pagas)))} · a receber ${escapar(moeda(somaDe(abertas)))}</p>` : "";
+  };
+  const selecao = (dado, rotulo, valor, opcoes) => `<select class="rz-entrada rz-filtro" data-filtro="${dado}" aria-label="${escapar(rotulo)}">${opcoes.map(o => `<option value="${escapar(o.valor)}"${String(o.valor) === String(valor ?? "") ? " selected" : ""}>${escapar(o.rotulo)}</option>`).join("")}</select>`;
+
   function desenhar() {
     const r = resumo(dados.parcelas, hoje);
-    const lista = filtrarParcelas(dados.parcelas, { ...filtro, hoje });
-    const nomeDoFiltro = filtro.cliente && (dados.parcelas.find(p => p.cliente_id === filtro.cliente) || {}).clientes;
+    const recorte = recortar(dados.parcelas, { ...filtro, hoje });
+    const lista = filtrarParcelas(recorte, { ...filtro, cliente: null, hoje });
+    const clientes = clientesDasParcelas(dados.parcelas);
+    const temRecebidas = dados.parcelas.some(p => p.pago_em);
     const vendidos = maisVendidos(dados.reservas);
     corpo.innerHTML = `
       <dl class="rz-funil rz-numeros">
@@ -91,14 +103,19 @@ export async function montar(el, contexto) {
         </div></section>` : ""}
       <div class="rz-barra-ferramentas">
         <input class="rz-entrada rz-campo-busca" type="search" placeholder="Buscar por cliente ou descrição" aria-label="Buscar parcela" value="${escapar(filtro.busca)}" data-busca>
-        ${nomeDoFiltro ? `<button class="rz-chip" type="button" data-tirar-cliente aria-pressed="true">${escapar(nomeDoFiltro.nome)} ${icone("fechar", { tamanho: 14 })}</button>` : ""}
-        ${chips({ rotulo: "Parcelas", opcoes: chipsDeParcelas(dados.parcelas, hoje), ativo: filtro.grupo })}
+        ${dados.parcelas.length ? `<div class="rz-filtros">
+          ${selecao("periodo", "Período", filtro.periodo, periodos(dados.parcelas, hoje))}
+          ${selecao("cliente", "Cliente", filtro.cliente || "", [{ valor: "", rotulo: "Todos os clientes" }, ...clientes.map(c => ({ valor: c.id, rotulo: c.nome }))])}
+          ${temRecebidas ? selecao("forma", "Como entrou", filtro.forma || "", [{ valor: "", rotulo: "Qualquer forma" }, ...FORMAS.map(f => ({ valor: f.id, rotulo: f.nome }))]) : ""}
+        </div>` : ""}
+        ${chips({ rotulo: "Parcelas", opcoes: chipsDeParcelas(recorte, hoje), ativo: filtro.grupo })}
       </div>
       <div data-lista>${!dados.parcelas.length ? vazio({ icone: "carteira", titulo: "Nenhuma parcela ainda", texto: `Na ${nicho.palavras.reserva === "festa" ? "festa" : "reserva"}, ponha o valor e use "Lançar parcelas": o sinal e o resto em vezes. Ou registre um pagamento que já entrou.`, acao: edita ? { rotulo: "Registrar pagamento", dado: "registrar" } : null })
-        : lista.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${lista.slice(0, 200).map(linha).join("")}</ul>` : `<p class="rz-estado-curto">${filtro.busca ? "Nada com essa busca." : "Nada aqui."}</p>`}</div>
+        : totaisHtml(lista) + listaHtml(lista)}</div>
 `;
     const busca = corpo.querySelector("[data-busca]");
-    busca.addEventListener("input", () => { filtro.busca = busca.value; const l = filtrarParcelas(dados.parcelas, { ...filtro, hoje }); corpo.querySelector("[data-lista]").innerHTML = l.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${l.slice(0, 200).map(linha).join("")}</ul>` : `<p class="rz-estado-curto">Nada com essa busca.</p>`; });
+    busca.addEventListener("input", () => { filtro.busca = busca.value; const l = filtrarParcelas(recorte, { ...filtro, cliente: null, hoje }); corpo.querySelector("[data-lista]").innerHTML = totaisHtml(l) + listaHtml(l); });
+    corpo.querySelectorAll("[data-filtro]").forEach(sel => sel.addEventListener("change", () => { filtro[sel.dataset.filtro] = sel.value || null; desenhar(); }));
     const grupo = corpo.querySelector(".rz-barra-ferramentas .rz-chips");
     if (grupo) ligarChips(grupo, v => { filtro.grupo = v; desenhar(); });
   }
@@ -115,14 +132,13 @@ export async function montar(el, contexto) {
   el.addEventListener("click", e => {
     if (e.target.closest("[data-registrar], [data-acao=registrar]")) return abrirFormParcela(ctx, { jaRecebido: true });
     if (e.target.closest("[data-nova-parcela]")) return abrirFormParcela(ctx);
-    if (e.target.closest("[data-tirar-cliente]")) { filtro.cliente = null; return desenhar(); }
     const rec = e.target.closest("[data-recebi]");
     if (rec) { const p = dados.parcelas.find(x => x.id === rec.dataset.recebi); if (p) receber(p, ctx); return; }
     const b = e.target.closest("[data-parcela]");
     if (b && corpo.contains(b)) { const p = dados.parcelas.find(x => x.id === b.dataset.parcela); if (p) abrirParcela(p, ctx); }
   });
 
-  await comEstados(corpo, { carregar, desenhar: d => { dados = d; if (filtro.cliente) filtro.grupo = "todas"; desenhar(); }, linhas: 6 });
+  await comEstados(corpo, { carregar, desenhar: d => { dados = d; desenhar(); }, linhas: 6 });
 
   // ?reserva=<id> (da Agenda e da ficha), ?parcela=<id>, ?cliente=<id>, ?novo=pagamento (o "+")
   if (["reserva", "parcela", "cliente", "novo"].some(k => params.has(k))) history.replaceState(history.state, "", location.pathname);

@@ -272,7 +272,7 @@ para depois das próximas missões.
 
 ## Decidido e em aberto
 
-- Preço: módulo como os outros (R$ 14,99, ou um dos 2 do plano). Decidido em 28/10/2026.
+- Preço: **vem em todo plano**, do mais barato ao mais caro, sem contar entre os 2 módulos do plano (decidido em 14/11/2026; antes, de 28/10, era um módulo como os outros, R$ 14,99).
 - Desconexão: manual, pelo Admin. Decidido em 28/10/2026.
 - Valor da versão final: no máximo 3 mensalidades do plano do cliente, entrega em até 10 dias úteis (termos, 9.4).
   Decidido em 30/10/2026 (antes, "combinado na proposta", de 28/10/2026).
