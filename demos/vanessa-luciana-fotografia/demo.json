@@ -13,12 +13,12 @@
  "endereco_maps": "Rua Itaguajé, 193 - Vila Moraes, São Paulo - SP, 04164-210",
  "google_nota": "5,0",
  "google_total": "32",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511943197367",
  "fone_link": "+5511943197367",
  "instagram": "vanessalucianafotografia",
  "seguidores": "4,2 mil",
- "mensagem": "Olá, Vanessa! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Vanessa e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbf8f4",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "ndwt",
-  "msg_duvida": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Vanessa, da Vanessa Luciana Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -674,22 +674,222 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Vila Moraes, São Paulo",
+  "titulo": "Registrar é amar para sempre.",
+  "linha": "Smash the cake, newborn, famílias, formaturas e o especial de Natal 2026, no estúdio da Vila Moraes, em São Paulo.",
   "local": "Vila Moraes",
-  "h1": "Natal, bebês, famílias e celebrações na Vila Moraes, em São Paulo.",
-  "frase": "Bom mesmo é junto!",
-  "capa": "familia:0",
+  "tira": [
+   "natal:0",
+   "bebes:0",
+   "familia:0",
+   "celebracoes:0",
+   "natal:1",
+   "bebes:1",
+   "familia:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Caroline Trento",
+    "tag": "Cenários",
+    "texto": "A Vanessa é uma maravilhosa! Consegue captar cada momento com os cliques mais perfeitos que já vi! Os cenários dela são muito perfeitos, cada detalhe pensado com muito carinho e amor."
+   },
+   {
+    "nome": "Aline Oliveira",
+    "tag": "4 gerações",
+    "texto": "Fiz ensaio de Dia das Mães com minha família de 4 gerações e nós amamos! Super profissional, carinhosa, paciente, e as fotos ficaram lindas e perfeitas!"
+   },
+   {
+    "nome": "Silvana Silva Ferreira",
+    "tag": "Família",
+    "texto": "Além de excelente profissional, é muito educada, carismática, tratou de mim e minha família com muito carinho e teve um cuidado especial com minha mãe de 90 anos."
+   },
+   {
+    "nome": "Eduardo Domingos",
+    "tag": "Festa de 5 anos",
+    "texto": "Conheci a Vanessa organizando a festa de 5 anos da minha filha. Ela fez a cobertura da festa e, desde então, tornou-se nossa fotógrafa de confiança: já fizemos ensaios de Dia dos Pais, Dia da Família, Natal e Páscoa."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Moraes, em São Paulo, e atende de terça a sábado.",
+   "endereco": [
+    "Rua Itaguajé, 193",
+    "Vila Moraes · São Paulo, SP"
+   ],
+   "telefone": "(11) 94319-7367"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Vanessa Luciana. Estúdio na Vila Moraes, São Paulo. O título é a assinatura dela (\"Registrar é amar para sempre\", da arte do Instagram); o slogan \"Bom mesmo é junto!\" segue no demo.json.",
+    "A página de Natal se chama só \"Natal\": as fotos são do cenário da cabaninha (a grade salva); o cenário de 2026 (árvore, luzinhas e espelho) entra como última foto, do post em que ela diz que está tudo pronto."
+   ],
+   "fora": "o ensaio feminino de camisa xadrez e o da cadeira (pouca roupa), o retrato deitado com efeito de pintura, as fotos do aniversário dela (velas 47), a arte \"Antes e Depois\", a cachorra, a camiseta \"Capitã\" de costas, a foto de 720 px com faixa borrada e os chefs repetidos.",
+   "textos": [
+    "Dela: \"Registrar é amar para sempre\", \"Bom mesmo é junto!\", \"O Natal não é sobre ter tudo perfeito…\", \"Um aninho merece ser celebrado\", o smash em 3 partes e o bolo de fruta, \"80 anos não pode passar sem comemoração…\", \"Fotografia é sobre guardar o que realmente importa!\", \"A IA pode criar imagens…\".",
+    "Avaliações (lidas inteiras): Caroline Trento no Natal, Eduardo Domingos em bebês, Aline Oliveira (4 gerações) em família, Bruna Delprete em retratos. Álbuns, monóculos e planner vêm da avaliação da Bruna.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" (da grade dela, com a câmera nas mãos) é a mesma da v3: confirmar que é a Vanessa.",
+    "As fotos da festa de 80 anos são de um post dela; a página não diz o nome da aniversariante."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Vanessa, atrás da câmera.",
+   "p": [
+    "A Vanessa Luciana fotografa smash the cake, newborn, famílias, festas e formaturas, no estúdio da Vila Moraes, em São Paulo.",
+    "Também faz álbuns, monóculos e um planner fotográfico."
+   ],
+   "citacao": "A IA pode criar imagens. Mas a história de cada família merece ser vivida.",
+   "citacao_quem": "Vanessa Luciana, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/780860563_18599707960065459_5356015308538001855_n.jpg",
+     "alt": "A Vanessa Luciana"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 32 avaliações no Google"
+    ],
+    [
+     "4,2 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:0,5,2,9,6,7,1,3,11"
+    "pedido": "o ensaio de Natal",
+    "frase": "Tudo pronto para o especial de Natal 2026.",
+    "texto": "A árvore, a cabaninha, o balanço e a neve, para as crianças e para a família toda.",
+    "citacao": "O Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial.",
+    "citacao_quem": "Vanessa Luciana, no Instagram",
+    "quando": "O cenário de Natal 2026 já está montado no estúdio. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Caroline Trento",
+     "texto": "A Vanessa é uma maravilhosa! Consegue captar cada momento com os cliques mais perfeitos que já vi! Os cenários dela são muito perfeitos, cada detalhe pensado com muito carinho e amor. Amei o resultado do ensaio!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O cenário está pronto. Agora só faltam vocês!",
-    "sub": "O cantinho de Natal 2026, com a árvore, a cabaninha e a neve.",
-    "texto": "O Natal não é sobre ter tudo perfeito. É sobre estar perto de quem faz a vida especial.",
+    "fotos": [
+     {
+      "arq": "drive/619593905_18092085598790927_3739968626953513512_n.jpg",
+      "alt": "Menina de vermelho no cavalinho, junto à árvore"
+     },
+     {
+      "arq": "drive/646136169_18091999301029163_4857808283582351759_n.jpg",
+      "alt": "Família no balanço de Natal"
+     },
+     {
+      "arq": "drive/619884057_18119213197586816_2890450412687599122_n.jpg",
+      "alt": "Menina no balanço, junto à árvore"
+     },
+     {
+      "arq": "drive/645980404_18084763124351921_6689705870257672874_n.jpg",
+      "alt": "Mãe abraçando o filho, junto à árvore"
+     },
+     {
+      "arq": "drive/640507998_18569331940043168_5342706072275738514_n.jpg",
+      "alt": "Bebê de laço na cabaninha de Natal"
+     },
+     {
+      "arq": "drive/629222368_18424920193190732_3144626818943981620_n.jpg",
+      "alt": "Menina encantada com o presente que brilha"
+     },
+     {
+      "arq": "drive/621349219_18086918915116178_4475557232241977900_n.jpg",
+      "alt": "Irmãos na neve, junto à cabaninha"
+     },
+     {
+      "arq": "drive/625759884_18166675573392455_8882850232349129594_n.jpg",
+      "alt": "Menino no cavalinho, junto à árvore"
+     },
+     {
+      "arq": "drive/649219795_18069794597237659_1843796355273562164_n.jpg",
+      "alt": "Mãe erguendo o filho, junto à árvore"
+     },
+     {
+      "arq": "drive/625054501_18311431543249695_2507126939527848525_n.jpg",
+      "alt": "Irmãs na cabaninha, com o urso"
+     },
+     {
+      "arq": "drive/620955936_18055318484381149_8219935074827900660_n.jpg",
+      "alt": "Menina com o livro que brilha, na cabaninha"
+     },
+     {
+      "arq": "drive/650879148_18114680005635793_7725597807488148251_n.jpg",
+      "alt": "Família deitada na neve, junto à cabaninha"
+     },
+     {
+      "arq": "drive/625151581_18053548526432783_8083718257063331071_n.jpg",
+      "alt": "Menino com a bola de Natal"
+     },
+     {
+      "arq": "drive/649216712_18056337638437053_5735583822475140272_n.jpg",
+      "alt": "Menina de vermelho junto ao Papai Noel"
+     },
+     {
+      "arq": "drive/649229074_18087072524183300_7044328198221941962_n.jpg",
+      "alt": "Menina de vestido vermelho no balanço"
+     },
+     {
+      "arq": "drive/650264725_18096801661799253_8333465838175240960_n.jpg",
+      "alt": "Menino de braços para cima na cabaninha"
+     },
+     {
+      "arq": "drive/652566160_18111087100775728_4369094044702172593_n.jpg",
+      "alt": "Menina de vestido vermelho na cabaninha"
+     },
+     {
+      "arq": "drive/652679600_18131276014530376_5205721163623725811_n.jpg",
+      "alt": "Menino engatinhando na neve"
+     },
+     {
+      "arq": "drive/656163674_18335108110168782_7985759344919438729_n.jpg",
+      "alt": "Bebê de gorro na neve, junto à árvore"
+     },
+     {
+      "arq": "drive/653863409_18123826435582846_2288550522722813409_n.jpg",
+      "alt": "Avó com os netos, junto à árvore"
+     },
+     {
+      "arq": "drive/669883706_18421754080121030_9104216085238172301_n.jpg",
+      "alt": "Família enfeitando a árvore"
+     },
+     {
+      "arq": "drive/621812924_18103356445637471_6868858958826713151_n.jpg",
+      "alt": "Bebê entre os presentes"
+     },
+     {
+      "arq": "drive/670295958_18576470317031806_8190422943034162582_n.jpg",
+      "alt": "Menino de braços abertos, junto à árvore"
+     },
+     {
+      "arq": "drive/620251156_18118832017513043_5043480045931980769_n.jpg",
+      "alt": "Bebê sentado entre os presentes, junto à árvore"
+     },
+     {
+      "arq": "posts/DfVP_w4Pf6f/DfVP_w4Pf6f_00.jpg",
+      "alt": "O cenário de Natal 2026, com a árvore, as luzinhas e o espelho"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -719,20 +919,62 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Caroline Trento"
+    ]
    },
    {
     "id": "bebes",
     "nome": "Bebês e smash",
-    "chamada": "Ensaio de bebê",
-    "fotos": [
-     "infantil:1,0,2,4,3,5"
+    "curto": "Bebês",
+    "chamada": "Smash the cake e newborn",
+    "pedido": "o ensaio de smash the cake",
+    "frase": "Um aninho merece ser celebrado.",
+    "texto": "O smash é feito em 3 partes: fotos no cenário, brincando com o bolo e a foto do banho. E os primeiros dias do bebê, no newborn.",
+    "citacao": "Não dá açúcar pro bebê? Não tem problema, temos a versão de bolo de fruta.",
+    "citacao_quem": "Vanessa Luciana, no Instagram",
+    "depo": {
+     "nome": "Eduardo Domingos",
+     "texto": "O que mais me encanta no trabalho dela é o olhar sensível, a criatividade nos cenários e, principalmente, o jeito acolhedor e carinhoso com as crianças, que se sentem super à vontade durante as fotos."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
     ],
-    "titulo": "Smash the cake, em 3 partes.",
-    "sub": "Fotos no cenário, brincando com o bolo e a foto do banho; e os primeiros dias do bebê.",
-    "texto": "Não dá açúcar pro bebê? Não tem problema: tem a versão de bolo de fruta.",
+    "fotos": [
+     {
+      "arq": "posts/DdxUBauNK9B/DdxUBauNK9B_00.jpg",
+      "alt": "Bebê no smash de 1 ano, entre os balões"
+     },
+     {
+      "arq": "posts/DeFyD9aP-N-/DeFyD9aP-N-_00.jpg",
+      "alt": "Bebê de coroa de flores no smash the cake"
+     },
+     {
+      "arq": "drive/623385016_18107890105663407_6718039567171807844_n.jpg",
+      "alt": "Bebê de chef rindo na panela, entre os legumes"
+     },
+     {
+      "arq": "drive/637805274_18569546371060673_354244479750867668_n.jpg",
+      "alt": "Recém-nascido com as mãozinhas no queixo"
+     },
+     {
+      "arq": "drive/650113568_18171077071400668_8599759334164050999_n.jpg",
+      "alt": "Recém-nascido bocejando na xícara"
+     },
+     {
+      "arq": "drive/657699947_18196517965349723_3336913803374928123_n.jpg",
+      "alt": "Bebê de chef na panela, com a colher de pau"
+     },
+     {
+      "arq": "drive/657303016_18580253614049566_5652923481804134457_n.jpg",
+      "alt": "Recém-nascido dormindo de lado"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -768,15 +1010,60 @@
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,1",
-     "natal:10",
-     "familia:2",
-     "natal:4"
+    "pedido": "o ensaio de família",
+    "frase": "A família toda reunida.",
+    "texto": "Pais, filhos, avós e bisavós no mesmo ensaio, no estúdio ou na festa de aniversário.",
+    "citacao": "80 anos não pode passar sem comemoração, não é mesmo?",
+    "citacao_quem": "Vanessa Luciana, no Instagram",
+    "depo": {
+     "nome": "Aline Oliveira",
+     "texto": "Fiz ensaio de Dia das Mães com minha família de 4 gerações e nós amamos! Super profissional, carinhosa, paciente, e as fotos ficaram lindas e perfeitas! Eu super indico!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Do bebê à bisavó.",
-    "sub": "Famílias de várias gerações, juntas no mesmo ensaio.",
-    "texto": "Bom mesmo é junto: a família toda reunida, com cuidado especial com os mais velhos.",
+    "fotos": [
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Quatro gerações da família, entre flores"
+     },
+     {
+      "arq": "drive/649476791_18053852951483278_6140542547059310685_n.jpg",
+      "alt": "Mãe e filhas de jeans e camiseta branca"
+     },
+     {
+      "arq": "posts/DeO5BhVkYwE/DeO5BhVkYwE_02.jpg",
+      "alt": "A família toda reunida na festa de 80 anos"
+     },
+     {
+      "arq": "drive/648308436_18114982795570518_3270476249058943812_n.jpg",
+      "alt": "Família deitada no cenário de Ano Novo"
+     },
+     {
+      "arq": "posts/DeO5BhVkYwE/DeO5BhVkYwE_01.jpg",
+      "alt": "A aniversariante de 80 anos, sorrindo"
+     },
+     {
+      "arq": "drive/662842075_18385332331088553_5230357371248316773_n.jpg",
+      "alt": "Família no balanço de Natal"
+     },
+     {
+      "arq": "drive/670002672_18398915239196402_7113144099435492797_n.jpg",
+      "alt": "Avós com o neto no cenário de Natal"
+     },
+     {
+      "arq": "drive/639922984_18048285098508660_4860088269240886922_n.jpg",
+      "alt": "Mãe e filho enfeitando a árvore"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -806,19 +1093,79 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Aline Oliveira"
+    ]
    },
    {
     "id": "celebracoes",
     "nome": "Retratos e celebrações",
-    "chamada": "Ensaio de celebração",
-    "fotos": [
-     "familia:3,5,7,4,6"
+    "curto": "Retratos",
+    "chamada": "Retratos e formaturas",
+    "pedido": "o ensaio de retrato",
+    "frase": "Do diploma ao vestido de noiva.",
+    "texto": "Formatura, noiva, ensaio feminino e retratos ao ar livre.",
+    "citacao": "Fotografia é sobre guardar o que realmente importa!",
+    "citacao_quem": "Vanessa Luciana, no Instagram",
+    "depo": {
+     "nome": "Bruna Delprete",
+     "texto": "A Vanessa sempre conduz os ensaios com muito carinho, dando ideias incríveis para eternizar momentos lindos com as pessoas que amamos. Recomendo de olhos fechados!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Toda conquista merece um registro.",
-    "sub": "Formatura, casamento e ensaios femininos.",
-    "texto": "Datas que merecem comemoração, do diploma ao vestido de noiva, com o olhar da Vanessa.",
+    "fotos": [
+     {
+      "arq": "drive/650771561_18102228928904848_5525106115440063230_n.jpg",
+      "alt": "Formanda de beca jogando o capelo"
+     },
+     {
+      "arq": "drive/619801195_18071352833135983_6967147688039532059_n.jpg",
+      "alt": "Noiva junto à janela"
+     },
+     {
+      "arq": "drive/619473625_18078683516201234_6532552335359081937_n.jpg",
+      "alt": "Formanda de beca e capelo, com o diploma"
+     },
+     {
+      "arq": "drive/656242897_18538541689067012_7055704643841343943_n.jpg",
+      "alt": "Retrato de chapéu e camisa listrada"
+     },
+     {
+      "arq": "drive/651015297_18122897359578807_5549871704024585678_n.jpg",
+      "alt": "Duas mulheres de testa colada, junto à janela"
+     },
+     {
+      "arq": "drive/620434628_18089477753099042_8130209431239435900_n.jpg",
+      "alt": "Formanda de beca no jardim"
+     },
+     {
+      "arq": "drive/621737422_18084431230926049_7201033683973867356_n.jpg",
+      "alt": "Maquiagem antes do ensaio"
+     },
+     {
+      "arq": "drive/649180456_18111086779665233_3538038972667749672_n.jpg",
+      "alt": "Retrato de vestido de bolinhas, de costas"
+     },
+     {
+      "arq": "drive/650742820_18127073104492483_1921607183283534856_n.jpg",
+      "alt": "Menina de vestido vermelho no jardim"
+     },
+     {
+      "arq": "drive/620985555_18072670769103844_5620447341752036207_n.jpg",
+      "alt": "Moça junto ao grafite de asas"
+     },
+     {
+      "arq": "drive/619330608_18090646793081813_7730979789424539971_n.jpg",
+      "alt": "Moça sentada junto ao grafite"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -850,8 +1197,7 @@
        "Maquiagem"
       ]
      }
-    ],
-    "depo": "Eduardo Domingos"
+    ]
    }
   ]
  }
