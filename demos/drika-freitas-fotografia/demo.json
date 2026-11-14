@@ -13,12 +13,12 @@
  "endereco_maps": "Travessa João Jantin, 21 - Casa Verde Alta, São Paulo - SP, 02544-020",
  "google_nota": "5,0",
  "google_total": "36",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511934442987",
  "fone_link": "+5511934442987",
  "instagram": "drikafreitasfotografa",
  "seguidores": "6,4 mil",
- "mensagem": "Olá, Drika! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Drika e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fdfaf7",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "qwm8",
-  "msg_duvida": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Drika, da Drika Freitas Fotógrafa. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -698,24 +698,210 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Zona Norte de SP",
-  "h1": "Natal, bebês, aniversários e famílias na Zona Norte de São Paulo.",
-  "frase": "Momentos que merecem ser eternizados.",
-  "tom": "claro",
-  "capa": "natal:0",
+  "olho": "Estúdio de fotografia · Casa Verde Alta, São Paulo",
+  "titulo": "Momentos que merecem ser eternizados.",
+  "linha": "Gestantes, newborn, mês a mês, aniversários e famílias, no estúdio da Casa Verde Alta, na Zona Norte de São Paulo.",
+  "local": "Casa Verde Alta",
+  "tira": [
+   "natal:0",
+   "mesames:0",
+   "gestante:0",
+   "familia:0",
+   "infantil:0",
+   "natal:1",
+   "mesames:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Danielle Teixeira",
+    "tag": "Newborn e 1 ano",
+    "texto": "A Adriana é uma profissional maravilhosa. Ela fez o ensaio de 1 ano da minha filha e o newborn do meu filho. Tem um cuidado todo especial, além de ser amorosa. Amamos o trabalho e indico de olhos fechados!"
+   },
+   {
+    "nome": "Nathalia Lima Rodrigues",
+    "tag": "Mês a mês",
+    "texto": "Um agradecimento mais que gigante para a tia Drika, que topou durante um ano todinho todas as loucuras da mamãe e fez com maestria. Nem palavras para agradecer todo carinho e dedicação!"
+   },
+   {
+    "nome": "Silvana Messias",
+    "tag": "Família",
+    "texto": "Ela é muito meiga, paciente, dinâmica, interage em cada tema. Adoro a forma que ela trata minha família, por isso tiro foto com ela em todos os temas: Natal, Ano Novo, aniversário dos meus filhos, Páscoa, Dia das Mães e Dia dos Pais."
+   },
+   {
+    "nome": "Barbara Babi",
+    "tag": "Mês a mês",
+    "texto": "Fotos lindas, acompanhei cada mês da minha filha."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Casa Verde Alta, na Zona Norte de São Paulo, e atende de segunda a sábado.",
+   "endereco": [
+    "Travessa João Jantin, 21",
+    "Casa Verde Alta · São Paulo, SP"
+   ],
+   "telefone": "(11) 93444-2987"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Drika (Adriana Freitas, nas avaliações). Estúdio na Casa Verde Alta, Zona Norte de São Paulo. Título com as palavras dela (\"momentos que merecem ser eternizados\").",
+    "Natal abre com o cenário de 2026 (a casinha de biscoito, do post \"O Natal mais encantador chegou ao estúdio\") e segue com a cozinha de Natal e a lareira, que são de antes. Entrou a página Gestante (os posts de novembro, em até 3024 px)."
+   ],
+   "fora": "as gestantes de body de tela (pouca roupa), os retratos corporativos (manicure, cílios), a arte da Copa com o contador \"2/9\" na foto, a decoração de festa sem ninguém, os bebês com plaquinha de nome grande e as fotos repetidas.",
+   "textos": [
+    "Dela (bio e legendas): \"O Natal mais encantador chegou ao estúdio!\", \"O Natal é tempo de amor, união, magia e momentos que merecem ser eternizados!\", o pet de pequeno porte, \"Realizo o acompanhamento mês a mês do seu bebê até 1 ano\", \"Não deixe de registrar este momento lindo\".",
+    "Avaliações (lidas inteiras): Silvana Messias no Natal, Nathalia Lima Rodrigues no mês a mês, Danielle Teixeira em aniversários, Rita de Cassia (da v3) em família; Gestante sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" (com a câmera, da grade dela) é a mesma do perfil da v3: confirmar que é a Drika.",
+    "O depoimento da Rita de Cassia veio da v3 (não apareceu na leitura de 14/11)."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Drika, atrás da câmera.",
+   "p": [
+    "A Drika (Adriana Freitas) fotografa gestantes, newborn, mês a mês, aniversários e famílias, no estúdio da Casa Verde Alta, na Zona Norte de São Paulo, e também em ensaios externos.",
+    "Para cada data do ano, um cenário: Natal, Ano Novo, Páscoa, Dia das Mães e Dia dos Pais."
+   ],
+   "citacao": "Não deixe de registrar este momento lindo.",
+   "citacao_quem": "Drika Freitas, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/553358323_18297622648268618_2330478026114854031_n.jpg",
+     "alt": "A Drika com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 36 avaliações no Google"
+    ],
+    [
+     "6,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "pn:0",
-     "natal:0,7,4,9,11,2,10,8"
+    "pedido": "o ensaio de Natal",
+    "frase": "O Natal mais encantador chegou ao estúdio!",
+    "texto": "A casinha de biscoito com o boneco de neve, a cozinha de Natal, com as crianças de confeiteiras, e a lareira com o relógio.",
+    "citacao": "O Natal é tempo de amor, união, magia e momentos que merecem ser eternizados!",
+    "citacao_quem": "Drika Freitas, no Instagram",
+    "quando": "O cenário de Natal 2026 já está no estúdio, para ensaios infantis, fotos em família e até com o pet de pequeno porte. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Silvana Messias",
+     "texto": "Ela é muito meiga, paciente, dinâmica, interage em cada tema. Adoro a forma que ela trata minha família, por isso tiro foto com ela em todos os temas: Natal, Ano Novo, aniversário dos meus filhos, Páscoa, Dia das Mães e Dia dos Pais."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O Natal mais encantador chegou ao estúdio!",
-    "sub": "A cozinha de Natal, com as crianças de confeiteiras, e a lareira com a árvore.",
-    "texto": "O Natal é tempo de amor, união e magia: cenários lindos e exclusivos para viver essa experiência ao lado de quem você ama.",
+    "fotos": [
+     {
+      "arq": "posts/DffQluplA_Y/DffQluplA_Y_03.jpg",
+      "alt": "Bebê de laço na poltrona verde, junto à casinha de biscoito"
+     },
+     {
+      "arq": "posts/Dfc1MnLFGg9/Dfc1MnLFGg9_03.jpg",
+      "alt": "Bebê na poltrona verde, com o calendário de 25 de dezembro"
+     },
+     {
+      "arq": "posts/DffQluplA_Y/DffQluplA_Y_04.jpg",
+      "alt": "Bebê de vestido xadrez, junto ao boneco de neve"
+     },
+     {
+      "arq": "drive/651162275_17962872714059407_8076798922027037844_n.webp",
+      "alt": "Menina de touca rindo com o pão, na cozinha de Natal"
+     },
+     {
+      "arq": "posts/Dfc1MnLFGg9/Dfc1MnLFGg9_01.jpg",
+      "alt": "Bebê sentado com o boneco de neve de pelúcia"
+     },
+     {
+      "arq": "drive/655882438_18075802925546156_975776637977656656_n.webp",
+      "alt": "Família de confeiteiros na cozinha de Natal"
+     },
+     {
+      "arq": "drive/650390473_17917949748125654_79468733821696997_n.webp",
+      "alt": "Menina de vermelho junto à lareira"
+     },
+     {
+      "arq": "posts/Dfc1MnLFGg9/Dfc1MnLFGg9_02.jpg",
+      "alt": "Bebê de Papai Noel na poltrona verde"
+     },
+     {
+      "arq": "drive/661970269_18073175789444916_7368696572815069982_n.webp",
+      "alt": "Menina mexendo a massa na cozinha de Natal"
+     },
+     {
+      "arq": "drive/655484439_18074487149451414_3074419226478499052_n.webp",
+      "alt": "Pais beijando a bebê, junto ao relógio"
+     },
+     {
+      "arq": "posts/DffQluplA_Y/DffQluplA_Y_01.jpg",
+      "alt": "Bebê deitada na poltrona, no cenário da casinha de biscoito"
+     },
+     {
+      "arq": "drive/655853192_18153098431456283_3983504350957599392_n.webp",
+      "alt": "Menino de chapéu de chef com o pão"
+     },
+     {
+      "arq": "drive/652881092_17982846344798969_2408728640494096212_n.webp",
+      "alt": "Pais com a bebê de vermelho"
+     },
+     {
+      "arq": "drive/650990327_17919889065278831_1399871214624653723_n.webp",
+      "alt": "Menina na mesa de doces da cozinha de Natal"
+     },
+     {
+      "arq": "drive/655488529_18046790732729281_2794548844183008643_n.webp",
+      "alt": "Bebê de gorro de Papai Noel"
+     },
+     {
+      "arq": "drive/656112786_18104284028309580_7515377326596773680_n.webp",
+      "alt": "Menino de chef com as baguetes"
+     },
+     {
+      "arq": "drive/656284744_18112519435762836_5126274406022948155_n.webp",
+      "alt": "Família junto à árvore de Natal"
+     },
+     {
+      "arq": "drive/653668004_17949731699962938_1873350129578529094_n.webp",
+      "alt": "Menina de avental com as colheres de pau"
+     },
+     {
+      "arq": "drive/658210431_18006601424888245_5605015888549451554_n.webp",
+      "alt": "Casal brincando na cozinha de Natal"
+     },
+     {
+      "arq": "drive/655208714_18113035237666521_8358164202414750548_n.webp",
+      "alt": "Menino no cavalinho, junto à lareira"
+     },
+     {
+      "arq": "posts/Dfc1MnLFGg9/Dfc1MnLFGg9_00.jpg",
+      "alt": "Bebê de macacão bege, olhando para a câmera"
+     },
+     {
+      "arq": "drive/654014585_18075011483166936_2105729098319671517_n.webp",
+      "alt": "Bebê na poltrona verde, junto à lareira"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -745,20 +931,102 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Silvana Messias"
+    ]
    },
    {
     "id": "mesames",
     "nome": "Mês a mês",
-    "chamada": "Ensaio mês a mês",
-    "fotos": [
-     "bebes:4,5,6,2,0,1,3"
+    "chamada": "Acompanhamento mês a mês",
+    "pedido": "o acompanhamento mês a mês",
+    "frase": "Do newborn ao primeiro aninho.",
+    "texto": "Um tema para cada mês: Branca de Neve, Cinderela, Pocahontas, Toy Story, e o smash the cake para fechar o ano.",
+    "citacao": "Realizo o acompanhamento mês a mês do seu bebê até 1 ano.",
+    "citacao_quem": "Drika Freitas, no Instagram",
+    "depo": {
+     "nome": "Nathalia Lima Rodrigues",
+     "texto": "O primeiro ano do meu neném! Um agradecimento mais que gigante para a tia Drika, que topou durante um ano todinho todas as loucuras da mamãe e fez com maestria. Nem palavras para agradecer todo carinho e dedicação!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O acompanhamento até 1 ano.",
-    "sub": "Do newborn ao primeiro aninho, com um tema para cada mês.",
-    "texto": "Realizo o acompanhamento mês a mês do seu bebê até 1 ano: Branca de Neve, Cinderela, Pocahontas e o tema que a família escolher.",
+    "fotos": [
+     {
+      "arq": "drive/661072595_18430952383141140_6226006767423565568_n.webp",
+      "alt": "Recém-nascida dormindo com o ursinho rosa"
+     },
+     {
+      "arq": "drive/656068938_18055872179495654_3054929386534921908_n.webp",
+      "alt": "Bebê de Cinderela rindo, junto ao castelo"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Recém-nascida sorrindo enquanto dorme"
+     },
+     {
+      "arq": "drive/653645180_17983283276970437_1373348026124298682_n.webp",
+      "alt": "Bebê de Branca de Neve"
+     },
+     {
+      "arq": "drive/656273627_17982723527975910_7361721902930799722_n.webp",
+      "alt": "Bebê no cenário de Pocahontas"
+     },
+     {
+      "arq": "drive/660738214_18143938192435996_2964072097131304818_n.webp",
+      "alt": "Bebê de Woody engatinhando"
+     },
+     {
+      "arq": "drive/655205041_18150471133456376_5128257083172116069_n.webp",
+      "alt": "Bebê de Branca de Neve sorrindo"
+     },
+     {
+      "arq": "drive/650806449_17914598805319920_4037977724658229029_n.webp",
+      "alt": "Recém-nascido dormindo"
+     },
+     {
+      "arq": "drive/651366924_17950407266961319_7348853126102049764_n.webp",
+      "alt": "Bebê de faixa vermelha na poltrona"
+     },
+     {
+      "arq": "drive/654474136_18015729530665774_1292708284128215939_n.webp",
+      "alt": "Bebê de gravata xadrez na poltrona, entre os balões"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Bebê de óculos e chapéu xadrez"
+     },
+     {
+      "arq": "drive/654606028_18087920464951480_2831833172653748702_n.webp",
+      "alt": "Recém-nascido na poltrona, entre os balões"
+     },
+     {
+      "arq": "drive/662099176_18098651168513462_8664240614685201904_n.webp",
+      "alt": "Bebê de laço vermelho no trono verde"
+     },
+     {
+      "arq": "drive/655620743_18081756068060919_2389210457727278171_n.webp",
+      "alt": "Bebê de 1 ano entre os balões coloridos"
+     },
+     {
+      "arq": "drive/656520982_18122133487608117_4842243008301410050_n.webp",
+      "alt": "Bebê de 1 ano no cenário dos bichinhos"
+     },
+     {
+      "arq": "drive/652681150_17996811419870084_5329494349547571568_n.webp",
+      "alt": "Bebê no smash the cake"
+     },
+     {
+      "arq": "drive/468033022_18114251428420304_596164544643963117_n.jpg",
+      "alt": "Bebê de 1 ano no cavalinho"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -788,20 +1056,73 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Danielle Teixeira"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil e aniversários",
+    "curto": "Aniversários",
     "chamada": "Ensaio de aniversário",
-    "fotos": [
-     "bebes:9,8,7,11,10"
+    "pedido": "o ensaio de aniversário",
+    "frase": "Um cenário para cada aniversário.",
+    "texto": "Patrulha Canina, bailarina, balões e números: um cenário montado para cada idade, das crianças aos adultos.",
+    "depo": {
+     "nome": "Danielle Teixeira",
+     "texto": "A Adriana é uma profissional maravilhosa. Ela fez o ensaio de 1 ano da minha filha e o newborn do meu filho. Tem um cuidado todo especial, além de ser amorosa."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Aniversários de todas as idades.",
-    "sub": "Patrulha Canina, Toy Story, 2 e 3 anos, com cenário no tema.",
-    "texto": "Do primeiro aninho às festas dos maiores: um cenário montado para cada aniversário.",
+    "fotos": [
+     {
+      "arq": "drive/655267138_18186434536369168_2496916812211662899_n.webp",
+      "alt": "Menino de 3 anos na Patrulha Canina"
+     },
+     {
+      "arq": "drive/657333704_18092464973162416_5967068643956068434_n.webp",
+      "alt": "Menina de 3 anos no cenário de bailarina"
+     },
+     {
+      "arq": "drive/653900919_18083713571526335_7886822200746170119_n.webp",
+      "alt": "Irmãos no aniversário de 2 anos"
+     },
+     {
+      "arq": "drive/625116959_18181829503366952_3576787117357707333_n.webp",
+      "alt": "Menina entre os balões prateados"
+     },
+     {
+      "arq": "drive/656267140_18111235723751081_6915759108054332074_n.webp",
+      "alt": "Família na festa de 1 ano, junto ao bolo"
+     },
+     {
+      "arq": "drive/655108946_18124020070522882_5888439353670548710_n.webp",
+      "alt": "Menina no cavalinho, com o relógio"
+     },
+     {
+      "arq": "drive/655301036_18061972574441832_5735109489242801589_n.webp",
+      "alt": "Menino de camisa branca no cavalinho"
+     },
+     {
+      "arq": "drive/650852197_17937635265188510_3067292647606123615_n.webp",
+      "alt": "Menina de vestido lilás e tiara"
+     },
+     {
+      "arq": "drive/656610703_18096535162999552_6652051378191886829_n.webp",
+      "alt": "Aniversário de 37 anos, com os balões dourados"
+     },
+     {
+      "arq": "drive/655241651_17992804688931124_5458463431280162317_n.webp",
+      "alt": "Aniversário de 30 anos, de vestido branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -833,19 +1154,72 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Debora Barboza Pital"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,2,4,1,3"
+    "pedido": "o ensaio de família",
+    "frase": "Um tema para cada data do ano.",
+    "texto": "Natal, Ano Novo, Páscoa, Dia das Mães e Dia dos Pais, com a família toda no estúdio.",
+    "depo": {
+     "nome": "Rita de Cassia Xavier de Lima Barroso",
+     "texto": "Já realizo ensaios com ela desde 2019: muito atenciosa e carinhosa com seus clientes."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Não deixe de registrar este momento lindo.",
-    "sub": "A família toda no estúdio, em qualquer data do ano.",
-    "texto": "Natal, Ano Novo, Páscoa, Dia das Mães e Dia dos Pais: um tema para cada data do ano.",
+    "fotos": [
+     {
+      "arq": "drive/646101517_17909005704349846_7240066470271936643_n.webp",
+      "alt": "Família abraçada no tapete"
+     },
+     {
+      "arq": "drive/658249057_18111312787812976_5532610566792863730_n.webp",
+      "alt": "Mãe e filha de vermelho, rosto com rosto"
+     },
+     {
+      "arq": "drive/656288997_18033120701598450_8805448404847675973_n.webp",
+      "alt": "Família com os balões de Ano Novo"
+     },
+     {
+      "arq": "drive/656614868_17963638716025356_3293474315738294562_n.webp",
+      "alt": "Pais com o recém-nascido e o filho"
+     },
+     {
+      "arq": "drive/656908458_18100302149500249_3685915074930562456_n.webp",
+      "alt": "Família com a recém-nascida, em preto e branco"
+     },
+     {
+      "arq": "drive/662850992_18365504560206733_4653400318524616972_n.webp",
+      "alt": "Família com os balões de Ano Novo, no fundo prateado"
+     },
+     {
+      "arq": "drive/658378481_18089488051939041_824016332324836254_n.webp",
+      "alt": "Mãe e filha com os balões de Ano Novo"
+     },
+     {
+      "arq": "drive/641459098_17903698932381024_2235685807891027935_n.webp",
+      "alt": "Família junto à lareira de Natal"
+     },
+     {
+      "arq": "drive/656279044_18097923244806380_5178118178848927102_n.webp",
+      "alt": "Mãe e filha com o pão, na cozinha de Natal"
+     },
+     {
+      "arq": "drive/656778460_18079290137385917_3713312312288960560_n.webp",
+      "alt": "Família na cozinha de Natal"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -875,8 +1249,100 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "pedido": "o ensaio gestante",
+    "frase": "Não deixe de registrar este momento lindo.",
+    "texto": "Vestido de tule ou longo preto, no fundo claro ou escuro, sozinha ou com o pai do bebê.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "depo": "RITA DE CASSIA XAVIER DE LIMA BARROSO"
+    "fotos": [
+     {
+      "arq": "posts/DfXVNbFlFIs/DfXVNbFlFIs_00.jpg",
+      "alt": "Gestante de branco junto à cortina"
+     },
+     {
+      "arq": "posts/DfXVNbFlFIs/DfXVNbFlFIs_04.jpg",
+      "alt": "Casal no ensaio gestante, de mãos dadas"
+     },
+     {
+      "arq": "posts/DfXVZX1lCxP/DfXVZX1lCxP_00.jpg",
+      "alt": "Casal no ensaio gestante, de preto"
+     },
+     {
+      "arq": "posts/DfXVNbFlFIs/DfXVNbFlFIs_02.jpg",
+      "alt": "Gestante de tule, no fundo claro"
+     },
+     {
+      "arq": "posts/DfXVZX1lCxP/DfXVZX1lCxP_01.jpg",
+      "alt": "Pai abraçando a barriga"
+     },
+     {
+      "arq": "posts/DfXVZX1lCxP/DfXVZX1lCxP_02.jpg",
+      "alt": "Gestante de vestido longo preto"
+     },
+     {
+      "arq": "posts/DfXVNbFlFIs/DfXVNbFlFIs_01.jpg",
+      "alt": "Gestante de branco, olhando para a barriga"
+     },
+     {
+      "arq": "drive/466044676_18260736277268618_5263978174326775342_n.webp",
+      "alt": "Gestante com os sapatinhos"
+     },
+     {
+      "arq": "posts/DfXVZX1lCxP/DfXVZX1lCxP_03.jpg",
+      "alt": "Casal no fundo escuro"
+     },
+     {
+      "arq": "posts/DfXVNbFlFIs/DfXVNbFlFIs_03.jpg",
+      "alt": "Gestante de tule, sorrindo"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "1 figurino"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "2 figurinos",
+       "Com o pai do bebê"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Fundo claro e escuro",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }
