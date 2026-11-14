@@ -20,7 +20,7 @@ const MODULOS = { "agenda-online": "Agenda online", agenda: "Agenda da equipe", 
 const TELAS = { inicio: "a visão geral", agenda: "a agenda", clientes: "os clientes", contratos: "os contratos", financeiro: "o financeiro", atendimento: "o atendimento", equipe: "a equipe e acessos", campanha: "a campanha de Natal" };
 const PAGINAS = { exemplos: "a página do painel", "painel-eventos": "o exemplo do painel", "agenda-online": "a agenda online de exemplo", demo: "a demo do site" };
 /** Outras páginas de uma demo (detalhe.sub do "abriu"). */
-const SUBPAGINAS = { natal: "a página de Natal da demo", "artes-instagram": "as artes para Instagram da demo", proposta: "a proposta comercial" };
+const SUBPAGINAS = { natal: "a página de Natal da demo", "artes-instagram": "as artes para Instagram da demo", proposta: "a proposta comercial", contrato: "o contrato para assinar" };
 const LUGARES = { exemplos: "Página do Painel Renderiza", "painel-eventos": "Exemplo do painel", "agenda-online": "Agenda online de exemplo" };
 /** Onde foi: "Página do Painel Renderiza", "Demo otica-nina"… */
 export const lugarDe = v => (daDemo(v) ? "Demo " + (v.demo || "") : LUGARES[v.pagina] || v.pagina).trim();

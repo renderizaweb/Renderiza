@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrato · Gabinete Aberto · Vereador Mateuzinho Silva</title>
+<meta name="description" content="Contrato de prestação de serviços do site do mandato e do portal Gabinete Aberto, para assinar online.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1b0f30">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contrato · Gabinete Aberto">
+<meta property="og:description" content="O resumo e o contrato completo do site e do portal do mandato, para assinar online.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/demo/vereador-mateuzinho-silva/capa.jpg">
+<meta property="og:url" content="https://www.renderizaweb.com.br/contrato/vereador-mateuzinho-silva">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Contrato do vereador Mateuzinho Silva (14/11/2026), a partir da proposta em /proposta/vereador-mateuzinho-silva.
+     Vai ao ar em /contrato/vereador-mateuzinho-silva (scripts/montar-site.mjs). A assinatura chama a função
+     aceitar_termo_online do Supabase (supabase/termos-online.sql) com a chave pública de /api/config; o termo
+     "vereador-mateuzinho-silva-v1" guarda o texto e a impressão (SHA-256 do texto de #contrato, espaços juntados).
+     Mudou o texto do contrato: nova versão do termo (v2), com o texto e a impressão novos, e TERMO abaixo. -->
+<script src="/exemplos/visitas.js" data-pagina="demo" data-demo="vereador-mateuzinho-silva" data-sub="contrato" defer></script>
+<style>
+:root{--noite:#1b0f30;--roxo:#4b2a80;--roxo-2:#341a5e;--roxo-3:#8a69cc;--lilas:#f1ebf8;--lima:#bfe85a;--lima-2:#9cc63d;--lima-3:#587812;
+  --fundo:#fbfaf7;--cartao:#fff;--tinta:#1d1727;--tinta-2:#4d4559;--suave:#766e82;--linha:#e8e2ee;--erro:#b42318;--ok:#1f7a4d;--ok-claro:#e2f3e9;
+  --titulo:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--fundo);color:var(--tinta);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lima);outline-offset:3px;border-radius:6px}
+.cx{width:min(860px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--titulo);letter-spacing:-.03em;line-height:1.08}
+h2{font-size:clamp(28px,7vw,40px);font-weight:800;margin-top:10px}
+h2 em,h1 em{font-style:normal;color:var(--roxo)}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--roxo)}
+.kicker::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--lima)}
+.sub{color:var(--tinta-2);font-size:16.5px;margin-top:12px}
+section{padding:52px 0}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:15px;font-weight:700;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.bt svg{width:19px;height:19px;flex:none}
+.bt-lima{background:var(--lima);color:var(--noite)}
+.bt-roxo{background:var(--roxo);color:#fff}
+.bt-vidro{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.26)}
+.bt-linha{background:var(--cartao);color:var(--roxo);border:1.5px solid var(--linha)}
+.bt:disabled{opacity:.55;cursor:not-allowed}
+.topo{position:sticky;top:0;z-index:30;background:rgba(27,15,48,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff}
+.topo .cx{display:flex;align-items:center;gap:14px;height:60px}
+.topo b{font-family:var(--titulo);font-size:18px;font-weight:800;letter-spacing:-.02em}
+.topo small{display:block;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.topo .bt{margin-left:auto;min-height:40px;padding:0 16px;font-size:14px;border-radius:12px}
+.capa{background:radial-gradient(70% 60% at 100% 0,#4a2a86 0,rgba(74,42,134,0) 70%),var(--noite);color:#fff;padding:40px 0 44px}
+.capa .kicker{color:#dccff0}
+.capa h1{font-size:clamp(36px,9.6vw,58px);font-weight:800;margin-top:14px}
+.capa h1 em{color:var(--lima)}
+.capa .sub{color:#e6ddf3}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.acoes .bt{flex:1 1 220px}
+.aviso-capa{margin-top:18px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:14.5px;color:#e6ddf3}
+.aviso-capa b{color:var(--lima)}
+.resumo{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:22px}
+.res{background:var(--cartao);border:1px solid var(--linha);border-radius:20px;padding:18px 20px}
+.res h3{font-size:19px;font-weight:700;display:flex;align-items:center;gap:10px}
+.res h3 i{width:30px;height:30px;border-radius:10px;background:var(--lilas);color:var(--roxo);display:grid;place-items:center;font-style:normal;font-size:15px;flex:none}
+.res ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.res li{position:relative;padding-left:18px;font-size:15px;color:var(--tinta-2)}
+.res li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--lima-2)}
+.res li b{color:var(--tinta)}
+.res.forte{background:var(--lilas);border:2px solid var(--roxo-3)}
+.nota{margin-top:16px;font-size:13.5px;color:var(--suave)}
+.contrato{background:var(--cartao);border:1px solid var(--linha);border-radius:24px;padding:26px 22px;margin-top:22px;font-size:15px;color:var(--tinta-2)}
+.contrato h3{font-size:19px;font-weight:700;color:var(--tinta);margin:26px 0 8px}
+.contrato h3:first-child{margin-top:0}
+.contrato h4{font-size:15px;font-weight:800;color:var(--tinta);margin:14px 0 4px;font-family:inherit;letter-spacing:0}
+.contrato p{margin-top:8px}
+.contrato ol,.contrato ul{margin:8px 0 0 22px;display:grid;gap:6px}
+.contrato b{color:var(--tinta)}
+.contrato table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+.contrato th,.contrato td{border:1px solid var(--linha);padding:8px 10px;text-align:left;vertical-align:top}
+.contrato th{background:#f7f5fa;color:var(--tinta)}
+.tabela-rolagem{overflow-x:auto}
+.pendente{background:#fdf3d8;color:#8a5a00;font-weight:800;padding:0 4px;border-radius:4px}
+.indice{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.indice a{font-size:13.5px;font-weight:700;color:var(--roxo);text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--lilas)}
+.assinatura{background:var(--lilas)}
+.form{background:var(--cartao);border-radius:26px;padding:24px 20px;margin-top:22px;box-shadow:0 18px 40px -24px rgba(29,23,39,.3)}
+.campo{margin-top:14px}
+.campo label,.campo>span{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px;color:var(--tinta-2)}
+.campo input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--linha);background:#fff;color:var(--tinta);outline:0}
+.campo input:focus{border-color:var(--roxo);box-shadow:0 0 0 4px #4b2a8018}
+.campo input[aria-invalid=true]{border-color:var(--erro)}
+.duas{display:grid;grid-template-columns:minmax(0,1fr);gap:0 12px}
+.planos{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.plano{position:relative;display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;border:1.5px solid var(--linha);cursor:pointer;background:#fff}
+.plano input{position:absolute;opacity:0;width:1px;height:1px}
+.plano .bola{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--roxo-3);margin-top:2px;display:grid;place-items:center}
+.plano input:checked~.bola{border-color:var(--roxo);background:var(--roxo);box-shadow:inset 0 0 0 4px #fff}
+.plano input:focus-visible~.bola{outline:3px solid var(--lima);outline-offset:2px}
+.plano:has(input:checked){border-color:var(--roxo);background:#faf7fd}
+.plano b{display:block;font-size:15.5px}
+.plano span{display:block;font-size:13.5px;color:var(--suave)}
+.marcar{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--tinta-2);cursor:pointer}
+.marcar input{flex:none;margin-top:3px;width:20px;height:20px;accent-color:var(--roxo)}
+.erro{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:#fdecea;color:var(--erro);font-size:14px;font-weight:600}
+.erro.ver{display:block}
+.form .bt{width:100%;margin-top:18px}
+.registro{margin-top:12px;font-size:12.5px;color:var(--suave);word-break:break-word}
+.feito{display:none}
+.feito.ver{display:block}
+.comprovante{border-radius:20px;background:var(--ok-claro);padding:20px;color:var(--tinta)}
+.comprovante h3{display:flex;align-items:center;gap:10px;color:var(--ok);font-size:22px}
+.comprovante h3 svg{width:28px;height:28px}
+.comprovante dl{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:14px;font-size:14.5px}
+.comprovante dt{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.comprovante dd{word-break:break-word}
+footer{padding:26px 0 34px;font-size:13px;color:var(--suave)}
+footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (min-width:760px){
+  section{padding:72px 0}
+  .resumo{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contrato{padding:38px 44px}
+  .duas{grid-template-columns:1fr 1fr}
+  .planos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .form{padding:32px}
+  .comprovante dl{grid-template-columns:1fr 1fr}
+}
+@media print{.topo,.capa .acoes,#assinar form,.so-tela,footer{display:none!important}body{background:#fff}.contrato{border:0;padding:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topo"><div class="cx"><div><b>Gabinete Aberto</b><small>Contrato · Renderiza</small></div><a class="bt bt-lima" href="#assinar" data-rz-alvo="contrato-ir-topo">Assinar</a></div></header>
+
+<main>
+<section class="capa" id="inicio" aria-label="Início">
+  <div class="cx">
+    <span class="kicker">Contrato de prestação de serviços</span>
+    <h1>Para seguir, <em>é só assinar.</em></h1>
+    <p class="sub">Aqui estão o resumo e o contrato completo do site do mandato e do portal Gabinete Aberto, como na proposta. A assinatura é online: você informa os seus dados, escolhe o plano de manutenção e confirma.</p>
+    <div class="aviso-capa"><b>A assinatura é o que dá início ao trabalho.</b> Ficou alguma dúvida? Fale com o Kaue no WhatsApp antes de assinar.</div>
+    <div class="acoes">
+      <a class="bt bt-lima" href="#assinar" data-rz-alvo="contrato-ir-capa">Ir para a assinatura</a>
+      <a class="bt bt-vidro" href="https://wa.me/5511988697165?text=Ol%C3%A1%2C%20Kaue!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20contrato%20do%20Gabinete%20Aberto." data-rz-alvo="contrato-duvida">Tirar uma dúvida</a>
+    </div>
+  </div>
+</section>
+
+<section id="resumo" aria-label="Resumo">
+  <div class="cx">
+    <span class="kicker">Resumo</span>
+    <h2>O contrato <em>em seis pontos.</em></h2>
+    <div class="resumo">
+      <div class="res forte"><h3><i>1</i>O que você recebe</h3><ul><li>O <b>site do mandato</b>, com o pedido do bairro e o acompanhamento de cada pedido.</li><li>O <b>portal Gabinete Aberto</b>: pedidos, equipe com acesso por pessoa, terça no gabinete, munícipes, Câmara, indicadores e IA.</li><li>Tudo em 3 fases, em cerca de 5 semanas.</li></ul></div>
+      <div class="res"><h3><i>2</i>Quanto e como você paga</h3><ul><li><b>R$&nbsp;3.300</b>: 60 horas a R$&nbsp;55 (condição de indicação; a tabela é R$&nbsp;75, ou R$&nbsp;4.500).</li><li>R$&nbsp;1.320 na assinatura, R$&nbsp;990 na entrega da Fase 1 e R$&nbsp;990 na entrega final.</li><li>Valor fechado: se passar de 60 horas, a diferença é da Renderiza.</li></ul></div>
+      <div class="res"><h3><i>3</i>Depois da entrega</h3><ul><li>Um plano mensal mantém tudo no ar e seguro: <b>Essencial R$&nbsp;350</b> (o mínimo), Gabinete R$&nbsp;590 ou Mandato R$&nbsp;990.</li><li>Mínimo de 3 meses; depois, cancela com 30 dias de aviso.</li></ul></div>
+      <div class="res"><h3><i>4</i>As suas garantias</h3><ul><li>90 dias de garantia contra defeitos, mesmo sem plano.</li><li>Desconto de 5% na parcela se a Renderiza atrasar uma fase por culpa dela.</li><li>O domínio, o código e os dados são seus; se o contrato acabar, você recebe tudo.</li></ul></div>
+      <div class="res"><h3><i>5</i>Os seus compromissos</h3><ul><li>Enviar o material (textos, fotos, acessos) e testar cada entrega em até 5 dias úteis.</li><li>Pagar em dia, com recursos próprios.</li><li>Usar os dados dos moradores só para atender os pedidos do mandato.</li></ul></div>
+      <div class="res"><h3><i>6</i>Segurança e lei eleitoral</h3><ul><li>Banco exclusivo do mandato, no Brasil, com acesso por pessoa e verificação em duas etapas.</li><li>Nada de campanha no sistema do mandato; em 2028, o que for de campanha tem contrato e hospedagem próprios.</li></ul></div>
+    </div>
+    <p class="nota">O resumo ajuda a ler; o que vale é o contrato completo, logo abaixo.</p>
+  </div>
+</section>
+
+<section id="contrato-completo" aria-label="Contrato completo" style="padding-top:0">
+  <div class="cx">
+    <span class="kicker">Contrato completo</span>
+    <h2>Contrato de prestação de serviços</h2>
+    <nav class="indice so-tela" aria-label="Cláusulas"><a href="#c1">Partes</a><a href="#c3">Prazos</a><a href="#c5">Preço</a><a href="#c10">Manutenção</a><a href="#c13">Dados</a><a href="#c14">Lei eleitoral</a><a href="#c15">Segurança</a><a href="#c18">Saída</a><a href="#anexo1">Escopo</a><a href="#anexo2">Medidas de segurança</a></nav>
+    <div class="contrato" id="contrato">
+      <h3 id="c1">1. As partes</h3>
+      <p><b>CONTRATADA:</b> <span class="pendente">[NOME COMPLETO DO KAUE]</span>, inscrito no CPF sob o nº <span class="pendente">[CPF DO KAUE]</span>, que atua com o nome Renderiza (renderizaweb.com.br), WhatsApp (11) 98869-7165, aqui chamado de <b>Renderiza</b>.</p>
+      <p><b>CONTRATANTE:</b> a pessoa que assina este contrato ao final, identificada pelo nome, CPF, endereço, e-mail e WhatsApp informados na assinatura, que declara ser Mateus Andrade da Silva Santos, vereador do Município de Itapevi/SP, conhecido como Mateuzinho Silva, e contrata em nome próprio, como pessoa física, aqui chamado de <b>Contratante</b>.</p>
+
+      <h3 id="c2">2. O objeto</h3>
+      <p>A Renderiza vai criar o site do mandato e o portal Gabinete Aberto, separados e integrados, como descrito no Anexo I (Escopo), que faz parte deste contrato. A proposta de 14/11/2026 serve de referência; se houver diferença, vale este contrato.</p>
+
+      <h3 id="c3">3. Fases e prazos</h3>
+      <ol>
+        <li>O trabalho tem três fases: <b>Fase 1</b> (site no ar, pedido do bairro e acompanhamento, portal com pedidos e equipe), <b>Fase 2</b> (terça no gabinete, munícipes, indicações da Câmara, site pelo portal, indicadores) e <b>Fase 3</b> (IA para redigir indicações, lembretes, testes e treinamento).</li>
+        <li>Os prazos são: Fase 1 em até 10 dias úteis; Fase 2 em até 10 dias úteis depois da aprovação da Fase 1; Fase 3 em até 5 dias úteis depois da aprovação da Fase 2.</li>
+        <li>Os prazos começam no dia útil seguinte ao último destes três fatos: a assinatura, o pagamento da entrada e o envio do material (textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe).</li>
+        <li>Atraso do Contratante em enviar material, dar acesso ou responder estende o prazo pelo mesmo tempo.</li>
+        <li>Se a Renderiza atrasar uma fase em mais de 10 dias úteis por motivo dela, o Contratante tem 5% de desconto na parcela daquela fase (na Fase 2, na parcela final).</li>
+        <li>A Renderiza manda ao Contratante um resumo curto do andamento ao fim de cada semana de trabalho.</li>
+      </ol>
+
+      <h3 id="c4">4. Entrega e aprovação</h3>
+      <ol>
+        <li>Ao fim de cada fase, a Renderiza entrega o que foi feito para o Contratante testar.</li>
+        <li>O Contratante tem até 5 dias úteis para testar e enviar a lista de ajustes. Ajustes dentro do Anexo I são feitos sem custo.</li>
+        <li>Sem resposta nesse prazo, a fase é considerada aprovada. Defeitos encontrados depois continuam cobertos pela garantia (cláusula 9).</li>
+      </ol>
+
+      <h3 id="c5">5. Preço e pagamento</h3>
+      <ol>
+        <li>O preço é de <b>R$&nbsp;3.300,00</b> (três mil e trezentos reais): 60 horas a R$&nbsp;55,00, valor com a condição de indicação. O valor de tabela é R$&nbsp;75,00 a hora (R$&nbsp;4.500,00).</li>
+        <li>O preço é fechado para o Anexo I: se o trabalho passar de 60 horas, a diferença fica por conta da Renderiza.</li>
+        <li>O pagamento é feito por Pix ou transferência, para a conta indicada pela Renderiza, em três parcelas: <b>R$&nbsp;1.320,00</b> (40%) em até 3 dias úteis da assinatura; <b>R$&nbsp;990,00</b> (30%) na entrega da Fase 1; <b>R$&nbsp;990,00</b> (30%) na entrega final. A Renderiza dá recibo de cada pagamento.</li>
+        <li>Atraso no pagamento gera multa de 2%, juros de 1% ao mês, proporcionais aos dias, e correção pelo IPCA. Com mais de 15 dias de atraso, a Renderiza pode parar o trabalho até o pagamento, e os prazos param junto.</li>
+        <li>A hospedagem durante o desenvolvimento está incluída no preço. O registro do domínio (cerca de R$&nbsp;40,00 por ano no Registro.br) é pago diretamente pelo Contratante, porque o domínio fica no nome dele.</li>
+      </ol>
+
+      <h3 id="c6">6. Mudanças no escopo</h3>
+      <p>O que não estiver no Anexo I é trabalho novo: a Renderiza envia antes a estimativa de horas e só começa depois da aprovação do Contratante, por escrito (WhatsApp ou e-mail valem). A hora custa R$&nbsp;55,00 por 12 meses a partir da assinatura.</p>
+
+      <h3 id="c7">7. Compromissos do Contratante</h3>
+      <ol>
+        <li>Enviar o material e os acessos, e indicar uma pessoa da equipe para falar com a Renderiza.</li>
+        <li>Responder pelo conteúdo que publicar ou mandar publicar (textos, fotos, vídeos), inclusive pela autorização de uso da imagem das pessoas que aparecem nas fotos.</li>
+        <li>Cuidar das senhas da equipe, pedir a retirada do acesso de quem sair e não compartilhar logins.</li>
+        <li>Usar os dados dos moradores só para atender os pedidos e prestar contas do mandato, como na cláusula 13.</li>
+        <li>Pagar este contrato com recursos próprios, sem verba de gabinete nem outro recurso público. Este contrato não envolve a Câmara Municipal de Itapevi.</li>
+      </ol>
+
+      <h3 id="c8">8. Compromissos da Renderiza</h3>
+      <ol>
+        <li>Fazer o trabalho com cuidado técnico e boa-fé, no prazo e no escopo.</li>
+        <li>Adotar e manter as medidas de segurança do Anexo II.</li>
+        <li>Guardar sigilo do que conhecer do gabinete (cláusula 16).</li>
+        <li>Avisar o Contratante de riscos que perceber: técnicos, de segurança ou de privacidade.</li>
+      </ol>
+
+      <h3 id="c9">9. Garantia</h3>
+      <p>Por 90 dias depois da entrega final, a Renderiza corrige sem custo qualquer defeito no que entregou, com ou sem plano de manutenção. Defeito é o que não funciona como descrito no Anexo I; mudança de pedido é melhoria (cláusula 6).</p>
+
+      <h3 id="c10">10. Hospedagem, domínio e contas</h3>
+      <ol>
+        <li>O domínio fica registrado no nome do Contratante, com acesso da Renderiza para configurar.</li>
+        <li>O site e o portal rodam na estrutura que a Renderiza contrata (hoje, Vercel para o site e Supabase para o banco), num projeto exclusivo do mandato, com o banco de dados em São Paulo. Os custos dessa estrutura estão incluídos no plano de manutenção.</li>
+        <li>Se um dia a hospedagem precisar mudar, por exemplo em período eleitoral (cláusula 14), a Renderiza ajuda na mudança; o trabalho entra como melhoria.</li>
+      </ol>
+
+      <h3 id="c11">11. Plano de manutenção</h3>
+      <ol>
+        <li>O plano começa no mês seguinte à entrega final. O Contratante escolhe o plano na assinatura e pode trocar a qualquer momento, valendo no mês seguinte.</li>
+        <li>O plano <b>Essencial é o mínimo</b> para manter o site e o portal na estrutura da Renderiza.</li>
+      </ol>
+      <div class="tabela-rolagem"><table>
+        <thead><tr><th>Plano</th><th>Por mês</th><th>Inclui</th></tr></thead>
+        <tbody>
+          <tr><td><b>Essencial</b></td><td>R$&nbsp;350,00</td><td>Hospedagem e banco de dados, cópias de segurança, atualizações de segurança, monitoramento, correção de defeitos e até 1 hora de ajustes no mês. Resposta em até 2 dias úteis.</td></tr>
+          <tr><td><b>Gabinete</b></td><td>R$&nbsp;590,00</td><td>Tudo do Essencial, mais até 4 horas de melhorias no mês, o ajuste quando a Câmara mudar o sistema dela e o relatório mensal de uso. Resposta em até 1 dia útil.</td></tr>
+          <tr><td><b>Mandato</b></td><td>R$&nbsp;990,00</td><td>Tudo do Gabinete, mais até 10 horas no mês e uma reunião mensal de 30 minutos. Urgências no mesmo dia útil.</td></tr>
+        </tbody>
+      </table></div>
+      <ol start="3">
+        <li>Manutenção é manter tudo funcionando: hospedagem, segurança, cópias e correção de defeitos. Melhoria é o que muda ou acrescenta (tela, campo, relatório, visual).</li>
+        <li>As horas incluídas não acumulam. O que passar é cobrado a R$&nbsp;55,00 a hora, só com aprovação antes. No Essencial, o ajuste quando a Câmara mudar o sistema dela sai por hora.</li>
+        <li>Atendimento por WhatsApp e e-mail, em dias úteis, das 9h às 18h. Site ou portal fora do ar é tratado em até 4 horas úteis, em qualquer plano.</li>
+        <li>A IA está incluída até 200 rascunhos de indicação por mês. Serviços de terceiros que cobram por uso e não estão no Anexo I (como o WhatsApp oficial) são cobrados à parte, só se contratados.</li>
+        <li>A mensalidade é paga por Pix até o dia 10 de cada mês. O valor é reajustado uma vez por ano pelo IPCA.</li>
+        <li>Vigência mínima de 3 meses; depois, mês a mês, com aviso de 30 dias para cancelar.</li>
+        <li>Com mais de 30 dias de atraso na mensalidade, a Renderiza avisa por escrito; sem pagamento em mais 15 dias, pode suspender o suporte e, passados mais 30 dias, encerrar o plano como na cláusula 18, entregando o código e os dados.</li>
+      </ol>
+
+      <h3 id="c12">12. Propriedade</h3>
+      <ol>
+        <li>Pago o preço inteiro, o Contratante passa a ser dono do código feito especialmente para ele, da identidade visual e do conteúdo do site e do portal.</li>
+        <li>Ferramentas, bibliotecas e componentes genéricos que a Renderiza já tinha ou usa em outros projetos continuam dela, e o Contratante pode usá-los no site e no portal sem custo e sem prazo. Bibliotecas de código aberto seguem as próprias licenças.</li>
+        <li>A Renderiza só cita o projeto no portfólio com autorização do Contratante, e nunca com dados pessoais.</li>
+      </ol>
+
+      <h3 id="c13">13. Dados pessoais (LGPD)</h3>
+      <ol>
+        <li>Nos dados dos moradores e da equipe guardados no portal, o Contratante é o controlador e a Renderiza é a operadora (Lei 13.709/2018). A Renderiza trata esses dados só para executar este contrato e conforme as instruções do Contratante.</li>
+        <li>A Renderiza usa fornecedores para hospedar e operar o sistema: Vercel (site), Supabase (banco, em São Paulo), Cloudflare (proteção do formulário), Brevo (e-mails) e um provedor de inteligência artificial (rascunhos). Alguns ficam fora do Brasil e oferecem as garantias exigidas pela LGPD para a transferência internacional. A IA não recebe nome, telefone, e-mail nem endereço de morador.</li>
+        <li>Se houver um incidente de segurança com dados pessoais, a Renderiza avisa o Contratante em até 2 dias úteis depois de saber, com o que aconteceu e o que foi feito, e ajuda nas comunicações que a lei exigir.</li>
+        <li>A Renderiza ajuda o Contratante a atender os pedidos dos titulares (ver, corrigir, apagar dados).</li>
+        <li>No fim do contrato, a Renderiza entrega os dados ao Contratante e os apaga da estrutura dela em até 30 dias, salvo o que a lei mandar guardar.</li>
+        <li>Os dados do próprio Contratante informados na assinatura (nome, CPF, endereço, e-mail, WhatsApp) são usados só para este contrato e guardados enquanto houver obrigação legal.</li>
+      </ol>
+
+      <h3 id="c14">14. Uso político e eleitoral</h3>
+      <ol>
+        <li>O site e o portal servem ao mandato: atender a população e prestar contas. O Contratante responde pelo que publica, inclusive perante a Lei 9.504/1997 e as normas do Tribunal Superior Eleitoral.</li>
+        <li>O cadastro de munícipes não é usado para campanha eleitoral, nem cedido a ninguém, sem um consentimento próprio de cada pessoa para isso.</li>
+        <li>Qualquer uso em campanha (site de candidato, coleta de apoio, envio de mensagens) depende de contrato próprio e das exigências da lei eleitoral, como hospedagem em provedor estabelecido no Brasil e comunicação do endereço à Justiça Eleitoral (Lei 9.504/1997, art. 57-B).</li>
+        <li>A Renderiza pode recusar ou pausar uma publicação ou função que viole claramente a lei eleitoral ou a LGPD, avisando o Contratante e explicando o motivo.</li>
+      </ol>
+
+      <h3 id="c15">15. Segurança e limite de responsabilidade</h3>
+      <ol>
+        <li>A Renderiza mantém as medidas do Anexo II e as atualiza quando surgirem riscos novos. Nenhum sistema é imune a ataques: o compromisso é adotar e manter essas medidas e agir rápido em caso de incidente.</li>
+        <li>A Renderiza não responde por: queda ou falha de serviços de terceiros (Vercel, Supabase, Registro.br, o sistema da Câmara e outros); mudanças no sistema da Câmara; ataques que vençam as medidas do Anexo II sem culpa dela; uso indevido de senhas da equipe do Contratante; conteúdo publicado pelo Contratante.</li>
+        <li>A responsabilidade da Renderiza por danos fica limitada ao valor pago pelo Contratante nos 12 meses anteriores ao fato. Nenhuma das partes responde por lucros cessantes ou danos indiretos. Esses limites não valem em caso de dolo ou culpa grave.</li>
+      </ol>
+
+      <h3 id="c16">16. Sigilo</h3>
+      <p>As partes guardam sigilo das informações não públicas que conhecerem uma da outra (pedidos, dados, estratégias, valores) durante o contrato e por 5 anos depois dele, salvo ordem legal ou judicial.</p>
+
+      <h3 id="c17">17. Desistência e rescisão</h3>
+      <ol>
+        <li>Se o Contratante desistir antes da entrega final, paga as fases entregues e as horas já trabalhadas na fase em andamento, a R$&nbsp;55,00, com o relatório das horas, sem passar do preço. O que tiver pago além disso volta em até 10 dias, e a Renderiza entrega o que estiver pronto.</li>
+        <li>A Renderiza só pode encerrar o contrato por falta de pagamento por mais de 30 dias ou por descumprimento grave, com aviso de 10 dias. Nesse caso, devolve o que recebeu por fase que não entregou.</li>
+        <li>Qualquer das partes pode encerrar o contrato por descumprimento grave da outra, se não for corrigido em 10 dias depois do aviso.</li>
+      </ol>
+
+      <h3 id="c18">18. Saída</h3>
+      <p>Quando o contrato ou o plano terminar, por qualquer motivo, a Renderiza entrega em até 15 dias o código, a cópia completa dos dados e as instruções para colocar tudo no ar em outro lugar. Se o plano estiver em dia, mantém o site e o portal no ar por até 30 dias para a mudança. Depois, apaga os dados da estrutura dela (cláusula 13).</p>
+
+      <h3 id="c19">19. Avisos</h3>
+      <p>Os avisos deste contrato valem quando enviados pelo e-mail ou pelo WhatsApp informados na assinatura (do Contratante) e no início deste contrato (da Renderiza).</p>
+
+      <h3 id="c20">20. Assinatura eletrônica</h3>
+      <p>Este contrato é assinado eletronicamente. A Renderiza concorda com este texto ao publicá-lo, e o contrato se forma com o aceite do Contratante. Ficam registrados o nome, o CPF, o endereço, o e-mail e o WhatsApp informados, a data e a hora, o endereço IP, o aparelho e a impressão digital (SHA-256) deste texto. As partes reconhecem a validade dessa forma de assinatura (Medida Provisória 2.200-2/2001, art. 10, § 2º). A Renderiza envia ao Contratante a cópia do contrato com os dados da assinatura.</p>
+
+      <h3 id="c21">21. Foro</h3>
+      <p>Fica escolhido o foro da Comarca de Itapevi/SP para resolver qualquer questão deste contrato.</p>
+
+      <h3 id="anexo1">Anexo I · Escopo</h3>
+      <h4>Site do mandato (aberto a todos)</h4>
+      <ul>
+        <li>Início; o mandato em números (a partir do sistema da Câmara); nas ruas; rua por rua (busca por rua ou bairro, com número, situação e protocolo de cada indicação); projetos; linha do tempo; pelos bairros; quem é; gabinete.</li>
+        <li>Pedido do bairro: formulário com tipo, bairro, rua, descrição, foto e aceite da LGPD; o pedido chega ao portal e o morador recebe um número.</li>
+        <li>Acompanhe o seu pedido: a página de cada pedido, aberta pelo link ou pelo número com uma confirmação, com cada etapa.</li>
+        <li>Notícias e acontecimentos, publicados pelo portal; página de privacidade.</li>
+        <li>Domínio próprio, versão para celular e prévia com foto quando o link é compartilhado.</li>
+      </ul>
+      <h4>Portal Gabinete Aberto (só a equipe)</h4>
+      <ul>
+        <li>Fase 1: entrar (login individual e recuperação de senha); pedidos (todos num só lugar, em quadro ou lista, com filtros); ficha do pedido (dados, fotos, histórico, responsável, comentários internos e botão que abre o WhatsApp do gabinete com a mensagem pronta); equipe e acessos (perfis); e-mail para a equipe quando chega pedido novo.</li>
+        <li>Fase 2: início (o dia do gabinete); terça no gabinete (ficha de atendimento, fila e resumo); munícipes (cadastro com histórico e aceite); indicações (a partir do sistema da Câmara, ligadas aos pedidos); site (notícias, fotos, projetos, linha do tempo e o que aparece no rua por rua); indicadores e relatório do mês em PDF.</li>
+        <li>Fase 3: rascunho de indicação com IA, revisado pela equipe; lembretes de cobrança; testes finais e treinamento da equipe.</li>
+        <li>O portal funciona no navegador e pode ser instalado na tela inicial do celular.</li>
+      </ul>
+      <h4>Ligação com a Câmara</h4>
+      <p>As indicações e os números vêm das páginas públicas do sistema da Câmara Municipal de Itapevi, lidas automaticamente uma vez por dia. A Câmara não oferece uma ligação oficial para isso; se o sistema dela mudar ou ficar fora do ar, a leitura para até o ajuste (cláusula 11). Se a Câmara passar a oferecer uma ligação oficial, a Renderiza pode trocar a leitura por ela, como melhoria.</p>
+      <h4>Fora do escopo</h4>
+      <ul>
+        <li>Envio e resposta automáticos pelo WhatsApp; aplicativo nas lojas; produção de conteúdo (textos, fotos, vídeos, redes, anúncios); integração com sistemas da Prefeitura; importação de planilhas antigas; site e material de campanha eleitoral.</li>
+      </ul>
+
+      <h3 id="anexo2">Anexo II · Medidas de segurança</h3>
+      <ul>
+        <li>Conexão criptografada (HTTPS) em todo o site e o portal.</li>
+        <li>Banco de dados em projeto exclusivo do mandato, em servidor no Brasil (São Paulo), com os dados criptografados.</li>
+        <li>Login individual, verificação em duas etapas para toda a equipe, perfis de acesso e regras no próprio banco: cada pessoa só vê o que o perfil permite.</li>
+        <li>Registro de quem criou, alterou ou excluiu cada informação, e quando; registros de acesso guardados por 6 meses.</li>
+        <li>Cópia de segurança automática todos os dias, guardada por 7 dias, e uma cópia semanal guardada à parte.</li>
+        <li>Formulário público protegido contra robôs e com limite de envios; a página de um pedido só abre pelo link ou pelo número com confirmação, para ninguém ver o pedido dos outros.</li>
+        <li>O site público nunca mostra nome, telefone ou endereço de quem pediu.</li>
+        <li>Atualizações de segurança, monitoramento de disponibilidade e revisão de segurança antes de cada entrega.</li>
+        <li>Conta do domínio com verificação em duas etapas e bloqueio de transferência.</li>
+        <li>Acesso da Renderiza aos sistemas só com verificação em duas etapas e só pelo tempo necessário.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="assinatura" id="assinar" aria-label="Assinatura">
+  <div class="cx">
+    <span class="kicker">Assinatura</span>
+    <h2>Assinar <em>o contrato.</em></h2>
+    <p class="sub">Preencha com os seus dados, escolha o plano de manutenção e confirme. É rápido, e você recebe o comprovante na hora.</p>
+    <div class="form">
+      <form id="formAssinar" novalidate>
+        <div class="campo"><label for="nome">Nome completo</label><input id="nome" autocomplete="name" placeholder="Como no documento"></div>
+        <div class="duas">
+          <div class="campo"><label for="cpf">CPF</label><input id="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"></div>
+          <div class="campo"><label for="zap">WhatsApp</label><input id="zap" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"></div>
+        </div>
+        <div class="campo"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="voce@exemplo.com.br"></div>
+        <div class="campo"><label for="endereco">Endereço completo</label><input id="endereco" autocomplete="street-address" placeholder="Rua, número, bairro, cidade, CEP"></div>
+        <div class="campo"><span>Plano de manutenção (começa depois da entrega final)</span>
+          <div class="planos" role="radiogroup" aria-label="Plano de manutenção">
+            <label class="plano"><input type="radio" name="plano" value="essencial"><i class="bola"></i><div><b>Essencial · R$&nbsp;350</b><span>O mínimo: no ar, seguro, 1 hora de ajustes</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="gabinete"><i class="bola"></i><div><b>Gabinete · R$&nbsp;590</b><span>Recomendado: 4 horas de melhorias, ajuste da Câmara</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="mandato"><i class="bola"></i><div><b>Mandato · R$&nbsp;990</b><span>10 horas, reunião mensal, urgência no dia</span></div></label>
+          </div>
+        </div>
+        <label class="marcar"><input type="checkbox" id="li"><span>Li o contrato completo, com os anexos, e concordo com ele.</span></label>
+        <label class="marcar"><input type="checkbox" id="recursos"><span>Declaro que contrato em nome próprio e que pago com recursos próprios, sem verba de gabinete nem outro recurso público.</span></label>
+        <label class="marcar"><input type="checkbox" id="privacidade"><span>Sei que os meus dados acima, a data, a hora, o IP e o aparelho ficam registrados como prova da assinatura e são usados só para este contrato.</span></label>
+        <div class="erro" id="erro" role="alert"></div>
+        <button class="bt bt-roxo" type="submit" id="botao" data-rz-alvo="contrato-assinar">Assinar o contrato</button>
+        <p class="registro" id="registro">Impressão digital deste texto (SHA-256): calculando…</p>
+      </form>
+      <div class="feito" id="feito" aria-live="polite">
+        <div class="comprovante">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>Contrato assinado</h3>
+          <p style="margin-top:8px">Obrigado! O próximo passo é o pagamento da entrada; o Kaue manda os dados pelo WhatsApp.</p>
+          <dl>
+            <div><dt>Protocolo</dt><dd id="cProt"></dd></div>
+            <div><dt>Data e hora</dt><dd id="cData"></dd></div>
+            <div><dt>Nome</dt><dd id="cNome"></dd></div>
+            <div><dt>Plano escolhido</dt><dd id="cPlano"></dd></div>
+            <div><dt>IP registrado</dt><dd id="cIp"></dd></div>
+            <div><dt>Impressão do texto</dt><dd id="cHash"></dd></div>
+          </dl>
+        </div>
+        <div class="acoes so-tela">
+          <a class="bt bt-lima" id="avisar" href="#" data-rz-alvo="contrato-avisar">Avisar o Kaue no WhatsApp</a>
+          <button class="bt bt-linha" type="button" id="imprimir" data-rz-alvo="contrato-imprimir">Salvar em PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="cx"><span>Contrato do site e do portal do mandato · Renderiza · 14/11/2026</span><a href="/proposta/vereador-mateuzinho-silva">Ver a proposta</a></div></footer>
+
+<script>
+(function(){
+  var TERMO = "vereador-mateuzinho-silva-v1";
+  var $ = function(s){ return document.querySelector(s); };
+  var form = $("#formAssinar"), botao = $("#botao"), erro = $("#erro"), impressao = "", config = null;
+  function mostraErro(t, campo){ erro.textContent = t; erro.classList.add("ver"); if (campo) { campo.setAttribute("aria-invalid", "true"); campo.focus(); } }
+  function limpa(){ erro.classList.remove("ver"); Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function(e){ e.removeAttribute("aria-invalid"); }); }
+  function so(n){ return String(n || "").replace(/\D/g, ""); }
+  function cpfValido(c){
+    c = so(c); if (!/^\d{11}$/.test(c) || /^(\d)\1{10}$/.test(c)) return false;
+    for (var t = 9; t < 11; t++) { var s = 0; for (var i = 0; i < t; i++) s += Number(c[i]) * (t + 1 - i); var r = (s * 10) % 11 % 10; if (r !== Number(c[t])) return false; }
+    return true;
+  }
+  $("#cpf").addEventListener("input", function(){ var d = so(this.value).slice(0, 11); this.value = d.replace(/^(\d{3})(\d)/, "$1.$2").replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1-$2"); });
+  // a impressão digital do texto que a pessoa leu: SHA-256 do texto do contrato, com os espaços juntados
+  var texto = $("#contrato").textContent.replace(/\s+/g, " ").trim();
+  var pendente = document.querySelector("#contrato .pendente");
+  if (pendente) { botao.disabled = true; $("#registro").textContent = "Contrato em preparação: a assinatura abre quando os dados da Renderiza estiverem completos."; }
+  else if (window.crypto && crypto.subtle && window.TextEncoder) {
+    crypto.subtle.digest("SHA-256", new TextEncoder().encode(texto)).then(function(b){
+      impressao = Array.prototype.map.call(new Uint8Array(b), function(x){ return ("0" + x.toString(16)).slice(-2); }).join("");
+      $("#registro").textContent = "Impressão digital deste texto (SHA-256): " + impressao;
+    });
+  }
+  window.rzImpressao = function(){ return { texto: texto, impressao: impressao }; };
+  fetch("/api/config").then(function(r){ return r.ok ? r.json() : null; }).then(function(c){ config = c; }).catch(function(){});
+  var NOMES = { essencial: "Essencial · R$ 350 por mês", gabinete: "Gabinete · R$ 590 por mês", mandato: "Mandato · R$ 990 por mês" };
+  var CAMPOS = { nome: "#nome", cpf: "#cpf", email: "#email", whatsapp: "#zap", endereco: "#endereco" };
+  var MSG = { nome: "Confira o nome completo.", cpf: "Confira o CPF.", email: "Confira o e-mail.", whatsapp: "Confira o WhatsApp, com DDD.", endereco: "Confira o endereço completo.", plano: "Escolha o plano de manutenção.", declaracoes: "Marque as três confirmações para assinar." };
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); limpa();
+    if (pendente) return;
+    var dados = { nome: $("#nome").value.trim().replace(/\s+/g, " "), cpf: so($("#cpf").value), email: $("#email").value.trim(), whatsapp: so($("#zap").value), endereco: $("#endereco").value.trim(),
+      plano: (form.querySelector("input[name=plano]:checked") || {}).value || "", declaracoes: { li: $("#li").checked, recursos: $("#recursos").checked, privacidade: $("#privacidade").checked } };
+    if (dados.nome.length < 5 || !/\S+\s+\S+/.test(dados.nome)) return mostraErro(MSG.nome, $("#nome"));
+    if (!cpfValido(dados.cpf)) return mostraErro(MSG.cpf, $("#cpf"));
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(dados.email)) return mostraErro(MSG.email, $("#email"));
+    if (dados.whatsapp.length < 10 || dados.whatsapp.length > 13) return mostraErro(MSG.whatsapp, $("#zap"));
+    if (dados.endereco.length < 10) return mostraErro(MSG.endereco, $("#endereco"));
+    if (!dados.plano) return mostraErro(MSG.plano);
+    if (!dados.declaracoes.li || !dados.declaracoes.recursos || !dados.declaracoes.privacidade) return mostraErro(MSG.declaracoes);
+    if (!impressao || !config || !config.supabaseUrl || !config.supabaseAnonKey) return mostraErro("Não deu para conectar agora. Tente de novo em instantes ou fale com o Kaue no WhatsApp.");
+    botao.disabled = true; botao.textContent = "Assinando…";
+    fetch(config.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/aceitar_termo_online", {
+      method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey },
+      body: JSON.stringify({ p_termo: TERMO, p_impressao: impressao, p_dados: dados })
+    }).then(function(r){ return r.json(); }).then(function(res){
+      botao.disabled = false; botao.textContent = "Assinar o contrato";
+      if (!res || !res.ok) {
+        var c = res && res.erro;
+        if (c === "dados") return mostraErro(MSG[res.campo] || "Confira os dados.", CAMPOS[res.campo] ? $(CAMPOS[res.campo]) : null);
+        if (c === "mudou") return mostraErro("O contrato foi atualizado enquanto a página estava aberta. Recarregue a página e leia de novo antes de assinar.");
+        if (c === "limite") return mostraErro("Muitas tentativas seguidas. Espere um pouco ou fale com o Kaue no WhatsApp.");
+        return mostraErro("Este contrato não está aberto para assinatura. Fale com o Kaue no WhatsApp.");
+      }
+      var quando = new Date(res.em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+      $("#cProt").textContent = res.protocolo; $("#cData").textContent = quando; $("#cNome").textContent = dados.nome;
+      $("#cPlano").textContent = NOMES[dados.plano]; $("#cIp").textContent = res.ip || "não informado"; $("#cHash").textContent = impressao;
+      var msg = "Olá, Kaue! Assinei o contrato do Gabinete Aberto. Protocolo " + res.protocolo + ", plano " + NOMES[dados.plano] + ".";
+      $("#avisar").href = "https://wa.me/5511988697165?text=" + encodeURIComponent(msg);
+      form.style.display = "none"; $("#feito").classList.add("ver"); $("#feito").scrollIntoView({ block: "center" });
+    }).catch(function(){ botao.disabled = false; botao.textContent = "Assinar o contrato"; mostraErro("Não deu para enviar agora. Confira a internet e tente de novo."); });
+  });
+  $("#imprimir").addEventListener("click", function(){ window.print(); });
+})();
+</script>
+</body>
+</html>
